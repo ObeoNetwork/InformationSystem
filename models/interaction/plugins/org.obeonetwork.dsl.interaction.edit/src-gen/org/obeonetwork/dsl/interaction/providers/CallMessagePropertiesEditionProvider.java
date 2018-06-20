@@ -29,7 +29,7 @@ import org.eclipse.jface.viewers.IFilter;
 
 import org.obeonetwork.dsl.environment.components.MetadataCptPropertiesEditionComponent;
 
-import org.obeonetwork.dsl.environment.edit.specific.policies.CustomPropertiesEditingProvider;
+import org.obeonetwork.dsl.environment.eef.specific.policies.CustomPropertiesEditingProvider;
 
 import org.obeonetwork.dsl.interaction.CallMessage;
 import org.obeonetwork.dsl.interaction.InteractionPackage;

@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="ASCII"?>
-<eef-gen:EEFGenModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:eef-gen="http://www.eclipse.org/emf/eef/generation/1.0.0" genDirectory="/org.obeonetwork.dsl.requirement.editor/src" testsGenDirectory="">
-  <editionContexts basePackage="org.obeonetwork.dsl.requirement" descriptorsGenericPropertiesViews="true">
-    <PropertiesEditionContext href="requirement-editor.components#_NE2I0GAzEeCk77KcMuHxlQ"/>
-  </editionContexts>
-  <viewsRepositories basePackage="org.obeonetwork.dsl.requirement" swtViews="true" formViews="true">
-    <viewsRepository href="requirement-editor.components#_NE7BU2AzEeCk77KcMuHxlQ"/>
-  </viewsRepositories>
-</eef-gen:EEFGenModel>

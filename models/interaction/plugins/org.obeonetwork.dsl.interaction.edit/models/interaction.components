@@ -10,7 +10,7 @@
           <model xsi:type="ecore:EAttribute" href="platform:/resource/org.obeonetwork.dsl.environment/model/environment.ecore#//ObeoDSMObject/description"/>
         </properties>
         <referencedBinding xmi:id="_pDmOYGHCEeC3f8ri4v8OqA">
-          <binding xsi:type="eef-components:PropertiesEditionComponent" href="platform:/resource/org.obeonetwork.dsl.environment.edit/model/environment.components#_65K3QHC0EeCNPbrYssPTmA"/>
+          <binding xsi:type="eef-components:PropertiesEditionComponent" href="platform:/resource/org.obeonetwork.dsl.environment.eef/model/environment.components#_65K3QHC0EeCNPbrYssPTmA"/>
         </referencedBinding>
         <model xsi:type="ecore:EClass" href="platform:/resource/org.obeonetwork.dsl.interaction/model/interaction.ecore#//Interaction"/>
       </bindings>
@@ -25,7 +25,7 @@
           <model xsi:type="ecore:EAttribute" href="platform:/resource/org.obeonetwork.dsl.environment/model/environment.ecore#//ObeoDSMObject/description"/>
         </properties>
         <referencedBinding xmi:id="_qES2YGHCEeC3f8ri4v8OqA">
-          <binding xsi:type="eef-components:PropertiesEditionComponent" href="platform:/resource/org.obeonetwork.dsl.environment.edit/model/environment.components#_65K3QHC0EeCNPbrYssPTmA"/>
+          <binding xsi:type="eef-components:PropertiesEditionComponent" href="platform:/resource/org.obeonetwork.dsl.environment.eef/model/environment.components#_65K3QHC0EeCNPbrYssPTmA"/>
         </referencedBinding>
         <model xsi:type="ecore:EClass" href="platform:/resource/org.obeonetwork.dsl.interaction/model/interaction.ecore#//Participant"/>
       </bindings>
@@ -37,7 +37,7 @@
           <model xsi:type="ecore:EAttribute" href="platform:/resource/org.obeonetwork.dsl.environment/model/environment.ecore#//ObeoDSMObject/description"/>
         </properties>
         <referencedBinding xmi:id="_qOD2YGHCEeC3f8ri4v8OqA">
-          <binding xsi:type="eef-components:PropertiesEditionComponent" href="platform:/resource/org.obeonetwork.dsl.environment.edit/model/environment.components#_65K3QHC0EeCNPbrYssPTmA"/>
+          <binding xsi:type="eef-components:PropertiesEditionComponent" href="platform:/resource/org.obeonetwork.dsl.environment.eef/model/environment.components#_65K3QHC0EeCNPbrYssPTmA"/>
         </referencedBinding>
         <model xsi:type="ecore:EClass" href="platform:/resource/org.obeonetwork.dsl.interaction/model/interaction.ecore#//Execution"/>
       </bindings>
@@ -49,7 +49,7 @@
           <model xsi:type="ecore:EAttribute" href="platform:/resource/org.obeonetwork.dsl.environment/model/environment.ecore#//ObeoDSMObject/description"/>
         </properties>
         <referencedBinding xmi:id="_qYlrYGHCEeC3f8ri4v8OqA">
-          <binding xsi:type="eef-components:PropertiesEditionComponent" href="platform:/resource/org.obeonetwork.dsl.environment.edit/model/environment.components#_65K3QHC0EeCNPbrYssPTmA"/>
+          <binding xsi:type="eef-components:PropertiesEditionComponent" href="platform:/resource/org.obeonetwork.dsl.environment.eef/model/environment.components#_65K3QHC0EeCNPbrYssPTmA"/>
         </referencedBinding>
         <model xsi:type="ecore:EClass" href="platform:/resource/org.obeonetwork.dsl.interaction/model/interaction.ecore#//CreateParticipantMessage"/>
       </bindings>
@@ -61,7 +61,7 @@
           <model xsi:type="ecore:EAttribute" href="platform:/resource/org.obeonetwork.dsl.environment/model/environment.ecore#//ObeoDSMObject/description"/>
         </properties>
         <referencedBinding xmi:id="_qiz-YGHCEeC3f8ri4v8OqA">
-          <binding xsi:type="eef-components:PropertiesEditionComponent" href="platform:/resource/org.obeonetwork.dsl.environment.edit/model/environment.components#_65K3QHC0EeCNPbrYssPTmA"/>
+          <binding xsi:type="eef-components:PropertiesEditionComponent" href="platform:/resource/org.obeonetwork.dsl.environment.eef/model/environment.components#_65K3QHC0EeCNPbrYssPTmA"/>
         </referencedBinding>
         <model xsi:type="ecore:EClass" href="platform:/resource/org.obeonetwork.dsl.interaction/model/interaction.ecore#//DestroyParticipantMessage"/>
       </bindings>
@@ -73,7 +73,7 @@
           <model xsi:type="ecore:EAttribute" href="platform:/resource/org.obeonetwork.dsl.environment/model/environment.ecore#//ObeoDSMObject/description"/>
         </properties>
         <referencedBinding xmi:id="_qtQ64GHCEeC3f8ri4v8OqA">
-          <binding xsi:type="eef-components:PropertiesEditionComponent" href="platform:/resource/org.obeonetwork.dsl.environment.edit/model/environment.components#_65K3QHC0EeCNPbrYssPTmA"/>
+          <binding xsi:type="eef-components:PropertiesEditionComponent" href="platform:/resource/org.obeonetwork.dsl.environment.eef/model/environment.components#_65K3QHC0EeCNPbrYssPTmA"/>
         </referencedBinding>
         <model xsi:type="ecore:EClass" href="platform:/resource/org.obeonetwork.dsl.interaction/model/interaction.ecore#//ReturnMessage"/>
       </bindings>
@@ -85,7 +85,7 @@
           <model xsi:type="ecore:EAttribute" href="platform:/resource/org.obeonetwork.dsl.environment/model/environment.ecore#//ObeoDSMObject/description"/>
         </properties>
         <referencedBinding xmi:id="_q6sS4GHCEeC3f8ri4v8OqA">
-          <binding xsi:type="eef-components:PropertiesEditionComponent" href="platform:/resource/org.obeonetwork.dsl.environment.edit/model/environment.components#_65K3QHC0EeCNPbrYssPTmA"/>
+          <binding xsi:type="eef-components:PropertiesEditionComponent" href="platform:/resource/org.obeonetwork.dsl.environment.eef/model/environment.components#_65K3QHC0EeCNPbrYssPTmA"/>
         </referencedBinding>
         <model xsi:type="ecore:EClass" href="platform:/resource/org.obeonetwork.dsl.interaction/model/interaction.ecore#//StateInvariant"/>
       </bindings>
@@ -103,7 +103,7 @@
           <model xsi:type="ecore:EAttribute" href="platform:/resource/org.obeonetwork.dsl.environment/model/environment.ecore#//ObeoDSMObject/description"/>
         </properties>
         <referencedBinding xmi:id="_rF6EYGHCEeC3f8ri4v8OqA">
-          <binding xsi:type="eef-components:PropertiesEditionComponent" href="platform:/resource/org.obeonetwork.dsl.environment.edit/model/environment.components#_65K3QHC0EeCNPbrYssPTmA"/>
+          <binding xsi:type="eef-components:PropertiesEditionComponent" href="platform:/resource/org.obeonetwork.dsl.environment.eef/model/environment.components#_65K3QHC0EeCNPbrYssPTmA"/>
         </referencedBinding>
         <model xsi:type="ecore:EClass" href="platform:/resource/org.obeonetwork.dsl.interaction/model/interaction.ecore#//InteractionUse"/>
       </bindings>
@@ -118,7 +118,7 @@
           <model xsi:type="ecore:EAttribute" href="platform:/resource/org.obeonetwork.dsl.environment/model/environment.ecore#//ObeoDSMObject/description"/>
         </properties>
         <referencedBinding xmi:id="_rRMHUGHCEeC3f8ri4v8OqA">
-          <binding xsi:type="eef-components:PropertiesEditionComponent" href="platform:/resource/org.obeonetwork.dsl.environment.edit/model/environment.components#_65K3QHC0EeCNPbrYssPTmA"/>
+          <binding xsi:type="eef-components:PropertiesEditionComponent" href="platform:/resource/org.obeonetwork.dsl.environment.eef/model/environment.components#_65K3QHC0EeCNPbrYssPTmA"/>
         </referencedBinding>
         <model xsi:type="ecore:EClass" href="platform:/resource/org.obeonetwork.dsl.interaction/model/interaction.ecore#//CombinedFragment"/>
       </bindings>
@@ -130,7 +130,7 @@
           <model xsi:type="ecore:EAttribute" href="platform:/resource/org.obeonetwork.dsl.environment/model/environment.ecore#//ObeoDSMObject/description"/>
         </properties>
         <referencedBinding xmi:id="_reAbUGHCEeC3f8ri4v8OqA">
-          <binding xsi:type="eef-components:PropertiesEditionComponent" href="platform:/resource/org.obeonetwork.dsl.environment.edit/model/environment.components#_65K3QHC0EeCNPbrYssPTmA"/>
+          <binding xsi:type="eef-components:PropertiesEditionComponent" href="platform:/resource/org.obeonetwork.dsl.environment.eef/model/environment.components#_65K3QHC0EeCNPbrYssPTmA"/>
         </referencedBinding>
         <model xsi:type="ecore:EClass" href="platform:/resource/org.obeonetwork.dsl.interaction/model/interaction.ecore#//Operand"/>
       </bindings>
@@ -142,7 +142,7 @@
           <model xsi:type="ecore:EAttribute" href="platform:/resource/org.obeonetwork.dsl.environment/model/environment.ecore#//ObeoDSMObject/description"/>
         </properties>
         <referencedBinding xmi:id="_ro_jUGHCEeC3f8ri4v8OqA">
-          <binding xsi:type="eef-components:PropertiesEditionComponent" href="platform:/resource/org.obeonetwork.dsl.environment.edit/model/environment.components#_65K3QHC0EeCNPbrYssPTmA"/>
+          <binding xsi:type="eef-components:PropertiesEditionComponent" href="platform:/resource/org.obeonetwork.dsl.environment.eef/model/environment.components#_65K3QHC0EeCNPbrYssPTmA"/>
         </referencedBinding>
         <model xsi:type="ecore:EClass" href="platform:/resource/org.obeonetwork.dsl.interaction/model/interaction.ecore#//CallMessage"/>
       </bindings>

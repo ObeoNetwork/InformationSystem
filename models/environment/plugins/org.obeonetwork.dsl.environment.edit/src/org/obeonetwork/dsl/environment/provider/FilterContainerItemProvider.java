@@ -27,7 +27,7 @@ import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 import org.obeonetwork.dsl.environment.EnvironmentPackage;
 import org.obeonetwork.dsl.environment.FilterContainer;
-import org.obeonetwork.dsl.environment.edit.specific.extensions.IChildDescriptorProvider;
+//import org.obeonetwork.dsl.environment.edit.specific.extensions.IChildDescriptorProvider;
 import org.osgi.framework.Bundle;
 
 /**
@@ -210,13 +210,13 @@ public class FilterContainerItemProvider extends ObeoDSMObjectItemProvider {
 						try {
 							Class c = theBundle.loadClass(conditionClass);
 							Object instance = c.newInstance();
-							if (instance instanceof IChildDescriptorProvider) {
-								IChildDescriptorProvider childDescriptorProvider = (IChildDescriptorProvider) instance;
-								CommandParameter parameter = childDescriptorProvider.getEntityFilter(object);
-								if (parameter != null) {
-									newChildDescriptors.add(parameter);
-								}
-							}
+//							if (instance instanceof IChildDescriptorProvider) {
+//								IChildDescriptorProvider childDescriptorProvider = (IChildDescriptorProvider) instance;
+//								CommandParameter parameter = childDescriptorProvider.getEntityFilter(object);
+//								if (parameter != null) {
+//									newChildDescriptors.add(parameter);
+//								}
+//							}
 						} catch (ClassNotFoundException e) {
 							EcorePlugin.INSTANCE.log(e);
 						} catch (InstantiationException e) {

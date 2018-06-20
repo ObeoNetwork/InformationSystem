@@ -16,24 +16,15 @@ package org.obeonetwork.dsl.statemachine.providers;
 import java.util.List;
 
 import org.eclipse.emf.ecore.EObject;
-
 import org.eclipse.emf.eef.runtime.api.component.IPropertiesEditionComponent;
-
 import org.eclipse.emf.eef.runtime.context.PropertiesEditingContext;
-
 import org.eclipse.emf.eef.runtime.impl.utils.EEFUtils;
-
 import org.eclipse.emf.eef.runtime.providers.PropertiesEditingProvider;
-
 import org.eclipse.jface.viewers.IFilter;
-
 import org.obeonetwork.dsl.environment.components.MetadataCptPropertiesEditionComponent;
-
-import org.obeonetwork.dsl.environment.edit.specific.policies.CustomPropertiesEditingProvider;
-
+import org.obeonetwork.dsl.environment.eef.specific.policies.CustomPropertiesEditingProvider;
 import org.obeonetwork.dsl.statemachine.FinalState;
 import org.obeonetwork.dsl.statemachine.StateMachinePackage;
-
 import org.obeonetwork.dsl.statemachine.components.FinalStateFinalStatePropertiesEditionComponent;
 import org.obeonetwork.dsl.statemachine.components.FinalStatePropertiesEditionComponent;
 

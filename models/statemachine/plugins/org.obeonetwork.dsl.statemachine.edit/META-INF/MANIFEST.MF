@@ -16,5 +16,6 @@ Require-Bundle: org.eclipse.core.runtime,
  org.obeonetwork.dsl.environment.edit;visibility:=reexport,
  org.obeonetwork.dsl.technicalid;visibility:=reexport,
  org.obeonetwork.dsl.technicalid.edit;visibility:=reexport,
- org.eclipse.emf.eef.runtime;bundle-version="1.1.0"
+ org.eclipse.emf.eef.runtime;bundle-version="1.1.0",
+ org.obeonetwork.dsl.environment.eef
 Bundle-ActivationPolicy: lazy

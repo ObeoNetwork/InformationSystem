@@ -11,18 +11,11 @@
 package org.obeonetwork.dsl.application.provider;
 
 import org.eclipse.emf.common.EMFPlugin;
-
 import org.eclipse.emf.common.util.ResourceLocator;
-
 import org.eclipse.emf.ecore.provider.EcoreEditPlugin;
-
 import org.obeonetwork.dsl.cinematic.provider.CinematicEditPlugin;
-
 import org.obeonetwork.dsl.ecorebinding.provider.EcorebindingEditPlugin;
-
 import org.obeonetwork.dsl.environment.provider.EnvironmentEditPlugin;
-
-import org.obeonetwork.dsl.soa.provider.SoaEditPlugin;
 import org.obeonetwork.dsl.technicalid.provider.TechnicalIDEditPlugin;
 
 /**

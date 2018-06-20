@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+
+<!--
+    Copyright (c) 2008, 2017 Obeo.
+    All rights reserved. This program and the accompanying materials
+    are made available under the terms of the Eclipse Public License v1.0
+    which accompanies this distribution, and is available at
+    http://www.eclipse.org/legal/epl-v10.html
+   
+    Contributors:
+        Obeo - initial API and implementation
+ -->
+
+<plugin>
+    
+   <extension point="org.eclipse.emf.edit.childCreationExtenders">
+      <!-- @generated entity -->
+      <extender
+            uri="http://www.obeonetwork.org/dsl/environment/3.0.0"
+            class="org.obeonetwork.dsl.entity.provider.EntityItemProviderAdapterFactory$EnvironmentChildCreationExtender"/>
+   </extension>
+
+   <extension
+        point="org.eclipse.emf.eef.runtime.PropertiesEditionPartProvider">
+     <PropertiesEditionPartProvider
+           providerClass="org.obeonetwork.dsl.entity.providers.EntityPropertiesEditionPartProvider">
+     </PropertiesEditionPartProvider>
+  </extension>
+  <extension
+        point="org.eclipse.ui.views.properties.tabbed.propertyTabs">
+     <propertyTabs
+           contributorId="org.eclipse.sirius.diagram.ui">
+        <propertyTab
+              category="semantic &amp; extension"
+              id="Root"
+              label="Root">
+        </propertyTab>
+        <propertyTab
+              category="semantic &amp; extension"
+              id="Entity"
+              label="Entity">
+        </propertyTab>
+        <propertyTab
+              id="Persistence"
+              label="Persistence"
+              category="semantic &amp; extension"
+              afterTab="Entity">
+        </propertyTab>
+        <propertyTab
+              category="semantic &amp; extension"
+              id="Finder"
+              label="Finder">
+        </propertyTab>
+        <propertyTab
+              category="semantic &amp; extension"
+              id="InternalCriterion"
+              label="InternalCriterion">
+        </propertyTab>
+        <propertyTab
+              category="semantic &amp; extension"
+              id="ExternalCriterion"
+              label="ExternalCriterion">
+        </propertyTab>
+     </propertyTabs>
+  </extension>
+  <extension
+        point="org.eclipse.ui.views.properties.tabbed.propertySections">
+     <propertySections
+           contributorId="org.eclipse.sirius.diagram.ui">
+        <propertySection
+              class="org.obeonetwork.dsl.entity.parts.forms.RootPropertiesEditionPartForm"
+              filter="org.obeonetwork.dsl.entity.filters.RootTabPropertiesEditionSection"
+              id="org.obeonetwork.dsl.entity.eef.section.Root"
+              tab="Root">
+        </propertySection>
+        <propertySection
+              class="org.obeonetwork.dsl.entity.parts.forms.FinderPropertiesEditionPartForm"
+              filter="org.obeonetwork.dsl.entity.filters.FinderTabPropertiesEditionSection"
+              id="org.obeonetwork.dsl.entity.eef.section.Finder"
+              tab="Finder">
+        </propertySection>
+        <propertySection
+              class="org.obeonetwork.dsl.entity.parts.forms.EntityPropertiesEditionPartForm"
+              filter="org.obeonetwork.dsl.entity.filters.EntityTabPropertiesEditionSection"
+              id="org.obeonetwork.dsl.entity.eef.section.Entity"
+              tab="Entity">
+        </propertySection>
+        <propertySection
+              class="org.obeonetwork.dsl.entity.parts.forms.PersistencePropertiesEditionPartForm"
+              filter="org.obeonetwork.dsl.entity.providers.EntityPropertiesEditionProvider$EditionFilter"
+              id="org.obeonetwork.dsl.entity.section.Entity"
+              tab="Persistence">
+        </propertySection>
+        <propertySection
+              class="org.obeonetwork.dsl.entity.parts.forms.InternalCriterionPropertiesEditionPartForm"
+              filter="org.obeonetwork.dsl.entity.filters.InternalCriterionTabPropertiesEditionSection"
+              id="org.obeonetwork.dsl.entity.eef.section.InternalCriterion"
+              tab="InternalCriterion">
+        </propertySection>
+        <propertySection
+              class="org.obeonetwork.dsl.entity.parts.forms.ExternalCriterionPropertiesEditionPartForm"
+              filter="org.obeonetwork.dsl.entity.filters.ExternalCriterionTabPropertiesEditionSection"
+              id="org.obeonetwork.dsl.entity.eef.section.ExternalCriterion"
+              tab="ExternalCriterion">
+        </propertySection>
+     </propertySections>
+  </extension>
+</plugin>
+

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="ASCII"?>
+<eef-gen:EEFGenModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:eef-gen="http://www.eclipse.org/emf/eef/generation/1.0.0" genDirectory="/org.obeonetwork.graal.eef/src-gen" license="/*******************************************************************************&#xD;&#xA; * Copyright (c) 2010, 2017 Obeo.&#xD;&#xA; * All rights reserved. This program and the accompanying materials&#xD;&#xA; * are made available under the terms of the Eclipse Public License v1.0&#xD;&#xA; * which accompanies this distribution, and is available at&#xD;&#xA; * http://www.eclipse.org/legal/epl-v10.html&#xD;&#xA; *&#xD;&#xA; * Contributors:&#xD;&#xA; *     Obeo - initial API and implementation&#xD;&#xA; *******************************************************************************/">
+  <editionContexts basePackage="org.obeonetwork" descriptorsGenericPropertiesViews="true" propertiesEditingProvidersSuperClass="org.obeonetwork.dsl.environment.eef.specific.policies.CustomPropertiesEditingProvider">
+    <PropertiesEditionContext href="graal.components#__ttDUR8dEeCC-oZI6xw5iw"/>
+  </editionContexts>
+  <viewsRepositories basePackage="org.obeonetwork.graal" swtViews="true" formViews="true">
+    <viewsRepository href="graal.components#__tvfkh8dEeCC-oZI6xw5iw"/>
+  </viewsRepositories>
+  <references>
+    <referencedContext href="../../org.obeonetwork.dsl.environment.eef/model/environment.eefgen#/"/>
+  </references>
+</eef-gen:EEFGenModel>

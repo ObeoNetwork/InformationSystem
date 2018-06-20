@@ -12,7 +12,7 @@ package org.obeonetwork.dsl.cinematic.provider;
 
 import org.eclipse.emf.common.EMFPlugin;
 import org.eclipse.emf.common.util.ResourceLocator;
-import org.obeonetwork.dsl.environment.provider.EnvironmentEditPlugin;
+import org.obeonetwork.dsl.environment.provider.EnvironmentEditPlugin; 
 import org.obeonetwork.dsl.technicalid.provider.TechnicalIDEditPlugin;
 
 /**

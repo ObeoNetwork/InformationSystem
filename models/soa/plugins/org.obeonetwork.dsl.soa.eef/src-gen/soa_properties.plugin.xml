@@ -1,0 +1,211 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+
+
+<!--
+    Copyright (c) 2008, 2017 Obeo.
+    All rights reserved. This program and the accompanying materials
+    are made available under the terms of the Eclipse Public License v1.0
+    which accompanies this distribution, and is available at
+    http://www.eclipse.org/legal/epl-v10.html
+   
+    Contributors:
+        Obeo - initial API and implementation
+ -->
+ <plugin>
+
+  <!-- EEF extensions -->
+   <extension point="org.eclipse.emf.edit.itemProviderAdapterFactories">
+      <factory
+            uri="http://www.obeonetwork.org/dsl/soa/3.0.0"
+            class="org.obeonetwork.dsl.soa.providers.SoaEEFAdapterFactory"
+            supportedTypes="org.eclipse.emf.eef.runtime.providers.PropertiesEditingProvider"/>
+   </extension>
+   <extension
+         point="org.eclipse.emf.eef.runtime.PropertiesEditionPartProvider">
+      <PropertiesEditionPartProvider
+            providerClass="org.obeonetwork.dsl.soa.providers.SoaPropertiesEditionPartProvider">
+      </PropertiesEditionPartProvider>
+   </extension>
+
+  <!-- Tabbed properties views extension -->
+   <extension
+         point="org.eclipse.ui.views.properties.tabbed.propertyContributor">
+      <propertyContributor
+            contributorId="org.eclipse.sirius.diagram.ui"
+            labelProvider="org.eclipse.emf.eef.runtime.ui.utils.EEFLabelProvider">
+         <propertyCategory
+               category="default">
+         </propertyCategory>
+         <propertyCategory
+               category="extended">
+         </propertyCategory>
+         <propertyCategory
+               category="advanced">
+         </propertyCategory>
+      </propertyContributor>
+   </extension>
+   <extension
+         point="org.eclipse.ui.views.properties.tabbed.propertyTabs">
+      <propertyTabs
+            contributorId="org.eclipse.sirius.diagram.ui">
+         <propertyTab
+               id="System"
+               label="System"
+               category="default">
+         </propertyTab>
+
+         <propertyTab
+               id="Metadatas"
+               label="Metadatas"
+               category="extended"
+               afterTab="System">
+         </propertyTab>
+
+         <propertyTab
+               id="Component"
+               label="Component"
+               category="default">
+         </propertyTab>
+
+         <propertyTab
+               id="Service"
+               label="Service"
+               category="default">
+         </propertyTab>
+
+         <propertyTab
+               id="Wire"
+               label="Wire"
+               category="default">
+         </propertyTab>
+
+         <propertyTab
+               id="Binding"
+               label="Binding"
+               category="default">
+         </propertyTab>
+
+         <propertyTab
+               id="Interface"
+               label="Interface"
+               category="default">
+         </propertyTab>
+
+         <propertyTab
+               id="Operation"
+               label="Operation"
+               category="default">
+         </propertyTab>
+
+         <propertyTab
+               id="Parameter"
+               label="Parameter"
+               category="default">
+         </propertyTab>
+
+      </propertyTabs>
+   </extension>
+   <extension
+         point="org.eclipse.ui.views.properties.tabbed.propertySections">
+      <propertySections
+            contributorId="org.eclipse.sirius.diagram.ui">
+         <propertySection
+               class="org.obeonetwork.dsl.soa.parts.forms.SystemPropertiesEditionPartForm"
+               filter="org.obeonetwork.dsl.soa.providers.SystemPropertiesEditionProvider$EditionFilter"
+               id="org.obeonetwork.dsl.soa.section.System"
+               tab="System">
+         </propertySection>
+         <propertySection
+               class="org.obeonetwork.dsl.environment.parts.forms.MetadatasPropertiesEditionPartForm"
+               filter="org.obeonetwork.dsl.soa.providers.SystemPropertiesEditionProvider$EditionFilter"
+               id="org.obeonetwork.dsl.soa.section.System"
+               tab="Metadatas">
+         </propertySection>
+         <propertySection
+               class="org.obeonetwork.dsl.soa.parts.forms.ComponentPropertiesEditionPartForm"
+               filter="org.obeonetwork.dsl.soa.providers.ComponentPropertiesEditionProvider$EditionFilter"
+               id="org.obeonetwork.dsl.soa.section.Component"
+               tab="Component">
+         </propertySection>
+         <propertySection
+               class="org.obeonetwork.dsl.environment.parts.forms.MetadatasPropertiesEditionPartForm"
+               filter="org.obeonetwork.dsl.soa.providers.ComponentPropertiesEditionProvider$EditionFilter"
+               id="org.obeonetwork.dsl.soa.section.Component"
+               tab="Metadatas">
+         </propertySection>
+         <propertySection
+               class="org.obeonetwork.dsl.soa.parts.forms.ServicePropertiesEditionPartForm"
+               filter="org.obeonetwork.dsl.soa.providers.ServicePropertiesEditionProvider$EditionFilter"
+               id="org.obeonetwork.dsl.soa.section.Service"
+               tab="Service">
+         </propertySection>
+         <propertySection
+               class="org.obeonetwork.dsl.environment.parts.forms.MetadatasPropertiesEditionPartForm"
+               filter="org.obeonetwork.dsl.soa.providers.ServicePropertiesEditionProvider$EditionFilter"
+               id="org.obeonetwork.dsl.soa.section.Service"
+               tab="Metadatas">
+         </propertySection>
+         <propertySection
+               class="org.obeonetwork.dsl.soa.parts.forms.WirePropertiesEditionPartForm"
+               filter="org.obeonetwork.dsl.soa.providers.WirePropertiesEditionProvider$EditionFilter"
+               id="org.obeonetwork.dsl.soa.section.Wire"
+               tab="Wire">
+         </propertySection>
+         <propertySection
+               class="org.obeonetwork.dsl.environment.parts.forms.MetadatasPropertiesEditionPartForm"
+               filter="org.obeonetwork.dsl.soa.providers.WirePropertiesEditionProvider$EditionFilter"
+               id="org.obeonetwork.dsl.soa.section.Wire"
+               tab="Metadatas">
+         </propertySection>
+         <propertySection
+               class="org.obeonetwork.dsl.soa.parts.forms.BindingPropertiesEditionPartForm"
+               filter="org.obeonetwork.dsl.soa.providers.BindingPropertiesEditionProvider$EditionFilter"
+               id="org.obeonetwork.dsl.soa.section.Binding"
+               tab="Binding">
+         </propertySection>
+         <propertySection
+               class="org.obeonetwork.dsl.environment.parts.forms.MetadatasPropertiesEditionPartForm"
+               filter="org.obeonetwork.dsl.soa.providers.BindingPropertiesEditionProvider$EditionFilter"
+               id="org.obeonetwork.dsl.soa.section.Binding"
+               tab="Metadatas">
+         </propertySection>
+         <propertySection
+               class="org.obeonetwork.dsl.soa.parts.forms.Interface_PropertiesEditionPartForm"
+               filter="org.obeonetwork.dsl.soa.providers.Interface_PropertiesEditionProvider$EditionFilter"
+               id="org.obeonetwork.dsl.soa.section.Interface"
+               tab="Interface">
+         </propertySection>
+         <propertySection
+               class="org.obeonetwork.dsl.environment.parts.forms.MetadatasPropertiesEditionPartForm"
+               filter="org.obeonetwork.dsl.soa.providers.Interface_PropertiesEditionProvider$EditionFilter"
+               id="org.obeonetwork.dsl.soa.section.Interface"
+               tab="Metadatas">
+         </propertySection>
+         <propertySection
+               class="org.obeonetwork.dsl.soa.parts.forms.OperationPropertiesEditionPartForm"
+               filter="org.obeonetwork.dsl.soa.providers.OperationPropertiesEditionProvider$EditionFilter"
+               id="org.obeonetwork.dsl.soa.section.Operation"
+               tab="Operation">
+         </propertySection>
+         <propertySection
+               class="org.obeonetwork.dsl.environment.parts.forms.MetadatasPropertiesEditionPartForm"
+               filter="org.obeonetwork.dsl.soa.providers.OperationPropertiesEditionProvider$EditionFilter"
+               id="org.obeonetwork.dsl.soa.section.Operation"
+               tab="Metadatas">
+         </propertySection>
+         <propertySection
+               class="org.obeonetwork.dsl.soa.parts.forms.ParameterPropertiesEditionPartForm"
+               filter="org.obeonetwork.dsl.soa.providers.ParameterPropertiesEditionProvider$EditionFilter"
+               id="org.obeonetwork.dsl.soa.section.Parameter"
+               tab="Parameter">
+         </propertySection>
+         <propertySection
+               class="org.obeonetwork.dsl.environment.parts.forms.MetadatasPropertiesEditionPartForm"
+               filter="org.obeonetwork.dsl.soa.providers.ParameterPropertiesEditionProvider$EditionFilter"
+               id="org.obeonetwork.dsl.soa.section.Parameter"
+               tab="Metadatas">
+         </propertySection>
+      </propertySections>
+   </extension>
+ </plugin>

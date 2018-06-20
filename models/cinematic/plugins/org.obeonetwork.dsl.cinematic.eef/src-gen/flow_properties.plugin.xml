@@ -1,0 +1,295 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+
+
+<!--
+    Copyright (c) 2012, 2017 Obeo.
+    All rights reserved. This program and the accompanying materials
+    are made available under the terms of the Eclipse Public License v1.0
+    which accompanies this distribution, and is available at
+    http://www.eclipse.org/legal/epl-v10.html
+   
+    Contributors:
+        Obeo - initial API and implementation
+ -->
+ <plugin>
+
+  <!-- EEF extensions -->
+   <extension point="org.eclipse.emf.edit.itemProviderAdapterFactories">
+      <factory
+            uri="http://www.obeonetwork.org/dsl/cinematic/flow/1.0.0"
+            class="org.obeonetwork.dsl.cinematic.flow.providers.FlowEEFAdapterFactory"
+            supportedTypes="org.eclipse.emf.eef.runtime.providers.PropertiesEditingProvider"/>
+   </extension>
+   <extension
+         point="org.eclipse.emf.eef.runtime.PropertiesEditionPartProvider">
+      <PropertiesEditionPartProvider
+            providerClass="org.obeonetwork.dsl.cinematic.flow.providers.FlowPropertiesEditionPartProvider">
+      </PropertiesEditionPartProvider>
+   </extension>
+   <extension
+         point="org.eclipse.emf.eef.runtime.PropertiesEditionPartProvider">
+      <PropertiesEditionPartProvider
+            providerClass="org.obeonetwork.dsl.cinematic.view.providers.ViewPropertiesEditionPartProvider">
+      </PropertiesEditionPartProvider>
+   </extension>
+   <extension
+         point="org.eclipse.emf.eef.runtime.PropertiesEditionPartProvider">
+      <PropertiesEditionPartProvider
+            providerClass="org.obeonetwork.dsl.cinematic.providers.CinematicPropertiesEditionPartProvider">
+      </PropertiesEditionPartProvider>
+   </extension>
+
+  <!-- Tabbed properties views extension -->
+   <extension
+         point="org.eclipse.ui.views.properties.tabbed.propertyContributor">
+      <propertyContributor
+            contributorId="org.obeonetwork.dsl.cinematic.flow.properties"
+            labelProvider="org.eclipse.emf.eef.runtime.ui.utils.EEFLabelProvider">
+         <propertyCategory
+               category="default">
+         </propertyCategory>
+         <propertyCategory
+               category="extended">
+         </propertyCategory>
+         <propertyCategory
+               category="advanced">
+         </propertyCategory>
+      </propertyContributor>
+   </extension>
+   <extension
+         point="org.eclipse.ui.views.properties.tabbed.propertyTabs">
+      <propertyTabs
+            contributorId="org.obeonetwork.dsl.cinematic.flow.properties">
+         <propertyTab
+               id="Flow"
+               label="Flow"
+               category="default">
+         </propertyTab>
+
+         <propertyTab
+               id="Metadatas"
+               label="Metadatas"
+               category="extended"
+               afterTab="Flow">
+         </propertyTab>
+
+         <propertyTab
+               id="Transition"
+               label="Transition"
+               category="default">
+         </propertyTab>
+
+         <propertyTab
+               id="ActionState"
+               label="ActionState"
+               category="default">
+         </propertyTab>
+
+         <propertyTab
+               id="ViewState"
+               label="ViewState"
+               category="default">
+         </propertyTab>
+
+         <propertyTab
+               id="DecisionState"
+               label="DecisionState"
+               category="default">
+         </propertyTab>
+
+         <propertyTab
+               id="SubflowState"
+               label="SubflowState"
+               category="default">
+         </propertyTab>
+
+         <propertyTab
+               id="AsyncEventState"
+               label="AsyncEventState"
+               category="default">
+         </propertyTab>
+
+         <propertyTab
+               id="InitialState"
+               label="InitialState"
+               category="default">
+         </propertyTab>
+
+         <propertyTab
+               id="AbortState"
+               label="AbortState"
+               category="default">
+         </propertyTab>
+
+         <propertyTab
+               id="FinalState"
+               label="FinalState"
+               category="default">
+         </propertyTab>
+
+         <propertyTab
+               id="FlowAction"
+               label="FlowAction"
+               category="default">
+         </propertyTab>
+
+         <propertyTab
+               id="FlowEvent"
+               label="FlowEvent"
+               category="default">
+         </propertyTab>
+
+      </propertyTabs>
+   </extension>
+   <extension
+         point="org.eclipse.ui.views.properties.tabbed.propertySections">
+      <propertySections
+            contributorId="org.obeonetwork.dsl.cinematic.flow.properties">
+         <propertySection
+               class="org.obeonetwork.dsl.cinematic.flow.parts.forms.FlowPropertiesEditionPartForm"
+               filter="org.obeonetwork.dsl.cinematic.flow.providers.FlowPropertiesEditionProvider$EditionFilter"
+               id="org.obeonetwork.dsl.cinematic.flow.section.Flow"
+               tab="Flow">
+         </propertySection>
+         <propertySection
+               class="org.obeonetwork.dsl.environment.parts.forms.MetadatasPropertiesEditionPartForm"
+               filter="org.obeonetwork.dsl.cinematic.flow.providers.FlowPropertiesEditionProvider$EditionFilter"
+               id="org.obeonetwork.dsl.cinematic.flow.section.Flow"
+               tab="Metadatas">
+         </propertySection>
+         <propertySection
+               class="org.obeonetwork.dsl.cinematic.flow.parts.forms.TransitionPropertiesEditionPartForm"
+               filter="org.obeonetwork.dsl.cinematic.flow.providers.TransitionPropertiesEditionProvider$EditionFilter"
+               id="org.obeonetwork.dsl.cinematic.flow.section.Transition"
+               tab="Transition">
+         </propertySection>
+         <propertySection
+               class="org.obeonetwork.dsl.environment.parts.forms.MetadatasPropertiesEditionPartForm"
+               filter="org.obeonetwork.dsl.cinematic.flow.providers.TransitionPropertiesEditionProvider$EditionFilter"
+               id="org.obeonetwork.dsl.cinematic.flow.section.Transition"
+               tab="Metadatas">
+         </propertySection>
+         <propertySection
+               class="org.obeonetwork.dsl.cinematic.flow.parts.forms.ActionStatePropertiesEditionPartForm"
+               filter="org.obeonetwork.dsl.cinematic.flow.providers.ActionStatePropertiesEditionProvider$EditionFilter"
+               id="org.obeonetwork.dsl.cinematic.flow.section.ActionState"
+               tab="ActionState">
+         </propertySection>
+         <propertySection
+               class="org.obeonetwork.dsl.environment.parts.forms.MetadatasPropertiesEditionPartForm"
+               filter="org.obeonetwork.dsl.cinematic.flow.providers.ActionStatePropertiesEditionProvider$EditionFilter"
+               id="org.obeonetwork.dsl.cinematic.flow.section.ActionState"
+               tab="Metadatas">
+         </propertySection>
+         <propertySection
+               class="org.obeonetwork.dsl.cinematic.flow.parts.forms.ViewStatePropertiesEditionPartForm"
+               filter="org.obeonetwork.dsl.cinematic.flow.providers.ViewStatePropertiesEditionProvider$EditionFilter"
+               id="org.obeonetwork.dsl.cinematic.flow.section.ViewState"
+               tab="ViewState">
+         </propertySection>
+         <propertySection
+               class="org.obeonetwork.dsl.environment.parts.forms.MetadatasPropertiesEditionPartForm"
+               filter="org.obeonetwork.dsl.cinematic.flow.providers.ViewStatePropertiesEditionProvider$EditionFilter"
+               id="org.obeonetwork.dsl.cinematic.flow.section.ViewState"
+               tab="Metadatas">
+         </propertySection>
+         <propertySection
+               class="org.obeonetwork.dsl.cinematic.flow.parts.forms.DecisionStatePropertiesEditionPartForm"
+               filter="org.obeonetwork.dsl.cinematic.flow.providers.DecisionStatePropertiesEditionProvider$EditionFilter"
+               id="org.obeonetwork.dsl.cinematic.flow.section.DecisionState"
+               tab="DecisionState">
+         </propertySection>
+         <propertySection
+               class="org.obeonetwork.dsl.environment.parts.forms.MetadatasPropertiesEditionPartForm"
+               filter="org.obeonetwork.dsl.cinematic.flow.providers.DecisionStatePropertiesEditionProvider$EditionFilter"
+               id="org.obeonetwork.dsl.cinematic.flow.section.DecisionState"
+               tab="Metadatas">
+         </propertySection>
+         <propertySection
+               class="org.obeonetwork.dsl.cinematic.flow.parts.forms.SubflowStatePropertiesEditionPartForm"
+               filter="org.obeonetwork.dsl.cinematic.flow.providers.SubflowStatePropertiesEditionProvider$EditionFilter"
+               id="org.obeonetwork.dsl.cinematic.flow.section.SubflowState"
+               tab="SubflowState">
+         </propertySection>
+         <propertySection
+               class="org.obeonetwork.dsl.environment.parts.forms.MetadatasPropertiesEditionPartForm"
+               filter="org.obeonetwork.dsl.cinematic.flow.providers.SubflowStatePropertiesEditionProvider$EditionFilter"
+               id="org.obeonetwork.dsl.cinematic.flow.section.SubflowState"
+               tab="Metadatas">
+         </propertySection>
+         <propertySection
+               class="org.obeonetwork.dsl.cinematic.flow.parts.forms.AsyncEventStatePropertiesEditionPartForm"
+               filter="org.obeonetwork.dsl.cinematic.flow.providers.AsyncEventStatePropertiesEditionProvider$EditionFilter"
+               id="org.obeonetwork.dsl.cinematic.flow.section.AsyncEventState"
+               tab="AsyncEventState">
+         </propertySection>
+         <propertySection
+               class="org.obeonetwork.dsl.environment.parts.forms.MetadatasPropertiesEditionPartForm"
+               filter="org.obeonetwork.dsl.cinematic.flow.providers.AsyncEventStatePropertiesEditionProvider$EditionFilter"
+               id="org.obeonetwork.dsl.cinematic.flow.section.AsyncEventState"
+               tab="Metadatas">
+         </propertySection>
+         <propertySection
+               class="org.obeonetwork.dsl.cinematic.flow.parts.forms.InitialStatePropertiesEditionPartForm"
+               filter="org.obeonetwork.dsl.cinematic.flow.providers.InitialStatePropertiesEditionProvider$EditionFilter"
+               id="org.obeonetwork.dsl.cinematic.flow.section.InitialState"
+               tab="InitialState">
+         </propertySection>
+         <propertySection
+               class="org.obeonetwork.dsl.environment.parts.forms.MetadatasPropertiesEditionPartForm"
+               filter="org.obeonetwork.dsl.cinematic.flow.providers.InitialStatePropertiesEditionProvider$EditionFilter"
+               id="org.obeonetwork.dsl.cinematic.flow.section.InitialState"
+               tab="Metadatas">
+         </propertySection>
+         <propertySection
+               class="org.obeonetwork.dsl.cinematic.flow.parts.forms.AbortStatePropertiesEditionPartForm"
+               filter="org.obeonetwork.dsl.cinematic.flow.providers.AbortStatePropertiesEditionProvider$EditionFilter"
+               id="org.obeonetwork.dsl.cinematic.flow.section.AbortState"
+               tab="AbortState">
+         </propertySection>
+         <propertySection
+               class="org.obeonetwork.dsl.environment.parts.forms.MetadatasPropertiesEditionPartForm"
+               filter="org.obeonetwork.dsl.cinematic.flow.providers.AbortStatePropertiesEditionProvider$EditionFilter"
+               id="org.obeonetwork.dsl.cinematic.flow.section.AbortState"
+               tab="Metadatas">
+         </propertySection>
+         <propertySection
+               class="org.obeonetwork.dsl.cinematic.flow.parts.forms.FinalStatePropertiesEditionPartForm"
+               filter="org.obeonetwork.dsl.cinematic.flow.providers.FinalStatePropertiesEditionProvider$EditionFilter"
+               id="org.obeonetwork.dsl.cinematic.flow.section.FinalState"
+               tab="FinalState">
+         </propertySection>
+         <propertySection
+               class="org.obeonetwork.dsl.environment.parts.forms.MetadatasPropertiesEditionPartForm"
+               filter="org.obeonetwork.dsl.cinematic.flow.providers.FinalStatePropertiesEditionProvider$EditionFilter"
+               id="org.obeonetwork.dsl.cinematic.flow.section.FinalState"
+               tab="Metadatas">
+         </propertySection>
+         <propertySection
+               class="org.obeonetwork.dsl.cinematic.flow.parts.forms.FlowActionPropertiesEditionPartForm"
+               filter="org.obeonetwork.dsl.cinematic.flow.providers.FlowActionPropertiesEditionProvider$EditionFilter"
+               id="org.obeonetwork.dsl.cinematic.flow.section.FlowAction"
+               tab="FlowAction">
+         </propertySection>
+         <propertySection
+               class="org.obeonetwork.dsl.environment.parts.forms.MetadatasPropertiesEditionPartForm"
+               filter="org.obeonetwork.dsl.cinematic.flow.providers.FlowActionPropertiesEditionProvider$EditionFilter"
+               id="org.obeonetwork.dsl.cinematic.flow.section.FlowAction"
+               tab="Metadatas">
+         </propertySection>
+         <propertySection
+               class="org.obeonetwork.dsl.cinematic.flow.parts.forms.FlowEventPropertiesEditionPartForm"
+               filter="org.obeonetwork.dsl.cinematic.flow.providers.FlowEventPropertiesEditionProvider$EditionFilter"
+               id="org.obeonetwork.dsl.cinematic.flow.section.FlowEvent"
+               tab="FlowEvent">
+         </propertySection>
+         <propertySection
+               class="org.obeonetwork.dsl.environment.parts.forms.MetadatasPropertiesEditionPartForm"
+               filter="org.obeonetwork.dsl.cinematic.flow.providers.FlowEventPropertiesEditionProvider$EditionFilter"
+               id="org.obeonetwork.dsl.cinematic.flow.section.FlowEvent"
+               tab="Metadatas">
+         </propertySection>
+      </propertySections>
+   </extension>
+ </plugin>

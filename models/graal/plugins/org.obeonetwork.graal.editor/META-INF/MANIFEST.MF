@@ -18,5 +18,6 @@ Require-Bundle: org.eclipse.core.runtime,
  org.obeonetwork.dsl.environment.edit;visibility:=reexport,
  org.obeonetwork.dsl.technicalid.edit;visibility:=reexport,
  org.obeonetwork.dsl.entity.edit;visibility:=reexport,
- org.obeonetwork.dsl.soa.edit;visibility:=reexport
+ org.obeonetwork.dsl.soa.edit;visibility:=reexport,
+ org.eclipse.ui.views.properties.tabbed;bundle-version="3.8.1"
 Bundle-ActivationPolicy: lazy

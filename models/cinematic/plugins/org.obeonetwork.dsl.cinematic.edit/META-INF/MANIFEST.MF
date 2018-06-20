@@ -8,8 +8,7 @@ Bundle-Activator: org.obeonetwork.dsl.cinematic.provider.CinematicEditPlugin$Imp
 Bundle-Vendor: %providerName
 Bundle-Localization: plugin
 Bundle-RequiredExecutionEnvironment: J2SE-1.5
-Export-Package: org.obeonetwork.dsl.cinematic.filters,
- org.obeonetwork.dsl.cinematic.flow.provider,
+Export-Package: org.obeonetwork.dsl.cinematic.flow.provider,
  org.obeonetwork.dsl.cinematic.provider,
  org.obeonetwork.dsl.cinematic.toolkits.provider,
  org.obeonetwork.dsl.cinematic.view.provider
@@ -19,8 +18,5 @@ Require-Bundle: org.eclipse.core.runtime,
  org.obeonetwork.dsl.environment;visibility:=reexport,
  org.obeonetwork.dsl.environment.edit;visibility:=reexport,
  org.obeonetwork.dsl.technicalid;visibility:=reexport,
- org.obeonetwork.dsl.technicalid.edit;visibility:=reexport,
- org.eclipse.core.resources,
- org.eclipse.jface,
- org.eclipse.emf.eef.runtime
+ org.obeonetwork.dsl.technicalid.edit;visibility:=reexport
 Bundle-ActivationPolicy: lazy

@@ -114,6 +114,7 @@ import org.eclipse.ui.IPartListener;
 import org.eclipse.ui.IWorkbenchPart;
 import org.eclipse.ui.PartInitException;
 import org.eclipse.ui.actions.WorkspaceModifyOperation;
+import org.obeonetwork.dsl.environment.provider.EnvironmentItemProviderAdapterFactory;
 import org.obeonetwork.dsl.technicalid.provider.TechnicalIDItemProviderAdapterFactory;
 import org.eclipse.ui.dialogs.SaveAsDialog;
 import org.eclipse.ui.ide.IGotoMarker;
@@ -125,7 +126,6 @@ import org.eclipse.ui.views.contentoutline.IContentOutlinePage;
 import org.eclipse.ui.views.properties.IPropertySheetPage;
 import org.eclipse.ui.views.properties.PropertySheet;
 import org.eclipse.ui.views.properties.PropertySheetPage;
-import org.obeonetwork.dsl.environment.provider.EnvironmentItemProviderAdapterFactory;
 
 /**
  * This is an example of a Environment model editor.

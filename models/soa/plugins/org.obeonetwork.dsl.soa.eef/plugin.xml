@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+
+<!--
+    Copyright (c) 2008, 2017 Obeo.
+    All rights reserved. This program and the accompanying materials
+    are made available under the terms of the Eclipse Public License v1.0
+    which accompanies this distribution, and is available at
+    http://www.eclipse.org/legal/epl-v10.html
+   
+    Contributors:
+        Obeo - initial API and implementation
+ -->
+
+<plugin>
+  
+  <!-- EEF extensions -->
+   <extension point="org.eclipse.emf.edit.itemProviderAdapterFactories">
+      <factory
+            uri="http://www.obeonetwork.org/dsl/soa/3.0.0"
+            class="org.obeonetwork.dsl.soa.providers.SoaEEFAdapterFactory"
+            supportedTypes="org.eclipse.emf.eef.runtime.providers.PropertiesEditingProvider"/>
+   </extension>
+   <extension
+         point="org.eclipse.emf.eef.runtime.PropertiesEditionPartProvider">
+      <PropertiesEditionPartProvider
+            providerClass="org.obeonetwork.dsl.soa.providers.SoaPropertiesEditionPartProvider">
+      </PropertiesEditionPartProvider>
+   </extension>
+   <extension
+         point="org.eclipse.ui.views.properties.tabbed.propertyTabs">
+      <propertyTabs
+            contributorId="org.eclipse.sirius.diagram.ui">
+         <propertyTab
+               category="semantic &amp; extension"
+               id="System"
+               label="System">
+         </propertyTab>
+         <propertyTab
+               category="semantic &amp; extension"
+               id="Component"
+               label="Component">
+         </propertyTab>
+         <propertyTab
+               category="semantic &amp; extension"
+               id="Service"
+               label="Service">
+         </propertyTab>
+         <propertyTab
+               category="semantic &amp; extension"
+               id="Wire"
+               label="Wire">
+         </propertyTab>
+         <propertyTab
+               category="semantic &amp; extension"
+               id="Binding"
+               label="Binding">
+         </propertyTab>
+         <propertyTab
+               category="semantic &amp; extension"
+               id="Interface"
+               label="Interface">
+         </propertyTab>
+         <propertyTab
+               category="semantic &amp; extension"
+               id="Operation"
+               label="Operation">
+         </propertyTab>
+         <propertyTab
+               category="semantic &amp; extension"
+               id="Parameter"
+               label="Parameter">
+         </propertyTab>
+         <propertyTab
+               category="semantic &amp; extension"
+               id="DTORegistry"
+               label="DTORegistry">
+         </propertyTab>
+         <propertyTab
+               category="semantic &amp; extension"
+               id="Category"
+               label="Category">
+         </propertyTab>
+         <propertyTab
+               category="semantic &amp; extension"
+               id="ServiceDTO"
+               label="ServiceDTO">
+         </propertyTab>
+      </propertyTabs>
+   </extension>
+   <extension
+         point="org.eclipse.ui.views.properties.tabbed.propertySections">
+      <propertySections
+            contributorId="org.eclipse.sirius.diagram.ui">
+         <propertySection
+               class="org.obeonetwork.dsl.soa.parts.forms.SystemPropertiesEditionPartForm"
+               filter="org.obeonetwork.dsl.soa.filters.SystemTabPropertiesEditionSection"
+               id="org.obeonetwork.dsl.soa.eef.section.System"
+               tab="System">
+         </propertySection>
+         <propertySection
+               class="org.obeonetwork.dsl.soa.parts.forms.ComponentPropertiesEditionPartForm"
+               filter="org.obeonetwork.dsl.soa.filters.ComponentTabPropertiesEditionSection"
+               id="org.obeonetwork.dsl.soa.eef.section.Component"
+               tab="Component">
+         </propertySection>
+         <propertySection
+               class="org.obeonetwork.dsl.soa.parts.forms.ServicePropertiesEditionPartForm"
+               filter="org.obeonetwork.dsl.soa.filters.ServiceTabPropertiesEditionSection"
+               id="org.obeonetwork.dsl.soa.eef.section.Service"
+               tab="Service">
+         </propertySection>
+         <propertySection
+               class="org.obeonetwork.dsl.soa.parts.forms.WirePropertiesEditionPartForm"
+               filter="org.obeonetwork.dsl.soa.filters.WireTabPropertiesEditionSection"
+               id="org.obeonetwork.dsl.soa.eef.section.Wire"
+               tab="Wire">
+         </propertySection>
+         <propertySection
+               class="org.obeonetwork.dsl.soa.parts.forms.BindingPropertiesEditionPartForm"
+               filter="org.obeonetwork.dsl.soa.filters.BindingTabPropertiesEditionSection"
+               id="org.obeonetwork.dsl.soa.eef.section.Binding"
+               tab="Binding">
+         </propertySection>
+         <propertySection
+               class="org.obeonetwork.dsl.soa.parts.forms.Interface_PropertiesEditionPartForm"
+               filter="org.obeonetwork.dsl.soa.filters.InterfaceTabPropertiesEditionSection"
+               id="org.obeonetwork.dsl.soa.eef.section.Interface"
+               tab="Interface">
+         </propertySection>
+         <propertySection
+               class="org.obeonetwork.dsl.soa.parts.forms.OperationPropertiesEditionPartForm"
+               filter="org.obeonetwork.dsl.soa.filters.OperationTabPropertiesEditionSection"
+               id="org.obeonetwork.dsl.soa.eef.section.Operation"
+               tab="Operation">
+         </propertySection>
+         <propertySection
+               class="org.obeonetwork.dsl.soa.parts.forms.ParameterPropertiesEditionPartForm"
+               filter="org.obeonetwork.dsl.soa.filters.ParameterTabPropertiesEditionSection"
+               id="org.obeonetwork.dsl.soa.eef.section.Parameter"
+               tab="Parameter">
+         </propertySection>
+      </propertySections>
+   </extension>
+</plugin>
+

@@ -41,6 +41,7 @@
 		<!-- models/environment/ -->
 		<module>../../models/environment/plugins/org.obeonetwork.dsl.environment</module>
 		<module>../../models/environment/plugins/org.obeonetwork.dsl.environment.edit</module>
+		<module>../../models/environment/plugins/org.obeonetwork.dsl.environment.eef</module>
 		<module>../../models/environment/plugins/org.obeonetwork.dsl.environment.editor</module>
 		<module>../../models/environment/plugins/org.obeonetwork.dsl.environment.common</module>
 
@@ -49,6 +50,7 @@
 		<!-- models/entity/ -->
 		<module>../../models/entity/plugins/org.obeonetwork.dsl.entity</module>
 		<module>../../models/entity/plugins/org.obeonetwork.dsl.entity.edit</module>
+		<module>../../models/entity/plugins/org.obeonetwork.dsl.entity.eef</module>
 		<module>../../models/entity/plugins/org.obeonetwork.dsl.entity.editor</module>
 
 		<module>../../models/entity/features/org.obeonetwork.dsl.feature.entity</module>
@@ -67,6 +69,7 @@
 		<!-- models/soa/ -->
 		<module>../../models/soa/plugins/org.obeonetwork.dsl.soa</module>
 		<module>../../models/soa/plugins/org.obeonetwork.dsl.soa.edit</module>
+		<module>../../models/soa/plugins/org.obeonetwork.dsl.soa.eef</module>
 		<module>../../models/soa/plugins/org.obeonetwork.dsl.soa.editor</module>
 
 		<module>../../models/soa/features/org.obeonetwork.dsl.feature.soa</module>
@@ -74,6 +77,7 @@
 		<!-- models/cinematic/ -->
 		<module>../../models/cinematic/plugins/org.obeonetwork.dsl.cinematic</module>
 		<module>../../models/cinematic/plugins/org.obeonetwork.dsl.cinematic.edit</module>
+		<module>../../models/cinematic/plugins/org.obeonetwork.dsl.cinematic.eef</module>
 		<module>../../models/cinematic/plugins/org.obeonetwork.dsl.cinematic.editor</module>
 		<module>../../models/cinematic/plugins/org.obeonetwork.dsl.cinematic.doc</module>
 
@@ -82,6 +86,7 @@
 		<!-- models/graal/ -->
 		<module>../../models/graal/plugins/org.obeonetwork.graal</module>
 		<module>../../models/graal/plugins/org.obeonetwork.graal.edit</module>
+		<module>../../models/graal/plugins/org.obeonetwork.graal.eef</module>
 		<module>../../models/graal/plugins/org.obeonetwork.graal.editor</module>
 		<module>../../models/graal/plugins/org.obeonetwork.graal.doc</module>
 
@@ -91,6 +96,7 @@
 		<!-- models/requirement/ -->
 		<module>../../models/requirement/plugins/org.obeonetwork.dsl.requirement</module>
 		<module>../../models/requirement/plugins/org.obeonetwork.dsl.requirement.edit</module>
+		<module>../../models/requirement/plugins/org.obeonetwork.dsl.requirement.eef</module>
 		<module>../../models/requirement/plugins/org.obeonetwork.dsl.requirement.editor</module>
 		<module>../../models/requirement/plugins/org.obeonetwork.dsl.requirement.doc</module>
 
