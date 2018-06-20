@@ -164,13 +164,6 @@ public class FilterContainerItemProvider extends ObeoDSMObjectItemProvider {
 	}
 
 	/**
-	 * The identifier of the internal extension point specifying the
-	 * implementation to use for filters.
-	 * @generated NOT
-	 */
-	public static final String CHILD_DESCRIPTOR_EXTENSION_ID = "org.obeonetwork.dsl.environment.edit.IChildDescriptionProvider";
-
-	/**
 	 * This adds to the collection of {@link org.eclipse.emf.edit.command.CommandParameter}s
 	 * describing all of the children that can be created under this object.
 	 * <!-- begin-user-doc -->
@@ -180,54 +173,6 @@ public class FilterContainerItemProvider extends ObeoDSMObjectItemProvider {
 	@SuppressWarnings("unchecked")
 	protected void collectNewChildDescriptors(Collection newChildDescriptors, Object object) {
 		collectNewChildDescriptorsGen(newChildDescriptors, object);
-		addExternalChildDescriptors(newChildDescriptors, object);
-	}
-
-	/**
-	 * This adds to the collection of {@link org.eclipse.emf.edit.command.CommandParameter}s
-	 * describing all of the children that can be created under this object.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated NOT
-	 */
-	@SuppressWarnings({ "unchecked", "deprecation" })
-	protected void addExternalChildDescriptors(Collection newChildDescriptors, Object object) {
-		IExtensionRegistry registry = Platform.getExtensionRegistry();
-		IExtensionPoint extensionPoint = registry.getExtensionPoint(CHILD_DESCRIPTOR_EXTENSION_ID);
-		if (extensionPoint == null || extensionPoint.getExtensions().length == 0) {
-			EcorePlugin.INSTANCE.log("Extension point '" + CHILD_DESCRIPTOR_EXTENSION_ID + "' not found");
-		} else {
-			Bundle theBundle = null;
-			IExtension[] extensions = extensionPoint.getExtensions();
-			for (int i = 0; i < extensions.length; i++) {
-				IExtension extension = extensions[i];
-				IConfigurationElement[] members = extension.getConfigurationElements();
-				for (int j = 0; j < members.length; j++) {
-					IConfigurationElement member = members[j];
-					String conditionClass = member.getAttribute("implementation");
-					theBundle = Platform.getBundle(member.getNamespace());
-					if (conditionClass != null) {
-						try {
-							Class c = theBundle.loadClass(conditionClass);
-							Object instance = c.newInstance();
-//							if (instance instanceof IChildDescriptorProvider) {
-//								IChildDescriptorProvider childDescriptorProvider = (IChildDescriptorProvider) instance;
-//								CommandParameter parameter = childDescriptorProvider.getEntityFilter(object);
-//								if (parameter != null) {
-//									newChildDescriptors.add(parameter);
-//								}
-//							}
-						} catch (ClassNotFoundException e) {
-							EcorePlugin.INSTANCE.log(e);
-						} catch (InstantiationException e) {
-							EcorePlugin.INSTANCE.log(e);
-						} catch (IllegalAccessException e) {
-							EcorePlugin.INSTANCE.log(e);
-						}
-					}
-				}
-			}
-		}
 	}
 
 }

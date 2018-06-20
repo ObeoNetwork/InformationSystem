@@ -13,7 +13,6 @@
  -->
 
 <plugin>
-   <extension-point id="IChildDescriptionProvider" name="org.obeonetwork.dsl.environment.edit.IChildDescriptionProvider" schema="schema/IChildDescriptionProvider.exsd"/>
     
   <extension point="org.eclipse.emf.edit.itemProviderAdapterFactories">
     <factory 

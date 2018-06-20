@@ -11,7 +11,8 @@ Bundle-RequiredExecutionEnvironment: J2SE-1.5
 Export-Package: org.obeonetwork.dsl.cinematic.flow.provider,
  org.obeonetwork.dsl.cinematic.provider,
  org.obeonetwork.dsl.cinematic.toolkits.provider,
- org.obeonetwork.dsl.cinematic.view.provider
+ org.obeonetwork.dsl.cinematic.view.provider,
+ org.obeonetwork.dsl.cinematic.view.provider.extension
 Require-Bundle: org.eclipse.core.runtime,
  org.obeonetwork.dsl.cinematic;visibility:=reexport,
  org.eclipse.emf.edit;visibility:=reexport,

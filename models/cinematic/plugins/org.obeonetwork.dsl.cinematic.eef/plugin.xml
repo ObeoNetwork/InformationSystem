@@ -1017,4 +1017,10 @@
          </propertySection>
       </propertySections>
    </extension>
+   <extension
+         point="org.obeonetwork.dsl.cinematic.edit.IReferenceWidgetImageProvider">
+      <referenceWidgetImageProvider
+            implementation="org.obeonetwork.dsl.cinematic.eef.ReferenceWidgetImageProvider">
+      </referenceWidgetImageProvider>
+   </extension>
 </plugin>

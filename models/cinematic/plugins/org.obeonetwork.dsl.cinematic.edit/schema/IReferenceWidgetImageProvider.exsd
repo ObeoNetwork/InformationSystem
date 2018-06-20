@@ -1,9 +1,9 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <!-- Schema file written by PDE -->
-<schema targetNamespace="org.obeonetwork.dsl.environment.edit" xmlns="http://www.w3.org/2001/XMLSchema">
+<schema targetNamespace="org.obeonetwork.dsl.cinematic.edit" xmlns="http://www.w3.org/2001/XMLSchema">
 <annotation>
       <appInfo>
-         <meta.schema plugin="org.obeonetwork.dsl.environment.edit" id="IChildDescriptionProvider" name="org.obeonetwork.dsl.environment.edit.specific.IChildDescriptionProvider"/>
+         <meta.schema plugin="org.obeonetwork.dsl.cinematic.edit" id="IReferenceWidgetImageProvider" name="org.obeonetwork.dsl.cinematic.edit.IReferenceWidgetImageProvider"/>
       </appInfo>
       <documentation>
          [Enter description of this extension point.]
@@ -18,7 +18,7 @@
       </annotation>
       <complexType>
          <sequence>
-            <element ref="childDescriptorProvider" minOccurs="1" maxOccurs="unbounded"/>
+            <element ref="referenceWidgetImageProvider" minOccurs="1" maxOccurs="unbounded"/>
          </sequence>
          <attribute name="point" type="string" use="required">
             <annotation>
@@ -47,7 +47,7 @@
       </complexType>
    </element>
 
-   <element name="childDescriptorProvider">
+   <element name="referenceWidgetImageProvider">
       <complexType>
          <attribute name="implementation" type="string" use="required">
             <annotation>
@@ -55,7 +55,7 @@
                   
                </documentation>
                <appInfo>
-                  <meta.attribute kind="java" basedOn="org.obeonetwork.dsl.environment.edit.specific.extensions.IChildDescriptorProvider"/>
+                  <meta.attribute kind="java" basedOn="org.obeonetwork.dsl.cinematic.view.provider.extension.IReferenceWidgetImageProvider"/>
                </appInfo>
             </annotation>
          </attribute>

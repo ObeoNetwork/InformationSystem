@@ -13,7 +13,8 @@
  -->
 
 <plugin>
-
+  <extension-point id="IReferenceWidgetImageProvider" name="org.obeonetwork.dsl.cinematic.edit.IReferenceWidgetImageProvider" schema="schema/IReferenceWidgetImageProvider.exsd"/>
+    
    <extension point="org.eclipse.emf.edit.itemProviderAdapterFactories">
       <factory
             uri="http://www.obeonetwork.org/dsl/cinematic/3.0.0"

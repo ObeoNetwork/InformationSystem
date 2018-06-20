@@ -7,7 +7,6 @@ Bundle-ClassPath: .
 Bundle-Vendor: %providerName
 Bundle-Localization: plugin
 Export-Package: org.obeonetwork.dsl.environment.components,
- org.obeonetwork.dsl.environment.eef.specific.extensions,
  org.obeonetwork.dsl.environment.eef.specific.policies,
  org.obeonetwork.dsl.environment.filters,
  org.obeonetwork.dsl.environment.parts,
