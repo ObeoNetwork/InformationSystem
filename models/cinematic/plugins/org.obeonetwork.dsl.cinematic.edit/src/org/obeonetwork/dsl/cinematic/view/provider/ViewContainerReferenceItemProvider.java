@@ -18,14 +18,11 @@ import java.util.List;
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
+import org.eclipse.emf.edit.provider.ComposedAdapterFactory;
 import org.eclipse.emf.edit.provider.ComposedImage;
-import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
 import org.eclipse.emf.edit.provider.IItemLabelProvider;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
-import org.eclipse.emf.edit.provider.IItemPropertySource;
-import org.eclipse.emf.edit.provider.IStructuredItemContentProvider;
-import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
-import org.eclipse.emf.edit.ui.provider.AdapterFactoryLabelProvider;
+import org.eclipse.emf.edit.provider.ReflectiveItemProviderAdapterFactory;
 import org.obeonetwork.dsl.cinematic.view.ViewContainerReference;
 import org.obeonetwork.dsl.cinematic.view.ViewPackage;
 
@@ -38,16 +35,18 @@ import org.obeonetwork.dsl.cinematic.view.ViewPackage;
 public class ViewContainerReferenceItemProvider
 	extends AbstractViewElementItemProvider {
 	
-	private AdapterFactoryLabelProvider adapterFactoryLabelProvider;
+	private ComposedAdapterFactory composedAdapterFactory;
 	
 	/**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	public ViewContainerReferenceItemProvider(AdapterFactory adapterFactory) {
 		super(adapterFactory);
+		composedAdapterFactory = new ComposedAdapterFactory(ComposedAdapterFactory.Descriptor.Registry.INSTANCE);
+		composedAdapterFactory.addAdapterFactory(new ReflectiveItemProviderAdapterFactory());
 	}
 
 	/**
@@ -98,7 +97,7 @@ public class ViewContainerReferenceItemProvider
 	public Object getImage(Object object) {
 		ViewContainerReference viewContainerReference  = (ViewContainerReference)object;
 		if (viewContainerReference.getViewContainer() != null) {
-			Object viewContainerImage = getAdapterFactoryLabelProvider().getImage(viewContainerReference.getViewContainer());
+			Object viewContainerImage = getImageFromProvider(viewContainerReference.getViewContainer());
 			
 			// Add an overlay to indicate it's a reference to this ViewContainer
 			List<Object> images = new ArrayList<Object>(2);
@@ -111,14 +110,12 @@ public class ViewContainerReferenceItemProvider
 		}
 	}
 	
-	/**
-	 * @generated NOT
-	 */
-	private AdapterFactoryLabelProvider getAdapterFactoryLabelProvider() {
-		if (adapterFactoryLabelProvider == null) {
-			adapterFactoryLabelProvider = new AdapterFactoryLabelProvider(getAdapterFactory());
+	private Object getImageFromProvider(Object object) {
+		IItemLabelProvider labelProvider = (IItemLabelProvider)composedAdapterFactory.adapt(object, IItemLabelProvider.class);
+		if (labelProvider != null) {
+			return labelProvider.getImage(object);
 		}
-		return adapterFactoryLabelProvider;
+		return null;
 	}
 
 	/**
