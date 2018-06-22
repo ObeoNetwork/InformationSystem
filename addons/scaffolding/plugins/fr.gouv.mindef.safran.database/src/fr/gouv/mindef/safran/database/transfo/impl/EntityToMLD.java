@@ -621,6 +621,8 @@ public class EntityToMLD extends AbstractTransformation {
 			if (!realSchemaName.equals(tableContainer.getName())) {
 				tableContainer.setName(realSchemaName);
 			}
+			// Ensure description is correct
+			tableContainer.setComments(namespace.getDescription());
 		}
 		// Add to traceability map
 		addToOutputTraceability(entity, table);

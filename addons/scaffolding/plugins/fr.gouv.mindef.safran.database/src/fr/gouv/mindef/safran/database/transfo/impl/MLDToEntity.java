@@ -14,6 +14,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.jar.Attributes.Name;
 
 import org.eclipse.core.runtime.IStatus;
 import org.eclipse.core.runtime.Status;
@@ -271,6 +272,11 @@ public class MLDToEntity extends AbstractTransformation {
 			entity = EntityFactory.eINSTANCE.createEntity();
 			getTargetNamespace(table.getOwner()).getTypes().add(entity);
 			entity.setName(LabelProvider.getEntityNameFromTable(table));
+		} else {
+			// Ensure description is taken from tableContainer's comments
+			if (entity.eContainer() instanceof Namespace) {
+				((Namespace)entity.eContainer()).setDescription(table.getOwner().getComments());
+			}
 		}
 		// Add to new traceability map
 		addToOutputTraceability(table, entity);

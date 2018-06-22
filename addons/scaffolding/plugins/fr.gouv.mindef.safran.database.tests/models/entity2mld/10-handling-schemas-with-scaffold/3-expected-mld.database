@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <database:DataBase xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:database="http://www.obeonetwork.org/dsl/database/1.0" xmlns:typeslibrary="http://www.obeonetwork.org/dsl/typeslibrary/1.0" xmi:id="_OcEAcWR0EeKXKeCsnPm5eA" techID="_LSpF8BZAEeOZLM9YKpdB2w" name="My">
   <usedLibraries xsi:type="typeslibrary:NativeTypesLibrary" href="pathmap://LogicalDBTypes#_WWbGkREnEeGTa_JlZYBw1A"/>
-  <schemas xmi:id="_PVzE0GR0EeKXKeCsnPm5eA" techID="_LSpF8RZAEeOZLM9YKpdB2w" name="GS">
+  <schemas xmi:id="_PVzE0GR0EeKXKeCsnPm5eA" comments="Gestion des séries" techID="_LSpF8RZAEeOZLM9YKpdB2w" name="GS">
     <tables xsi:type="database:Table" xmi:id="_PVzE0WR0EeKXKeCsnPm5eA" comments="Table des séries" techID="_LSpF8hZAEeOZLM9YKpdB2w" name="GS_SERIE">
       <primaryKey xmi:id="_PV4kY2R0EeKXKeCsnPm5eA" comments="Contrainte PK pour la colonne GS_SERIE_ID" techID="_LSptARZAEeOZLM9YKpdB2w" name="GS_SERIE_PK" columns="_PV4kYWR0EeKXKeCsnPm5eA"/>
       <foreignKeys xmi:id="_PV5yiGR0EeKXKeCsnPm5eA" comments="Genre de la série&#xD;&#xA;" techID="_LSptAhZAEeOZLM9YKpdB2w" name="GS_SERIE_FK1_1" target="_PV5Ld2R0EeKXKeCsnPm5eA">
