@@ -12,14 +12,19 @@ package org.obeonetwork.requirement.m2doc.services;
 
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.Collections;
 import java.util.List;
 
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EStructuralFeature.Setting;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.resource.ResourceSet;
+import org.eclipse.emf.ecore.util.ECrossReferenceAdapter;
 import org.eclipse.emf.ecore.util.EcoreUtil;
+import org.eclipse.sirius.business.api.query.EObjectQuery;
+import org.eclipse.sirius.business.api.session.Session;
 import org.obeonetwork.dsl.requirement.Requirement;
+import org.obeonetwork.dsl.requirement.RequirementPackage;
 
 /**
  * AQL Services for Requirement's concepts.
@@ -37,20 +42,39 @@ public class RequirementServices {
 	 *         specified eObject.
 	 */
 	public List<Requirement> relatedRequirements(EObject eObject) {
-		Resource resource = eObject.eResource();
 		List<Requirement> result = new ArrayList<Requirement>();
+		
+		Collection<Setting> settings = getInverseReferences(eObject);
+		for (Setting setting : settings) {
+			if (RequirementPackage.Literals.REQUIREMENT__REFERENCED_OBJECT.equals(setting.getEStructuralFeature())) {							
+				result.add(((Requirement) setting.getEObject()));
+			}
+		}
+		
+		return result;
+	}
+	
+	/**
+	 * Returns inverse reference for an eObject using Sirius cross referencer if available
+	 * @param eObject
+	 * @return Collection of settings for inverse references
+	 */
+	private Collection<Setting> getInverseReferences(EObject eObject) {
+		Session session = new EObjectQuery(eObject).getSession();
+		if (session != null) {
+			ECrossReferenceAdapter xReferencer = session.getSemanticCrossReferencer();
+			if (xReferencer != null) {
+				return xReferencer.getInverseReferences(eObject);
+			}
+		}
+		Resource resource = eObject.eResource();
 		if (resource != null) {
 			ResourceSet resourceSet = resource.getResourceSet();
 			if (resourceSet != null) {
-				Collection<Setting> settings = EcoreUtil.UsageCrossReferencer.find(eObject, resourceSet);
-				for (Setting setting : settings) {
-					if (setting.getEObject() instanceof Requirement) {
-						result.add(((Requirement) setting.getEObject()));
-					}
-				}
+				return EcoreUtil.UsageCrossReferencer.find(eObject, resourceSet);
 			}
 		}
-		return result;
+		return Collections.emptyList();
 	}
 	
 	/**
