@@ -152,6 +152,6 @@ location "http://community.polarion.com/projects/subversive/download/eclipse/5.0
 	org.polarion.eclipse.team.svn.connector.svnkit18.feature.group
 }
 
-location "http://download.eclipse.org/tools/orbit/downloads/drops/R20150519210750/repository/" {
+location "http://download.eclipse.org/tools/orbit/downloads/drops/R20170919201930/repository/" {
 	org.kohsuke.args4j [2.0.21,2.1.0)
 }

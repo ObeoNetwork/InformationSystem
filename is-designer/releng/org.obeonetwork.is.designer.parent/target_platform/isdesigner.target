@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <?pde?>
 <!-- generated with https://github.com/mbarbero/fr.obeo.releng.targetplatform -->
-<target name="IS Designer Target Definition" sequenceNumber="1515679869">
+<target name="IS Designer Target Definition" sequenceNumber="1515690388">
   <locations>
     <location includeMode="slicer" includeAllPlatforms="false" includeSource="false" includeConfigurePhase="false" type="InstallableUnit">
       <unit id="org.obeonetwork.dsl.feature.environment.feature.group" version="0.0.0"/>
@@ -151,7 +151,7 @@
     </location>
     <location includeMode="slicer" includeAllPlatforms="false" includeSource="false" includeConfigurePhase="false" type="InstallableUnit">
       <unit id="org.kohsuke.args4j" version="2.0.21.v201301150030"/>
-      <repository location="http://download.eclipse.org/tools/orbit/downloads/drops/R20150519210750/repository/"/>
+      <repository location="http://download.eclipse.org/tools/orbit/downloads/drops/R20170919201930/repository/"/>
     </location>
   </locations>
 </target>
