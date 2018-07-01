@@ -13,17 +13,30 @@ package org.obeonetwork.tools.projectlibrary.imp;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import org.eclipse.emf.common.util.URI;
+import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EcoreFactory;
 import org.eclipse.emf.ecore.resource.Resource;
+import org.eclipse.emf.ecore.resource.ResourceSet;
+import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.emf.ecore.util.EcoreUtil.Copier;
 import org.eclipse.sirius.business.api.modelingproject.ModelingProject;
+import org.eclipse.sirius.business.api.resource.ResourceDescriptor;
 import org.eclipse.sirius.business.api.session.Session;
+import org.eclipse.sirius.viewpoint.ViewpointPackage;
+import org.obeonetwork.tools.projectlibrary.extension.point.IResourceCopier;
 
 public class ImportData {
+	private static final String SIRIUS_ENVIRONMENT_SCHEME = "environment";
+	
+	private String libraryProjectName;
+	
+	private IResourceCopier resourceCopier;
+	
 	private ModelingProject sourceProject;
 	private ModelingProject targetProject;
 	
@@ -39,7 +52,9 @@ public class ImportData {
 	private Map<EObject, EObject> sourceToCopyMap = null;
 	private Map<EObject, EObject> copyToSourceMap = null;
 	
-	public ImportData(ModelingProject sourceProject, ModelingProject targetProject) {
+	public ImportData(String libraryProjectName, ModelingProject sourceProject, ModelingProject targetProject) {
+		this.libraryProjectName = libraryProjectName;
+		this.resourceCopier = resourceCopier;
 		this.sourceProject = sourceProject;
 		this.sourceSession = sourceProject.getSession();
 		this.targetProject = targetProject;
@@ -50,48 +65,34 @@ public class ImportData {
 	
 	private void initializeData() {
 		sourceSemanticResources = new ArrayList<>();
+		sourceSemanticRoots = new ArrayList<EObject>();
 		for (Resource resource : sourceSession.getSemanticResources()) {
 			URI uri = resource.getURI();
 			if (!uri.isPlatformPlugin() // Not in plugin
+				&& !SIRIUS_ENVIRONMENT_SCHEME.equals(uri.scheme()) // Sirius internal resource
 				&& (uri.scheme() == null || !"pathmap".equals(uri.scheme())) // Not a pathmap
 				&& !resource.getContents().get(0).eClass().isInstance(EcoreFactory.eINSTANCE.getEPackage()) // Not a DSL
 				) {
 				sourceSemanticResources.add(resource);
+				sourceSemanticRoots.addAll(resource.getContents());
 			}
 		}
 		
 		sourceGraphicalResources = new ArrayList<>();
+		sourceGraphicalRoots = new ArrayList<EObject>();
 		sourceGraphicalResources.add(sourceSession.getSessionResource());
+		sourceGraphicalRoots.addAll(sourceSession.getSessionResource().getContents());
 		for (Resource resource : sourceSession.getReferencedSessionResources()) {
 			URI uri = resource.getURI();
 			if (!uri.isPlatformPlugin() // Not in plugin
+				&& !SIRIUS_ENVIRONMENT_SCHEME.equals(uri.scheme()) // Sirius internal resource
 				&& (uri.scheme() == null || !"pathmap".equals(uri.scheme())) // Not a pathmap
 				&& !resource.getContents().get(0).eClass().isInstance(EcoreFactory.eINSTANCE.getEPackage()) // Not a DSL
 				) {
 				sourceGraphicalResources.add(resource);
-			}
-		}
-		
-		
-		sourceSemanticRoots = new ArrayList<EObject>();
-		sourceGraphicalRoots = new ArrayList<EObject>();
-		for (Resource resource : sourceSession.getSemanticResources()) {
-			// don't copy resources coming from plugins
-			URI uri = resource.getURI();
-			if (!uri.isPlatformPlugin()
-					&& (uri.scheme() == null || !"pathmap".equals(uri.scheme()))) {
-				sourceSemanticRoots.addAll(resource.getContents());				
-			}
-		}
-		for (Resource resource : sourceSession.getReferencedSessionResources()) {
-			// don't copy resources coming from plugins
-			URI uri = resource.getURI();
-			if (!uri.isPlatformPlugin()
-					&& (uri.scheme() == null || !"pathmap".equals(uri.scheme()))) {
 				sourceGraphicalRoots.addAll(resource.getContents());				
 			}
 		}
-		sourceGraphicalRoots.addAll(sourceSession.getSessionResource().getContents());
 	}
 	
 	private void initializeCopyElements() {
@@ -112,6 +113,68 @@ public class ImportData {
 	    // Save the copier as the source to copy map
 	    sourceToCopyMap = copier;
 		
+	    // Update URI in ResourceDescriptor
+	    updateResourceDescriptors();
+	}
+
+	/**
+	 * Change ResourceDescriptors URIs as they probably point to soon to be deleted files
+	 */
+	@SuppressWarnings("unchecked")
+	private void updateResourceDescriptors() {
+		ResourceSet sourceResourceSet = sourceSession.getTransactionalEditingDomain().getResourceSet();
+		
+		for (EObject o : sourceToCopyMap.values()) {
+			for (EAttribute attribute : o.eClass().getEAllAttributes()) {
+				if (attribute.getEAttributeType().getInstanceClass().isAssignableFrom(ResourceDescriptor.class)) {
+					if (ViewpointPackage.Literals.DREPRESENTATION_DESCRIPTOR__REP_PATH.equals(attribute)) {
+						// URI points to a DRepresentation using the uid of the representation
+						ResourceDescriptor currentValue = (ResourceDescriptor)o.eGet(attribute);
+						URI representationURI = currentValue.getResourceURI();
+						// We have to change only the resource URI and keep the fragment
+						URI targetRepresentationURI = resourceCopier.getTargetResourceURI(this, representationURI.trimFragment());
+						targetRepresentationURI = targetRepresentationURI.appendFragment(representationURI.fragment());
+						o.eSet(attribute, new ResourceDescriptor(targetRepresentationURI));
+					} else {
+						// Retrieve current value
+						if (attribute.getUpperBound() > 1 || attribute.getUpperBound() == -1) {
+							// List of ResourceDescriptor instances
+							List<ResourceDescriptor> currentValues = (List<ResourceDescriptor>)o.eGet(attribute);
+							List<ResourceDescriptor> newValues = new ArrayList<>();
+							for (ResourceDescriptor resourceDescriptor : currentValues) {
+								newValues.add(convertResourceDescriptor(resourceDescriptor, sourceResourceSet));
+							}
+							o.eSet(attribute, newValues);
+						} else {
+							// Unique ResourceDescriptor
+							ResourceDescriptor currentValue = (ResourceDescriptor)o.eGet(attribute);
+							o.eSet(attribute, convertResourceDescriptor(currentValue, sourceResourceSet));
+						}
+					}
+				}
+			}
+		}
+	}
+	
+	private ResourceDescriptor convertResourceDescriptor(ResourceDescriptor descriptor, ResourceSet resourceSet) {
+		ResourceDescriptor newDescriptor = null;
+		URI resourceURI = descriptor.getResourceURI();
+		if (resourceURI.hasFragment()) {
+			// ResourceDescriptor points to an EObject
+			EObject sourceObject = resourceSet.getEObject(resourceURI, true);
+			EObject targetObject = sourceToCopyMap.get(sourceObject);
+			if (targetObject != null) {
+				newDescriptor = new ResourceDescriptor(EcoreUtil.getURI(targetObject));	
+			}
+		} else {
+			// ResourceDescriptor points to an URI
+			URI targetResourceURI = resourceCopier.getTargetResourceURI(this, resourceURI);
+			if (targetResourceURI != null) {
+				newDescriptor = new ResourceDescriptor(targetResourceURI);
+			}
+		}
+		
+		return newDescriptor;
 	}
 
 	
@@ -167,6 +230,17 @@ public class ImportData {
 	public Session getTargetSession() {
 		return targetSession;
 	}
-	
+
+	public String getLibraryProjectName() {
+		return libraryProjectName;
+	}
+
+	public IResourceCopier getResourceCopier() {
+		return resourceCopier;
+	}
+
+	public void setResourceCopier(IResourceCopier resourceCopier) {
+		this.resourceCopier = resourceCopier;
+	}
 	
 }

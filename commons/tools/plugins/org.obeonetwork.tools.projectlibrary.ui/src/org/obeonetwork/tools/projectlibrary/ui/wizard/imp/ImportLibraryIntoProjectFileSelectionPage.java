@@ -29,6 +29,7 @@ import org.eclipse.jface.databinding.swt.WidgetProperties;
 import org.eclipse.jface.databinding.viewers.ObservableListContentProvider;
 import org.eclipse.jface.databinding.viewers.ObservableMapLabelProvider;
 import org.eclipse.jface.databinding.viewers.ViewerProperties;
+import org.eclipse.jface.dialogs.IMessageProvider;
 import org.eclipse.jface.layout.TableColumnLayout;
 import org.eclipse.jface.viewers.ArrayContentProvider;
 import org.eclipse.jface.viewers.ColumnLabelProvider;
@@ -77,6 +78,7 @@ public class ImportLibraryIntoProjectFileSelectionPage extends WizardPage {
 	private Table table;
 	private ComboViewer comboViewer;
 	private Text txtCreationDate;
+	private TableViewer tableViewer;
 
 	/**
 	 * Create the wizard.
@@ -179,25 +181,29 @@ public class ImportLibraryIntoProjectFileSelectionPage extends WizardPage {
 		lblComment.setText("Comment");
 		
 		txtComment = new Text(container, SWT.BORDER | SWT.READ_ONLY | SWT.MULTI);
-		txtComment.setLayoutData(new GridData(SWT.FILL, SWT.FILL, true, true, 2, 1));
+		GridData gd_txtComment = new GridData(SWT.FILL, SWT.FILL, true, true, 2, 1);
+		gd_txtComment.heightHint = 100;
+		txtComment.setLayoutData(gd_txtComment);
 		
 		Label lblDependencies = new Label(container, SWT.NONE);
 		lblDependencies.setLayoutData(new GridData(SWT.LEFT, SWT.TOP, false, false, 1, 1));
 		lblDependencies.setText("Dependencies");
 		
 		Composite composite = new Composite(container, SWT.NONE);
-		composite.setLayoutData(new GridData(SWT.FILL, SWT.FILL, true, true, 2, 1));
+		GridData gd_composite = new GridData(SWT.FILL, SWT.FILL, true, true, 2, 1);
+		gd_composite.heightHint = 160;
+		composite.setLayoutData(gd_composite);
 		TableColumnLayout tcl_composite = new TableColumnLayout();
 		composite.setLayout(tcl_composite);
 		
-		TableViewer tableViewer = new TableViewer(composite, SWT.BORDER | SWT.FULL_SELECTION);
+		tableViewer = new TableViewer(composite, SWT.BORDER | SWT.FULL_SELECTION);
 		table = tableViewer.getTable();
 		table.setHeaderVisible(true);
 		table.setLinesVisible(true);
 		
 		TableViewerColumn tableViewerColumnId = new TableViewerColumn(tableViewer, SWT.NONE);
 		TableColumn tblclmnProjectId = tableViewerColumnId.getColumn();
-		tcl_composite.setColumnData(tblclmnProjectId, new ColumnWeightData(1, ColumnWeightData.MINIMUM_WIDTH, true));
+		tcl_composite.setColumnData(tblclmnProjectId, new ColumnWeightData(2, ColumnWeightData.MINIMUM_WIDTH, true));
 		tblclmnProjectId.setText("Project ID");
 		tableViewerColumnId.setLabelProvider(new ColumnLabelProvider() {
 			@Override
@@ -206,6 +212,19 @@ public class ImportLibraryIntoProjectFileSelectionPage extends WizardPage {
 					return ((DependencyRow) element).getId();
 				}
 				return super.getText(element);
+			}
+			
+			@Override
+			public Image getImage(Object element) {
+				if (element instanceof DependencyRow) {
+					DependencyRow row = (DependencyRow) element;
+					if (ManifestUtils.isGreaterOrEqual(row.getVersion(), row.getExistingVersion())) {
+						return ResourceManager.getPluginImage("org.obeonetwork.tools.projectlibrary.ui", "icons/valid.gif");						
+					} else {
+						return ResourceManager.getPluginImage("org.obeonetwork.tools.projectlibrary.ui", "icons/invalid.gif");
+					}
+				}
+				return super.getImage(element);
 			}
 		});
 		
@@ -237,36 +256,6 @@ public class ImportLibraryIntoProjectFileSelectionPage extends WizardPage {
 			}
 		});
 		
-		TableViewerColumn tableViewerColumnValid = new TableViewerColumn(tableViewer, SWT.NONE);
-		TableColumn tblclmnValid = tableViewerColumnValid.getColumn();
-		tcl_composite.setColumnData(tblclmnValid, new ColumnWeightData(1, ColumnWeightData.MINIMUM_WIDTH, true));
-		tblclmnValid.setText("Valid");
-		tableViewerColumnValid.setLabelProvider(new ColumnLabelProvider() {
-			
-			@Override
-			public String getText(Object element) {
-				// No text, we only want to display an image
-				return null;
-			}
-			
-			@Override
-			public Image getImage(Object element) {
-				if (element instanceof DependencyRow) {
-					DependencyRow row = (DependencyRow) element;
-					if (ManifestUtils.isGreaterOrEqual(row.getVersion(), row.getExistingVersion())) {
-						return ResourceManager.getPluginImage("org.obeonetwork.tools.projectlibrary.ui", "icons/valid.gif");						
-					} else {
-						return ResourceManager.getPluginImage("org.obeonetwork.tools.projectlibrary.ui", "icons/invalid.gif");
-					}
-				}
-				return super.getImage(element);
-			}
-		});
-		
-		new Label(container, SWT.NONE);
-		new Label(container, SWT.NONE);
-		new Label(container, SWT.NONE);
-		
 		tableViewer.setContentProvider(new ArrayContentProvider());
 		
 		setPageComplete(isInfoComplete());
@@ -277,13 +266,13 @@ public class ImportLibraryIntoProjectFileSelectionPage extends WizardPage {
 	private void extractInfoFromManifest(Manifest manifest) {
 		if (manifest != null) {
 			MManifest manifestModel = manifestServices.getModelFromMarManifest(manifest);
-			
 			txtProjectId.setText(manifestModel.getProjectId());
 			txtVersion.setText(manifestModel.getVersion());
 			txtComment.setText(manifestModel.getComment());
-			if (manifestModel.getCreationDate() != null) {
-				txtCreationDate.setText(DATE_FORMAT.format(manifestModel.getCreationDate()));			
+			if (manifestModel.getExportDate() != null) {
+				txtCreationDate.setText(DATE_FORMAT.format(manifestModel.getExportDate()));			
 			}
+			wizard.getModel().setImportedProject(manifestModel);
 			wizard.getModel().getDependencies().addAll(manifestModel.getDependencies());
 			wizard.getModel().setValidMarFile(true);
 		} else {
@@ -300,7 +289,7 @@ public class ImportLibraryIntoProjectFileSelectionPage extends WizardPage {
 	
 	private void computeDependenciesTable() {
 		List<DependencyRow> rows = new ArrayList<>();
-		for (MManifest dependency : wizard.getModel().getDependencies()) {
+		for (MManifest dependency : getProjectsToCheck()) {
 			DependencyRow row = new DependencyRow();
 			row.setId(dependency.getProjectId());
 			row.setVersion(dependency.getVersion());
@@ -311,12 +300,16 @@ public class ImportLibraryIntoProjectFileSelectionPage extends WizardPage {
 			rows.add(row);
 		}
 		wizard.getModel().setExistingDependenciesRows(rows);
+		tableViewer.setInput(wizard.getModel().getExistingDependenciesRows());
 	}
 	
 	private String getExistingVersion(String projectId) {
-		for (MManifest existingDep : wizard.getModel().getExistingDependencies()) {
-			if (projectId.equals(existingDep.getProjectId())) {
-				return existingDep.getVersion();
+		ModelingProject modelingProject = wizard.getModel().getModelingProject();
+		if (modelingProject != null) {
+			for (MManifest existingDep : manifestServices.getImportedManifests(modelingProject.getSession())) {
+				if (projectId.equals(existingDep.getProjectId())) {
+					return existingDep.getVersion();
+				}
 			}
 		}
 		return null;
@@ -325,7 +318,40 @@ public class ImportLibraryIntoProjectFileSelectionPage extends WizardPage {
 	private boolean isInfoComplete() {
 		ModelingProject modelingProject = wizard.getModel().getModelingProject();
 		String filePath  = wizard.getModel().getFilepath();
-		return modelingProject != null && filePath != null && !filePath.trim().isEmpty() && wizard.getModel().isValidMarFile();
+		return modelingProject != null
+				&& filePath != null
+				&& !filePath.trim().isEmpty()
+				&& wizard.getModel().isValidMarFile()
+				&& areAllVersionsValid();
+	}
+	
+	
+	
+	private boolean areAllVersionsValid() {
+		setErrorMessage(null);
+		
+		// Check versions of imported project and its dependencies
+		for (MManifest project : getProjectsToCheck()) {
+			if (!ManifestUtils.isGreaterOrEqual(project.getVersion(), getExistingVersion(project.getProjectId()))) {
+				setErrorMessage("The file can not be imported because some versions are incompatible");
+				return false;
+			}
+		}
+		
+		return true;
+	}
+	
+	private List<MManifest> getProjectsToCheck() {
+		List<MManifest> projects = new ArrayList<>();
+		projects.add(wizard.getModel().getImportedProject());
+		for (MManifest dependency : wizard.getModel().getDependencies()) {
+			// We add to the list only if the dependency is not the imported project
+			if (!dependency.getProjectId().equals(wizard.getModel().getImportedProject().getProjectId())) {
+				projects.add(dependency);
+			}
+		}
+		
+		return projects;
 	}
 
 	public ImportLibraryIntoProjectWizard getWizard() {
@@ -347,19 +373,19 @@ public class ImportLibraryIntoProjectFileSelectionPage extends WizardPage {
 		bindingContext.bindValue(observeTextTxtMarFileObserveWidget, filepathWizardgetModelObserveValue, null, null);
 		//
 		IObservableValue observeTextTxtProjectIdObserveWidget = WidgetProperties.text(SWT.Modify).observe(txtProjectId);
-		IObservableValue projectIDWizardgetModelObserveValue = PojoProperties.value("projectID").observe(wizard.getModel());
+		IObservableValue projectIDWizardgetModelObserveValue = PojoProperties.value("importedProject.projectId").observe(wizard.getModel());
 		bindingContext.bindValue(observeTextTxtProjectIdObserveWidget, projectIDWizardgetModelObserveValue, new UpdateValueStrategy(UpdateValueStrategy.POLICY_NEVER), null);
 		//
 		IObservableValue observeTextTxtVersionObserveWidget = WidgetProperties.text(SWT.Modify).observe(txtVersion);
-		IObservableValue versionWizardgetModelObserveValue = PojoProperties.value("version").observe(wizard.getModel());
+		IObservableValue versionWizardgetModelObserveValue = PojoProperties.value("importedProject.version").observe(wizard.getModel());
 		bindingContext.bindValue(observeTextTxtVersionObserveWidget, versionWizardgetModelObserveValue, new UpdateValueStrategy(UpdateValueStrategy.POLICY_NEVER), null);
 		//
 		IObservableValue observeTextTxtCommentObserveWidget = WidgetProperties.text(SWT.Modify).observe(txtComment);
-		IObservableValue commentWizardgetModelObserveValue = PojoProperties.value("comment").observe(wizard.getModel());
+		IObservableValue commentWizardgetModelObserveValue = PojoProperties.value("importedProject.comment").observe(wizard.getModel());
 		bindingContext.bindValue(observeTextTxtCommentObserveWidget, commentWizardgetModelObserveValue, new UpdateValueStrategy(UpdateValueStrategy.POLICY_NEVER), null);
 		//
 		IObservableValue observeTextTxtCreationDateObserveWidget = WidgetProperties.text(SWT.Modify).observe(txtCreationDate);
-		IObservableValue creationDateWizardgetModelObserveValue = PojoProperties.value("creationDate").observe(wizard.getModel());
+		IObservableValue creationDateWizardgetModelObserveValue = PojoProperties.value("importedProject.exportDate").observe(wizard.getModel());
 		bindingContext.bindValue(observeTextTxtCreationDateObserveWidget, creationDateWizardgetModelObserveValue, new UpdateValueStrategy(UpdateValueStrategy.POLICY_NEVER), null);
 		//
 		IObservableValue observeSingleSelectionComboViewer = ViewerProperties.singleSelection().observe(comboViewer);

@@ -110,6 +110,7 @@ public class ManifestPackageImpl extends EPackageImpl implements ManifestPackage
 		isInited = true;
 
 		// Initialize simple dependencies
+		EcorePackage.eINSTANCE.eClass();
 		ViewpointPackage.eINSTANCE.eClass();
 
 		// Create package meta-data objects
@@ -150,7 +151,7 @@ public class ManifestPackageImpl extends EPackageImpl implements ManifestPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getMManifest_CreationDate() {
+	public EAttribute getMManifest_ExportDate() {
 		return (EAttribute)mManifestEClass.getEStructuralFeatures().get(1);
 	}
 
@@ -159,7 +160,7 @@ public class ManifestPackageImpl extends EPackageImpl implements ManifestPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getMManifest_VersionMajor() {
+	public EAttribute getMManifest_ImportDate() {
 		return (EAttribute)mManifestEClass.getEStructuralFeatures().get(2);
 	}
 
@@ -168,7 +169,7 @@ public class ManifestPackageImpl extends EPackageImpl implements ManifestPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getMManifest_VersionMinor() {
+	public EAttribute getMManifest_VersionMajor() {
 		return (EAttribute)mManifestEClass.getEStructuralFeatures().get(3);
 	}
 
@@ -177,7 +178,7 @@ public class ManifestPackageImpl extends EPackageImpl implements ManifestPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getMManifest_VersionPatch() {
+	public EAttribute getMManifest_VersionMinor() {
 		return (EAttribute)mManifestEClass.getEStructuralFeatures().get(4);
 	}
 
@@ -186,7 +187,7 @@ public class ManifestPackageImpl extends EPackageImpl implements ManifestPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getMManifest_VersionQualifier() {
+	public EAttribute getMManifest_VersionPatch() {
 		return (EAttribute)mManifestEClass.getEStructuralFeatures().get(5);
 	}
 
@@ -195,7 +196,7 @@ public class ManifestPackageImpl extends EPackageImpl implements ManifestPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getMManifest_Comment() {
+	public EAttribute getMManifest_VersionQualifier() {
 		return (EAttribute)mManifestEClass.getEStructuralFeatures().get(6);
 	}
 
@@ -204,8 +205,17 @@ public class ManifestPackageImpl extends EPackageImpl implements ManifestPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EAttribute getMManifest_Comment() {
+		return (EAttribute)mManifestEClass.getEStructuralFeatures().get(7);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EReference getMManifest_Dependencies() {
-		return (EReference)mManifestEClass.getEStructuralFeatures().get(7);
+		return (EReference)mManifestEClass.getEStructuralFeatures().get(8);
 	}
 
 	/**
@@ -283,7 +293,8 @@ public class ManifestPackageImpl extends EPackageImpl implements ManifestPackage
 		// Create classes and their features
 		mManifestEClass = createEClass(MMANIFEST);
 		createEAttribute(mManifestEClass, MMANIFEST__PROJECT_ID);
-		createEAttribute(mManifestEClass, MMANIFEST__CREATION_DATE);
+		createEAttribute(mManifestEClass, MMANIFEST__EXPORT_DATE);
+		createEAttribute(mManifestEClass, MMANIFEST__IMPORT_DATE);
 		createEAttribute(mManifestEClass, MMANIFEST__VERSION_MAJOR);
 		createEAttribute(mManifestEClass, MMANIFEST__VERSION_MINOR);
 		createEAttribute(mManifestEClass, MMANIFEST__VERSION_PATCH);
@@ -337,7 +348,8 @@ public class ManifestPackageImpl extends EPackageImpl implements ManifestPackage
 		// Initialize classes and features; add operations and parameters
 		initEClass(mManifestEClass, MManifest.class, "MManifest", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getMManifest_ProjectId(), ecorePackage.getEString(), "projectId", null, 0, 1, MManifest.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getMManifest_CreationDate(), ecorePackage.getEDate(), "creationDate", null, 0, 1, MManifest.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getMManifest_ExportDate(), ecorePackage.getEDate(), "exportDate", null, 0, 1, MManifest.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getMManifest_ImportDate(), ecorePackage.getEDate(), "importDate", null, 0, 1, MManifest.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getMManifest_VersionMajor(), ecorePackage.getEInt(), "versionMajor", null, 0, 1, MManifest.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getMManifest_VersionMinor(), ecorePackage.getEInt(), "versionMinor", null, 0, 1, MManifest.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getMManifest_VersionPatch(), theEcorePackage.getEInt(), "versionPatch", null, 0, 1, MManifest.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

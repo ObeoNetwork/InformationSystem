@@ -12,7 +12,8 @@
     <genDataTypes ecoreDataType="manifest.ecore#//BadVersionStringException"/>
     <genClasses ecoreClass="manifest.ecore#//MManifest">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute manifest.ecore#//MManifest/projectId"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute manifest.ecore#//MManifest/creationDate"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute manifest.ecore#//MManifest/exportDate"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute manifest.ecore#//MManifest/importDate"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute manifest.ecore#//MManifest/versionMajor"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute manifest.ecore#//MManifest/versionMinor"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute manifest.ecore#//MManifest/versionPatch"/>

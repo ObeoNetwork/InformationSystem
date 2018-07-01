@@ -19,7 +19,11 @@ Require-Bundle: org.eclipse.ui,
  org.eclipse.ui.ide,
  com.google.guava,
  org.eclipse.sirius.ecore.extender,
- org.eclipse.sirius.common
+ org.eclipse.sirius.common,
+ org.eclipse.emf.cdo,
+ fr.obeo.dsl.viewpoint.collab,
+ org.obeonetwork.dsl.technicalid,
+ org.obeonetwork.dsl.database
 Eclipse-LazyStart: true
 Bundle-RequiredExecutionEnvironment: JavaSE-1.8
 Bundle-ActivationPolicy: lazy
@@ -29,4 +33,6 @@ Export-Package: org.obeonetwork.dsl.manifest,
  org.obeonetwork.tools.projectlibrary,
  org.obeonetwork.tools.projectlibrary.exp,
  org.obeonetwork.tools.projectlibrary.extension,
- org.obeonetwork.tools.projectlibrary.imp
+ org.obeonetwork.tools.projectlibrary.extension.point,
+ org.obeonetwork.tools.projectlibrary.imp,
+ org.obeonetwork.tools.projectlibrary.util

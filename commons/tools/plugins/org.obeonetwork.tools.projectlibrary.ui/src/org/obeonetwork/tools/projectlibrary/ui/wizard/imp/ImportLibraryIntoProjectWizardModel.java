@@ -27,10 +27,7 @@ public class ImportLibraryIntoProjectWizardModel {
 	private List<ModelingProject> modelingProjects = new ArrayList<>();
 	private String filepath;
 	private ModelingProject modelingProject;
-	private String projectID;
-	private String version;
-	private String comment;
-	private String creationDate;
+	private MManifest importedProject;
 	private List<MManifest> dependencies = new ArrayList<>();
 	private List<MManifest> existingDependencies = new ArrayList<>();
 	private List<DependencyRow> existingDependenciesRows = new ArrayList<>();
@@ -60,36 +57,12 @@ public class ImportLibraryIntoProjectWizardModel {
 		this.modelingProject = modelingProject;
 	}
 	
-	public String getProjectID() {
-		return projectID;
-	}
-	
-	public void setProjectID(String projectID) {
-		this.projectID = projectID;
-	}
-	
-	public String getVersion() {
-		return version;
-	}
-	
-	public void setVersion(String version) {
-		this.version = version;
-	}
-	
-	public String getComment() {
-		return comment;
-	}
-	
-	public void setComment(String comment) {
-		this.comment = comment;
-	}
-	
-	public String getCreationDate() {
-		return creationDate;
+	public MManifest getImportedProject() {
+		return importedProject;
 	}
 
-	public void setCreationDate(String creationDate) {
-		this.creationDate = creationDate;
+	public void setImportedProject(MManifest importedProject) {
+		this.importedProject = importedProject;
 	}
 
 	public List<MManifest> getDependencies() {

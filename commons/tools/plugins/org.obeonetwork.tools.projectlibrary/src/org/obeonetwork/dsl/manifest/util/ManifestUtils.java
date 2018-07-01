@@ -61,6 +61,13 @@ public class ManifestUtils {
 	public static SemanticVersion getVersionFromString(String versionAsString) throws BadVersionStringException {
 		SemanticVersion version = new SemanticVersion();
 		
+		if (versionAsString == null) {
+			version.setMajor(-1);
+			version.setMinor(-1);
+			version.setPatch(-1);
+			return version;
+		}
+		
 		Matcher matcher = VERSION_PATTERN.matcher(versionAsString);
 		
 		if (matcher.matches()) {

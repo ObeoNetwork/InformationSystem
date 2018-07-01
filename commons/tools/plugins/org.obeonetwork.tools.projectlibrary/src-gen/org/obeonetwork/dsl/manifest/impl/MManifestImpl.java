@@ -42,7 +42,8 @@ import org.obeonetwork.dsl.manifest.util.ManifestUtils.SemanticVersion;
  * </p>
  * <ul>
  *   <li>{@link org.obeonetwork.dsl.manifest.impl.MManifestImpl#getProjectId <em>Project Id</em>}</li>
- *   <li>{@link org.obeonetwork.dsl.manifest.impl.MManifestImpl#getCreationDate <em>Creation Date</em>}</li>
+ *   <li>{@link org.obeonetwork.dsl.manifest.impl.MManifestImpl#getExportDate <em>Export Date</em>}</li>
+ *   <li>{@link org.obeonetwork.dsl.manifest.impl.MManifestImpl#getImportDate <em>Import Date</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.manifest.impl.MManifestImpl#getVersionMajor <em>Version Major</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.manifest.impl.MManifestImpl#getVersionMinor <em>Version Minor</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.manifest.impl.MManifestImpl#getVersionPatch <em>Version Patch</em>}</li>
@@ -82,24 +83,44 @@ public class MManifestImpl extends MinimalEObjectImpl.Container implements MMani
 	protected String projectId = PROJECT_ID_EDEFAULT;
 
 	/**
-	 * The default value of the '{@link #getCreationDate() <em>Creation Date</em>}' attribute.
+	 * The default value of the '{@link #getExportDate() <em>Export Date</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getCreationDate()
+	 * @see #getExportDate()
 	 * @generated
 	 * @ordered
 	 */
-	protected static final Date CREATION_DATE_EDEFAULT = null;
+	protected static final Date EXPORT_DATE_EDEFAULT = null;
 
 	/**
-	 * The cached value of the '{@link #getCreationDate() <em>Creation Date</em>}' attribute.
+	 * The cached value of the '{@link #getExportDate() <em>Export Date</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getCreationDate()
+	 * @see #getExportDate()
 	 * @generated
 	 * @ordered
 	 */
-	protected Date creationDate = CREATION_DATE_EDEFAULT;
+	protected Date exportDate = EXPORT_DATE_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #getImportDate() <em>Import Date</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getImportDate()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final Date IMPORT_DATE_EDEFAULT = null;
+
+	/**
+	 * The cached value of the '{@link #getImportDate() <em>Import Date</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getImportDate()
+	 * @generated
+	 * @ordered
+	 */
+	protected Date importDate = IMPORT_DATE_EDEFAULT;
 
 	/**
 	 * The default value of the '{@link #getVersionMajor() <em>Version Major</em>}' attribute.
@@ -256,8 +277,8 @@ public class MManifestImpl extends MinimalEObjectImpl.Container implements MMani
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Date getCreationDate() {
-		return creationDate;
+	public Date getExportDate() {
+		return exportDate;
 	}
 
 	/**
@@ -265,11 +286,32 @@ public class MManifestImpl extends MinimalEObjectImpl.Container implements MMani
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setCreationDate(Date newCreationDate) {
-		Date oldCreationDate = creationDate;
-		creationDate = newCreationDate;
+	public void setExportDate(Date newExportDate) {
+		Date oldExportDate = exportDate;
+		exportDate = newExportDate;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, ManifestPackage.MMANIFEST__CREATION_DATE, oldCreationDate, creationDate));
+			eNotify(new ENotificationImpl(this, Notification.SET, ManifestPackage.MMANIFEST__EXPORT_DATE, oldExportDate, exportDate));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Date getImportDate() {
+		return importDate;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setImportDate(Date newImportDate) {
+		Date oldImportDate = importDate;
+		importDate = newImportDate;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, ManifestPackage.MMANIFEST__IMPORT_DATE, oldImportDate, importDate));
 	}
 
 	/**
@@ -435,8 +477,10 @@ public class MManifestImpl extends MinimalEObjectImpl.Container implements MMani
 		switch (featureID) {
 			case ManifestPackage.MMANIFEST__PROJECT_ID:
 				return getProjectId();
-			case ManifestPackage.MMANIFEST__CREATION_DATE:
-				return getCreationDate();
+			case ManifestPackage.MMANIFEST__EXPORT_DATE:
+				return getExportDate();
+			case ManifestPackage.MMANIFEST__IMPORT_DATE:
+				return getImportDate();
 			case ManifestPackage.MMANIFEST__VERSION_MAJOR:
 				return getVersionMajor();
 			case ManifestPackage.MMANIFEST__VERSION_MINOR:
@@ -465,8 +509,11 @@ public class MManifestImpl extends MinimalEObjectImpl.Container implements MMani
 			case ManifestPackage.MMANIFEST__PROJECT_ID:
 				setProjectId((String)newValue);
 				return;
-			case ManifestPackage.MMANIFEST__CREATION_DATE:
-				setCreationDate((Date)newValue);
+			case ManifestPackage.MMANIFEST__EXPORT_DATE:
+				setExportDate((Date)newValue);
+				return;
+			case ManifestPackage.MMANIFEST__IMPORT_DATE:
+				setImportDate((Date)newValue);
 				return;
 			case ManifestPackage.MMANIFEST__VERSION_MAJOR:
 				setVersionMajor((Integer)newValue);
@@ -502,8 +549,11 @@ public class MManifestImpl extends MinimalEObjectImpl.Container implements MMani
 			case ManifestPackage.MMANIFEST__PROJECT_ID:
 				setProjectId(PROJECT_ID_EDEFAULT);
 				return;
-			case ManifestPackage.MMANIFEST__CREATION_DATE:
-				setCreationDate(CREATION_DATE_EDEFAULT);
+			case ManifestPackage.MMANIFEST__EXPORT_DATE:
+				setExportDate(EXPORT_DATE_EDEFAULT);
+				return;
+			case ManifestPackage.MMANIFEST__IMPORT_DATE:
+				setImportDate(IMPORT_DATE_EDEFAULT);
 				return;
 			case ManifestPackage.MMANIFEST__VERSION_MAJOR:
 				setVersionMajor(VERSION_MAJOR_EDEFAULT);
@@ -537,8 +587,10 @@ public class MManifestImpl extends MinimalEObjectImpl.Container implements MMani
 		switch (featureID) {
 			case ManifestPackage.MMANIFEST__PROJECT_ID:
 				return PROJECT_ID_EDEFAULT == null ? projectId != null : !PROJECT_ID_EDEFAULT.equals(projectId);
-			case ManifestPackage.MMANIFEST__CREATION_DATE:
-				return CREATION_DATE_EDEFAULT == null ? creationDate != null : !CREATION_DATE_EDEFAULT.equals(creationDate);
+			case ManifestPackage.MMANIFEST__EXPORT_DATE:
+				return EXPORT_DATE_EDEFAULT == null ? exportDate != null : !EXPORT_DATE_EDEFAULT.equals(exportDate);
+			case ManifestPackage.MMANIFEST__IMPORT_DATE:
+				return IMPORT_DATE_EDEFAULT == null ? importDate != null : !IMPORT_DATE_EDEFAULT.equals(importDate);
 			case ManifestPackage.MMANIFEST__VERSION_MAJOR:
 				return versionMajor != VERSION_MAJOR_EDEFAULT;
 			case ManifestPackage.MMANIFEST__VERSION_MINOR:
@@ -567,8 +619,10 @@ public class MManifestImpl extends MinimalEObjectImpl.Container implements MMani
 		StringBuffer result = new StringBuffer(super.toString());
 		result.append(" (projectId: ");
 		result.append(projectId);
-		result.append(", creationDate: ");
-		result.append(creationDate);
+		result.append(", exportDate: ");
+		result.append(exportDate);
+		result.append(", importDate: ");
+		result.append(importDate);
 		result.append(", versionMajor: ");
 		result.append(versionMajor);
 		result.append(", versionMinor: ");

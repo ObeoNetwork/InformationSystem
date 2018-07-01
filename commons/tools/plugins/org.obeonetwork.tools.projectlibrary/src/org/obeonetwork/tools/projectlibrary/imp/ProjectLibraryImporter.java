@@ -19,7 +19,11 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Date;
+import java.util.HashMap;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Map;
+import java.util.Set;
 import java.util.jar.Manifest;
 
 import org.eclipse.core.resources.IProject;
@@ -30,12 +34,14 @@ import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.core.runtime.NullProgressMonitor;
 import org.eclipse.core.runtime.SubMonitor;
 import org.eclipse.core.runtime.SubProgressMonitor;
+import org.eclipse.emf.cdo.util.CommitException;
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.EObject;
+import org.eclipse.emf.ecore.EStructuralFeature.Setting;
 import org.eclipse.emf.ecore.resource.Resource;
-import org.eclipse.emf.ecore.resource.ResourceSet;
 import org.eclipse.emf.transaction.RecordingCommand;
 import org.eclipse.emf.transaction.TransactionalEditingDomain;
+import org.eclipse.jface.dialogs.MessageDialog;
 import org.eclipse.sirius.business.api.componentization.ViewpointRegistry;
 import org.eclipse.sirius.business.api.helper.SiriusResourceHelper;
 import org.eclipse.sirius.business.api.modelingproject.ModelingProject;
@@ -56,9 +62,16 @@ import org.eclipse.sirius.viewpoint.provider.Messages;
 import org.eclipse.ui.actions.WorkspaceModifyOperation;
 import org.obeonetwork.dsl.manifest.MManifest;
 import org.obeonetwork.tools.projectlibrary.extension.ManifestServices;
+import org.obeonetwork.tools.projectlibrary.extension.point.IResourceCopier;
+import org.obeonetwork.tools.projectlibrary.extension.point.ResourceCopierFactory;
+import org.obeonetwork.tools.projectlibrary.util.ProjectLibraryUtils;
+import org.obeonetwork.tools.projectlibrary.util.SessionUtils;
 import org.obeonetwork.tools.projectlibrary.util.ZipUtils;
 
-import com.google.common.base.Joiner;
+import fr.obeo.dsl.viewpoint.collab.api.CDOImporter;
+import fr.obeo.dsl.viewpoint.collab.api.CDORepositoryManager;
+import fr.obeo.dsl.viewpoint.collab.api.RepositoryConnectionException;
+import fr.obeo.dsl.viewpoint.collab.api.remotesession.CollaborativeSession;
 
 /**
  * Import a zipped library into a modeling project 
@@ -70,31 +83,15 @@ public class ProjectLibraryImporter {
 	
 	private static final String TMP_PROJECT_PREFIX = "tmpImportLibrary";
 
-	private static final String IMPORT_FOLDER_NAME = "libraries";
+	public static final String IMPORT_FOLDER_NAME = "libraries";
 	
 	private ManifestServices manifestServices = new ManifestServices();
+
+	private ProjectLibraryUtils projectLibraryUtils = new ProjectLibraryUtils();
 	
 	private ImportData importData;
-	
-	private String projectName = null;
 
-	private String getProjectName(final File marFile) {
-		String name = "";
-		Manifest manifest = null;
-		try {
-			manifest = manifestServices.getManifestFromArchive(marFile);
-		} catch (IOException e2) {
-			// TODO Auto-generated catch block
-			e2.printStackTrace();
-		}
-		
-		if (manifest != null) {
-			MManifest manifestModel = manifestServices.getModelFromMarManifest(manifest);
-			name = manifestModel.getProjectId() + "-" + manifestModel.getVersion();
-		}
-		
-		return name;
-	}
+	private IResourceCopier resourceCopier;
 	
 	/**
 	 * Import MAR file into modeling project
@@ -102,16 +99,54 @@ public class ProjectLibraryImporter {
 	 * @param marFile
 	 */
 	public void importIntoProject(final ModelingProject targetProject, final File marFile) {
-		projectName = getProjectName(marFile);
+		Manifest importedManifest = null;
+		try {
+			importedManifest = manifestServices.getManifestFromArchive(marFile);
+		} catch (IOException e1) {
+			// TODO handle error
+			return;
+		}
 		
-		if (projectName == null) {
+		MManifest importedManifestModel = manifestServices.getModelFromMarManifest(importedManifest);
+		if (importedManifestModel == null) {
+			// TODO handle error
+			return;
+		}
+		
+		String libraryProjectName = manifestServices.getLibraryProjectName(importedManifestModel);
+		if (libraryProjectName == null) {
 			// TODO handle error
 			return;
 		}
 		
 		// First, let's create a temporary modeling project
 		ModelingProject sourceProject = createTempModelingProjectFromMAR(marFile);
-		importData = new ImportData(sourceProject, targetProject);
+
+		// Create ImportData used to do the import
+		importData = new ImportData(libraryProjectName, sourceProject, targetProject);
+		importData.setResourceCopier(getResourceCopier());
+
+		// Check if references could be restored when we import a project for the second time
+		Collection<Setting> restorableReferences = new ArrayList<>();
+		MManifest previousVersion = getPreviousImportedVersion(importedManifestModel, importData.getTargetSession());
+		if (previousVersion != null) {
+			Collection<Resource> resourcesToDelete = projectLibraryUtils.getResourcesFromManifest(importData.getTargetProject(), previousVersion);
+			Collection<Setting> externalReferences = projectLibraryUtils.getExternalReferences(importData.getTargetSession(), resourcesToDelete);
+			if (!externalReferences.isEmpty()) {
+				restorableReferences = projectLibraryUtils.getRestorableReferences(externalReferences, resourcesToDelete, importData.getSourceSession());
+	
+				boolean continueImport = true;
+				if (!restorableReferences.isEmpty()) {
+					// Some references will not be restored, we have to warn the user
+					// TODO extract this
+//					MessageDialog.openConfirm(null, "", "");
+				}
+				if (continueImport == true) {
+					// Delete previous version
+					
+				}
+		}
+		}
 		
 		// Save target project and close editors if needed
 		// TODO monitor
@@ -137,9 +172,15 @@ public class ProjectLibraryImporter {
 			e.printStackTrace();
 		}
 		
-	
-		// Save target project
-//		importData.getTargetSession().save(new NullProgressMonitor());
+		// Restore external references
+		if (!restorableReferences.isEmpty()) {
+//			projectLibraryUtils.restoreReferences(externalReferences, resourcesToDelete, importData.getSourceSession());
+		}
+		
+		// Save imported manifest into AIRD for future references
+		importedManifestModel.setImportDate(new Date());
+		manifestServices.addImportedManifestToSession(importData.getTargetSession(), importedManifestModel);
+		importData.getTargetSession().save(new NullProgressMonitor());
 		
 		// Finally, remove temp project
 		// TODO monitor
@@ -151,19 +192,81 @@ public class ProjectLibraryImporter {
 		}
 	}
 	
+	private void exportRessourcesToProject() {
+		Set<URI> localResourceToExports = new HashSet<>();
+		CDORepositoryManager repositoryManager = null;
+		Map<String, String> localToRemoteResourceURIMapping = new HashMap<>();
+		
+		String remoteProjectName = "d";
+		
+		for (Resource semanticResource : importData.getSourceSemanticResources()) {
+			localResourceToExports.add(semanticResource.getURI());
+			localToRemoteResourceURIMapping.put(semanticResource.getURI().toString(), getTargetResourcePath(importData, remoteProjectName, semanticResource.getURI()));
+		}
+		for (Resource graphicalResource : importData.getSourceGraphicalResources()) {
+			localResourceToExports.add(graphicalResource.getURI());
+			localToRemoteResourceURIMapping.put(graphicalResource.getURI().toString(), getTargetResourcePath(importData, remoteProjectName, graphicalResource.getURI()));
+		}
+		Session session = importData.getTargetSession();
+		if (session instanceof CollaborativeSession) {
+			CollaborativeSession collabSession = (CollaborativeSession)session;
+			repositoryManager = collabSession.getRepositoryManager();
+		}
+		
+		try {
+			new CDOImporter().importLocalFilesIntoRepository(localResourceToExports , repositoryManager, false, false, localToRemoteResourceURIMapping, false, new NullProgressMonitor());
+		} catch (RepositoryConnectionException | CommitException | CoreException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+	
+	private String getTargetResourcePath(ImportData importData, String remoteProjectName, URI sourceURI) {
+		List<String> segments = new ArrayList<String>(sourceURI.segmentsList());
+
+		if (sourceURI.isPlatformResource()) {
+			// Remove "resource" and project's name
+			segments.remove(0);
+			segments.remove(0);
+			
+			// Add destination folder to the resource path segments
+			segments.add(0, "librairievirtuelle");
+			segments.add(0, ProjectLibraryImporter.IMPORT_FOLDER_NAME);
+			segments.add(0, remoteProjectName);
+			return String.join("/", segments);
+		}
+		
+		return null;
+	}
+	
+	private IResourceCopier getResourceCopier() {
+		if (resourceCopier == null) {
+			resourceCopier = ResourceCopierFactory.getInstance().getResourceCopier(importData.getTargetSession());
+		}
+		return resourceCopier;
+	}
+		
 	private void copyAllObjects() {
 		Collection<Resource> targetSemanticResources = new ArrayList<>();
 		Collection<Resource> targetGraphicalResources = new ArrayList<>();
 		
 		// Copy semantic resources
 		for (Resource semanticResource : importData.getSourceSemanticResources()) {
-			targetSemanticResources.add(copyResource(semanticResource));
+			Resource copiedResource = getResourceCopier().copyResource(importData, semanticResource);
+			if (copiedResource != null) {
+				targetSemanticResources.add(copiedResource);
+			}
 		}
 		
 		// Copy graphical resources
 		for (Resource graphicalResource : importData.getSourceGraphicalResources()) {
-			targetGraphicalResources.add(copyResource(graphicalResource));
+			Resource copiedResource = getResourceCopier().copyResource(importData, graphicalResource);
+			if (copiedResource != null) {
+				targetGraphicalResources.add(copiedResource);
+			}
 		}
+
+//		targetSemanticResources.addAll(copier.copyResources(importData, importData.getSourceSemanticResources()));
 		
 		// Save new resources
 		saveResources(targetSemanticResources);
@@ -180,8 +283,6 @@ public class ProjectLibraryImporter {
 		importData.getTargetSession().save(new NullProgressMonitor());
 	}
 	
-	
-	
 	private void saveResources(Collection<Resource> resources) {
 		for (Resource resource : resources) {
 			try {
@@ -189,64 +290,17 @@ public class ProjectLibraryImporter {
 			} catch (IOException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
+			} catch (Exception e2) {
+				e2.printStackTrace();
 			}
 		}
-	}
-	
-	private Resource copyResource(final Resource sourceResource) {
-		Collection<EObject> contents = sourceResource.getContents();
-		Collection<EObject> copiedContents = new ArrayList<>();
-		for (EObject object : contents) {
-			EObject copiedObject = importData.getCopyEObject(object);
-			copiedContents.add(copiedObject);
-		}
-		
-		URI targetURI = getTargetResourceURI(sourceResource.getURI());
-		Resource targetResource = createTargetResource(copiedContents, targetURI);
-		return targetResource;
-	}
-	
-	private Resource createTargetResource(final Collection<EObject> contents, final URI targetURI) {
-		ResourceSet resourceSet = importData.getTargetSession().getTransactionalEditingDomain().getResourceSet();
-		Resource resource = resourceSet.createResource(targetURI);
-		resource.getContents().addAll(contents);
-		return resource;
-	}
-	
-	private URI getTargetResourceURI(final URI sourceURI) {
-		if (sourceURI.isPlatformResource()) {
-			final List<String> segments = getTargetResourcePathSegments(sourceURI);
-			// Add Project name as URI first segment
-			segments.add(0, importData.getTargetProject().getProject().getName());
-			final String path = Joiner.on("/").join(segments);
-			
-			return URI.createPlatformResourceURI(path, true);
-		}
-		return null;
-	}
-	
-	private List<String> getTargetResourcePathSegments(URI sourceURI) {
-		List<String> segments = new ArrayList<String>(sourceURI.segmentsList());
-
-		if (sourceURI.isPlatformResource()) {
-			// Remove "resource" and project's name
-			segments.remove(0);
-			segments.remove(0);
-			
-			// Add destination folder to the resource path segments
-			// TODO retrieve name from MAR File
-			segments.add(0, projectName);
-			segments.add(0, IMPORT_FOLDER_NAME);
-		}
-		
-		return segments;
 	}
 
 	private void addReferencedAnalysis() {
 		// Get main analysis
 		Session sourceSession = importData.getSourceSession();
 		Session targetSession = importData.getTargetSession();
-		DAnalysis sourceMainAnalysis = getMainAnalysis(sourceSession);
+		DAnalysis sourceMainAnalysis = new SessionUtils().getMainAnalysis(sourceSession);
 		
 		// Add the copied analysis as a referenced analysis
 		if (sourceMainAnalysis != null) {
@@ -274,19 +328,6 @@ public class ProjectLibraryImporter {
 		
 	}
 	
-	
-	private DAnalysis getMainAnalysis(Session session) {
-		Resource sessionResource = session.getSessionResource();
-		if (sessionResource != null && !sessionResource.getContents().isEmpty()) {
-			for (EObject content : sessionResource.getContents()) {
-				if (content instanceof DAnalysis) {
-					return (DAnalysis)content;
-				}
-			}
-		}
-		return null;
-	}
-	
 	private ModelingProject createTempModelingProjectFromMAR(File marFile) {
 		ModelingProject project = null;
 		
@@ -304,8 +345,6 @@ public class ProjectLibraryImporter {
                     	// Create project
                     	final IProjectDescription desc = project.getWorkspace().newProjectDescription(projectName);
                         desc.setLocation(null);
-//                        String[] natures = { ModelingProject.NATURE_ID };
-//                        desc.setNatureIds(natures);
 
                         monitor.subTask("Create temp modeling project to import library");
                         project.create(desc, new SubProgressMonitor(monitor, 1));
@@ -405,5 +444,15 @@ public class ProjectLibraryImporter {
 				runnable.run();
 			}
 		});
+	}
+
+	private MManifest getPreviousImportedVersion(MManifest manifest, Session session) {
+		List<MManifest> importedManifests = manifestServices.getImportedManifests(session);
+		for (MManifest importedManifest : importedManifests) {
+			if (importedManifest.getProjectId().equals(manifest.getProjectId())) {
+				return importedManifest;
+			}
+		}
+		return null;
 	}
 }

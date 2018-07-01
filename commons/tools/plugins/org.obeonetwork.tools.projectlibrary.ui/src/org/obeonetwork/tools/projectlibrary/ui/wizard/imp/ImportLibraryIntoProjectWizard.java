@@ -11,8 +11,14 @@
 package org.obeonetwork.tools.projectlibrary.ui.wizard.imp;
 
 import java.io.File;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Map.Entry;
 
 import org.eclipse.core.resources.IProject;
+import org.eclipse.core.runtime.Platform;
+import org.eclipse.core.runtime.preferences.IEclipsePreferences;
+import org.eclipse.core.runtime.preferences.InstanceScope;
 import org.eclipse.jface.viewers.IStructuredSelection;
 import org.eclipse.jface.wizard.Wizard;
 import org.eclipse.sirius.business.api.modelingproject.ModelingProject;
@@ -30,6 +36,22 @@ import org.obeonetwork.tools.projectlibrary.ui.wizard.WizardUtils;
  */
 public class ImportLibraryIntoProjectWizard extends Wizard implements IImportWizard {
 	
+	private static final String KEY_SEPARATOR = "#";
+	
+	private static final String PREF_OPEN_SESSION_EDITOR = "PREF_OPEN_SESSION_EDITOR_ON_SESSION_OPEN";
+
+	private static final String PLUGIN_SIRIUS_UI = "org.eclipse.sirius.ui";
+
+	private static final String PREF_OPEN_ACTIVITY_EXPLORER = "openactivityexplorer";
+
+	private static final String PLUGIN_ACTIVITY_EXPLORER = "org.eclipse.amalgam.explorer.activity.ui";
+	
+	private static final Map<String, Boolean> PREFS_EXPECTED_VALUES = new HashMap<String, Boolean>();
+	static {
+		PREFS_EXPECTED_VALUES.put(getPluginAndKey(PLUGIN_SIRIUS_UI, PREF_OPEN_SESSION_EDITOR), Boolean.FALSE);
+		PREFS_EXPECTED_VALUES.put(getPluginAndKey(PLUGIN_ACTIVITY_EXPLORER, PREF_OPEN_ACTIVITY_EXPLORER), Boolean.FALSE);
+	}
+
 	private ImportLibraryIntoProjectWizardModel model = new ImportLibraryIntoProjectWizardModel();
 	
 	private ImportLibraryIntoProjectFileSelectionPage fileSelectionPage = null;
@@ -62,9 +84,73 @@ public class ImportLibraryIntoProjectWizard extends Wizard implements IImportWiz
 	
 	@Override
 	public boolean performFinish() {
+		Map<String, Boolean> originalValues = disableAutomaticEditors();
+		
 		ProjectLibraryImporter importer = new ProjectLibraryImporter();
 		importer.importIntoProject(model.getModelingProject(), new File(model.getFilepath()));
+		
+		resetAutomaticEditors(originalValues);
 		return true;
+	}
+
+	
+	/**
+	 * Disable automatic editors opening for Activity Explorer and Sirius AIRD editor
+	 */
+	private Map<String, Boolean> disableAutomaticEditors() {
+		Map<String, Boolean> originalValues = new HashMap<>();
+		
+		for (Entry<String, Boolean> prefEntry : PREFS_EXPECTED_VALUES.entrySet()) {
+			String plugin = extractPluginFromPluginAndKey(prefEntry.getKey());
+			String key = extractKeyFromPluginAndKey(prefEntry.getKey());
+			
+			boolean originalValue = getPreference(plugin, key);
+			if (!prefEntry.getValue().equals(originalValue)) {
+				// Change value for preference
+				setPreferenceValue(plugin, key, prefEntry.getValue());
+				
+				originalValues.put(prefEntry.getKey(), originalValue);
+			}
+		}
+		
+		return originalValues;
+	}
+	
+	private void resetAutomaticEditors(Map<String, Boolean> originalValues) {
+		for (Entry<String, Boolean> originalValue : originalValues.entrySet()) {
+			String plugin = extractPluginFromPluginAndKey(originalValue.getKey());
+			String key = extractKeyFromPluginAndKey(originalValue.getKey());
+			setPreferenceValue(plugin, key, originalValue.getValue());
+		}
+	}
+	
+	private static String getPluginAndKey(String plugin, String key) {
+		return plugin + KEY_SEPARATOR + key;
+	}
+	
+	private static String extractPluginFromPluginAndKey(String pluginAndKey) {
+		String[] split = pluginAndKey.split(KEY_SEPARATOR);
+		if (split.length > 0) {
+			return split[0];
+		}
+		return null;
+	}
+	
+	private static String extractKeyFromPluginAndKey(String pluginAndKey) {
+		String[] split = pluginAndKey.split(KEY_SEPARATOR);
+		if (split.length > 1) {
+			return split[1];
+		}
+		return null;
+	}
+	
+	private boolean getPreference(String plugin, String key) {
+		return Platform.getPreferencesService().getBoolean(plugin, key, true, null);
+	}
+	
+	private void setPreferenceValue(String plugin, String key, boolean value) {
+		IEclipsePreferences preferences = InstanceScope.INSTANCE.getNode(plugin);
+		preferences.put(key, Boolean.toString(value));
 	}
 	
 	@Override

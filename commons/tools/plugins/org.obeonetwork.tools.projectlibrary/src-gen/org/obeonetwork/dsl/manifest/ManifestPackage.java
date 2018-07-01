@@ -94,13 +94,22 @@ public interface ManifestPackage extends EPackage {
 	int MMANIFEST__PROJECT_ID = 0;
 
 	/**
-	 * The feature id for the '<em><b>Creation Date</b></em>' attribute.
+	 * The feature id for the '<em><b>Export Date</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int MMANIFEST__CREATION_DATE = 1;
+	int MMANIFEST__EXPORT_DATE = 1;
+
+	/**
+	 * The feature id for the '<em><b>Import Date</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MMANIFEST__IMPORT_DATE = 2;
 
 	/**
 	 * The feature id for the '<em><b>Version Major</b></em>' attribute.
@@ -109,7 +118,7 @@ public interface ManifestPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int MMANIFEST__VERSION_MAJOR = 2;
+	int MMANIFEST__VERSION_MAJOR = 3;
 
 	/**
 	 * The feature id for the '<em><b>Version Minor</b></em>' attribute.
@@ -118,7 +127,7 @@ public interface ManifestPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int MMANIFEST__VERSION_MINOR = 3;
+	int MMANIFEST__VERSION_MINOR = 4;
 
 	/**
 	 * The feature id for the '<em><b>Version Patch</b></em>' attribute.
@@ -127,7 +136,7 @@ public interface ManifestPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int MMANIFEST__VERSION_PATCH = 4;
+	int MMANIFEST__VERSION_PATCH = 5;
 
 	/**
 	 * The feature id for the '<em><b>Version Qualifier</b></em>' attribute.
@@ -136,7 +145,7 @@ public interface ManifestPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int MMANIFEST__VERSION_QUALIFIER = 5;
+	int MMANIFEST__VERSION_QUALIFIER = 6;
 
 	/**
 	 * The feature id for the '<em><b>Comment</b></em>' attribute.
@@ -145,7 +154,7 @@ public interface ManifestPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int MMANIFEST__COMMENT = 6;
+	int MMANIFEST__COMMENT = 7;
 
 	/**
 	 * The feature id for the '<em><b>Dependencies</b></em>' containment reference list.
@@ -154,7 +163,7 @@ public interface ManifestPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int MMANIFEST__DEPENDENCIES = 7;
+	int MMANIFEST__DEPENDENCIES = 8;
 
 	/**
 	 * The number of structural features of the '<em>MManifest</em>' class.
@@ -163,7 +172,7 @@ public interface ManifestPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int MMANIFEST_FEATURE_COUNT = 8;
+	int MMANIFEST_FEATURE_COUNT = 9;
 
 	/**
 	 * The meta object id for the '{@link org.obeonetwork.dsl.manifest.impl.MImportExportDataImpl <em>MImport Export Data</em>}' class.
@@ -252,15 +261,26 @@ public interface ManifestPackage extends EPackage {
 	EAttribute getMManifest_ProjectId();
 
 	/**
-	 * Returns the meta object for the attribute '{@link org.obeonetwork.dsl.manifest.MManifest#getCreationDate <em>Creation Date</em>}'.
+	 * Returns the meta object for the attribute '{@link org.obeonetwork.dsl.manifest.MManifest#getExportDate <em>Export Date</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Creation Date</em>'.
-	 * @see org.obeonetwork.dsl.manifest.MManifest#getCreationDate()
+	 * @return the meta object for the attribute '<em>Export Date</em>'.
+	 * @see org.obeonetwork.dsl.manifest.MManifest#getExportDate()
 	 * @see #getMManifest()
 	 * @generated
 	 */
-	EAttribute getMManifest_CreationDate();
+	EAttribute getMManifest_ExportDate();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.obeonetwork.dsl.manifest.MManifest#getImportDate <em>Import Date</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Import Date</em>'.
+	 * @see org.obeonetwork.dsl.manifest.MManifest#getImportDate()
+	 * @see #getMManifest()
+	 * @generated
+	 */
+	EAttribute getMManifest_ImportDate();
 
 	/**
 	 * Returns the meta object for the attribute '{@link org.obeonetwork.dsl.manifest.MManifest#getVersionMajor <em>Version Major</em>}'.
@@ -424,12 +444,20 @@ public interface ManifestPackage extends EPackage {
 		EAttribute MMANIFEST__PROJECT_ID = eINSTANCE.getMManifest_ProjectId();
 
 		/**
-		 * The meta object literal for the '<em><b>Creation Date</b></em>' attribute feature.
+		 * The meta object literal for the '<em><b>Export Date</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute MMANIFEST__CREATION_DATE = eINSTANCE.getMManifest_CreationDate();
+		EAttribute MMANIFEST__EXPORT_DATE = eINSTANCE.getMManifest_ExportDate();
+
+		/**
+		 * The meta object literal for the '<em><b>Import Date</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute MMANIFEST__IMPORT_DATE = eINSTANCE.getMManifest_ImportDate();
 
 		/**
 		 * The meta object literal for the '<em><b>Version Major</b></em>' attribute feature.

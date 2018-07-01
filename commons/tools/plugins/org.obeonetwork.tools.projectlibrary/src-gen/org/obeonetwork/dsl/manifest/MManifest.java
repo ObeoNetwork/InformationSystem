@@ -26,7 +26,8 @@ import org.eclipse.emf.ecore.EObject;
  * </p>
  * <ul>
  *   <li>{@link org.obeonetwork.dsl.manifest.MManifest#getProjectId <em>Project Id</em>}</li>
- *   <li>{@link org.obeonetwork.dsl.manifest.MManifest#getCreationDate <em>Creation Date</em>}</li>
+ *   <li>{@link org.obeonetwork.dsl.manifest.MManifest#getExportDate <em>Export Date</em>}</li>
+ *   <li>{@link org.obeonetwork.dsl.manifest.MManifest#getImportDate <em>Import Date</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.manifest.MManifest#getVersionMajor <em>Version Major</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.manifest.MManifest#getVersionMinor <em>Version Minor</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.manifest.MManifest#getVersionPatch <em>Version Patch</em>}</li>
@@ -74,30 +75,56 @@ public interface MManifest extends EObject {
 	void setProjectId(String value);
 
 	/**
-	 * Returns the value of the '<em><b>Creation Date</b></em>' attribute.
+	 * Returns the value of the '<em><b>Export Date</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Creation Date</em>' attribute isn't clear,
+	 * If the meaning of the '<em>Export Date</em>' attribute isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Creation Date</em>' attribute.
-	 * @see #setCreationDate(Date)
-	 * @see org.obeonetwork.dsl.manifest.ManifestPackage#getMManifest_CreationDate()
+	 * @return the value of the '<em>Export Date</em>' attribute.
+	 * @see #setExportDate(Date)
+	 * @see org.obeonetwork.dsl.manifest.ManifestPackage#getMManifest_ExportDate()
 	 * @model
 	 * @generated
 	 */
-	Date getCreationDate();
+	Date getExportDate();
 
 	/**
-	 * Sets the value of the '{@link org.obeonetwork.dsl.manifest.MManifest#getCreationDate <em>Creation Date</em>}' attribute.
+	 * Sets the value of the '{@link org.obeonetwork.dsl.manifest.MManifest#getExportDate <em>Export Date</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Creation Date</em>' attribute.
-	 * @see #getCreationDate()
+	 * @param value the new value of the '<em>Export Date</em>' attribute.
+	 * @see #getExportDate()
 	 * @generated
 	 */
-	void setCreationDate(Date value);
+	void setExportDate(Date value);
+
+	/**
+	 * Returns the value of the '<em><b>Import Date</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Import Date</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Import Date</em>' attribute.
+	 * @see #setImportDate(Date)
+	 * @see org.obeonetwork.dsl.manifest.ManifestPackage#getMManifest_ImportDate()
+	 * @model
+	 * @generated
+	 */
+	Date getImportDate();
+
+	/**
+	 * Sets the value of the '{@link org.obeonetwork.dsl.manifest.MManifest#getImportDate <em>Import Date</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Import Date</em>' attribute.
+	 * @see #getImportDate()
+	 * @generated
+	 */
+	void setImportDate(Date value);
 
 	/**
 	 * Returns the value of the '<em><b>Version Major</b></em>' attribute.

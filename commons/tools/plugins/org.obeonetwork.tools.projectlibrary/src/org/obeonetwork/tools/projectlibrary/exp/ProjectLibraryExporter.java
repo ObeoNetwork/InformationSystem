@@ -13,9 +13,11 @@ package org.obeonetwork.tools.projectlibrary.exp;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.util.List;
 import java.util.jar.Manifest;
 
 import org.eclipse.core.resources.IProject;
+import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.sirius.business.api.modelingproject.ModelingProject;
 import org.eclipse.sirius.business.api.session.Session;
 import org.obeonetwork.dsl.manifest.MManifest;
@@ -44,7 +46,13 @@ public class ProjectLibraryExporter {
 		// 1st step: create a new manifest
 		MManifest newManifest = manifestServices.getNewManifest(projectId, version, comment);
 		
-		// 2nd step: zip project's contents into target file
+		// 2nd step : add imported projects
+		List<MManifest> importedProjects = manifestServices.getImportedManifests(project.getSession());
+		for (MManifest importedProject : importedProjects) {			
+			newManifest.getDependencies().add(EcoreUtil.copy(importedProject));
+		}
+		
+		// 3rd step: zip project's contents into target file
 		IProject iProject = project.getProject();
 		File projectFolder = iProject.getLocation().toFile();
 		try {
@@ -55,16 +63,16 @@ public class ProjectLibraryExporter {
 			
 			outputStream.close();
 			
-			// 3rd step: generate add MANIFEST.MF to file
+			// 4th step: generate add MANIFEST.MF to file
 			Manifest marManifest = manifestServices.getMarManifestFromModel(newManifest);
 			// And add it to zip
 			addMarManifestToArchive(marManifest, targetFile);
 			
 		} catch (IOException e) {
-			// TODO
+			// TODO handle error
 		}
 		
-		// 4th step: save manifest into AIRD for future references
+		// 5th step: save manifest into AIRD for future references
 		Session session = project.getSession();
 		manifestServices.addExportedManifestToSession(session, newManifest);
 	}

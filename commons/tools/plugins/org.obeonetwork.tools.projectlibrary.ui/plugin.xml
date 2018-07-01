@@ -32,5 +32,52 @@
             name="Import library into project">
       </wizard>
    </extension>
+   <extension
+         point="org.eclipse.ui.commands">
+      <command
+            id="org.obeonetwork.tools.projectlibrary.ui.commands.removeProjectLibrary"
+            name="Remove project library">
+      </command>
+   </extension>
+   <extension
+         point="org.eclipse.ui.handlers">
+      <handler
+            class="org.obeonetwork.tools.projectlibrary.ui.handlers.RemoveLibraryHandler"
+            commandId="org.obeonetwork.tools.projectlibrary.ui.commands.removeProjectLibrary">
+      </handler>
+   </extension>
+   <extension
+         point="org.eclipse.ui.menus">
+      <menuContribution
+            locationURI="popup:org.obeonetwork.is.designer.menu?after=additions">
+         <command
+               commandId="org.obeonetwork.tools.projectlibrary.ui.commands.removeProjectLibrary"
+               icon="icons/remove_library.png"
+               id="org.obeonetwork.tools.projectlibrary.ui.menus.removeProjectLibrary">
+            <visibleWhen
+                  checkEnabled="false">
+
+               <with
+                     variable="selection">
+                  <and>
+                     <count
+                           value="1">
+                     </count>
+                     <iterate
+                           ifEmpty="false">
+                        <adapt
+                              type="org.eclipse.core.resources.IProject">
+                           <test
+                                 forcePluginActivation="true"
+                                 property="org.eclipse.core.resources.projectNature"
+                                 value="org.eclipse.sirius.nature.modelingproject">
+                           </test>
+                        </adapt></iterate>
+                  </and>
+               </with>
+            </visibleWhen>
+         </command>
+      </menuContribution>
+   </extension>
 
 </plugin>
