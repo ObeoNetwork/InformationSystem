@@ -40,9 +40,7 @@ public class IdUtils {
 		this.session = session;
 	}
 	
-	public EObject getCorrespondingObject(EObject sourceObject) {
-		String key = getKey(sourceObject);
-		
+	public EObject getCorrespondingObject(String key) {
 		// Look into cache
 		if (cache.containsKey(key)) {
 			return cache.get(key);
@@ -51,7 +49,12 @@ public class IdUtils {
 			EObject foundObject = getCorrespondingObjectFromResources(key);
 			cache.put(key, foundObject);
 			return foundObject;
-		}
+		}		
+	}
+	
+	public EObject getCorrespondingObject(EObject sourceObject) {
+		String key = getKey(sourceObject);
+		return getCorrespondingObject(key);
 	}
 	
 	private EObject getCorrespondingObjectFromResources(String searchKey) {
@@ -59,8 +62,9 @@ public class IdUtils {
 		ResourceSet set = session.getTransactionalEditingDomain().getResourceSet();
 		for (Resource resource : set.getResources()) {
 			// Do not consider AIRD resources and resources from plugins
-			if (!resource.getURI().fileExtension().equals("aird")
-					&& !resource.getURI().isPlatformPlugin()) {
+			if (resource.getURI().isPlatformResource()
+					&& (resource.getURI().fileExtension() == null
+					|| !resource.getURI().fileExtension().equals("aird"))) {
 				// if a resource has been totally analysed do not analyse it again
 				if (!computedObjects.contains(resource)) {
 					TreeIterator<EObject> it = resource.getAllContents();
@@ -81,7 +85,7 @@ public class IdUtils {
 		return null;
 	}
 	
-	private String getKey(EObject object) {
+	public String getKey(EObject object) {
 		return object.eClass().getName() + "#" + getId(object);
 	}
 	

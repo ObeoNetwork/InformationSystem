@@ -41,7 +41,6 @@ import org.eclipse.emf.ecore.EStructuralFeature.Setting;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.transaction.RecordingCommand;
 import org.eclipse.emf.transaction.TransactionalEditingDomain;
-import org.eclipse.jface.dialogs.MessageDialog;
 import org.eclipse.sirius.business.api.componentization.ViewpointRegistry;
 import org.eclipse.sirius.business.api.helper.SiriusResourceHelper;
 import org.eclipse.sirius.business.api.modelingproject.ModelingProject;
@@ -65,6 +64,7 @@ import org.obeonetwork.tools.projectlibrary.extension.ManifestServices;
 import org.obeonetwork.tools.projectlibrary.extension.point.IResourceCopier;
 import org.obeonetwork.tools.projectlibrary.extension.point.ResourceCopierFactory;
 import org.obeonetwork.tools.projectlibrary.util.ProjectLibraryUtils;
+import org.obeonetwork.tools.projectlibrary.util.RestorableReference;
 import org.obeonetwork.tools.projectlibrary.util.SessionUtils;
 import org.obeonetwork.tools.projectlibrary.util.ZipUtils;
 
@@ -127,7 +127,7 @@ public class ProjectLibraryImporter {
 		importData.setResourceCopier(getResourceCopier());
 
 		// Check if references could be restored when we import a project for the second time
-		Collection<Setting> restorableReferences = new ArrayList<>();
+		Collection<RestorableReference> restorableReferences = new ArrayList<>();
 		MManifest previousVersion = getPreviousImportedVersion(importedManifestModel, importData.getTargetSession());
 		if (previousVersion != null) {
 			Collection<Resource> resourcesToDelete = projectLibraryUtils.getResourcesFromManifest(importData.getTargetProject(), previousVersion);
@@ -143,7 +143,7 @@ public class ProjectLibraryImporter {
 				}
 				if (continueImport == true) {
 					// Delete previous version
-					
+					projectLibraryUtils.removeImportedProjectAndResources(importData.getTargetProject(), resourcesToDelete, previousVersion);
 				}
 		}
 		}
@@ -174,7 +174,7 @@ public class ProjectLibraryImporter {
 		
 		// Restore external references
 		if (!restorableReferences.isEmpty()) {
-//			projectLibraryUtils.restoreReferences(externalReferences, resourcesToDelete, importData.getSourceSession());
+			projectLibraryUtils.restoreReferences(restorableReferences, importData.getTargetSession());
 		}
 		
 		// Save imported manifest into AIRD for future references

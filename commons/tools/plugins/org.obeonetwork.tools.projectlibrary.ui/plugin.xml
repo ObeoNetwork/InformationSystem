@@ -36,7 +36,7 @@
          point="org.eclipse.ui.commands">
       <command
             id="org.obeonetwork.tools.projectlibrary.ui.commands.removeProjectLibrary"
-            name="Remove project library">
+            name="Remove project library...">
       </command>
    </extension>
    <extension

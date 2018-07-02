@@ -49,14 +49,6 @@ public class DefaultResourceCopier implements IResourceCopier {
 		return Integer.MAX_VALUE;
 	}
 
-	public URI getTargetFolderURI(Session targetSession, MManifest manifest) {
-		// TODO Auto-generated method stub
-		String folderPath = ProjectLibraryImporter.IMPORT_FOLDER_NAME + '/'
-								+ new ManifestServices().getLibraryProjectName(manifest);
-		targetSession.getTransactionalEditingDomain().getResourceSet();
-		return null;
-	}
-	
 	@Override
 	public Collection<Resource> getResourcesForImportedProject(ModelingProject modelingProject, MManifest manifest) {
 		Collection<Resource> resources = new ArrayList<>();

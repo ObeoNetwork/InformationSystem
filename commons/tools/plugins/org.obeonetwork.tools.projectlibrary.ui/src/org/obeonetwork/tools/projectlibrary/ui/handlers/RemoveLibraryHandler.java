@@ -14,7 +14,6 @@ import org.eclipse.jface.viewers.IStructuredSelection;
 import org.eclipse.jface.viewers.LabelProvider;
 import org.eclipse.jface.window.Window;
 import org.eclipse.sirius.business.api.modelingproject.ModelingProject;
-import org.eclipse.sirius.business.api.session.Session;
 import org.eclipse.sirius.ext.base.Option;
 import org.eclipse.swt.graphics.Image;
 import org.eclipse.swt.widgets.Shell;
@@ -81,10 +80,8 @@ public class RemoveLibraryHandler extends AbstractHandler {
 					}
 					
 					if (confirm == true) {
-						// Remove the resources
-						util.removeResources(modelingProject.getSession(), resourcesToDelete);
-						// Remove the manifest from the imported manifests
-						new ManifestServices().removeImportedManifestFromSession(modelingProject.getSession(), projectToRemove);
+						// Remove the resources and the imported manifest
+						util.removeImportedProjectAndResources(modelingProject, resourcesToDelete, projectToRemove);
 					}
 				}
 			}
