@@ -159,19 +159,23 @@ public class ImportData {
 	private ResourceDescriptor convertResourceDescriptor(ResourceDescriptor descriptor, ResourceSet resourceSet) {
 		ResourceDescriptor newDescriptor = null;
 		URI resourceURI = descriptor.getResourceURI();
-		if (resourceURI.hasFragment()) {
-			// ResourceDescriptor points to an EObject
-			EObject sourceObject = resourceSet.getEObject(resourceURI, true);
-			EObject targetObject = sourceToCopyMap.get(sourceObject);
-			if (targetObject != null) {
-				newDescriptor = new ResourceDescriptor(EcoreUtil.getURI(targetObject));	
-			}
+		if (resourceURI.isPlatformResource()) {
+			if (resourceURI.hasFragment()) {
+				// ResourceDescriptor points to an EObject
+				EObject sourceObject = resourceSet.getEObject(resourceURI, true);
+				EObject targetObject = sourceToCopyMap.get(sourceObject);
+				if (targetObject != null) {
+					newDescriptor = new ResourceDescriptor(EcoreUtil.getURI(targetObject));	
+				}
+			} else {
+				// ResourceDescriptor points to an URI
+				URI targetResourceURI = resourceCopier.getTargetResourceURI(this, resourceURI);
+				if (targetResourceURI != null) {
+					newDescriptor = new ResourceDescriptor(targetResourceURI);
+				}
+			}			
 		} else {
-			// ResourceDescriptor points to an URI
-			URI targetResourceURI = resourceCopier.getTargetResourceURI(this, resourceURI);
-			if (targetResourceURI != null) {
-				newDescriptor = new ResourceDescriptor(targetResourceURI);
-			}
+			newDescriptor = descriptor;
 		}
 		
 		return newDescriptor;
