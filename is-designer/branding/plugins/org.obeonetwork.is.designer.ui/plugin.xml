@@ -55,4 +55,7 @@
             name="IS Designer">
       </category>
    </extension>
+   <extension point = "org.eclipse.ui.newWizards">
+    	<category id="org.obeonetwork.dsl.is.ui.categoryID" name="IS Designer"/>
+   </extension>
 </plugin>
