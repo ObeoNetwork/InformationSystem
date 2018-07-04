@@ -171,7 +171,7 @@ COMMENT ON COLUMN [column.owner.oclAsType(Table).fullname()/].[column.name()/] I
 [template private columnsDef(table : Table)]
 [for (column : Column | table.columns) separator(',\n')]
     [column.columnDef()/][/for]	[if (table.isTargetMySql() and not table.primaryKey.oclIsUndefined())],
-	PRIMARY KEY ([table.primaryKey.name/])[/if]
+	PRIMARY KEY ([table.primaryKey.columns.name->sep(', ')/])[/if]
 [/template]
 
 [template private columnDef(column : Column) post(trim())]
