@@ -1,0 +1,16 @@
+--- RCPTT testcase ---
+Format-Version: 1.0
+Context-Type: org.eclipse.rcptt.ctx.ecl
+Element-Name: MaximizedWindows
+Element-Type: context
+Element-Version: 2.0
+Id: _5-gWoIAxEeiN2rr7Kx8jxg
+Runtime-Version: 2.2.0.201706152316
+Save-Time: 7/5/18 11:00 AM
+
+------=_.ecl.context-718f04b4-ed39-33e3-af62-0995e4561998
+Content-Type: text/ecl
+Entry-Name: .ecl.context
+
+get-eclipse-window | get-object | invoke setMaximized true
+------=_.ecl.context-718f04b4-ed39-33e3-af62-0995e4561998--
