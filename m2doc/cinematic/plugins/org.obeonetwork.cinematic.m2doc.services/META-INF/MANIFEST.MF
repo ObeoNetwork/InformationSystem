@@ -10,5 +10,6 @@ Require-Bundle: org.obeonetwork.m2doc.ide;bundle-version="2.0.0",
  org.obeonetwork.m2doc.sirius;bundle-version="2.0.0";visibility:=reexport,
  org.obeonetwork.dsl.cinematic.design;bundle-version="10.0.0",
  org.obeonetwork.dsl.cinematic.edit;bundle-version="10.0.0",
- org.eclipse.acceleo.annotations
+ org.eclipse.acceleo.annotations,
+ org.eclipse.help
 Export-Package: org.obeonetwork.cinematic.m2doc.services
