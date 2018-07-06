@@ -40,6 +40,9 @@ public interface Identifiable extends CDOObject {
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * Technical identifier of the element.
+	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Technicalid</em>' attribute.
 	 * @see #setTechnicalid(String)
 	 * @see org.obeonetwork.dsl.technicalid.TechnicalIDPackage#getIdentifiable_Technicalid()

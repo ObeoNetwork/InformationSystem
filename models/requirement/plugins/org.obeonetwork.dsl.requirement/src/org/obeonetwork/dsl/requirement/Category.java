@@ -52,6 +52,9 @@ public interface Category extends CategoriesContainer {
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * List of the contained requirements.
+	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Requirements</em>' containment reference list.
 	 * @see org.obeonetwork.dsl.requirement.RequirementPackage#getCategory_Requirements()
 	 * @see org.obeonetwork.dsl.requirement.Requirement#getCategory
@@ -70,6 +73,9 @@ public interface Category extends CategoriesContainer {
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * List of the contained categories.
+	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Sub Categories</em>' containment reference list.
 	 * @see org.obeonetwork.dsl.requirement.RequirementPackage#getCategory_SubCategories()
 	 * @see org.obeonetwork.dsl.requirement.Category#getParentCategory
@@ -86,6 +92,9 @@ public interface Category extends CategoriesContainer {
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * Category's identifier.
+	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Id</em>' attribute.
 	 * @see #setId(String)
 	 * @see org.obeonetwork.dsl.requirement.RequirementPackage#getCategory_Id()
@@ -113,6 +122,9 @@ public interface Category extends CategoriesContainer {
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * Repository where the category is contained.
+	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Repository</em>' container reference.
 	 * @see #setRepository(Repository)
 	 * @see org.obeonetwork.dsl.requirement.RequirementPackage#getCategory_Repository()
@@ -141,6 +153,9 @@ public interface Category extends CategoriesContainer {
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * Parent category containing this one.
+	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Parent Category</em>' container reference.
 	 * @see #setParentCategory(Category)
 	 * @see org.obeonetwork.dsl.requirement.RequirementPackage#getCategory_ParentCategory()
@@ -169,6 +184,9 @@ public interface Category extends CategoriesContainer {
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * List of the referenced objects.
+	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Referenced Object</em>' reference list.
 	 * @see org.obeonetwork.dsl.requirement.RequirementPackage#getCategory_ReferencedObject()
 	 * @model

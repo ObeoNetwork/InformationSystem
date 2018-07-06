@@ -4,6 +4,10 @@
     nsPrefix="technicalid">
   <eClassifiers xsi:type="ecore:EClass" name="Identifiable" abstract="true">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="technicalid" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
-        iD="true"/>
+        iD="true">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Technical identifier of the element."/>
+      </eAnnotations>
+    </eStructuralFeatures>
   </eClassifiers>
 </ecore:EPackage>

@@ -47,6 +47,9 @@ public interface CategoriesContainer extends NamedElement {
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * List of contained categories (and only the directly contained ones).
+	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Owned Categories</em>' reference list.
 	 * @see org.obeonetwork.dsl.requirement.RequirementPackage#getCategoriesContainer_OwnedCategories()
 	 * @model transient="true" changeable="false" volatile="true" derived="true"
@@ -63,6 +66,9 @@ public interface CategoriesContainer extends NamedElement {
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * List of directly contained requirements.
+	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Owned Requirements</em>' reference list.
 	 * @see org.obeonetwork.dsl.requirement.RequirementPackage#getCategoriesContainer_OwnedRequirements()
 	 * @model transient="true" changeable="false" volatile="true" derived="true"

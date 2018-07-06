@@ -46,6 +46,9 @@ public interface NamedElement extends Identifiable {
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * The name of this model element.
+	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Name</em>' attribute.
 	 * @see #setName(String)
 	 * @see org.obeonetwork.dsl.requirement.RequirementPackage#getNamedElement_Name()

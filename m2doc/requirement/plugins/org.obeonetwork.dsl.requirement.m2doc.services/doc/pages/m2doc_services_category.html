@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<!--
+/********************************************************************************
+** Copyright (c) 2016, 2017, 2018, 2019 Obeo.
+** All rights reserved. This program and the accompanying materials
+** are made available under the terms of the Eclipse Public License v1.0
+** which accompanies this distribution, and is available at
+** http://www.eclipse.org/legal/epl-v10.html
+**
+** Contributors:
+**    Obeo - initial API and implementation
+*********************************************************************************/
+-->
+  <head>
+    <meta charset="utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta name="description" content=""/>
+    <meta name="author" content="Obeo"/>
+    <!-- IE6-8 support of HTML elements -->
+    <!--if lt IE 9>
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <!endif-->
+    <link href="../assets/css/bootstrap.css" rel="stylesheet"/>
+    <link href="../assets/css/docs.css" rel="stylesheet"/>
+    <title>M2Doc Services and attributes for Category</title>
+  </head>
+
+  <body>
+   <header class="jumbotron subhead" id="overview">
+  </header>
+
+    <h1 id="Category">Services and attributes for the Category concept</h1>
+    <div class="page-header">
+      <h2 id="Attributes">Attributes</h2>
+    </div>
+    <table class="table table-striped">
+    <thead>
+      <tr>
+        <th colspan="1" rowspan="1">Name</th>
+        <th colspan="1" rowspan="1">Returned type</th>
+        <th colspan="1" rowspan="1">M2Doc Syntax</th>
+        <th colspan="1" rowspan="1">Description</th>
+        <th colspan="1" rowspan="1">Example</th>
+      </tr>
+    </thead>
+  <tbody>
+    <tr>
+      <td colspan="1" rowspan="1"><strong>id</strong></td>
+      <td colspan="1" rowspan="1">EString</td>
+      <td colspan="1" rowspan="1">{m:category.id}</td>
+      <td colspan="1" rowspan="1">Category's identifier.</td>
+      <td colspan="1" rowspan="1">{m:category.id}</td>
+    </tr>
+    <tr>
+      <td colspan="1" rowspan="1"><strong>name</strong></td>
+      <td colspan="1" rowspan="1">EString</td>
+      <td colspan="1" rowspan="1">{m:category.name}</td>
+      <td colspan="1" rowspan="1">The name of this model element.</td>
+      <td colspan="1" rowspan="1">{m:category.name}</td>
+    </tr>
+    <tr>
+      <td colspan="1" rowspan="1"><strong>ownedCategories</strong></td>
+      <td colspan="1" rowspan="1">List of Category</td>
+      <td colspan="1" rowspan="1">{m:category.ownedCategories}</td>
+      <td colspan="1" rowspan="1">List of contained categories (and only the directly contained ones).</td>
+      <td colspan="1" rowspan="1">{m:for category | category.ownedCategories} category {m:category.name}, {m:endfor}</td>
+    </tr>
+    <tr>
+      <td colspan="1" rowspan="1"><strong>ownedRequirements</strong></td>
+      <td colspan="1" rowspan="1">List of Requirement</td>
+      <td colspan="1" rowspan="1">{m:category.ownedRequirements}</td>
+      <td colspan="1" rowspan="1">List of directly contained requirements.</td>
+      <td colspan="1" rowspan="1">{m:for requirement | category.ownedRequirements} requirement {m:requirement.name}, {m:endfor}</td>
+    </tr>
+    <tr>
+      <td colspan="1" rowspan="1"><strong>parentCategory</strong></td>
+      <td colspan="1" rowspan="1">Category</td>
+      <td colspan="1" rowspan="1">{m:category.parentCategory}</td>
+      <td colspan="1" rowspan="1">Parent category containing this one.</td>
+      <td colspan="1" rowspan="1">{m:category.parentCategory}</td>
+    </tr>
+    <tr>
+      <td colspan="1" rowspan="1"><strong>referencedObject</strong></td>
+      <td colspan="1" rowspan="1">List of EObject</td>
+      <td colspan="1" rowspan="1">{m:category.referencedObject}</td>
+      <td colspan="1" rowspan="1">List of the referenced objects.</td>
+      <td colspan="1" rowspan="1">{m:for eObject | category.referencedObject} eObject {m:eObject.name}, {m:endfor}</td>
+    </tr>
+    <tr>
+      <td colspan="1" rowspan="1"><strong>repository</strong></td>
+      <td colspan="1" rowspan="1">Repository</td>
+      <td colspan="1" rowspan="1">{m:category.repository}</td>
+      <td colspan="1" rowspan="1">Repository where the category is contained.</td>
+      <td colspan="1" rowspan="1">{m:category.repository}</td>
+    </tr>
+    <tr>
+      <td colspan="1" rowspan="1"><strong>requirements</strong></td>
+      <td colspan="1" rowspan="1">List of Requirement</td>
+      <td colspan="1" rowspan="1">{m:category.requirements}</td>
+      <td colspan="1" rowspan="1">List of the contained requirements.</td>
+      <td colspan="1" rowspan="1">{m:for requirement | category.requirements} requirement {m:requirement.name}, {m:endfor}</td>
+    </tr>
+    <tr>
+      <td colspan="1" rowspan="1"><strong>subCategories</strong></td>
+      <td colspan="1" rowspan="1">List of Category</td>
+      <td colspan="1" rowspan="1">{m:category.subCategories}</td>
+      <td colspan="1" rowspan="1">List of the contained categories.</td>
+      <td colspan="1" rowspan="1">{m:for category | category.subCategories} category {m:category.name}, {m:endfor}</td>
+    </tr>
+    <tr>
+      <td colspan="1" rowspan="1"><strong>technicalid</strong></td>
+      <td colspan="1" rowspan="1">EString</td>
+      <td colspan="1" rowspan="1">{m:category.technicalid}</td>
+      <td colspan="1" rowspan="1">Technical identifier of the element.</td>
+      <td colspan="1" rowspan="1">{m:category.technicalid}</td>
+    </tr>
+    </tbody>
+    </table>
+    <div class="page-header">
+      <h2 id="Services">Services</h2>
+    </div>
+    <table class="table table-striped">
+    <thead>
+      <tr>
+        <th colspan="1" rowspan="1">Name</th>
+        <th colspan="1" rowspan="1">Returned type</th>
+        <th colspan="1" rowspan="1">M2Doc Syntax</th>
+        <th colspan="1" rowspan="1">Description</th>
+        <th colspan="1" rowspan="1">Example</th>
+      </tr>
+    </thead>
+  <tbody>
+    <tr>
+      <td colspan="1" rowspan="1"><strong>relatedRequirements</strong></td>
+      <td colspan="1" rowspan="1">List of Requirement</td>
+      <td colspan="1" rowspan="1">{m:obj.relatedRequirements()}</td>
+      <td colspan="1" rowspan="1">Returns the set of Requirement that are related to the target object.</td>
+      <td colspan="1" rowspan="1">{m:obj.relatedRequirements()->sep(',')} returns: A comma separated list of related requirements.</td>
+    </tr>
+    <tr>
+      <td colspan="1" rowspan="1"><strong>relatedRequirementsWithSubtype</strong></td>
+      <td colspan="1" rowspan="1">List of Requirement</td>
+      <td colspan="1" rowspan="1">{m:obj.relatedRequirementsWithSubtype('SUBTYPE')}</td>
+      <td colspan="1" rowspan="1">Returns the list of Requirements that reference the target object and that have the specified subtype.</td>
+      <td colspan="1" rowspan="1">{m:obj.relatedRequirementsWithSubtype('performance')->sep(',')} returns: A comma separated list of related requirements of performance subtype.</td>
+    </tr>
+    </tbody>
+    </table>
+  </body>
+
+</html>

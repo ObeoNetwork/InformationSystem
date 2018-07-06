@@ -15,6 +15,8 @@ import java.util.Collection;
 import java.util.Collections;
 import java.util.List;
 
+import org.eclipse.acceleo.annotations.api.documentation.Documentation;
+import org.eclipse.acceleo.annotations.api.documentation.Example;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EStructuralFeature.Setting;
 import org.eclipse.emf.ecore.resource.Resource;
@@ -41,6 +43,16 @@ public class RequirementServices {
 	 * @return the list of {@link Requirement} instances that reference the
 	 *         specified eObject.
 	 */
+	// @formatter:off
+	@Documentation(
+			comment = "{m:obj.relatedRequirements()}",
+		    value = "Returns the set of Requirement that are related to the target object.",
+		    examples = {
+		    		@Example(expression = "{m:obj.relatedRequirements()->sep(',')}", result = "A comma separated list of related requirements.")
+		    }
+
+		)
+		// @formatter:on	
 	public List<Requirement> relatedRequirements(EObject eObject) {
 		List<Requirement> result = new ArrayList<Requirement>();
 		
@@ -86,6 +98,16 @@ public class RequirementServices {
 	 * @return the list of {@link Requirement} instances that reference the
 	 *         specified eObject.
 	 */
+	// @formatter:off
+	@Documentation(
+			comment = "{m:obj.relatedRequirementsWithSubtype('SUBTYPE')}",
+		    value = "Returns the list of Requirements that reference the target object and that have the specified subtype.",
+		    examples = {
+		    		@Example(expression = "{m:obj.relatedRequirementsWithSubtype('performance')->sep(',')}", result = "A comma separated list of related requirements of performance subtype.")
+		    }
+
+		)
+		// @formatter:on	
 	public List<Requirement> relatedRequirementsWithSubtype(EObject eObject, String subtype) {
 		List<Requirement> result = new ArrayList<>();
 		

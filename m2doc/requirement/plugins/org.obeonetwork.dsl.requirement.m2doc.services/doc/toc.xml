@@ -1,19 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <?NLS TYPE="org.eclipse.help.toc"?>
-<!--
-    Copyright (c) 2016, 2017 Obeo.
-    All rights reserved. This program and the accompanying materials
-    are made available under the terms of the Eclipse Public License v1.0
-    which accompanies this distribution, and is available at
-    http://www.eclipse.org/legal/epl-v10.html
-   
-    Contributors:
-        Obeo - initial API and implementation
- -->
-
-<toc label="M2Doc : Requirement&apos;s services" topic="doc/pages/requirement.html">
-<topic href="doc/pages/Repository_services.html" label="Services available for Repository."></topic>
-<topic href="doc/pages/Category_services.html" label="Services available for Category."></topic>
-<topic href="doc/pages/Requirement_services.html" label="Services available for Requirements."></topic>
+<toc label="M2Doc : Requirement's services" topic="doc/pages/index.html">
+<topic href="doc/pages/m2doc_services_category.html" label="M2Doc Services and Attributes for Category"></topic>
+<topic href="doc/pages/m2doc_services_eobject.html" label="M2Doc Services and Attributes for EObject"></topic>
+<topic href="doc/pages/m2doc_services_repository.html" label="M2Doc Services and Attributes for Repository"></topic>
+<topic href="doc/pages/m2doc_services_requirement.html" label="M2Doc Services and Attributes for Requirement"></topic>
 </toc>
-

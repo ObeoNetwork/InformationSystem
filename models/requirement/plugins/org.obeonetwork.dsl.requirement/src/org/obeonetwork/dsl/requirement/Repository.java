@@ -48,6 +48,9 @@ public interface Repository extends CategoriesContainer {
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * List of the root categories of the repository.
+	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Main Categories</em>' containment reference list.
 	 * @see org.obeonetwork.dsl.requirement.RequirementPackage#getRepository_MainCategories()
 	 * @see org.obeonetwork.dsl.requirement.Category#getRepository
@@ -65,6 +68,9 @@ public interface Repository extends CategoriesContainer {
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * List of the objects concerned by this requirement category.
+	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Referenced Object</em>' reference list.
 	 * @see org.obeonetwork.dsl.requirement.RequirementPackage#getRepository_ReferencedObject()
 	 * @model

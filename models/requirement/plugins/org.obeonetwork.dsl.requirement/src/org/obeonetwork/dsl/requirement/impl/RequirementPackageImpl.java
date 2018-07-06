@@ -565,8 +565,158 @@ public class RequirementPackageImpl extends EPackageImpl implements RequirementP
 		createResource(eNS_URI);
 
 		// Create annotations
+		// http://www.eclipse.org/emf/2002/GenModel
+		createGenModelAnnotations();
 		// http://www.eclipse.org/emf/2002/Ecore
 		createEcoreAnnotations();
+	}
+
+	/**
+	 * Initializes the annotations for <b>http://www.eclipse.org/emf/2002/GenModel</b>.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void createGenModelAnnotations() {
+		String source = "http://www.eclipse.org/emf/2002/GenModel";	
+		addAnnotation
+		  (getRepository_MainCategories(), 
+		   source, 
+		   new String[] {
+			 "documentation", "List of the root categories of the repository."
+		   });	
+		addAnnotation
+		  (getRepository_ReferencedObject(), 
+		   source, 
+		   new String[] {
+			 "documentation", "List of the objects concerned by this requirement category."
+		   });	
+		addAnnotation
+		  (getCategory_Requirements(), 
+		   source, 
+		   new String[] {
+			 "documentation", "List of the contained requirements."
+		   });	
+		addAnnotation
+		  (getCategory_SubCategories(), 
+		   source, 
+		   new String[] {
+			 "documentation", "List of the contained categories."
+		   });	
+		addAnnotation
+		  (getCategory_Id(), 
+		   source, 
+		   new String[] {
+			 "documentation", "Category\'s identifier."
+		   });	
+		addAnnotation
+		  (getCategory_Repository(), 
+		   source, 
+		   new String[] {
+			 "documentation", "Repository where the category is contained."
+		   });	
+		addAnnotation
+		  (getCategory_ParentCategory(), 
+		   source, 
+		   new String[] {
+			 "documentation", "Parent category containing this one."
+		   });	
+		addAnnotation
+		  (getCategory_ReferencedObject(), 
+		   source, 
+		   new String[] {
+			 "documentation", "List of the referenced objects."
+		   });	
+		addAnnotation
+		  (getRequirement_Id(), 
+		   source, 
+		   new String[] {
+			 "documentation", "The business identifier of the requirement."
+		   });	
+		addAnnotation
+		  (getRequirement_Version(), 
+		   source, 
+		   new String[] {
+			 "documentation", "The version of the requirement."
+		   });	
+		addAnnotation
+		  (getRequirement_ReferencedObject(), 
+		   source, 
+		   new String[] {
+			 "documentation", "The list of the objects the requirement holds on."
+		   });	
+		addAnnotation
+		  (getRequirement_Statement(), 
+		   source, 
+		   new String[] {
+			 "documentation", "The statement is the text that expresses the requirement."
+		   });	
+		addAnnotation
+		  (getRequirement_Rationale(), 
+		   source, 
+		   new String[] {
+			 "documentation", "The requirement\'s rationale."
+		   });	
+		addAnnotation
+		  (getRequirement_AcceptanceCriteria(), 
+		   source, 
+		   new String[] {
+			 "documentation", "The acceptance criteria shall be meet for the client to accept the specified system."
+		   });	
+		addAnnotation
+		  (getRequirement_Type(), 
+		   source, 
+		   new String[] {
+			 "documentation", "The requirement type can be either functionnal or technical."
+		   });	
+		addAnnotation
+		  (getRequirement_Category(), 
+		   source, 
+		   new String[] {
+			 "documentation", "The category containing the requirement."
+		   });	
+		addAnnotation
+		  (getRequirement_Subtype(), 
+		   source, 
+		   new String[] {
+			 "documentation", "Application dependent requirement type."
+		   });	
+		addAnnotation
+		  (getRequirement_Status(), 
+		   source, 
+		   new String[] {
+			 "documentation", "Application dependent status indicating where the requirement lies in the requirement\'s life cycle."
+		   });	
+		addAnnotation
+		  (getRequirement_CreatedOn(), 
+		   source, 
+		   new String[] {
+			 "documentation", "Date the requirement was created."
+		   });	
+		addAnnotation
+		  (getRequirement_ModifiedOn(), 
+		   source, 
+		   new String[] {
+			 "documentation", "Date the requirement was last modified."
+		   });	
+		addAnnotation
+		  (getNamedElement_Name(), 
+		   source, 
+		   new String[] {
+			 "documentation", "The name of this model element."
+		   });	
+		addAnnotation
+		  (getCategoriesContainer_OwnedCategories(), 
+		   source, 
+		   new String[] {
+			 "documentation", "List of contained categories (and only the directly contained ones)."
+		   });	
+		addAnnotation
+		  (getCategoriesContainer_OwnedRequirements(), 
+		   source, 
+		   new String[] {
+			 "documentation", "List of directly contained requirements."
+		   });
 	}
 
 	/**

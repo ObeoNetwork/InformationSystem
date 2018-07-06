@@ -58,6 +58,9 @@ public interface Requirement extends NamedElement {
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * The business identifier of the requirement.
+	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Id</em>' attribute.
 	 * @see #setId(String)
 	 * @see org.obeonetwork.dsl.requirement.RequirementPackage#getRequirement_Id()
@@ -85,6 +88,9 @@ public interface Requirement extends NamedElement {
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * The version of the requirement.
+	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Version</em>' attribute.
 	 * @see #setVersion(int)
 	 * @see org.obeonetwork.dsl.requirement.RequirementPackage#getRequirement_Version()
@@ -112,6 +118,9 @@ public interface Requirement extends NamedElement {
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * The list of the objects the requirement holds on.
+	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Referenced Object</em>' reference list.
 	 * @see org.obeonetwork.dsl.requirement.RequirementPackage#getRequirement_ReferencedObject()
 	 * @model
@@ -123,6 +132,9 @@ public interface Requirement extends NamedElement {
 	 * Returns the value of the '<em><b>Statement</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * The statement is the text that expresses the requirement.
+	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Statement</em>' attribute.
 	 * @see #setStatement(String)
 	 * @see org.obeonetwork.dsl.requirement.RequirementPackage#getRequirement_Statement()
@@ -145,6 +157,9 @@ public interface Requirement extends NamedElement {
 	 * Returns the value of the '<em><b>Rationale</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * The requirement's rationale.
+	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Rationale</em>' attribute.
 	 * @see #setRationale(String)
 	 * @see org.obeonetwork.dsl.requirement.RequirementPackage#getRequirement_Rationale()
@@ -167,6 +182,9 @@ public interface Requirement extends NamedElement {
 	 * Returns the value of the '<em><b>Acceptance Criteria</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * The acceptance criteria shall be meet for the client to accept the specified system.
+	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Acceptance Criteria</em>' attribute.
 	 * @see #setAcceptanceCriteria(String)
 	 * @see org.obeonetwork.dsl.requirement.RequirementPackage#getRequirement_AcceptanceCriteria()
@@ -194,6 +212,9 @@ public interface Requirement extends NamedElement {
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * The requirement type can be either functionnal or technical.
+	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Type</em>' attribute.
 	 * @see org.obeonetwork.dsl.requirement.RequirementType
 	 * @see #setType(RequirementType)
@@ -223,6 +244,9 @@ public interface Requirement extends NamedElement {
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * The category containing the requirement.
+	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Category</em>' container reference.
 	 * @see #setCategory(Category)
 	 * @see org.obeonetwork.dsl.requirement.RequirementPackage#getRequirement_Category()
@@ -250,6 +274,9 @@ public interface Requirement extends NamedElement {
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * Application dependent requirement type.
+	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Subtype</em>' attribute.
 	 * @see #setSubtype(String)
 	 * @see org.obeonetwork.dsl.requirement.RequirementPackage#getRequirement_Subtype()
@@ -276,6 +303,9 @@ public interface Requirement extends NamedElement {
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * Application dependent status indicating where the requirement lies in the requirement's life cycle.
+	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Status</em>' attribute.
 	 * @see #setStatus(String)
 	 * @see org.obeonetwork.dsl.requirement.RequirementPackage#getRequirement_Status()
@@ -302,6 +332,9 @@ public interface Requirement extends NamedElement {
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * Date the requirement was created.
+	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Created On</em>' attribute.
 	 * @see #setCreatedOn(Date)
 	 * @see org.obeonetwork.dsl.requirement.RequirementPackage#getRequirement_CreatedOn()
@@ -328,6 +361,9 @@ public interface Requirement extends NamedElement {
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * Date the requirement was last modified.
+	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Modified On</em>' attribute.
 	 * @see #setModifiedOn(Date)
 	 * @see org.obeonetwork.dsl.requirement.RequirementPackage#getRequirement_ModifiedOn()
