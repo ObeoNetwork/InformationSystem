@@ -22,6 +22,7 @@ import org.eclipse.sirius.business.api.modelingproject.ModelingProject;
 import org.eclipse.sirius.business.api.session.Session;
 import org.obeonetwork.dsl.manifest.MManifest;
 import org.obeonetwork.tools.projectlibrary.extension.ManifestServices;
+import org.obeonetwork.tools.projectlibrary.imp.LibraryImportException;
 import org.obeonetwork.tools.projectlibrary.util.ZipUtils;
 
 /**
@@ -42,7 +43,7 @@ public class ProjectLibraryExporter {
 	 * @param comment
 	 * @param targetFile
 	 */
-	public void export(ModelingProject project, String projectId, String version, String comment, File targetFile) {
+	public void export(ModelingProject project, String projectId, String version, String comment, File targetFile) throws LibraryImportException {
 		// 1st step: create a new manifest
 		MManifest newManifest = manifestServices.getNewManifest(projectId, version, comment);
 		
@@ -69,7 +70,7 @@ public class ProjectLibraryExporter {
 			addMarManifestToArchive(marManifest, targetFile);
 			
 		} catch (IOException e) {
-			// TODO handle error
+			throw new LibraryImportException("Error while exporting project", e);
 		}
 		
 		// 5th step: save manifest into AIRD for future references

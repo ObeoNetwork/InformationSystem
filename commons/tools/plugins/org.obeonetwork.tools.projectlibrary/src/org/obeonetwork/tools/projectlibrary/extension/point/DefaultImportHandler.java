@@ -78,21 +78,23 @@ public class DefaultImportHandler extends AbstractImportHandler {
 	}
 	
 	private boolean removeResources(Session session, Collection<Resource> resources) {
+		Collection<Resource> deletedResource = new ArrayList<>();
 		if (session instanceof DAnalysisSession) {
 			final DAnalysisSession analysisSession = (DAnalysisSession)session;
 			analysisSession.getTransactionalEditingDomain().getCommandStack().execute(new RecordingCommand(analysisSession.getTransactionalEditingDomain()) {
 				
 				@Override
 				protected void doExecute() {
-					removeResourcesFromSession(analysisSession, resources);
+					deletedResource.addAll(removeResourcesFromSession(analysisSession, resources));
 				}
 			});
 		}
 		
-		return true;
+		return deletedResource.size() == resources.size();
 	}
 	
-	private void removeResourcesFromSession(DAnalysisSession analysisSession, Collection<Resource> resources) {
+	private Collection<Resource> removeResourcesFromSession(DAnalysisSession analysisSession, Collection<Resource> resources) {
+		Collection<Resource> deletedResources = new ArrayList<>();
 		for (Resource resource : resources) {
 			if (analysisSession.getSemanticResources().contains(resource)) {
 				analysisSession.getTransactionalEditingDomain().getCommandStack().execute(new RemoveSemanticResourceCommand(analysisSession, resource, new NullProgressMonitor(), false));
@@ -106,11 +108,12 @@ public class DefaultImportHandler extends AbstractImportHandler {
 			}
 			try {
 				resource.delete(null);
+				deletedResources.add(resource);
 			} catch (IOException e) {
-//				 TODO Auto-generated catch block
-				e.printStackTrace();
+				// Do nothing
 			}
 		}
+		return deletedResources;
 		
 	}
 	

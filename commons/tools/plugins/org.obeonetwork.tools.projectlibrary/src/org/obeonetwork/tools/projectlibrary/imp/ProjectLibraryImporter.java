@@ -85,32 +85,33 @@ public class ProjectLibraryImporter {
 
 	private AbstractImportHandler importHandler;
 	
+	private IConfirmationRunnable confirmationRunnable;
+	
 	/**
 	 * Import MAR file into modeling project
 	 * @param targetProject
 	 * @param marFile
+	 * @param confirmationRunnable
 	 */
-	public void importIntoProject(final ModelingProject targetProject, final File marFile) throws LibraryImportException {
+	public void importIntoProject(final ModelingProject targetProject, final File marFile, final IConfirmationRunnable confirmationRunnable) throws LibraryImportException {
 		this.targetProject = targetProject;
+		this.confirmationRunnable = confirmationRunnable;
 		
 		Manifest importedManifest = null;
 		try {
 			importedManifest = manifestServices.getManifestFromArchive(marFile);
 		} catch (IOException e1) {
-			// TODO handle error
-			return;
+			throw new LibraryImportException("Unable to retrieve manifest from archive file.\n\n Error : " + e1.getMessage());
 		}
 		
 		MManifest importedManifestModel = manifestServices.getModelFromMarManifest(importedManifest);
 		if (importedManifestModel == null) {
-			// TODO handle error
-			return;
+			throw new LibraryImportException("Unable to build manifest from archive file.");
 		}
 		
 		String libraryProjectName = manifestServices.getLibraryProjectName(importedManifestModel);
 		if (libraryProjectName == null) {
-			// TODO handle error
-			return;
+			throw new LibraryImportException("Unable to retrieve library project name from archive file.");
 		}
 		
 		// Call pre-import code
@@ -143,8 +144,7 @@ public class ProjectLibraryImporter {
 	
 				if (!restorableReferences.isEmpty()) {
 					// Some references will not be restored, we have to warn the user
-					// TODO extract this
-//					MessageDialog.openConfirm(null, "", "");
+					continueImport = askForConfirmation("Some references will not be restored. Would you like to continue ?");
 				}
 				if (continueImport == true) {
 					// Delete previous version
@@ -158,8 +158,7 @@ public class ProjectLibraryImporter {
 		try {
 			saveAndCloseEditorsOnTargetProject(targetProject.getSession(), new NullProgressMonitor());
 		} catch (CoreException e1) {
-			// TODO Auto-generated catch block
-			e1.printStackTrace();
+			// Do nothing
 		}
 		
 		// Copy all resources by changing their URI
@@ -173,8 +172,7 @@ public class ProjectLibraryImporter {
 		try {
 			op.run(new NullProgressMonitor());
 		} catch (InvocationTargetException | InterruptedException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+			throw new LibraryImportException("Error while importing objects.\n\nError : " + e.getMessage());
 		}
 		
 		// Restore external references
@@ -192,12 +190,18 @@ public class ProjectLibraryImporter {
 		try {
 			sourceProject.getProject().delete(true, new NullProgressMonitor());
 		} catch (CoreException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+			// Do nothing
 		}
 		
 		// Call post-import code
 		getImportHandler().doPostImport(importData);
+	}
+	
+	private boolean askForConfirmation(String message) {
+		if (confirmationRunnable != null) {
+			return confirmationRunnable.askForConfirmation(message);
+		}
+		return true;
 	}
 	
 	private AbstractImportHandler getImportHandler() {
@@ -249,10 +253,9 @@ public class ProjectLibraryImporter {
 			try {
 				resource.save(null);
 			} catch (IOException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
+				// Do nothing
 			} catch (Exception e2) {
-				e2.printStackTrace();
+				// Do nothing
 			}
 		}
 	}
@@ -329,8 +332,7 @@ public class ProjectLibraryImporter {
 						ModelingProjectManager.INSTANCE.convertToModelingProject(project, monitor);
                     }
                 } catch (IOException e) {
-					// TODO Auto-generated catch block
-					e.printStackTrace();
+					// Do nothing
 				} finally {
                     monitor.done();
                 }
@@ -339,12 +341,13 @@ public class ProjectLibraryImporter {
 		try {
 			op.run(new NullProgressMonitor());
 		} catch (InvocationTargetException | InterruptedException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+			// Do nothing
 		}
 		
         IProject iProject = ResourcesPlugin.getWorkspace().getRoot().getProject(projectName);
-        project = ModelingProject.asModelingProject(iProject).get();
+        if (iProject != null) {
+        	project = ModelingProject.asModelingProject(iProject).get();
+        }
 		return project;
 	}
 	

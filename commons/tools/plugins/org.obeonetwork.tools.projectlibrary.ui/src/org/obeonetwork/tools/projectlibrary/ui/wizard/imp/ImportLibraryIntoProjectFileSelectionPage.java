@@ -30,6 +30,7 @@ import org.eclipse.jface.databinding.viewers.ObservableListContentProvider;
 import org.eclipse.jface.databinding.viewers.ObservableMapLabelProvider;
 import org.eclipse.jface.databinding.viewers.ViewerProperties;
 import org.eclipse.jface.dialogs.IMessageProvider;
+import org.eclipse.jface.dialogs.MessageDialog;
 import org.eclipse.jface.layout.TableColumnLayout;
 import org.eclipse.jface.viewers.ArrayContentProvider;
 import org.eclipse.jface.viewers.ColumnLabelProvider;
@@ -141,11 +142,9 @@ public class ImportLibraryIntoProjectFileSelectionPage extends WizardPage {
 						Manifest manifest = manifestServices.getManifestFromArchive(new File(importFile));
 						extractInfoFromManifest(manifest);
 					} catch (FileNotFoundException e1) {
-						// TODO Error thrown
-						e1.printStackTrace();
+						MessageDialog.openError(getShell(), "Import project as library", "File could not be found.\n\nError : " + e1.getMessage());
 					} catch (IOException e1) {
-						// TODO Error thrown
-						e1.printStackTrace();
+						MessageDialog.openError(getShell(), "Import project as library", "File content could not be retrieved.\n\nError : " + e1.getMessage());
 					}
 					
 					txtMarFile.setText(importFile);

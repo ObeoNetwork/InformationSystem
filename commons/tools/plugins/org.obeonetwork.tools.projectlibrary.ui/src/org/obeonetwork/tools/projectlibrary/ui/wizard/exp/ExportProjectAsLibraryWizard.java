@@ -11,12 +11,9 @@
 package org.obeonetwork.tools.projectlibrary.ui.wizard.exp;
 
 import java.io.File;
-import java.util.ArrayList;
-import java.util.List;
 
 import org.eclipse.core.resources.IProject;
-import org.eclipse.core.resources.IWorkspaceRoot;
-import org.eclipse.core.resources.ResourcesPlugin;
+import org.eclipse.jface.dialogs.MessageDialog;
 import org.eclipse.jface.viewers.IStructuredSelection;
 import org.eclipse.jface.wizard.Wizard;
 import org.eclipse.sirius.business.api.modelingproject.ModelingProject;
@@ -24,6 +21,7 @@ import org.eclipse.sirius.ext.base.Option;
 import org.eclipse.ui.IExportWizard;
 import org.eclipse.ui.IWorkbench;
 import org.obeonetwork.tools.projectlibrary.exp.ProjectLibraryExporter;
+import org.obeonetwork.tools.projectlibrary.imp.LibraryImportException;
 import org.obeonetwork.tools.projectlibrary.ui.wizard.WizardUtils;
 
 /**
@@ -73,10 +71,15 @@ public class ExportProjectAsLibraryWizard extends Wizard implements IExportWizar
 		File targetFile = new File(model.getFilePath());
 		
 		ProjectLibraryExporter exporter = new ProjectLibraryExporter();
-		exporter.export(model.getSelectedModelingProject(),
-				model.getProjectId(),
-				model.getVersion(),
-				model.getComment(), targetFile);
+		try {
+			exporter.export(model.getSelectedModelingProject(),
+					model.getProjectId(),
+					model.getVersion(),
+					model.getComment(), targetFile);
+		} catch (LibraryImportException e) {
+			MessageDialog.openError(getShell(), "Export project as library", "An error occured while exporting project.\n\nError : " + e.getCause());
+			return false;
+		}
 		
 		return true;
 	}

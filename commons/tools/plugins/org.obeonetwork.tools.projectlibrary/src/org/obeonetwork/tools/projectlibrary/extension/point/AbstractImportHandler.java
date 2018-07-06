@@ -89,6 +89,7 @@ public abstract class AbstractImportHandler {
 	 * @param project
 	 * @param resourcesToDelete
 	 * @param projectToRemove
+	 * @return True if all resources have been removed
 	 */
 	abstract public boolean removeImportedProjectAndResources(ModelingProject project, Collection<Resource> resourcesToDelete, MManifest projectToRemove) throws LibraryImportException;
 }

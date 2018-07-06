@@ -26,6 +26,7 @@ import org.eclipse.sirius.business.api.modelingproject.ModelingProject;
 import org.eclipse.sirius.ext.base.Option;
 import org.eclipse.ui.IImportWizard;
 import org.eclipse.ui.IWorkbench;
+import org.obeonetwork.tools.projectlibrary.imp.IConfirmationRunnable;
 import org.obeonetwork.tools.projectlibrary.imp.LibraryImportException;
 import org.obeonetwork.tools.projectlibrary.imp.ProjectLibraryImporter;
 import org.obeonetwork.tools.projectlibrary.ui.wizard.WizardUtils;
@@ -90,7 +91,13 @@ public class ImportLibraryIntoProjectWizard extends Wizard implements IImportWiz
 		
 		ProjectLibraryImporter importer = new ProjectLibraryImporter();
 		try {
-			importer.importIntoProject(model.getModelingProject(), new File(model.getFilepath()));
+			importer.importIntoProject(model.getModelingProject(), new File(model.getFilepath()), new IConfirmationRunnable() {
+				
+				@Override
+				public boolean askForConfirmation(String message) {
+					return MessageDialog.openConfirm(getShell(), "Import project as library", message);
+				}
+			});
 		} catch (LibraryImportException e) {
 			MessageDialog.openError(getShell(), "Import project as library", e.getMessage());
 		}
