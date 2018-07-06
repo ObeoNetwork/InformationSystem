@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+<!--
+/********************************************************************************
+** Copyright (c) 2016, 2017, 2018, 2019 Obeo.
+** All rights reserved. This program and the accompanying materials
+** are made available under the terms of the Eclipse Public License v1.0
+** which accompanies this distribution, and is available at
+** http://www.eclipse.org/legal/epl-v10.html
+**
+** Contributors:
+**    Obeo - initial API and implementation
+*********************************************************************************/
+-->
+  <head>
+    <meta charset="utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta name="description" content=""/>
+    <meta name="author" content="Obeo"/>
+    <!-- IE6-8 support of HTML elements -->
+    <!--if lt IE 9>
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <!endif-->
+    <link href="../assets/css/bootstrap.css" rel="stylesheet"/>
+    <link href="../assets/css/docs.css" rel="stylesheet"/>
+    <title>M2Doc Services and attributes for ViewContainer</title>
+  </head>
+
+  <body>
+   <header class="jumbotron subhead" id="overview">
+  </header>
+
+    <h1 id="ViewContainer">Services and attributes for the ViewContainer concept</h1>
+    <div class="page-header">
+      <h2 id="Attributes">Attributes</h2>
+    </div>
+    <table class="table table-striped">
+    <thead>
+      <tr>
+        <th colspan="1" rowspan="1">Name</th>
+        <th colspan="1" rowspan="1">Returned type</th>
+        <th colspan="1" rowspan="1">M2Doc Syntax</th>
+        <th colspan="1" rowspan="1">Description</th>
+        <th colspan="1" rowspan="1">Example</th>
+      </tr>
+    </thead>
+  <tbody>
+    <tr>
+      <td colspan="1" rowspan="1"><strong>actions</strong></td>
+      <td colspan="1" rowspan="1">List of ViewAction</td>
+      <td colspan="1" rowspan="1">{m:viewContainer.actions}</td>
+      <td colspan="1" rowspan="1">List of the Actions available on this View Element.</td>
+      <td colspan="1" rowspan="1">{m:for viewAction | viewContainer.actions} viewAction {m:viewAction.name}, {m:endfor}</td>
+    </tr>
+    <tr>
+      <td colspan="1" rowspan="1"><strong>behaviours</strong></td>
+      <td colspan="1" rowspan="1">List of Behaviour</td>
+      <td colspan="1" rowspan="1">{m:viewContainer.behaviours}</td>
+      <td colspan="1" rowspan="1"></td>
+      <td colspan="1" rowspan="1">{m:for behaviour | viewContainer.behaviours} behaviour {m:behaviour.name}, {m:endfor}</td>
+    </tr>
+    <tr>
+      <td colspan="1" rowspan="1"><strong>bindingRegistries</strong></td>
+      <td colspan="1" rowspan="1">List of BindingRegistry</td>
+      <td colspan="1" rowspan="1">{m:viewContainer.bindingRegistries}</td>
+      <td colspan="1" rowspan="1"></td>
+      <td colspan="1" rowspan="1">{m:for bindingRegistry | viewContainer.bindingRegistries} bindingRegistry {m:bindingRegistry.name}, {m:endfor}</td>
+    </tr>
+    <tr>
+      <td colspan="1" rowspan="1"><strong>createdOn</strong></td>
+      <td colspan="1" rowspan="1">EDate</td>
+      <td colspan="1" rowspan="1">{m:viewContainer.createdOn}</td>
+      <td colspan="1" rowspan="1"></td>
+      <td colspan="1" rowspan="1">{m:viewContainer.createdOn}</td>
+    </tr>
+    <tr>
+      <td colspan="1" rowspan="1"><strong>description</strong></td>
+      <td colspan="1" rowspan="1">EString</td>
+      <td colspan="1" rowspan="1">{m:viewContainer.description}</td>
+      <td colspan="1" rowspan="1"></td>
+      <td colspan="1" rowspan="1">{m:viewContainer.description}</td>
+    </tr>
+    <tr>
+      <td colspan="1" rowspan="1"><strong>events</strong></td>
+      <td colspan="1" rowspan="1">List of ViewEvent</td>
+      <td colspan="1" rowspan="1">{m:viewContainer.events}</td>
+      <td colspan="1" rowspan="1">List of the View Events this view can handle.</td>
+      <td colspan="1" rowspan="1">{m:for viewEvent | viewContainer.events} viewEvent {m:viewEvent.name}, {m:endfor}</td>
+    </tr>
+    <tr>
+      <td colspan="1" rowspan="1"><strong>keywords</strong></td>
+      <td colspan="1" rowspan="1">List of EString</td>
+      <td colspan="1" rowspan="1">{m:viewContainer.keywords}</td>
+      <td colspan="1" rowspan="1"></td>
+      <td colspan="1" rowspan="1">{m:for eString | viewContainer.keywords} eString {m:eString.name}, {m:endfor}</td>
+    </tr>
+    <tr>
+      <td colspan="1" rowspan="1"><strong>label</strong></td>
+      <td colspan="1" rowspan="1">EString</td>
+      <td colspan="1" rowspan="1">{m:viewContainer.label}</td>
+      <td colspan="1" rowspan="1">The label of this View Element.</td>
+      <td colspan="1" rowspan="1">{m:viewContainer.label}</td>
+    </tr>
+    <tr>
+      <td colspan="1" rowspan="1"><strong>metadatas</strong></td>
+      <td colspan="1" rowspan="1">MetaDataContainer</td>
+      <td colspan="1" rowspan="1">{m:viewContainer.metadatas}</td>
+      <td colspan="1" rowspan="1"></td>
+      <td colspan="1" rowspan="1">{m:viewContainer.metadatas}</td>
+    </tr>
+    <tr>
+      <td colspan="1" rowspan="1"><strong>modifiedOn</strong></td>
+      <td colspan="1" rowspan="1">EDate</td>
+      <td colspan="1" rowspan="1">{m:viewContainer.modifiedOn}</td>
+      <td colspan="1" rowspan="1"></td>
+      <td colspan="1" rowspan="1">{m:viewContainer.modifiedOn}</td>
+    </tr>
+    <tr>
+      <td colspan="1" rowspan="1"><strong>name</strong></td>
+      <td colspan="1" rowspan="1">EString</td>
+      <td colspan="1" rowspan="1">{m:viewContainer.name}</td>
+      <td colspan="1" rowspan="1">The name of this model element.</td>
+      <td colspan="1" rowspan="1">{m:viewContainer.name}</td>
+    </tr>
+    <tr>
+      <td colspan="1" rowspan="1"><strong>ownedElements</strong></td>
+      <td colspan="1" rowspan="1">List of AbstractViewElement</td>
+      <td colspan="1" rowspan="1">{m:viewContainer.ownedElements}</td>
+      <td colspan="1" rowspan="1">List of the directly contained View Elements.</td>
+      <td colspan="1" rowspan="1">{m:for abstractViewElement | viewContainer.ownedElements} abstractViewElement {m:abstractViewElement.name}, {m:endfor}</td>
+    </tr>
+    <tr>
+      <td colspan="1" rowspan="1"><strong>technicalid</strong></td>
+      <td colspan="1" rowspan="1">EString</td>
+      <td colspan="1" rowspan="1">{m:viewContainer.technicalid}</td>
+      <td colspan="1" rowspan="1">Technical identifier of the element.</td>
+      <td colspan="1" rowspan="1">{m:viewContainer.technicalid}</td>
+    </tr>
+    <tr>
+      <td colspan="1" rowspan="1"><strong>version</strong></td>
+      <td colspan="1" rowspan="1">EInt</td>
+      <td colspan="1" rowspan="1">{m:viewContainer.version}</td>
+      <td colspan="1" rowspan="1"></td>
+      <td colspan="1" rowspan="1">{m:viewContainer.version}</td>
+    </tr>
+    <tr>
+      <td colspan="1" rowspan="1"><strong>viewContainerReferences</strong></td>
+      <td colspan="1" rowspan="1">List of ViewContainerReference</td>
+      <td colspan="1" rowspan="1">{m:viewContainer.viewContainerReferences}</td>
+      <td colspan="1" rowspan="1"></td>
+      <td colspan="1" rowspan="1">{m:for viewContainerReference | viewContainer.viewContainerReferences} viewContainerReference {m:viewContainerReference.name}, {m:endfor}</td>
+    </tr>
+    <tr>
+      <td colspan="1" rowspan="1"><strong>viewContainers</strong></td>
+      <td colspan="1" rowspan="1">List of ViewContainer</td>
+      <td colspan="1" rowspan="1">{m:viewContainer.viewContainers}</td>
+      <td colspan="1" rowspan="1"></td>
+      <td colspan="1" rowspan="1">{m:for viewContainer | viewContainer.viewContainers} viewContainer {m:viewContainer.name}, {m:endfor}</td>
+    </tr>
+    <tr>
+      <td colspan="1" rowspan="1"><strong>viewElements</strong></td>
+      <td colspan="1" rowspan="1">List of ViewElement</td>
+      <td colspan="1" rowspan="1">{m:viewContainer.viewElements}</td>
+      <td colspan="1" rowspan="1"></td>
+      <td colspan="1" rowspan="1">{m:for viewElement | viewContainer.viewElements} viewElement {m:viewElement.name}, {m:endfor}</td>
+    </tr>
+    <tr>
+      <td colspan="1" rowspan="1"><strong>widget</strong></td>
+      <td colspan="1" rowspan="1">Widget</td>
+      <td colspan="1" rowspan="1">{m:viewContainer.widget}</td>
+      <td colspan="1" rowspan="1">The Widget defined for this View Element.</td>
+      <td colspan="1" rowspan="1">{m:viewContainer.widget}</td>
+    </tr>
+    </tbody>
+    </table>
+    <div class="page-header">
+      <h2 id="Services">Services</h2>
+    </div>
+    <table class="table table-striped">
+    <thead>
+      <tr>
+        <th colspan="1" rowspan="1">Name</th>
+        <th colspan="1" rowspan="1">Returned type</th>
+        <th colspan="1" rowspan="1">M2Doc Syntax</th>
+        <th colspan="1" rowspan="1">Description</th>
+        <th colspan="1" rowspan="1">Example</th>
+      </tr>
+    </thead>
+  <tbody>
+    <tr>
+      <td colspan="1" rowspan="1"><strong>cinematicIcon</strong></td>
+      <td colspan="1" rowspan="1">org.obeonetwork.m2doc.element.MImage</td>
+      <td colspan="1" rowspan="1">{m:obj.cinematicIcon()}</td>
+      <td colspan="1" rowspan="1">Returns the presentation icon of the target Cinematic element.</td>
+      <td colspan="1" rowspan="1">{m:obj.getCinematicIcon()} returns: The icon of the element.</td>
+    </tr>
+    <tr>
+      <td colspan="1" rowspan="1"><strong>cinematicLabel</strong></td>
+      <td colspan="1" rowspan="1">String</td>
+      <td colspan="1" rowspan="1">{m:obj.cinematicLabel()}</td>
+      <td colspan="1" rowspan="1">Returns the presentation label of the target Cinematic element.</td>
+      <td colspan="1" rowspan="1">{m:obj.getCinematicLabel()} returns: The label of the element.</td>
+    </tr>
+    <tr>
+      <td colspan="1" rowspan="1"><strong>isCinematicObject</strong></td>
+      <td colspan="1" rowspan="1">boolean</td>
+      <td colspan="1" rowspan="1"></td>
+      <td colspan="1" rowspan="1"></td>
+      <td colspan="1" rowspan="1"></td>
+    </tr>
+    <tr>
+      <td colspan="1" rowspan="1"><strong>relatedRequirements</strong></td>
+      <td colspan="1" rowspan="1">List of Requirement</td>
+      <td colspan="1" rowspan="1">{m:obj.relatedRequirements()}</td>
+      <td colspan="1" rowspan="1">Returns the set of Requirement that are related to the target object.</td>
+      <td colspan="1" rowspan="1">{m:obj.relatedRequirements()->sep(',')} returns: A comma separated list of related requirements.</td>
+    </tr>
+    <tr>
+      <td colspan="1" rowspan="1"><strong>relatedRequirementsWithSubtype</strong></td>
+      <td colspan="1" rowspan="1">List of Requirement</td>
+      <td colspan="1" rowspan="1">{m:obj.relatedRequirementsWithSubtype('SUBTYPE')}</td>
+      <td colspan="1" rowspan="1">Returns the list of Requirements that reference the target object and that have the specified subtype.</td>
+      <td colspan="1" rowspan="1">{m:obj.relatedRequirementsWithSubtype('performance')->sep(',')} returns: A comma separated list of related requirements of performance subtype.</td>
+    </tr>
+    <tr>
+      <td colspan="1" rowspan="1"><strong>subElements</strong></td>
+      <td colspan="1" rowspan="1">List of EObject</td>
+      <td colspan="1" rowspan="1">{m:viewContainer.subElements()}</td>
+      <td colspan="1" rowspan="1">Returns the list of the target ViewContainer sub elements, as seen in the Cinematic tree.</td>
+      <td colspan="1" rowspan="1">{m:viewContainer.subElements()} returns: The list of the sub elements.</td>
+    </tr>
+    </tbody>
+    </table>
+  </body>
+
+</html>

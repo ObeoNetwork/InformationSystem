@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<!--
+/********************************************************************************
+** Copyright (c) 2016, 2017, 2018, 2019 Obeo.
+** All rights reserved. This program and the accompanying materials
+** are made available under the terms of the Eclipse Public License v1.0
+** which accompanies this distribution, and is available at
+** http://www.eclipse.org/legal/epl-v10.html
+**
+** Contributors:
+**    Obeo - initial API and implementation
+*********************************************************************************/
+-->
+  <head>
+    <meta charset="utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta name="description" content=""/>
+    <meta name="author" content="Obeo"/>
+    <!-- IE6-8 support of HTML elements -->
+    <!--if lt IE 9>
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <!endif-->
+    <link href="../assets/css/bootstrap.css" rel="stylesheet"/>
+    <link href="../assets/css/docs.css" rel="stylesheet"/>
+    <title>M2Doc Services and attributes for FlowEvent</title>
+  </head>
+
+  <body>
+   <header class="jumbotron subhead" id="overview">
+  </header>
+
+    <h1 id="FlowEvent">Services and attributes for the FlowEvent concept</h1>
+    <div class="page-header">
+      <h2 id="Attributes">Attributes</h2>
+    </div>
+    <table class="table table-striped">
+    <thead>
+      <tr>
+        <th colspan="1" rowspan="1">Name</th>
+        <th colspan="1" rowspan="1">Returned type</th>
+        <th colspan="1" rowspan="1">M2Doc Syntax</th>
+        <th colspan="1" rowspan="1">Description</th>
+        <th colspan="1" rowspan="1">Example</th>
+      </tr>
+    </thead>
+  <tbody>
+    <tr>
+      <td colspan="1" rowspan="1"><strong>behaviours</strong></td>
+      <td colspan="1" rowspan="1">List of Behaviour</td>
+      <td colspan="1" rowspan="1">{m:flowEvent.behaviours}</td>
+      <td colspan="1" rowspan="1"></td>
+      <td colspan="1" rowspan="1">{m:for behaviour | flowEvent.behaviours} behaviour {m:behaviour.name}, {m:endfor}</td>
+    </tr>
+    <tr>
+      <td colspan="1" rowspan="1"><strong>bindingRegistries</strong></td>
+      <td colspan="1" rowspan="1">List of BindingRegistry</td>
+      <td colspan="1" rowspan="1">{m:flowEvent.bindingRegistries}</td>
+      <td colspan="1" rowspan="1"></td>
+      <td colspan="1" rowspan="1">{m:for bindingRegistry | flowEvent.bindingRegistries} bindingRegistry {m:bindingRegistry.name}, {m:endfor}</td>
+    </tr>
+    <tr>
+      <td colspan="1" rowspan="1"><strong>binds</strong></td>
+      <td colspan="1" rowspan="1">List of ViewEvent</td>
+      <td colspan="1" rowspan="1">{m:flowEvent.binds}</td>
+      <td colspan="1" rowspan="1"></td>
+      <td colspan="1" rowspan="1">{m:for viewEvent | flowEvent.binds} viewEvent {m:viewEvent.name}, {m:endfor}</td>
+    </tr>
+    <tr>
+      <td colspan="1" rowspan="1"><strong>createdOn</strong></td>
+      <td colspan="1" rowspan="1">EDate</td>
+      <td colspan="1" rowspan="1">{m:flowEvent.createdOn}</td>
+      <td colspan="1" rowspan="1"></td>
+      <td colspan="1" rowspan="1">{m:flowEvent.createdOn}</td>
+    </tr>
+    <tr>
+      <td colspan="1" rowspan="1"><strong>description</strong></td>
+      <td colspan="1" rowspan="1">EString</td>
+      <td colspan="1" rowspan="1">{m:flowEvent.description}</td>
+      <td colspan="1" rowspan="1"></td>
+      <td colspan="1" rowspan="1">{m:flowEvent.description}</td>
+    </tr>
+    <tr>
+      <td colspan="1" rowspan="1"><strong>keywords</strong></td>
+      <td colspan="1" rowspan="1">List of EString</td>
+      <td colspan="1" rowspan="1">{m:flowEvent.keywords}</td>
+      <td colspan="1" rowspan="1"></td>
+      <td colspan="1" rowspan="1">{m:for eString | flowEvent.keywords} eString {m:eString.name}, {m:endfor}</td>
+    </tr>
+    <tr>
+      <td colspan="1" rowspan="1"><strong>metadatas</strong></td>
+      <td colspan="1" rowspan="1">MetaDataContainer</td>
+      <td colspan="1" rowspan="1">{m:flowEvent.metadatas}</td>
+      <td colspan="1" rowspan="1"></td>
+      <td colspan="1" rowspan="1">{m:flowEvent.metadatas}</td>
+    </tr>
+    <tr>
+      <td colspan="1" rowspan="1"><strong>modifiedOn</strong></td>
+      <td colspan="1" rowspan="1">EDate</td>
+      <td colspan="1" rowspan="1">{m:flowEvent.modifiedOn}</td>
+      <td colspan="1" rowspan="1"></td>
+      <td colspan="1" rowspan="1">{m:flowEvent.modifiedOn}</td>
+    </tr>
+    <tr>
+      <td colspan="1" rowspan="1"><strong>name</strong></td>
+      <td colspan="1" rowspan="1">EString</td>
+      <td colspan="1" rowspan="1">{m:flowEvent.name}</td>
+      <td colspan="1" rowspan="1">The name of this model element.</td>
+      <td colspan="1" rowspan="1">{m:flowEvent.name}</td>
+    </tr>
+    <tr>
+      <td colspan="1" rowspan="1"><strong>technicalid</strong></td>
+      <td colspan="1" rowspan="1">EString</td>
+      <td colspan="1" rowspan="1">{m:flowEvent.technicalid}</td>
+      <td colspan="1" rowspan="1">Technical identifier of the element.</td>
+      <td colspan="1" rowspan="1">{m:flowEvent.technicalid}</td>
+    </tr>
+    <tr>
+      <td colspan="1" rowspan="1"><strong>version</strong></td>
+      <td colspan="1" rowspan="1">EInt</td>
+      <td colspan="1" rowspan="1">{m:flowEvent.version}</td>
+      <td colspan="1" rowspan="1"></td>
+      <td colspan="1" rowspan="1">{m:flowEvent.version}</td>
+    </tr>
+    </tbody>
+    </table>
+    <div class="page-header">
+      <h2 id="Services">Services</h2>
+    </div>
+    <table class="table table-striped">
+    <thead>
+      <tr>
+        <th colspan="1" rowspan="1">Name</th>
+        <th colspan="1" rowspan="1">Returned type</th>
+        <th colspan="1" rowspan="1">M2Doc Syntax</th>
+        <th colspan="1" rowspan="1">Description</th>
+        <th colspan="1" rowspan="1">Example</th>
+      </tr>
+    </thead>
+  <tbody>
+    <tr>
+      <td colspan="1" rowspan="1"><strong>cinematicIcon</strong></td>
+      <td colspan="1" rowspan="1">org.obeonetwork.m2doc.element.MImage</td>
+      <td colspan="1" rowspan="1">{m:obj.cinematicIcon()}</td>
+      <td colspan="1" rowspan="1">Returns the presentation icon of the target Cinematic element.</td>
+      <td colspan="1" rowspan="1">{m:obj.getCinematicIcon()} returns: The icon of the element.</td>
+    </tr>
+    <tr>
+      <td colspan="1" rowspan="1"><strong>cinematicLabel</strong></td>
+      <td colspan="1" rowspan="1">String</td>
+      <td colspan="1" rowspan="1">{m:obj.cinematicLabel()}</td>
+      <td colspan="1" rowspan="1">Returns the presentation label of the target Cinematic element.</td>
+      <td colspan="1" rowspan="1">{m:obj.getCinematicLabel()} returns: The label of the element.</td>
+    </tr>
+    <tr>
+      <td colspan="1" rowspan="1"><strong>getAnnotations</strong></td>
+      <td colspan="1" rowspan="1">List of Annotation</td>
+      <td colspan="1" rowspan="1">{m:flowEvent.getAnnotations()}</td>
+      <td colspan="1" rowspan="1">Returns the list of metadata annotations of the target Flow Event.</td>
+      <td colspan="1" rowspan="1">{m:flowEvent.getAnnotations().title->sep(',')} returns: A comma separated list of Flow Event's annotation titles.</td>
+    </tr>
+    <tr>
+      <td colspan="1" rowspan="1"><strong>isCinematicObject</strong></td>
+      <td colspan="1" rowspan="1">boolean</td>
+      <td colspan="1" rowspan="1"></td>
+      <td colspan="1" rowspan="1"></td>
+      <td colspan="1" rowspan="1"></td>
+    </tr>
+    <tr>
+      <td colspan="1" rowspan="1"><strong>relatedRequirements</strong></td>
+      <td colspan="1" rowspan="1">List of Requirement</td>
+      <td colspan="1" rowspan="1">{m:obj.relatedRequirements()}</td>
+      <td colspan="1" rowspan="1">Returns the set of Requirement that are related to the target object.</td>
+      <td colspan="1" rowspan="1">{m:obj.relatedRequirements()->sep(',')} returns: A comma separated list of related requirements.</td>
+    </tr>
+    <tr>
+      <td colspan="1" rowspan="1"><strong>relatedRequirementsWithSubtype</strong></td>
+      <td colspan="1" rowspan="1">List of Requirement</td>
+      <td colspan="1" rowspan="1">{m:obj.relatedRequirementsWithSubtype('SUBTYPE')}</td>
+      <td colspan="1" rowspan="1">Returns the list of Requirements that reference the target object and that have the specified subtype.</td>
+      <td colspan="1" rowspan="1">{m:obj.relatedRequirementsWithSubtype('performance')->sep(',')} returns: A comma separated list of related requirements of performance subtype.</td>
+    </tr>
+    </tbody>
+    </table>
+  </body>
+
+</html>
