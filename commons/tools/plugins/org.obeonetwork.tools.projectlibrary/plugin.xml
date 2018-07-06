@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <?eclipse version="3.4"?>
 <plugin>
-   <extension-point id="org.obeonetwork.tools.projectlibrary.resourceCopier" name="Resource Copier" schema="schema/org.obeonetwork.tools.projectlibrary.resourceCopier.exsd"/>
+   <extension-point id="org.obeonetwork.tools.projectlibrary.importHandler" name="Import Hanlder" schema="schema/org.obeonetwork.tools.projectlibrary.importHandler.exsd"/>
 
    <extension point="org.eclipse.emf.ecore.generated_package">
       <!-- @generated manifest -->
@@ -23,9 +23,9 @@
             class="org.obeonetwork.tools.projectlibrary.extension.ManifestFeatureExtension"></feature>
    </extension>
    <extension
-         point="org.obeonetwork.tools.projectlibrary.resourceCopier">
-      <resourceCopier
-            class="org.obeonetwork.tools.projectlibrary.extension.point.DefaultResourceCopier">
-      </resourceCopier>
+         point="org.obeonetwork.tools.projectlibrary.importHandler">
+      <importHandler
+            class="org.obeonetwork.tools.projectlibrary.extension.point.DefaultImportHandler">
+      </importHandler>
    </extension>
 </plugin>

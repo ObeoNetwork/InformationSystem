@@ -28,14 +28,14 @@ import org.eclipse.sirius.business.api.modelingproject.ModelingProject;
 import org.eclipse.sirius.business.api.resource.ResourceDescriptor;
 import org.eclipse.sirius.business.api.session.Session;
 import org.eclipse.sirius.viewpoint.ViewpointPackage;
-import org.obeonetwork.tools.projectlibrary.extension.point.IResourceCopier;
+import org.obeonetwork.tools.projectlibrary.extension.point.AbstractImportHandler;
 
 public class ImportData {
 	private static final String SIRIUS_ENVIRONMENT_SCHEME = "environment";
 	
 	private String libraryProjectName;
 	
-	private IResourceCopier resourceCopier;
+	private AbstractImportHandler importHandler;
 	
 	private ModelingProject sourceProject;
 	private ModelingProject targetProject;
@@ -54,7 +54,6 @@ public class ImportData {
 	
 	public ImportData(String libraryProjectName, ModelingProject sourceProject, ModelingProject targetProject) {
 		this.libraryProjectName = libraryProjectName;
-		this.resourceCopier = resourceCopier;
 		this.sourceProject = sourceProject;
 		this.sourceSession = sourceProject.getSession();
 		this.targetProject = targetProject;
@@ -132,7 +131,7 @@ public class ImportData {
 						ResourceDescriptor currentValue = (ResourceDescriptor)o.eGet(attribute);
 						URI representationURI = currentValue.getResourceURI();
 						// We have to change only the resource URI and keep the fragment
-						URI targetRepresentationURI = resourceCopier.getTargetResourceURI(this, representationURI.trimFragment());
+						URI targetRepresentationURI = importHandler.getTargetResourceURI(this, representationURI.trimFragment());
 						targetRepresentationURI = targetRepresentationURI.appendFragment(representationURI.fragment());
 						o.eSet(attribute, new ResourceDescriptor(targetRepresentationURI));
 					} else {
@@ -169,7 +168,7 @@ public class ImportData {
 				}
 			} else {
 				// ResourceDescriptor points to an URI
-				URI targetResourceURI = resourceCopier.getTargetResourceURI(this, resourceURI);
+				URI targetResourceURI = importHandler.getTargetResourceURI(this, resourceURI);
 				if (targetResourceURI != null) {
 					newDescriptor = new ResourceDescriptor(targetResourceURI);
 				}
@@ -239,12 +238,12 @@ public class ImportData {
 		return libraryProjectName;
 	}
 
-	public IResourceCopier getResourceCopier() {
-		return resourceCopier;
+	public AbstractImportHandler getImportHandler() {
+		return importHandler;
 	}
 
-	public void setResourceCopier(IResourceCopier resourceCopier) {
-		this.resourceCopier = resourceCopier;
+	public void setImportHandler(AbstractImportHandler importHandler) {
+		this.importHandler = importHandler;
 	}
 	
 }

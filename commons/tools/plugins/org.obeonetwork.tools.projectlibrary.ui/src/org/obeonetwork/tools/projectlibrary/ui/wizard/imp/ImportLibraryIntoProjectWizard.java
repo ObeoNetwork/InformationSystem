@@ -19,12 +19,14 @@ import org.eclipse.core.resources.IProject;
 import org.eclipse.core.runtime.Platform;
 import org.eclipse.core.runtime.preferences.IEclipsePreferences;
 import org.eclipse.core.runtime.preferences.InstanceScope;
+import org.eclipse.jface.dialogs.MessageDialog;
 import org.eclipse.jface.viewers.IStructuredSelection;
 import org.eclipse.jface.wizard.Wizard;
 import org.eclipse.sirius.business.api.modelingproject.ModelingProject;
 import org.eclipse.sirius.ext.base.Option;
 import org.eclipse.ui.IImportWizard;
 import org.eclipse.ui.IWorkbench;
+import org.obeonetwork.tools.projectlibrary.imp.LibraryImportException;
 import org.obeonetwork.tools.projectlibrary.imp.ProjectLibraryImporter;
 import org.obeonetwork.tools.projectlibrary.ui.wizard.WizardUtils;
 
@@ -87,7 +89,11 @@ public class ImportLibraryIntoProjectWizard extends Wizard implements IImportWiz
 		Map<String, Boolean> originalValues = disableAutomaticEditors();
 		
 		ProjectLibraryImporter importer = new ProjectLibraryImporter();
-		importer.importIntoProject(model.getModelingProject(), new File(model.getFilepath()));
+		try {
+			importer.importIntoProject(model.getModelingProject(), new File(model.getFilepath()));
+		} catch (LibraryImportException e) {
+			MessageDialog.openError(getShell(), "Import project as library", e.getMessage());
+		}
 		
 		resetAutomaticEditors(originalValues);
 		return true;

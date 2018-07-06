@@ -10,6 +10,7 @@
  *******************************************************************************/
 package org.obeonetwork.tools.projectlibrary.extension.point;
 
+import java.io.IOException;
 import java.io.UnsupportedEncodingException;
 import java.net.URLEncoder;
 import java.util.ArrayList;
@@ -18,13 +19,19 @@ import java.util.List;
 
 import org.eclipse.core.resources.IFolder;
 import org.eclipse.core.resources.IProject;
+import org.eclipse.core.runtime.CoreException;
+import org.eclipse.core.runtime.NullProgressMonitor;
 import org.eclipse.core.runtime.Path;
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.resource.ResourceSet;
+import org.eclipse.emf.transaction.RecordingCommand;
+import org.eclipse.sirius.business.api.helper.SiriusUtil;
 import org.eclipse.sirius.business.api.modelingproject.ModelingProject;
 import org.eclipse.sirius.business.api.session.Session;
+import org.eclipse.sirius.business.api.session.danalysis.DAnalysisSession;
+import org.eclipse.sirius.tools.api.command.semantic.RemoveSemanticResourceCommand;
 import org.obeonetwork.dsl.manifest.MManifest;
 import org.obeonetwork.tools.projectlibrary.extension.ManifestServices;
 import org.obeonetwork.tools.projectlibrary.imp.ImportData;
@@ -37,7 +44,7 @@ import com.google.common.base.Joiner;
  * @author Stéphane Thibaudeau
  *
  */
-public class DefaultResourceCopier implements IResourceCopier {
+public class DefaultImportHandler extends AbstractImportHandler {
 
 	@Override
 	public boolean isEnabled(Session session) {
@@ -49,6 +56,64 @@ public class DefaultResourceCopier implements IResourceCopier {
 		return Integer.MAX_VALUE;
 	}
 
+	@Override
+	public boolean removeImportedProjectAndResources(ModelingProject project, Collection<Resource> resourcesToDelete, MManifest projectToRemove) {
+		// Remove the resources
+		boolean removed = removeResources(project.getSession(), resourcesToDelete);
+		
+		if (removed == true) { 
+			// Clean empty folders
+			IFolder librariesFolder = project.getProject().getFolder(ProjectLibraryImporter.IMPORT_FOLDER_NAME);
+			if (librariesFolder != null) {
+				IFolder projectFolder = librariesFolder.getFolder(new ManifestServices().getLibraryProjectName(projectToRemove));
+				// TODO ProgressMonitor
+				try {
+					projectFolder.delete(true, new NullProgressMonitor());
+				} catch (CoreException e) {
+					// Do nothing
+				}
+			}
+		}
+		return removed;
+	}
+	
+	private boolean removeResources(Session session, Collection<Resource> resources) {
+		if (session instanceof DAnalysisSession) {
+			final DAnalysisSession analysisSession = (DAnalysisSession)session;
+			analysisSession.getTransactionalEditingDomain().getCommandStack().execute(new RecordingCommand(analysisSession.getTransactionalEditingDomain()) {
+				
+				@Override
+				protected void doExecute() {
+					removeResourcesFromSession(analysisSession, resources);
+				}
+			});
+		}
+		
+		return true;
+	}
+	
+	private void removeResourcesFromSession(DAnalysisSession analysisSession, Collection<Resource> resources) {
+		for (Resource resource : resources) {
+			if (analysisSession.getSemanticResources().contains(resource)) {
+				analysisSession.getTransactionalEditingDomain().getCommandStack().execute(new RemoveSemanticResourceCommand(analysisSession, resource, new NullProgressMonitor(), false));
+			} else if (analysisSession.getAllSessionResources().contains(resource)) {
+				analysisSession.removeAnalysis(resource);
+			}
+		}
+		for (Resource resource : resources) {
+			for (EObject rootObject : new ArrayList<>(resource.getContents())) {
+				SiriusUtil.delete(rootObject, analysisSession);
+			}
+			try {
+				resource.delete(null);
+			} catch (IOException e) {
+//				 TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}
+		
+	}
+	
 	@Override
 	public Collection<Resource> getResourcesForImportedProject(ModelingProject modelingProject, MManifest manifest) {
 		Collection<Resource> resources = new ArrayList<>();

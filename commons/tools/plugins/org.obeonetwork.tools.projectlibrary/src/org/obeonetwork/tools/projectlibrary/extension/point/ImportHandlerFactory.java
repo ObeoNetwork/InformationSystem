@@ -29,58 +29,58 @@ import org.obeonetwork.tools.projectlibrary.Activator;
  * @author Stéphane Thibaudeau
  *
  */
-public class ResourceCopierFactory {
+public class ImportHandlerFactory {
 	
-	public static final String EXTENSION_POINT_ID_RESOURCE_COPIER = "org.obeonetwork.tools.projectlibrary.resourceCopier";
+	public static final String EXTENSION_POINT_ID_IMPORT_HANDLER = "org.obeonetwork.tools.projectlibrary.importHandler";
 
-	private static List<IResourceCopier> copiers = null;
+	private static List<AbstractImportHandler> handlers = null;
 
-	private ResourceCopierFactory() {
+	private ImportHandlerFactory() {
 		// Singleton, use getInstance() to access the factory
 	}
 	
-	private static ResourceCopierFactory factory = null;
-	public static ResourceCopierFactory getInstance() {
+	private static ImportHandlerFactory factory = null;
+	public static ImportHandlerFactory getInstance() {
 		if (factory == null) {
-			factory = new ResourceCopierFactory();
+			factory = new ImportHandlerFactory();
 		}
 		return factory;
 	}
 	
-	public IResourceCopier getResourceCopier(Session targetSession) {
-		// Ensure copiers have been retrieved from plugins
-		retrieveCopiersFromExtensions();
+	public AbstractImportHandler getImportHandler(Session targetSession) {
+		// Ensure handlers have been retrieved from plugins
+		retrieveHandlersFromExtensions();
 		
-		// Loop on copiers to find the first one which is enabled
-		for (IResourceCopier copier : copiers) {
-			if (copier.isEnabled(targetSession)) {
-				return copier;
+		// Loop on handlers to find the first one which is enabled
+		for (AbstractImportHandler handler : handlers) {
+			if (handler.isEnabled(targetSession)) {
+				return handler;
 			}
 		}
 		
 		return null;
 	}
 	
-	private void retrieveCopiersFromExtensions() {
-		if (copiers == null) {
-			copiers = new ArrayList<>();
+	private void retrieveHandlersFromExtensions() {
+		if (handlers == null) {
+			handlers = new ArrayList<>();
 			IExtensionRegistry extensionRegistry = Platform.getExtensionRegistry();
-			IConfigurationElement[] config = extensionRegistry.getConfigurationElementsFor(EXTENSION_POINT_ID_RESOURCE_COPIER);
+			IConfigurationElement[] config = extensionRegistry.getConfigurationElementsFor(EXTENSION_POINT_ID_IMPORT_HANDLER);
 			for (IConfigurationElement configElement : config) {
 				try {
 					Object o = configElement.createExecutableExtension("class");
-					copiers.add((IResourceCopier)o);
+					handlers.add((AbstractImportHandler)o);
 				} catch (CoreException e) {
 					// Unable to instantiate class => log a warning
-					Activator.getDefault().getLog().log(new Status(IStatus.WARNING, Activator.PLUGIN_ID, "Unable to create resource copier", e));
+					Activator.getDefault().getLog().log(new Status(IStatus.WARNING, Activator.PLUGIN_ID, "Unable to create import handler", e));
 				}
 			}
 			
-			// Sort copiers
-			Collections.sort(copiers, new Comparator<IResourceCopier>() {
+			// Sort handlers
+			Collections.sort(handlers, new Comparator<AbstractImportHandler>() {
 
 				@Override
-				public int compare(IResourceCopier o1, IResourceCopier o2) {
+				public int compare(AbstractImportHandler o1, AbstractImportHandler o2) {
 					if (o2 == null) {
 						return 1;
 					}

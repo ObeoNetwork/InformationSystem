@@ -19,11 +19,7 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Date;
-import java.util.HashMap;
-import java.util.HashSet;
 import java.util.List;
-import java.util.Map;
-import java.util.Set;
 import java.util.jar.Manifest;
 
 import org.eclipse.core.resources.IProject;
@@ -34,7 +30,6 @@ import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.core.runtime.NullProgressMonitor;
 import org.eclipse.core.runtime.SubMonitor;
 import org.eclipse.core.runtime.SubProgressMonitor;
-import org.eclipse.emf.cdo.util.CommitException;
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EStructuralFeature.Setting;
@@ -61,17 +56,12 @@ import org.eclipse.sirius.viewpoint.provider.Messages;
 import org.eclipse.ui.actions.WorkspaceModifyOperation;
 import org.obeonetwork.dsl.manifest.MManifest;
 import org.obeonetwork.tools.projectlibrary.extension.ManifestServices;
-import org.obeonetwork.tools.projectlibrary.extension.point.IResourceCopier;
-import org.obeonetwork.tools.projectlibrary.extension.point.ResourceCopierFactory;
+import org.obeonetwork.tools.projectlibrary.extension.point.AbstractImportHandler;
+import org.obeonetwork.tools.projectlibrary.extension.point.ImportHandlerFactory;
 import org.obeonetwork.tools.projectlibrary.util.ProjectLibraryUtils;
 import org.obeonetwork.tools.projectlibrary.util.RestorableReference;
 import org.obeonetwork.tools.projectlibrary.util.SessionUtils;
 import org.obeonetwork.tools.projectlibrary.util.ZipUtils;
-
-import fr.obeo.dsl.viewpoint.collab.api.CDOImporter;
-import fr.obeo.dsl.viewpoint.collab.api.CDORepositoryManager;
-import fr.obeo.dsl.viewpoint.collab.api.RepositoryConnectionException;
-import fr.obeo.dsl.viewpoint.collab.api.remotesession.CollaborativeSession;
 
 /**
  * Import a zipped library into a modeling project 
@@ -89,16 +79,20 @@ public class ProjectLibraryImporter {
 
 	private ProjectLibraryUtils projectLibraryUtils = new ProjectLibraryUtils();
 	
+	private ModelingProject targetProject;
+	
 	private ImportData importData;
 
-	private IResourceCopier resourceCopier;
+	private AbstractImportHandler importHandler;
 	
 	/**
 	 * Import MAR file into modeling project
 	 * @param targetProject
 	 * @param marFile
 	 */
-	public void importIntoProject(final ModelingProject targetProject, final File marFile) {
+	public void importIntoProject(final ModelingProject targetProject, final File marFile) throws LibraryImportException {
+		this.targetProject = targetProject;
+		
 		Manifest importedManifest = null;
 		try {
 			importedManifest = manifestServices.getManifestFromArchive(marFile);
@@ -119,12 +113,24 @@ public class ProjectLibraryImporter {
 			return;
 		}
 		
+		// Call pre-import code
+		boolean continueImport = true;
+		try {
+			continueImport = getImportHandler().doPreImport(targetProject, importedManifestModel);
+		} catch (LibraryImportException e) {
+			throw e;
+		}
+		// Import if required
+		if (continueImport == false) {
+			return;
+		}
+		
 		// First, let's create a temporary modeling project
 		ModelingProject sourceProject = createTempModelingProjectFromMAR(marFile);
 
 		// Create ImportData used to do the import
 		importData = new ImportData(libraryProjectName, sourceProject, targetProject);
-		importData.setResourceCopier(getResourceCopier());
+		importData.setImportHandler(getImportHandler());
 
 		// Check if references could be restored when we import a project for the second time
 		Collection<RestorableReference> restorableReferences = new ArrayList<>();
@@ -135,7 +141,6 @@ public class ProjectLibraryImporter {
 			if (!externalReferences.isEmpty()) {
 				restorableReferences = projectLibraryUtils.getRestorableReferences(externalReferences, resourcesToDelete, importData.getSourceSession());
 	
-				boolean continueImport = true;
 				if (!restorableReferences.isEmpty()) {
 					// Some references will not be restored, we have to warn the user
 					// TODO extract this
@@ -190,60 +195,16 @@ public class ProjectLibraryImporter {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+		
+		// Call post-import code
+		getImportHandler().doPostImport(importData);
 	}
 	
-	private void exportRessourcesToProject() {
-		Set<URI> localResourceToExports = new HashSet<>();
-		CDORepositoryManager repositoryManager = null;
-		Map<String, String> localToRemoteResourceURIMapping = new HashMap<>();
-		
-		String remoteProjectName = "d";
-		
-		for (Resource semanticResource : importData.getSourceSemanticResources()) {
-			localResourceToExports.add(semanticResource.getURI());
-			localToRemoteResourceURIMapping.put(semanticResource.getURI().toString(), getTargetResourcePath(importData, remoteProjectName, semanticResource.getURI()));
+	private AbstractImportHandler getImportHandler() {
+		if (importHandler == null) {
+			importHandler = ImportHandlerFactory.getInstance().getImportHandler(targetProject.getSession());
 		}
-		for (Resource graphicalResource : importData.getSourceGraphicalResources()) {
-			localResourceToExports.add(graphicalResource.getURI());
-			localToRemoteResourceURIMapping.put(graphicalResource.getURI().toString(), getTargetResourcePath(importData, remoteProjectName, graphicalResource.getURI()));
-		}
-		Session session = importData.getTargetSession();
-		if (session instanceof CollaborativeSession) {
-			CollaborativeSession collabSession = (CollaborativeSession)session;
-			repositoryManager = collabSession.getRepositoryManager();
-		}
-		
-		try {
-			new CDOImporter().importLocalFilesIntoRepository(localResourceToExports , repositoryManager, false, false, localToRemoteResourceURIMapping, false, new NullProgressMonitor());
-		} catch (RepositoryConnectionException | CommitException | CoreException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-	}
-	
-	private String getTargetResourcePath(ImportData importData, String remoteProjectName, URI sourceURI) {
-		List<String> segments = new ArrayList<String>(sourceURI.segmentsList());
-
-		if (sourceURI.isPlatformResource()) {
-			// Remove "resource" and project's name
-			segments.remove(0);
-			segments.remove(0);
-			
-			// Add destination folder to the resource path segments
-			segments.add(0, "librairievirtuelle");
-			segments.add(0, ProjectLibraryImporter.IMPORT_FOLDER_NAME);
-			segments.add(0, remoteProjectName);
-			return String.join("/", segments);
-		}
-		
-		return null;
-	}
-	
-	private IResourceCopier getResourceCopier() {
-		if (resourceCopier == null) {
-			resourceCopier = ResourceCopierFactory.getInstance().getResourceCopier(importData.getTargetSession());
-		}
-		return resourceCopier;
+		return importHandler;
 	}
 		
 	private void copyAllObjects() {
@@ -252,7 +213,7 @@ public class ProjectLibraryImporter {
 		
 		// Copy semantic resources
 		for (Resource semanticResource : importData.getSourceSemanticResources()) {
-			Resource copiedResource = getResourceCopier().copyResource(importData, semanticResource);
+			Resource copiedResource = getImportHandler().copyResource(importData, semanticResource);
 			if (copiedResource != null) {
 				targetSemanticResources.add(copiedResource);
 			}
@@ -260,7 +221,7 @@ public class ProjectLibraryImporter {
 		
 		// Copy graphical resources
 		for (Resource graphicalResource : importData.getSourceGraphicalResources()) {
-			Resource copiedResource = getResourceCopier().copyResource(importData, graphicalResource);
+			Resource copiedResource = getImportHandler().copyResource(importData, graphicalResource);
 			if (copiedResource != null) {
 				targetGraphicalResources.add(copiedResource);
 			}

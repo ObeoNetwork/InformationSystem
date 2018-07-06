@@ -21,6 +21,7 @@ import org.eclipse.ui.dialogs.ElementListSelectionDialog;
 import org.eclipse.ui.handlers.HandlerUtil;
 import org.obeonetwork.dsl.manifest.MManifest;
 import org.obeonetwork.tools.projectlibrary.extension.ManifestServices;
+import org.obeonetwork.tools.projectlibrary.imp.LibraryImportException;
 import org.obeonetwork.tools.projectlibrary.ui.Activator;
 import org.obeonetwork.tools.projectlibrary.util.ProjectLibraryUtils;
 
@@ -81,7 +82,11 @@ public class RemoveLibraryHandler extends AbstractHandler {
 					
 					if (confirm == true) {
 						// Remove the resources and the imported manifest
-						util.removeImportedProjectAndResources(modelingProject, resourcesToDelete, projectToRemove);
+						try {
+							util.removeImportedProjectAndResources(modelingProject, resourcesToDelete, projectToRemove);
+						} catch (LibraryImportException e) {
+							MessageDialog.openError(shell, "Remove project library", e.getMessage());
+						}
 					}
 				}
 			}

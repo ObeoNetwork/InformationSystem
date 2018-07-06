@@ -10,15 +10,10 @@
  *******************************************************************************/
 package org.obeonetwork.tools.projectlibrary.util;
 
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 
-import org.eclipse.core.resources.IFolder;
-import org.eclipse.core.resources.IResource;
-import org.eclipse.core.runtime.CoreException;
-import org.eclipse.core.runtime.NullProgressMonitor;
 import org.eclipse.emf.common.util.TreeIterator;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EStructuralFeature;
@@ -26,19 +21,15 @@ import org.eclipse.emf.ecore.EStructuralFeature.Setting;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.util.ECrossReferenceAdapter;
 import org.eclipse.emf.edit.command.SetCommand;
-import org.eclipse.emf.transaction.RecordingCommand;
 import org.eclipse.emf.transaction.TransactionalEditingDomain;
-import org.eclipse.sirius.business.api.helper.SiriusUtil;
 import org.eclipse.sirius.business.api.modelingproject.ModelingProject;
 import org.eclipse.sirius.business.api.session.Session;
-import org.eclipse.sirius.business.api.session.danalysis.DAnalysisSession;
-import org.eclipse.sirius.tools.api.command.semantic.RemoveSemanticResourceCommand;
 import org.eclipse.sirius.viewpoint.ViewpointPackage;
 import org.obeonetwork.dsl.manifest.MManifest;
 import org.obeonetwork.tools.projectlibrary.extension.ManifestServices;
-import org.obeonetwork.tools.projectlibrary.extension.point.IResourceCopier;
-import org.obeonetwork.tools.projectlibrary.extension.point.ResourceCopierFactory;
-import org.obeonetwork.tools.projectlibrary.imp.ProjectLibraryImporter;
+import org.obeonetwork.tools.projectlibrary.extension.point.AbstractImportHandler;
+import org.obeonetwork.tools.projectlibrary.extension.point.ImportHandlerFactory;
+import org.obeonetwork.tools.projectlibrary.imp.LibraryImportException;
 
 /**
  * Utilities around Project libraries
@@ -84,66 +75,18 @@ public class ProjectLibraryUtils {
 	 * @param projectToRemove
 	 * @return
 	 */
-	public boolean removeImportedProjectAndResources(ModelingProject project, Collection<Resource> resourcesToDelete, MManifest projectToRemove) {
-		// Remove the resources
-		boolean removed = removeResources(project.getSession(), resourcesToDelete);
+	public boolean removeImportedProjectAndResources(ModelingProject project, Collection<Resource> resourcesToDelete, MManifest projectToRemove) throws LibraryImportException {
+		AbstractImportHandler importHandler = ImportHandlerFactory.getInstance().getImportHandler(project.getSession());
+		
+		boolean removed = importHandler.removeImportedProjectAndResources(project, resourcesToDelete, projectToRemove);
 		if (removed == true) {
 			// Remove the manifest from the imported manifests
 			new ManifestServices().removeImportedManifestFromSession(project.getSession(), projectToRemove);
 		}
 		
-		// Clean empty folders
-		IFolder librariesFolder = project.getProject().getFolder(ProjectLibraryImporter.IMPORT_FOLDER_NAME);
-		if (librariesFolder != null) {
-			IFolder projectFolder = librariesFolder.getFolder(new ManifestServices().getLibraryProjectName(projectToRemove));
-			// TODO ProgressMonitor
-			try {
-				projectFolder.delete(true, new NullProgressMonitor());
-			} catch (CoreException e) {
-				// Do nothing
-			}
-		}
-		
 		return removed;
 	}
 	
-	private boolean removeResources(Session session, Collection<Resource> resources) {
-		if (session instanceof DAnalysisSession) {
-			final DAnalysisSession analysisSession = (DAnalysisSession)session;
-			analysisSession.getTransactionalEditingDomain().getCommandStack().execute(new RecordingCommand(analysisSession.getTransactionalEditingDomain()) {
-				
-				@Override
-				protected void doExecute() {
-					removeResourcesFromSession(analysisSession, resources);
-				}
-			});
-		}
-		
-		return true;
-	}
-	
-	private void removeResourcesFromSession(DAnalysisSession analysisSession, Collection<Resource> resources) {
-		for (Resource resource : resources) {
-			if (analysisSession.getSemanticResources().contains(resource)) {
-				analysisSession.getTransactionalEditingDomain().getCommandStack().execute(new RemoveSemanticResourceCommand(analysisSession, resource, new NullProgressMonitor(), false));
-			} else if (analysisSession.getAllSessionResources().contains(resource)) {
-				analysisSession.removeAnalysis(resource);
-			}
-		}
-		for (Resource resource : resources) {
-			for (EObject rootObject : new ArrayList<>(resource.getContents())) {
-				SiriusUtil.delete(rootObject, analysisSession);
-			}
-			try {
-				resource.delete(null);
-			} catch (IOException e) {
-//				 TODO Auto-generated catch block
-				e.printStackTrace();
-			}
-		}
-		
-	}
-
 	/**
 	 * Returns external references to objects in the collection of resources
 	 * @param session
@@ -240,10 +183,8 @@ public class ProjectLibraryUtils {
 	 * @return
 	 */
 	public Collection<Resource> getResourcesFromManifest(ModelingProject modelingProject, MManifest projectToRemove) {
-		IResourceCopier resourceCopier = ResourceCopierFactory.getInstance().getResourceCopier(modelingProject.getSession());
-		return resourceCopier.getResourcesForImportedProject(modelingProject, projectToRemove);
+		AbstractImportHandler importHandler = ImportHandlerFactory.getInstance().getImportHandler(modelingProject.getSession());
+		return importHandler.getResourcesForImportedProject(modelingProject, projectToRemove);
 	}
 	
-	
-
 }

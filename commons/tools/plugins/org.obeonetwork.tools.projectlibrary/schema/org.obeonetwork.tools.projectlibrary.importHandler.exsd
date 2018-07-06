@@ -3,10 +3,10 @@
 <schema targetNamespace="org.obeonetwork.tools.projectlibrary" xmlns="http://www.w3.org/2001/XMLSchema">
 <annotation>
       <appinfo>
-         <meta.schema plugin="org.obeonetwork.tools.projectlibrary" id="org.obeonetwork.tools.projectlibrary.resourceCopier" name="Resource Copier"/>
+         <meta.schema plugin="org.obeonetwork.tools.projectlibrary" id="org.obeonetwork.tools.projectlibrary.importHandler" name="Import Handler"/>
       </appinfo>
       <documentation>
-         This extension point allows one to plug in specific code to copy a resource while importing a project library
+         This extension point allows one to plug in specific code to execute when importing a project library
       </documentation>
    </annotation>
 
@@ -18,7 +18,7 @@
       </annotation>
       <complexType>
          <choice minOccurs="1" maxOccurs="unbounded">
-            <element ref="resourceCopier"/>
+            <element ref="importHandler"/>
          </choice>
          <attribute name="point" type="string" use="required">
             <annotation>
@@ -47,7 +47,7 @@
       </complexType>
    </element>
 
-   <element name="resourceCopier">
+   <element name="importHandler">
       <complexType>
          <attribute name="class" type="string" use="required">
             <annotation>
@@ -55,7 +55,7 @@
                   
                </documentation>
                <appinfo>
-                  <meta.attribute kind="java" basedOn=":org.obeonetwork.tools.projectlibrary.extension.point.IResourceCopier"/>
+                  <meta.attribute kind="java" basedOn=":org.obeonetwork.tools.projectlibrary.extension.point.AbstractImportHandler"/>
                </appinfo>
             </annotation>
          </attribute>

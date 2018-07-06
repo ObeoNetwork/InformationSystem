@@ -18,27 +18,47 @@ import org.eclipse.sirius.business.api.modelingproject.ModelingProject;
 import org.eclipse.sirius.business.api.session.Session;
 import org.obeonetwork.dsl.manifest.MManifest;
 import org.obeonetwork.tools.projectlibrary.imp.ImportData;
+import org.obeonetwork.tools.projectlibrary.imp.LibraryImportException;
 
 /**
  * Interface used to define specific code to copy resources when importing a project library
  * @author S. Thibaudeau
  *
  */
-public interface IResourceCopier {
+public abstract class AbstractImportHandler {
+	
+	/**
+	 * Do something before import
+	 * @param targetProject 
+	 * @param importedManifestModel 
+	 * @return
+	 */
+	public boolean doPreImport(ModelingProject targetProject, MManifest importedManifestModel) throws LibraryImportException {
+		return true;
+	}
+	
+	/**
+	 * Do something after import
+	 * @param importDate
+	 * @return
+	 */
+	public boolean doPostImport(ImportData importData) throws LibraryImportException {
+		return true;
+	}
 
 	/**
 	 * Returns true if the resource copier is enabled given the target session
 	 * @param session
 	 * @return
 	 */
-	public boolean isEnabled(Session targetSession);
+	abstract public boolean isEnabled(Session targetSession);
 	
 	/**
 	 * Returns the priority to choose between 2 different copiers which would be both enabled
 	 * Lowest number comes first
 	 * @return
 	 */
-	public int getPriority();
+	abstract public int getPriority();
 	
 	/**
 	 * Copies a resource into the target project
@@ -46,7 +66,7 @@ public interface IResourceCopier {
 	 * @param sourceResource
 	 * @return
 	 */
-	public Resource copyResource(final ImportData importData, final Resource sourceResource);
+	abstract public Resource copyResource(final ImportData importData, final Resource sourceResource);
 	
 	/**
 	 * Returns the target URI corresponding to a source resource
@@ -54,7 +74,7 @@ public interface IResourceCopier {
 	 * @param sourceResourceURI
 	 * @return
 	 */
-	public URI getTargetResourceURI(final ImportData importData, final URI sourceResourceURI);
+	abstract public URI getTargetResourceURI(final ImportData importData, final URI sourceResourceURI);
 	
 	/**
 	 * Returns the resources in the modeling project corresponding to the imported project
@@ -62,5 +82,13 @@ public interface IResourceCopier {
 	 * @param manifest
 	 * @return
 	 */
-	public Collection<Resource> getResourcesForImportedProject(ModelingProject modelingProject, MManifest manifest);
+	abstract public Collection<Resource> getResourcesForImportedProject(ModelingProject modelingProject, MManifest manifest);
+	
+	/**
+	 * Removes the specified resources from the project
+	 * @param project
+	 * @param resourcesToDelete
+	 * @param projectToRemove
+	 */
+	abstract public boolean removeImportedProjectAndResources(ModelingProject project, Collection<Resource> resourcesToDelete, MManifest projectToRemove) throws LibraryImportException;
 }
