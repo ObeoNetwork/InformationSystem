@@ -5,8 +5,8 @@ Element-Type: testcase
 Element-Version: 3.0
 External-Reference: 
 Id: _a-5JUJtWEeaMB4JvYD9iTg
-Runtime-Version: 2.2.0.201706152316
-Save-Time: 7/5/18 10:59 AM
+Runtime-Version: 2.3.0.201806262310
+Save-Time: 7/6/18 11:08 AM
 Testcase-Type: ecl
 
 ------=_.description-216f885c-d591-38ce-8ea2-e4f8cb4d6ffa
@@ -93,7 +93,7 @@ get-editor "main - DTO diagram" | get-diagram -index 1 | get-edit-part -name "ma
     -height 669 -width 1130
 get-view "Model Explorer" | get-tree | select "*E-BookStore" | get-menu "New/Other..." | click
 with [get-window New] {
-    get-tree | select "Information System Designer/Entity Model"
+    get-tree | select "Safr@n/Entity Model"
     get-button "Next >" | click
     get-button Finish | click
 }

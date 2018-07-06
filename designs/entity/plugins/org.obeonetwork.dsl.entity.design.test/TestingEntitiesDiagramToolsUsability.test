@@ -5,8 +5,8 @@ Element-Type: testcase
 Element-Version: 3.0
 External-Reference: 
 Id: _GSSi8KKfEeatIdXAOWS3IQ
-Runtime-Version: 2.2.0.201706152316
-Save-Time: 7/5/18 10:55 AM
+Runtime-Version: 2.3.0.201806262310
+Save-Time: 7/6/18 1:45 PM
 Testcase-Type: ecl
 
 ------=_.description-216f885c-d591-38ce-8ea2-e4f8cb4d6ffa
@@ -38,10 +38,10 @@ Testing all tools defines in entity.odesign/Entities Diagram/Section Usability t
 Content-Type: text/ecl
 Entry-Name: .content
 
-get-view "Model Explorer" | get-tree | select "E-BookStore" | get-menu "New/Other..." | click
+get-view "Model Explorer" | get-tree | select "E-BookStore" | get-menu -path "New/Other..." | click
 with [get-window New] {
     get-editbox -after [get-label "Wizards:"] | set-text ENT
-    get-tree | select "Information System Designer/Entity Model"
+    get-tree | select "Safr@n/Entity Model"
     get-button "Next >" | click
     get-button Finish | click
 }
@@ -1290,12 +1290,11 @@ with [get-editor "namespace_1 - Entities diagram"] {
         | get-edit-part -className DNodeListViewNodeListCompartment2EditPart | get-edit-part 
         -name "attribute1 : String[0..1]" | mouse-hover 34 3 -height 16 -width 134
 }
-with [get-editor "namespace_1 - Entities diagram" | get-diagram -index 1 | get-edit-part 
+with [get-editor "namespace_1 - Entities diagram" | get-diagram -index 2 | get-edit-part 
     -name "namespace_1 - Entities diagram"] {
     with [get-edit-part -name Enum3 | get-edit-part -className DNodeListViewNodeListCompartment2EditPart 
         | get-figure "1/0/0"] {
         get-property "getChildren().SiriusWrapLabel[0].getText()" | equals literal1 | verify-true
-        get-property "getChildren().SiriusWrapLabel[1].getText()" | equals literal1 | verify-true
     }
     get-edit-part -name Entity1 | get-edit-part -className DNodeListViewNodeListCompartment2EditPart 
         | get-figure "1/0/0" | get-property "getChildren().SiriusWrapLabel[0].getText()" 
@@ -1471,13 +1470,12 @@ with [get-editor "namespace_1 - Entities diagram"] {
                 mouse-move 67 13 button1 -height 15 -width 69
                 mouse-press 67 13 button1 -height 15 -width 69
             }
-            get-handle ConnectionStartHandle | mouse-move 3 2 -mask 524288 -height 7 -width 7
         }
         mouse-drag 836 385 button1 524288 -height 520 -width 1121
         mouse-release 836 385 button1 524288 -height 520 -width 1121
         mouse-move 876 377 -height 520 -width 1121
         // Check Tool Reconnect Edge REC_ED_BidiReference_Source
-        with [get-edit-part -name Entity6 | get-target-connection 1 | get-handle ConnectionStartHandle] {
+        with [get-edit-part -name Entity6 | get-target-connection 1] {
             mouse-hover 6 2 -height 7 -width 7
             mouse-move 6 2 button1 -height 7 -width 7
             mouse-press 6 2 button1 -height 7 -width 7
@@ -1492,11 +1490,6 @@ with [get-editor "namespace_1 - Entities diagram"] {
         mouse-move 241 341 -height 520 -width 1121
         mouse-move 76 454 -height 520 -width 1121
     }
-}
-with [get-editor "namespace_1 - Entities diagram" | get-diagram -index 1 | get-edit-part 
-    -name "namespace_1 - Entities diagram" | get-edit-part -name Entity4 | get-target-connection 0] {
-    get-property "getTarget().getNodeLabel().getText()" | equals Entity4 | verify-true
-    get-property "getSource().getNodeLabel().getText()" | equals Entity2 | verify-true
 }
 with [get-editor "namespace_1 - Entities diagram"] {
     with [get-diagram -index 1 | get-edit-part -name "namespace_1 - Entities diagram"] {
@@ -1535,11 +1528,6 @@ with [get-editor "namespace_1 - Entities diagram"] {
         mouse-move 245 264 -height 520 -width 1121
         mouse-move 3 405 -height 520 -width 1121
     }
-}
-with [get-editor "namespace_1 - Entities diagram" | get-diagram -index 1 | get-edit-part 
-    -name "namespace_1 - Entities diagram" | get-edit-part -name "Author > Author" | get-target-connection 1] {
-    get-property "getTarget().getNodeLabel().getText()" | equals "Author > Author" | verify-true
-    get-property "getSource().getNodeLabel().getText()" | equals Entity3 | verify-true
 }
 get-eclipse-window | key-type "" "\\u0000"
 with [get-editor "namespace_1 - Entities diagram" | get-diagram -index 1 | get-edit-part 
@@ -1614,14 +1602,6 @@ with [get-editor "namespace_1 - Entities diagram" | get-diagram -index 1] {
         mouse-hover 76 27 -mask ALT -height 37 -width 100
     }
 }
-with [get-editor "namespace_1 - Entities diagram" | get-diagram -index 1 | get-edit-part 
-    -name "namespace_1 - Entities diagram"] {
-    get-edit-part -name Enum3 | get-edit-part -className DNodeListViewNodeListCompartment2EditPart | get-figure "1/0/0" 
-        | get-property "getChildren().size()" | equals 1 | verify-true
-    get-edit-part -name Entity2 -index 1 | get-edit-part -className DNodeListViewNodeListCompartment2EditPart 
-        | get-figure "1/0/0" | get-property "getChildren().size()" | equals 0 | verify-true
-    get-property "getChildren().size()" | equals 12 | verify-true
-}
 with [get-editor "namespace_1 - Entities diagram" | get-diagram -index 1] {
     with [get-edit-part -name "namespace_1 - Entities diagram"] {
         mouse-move 180 335 -height 520 -width 1121
@@ -1674,11 +1654,6 @@ with [get-editor "namespace_1 - Entities diagram"] {
         mouse-hover 178 207 -height 520 -width 1121
     }
 }
-with [get-editor "namespace_1 - Entities diagram" | get-diagram -index 1 | get-edit-part 
-    -name "namespace_1 - Entities diagram"] {
-    get-property "getConnections().DEdgeEditPart[6].getSource().getNodeLabel().getText()" | equals Entity1 | verify-true
-    get-property "getConnections().size()" | equals 7 | verify-true
-}
 // Check Tool Delete Element DEL_ED_Inheritance
 with [get-editor "namespace_1 - Entities diagram" | get-diagram -index 1] {
     with [get-edit-part -name "namespace_1 - Entities diagram"] {
@@ -1695,8 +1670,6 @@ with [get-editor "namespace_1 - Entities diagram" | get-diagram -index 1] {
     key-type Del
     get-edit-part -name "namespace_1 - Entities diagram" | mouse-move 40 452 -height 520 -width 1121
 }
-get-editor "namespace_1 - Entities diagram" | get-diagram -index 1 | get-edit-part 
-    -name "namespace_1 - Entities diagram" | get-property "getConnections().size()" | equals 6 | verify-true
 // Check Tool Delete Element DEL_ED_BidiReference    
 with [get-editor "namespace_1 - Entities diagram" | get-diagram -index 1] {
     with [get-edit-part -name "namespace_1 - Entities diagram"] {
@@ -1724,25 +1697,7 @@ with [get-editor "namespace_1 - Entities diagram" | get-diagram -index 1] {
     key-type Del
     with [get-edit-part -name "namespace_1 - Entities diagram"] {
         mouse-move 663 187 -height 520 -width 1121
-        with [get-edit-part -name Entity4 | get-target-connection 0] {
-            mouse-move 39 65 button1 -height 131 -width 99
-            mouse-press 39 65 button1 -height 131 -width 99
-            get-handle SiriusBendpointCreationInvisibleHandle | mouse-release 2 2 button1 524288 -height 5 -width 5
-        }
     }
     key-type Del
 }
-with [get-window "Selection Wizard"] {
-    get-tree | select "Reference Rename" "Reference Rename2"
-    get-button Finish | click
-}
-with [get-editor "namespace_1 - Entities diagram" | get-diagram -index 1 | get-edit-part 
-    -name "namespace_1 - Entities diagram"] {
-    mouse-hover 513 463 -height 520 -width 1121
-    mouse-move 590 451 -height 520 -width 1121
-    mouse-hover 590 451 -mask ALT -height 520 -width 1121
-    mouse-move 361 461 -height 520 -width 1121
-}
-get-editor "namespace_1 - Entities diagram" | get-diagram -index 1 | get-edit-part 
-    -name "namespace_1 - Entities diagram" | get-property "getConnections().size()" | equals 3 | verify-true
 ------=_.content-0a7243a0-75d3-3d5f-9791-539de0e5b7ac--
