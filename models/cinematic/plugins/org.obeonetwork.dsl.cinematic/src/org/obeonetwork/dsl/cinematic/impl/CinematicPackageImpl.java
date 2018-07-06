@@ -367,6 +367,50 @@ public class CinematicPackageImpl extends EPackageImpl implements CinematicPacka
 
 		// Create resource
 		createResource(eNS_URI);
+
+		// Create annotations
+		// http://www.eclipse.org/emf/2002/GenModel
+		createGenModelAnnotations();
+	}
+
+	/**
+	 * Initializes the annotations for <b>http://www.eclipse.org/emf/2002/GenModel</b>.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void createGenModelAnnotations() {
+		String source = "http://www.eclipse.org/emf/2002/GenModel";	
+		addAnnotation
+		  (getNamedElement_Name(), 
+		   source, 
+		   new String[] {
+			 "documentation", "The name of this model element."
+		   });	
+		addAnnotation
+		  (getAbstractPackage_Flows(), 
+		   source, 
+		   new String[] {
+			 "documentation", "List of the Flows contained in this package."
+		   });	
+		addAnnotation
+		  (getAbstractPackage_ViewContainers(), 
+		   source, 
+		   new String[] {
+			 "documentation", "List of the View Containers contained in this package."
+		   });	
+		addAnnotation
+		  (getAbstractPackage_SubPackages(), 
+		   source, 
+		   new String[] {
+			 "documentation", "List of the Packages contained in this packages (only the directly contained ones)."
+		   });	
+		addAnnotation
+		  (getCinematicRoot_Toolkits(), 
+		   source, 
+		   new String[] {
+			 "documentation", "List of the Toolkits defined on this Cinematic Root."
+		   });
 	}
 
 } //CinematicPackageImpl

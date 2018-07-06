@@ -43,6 +43,9 @@ public interface AbstractViewElement extends NamedElement, BoundableElement {
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * The Widget defined for this View Element.
+	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Widget</em>' reference.
 	 * @see #setWidget(Widget)
 	 * @see org.obeonetwork.dsl.cinematic.view.ViewPackage#getAbstractViewElement_Widget()
@@ -70,6 +73,9 @@ public interface AbstractViewElement extends NamedElement, BoundableElement {
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * List of the Actions available on this View Element.
+	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Actions</em>' containment reference list.
 	 * @see org.obeonetwork.dsl.cinematic.view.ViewPackage#getAbstractViewElement_Actions()
 	 * @model containment="true" resolveProxies="true"
@@ -86,6 +92,9 @@ public interface AbstractViewElement extends NamedElement, BoundableElement {
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * List of the View Events this view can handle.
+	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Events</em>' containment reference list.
 	 * @see org.obeonetwork.dsl.cinematic.view.ViewPackage#getAbstractViewElement_Events()
 	 * @model containment="true" resolveProxies="true"
@@ -101,6 +110,9 @@ public interface AbstractViewElement extends NamedElement, BoundableElement {
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * The label of this View Element.
+	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Label</em>' attribute.
 	 * @see #setLabel(String)
 	 * @see org.obeonetwork.dsl.cinematic.view.ViewPackage#getAbstractViewElement_Label()

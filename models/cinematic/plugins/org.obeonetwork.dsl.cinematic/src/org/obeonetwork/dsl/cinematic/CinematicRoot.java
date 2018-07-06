@@ -39,6 +39,9 @@ public interface CinematicRoot extends AbstractPackage {
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * List of the Toolkits defined on this Cinematic Root.
+	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Toolkits</em>' reference list.
 	 * @see org.obeonetwork.dsl.cinematic.CinematicPackage#getCinematicRoot_Toolkits()
 	 * @model

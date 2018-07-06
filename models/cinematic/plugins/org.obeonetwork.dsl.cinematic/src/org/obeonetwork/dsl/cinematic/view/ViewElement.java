@@ -38,6 +38,9 @@ public interface ViewElement extends AbstractViewElement {
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * Specifies if this View Element is required.
+	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Required</em>' attribute.
 	 * @see #setRequired(boolean)
 	 * @see org.obeonetwork.dsl.cinematic.view.ViewPackage#getViewElement_Required()
@@ -64,6 +67,9 @@ public interface ViewElement extends AbstractViewElement {
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * The data type this View Element is manipulating.
+	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Type</em>' reference.
 	 * @see #setType(Type)
 	 * @see org.obeonetwork.dsl.cinematic.view.ViewPackage#getViewElement_Type()

@@ -6,7 +6,7 @@ import java.util.Collections;
 import java.util.List;
 
 import org.eclipse.acceleo.annotations.api.documentation.Documentation;
-import org.eclipse.acceleo.annotations.api.documentation.Param;
+import org.eclipse.acceleo.annotations.api.documentation.Example;
 import org.eclipse.emf.common.util.TreeIterator;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
@@ -56,14 +56,15 @@ public class CinematicServices {
 	
 	// @formatter:off
 	@Documentation(
-		    value = "Return the list of metadata annotations from a flowEvent",
-		    params = {
-		        @Param(name = "flowEvent", value = "a flow event"),
-		    },
-		    result = "the list of metadata annotations"
-
+			comment = "{m:flowEvent.getAnnotations()}",
+		    value = "Returns the list of metadata annotations of the target Flow Event.",
+		    examples = {
+		    		@Example(
+		    				expression = "{m:flowEvent.getAnnotations().title->sep(',')}", 
+		    				result = "A comma separated list of Flow Event's annotation titles.")
+		    }
 		)
-		// @formatter:on	
+	// @formatter:on	
 	public List<Annotation> getAnnotations(FlowEvent flowEvent) {
 		MetaDataContainer metadatas = flowEvent.getMetadatas();
 		if (metadatas != null) {
@@ -83,29 +84,31 @@ public class CinematicServices {
 	
 	// @formatter:off
 	@Documentation(
-		    value = "get a label for a cinematic element, regarding how it is displayed in the ISModeler",
-		    params = {
-		        @Param(name = "obj", value = "a cinematic element"),
-		    },
-		    result = "the label"
-
+			comment = "{m:obj.cinematicLabel()}",
+		    value = "Returns the presentation label of the target Cinematic element.",
+		    examples = {
+		    		@Example(
+		    				expression = "{m:obj.getCinematicLabel()}", 
+		    				result = "The label of the element.")
+		    }
 		)
-		// @formatter:on	
+	// @formatter:on	
 	public String cinematicLabel(EObject obj) {
 		return labelService.getCinematicLabel(obj);
 	}
 
 	// @formatter:off
 	@Documentation(
-		    value = "get a label for a cinematic element, regarding how it is displayed in the ISModeler",
-		    params = {
-		        @Param(name = "obj", value = "a cinematic element"),
-		    },
-		    result = "the label"
-
+			comment = "{m:obj.cinematicIcon()}",
+		    value = "Returns the presentation icon of the target Cinematic element.",
+		    examples = {
+		    		@Example(
+		    				expression = "{m:obj.getCinematicIcon()}", 
+		    				result = "The icon of the element.")
+		    }
 		)
-		// @formatter:on	
-	public MImage cinematicIcon (EObject obj) {
+	// @formatter:on	
+	public MImage cinematicIcon(EObject obj) {
 		CinematicItemProviderAdapterFactory cinematicFactory = new CinematicItemProviderAdapterFactory();
 		ViewItemProviderAdapterFactory viewFactory = new ViewItemProviderAdapterFactory();
 		FlowItemProviderAdapterFactory flowFactory = new FlowItemProviderAdapterFactory();
@@ -140,15 +143,15 @@ public class CinematicServices {
 
 	// @formatter:off
 	@Documentation(
-		    value = "Returns tis a vieweElement is required, as String.",
-		    params = {
-		        @Param(name = "viewElement", value = "the view Element"),
-		    },
-		    result = "\"Oui\" si l'element est requis, \"Non\" dans le cas contraire"
-
+			comment = "{m:viewElement.isRequired()}",
+		    value = "Returns the string 'Oui' if the target View Element is required, 'Non' otherwise.",
+		    examples = {
+		    		@Example(
+		    				expression = "{m:viewElement.isRequired()}", 
+		    				result = "'Oui' or 'Non'.")
+		    }
 		)
-		// @formatter:on
-
+	// @formatter:on	
 	public String isRequired(ViewElement viewElement) {
 		if (viewElement.isRequired())
 			return "Oui";
@@ -158,15 +161,16 @@ public class CinematicServices {
 	
 	// @formatter:off
 	@Documentation(
-		    value = "Returns the list of sub elements of the package, as seen in the cinematic tree.",
-		    params = {
-		        @Param(name = "pack", value = "the package"),
-		    },
-		    result = "the list of sub elements of the package"
-
+			comment = "{m:package.subElements()}",
+		    value = "Returns the list of the target package sub elements, as seen in the Cinematic tree.",
+		    examples = {
+		    		@Example(
+		    				expression = "{m:package.subElements()}", 
+		    				result = "The list of the sub elements.")
+		    }
 		)
-		// @formatter:on
-	public List<EObject> subElements (AbstractPackage pack){
+	// @formatter:on	
+	public List<EObject> subElements(AbstractPackage pack){
 		List<EObject>  result = new ArrayList<> ();
 		result.addAll (pack.getSubPackages());
 		result.addAll (pack.getViewContainers());
@@ -179,14 +183,15 @@ public class CinematicServices {
 
 	// @formatter:off
 	@Documentation(
-		    value = "Returns the list of sub elements of the view container, as seen in the cinematic tree.",
-		    params = {
-		        @Param(name = "viewContainer", value = "the view container"),
-		    },
-		    result = "the list of sub elements of the view container"
-
+			comment = "{m:viewContainer.subElements()}",
+		    value = "Returns the list of the target ViewContainer sub elements, as seen in the Cinematic tree.",
+		    examples = {
+		    		@Example(
+		    				expression = "{m:viewContainer.subElements()}", 
+		    				result = "The list of the sub elements.")
+		    }
 		)
-		// @formatter:on
+	// @formatter:on	
 	public List<EObject> subElements (ViewContainer viewContainer) {
 		List<EObject>  result = new ArrayList<> ();
 		result.addAll(viewContainer.getViewContainers());
@@ -199,6 +204,17 @@ public class CinematicServices {
 		return result;
 	}
 	
+	// @formatter:off
+	@Documentation(
+			comment = "{m:cinematicRoot.getAllLinkedDocuments()}",
+		    value = "Returns the list of all documents attached to any of the elements contained in the target Cinematic Root.",
+		    examples = {
+		    		@Example(
+		    				expression = "{m:cinematicRoot.getAllLinkedDocuments()}", 
+		    				result = "The list of all of the documents.")
+		    }
+		)
+	// @formatter:on	
 	public List<Annotation> getAllLinkedDocuments (CinematicRoot cinematicRoot) {
 		TreeIterator<EObject> iterator = cinematicRoot.eAllContents();
 		List<Annotation> result = new ArrayList<Annotation>();
@@ -222,14 +238,15 @@ public class CinematicServices {
 	
 	// @formatter:off
 	@Documentation(
-		    value = "Returns the list of actions states with at least an operation.",
-		    params = {
-		        @Param(name = "cinematicRoot", value = "the cinematic root"),
-		    },
-		    result = "the list of actions states with at least an operation"
-
+			comment = "{m:cinematicRoot.getAllActionStatesWithOperations()}",
+		    value = "Returns the list of all the Action States contained in the target Cinematic Root, having at least one Operation.",
+		    examples = {
+		    		@Example(
+		    				expression = "{m:cinematicRoot.getAllActionStatesWithOperations()}", 
+		    				result = "The list of all the Action States having at least one Operation.")
+		    }
 		)
-		// @formatter:on
+	// @formatter:on	
 	public List<ActionState> getAllActionStatesWithOperations (CinematicRoot cinematicRoot){
 		List<ActionState>  result = new ArrayList<ActionState> ();
 		for (Flow flow : cinematicRoot.getFlows()) {
@@ -248,21 +265,21 @@ public class CinematicServices {
 	
 	// @formatter:off
 	@Documentation(
-	    value = "Returns the list of operation  for boolean true.",
-	    params = {
-	        @Param(name = "actionState", value = "the ActionState"),
-	    },
-	    result = "the list of operations from the action state"
-
-	)
-	// @formatter:on
-	public List<Action> getOperations (ActionState actionState){
+			comment = "{m:actionState.getOperations()}",
+		    value = "Returns the list of all the Operations attached to the target Action State (by way of Flow Actions).",
+		    examples = {
+		    		@Example(
+		    				expression = "{m:actionState.getOperations()}", 
+		    				result = "The list Operations attached to the target Action State.")
+		    }
+		)
+	// @formatter:on	
+	public List<Action> getOperations(ActionState actionState) {
 		List<Action> result = new ArrayList<>();
 		for (FlowAction flowAction : actionState.getActions()) {
 			result.addAll(flowAction.getOperations());
 		}
 		return result;
 	}
-
 	
 }

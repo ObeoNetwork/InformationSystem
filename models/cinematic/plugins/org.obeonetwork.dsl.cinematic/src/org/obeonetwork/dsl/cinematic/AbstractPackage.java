@@ -42,6 +42,9 @@ public interface AbstractPackage extends NamedElement {
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * List of the Flows contained in this package.
+	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Flows</em>' containment reference list.
 	 * @see org.obeonetwork.dsl.cinematic.CinematicPackage#getAbstractPackage_Flows()
 	 * @model containment="true" resolveProxies="true"
@@ -58,6 +61,9 @@ public interface AbstractPackage extends NamedElement {
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * List of the View Containers contained in this package.
+	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>View Containers</em>' containment reference list.
 	 * @see org.obeonetwork.dsl.cinematic.CinematicPackage#getAbstractPackage_ViewContainers()
 	 * @model containment="true" resolveProxies="true"
@@ -74,6 +80,9 @@ public interface AbstractPackage extends NamedElement {
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * List of the Packages contained in this packages (only the directly contained ones).
+	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Sub Packages</em>' containment reference list.
 	 * @see org.obeonetwork.dsl.cinematic.CinematicPackage#getAbstractPackage_SubPackages()
 	 * @model containment="true" resolveProxies="true"

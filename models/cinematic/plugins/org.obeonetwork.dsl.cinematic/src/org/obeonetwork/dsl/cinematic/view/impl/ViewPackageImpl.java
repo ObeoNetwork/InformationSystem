@@ -437,6 +437,62 @@ public class ViewPackageImpl extends EPackageImpl implements ViewPackage {
 
 		initEClass(viewContainerReferenceEClass, ViewContainerReference.class, "ViewContainerReference", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getViewContainerReference_ViewContainer(), this.getViewContainer(), null, "viewContainer", null, 1, 1, ViewContainerReference.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		// Create annotations
+		// http://www.eclipse.org/emf/2002/GenModel
+		createGenModelAnnotations();
+	}
+
+	/**
+	 * Initializes the annotations for <b>http://www.eclipse.org/emf/2002/GenModel</b>.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void createGenModelAnnotations() {
+		String source = "http://www.eclipse.org/emf/2002/GenModel";	
+		addAnnotation
+		  (getAbstractViewElement_Widget(), 
+		   source, 
+		   new String[] {
+			 "documentation", "The Widget defined for this View Element."
+		   });	
+		addAnnotation
+		  (getAbstractViewElement_Actions(), 
+		   source, 
+		   new String[] {
+			 "documentation", "List of the Actions available on this View Element."
+		   });	
+		addAnnotation
+		  (getAbstractViewElement_Events(), 
+		   source, 
+		   new String[] {
+			 "documentation", "List of the View Events this view can handle."
+		   });	
+		addAnnotation
+		  (getAbstractViewElement_Label(), 
+		   source, 
+		   new String[] {
+			 "documentation", "The label of this View Element."
+		   });	
+		addAnnotation
+		  (getViewContainer_OwnedElements(), 
+		   source, 
+		   new String[] {
+			 "documentation", "List of the directly contained View Elements."
+		   });	
+		addAnnotation
+		  (getViewElement_Required(), 
+		   source, 
+		   new String[] {
+			 "documentation", "Specifies if this View Element is required."
+		   });	
+		addAnnotation
+		  (getViewElement_Type(), 
+		   source, 
+		   new String[] {
+			 "documentation", "The data type this View Element is manipulating."
+		   });
 	}
 
 } //ViewPackageImpl
