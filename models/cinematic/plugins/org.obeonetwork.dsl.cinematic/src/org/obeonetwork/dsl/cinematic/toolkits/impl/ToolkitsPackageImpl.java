@@ -105,6 +105,7 @@ public class ToolkitsPackageImpl extends EPackageImpl implements ToolkitsPackage
 
 		// Initialize simple dependencies
 		EnvironmentPackage.eINSTANCE.eClass();
+		TechnicalIDPackage.eINSTANCE.eClass();
 
 		// Obtain or create and register interdependencies
 		CinematicPackageImpl theCinematicPackage = (CinematicPackageImpl)(EPackage.Registry.INSTANCE.getEPackage(CinematicPackage.eNS_URI) instanceof CinematicPackageImpl ? EPackage.Registry.INSTANCE.getEPackage(CinematicPackage.eNS_URI) : CinematicPackage.eINSTANCE);

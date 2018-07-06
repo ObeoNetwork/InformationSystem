@@ -34,30 +34,33 @@ public enum MultiplicityKind implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	ZERO_ONE_LITERAL(0, "ZERO_ONE", "0..1"), /**
-												* The '<em><b>ONE</b></em>' literal object.
-												* <!-- begin-user-doc -->
-												 * <!-- end-user-doc -->
-												* @see #ONE
-												* @generated
-												* @ordered
-												*/
-	ONE_LITERAL(1, "ONE", "1"), /**
-								* The '<em><b>ZERO STAR</b></em>' literal object.
-								* <!-- begin-user-doc -->
-								 * <!-- end-user-doc -->
-								* @see #ZERO_STAR
-								* @generated
-								* @ordered
-								*/
-	ZERO_STAR_LITERAL(2, "ZERO_STAR", "0..*"), /**
-												* The '<em><b>ONE STAR</b></em>' literal object.
-												* <!-- begin-user-doc -->
-												 * <!-- end-user-doc -->
-												* @see #ONE_STAR
-												* @generated
-												* @ordered
-												*/
+	ZERO_ONE_LITERAL(0, "ZERO_ONE", "0..1"),
+	/**
+	 * The '<em><b>ONE</b></em>' literal object.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #ONE
+	 * @generated
+	 * @ordered
+	 */
+	ONE_LITERAL(1, "ONE", "1"),
+	/**
+	 * The '<em><b>ZERO STAR</b></em>' literal object.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #ZERO_STAR
+	 * @generated
+	 * @ordered
+	 */
+	ZERO_STAR_LITERAL(2, "ZERO_STAR", "0..*"),
+	/**
+	 * The '<em><b>ONE STAR</b></em>' literal object.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #ONE_STAR
+	 * @generated
+	 * @ordered
+	 */
 	ONE_STAR_LITERAL(3, "ONE_STAR", "1..*");
 	/**
 	 * <!-- begin-user-doc -->

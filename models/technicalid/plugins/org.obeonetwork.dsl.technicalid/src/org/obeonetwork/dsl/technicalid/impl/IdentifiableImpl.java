@@ -24,10 +24,10 @@ import org.obeonetwork.dsl.technicalid.TechnicalIDPackage;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link org.obeonetwork.dsl.technicalid.impl.IdentifiableImpl#getTechnicalid <em>Technicalid</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */

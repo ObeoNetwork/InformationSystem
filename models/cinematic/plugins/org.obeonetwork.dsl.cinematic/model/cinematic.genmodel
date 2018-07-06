@@ -4,8 +4,8 @@
     modelDirectory="/org.obeonetwork.dsl.cinematic/src" creationIcons="false" modelPluginID="org.obeonetwork.dsl.cinematic"
     modelName="Cinematic" rootExtendsInterface="org.eclipse.emf.cdo.CDOObject" rootExtendsClass="org.eclipse.emf.internal.cdo.CDOObjectImpl"
     importerID="org.eclipse.emf.importer.cdo" featureDelegation="Dynamic" containmentProxies="true"
-    complianceLevel="5.0" copyrightFields="false" runtimeVersion="2.6" language=""
-    usedGenPackages="../../org.obeonetwork.dsl.environment/model/environment.genmodel#//environment ../../org.obeonetwork.dsl.technicalid/model/technicalid.genmodel#//technicalid">
+    complianceLevel="5.0" suppressGenModelAnnotations="false" copyrightFields="false"
+    runtimeVersion="2.6" language="" usedGenPackages="../../org.obeonetwork.dsl.environment/model/environment.genmodel#//environment ../../org.obeonetwork.dsl.technicalid/model/technicalid.genmodel#//technicalid">
   <foreignModel>cinematic.ecore</foreignModel>
   <modelPluginVariables>CDO=org.eclipse.emf.cdo</modelPluginVariables>
   <genPackages prefix="Cinematic" basePackage="org.obeonetwork.dsl" resource="XMI"

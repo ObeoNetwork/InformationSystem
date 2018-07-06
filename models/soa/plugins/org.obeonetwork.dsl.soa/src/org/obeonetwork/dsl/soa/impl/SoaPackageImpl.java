@@ -31,6 +31,7 @@ import org.obeonetwork.dsl.soa.SoaFactory;
 import org.obeonetwork.dsl.soa.SoaPackage;
 import org.obeonetwork.dsl.soa.SynchronizationKind;
 import org.obeonetwork.dsl.soa.Wire;
+import org.obeonetwork.dsl.technicalid.TechnicalIDPackage;
 
 /**
  * <!-- begin-user-doc -->
@@ -185,6 +186,7 @@ public class SoaPackageImpl extends EPackageImpl implements SoaPackage {
 
 		// Initialize simple dependencies
 		EnvironmentPackage.eINSTANCE.eClass();
+		TechnicalIDPackage.eINSTANCE.eClass();
 
 		// Create package meta-data objects
 		theSoaPackage.createPackageContents();

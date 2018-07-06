@@ -20,6 +20,7 @@ import org.obeonetwork.dsl.entity.extensionUtilities.ExtensionUtilitiesFactory;
 import org.obeonetwork.dsl.entity.extensionUtilities.ExtensionUtilitiesPackage;
 import org.obeonetwork.dsl.entity.impl.EntityPackageImpl;
 import org.obeonetwork.dsl.environment.EnvironmentPackage;
+import org.obeonetwork.dsl.technicalid.TechnicalIDPackage;
 
 /**
  * <!-- begin-user-doc --> An implementation of the model <b>Package</b>. <!--
@@ -86,6 +87,7 @@ public class ExtensionUtilitiesPackageImpl extends EPackageImpl implements
 
 		// Initialize simple dependencies
 		EnvironmentPackage.eINSTANCE.eClass();
+		TechnicalIDPackage.eINSTANCE.eClass();
 
 		// Obtain or create and register interdependencies
 		EntityPackageImpl theEntityPackage = (EntityPackageImpl)(EPackage.Registry.INSTANCE.getEPackage(EntityPackage.eNS_URI) instanceof EntityPackageImpl ? EPackage.Registry.INSTANCE.getEPackage(EntityPackage.eNS_URI) : EntityPackage.eINSTANCE);

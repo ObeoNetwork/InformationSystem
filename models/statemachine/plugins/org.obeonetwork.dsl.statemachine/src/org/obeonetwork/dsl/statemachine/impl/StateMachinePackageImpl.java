@@ -27,6 +27,7 @@ import org.obeonetwork.dsl.statemachine.StateMachineDescription;
 import org.obeonetwork.dsl.statemachine.StateMachineFactory;
 import org.obeonetwork.dsl.statemachine.StateMachinePackage;
 import org.obeonetwork.dsl.statemachine.Transition;
+import org.obeonetwork.dsl.technicalid.TechnicalIDPackage;
 
 /**
  * <!-- begin-user-doc -->
@@ -146,6 +147,7 @@ public class StateMachinePackageImpl extends EPackageImpl implements StateMachin
 
 		// Initialize simple dependencies
 		EnvironmentPackage.eINSTANCE.eClass();
+		TechnicalIDPackage.eINSTANCE.eClass();
 
 		// Create package meta-data objects
 		theStateMachinePackage.createPackageContents();

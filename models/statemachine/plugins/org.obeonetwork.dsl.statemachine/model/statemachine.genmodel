@@ -6,8 +6,8 @@
     editorPluginClass="org.obeonetwork.dsl.statemachine.presentation.StateMachineEditorPlugin"
     rootExtendsInterface="org.eclipse.emf.cdo.CDOObject" rootExtendsClass="org.eclipse.emf.internal.cdo.CDOObjectImpl"
     testSuiteClass="org.obeonetwork.dsl.statemachine.tests.StateMachineAllTests" importerID="org.eclipse.emf.importer.cdo"
-    featureDelegation="Dynamic" containmentProxies="true" complianceLevel="5.0" copyrightFields="false"
-    runtimeVersion="2.6" usedGenPackages="../../org.obeonetwork.dsl.environment/model/environment.genmodel#//environment ../../org.obeonetwork.dsl.technicalid/model/technicalid.genmodel#//technicalid">
+    featureDelegation="Dynamic" containmentProxies="true" complianceLevel="5.0" suppressGenModelAnnotations="false"
+    copyrightFields="false" runtimeVersion="2.6" usedGenPackages="../../org.obeonetwork.dsl.environment/model/environment.genmodel#//environment ../../org.obeonetwork.dsl.technicalid/model/technicalid.genmodel#//technicalid">
   <foreignModel>statemachine.ecore</foreignModel>
   <modelPluginVariables>CDO=org.eclipse.emf.cdo</modelPluginVariables>
   <genPackages prefix="StateMachine" basePackage="org.obeonetwork.dsl" disposableProviderFactory="true"

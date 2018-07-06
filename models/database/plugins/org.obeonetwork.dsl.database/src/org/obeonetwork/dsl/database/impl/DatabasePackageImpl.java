@@ -34,6 +34,7 @@ import org.obeonetwork.dsl.database.Table;
 import org.obeonetwork.dsl.database.TableContainer;
 import org.obeonetwork.dsl.database.View;
 import org.obeonetwork.dsl.database.ViewElement;
+import org.obeonetwork.dsl.technicalid.TechnicalIDPackage;
 import org.obeonetwork.dsl.typeslibrary.TypesLibraryPackage;
 
 /**
@@ -217,6 +218,7 @@ public class DatabasePackageImpl extends EPackageImpl implements DatabasePackage
 
 		// Initialize simple dependencies
 		TypesLibraryPackage.eINSTANCE.eClass();
+		TechnicalIDPackage.eINSTANCE.eClass();
 
 		// Create package meta-data objects
 		theDatabasePackage.createPackageContents();

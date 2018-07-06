@@ -21,10 +21,10 @@ import org.eclipse.emf.cdo.CDOObject;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link org.obeonetwork.dsl.technicalid.Identifiable#getTechnicalid <em>Technicalid</em>}</li>
  * </ul>
- * </p>
  *
  * @see org.obeonetwork.dsl.technicalid.TechnicalIDPackage#getIdentifiable()
  * @model abstract="true"

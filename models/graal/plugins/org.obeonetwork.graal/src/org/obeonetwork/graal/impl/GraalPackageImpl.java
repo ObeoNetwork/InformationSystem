@@ -18,6 +18,7 @@ import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
 import org.eclipse.emf.ecore.impl.EPackageImpl;
 import org.obeonetwork.dsl.environment.EnvironmentPackage;
+import org.obeonetwork.dsl.technicalid.TechnicalIDPackage;
 import org.obeonetwork.graal.AbortNode;
 import org.obeonetwork.graal.AbstractTask;
 import org.obeonetwork.graal.Activity;
@@ -307,6 +308,7 @@ public class GraalPackageImpl extends EPackageImpl implements GraalPackage {
 
 		// Initialize simple dependencies
 		EnvironmentPackage.eINSTANCE.eClass();
+		TechnicalIDPackage.eINSTANCE.eClass();
 
 		// Create package meta-data objects
 		theGraalPackage.createPackageContents();
