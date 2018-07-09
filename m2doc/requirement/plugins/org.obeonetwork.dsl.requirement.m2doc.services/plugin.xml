@@ -22,10 +22,12 @@
    <extension
          point="org.obeonetwork.m2doc.ide.services.register">
       <token
-            name="default">
+            name="Requirements">
          <service
                class="org.obeonetwork.requirement.m2doc.services.RequirementServices">
          </service>
+         <package
+               uri="http://www.obeonetwork.org/dsl/requirement/1.0"></package>
       </token>
    </extension>
 

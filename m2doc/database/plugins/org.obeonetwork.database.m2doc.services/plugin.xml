@@ -40,6 +40,39 @@
          <service
                class="org.obeonetwork.database.m2doc.services.TableServices">
          </service>
+         <package
+               uri="http://www.obeonetwork.org/dsl/database/1.0">
+         </package>
+      </token>
+      <token
+            name="Database">
+         <service
+               class="org.obeonetwork.database.m2doc.services.ColumnServices">
+         </service>
+         <service
+               class="org.obeonetwork.database.m2doc.services.DataBaseServices">
+         </service>
+         <service
+               class="org.obeonetwork.database.m2doc.services.ForeignKeyElementServices">
+         </service>
+         <service
+               class="org.obeonetwork.database.m2doc.services.IndexElementServices">
+         </service>
+         <service
+               class="org.obeonetwork.database.m2doc.services.IndexServices">
+         </service>
+         <service
+               class="org.obeonetwork.database.m2doc.services.SequenceServices">
+         </service>
+         <service
+               class="org.obeonetwork.database.m2doc.services.TableContainerServices">
+         </service>
+         <service
+               class="org.obeonetwork.database.m2doc.services.TableServices">
+         </service>
+         <package
+               uri="http://www.obeonetwork.org/dsl/database/1.0">
+         </package>
       </token>
    </extension>
    <extension

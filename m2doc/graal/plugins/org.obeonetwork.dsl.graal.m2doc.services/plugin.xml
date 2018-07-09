@@ -38,6 +38,36 @@
          <service
             class="org.obeonetwork.dsl.graal.m2doc.services.TransitionServices">
          </service>
+         <package
+               uri="http://www.obeonetork.org/dsl/graal/2.0.0">
+         </package>
+         <package
+               uri="http://www.obeonetork.graal/featureextensions/1.0">
+         </package>
+      </token>
+      <token
+            name="Graal">
+         <service
+            class="org.obeonetwork.dsl.graal.m2doc.services.DomainClassServices">
+         </service>
+         <service
+            class="org.obeonetwork.dsl.graal.m2doc.services.UseCaseServices">
+         </service>
+         <service
+            class="org.obeonetwork.dsl.graal.m2doc.services.TaskServices">
+         </service>
+         <service
+            class="org.obeonetwork.dsl.graal.m2doc.services.UserStoryElementServices">
+         </service>
+         <service
+            class="org.obeonetwork.dsl.graal.m2doc.services.TransitionServices">
+         </service>
+         <package
+               uri="http://www.obeonetork.org/dsl/graal/2.0.0">
+         </package>
+         <package
+               uri="http://www.obeonetork.graal/featureextensions/1.0">
+         </package>
       </token>
    </extension>
 </plugin>
