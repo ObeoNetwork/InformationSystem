@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+   <extension
+         point="org.obeonetwork.m2doc.ide.services.register">
+      <token
+            name="Entity">
+         <package
+               uri="http://www.obeonetwork.org/dsl/entity/3.0.0"></package>
+         <package
+               uri="http://www.obeonetwork.org/dsl/entity/2.0.0/utilities">
+         </package>
+      </token>
+   </extension>
+
+</plugin>
