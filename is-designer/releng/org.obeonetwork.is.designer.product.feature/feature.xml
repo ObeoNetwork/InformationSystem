@@ -321,4 +321,8 @@
          id="org.obeonetwork.tools.projectlibrary.feature"
          version="0.0.0"/>
 
+   <includes
+         id="org.obeonetwork.cinematic.m2doc.feature"
+         version="0.0.0"/>
+
 </feature>
