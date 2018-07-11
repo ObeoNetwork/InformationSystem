@@ -11,6 +11,14 @@
                uri="http://www.obeonetwork.org/dsl/entity/2.0.0/utilities">
          </package>
       </token>
+      <token
+            name="Default">
+         <package
+               uri="http://www.obeonetwork.org/dsl/entity/3.0.0"></package>
+         <package
+               uri="http://www.obeonetwork.org/dsl/entity/2.0.0/utilities">
+         </package>
+      </token>
    </extension>
 
 </plugin>
