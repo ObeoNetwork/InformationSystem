@@ -22,7 +22,7 @@
    <extension
          point="org.obeonetwork.m2doc.ide.services.register">
       <token
-            name="default">
+            name="Default">
          <service
             class="org.obeonetwork.dsl.graal.m2doc.services.DomainClassServices">
          </service>
@@ -40,9 +40,6 @@
          </service>
          <package
                uri="http://www.obeonetork.org/dsl/graal/2.0.0">
-         </package>
-         <package
-               uri="http://www.obeonetork.graal/featureextensions/1.0">
          </package>
       </token>
       <token
@@ -66,7 +63,7 @@
                uri="http://www.obeonetork.org/dsl/graal/2.0.0">
          </package>
          <package
-               uri="http://www.obeonetork.graal/featureextensions/1.0">
+               uri="http://www.obeonetwork.com/dsl/environment/3.0.0">
          </package>
       </token>
    </extension>
