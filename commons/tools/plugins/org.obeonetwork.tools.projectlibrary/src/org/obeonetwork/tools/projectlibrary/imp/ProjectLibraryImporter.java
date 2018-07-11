@@ -146,11 +146,11 @@ public class ProjectLibraryImporter {
 					// Some references will not be restored, we have to warn the user
 					continueImport = askForConfirmation("Some references will not be restored. Would you like to continue ?");
 				}
-				if (continueImport == true) {
-					// Delete previous version
-					projectLibraryUtils.removeImportedProjectAndResources(importData.getTargetProject(), resourcesToDelete, previousVersion);
-				}
-		}
+			}
+			if (continueImport == true) {
+				// Delete previous version
+				projectLibraryUtils.removeImportedProjectAndResources(importData.getTargetProject(), resourcesToDelete, previousVersion);
+			}
 		}
 		
 		// Save target project and close editors if needed
