@@ -38,6 +38,9 @@ public interface ViewEvent extends Event {
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * The type of the View Event.
+	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Type</em>' reference.
 	 * @see #setType(WidgetEventType)
 	 * @see org.obeonetwork.dsl.cinematic.view.ViewPackage#getViewEvent_Type()

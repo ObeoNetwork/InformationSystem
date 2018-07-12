@@ -37,6 +37,9 @@ public interface SubflowState extends FlowState {
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * The Flow this Subflow State refers to.
+	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Subflow</em>' reference.
 	 * @see #setSubflow(Flow)
 	 * @see org.obeonetwork.dsl.cinematic.flow.FlowPackage#getSubflowState_Subflow()
@@ -63,6 +66,9 @@ public interface SubflowState extends FlowState {
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * The name of this Subflow State.
+	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Name</em>' attribute.
 	 * @see org.obeonetwork.dsl.cinematic.flow.FlowPackage#getSubflowState_Name()
 	 * @model transient="true" changeable="false" volatile="true" derived="true"

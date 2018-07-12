@@ -43,6 +43,9 @@ public interface Transition extends NamedElement {
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * A string defining the guard condition to this Transition.
+	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Guard</em>' attribute.
 	 * @see #setGuard(String)
 	 * @see org.obeonetwork.dsl.cinematic.flow.FlowPackage#getTransition_Guard()
@@ -69,6 +72,9 @@ public interface Transition extends NamedElement {
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * The modality of the transition, expressing transition behaviors that (true) necessarily occur (must modality), (false) possibly occur (may modality).
+	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Modal</em>' attribute.
 	 * @see #setModal(boolean)
 	 * @see org.obeonetwork.dsl.cinematic.flow.FlowPackage#getTransition_Modal()
@@ -95,6 +101,9 @@ public interface Transition extends NamedElement {
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * The state this transition is going to.
+	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>To</em>' reference.
 	 * @see #setTo(FlowState)
 	 * @see org.obeonetwork.dsl.cinematic.flow.FlowPackage#getTransition_To()
@@ -121,6 +130,9 @@ public interface Transition extends NamedElement {
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * The state this transision is originating from.
+	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>From</em>' reference.
 	 * @see #setFrom(FlowState)
 	 * @see org.obeonetwork.dsl.cinematic.flow.FlowPackage#getTransition_From()
@@ -148,6 +160,9 @@ public interface Transition extends NamedElement {
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * The event this transition is bounded to.
+	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>On</em>' reference list.
 	 * @see org.obeonetwork.dsl.cinematic.flow.FlowPackage#getTransition_On()
 	 * @model

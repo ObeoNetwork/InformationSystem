@@ -40,6 +40,9 @@ public interface FlowEvent extends Event {
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * The View Events this Flow Event is binded to.
+	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Binds</em>' reference list.
 	 * @see org.obeonetwork.dsl.cinematic.flow.FlowPackage#getFlowEvent_Binds()
 	 * @model

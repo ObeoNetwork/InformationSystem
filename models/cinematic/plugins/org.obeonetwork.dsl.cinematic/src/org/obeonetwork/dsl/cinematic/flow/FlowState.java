@@ -40,6 +40,9 @@ public interface FlowState extends CinematicElement {
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * The Flow Actions defined on this Flow State (Flow Actions calling View Actions or Operations).
+	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Actions</em>' containment reference list.
 	 * @see org.obeonetwork.dsl.cinematic.flow.FlowPackage#getFlowState_Actions()
 	 * @model containment="true" resolveProxies="true"

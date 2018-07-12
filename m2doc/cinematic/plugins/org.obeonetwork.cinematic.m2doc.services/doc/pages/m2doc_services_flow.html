@@ -50,56 +50,56 @@
       <td colspan="1" rowspan="1"><strong>behaviours</strong></td>
       <td colspan="1" rowspan="1">List of Behaviour</td>
       <td colspan="1" rowspan="1">{m:flow.behaviours}</td>
-      <td colspan="1" rowspan="1"></td>
+      <td colspan="1" rowspan="1">The Behaviours owned by this object.</td>
       <td colspan="1" rowspan="1">{m:for behaviour | flow.behaviours} behaviour {m:behaviour.name}, {m:endfor}</td>
     </tr>
     <tr>
       <td colspan="1" rowspan="1"><strong>bindingRegistries</strong></td>
       <td colspan="1" rowspan="1">List of BindingRegistry</td>
       <td colspan="1" rowspan="1">{m:flow.bindingRegistries}</td>
-      <td colspan="1" rowspan="1"></td>
+      <td colspan="1" rowspan="1">The binding registries of this object.</td>
       <td colspan="1" rowspan="1">{m:for bindingRegistry | flow.bindingRegistries} bindingRegistry {m:bindingRegistry.name}, {m:endfor}</td>
     </tr>
     <tr>
       <td colspan="1" rowspan="1"><strong>createdOn</strong></td>
       <td colspan="1" rowspan="1">EDate</td>
       <td colspan="1" rowspan="1">{m:flow.createdOn}</td>
-      <td colspan="1" rowspan="1"></td>
+      <td colspan="1" rowspan="1">The creation date of this object.</td>
       <td colspan="1" rowspan="1">{m:flow.createdOn}</td>
     </tr>
     <tr>
       <td colspan="1" rowspan="1"><strong>description</strong></td>
       <td colspan="1" rowspan="1">EString</td>
       <td colspan="1" rowspan="1">{m:flow.description}</td>
-      <td colspan="1" rowspan="1"></td>
+      <td colspan="1" rowspan="1">The description of this object.</td>
       <td colspan="1" rowspan="1">{m:flow.description}</td>
     </tr>
     <tr>
       <td colspan="1" rowspan="1"><strong>events</strong></td>
       <td colspan="1" rowspan="1">List of FlowEvent</td>
       <td colspan="1" rowspan="1">{m:flow.events}</td>
-      <td colspan="1" rowspan="1"></td>
+      <td colspan="1" rowspan="1">The events of this flow.</td>
       <td colspan="1" rowspan="1">{m:for flowEvent | flow.events} flowEvent {m:flowEvent.name}, {m:endfor}</td>
     </tr>
     <tr>
       <td colspan="1" rowspan="1"><strong>keywords</strong></td>
       <td colspan="1" rowspan="1">List of EString</td>
       <td colspan="1" rowspan="1">{m:flow.keywords}</td>
-      <td colspan="1" rowspan="1"></td>
+      <td colspan="1" rowspan="1">The list of keywords applied to this object.</td>
       <td colspan="1" rowspan="1">{m:for eString | flow.keywords} eString {m:eString.name}, {m:endfor}</td>
     </tr>
     <tr>
       <td colspan="1" rowspan="1"><strong>metadatas</strong></td>
       <td colspan="1" rowspan="1">MetaDataContainer</td>
       <td colspan="1" rowspan="1">{m:flow.metadatas}</td>
-      <td colspan="1" rowspan="1"></td>
+      <td colspan="1" rowspan="1">The metadatas defined on this object.</td>
       <td colspan="1" rowspan="1">{m:flow.metadatas}</td>
     </tr>
     <tr>
       <td colspan="1" rowspan="1"><strong>modifiedOn</strong></td>
       <td colspan="1" rowspan="1">EDate</td>
       <td colspan="1" rowspan="1">{m:flow.modifiedOn}</td>
-      <td colspan="1" rowspan="1"></td>
+      <td colspan="1" rowspan="1">The modification date of this obect.</td>
       <td colspan="1" rowspan="1">{m:flow.modifiedOn}</td>
     </tr>
     <tr>
@@ -113,7 +113,7 @@
       <td colspan="1" rowspan="1"><strong>states</strong></td>
       <td colspan="1" rowspan="1">List of FlowState</td>
       <td colspan="1" rowspan="1">{m:flow.states}</td>
-      <td colspan="1" rowspan="1"></td>
+      <td colspan="1" rowspan="1">The states of this Flow.</td>
       <td colspan="1" rowspan="1">{m:for flowState | flow.states} flowState {m:flowState.name}, {m:endfor}</td>
     </tr>
     <tr>
@@ -127,14 +127,14 @@
       <td colspan="1" rowspan="1"><strong>transitions</strong></td>
       <td colspan="1" rowspan="1">List of Transition</td>
       <td colspan="1" rowspan="1">{m:flow.transitions}</td>
-      <td colspan="1" rowspan="1"></td>
+      <td colspan="1" rowspan="1">The transitions of this flow.</td>
       <td colspan="1" rowspan="1">{m:for transition | flow.transitions} transition {m:transition.name}, {m:endfor}</td>
     </tr>
     <tr>
       <td colspan="1" rowspan="1"><strong>version</strong></td>
       <td colspan="1" rowspan="1">EInt</td>
       <td colspan="1" rowspan="1">{m:flow.version}</td>
-      <td colspan="1" rowspan="1"></td>
+      <td colspan="1" rowspan="1">The version of this object.</td>
       <td colspan="1" rowspan="1">{m:flow.version}</td>
     </tr>
     </tbody>
@@ -170,9 +170,9 @@
     <tr>
       <td colspan="1" rowspan="1"><strong>isCinematicObject</strong></td>
       <td colspan="1" rowspan="1">boolean</td>
-      <td colspan="1" rowspan="1"></td>
-      <td colspan="1" rowspan="1"></td>
-      <td colspan="1" rowspan="1"></td>
+      <td colspan="1" rowspan="1">{m:obj.isCinematicObject()}</td>
+      <td colspan="1" rowspan="1">Returns if the target object is a Cinematic element.</td>
+      <td colspan="1" rowspan="1">{m:obj.isCinematicObject()} returns: True if the target object is a Cinematic element, false otherwise.</td>
     </tr>
     <tr>
       <td colspan="1" rowspan="1"><strong>relatedRequirements</strong></td>

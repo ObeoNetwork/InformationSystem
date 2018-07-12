@@ -50,56 +50,56 @@
       <td colspan="1" rowspan="1"><strong>actions</strong></td>
       <td colspan="1" rowspan="1">List of FlowAction</td>
       <td colspan="1" rowspan="1">{m:viewState.actions}</td>
-      <td colspan="1" rowspan="1"></td>
+      <td colspan="1" rowspan="1">The Flow Actions defined on this Flow State (Flow Actions calling View Actions or Operations).</td>
       <td colspan="1" rowspan="1">{m:for flowAction | viewState.actions} flowAction {m:flowAction.name}, {m:endfor}</td>
     </tr>
     <tr>
       <td colspan="1" rowspan="1"><strong>behaviours</strong></td>
       <td colspan="1" rowspan="1">List of Behaviour</td>
       <td colspan="1" rowspan="1">{m:viewState.behaviours}</td>
-      <td colspan="1" rowspan="1"></td>
+      <td colspan="1" rowspan="1">The Behaviours owned by this object.</td>
       <td colspan="1" rowspan="1">{m:for behaviour | viewState.behaviours} behaviour {m:behaviour.name}, {m:endfor}</td>
     </tr>
     <tr>
       <td colspan="1" rowspan="1"><strong>bindingRegistries</strong></td>
       <td colspan="1" rowspan="1">List of BindingRegistry</td>
       <td colspan="1" rowspan="1">{m:viewState.bindingRegistries}</td>
-      <td colspan="1" rowspan="1"></td>
+      <td colspan="1" rowspan="1">The binding registries of this object.</td>
       <td colspan="1" rowspan="1">{m:for bindingRegistry | viewState.bindingRegistries} bindingRegistry {m:bindingRegistry.name}, {m:endfor}</td>
     </tr>
     <tr>
       <td colspan="1" rowspan="1"><strong>createdOn</strong></td>
       <td colspan="1" rowspan="1">EDate</td>
       <td colspan="1" rowspan="1">{m:viewState.createdOn}</td>
-      <td colspan="1" rowspan="1"></td>
+      <td colspan="1" rowspan="1">The creation date of this object.</td>
       <td colspan="1" rowspan="1">{m:viewState.createdOn}</td>
     </tr>
     <tr>
       <td colspan="1" rowspan="1"><strong>description</strong></td>
       <td colspan="1" rowspan="1">EString</td>
       <td colspan="1" rowspan="1">{m:viewState.description}</td>
-      <td colspan="1" rowspan="1"></td>
+      <td colspan="1" rowspan="1">The description of this object.</td>
       <td colspan="1" rowspan="1">{m:viewState.description}</td>
     </tr>
     <tr>
       <td colspan="1" rowspan="1"><strong>keywords</strong></td>
       <td colspan="1" rowspan="1">List of EString</td>
       <td colspan="1" rowspan="1">{m:viewState.keywords}</td>
-      <td colspan="1" rowspan="1"></td>
+      <td colspan="1" rowspan="1">The list of keywords applied to this object.</td>
       <td colspan="1" rowspan="1">{m:for eString | viewState.keywords} eString {m:eString.name}, {m:endfor}</td>
     </tr>
     <tr>
       <td colspan="1" rowspan="1"><strong>metadatas</strong></td>
       <td colspan="1" rowspan="1">MetaDataContainer</td>
       <td colspan="1" rowspan="1">{m:viewState.metadatas}</td>
-      <td colspan="1" rowspan="1"></td>
+      <td colspan="1" rowspan="1">The metadatas defined on this object.</td>
       <td colspan="1" rowspan="1">{m:viewState.metadatas}</td>
     </tr>
     <tr>
       <td colspan="1" rowspan="1"><strong>modifiedOn</strong></td>
       <td colspan="1" rowspan="1">EDate</td>
       <td colspan="1" rowspan="1">{m:viewState.modifiedOn}</td>
-      <td colspan="1" rowspan="1"></td>
+      <td colspan="1" rowspan="1">The modification date of this obect.</td>
       <td colspan="1" rowspan="1">{m:viewState.modifiedOn}</td>
     </tr>
     <tr>
@@ -113,14 +113,14 @@
       <td colspan="1" rowspan="1"><strong>newInstance</strong></td>
       <td colspan="1" rowspan="1">EBoolean</td>
       <td colspan="1" rowspan="1">{m:viewState.newInstance}</td>
-      <td colspan="1" rowspan="1"></td>
+      <td colspan="1" rowspan="1">True if this view state instanciates a new view.</td>
       <td colspan="1" rowspan="1">{m:viewState.newInstance}</td>
     </tr>
     <tr>
       <td colspan="1" rowspan="1"><strong>refresh</strong></td>
       <td colspan="1" rowspan="1">EBoolean</td>
       <td colspan="1" rowspan="1">{m:viewState.refresh}</td>
-      <td colspan="1" rowspan="1"></td>
+      <td colspan="1" rowspan="1">True if a refresh should be performed on the view.</td>
       <td colspan="1" rowspan="1">{m:viewState.refresh}</td>
     </tr>
     <tr>
@@ -134,14 +134,14 @@
       <td colspan="1" rowspan="1"><strong>version</strong></td>
       <td colspan="1" rowspan="1">EInt</td>
       <td colspan="1" rowspan="1">{m:viewState.version}</td>
-      <td colspan="1" rowspan="1"></td>
+      <td colspan="1" rowspan="1">The version of this object.</td>
       <td colspan="1" rowspan="1">{m:viewState.version}</td>
     </tr>
     <tr>
       <td colspan="1" rowspan="1"><strong>viewContainers</strong></td>
       <td colspan="1" rowspan="1">List of ViewContainer</td>
       <td colspan="1" rowspan="1">{m:viewState.viewContainers}</td>
-      <td colspan="1" rowspan="1"></td>
+      <td colspan="1" rowspan="1">The view containers this View State is presented by.</td>
       <td colspan="1" rowspan="1">{m:for viewContainer | viewState.viewContainers} viewContainer {m:viewContainer.name}, {m:endfor}</td>
     </tr>
     </tbody>
@@ -177,9 +177,9 @@
     <tr>
       <td colspan="1" rowspan="1"><strong>isCinematicObject</strong></td>
       <td colspan="1" rowspan="1">boolean</td>
-      <td colspan="1" rowspan="1"></td>
-      <td colspan="1" rowspan="1"></td>
-      <td colspan="1" rowspan="1"></td>
+      <td colspan="1" rowspan="1">{m:obj.isCinematicObject()}</td>
+      <td colspan="1" rowspan="1">Returns if the target object is a Cinematic element.</td>
+      <td colspan="1" rowspan="1">{m:obj.isCinematicObject()} returns: True if the target object is a Cinematic element, false otherwise.</td>
     </tr>
     <tr>
       <td colspan="1" rowspan="1"><strong>relatedRequirements</strong></td>

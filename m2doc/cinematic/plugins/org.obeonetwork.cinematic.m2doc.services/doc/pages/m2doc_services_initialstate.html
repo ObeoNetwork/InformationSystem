@@ -50,56 +50,56 @@
       <td colspan="1" rowspan="1"><strong>actions</strong></td>
       <td colspan="1" rowspan="1">List of FlowAction</td>
       <td colspan="1" rowspan="1">{m:initialState.actions}</td>
-      <td colspan="1" rowspan="1"></td>
+      <td colspan="1" rowspan="1">The Flow Actions defined on this Flow State (Flow Actions calling View Actions or Operations).</td>
       <td colspan="1" rowspan="1">{m:for flowAction | initialState.actions} flowAction {m:flowAction.name}, {m:endfor}</td>
     </tr>
     <tr>
       <td colspan="1" rowspan="1"><strong>behaviours</strong></td>
       <td colspan="1" rowspan="1">List of Behaviour</td>
       <td colspan="1" rowspan="1">{m:initialState.behaviours}</td>
-      <td colspan="1" rowspan="1"></td>
+      <td colspan="1" rowspan="1">The Behaviours owned by this object.</td>
       <td colspan="1" rowspan="1">{m:for behaviour | initialState.behaviours} behaviour {m:behaviour.name}, {m:endfor}</td>
     </tr>
     <tr>
       <td colspan="1" rowspan="1"><strong>bindingRegistries</strong></td>
       <td colspan="1" rowspan="1">List of BindingRegistry</td>
       <td colspan="1" rowspan="1">{m:initialState.bindingRegistries}</td>
-      <td colspan="1" rowspan="1"></td>
+      <td colspan="1" rowspan="1">The binding registries of this object.</td>
       <td colspan="1" rowspan="1">{m:for bindingRegistry | initialState.bindingRegistries} bindingRegistry {m:bindingRegistry.name}, {m:endfor}</td>
     </tr>
     <tr>
       <td colspan="1" rowspan="1"><strong>createdOn</strong></td>
       <td colspan="1" rowspan="1">EDate</td>
       <td colspan="1" rowspan="1">{m:initialState.createdOn}</td>
-      <td colspan="1" rowspan="1"></td>
+      <td colspan="1" rowspan="1">The creation date of this object.</td>
       <td colspan="1" rowspan="1">{m:initialState.createdOn}</td>
     </tr>
     <tr>
       <td colspan="1" rowspan="1"><strong>description</strong></td>
       <td colspan="1" rowspan="1">EString</td>
       <td colspan="1" rowspan="1">{m:initialState.description}</td>
-      <td colspan="1" rowspan="1"></td>
+      <td colspan="1" rowspan="1">The description of this object.</td>
       <td colspan="1" rowspan="1">{m:initialState.description}</td>
     </tr>
     <tr>
       <td colspan="1" rowspan="1"><strong>keywords</strong></td>
       <td colspan="1" rowspan="1">List of EString</td>
       <td colspan="1" rowspan="1">{m:initialState.keywords}</td>
-      <td colspan="1" rowspan="1"></td>
+      <td colspan="1" rowspan="1">The list of keywords applied to this object.</td>
       <td colspan="1" rowspan="1">{m:for eString | initialState.keywords} eString {m:eString.name}, {m:endfor}</td>
     </tr>
     <tr>
       <td colspan="1" rowspan="1"><strong>metadatas</strong></td>
       <td colspan="1" rowspan="1">MetaDataContainer</td>
       <td colspan="1" rowspan="1">{m:initialState.metadatas}</td>
-      <td colspan="1" rowspan="1"></td>
+      <td colspan="1" rowspan="1">The metadatas defined on this object.</td>
       <td colspan="1" rowspan="1">{m:initialState.metadatas}</td>
     </tr>
     <tr>
       <td colspan="1" rowspan="1"><strong>modifiedOn</strong></td>
       <td colspan="1" rowspan="1">EDate</td>
       <td colspan="1" rowspan="1">{m:initialState.modifiedOn}</td>
-      <td colspan="1" rowspan="1"></td>
+      <td colspan="1" rowspan="1">The modification date of this obect.</td>
       <td colspan="1" rowspan="1">{m:initialState.modifiedOn}</td>
     </tr>
     <tr>
@@ -120,7 +120,7 @@
       <td colspan="1" rowspan="1"><strong>version</strong></td>
       <td colspan="1" rowspan="1">EInt</td>
       <td colspan="1" rowspan="1">{m:initialState.version}</td>
-      <td colspan="1" rowspan="1"></td>
+      <td colspan="1" rowspan="1">The version of this object.</td>
       <td colspan="1" rowspan="1">{m:initialState.version}</td>
     </tr>
     </tbody>
@@ -156,9 +156,9 @@
     <tr>
       <td colspan="1" rowspan="1"><strong>isCinematicObject</strong></td>
       <td colspan="1" rowspan="1">boolean</td>
-      <td colspan="1" rowspan="1"></td>
-      <td colspan="1" rowspan="1"></td>
-      <td colspan="1" rowspan="1"></td>
+      <td colspan="1" rowspan="1">{m:obj.isCinematicObject()}</td>
+      <td colspan="1" rowspan="1">Returns if the target object is a Cinematic element.</td>
+      <td colspan="1" rowspan="1">{m:obj.isCinematicObject()} returns: True if the target object is a Cinematic element, false otherwise.</td>
     </tr>
     <tr>
       <td colspan="1" rowspan="1"><strong>relatedRequirements</strong></td>

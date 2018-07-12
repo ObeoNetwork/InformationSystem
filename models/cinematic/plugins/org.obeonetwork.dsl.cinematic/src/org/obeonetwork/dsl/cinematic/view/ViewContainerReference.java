@@ -36,6 +36,9 @@ public interface ViewContainerReference extends AbstractViewElement {
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * The referenced View Container.
+	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>View Container</em>' reference.
 	 * @see #setViewContainer(ViewContainer)
 	 * @see org.obeonetwork.dsl.cinematic.view.ViewPackage#getViewContainerReference_ViewContainer()

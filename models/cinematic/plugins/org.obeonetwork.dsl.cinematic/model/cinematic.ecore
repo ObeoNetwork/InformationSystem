@@ -71,18 +71,30 @@
       <eStructuralFeatures xsi:type="ecore:EReference" name="ownedElements" upperBound="-1"
           eType="#//view/AbstractViewElement" containment="true">
         <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-          <details key="documentation" value="List of the directly contained View Elements."/>
+          <details key="documentation" value="List of the directly contained View Containers, View Elements and View Container References."/>
         </eAnnotations>
       </eStructuralFeatures>
       <eStructuralFeatures xsi:type="ecore:EReference" name="viewContainers" upperBound="-1"
           eType="#//view/ViewContainer" changeable="false" volatile="true" transient="true"
-          derived="true"/>
+          derived="true">
+        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+          <details key="documentation" value="List of the directly contained View Containers."/>
+        </eAnnotations>
+      </eStructuralFeatures>
       <eStructuralFeatures xsi:type="ecore:EReference" name="viewElements" upperBound="-1"
           eType="#//view/ViewElement" changeable="false" volatile="true" transient="true"
-          derived="true"/>
+          derived="true">
+        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+          <details key="documentation" value="List of the directly contained View Elements."/>
+        </eAnnotations>
+      </eStructuralFeatures>
       <eStructuralFeatures xsi:type="ecore:EReference" name="viewContainerReferences"
           upperBound="-1" eType="#//view/ViewContainerReference" changeable="false"
-          volatile="true" transient="true" derived="true"/>
+          volatile="true" transient="true" derived="true">
+        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+          <details key="documentation" value="List of the directly contained View Container References."/>
+        </eAnnotations>
+      </eStructuralFeatures>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="ViewElement" eSuperTypes="#//view/AbstractViewElement">
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="required" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">
@@ -98,44 +110,104 @@
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="ViewAction" eSuperTypes="#//NamedElement"/>
     <eClassifiers xsi:type="ecore:EClass" name="ViewEvent" eSuperTypes="#//Event">
-      <eStructuralFeatures xsi:type="ecore:EReference" name="type" eType="#//toolkits/WidgetEventType"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="type" eType="#//toolkits/WidgetEventType">
+        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+          <details key="documentation" value="The type of the View Event."/>
+        </eAnnotations>
+      </eStructuralFeatures>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="ViewContainerReference" eSuperTypes="#//view/AbstractViewElement">
       <eStructuralFeatures xsi:type="ecore:EReference" name="viewContainer" lowerBound="1"
-          eType="#//view/ViewContainer"/>
+          eType="#//view/ViewContainer">
+        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+          <details key="documentation" value="The referenced View Container."/>
+        </eAnnotations>
+      </eStructuralFeatures>
     </eClassifiers>
   </eSubpackages>
   <eSubpackages name="flow" nsURI="http://www.obeonetwork.org/dsl/cinematic/flow/1.0.0"
       nsPrefix="cinematic-flow">
     <eClassifiers xsi:type="ecore:EClass" name="Flow" eSuperTypes="#//NamedElement">
       <eStructuralFeatures xsi:type="ecore:EReference" name="states" upperBound="-1"
-          eType="#//flow/FlowState" containment="true"/>
+          eType="#//flow/FlowState" containment="true">
+        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+          <details key="documentation" value="The states of this Flow."/>
+        </eAnnotations>
+      </eStructuralFeatures>
       <eStructuralFeatures xsi:type="ecore:EReference" name="transitions" upperBound="-1"
-          eType="#//flow/Transition" containment="true"/>
+          eType="#//flow/Transition" containment="true">
+        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+          <details key="documentation" value="The transitions of this flow."/>
+        </eAnnotations>
+      </eStructuralFeatures>
       <eStructuralFeatures xsi:type="ecore:EReference" name="events" upperBound="-1"
-          eType="#//flow/FlowEvent" containment="true"/>
+          eType="#//flow/FlowEvent" containment="true">
+        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+          <details key="documentation" value="The events of this flow."/>
+        </eAnnotations>
+      </eStructuralFeatures>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="NamedFlowState" abstract="true" eSuperTypes="#//flow/FlowState #//NamedElement"/>
     <eClassifiers xsi:type="ecore:EClass" name="Transition" eSuperTypes="#//NamedElement">
-      <eStructuralFeatures xsi:type="ecore:EAttribute" name="guard" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-      <eStructuralFeatures xsi:type="ecore:EAttribute" name="modal" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
-      <eStructuralFeatures xsi:type="ecore:EReference" name="from" eType="#//flow/FlowState"/>
-      <eStructuralFeatures xsi:type="ecore:EReference" name="to" eType="#//flow/FlowState"/>
-      <eStructuralFeatures xsi:type="ecore:EReference" name="on" upperBound="-1" eType="#//Event"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="guard" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
+        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+          <details key="documentation" value="A string defining the guard condition to this Transition."/>
+        </eAnnotations>
+      </eStructuralFeatures>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="modal" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">
+        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+          <details key="documentation" value="The modality of the transition, expressing transition behaviors that (true) necessarily occur (must modality), (false) possibly occur (may modality)."/>
+        </eAnnotations>
+      </eStructuralFeatures>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="from" eType="#//flow/FlowState">
+        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+          <details key="documentation" value="The state this transision is originating from."/>
+        </eAnnotations>
+      </eStructuralFeatures>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="to" eType="#//flow/FlowState">
+        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+          <details key="documentation" value="The state this transition is going to."/>
+        </eAnnotations>
+      </eStructuralFeatures>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="on" upperBound="-1" eType="#//Event">
+        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+          <details key="documentation" value="The event this transition is bounded to."/>
+        </eAnnotations>
+      </eStructuralFeatures>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="ActionState" eSuperTypes="#//flow/NamedFlowState"/>
     <eClassifiers xsi:type="ecore:EClass" name="ViewState" eSuperTypes="#//flow/NamedFlowState">
-      <eStructuralFeatures xsi:type="ecore:EAttribute" name="newInstance" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
-      <eStructuralFeatures xsi:type="ecore:EAttribute" name="refresh" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="newInstance" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">
+        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+          <details key="documentation" value="True if this view state instanciates a new view."/>
+        </eAnnotations>
+      </eStructuralFeatures>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="refresh" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">
+        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+          <details key="documentation" value="True if a refresh should be performed on the view."/>
+        </eAnnotations>
+      </eStructuralFeatures>
       <eStructuralFeatures xsi:type="ecore:EReference" name="viewContainers" upperBound="-1"
-          eType="#//view/ViewContainer"/>
+          eType="#//view/ViewContainer">
+        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+          <details key="documentation" value="The view containers this View State is presented by."/>
+        </eAnnotations>
+      </eStructuralFeatures>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="DecisionState" eSuperTypes="#//flow/NamedFlowState"/>
     <eClassifiers xsi:type="ecore:EClass" name="SubflowState" eSuperTypes="#//flow/FlowState">
       <eStructuralFeatures xsi:type="ecore:EReference" name="subflow" lowerBound="1"
-          eType="#//flow/Flow"/>
+          eType="#//flow/Flow">
+        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+          <details key="documentation" value="The Flow this Subflow State refers to."/>
+        </eAnnotations>
+      </eStructuralFeatures>
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
-          changeable="false" volatile="true" transient="true" derived="true"/>
+          changeable="false" volatile="true" transient="true" derived="true">
+        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+          <details key="documentation" value="The name of this Subflow State."/>
+        </eAnnotations>
+      </eStructuralFeatures>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="AsyncEventState" eSuperTypes="#//flow/NamedFlowState"/>
     <eClassifiers xsi:type="ecore:EClass" name="InitialState" eSuperTypes="#//flow/NamedFlowState"/>
@@ -143,41 +215,93 @@
     <eClassifiers xsi:type="ecore:EClass" name="FinalState" eSuperTypes="#//flow/NamedFlowState"/>
     <eClassifiers xsi:type="ecore:EClass" name="FlowAction" eSuperTypes="#//NamedElement">
       <eStructuralFeatures xsi:type="ecore:EReference" name="calls" upperBound="-1"
-          eType="#//view/ViewAction"/>
+          eType="#//view/ViewAction">
+        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+          <details key="documentation" value="The View Actions this Flow Action calls."/>
+        </eAnnotations>
+      </eStructuralFeatures>
       <eStructuralFeatures xsi:type="ecore:EReference" name="operations" upperBound="-1"
-          eType="ecore:EClass ../../org.obeonetwork.dsl.environment/model/environment.ecore#//Action"/>
+          eType="ecore:EClass ../../org.obeonetwork.dsl.environment/model/environment.ecore#//Action">
+        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+          <details key="documentation" value="The operations this Flow Action calls."/>
+        </eAnnotations>
+      </eStructuralFeatures>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="FlowEvent" eSuperTypes="#//Event">
       <eStructuralFeatures xsi:type="ecore:EReference" name="binds" upperBound="-1"
-          eType="#//view/ViewEvent"/>
+          eType="#//view/ViewEvent">
+        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+          <details key="documentation" value="The View Events this Flow Event is binded to."/>
+        </eAnnotations>
+      </eStructuralFeatures>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="FlowState" abstract="true" eSuperTypes="#//CinematicElement">
       <eStructuralFeatures xsi:type="ecore:EReference" name="actions" upperBound="-1"
-          eType="#//flow/FlowAction" containment="true"/>
+          eType="#//flow/FlowAction" containment="true">
+        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+          <details key="documentation" value="The Flow Actions defined on this Flow State (Flow Actions calling View Actions or Operations)."/>
+        </eAnnotations>
+      </eStructuralFeatures>
     </eClassifiers>
   </eSubpackages>
   <eSubpackages name="toolkits" nsURI="http://www.obeonetwork.org/dsl/cinematic/toolkits/1.0.0"
       nsPrefix="cinematic-toolkits">
     <eClassifiers xsi:type="ecore:EClass" name="Toolkit" eSuperTypes="../../org.obeonetwork.dsl.technicalid/model/technicalid.ecore#//Identifiable">
       <eStructuralFeatures xsi:type="ecore:EReference" name="widgets" upperBound="-1"
-          eType="#//toolkits/Widget" containment="true" eOpposite="#//toolkits/Widget/toolkit"/>
+          eType="#//toolkits/Widget" containment="true" eOpposite="#//toolkits/Widget/toolkit">
+        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+          <details key="documentation" value="The widgets owned by this Toolkit."/>
+        </eAnnotations>
+      </eStructuralFeatures>
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" lowerBound="1"
-          eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+          eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
+        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+          <details key="documentation" value="The name of this Toolkit."/>
+        </eAnnotations>
+      </eStructuralFeatures>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="Widget" eSuperTypes="../../org.obeonetwork.dsl.technicalid/model/technicalid.ecore#//Identifiable">
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" lowerBound="1"
-          eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-      <eStructuralFeatures xsi:type="ecore:EAttribute" name="icon" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-      <eStructuralFeatures xsi:type="ecore:EAttribute" name="implementation" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+          eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
+        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+          <details key="documentation" value="The name of this Widget."/>
+        </eAnnotations>
+      </eStructuralFeatures>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="icon" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
+        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+          <details key="documentation" value="The icon path of this widget."/>
+        </eAnnotations>
+      </eStructuralFeatures>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="implementation" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
+        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+          <details key="documentation" value="The target implementation of this Widget."/>
+        </eAnnotations>
+      </eStructuralFeatures>
       <eStructuralFeatures xsi:type="ecore:EReference" name="toolkit" eType="#//toolkits/Toolkit"
-          eOpposite="#//toolkits/Toolkit/widgets"/>
+          eOpposite="#//toolkits/Toolkit/widgets">
+        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+          <details key="documentation" value="The Toolkit owning this Widget."/>
+        </eAnnotations>
+      </eStructuralFeatures>
       <eStructuralFeatures xsi:type="ecore:EReference" name="possibleEvents" upperBound="-1"
-          eType="#//toolkits/WidgetEventType" containment="true"/>
-      <eStructuralFeatures xsi:type="ecore:EAttribute" name="isContainer" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+          eType="#//toolkits/WidgetEventType" containment="true">
+        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+          <details key="documentation" value="The list of the events this Widget handles."/>
+        </eAnnotations>
+      </eStructuralFeatures>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="isContainer" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">
+        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+          <details key="documentation" value="True if this Widget is a container."/>
+        </eAnnotations>
+      </eStructuralFeatures>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="WidgetEventType" eSuperTypes="../../org.obeonetwork.dsl.technicalid/model/technicalid.ecore#//Identifiable">
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" lowerBound="1"
-          eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+          eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
+        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+          <details key="documentation" value="The name of this Widget Event Type."/>
+        </eAnnotations>
+      </eStructuralFeatures>
     </eClassifiers>
   </eSubpackages>
 </ecore:EPackage>

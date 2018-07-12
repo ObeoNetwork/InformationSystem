@@ -50,35 +50,35 @@
       <td colspan="1" rowspan="1"><strong>icon</strong></td>
       <td colspan="1" rowspan="1">EString</td>
       <td colspan="1" rowspan="1">{m:widget.icon}</td>
-      <td colspan="1" rowspan="1"></td>
+      <td colspan="1" rowspan="1">The icon path of this widget.</td>
       <td colspan="1" rowspan="1">{m:widget.icon}</td>
     </tr>
     <tr>
       <td colspan="1" rowspan="1"><strong>implementation</strong></td>
       <td colspan="1" rowspan="1">EString</td>
       <td colspan="1" rowspan="1">{m:widget.implementation}</td>
-      <td colspan="1" rowspan="1"></td>
+      <td colspan="1" rowspan="1">The target implementation of this Widget.</td>
       <td colspan="1" rowspan="1">{m:widget.implementation}</td>
     </tr>
     <tr>
       <td colspan="1" rowspan="1"><strong>isContainer</strong></td>
       <td colspan="1" rowspan="1">EBoolean</td>
       <td colspan="1" rowspan="1">{m:widget.isContainer}</td>
-      <td colspan="1" rowspan="1"></td>
+      <td colspan="1" rowspan="1">True if this Widget is a container.</td>
       <td colspan="1" rowspan="1">{m:widget.isContainer}</td>
     </tr>
     <tr>
       <td colspan="1" rowspan="1"><strong>name</strong></td>
       <td colspan="1" rowspan="1">EString</td>
       <td colspan="1" rowspan="1">{m:widget.name}</td>
-      <td colspan="1" rowspan="1"></td>
+      <td colspan="1" rowspan="1">The name of this Widget.</td>
       <td colspan="1" rowspan="1">{m:widget.name}</td>
     </tr>
     <tr>
       <td colspan="1" rowspan="1"><strong>possibleEvents</strong></td>
       <td colspan="1" rowspan="1">List of WidgetEventType</td>
       <td colspan="1" rowspan="1">{m:widget.possibleEvents}</td>
-      <td colspan="1" rowspan="1"></td>
+      <td colspan="1" rowspan="1">The list of the events this Widget handles.</td>
       <td colspan="1" rowspan="1">{m:for widgetEventType | widget.possibleEvents} widgetEventType {m:widgetEventType.name}, {m:endfor}</td>
     </tr>
     <tr>
@@ -92,7 +92,7 @@
       <td colspan="1" rowspan="1"><strong>toolkit</strong></td>
       <td colspan="1" rowspan="1">Toolkit</td>
       <td colspan="1" rowspan="1">{m:widget.toolkit}</td>
-      <td colspan="1" rowspan="1"></td>
+      <td colspan="1" rowspan="1">The Toolkit owning this Widget.</td>
       <td colspan="1" rowspan="1">{m:widget.toolkit}</td>
     </tr>
     </tbody>
@@ -128,9 +128,9 @@
     <tr>
       <td colspan="1" rowspan="1"><strong>isCinematicObject</strong></td>
       <td colspan="1" rowspan="1">boolean</td>
-      <td colspan="1" rowspan="1"></td>
-      <td colspan="1" rowspan="1"></td>
-      <td colspan="1" rowspan="1"></td>
+      <td colspan="1" rowspan="1">{m:obj.isCinematicObject()}</td>
+      <td colspan="1" rowspan="1">Returns if the target object is a Cinematic element.</td>
+      <td colspan="1" rowspan="1">{m:obj.isCinematicObject()} returns: True if the target object is a Cinematic element, false otherwise.</td>
     </tr>
     <tr>
       <td colspan="1" rowspan="1"><strong>relatedRequirements</strong></td>

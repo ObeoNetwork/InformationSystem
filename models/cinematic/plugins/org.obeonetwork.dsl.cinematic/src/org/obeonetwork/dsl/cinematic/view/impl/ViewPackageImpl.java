@@ -479,7 +479,25 @@ public class ViewPackageImpl extends EPackageImpl implements ViewPackage {
 		  (getViewContainer_OwnedElements(), 
 		   source, 
 		   new String[] {
+			 "documentation", "List of the directly contained View Containers, View Elements and View Container References."
+		   });	
+		addAnnotation
+		  (getViewContainer_ViewContainers(), 
+		   source, 
+		   new String[] {
+			 "documentation", "List of the directly contained View Containers."
+		   });	
+		addAnnotation
+		  (getViewContainer_ViewElements(), 
+		   source, 
+		   new String[] {
 			 "documentation", "List of the directly contained View Elements."
+		   });	
+		addAnnotation
+		  (getViewContainer_ViewContainerReferences(), 
+		   source, 
+		   new String[] {
+			 "documentation", "List of the directly contained View Container References."
 		   });	
 		addAnnotation
 		  (getViewElement_Required(), 
@@ -492,6 +510,18 @@ public class ViewPackageImpl extends EPackageImpl implements ViewPackage {
 		   source, 
 		   new String[] {
 			 "documentation", "The data type this View Element is manipulating."
+		   });	
+		addAnnotation
+		  (getViewEvent_Type(), 
+		   source, 
+		   new String[] {
+			 "documentation", "The type of the View Event."
+		   });	
+		addAnnotation
+		  (getViewContainerReference_ViewContainer(), 
+		   source, 
+		   new String[] {
+			 "documentation", "The referenced View Container."
 		   });
 	}
 

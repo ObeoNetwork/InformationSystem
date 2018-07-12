@@ -335,6 +335,74 @@ public class ToolkitsPackageImpl extends EPackageImpl implements ToolkitsPackage
 
 		initEClass(widgetEventTypeEClass, WidgetEventType.class, "WidgetEventType", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getWidgetEventType_Name(), ecorePackage.getEString(), "name", null, 1, 1, WidgetEventType.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		// Create annotations
+		// http://www.eclipse.org/emf/2002/GenModel
+		createGenModelAnnotations();
+	}
+
+	/**
+	 * Initializes the annotations for <b>http://www.eclipse.org/emf/2002/GenModel</b>.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void createGenModelAnnotations() {
+		String source = "http://www.eclipse.org/emf/2002/GenModel";	
+		addAnnotation
+		  (getToolkit_Widgets(), 
+		   source, 
+		   new String[] {
+			 "documentation", "The widgets owned by this Toolkit."
+		   });	
+		addAnnotation
+		  (getToolkit_Name(), 
+		   source, 
+		   new String[] {
+			 "documentation", "The name of this Toolkit."
+		   });	
+		addAnnotation
+		  (getWidget_Name(), 
+		   source, 
+		   new String[] {
+			 "documentation", "The name of this Widget."
+		   });	
+		addAnnotation
+		  (getWidget_Icon(), 
+		   source, 
+		   new String[] {
+			 "documentation", "The icon path of this widget."
+		   });	
+		addAnnotation
+		  (getWidget_Implementation(), 
+		   source, 
+		   new String[] {
+			 "documentation", "The target implementation of this Widget."
+		   });	
+		addAnnotation
+		  (getWidget_Toolkit(), 
+		   source, 
+		   new String[] {
+			 "documentation", "The Toolkit owning this Widget."
+		   });	
+		addAnnotation
+		  (getWidget_PossibleEvents(), 
+		   source, 
+		   new String[] {
+			 "documentation", "The list of the events this Widget handles."
+		   });	
+		addAnnotation
+		  (getWidget_IsContainer(), 
+		   source, 
+		   new String[] {
+			 "documentation", "True if this Widget is a container."
+		   });	
+		addAnnotation
+		  (getWidgetEventType_Name(), 
+		   source, 
+		   new String[] {
+			 "documentation", "The name of this Widget Event Type."
+		   });
 	}
 
 } //ToolkitsPackageImpl

@@ -43,6 +43,9 @@ public interface Widget extends Identifiable {
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * The name of this Widget.
+	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Name</em>' attribute.
 	 * @see #setName(String)
 	 * @see org.obeonetwork.dsl.cinematic.toolkits.ToolkitsPackage#getWidget_Name()
@@ -69,6 +72,9 @@ public interface Widget extends Identifiable {
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * The icon path of this widget.
+	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Icon</em>' attribute.
 	 * @see #setIcon(String)
 	 * @see org.obeonetwork.dsl.cinematic.toolkits.ToolkitsPackage#getWidget_Icon()
@@ -95,6 +101,9 @@ public interface Widget extends Identifiable {
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * The target implementation of this Widget.
+	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Implementation</em>' attribute.
 	 * @see #setImplementation(String)
 	 * @see org.obeonetwork.dsl.cinematic.toolkits.ToolkitsPackage#getWidget_Implementation()
@@ -122,6 +131,9 @@ public interface Widget extends Identifiable {
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * The Toolkit owning this Widget.
+	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Toolkit</em>' container reference.
 	 * @see #setToolkit(Toolkit)
 	 * @see org.obeonetwork.dsl.cinematic.toolkits.ToolkitsPackage#getWidget_Toolkit()
@@ -150,6 +162,9 @@ public interface Widget extends Identifiable {
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * The list of the events this Widget handles.
+	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Possible Events</em>' containment reference list.
 	 * @see org.obeonetwork.dsl.cinematic.toolkits.ToolkitsPackage#getWidget_PossibleEvents()
 	 * @model containment="true" resolveProxies="true"
@@ -165,6 +180,9 @@ public interface Widget extends Identifiable {
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * True if this Widget is a container.
+	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Is Container</em>' attribute.
 	 * @see #setIsContainer(boolean)
 	 * @see org.obeonetwork.dsl.cinematic.toolkits.ToolkitsPackage#getWidget_IsContainer()

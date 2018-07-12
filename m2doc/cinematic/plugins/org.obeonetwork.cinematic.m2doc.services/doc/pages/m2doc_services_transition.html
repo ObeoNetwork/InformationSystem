@@ -50,70 +50,70 @@
       <td colspan="1" rowspan="1"><strong>behaviours</strong></td>
       <td colspan="1" rowspan="1">List of Behaviour</td>
       <td colspan="1" rowspan="1">{m:transition.behaviours}</td>
-      <td colspan="1" rowspan="1"></td>
+      <td colspan="1" rowspan="1">The Behaviours owned by this object.</td>
       <td colspan="1" rowspan="1">{m:for behaviour | transition.behaviours} behaviour {m:behaviour.name}, {m:endfor}</td>
     </tr>
     <tr>
       <td colspan="1" rowspan="1"><strong>bindingRegistries</strong></td>
       <td colspan="1" rowspan="1">List of BindingRegistry</td>
       <td colspan="1" rowspan="1">{m:transition.bindingRegistries}</td>
-      <td colspan="1" rowspan="1"></td>
+      <td colspan="1" rowspan="1">The binding registries of this object.</td>
       <td colspan="1" rowspan="1">{m:for bindingRegistry | transition.bindingRegistries} bindingRegistry {m:bindingRegistry.name}, {m:endfor}</td>
     </tr>
     <tr>
       <td colspan="1" rowspan="1"><strong>createdOn</strong></td>
       <td colspan="1" rowspan="1">EDate</td>
       <td colspan="1" rowspan="1">{m:transition.createdOn}</td>
-      <td colspan="1" rowspan="1"></td>
+      <td colspan="1" rowspan="1">The creation date of this object.</td>
       <td colspan="1" rowspan="1">{m:transition.createdOn}</td>
     </tr>
     <tr>
       <td colspan="1" rowspan="1"><strong>description</strong></td>
       <td colspan="1" rowspan="1">EString</td>
       <td colspan="1" rowspan="1">{m:transition.description}</td>
-      <td colspan="1" rowspan="1"></td>
+      <td colspan="1" rowspan="1">The description of this object.</td>
       <td colspan="1" rowspan="1">{m:transition.description}</td>
     </tr>
     <tr>
       <td colspan="1" rowspan="1"><strong>from</strong></td>
       <td colspan="1" rowspan="1">FlowState</td>
       <td colspan="1" rowspan="1">{m:transition.from}</td>
-      <td colspan="1" rowspan="1"></td>
+      <td colspan="1" rowspan="1">The state this transision is originating from.</td>
       <td colspan="1" rowspan="1">{m:transition.from}</td>
     </tr>
     <tr>
       <td colspan="1" rowspan="1"><strong>guard</strong></td>
       <td colspan="1" rowspan="1">EString</td>
       <td colspan="1" rowspan="1">{m:transition.guard}</td>
-      <td colspan="1" rowspan="1"></td>
+      <td colspan="1" rowspan="1">A string defining the guard condition to this Transition.</td>
       <td colspan="1" rowspan="1">{m:transition.guard}</td>
     </tr>
     <tr>
       <td colspan="1" rowspan="1"><strong>keywords</strong></td>
       <td colspan="1" rowspan="1">List of EString</td>
       <td colspan="1" rowspan="1">{m:transition.keywords}</td>
-      <td colspan="1" rowspan="1"></td>
+      <td colspan="1" rowspan="1">The list of keywords applied to this object.</td>
       <td colspan="1" rowspan="1">{m:for eString | transition.keywords} eString {m:eString.name}, {m:endfor}</td>
     </tr>
     <tr>
       <td colspan="1" rowspan="1"><strong>metadatas</strong></td>
       <td colspan="1" rowspan="1">MetaDataContainer</td>
       <td colspan="1" rowspan="1">{m:transition.metadatas}</td>
-      <td colspan="1" rowspan="1"></td>
+      <td colspan="1" rowspan="1">The metadatas defined on this object.</td>
       <td colspan="1" rowspan="1">{m:transition.metadatas}</td>
     </tr>
     <tr>
       <td colspan="1" rowspan="1"><strong>modal</strong></td>
       <td colspan="1" rowspan="1">EBoolean</td>
       <td colspan="1" rowspan="1">{m:transition.modal}</td>
-      <td colspan="1" rowspan="1"></td>
+      <td colspan="1" rowspan="1">The modality of the transition, expressing transition behaviors that (true) necessarily occur (must modality), (false) possibly occur (may modality).</td>
       <td colspan="1" rowspan="1">{m:transition.modal}</td>
     </tr>
     <tr>
       <td colspan="1" rowspan="1"><strong>modifiedOn</strong></td>
       <td colspan="1" rowspan="1">EDate</td>
       <td colspan="1" rowspan="1">{m:transition.modifiedOn}</td>
-      <td colspan="1" rowspan="1"></td>
+      <td colspan="1" rowspan="1">The modification date of this obect.</td>
       <td colspan="1" rowspan="1">{m:transition.modifiedOn}</td>
     </tr>
     <tr>
@@ -127,7 +127,7 @@
       <td colspan="1" rowspan="1"><strong>on</strong></td>
       <td colspan="1" rowspan="1">List of Event</td>
       <td colspan="1" rowspan="1">{m:transition.on}</td>
-      <td colspan="1" rowspan="1"></td>
+      <td colspan="1" rowspan="1">The event this transition is bounded to.</td>
       <td colspan="1" rowspan="1">{m:for event | transition.on} event {m:event.name}, {m:endfor}</td>
     </tr>
     <tr>
@@ -141,14 +141,14 @@
       <td colspan="1" rowspan="1"><strong>to</strong></td>
       <td colspan="1" rowspan="1">FlowState</td>
       <td colspan="1" rowspan="1">{m:transition.to}</td>
-      <td colspan="1" rowspan="1"></td>
+      <td colspan="1" rowspan="1">The state this transition is going to.</td>
       <td colspan="1" rowspan="1">{m:transition.to}</td>
     </tr>
     <tr>
       <td colspan="1" rowspan="1"><strong>version</strong></td>
       <td colspan="1" rowspan="1">EInt</td>
       <td colspan="1" rowspan="1">{m:transition.version}</td>
-      <td colspan="1" rowspan="1"></td>
+      <td colspan="1" rowspan="1">The version of this object.</td>
       <td colspan="1" rowspan="1">{m:transition.version}</td>
     </tr>
     </tbody>
@@ -184,9 +184,9 @@
     <tr>
       <td colspan="1" rowspan="1"><strong>isCinematicObject</strong></td>
       <td colspan="1" rowspan="1">boolean</td>
-      <td colspan="1" rowspan="1"></td>
-      <td colspan="1" rowspan="1"></td>
-      <td colspan="1" rowspan="1"></td>
+      <td colspan="1" rowspan="1">{m:obj.isCinematicObject()}</td>
+      <td colspan="1" rowspan="1">Returns if the target object is a Cinematic element.</td>
+      <td colspan="1" rowspan="1">{m:obj.isCinematicObject()} returns: True if the target object is a Cinematic element, false otherwise.</td>
     </tr>
     <tr>
       <td colspan="1" rowspan="1"><strong>relatedRequirements</strong></td>

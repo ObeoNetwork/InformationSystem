@@ -57,28 +57,28 @@
       <td colspan="1" rowspan="1"><strong>behaviours</strong></td>
       <td colspan="1" rowspan="1">List of Behaviour</td>
       <td colspan="1" rowspan="1">{m:viewContainerReference.behaviours}</td>
-      <td colspan="1" rowspan="1"></td>
+      <td colspan="1" rowspan="1">The Behaviours owned by this object.</td>
       <td colspan="1" rowspan="1">{m:for behaviour | viewContainerReference.behaviours} behaviour {m:behaviour.name}, {m:endfor}</td>
     </tr>
     <tr>
       <td colspan="1" rowspan="1"><strong>bindingRegistries</strong></td>
       <td colspan="1" rowspan="1">List of BindingRegistry</td>
       <td colspan="1" rowspan="1">{m:viewContainerReference.bindingRegistries}</td>
-      <td colspan="1" rowspan="1"></td>
+      <td colspan="1" rowspan="1">The binding registries of this object.</td>
       <td colspan="1" rowspan="1">{m:for bindingRegistry | viewContainerReference.bindingRegistries} bindingRegistry {m:bindingRegistry.name}, {m:endfor}</td>
     </tr>
     <tr>
       <td colspan="1" rowspan="1"><strong>createdOn</strong></td>
       <td colspan="1" rowspan="1">EDate</td>
       <td colspan="1" rowspan="1">{m:viewContainerReference.createdOn}</td>
-      <td colspan="1" rowspan="1"></td>
+      <td colspan="1" rowspan="1">The creation date of this object.</td>
       <td colspan="1" rowspan="1">{m:viewContainerReference.createdOn}</td>
     </tr>
     <tr>
       <td colspan="1" rowspan="1"><strong>description</strong></td>
       <td colspan="1" rowspan="1">EString</td>
       <td colspan="1" rowspan="1">{m:viewContainerReference.description}</td>
-      <td colspan="1" rowspan="1"></td>
+      <td colspan="1" rowspan="1">The description of this object.</td>
       <td colspan="1" rowspan="1">{m:viewContainerReference.description}</td>
     </tr>
     <tr>
@@ -92,7 +92,7 @@
       <td colspan="1" rowspan="1"><strong>keywords</strong></td>
       <td colspan="1" rowspan="1">List of EString</td>
       <td colspan="1" rowspan="1">{m:viewContainerReference.keywords}</td>
-      <td colspan="1" rowspan="1"></td>
+      <td colspan="1" rowspan="1">The list of keywords applied to this object.</td>
       <td colspan="1" rowspan="1">{m:for eString | viewContainerReference.keywords} eString {m:eString.name}, {m:endfor}</td>
     </tr>
     <tr>
@@ -106,14 +106,14 @@
       <td colspan="1" rowspan="1"><strong>metadatas</strong></td>
       <td colspan="1" rowspan="1">MetaDataContainer</td>
       <td colspan="1" rowspan="1">{m:viewContainerReference.metadatas}</td>
-      <td colspan="1" rowspan="1"></td>
+      <td colspan="1" rowspan="1">The metadatas defined on this object.</td>
       <td colspan="1" rowspan="1">{m:viewContainerReference.metadatas}</td>
     </tr>
     <tr>
       <td colspan="1" rowspan="1"><strong>modifiedOn</strong></td>
       <td colspan="1" rowspan="1">EDate</td>
       <td colspan="1" rowspan="1">{m:viewContainerReference.modifiedOn}</td>
-      <td colspan="1" rowspan="1"></td>
+      <td colspan="1" rowspan="1">The modification date of this obect.</td>
       <td colspan="1" rowspan="1">{m:viewContainerReference.modifiedOn}</td>
     </tr>
     <tr>
@@ -134,14 +134,14 @@
       <td colspan="1" rowspan="1"><strong>version</strong></td>
       <td colspan="1" rowspan="1">EInt</td>
       <td colspan="1" rowspan="1">{m:viewContainerReference.version}</td>
-      <td colspan="1" rowspan="1"></td>
+      <td colspan="1" rowspan="1">The version of this object.</td>
       <td colspan="1" rowspan="1">{m:viewContainerReference.version}</td>
     </tr>
     <tr>
       <td colspan="1" rowspan="1"><strong>viewContainer</strong></td>
       <td colspan="1" rowspan="1">ViewContainer</td>
       <td colspan="1" rowspan="1">{m:viewContainerReference.viewContainer}</td>
-      <td colspan="1" rowspan="1"></td>
+      <td colspan="1" rowspan="1">The referenced View Container.</td>
       <td colspan="1" rowspan="1">{m:viewContainerReference.viewContainer}</td>
     </tr>
     <tr>
@@ -184,9 +184,9 @@
     <tr>
       <td colspan="1" rowspan="1"><strong>isCinematicObject</strong></td>
       <td colspan="1" rowspan="1">boolean</td>
-      <td colspan="1" rowspan="1"></td>
-      <td colspan="1" rowspan="1"></td>
-      <td colspan="1" rowspan="1"></td>
+      <td colspan="1" rowspan="1">{m:obj.isCinematicObject()}</td>
+      <td colspan="1" rowspan="1">Returns if the target object is a Cinematic element.</td>
+      <td colspan="1" rowspan="1">{m:obj.isCinematicObject()} returns: True if the target object is a Cinematic element, false otherwise.</td>
     </tr>
     <tr>
       <td colspan="1" rowspan="1"><strong>relatedRequirements</strong></td>

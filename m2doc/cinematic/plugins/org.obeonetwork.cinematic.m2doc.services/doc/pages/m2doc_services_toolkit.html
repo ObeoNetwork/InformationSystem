@@ -50,7 +50,7 @@
       <td colspan="1" rowspan="1"><strong>name</strong></td>
       <td colspan="1" rowspan="1">EString</td>
       <td colspan="1" rowspan="1">{m:toolkit.name}</td>
-      <td colspan="1" rowspan="1"></td>
+      <td colspan="1" rowspan="1">The name of this Toolkit.</td>
       <td colspan="1" rowspan="1">{m:toolkit.name}</td>
     </tr>
     <tr>
@@ -64,7 +64,7 @@
       <td colspan="1" rowspan="1"><strong>widgets</strong></td>
       <td colspan="1" rowspan="1">List of Widget</td>
       <td colspan="1" rowspan="1">{m:toolkit.widgets}</td>
-      <td colspan="1" rowspan="1"></td>
+      <td colspan="1" rowspan="1">The widgets owned by this Toolkit.</td>
       <td colspan="1" rowspan="1">{m:for widget | toolkit.widgets} widget {m:widget.name}, {m:endfor}</td>
     </tr>
     </tbody>
@@ -100,9 +100,9 @@
     <tr>
       <td colspan="1" rowspan="1"><strong>isCinematicObject</strong></td>
       <td colspan="1" rowspan="1">boolean</td>
-      <td colspan="1" rowspan="1"></td>
-      <td colspan="1" rowspan="1"></td>
-      <td colspan="1" rowspan="1"></td>
+      <td colspan="1" rowspan="1">{m:obj.isCinematicObject()}</td>
+      <td colspan="1" rowspan="1">Returns if the target object is a Cinematic element.</td>
+      <td colspan="1" rowspan="1">{m:obj.isCinematicObject()} returns: True if the target object is a Cinematic element, false otherwise.</td>
     </tr>
     <tr>
       <td colspan="1" rowspan="1"><strong>relatedRequirements</strong></td>

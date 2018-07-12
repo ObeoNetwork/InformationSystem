@@ -1711,6 +1711,36 @@ public class EnvironmentPackageImpl extends EPackageImpl implements EnvironmentP
 
 		// Create resource
 		createResource(eNS_URI);
+
+		// Create annotations
+		// http://www.eclipse.org/emf/2002/GenModel
+		createGenModelAnnotations();
+	}
+
+	/**
+	 * Initializes the annotations for <b>http://www.eclipse.org/emf/2002/GenModel</b>.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void createGenModelAnnotations() {
+		String source = "http://www.eclipse.org/emf/2002/GenModel";
+		addAnnotation(getObeoDSMObject_Metadatas(), source,
+				new String[] { "documentation", "The metadatas defined on this object." });
+		addAnnotation(getObeoDSMObject_Description(), source,
+				new String[] { "documentation", "The description of this object." });
+		addAnnotation(getObeoDSMObject_Keywords(), source,
+				new String[] { "documentation", "The list of keywords applied to this object." });
+		addAnnotation(getObeoDSMObject_Behaviours(), source,
+				new String[] { "documentation", "The Behaviours owned by this object." });
+		addAnnotation(getObeoDSMObject_BindingRegistries(), source,
+				new String[] { "documentation", "The binding registries of this object." });
+		addAnnotation(getObeoDSMObject_Version(), source,
+				new String[] { "documentation", "The version of this object." });
+		addAnnotation(getObeoDSMObject_CreatedOn(), source,
+				new String[] { "documentation", "The creation date of this object." });
+		addAnnotation(getObeoDSMObject_ModifiedOn(), source,
+				new String[] { "documentation", "The modification date of this obect." });
 	}
 
 } //EnvironmentPackageImpl

@@ -41,6 +41,17 @@ public class CinematicServices {
 	private CinematicBindingServices bindingService = new CinematicBindingServices ();
 
 
+	// @formatter:off
+	@Documentation(
+			comment = "{m:obj.isCinematicObject()}",
+		    value = "Returns if the target object is a Cinematic element.",
+		    examples = {
+		    		@Example(
+		    				expression = "{m:obj.isCinematicObject()}", 
+		    				result = "True if the target object is a Cinematic element, false otherwise.")
+		    }
+		)
+	// @formatter:on	
 	public boolean isCinematicObject(EObject obj) {
 		EPackage pack = obj.eClass().getEPackage();
 		return pack.getName().contains("cinematic");

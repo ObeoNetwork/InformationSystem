@@ -42,7 +42,7 @@ public interface ViewContainer extends AbstractViewElement {
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * List of the directly contained View Elements.
+	 * List of the directly contained View Containers, View Elements and View Container References.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Owned Elements</em>' containment reference list.
 	 * @see org.obeonetwork.dsl.cinematic.view.ViewPackage#getViewContainer_OwnedElements()
@@ -60,6 +60,9 @@ public interface ViewContainer extends AbstractViewElement {
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * List of the directly contained View Containers.
+	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>View Containers</em>' reference list.
 	 * @see org.obeonetwork.dsl.cinematic.view.ViewPackage#getViewContainer_ViewContainers()
 	 * @model transient="true" changeable="false" volatile="true" derived="true"
@@ -76,6 +79,9 @@ public interface ViewContainer extends AbstractViewElement {
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * List of the directly contained View Elements.
+	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>View Elements</em>' reference list.
 	 * @see org.obeonetwork.dsl.cinematic.view.ViewPackage#getViewContainer_ViewElements()
 	 * @model transient="true" changeable="false" volatile="true" derived="true"
@@ -92,6 +98,9 @@ public interface ViewContainer extends AbstractViewElement {
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * List of the directly contained View Container References.
+	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>View Container References</em>' reference list.
 	 * @see org.obeonetwork.dsl.cinematic.view.ViewPackage#getViewContainer_ViewContainerReferences()
 	 * @model transient="true" changeable="false" volatile="true" derived="true"

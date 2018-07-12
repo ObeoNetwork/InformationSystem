@@ -37,6 +37,9 @@ public interface WidgetEventType extends Identifiable {
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * The name of this Widget Event Type.
+	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Name</em>' attribute.
 	 * @see #setName(String)
 	 * @see org.obeonetwork.dsl.cinematic.toolkits.ToolkitsPackage#getWidgetEventType_Name()

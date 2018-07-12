@@ -40,6 +40,9 @@ public interface ViewState extends NamedFlowState {
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * True if this view state instanciates a new view.
+	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>New Instance</em>' attribute.
 	 * @see #setNewInstance(boolean)
 	 * @see org.obeonetwork.dsl.cinematic.flow.FlowPackage#getViewState_NewInstance()
@@ -66,6 +69,9 @@ public interface ViewState extends NamedFlowState {
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * True if a refresh should be performed on the view.
+	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Refresh</em>' attribute.
 	 * @see #setRefresh(boolean)
 	 * @see org.obeonetwork.dsl.cinematic.flow.FlowPackage#getViewState_Refresh()
@@ -93,6 +99,9 @@ public interface ViewState extends NamedFlowState {
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * The view containers this View State is presented by.
+	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>View Containers</em>' reference list.
 	 * @see org.obeonetwork.dsl.cinematic.flow.FlowPackage#getViewState_ViewContainers()
 	 * @model

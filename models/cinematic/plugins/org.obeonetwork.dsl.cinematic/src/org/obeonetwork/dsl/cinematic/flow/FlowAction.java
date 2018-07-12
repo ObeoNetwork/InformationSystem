@@ -42,6 +42,9 @@ public interface FlowAction extends NamedElement {
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * The View Actions this Flow Action calls.
+	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Calls</em>' reference list.
 	 * @see org.obeonetwork.dsl.cinematic.flow.FlowPackage#getFlowAction_Calls()
 	 * @model
@@ -58,6 +61,9 @@ public interface FlowAction extends NamedElement {
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * The operations this Flow Action calls.
+	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Operations</em>' reference list.
 	 * @see org.obeonetwork.dsl.cinematic.flow.FlowPackage#getFlowAction_Operations()
 	 * @model

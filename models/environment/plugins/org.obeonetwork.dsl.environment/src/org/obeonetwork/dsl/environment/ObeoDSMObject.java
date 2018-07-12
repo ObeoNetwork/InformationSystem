@@ -54,6 +54,9 @@ public interface ObeoDSMObject extends Identifiable {
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * The metadatas defined on this object.
+	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Metadatas</em>' containment reference.
 	 * @see #setMetadatas(MetaDataContainer)
 	 * @see org.obeonetwork.dsl.environment.EnvironmentPackage#getObeoDSMObject_Metadatas()
@@ -80,6 +83,9 @@ public interface ObeoDSMObject extends Identifiable {
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * The description of this object.
+	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Description</em>' attribute.
 	 * @see #setDescription(String)
 	 * @see org.obeonetwork.dsl.environment.EnvironmentPackage#getObeoDSMObject_Description()
@@ -107,6 +113,9 @@ public interface ObeoDSMObject extends Identifiable {
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * The list of keywords applied to this object.
+	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Keywords</em>' attribute list.
 	 * @see org.obeonetwork.dsl.environment.EnvironmentPackage#getObeoDSMObject_Keywords()
 	 * @model
@@ -123,6 +132,9 @@ public interface ObeoDSMObject extends Identifiable {
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * The Behaviours owned by this object.
+	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Behaviours</em>' containment reference list.
 	 * @see org.obeonetwork.dsl.environment.EnvironmentPackage#getObeoDSMObject_Behaviours()
 	 * @model containment="true" resolveProxies="true"
@@ -139,6 +151,9 @@ public interface ObeoDSMObject extends Identifiable {
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * The binding registries of this object.
+	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Binding Registries</em>' reference list.
 	 * @see org.obeonetwork.dsl.environment.EnvironmentPackage#getObeoDSMObject_BindingRegistries()
 	 * @model
@@ -155,6 +170,9 @@ public interface ObeoDSMObject extends Identifiable {
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * The version of this object.
+	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Version</em>' attribute.
 	 * @see #setVersion(int)
 	 * @see org.obeonetwork.dsl.environment.EnvironmentPackage#getObeoDSMObject_Version()
@@ -181,6 +199,9 @@ public interface ObeoDSMObject extends Identifiable {
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * The creation date of this object.
+	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Created On</em>' attribute.
 	 * @see #setCreatedOn(Date)
 	 * @see org.obeonetwork.dsl.environment.EnvironmentPackage#getObeoDSMObject_CreatedOn()
@@ -207,6 +228,9 @@ public interface ObeoDSMObject extends Identifiable {
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * The modification date of this obect.
+	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Modified On</em>' attribute.
 	 * @see #setModifiedOn(Date)
 	 * @see org.obeonetwork.dsl.environment.EnvironmentPackage#getObeoDSMObject_ModifiedOn()

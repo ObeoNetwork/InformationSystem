@@ -41,6 +41,9 @@ public interface Toolkit extends Identifiable {
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * The widgets owned by this Toolkit.
+	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Widgets</em>' containment reference list.
 	 * @see org.obeonetwork.dsl.cinematic.toolkits.ToolkitsPackage#getToolkit_Widgets()
 	 * @see org.obeonetwork.dsl.cinematic.toolkits.Widget#getToolkit
@@ -57,6 +60,9 @@ public interface Toolkit extends Identifiable {
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * The name of this Toolkit.
+	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Name</em>' attribute.
 	 * @see #setName(String)
 	 * @see org.obeonetwork.dsl.cinematic.toolkits.ToolkitsPackage#getToolkit_Name()
