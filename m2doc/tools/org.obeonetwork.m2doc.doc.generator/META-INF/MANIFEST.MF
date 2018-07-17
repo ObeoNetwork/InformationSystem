@@ -1,0 +1,21 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: M2Doc Doc Generator
+Bundle-SymbolicName: org.obeonetwork.m2doc.doc.generator
+Bundle-Version: 1.0.0.qualifier
+Bundle-Activator: org.obeonetwork.m2doc.doc.generator.Activator
+Bundle-Vendor: Obeo
+Require-Bundle: org.eclipse.core.runtime,
+ org.eclipse.emf.cdo,
+ org.eclipse.acceleo.annotations,
+ org.apache.commons.lang,
+ org.eclipse.sirius,
+ org.eclipse.emf.ecore,
+ org.eclipse.sirius.table,
+ com.google.guava,
+ org.eclipse.sirius.diagram,
+ org.eclipse.emf.edit,
+ org.obeonetwork.m2doc,
+ org.eclipse.sirius.tree
+Bundle-RequiredExecutionEnvironment: JavaSE-1.8
+Bundle-ActivationPolicy: lazy
