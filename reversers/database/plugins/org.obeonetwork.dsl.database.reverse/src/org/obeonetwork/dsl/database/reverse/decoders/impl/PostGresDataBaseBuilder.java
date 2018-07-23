@@ -15,9 +15,6 @@ import java.sql.DatabaseMetaData;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.HashMap;
 
 import org.obeonetwork.dsl.database.AbstractTable;
 import org.obeonetwork.dsl.database.Column;
@@ -40,8 +37,6 @@ public class PostGresDataBaseBuilder extends DefaultDataBaseBuilder {
 
 	private static final String TYPES_LIBRARY_POSTGRES_FILENAME = "Postgres-9.typeslibrary";
 	
-	private HashMap<String, Collection<PostgreSQLConstraint>> cacheConstraints = null;
-
 	public PostGresDataBaseBuilder(DataSource source,
 			ProgressListener progressListener, Queries queries)
 			throws SQLException {
@@ -146,54 +141,34 @@ public class PostGresDataBaseBuilder extends DefaultDataBaseBuilder {
 		}
 
 	}
-
+	
 	@Override
-	protected void buildColumnConstraint(DatabaseMetaData metaData,
-			TableContainer owner, Column column) {
-		Table table = column.getOwner();
-		String key = table.getName().toUpperCase();
-		
-		// we add all constraints for a table at the same time
-		if (cacheConstraints == null) {
-			cacheConstraints = new HashMap<String, Collection<PostgreSQLConstraint>>();
-			ResultSet rs = null;
-			PreparedStatement pstmt = null;
-			try {
-				PreparedStatement psmt = metaData.getConnection().prepareStatement(
-						"SELECT tc.constraint_name, pgc.consrc	, tc.table_name " +
-								"FROM information_schema.table_constraints tc " +
-								"LEFT JOIN pg_catalog.pg_constraint pgc " + 
-								"ON pgc.conname = tc.constraint_name " +
-								"WHERE tc.table_schema = ? and tc.constraint_type = 'CHECK' and tc.constraint_name not like '%_not_null'");
-				
-				psmt.setString(1, schemaName);
-				rs = psmt.executeQuery();
-				while (rs.next()) {					
-					String name = rs.getString(1);
-					String expression = rs.getString(2);
-					String tableName = rs.getString(3);
-					String key2 = tableName.toUpperCase();
-					Collection<PostgreSQLConstraint> constraints = cacheConstraints.get(key2);
-					if (constraints == null) {
-						constraints = new ArrayList<PostgreSQLConstraint>();
-					}
-					constraints.add(new PostgreSQLConstraint(tableName, name, expression));
-					cacheConstraints.put(key2, constraints);
-				}
-			} catch (Exception ex) {
-				ex.printStackTrace();
-			} finally {
-				JdbcUtils.closeStatement(pstmt);
-				JdbcUtils.closeResultSet(rs);
+	protected void buildColumnConstraints(DatabaseMetaData metaData, TableContainer owner, Table table) {
+		ResultSet rs = null;
+		PreparedStatement pstmt = null;
+		try {
+			PreparedStatement psmt = metaData.getConnection().prepareStatement(
+					"SELECT tc.constraint_name, pgc.consrc " +
+							"FROM information_schema.table_constraints tc " +
+							"LEFT JOIN pg_catalog.pg_constraint pgc " + 
+							"ON pgc.conname = tc.constraint_name " +
+							"WHERE tc.table_schema = ? and tc.table_name = ? and tc.constraint_type = 'CHECK' and tc.constraint_name not like '%_not_null'");
+			
+			psmt.setString(1, schemaName);
+			psmt.setString(2, table.getName());
+			rs = psmt.executeQuery();
+			while (rs.next()) {					
+				String name = rs.getString(1);
+				String expression = rs.getString(2);
+
+				Constraint constraint = CreationUtils.createConstraint(table, name);
+				constraint.setExpression(expression);
 			}
-		}
-		if (cacheConstraints.containsKey(key)) {
-			for (PostgreSQLConstraint pgConstraint : cacheConstraints.get(key)) {
-				Constraint constraint = CreationUtils.createConstraint(table, pgConstraint.name);
-				constraint.setExpression(pgConstraint.expression);					
-			}
-			// We remove from the cache or the constraints would be added for every column in the table
-			cacheConstraints.remove(key);
+		} catch (Exception ex) {
+			ex.printStackTrace();
+		} finally {
+			JdbcUtils.closeStatement(pstmt);
+			JdbcUtils.closeResultSet(rs);
 		}
 	}
 	

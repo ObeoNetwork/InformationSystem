@@ -22,7 +22,6 @@ import org.obeonetwork.dsl.database.AbstractTable;
 import org.obeonetwork.dsl.database.Column;
 import org.obeonetwork.dsl.database.Constraint;
 import org.obeonetwork.dsl.database.Index;
-import org.obeonetwork.dsl.database.Schema;
 import org.obeonetwork.dsl.database.Sequence;
 import org.obeonetwork.dsl.database.Table;
 import org.obeonetwork.dsl.database.TableContainer;
@@ -41,7 +40,6 @@ public class OracleDataBaseBuilder extends DefaultDataBaseBuilder {
 	private static final String TYPES_LIBRARY_ORACLE_FILENAME = "Oracle-11g.typeslibrary";
 	
 	private Map<String, String> cacheColumnComments = null;
-	private HashMap<String, OracleConstraint> cacheConstraints = null;
 	private Map<String, String> cacheTableComments = null;
 	
 	public OracleDataBaseBuilder(DataSource source, ProgressListener progressListener, Queries queries) throws SQLException {
@@ -78,49 +76,37 @@ public class OracleDataBaseBuilder extends DefaultDataBaseBuilder {
 	}
 	
 	@Override
-	protected void buildColumnConstraint(DatabaseMetaData metaData,
-			TableContainer owner, Column column) {
-		Schema schema = (Schema)owner;
-		String key = schema.getName() + column.getOwner().getName() + column.getName();
-		if (cacheConstraints == null) {
-			cacheConstraints = new HashMap<String, OracleConstraint>();
-			ResultSet rs = null;
-			PreparedStatement pstmt = null;
-			try {
-				PreparedStatement psmt = metaData.getConnection().prepareStatement(
-						" SELECT dc.constraint_name, dc.search_condition, dcc.table_name, dcc.column_name " 
-								+ " FROM all_constraints dc, all_cons_columns dcc " + " where dc.owner=?"
-								+ " AND dcc.owner=?" + " AND constraint_type='C'" + " AND substr(dc.constraint_name,1,3) <> 'SYS'" + " AND dc.owner=dcc.owner"
-								+ " AND dc.constraint_name=dcc.constraint_name" + " ORDER BY dc.constraint_name");
-				psmt.setString(1, schema.getName());
-				psmt.setString(2, schema.getName());
-				rs = psmt.executeQuery();
-				while (rs.next()) {					
-					String name = rs.getString(1);
-					//do not reference recyclebin internal name
-					if(name.startsWith("BIN$")){
-						name="";
-					}
-					String expression = rs.getString(2);
-					String tableName = rs.getString(3);
-					String columnName = rs.getString(4);
-					if(!expression.endsWith("IS NOT NULL")){
-						OracleConstraint oracleConstraint = new OracleConstraint(tableName, name, expression);
-						cacheConstraints.put(schema.getName() + tableName + columnName, oracleConstraint);
-					}
+	protected void buildColumnConstraints(DatabaseMetaData metaData, TableContainer owner, Table table) {
+		ResultSet rs = null;
+		PreparedStatement pstmt = null;
+		try {
+			PreparedStatement psmt = metaData.getConnection().prepareStatement(
+					" SELECT constraint_name, search_condition" 
+							+ " FROM all_constraints"
+							+ " where owner=?"
+							+ " AND table_name=?"
+							+ " AND constraint_type='C'"
+							+ " AND substr(constraint_name,1,3) <> 'SYS'");
+			psmt.setString(1, owner.getName());
+			psmt.setString(2, table.getName());
+			rs = psmt.executeQuery();
+			while (rs.next()) {					
+				String name = rs.getString(1);
+				//do not reference recyclebin internal name
+				if(name.startsWith("BIN$")){
+					name="";
 				}
-			} catch (Exception ex) {
-				ex.printStackTrace();
-			} finally {
-				JdbcUtils.closeStatement(pstmt);
-				JdbcUtils.closeResultSet(rs);
+				String expression = rs.getString(2);
+				if(!expression.endsWith("IS NOT NULL")){
+					Constraint constraint = CreationUtils.createConstraint(table, name);
+					constraint.setExpression(expression);
+				}
 			}
-		}
-		if (cacheConstraints.containsKey(key)) {
-			OracleConstraint oracleConstraint = cacheConstraints.get(key);
-			AbstractTable table = queries.getTable(owner, oracleConstraint.tableName);
-			Constraint constraint = CreationUtils.createConstraint((Table)table, oracleConstraint.name);
-			constraint.setExpression(oracleConstraint.expression);	
+		} catch (Exception ex) {
+			ex.printStackTrace();
+		} finally {
+			JdbcUtils.closeStatement(pstmt);
+			JdbcUtils.closeResultSet(rs);
 		}
 	}
 	
@@ -302,16 +288,4 @@ public class OracleDataBaseBuilder extends DefaultDataBaseBuilder {
 		return cacheTableComments.get(tableName);
 	}
 	
-	private class OracleConstraint {
-		OracleConstraint(String tableName, String name, String expression) {
-			this.tableName = tableName;
-			this.name = name;
-			this.expression = expression;
-		}
-
-		String tableName;
-		String name;
-		String expression;
-	}
-
 }

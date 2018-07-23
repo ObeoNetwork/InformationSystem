@@ -217,6 +217,9 @@ public class DefaultDataBaseBuilder extends AbstractDataBaseBuilder {
 		} finally {
 			JdbcUtils.closeResultSet(rs);
 		}
+		if (table instanceof Table) {
+			buildColumnConstraints(metaData, owner, (Table)table);			
+		}
 	}
 	
 	protected void buildColumn(DatabaseMetaData metaData, TableContainer owner, NativeTypesLibrary nativeTypesLibrary, AbstractTable table, ResultSet rs) throws SQLException {
@@ -263,8 +266,6 @@ public class DefaultDataBaseBuilder extends AbstractDataBaseBuilder {
 		}
 
 		column.setNullable(isNullable);
-
-		buildColumnConstraint(metaData, owner, column);
 	}
 
 	protected TypeInstance createTypeInstance(
@@ -272,12 +273,11 @@ public class DefaultDataBaseBuilder extends AbstractDataBaseBuilder {
 			int columnSize, int decimalDigits) {
 		return CreationUtils.createTypeInstance(nativeTypesLibrary, columnType, columnSize, decimalDigits);
 	}
-	
-	protected void buildColumnConstraint(DatabaseMetaData metaData,
-			TableContainer owner, Column column) {
+
+	protected void buildColumnConstraints(DatabaseMetaData metaData, TableContainer owner, Table table) {
 
 	}
-	
+
 	protected static String getRealComments(String comments) {
 		String megaId = getModelId(comments);
 		if (comments != null && megaId != null) {

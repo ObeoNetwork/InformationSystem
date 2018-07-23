@@ -110,8 +110,6 @@ public class SQLServerDataBaseBuilder extends DefaultDataBaseBuilder {
 		}
 
 		column.setNullable(isNullable);
-
-		buildColumnConstraint(metaData, owner, column);
 	}
 	
 	@Override
