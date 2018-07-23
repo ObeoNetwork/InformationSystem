@@ -262,9 +262,9 @@ public class DatabaseGen extends SQLGenerator {
     		"alter-tables.sql",
     		"create-tables.sql",
     		"create-constraint.sql",
-    		"create-fk.sql",
-    		"create-index.sql",
     		"create-pk.sql",
+    		"create-index.sql",
+    		"create-fk.sql",
     		"create-sequences.sql",
     		"create-views.sql",
     };
