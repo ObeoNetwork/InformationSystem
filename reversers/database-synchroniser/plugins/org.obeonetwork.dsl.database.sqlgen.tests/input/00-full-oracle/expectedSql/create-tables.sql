@@ -2,7 +2,7 @@
 --  Table : TABLEAJOUTEE                                    
 -- ==============================================================
 DROP PUBLIC SYNONYM TABLEAJOUTEE;
-DROP TABLE DEMO.TABLEAJOUTEE CASCADE;
+DROP TABLE DEMO.TABLEAJOUTEE CASCADE CONSTRAINTS;
 CREATE TABLE DEMO.TABLEAJOUTEE(
     col1 NUMBER(12, 3) DEFAULT defaultValue NULL
 );

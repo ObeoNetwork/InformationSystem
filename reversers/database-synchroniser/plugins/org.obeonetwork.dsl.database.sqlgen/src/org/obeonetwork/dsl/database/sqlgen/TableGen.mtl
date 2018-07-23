@@ -57,7 +57,7 @@
 [template private genDropTableAndSynonym(table : Table)]
 [table.genTableDoc()/]
 [table.genDropSynonym()/]
-DROP TABLE [table.fullname()/] CASCADE;
+DROP TABLE [table.fullname()/] CASCADE[if (table.isTargetOracle())] CONSTRAINTS[/if];
 [/template]
 
 [template private getSchemaName(table : Table) post(trim())]

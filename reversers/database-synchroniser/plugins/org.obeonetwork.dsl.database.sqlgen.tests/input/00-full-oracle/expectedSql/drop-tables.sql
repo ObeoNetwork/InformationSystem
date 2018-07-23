@@ -2,5 +2,5 @@
 --  Table : TABLESUPPRIMEE                                    
 -- ==============================================================
 DROP PUBLIC SYNONYM TABLESUPPRIMEE;
-DROP TABLE DEMO.TABLESUPPRIMEE CASCADE;
+DROP TABLE DEMO.TABLESUPPRIMEE CASCADE CONSTRAINTS;
 
