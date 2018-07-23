@@ -93,7 +93,7 @@ bq. Window > Show View > Other ... > Linked Requirement (Catégorie Obeo Designe
 
 Cette vue est synchronisée avec l'éditeur actif dans Obeo Designer. Quand un élément de modèle est sélectionné, la vue se met à jour et présente tous les exigences qui ont été liées à cet élément.
 
-Cette vue porte quatre actions permettant de manipuler rapidement les exigences sans avoir à passer par l'éditeur décrit dans la partie précédente.
+Cette vue porte cinq actions permettant de manipuler rapidement les exigences sans avoir à passer par l'éditeur décrit dans la partie précédente.
 
 !pics/Linked%20Requirements%20View%20-%20Actions.png!
 
@@ -130,7 +130,7 @@ Le lancement de l'action ouvre une boîte de dialogue pour le choix des exigence
 
 h3. Dissociation d'exigence
 
-Finalement la dernière action permet de supprimer l'association entre une ou plusieurs exigences et l'élément actuellement sélectionné.
+La quatrième action permet de supprimer l'association entre une ou plusieurs exigences et l'élément actuellement sélectionné.
 
 !pics/Linked%20Requirements%20View%20-%20Unlink%20Action.png! 
 
@@ -139,6 +139,24 @@ Cette action s'active lorsqu'une ou plusieurs exigences sont sélectionnées par
 Une boîte de confirmation s'ouvre au lancement de l'action de façon à garantir tout erreur de manipulation.
 
 ??L'utilisation de cette action ne supprime pas l'exigence du modèle. Seul le lien entre l'exigence et l'élément est supprimé, il est tout à fait possible de créer un lien entre l'exigence et un autre élément?? 
+
+h3. Exigences rattachées aux éléments fils
+
+La cinquième action permet d'activer ou désactiver l'affichage des exigences liées aux éléments fils de l'élément sélectionné.
+
+!pics/Linked%20Requirements%20View%20-%20Show%20children%20requirements.png!
+
+Avec l'option désactivée, seules les exigences directement rattachées sont affichées :
+
+!pics/Linked%20Requirements%20View%20-%20No%20children%20requirements.png!
+
+Quand cette option est activée, les exigences attachées à des éléments fils de l'éléments sélectionné sont affichées en plus de celles rattachées directement à l'objet sélectionné.
+
+Ces exigences sont affichées en gris et en italique pour permettre de les différencier.
+
+De plus, en survolant une ligne, une infobulle contenant le nom de l'élément concerné s'affiche.
+
+!pics/Linked%20Requirements%20View%20-%20With%20children%20requirements.png!
 
 h2. Visualisation des éléments rattachés à une exigence
 
