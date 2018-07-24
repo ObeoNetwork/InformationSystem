@@ -22,6 +22,7 @@ import org.obeonetwork.dsl.database.AbstractTable;
 import org.obeonetwork.dsl.database.Column;
 import org.obeonetwork.dsl.database.Constraint;
 import org.obeonetwork.dsl.database.Index;
+import org.obeonetwork.dsl.database.PrimaryKey;
 import org.obeonetwork.dsl.database.Sequence;
 import org.obeonetwork.dsl.database.Table;
 import org.obeonetwork.dsl.database.TableContainer;
@@ -76,6 +77,51 @@ public class OracleDataBaseBuilder extends DefaultDataBaseBuilder {
 	}
 	
 	@Override
+	protected void buildPrimaryKeys(DatabaseMetaData metaData, Table table) {
+		PrimaryKey primaryKey = null;
+		ResultSet rs = null;
+		PreparedStatement pstmt = null;
+		try {
+			PreparedStatement psmt = metaData.getConnection().prepareStatement(
+					" SELECT cons.constraint_name, cols.column_name, cols.position "
+							+ " FROM all_constraints cons, all_cons_columns cols "
+							+ " WHERE cons.owner=? "
+							+ " AND cons.table_name=? "
+							+ " AND cons.constraint_type = 'P' "
+							+ " AND cols.constraint_name = cons.constraint_name "
+							+ " AND cols.owner = cons.owner "
+							+ " AND cols.table_name = cons.table_name "
+							+ " ORDER BY cols.position ");
+			psmt.setString(1, table.getOwner().getName().toUpperCase());
+			psmt.setString(2, table.getName().toUpperCase());
+			rs = psmt.executeQuery();
+			while (rs.next()) {
+				if (primaryKey == null) {
+					String primaryKeyName = rs.getString(1);
+					primaryKey = CreationUtils.createPrimaryKey(table, primaryKeyName);
+				}
+				
+				if (primaryKey != null) {
+					String columnName = rs.getString(2);
+					Column column = queries.getColumn(table, columnName);
+					primaryKey.getColumns().add(column);
+					column.setPrimaryKey(primaryKey);
+				}
+			}
+		} catch (Exception ex) {
+			ex.printStackTrace();
+		} finally {
+			JdbcUtils.closeStatement(pstmt);
+			JdbcUtils.closeResultSet(rs);
+		}
+			
+		// Fall through in case the specific code failed to retrieve PK
+		if (primaryKey == null) {
+			super.buildPrimaryKeys(metaData, table);			
+		}
+	}
+	
+	@Override
 	protected void buildColumnConstraints(DatabaseMetaData metaData, TableContainer owner, Table table) {
 		ResultSet rs = null;
 		PreparedStatement pstmt = null;
@@ -87,8 +133,8 @@ public class OracleDataBaseBuilder extends DefaultDataBaseBuilder {
 							+ " AND table_name=?"
 							+ " AND constraint_type='C'"
 							+ " AND substr(constraint_name,1,3) <> 'SYS'");
-			psmt.setString(1, owner.getName());
-			psmt.setString(2, table.getName());
+			psmt.setString(1, owner.getName().toUpperCase());
+			psmt.setString(2, table.getName().toUpperCase());
 			rs = psmt.executeQuery();
 			while (rs.next()) {					
 				String name = rs.getString(1);

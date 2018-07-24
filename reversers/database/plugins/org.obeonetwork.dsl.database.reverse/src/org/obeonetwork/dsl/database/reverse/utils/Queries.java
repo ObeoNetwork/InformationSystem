@@ -32,7 +32,7 @@ public abstract class Queries {
 	
 	public abstract Column getColumn(TableContainer owner, String tableName, String columnName);
 	
-	public static Column getColumn(AbstractTable abstractTable, String columnName) {
+	public Column getColumn(AbstractTable abstractTable, String columnName) {
 		if (abstractTable instanceof Table) {
 			Table table = (Table)abstractTable;
 			for (Column column : table.getColumns()) {
@@ -44,7 +44,7 @@ public abstract class Queries {
 		return null;
 	}
 	
-	public static Boolean isInAscendingOrder(String order) {
+	public Boolean isInAscendingOrder(String order) {
 		if ("A".equals(order)) {
 			return Boolean.TRUE;
 		}
