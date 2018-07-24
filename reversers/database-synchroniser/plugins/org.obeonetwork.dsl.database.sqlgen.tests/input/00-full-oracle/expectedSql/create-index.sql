@@ -8,8 +8,3 @@ CREATE UNIQUE INDEX Table10_UNIQUE_INDEX_Ajoute ON DEMO.TABLE10(col10_1, col10_2
 -- ==============================================================
 CREATE UNIQUE INDEX Table2Renommee_UNIQUE_INDEX ON DEMO.TABLE2RENOMMEE(col2_3);
 
--- ==============================================================
---  Index : Index1                                    
--- ==============================================================
-CREATE INDEX Index1 ON DEMO.TABLEAJOUTEE(col1);
-

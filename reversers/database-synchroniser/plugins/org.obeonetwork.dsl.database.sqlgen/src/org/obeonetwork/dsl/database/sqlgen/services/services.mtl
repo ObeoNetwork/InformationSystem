@@ -32,6 +32,9 @@
 [query public isIndexForFK(index : Index) : Boolean
 	= invoke('org.obeonetwork.dsl.database.sqlgen.services.DatabaseServices', 'isIndexForForeignKey(org.obeonetwork.dsl.database.Index)', Sequence{index}) /]
 
+[query public isIndexOnPKColumns(index : Index) : Boolean
+	= invoke('org.obeonetwork.dsl.database.sqlgen.services.DatabaseServices', 'isIndexOnPKColumns(org.obeonetwork.dsl.database.Index)', Sequence{index}) /]
+
 [query public supportsSchema(arg : DatabaseElement) : Boolean =
 arg.isTargetH2() or arg.isTargetOracle() or arg.isTargetPostgreSQL()
 /]

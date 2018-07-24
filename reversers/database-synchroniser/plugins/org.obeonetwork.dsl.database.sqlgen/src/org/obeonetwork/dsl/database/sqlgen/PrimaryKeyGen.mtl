@@ -87,7 +87,7 @@ ALTER TABLE [table.fullname()/] DROP CONSTRAINT [pk.genPkConstraintName()/];[/le
 [/template]
 
 [template public genPkConstraintName(pk : PrimaryKey) post (trim())]
-[pk.owner.name/]_PK1_1
+[if (pk.isTargetOracle())][pk.name/][else][pk.owner.name/]_PK1_1[/if]
 [/template]
 
 [query private filterRelatedToRemoveTable(diffs : Sequence(RemovePrimaryKey)) : Sequence(RemovePrimaryKey) =

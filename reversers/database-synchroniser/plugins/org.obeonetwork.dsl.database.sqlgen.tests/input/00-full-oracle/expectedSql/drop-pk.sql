@@ -1,5 +1,5 @@
 -- ==============================================================
 --  Primary Key : Table7_PK                                    
 -- ==============================================================
-ALTER TABLE DEMO.TABLE7 DROP CONSTRAINT Table7_PK1_1;
+ALTER TABLE DEMO.TABLE7 DROP CONSTRAINT Table7_PK;
 
