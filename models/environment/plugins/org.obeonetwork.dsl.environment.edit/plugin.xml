@@ -474,8 +474,7 @@
       <propertyTabs
             contributorId="org.eclipse.sirius.table.ui.EditorID">
          <propertyTab
-               category="semantic"
-               afterTab="semantic"
+               category="default"
                id="Metadatas"
                label="Metadatas">
          </propertyTab>
