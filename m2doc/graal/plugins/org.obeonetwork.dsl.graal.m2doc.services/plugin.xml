@@ -39,7 +39,7 @@
             class="org.obeonetwork.dsl.graal.m2doc.services.TransitionServices">
          </service>
          <package
-               uri="http://www.obeonetork.org/dsl/graal/2.0.0">
+               uri="http://www.obeonetwork.org/dsl/graal/2.0.0">
          </package>
       </token>
       <token
@@ -60,10 +60,10 @@
             class="org.obeonetwork.dsl.graal.m2doc.services.TransitionServices">
          </service>
          <package
-               uri="http://www.obeonetork.org/dsl/graal/2.0.0">
+               uri="http://www.obeonetwork.org/dsl/graal/2.0.0">
          </package>
          <package
-               uri="http://www.obeonetwork.com/dsl/environment/3.0.0">
+               uri="http://www.obeonetwork.org/dsl/environment/3.0.0">
          </package>
       </token>
    </extension>
