@@ -59,8 +59,9 @@ import org.obeonetwork.tools.projectlibrary.extension.ManifestServices;
 import org.obeonetwork.tools.projectlibrary.extension.point.AbstractImportHandler;
 import org.obeonetwork.tools.projectlibrary.extension.point.ImportHandlerFactory;
 import org.obeonetwork.tools.projectlibrary.util.ProjectLibraryUtils;
-import org.obeonetwork.tools.projectlibrary.util.RestorableReference;
+import org.obeonetwork.tools.projectlibrary.util.RestorableAndNonRestorableReferences;
 import org.obeonetwork.tools.projectlibrary.util.SessionUtils;
+import org.obeonetwork.tools.projectlibrary.util.ToBeRestoredReference;
 import org.obeonetwork.tools.projectlibrary.util.ZipUtils;
 
 /**
@@ -134,15 +135,18 @@ public class ProjectLibraryImporter {
 		importData.setImportHandler(getImportHandler());
 
 		// Check if references could be restored when we import a project for the second time
-		Collection<RestorableReference> restorableReferences = new ArrayList<>();
+		RestorableAndNonRestorableReferences toBeRestoredReferences = null;
 		MManifest previousVersion = getPreviousImportedVersion(importedManifestModel, importData.getTargetSession());
 		if (previousVersion != null) {
 			Collection<Resource> resourcesToDelete = projectLibraryUtils.getResourcesFromManifest(importData.getTargetProject(), previousVersion);
 			Collection<Setting> externalReferences = projectLibraryUtils.getExternalReferences(importData.getTargetSession(), resourcesToDelete);
 			if (!externalReferences.isEmpty()) {
-				restorableReferences = projectLibraryUtils.getRestorableReferences(externalReferences, resourcesToDelete, importData.getSourceSession());
-	
-				if (!restorableReferences.isEmpty()) {
+				toBeRestoredReferences = projectLibraryUtils.getToBeRestoredReferences(externalReferences, resourcesToDelete, importData.getSourceSession());
+				
+				boolean containsSemantic = containsSemanticNonRestorableReference(toBeRestoredReferences);
+				
+				if (!toBeRestoredReferences.getNonRestorableReferences().isEmpty()
+						&& containsSemantic) {
 					// Some references will not be restored, we have to warn the user
 					continueImport = askForConfirmation("Some references will not be restored. Would you like to continue ?");
 				}
@@ -153,48 +157,70 @@ public class ProjectLibraryImporter {
 			}
 		}
 		
-		// Save target project and close editors if needed
-		// TODO monitor
-		try {
-			saveAndCloseEditorsOnTargetProject(targetProject.getSession(), new NullProgressMonitor());
-		} catch (CoreException e1) {
-			// Do nothing
-		}
-		
-		// Copy all resources by changing their URI
-		final WorkspaceModifyOperation op = new WorkspaceModifyOperation() {
-			
-			@Override
-			protected void execute(IProgressMonitor monitor) throws CoreException, InvocationTargetException, InterruptedException {
-				executeInRecordingCommand(importData.getTargetSession(), () -> copyAllObjects());
+		if (continueImport == true) {
+			// Save target project and close editors if needed
+			// TODO monitor
+			try {
+				saveAndCloseEditorsOnTargetProject(targetProject.getSession(), new NullProgressMonitor());
+			} catch (CoreException e1) {
+				// Do nothing
 			}
-		};
-		try {
-			op.run(new NullProgressMonitor());
-		} catch (InvocationTargetException | InterruptedException e) {
-			throw new LibraryImportException("Error while importing objects.\n\nError : " + e.getMessage());
+			
+			// Copy all resources by changing their URI
+			final WorkspaceModifyOperation op = new WorkspaceModifyOperation() {
+				
+				@Override
+				protected void execute(IProgressMonitor monitor) throws CoreException, InvocationTargetException, InterruptedException {
+					executeInRecordingCommand(importData.getTargetSession(), () -> copyAllObjects());
+				}
+			};
+			try {
+				op.run(new NullProgressMonitor());
+			} catch (InvocationTargetException | InterruptedException e) {
+				throw new LibraryImportException("Error while importing objects.\n\nError : " + e.getMessage());
+			}
+			
+			// Restore external references
+			if (!toBeRestoredReferences.getRestorableReferences().isEmpty()) {
+				projectLibraryUtils.restoreReferences(toBeRestoredReferences.getRestorableReferences(), importData.getTargetSession());
+			}
+			
+			// Save imported manifest into AIRD for future references
+			importedManifestModel.setImportDate(new Date());
+			manifestServices.addImportedManifestToSession(importData.getTargetSession(), importedManifestModel);
+			importData.getTargetSession().save(new NullProgressMonitor());
 		}
-		
-		// Restore external references
-		if (!restorableReferences.isEmpty()) {
-			projectLibraryUtils.restoreReferences(restorableReferences, importData.getTargetSession());
-		}
-		
-		// Save imported manifest into AIRD for future references
-		importedManifestModel.setImportDate(new Date());
-		manifestServices.addImportedManifestToSession(importData.getTargetSession(), importedManifestModel);
-		importData.getTargetSession().save(new NullProgressMonitor());
 		
 		// Finally, remove temp project
 		// TODO monitor
-		try {
-			sourceProject.getProject().delete(true, new NullProgressMonitor());
-		} catch (CoreException e) {
-			// Do nothing
-		}
+//		try {
+//			sourceProject.getProject().delete(true, new NullProgressMonitor());
+//		} catch (CoreException e) {
+//			// Do nothing
+//		}
 		
 		// Call post-import code
 		getImportHandler().doPostImport(importData);
+	}
+	
+	private boolean containsSemanticNonRestorableReference(RestorableAndNonRestorableReferences toBeRestoredReferences) {
+		for (ToBeRestoredReference ref : toBeRestoredReferences.getNonRestorableReferences()) {
+			Resource eResource = ref.getSourceObject().eResource();
+			if (eResource != null && eResource.getURI() != null && !eResource.getURI().toString().endsWith(".aird")) {
+				return true;
+			}
+		}
+		return false;
+	}
+	
+	private boolean containsGraphicalNonRestorableReference(RestorableAndNonRestorableReferences toBeRestoredReferences) {
+		for (ToBeRestoredReference ref : toBeRestoredReferences.getNonRestorableReferences()) {
+			Resource eResource = ref.getSourceObject().eResource();
+			if (eResource != null && eResource.getURI() != null && eResource.getURI().toString().endsWith(".aird")) {
+				return true;
+			}
+		}
+		return false;
 	}
 	
 	private boolean askForConfirmation(String message) {

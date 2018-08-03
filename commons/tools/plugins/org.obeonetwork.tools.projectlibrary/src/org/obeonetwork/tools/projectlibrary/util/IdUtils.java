@@ -13,6 +13,7 @@ package org.obeonetwork.tools.projectlibrary.util;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import org.eclipse.emf.common.notify.Notifier;
@@ -38,6 +39,7 @@ public class IdUtils {
 	
 	public IdUtils(Session session) {
 		this.session = session;
+		this.computedObjects = new ArrayList<>();
 	}
 	
 	public EObject getCorrespondingObject(String key) {
@@ -60,23 +62,23 @@ public class IdUtils {
 	private EObject getCorrespondingObjectFromResources(String searchKey) {
 		// We have to analyse the session to find a corresponding object
 		ResourceSet set = session.getTransactionalEditingDomain().getResourceSet();
-		for (Resource resource : set.getResources()) {
+		List<Resource> resources = new ArrayList<>(set.getResources());
+		for (Resource resource : resources) {
 			// Do not consider AIRD resources and resources from plugins
 			if (resource.getURI().isPlatformResource()
 					&& (resource.getURI().fileExtension() == null
 					|| !resource.getURI().fileExtension().equals("aird"))) {
 				// if a resource has been totally analysed do not analyse it again
-				if (!computedObjects.contains(resource)) {
-					TreeIterator<EObject> it = resource.getAllContents();
-					while (it.hasNext()) {
-						EObject next = it.next();
-						// Check if object has been analysed
-						if (!computedObjects.contains(next)) {
-							String key = getKey(next);
-							computedObjects.add(next);
-							if (searchKey.equals(key)) {
-								return next;
-							}
+				TreeIterator<EObject> it = resource.getAllContents();
+				while (it.hasNext()) {
+					EObject next = it.next();
+					// Check if object has been analysed
+					if (!computedObjects.contains(next)) {
+						String key = getKey(next);
+						cache.put(key, next);
+						computedObjects.add(next);
+						if (searchKey.equals(key)) {
+							return next;
 						}
 					}
 				}

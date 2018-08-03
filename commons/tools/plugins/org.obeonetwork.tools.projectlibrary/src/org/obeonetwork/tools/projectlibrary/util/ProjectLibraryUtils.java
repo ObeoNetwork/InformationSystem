@@ -20,7 +20,7 @@ import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.emf.ecore.EStructuralFeature.Setting;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.util.ECrossReferenceAdapter;
-import org.eclipse.emf.edit.command.SetCommand;
+import org.eclipse.emf.transaction.RecordingCommand;
 import org.eclipse.emf.transaction.TransactionalEditingDomain;
 import org.eclipse.sirius.business.api.modelingproject.ModelingProject;
 import org.eclipse.sirius.business.api.session.Session;
@@ -38,26 +38,43 @@ import org.obeonetwork.tools.projectlibrary.imp.LibraryImportException;
  */
 public class ProjectLibraryUtils {
 	
-	public void restoreReferences(Collection<RestorableReference> restorableReferences, Session targetSession) {
+	public void restoreReferences(Collection<ToBeRestoredReference> restorableReferences, Session targetSession) {
 		IdUtils idUtils = new IdUtils(targetSession);
 		
 		TransactionalEditingDomain ted = targetSession.getTransactionalEditingDomain();
 		
 		if (ted != null) {
-			for (RestorableReference restorableReference : restorableReferences) {
+			for (ToBeRestoredReference restorableReference : restorableReferences) {
 				EObject targetObject = idUtils.getCorrespondingObject(restorableReference.getTargetKey());
 				EObject sourceObject = restorableReference.getSourceObject();
 				EStructuralFeature referencingFeature = restorableReference.getReferencingFeature();
 				
 				if (targetObject != null && referencingFeature.isChangeable()) {
-					SetCommand cmd = null;
+					RecordingCommand cmd = null;
 					if (referencingFeature.isMany() && restorableReference.getPosition() != null) {
 						// Multi valued feature
 						int position = restorableReference.getPosition().intValue();
-						cmd = new SetCommand(ted, sourceObject, referencingFeature, targetObject, position);
+//						cmd = new SetCommand(ted, sourceObject, referencingFeature, targetObject, position);
+						cmd = new RecordingCommand(ted) {
+							@Override
+							protected void doExecute() {
+								Object eGet = sourceObject.eGet(referencingFeature);
+								if (eGet instanceof List) {
+									List<Object> list = (List<Object>)eGet;
+									list.remove(targetObject);
+									list.add(position, targetObject);
+								}
+							}
+						};
 					} else {
 						// Mono valued feature
-						cmd = new SetCommand(ted, sourceObject, referencingFeature, targetObject);
+//						cmd = new SetCommand(ted, sourceObject, referencingFeature, targetObject);
+						cmd = new RecordingCommand(ted) {
+							@Override
+							protected void doExecute() {
+								sourceObject.eSet(referencingFeature, targetObject);
+							}
+						};
 					}
 					if (cmd != null) {
 						ted.getCommandStack().execute(cmd);
@@ -65,7 +82,6 @@ public class ProjectLibraryUtils {
 				}
 			}
 		}
-		
 	}
 	
 	/**
@@ -126,16 +142,16 @@ public class ProjectLibraryUtils {
 	 * @param newSession New session
 	 * @return
 	 */
-	public Collection<RestorableReference> getRestorableReferences(Collection<Setting> externalReferences, Collection<Resource> deletedResources , Session newSession) {
+	public RestorableAndNonRestorableReferences getToBeRestoredReferences(Collection<Setting> externalReferences, Collection<Resource> deletedResources , Session newSession) {
 		IdUtils idUtils = new IdUtils(newSession);
 		
-		Collection<RestorableReference> restorable = new ArrayList<>();
+		RestorableAndNonRestorableReferences result = new RestorableAndNonRestorableReferences();
 		
 		for (Setting setting : externalReferences) {
 			// Each setting can reference objects to restore but also objects that will still be here
 			// we check the containing resource to be sure
 			Object referencedObjects = setting.get(false);
-			RestorableReference restorableReference = null;
+			ToBeRestoredReference restorableReference = null;
 			if (referencedObjects instanceof List)	{
 				for (Object referencedObject : (List<?>)referencedObjects) {
 					if (referencedObject instanceof EObject) {
@@ -146,31 +162,34 @@ public class ProjectLibraryUtils {
 				restorableReference = getRestorableReference(setting, (EObject)referencedObjects, deletedResources, idUtils);
 			}
 			if (restorableReference != null) {
-				restorable.add(restorableReference);
+				result.addReference(restorableReference);
 			}
 		}
 		
-		return restorable;
+		return result;
 	}
 	
-	private RestorableReference getRestorableReference(Setting setting, EObject referencedEObject, Collection<Resource> deletedResources, IdUtils idUtils) {
+	private ToBeRestoredReference getRestorableReference(Setting setting, EObject referencedEObject, Collection<Resource> deletedResources, IdUtils idUtils) {
+		
 		if (deletedResources.contains(referencedEObject.eResource())) {
+			EStructuralFeature feature = setting.getEStructuralFeature();
+			String key = idUtils.getKey(referencedEObject);			
+			Integer position = null;
+			// if feature is multivalued we have to keep the position
+			if (feature.isMany()) {
+				Object value = setting.getEObject().eGet(feature);
+				if (value instanceof List) {
+					position = ((List<?>)value).indexOf(referencedEObject);
+				}
+			}
+			
 			// The referenced object will be removed
 			// lets see if we can restore it
 			if (idUtils.getCorrespondingObject(referencedEObject) != null) {
-				
-				EStructuralFeature feature = setting.getEStructuralFeature();
-				
-				Integer position = null;
-				// if feature is multivalued we have to keep the position
-				if (feature.isMany()) {
-					Object value = setting.getEObject().eGet(feature);
-					if (value instanceof List) {
-						position = ((List<?>)value).indexOf(referencedEObject);
-					}
-				}
-				
-				return new RestorableReference(setting.getEObject(), feature, idUtils.getKey(referencedEObject), position);
+				return new ToBeRestoredReference(setting.getEObject(), feature, key, position, true);
+			} else {
+				// non restorable reference
+				return new ToBeRestoredReference(setting.getEObject(), feature, key, position, false);
 			}
 		}
 		return null;

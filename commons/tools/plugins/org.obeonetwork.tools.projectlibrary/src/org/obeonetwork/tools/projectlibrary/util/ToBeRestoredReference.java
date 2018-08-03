@@ -18,7 +18,7 @@ import org.eclipse.emf.ecore.EStructuralFeature;
  * @author <a href="mailto:stephane.thibaudeau@obeo.fr">Stephane Thibaudeau</a>
  *
  */
-public class RestorableReference {
+public class ToBeRestoredReference {
 
 	private EObject sourceObject;
 	
@@ -28,12 +28,15 @@ public class RestorableReference {
 	
 	private Integer position;
 	
-	public RestorableReference(EObject sourceObject, EStructuralFeature referencingFeature, String targetKey, Integer position) {
+	private boolean canBeRestored = false;
+	
+	public ToBeRestoredReference(EObject sourceObject, EStructuralFeature referencingFeature, String targetKey, Integer position, boolean canBeRestored) {
 		super();
 		this.sourceObject = sourceObject;
 		this.referencingFeature = referencingFeature;
 		this.targetKey = targetKey;
 		this.position = position;
+		this.canBeRestored = canBeRestored;
 	}
 
 	public EObject getSourceObject() {
@@ -66,5 +69,13 @@ public class RestorableReference {
 
 	public void setPosition(Integer position) {
 		this.position = position;
+	}
+
+	public boolean getCanBeRestored() {
+		return canBeRestored;
+	}
+
+	public void setCanBeRestored(boolean canBeRestored) {
+		this.canBeRestored = canBeRestored;
 	}
 }
