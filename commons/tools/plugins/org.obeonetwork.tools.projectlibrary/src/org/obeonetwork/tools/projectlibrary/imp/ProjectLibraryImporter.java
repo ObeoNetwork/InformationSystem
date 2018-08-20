@@ -135,7 +135,7 @@ public class ProjectLibraryImporter {
 		importData.setImportHandler(getImportHandler());
 
 		// Check if references could be restored when we import a project for the second time
-		RestorableAndNonRestorableReferences toBeRestoredReferences = null;
+		RestorableAndNonRestorableReferences toBeRestoredReferences = new RestorableAndNonRestorableReferences();
 		MManifest previousVersion = getPreviousImportedVersion(importedManifestModel, importData.getTargetSession());
 		if (previousVersion != null) {
 			Collection<Resource> resourcesToDelete = projectLibraryUtils.getResourcesFromManifest(importData.getTargetProject(), previousVersion);
@@ -192,12 +192,11 @@ public class ProjectLibraryImporter {
 		}
 		
 		// Finally, remove temp project
-		// TODO monitor
-//		try {
-//			sourceProject.getProject().delete(true, new NullProgressMonitor());
-//		} catch (CoreException e) {
-//			// Do nothing
-//		}
+		try {
+			sourceProject.getProject().delete(true, new NullProgressMonitor());
+		} catch (CoreException e) {
+			// Do nothing
+		}
 		
 		// Call post-import code
 		getImportHandler().doPostImport(importData);
