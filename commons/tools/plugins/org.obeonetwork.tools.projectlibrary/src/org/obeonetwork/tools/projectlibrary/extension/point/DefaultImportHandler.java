@@ -66,7 +66,6 @@ public class DefaultImportHandler extends AbstractImportHandler {
 			IFolder librariesFolder = project.getProject().getFolder(ProjectLibraryImporter.IMPORT_FOLDER_NAME);
 			if (librariesFolder != null) {
 				IFolder projectFolder = librariesFolder.getFolder(new ManifestServices().getLibraryProjectName(projectToRemove));
-				// TODO ProgressMonitor
 				try {
 					projectFolder.delete(true, new NullProgressMonitor());
 				} catch (CoreException e) {

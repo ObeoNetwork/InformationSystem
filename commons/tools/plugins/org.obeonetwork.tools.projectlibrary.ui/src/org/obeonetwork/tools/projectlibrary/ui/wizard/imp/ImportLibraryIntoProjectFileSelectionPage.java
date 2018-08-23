@@ -29,7 +29,6 @@ import org.eclipse.jface.databinding.swt.WidgetProperties;
 import org.eclipse.jface.databinding.viewers.ObservableListContentProvider;
 import org.eclipse.jface.databinding.viewers.ObservableMapLabelProvider;
 import org.eclipse.jface.databinding.viewers.ViewerProperties;
-import org.eclipse.jface.dialogs.IMessageProvider;
 import org.eclipse.jface.dialogs.MessageDialog;
 import org.eclipse.jface.layout.TableColumnLayout;
 import org.eclipse.jface.viewers.ArrayContentProvider;
@@ -134,8 +133,8 @@ public class ImportLibraryIntoProjectFileSelectionPage extends WizardPage {
 				FileDialog dlg = new FileDialog(getShell());
 				dlg.setFileName(txtMarFile.getText());
 				dlg.setOverwrite(true);
-				dlg.setFilterExtensions(new String[]{"*.mar", "*.*"});
-				dlg.setFilterNames(new String[]{"MAR files (*.mar)", "All files (*.*)"});
+				dlg.setFilterExtensions(new String[]{"*" + ManifestUtils.MODELING_ARCHIVE_FILE_EXTENSION, "*.*"});
+				dlg.setFilterNames(new String[]{"MAR files (*" + ManifestUtils.MODELING_ARCHIVE_FILE_EXTENSION + ")", "All files (*.*)"});
 				String importFile = dlg.open();
 				if (importFile != null) {
 					try {

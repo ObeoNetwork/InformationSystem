@@ -34,6 +34,7 @@ import org.eclipse.swt.widgets.FileDialog;
 import org.eclipse.swt.widgets.Label;
 import org.eclipse.swt.widgets.List;
 import org.eclipse.swt.widgets.Text;
+import org.obeonetwork.dsl.manifest.util.ManifestUtils;
 
 /**
  * 
@@ -99,8 +100,8 @@ public class ExportProjectAsLibraryProjectSelectionPage extends WizardPage {
 				FileDialog dlg = new FileDialog(getShell());
 				dlg.setFileName(txtMarFile.getText());
 				dlg.setOverwrite(true);
-				dlg.setFilterExtensions(new String[]{"*.mar", "*.*"});
-				dlg.setFilterNames(new String[]{"MAR files (*.mar)", "All files (*.*)"});
+				dlg.setFilterExtensions(new String[]{"*" + ManifestUtils.MODELING_ARCHIVE_FILE_EXTENSION, "*.*"});
+				dlg.setFilterNames(new String[]{"MAR files (*" + ManifestUtils.MODELING_ARCHIVE_FILE_EXTENSION + ")", "All files (*.*)"});
 				String exportFile = dlg.open();
 				if (exportFile != null) {
 					txtMarFile.setText(exportFile);

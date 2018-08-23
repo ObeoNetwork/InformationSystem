@@ -21,6 +21,8 @@ import org.obeonetwork.dsl.manifest.BadVersionStringException;
  *
  */
 public class ManifestUtils {
+	
+	public static final String MODELING_ARCHIVE_FILE_EXTENSION = ".mar";
 
 	private static final Pattern VERSION_PATTERN = Pattern.compile("^([0-9]+)\\.([0-9]+)\\.([0-9]+)(\\.[a-zA-Z0-9]+)?$");
 	

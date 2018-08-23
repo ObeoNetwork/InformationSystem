@@ -12,8 +12,19 @@ package org.obeonetwork.tools.projectlibrary.ui.wizard.exp;
 
 import java.io.File;
 
+import org.eclipse.core.resources.IContainer;
+import org.eclipse.core.resources.IFile;
 import org.eclipse.core.resources.IProject;
+import org.eclipse.core.resources.IResource;
+import org.eclipse.core.resources.IWorkspace;
+import org.eclipse.core.resources.ResourcesPlugin;
+import org.eclipse.core.runtime.CoreException;
+import org.eclipse.core.runtime.IPath;
+import org.eclipse.core.runtime.IProgressMonitor;
+import org.eclipse.core.runtime.Path;
+import org.eclipse.core.runtime.SubMonitor;
 import org.eclipse.jface.dialogs.MessageDialog;
+import org.eclipse.jface.operation.IRunnableWithProgress;
 import org.eclipse.jface.viewers.IStructuredSelection;
 import org.eclipse.jface.wizard.Wizard;
 import org.eclipse.sirius.business.api.modelingproject.ModelingProject;
@@ -68,20 +79,59 @@ public class ExportProjectAsLibraryWizard extends Wizard implements IExportWizar
 	
 	@Override
 	public boolean performFinish() {
-		File targetFile = new File(model.getFilePath());
-		
-		ProjectLibraryExporter exporter = new ProjectLibraryExporter();
+		ExportProjectAsLibraryRunnable runnable = new ExportProjectAsLibraryRunnable();
 		try {
-			exporter.export(model.getSelectedModelingProject(),
-					model.getProjectId(),
-					model.getVersion(),
-					model.getComment(), targetFile);
-		} catch (LibraryImportException e) {
-			MessageDialog.openError(getShell(), "Export project as library", "An error occured while exporting project.\n\nError : " + e.getCause());
-			return false;
+			getContainer().run(true, true, runnable);
+		} catch (Exception e) {
+			// Do nothing
 		}
+		return runnable.getResult();
+	}
+	
+	public class ExportProjectAsLibraryRunnable implements IRunnableWithProgress {
+		private boolean result;
+
+		public void run(IProgressMonitor monitor) {
+			File targetFile = new File(model.getFilePath());
+			
+			SubMonitor subMonitor = SubMonitor.convert(monitor, "Generating MAR file", 2);
+			
+	    	ProjectLibraryExporter exporter = new ProjectLibraryExporter();
+			try {
+				exporter.export(model.getSelectedModelingProject(),
+						model.getProjectId(),
+						model.getVersion(),
+						model.getComment(),
+						targetFile,
+						subMonitor.split(1));
+				
+				refreshExportedFile(targetFile, subMonitor.split(1));
+				
+				result = true;
+			} catch (LibraryImportException e) {
+				MessageDialog.openError(getShell(), "Export project as library", "An error occured while exporting project.\n\nError : " + e.getCause());
+				result = false;
+			}
+			subMonitor.done();
+	    }
 		
-		return true;
+		public boolean getResult() {
+			return result;
+		}
+	}
+	
+	private void refreshExportedFile(File exportedFile, IProgressMonitor monitor) {
+		IWorkspace workspace= ResourcesPlugin.getWorkspace(); 
+		IPath location= Path.fromOSString(exportedFile.getAbsolutePath()); 
+		IFile iFile= workspace.getRoot().getFileForLocation(location);
+		if (iFile != null) {
+			IContainer container = iFile.getParent();
+			try {
+				container.refreshLocal(IResource.DEPTH_ONE, monitor);
+			} catch (CoreException e) {
+				// Do nothing
+			}
+		}
 	}
 
 	/* (non-Javadoc)

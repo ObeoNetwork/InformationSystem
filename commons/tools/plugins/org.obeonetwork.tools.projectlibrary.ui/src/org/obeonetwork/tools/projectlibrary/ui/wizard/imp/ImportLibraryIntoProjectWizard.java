@@ -16,10 +16,13 @@ import java.util.Map;
 import java.util.Map.Entry;
 
 import org.eclipse.core.resources.IProject;
+import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.core.runtime.Platform;
+import org.eclipse.core.runtime.SubMonitor;
 import org.eclipse.core.runtime.preferences.IEclipsePreferences;
 import org.eclipse.core.runtime.preferences.InstanceScope;
 import org.eclipse.jface.dialogs.MessageDialog;
+import org.eclipse.jface.operation.IRunnableWithProgress;
 import org.eclipse.jface.viewers.IStructuredSelection;
 import org.eclipse.jface.wizard.Wizard;
 import org.eclipse.sirius.business.api.modelingproject.ModelingProject;
@@ -84,28 +87,49 @@ public class ImportLibraryIntoProjectWizard extends Wizard implements IImportWiz
 	public boolean canFinish() {
 		return super.canFinish() && fileSelectionPage.isPageComplete();
 	}
-	
+
 	@Override
 	public boolean performFinish() {
-		Map<String, Boolean> originalValues = disableAutomaticEditors();
-		
-		ProjectLibraryImporter importer = new ProjectLibraryImporter();
+		ImportLibraryAsProjectRunnable runnable = new ImportLibraryAsProjectRunnable();
 		try {
-			importer.importIntoProject(model.getModelingProject(), new File(model.getFilepath()), new IConfirmationRunnable() {
-				
-				@Override
-				public boolean askForConfirmation(String message) {
-					return MessageDialog.openConfirm(getShell(), "Import project as library", message);
-				}
-			});
-		} catch (LibraryImportException e) {
-			MessageDialog.openError(getShell(), "Import project as library", e.getMessage());
+			getContainer().run(true, true, runnable);
+		} catch (Exception e) {
+			// Do nothing
 		}
-		
-		resetAutomaticEditors(originalValues);
-		return true;
+		return runnable.getResult();
 	}
+	
+	public class ImportLibraryAsProjectRunnable implements IRunnableWithProgress {
+		private boolean result;
 
+		public void run(IProgressMonitor monitor) {
+			SubMonitor subMonitor = SubMonitor.convert(monitor, "Importing MAR file", 1);
+			
+			Map<String, Boolean> originalValues = disableAutomaticEditors();
+			
+			ProjectLibraryImporter importer = new ProjectLibraryImporter();
+			try {
+				importer.importIntoProject(model.getModelingProject(), new File(model.getFilepath()), new IConfirmationRunnable() {
+					
+					@Override
+					public boolean askForConfirmation(String message) {
+						return MessageDialog.openConfirm(getShell(), "Import project as library", message);
+					}
+				}, subMonitor.newChild(1));
+			} catch (LibraryImportException e) {
+				MessageDialog.openError(getShell(), "Import project as library", e.getMessage());
+				result = false;
+			}
+			
+			resetAutomaticEditors(originalValues);
+			subMonitor.done();
+			result = true;
+	    }
+		
+		public boolean getResult() {
+			return result;
+		}
+	}
 	
 	/**
 	 * Disable automatic editors opening for Activity Explorer and Sirius AIRD editor

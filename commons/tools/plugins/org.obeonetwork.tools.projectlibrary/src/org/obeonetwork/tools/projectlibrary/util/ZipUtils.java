@@ -22,6 +22,7 @@ package org.obeonetwork.tools.projectlibrary.util;
 
 import java.io.BufferedOutputStream;
 import java.io.File;
+import java.io.FileFilter;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.FilenameFilter;
@@ -86,18 +87,18 @@ public class ZipUtils {
 		}
 	}
 	
-	public static void zipFolder(final File folder, final File zipFile) throws IOException {
-		zipFolder(folder, new FileOutputStream(zipFile));
+	public static void zipFolder(final File folder, final File zipFile,  FileFilter filter) throws IOException {
+		zipFolder(folder, new FileOutputStream(zipFile), filter);
 	}
 
-	public static void zipFolder(final File folder, final OutputStream outputStream) throws IOException {
+	public static void zipFolder(final File folder, final OutputStream outputStream, FileFilter filter) throws IOException {
 		try (ZipOutputStream zipOutputStream = new ZipOutputStream(outputStream)) {
-			processFolder(folder, zipOutputStream, folder.getPath().length() + 1);
+			processFolder(folder, zipOutputStream, folder.getPath().length() + 1, filter);
 		}
 	}
 	
-	private static void processFolder(final File folder, final ZipOutputStream zipOutputStream, final int prefixLength)	throws IOException {
-		for (final File file : folder.listFiles()) {
+	private static void processFolder(final File folder, final ZipOutputStream zipOutputStream, final int prefixLength, FileFilter filter)	throws IOException {
+		for (final File file : folder.listFiles(filter)) {
 			if (file.isFile()) {
 				final ZipEntry zipEntry = new ZipEntry(file.getPath().substring(prefixLength));
 				zipOutputStream.putNextEntry(zipEntry);
@@ -106,7 +107,7 @@ public class ZipUtils {
 				}
 				zipOutputStream.closeEntry();
 			} else if (file.isDirectory()) {
-				processFolder(file, zipOutputStream, prefixLength);
+				processFolder(file, zipOutputStream, prefixLength, filter);
 			}
 		}
 	}

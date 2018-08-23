@@ -29,7 +29,6 @@ import org.eclipse.core.runtime.CoreException;
 import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.core.runtime.NullProgressMonitor;
 import org.eclipse.core.runtime.SubMonitor;
-import org.eclipse.core.runtime.SubProgressMonitor;
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EStructuralFeature.Setting;
@@ -94,9 +93,11 @@ public class ProjectLibraryImporter {
 	 * @param marFile
 	 * @param confirmationRunnable
 	 */
-	public void importIntoProject(final ModelingProject targetProject, final File marFile, final IConfirmationRunnable confirmationRunnable) throws LibraryImportException {
+	public void importIntoProject(final ModelingProject targetProject, final File marFile, final IConfirmationRunnable confirmationRunnable, IProgressMonitor monitor) throws LibraryImportException {
 		this.targetProject = targetProject;
 		this.confirmationRunnable = confirmationRunnable;
+		
+		SubMonitor subMonitor = SubMonitor.convert(monitor, 11);
 		
 		Manifest importedManifest = null;
 		try {
@@ -104,11 +105,13 @@ public class ProjectLibraryImporter {
 		} catch (IOException e1) {
 			throw new LibraryImportException("Unable to retrieve manifest from archive file.\n\n Error : " + e1.getMessage());
 		}
+		subMonitor.newChild(1);
 		
 		MManifest importedManifestModel = manifestServices.getModelFromMarManifest(importedManifest);
 		if (importedManifestModel == null) {
 			throw new LibraryImportException("Unable to build manifest from archive file.");
 		}
+		subMonitor.newChild(1);
 		
 		String libraryProjectName = manifestServices.getLibraryProjectName(importedManifestModel);
 		if (libraryProjectName == null) {
@@ -122,13 +125,16 @@ public class ProjectLibraryImporter {
 		} catch (LibraryImportException e) {
 			throw e;
 		}
+		subMonitor.newChild(1);
+		
 		// Import if required
 		if (continueImport == false) {
+			subMonitor.done();
 			return;
 		}
 		
 		// First, let's create a temporary modeling project
-		ModelingProject sourceProject = createTempModelingProjectFromMAR(marFile);
+		ModelingProject sourceProject = createTempModelingProjectFromMAR(marFile, subMonitor.newChild(1));
 
 		// Create ImportData used to do the import
 		importData = new ImportData(libraryProjectName, sourceProject, targetProject);
@@ -156,12 +162,12 @@ public class ProjectLibraryImporter {
 				projectLibraryUtils.removeImportedProjectAndResources(importData.getTargetProject(), resourcesToDelete, previousVersion);
 			}
 		}
+		subMonitor.newChild(1);
 		
 		if (continueImport == true) {
 			// Save target project and close editors if needed
-			// TODO monitor
 			try {
-				saveAndCloseEditorsOnTargetProject(targetProject.getSession(), new NullProgressMonitor());
+				saveAndCloseEditorsOnTargetProject(targetProject.getSession(), subMonitor.newChild(1));
 			} catch (CoreException e1) {
 				// Do nothing
 			}
@@ -179,43 +185,36 @@ public class ProjectLibraryImporter {
 			} catch (InvocationTargetException | InterruptedException e) {
 				throw new LibraryImportException("Error while importing objects.\n\nError : " + e.getMessage());
 			}
+			subMonitor.newChild(1);
 			
 			// Restore external references
 			if (!toBeRestoredReferences.getRestorableReferences().isEmpty()) {
 				projectLibraryUtils.restoreReferences(toBeRestoredReferences.getRestorableReferences(), importData.getTargetSession());
 			}
+			subMonitor.newChild(1);
 			
 			// Save imported manifest into AIRD for future references
 			importedManifestModel.setImportDate(new Date());
 			manifestServices.addImportedManifestToSession(importData.getTargetSession(), importedManifestModel);
-			importData.getTargetSession().save(new NullProgressMonitor());
+			importData.getTargetSession().save(subMonitor.newChild(1));
 		}
 		
 		// Finally, remove temp project
 		try {
-			sourceProject.getProject().delete(true, new NullProgressMonitor());
+			sourceProject.getProject().delete(true, subMonitor.newChild(1));
 		} catch (CoreException e) {
 			// Do nothing
 		}
 		
 		// Call post-import code
 		getImportHandler().doPostImport(importData);
+		subMonitor.done();
 	}
 	
 	private boolean containsSemanticNonRestorableReference(RestorableAndNonRestorableReferences toBeRestoredReferences) {
 		for (ToBeRestoredReference ref : toBeRestoredReferences.getNonRestorableReferences()) {
 			Resource eResource = ref.getSourceObject().eResource();
 			if (eResource != null && eResource.getURI() != null && !eResource.getURI().toString().endsWith(".aird")) {
-				return true;
-			}
-		}
-		return false;
-	}
-	
-	private boolean containsGraphicalNonRestorableReference(RestorableAndNonRestorableReferences toBeRestoredReferences) {
-		for (ToBeRestoredReference ref : toBeRestoredReferences.getNonRestorableReferences()) {
-			Resource eResource = ref.getSourceObject().eResource();
-			if (eResource != null && eResource.getURI() != null && eResource.getURI().toString().endsWith(".aird")) {
 				return true;
 			}
 		}
@@ -256,8 +255,6 @@ public class ProjectLibraryImporter {
 			}
 		}
 
-//		targetSemanticResources.addAll(copier.copyResources(importData, importData.getSourceSemanticResources()));
-		
 		// Save new resources
 		saveResources(targetSemanticResources);
 		saveResources(targetGraphicalResources);
@@ -308,7 +305,6 @@ public class ProjectLibraryImporter {
 				if (sessionVP != null){
 					if (!SiriusResourceHelper.isViewExistForSirius(targetSession, sessionVP)) {
 						// We have to add the viewpoint
-						// TODO Monitor
 						new ViewpointSelector(targetSession).selectViewpoint(sessionVP, false, new NullProgressMonitor());
 					}
 				}
@@ -317,7 +313,8 @@ public class ProjectLibraryImporter {
 		
 	}
 	
-	private ModelingProject createTempModelingProjectFromMAR(File marFile) {
+	private ModelingProject createTempModelingProjectFromMAR(File marFile, IProgressMonitor monitor) {
+		SubMonitor subMonitor = SubMonitor.convert(monitor, 1);
 		ModelingProject project = null;
 		
 		final String projectName = getTempProjectName();
@@ -326,6 +323,7 @@ public class ProjectLibraryImporter {
 			
 			@Override
 			protected void execute(IProgressMonitor monitor) throws CoreException, InvocationTargetException, InterruptedException {
+				SubMonitor subMonitor = SubMonitor.convert(monitor, 4);
 				try {
                     monitor.beginTask(MessageFormat.format(Messages.ModelingProjectManagerImpl_createModelingProjectTask, projectName), 3);
                     final IProject project = ResourcesPlugin.getWorkspace().getRoot().getProject(projectName);
@@ -336,7 +334,7 @@ public class ProjectLibraryImporter {
                         desc.setLocation(null);
 
                         monitor.subTask("Create temp modeling project to import library");
-                        project.create(desc, new SubProgressMonitor(monitor, 1));
+                        project.create(desc, subMonitor.newChild(1));
                         
                         // Copy zip files into project
                         final File targetProjectFolder = project.getLocation().toFile();
@@ -347,14 +345,15 @@ public class ProjectLibraryImporter {
 								return !(".project".equals(name) && targetProjectFolder.equals(dir));
 							}
 						});
+						subMonitor.newChild(1);
               
 						
 						// Open project
 						monitor.subTask(Messages.ModelingProjectManagerImpl_openProjectTask);
-						project.getProject().open(new SubProgressMonitor(monitor, 1));
+						project.getProject().open(subMonitor.newChild(1));
 						
 						// Convert to modeling project
-						ModelingProjectManager.INSTANCE.convertToModelingProject(project, monitor);
+						ModelingProjectManager.INSTANCE.convertToModelingProject(project, subMonitor.newChild(1));
                     }
                 } catch (IOException e) {
 					// Do nothing
@@ -364,7 +363,7 @@ public class ProjectLibraryImporter {
 			}
 		};
 		try {
-			op.run(new NullProgressMonitor());
+			op.run(subMonitor.newChild(1));
 		} catch (InvocationTargetException | InterruptedException e) {
 			// Do nothing
 		}
