@@ -76,6 +76,9 @@
          <package
                uri="http://www.obeonetwork.org/dsl/environment/3.0.0">
          </package>
+         <package
+               uri="http://www.obeonetwork.org/dsl/typeslibrary/1.0">
+         </package>
       </token>
    </extension>
    <extension
