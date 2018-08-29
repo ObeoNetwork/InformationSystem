@@ -82,22 +82,22 @@ public class ColumnSpec extends ColumnImpl {
 	@Override
 	public void addToPrimaryKey() {
 		// Do nothing if the column is already a PK column or if it does not belong to a table
-				if (isInPrimaryKey() == false
-						&& getOwner() != null
-						&& getOwner() instanceof Table) {
-					Table table = (Table)getOwner();
-					// First, ensure there is a Primary Key defined on this table
-					PrimaryKey pk = table.getPrimaryKey();
-					if (pk == null) {
-						// Create a new PK
-						pk = DatabaseFactory.eINSTANCE.createPrimaryKey();
-						pk.setName(table.getName() + "_PK");
-						table.setPrimaryKey(pk);
-					}
-					
-					// Then attach the column to the primary key
-					pk.getColumns().add(this);
-				}
+		if (isInPrimaryKey() == false
+				&& getOwner() != null
+				&& getOwner() instanceof Table) {
+			Table table = (Table)getOwner();
+			// First, ensure there is a Primary Key defined on this table
+			PrimaryKey pk = table.getPrimaryKey();
+			if (pk == null) {
+				// Create a new PK
+				pk = DatabaseFactory.eINSTANCE.createPrimaryKey();
+				pk.setName(table.getName() + "_PK");
+				table.setPrimaryKey(pk);
+			}
+			
+			// Then attach the column to the primary key
+			pk.getColumns().add(this);
+		}
 	}
 	
 	@Override
