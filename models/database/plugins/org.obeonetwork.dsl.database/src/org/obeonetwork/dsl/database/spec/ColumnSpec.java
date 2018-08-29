@@ -113,43 +113,42 @@ public class ColumnSpec extends ColumnImpl {
 				&& getOwner() != null
 				&& getOwner() instanceof Table) {
 			Table table = (Table)getOwner();
-			// Check if there is a unique index defined on the table
-			Index uniqueIndex = null;
-			for(Index index : table.getIndexes()) {
-				if (index.isUnique()) {
-					uniqueIndex = index;
-					break;
-				}
-			}
-			if (uniqueIndex == null) {
+			
+			Index index = getCorrespondingUniqueIndex();
+			
+			if (index == null) {
 				// Create a new unique index
-				uniqueIndex = DatabaseFactory.eINSTANCE.createIndex();
-				uniqueIndex.setName(table.getName() + "_UNIQUE_INDEX");
-				uniqueIndex.setUnique(true);
-				table.getIndexes().add(uniqueIndex);
+				index = DatabaseFactory.eINSTANCE.createIndex();
+				index.setName(table.getName() + "_" + getName() + "_UNIQUE_INDEX");
+				index.setUnique(true);
+				table.getIndexes().add(index);
+				
+				IndexElement indexElt = DatabaseFactory.eINSTANCE.createIndexElement();
+				index.getElements().add(indexElt);
+				indexElt.setAsc(true);
+				indexElt.setColumn(this);
 			}
-			// We are sure we have a unique index here
-			IndexElement indexElt = DatabaseFactory.eINSTANCE.createIndexElement();
-			uniqueIndex.getElements().add(indexElt);
-			indexElt.setAsc(true);
-			indexElt.setColumn(this);
 		}
 	}
 	
 	@Override
 	public void removeFromUniqueIndex() {
-		Collection<IndexElement> indexElements = new ArrayList<IndexElement>(getIndexElements());
-		for (IndexElement indexElt : indexElements) {
-			// Check if the associated index is unique
-			if (indexElt.eContainer() instanceof Index) {
-				Index index = (Index)indexElt.eContainer();
-				if (index.isUnique()) {
-					EcoreUtil.delete(indexElt, true);
-				}
-			}
+		Index uniqueIndex = getCorrespondingUniqueIndex();
+		if (uniqueIndex != null) {
+			EcoreUtil.delete(uniqueIndex, true);
 		}
 	}
 	
+	private Index getCorrespondingUniqueIndex() {
+		for(Index index : getIndexes()) {
+			if (index.isUnique()
+					&& index.getElements().size() == 1
+					&& index.getElements().get(0).getColumn() == this) {
+				return index;
+			}
+		}
+		return null;
+	}
 	
 
 }
