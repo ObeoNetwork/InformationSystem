@@ -91,6 +91,7 @@ Les éléments suivants sont affichés sur le diagramme :
 Les outils fournis par la palette sont :
 
 | !pics/diagrams/tasksgraph/Create%20task.png! | Création d'une tâche. |
+| !pics/diagrams/grouptasksgraph/Import%20existing%20task.png! | Import d'une tâche existante. Une boîte de dialogue permet de choisir une tâche existante. La tâche est importée dans le groupe actuel et détachée de son conteneur précédent. |
 | !pics/diagrams/tasksgraph/Create%20group.png! | Création d'un groupe. |
 | !pics/diagrams/tasksgraph/Create%20system.png! | Création d'un système. |
 | !pics/diagrams/tasksgraph/Create%20use.png! | Création de lien d'utilisation entre tâches, groupes et systèmes. Les liens d'utilisation se font normalement entre tâches, l'outil de création peut néanmoins être utilisé avec un système ou un groupe comme extrémité : dans ce cas une boîte de dialogue s'ouvre pour permettre de choisir la tâche du système ou du groupe sur laquelle le lien d'utilisation sera réellement créé. |
@@ -129,8 +130,8 @@ Les éléments suivants sont affichés sur le diagramme :
 
 Les outils fournis par la palette sont :
 
-| !pics/diagrams/grouptasksgraph/Import%20existing%20task.png! | Import d'une tâche existante. Une boîte de dialogue permet de choisir une tâche existante. La tâche est importée dans le groupe actuel et détachée de son conteneur précédent. |
 | !pics/diagrams/tasksgraph/Create%20task.png! | Création d'une nouvelle tâche. |
+| !pics/diagrams/grouptasksgraph/Import%20existing%20task.png! | Import d'une tâche existante. Une boîte de dialogue permet de choisir une tâche existante. La tâche est importée dans le groupe actuel et détachée de son conteneur précédent. |
 | !pics/diagrams/tasksgraph/Create%20group.png! | Création d'un groupe. |
 | !pics/diagrams/tasksgraph/Create%20use.png! | Création de lien d'utilisation entre tâches, groupes. Les liens d'utilisation se font normalement entre tâches, l'outil de création peut néanmoins être utilisé avec un groupe comme extrémité : dans ce cas une boîte de dialogue s'ouvre pour permettre de choisir la tâche du groupe sur laquelle le lien d'utilisation sera réellement créé. |
 | !pics/diagrams/tasksgraph/Attach%20actor.png! | Association entre une tâche et un acteur. Cet outil s'utilise lorsque l'acteur voulu n'est pas déjà visible sur le diagramme. Choisir la tâche à laquelle on souhaite associer l'acteur, une boîte de dialogue s'ouvre et permet de sélectionner un acteur. L'acteur apparaît alors sur le diagramme ainsi qu'un lien de rattachement avec la tâche. *Disponible uniquement si le calque _Actors_ est activé* |
