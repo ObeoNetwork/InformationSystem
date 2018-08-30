@@ -17,6 +17,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.regex.Pattern;
 
 import org.obeonetwork.dsl.database.AbstractTable;
 import org.obeonetwork.dsl.database.Column;
@@ -154,6 +155,44 @@ public class OracleDataBaseBuilder extends DefaultDataBaseBuilder {
 			JdbcUtils.closeStatement(pstmt);
 			JdbcUtils.closeResultSet(rs);
 		}
+	}
+
+	private static final Pattern TIMESTAMP_PTN = Pattern.compile("^TIMESTAMP\\([0-9]*\\)$");
+	private static final Pattern INTERVAL_DAY_TO_SECOND_PTN = Pattern.compile("^INTERVAL DAY\\([0-9]*\\) TO SECOND\\([0-9]*\\)$");
+	private static final Pattern INTERVAL_YEAR_TO_MONTH_PTN = Pattern.compile("^INTERVAL YEAR\\([0-9]*\\) TO MONTH$");
+	private static final Pattern TIMESTAMP_WITH_LOCAL_TZ_PTN = Pattern.compile("^TIMESTAMP\\([0-9]*\\) WITH LOCAL TIME ZONE$");
+	private static final Pattern TIMESTAMP_WITH_TZ_PTN = Pattern.compile("^TIMESTAMP\\([0-9]*\\) WITH TIME ZONE$");
+	
+	@Override
+	protected TypeInstance specificCreateTypeInstance(NativeTypesLibrary nativeTypesLibrary, String columnType, int columnSize, int decimalDigits) {
+		// Handle Oracle specific types
+
+		// TIMESTAMP
+		if (TIMESTAMP_PTN.matcher(columnType).matches()) {
+			return createTypeInstance(nativeTypesLibrary, "TIMESTAMP", decimalDigits, 0);
+		}
+		
+		// INTERVAL DAY TO SECOND
+		if (INTERVAL_DAY_TO_SECOND_PTN.matcher(columnType).matches()) {
+			return createTypeInstance(nativeTypesLibrary, "INTERVAL DAY(%n) TO SECOND", columnSize, decimalDigits);
+		}
+		
+		// INTERVAL YEAR TO MONTH
+		if (INTERVAL_YEAR_TO_MONTH_PTN.matcher(columnType).matches()) {
+			return createTypeInstance(nativeTypesLibrary, "INTERVAL YEAR(%n) TO MONTH", columnSize, decimalDigits);
+		}
+		
+		// TIMESTAMP WITH LOCAL TIME ZONE
+		if (TIMESTAMP_WITH_LOCAL_TZ_PTN.matcher(columnType).matches()) {
+			return createTypeInstance(nativeTypesLibrary, "TIMESTAMP(%n) WITH LOCAL TIME ZONE", decimalDigits, decimalDigits);
+		}		
+		
+		// TIMESTAMP WITH TIME ZONE
+		if (TIMESTAMP_WITH_TZ_PTN.matcher(columnType).matches()) {
+			return createTypeInstance(nativeTypesLibrary, "TIMESTAMP(%n) WITH TIME ZONE", decimalDigits, decimalDigits);
+		}
+		
+		return null;
 	}
 	
 	@Override

@@ -222,6 +222,13 @@ public class DefaultDataBaseBuilder extends AbstractDataBaseBuilder {
 		}
 	}
 	
+	/**
+	 * Used to handle specific types, default implementation does nothing
+	 */
+	protected TypeInstance specificCreateTypeInstance(NativeTypesLibrary nativeTypesLibrary, String columnType, int columnSize, int decimalDigits) {
+		return null;
+	}
+	
 	protected void buildColumn(DatabaseMetaData metaData, TableContainer owner, NativeTypesLibrary nativeTypesLibrary, AbstractTable table, ResultSet rs) throws SQLException {
 		if (table instanceof View) {
 			return;
@@ -234,8 +241,13 @@ public class DefaultDataBaseBuilder extends AbstractDataBaseBuilder {
 		String columnType = rs.getString(6);
 		int columnSize = rs.getInt(7);
 		int decimalDigits = rs.getInt(9);
-		TypeInstance typeInstance = createTypeInstance(nativeTypesLibrary, columnType, columnSize,
-				decimalDigits);
+		
+		TypeInstance typeInstance = specificCreateTypeInstance(nativeTypesLibrary, columnType, columnSize, decimalDigits);
+		
+		if (typeInstance == null) {
+			typeInstance = createTypeInstance(nativeTypesLibrary, columnType, columnSize,
+					decimalDigits);
+		}
 		column.setType(typeInstance);
 
 		String defaultValue = rs.getString(13);

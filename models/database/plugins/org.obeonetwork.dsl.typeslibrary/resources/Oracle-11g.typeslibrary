@@ -27,7 +27,7 @@
   <nativeTypes xmi:id="_EwGJQD77EeaWN4f5B3n2lA" technicalid="_FJPSvpn4EeaqGJZ6nXNZAQ" name="INTEGER">
     <mapsTo href="pathmap://LogicalDBTypes#_WWeJ4BEnEeGTa_JlZYBw1A"/>
   </nativeTypes>
-  <nativeTypes xmi:id="_cUwtSREnEeGTa_JlZYBw1A" technicalid="_FJPSwJn4EeaqGJZ6nXNZAQ" name="INTERVAL DAY(%n) TO SECOND" spec="Length">
+  <nativeTypes xmi:id="_cUwtSREnEeGTa_JlZYBw1A" technicalid="_FJPSwJn4EeaqGJZ6nXNZAQ" name="INTERVAL DAY(%n) TO SECOND" spec="LengthAndPrecision">
     <mapsTo href="pathmap://LogicalDBTypes#_WWew-xEnEeGTa_JlZYBw1A"/>
   </nativeTypes>
   <nativeTypes xmi:id="_cUwtSxEnEeGTa_JlZYBw1A" technicalid="_FJPSwpn4EeaqGJZ6nXNZAQ" name="INTERVAL YEAR(%n) TO MONTH" spec="Length">
