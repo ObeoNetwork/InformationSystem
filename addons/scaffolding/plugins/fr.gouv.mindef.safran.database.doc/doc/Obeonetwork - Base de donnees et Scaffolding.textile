@@ -128,6 +128,18 @@ Un menu permet également d'ajouter des ressources pour résoudre les dépendanc
 
 A noter que lorsque vous lancez une transformation en sélectionnant des objets source et cible pour lesquels un modèle de scaffold existe déjà, il vous est proposé d'utiliser le modèle existant ou d'en créer un nouveau.  
 
+h3. Paramétrage de la transformation d'un modèle d'entités en MLD
+
+Dans le cas d'une transformation d'un modèle d'entités en MLD pour chaque table qui sera créée 2 colonnes techniques sont créées automatiquement.
+Ces colonnes sont :
+* Une colonne de validité nommée avec le nom de la table suffixée par _XTOPSUP
+* Une colonne de date de mise à jour nommée avec le nom de la table suffixée par _XDMAJ
+
+La génération de ces colonnes peut être désactivée. Pour ceci, il faut ajouter une metadata sur une entité ou un namespace :
+* Clé : DISABLE_ADDITIONAL_FIELDS_KEY
+* Valeur : true
+
+Les 2 colonnes ne seront alors pas créées soit pour l'entité en question, soit pour toutes les entités contenues par le namespace. 
 
 h2. Notes
 	
