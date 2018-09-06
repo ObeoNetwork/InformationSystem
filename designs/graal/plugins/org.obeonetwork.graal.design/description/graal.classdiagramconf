@@ -23,7 +23,7 @@
     <metamodels>http://www.obeonetwork.org/dsl/entity/3.0.0</metamodels>
     <metamodels>http://www.obeonetwork.org/dsl/environment/3.0.0</metamodels>
   </diagrams>
-  <diagrams id="ClassDiagram" descriptionId="Entities Diagram">
+  <diagrams id="ClassDiagram" descriptionId="Domain Classes Diagram">
     <children id="StructuredTypeMapping">
       <stringValues id="id" value="ED_DomainClass"/>
       <stringValues id="label" value="ED_DomainClass"/>
