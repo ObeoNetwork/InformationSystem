@@ -132,8 +132,8 @@ h3. Paramétrage de la transformation d'un modèle d'entités en MLD
 
 Dans le cas d'une transformation d'un modèle d'entités en MLD pour chaque table qui sera créée 2 colonnes techniques sont créées automatiquement.
 Ces colonnes sont :
-* Une colonne de validité nommée avec le nom de la table suffixée par _XTOPSUP
-* Une colonne de date de mise à jour nommée avec le nom de la table suffixée par _XDMAJ
+* Une colonne de validité nommée avec le nom du schéma suffixé par _XTOPSUP
+* Une colonne de date de mise à jour nommée avec le nom du schéma suffixé par _XDMAJ
 
 La génération de ces colonnes peut être désactivée. Pour ceci, il faut ajouter une metadata sur une entité ou un namespace :
 * Clé : DISABLE_ADDITIONAL_FIELDS_KEY
