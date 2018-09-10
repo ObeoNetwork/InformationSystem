@@ -102,6 +102,7 @@ public class ImportLibraryIntoProjectWizardModel {
 		private String id;
 		private String version;
 		private String existingVersion;
+		private boolean main;
 
 		public String getId() {
 			return id;
@@ -126,6 +127,13 @@ public class ImportLibraryIntoProjectWizardModel {
 		public void setExistingVersion(String existingVersion) {
 			this.existingVersion = existingVersion;
 		}
-		
+
+		public boolean isMain() {
+			return main;
+		}
+
+		public void setMain(boolean main) {
+			this.main = main;
+		}
 	}
 }

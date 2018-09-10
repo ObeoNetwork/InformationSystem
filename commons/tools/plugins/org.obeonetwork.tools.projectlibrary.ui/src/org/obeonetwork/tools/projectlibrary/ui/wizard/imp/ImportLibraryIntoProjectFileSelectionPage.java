@@ -216,7 +216,9 @@ public class ImportLibraryIntoProjectFileSelectionPage extends WizardPage {
 			public Image getImage(Object element) {
 				if (element instanceof DependencyRow) {
 					DependencyRow row = (DependencyRow) element;
-					if (ManifestUtils.isGreaterOrEqual(row.getVersion(), row.getExistingVersion())) {
+					if (row.isMain() && ManifestUtils.isGreater(row.getVersion(), row.getExistingVersion())) {
+						return ResourceManager.getPluginImage("org.obeonetwork.tools.projectlibrary.ui", "icons/valid.gif");						
+					} else if (!row.isMain() && ManifestUtils.isGreaterOrEqual(row.getVersion(), row.getExistingVersion())) {
 						return ResourceManager.getPluginImage("org.obeonetwork.tools.projectlibrary.ui", "icons/valid.gif");						
 					} else {
 						return ResourceManager.getPluginImage("org.obeonetwork.tools.projectlibrary.ui", "icons/invalid.gif");
@@ -287,6 +289,9 @@ public class ImportLibraryIntoProjectFileSelectionPage extends WizardPage {
 	
 	private void computeDependenciesTable() {
 		List<DependencyRow> rows = new ArrayList<>();
+		
+		MManifest mainImportedProject = getMainImportedProject();
+		
 		for (MManifest dependency : getProjectsToCheck()) {
 			DependencyRow row = new DependencyRow();
 			row.setId(dependency.getProjectId());
@@ -295,6 +300,7 @@ public class ImportLibraryIntoProjectFileSelectionPage extends WizardPage {
 			if (existingVersion != null) {
 				row.setExistingVersion(existingVersion);
 			}
+			row.setMain(dependency == mainImportedProject);
 			rows.add(row);
 		}
 		wizard.getModel().setExistingDependenciesRows(rows);
@@ -328,23 +334,36 @@ public class ImportLibraryIntoProjectFileSelectionPage extends WizardPage {
 	private boolean areAllVersionsValid() {
 		setErrorMessage(null);
 		
+		MManifest mainImportedProject = getMainImportedProject();
+		
 		// Check versions of imported project and its dependencies
 		for (MManifest project : getProjectsToCheck()) {
-			if (!ManifestUtils.isGreaterOrEqual(project.getVersion(), getExistingVersion(project.getProjectId()))) {
-				setErrorMessage("The file can not be imported because some versions are incompatible");
-				return false;
+			if (project != mainImportedProject) {
+				if (!ManifestUtils.isGreaterOrEqual(project.getVersion(), getExistingVersion(project.getProjectId()))) {
+					setErrorMessage("The file can not be imported because some versions are incompatible");
+					return false;
+				}
+			} else {
+				if (!ManifestUtils.isGreater(project.getVersion(), getExistingVersion(project.getProjectId()))) {
+					setErrorMessage("The file can not be imported because some versions are incompatible");
+					return false;
+				}
 			}
 		}
 		
 		return true;
 	}
+
+	private MManifest getMainImportedProject() {
+		return wizard.getModel().getImportedProject();
+	}
 	
 	private List<MManifest> getProjectsToCheck() {
 		List<MManifest> projects = new ArrayList<>();
-		projects.add(wizard.getModel().getImportedProject());
+		projects.add(getMainImportedProject());
 		for (MManifest dependency : wizard.getModel().getDependencies()) {
 			// We add to the list only if the dependency is not the imported project
-			if (!dependency.getProjectId().equals(wizard.getModel().getImportedProject().getProjectId())) {
+			if (!dependency.getProjectId().equals(getMainImportedProject().getProjectId())) {
 				projects.add(dependency);
 			}
 		}
