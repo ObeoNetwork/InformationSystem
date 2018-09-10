@@ -27,8 +27,10 @@ import org.eclipse.jface.viewers.IStructuredSelection;
 import org.eclipse.jface.wizard.Wizard;
 import org.eclipse.sirius.business.api.modelingproject.ModelingProject;
 import org.eclipse.sirius.ext.base.Option;
+import org.eclipse.swt.widgets.Display;
 import org.eclipse.ui.IImportWizard;
 import org.eclipse.ui.IWorkbench;
+import org.eclipse.ui.PlatformUI;
 import org.obeonetwork.tools.projectlibrary.imp.IConfirmationRunnable;
 import org.obeonetwork.tools.projectlibrary.imp.LibraryImportException;
 import org.obeonetwork.tools.projectlibrary.imp.ProjectLibraryImporter;
@@ -67,6 +69,8 @@ public class ImportLibraryIntoProjectWizard extends Wizard implements IImportWiz
 
 	@Override
 	public void init(IWorkbench workbench, IStructuredSelection selection) {
+		setWindowTitle("Import library into modeling project");
+		setNeedsProgressMonitor(true);
 		fileSelectionPage = new ImportLibraryIntoProjectFileSelectionPage(this);
 		
 		// Initialize with selected project if it is a modeling project
@@ -103,9 +107,9 @@ public class ImportLibraryIntoProjectWizard extends Wizard implements IImportWiz
 		private boolean result;
 
 		public void run(IProgressMonitor monitor) {
-			SubMonitor subMonitor = SubMonitor.convert(monitor, "Importing MAR file", 1);
-			
+			SubMonitor subMonitor = SubMonitor.convert(monitor, "Importing MAR file", 3);
 			Map<String, Boolean> originalValues = disableAutomaticEditors();
+			subMonitor.newChild(1);
 			
 			ProjectLibraryImporter importer = new ProjectLibraryImporter();
 			try {
@@ -117,7 +121,7 @@ public class ImportLibraryIntoProjectWizard extends Wizard implements IImportWiz
 					}
 				}, subMonitor.newChild(1));
 			} catch (LibraryImportException e) {
-				MessageDialog.openError(getShell(), "Import project as library", e.getMessage());
+				Display.getDefault().syncExec(() -> MessageDialog.openError(getShell(), "Import project as library", e.getMessage())); 
 				result = false;
 			}
 			
