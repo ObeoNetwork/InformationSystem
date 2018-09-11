@@ -34,12 +34,14 @@ ALTER TABLE DEMO.TABLE2RENOMMEE RENAME COLUMN col2_2 TO col2_2_Renommee;
 
 COMMENT ON COLUMN DEMO.TABLE2RENOMMEE.col2_3 IS 'Comments col2_3 updated';
 
-ALTER TABLE DEMO.TABLE2RENOMMEE ADD col2_4 CHAR(4) NULL;
+ALTER TABLE DEMO.TABLE2RENOMMEE ADD col2_4 CHAR(4);
+ALTER TABLE DEMO.TABLE2RENOMMEE ALTER COLUMN col2_4 DROP NOT NULL;
 
 -- ==============================================================
 --  Table : TABLE3                                    
 -- ==============================================================
-ALTER TABLE DEMO.TABLE3 ADD col3_2 NUMERIC(12, 5) NOT NULL;
+ALTER TABLE DEMO.TABLE3 ADD col3_2 NUMERIC(12, 5);
+ALTER TABLE DEMO.TABLE3 ALTER COLUMN col3_2 SET NOT NULL;
 
 ALTER TABLE DEMO.TABLE3 RENAME COLUMN col3_1 TO col3_1_renommee;
 
@@ -63,7 +65,8 @@ ALTER TABLE DEMO.TABLE4 RENAME TO DEMO.TABLE4RENOMMEE;
 -- ==============================================================
 --  Table : TABLE7                                    
 -- ==============================================================
-ALTER TABLE DEMO.TABLE7 ADD col8_1 INTEGER NOT NULL;
+ALTER TABLE DEMO.TABLE7 ADD col8_1 INTEGER;
+ALTER TABLE DEMO.TABLE7 ALTER COLUMN col8_1 SET NOT NULL;
 
 -- ==============================================================
 --  Table : TABLE8                                    
