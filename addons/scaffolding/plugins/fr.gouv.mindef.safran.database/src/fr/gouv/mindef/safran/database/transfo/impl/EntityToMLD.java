@@ -18,9 +18,11 @@ import java.util.Comparator;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.LinkedHashMap;
+import java.util.LinkedHashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
+import java.util.Set;
 import java.util.StringTokenizer;
 
 import org.eclipse.core.runtime.IStatus;
@@ -44,7 +46,6 @@ import org.obeonetwork.dsl.database.Schema;
 import org.obeonetwork.dsl.database.Table;
 import org.obeonetwork.dsl.database.TableContainer;
 import org.obeonetwork.dsl.entity.Entity;
-import org.obeonetwork.dsl.entity.EntityPackage;
 import org.obeonetwork.dsl.entity.Root;
 import org.obeonetwork.dsl.environment.Annotation;
 import org.obeonetwork.dsl.environment.Attribute;
@@ -920,7 +921,10 @@ public class EntityToMLD extends AbstractTransformation {
 	private void createConstraints(Entity entity, Table table) {
 		
 		// Collection constraints to be created
-		Collection<String> expressions = AnnotationHelper.getAllConstraints(entity);
+		Set<String> expressions = new LinkedHashSet<String>(AnnotationHelper.getAllConstraints(entity));
+		for (Attribute attribute : entity.getAttributes()) {
+			expressions.addAll(AnnotationHelper.getAllConstraints(attribute));
+		}
 
 		// Add all newly created constraints
 		for (EObject object : getObjectsToBeKept()) {
