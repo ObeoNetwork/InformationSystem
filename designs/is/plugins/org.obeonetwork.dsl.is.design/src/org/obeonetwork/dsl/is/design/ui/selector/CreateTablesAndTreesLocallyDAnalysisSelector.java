@@ -14,6 +14,7 @@ import java.util.ArrayList;
 import java.util.Collection;
 
 import org.eclipse.emf.cdo.common.protocol.CDOProtocolConstants;
+import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.resource.Resource;
 
 import org.eclipse.sirius.viewpoint.DAnalysis;
@@ -32,6 +33,8 @@ import org.eclipse.sirius.tree.DTree;
  */
 public class CreateTablesAndTreesLocallyDAnalysisSelector implements DAnalysisSelector {
 
+	private static final String LIBRARIES_FOLDER = "libraries";
+	
     private DAnalysisSelector originalDAnalysisSelector;
 
     /**
@@ -66,20 +69,25 @@ public class CreateTablesAndTreesLocallyDAnalysisSelector implements DAnalysisSe
      * {@inheritDoc}
      */
     public DAnalysis selectSmartlyAnalysisForAddedRepresentation(DRepresentation createdDRepresentation, Collection<DAnalysis> allDAnalysis) {
+    	
+    	Collection<DAnalysis> filteredAnalysis = getNonLibraryDAnalyses(allDAnalysis);
+    	
         // Tables and trees are created locally
     	if (createdDRepresentation instanceof DTable || createdDRepresentation instanceof DTree) {
-    		DAnalysis selectedDAnalysis = null;
-    		Collection<DAnalysis> localDAnalysis = getAllLocalDAnalyses(allDAnalysis);
-    		if (localDAnalysis.size() == 1) {
-                selectedDAnalysis = localDAnalysis.iterator().next();
-            } else {
-                selectedDAnalysis = originalDAnalysisSelector.selectSmartlyAnalysisForAddedRepresentation(createdDRepresentation, localDAnalysis);
-            }
-    		return selectedDAnalysis;
+    		Collection<DAnalysis> localDAnalysis = getAllLocalDAnalyses(filteredAnalysis);
+    		return selectAnalysis(createdDRepresentation, localDAnalysis);
     	} else {
     		// other representations are created as before
-    		return originalDAnalysisSelector.selectSmartlyAnalysisForAddedRepresentation(createdDRepresentation, allDAnalysis);
+    		return selectAnalysis(createdDRepresentation, filteredAnalysis);
     	}
+    }
+    
+    private DAnalysis selectAnalysis(DRepresentation createdDRepresentation, Collection<DAnalysis> availableAnalysis) {
+    	if (availableAnalysis.size() == 1) {
+            return availableAnalysis.iterator().next();
+        } else {
+        	return originalDAnalysisSelector.selectSmartlyAnalysisForAddedRepresentation(createdDRepresentation, availableAnalysis);
+        }
     }
     
     /**
@@ -96,4 +104,31 @@ public class CreateTablesAndTreesLocallyDAnalysisSelector implements DAnalysisSe
     	}
     	return localAnalyses;
     }
+    
+    /**
+     * Filter analyses to keep only those which are not contained in a library project
+     * @param allAnalyses
+     * @return
+     */
+    private Collection<DAnalysis> getNonLibraryDAnalyses(Collection<DAnalysis> allAnalyses) {
+    	Collection<DAnalysis> result = new ArrayList<DAnalysis>();
+    	for (DAnalysis dAnalysis : allAnalyses) {
+            URI uri = dAnalysis.eResource().getURI();
+			if (CDOProtocolConstants.PROTOCOL_NAME.equals(uri.scheme())) {
+				// CDO URI, we have to check if the second segment is not the libraries folder
+				if (uri.segmentCount() < 2 || !LIBRARIES_FOLDER.equals(uri.segment(1))) {					
+					result.add(dAnalysis);
+				}
+            } else if (uri.isPlatform()){
+            	// We have to check the third segment here, because first segment is either 'resource' or 'plugin'
+            	if (uri.segmentCount() < 3 || !LIBRARIES_FOLDER.equals(uri.segment(2))) {					
+					result.add(dAnalysis);
+				}
+            }
+    	}
+    	return result;
+    }
+    
+
 }
+    
