@@ -180,15 +180,18 @@ public class ImportXMLSnapshotWizardPage extends WizardPage {
 	}
 	
 	private boolean projectExists(String projectName) {
-		IProject project = ResourcesPlugin.getWorkspace().getRoot().getProject(projectName);
-		if (project != null && project.exists()) {
-			return true;
+		if (projectName != null && !projectName.isEmpty()) {			
+			IProject project = ResourcesPlugin.getWorkspace().getRoot().getProject(projectName);
+			if (project != null && project.exists()) {
+				return true;
+			}
+			
+			IPath workspacePath = ResourcesPlugin.getWorkspace().getRoot().getLocation();
+			IPath fullPath = workspacePath.append(projectName);
+			File file = fullPath.toFile();
+			return file.exists();
 		}
-		
-		IPath workspacePath = ResourcesPlugin.getWorkspace().getRoot().getLocation();
-		IPath fullPath = workspacePath.append(projectName);
-		File file = fullPath.toFile();
-		return file.exists();
+		return false;
 	}
 	
 	private void loadXmlFile() {
