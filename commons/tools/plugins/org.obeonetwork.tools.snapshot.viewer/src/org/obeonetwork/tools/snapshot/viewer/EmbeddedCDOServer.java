@@ -20,6 +20,7 @@ import java.util.Collection;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Map;
+import java.util.Map.Entry;
 import java.util.Set;
 
 import javax.xml.stream.XMLInputFactory;
@@ -27,6 +28,8 @@ import javax.xml.stream.XMLStreamConstants;
 import javax.xml.stream.XMLStreamException;
 import javax.xml.stream.XMLStreamReader;
 
+import org.eclipse.core.resources.IProject;
+import org.eclipse.core.resources.ResourcesPlugin;
 import org.eclipse.core.runtime.CoreException;
 import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.core.runtime.SubMonitor;
@@ -55,6 +58,7 @@ import fr.obeo.dsl.viewpoint.collab.api.CDORepositoryManager;
 import fr.obeo.dsl.viewpoint.collab.api.CDORepositoryManagerRegistry;
 import fr.obeo.dsl.viewpoint.collab.api.RepositoryConnectionException;
 import fr.obeo.dsl.viewpoint.collab.model.cdoconfig.ConnectionType;
+import fr.obeo.dsl.viewpoint.collab.resources.sync.internal.util.ResourcesSyncUtil;
 
 /**
  * Embedded CDO server used to load a XML file (exported from CDO).
@@ -63,6 +67,7 @@ import fr.obeo.dsl.viewpoint.collab.model.cdoconfig.ConnectionType;
  * @author <a href="mailto:stephane.thibaudeau@obeo.fr">Stephane Thibaudeau</a>
  *
  */
+@SuppressWarnings("restriction")
 public class EmbeddedCDOServer {
 
 	public static final String DEFAULT_REPOSITORY_NAME = "designer-server";
@@ -181,16 +186,16 @@ public class EmbeddedCDOServer {
 		
 		return remoteProjectsURIs;
 	}
-
+	
 	/**
 	 * Import remote project into workspace
 	 * @param remoteResourceURI Remote project URI (to aird resource)
-	 * @param localAndRemoteProjectNameMapping Mapping between remote and local projects names
+	 * @param remoteToLocalProjectNameMapping Mapping between remote and local projects names
 	 * @param parentMonitor
 	 * @throws RepositoryConnectionException
 	 * @throws CoreException
 	 */
-	public void importProjectFromRepository(URI remoteResourceURI, Map<String, String> localAndRemoteProjectNameMapping, IProgressMonitor parentMonitor)
+	public void importProjectFromRepository(URI remoteResourceURI, Map<String, String> remoteToLocalProjectNameMapping, IProgressMonitor parentMonitor)
 			throws RepositoryConnectionException, CoreException {
 		SubMonitor monitor = SubMonitor.convert(parentMonitor, 1);
 		monitor.setTaskName("Import remote project into workspace");
@@ -198,12 +203,30 @@ public class EmbeddedCDOServer {
 		resourceURIs.add(remoteResourceURI);
 		
 		CDORepositoryManager repositoryManager = getRepositoryManager();
-		
+			
 		CDOExporter cdoExporter = new CDOExporter();
 		cdoExporter.exportResourcesFromRepository(resourceURIs, repositoryManager, true, true,
-				localAndRemoteProjectNameMapping, false, monitor);
+				remoteToLocalProjectNameMapping, false, monitor);
 		
+		// Import shared folders
+		importSharedFolders(remoteToLocalProjectNameMapping);
 	}
+	
+	private void importSharedFolders(Map<String, String> remoteToLocalProjectNameMapping) {
+		String productGroup = "org.eclipse.emf.cdo.sessions";
+		CDOSession session = (CDOSession) IPluginContainer.INSTANCE.getElement(productGroup, "cdo", getTcpUrl());
+		CDOTransaction transaction = session.openTransaction();
+		for (Entry<String, String> mapping : remoteToLocalProjectNameMapping.entrySet()) {
+			String remoteProjectName = mapping.getKey();
+			String localProjectName = mapping.getValue(); 
+			IProject localProject = ResourcesPlugin.getWorkspace().getRoot().getProject(localProjectName);
+			
+			ResourcesSyncUtil.synchronizeSharedFoldersFromServer(transaction, remoteProjectName, localProject);
+		}
+		transaction.close();
+		session.close();
+	}
+	
 
 	private IRepository createRepository(IStore store, File xmlFile) throws Exception {
 		Map<String, String> props = new HashMap<String, String>();
