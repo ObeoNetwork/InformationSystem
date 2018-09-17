@@ -50,7 +50,7 @@ import fr.gouv.mindef.safran.database.transfo.util.ModelUtils;
 public abstract class MpdToMldBidiRules extends AbstractTransformation {
 	
 	private static final String SEQUENCE_INITIAL_COMMENTS = "Séquence de la PK de la table %s";
-	private static final int MPD_DEFAULT_TYPE_LENGTH = 19;
+	private static final int MPD_DEFAULT_TYPE_LENGTH = 0;
 	private static final int MPD_DEFAULT_TYPE_PRECISION = 0;
 	
 	protected TypesLibrary targetTypesLibrary;

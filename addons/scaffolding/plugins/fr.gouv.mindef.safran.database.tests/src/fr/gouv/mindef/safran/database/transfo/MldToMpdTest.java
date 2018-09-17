@@ -21,6 +21,11 @@ public class MldToMpdTest extends AbstractTransformationTest {
 	}
 
 	@Test
+	public void test12DefaultLengthAndPrecision() {
+		testMldToMpd("11-oracle-default-length-and-precision");
+	}
+	
+	@Test
 	public void test1() {
 		testMldToMpd("1-oracle-simple");
 	}

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<database:DataBase xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:database="http://www.obeonetwork.org/dsl/database/1.0" xmlns:typeslibrary="http://www.obeonetwork.org/dsl/typeslibrary/1.0" xmi:id="_xAvvgbBXEeiD7P3dGoZO2A" techID="_xAvvgLBXEeiD7P3dGoZO2A" name="oracle">
+  <tables xsi:type="database:Table" xmi:id="_pkfiQbp8EeiCVqlDzqNkiA" techID="_pkfiQLp8EeiCVqlDzqNkiA" name="Table">
+    <columns xmi:id="_pkgwYbp8EeiCVqlDzqNkiA" techID="_pkgwYLp8EeiCVqlDzqNkiA" name="column1">
+      <type xsi:type="typeslibrary:TypeInstance" xmi:id="_pkjMoLp8EeiCVqlDzqNkiA" length="0">
+        <nativeType href="pathmap://NativeDBTypes/Oracle-11g#_cUx7aREnEeGTa_JlZYBw1A"/>
+      </type>
+    </columns>
+    <columns xmi:id="_pkjMorp8EeiCVqlDzqNkiA" techID="_pkjMobp8EeiCVqlDzqNkiA" name="column2">
+      <type xsi:type="typeslibrary:TypeInstance" xmi:id="_pkjMo7p8EeiCVqlDzqNkiA"/>
+    </columns>
+    <columns xmi:id="_dDUj4LqAEeirTL62BG4Ycw" techID="_czbtxLqAEeirTL62BG4Ycw" name="column3">
+      <type xsi:type="typeslibrary:TypeInstance" xmi:id="_dDUj4bqAEeirTL62BG4Ycw" length="0" precision="0">
+        <nativeType href="pathmap://NativeDBTypes/Oracle-11g#_cUxUXBEnEeGTa_JlZYBw1A"/>
+      </type>
+    </columns>
+  </tables>
+  <usedLibraries xsi:type="typeslibrary:NativeTypesLibrary" href="pathmap://NativeDBTypes/Oracle-11g#_cUvfIBEnEeGTa_JlZYBw1A"/>
+</database:DataBase>

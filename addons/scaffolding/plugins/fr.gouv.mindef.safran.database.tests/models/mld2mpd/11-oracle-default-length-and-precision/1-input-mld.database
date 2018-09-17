@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<database:DataBase xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:database="http://www.obeonetwork.org/dsl/database/1.0" xmlns:typeslibrary="http://www.obeonetwork.org/dsl/typeslibrary/1.0" xmi:id="_qnYZsbBXEeiD7P3dGoZO2A" techID="_qnYZsLBXEeiD7P3dGoZO2A" name="mld">
+  <tables xsi:type="database:Table" xmi:id="_3MzCELBXEeiD7P3dGoZO2A" techID="_3MybALBXEeiD7P3dGoZO2A" name="Table">
+    <columns xmi:id="_65q8cLBXEeiD7P3dGoZO2A" techID="_65qVYLBXEeiD7P3dGoZO2A" name="column1">
+      <type xsi:type="typeslibrary:TypeInstance" xmi:id="_65q8cbBXEeiD7P3dGoZO2A">
+        <nativeType href="pathmap://LogicalDBTypes#_drqOcDwJEeiOd8zmfAzmGQ"/>
+      </type>
+    </columns>
+    <columns xmi:id="_KmZ7EbBYEeiD7P3dGoZO2A" techID="_KmZ7ELBYEeiD7P3dGoZO2A" name="column2">
+      <type xsi:type="typeslibrary:TypeInstance" xmi:id="_KmZ7ErBYEeiD7P3dGoZO2A">
+        <nativeType href="pathmap://LogicalDBTypes#_aaRWMDwJEeiOd8zmfAzmGQ"/>
+      </type>
+    </columns>
+    <columns xmi:id="_shWNkLp_EeirTL62BG4Ycw" techID="_r8UN5Lp_EeirTL62BG4Ycw" name="column3">
+      <type xsi:type="typeslibrary:TypeInstance" xmi:id="_shWNkbp_EeirTL62BG4Ycw">
+        <nativeType href="pathmap://LogicalDBTypes#_WWeJ5hEnEeGTa_JlZYBw1A"/>
+      </type>
+    </columns>
+  </tables>
+  <usedLibraries xsi:type="typeslibrary:NativeTypesLibrary" href="pathmap://LogicalDBTypes#_WWbGkREnEeGTa_JlZYBw1A"/>
+</database:DataBase>
