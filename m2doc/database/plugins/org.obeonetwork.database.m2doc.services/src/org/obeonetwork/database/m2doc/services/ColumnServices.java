@@ -243,11 +243,13 @@ public class ColumnServices {
             TypeInstance instance = (TypeInstance) type;
             switch (instance.getNativeType().getSpec()) {
                 case LENGTH:
+                    // Fix for SAFRAN-676 : Potential NPE
                     if (instance.getLength() != null) {
                         res = instance.getLength().toString();
                     }
                     break;
                 case LENGTH_AND_PRECISION:
+                    // Fix for SAFRAN-676 : Potential NPE
                     if (instance.getLength() != null) {
                         res += instance.getLength();
                     }
