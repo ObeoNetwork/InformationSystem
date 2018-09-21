@@ -20,7 +20,6 @@ import java.util.Collection;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Map;
-import java.util.Map.Entry;
 import java.util.Set;
 
 import javax.xml.stream.XMLInputFactory;
@@ -28,8 +27,6 @@ import javax.xml.stream.XMLStreamConstants;
 import javax.xml.stream.XMLStreamException;
 import javax.xml.stream.XMLStreamReader;
 
-import org.eclipse.core.resources.IProject;
-import org.eclipse.core.resources.ResourcesPlugin;
 import org.eclipse.core.runtime.CoreException;
 import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.core.runtime.SubMonitor;
@@ -52,13 +49,14 @@ import org.eclipse.net4j.util.container.IPluginContainer;
 import org.eclipse.net4j.util.io.IOUtil;
 import org.eclipse.net4j.util.lifecycle.LifecycleUtil;
 import org.eclipse.sirius.business.api.query.FileQuery;
+import org.obeonetwork.tools.snapshot.viewer.extension.IPostImportHandler;
+import org.obeonetwork.tools.snapshot.viewer.extension.PostImportHandlerFactory;
 
 import fr.obeo.dsl.viewpoint.collab.api.CDOExporter;
 import fr.obeo.dsl.viewpoint.collab.api.CDORepositoryManager;
 import fr.obeo.dsl.viewpoint.collab.api.CDORepositoryManagerRegistry;
 import fr.obeo.dsl.viewpoint.collab.api.RepositoryConnectionException;
 import fr.obeo.dsl.viewpoint.collab.model.cdoconfig.ConnectionType;
-import fr.obeo.dsl.viewpoint.collab.resources.sync.internal.util.ResourcesSyncUtil;
 
 /**
  * Embedded CDO server used to load a XML file (exported from CDO).
@@ -67,7 +65,6 @@ import fr.obeo.dsl.viewpoint.collab.resources.sync.internal.util.ResourcesSyncUt
  * @author <a href="mailto:stephane.thibaudeau@obeo.fr">Stephane Thibaudeau</a>
  *
  */
-@SuppressWarnings("restriction")
 public class EmbeddedCDOServer {
 
 	public static final String DEFAULT_REPOSITORY_NAME = "designer-server";
@@ -174,8 +171,7 @@ public class EmbeddedCDOServer {
 		SubMonitor monitor = SubMonitor.convert(parentMonitor, 1);
 		monitor.setTaskName("Retrieving remote projects list");
 		
-		String productGroup = "org.eclipse.emf.cdo.sessions";
-		CDOSession session = (CDOSession) IPluginContainer.INSTANCE.getElement(productGroup, "cdo", getTcpUrl());
+		CDOSession session = getCDOSession();
 		CDOTransaction transaction = session.openTransaction();
 		Collection<URI> remoteProjectsURIs = getRemoteProjectsURIs(transaction);
 		transaction.close();
@@ -208,26 +204,22 @@ public class EmbeddedCDOServer {
 		cdoExporter.exportResourcesFromRepository(resourceURIs, repositoryManager, true, true,
 				remoteToLocalProjectNameMapping, false, monitor);
 		
-		// Import shared folders
-		importSharedFolders(remoteToLocalProjectNameMapping);
+		// Call postImport handlers
+		doPostImport(remoteToLocalProjectNameMapping);
 	}
 	
-	private void importSharedFolders(Map<String, String> remoteToLocalProjectNameMapping) {
-		String productGroup = "org.eclipse.emf.cdo.sessions";
-		CDOSession session = (CDOSession) IPluginContainer.INSTANCE.getElement(productGroup, "cdo", getTcpUrl());
-		CDOTransaction transaction = session.openTransaction();
-		for (Entry<String, String> mapping : remoteToLocalProjectNameMapping.entrySet()) {
-			String remoteProjectName = mapping.getKey();
-			String localProjectName = mapping.getValue(); 
-			IProject localProject = ResourcesPlugin.getWorkspace().getRoot().getProject(localProjectName);
-			
-			ResourcesSyncUtil.synchronizeSharedFoldersFromServer(transaction, remoteProjectName, localProject);
+	private void doPostImport(Map<String, String> remoteToLocalProjectNameMapping) {
+		Collection<IPostImportHandler> handlers = PostImportHandlerFactory.getInstance().getPostImportHandlers();
+		for (IPostImportHandler handler : handlers) {
+			handler.doPostImport(this, remoteToLocalProjectNameMapping);
 		}
-		transaction.close();
-		session.close();
 	}
 	
-
+	public CDOSession getCDOSession() {
+		String productGroup = "org.eclipse.emf.cdo.sessions";
+		return (CDOSession) IPluginContainer.INSTANCE.getElement(productGroup, "cdo", getTcpUrl());
+	}
+	
 	private IRepository createRepository(IStore store, File xmlFile) throws Exception {
 		Map<String, String> props = new HashMap<String, String>();
 		props.put(IRepository.Props.OVERRIDE_UUID, repositoryName);
