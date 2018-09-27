@@ -3,9 +3,11 @@
   <usedLibraries xsi:type="typeslibrary:NativeTypesLibrary" href="pathmap://LogicalDBTypes#_WWbGkREnEeGTa_JlZYBw1A"/>
   <schemas xmi:id="_-1ejrxD6EeOnlKnLOxE0Ww" techID="_zU7L8BGGEeOmiPWXJEa9Nw" name="TE">
     <tables xsi:type="database:Table" xmi:id="_-1ejsBD6EeOnlKnLOxE0Ww" techID="_zU7L8RGGEeOmiPWXJEa9Nw" name="TE_E1D">
+      <primaryKey xmi:id="_-1ejsxD6EeOnlKnLOxE0Ww" comments="Contrainte PK pour la colonne TE_E1D_ID" techID="_zU7L9RGGEeOmiPWXJEa9Nw" name="TE_E1D_PK" columns="_-1ejsRD6EeOnlKnLOxE0Ww"/>
+      <constraints xmi:id="_-1lRaxD6EeOnlKnLOxE0Ww" comments="Liste des valeurs possibles pour TE_XTOPSUP" techID="_zU7L9hGGEeOmiPWXJEa9Nw" name="TE_E1D_CK1_1" expression="TE_XTOPSUP in ('0','1','3','9')"/>
       <columns xmi:id="_-1ejsRD6EeOnlKnLOxE0Ww" comments="PK de la table TE_E1D" techID="_zU7L8hGGEeOmiPWXJEa9Nw" name="TE_E1D_ID" primaryKey="_-1ejsxD6EeOnlKnLOxE0Ww">
-        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_-1ejtBD6EeOnlKnLOxE0Ww">
-          <nativeType href="pathmap://LogicalDBTypes#_WWeJ4BEnEeGTa_JlZYBw1A"/>
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_-1ejtBD6EeOnlKnLOxE0Ww" length="19">
+          <nativeType href="pathmap://LogicalDBTypes#_WWeJ4hEnEeGTa_JlZYBw1A"/>
         </type>
       </columns>
       <columns xmi:id="_-1lRaBD6EeOnlKnLOxE0Ww" comments="Indicateur pour savoir si l'enregistrement est valide" techID="_zU7L8xGGEeOmiPWXJEa9Nw" name="TE_XTOPSUP" defaultValue="'0'">
@@ -18,13 +20,13 @@
           <nativeType href="pathmap://LogicalDBTypes#_WWew-xEnEeGTa_JlZYBw1A"/>
         </type>
       </columns>
-      <primaryKey xmi:id="_-1ejsxD6EeOnlKnLOxE0Ww" comments="Contrainte PK pour la colonne TE_E1D_ID" techID="_zU7L9RGGEeOmiPWXJEa9Nw" name="TE_E1D_PK" columns="_-1ejsRD6EeOnlKnLOxE0Ww"/>
-      <constraints xmi:id="_-1lRaxD6EeOnlKnLOxE0Ww" comments="Liste des valeurs possibles pour TE_XTOPSUP" techID="_zU7L9hGGEeOmiPWXJEa9Nw" name="TE_E1D_CK1_1" expression="TE_XTOPSUP in ('0','1','3','9')"/>
     </tables>
     <tables xsi:type="database:Table" xmi:id="_-1ejtRD6EeOnlKnLOxE0Ww" techID="_zU7L9xGGEeOmiPWXJEa9Nw" name="TE_E1A">
+      <primaryKey xmi:id="_-1fKsBD6EeOnlKnLOxE0Ww" comments="Contrainte PK pour la colonne TE_E1A_ID" techID="_zU7L-xGGEeOmiPWXJEa9Nw" name="TE_E1A_PK" columns="_-1ejthD6EeOnlKnLOxE0Ww"/>
+      <constraints xmi:id="_-1lRchD6EeOnlKnLOxE0Ww" comments="Liste des valeurs possibles pour TE_XTOPSUP" techID="_zU7L_BGGEeOmiPWXJEa9Nw" name="TE_E1A_CK1_1" expression="TE_XTOPSUP in ('0','1','3','9')"/>
       <columns xmi:id="_-1ejthD6EeOnlKnLOxE0Ww" comments="PK de la table TE_E1A" techID="_zU7L-BGGEeOmiPWXJEa9Nw" name="TE_E1A_ID" primaryKey="_-1fKsBD6EeOnlKnLOxE0Ww">
-        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_-1fKsRD6EeOnlKnLOxE0Ww">
-          <nativeType href="pathmap://LogicalDBTypes#_WWeJ4BEnEeGTa_JlZYBw1A"/>
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_-1fKsRD6EeOnlKnLOxE0Ww" length="19">
+          <nativeType href="pathmap://LogicalDBTypes#_WWeJ4hEnEeGTa_JlZYBw1A"/>
         </type>
       </columns>
       <columns xmi:id="_-1lRbxD6EeOnlKnLOxE0Ww" comments="Indicateur pour savoir si l'enregistrement est valide" techID="_zU7L-RGGEeOmiPWXJEa9Nw" name="TE_XTOPSUP" defaultValue="'0'">
@@ -37,13 +39,13 @@
           <nativeType href="pathmap://LogicalDBTypes#_WWew-xEnEeGTa_JlZYBw1A"/>
         </type>
       </columns>
-      <primaryKey xmi:id="_-1fKsBD6EeOnlKnLOxE0Ww" comments="Contrainte PK pour la colonne TE_E1A_ID" techID="_zU7L-xGGEeOmiPWXJEa9Nw" name="TE_E1A_PK" columns="_-1ejthD6EeOnlKnLOxE0Ww"/>
-      <constraints xmi:id="_-1lRchD6EeOnlKnLOxE0Ww" comments="Liste des valeurs possibles pour TE_XTOPSUP" techID="_zU7L_BGGEeOmiPWXJEa9Nw" name="TE_E1A_CK1_1" expression="TE_XTOPSUP in ('0','1','3','9')"/>
     </tables>
     <tables xsi:type="database:Table" xmi:id="_-1fKshD6EeOnlKnLOxE0Ww" techID="_zU7L_RGGEeOmiPWXJEa9Nw" name="TE_E2D">
+      <primaryKey xmi:id="_-1fKtRD6EeOnlKnLOxE0Ww" comments="Contrainte PK pour la colonne TE_E2D_ID" techID="_zU7MARGGEeOmiPWXJEa9Nw" name="TE_E2D_PK" columns="_-1fKsxD6EeOnlKnLOxE0Ww"/>
+      <constraints xmi:id="_-1l4YRD6EeOnlKnLOxE0Ww" comments="Liste des valeurs possibles pour TE_XTOPSUP" techID="_zU7MAhGGEeOmiPWXJEa9Nw" name="TE_E2D_CK1_1" expression="TE_XTOPSUP in ('0','1','3','9')"/>
       <columns xmi:id="_-1fKsxD6EeOnlKnLOxE0Ww" comments="PK de la table TE_E2D" techID="_zU7L_hGGEeOmiPWXJEa9Nw" name="TE_E2D_ID" primaryKey="_-1fKtRD6EeOnlKnLOxE0Ww">
-        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_-1fKthD6EeOnlKnLOxE0Ww">
-          <nativeType href="pathmap://LogicalDBTypes#_WWeJ4BEnEeGTa_JlZYBw1A"/>
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_-1fKthD6EeOnlKnLOxE0Ww" length="19">
+          <nativeType href="pathmap://LogicalDBTypes#_WWeJ4hEnEeGTa_JlZYBw1A"/>
         </type>
       </columns>
       <columns xmi:id="_-1lRdhD6EeOnlKnLOxE0Ww" comments="Indicateur pour savoir si l'enregistrement est valide" techID="_zU7L_xGGEeOmiPWXJEa9Nw" name="TE_XTOPSUP" defaultValue="'0'">
@@ -56,13 +58,13 @@
           <nativeType href="pathmap://LogicalDBTypes#_WWew-xEnEeGTa_JlZYBw1A"/>
         </type>
       </columns>
-      <primaryKey xmi:id="_-1fKtRD6EeOnlKnLOxE0Ww" comments="Contrainte PK pour la colonne TE_E2D_ID" techID="_zU7MARGGEeOmiPWXJEa9Nw" name="TE_E2D_PK" columns="_-1fKsxD6EeOnlKnLOxE0Ww"/>
-      <constraints xmi:id="_-1l4YRD6EeOnlKnLOxE0Ww" comments="Liste des valeurs possibles pour TE_XTOPSUP" techID="_zU7MAhGGEeOmiPWXJEa9Nw" name="TE_E2D_CK1_1" expression="TE_XTOPSUP in ('0','1','3','9')"/>
     </tables>
     <tables xsi:type="database:Table" xmi:id="_-1fKtxD6EeOnlKnLOxE0Ww" techID="_zU7MAxGGEeOmiPWXJEa9Nw" name="TE_E2A">
+      <primaryKey xmi:id="_-1fKuhD6EeOnlKnLOxE0Ww" comments="Contrainte PK pour la colonne TE_E2A_ID" techID="_zU7MBxGGEeOmiPWXJEa9Nw" name="TE_E2A_PK" columns="_-1fKuBD6EeOnlKnLOxE0Ww"/>
+      <constraints xmi:id="_-1l4aBD6EeOnlKnLOxE0Ww" comments="Liste des valeurs possibles pour TE_XTOPSUP" techID="_zU7MCBGGEeOmiPWXJEa9Nw" name="TE_E2A_CK1_1" expression="TE_XTOPSUP in ('0','1','3','9')"/>
       <columns xmi:id="_-1fKuBD6EeOnlKnLOxE0Ww" comments="PK de la table TE_E2A" techID="_zU7MBBGGEeOmiPWXJEa9Nw" name="TE_E2A_ID" primaryKey="_-1fKuhD6EeOnlKnLOxE0Ww">
-        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_-1fKuxD6EeOnlKnLOxE0Ww">
-          <nativeType href="pathmap://LogicalDBTypes#_WWeJ4BEnEeGTa_JlZYBw1A"/>
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_-1fKuxD6EeOnlKnLOxE0Ww" length="19">
+          <nativeType href="pathmap://LogicalDBTypes#_WWeJ4hEnEeGTa_JlZYBw1A"/>
         </type>
       </columns>
       <columns xmi:id="_-1l4ZRD6EeOnlKnLOxE0Ww" comments="Indicateur pour savoir si l'enregistrement est valide" techID="_zU7MBRGGEeOmiPWXJEa9Nw" name="TE_XTOPSUP" defaultValue="'0'">
@@ -75,18 +77,24 @@
           <nativeType href="pathmap://LogicalDBTypes#_WWew-xEnEeGTa_JlZYBw1A"/>
         </type>
       </columns>
-      <primaryKey xmi:id="_-1fKuhD6EeOnlKnLOxE0Ww" comments="Contrainte PK pour la colonne TE_E2A_ID" techID="_zU7MBxGGEeOmiPWXJEa9Nw" name="TE_E2A_PK" columns="_-1fKuBD6EeOnlKnLOxE0Ww"/>
-      <constraints xmi:id="_-1l4aBD6EeOnlKnLOxE0Ww" comments="Liste des valeurs possibles pour TE_XTOPSUP" techID="_zU7MCBGGEeOmiPWXJEa9Nw" name="TE_E2A_CK1_1" expression="TE_XTOPSUP in ('0','1','3','9')"/>
     </tables>
     <tables xsi:type="database:Table" xmi:id="_FIzwoBEAEeOnlKnLOxE0Ww" comments="Table de jointure entre TE_E1A et TE_E1D" techID="_zU7zABGGEeOmiPWXJEa9Nw" name="TE_E1AE1D">
+      <primaryKey xmi:id="_QSqZ8BEAEeOnlKnLOxE0Ww" comments="Contrainte PK pour les colonnes TE_E1A_ID et TE_E1D_ID" techID="_zU7zBRGGEeOmiPWXJEa9Nw" name="TE_E1AE1D_PK" columns="_2KuLQBEAEeOnlKnLOxE0Ww _QSpy4BEAEeOnlKnLOxE0Ww"/>
+      <foreignKeys xmi:id="_2KtkMBEAEeOnlKnLOxE0Ww" comments="Contrainte FK avec la table TE_E1A" techID="_zU7zCBGGEeOmiPWXJEa9Nw" name="TE_E1AE1D_FK1_1" target="_-1ejtRD6EeOnlKnLOxE0Ww">
+        <elements xmi:id="_2KuLQxEAEeOnlKnLOxE0Ww" techID="_zU7zCRGGEeOmiPWXJEa9Nw" fkColumn="_2KuLQBEAEeOnlKnLOxE0Ww" pkColumn="_-1ejthD6EeOnlKnLOxE0Ww"/>
+      </foreignKeys>
+      <foreignKeys xmi:id="_qNFUkBEAEeOnlKnLOxE0Ww" comments="Contrainte FK avec la table TE_E1D" techID="_zU7zBhGGEeOmiPWXJEa9Nw" name="TE_E1AE1D_FK1_2" target="_-1ejsBD6EeOnlKnLOxE0Ww">
+        <elements xmi:id="_qNF7oBEAEeOnlKnLOxE0Ww" techID="_zU7zBxGGEeOmiPWXJEa9Nw" fkColumn="_QSpy4BEAEeOnlKnLOxE0Ww" pkColumn="_-1ejsRD6EeOnlKnLOxE0Ww"/>
+      </foreignKeys>
+      <constraints xmi:id="_Adqv0BEDEeOnlKnLOxE0Ww" comments="Liste des valeurs possibles pour TE_XTOPSUP" techID="_zU7zChGGEeOmiPWXJEa9Nw" name="TE_E1AE1D_CK1_1" expression="TE_XTOPSUP in ('0','1','3','9')"/>
       <columns xmi:id="_2KuLQBEAEeOnlKnLOxE0Ww" comments="PK,FK de la table TE_E1AE1D" techID="_zU7zAhGGEeOmiPWXJEa9Nw" name="TE_E1A_ID" primaryKey="_QSqZ8BEAEeOnlKnLOxE0Ww" foreignKeyElements="_2KuLQxEAEeOnlKnLOxE0Ww">
-        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_2KuLQhEAEeOnlKnLOxE0Ww">
-          <nativeType href="pathmap://LogicalDBTypes#_WWeJ4BEnEeGTa_JlZYBw1A"/>
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_2KuLQhEAEeOnlKnLOxE0Ww" length="19">
+          <nativeType href="pathmap://LogicalDBTypes#_WWeJ4hEnEeGTa_JlZYBw1A"/>
         </type>
       </columns>
       <columns xmi:id="_QSpy4BEAEeOnlKnLOxE0Ww" comments="PK,FK de la table TE_E1AE1D" techID="_zU7zARGGEeOmiPWXJEa9Nw" name="TE_E1D_ID" primaryKey="_QSqZ8BEAEeOnlKnLOxE0Ww" foreignKeyElements="_qNF7oBEAEeOnlKnLOxE0Ww">
-        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_QSpy4REAEeOnlKnLOxE0Ww">
-          <nativeType href="pathmap://LogicalDBTypes#_WWeJ4BEnEeGTa_JlZYBw1A"/>
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_QSpy4REAEeOnlKnLOxE0Ww" length="19">
+          <nativeType href="pathmap://LogicalDBTypes#_WWeJ4hEnEeGTa_JlZYBw1A"/>
         </type>
       </columns>
       <columns xmi:id="_9WCQgBECEeOnlKnLOxE0Ww" comments="Indicateur pour savoir si l'enregistrement est valide" techID="_zU7zAxGGEeOmiPWXJEa9Nw" name="TE_XTOPSUP" defaultValue="'0'">
@@ -99,24 +107,24 @@
           <nativeType href="pathmap://LogicalDBTypes#_WWew-xEnEeGTa_JlZYBw1A"/>
         </type>
       </columns>
-      <primaryKey xmi:id="_QSqZ8BEAEeOnlKnLOxE0Ww" comments="Contrainte PK pour les colonnes TE_E1A_ID et TE_E1D_ID" techID="_zU7zBRGGEeOmiPWXJEa9Nw" name="TE_E1AE1D_PK" columns="_2KuLQBEAEeOnlKnLOxE0Ww _QSpy4BEAEeOnlKnLOxE0Ww"/>
-      <foreignKeys xmi:id="_2KtkMBEAEeOnlKnLOxE0Ww" comments="Contrainte FK avec la table TE_E1A" techID="_zU7zCBGGEeOmiPWXJEa9Nw" name="TE_E1AE1D_FK1_1" target="_-1ejtRD6EeOnlKnLOxE0Ww">
-        <elements xmi:id="_2KuLQxEAEeOnlKnLOxE0Ww" techID="_zU7zCRGGEeOmiPWXJEa9Nw" fkColumn="_2KuLQBEAEeOnlKnLOxE0Ww" pkColumn="_-1ejthD6EeOnlKnLOxE0Ww"/>
-      </foreignKeys>
-      <foreignKeys xmi:id="_qNFUkBEAEeOnlKnLOxE0Ww" comments="Contrainte FK avec la table TE_E1D" techID="_zU7zBhGGEeOmiPWXJEa9Nw" name="TE_E1AE1D_FK1_2" target="_-1ejsBD6EeOnlKnLOxE0Ww">
-        <elements xmi:id="_qNF7oBEAEeOnlKnLOxE0Ww" techID="_zU7zBxGGEeOmiPWXJEa9Nw" fkColumn="_QSpy4BEAEeOnlKnLOxE0Ww" pkColumn="_-1ejsRD6EeOnlKnLOxE0Ww"/>
-      </foreignKeys>
-      <constraints xmi:id="_Adqv0BEDEeOnlKnLOxE0Ww" comments="Liste des valeurs possibles pour TE_XTOPSUP" techID="_zU7zChGGEeOmiPWXJEa9Nw" name="TE_E1AE1D_CK1_1" expression="TE_XTOPSUP in ('0','1','3','9')"/>
     </tables>
     <tables xsi:type="database:Table" xmi:id="_DGaJIBECEeOnlKnLOxE0Ww" comments="Table de jointure entre TE_E2A et TE_E2D" techID="_zU7zCxGGEeOmiPWXJEa9Nw" name="TE_E2AE2D">
+      <primaryKey xmi:id="_IdDdsBECEeOnlKnLOxE0Ww" comments="Contrainte PK pour les colonnes TE_E2A_ID et TE_E2D_ID" techID="_zU7zEBGGEeOmiPWXJEa9Nw" name="TE_E2AE2D_PK" columns="_ko8rsRECEeOnlKnLOxE0Ww _IdCPkBECEeOnlKnLOxE0Ww"/>
+      <foreignKeys xmi:id="_ko8rsBECEeOnlKnLOxE0Ww" comments="Contrainte FK avec la table TE_E2A" techID="_zU7zExGGEeOmiPWXJEa9Nw" name="TE_E2AE2D_FK1_1" target="_-1fKtxD6EeOnlKnLOxE0Ww">
+        <elements xmi:id="_ko9SwhECEeOnlKnLOxE0Ww" techID="_zU7zFBGGEeOmiPWXJEa9Nw" fkColumn="_ko8rsRECEeOnlKnLOxE0Ww" pkColumn="_-1fKuBD6EeOnlKnLOxE0Ww"/>
+      </foreignKeys>
+      <foreignKeys xmi:id="_UKofIBECEeOnlKnLOxE0Ww" comments="Contrainte FK avec la table TE_E2D" techID="_zU7zERGGEeOmiPWXJEa9Nw" name="TE_E2AE2D_FK1_2" target="_-1fKshD6EeOnlKnLOxE0Ww">
+        <elements xmi:id="_UKofIRECEeOnlKnLOxE0Ww" techID="_zU7zEhGGEeOmiPWXJEa9Nw" fkColumn="_IdCPkBECEeOnlKnLOxE0Ww" pkColumn="_-1fKsxD6EeOnlKnLOxE0Ww"/>
+      </foreignKeys>
+      <constraints xmi:id="_A308QBEDEeOnlKnLOxE0Ww" comments="Liste des valeurs possibles pour TE_XTOPSUP" techID="_zU7zFRGGEeOmiPWXJEa9Nw" name="TE_E2AE2D_CK1_1" expression="TE_XTOPSUP in ('0','1','3','9')"/>
       <columns xmi:id="_ko8rsRECEeOnlKnLOxE0Ww" comments="PK,FK de la table TE_E2AE2D" techID="_zU7zDRGGEeOmiPWXJEa9Nw" name="TE_E2A_ID" primaryKey="_IdDdsBECEeOnlKnLOxE0Ww" foreignKeyElements="_ko9SwhECEeOnlKnLOxE0Ww">
-        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_ko9SwRECEeOnlKnLOxE0Ww">
-          <nativeType href="pathmap://LogicalDBTypes#_WWeJ4BEnEeGTa_JlZYBw1A"/>
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_ko9SwRECEeOnlKnLOxE0Ww" length="19">
+          <nativeType href="pathmap://LogicalDBTypes#_WWeJ4hEnEeGTa_JlZYBw1A"/>
         </type>
       </columns>
       <columns xmi:id="_IdCPkBECEeOnlKnLOxE0Ww" comments="PK,FK de la table TE_E2AE2D" techID="_zU7zDBGGEeOmiPWXJEa9Nw" name="TE_E2D_ID" primaryKey="_IdDdsBECEeOnlKnLOxE0Ww" foreignKeyElements="_UKofIRECEeOnlKnLOxE0Ww">
-        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_IdC2oBECEeOnlKnLOxE0Ww">
-          <nativeType href="pathmap://LogicalDBTypes#_WWeJ4BEnEeGTa_JlZYBw1A"/>
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_IdC2oBECEeOnlKnLOxE0Ww" length="19">
+          <nativeType href="pathmap://LogicalDBTypes#_WWeJ4hEnEeGTa_JlZYBw1A"/>
         </type>
       </columns>
       <columns xmi:id="_9_rqcBECEeOnlKnLOxE0Ww" comments="Indicateur pour savoir si l'enregistrement est valide" techID="_zU7zDhGGEeOmiPWXJEa9Nw" name="TE_XTOPSUP" defaultValue="'0'">
@@ -129,14 +137,6 @@
           <nativeType href="pathmap://LogicalDBTypes#_WWew-xEnEeGTa_JlZYBw1A"/>
         </type>
       </columns>
-      <primaryKey xmi:id="_IdDdsBECEeOnlKnLOxE0Ww" comments="Contrainte PK pour les colonnes TE_E2A_ID et TE_E2D_ID" techID="_zU7zEBGGEeOmiPWXJEa9Nw" name="TE_E2AE2D_PK" columns="_ko8rsRECEeOnlKnLOxE0Ww _IdCPkBECEeOnlKnLOxE0Ww"/>
-      <foreignKeys xmi:id="_ko8rsBECEeOnlKnLOxE0Ww" comments="Contrainte FK avec la table TE_E2A" techID="_zU7zExGGEeOmiPWXJEa9Nw" name="TE_E2AE2D_FK1_1" target="_-1fKtxD6EeOnlKnLOxE0Ww">
-        <elements xmi:id="_ko9SwhECEeOnlKnLOxE0Ww" techID="_zU7zFBGGEeOmiPWXJEa9Nw" fkColumn="_ko8rsRECEeOnlKnLOxE0Ww" pkColumn="_-1fKuBD6EeOnlKnLOxE0Ww"/>
-      </foreignKeys>
-      <foreignKeys xmi:id="_UKofIBECEeOnlKnLOxE0Ww" comments="Contrainte FK avec la table TE_E2D" techID="_zU7zERGGEeOmiPWXJEa9Nw" name="TE_E2AE2D_FK1_2" target="_-1fKshD6EeOnlKnLOxE0Ww">
-        <elements xmi:id="_UKofIRECEeOnlKnLOxE0Ww" techID="_zU7zEhGGEeOmiPWXJEa9Nw" fkColumn="_IdCPkBECEeOnlKnLOxE0Ww" pkColumn="_-1fKsxD6EeOnlKnLOxE0Ww"/>
-      </foreignKeys>
-      <constraints xmi:id="_A308QBEDEeOnlKnLOxE0Ww" comments="Liste des valeurs possibles pour TE_XTOPSUP" techID="_zU7zFRGGEeOmiPWXJEa9Nw" name="TE_E2AE2D_CK1_1" expression="TE_XTOPSUP in ('0','1','3','9')"/>
     </tables>
   </schemas>
 </database:DataBase>

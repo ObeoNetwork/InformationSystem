@@ -32,8 +32,8 @@
         <type xsi:type="typeslibrary:TypeInstance" xmi:id="_p6H1ETV-EeeS-tSpkXM_5Q"/>
       </columns>
       <columns xmi:id="_p_rqgTV-EeeS-tSpkXM_5Q" comments="PK de la table MY_ENTITY_WITH_FOUR_ATTRIBUTES" techID="_n9FgpDV-EeeS-tSpkXM_5Q" name="MY_ENTITY_WITH_FOUR_ATTRIBUTES_ID" primaryKey="_mqU4QDV-EeeS-tSpkXM_5Q">
-        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_p_rqgjV-EeeS-tSpkXM_5Q">
-          <nativeType href="pathmap://LogicalDBTypes#_WWeJ4BEnEeGTa_JlZYBw1A"/>
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_p_rqgjV-EeeS-tSpkXM_5Q" length="19">
+          <nativeType href="pathmap://LogicalDBTypes#_WWeJ4hEnEeGTa_JlZYBw1A"/>
         </type>
       </columns>
       <columns xmi:id="_qF3LATV-EeeS-tSpkXM_5Q" comments="Indicateur pour savoir si l'enregistrement est valide" techID="_n9FgpDV-EeeS-tSpkXM_5Q" name="MY_NAMESPACE_XTOPSUP" defaultValue="'0'">

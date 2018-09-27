@@ -25,8 +25,8 @@
         </type>
       </columns>
       <columns xmi:id="_WX7IqVwBEeKeAIu6lCXvjg" comments="PK de la table GS_SERIE" techID="_9WvLxhY_EeOZLM9YKpdB2w" name="GS_SERIE_ID" primaryKey="_WX7Iq1wBEeKeAIu6lCXvjg">
-        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_WX7IrFwBEeKeAIu6lCXvjg">
-          <nativeType href="pathmap://LogicalDBTypes#_WWeJ4BEnEeGTa_JlZYBw1A"/>
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_WX7IrFwBEeKeAIu6lCXvjg" length="19">
+          <nativeType href="pathmap://LogicalDBTypes#_WWeJ4hEnEeGTa_JlZYBw1A"/>
         </type>
       </columns>
       <columns xmi:id="_IVze0GOuEeKrnPwWmZ20XQ" comments="Indicateur pour savoir si l'enregistrement est valide" techID="_9Wvy0BY_EeOZLM9YKpdB2w" name="SCHEMA_XTOPSUP" defaultValue="'0'">
@@ -67,13 +67,13 @@
         </type>
       </columns>
       <columns xmi:id="_WX7ItVwBEeKeAIu6lCXvjg" comments="PK de la table GS_SAISON" techID="_9Wvy2hY_EeOZLM9YKpdB2w" name="GS_SAISON_ID" primaryKey="_WX7It1wBEeKeAIu6lCXvjg">
-        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_WX7IuFwBEeKeAIu6lCXvjg">
-          <nativeType href="pathmap://LogicalDBTypes#_WWeJ4BEnEeGTa_JlZYBw1A"/>
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_WX7IuFwBEeKeAIu6lCXvjg" length="19">
+          <nativeType href="pathmap://LogicalDBTypes#_WWeJ4hEnEeGTa_JlZYBw1A"/>
         </type>
       </columns>
       <columns xmi:id="_WX7IulwBEeKeAIu6lCXvjg" comments="Série de la saison" techID="_9Wvy2xY_EeOZLM9YKpdB2w" name="GS_SERIE_ID" indexElements="_WX7IxVwBEeKeAIu6lCXvjg _WlvAEWPhEeKrnPwWmZ20XQ" foreignKeyElements="_WX7IvVwBEeKeAIu6lCXvjg">
-        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_WX7IvFwBEeKeAIu6lCXvjg">
-          <nativeType href="pathmap://LogicalDBTypes#_WWeJ4BEnEeGTa_JlZYBw1A"/>
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_WX7IvFwBEeKeAIu6lCXvjg" length="19">
+          <nativeType href="pathmap://LogicalDBTypes#_WWeJ4hEnEeGTa_JlZYBw1A"/>
         </type>
       </columns>
       <columns xmi:id="_MffRAGOuEeKrnPwWmZ20XQ" comments="Indicateur pour savoir si l'enregistrement est valide" techID="_9Wvy3BY_EeOZLM9YKpdB2w" name="SCHEMA_XTOPSUP" defaultValue="'0'">

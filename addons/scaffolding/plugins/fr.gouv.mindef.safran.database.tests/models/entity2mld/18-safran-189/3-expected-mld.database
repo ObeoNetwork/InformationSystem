@@ -4,8 +4,8 @@
   <schemas xmi:id="_fteV80IzEeOs9NDnopjcTw" techID="_fteV8kIzEeOs9NDnopjcTw" name="TS">
     <tables xsi:type="database:Table" xmi:id="_fteV9EIzEeOs9NDnopjcTw" comments="Table A" techID="_fteV8UIzEeOs9NDnopjcTw" name="TS_A">
       <columns xmi:id="_fteV9kIzEeOs9NDnopjcTw" comments="PK de la table TS_A" techID="_fteV9UIzEeOs9NDnopjcTw" name="TS_A_ID" primaryKey="_fteV-UIzEeOs9NDnopjcTw">
-        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_fteV-kIzEeOs9NDnopjcTw">
-          <nativeType href="pathmap://LogicalDBTypes#_WWeJ4BEnEeGTa_JlZYBw1A"/>
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_fteV-kIzEeOs9NDnopjcTw" length="19">
+          <nativeType href="pathmap://LogicalDBTypes#_WWeJ4hEnEeGTa_JlZYBw1A"/>
         </type>
       </columns>
       <columns xmi:id="_fteWGUIzEeOs9NDnopjcTw" comments="Indicateur pour savoir si l'enregistrement est valide" techID="_fteWGEIzEeOs9NDnopjcTw" name="TS_XTOPSUP" defaultValue="'0'">
@@ -23,18 +23,18 @@
     </tables>
     <tables xsi:type="database:Table" xmi:id="_fteV_EIzEeOs9NDnopjcTw" comments="Table B" techID="_fteV-0IzEeOs9NDnopjcTw" name="TS_B">
       <columns xmi:id="_fteV_kIzEeOs9NDnopjcTw" comments="PK de la table TS_B" techID="_fteV_UIzEeOs9NDnopjcTw" name="TS_B_ID" primaryKey="_fteWAUIzEeOs9NDnopjcTw">
-        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_fteWAkIzEeOs9NDnopjcTw">
-          <nativeType href="pathmap://LogicalDBTypes#_WWeJ4BEnEeGTa_JlZYBw1A"/>
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_fteWAkIzEeOs9NDnopjcTw" length="19">
+          <nativeType href="pathmap://LogicalDBTypes#_WWeJ4hEnEeGTa_JlZYBw1A"/>
         </type>
       </columns>
       <columns xmi:id="_8gaV0UIzEeOs9NDnopjcTw" comments="A pour Créateur" techID="_8gaV0EIzEeOs9NDnopjcTw" name="TS_A_1_ID" nullable="true" indexElements="_fteWE0IzEeOs9NDnopjcTw" foreignKeyElements="_fteWCkIzEeOs9NDnopjcTw">
-        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_8gaV0kIzEeOs9NDnopjcTw">
-          <nativeType href="pathmap://LogicalDBTypes#_WWeJ4BEnEeGTa_JlZYBw1A"/>
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_8gaV0kIzEeOs9NDnopjcTw" length="19">
+          <nativeType href="pathmap://LogicalDBTypes#_WWeJ4hEnEeGTa_JlZYBw1A"/>
         </type>
       </columns>
       <columns xmi:id="_fteWBkIzEeOs9NDnopjcTw" comments="Est modifier par" techID="_fteWBUIzEeOs9NDnopjcTw" name="TS_A_2_ID" nullable="true" indexElements="_fteWF0IzEeOs9NDnopjcTw" foreignKeyElements="_fteWD0IzEeOs9NDnopjcTw">
-        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_fteWDUIzEeOs9NDnopjcTw">
-          <nativeType href="pathmap://LogicalDBTypes#_WWeJ4BEnEeGTa_JlZYBw1A"/>
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_fteWDUIzEeOs9NDnopjcTw" length="19">
+          <nativeType href="pathmap://LogicalDBTypes#_WWeJ4hEnEeGTa_JlZYBw1A"/>
         </type>
       </columns>
       <columns xmi:id="_fteWI0IzEeOs9NDnopjcTw" comments="Indicateur pour savoir si l'enregistrement est valide" techID="_fteWIkIzEeOs9NDnopjcTw" name="TS_XTOPSUP" defaultValue="'0'">

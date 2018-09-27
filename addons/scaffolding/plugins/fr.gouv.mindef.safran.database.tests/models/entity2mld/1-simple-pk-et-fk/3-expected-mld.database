@@ -3,14 +3,22 @@
   <usedLibraries xsi:type="typeslibrary:NativeTypesLibrary" href="pathmap://LogicalDBTypes#_WWbGkREnEeGTa_JlZYBw1A"/>
   <schemas xmi:id="_9kZzIGPsEeKrnPwWmZ20XQ" techID="_JUkB8RPKEeOi_fZS1qC04A" name="TEST">
     <tables xsi:type="database:Table" xmi:id="_E6q6gF5lEeKinNJDr2XYMw" techID="_JUkB8hPKEeOi_fZS1qC04A" name="PERSONNE">
+      <primaryKey xmi:id="_E6q6g15lEeKinNJDr2XYMw" comments="Contrainte PK pour la colonne PERSONNE_ID" techID="_JUkB9hPKEeOi_fZS1qC04A" name="PERSONNE_PK" columns="_E6q6gV5lEeKinNJDr2XYMw"/>
+      <foreignKeys xmi:id="_PFrsABPKEeOi_fZS1qC04A" comments="Contrainte FK avec la table SOCIETE" techID="_O3sTUhPKEeOi_fZS1qC04A" name="PERSONNE_FK1_1" target="_E6q6hV5lEeKinNJDr2XYMw">
+        <elements xmi:id="_UTbjQRPKEeOi_fZS1qC04A" techID="_UTbjQBPKEeOi_fZS1qC04A" fkColumn="_LkSB0BPKEeOi_fZS1qC04A" pkColumn="_E6q6hl5lEeKinNJDr2XYMw"/>
+      </foreignKeys>
+      <constraints xmi:id="_RkrAUGF4EeKwFa3NAflCQw" comments="Liste des valeurs possibles pour TEST_XTOPSUP" techID="_JUkB9xPKEeOi_fZS1qC04A" name="PERSONNE_CK1_1" expression="TEST_XTOPSUP in ('0','1','3','9')"/>
+      <indexes xmi:id="_XytGgBPKEeOi_fZS1qC04A" comments="Index sur la FK (SOCIETE_ID) de la table PERSONNE" techID="_XkNXhBPKEeOi_fZS1qC04A" name="PERSONNE_FK1_1">
+        <elements xmi:id="_ZstVERPKEeOi_fZS1qC04A" techID="_ZstVEBPKEeOi_fZS1qC04A" column="_LkSB0BPKEeOi_fZS1qC04A" asc="true"/>
+      </indexes>
       <columns xmi:id="_E6q6gV5lEeKinNJDr2XYMw" comments="PK de la table PERSONNE" techID="_JUkB8xPKEeOi_fZS1qC04A" name="PERSONNE_ID" primaryKey="_E6q6g15lEeKinNJDr2XYMw">
-        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_E6q6hF5lEeKinNJDr2XYMw">
-          <nativeType href="pathmap://LogicalDBTypes#_WWeJ4BEnEeGTa_JlZYBw1A"/>
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_E6q6hF5lEeKinNJDr2XYMw" length="19">
+          <nativeType href="pathmap://LogicalDBTypes#_WWeJ4hEnEeGTa_JlZYBw1A"/>
         </type>
       </columns>
       <columns xmi:id="_LkSB0BPKEeOi_fZS1qC04A" techID="_LNf5gBPKEeOi_fZS1qC04A" name="SOCIETE_ID" nullable="true" indexElements="_ZstVERPKEeOi_fZS1qC04A" foreignKeyElements="_UTbjQRPKEeOi_fZS1qC04A">
-        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_LkSB0RPKEeOi_fZS1qC04A">
-          <nativeType href="pathmap://LogicalDBTypes#_WWeJ4BEnEeGTa_JlZYBw1A"/>
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_LkSB0RPKEeOi_fZS1qC04A" length="19">
+          <nativeType href="pathmap://LogicalDBTypes#_WWeJ4hEnEeGTa_JlZYBw1A"/>
         </type>
       </columns>
       <columns xmi:id="_2m5yUGF3EeKwFa3NAflCQw" comments="Indicateur pour savoir si l'enregistrement est valide" techID="_JUkB9BPKEeOi_fZS1qC04A" name="TEST_XTOPSUP" defaultValue="'0'">
@@ -23,19 +31,13 @@
           <nativeType href="pathmap://LogicalDBTypes#_WWew-xEnEeGTa_JlZYBw1A"/>
         </type>
       </columns>
-      <primaryKey xmi:id="_E6q6g15lEeKinNJDr2XYMw" comments="Contrainte PK pour la colonne PERSONNE_ID" techID="_JUkB9hPKEeOi_fZS1qC04A" name="PERSONNE_PK" columns="_E6q6gV5lEeKinNJDr2XYMw"/>
-      <foreignKeys xmi:id="_PFrsABPKEeOi_fZS1qC04A" comments="Contrainte FK avec la table SOCIETE" techID="_O3sTUhPKEeOi_fZS1qC04A" name="PERSONNE_FK1_1" target="_E6q6hV5lEeKinNJDr2XYMw">
-        <elements xmi:id="_UTbjQRPKEeOi_fZS1qC04A" techID="_UTbjQBPKEeOi_fZS1qC04A" fkColumn="_LkSB0BPKEeOi_fZS1qC04A" pkColumn="_E6q6hl5lEeKinNJDr2XYMw"/>
-      </foreignKeys>
-      <constraints xmi:id="_RkrAUGF4EeKwFa3NAflCQw" comments="Liste des valeurs possibles pour TEST_XTOPSUP" techID="_JUkB9xPKEeOi_fZS1qC04A" name="PERSONNE_CK1_1" expression="TEST_XTOPSUP in ('0','1','3','9')"/>
-      <indexes xmi:id="_XytGgBPKEeOi_fZS1qC04A" comments="Index sur la FK (SOCIETE_ID) de la table PERSONNE" techID="_XkNXhBPKEeOi_fZS1qC04A" name="PERSONNE_FK1_1">
-        <elements xmi:id="_ZstVERPKEeOi_fZS1qC04A" techID="_ZstVEBPKEeOi_fZS1qC04A" column="_LkSB0BPKEeOi_fZS1qC04A" asc="true"/>
-      </indexes>
     </tables>
     <tables xsi:type="database:Table" xmi:id="_E6q6hV5lEeKinNJDr2XYMw" techID="_JUkB-BPKEeOi_fZS1qC04A" name="SOCIETE">
+      <primaryKey xmi:id="_E6q6iF5lEeKinNJDr2XYMw" comments="Contrainte PK pour la colonne SOCIETE_ID" techID="_JUkpAxPKEeOi_fZS1qC04A" name="SOCIETE_PK" columns="_E6q6hl5lEeKinNJDr2XYMw"/>
+      <constraints xmi:id="_iqxBwGF8EeKwFa3NAflCQw" comments="Liste des valeurs possibles pour TEST_XTOPSUP" techID="_JUkpBhPKEeOi_fZS1qC04A" name="SOCIETE_CK1_1" expression="TEST_XTOPSUP in ('0','1','3','9')"/>
       <columns xmi:id="_E6q6hl5lEeKinNJDr2XYMw" comments="PK de la table SOCIETE" techID="_JUkB-RPKEeOi_fZS1qC04A" name="SOCIETE_ID" primaryKey="_E6q6iF5lEeKinNJDr2XYMw">
-        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_E6q6iV5lEeKinNJDr2XYMw">
-          <nativeType href="pathmap://LogicalDBTypes#_WWeJ4BEnEeGTa_JlZYBw1A"/>
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_E6q6iV5lEeKinNJDr2XYMw" length="19">
+          <nativeType href="pathmap://LogicalDBTypes#_WWeJ4hEnEeGTa_JlZYBw1A"/>
         </type>
       </columns>
       <columns xmi:id="_eVfqoGF8EeKwFa3NAflCQw" comments="Indicateur pour savoir si l'enregistrement est valide" techID="_JUkpARPKEeOi_fZS1qC04A" name="TEST_XTOPSUP" defaultValue="'0'">
@@ -48,8 +50,6 @@
           <nativeType href="pathmap://LogicalDBTypes#_WWew-xEnEeGTa_JlZYBw1A"/>
         </type>
       </columns>
-      <primaryKey xmi:id="_E6q6iF5lEeKinNJDr2XYMw" comments="Contrainte PK pour la colonne SOCIETE_ID" techID="_JUkpAxPKEeOi_fZS1qC04A" name="SOCIETE_PK" columns="_E6q6hl5lEeKinNJDr2XYMw"/>
-      <constraints xmi:id="_iqxBwGF8EeKwFa3NAflCQw" comments="Liste des valeurs possibles pour TEST_XTOPSUP" techID="_JUkpBhPKEeOi_fZS1qC04A" name="SOCIETE_CK1_1" expression="TEST_XTOPSUP in ('0','1','3','9')"/>
     </tables>
   </schemas>
 </database:DataBase>

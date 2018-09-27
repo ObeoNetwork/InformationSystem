@@ -3,9 +3,11 @@
   <usedLibraries xsi:type="typeslibrary:NativeTypesLibrary" href="pathmap://LogicalDBTypes#_WWbGkREnEeGTa_JlZYBw1A"/>
   <schemas xmi:id="_-1bgUBD6EeOnlKnLOxE0Ww" techID="_CmvSgRPfEeOi_fZS1qC04A" name="TA">
     <tables xsi:type="database:Table" xmi:id="_-1bgURD6EeOnlKnLOxE0Ww" comments="Table TA_A1D" techID="_CmvSghPfEeOi_fZS1qC04A" name="TA_A1D">
+      <primaryKey xmi:id="_-1cHYhD6EeOnlKnLOxE0Ww" comments="Contrainte PK pour la colonne TA_A1D_ID" techID="_Cmv5kRPfEeOi_fZS1qC04A" name="TA_A1D_PK" columns="_-1cHYBD6EeOnlKnLOxE0Ww"/>
+      <constraints xmi:id="_-1jcIBD6EeOnlKnLOxE0Ww" comments="Liste des valeurs possibles pour TA_XTOPSUP" techID="_Cmv5khPfEeOi_fZS1qC04A" name="TA_A1D_CK1_1" expression="TA_XTOPSUP in ('0','1','3','9')"/>
       <columns xmi:id="_-1cHYBD6EeOnlKnLOxE0Ww" comments="PK de la table TA_A1D" techID="_CmvSgxPfEeOi_fZS1qC04A" name="TA_A1D_ID" primaryKey="_-1cHYhD6EeOnlKnLOxE0Ww">
-        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_-1cHYxD6EeOnlKnLOxE0Ww">
-          <nativeType href="pathmap://LogicalDBTypes#_WWeJ4BEnEeGTa_JlZYBw1A"/>
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_-1cHYxD6EeOnlKnLOxE0Ww" length="19">
+          <nativeType href="pathmap://LogicalDBTypes#_WWeJ4hEnEeGTa_JlZYBw1A"/>
         </type>
       </columns>
       <columns xmi:id="_-1i1FBD6EeOnlKnLOxE0Ww" comments="Indicateur pour savoir si l'enregistrement est valide" techID="_CmvShBPfEeOi_fZS1qC04A" name="TA_XTOPSUP" defaultValue="'0'">
@@ -18,18 +20,24 @@
           <nativeType href="pathmap://LogicalDBTypes#_WWew-xEnEeGTa_JlZYBw1A"/>
         </type>
       </columns>
-      <primaryKey xmi:id="_-1cHYhD6EeOnlKnLOxE0Ww" comments="Contrainte PK pour la colonne TA_A1D_ID" techID="_Cmv5kRPfEeOi_fZS1qC04A" name="TA_A1D_PK" columns="_-1cHYBD6EeOnlKnLOxE0Ww"/>
-      <constraints xmi:id="_-1jcIBD6EeOnlKnLOxE0Ww" comments="Liste des valeurs possibles pour TA_XTOPSUP" techID="_Cmv5khPfEeOi_fZS1qC04A" name="TA_A1D_CK1_1" expression="TA_XTOPSUP in ('0','1','3','9')"/>
     </tables>
     <tables xsi:type="database:Table" xmi:id="_-1cucBD6EeOnlKnLOxE0Ww" comments="Table TA_A1A" techID="_Cmv5kxPfEeOi_fZS1qC04A" name="TA_A1A">
+      <primaryKey xmi:id="_-1cucxD6EeOnlKnLOxE0Ww" comments="Contrainte PK pour la colonne TA_A1A_ID" techID="_Cmv5mBPfEeOi_fZS1qC04A" name="TA_A1A_PK" columns="_-1cucRD6EeOnlKnLOxE0Ww"/>
+      <foreignKeys xmi:id="_PnoGoBEFEeOnlKnLOxE0Ww" comments="Contrainte FK avec la table TA_A1D" techID="_Cmv5mRPfEeOi_fZS1qC04A" name="TA_A1A_FK1_1" target="_-1bgURD6EeOnlKnLOxE0Ww">
+        <elements xmi:id="_PnoGpBEFEeOnlKnLOxE0Ww" techID="_Cmv5mhPfEeOi_fZS1qC04A" fkColumn="_PnoGoREFEeOnlKnLOxE0Ww" pkColumn="_-1cHYBD6EeOnlKnLOxE0Ww"/>
+      </foreignKeys>
+      <constraints xmi:id="_-1jcJxD6EeOnlKnLOxE0Ww" comments="Liste des valeurs possibles pour TA_XTOPSUP" techID="_Cmv5mxPfEeOi_fZS1qC04A" name="TA_A1A_CK1_1" expression="TA_XTOPSUP in ('0','1','3','9')"/>
+      <indexes xmi:id="_XGE1MBEFEeOnlKnLOxE0Ww" comments="Index sur la FK (TA_A1D_ID) de la table TA_A1A" techID="_Cmv5nBPfEeOi_fZS1qC04A" name="TA_A1A_FK1_1">
+        <elements xmi:id="_fKdiYBEFEeOnlKnLOxE0Ww" techID="_Cmv5nRPfEeOi_fZS1qC04A" column="_PnoGoREFEeOnlKnLOxE0Ww" asc="true"/>
+      </indexes>
       <columns xmi:id="_-1cucRD6EeOnlKnLOxE0Ww" comments="PK de la table TA_A1A" techID="_Cmv5lBPfEeOi_fZS1qC04A" name="TA_A1A_ID" primaryKey="_-1cucxD6EeOnlKnLOxE0Ww">
-        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_-1cudBD6EeOnlKnLOxE0Ww">
-          <nativeType href="pathmap://LogicalDBTypes#_WWeJ4BEnEeGTa_JlZYBw1A"/>
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_-1cudBD6EeOnlKnLOxE0Ww" length="19">
+          <nativeType href="pathmap://LogicalDBTypes#_WWeJ4hEnEeGTa_JlZYBw1A"/>
         </type>
       </columns>
       <columns xmi:id="_PnoGoREFEeOnlKnLOxE0Ww" techID="_Cmv5lRPfEeOi_fZS1qC04A" name="TA_A1D_ID" nullable="true" indexElements="_fKdiYBEFEeOnlKnLOxE0Ww" foreignKeyElements="_PnoGpBEFEeOnlKnLOxE0Ww">
-        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_PnoGoxEFEeOnlKnLOxE0Ww">
-          <nativeType href="pathmap://LogicalDBTypes#_WWeJ4BEnEeGTa_JlZYBw1A"/>
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_PnoGoxEFEeOnlKnLOxE0Ww" length="19">
+          <nativeType href="pathmap://LogicalDBTypes#_WWeJ4hEnEeGTa_JlZYBw1A"/>
         </type>
       </columns>
       <columns xmi:id="_-1jcJBD6EeOnlKnLOxE0Ww" comments="Indicateur pour savoir si l'enregistrement est valide" techID="_Cmv5lhPfEeOi_fZS1qC04A" name="TA_XTOPSUP" defaultValue="'0'">
@@ -42,19 +50,13 @@
           <nativeType href="pathmap://LogicalDBTypes#_WWew-xEnEeGTa_JlZYBw1A"/>
         </type>
       </columns>
-      <primaryKey xmi:id="_-1cucxD6EeOnlKnLOxE0Ww" comments="Contrainte PK pour la colonne TA_A1A_ID" techID="_Cmv5mBPfEeOi_fZS1qC04A" name="TA_A1A_PK" columns="_-1cucRD6EeOnlKnLOxE0Ww"/>
-      <foreignKeys xmi:id="_PnoGoBEFEeOnlKnLOxE0Ww" comments="Contrainte FK avec la table TA_A1D" techID="_Cmv5mRPfEeOi_fZS1qC04A" name="TA_A1A_FK1_1" target="_-1bgURD6EeOnlKnLOxE0Ww">
-        <elements xmi:id="_PnoGpBEFEeOnlKnLOxE0Ww" techID="_Cmv5mhPfEeOi_fZS1qC04A" fkColumn="_PnoGoREFEeOnlKnLOxE0Ww" pkColumn="_-1cHYBD6EeOnlKnLOxE0Ww"/>
-      </foreignKeys>
-      <constraints xmi:id="_-1jcJxD6EeOnlKnLOxE0Ww" comments="Liste des valeurs possibles pour TA_XTOPSUP" techID="_Cmv5mxPfEeOi_fZS1qC04A" name="TA_A1A_CK1_1" expression="TA_XTOPSUP in ('0','1','3','9')"/>
-      <indexes xmi:id="_XGE1MBEFEeOnlKnLOxE0Ww" comments="Index sur la FK (TA_A1D_ID) de la table TA_A1A" techID="_Cmv5nBPfEeOi_fZS1qC04A" name="TA_A1A_FK1_1">
-        <elements xmi:id="_fKdiYBEFEeOnlKnLOxE0Ww" techID="_Cmv5nRPfEeOi_fZS1qC04A" column="_PnoGoREFEeOnlKnLOxE0Ww" asc="true"/>
-      </indexes>
     </tables>
     <tables xsi:type="database:Table" xmi:id="_-1cudRD6EeOnlKnLOxE0Ww" comments="Table TA_A2D" techID="_Cmv5nhPfEeOi_fZS1qC04A" name="TA_A2D">
+      <primaryKey xmi:id="_-1cueBD6EeOnlKnLOxE0Ww" comments="Contrainte PK pour la colonne TA_A2D_ID" techID="_CmwgohPfEeOi_fZS1qC04A" name="TA_A2D_PK" columns="_-1cudhD6EeOnlKnLOxE0Ww"/>
+      <constraints xmi:id="_-1kDMxD6EeOnlKnLOxE0Ww" comments="Liste des valeurs possibles pour TA_XTOPSUP" techID="_CmwgoxPfEeOi_fZS1qC04A" name="TA_A2D_CK1_1" expression="TA_XTOPSUP in ('0','1','3','9')"/>
       <columns xmi:id="_-1cudhD6EeOnlKnLOxE0Ww" comments="PK de la table TA_A2D" techID="_Cmv5nxPfEeOi_fZS1qC04A" name="TA_A2D_ID" primaryKey="_-1cueBD6EeOnlKnLOxE0Ww">
-        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_-1cueRD6EeOnlKnLOxE0Ww">
-          <nativeType href="pathmap://LogicalDBTypes#_WWeJ4BEnEeGTa_JlZYBw1A"/>
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_-1cueRD6EeOnlKnLOxE0Ww" length="19">
+          <nativeType href="pathmap://LogicalDBTypes#_WWeJ4hEnEeGTa_JlZYBw1A"/>
         </type>
       </columns>
       <columns xmi:id="_-1kDMBD6EeOnlKnLOxE0Ww" comments="Indicateur pour savoir si l'enregistrement est valide" techID="_CmwgoBPfEeOi_fZS1qC04A" name="TA_XTOPSUP" defaultValue="'0'">
@@ -67,18 +69,24 @@
           <nativeType href="pathmap://LogicalDBTypes#_WWew-xEnEeGTa_JlZYBw1A"/>
         </type>
       </columns>
-      <primaryKey xmi:id="_-1cueBD6EeOnlKnLOxE0Ww" comments="Contrainte PK pour la colonne TA_A2D_ID" techID="_CmwgohPfEeOi_fZS1qC04A" name="TA_A2D_PK" columns="_-1cudhD6EeOnlKnLOxE0Ww"/>
-      <constraints xmi:id="_-1kDMxD6EeOnlKnLOxE0Ww" comments="Liste des valeurs possibles pour TA_XTOPSUP" techID="_CmwgoxPfEeOi_fZS1qC04A" name="TA_A2D_CK1_1" expression="TA_XTOPSUP in ('0','1','3','9')"/>
     </tables>
     <tables xsi:type="database:Table" xmi:id="_-1cuehD6EeOnlKnLOxE0Ww" comments="Table TA_A2A" techID="_CmwgpBPfEeOi_fZS1qC04A" name="TA_A2A">
+      <primaryKey xmi:id="_-1cufRD6EeOnlKnLOxE0Ww" comments="Contrainte PK pour la colonne TA_A2A_ID" techID="_CmwgqRPfEeOi_fZS1qC04A" name="TA_A2A_PK" columns="_-1cuexD6EeOnlKnLOxE0Ww"/>
+      <foreignKeys xmi:id="_wQxjEBEFEeOnlKnLOxE0Ww" comments="Contrainte FK avec la table TA_A2D" techID="_CmwgqhPfEeOi_fZS1qC04A" name="TA_A2A_FK1_1" target="_-1cudRD6EeOnlKnLOxE0Ww">
+        <elements xmi:id="_wQyKIxEFEeOnlKnLOxE0Ww" techID="_CmwgqxPfEeOi_fZS1qC04A" fkColumn="_wQyKIBEFEeOnlKnLOxE0Ww" pkColumn="_-1cudhD6EeOnlKnLOxE0Ww"/>
+      </foreignKeys>
+      <constraints xmi:id="_-1kDOhD6EeOnlKnLOxE0Ww" comments="Liste des valeurs possibles pour TA_XTOPSUP" techID="_CmwgrBPfEeOi_fZS1qC04A" name="TA_A2A_CK1_1" expression="TA_XTOPSUP in ('0','1','3','9')"/>
+      <indexes xmi:id="_4G3VkBEFEeOnlKnLOxE0Ww" comments="Index sur la FK (TA_A2D_ID) de la table TA_A2A" techID="_CmwgrRPfEeOi_fZS1qC04A" name="TA_A2A_FK1_1">
+        <elements xmi:id="_9tpX4BEFEeOnlKnLOxE0Ww" techID="_CmwgrhPfEeOi_fZS1qC04A" column="_wQyKIBEFEeOnlKnLOxE0Ww" asc="true"/>
+      </indexes>
       <columns xmi:id="_-1cuexD6EeOnlKnLOxE0Ww" comments="PK de la table TA_A2A" techID="_CmwgpRPfEeOi_fZS1qC04A" name="TA_A2A_ID" primaryKey="_-1cufRD6EeOnlKnLOxE0Ww">
-        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_-1cufhD6EeOnlKnLOxE0Ww">
-          <nativeType href="pathmap://LogicalDBTypes#_WWeJ4BEnEeGTa_JlZYBw1A"/>
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_-1cufhD6EeOnlKnLOxE0Ww" length="19">
+          <nativeType href="pathmap://LogicalDBTypes#_WWeJ4hEnEeGTa_JlZYBw1A"/>
         </type>
       </columns>
       <columns xmi:id="_wQyKIBEFEeOnlKnLOxE0Ww" techID="_CmwgphPfEeOi_fZS1qC04A" name="TA_A2D_ID" nullable="true" indexElements="_9tpX4BEFEeOnlKnLOxE0Ww" foreignKeyElements="_wQyKIxEFEeOnlKnLOxE0Ww">
-        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_wQyKIhEFEeOnlKnLOxE0Ww">
-          <nativeType href="pathmap://LogicalDBTypes#_WWeJ4BEnEeGTa_JlZYBw1A"/>
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_wQyKIhEFEeOnlKnLOxE0Ww" length="19">
+          <nativeType href="pathmap://LogicalDBTypes#_WWeJ4hEnEeGTa_JlZYBw1A"/>
         </type>
       </columns>
       <columns xmi:id="_-1kDNxD6EeOnlKnLOxE0Ww" comments="Indicateur pour savoir si l'enregistrement est valide" techID="_CmwgpxPfEeOi_fZS1qC04A" name="TA_XTOPSUP" defaultValue="'0'">
@@ -91,19 +99,13 @@
           <nativeType href="pathmap://LogicalDBTypes#_WWew-xEnEeGTa_JlZYBw1A"/>
         </type>
       </columns>
-      <primaryKey xmi:id="_-1cufRD6EeOnlKnLOxE0Ww" comments="Contrainte PK pour la colonne TA_A2A_ID" techID="_CmwgqRPfEeOi_fZS1qC04A" name="TA_A2A_PK" columns="_-1cuexD6EeOnlKnLOxE0Ww"/>
-      <foreignKeys xmi:id="_wQxjEBEFEeOnlKnLOxE0Ww" comments="Contrainte FK avec la table TA_A2D" techID="_CmwgqhPfEeOi_fZS1qC04A" name="TA_A2A_FK1_1" target="_-1cudRD6EeOnlKnLOxE0Ww">
-        <elements xmi:id="_wQyKIxEFEeOnlKnLOxE0Ww" techID="_CmwgqxPfEeOi_fZS1qC04A" fkColumn="_wQyKIBEFEeOnlKnLOxE0Ww" pkColumn="_-1cudhD6EeOnlKnLOxE0Ww"/>
-      </foreignKeys>
-      <constraints xmi:id="_-1kDOhD6EeOnlKnLOxE0Ww" comments="Liste des valeurs possibles pour TA_XTOPSUP" techID="_CmwgrBPfEeOi_fZS1qC04A" name="TA_A2A_CK1_1" expression="TA_XTOPSUP in ('0','1','3','9')"/>
-      <indexes xmi:id="_4G3VkBEFEeOnlKnLOxE0Ww" comments="Index sur la FK (TA_A2D_ID) de la table TA_A2A" techID="_CmwgrRPfEeOi_fZS1qC04A" name="TA_A2A_FK1_1">
-        <elements xmi:id="_9tpX4BEFEeOnlKnLOxE0Ww" techID="_CmwgrhPfEeOi_fZS1qC04A" column="_wQyKIBEFEeOnlKnLOxE0Ww" asc="true"/>
-      </indexes>
     </tables>
     <tables xsi:type="database:Table" xmi:id="_-1cufxD6EeOnlKnLOxE0Ww" comments="Table TA_A3D" techID="_CmwgrxPfEeOi_fZS1qC04A" name="TA_A3D">
+      <primaryKey xmi:id="_-1cughD6EeOnlKnLOxE0Ww" comments="Contrainte PK pour la colonne TA_A3D_ID" techID="_CmxHsBPfEeOi_fZS1qC04A" name="TA_A3D_PK" columns="_-1cugBD6EeOnlKnLOxE0Ww"/>
+      <constraints xmi:id="_-1kDQRD6EeOnlKnLOxE0Ww" comments="Liste des valeurs possibles pour TA_XTOPSUP" techID="_CmxHsRPfEeOi_fZS1qC04A" name="TA_A3D_CK1_1" expression="TA_XTOPSUP in ('0','1','3','9')"/>
       <columns xmi:id="_-1cugBD6EeOnlKnLOxE0Ww" comments="PK de la table TA_A3D" techID="_CmwgsBPfEeOi_fZS1qC04A" name="TA_A3D_ID" primaryKey="_-1cughD6EeOnlKnLOxE0Ww">
-        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_-1cugxD6EeOnlKnLOxE0Ww">
-          <nativeType href="pathmap://LogicalDBTypes#_WWeJ4BEnEeGTa_JlZYBw1A"/>
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_-1cugxD6EeOnlKnLOxE0Ww" length="19">
+          <nativeType href="pathmap://LogicalDBTypes#_WWeJ4hEnEeGTa_JlZYBw1A"/>
         </type>
       </columns>
       <columns xmi:id="_-1kDPhD6EeOnlKnLOxE0Ww" comments="Indicateur pour savoir si l'enregistrement est valide" techID="_CmwgsRPfEeOi_fZS1qC04A" name="TA_XTOPSUP" defaultValue="'0'">
@@ -116,18 +118,24 @@
           <nativeType href="pathmap://LogicalDBTypes#_WWew-xEnEeGTa_JlZYBw1A"/>
         </type>
       </columns>
-      <primaryKey xmi:id="_-1cughD6EeOnlKnLOxE0Ww" comments="Contrainte PK pour la colonne TA_A3D_ID" techID="_CmxHsBPfEeOi_fZS1qC04A" name="TA_A3D_PK" columns="_-1cugBD6EeOnlKnLOxE0Ww"/>
-      <constraints xmi:id="_-1kDQRD6EeOnlKnLOxE0Ww" comments="Liste des valeurs possibles pour TA_XTOPSUP" techID="_CmxHsRPfEeOi_fZS1qC04A" name="TA_A3D_CK1_1" expression="TA_XTOPSUP in ('0','1','3','9')"/>
     </tables>
     <tables xsi:type="database:Table" xmi:id="_-1dVgBD6EeOnlKnLOxE0Ww" comments="Table TA_A3A" techID="_CmxHshPfEeOi_fZS1qC04A" name="TA_A3A">
+      <primaryKey xmi:id="_-1dVgxD6EeOnlKnLOxE0Ww" comments="Contrainte PK pour la colonne TA_A3A_ID" techID="_CmxHtxPfEeOi_fZS1qC04A" name="TA_A3A_PK" columns="_-1dVgRD6EeOnlKnLOxE0Ww"/>
+      <foreignKeys xmi:id="_MJmrIBEGEeOnlKnLOxE0Ww" comments="Contrainte FK avec la table TA_A3D" techID="_CmxHuBPfEeOi_fZS1qC04A" name="TA_A3A_FK1_1" target="_-1cufxD6EeOnlKnLOxE0Ww">
+        <elements xmi:id="_MJmrJBEGEeOnlKnLOxE0Ww" techID="_CmxHuRPfEeOi_fZS1qC04A" fkColumn="_MJmrIREGEeOnlKnLOxE0Ww" pkColumn="_-1cugBD6EeOnlKnLOxE0Ww"/>
+      </foreignKeys>
+      <constraints xmi:id="_-1kDSBD6EeOnlKnLOxE0Ww" comments="Liste des valeurs possibles pour TA_XTOPSUP" techID="_CmxHuhPfEeOi_fZS1qC04A" name="TA_A3A_CK1_1" expression="TA_XTOPSUP in ('0','1','3','9')"/>
+      <indexes xmi:id="_VgXmMBEGEeOnlKnLOxE0Ww" comments="Index sur la FK (TA_A3D_ID) de la table TA_A3A" techID="_CmxHuxPfEeOi_fZS1qC04A" name="TA_A3A_FK1_1">
+        <elements xmi:id="_bEWzMBEGEeOnlKnLOxE0Ww" techID="_CmxHvBPfEeOi_fZS1qC04A" column="_MJmrIREGEeOnlKnLOxE0Ww" asc="true"/>
+      </indexes>
       <columns xmi:id="_-1dVgRD6EeOnlKnLOxE0Ww" comments="PK de la table TA_A3A" techID="_CmxHsxPfEeOi_fZS1qC04A" name="TA_A3A_ID" primaryKey="_-1dVgxD6EeOnlKnLOxE0Ww">
-        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_-1dVhBD6EeOnlKnLOxE0Ww">
-          <nativeType href="pathmap://LogicalDBTypes#_WWeJ4BEnEeGTa_JlZYBw1A"/>
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_-1dVhBD6EeOnlKnLOxE0Ww" length="19">
+          <nativeType href="pathmap://LogicalDBTypes#_WWeJ4hEnEeGTa_JlZYBw1A"/>
         </type>
       </columns>
       <columns xmi:id="_MJmrIREGEeOnlKnLOxE0Ww" techID="_CmxHtBPfEeOi_fZS1qC04A" name="TA_A3D_ID" indexElements="_bEWzMBEGEeOnlKnLOxE0Ww" foreignKeyElements="_MJmrJBEGEeOnlKnLOxE0Ww">
-        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_MJmrIxEGEeOnlKnLOxE0Ww">
-          <nativeType href="pathmap://LogicalDBTypes#_WWeJ4BEnEeGTa_JlZYBw1A"/>
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_MJmrIxEGEeOnlKnLOxE0Ww" length="19">
+          <nativeType href="pathmap://LogicalDBTypes#_WWeJ4hEnEeGTa_JlZYBw1A"/>
         </type>
       </columns>
       <columns xmi:id="_-1kDRRD6EeOnlKnLOxE0Ww" comments="Indicateur pour savoir si l'enregistrement est valide" techID="_CmxHtRPfEeOi_fZS1qC04A" name="TA_XTOPSUP" defaultValue="'0'">
@@ -140,14 +148,6 @@
           <nativeType href="pathmap://LogicalDBTypes#_WWew-xEnEeGTa_JlZYBw1A"/>
         </type>
       </columns>
-      <primaryKey xmi:id="_-1dVgxD6EeOnlKnLOxE0Ww" comments="Contrainte PK pour la colonne TA_A3A_ID" techID="_CmxHtxPfEeOi_fZS1qC04A" name="TA_A3A_PK" columns="_-1dVgRD6EeOnlKnLOxE0Ww"/>
-      <foreignKeys xmi:id="_MJmrIBEGEeOnlKnLOxE0Ww" comments="Contrainte FK avec la table TA_A3D" techID="_CmxHuBPfEeOi_fZS1qC04A" name="TA_A3A_FK1_1" target="_-1cufxD6EeOnlKnLOxE0Ww">
-        <elements xmi:id="_MJmrJBEGEeOnlKnLOxE0Ww" techID="_CmxHuRPfEeOi_fZS1qC04A" fkColumn="_MJmrIREGEeOnlKnLOxE0Ww" pkColumn="_-1cugBD6EeOnlKnLOxE0Ww"/>
-      </foreignKeys>
-      <constraints xmi:id="_-1kDSBD6EeOnlKnLOxE0Ww" comments="Liste des valeurs possibles pour TA_XTOPSUP" techID="_CmxHuhPfEeOi_fZS1qC04A" name="TA_A3A_CK1_1" expression="TA_XTOPSUP in ('0','1','3','9')"/>
-      <indexes xmi:id="_VgXmMBEGEeOnlKnLOxE0Ww" comments="Index sur la FK (TA_A3D_ID) de la table TA_A3A" techID="_CmxHuxPfEeOi_fZS1qC04A" name="TA_A3A_FK1_1">
-        <elements xmi:id="_bEWzMBEGEeOnlKnLOxE0Ww" techID="_CmxHvBPfEeOi_fZS1qC04A" column="_MJmrIREGEeOnlKnLOxE0Ww" asc="true"/>
-      </indexes>
     </tables>
   </schemas>
 </database:DataBase>

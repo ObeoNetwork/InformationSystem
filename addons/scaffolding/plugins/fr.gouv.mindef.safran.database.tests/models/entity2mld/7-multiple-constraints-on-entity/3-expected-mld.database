@@ -9,8 +9,8 @@
         </type>
       </columns>
       <columns xmi:id="_xvLqtGFREeKPQbctQ06sag" comments="PK de la table GS_SERIE" techID="_A0K78hZAEeOZLM9YKpdB2w" name="GS_SERIE_ID" primaryKey="_xvLqtmFREeKPQbctQ06sag">
-        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_xvLqt2FREeKPQbctQ06sag">
-          <nativeType href="pathmap://LogicalDBTypes#_WWeJ4BEnEeGTa_JlZYBw1A"/>
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_xvLqt2FREeKPQbctQ06sag" length="19">
+          <nativeType href="pathmap://LogicalDBTypes#_WWeJ4hEnEeGTa_JlZYBw1A"/>
         </type>
       </columns>
       <columns xmi:id="__M4FQGPKEeKrnPwWmZ20XQ" comments="Indicateur pour savoir si l'enregistrement est valide" techID="_A0K78xZAEeOZLM9YKpdB2w" name="SERIE_XTOPSUP" defaultValue="'0'">
@@ -35,13 +35,13 @@
         </type>
       </columns>
       <columns xmi:id="_xvLqvGFREeKPQbctQ06sag" comments="PK de la table GS_SAISON" techID="_A0LjABZAEeOZLM9YKpdB2w" name="GS_SAISON_ID" primaryKey="_xvLqvmFREeKPQbctQ06sag">
-        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_xvLqv2FREeKPQbctQ06sag">
-          <nativeType href="pathmap://LogicalDBTypes#_WWeJ4BEnEeGTa_JlZYBw1A"/>
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_xvLqv2FREeKPQbctQ06sag" length="19">
+          <nativeType href="pathmap://LogicalDBTypes#_WWeJ4hEnEeGTa_JlZYBw1A"/>
         </type>
       </columns>
       <columns xmi:id="_xvLqwWFREeKPQbctQ06sag" comments="Série de la saison" techID="_A0LjARZAEeOZLM9YKpdB2w" name="GS_SERIE_ID" indexElements="_8zE6UWPgEeKrnPwWmZ20XQ" foreignKeyElements="_xvLqxGFREeKPQbctQ06sag">
-        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_xvLqw2FREeKPQbctQ06sag">
-          <nativeType href="pathmap://LogicalDBTypes#_WWeJ4BEnEeGTa_JlZYBw1A"/>
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_xvLqw2FREeKPQbctQ06sag" length="19">
+          <nativeType href="pathmap://LogicalDBTypes#_WWeJ4hEnEeGTa_JlZYBw1A"/>
         </type>
       </columns>
       <columns xmi:id="_D1ZvkGPLEeKrnPwWmZ20XQ" comments="Indicateur pour savoir si l'enregistrement est valide" techID="_A0LjAhZAEeOZLM9YKpdB2w" name="SERIE_XTOPSUP" defaultValue="'0'">

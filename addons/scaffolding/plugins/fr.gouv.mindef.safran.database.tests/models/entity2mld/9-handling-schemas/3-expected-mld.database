@@ -32,18 +32,18 @@
         </type>
       </columns>
       <columns xmi:id="_PV4kYWR0EeKXKeCsnPm5eA" comments="PK de la table GS_SERIE" techID="_Hxy1ZRZAEeOZLM9YKpdB2w" name="GS_SERIE_ID" primaryKey="_PV4kY2R0EeKXKeCsnPm5eA">
-        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_PV4kZGR0EeKXKeCsnPm5eA">
-          <nativeType href="pathmap://LogicalDBTypes#_WWeJ4BEnEeGTa_JlZYBw1A"/>
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_PV4kZGR0EeKXKeCsnPm5eA" length="19">
+          <nativeType href="pathmap://LogicalDBTypes#_WWeJ4hEnEeGTa_JlZYBw1A"/>
         </type>
       </columns>
       <columns xmi:id="_PV5yiWR0EeKXKeCsnPm5eA" comments="Genre de la série&#xD;&#xA;" techID="_Hxy1ZhZAEeOZLM9YKpdB2w" name="RF_GENRE_ID" indexElements="_PV7AqGR0EeKXKeCsnPm5eA" foreignKeyElements="_TRYJkGR0EeKXKeCsnPm5eA">
-        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_TRW7cGR0EeKXKeCsnPm5eA">
-          <nativeType href="pathmap://LogicalDBTypes#_WWeJ4BEnEeGTa_JlZYBw1A"/>
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_TRW7cGR0EeKXKeCsnPm5eA" length="19">
+          <nativeType href="pathmap://LogicalDBTypes#_WWeJ4hEnEeGTa_JlZYBw1A"/>
         </type>
       </columns>
       <columns xmi:id="_PV6ZkWR0EeKXKeCsnPm5eA" comments="Etat de la série" techID="_Hxy1ZxZAEeOZLM9YKpdB2w" name="RF_ETAT_ID" nullable="true" indexElements="_PV7AqmR0EeKXKeCsnPm5eA" foreignKeyElements="_TRYwoGR0EeKXKeCsnPm5eA">
-        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_TRYJkWR0EeKXKeCsnPm5eA">
-          <nativeType href="pathmap://LogicalDBTypes#_WWeJ4BEnEeGTa_JlZYBw1A"/>
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_TRYJkWR0EeKXKeCsnPm5eA" length="19">
+          <nativeType href="pathmap://LogicalDBTypes#_WWeJ4hEnEeGTa_JlZYBw1A"/>
         </type>
       </columns>
       <columns xmi:id="_PV810GR0EeKXKeCsnPm5eA" comments="Indicateur pour savoir si l'enregistrement est valide" techID="_Hxy1aBZAEeOZLM9YKpdB2w" name="GS_XTOPSUP" defaultValue="'0'">
@@ -76,13 +76,13 @@
         </type>
       </columns>
       <columns xmi:id="_PV5LcmR0EeKXKeCsnPm5eA" comments="PK de la table GS_SAISON" techID="_HxzcdBZAEeOZLM9YKpdB2w" name="GS_SAISON_ID" primaryKey="_PV5LdGR0EeKXKeCsnPm5eA">
-        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_PV5LdWR0EeKXKeCsnPm5eA">
-          <nativeType href="pathmap://LogicalDBTypes#_WWeJ4BEnEeGTa_JlZYBw1A"/>
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_PV5LdWR0EeKXKeCsnPm5eA" length="19">
+          <nativeType href="pathmap://LogicalDBTypes#_WWeJ4hEnEeGTa_JlZYBw1A"/>
         </type>
       </columns>
       <columns xmi:id="_PV7AoWR0EeKXKeCsnPm5eA" comments="Série d'appartenance" techID="_HxzcdRZAEeOZLM9YKpdB2w" name="GS_SERIE_ID" indexElements="_PV7nsWR0EeKXKeCsnPm5eA _PV7ntGR0EeKXKeCsnPm5eA" foreignKeyElements="_TRZ-wGR0EeKXKeCsnPm5eA">
-        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_TRYwoWR0EeKXKeCsnPm5eA">
-          <nativeType href="pathmap://LogicalDBTypes#_WWeJ4BEnEeGTa_JlZYBw1A"/>
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_TRYwoWR0EeKXKeCsnPm5eA" length="19">
+          <nativeType href="pathmap://LogicalDBTypes#_WWeJ4hEnEeGTa_JlZYBw1A"/>
         </type>
       </columns>
       <columns xmi:id="_PV8112R0EeKXKeCsnPm5eA" comments="Indicateur pour savoir si l'enregistrement est valide" techID="_HxzcdhZAEeOZLM9YKpdB2w" name="GS_XTOPSUP" defaultValue="'0'">
@@ -118,8 +118,8 @@
         </type>
       </columns>
       <columns xmi:id="_PV5LfmR0EeKXKeCsnPm5eA" comments="PK de la table RF_GENRE" techID="_HxzchRZAEeOZLM9YKpdB2w" name="RF_GENRE_ID" primaryKey="_PV5LgGR0EeKXKeCsnPm5eA">
-        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_PV5LgWR0EeKXKeCsnPm5eA">
-          <nativeType href="pathmap://LogicalDBTypes#_WWeJ4BEnEeGTa_JlZYBw1A"/>
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_PV5LgWR0EeKXKeCsnPm5eA" length="19">
+          <nativeType href="pathmap://LogicalDBTypes#_WWeJ4hEnEeGTa_JlZYBw1A"/>
         </type>
       </columns>
       <columns xmi:id="_PV813mR0EeKXKeCsnPm5eA" comments="Indicateur pour savoir si l'enregistrement est valide" techID="_HxzchhZAEeOZLM9YKpdB2w" name="RF_XTOPSUP" defaultValue="'0'">
@@ -145,8 +145,8 @@
         </type>
       </columns>
       <columns xmi:id="_PV5yhGR0EeKXKeCsnPm5eA" comments="PK de la table RF_ETAT" techID="_Hx0DhBZAEeOZLM9YKpdB2w" name="RF_ETAT_ID" primaryKey="_PV5yhmR0EeKXKeCsnPm5eA">
-        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_PV5yh2R0EeKXKeCsnPm5eA">
-          <nativeType href="pathmap://LogicalDBTypes#_WWeJ4BEnEeGTa_JlZYBw1A"/>
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_PV5yh2R0EeKXKeCsnPm5eA" length="19">
+          <nativeType href="pathmap://LogicalDBTypes#_WWeJ4hEnEeGTa_JlZYBw1A"/>
         </type>
       </columns>
       <columns xmi:id="_PV9c5WR0EeKXKeCsnPm5eA" comments="Indicateur pour savoir si l'enregistrement est valide" techID="_Hx0DhRZAEeOZLM9YKpdB2w" name="RF_XTOPSUP" defaultValue="'0'">

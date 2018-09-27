@@ -15,8 +15,8 @@
         <type xsi:type="typeslibrary:TypeInstance" xmi:id="_OFflkZeTEeas8pX9p1wkag"/>
       </columns>
       <columns xmi:id="_LWb-VJeTEeas8pX9p1wkag" comments="PK de la table ENTITY1" techID="_LWb-U5eTEeas8pX9p1wkag" name="ENTITY1_ID" primaryKey="_LWb-V5eTEeas8pX9p1wkag">
-        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_LWb-WJeTEeas8pX9p1wkag">
-          <nativeType href="pathmap://LogicalDBTypes#_WWeJ4BEnEeGTa_JlZYBw1A"/>
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_LWb-WJeTEeas8pX9p1wkag" length="19">
+          <nativeType href="pathmap://LogicalDBTypes#_WWeJ4hEnEeGTa_JlZYBw1A"/>
         </type>
       </columns>
       <columns xmi:id="_LWclYJeTEeas8pX9p1wkag" comments="Indicateur pour savoir si l'enregistrement est valide" techID="_LWb-WZeTEeas8pX9p1wkag" name="NAMESPACE_1_XTOPSUP" defaultValue="'0'">

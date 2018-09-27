@@ -14,8 +14,8 @@
         </type>
       </columns>
       <columns xmi:id="_ng4YYD7bEeKDHrNCTHVx7A" comments="PK de la table CS_AFF" techID="_24gxNZaYEea3rZOTd3d7bg" name="CS_AFF_ID" primaryKey="_o4MJkD7bEeKDHrNCTHVx7A">
-        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_ng4YYT7bEeKDHrNCTHVx7A">
-          <nativeType href="pathmap://LogicalDBTypes#_WWeJ4BEnEeGTa_JlZYBw1A"/>
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_ng4YYT7bEeKDHrNCTHVx7A" length="19">
+          <nativeType href="pathmap://LogicalDBTypes#_WWeJ4hEnEeGTa_JlZYBw1A"/>
         </type>
       </columns>
       <columns xmi:id="_jqzocGOrEeKrnPwWmZ20XQ" comments="Indicateur pour savoir si l'enregistrement est valide" techID="_24gxN5aYEea3rZOTd3d7bg" name="AFFAIRE_XTOPSUP" defaultValue="'0'">
@@ -47,13 +47,13 @@
         </type>
       </columns>
       <columns xmi:id="_zouT8D7bEeKDHrNCTHVx7A" comments="PK de la table CS_GPA" techID="_24gxQpaYEea3rZOTd3d7bg" name="CS_GPA_ID" primaryKey="_zouT8j7bEeKDHrNCTHVx7A">
-        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_zouT8T7bEeKDHrNCTHVx7A">
-          <nativeType href="pathmap://LogicalDBTypes#_WWeJ4BEnEeGTa_JlZYBw1A"/>
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_zouT8T7bEeKDHrNCTHVx7A" length="19">
+          <nativeType href="pathmap://LogicalDBTypes#_WWeJ4hEnEeGTa_JlZYBw1A"/>
         </type>
       </columns>
       <columns xmi:id="_xyhx4T7cEeKDHrNCTHVx7A" comments="Affaire sur laquelle porte la GPA" techID="_24gxRJaYEea3rZOTd3d7bg" name="CS_AFF_ID" indexElements="_pWYboWPhEeKrnPwWmZ20XQ" foreignKeyElements="_xyhx5D7cEeKDHrNCTHVx7A">
-        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_xyhx4z7cEeKDHrNCTHVx7A">
-          <nativeType href="pathmap://LogicalDBTypes#_WWeJ4BEnEeGTa_JlZYBw1A"/>
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_xyhx4z7cEeKDHrNCTHVx7A" length="19">
+          <nativeType href="pathmap://LogicalDBTypes#_WWeJ4hEnEeGTa_JlZYBw1A"/>
         </type>
       </columns>
       <columns xmi:id="_w_tNAGOrEeKrnPwWmZ20XQ" comments="Indicateur pour savoir si l'enregistrement est valide" techID="_24gxRpaYEea3rZOTd3d7bg" name="AFFAIRE_XTOPSUP" defaultValue="'0'">

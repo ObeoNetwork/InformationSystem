@@ -3,9 +3,11 @@
   <usedLibraries xsi:type="typeslibrary:NativeTypesLibrary" href="pathmap://LogicalDBTypes#_WWbGkREnEeGTa_JlZYBw1A"/>
   <schemas xmi:id="_Vn_wMhZAEeOSDrYWINMwpA" techID="_Vn_wMRZAEeOSDrYWINMwpA" name="ES">
     <tables xsi:type="database:Table" xmi:id="_Vn_wMxZAEeOSDrYWINMwpA" techID="_Vn_wMBZAEeOSDrYWINMwpA" name="ES_A">
+      <primaryKey xmi:id="_Vn_wOBZAEeOSDrYWINMwpA" comments="Contrainte PK pour la colonne ES_A_ID" techID="_Vn_wNxZAEeOSDrYWINMwpA" name="ES_A_PK" columns="_Vn_wNRZAEeOSDrYWINMwpA"/>
+      <constraints xmi:id="_VoCzgRZAEeOSDrYWINMwpA" comments="Liste des valeurs possibles pour ES_XTOPSUP" techID="_VoCzgBZAEeOSDrYWINMwpA" name="ES_A_CK1_1" expression="ES_XTOPSUP in ('0','1','3','9')"/>
       <columns xmi:id="_Vn_wNRZAEeOSDrYWINMwpA" comments="PK de la table ES_A" techID="_Vn_wNBZAEeOSDrYWINMwpA" name="ES_A_ID" primaryKey="_Vn_wOBZAEeOSDrYWINMwpA">
-        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_Vn_wORZAEeOSDrYWINMwpA">
-          <nativeType href="pathmap://LogicalDBTypes#_WWeJ4BEnEeGTa_JlZYBw1A"/>
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_Vn_wORZAEeOSDrYWINMwpA" length="19">
+          <nativeType href="pathmap://LogicalDBTypes#_WWeJ4hEnEeGTa_JlZYBw1A"/>
         </type>
       </columns>
       <columns xmi:id="_VoCMdRZAEeOSDrYWINMwpA" comments="Indicateur pour savoir si l'enregistrement est valide" techID="_VoCMdBZAEeOSDrYWINMwpA" name="ES_XTOPSUP" defaultValue="'0'">
@@ -18,18 +20,24 @@
           <nativeType href="pathmap://LogicalDBTypes#_WWew-xEnEeGTa_JlZYBw1A"/>
         </type>
       </columns>
-      <primaryKey xmi:id="_Vn_wOBZAEeOSDrYWINMwpA" comments="Contrainte PK pour la colonne ES_A_ID" techID="_Vn_wNxZAEeOSDrYWINMwpA" name="ES_A_PK" columns="_Vn_wNRZAEeOSDrYWINMwpA"/>
-      <constraints xmi:id="_VoCzgRZAEeOSDrYWINMwpA" comments="Liste des valeurs possibles pour ES_XTOPSUP" techID="_VoCzgBZAEeOSDrYWINMwpA" name="ES_A_CK1_1" expression="ES_XTOPSUP in ('0','1','3','9')"/>
     </tables>
     <tables xsi:type="database:Table" xmi:id="_Vn_wOxZAEeOSDrYWINMwpA" techID="_Vn_wOhZAEeOSDrYWINMwpA" name="ES_B">
+      <primaryKey xmi:id="_Vn_wQBZAEeOSDrYWINMwpA" comments="Contrainte PK pour la colonne ES_B_ID" techID="_Vn_wPxZAEeOSDrYWINMwpA" name="ES_B_PK" columns="_Vn_wPRZAEeOSDrYWINMwpA"/>
+      <foreignKeys xmi:id="_VoAXiBZAEeOSDrYWINMwpA" comments="Contrainte FK avec la table ES_A" techID="_VoAXhxZAEeOSDrYWINMwpA" name="ES_B_FK1_1" target="_Vn_wMxZAEeOSDrYWINMwpA">
+        <elements xmi:id="_VoAXjhZAEeOSDrYWINMwpA" techID="_VoAXjRZAEeOSDrYWINMwpA" fkColumn="_VoAXihZAEeOSDrYWINMwpA" pkColumn="_Vn_wNRZAEeOSDrYWINMwpA"/>
+      </foreignKeys>
+      <constraints xmi:id="_VoCzixZAEeOSDrYWINMwpA" comments="Liste des valeurs possibles pour ES_XTOPSUP" techID="_VoCzihZAEeOSDrYWINMwpA" name="ES_B_CK1_1" expression="ES_XTOPSUP in ('0','1','3','9')"/>
+      <indexes xmi:id="_VoBlYRZAEeOSDrYWINMwpA" comments="Index sur la FK (ES_A_ID) de la table ES_B" techID="_VoBlYBZAEeOSDrYWINMwpA" name="ES_B_FK1_1">
+        <elements xmi:id="_VoBlYxZAEeOSDrYWINMwpA" techID="_VoBlYhZAEeOSDrYWINMwpA" column="_VoAXihZAEeOSDrYWINMwpA" asc="true"/>
+      </indexes>
       <columns xmi:id="_Vn_wPRZAEeOSDrYWINMwpA" comments="PK de la table ES_B" techID="_Vn_wPBZAEeOSDrYWINMwpA" name="ES_B_ID" primaryKey="_Vn_wQBZAEeOSDrYWINMwpA">
-        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_Vn_wQRZAEeOSDrYWINMwpA">
-          <nativeType href="pathmap://LogicalDBTypes#_WWeJ4BEnEeGTa_JlZYBw1A"/>
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_Vn_wQRZAEeOSDrYWINMwpA" length="19">
+          <nativeType href="pathmap://LogicalDBTypes#_WWeJ4hEnEeGTa_JlZYBw1A"/>
         </type>
       </columns>
       <columns xmi:id="_VoAXihZAEeOSDrYWINMwpA" techID="_VoAXiRZAEeOSDrYWINMwpA" name="ES_A_ID" nullable="true" indexElements="_VoBlYxZAEeOSDrYWINMwpA" foreignKeyElements="_VoAXjhZAEeOSDrYWINMwpA">
-        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_VoAXjBZAEeOSDrYWINMwpA">
-          <nativeType href="pathmap://LogicalDBTypes#_WWeJ4BEnEeGTa_JlZYBw1A"/>
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_VoAXjBZAEeOSDrYWINMwpA" length="19">
+          <nativeType href="pathmap://LogicalDBTypes#_WWeJ4hEnEeGTa_JlZYBw1A"/>
         </type>
       </columns>
       <columns xmi:id="_VoCzhxZAEeOSDrYWINMwpA" comments="Indicateur pour savoir si l'enregistrement est valide" techID="_VoCzhhZAEeOSDrYWINMwpA" name="ES_XTOPSUP" defaultValue="'0'">
@@ -42,19 +50,13 @@
           <nativeType href="pathmap://LogicalDBTypes#_WWew-xEnEeGTa_JlZYBw1A"/>
         </type>
       </columns>
-      <primaryKey xmi:id="_Vn_wQBZAEeOSDrYWINMwpA" comments="Contrainte PK pour la colonne ES_B_ID" techID="_Vn_wPxZAEeOSDrYWINMwpA" name="ES_B_PK" columns="_Vn_wPRZAEeOSDrYWINMwpA"/>
-      <foreignKeys xmi:id="_VoAXiBZAEeOSDrYWINMwpA" comments="Contrainte FK avec la table ES_A" techID="_VoAXhxZAEeOSDrYWINMwpA" name="ES_B_FK1_1" target="_Vn_wMxZAEeOSDrYWINMwpA">
-        <elements xmi:id="_VoAXjhZAEeOSDrYWINMwpA" techID="_VoAXjRZAEeOSDrYWINMwpA" fkColumn="_VoAXihZAEeOSDrYWINMwpA" pkColumn="_Vn_wNRZAEeOSDrYWINMwpA"/>
-      </foreignKeys>
-      <constraints xmi:id="_VoCzixZAEeOSDrYWINMwpA" comments="Liste des valeurs possibles pour ES_XTOPSUP" techID="_VoCzihZAEeOSDrYWINMwpA" name="ES_B_CK1_1" expression="ES_XTOPSUP in ('0','1','3','9')"/>
-      <indexes xmi:id="_VoBlYRZAEeOSDrYWINMwpA" comments="Index sur la FK (ES_A_ID) de la table ES_B" techID="_VoBlYBZAEeOSDrYWINMwpA" name="ES_B_FK1_1">
-        <elements xmi:id="_VoBlYxZAEeOSDrYWINMwpA" techID="_VoBlYhZAEeOSDrYWINMwpA" column="_VoAXihZAEeOSDrYWINMwpA" asc="true"/>
-      </indexes>
     </tables>
     <tables xsi:type="database:Table" xmi:id="_Vn_wQxZAEeOSDrYWINMwpA" techID="_Vn_wQhZAEeOSDrYWINMwpA" name="ES_C">
+      <primaryKey xmi:id="_Vn_wSBZAEeOSDrYWINMwpA" comments="Contrainte PK pour la colonne ES_C_ID" techID="_Vn_wRxZAEeOSDrYWINMwpA" name="ES_C_PK" columns="_Vn_wRRZAEeOSDrYWINMwpA"/>
+      <constraints xmi:id="_VoCzlRZAEeOSDrYWINMwpA" comments="Liste des valeurs possibles pour ES_XTOPSUP" techID="_VoCzlBZAEeOSDrYWINMwpA" name="ES_C_CK1_1" expression="ES_XTOPSUP in ('0','1','3','9')"/>
       <columns xmi:id="_Vn_wRRZAEeOSDrYWINMwpA" comments="PK de la table ES_C" techID="_Vn_wRBZAEeOSDrYWINMwpA" name="ES_C_ID" primaryKey="_Vn_wSBZAEeOSDrYWINMwpA">
-        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_Vn_wSRZAEeOSDrYWINMwpA">
-          <nativeType href="pathmap://LogicalDBTypes#_WWeJ4BEnEeGTa_JlZYBw1A"/>
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_Vn_wSRZAEeOSDrYWINMwpA" length="19">
+          <nativeType href="pathmap://LogicalDBTypes#_WWeJ4hEnEeGTa_JlZYBw1A"/>
         </type>
       </columns>
       <columns xmi:id="_VoCzkRZAEeOSDrYWINMwpA" comments="Indicateur pour savoir si l'enregistrement est valide" techID="_VoCzkBZAEeOSDrYWINMwpA" name="ES_XTOPSUP" defaultValue="'0'">
@@ -67,18 +69,24 @@
           <nativeType href="pathmap://LogicalDBTypes#_WWew-xEnEeGTa_JlZYBw1A"/>
         </type>
       </columns>
-      <primaryKey xmi:id="_Vn_wSBZAEeOSDrYWINMwpA" comments="Contrainte PK pour la colonne ES_C_ID" techID="_Vn_wRxZAEeOSDrYWINMwpA" name="ES_C_PK" columns="_Vn_wRRZAEeOSDrYWINMwpA"/>
-      <constraints xmi:id="_VoCzlRZAEeOSDrYWINMwpA" comments="Liste des valeurs possibles pour ES_XTOPSUP" techID="_VoCzlBZAEeOSDrYWINMwpA" name="ES_C_CK1_1" expression="ES_XTOPSUP in ('0','1','3','9')"/>
     </tables>
     <tables xsi:type="database:Table" xmi:id="_VoAXQBZAEeOSDrYWINMwpA" techID="_Vn_wShZAEeOSDrYWINMwpA" name="ES_D">
+      <primaryKey xmi:id="_VoAXRRZAEeOSDrYWINMwpA" comments="Contrainte PK pour la colonne ES_D_ID" techID="_VoAXRBZAEeOSDrYWINMwpA" name="ES_D_PK" columns="_VoAXQhZAEeOSDrYWINMwpA"/>
+      <foreignKeys xmi:id="_VoAXkBZAEeOSDrYWINMwpA" comments="Contrainte FK avec la table ES_C" techID="_VoAXjxZAEeOSDrYWINMwpA" name="ES_D_FK1_1" target="_Vn_wQxZAEeOSDrYWINMwpA">
+        <elements xmi:id="_VoAXlhZAEeOSDrYWINMwpA" techID="_VoAXlRZAEeOSDrYWINMwpA" fkColumn="_VoAXkhZAEeOSDrYWINMwpA" pkColumn="_Vn_wRRZAEeOSDrYWINMwpA"/>
+      </foreignKeys>
+      <constraints xmi:id="_VoCznxZAEeOSDrYWINMwpA" comments="Liste des valeurs possibles pour ES_XTOPSUP" techID="_VoCznhZAEeOSDrYWINMwpA" name="ES_D_CK1_1" expression="ES_XTOPSUP in ('0','1','3','9')"/>
+      <indexes xmi:id="_VoBlZRZAEeOSDrYWINMwpA" comments="Index sur la FK (ES_C_ID) de la table ES_D" techID="_VoBlZBZAEeOSDrYWINMwpA" name="ES_D_FK1_1">
+        <elements xmi:id="_VoBlZxZAEeOSDrYWINMwpA" techID="_VoBlZhZAEeOSDrYWINMwpA" column="_VoAXkhZAEeOSDrYWINMwpA" asc="true"/>
+      </indexes>
       <columns xmi:id="_VoAXQhZAEeOSDrYWINMwpA" comments="PK de la table ES_D" techID="_VoAXQRZAEeOSDrYWINMwpA" name="ES_D_ID" primaryKey="_VoAXRRZAEeOSDrYWINMwpA">
-        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_VoAXRhZAEeOSDrYWINMwpA">
-          <nativeType href="pathmap://LogicalDBTypes#_WWeJ4BEnEeGTa_JlZYBw1A"/>
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_VoAXRhZAEeOSDrYWINMwpA" length="19">
+          <nativeType href="pathmap://LogicalDBTypes#_WWeJ4hEnEeGTa_JlZYBw1A"/>
         </type>
       </columns>
       <columns xmi:id="_VoAXkhZAEeOSDrYWINMwpA" techID="_VoAXkRZAEeOSDrYWINMwpA" name="ES_C_ID" nullable="true" indexElements="_VoBlZxZAEeOSDrYWINMwpA" foreignKeyElements="_VoAXlhZAEeOSDrYWINMwpA">
-        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_VoAXlBZAEeOSDrYWINMwpA">
-          <nativeType href="pathmap://LogicalDBTypes#_WWeJ4BEnEeGTa_JlZYBw1A"/>
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_VoAXlBZAEeOSDrYWINMwpA" length="19">
+          <nativeType href="pathmap://LogicalDBTypes#_WWeJ4hEnEeGTa_JlZYBw1A"/>
         </type>
       </columns>
       <columns xmi:id="_VoCzmxZAEeOSDrYWINMwpA" comments="Indicateur pour savoir si l'enregistrement est valide" techID="_VoCzmhZAEeOSDrYWINMwpA" name="ES_XTOPSUP" defaultValue="'0'">
@@ -91,19 +99,13 @@
           <nativeType href="pathmap://LogicalDBTypes#_WWew-xEnEeGTa_JlZYBw1A"/>
         </type>
       </columns>
-      <primaryKey xmi:id="_VoAXRRZAEeOSDrYWINMwpA" comments="Contrainte PK pour la colonne ES_D_ID" techID="_VoAXRBZAEeOSDrYWINMwpA" name="ES_D_PK" columns="_VoAXQhZAEeOSDrYWINMwpA"/>
-      <foreignKeys xmi:id="_VoAXkBZAEeOSDrYWINMwpA" comments="Contrainte FK avec la table ES_C" techID="_VoAXjxZAEeOSDrYWINMwpA" name="ES_D_FK1_1" target="_Vn_wQxZAEeOSDrYWINMwpA">
-        <elements xmi:id="_VoAXlhZAEeOSDrYWINMwpA" techID="_VoAXlRZAEeOSDrYWINMwpA" fkColumn="_VoAXkhZAEeOSDrYWINMwpA" pkColumn="_Vn_wRRZAEeOSDrYWINMwpA"/>
-      </foreignKeys>
-      <constraints xmi:id="_VoCznxZAEeOSDrYWINMwpA" comments="Liste des valeurs possibles pour ES_XTOPSUP" techID="_VoCznhZAEeOSDrYWINMwpA" name="ES_D_CK1_1" expression="ES_XTOPSUP in ('0','1','3','9')"/>
-      <indexes xmi:id="_VoBlZRZAEeOSDrYWINMwpA" comments="Index sur la FK (ES_C_ID) de la table ES_D" techID="_VoBlZBZAEeOSDrYWINMwpA" name="ES_D_FK1_1">
-        <elements xmi:id="_VoBlZxZAEeOSDrYWINMwpA" techID="_VoBlZhZAEeOSDrYWINMwpA" column="_VoAXkhZAEeOSDrYWINMwpA" asc="true"/>
-      </indexes>
     </tables>
     <tables xsi:type="database:Table" xmi:id="_VoAXSBZAEeOSDrYWINMwpA" techID="_VoAXRxZAEeOSDrYWINMwpA" name="ES_E">
+      <primaryKey xmi:id="_VoAXTRZAEeOSDrYWINMwpA" comments="Contrainte PK pour la colonne ES_E_ID" techID="_VoAXTBZAEeOSDrYWINMwpA" name="ES_E_PK" columns="_VoAXShZAEeOSDrYWINMwpA"/>
+      <constraints xmi:id="_VoCzqRZAEeOSDrYWINMwpA" comments="Liste des valeurs possibles pour ES_XTOPSUP" techID="_VoCzqBZAEeOSDrYWINMwpA" name="ES_E_CK1_1" expression="ES_XTOPSUP in ('0','1','3','9')"/>
       <columns xmi:id="_VoAXShZAEeOSDrYWINMwpA" comments="PK de la table ES_E" techID="_VoAXSRZAEeOSDrYWINMwpA" name="ES_E_ID" primaryKey="_VoAXTRZAEeOSDrYWINMwpA">
-        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_VoAXThZAEeOSDrYWINMwpA">
-          <nativeType href="pathmap://LogicalDBTypes#_WWeJ4BEnEeGTa_JlZYBw1A"/>
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_VoAXThZAEeOSDrYWINMwpA" length="19">
+          <nativeType href="pathmap://LogicalDBTypes#_WWeJ4hEnEeGTa_JlZYBw1A"/>
         </type>
       </columns>
       <columns xmi:id="_VoCzpRZAEeOSDrYWINMwpA" comments="Indicateur pour savoir si l'enregistrement est valide" techID="_VoCzpBZAEeOSDrYWINMwpA" name="ES_XTOPSUP" defaultValue="'0'">
@@ -116,18 +118,24 @@
           <nativeType href="pathmap://LogicalDBTypes#_WWew-xEnEeGTa_JlZYBw1A"/>
         </type>
       </columns>
-      <primaryKey xmi:id="_VoAXTRZAEeOSDrYWINMwpA" comments="Contrainte PK pour la colonne ES_E_ID" techID="_VoAXTBZAEeOSDrYWINMwpA" name="ES_E_PK" columns="_VoAXShZAEeOSDrYWINMwpA"/>
-      <constraints xmi:id="_VoCzqRZAEeOSDrYWINMwpA" comments="Liste des valeurs possibles pour ES_XTOPSUP" techID="_VoCzqBZAEeOSDrYWINMwpA" name="ES_E_CK1_1" expression="ES_XTOPSUP in ('0','1','3','9')"/>
     </tables>
     <tables xsi:type="database:Table" xmi:id="_VoAXUBZAEeOSDrYWINMwpA" techID="_VoAXTxZAEeOSDrYWINMwpA" name="ES_F">
+      <primaryKey xmi:id="_VoAXVRZAEeOSDrYWINMwpA" comments="Contrainte PK pour la colonne ES_F_ID" techID="_VoAXVBZAEeOSDrYWINMwpA" name="ES_F_PK" columns="_VoAXUhZAEeOSDrYWINMwpA"/>
+      <foreignKeys xmi:id="_VoAXmBZAEeOSDrYWINMwpA" comments="Contrainte FK avec la table ES_E" techID="_VoAXlxZAEeOSDrYWINMwpA" name="ES_F_FK1_1" target="_VoAXSBZAEeOSDrYWINMwpA">
+        <elements xmi:id="_VoA-UhZAEeOSDrYWINMwpA" techID="_VoA-URZAEeOSDrYWINMwpA" fkColumn="_VoAXmhZAEeOSDrYWINMwpA" pkColumn="_VoAXShZAEeOSDrYWINMwpA"/>
+      </foreignKeys>
+      <constraints xmi:id="_VoCzsxZAEeOSDrYWINMwpA" comments="Liste des valeurs possibles pour ES_XTOPSUP" techID="_VoCzshZAEeOSDrYWINMwpA" name="ES_F_CK1_1" expression="ES_XTOPSUP in ('0','1','3','9')"/>
+      <indexes xmi:id="_VoBlaRZAEeOSDrYWINMwpA" comments="Index sur la FK (ES_E_ID) de la table ES_F" techID="_VoBlaBZAEeOSDrYWINMwpA" name="ES_F_FK1_1">
+        <elements xmi:id="_VoBlaxZAEeOSDrYWINMwpA" techID="_VoBlahZAEeOSDrYWINMwpA" column="_VoAXmhZAEeOSDrYWINMwpA" asc="true"/>
+      </indexes>
       <columns xmi:id="_VoAXUhZAEeOSDrYWINMwpA" comments="PK de la table ES_F" techID="_VoAXURZAEeOSDrYWINMwpA" name="ES_F_ID" primaryKey="_VoAXVRZAEeOSDrYWINMwpA">
-        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_VoAXVhZAEeOSDrYWINMwpA">
-          <nativeType href="pathmap://LogicalDBTypes#_WWeJ4BEnEeGTa_JlZYBw1A"/>
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_VoAXVhZAEeOSDrYWINMwpA" length="19">
+          <nativeType href="pathmap://LogicalDBTypes#_WWeJ4hEnEeGTa_JlZYBw1A"/>
         </type>
       </columns>
       <columns xmi:id="_VoAXmhZAEeOSDrYWINMwpA" techID="_VoAXmRZAEeOSDrYWINMwpA" name="ES_E_ID" nullable="true" indexElements="_VoBlaxZAEeOSDrYWINMwpA" foreignKeyElements="_VoA-UhZAEeOSDrYWINMwpA">
-        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_VoA-UBZAEeOSDrYWINMwpA">
-          <nativeType href="pathmap://LogicalDBTypes#_WWeJ4BEnEeGTa_JlZYBw1A"/>
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_VoA-UBZAEeOSDrYWINMwpA" length="19">
+          <nativeType href="pathmap://LogicalDBTypes#_WWeJ4hEnEeGTa_JlZYBw1A"/>
         </type>
       </columns>
       <columns xmi:id="_VoCzrxZAEeOSDrYWINMwpA" comments="Indicateur pour savoir si l'enregistrement est valide" techID="_VoCzrhZAEeOSDrYWINMwpA" name="ES_XTOPSUP" defaultValue="'0'">
@@ -140,19 +148,13 @@
           <nativeType href="pathmap://LogicalDBTypes#_WWew-xEnEeGTa_JlZYBw1A"/>
         </type>
       </columns>
-      <primaryKey xmi:id="_VoAXVRZAEeOSDrYWINMwpA" comments="Contrainte PK pour la colonne ES_F_ID" techID="_VoAXVBZAEeOSDrYWINMwpA" name="ES_F_PK" columns="_VoAXUhZAEeOSDrYWINMwpA"/>
-      <foreignKeys xmi:id="_VoAXmBZAEeOSDrYWINMwpA" comments="Contrainte FK avec la table ES_E" techID="_VoAXlxZAEeOSDrYWINMwpA" name="ES_F_FK1_1" target="_VoAXSBZAEeOSDrYWINMwpA">
-        <elements xmi:id="_VoA-UhZAEeOSDrYWINMwpA" techID="_VoA-URZAEeOSDrYWINMwpA" fkColumn="_VoAXmhZAEeOSDrYWINMwpA" pkColumn="_VoAXShZAEeOSDrYWINMwpA"/>
-      </foreignKeys>
-      <constraints xmi:id="_VoCzsxZAEeOSDrYWINMwpA" comments="Liste des valeurs possibles pour ES_XTOPSUP" techID="_VoCzshZAEeOSDrYWINMwpA" name="ES_F_CK1_1" expression="ES_XTOPSUP in ('0','1','3','9')"/>
-      <indexes xmi:id="_VoBlaRZAEeOSDrYWINMwpA" comments="Index sur la FK (ES_E_ID) de la table ES_F" techID="_VoBlaBZAEeOSDrYWINMwpA" name="ES_F_FK1_1">
-        <elements xmi:id="_VoBlaxZAEeOSDrYWINMwpA" techID="_VoBlahZAEeOSDrYWINMwpA" column="_VoAXmhZAEeOSDrYWINMwpA" asc="true"/>
-      </indexes>
     </tables>
     <tables xsi:type="database:Table" xmi:id="_VoAXWBZAEeOSDrYWINMwpA" techID="_VoAXVxZAEeOSDrYWINMwpA" name="ES_G">
+      <primaryKey xmi:id="_VoAXXRZAEeOSDrYWINMwpA" comments="Contrainte PK pour la colonne ES_G_ID" techID="_VoAXXBZAEeOSDrYWINMwpA" name="ES_G_PK" columns="_VoAXWhZAEeOSDrYWINMwpA"/>
+      <constraints xmi:id="_VoDalRZAEeOSDrYWINMwpA" comments="Liste des valeurs possibles pour ES_XTOPSUP" techID="_VoDalBZAEeOSDrYWINMwpA" name="ES_G_CK1_1" expression="ES_XTOPSUP in ('0','1','3','9')"/>
       <columns xmi:id="_VoAXWhZAEeOSDrYWINMwpA" comments="PK de la table ES_G" techID="_VoAXWRZAEeOSDrYWINMwpA" name="ES_G_ID" primaryKey="_VoAXXRZAEeOSDrYWINMwpA">
-        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_VoAXXhZAEeOSDrYWINMwpA">
-          <nativeType href="pathmap://LogicalDBTypes#_WWeJ4BEnEeGTa_JlZYBw1A"/>
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_VoAXXhZAEeOSDrYWINMwpA" length="19">
+          <nativeType href="pathmap://LogicalDBTypes#_WWeJ4hEnEeGTa_JlZYBw1A"/>
         </type>
       </columns>
       <columns xmi:id="_VoDakRZAEeOSDrYWINMwpA" comments="Indicateur pour savoir si l'enregistrement est valide" techID="_VoDakBZAEeOSDrYWINMwpA" name="ES_XTOPSUP" defaultValue="'0'">
@@ -165,18 +167,24 @@
           <nativeType href="pathmap://LogicalDBTypes#_WWew-xEnEeGTa_JlZYBw1A"/>
         </type>
       </columns>
-      <primaryKey xmi:id="_VoAXXRZAEeOSDrYWINMwpA" comments="Contrainte PK pour la colonne ES_G_ID" techID="_VoAXXBZAEeOSDrYWINMwpA" name="ES_G_PK" columns="_VoAXWhZAEeOSDrYWINMwpA"/>
-      <constraints xmi:id="_VoDalRZAEeOSDrYWINMwpA" comments="Liste des valeurs possibles pour ES_XTOPSUP" techID="_VoDalBZAEeOSDrYWINMwpA" name="ES_G_CK1_1" expression="ES_XTOPSUP in ('0','1','3','9')"/>
     </tables>
     <tables xsi:type="database:Table" xmi:id="_VoAXYBZAEeOSDrYWINMwpA" techID="_VoAXXxZAEeOSDrYWINMwpA" name="ES_H">
+      <primaryKey xmi:id="_VoAXZRZAEeOSDrYWINMwpA" comments="Contrainte PK pour la colonne ES_H_ID" techID="_VoAXZBZAEeOSDrYWINMwpA" name="ES_H_PK" columns="_VoAXYhZAEeOSDrYWINMwpA"/>
+      <foreignKeys xmi:id="_VoA-VBZAEeOSDrYWINMwpA" comments="Contrainte FK avec la table ES_G" techID="_VoA-UxZAEeOSDrYWINMwpA" name="ES_H_FK1_1" target="_VoAXWBZAEeOSDrYWINMwpA">
+        <elements xmi:id="_VoA-WhZAEeOSDrYWINMwpA" techID="_VoA-WRZAEeOSDrYWINMwpA" fkColumn="_VoA-VhZAEeOSDrYWINMwpA" pkColumn="_VoAXWhZAEeOSDrYWINMwpA"/>
+      </foreignKeys>
+      <constraints xmi:id="_VoDanxZAEeOSDrYWINMwpA" comments="Liste des valeurs possibles pour ES_XTOPSUP" techID="_VoDanhZAEeOSDrYWINMwpA" name="ES_H_CK1_1" expression="ES_XTOPSUP in ('0','1','3','9')"/>
+      <indexes xmi:id="_VoCMcRZAEeOSDrYWINMwpA" comments="Index sur la FK (ES_G_ID) de la table ES_H" techID="_VoCMcBZAEeOSDrYWINMwpA" name="ES_H_FK1_1">
+        <elements xmi:id="_VoCMcxZAEeOSDrYWINMwpA" techID="_VoCMchZAEeOSDrYWINMwpA" column="_VoA-VhZAEeOSDrYWINMwpA" asc="true"/>
+      </indexes>
       <columns xmi:id="_VoAXYhZAEeOSDrYWINMwpA" comments="PK de la table ES_H" techID="_VoAXYRZAEeOSDrYWINMwpA" name="ES_H_ID" primaryKey="_VoAXZRZAEeOSDrYWINMwpA">
-        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_VoAXZhZAEeOSDrYWINMwpA">
-          <nativeType href="pathmap://LogicalDBTypes#_WWeJ4BEnEeGTa_JlZYBw1A"/>
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_VoAXZhZAEeOSDrYWINMwpA" length="19">
+          <nativeType href="pathmap://LogicalDBTypes#_WWeJ4hEnEeGTa_JlZYBw1A"/>
         </type>
       </columns>
       <columns xmi:id="_VoA-VhZAEeOSDrYWINMwpA" techID="_VoA-VRZAEeOSDrYWINMwpA" name="ES_G_ID" indexElements="_VoCMcxZAEeOSDrYWINMwpA" foreignKeyElements="_VoA-WhZAEeOSDrYWINMwpA">
-        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_VoA-WBZAEeOSDrYWINMwpA">
-          <nativeType href="pathmap://LogicalDBTypes#_WWeJ4BEnEeGTa_JlZYBw1A"/>
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_VoA-WBZAEeOSDrYWINMwpA" length="19">
+          <nativeType href="pathmap://LogicalDBTypes#_WWeJ4hEnEeGTa_JlZYBw1A"/>
         </type>
       </columns>
       <columns xmi:id="_VoDamxZAEeOSDrYWINMwpA" comments="Indicateur pour savoir si l'enregistrement est valide" techID="_VoDamhZAEeOSDrYWINMwpA" name="ES_XTOPSUP" defaultValue="'0'">
@@ -189,19 +197,13 @@
           <nativeType href="pathmap://LogicalDBTypes#_WWew-xEnEeGTa_JlZYBw1A"/>
         </type>
       </columns>
-      <primaryKey xmi:id="_VoAXZRZAEeOSDrYWINMwpA" comments="Contrainte PK pour la colonne ES_H_ID" techID="_VoAXZBZAEeOSDrYWINMwpA" name="ES_H_PK" columns="_VoAXYhZAEeOSDrYWINMwpA"/>
-      <foreignKeys xmi:id="_VoA-VBZAEeOSDrYWINMwpA" comments="Contrainte FK avec la table ES_G" techID="_VoA-UxZAEeOSDrYWINMwpA" name="ES_H_FK1_1" target="_VoAXWBZAEeOSDrYWINMwpA">
-        <elements xmi:id="_VoA-WhZAEeOSDrYWINMwpA" techID="_VoA-WRZAEeOSDrYWINMwpA" fkColumn="_VoA-VhZAEeOSDrYWINMwpA" pkColumn="_VoAXWhZAEeOSDrYWINMwpA"/>
-      </foreignKeys>
-      <constraints xmi:id="_VoDanxZAEeOSDrYWINMwpA" comments="Liste des valeurs possibles pour ES_XTOPSUP" techID="_VoDanhZAEeOSDrYWINMwpA" name="ES_H_CK1_1" expression="ES_XTOPSUP in ('0','1','3','9')"/>
-      <indexes xmi:id="_VoCMcRZAEeOSDrYWINMwpA" comments="Index sur la FK (ES_G_ID) de la table ES_H" techID="_VoCMcBZAEeOSDrYWINMwpA" name="ES_H_FK1_1">
-        <elements xmi:id="_VoCMcxZAEeOSDrYWINMwpA" techID="_VoCMchZAEeOSDrYWINMwpA" column="_VoA-VhZAEeOSDrYWINMwpA" asc="true"/>
-      </indexes>
     </tables>
     <tables xsi:type="database:Table" xmi:id="_VoAXaBZAEeOSDrYWINMwpA" techID="_VoAXZxZAEeOSDrYWINMwpA" name="ES_J">
+      <primaryKey xmi:id="_VoAXbRZAEeOSDrYWINMwpA" comments="Contrainte PK pour la colonne ES_J_ID" techID="_VoAXbBZAEeOSDrYWINMwpA" name="ES_J_PK" columns="_VoAXahZAEeOSDrYWINMwpA"/>
+      <constraints xmi:id="_VoDaqRZAEeOSDrYWINMwpA" comments="Liste des valeurs possibles pour ES_XTOPSUP" techID="_VoDaqBZAEeOSDrYWINMwpA" name="ES_J_CK1_1" expression="ES_XTOPSUP in ('0','1','3','9')"/>
       <columns xmi:id="_VoAXahZAEeOSDrYWINMwpA" comments="PK de la table ES_J" techID="_VoAXaRZAEeOSDrYWINMwpA" name="ES_J_ID" primaryKey="_VoAXbRZAEeOSDrYWINMwpA">
-        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_VoAXbhZAEeOSDrYWINMwpA">
-          <nativeType href="pathmap://LogicalDBTypes#_WWeJ4BEnEeGTa_JlZYBw1A"/>
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_VoAXbhZAEeOSDrYWINMwpA" length="19">
+          <nativeType href="pathmap://LogicalDBTypes#_WWeJ4hEnEeGTa_JlZYBw1A"/>
         </type>
       </columns>
       <columns xmi:id="_VoDapRZAEeOSDrYWINMwpA" comments="Indicateur pour savoir si l'enregistrement est valide" techID="_VoDapBZAEeOSDrYWINMwpA" name="ES_XTOPSUP" defaultValue="'0'">
@@ -214,13 +216,13 @@
           <nativeType href="pathmap://LogicalDBTypes#_WWew-xEnEeGTa_JlZYBw1A"/>
         </type>
       </columns>
-      <primaryKey xmi:id="_VoAXbRZAEeOSDrYWINMwpA" comments="Contrainte PK pour la colonne ES_J_ID" techID="_VoAXbBZAEeOSDrYWINMwpA" name="ES_J_PK" columns="_VoAXahZAEeOSDrYWINMwpA"/>
-      <constraints xmi:id="_VoDaqRZAEeOSDrYWINMwpA" comments="Liste des valeurs possibles pour ES_XTOPSUP" techID="_VoDaqBZAEeOSDrYWINMwpA" name="ES_J_CK1_1" expression="ES_XTOPSUP in ('0','1','3','9')"/>
     </tables>
     <tables xsi:type="database:Table" xmi:id="_VoAXcBZAEeOSDrYWINMwpA" techID="_VoAXbxZAEeOSDrYWINMwpA" name="ES_K">
+      <primaryKey xmi:id="_VoAXdRZAEeOSDrYWINMwpA" comments="Contrainte PK pour la colonne ES_K_ID" techID="_VoAXdBZAEeOSDrYWINMwpA" name="ES_K_PK" columns="_VoAXchZAEeOSDrYWINMwpA"/>
+      <constraints xmi:id="_VoDasxZAEeOSDrYWINMwpA" comments="Liste des valeurs possibles pour ES_XTOPSUP" techID="_VoDashZAEeOSDrYWINMwpA" name="ES_K_CK1_1" expression="ES_XTOPSUP in ('0','1','3','9')"/>
       <columns xmi:id="_VoAXchZAEeOSDrYWINMwpA" comments="PK de la table ES_K" techID="_VoAXcRZAEeOSDrYWINMwpA" name="ES_K_ID" primaryKey="_VoAXdRZAEeOSDrYWINMwpA">
-        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_VoAXdhZAEeOSDrYWINMwpA">
-          <nativeType href="pathmap://LogicalDBTypes#_WWeJ4BEnEeGTa_JlZYBw1A"/>
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_VoAXdhZAEeOSDrYWINMwpA" length="19">
+          <nativeType href="pathmap://LogicalDBTypes#_WWeJ4hEnEeGTa_JlZYBw1A"/>
         </type>
       </columns>
       <columns xmi:id="_VoDarxZAEeOSDrYWINMwpA" comments="Indicateur pour savoir si l'enregistrement est valide" techID="_VoDarhZAEeOSDrYWINMwpA" name="ES_XTOPSUP" defaultValue="'0'">
@@ -233,13 +235,13 @@
           <nativeType href="pathmap://LogicalDBTypes#_WWew-xEnEeGTa_JlZYBw1A"/>
         </type>
       </columns>
-      <primaryKey xmi:id="_VoAXdRZAEeOSDrYWINMwpA" comments="Contrainte PK pour la colonne ES_K_ID" techID="_VoAXdBZAEeOSDrYWINMwpA" name="ES_K_PK" columns="_VoAXchZAEeOSDrYWINMwpA"/>
-      <constraints xmi:id="_VoDasxZAEeOSDrYWINMwpA" comments="Liste des valeurs possibles pour ES_XTOPSUP" techID="_VoDashZAEeOSDrYWINMwpA" name="ES_K_CK1_1" expression="ES_XTOPSUP in ('0','1','3','9')"/>
     </tables>
     <tables xsi:type="database:Table" xmi:id="_VoAXeBZAEeOSDrYWINMwpA" techID="_VoAXdxZAEeOSDrYWINMwpA" name="ES_L">
+      <primaryKey xmi:id="_VoAXfRZAEeOSDrYWINMwpA" comments="Contrainte PK pour la colonne ES_L_ID" techID="_VoAXfBZAEeOSDrYWINMwpA" name="ES_L_PK" columns="_VoAXehZAEeOSDrYWINMwpA"/>
+      <constraints xmi:id="_VoDavRZAEeOSDrYWINMwpA" comments="Liste des valeurs possibles pour ES_XTOPSUP" techID="_VoDavBZAEeOSDrYWINMwpA" name="ES_L_CK1_1" expression="ES_XTOPSUP in ('0','1','3','9')"/>
       <columns xmi:id="_VoAXehZAEeOSDrYWINMwpA" comments="PK de la table ES_L" techID="_VoAXeRZAEeOSDrYWINMwpA" name="ES_L_ID" primaryKey="_VoAXfRZAEeOSDrYWINMwpA">
-        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_VoAXfhZAEeOSDrYWINMwpA">
-          <nativeType href="pathmap://LogicalDBTypes#_WWeJ4BEnEeGTa_JlZYBw1A"/>
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_VoAXfhZAEeOSDrYWINMwpA" length="19">
+          <nativeType href="pathmap://LogicalDBTypes#_WWeJ4hEnEeGTa_JlZYBw1A"/>
         </type>
       </columns>
       <columns xmi:id="_VoDauRZAEeOSDrYWINMwpA" comments="Indicateur pour savoir si l'enregistrement est valide" techID="_VoDauBZAEeOSDrYWINMwpA" name="ES_XTOPSUP" defaultValue="'0'">
@@ -252,13 +254,13 @@
           <nativeType href="pathmap://LogicalDBTypes#_WWew-xEnEeGTa_JlZYBw1A"/>
         </type>
       </columns>
-      <primaryKey xmi:id="_VoAXfRZAEeOSDrYWINMwpA" comments="Contrainte PK pour la colonne ES_L_ID" techID="_VoAXfBZAEeOSDrYWINMwpA" name="ES_L_PK" columns="_VoAXehZAEeOSDrYWINMwpA"/>
-      <constraints xmi:id="_VoDavRZAEeOSDrYWINMwpA" comments="Liste des valeurs possibles pour ES_XTOPSUP" techID="_VoDavBZAEeOSDrYWINMwpA" name="ES_L_CK1_1" expression="ES_XTOPSUP in ('0','1','3','9')"/>
     </tables>
     <tables xsi:type="database:Table" xmi:id="_VoAXgBZAEeOSDrYWINMwpA" techID="_VoAXfxZAEeOSDrYWINMwpA" name="ES_M">
+      <primaryKey xmi:id="_VoAXhRZAEeOSDrYWINMwpA" comments="Contrainte PK pour la colonne ES_M_ID" techID="_VoAXhBZAEeOSDrYWINMwpA" name="ES_M_PK" columns="_VoAXghZAEeOSDrYWINMwpA"/>
+      <constraints xmi:id="_VoDaxxZAEeOSDrYWINMwpA" comments="Liste des valeurs possibles pour ES_XTOPSUP" techID="_VoDaxhZAEeOSDrYWINMwpA" name="ES_M_CK1_1" expression="ES_XTOPSUP in ('0','1','3','9')"/>
       <columns xmi:id="_VoAXghZAEeOSDrYWINMwpA" comments="PK de la table ES_M" techID="_VoAXgRZAEeOSDrYWINMwpA" name="ES_M_ID" primaryKey="_VoAXhRZAEeOSDrYWINMwpA">
-        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_VoAXhhZAEeOSDrYWINMwpA">
-          <nativeType href="pathmap://LogicalDBTypes#_WWeJ4BEnEeGTa_JlZYBw1A"/>
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_VoAXhhZAEeOSDrYWINMwpA" length="19">
+          <nativeType href="pathmap://LogicalDBTypes#_WWeJ4hEnEeGTa_JlZYBw1A"/>
         </type>
       </columns>
       <columns xmi:id="_VoDawxZAEeOSDrYWINMwpA" comments="Indicateur pour savoir si l'enregistrement est valide" techID="_VoDawhZAEeOSDrYWINMwpA" name="ES_XTOPSUP" defaultValue="'0'">
@@ -271,18 +273,24 @@
           <nativeType href="pathmap://LogicalDBTypes#_WWew-xEnEeGTa_JlZYBw1A"/>
         </type>
       </columns>
-      <primaryKey xmi:id="_VoAXhRZAEeOSDrYWINMwpA" comments="Contrainte PK pour la colonne ES_M_ID" techID="_VoAXhBZAEeOSDrYWINMwpA" name="ES_M_PK" columns="_VoAXghZAEeOSDrYWINMwpA"/>
-      <constraints xmi:id="_VoDaxxZAEeOSDrYWINMwpA" comments="Liste des valeurs possibles pour ES_XTOPSUP" techID="_VoDaxhZAEeOSDrYWINMwpA" name="ES_M_CK1_1" expression="ES_XTOPSUP in ('0','1','3','9')"/>
     </tables>
     <tables xsi:type="database:Table" xmi:id="_VoA-XBZAEeOSDrYWINMwpA" comments="Table de jointure entre ES_K et ES_J" techID="_VoA-WxZAEeOSDrYWINMwpA" name="ES_KJ">
+      <primaryKey xmi:id="_VoA-ZhZAEeOSDrYWINMwpA" comments="Contrainte PK pour les colonnes ES_K_ID et ES_J_ID" techID="_VoA-ZRZAEeOSDrYWINMwpA" name="ES_KJ_PK" columns="_VoA-YBZAEeOSDrYWINMwpA _VoA-ahZAEeOSDrYWINMwpA"/>
+      <foreignKeys xmi:id="_VoA-XhZAEeOSDrYWINMwpA" comments="Contrainte FK avec la table ES_K" techID="_VoA-XRZAEeOSDrYWINMwpA" name="ES_KJ_FK1_1" target="_VoAXcBZAEeOSDrYWINMwpA">
+        <elements xmi:id="_VoA-ZBZAEeOSDrYWINMwpA" techID="_VoA-YxZAEeOSDrYWINMwpA" fkColumn="_VoA-YBZAEeOSDrYWINMwpA" pkColumn="_VoAXchZAEeOSDrYWINMwpA"/>
+      </foreignKeys>
+      <foreignKeys xmi:id="_VoA-aBZAEeOSDrYWINMwpA" comments="Contrainte FK avec la table ES_J" techID="_VoA-ZxZAEeOSDrYWINMwpA" name="ES_KJ_FK1_2" target="_VoAXaBZAEeOSDrYWINMwpA">
+        <elements xmi:id="_VoA-bhZAEeOSDrYWINMwpA" techID="_VoA-bRZAEeOSDrYWINMwpA" fkColumn="_VoA-ahZAEeOSDrYWINMwpA" pkColumn="_VoAXahZAEeOSDrYWINMwpA"/>
+      </foreignKeys>
+      <constraints xmi:id="_VoA-dBZAEeOSDrYWINMwpA" comments="Liste des valeurs possibles pour ES_XTOPSUP" techID="_VoA-cxZAEeOSDrYWINMwpA" name="ES_KJ_CK1_1" expression="ES_XTOPSUP in ('0','1','3','9')"/>
       <columns xmi:id="_VoA-YBZAEeOSDrYWINMwpA" comments="PK,FK de la table ES_KJ" techID="_VoA-XxZAEeOSDrYWINMwpA" name="ES_K_ID" primaryKey="_VoA-ZhZAEeOSDrYWINMwpA" foreignKeyElements="_VoA-ZBZAEeOSDrYWINMwpA">
-        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_VoA-YhZAEeOSDrYWINMwpA">
-          <nativeType href="pathmap://LogicalDBTypes#_WWeJ4BEnEeGTa_JlZYBw1A"/>
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_VoA-YhZAEeOSDrYWINMwpA" length="19">
+          <nativeType href="pathmap://LogicalDBTypes#_WWeJ4hEnEeGTa_JlZYBw1A"/>
         </type>
       </columns>
       <columns xmi:id="_VoA-ahZAEeOSDrYWINMwpA" comments="PK,FK de la table ES_KJ" techID="_VoA-aRZAEeOSDrYWINMwpA" name="ES_J_ID" primaryKey="_VoA-ZhZAEeOSDrYWINMwpA" foreignKeyElements="_VoA-bhZAEeOSDrYWINMwpA">
-        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_VoA-bBZAEeOSDrYWINMwpA">
-          <nativeType href="pathmap://LogicalDBTypes#_WWeJ4BEnEeGTa_JlZYBw1A"/>
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_VoA-bBZAEeOSDrYWINMwpA" length="19">
+          <nativeType href="pathmap://LogicalDBTypes#_WWeJ4hEnEeGTa_JlZYBw1A"/>
         </type>
       </columns>
       <columns xmi:id="_VoA-cBZAEeOSDrYWINMwpA" comments="Indicateur pour savoir si l'enregistrement est valide" techID="_VoA-bxZAEeOSDrYWINMwpA" name="ES_XTOPSUP" defaultValue="'0'">
@@ -295,24 +303,24 @@
           <nativeType href="pathmap://LogicalDBTypes#_WWew-xEnEeGTa_JlZYBw1A"/>
         </type>
       </columns>
-      <primaryKey xmi:id="_VoA-ZhZAEeOSDrYWINMwpA" comments="Contrainte PK pour les colonnes ES_K_ID et ES_J_ID" techID="_VoA-ZRZAEeOSDrYWINMwpA" name="ES_KJ_PK" columns="_VoA-YBZAEeOSDrYWINMwpA _VoA-ahZAEeOSDrYWINMwpA"/>
-      <foreignKeys xmi:id="_VoA-XhZAEeOSDrYWINMwpA" comments="Contrainte FK avec la table ES_K" techID="_VoA-XRZAEeOSDrYWINMwpA" name="ES_KJ_FK1_1" target="_VoAXcBZAEeOSDrYWINMwpA">
-        <elements xmi:id="_VoA-ZBZAEeOSDrYWINMwpA" techID="_VoA-YxZAEeOSDrYWINMwpA" fkColumn="_VoA-YBZAEeOSDrYWINMwpA" pkColumn="_VoAXchZAEeOSDrYWINMwpA"/>
-      </foreignKeys>
-      <foreignKeys xmi:id="_VoA-aBZAEeOSDrYWINMwpA" comments="Contrainte FK avec la table ES_J" techID="_VoA-ZxZAEeOSDrYWINMwpA" name="ES_KJ_FK1_2" target="_VoAXaBZAEeOSDrYWINMwpA">
-        <elements xmi:id="_VoA-bhZAEeOSDrYWINMwpA" techID="_VoA-bRZAEeOSDrYWINMwpA" fkColumn="_VoA-ahZAEeOSDrYWINMwpA" pkColumn="_VoAXahZAEeOSDrYWINMwpA"/>
-      </foreignKeys>
-      <constraints xmi:id="_VoA-dBZAEeOSDrYWINMwpA" comments="Liste des valeurs possibles pour ES_XTOPSUP" techID="_VoA-cxZAEeOSDrYWINMwpA" name="ES_KJ_CK1_1" expression="ES_XTOPSUP in ('0','1','3','9')"/>
     </tables>
     <tables xsi:type="database:Table" xmi:id="_VoA-ehZAEeOSDrYWINMwpA" comments="Table de jointure entre ES_M et ES_L" techID="_VoA-eRZAEeOSDrYWINMwpA" name="ES_ML">
+      <primaryKey xmi:id="_VoA-hBZAEeOSDrYWINMwpA" comments="Contrainte PK pour les colonnes ES_M_ID et ES_L_ID" techID="_VoA-gxZAEeOSDrYWINMwpA" name="ES_ML_PK" columns="_VoA-fhZAEeOSDrYWINMwpA _VoA-iBZAEeOSDrYWINMwpA"/>
+      <foreignKeys xmi:id="_VoA-fBZAEeOSDrYWINMwpA" comments="Contrainte FK avec la table ES_M" techID="_VoA-exZAEeOSDrYWINMwpA" name="ES_ML_FK1_1" target="_VoAXgBZAEeOSDrYWINMwpA">
+        <elements xmi:id="_VoA-ghZAEeOSDrYWINMwpA" techID="_VoA-gRZAEeOSDrYWINMwpA" fkColumn="_VoA-fhZAEeOSDrYWINMwpA" pkColumn="_VoAXghZAEeOSDrYWINMwpA"/>
+      </foreignKeys>
+      <foreignKeys xmi:id="_VoA-hhZAEeOSDrYWINMwpA" comments="Contrainte FK avec la table ES_L" techID="_VoA-hRZAEeOSDrYWINMwpA" name="ES_ML_FK1_2" target="_VoAXeBZAEeOSDrYWINMwpA">
+        <elements xmi:id="_VoA-jBZAEeOSDrYWINMwpA" techID="_VoA-ixZAEeOSDrYWINMwpA" fkColumn="_VoA-iBZAEeOSDrYWINMwpA" pkColumn="_VoAXehZAEeOSDrYWINMwpA"/>
+      </foreignKeys>
+      <constraints xmi:id="_VoA-khZAEeOSDrYWINMwpA" comments="Liste des valeurs possibles pour ES_XTOPSUP" techID="_VoA-kRZAEeOSDrYWINMwpA" name="ES_ML_CK1_1" expression="ES_XTOPSUP in ('0','1','3','9')"/>
       <columns xmi:id="_VoA-fhZAEeOSDrYWINMwpA" comments="PK,FK de la table ES_ML" techID="_VoA-fRZAEeOSDrYWINMwpA" name="ES_M_ID" primaryKey="_VoA-hBZAEeOSDrYWINMwpA" foreignKeyElements="_VoA-ghZAEeOSDrYWINMwpA">
-        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_VoA-gBZAEeOSDrYWINMwpA">
-          <nativeType href="pathmap://LogicalDBTypes#_WWeJ4BEnEeGTa_JlZYBw1A"/>
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_VoA-gBZAEeOSDrYWINMwpA" length="19">
+          <nativeType href="pathmap://LogicalDBTypes#_WWeJ4hEnEeGTa_JlZYBw1A"/>
         </type>
       </columns>
       <columns xmi:id="_VoA-iBZAEeOSDrYWINMwpA" comments="PK,FK de la table ES_ML" techID="_VoA-hxZAEeOSDrYWINMwpA" name="ES_L_ID" primaryKey="_VoA-hBZAEeOSDrYWINMwpA" foreignKeyElements="_VoA-jBZAEeOSDrYWINMwpA">
-        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_VoA-ihZAEeOSDrYWINMwpA">
-          <nativeType href="pathmap://LogicalDBTypes#_WWeJ4BEnEeGTa_JlZYBw1A"/>
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_VoA-ihZAEeOSDrYWINMwpA" length="19">
+          <nativeType href="pathmap://LogicalDBTypes#_WWeJ4hEnEeGTa_JlZYBw1A"/>
         </type>
       </columns>
       <columns xmi:id="_VoA-jhZAEeOSDrYWINMwpA" comments="Indicateur pour savoir si l'enregistrement est valide" techID="_VoA-jRZAEeOSDrYWINMwpA" name="ES_XTOPSUP" defaultValue="'0'">
@@ -325,14 +333,6 @@
           <nativeType href="pathmap://LogicalDBTypes#_WWew-xEnEeGTa_JlZYBw1A"/>
         </type>
       </columns>
-      <primaryKey xmi:id="_VoA-hBZAEeOSDrYWINMwpA" comments="Contrainte PK pour les colonnes ES_M_ID et ES_L_ID" techID="_VoA-gxZAEeOSDrYWINMwpA" name="ES_ML_PK" columns="_VoA-fhZAEeOSDrYWINMwpA _VoA-iBZAEeOSDrYWINMwpA"/>
-      <foreignKeys xmi:id="_VoA-fBZAEeOSDrYWINMwpA" comments="Contrainte FK avec la table ES_M" techID="_VoA-exZAEeOSDrYWINMwpA" name="ES_ML_FK1_1" target="_VoAXgBZAEeOSDrYWINMwpA">
-        <elements xmi:id="_VoA-ghZAEeOSDrYWINMwpA" techID="_VoA-gRZAEeOSDrYWINMwpA" fkColumn="_VoA-fhZAEeOSDrYWINMwpA" pkColumn="_VoAXghZAEeOSDrYWINMwpA"/>
-      </foreignKeys>
-      <foreignKeys xmi:id="_VoA-hhZAEeOSDrYWINMwpA" comments="Contrainte FK avec la table ES_L" techID="_VoA-hRZAEeOSDrYWINMwpA" name="ES_ML_FK1_2" target="_VoAXeBZAEeOSDrYWINMwpA">
-        <elements xmi:id="_VoA-jBZAEeOSDrYWINMwpA" techID="_VoA-ixZAEeOSDrYWINMwpA" fkColumn="_VoA-iBZAEeOSDrYWINMwpA" pkColumn="_VoAXehZAEeOSDrYWINMwpA"/>
-      </foreignKeys>
-      <constraints xmi:id="_VoA-khZAEeOSDrYWINMwpA" comments="Liste des valeurs possibles pour ES_XTOPSUP" techID="_VoA-kRZAEeOSDrYWINMwpA" name="ES_ML_CK1_1" expression="ES_XTOPSUP in ('0','1','3','9')"/>
     </tables>
   </schemas>
 </database:DataBase>
