@@ -912,7 +912,9 @@ public class EntityToMLD extends AbstractTransformation {
 		idColumn.setComments(getPKColumnComment(idColumn));
 		idColumn.addToPrimaryKey();
 		TypeInstance typeInstance = TypesLibraryFactory.eINSTANCE.createTypeInstance();
-		typeInstance.setNativeType(nativeTypesMap.get("Entier"));
+		// SAFRAN-694 - PK column type is "entier long" with a default lengh of 19
+		typeInstance.setNativeType(nativeTypesMap.get("Entier long"));
+		typeInstance.setLength(19);
 		idColumn.setType(typeInstance);
 		
 		addToObjectsToBeKept(idColumn);
