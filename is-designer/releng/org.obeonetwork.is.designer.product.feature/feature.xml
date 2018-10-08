@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!--
-    Copyright (c) 2016, 2017 Obeo.
+    Copyright (c) 2016, 2018 Obeo.
     All rights reserved. This program and the accompanying materials
     are made available under the terms of the Eclipse Public License v1.0
     which accompanies this distribution, and is available at
@@ -24,26 +24,6 @@
    <copyright url="https://www.obeo.fr">
       %copyright
    </copyright>
-
-   <includes
-         id="org.eclipse.sirius.runtime"
-         version="0.0.0"/>
-
-   <includes
-         id="org.eclipse.sirius.runtime.acceleo"
-         version="0.0.0"/>
-
-   <includes
-         id="org.eclipse.sirius.runtime.ide.eef"
-         version="0.0.0"/>
-
-   <includes
-         id="org.eclipse.sirius.runtime.ide.ui"
-         version="0.0.0"/>
-
-   <includes
-         id="org.eclipse.sirius.runtime.ide.ui.acceleo"
-         version="0.0.0"/>
 
    <includes
          id="org.eclipse.nebula.treemapper.feature"
@@ -71,10 +51,6 @@
 
    <includes
          id="org.obeonetwork.dsl.feature.cinematic"
-         version="0.0.0"/>
-
-   <includes
-         id="org.eclipse.ecf.core.feature"
          version="0.0.0"/>
 
    <includes
@@ -162,23 +138,11 @@
          version="0.0.0"/>
 
    <includes
-         id="org.eclipse.emf.eef.edt-feature"
+         id="fr.gouv.mindef.safran.database.scaffold.feature"
          version="0.0.0"/>
 
    <includes
-         id="org.eclipse.emf.eef.extended-feature"
-         version="0.0.0"/>
-
-   <includes
-         id="org.eclipse.emf.eef.runtime-feature"
-         version="0.0.0"/>
-
-   <includes
-         id="org.eclipse.sirius.runtime.ide.eef"
-         version="0.0.0"/>
-
-   <includes
-         id="org.eclipse.sdk"
+         id="fr.gouv.mindef.safran.database.ui.feature"
          version="0.0.0"/>
 
    <includes
@@ -194,23 +158,7 @@
          version="0.0.0"/>
 
    <includes
-         id="org.eclipse.egit"
-         version="0.0.0"/>
-
-   <includes
-         id="fr.obeo.dsl.designer.gen.html.feature"
-         version="0.0.0"/>
-
-   <includes
-         id="org.eclipse.gmf.runtime.notation"
-         version="0.0.0"/>
-
-   <includes
          id="org.obeonetwork.dsl.environment.design.feature"
-         version="0.0.0"/>
-
-   <includes
-         id="org.eclipse.acceleo.query"
          version="0.0.0"/>
 
    <includes
@@ -218,55 +166,35 @@
          version="0.0.0"/>
 
    <includes
+         id="org.obeonetwork.database.m2doc.feature"
+         version="0.0.0"/>
+
+   <includes
+         id="org.obeonetwork.dsl.graal.m2doc.feature"
+         version="0.0.0"/>
+
+   <includes
+         id="org.obeonetwork.dsl.requirement.m2doc.feature"
+         version="0.0.0"/>
+
+   <includes
+         id="org.obeonetwork.m2doc.feature"
+         version="0.0.0"/>
+
+   <includes
+         id="org.obeonetwork.m2doc.sirius.feature"
+         version="0.0.0"/>
+
+   <includes
+         id="org.obeonetwork.dsl.graal.m2doc.feature"
+         version="0.0.0"/>
+
+   <includes
+         id="org.obeonetwork.dsl.requirement.m2doc.feature"
+         version="0.0.0"/>
+
+   <includes
          id="org.eclipse.sirius.doc.feature"
-         version="0.0.0"/>
-
-   <includes
-         id="fr.obeo.dsl.designer.ce.feature"
-         version="0.0.0"/>
-
-   <includes
-         id="fr.gouv.mindef.safran.database.scaffold.feature"
-         version="0.0.0"/>
-
-   <includes
-         id="fr.gouv.mindef.safran.database.ui.feature"
-         version="0.0.0"/>
-
-   <includes
-         id="org.obeonetwork.is.license"
-         version="0.0.0"/>
-
-   <includes
-         id="fr.gouv.mindef.safran.cinematic.gen.html.feature"
-         version="0.0.0"/>
-
-   <includes
-         id="fr.gouv.mindef.safran.feature.is"
-         version="0.0.0"/>
-
-   <includes
-         id="fr.gouv.mindef.safran.graal.extensions.feature"
-         version="0.0.0"/>
-
-   <includes
-         id="fr.gouv.mindef.safran.project.lifecycle.feature"
-         version="0.0.0"/>
-
-   <includes
-         id="org.eclipse.team.svn.resource.ignore.rules.jdt"
-         version="0.0.0"/>
-
-   <includes
-         id="org.polarion.eclipse.team.svn.connector"
-         version="0.0.0"/>
-
-   <includes
-         id="org.polarion.eclipse.team.svn.connector.svnkit18"
-         version="0.0.0"/>
-
-   <includes
-         id="org.eclipse.team.svn"
          version="0.0.0"/>
 
    <includes
@@ -278,35 +206,31 @@
          version="0.0.0"/>
 
    <includes
-         id="org.obeonetwork.m2doc.feature"
-         version="0.0.0"
-         optional="true"/>
-
-   <includes
-         id="org.obeonetwork.database.m2doc.feature"
-         version="0.0.0"
-         optional="true"/>
-
-   <includes
-         id="org.obeonetwork.dsl.graal.m2doc.feature"
-         version="0.0.0"
-         optional="true"/>
-
-   <includes
-         id="org.obeonetwork.dsl.requirement.m2doc.feature"
-         version="0.0.0"
-         optional="true"/>
+         id="org.obeonetwork.m2doc.ui.feature"
+         version="0.0.0"/>
 
    <includes
          id="org.eclipse.acceleo"
          version="0.0.0"/>
 
    <includes
-         id="org.obeonetwork.m2doc.sirius.feature"
+         id="fr.gouv.mindef.safran.project.lifecycle.feature"
          version="0.0.0"/>
 
    <includes
-         id="org.obeonetwork.m2doc.ui.feature"
+         id="fr.gouv.mindef.safran.graal.extensions.feature"
+         version="0.0.0"/>
+
+   <includes
+         id="fr.gouv.mindef.safran.feature.is"
+         version="0.0.0"/>
+
+   <includes
+         id="fr.gouv.mindef.safran.cinematic.gen.html.feature"
+         version="0.0.0"/>
+         
+   <includes
+         id="org.obeonetwork.tools.projectlibrary.feature"
          version="0.0.0"/>
 
    <includes
@@ -318,11 +242,6 @@
          version="0.0.0"/>
 
    <includes
-         id="org.obeonetwork.tools.projectlibrary.feature"
-         version="0.0.0"/>
-
-   <includes
          id="org.obeonetwork.cinematic.m2doc.feature"
          version="0.0.0"/>
-
 </feature>

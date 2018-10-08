@@ -11,10 +11,10 @@
 Version  1.8.0
 
 
-Copyright (c) 2005, 2017 Obeo. All Rights Reserved.
+Copyright (c) 2005-2018 Obeo. All Rights Reserved.
 Viewpoint Specification : Copyright (c) 2005-2015 Thales.
 
-Visit https://www.obeo.fr
+Visit http://www.obeo.fr
       </text>
    </aboutInfo>
 
@@ -22,12 +22,13 @@ Visit https://www.obeo.fr
    </configIni>
 
    <launcherArgs>
-      <programArgs>--launcher.XXMaxPermSize
-256m
-      </programArgs>
-      <vmArgs>-Xms256m
+   	  <vmArgs>-Dosgi.requiredJavaVersion=1.8
+-XX:+UseG1GC
+-XX:+UseStringDeduplication
+-Xms256m
 -Xmx1024m
--XX:MaxPermSize=256m
+#-Dosgi.debug=.options
+-Djdk.crypto.KeyAgreement.legacyKDF=true
       </vmArgs>
       <vmArgsMac>-XstartOnFirstThread -Dorg.eclipse.swt.internal.carbon.smallFonts
       </vmArgsMac>
@@ -49,24 +50,24 @@ Visit https://www.obeo.fr
    </launcher>
 
    <vm>
-      <linux include="false">org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.6</linux>
-      <macos include="false">org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.6</macos>
-      <solaris include="false">org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.6</solaris>
-      <windows include="false">org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.6</windows>
+      <linux include="false">org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.8</linux>
+      <macos include="false">org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.8</macos>
+      <solaris include="false">org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.8</solaris>
+      <windows include="false">org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.8</windows>
    </vm>
 
    <license>
         <url>www.obeodesigner.com</url>
         <text>
-   Copyright (c) 2008, 2017 Obeo.
+   Copyright (C) 2008, 2018 Obeo.
 
 LICENSE TERMS
 
-&quot;OBEO&quot; is the Obeo SARL (french limited liability company), based 7 Boulevard AmpÃ¨re, BP 20773 Espace Performance La Fleuriaye, 44481 CARQUEFOU CEDEX, FRANCE
+&quot;OBEO&quot; is the Obeo S.A.S. (french limited liability company), based 7 Boulevard Ampère, BP 20773 Espace Performance La Fleuriaye, 44481 CARQUEFOU CEDEX, FRANCE
 
 &quot;You&quot; and &quot;Your&quot; refer either to an individual person or to a single legal entity.
 
-The &quot;french law on intellectual property&quot; refers to the &quot;Code de la propriÃ©tÃ© intellectuelle franÃ§ais&quot;
+The &quot;french law on intellectual property&quot; refers to the &quot;Code de la propriété intellectuelle français&quot;
 
 &quot;OBEO DESIGNER&quot; is the following, including the original and all whole or partial copies: 1) machine-readable instructions and data, 2) components, 3) audio-visual content (such as images, text, recordings, or pictures), 4) related licensed materials, and 5) license use documents or keys, and documentation.
 
@@ -112,6 +113,12 @@ The user is authorized to use the Academic license for Research and Development,
 The user is authorized to redistribute the software OBEO DESIGNER under the terms of the Academic License, without requiring explicit consent of OBEO. Any other type of redistribution is prohibited without a trade agreement with OBEO.
 
 The user is not authorized to install or make a technical means to hide within the software OBEO DESIGNER some informations on the Academic license.
+
+DISCLAIMER
+
+Notwithstanding what was stated previously, Obeo Designer and Obeo Designer Team products are not warranted to run without any error or interruption.
+
+You acknowledge and accept the risks involved in using these products which could include without limitation, down time, loss of connectivity or data, system crashes, bad performances or performance degradation.
          </text>
    </license>
 
@@ -120,7 +127,55 @@ The user is not authorized to install or make a technical means to hide within t
 
    <features>
       <feature id="org.obeonetwork.is.designer.product.feature" installMode="root"/>
-      <feature id="org.eclipse.platform" installMode="root"/>
+      <feature id="org.eclipse.draw2d.sdk"/>
+      <feature id="org.eclipse.egit"/>
+      <feature id="org.eclipse.emf.compare"/>
+      <feature id="org.eclipse.emf.compare.source"/>
+      <feature id="org.eclipse.emf.compare.ide.ui"/>
+      <feature id="org.eclipse.emf.compare.ide.ui.source"/>
+      <feature id="org.eclipse.emf.compare.diagram.sirius"/>
+      <feature id="org.eclipse.emf.compare.diagram.sirius.source"/>
+      <feature id="org.eclipse.emf.compare.egit"/>
+      <feature id="org.eclipse.emf.sdk"/>
+      <feature id="org.eclipse.emf.transaction.sdk"/>
+      <feature id="org.eclipse.emf.validation.sdk"/>
+      <feature id="org.eclipse.epp.mpc"/>
+      <feature id="org.eclipse.equinox.p2.user.ui"/>
+      <feature id="org.eclipse.gef.sdk"/>
+      <feature id="org.eclipse.gmf.runtime.notation.sdk"/>
+      <feature id="org.eclipse.gmf"/>
+      <feature id="org.eclipse.gmf.source"/>
+      <feature id="org.eclipse.gmf.examples.runtime.ui.pde"/>
+      <feature id="org.eclipse.gmf.runtime.thirdparty.source"/>
+      <feature id="org.eclipse.gmf.runtime.sdk"/>
+      <feature id="org.eclipse.sdk"/>
+      <feature id="org.eclipse.sirius.doc.feature"/>
+      <feature id="org.eclipse.sirius.runtime"/>
+      <feature id="org.eclipse.sirius.runtime.source"/>
+      <feature id="org.eclipse.sirius.runtime.acceleo"/>
+      <feature id="org.eclipse.sirius.runtime.acceleo.source"/>
+      <feature id="org.eclipse.sirius.runtime.aql"/>
+      <feature id="org.eclipse.sirius.runtime.aql.source"/>
+      <feature id="org.eclipse.sirius.runtime.ide.eef"/>
+      <feature id="org.eclipse.sirius.runtime.ide.eef.source"/>
+      <feature id="org.eclipse.sirius.runtime.ide.ui"/>
+      <feature id="org.eclipse.sirius.runtime.ide.ui.source"/>
+      <feature id="org.eclipse.sirius.runtime.ide.ui.acceleo"/>
+      <feature id="org.eclipse.sirius.runtime.ide.ui.acceleo.source"/>
+      <feature id="org.eclipse.sirius.specifier.ide.ui"/>
+      <feature id="org.eclipse.sirius.specifier.ide.ui.source"/>
+      <feature id="org.eclipse.sirius.specifier.ide.ui.acceleo"/>
+      <feature id="org.eclipse.sirius.specifier.ide.ui.acceleo.source"/>
+      <feature id="org.eclipse.sirius.specifier.ide.ui.aql"/>
+      <feature id="org.eclipse.sirius.specifier.ide.ui.aql.source"/>
+      <feature id="org.eclipse.sirius.tests.support"/>
+      <feature id="org.eclipse.sirius.tests.support.source"/>
+      <feature id="org.eclipse.eef.sdk.feature"/>
+      <feature id="org.eclipse.eef.sdk.feature.source"/>
+      <feature id="org.eclipse.eef.ext.widgets.reference.feature"/>
+      <feature id="org.eclipse.eef.ext.widgets.reference.feature.source"/>
+      <feature id="org.eclipse.sirius.interpreter.feature"/>
+      <feature id="org.eclipse.sirius.interpreter.feature.source"/>
    </features>
 
    <configurations>
@@ -132,6 +187,7 @@ The user is not authorized to install or make a technical means to hide within t
       <plugin id="org.eclipse.equinox.simpleconfigurator" autoStart="true" startLevel="1" />
       <plugin id="org.eclipse.update.configurator" autoStart="true" startLevel="3" />
       <property name="eclipse.buildId" value="Version ${unqualifiedVersion} ${buildQualifier}" />
+      <property name="osgi.instance.area.default" value="@user.home/ISDesignerWorkspace" os="macosx" />
    </configurations>
 
    <preferencesInfo>
