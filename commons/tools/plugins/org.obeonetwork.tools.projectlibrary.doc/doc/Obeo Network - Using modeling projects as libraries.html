@@ -5,7 +5,7 @@
 	</head>
 	<body>
 		<p>
-			<i>Copyright &#169; Obeo 2017 -  All rights reserved. This program and the accompanying materials are made available under the terms of the Eclipse Public License v1.0</i>
+			<i>Copyright &#169; Obeo 2018 -  All rights reserved. This program and the accompanying materials are made available under the terms of the Eclipse Public License v1.0</i>
 		</p>
 		<p>
 			<code>Authors</code> Stéphane Thibaudeau
@@ -13,6 +13,125 @@
 			<code>Contact</code> stephane.thibaudeau@obeo.fr
 		</p>
 		<h1 id="ObeoNetworkUsingmodelingprojectsaslibraries">Obeo Network &#8211; Using modeling projects as libraries</h1>
-		<p>TO DO</p>
+		<p>Since 1.8 version IS Designer allows one to export a modeling project as a library file (a MAR file) and import it into another modeling project.</p>
+		<p>This can be useful when one wants to model core concepts inside a core project and then use these core concepts in another modeling project without modifying the initial project.  </p>
+		<p>When exporting a modeling project as a library file (typically with 
+			<em>.mar</em> extension) one can set a version number corresponding to the exported data. This version number is checked when importing the library into another modeling project.
+		</p>
+		<h2 id="Exportamodelingprojectasalibrary">Export a modeling project as a library</h2>
+		<p>To export a modeling project as a library, use the 
+			<em>File &gt; Export...</em> menu and choose 
+			<em>Export modeling project as library</em> in 
+			<em>IS Designer</em> category.
+		</p>
+		<p>
+			<img border="0" src="pics/export menu.png"/>
+		</p>
+		<p>On the wizard&#8217;s first page, the user can select the project to be exported and the destination for the generated MAR file.
+			<br/>The destinatin file can be located inside or outside an eclipse project. The recommended way is to use an external location.
+		</p>
+		<p>
+			<img border="0" src="pics/export wizard page 1.png"/>
+		</p>
+		<p>On the wizard&#8217;s next page, the user can define the following information :</p>
+		<ul>
+			<li>
+				<strong>Project ID</strong> The default value is the name of the exported project. (required)
+			</li>
+			<li>
+				<strong>Version</strong> The version number must be in the form x.y.z where x,y and z are integers.
+			</li>
+			<li>
+				<strong>Previous version</strong> This table is not editable. It presents the previous versions that were exported from the same modeling project.
+			</li>
+			<li>
+				<strong>Comment</strong>
+			</li>
+		</ul>
+		<p>
+			<img border="0" src="pics/export wizard page 2.png"/>
+		</p>
+		<p>Once this last step is completed, a MAR file is generated at the specified location .This file can then be imported into another modeling project.</p>
+		<h2 id="Importalibraryintoamodelingproject">Import a library into a modeling project</h2>
+		<p>To import a library file into a modeling project, use the 
+			<em>File &gt; Import...</em> menu and choose 
+			<em>Export library into modeling project</em> in 
+			<em>IS Designer</em> category.
+		</p>
+		<p>
+			<img border="0" src="pics/import menu.png"/>
+		</p>
+		<p>On the wizard&#8217;s page, the user can define :</p>
+		<ul>
+			<li>the target project. The project is already selected if the user launched the import from a selected project.</li>
+			<li>the MAR file to import</li>
+		</ul>
+		<p>
+			<img border="0" src="pics/import wizard.png"/>
+		</p>
+		<p>Once the MAR file has been selected, informations are extracted from the file and displayed to the user :</p>
+		<ul>
+			<li>
+				<strong>Project ID</strong>
+			</li>
+			<li>
+				<strong>Version</strong>
+			</li>
+			<li>
+				<strong>Creation date</strong>
+			</li>
+			<li>
+				<strong>Comment</strong>
+			</li>
+			<li>
+				<strong>Dependencies</strong> In this table, the dependencies found in the MAR file are displayed with a green or red tick to indicate if the dependency is valid regarding the target project.
+			</li>
+		</ul>
+		<p>If all dependencies are valid, the user can finish the wizard. The file is then imported into the 
+			<em>libraries</em> folder in the target project.
+			<br/>A folder with the name and ID of the imported project is created. All semantic and graphical data are copied into this folder.
+		</p>
+		<p>
+			<img border="0" src="pics/imported library.png"/>
+		</p>
+		<h2 id="Notesaboutdependencies">Notes about dependencies</h2>
+		<p>When importing a MAR file a dependencies table is displayed :</p>
+		<ul>
+			<li>the main project that was exported in the MAR file. A check against the version is done if this project had already been imported.</li>
+			<li>the projects that were imported in this main project before the MAR file was created. A check against the version is done in case these projects had been already imported into the target project either directly or by importing another project.</li>
+		</ul>
+		<p>Let&#8217;s illustrate this with an example.</p>
+		<h3 id="InitialCoreprojectbeforeexport">Initial &lt;Core project&gt; before export</h3>
+		<p>
+			<img border="0" src="pics/core project.png"/>
+		</p>
+		<h3 id="InitialtargetprojectProject1">Initial target project &lt;Project 1&gt;</h3>
+		<p>
+			<img border="0" src="pics/initial project1.png"/>
+		</p>
+		<h3 id="Project1afterimportingCoreproject">&lt;Project 1&gt; after importing &lt;Core project&gt;</h3>
+		<p>
+			<img border="0" src="pics/imported library.png"/>
+		</p>
+		<p>A 
+			<em>libraries</em> folder has been created and a folder for 
+			<em>Core project</em> V1.0.0 has been created too.
+		</p>
+		<h3 id="InitialtargetprojectProject2">Initial target project &lt;Project 2&gt;</h3>
+		<p>
+			<img border="0" src="pics/initial project2.png"/>
+		</p>
+		<h3 id="Project2afterimportingProject1">&lt;Project 2&gt; after importing &lt;Project 1&gt;</h3>
+		<p>
+			<img border="0" src="pics/project2 after import.png"/>
+		</p>
+		<p>A 
+			<em>libraries</em> folder has been created and a folder for 
+			<em>Project 1</em> V1.0.0 has been created too.
+			<br/>Inside the 
+			<em>Project 1-1.0.0</em> we can see a 
+			<em>libraries</em> folder for the previously imported 
+			<em>Core project</em>.
+		</p>
 	</body>
 </html>
