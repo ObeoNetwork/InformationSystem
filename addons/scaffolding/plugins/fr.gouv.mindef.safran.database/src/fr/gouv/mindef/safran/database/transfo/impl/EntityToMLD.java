@@ -845,7 +845,8 @@ public class EntityToMLD extends AbstractTransformation {
 		for (Literal literal : enumeration.getLiterals()) {
 			String value = literal.getName();
 			if (value != null) {
-				literalValues.add("''" + value + "''");
+				// Fix for SAFRAN-696
+				literalValues.add("'" + value + "'");
 				int length = value.length();
 				if (maxSize < length) {
 					maxSize = length;
@@ -865,7 +866,8 @@ public class EntityToMLD extends AbstractTransformation {
 		
 		// A default value is added, it is the first literal
 		if (!enumeration.getLiterals().isEmpty()) {
-			column.setDefaultValue(enumeration.getLiterals().get(0).getName());
+			// Fix for SAFRAN-696
+			column.setDefaultValue("'" + enumeration.getLiterals().get(0).getName() + "'");
 		}
 	}
 	
