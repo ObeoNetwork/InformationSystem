@@ -4,9 +4,9 @@
   <schemas xmi:id="_bjtD-pRuEeaZEo7p_B9KuA" techID="_bjtD-ZRuEeaZEo7p_B9KuA" name="NAMESPACE_1">
     <tables xsi:type="database:Table" xmi:id="_LWawOZeTEeas8pX9p1wkag" techID="_LWawOJeTEeas8pX9p1wkag" name="ENTITY1">
       <primaryKey xmi:id="_LWb-V5eTEeas8pX9p1wkag" comments="Contrainte PK pour la colonne ENTITY1_ID" techID="_LWb-VpeTEeas8pX9p1wkag" name="ENTITY1_PK" columns="_LWb-VJeTEeas8pX9p1wkag"/>
-      <constraints xmi:id="_LWbXRZeTEeas8pX9p1wkag" comments="Liste des valeurs possibles pour ATTRIBUTE1" techID="_LWbXRJeTEeas8pX9p1wkag" name="ENTITY1_CK1_1" expression="ATTRIBUTE1 in (''literal1'')"/>
+      <constraints xmi:id="_LWbXRZeTEeas8pX9p1wkag" comments="Liste des valeurs possibles pour ATTRIBUTE1" techID="_LWbXRJeTEeas8pX9p1wkag" name="ENTITY1_CK1_1" expression="ATTRIBUTE1 in ('literal1')"/>
       <constraints xmi:id="_LWclZJeTEeas8pX9p1wkag" comments="Liste des valeurs possibles pour NAMESPACE_1_XTOPSUP" techID="_LWclY5eTEeas8pX9p1wkag" name="ENTITY1_CK1_2" expression="NAMESPACE_1_XTOPSUP in ('0','1','3','9')"/>
-      <columns xmi:id="_LWbXQZeTEeas8pX9p1wkag" techID="_LWbXQJeTEeas8pX9p1wkag" name="ATTRIBUTE1" nullable="true" defaultValue="literal1">
+      <columns xmi:id="_LWbXQZeTEeas8pX9p1wkag" techID="_LWbXQJeTEeas8pX9p1wkag" name="ATTRIBUTE1" nullable="true" defaultValue="'literal1'">
         <type xsi:type="typeslibrary:TypeInstance" xmi:id="_LWbXQ5eTEeas8pX9p1wkag" length="8">
           <nativeType href="pathmap://LogicalDBTypes#_WWew-BEnEeGTa_JlZYBw1A"/>
         </type>

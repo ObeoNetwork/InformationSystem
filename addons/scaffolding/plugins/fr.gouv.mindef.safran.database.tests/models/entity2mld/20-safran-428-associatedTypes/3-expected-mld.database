@@ -4,7 +4,7 @@
   <schemas xmi:id="_6Ta2saaPEeaYsJy5K1YQQQ" techID="_6Ta2sKaPEeaYsJy5K1YQQQ" name="NAMESPACE_1">
     <tables xsi:type="database:Table" xmi:id="_6Ta2sqaPEeaYsJy5K1YQQQ" techID="_6TUwGKaPEeaYsJy5K1YQQQ" name="ENTITY1">
       <primaryKey xmi:id="_6Tg9WaaPEeaYsJy5K1YQQQ" comments="Contrainte PK pour la colonne ENTITY1_ID" techID="_6Tg9WKaPEeaYsJy5K1YQQQ" name="ENTITY1_PK" columns="_6Tg9VqaPEeaYsJy5K1YQQQ"/>
-      <constraints xmi:id="_6Tg9VKaPEeaYsJy5K1YQQQ" comments="Liste des valeurs possibles pour DTO_ATTRIBUTE2" techID="_6Tg9U6aPEeaYsJy5K1YQQQ" name="ENTITY1_CK1_1" expression="DTO_ATTRIBUTE2 in (''literal1'',''literal2'')"/>
+      <constraints xmi:id="_6Tg9VKaPEeaYsJy5K1YQQQ" comments="Liste des valeurs possibles pour DTO_ATTRIBUTE2" techID="_6Tg9U6aPEeaYsJy5K1YQQQ" name="ENTITY1_CK1_1" expression="DTO_ATTRIBUTE2 in ('literal1','literal2')"/>
       <constraints xmi:id="_6Tg9YKaPEeaYsJy5K1YQQQ" comments="Liste des valeurs possibles pour NAMESPACE_1_XTOPSUP" techID="_6Tg9X6aPEeaYsJy5K1YQQQ" name="ENTITY1_CK1_2" expression="NAMESPACE_1_XTOPSUP in ('0','1','3','9')"/>
       <columns xmi:id="_6Ta2tKaPEeaYsJy5K1YQQQ" techID="_6Ta2s6aPEeaYsJy5K1YQQQ" name="ENTITY_ATTRIBUTE1" nullable="true">
         <type xsi:type="typeslibrary:TypeInstance" xmi:id="_6Ta2tqaPEeaYsJy5K1YQQQ">
@@ -16,7 +16,7 @@
           <nativeType href="pathmap://LogicalDBTypes#_WWew-BEnEeGTa_JlZYBw1A"/>
         </type>
       </columns>
-      <columns xmi:id="_6Tg9UKaPEeaYsJy5K1YQQQ" techID="_6Ta2u6aPEeaYsJy5K1YQQQ" name="DTO_ATTRIBUTE2" nullable="true" defaultValue="literal1">
+      <columns xmi:id="_6Tg9UKaPEeaYsJy5K1YQQQ" techID="_6Ta2u6aPEeaYsJy5K1YQQQ" name="DTO_ATTRIBUTE2" nullable="true" defaultValue="'literal1'">
         <type xsi:type="typeslibrary:TypeInstance" xmi:id="_6Tg9UqaPEeaYsJy5K1YQQQ" length="8">
           <nativeType href="pathmap://LogicalDBTypes#_WWew-BEnEeGTa_JlZYBw1A"/>
         </type>
