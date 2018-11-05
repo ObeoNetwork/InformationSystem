@@ -32,7 +32,6 @@ import org.eclipse.emf.compare.ComparePackage;
 import org.eclipse.emf.compare.Comparison;
 import org.eclipse.emf.compare.Diff;
 import org.eclipse.emf.compare.Match;
-import org.eclipse.emf.compare.rcp.ui.internal.configuration.IComparisonAndScopeChange;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.resource.ResourceSet;
@@ -52,15 +51,14 @@ import org.eclipse.team.svn.ui.compare.ThreeWayResourceCompareInput;
 import org.eclipse.ui.IEditorActionDelegate;
 import org.eclipse.ui.IEditorInput;
 import org.eclipse.ui.IEditorPart;
+import org.eclipse.ui.IPropertyListener;
+import org.eclipse.ui.IWorkbenchPartConstants;
 import org.eclipse.ui.PlatformUI;
 import org.eclipse.ui.actions.WorkspaceModifyOperation;
 import org.eclipse.ui.dialogs.ContainerSelectionDialog;
 import org.obeonetwork.dsl.database.DataBase;
 import org.obeonetwork.dsl.database.DatabasePackage;
 import org.obeonetwork.dsl.database.sqlgen.DatabaseGen;
-
-import com.google.common.eventbus.EventBus;
-import com.google.common.eventbus.Subscribe;
 
 import fr.gouv.mindef.safran.database.ui.Activator;
 
@@ -70,6 +68,8 @@ import fr.gouv.mindef.safran.database.ui.Activator;
  * 
  */
 public class ExportAsSQLScriptsAction extends Action implements IEditorActionDelegate {
+
+	private static final String COMPARE_RESULT_PROPERTY = "org.eclipse.emf.compare.ide.ui.COMPARE_RESULT";
 	
 	private static final String ACTION_TEXT = "Generate SQL";
 	
@@ -78,11 +78,13 @@ public class ExportAsSQLScriptsAction extends Action implements IEditorActionDel
 	/**
 	 * It listens the add of a "not empty" database comparison result on the compare configuration, in order to enable this action and to retrieve the comparison.
 	 */
-	private IPropertyChangeListener propertyChangeListener;
+//	private IPropertyChangeListener propertyChangeListener;
 	
 	private IAction editorPluginAction;
 	
-	private Object eventBusChangeRecorder;
+//	private Object eventBusChangeRecorder;
+	
+	private CompareConfiguration compareConfig;
 	
 	/**
 	 * The database comparison result.
@@ -235,50 +237,58 @@ public class ExportAsSQLScriptsAction extends Action implements IEditorActionDel
 	
 	@Override
 	public void setActiveEditor(final IAction action, final IEditorPart activeEditor) {
+		// Editor changed ?
+		if (this.activeEditor != null && this.activeEditor == activeEditor) {
+			return;
+		}
+
+		// Editor has changed ?
 		this.activeEditor = activeEditor;
-		editorPluginAction = action;
-		action.setEnabled(false);
+		this.editorPluginAction = action;
+		this.editorPluginAction.setEnabled(false);
 		if (activeEditor != null && activeEditor.getEditorSite() != null && COMPARE_EDITOR_ID.equals(activeEditor.getEditorSite().getId())) {
-			final IEditorInput editorInput = activeEditor.getEditorInput();
-			if (editorInput instanceof CompareEditorInput) {
-				final CompareConfiguration config = ((CompareEditorInput)editorInput).getCompareConfiguration();
-				if (propertyChangeListener == null) {
-					propertyChangeListener = new IPropertyChangeListener() {		
-						@Override
-						public void propertyChange(PropertyChangeEvent event) {
-							// FIX for EMFCompare 2.2
-							if (isInitEventBus(event) && eventBusChangeRecorder == null) {			
-								
-								eventBusChangeRecorder = new EventBusChangeRecorder();
-								((EventBus)event.getNewValue()).register(eventBusChangeRecorder);
-								
-							}
-						}
-					};
-					config.addPropertyChangeListener(propertyChangeListener);
+			
+			attachListenerToCompareconfiguration();
+			
+			// Attach listener to know when editor is reused for another comparison
+			activeEditor.addPropertyListener(new IPropertyListener() {
+				
+				@Override
+				public void propertyChanged(Object source, int propId) {
+					// Editor input changed
+					if (propId == IWorkbenchPartConstants.PROP_INPUT) {
+						attachListenerToCompareconfiguration();
+					}
 				}
-				if (comparison != null) {
-					editorPluginAction.setEnabled(areDatabaseDifferences(comparison));
-				}
+			});
+		}
+	}
+	
+	private void attachListenerToCompareconfiguration() {
+		final IEditorInput editorInput = activeEditor.getEditorInput();
+		if (editorInput instanceof CompareEditorInput) {
+			final CompareConfiguration config = ((CompareEditorInput)editorInput).getCompareConfiguration();
+			if (config != this.compareConfig) {
+				this.compareConfig = config;
+				this.compareConfig.addPropertyChangeListener(new NewComparisonResultPropertyChangeListener());
 			}
 		}
 	}
-
-	private boolean isInitEventBus(PropertyChangeEvent event) {
-		Object oldValue = event.getOldValue();
-		Object newValue = event.getNewValue();
-		return oldValue == null && newValue instanceof EventBus;
-	}
 	
-	private class EventBusChangeRecorder {
-		  @Subscribe public void recordCustomerChange(IComparisonAndScopeChange e) {
-			  if (editorPluginAction != null) {
-				  comparison = (Comparison) e.getNewComparison();
-				  if (areDatabaseDifferences(comparison)) {
-					  editorPluginAction.setEnabled(true);
-				  }
-			  }
-		  }
+	private class NewComparisonResultPropertyChangeListener implements IPropertyChangeListener {
+
+		@Override
+		public void propertyChange(PropertyChangeEvent event) {
+			if (COMPARE_RESULT_PROPERTY.equals(event.getProperty())) {
+				Object newValue = event.getNewValue();
+				if (newValue instanceof Comparison) {
+					comparison = (Comparison)newValue;
+				} else {
+					comparison = null;
+				}
+				editorPluginAction.setEnabled(areDatabaseDifferences(comparison));
+			}
+		}
 	}
 	
 	/**
@@ -287,6 +297,9 @@ public class ExportAsSQLScriptsAction extends Action implements IEditorActionDel
 	 * @return
 	 */
 	private boolean areDatabaseDifferences(Comparison comparison) {
+		if (comparison == null) {
+			return false;
+		}
 		for (Diff diff : comparison.getDifferences()) {
 			Match parentMatch = diff.getMatch();
 			while(ComparePackage.Literals.MATCH.isInstance(parentMatch.eContainer())){
