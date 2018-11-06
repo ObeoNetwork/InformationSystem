@@ -213,6 +213,12 @@ COMMENT ON COLUMN [column.owner.oclAsType(Table).fullname()/].[column.name()/] I
 [if (column.nullable)] NULL[else] NOT NULL[/if]
 [/template]
 
-[template private autoIncrement(column : Column)]
-[if ((column.isTargetMySql() or column.isTargetH2()) and (column.autoincrement or column.inPrimaryKey))] AUTO_INCREMENT[/if]
+[template private autoIncrement(column : Column) ? (column.isTargetMySql())]
+[if (column.autoincrement or column.inPrimaryKey)] AUTO_INCREMENT[/if]
 [/template]
+
+[template private autoIncrement(column : Column) ? (column.isTargetH2())]
+[if (column.autoincrement or (column.inPrimaryKey and column.sequence.oclIsUndefined()))] AUTO_INCREMENT[/if]
+[/template]
+
+[template private autoIncrement(column : Column)][/template]
