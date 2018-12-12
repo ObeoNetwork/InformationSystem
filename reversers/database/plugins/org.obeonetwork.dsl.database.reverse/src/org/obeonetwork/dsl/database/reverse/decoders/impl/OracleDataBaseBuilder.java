@@ -27,6 +27,7 @@ import org.obeonetwork.dsl.database.PrimaryKey;
 import org.obeonetwork.dsl.database.Sequence;
 import org.obeonetwork.dsl.database.Table;
 import org.obeonetwork.dsl.database.TableContainer;
+import org.obeonetwork.dsl.database.reverse.DatabaseReverserPlugin;
 import org.obeonetwork.dsl.database.reverse.source.DataSource;
 import org.obeonetwork.dsl.database.reverse.utils.CreationUtils;
 import org.obeonetwork.dsl.database.reverse.utils.JdbcUtils;
@@ -83,7 +84,7 @@ public class OracleDataBaseBuilder extends DefaultDataBaseBuilder {
 		ResultSet rs = null;
 		PreparedStatement pstmt = null;
 		try {
-			PreparedStatement psmt = metaData.getConnection().prepareStatement(
+			pstmt = metaData.getConnection().prepareStatement(
 					" SELECT cons.constraint_name, cols.column_name, cols.position "
 							+ " FROM all_constraints cons, all_cons_columns cols "
 							+ " WHERE cons.owner=? "
@@ -93,9 +94,9 @@ public class OracleDataBaseBuilder extends DefaultDataBaseBuilder {
 							+ " AND cols.owner = cons.owner "
 							+ " AND cols.table_name = cons.table_name "
 							+ " ORDER BY cols.position ");
-			psmt.setString(1, table.getOwner().getName().toUpperCase());
-			psmt.setString(2, table.getName().toUpperCase());
-			rs = psmt.executeQuery();
+			pstmt.setString(1, table.getOwner().getName().toUpperCase());
+			pstmt.setString(2, table.getName().toUpperCase());
+			rs = executeQuery(pstmt);
 			while (rs.next()) {
 				if (primaryKey == null) {
 					String primaryKeyName = rs.getString(1);
@@ -110,12 +111,11 @@ public class OracleDataBaseBuilder extends DefaultDataBaseBuilder {
 				}
 			}
 		} catch (Exception ex) {
-			ex.printStackTrace();
+			DatabaseReverserPlugin.logError("Error while importing database", ex);
 		} finally {
 			JdbcUtils.closeStatement(pstmt);
 			JdbcUtils.closeResultSet(rs);
 		}
-			
 		// Fall through in case the specific code failed to retrieve PK
 		if (primaryKey == null) {
 			super.buildPrimaryKeys(metaData, table);			
@@ -124,19 +124,19 @@ public class OracleDataBaseBuilder extends DefaultDataBaseBuilder {
 	
 	@Override
 	protected void buildColumnConstraints(DatabaseMetaData metaData, TableContainer owner, Table table) {
-		ResultSet rs = null;
 		PreparedStatement pstmt = null;
+		ResultSet rs = null;
 		try {
-			PreparedStatement psmt = metaData.getConnection().prepareStatement(
+			pstmt = metaData.getConnection().prepareStatement(
 					" SELECT constraint_name, search_condition" 
 							+ " FROM all_constraints"
 							+ " where owner=?"
 							+ " AND table_name=?"
 							+ " AND constraint_type='C'"
 							+ " AND substr(constraint_name,1,3) <> 'SYS'");
-			psmt.setString(1, owner.getName().toUpperCase());
-			psmt.setString(2, table.getName().toUpperCase());
-			rs = psmt.executeQuery();
+			pstmt.setString(1, owner.getName().toUpperCase());
+			pstmt.setString(2, table.getName().toUpperCase());
+			rs = executeQuery(pstmt);
 			while (rs.next()) {					
 				String name = rs.getString(1);
 				//do not reference recyclebin internal name
@@ -150,7 +150,7 @@ public class OracleDataBaseBuilder extends DefaultDataBaseBuilder {
 				}
 			}
 		} catch (Exception ex) {
-			ex.printStackTrace();
+			DatabaseReverserPlugin.logError("Error while importing database", ex);
 		} finally {
 			JdbcUtils.closeStatement(pstmt);
 			JdbcUtils.closeResultSet(rs);
@@ -228,51 +228,18 @@ public class OracleDataBaseBuilder extends DefaultDataBaseBuilder {
 			try {
 				pstmt = metaData.getConnection().prepareStatement(query);
 				pstmt.setString(1, viewName);
-				rs = pstmt.executeQuery();
+				rs = executeQuery(pstmt);
 				while (rs.next()) {					
 					viewQuery =  rs.getString(1);
 				}
 			} catch (Exception ex) {
-				ex.printStackTrace();
+				DatabaseReverserPlugin.logError("Error while importing database", ex);
 			} finally {
 				JdbcUtils.closeStatement(pstmt);
 				JdbcUtils.closeResultSet(rs);
 			}
 		}
 		return viewQuery;
-	}
-	
-	@Override
-	protected Boolean isInAscendingOrder(DatabaseMetaData metaData, String order, Table table, Index index, String indexColumnName) {
-		Boolean asc =  super.isInAscendingOrder(metaData, order, table, index, indexColumnName);
-		if (asc == null) {
-			String query =	"SELECT descend" + 
-							" FROM user_ind_columns" +   
-							" WHERE table_name = ? AND index_name = ? AND column_name = ?";
-			ResultSet rs = null;
-			PreparedStatement pstmt = null;
-			try {
-				pstmt = metaData.getConnection().prepareStatement(query);
-				pstmt.setString(1, table.getName());
-				pstmt.setString(2, index.getName());
-				pstmt.setString(3, indexColumnName);
-				rs = pstmt.executeQuery();
-				while (rs.next()) {					
-					String ord = rs.getString(1);
-					if ("ASC".equals(ord)) {
-						return Boolean.TRUE;
-					} else if ("DESC".equals(ord)) {
-						return Boolean.FALSE;
-					}
-				}
-			} catch (Exception ex) {
-				ex.printStackTrace();
-			} finally {
-				JdbcUtils.closeStatement(pstmt);
-				JdbcUtils.closeResultSet(rs);
-			}
-		}
-		return asc;
 	}
 	
 	private String getCommentsOnColumn(DatabaseMetaData metaData, String tableName, String columnName) {
@@ -285,7 +252,7 @@ public class OracleDataBaseBuilder extends DefaultDataBaseBuilder {
 			PreparedStatement pstmt = null;
 			try {
 				pstmt = metaData.getConnection().prepareStatement(query);
-				rs = pstmt.executeQuery();
+				rs = executeQuery(pstmt);
 				while (rs.next()) {					
 					String table = rs.getString(1);
 					String column = rs.getString(2);
@@ -296,7 +263,7 @@ public class OracleDataBaseBuilder extends DefaultDataBaseBuilder {
 					}
 				}
 			} catch (Exception ex) {
-				ex.printStackTrace();
+				DatabaseReverserPlugin.logError("Error while importing database", ex);
 			} finally {
 				JdbcUtils.closeStatement(pstmt);
 				JdbcUtils.closeResultSet(rs);
@@ -337,7 +304,7 @@ public class OracleDataBaseBuilder extends DefaultDataBaseBuilder {
                 	}
                 }
         } catch(Exception ex) {
-                ex.printStackTrace();
+                DatabaseReverserPlugin.logError("Error while importing database", ex);
         } finally {
                 JdbcUtils.closeStatement(pstmt);
                 JdbcUtils.closeResultSet(rs);
@@ -355,7 +322,7 @@ public class OracleDataBaseBuilder extends DefaultDataBaseBuilder {
 			PreparedStatement pstmt = null;
 			try {
 				pstmt = metaData.getConnection().prepareStatement(query);
-				rs = pstmt.executeQuery();
+				rs = executeQuery(pstmt);
 				while (rs.next()) {					
 					String table = rs.getString(1);
 					String comments = rs.getString(2);
@@ -364,7 +331,7 @@ public class OracleDataBaseBuilder extends DefaultDataBaseBuilder {
 					}
 				}
 			} catch (Exception ex) {
-				ex.printStackTrace();
+				DatabaseReverserPlugin.logError("Error while importing database", ex);
 			} finally {
 				JdbcUtils.closeStatement(pstmt);
 				JdbcUtils.closeResultSet(rs);
@@ -373,4 +340,66 @@ public class OracleDataBaseBuilder extends DefaultDataBaseBuilder {
 		return cacheTableComments.get(tableName);
 	}
 	
+	@Override
+	protected void buildIndexesSpecific(DatabaseMetaData metaData, Table table) {
+		Map<Object, Object> indices = new HashMap<>();
+		ResultSet rs = null;
+		try {
+			rs = getIndexesFromOracleSysTables(schemaName, table);
+			while (rs.next()) {
+				String indexTypeAsString = rs.getString(2);
+				if (indexTypeAsString.equals("NORMAL")) {
+					String indexName = rs.getString(1);
+					boolean unique = isOracleIndexUnique(rs.getString(3));
+					String indexColumnName = rs.getString(4);
+					String order = rs.getString(5);
+					Boolean inAscendingOrder = isOracleIndexInAscendingOrder(order);
+					buildIndexAndColumn(table, indexName, null, unique, indexColumnName, inAscendingOrder, indices);
+				}
+			}
+		} catch (Exception ex) {
+			DatabaseReverserPlugin.logWarning("Error while retrieving index information from Oracle", ex);
+		} finally {
+			JdbcUtils.closeResultSet(rs);
+		}
+	}
+	
+	private boolean isOracleIndexUnique(String uniqueString) {
+		if ("UNIQUE".equals(uniqueString)) {
+			return true;
+		} else if ("NONUNIQUE".equals(uniqueString)) {
+			return false;
+		} return false;
+	}
+	
+	private boolean isOracleIndexInAscendingOrder(String order) {
+		if ("ASC".equals(order)) {
+			return true;
+		} else if ("DESC".equals(order)) {
+			return false;
+		}
+		return true;
+	}
+
+	protected ResultSet getIndexesFromOracleSysTables(String schemaName, Table table) {
+		ResultSet result = null;
+		String query = 	"select i.index_name, i.index_type, i.uniqueness, " +
+						" c.column_name, c.descend " +
+						" from all_indexes i, all_ind_columns c " +
+						" where i.table_owner = ? " +
+						" and i.table_name = ? " +
+						" and c.table_owner = i.table_owner " +
+						" and c.table_name = i.table_name " + 
+						" and c.index_name = i.index_name";
+		PreparedStatement stmt = null;
+		try {
+			stmt = metaData.getConnection().prepareStatement(query);
+			stmt.setString(1, schemaName);
+			stmt.setString(2, table.getName());
+			result = executeQuery(stmt);
+		} catch (SQLException e) {
+			// Do nothing, exception will be handled in calling code
+		}
+		return result;
+	}
 }

@@ -21,6 +21,7 @@ import org.obeonetwork.dsl.database.Column;
 import org.obeonetwork.dsl.database.Sequence;
 import org.obeonetwork.dsl.database.Table;
 import org.obeonetwork.dsl.database.TableContainer;
+import org.obeonetwork.dsl.database.reverse.DatabaseReverserPlugin;
 import org.obeonetwork.dsl.database.reverse.source.DataSource;
 import org.obeonetwork.dsl.database.reverse.utils.CreationUtils;
 import org.obeonetwork.dsl.database.reverse.utils.JdbcUtils;
@@ -82,10 +83,10 @@ public class H2DataBaseBuilder extends DefaultDataBaseBuilder {
         try {
         	// TODO récupérer cycle avec IS_CYCLE
         	// TODO récupérer Cache
-            PreparedStatement psmt = metaData.getConnection().prepareStatement(
+            pstmt = metaData.getConnection().prepareStatement(
                             "SELECT SEQUENCE_NAME, INCREMENT, MIN_VALUE, MAX_VALUE, CURRENT_VALUE " +
                             "FROM INFORMATION_SCHEMA.SEQUENCES");                
-            rs = psmt.executeQuery();
+            rs = executeQuery(pstmt);
             while( rs.next() ) {
             	String name = rs.getString(1);
             	BigInteger increment = getBigIntValueForColumn(rs, 2);
@@ -107,7 +108,7 @@ public class H2DataBaseBuilder extends DefaultDataBaseBuilder {
             	}
             }
         } catch(Exception ex) {
-                ex.printStackTrace();
+                DatabaseReverserPlugin.logError("Error while importing database", ex);
         } finally {
                 JdbcUtils.closeStatement(pstmt);
                 JdbcUtils.closeResultSet(rs);

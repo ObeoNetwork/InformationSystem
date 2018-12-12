@@ -19,3 +19,5 @@ Bundle-ClassPath: lib/mysql-connector-java-5.1.5-bin.jar,
  .
 Bundle-RequiredExecutionEnvironment: JavaSE-1.6
 Bundle-Vendor: Obeo Network
+Bundle-Activator: org.obeonetwork.dsl.database.reverse.DatabaseReverserPlugin
+Bundle-ActivationPolicy: lazy

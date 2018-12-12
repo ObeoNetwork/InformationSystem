@@ -23,6 +23,7 @@ import org.obeonetwork.dsl.database.Column;
 import org.obeonetwork.dsl.database.Sequence;
 import org.obeonetwork.dsl.database.Table;
 import org.obeonetwork.dsl.database.TableContainer;
+import org.obeonetwork.dsl.database.reverse.DatabaseReverserPlugin;
 import org.obeonetwork.dsl.database.reverse.source.DataSource;
 import org.obeonetwork.dsl.database.reverse.utils.CreationUtils;
 import org.obeonetwork.dsl.database.reverse.utils.JdbcUtils;
@@ -122,12 +123,12 @@ public class SQLServerDataBaseBuilder extends DefaultDataBaseBuilder {
 			try {
 				pstmt = metaData.getConnection().prepareStatement(query);
 				pstmt.setString(1, viewName);
-				rs = pstmt.executeQuery();
+				rs = executeQuery(pstmt);
 				while (rs.next()) {	
 					viewQuery =  rs.getString(1);
 				}
 			} catch (Exception ex) {
-				ex.printStackTrace();
+				DatabaseReverserPlugin.logError("Error while importing database", ex);
 			} finally {
 				JdbcUtils.closeStatement(pstmt);
 				JdbcUtils.closeResultSet(rs);
@@ -162,7 +163,7 @@ public class SQLServerDataBaseBuilder extends DefaultDataBaseBuilder {
 							"WHERE			sch.name = ?";
             pstmt = metaData.getConnection().prepareStatement(query);             
             pstmt.setString(1, schemaName);
-            rs = pstmt.executeQuery();
+            rs = executeQuery(pstmt);
             while( rs.next() ) {
             	String name = rs.getString(1);
             	BigInteger increment = getBigIntValueForColumn(rs, 2);
@@ -189,7 +190,7 @@ public class SQLServerDataBaseBuilder extends DefaultDataBaseBuilder {
             	}
             }
         } catch(Exception ex) {
-                ex.printStackTrace();
+                DatabaseReverserPlugin.logError("Error while importing database", ex);
         } finally {
                 JdbcUtils.closeStatement(pstmt);
                 JdbcUtils.closeResultSet(rs);

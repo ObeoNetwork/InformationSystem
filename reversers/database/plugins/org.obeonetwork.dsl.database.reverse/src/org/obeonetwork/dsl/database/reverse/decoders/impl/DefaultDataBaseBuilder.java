@@ -11,6 +11,7 @@
 package org.obeonetwork.dsl.database.reverse.decoders.impl;
 
 import java.sql.DatabaseMetaData;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
@@ -27,6 +28,7 @@ import org.obeonetwork.dsl.database.PrimaryKey;
 import org.obeonetwork.dsl.database.Table;
 import org.obeonetwork.dsl.database.TableContainer;
 import org.obeonetwork.dsl.database.View;
+import org.obeonetwork.dsl.database.reverse.DatabaseReverserPlugin;
 import org.obeonetwork.dsl.database.reverse.decoders.AbstractDataBaseBuilder;
 import org.obeonetwork.dsl.database.reverse.source.DataSource;
 import org.obeonetwork.dsl.database.reverse.utils.CreationUtils;
@@ -59,6 +61,7 @@ public class DefaultDataBaseBuilder extends AbstractDataBaseBuilder {
 				while (rs.next()) {
 					nbRows++;
 				}
+				JdbcUtils.closeResultSet(rs);
 				rs = metaData.getTables(null, schemaName, "%", types);
 			}else{
 				rs.last();
@@ -71,7 +74,7 @@ public class DefaultDataBaseBuilder extends AbstractDataBaseBuilder {
 				buildTable(progressListener, metaData, tableContainer, nativeTypesLibrary, rs);
 			}
 		} catch (Exception ex) {
-			ex.printStackTrace();
+			DatabaseReverserPlugin.logError("Error while importing database", ex);
 		} finally {
 			JdbcUtils.closeResultSet(rs);
 		}
@@ -109,64 +112,67 @@ public class DefaultDataBaseBuilder extends AbstractDataBaseBuilder {
 		}
 	}
 	
-	protected void buildIndexes(DatabaseMetaData metaData,
-			Table table) {
-		Map indices = new HashMap();
+	protected void buildIndexes(DatabaseMetaData metaData, Table table) {
+		Map<Object, Object> indices = new HashMap<>();
 		ResultSet rs = null;
 		try {
 			rs = metaData.getIndexInfo(null, schemaName, table.getName(),
 					false, false);
 			while (rs.next()) {
-				buildIndex(metaData,table, rs, indices);
+				int indexType = rs.getInt(7);
+				if (indexType != 0) {
+					String indexName = rs.getString(6);
+					String indexQualifier = rs.getString(5);
+					boolean unique = !(rs.getBoolean(4));
+					String indexColumnName = rs.getString(9);
+					String order = rs.getString(10);
+					Boolean inAscendingOrder = queries.isInAscendingOrder(order);
+					buildIndexAndColumn(table, indexName, indexQualifier, unique, indexColumnName, inAscendingOrder, indices);
+				}
 			}
 		} catch (Exception ex) {
-			ex.printStackTrace();
+			// Try with a method specific to the database
+			buildIndexesSpecific(metaData, table);
 		} finally {
 			JdbcUtils.closeResultSet(rs);
 		}
 	}
+
+	protected void buildIndexesSpecific(DatabaseMetaData metaData, Table table) {
+		// Do nothing, should be overriden
+	}
 	
-	protected void buildIndex(DatabaseMetaData metaData, Table table, ResultSet rs, Map<Object, Object> indices)
-			throws SQLException {
-
-		int indexType = rs.getInt(7);
-		String indexName = rs.getString(6);
-		if (indexType != 0) {			
-			Index index = (Index) indices.get(indexName);
-			if (index == null) {
-				index = CreationUtils.createIndex(table, indexName);
-				String indexQualifier = rs.getString(5);
-				index.setQualifier(indexQualifier);
-				index.setUnique(!(rs.getBoolean(4)));
-				indices.put(indexName, index);
-			}
-
-			String indexColumnName = rs.getString(9);
-			
-			Column indexColumn = queries.getColumn(table, indexColumnName);
-			if (indexColumn != null) {
-				IndexElement element = CreationUtils.createIndexElement(index);
-				element.setColumn(indexColumn);
-				String order = rs.getString(10);
-				Boolean inAscendingOrder = isInAscendingOrder(metaData, order, table, index, indexColumnName);
-				if (inAscendingOrder == null) {
-					element.setAsc(true);
-				} else {
-					element.setAsc(inAscendingOrder);
-				}
+	protected void buildIndexAndColumn(Table table, String indexName, String indexQualifier, boolean unique, String indexColumnName, Boolean inAscendingOrder, Map<Object, Object> indices) {
+		Index index = (Index) indices.get(indexName);
+		if (index == null) {
+			// Create index
+			index = CreationUtils.createIndex(table, indexName);
+			index.setQualifier(indexQualifier);
+			index.setUnique(unique);
+			indices.put(indexName, index);
+		}
+		
+		// Create column
+		Column indexColumn = queries.getColumn(table, indexColumnName);
+		if (indexColumn != null) {
+			IndexElement element = CreationUtils.createIndexElement(index);
+			element.setColumn(indexColumn);
+			if (inAscendingOrder == null) {
+				element.setAsc(true);
 			} else {
-				System.err.println("indexColumn not found -> table="
-						+ table.getName() + "indexName=" + indexName
-						+ " indexColumnName=" + indexColumnName
-						+ " indexColumn=" + indexColumn + " qualifier="
-						+ rs.getString(5));
+				element.setAsc(inAscendingOrder);
 			}
-
+		} else {
+			System.err.println("indexColumn not found -> table="
+					+ table.getName() + "; indexName=" + indexName
+					+ "; indexColumnName=" + indexColumnName
+					+ "; indexColumn=" + indexColumn + "; qualifier="
+					+ indexQualifier);
 		}
 	}
-
-	protected Boolean isInAscendingOrder(DatabaseMetaData metaData, String order, Table table, Index index, String indexColumnName) {
-		return queries.isInAscendingOrder(order);
+	
+	protected ResultSet executeQuery(PreparedStatement pstmt) throws SQLException {
+		return pstmt.executeQuery();
 	}
 	
 	protected String getColumnComments(DatabaseMetaData metaData, ResultSet rs, String schemaName, String tableName, String columnName) throws SQLException {
@@ -188,7 +194,7 @@ public class DefaultDataBaseBuilder extends AbstractDataBaseBuilder {
 				buildPrimaryKey(table, rs, primaryKey);
 			}
 		} catch (Exception ex) {
-			ex.printStackTrace();
+			DatabaseReverserPlugin.logError("Error while importing database", ex);
 		} finally {
 			JdbcUtils.closeResultSet(rs);
 		}
@@ -213,7 +219,7 @@ public class DefaultDataBaseBuilder extends AbstractDataBaseBuilder {
 				buildColumn(metaData, owner, nativeTypesLibrary, table, rs);
 			}
 		} catch (Exception ex) {
-			ex.printStackTrace();
+			DatabaseReverserPlugin.logError("Error while importing database", ex);
 		} finally {
 			JdbcUtils.closeResultSet(rs);
 		}
@@ -393,7 +399,7 @@ public class DefaultDataBaseBuilder extends AbstractDataBaseBuilder {
 				}
 			}
 		} catch (Exception ex) {
-			ex.printStackTrace();
+			DatabaseReverserPlugin.logError("Error while importing database", ex);
 		} finally {
 			JdbcUtils.closeResultSet(rs);
 		}

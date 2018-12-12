@@ -14,6 +14,8 @@ import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.Statement;
 
+import org.obeonetwork.dsl.database.reverse.DatabaseReverserPlugin;
+
 /**
  * Utility class providing methods to make easier the use of JDBC.  
  * 
@@ -31,7 +33,7 @@ public abstract class JdbcUtils {
 				connection.close();
 			}
 		} catch(Exception ex) {
-			ex.printStackTrace();
+			DatabaseReverserPlugin.logError("Error while importing database", ex);
 		}
 	}
 
@@ -46,7 +48,7 @@ public abstract class JdbcUtils {
 				stmt.close();
 			}
 		} catch(Exception ex) {
-			ex.printStackTrace();
+			DatabaseReverserPlugin.logError("Error while importing database", ex);
 		}
 	}
 
@@ -61,7 +63,7 @@ public abstract class JdbcUtils {
 				rs.close();
 			}
 		} catch(Exception ex) {
-			ex.printStackTrace();
+			DatabaseReverserPlugin.logError("Error while importing database", ex);
 		}
 	}
 

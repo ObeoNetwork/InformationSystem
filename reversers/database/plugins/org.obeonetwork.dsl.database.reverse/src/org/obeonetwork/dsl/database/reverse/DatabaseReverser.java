@@ -44,8 +44,8 @@ public class DatabaseReverser {
 				builder.post();
 				
 				return builder.getDataBase(); 
-			} catch(SQLException e) {
-				e.printStackTrace();
+			} catch(SQLException ex) {
+				DatabaseReverserPlugin.logError("Error while importing database", ex);
 			} finally {
 				if (builder != null) {
 					JdbcUtils.closeConnection(builder.getConnection());

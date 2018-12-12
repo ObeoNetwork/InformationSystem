@@ -22,6 +22,7 @@ import org.obeonetwork.dsl.database.Constraint;
 import org.obeonetwork.dsl.database.Sequence;
 import org.obeonetwork.dsl.database.Table;
 import org.obeonetwork.dsl.database.TableContainer;
+import org.obeonetwork.dsl.database.reverse.DatabaseReverserPlugin;
 import org.obeonetwork.dsl.database.reverse.source.DataSource;
 import org.obeonetwork.dsl.database.reverse.utils.CreationUtils;
 import org.obeonetwork.dsl.database.reverse.utils.JdbcUtils;
@@ -84,7 +85,7 @@ public class PostGresDataBaseBuilder extends DefaultDataBaseBuilder {
 		ResultSet rs = null;
 		PreparedStatement pstmt = null;
 		try {
-			PreparedStatement psmt = metaData
+			pstmt = metaData
 					.getConnection()
 					.prepareStatement(
 						"SELECT s.SEQUENCE_NAME, s.INCREMENT, s.MINIMUM_VALUE, s.MAXIMUM_VALUE, s.START_VALUE, s.CYCLE_OPTION , pg_catalog.obj_description(c.oid) " +
@@ -94,7 +95,7 @@ public class PostGresDataBaseBuilder extends DefaultDataBaseBuilder {
 						"AND c.relkind = 'S' " +
 						"WHERE s.SEQUENCE_SCHEMA = '"+ schemaName + "'");
 			
-			rs = psmt.executeQuery();
+			rs = executeQuery(pstmt);
 			while (rs.next()) {
 				String name = rs.getString(1);
 				BigInteger increment = getBigIntValueForColumn(rs, 2);
@@ -108,11 +109,13 @@ public class PostGresDataBaseBuilder extends DefaultDataBaseBuilder {
 				
 				// Retrieve CACHE value
 				BigInteger cacheValue = null;
-				PreparedStatement psmtCache = metaData.getConnection().prepareStatement("SELECT CACHE_VALUE FROM " + schemaName + "." + name);
-				ResultSet rsCache = psmtCache.executeQuery();
+				PreparedStatement pstmtCache = metaData.getConnection().prepareStatement("SELECT CACHE_VALUE FROM " + schemaName + "." + name);
+				ResultSet rsCache = executeQuery(pstmtCache);
 				if (rsCache.next()) {
 					cacheValue = getBigIntValueForColumn(rsCache, 1);
 				}
+				JdbcUtils.closeStatement(pstmtCache);
+				JdbcUtils.closeResultSet(rsCache);
 				
 				Sequence sequence = CreationUtils.createSequence(owner, name,
 						increment, minValue, maxValue, start, cycle, cacheValue);
@@ -134,7 +137,7 @@ public class PostGresDataBaseBuilder extends DefaultDataBaseBuilder {
 				}
 			}
 		} catch (Exception ex) {
-			ex.printStackTrace();
+			DatabaseReverserPlugin.logError("Error while importing database", ex);
 		} finally {
 			JdbcUtils.closeStatement(pstmt);
 			JdbcUtils.closeResultSet(rs);
@@ -165,7 +168,7 @@ public class PostGresDataBaseBuilder extends DefaultDataBaseBuilder {
 				constraint.setExpression(expression);
 			}
 		} catch (Exception ex) {
-			ex.printStackTrace();
+			DatabaseReverserPlugin.logError("Error while importing database", ex);
 		} finally {
 			JdbcUtils.closeStatement(pstmt);
 			JdbcUtils.closeResultSet(rs);
@@ -191,12 +194,12 @@ public class PostGresDataBaseBuilder extends DefaultDataBaseBuilder {
 			PreparedStatement pstmt = null;
 			try {
 				pstmt = metaData.getConnection().prepareStatement(query);
-				rs = pstmt.executeQuery();
+				rs = executeQuery(pstmt);
 				while (rs.next()) {
 					viewQuery = rs.getString(1);
 				}
 			} catch (Exception ex) {
-				ex.printStackTrace();
+				DatabaseReverserPlugin.logError("Error while importing database", ex);
 			} finally {
 				JdbcUtils.closeStatement(pstmt);
 				JdbcUtils.closeResultSet(rs);

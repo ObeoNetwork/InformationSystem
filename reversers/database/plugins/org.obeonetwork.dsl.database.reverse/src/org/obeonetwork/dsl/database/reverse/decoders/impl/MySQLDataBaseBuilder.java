@@ -23,6 +23,7 @@ import org.obeonetwork.dsl.database.Index;
 import org.obeonetwork.dsl.database.IndexElement;
 import org.obeonetwork.dsl.database.Table;
 import org.obeonetwork.dsl.database.TableContainer;
+import org.obeonetwork.dsl.database.reverse.DatabaseReverserPlugin;
 import org.obeonetwork.dsl.database.reverse.source.DataSource;
 import org.obeonetwork.dsl.database.reverse.utils.JdbcUtils;
 import org.obeonetwork.dsl.database.reverse.utils.ProgressListener;
@@ -70,12 +71,12 @@ public class MySQLDataBaseBuilder extends DefaultDataBaseBuilder {
 		try {
 			pstmt = metaData.getConnection().prepareStatement(query);
 			pstmt.setString(1, tableName);
-			rs = pstmt.executeQuery();
+			rs = executeQuery(pstmt);
 			while (rs.next()) {					
 				return rs.getString("Comment");
 			}
 		} catch (Exception ex) {
-			ex.printStackTrace();
+			DatabaseReverserPlugin.logError("Error while importing database", ex);
 		} finally {
 			JdbcUtils.closeStatement(pstmt);
 			JdbcUtils.closeResultSet(rs);
@@ -123,12 +124,12 @@ public class MySQLDataBaseBuilder extends DefaultDataBaseBuilder {
 			PreparedStatement pstmt = null;
 			try {
 				pstmt = metaData.getConnection().prepareStatement(query);
-				rs = pstmt.executeQuery();
+				rs = executeQuery(pstmt);
 				while (rs.next()) {					
 					showView = rs.getString(2);
 				}
 			} catch (Exception ex) {
-				ex.printStackTrace();
+				DatabaseReverserPlugin.logError("Error while importing database", ex);
 			} finally {
 				JdbcUtils.closeStatement(pstmt);
 				JdbcUtils.closeResultSet(rs);
