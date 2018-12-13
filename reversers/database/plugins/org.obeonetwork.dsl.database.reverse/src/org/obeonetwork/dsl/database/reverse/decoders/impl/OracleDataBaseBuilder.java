@@ -342,7 +342,7 @@ public class OracleDataBaseBuilder extends DefaultDataBaseBuilder {
 	
 	@Override
 	protected void buildIndexesSpecific(DatabaseMetaData metaData, Table table) {
-		Map<Object, Object> indices = new HashMap<>();
+		Map<Object, Object> indices = new HashMap<Object, Object>();
 		ResultSet rs = null;
 		try {
 			rs = getIndexesFromOracleSysTables(schemaName, table);

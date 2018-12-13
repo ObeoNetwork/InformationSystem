@@ -113,7 +113,7 @@ public class DefaultDataBaseBuilder extends AbstractDataBaseBuilder {
 	}
 	
 	protected void buildIndexes(DatabaseMetaData metaData, Table table) {
-		Map<Object, Object> indices = new HashMap<>();
+		Map<Object, Object> indices = new HashMap<Object, Object>();
 		ResultSet rs = null;
 		try {
 			rs = metaData.getIndexInfo(null, schemaName, table.getName(),
