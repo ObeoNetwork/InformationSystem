@@ -1,5 +1,9 @@
 package org.obeonetwork.cinematic.m2doc.services;
 
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.Collections;
@@ -8,11 +12,16 @@ import java.util.List;
 
 import org.eclipse.acceleo.annotations.api.documentation.Documentation;
 import org.eclipse.acceleo.annotations.api.documentation.Example;
+import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EStructuralFeature;
-import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
-import org.eclipse.emf.edit.provider.IItemLabelProvider;
+import org.eclipse.emf.edit.provider.ComposedAdapterFactory;
+import org.eclipse.emf.edit.ui.provider.AdapterFactoryLabelProvider;
+import org.eclipse.swt.SWT;
+import org.eclipse.swt.graphics.Image;
+import org.eclipse.swt.graphics.ImageData;
+import org.eclipse.swt.graphics.ImageLoader;
 import org.obeonetwork.dsl.cinematic.AbstractPackage;
 import org.obeonetwork.dsl.cinematic.CinematicRoot;
 import org.obeonetwork.dsl.cinematic.design.services.CinematicBindingServices;
@@ -23,23 +32,20 @@ import org.obeonetwork.dsl.cinematic.flow.FlowAction;
 import org.obeonetwork.dsl.cinematic.flow.FlowState;
 import org.obeonetwork.dsl.cinematic.flow.Transition;
 import org.obeonetwork.dsl.cinematic.flow.ViewState;
-import org.obeonetwork.dsl.cinematic.flow.provider.FlowItemProviderAdapterFactory;
-import org.obeonetwork.dsl.cinematic.provider.CinematicItemProviderAdapterFactory;
-import org.obeonetwork.dsl.cinematic.toolkits.provider.ToolkitsItemProviderAdapterFactory;
 import org.obeonetwork.dsl.cinematic.view.ViewContainer;
 import org.obeonetwork.dsl.cinematic.view.ViewElement;
 import org.obeonetwork.dsl.cinematic.view.ViewEvent;
-import org.obeonetwork.dsl.cinematic.view.provider.ViewItemProviderAdapterFactory;
 import org.obeonetwork.dsl.environment.Action;
 import org.obeonetwork.dsl.environment.Annotation;
 import org.obeonetwork.dsl.environment.MetaData;
 import org.obeonetwork.dsl.environment.MetaDataContainer;
 import org.obeonetwork.dsl.environment.ObeoDSMObject;
 import org.obeonetwork.dsl.requirement.Requirement;
+import org.obeonetwork.dsl.technicalid.Identifiable;
 import org.obeonetwork.m2doc.element.MImage;
 import org.obeonetwork.m2doc.element.impl.MImageImpl;
 import org.obeonetwork.tools.doc.core.DocumentationLink;
-import org.eclipse.emf.common.util.URI;
+//import org.eclipse.emf.common.util.URI;
 
 public class CinematicServices {
 
@@ -154,35 +160,33 @@ public class CinematicServices {
 		)
 	// @formatter:on	
 	public MImage cinematicIcon(EObject obj) {
-		CinematicItemProviderAdapterFactory cinematicFactory = new CinematicItemProviderAdapterFactory();
-		ViewItemProviderAdapterFactory viewFactory = new ViewItemProviderAdapterFactory();
-		FlowItemProviderAdapterFactory flowFactory = new FlowItemProviderAdapterFactory();
-		ToolkitsItemProviderAdapterFactory toolkitsFactory = new ToolkitsItemProviderAdapterFactory();
 		
-		String prefix = obj.eClass().getEPackage().getName();
-		ComposeableAdapterFactory factory = null;
-		if (prefix.equals("cinematic")) factory = cinematicFactory;
-		else if (prefix.equals("view")) factory = viewFactory;
-		else if (prefix.equals("toolkits")) factory = toolkitsFactory;
-		else if (prefix.equals("flow")) factory = flowFactory;
-		else throw new RuntimeException("No IS item provider for " + obj.toString());				
-				
+		ComposedAdapterFactory adapterFactory = new ComposedAdapterFactory(ComposedAdapterFactory.Descriptor.Registry.INSTANCE);
+		AdapterFactoryLabelProvider adapterFactoryLabelProvider = new AdapterFactoryLabelProvider(adapterFactory);
+		Image image = adapterFactoryLabelProvider.getImage(obj);
 		
-       if(factory.isFactoryForType(IItemLabelProvider.class)){
-		IItemLabelProvider labelProvider = (IItemLabelProvider) factory.adapt(obj, IItemLabelProvider.class);
-			if(labelProvider != null){ 
-				Object image = labelProvider.getImage(obj);
-				if (image instanceof URL) {
-					URL imageUrl = (URL) image;
-					URI uri = URI.createURI(imageUrl.toString());
-					
-					return new MImageImpl(uri);
-					
-				}
+		ImageLoader imageLoader = new ImageLoader();
+		imageLoader.data = new ImageData[] { image.getImageData() };
+		if(obj instanceof Identifiable) {
+			Identifiable identifiable = (Identifiable) obj;
+			try {
+				String tempFileNamePrefix = obj.eClass().getName() + "_" + identifiable.getTechnicalid();
+				File tempFile = File.createTempFile(tempFileNamePrefix, ".png");
+				tempFile.deleteOnExit();
+				imageLoader.save(new FileOutputStream(tempFile), SWT.IMAGE_PNG);
 				
-				
+				URL imageUrl = tempFile.toURI().toURL();
+				URI uri = URI.createURI(imageUrl.toString());
+				return new MImageImpl(uri);
+			} catch (MalformedURLException e) {
+				e.printStackTrace();
+			} catch (IOException e) {
+				e.printStackTrace();
 			}
+		} else {
+			System.out.println("Can't get object image, unmanaged object type: " + obj.getClass().getName());
 		}
+		
 		return null;
 	}
 
