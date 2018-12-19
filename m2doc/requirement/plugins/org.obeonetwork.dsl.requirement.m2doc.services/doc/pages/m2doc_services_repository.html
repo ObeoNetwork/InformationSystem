@@ -105,6 +105,13 @@
     </thead>
   <tbody>
     <tr>
+      <td colspan="1" rowspan="1"><strong>allRelatedRequirements</strong></td>
+      <td colspan="1" rowspan="1">List of Requirement</td>
+      <td colspan="1" rowspan="1">{m:obj.allRelatedRequirements()}</td>
+      <td colspan="1" rowspan="1">Returns a list of all the Requirements related to the target object or one of its sub objects. The result is a list with no duplicates sorted against the requirements ids.</td>
+      <td colspan="1" rowspan="1">{m:obj.allRelatedRequirements()->sep(',')} returns: A comma separated list of related requirements.</td>
+    </tr>
+    <tr>
       <td colspan="1" rowspan="1"><strong>relatedRequirements</strong></td>
       <td colspan="1" rowspan="1">List of Requirement</td>
       <td colspan="1" rowspan="1">{m:obj.relatedRequirements()}</td>

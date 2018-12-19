@@ -24,107 +24,14 @@
     <!endif-->
     <link href="../assets/css/bootstrap.css" rel="stylesheet"/>
     <link href="../assets/css/docs.css" rel="stylesheet"/>
-    <title>M2Doc Services and attributes for FlowEvent</title>
+    <title>M2Doc Services and attributes for ObeoDSMObject</title>
   </head>
 
   <body>
    <header class="jumbotron subhead" id="overview">
   </header>
 
-    <h1 id="FlowEvent">Services and attributes for the FlowEvent concept</h1>
-    <div class="page-header">
-      <h2 id="Attributes">Attributes</h2>
-    </div>
-    <table class="table table-striped">
-    <thead>
-      <tr>
-        <th colspan="1" rowspan="1">Name</th>
-        <th colspan="1" rowspan="1">Returned type</th>
-        <th colspan="1" rowspan="1">M2Doc Syntax</th>
-        <th colspan="1" rowspan="1">Description</th>
-        <th colspan="1" rowspan="1">Example</th>
-      </tr>
-    </thead>
-  <tbody>
-    <tr>
-      <td colspan="1" rowspan="1"><strong>behaviours</strong></td>
-      <td colspan="1" rowspan="1">List of Behaviour</td>
-      <td colspan="1" rowspan="1">{m:flowEvent.behaviours}</td>
-      <td colspan="1" rowspan="1">The Behaviours owned by this object.</td>
-      <td colspan="1" rowspan="1">{m:for behaviour | flowEvent.behaviours} behaviour {m:behaviour.name}, {m:endfor}</td>
-    </tr>
-    <tr>
-      <td colspan="1" rowspan="1"><strong>bindingRegistries</strong></td>
-      <td colspan="1" rowspan="1">List of BindingRegistry</td>
-      <td colspan="1" rowspan="1">{m:flowEvent.bindingRegistries}</td>
-      <td colspan="1" rowspan="1">The binding registries of this object.</td>
-      <td colspan="1" rowspan="1">{m:for bindingRegistry | flowEvent.bindingRegistries} bindingRegistry {m:bindingRegistry.name}, {m:endfor}</td>
-    </tr>
-    <tr>
-      <td colspan="1" rowspan="1"><strong>binds</strong></td>
-      <td colspan="1" rowspan="1">List of ViewEvent</td>
-      <td colspan="1" rowspan="1">{m:flowEvent.binds}</td>
-      <td colspan="1" rowspan="1">The View Events this Flow Event is binded to.</td>
-      <td colspan="1" rowspan="1">{m:for viewEvent | flowEvent.binds} viewEvent {m:viewEvent.name}, {m:endfor}</td>
-    </tr>
-    <tr>
-      <td colspan="1" rowspan="1"><strong>createdOn</strong></td>
-      <td colspan="1" rowspan="1">EDate</td>
-      <td colspan="1" rowspan="1">{m:flowEvent.createdOn}</td>
-      <td colspan="1" rowspan="1">The creation date of this object.</td>
-      <td colspan="1" rowspan="1">{m:flowEvent.createdOn}</td>
-    </tr>
-    <tr>
-      <td colspan="1" rowspan="1"><strong>description</strong></td>
-      <td colspan="1" rowspan="1">EString</td>
-      <td colspan="1" rowspan="1">{m:flowEvent.description}</td>
-      <td colspan="1" rowspan="1">The description of this object.</td>
-      <td colspan="1" rowspan="1">{m:flowEvent.description}</td>
-    </tr>
-    <tr>
-      <td colspan="1" rowspan="1"><strong>keywords</strong></td>
-      <td colspan="1" rowspan="1">List of EString</td>
-      <td colspan="1" rowspan="1">{m:flowEvent.keywords}</td>
-      <td colspan="1" rowspan="1">The list of keywords applied to this object.</td>
-      <td colspan="1" rowspan="1">{m:for eString | flowEvent.keywords} eString {m:eString.name}, {m:endfor}</td>
-    </tr>
-    <tr>
-      <td colspan="1" rowspan="1"><strong>metadatas</strong></td>
-      <td colspan="1" rowspan="1">MetaDataContainer</td>
-      <td colspan="1" rowspan="1">{m:flowEvent.metadatas}</td>
-      <td colspan="1" rowspan="1">The metadatas defined on this object.</td>
-      <td colspan="1" rowspan="1">{m:flowEvent.metadatas}</td>
-    </tr>
-    <tr>
-      <td colspan="1" rowspan="1"><strong>modifiedOn</strong></td>
-      <td colspan="1" rowspan="1">EDate</td>
-      <td colspan="1" rowspan="1">{m:flowEvent.modifiedOn}</td>
-      <td colspan="1" rowspan="1">The modification date of this obect.</td>
-      <td colspan="1" rowspan="1">{m:flowEvent.modifiedOn}</td>
-    </tr>
-    <tr>
-      <td colspan="1" rowspan="1"><strong>name</strong></td>
-      <td colspan="1" rowspan="1">EString</td>
-      <td colspan="1" rowspan="1">{m:flowEvent.name}</td>
-      <td colspan="1" rowspan="1">The name of this model element.</td>
-      <td colspan="1" rowspan="1">{m:flowEvent.name}</td>
-    </tr>
-    <tr>
-      <td colspan="1" rowspan="1"><strong>technicalid</strong></td>
-      <td colspan="1" rowspan="1">EString</td>
-      <td colspan="1" rowspan="1">{m:flowEvent.technicalid}</td>
-      <td colspan="1" rowspan="1">Technical identifier of the element.</td>
-      <td colspan="1" rowspan="1">{m:flowEvent.technicalid}</td>
-    </tr>
-    <tr>
-      <td colspan="1" rowspan="1"><strong>version</strong></td>
-      <td colspan="1" rowspan="1">EInt</td>
-      <td colspan="1" rowspan="1">{m:flowEvent.version}</td>
-      <td colspan="1" rowspan="1">The version of this object.</td>
-      <td colspan="1" rowspan="1">{m:flowEvent.version}</td>
-    </tr>
-    </tbody>
-    </table>
+    <h1 id="ObeoDSMObject">Services and attributes for the ObeoDSMObject concept</h1>
     <div class="page-header">
       <h2 id="Services">Services</h2>
     </div>

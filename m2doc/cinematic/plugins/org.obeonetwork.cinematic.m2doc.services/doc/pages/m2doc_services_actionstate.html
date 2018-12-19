@@ -140,6 +140,13 @@
     </thead>
   <tbody>
     <tr>
+      <td colspan="1" rowspan="1"><strong>allRelatedRequirements</strong></td>
+      <td colspan="1" rowspan="1">List of Requirement</td>
+      <td colspan="1" rowspan="1">{m:obj.allRelatedRequirements()}</td>
+      <td colspan="1" rowspan="1">Returns a list of all the Requirements related to the target object or one of its sub objects. The result is a list with no duplicates sorted against the requirements ids.</td>
+      <td colspan="1" rowspan="1">{m:obj.allRelatedRequirements()->sep(',')} returns: A comma separated list of related requirements.</td>
+    </tr>
+    <tr>
       <td colspan="1" rowspan="1"><strong>cinematicIcon</strong></td>
       <td colspan="1" rowspan="1">org.obeonetwork.m2doc.element.MImage</td>
       <td colspan="1" rowspan="1">{m:obj.cinematicIcon()}</td>
@@ -154,6 +161,20 @@
       <td colspan="1" rowspan="1">{m:obj.getCinematicLabel()} returns: The label of the element.</td>
     </tr>
     <tr>
+      <td colspan="1" rowspan="1"><strong>getAnnotations</strong></td>
+      <td colspan="1" rowspan="1">List of Annotation</td>
+      <td colspan="1" rowspan="1">{m:flowEvent.getAnnotations()}</td>
+      <td colspan="1" rowspan="1">Returns the list of metadata annotations of the target Flow Event.</td>
+      <td colspan="1" rowspan="1">{m:flowEvent.getAnnotations().title->sep(',')} returns: A comma separated list of Flow Event's annotation titles.</td>
+    </tr>
+    <tr>
+      <td colspan="1" rowspan="1"><strong>getName</strong></td>
+      <td colspan="1" rowspan="1">String</td>
+      <td colspan="1" rowspan="1">{m:obj.getName()}</td>
+      <td colspan="1" rowspan="1">Returns the name of the given object if it defines one. Returns an empty string in all other cases.</td>
+      <td colspan="1" rowspan="1">{m:obj.getName()} returns: The object name.</td>
+    </tr>
+    <tr>
       <td colspan="1" rowspan="1"><strong>getOperations</strong></td>
       <td colspan="1" rowspan="1">List of Action</td>
       <td colspan="1" rowspan="1">{m:actionState.getOperations()}</td>
@@ -161,11 +182,39 @@
       <td colspan="1" rowspan="1">{m:actionState.getOperations()} returns: The list Operations attached to the target Action State.</td>
     </tr>
     <tr>
+      <td colspan="1" rowspan="1"><strong>getTypeName</strong></td>
+      <td colspan="1" rowspan="1">String</td>
+      <td colspan="1" rowspan="1">{m:obj.getTypeName()}</td>
+      <td colspan="1" rowspan="1">Returns the name of the given object's type, formatted with white spaces.</td>
+      <td colspan="1" rowspan="1">{m:obj.getTypeName()} returns: A string representation of the given object's type.</td>
+    </tr>
+    <tr>
+      <td colspan="1" rowspan="1"><strong>getViewContainers</strong></td>
+      <td colspan="1" rowspan="1">List of ViewContainer</td>
+      <td colspan="1" rowspan="1">{m:flowState.getViewContainers()}</td>
+      <td colspan="1" rowspan="1">If the target Flow State is a View State, returns the list of the referenced View Containers. Returns an empty list if the the target Flow State is not a View State.</td>
+      <td colspan="1" rowspan="1">{m:flowState.isNewInstance()} returns: The list of the referenced View Containers.</td>
+    </tr>
+    <tr>
       <td colspan="1" rowspan="1"><strong>isCinematicObject</strong></td>
       <td colspan="1" rowspan="1">boolean</td>
       <td colspan="1" rowspan="1">{m:obj.isCinematicObject()}</td>
       <td colspan="1" rowspan="1">Returns if the target object is a Cinematic element.</td>
       <td colspan="1" rowspan="1">{m:obj.isCinematicObject()} returns: True if the target object is a Cinematic element, false otherwise.</td>
+    </tr>
+    <tr>
+      <td colspan="1" rowspan="1"><strong>isNewInstance</strong></td>
+      <td colspan="1" rowspan="1">String</td>
+      <td colspan="1" rowspan="1">{m:flowState.isNewInstance()}</td>
+      <td colspan="1" rowspan="1">If the target Flow State is a View State, returns the string 'Oui' if it is a new instance and 'Non' if it is not. Returns 'N/A' if the the target Flow State is not a View State.</td>
+      <td colspan="1" rowspan="1">{m:flowState.isNewInstance()} returns: 'Oui' or 'Non' or 'N/A'.</td>
+    </tr>
+    <tr>
+      <td colspan="1" rowspan="1"><strong>isRefresh</strong></td>
+      <td colspan="1" rowspan="1">String</td>
+      <td colspan="1" rowspan="1">{m:flowState.isRefresh()}</td>
+      <td colspan="1" rowspan="1">If the target Flow State is a View State, returns the string 'Oui' if it is set to refresh and 'Non' if it is not. Returns 'N/A' if the the target Flow State is not a View State.</td>
+      <td colspan="1" rowspan="1">{m:flowState.isRefresh()} returns: 'Oui' or 'Non' or 'N/A'.</td>
     </tr>
     <tr>
       <td colspan="1" rowspan="1"><strong>relatedRequirements</strong></td>

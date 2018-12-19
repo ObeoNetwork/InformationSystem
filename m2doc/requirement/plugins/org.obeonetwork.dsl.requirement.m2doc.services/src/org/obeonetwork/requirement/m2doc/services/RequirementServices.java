@@ -13,10 +13,15 @@ package org.obeonetwork.requirement.m2doc.services;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Collections;
+import java.util.Comparator;
+import java.util.HashSet;
+import java.util.Iterator;
 import java.util.List;
+import java.util.Set;
 
 import org.eclipse.acceleo.annotations.api.documentation.Documentation;
 import org.eclipse.acceleo.annotations.api.documentation.Example;
+import org.eclipse.emf.common.util.TreeIterator;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EStructuralFeature.Setting;
 import org.eclipse.emf.ecore.resource.Resource;
@@ -52,7 +57,7 @@ public class RequirementServices {
 		    }
 
 		)
-		// @formatter:on	
+	// @formatter:on	
 	public List<Requirement> relatedRequirements(EObject eObject) {
 		List<Requirement> result = new ArrayList<Requirement>();
 		
@@ -64,6 +69,40 @@ public class RequirementServices {
 		}
 		
 		return result;
+	}
+	
+	// @formatter:off
+	@Documentation(
+			comment = "{m:obj.allRelatedRequirements()}",
+		    value = "Returns a list of all the Requirements related to "
+		    		+ "the target object or one of its sub objects. The result "
+		    		+ "is a list with no duplicates sorted against the requirements ids.",
+		    examples = {
+		    		@Example(expression = "{m:obj.allRelatedRequirements()->sep(',')}", result = "A comma separated list of related requirements.")
+		    }
+
+		)
+	// @formatter:on	
+	public List<Requirement> allRelatedRequirements(EObject eObject) {
+		Set<Requirement> allRelatedRequirements = new HashSet<Requirement>();
+		
+		allRelatedRequirements.addAll(relatedRequirements(eObject));
+		Iterator<EObject> i = eObject.eAllContents();
+		while(i.hasNext()) {
+			EObject o = i.next();
+			allRelatedRequirements.addAll(relatedRequirements(o));
+		}
+		
+		List<Requirement> sortedResult = new ArrayList<Requirement>();
+		sortedResult.addAll(allRelatedRequirements);
+		sortedResult.sort(new Comparator<Requirement>() {
+			@Override
+			public int compare(Requirement a, Requirement b) {
+				return a.getId().compareTo(b.getId());
+			}
+		});
+		
+		return sortedResult;
 	}
 	
 	/**
