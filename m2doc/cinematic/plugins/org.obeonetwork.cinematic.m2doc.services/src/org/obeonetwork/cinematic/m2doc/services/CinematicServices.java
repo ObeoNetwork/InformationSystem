@@ -1,5 +1,6 @@
 package org.obeonetwork.cinematic.m2doc.services;
 
+import java.awt.Color;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
@@ -9,6 +10,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Iterator;
 import java.util.List;
+import java.util.function.Function;
 
 import org.eclipse.acceleo.annotations.api.documentation.Documentation;
 import org.eclipse.acceleo.annotations.api.documentation.Example;
@@ -22,8 +24,11 @@ import org.eclipse.swt.SWT;
 import org.eclipse.swt.graphics.Image;
 import org.eclipse.swt.graphics.ImageData;
 import org.eclipse.swt.graphics.ImageLoader;
+import org.obeonetwork.cinematic.m2doc.extension.MList;
+import org.obeonetwork.cinematic.m2doc.extension.MListImpl;
 import org.obeonetwork.dsl.cinematic.AbstractPackage;
 import org.obeonetwork.dsl.cinematic.CinematicRoot;
+import org.obeonetwork.dsl.cinematic.Package;
 import org.obeonetwork.dsl.cinematic.design.services.CinematicBindingServices;
 import org.obeonetwork.dsl.cinematic.design.services.CinematicLabelServices;
 import org.obeonetwork.dsl.cinematic.flow.ActionState;
@@ -32,6 +37,7 @@ import org.obeonetwork.dsl.cinematic.flow.FlowAction;
 import org.obeonetwork.dsl.cinematic.flow.FlowState;
 import org.obeonetwork.dsl.cinematic.flow.Transition;
 import org.obeonetwork.dsl.cinematic.flow.ViewState;
+import org.obeonetwork.dsl.cinematic.view.AbstractViewElement;
 import org.obeonetwork.dsl.cinematic.view.ViewContainer;
 import org.obeonetwork.dsl.cinematic.view.ViewElement;
 import org.obeonetwork.dsl.cinematic.view.ViewEvent;
@@ -43,12 +49,30 @@ import org.obeonetwork.dsl.environment.ObeoDSMObject;
 import org.obeonetwork.dsl.requirement.Requirement;
 import org.obeonetwork.dsl.technicalid.Identifiable;
 import org.obeonetwork.m2doc.element.MImage;
+import org.obeonetwork.m2doc.element.MStyle;
+import org.obeonetwork.m2doc.element.MTable;
+import org.obeonetwork.m2doc.element.MTable.MCell;
+import org.obeonetwork.m2doc.element.MTable.MRow;
+import org.obeonetwork.m2doc.element.MText;
 import org.obeonetwork.m2doc.element.impl.MImageImpl;
+import org.obeonetwork.m2doc.element.impl.MStyleImpl;
+import org.obeonetwork.m2doc.element.impl.MTableImpl;
+import org.obeonetwork.m2doc.element.impl.MTableImpl.MCellImpl;
+import org.obeonetwork.m2doc.element.impl.MTableImpl.MRowImpl;
+import org.obeonetwork.m2doc.element.impl.MTextImpl;
 import org.obeonetwork.tools.doc.core.DocumentationLink;
-//import org.eclipse.emf.common.util.URI;
 
 public class CinematicServices {
-
+	
+	private static final String YES_TEXT = "Oui";
+	private static final String NO_TEXT = "Non";
+	private static final String NA_TEXT = "N/A";
+	
+	private static final Color viewContainerHeaderColor = new Color(253, 206, 137);
+	private static final Color viewContainerLineColor = new Color(253, 230, 195);
+	private static final MStyle defaultTextStyle = new MStyleImpl(null, 10, null, null, -1);
+	private static final MStyle boldTextStyle = new MStyleImpl(null, 10, null, null, 1);
+	
 	private CinematicLabelServices labelService = new CinematicLabelServices();
 	private CinematicBindingServices bindingService = new CinematicBindingServices ();
 
@@ -193,33 +217,61 @@ public class CinematicServices {
 	// @formatter:off
 	@Documentation(
 			comment = "{m:viewElement.isRequired()}",
-		    value = "Returns the string 'Oui' if the target View Element is required, 'Non' otherwise.",
+		    value = "Returns the string '" + YES_TEXT + "' if the target View Element is required, '" + NO_TEXT + "' otherwise."
+		    		+ " Returns '" + NA_TEXT + "' if not applicable (case of a View Container or ViewContainerReference).",
 		    examples = {
 		    		@Example(
 		    				expression = "{m:viewElement.isRequired()}", 
-		    				result = "'Oui' or 'Non'.")
+		    				result = "'" + YES_TEXT + "', '" + NO_TEXT + "' or '" + NA_TEXT + "'.")
 		    }
 		)
 	// @formatter:on	
-	public String isRequired(ViewElement viewElement) {
-		if (viewElement.isRequired())
-			return "Oui";
-		else
-			return "Non";
+	public String isRequired(AbstractViewElement abstractViewElement) {
+		if(abstractViewElement instanceof ViewElement) {
+			ViewElement viewElement = (ViewElement) abstractViewElement;
+			if (viewElement.isRequired())
+				return YES_TEXT;
+			else
+				return NO_TEXT;
+		}
+		return NA_TEXT;
 	}
 	
 	// @formatter:off
 	@Documentation(
-			comment = "{m:package.subElements()}",
+			comment = "{m:viewElement.viewElementType()}",
+		    value = "Returns the name of the view element's type if applicable."
+		    		+ " Returns '" + NA_TEXT + "' if not applicable (case of a View Container or ViewContainerReference).",
+		    examples = {
+		    		@Example(
+		    				expression = "{m:viewElement.viewElementType()}", 
+		    				result = "'Type name' or '" + NA_TEXT + "'.")
+		    }
+		)
+	// @formatter:on	
+	public String viewElementType(AbstractViewElement abstractViewElement) {
+		if(abstractViewElement instanceof ViewElement) {
+			ViewElement viewElement = (ViewElement) abstractViewElement;
+			if(viewElement.getType() != null) {
+				return viewElement.getType().getName();
+			}
+			return "";
+		}
+		return NA_TEXT;
+	}
+	
+	// @formatter:off
+	@Documentation(
+			comment = "{m:package.uiStructure()}",
 		    value = "Returns the list of the target package sub elements, as seen in the Cinematic tree.",
 		    examples = {
 		    		@Example(
-		    				expression = "{m:package.subElements()}", 
+		    				expression = "{m:package.uiStructure()}", 
 		    				result = "The list of the sub elements.")
 		    }
 		)
 	// @formatter:on	
-	public List<EObject> subElements(AbstractPackage pack){
+	public List<EObject> uiStructure(AbstractPackage pack){
 		List<EObject>  result = new ArrayList<> ();
 		result.addAll (pack.getSubPackages());
 		result.addAll (pack.getViewContainers());
@@ -232,16 +284,85 @@ public class CinematicServices {
 
 	// @formatter:off
 	@Documentation(
-			comment = "{m:viewContainer.subElements()}",
+			comment = "{m:package.uiStructureAsTable()}",
+		    value = "Returns a table representing the target package and its sub elements, as seen in the Cinematic tree.",
+		    examples = {
+		    		@Example(
+		    				expression = "{m:package.uiStructureAsTable()}", 
+		    				result = "A table representing the package.")
+		    }
+		)
+	// @formatter:on	
+	public MTable uiStructureAsTable(AbstractPackage pack) {
+		return treeAsTable(pack, p -> uiStructure((AbstractPackage) p));
+	}
+
+	// @formatter:off
+	@Documentation(
+			comment = "{m:viewContainer.uiStructureAsTable()}",
+		    value = "Returns a table representing the target ViewContainer and its sub elements, as seen in the Cinematic tree.",
+		    examples = {
+		    		@Example(
+		    				expression = "{m:viewContainer.uiStructureAsTable()}", 
+		    				result = "A table representing the ViewContainer.")
+		    }
+		)
+	// @formatter:on	
+	public MTable uiStructureAsTable(ViewContainer viewContainer) {
+		return treeAsTable(viewContainer, vc -> uiStructure((ViewContainer) vc));
+	}
+
+	private MTable treeAsTable(EObject root, Function<EObject, List<EObject>> subElements){
+		
+		MTable table = new MTableImpl();
+        table.setLabel(cinematicLabel(root));
+		
+        MRow headerRow = new MRowImpl();
+        table.getRows().add(headerRow);
+        
+        MImage headerIcon = cinematicIcon(root);
+        MText headerText = new MTextImpl(cinematicLabel(root), defaultTextStyle);
+        
+        MList headerList = new MListImpl();
+        headerList.add(headerIcon);
+        headerList.add(new MTextImpl("  ", defaultTextStyle));
+        headerList.add(headerText);
+        
+        MCell headerCell = new MCellImpl(headerList, null);
+        headerRow.getCells().add(headerCell);
+        
+        for(EObject element : subElements.apply(root)) {
+            MRow row = new MRowImpl();
+            table.getRows().add(row);
+            
+            MImage icon = cinematicIcon(element);
+            MText text = new MTextImpl(cinematicLabel(element), defaultTextStyle);
+            
+            MList list = new MListImpl();
+            list.add(new MTextImpl("  >   ", boldTextStyle));
+            list.add(icon);
+            list.add(new MTextImpl("  ", defaultTextStyle));
+            list.add(text);
+            
+            MCell cell = new MCellImpl(list, null);
+            row.getCells().add(cell);
+        }
+        
+		return table;
+	}
+
+	// @formatter:off
+	@Documentation(
+			comment = "{m:viewContainer.uiStructure()}",
 		    value = "Returns the list of the target ViewContainer sub elements, as seen in the Cinematic tree.",
 		    examples = {
 		    		@Example(
-		    				expression = "{m:viewContainer.subElements()}", 
+		    				expression = "{m:viewContainer.uiStructure()}", 
 		    				result = "The list of the sub elements.")
 		    }
 		)
 	// @formatter:on	
-	public List<EObject> subElements (ViewContainer viewContainer) {
+	public List<EObject> uiStructure(ViewContainer viewContainer) {
 		List<EObject>  result = new ArrayList<> ();
 		result.addAll(viewContainer.getViewContainers());
 		result.addAll(viewContainer.getViewElements());
@@ -428,24 +549,24 @@ public class CinematicServices {
 	// @formatter:off
 	@Documentation(
 			comment = "{m:flowState.isNewInstance()}",
-		    value = "If the target Flow State is a View State, returns the string 'Oui' "
-		    		+ "if it is a new instance and 'Non' if it is not. Returns 'N/A' if "
-		    		+ "the the target Flow State is not a View State.",
+		    value = "If the target Flow State is a View State, returns the string '" + YES_TEXT + "' "
+		    		+ "if it is a new instance and '" + NO_TEXT + "' if it is not. Returns '" + NA_TEXT + "' if "
+		    		+ "the target Flow State is not a View State.",
 		    examples = {
 		    		@Example(
 		    				expression = "{m:flowState.isNewInstance()}", 
-		    				result = "'Oui' or 'Non' or 'N/A'.")
+		    				result = "'" + YES_TEXT + "' or '" + NO_TEXT + "' or '" + NA_TEXT + "'.")
 		    }
 		)
 	// @formatter:on	
 	public String isNewInstance(FlowState flowState) {
 		if(flowState instanceof ViewState) {
 			if (((ViewState) flowState).isNewInstance())
-				return "Oui";
+				return YES_TEXT;
 			else
-				return "Non";
+				return NO_TEXT;
 		}
-		return "N/A";
+		return NA_TEXT;
 	}
 	
 	// @formatter:off
@@ -453,7 +574,7 @@ public class CinematicServices {
 			comment = "{m:flowState.getViewContainers()}",
 		    value = "If the target Flow State is a View State, returns the list "
 		    		+ "of the referenced View Containers. Returns an empty list "
-		    		+ "if the the target Flow State is not a View State.",
+		    		+ "if the target Flow State is not a View State.",
 		    examples = {
 		    		@Example(
 		    				expression = "{m:flowState.isNewInstance()}", 
@@ -471,52 +592,52 @@ public class CinematicServices {
 	// @formatter:off
 	@Documentation(
 			comment = "{m:flowState.isRefresh()}",
-		    value = "If the target Flow State is a View State, returns the string 'Oui' "
-		    		+ "if it is set to refresh and 'Non' if it is not. Returns 'N/A' if "
-		    		+ "the the target Flow State is not a View State.",
+		    value = "If the target Flow State is a View State, returns the string '" + YES_TEXT + "' "
+		    		+ "if it is set to refresh and '" + NO_TEXT + "' if it is not. Returns '" + NA_TEXT + "' if "
+		    		+ "the target Flow State is not a View State.",
 		    examples = {
 		    		@Example(
 		    				expression = "{m:flowState.isRefresh()}", 
-		    				result = "'Oui' or 'Non' or 'N/A'.")
+		    				result = "'" + YES_TEXT + "' or '" + NO_TEXT + "' or '" + NA_TEXT + "'.")
 		    }
 		)
 	// @formatter:on	
 	public String isRefresh(FlowState flowState) {
 		if(flowState instanceof ViewState) {
 			if (((ViewState) flowState).isRefresh())
-				return "Oui";
+				return YES_TEXT;
 			else
-				return "Non";
+				return NO_TEXT;
 		}
-		return "N/A";
+		return NA_TEXT;
 	}
 	
 	// @formatter:off
 	@Documentation(
 			comment = "{m:transition.isModal()}",
-		    value = "Returns the string 'Oui' if the target Transition is modal, 'Non' otherwise.",
+		    value = "Returns the string '" + YES_TEXT + "' if the target Transition is modal, '" + NO_TEXT + "' otherwise.",
 		    examples = {
 		    		@Example(
 		    				expression = "{m:transition.isModal()}", 
-		    				result = "'Oui' or 'Non'.")
+		    				result = "'" + YES_TEXT + "' or '" + NO_TEXT + "'.")
 		    }
 		)
 	// @formatter:on	
 	public String isModal(Transition transition) {
 		if (transition.isModal())
-			return "Oui";
+			return YES_TEXT;
 		else
-			return "Non";
+			return NO_TEXT;
 	}
 	
 	// @formatter:off
 	@Documentation(
 			comment = "{m:transition.isModal()}",
-		    value = "Returns the string 'Oui' if the target Transition is modal, 'Non' otherwise.",
+		    value = "Returns the string '" + YES_TEXT + "' if the target Transition is modal, '" + NO_TEXT + "' otherwise.",
 		    examples = {
 		    		@Example(
 		    				expression = "{m:transition.isModal()}", 
-		    				result = "'Oui' or 'Non'.")
+		    				result = "'" + YES_TEXT + "' or '" + NO_TEXT + "'.")
 		    }
 		)
 	// @formatter:on	
@@ -529,6 +650,102 @@ public class CinematicServices {
 		}
 		
 		return referencedCinematicObjects;
+	}
+	
+	// @formatter:off
+	@Documentation(
+			comment = "{m:package.getAllViewContainers()}",
+		    value = "Returns all the ViewContainers contained in the given package and any of its sub packages and view containers.",
+		    examples = {
+		    		@Example(
+		    				expression = "{m:package.getAllViewContainers()}", 
+		    				result = "The list of all contained View Containers.")
+		    }
+		)
+	// @formatter:on	
+	public List<ViewContainer> getAllViewContainers(AbstractPackage abstractPackage) {
+		List<ViewContainer> allViewContainers = new ArrayList<>();
+		allViewContainers.addAll(abstractPackage.getViewContainers());
+		
+		for(ViewContainer vc : abstractPackage.getViewContainers()) {
+			allViewContainers.addAll(getAllViewContainers(vc));
+		}
+		
+		for(Package p : abstractPackage.getSubPackages()) {
+			allViewContainers.addAll(getAllViewContainers(p));
+		}
+			
+		return allViewContainers;
+	}
+
+	private List<ViewContainer> getAllViewContainers(ViewContainer viewContainer) {
+		List<ViewContainer> allViewContainers = new ArrayList<>();
+		allViewContainers.add(viewContainer);
+		
+		for(ViewContainer subViewContainer : viewContainer.getViewContainers()) {
+			allViewContainers.addAll(getAllViewContainers(subViewContainer));
+		}
+		
+		return allViewContainers;
+	}
+	
+	// @formatter:off
+	@Documentation(
+			comment = "{m:viewContainer.structureAsTable()}",
+		    value = "Returns a table representing the target ViewContainer and its sub elements, as seen in the Package Diagram.",
+		    examples = {
+		    		@Example(
+		    				expression = "{m:viewContainer.structureAsTable()}", 
+		    				result = "A table representing the ViewContainer structure.")
+		    }
+		)
+	// @formatter:on	
+	public MTable structureAsTable(ViewContainer viewContainer) {
+		
+		MTable table = new MTableImpl();
+        table.setLabel(cinematicLabel(viewContainer));
+		
+        MRow headerRow = new MRowImpl();
+        table.getRows().add(headerRow);
+        
+        MImage headerIcon = cinematicIcon(viewContainer);
+        MText headerText = new MTextImpl(cinematicLabel(viewContainer), defaultTextStyle);
+        
+        MList headerList = new MListImpl();
+        headerList.add(headerIcon);
+        headerList.add(new MTextImpl("  ", defaultTextStyle));
+        headerList.add(headerText);
+        
+        MCell headerCell = new MCellImpl(headerList, viewContainerHeaderColor);
+        headerRow.getCells().add(headerCell);
+        
+        for(AbstractViewElement viewElement : getSortedOwnedElements(viewContainer)) {
+            MRow row = new MRowImpl();
+            table.getRows().add(row);
+            
+            MImage icon = cinematicIcon(viewElement);
+            MText text = new MTextImpl(cinematicLabel(viewElement), defaultTextStyle);
+            
+            MList list = new MListImpl();
+            list.add(icon);
+            list.add(new MTextImpl("  ", defaultTextStyle));
+            list.add(text);
+            
+            MCell cell = new MCellImpl(list, viewContainerLineColor);
+            row.getCells().add(cell);
+        }
+        
+		return table;
+	}
+	
+	private List<AbstractViewElement> getSortedOwnedElements(ViewContainer viewContainer) {
+		List<AbstractViewElement> sortedOwnedElements = new ArrayList<>();
+		sortedOwnedElements.addAll(viewContainer.getViewContainers());
+		sortedOwnedElements.addAll(viewContainer.getViewElements());
+		sortedOwnedElements.addAll(viewContainer.getViewContainerReferences());
+		
+		
+		return sortedOwnedElements;
 	}
 	
 }

@@ -175,6 +175,13 @@
       <td colspan="1" rowspan="1">{m:obj.getCinematicLabel()} returns: The label of the element.</td>
     </tr>
     <tr>
+      <td colspan="1" rowspan="1"><strong>getAllViewContainers</strong></td>
+      <td colspan="1" rowspan="1">List of ViewContainer</td>
+      <td colspan="1" rowspan="1">{m:package.getAllViewContainers()}</td>
+      <td colspan="1" rowspan="1">Returns all the ViewContainers contained in the given package and any of its sub packages and view containers.</td>
+      <td colspan="1" rowspan="1">{m:package.getAllViewContainers()} returns: The list of all contained View Containers.</td>
+    </tr>
+    <tr>
       <td colspan="1" rowspan="1"><strong>getAnnotations</strong></td>
       <td colspan="1" rowspan="1">List of Annotation</td>
       <td colspan="1" rowspan="1">{m:flowEvent.getAnnotations()}</td>
@@ -217,11 +224,18 @@
       <td colspan="1" rowspan="1">{m:obj.relatedRequirementsWithSubtype('performance')->sep(',')} returns: A comma separated list of related requirements of performance subtype.</td>
     </tr>
     <tr>
-      <td colspan="1" rowspan="1"><strong>subElements</strong></td>
+      <td colspan="1" rowspan="1"><strong>uiStructure</strong></td>
       <td colspan="1" rowspan="1">List of EObject</td>
-      <td colspan="1" rowspan="1">{m:package.subElements()}</td>
+      <td colspan="1" rowspan="1">{m:package.uiStructure()}</td>
       <td colspan="1" rowspan="1">Returns the list of the target package sub elements, as seen in the Cinematic tree.</td>
-      <td colspan="1" rowspan="1">{m:package.subElements()} returns: The list of the sub elements.</td>
+      <td colspan="1" rowspan="1">{m:package.uiStructure()} returns: The list of the sub elements.</td>
+    </tr>
+    <tr>
+      <td colspan="1" rowspan="1"><strong>uiStructureAsTable</strong></td>
+      <td colspan="1" rowspan="1">org.obeonetwork.m2doc.element.MTable</td>
+      <td colspan="1" rowspan="1">{m:package.uiStructureAsTable()}</td>
+      <td colspan="1" rowspan="1">Returns a table representing the target package and its sub elements, as seen in the Cinematic tree.</td>
+      <td colspan="1" rowspan="1">{m:package.uiStructureAsTable()} returns: A table representing the package.</td>
     </tr>
     </tbody>
     </table>

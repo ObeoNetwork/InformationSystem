@@ -227,8 +227,8 @@
       <td colspan="1" rowspan="1"><strong>isRequired</strong></td>
       <td colspan="1" rowspan="1">String</td>
       <td colspan="1" rowspan="1">{m:viewElement.isRequired()}</td>
-      <td colspan="1" rowspan="1">Returns the string 'Oui' if the target View Element is required, 'Non' otherwise.</td>
-      <td colspan="1" rowspan="1">{m:viewElement.isRequired()} returns: 'Oui' or 'Non'.</td>
+      <td colspan="1" rowspan="1">Returns the string 'Oui' if the target View Element is required, 'Non' otherwise. Returns 'N/A' if not applicable (case of a View Container or ViewContainerReference).</td>
+      <td colspan="1" rowspan="1">{m:viewElement.isRequired()} returns: 'Oui', 'Non' or 'N/A'.</td>
     </tr>
     <tr>
       <td colspan="1" rowspan="1"><strong>relatedRequirements</strong></td>
@@ -243,6 +243,13 @@
       <td colspan="1" rowspan="1">{m:obj.relatedRequirementsWithSubtype('SUBTYPE')}</td>
       <td colspan="1" rowspan="1">Returns the list of Requirements that reference the target object and that have the specified subtype.</td>
       <td colspan="1" rowspan="1">{m:obj.relatedRequirementsWithSubtype('performance')->sep(',')} returns: A comma separated list of related requirements of performance subtype.</td>
+    </tr>
+    <tr>
+      <td colspan="1" rowspan="1"><strong>viewElementType</strong></td>
+      <td colspan="1" rowspan="1">String</td>
+      <td colspan="1" rowspan="1">{m:viewElement.viewElementType()}</td>
+      <td colspan="1" rowspan="1">Returns the name of the view element's type if applicable. Returns 'N/A' if not applicable (case of a View Container or ViewContainerReference).</td>
+      <td colspan="1" rowspan="1">{m:viewElement.viewElementType()} returns: 'Type name' or 'N/A'.</td>
     </tr>
     </tbody>
     </table>
