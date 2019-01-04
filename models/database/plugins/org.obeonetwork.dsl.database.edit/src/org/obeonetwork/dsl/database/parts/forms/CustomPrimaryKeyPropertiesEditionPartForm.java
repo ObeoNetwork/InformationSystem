@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2011, 2017 Obeo.
+ * Copyright (c) 2011, 2018 Obeo.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -10,8 +10,21 @@
  *******************************************************************************/
 package org.obeonetwork.dsl.database.parts.forms;
 
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Iterator;
+
+import org.eclipse.emf.common.notify.AdapterFactory;
+import org.eclipse.emf.ecore.EObject;
+import org.eclipse.emf.edit.ui.provider.AdapterFactoryLabelProvider;
 import org.eclipse.emf.eef.runtime.api.component.IPropertiesEditionComponent;
+import org.eclipse.emf.eef.runtime.impl.notify.PropertiesEditionEvent;
+import org.eclipse.emf.eef.runtime.ui.widgets.EMFModelViewerDialog;
+import org.eclipse.emf.eef.runtime.ui.widgets.settings.EEFEditorSettings;
+import org.eclipse.jface.viewers.IStructuredSelection;
 import org.eclipse.swt.SWT;
+import org.obeonetwork.dsl.database.Column;
+import org.obeonetwork.dsl.database.Table;
 import org.obeonetwork.dsl.database.components.PrimaryKeyPropertiesEditionComponent;
 import org.obeonetwork.dsl.database.components.TablePrimaryKeyPropertiesEditionComponent;
 import org.obeonetwork.dsl.database.parts.DatabaseViewsRepository;
@@ -75,6 +88,35 @@ public class CustomPrimaryKeyPropertiesEditionPartForm extends PrimaryKeyPropert
 			comments.setToolTipText(DatabaseMessages.PrimaryKey_ReadOnly);
 		} else if (!eefElementEditorReadOnlyState && !comments.isEnabled()) {
 			comments.setEnabled(true);
+		}
+	}
+	
+	/**
+	 * Overriden to fix bug SAFRAN-725
+	 */
+	@Override
+	protected void addColumns() {
+		// Retrieve all columns in table's owner
+		if (current instanceof Table) {
+			final Collection<Column> pkTableColumns = new ArrayList<>(((Table) current).getColumns());
+			EEFEditorSettings input = new DelegatedEEFEditorSettings((EEFEditorSettings)columns.getInput()) {
+				@Override
+				public Object choiceOfValues(AdapterFactory adapterFactory) {
+					return pkTableColumns;
+				}
+			};
+			EMFModelViewerDialog dialog = new EMFModelViewerDialog(new AdapterFactoryLabelProvider(adapterFactory), input, columnsFilters, columnsBusinessFilters, false, true) {
+				public void process(IStructuredSelection selection) {
+					for (Iterator<?> iter = selection.iterator(); iter.hasNext();) {
+						EObject elem = (EObject) iter.next();
+						propertiesEditionComponent.firePropertiesChanged(new PropertiesEditionEvent(CustomPrimaryKeyPropertiesEditionPartForm.this, DatabaseViewsRepository.PrimaryKey.Properties.columns, PropertiesEditionEvent.COMMIT, PropertiesEditionEvent.ADD, null, elem));
+					}
+				}
+			};
+			dialog.open();
+			columns.refresh();
+		} else {
+			super.addColumns();
 		}
 	}
 
