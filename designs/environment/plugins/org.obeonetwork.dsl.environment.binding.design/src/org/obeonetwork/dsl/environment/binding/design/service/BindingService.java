@@ -28,10 +28,8 @@ import org.eclipse.sirius.business.api.dialect.DialectManager;
 import org.eclipse.sirius.business.api.query.EObjectQuery;
 import org.eclipse.sirius.business.api.session.Session;
 import org.eclipse.sirius.business.api.session.SessionManager;
-import org.eclipse.sirius.common.tools.api.interpreter.IInterpreter;
 import org.eclipse.sirius.diagram.DNode;
 import org.eclipse.sirius.diagram.DSemanticDiagram;
-import org.eclipse.sirius.tools.api.interpreter.InterpreterUtil;
 import org.eclipse.sirius.ui.business.api.session.UserSession;
 import org.eclipse.sirius.viewpoint.DRepresentation;
 import org.eclipse.sirius.viewpoint.description.RepresentationDescription;
@@ -51,12 +49,6 @@ import org.obeonetwork.dsl.environment.bindingdialect.DBindingEditor;
 public class BindingService {
 	
 	private static final String BINDING_EDITOR_DESCRIPTION_NAME = "Binding Details";
-	
-	public EObject debugContext(EObject context) {
-		IInterpreter interpreter = InterpreterUtil.getInterpreter(context);
-		System.out.println(interpreter.getVariables().keySet());
-		return context;
-	}
 	
 	public Collection<EObject> allRootsForBinding(EObject any) {
 		Collection<EObject> roots = new ArrayList<EObject>();
