@@ -31,37 +31,30 @@ public class DelegatedEEFEditorSettings implements EEFEditorSettings {
 		this.settings = settings;
 	}
 	
-	@Override
 	public Object getValue() {
 		return settings.getValue();
 	}
 
-	@Override
 	public Object choiceOfValues(AdapterFactory adapterFactory) {
 		return settings.choiceOfValues(adapterFactory);
 	}
 
-	@Override
 	public boolean isAffectingFeature(EStructuralFeature feature) {
 		return settings.isAffectingFeature(feature);
 	}
 
-	@Override
 	public boolean isAffectingEvent(Notification notification) {
 		return settings.isAffectingEvent(notification);
 	}
 
-	@Override
 	public EObject getSource() {
 		return settings.getSource();
 	}
 
-	@Override
 	public EClassifier getEType() {
 		return settings.getEType();
 	}
 
-	@Override
 	public EReference getLastReference() {
 		return settings.getLastReference();
 	}
