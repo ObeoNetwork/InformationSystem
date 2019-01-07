@@ -98,7 +98,7 @@ public class CustomPrimaryKeyPropertiesEditionPartForm extends PrimaryKeyPropert
 	protected void addColumns() {
 		// Retrieve all columns in table's owner
 		if (current instanceof Table) {
-			final Collection<Column> pkTableColumns = new ArrayList<>(((Table) current).getColumns());
+			final Collection<Column> pkTableColumns = new ArrayList<Column>(((Table) current).getColumns());
 			EEFEditorSettings input = new DelegatedEEFEditorSettings((EEFEditorSettings)columns.getInput()) {
 				@Override
 				public Object choiceOfValues(AdapterFactory adapterFactory) {
