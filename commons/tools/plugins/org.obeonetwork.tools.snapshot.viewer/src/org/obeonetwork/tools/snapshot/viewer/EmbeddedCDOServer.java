@@ -202,7 +202,7 @@ public class EmbeddedCDOServer {
 			
 		CDOExporter cdoExporter = new CDOExporter();
 		cdoExporter.exportResourcesFromRepository(resourceURIs, repositoryManager, true, true,
-				remoteToLocalProjectNameMapping, false, monitor);
+				remoteToLocalProjectNameMapping, monitor);
 		
 		// Call postImport handlers
 		doPostImport(remoteToLocalProjectNameMapping);
