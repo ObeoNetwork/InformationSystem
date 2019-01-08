@@ -18,7 +18,7 @@
 
 	<properties>
 		<tycho-version>1.0.0</tycho-version>
-		<platform-version-name>oxygen</platform-version-name>
+		<platform-version-name>photon</platform-version-name>
 		<od-site>http://update.obeo.fr/stable/designer/11.1.1_rc1/team/11.1.1/photon/repository/</od-site>
 		<od-site2>http://update.obeo.fr/stable/designer/11.1.1_rc1/community/11.1.1/photon/repository/</od-site2>
 		<eef-site>http://download.eclipse.org/modeling/emft/eef/updates/milestones/1.5/S201705310956</eef-site>
@@ -29,6 +29,7 @@
 		<m2doc-site>https://s3-eu-west-1.amazonaws.com/obeo-m2doc-releases/master/nightly/repository</m2doc-site>
 		<!-- <acceleo-snapshots-site>https://repo.eclipse.org/content/repositories/acceleo-snapshots</acceleo-snapshots-site> -->
 		<!-- <acceleo-releases-site>https://repo.eclipse.org/content/repositories/acceleo-releases</acceleo-releases-site> -->
+		<svn-site>https://download.eclipse.org/releases/oxygen/</svn-site>
 	</properties>
 
 	<modules>
@@ -352,6 +353,11 @@
 			<id>orbit</id>
 			<layout>p2</layout>
 			<url>${orbit-site}</url>
+		</repository>
+		<repository>
+			<id>svn</id>
+			<layout>p2</layout>
+			<url>${svn-site}</url>
 		</repository>
 	</repositories>
 
