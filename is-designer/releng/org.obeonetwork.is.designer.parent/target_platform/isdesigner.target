@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <?pde?>
 <!-- generated with https://github.com/mbarbero/fr.obeo.releng.targetplatform -->
-<target name="IS Designer Target Definition" sequenceNumber="1538732516">
+<target name="IS Designer Target Definition" sequenceNumber="1547024687">
   <locations>
     <location includeMode="planner" includeAllPlatforms="false" includeSource="true" includeConfigurePhase="false" type="InstallableUnit">
       <unit id="org.obeonetwork.dsl.feature.environment.feature.group" version="0.0.0"/>
@@ -49,7 +49,7 @@
       <unit id="org.obeonetwork.is.samples.feature.feature.group" version="0.0.0"/>
       <unit id="org.obeonetwork.tools.projectlibrary.feature.feature.group" version="0.0.0"/>
       <unit id="org.obeonetwork.cinematic.m2doc.feature.feature.group" version="0.0.0"/>
-      <repository location="http://update.obeo.fr/integration/informationsystem/10.0/design/repository/"/>
+      <repository location="http://update.obeo.fr/integration/informationsystem/11.0/design/repository/"/>
     </location>
     <location includeMode="planner" includeAllPlatforms="false" includeSource="true" includeConfigurePhase="false" type="InstallableUnit">
       <unit id="org.eclipse.emf.eef.runtime-feature.feature.group" version="0.0.0"/>
@@ -78,6 +78,10 @@
       <unit id="org.eclipse.platform.sdk" version="0.0.0"/>
       <unit id="org.eclipse.core.runtime.feature.feature.group" version="0.0.0"/>
       <unit id="org.eclipse.equinox.p2.discovery.feature.feature.group" version="0.0.0"/>
+      <repository location="http://download.eclipse.org/releases/photon/"/>
+    </location>
+    <location includeMode="planner" includeAllPlatforms="false" includeSource="true" includeConfigurePhase="false" type="InstallableUnit">
+      <unit id="org.eclipse.team.svn.feature.group" version="0.0.0"/>
       <repository location="http://download.eclipse.org/releases/oxygen/"/>
     </location>
     <location includeMode="planner" includeAllPlatforms="false" includeSource="true" includeConfigurePhase="false" type="InstallableUnit">
@@ -85,8 +89,8 @@
       <repository location="http://download.eclipse.org/tools/orbit/downloads/drops/R20170919201930/repository/"/>
     </location>
     <location includeMode="planner" includeAllPlatforms="false" includeSource="true" includeConfigurePhase="false" type="InstallableUnit">
-      <unit id="fr.obeo.dsl.viewpoint.collab" version="1.0.0.201807311605"/>
-      <repository id="Obeo-Designer-Team" location="http://update.obeo.fr/release/designer/10.1/team/10.1.3/oxygen/repository"/>
+      <unit id="fr.obeo.dsl.viewpoint.collab" version="1.0.0.201812071043"/>
+      <repository id="Obeo-Designer-Team" location="http://update.obeo.fr/stable/designer/11.1.1_rc1/team/11.1.1/photon/repository/"/>
     </location>
     <location includeMode="planner" includeAllPlatforms="false" includeSource="true" includeConfigurePhase="false" type="InstallableUnit">
       <unit id="org.apache.log4j" version="0.0.0"/>
@@ -153,7 +157,8 @@
       <unit id="org.eclipse.sirius.tests.support.source.feature.group" version="0.0.0"/>
       <unit id="org.eclipse.sirius.interpreter.feature.feature.group" version="0.0.0"/>
       <unit id="org.eclipse.sirius.interpreter.feature.source.feature.group" version="0.0.0"/>
-      <repository id="Obeo-Designer-Community" location="http://update.obeo.fr/release/designer/10.1/community/10.1.3/oxygen/repository"/>
+      <unit id="org.eclipse.acceleo.query.feature.group" version="0.0.0"/>
+      <repository id="Obeo-Designer-Community" location="http://update.obeo.fr/stable/designer/11.1.1_rc1/community/11.1.1/photon/repository/"/>
     </location>
   </locations>
 </target>
