@@ -5,8 +5,8 @@ Element-Type: testcase
 Element-Version: 3.0
 External-Reference: 
 Id: _B81lwGNcEeSg_dTG4Ei-uQ
-Runtime-Version: 2.2.0.201706152316
-Save-Time: 7/4/18 5:47 PM
+Runtime-Version: 2.3.0.201806262310
+Save-Time: 1/9/19 6:25 PM
 Testcase-Type: ecl
 
 ------=_.description-216f885c-d591-38ce-8ea2-e4f8cb4d6ffa
@@ -90,9 +90,7 @@ with [get-editor "Checkout Flow Diagram" | get-diagram -index 1 | get-edit-part 
     }
     mouse-move 81 2 -height 463 -width 858
 }
-get-editor "Checkout Flow Diagram" | get-diagram -index 1 | get-edit-part -name "Checkout Flow Diagram" | get-edit-part 
-    -name "" -index 1 | get-edit-part -className WorkspaceImageEditPart | get-figure "0/0" | get-property className 
-    | equals "org.eclipse.sirius.diagram.ui.tools.api.figure.SiriusWrapLabel" | verify-true
+
 with [get-editor "Checkout Flow Diagram" | get-diagram -index 1 | get-edit-part -name "Checkout Flow Diagram"] {
     mouse-move 703 151 -height 463 -width 858
     // Check FLD_ViewContainer

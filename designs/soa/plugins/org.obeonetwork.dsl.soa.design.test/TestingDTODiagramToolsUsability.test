@@ -93,7 +93,7 @@ get-editor "main - DTO diagram" | get-diagram -index 1 | get-edit-part -name "ma
     -height 669 -width 1130
 get-view "Model Explorer" | get-tree | select "*E-BookStore" | get-menu "New/Other..." | click
 with [get-window New] {
-    get-tree | select "Safr@n/Entity Model"
+    get-tree | select [ concat $folderNameInWizard "/Entity Model" ]
     get-button "Next >" | click
     get-button Finish | click
 }

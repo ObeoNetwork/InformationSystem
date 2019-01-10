@@ -27,7 +27,7 @@ Entry-Name: .content
 get-view "Model Explorer" | get-tree | select "E-BookStore" | get-menu -path "New/Other..." | click
 with [get-window New] {
     get-editbox -after [get-label "Wizards:"] | set-text ENT
-    get-tree | select "Safr@n/Entity Model"
+    get-tree | select [ concat $folderNameInWizard "/Entity Model" ]
     get-button "Next >" | click
     get-button Finish | click
 }
