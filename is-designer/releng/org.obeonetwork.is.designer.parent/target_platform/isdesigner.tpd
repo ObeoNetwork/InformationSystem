@@ -83,7 +83,7 @@ location "http://download.eclipse.org/releases/oxygen/" {
 	org.eclipse.team.svn.feature.group lazy
 }
 
-location "http://download.eclipse.org/tools/orbit/downloads/drops/R20170919201930/repository/" {
+location "https://download.eclipse.org/tools/orbit/downloads/drops/R20180606145124/repository/" {
 	org.kohsuke.args4j [2.0.21,2.1.0)
 }
 
