@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="ASCII"?>
 <xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:cinematic="http://www.obeonetwork.org/dsl/cinematic/3.0.0" xmlns:cinematic-flow="http://www.obeonetwork.org/dsl/cinematic/flow/1.0.0" xmlns:cinematic-view="http://www.obeonetwork.org/dsl/cinematic/view/1.0.0" xmlns:oenv="http://www.obeonetwork.org/dsl/environment/3.0.0">
-  <cinematic:CinematicRoot xmi:id="_N-7IwIjLEeGrHN3Vq969QA" technicalid="_47-1sBVIEeetFdz5pzgWAw" bindingRegistries="_olXdMB_GEeW_TuSj9xLcNQ" createdOn="2015-07-01T09:56:09.209+0200" modifiedOn="2015-07-01T09:56:09.209+0200" name="E-BookStore">
+  <cinematic:CinematicRoot xmi:id="_N-7IwIjLEeGrHN3Vq969QA" technicalid="_47-1sBVIEeetFdz5pzgWAw" bindingRegistries="_y0quQBWvEemPcZQonXs-Bw" createdOn="2015-07-01T09:56:09.209+0200" modifiedOn="2019-01-11T15:47:18.563+0100" name="E-BookStore">
     <flows xmi:id="_aIPqAIjWEeGStfxeQK0zeA" technicalid="_48OGQBVIEeetFdz5pzgWAw" name="Main">
       <states xsi:type="cinematic-flow:InitialState" xmi:id="_lBedYIjWEeGStfxeQK0zeA" technicalid="_48PUYBVIEeetFdz5pzgWAw" name="Initial"/>
       <states xsi:type="cinematic-flow:ViewState" xmi:id="_xP47AIjWEeGStfxeQK0zeA" technicalid="_48PUYRVIEeetFdz5pzgWAw" name="Display Homepage" viewContainers="_lSJPQIjZEeGlA5e_Ze9-Rg"/>
@@ -216,5 +216,5 @@
     </subPackages>
     <toolkits href="pathmap://cinematic/toolkits/Web#_prv6gIjeEeGIXsoZxTXHQA"/>
   </cinematic:CinematicRoot>
-  <oenv:BindingRegistry xmi:id="_olXdMB_GEeW_TuSj9xLcNQ" technicalid="_49BXgBVIEeetFdz5pzgWAw"/>
+  <oenv:BindingRegistry xmi:id="_y0quQBWvEemPcZQonXs-Bw" technicalid="_y0qHMBWvEemPcZQonXs-Bw"/>
 </xmi:XMI>
