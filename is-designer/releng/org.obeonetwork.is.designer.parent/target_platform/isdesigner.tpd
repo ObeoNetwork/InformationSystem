@@ -87,11 +87,11 @@ location "https://download.eclipse.org/tools/orbit/downloads/drops/R201806061451
 	org.kohsuke.args4j [2.0.21,2.1.0)
 }
 
-location Obeo-Designer-Team "http://update.obeo.fr/stable/designer/11.1.1_rc1/team/11.1.1/photon/repository/" {
+location Obeo-Designer-Team "http://update.obeo.fr/release/designer/11.1/team/11.1.1/photon/repository/" {
 	fr.obeo.dsl.viewpoint.collab
 }
 
-location Obeo-Designer-Community "http://update.obeo.fr/stable/designer/11.1.1_rc1/community/11.1.1/photon/repository/" {
+location Obeo-Designer-Community "http://update.obeo.fr/release/designer/11.1/community/11.1.1/photon/repository/" {
 	org.apache.log4j lazy
     org.easymock lazy
     org.hamcrest.core lazy
