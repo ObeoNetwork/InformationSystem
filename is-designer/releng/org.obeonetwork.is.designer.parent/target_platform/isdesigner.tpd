@@ -160,10 +160,10 @@ location Obeo-Designer-Community "http://update.obeo.fr/stable/designer/11.1.1_r
     org.eclipse.sirius.interpreter.feature.source.feature.group lazy
     
     org.eclipse.acceleo.query.feature.group lazy
-//    org.eclipse.sirius.properties.feature.feature.group lazy
-//    org.eclipse.sirius.properties.feature.source.feature.group lazy
-//    org.eclipse.sirius.specifier.properties.feature.feature.group lazy
-//    org.eclipse.sirius.specifier.properties.feature.source.feature.group lazy
+    org.eclipse.sirius.properties.feature.feature.group lazy
+    org.eclipse.sirius.properties.feature.source.feature.group lazy
+    org.eclipse.sirius.specifier.properties.feature.feature.group lazy
+    org.eclipse.sirius.specifier.properties.feature.source.feature.group lazy
 //	fr.obeo.dsl.viewpoint.runtime.collab.feature.group lazy
 //	fr.obeo.dsl.viewpoint.runtime.collab.ide.activity.metadata.ui.feature.group lazy
 //	fr.obeo.dsl.viewpoint.runtime.collab.ide.eef.feature.group lazy
