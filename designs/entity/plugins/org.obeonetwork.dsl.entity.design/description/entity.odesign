@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<description:Group xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:description="http://www.eclipse.org/sirius/description/1.1.0" xmlns:description_1="http://www.eclipse.org/sirius/diagram/description/1.1.0" xmlns:description_2="http://www.eclipse.org/sirius/table/description/1.1.0" xmlns:style="http://www.eclipse.org/sirius/diagram/description/style/1.1.0" xmlns:tool="http://www.eclipse.org/sirius/diagram/description/tool/1.1.0" xmlns:tool_1="http://www.eclipse.org/sirius/description/tool/1.1.0" documentation="Copyright (c) 2008, 2017 Obeo.&#xD;&#xA;All rights reserved. This program and the accompanying materials&#xD;&#xA;are made available under the terms of the Eclipse Public License v1.0&#xD;&#xA;which accompanies this distribution, and is available at&#xD;&#xA;http://www.eclipse.org/legal/epl-v10.html&#xD;&#xA;&#xD;&#xA;Contributors:&#xD;&#xA;   Obeo - initial API and implementation" name="Entity" version="12.0.0.2017041100">
+<description:Group xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:description="http://www.eclipse.org/sirius/description/1.1.0" xmlns:description_1="http://www.eclipse.org/sirius/diagram/description/1.1.0" xmlns:description_2="http://www.eclipse.org/sirius/table/description/1.1.0" xmlns:properties="http://www.eclipse.org/sirius/properties/1.0.0" xmlns:style="http://www.eclipse.org/sirius/diagram/description/style/1.1.0" xmlns:tool="http://www.eclipse.org/sirius/diagram/description/tool/1.1.0" xmlns:tool_1="http://www.eclipse.org/sirius/description/tool/1.1.0" documentation="Copyright (c) 2008, 2017 Obeo.&#xD;&#xA;All rights reserved. This program and the accompanying materials&#xD;&#xA;are made available under the terms of the Eclipse Public License v1.0&#xD;&#xA;which accompanies this distribution, and is available at&#xD;&#xA;http://www.eclipse.org/legal/epl-v10.html&#xD;&#xA;&#xD;&#xA;Contributors:&#xD;&#xA;   Obeo - initial API and implementation" name="Entity" version="12.0.0.2017041100">
   <ownedViewpoints name="Entity Views" modelFileExtension="entity ois">
     <ownedRepresentations xsi:type="description_1:DiagramDescription" dropDescriptions="//@ownedViewpoints[name='Entity%20Views']/@ownedRepresentations[name='Entities%20Namespaces%20Hierarchy']/@defaultLayer/@toolSections.1/@ownedTools[name='DAD_Namespace']" name="Entities Namespaces Hierarchy" label="Entities Namespaces Hierarchy" titleExpression="Entities Namespaces Hierarchy" domainClass="entity.Root">
       <metamodel href="http://www.obeonetwork.org/dsl/environment/3.0.0#/"/>
@@ -281,7 +281,7 @@
             <initialOperation>
               <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:container">
                 <subModelOperations xsi:type="tool_1:CreateInstance" typeName="environment.Literal" referenceName="literals">
-                  <subModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="['literal' + eContainer().oclAsType(environment::Enumeration).literals->size()/]"/>
+                  <subModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="aql:'literal' + self.eContainer().literals->size()"/>
                 </subModelOperations>
               </firstModelOperations>
             </initialOperation>
@@ -705,4 +705,53 @@
     <entries xsi:type="description:UserFixedColor" red="0" green="0" blue="0" name="ExternalType_color"/>
     <entries xsi:type="description:UserFixedColor" red="252" green="175" blue="62" name="ExternalType_border"/>
   </userColorsPalettes>
+  <extensions xsi:type="properties:ViewExtensionDescription" name="Properties">
+    <metamodels href="http://www.obeonetwork.org/dsl/entity/3.0.0#/"/>
+    <categories name="Entity Category">
+      <pages name="Entity Page" labelExpression="Entity" domainClass="entity::Entity" semanticCandidateExpression="var:self" preconditionExpression="aql:true">
+        <extends href="platform:/plugin/org.obeonetwork.dsl.environment.properties/description/environment-properties.odesign#//@extensions.0/@categories.0/@pages.0"/>
+      </pages>
+      <pages name="Persistence Page" labelExpression="Persistence" domainClass="entity::Entity" semanticCandidateExpression="var:self" groups="//@extensions.0/@categories.0/@groups.0"/>
+      <pages name="Root Page" labelExpression="Root" domainClass="entity::Root" semanticCandidateExpression="var:self" groups="//@extensions.0/@categories.0/@groups.1"/>
+      <groups name="Persistence group" labelExpression="Properties" domainClass="entity::Entity" semanticCandidateExpression="var:self">
+        <controls xsi:type="properties:TextDescription" name="entity::Entity estimatedVolumetry" labelExpression="aql:input.emfEditServices(self).getText(self.eClass().getEStructuralFeature('estimatedVolumetry')) + ':'" helpExpression="aql:input.emfEditServices(self).getDescription(self.eClass().getEStructuralFeature('estimatedVolumetry'))" isEnabledExpression="aql:self.eClass().getEStructuralFeature('estimatedVolumetry').changeable" valueExpression="aql:self.estimatedVolumetry">
+          <initialOperation>
+            <firstModelOperations xsi:type="tool_1:SetValue" featureName="estimatedVolumetry" valueExpression="var:newValue"/>
+          </initialOperation>
+        </controls>
+        <controls xsi:type="properties:TextDescription" name="entity::Entity estimatedAccess" labelExpression="aql:input.emfEditServices(self).getText(self.eClass().getEStructuralFeature('estimatedAccess')) + ':'" helpExpression="aql:input.emfEditServices(self).getDescription(self.eClass().getEStructuralFeature('estimatedAccess'))" isEnabledExpression="aql:self.eClass().getEStructuralFeature('estimatedAccess').changeable" valueExpression="aql:self.estimatedAccess">
+          <initialOperation>
+            <firstModelOperations xsi:type="tool_1:SetValue" featureName="estimatedAccess" valueExpression="var:newValue"/>
+          </initialOperation>
+        </controls>
+        <controls xsi:type="properties:CheckboxDescription" name="entity::Entity historized" labelExpression="aql:input.emfEditServices(self).getText(self.eClass().getEStructuralFeature('historized'))" helpExpression="aql:input.emfEditServices(self).getDescription(self.eClass().getEStructuralFeature('historized'))" isEnabledExpression="aql:self.eClass().getEStructuralFeature('historized').changeable" valueExpression="aql:self.historized">
+          <initialOperation>
+            <firstModelOperations xsi:type="tool_1:SetValue" featureName="historized" valueExpression="var:newValue"/>
+          </initialOperation>
+          <conditionalStyles preconditionExpression="aql:self.eClass().getEStructuralFeature('historized').lowerBound = 1">
+            <style>
+              <labelFontFormat>bold</labelFontFormat>
+            </style>
+          </conditionalStyles>
+        </controls>
+        <controls xsi:type="properties:RadioDescription" name="entity::Entity inheritanceKind" labelExpression="aql:input.emfEditServices(self).getText(self.eClass().getEStructuralFeature('inheritanceKind')) + ':'" helpExpression="aql:input.emfEditServices(self).getDescription(self.eClass().getEStructuralFeature('inheritanceKind'))" isEnabledExpression="aql:self.eClass().getEStructuralFeature('inheritanceKind').changeable" valueExpression="aql:self.eClass().getEStructuralFeature('inheritanceKind').eType.getEEnumLiteralByLiteral(self.inheritanceKind.toString())" candidatesExpression="aql:self.eClass().getEStructuralFeature('inheritanceKind').eType.eLiterals" candidateDisplayExpression="aql:candidate.name" numberOfColumns="5">
+          <initialOperation>
+            <firstModelOperations xsi:type="tool_1:SetValue" featureName="inheritanceKind" valueExpression="aql:newValue.instance"/>
+          </initialOperation>
+        </controls>
+      </groups>
+      <groups name="Root Group" labelExpression="Properties" domainClass="entity::Root" semanticCandidateExpression="var:self">
+        <controls xsi:type="properties:TextDescription" name="entity::Root name" labelExpression="aql:input.emfEditServices(self).getText(self.eClass().getEStructuralFeature('name')) + ':'" helpExpression="aql:input.emfEditServices(self).getDescription(self.eClass().getEStructuralFeature('name'))" isEnabledExpression="aql:self.eClass().getEStructuralFeature('name').changeable" valueExpression="aql:self.name">
+          <initialOperation>
+            <firstModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="var:newValue"/>
+          </initialOperation>
+        </controls>
+        <controls xsi:type="properties:TextDescription" name="entity::Root description" labelExpression="aql:input.emfEditServices(self).getText(self.eClass().getEStructuralFeature('description')) + ':'" helpExpression="aql:input.emfEditServices(self).getDescription(self.eClass().getEStructuralFeature('description'))" isEnabledExpression="aql:self.eClass().getEStructuralFeature('description').changeable" valueExpression="aql:self.description">
+          <initialOperation>
+            <firstModelOperations xsi:type="tool_1:SetValue" featureName="description" valueExpression="var:newValue"/>
+          </initialOperation>
+        </controls>
+      </groups>
+    </categories>
+  </extensions>
 </description:Group>
