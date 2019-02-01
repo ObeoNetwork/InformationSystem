@@ -14,7 +14,19 @@ Require-Bundle: org.eclipse.ui,
  org.eclipse.sirius.diagram;bundle-version="2.0.0",
  org.eclipse.sirius.ext.base,
  org.eclipse.emf.transaction;bundle-version="1.8.0",
- com.google.guava;bundle-version="15.0.0"
+ com.google.guava;bundle-version="15.0.0",
+ org.eclipse.eef.ext.widgets.reference;bundle-version="2.1.1",
+ org.eclipse.eef.ide.ui.ext.widgets.reference;bundle-version="2.1.1",
+ org.eclipse.sirius.ext.emf.edit;bundle-version="6.1.1",
+ org.eclipse.eef.ide.ui;bundle-version="2.1.1",
+ org.eclipse.eef;bundle-version="2.1.1",
+ org.eclipse.eef.core;bundle-version="2.1.1",
+ org.eclipse.sirius.common.interpreter;bundle-version="6.1.1",
+ org.eclipse.eef.core.ext.widgets.reference;bundle-version="2.1.1",
+ org.eclipse.emf.ecore,
+ org.eclipse.eef.common.ui;bundle-version="2.1.1",
+ org.eclipse.eef.common;bundle-version="2.1.1",
+ org.eclipse.jface
 Bundle-ActivationPolicy: lazy
 Bundle-RequiredExecutionEnvironment: JavaSE-1.6
 Bundle-ManifestVersion: 2

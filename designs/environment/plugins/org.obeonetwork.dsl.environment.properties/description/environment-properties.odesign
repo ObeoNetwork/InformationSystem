@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <description:Group xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:description="http://www.eclipse.org/sirius/description/1.1.0" xmlns:properties="http://www.eclipse.org/sirius/properties/1.0.0" xmlns:properties-ext-widgets-reference="http://www.eclipse.org/sirius/properties/1.0.0/ext/widgets/reference" xmlns:tool="http://www.eclipse.org/sirius/description/tool/1.1.0" name="environment-properties" version="12.0.0.2017041100">
-  <ownedViewpoints name="Environment Views"/>
+  <ownedViewpoints name="Environment Views">
+    <ownedJavaExtensions qualifiedClassName="org.obeonetwork.dsl.environment.properties.internal.services.EnvironmentServices"/>
+  </ownedViewpoints>
   <extensions xsi:type="properties:ViewExtensionDescription" name="Properties">
     <metamodels href="http://www.obeonetwork.org/dsl/environment/3.0.0#/"/>
     <categories name="StructuredType">
@@ -16,9 +18,9 @@
             </style>
           </conditionalStyles>
         </controls>
-        <controls xsi:type="properties-ext-widgets-reference:ExtReferenceDescription" name="environment::StructuredType supertype" referenceNameExpression="aql:'supertype'"/>
-        <controls xsi:type="properties-ext-widgets-reference:ExtReferenceDescription" name="environment::StructuredType attributs" referenceNameExpression="aql:'attributes'"/>
-        <controls xsi:type="properties-ext-widgets-reference:ExtReferenceDescription" name="environment::StructuredType associatedTypes" referenceNameExpression="aql:'associatedTypes'"/>
+        <controls xsi:type="properties-ext-widgets-reference:ExtReferenceDescription" name="environment::StructuredType supertype" labelExpression="aql:input.emfEditServices(self).getText(self.eClass().getEStructuralFeature('supertype')) + ':'" helpExpression="aql:input.emfEditServices(self).getDescription(self.eClass().getEStructuralFeature('supertype'))" isEnabledExpression="aql:self.eClass().getEStructuralFeature('supertype').changeable" referenceNameExpression="aql:'supertype'"/>
+        <controls xsi:type="properties-ext-widgets-reference:ExtReferenceDescription" name="environment::StructuredType attributes" labelExpression="Attributes:" helpExpression="aql:input.emfEditServices(self).getDescription(self.eClass().getEStructuralFeature('ownedAttributes'))" isEnabledExpression="aql:self.eClass().getEStructuralFeature('ownedAttributes').changeable" referenceNameExpression="aql:'ownedAttributes'"/>
+        <controls xsi:type="properties-ext-widgets-reference:ExtReferenceDescription" name="environment::StructuredType associatedTypes" labelExpression="aql:input.emfEditServices(self).getText(self.eClass().getEStructuralFeature('associatedTypes')) + ':'" helpExpression="aql:input.emfEditServices(self).getDescription(self.eClass().getEStructuralFeature('associatedTypes'))" isEnabledExpression="aql:self.eClass().getEStructuralFeature('associatedTypes').changeable" referenceNameExpression="aql:'associatedTypes'"/>
         <controls xsi:type="properties:TextAreaDescription" name="environment::StructuredType description" labelExpression="aql:input.emfEditServices(self).getText(self.eClass().getEStructuralFeature('description')) + ':'" helpExpression="aql:input.emfEditServices(self).getDescription(self.eClass().getEStructuralFeature('description'))" isEnabledExpression="aql:self.eClass().getEStructuralFeature('description').changeable" valueExpression="aql:self.description">
           <initialOperation>
             <firstModelOperations xsi:type="tool:SetValue" featureName="description" valueExpression="var:newValue"/>
@@ -223,21 +225,26 @@
           <customExpressions name="referenceNameExpression" customExpression="aql:'metadatas'"/>
           <customOperations name="CreateElementOperation">
             <initialOperation>
-              <firstModelOperations xsi:type="tool:ChangeContext" browseExpression="feature:metadatas">
-                <subModelOperations xsi:type="tool:CreateInstance" typeName="environment::Annotation" referenceName="metadatas" variableName="annotation">
-                  <subModelOperations xsi:type="tool:SetValue" featureName="title" valueExpression="aql:''"/>
-                  <subModelOperations xsi:type="tool:SetValue" featureName="body" valueExpression="aql:''"/>
-                  <subModelOperations xsi:type="properties:DialogModelOperation" titleExpression="Create Annotation Dialog">
-                    <buttons labelExpression="Cancel" closeDialogOnClick="true" rollbackChangesOnClose="true">
-                      <initialOperation>
-                        <firstModelOperations xsi:type="tool:RemoveElement"/>
-                      </initialOperation>
-                    </buttons>
-                    <buttons labelExpression="OK" default="true" closeDialogOnClick="true">
-                      <initialOperation/>
-                    </buttons>
-                    <page name="Create Annotation Wizard Page" labelExpression="Annotation" domainClass="environment::Annotation" semanticCandidateExpression="var:self" extends="//@extensions.0/@categories.1/@pages.6"/>
-                    <groups name="Create Annotation Wizard Group" labelExpression="Properties" domainClass="environment::Annotation" semanticCandidateExpression="var:self"/>
+              <firstModelOperations xsi:type="tool:ChangeContext" browseExpression="var:self">
+                <subModelOperations xsi:type="tool:If" conditionExpression="aql:self.metadatas = null">
+                  <subModelOperations xsi:type="tool:CreateInstance" typeName="environment::MetaDataContainer" referenceName="metadatas"/>
+                </subModelOperations>
+                <subModelOperations xsi:type="tool:ChangeContext" browseExpression="feature:metadatas">
+                  <subModelOperations xsi:type="tool:CreateInstance" typeName="environment::Annotation" referenceName="metadatas" variableName="annotation">
+                    <subModelOperations xsi:type="tool:SetValue" featureName="title" valueExpression="aql:''"/>
+                    <subModelOperations xsi:type="tool:SetValue" featureName="body" valueExpression="aql:''"/>
+                    <subModelOperations xsi:type="properties:DialogModelOperation" titleExpression="Create Annotation Dialog">
+                      <buttons labelExpression="Cancel" closeDialogOnClick="true" rollbackChangesOnClose="true">
+                        <initialOperation>
+                          <firstModelOperations xsi:type="tool:RemoveElement"/>
+                        </initialOperation>
+                      </buttons>
+                      <buttons labelExpression="OK" default="true" closeDialogOnClick="true">
+                        <initialOperation/>
+                      </buttons>
+                      <page name="Create Annotation Wizard Page" labelExpression="Annotation" domainClass="environment::Annotation" semanticCandidateExpression="var:self" extends="//@extensions.0/@categories.1/@pages.6"/>
+                      <groups name="Create Annotation Wizard Group" labelExpression="Properties" domainClass="environment::Annotation" semanticCandidateExpression="var:self"/>
+                    </subModelOperations>
                   </subModelOperations>
                 </subModelOperations>
               </firstModelOperations>

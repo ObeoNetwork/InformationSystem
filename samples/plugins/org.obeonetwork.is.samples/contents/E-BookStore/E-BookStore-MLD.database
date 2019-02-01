@@ -99,7 +99,7 @@
       </indexes>
       <columns xmi:id="_Cq-rMZEeEeauDets12NBwQ" techID="_Cq-rMJEeEeauDets12NBwQ" name="CARD_NUMBER">
         <type xsi:type="typeslibrary:TypeInstance" xmi:id="_Cq-rM5EeEeauDets12NBwQ">
-          <nativeType href="pathmap://LogicalDBTypes#_WWew-BEnEeGTa_JlZYBw1A"/>
+          <nativeType href="pathmap://LogicalDBTypes#_WWeJ4hEnEeGTa_JlZYBw1A"/>
         </type>
       </columns>
       <columns xmi:id="_Cq-rNZEeEeauDets12NBwQ" techID="_Cq-rNJEeEeauDets12NBwQ" name="TOTAL_AMOUNT">
@@ -150,7 +150,7 @@
       </indexes>
       <columns xmi:id="_Cq_SQZEeEeauDets12NBwQ" techID="_Cq_SQJEeEeauDets12NBwQ" name="QUANTITY">
         <type xsi:type="typeslibrary:TypeInstance" xmi:id="_Cq_SQ5EeEeauDets12NBwQ">
-          <nativeType href="pathmap://LogicalDBTypes#_WWeJ4BEnEeGTa_JlZYBw1A"/>
+          <nativeType href="pathmap://LogicalDBTypes#_WWeJ4hEnEeGTa_JlZYBw1A"/>
         </type>
       </columns>
       <columns xmi:id="_Cq_SRZEeEeauDets12NBwQ" comments="PK de la table SHOOPING_CART_LINE" techID="_Cq_SRJEeEeauDets12NBwQ" name="SHOOPING_CART_LINE_ID" primaryKey="_Cq_SSJEeEeauDets12NBwQ">
@@ -188,16 +188,8 @@
       <indexes xmi:id="_CrTbV5EeEeauDets12NBwQ" comments="Index sur la FK (USER_ID) de la table SHOPPING_CART" techID="_CrTbVpEeEeauDets12NBwQ" name="SHOPPING_CART_FK1_1">
         <elements xmi:id="_CrTbWZEeEeauDets12NBwQ" techID="_CrTbWJEeEeauDets12NBwQ" column="_CrMGlpEeEeauDets12NBwQ" asc="true"/>
       </indexes>
-      <columns xmi:id="_Cq_STZEeEeauDets12NBwQ" techID="_Cq_STJEeEeauDets12NBwQ" name="STATUS">
-        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_Cq_5UJEeEeauDets12NBwQ">
-          <nativeType href="pathmap://LogicalDBTypes#_WWew-BEnEeGTa_JlZYBw1A"/>
-        </type>
-      </columns>
-      <columns xmi:id="_Cq_5UpEeEeauDets12NBwQ" comments="PK de la table SHOPPING_CART" techID="_Cq_5UZEeEeauDets12NBwQ" name="SHOPPING_CART_ID" primaryKey="_Cq_5VZEeEeauDets12NBwQ">
-        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_Cq_5VpEeEeauDets12NBwQ">
-          <nativeType href="pathmap://LogicalDBTypes#_WWeJ4BEnEeGTa_JlZYBw1A"/>
-        </type>
-      </columns>
+      <columns xmi:id="_Cq_STZEeEeauDets12NBwQ" techID="_Cq_STJEeEeauDets12NBwQ" name="STATUS"/>
+      <columns xmi:id="_Cq_5UpEeEeauDets12NBwQ" comments="PK de la table SHOPPING_CART" techID="_Cq_5UZEeEeauDets12NBwQ" name="SHOPPING_CART_ID" primaryKey="_Cq_5VZEeEeauDets12NBwQ"/>
       <columns xmi:id="_CrMGlpEeEeauDets12NBwQ" techID="_CrMGlZEeEeauDets12NBwQ" name="USER_ID" nullable="true" indexElements="_CrTbWZEeEeauDets12NBwQ" foreignKeyElements="_CrMGmpEeEeauDets12NBwQ">
         <type xsi:type="typeslibrary:TypeInstance" xmi:id="_CrMGmJEeEeauDets12NBwQ">
           <nativeType href="pathmap://LogicalDBTypes#_WWeJ4BEnEeGTa_JlZYBw1A"/>

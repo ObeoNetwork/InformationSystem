@@ -2,6 +2,7 @@ Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: %pluginName
 Bundle-SymbolicName: org.obeonetwork.dsl.database.edit;singleton:=true
+Automatic-Module-Name: org.obeonetwork.dsl.database.edit
 Bundle-Version: 11.0.0.qualifier
 Bundle-ClassPath: .
 Bundle-Activator: org.obeonetwork.dsl.database.provider.DatabaseEditPlugin$Implementation

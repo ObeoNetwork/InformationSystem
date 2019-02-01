@@ -18,4 +18,22 @@
 	       name="database">
     </component>
   </extension>
+  <extension
+         point="org.eclipse.eef.ide.ui.ext.widgets.reference.eefExtReferenceViewerFilterProvider">
+      <descriptor
+            class="org.obeonetwork.dsl.database.design.wizard.viewer.filters.SafranReferenceViewerFilter"
+            description="This extension is used to filter the content of the tree viewer used to select a element in the EEF Reference Filter"
+            id="org.obeonetwork.dsl.database.design.viewerFilterProvider"
+            label="Safran Viewer Filter Provider">
+      </descriptor>
+   </extension>
+  <extension
+        point="org.eclipse.eef.ide.ui.eefLifecycleManagerProvider">
+     <descriptor
+           class="org.obeonetwork.dsl.database.design.reference.custom.EEFReferenceCustomLifecycleManagerProvider"
+           description="&quot;&quot;"
+           id="org.obeonetwork.dsl.database.design.custom.reference"
+           label="SafranCustomReference">
+     </descriptor>
+  </extension>
  </plugin>
