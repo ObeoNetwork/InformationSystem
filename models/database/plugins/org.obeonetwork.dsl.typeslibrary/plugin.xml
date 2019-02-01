@@ -53,6 +53,10 @@
         source="pathmap://NativeDBTypes/SQLServer-2008"
         target="platform:/plugin/org.obeonetwork.dsl.typeslibrary/resources/SQLServer-2008.typeslibrary">
   </mapping>
+  <mapping
+        source="pathmap://NativeDBTypes/MariaDB-10.2"
+        target="platform:/plugin/org.obeonetwork.dsl.typeslibrary/resources/MariaDB-10.2.typeslibrary">
+  </mapping>
 	</extension>
  <extension
        point="org.eclipse.core.contenttype.contentTypes">
