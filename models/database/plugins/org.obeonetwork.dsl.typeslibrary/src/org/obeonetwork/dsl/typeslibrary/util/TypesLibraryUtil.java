@@ -24,6 +24,7 @@ public class TypesLibraryUtil {
 	
 	public static final String ORACLE_PATHMAP = "pathmap://NativeDBTypes/Oracle-11g";
 	public static final String MYSQL_PATHMAP = "pathmap://NativeDBTypes/MySQL-5";
+	public static final String MARIADB_PATHMAP = "pathmap://NativeDBTypes/MariaDB-10.2";
 	public static final String POSTGRES_PATHMAP = "pathmap://NativeDBTypes/Postgres-9";
 	public static final String SQLSERVER_PATHMAP = "pathmap://NativeDBTypes/SQLServer-2008";
 	public static final String H2_PATHMAP = "pathmap://NativeDBTypes/H2-1.3";
@@ -49,6 +50,8 @@ public class TypesLibraryUtil {
 	public static void registerPathmaps() {
 		final URL mySqlUrl = TypesLibraryUtil.class.getClassLoader().getResource("MySQL-5.typeslibrary");
 		URIConverter.URI_MAP.put(URI.createURI(MYSQL_PATHMAP), URI.createURI(mySqlUrl.toString()));
+		final URL mariaDBUrl = TypesLibraryUtil.class.getClassLoader().getResource("MariaDB-10.2.typeslibrary");
+		URIConverter.URI_MAP.put(URI.createURI(MARIADB_PATHMAP), URI.createURI(mariaDBUrl.toString()));
 		final URL oracleUrl = TypesLibraryUtil.class.getClassLoader().getResource("Oracle-11g.typeslibrary");
 		URIConverter.URI_MAP.put(URI.createURI(ORACLE_PATHMAP), URI.createURI(oracleUrl.toString()));	
 		final URL postgresUrl = TypesLibraryUtil.class.getClassLoader().getResource("Postgres-9.typeslibrary");

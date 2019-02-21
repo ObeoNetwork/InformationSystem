@@ -13,12 +13,14 @@ package org.obeonetwork.dsl.database.presentation;
 
 import static org.obeonetwork.dsl.database.spec.DatabaseConstants.DB_H2_13;
 import static org.obeonetwork.dsl.database.spec.DatabaseConstants.DB_LOGICAL_TYPES;
+import static org.obeonetwork.dsl.database.spec.DatabaseConstants.DB_MARIADB_102;
 import static org.obeonetwork.dsl.database.spec.DatabaseConstants.DB_MYSQL_5;
 import static org.obeonetwork.dsl.database.spec.DatabaseConstants.DB_ORACLE_11G;
 import static org.obeonetwork.dsl.database.spec.DatabaseConstants.DB_POSTGRES_9;
 import static org.obeonetwork.dsl.database.spec.DatabaseConstants.DB_SQLSERVER_2008;
 import static org.obeonetwork.dsl.typeslibrary.util.TypesLibraryUtil.H2_PATHMAP;
 import static org.obeonetwork.dsl.typeslibrary.util.TypesLibraryUtil.LOGICAL_PATHMAP;
+import static org.obeonetwork.dsl.typeslibrary.util.TypesLibraryUtil.MARIADB_PATHMAP;
 import static org.obeonetwork.dsl.typeslibrary.util.TypesLibraryUtil.MYSQL_PATHMAP;
 import static org.obeonetwork.dsl.typeslibrary.util.TypesLibraryUtil.ORACLE_PATHMAP;
 import static org.obeonetwork.dsl.typeslibrary.util.TypesLibraryUtil.POSTGRES_PATHMAP;
@@ -273,6 +275,8 @@ public class DatabaseModelWizard extends Wizard implements INewWizard {
 								String dbVendor = initialObjectCreationPage.dbVendorField.getText();
 								if (DB_MYSQL_5.equals(dbVendor)) {
 									typesLibraryResource = resourceSet.getResource(URI.createURI(MYSQL_PATHMAP), true);
+								} else if (DB_MARIADB_102.equals(dbVendor)) {
+									typesLibraryResource = resourceSet.getResource(URI.createURI(MARIADB_PATHMAP), true);
 								} else if (DB_ORACLE_11G.equals(dbVendor)) {
 									typesLibraryResource = resourceSet.getResource(URI.createURI(ORACLE_PATHMAP), true);
 								} else if (DB_H2_13.equals(dbVendor)) {
@@ -633,6 +637,7 @@ public class DatabaseModelWizard extends Wizard implements INewWizard {
 				dbVendors = new ArrayList<String>();
 				dbVendors.add(DB_LOGICAL_TYPES);
 				dbVendors.add(DB_MYSQL_5);
+				dbVendors.add(DB_MARIADB_102);
 				dbVendors.add(DB_ORACLE_11G);
 				dbVendors.add(DB_H2_13);
 				dbVendors.add(DB_POSTGRES_9);
