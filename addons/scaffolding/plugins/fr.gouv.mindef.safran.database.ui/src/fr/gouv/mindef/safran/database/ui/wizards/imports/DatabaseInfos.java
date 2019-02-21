@@ -10,21 +10,23 @@
  *******************************************************************************/
 package fr.gouv.mindef.safran.database.ui.wizards.imports;
 
+import static org.obeonetwork.dsl.database.spec.DatabaseConstants.DB_H2_13;
+import static org.obeonetwork.dsl.database.spec.DatabaseConstants.DB_MYSQL_5;
+import static org.obeonetwork.dsl.database.spec.DatabaseConstants.DB_MARIADB_102;
+import static org.obeonetwork.dsl.database.spec.DatabaseConstants.DB_ORACLE_11G;
+import static org.obeonetwork.dsl.database.spec.DatabaseConstants.DB_POSTGRES_9;
+import static org.obeonetwork.dsl.database.spec.DatabaseConstants.DB_SQLSERVER_2008;
+
 import java.beans.PropertyChangeListener;
 import java.beans.PropertyChangeSupport;
 
 import org.obeonetwork.dsl.database.reverse.source.DataSource;
 
-import static org.obeonetwork.dsl.database.spec.DatabaseConstants.DB_H2_13;
-import static org.obeonetwork.dsl.database.spec.DatabaseConstants.DB_MYSQL_5;
-import static org.obeonetwork.dsl.database.spec.DatabaseConstants.DB_ORACLE_11G;
-import static org.obeonetwork.dsl.database.spec.DatabaseConstants.DB_POSTGRES_9;
-import static org.obeonetwork.dsl.database.spec.DatabaseConstants.DB_SQLSERVER_2008;
-
 public class DatabaseInfos {
 
 	public static final String PORT_ORACLE_11G = "1521";
 	public static final String PORT_MYSQL_5 = "3306";
+	public static final String PORT_MARIADB_102 = "3306";
 	public static final String PORT_H2_13 = "9092";
 	public static final String PORT_POSTGRES_9 = "5432";
 	public static final String PORT_SQLSERVER_2008 = "1433";
@@ -65,6 +67,9 @@ public class DatabaseInfos {
 		if (DB_MYSQL_5.equals(vendor)) {
 			String newUrl = "jdbc:mysql://" + getHost() + ":" + getPort() + "/" + getDatabase();
 			setUrl(newUrl);
+		} else if (DB_MARIADB_102.equals(vendor)) {
+			String newUrl = "jdbc:mariadb://" + getHost() + ":" + getPort() + "/" + getDatabase();
+			setUrl(newUrl);
 		} else if (DB_ORACLE_11G.equals(vendor)) {
 			String newUrl = "jdbc:oracle:thin:" + getUser() + "/" + getPassword() + "@//" + getHost() + ":" + getPort() + "/" + getDatabase();
 			setUrl(newUrl);
@@ -95,6 +100,8 @@ public class DatabaseInfos {
 		}
 		if (DB_MYSQL_5.equals(vendor)) {
 			setPort(PORT_MYSQL_5);
+		} else if (DB_MARIADB_102.equals(vendor)) {
+			setPort(PORT_MARIADB_102);
 		} else if (DB_ORACLE_11G.equals(vendor)) {
 			setPort(PORT_ORACLE_11G);
 		} else if (DB_H2_13.equals(vendor)) {
