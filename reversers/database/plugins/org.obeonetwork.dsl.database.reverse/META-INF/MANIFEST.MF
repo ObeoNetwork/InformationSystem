@@ -16,7 +16,8 @@ Bundle-ClassPath: lib/mysql-connector-java-5.1.5-bin.jar,
  lib/h2-1.3.176.jar,
  lib/postgresql-9.3-1102.jdbc4.jar,
  lib/sqljdbc4.jar,
- .
+ .,
+ lib/mariadb-java-client-2.4.0.jar
 Bundle-RequiredExecutionEnvironment: JavaSE-1.6
 Bundle-Vendor: Obeo Network
 Bundle-Activator: org.obeonetwork.dsl.database.reverse.DatabaseReverserPlugin

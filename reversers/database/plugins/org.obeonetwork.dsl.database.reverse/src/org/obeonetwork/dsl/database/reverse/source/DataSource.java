@@ -12,6 +12,7 @@ package org.obeonetwork.dsl.database.reverse.source;
 
 import static org.obeonetwork.dsl.database.spec.DatabaseConstants.DB_H2_13;
 import static org.obeonetwork.dsl.database.spec.DatabaseConstants.DB_MYSQL_5;
+import static org.obeonetwork.dsl.database.spec.DatabaseConstants.DB_MARIADB_102;
 import static org.obeonetwork.dsl.database.spec.DatabaseConstants.DB_ORACLE_11G;
 import static org.obeonetwork.dsl.database.spec.DatabaseConstants.DB_POSTGRES_9;
 import static org.obeonetwork.dsl.database.spec.DatabaseConstants.DB_SQLSERVER_2008;
@@ -28,6 +29,7 @@ public class DataSource {
 	private static Map<String, String> jdbcDrivers = null;
 	
 	private static final String JDBC_MYSQL_DRIVER = "com.mysql.jdbc.Driver";
+	private static final String JDBC_MARIADB_DRIVER = "org.mariadb.jdbc.Driver";
 	private static final String JDBC_H2_DRIVER = "org.h2.Driver";
 	private static final String JDBC_ORACLE_DRIVER = "oracle.jdbc.OracleDriver";
 	private static final String JDBC_POSTGRES_DRIVER = "org.postgresql.Driver";
@@ -50,6 +52,7 @@ public class DataSource {
 		if (jdbcDrivers == null) {
 			jdbcDrivers = new HashMap<String, String>();
 			jdbcDrivers.put(DB_MYSQL_5, JDBC_MYSQL_DRIVER);
+			jdbcDrivers.put(DB_MARIADB_102, JDBC_MARIADB_DRIVER);
 			jdbcDrivers.put(DB_ORACLE_11G, JDBC_ORACLE_DRIVER);
 			jdbcDrivers.put(DB_H2_13, JDBC_H2_DRIVER);
 			jdbcDrivers.put(DB_POSTGRES_9, JDBC_POSTGRES_DRIVER);
@@ -61,7 +64,7 @@ public class DataSource {
 	public Connection getConnection() throws DataSourceException {
 		Connection connection = null;
 		try {
-			Class.forName(getJdbcDriverClassName());			
+			Class.forName(getJdbcDriverClassName());
 			return DriverManager.getConnection(getJdbcUrl(), getJdbcUsername(), getJdbcPassword());
 		} catch(Exception ex) {
 			JdbcUtils.closeConnection(connection);
