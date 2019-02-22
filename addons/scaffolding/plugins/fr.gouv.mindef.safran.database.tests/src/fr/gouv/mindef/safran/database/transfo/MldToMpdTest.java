@@ -74,4 +74,9 @@ public class MldToMpdTest extends AbstractTransformationTest {
 	public void testSafran416InitialComments() {
 		testMldToMpd("10-safran-416-sequence-initialcomments");
 	}
+	
+	@Test
+	public void test12() {
+		testMldToMpd("12-mariadb-simple");
+	}
 }

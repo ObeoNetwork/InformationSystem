@@ -25,6 +25,8 @@ public class MLDToMPD extends MpdToMldBidiRules {
 			return "LogicalTypes-to-Oracle.properties";
 		} else if (isTargetMysqlMPD()) {
 			return "LogicalTypes-to-MySQL.properties";
+		} else if (isTargetMariaDBMPD()) {
+			return "LogicalTypes-to-MariaDB.properties";
 		} else if (isTargetPostgresMPD()) {
 			return "LogicalTypes-to-Postgres.properties";
 		} else if (isTargetSQLServerMPD()) {

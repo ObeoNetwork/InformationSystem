@@ -468,7 +468,7 @@ public abstract class MpdToMldBidiRules extends AbstractTransformation {
 			if (!targetPk.getColumns().contains(targetPkColumn)) {
 				targetPk.getColumns().add(targetPkColumn);
 			}
-			if (isTargetMysqlMPD()) {
+			if (isTargetMysqlMPD() || isTargetMariaDBMPD()) {
 				targetPkColumn.setAutoincrement(true);
 			}
 		}
@@ -538,6 +538,10 @@ public abstract class MpdToMldBidiRules extends AbstractTransformation {
 	
 	protected boolean isTargetMysqlMPD() {
 		return isTargetMPD() && TypesLibraryUtil.MYSQL_PATHMAP.equals(targetTypesLibrary.eResource().getURI().toString());
+	}
+	
+	protected boolean isTargetMariaDBMPD() {
+		return isTargetMPD() && TypesLibraryUtil.MARIADB_PATHMAP.equals(targetTypesLibrary.eResource().getURI().toString());
 	}
 	
 	protected boolean isTargetPostgresMPD() {
