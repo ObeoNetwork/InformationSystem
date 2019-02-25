@@ -73,7 +73,7 @@ and (not index.isTargetOracle() or not index.isIndexOnPKColumns())
 
 [template private genStorageClause(index : Index)]
 [if (index.owner.owner.oclIsKindOf(Schema)
-and not (index.getTable().isTargetMySql()
+and not (index.getTable().isTargetMySqlOrMariaDB()
 	or index.getTable().isTargetPostgreSQL()
 	or index.getTable().isTargetOracle()
 	or index.getTable().isTargetH2()))]

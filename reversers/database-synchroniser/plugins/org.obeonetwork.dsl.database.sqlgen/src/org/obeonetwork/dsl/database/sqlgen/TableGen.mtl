@@ -176,7 +176,7 @@ COMMENT ON COLUMN [column.owner.oclAsType(Table).fullname()/].[column.name()/] I
 
 [template private columnsDef(table : Table)]
 [for (column : Column | table.columns) separator(',\n')]
-    [column.columnDef()/][/for]	[if (table.isTargetMySql() and not table.primaryKey.oclIsUndefined())],
+    [column.columnDef()/][/for]	[if (table.isTargetMySqlOrMariaDB() and not table.primaryKey.oclIsUndefined())],
 	PRIMARY KEY ([table.primaryKey.columns.name->sep(', ')/])[/if]
 [/template]
 
@@ -213,7 +213,7 @@ COMMENT ON COLUMN [column.owner.oclAsType(Table).fullname()/].[column.name()/] I
 [if (column.nullable)] NULL[else] NOT NULL[/if]
 [/template]
 
-[template private autoIncrement(column : Column) ? (column.isTargetMySql())]
+[template private autoIncrement(column : Column) ? (column.isTargetMySqlOrMariaDB())]
 [if (column.autoincrement or column.inPrimaryKey)] AUTO_INCREMENT[/if]
 [/template]
 

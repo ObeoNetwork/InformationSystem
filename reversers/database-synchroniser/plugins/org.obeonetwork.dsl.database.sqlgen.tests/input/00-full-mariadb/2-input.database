@@ -1,0 +1,193 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<database:DataBase xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:database="http://www.obeonetwork.org/dsl/database/1.0" xmlns:typeslibrary="http://www.obeonetwork.org/dsl/typeslibrary/1.0" xmi:id="_0hLQwGuPEeK15tgGdM8cCw" techID="_0hKpsGuPEeK15tgGdM8cCw" name="Demo">
+  <usedLibraries xsi:type="typeslibrary:NativeTypesLibrary" href="pathmap://NativeDBTypes/MariaDB-10.2#_oGtuUCY4EemALc7s7nxPuQ"/>
+  <schemas xmi:id="_2dksAGuPEeK15tgGdM8cCw" techID="_2JKiQ2uPEeK15tgGdM8cCw" name="Demo">
+    <tables xsi:type="database:Table" xmi:id="_bU44gK_QEea_iZJDF2jKEQ" techID="_pYa6Ia_PEea_iZJDF2jKEQ" name="TableSupprimee">
+      <primaryKey xmi:id="_Jo9lobEKEeaJZrGA6WJgfw" techID="_Jo9loLEKEeaJZrGA6WJgfw" name="TableSupprimee_PK" columns="__Cr8QK_REea_iZJDF2jKEQ"/>
+      <columns xmi:id="__Cr8QK_REea_iZJDF2jKEQ" techID="_-hqS1K_REea_iZJDF2jKEQ" name="col1" primaryKey="_Jo9lobEKEeaJZrGA6WJgfw">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="__Cr8Qa_REea_iZJDF2jKEQ">
+          <nativeType href="pathmap://NativeDBTypes/MariaDB-10.2#__VAkcSY5EemALc7s7nxPuQ"/>
+        </type>
+      </columns>
+    </tables>
+    <tables xsi:type="database:Table" xmi:id="_HFVx0K_XEea_iZJDF2jKEQ" comments="Comments Table1" techID="_GpN2ga_XEea_iZJDF2jKEQ" name="Table1">
+      <columns xmi:id="_IbpdcK_XEea_iZJDF2jKEQ" techID="_Ht-fIa_XEea_iZJDF2jKEQ" name="colSupprimee">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_Ibpdca_XEea_iZJDF2jKEQ" length="120">
+          <nativeType href="pathmap://NativeDBTypes/MariaDB-10.2#_bosKkSY8EemALc7s7nxPuQ"/>
+        </type>
+      </columns>
+    </tables>
+    <tables xsi:type="database:Table" xmi:id="_IPnhsK_ZEea_iZJDF2jKEQ" comments="Comments Table2" techID="_GpN2ga_XEea_iZJDF2jKEQ" name="Table2">
+      <primaryKey xmi:id="_XW8tMa_ZEea_iZJDF2jKEQ" techID="_XW8tMK_ZEea_iZJDF2jKEQ" name="Table2_PK" columns="_IPnhsa_ZEea_iZJDF2jKEQ"/>
+      <indexes xmi:id="_I6HiQLDAEea7O64dCmcWYg" techID="_I6G7MLDAEea7O64dCmcWYg" name="Table2_UNIQUE_INDEX" unique="true">
+        <elements xmi:id="_I6IwYbDAEea7O64dCmcWYg" techID="_I6IwYLDAEea7O64dCmcWYg" column="_GJU1oLDAEea7O64dCmcWYg" asc="true"/>
+      </indexes>
+      <columns xmi:id="_IPnhsa_ZEea_iZJDF2jKEQ" techID="_Ht-fIa_XEea_iZJDF2jKEQ" name="col2_1" nullable="true" primaryKey="_XW8tMa_ZEea_iZJDF2jKEQ">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_IPnhsq_ZEea_iZJDF2jKEQ" length="120">
+          <nativeType href="pathmap://NativeDBTypes/MariaDB-10.2#_bosKkSY8EemALc7s7nxPuQ"/>
+        </type>
+      </columns>
+      <columns xmi:id="_PxcF0LAEEea7UoPo5tWV5A" techID="_PVZDBLAEEea7UoPo5tWV5A" name="col2_2">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_PxcF0bAEEea7UoPo5tWV5A" length="10">
+          <nativeType href="pathmap://NativeDBTypes/MariaDB-10.2#__VAkcSY5EemALc7s7nxPuQ"/>
+        </type>
+      </columns>
+      <columns xmi:id="_GJU1oLDAEea7O64dCmcWYg" comments="Comments col2_3" techID="_FzQfBLDAEea7O64dCmcWYg" name="col2_3" indexElements="_I6IwYbDAEea7O64dCmcWYg">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_GJU1obDAEea7O64dCmcWYg" length="12" precision="2">
+          <nativeType href="pathmap://NativeDBTypes/MariaDB-10.2#_H5bAESY7EemALc7s7nxPuQ"/>
+        </type>
+      </columns>
+    </tables>
+    <tables xsi:type="database:Table" xmi:id="_fVtkkLDLEea2ddggIHVTUg" techID="_fFA2IbDLEea2ddggIHVTUg" name="Table3">
+      <columns xmi:id="_gv7f0LDLEea2ddggIHVTUg" comments="Comments on col3_1" techID="_ggYA5LDLEea2ddggIHVTUg" name="col3_1">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_gv7f0bDLEea2ddggIHVTUg" length="255">
+          <nativeType href="pathmap://NativeDBTypes/MariaDB-10.2#_bosKkSY8EemALc7s7nxPuQ"/>
+        </type>
+      </columns>
+    </tables>
+    <tables xsi:type="database:Table" xmi:id="_lr9NkLDOEeakM6IjnRF8Ug" techID="_lcjfobDOEeakM6IjnRF8Ug" name="Table4">
+      <columns xmi:id="_nGyz4LDOEeakM6IjnRF8Ug" techID="_m1tq9LDOEeakM6IjnRF8Ug" name="col4_1">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_nGyz4bDOEeakM6IjnRF8Ug" length="2">
+          <nativeType href="pathmap://NativeDBTypes/MariaDB-10.2#__VAkcSY5EemALc7s7nxPuQ"/>
+        </type>
+      </columns>
+      <columns xmi:id="_o2q2ELDOEeakM6IjnRF8Ug" techID="_ok7l1LDOEeakM6IjnRF8Ug" name="col4_2_supprimee">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_o2q2EbDOEeakM6IjnRF8Ug" length="3">
+          <nativeType href="pathmap://NativeDBTypes/MariaDB-10.2#__VAkcSY5EemALc7s7nxPuQ"/>
+        </type>
+      </columns>
+      <columns xmi:id="_rXM5ILDOEeakM6IjnRF8Ug" techID="_rG7BdLDOEeakM6IjnRF8Ug" name="col_4_3">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_rXM5IbDOEeakM6IjnRF8Ug" length="255">
+          <nativeType href="pathmap://NativeDBTypes/MariaDB-10.2#_bosKkSY8EemALc7s7nxPuQ"/>
+        </type>
+      </columns>
+    </tables>
+    <tables xsi:type="database:Table" xmi:id="_IN7z4LDPEeakM6IjnRF8Ug" techID="_H6U7YbDPEeakM6IjnRF8Ug" name="Table5">
+      <primaryKey xmi:id="_LBVIkbDPEeakM6IjnRF8Ug" techID="_LBVIkLDPEeakM6IjnRF8Ug" name="Table5_PK" columns="_JaFd8LDPEeakM6IjnRF8Ug"/>
+      <columns xmi:id="_JaFd8LDPEeakM6IjnRF8Ug" techID="_JLaIxLDPEeakM6IjnRF8Ug" name="col5_1" primaryKey="_LBVIkbDPEeakM6IjnRF8Ug" autoincrement="true">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_JaGFALDPEeakM6IjnRF8Ug" length="255">
+          <nativeType href="pathmap://NativeDBTypes/MariaDB-10.2#_bosKkSY8EemALc7s7nxPuQ"/>
+        </type>
+      </columns>
+    </tables>
+    <tables xsi:type="database:Table" xmi:id="_5M1WwLDPEeakM6IjnRF8Ug" techID="_lcjfobDOEeakM6IjnRF8Ug" name="Table6">
+      <constraints xmi:id="_y35M8bDaEeakM6IjnRF8Ug" comments="Comments on constraint 6_1" techID="_y35M8LDaEeakM6IjnRF8Ug" name="Constraint6_1_Supprimee" expression="Expression constraint 6_1"/>
+      <constraints xmi:id="_UyuTsLDbEeakM6IjnRF8Ug" comments="Comments on constraint 6_2" techID="_TS778rDbEeakM6IjnRF8Ug" name="Constraint6_2" expression="Expression constraint 6_2"/>
+      <columns xmi:id="_5M1WwbDPEeakM6IjnRF8Ug" techID="_m1tq9LDOEeakM6IjnRF8Ug" name="col6_1">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_5M1WwrDPEeakM6IjnRF8Ug" length="2">
+          <nativeType href="pathmap://NativeDBTypes/MariaDB-10.2#__VAkcSY5EemALc7s7nxPuQ"/>
+        </type>
+      </columns>
+      <columns xmi:id="_5M1Ww7DPEeakM6IjnRF8Ug" techID="_ok7l1LDOEeakM6IjnRF8Ug" name="col6_2">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_5M1WxLDPEeakM6IjnRF8Ug" length="3">
+          <nativeType href="pathmap://NativeDBTypes/MariaDB-10.2#__VAkcSY5EemALc7s7nxPuQ"/>
+        </type>
+      </columns>
+      <columns xmi:id="_5M1WxbDPEeakM6IjnRF8Ug" techID="_rG7BdLDOEeakM6IjnRF8Ug" name="col6_3">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_5M1WxrDPEeakM6IjnRF8Ug" length="255">
+          <nativeType href="pathmap://NativeDBTypes/MariaDB-10.2#_bosKkSY8EemALc7s7nxPuQ"/>
+        </type>
+      </columns>
+    </tables>
+    <tables xsi:type="database:Table" xmi:id="_FXETcLDaEeakM6IjnRF8Ug" techID="_FHN5kbDaEeakM6IjnRF8Ug" name="Table7">
+      <primaryKey xmi:id="_K2uaEbDaEeakM6IjnRF8Ug" techID="_K2uaELDaEeakM6IjnRF8Ug" name="Table7_PK" columns="_IbyBoLDaEeakM6IjnRF8Ug"/>
+      <columns xmi:id="_IbyBoLDaEeakM6IjnRF8Ug" techID="_H1y_tLDaEeakM6IjnRF8Ug" name="col7_1" primaryKey="_K2uaEbDaEeakM6IjnRF8Ug">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_IbyBobDaEeakM6IjnRF8Ug" length="12" precision="3">
+          <nativeType href="pathmap://NativeDBTypes/MariaDB-10.2#_H5bAESY7EemALc7s7nxPuQ"/>
+        </type>
+      </columns>
+    </tables>
+    <tables xsi:type="database:Table" xmi:id="_EeKxMLEJEeaJZrGA6WJgfw" techID="_EeKKILEJEeaJZrGA6WJgfw" name="Table8">
+      <primaryKey xmi:id="_iQfxgbEJEeaJZrGA6WJgfw" techID="_iQfxgLEJEeaJZrGA6WJgfw" name="Table8_PK" columns="_I1Mb0bEJEeaJZrGA6WJgfw"/>
+      <foreignKeys xmi:id="_kNFaALEJEeaJZrGA6WJgfw" comments="Comments on FK_8_1" techID="_kNEy8LEJEeaJZrGA6WJgfw" name="FK_8_1" target="_HTh0wbEJEeaJZrGA6WJgfw">
+        <elements xmi:id="_kNLgobEJEeaJZrGA6WJgfw" techID="_kNLgoLEJEeaJZrGA6WJgfw" fkColumn="_kNFaArEJEeaJZrGA6WJgfw" pkColumn="_MP9SgLEJEeaJZrGA6WJgfw"/>
+      </foreignKeys>
+      <columns xmi:id="_I1Mb0bEJEeaJZrGA6WJgfw" techID="_I1Mb0LEJEeaJZrGA6WJgfw" name="col8_1" primaryKey="_iQfxgbEJEeaJZrGA6WJgfw">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_I1Mb0rEJEeaJZrGA6WJgfw">
+          <nativeType href="pathmap://NativeDBTypes/MariaDB-10.2#_mdveASY7EemALc7s7nxPuQ"/>
+        </type>
+      </columns>
+      <columns xmi:id="_kNFaArEJEeaJZrGA6WJgfw" techID="_kNFaAbEJEeaJZrGA6WJgfw" name="col9_1" foreignKeyElements="_kNLgobEJEeaJZrGA6WJgfw">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_kNIdUbEJEeaJZrGA6WJgfw" technicalid="_kNIdULEJEeaJZrGA6WJgfw">
+          <nativeType href="pathmap://NativeDBTypes/MariaDB-10.2#_mdveASY7EemALc7s7nxPuQ"/>
+        </type>
+      </columns>
+    </tables>
+    <tables xsi:type="database:Table" xmi:id="_HTh0wbEJEeaJZrGA6WJgfw" techID="_HTh0wLEJEeaJZrGA6WJgfw" name="Table9">
+      <primaryKey xmi:id="_jMCzwbEJEeaJZrGA6WJgfw" techID="_jMCzwLEJEeaJZrGA6WJgfw" name="Table9_PK" columns="_MP9SgLEJEeaJZrGA6WJgfw"/>
+      <foreignKeys xmi:id="_HBdX4bEKEeaJZrGA6WJgfw" techID="_HBdX4LEKEeaJZrGA6WJgfw" name="FK_9_1_Supprimee" target="_bU44gK_QEea_iZJDF2jKEQ"/>
+      <columns xmi:id="_MP9SgLEJEeaJZrGA6WJgfw" techID="_MP8rcLEJEeaJZrGA6WJgfw" name="col9_1" primaryKey="_jMCzwbEJEeaJZrGA6WJgfw">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_MP9SgbEJEeaJZrGA6WJgfw">
+          <nativeType href="pathmap://NativeDBTypes/MariaDB-10.2#_mdveASY7EemALc7s7nxPuQ"/>
+        </type>
+      </columns>
+    </tables>
+    <tables xsi:type="database:Table" xmi:id="_SsBZ4LGHEeaUWpMG0gfm6w" techID="_GWO-QLGGEeaUWpMG0gfm6w" name="Table10">
+      <columns xmi:id="_SsBZ5LGHEeaUWpMG0gfm6w" techID="_pz04QLGGEeaUWpMG0gfm6w" name="col10_1">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_SsBZ5bGHEeaUWpMG0gfm6w" length="255">
+          <nativeType href="pathmap://NativeDBTypes/MariaDB-10.2#_bosKkSY8EemALc7s7nxPuQ"/>
+        </type>
+      </columns>
+      <columns xmi:id="_SsBZ5rGHEeaUWpMG0gfm6w" techID="_p4JXkLGGEeaUWpMG0gfm6w" name="col10_2">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_SsBZ57GHEeaUWpMG0gfm6w" length="255">
+          <nativeType href="pathmap://NativeDBTypes/MariaDB-10.2#_bosKkSY8EemALc7s7nxPuQ"/>
+        </type>
+      </columns>
+    </tables>
+    <tables xsi:type="database:Table" xmi:id="_SsBZ2LGHEeaUWpMG0gfm6w" techID="_FvRr8LGGEeaUWpMG0gfm6w" name="Table11">
+      <indexes xmi:id="_SsBZ2bGHEeaUWpMG0gfm6w" techID="_ie88cLGGEeaUWpMG0gfm6w" name="Index11_1_Supprime" unique="true" indexType="TYPE_INDEX">
+        <elements xmi:id="_SsBZ2rGHEeaUWpMG0gfm6w" techID="_i6aJYLGGEeaUWpMG0gfm6w" column="_SsBZ3LGHEeaUWpMG0gfm6w"/>
+        <elements xmi:id="_SsBZ27GHEeaUWpMG0gfm6w" techID="_j2_tcLGGEeaUWpMG0gfm6w" column="_SsBZ3rGHEeaUWpMG0gfm6w" asc="true"/>
+      </indexes>
+      <columns xmi:id="_SsBZ3LGHEeaUWpMG0gfm6w" techID="_HxYGkLGGEeaUWpMG0gfm6w" name="col11_1" indexElements="_SsBZ2rGHEeaUWpMG0gfm6w">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_SsBZ3bGHEeaUWpMG0gfm6w" length="255">
+          <nativeType href="pathmap://NativeDBTypes/MariaDB-10.2#_bosKkSY8EemALc7s7nxPuQ"/>
+        </type>
+      </columns>
+      <columns xmi:id="_SsBZ3rGHEeaUWpMG0gfm6w" techID="_H-hKsLGGEeaUWpMG0gfm6w" name="col11_2" indexElements="_SsBZ27GHEeaUWpMG0gfm6w">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_SsBZ37GHEeaUWpMG0gfm6w" length="255">
+          <nativeType href="pathmap://NativeDBTypes/MariaDB-10.2#_bosKkSY8EemALc7s7nxPuQ"/>
+        </type>
+      </columns>
+    </tables>
+    <tables xsi:type="database:Table" xmi:id="_x1V60LGKEeaOYsCLuTWMbg" techID="_xZjWsbGKEeaOYsCLuTWMbg" name="Table12">
+      <indexes xmi:id="_2umv0bGKEeaOYsCLuTWMbg" techID="_2umv0LGKEeaOYsCLuTWMbg" name="Table12_UNIQUE_INDEX" unique="true">
+        <elements xmi:id="_2umv07GKEeaOYsCLuTWMbg" techID="_2umv0rGKEeaOYsCLuTWMbg" column="_0j82IbGKEeaOYsCLuTWMbg" asc="true"/>
+      </indexes>
+      <columns xmi:id="_0j82IbGKEeaOYsCLuTWMbg" techID="_0j82ILGKEeaOYsCLuTWMbg" name="col12_1" indexElements="_2umv07GKEeaOYsCLuTWMbg">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_0j82IrGKEeaOYsCLuTWMbg" length="255">
+          <nativeType href="pathmap://NativeDBTypes/MariaDB-10.2#_bosKkSY8EemALc7s7nxPuQ"/>
+        </type>
+      </columns>
+    </tables>
+    <tables xsi:type="database:Table" xmi:id="_DdmGwbGSEeaUWpMG0gfm6w" techID="_DdmGwLGSEeaUWpMG0gfm6w" name="Table13">
+      <primaryKey xmi:id="_FYMLMbGSEeaUWpMG0gfm6w" techID="_FYMLMLGSEeaUWpMG0gfm6w" name="Table13_PK" columns="_FX0XwbGSEeaUWpMG0gfm6w"/>
+      <columns xmi:id="_FX0XwbGSEeaUWpMG0gfm6w" techID="_FX0XwLGSEeaUWpMG0gfm6w" name="col13_1" primaryKey="_FYMLMbGSEeaUWpMG0gfm6w" sequence="__RzbwbGREeaUWpMG0gfm6w">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_FX0XwrGSEeaUWpMG0gfm6w">
+          <nativeType href="pathmap://NativeDBTypes/MariaDB-10.2#_mdveASY7EemALc7s7nxPuQ"/>
+        </type>
+      </columns>
+    </tables>
+    <tables xsi:type="database:Table" xmi:id="_K2K20LGSEeaUWpMG0gfm6w" techID="_DdmGwLGSEeaUWpMG0gfm6w" name="Table14">
+      <primaryKey xmi:id="_K2K20bGSEeaUWpMG0gfm6w" techID="_FYMLMLGSEeaUWpMG0gfm6w" name="Table13_PK" columns="_K2K20rGSEeaUWpMG0gfm6w"/>
+      <columns xmi:id="_K2K20rGSEeaUWpMG0gfm6w" techID="_FX0XwLGSEeaUWpMG0gfm6w" name="col14_1" primaryKey="_K2K20bGSEeaUWpMG0gfm6w" sequence="_AdYeEbGSEeaUWpMG0gfm6w">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_K2K207GSEeaUWpMG0gfm6w">
+          <nativeType href="pathmap://NativeDBTypes/MariaDB-10.2#_mdveASY7EemALc7s7nxPuQ"/>
+        </type>
+      </columns>
+    </tables>
+    <tables xsi:type="database:Table" xmi:id="_QKAvAbGSEeaUWpMG0gfm6w" techID="_QKAvALGSEeaUWpMG0gfm6w" name="Table15">
+      <primaryKey xmi:id="_RKeGdLGSEeaUWpMG0gfm6w" techID="_RKeGc7GSEeaUWpMG0gfm6w" name="Table15_PK" columns="_RKeGcbGSEeaUWpMG0gfm6w"/>
+      <columns xmi:id="_RKeGcbGSEeaUWpMG0gfm6w" techID="_RKeGcLGSEeaUWpMG0gfm6w" name="col15_1" primaryKey="_RKeGdLGSEeaUWpMG0gfm6w">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_RKeGcrGSEeaUWpMG0gfm6w">
+          <nativeType href="pathmap://NativeDBTypes/MariaDB-10.2#_mdveASY7EemALc7s7nxPuQ"/>
+        </type>
+      </columns>
+    </tables>
+    <tables xsi:type="database:View" xmi:id="_Xf7oJLGcEeaUWpMG0gfm6w" comments="comments on view1&#xD;&#xA;" techID="_MCJ9QLGcEeaUWpMG0gfm6w" name="View1" query="select c, d from test"/>
+    <tables xsi:type="database:View" xmi:id="_Xf7oJbGcEeaUWpMG0gfm6w" comments="comments on view2&#xD;&#xA;" techID="_MCJ9QLGcEeaUWpMG0gfm6w" name="View2" query="select c, d from test"/>
+    <tables xsi:type="database:View" xmi:id="_ZQlGYLGcEeaUWpMG0gfm6w" comments="comments on ViewSupprimee" techID="_ZB5KILGcEeaUWpMG0gfm6w" name="ViewSupprimee" query="select a,b from test"/>
+    <sequences xmi:id="__RzbwbGREeaUWpMG0gfm6w" techID="__RzbwLGREeaUWpMG0gfm6w" name="Sequence13_1" columns="_FX0XwbGSEeaUWpMG0gfm6w"/>
+    <sequences xmi:id="_AdYeEbGSEeaUWpMG0gfm6w" techID="_AdYeELGSEeaUWpMG0gfm6w" name="Sequence14_1_Supprimee" columns="_K2K20rGSEeaUWpMG0gfm6w"/>
+  </schemas>
+</database:DataBase>

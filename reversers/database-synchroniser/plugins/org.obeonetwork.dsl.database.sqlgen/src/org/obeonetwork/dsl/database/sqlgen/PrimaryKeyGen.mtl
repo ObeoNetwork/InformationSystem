@@ -45,7 +45,7 @@
 [/template]
 
 [query private isForMySQL(diffs : Sequence(AddPrimaryKey)) : Boolean =
-diffs->notEmpty() and diffs->first().primaryKey.isTargetMySql() /]
+diffs->notEmpty() and diffs->first().primaryKey.isTargetMySqlOrMariaDB() /]
 
 [template private genPKDoc(primaryKey : PrimaryKey) post(trim())]
 -- ==============================================================

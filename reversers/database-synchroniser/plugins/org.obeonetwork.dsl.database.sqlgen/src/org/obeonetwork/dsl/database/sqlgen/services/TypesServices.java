@@ -64,9 +64,18 @@ public class TypesServices {
 		return isTargetOracleTypesLibrary(physicalTypesLibrary);
 	}
 	
+	public boolean isTargetMySqlOrMariaDB(DatabaseElement element) {
+		return isTargetMySql(element) || isTargetMariaDB(element);
+	}
+	
 	public boolean isTargetMySql(DatabaseElement element) {
 		TypesLibrary physicalTypesLibrary = getPhysicalTypesLibrary(element);
 		return isTargetMysqlTypesLibrary(physicalTypesLibrary);
+	}
+	
+	public boolean isTargetMariaDB(DatabaseElement element) {
+		TypesLibrary physicalTypesLibrary = getPhysicalTypesLibrary(element);
+		return isTargetMariaDBTypesLibrary(physicalTypesLibrary);
 	}
 	
 	public boolean isTargetSqlServer(DatabaseElement element) {
@@ -117,6 +126,10 @@ public class TypesServices {
 	
 	private boolean isTargetMysqlTypesLibrary(TypesLibrary targetTypesLibrary) {
 		return targetTypesLibrary != null && TypesLibraryUtil.MYSQL_PATHMAP.equals(targetTypesLibrary.eResource().getURI().toString());
+	}
+	
+	private boolean isTargetMariaDBTypesLibrary(TypesLibrary targetTypesLibrary) {
+		return targetTypesLibrary != null && TypesLibraryUtil.MARIADB_PATHMAP.equals(targetTypesLibrary.eResource().getURI().toString());
 	}
 	
 	private boolean isTargetSqlServerTypesLibrary(TypesLibrary targetTypesLibrary) {

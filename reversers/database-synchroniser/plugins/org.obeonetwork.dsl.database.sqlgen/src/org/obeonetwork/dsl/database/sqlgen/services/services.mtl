@@ -11,8 +11,8 @@
 [query public isTargetOracle(arg0 : DatabaseElement) : Boolean
 	= invoke('org.obeonetwork.dsl.database.sqlgen.services.TypesServices', 'isTargetOracle(org.obeonetwork.dsl.database.DatabaseElement)', Sequence{arg0}) /]
 
-[query public isTargetMySql(arg0 : DatabaseElement) : Boolean
-	= invoke('org.obeonetwork.dsl.database.sqlgen.services.TypesServices', 'isTargetMySql(org.obeonetwork.dsl.database.DatabaseElement)', Sequence{arg0}) /]
+[query public isTargetMySqlOrMariaDB(arg0 : DatabaseElement) : Boolean
+	= invoke('org.obeonetwork.dsl.database.sqlgen.services.TypesServices', 'isTargetMySqlOrMariaDB(org.obeonetwork.dsl.database.DatabaseElement)', Sequence{arg0}) /]
 
 [query public isTargetSqlServer(arg0 : DatabaseElement) : Boolean
 	= invoke('org.obeonetwork.dsl.database.sqlgen.services.TypesServices', 'isTargetSqlServer(org.obeonetwork.dsl.database.DatabaseElement)', Sequence{arg0}) /]

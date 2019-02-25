@@ -20,6 +20,11 @@ public class SQLGenerationTest extends AbstractSQLGenerationTest {
 	}
 	
 	@Test
+	public void test0_MariaDB() {
+		assertGenerationEquals("00-full-mariadb");
+	}
+	
+	@Test
 	public void test0_Oracle() {
 		assertGenerationEquals("00-full-oracle");
 	}
