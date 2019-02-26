@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry exported="true" kind="lib" path="libs/logback-classic-1.2.3.jar"/>
+	<classpathentry exported="true" kind="lib" path="libs/logback-core-1.2.3.jar"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.8"/>
+	<classpathentry kind="con" path="org.eclipse.pde.core.requiredPlugins"/>
+	<classpathentry kind="src" path="src">
+		<attributes>
+			<attribute name="test" value="true"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="libs/liquibase-core-3.6.3.jar" sourcepath="libs/liquibase-core-3.6.3-sources.jar">
+		<attributes>
+			<attribute name="javadoc_location" value="jar:platform:/resource/org.obeonetwork.dsl.database.tests/libs/liquibase-core-3.6.3-javadoc.jar!/"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="libs/snakeyaml-1.18.jar"/>
+	<classpathentry kind="output" path="bin"/>
+</classpath>

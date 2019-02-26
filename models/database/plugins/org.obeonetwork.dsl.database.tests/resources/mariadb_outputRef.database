@@ -1,0 +1,1317 @@
+<?xml version="1.0" encoding="ASCII"?>
+<database:DataBase xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:database="http://www.obeonetwork.org/dsl/database/1.0" xmlns:typeslibrary="http://www.obeonetwork.org/dsl/typeslibrary/1.0" xmi:id="_rOxHgD9qEemuxfkvAcwbIQ" techID="_rK4tED9qEemuxfkvAcwbIQ" name="northwind">
+  <usedLibraries xsi:type="typeslibrary:NativeTypesLibrary" href="pathmap://NativeDBTypes/MariaDB-10.2#_oGtuUCY4EemALc7s7nxPuQ"/>
+  <schemas xmi:id="_rOxHgT9qEemuxfkvAcwbIQ" techID="_rK5UID9qEemuxfkvAcwbIQ" name="northwind">
+    <tables xsi:type="database:Table" xmi:id="_rOxHgj9qEemuxfkvAcwbIQ" techID="_rLLA8D9qEemuxfkvAcwbIQ" name="customers">
+      <primaryKey xmi:id="_rOxHgz9qEemuxfkvAcwbIQ" techID="_rLdU0D9qEemuxfkvAcwbIQ" name="PRIMARY" columns="_rOxHkj9qEemuxfkvAcwbIQ"/>
+      <indexes xmi:id="_rOxHhD9qEemuxfkvAcwbIQ" techID="_rLgYID9qEemuxfkvAcwbIQ" name="PRIMARY" qualifier="northwind" unique="true">
+        <elements xmi:id="_rOxHhT9qEemuxfkvAcwbIQ" techID="_rLhmQD9qEemuxfkvAcwbIQ" column="_rOxHkj9qEemuxfkvAcwbIQ" asc="true"/>
+      </indexes>
+      <indexes xmi:id="_rOxHhj9qEemuxfkvAcwbIQ" techID="_rLhmQT9qEemuxfkvAcwbIQ" name="city_customers" qualifier="northwind">
+        <elements xmi:id="_rOxHhz9qEemuxfkvAcwbIQ" techID="_rLhmQj9qEemuxfkvAcwbIQ" column="_rOxHqD9qEemuxfkvAcwbIQ" asc="true"/>
+      </indexes>
+      <indexes xmi:id="_rOxHiD9qEemuxfkvAcwbIQ" techID="_rLhmQz9qEemuxfkvAcwbIQ" name="company_customers" qualifier="northwind">
+        <elements xmi:id="_rOxHiT9qEemuxfkvAcwbIQ" techID="_rLhmRD9qEemuxfkvAcwbIQ" column="_rOxHlD9qEemuxfkvAcwbIQ" asc="true"/>
+      </indexes>
+      <indexes xmi:id="_rOxHij9qEemuxfkvAcwbIQ" techID="_rLhmRT9qEemuxfkvAcwbIQ" name="first_name_customers" qualifier="northwind">
+        <elements xmi:id="_rOxHiz9qEemuxfkvAcwbIQ" techID="_rLhmRj9qEemuxfkvAcwbIQ" column="_rOxHmD9qEemuxfkvAcwbIQ" asc="true"/>
+      </indexes>
+      <indexes xmi:id="_rOxHjD9qEemuxfkvAcwbIQ" techID="_rLhmRz9qEemuxfkvAcwbIQ" name="last_name_customers" qualifier="northwind">
+        <elements xmi:id="_rOxHjT9qEemuxfkvAcwbIQ" techID="_rLiNUD9qEemuxfkvAcwbIQ" column="_rOxHlj9qEemuxfkvAcwbIQ" asc="true"/>
+      </indexes>
+      <indexes xmi:id="_rOxHjj9qEemuxfkvAcwbIQ" techID="_rLiNUT9qEemuxfkvAcwbIQ" name="state_province_customers" qualifier="northwind">
+        <elements xmi:id="_rOxHjz9qEemuxfkvAcwbIQ" techID="_rLiNUj9qEemuxfkvAcwbIQ" column="_rOxHqj9qEemuxfkvAcwbIQ" asc="true"/>
+      </indexes>
+      <indexes xmi:id="_rOxHkD9qEemuxfkvAcwbIQ" techID="_rLiNUz9qEemuxfkvAcwbIQ" name="zip_postal_code_customers" qualifier="northwind">
+        <elements xmi:id="_rOxHkT9qEemuxfkvAcwbIQ" techID="_rLiNVD9qEemuxfkvAcwbIQ" column="_rOxHrD9qEemuxfkvAcwbIQ" asc="true"/>
+      </indexes>
+      <columns xmi:id="_rOxHkj9qEemuxfkvAcwbIQ" techID="_rLUx8D9qEemuxfkvAcwbIQ" name="id" defaultValue="" indexElements="_rOxHhT9qEemuxfkvAcwbIQ" primaryKey="_rOxHgz9qEemuxfkvAcwbIQ" autoincrement="true">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_rOxHkz9qEemuxfkvAcwbIQ" length="10" precision="0">
+          <nativeType href="pathmap://NativeDBTypes/MariaDB-10.2#_yD7TcCY6EemALc7s7nxPuQ"/>
+        </type>
+      </columns>
+      <columns xmi:id="_rOxHlD9qEemuxfkvAcwbIQ" techID="_rLXOMD9qEemuxfkvAcwbIQ" name="company" nullable="true" defaultValue="NULL" indexElements="_rOxHiT9qEemuxfkvAcwbIQ">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_rOxHlT9qEemuxfkvAcwbIQ" length="50" precision="0">
+          <nativeType href="pathmap://NativeDBTypes/MariaDB-10.2#_bosKkSY8EemALc7s7nxPuQ"/>
+        </type>
+      </columns>
+      <columns xmi:id="_rOxHlj9qEemuxfkvAcwbIQ" techID="_rLX1QD9qEemuxfkvAcwbIQ" name="last_name" nullable="true" defaultValue="NULL" indexElements="_rOxHjT9qEemuxfkvAcwbIQ">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_rOxHlz9qEemuxfkvAcwbIQ" length="50" precision="0">
+          <nativeType href="pathmap://NativeDBTypes/MariaDB-10.2#_bosKkSY8EemALc7s7nxPuQ"/>
+        </type>
+      </columns>
+      <columns xmi:id="_rOxHmD9qEemuxfkvAcwbIQ" techID="_rLX1QT9qEemuxfkvAcwbIQ" name="first_name" nullable="true" defaultValue="NULL" indexElements="_rOxHiz9qEemuxfkvAcwbIQ">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_rOxHmT9qEemuxfkvAcwbIQ" length="50" precision="0">
+          <nativeType href="pathmap://NativeDBTypes/MariaDB-10.2#_bosKkSY8EemALc7s7nxPuQ"/>
+        </type>
+      </columns>
+      <columns xmi:id="_rOxHmj9qEemuxfkvAcwbIQ" techID="_rLX1Qj9qEemuxfkvAcwbIQ" name="email_address" nullable="true" defaultValue="NULL">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_rOxHmz9qEemuxfkvAcwbIQ" length="50" precision="0">
+          <nativeType href="pathmap://NativeDBTypes/MariaDB-10.2#_bosKkSY8EemALc7s7nxPuQ"/>
+        </type>
+      </columns>
+      <columns xmi:id="_rOxHnD9qEemuxfkvAcwbIQ" techID="_rLX1Qz9qEemuxfkvAcwbIQ" name="job_title" nullable="true" defaultValue="NULL">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_rOxHnT9qEemuxfkvAcwbIQ" length="50" precision="0">
+          <nativeType href="pathmap://NativeDBTypes/MariaDB-10.2#_bosKkSY8EemALc7s7nxPuQ"/>
+        </type>
+      </columns>
+      <columns xmi:id="_rOxHnj9qEemuxfkvAcwbIQ" techID="_rLX1RD9qEemuxfkvAcwbIQ" name="business_phone" nullable="true" defaultValue="NULL">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_rOxHnz9qEemuxfkvAcwbIQ" length="25" precision="0">
+          <nativeType href="pathmap://NativeDBTypes/MariaDB-10.2#_bosKkSY8EemALc7s7nxPuQ"/>
+        </type>
+      </columns>
+      <columns xmi:id="_rOxHoD9qEemuxfkvAcwbIQ" techID="_rLX1RT9qEemuxfkvAcwbIQ" name="home_phone" nullable="true" defaultValue="NULL">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_rOxHoT9qEemuxfkvAcwbIQ" length="25" precision="0">
+          <nativeType href="pathmap://NativeDBTypes/MariaDB-10.2#_bosKkSY8EemALc7s7nxPuQ"/>
+        </type>
+      </columns>
+      <columns xmi:id="_rOxHoj9qEemuxfkvAcwbIQ" techID="_rLX1Rj9qEemuxfkvAcwbIQ" name="mobile_phone" nullable="true" defaultValue="NULL">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_rOxHoz9qEemuxfkvAcwbIQ" length="25" precision="0">
+          <nativeType href="pathmap://NativeDBTypes/MariaDB-10.2#_bosKkSY8EemALc7s7nxPuQ"/>
+        </type>
+      </columns>
+      <columns xmi:id="_rOxHpD9qEemuxfkvAcwbIQ" techID="_rLX1Rz9qEemuxfkvAcwbIQ" name="fax_number" nullable="true" defaultValue="NULL">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_rOxHpT9qEemuxfkvAcwbIQ" length="25" precision="0">
+          <nativeType href="pathmap://NativeDBTypes/MariaDB-10.2#_bosKkSY8EemALc7s7nxPuQ"/>
+        </type>
+      </columns>
+      <columns xmi:id="_rOxHpj9qEemuxfkvAcwbIQ" techID="_rLYcUD9qEemuxfkvAcwbIQ" name="address" nullable="true" defaultValue="NULL">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_rOxHpz9qEemuxfkvAcwbIQ" length="2147483647" precision="0">
+          <nativeType href="pathmap://NativeDBTypes/MariaDB-10.2#_5LQigSY6EemALc7s7nxPuQ"/>
+        </type>
+      </columns>
+      <columns xmi:id="_rOxHqD9qEemuxfkvAcwbIQ" techID="_rLYcUT9qEemuxfkvAcwbIQ" name="city" nullable="true" defaultValue="NULL" indexElements="_rOxHhz9qEemuxfkvAcwbIQ">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_rOxHqT9qEemuxfkvAcwbIQ" length="50" precision="0">
+          <nativeType href="pathmap://NativeDBTypes/MariaDB-10.2#_bosKkSY8EemALc7s7nxPuQ"/>
+        </type>
+      </columns>
+      <columns xmi:id="_rOxHqj9qEemuxfkvAcwbIQ" techID="_rLYcUj9qEemuxfkvAcwbIQ" name="state_province" nullable="true" defaultValue="NULL" indexElements="_rOxHjz9qEemuxfkvAcwbIQ">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_rOxHqz9qEemuxfkvAcwbIQ" length="50" precision="0">
+          <nativeType href="pathmap://NativeDBTypes/MariaDB-10.2#_bosKkSY8EemALc7s7nxPuQ"/>
+        </type>
+      </columns>
+      <columns xmi:id="_rOxHrD9qEemuxfkvAcwbIQ" techID="_rLYcUz9qEemuxfkvAcwbIQ" name="zip_postal_code" nullable="true" defaultValue="NULL" indexElements="_rOxHkT9qEemuxfkvAcwbIQ">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_rOxHrT9qEemuxfkvAcwbIQ" length="15" precision="0">
+          <nativeType href="pathmap://NativeDBTypes/MariaDB-10.2#_bosKkSY8EemALc7s7nxPuQ"/>
+        </type>
+      </columns>
+      <columns xmi:id="_rOxHrj9qEemuxfkvAcwbIQ" techID="_rLYcVD9qEemuxfkvAcwbIQ" name="country_region" nullable="true" defaultValue="NULL">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_rOxHrz9qEemuxfkvAcwbIQ" length="50" precision="0">
+          <nativeType href="pathmap://NativeDBTypes/MariaDB-10.2#_bosKkSY8EemALc7s7nxPuQ"/>
+        </type>
+      </columns>
+      <columns xmi:id="_rOxHsD9qEemuxfkvAcwbIQ" techID="_rLYcVT9qEemuxfkvAcwbIQ" name="web_page" nullable="true" defaultValue="NULL">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_rOxHsT9qEemuxfkvAcwbIQ" length="2147483647" precision="0">
+          <nativeType href="pathmap://NativeDBTypes/MariaDB-10.2#_5LQigSY6EemALc7s7nxPuQ"/>
+        </type>
+      </columns>
+      <columns xmi:id="_rOxHsj9qEemuxfkvAcwbIQ" techID="_rLYcVj9qEemuxfkvAcwbIQ" name="notes" nullable="true" defaultValue="NULL">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_rOxHsz9qEemuxfkvAcwbIQ" length="2147483647" precision="0">
+          <nativeType href="pathmap://NativeDBTypes/MariaDB-10.2#_5LQigSY6EemALc7s7nxPuQ"/>
+        </type>
+      </columns>
+      <columns xmi:id="_rOxHtD9qEemuxfkvAcwbIQ" techID="_rLYcVz9qEemuxfkvAcwbIQ" name="attachments" nullable="true" defaultValue="NULL">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_rOxHtT9qEemuxfkvAcwbIQ" length="2147483647" precision="0">
+          <nativeType href="pathmap://NativeDBTypes/MariaDB-10.2#_3nFaACY6EemALc7s7nxPuQ"/>
+        </type>
+      </columns>
+    </tables>
+    <tables xsi:type="database:Table" xmi:id="_rOxHtj9qEemuxfkvAcwbIQ" techID="_rLiNVT9qEemuxfkvAcwbIQ" name="DATABASECHANGELOG">
+      <columns xmi:id="_rOxHtz9qEemuxfkvAcwbIQ" techID="_rLkpkD9qEemuxfkvAcwbIQ" name="ID" defaultValue="">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_rOxHuD9qEemuxfkvAcwbIQ" length="255" precision="0">
+          <nativeType href="pathmap://NativeDBTypes/MariaDB-10.2#_bosKkSY8EemALc7s7nxPuQ"/>
+        </type>
+      </columns>
+      <columns xmi:id="_rOxHuT9qEemuxfkvAcwbIQ" techID="_rLkpkT9qEemuxfkvAcwbIQ" name="AUTHOR" defaultValue="">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_rOxHuj9qEemuxfkvAcwbIQ" length="255" precision="0">
+          <nativeType href="pathmap://NativeDBTypes/MariaDB-10.2#_bosKkSY8EemALc7s7nxPuQ"/>
+        </type>
+      </columns>
+      <columns xmi:id="_rOxHuz9qEemuxfkvAcwbIQ" techID="_rLkpkj9qEemuxfkvAcwbIQ" name="FILENAME" defaultValue="">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_rOxHvD9qEemuxfkvAcwbIQ" length="255" precision="0">
+          <nativeType href="pathmap://NativeDBTypes/MariaDB-10.2#_bosKkSY8EemALc7s7nxPuQ"/>
+        </type>
+      </columns>
+      <columns xmi:id="_rOxHvT9qEemuxfkvAcwbIQ" techID="_rLkpkz9qEemuxfkvAcwbIQ" name="DATEEXECUTED" defaultValue="">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_rOxHvj9qEemuxfkvAcwbIQ" length="19" precision="0">
+          <nativeType href="pathmap://NativeDBTypes/MariaDB-10.2#_Gz-QYSY6EemALc7s7nxPuQ"/>
+        </type>
+      </columns>
+      <columns xmi:id="_rOxHvz9qEemuxfkvAcwbIQ" techID="_rLkplD9qEemuxfkvAcwbIQ" name="ORDEREXECUTED" defaultValue="">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_rOxHwD9qEemuxfkvAcwbIQ" length="10" precision="0">
+          <nativeType href="pathmap://NativeDBTypes/MariaDB-10.2#_yD7TcCY6EemALc7s7nxPuQ"/>
+        </type>
+      </columns>
+      <columns xmi:id="_rOxHwT9qEemuxfkvAcwbIQ" techID="_rLkplT9qEemuxfkvAcwbIQ" name="EXECTYPE" defaultValue="">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_rOxHwj9qEemuxfkvAcwbIQ" length="10" precision="0">
+          <nativeType href="pathmap://NativeDBTypes/MariaDB-10.2#_bosKkSY8EemALc7s7nxPuQ"/>
+        </type>
+      </columns>
+      <columns xmi:id="_rOxHwz9qEemuxfkvAcwbIQ" techID="_rLkplj9qEemuxfkvAcwbIQ" name="MD5SUM" nullable="true" defaultValue="NULL">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_rOxHxD9qEemuxfkvAcwbIQ" length="35" precision="0">
+          <nativeType href="pathmap://NativeDBTypes/MariaDB-10.2#_bosKkSY8EemALc7s7nxPuQ"/>
+        </type>
+      </columns>
+      <columns xmi:id="_rOxHxT9qEemuxfkvAcwbIQ" techID="_rLkplz9qEemuxfkvAcwbIQ" name="DESCRIPTION" nullable="true" defaultValue="NULL">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_rOxHxj9qEemuxfkvAcwbIQ" length="255" precision="0">
+          <nativeType href="pathmap://NativeDBTypes/MariaDB-10.2#_bosKkSY8EemALc7s7nxPuQ"/>
+        </type>
+      </columns>
+      <columns xmi:id="_rOxHxz9qEemuxfkvAcwbIQ" techID="_rLkpmD9qEemuxfkvAcwbIQ" name="COMMENTS" nullable="true" defaultValue="NULL">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_rOxHyD9qEemuxfkvAcwbIQ" length="255" precision="0">
+          <nativeType href="pathmap://NativeDBTypes/MariaDB-10.2#_bosKkSY8EemALc7s7nxPuQ"/>
+        </type>
+      </columns>
+      <columns xmi:id="_rOxHyT9qEemuxfkvAcwbIQ" techID="_rLkpmT9qEemuxfkvAcwbIQ" name="TAG" nullable="true" defaultValue="NULL">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_rOxHyj9qEemuxfkvAcwbIQ" length="255" precision="0">
+          <nativeType href="pathmap://NativeDBTypes/MariaDB-10.2#_bosKkSY8EemALc7s7nxPuQ"/>
+        </type>
+      </columns>
+      <columns xmi:id="_rOxHyz9qEemuxfkvAcwbIQ" techID="_rLlQoD9qEemuxfkvAcwbIQ" name="LIQUIBASE" nullable="true" defaultValue="NULL">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_rOxHzD9qEemuxfkvAcwbIQ" length="20" precision="0">
+          <nativeType href="pathmap://NativeDBTypes/MariaDB-10.2#_bosKkSY8EemALc7s7nxPuQ"/>
+        </type>
+      </columns>
+      <columns xmi:id="_rOxHzT9qEemuxfkvAcwbIQ" techID="_rLlQoT9qEemuxfkvAcwbIQ" name="CONTEXTS" nullable="true" defaultValue="NULL">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_rOxHzj9qEemuxfkvAcwbIQ" length="255" precision="0">
+          <nativeType href="pathmap://NativeDBTypes/MariaDB-10.2#_bosKkSY8EemALc7s7nxPuQ"/>
+        </type>
+      </columns>
+      <columns xmi:id="_rOxHzz9qEemuxfkvAcwbIQ" techID="_rLlQoj9qEemuxfkvAcwbIQ" name="LABELS" nullable="true" defaultValue="NULL">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_rOxukD9qEemuxfkvAcwbIQ" length="255" precision="0">
+          <nativeType href="pathmap://NativeDBTypes/MariaDB-10.2#_bosKkSY8EemALc7s7nxPuQ"/>
+        </type>
+      </columns>
+      <columns xmi:id="_rOxukT9qEemuxfkvAcwbIQ" techID="_rLlQoz9qEemuxfkvAcwbIQ" name="DEPLOYMENT_ID" nullable="true" defaultValue="NULL">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_rOxukj9qEemuxfkvAcwbIQ" length="10" precision="0">
+          <nativeType href="pathmap://NativeDBTypes/MariaDB-10.2#_bosKkSY8EemALc7s7nxPuQ"/>
+        </type>
+      </columns>
+    </tables>
+    <tables xsi:type="database:Table" xmi:id="_rOxukz9qEemuxfkvAcwbIQ" techID="_rLqJID9qEemuxfkvAcwbIQ" name="DATABASECHANGELOGLOCK">
+      <primaryKey xmi:id="_rOxulD9qEemuxfkvAcwbIQ" techID="_rLwPwD9qEemuxfkvAcwbIQ" name="PRIMARY" columns="_rOxulz9qEemuxfkvAcwbIQ"/>
+      <indexes xmi:id="_rOxulT9qEemuxfkvAcwbIQ" techID="_rLxd4D9qEemuxfkvAcwbIQ" name="PRIMARY" qualifier="northwind" unique="true">
+        <elements xmi:id="_rOxulj9qEemuxfkvAcwbIQ" techID="_rLxd4T9qEemuxfkvAcwbIQ" column="_rOxulz9qEemuxfkvAcwbIQ" asc="true"/>
+      </indexes>
+      <columns xmi:id="_rOxulz9qEemuxfkvAcwbIQ" techID="_rLtMcD9qEemuxfkvAcwbIQ" name="ID" defaultValue="" indexElements="_rOxulj9qEemuxfkvAcwbIQ" primaryKey="_rOxulD9qEemuxfkvAcwbIQ">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_rOxumD9qEemuxfkvAcwbIQ" length="10" precision="0">
+          <nativeType href="pathmap://NativeDBTypes/MariaDB-10.2#_yD7TcCY6EemALc7s7nxPuQ"/>
+        </type>
+      </columns>
+      <columns xmi:id="_rOxumT9qEemuxfkvAcwbIQ" techID="_rLtMcT9qEemuxfkvAcwbIQ" name="LOCKED" defaultValue="">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_rOxumj9qEemuxfkvAcwbIQ" length="1" precision="0">
+          <nativeType href="pathmap://NativeDBTypes/MariaDB-10.2#_pV_LkSY9EemALc7s7nxPuQ"/>
+        </type>
+      </columns>
+      <columns xmi:id="_rOxumz9qEemuxfkvAcwbIQ" techID="_rLtMcj9qEemuxfkvAcwbIQ" name="LOCKGRANTED" nullable="true" defaultValue="NULL">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_rOxunD9qEemuxfkvAcwbIQ" length="19" precision="0">
+          <nativeType href="pathmap://NativeDBTypes/MariaDB-10.2#_Gz-QYSY6EemALc7s7nxPuQ"/>
+        </type>
+      </columns>
+      <columns xmi:id="_rOxunT9qEemuxfkvAcwbIQ" techID="_rLtMcz9qEemuxfkvAcwbIQ" name="LOCKEDBY" nullable="true" defaultValue="NULL">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_rOxunj9qEemuxfkvAcwbIQ" length="255" precision="0">
+          <nativeType href="pathmap://NativeDBTypes/MariaDB-10.2#_bosKkSY8EemALc7s7nxPuQ"/>
+        </type>
+      </columns>
+    </tables>
+    <tables xsi:type="database:Table" xmi:id="_rOxunz9qEemuxfkvAcwbIQ" techID="_rLxd4j9qEemuxfkvAcwbIQ" name="employees">
+      <primaryKey xmi:id="_rOxuoD9qEemuxfkvAcwbIQ" techID="_rL4yoD9qEemuxfkvAcwbIQ" name="PRIMARY" columns="_rOxurz9qEemuxfkvAcwbIQ"/>
+      <indexes xmi:id="_rOxuoT9qEemuxfkvAcwbIQ" techID="_rL6AwD9qEemuxfkvAcwbIQ" name="PRIMARY" qualifier="northwind" unique="true">
+        <elements xmi:id="_rOxuoj9qEemuxfkvAcwbIQ" techID="_rL6AwT9qEemuxfkvAcwbIQ" column="_rOxurz9qEemuxfkvAcwbIQ" asc="true"/>
+      </indexes>
+      <indexes xmi:id="_rOxuoz9qEemuxfkvAcwbIQ" techID="_rL6Awj9qEemuxfkvAcwbIQ" name="city_employees" qualifier="northwind">
+        <elements xmi:id="_rOxupD9qEemuxfkvAcwbIQ" techID="_rL6Awz9qEemuxfkvAcwbIQ" column="_rOxuxT9qEemuxfkvAcwbIQ" asc="true"/>
+      </indexes>
+      <indexes xmi:id="_rOxupT9qEemuxfkvAcwbIQ" techID="_rL6AxD9qEemuxfkvAcwbIQ" name="company_employees" qualifier="northwind">
+        <elements xmi:id="_rOxupj9qEemuxfkvAcwbIQ" techID="_rL6AxT9qEemuxfkvAcwbIQ" column="_rOxusT9qEemuxfkvAcwbIQ" asc="true"/>
+      </indexes>
+      <indexes xmi:id="_rOxupz9qEemuxfkvAcwbIQ" techID="_rL6Axj9qEemuxfkvAcwbIQ" name="first_name_employees" qualifier="northwind">
+        <elements xmi:id="_rOxuqD9qEemuxfkvAcwbIQ" techID="_rL6Axz9qEemuxfkvAcwbIQ" column="_rOxutT9qEemuxfkvAcwbIQ" asc="true"/>
+      </indexes>
+      <indexes xmi:id="_rOxuqT9qEemuxfkvAcwbIQ" techID="_rL6AyD9qEemuxfkvAcwbIQ" name="last_name_employees" qualifier="northwind">
+        <elements xmi:id="_rOxuqj9qEemuxfkvAcwbIQ" techID="_rL6AyT9qEemuxfkvAcwbIQ" column="_rOxusz9qEemuxfkvAcwbIQ" asc="true"/>
+      </indexes>
+      <indexes xmi:id="_rOxuqz9qEemuxfkvAcwbIQ" techID="_rL6Ayj9qEemuxfkvAcwbIQ" name="state_province_employees" qualifier="northwind">
+        <elements xmi:id="_rOxurD9qEemuxfkvAcwbIQ" techID="_rL6Ayz9qEemuxfkvAcwbIQ" column="_rOxuxz9qEemuxfkvAcwbIQ" asc="true"/>
+      </indexes>
+      <indexes xmi:id="_rOxurT9qEemuxfkvAcwbIQ" techID="_rL6AzD9qEemuxfkvAcwbIQ" name="zip_postal_code_employees" qualifier="northwind">
+        <elements xmi:id="_rOxurj9qEemuxfkvAcwbIQ" techID="_rL6AzT9qEemuxfkvAcwbIQ" column="_rOxuyT9qEemuxfkvAcwbIQ" asc="true"/>
+      </indexes>
+      <columns xmi:id="_rOxurz9qEemuxfkvAcwbIQ" techID="_rL0hMD9qEemuxfkvAcwbIQ" name="id" defaultValue="" indexElements="_rOxuoj9qEemuxfkvAcwbIQ" primaryKey="_rOxuoD9qEemuxfkvAcwbIQ" autoincrement="true">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_rOxusD9qEemuxfkvAcwbIQ" length="10" precision="0">
+          <nativeType href="pathmap://NativeDBTypes/MariaDB-10.2#_yD7TcCY6EemALc7s7nxPuQ"/>
+        </type>
+      </columns>
+      <columns xmi:id="_rOxusT9qEemuxfkvAcwbIQ" techID="_rL0hMT9qEemuxfkvAcwbIQ" name="company" nullable="true" defaultValue="NULL" indexElements="_rOxupj9qEemuxfkvAcwbIQ">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_rOxusj9qEemuxfkvAcwbIQ" length="50" precision="0">
+          <nativeType href="pathmap://NativeDBTypes/MariaDB-10.2#_bosKkSY8EemALc7s7nxPuQ"/>
+        </type>
+      </columns>
+      <columns xmi:id="_rOxusz9qEemuxfkvAcwbIQ" techID="_rL0hMj9qEemuxfkvAcwbIQ" name="last_name" nullable="true" defaultValue="NULL" indexElements="_rOxuqj9qEemuxfkvAcwbIQ">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_rOxutD9qEemuxfkvAcwbIQ" length="50" precision="0">
+          <nativeType href="pathmap://NativeDBTypes/MariaDB-10.2#_bosKkSY8EemALc7s7nxPuQ"/>
+        </type>
+      </columns>
+      <columns xmi:id="_rOxutT9qEemuxfkvAcwbIQ" techID="_rL0hMz9qEemuxfkvAcwbIQ" name="first_name" nullable="true" defaultValue="NULL" indexElements="_rOxuqD9qEemuxfkvAcwbIQ">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_rOxutj9qEemuxfkvAcwbIQ" length="50" precision="0">
+          <nativeType href="pathmap://NativeDBTypes/MariaDB-10.2#_bosKkSY8EemALc7s7nxPuQ"/>
+        </type>
+      </columns>
+      <columns xmi:id="_rOxutz9qEemuxfkvAcwbIQ" techID="_rL1IQD9qEemuxfkvAcwbIQ" name="email_address" nullable="true" defaultValue="NULL">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_rOxuuD9qEemuxfkvAcwbIQ" length="50" precision="0">
+          <nativeType href="pathmap://NativeDBTypes/MariaDB-10.2#_bosKkSY8EemALc7s7nxPuQ"/>
+        </type>
+      </columns>
+      <columns xmi:id="_rOxuuT9qEemuxfkvAcwbIQ" techID="_rL1IQT9qEemuxfkvAcwbIQ" name="job_title" nullable="true" defaultValue="NULL">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_rOxuuj9qEemuxfkvAcwbIQ" length="50" precision="0">
+          <nativeType href="pathmap://NativeDBTypes/MariaDB-10.2#_bosKkSY8EemALc7s7nxPuQ"/>
+        </type>
+      </columns>
+      <columns xmi:id="_rOxuuz9qEemuxfkvAcwbIQ" techID="_rL1IQj9qEemuxfkvAcwbIQ" name="business_phone" nullable="true" defaultValue="NULL">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_rOxuvD9qEemuxfkvAcwbIQ" length="25" precision="0">
+          <nativeType href="pathmap://NativeDBTypes/MariaDB-10.2#_bosKkSY8EemALc7s7nxPuQ"/>
+        </type>
+      </columns>
+      <columns xmi:id="_rOxuvT9qEemuxfkvAcwbIQ" techID="_rL1IQz9qEemuxfkvAcwbIQ" name="home_phone" nullable="true" defaultValue="NULL">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_rOxuvj9qEemuxfkvAcwbIQ" length="25" precision="0">
+          <nativeType href="pathmap://NativeDBTypes/MariaDB-10.2#_bosKkSY8EemALc7s7nxPuQ"/>
+        </type>
+      </columns>
+      <columns xmi:id="_rOxuvz9qEemuxfkvAcwbIQ" techID="_rL1IRD9qEemuxfkvAcwbIQ" name="mobile_phone" nullable="true" defaultValue="NULL">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_rOxuwD9qEemuxfkvAcwbIQ" length="25" precision="0">
+          <nativeType href="pathmap://NativeDBTypes/MariaDB-10.2#_bosKkSY8EemALc7s7nxPuQ"/>
+        </type>
+      </columns>
+      <columns xmi:id="_rOxuwT9qEemuxfkvAcwbIQ" techID="_rL1IRT9qEemuxfkvAcwbIQ" name="fax_number" nullable="true" defaultValue="NULL">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_rOxuwj9qEemuxfkvAcwbIQ" length="25" precision="0">
+          <nativeType href="pathmap://NativeDBTypes/MariaDB-10.2#_bosKkSY8EemALc7s7nxPuQ"/>
+        </type>
+      </columns>
+      <columns xmi:id="_rOxuwz9qEemuxfkvAcwbIQ" techID="_rL1IRj9qEemuxfkvAcwbIQ" name="address" nullable="true" defaultValue="NULL">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_rOxuxD9qEemuxfkvAcwbIQ" length="2147483647" precision="0">
+          <nativeType href="pathmap://NativeDBTypes/MariaDB-10.2#_5LQigSY6EemALc7s7nxPuQ"/>
+        </type>
+      </columns>
+      <columns xmi:id="_rOxuxT9qEemuxfkvAcwbIQ" techID="_rL1IRz9qEemuxfkvAcwbIQ" name="city" nullable="true" defaultValue="NULL" indexElements="_rOxupD9qEemuxfkvAcwbIQ">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_rOxuxj9qEemuxfkvAcwbIQ" length="50" precision="0">
+          <nativeType href="pathmap://NativeDBTypes/MariaDB-10.2#_bosKkSY8EemALc7s7nxPuQ"/>
+        </type>
+      </columns>
+      <columns xmi:id="_rOxuxz9qEemuxfkvAcwbIQ" techID="_rL1ISD9qEemuxfkvAcwbIQ" name="state_province" nullable="true" defaultValue="NULL" indexElements="_rOxurD9qEemuxfkvAcwbIQ">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_rOxuyD9qEemuxfkvAcwbIQ" length="50" precision="0">
+          <nativeType href="pathmap://NativeDBTypes/MariaDB-10.2#_bosKkSY8EemALc7s7nxPuQ"/>
+        </type>
+      </columns>
+      <columns xmi:id="_rOxuyT9qEemuxfkvAcwbIQ" techID="_rL1IST9qEemuxfkvAcwbIQ" name="zip_postal_code" nullable="true" defaultValue="NULL" indexElements="_rOxurj9qEemuxfkvAcwbIQ">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_rOxuyj9qEemuxfkvAcwbIQ" length="15" precision="0">
+          <nativeType href="pathmap://NativeDBTypes/MariaDB-10.2#_bosKkSY8EemALc7s7nxPuQ"/>
+        </type>
+      </columns>
+      <columns xmi:id="_rOxuyz9qEemuxfkvAcwbIQ" techID="_rL1ISj9qEemuxfkvAcwbIQ" name="country_region" nullable="true" defaultValue="NULL">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_rOxuzD9qEemuxfkvAcwbIQ" length="50" precision="0">
+          <nativeType href="pathmap://NativeDBTypes/MariaDB-10.2#_bosKkSY8EemALc7s7nxPuQ"/>
+        </type>
+      </columns>
+      <columns xmi:id="_rOxuzT9qEemuxfkvAcwbIQ" techID="_rL1vUD9qEemuxfkvAcwbIQ" name="web_page" nullable="true" defaultValue="NULL">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_rOxuzj9qEemuxfkvAcwbIQ" length="2147483647" precision="0">
+          <nativeType href="pathmap://NativeDBTypes/MariaDB-10.2#_5LQigSY6EemALc7s7nxPuQ"/>
+        </type>
+      </columns>
+      <columns xmi:id="_rOxuzz9qEemuxfkvAcwbIQ" techID="_rL1vUT9qEemuxfkvAcwbIQ" name="notes" nullable="true" defaultValue="NULL">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_rOxu0D9qEemuxfkvAcwbIQ" length="2147483647" precision="0">
+          <nativeType href="pathmap://NativeDBTypes/MariaDB-10.2#_5LQigSY6EemALc7s7nxPuQ"/>
+        </type>
+      </columns>
+      <columns xmi:id="_rOxu0T9qEemuxfkvAcwbIQ" techID="_rL1vUj9qEemuxfkvAcwbIQ" name="attachments" nullable="true" defaultValue="NULL">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_rOxu0j9qEemuxfkvAcwbIQ" length="2147483647" precision="0">
+          <nativeType href="pathmap://NativeDBTypes/MariaDB-10.2#_3nFaACY6EemALc7s7nxPuQ"/>
+        </type>
+      </columns>
+    </tables>
+    <tables xsi:type="database:Table" xmi:id="_rOxu0z9qEemuxfkvAcwbIQ" techID="_rL6Azj9qEemuxfkvAcwbIQ" name="employee_privileges">
+      <primaryKey xmi:id="_rOxu1D9qEemuxfkvAcwbIQ" techID="_rL-SMD9qEemuxfkvAcwbIQ" name="PRIMARY" columns="_rOxu4D9qEemuxfkvAcwbIQ _rOxu4j9qEemuxfkvAcwbIQ"/>
+      <foreignKeys xmi:id="_rOxu1T9qEemuxfkvAcwbIQ" techID="_rN3voD9qEemuxfkvAcwbIQ" name="fk_employee_privileges_employees1" target="_rOxunz9qEemuxfkvAcwbIQ">
+        <elements xmi:id="_rOxu1j9qEemuxfkvAcwbIQ" techID="_rN4WsD9qEemuxfkvAcwbIQ" fkColumn="_rOxu4D9qEemuxfkvAcwbIQ" pkColumn="_rOxurz9qEemuxfkvAcwbIQ"/>
+      </foreignKeys>
+      <foreignKeys xmi:id="_rOxu1z9qEemuxfkvAcwbIQ" techID="_rN49wD9qEemuxfkvAcwbIQ" name="fk_employee_privileges_privileges1" target="_rOyVyz9qEemuxfkvAcwbIQ">
+        <elements xmi:id="_rOxu2D9qEemuxfkvAcwbIQ" techID="_rN49wT9qEemuxfkvAcwbIQ" fkColumn="_rOxu4j9qEemuxfkvAcwbIQ" pkColumn="_rOyVzz9qEemuxfkvAcwbIQ"/>
+      </foreignKeys>
+      <indexes xmi:id="_rOxu2T9qEemuxfkvAcwbIQ" techID="_rL-5QD9qEemuxfkvAcwbIQ" name="PRIMARY" qualifier="northwind" unique="true">
+        <elements xmi:id="_rOxu2j9qEemuxfkvAcwbIQ" techID="_rL-5QT9qEemuxfkvAcwbIQ" column="_rOxu4D9qEemuxfkvAcwbIQ" asc="true"/>
+        <elements xmi:id="_rOxu2z9qEemuxfkvAcwbIQ" techID="_rL_gUD9qEemuxfkvAcwbIQ" column="_rOxu4j9qEemuxfkvAcwbIQ" asc="true"/>
+      </indexes>
+      <indexes xmi:id="_rOxu3D9qEemuxfkvAcwbIQ" techID="_rL_gUT9qEemuxfkvAcwbIQ" name="employee_id" qualifier="northwind">
+        <elements xmi:id="_rOxu3T9qEemuxfkvAcwbIQ" techID="_rL_gUj9qEemuxfkvAcwbIQ" column="_rOxu4D9qEemuxfkvAcwbIQ" asc="true"/>
+      </indexes>
+      <indexes xmi:id="_rOxu3j9qEemuxfkvAcwbIQ" techID="_rL_gUz9qEemuxfkvAcwbIQ" name="privilege_id" qualifier="northwind">
+        <elements xmi:id="_rOxu3z9qEemuxfkvAcwbIQ" techID="_rL_gVD9qEemuxfkvAcwbIQ" column="_rOxu4j9qEemuxfkvAcwbIQ" asc="true"/>
+      </indexes>
+      <columns xmi:id="_rOxu4D9qEemuxfkvAcwbIQ" techID="_rL8dAD9qEemuxfkvAcwbIQ" name="employee_id" defaultValue="" indexElements="_rOxu2j9qEemuxfkvAcwbIQ _rOxu3T9qEemuxfkvAcwbIQ" primaryKey="_rOxu1D9qEemuxfkvAcwbIQ" foreignKeyElements="_rOxu1j9qEemuxfkvAcwbIQ">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_rOxu4T9qEemuxfkvAcwbIQ" length="10" precision="0">
+          <nativeType href="pathmap://NativeDBTypes/MariaDB-10.2#_yD7TcCY6EemALc7s7nxPuQ"/>
+        </type>
+      </columns>
+      <columns xmi:id="_rOxu4j9qEemuxfkvAcwbIQ" techID="_rL8dAT9qEemuxfkvAcwbIQ" name="privilege_id" defaultValue="" indexElements="_rOxu2z9qEemuxfkvAcwbIQ _rOxu3z9qEemuxfkvAcwbIQ" primaryKey="_rOxu1D9qEemuxfkvAcwbIQ" foreignKeyElements="_rOxu2D9qEemuxfkvAcwbIQ">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_rOxu4z9qEemuxfkvAcwbIQ" length="10" precision="0">
+          <nativeType href="pathmap://NativeDBTypes/MariaDB-10.2#_yD7TcCY6EemALc7s7nxPuQ"/>
+        </type>
+      </columns>
+    </tables>
+    <tables xsi:type="database:Table" xmi:id="_rOxu5D9qEemuxfkvAcwbIQ" techID="_rL_gVT9qEemuxfkvAcwbIQ" name="inventory_transactions">
+      <primaryKey xmi:id="_rOxu5T9qEemuxfkvAcwbIQ" techID="_rMDxwD9qEemuxfkvAcwbIQ" name="PRIMARY" columns="_rOxu-D9qEemuxfkvAcwbIQ"/>
+      <foreignKeys xmi:id="_rOxu5j9qEemuxfkvAcwbIQ" techID="_rN8BED9qEemuxfkvAcwbIQ" name="fk_inventory_transactions_inventory_transaction_types1" target="_rOxvCj9qEemuxfkvAcwbIQ">
+        <elements xmi:id="_rOxu5z9qEemuxfkvAcwbIQ" techID="_rN8BET9qEemuxfkvAcwbIQ" fkColumn="_rOxu-j9qEemuxfkvAcwbIQ" pkColumn="_rOxvDj9qEemuxfkvAcwbIQ"/>
+      </foreignKeys>
+      <foreignKeys xmi:id="_rOxu6D9qEemuxfkvAcwbIQ" techID="_rN8BEj9qEemuxfkvAcwbIQ" name="fk_inventory_transactions_orders1" target="_rOxvKD9qEemuxfkvAcwbIQ">
+        <elements xmi:id="_rOxu6T9qEemuxfkvAcwbIQ" techID="_rN8BEz9qEemuxfkvAcwbIQ" fkColumn="_rOxvBj9qEemuxfkvAcwbIQ" pkColumn="_rOxvQD9qEemuxfkvAcwbIQ"/>
+      </foreignKeys>
+      <foreignKeys xmi:id="_rOxu6j9qEemuxfkvAcwbIQ" techID="_rN8oID9qEemuxfkvAcwbIQ" name="fk_inventory_transactions_products1" target="_rOyV0z9qEemuxfkvAcwbIQ">
+        <elements xmi:id="_rOxu6z9qEemuxfkvAcwbIQ" techID="_rN8oIT9qEemuxfkvAcwbIQ" fkColumn="_rOxvAD9qEemuxfkvAcwbIQ" pkColumn="_rOyV2z9qEemuxfkvAcwbIQ"/>
+      </foreignKeys>
+      <foreignKeys xmi:id="_rOxu7D9qEemuxfkvAcwbIQ" techID="_rN8oIj9qEemuxfkvAcwbIQ" name="fk_inventory_transactions_purchase_orders1" target="_rOyV9T9qEemuxfkvAcwbIQ">
+        <elements xmi:id="_rOxu7T9qEemuxfkvAcwbIQ" techID="_rN8oIz9qEemuxfkvAcwbIQ" fkColumn="_rOxvBD9qEemuxfkvAcwbIQ" pkColumn="_rOyWBT9qEemuxfkvAcwbIQ"/>
+      </foreignKeys>
+      <indexes xmi:id="_rOxu7j9qEemuxfkvAcwbIQ" techID="_rME_4D9qEemuxfkvAcwbIQ" name="PRIMARY" qualifier="northwind" unique="true">
+        <elements xmi:id="_rOxu7z9qEemuxfkvAcwbIQ" techID="_rME_4T9qEemuxfkvAcwbIQ" column="_rOxu-D9qEemuxfkvAcwbIQ" asc="true"/>
+      </indexes>
+      <indexes xmi:id="_rOxu8D9qEemuxfkvAcwbIQ" techID="_rME_4j9qEemuxfkvAcwbIQ" name="customer_order_id_2" qualifier="northwind">
+        <elements xmi:id="_rOxu8T9qEemuxfkvAcwbIQ" techID="_rME_4z9qEemuxfkvAcwbIQ" column="_rOxvBj9qEemuxfkvAcwbIQ" asc="true"/>
+      </indexes>
+      <indexes xmi:id="_rOxu8j9qEemuxfkvAcwbIQ" techID="_rME_5D9qEemuxfkvAcwbIQ" name="product_id_inventory_transactions" qualifier="northwind">
+        <elements xmi:id="_rOxu8z9qEemuxfkvAcwbIQ" techID="_rME_5T9qEemuxfkvAcwbIQ" column="_rOxvAD9qEemuxfkvAcwbIQ" asc="true"/>
+      </indexes>
+      <indexes xmi:id="_rOxu9D9qEemuxfkvAcwbIQ" techID="_rME_5j9qEemuxfkvAcwbIQ" name="purchase_order_id_inventory_transactions" qualifier="northwind">
+        <elements xmi:id="_rOxu9T9qEemuxfkvAcwbIQ" techID="_rME_5z9qEemuxfkvAcwbIQ" column="_rOxvBD9qEemuxfkvAcwbIQ" asc="true"/>
+      </indexes>
+      <indexes xmi:id="_rOxu9j9qEemuxfkvAcwbIQ" techID="_rME_6D9qEemuxfkvAcwbIQ" name="transaction_type" qualifier="northwind">
+        <elements xmi:id="_rOxu9z9qEemuxfkvAcwbIQ" techID="_rME_6T9qEemuxfkvAcwbIQ" column="_rOxu-j9qEemuxfkvAcwbIQ" asc="true"/>
+      </indexes>
+      <columns xmi:id="_rOxu-D9qEemuxfkvAcwbIQ" techID="_rMB8kD9qEemuxfkvAcwbIQ" name="id" defaultValue="" indexElements="_rOxu7z9qEemuxfkvAcwbIQ" primaryKey="_rOxu5T9qEemuxfkvAcwbIQ" autoincrement="true">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_rOxu-T9qEemuxfkvAcwbIQ" length="10" precision="0">
+          <nativeType href="pathmap://NativeDBTypes/MariaDB-10.2#_yD7TcCY6EemALc7s7nxPuQ"/>
+        </type>
+      </columns>
+      <columns xmi:id="_rOxu-j9qEemuxfkvAcwbIQ" techID="_rMB8kT9qEemuxfkvAcwbIQ" name="transaction_type" defaultValue="" indexElements="_rOxu9z9qEemuxfkvAcwbIQ" foreignKeyElements="_rOxu5z9qEemuxfkvAcwbIQ">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_rOxu-z9qEemuxfkvAcwbIQ" length="3" precision="0">
+          <nativeType href="pathmap://NativeDBTypes/MariaDB-10.2#_UyoRsSY8EemALc7s7nxPuQ"/>
+        </type>
+      </columns>
+      <columns xmi:id="_rOxu_D9qEemuxfkvAcwbIQ" techID="_rMB8kj9qEemuxfkvAcwbIQ" name="transaction_created_date" nullable="true" defaultValue="NULL">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_rOxu_T9qEemuxfkvAcwbIQ" length="19" precision="0">
+          <nativeType href="pathmap://NativeDBTypes/MariaDB-10.2#_Gz-QYSY6EemALc7s7nxPuQ"/>
+        </type>
+      </columns>
+      <columns xmi:id="_rOxu_j9qEemuxfkvAcwbIQ" techID="_rMB8kz9qEemuxfkvAcwbIQ" name="transaction_modified_date" nullable="true" defaultValue="NULL">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_rOxu_z9qEemuxfkvAcwbIQ" length="19" precision="0">
+          <nativeType href="pathmap://NativeDBTypes/MariaDB-10.2#_Gz-QYSY6EemALc7s7nxPuQ"/>
+        </type>
+      </columns>
+      <columns xmi:id="_rOxvAD9qEemuxfkvAcwbIQ" techID="_rMCjoD9qEemuxfkvAcwbIQ" name="product_id" defaultValue="" indexElements="_rOxu8z9qEemuxfkvAcwbIQ" foreignKeyElements="_rOxu6z9qEemuxfkvAcwbIQ">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_rOxvAT9qEemuxfkvAcwbIQ" length="10" precision="0">
+          <nativeType href="pathmap://NativeDBTypes/MariaDB-10.2#_yD7TcCY6EemALc7s7nxPuQ"/>
+        </type>
+      </columns>
+      <columns xmi:id="_rOxvAj9qEemuxfkvAcwbIQ" techID="_rMCjoT9qEemuxfkvAcwbIQ" name="quantity" defaultValue="">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_rOxvAz9qEemuxfkvAcwbIQ" length="10" precision="0">
+          <nativeType href="pathmap://NativeDBTypes/MariaDB-10.2#_yD7TcCY6EemALc7s7nxPuQ"/>
+        </type>
+      </columns>
+      <columns xmi:id="_rOxvBD9qEemuxfkvAcwbIQ" techID="_rMCjoj9qEemuxfkvAcwbIQ" name="purchase_order_id" nullable="true" defaultValue="NULL" indexElements="_rOxu9T9qEemuxfkvAcwbIQ" foreignKeyElements="_rOxu7T9qEemuxfkvAcwbIQ">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_rOxvBT9qEemuxfkvAcwbIQ" length="10" precision="0">
+          <nativeType href="pathmap://NativeDBTypes/MariaDB-10.2#_yD7TcCY6EemALc7s7nxPuQ"/>
+        </type>
+      </columns>
+      <columns xmi:id="_rOxvBj9qEemuxfkvAcwbIQ" techID="_rMCjoz9qEemuxfkvAcwbIQ" name="customer_order_id" nullable="true" defaultValue="NULL" indexElements="_rOxu8T9qEemuxfkvAcwbIQ" foreignKeyElements="_rOxu6T9qEemuxfkvAcwbIQ">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_rOxvBz9qEemuxfkvAcwbIQ" length="10" precision="0">
+          <nativeType href="pathmap://NativeDBTypes/MariaDB-10.2#_yD7TcCY6EemALc7s7nxPuQ"/>
+        </type>
+      </columns>
+      <columns xmi:id="_rOxvCD9qEemuxfkvAcwbIQ" techID="_rMCjpD9qEemuxfkvAcwbIQ" name="comments" nullable="true" defaultValue="NULL">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_rOxvCT9qEemuxfkvAcwbIQ" length="255" precision="0">
+          <nativeType href="pathmap://NativeDBTypes/MariaDB-10.2#_bosKkSY8EemALc7s7nxPuQ"/>
+        </type>
+      </columns>
+    </tables>
+    <tables xsi:type="database:Table" xmi:id="_rOxvCj9qEemuxfkvAcwbIQ" techID="_rME_6j9qEemuxfkvAcwbIQ" name="inventory_transaction_types">
+      <primaryKey xmi:id="_rOxvCz9qEemuxfkvAcwbIQ" techID="_rMIqQD9qEemuxfkvAcwbIQ" name="PRIMARY" columns="_rOxvDj9qEemuxfkvAcwbIQ"/>
+      <indexes xmi:id="_rOxvDD9qEemuxfkvAcwbIQ" techID="_rMJ4YD9qEemuxfkvAcwbIQ" name="PRIMARY" qualifier="northwind" unique="true">
+        <elements xmi:id="_rOxvDT9qEemuxfkvAcwbIQ" techID="_rMJ4YT9qEemuxfkvAcwbIQ" column="_rOxvDj9qEemuxfkvAcwbIQ" asc="true"/>
+      </indexes>
+      <columns xmi:id="_rOxvDj9qEemuxfkvAcwbIQ" techID="_rMHcID9qEemuxfkvAcwbIQ" name="id" defaultValue="" indexElements="_rOxvDT9qEemuxfkvAcwbIQ" primaryKey="_rOxvCz9qEemuxfkvAcwbIQ">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_rOxvDz9qEemuxfkvAcwbIQ" length="3" precision="0">
+          <nativeType href="pathmap://NativeDBTypes/MariaDB-10.2#_UyoRsSY8EemALc7s7nxPuQ"/>
+        </type>
+      </columns>
+      <columns xmi:id="_rOxvED9qEemuxfkvAcwbIQ" techID="_rMHcIT9qEemuxfkvAcwbIQ" name="type_name" defaultValue="">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_rOxvET9qEemuxfkvAcwbIQ" length="50" precision="0">
+          <nativeType href="pathmap://NativeDBTypes/MariaDB-10.2#_bosKkSY8EemALc7s7nxPuQ"/>
+        </type>
+      </columns>
+    </tables>
+    <tables xsi:type="database:Table" xmi:id="_rOxvEj9qEemuxfkvAcwbIQ" techID="_rMJ4Yj9qEemuxfkvAcwbIQ" name="invoices">
+      <primaryKey xmi:id="_rOxvEz9qEemuxfkvAcwbIQ" techID="_rMRNID9qEemuxfkvAcwbIQ" name="PRIMARY" columns="_rOxvGj9qEemuxfkvAcwbIQ"/>
+      <foreignKeys xmi:id="_rOxvFD9qEemuxfkvAcwbIQ" techID="_rOCHsD9qEemuxfkvAcwbIQ" name="fk_invoices_orders1" target="_rOxvKD9qEemuxfkvAcwbIQ">
+        <elements xmi:id="_rOxvFT9qEemuxfkvAcwbIQ" techID="_rOCHsT9qEemuxfkvAcwbIQ" fkColumn="_rOxvHD9qEemuxfkvAcwbIQ" pkColumn="_rOxvQD9qEemuxfkvAcwbIQ"/>
+      </foreignKeys>
+      <indexes xmi:id="_rOxvFj9qEemuxfkvAcwbIQ" techID="_rMSbQD9qEemuxfkvAcwbIQ" name="PRIMARY" qualifier="northwind" unique="true">
+        <elements xmi:id="_rOxvFz9qEemuxfkvAcwbIQ" techID="_rMSbQT9qEemuxfkvAcwbIQ" column="_rOxvGj9qEemuxfkvAcwbIQ" asc="true"/>
+      </indexes>
+      <indexes xmi:id="_rOxvGD9qEemuxfkvAcwbIQ" techID="_rMSbQj9qEemuxfkvAcwbIQ" name="fk_invoices_orders1_idx" qualifier="northwind">
+        <elements xmi:id="_rOxvGT9qEemuxfkvAcwbIQ" techID="_rMSbQz9qEemuxfkvAcwbIQ" column="_rOxvHD9qEemuxfkvAcwbIQ" asc="true"/>
+      </indexes>
+      <columns xmi:id="_rOxvGj9qEemuxfkvAcwbIQ" techID="_rMM7sD9qEemuxfkvAcwbIQ" name="id" defaultValue="" indexElements="_rOxvFz9qEemuxfkvAcwbIQ" primaryKey="_rOxvEz9qEemuxfkvAcwbIQ" autoincrement="true">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_rOxvGz9qEemuxfkvAcwbIQ" length="10" precision="0">
+          <nativeType href="pathmap://NativeDBTypes/MariaDB-10.2#_yD7TcCY6EemALc7s7nxPuQ"/>
+        </type>
+      </columns>
+      <columns xmi:id="_rOxvHD9qEemuxfkvAcwbIQ" techID="_rMM7sT9qEemuxfkvAcwbIQ" name="order_id" nullable="true" defaultValue="NULL" indexElements="_rOxvGT9qEemuxfkvAcwbIQ" foreignKeyElements="_rOxvFT9qEemuxfkvAcwbIQ">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_rOxvHT9qEemuxfkvAcwbIQ" length="10" precision="0">
+          <nativeType href="pathmap://NativeDBTypes/MariaDB-10.2#_yD7TcCY6EemALc7s7nxPuQ"/>
+        </type>
+      </columns>
+      <columns xmi:id="_rOxvHj9qEemuxfkvAcwbIQ" techID="_rMM7sj9qEemuxfkvAcwbIQ" name="invoice_date" nullable="true" defaultValue="NULL">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_rOxvHz9qEemuxfkvAcwbIQ" length="19" precision="0">
+          <nativeType href="pathmap://NativeDBTypes/MariaDB-10.2#_Gz-QYSY6EemALc7s7nxPuQ"/>
+        </type>
+      </columns>
+      <columns xmi:id="_rOxvID9qEemuxfkvAcwbIQ" techID="_rMM7sz9qEemuxfkvAcwbIQ" name="due_date" nullable="true" defaultValue="NULL">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_rOxvIT9qEemuxfkvAcwbIQ" length="19" precision="0">
+          <nativeType href="pathmap://NativeDBTypes/MariaDB-10.2#_Gz-QYSY6EemALc7s7nxPuQ"/>
+        </type>
+      </columns>
+      <columns xmi:id="_rOxvIj9qEemuxfkvAcwbIQ" techID="_rMM7tD9qEemuxfkvAcwbIQ" name="tax" nullable="true" defaultValue="0.0000">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_rOxvIz9qEemuxfkvAcwbIQ" length="19" precision="4">
+          <nativeType href="pathmap://NativeDBTypes/MariaDB-10.2#_PZbDQSY6EemALc7s7nxPuQ"/>
+        </type>
+      </columns>
+      <columns xmi:id="_rOxvJD9qEemuxfkvAcwbIQ" techID="_rMM7tT9qEemuxfkvAcwbIQ" name="shipping" nullable="true" defaultValue="0.0000">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_rOxvJT9qEemuxfkvAcwbIQ" length="19" precision="4">
+          <nativeType href="pathmap://NativeDBTypes/MariaDB-10.2#_PZbDQSY6EemALc7s7nxPuQ"/>
+        </type>
+      </columns>
+      <columns xmi:id="_rOxvJj9qEemuxfkvAcwbIQ" techID="_rMM7tj9qEemuxfkvAcwbIQ" name="amount_due" nullable="true" defaultValue="0.0000">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_rOxvJz9qEemuxfkvAcwbIQ" length="19" precision="4">
+          <nativeType href="pathmap://NativeDBTypes/MariaDB-10.2#_PZbDQSY6EemALc7s7nxPuQ"/>
+        </type>
+      </columns>
+    </tables>
+    <tables xsi:type="database:Table" xmi:id="_rOxvKD9qEemuxfkvAcwbIQ" techID="_rMSbRD9qEemuxfkvAcwbIQ" name="orders">
+      <primaryKey xmi:id="_rOxvKT9qEemuxfkvAcwbIQ" techID="_rMYh4D9qEemuxfkvAcwbIQ" name="PRIMARY" columns="_rOxvQD9qEemuxfkvAcwbIQ"/>
+      <foreignKeys xmi:id="_rOxvKj9qEemuxfkvAcwbIQ" techID="_rOFyED9qEemuxfkvAcwbIQ" name="fk_orders_customers" target="_rOxHgj9qEemuxfkvAcwbIQ">
+        <elements xmi:id="_rOxvKz9qEemuxfkvAcwbIQ" techID="_rOFyET9qEemuxfkvAcwbIQ" fkColumn="_rOxvRD9qEemuxfkvAcwbIQ" pkColumn="_rOxHkj9qEemuxfkvAcwbIQ"/>
+      </foreignKeys>
+      <foreignKeys xmi:id="_rOxvLD9qEemuxfkvAcwbIQ" techID="_rOFyEj9qEemuxfkvAcwbIQ" name="fk_orders_employees1" target="_rOxunz9qEemuxfkvAcwbIQ">
+        <elements xmi:id="_rOxvLT9qEemuxfkvAcwbIQ" techID="_rOFyEz9qEemuxfkvAcwbIQ" fkColumn="_rOxvQj9qEemuxfkvAcwbIQ" pkColumn="_rOxurz9qEemuxfkvAcwbIQ"/>
+      </foreignKeys>
+      <foreignKeys xmi:id="_rOxvLj9qEemuxfkvAcwbIQ" techID="_rOFyFD9qEemuxfkvAcwbIQ" name="fk_orders_orders_status1" target="_rOxvaD9qEemuxfkvAcwbIQ">
+        <elements xmi:id="_rOxvLz9qEemuxfkvAcwbIQ" techID="_rOFyFT9qEemuxfkvAcwbIQ" fkColumn="_rOxvZj9qEemuxfkvAcwbIQ" pkColumn="_rOxvbD9qEemuxfkvAcwbIQ"/>
+      </foreignKeys>
+      <foreignKeys xmi:id="_rOxvMD9qEemuxfkvAcwbIQ" techID="_rOFyFj9qEemuxfkvAcwbIQ" name="fk_orders_orders_tax_status1" target="_rOxvcD9qEemuxfkvAcwbIQ">
+        <elements xmi:id="_rOxvMT9qEemuxfkvAcwbIQ" techID="_rOFyFz9qEemuxfkvAcwbIQ" fkColumn="_rOxvZD9qEemuxfkvAcwbIQ" pkColumn="_rOxvdD9qEemuxfkvAcwbIQ"/>
+      </foreignKeys>
+      <foreignKeys xmi:id="_rOxvMj9qEemuxfkvAcwbIQ" techID="_rOFyGD9qEemuxfkvAcwbIQ" name="fk_orders_shippers1" target="_rOyWWz9qEemuxfkvAcwbIQ">
+        <elements xmi:id="_rOxvMz9qEemuxfkvAcwbIQ" techID="_rOFyGT9qEemuxfkvAcwbIQ" fkColumn="_rOxvSj9qEemuxfkvAcwbIQ" pkColumn="_rOyWaz9qEemuxfkvAcwbIQ"/>
+      </foreignKeys>
+      <indexes xmi:id="_rOxvND9qEemuxfkvAcwbIQ" techID="_rMZwAD9qEemuxfkvAcwbIQ" name="PRIMARY" qualifier="northwind" unique="true">
+        <elements xmi:id="_rOxvNT9qEemuxfkvAcwbIQ" techID="_rMZwAT9qEemuxfkvAcwbIQ" column="_rOxvQD9qEemuxfkvAcwbIQ" asc="true"/>
+      </indexes>
+      <indexes xmi:id="_rOxvNj9qEemuxfkvAcwbIQ" techID="_rMZwAj9qEemuxfkvAcwbIQ" name="customer_id_2" qualifier="northwind">
+        <elements xmi:id="_rOxvNz9qEemuxfkvAcwbIQ" techID="_rMZwAz9qEemuxfkvAcwbIQ" column="_rOxvRD9qEemuxfkvAcwbIQ" asc="true"/>
+      </indexes>
+      <indexes xmi:id="_rOxvOD9qEemuxfkvAcwbIQ" techID="_rMaXED9qEemuxfkvAcwbIQ" name="employee_id_2" qualifier="northwind">
+        <elements xmi:id="_rOxvOT9qEemuxfkvAcwbIQ" techID="_rMaXET9qEemuxfkvAcwbIQ" column="_rOxvQj9qEemuxfkvAcwbIQ" asc="true"/>
+      </indexes>
+      <indexes xmi:id="_rOxvOj9qEemuxfkvAcwbIQ" techID="_rMaXFD9qEemuxfkvAcwbIQ" name="shipper_id" qualifier="northwind">
+        <elements xmi:id="_rOxvOz9qEemuxfkvAcwbIQ" techID="_rMaXFT9qEemuxfkvAcwbIQ" column="_rOxvSj9qEemuxfkvAcwbIQ" asc="true"/>
+      </indexes>
+      <indexes xmi:id="_rOxvPD9qEemuxfkvAcwbIQ" techID="_rMaXFj9qEemuxfkvAcwbIQ" name="ship_zip_postal_code" qualifier="northwind">
+        <elements xmi:id="_rOxvPT9qEemuxfkvAcwbIQ" techID="_rMaXFz9qEemuxfkvAcwbIQ" column="_rOxvVD9qEemuxfkvAcwbIQ" asc="true"/>
+      </indexes>
+      <indexes xmi:id="_rOxvPj9qEemuxfkvAcwbIQ" techID="_rMaXGD9qEemuxfkvAcwbIQ" name="tax_status" qualifier="northwind">
+        <elements xmi:id="_rOxvPz9qEemuxfkvAcwbIQ" techID="_rMaXGT9qEemuxfkvAcwbIQ" column="_rOxvZD9qEemuxfkvAcwbIQ" asc="true"/>
+      </indexes>
+      <columns xmi:id="_rOxvQD9qEemuxfkvAcwbIQ" techID="_rMUQcD9qEemuxfkvAcwbIQ" name="id" defaultValue="" indexElements="_rOxvNT9qEemuxfkvAcwbIQ" primaryKey="_rOxvKT9qEemuxfkvAcwbIQ" autoincrement="true">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_rOxvQT9qEemuxfkvAcwbIQ" length="10" precision="0">
+          <nativeType href="pathmap://NativeDBTypes/MariaDB-10.2#_yD7TcCY6EemALc7s7nxPuQ"/>
+        </type>
+      </columns>
+      <columns xmi:id="_rOxvQj9qEemuxfkvAcwbIQ" techID="_rMU3gD9qEemuxfkvAcwbIQ" name="employee_id" nullable="true" defaultValue="NULL" indexElements="_rOxvOT9qEemuxfkvAcwbIQ" foreignKeyElements="_rOxvLT9qEemuxfkvAcwbIQ">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_rOxvQz9qEemuxfkvAcwbIQ" length="10" precision="0">
+          <nativeType href="pathmap://NativeDBTypes/MariaDB-10.2#_yD7TcCY6EemALc7s7nxPuQ"/>
+        </type>
+      </columns>
+      <columns xmi:id="_rOxvRD9qEemuxfkvAcwbIQ" techID="_rMU3gT9qEemuxfkvAcwbIQ" name="customer_id" nullable="true" defaultValue="NULL" indexElements="_rOxvNz9qEemuxfkvAcwbIQ" foreignKeyElements="_rOxvKz9qEemuxfkvAcwbIQ">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_rOxvRT9qEemuxfkvAcwbIQ" length="10" precision="0">
+          <nativeType href="pathmap://NativeDBTypes/MariaDB-10.2#_yD7TcCY6EemALc7s7nxPuQ"/>
+        </type>
+      </columns>
+      <columns xmi:id="_rOxvRj9qEemuxfkvAcwbIQ" techID="_rMU3gj9qEemuxfkvAcwbIQ" name="order_date" nullable="true" defaultValue="NULL">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_rOxvRz9qEemuxfkvAcwbIQ" length="19" precision="0">
+          <nativeType href="pathmap://NativeDBTypes/MariaDB-10.2#_Gz-QYSY6EemALc7s7nxPuQ"/>
+        </type>
+      </columns>
+      <columns xmi:id="_rOxvSD9qEemuxfkvAcwbIQ" techID="_rMU3gz9qEemuxfkvAcwbIQ" name="shipped_date" nullable="true" defaultValue="NULL">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_rOxvST9qEemuxfkvAcwbIQ" length="19" precision="0">
+          <nativeType href="pathmap://NativeDBTypes/MariaDB-10.2#_Gz-QYSY6EemALc7s7nxPuQ"/>
+        </type>
+      </columns>
+      <columns xmi:id="_rOxvSj9qEemuxfkvAcwbIQ" techID="_rMU3hD9qEemuxfkvAcwbIQ" name="shipper_id" nullable="true" defaultValue="NULL" indexElements="_rOxvOz9qEemuxfkvAcwbIQ" foreignKeyElements="_rOxvMz9qEemuxfkvAcwbIQ">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_rOxvSz9qEemuxfkvAcwbIQ" length="10" precision="0">
+          <nativeType href="pathmap://NativeDBTypes/MariaDB-10.2#_yD7TcCY6EemALc7s7nxPuQ"/>
+        </type>
+      </columns>
+      <columns xmi:id="_rOxvTD9qEemuxfkvAcwbIQ" techID="_rMU3hT9qEemuxfkvAcwbIQ" name="ship_name" nullable="true" defaultValue="NULL">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_rOxvTT9qEemuxfkvAcwbIQ" length="50" precision="0">
+          <nativeType href="pathmap://NativeDBTypes/MariaDB-10.2#_bosKkSY8EemALc7s7nxPuQ"/>
+        </type>
+      </columns>
+      <columns xmi:id="_rOxvTj9qEemuxfkvAcwbIQ" techID="_rMU3hj9qEemuxfkvAcwbIQ" name="ship_address" nullable="true" defaultValue="NULL">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_rOxvTz9qEemuxfkvAcwbIQ" length="2147483647" precision="0">
+          <nativeType href="pathmap://NativeDBTypes/MariaDB-10.2#_5LQigSY6EemALc7s7nxPuQ"/>
+        </type>
+      </columns>
+      <columns xmi:id="_rOxvUD9qEemuxfkvAcwbIQ" techID="_rMU3hz9qEemuxfkvAcwbIQ" name="ship_city" nullable="true" defaultValue="NULL">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_rOxvUT9qEemuxfkvAcwbIQ" length="50" precision="0">
+          <nativeType href="pathmap://NativeDBTypes/MariaDB-10.2#_bosKkSY8EemALc7s7nxPuQ"/>
+        </type>
+      </columns>
+      <columns xmi:id="_rOxvUj9qEemuxfkvAcwbIQ" techID="_rMU3iD9qEemuxfkvAcwbIQ" name="ship_state_province" nullable="true" defaultValue="NULL">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_rOxvUz9qEemuxfkvAcwbIQ" length="50" precision="0">
+          <nativeType href="pathmap://NativeDBTypes/MariaDB-10.2#_bosKkSY8EemALc7s7nxPuQ"/>
+        </type>
+      </columns>
+      <columns xmi:id="_rOxvVD9qEemuxfkvAcwbIQ" techID="_rMU3iT9qEemuxfkvAcwbIQ" name="ship_zip_postal_code" nullable="true" defaultValue="NULL" indexElements="_rOxvPT9qEemuxfkvAcwbIQ">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_rOxvVT9qEemuxfkvAcwbIQ" length="50" precision="0">
+          <nativeType href="pathmap://NativeDBTypes/MariaDB-10.2#_bosKkSY8EemALc7s7nxPuQ"/>
+        </type>
+      </columns>
+      <columns xmi:id="_rOxvVj9qEemuxfkvAcwbIQ" techID="_rMU3ij9qEemuxfkvAcwbIQ" name="ship_country_region" nullable="true" defaultValue="NULL">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_rOxvVz9qEemuxfkvAcwbIQ" length="50" precision="0">
+          <nativeType href="pathmap://NativeDBTypes/MariaDB-10.2#_bosKkSY8EemALc7s7nxPuQ"/>
+        </type>
+      </columns>
+      <columns xmi:id="_rOxvWD9qEemuxfkvAcwbIQ" techID="_rMU3iz9qEemuxfkvAcwbIQ" name="shipping_fee" nullable="true" defaultValue="0.0000">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_rOxvWT9qEemuxfkvAcwbIQ" length="19" precision="4">
+          <nativeType href="pathmap://NativeDBTypes/MariaDB-10.2#_PZbDQSY6EemALc7s7nxPuQ"/>
+        </type>
+      </columns>
+      <columns xmi:id="_rOxvWj9qEemuxfkvAcwbIQ" techID="_rMU3jD9qEemuxfkvAcwbIQ" name="taxes" nullable="true" defaultValue="0.0000">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_rOxvWz9qEemuxfkvAcwbIQ" length="19" precision="4">
+          <nativeType href="pathmap://NativeDBTypes/MariaDB-10.2#_PZbDQSY6EemALc7s7nxPuQ"/>
+        </type>
+      </columns>
+      <columns xmi:id="_rOxvXD9qEemuxfkvAcwbIQ" techID="_rMU3jT9qEemuxfkvAcwbIQ" name="payment_type" nullable="true" defaultValue="NULL">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_rOxvXT9qEemuxfkvAcwbIQ" length="50" precision="0">
+          <nativeType href="pathmap://NativeDBTypes/MariaDB-10.2#_bosKkSY8EemALc7s7nxPuQ"/>
+        </type>
+      </columns>
+      <columns xmi:id="_rOxvXj9qEemuxfkvAcwbIQ" techID="_rMU3jj9qEemuxfkvAcwbIQ" name="paid_date" nullable="true" defaultValue="NULL">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_rOxvXz9qEemuxfkvAcwbIQ" length="19" precision="0">
+          <nativeType href="pathmap://NativeDBTypes/MariaDB-10.2#_Gz-QYSY6EemALc7s7nxPuQ"/>
+        </type>
+      </columns>
+      <columns xmi:id="_rOxvYD9qEemuxfkvAcwbIQ" techID="_rMU3jz9qEemuxfkvAcwbIQ" name="notes" nullable="true" defaultValue="NULL">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_rOxvYT9qEemuxfkvAcwbIQ" length="2147483647" precision="0">
+          <nativeType href="pathmap://NativeDBTypes/MariaDB-10.2#_5LQigSY6EemALc7s7nxPuQ"/>
+        </type>
+      </columns>
+      <columns xmi:id="_rOxvYj9qEemuxfkvAcwbIQ" techID="_rMU3kD9qEemuxfkvAcwbIQ" name="tax_rate" nullable="true" defaultValue="0">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_rOxvYz9qEemuxfkvAcwbIQ" length="22" precision="0">
+          <nativeType href="pathmap://NativeDBTypes/MariaDB-10.2#_awQ_sCY6EemALc7s7nxPuQ"/>
+        </type>
+      </columns>
+      <columns xmi:id="_rOxvZD9qEemuxfkvAcwbIQ" techID="_rMU3kT9qEemuxfkvAcwbIQ" name="tax_status_id" nullable="true" defaultValue="NULL" indexElements="_rOxvPz9qEemuxfkvAcwbIQ" foreignKeyElements="_rOxvMT9qEemuxfkvAcwbIQ">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_rOxvZT9qEemuxfkvAcwbIQ" length="3" precision="0">
+          <nativeType href="pathmap://NativeDBTypes/MariaDB-10.2#_UyoRsSY8EemALc7s7nxPuQ"/>
+        </type>
+      </columns>
+      <columns xmi:id="_rOxvZj9qEemuxfkvAcwbIQ" techID="_rMU3kj9qEemuxfkvAcwbIQ" name="status_id" nullable="true" defaultValue="0" foreignKeyElements="_rOxvLz9qEemuxfkvAcwbIQ">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_rOxvZz9qEemuxfkvAcwbIQ" length="3" precision="0">
+          <nativeType href="pathmap://NativeDBTypes/MariaDB-10.2#_UyoRsSY8EemALc7s7nxPuQ"/>
+        </type>
+      </columns>
+    </tables>
+    <tables xsi:type="database:Table" xmi:id="_rOxvaD9qEemuxfkvAcwbIQ" techID="_rMaXGj9qEemuxfkvAcwbIQ" name="orders_status">
+      <primaryKey xmi:id="_rOxvaT9qEemuxfkvAcwbIQ" techID="_rMeogD9qEemuxfkvAcwbIQ" name="PRIMARY" columns="_rOxvbD9qEemuxfkvAcwbIQ"/>
+      <indexes xmi:id="_rOxvaj9qEemuxfkvAcwbIQ" techID="_rMf2oD9qEemuxfkvAcwbIQ" name="PRIMARY" qualifier="northwind" unique="true">
+        <elements xmi:id="_rOxvaz9qEemuxfkvAcwbIQ" techID="_rMf2oT9qEemuxfkvAcwbIQ" column="_rOxvbD9qEemuxfkvAcwbIQ" asc="true"/>
+      </indexes>
+      <columns xmi:id="_rOxvbD9qEemuxfkvAcwbIQ" techID="_rMczUD9qEemuxfkvAcwbIQ" name="id" defaultValue="" indexElements="_rOxvaz9qEemuxfkvAcwbIQ" primaryKey="_rOxvaT9qEemuxfkvAcwbIQ">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_rOxvbT9qEemuxfkvAcwbIQ" length="3" precision="0">
+          <nativeType href="pathmap://NativeDBTypes/MariaDB-10.2#_UyoRsSY8EemALc7s7nxPuQ"/>
+        </type>
+      </columns>
+      <columns xmi:id="_rOxvbj9qEemuxfkvAcwbIQ" techID="_rMczUT9qEemuxfkvAcwbIQ" name="status_name" defaultValue="">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_rOxvbz9qEemuxfkvAcwbIQ" length="50" precision="0">
+          <nativeType href="pathmap://NativeDBTypes/MariaDB-10.2#_bosKkSY8EemALc7s7nxPuQ"/>
+        </type>
+      </columns>
+    </tables>
+    <tables xsi:type="database:Table" xmi:id="_rOxvcD9qEemuxfkvAcwbIQ" techID="_rMf2oj9qEemuxfkvAcwbIQ" name="orders_tax_status">
+      <primaryKey xmi:id="_rOxvcT9qEemuxfkvAcwbIQ" techID="_rMkIED9qEemuxfkvAcwbIQ" name="PRIMARY" columns="_rOxvdD9qEemuxfkvAcwbIQ"/>
+      <indexes xmi:id="_rOxvcj9qEemuxfkvAcwbIQ" techID="_rMlWMD9qEemuxfkvAcwbIQ" name="PRIMARY" qualifier="northwind" unique="true">
+        <elements xmi:id="_rOxvcz9qEemuxfkvAcwbIQ" techID="_rMlWMT9qEemuxfkvAcwbIQ" column="_rOxvdD9qEemuxfkvAcwbIQ" asc="true"/>
+      </indexes>
+      <columns xmi:id="_rOxvdD9qEemuxfkvAcwbIQ" techID="_rMiS4D9qEemuxfkvAcwbIQ" name="id" defaultValue="" indexElements="_rOxvcz9qEemuxfkvAcwbIQ" primaryKey="_rOxvcT9qEemuxfkvAcwbIQ">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_rOxvdT9qEemuxfkvAcwbIQ" length="3" precision="0">
+          <nativeType href="pathmap://NativeDBTypes/MariaDB-10.2#_UyoRsSY8EemALc7s7nxPuQ"/>
+        </type>
+      </columns>
+      <columns xmi:id="_rOxvdj9qEemuxfkvAcwbIQ" techID="_rMi58D9qEemuxfkvAcwbIQ" name="tax_status_name" defaultValue="">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_rOxvdz9qEemuxfkvAcwbIQ" length="50" precision="0">
+          <nativeType href="pathmap://NativeDBTypes/MariaDB-10.2#_bosKkSY8EemALc7s7nxPuQ"/>
+        </type>
+      </columns>
+    </tables>
+    <tables xsi:type="database:Table" xmi:id="_rOxveD9qEemuxfkvAcwbIQ" techID="_rMlWMj9qEemuxfkvAcwbIQ" name="order_details">
+      <primaryKey xmi:id="_rOxveT9qEemuxfkvAcwbIQ" techID="_rMpnoD9qEemuxfkvAcwbIQ" name="PRIMARY" columns="_rOyVrz9qEemuxfkvAcwbIQ"/>
+      <foreignKeys xmi:id="_rOxvej9qEemuxfkvAcwbIQ" techID="_rOOU8D9qEemuxfkvAcwbIQ" name="fk_order_details_orders1" target="_rOxvKD9qEemuxfkvAcwbIQ">
+        <elements xmi:id="_rOxvez9qEemuxfkvAcwbIQ" techID="_rOOU8T9qEemuxfkvAcwbIQ" fkColumn="_rOyVsT9qEemuxfkvAcwbIQ" pkColumn="_rOxvQD9qEemuxfkvAcwbIQ"/>
+      </foreignKeys>
+      <foreignKeys xmi:id="_rOxvfD9qEemuxfkvAcwbIQ" techID="_rOOU8j9qEemuxfkvAcwbIQ" name="fk_order_details_order_details_status1" target="_rOyVwz9qEemuxfkvAcwbIQ">
+        <elements xmi:id="_rOyVoD9qEemuxfkvAcwbIQ" techID="_rOOU8z9qEemuxfkvAcwbIQ" fkColumn="_rOyVuz9qEemuxfkvAcwbIQ" pkColumn="_rOyVxz9qEemuxfkvAcwbIQ"/>
+      </foreignKeys>
+      <foreignKeys xmi:id="_rOyVoT9qEemuxfkvAcwbIQ" techID="_rOOU9D9qEemuxfkvAcwbIQ" name="fk_order_details_products1" target="_rOyV0z9qEemuxfkvAcwbIQ">
+        <elements xmi:id="_rOyVoj9qEemuxfkvAcwbIQ" techID="_rOOU9T9qEemuxfkvAcwbIQ" fkColumn="_rOyVsz9qEemuxfkvAcwbIQ" pkColumn="_rOyV2z9qEemuxfkvAcwbIQ"/>
+      </foreignKeys>
+      <indexes xmi:id="_rOyVoz9qEemuxfkvAcwbIQ" techID="_rMq1wD9qEemuxfkvAcwbIQ" name="PRIMARY" qualifier="northwind" unique="true">
+        <elements xmi:id="_rOyVpD9qEemuxfkvAcwbIQ" techID="_rMq1wT9qEemuxfkvAcwbIQ" column="_rOyVrz9qEemuxfkvAcwbIQ" asc="true"/>
+      </indexes>
+      <indexes xmi:id="_rOyVpT9qEemuxfkvAcwbIQ" techID="_rMq1wj9qEemuxfkvAcwbIQ" name="fk_order_details_orders1_idx" qualifier="northwind">
+        <elements xmi:id="_rOyVpj9qEemuxfkvAcwbIQ" techID="_rMq1wz9qEemuxfkvAcwbIQ" column="_rOyVsT9qEemuxfkvAcwbIQ" asc="true"/>
+      </indexes>
+      <indexes xmi:id="_rOyVpz9qEemuxfkvAcwbIQ" techID="_rMq1xD9qEemuxfkvAcwbIQ" name="fk_order_details_order_details_status1_idx" qualifier="northwind">
+        <elements xmi:id="_rOyVqD9qEemuxfkvAcwbIQ" techID="_rMq1xT9qEemuxfkvAcwbIQ" column="_rOyVuz9qEemuxfkvAcwbIQ" asc="true"/>
+      </indexes>
+      <indexes xmi:id="_rOyVqT9qEemuxfkvAcwbIQ" techID="_rMq1xj9qEemuxfkvAcwbIQ" name="inventory_id" qualifier="northwind">
+        <elements xmi:id="_rOyVqj9qEemuxfkvAcwbIQ" techID="_rMq1xz9qEemuxfkvAcwbIQ" column="_rOyVwT9qEemuxfkvAcwbIQ" asc="true"/>
+      </indexes>
+      <indexes xmi:id="_rOyVqz9qEemuxfkvAcwbIQ" techID="_rMq1yD9qEemuxfkvAcwbIQ" name="product_id_order_details" qualifier="northwind">
+        <elements xmi:id="_rOyVrD9qEemuxfkvAcwbIQ" techID="_rMq1yT9qEemuxfkvAcwbIQ" column="_rOyVsz9qEemuxfkvAcwbIQ" asc="true"/>
+      </indexes>
+      <indexes xmi:id="_rOyVrT9qEemuxfkvAcwbIQ" techID="_rMq1yj9qEemuxfkvAcwbIQ" name="purchase_order_id_order_details" qualifier="northwind">
+        <elements xmi:id="_rOyVrj9qEemuxfkvAcwbIQ" techID="_rMq1yz9qEemuxfkvAcwbIQ" column="_rOyVvz9qEemuxfkvAcwbIQ" asc="true"/>
+      </indexes>
+      <columns xmi:id="_rOyVrz9qEemuxfkvAcwbIQ" techID="_rMnycD9qEemuxfkvAcwbIQ" name="id" defaultValue="" indexElements="_rOyVpD9qEemuxfkvAcwbIQ" primaryKey="_rOxveT9qEemuxfkvAcwbIQ" autoincrement="true">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_rOyVsD9qEemuxfkvAcwbIQ" length="10" precision="0">
+          <nativeType href="pathmap://NativeDBTypes/MariaDB-10.2#_yD7TcCY6EemALc7s7nxPuQ"/>
+        </type>
+      </columns>
+      <columns xmi:id="_rOyVsT9qEemuxfkvAcwbIQ" techID="_rMnycT9qEemuxfkvAcwbIQ" name="order_id" defaultValue="" indexElements="_rOyVpj9qEemuxfkvAcwbIQ" foreignKeyElements="_rOxvez9qEemuxfkvAcwbIQ">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_rOyVsj9qEemuxfkvAcwbIQ" length="10" precision="0">
+          <nativeType href="pathmap://NativeDBTypes/MariaDB-10.2#_yD7TcCY6EemALc7s7nxPuQ"/>
+        </type>
+      </columns>
+      <columns xmi:id="_rOyVsz9qEemuxfkvAcwbIQ" techID="_rMoZgD9qEemuxfkvAcwbIQ" name="product_id" nullable="true" defaultValue="NULL" indexElements="_rOyVrD9qEemuxfkvAcwbIQ" foreignKeyElements="_rOyVoj9qEemuxfkvAcwbIQ">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_rOyVtD9qEemuxfkvAcwbIQ" length="10" precision="0">
+          <nativeType href="pathmap://NativeDBTypes/MariaDB-10.2#_yD7TcCY6EemALc7s7nxPuQ"/>
+        </type>
+      </columns>
+      <columns xmi:id="_rOyVtT9qEemuxfkvAcwbIQ" techID="_rMoZgT9qEemuxfkvAcwbIQ" name="quantity" defaultValue="0.0000">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_rOyVtj9qEemuxfkvAcwbIQ" length="18" precision="4">
+          <nativeType href="pathmap://NativeDBTypes/MariaDB-10.2#_PZbDQSY6EemALc7s7nxPuQ"/>
+        </type>
+      </columns>
+      <columns xmi:id="_rOyVtz9qEemuxfkvAcwbIQ" techID="_rMoZgj9qEemuxfkvAcwbIQ" name="unit_price" nullable="true" defaultValue="0.0000">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_rOyVuD9qEemuxfkvAcwbIQ" length="19" precision="4">
+          <nativeType href="pathmap://NativeDBTypes/MariaDB-10.2#_PZbDQSY6EemALc7s7nxPuQ"/>
+        </type>
+      </columns>
+      <columns xmi:id="_rOyVuT9qEemuxfkvAcwbIQ" techID="_rMoZgz9qEemuxfkvAcwbIQ" name="discount" defaultValue="0">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_rOyVuj9qEemuxfkvAcwbIQ" length="22" precision="0">
+          <nativeType href="pathmap://NativeDBTypes/MariaDB-10.2#_awQ_sCY6EemALc7s7nxPuQ"/>
+        </type>
+      </columns>
+      <columns xmi:id="_rOyVuz9qEemuxfkvAcwbIQ" techID="_rMoZhD9qEemuxfkvAcwbIQ" name="status_id" nullable="true" defaultValue="NULL" indexElements="_rOyVqD9qEemuxfkvAcwbIQ" foreignKeyElements="_rOyVoD9qEemuxfkvAcwbIQ">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_rOyVvD9qEemuxfkvAcwbIQ" length="10" precision="0">
+          <nativeType href="pathmap://NativeDBTypes/MariaDB-10.2#_yD7TcCY6EemALc7s7nxPuQ"/>
+        </type>
+      </columns>
+      <columns xmi:id="_rOyVvT9qEemuxfkvAcwbIQ" techID="_rMoZhT9qEemuxfkvAcwbIQ" name="date_allocated" nullable="true" defaultValue="NULL">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_rOyVvj9qEemuxfkvAcwbIQ" length="19" precision="0">
+          <nativeType href="pathmap://NativeDBTypes/MariaDB-10.2#_Gz-QYSY6EemALc7s7nxPuQ"/>
+        </type>
+      </columns>
+      <columns xmi:id="_rOyVvz9qEemuxfkvAcwbIQ" techID="_rMoZhj9qEemuxfkvAcwbIQ" name="purchase_order_id" nullable="true" defaultValue="NULL" indexElements="_rOyVrj9qEemuxfkvAcwbIQ">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_rOyVwD9qEemuxfkvAcwbIQ" length="10" precision="0">
+          <nativeType href="pathmap://NativeDBTypes/MariaDB-10.2#_yD7TcCY6EemALc7s7nxPuQ"/>
+        </type>
+      </columns>
+      <columns xmi:id="_rOyVwT9qEemuxfkvAcwbIQ" techID="_rMoZhz9qEemuxfkvAcwbIQ" name="inventory_id" nullable="true" defaultValue="NULL" indexElements="_rOyVqj9qEemuxfkvAcwbIQ">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_rOyVwj9qEemuxfkvAcwbIQ" length="10" precision="0">
+          <nativeType href="pathmap://NativeDBTypes/MariaDB-10.2#_yD7TcCY6EemALc7s7nxPuQ"/>
+        </type>
+      </columns>
+    </tables>
+    <tables xsi:type="database:Table" xmi:id="_rOyVwz9qEemuxfkvAcwbIQ" techID="_rMq1zD9qEemuxfkvAcwbIQ" name="order_details_status">
+      <primaryKey xmi:id="_rOyVxD9qEemuxfkvAcwbIQ" techID="_rMvuQD9qEemuxfkvAcwbIQ" name="PRIMARY" columns="_rOyVxz9qEemuxfkvAcwbIQ"/>
+      <indexes xmi:id="_rOyVxT9qEemuxfkvAcwbIQ" techID="_rMw8YD9qEemuxfkvAcwbIQ" name="PRIMARY" qualifier="northwind" unique="true">
+        <elements xmi:id="_rOyVxj9qEemuxfkvAcwbIQ" techID="_rMw8YT9qEemuxfkvAcwbIQ" column="_rOyVxz9qEemuxfkvAcwbIQ" asc="true"/>
+      </indexes>
+      <columns xmi:id="_rOyVxz9qEemuxfkvAcwbIQ" techID="_rMt5ED9qEemuxfkvAcwbIQ" name="id" defaultValue="" indexElements="_rOyVxj9qEemuxfkvAcwbIQ" primaryKey="_rOyVxD9qEemuxfkvAcwbIQ">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_rOyVyD9qEemuxfkvAcwbIQ" length="10" precision="0">
+          <nativeType href="pathmap://NativeDBTypes/MariaDB-10.2#_yD7TcCY6EemALc7s7nxPuQ"/>
+        </type>
+      </columns>
+      <columns xmi:id="_rOyVyT9qEemuxfkvAcwbIQ" techID="_rMt5ET9qEemuxfkvAcwbIQ" name="status_name" defaultValue="">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_rOyVyj9qEemuxfkvAcwbIQ" length="50" precision="0">
+          <nativeType href="pathmap://NativeDBTypes/MariaDB-10.2#_bosKkSY8EemALc7s7nxPuQ"/>
+        </type>
+      </columns>
+    </tables>
+    <tables xsi:type="database:Table" xmi:id="_rOyVyz9qEemuxfkvAcwbIQ" techID="_rMw8Yj9qEemuxfkvAcwbIQ" name="privileges">
+      <primaryKey xmi:id="_rOyVzD9qEemuxfkvAcwbIQ" techID="_rM2b8D9qEemuxfkvAcwbIQ" name="PRIMARY" columns="_rOyVzz9qEemuxfkvAcwbIQ"/>
+      <indexes xmi:id="_rOyVzT9qEemuxfkvAcwbIQ" techID="_rM3qED9qEemuxfkvAcwbIQ" name="PRIMARY" qualifier="northwind" unique="true">
+        <elements xmi:id="_rOyVzj9qEemuxfkvAcwbIQ" techID="_rM3qET9qEemuxfkvAcwbIQ" column="_rOyVzz9qEemuxfkvAcwbIQ" asc="true"/>
+      </indexes>
+      <columns xmi:id="_rOyVzz9qEemuxfkvAcwbIQ" techID="_rMyxkD9qEemuxfkvAcwbIQ" name="id" defaultValue="" indexElements="_rOyVzj9qEemuxfkvAcwbIQ" primaryKey="_rOyVzD9qEemuxfkvAcwbIQ" autoincrement="true">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_rOyV0D9qEemuxfkvAcwbIQ" length="10" precision="0">
+          <nativeType href="pathmap://NativeDBTypes/MariaDB-10.2#_yD7TcCY6EemALc7s7nxPuQ"/>
+        </type>
+      </columns>
+      <columns xmi:id="_rOyV0T9qEemuxfkvAcwbIQ" techID="_rMyxkT9qEemuxfkvAcwbIQ" name="privilege_name" nullable="true" defaultValue="NULL">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_rOyV0j9qEemuxfkvAcwbIQ" length="50" precision="0">
+          <nativeType href="pathmap://NativeDBTypes/MariaDB-10.2#_bosKkSY8EemALc7s7nxPuQ"/>
+        </type>
+      </columns>
+    </tables>
+    <tables xsi:type="database:Table" xmi:id="_rOyV0z9qEemuxfkvAcwbIQ" techID="_rM3qEj9qEemuxfkvAcwbIQ" name="products">
+      <primaryKey xmi:id="_rOyV1D9qEemuxfkvAcwbIQ" techID="_rM9wsD9qEemuxfkvAcwbIQ" name="PRIMARY" columns="_rOyV2z9qEemuxfkvAcwbIQ"/>
+      <indexes xmi:id="_rOyV1T9qEemuxfkvAcwbIQ" techID="_rM--0D9qEemuxfkvAcwbIQ" name="PRIMARY" qualifier="northwind" unique="true">
+        <elements xmi:id="_rOyV1j9qEemuxfkvAcwbIQ" techID="_rM--0T9qEemuxfkvAcwbIQ" column="_rOyV2z9qEemuxfkvAcwbIQ" asc="true"/>
+      </indexes>
+      <indexes xmi:id="_rOyV1z9qEemuxfkvAcwbIQ" techID="_rM--0j9qEemuxfkvAcwbIQ" name="product_code" qualifier="northwind">
+        <elements xmi:id="_rOyV2D9qEemuxfkvAcwbIQ" techID="_rM--0z9qEemuxfkvAcwbIQ" column="_rOyV3T9qEemuxfkvAcwbIQ" asc="true"/>
+      </indexes>
+      <columns xmi:id="_rOyV2T9qEemuxfkvAcwbIQ" techID="_rM6GUD9qEemuxfkvAcwbIQ" name="supplier_ids" nullable="true" defaultValue="NULL">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_rOyV2j9qEemuxfkvAcwbIQ" length="2147483647" precision="0">
+          <nativeType href="pathmap://NativeDBTypes/MariaDB-10.2#_5LQigSY6EemALc7s7nxPuQ"/>
+        </type>
+      </columns>
+      <columns xmi:id="_rOyV2z9qEemuxfkvAcwbIQ" techID="_rM6GUT9qEemuxfkvAcwbIQ" name="id" defaultValue="" indexElements="_rOyV1j9qEemuxfkvAcwbIQ" primaryKey="_rOyV1D9qEemuxfkvAcwbIQ" autoincrement="true">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_rOyV3D9qEemuxfkvAcwbIQ" length="10" precision="0">
+          <nativeType href="pathmap://NativeDBTypes/MariaDB-10.2#_yD7TcCY6EemALc7s7nxPuQ"/>
+        </type>
+      </columns>
+      <columns xmi:id="_rOyV3T9qEemuxfkvAcwbIQ" techID="_rM6GUj9qEemuxfkvAcwbIQ" name="product_code" nullable="true" defaultValue="NULL" indexElements="_rOyV2D9qEemuxfkvAcwbIQ">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_rOyV3j9qEemuxfkvAcwbIQ" length="25" precision="0">
+          <nativeType href="pathmap://NativeDBTypes/MariaDB-10.2#_bosKkSY8EemALc7s7nxPuQ"/>
+        </type>
+      </columns>
+      <columns xmi:id="_rOyV3z9qEemuxfkvAcwbIQ" techID="_rM6GUz9qEemuxfkvAcwbIQ" name="product_name" nullable="true" defaultValue="NULL">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_rOyV4D9qEemuxfkvAcwbIQ" length="50" precision="0">
+          <nativeType href="pathmap://NativeDBTypes/MariaDB-10.2#_bosKkSY8EemALc7s7nxPuQ"/>
+        </type>
+      </columns>
+      <columns xmi:id="_rOyV4T9qEemuxfkvAcwbIQ" techID="_rM6GVD9qEemuxfkvAcwbIQ" name="description" nullable="true" defaultValue="NULL">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_rOyV4j9qEemuxfkvAcwbIQ" length="2147483647" precision="0">
+          <nativeType href="pathmap://NativeDBTypes/MariaDB-10.2#_5LQigSY6EemALc7s7nxPuQ"/>
+        </type>
+      </columns>
+      <columns xmi:id="_rOyV4z9qEemuxfkvAcwbIQ" techID="_rM6GVT9qEemuxfkvAcwbIQ" name="standard_cost" nullable="true" defaultValue="0.0000">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_rOyV5D9qEemuxfkvAcwbIQ" length="19" precision="4">
+          <nativeType href="pathmap://NativeDBTypes/MariaDB-10.2#_PZbDQSY6EemALc7s7nxPuQ"/>
+        </type>
+      </columns>
+      <columns xmi:id="_rOyV5T9qEemuxfkvAcwbIQ" techID="_rM6GVj9qEemuxfkvAcwbIQ" name="list_price" defaultValue="0.0000">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_rOyV5j9qEemuxfkvAcwbIQ" length="19" precision="4">
+          <nativeType href="pathmap://NativeDBTypes/MariaDB-10.2#_PZbDQSY6EemALc7s7nxPuQ"/>
+        </type>
+      </columns>
+      <columns xmi:id="_rOyV5z9qEemuxfkvAcwbIQ" techID="_rM6GVz9qEemuxfkvAcwbIQ" name="reorder_level" nullable="true" defaultValue="NULL">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_rOyV6D9qEemuxfkvAcwbIQ" length="10" precision="0">
+          <nativeType href="pathmap://NativeDBTypes/MariaDB-10.2#_yD7TcCY6EemALc7s7nxPuQ"/>
+        </type>
+      </columns>
+      <columns xmi:id="_rOyV6T9qEemuxfkvAcwbIQ" techID="_rM6GWD9qEemuxfkvAcwbIQ" name="target_level" nullable="true" defaultValue="NULL">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_rOyV6j9qEemuxfkvAcwbIQ" length="10" precision="0">
+          <nativeType href="pathmap://NativeDBTypes/MariaDB-10.2#_yD7TcCY6EemALc7s7nxPuQ"/>
+        </type>
+      </columns>
+      <columns xmi:id="_rOyV6z9qEemuxfkvAcwbIQ" techID="_rM6GWT9qEemuxfkvAcwbIQ" name="quantity_per_unit" nullable="true" defaultValue="NULL">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_rOyV7D9qEemuxfkvAcwbIQ" length="50" precision="0">
+          <nativeType href="pathmap://NativeDBTypes/MariaDB-10.2#_bosKkSY8EemALc7s7nxPuQ"/>
+        </type>
+      </columns>
+      <columns xmi:id="_rOyV7T9qEemuxfkvAcwbIQ" techID="_rM6GWj9qEemuxfkvAcwbIQ" name="discontinued" defaultValue="b'0'">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_rOyV7j9qEemuxfkvAcwbIQ" length="1" precision="0">
+          <nativeType href="pathmap://NativeDBTypes/MariaDB-10.2#_pV_LkSY9EemALc7s7nxPuQ"/>
+        </type>
+      </columns>
+      <columns xmi:id="_rOyV7z9qEemuxfkvAcwbIQ" techID="_rM6GWz9qEemuxfkvAcwbIQ" name="minimum_reorder_quantity" nullable="true" defaultValue="NULL">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_rOyV8D9qEemuxfkvAcwbIQ" length="10" precision="0">
+          <nativeType href="pathmap://NativeDBTypes/MariaDB-10.2#_yD7TcCY6EemALc7s7nxPuQ"/>
+        </type>
+      </columns>
+      <columns xmi:id="_rOyV8T9qEemuxfkvAcwbIQ" techID="_rM6GXD9qEemuxfkvAcwbIQ" name="category" nullable="true" defaultValue="NULL">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_rOyV8j9qEemuxfkvAcwbIQ" length="50" precision="0">
+          <nativeType href="pathmap://NativeDBTypes/MariaDB-10.2#_bosKkSY8EemALc7s7nxPuQ"/>
+        </type>
+      </columns>
+      <columns xmi:id="_rOyV8z9qEemuxfkvAcwbIQ" techID="_rM6GXT9qEemuxfkvAcwbIQ" name="attachments" nullable="true" defaultValue="NULL">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_rOyV9D9qEemuxfkvAcwbIQ" length="2147483647" precision="0">
+          <nativeType href="pathmap://NativeDBTypes/MariaDB-10.2#_3nFaACY6EemALc7s7nxPuQ"/>
+        </type>
+      </columns>
+    </tables>
+    <tables xsi:type="database:Table" xmi:id="_rOyV9T9qEemuxfkvAcwbIQ" techID="_rM--1D9qEemuxfkvAcwbIQ" name="purchase_orders">
+      <primaryKey xmi:id="_rOyV9j9qEemuxfkvAcwbIQ" techID="_rNDQQD9qEemuxfkvAcwbIQ" name="PRIMARY" columns="_rOyWBT9qEemuxfkvAcwbIQ"/>
+      <foreignKeys xmi:id="_rOyV9z9qEemuxfkvAcwbIQ" techID="_rOaiMD9qEemuxfkvAcwbIQ" name="fk_purchase_orders_employees1" target="_rOxunz9qEemuxfkvAcwbIQ">
+        <elements xmi:id="_rOyV-D9qEemuxfkvAcwbIQ" techID="_rOaiMT9qEemuxfkvAcwbIQ" fkColumn="_rOyWCT9qEemuxfkvAcwbIQ" pkColumn="_rOxurz9qEemuxfkvAcwbIQ"/>
+      </foreignKeys>
+      <foreignKeys xmi:id="_rOyV-T9qEemuxfkvAcwbIQ" techID="_rOaiMj9qEemuxfkvAcwbIQ" name="fk_purchase_orders_purchase_order_status1" target="_rOyWRT9qEemuxfkvAcwbIQ">
+        <elements xmi:id="_rOyV-j9qEemuxfkvAcwbIQ" techID="_rOaiMz9qEemuxfkvAcwbIQ" fkColumn="_rOyWDz9qEemuxfkvAcwbIQ" pkColumn="_rOyWST9qEemuxfkvAcwbIQ"/>
+      </foreignKeys>
+      <foreignKeys xmi:id="_rOyV-z9qEemuxfkvAcwbIQ" techID="_rOaiND9qEemuxfkvAcwbIQ" name="fk_purchase_orders_suppliers1" target="_rOyWlz9qEemuxfkvAcwbIQ">
+        <elements xmi:id="_rOyV_D9qEemuxfkvAcwbIQ" techID="_rOaiNT9qEemuxfkvAcwbIQ" fkColumn="_rOyWBz9qEemuxfkvAcwbIQ" pkColumn="_rOyWpz9qEemuxfkvAcwbIQ"/>
+      </foreignKeys>
+      <indexes xmi:id="_rOyV_T9qEemuxfkvAcwbIQ" techID="_rNEeYD9qEemuxfkvAcwbIQ" name="PRIMARY" qualifier="northwind" unique="true">
+        <elements xmi:id="_rOyV_j9qEemuxfkvAcwbIQ" techID="_rNEeYT9qEemuxfkvAcwbIQ" column="_rOyWBT9qEemuxfkvAcwbIQ" asc="true"/>
+      </indexes>
+      <indexes xmi:id="_rOyV_z9qEemuxfkvAcwbIQ" techID="_rNEeYj9qEemuxfkvAcwbIQ" name="created_by" qualifier="northwind">
+        <elements xmi:id="_rOyWAD9qEemuxfkvAcwbIQ" techID="_rNEeYz9qEemuxfkvAcwbIQ" column="_rOyWCT9qEemuxfkvAcwbIQ" asc="true"/>
+      </indexes>
+      <indexes xmi:id="_rOyWAT9qEemuxfkvAcwbIQ" techID="_rNEeZD9qEemuxfkvAcwbIQ" name="status_id" qualifier="northwind">
+        <elements xmi:id="_rOyWAj9qEemuxfkvAcwbIQ" techID="_rNEeZT9qEemuxfkvAcwbIQ" column="_rOyWDz9qEemuxfkvAcwbIQ" asc="true"/>
+      </indexes>
+      <indexes xmi:id="_rOyWAz9qEemuxfkvAcwbIQ" techID="_rNEeZj9qEemuxfkvAcwbIQ" name="supplier_id_2" qualifier="northwind">
+        <elements xmi:id="_rOyWBD9qEemuxfkvAcwbIQ" techID="_rNEeZz9qEemuxfkvAcwbIQ" column="_rOyWBz9qEemuxfkvAcwbIQ" asc="true"/>
+      </indexes>
+      <columns xmi:id="_rOyWBT9qEemuxfkvAcwbIQ" techID="_rNBbED9qEemuxfkvAcwbIQ" name="id" defaultValue="" indexElements="_rOyV_j9qEemuxfkvAcwbIQ" primaryKey="_rOyV9j9qEemuxfkvAcwbIQ" autoincrement="true">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_rOyWBj9qEemuxfkvAcwbIQ" length="10" precision="0">
+          <nativeType href="pathmap://NativeDBTypes/MariaDB-10.2#_yD7TcCY6EemALc7s7nxPuQ"/>
+        </type>
+      </columns>
+      <columns xmi:id="_rOyWBz9qEemuxfkvAcwbIQ" techID="_rNBbET9qEemuxfkvAcwbIQ" name="supplier_id" nullable="true" defaultValue="NULL" indexElements="_rOyWBD9qEemuxfkvAcwbIQ" foreignKeyElements="_rOyV_D9qEemuxfkvAcwbIQ">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_rOyWCD9qEemuxfkvAcwbIQ" length="10" precision="0">
+          <nativeType href="pathmap://NativeDBTypes/MariaDB-10.2#_yD7TcCY6EemALc7s7nxPuQ"/>
+        </type>
+      </columns>
+      <columns xmi:id="_rOyWCT9qEemuxfkvAcwbIQ" techID="_rNBbEj9qEemuxfkvAcwbIQ" name="created_by" nullable="true" defaultValue="NULL" indexElements="_rOyWAD9qEemuxfkvAcwbIQ" foreignKeyElements="_rOyV-D9qEemuxfkvAcwbIQ">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_rOyWCj9qEemuxfkvAcwbIQ" length="10" precision="0">
+          <nativeType href="pathmap://NativeDBTypes/MariaDB-10.2#_yD7TcCY6EemALc7s7nxPuQ"/>
+        </type>
+      </columns>
+      <columns xmi:id="_rOyWCz9qEemuxfkvAcwbIQ" techID="_rNBbEz9qEemuxfkvAcwbIQ" name="submitted_date" nullable="true" defaultValue="NULL">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_rOyWDD9qEemuxfkvAcwbIQ" length="19" precision="0">
+          <nativeType href="pathmap://NativeDBTypes/MariaDB-10.2#_Gz-QYSY6EemALc7s7nxPuQ"/>
+        </type>
+      </columns>
+      <columns xmi:id="_rOyWDT9qEemuxfkvAcwbIQ" techID="_rNBbFD9qEemuxfkvAcwbIQ" name="creation_date" nullable="true" defaultValue="NULL">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_rOyWDj9qEemuxfkvAcwbIQ" length="19" precision="0">
+          <nativeType href="pathmap://NativeDBTypes/MariaDB-10.2#_Gz-QYSY6EemALc7s7nxPuQ"/>
+        </type>
+      </columns>
+      <columns xmi:id="_rOyWDz9qEemuxfkvAcwbIQ" techID="_rNBbFT9qEemuxfkvAcwbIQ" name="status_id" nullable="true" defaultValue="0" indexElements="_rOyWAj9qEemuxfkvAcwbIQ" foreignKeyElements="_rOyV-j9qEemuxfkvAcwbIQ">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_rOyWED9qEemuxfkvAcwbIQ" length="10" precision="0">
+          <nativeType href="pathmap://NativeDBTypes/MariaDB-10.2#_yD7TcCY6EemALc7s7nxPuQ"/>
+        </type>
+      </columns>
+      <columns xmi:id="_rOyWET9qEemuxfkvAcwbIQ" techID="_rNBbFj9qEemuxfkvAcwbIQ" name="expected_date" nullable="true" defaultValue="NULL">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_rOyWEj9qEemuxfkvAcwbIQ" length="19" precision="0">
+          <nativeType href="pathmap://NativeDBTypes/MariaDB-10.2#_Gz-QYSY6EemALc7s7nxPuQ"/>
+        </type>
+      </columns>
+      <columns xmi:id="_rOyWEz9qEemuxfkvAcwbIQ" techID="_rNBbFz9qEemuxfkvAcwbIQ" name="shipping_fee" defaultValue="0.0000">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_rOyWFD9qEemuxfkvAcwbIQ" length="19" precision="4">
+          <nativeType href="pathmap://NativeDBTypes/MariaDB-10.2#_PZbDQSY6EemALc7s7nxPuQ"/>
+        </type>
+      </columns>
+      <columns xmi:id="_rOyWFT9qEemuxfkvAcwbIQ" techID="_rNBbGD9qEemuxfkvAcwbIQ" name="taxes" defaultValue="0.0000">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_rOyWFj9qEemuxfkvAcwbIQ" length="19" precision="4">
+          <nativeType href="pathmap://NativeDBTypes/MariaDB-10.2#_PZbDQSY6EemALc7s7nxPuQ"/>
+        </type>
+      </columns>
+      <columns xmi:id="_rOyWFz9qEemuxfkvAcwbIQ" techID="_rNBbGT9qEemuxfkvAcwbIQ" name="payment_date" nullable="true" defaultValue="NULL">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_rOyWGD9qEemuxfkvAcwbIQ" length="19" precision="0">
+          <nativeType href="pathmap://NativeDBTypes/MariaDB-10.2#_Gz-QYSY6EemALc7s7nxPuQ"/>
+        </type>
+      </columns>
+      <columns xmi:id="_rOyWGT9qEemuxfkvAcwbIQ" techID="_rNCCID9qEemuxfkvAcwbIQ" name="payment_amount" nullable="true" defaultValue="0.0000">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_rOyWGj9qEemuxfkvAcwbIQ" length="19" precision="4">
+          <nativeType href="pathmap://NativeDBTypes/MariaDB-10.2#_PZbDQSY6EemALc7s7nxPuQ"/>
+        </type>
+      </columns>
+      <columns xmi:id="_rOyWGz9qEemuxfkvAcwbIQ" techID="_rNCCIT9qEemuxfkvAcwbIQ" name="payment_method" nullable="true" defaultValue="NULL">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_rOyWHD9qEemuxfkvAcwbIQ" length="50" precision="0">
+          <nativeType href="pathmap://NativeDBTypes/MariaDB-10.2#_bosKkSY8EemALc7s7nxPuQ"/>
+        </type>
+      </columns>
+      <columns xmi:id="_rOyWHT9qEemuxfkvAcwbIQ" techID="_rNCCIj9qEemuxfkvAcwbIQ" name="notes" nullable="true" defaultValue="NULL">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_rOyWHj9qEemuxfkvAcwbIQ" length="2147483647" precision="0">
+          <nativeType href="pathmap://NativeDBTypes/MariaDB-10.2#_5LQigSY6EemALc7s7nxPuQ"/>
+        </type>
+      </columns>
+      <columns xmi:id="_rOyWHz9qEemuxfkvAcwbIQ" techID="_rNCCIz9qEemuxfkvAcwbIQ" name="approved_by" nullable="true" defaultValue="NULL">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_rOyWID9qEemuxfkvAcwbIQ" length="10" precision="0">
+          <nativeType href="pathmap://NativeDBTypes/MariaDB-10.2#_yD7TcCY6EemALc7s7nxPuQ"/>
+        </type>
+      </columns>
+      <columns xmi:id="_rOyWIT9qEemuxfkvAcwbIQ" techID="_rNCCJD9qEemuxfkvAcwbIQ" name="approved_date" nullable="true" defaultValue="NULL">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_rOyWIj9qEemuxfkvAcwbIQ" length="19" precision="0">
+          <nativeType href="pathmap://NativeDBTypes/MariaDB-10.2#_Gz-QYSY6EemALc7s7nxPuQ"/>
+        </type>
+      </columns>
+      <columns xmi:id="_rOyWIz9qEemuxfkvAcwbIQ" techID="_rNCCJT9qEemuxfkvAcwbIQ" name="submitted_by" nullable="true" defaultValue="NULL">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_rOyWJD9qEemuxfkvAcwbIQ" length="10" precision="0">
+          <nativeType href="pathmap://NativeDBTypes/MariaDB-10.2#_yD7TcCY6EemALc7s7nxPuQ"/>
+        </type>
+      </columns>
+    </tables>
+    <tables xsi:type="database:Table" xmi:id="_rOyWJT9qEemuxfkvAcwbIQ" techID="_rNEeaD9qEemuxfkvAcwbIQ" name="purchase_order_details">
+      <primaryKey xmi:id="_rOyWJj9qEemuxfkvAcwbIQ" techID="_rNIv0D9qEemuxfkvAcwbIQ" name="PRIMARY" columns="_rOyWNT9qEemuxfkvAcwbIQ"/>
+      <foreignKeys xmi:id="_rOyWJz9qEemuxfkvAcwbIQ" techID="_rOdlgD9qEemuxfkvAcwbIQ" name="fk_purchase_order_details_inventory_transactions1" target="_rOxu5D9qEemuxfkvAcwbIQ">
+        <elements xmi:id="_rOyWKD9qEemuxfkvAcwbIQ" techID="_rOdlgT9qEemuxfkvAcwbIQ" fkColumn="_rOyWQz9qEemuxfkvAcwbIQ" pkColumn="_rOxu-D9qEemuxfkvAcwbIQ"/>
+      </foreignKeys>
+      <foreignKeys xmi:id="_rOyWKT9qEemuxfkvAcwbIQ" techID="_rOdlgj9qEemuxfkvAcwbIQ" name="fk_purchase_order_details_products1" target="_rOyV0z9qEemuxfkvAcwbIQ">
+        <elements xmi:id="_rOyWKj9qEemuxfkvAcwbIQ" techID="_rOdlgz9qEemuxfkvAcwbIQ" fkColumn="_rOyWOT9qEemuxfkvAcwbIQ" pkColumn="_rOyV2z9qEemuxfkvAcwbIQ"/>
+      </foreignKeys>
+      <foreignKeys xmi:id="_rOyWKz9qEemuxfkvAcwbIQ" techID="_rOdlhD9qEemuxfkvAcwbIQ" name="fk_purchase_order_details_purchase_orders1" target="_rOyV9T9qEemuxfkvAcwbIQ">
+        <elements xmi:id="_rOyWLD9qEemuxfkvAcwbIQ" techID="_rOdlhT9qEemuxfkvAcwbIQ" fkColumn="_rOyWNz9qEemuxfkvAcwbIQ" pkColumn="_rOyWBT9qEemuxfkvAcwbIQ"/>
+      </foreignKeys>
+      <indexes xmi:id="_rOyWLT9qEemuxfkvAcwbIQ" techID="_rNJW4D9qEemuxfkvAcwbIQ" name="PRIMARY" qualifier="northwind" unique="true">
+        <elements xmi:id="_rOyWLj9qEemuxfkvAcwbIQ" techID="_rNJ98D9qEemuxfkvAcwbIQ" column="_rOyWNT9qEemuxfkvAcwbIQ" asc="true"/>
+      </indexes>
+      <indexes xmi:id="_rOyWLz9qEemuxfkvAcwbIQ" techID="_rNJ98T9qEemuxfkvAcwbIQ" name="inventory_id_2" qualifier="northwind">
+        <elements xmi:id="_rOyWMD9qEemuxfkvAcwbIQ" techID="_rNJ98j9qEemuxfkvAcwbIQ" column="_rOyWQz9qEemuxfkvAcwbIQ" asc="true"/>
+      </indexes>
+      <indexes xmi:id="_rOyWMT9qEemuxfkvAcwbIQ" techID="_rNJ98z9qEemuxfkvAcwbIQ" name="product_id_purchase_order_details" qualifier="northwind">
+        <elements xmi:id="_rOyWMj9qEemuxfkvAcwbIQ" techID="_rNJ99D9qEemuxfkvAcwbIQ" column="_rOyWOT9qEemuxfkvAcwbIQ" asc="true"/>
+      </indexes>
+      <indexes xmi:id="_rOyWMz9qEemuxfkvAcwbIQ" techID="_rNJ99T9qEemuxfkvAcwbIQ" name="purchase_order_id_purchase_order_details" qualifier="northwind">
+        <elements xmi:id="_rOyWND9qEemuxfkvAcwbIQ" techID="_rNJ99j9qEemuxfkvAcwbIQ" column="_rOyWNz9qEemuxfkvAcwbIQ" asc="true"/>
+      </indexes>
+      <columns xmi:id="_rOyWNT9qEemuxfkvAcwbIQ" techID="_rNG6oD9qEemuxfkvAcwbIQ" name="id" defaultValue="" indexElements="_rOyWLj9qEemuxfkvAcwbIQ" primaryKey="_rOyWJj9qEemuxfkvAcwbIQ" autoincrement="true">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_rOyWNj9qEemuxfkvAcwbIQ" length="10" precision="0">
+          <nativeType href="pathmap://NativeDBTypes/MariaDB-10.2#_yD7TcCY6EemALc7s7nxPuQ"/>
+        </type>
+      </columns>
+      <columns xmi:id="_rOyWNz9qEemuxfkvAcwbIQ" techID="_rNG6oT9qEemuxfkvAcwbIQ" name="purchase_order_id" defaultValue="" indexElements="_rOyWND9qEemuxfkvAcwbIQ" foreignKeyElements="_rOyWLD9qEemuxfkvAcwbIQ">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_rOyWOD9qEemuxfkvAcwbIQ" length="10" precision="0">
+          <nativeType href="pathmap://NativeDBTypes/MariaDB-10.2#_yD7TcCY6EemALc7s7nxPuQ"/>
+        </type>
+      </columns>
+      <columns xmi:id="_rOyWOT9qEemuxfkvAcwbIQ" techID="_rNG6oj9qEemuxfkvAcwbIQ" name="product_id" nullable="true" defaultValue="NULL" indexElements="_rOyWMj9qEemuxfkvAcwbIQ" foreignKeyElements="_rOyWKj9qEemuxfkvAcwbIQ">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_rOyWOj9qEemuxfkvAcwbIQ" length="10" precision="0">
+          <nativeType href="pathmap://NativeDBTypes/MariaDB-10.2#_yD7TcCY6EemALc7s7nxPuQ"/>
+        </type>
+      </columns>
+      <columns xmi:id="_rOyWOz9qEemuxfkvAcwbIQ" techID="_rNG6oz9qEemuxfkvAcwbIQ" name="quantity" defaultValue="">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_rOyWPD9qEemuxfkvAcwbIQ" length="18" precision="4">
+          <nativeType href="pathmap://NativeDBTypes/MariaDB-10.2#_PZbDQSY6EemALc7s7nxPuQ"/>
+        </type>
+      </columns>
+      <columns xmi:id="_rOyWPT9qEemuxfkvAcwbIQ" techID="_rNG6pD9qEemuxfkvAcwbIQ" name="unit_cost" defaultValue="">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_rOyWPj9qEemuxfkvAcwbIQ" length="19" precision="4">
+          <nativeType href="pathmap://NativeDBTypes/MariaDB-10.2#_PZbDQSY6EemALc7s7nxPuQ"/>
+        </type>
+      </columns>
+      <columns xmi:id="_rOyWPz9qEemuxfkvAcwbIQ" techID="_rNG6pT9qEemuxfkvAcwbIQ" name="date_received" nullable="true" defaultValue="NULL">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_rOyWQD9qEemuxfkvAcwbIQ" length="19" precision="0">
+          <nativeType href="pathmap://NativeDBTypes/MariaDB-10.2#_Gz-QYSY6EemALc7s7nxPuQ"/>
+        </type>
+      </columns>
+      <columns xmi:id="_rOyWQT9qEemuxfkvAcwbIQ" techID="_rNG6pj9qEemuxfkvAcwbIQ" name="posted_to_inventory" defaultValue="b'0'">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_rOyWQj9qEemuxfkvAcwbIQ" length="1" precision="0">
+          <nativeType href="pathmap://NativeDBTypes/MariaDB-10.2#_pV_LkSY9EemALc7s7nxPuQ"/>
+        </type>
+      </columns>
+      <columns xmi:id="_rOyWQz9qEemuxfkvAcwbIQ" techID="_rNG6pz9qEemuxfkvAcwbIQ" name="inventory_id" nullable="true" defaultValue="NULL" indexElements="_rOyWMD9qEemuxfkvAcwbIQ" foreignKeyElements="_rOyWKD9qEemuxfkvAcwbIQ">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_rOyWRD9qEemuxfkvAcwbIQ" length="10" precision="0">
+          <nativeType href="pathmap://NativeDBTypes/MariaDB-10.2#_yD7TcCY6EemALc7s7nxPuQ"/>
+        </type>
+      </columns>
+    </tables>
+    <tables xsi:type="database:Table" xmi:id="_rOyWRT9qEemuxfkvAcwbIQ" techID="_rNJ99z9qEemuxfkvAcwbIQ" name="purchase_order_status">
+      <primaryKey xmi:id="_rOyWRj9qEemuxfkvAcwbIQ" techID="_rNNoUD9qEemuxfkvAcwbIQ" name="PRIMARY" columns="_rOyWST9qEemuxfkvAcwbIQ"/>
+      <indexes xmi:id="_rOyWRz9qEemuxfkvAcwbIQ" techID="_rNO2cD9qEemuxfkvAcwbIQ" name="PRIMARY" qualifier="northwind" unique="true">
+        <elements xmi:id="_rOyWSD9qEemuxfkvAcwbIQ" techID="_rNO2cT9qEemuxfkvAcwbIQ" column="_rOyWST9qEemuxfkvAcwbIQ" asc="true"/>
+      </indexes>
+      <columns xmi:id="_rOyWST9qEemuxfkvAcwbIQ" techID="_rNMaMD9qEemuxfkvAcwbIQ" name="id" defaultValue="" indexElements="_rOyWSD9qEemuxfkvAcwbIQ" primaryKey="_rOyWRj9qEemuxfkvAcwbIQ">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_rOyWSj9qEemuxfkvAcwbIQ" length="10" precision="0">
+          <nativeType href="pathmap://NativeDBTypes/MariaDB-10.2#_yD7TcCY6EemALc7s7nxPuQ"/>
+        </type>
+      </columns>
+      <columns xmi:id="_rOyWSz9qEemuxfkvAcwbIQ" techID="_rNMaMT9qEemuxfkvAcwbIQ" name="status" nullable="true" defaultValue="NULL">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_rOyWTD9qEemuxfkvAcwbIQ" length="50" precision="0">
+          <nativeType href="pathmap://NativeDBTypes/MariaDB-10.2#_bosKkSY8EemALc7s7nxPuQ"/>
+        </type>
+      </columns>
+    </tables>
+    <tables xsi:type="database:Table" xmi:id="_rOyWTT9qEemuxfkvAcwbIQ" techID="_rNO2cj9qEemuxfkvAcwbIQ" name="sales_reports">
+      <primaryKey xmi:id="_rOyWTj9qEemuxfkvAcwbIQ" techID="_rNTH4D9qEemuxfkvAcwbIQ" name="PRIMARY" columns="_rOyWUT9qEemuxfkvAcwbIQ"/>
+      <indexes xmi:id="_rOyWTz9qEemuxfkvAcwbIQ" techID="_rNTu8D9qEemuxfkvAcwbIQ" name="PRIMARY" qualifier="northwind" unique="true">
+        <elements xmi:id="_rOyWUD9qEemuxfkvAcwbIQ" techID="_rNTu8T9qEemuxfkvAcwbIQ" column="_rOyWUT9qEemuxfkvAcwbIQ" asc="true"/>
+      </indexes>
+      <columns xmi:id="_rOyWUT9qEemuxfkvAcwbIQ" techID="_rNRSsD9qEemuxfkvAcwbIQ" name="group_by" defaultValue="" indexElements="_rOyWUD9qEemuxfkvAcwbIQ" primaryKey="_rOyWTj9qEemuxfkvAcwbIQ">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_rOyWUj9qEemuxfkvAcwbIQ" length="50" precision="0">
+          <nativeType href="pathmap://NativeDBTypes/MariaDB-10.2#_bosKkSY8EemALc7s7nxPuQ"/>
+        </type>
+      </columns>
+      <columns xmi:id="_rOyWUz9qEemuxfkvAcwbIQ" techID="_rNRSsT9qEemuxfkvAcwbIQ" name="display" nullable="true" defaultValue="NULL">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_rOyWVD9qEemuxfkvAcwbIQ" length="50" precision="0">
+          <nativeType href="pathmap://NativeDBTypes/MariaDB-10.2#_bosKkSY8EemALc7s7nxPuQ"/>
+        </type>
+      </columns>
+      <columns xmi:id="_rOyWVT9qEemuxfkvAcwbIQ" techID="_rNRSsj9qEemuxfkvAcwbIQ" name="title" nullable="true" defaultValue="NULL">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_rOyWVj9qEemuxfkvAcwbIQ" length="50" precision="0">
+          <nativeType href="pathmap://NativeDBTypes/MariaDB-10.2#_bosKkSY8EemALc7s7nxPuQ"/>
+        </type>
+      </columns>
+      <columns xmi:id="_rOyWVz9qEemuxfkvAcwbIQ" techID="_rNRSsz9qEemuxfkvAcwbIQ" name="filter_row_source" nullable="true" defaultValue="NULL">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_rOyWWD9qEemuxfkvAcwbIQ" length="2147483647" precision="0">
+          <nativeType href="pathmap://NativeDBTypes/MariaDB-10.2#_5LQigSY6EemALc7s7nxPuQ"/>
+        </type>
+      </columns>
+      <columns xmi:id="_rOyWWT9qEemuxfkvAcwbIQ" techID="_rNRStD9qEemuxfkvAcwbIQ" name="default" defaultValue="b'0'">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_rOyWWj9qEemuxfkvAcwbIQ" length="1" precision="0">
+          <nativeType href="pathmap://NativeDBTypes/MariaDB-10.2#_pV_LkSY9EemALc7s7nxPuQ"/>
+        </type>
+      </columns>
+    </tables>
+    <tables xsi:type="database:Table" xmi:id="_rOyWWz9qEemuxfkvAcwbIQ" techID="_rNTu8j9qEemuxfkvAcwbIQ" name="shippers">
+      <primaryKey xmi:id="_rOyWXD9qEemuxfkvAcwbIQ" techID="_rNZ1kD9qEemuxfkvAcwbIQ" name="PRIMARY" columns="_rOyWaz9qEemuxfkvAcwbIQ"/>
+      <indexes xmi:id="_rOyWXT9qEemuxfkvAcwbIQ" techID="_rNbDsD9qEemuxfkvAcwbIQ" name="PRIMARY" qualifier="northwind" unique="true">
+        <elements xmi:id="_rOyWXj9qEemuxfkvAcwbIQ" techID="_rNbDsT9qEemuxfkvAcwbIQ" column="_rOyWaz9qEemuxfkvAcwbIQ" asc="true"/>
+      </indexes>
+      <indexes xmi:id="_rOyWXz9qEemuxfkvAcwbIQ" techID="_rNbDsj9qEemuxfkvAcwbIQ" name="city_shippers" qualifier="northwind">
+        <elements xmi:id="_rOyWYD9qEemuxfkvAcwbIQ" techID="_rNbDsz9qEemuxfkvAcwbIQ" column="_rOyWgT9qEemuxfkvAcwbIQ" asc="true"/>
+      </indexes>
+      <indexes xmi:id="_rOyWYT9qEemuxfkvAcwbIQ" techID="_rNbDtD9qEemuxfkvAcwbIQ" name="company_shippers" qualifier="northwind">
+        <elements xmi:id="_rOyWYj9qEemuxfkvAcwbIQ" techID="_rNbDtT9qEemuxfkvAcwbIQ" column="_rOyWbT9qEemuxfkvAcwbIQ" asc="true"/>
+      </indexes>
+      <indexes xmi:id="_rOyWYz9qEemuxfkvAcwbIQ" techID="_rNbDtj9qEemuxfkvAcwbIQ" name="first_name_shippers" qualifier="northwind">
+        <elements xmi:id="_rOyWZD9qEemuxfkvAcwbIQ" techID="_rNbDtz9qEemuxfkvAcwbIQ" column="_rOyWcT9qEemuxfkvAcwbIQ" asc="true"/>
+      </indexes>
+      <indexes xmi:id="_rOyWZT9qEemuxfkvAcwbIQ" techID="_rNbDuD9qEemuxfkvAcwbIQ" name="last_name_shippers" qualifier="northwind">
+        <elements xmi:id="_rOyWZj9qEemuxfkvAcwbIQ" techID="_rNbDuT9qEemuxfkvAcwbIQ" column="_rOyWbz9qEemuxfkvAcwbIQ" asc="true"/>
+      </indexes>
+      <indexes xmi:id="_rOyWZz9qEemuxfkvAcwbIQ" techID="_rNbDuj9qEemuxfkvAcwbIQ" name="state_province_shippers" qualifier="northwind">
+        <elements xmi:id="_rOyWaD9qEemuxfkvAcwbIQ" techID="_rNbDuz9qEemuxfkvAcwbIQ" column="_rOyWgz9qEemuxfkvAcwbIQ" asc="true"/>
+      </indexes>
+      <indexes xmi:id="_rOyWaT9qEemuxfkvAcwbIQ" techID="_rNbDvD9qEemuxfkvAcwbIQ" name="zip_postal_code_shippers" qualifier="northwind">
+        <elements xmi:id="_rOyWaj9qEemuxfkvAcwbIQ" techID="_rNbDvT9qEemuxfkvAcwbIQ" column="_rOyWhT9qEemuxfkvAcwbIQ" asc="true"/>
+      </indexes>
+      <columns xmi:id="_rOyWaz9qEemuxfkvAcwbIQ" techID="_rNVkID9qEemuxfkvAcwbIQ" name="id" defaultValue="" indexElements="_rOyWXj9qEemuxfkvAcwbIQ" primaryKey="_rOyWXD9qEemuxfkvAcwbIQ" autoincrement="true">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_rOyWbD9qEemuxfkvAcwbIQ" length="10" precision="0">
+          <nativeType href="pathmap://NativeDBTypes/MariaDB-10.2#_yD7TcCY6EemALc7s7nxPuQ"/>
+        </type>
+      </columns>
+      <columns xmi:id="_rOyWbT9qEemuxfkvAcwbIQ" techID="_rNWLMD9qEemuxfkvAcwbIQ" name="company" nullable="true" defaultValue="NULL" indexElements="_rOyWYj9qEemuxfkvAcwbIQ">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_rOyWbj9qEemuxfkvAcwbIQ" length="50" precision="0">
+          <nativeType href="pathmap://NativeDBTypes/MariaDB-10.2#_bosKkSY8EemALc7s7nxPuQ"/>
+        </type>
+      </columns>
+      <columns xmi:id="_rOyWbz9qEemuxfkvAcwbIQ" techID="_rNWLMT9qEemuxfkvAcwbIQ" name="last_name" nullable="true" defaultValue="NULL" indexElements="_rOyWZj9qEemuxfkvAcwbIQ">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_rOyWcD9qEemuxfkvAcwbIQ" length="50" precision="0">
+          <nativeType href="pathmap://NativeDBTypes/MariaDB-10.2#_bosKkSY8EemALc7s7nxPuQ"/>
+        </type>
+      </columns>
+      <columns xmi:id="_rOyWcT9qEemuxfkvAcwbIQ" techID="_rNWLMj9qEemuxfkvAcwbIQ" name="first_name" nullable="true" defaultValue="NULL" indexElements="_rOyWZD9qEemuxfkvAcwbIQ">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_rOyWcj9qEemuxfkvAcwbIQ" length="50" precision="0">
+          <nativeType href="pathmap://NativeDBTypes/MariaDB-10.2#_bosKkSY8EemALc7s7nxPuQ"/>
+        </type>
+      </columns>
+      <columns xmi:id="_rOyWcz9qEemuxfkvAcwbIQ" techID="_rNWLMz9qEemuxfkvAcwbIQ" name="email_address" nullable="true" defaultValue="NULL">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_rOyWdD9qEemuxfkvAcwbIQ" length="50" precision="0">
+          <nativeType href="pathmap://NativeDBTypes/MariaDB-10.2#_bosKkSY8EemALc7s7nxPuQ"/>
+        </type>
+      </columns>
+      <columns xmi:id="_rOyWdT9qEemuxfkvAcwbIQ" techID="_rNWLND9qEemuxfkvAcwbIQ" name="job_title" nullable="true" defaultValue="NULL">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_rOyWdj9qEemuxfkvAcwbIQ" length="50" precision="0">
+          <nativeType href="pathmap://NativeDBTypes/MariaDB-10.2#_bosKkSY8EemALc7s7nxPuQ"/>
+        </type>
+      </columns>
+      <columns xmi:id="_rOyWdz9qEemuxfkvAcwbIQ" techID="_rNWLNT9qEemuxfkvAcwbIQ" name="business_phone" nullable="true" defaultValue="NULL">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_rOyWeD9qEemuxfkvAcwbIQ" length="25" precision="0">
+          <nativeType href="pathmap://NativeDBTypes/MariaDB-10.2#_bosKkSY8EemALc7s7nxPuQ"/>
+        </type>
+      </columns>
+      <columns xmi:id="_rOyWeT9qEemuxfkvAcwbIQ" techID="_rNWLNj9qEemuxfkvAcwbIQ" name="home_phone" nullable="true" defaultValue="NULL">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_rOyWej9qEemuxfkvAcwbIQ" length="25" precision="0">
+          <nativeType href="pathmap://NativeDBTypes/MariaDB-10.2#_bosKkSY8EemALc7s7nxPuQ"/>
+        </type>
+      </columns>
+      <columns xmi:id="_rOyWez9qEemuxfkvAcwbIQ" techID="_rNWLNz9qEemuxfkvAcwbIQ" name="mobile_phone" nullable="true" defaultValue="NULL">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_rOyWfD9qEemuxfkvAcwbIQ" length="25" precision="0">
+          <nativeType href="pathmap://NativeDBTypes/MariaDB-10.2#_bosKkSY8EemALc7s7nxPuQ"/>
+        </type>
+      </columns>
+      <columns xmi:id="_rOyWfT9qEemuxfkvAcwbIQ" techID="_rNWLOD9qEemuxfkvAcwbIQ" name="fax_number" nullable="true" defaultValue="NULL">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_rOyWfj9qEemuxfkvAcwbIQ" length="25" precision="0">
+          <nativeType href="pathmap://NativeDBTypes/MariaDB-10.2#_bosKkSY8EemALc7s7nxPuQ"/>
+        </type>
+      </columns>
+      <columns xmi:id="_rOyWfz9qEemuxfkvAcwbIQ" techID="_rNWLOT9qEemuxfkvAcwbIQ" name="address" nullable="true" defaultValue="NULL">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_rOyWgD9qEemuxfkvAcwbIQ" length="2147483647" precision="0">
+          <nativeType href="pathmap://NativeDBTypes/MariaDB-10.2#_5LQigSY6EemALc7s7nxPuQ"/>
+        </type>
+      </columns>
+      <columns xmi:id="_rOyWgT9qEemuxfkvAcwbIQ" techID="_rNWLOj9qEemuxfkvAcwbIQ" name="city" nullable="true" defaultValue="NULL" indexElements="_rOyWYD9qEemuxfkvAcwbIQ">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_rOyWgj9qEemuxfkvAcwbIQ" length="50" precision="0">
+          <nativeType href="pathmap://NativeDBTypes/MariaDB-10.2#_bosKkSY8EemALc7s7nxPuQ"/>
+        </type>
+      </columns>
+      <columns xmi:id="_rOyWgz9qEemuxfkvAcwbIQ" techID="_rNWLOz9qEemuxfkvAcwbIQ" name="state_province" nullable="true" defaultValue="NULL" indexElements="_rOyWaD9qEemuxfkvAcwbIQ">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_rOyWhD9qEemuxfkvAcwbIQ" length="50" precision="0">
+          <nativeType href="pathmap://NativeDBTypes/MariaDB-10.2#_bosKkSY8EemALc7s7nxPuQ"/>
+        </type>
+      </columns>
+      <columns xmi:id="_rOyWhT9qEemuxfkvAcwbIQ" techID="_rNWLPD9qEemuxfkvAcwbIQ" name="zip_postal_code" nullable="true" defaultValue="NULL" indexElements="_rOyWaj9qEemuxfkvAcwbIQ">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_rOyWhj9qEemuxfkvAcwbIQ" length="15" precision="0">
+          <nativeType href="pathmap://NativeDBTypes/MariaDB-10.2#_bosKkSY8EemALc7s7nxPuQ"/>
+        </type>
+      </columns>
+      <columns xmi:id="_rOyWhz9qEemuxfkvAcwbIQ" techID="_rNWLPT9qEemuxfkvAcwbIQ" name="country_region" nullable="true" defaultValue="NULL">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_rOyWiD9qEemuxfkvAcwbIQ" length="50" precision="0">
+          <nativeType href="pathmap://NativeDBTypes/MariaDB-10.2#_bosKkSY8EemALc7s7nxPuQ"/>
+        </type>
+      </columns>
+      <columns xmi:id="_rOyWiT9qEemuxfkvAcwbIQ" techID="_rNWLPj9qEemuxfkvAcwbIQ" name="web_page" nullable="true" defaultValue="NULL">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_rOyWij9qEemuxfkvAcwbIQ" length="2147483647" precision="0">
+          <nativeType href="pathmap://NativeDBTypes/MariaDB-10.2#_5LQigSY6EemALc7s7nxPuQ"/>
+        </type>
+      </columns>
+      <columns xmi:id="_rOyWiz9qEemuxfkvAcwbIQ" techID="_rNWLPz9qEemuxfkvAcwbIQ" name="notes" nullable="true" defaultValue="NULL">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_rOyWjD9qEemuxfkvAcwbIQ" length="2147483647" precision="0">
+          <nativeType href="pathmap://NativeDBTypes/MariaDB-10.2#_5LQigSY6EemALc7s7nxPuQ"/>
+        </type>
+      </columns>
+      <columns xmi:id="_rOyWjT9qEemuxfkvAcwbIQ" techID="_rNWLQD9qEemuxfkvAcwbIQ" name="attachments" nullable="true" defaultValue="NULL">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_rOyWjj9qEemuxfkvAcwbIQ" length="2147483647" precision="0">
+          <nativeType href="pathmap://NativeDBTypes/MariaDB-10.2#_3nFaACY6EemALc7s7nxPuQ"/>
+        </type>
+      </columns>
+    </tables>
+    <tables xsi:type="database:Table" xmi:id="_rOyWjz9qEemuxfkvAcwbIQ" techID="_rNbDvj9qEemuxfkvAcwbIQ" name="strings">
+      <primaryKey xmi:id="_rOyWkD9qEemuxfkvAcwbIQ" techID="_rNgjQD9qEemuxfkvAcwbIQ" name="PRIMARY" columns="_rOyWkz9qEemuxfkvAcwbIQ"/>
+      <indexes xmi:id="_rOyWkT9qEemuxfkvAcwbIQ" techID="_rNhxYD9qEemuxfkvAcwbIQ" name="PRIMARY" qualifier="northwind" unique="true">
+        <elements xmi:id="_rOyWkj9qEemuxfkvAcwbIQ" techID="_rNhxYT9qEemuxfkvAcwbIQ" column="_rOyWkz9qEemuxfkvAcwbIQ" asc="true"/>
+      </indexes>
+      <columns xmi:id="_rOyWkz9qEemuxfkvAcwbIQ" techID="_rNdf8D9qEemuxfkvAcwbIQ" name="string_id" defaultValue="" indexElements="_rOyWkj9qEemuxfkvAcwbIQ" primaryKey="_rOyWkD9qEemuxfkvAcwbIQ" autoincrement="true">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_rOyWlD9qEemuxfkvAcwbIQ" length="10" precision="0">
+          <nativeType href="pathmap://NativeDBTypes/MariaDB-10.2#_yD7TcCY6EemALc7s7nxPuQ"/>
+        </type>
+      </columns>
+      <columns xmi:id="_rOyWlT9qEemuxfkvAcwbIQ" techID="_rNdf8T9qEemuxfkvAcwbIQ" name="string_data" nullable="true" defaultValue="NULL">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_rOyWlj9qEemuxfkvAcwbIQ" length="255" precision="0">
+          <nativeType href="pathmap://NativeDBTypes/MariaDB-10.2#_bosKkSY8EemALc7s7nxPuQ"/>
+        </type>
+      </columns>
+    </tables>
+    <tables xsi:type="database:Table" xmi:id="_rOyWlz9qEemuxfkvAcwbIQ" techID="_rNhxYj9qEemuxfkvAcwbIQ" name="suppliers">
+      <primaryKey xmi:id="_rOyWmD9qEemuxfkvAcwbIQ" techID="_rNn4AD9qEemuxfkvAcwbIQ" name="PRIMARY" columns="_rOyWpz9qEemuxfkvAcwbIQ"/>
+      <indexes xmi:id="_rOyWmT9qEemuxfkvAcwbIQ" techID="_rNofED9qEemuxfkvAcwbIQ" name="PRIMARY" qualifier="northwind" unique="true">
+        <elements xmi:id="_rOyWmj9qEemuxfkvAcwbIQ" techID="_rNofET9qEemuxfkvAcwbIQ" column="_rOyWpz9qEemuxfkvAcwbIQ" asc="true"/>
+      </indexes>
+      <indexes xmi:id="_rOyWmz9qEemuxfkvAcwbIQ" techID="_rNofEj9qEemuxfkvAcwbIQ" name="city_suppliers" qualifier="northwind">
+        <elements xmi:id="_rOyWnD9qEemuxfkvAcwbIQ" techID="_rNofEz9qEemuxfkvAcwbIQ" column="_rOyWvT9qEemuxfkvAcwbIQ" asc="true"/>
+      </indexes>
+      <indexes xmi:id="_rOyWnT9qEemuxfkvAcwbIQ" techID="_rNofFD9qEemuxfkvAcwbIQ" name="company_suppliers" qualifier="northwind">
+        <elements xmi:id="_rOyWnj9qEemuxfkvAcwbIQ" techID="_rNofFT9qEemuxfkvAcwbIQ" column="_rOyWqT9qEemuxfkvAcwbIQ" asc="true"/>
+      </indexes>
+      <indexes xmi:id="_rOyWnz9qEemuxfkvAcwbIQ" techID="_rNofFj9qEemuxfkvAcwbIQ" name="first_name_suppliers" qualifier="northwind">
+        <elements xmi:id="_rOyWoD9qEemuxfkvAcwbIQ" techID="_rNofFz9qEemuxfkvAcwbIQ" column="_rOyWrT9qEemuxfkvAcwbIQ" asc="true"/>
+      </indexes>
+      <indexes xmi:id="_rOyWoT9qEemuxfkvAcwbIQ" techID="_rNofGD9qEemuxfkvAcwbIQ" name="last_name_suppliers" qualifier="northwind">
+        <elements xmi:id="_rOyWoj9qEemuxfkvAcwbIQ" techID="_rNofGT9qEemuxfkvAcwbIQ" column="_rOyWqz9qEemuxfkvAcwbIQ" asc="true"/>
+      </indexes>
+      <indexes xmi:id="_rOyWoz9qEemuxfkvAcwbIQ" techID="_rNofGj9qEemuxfkvAcwbIQ" name="state_province_suppliers" qualifier="northwind">
+        <elements xmi:id="_rOyWpD9qEemuxfkvAcwbIQ" techID="_rNofGz9qEemuxfkvAcwbIQ" column="_rOyWvz9qEemuxfkvAcwbIQ" asc="true"/>
+      </indexes>
+      <indexes xmi:id="_rOyWpT9qEemuxfkvAcwbIQ" techID="_rNofHD9qEemuxfkvAcwbIQ" name="zip_postal_code_suppliers" qualifier="northwind">
+        <elements xmi:id="_rOyWpj9qEemuxfkvAcwbIQ" techID="_rNofHT9qEemuxfkvAcwbIQ" column="_rOyWwT9qEemuxfkvAcwbIQ" asc="true"/>
+      </indexes>
+      <columns xmi:id="_rOyWpz9qEemuxfkvAcwbIQ" techID="_rNkNoD9qEemuxfkvAcwbIQ" name="id" defaultValue="" indexElements="_rOyWmj9qEemuxfkvAcwbIQ" primaryKey="_rOyWmD9qEemuxfkvAcwbIQ" autoincrement="true">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_rOyWqD9qEemuxfkvAcwbIQ" length="10" precision="0">
+          <nativeType href="pathmap://NativeDBTypes/MariaDB-10.2#_yD7TcCY6EemALc7s7nxPuQ"/>
+        </type>
+      </columns>
+      <columns xmi:id="_rOyWqT9qEemuxfkvAcwbIQ" techID="_rNkNoT9qEemuxfkvAcwbIQ" name="company" nullable="true" defaultValue="NULL" indexElements="_rOyWnj9qEemuxfkvAcwbIQ">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_rOyWqj9qEemuxfkvAcwbIQ" length="50" precision="0">
+          <nativeType href="pathmap://NativeDBTypes/MariaDB-10.2#_bosKkSY8EemALc7s7nxPuQ"/>
+        </type>
+      </columns>
+      <columns xmi:id="_rOyWqz9qEemuxfkvAcwbIQ" techID="_rNkNoj9qEemuxfkvAcwbIQ" name="last_name" nullable="true" defaultValue="NULL" indexElements="_rOyWoj9qEemuxfkvAcwbIQ">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_rOyWrD9qEemuxfkvAcwbIQ" length="50" precision="0">
+          <nativeType href="pathmap://NativeDBTypes/MariaDB-10.2#_bosKkSY8EemALc7s7nxPuQ"/>
+        </type>
+      </columns>
+      <columns xmi:id="_rOyWrT9qEemuxfkvAcwbIQ" techID="_rNkNoz9qEemuxfkvAcwbIQ" name="first_name" nullable="true" defaultValue="NULL" indexElements="_rOyWoD9qEemuxfkvAcwbIQ">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_rOyWrj9qEemuxfkvAcwbIQ" length="50" precision="0">
+          <nativeType href="pathmap://NativeDBTypes/MariaDB-10.2#_bosKkSY8EemALc7s7nxPuQ"/>
+        </type>
+      </columns>
+      <columns xmi:id="_rOyWrz9qEemuxfkvAcwbIQ" techID="_rNkNpD9qEemuxfkvAcwbIQ" name="email_address" nullable="true" defaultValue="NULL">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_rOyWsD9qEemuxfkvAcwbIQ" length="50" precision="0">
+          <nativeType href="pathmap://NativeDBTypes/MariaDB-10.2#_bosKkSY8EemALc7s7nxPuQ"/>
+        </type>
+      </columns>
+      <columns xmi:id="_rOyWsT9qEemuxfkvAcwbIQ" techID="_rNkNpT9qEemuxfkvAcwbIQ" name="job_title" nullable="true" defaultValue="NULL">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_rOyWsj9qEemuxfkvAcwbIQ" length="50" precision="0">
+          <nativeType href="pathmap://NativeDBTypes/MariaDB-10.2#_bosKkSY8EemALc7s7nxPuQ"/>
+        </type>
+      </columns>
+      <columns xmi:id="_rOyWsz9qEemuxfkvAcwbIQ" techID="_rNkNpj9qEemuxfkvAcwbIQ" name="business_phone" nullable="true" defaultValue="NULL">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_rOyWtD9qEemuxfkvAcwbIQ" length="25" precision="0">
+          <nativeType href="pathmap://NativeDBTypes/MariaDB-10.2#_bosKkSY8EemALc7s7nxPuQ"/>
+        </type>
+      </columns>
+      <columns xmi:id="_rOyWtT9qEemuxfkvAcwbIQ" techID="_rNkNpz9qEemuxfkvAcwbIQ" name="home_phone" nullable="true" defaultValue="NULL">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_rOyWtj9qEemuxfkvAcwbIQ" length="25" precision="0">
+          <nativeType href="pathmap://NativeDBTypes/MariaDB-10.2#_bosKkSY8EemALc7s7nxPuQ"/>
+        </type>
+      </columns>
+      <columns xmi:id="_rOyWtz9qEemuxfkvAcwbIQ" techID="_rNkNqD9qEemuxfkvAcwbIQ" name="mobile_phone" nullable="true" defaultValue="NULL">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_rOyWuD9qEemuxfkvAcwbIQ" length="25" precision="0">
+          <nativeType href="pathmap://NativeDBTypes/MariaDB-10.2#_bosKkSY8EemALc7s7nxPuQ"/>
+        </type>
+      </columns>
+      <columns xmi:id="_rOyWuT9qEemuxfkvAcwbIQ" techID="_rNkNqT9qEemuxfkvAcwbIQ" name="fax_number" nullable="true" defaultValue="NULL">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_rOyWuj9qEemuxfkvAcwbIQ" length="25" precision="0">
+          <nativeType href="pathmap://NativeDBTypes/MariaDB-10.2#_bosKkSY8EemALc7s7nxPuQ"/>
+        </type>
+      </columns>
+      <columns xmi:id="_rOyWuz9qEemuxfkvAcwbIQ" techID="_rNkNqj9qEemuxfkvAcwbIQ" name="address" nullable="true" defaultValue="NULL">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_rOyWvD9qEemuxfkvAcwbIQ" length="2147483647" precision="0">
+          <nativeType href="pathmap://NativeDBTypes/MariaDB-10.2#_5LQigSY6EemALc7s7nxPuQ"/>
+        </type>
+      </columns>
+      <columns xmi:id="_rOyWvT9qEemuxfkvAcwbIQ" techID="_rNkNqz9qEemuxfkvAcwbIQ" name="city" nullable="true" defaultValue="NULL" indexElements="_rOyWnD9qEemuxfkvAcwbIQ">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_rOyWvj9qEemuxfkvAcwbIQ" length="50" precision="0">
+          <nativeType href="pathmap://NativeDBTypes/MariaDB-10.2#_bosKkSY8EemALc7s7nxPuQ"/>
+        </type>
+      </columns>
+      <columns xmi:id="_rOyWvz9qEemuxfkvAcwbIQ" techID="_rNkNrD9qEemuxfkvAcwbIQ" name="state_province" nullable="true" defaultValue="NULL" indexElements="_rOyWpD9qEemuxfkvAcwbIQ">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_rOyWwD9qEemuxfkvAcwbIQ" length="50" precision="0">
+          <nativeType href="pathmap://NativeDBTypes/MariaDB-10.2#_bosKkSY8EemALc7s7nxPuQ"/>
+        </type>
+      </columns>
+      <columns xmi:id="_rOyWwT9qEemuxfkvAcwbIQ" techID="_rNkNrT9qEemuxfkvAcwbIQ" name="zip_postal_code" nullable="true" defaultValue="NULL" indexElements="_rOyWpj9qEemuxfkvAcwbIQ">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_rOyWwj9qEemuxfkvAcwbIQ" length="15" precision="0">
+          <nativeType href="pathmap://NativeDBTypes/MariaDB-10.2#_bosKkSY8EemALc7s7nxPuQ"/>
+        </type>
+      </columns>
+      <columns xmi:id="_rOyWwz9qEemuxfkvAcwbIQ" techID="_rNkNrj9qEemuxfkvAcwbIQ" name="country_region" nullable="true" defaultValue="NULL">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_rOyWxD9qEemuxfkvAcwbIQ" length="50" precision="0">
+          <nativeType href="pathmap://NativeDBTypes/MariaDB-10.2#_bosKkSY8EemALc7s7nxPuQ"/>
+        </type>
+      </columns>
+      <columns xmi:id="_rOyWxT9qEemuxfkvAcwbIQ" techID="_rNkNrz9qEemuxfkvAcwbIQ" name="web_page" nullable="true" defaultValue="NULL">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_rOyWxj9qEemuxfkvAcwbIQ" length="2147483647" precision="0">
+          <nativeType href="pathmap://NativeDBTypes/MariaDB-10.2#_5LQigSY6EemALc7s7nxPuQ"/>
+        </type>
+      </columns>
+      <columns xmi:id="_rOyWxz9qEemuxfkvAcwbIQ" techID="_rNkNsD9qEemuxfkvAcwbIQ" name="notes" nullable="true" defaultValue="NULL">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_rOyWyD9qEemuxfkvAcwbIQ" length="2147483647" precision="0">
+          <nativeType href="pathmap://NativeDBTypes/MariaDB-10.2#_5LQigSY6EemALc7s7nxPuQ"/>
+        </type>
+      </columns>
+      <columns xmi:id="_rOyWyT9qEemuxfkvAcwbIQ" techID="_rNkNsT9qEemuxfkvAcwbIQ" name="attachments" nullable="true" defaultValue="NULL">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_rOyWyj9qEemuxfkvAcwbIQ" length="2147483647" precision="0">
+          <nativeType href="pathmap://NativeDBTypes/MariaDB-10.2#_3nFaACY6EemALc7s7nxPuQ"/>
+        </type>
+      </columns>
+    </tables>
+  </schemas>
+</database:DataBase>

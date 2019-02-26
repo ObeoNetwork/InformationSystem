@@ -1,0 +1,648 @@
+<?xml version="1.1" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog" xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.6.xsd">
+    <changeSet author="gcoutable (generated)" id="1551190363706-1">
+        <createTable tableName="customers">
+            <column autoIncrement="true" name="id" type="INT">
+                <constraints primaryKey="true"/>
+            </column>
+            <column name="company" type="VARCHAR(50)"/>
+            <column name="last_name" type="VARCHAR(50)"/>
+            <column name="first_name" type="VARCHAR(50)"/>
+            <column name="email_address" type="VARCHAR(50)"/>
+            <column name="job_title" type="VARCHAR(50)"/>
+            <column name="business_phone" type="VARCHAR(25)"/>
+            <column name="home_phone" type="VARCHAR(25)"/>
+            <column name="mobile_phone" type="VARCHAR(25)"/>
+            <column name="fax_number" type="VARCHAR(25)"/>
+            <column name="address" type="LONGTEXT"/>
+            <column name="city" type="VARCHAR(50)"/>
+            <column name="state_province" type="VARCHAR(50)"/>
+            <column name="zip_postal_code" type="VARCHAR(15)"/>
+            <column name="country_region" type="VARCHAR(50)"/>
+            <column name="web_page" type="LONGTEXT"/>
+            <column name="notes" type="LONGTEXT"/>
+            <column defaultValueComputed="NULL" name="attachments" type="LONGBLOB"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="gcoutable (generated)" id="1551190363706-2">
+        <createTable tableName="employee_privileges">
+            <column name="employee_id" type="INT">
+                <constraints primaryKey="true"/>
+            </column>
+            <column name="privilege_id" type="INT">
+                <constraints primaryKey="true"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="gcoutable (generated)" id="1551190363706-3">
+        <createTable tableName="employees">
+            <column autoIncrement="true" name="id" type="INT">
+                <constraints primaryKey="true"/>
+            </column>
+            <column name="company" type="VARCHAR(50)"/>
+            <column name="last_name" type="VARCHAR(50)"/>
+            <column name="first_name" type="VARCHAR(50)"/>
+            <column name="email_address" type="VARCHAR(50)"/>
+            <column name="job_title" type="VARCHAR(50)"/>
+            <column name="business_phone" type="VARCHAR(25)"/>
+            <column name="home_phone" type="VARCHAR(25)"/>
+            <column name="mobile_phone" type="VARCHAR(25)"/>
+            <column name="fax_number" type="VARCHAR(25)"/>
+            <column name="address" type="LONGTEXT"/>
+            <column name="city" type="VARCHAR(50)"/>
+            <column name="state_province" type="VARCHAR(50)"/>
+            <column name="zip_postal_code" type="VARCHAR(15)"/>
+            <column name="country_region" type="VARCHAR(50)"/>
+            <column name="web_page" type="LONGTEXT"/>
+            <column name="notes" type="LONGTEXT"/>
+            <column defaultValueComputed="NULL" name="attachments" type="LONGBLOB"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="gcoutable (generated)" id="1551190363706-4">
+        <createTable tableName="inventory_transaction_types">
+            <column name="id" type="TINYINT(3)">
+                <constraints primaryKey="true"/>
+            </column>
+            <column name="type_name" type="VARCHAR(50)">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="gcoutable (generated)" id="1551190363706-5">
+        <createTable tableName="inventory_transactions">
+            <column autoIncrement="true" name="id" type="INT">
+                <constraints primaryKey="true"/>
+            </column>
+            <column name="transaction_type" type="TINYINT(3)">
+                <constraints nullable="false"/>
+            </column>
+            <column defaultValueComputed="NULL" name="transaction_created_date" type="datetime"/>
+            <column defaultValueComputed="NULL" name="transaction_modified_date" type="datetime"/>
+            <column name="product_id" type="INT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="quantity" type="INT">
+                <constraints nullable="false"/>
+            </column>
+            <column defaultValueComputed="NULL" name="purchase_order_id" type="INT"/>
+            <column defaultValueComputed="NULL" name="customer_order_id" type="INT"/>
+            <column name="comments" type="VARCHAR(255)"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="gcoutable (generated)" id="1551190363706-6">
+        <createTable tableName="invoices">
+            <column autoIncrement="true" name="id" type="INT">
+                <constraints primaryKey="true"/>
+            </column>
+            <column defaultValueComputed="NULL" name="order_id" type="INT"/>
+            <column defaultValueComputed="NULL" name="invoice_date" type="datetime"/>
+            <column defaultValueComputed="NULL" name="due_date" type="datetime"/>
+            <column defaultValueComputed="0.0000" name="tax" type="DECIMAL(19, 4)"/>
+            <column defaultValueComputed="0.0000" name="shipping" type="DECIMAL(19, 4)"/>
+            <column defaultValueComputed="0.0000" name="amount_due" type="DECIMAL(19, 4)"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="gcoutable (generated)" id="1551190363706-7">
+        <createTable tableName="order_details">
+            <column autoIncrement="true" name="id" type="INT">
+                <constraints primaryKey="true"/>
+            </column>
+            <column name="order_id" type="INT">
+                <constraints nullable="false"/>
+            </column>
+            <column defaultValueComputed="NULL" name="product_id" type="INT"/>
+            <column defaultValueComputed="0.0000" name="quantity" type="DECIMAL(18, 4)">
+                <constraints nullable="false"/>
+            </column>
+            <column defaultValueComputed="0.0000" name="unit_price" type="DECIMAL(19, 4)"/>
+            <column defaultValueNumeric="0.0" name="discount" type="DOUBLE">
+                <constraints nullable="false"/>
+            </column>
+            <column defaultValueComputed="NULL" name="status_id" type="INT"/>
+            <column defaultValueComputed="NULL" name="date_allocated" type="datetime"/>
+            <column defaultValueComputed="NULL" name="purchase_order_id" type="INT"/>
+            <column defaultValueComputed="NULL" name="inventory_id" type="INT"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="gcoutable (generated)" id="1551190363706-8">
+        <createTable tableName="order_details_status">
+            <column name="id" type="INT">
+                <constraints primaryKey="true"/>
+            </column>
+            <column name="status_name" type="VARCHAR(50)">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="gcoutable (generated)" id="1551190363706-9">
+        <createTable tableName="orders">
+            <column autoIncrement="true" name="id" type="INT">
+                <constraints primaryKey="true"/>
+            </column>
+            <column defaultValueComputed="NULL" name="employee_id" type="INT"/>
+            <column defaultValueComputed="NULL" name="customer_id" type="INT"/>
+            <column defaultValueComputed="NULL" name="order_date" type="datetime"/>
+            <column defaultValueComputed="NULL" name="shipped_date" type="datetime"/>
+            <column defaultValueComputed="NULL" name="shipper_id" type="INT"/>
+            <column name="ship_name" type="VARCHAR(50)"/>
+            <column name="ship_address" type="LONGTEXT"/>
+            <column name="ship_city" type="VARCHAR(50)"/>
+            <column name="ship_state_province" type="VARCHAR(50)"/>
+            <column name="ship_zip_postal_code" type="VARCHAR(50)"/>
+            <column name="ship_country_region" type="VARCHAR(50)"/>
+            <column defaultValueComputed="0.0000" name="shipping_fee" type="DECIMAL(19, 4)"/>
+            <column defaultValueComputed="0.0000" name="taxes" type="DECIMAL(19, 4)"/>
+            <column name="payment_type" type="VARCHAR(50)"/>
+            <column defaultValueComputed="NULL" name="paid_date" type="datetime"/>
+            <column name="notes" type="LONGTEXT"/>
+            <column defaultValueNumeric="0.0" name="tax_rate" type="DOUBLE"/>
+            <column defaultValueComputed="NULL" name="tax_status_id" type="TINYINT(3)"/>
+            <column defaultValueNumeric="0" name="status_id" type="TINYINT(3)"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="gcoutable (generated)" id="1551190363706-10">
+        <createTable tableName="orders_status">
+            <column name="id" type="TINYINT(3)">
+                <constraints primaryKey="true"/>
+            </column>
+            <column name="status_name" type="VARCHAR(50)">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="gcoutable (generated)" id="1551190363706-11">
+        <createTable tableName="orders_tax_status">
+            <column name="id" type="TINYINT(3)">
+                <constraints primaryKey="true"/>
+            </column>
+            <column name="tax_status_name" type="VARCHAR(50)">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="gcoutable (generated)" id="1551190363706-12">
+        <createTable tableName="privileges">
+            <column autoIncrement="true" name="id" type="INT">
+                <constraints primaryKey="true"/>
+            </column>
+            <column name="privilege_name" type="VARCHAR(50)"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="gcoutable (generated)" id="1551190363706-13">
+        <createTable tableName="products">
+            <column name="supplier_ids" type="LONGTEXT"/>
+            <column autoIncrement="true" name="id" type="INT">
+                <constraints primaryKey="true"/>
+            </column>
+            <column name="product_code" type="VARCHAR(25)"/>
+            <column name="product_name" type="VARCHAR(50)"/>
+            <column name="description" type="LONGTEXT"/>
+            <column defaultValueComputed="0.0000" name="standard_cost" type="DECIMAL(19, 4)"/>
+            <column defaultValueComputed="0.0000" name="list_price" type="DECIMAL(19, 4)">
+                <constraints nullable="false"/>
+            </column>
+            <column defaultValueComputed="NULL" name="reorder_level" type="INT"/>
+            <column defaultValueComputed="NULL" name="target_level" type="INT"/>
+            <column name="quantity_per_unit" type="VARCHAR(50)"/>
+            <column defaultValueBoolean="false" name="discontinued" type="BOOLEAN">
+                <constraints nullable="false"/>
+            </column>
+            <column defaultValueComputed="NULL" name="minimum_reorder_quantity" type="INT"/>
+            <column name="category" type="VARCHAR(50)"/>
+            <column defaultValueComputed="NULL" name="attachments" type="LONGBLOB"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="gcoutable (generated)" id="1551190363706-14">
+        <createTable tableName="purchase_order_details">
+            <column autoIncrement="true" name="id" type="INT">
+                <constraints primaryKey="true"/>
+            </column>
+            <column name="purchase_order_id" type="INT">
+                <constraints nullable="false"/>
+            </column>
+            <column defaultValueComputed="NULL" name="product_id" type="INT"/>
+            <column name="quantity" type="DECIMAL(18, 4)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="unit_cost" type="DECIMAL(19, 4)">
+                <constraints nullable="false"/>
+            </column>
+            <column defaultValueComputed="NULL" name="date_received" type="datetime"/>
+            <column defaultValueBoolean="false" name="posted_to_inventory" type="BOOLEAN">
+                <constraints nullable="false"/>
+            </column>
+            <column defaultValueComputed="NULL" name="inventory_id" type="INT"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="gcoutable (generated)" id="1551190363706-15">
+        <createTable tableName="purchase_order_status">
+            <column name="id" type="INT">
+                <constraints primaryKey="true"/>
+            </column>
+            <column name="status" type="VARCHAR(50)"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="gcoutable (generated)" id="1551190363706-16">
+        <createTable tableName="purchase_orders">
+            <column autoIncrement="true" name="id" type="INT">
+                <constraints primaryKey="true"/>
+            </column>
+            <column defaultValueComputed="NULL" name="supplier_id" type="INT"/>
+            <column defaultValueComputed="NULL" name="created_by" type="INT"/>
+            <column defaultValueComputed="NULL" name="submitted_date" type="datetime"/>
+            <column defaultValueComputed="NULL" name="creation_date" type="datetime"/>
+            <column defaultValueNumeric="0" name="status_id" type="INT"/>
+            <column defaultValueComputed="NULL" name="expected_date" type="datetime"/>
+            <column defaultValueComputed="0.0000" name="shipping_fee" type="DECIMAL(19, 4)">
+                <constraints nullable="false"/>
+            </column>
+            <column defaultValueComputed="0.0000" name="taxes" type="DECIMAL(19, 4)">
+                <constraints nullable="false"/>
+            </column>
+            <column defaultValueComputed="NULL" name="payment_date" type="datetime"/>
+            <column defaultValueComputed="0.0000" name="payment_amount" type="DECIMAL(19, 4)"/>
+            <column name="payment_method" type="VARCHAR(50)"/>
+            <column name="notes" type="LONGTEXT"/>
+            <column defaultValueComputed="NULL" name="approved_by" type="INT"/>
+            <column defaultValueComputed="NULL" name="approved_date" type="datetime"/>
+            <column defaultValueComputed="NULL" name="submitted_by" type="INT"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="gcoutable (generated)" id="1551190363706-17">
+        <createTable tableName="sales_reports">
+            <column name="group_by" type="VARCHAR(50)">
+                <constraints primaryKey="true"/>
+            </column>
+            <column name="display" type="VARCHAR(50)"/>
+            <column name="title" type="VARCHAR(50)"/>
+            <column name="filter_row_source" type="LONGTEXT"/>
+            <column defaultValueBoolean="false" name="default" type="BOOLEAN">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="gcoutable (generated)" id="1551190363706-18">
+        <createTable tableName="shippers">
+            <column autoIncrement="true" name="id" type="INT">
+                <constraints primaryKey="true"/>
+            </column>
+            <column name="company" type="VARCHAR(50)"/>
+            <column name="last_name" type="VARCHAR(50)"/>
+            <column name="first_name" type="VARCHAR(50)"/>
+            <column name="email_address" type="VARCHAR(50)"/>
+            <column name="job_title" type="VARCHAR(50)"/>
+            <column name="business_phone" type="VARCHAR(25)"/>
+            <column name="home_phone" type="VARCHAR(25)"/>
+            <column name="mobile_phone" type="VARCHAR(25)"/>
+            <column name="fax_number" type="VARCHAR(25)"/>
+            <column name="address" type="LONGTEXT"/>
+            <column name="city" type="VARCHAR(50)"/>
+            <column name="state_province" type="VARCHAR(50)"/>
+            <column name="zip_postal_code" type="VARCHAR(15)"/>
+            <column name="country_region" type="VARCHAR(50)"/>
+            <column name="web_page" type="LONGTEXT"/>
+            <column name="notes" type="LONGTEXT"/>
+            <column defaultValueComputed="NULL" name="attachments" type="LONGBLOB"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="gcoutable (generated)" id="1551190363706-19">
+        <createTable tableName="strings">
+            <column autoIncrement="true" name="string_id" type="INT">
+                <constraints primaryKey="true"/>
+            </column>
+            <column name="string_data" type="VARCHAR(255)"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="gcoutable (generated)" id="1551190363706-20">
+        <createTable tableName="suppliers">
+            <column autoIncrement="true" name="id" type="INT">
+                <constraints primaryKey="true"/>
+            </column>
+            <column name="company" type="VARCHAR(50)"/>
+            <column name="last_name" type="VARCHAR(50)"/>
+            <column name="first_name" type="VARCHAR(50)"/>
+            <column name="email_address" type="VARCHAR(50)"/>
+            <column name="job_title" type="VARCHAR(50)"/>
+            <column name="business_phone" type="VARCHAR(25)"/>
+            <column name="home_phone" type="VARCHAR(25)"/>
+            <column name="mobile_phone" type="VARCHAR(25)"/>
+            <column name="fax_number" type="VARCHAR(25)"/>
+            <column name="address" type="LONGTEXT"/>
+            <column name="city" type="VARCHAR(50)"/>
+            <column name="state_province" type="VARCHAR(50)"/>
+            <column name="zip_postal_code" type="VARCHAR(15)"/>
+            <column name="country_region" type="VARCHAR(50)"/>
+            <column name="web_page" type="LONGTEXT"/>
+            <column name="notes" type="LONGTEXT"/>
+            <column defaultValueComputed="NULL" name="attachments" type="LONGBLOB"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="gcoutable (generated)" id="1551190363706-21">
+        <createIndex indexName="city_customers" tableName="customers">
+            <column name="city"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="gcoutable (generated)" id="1551190363706-22">
+        <createIndex indexName="city_employees" tableName="employees">
+            <column name="city"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="gcoutable (generated)" id="1551190363706-23">
+        <createIndex indexName="city_shippers" tableName="shippers">
+            <column name="city"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="gcoutable (generated)" id="1551190363706-24">
+        <createIndex indexName="city_suppliers" tableName="suppliers">
+            <column name="city"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="gcoutable (generated)" id="1551190363706-25">
+        <createIndex indexName="company_customers" tableName="customers">
+            <column name="company"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="gcoutable (generated)" id="1551190363706-26">
+        <createIndex indexName="company_employees" tableName="employees">
+            <column name="company"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="gcoutable (generated)" id="1551190363706-27">
+        <createIndex indexName="company_shippers" tableName="shippers">
+            <column name="company"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="gcoutable (generated)" id="1551190363706-28">
+        <createIndex indexName="company_suppliers" tableName="suppliers">
+            <column name="company"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="gcoutable (generated)" id="1551190363706-29">
+        <createIndex indexName="created_by" tableName="purchase_orders">
+            <column defaultValueComputed="NULL" name="created_by"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="gcoutable (generated)" id="1551190363706-30">
+        <createIndex indexName="customer_id_2" tableName="orders">
+            <column defaultValueComputed="NULL" name="customer_id"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="gcoutable (generated)" id="1551190363706-31">
+        <createIndex indexName="customer_order_id_2" tableName="inventory_transactions">
+            <column defaultValueComputed="NULL" name="customer_order_id"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="gcoutable (generated)" id="1551190363706-32">
+        <createIndex indexName="employee_id" tableName="employee_privileges">
+            <column name="employee_id"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="gcoutable (generated)" id="1551190363706-33">
+        <createIndex indexName="employee_id_2" tableName="orders">
+            <column defaultValueComputed="NULL" name="employee_id"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="gcoutable (generated)" id="1551190363706-34">
+        <createIndex indexName="first_name_customers" tableName="customers">
+            <column name="first_name"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="gcoutable (generated)" id="1551190363706-35">
+        <createIndex indexName="first_name_employees" tableName="employees">
+            <column name="first_name"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="gcoutable (generated)" id="1551190363706-36">
+        <createIndex indexName="first_name_shippers" tableName="shippers">
+            <column name="first_name"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="gcoutable (generated)" id="1551190363706-37">
+        <createIndex indexName="first_name_suppliers" tableName="suppliers">
+            <column name="first_name"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="gcoutable (generated)" id="1551190363706-38">
+        <createIndex indexName="fk_invoices_orders1_idx" tableName="invoices">
+            <column defaultValueComputed="NULL" name="order_id"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="gcoutable (generated)" id="1551190363706-39">
+        <createIndex indexName="fk_order_details_order_details_status1_idx" tableName="order_details">
+            <column defaultValueComputed="NULL" name="status_id"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="gcoutable (generated)" id="1551190363706-40">
+        <createIndex indexName="fk_order_details_orders1_idx" tableName="order_details">
+            <column name="order_id"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="gcoutable (generated)" id="1551190363706-41">
+        <createIndex indexName="fk_orders_orders_status1" tableName="orders">
+            <column defaultValueNumeric="0" name="status_id"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="gcoutable (generated)" id="1551190363706-42">
+        <createIndex indexName="inventory_id" tableName="order_details">
+            <column defaultValueComputed="NULL" name="inventory_id"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="gcoutable (generated)" id="1551190363706-43">
+        <createIndex indexName="inventory_id_2" tableName="purchase_order_details">
+            <column defaultValueComputed="NULL" name="inventory_id"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="gcoutable (generated)" id="1551190363706-44">
+        <createIndex indexName="last_name_customers" tableName="customers">
+            <column name="last_name"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="gcoutable (generated)" id="1551190363706-45">
+        <createIndex indexName="last_name_employees" tableName="employees">
+            <column name="last_name"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="gcoutable (generated)" id="1551190363706-46">
+        <createIndex indexName="last_name_shippers" tableName="shippers">
+            <column name="last_name"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="gcoutable (generated)" id="1551190363706-47">
+        <createIndex indexName="last_name_suppliers" tableName="suppliers">
+            <column name="last_name"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="gcoutable (generated)" id="1551190363706-48">
+        <createIndex indexName="privilege_id" tableName="employee_privileges">
+            <column name="privilege_id"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="gcoutable (generated)" id="1551190363706-49">
+        <createIndex indexName="product_code" tableName="products">
+            <column name="product_code"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="gcoutable (generated)" id="1551190363706-50">
+        <createIndex indexName="product_id_inventory_transactions" tableName="inventory_transactions">
+            <column name="product_id"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="gcoutable (generated)" id="1551190363706-51">
+        <createIndex indexName="product_id_order_details" tableName="order_details">
+            <column defaultValueComputed="NULL" name="product_id"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="gcoutable (generated)" id="1551190363706-52">
+        <createIndex indexName="product_id_purchase_order_details" tableName="purchase_order_details">
+            <column defaultValueComputed="NULL" name="product_id"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="gcoutable (generated)" id="1551190363706-53">
+        <createIndex indexName="purchase_order_id_inventory_transactions" tableName="inventory_transactions">
+            <column defaultValueComputed="NULL" name="purchase_order_id"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="gcoutable (generated)" id="1551190363706-54">
+        <createIndex indexName="purchase_order_id_order_details" tableName="order_details">
+            <column defaultValueComputed="NULL" name="purchase_order_id"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="gcoutable (generated)" id="1551190363706-55">
+        <createIndex indexName="purchase_order_id_purchase_order_details" tableName="purchase_order_details">
+            <column name="purchase_order_id"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="gcoutable (generated)" id="1551190363706-56">
+        <createIndex indexName="ship_zip_postal_code" tableName="orders">
+            <column name="ship_zip_postal_code"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="gcoutable (generated)" id="1551190363706-57">
+        <createIndex indexName="shipper_id" tableName="orders">
+            <column defaultValueComputed="NULL" name="shipper_id"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="gcoutable (generated)" id="1551190363706-58">
+        <createIndex indexName="state_province_customers" tableName="customers">
+            <column name="state_province"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="gcoutable (generated)" id="1551190363706-59">
+        <createIndex indexName="state_province_employees" tableName="employees">
+            <column name="state_province"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="gcoutable (generated)" id="1551190363706-60">
+        <createIndex indexName="state_province_shippers" tableName="shippers">
+            <column name="state_province"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="gcoutable (generated)" id="1551190363706-61">
+        <createIndex indexName="state_province_suppliers" tableName="suppliers">
+            <column name="state_province"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="gcoutable (generated)" id="1551190363706-62">
+        <createIndex indexName="status_id" tableName="purchase_orders">
+            <column defaultValueNumeric="0" name="status_id"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="gcoutable (generated)" id="1551190363706-63">
+        <createIndex indexName="supplier_id_2" tableName="purchase_orders">
+            <column defaultValueComputed="NULL" name="supplier_id"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="gcoutable (generated)" id="1551190363706-64">
+        <createIndex indexName="tax_status" tableName="orders">
+            <column defaultValueComputed="NULL" name="tax_status_id"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="gcoutable (generated)" id="1551190363706-65">
+        <createIndex indexName="transaction_type" tableName="inventory_transactions">
+            <column name="transaction_type"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="gcoutable (generated)" id="1551190363706-66">
+        <createIndex indexName="zip_postal_code_customers" tableName="customers">
+            <column name="zip_postal_code"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="gcoutable (generated)" id="1551190363706-67">
+        <createIndex indexName="zip_postal_code_employees" tableName="employees">
+            <column name="zip_postal_code"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="gcoutable (generated)" id="1551190363706-68">
+        <createIndex indexName="zip_postal_code_shippers" tableName="shippers">
+            <column name="zip_postal_code"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="gcoutable (generated)" id="1551190363706-69">
+        <createIndex indexName="zip_postal_code_suppliers" tableName="suppliers">
+            <column name="zip_postal_code"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="gcoutable (generated)" id="1551190363706-70">
+        <addForeignKeyConstraint baseColumnNames="employee_id" baseTableName="employee_privileges" constraintName="fk_employee_privileges_employees1" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="employees" validate="true"/>
+    </changeSet>
+    <changeSet author="gcoutable (generated)" id="1551190363706-71">
+        <addForeignKeyConstraint baseColumnNames="privilege_id" baseTableName="employee_privileges" constraintName="fk_employee_privileges_privileges1" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="privileges" validate="true"/>
+    </changeSet>
+    <changeSet author="gcoutable (generated)" id="1551190363706-72">
+        <addForeignKeyConstraint baseColumnNames="transaction_type" baseTableName="inventory_transactions" constraintName="fk_inventory_transactions_inventory_transaction_types1" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="inventory_transaction_types" validate="true"/>
+    </changeSet>
+    <changeSet author="gcoutable (generated)" id="1551190363706-73">
+        <addForeignKeyConstraint baseColumnNames="customer_order_id" baseTableName="inventory_transactions" constraintName="fk_inventory_transactions_orders1" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="orders" validate="true"/>
+    </changeSet>
+    <changeSet author="gcoutable (generated)" id="1551190363706-74">
+        <addForeignKeyConstraint baseColumnNames="product_id" baseTableName="inventory_transactions" constraintName="fk_inventory_transactions_products1" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="products" validate="true"/>
+    </changeSet>
+    <changeSet author="gcoutable (generated)" id="1551190363706-75">
+        <addForeignKeyConstraint baseColumnNames="purchase_order_id" baseTableName="inventory_transactions" constraintName="fk_inventory_transactions_purchase_orders1" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="purchase_orders" validate="true"/>
+    </changeSet>
+    <changeSet author="gcoutable (generated)" id="1551190363706-76">
+        <addForeignKeyConstraint baseColumnNames="order_id" baseTableName="invoices" constraintName="fk_invoices_orders1" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="orders" validate="true"/>
+    </changeSet>
+    <changeSet author="gcoutable (generated)" id="1551190363706-77">
+        <addForeignKeyConstraint baseColumnNames="status_id" baseTableName="order_details" constraintName="fk_order_details_order_details_status1" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="order_details_status" validate="true"/>
+    </changeSet>
+    <changeSet author="gcoutable (generated)" id="1551190363706-78">
+        <addForeignKeyConstraint baseColumnNames="order_id" baseTableName="order_details" constraintName="fk_order_details_orders1" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="orders" validate="true"/>
+    </changeSet>
+    <changeSet author="gcoutable (generated)" id="1551190363706-79">
+        <addForeignKeyConstraint baseColumnNames="product_id" baseTableName="order_details" constraintName="fk_order_details_products1" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="products" validate="true"/>
+    </changeSet>
+    <changeSet author="gcoutable (generated)" id="1551190363706-80">
+        <addForeignKeyConstraint baseColumnNames="customer_id" baseTableName="orders" constraintName="fk_orders_customers" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="customers" validate="true"/>
+    </changeSet>
+    <changeSet author="gcoutable (generated)" id="1551190363706-81">
+        <addForeignKeyConstraint baseColumnNames="employee_id" baseTableName="orders" constraintName="fk_orders_employees1" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="employees" validate="true"/>
+    </changeSet>
+    <changeSet author="gcoutable (generated)" id="1551190363706-82">
+        <addForeignKeyConstraint baseColumnNames="status_id" baseTableName="orders" constraintName="fk_orders_orders_status1" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="orders_status" validate="true"/>
+    </changeSet>
+    <changeSet author="gcoutable (generated)" id="1551190363706-83">
+        <addForeignKeyConstraint baseColumnNames="tax_status_id" baseTableName="orders" constraintName="fk_orders_orders_tax_status1" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="orders_tax_status" validate="true"/>
+    </changeSet>
+    <changeSet author="gcoutable (generated)" id="1551190363706-84">
+        <addForeignKeyConstraint baseColumnNames="shipper_id" baseTableName="orders" constraintName="fk_orders_shippers1" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="shippers" validate="true"/>
+    </changeSet>
+    <changeSet author="gcoutable (generated)" id="1551190363706-85">
+        <addForeignKeyConstraint baseColumnNames="inventory_id" baseTableName="purchase_order_details" constraintName="fk_purchase_order_details_inventory_transactions1" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="inventory_transactions" validate="true"/>
+    </changeSet>
+    <changeSet author="gcoutable (generated)" id="1551190363706-86">
+        <addForeignKeyConstraint baseColumnNames="product_id" baseTableName="purchase_order_details" constraintName="fk_purchase_order_details_products1" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="products" validate="true"/>
+    </changeSet>
+    <changeSet author="gcoutable (generated)" id="1551190363706-87">
+        <addForeignKeyConstraint baseColumnNames="purchase_order_id" baseTableName="purchase_order_details" constraintName="fk_purchase_order_details_purchase_orders1" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="purchase_orders" validate="true"/>
+    </changeSet>
+    <changeSet author="gcoutable (generated)" id="1551190363706-88">
+        <addForeignKeyConstraint baseColumnNames="created_by" baseTableName="purchase_orders" constraintName="fk_purchase_orders_employees1" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="employees" validate="true"/>
+    </changeSet>
+    <changeSet author="gcoutable (generated)" id="1551190363706-89">
+        <addForeignKeyConstraint baseColumnNames="status_id" baseTableName="purchase_orders" constraintName="fk_purchase_orders_purchase_order_status1" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="purchase_order_status" validate="true"/>
+    </changeSet>
+    <changeSet author="gcoutable (generated)" id="1551190363706-90">
+        <addForeignKeyConstraint baseColumnNames="supplier_id" baseTableName="purchase_orders" constraintName="fk_purchase_orders_suppliers1" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="suppliers" validate="true"/>
+    </changeSet>
+</databaseChangeLog>
