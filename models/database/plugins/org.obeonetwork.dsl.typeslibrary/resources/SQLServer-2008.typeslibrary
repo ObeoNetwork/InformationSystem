@@ -42,6 +42,9 @@
   <nativeTypes xmi:id="_uxQxcGW7EeSGPOrcarGX5w" technicalid="_FVp-Kpn4EeaqGJZ6nXNZAQ" name="dec" spec="LengthAndPrecision">
     <mapsTo href="pathmap://LogicalDBTypes#_WWeJ5REnEeGTa_JlZYBw1A"/>
   </nativeTypes>
+  <nativeTypes xmi:id="_5vmXEDqxEemumanY6_7xeQ" technicalid="_5jqM0DqxEemumanY6_7xeQ" name="decimal" spec="LengthAndPrecision">
+    <mapsTo href="pathmap://LogicalDBTypes#_WWeJ5REnEeGTa_JlZYBw1A"/>
+  </nativeTypes>
   <nativeTypes xmi:id="_ERR9UGW8EeSGPOrcarGX5w" technicalid="_FVp-LJn4EeaqGJZ6nXNZAQ" name="float" spec="LengthAndPrecision">
     <mapsTo href="pathmap://LogicalDBTypes#_WWeJ5hEnEeGTa_JlZYBw1A"/>
   </nativeTypes>

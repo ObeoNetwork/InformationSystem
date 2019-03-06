@@ -1,0 +1,1320 @@
+<?xml version="1.0" encoding="ASCII"?>
+<database:DataBase xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:database="http://www.obeonetwork.org/dsl/database/1.0" xmlns:typeslibrary="http://www.obeonetwork.org/dsl/typeslibrary/1.0" xmi:id="_QcqJMD9lEemGSspmsFzMnA" techID="_QDlh4D9lEemGSspmsFzMnA" name="northwind">
+  <usedLibraries xsi:type="typeslibrary:NativeTypesLibrary" href="pathmap://NativeDBTypes/SQLServer-2008#_Zj69UBEnEeGTa_JlZYBw1A"/>
+  <schemas xmi:id="_QcqJMT9lEemGSspmsFzMnA" techID="_QDmI8D9lEemGSspmsFzMnA" name="dbo">
+    <tables xsi:type="database:Table" xmi:id="_QcqJMj9lEemGSspmsFzMnA" techID="_QD_KgD9lEemGSspmsFzMnA" name="customers">
+      <primaryKey xmi:id="_QcqJMz9lEemGSspmsFzMnA" techID="_QWTpkD9lEemGSspmsFzMnA" name="PK_CUSTOMERS" columns="_QcqJQj9lEemGSspmsFzMnA"/>
+      <indexes xmi:id="_QcqJND9lEemGSspmsFzMnA" techID="_QYbwgD9lEemGSspmsFzMnA" name="PK_CUSTOMERS" qualifier="customers" unique="true">
+        <elements xmi:id="_QcqJNT9lEemGSspmsFzMnA" techID="_QYcXkD9lEemGSspmsFzMnA" column="_QcqJQj9lEemGSspmsFzMnA" asc="true"/>
+      </indexes>
+      <indexes xmi:id="_QcqJNj9lEemGSspmsFzMnA" techID="_QYc-oD9lEemGSspmsFzMnA" name="city_customers" qualifier="customers">
+        <elements xmi:id="_QcqJNz9lEemGSspmsFzMnA" techID="_QYc-oT9lEemGSspmsFzMnA" column="_QcqJWD9lEemGSspmsFzMnA" asc="true"/>
+      </indexes>
+      <indexes xmi:id="_QcqJOD9lEemGSspmsFzMnA" techID="_QYc-oj9lEemGSspmsFzMnA" name="company_customers" qualifier="customers">
+        <elements xmi:id="_QcqJOT9lEemGSspmsFzMnA" techID="_QYc-oz9lEemGSspmsFzMnA" column="_QcqJRD9lEemGSspmsFzMnA" asc="true"/>
+      </indexes>
+      <indexes xmi:id="_QcqJOj9lEemGSspmsFzMnA" techID="_QYc-pD9lEemGSspmsFzMnA" name="first_name_customers" qualifier="customers">
+        <elements xmi:id="_QcqJOz9lEemGSspmsFzMnA" techID="_QYc-pT9lEemGSspmsFzMnA" column="_QcqJSD9lEemGSspmsFzMnA" asc="true"/>
+      </indexes>
+      <indexes xmi:id="_QcqJPD9lEemGSspmsFzMnA" techID="_QYc-pj9lEemGSspmsFzMnA" name="last_name_customers" qualifier="customers">
+        <elements xmi:id="_QcqJPT9lEemGSspmsFzMnA" techID="_QYc-pz9lEemGSspmsFzMnA" column="_QcqJRj9lEemGSspmsFzMnA" asc="true"/>
+      </indexes>
+      <indexes xmi:id="_QcqJPj9lEemGSspmsFzMnA" techID="_QYc-qD9lEemGSspmsFzMnA" name="state_province_customers" qualifier="customers">
+        <elements xmi:id="_QcqJPz9lEemGSspmsFzMnA" techID="_QYc-qT9lEemGSspmsFzMnA" column="_QcqJWj9lEemGSspmsFzMnA" asc="true"/>
+      </indexes>
+      <indexes xmi:id="_QcqJQD9lEemGSspmsFzMnA" techID="_QYc-qj9lEemGSspmsFzMnA" name="zip_postal_code_customers" qualifier="customers">
+        <elements xmi:id="_QcqJQT9lEemGSspmsFzMnA" techID="_QYc-qz9lEemGSspmsFzMnA" column="_QcqJXD9lEemGSspmsFzMnA" asc="true"/>
+      </indexes>
+      <columns xmi:id="_QcqJQj9lEemGSspmsFzMnA" techID="_QVtzsD9lEemGSspmsFzMnA" name="id" defaultValue="" indexElements="_QcqJNT9lEemGSspmsFzMnA" primaryKey="_QcqJMz9lEemGSspmsFzMnA" autoincrement="true">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_QcqJQz9lEemGSspmsFzMnA" length="10" precision="0">
+          <nativeType href="pathmap://NativeDBTypes/SQLServer-2008#_NBLssGW8EeSGPOrcarGX5w"/>
+        </type>
+      </columns>
+      <columns xmi:id="_QcqJRD9lEemGSspmsFzMnA" techID="_QVysMD9lEemGSspmsFzMnA" name="company" nullable="true" defaultValue="" indexElements="_QcqJOT9lEemGSspmsFzMnA">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_QcqJRT9lEemGSspmsFzMnA" length="50" precision="0">
+          <nativeType href="pathmap://NativeDBTypes/SQLServer-2008#_KTDyMGW_EeSGPOrcarGX5w"/>
+        </type>
+      </columns>
+      <columns xmi:id="_QcqJRj9lEemGSspmsFzMnA" techID="_QVysMT9lEemGSspmsFzMnA" name="last_name" nullable="true" defaultValue="" indexElements="_QcqJPT9lEemGSspmsFzMnA">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_QcqJRz9lEemGSspmsFzMnA" length="50" precision="0">
+          <nativeType href="pathmap://NativeDBTypes/SQLServer-2008#_KTDyMGW_EeSGPOrcarGX5w"/>
+        </type>
+      </columns>
+      <columns xmi:id="_QcqJSD9lEemGSspmsFzMnA" techID="_QVzTQD9lEemGSspmsFzMnA" name="first_name" nullable="true" defaultValue="" indexElements="_QcqJOz9lEemGSspmsFzMnA">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_QcqJST9lEemGSspmsFzMnA" length="50" precision="0">
+          <nativeType href="pathmap://NativeDBTypes/SQLServer-2008#_KTDyMGW_EeSGPOrcarGX5w"/>
+        </type>
+      </columns>
+      <columns xmi:id="_QcqJSj9lEemGSspmsFzMnA" techID="_QVzTQT9lEemGSspmsFzMnA" name="email_address" nullable="true" defaultValue="">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_QcqJSz9lEemGSspmsFzMnA" length="50" precision="0">
+          <nativeType href="pathmap://NativeDBTypes/SQLServer-2008#_KTDyMGW_EeSGPOrcarGX5w"/>
+        </type>
+      </columns>
+      <columns xmi:id="_QcqJTD9lEemGSspmsFzMnA" techID="_QVz6UD9lEemGSspmsFzMnA" name="job_title" nullable="true" defaultValue="">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_QcqJTT9lEemGSspmsFzMnA" length="50" precision="0">
+          <nativeType href="pathmap://NativeDBTypes/SQLServer-2008#_KTDyMGW_EeSGPOrcarGX5w"/>
+        </type>
+      </columns>
+      <columns xmi:id="_QcqJTj9lEemGSspmsFzMnA" techID="_QVz6UT9lEemGSspmsFzMnA" name="business_phone" nullable="true" defaultValue="">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_QcqJTz9lEemGSspmsFzMnA" length="25" precision="0">
+          <nativeType href="pathmap://NativeDBTypes/SQLServer-2008#_KTDyMGW_EeSGPOrcarGX5w"/>
+        </type>
+      </columns>
+      <columns xmi:id="_QcqJUD9lEemGSspmsFzMnA" techID="_QVz6Uj9lEemGSspmsFzMnA" name="home_phone" nullable="true" defaultValue="">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_QcqJUT9lEemGSspmsFzMnA" length="25" precision="0">
+          <nativeType href="pathmap://NativeDBTypes/SQLServer-2008#_KTDyMGW_EeSGPOrcarGX5w"/>
+        </type>
+      </columns>
+      <columns xmi:id="_QcqJUj9lEemGSspmsFzMnA" techID="_QV0hYD9lEemGSspmsFzMnA" name="mobile_phone" nullable="true" defaultValue="">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_QcqJUz9lEemGSspmsFzMnA" length="25" precision="0">
+          <nativeType href="pathmap://NativeDBTypes/SQLServer-2008#_KTDyMGW_EeSGPOrcarGX5w"/>
+        </type>
+      </columns>
+      <columns xmi:id="_QcqJVD9lEemGSspmsFzMnA" techID="_QV0hYT9lEemGSspmsFzMnA" name="fax_number" nullable="true" defaultValue="">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_QcqJVT9lEemGSspmsFzMnA" length="25" precision="0">
+          <nativeType href="pathmap://NativeDBTypes/SQLServer-2008#_KTDyMGW_EeSGPOrcarGX5w"/>
+        </type>
+      </columns>
+      <columns xmi:id="_QcqJVj9lEemGSspmsFzMnA" techID="_QV1IcD9lEemGSspmsFzMnA" name="address" nullable="true" defaultValue="">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_QcqJVz9lEemGSspmsFzMnA" length="2147483647" precision="0">
+          <nativeType href="pathmap://NativeDBTypes/SQLServer-2008#_KTDyMGW_EeSGPOrcarGX5w"/>
+        </type>
+      </columns>
+      <columns xmi:id="_QcqJWD9lEemGSspmsFzMnA" techID="_QV1IcT9lEemGSspmsFzMnA" name="city" nullable="true" defaultValue="" indexElements="_QcqJNz9lEemGSspmsFzMnA">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_QcqJWT9lEemGSspmsFzMnA" length="50" precision="0">
+          <nativeType href="pathmap://NativeDBTypes/SQLServer-2008#_KTDyMGW_EeSGPOrcarGX5w"/>
+        </type>
+      </columns>
+      <columns xmi:id="_QcqJWj9lEemGSspmsFzMnA" techID="_QV1Icj9lEemGSspmsFzMnA" name="state_province" nullable="true" defaultValue="" indexElements="_QcqJPz9lEemGSspmsFzMnA">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_QcqJWz9lEemGSspmsFzMnA" length="50" precision="0">
+          <nativeType href="pathmap://NativeDBTypes/SQLServer-2008#_KTDyMGW_EeSGPOrcarGX5w"/>
+        </type>
+      </columns>
+      <columns xmi:id="_QcqJXD9lEemGSspmsFzMnA" techID="_QV1Icz9lEemGSspmsFzMnA" name="zip_postal_code" nullable="true" defaultValue="" indexElements="_QcqJQT9lEemGSspmsFzMnA">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_QcqJXT9lEemGSspmsFzMnA" length="15" precision="0">
+          <nativeType href="pathmap://NativeDBTypes/SQLServer-2008#_KTDyMGW_EeSGPOrcarGX5w"/>
+        </type>
+      </columns>
+      <columns xmi:id="_QcqJXj9lEemGSspmsFzMnA" techID="_QV1IdD9lEemGSspmsFzMnA" name="country_region" nullable="true" defaultValue="">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_QcqJXz9lEemGSspmsFzMnA" length="50" precision="0">
+          <nativeType href="pathmap://NativeDBTypes/SQLServer-2008#_KTDyMGW_EeSGPOrcarGX5w"/>
+        </type>
+      </columns>
+      <columns xmi:id="_QcqJYD9lEemGSspmsFzMnA" techID="_QV1vgD9lEemGSspmsFzMnA" name="web_page" nullable="true" defaultValue="">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_QcqJYT9lEemGSspmsFzMnA" length="2147483647" precision="0">
+          <nativeType href="pathmap://NativeDBTypes/SQLServer-2008#_KTDyMGW_EeSGPOrcarGX5w"/>
+        </type>
+      </columns>
+      <columns xmi:id="_QcqJYj9lEemGSspmsFzMnA" techID="_QV1vgT9lEemGSspmsFzMnA" name="notes" nullable="true" defaultValue="">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_QcqwQD9lEemGSspmsFzMnA" length="2147483647" precision="0">
+          <nativeType href="pathmap://NativeDBTypes/SQLServer-2008#_KTDyMGW_EeSGPOrcarGX5w"/>
+        </type>
+      </columns>
+      <columns xmi:id="_QcqwQT9lEemGSspmsFzMnA" techID="_QV1vgj9lEemGSspmsFzMnA" name="attachments" nullable="true" defaultValue="(NULL)">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_QcqwQj9lEemGSspmsFzMnA" length="2147483647" precision="0">
+          <nativeType href="pathmap://NativeDBTypes/SQLServer-2008#_BeLcMGW_EeSGPOrcarGX5w"/>
+        </type>
+      </columns>
+    </tables>
+    <tables xsi:type="database:Table" xmi:id="_QcqwQz9lEemGSspmsFzMnA" techID="_QYc-rD9lEemGSspmsFzMnA" name="DATABASECHANGELOG">
+      <columns xmi:id="_QcqwRD9lEemGSspmsFzMnA" techID="_QYgB8D9lEemGSspmsFzMnA" name="ID" defaultValue="">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_QcqwRT9lEemGSspmsFzMnA" length="255" precision="0">
+          <nativeType href="pathmap://NativeDBTypes/SQLServer-2008#_PvgpQGW-EeSGPOrcarGX5w"/>
+        </type>
+      </columns>
+      <columns xmi:id="_QcqwRj9lEemGSspmsFzMnA" techID="_QYgpAD9lEemGSspmsFzMnA" name="AUTHOR" defaultValue="">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_QcqwRz9lEemGSspmsFzMnA" length="255" precision="0">
+          <nativeType href="pathmap://NativeDBTypes/SQLServer-2008#_PvgpQGW-EeSGPOrcarGX5w"/>
+        </type>
+      </columns>
+      <columns xmi:id="_QcqwSD9lEemGSspmsFzMnA" techID="_QYgpAT9lEemGSspmsFzMnA" name="FILENAME" defaultValue="">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_QcqwST9lEemGSspmsFzMnA" length="255" precision="0">
+          <nativeType href="pathmap://NativeDBTypes/SQLServer-2008#_PvgpQGW-EeSGPOrcarGX5w"/>
+        </type>
+      </columns>
+      <columns xmi:id="_QcqwSj9lEemGSspmsFzMnA" techID="_QYgpAj9lEemGSspmsFzMnA" name="DATEEXECUTED" defaultValue="">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_QcqwSz9lEemGSspmsFzMnA" length="23" precision="3">
+          <nativeType href="pathmap://NativeDBTypes/SQLServer-2008#_Z98TgGW7EeSGPOrcarGX5w"/>
+        </type>
+      </columns>
+      <columns xmi:id="_QcqwTD9lEemGSspmsFzMnA" techID="_QYgpAz9lEemGSspmsFzMnA" name="ORDEREXECUTED" defaultValue="">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_QcqwTT9lEemGSspmsFzMnA" length="10" precision="0">
+          <nativeType href="pathmap://NativeDBTypes/SQLServer-2008#_NBLssGW8EeSGPOrcarGX5w"/>
+        </type>
+      </columns>
+      <columns xmi:id="_QcqwTj9lEemGSspmsFzMnA" techID="_QYgpBD9lEemGSspmsFzMnA" name="EXECTYPE" defaultValue="">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_QcqwTz9lEemGSspmsFzMnA" length="10" precision="0">
+          <nativeType href="pathmap://NativeDBTypes/SQLServer-2008#_PvgpQGW-EeSGPOrcarGX5w"/>
+        </type>
+      </columns>
+      <columns xmi:id="_QcqwUD9lEemGSspmsFzMnA" techID="_QYgpBT9lEemGSspmsFzMnA" name="MD5SUM" nullable="true" defaultValue="">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_QcqwUT9lEemGSspmsFzMnA" length="35" precision="0">
+          <nativeType href="pathmap://NativeDBTypes/SQLServer-2008#_PvgpQGW-EeSGPOrcarGX5w"/>
+        </type>
+      </columns>
+      <columns xmi:id="_QcqwUj9lEemGSspmsFzMnA" techID="_QYgpBj9lEemGSspmsFzMnA" name="DESCRIPTION" nullable="true" defaultValue="">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_QcqwUz9lEemGSspmsFzMnA" length="255" precision="0">
+          <nativeType href="pathmap://NativeDBTypes/SQLServer-2008#_PvgpQGW-EeSGPOrcarGX5w"/>
+        </type>
+      </columns>
+      <columns xmi:id="_QcqwVD9lEemGSspmsFzMnA" techID="_QYgpBz9lEemGSspmsFzMnA" name="COMMENTS" nullable="true" defaultValue="">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_QcqwVT9lEemGSspmsFzMnA" length="255" precision="0">
+          <nativeType href="pathmap://NativeDBTypes/SQLServer-2008#_PvgpQGW-EeSGPOrcarGX5w"/>
+        </type>
+      </columns>
+      <columns xmi:id="_QcqwVj9lEemGSspmsFzMnA" techID="_QYhQED9lEemGSspmsFzMnA" name="TAG" nullable="true" defaultValue="">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_QcqwVz9lEemGSspmsFzMnA" length="255" precision="0">
+          <nativeType href="pathmap://NativeDBTypes/SQLServer-2008#_PvgpQGW-EeSGPOrcarGX5w"/>
+        </type>
+      </columns>
+      <columns xmi:id="_QcqwWD9lEemGSspmsFzMnA" techID="_QYhQET9lEemGSspmsFzMnA" name="LIQUIBASE" nullable="true" defaultValue="">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_QcqwWT9lEemGSspmsFzMnA" length="20" precision="0">
+          <nativeType href="pathmap://NativeDBTypes/SQLServer-2008#_PvgpQGW-EeSGPOrcarGX5w"/>
+        </type>
+      </columns>
+      <columns xmi:id="_QcqwWj9lEemGSspmsFzMnA" techID="_QYhQEj9lEemGSspmsFzMnA" name="CONTEXTS" nullable="true" defaultValue="">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_QcqwWz9lEemGSspmsFzMnA" length="255" precision="0">
+          <nativeType href="pathmap://NativeDBTypes/SQLServer-2008#_PvgpQGW-EeSGPOrcarGX5w"/>
+        </type>
+      </columns>
+      <columns xmi:id="_QcqwXD9lEemGSspmsFzMnA" techID="_QYhQEz9lEemGSspmsFzMnA" name="LABELS" nullable="true" defaultValue="">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_QcqwXT9lEemGSspmsFzMnA" length="255" precision="0">
+          <nativeType href="pathmap://NativeDBTypes/SQLServer-2008#_PvgpQGW-EeSGPOrcarGX5w"/>
+        </type>
+      </columns>
+      <columns xmi:id="_QcqwXj9lEemGSspmsFzMnA" techID="_QYhQFD9lEemGSspmsFzMnA" name="DEPLOYMENT_ID" nullable="true" defaultValue="">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_QcqwXz9lEemGSspmsFzMnA" length="10" precision="0">
+          <nativeType href="pathmap://NativeDBTypes/SQLServer-2008#_PvgpQGW-EeSGPOrcarGX5w"/>
+        </type>
+      </columns>
+    </tables>
+    <tables xsi:type="database:Table" xmi:id="_QcqwYD9lEemGSspmsFzMnA" techID="_QYmIkD9lEemGSspmsFzMnA" name="DATABASECHANGELOGLOCK">
+      <primaryKey xmi:id="_QcqwYT9lEemGSspmsFzMnA" techID="_QYrBED9lEemGSspmsFzMnA" name="PK_DATABASECHANGELOGLOCK" columns="_QcqwZD9lEemGSspmsFzMnA"/>
+      <indexes xmi:id="_QcqwYj9lEemGSspmsFzMnA" techID="_QYtdUD9lEemGSspmsFzMnA" name="PK_DATABASECHANGELOGLOCK" qualifier="DATABASECHANGELOGLOCK" unique="true">
+        <elements xmi:id="_QcqwYz9lEemGSspmsFzMnA" techID="_QYtdUT9lEemGSspmsFzMnA" column="_QcqwZD9lEemGSspmsFzMnA" asc="true"/>
+      </indexes>
+      <columns xmi:id="_QcqwZD9lEemGSspmsFzMnA" techID="_QYok0D9lEemGSspmsFzMnA" name="ID" defaultValue="" indexElements="_QcqwYz9lEemGSspmsFzMnA" primaryKey="_QcqwYT9lEemGSspmsFzMnA">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_QcqwZT9lEemGSspmsFzMnA" length="10" precision="0">
+          <nativeType href="pathmap://NativeDBTypes/SQLServer-2008#_NBLssGW8EeSGPOrcarGX5w"/>
+        </type>
+      </columns>
+      <columns xmi:id="_QcqwZj9lEemGSspmsFzMnA" techID="_QYok0T9lEemGSspmsFzMnA" name="LOCKED" defaultValue="">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_QcqwZz9lEemGSspmsFzMnA" length="1" precision="0">
+          <nativeType href="pathmap://NativeDBTypes/SQLServer-2008#_H3kkAGW7EeSGPOrcarGX5w"/>
+        </type>
+      </columns>
+      <columns xmi:id="_QcqwaD9lEemGSspmsFzMnA" techID="_QYok0j9lEemGSspmsFzMnA" name="LOCKGRANTED" nullable="true" defaultValue="">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_QcqwaT9lEemGSspmsFzMnA" length="23" precision="3">
+          <nativeType href="pathmap://NativeDBTypes/SQLServer-2008#_Z98TgGW7EeSGPOrcarGX5w"/>
+        </type>
+      </columns>
+      <columns xmi:id="_Qcqwaj9lEemGSspmsFzMnA" techID="_QYok0z9lEemGSspmsFzMnA" name="LOCKEDBY" nullable="true" defaultValue="">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_Qcqwaz9lEemGSspmsFzMnA" length="255" precision="0">
+          <nativeType href="pathmap://NativeDBTypes/SQLServer-2008#_PvgpQGW-EeSGPOrcarGX5w"/>
+        </type>
+      </columns>
+    </tables>
+    <tables xsi:type="database:Table" xmi:id="_QcqwbD9lEemGSspmsFzMnA" techID="_QYtdUj9lEemGSspmsFzMnA" name="employee_privileges">
+      <primaryKey xmi:id="_QcqwbT9lEemGSspmsFzMnA" techID="_QY0LAD9lEemGSspmsFzMnA" name="PK_EMPLOYEE_PRIVILEGES" columns="_QcqweT9lEemGSspmsFzMnA _Qcqwez9lEemGSspmsFzMnA"/>
+      <foreignKeys xmi:id="_Qcqwbj9lEemGSspmsFzMnA" techID="_QcH9sD9lEemGSspmsFzMnA" name="fk_employee_privileges_employees1" target="_QcqwfT9lEemGSspmsFzMnA">
+        <elements xmi:id="_Qcqwbz9lEemGSspmsFzMnA" techID="_QcIkwD9lEemGSspmsFzMnA" fkColumn="_QcqweT9lEemGSspmsFzMnA" pkColumn="_QcqwjT9lEemGSspmsFzMnA"/>
+      </foreignKeys>
+      <foreignKeys xmi:id="_QcqwcD9lEemGSspmsFzMnA" techID="_QcIkwT9lEemGSspmsFzMnA" name="fk_employee_privileges_privileges1" target="_QcrXcD9lEemGSspmsFzMnA">
+        <elements xmi:id="_QcqwcT9lEemGSspmsFzMnA" techID="_QcIkwj9lEemGSspmsFzMnA" fkColumn="_Qcqwez9lEemGSspmsFzMnA" pkColumn="_QcrXdD9lEemGSspmsFzMnA"/>
+      </foreignKeys>
+      <indexes xmi:id="_Qcqwcj9lEemGSspmsFzMnA" techID="_QY2nQD9lEemGSspmsFzMnA" name="PK_EMPLOYEE_PRIVILEGES" qualifier="employee_privileges" unique="true">
+        <elements xmi:id="_Qcqwcz9lEemGSspmsFzMnA" techID="_QY2nQT9lEemGSspmsFzMnA" column="_QcqweT9lEemGSspmsFzMnA" asc="true"/>
+        <elements xmi:id="_QcqwdD9lEemGSspmsFzMnA" techID="_QY2nQj9lEemGSspmsFzMnA" column="_Qcqwez9lEemGSspmsFzMnA" asc="true"/>
+      </indexes>
+      <indexes xmi:id="_QcqwdT9lEemGSspmsFzMnA" techID="_QY2nQz9lEemGSspmsFzMnA" name="employee_id" qualifier="employee_privileges">
+        <elements xmi:id="_Qcqwdj9lEemGSspmsFzMnA" techID="_QY2nRD9lEemGSspmsFzMnA" column="_QcqweT9lEemGSspmsFzMnA" asc="true"/>
+      </indexes>
+      <indexes xmi:id="_Qcqwdz9lEemGSspmsFzMnA" techID="_QY2nRT9lEemGSspmsFzMnA" name="privilege_id" qualifier="employee_privileges">
+        <elements xmi:id="_QcqweD9lEemGSspmsFzMnA" techID="_QY2nRj9lEemGSspmsFzMnA" column="_Qcqwez9lEemGSspmsFzMnA" asc="true"/>
+      </indexes>
+      <columns xmi:id="_QcqweT9lEemGSspmsFzMnA" techID="_QYxHsD9lEemGSspmsFzMnA" name="employee_id" defaultValue="" indexElements="_Qcqwcz9lEemGSspmsFzMnA _Qcqwdj9lEemGSspmsFzMnA" primaryKey="_QcqwbT9lEemGSspmsFzMnA" foreignKeyElements="_Qcqwbz9lEemGSspmsFzMnA">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_Qcqwej9lEemGSspmsFzMnA" length="10" precision="0">
+          <nativeType href="pathmap://NativeDBTypes/SQLServer-2008#_NBLssGW8EeSGPOrcarGX5w"/>
+        </type>
+      </columns>
+      <columns xmi:id="_Qcqwez9lEemGSspmsFzMnA" techID="_QYxHsT9lEemGSspmsFzMnA" name="privilege_id" defaultValue="" indexElements="_QcqwdD9lEemGSspmsFzMnA _QcqweD9lEemGSspmsFzMnA" primaryKey="_QcqwbT9lEemGSspmsFzMnA" foreignKeyElements="_QcqwcT9lEemGSspmsFzMnA">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_QcqwfD9lEemGSspmsFzMnA" length="10" precision="0">
+          <nativeType href="pathmap://NativeDBTypes/SQLServer-2008#_NBLssGW8EeSGPOrcarGX5w"/>
+        </type>
+      </columns>
+    </tables>
+    <tables xsi:type="database:Table" xmi:id="_QcqwfT9lEemGSspmsFzMnA" techID="_QY2nRz9lEemGSspmsFzMnA" name="employees">
+      <primaryKey xmi:id="_Qcqwfj9lEemGSspmsFzMnA" techID="_QY-jED9lEemGSspmsFzMnA" name="PK_EMPLOYEES" columns="_QcqwjT9lEemGSspmsFzMnA"/>
+      <indexes xmi:id="_Qcqwfz9lEemGSspmsFzMnA" techID="_QZA_UD9lEemGSspmsFzMnA" name="PK_EMPLOYEES" qualifier="employees" unique="true">
+        <elements xmi:id="_QcqwgD9lEemGSspmsFzMnA" techID="_QZA_UT9lEemGSspmsFzMnA" column="_QcqwjT9lEemGSspmsFzMnA" asc="true"/>
+      </indexes>
+      <indexes xmi:id="_QcqwgT9lEemGSspmsFzMnA" techID="_QZA_Uj9lEemGSspmsFzMnA" name="city_employees" qualifier="employees">
+        <elements xmi:id="_Qcqwgj9lEemGSspmsFzMnA" techID="_QZA_Uz9lEemGSspmsFzMnA" column="_Qcqwoz9lEemGSspmsFzMnA" asc="true"/>
+      </indexes>
+      <indexes xmi:id="_Qcqwgz9lEemGSspmsFzMnA" techID="_QZA_VD9lEemGSspmsFzMnA" name="company_employees" qualifier="employees">
+        <elements xmi:id="_QcqwhD9lEemGSspmsFzMnA" techID="_QZA_VT9lEemGSspmsFzMnA" column="_Qcqwjz9lEemGSspmsFzMnA" asc="true"/>
+      </indexes>
+      <indexes xmi:id="_QcqwhT9lEemGSspmsFzMnA" techID="_QZA_Vj9lEemGSspmsFzMnA" name="first_name_employees" qualifier="employees">
+        <elements xmi:id="_Qcqwhj9lEemGSspmsFzMnA" techID="_QZA_Vz9lEemGSspmsFzMnA" column="_Qcqwkz9lEemGSspmsFzMnA" asc="true"/>
+      </indexes>
+      <indexes xmi:id="_Qcqwhz9lEemGSspmsFzMnA" techID="_QZA_WD9lEemGSspmsFzMnA" name="last_name_employees" qualifier="employees">
+        <elements xmi:id="_QcqwiD9lEemGSspmsFzMnA" techID="_QZA_WT9lEemGSspmsFzMnA" column="_QcqwkT9lEemGSspmsFzMnA" asc="true"/>
+      </indexes>
+      <indexes xmi:id="_QcqwiT9lEemGSspmsFzMnA" techID="_QZA_Wj9lEemGSspmsFzMnA" name="state_province_employees" qualifier="employees">
+        <elements xmi:id="_Qcqwij9lEemGSspmsFzMnA" techID="_QZA_Wz9lEemGSspmsFzMnA" column="_QcqwpT9lEemGSspmsFzMnA" asc="true"/>
+      </indexes>
+      <indexes xmi:id="_Qcqwiz9lEemGSspmsFzMnA" techID="_QZA_XD9lEemGSspmsFzMnA" name="zip_postal_code_employees" qualifier="employees">
+        <elements xmi:id="_QcqwjD9lEemGSspmsFzMnA" techID="_QZA_XT9lEemGSspmsFzMnA" column="_Qcqwpz9lEemGSspmsFzMnA" asc="true"/>
+      </indexes>
+      <columns xmi:id="_QcqwjT9lEemGSspmsFzMnA" techID="_QY5qkD9lEemGSspmsFzMnA" name="id" defaultValue="" indexElements="_QcqwgD9lEemGSspmsFzMnA" primaryKey="_Qcqwfj9lEemGSspmsFzMnA" autoincrement="true">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_Qcqwjj9lEemGSspmsFzMnA" length="10" precision="0">
+          <nativeType href="pathmap://NativeDBTypes/SQLServer-2008#_NBLssGW8EeSGPOrcarGX5w"/>
+        </type>
+      </columns>
+      <columns xmi:id="_Qcqwjz9lEemGSspmsFzMnA" techID="_QY6RoD9lEemGSspmsFzMnA" name="company" nullable="true" defaultValue="" indexElements="_QcqwhD9lEemGSspmsFzMnA">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_QcqwkD9lEemGSspmsFzMnA" length="50" precision="0">
+          <nativeType href="pathmap://NativeDBTypes/SQLServer-2008#_KTDyMGW_EeSGPOrcarGX5w"/>
+        </type>
+      </columns>
+      <columns xmi:id="_QcqwkT9lEemGSspmsFzMnA" techID="_QY6RoT9lEemGSspmsFzMnA" name="last_name" nullable="true" defaultValue="" indexElements="_QcqwiD9lEemGSspmsFzMnA">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_Qcqwkj9lEemGSspmsFzMnA" length="50" precision="0">
+          <nativeType href="pathmap://NativeDBTypes/SQLServer-2008#_KTDyMGW_EeSGPOrcarGX5w"/>
+        </type>
+      </columns>
+      <columns xmi:id="_Qcqwkz9lEemGSspmsFzMnA" techID="_QY6Roj9lEemGSspmsFzMnA" name="first_name" nullable="true" defaultValue="" indexElements="_Qcqwhj9lEemGSspmsFzMnA">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_QcqwlD9lEemGSspmsFzMnA" length="50" precision="0">
+          <nativeType href="pathmap://NativeDBTypes/SQLServer-2008#_KTDyMGW_EeSGPOrcarGX5w"/>
+        </type>
+      </columns>
+      <columns xmi:id="_QcqwlT9lEemGSspmsFzMnA" techID="_QY6Roz9lEemGSspmsFzMnA" name="email_address" nullable="true" defaultValue="">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_Qcqwlj9lEemGSspmsFzMnA" length="50" precision="0">
+          <nativeType href="pathmap://NativeDBTypes/SQLServer-2008#_KTDyMGW_EeSGPOrcarGX5w"/>
+        </type>
+      </columns>
+      <columns xmi:id="_Qcqwlz9lEemGSspmsFzMnA" techID="_QY6RpD9lEemGSspmsFzMnA" name="job_title" nullable="true" defaultValue="">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_QcqwmD9lEemGSspmsFzMnA" length="50" precision="0">
+          <nativeType href="pathmap://NativeDBTypes/SQLServer-2008#_KTDyMGW_EeSGPOrcarGX5w"/>
+        </type>
+      </columns>
+      <columns xmi:id="_QcqwmT9lEemGSspmsFzMnA" techID="_QY6RpT9lEemGSspmsFzMnA" name="business_phone" nullable="true" defaultValue="">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_Qcqwmj9lEemGSspmsFzMnA" length="25" precision="0">
+          <nativeType href="pathmap://NativeDBTypes/SQLServer-2008#_KTDyMGW_EeSGPOrcarGX5w"/>
+        </type>
+      </columns>
+      <columns xmi:id="_Qcqwmz9lEemGSspmsFzMnA" techID="_QY64sD9lEemGSspmsFzMnA" name="home_phone" nullable="true" defaultValue="">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_QcqwnD9lEemGSspmsFzMnA" length="25" precision="0">
+          <nativeType href="pathmap://NativeDBTypes/SQLServer-2008#_KTDyMGW_EeSGPOrcarGX5w"/>
+        </type>
+      </columns>
+      <columns xmi:id="_QcqwnT9lEemGSspmsFzMnA" techID="_QY64sT9lEemGSspmsFzMnA" name="mobile_phone" nullable="true" defaultValue="">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_Qcqwnj9lEemGSspmsFzMnA" length="25" precision="0">
+          <nativeType href="pathmap://NativeDBTypes/SQLServer-2008#_KTDyMGW_EeSGPOrcarGX5w"/>
+        </type>
+      </columns>
+      <columns xmi:id="_Qcqwnz9lEemGSspmsFzMnA" techID="_QY64sj9lEemGSspmsFzMnA" name="fax_number" nullable="true" defaultValue="">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_QcqwoD9lEemGSspmsFzMnA" length="25" precision="0">
+          <nativeType href="pathmap://NativeDBTypes/SQLServer-2008#_KTDyMGW_EeSGPOrcarGX5w"/>
+        </type>
+      </columns>
+      <columns xmi:id="_QcqwoT9lEemGSspmsFzMnA" techID="_QY64sz9lEemGSspmsFzMnA" name="address" nullable="true" defaultValue="">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_Qcqwoj9lEemGSspmsFzMnA" length="2147483647" precision="0">
+          <nativeType href="pathmap://NativeDBTypes/SQLServer-2008#_KTDyMGW_EeSGPOrcarGX5w"/>
+        </type>
+      </columns>
+      <columns xmi:id="_Qcqwoz9lEemGSspmsFzMnA" techID="_QY64tD9lEemGSspmsFzMnA" name="city" nullable="true" defaultValue="" indexElements="_Qcqwgj9lEemGSspmsFzMnA">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_QcqwpD9lEemGSspmsFzMnA" length="50" precision="0">
+          <nativeType href="pathmap://NativeDBTypes/SQLServer-2008#_KTDyMGW_EeSGPOrcarGX5w"/>
+        </type>
+      </columns>
+      <columns xmi:id="_QcqwpT9lEemGSspmsFzMnA" techID="_QY64tT9lEemGSspmsFzMnA" name="state_province" nullable="true" defaultValue="" indexElements="_Qcqwij9lEemGSspmsFzMnA">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_Qcqwpj9lEemGSspmsFzMnA" length="50" precision="0">
+          <nativeType href="pathmap://NativeDBTypes/SQLServer-2008#_KTDyMGW_EeSGPOrcarGX5w"/>
+        </type>
+      </columns>
+      <columns xmi:id="_Qcqwpz9lEemGSspmsFzMnA" techID="_QY64tj9lEemGSspmsFzMnA" name="zip_postal_code" nullable="true" defaultValue="" indexElements="_QcqwjD9lEemGSspmsFzMnA">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_QcqwqD9lEemGSspmsFzMnA" length="15" precision="0">
+          <nativeType href="pathmap://NativeDBTypes/SQLServer-2008#_KTDyMGW_EeSGPOrcarGX5w"/>
+        </type>
+      </columns>
+      <columns xmi:id="_QcqwqT9lEemGSspmsFzMnA" techID="_QY7fwD9lEemGSspmsFzMnA" name="country_region" nullable="true" defaultValue="">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_Qcqwqj9lEemGSspmsFzMnA" length="50" precision="0">
+          <nativeType href="pathmap://NativeDBTypes/SQLServer-2008#_KTDyMGW_EeSGPOrcarGX5w"/>
+        </type>
+      </columns>
+      <columns xmi:id="_Qcqwqz9lEemGSspmsFzMnA" techID="_QY7fwT9lEemGSspmsFzMnA" name="web_page" nullable="true" defaultValue="">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_QcqwrD9lEemGSspmsFzMnA" length="2147483647" precision="0">
+          <nativeType href="pathmap://NativeDBTypes/SQLServer-2008#_KTDyMGW_EeSGPOrcarGX5w"/>
+        </type>
+      </columns>
+      <columns xmi:id="_QcqwrT9lEemGSspmsFzMnA" techID="_QY7fwj9lEemGSspmsFzMnA" name="notes" nullable="true" defaultValue="">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_Qcqwrj9lEemGSspmsFzMnA" length="2147483647" precision="0">
+          <nativeType href="pathmap://NativeDBTypes/SQLServer-2008#_KTDyMGW_EeSGPOrcarGX5w"/>
+        </type>
+      </columns>
+      <columns xmi:id="_Qcqwrz9lEemGSspmsFzMnA" techID="_QY7fwz9lEemGSspmsFzMnA" name="attachments" nullable="true" defaultValue="(NULL)">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_QcqwsD9lEemGSspmsFzMnA" length="2147483647" precision="0">
+          <nativeType href="pathmap://NativeDBTypes/SQLServer-2008#_BeLcMGW_EeSGPOrcarGX5w"/>
+        </type>
+      </columns>
+    </tables>
+    <tables xsi:type="database:Table" xmi:id="_QcqwsT9lEemGSspmsFzMnA" techID="_QZA_Xj9lEemGSspmsFzMnA" name="inventory_transaction_types">
+      <primaryKey xmi:id="_Qcqwsj9lEemGSspmsFzMnA" techID="_QZJiMD9lEemGSspmsFzMnA" name="PK_INVENTORY_TRANSACTION_TYPES" columns="_QcqwtT9lEemGSspmsFzMnA"/>
+      <indexes xmi:id="_Qcqwsz9lEemGSspmsFzMnA" techID="_QZL-cD9lEemGSspmsFzMnA" name="PK_INVENTORY_TRANSACTION_TYPES" qualifier="inventory_transaction_types" unique="true">
+        <elements xmi:id="_QcqwtD9lEemGSspmsFzMnA" techID="_QZL-cT9lEemGSspmsFzMnA" column="_QcqwtT9lEemGSspmsFzMnA" asc="true"/>
+      </indexes>
+      <columns xmi:id="_QcqwtT9lEemGSspmsFzMnA" techID="_QZF30D9lEemGSspmsFzMnA" name="id" defaultValue="" indexElements="_QcqwtD9lEemGSspmsFzMnA" primaryKey="_Qcqwsj9lEemGSspmsFzMnA">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_Qcqwtj9lEemGSspmsFzMnA" length="3" precision="0">
+          <nativeType href="pathmap://NativeDBTypes/SQLServer-2008#_y-I6MGW-EeSGPOrcarGX5w"/>
+        </type>
+      </columns>
+      <columns xmi:id="_Qcqwtz9lEemGSspmsFzMnA" techID="_QZGe4D9lEemGSspmsFzMnA" name="type_name" defaultValue="">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_QcqwuD9lEemGSspmsFzMnA" length="50" precision="0">
+          <nativeType href="pathmap://NativeDBTypes/SQLServer-2008#_KTDyMGW_EeSGPOrcarGX5w"/>
+        </type>
+      </columns>
+    </tables>
+    <tables xsi:type="database:Table" xmi:id="_QcqwuT9lEemGSspmsFzMnA" techID="_QZL-cj9lEemGSspmsFzMnA" name="inventory_transactions">
+      <primaryKey xmi:id="_Qcqwuj9lEemGSspmsFzMnA" techID="_QZT6QD9lEemGSspmsFzMnA" name="PK_INVENTORY_TRANSACTIONS" columns="_QcqwzT9lEemGSspmsFzMnA"/>
+      <foreignKeys xmi:id="_Qcqwuz9lEemGSspmsFzMnA" techID="_QcOrYD9lEemGSspmsFzMnA" name="fk_inventory_transactions_inventory_transaction_types1" target="_QcqwsT9lEemGSspmsFzMnA">
+        <elements xmi:id="_QcqwvD9lEemGSspmsFzMnA" techID="_QcOrYT9lEemGSspmsFzMnA" fkColumn="_Qcqwzz9lEemGSspmsFzMnA" pkColumn="_QcqwtT9lEemGSspmsFzMnA"/>
+      </foreignKeys>
+      <foreignKeys xmi:id="_QcqwvT9lEemGSspmsFzMnA" techID="_QcPScD9lEemGSspmsFzMnA" name="fk_inventory_transactions_orders1" target="_QcqxJT9lEemGSspmsFzMnA">
+        <elements xmi:id="_Qcqwvj9lEemGSspmsFzMnA" techID="_QcPScT9lEemGSspmsFzMnA" fkColumn="_Qcqw2z9lEemGSspmsFzMnA" pkColumn="_QcqxPz9lEemGSspmsFzMnA"/>
+      </foreignKeys>
+      <foreignKeys xmi:id="_Qcqwvz9lEemGSspmsFzMnA" techID="_QcPScj9lEemGSspmsFzMnA" name="fk_inventory_transactions_products1" target="_QcrXeD9lEemGSspmsFzMnA">
+        <elements xmi:id="_QcqwwD9lEemGSspmsFzMnA" techID="_QcPScz9lEemGSspmsFzMnA" fkColumn="_Qcqw1T9lEemGSspmsFzMnA" pkColumn="_QcrXgD9lEemGSspmsFzMnA"/>
+      </foreignKeys>
+      <foreignKeys xmi:id="_QcqwwT9lEemGSspmsFzMnA" techID="_QcPSdD9lEemGSspmsFzMnA" name="fk_inventory_transactions_purchase_orders1" target="_QcrXwj9lEemGSspmsFzMnA">
+        <elements xmi:id="_Qcqwwj9lEemGSspmsFzMnA" techID="_QcPSdT9lEemGSspmsFzMnA" fkColumn="_Qcqw2T9lEemGSspmsFzMnA" pkColumn="_QcrX0j9lEemGSspmsFzMnA"/>
+      </foreignKeys>
+      <indexes xmi:id="_Qcqwwz9lEemGSspmsFzMnA" techID="_QZWWgD9lEemGSspmsFzMnA" name="PK_INVENTORY_TRANSACTIONS" qualifier="inventory_transactions" unique="true">
+        <elements xmi:id="_QcqwxD9lEemGSspmsFzMnA" techID="_QZW9kD9lEemGSspmsFzMnA" column="_QcqwzT9lEemGSspmsFzMnA" asc="true"/>
+      </indexes>
+      <indexes xmi:id="_QcqwxT9lEemGSspmsFzMnA" techID="_QZW9kT9lEemGSspmsFzMnA" name="customer_order_id_2" qualifier="inventory_transactions">
+        <elements xmi:id="_Qcqwxj9lEemGSspmsFzMnA" techID="_QZW9kj9lEemGSspmsFzMnA" column="_Qcqw2z9lEemGSspmsFzMnA" asc="true"/>
+      </indexes>
+      <indexes xmi:id="_Qcqwxz9lEemGSspmsFzMnA" techID="_QZW9kz9lEemGSspmsFzMnA" name="product_id_inventory_transactions" qualifier="inventory_transactions">
+        <elements xmi:id="_QcqwyD9lEemGSspmsFzMnA" techID="_QZW9lD9lEemGSspmsFzMnA" column="_Qcqw1T9lEemGSspmsFzMnA" asc="true"/>
+      </indexes>
+      <indexes xmi:id="_QcqwyT9lEemGSspmsFzMnA" techID="_QZW9lT9lEemGSspmsFzMnA" name="purchase_order_id_inventory_transactions" qualifier="inventory_transactions">
+        <elements xmi:id="_Qcqwyj9lEemGSspmsFzMnA" techID="_QZW9lj9lEemGSspmsFzMnA" column="_Qcqw2T9lEemGSspmsFzMnA" asc="true"/>
+      </indexes>
+      <indexes xmi:id="_Qcqwyz9lEemGSspmsFzMnA" techID="_QZW9lz9lEemGSspmsFzMnA" name="transaction_type" qualifier="inventory_transactions">
+        <elements xmi:id="_QcqwzD9lEemGSspmsFzMnA" techID="_QZW9mD9lEemGSspmsFzMnA" column="_Qcqwzz9lEemGSspmsFzMnA" asc="true"/>
+      </indexes>
+      <columns xmi:id="_QcqwzT9lEemGSspmsFzMnA" techID="_QZQP4D9lEemGSspmsFzMnA" name="id" defaultValue="" indexElements="_QcqwxD9lEemGSspmsFzMnA" primaryKey="_Qcqwuj9lEemGSspmsFzMnA" autoincrement="true">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_Qcqwzj9lEemGSspmsFzMnA" length="10" precision="0">
+          <nativeType href="pathmap://NativeDBTypes/SQLServer-2008#_NBLssGW8EeSGPOrcarGX5w"/>
+        </type>
+      </columns>
+      <columns xmi:id="_Qcqwzz9lEemGSspmsFzMnA" techID="_QZQP4T9lEemGSspmsFzMnA" name="transaction_type" defaultValue="" indexElements="_QcqwzD9lEemGSspmsFzMnA" foreignKeyElements="_QcqwvD9lEemGSspmsFzMnA">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_Qcqw0D9lEemGSspmsFzMnA" length="3" precision="0">
+          <nativeType href="pathmap://NativeDBTypes/SQLServer-2008#_y-I6MGW-EeSGPOrcarGX5w"/>
+        </type>
+      </columns>
+      <columns xmi:id="_Qcqw0T9lEemGSspmsFzMnA" techID="_QZQP4j9lEemGSspmsFzMnA" name="transaction_created_date" nullable="true" defaultValue="(NULL)">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_Qcqw0j9lEemGSspmsFzMnA" length="23" precision="3">
+          <nativeType href="pathmap://NativeDBTypes/SQLServer-2008#_Xlo_YGW7EeSGPOrcarGX5w"/>
+        </type>
+      </columns>
+      <columns xmi:id="_Qcqw0z9lEemGSspmsFzMnA" techID="_QZQP4z9lEemGSspmsFzMnA" name="transaction_modified_date" nullable="true" defaultValue="(NULL)">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_Qcqw1D9lEemGSspmsFzMnA" length="23" precision="3">
+          <nativeType href="pathmap://NativeDBTypes/SQLServer-2008#_Xlo_YGW7EeSGPOrcarGX5w"/>
+        </type>
+      </columns>
+      <columns xmi:id="_Qcqw1T9lEemGSspmsFzMnA" techID="_QZQ28D9lEemGSspmsFzMnA" name="product_id" defaultValue="" indexElements="_QcqwyD9lEemGSspmsFzMnA" foreignKeyElements="_QcqwwD9lEemGSspmsFzMnA">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_Qcqw1j9lEemGSspmsFzMnA" length="10" precision="0">
+          <nativeType href="pathmap://NativeDBTypes/SQLServer-2008#_NBLssGW8EeSGPOrcarGX5w"/>
+        </type>
+      </columns>
+      <columns xmi:id="_Qcqw1z9lEemGSspmsFzMnA" techID="_QZQ28T9lEemGSspmsFzMnA" name="quantity" defaultValue="">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_Qcqw2D9lEemGSspmsFzMnA" length="10" precision="0">
+          <nativeType href="pathmap://NativeDBTypes/SQLServer-2008#_NBLssGW8EeSGPOrcarGX5w"/>
+        </type>
+      </columns>
+      <columns xmi:id="_Qcqw2T9lEemGSspmsFzMnA" techID="_QZQ28j9lEemGSspmsFzMnA" name="purchase_order_id" nullable="true" defaultValue="(NULL)" indexElements="_Qcqwyj9lEemGSspmsFzMnA" foreignKeyElements="_Qcqwwj9lEemGSspmsFzMnA">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_Qcqw2j9lEemGSspmsFzMnA" length="10" precision="0">
+          <nativeType href="pathmap://NativeDBTypes/SQLServer-2008#_NBLssGW8EeSGPOrcarGX5w"/>
+        </type>
+      </columns>
+      <columns xmi:id="_Qcqw2z9lEemGSspmsFzMnA" techID="_QZQ28z9lEemGSspmsFzMnA" name="customer_order_id" nullable="true" defaultValue="(NULL)" indexElements="_Qcqwxj9lEemGSspmsFzMnA" foreignKeyElements="_Qcqwvj9lEemGSspmsFzMnA">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_Qcqw3D9lEemGSspmsFzMnA" length="10" precision="0">
+          <nativeType href="pathmap://NativeDBTypes/SQLServer-2008#_NBLssGW8EeSGPOrcarGX5w"/>
+        </type>
+      </columns>
+      <columns xmi:id="_Qcqw3T9lEemGSspmsFzMnA" techID="_QZQ29D9lEemGSspmsFzMnA" name="comments" nullable="true" defaultValue="">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_Qcqw3j9lEemGSspmsFzMnA" length="255" precision="0">
+          <nativeType href="pathmap://NativeDBTypes/SQLServer-2008#_KTDyMGW_EeSGPOrcarGX5w"/>
+        </type>
+      </columns>
+    </tables>
+    <tables xsi:type="database:Table" xmi:id="_Qcqw3z9lEemGSspmsFzMnA" techID="_QZW9mT9lEemGSspmsFzMnA" name="invoices">
+      <primaryKey xmi:id="_Qcqw4D9lEemGSspmsFzMnA" techID="_QZcdID9lEemGSspmsFzMnA" name="PK_INVOICES" columns="_Qcqw5z9lEemGSspmsFzMnA"/>
+      <foreignKeys xmi:id="_Qcqw4T9lEemGSspmsFzMnA" techID="_QcRHoD9lEemGSspmsFzMnA" name="fk_invoices_orders1" target="_QcqxJT9lEemGSspmsFzMnA">
+        <elements xmi:id="_Qcqw4j9lEemGSspmsFzMnA" techID="_QcRHoT9lEemGSspmsFzMnA" fkColumn="_Qcqw6T9lEemGSspmsFzMnA" pkColumn="_QcqxPz9lEemGSspmsFzMnA"/>
+      </foreignKeys>
+      <indexes xmi:id="_Qcqw4z9lEemGSspmsFzMnA" techID="_QZfgcD9lEemGSspmsFzMnA" name="PK_INVOICES" qualifier="invoices" unique="true">
+        <elements xmi:id="_Qcqw5D9lEemGSspmsFzMnA" techID="_QZfgcT9lEemGSspmsFzMnA" column="_Qcqw5z9lEemGSspmsFzMnA" asc="true"/>
+      </indexes>
+      <indexes xmi:id="_Qcqw5T9lEemGSspmsFzMnA" techID="_QZfgcj9lEemGSspmsFzMnA" name="fk_invoices_orders1_idx" qualifier="invoices">
+        <elements xmi:id="_Qcqw5j9lEemGSspmsFzMnA" techID="_QZfgcz9lEemGSspmsFzMnA" column="_Qcqw6T9lEemGSspmsFzMnA" asc="true"/>
+      </indexes>
+      <columns xmi:id="_Qcqw5z9lEemGSspmsFzMnA" techID="_QZZZ0D9lEemGSspmsFzMnA" name="id" defaultValue="" indexElements="_Qcqw5D9lEemGSspmsFzMnA" primaryKey="_Qcqw4D9lEemGSspmsFzMnA" autoincrement="true">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_Qcqw6D9lEemGSspmsFzMnA" length="10" precision="0">
+          <nativeType href="pathmap://NativeDBTypes/SQLServer-2008#_NBLssGW8EeSGPOrcarGX5w"/>
+        </type>
+      </columns>
+      <columns xmi:id="_Qcqw6T9lEemGSspmsFzMnA" techID="_QZZZ0T9lEemGSspmsFzMnA" name="order_id" nullable="true" defaultValue="(NULL)" indexElements="_Qcqw5j9lEemGSspmsFzMnA" foreignKeyElements="_Qcqw4j9lEemGSspmsFzMnA">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_Qcqw6j9lEemGSspmsFzMnA" length="10" precision="0">
+          <nativeType href="pathmap://NativeDBTypes/SQLServer-2008#_NBLssGW8EeSGPOrcarGX5w"/>
+        </type>
+      </columns>
+      <columns xmi:id="_Qcqw6z9lEemGSspmsFzMnA" techID="_QZaA4D9lEemGSspmsFzMnA" name="invoice_date" nullable="true" defaultValue="(NULL)">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_Qcqw7D9lEemGSspmsFzMnA" length="23" precision="3">
+          <nativeType href="pathmap://NativeDBTypes/SQLServer-2008#_Xlo_YGW7EeSGPOrcarGX5w"/>
+        </type>
+      </columns>
+      <columns xmi:id="_Qcqw7T9lEemGSspmsFzMnA" techID="_QZaA4T9lEemGSspmsFzMnA" name="due_date" nullable="true" defaultValue="(NULL)">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_Qcqw7j9lEemGSspmsFzMnA" length="23" precision="3">
+          <nativeType href="pathmap://NativeDBTypes/SQLServer-2008#_Xlo_YGW7EeSGPOrcarGX5w"/>
+        </type>
+      </columns>
+      <columns xmi:id="_Qcqw7z9lEemGSspmsFzMnA" techID="_QZaA4j9lEemGSspmsFzMnA" name="tax" nullable="true" defaultValue="((0.0000))">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_Qcqw8D9lEemGSspmsFzMnA" length="19" precision="4">
+          <nativeType href="pathmap://NativeDBTypes/SQLServer-2008#_5vmXEDqxEemumanY6_7xeQ"/>
+        </type>
+      </columns>
+      <columns xmi:id="_Qcqw8T9lEemGSspmsFzMnA" techID="_QZaA4z9lEemGSspmsFzMnA" name="shipping" nullable="true" defaultValue="((0.0000))">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_Qcqw8j9lEemGSspmsFzMnA" length="19" precision="4">
+          <nativeType href="pathmap://NativeDBTypes/SQLServer-2008#_5vmXEDqxEemumanY6_7xeQ"/>
+        </type>
+      </columns>
+      <columns xmi:id="_Qcqw8z9lEemGSspmsFzMnA" techID="_QZaA5D9lEemGSspmsFzMnA" name="amount_due" nullable="true" defaultValue="((0.0000))">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_Qcqw9D9lEemGSspmsFzMnA" length="19" precision="4">
+          <nativeType href="pathmap://NativeDBTypes/SQLServer-2008#_5vmXEDqxEemumanY6_7xeQ"/>
+        </type>
+      </columns>
+    </tables>
+    <tables xsi:type="database:Table" xmi:id="_Qcqw9T9lEemGSspmsFzMnA" techID="_QZgHgD9lEemGSspmsFzMnA" name="order_details">
+      <primaryKey xmi:id="_Qcqw9j9lEemGSspmsFzMnA" techID="_QZncQD9lEemGSspmsFzMnA" name="PK_ORDER_DETAILS" columns="_QcqxCT9lEemGSspmsFzMnA"/>
+      <foreignKeys xmi:id="_Qcqw9z9lEemGSspmsFzMnA" techID="_QcS80D9lEemGSspmsFzMnA" name="fk_order_details_order_details_status1" target="_QcqxHT9lEemGSspmsFzMnA">
+        <elements xmi:id="_Qcqw-D9lEemGSspmsFzMnA" techID="_QcS80T9lEemGSspmsFzMnA" fkColumn="_QcqxFT9lEemGSspmsFzMnA" pkColumn="_QcqxIT9lEemGSspmsFzMnA"/>
+      </foreignKeys>
+      <foreignKeys xmi:id="_Qcqw-T9lEemGSspmsFzMnA" techID="_QcS80j9lEemGSspmsFzMnA" name="fk_order_details_orders1" target="_QcqxJT9lEemGSspmsFzMnA">
+        <elements xmi:id="_Qcqw-j9lEemGSspmsFzMnA" techID="_QcS80z9lEemGSspmsFzMnA" fkColumn="_QcqxCz9lEemGSspmsFzMnA" pkColumn="_QcqxPz9lEemGSspmsFzMnA"/>
+      </foreignKeys>
+      <foreignKeys xmi:id="_Qcqw-z9lEemGSspmsFzMnA" techID="_QcS81D9lEemGSspmsFzMnA" name="fk_order_details_products1" target="_QcrXeD9lEemGSspmsFzMnA">
+        <elements xmi:id="_Qcqw_D9lEemGSspmsFzMnA" techID="_QcS81T9lEemGSspmsFzMnA" fkColumn="_QcqxDT9lEemGSspmsFzMnA" pkColumn="_QcrXgD9lEemGSspmsFzMnA"/>
+      </foreignKeys>
+      <indexes xmi:id="_Qcqw_T9lEemGSspmsFzMnA" techID="_QZp4gD9lEemGSspmsFzMnA" name="PK_ORDER_DETAILS" qualifier="order_details" unique="true">
+        <elements xmi:id="_Qcqw_j9lEemGSspmsFzMnA" techID="_QZp4gT9lEemGSspmsFzMnA" column="_QcqxCT9lEemGSspmsFzMnA" asc="true"/>
+      </indexes>
+      <indexes xmi:id="_Qcqw_z9lEemGSspmsFzMnA" techID="_QZp4gj9lEemGSspmsFzMnA" name="fk_order_details_order_details_status1_idx" qualifier="order_details">
+        <elements xmi:id="_QcqxAD9lEemGSspmsFzMnA" techID="_QZp4gz9lEemGSspmsFzMnA" column="_QcqxFT9lEemGSspmsFzMnA" asc="true"/>
+      </indexes>
+      <indexes xmi:id="_QcqxAT9lEemGSspmsFzMnA" techID="_QZp4hD9lEemGSspmsFzMnA" name="fk_order_details_orders1_idx" qualifier="order_details">
+        <elements xmi:id="_QcqxAj9lEemGSspmsFzMnA" techID="_QZp4hT9lEemGSspmsFzMnA" column="_QcqxCz9lEemGSspmsFzMnA" asc="true"/>
+      </indexes>
+      <indexes xmi:id="_QcqxAz9lEemGSspmsFzMnA" techID="_QZp4hj9lEemGSspmsFzMnA" name="inventory_id" qualifier="order_details">
+        <elements xmi:id="_QcqxBD9lEemGSspmsFzMnA" techID="_QZp4hz9lEemGSspmsFzMnA" column="_QcqxGz9lEemGSspmsFzMnA" asc="true"/>
+      </indexes>
+      <indexes xmi:id="_QcqxBT9lEemGSspmsFzMnA" techID="_QZp4iD9lEemGSspmsFzMnA" name="product_id_order_details" qualifier="order_details">
+        <elements xmi:id="_QcqxBj9lEemGSspmsFzMnA" techID="_QZp4iT9lEemGSspmsFzMnA" column="_QcqxDT9lEemGSspmsFzMnA" asc="true"/>
+      </indexes>
+      <indexes xmi:id="_QcqxBz9lEemGSspmsFzMnA" techID="_QZp4ij9lEemGSspmsFzMnA" name="purchase_order_id_order_details" qualifier="order_details">
+        <elements xmi:id="_QcqxCD9lEemGSspmsFzMnA" techID="_QZp4iz9lEemGSspmsFzMnA" column="_QcqxGT9lEemGSspmsFzMnA" asc="true"/>
+      </indexes>
+      <columns xmi:id="_QcqxCT9lEemGSspmsFzMnA" techID="_QZjx4D9lEemGSspmsFzMnA" name="id" defaultValue="" indexElements="_Qcqw_j9lEemGSspmsFzMnA" primaryKey="_Qcqw9j9lEemGSspmsFzMnA" autoincrement="true">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_QcqxCj9lEemGSspmsFzMnA" length="10" precision="0">
+          <nativeType href="pathmap://NativeDBTypes/SQLServer-2008#_NBLssGW8EeSGPOrcarGX5w"/>
+        </type>
+      </columns>
+      <columns xmi:id="_QcqxCz9lEemGSspmsFzMnA" techID="_QZjx4T9lEemGSspmsFzMnA" name="order_id" defaultValue="" indexElements="_QcqxAj9lEemGSspmsFzMnA" foreignKeyElements="_Qcqw-j9lEemGSspmsFzMnA">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_QcqxDD9lEemGSspmsFzMnA" length="10" precision="0">
+          <nativeType href="pathmap://NativeDBTypes/SQLServer-2008#_NBLssGW8EeSGPOrcarGX5w"/>
+        </type>
+      </columns>
+      <columns xmi:id="_QcqxDT9lEemGSspmsFzMnA" techID="_QZjx4j9lEemGSspmsFzMnA" name="product_id" nullable="true" defaultValue="(NULL)" indexElements="_QcqxBj9lEemGSspmsFzMnA" foreignKeyElements="_Qcqw_D9lEemGSspmsFzMnA">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_QcqxDj9lEemGSspmsFzMnA" length="10" precision="0">
+          <nativeType href="pathmap://NativeDBTypes/SQLServer-2008#_NBLssGW8EeSGPOrcarGX5w"/>
+        </type>
+      </columns>
+      <columns xmi:id="_QcqxDz9lEemGSspmsFzMnA" techID="_QZjx4z9lEemGSspmsFzMnA" name="quantity" defaultValue="((0.0000))">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_QcqxED9lEemGSspmsFzMnA" length="18" precision="4">
+          <nativeType href="pathmap://NativeDBTypes/SQLServer-2008#_5vmXEDqxEemumanY6_7xeQ"/>
+        </type>
+      </columns>
+      <columns xmi:id="_QcqxET9lEemGSspmsFzMnA" techID="_QZjx5D9lEemGSspmsFzMnA" name="unit_price" nullable="true" defaultValue="((0.0000))">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_QcqxEj9lEemGSspmsFzMnA" length="19" precision="4">
+          <nativeType href="pathmap://NativeDBTypes/SQLServer-2008#_5vmXEDqxEemumanY6_7xeQ"/>
+        </type>
+      </columns>
+      <columns xmi:id="_QcqxEz9lEemGSspmsFzMnA" techID="_QZjx5T9lEemGSspmsFzMnA" name="discount" defaultValue="((0))">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_QcqxFD9lEemGSspmsFzMnA" length="53" precision="0">
+          <nativeType href="pathmap://NativeDBTypes/SQLServer-2008#_ERR9UGW8EeSGPOrcarGX5w"/>
+        </type>
+      </columns>
+      <columns xmi:id="_QcqxFT9lEemGSspmsFzMnA" techID="_QZkY8D9lEemGSspmsFzMnA" name="status_id" nullable="true" defaultValue="(NULL)" indexElements="_QcqxAD9lEemGSspmsFzMnA" foreignKeyElements="_Qcqw-D9lEemGSspmsFzMnA">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_QcqxFj9lEemGSspmsFzMnA" length="10" precision="0">
+          <nativeType href="pathmap://NativeDBTypes/SQLServer-2008#_NBLssGW8EeSGPOrcarGX5w"/>
+        </type>
+      </columns>
+      <columns xmi:id="_QcqxFz9lEemGSspmsFzMnA" techID="_QZkY8T9lEemGSspmsFzMnA" name="date_allocated" nullable="true" defaultValue="(NULL)">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_QcqxGD9lEemGSspmsFzMnA" length="23" precision="3">
+          <nativeType href="pathmap://NativeDBTypes/SQLServer-2008#_Xlo_YGW7EeSGPOrcarGX5w"/>
+        </type>
+      </columns>
+      <columns xmi:id="_QcqxGT9lEemGSspmsFzMnA" techID="_QZkY8j9lEemGSspmsFzMnA" name="purchase_order_id" nullable="true" defaultValue="(NULL)" indexElements="_QcqxCD9lEemGSspmsFzMnA">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_QcqxGj9lEemGSspmsFzMnA" length="10" precision="0">
+          <nativeType href="pathmap://NativeDBTypes/SQLServer-2008#_NBLssGW8EeSGPOrcarGX5w"/>
+        </type>
+      </columns>
+      <columns xmi:id="_QcqxGz9lEemGSspmsFzMnA" techID="_QZkY8z9lEemGSspmsFzMnA" name="inventory_id" nullable="true" defaultValue="(NULL)" indexElements="_QcqxBD9lEemGSspmsFzMnA">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_QcqxHD9lEemGSspmsFzMnA" length="10" precision="0">
+          <nativeType href="pathmap://NativeDBTypes/SQLServer-2008#_NBLssGW8EeSGPOrcarGX5w"/>
+        </type>
+      </columns>
+    </tables>
+    <tables xsi:type="database:Table" xmi:id="_QcqxHT9lEemGSspmsFzMnA" techID="_QZp4jD9lEemGSspmsFzMnA" name="order_details_status">
+      <primaryKey xmi:id="_QcqxHj9lEemGSspmsFzMnA" techID="_QZv_ID9lEemGSspmsFzMnA" name="PK_ORDER_DETAILS_STATUS" columns="_QcqxIT9lEemGSspmsFzMnA"/>
+      <indexes xmi:id="_QcqxHz9lEemGSspmsFzMnA" techID="_QZybYD9lEemGSspmsFzMnA" name="PK_ORDER_DETAILS_STATUS" qualifier="order_details_status" unique="true">
+        <elements xmi:id="_QcqxID9lEemGSspmsFzMnA" techID="_QZybYT9lEemGSspmsFzMnA" column="_QcqxIT9lEemGSspmsFzMnA" asc="true"/>
+      </indexes>
+      <columns xmi:id="_QcqxIT9lEemGSspmsFzMnA" techID="_QZti4D9lEemGSspmsFzMnA" name="id" defaultValue="" indexElements="_QcqxID9lEemGSspmsFzMnA" primaryKey="_QcqxHj9lEemGSspmsFzMnA">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_QcqxIj9lEemGSspmsFzMnA" length="10" precision="0">
+          <nativeType href="pathmap://NativeDBTypes/SQLServer-2008#_NBLssGW8EeSGPOrcarGX5w"/>
+        </type>
+      </columns>
+      <columns xmi:id="_QcqxIz9lEemGSspmsFzMnA" techID="_QZti4T9lEemGSspmsFzMnA" name="status_name" defaultValue="">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_QcqxJD9lEemGSspmsFzMnA" length="50" precision="0">
+          <nativeType href="pathmap://NativeDBTypes/SQLServer-2008#_KTDyMGW_EeSGPOrcarGX5w"/>
+        </type>
+      </columns>
+    </tables>
+    <tables xsi:type="database:Table" xmi:id="_QcqxJT9lEemGSspmsFzMnA" techID="_QZybYj9lEemGSspmsFzMnA" name="orders">
+      <primaryKey xmi:id="_QcqxJj9lEemGSspmsFzMnA" techID="_QZ2s0D9lEemGSspmsFzMnA" name="PK_ORDERS" columns="_QcqxPz9lEemGSspmsFzMnA"/>
+      <foreignKeys xmi:id="_QcqxJz9lEemGSspmsFzMnA" techID="_QcWnMD9lEemGSspmsFzMnA" name="fk_orders_customers" target="_QcqJMj9lEemGSspmsFzMnA">
+        <elements xmi:id="_QcqxKD9lEemGSspmsFzMnA" techID="_QcWnMT9lEemGSspmsFzMnA" fkColumn="_QcqxQz9lEemGSspmsFzMnA" pkColumn="_QcqJQj9lEemGSspmsFzMnA"/>
+      </foreignKeys>
+      <foreignKeys xmi:id="_QcqxKT9lEemGSspmsFzMnA" techID="_QcWnMj9lEemGSspmsFzMnA" name="fk_orders_employees1" target="_QcqwfT9lEemGSspmsFzMnA">
+        <elements xmi:id="_QcqxKj9lEemGSspmsFzMnA" techID="_QcWnMz9lEemGSspmsFzMnA" fkColumn="_QcqxQT9lEemGSspmsFzMnA" pkColumn="_QcqwjT9lEemGSspmsFzMnA"/>
+      </foreignKeys>
+      <foreignKeys xmi:id="_QcqxKz9lEemGSspmsFzMnA" techID="_QcWnND9lEemGSspmsFzMnA" name="fk_orders_orders_status1" target="_QcrXYD9lEemGSspmsFzMnA">
+        <elements xmi:id="_QcqxLD9lEemGSspmsFzMnA" techID="_QcWnNT9lEemGSspmsFzMnA" fkColumn="_QcrXXj9lEemGSspmsFzMnA" pkColumn="_QcrXZD9lEemGSspmsFzMnA"/>
+      </foreignKeys>
+      <foreignKeys xmi:id="_QcqxLT9lEemGSspmsFzMnA" techID="_QcWnNj9lEemGSspmsFzMnA" name="fk_orders_orders_tax_status1" target="_QcrXaD9lEemGSspmsFzMnA">
+        <elements xmi:id="_QcqxLj9lEemGSspmsFzMnA" techID="_QcXOQD9lEemGSspmsFzMnA" fkColumn="_QcrXXD9lEemGSspmsFzMnA" pkColumn="_QcrXbD9lEemGSspmsFzMnA"/>
+      </foreignKeys>
+      <foreignKeys xmi:id="_QcqxLz9lEemGSspmsFzMnA" techID="_QcXOQT9lEemGSspmsFzMnA" name="fk_orders_shippers1" target="_QcrYAD9lEemGSspmsFzMnA">
+        <elements xmi:id="_QcqxMD9lEemGSspmsFzMnA" techID="_QcXOQj9lEemGSspmsFzMnA" fkColumn="_QcqxST9lEemGSspmsFzMnA" pkColumn="_QcrYED9lEemGSspmsFzMnA"/>
+      </foreignKeys>
+      <indexes xmi:id="_QcqxMT9lEemGSspmsFzMnA" techID="_QZ4iAD9lEemGSspmsFzMnA" name="PK_ORDERS" qualifier="orders" unique="true">
+        <elements xmi:id="_QcqxMj9lEemGSspmsFzMnA" techID="_QZ4iAT9lEemGSspmsFzMnA" column="_QcqxPz9lEemGSspmsFzMnA" asc="true"/>
+      </indexes>
+      <indexes xmi:id="_QcqxMz9lEemGSspmsFzMnA" techID="_QZ4iAj9lEemGSspmsFzMnA" name="customer_id_2" qualifier="orders">
+        <elements xmi:id="_QcqxND9lEemGSspmsFzMnA" techID="_QZ4iAz9lEemGSspmsFzMnA" column="_QcqxQz9lEemGSspmsFzMnA" asc="true"/>
+      </indexes>
+      <indexes xmi:id="_QcqxNT9lEemGSspmsFzMnA" techID="_QZ4iBD9lEemGSspmsFzMnA" name="employee_id_2" qualifier="orders">
+        <elements xmi:id="_QcqxNj9lEemGSspmsFzMnA" techID="_QZ4iBT9lEemGSspmsFzMnA" column="_QcqxQT9lEemGSspmsFzMnA" asc="true"/>
+      </indexes>
+      <indexes xmi:id="_QcqxNz9lEemGSspmsFzMnA" techID="_QZ4iBj9lEemGSspmsFzMnA" name="fk_orders_orders_status1" qualifier="orders">
+        <elements xmi:id="_QcqxOD9lEemGSspmsFzMnA" techID="_QZ4iBz9lEemGSspmsFzMnA" column="_QcrXXj9lEemGSspmsFzMnA" asc="true"/>
+      </indexes>
+      <indexes xmi:id="_QcqxOT9lEemGSspmsFzMnA" techID="_QZ4iCD9lEemGSspmsFzMnA" name="ship_zip_postal_code" qualifier="orders">
+        <elements xmi:id="_QcqxOj9lEemGSspmsFzMnA" techID="_QZ4iCT9lEemGSspmsFzMnA" column="_QcqxUz9lEemGSspmsFzMnA" asc="true"/>
+      </indexes>
+      <indexes xmi:id="_QcqxOz9lEemGSspmsFzMnA" techID="_QZ4iCj9lEemGSspmsFzMnA" name="shipper_id" qualifier="orders">
+        <elements xmi:id="_QcqxPD9lEemGSspmsFzMnA" techID="_QZ4iCz9lEemGSspmsFzMnA" column="_QcqxST9lEemGSspmsFzMnA" asc="true"/>
+      </indexes>
+      <indexes xmi:id="_QcqxPT9lEemGSspmsFzMnA" techID="_QZ5JED9lEemGSspmsFzMnA" name="tax_status" qualifier="orders">
+        <elements xmi:id="_QcqxPj9lEemGSspmsFzMnA" techID="_QZ5JET9lEemGSspmsFzMnA" column="_QcrXXD9lEemGSspmsFzMnA" asc="true"/>
+      </indexes>
+      <columns xmi:id="_QcqxPz9lEemGSspmsFzMnA" techID="_QZ0QkD9lEemGSspmsFzMnA" name="id" defaultValue="" indexElements="_QcqxMj9lEemGSspmsFzMnA" primaryKey="_QcqxJj9lEemGSspmsFzMnA" autoincrement="true">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_QcqxQD9lEemGSspmsFzMnA" length="10" precision="0">
+          <nativeType href="pathmap://NativeDBTypes/SQLServer-2008#_NBLssGW8EeSGPOrcarGX5w"/>
+        </type>
+      </columns>
+      <columns xmi:id="_QcqxQT9lEemGSspmsFzMnA" techID="_QZ0QkT9lEemGSspmsFzMnA" name="employee_id" nullable="true" defaultValue="(NULL)" indexElements="_QcqxNj9lEemGSspmsFzMnA" foreignKeyElements="_QcqxKj9lEemGSspmsFzMnA">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_QcqxQj9lEemGSspmsFzMnA" length="10" precision="0">
+          <nativeType href="pathmap://NativeDBTypes/SQLServer-2008#_NBLssGW8EeSGPOrcarGX5w"/>
+        </type>
+      </columns>
+      <columns xmi:id="_QcqxQz9lEemGSspmsFzMnA" techID="_QZ0Qkj9lEemGSspmsFzMnA" name="customer_id" nullable="true" defaultValue="(NULL)" indexElements="_QcqxND9lEemGSspmsFzMnA" foreignKeyElements="_QcqxKD9lEemGSspmsFzMnA">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_QcqxRD9lEemGSspmsFzMnA" length="10" precision="0">
+          <nativeType href="pathmap://NativeDBTypes/SQLServer-2008#_NBLssGW8EeSGPOrcarGX5w"/>
+        </type>
+      </columns>
+      <columns xmi:id="_QcqxRT9lEemGSspmsFzMnA" techID="_QZ0Qkz9lEemGSspmsFzMnA" name="order_date" nullable="true" defaultValue="(NULL)">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_QcqxRj9lEemGSspmsFzMnA" length="23" precision="3">
+          <nativeType href="pathmap://NativeDBTypes/SQLServer-2008#_Xlo_YGW7EeSGPOrcarGX5w"/>
+        </type>
+      </columns>
+      <columns xmi:id="_QcqxRz9lEemGSspmsFzMnA" techID="_QZ0QlD9lEemGSspmsFzMnA" name="shipped_date" nullable="true" defaultValue="(NULL)">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_QcqxSD9lEemGSspmsFzMnA" length="23" precision="3">
+          <nativeType href="pathmap://NativeDBTypes/SQLServer-2008#_Xlo_YGW7EeSGPOrcarGX5w"/>
+        </type>
+      </columns>
+      <columns xmi:id="_QcqxST9lEemGSspmsFzMnA" techID="_QZ0QlT9lEemGSspmsFzMnA" name="shipper_id" nullable="true" defaultValue="(NULL)" indexElements="_QcqxPD9lEemGSspmsFzMnA" foreignKeyElements="_QcqxMD9lEemGSspmsFzMnA">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_QcqxSj9lEemGSspmsFzMnA" length="10" precision="0">
+          <nativeType href="pathmap://NativeDBTypes/SQLServer-2008#_NBLssGW8EeSGPOrcarGX5w"/>
+        </type>
+      </columns>
+      <columns xmi:id="_QcqxSz9lEemGSspmsFzMnA" techID="_QZ0Qlj9lEemGSspmsFzMnA" name="ship_name" nullable="true" defaultValue="">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_QcqxTD9lEemGSspmsFzMnA" length="50" precision="0">
+          <nativeType href="pathmap://NativeDBTypes/SQLServer-2008#_KTDyMGW_EeSGPOrcarGX5w"/>
+        </type>
+      </columns>
+      <columns xmi:id="_QcqxTT9lEemGSspmsFzMnA" techID="_QZ0Qlz9lEemGSspmsFzMnA" name="ship_address" nullable="true" defaultValue="">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_QcqxTj9lEemGSspmsFzMnA" length="2147483647" precision="0">
+          <nativeType href="pathmap://NativeDBTypes/SQLServer-2008#_KTDyMGW_EeSGPOrcarGX5w"/>
+        </type>
+      </columns>
+      <columns xmi:id="_QcqxTz9lEemGSspmsFzMnA" techID="_QZ03oD9lEemGSspmsFzMnA" name="ship_city" nullable="true" defaultValue="">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_QcqxUD9lEemGSspmsFzMnA" length="50" precision="0">
+          <nativeType href="pathmap://NativeDBTypes/SQLServer-2008#_KTDyMGW_EeSGPOrcarGX5w"/>
+        </type>
+      </columns>
+      <columns xmi:id="_QcqxUT9lEemGSspmsFzMnA" techID="_QZ03oT9lEemGSspmsFzMnA" name="ship_state_province" nullable="true" defaultValue="">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_QcqxUj9lEemGSspmsFzMnA" length="50" precision="0">
+          <nativeType href="pathmap://NativeDBTypes/SQLServer-2008#_KTDyMGW_EeSGPOrcarGX5w"/>
+        </type>
+      </columns>
+      <columns xmi:id="_QcqxUz9lEemGSspmsFzMnA" techID="_QZ03oj9lEemGSspmsFzMnA" name="ship_zip_postal_code" nullable="true" defaultValue="" indexElements="_QcqxOj9lEemGSspmsFzMnA">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_QcqxVD9lEemGSspmsFzMnA" length="50" precision="0">
+          <nativeType href="pathmap://NativeDBTypes/SQLServer-2008#_KTDyMGW_EeSGPOrcarGX5w"/>
+        </type>
+      </columns>
+      <columns xmi:id="_QcqxVT9lEemGSspmsFzMnA" techID="_QZ03oz9lEemGSspmsFzMnA" name="ship_country_region" nullable="true" defaultValue="">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_QcqxVj9lEemGSspmsFzMnA" length="50" precision="0">
+          <nativeType href="pathmap://NativeDBTypes/SQLServer-2008#_KTDyMGW_EeSGPOrcarGX5w"/>
+        </type>
+      </columns>
+      <columns xmi:id="_QcrXUD9lEemGSspmsFzMnA" techID="_QZ03pD9lEemGSspmsFzMnA" name="shipping_fee" nullable="true" defaultValue="((0.0000))">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_QcrXUT9lEemGSspmsFzMnA" length="19" precision="4">
+          <nativeType href="pathmap://NativeDBTypes/SQLServer-2008#_5vmXEDqxEemumanY6_7xeQ"/>
+        </type>
+      </columns>
+      <columns xmi:id="_QcrXUj9lEemGSspmsFzMnA" techID="_QZ03pT9lEemGSspmsFzMnA" name="taxes" nullable="true" defaultValue="((0.0000))">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_QcrXUz9lEemGSspmsFzMnA" length="19" precision="4">
+          <nativeType href="pathmap://NativeDBTypes/SQLServer-2008#_5vmXEDqxEemumanY6_7xeQ"/>
+        </type>
+      </columns>
+      <columns xmi:id="_QcrXVD9lEemGSspmsFzMnA" techID="_QZ03pj9lEemGSspmsFzMnA" name="payment_type" nullable="true" defaultValue="">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_QcrXVT9lEemGSspmsFzMnA" length="50" precision="0">
+          <nativeType href="pathmap://NativeDBTypes/SQLServer-2008#_KTDyMGW_EeSGPOrcarGX5w"/>
+        </type>
+      </columns>
+      <columns xmi:id="_QcrXVj9lEemGSspmsFzMnA" techID="_QZ03pz9lEemGSspmsFzMnA" name="paid_date" nullable="true" defaultValue="(NULL)">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_QcrXVz9lEemGSspmsFzMnA" length="23" precision="3">
+          <nativeType href="pathmap://NativeDBTypes/SQLServer-2008#_Xlo_YGW7EeSGPOrcarGX5w"/>
+        </type>
+      </columns>
+      <columns xmi:id="_QcrXWD9lEemGSspmsFzMnA" techID="_QZ03qD9lEemGSspmsFzMnA" name="notes" nullable="true" defaultValue="">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_QcrXWT9lEemGSspmsFzMnA" length="2147483647" precision="0">
+          <nativeType href="pathmap://NativeDBTypes/SQLServer-2008#_KTDyMGW_EeSGPOrcarGX5w"/>
+        </type>
+      </columns>
+      <columns xmi:id="_QcrXWj9lEemGSspmsFzMnA" techID="_QZ03qT9lEemGSspmsFzMnA" name="tax_rate" nullable="true" defaultValue="((0))">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_QcrXWz9lEemGSspmsFzMnA" length="53" precision="0">
+          <nativeType href="pathmap://NativeDBTypes/SQLServer-2008#_ERR9UGW8EeSGPOrcarGX5w"/>
+        </type>
+      </columns>
+      <columns xmi:id="_QcrXXD9lEemGSspmsFzMnA" techID="_QZ03qj9lEemGSspmsFzMnA" name="tax_status_id" nullable="true" defaultValue="(NULL)" indexElements="_QcqxPj9lEemGSspmsFzMnA" foreignKeyElements="_QcqxLj9lEemGSspmsFzMnA">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_QcrXXT9lEemGSspmsFzMnA" length="3" precision="0">
+          <nativeType href="pathmap://NativeDBTypes/SQLServer-2008#_y-I6MGW-EeSGPOrcarGX5w"/>
+        </type>
+      </columns>
+      <columns xmi:id="_QcrXXj9lEemGSspmsFzMnA" techID="_QZ03qz9lEemGSspmsFzMnA" name="status_id" nullable="true" defaultValue="((0))" indexElements="_QcqxOD9lEemGSspmsFzMnA" foreignKeyElements="_QcqxLD9lEemGSspmsFzMnA">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_QcrXXz9lEemGSspmsFzMnA" length="3" precision="0">
+          <nativeType href="pathmap://NativeDBTypes/SQLServer-2008#_y-I6MGW-EeSGPOrcarGX5w"/>
+        </type>
+      </columns>
+    </tables>
+    <tables xsi:type="database:Table" xmi:id="_QcrXYD9lEemGSspmsFzMnA" techID="_QZ5JEj9lEemGSspmsFzMnA" name="orders_status">
+      <primaryKey xmi:id="_QcrXYT9lEemGSspmsFzMnA" techID="_QZ9agD9lEemGSspmsFzMnA" name="PK_ORDERS_STATUS" columns="_QcrXZD9lEemGSspmsFzMnA"/>
+      <indexes xmi:id="_QcrXYj9lEemGSspmsFzMnA" techID="_QZ_PsD9lEemGSspmsFzMnA" name="PK_ORDERS_STATUS" qualifier="orders_status" unique="true">
+        <elements xmi:id="_QcrXYz9lEemGSspmsFzMnA" techID="_QZ_PsT9lEemGSspmsFzMnA" column="_QcrXZD9lEemGSspmsFzMnA" asc="true"/>
+      </indexes>
+      <columns xmi:id="_QcrXZD9lEemGSspmsFzMnA" techID="_QZ7lUD9lEemGSspmsFzMnA" name="id" defaultValue="" indexElements="_QcrXYz9lEemGSspmsFzMnA" primaryKey="_QcrXYT9lEemGSspmsFzMnA">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_QcrXZT9lEemGSspmsFzMnA" length="3" precision="0">
+          <nativeType href="pathmap://NativeDBTypes/SQLServer-2008#_y-I6MGW-EeSGPOrcarGX5w"/>
+        </type>
+      </columns>
+      <columns xmi:id="_QcrXZj9lEemGSspmsFzMnA" techID="_QZ7lUT9lEemGSspmsFzMnA" name="status_name" defaultValue="">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_QcrXZz9lEemGSspmsFzMnA" length="50" precision="0">
+          <nativeType href="pathmap://NativeDBTypes/SQLServer-2008#_KTDyMGW_EeSGPOrcarGX5w"/>
+        </type>
+      </columns>
+    </tables>
+    <tables xsi:type="database:Table" xmi:id="_QcrXaD9lEemGSspmsFzMnA" techID="_QZ_Psj9lEemGSspmsFzMnA" name="orders_tax_status">
+      <primaryKey xmi:id="_QcrXaT9lEemGSspmsFzMnA" techID="_QaEIMD9lEemGSspmsFzMnA" name="PK_ORDERS_TAX_STATUS" columns="_QcrXbD9lEemGSspmsFzMnA"/>
+      <indexes xmi:id="_QcrXaj9lEemGSspmsFzMnA" techID="_QaF9YD9lEemGSspmsFzMnA" name="PK_ORDERS_TAX_STATUS" qualifier="orders_tax_status" unique="true">
+        <elements xmi:id="_QcrXaz9lEemGSspmsFzMnA" techID="_QaGkcD9lEemGSspmsFzMnA" column="_QcrXbD9lEemGSspmsFzMnA" asc="true"/>
+      </indexes>
+      <columns xmi:id="_QcrXbD9lEemGSspmsFzMnA" techID="_QaCTAD9lEemGSspmsFzMnA" name="id" defaultValue="" indexElements="_QcrXaz9lEemGSspmsFzMnA" primaryKey="_QcrXaT9lEemGSspmsFzMnA">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_QcrXbT9lEemGSspmsFzMnA" length="3" precision="0">
+          <nativeType href="pathmap://NativeDBTypes/SQLServer-2008#_y-I6MGW-EeSGPOrcarGX5w"/>
+        </type>
+      </columns>
+      <columns xmi:id="_QcrXbj9lEemGSspmsFzMnA" techID="_QaCTAT9lEemGSspmsFzMnA" name="tax_status_name" defaultValue="">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_QcrXbz9lEemGSspmsFzMnA" length="50" precision="0">
+          <nativeType href="pathmap://NativeDBTypes/SQLServer-2008#_KTDyMGW_EeSGPOrcarGX5w"/>
+        </type>
+      </columns>
+    </tables>
+    <tables xsi:type="database:Table" xmi:id="_QcrXcD9lEemGSspmsFzMnA" techID="_QaGkcT9lEemGSspmsFzMnA" name="privileges">
+      <primaryKey xmi:id="_QcrXcT9lEemGSspmsFzMnA" techID="_QaK14D9lEemGSspmsFzMnA" name="PK_PRIVILEGES" columns="_QcrXdD9lEemGSspmsFzMnA"/>
+      <indexes xmi:id="_QcrXcj9lEemGSspmsFzMnA" techID="_QaMrED9lEemGSspmsFzMnA" name="PK_PRIVILEGES" qualifier="privileges" unique="true">
+        <elements xmi:id="_QcrXcz9lEemGSspmsFzMnA" techID="_QaMrET9lEemGSspmsFzMnA" column="_QcrXdD9lEemGSspmsFzMnA" asc="true"/>
+      </indexes>
+      <columns xmi:id="_QcrXdD9lEemGSspmsFzMnA" techID="_QaIZoD9lEemGSspmsFzMnA" name="id" defaultValue="" indexElements="_QcrXcz9lEemGSspmsFzMnA" primaryKey="_QcrXcT9lEemGSspmsFzMnA" autoincrement="true">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_QcrXdT9lEemGSspmsFzMnA" length="10" precision="0">
+          <nativeType href="pathmap://NativeDBTypes/SQLServer-2008#_NBLssGW8EeSGPOrcarGX5w"/>
+        </type>
+      </columns>
+      <columns xmi:id="_QcrXdj9lEemGSspmsFzMnA" techID="_QaJAsD9lEemGSspmsFzMnA" name="privilege_name" nullable="true" defaultValue="">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_QcrXdz9lEemGSspmsFzMnA" length="50" precision="0">
+          <nativeType href="pathmap://NativeDBTypes/SQLServer-2008#_KTDyMGW_EeSGPOrcarGX5w"/>
+        </type>
+      </columns>
+    </tables>
+    <tables xsi:type="database:Table" xmi:id="_QcrXeD9lEemGSspmsFzMnA" techID="_QaMrEj9lEemGSspmsFzMnA" name="products">
+      <primaryKey xmi:id="_QcrXeT9lEemGSspmsFzMnA" techID="_QaQ8gD9lEemGSspmsFzMnA" name="PK_PRODUCTS" columns="_QcrXgD9lEemGSspmsFzMnA"/>
+      <indexes xmi:id="_QcrXej9lEemGSspmsFzMnA" techID="_QaSxsD9lEemGSspmsFzMnA" name="PK_PRODUCTS" qualifier="products" unique="true">
+        <elements xmi:id="_QcrXez9lEemGSspmsFzMnA" techID="_QaSxsT9lEemGSspmsFzMnA" column="_QcrXgD9lEemGSspmsFzMnA" asc="true"/>
+      </indexes>
+      <indexes xmi:id="_QcrXfD9lEemGSspmsFzMnA" techID="_QaTYwD9lEemGSspmsFzMnA" name="product_code" qualifier="products">
+        <elements xmi:id="_QcrXfT9lEemGSspmsFzMnA" techID="_QaTYwT9lEemGSspmsFzMnA" column="_QcrXgj9lEemGSspmsFzMnA" asc="true"/>
+      </indexes>
+      <columns xmi:id="_QcrXfj9lEemGSspmsFzMnA" techID="_QaOgQD9lEemGSspmsFzMnA" name="supplier_ids" nullable="true" defaultValue="">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_QcrXfz9lEemGSspmsFzMnA" length="2147483647" precision="0">
+          <nativeType href="pathmap://NativeDBTypes/SQLServer-2008#_KTDyMGW_EeSGPOrcarGX5w"/>
+        </type>
+      </columns>
+      <columns xmi:id="_QcrXgD9lEemGSspmsFzMnA" techID="_QaOgQT9lEemGSspmsFzMnA" name="id" defaultValue="" indexElements="_QcrXez9lEemGSspmsFzMnA" primaryKey="_QcrXeT9lEemGSspmsFzMnA" autoincrement="true">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_QcrXgT9lEemGSspmsFzMnA" length="10" precision="0">
+          <nativeType href="pathmap://NativeDBTypes/SQLServer-2008#_NBLssGW8EeSGPOrcarGX5w"/>
+        </type>
+      </columns>
+      <columns xmi:id="_QcrXgj9lEemGSspmsFzMnA" techID="_QaOgQj9lEemGSspmsFzMnA" name="product_code" nullable="true" defaultValue="" indexElements="_QcrXfT9lEemGSspmsFzMnA">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_QcrXgz9lEemGSspmsFzMnA" length="25" precision="0">
+          <nativeType href="pathmap://NativeDBTypes/SQLServer-2008#_KTDyMGW_EeSGPOrcarGX5w"/>
+        </type>
+      </columns>
+      <columns xmi:id="_QcrXhD9lEemGSspmsFzMnA" techID="_QaOgQz9lEemGSspmsFzMnA" name="product_name" nullable="true" defaultValue="">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_QcrXhT9lEemGSspmsFzMnA" length="50" precision="0">
+          <nativeType href="pathmap://NativeDBTypes/SQLServer-2008#_KTDyMGW_EeSGPOrcarGX5w"/>
+        </type>
+      </columns>
+      <columns xmi:id="_QcrXhj9lEemGSspmsFzMnA" techID="_QaOgRD9lEemGSspmsFzMnA" name="description" nullable="true" defaultValue="">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_QcrXhz9lEemGSspmsFzMnA" length="2147483647" precision="0">
+          <nativeType href="pathmap://NativeDBTypes/SQLServer-2008#_KTDyMGW_EeSGPOrcarGX5w"/>
+        </type>
+      </columns>
+      <columns xmi:id="_QcrXiD9lEemGSspmsFzMnA" techID="_QaOgRT9lEemGSspmsFzMnA" name="standard_cost" nullable="true" defaultValue="((0.0000))">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_QcrXiT9lEemGSspmsFzMnA" length="19" precision="4">
+          <nativeType href="pathmap://NativeDBTypes/SQLServer-2008#_5vmXEDqxEemumanY6_7xeQ"/>
+        </type>
+      </columns>
+      <columns xmi:id="_QcrXij9lEemGSspmsFzMnA" techID="_QaOgRj9lEemGSspmsFzMnA" name="list_price" defaultValue="((0.0000))">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_QcrXiz9lEemGSspmsFzMnA" length="19" precision="4">
+          <nativeType href="pathmap://NativeDBTypes/SQLServer-2008#_5vmXEDqxEemumanY6_7xeQ"/>
+        </type>
+      </columns>
+      <columns xmi:id="_QcrXjD9lEemGSspmsFzMnA" techID="_QaOgRz9lEemGSspmsFzMnA" name="reorder_level" nullable="true" defaultValue="(NULL)">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_QcrXjT9lEemGSspmsFzMnA" length="10" precision="0">
+          <nativeType href="pathmap://NativeDBTypes/SQLServer-2008#_NBLssGW8EeSGPOrcarGX5w"/>
+        </type>
+      </columns>
+      <columns xmi:id="_QcrXjj9lEemGSspmsFzMnA" techID="_QaOgSD9lEemGSspmsFzMnA" name="target_level" nullable="true" defaultValue="(NULL)">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_QcrXjz9lEemGSspmsFzMnA" length="10" precision="0">
+          <nativeType href="pathmap://NativeDBTypes/SQLServer-2008#_NBLssGW8EeSGPOrcarGX5w"/>
+        </type>
+      </columns>
+      <columns xmi:id="_QcrXkD9lEemGSspmsFzMnA" techID="_QaOgST9lEemGSspmsFzMnA" name="quantity_per_unit" nullable="true" defaultValue="">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_QcrXkT9lEemGSspmsFzMnA" length="50" precision="0">
+          <nativeType href="pathmap://NativeDBTypes/SQLServer-2008#_KTDyMGW_EeSGPOrcarGX5w"/>
+        </type>
+      </columns>
+      <columns xmi:id="_QcrXkj9lEemGSspmsFzMnA" techID="_QaPHUD9lEemGSspmsFzMnA" name="discontinued" defaultValue="((0))">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_QcrXkz9lEemGSspmsFzMnA" length="1" precision="0">
+          <nativeType href="pathmap://NativeDBTypes/SQLServer-2008#_H3kkAGW7EeSGPOrcarGX5w"/>
+        </type>
+      </columns>
+      <columns xmi:id="_QcrXlD9lEemGSspmsFzMnA" techID="_QaPHUT9lEemGSspmsFzMnA" name="minimum_reorder_quantity" nullable="true" defaultValue="(NULL)">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_QcrXlT9lEemGSspmsFzMnA" length="10" precision="0">
+          <nativeType href="pathmap://NativeDBTypes/SQLServer-2008#_NBLssGW8EeSGPOrcarGX5w"/>
+        </type>
+      </columns>
+      <columns xmi:id="_QcrXlj9lEemGSspmsFzMnA" techID="_QaPHUj9lEemGSspmsFzMnA" name="category" nullable="true" defaultValue="">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_QcrXlz9lEemGSspmsFzMnA" length="50" precision="0">
+          <nativeType href="pathmap://NativeDBTypes/SQLServer-2008#_KTDyMGW_EeSGPOrcarGX5w"/>
+        </type>
+      </columns>
+      <columns xmi:id="_QcrXmD9lEemGSspmsFzMnA" techID="_QaPHUz9lEemGSspmsFzMnA" name="attachments" nullable="true" defaultValue="(NULL)">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_QcrXmT9lEemGSspmsFzMnA" length="2147483647" precision="0">
+          <nativeType href="pathmap://NativeDBTypes/SQLServer-2008#_BeLcMGW_EeSGPOrcarGX5w"/>
+        </type>
+      </columns>
+    </tables>
+    <tables xsi:type="database:Table" xmi:id="_QcrXmj9lEemGSspmsFzMnA" techID="_QaTYwj9lEemGSspmsFzMnA" name="purchase_order_details">
+      <primaryKey xmi:id="_QcrXmz9lEemGSspmsFzMnA" techID="_QaY4UD9lEemGSspmsFzMnA" name="PK_PURCHASE_ORDER_DETAILS" columns="_QcrXqj9lEemGSspmsFzMnA"/>
+      <foreignKeys xmi:id="_QcrXnD9lEemGSspmsFzMnA" techID="_QcfKED9lEemGSspmsFzMnA" name="fk_purchase_order_details_inventory_transactions1" target="_QcqwuT9lEemGSspmsFzMnA">
+        <elements xmi:id="_QcrXnT9lEemGSspmsFzMnA" techID="_QcfxID9lEemGSspmsFzMnA" fkColumn="_QcrXuD9lEemGSspmsFzMnA" pkColumn="_QcqwzT9lEemGSspmsFzMnA"/>
+      </foreignKeys>
+      <foreignKeys xmi:id="_QcrXnj9lEemGSspmsFzMnA" techID="_QcfxIT9lEemGSspmsFzMnA" name="fk_purchase_order_details_products1" target="_QcrXeD9lEemGSspmsFzMnA">
+        <elements xmi:id="_QcrXnz9lEemGSspmsFzMnA" techID="_QcfxIj9lEemGSspmsFzMnA" fkColumn="_QcrXrj9lEemGSspmsFzMnA" pkColumn="_QcrXgD9lEemGSspmsFzMnA"/>
+      </foreignKeys>
+      <foreignKeys xmi:id="_QcrXoD9lEemGSspmsFzMnA" techID="_QcfxIz9lEemGSspmsFzMnA" name="fk_purchase_order_details_purchase_orders1" target="_QcrXwj9lEemGSspmsFzMnA">
+        <elements xmi:id="_QcrXoT9lEemGSspmsFzMnA" techID="_QcfxJD9lEemGSspmsFzMnA" fkColumn="_QcrXrD9lEemGSspmsFzMnA" pkColumn="_QcrX0j9lEemGSspmsFzMnA"/>
+      </foreignKeys>
+      <indexes xmi:id="_QcrXoj9lEemGSspmsFzMnA" techID="_QabUkD9lEemGSspmsFzMnA" name="PK_PURCHASE_ORDER_DETAILS" qualifier="purchase_order_details" unique="true">
+        <elements xmi:id="_QcrXoz9lEemGSspmsFzMnA" techID="_QabUkT9lEemGSspmsFzMnA" column="_QcrXqj9lEemGSspmsFzMnA" asc="true"/>
+      </indexes>
+      <indexes xmi:id="_QcrXpD9lEemGSspmsFzMnA" techID="_QabUkj9lEemGSspmsFzMnA" name="inventory_id_2" qualifier="purchase_order_details">
+        <elements xmi:id="_QcrXpT9lEemGSspmsFzMnA" techID="_QabUkz9lEemGSspmsFzMnA" column="_QcrXuD9lEemGSspmsFzMnA" asc="true"/>
+      </indexes>
+      <indexes xmi:id="_QcrXpj9lEemGSspmsFzMnA" techID="_QabUlD9lEemGSspmsFzMnA" name="product_id_purchase_order_details" qualifier="purchase_order_details">
+        <elements xmi:id="_QcrXpz9lEemGSspmsFzMnA" techID="_QabUlT9lEemGSspmsFzMnA" column="_QcrXrj9lEemGSspmsFzMnA" asc="true"/>
+      </indexes>
+      <indexes xmi:id="_QcrXqD9lEemGSspmsFzMnA" techID="_QabUlj9lEemGSspmsFzMnA" name="purchase_order_id_purchase_order_details" qualifier="purchase_order_details">
+        <elements xmi:id="_QcrXqT9lEemGSspmsFzMnA" techID="_QabUlz9lEemGSspmsFzMnA" column="_QcrXrD9lEemGSspmsFzMnA" asc="true"/>
+      </indexes>
+      <columns xmi:id="_QcrXqj9lEemGSspmsFzMnA" techID="_QaWcED9lEemGSspmsFzMnA" name="id" defaultValue="" indexElements="_QcrXoz9lEemGSspmsFzMnA" primaryKey="_QcrXmz9lEemGSspmsFzMnA" autoincrement="true">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_QcrXqz9lEemGSspmsFzMnA" length="10" precision="0">
+          <nativeType href="pathmap://NativeDBTypes/SQLServer-2008#_NBLssGW8EeSGPOrcarGX5w"/>
+        </type>
+      </columns>
+      <columns xmi:id="_QcrXrD9lEemGSspmsFzMnA" techID="_QaWcET9lEemGSspmsFzMnA" name="purchase_order_id" defaultValue="" indexElements="_QcrXqT9lEemGSspmsFzMnA" foreignKeyElements="_QcrXoT9lEemGSspmsFzMnA">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_QcrXrT9lEemGSspmsFzMnA" length="10" precision="0">
+          <nativeType href="pathmap://NativeDBTypes/SQLServer-2008#_NBLssGW8EeSGPOrcarGX5w"/>
+        </type>
+      </columns>
+      <columns xmi:id="_QcrXrj9lEemGSspmsFzMnA" techID="_QaWcEj9lEemGSspmsFzMnA" name="product_id" nullable="true" defaultValue="(NULL)" indexElements="_QcrXpz9lEemGSspmsFzMnA" foreignKeyElements="_QcrXnz9lEemGSspmsFzMnA">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_QcrXrz9lEemGSspmsFzMnA" length="10" precision="0">
+          <nativeType href="pathmap://NativeDBTypes/SQLServer-2008#_NBLssGW8EeSGPOrcarGX5w"/>
+        </type>
+      </columns>
+      <columns xmi:id="_QcrXsD9lEemGSspmsFzMnA" techID="_QaWcEz9lEemGSspmsFzMnA" name="quantity" defaultValue="">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_QcrXsT9lEemGSspmsFzMnA" length="18" precision="4">
+          <nativeType href="pathmap://NativeDBTypes/SQLServer-2008#_5vmXEDqxEemumanY6_7xeQ"/>
+        </type>
+      </columns>
+      <columns xmi:id="_QcrXsj9lEemGSspmsFzMnA" techID="_QaWcFD9lEemGSspmsFzMnA" name="unit_cost" defaultValue="">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_QcrXsz9lEemGSspmsFzMnA" length="19" precision="4">
+          <nativeType href="pathmap://NativeDBTypes/SQLServer-2008#_5vmXEDqxEemumanY6_7xeQ"/>
+        </type>
+      </columns>
+      <columns xmi:id="_QcrXtD9lEemGSspmsFzMnA" techID="_QaWcFT9lEemGSspmsFzMnA" name="date_received" nullable="true" defaultValue="(NULL)">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_QcrXtT9lEemGSspmsFzMnA" length="23" precision="3">
+          <nativeType href="pathmap://NativeDBTypes/SQLServer-2008#_Xlo_YGW7EeSGPOrcarGX5w"/>
+        </type>
+      </columns>
+      <columns xmi:id="_QcrXtj9lEemGSspmsFzMnA" techID="_QaWcFj9lEemGSspmsFzMnA" name="posted_to_inventory" defaultValue="((0))">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_QcrXtz9lEemGSspmsFzMnA" length="1" precision="0">
+          <nativeType href="pathmap://NativeDBTypes/SQLServer-2008#_H3kkAGW7EeSGPOrcarGX5w"/>
+        </type>
+      </columns>
+      <columns xmi:id="_QcrXuD9lEemGSspmsFzMnA" techID="_QaWcFz9lEemGSspmsFzMnA" name="inventory_id" nullable="true" defaultValue="(NULL)" indexElements="_QcrXpT9lEemGSspmsFzMnA" foreignKeyElements="_QcrXnT9lEemGSspmsFzMnA">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_QcrXuT9lEemGSspmsFzMnA" length="10" precision="0">
+          <nativeType href="pathmap://NativeDBTypes/SQLServer-2008#_NBLssGW8EeSGPOrcarGX5w"/>
+        </type>
+      </columns>
+    </tables>
+    <tables xsi:type="database:Table" xmi:id="_QcrXuj9lEemGSspmsFzMnA" techID="_QabUmD9lEemGSspmsFzMnA" name="purchase_order_status">
+      <primaryKey xmi:id="_QcrXuz9lEemGSspmsFzMnA" techID="_QahbMD9lEemGSspmsFzMnA" name="PK_PURCHASE_ORDER_STATUS" columns="_QcrXvj9lEemGSspmsFzMnA"/>
+      <indexes xmi:id="_QcrXvD9lEemGSspmsFzMnA" techID="_QajQYD9lEemGSspmsFzMnA" name="PK_PURCHASE_ORDER_STATUS" qualifier="purchase_order_status" unique="true">
+        <elements xmi:id="_QcrXvT9lEemGSspmsFzMnA" techID="_Qaj3cD9lEemGSspmsFzMnA" column="_QcrXvj9lEemGSspmsFzMnA" asc="true"/>
+      </indexes>
+      <columns xmi:id="_QcrXvj9lEemGSspmsFzMnA" techID="_Qae-8D9lEemGSspmsFzMnA" name="id" defaultValue="" indexElements="_QcrXvT9lEemGSspmsFzMnA" primaryKey="_QcrXuz9lEemGSspmsFzMnA">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_QcrXvz9lEemGSspmsFzMnA" length="10" precision="0">
+          <nativeType href="pathmap://NativeDBTypes/SQLServer-2008#_NBLssGW8EeSGPOrcarGX5w"/>
+        </type>
+      </columns>
+      <columns xmi:id="_QcrXwD9lEemGSspmsFzMnA" techID="_Qae-8T9lEemGSspmsFzMnA" name="status" nullable="true" defaultValue="">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_QcrXwT9lEemGSspmsFzMnA" length="50" precision="0">
+          <nativeType href="pathmap://NativeDBTypes/SQLServer-2008#_KTDyMGW_EeSGPOrcarGX5w"/>
+        </type>
+      </columns>
+    </tables>
+    <tables xsi:type="database:Table" xmi:id="_QcrXwj9lEemGSspmsFzMnA" techID="_Qaj3cT9lEemGSspmsFzMnA" name="purchase_orders">
+      <primaryKey xmi:id="_QcrXwz9lEemGSspmsFzMnA" techID="_Qap-ED9lEemGSspmsFzMnA" name="PK_PURCHASE_ORDERS" columns="_QcrX0j9lEemGSspmsFzMnA"/>
+      <foreignKeys xmi:id="_QcrXxD9lEemGSspmsFzMnA" techID="_QciNYD9lEemGSspmsFzMnA" name="fk_purchase_orders_employees1" target="_QcqwfT9lEemGSspmsFzMnA">
+        <elements xmi:id="_QcrXxT9lEemGSspmsFzMnA" techID="_QciNYT9lEemGSspmsFzMnA" fkColumn="_QcrX1j9lEemGSspmsFzMnA" pkColumn="_QcqwjT9lEemGSspmsFzMnA"/>
+      </foreignKeys>
+      <foreignKeys xmi:id="_QcrXxj9lEemGSspmsFzMnA" techID="_QciNYj9lEemGSspmsFzMnA" name="fk_purchase_orders_purchase_order_status1" target="_QcrXuj9lEemGSspmsFzMnA">
+        <elements xmi:id="_QcrXxz9lEemGSspmsFzMnA" techID="_QciNYz9lEemGSspmsFzMnA" fkColumn="_QcrX3D9lEemGSspmsFzMnA" pkColumn="_QcrXvj9lEemGSspmsFzMnA"/>
+      </foreignKeys>
+      <foreignKeys xmi:id="_QcrXyD9lEemGSspmsFzMnA" techID="_QciNZD9lEemGSspmsFzMnA" name="fk_purchase_orders_suppliers1" target="_QcrYPD9lEemGSspmsFzMnA">
+        <elements xmi:id="_QcrXyT9lEemGSspmsFzMnA" techID="_QciNZT9lEemGSspmsFzMnA" fkColumn="_QcrX1D9lEemGSspmsFzMnA" pkColumn="_QcrYTD9lEemGSspmsFzMnA"/>
+      </foreignKeys>
+      <indexes xmi:id="_QcrXyj9lEemGSspmsFzMnA" techID="_QarzQD9lEemGSspmsFzMnA" name="PK_PURCHASE_ORDERS" qualifier="purchase_orders" unique="true">
+        <elements xmi:id="_QcrXyz9lEemGSspmsFzMnA" techID="_QarzQT9lEemGSspmsFzMnA" column="_QcrX0j9lEemGSspmsFzMnA" asc="true"/>
+      </indexes>
+      <indexes xmi:id="_QcrXzD9lEemGSspmsFzMnA" techID="_QarzQj9lEemGSspmsFzMnA" name="created_by" qualifier="purchase_orders">
+        <elements xmi:id="_QcrXzT9lEemGSspmsFzMnA" techID="_QarzQz9lEemGSspmsFzMnA" column="_QcrX1j9lEemGSspmsFzMnA" asc="true"/>
+      </indexes>
+      <indexes xmi:id="_QcrXzj9lEemGSspmsFzMnA" techID="_QarzRD9lEemGSspmsFzMnA" name="status_id" qualifier="purchase_orders">
+        <elements xmi:id="_QcrXzz9lEemGSspmsFzMnA" techID="_QarzRT9lEemGSspmsFzMnA" column="_QcrX3D9lEemGSspmsFzMnA" asc="true"/>
+      </indexes>
+      <indexes xmi:id="_QcrX0D9lEemGSspmsFzMnA" techID="_QarzRj9lEemGSspmsFzMnA" name="supplier_id_2" qualifier="purchase_orders">
+        <elements xmi:id="_QcrX0T9lEemGSspmsFzMnA" techID="_QarzRz9lEemGSspmsFzMnA" column="_QcrX1D9lEemGSspmsFzMnA" asc="true"/>
+      </indexes>
+      <columns xmi:id="_QcrX0j9lEemGSspmsFzMnA" techID="_Qanh0D9lEemGSspmsFzMnA" name="id" defaultValue="" indexElements="_QcrXyz9lEemGSspmsFzMnA" primaryKey="_QcrXwz9lEemGSspmsFzMnA" autoincrement="true">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_QcrX0z9lEemGSspmsFzMnA" length="10" precision="0">
+          <nativeType href="pathmap://NativeDBTypes/SQLServer-2008#_NBLssGW8EeSGPOrcarGX5w"/>
+        </type>
+      </columns>
+      <columns xmi:id="_QcrX1D9lEemGSspmsFzMnA" techID="_Qanh0T9lEemGSspmsFzMnA" name="supplier_id" nullable="true" defaultValue="(NULL)" indexElements="_QcrX0T9lEemGSspmsFzMnA" foreignKeyElements="_QcrXyT9lEemGSspmsFzMnA">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_QcrX1T9lEemGSspmsFzMnA" length="10" precision="0">
+          <nativeType href="pathmap://NativeDBTypes/SQLServer-2008#_NBLssGW8EeSGPOrcarGX5w"/>
+        </type>
+      </columns>
+      <columns xmi:id="_QcrX1j9lEemGSspmsFzMnA" techID="_Qanh0j9lEemGSspmsFzMnA" name="created_by" nullable="true" defaultValue="(NULL)" indexElements="_QcrXzT9lEemGSspmsFzMnA" foreignKeyElements="_QcrXxT9lEemGSspmsFzMnA">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_QcrX1z9lEemGSspmsFzMnA" length="10" precision="0">
+          <nativeType href="pathmap://NativeDBTypes/SQLServer-2008#_NBLssGW8EeSGPOrcarGX5w"/>
+        </type>
+      </columns>
+      <columns xmi:id="_QcrX2D9lEemGSspmsFzMnA" techID="_Qanh0z9lEemGSspmsFzMnA" name="submitted_date" nullable="true" defaultValue="(NULL)">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_QcrX2T9lEemGSspmsFzMnA" length="23" precision="3">
+          <nativeType href="pathmap://NativeDBTypes/SQLServer-2008#_Xlo_YGW7EeSGPOrcarGX5w"/>
+        </type>
+      </columns>
+      <columns xmi:id="_QcrX2j9lEemGSspmsFzMnA" techID="_Qanh1D9lEemGSspmsFzMnA" name="creation_date" nullable="true" defaultValue="(NULL)">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_QcrX2z9lEemGSspmsFzMnA" length="23" precision="3">
+          <nativeType href="pathmap://NativeDBTypes/SQLServer-2008#_Xlo_YGW7EeSGPOrcarGX5w"/>
+        </type>
+      </columns>
+      <columns xmi:id="_QcrX3D9lEemGSspmsFzMnA" techID="_Qanh1T9lEemGSspmsFzMnA" name="status_id" nullable="true" defaultValue="((0))" indexElements="_QcrXzz9lEemGSspmsFzMnA" foreignKeyElements="_QcrXxz9lEemGSspmsFzMnA">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_QcrX3T9lEemGSspmsFzMnA" length="10" precision="0">
+          <nativeType href="pathmap://NativeDBTypes/SQLServer-2008#_NBLssGW8EeSGPOrcarGX5w"/>
+        </type>
+      </columns>
+      <columns xmi:id="_QcrX3j9lEemGSspmsFzMnA" techID="_Qanh1j9lEemGSspmsFzMnA" name="expected_date" nullable="true" defaultValue="(NULL)">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_QcrX3z9lEemGSspmsFzMnA" length="23" precision="3">
+          <nativeType href="pathmap://NativeDBTypes/SQLServer-2008#_Xlo_YGW7EeSGPOrcarGX5w"/>
+        </type>
+      </columns>
+      <columns xmi:id="_QcrX4D9lEemGSspmsFzMnA" techID="_Qanh1z9lEemGSspmsFzMnA" name="shipping_fee" defaultValue="((0.0000))">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_QcrX4T9lEemGSspmsFzMnA" length="19" precision="4">
+          <nativeType href="pathmap://NativeDBTypes/SQLServer-2008#_5vmXEDqxEemumanY6_7xeQ"/>
+        </type>
+      </columns>
+      <columns xmi:id="_QcrX4j9lEemGSspmsFzMnA" techID="_Qanh2D9lEemGSspmsFzMnA" name="taxes" defaultValue="((0.0000))">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_QcrX4z9lEemGSspmsFzMnA" length="19" precision="4">
+          <nativeType href="pathmap://NativeDBTypes/SQLServer-2008#_5vmXEDqxEemumanY6_7xeQ"/>
+        </type>
+      </columns>
+      <columns xmi:id="_QcrX5D9lEemGSspmsFzMnA" techID="_Qanh2T9lEemGSspmsFzMnA" name="payment_date" nullable="true" defaultValue="(NULL)">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_QcrX5T9lEemGSspmsFzMnA" length="23" precision="3">
+          <nativeType href="pathmap://NativeDBTypes/SQLServer-2008#_Xlo_YGW7EeSGPOrcarGX5w"/>
+        </type>
+      </columns>
+      <columns xmi:id="_QcrX5j9lEemGSspmsFzMnA" techID="_Qanh2j9lEemGSspmsFzMnA" name="payment_amount" nullable="true" defaultValue="((0.0000))">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_QcrX5z9lEemGSspmsFzMnA" length="19" precision="4">
+          <nativeType href="pathmap://NativeDBTypes/SQLServer-2008#_5vmXEDqxEemumanY6_7xeQ"/>
+        </type>
+      </columns>
+      <columns xmi:id="_QcrX6D9lEemGSspmsFzMnA" techID="_Qanh2z9lEemGSspmsFzMnA" name="payment_method" nullable="true" defaultValue="">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_QcrX6T9lEemGSspmsFzMnA" length="50" precision="0">
+          <nativeType href="pathmap://NativeDBTypes/SQLServer-2008#_KTDyMGW_EeSGPOrcarGX5w"/>
+        </type>
+      </columns>
+      <columns xmi:id="_QcrX6j9lEemGSspmsFzMnA" techID="_QaoI4D9lEemGSspmsFzMnA" name="notes" nullable="true" defaultValue="">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_QcrX6z9lEemGSspmsFzMnA" length="2147483647" precision="0">
+          <nativeType href="pathmap://NativeDBTypes/SQLServer-2008#_KTDyMGW_EeSGPOrcarGX5w"/>
+        </type>
+      </columns>
+      <columns xmi:id="_QcrX7D9lEemGSspmsFzMnA" techID="_QaoI4T9lEemGSspmsFzMnA" name="approved_by" nullable="true" defaultValue="(NULL)">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_QcrX7T9lEemGSspmsFzMnA" length="10" precision="0">
+          <nativeType href="pathmap://NativeDBTypes/SQLServer-2008#_NBLssGW8EeSGPOrcarGX5w"/>
+        </type>
+      </columns>
+      <columns xmi:id="_QcrX7j9lEemGSspmsFzMnA" techID="_QaoI4j9lEemGSspmsFzMnA" name="approved_date" nullable="true" defaultValue="(NULL)">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_QcrX7z9lEemGSspmsFzMnA" length="23" precision="3">
+          <nativeType href="pathmap://NativeDBTypes/SQLServer-2008#_Xlo_YGW7EeSGPOrcarGX5w"/>
+        </type>
+      </columns>
+      <columns xmi:id="_QcrX8D9lEemGSspmsFzMnA" techID="_QaoI4z9lEemGSspmsFzMnA" name="submitted_by" nullable="true" defaultValue="(NULL)">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_QcrX8T9lEemGSspmsFzMnA" length="10" precision="0">
+          <nativeType href="pathmap://NativeDBTypes/SQLServer-2008#_NBLssGW8EeSGPOrcarGX5w"/>
+        </type>
+      </columns>
+    </tables>
+    <tables xsi:type="database:Table" xmi:id="_QcrX8j9lEemGSspmsFzMnA" techID="_QasaUD9lEemGSspmsFzMnA" name="sales_reports">
+      <primaryKey xmi:id="_QcrX8z9lEemGSspmsFzMnA" techID="_Qax54D9lEemGSspmsFzMnA" name="PK_SALES_REPORTS" columns="_QcrX9j9lEemGSspmsFzMnA"/>
+      <indexes xmi:id="_QcrX9D9lEemGSspmsFzMnA" techID="_QazvED9lEemGSspmsFzMnA" name="PK_SALES_REPORTS" qualifier="sales_reports" unique="true">
+        <elements xmi:id="_QcrX9T9lEemGSspmsFzMnA" techID="_QazvET9lEemGSspmsFzMnA" column="_QcrX9j9lEemGSspmsFzMnA" asc="true"/>
+      </indexes>
+      <columns xmi:id="_QcrX9j9lEemGSspmsFzMnA" techID="_QavdoD9lEemGSspmsFzMnA" name="group_by" defaultValue="" indexElements="_QcrX9T9lEemGSspmsFzMnA" primaryKey="_QcrX8z9lEemGSspmsFzMnA">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_QcrX9z9lEemGSspmsFzMnA" length="50" precision="0">
+          <nativeType href="pathmap://NativeDBTypes/SQLServer-2008#_KTDyMGW_EeSGPOrcarGX5w"/>
+        </type>
+      </columns>
+      <columns xmi:id="_QcrX-D9lEemGSspmsFzMnA" techID="_QavdoT9lEemGSspmsFzMnA" name="display" nullable="true" defaultValue="">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_QcrX-T9lEemGSspmsFzMnA" length="50" precision="0">
+          <nativeType href="pathmap://NativeDBTypes/SQLServer-2008#_KTDyMGW_EeSGPOrcarGX5w"/>
+        </type>
+      </columns>
+      <columns xmi:id="_QcrX-j9lEemGSspmsFzMnA" techID="_Qavdoj9lEemGSspmsFzMnA" name="title" nullable="true" defaultValue="">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_QcrX-z9lEemGSspmsFzMnA" length="50" precision="0">
+          <nativeType href="pathmap://NativeDBTypes/SQLServer-2008#_KTDyMGW_EeSGPOrcarGX5w"/>
+        </type>
+      </columns>
+      <columns xmi:id="_QcrX_D9lEemGSspmsFzMnA" techID="_Qavdoz9lEemGSspmsFzMnA" name="filter_row_source" nullable="true" defaultValue="">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_QcrX_T9lEemGSspmsFzMnA" length="2147483647" precision="0">
+          <nativeType href="pathmap://NativeDBTypes/SQLServer-2008#_KTDyMGW_EeSGPOrcarGX5w"/>
+        </type>
+      </columns>
+      <columns xmi:id="_QcrX_j9lEemGSspmsFzMnA" techID="_QavdpD9lEemGSspmsFzMnA" name="default" defaultValue="((0))">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_QcrX_z9lEemGSspmsFzMnA" length="1" precision="0">
+          <nativeType href="pathmap://NativeDBTypes/SQLServer-2008#_H3kkAGW7EeSGPOrcarGX5w"/>
+        </type>
+      </columns>
+    </tables>
+    <tables xsi:type="database:Table" xmi:id="_QcrYAD9lEemGSspmsFzMnA" techID="_QazvEj9lEemGSspmsFzMnA" name="shippers">
+      <primaryKey xmi:id="_QcrYAT9lEemGSspmsFzMnA" techID="_Qa4AgD9lEemGSspmsFzMnA" name="PK_SHIPPERS" columns="_QcrYED9lEemGSspmsFzMnA"/>
+      <indexes xmi:id="_QcrYAj9lEemGSspmsFzMnA" techID="_Qa51sD9lEemGSspmsFzMnA" name="PK_SHIPPERS" qualifier="shippers" unique="true">
+        <elements xmi:id="_QcrYAz9lEemGSspmsFzMnA" techID="_Qa6cwD9lEemGSspmsFzMnA" column="_QcrYED9lEemGSspmsFzMnA" asc="true"/>
+      </indexes>
+      <indexes xmi:id="_QcrYBD9lEemGSspmsFzMnA" techID="_Qa6cwT9lEemGSspmsFzMnA" name="city_shippers" qualifier="shippers">
+        <elements xmi:id="_QcrYBT9lEemGSspmsFzMnA" techID="_Qa6cwj9lEemGSspmsFzMnA" column="_QcrYJj9lEemGSspmsFzMnA" asc="true"/>
+      </indexes>
+      <indexes xmi:id="_QcrYBj9lEemGSspmsFzMnA" techID="_Qa6cwz9lEemGSspmsFzMnA" name="company_shippers" qualifier="shippers">
+        <elements xmi:id="_QcrYBz9lEemGSspmsFzMnA" techID="_Qa6cxD9lEemGSspmsFzMnA" column="_QcrYEj9lEemGSspmsFzMnA" asc="true"/>
+      </indexes>
+      <indexes xmi:id="_QcrYCD9lEemGSspmsFzMnA" techID="_Qa6cxT9lEemGSspmsFzMnA" name="first_name_shippers" qualifier="shippers">
+        <elements xmi:id="_QcrYCT9lEemGSspmsFzMnA" techID="_Qa6cxj9lEemGSspmsFzMnA" column="_QcrYFj9lEemGSspmsFzMnA" asc="true"/>
+      </indexes>
+      <indexes xmi:id="_QcrYCj9lEemGSspmsFzMnA" techID="_Qa6cxz9lEemGSspmsFzMnA" name="last_name_shippers" qualifier="shippers">
+        <elements xmi:id="_QcrYCz9lEemGSspmsFzMnA" techID="_Qa6cyD9lEemGSspmsFzMnA" column="_QcrYFD9lEemGSspmsFzMnA" asc="true"/>
+      </indexes>
+      <indexes xmi:id="_QcrYDD9lEemGSspmsFzMnA" techID="_Qa6cyT9lEemGSspmsFzMnA" name="state_province_shippers" qualifier="shippers">
+        <elements xmi:id="_QcrYDT9lEemGSspmsFzMnA" techID="_Qa6cyj9lEemGSspmsFzMnA" column="_QcrYKD9lEemGSspmsFzMnA" asc="true"/>
+      </indexes>
+      <indexes xmi:id="_QcrYDj9lEemGSspmsFzMnA" techID="_Qa6cyz9lEemGSspmsFzMnA" name="zip_postal_code_shippers" qualifier="shippers">
+        <elements xmi:id="_QcrYDz9lEemGSspmsFzMnA" techID="_Qa6czD9lEemGSspmsFzMnA" column="_QcrYKj9lEemGSspmsFzMnA" asc="true"/>
+      </indexes>
+      <columns xmi:id="_QcrYED9lEemGSspmsFzMnA" techID="_Qa1kQD9lEemGSspmsFzMnA" name="id" defaultValue="" indexElements="_QcrYAz9lEemGSspmsFzMnA" primaryKey="_QcrYAT9lEemGSspmsFzMnA" autoincrement="true">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_QcrYET9lEemGSspmsFzMnA" length="10" precision="0">
+          <nativeType href="pathmap://NativeDBTypes/SQLServer-2008#_NBLssGW8EeSGPOrcarGX5w"/>
+        </type>
+      </columns>
+      <columns xmi:id="_QcrYEj9lEemGSspmsFzMnA" techID="_Qa1kQT9lEemGSspmsFzMnA" name="company" nullable="true" defaultValue="" indexElements="_QcrYBz9lEemGSspmsFzMnA">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_QcrYEz9lEemGSspmsFzMnA" length="50" precision="0">
+          <nativeType href="pathmap://NativeDBTypes/SQLServer-2008#_KTDyMGW_EeSGPOrcarGX5w"/>
+        </type>
+      </columns>
+      <columns xmi:id="_QcrYFD9lEemGSspmsFzMnA" techID="_Qa1kQj9lEemGSspmsFzMnA" name="last_name" nullable="true" defaultValue="" indexElements="_QcrYCz9lEemGSspmsFzMnA">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_QcrYFT9lEemGSspmsFzMnA" length="50" precision="0">
+          <nativeType href="pathmap://NativeDBTypes/SQLServer-2008#_KTDyMGW_EeSGPOrcarGX5w"/>
+        </type>
+      </columns>
+      <columns xmi:id="_QcrYFj9lEemGSspmsFzMnA" techID="_Qa1kQz9lEemGSspmsFzMnA" name="first_name" nullable="true" defaultValue="" indexElements="_QcrYCT9lEemGSspmsFzMnA">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_QcrYFz9lEemGSspmsFzMnA" length="50" precision="0">
+          <nativeType href="pathmap://NativeDBTypes/SQLServer-2008#_KTDyMGW_EeSGPOrcarGX5w"/>
+        </type>
+      </columns>
+      <columns xmi:id="_QcrYGD9lEemGSspmsFzMnA" techID="_Qa1kRD9lEemGSspmsFzMnA" name="email_address" nullable="true" defaultValue="">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_QcrYGT9lEemGSspmsFzMnA" length="50" precision="0">
+          <nativeType href="pathmap://NativeDBTypes/SQLServer-2008#_KTDyMGW_EeSGPOrcarGX5w"/>
+        </type>
+      </columns>
+      <columns xmi:id="_QcrYGj9lEemGSspmsFzMnA" techID="_Qa1kRT9lEemGSspmsFzMnA" name="job_title" nullable="true" defaultValue="">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_QcrYGz9lEemGSspmsFzMnA" length="50" precision="0">
+          <nativeType href="pathmap://NativeDBTypes/SQLServer-2008#_KTDyMGW_EeSGPOrcarGX5w"/>
+        </type>
+      </columns>
+      <columns xmi:id="_QcrYHD9lEemGSspmsFzMnA" techID="_Qa1kRj9lEemGSspmsFzMnA" name="business_phone" nullable="true" defaultValue="">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_QcrYHT9lEemGSspmsFzMnA" length="25" precision="0">
+          <nativeType href="pathmap://NativeDBTypes/SQLServer-2008#_KTDyMGW_EeSGPOrcarGX5w"/>
+        </type>
+      </columns>
+      <columns xmi:id="_QcrYHj9lEemGSspmsFzMnA" techID="_Qa1kRz9lEemGSspmsFzMnA" name="home_phone" nullable="true" defaultValue="">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_QcrYHz9lEemGSspmsFzMnA" length="25" precision="0">
+          <nativeType href="pathmap://NativeDBTypes/SQLServer-2008#_KTDyMGW_EeSGPOrcarGX5w"/>
+        </type>
+      </columns>
+      <columns xmi:id="_QcrYID9lEemGSspmsFzMnA" techID="_Qa1kSD9lEemGSspmsFzMnA" name="mobile_phone" nullable="true" defaultValue="">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_QcrYIT9lEemGSspmsFzMnA" length="25" precision="0">
+          <nativeType href="pathmap://NativeDBTypes/SQLServer-2008#_KTDyMGW_EeSGPOrcarGX5w"/>
+        </type>
+      </columns>
+      <columns xmi:id="_QcrYIj9lEemGSspmsFzMnA" techID="_Qa1kST9lEemGSspmsFzMnA" name="fax_number" nullable="true" defaultValue="">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_QcrYIz9lEemGSspmsFzMnA" length="25" precision="0">
+          <nativeType href="pathmap://NativeDBTypes/SQLServer-2008#_KTDyMGW_EeSGPOrcarGX5w"/>
+        </type>
+      </columns>
+      <columns xmi:id="_QcrYJD9lEemGSspmsFzMnA" techID="_Qa2LUD9lEemGSspmsFzMnA" name="address" nullable="true" defaultValue="">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_QcrYJT9lEemGSspmsFzMnA" length="2147483647" precision="0">
+          <nativeType href="pathmap://NativeDBTypes/SQLServer-2008#_KTDyMGW_EeSGPOrcarGX5w"/>
+        </type>
+      </columns>
+      <columns xmi:id="_QcrYJj9lEemGSspmsFzMnA" techID="_Qa2LUT9lEemGSspmsFzMnA" name="city" nullable="true" defaultValue="" indexElements="_QcrYBT9lEemGSspmsFzMnA">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_QcrYJz9lEemGSspmsFzMnA" length="50" precision="0">
+          <nativeType href="pathmap://NativeDBTypes/SQLServer-2008#_KTDyMGW_EeSGPOrcarGX5w"/>
+        </type>
+      </columns>
+      <columns xmi:id="_QcrYKD9lEemGSspmsFzMnA" techID="_Qa2LUj9lEemGSspmsFzMnA" name="state_province" nullable="true" defaultValue="" indexElements="_QcrYDT9lEemGSspmsFzMnA">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_QcrYKT9lEemGSspmsFzMnA" length="50" precision="0">
+          <nativeType href="pathmap://NativeDBTypes/SQLServer-2008#_KTDyMGW_EeSGPOrcarGX5w"/>
+        </type>
+      </columns>
+      <columns xmi:id="_QcrYKj9lEemGSspmsFzMnA" techID="_Qa2LUz9lEemGSspmsFzMnA" name="zip_postal_code" nullable="true" defaultValue="" indexElements="_QcrYDz9lEemGSspmsFzMnA">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_QcrYKz9lEemGSspmsFzMnA" length="15" precision="0">
+          <nativeType href="pathmap://NativeDBTypes/SQLServer-2008#_KTDyMGW_EeSGPOrcarGX5w"/>
+        </type>
+      </columns>
+      <columns xmi:id="_QcrYLD9lEemGSspmsFzMnA" techID="_Qa2LVD9lEemGSspmsFzMnA" name="country_region" nullable="true" defaultValue="">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_QcrYLT9lEemGSspmsFzMnA" length="50" precision="0">
+          <nativeType href="pathmap://NativeDBTypes/SQLServer-2008#_KTDyMGW_EeSGPOrcarGX5w"/>
+        </type>
+      </columns>
+      <columns xmi:id="_QcrYLj9lEemGSspmsFzMnA" techID="_Qa2LVT9lEemGSspmsFzMnA" name="web_page" nullable="true" defaultValue="">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_QcrYLz9lEemGSspmsFzMnA" length="2147483647" precision="0">
+          <nativeType href="pathmap://NativeDBTypes/SQLServer-2008#_KTDyMGW_EeSGPOrcarGX5w"/>
+        </type>
+      </columns>
+      <columns xmi:id="_QcrYMD9lEemGSspmsFzMnA" techID="_Qa2LVj9lEemGSspmsFzMnA" name="notes" nullable="true" defaultValue="">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_QcrYMT9lEemGSspmsFzMnA" length="2147483647" precision="0">
+          <nativeType href="pathmap://NativeDBTypes/SQLServer-2008#_KTDyMGW_EeSGPOrcarGX5w"/>
+        </type>
+      </columns>
+      <columns xmi:id="_QcrYMj9lEemGSspmsFzMnA" techID="_Qa2LVz9lEemGSspmsFzMnA" name="attachments" nullable="true" defaultValue="(NULL)">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_QcrYMz9lEemGSspmsFzMnA" length="2147483647" precision="0">
+          <nativeType href="pathmap://NativeDBTypes/SQLServer-2008#_BeLcMGW_EeSGPOrcarGX5w"/>
+        </type>
+      </columns>
+    </tables>
+    <tables xsi:type="database:Table" xmi:id="_QcrYND9lEemGSspmsFzMnA" techID="_Qa6czT9lEemGSspmsFzMnA" name="strings">
+      <primaryKey xmi:id="_QcrYNT9lEemGSspmsFzMnA" techID="_Qa-uMD9lEemGSspmsFzMnA" name="PK_STRINGS" columns="_QcrYOD9lEemGSspmsFzMnA"/>
+      <indexes xmi:id="_QcrYNj9lEemGSspmsFzMnA" techID="_QbAjYD9lEemGSspmsFzMnA" name="PK_STRINGS" qualifier="strings" unique="true">
+        <elements xmi:id="_QcrYNz9lEemGSspmsFzMnA" techID="_QbAjYT9lEemGSspmsFzMnA" column="_QcrYOD9lEemGSspmsFzMnA" asc="true"/>
+      </indexes>
+      <columns xmi:id="_QcrYOD9lEemGSspmsFzMnA" techID="_Qa8R8D9lEemGSspmsFzMnA" name="string_id" defaultValue="" indexElements="_QcrYNz9lEemGSspmsFzMnA" primaryKey="_QcrYNT9lEemGSspmsFzMnA" autoincrement="true">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_QcrYOT9lEemGSspmsFzMnA" length="10" precision="0">
+          <nativeType href="pathmap://NativeDBTypes/SQLServer-2008#_NBLssGW8EeSGPOrcarGX5w"/>
+        </type>
+      </columns>
+      <columns xmi:id="_QcrYOj9lEemGSspmsFzMnA" techID="_Qa8R8T9lEemGSspmsFzMnA" name="string_data" nullable="true" defaultValue="">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_QcrYOz9lEemGSspmsFzMnA" length="255" precision="0">
+          <nativeType href="pathmap://NativeDBTypes/SQLServer-2008#_KTDyMGW_EeSGPOrcarGX5w"/>
+        </type>
+      </columns>
+    </tables>
+    <tables xsi:type="database:Table" xmi:id="_QcrYPD9lEemGSspmsFzMnA" techID="_QbAjYj9lEemGSspmsFzMnA" name="suppliers">
+      <primaryKey xmi:id="_QcrYPT9lEemGSspmsFzMnA" techID="_QbFb4D9lEemGSspmsFzMnA" name="PK_SUPPLIERS" columns="_QcrYTD9lEemGSspmsFzMnA"/>
+      <indexes xmi:id="_QcrYPj9lEemGSspmsFzMnA" techID="_QbHRED9lEemGSspmsFzMnA" name="PK_SUPPLIERS" qualifier="suppliers" unique="true">
+        <elements xmi:id="_QcrYPz9lEemGSspmsFzMnA" techID="_QbHRET9lEemGSspmsFzMnA" column="_QcrYTD9lEemGSspmsFzMnA" asc="true"/>
+      </indexes>
+      <indexes xmi:id="_QcrYQD9lEemGSspmsFzMnA" techID="_QbHREj9lEemGSspmsFzMnA" name="city_suppliers" qualifier="suppliers">
+        <elements xmi:id="_QcrYQT9lEemGSspmsFzMnA" techID="_QbHREz9lEemGSspmsFzMnA" column="_QcrYYj9lEemGSspmsFzMnA" asc="true"/>
+      </indexes>
+      <indexes xmi:id="_QcrYQj9lEemGSspmsFzMnA" techID="_QbHRFD9lEemGSspmsFzMnA" name="company_suppliers" qualifier="suppliers">
+        <elements xmi:id="_QcrYQz9lEemGSspmsFzMnA" techID="_QbHRFT9lEemGSspmsFzMnA" column="_QcrYTj9lEemGSspmsFzMnA" asc="true"/>
+      </indexes>
+      <indexes xmi:id="_QcrYRD9lEemGSspmsFzMnA" techID="_QbHRFj9lEemGSspmsFzMnA" name="first_name_suppliers" qualifier="suppliers">
+        <elements xmi:id="_QcrYRT9lEemGSspmsFzMnA" techID="_QbHRFz9lEemGSspmsFzMnA" column="_QcrYUj9lEemGSspmsFzMnA" asc="true"/>
+      </indexes>
+      <indexes xmi:id="_QcrYRj9lEemGSspmsFzMnA" techID="_QbHRGD9lEemGSspmsFzMnA" name="last_name_suppliers" qualifier="suppliers">
+        <elements xmi:id="_QcrYRz9lEemGSspmsFzMnA" techID="_QbHRGT9lEemGSspmsFzMnA" column="_QcrYUD9lEemGSspmsFzMnA" asc="true"/>
+      </indexes>
+      <indexes xmi:id="_QcrYSD9lEemGSspmsFzMnA" techID="_QbHRGj9lEemGSspmsFzMnA" name="state_province_suppliers" qualifier="suppliers">
+        <elements xmi:id="_QcrYST9lEemGSspmsFzMnA" techID="_QbHRGz9lEemGSspmsFzMnA" column="_QcrYZD9lEemGSspmsFzMnA" asc="true"/>
+      </indexes>
+      <indexes xmi:id="_QcrYSj9lEemGSspmsFzMnA" techID="_QbHRHD9lEemGSspmsFzMnA" name="zip_postal_code_suppliers" qualifier="suppliers">
+        <elements xmi:id="_QcrYSz9lEemGSspmsFzMnA" techID="_QbHRHT9lEemGSspmsFzMnA" column="_QcrYZj9lEemGSspmsFzMnA" asc="true"/>
+      </indexes>
+      <columns xmi:id="_QcrYTD9lEemGSspmsFzMnA" techID="_QbCYkD9lEemGSspmsFzMnA" name="id" defaultValue="" indexElements="_QcrYPz9lEemGSspmsFzMnA" primaryKey="_QcrYPT9lEemGSspmsFzMnA" autoincrement="true">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_QcrYTT9lEemGSspmsFzMnA" length="10" precision="0">
+          <nativeType href="pathmap://NativeDBTypes/SQLServer-2008#_NBLssGW8EeSGPOrcarGX5w"/>
+        </type>
+      </columns>
+      <columns xmi:id="_QcrYTj9lEemGSspmsFzMnA" techID="_QbCYkT9lEemGSspmsFzMnA" name="company" nullable="true" defaultValue="" indexElements="_QcrYQz9lEemGSspmsFzMnA">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_QcrYTz9lEemGSspmsFzMnA" length="50" precision="0">
+          <nativeType href="pathmap://NativeDBTypes/SQLServer-2008#_KTDyMGW_EeSGPOrcarGX5w"/>
+        </type>
+      </columns>
+      <columns xmi:id="_QcrYUD9lEemGSspmsFzMnA" techID="_QbCYkj9lEemGSspmsFzMnA" name="last_name" nullable="true" defaultValue="" indexElements="_QcrYRz9lEemGSspmsFzMnA">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_QcrYUT9lEemGSspmsFzMnA" length="50" precision="0">
+          <nativeType href="pathmap://NativeDBTypes/SQLServer-2008#_KTDyMGW_EeSGPOrcarGX5w"/>
+        </type>
+      </columns>
+      <columns xmi:id="_QcrYUj9lEemGSspmsFzMnA" techID="_QbCYkz9lEemGSspmsFzMnA" name="first_name" nullable="true" defaultValue="" indexElements="_QcrYRT9lEemGSspmsFzMnA">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_QcrYUz9lEemGSspmsFzMnA" length="50" precision="0">
+          <nativeType href="pathmap://NativeDBTypes/SQLServer-2008#_KTDyMGW_EeSGPOrcarGX5w"/>
+        </type>
+      </columns>
+      <columns xmi:id="_QcrYVD9lEemGSspmsFzMnA" techID="_QbCYlD9lEemGSspmsFzMnA" name="email_address" nullable="true" defaultValue="">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_QcrYVT9lEemGSspmsFzMnA" length="50" precision="0">
+          <nativeType href="pathmap://NativeDBTypes/SQLServer-2008#_KTDyMGW_EeSGPOrcarGX5w"/>
+        </type>
+      </columns>
+      <columns xmi:id="_QcrYVj9lEemGSspmsFzMnA" techID="_QbC_oD9lEemGSspmsFzMnA" name="job_title" nullable="true" defaultValue="">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_QcrYVz9lEemGSspmsFzMnA" length="50" precision="0">
+          <nativeType href="pathmap://NativeDBTypes/SQLServer-2008#_KTDyMGW_EeSGPOrcarGX5w"/>
+        </type>
+      </columns>
+      <columns xmi:id="_QcrYWD9lEemGSspmsFzMnA" techID="_QbC_oT9lEemGSspmsFzMnA" name="business_phone" nullable="true" defaultValue="">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_QcrYWT9lEemGSspmsFzMnA" length="25" precision="0">
+          <nativeType href="pathmap://NativeDBTypes/SQLServer-2008#_KTDyMGW_EeSGPOrcarGX5w"/>
+        </type>
+      </columns>
+      <columns xmi:id="_QcrYWj9lEemGSspmsFzMnA" techID="_QbC_oj9lEemGSspmsFzMnA" name="home_phone" nullable="true" defaultValue="">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_QcrYWz9lEemGSspmsFzMnA" length="25" precision="0">
+          <nativeType href="pathmap://NativeDBTypes/SQLServer-2008#_KTDyMGW_EeSGPOrcarGX5w"/>
+        </type>
+      </columns>
+      <columns xmi:id="_QcrYXD9lEemGSspmsFzMnA" techID="_QbC_oz9lEemGSspmsFzMnA" name="mobile_phone" nullable="true" defaultValue="">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_QcrYXT9lEemGSspmsFzMnA" length="25" precision="0">
+          <nativeType href="pathmap://NativeDBTypes/SQLServer-2008#_KTDyMGW_EeSGPOrcarGX5w"/>
+        </type>
+      </columns>
+      <columns xmi:id="_QcrYXj9lEemGSspmsFzMnA" techID="_QbC_pD9lEemGSspmsFzMnA" name="fax_number" nullable="true" defaultValue="">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_QcrYXz9lEemGSspmsFzMnA" length="25" precision="0">
+          <nativeType href="pathmap://NativeDBTypes/SQLServer-2008#_KTDyMGW_EeSGPOrcarGX5w"/>
+        </type>
+      </columns>
+      <columns xmi:id="_QcrYYD9lEemGSspmsFzMnA" techID="_QbC_pT9lEemGSspmsFzMnA" name="address" nullable="true" defaultValue="">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_QcrYYT9lEemGSspmsFzMnA" length="2147483647" precision="0">
+          <nativeType href="pathmap://NativeDBTypes/SQLServer-2008#_KTDyMGW_EeSGPOrcarGX5w"/>
+        </type>
+      </columns>
+      <columns xmi:id="_QcrYYj9lEemGSspmsFzMnA" techID="_QbC_pj9lEemGSspmsFzMnA" name="city" nullable="true" defaultValue="" indexElements="_QcrYQT9lEemGSspmsFzMnA">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_QcrYYz9lEemGSspmsFzMnA" length="50" precision="0">
+          <nativeType href="pathmap://NativeDBTypes/SQLServer-2008#_KTDyMGW_EeSGPOrcarGX5w"/>
+        </type>
+      </columns>
+      <columns xmi:id="_QcrYZD9lEemGSspmsFzMnA" techID="_QbC_pz9lEemGSspmsFzMnA" name="state_province" nullable="true" defaultValue="" indexElements="_QcrYST9lEemGSspmsFzMnA">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_QcrYZT9lEemGSspmsFzMnA" length="50" precision="0">
+          <nativeType href="pathmap://NativeDBTypes/SQLServer-2008#_KTDyMGW_EeSGPOrcarGX5w"/>
+        </type>
+      </columns>
+      <columns xmi:id="_QcrYZj9lEemGSspmsFzMnA" techID="_QbC_qD9lEemGSspmsFzMnA" name="zip_postal_code" nullable="true" defaultValue="" indexElements="_QcrYSz9lEemGSspmsFzMnA">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_QcrYZz9lEemGSspmsFzMnA" length="15" precision="0">
+          <nativeType href="pathmap://NativeDBTypes/SQLServer-2008#_KTDyMGW_EeSGPOrcarGX5w"/>
+        </type>
+      </columns>
+      <columns xmi:id="_QcrYaD9lEemGSspmsFzMnA" techID="_QbC_qT9lEemGSspmsFzMnA" name="country_region" nullable="true" defaultValue="">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_QcrYaT9lEemGSspmsFzMnA" length="50" precision="0">
+          <nativeType href="pathmap://NativeDBTypes/SQLServer-2008#_KTDyMGW_EeSGPOrcarGX5w"/>
+        </type>
+      </columns>
+      <columns xmi:id="_QcrYaj9lEemGSspmsFzMnA" techID="_QbC_qj9lEemGSspmsFzMnA" name="web_page" nullable="true" defaultValue="">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_QcrYaz9lEemGSspmsFzMnA" length="2147483647" precision="0">
+          <nativeType href="pathmap://NativeDBTypes/SQLServer-2008#_KTDyMGW_EeSGPOrcarGX5w"/>
+        </type>
+      </columns>
+      <columns xmi:id="_QcrYbD9lEemGSspmsFzMnA" techID="_QbC_qz9lEemGSspmsFzMnA" name="notes" nullable="true" defaultValue="">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_QcrYbT9lEemGSspmsFzMnA" length="2147483647" precision="0">
+          <nativeType href="pathmap://NativeDBTypes/SQLServer-2008#_KTDyMGW_EeSGPOrcarGX5w"/>
+        </type>
+      </columns>
+      <columns xmi:id="_QcrYbj9lEemGSspmsFzMnA" techID="_QbC_rD9lEemGSspmsFzMnA" name="attachments" nullable="true" defaultValue="(NULL)">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_QcrYbz9lEemGSspmsFzMnA" length="2147483647" precision="0">
+          <nativeType href="pathmap://NativeDBTypes/SQLServer-2008#_BeLcMGW_EeSGPOrcarGX5w"/>
+        </type>
+      </columns>
+    </tables>
+  </schemas>
+</database:DataBase>
