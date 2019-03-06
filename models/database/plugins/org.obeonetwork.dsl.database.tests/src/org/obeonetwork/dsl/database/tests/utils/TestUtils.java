@@ -3,8 +3,9 @@ package org.obeonetwork.dsl.database.tests.utils;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 
-import java.io.IOException;
-import java.util.Collections;
+import java.sql.Connection;
+import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.List;
 import java.util.Map;
 
@@ -22,6 +23,8 @@ import org.obeonetwork.dsl.database.DatabaseElement;
 import org.obeonetwork.dsl.database.DatabasePackage;
 import org.obeonetwork.dsl.database.NamedElement;
 import org.obeonetwork.dsl.database.reverse.DatabaseReverserPlugin;
+import org.obeonetwork.dsl.database.reverse.source.DataSource;
+import org.obeonetwork.dsl.database.reverse.source.DataSourceException;
 import org.obeonetwork.dsl.database.util.DatabaseResourceFactoryImpl;
 import org.obeonetwork.dsl.typeslibrary.TypesLibraryPackage;
 import org.obeonetwork.dsl.typeslibrary.util.TypesLibraryResourceFactoryImpl;
@@ -37,6 +40,14 @@ import liquibase.resource.FileSystemResourceAccessor;
 public final class TestUtils {
 	
 	private TestUtils() {
+	}
+	
+	public static void executeStatement(DataSource dataSource, String request) throws SQLException, DataSourceException{
+		try (Connection connection = dataSource.getConnection()) {
+			try (Statement statement = connection.createStatement()) {
+				statement.execute(request);
+			}
+		}
 	}
 	
 	/**

@@ -3,9 +3,7 @@ package org.obeonetwork.dsl.database.tests.oracle;
 import java.io.File;
 import java.io.IOException;
 import java.nio.file.Files;
-import java.sql.Connection;
 import java.sql.SQLException;
-import java.sql.Statement;
 
 import org.junit.AfterClass;
 import org.junit.Before;
@@ -58,14 +56,6 @@ public class OracleTests {
 
 	private static DataSource northwindDataSource;
 	
-	private static void consumeDatasource(DataSource dataSource, String request) throws SQLException, DataSourceException{
-		try (Connection connection = dataSource.getConnection()) {
-			try (Statement statement = connection.createStatement()) {
-				statement.execute(request);
-			}
-		}
-	}
-	
 	private static void executeMultipleStatementWithSilentCatches(DataSource dataSource, String... requests) throws SQLException, DataSourceException {
 		for (String request : requests) {
 			executeStatementWithSilentCatches(dataSource, request);
@@ -91,7 +81,7 @@ public class OracleTests {
 	 */
 	private static void executeStatementWithSilentCatches(DataSource dataSource, String request) throws SQLException, DataSourceException {
 		try {
-			consumeDatasource(dataSource, request);
+			TestUtils.executeStatement(dataSource, request);
 		} catch (SQLException e) {
 			switch (e.getErrorCode()) {
 				case ORACLE_DROP_NON_EXISTING_TABLE_ERROR_CODE:

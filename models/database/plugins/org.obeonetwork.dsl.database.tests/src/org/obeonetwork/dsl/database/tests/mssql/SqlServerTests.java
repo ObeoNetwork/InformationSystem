@@ -1,8 +1,6 @@
 package org.obeonetwork.dsl.database.tests.mssql;
 
-import java.sql.Connection;
 import java.sql.SQLException;
-import java.sql.Statement;
 
 import org.junit.BeforeClass;
 import org.junit.Test;
@@ -46,11 +44,7 @@ public class SqlServerTests extends AbstractTests {
 		dataSource.setJdbcPassword(MSSQL_PASSWORD_DEFAULT);
 		dataSource.setVendor(DatabaseConstants.DB_SQLSERVER_2008);
 		
-		try(Connection connection = dataSource.getConnection()) {
-			try(Statement statement = connection.createStatement()) {
-				statement.executeUpdate(String.format(MSSQL_CREATE_DATABASE_STATEMENT, DATABASE_NAME_DEFAULT));
-			}
-		}
+		TestUtils.executeStatement(dataSource, String.format(MSSQL_CREATE_DATABASE_STATEMENT, DATABASE_NAME_DEFAULT));
 		
 		String databaseUrl = String.format(JDBC_MSSQL_URL_PATTERN, MSSQL_HOST_DEFAULT, MSSQL_PORT_DEFAULT, DATABASE_NAME_DEFAULT);
 		database = TestUtils.openDatabaseConnection(databaseUrl, MSSQL_USERNAME_DEFAULT, MSSQL_PASSWORD_DEFAULT);
