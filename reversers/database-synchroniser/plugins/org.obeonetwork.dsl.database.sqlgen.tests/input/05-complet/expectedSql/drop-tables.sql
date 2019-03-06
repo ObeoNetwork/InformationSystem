@@ -2,5 +2,5 @@
 --  Table : SUPPRIMÉE                                    
 -- ==============================================================
 
-DROP TABLE SUPPRIMÉE CASCADE;
+DROP TABLE SUPPRIMÉE;
 

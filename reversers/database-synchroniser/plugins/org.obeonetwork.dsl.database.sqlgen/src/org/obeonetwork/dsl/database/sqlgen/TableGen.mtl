@@ -57,7 +57,7 @@
 [template private genDropTableAndSynonym(table : Table)]
 [table.genTableDoc()/]
 [table.genDropSynonym()/]
-DROP TABLE [table.fullname()/] CASCADE[if (table.isTargetOracle())] CONSTRAINTS[/if];
+DROP TABLE[if (table.isTargetMySqlOrMariaDB() or table.isTargetPostgreSQL() or table.isTargetSqlServer())] IF EXISTS[/if] [table.fullname()/][if (table.isTargetPostgreSQL())] CASCADE[/if];
 [/template]
 
 [template private getSchemaName(table : Table) post(trim())]
@@ -118,7 +118,11 @@ CREATE TABLE [table.fullname()/](
 [/template]
 
 [template private genCreateTableComment(table : Table) ? (table.comments<>null and table.comments.size()>0) post(trim())]
+[if (table.isTargetMySqlOrMariaDB())]
+ALTER TABLE [table.fullname()/] COMMENT '[table.comments.replaceAll('\'','\'\'')/]';
+[else]	
 COMMENT ON TABLE [table.fullname()/] IS '[table.comments.replaceAll('\'','\'\'')/]';
+[/if]
 [/template]
 
 [template private genUpdateTableComment(table : Table) post(trim())]
@@ -158,8 +162,12 @@ ALTER TABLE [column.owner.oclAsType(Table).fullname()/] ALTER COLUMN [column.nam
 ALTER TABLE [column.owner.oclAsType(Table).fullname()/] ALTER COLUMN [column.name()/][column.defaultForPostgreSQL()/];
 [/template]
 
+[template private genUpdateColumnStatement(column : Column) post(trim())]
+ALTER TABLE [column.owner.oclAsType(Table).fullname()/] MODIFY [column.columnDef()/]
+[/template]
+
 [template private genUpdateColumn(column : Column) post(trim())]
-ALTER TABLE [column.owner.oclAsType(Table).fullname()/] MODIFY [column.columnDef()/];
+[column.genUpdateColumnStatement()/];
 [/template]
 
 [template private genRenameColumn(oldColumn : Column, newColumn : Column) post(trim())]
@@ -167,7 +175,11 @@ ALTER TABLE [newColumn.owner.oclAsType(Table).fullname()/] RENAME COLUMN [oldCol
 [/template]
 
 [template private genCreateColumnComment(column : Column) ? (column.comments<>null and column.comments.size()>0) post(trim())]
-COMMENT ON COLUMN [column.owner.oclAsType(Table).fullname()/].[column.name()/] IS '[column.comments.replaceAll('\'','\'\'')/]';
+[if (column.isTargetMySqlOrMariaDB())]
+[column.genUpdateColumnStatement()/] COMMENT '[column.comments.replaceAll('\'','\'\'')/]';
+[else]
+COMMENT ON COLUMN [column.owner.oclAsType(Table).fullname()/].[column.name()/] IS '[column.comments.replaceAll('\'','\'\'')/]';	
+[/if]
 [/template]
 
 [template private genUpdateColumnComment(column : Column) post(trim())]

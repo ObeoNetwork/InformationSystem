@@ -20,7 +20,7 @@ ALTER TABLE TABLE1 DROP COLUMN colSupprimee;
 -- ==============================================================
 ALTER TABLE TABLE2 RENAME TO TABLE2RENOMMEE;
 
-COMMENT ON TABLE TABLE2RENOMMEE IS 'Comments updated on Table2';
+ALTER TABLE TABLE2RENOMMEE COMMENT 'Comments updated on Table2';
 
 ALTER TABLE TABLE2RENOMMEE MODIFY col2_3 numeric(10, 2) NULL;
 
@@ -28,7 +28,7 @@ ALTER TABLE TABLE2RENOMMEE MODIFY col2_3 numeric(10, 2) NULL;
 
 ALTER TABLE TABLE2RENOMMEE RENAME COLUMN col2_2 TO col2_2_Renommee;
 
-COMMENT ON COLUMN TABLE2RENOMMEE.col2_3 IS 'Comments col2_3 updated';
+ALTER TABLE TABLE2RENOMMEE MODIFY col2_3 numeric(10, 2) NULL COMMENT 'Comments col2_3 updated';
 
 ALTER TABLE TABLE2RENOMMEE ADD col2_4 char(4) NULL;
 
@@ -39,7 +39,7 @@ ALTER TABLE TABLE3 ADD col3_2 numeric(12, 5) NOT NULL AUTO_INCREMENT;
 
 ALTER TABLE TABLE3 RENAME COLUMN col3_1 TO col3_1_renommee;
 
-COMMENT ON COLUMN TABLE3.col3_1_renommee IS 'Comments on col3_1_renommee';
+ALTER TABLE TABLE3 MODIFY col3_1_renommee varchar(255) NOT NULL COMMENT 'Comments on col3_1_renommee';
 
 -- ==============================================================
 --  Table : TABLE4                                    

@@ -1,7 +1,7 @@
 -- ==============================================================
 --  View : ALPHABETICAL LIST OF PRODUCTS                                    
 -- ==============================================================
-CREATE VIEW ALPHABETICAL LIST OF PRODUCTS AS 
+CREATE VIEW DBO.ALPHABETICAL LIST OF PRODUCTS AS 
 create view "Alphabetical list of products" AS
 SELECT Products.*, Categories.CategoryName
 FROM Categories INNER JOIN Products ON Categories.CategoryID = Products.CategoryID
@@ -11,7 +11,7 @@ WHERE (((Products.Discontinued)=0))
 -- ==============================================================
 --  View : CATEGORY SALES FOR 1997                                    
 -- ==============================================================
-CREATE VIEW CATEGORY SALES FOR 1997 AS 
+CREATE VIEW DBO.CATEGORY SALES FOR 1997 AS 
 create view "Category Sales for 1997" AS
 SELECT "Product Sales for 1997".CategoryName, Sum("Product Sales for 1997".ProductSales) AS CategorySales
 FROM "Product Sales for 1997"
@@ -21,7 +21,7 @@ GROUP BY "Product Sales for 1997".CategoryName
 -- ==============================================================
 --  View : CURRENT PRODUCT LIST                                    
 -- ==============================================================
-CREATE VIEW CURRENT PRODUCT LIST AS 
+CREATE VIEW DBO.CURRENT PRODUCT LIST AS 
 create view "Current Product List" AS
 SELECT Product_List.ProductID, Product_List.ProductName
 FROM Products AS Product_List
@@ -32,7 +32,7 @@ WHERE (((Product_List.Discontinued)=0))
 -- ==============================================================
 --  View : CUSTOMER AND SUPPLIERS BY CITY                                    
 -- ==============================================================
-CREATE VIEW CUSTOMER AND SUPPLIERS BY CITY AS 
+CREATE VIEW DBO.CUSTOMER AND SUPPLIERS BY CITY AS 
 create view "Customer and Suppliers by City" AS
 SELECT City, CompanyName, ContactName, 'Customers' AS Relationship 
 FROM Customers
@@ -44,7 +44,7 @@ FROM Suppliers
 -- ==============================================================
 --  View : INVOICES                                    
 -- ==============================================================
-CREATE VIEW INVOICES AS 
+CREATE VIEW DBO.INVOICES AS 
 create view Invoices AS
 SELECT Orders.ShipName, Orders.ShipAddress, Orders.ShipCity, Orders.ShipRegion, Orders.ShipPostalCode, 
 	Orders.ShipCountry, Orders.CustomerID, Customers.CompanyName AS CustomerName, Customers.Address, Customers.City, 
@@ -68,7 +68,7 @@ FROM 	Shippers INNER JOIN
 -- ==============================================================
 --  View : ORDER DETAILS EXTENDED                                    
 -- ==============================================================
-CREATE VIEW ORDER DETAILS EXTENDED AS 
+CREATE VIEW DBO.ORDER DETAILS EXTENDED AS 
 create view "Order Details Extended" AS
 SELECT "Order Details".OrderID, "Order Details".ProductID, Products.ProductName, 
 	"Order Details".UnitPrice, "Order Details".Quantity, "Order Details".Discount, 
@@ -80,7 +80,7 @@ FROM Products INNER JOIN "Order Details" ON Products.ProductID = "Order Details"
 -- ==============================================================
 --  View : ORDER SUBTOTALS                                    
 -- ==============================================================
-CREATE VIEW ORDER SUBTOTALS AS 
+CREATE VIEW DBO.ORDER SUBTOTALS AS 
 create view "Order Subtotals" AS
 SELECT "Order Details".OrderID, Sum(CONVERT(money,("Order Details".UnitPrice*Quantity*(1-Discount)/100))*100) AS Subtotal
 FROM "Order Details"
@@ -90,7 +90,7 @@ GROUP BY "Order Details".OrderID
 -- ==============================================================
 --  View : ORDERS QRY                                    
 -- ==============================================================
-CREATE VIEW ORDERS QRY AS 
+CREATE VIEW DBO.ORDERS QRY AS 
 create view "Orders Qry" AS
 SELECT Orders.OrderID, Orders.CustomerID, Orders.EmployeeID, Orders.OrderDate, Orders.RequiredDate, 
 	Orders.ShippedDate, Orders.ShipVia, Orders.Freight, Orders.ShipName, Orders.ShipAddress, Orders.ShipCity, 
@@ -102,7 +102,7 @@ FROM Customers INNER JOIN Orders ON Customers.CustomerID = Orders.CustomerID
 -- ==============================================================
 --  View : PRODUCT SALES FOR 1997                                    
 -- ==============================================================
-CREATE VIEW PRODUCT SALES FOR 1997 AS 
+CREATE VIEW DBO.PRODUCT SALES FOR 1997 AS 
 create view "Product Sales for 1997" AS
 SELECT Categories.CategoryName, Products.ProductName, 
 Sum(CONVERT(money,("Order Details".UnitPrice*Quantity*(1-Discount)/100))*100) AS ProductSales
@@ -117,7 +117,7 @@ GROUP BY Categories.CategoryName, Products.ProductName
 -- ==============================================================
 --  View : PRODUCTS ABOVE AVERAGE PRICE                                    
 -- ==============================================================
-CREATE VIEW PRODUCTS ABOVE AVERAGE PRICE AS 
+CREATE VIEW DBO.PRODUCTS ABOVE AVERAGE PRICE AS 
 create view "Products Above Average Price" AS
 SELECT Products.ProductName, Products.UnitPrice
 FROM Products
@@ -128,7 +128,7 @@ WHERE Products.UnitPrice>(SELECT AVG(UnitPrice) From Products)
 -- ==============================================================
 --  View : PRODUCTS BY CATEGORY                                    
 -- ==============================================================
-CREATE VIEW PRODUCTS BY CATEGORY AS 
+CREATE VIEW DBO.PRODUCTS BY CATEGORY AS 
 create view "Products by Category" AS
 SELECT Categories.CategoryName, Products.ProductName, Products.QuantityPerUnit, Products.UnitsInStock, Products.Discontinued
 FROM Categories INNER JOIN Products ON Categories.CategoryID = Products.CategoryID
@@ -139,7 +139,7 @@ WHERE Products.Discontinued <> 1
 -- ==============================================================
 --  View : QUARTERLY ORDERS                                    
 -- ==============================================================
-CREATE VIEW QUARTERLY ORDERS AS 
+CREATE VIEW DBO.QUARTERLY ORDERS AS 
 create view "Quarterly Orders" AS
 SELECT DISTINCT Customers.CustomerID, Customers.CompanyName, Customers.City, Customers.Country
 FROM Customers RIGHT JOIN Orders ON Customers.CustomerID = Orders.CustomerID
@@ -149,7 +149,7 @@ WHERE Orders.OrderDate BETWEEN '19970101' And '19971231'
 -- ==============================================================
 --  View : SALES TOTALS BY AMOUNT                                    
 -- ==============================================================
-CREATE VIEW SALES TOTALS BY AMOUNT AS 
+CREATE VIEW DBO.SALES TOTALS BY AMOUNT AS 
 create view "Sales Totals by Amount" AS
 SELECT "Order Subtotals".Subtotal AS SaleAmount, Orders.OrderID, Customers.CompanyName, Orders.ShippedDate
 FROM 	Customers INNER JOIN 
@@ -161,7 +161,7 @@ WHERE ("Order Subtotals".Subtotal >2500) AND (Orders.ShippedDate BETWEEN '199701
 -- ==============================================================
 --  View : SALES BY CATEGORY                                    
 -- ==============================================================
-CREATE VIEW SALES BY CATEGORY AS 
+CREATE VIEW DBO.SALES BY CATEGORY AS 
 create view "Sales by Category" AS
 SELECT Categories.CategoryID, Categories.CategoryName, Products.ProductName, 
 	Sum("Order Details Extended".ExtendedPrice) AS ProductSales
@@ -178,7 +178,7 @@ GROUP BY Categories.CategoryID, Categories.CategoryName, Products.ProductName
 -- ==============================================================
 --  View : SUMMARY OF SALES BY QUARTER                                    
 -- ==============================================================
-CREATE VIEW SUMMARY OF SALES BY QUARTER AS 
+CREATE VIEW DBO.SUMMARY OF SALES BY QUARTER AS 
 create view "Summary of Sales by Quarter" AS
 SELECT Orders.ShippedDate, Orders.OrderID, "Order Subtotals".Subtotal
 FROM Orders INNER JOIN "Order Subtotals" ON Orders.OrderID = "Order Subtotals".OrderID
@@ -189,7 +189,7 @@ WHERE Orders.ShippedDate IS NOT NULL
 -- ==============================================================
 --  View : SUMMARY OF SALES BY YEAR                                    
 -- ==============================================================
-CREATE VIEW SUMMARY OF SALES BY YEAR AS 
+CREATE VIEW DBO.SUMMARY OF SALES BY YEAR AS 
 create view "Summary of Sales by Year" AS
 SELECT Orders.ShippedDate, Orders.OrderID, "Order Subtotals".Subtotal
 FROM Orders INNER JOIN "Order Subtotals" ON Orders.OrderID = "Order Subtotals".OrderID

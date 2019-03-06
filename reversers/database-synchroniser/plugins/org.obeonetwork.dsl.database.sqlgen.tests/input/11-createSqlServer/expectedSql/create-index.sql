@@ -1,7 +1,7 @@
 -- ==============================================================
 --  Index : CategoryName                                    
 -- ==============================================================
-CREATE INDEX CategoryName ON CATEGORIES(CategoryName)
+CREATE INDEX CategoryName ON DBO.CATEGORIES(CategoryName)
   pctfree 10
   pctused 40
   initrans 1
@@ -19,7 +19,7 @@ CREATE INDEX CategoryName ON CATEGORIES(CategoryName)
 -- ==============================================================
 --  Index : PK_Categories                                    
 -- ==============================================================
-CREATE UNIQUE INDEX PK_Categories ON CATEGORIES(CategoryID)
+CREATE UNIQUE INDEX PK_Categories ON DBO.CATEGORIES(CategoryID)
   pctfree 10
   pctused 40
   initrans 1
@@ -37,7 +37,7 @@ CREATE UNIQUE INDEX PK_Categories ON CATEGORIES(CategoryID)
 -- ==============================================================
 --  Index : PK_CustomerCustomerDemo                                    
 -- ==============================================================
-CREATE UNIQUE INDEX PK_CustomerCustomerDemo ON CUSTOMERCUSTOMERDEMO(CustomerID, CustomerTypeID)
+CREATE UNIQUE INDEX PK_CustomerCustomerDemo ON DBO.CUSTOMERCUSTOMERDEMO(CustomerID, CustomerTypeID)
   pctfree 10
   pctused 40
   initrans 1
@@ -55,7 +55,7 @@ CREATE UNIQUE INDEX PK_CustomerCustomerDemo ON CUSTOMERCUSTOMERDEMO(CustomerID, 
 -- ==============================================================
 --  Index : PK_CustomerDemographics                                    
 -- ==============================================================
-CREATE UNIQUE INDEX PK_CustomerDemographics ON CUSTOMERDEMOGRAPHICS(CustomerTypeID)
+CREATE UNIQUE INDEX PK_CustomerDemographics ON DBO.CUSTOMERDEMOGRAPHICS(CustomerTypeID)
   pctfree 10
   pctused 40
   initrans 1
@@ -73,7 +73,7 @@ CREATE UNIQUE INDEX PK_CustomerDemographics ON CUSTOMERDEMOGRAPHICS(CustomerType
 -- ==============================================================
 --  Index : City                                    
 -- ==============================================================
-CREATE INDEX City ON CUSTOMERS(City)
+CREATE INDEX City ON DBO.CUSTOMERS(City)
   pctfree 10
   pctused 40
   initrans 1
@@ -91,7 +91,7 @@ CREATE INDEX City ON CUSTOMERS(City)
 -- ==============================================================
 --  Index : CompanyName                                    
 -- ==============================================================
-CREATE INDEX CompanyName ON CUSTOMERS(CompanyName)
+CREATE INDEX CompanyName ON DBO.CUSTOMERS(CompanyName)
   pctfree 10
   pctused 40
   initrans 1
@@ -109,7 +109,7 @@ CREATE INDEX CompanyName ON CUSTOMERS(CompanyName)
 -- ==============================================================
 --  Index : PK_Customers                                    
 -- ==============================================================
-CREATE UNIQUE INDEX PK_Customers ON CUSTOMERS(CustomerID)
+CREATE UNIQUE INDEX PK_Customers ON DBO.CUSTOMERS(CustomerID)
   pctfree 10
   pctused 40
   initrans 1
@@ -127,7 +127,7 @@ CREATE UNIQUE INDEX PK_Customers ON CUSTOMERS(CustomerID)
 -- ==============================================================
 --  Index : PostalCode                                    
 -- ==============================================================
-CREATE INDEX PostalCode ON CUSTOMERS(PostalCode)
+CREATE INDEX PostalCode ON DBO.CUSTOMERS(PostalCode)
   pctfree 10
   pctused 40
   initrans 1
@@ -145,7 +145,7 @@ CREATE INDEX PostalCode ON CUSTOMERS(PostalCode)
 -- ==============================================================
 --  Index : Region                                    
 -- ==============================================================
-CREATE INDEX Region ON CUSTOMERS(Region)
+CREATE INDEX Region ON DBO.CUSTOMERS(Region)
   pctfree 10
   pctused 40
   initrans 1
@@ -163,7 +163,7 @@ CREATE INDEX Region ON CUSTOMERS(Region)
 -- ==============================================================
 --  Index : PK_EmployeeTerritories                                    
 -- ==============================================================
-CREATE UNIQUE INDEX PK_EmployeeTerritories ON EMPLOYEETERRITORIES(EmployeeID, TerritoryID)
+CREATE UNIQUE INDEX PK_EmployeeTerritories ON DBO.EMPLOYEETERRITORIES(EmployeeID, TerritoryID)
   pctfree 10
   pctused 40
   initrans 1
@@ -181,7 +181,7 @@ CREATE UNIQUE INDEX PK_EmployeeTerritories ON EMPLOYEETERRITORIES(EmployeeID, Te
 -- ==============================================================
 --  Index : LastName                                    
 -- ==============================================================
-CREATE INDEX LastName ON EMPLOYEES(LastName)
+CREATE INDEX LastName ON DBO.EMPLOYEES(LastName)
   pctfree 10
   pctused 40
   initrans 1
@@ -199,7 +199,7 @@ CREATE INDEX LastName ON EMPLOYEES(LastName)
 -- ==============================================================
 --  Index : PK_Employees                                    
 -- ==============================================================
-CREATE UNIQUE INDEX PK_Employees ON EMPLOYEES(EmployeeID)
+CREATE UNIQUE INDEX PK_Employees ON DBO.EMPLOYEES(EmployeeID)
   pctfree 10
   pctused 40
   initrans 1
@@ -217,7 +217,7 @@ CREATE UNIQUE INDEX PK_Employees ON EMPLOYEES(EmployeeID)
 -- ==============================================================
 --  Index : PostalCode                                    
 -- ==============================================================
-CREATE INDEX PostalCode ON EMPLOYEES(PostalCode)
+CREATE INDEX PostalCode ON DBO.EMPLOYEES(PostalCode)
   pctfree 10
   pctused 40
   initrans 1
@@ -235,7 +235,7 @@ CREATE INDEX PostalCode ON EMPLOYEES(PostalCode)
 -- ==============================================================
 --  Index : PK_Order_Details                                    
 -- ==============================================================
-CREATE UNIQUE INDEX PK_Order_Details ON ORDER DETAILS(OrderID, ProductID)
+CREATE UNIQUE INDEX PK_Order_Details ON DBO.ORDER DETAILS(OrderID, ProductID)
   pctfree 10
   pctused 40
   initrans 1
@@ -253,7 +253,7 @@ CREATE UNIQUE INDEX PK_Order_Details ON ORDER DETAILS(OrderID, ProductID)
 -- ==============================================================
 --  Index : OrderDate                                    
 -- ==============================================================
-CREATE INDEX OrderDate ON ORDERS(OrderDate)
+CREATE INDEX OrderDate ON DBO.ORDERS(OrderDate)
   pctfree 10
   pctused 40
   initrans 1
@@ -271,7 +271,7 @@ CREATE INDEX OrderDate ON ORDERS(OrderDate)
 -- ==============================================================
 --  Index : PK_Orders                                    
 -- ==============================================================
-CREATE UNIQUE INDEX PK_Orders ON ORDERS(OrderID)
+CREATE UNIQUE INDEX PK_Orders ON DBO.ORDERS(OrderID)
   pctfree 10
   pctused 40
   initrans 1
@@ -289,7 +289,7 @@ CREATE UNIQUE INDEX PK_Orders ON ORDERS(OrderID)
 -- ==============================================================
 --  Index : ShipPostalCode                                    
 -- ==============================================================
-CREATE INDEX ShipPostalCode ON ORDERS(ShipPostalCode)
+CREATE INDEX ShipPostalCode ON DBO.ORDERS(ShipPostalCode)
   pctfree 10
   pctused 40
   initrans 1
@@ -307,7 +307,7 @@ CREATE INDEX ShipPostalCode ON ORDERS(ShipPostalCode)
 -- ==============================================================
 --  Index : ShippedDate                                    
 -- ==============================================================
-CREATE INDEX ShippedDate ON ORDERS(ShippedDate)
+CREATE INDEX ShippedDate ON DBO.ORDERS(ShippedDate)
   pctfree 10
   pctused 40
   initrans 1
@@ -325,7 +325,7 @@ CREATE INDEX ShippedDate ON ORDERS(ShippedDate)
 -- ==============================================================
 --  Index : PK_Products                                    
 -- ==============================================================
-CREATE UNIQUE INDEX PK_Products ON PRODUCTS(ProductID)
+CREATE UNIQUE INDEX PK_Products ON DBO.PRODUCTS(ProductID)
   pctfree 10
   pctused 40
   initrans 1
@@ -343,7 +343,7 @@ CREATE UNIQUE INDEX PK_Products ON PRODUCTS(ProductID)
 -- ==============================================================
 --  Index : ProductName                                    
 -- ==============================================================
-CREATE INDEX ProductName ON PRODUCTS(ProductName)
+CREATE INDEX ProductName ON DBO.PRODUCTS(ProductName)
   pctfree 10
   pctused 40
   initrans 1
@@ -361,7 +361,7 @@ CREATE INDEX ProductName ON PRODUCTS(ProductName)
 -- ==============================================================
 --  Index : PK_Region                                    
 -- ==============================================================
-CREATE UNIQUE INDEX PK_Region ON REGION(RegionID)
+CREATE UNIQUE INDEX PK_Region ON DBO.REGION(RegionID)
   pctfree 10
   pctused 40
   initrans 1
@@ -379,7 +379,7 @@ CREATE UNIQUE INDEX PK_Region ON REGION(RegionID)
 -- ==============================================================
 --  Index : PK_Shippers                                    
 -- ==============================================================
-CREATE UNIQUE INDEX PK_Shippers ON SHIPPERS(ShipperID)
+CREATE UNIQUE INDEX PK_Shippers ON DBO.SHIPPERS(ShipperID)
   pctfree 10
   pctused 40
   initrans 1
@@ -397,7 +397,7 @@ CREATE UNIQUE INDEX PK_Shippers ON SHIPPERS(ShipperID)
 -- ==============================================================
 --  Index : CompanyName                                    
 -- ==============================================================
-CREATE INDEX CompanyName ON SUPPLIERS(CompanyName)
+CREATE INDEX CompanyName ON DBO.SUPPLIERS(CompanyName)
   pctfree 10
   pctused 40
   initrans 1
@@ -415,7 +415,7 @@ CREATE INDEX CompanyName ON SUPPLIERS(CompanyName)
 -- ==============================================================
 --  Index : PK_Suppliers                                    
 -- ==============================================================
-CREATE UNIQUE INDEX PK_Suppliers ON SUPPLIERS(SupplierID)
+CREATE UNIQUE INDEX PK_Suppliers ON DBO.SUPPLIERS(SupplierID)
   pctfree 10
   pctused 40
   initrans 1
@@ -433,7 +433,7 @@ CREATE UNIQUE INDEX PK_Suppliers ON SUPPLIERS(SupplierID)
 -- ==============================================================
 --  Index : PostalCode                                    
 -- ==============================================================
-CREATE INDEX PostalCode ON SUPPLIERS(PostalCode)
+CREATE INDEX PostalCode ON DBO.SUPPLIERS(PostalCode)
   pctfree 10
   pctused 40
   initrans 1
@@ -451,7 +451,7 @@ CREATE INDEX PostalCode ON SUPPLIERS(PostalCode)
 -- ==============================================================
 --  Index : PK_Territories                                    
 -- ==============================================================
-CREATE UNIQUE INDEX PK_Territories ON TERRITORIES(TerritoryID)
+CREATE UNIQUE INDEX PK_Territories ON DBO.TERRITORIES(TerritoryID)
   pctfree 10
   pctused 40
   initrans 1

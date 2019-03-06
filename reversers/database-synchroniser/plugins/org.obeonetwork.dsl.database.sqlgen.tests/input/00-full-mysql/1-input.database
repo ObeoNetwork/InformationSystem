@@ -8,9 +8,9 @@
       <indexes xmi:id="_5rWAAbGFEeaUWpMG0gfm6w" techID="_5rWAALGFEeaUWpMG0gfm6w" name="Index1">
         <elements xmi:id="_6XpFUbGFEeaUWpMG0gfm6w" comments="Comments on Index1" techID="_6XpFULGFEeaUWpMG0gfm6w" column="_gtVDMK_YEea_iZJDF2jKEQ" asc="true"/>
       </indexes>
-      <columns xmi:id="_gtVDMK_YEea_iZJDF2jKEQ" comments="Comments col1" techID="_gX-eRK_YEea_iZJDF2jKEQ" name="col1" nullable="true" defaultValue="defaultValue" indexElements="_6XpFUbGFEeaUWpMG0gfm6w" primaryKey="_jcjpka_YEea_iZJDF2jKEQ" autoincrement="true">
+      <columns xmi:id="_gtVDMK_YEea_iZJDF2jKEQ" comments="Comments col1" techID="_gX-eRK_YEea_iZJDF2jKEQ" name="col1" nullable="true" indexElements="_6XpFUbGFEeaUWpMG0gfm6w" primaryKey="_jcjpka_YEea_iZJDF2jKEQ" autoincrement="true">
         <type xsi:type="typeslibrary:TypeInstance" xmi:id="_gtVDMa_YEea_iZJDF2jKEQ" length="12" precision="3">
-          <nativeType href="pathmap://NativeDBTypes/MySQL-5#_Zj8LfREnEeGTa_JlZYBw1A"/>
+          <nativeType href="pathmap://NativeDBTypes/MySQL-5#_Zj8LdREnEeGTa_JlZYBw1A"/>
         </type>
       </columns>
     </tables>

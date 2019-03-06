@@ -2,11 +2,11 @@
 --  Table : REMOVETABLE                                    
 -- ==============================================================
 
-DROP TABLE REMOVETABLE CASCADE CONSTRAINTS;
+DROP TABLE REMOVETABLE;
 
 -- ==============================================================
 --  Table : T1                                    
 -- ==============================================================
 DROP PUBLIC SYNONYM T1;
-DROP TABLE REMOVESCHEMA.T1 CASCADE CONSTRAINTS;
+DROP TABLE REMOVESCHEMA.T1;
 

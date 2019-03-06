@@ -2,8 +2,8 @@
 --  Table : CATEGORIES                                    
 -- ==============================================================
 
-DROP TABLE CATEGORIES CASCADE;
-CREATE TABLE CATEGORIES(
+DROP TABLE IF EXISTS DBO.CATEGORIES;
+CREATE TABLE DBO.CATEGORIES(
     CategoryID int(10) IDENTITY (1, 1) NOT NULL,
     CategoryName nvarchar(15) NOT NULL,
     Description ntext NULL,
@@ -14,8 +14,8 @@ CREATE TABLE CATEGORIES(
 --  Table : CUSTOMERCUSTOMERDEMO                                    
 -- ==============================================================
 
-DROP TABLE CUSTOMERCUSTOMERDEMO CASCADE;
-CREATE TABLE CUSTOMERCUSTOMERDEMO(
+DROP TABLE IF EXISTS DBO.CUSTOMERCUSTOMERDEMO;
+CREATE TABLE DBO.CUSTOMERCUSTOMERDEMO(
     CustomerID nchar(5) NOT NULL,
     CustomerTypeID nchar(10) NOT NULL
 );
@@ -24,8 +24,8 @@ CREATE TABLE CUSTOMERCUSTOMERDEMO(
 --  Table : CUSTOMERDEMOGRAPHICS                                    
 -- ==============================================================
 
-DROP TABLE CUSTOMERDEMOGRAPHICS CASCADE;
-CREATE TABLE CUSTOMERDEMOGRAPHICS(
+DROP TABLE IF EXISTS DBO.CUSTOMERDEMOGRAPHICS;
+CREATE TABLE DBO.CUSTOMERDEMOGRAPHICS(
     CustomerTypeID nchar(10) NOT NULL,
     CustomerDesc ntext NULL
 );
@@ -34,8 +34,8 @@ CREATE TABLE CUSTOMERDEMOGRAPHICS(
 --  Table : CUSTOMERS                                    
 -- ==============================================================
 
-DROP TABLE CUSTOMERS CASCADE;
-CREATE TABLE CUSTOMERS(
+DROP TABLE IF EXISTS DBO.CUSTOMERS;
+CREATE TABLE DBO.CUSTOMERS(
     CustomerID nchar(5) NOT NULL,
     CompanyName nvarchar(40) NOT NULL,
     ContactName nvarchar(30) NULL,
@@ -53,8 +53,8 @@ CREATE TABLE CUSTOMERS(
 --  Table : EMPLOYEETERRITORIES                                    
 -- ==============================================================
 
-DROP TABLE EMPLOYEETERRITORIES CASCADE;
-CREATE TABLE EMPLOYEETERRITORIES(
+DROP TABLE IF EXISTS DBO.EMPLOYEETERRITORIES;
+CREATE TABLE DBO.EMPLOYEETERRITORIES(
     EmployeeID int(10) NOT NULL,
     TerritoryID nvarchar(20) NOT NULL
 );
@@ -63,8 +63,8 @@ CREATE TABLE EMPLOYEETERRITORIES(
 --  Table : EMPLOYEES                                    
 -- ==============================================================
 
-DROP TABLE EMPLOYEES CASCADE;
-CREATE TABLE EMPLOYEES(
+DROP TABLE IF EXISTS DBO.EMPLOYEES;
+CREATE TABLE DBO.EMPLOYEES(
     EmployeeID int(10) IDENTITY (1, 1) NOT NULL,
     LastName nvarchar(20) NOT NULL,
     FirstName nvarchar(10) NOT NULL,
@@ -89,8 +89,8 @@ CREATE TABLE EMPLOYEES(
 --  Table : ORDER DETAILS                                    
 -- ==============================================================
 
-DROP TABLE ORDER DETAILS CASCADE;
-CREATE TABLE ORDER DETAILS(
+DROP TABLE IF EXISTS DBO.ORDER DETAILS;
+CREATE TABLE DBO.ORDER DETAILS(
     OrderID int(10) NOT NULL,
     ProductID int(10) NOT NULL,
     UnitPrice money DEFAULT (0) NOT NULL,
@@ -102,8 +102,8 @@ CREATE TABLE ORDER DETAILS(
 --  Table : ORDERS                                    
 -- ==============================================================
 
-DROP TABLE ORDERS CASCADE;
-CREATE TABLE ORDERS(
+DROP TABLE IF EXISTS DBO.ORDERS;
+CREATE TABLE DBO.ORDERS(
     OrderID int(10) IDENTITY (1, 1) NOT NULL,
     CustomerID nchar(5) NULL,
     EmployeeID int(10) NULL,
@@ -124,8 +124,8 @@ CREATE TABLE ORDERS(
 --  Table : PRODUCTS                                    
 -- ==============================================================
 
-DROP TABLE PRODUCTS CASCADE;
-CREATE TABLE PRODUCTS(
+DROP TABLE IF EXISTS DBO.PRODUCTS;
+CREATE TABLE DBO.PRODUCTS(
     ProductID int(10) IDENTITY (1, 1) NOT NULL,
     ProductName nvarchar(40) NOT NULL,
     SupplierID int(10) NULL,
@@ -142,8 +142,8 @@ CREATE TABLE PRODUCTS(
 --  Table : REGION                                    
 -- ==============================================================
 
-DROP TABLE REGION CASCADE;
-CREATE TABLE REGION(
+DROP TABLE IF EXISTS DBO.REGION;
+CREATE TABLE DBO.REGION(
     RegionID int(10) NOT NULL,
     RegionDescription nchar(50) NOT NULL
 );
@@ -152,8 +152,8 @@ CREATE TABLE REGION(
 --  Table : SHIPPERS                                    
 -- ==============================================================
 
-DROP TABLE SHIPPERS CASCADE;
-CREATE TABLE SHIPPERS(
+DROP TABLE IF EXISTS DBO.SHIPPERS;
+CREATE TABLE DBO.SHIPPERS(
     ShipperID int(10) IDENTITY (1, 1) NOT NULL,
     CompanyName nvarchar(40) NOT NULL,
     Phone nvarchar(24) NULL
@@ -163,8 +163,8 @@ CREATE TABLE SHIPPERS(
 --  Table : SUPPLIERS                                    
 -- ==============================================================
 
-DROP TABLE SUPPLIERS CASCADE;
-CREATE TABLE SUPPLIERS(
+DROP TABLE IF EXISTS DBO.SUPPLIERS;
+CREATE TABLE DBO.SUPPLIERS(
     SupplierID int(10) IDENTITY (1, 1) NOT NULL,
     CompanyName nvarchar(40) NOT NULL,
     ContactName nvarchar(30) NULL,
@@ -183,8 +183,8 @@ CREATE TABLE SUPPLIERS(
 --  Table : TERRITORIES                                    
 -- ==============================================================
 
-DROP TABLE TERRITORIES CASCADE;
-CREATE TABLE TERRITORIES(
+DROP TABLE IF EXISTS DBO.TERRITORIES;
+CREATE TABLE DBO.TERRITORIES(
     TerritoryID nvarchar(20) NOT NULL,
     TerritoryDescription nchar(50) NOT NULL,
     RegionID int(10) NOT NULL

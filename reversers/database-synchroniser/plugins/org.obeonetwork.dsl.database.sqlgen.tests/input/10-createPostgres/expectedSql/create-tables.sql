@@ -2,7 +2,7 @@
 --  Table : AW_ADRESSE                                    
 -- ==============================================================
 
-DROP TABLE PUBLIC.AW_ADRESSE CASCADE;
+DROP TABLE IF EXISTS PUBLIC.AW_ADRESSE CASCADE;
 CREATE TABLE PUBLIC.AW_ADRESSE(
     adresse_id INT8 NOT NULL,
     rue VARCHAR(100) NOT NULL,
@@ -22,7 +22,7 @@ COMMENT ON COLUMN PUBLIC.AW_ADRESSE.ville IS 'la ville de l''adresse';
 --  Table : AW_COMPETENCE                                    
 -- ==============================================================
 
-DROP TABLE PUBLIC.AW_COMPETENCE CASCADE;
+DROP TABLE IF EXISTS PUBLIC.AW_COMPETENCE CASCADE;
 CREATE TABLE PUBLIC.AW_COMPETENCE(
     competence_id INT8 NOT NULL,
     libelle VARCHAR(100) NOT NULL,
@@ -37,7 +37,7 @@ COMMENT ON COLUMN PUBLIC.AW_COMPETENCE.libelle IS 'le libell‚ de la comp‚ten
 --  Table : AW_COMPETENCE_ID                                    
 -- ==============================================================
 
-DROP TABLE PUBLIC.AW_COMPETENCE_ID CASCADE;
+DROP TABLE IF EXISTS PUBLIC.AW_COMPETENCE_ID CASCADE;
 CREATE TABLE PUBLIC.AW_COMPETENCE_ID(
     personne_id INT8 NOT NULL,
     competence_id INT8 NOT NULL
@@ -47,7 +47,7 @@ CREATE TABLE PUBLIC.AW_COMPETENCE_ID(
 --  Table : AW_COMPETENCE_PERSO                                    
 -- ==============================================================
 
-DROP TABLE PUBLIC.AW_COMPETENCE_PERSO CASCADE;
+DROP TABLE IF EXISTS PUBLIC.AW_COMPETENCE_PERSO CASCADE;
 CREATE TABLE PUBLIC.AW_COMPETENCE_PERSO(
     competence_perso_id INT8 NOT NULL,
     libelle VARCHAR(100) NULL,
@@ -59,7 +59,7 @@ CREATE TABLE PUBLIC.AW_COMPETENCE_PERSO(
 --  Table : AW_MAIL                                    
 -- ==============================================================
 
-DROP TABLE PUBLIC.AW_MAIL CASCADE;
+DROP TABLE IF EXISTS PUBLIC.AW_MAIL CASCADE;
 CREATE TABLE PUBLIC.AW_MAIL(
     mail_id INT8 NOT NULL,
     pro BOOL NOT NULL,
@@ -73,7 +73,7 @@ CREATE TABLE PUBLIC.AW_MAIL(
 --  Table : AW_PERMISSION                                    
 -- ==============================================================
 
-DROP TABLE PUBLIC.AW_PERMISSION CASCADE;
+DROP TABLE IF EXISTS PUBLIC.AW_PERMISSION CASCADE;
 CREATE TABLE PUBLIC.AW_PERMISSION(
     permission_id INT8 NOT NULL,
     nompermission VARCHAR(100) NOT NULL,
@@ -88,7 +88,7 @@ COMMENT ON COLUMN PUBLIC.AW_PERMISSION.nompermission IS 'le nom de la permission
 --  Table : AW_PERSONNE                                    
 -- ==============================================================
 
-DROP TABLE PUBLIC.AW_PERSONNE CASCADE;
+DROP TABLE IF EXISTS PUBLIC.AW_PERSONNE CASCADE;
 CREATE TABLE PUBLIC.AW_PERSONNE(
     personne_id INT8 NOT NULL,
     nom VARCHAR(100) NOT NULL,
@@ -112,7 +112,7 @@ COMMENT ON COLUMN PUBLIC.AW_PERSONNE.date_naissance IS 'la date de naissance de 
 --  Table : AW_PERSONNE_N_COMPETENCE_PERSO                                    
 -- ==============================================================
 
-DROP TABLE PUBLIC.AW_PERSONNE_N_COMPETENCE_PERSO CASCADE;
+DROP TABLE IF EXISTS PUBLIC.AW_PERSONNE_N_COMPETENCE_PERSO CASCADE;
 CREATE TABLE PUBLIC.AW_PERSONNE_N_COMPETENCE_PERSO(
     personne_n_competence_perso_id INT8 NOT NULL,
     competenceperso_id INT8 NOT NULL,
@@ -125,7 +125,7 @@ CREATE TABLE PUBLIC.AW_PERSONNE_N_COMPETENCE_PERSO(
 --  Table : AW_ROLE                                    
 -- ==============================================================
 
-DROP TABLE PUBLIC.AW_ROLE CASCADE;
+DROP TABLE IF EXISTS PUBLIC.AW_ROLE CASCADE;
 CREATE TABLE PUBLIC.AW_ROLE(
     role_id INT8 NOT NULL,
     nom_role VARCHAR(100) NOT NULL,
@@ -140,7 +140,7 @@ COMMENT ON COLUMN PUBLIC.AW_ROLE.nom_role IS 'le nom du r“le';
 --  Table : AW_ROLE_UTILISATEUR                                    
 -- ==============================================================
 
-DROP TABLE PUBLIC.AW_ROLE_UTILISATEUR CASCADE;
+DROP TABLE IF EXISTS PUBLIC.AW_ROLE_UTILISATEUR CASCADE;
 CREATE TABLE PUBLIC.AW_ROLE_UTILISATEUR(
     utilisateur_id INT8 NOT NULL,
     role_id INT8 NOT NULL
@@ -150,7 +150,7 @@ CREATE TABLE PUBLIC.AW_ROLE_UTILISATEUR(
 --  Table : AW_ROLEPERMISSION                                    
 -- ==============================================================
 
-DROP TABLE PUBLIC.AW_ROLEPERMISSION CASCADE;
+DROP TABLE IF EXISTS PUBLIC.AW_ROLEPERMISSION CASCADE;
 CREATE TABLE PUBLIC.AW_ROLEPERMISSION(
     role_id INT8 NOT NULL,
     permission_id INT8 NOT NULL
@@ -160,7 +160,7 @@ CREATE TABLE PUBLIC.AW_ROLEPERMISSION(
 --  Table : AW_TELEPHONE                                    
 -- ==============================================================
 
-DROP TABLE PUBLIC.AW_TELEPHONE CASCADE;
+DROP TABLE IF EXISTS PUBLIC.AW_TELEPHONE CASCADE;
 CREATE TABLE PUBLIC.AW_TELEPHONE(
     telephone_id INT8 NOT NULL,
     pro BOOL NOT NULL,
@@ -176,7 +176,7 @@ COMMENT ON TABLE PUBLIC.AW_TELEPHONE IS 'Contact t‚l‚phonique';
 --  Table : AW_UTILISATEUR                                    
 -- ==============================================================
 
-DROP TABLE PUBLIC.AW_UTILISATEUR CASCADE;
+DROP TABLE IF EXISTS PUBLIC.AW_UTILISATEUR CASCADE;
 CREATE TABLE PUBLIC.AW_UTILISATEUR(
     utilisateur_id INT8 NOT NULL,
     identifiant VARCHAR(100) NOT NULL,

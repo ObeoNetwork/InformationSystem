@@ -2,5 +2,5 @@
 --  Table : TABLESUPPRIMEE                                    
 -- ==============================================================
 
-DROP TABLE TABLESUPPRIMEE CASCADE;
+DROP TABLE IF EXISTS TABLESUPPRIMEE;
 

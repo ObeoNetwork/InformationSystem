@@ -2,5 +2,5 @@
 --  Table : T1                                    
 -- ==============================================================
 
-DROP TABLE T1 CASCADE;
+DROP TABLE IF EXISTS T1;
 

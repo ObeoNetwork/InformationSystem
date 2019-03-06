@@ -2,12 +2,12 @@
 --  Table : TABLEAJOUTEE                                    
 -- ==============================================================
 
-DROP TABLE TABLEAJOUTEE CASCADE;
+DROP TABLE IF EXISTS TABLEAJOUTEE;
 CREATE TABLE TABLEAJOUTEE(
-    col1 numeric(12, 3) DEFAULT defaultValue NULL AUTO_INCREMENT,
+    col1 float(12, 3) NULL AUTO_INCREMENT,
 	PRIMARY KEY (col1)
 );
 
-COMMENT ON TABLE TABLEAJOUTEE IS 'Comments TableAjoutee';
-COMMENT ON COLUMN TABLEAJOUTEE.col1 IS 'Comments col1';
+ALTER TABLE TABLEAJOUTEE COMMENT 'Comments TableAjoutee';
+ALTER TABLE TABLEAJOUTEE MODIFY col1 float(12, 3) NULL AUTO_INCREMENT COMMENT 'Comments col1';
 

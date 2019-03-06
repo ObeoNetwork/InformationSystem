@@ -36,7 +36,7 @@
 	= invoke('org.obeonetwork.dsl.database.sqlgen.services.DatabaseServices', 'isIndexOnPKColumns(org.obeonetwork.dsl.database.Index)', Sequence{index}) /]
 
 [query public supportsSchema(arg : DatabaseElement) : Boolean =
-arg.isTargetH2() or arg.isTargetOracle() or arg.isTargetPostgreSQL()
+arg.isTargetH2() or arg.isTargetOracle() or arg.isTargetPostgreSQL() or arg.isTargetSqlServer()
 /]
 
 [query public getViewQuery(view : View) : String

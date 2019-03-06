@@ -2,7 +2,7 @@
 --  Table : TABLEAJOUTEE                                    
 -- ==============================================================
 
-DROP TABLE DEMO.TABLEAJOUTEE CASCADE;
+DROP TABLE IF EXISTS DEMO.TABLEAJOUTEE CASCADE;
 CREATE TABLE DEMO.TABLEAJOUTEE(
     col1 NUMERIC(12, 3) DEFAULT defaultValue NULL
 );
