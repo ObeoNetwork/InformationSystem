@@ -44,8 +44,7 @@ public class EEFReferenceCustomLifecycleManagerProvider implements IEEFLifecycle
 			String referenceName = this.getReferenceName(eefCustomReferenceDescription, interpreter, variableManager);
 			EReference reference = (EReference) target.eClass().getEStructuralFeature(referenceName);
 			if (reference.isMany()) {
-				// Not implemented yet!
-				throw new IllegalArgumentException();
+				return new EEFMultipleReferenceCustomLifecycleManager(eefCustomReferenceDescription, target, reference, variableManager, interpreter, editingContextAdapter);
 			} else {
 				return new EEFSingleReferenceCustomLifecycleManager(eefCustomReferenceDescription, target, reference, variableManager, interpreter, editingContextAdapter);
 			}

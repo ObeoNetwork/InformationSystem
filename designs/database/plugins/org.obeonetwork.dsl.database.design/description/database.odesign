@@ -358,6 +358,7 @@
       <pages name="ForeignKeys Page" labelExpression="Foreign Keys" domainClass="database::Table" semanticCandidateExpression="var:self" groups="//@extensions.0/@categories.0/@groups.3"/>
       <pages name="Indexes Page" labelExpression="Indexes" domainClass="database::Table" semanticCandidateExpression="var:self" groups="//@extensions.0/@categories.0/@groups.4"/>
       <pages name="Constraints page" labelExpression="Constraints" domainClass="database::Table" semanticCandidateExpression="var:self" groups="//@extensions.0/@categories.0/@groups.5"/>
+      <pages name="Sequence Page" labelExpression="Sequence" domainClass="database::Sequence" semanticCandidateExpression="var:self" groups="//@extensions.0/@categories.0/@groups.6"/>
       <groups name="Table Group" labelExpression="Properties" domainClass="database::Table" semanticCandidateExpression="var:self">
         <controls xsi:type="properties:TextDescription" name="database::Table name" labelExpression="aql:input.emfEditServices(self).getText(self.eClass().getEStructuralFeature('name')) + ':'" helpExpression="aql:input.emfEditServices(self).getDescription(self.eClass().getEStructuralFeature('name'))" isEnabledExpression="aql:self.eClass().getEStructuralFeature('name').changeable" valueExpression="aql:self.name">
           <initialOperation>
@@ -369,19 +370,48 @@
             </style>
           </conditionalStyles>
         </controls>
-        <controls xsi:type="properties-ext-widgets-reference:ExtReferenceDescription" name="database::Table columns" labelExpression="Columns:" helpExpression="aql:input.emfEditServices(self).getDescription(self.eClass().getEStructuralFeature('columns'))" isEnabledExpression="aql:self.eClass().getEStructuralFeature('columns').changeable" referenceNameExpression="aql:'columns'">
-          <onClickOperation>
-            <firstModelOperations xsi:type="properties:DialogModelOperation" titleExpression="New Dialog">
-              <buttons labelExpression="Cancel" closeDialogOnClick="true" rollbackChangesOnClose="true">
-                <initialOperation/>
-              </buttons>
-              <buttons labelExpression="OK" default="true" closeDialogOnClick="true">
-                <initialOperation/>
-              </buttons>
-              <page name="Default Page" labelExpression="Page" semanticCandidateExpression="var:self" groups="//@extensions.0/@categories.0/@groups.0/@controls.1/@onClickOperation/@firstModelOperations/@groups.0"/>
-              <groups name="Default Group" labelExpression="Group" semanticCandidateExpression="var:self"/>
-            </firstModelOperations>
-          </onClickOperation>
+        <controls xsi:type="properties:CustomDescription" name="org.obeonetwork.dsl.database.design.custom.reference" labelExpression="Columns:" helpExpression="aql:input.emfEditServices(self).getDescription(self.eClass().getEStructuralFeature('columns'))" isEnabledExpression="aql:self.eClass().getEStructuralFeature('columns').changeable">
+          <customExpressions name="referenceNameExpression" customExpression="aql:'columns'"/>
+          <customExpressions name="enableAddButtonExpression" customExpression="aql:self.eClass().getEStructuralFeature('columns').many and self.eClass().getEStructuralFeature('columns').containment"/>
+          <customOperations name="addButtonOperation">
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:CreateInstance" typeName="database::Column" referenceName="columns" variableName="column">
+                <subModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="aql:'column' + self.eContainer(database::Table).columns->size()"/>
+                <subModelOperations xsi:type="tool_1:SetValue" featureName="nullable" valueExpression="aql:false"/>
+                <subModelOperations xsi:type="tool_1:SetValue" featureName="autoincrement" valueExpression="aql:false"/>
+                <subModelOperations xsi:type="tool_1:SetValue" featureName="defaultValue" valueExpression="aql:''"/>
+                <subModelOperations xsi:type="tool_1:SetValue" featureName="comments" valueExpression="aql:''"/>
+                <subModelOperations xsi:type="properties:DialogModelOperation" titleExpression="Create Column Dialog">
+                  <buttons labelExpression="Cancel" closeDialogOnClick="true" rollbackChangesOnClose="true">
+                    <initialOperation>
+                      <firstModelOperations xsi:type="tool_1:RemoveElement"/>
+                    </initialOperation>
+                  </buttons>
+                  <buttons labelExpression="OK" default="true" closeDialogOnClick="true">
+                    <initialOperation/>
+                  </buttons>
+                  <page name="Create Column Dialog Page" labelExpression="Column" domainClass="database::Column" semanticCandidateExpression="var:self" extends="//@extensions.0/@categories.0/@pages.1"/>
+                  <groups name="Create Column Dialog Group" labelExpression="Properties" domainClass="database::Column" semanticCandidateExpression="var:self"/>
+                </subModelOperations>
+              </firstModelOperations>
+            </initialOperation>
+          </customOperations>
+          <customOperations name="doubleClickOperation">
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:selection">
+                <subModelOperations xsi:type="properties:DialogModelOperation" titleExpression="Edit Column Dialog">
+                  <buttons labelExpression="Cancel" closeDialogOnClick="true" rollbackChangesOnClose="true">
+                    <initialOperation/>
+                  </buttons>
+                  <buttons labelExpression="OK" default="true" closeDialogOnClick="true">
+                    <initialOperation/>
+                  </buttons>
+                  <page name="Edit Column Dialog Page" labelExpression="Column" domainClass="database::Column" semanticCandidateExpression="var:self" extends="//@extensions.0/@categories.0/@pages.1"/>
+                  <groups name="Edit Column Dialog" labelExpression="Properties" domainClass="database::Column" semanticCandidateExpression="var:self"/>
+                </subModelOperations>
+              </firstModelOperations>
+            </initialOperation>
+          </customOperations>
         </controls>
         <controls xsi:type="properties:TextAreaDescription" name="database::Table comments" labelExpression="aql:input.emfEditServices(self).getText(self.eClass().getEStructuralFeature('comments')) + ':'" helpExpression="aql:input.emfEditServices(self).getDescription(self.eClass().getEStructuralFeature('comments'))" isEnabledExpression="aql:self.eClass().getEStructuralFeature('comments').changeable" valueExpression="aql:self.comments">
           <initialOperation>
@@ -461,10 +491,9 @@
             <firstModelOperations xsi:type="tool_1:SetValue" featureName="autoincrement" valueExpression="var:newValue"/>
           </initialOperation>
         </controls>
-        <controls xsi:type="properties-ext-widgets-reference:ExtReferenceDescription" name="database::Column sequence" labelExpression="aql:input.emfEditServices(self).getText(self.eClass().getEStructuralFeature('sequence')) + ':'" helpExpression="aql:input.emfEditServices(self).getDescription(self.eClass().getEStructuralFeature('sequence')) + ':'" isEnabledExpression="aql:self.eClass().getEStructuralFeature('sequence').changeable" referenceNameExpression="aql:'sequence'"/>
         <controls xsi:type="properties:CustomDescription" name="org.obeonetwork.dsl.database.design.custom.reference" labelExpression="aql:input.emfEditServices(self).getText(self.eClass().getEStructuralFeature('sequence')) + ':'" helpExpression="aql:input.emfEditServices(self).getDescription(self.eClass().getEStructuralFeature('sequence')) + ':'" isEnabledExpression="aql:self.eClass().getEStructuralFeature('sequence').changeable">
           <customExpressions name="referenceNameExpression" customExpression="aql:'sequence'"/>
-          <customExpressions name="enableAddButtonExpression" customExpression="aql:not(self.eClass().getEStructuralFeature('sequence').isMany()) and not(self.eClass().getEStructuralFeature('sequence').oclAsType(ecore::EReference).containment)"/>
+          <customExpressions name="enableAddButtonExpression" customExpression="aql:self.eClass().getEStructuralFeature('sequence').many and self.eClass().getEStructuralFeature('sequence').containment"/>
         </controls>
         <controls xsi:type="properties:TextDescription" name="database::Column defaultValue" labelExpression="aql:input.emfEditServices(self).getText(self.eClass().getEStructuralFeature('defaultValue')) + ':'" helpExpression="aql:input.emfEditServices(self).getDescription(self.eClass().getEStructuralFeature('defaultValue'))" isEnabledExpression="aql:self.eClass().getEStructuralFeature('defaultValue').changeable" valueExpression="aql:self.defaultValue">
           <initialOperation>
@@ -488,33 +517,9 @@
             </style>
           </conditionalStyles>
         </controls>
-        <controls xsi:type="properties-ext-widgets-reference:ExtReferenceDescription" name="database::PrimaryKey columns" labelExpression="aql:input.emfEditServices(self).getText(self.eClass().getEStructuralFeature('columns')) + ':'" helpExpression="aql:input.emfEditServices(self).getDescription(self.eClass().getEStructuralFeature('columns'))" isEnabledExpression="aql:self.eClass().getEStructuralFeature('columns').changeable" referenceNameExpression="aql:'columns'"/>
-        <controls xsi:type="properties:ListDescription" name="database::PrimaryKey columns2" labelExpression="aql:input.emfEditServices(self).getText(self.eClass().getEStructuralFeature('columns')) + ':'" helpExpression="aql:input.emfEditServices(self).getDescription(self.eClass().getEStructuralFeature('columns'))" isEnabledExpression="aql:self.eClass().getEStructuralFeature('columns').changeable" valueExpression="feature:columns" displayExpression="aql:input.emfEditServices(value).getText()">
-          <actions imageExpression="org.obeonetwork.dsl.environment.properties/icons/full16/Edit_16x16.gif">
-            <initialOperation>
-              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:self"/>
-            </initialOperation>
-          </actions>
-          <actions imageExpression="org.obeonetwork.dsl.environment.properties/icons/full16/Add_16x16.gif">
-            <initialOperation>
-              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:self"/>
-            </initialOperation>
-          </actions>
-          <actions imageExpression="org.obeonetwork.dsl.environment.properties/icons/full16/Delete_16x16.gif">
-            <initialOperation>
-              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:self"/>
-            </initialOperation>
-          </actions>
-          <actions imageExpression="org.obeonetwork.dsl.environment.properties/icons/full16/ArrowUp_16x16.gif">
-            <initialOperation>
-              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:self"/>
-            </initialOperation>
-          </actions>
-          <actions imageExpression="org.obeonetwork.dsl.environment.properties/icons/full16/ArrowDown_16x16.gif">
-            <initialOperation>
-              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:self"/>
-            </initialOperation>
-          </actions>
+        <controls xsi:type="properties:CustomDescription" name="org.obeonetwork.dsl.database.design.custom.reference" labelExpression="aql:input.emfEditServices(self).getText(self.eClass().getEStructuralFeature('columns')) + ':'" helpExpression="aql:input.emfEditServices(self).getDescription(self.eClass().getEStructuralFeature('columns'))" isEnabledExpression="aql:self.eClass().getEStructuralFeature('columns').changeable">
+          <customExpressions name="referenceNameExpression" customExpression="aql:'columns'"/>
+          <customExpressions name="enableAddButtonExpression" customExpression="aql:self.eClass().getEStructuralFeature('columns').many and self.eClass().getEStructuralFeature('columns').containment"/>
         </controls>
         <controls xsi:type="properties:TextAreaDescription" name="database::PrimaryKey comments" labelExpression="aql:input.emfEditServices(self).getText(self.eClass().getEStructuralFeature('comments')) + ':'" helpExpression="aql:input.emfEditServices(self).getDescription(self.eClass().getEStructuralFeature('comments'))" isEnabledExpression="aql:self.eClass().getEStructuralFeature('comments').changeable" valueExpression="aql:self.comments">
           <initialOperation>
@@ -530,6 +535,53 @@
       </groups>
       <groups name="Constraints Group" labelExpression="Properties" domainClass="database::Table" semanticCandidateExpression="var:self">
         <controls xsi:type="properties-ext-widgets-reference:ExtReferenceDescription" name="database::Table indexes" labelExpression="Constraints:" helpExpression="aql:input.emfEditServices(self).getDescription(self.eClass().getEStructuralFeature('constraints'))" isEnabledExpression="aql:self.eClass().getEStructuralFeature('constraints').changeable" referenceNameExpression="aql:'constraints'"/>
+      </groups>
+      <groups name="Sequence Group" labelExpression="Properties" domainClass="database::Sequence" semanticCandidateExpression="var:self">
+        <controls xsi:type="properties:TextDescription" name="database::Sequence name" labelExpression="aql:input.emfEditServices(self).getText(self.eClass().getEStructuralFeature('name')) + ':'" helpExpression="aql:input.emfEditServices(self).getDescription(self.eClass().getEStructuralFeature('name'))" isEnabledExpression="aql:self.eClass().getEStructuralFeature('name').changeable" valueExpression="aql:self.name">
+          <initialOperation>
+            <firstModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="var:newValue"/>
+          </initialOperation>
+          <conditionalStyles preconditionExpression="aql:self.eClass().getEStructuralFeature('name').lowerBound = 1">
+            <style>
+              <labelFontFormat>bold</labelFontFormat>
+            </style>
+          </conditionalStyles>
+        </controls>
+        <controls xsi:type="properties:TextDescription" name="database::Sequence start" labelExpression="aql:input.emfEditServices(self).getText(self.eClass().getEStructuralFeature('start')) + ':'" helpExpression="aql:input.emfEditServices(self).getDescription(self.eClass().getEStructuralFeature('start'))" isEnabledExpression="aql:self.eClass().getEStructuralFeature('start').changeable" valueExpression="aql:self.start">
+          <initialOperation>
+            <firstModelOperations xsi:type="tool_1:SetValue" featureName="start" valueExpression="var:newValue"/>
+          </initialOperation>
+        </controls>
+        <controls xsi:type="properties:TextDescription" name="database::Sequence increment" labelExpression="aql:input.emfEditServices(self).getText(self.eClass().getEStructuralFeature('increment')) + ':'" helpExpression="aql:input.emfEditServices(self).getDescription(self.eClass().getEStructuralFeature('increment'))" isEnabledExpression="aql:self.eClass().getEStructuralFeature('increment').changeable" valueExpression="aql:self.increment">
+          <initialOperation>
+            <firstModelOperations xsi:type="tool_1:SetValue" featureName="start" valueExpression="var:newValue"/>
+          </initialOperation>
+        </controls>
+        <controls xsi:type="properties:TextDescription" name="database::Sequence minValue" labelExpression="aql:input.emfEditServices(self).getText(self.eClass().getEStructuralFeature('minValue')) + ':'" helpExpression="aql:input.emfEditServices(self).getDescription(self.eClass().getEStructuralFeature('minValue'))" isEnabledExpression="aql:self.eClass().getEStructuralFeature('minValue').changeable" valueExpression="aql:self.minValue">
+          <initialOperation>
+            <firstModelOperations xsi:type="tool_1:SetValue" featureName="start" valueExpression="var:newValue"/>
+          </initialOperation>
+        </controls>
+        <controls xsi:type="properties:TextDescription" name="database::Sequence maxValue" labelExpression="aql:input.emfEditServices(self).getText(self.eClass().getEStructuralFeature('maxValue')) + ':'" helpExpression="aql:input.emfEditServices(self).getDescription(self.eClass().getEStructuralFeature('maxValue'))" isEnabledExpression="aql:self.eClass().getEStructuralFeature('maxValue').changeable" valueExpression="aql:self.maxValue">
+          <initialOperation>
+            <firstModelOperations xsi:type="tool_1:SetValue" featureName="start" valueExpression="var:newValue"/>
+          </initialOperation>
+        </controls>
+        <controls xsi:type="properties:CheckboxDescription" name="database::Sequence cycle" labelExpression="aql:input.emfEditServices(self).getText(self.eClass().getEStructuralFeature('cycle'))" helpExpression="aql:input.emfEditServices(self).getDescription(self.eClass().getEStructuralFeature('cycle'))" isEnabledExpression="aql:self.eClass().getEStructuralFeature('cycle').changeable" valueExpression="aql:self.cycle">
+          <initialOperation>
+            <firstModelOperations xsi:type="tool_1:SetValue" featureName="cycle" valueExpression="var:newValue"/>
+          </initialOperation>
+        </controls>
+        <controls xsi:type="properties:TextDescription" name="database::Sequence cacheSize" labelExpression="aql:input.emfEditServices(self).getText(self.eClass().getEStructuralFeature('cacheSize')) + ':'" helpExpression="aql:input.emfEditServices(self).getDescription(self.eClass().getEStructuralFeature('cacheSize'))" isEnabledExpression="aql:self.eClass().getEStructuralFeature('cacheSize').changeable" valueExpression="aql:self.cacheSize">
+          <initialOperation>
+            <firstModelOperations xsi:type="tool_1:SetValue" featureName="start" valueExpression="var:newValue"/>
+          </initialOperation>
+        </controls>
+        <controls xsi:type="properties:TextAreaDescription" name="database::Table comments" labelExpression="aql:input.emfEditServices(self).getText(self.eClass().getEStructuralFeature('comments')) + ':'" helpExpression="aql:input.emfEditServices(self).getDescription(self.eClass().getEStructuralFeature('comments'))" isEnabledExpression="aql:self.eClass().getEStructuralFeature('comments').changeable" valueExpression="aql:self.comments">
+          <initialOperation>
+            <firstModelOperations xsi:type="tool_1:SetValue" featureName="comments" valueExpression="var:newValue"/>
+          </initialOperation>
+        </controls>
       </groups>
     </categories>
   </extensions>

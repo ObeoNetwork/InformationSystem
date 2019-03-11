@@ -13,7 +13,7 @@ package org.obeonetwork.dsl.database.design.reference.custom;
 import org.eclipse.eef.common.ui.api.IEEFFormContainer;
 import org.eclipse.eef.core.api.EditingContextAdapter;
 import org.eclipse.eef.ide.ui.api.widgets.IEEFLifecycleManager;
-import org.eclipse.eef.ide.ui.ext.widgets.reference.internal.EEFExtSingleReferenceLifecycleManager;
+import org.eclipse.eef.ide.ui.ext.widgets.reference.internal.EEFExtMultipleReferenceLifecycleManager;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EReference;
 import org.eclipse.jface.wizard.IWizard;
@@ -22,13 +22,13 @@ import org.eclipse.sirius.common.interpreter.api.IInterpreter;
 import org.eclipse.sirius.common.interpreter.api.IVariableManager;
 import org.eclipse.swt.widgets.Composite;
 
-@SuppressWarnings({ "restriction" })
-public class EEFSingleReferenceCustomLifecycleManager extends EEFExtSingleReferenceLifecycleManager
+@SuppressWarnings("restriction")
+public class EEFMultipleReferenceCustomLifecycleManager extends EEFExtMultipleReferenceLifecycleManager
 		implements IEEFLifecycleManager {
 
 	private EEFCustomReferenceDescription customDescription;
 
-	public EEFSingleReferenceCustomLifecycleManager(EEFCustomReferenceDescription description, EObject target,
+	public EEFMultipleReferenceCustomLifecycleManager(EEFCustomReferenceDescription description, EObject target,
 			EReference eReference, IVariableManager variableManager, IInterpreter interpreter,
 			EditingContextAdapter editingContextAdapter) {
 		super(description, target, eReference, variableManager, interpreter, editingContextAdapter);
@@ -36,21 +36,22 @@ public class EEFSingleReferenceCustomLifecycleManager extends EEFExtSingleRefere
 	}
 	
 	@Override
-	protected void setEnabled(boolean isEnabled) {
-		if (isEnabled && this.addButton != null && !this.addButton.isDisposed()) {
-			this.addButton.setEnabled(this.customDescription.addButtonNeeded());
-		}
-		if (isEnabled && this.removeButton != null && !this.removeButton.isDisposed()) {
-			this.removeButton.setEnabled(this.target.eGet(eReference) != null && this.customDescription.removeButtonNeeded());
-		}
-		if (isEnabled && this.browseButton != null && !this.browseButton.isDisposed()) {
-			this.browseButton.setEnabled(this.customDescription.browseButtonNeeded());
-		}
+	protected void createMainControl(Composite parent, IEEFFormContainer formContainer) {
+		super.createMainControl(parent, formContainer);
+		this.controller = this.customDescription.getController();
 	}
 	
 	@Override
-	public void createControl(Composite parent, IEEFFormContainer formContainer) {
-		super.createControl(parent, formContainer);
+	protected void setEnabled(boolean isEnabled) {
+		if (this.addButton != null && !this.addButton.isDisposed()) {
+			this.addButton.setEnabled(isEnabled && this.customDescription.addButtonNeeded());
+		}
+		if (this.removeButton != null && !this.removeButton.isDisposed()) {
+			this.removeButton.setEnabled(isEnabled && this.customDescription.removeButtonNeeded());
+		}
+		if (this.browseButton != null && !this.browseButton.isDisposed()) {
+			this.browseButton.setEnabled(isEnabled && this.customDescription.browseButtonNeeded());
+		}
 	}
 	
 	@Override
@@ -66,10 +67,13 @@ public class EEFSingleReferenceCustomLifecycleManager extends EEFExtSingleRefere
 	protected void browseButtonCallback() {
 		if (this.customDescription.hasBrowseButtonOperation()) {
 			this.customDescription.executeBrowseButtonOperation();
-		} else {
+		} else if(this.eReference.isContainment()) {
 			IWizard wizard = new CustomEEFExtEObjectSelectionWizard(this.target, this.eReference, this.editingContextAdapter);
 			WizardDialog wizardDialog = new WizardDialog(this.label.getShell(), wizard);
 			wizardDialog.open();
+		} else {
+			super.browseButtonCallback();
 		}
 	}
+
 }

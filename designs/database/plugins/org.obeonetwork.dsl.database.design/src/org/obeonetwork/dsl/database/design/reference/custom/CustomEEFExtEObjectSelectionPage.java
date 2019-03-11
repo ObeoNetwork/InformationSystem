@@ -11,6 +11,7 @@
 package org.obeonetwork.dsl.database.design.reference.custom;
 
 import java.util.List;
+import java.util.Objects;
 
 import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.eef.core.api.EditingContextAdapter;
@@ -101,6 +102,7 @@ public class CustomEEFExtEObjectSelectionPage extends WizardPage {
 			public Object[] getElements(Object object) {
 				if (object instanceof EObject) {
 					List<?> propertyDescriptorChoiceOfValues = editingDomainServices.getPropertyDescriptorChoiceOfValues((EObject) object, eReference.getName());
+					propertyDescriptorChoiceOfValues.removeIf(Objects::isNull);
 					return propertyDescriptorChoiceOfValues.toArray();
 				}
 				return new Object[0];
@@ -121,8 +123,8 @@ public class CustomEEFExtEObjectSelectionPage extends WizardPage {
 
 	private void determinePageCompletion() {
 		this.setMessage(null);
-		boolean isPageComplete = this.isCompleteViewer(true, this.eReferenceComboViewer, "N�cessite une valeur");
-		this.setPageComplete(isPageComplete);		
+		boolean isPageComplete = this.isCompleteViewer(true, this.eReferenceComboViewer, "Nécessite une valeur");
+		this.setPageComplete(isPageComplete);
 	}
 
 	/**

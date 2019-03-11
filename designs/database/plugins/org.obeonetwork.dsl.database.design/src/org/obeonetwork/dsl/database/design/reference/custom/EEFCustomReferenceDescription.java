@@ -28,6 +28,10 @@ public class EEFCustomReferenceDescription extends EEFExtReferenceDescriptionImp
 		this.controller = new CustomReferenceController(controlDescription, variableManager, interpreter, editingContextAdapter);
 	}
 	
+	public CustomReferenceController getController() {
+		return this.controller;
+	}
+	
 	public boolean hasBrowseButtonOperation() {
 		return this.controller.hasBrowseButtonOperation();
 	}
