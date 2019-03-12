@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<description:Group xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:description="http://www.eclipse.org/sirius/description/1.1.0" xmlns:description_1="http://www.eclipse.org/sirius/diagram/description/1.1.0" xmlns:description_2="http://www.eclipse.org/sirius/tree/description/1.0.0" xmlns:style="http://www.eclipse.org/sirius/diagram/description/style/1.1.0" xmlns:tool="http://www.eclipse.org/sirius/diagram/description/tool/1.1.0" xmlns:tool_1="http://www.eclipse.org/sirius/description/tool/1.1.0" documentation="Copyright (c) 2012, 2017 Obeo.&#xD;&#xA;All rights reserved. This program and the accompanying materials&#xD;&#xA;are made available under the terms of the Eclipse Public License v1.0&#xD;&#xA;which accompanies this distribution, and is available at&#xD;&#xA;http://www.eclipse.org/legal/epl-v10.html&#xD;&#xA;&#xD;&#xA;Contributors:&#xD;&#xA;   Obeo - initial API and implementation" name="Cinematic" version="12.0.0.2017041100">
+<description:Group xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:description="http://www.eclipse.org/sirius/description/1.1.0" xmlns:description_1="http://www.eclipse.org/sirius/diagram/description/1.1.0" xmlns:description_2="http://www.eclipse.org/sirius/tree/description/1.0.0" xmlns:properties="http://www.eclipse.org/sirius/properties/1.0.0" xmlns:style="http://www.eclipse.org/sirius/diagram/description/style/1.1.0" xmlns:tool="http://www.eclipse.org/sirius/diagram/description/tool/1.1.0" xmlns:tool_1="http://www.eclipse.org/sirius/description/tool/1.1.0" documentation="Copyright (c) 2012, 2017 Obeo.&#xD;&#xA;All rights reserved. This program and the accompanying materials&#xD;&#xA;are made available under the terms of the Eclipse Public License v1.0&#xD;&#xA;which accompanies this distribution, and is available at&#xD;&#xA;http://www.eclipse.org/legal/epl-v10.html&#xD;&#xA;&#xD;&#xA;Contributors:&#xD;&#xA;   Obeo - initial API and implementation" name="Cinematic" version="12.0.0.2017041100">
   <ownedViewpoints endUserDocumentation="There are three available representations on Cinematic's elements : &#xD;&#xA;&lt;ul>&#xD;&#xA;&lt;li>&lt;b>UI Structure&lt;/b> : a tree allowing to structure the Cinematic model contents,&lt;/li>&#xD;&#xA;&lt;li>&lt;b>Package Diagram&lt;/b> : a diagram allowing to represent and edit the package strucure,&lt;/li>&#xD;&#xA;&lt;li>&lt;b>Flow Diagram&lt;/b> : a flow diagram allowing to represent and edit a flow.&lt;/li>&#xD;&#xA;&lt;/ul>&#xA;" name="Cinematic Views">
     <ownedRepresentations xsi:type="description_1:DiagramDescription" name="Reused Description" domainClass="cinematic.CinematicRoot" preconditionExpression="false">
       <metamodel href="platform:/plugin/org.obeonetwork.dsl.cinematic/model/cinematic.ecore#/"/>
@@ -870,7 +870,7 @@
               <variables name="container" documentation="The semantic element corresponding to the view container."/>
             </create>
           </subItemMappings>
-          <subItemMappings name="UIS_ViewContainerReference" domainClass="view.ViewContainerReference" semanticCandidatesExpression="feature:viewContainerReferences" reusedTreeItemMappings="//@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='UI%20Structure']/@subItemMappings[name='UIS_Package']/@subItemMappings[name='UIS_ViewContainer']/@subItemMappings[name='UIS_ContainedViewContainer'] //@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='UI%20Structure']/@subItemMappings[name='UIS_Package']/@subItemMappings[name='UIS_ViewContainer']/@subItemMappings[name='UIS_ViewEvent'] //@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='UI%20Structure']/@subItemMappings[name='UIS_Package']/@subItemMappings[name='UIS_ViewContainer']/@subItemMappings[name='UIS_ViewAction']">
+          <subItemMappings name="UIS_ViewContainerReference" domainClass="view.ViewContainerReference" semanticCandidatesExpression="feature:viewContainerReferences" reusedTreeItemMappings="//@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='UI%20Structure']/@subItemMappings[name='UIS_Package']/@subItemMappings[name='UIS_ViewContainer']/@subItemMappings[name='UIS_ViewEvent'] //@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='UI%20Structure']/@subItemMappings[name='UIS_Package']/@subItemMappings[name='UIS_ViewContainer']/@subItemMappings[name='UIS_ViewAction']">
             <defaultStyle labelExpression="service:getCinematicLabel">
               <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
               <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
@@ -1154,4 +1154,644 @@
     <ownedJavaExtensions qualifiedClassName="org.obeonetwork.dsl.cinematic.design.services.view.ViewUtil"/>
     <ownedJavaExtensions qualifiedClassName="org.eclipse.sirius.common.tools.api.interpreter.StandardServices"/>
   </ownedViewpoints>
+  <extensions xsi:type="properties:ViewExtensionDescription" name="Properties">
+    <metamodels href="http://www.obeonetwork.org/dsl/cinematic/3.0.0#/"/>
+    <metamodels href="http://www.obeonetwork.org/dsl/cinematic/3.0.0#//flow"/>
+    <metamodels href="http://www.obeonetwork.org/dsl/cinematic/3.0.0#//toolkits"/>
+    <metamodels href="http://www.obeonetwork.org/dsl/cinematic/3.0.0#//view"/>
+    <metamodels href="http://www.obeonetwork.org/dsl/soa/3.0.0#/"/>
+    <categories name="Default Category">
+      <pages name="Toolkits Page" labelExpression="Toolkits" domainClass="cinematic::CinematicRoot" semanticCandidateExpression="var:self" groups="//@extensions.0/@categories.0/@groups.0"/>
+      <pages name="AbstractPackage Page" labelExpression="aql:self.eClass().name" domainClass="cinematic::AbstractPackage" semanticCandidateExpression="var:self" groups="//@extensions.0/@categories.0/@groups.1"/>
+      <groups name="Toolkits Group" labelExpression="Properties" domainClass="cinematic::CinematicRoot" semanticCandidateExpression="var:self">
+        <controls xsi:type="properties:CustomDescription" name="org.obeonetwork.dsl.database.design.custom.reference" label="cinematic::CinematicRoot toolkits" labelExpression="aql:input.emfEditServices(self).getText(self.eClass().getEStructuralFeature('toolkits')) + ':'" helpExpression="aql:input.emfEditServices(self).getDescription(self.eClass().getEStructuralFeature('toolkits'))" isEnabledExpression="aql:self.eClass().getEStructuralFeature('toolkits').changeable">
+          <customExpressions name="referenceNameExpression" customExpression="aql:'toolkits'"/>
+        </controls>
+      </groups>
+      <groups name="AbstractPackage Group" labelExpression="Properties" domainClass="cinematic::AbstractPackage" semanticCandidateExpression="var:self">
+        <controls xsi:type="properties:TextDescription" name="cinematic::AbstractPackage name" labelExpression="aql:input.emfEditServices(self).getText(self.eClass().getEStructuralFeature('name')) + ':'" helpExpression="aql:input.emfEditServices(self).getDescription(self.eClass().getEStructuralFeature('name'))" isEnabledExpression="aql:self.eClass().getEStructuralFeature('name').changeable" valueExpression="aql:self.name">
+          <initialOperation>
+            <firstModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="var:newValue"/>
+          </initialOperation>
+          <conditionalStyles preconditionExpression="aql:self.eClass().getEStructuralFeature('name').lowerBound = 1">
+            <style>
+              <labelFontFormat>bold</labelFontFormat>
+            </style>
+          </conditionalStyles>
+        </controls>
+        <controls xsi:type="properties:TextAreaDescription" name="cinematic::AbstractPackage description" labelExpression="aql:input.emfEditServices(self).getText(self.eClass().getEStructuralFeature('description')) + ':'" helpExpression="aql:input.emfEditServices(self).getDescription(self.eClass().getEStructuralFeature('description'))" isEnabledExpression="aql:self.eClass().getEStructuralFeature('description').changeable" valueExpression="aql:self.description">
+          <initialOperation>
+            <firstModelOperations xsi:type="tool_1:SetValue" featureName="description" valueExpression="var:newValue"/>
+          </initialOperation>
+        </controls>
+        <controls xsi:type="properties:CustomDescription" name="org.obeonetwork.dsl.database.design.custom.reference" label="cinematic::AbstractPackage subPackages" labelExpression="aql:'SubPackages :'" helpExpression="aql:input.emfEditServices(self).getDescription(self.eClass().getEStructuralFeature('subPackages'))" isEnabledExpression="aql:self.eClass().getEStructuralFeature('subPackages').changeable">
+          <customExpressions name="referenceNameExpression" customExpression="aql:'subPackages'"/>
+          <customExpressions name="enableAddButtonExpression" customExpression="aql:false"/>
+          <customExpressions name="enableBrowseButtonExpression" customExpression="aql:false"/>
+          <customExpressions name="enableRemoveButtonExpression" customExpression="aql:false"/>
+          <customOperations name="onDoubleClickOperation">
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="aql:selection->first()">
+                <subModelOperations xsi:type="properties:DialogModelOperation" titleExpression="Edit SubPackage Dialog">
+                  <buttons labelExpression="Cancel" closeDialogOnClick="true" rollbackChangesOnClose="true">
+                    <initialOperation/>
+                  </buttons>
+                  <buttons labelExpression="OK" default="true" closeDialogOnClick="true">
+                    <initialOperation/>
+                  </buttons>
+                  <page name="Edit SubPackage Page" labelExpression="SubPackage" domainClass="cinematic::Package" semanticCandidateExpression="var:self" extends="//@extensions.0/@categories.0/@pages.1"/>
+                </subModelOperations>
+              </firstModelOperations>
+            </initialOperation>
+          </customOperations>
+        </controls>
+        <controls xsi:type="properties:CustomDescription" name="org.obeonetwork.dsl.database.design.custom.reference" label="cinematic::AbstractPackage flows" labelExpression="aql:'Flows :'" helpExpression="aql:input.emfEditServices(self).getDescription(self.eClass().getEStructuralFeature('flows'))" isEnabledExpression="aql:self.eClass().getEStructuralFeature('flows').changeable">
+          <customExpressions name="referenceNameExpression" customExpression="aql:'flows'"/>
+          <customExpressions name="enableAddButtonExpression" customExpression="aql:false"/>
+          <customExpressions name="enableBrowseButtonExpression" customExpression="aql:false"/>
+          <customExpressions name="enableRemoveButtonExpression" customExpression="aql:false"/>
+          <customOperations name="onDoubleClickOperation">
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="aql:selection->first()">
+                <subModelOperations xsi:type="properties:DialogModelOperation" titleExpression="Edit Flow Dialog">
+                  <buttons labelExpression="Cancel" closeDialogOnClick="true" rollbackChangesOnClose="true">
+                    <initialOperation/>
+                  </buttons>
+                  <buttons labelExpression="OK" default="true" closeDialogOnClick="true">
+                    <initialOperation/>
+                  </buttons>
+                  <page name="Edit Flow Page" extends="//@extensions.0/@categories.2/@pages.5"/>
+                </subModelOperations>
+              </firstModelOperations>
+            </initialOperation>
+          </customOperations>
+        </controls>
+        <controls xsi:type="properties:CustomDescription" name="org.obeonetwork.dsl.database.design.custom.reference" label="cinematic::AbstractPackage viewContainers" labelExpression="aql:'ViewContainers :'" helpExpression="aql:input.emfEditServices(self).getDescription(self.eClass().getEStructuralFeature('viewContainers'))" isEnabledExpression="aql:self.eClass().getEStructuralFeature('viewContainers').changeable">
+          <customExpressions name="referenceNameExpression" customExpression="aql:'viewContainers'"/>
+          <customExpressions name="enableAddButtonExpression" customExpression="aql:false"/>
+          <customExpressions name="enableBrowseButtonExpression" customExpression="aql:false"/>
+          <customExpressions name="enableRemoveButtonExpression" customExpression="aql:false"/>
+          <customOperations name="onDoubleClickOperation">
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="aql:selection->first()">
+                <subModelOperations xsi:type="properties:DialogModelOperation" titleExpression="Edit viewContainer Dialog">
+                  <buttons labelExpression="Cancel" closeDialogOnClick="true" rollbackChangesOnClose="true">
+                    <initialOperation/>
+                  </buttons>
+                  <buttons labelExpression="OK" default="true" closeDialogOnClick="true">
+                    <initialOperation/>
+                  </buttons>
+                  <page name="Edit ViewContainer Page" labelExpression="ViewContainer" domainClass="view::ViewContainer" semanticCandidateExpression="var:self" extends="//@extensions.0/@categories.1/@pages.3"/>
+                </subModelOperations>
+              </firstModelOperations>
+            </initialOperation>
+          </customOperations>
+        </controls>
+      </groups>
+    </categories>
+    <categories name="View">
+      <pages name="ViewAction Page" labelExpression="ViewAction" domainClass="view::ViewAction" semanticCandidateExpression="var:self" groups="//@extensions.0/@categories.1/@groups.1"/>
+      <pages name="ViewEvent Page" labelExpression="ViewEvent" domainClass="view::ViewEvent" semanticCandidateExpression="var:self" groups="//@extensions.0/@categories.1/@groups.2"/>
+      <pages name="ViewElement Page" labelExpression="ViewElement" domainClass="view::ViewElement" semanticCandidateExpression="var:self" groups="//@extensions.0/@categories.1/@groups.3"/>
+      <pages name="ViewContainer Page" labelExpression="ViewContainer" domainClass="view::ViewContainer" semanticCandidateExpression="var:self" groups="//@extensions.0/@categories.1/@groups.4"/>
+      <pages name="ViewContainerReference Page" labelExpression="ViewContainerReference" domainClass="view::ViewContainerReference" semanticCandidateExpression="var:self" groups="//@extensions.0/@categories.1/@groups.5"/>
+      <groups name="AbstractViewElement Group" documentation="The goal of this group is to hold widget that are meant to be extended by other widget like ViewElement Group, ViewContainer Group and ViewContainerReference Group." domainClass="view::AbstractViewElement">
+        <controls xsi:type="properties:TextDescription" name="view::AbstractViewElement name" labelExpression="aql:input.emfEditServices(self).getText(self.eClass().getEStructuralFeature('name')) + ':'" helpExpression="aql:input.emfEditServices(self).getDescription(self.eClass().getEStructuralFeature('name'))" isEnabledExpression="aql:self.eClass().getEStructuralFeature('name').changeable" valueExpression="aql:self.name">
+          <initialOperation>
+            <firstModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="var:newValue"/>
+          </initialOperation>
+          <conditionalStyles preconditionExpression="aql:self.eClass().getEStructuralFeature('name').lowerBound = 1">
+            <style>
+              <labelFontFormat>bold</labelFontFormat>
+            </style>
+          </conditionalStyles>
+        </controls>
+        <controls xsi:type="properties:TextDescription" name="view::AbstractViewElement label" labelExpression="aql:input.emfEditServices(self).getText(self.eClass().getEStructuralFeature('label')) + ':'" helpExpression="aql:input.emfEditServices(self).getDescription(self.eClass().getEStructuralFeature('label'))" isEnabledExpression="aql:self.eClass().getEStructuralFeature('label').changeable" valueExpression="aql:self.label">
+          <initialOperation>
+            <firstModelOperations xsi:type="tool_1:SetValue" featureName="label" valueExpression="var:newValue"/>
+          </initialOperation>
+        </controls>
+        <controls xsi:type="properties:CustomDescription" name="org.obeonetwork.dsl.database.design.custom.reference" label="view::AbstractViewElement widget" labelExpression="aql:input.emfEditServices(self).getText(self.eClass().getEStructuralFeature('widget')) + ':'" helpExpression="aql:input.emfEditServices(self).getDescription(self.eClass().getEStructuralFeature('widget'))" isEnabledExpression="aql:self.eClass().getEStructuralFeature('widget').changeable">
+          <customExpressions name="referenceNameExpression" customExpression="aql:'widget'"/>
+        </controls>
+        <controls xsi:type="properties:CustomDescription" name="org.obeonetwork.dsl.database.design.custom.reference" label="view::AbstractViewElement actions" labelExpression="aql:'Actions :'" helpExpression="aql:input.emfEditServices(self).getDescription(self.eClass().getEStructuralFeature('actions'))" isEnabledExpression="aql:self.eClass().getEStructuralFeature('actions').changeable">
+          <customExpressions name="referenceNameExpression" customExpression="aql:'actions'"/>
+          <customExpressions name="enableAddButtonExpression" customExpression="aql:false"/>
+          <customExpressions name="enableBrowseButtonExpression" customExpression="aql:false"/>
+          <customExpressions name="enableRemoveButtonExpression" customExpression="aql:false"/>
+          <customOperations name="onDoubleClickOperation">
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="aql:selection->first()">
+                <subModelOperations xsi:type="properties:DialogModelOperation" titleExpression="Edit View Action Dialog">
+                  <buttons labelExpression="Cancel" closeDialogOnClick="true" rollbackChangesOnClose="true">
+                    <initialOperation/>
+                  </buttons>
+                  <buttons labelExpression="OK" default="true" closeDialogOnClick="true">
+                    <initialOperation/>
+                  </buttons>
+                  <page name="Edit View Action Page" labelExpression="ViewAction" domainClass="view::ViewAction" semanticCandidateExpression="var:self" extends="//@extensions.0/@categories.1/@pages.0"/>
+                </subModelOperations>
+              </firstModelOperations>
+            </initialOperation>
+          </customOperations>
+        </controls>
+        <controls xsi:type="properties:CustomDescription" name="org.obeonetwork.dsl.database.design.custom.reference" label="view::AbstractViewElement events" labelExpression="aql:'Event :'" helpExpression="aql:input.emfEditServices(self).getDescription(self.eClass().getEStructuralFeature('events'))" isEnabledExpression="aql:self.eClass().getEStructuralFeature('events').changeable">
+          <customExpressions name="referenceNameExpression" customExpression="aql:'events'"/>
+          <customExpressions name="enableAddButtonExpression" customExpression="aql:false"/>
+          <customExpressions name="enableBrowseButtonExpression" customExpression="aql:false"/>
+          <customExpressions name="enableRemoveButtonExpression" customExpression="aql:false"/>
+          <customOperations name="onDoubleClickOperation">
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="aql:selection->first()">
+                <subModelOperations xsi:type="properties:DialogModelOperation" titleExpression="Edit View Event Dialog">
+                  <buttons labelExpression="Cancel" closeDialogOnClick="true" rollbackChangesOnClose="true">
+                    <initialOperation/>
+                  </buttons>
+                  <buttons labelExpression="OK" default="true" closeDialogOnClick="true">
+                    <initialOperation/>
+                  </buttons>
+                  <page name="Edit View Event Page" labelExpression="ViewEvent" domainClass="view::ViewEvent" semanticCandidateExpression="var:self" extends="//@extensions.0/@categories.1/@pages.1"/>
+                </subModelOperations>
+              </firstModelOperations>
+            </initialOperation>
+          </customOperations>
+        </controls>
+        <controls xsi:type="properties:TextAreaDescription" name="view::AbstractViewElement description" labelExpression="aql:input.emfEditServices(self).getText(self.eClass().getEStructuralFeature('description')) + ':'" helpExpression="aql:input.emfEditServices(self).getDescription(self.eClass().getEStructuralFeature('description'))" isEnabledExpression="aql:self.eClass().getEStructuralFeature('description').changeable" valueExpression="aql:self.description">
+          <initialOperation>
+            <firstModelOperations xsi:type="tool_1:SetValue" featureName="description" valueExpression="var:newValue"/>
+          </initialOperation>
+        </controls>
+      </groups>
+      <groups name="ViewAction Group" labelExpression="Group" domainClass="view::ViewAction" semanticCandidateExpression="var:self">
+        <controls xsi:type="properties:TextDescription" name="view::ViewAction name" labelExpression="aql:input.emfEditServices(self).getText(self.eClass().getEStructuralFeature('name')) + ':'" helpExpression="aql:input.emfEditServices(self).getDescription(self.eClass().getEStructuralFeature('name'))" isEnabledExpression="aql:self.eClass().getEStructuralFeature('name').changeable" valueExpression="aql:self.name">
+          <initialOperation>
+            <firstModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="var:newValue"/>
+          </initialOperation>
+          <conditionalStyles preconditionExpression="aql:self.eClass().getEStructuralFeature('name').lowerBound = 1">
+            <style>
+              <labelFontFormat>bold</labelFontFormat>
+            </style>
+          </conditionalStyles>
+        </controls>
+        <controls xsi:type="properties:TextAreaDescription" name="view::ViewAction description" labelExpression="aql:input.emfEditServices(self).getText(self.eClass().getEStructuralFeature('description')) + ':'" helpExpression="aql:input.emfEditServices(self).getDescription(self.eClass().getEStructuralFeature('description'))" isEnabledExpression="aql:self.eClass().getEStructuralFeature('description').changeable" valueExpression="aql:self.description">
+          <initialOperation>
+            <firstModelOperations xsi:type="tool_1:SetValue" featureName="description" valueExpression="var:newValue"/>
+          </initialOperation>
+        </controls>
+      </groups>
+      <groups name="ViewEvent Group" labelExpression="Properties" domainClass="view::ViewEvent" semanticCandidateExpression="var:self">
+        <controls xsi:type="properties:TextDescription" name="view::ViewEvent name" labelExpression="aql:input.emfEditServices(self).getText(self.eClass().getEStructuralFeature('name')) + ':'" helpExpression="aql:input.emfEditServices(self).getDescription(self.eClass().getEStructuralFeature('name'))" isEnabledExpression="aql:self.eClass().getEStructuralFeature('name').changeable" valueExpression="aql:self.name">
+          <initialOperation>
+            <firstModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="var:newValue"/>
+          </initialOperation>
+          <conditionalStyles preconditionExpression="aql:self.eClass().getEStructuralFeature('name').lowerBound = 1">
+            <style>
+              <labelFontFormat>bold</labelFontFormat>
+            </style>
+          </conditionalStyles>
+        </controls>
+        <controls xsi:type="properties:CustomDescription" name="org.obeonetwork.dsl.database.design.custom.reference" label="view::ViewEvent type" labelExpression="aql:input.emfEditServices(self).getText(self.eClass().getEStructuralFeature('type')) + ':'" helpExpression="aql:input.emfEditServices(self).getDescription(self.eClass().getEStructuralFeature('type'))" isEnabledExpression="aql:self.eClass().getEStructuralFeature('type').changeable">
+          <customExpressions name="referenceNameExpression" customExpression="aql:'type'"/>
+        </controls>
+        <controls xsi:type="properties:TextAreaDescription" name="view::ViewEvent description" labelExpression="aql:input.emfEditServices(self).getText(self.eClass().getEStructuralFeature('description')) + ':'" helpExpression="aql:input.emfEditServices(self).getDescription(self.eClass().getEStructuralFeature('description'))" isEnabledExpression="aql:self.eClass().getEStructuralFeature('description').changeable" valueExpression="aql:self.description">
+          <initialOperation>
+            <firstModelOperations xsi:type="tool_1:SetValue" featureName="description" valueExpression="var:newValue"/>
+          </initialOperation>
+        </controls>
+      </groups>
+      <groups name="ViewElement Group" labelExpression="Properties" domainClass="view::ViewElement" semanticCandidateExpression="var:self">
+        <controls xsi:type="properties:TextDescription" name="view::ViewElement name" labelExpression="aql:input.emfEditServices(self).getText(self.eClass().getEStructuralFeature('name')) + ':'" helpExpression="aql:input.emfEditServices(self).getDescription(self.eClass().getEStructuralFeature('name'))" isEnabledExpression="aql:self.eClass().getEStructuralFeature('name').changeable" valueExpression="aql:self.name" extends="//@extensions.0/@categories.1/@groups.0/@controls.0"/>
+        <controls xsi:type="properties:TextDescription" name="view::ViewElement label" labelExpression="aql:input.emfEditServices(self).getText(self.eClass().getEStructuralFeature('label')) + ':'" helpExpression="aql:input.emfEditServices(self).getDescription(self.eClass().getEStructuralFeature('label'))" isEnabledExpression="aql:self.eClass().getEStructuralFeature('label').changeable" valueExpression="aql:self.label" extends="//@extensions.0/@categories.1/@groups.0/@controls.1"/>
+        <controls xsi:type="properties:CustomDescription" name="org.obeonetwork.dsl.database.design.custom.reference" label="view::ViewElement widget" labelExpression="aql:input.emfEditServices(self).getText(self.eClass().getEStructuralFeature('widget')) + ':'" helpExpression="aql:input.emfEditServices(self).getDescription(self.eClass().getEStructuralFeature('widget'))" isEnabledExpression="aql:self.eClass().getEStructuralFeature('widget').changeable" extends="//@extensions.0/@categories.1/@groups.0/@controls.2"/>
+        <controls xsi:type="properties:CheckboxDescription" name="view::ViewElement required" labelExpression="aql:input.emfEditServices(self).getText(self.eClass().getEStructuralFeature('required'))" helpExpression="aql:input.emfEditServices(self).getDescription(self.eClass().getEStructuralFeature('required'))" isEnabledExpression="aql:self.eClass().getEStructuralFeature('required').changeable" valueExpression="aql:self.required">
+          <initialOperation>
+            <firstModelOperations xsi:type="tool_1:SetValue" featureName="required" valueExpression="var:newValue"/>
+          </initialOperation>
+        </controls>
+        <controls xsi:type="properties:CustomDescription" name="org.obeonetwork.dsl.database.design.custom.reference" label="view::ViewElement type" labelExpression="aql:input.emfEditServices(self).getText(self.eClass().getEStructuralFeature('type')) + ':'" helpExpression="aql:input.emfEditServices(self).getDescription(self.eClass().getEStructuralFeature('type'))" isEnabledExpression="aql:self.eClass().getEStructuralFeature('type').changeable">
+          <customExpressions name="referenceNameExpression" customExpression="aql:'type'"/>
+        </controls>
+        <controls xsi:type="properties:CustomDescription" name="org.obeonetwork.dsl.database.design.custom.reference" label="view::ViewElement actions" labelExpression="aql:'Actions :'" helpExpression="aql:input.emfEditServices(self).getDescription(self.eClass().getEStructuralFeature('actions'))" isEnabledExpression="aql:self.eClass().getEStructuralFeature('actions').changeable" extends="//@extensions.0/@categories.1/@groups.0/@controls.3"/>
+        <controls xsi:type="properties:CustomDescription" name="org.obeonetwork.dsl.database.design.custom.reference" label="view::ViewElement events" labelExpression="aql:'Event :'" helpExpression="aql:input.emfEditServices(self).getDescription(self.eClass().getEStructuralFeature('events'))" isEnabledExpression="aql:self.eClass().getEStructuralFeature('events').changeable" extends="//@extensions.0/@categories.1/@groups.0/@controls.4"/>
+        <controls xsi:type="properties:TextAreaDescription" name="view::ViewElement description" labelExpression="aql:input.emfEditServices(self).getText(self.eClass().getEStructuralFeature('description')) + ':'" helpExpression="aql:input.emfEditServices(self).getDescription(self.eClass().getEStructuralFeature('description'))" isEnabledExpression="aql:self.eClass().getEStructuralFeature('description').changeable" valueExpression="aql:self.description" extends="//@extensions.0/@categories.1/@groups.0/@controls.5"/>
+      </groups>
+      <groups name="ViewContainer Group" labelExpression="Properties" domainClass="view::ViewContainer" semanticCandidateExpression="var:self">
+        <controls xsi:type="properties:TextDescription" name="view::ViewContainer name" extends="//@extensions.0/@categories.1/@groups.0/@controls.0"/>
+        <controls xsi:type="properties:TextDescription" name="view::ViewContainer label" extends="//@extensions.0/@categories.1/@groups.0/@controls.1"/>
+        <controls xsi:type="properties:CustomDescription" name="org.obeonetwork.dsl.database.design.custom.reference" label="view::ViewContainer widget" extends="//@extensions.0/@categories.1/@groups.0/@controls.2"/>
+        <controls xsi:type="properties:CustomDescription" name="org.obeonetwork.dsl.database.design.custom.reference" label="view::ViewContainer actions" extends="//@extensions.0/@categories.1/@groups.0/@controls.3"/>
+        <controls xsi:type="properties:CustomDescription" name="org.obeonetwork.dsl.database.design.custom.reference" label="view::ViewContainer events" extends="//@extensions.0/@categories.1/@groups.0/@controls.4"/>
+        <controls xsi:type="properties:CustomDescription" name="org.obeonetwork.dsl.database.design.custom.reference" label="view::ViewContainer ownedElements" labelExpression="aql:'OwnedElements :'" helpExpression="aql:input.emfEditServices(self).getDescription(self.eClass().getEStructuralFeature('ownedElements'))" isEnabledExpression="aql:self.eClass().getEStructuralFeature('ownedElements').changeable">
+          <customExpressions name="referenceNameExpression" customExpression="aql:'ownedElements'"/>
+          <customExpressions name="enableAddButtonExpression" customExpression="aql:false"/>
+          <customExpressions name="enableBrowseButtonExpression" customExpression="aql:false"/>
+          <customExpressions name="enableRemoveButtonExpression" customExpression="aql:false"/>
+          <customOperations name="onDoubleClickOperation">
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="aql:selection->first()">
+                <subModelOperations xsi:type="properties:DialogModelOperation" titleExpression="Edit ViewContainer ownedElements as ViewContainer Dialog">
+                  <buttons labelExpression="Cancel" closeDialogOnClick="true" rollbackChangesOnClose="true">
+                    <initialOperation/>
+                  </buttons>
+                  <buttons labelExpression="OK" default="true" closeDialogOnClick="true">
+                    <initialOperation/>
+                  </buttons>
+                  <page name="Edit View Container Page" labelExpression="ViewContainer" domainClass="view::ViewContainer" semanticCandidateExpression="var:self" extends="//@extensions.0/@categories.1/@pages.3"/>
+                </subModelOperations>
+                <subModelOperations xsi:type="properties:DialogModelOperation" titleExpression="Edit ViewContainer ownedElements as ViewElement Dialog">
+                  <buttons labelExpression="Cancel" closeDialogOnClick="true" rollbackChangesOnClose="true">
+                    <initialOperation/>
+                  </buttons>
+                  <buttons labelExpression="OK" default="true" closeDialogOnClick="true">
+                    <initialOperation/>
+                  </buttons>
+                  <page name="Edit View Element Page" labelExpression="ViewElement" domainClass="view::ViewElement" semanticCandidateExpression="var:self" extends="//@extensions.0/@categories.1/@pages.2"/>
+                </subModelOperations>
+                <subModelOperations xsi:type="properties:DialogModelOperation" titleExpression="Edit ViewContainer ownedElements as ViewContainerReference Dialog">
+                  <buttons labelExpression="Cancel" closeDialogOnClick="true" rollbackChangesOnClose="true">
+                    <initialOperation/>
+                  </buttons>
+                  <buttons labelExpression="OK" default="true" closeDialogOnClick="true">
+                    <initialOperation/>
+                  </buttons>
+                  <page name="Edit View Container Reference Page" labelExpression="ViewContainerReference" domainClass="view::ViewContainerReference" semanticCandidateExpression="var:self" extends="//@extensions.0/@categories.1/@pages.4"/>
+                </subModelOperations>
+              </firstModelOperations>
+            </initialOperation>
+          </customOperations>
+        </controls>
+        <controls xsi:type="properties:TextAreaDescription" name="view::ViewContainer description" extends="//@extensions.0/@categories.1/@groups.0/@controls.5"/>
+      </groups>
+      <groups name="ViewContainerReference Group" labelExpression="Properties" domainClass="view::ViewContainerReference" semanticCandidateExpression="var:self">
+        <controls xsi:type="properties:TextDescription" name="view::ViewContainerReference name" extends="//@extensions.0/@categories.1/@groups.0/@controls.0"/>
+        <controls xsi:type="properties:TextDescription" name="view::ViewContainerReference label" extends="//@extensions.0/@categories.1/@groups.0/@controls.1"/>
+        <controls xsi:type="properties:CustomDescription" name="org.obeonetwork.dsl.database.design.custom.reference" label="view::AbstractViewElement viewContainer" labelExpression="aql:input.emfEditServices(self).getText(self.eClass().getEStructuralFeature('viewContainer')) + ':'" helpExpression="aql:input.emfEditServices(self).getDescription(self.eClass().getEStructuralFeature('viewContainer'))" isEnabledExpression="aql:self.eClass().getEStructuralFeature('viewContainer').changeable">
+          <customExpressions name="referenceNameExpression" customExpression="aql:'viewContainer'"/>
+        </controls>
+        <controls xsi:type="properties:CustomDescription" name="org.obeonetwork.dsl.database.design.custom.reference" label="view::ViewContainerReference widget" extends="//@extensions.0/@categories.1/@groups.0/@controls.2"/>
+        <controls xsi:type="properties:CustomDescription" name="org.obeonetwork.dsl.database.design.custom.reference" label="view::ViewContainerReference actions" extends="//@extensions.0/@categories.1/@groups.0/@controls.3"/>
+        <controls xsi:type="properties:CustomDescription" name="org.obeonetwork.dsl.database.design.custom.reference" label="view::ViewContainerReference events" extends="//@extensions.0/@categories.1/@groups.0/@controls.4"/>
+        <controls xsi:type="properties:TextAreaDescription" name="view::ViewContainerReference description" extends="//@extensions.0/@categories.1/@groups.0/@controls.5"/>
+      </groups>
+    </categories>
+    <categories name="Flow">
+      <pages name="SubFlowState Page" labelExpression="SubFlowState" domainClass="flow::SubflowState" semanticCandidateExpression="var:self" groups="//@extensions.0/@categories.2/@groups.3"/>
+      <pages name="FlowEvent Page" labelExpression="FlowEvent" domainClass="flow::FlowEvent" semanticCandidateExpression="var:self" groups="//@extensions.0/@categories.2/@groups.4"/>
+      <pages name="NamedFlowState Page" labelExpression="aql:self.eClass().name" domainClass="flow::NamedFlowState" semanticCandidateExpression="var:self" preconditionExpression="aql:not(self.oclIsKindOf(flow::ViewState) or self.oclIsKindOf(flow::SubflowState))" groups="//@extensions.0/@categories.2/@groups.1"/>
+      <pages name="ViewState Page" labelExpression="ViewState" domainClass="flow::ViewState" semanticCandidateExpression="var:self" groups="//@extensions.0/@categories.2/@groups.2"/>
+      <pages name="Transition Page" labelExpression="Transition" domainClass="flow::Transition" semanticCandidateExpression="var:self" groups="//@extensions.0/@categories.2/@groups.6"/>
+      <pages name="Flow Page" labelExpression="Flow" domainClass="flow::Flow" semanticCandidateExpression="var:self" groups="//@extensions.0/@categories.2/@groups.7"/>
+      <groups name="FlowState Goupe" documentation="The goal of this group is to hold widget that are meant to be extended by other widget like ... TOFINISH" domainClass="flow::FlowState">
+        <controls xsi:type="properties:CustomDescription" name="org.obeonetwork.dsl.database.design.custom.reference" label="flow::FlowState actions" labelExpression="aql:'Actions :'" helpExpression="aql:input.emfEditServices(self).getDescription(self.eClass().getEStructuralFeature('actions'))" isEnabledExpression="aql:self.eClass().getEStructuralFeature('actions').changeable">
+          <customExpressions name="referenceNameExpression" customExpression="aql:'actions'"/>
+          <customOperations name="addButtonOperation">
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:CreateInstance" typeName="flow::FlowAction" referenceName="actions" variableName="flowAction">
+                <subModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="aql:''"/>
+                <subModelOperations xsi:type="tool_1:SetValue" featureName="description" valueExpression="aql:''"/>
+                <subModelOperations xsi:type="properties:DialogModelOperation" titleExpression="Create FlowAction Dialog">
+                  <buttons labelExpression="Cancel" closeDialogOnClick="true" rollbackChangesOnClose="true">
+                    <initialOperation>
+                      <firstModelOperations xsi:type="tool_1:RemoveElement"/>
+                    </initialOperation>
+                  </buttons>
+                  <buttons labelExpression="OK" default="true" closeDialogOnClick="true">
+                    <initialOperation/>
+                  </buttons>
+                  <page name="Create FlowState Action Page" labelExpression="FlowAction" domainClass="flow::FlowAction" semanticCandidateExpression="var:self" groups="//@extensions.0/@categories.2/@groups.0/@controls.0/@customOperations.0/@initialOperation/@firstModelOperations/@subModelOperations.2/@groups.0"/>
+                  <groups name="Create FlowState Action Group" extends="//@extensions.0/@categories.2/@groups.5"/>
+                </subModelOperations>
+              </firstModelOperations>
+            </initialOperation>
+          </customOperations>
+          <customOperations name="onDoubleClickOperation">
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="aql:selection->first()">
+                <subModelOperations xsi:type="properties:DialogModelOperation" titleExpression="Edit FlowState Action Dialog">
+                  <buttons labelExpression="Cancel" closeDialogOnClick="true" rollbackChangesOnClose="true">
+                    <initialOperation/>
+                  </buttons>
+                  <buttons labelExpression="OK" default="true" closeDialogOnClick="true">
+                    <initialOperation/>
+                  </buttons>
+                  <page name="Edit FlowState Action Page" labelExpression="FlowAction" domainClass="flow::FlowAction" semanticCandidateExpression="var:self" groups="//@extensions.0/@categories.2/@groups.0/@controls.0/@customOperations.1/@initialOperation/@firstModelOperations/@subModelOperations.0/@groups.0"/>
+                  <groups name="Edit FlowState Action Group" extends="//@extensions.0/@categories.2/@groups.5"/>
+                </subModelOperations>
+              </firstModelOperations>
+            </initialOperation>
+          </customOperations>
+        </controls>
+        <controls xsi:type="properties:TextAreaDescription" name="flow::FlowState description" labelExpression="aql:input.emfEditServices(self).getText(self.eClass().getEStructuralFeature('description')) + ':'" helpExpression="aql:input.emfEditServices(self).getDescription(self.eClass().getEStructuralFeature('description'))" isEnabledExpression="aql:self.eClass().getEStructuralFeature('description').changeable" valueExpression="aql:self.description">
+          <initialOperation>
+            <firstModelOperations xsi:type="tool_1:SetValue" featureName="description" valueExpression="var:newValue"/>
+          </initialOperation>
+        </controls>
+      </groups>
+      <groups name="NamedFlowState Group" labelExpression="Properties" domainClass="flow::NamedFlowState" semanticCandidateExpression="var:self">
+        <controls xsi:type="properties:TextDescription" name="flow::NamedFlowState name" labelExpression="aql:input.emfEditServices(self).getText(self.eClass().getEStructuralFeature('name')) + ':'" helpExpression="aql:input.emfEditServices(self).getDescription(self.eClass().getEStructuralFeature('name'))" isEnabledExpression="aql:self.eClass().getEStructuralFeature('name').changeable" valueExpression="aql:self.name">
+          <initialOperation>
+            <firstModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="var:newValue"/>
+          </initialOperation>
+          <conditionalStyles preconditionExpression="aql:self.eClass().getEStructuralFeature('name').lowerBound = 1">
+            <style>
+              <labelFontFormat>bold</labelFontFormat>
+            </style>
+          </conditionalStyles>
+        </controls>
+        <controls xsi:type="properties:CustomDescription" name="org.obeonetwork.dsl.database.design.custom.reference" label="flow::NamedFlowState actions" extends="//@extensions.0/@categories.2/@groups.0/@controls.0"/>
+        <controls xsi:type="properties:TextAreaDescription" name="flow::NamedFlowState description" extends="//@extensions.0/@categories.2/@groups.0/@controls.1"/>
+      </groups>
+      <groups name="ViewState Group" labelExpression="Properties" domainClass="flow::ViewState" semanticCandidateExpression="var:self">
+        <controls xsi:type="properties:TextDescription" name="flow::ViewState name" extends="//@extensions.0/@categories.2/@groups.1/@controls.0"/>
+        <controls xsi:type="properties:CustomDescription" name="org.obeonetwork.dsl.database.design.custom.reference" label="flow::ViewState actions" extends="//@extensions.0/@categories.2/@groups.1/@controls.1"/>
+        <controls xsi:type="properties:CheckboxDescription" name="flow::ViewState newInstance" labelExpression="aql:input.emfEditServices(self).getText(self.eClass().getEStructuralFeature('newInstance'))" helpExpression="aql:input.emfEditServices(self).getDescription(self.eClass().getEStructuralFeature('newInstance'))" isEnabledExpression="aql:self.eClass().getEStructuralFeature('newInstance').changeable" valueExpression="aql:self.newInstance">
+          <initialOperation>
+            <firstModelOperations xsi:type="tool_1:SetValue" featureName="newInstance" valueExpression="var:newValue"/>
+          </initialOperation>
+        </controls>
+        <controls xsi:type="properties:CheckboxDescription" name="flow::ViewState refresh" labelExpression="aql:input.emfEditServices(self).getText(self.eClass().getEStructuralFeature('refresh'))" helpExpression="aql:input.emfEditServices(self).getDescription(self.eClass().getEStructuralFeature('refresh'))" isEnabledExpression="aql:self.eClass().getEStructuralFeature('refresh').changeable" valueExpression="aql:self.refresh">
+          <initialOperation>
+            <firstModelOperations xsi:type="tool_1:SetValue" featureName="refresh" valueExpression="var:newValue"/>
+          </initialOperation>
+        </controls>
+        <controls xsi:type="properties:CustomDescription" name="org.obeonetwork.dsl.database.design.custom.reference" label="flow::ViewState viewContainers" labelExpression="aql:'ViewContainers :'" helpExpression="aql:input.emfEditServices(self).getDescription(self.eClass().getEStructuralFeature('viewContainers'))" isEnabledExpression="aql:self.eClass().getEStructuralFeature('viewContainers').changeable">
+          <customExpressions name="referenceNameExpression" customExpression="aql:'viewContainers'"/>
+          <customOperations name="onDoubleClickOperation">
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="aql:selection->first()">
+                <subModelOperations xsi:type="properties:DialogModelOperation" titleExpression="Edit ViewState viewContainer Dialog">
+                  <buttons labelExpression="Cancel" closeDialogOnClick="true" rollbackChangesOnClose="true">
+                    <initialOperation/>
+                  </buttons>
+                  <buttons labelExpression="OK" default="true" closeDialogOnClick="true">
+                    <initialOperation/>
+                  </buttons>
+                  <page name="Edit View Container Page" labelExpression="ViewContainer" domainClass="view::ViewContainer" semanticCandidateExpression="var:self" extends="//@extensions.0/@categories.1/@pages.3"/>
+                </subModelOperations>
+              </firstModelOperations>
+            </initialOperation>
+          </customOperations>
+        </controls>
+        <controls xsi:type="properties:TextAreaDescription" name="flow::ViewState description" extends="//@extensions.0/@categories.2/@groups.1/@controls.2"/>
+      </groups>
+      <groups name="SubFlowState Group" labelExpression="Properties" domainClass="flow::SubflowState" semanticCandidateExpression="var:self">
+        <controls xsi:type="properties:CustomDescription" name="org.obeonetwork.dsl.database.design.custom.reference" label="flow::SubflowState subflow" labelExpression="aql:input.emfEditServices(self).getText(self.eClass().getEStructuralFeature('subflow')) + ':'" helpExpression="aql:input.emfEditServices(self).getDescription(self.eClass().getEStructuralFeature('subflow'))" isEnabledExpression="aql:self.eClass().getEStructuralFeature('subflow').changeable">
+          <customExpressions name="referenceNameExpression" customExpression="aql:'subflow'"/>
+        </controls>
+        <controls xsi:type="properties:CustomDescription" name="org.obeonetwork.dsl.database.design.custom.reference" label="flow::SubflowState actions" extends="//@extensions.0/@categories.2/@groups.0/@controls.0"/>
+        <controls xsi:type="properties:TextAreaDescription" name="flow::SubflowState description" extends="//@extensions.0/@categories.2/@groups.0/@controls.1"/>
+      </groups>
+      <groups name="FlowEvent Group" labelExpression="Properties" domainClass="flow::FlowEvent" semanticCandidateExpression="var:self">
+        <controls xsi:type="properties:TextDescription" name="flow::NamedFlowState name" labelExpression="aql:input.emfEditServices(self).getText(self.eClass().getEStructuralFeature('name')) + ':'" helpExpression="aql:input.emfEditServices(self).getDescription(self.eClass().getEStructuralFeature('name'))" isEnabledExpression="aql:self.eClass().getEStructuralFeature('name').changeable" valueExpression="aql:self.name">
+          <initialOperation>
+            <firstModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="var:newValue"/>
+          </initialOperation>
+          <conditionalStyles preconditionExpression="aql:self.eClass().getEStructuralFeature('name').lowerBound = 1">
+            <style>
+              <labelFontFormat>bold</labelFontFormat>
+            </style>
+          </conditionalStyles>
+        </controls>
+        <controls xsi:type="properties:CustomDescription" name="org.obeonetwork.dsl.database.design.custom.reference" label="flow::NamedFlowState binds" labelExpression="aql:'Binds :'" helpExpression="aql:input.emfEditServices(self).getDescription(self.eClass().getEStructuralFeature('binds'))" isEnabledExpression="aql:self.eClass().getEStructuralFeature('binds').changeable">
+          <customExpressions name="referenceNameExpression" customExpression="aql:'binds'"/>
+          <customExpressions name="enableAddButtonExpression" customExpression="aql:false"/>
+          <customExpressions name="enableBrowseButtonExpression" customExpression="aql:false"/>
+          <customExpressions name="enableRemoveButtonExpression" customExpression="aql:false"/>
+          <customOperations name="onDoubleClickOperation">
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="aql:selection->first()">
+                <subModelOperations xsi:type="properties:DialogModelOperation" titleExpression="Edit FlowEvent bind Dialog">
+                  <buttons labelExpression="Cancel" closeDialogOnClick="true" rollbackChangesOnClose="true">
+                    <initialOperation/>
+                  </buttons>
+                  <buttons labelExpression="OK" default="true" closeDialogOnClick="true">
+                    <initialOperation/>
+                  </buttons>
+                  <page name="Edit FlowEvent bind Page" extends="//@extensions.0/@categories.1/@pages.1"/>
+                </subModelOperations>
+              </firstModelOperations>
+            </initialOperation>
+          </customOperations>
+        </controls>
+        <controls xsi:type="properties:TextAreaDescription" name="flow::FlowState description" labelExpression="aql:input.emfEditServices(self).getText(self.eClass().getEStructuralFeature('description')) + ':'" helpExpression="aql:input.emfEditServices(self).getDescription(self.eClass().getEStructuralFeature('description'))" isEnabledExpression="aql:self.eClass().getEStructuralFeature('description').changeable" valueExpression="aql:self.description">
+          <initialOperation>
+            <firstModelOperations xsi:type="tool_1:SetValue" featureName="description" valueExpression="var:newValue"/>
+          </initialOperation>
+        </controls>
+      </groups>
+      <groups name="FlowAction Group" labelExpression="Properties" domainClass="flow::FlowAction" semanticCandidateExpression="var:self">
+        <controls xsi:type="properties:TextDescription" name="flow::FlowAction name" labelExpression="aql:input.emfEditServices(self).getText(self.eClass().getEStructuralFeature('name')) + ':'" helpExpression="aql:input.emfEditServices(self).getDescription(self.eClass().getEStructuralFeature('name'))" isEnabledExpression="aql:self.eClass().getEStructuralFeature('name').changeable" valueExpression="aql:self.name">
+          <initialOperation>
+            <firstModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="var:newValue"/>
+          </initialOperation>
+          <conditionalStyles preconditionExpression="aql:self.eClass().getEStructuralFeature('name').lowerBound = 1">
+            <style>
+              <labelFontFormat>bold</labelFontFormat>
+            </style>
+          </conditionalStyles>
+        </controls>
+        <controls xsi:type="properties:CustomDescription" name="org.obeonetwork.dsl.database.design.custom.reference" label="flow::FlowAction calls" labelExpression="aql:'Calls :'" helpExpression="aql:input.emfEditServices(self).getDescription(self.eClass().getEStructuralFeature('calls'))" isEnabledExpression="aql:self.eClass().getEStructuralFeature('calls').changeable">
+          <customExpressions name="referenceNameExpression" customExpression="aql:'calls'"/>
+          <customOperations name="onDoubleClickOperation">
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="aql:selection->first()">
+                <subModelOperations xsi:type="properties:DialogModelOperation" titleExpression="Edit FlowAction call Dialog">
+                  <buttons labelExpression="Cancel" closeDialogOnClick="true" rollbackChangesOnClose="true">
+                    <initialOperation/>
+                  </buttons>
+                  <buttons labelExpression="OK" default="true" closeDialogOnClick="true">
+                    <initialOperation/>
+                  </buttons>
+                  <page name="Edit View Action Page" labelExpression="ViewAction" domainClass="view::ViewAction" semanticCandidateExpression="var:self" extends="//@extensions.0/@categories.1/@pages.0"/>
+                </subModelOperations>
+              </firstModelOperations>
+            </initialOperation>
+          </customOperations>
+        </controls>
+        <controls xsi:type="properties:CustomDescription" name="org.obeonetwork.dsl.database.design.custom.reference" label="flow::FlowAction operations" labelExpression="aql:'Operations :'" helpExpression="aql:input.emfEditServices(self).getDescription(self.eClass().getEStructuralFeature('operations'))" isEnabledExpression="aql:self.eClass().getEStructuralFeature('operations').changeable">
+          <customExpressions name="referenceNameExpression" customExpression="aql:'operations'"/>
+          <customOperations name="onDoubleClickOperation">
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="aql:selection->first()">
+                <subModelOperations xsi:type="properties:DialogModelOperation" titleExpression="Edit FlowAction operation Dialog">
+                  <buttons labelExpression="Cancel" closeDialogOnClick="true" rollbackChangesOnClose="true">
+                    <initialOperation/>
+                  </buttons>
+                  <buttons labelExpression="OK" default="true" closeDialogOnClick="true">
+                    <initialOperation/>
+                  </buttons>
+                  <page name="Edit FlowAction operation Page" labelExpression="Operation" domainClass="soa::Operation" semanticCandidateExpression="var:self">
+                    <extends href="platform:/plugin/org.obeonetwork.dsl.soa.design/description/soa.odesign#//@extensions.0/@categories.1/@pages.0"/>
+                  </page>
+                </subModelOperations>
+              </firstModelOperations>
+            </initialOperation>
+          </customOperations>
+        </controls>
+        <controls xsi:type="properties:TextAreaDescription" name="flow::FlowAction description" labelExpression="aql:input.emfEditServices(self).getText(self.eClass().getEStructuralFeature('description')) + ':'" helpExpression="aql:input.emfEditServices(self).getDescription(self.eClass().getEStructuralFeature('description'))" isEnabledExpression="aql:self.eClass().getEStructuralFeature('description').changeable" valueExpression="aql:self.description">
+          <initialOperation>
+            <firstModelOperations xsi:type="tool_1:SetValue" featureName="description" valueExpression="var:newValue"/>
+          </initialOperation>
+        </controls>
+      </groups>
+      <groups name="Transition Group" labelExpression="Properties" domainClass="flow::Transition" semanticCandidateExpression="var:self">
+        <controls xsi:type="properties:TextDescription" name="flow::Transition name" labelExpression="aql:input.emfEditServices(self).getText(self.eClass().getEStructuralFeature('name')) + ':'" helpExpression="aql:input.emfEditServices(self).getDescription(self.eClass().getEStructuralFeature('name'))" isEnabledExpression="aql:self.eClass().getEStructuralFeature('name').changeable" valueExpression="aql:self.name">
+          <initialOperation>
+            <firstModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="var:newValue"/>
+          </initialOperation>
+          <conditionalStyles preconditionExpression="aql:self.eClass().getEStructuralFeature('name').lowerBound = 1">
+            <style>
+              <labelFontFormat>bold</labelFontFormat>
+            </style>
+          </conditionalStyles>
+        </controls>
+        <controls xsi:type="properties:TextDescription" name="flow::Transition guard" labelExpression="aql:input.emfEditServices(self).getText(self.eClass().getEStructuralFeature('guard')) + ':'" helpExpression="aql:input.emfEditServices(self).getDescription(self.eClass().getEStructuralFeature('guard'))" isEnabledExpression="aql:self.eClass().getEStructuralFeature('guard').changeable" valueExpression="aql:self.guard">
+          <initialOperation>
+            <firstModelOperations xsi:type="tool_1:SetValue" featureName="guard" valueExpression="var:newValue"/>
+          </initialOperation>
+        </controls>
+        <controls xsi:type="properties:CheckboxDescription" name="flow::Transition modal" labelExpression="aql:input.emfEditServices(self).getText(self.eClass().getEStructuralFeature('modal'))" helpExpression="aql:input.emfEditServices(self).getDescription(self.eClass().getEStructuralFeature('modal'))" isEnabledExpression="aql:self.eClass().getEStructuralFeature('modal').changeable" valueExpression="aql:self.modal">
+          <initialOperation>
+            <firstModelOperations xsi:type="tool_1:SetValue" featureName="modal" valueExpression="var:newValue"/>
+          </initialOperation>
+        </controls>
+        <controls xsi:type="properties:CustomDescription" name="org.obeonetwork.dsl.database.design.custom.reference" label="flow::Transition on" labelExpression="aql:'On :'" helpExpression="aql:input.emfEditServices(self).getDescription(self.eClass().getEStructuralFeature('on'))" isEnabledExpression="aql:self.eClass().getEStructuralFeature('on').changeable">
+          <customExpressions name="referenceNameExpression" customExpression="aql:'on'"/>
+          <customOperations name="onDoubleClickOperation">
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="aql:selection->first()">
+                <subModelOperations xsi:type="properties:DialogModelOperation" titleExpression="Edit Transition on as FlowEvent Dialog">
+                  <buttons labelExpression="Cancel" closeDialogOnClick="true" rollbackChangesOnClose="true">
+                    <initialOperation/>
+                  </buttons>
+                  <buttons labelExpression="OK" default="true" closeDialogOnClick="true">
+                    <initialOperation/>
+                  </buttons>
+                  <page name="Edit Transition on Page" extends="//@extensions.0/@categories.2/@pages.1"/>
+                </subModelOperations>
+                <subModelOperations xsi:type="properties:DialogModelOperation" titleExpression="Edit Transition on as ViewEvent Dialog">
+                  <buttons labelExpression="Cancel" closeDialogOnClick="true" rollbackChangesOnClose="true">
+                    <initialOperation/>
+                  </buttons>
+                  <buttons labelExpression="OK" default="true" closeDialogOnClick="true">
+                    <initialOperation/>
+                  </buttons>
+                  <page name="Edit Transition on Page" extends="//@extensions.0/@categories.1/@pages.1"/>
+                </subModelOperations>
+              </firstModelOperations>
+            </initialOperation>
+          </customOperations>
+        </controls>
+        <controls xsi:type="properties:TextAreaDescription" name="flow::Transition description" labelExpression="aql:input.emfEditServices(self).getText(self.eClass().getEStructuralFeature('description')) + ':'" helpExpression="aql:input.emfEditServices(self).getDescription(self.eClass().getEStructuralFeature('description'))" isEnabledExpression="aql:self.eClass().getEStructuralFeature('description').changeable" valueExpression="aql:self.description">
+          <initialOperation>
+            <firstModelOperations xsi:type="tool_1:SetValue" featureName="description" valueExpression="var:newValue"/>
+          </initialOperation>
+        </controls>
+        <controls xsi:type="properties:CustomDescription" name="org.obeonetwork.dsl.database.design.custom.reference" label="flow::Transition from" labelExpression="aql:'From :'" helpExpression="aql:input.emfEditServices(self).getDescription(self.eClass().getEStructuralFeature('from'))" isEnabledExpression="aql:self.eClass().getEStructuralFeature('from').changeable">
+          <customExpressions name="referenceNameExpression" customExpression="aql:'from'"/>
+        </controls>
+        <controls xsi:type="properties:CustomDescription" name="org.obeonetwork.dsl.database.design.custom.reference" label="flow::Transition to" labelExpression="aql:'To :'" helpExpression="aql:input.emfEditServices(self).getDescription(self.eClass().getEStructuralFeature('to'))" isEnabledExpression="aql:self.eClass().getEStructuralFeature('to').changeable">
+          <customExpressions name="referenceNameExpression" customExpression="aql:'to'"/>
+        </controls>
+      </groups>
+      <groups name="Flow Group" labelExpression="Properties" domainClass="flow::Flow" semanticCandidateExpression="var:self">
+        <controls xsi:type="properties:TextDescription" name="flow::Flow name" labelExpression="aql:input.emfEditServices(self).getText(self.eClass().getEStructuralFeature('name')) + ':'" helpExpression="aql:input.emfEditServices(self).getDescription(self.eClass().getEStructuralFeature('name'))" isEnabledExpression="aql:self.eClass().getEStructuralFeature('name').changeable" valueExpression="aql:self.name">
+          <initialOperation>
+            <firstModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="var:newValue"/>
+          </initialOperation>
+          <conditionalStyles preconditionExpression="aql:self.eClass().getEStructuralFeature('name').lowerBound = 1">
+            <style>
+              <labelFontFormat>bold</labelFontFormat>
+            </style>
+          </conditionalStyles>
+        </controls>
+        <controls xsi:type="properties:TextAreaDescription" name="flow::Flow description" labelExpression="aql:input.emfEditServices(self).getText(self.eClass().getEStructuralFeature('description')) + ':'" helpExpression="aql:input.emfEditServices(self).getDescription(self.eClass().getEStructuralFeature('description'))" isEnabledExpression="aql:self.eClass().getEStructuralFeature('description').changeable" valueExpression="aql:self.description">
+          <initialOperation>
+            <firstModelOperations xsi:type="tool_1:SetValue" featureName="description" valueExpression="var:newValue"/>
+          </initialOperation>
+        </controls>
+        <controls xsi:type="properties:CustomDescription" name="org.obeonetwork.dsl.database.design.custom.reference" label="flow::Flow events" labelExpression="aql:'Event :'" helpExpression="aql:input.emfEditServices(self).getDescription(self.eClass().getEStructuralFeature('events'))" isEnabledExpression="aql:self.eClass().getEStructuralFeature('events').changeable">
+          <customExpressions name="referenceNameExpression" customExpression="aql:'events'"/>
+          <customExpressions name="enableAddButtonExpression" customExpression="aql:false"/>
+          <customExpressions name="enableBrowseButtonExpression" customExpression="aql:false"/>
+          <customExpressions name="enableRemoveButtonExpression" customExpression="aql:false"/>
+          <customOperations name="onDoubleClickOperation">
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="aql:selection->first()">
+                <subModelOperations xsi:type="properties:DialogModelOperation" titleExpression="Edit Flow Event Dialog">
+                  <buttons labelExpression="Cancel" closeDialogOnClick="true" rollbackChangesOnClose="true">
+                    <initialOperation/>
+                  </buttons>
+                  <buttons labelExpression="OK" default="true" closeDialogOnClick="true">
+                    <initialOperation/>
+                  </buttons>
+                  <page name="Edit Flow Event Page" extends="//@extensions.0/@categories.2/@pages.1"/>
+                </subModelOperations>
+              </firstModelOperations>
+            </initialOperation>
+          </customOperations>
+        </controls>
+        <controls xsi:type="properties:CustomDescription" name="org.obeonetwork.dsl.database.design.custom.reference" label="flow::Flow states" labelExpression="aql:'States :'" helpExpression="aql:input.emfEditServices(self).getDescription(self.eClass().getEStructuralFeature('states'))" isEnabledExpression="aql:self.eClass().getEStructuralFeature('states').changeable">
+          <customExpressions name="referenceNameExpression" customExpression="aql:'states'"/>
+          <customExpressions name="enableAddButtonExpression" customExpression="aql:false"/>
+          <customExpressions name="enableBrowseButtonExpression" customExpression="aql:false"/>
+          <customExpressions name="enableRemoveButtonExpression" customExpression="aql:false"/>
+          <customOperations name="onDoubleClickOperation">
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="aql:selection->first()">
+                <subModelOperations xsi:type="properties:DialogModelOperation" titleExpression="Edit Flow states as NamedFlowState Dialog">
+                  <buttons labelExpression="Cancel" closeDialogOnClick="true" rollbackChangesOnClose="true">
+                    <initialOperation/>
+                  </buttons>
+                  <buttons labelExpression="OK" default="true" closeDialogOnClick="true">
+                    <initialOperation/>
+                  </buttons>
+                  <page name="Edit Flow state Page" extends="//@extensions.0/@categories.2/@pages.2"/>
+                </subModelOperations>
+                <subModelOperations xsi:type="properties:DialogModelOperation" titleExpression="Edit Flow states as SubFlowState Dialog">
+                  <buttons labelExpression="Cancel" closeDialogOnClick="true" rollbackChangesOnClose="true">
+                    <initialOperation/>
+                  </buttons>
+                  <buttons labelExpression="OK" default="true" closeDialogOnClick="true">
+                    <initialOperation/>
+                  </buttons>
+                  <page name="Edit Flow state Page" extends="//@extensions.0/@categories.2/@pages.0"/>
+                </subModelOperations>
+                <subModelOperations xsi:type="properties:DialogModelOperation" titleExpression="Edit Flow states as ViewState Dialog">
+                  <buttons labelExpression="Cancel" closeDialogOnClick="true" rollbackChangesOnClose="true">
+                    <initialOperation/>
+                  </buttons>
+                  <buttons labelExpression="OK" default="true" closeDialogOnClick="true">
+                    <initialOperation/>
+                  </buttons>
+                  <page name="Edit Flow state Page" extends="//@extensions.0/@categories.2/@pages.3"/>
+                </subModelOperations>
+              </firstModelOperations>
+            </initialOperation>
+          </customOperations>
+        </controls>
+        <controls xsi:type="properties:CustomDescription" name="org.obeonetwork.dsl.database.design.custom.reference" label="flow::Flow transitions" labelExpression="aql:'Transitions :'" helpExpression="aql:input.emfEditServices(self).getDescription(self.eClass().getEStructuralFeature('transitions'))" isEnabledExpression="aql:self.eClass().getEStructuralFeature('transitions').changeable">
+          <customExpressions name="referenceNameExpression" customExpression="aql:'transitions'"/>
+          <customExpressions name="enableAddButtonExpression" customExpression="aql:false"/>
+          <customExpressions name="enableBrowseButtonExpression" customExpression="aql:false"/>
+          <customExpressions name="enableRemoveButtonExpression" customExpression="aql:false"/>
+          <customOperations name="onDoubleClickOperation">
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="aql:selection->first()">
+                <subModelOperations xsi:type="properties:DialogModelOperation" titleExpression="Edit Flow transition Dialog">
+                  <buttons labelExpression="Cancel" closeDialogOnClick="true" rollbackChangesOnClose="true">
+                    <initialOperation/>
+                  </buttons>
+                  <buttons labelExpression="OK" default="true" closeDialogOnClick="true">
+                    <initialOperation/>
+                  </buttons>
+                  <page name="Edit Flow transition Page" extends="//@extensions.0/@categories.2/@pages.4"/>
+                </subModelOperations>
+              </firstModelOperations>
+            </initialOperation>
+          </customOperations>
+        </controls>
+      </groups>
+    </categories>
+  </extensions>
 </description:Group>
