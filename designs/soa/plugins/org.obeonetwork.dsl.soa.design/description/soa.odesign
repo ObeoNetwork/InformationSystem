@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<description:Group xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:description="http://www.eclipse.org/sirius/description/1.1.0" xmlns:description_1="http://www.eclipse.org/sirius/diagram/description/1.1.0" xmlns:style="http://www.eclipse.org/sirius/diagram/description/style/1.1.0" xmlns:tool="http://www.eclipse.org/sirius/diagram/description/tool/1.1.0" xmlns:tool_1="http://www.eclipse.org/sirius/description/tool/1.1.0" xmlns:validation="http://www.eclipse.org/sirius/description/validation/1.1.0" documentation="Copyright (c) 2012, 2017 Obeo.&#xD;&#xA;All rights reserved. This program and the accompanying materials&#xD;&#xA;are made available under the terms of the Eclipse Public License v1.0&#xD;&#xA;which accompanies this distribution, and is available at&#xD;&#xA;http://www.eclipse.org/legal/epl-v10.html&#xD;&#xA;&#xD;&#xA;Contributors:&#xD;&#xA;   Obeo - initial API and implementation" name="Soa" version="12.0.0.2017041100">
+<description:Group xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:description="http://www.eclipse.org/sirius/description/1.1.0" xmlns:description_1="http://www.eclipse.org/sirius/diagram/description/1.1.0" xmlns:properties="http://www.eclipse.org/sirius/properties/1.0.0" xmlns:style="http://www.eclipse.org/sirius/diagram/description/style/1.1.0" xmlns:tool="http://www.eclipse.org/sirius/diagram/description/tool/1.1.0" xmlns:tool_1="http://www.eclipse.org/sirius/description/tool/1.1.0" xmlns:validation="http://www.eclipse.org/sirius/description/validation/1.1.0" documentation="Copyright (c) 2012, 2017 Obeo.&#xD;&#xA;All rights reserved. This program and the accompanying materials&#xD;&#xA;are made available under the terms of the Eclipse Public License v1.0&#xD;&#xA;which accompanies this distribution, and is available at&#xD;&#xA;http://www.eclipse.org/legal/epl-v10.html&#xD;&#xA;&#xD;&#xA;Contributors:&#xD;&#xA;   Obeo - initial API and implementation" name="Soa" version="12.0.0.2017041100">
   <ownedViewpoints name="SOA Views" modelFileExtension="soa ois">
     <ownedRepresentations xsi:type="description_1:DiagramDescription" dropDescriptions="//@ownedViewpoints[name='SOA%20Views']/@ownedRepresentations[name='SOA%20Diagram']/@defaultLayer/@toolSections.0/@subSections[name='Relation']/@subSections[name='Usability%20Tools']/@ownedTools[name='DAD_Component']" name="SOA Diagram" titleExpression="[name + ' SOA Diagram'/]" domainClass="soa.System">
       <metamodel href="platform:/plugin/org.obeonetwork.dsl.environment/model/environment.ecore#/"/>
@@ -1098,4 +1098,139 @@
     <entries xsi:type="description:UserFixedColor" red="0" green="0" blue="0" name="ExternalType_color"/>
     <entries xsi:type="description:UserFixedColor" red="252" green="175" blue="62" name="ExternalType_border"/>
   </userColorsPalettes>
+  <extensions xsi:type="properties:ViewExtensionDescription" name="Properties">
+    <metamodels href="http://www.obeonetwork.org/dsl/soa/3.0.0#/"/>
+    <metamodels href="http://www.obeonetwork.org/dsl/environment/3.0.0#/"/>
+    <categories name="Default Category">
+      <pages name="DTO Page" labelExpression="DTO" domainClass="environment::DTO" semanticCandidateExpression="var:self">
+        <groups href="platform:/plugin/org.obeonetwork.dsl.environment.properties/description/environment-properties.odesign#//@extensions.0/@categories.0/@groups.0"/>
+      </pages>
+    </categories>
+    <categories name="Component">
+      <pages name="Operation Page" labelExpression="Operation" domainClass="soa::Operation" semanticCandidateExpression="var:self" groups="//@extensions.0/@categories.1/@groups.0"/>
+      <pages name="Component Page" labelExpression="Component" domainClass="soa::Component" semanticCandidateExpression="var:self" groups="//@extensions.0/@categories.1/@groups.1"/>
+      <pages name="Service Page" labelExpression="Service" domainClass="soa::Service" semanticCandidateExpression="var:self" groups="//@extensions.0/@categories.1/@groups.2"/>
+      <pages name="Wire Page" labelExpression="Wire" domainClass="soa::Wire" semanticCandidateExpression="var:self" groups="//@extensions.0/@categories.1/@groups.3"/>
+      <pages name="Parameter Page" labelExpression="Parameter" domainClass="soa::Parameter" semanticCandidateExpression="var:self" groups="//@extensions.0/@categories.1/@groups.4"/>
+      <groups name="Operation Group" labelExpression="Properties" domainClass="soa::Operation" semanticCandidateExpression="var:self">
+        <controls xsi:type="properties:TextDescription" name="soa::Operation name" labelExpression="aql:input.emfEditServices(self).getText(self.eClass().getEStructuralFeature('name')) + ':'" helpExpression="aql:input.emfEditServices(self).getDescription(self.eClass().getEStructuralFeature('name'))" isEnabledExpression="aql:self.eClass().getEStructuralFeature('name').changeable" valueExpression="aql:self.name">
+          <initialOperation>
+            <firstModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="var:newValue"/>
+          </initialOperation>
+          <conditionalStyles preconditionExpression="aql:self.eClass().getEStructuralFeature('name').lowerBound = 1">
+            <style>
+              <labelFontFormat>bold</labelFontFormat>
+            </style>
+          </conditionalStyles>
+        </controls>
+        <controls xsi:type="properties:RadioDescription" name="soa::Operation kind" labelExpression="aql:input.emfEditServices(self).getText(self.eClass().getEStructuralFeature('kind')) + ':'" helpExpression="aql:input.emfEditServices(self).getDescription(self.eClass().getEStructuralFeature('kind'))" isEnabledExpression="aql:self.eClass().getEStructuralFeature('kind').changeable" valueExpression="aql:self.eClass().getEStructuralFeature('kind').eType.getEEnumLiteralByLiteral(self.kind.toString())" candidatesExpression="aql:self.eClass().getEStructuralFeature('kind').eType.eLiterals" candidateDisplayExpression="aql:candidate.name" numberOfColumns="5">
+          <initialOperation>
+            <firstModelOperations xsi:type="tool_1:SetValue" featureName="kind" valueExpression="aql:newValue.instance"/>
+          </initialOperation>
+        </controls>
+        <controls xsi:type="properties:CheckboxDescription" name="soa::Operation public" labelExpression="aql:input.emfEditServices(self).getText(self.eClass().getEStructuralFeature('public'))" helpExpression="aql:input.emfEditServices(self).getDescription(self.eClass().getEStructuralFeature('public'))" isEnabledExpression="aql:self.eClass().getEStructuralFeature('public').changeable" valueExpression="aql:self.public">
+          <initialOperation>
+            <firstModelOperations xsi:type="tool_1:SetValue" featureName="public" valueExpression="var:newValue"/>
+          </initialOperation>
+        </controls>
+        <controls xsi:type="properties:TextAreaDescription" name="soa::Operation description" labelExpression="aql:input.emfEditServices(self).getText(self.eClass().getEStructuralFeature('description')) + ':'" helpExpression="aql:input.emfEditServices(self).getDescription(self.eClass().getEStructuralFeature('description'))" isEnabledExpression="aql:self.eClass().getEStructuralFeature('description').changeable" valueExpression="aql:self.description">
+          <initialOperation>
+            <firstModelOperations xsi:type="tool_1:SetValue" featureName="description" valueExpression="var:newValue"/>
+          </initialOperation>
+        </controls>
+      </groups>
+      <groups name="Component Group" labelExpression="Properties" domainClass="soa::Component" semanticCandidateExpression="var:self">
+        <controls xsi:type="properties:TextDescription" name="soa::Component name" labelExpression="aql:input.emfEditServices(self).getText(self.eClass().getEStructuralFeature('name')) + ':'" helpExpression="aql:input.emfEditServices(self).getDescription(self.eClass().getEStructuralFeature('name'))" isEnabledExpression="aql:self.eClass().getEStructuralFeature('name').changeable" valueExpression="aql:self.name">
+          <initialOperation>
+            <firstModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="var:newValue"/>
+          </initialOperation>
+          <conditionalStyles preconditionExpression="aql:self.eClass().getEStructuralFeature('name').lowerBound = 1">
+            <style>
+              <labelFontFormat>bold</labelFontFormat>
+            </style>
+          </conditionalStyles>
+        </controls>
+        <controls xsi:type="properties:TextAreaDescription" name="soa::Component description" labelExpression="aql:input.emfEditServices(self).getText(self.eClass().getEStructuralFeature('description')) + ':'" helpExpression="aql:input.emfEditServices(self).getDescription(self.eClass().getEStructuralFeature('description'))" isEnabledExpression="aql:self.eClass().getEStructuralFeature('description').changeable" valueExpression="aql:self.description">
+          <initialOperation>
+            <firstModelOperations xsi:type="tool_1:SetValue" featureName="description" valueExpression="var:newValue"/>
+          </initialOperation>
+        </controls>
+      </groups>
+      <groups name="Service Group" labelExpression="Properties" domainClass="soa::Service" semanticCandidateExpression="var:self">
+        <controls xsi:type="properties:SelectDescription" name="soa::Service synchronization" labelExpression="aql:input.emfEditServices(self).getText(self.eClass().getEStructuralFeature('synchronization')) + ':'" helpExpression="aql:input.emfEditServices(self).getDescription(self.eClass().getEStructuralFeature('synchronization'))" isEnabledExpression="aql:self.eClass().getEStructuralFeature('synchronization').changeable" valueExpression="aql:self.eClass().getEStructuralFeature('synchronization').eType.getEEnumLiteralByLiteral(self.synchronization.toString())" candidatesExpression="aql:self.eClass().getEStructuralFeature('synchronization').eType.eLiterals" candidateDisplayExpression="aql:candidate.literal">
+          <initialOperation>
+            <firstModelOperations xsi:type="tool_1:SetValue" featureName="synchronization" valueExpression="aql:newValue.instance"/>
+          </initialOperation>
+        </controls>
+        <controls xsi:type="properties:SelectDescription" name="soa::Service kind" labelExpression="aql:input.emfEditServices(self).getText(self.eClass().getEStructuralFeature('kind')) + ':'" helpExpression="aql:input.emfEditServices(self).getDescription(self.eClass().getEStructuralFeature('kind'))" isEnabledExpression="aql:self.eClass().getEStructuralFeature('kind').changeable" valueExpression="aql:self.eClass().getEStructuralFeature('kind').eType.getEEnumLiteralByLiteral(self.kind.toString())" candidatesExpression="aql:self.eClass().getEStructuralFeature('kind').eType.eLiterals" candidateDisplayExpression="aql:candidate.literal">
+          <initialOperation>
+            <firstModelOperations xsi:type="tool_1:SetValue" featureName="kind" valueExpression="aql:newValue.instance"/>
+          </initialOperation>
+        </controls>
+        <controls xsi:type="properties:TextDescription" name="soa::Component name" labelExpression="aql:input.emfEditServices(self).getText(self.eClass().getEStructuralFeature('name')) + ':'" helpExpression="aql:input.emfEditServices(self).getDescription(self.eClass().getEStructuralFeature('name'))" isEnabledExpression="aql:self.eClass().getEStructuralFeature('name').changeable" valueExpression="aql:self.name">
+          <initialOperation>
+            <firstModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="var:newValue"/>
+          </initialOperation>
+          <conditionalStyles preconditionExpression="aql:self.eClass().getEStructuralFeature('name').lowerBound = 1">
+            <style>
+              <labelFontFormat>bold</labelFontFormat>
+            </style>
+          </conditionalStyles>
+        </controls>
+        <controls xsi:type="properties:TextAreaDescription" name="soa::Component description" labelExpression="aql:input.emfEditServices(self).getText(self.eClass().getEStructuralFeature('description')) + ':'" helpExpression="aql:input.emfEditServices(self).getDescription(self.eClass().getEStructuralFeature('description'))" isEnabledExpression="aql:self.eClass().getEStructuralFeature('description').changeable" valueExpression="aql:self.description">
+          <initialOperation>
+            <firstModelOperations xsi:type="tool_1:SetValue" featureName="description" valueExpression="var:newValue"/>
+          </initialOperation>
+        </controls>
+      </groups>
+      <groups name="Wire Group" labelExpression="Properties" domainClass="soa::Wire" semanticCandidateExpression="var:self">
+        <controls xsi:type="properties:CustomDescription" name="org.obeonetwork.dsl.database.design.custom.reference" label="soa::Component source" labelExpression="aql:input.emfEditServices(self).getText(self.eClass().getEStructuralFeature('source')) + ':'" helpExpression="aql:input.emfEditServices(self).getDescription(self.eClass().getEStructuralFeature('source'))" isEnabledExpression="aql:self.eClass().getEStructuralFeature('source').changeable">
+          <customExpressions name="referenceNameExpression" customExpression="aql:'source'"/>
+        </controls>
+        <controls xsi:type="properties:CustomDescription" name="org.obeonetwork.dsl.database.design.custom.reference" label="soa::Component dest" labelExpression="aql:input.emfEditServices(self).getText(self.eClass().getEStructuralFeature('dest')) + ':'" helpExpression="aql:input.emfEditServices(self).getDescription(self.eClass().getEStructuralFeature('dest'))" isEnabledExpression="aql:self.eClass().getEStructuralFeature('dest').changeable">
+          <customExpressions name="referenceNameExpression" customExpression="aql:'dest'"/>
+        </controls>
+        <controls xsi:type="properties:TextAreaDescription" name="soa::Component description" labelExpression="aql:input.emfEditServices(self).getText(self.eClass().getEStructuralFeature('description')) + ':'" helpExpression="aql:input.emfEditServices(self).getDescription(self.eClass().getEStructuralFeature('description'))" isEnabledExpression="aql:self.eClass().getEStructuralFeature('description').changeable" valueExpression="aql:self.description">
+          <initialOperation>
+            <firstModelOperations xsi:type="tool_1:SetValue" featureName="description" valueExpression="var:newValue"/>
+          </initialOperation>
+        </controls>
+      </groups>
+      <groups name="Parameter Group" labelExpression="Properties" domainClass="soa::Parameter" semanticCandidateExpression="var:self">
+        <controls xsi:type="properties:TextDescription" name="soa::Component name" labelExpression="aql:input.emfEditServices(self).getText(self.eClass().getEStructuralFeature('name')) + ':'" helpExpression="aql:input.emfEditServices(self).getDescription(self.eClass().getEStructuralFeature('name'))" isEnabledExpression="aql:self.eClass().getEStructuralFeature('name').changeable" valueExpression="aql:self.name">
+          <initialOperation>
+            <firstModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="var:newValue"/>
+          </initialOperation>
+          <conditionalStyles preconditionExpression="aql:self.eClass().getEStructuralFeature('name').lowerBound = 1">
+            <style>
+              <labelFontFormat>bold</labelFontFormat>
+            </style>
+          </conditionalStyles>
+        </controls>
+        <controls xsi:type="properties:SelectDescription" name="soa::Parameter multiplicity" labelExpression="aql:input.emfEditServices(self).getText(self.eClass().getEStructuralFeature('multiplicity')) + ':'" helpExpression="aql:input.emfEditServices(self).getDescription(self.eClass().getEStructuralFeature('multiplicity'))" isEnabledExpression="aql:self.eClass().getEStructuralFeature('multiplicity').changeable" valueExpression="aql:self.eClass().getEStructuralFeature('multiplicity').eType.getEEnumLiteralByLiteral(self.multiplicity.toString())" candidatesExpression="aql:self.eClass().getEStructuralFeature('multiplicity').eType.eLiterals" candidateDisplayExpression="aql:candidate.literal">
+          <initialOperation>
+            <firstModelOperations xsi:type="tool_1:SetValue" featureName="multiplicity" valueExpression="aql:newValue.instance"/>
+          </initialOperation>
+        </controls>
+        <controls xsi:type="properties:CheckboxDescription" name="soa::Parameter isUnique" labelExpression="aql:input.emfEditServices(self).getText(self.eClass().getEStructuralFeature('isUnique'))" helpExpression="aql:input.emfEditServices(self).getDescription(self.eClass().getEStructuralFeature('isUnique'))" isEnabledExpression="aql:self.eClass().getEStructuralFeature('isUnique').changeable" valueExpression="aql:self.isUnique">
+          <initialOperation>
+            <firstModelOperations xsi:type="tool_1:SetValue" featureName="isUnique" valueExpression="var:newValue"/>
+          </initialOperation>
+        </controls>
+        <controls xsi:type="properties:CheckboxDescription" name="soa::Parameter isOrdered" labelExpression="aql:input.emfEditServices(self).getText(self.eClass().getEStructuralFeature('isOrdered'))" helpExpression="aql:input.emfEditServices(self).getDescription(self.eClass().getEStructuralFeature('isOrdered'))" isEnabledExpression="aql:self.eClass().getEStructuralFeature('isOrdered').changeable" valueExpression="aql:self.isOrdered">
+          <initialOperation>
+            <firstModelOperations xsi:type="tool_1:SetValue" featureName="isOrdered" valueExpression="var:newValue"/>
+          </initialOperation>
+        </controls>
+        <controls xsi:type="properties:CustomDescription" name="org.obeonetwork.dsl.database.design.custom.reference" label="soa::Parameter type" labelExpression="aql:input.emfEditServices(self).getText(self.eClass().getEStructuralFeature('type')) + ':'" helpExpression="aql:input.emfEditServices(self).getDescription(self.eClass().getEStructuralFeature('type'))" isEnabledExpression="aql:self.eClass().getEStructuralFeature('type').changeable">
+          <customExpressions name="referenceNameExpression" customExpression="aql:'type'"/>
+        </controls>
+        <controls xsi:type="properties:TextAreaDescription" name="soa::Component description" labelExpression="aql:input.emfEditServices(self).getText(self.eClass().getEStructuralFeature('description')) + ':'" helpExpression="aql:input.emfEditServices(self).getDescription(self.eClass().getEStructuralFeature('description'))" isEnabledExpression="aql:self.eClass().getEStructuralFeature('description').changeable" valueExpression="aql:self.description">
+          <initialOperation>
+            <firstModelOperations xsi:type="tool_1:SetValue" featureName="description" valueExpression="var:newValue"/>
+          </initialOperation>
+        </controls>
+      </groups>
+    </categories>
+  </extensions>
 </description:Group>
