@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<description:Group xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:description="http://www.eclipse.org/sirius/description/1.1.0" xmlns:description_1="http://www.eclipse.org/sirius/diagram/sequence/description/2.0.0" xmlns:style="http://www.eclipse.org/sirius/diagram/description/style/1.1.0" xmlns:tool="http://www.eclipse.org/sirius/diagram/description/tool/1.1.0" xmlns:tool_1="http://www.eclipse.org/sirius/diagram/sequence/description/tool/2.0.0" xmlns:tool_2="http://www.eclipse.org/sirius/description/tool/1.1.0" documentation="Copyright (c) 2012, 2017 Obeo.&#xD;&#xA;All rights reserved. This program and the accompanying materials&#xD;&#xA;are made available under the terms of the Eclipse Public License v1.0&#xD;&#xA;which accompanies this distribution, and is available at&#xD;&#xA;http://www.eclipse.org/legal/epl-v10.html&#xD;&#xA;&#xD;&#xA;Contributors:&#xD;&#xA;   Obeo - initial API and implementation" name="interaction" version="12.0.0.2017041100">
+<description:Group xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:description="http://www.eclipse.org/sirius/description/1.1.0" xmlns:description_1="http://www.eclipse.org/sirius/diagram/sequence/description/2.0.0" xmlns:properties="http://www.eclipse.org/sirius/properties/1.0.0" xmlns:style="http://www.eclipse.org/sirius/diagram/description/style/1.1.0" xmlns:tool="http://www.eclipse.org/sirius/diagram/description/tool/1.1.0" xmlns:tool_1="http://www.eclipse.org/sirius/diagram/sequence/description/tool/2.0.0" xmlns:tool_2="http://www.eclipse.org/sirius/description/tool/1.1.0" documentation="Copyright (c) 2012, 2017 Obeo.&#xD;&#xA;All rights reserved. This program and the accompanying materials&#xD;&#xA;are made available under the terms of the Eclipse Public License v1.0&#xD;&#xA;which accompanies this distribution, and is available at&#xD;&#xA;http://www.eclipse.org/legal/epl-v10.html&#xD;&#xA;&#xD;&#xA;Contributors:&#xD;&#xA;   Obeo - initial API and implementation" name="interaction" version="12.0.0.2017041100">
   <ownedViewpoints name="Interaction">
     <ownedRepresentations xsi:type="description_1:SequenceDiagramDescription" dropDescriptions="//@ownedViewpoints[name='Interaction']/@ownedRepresentations[name='Sequence%20Diagram']/@defaultLayer/@toolSections.0/@subSections[name='Usability']/@subSections[name='Participant']/@ownedTools[name='DAD_Participant']" name="Sequence Diagram" domainClass="interaction.Interaction" rootExpression="[if behaviours->size() > 0 then behaviours->first() else self endif/]" endsOrdering="[ends->iterate(element; result : Sequence(interaction::End) = Sequence{} | if eventEnds->includes(element) then result->including(element) else result endif)/]" instanceRolesOrdering="null">
       <metamodel href="platform:/plugin/org.obeonetwork.dsl.environment/model/environment.ecore#/"/>
@@ -1044,7 +1044,7 @@
     <entries xsi:type="description:UserFixedColor" red="22" green="147" blue="165" name="Dutch teal"/>
     <entries xsi:type="description:UserFixedColor" red="199" green="237" blue="232" name="Glint on the ocean"/>
     <entries xsi:type="description:UserFixedColor" red="160" green="222" blue="214" name="Paleolitico"/>
-    <entries xsi:type="description:InterpolatedColor" name="Interpolated blue for Executions" colorValueComputationExpression="service:computeExecutionDepth(10)">
+    <entries xsi:type="description:InterpolatedColor" name="Interpolated blue for Executions" colorValueComputationExpression="aql:self.computeExecutionDepth(10)">
       <colorSteps associatedValue="0" associatedColor="//@userColorsPalettes[name='Dutch%20Seas']/@entries[name='Glint%20on%20the%20ocean']"/>
       <colorSteps associatedValue="10" associatedColor="//@userColorsPalettes[name='Dutch%20Seas']/@entries[name='Dutch%20teal']"/>
     </entries>
@@ -1055,9 +1055,139 @@
   <userColorsPalettes name="Greens">
     <entries xsi:type="description:UserFixedColor" red="166" green="227" blue="187" name="Watery Green"/>
     <entries xsi:type="description:UserFixedColor" red="16" green="120" blue="103" name="Flabber Green"/>
-    <entries xsi:type="description:InterpolatedColor" name="Interpolated green for Combined Fragments" colorValueComputationExpression="service:computeCombinedFragmentDepth(5)">
+    <entries xsi:type="description:InterpolatedColor" name="Interpolated green for Combined Fragments" colorValueComputationExpression="aql:self.computeCombinedFragmentDepth(5)">
       <colorSteps associatedValue="0" associatedColor="//@userColorsPalettes[name='Greens']/@entries[name='Watery%20Green']"/>
       <colorSteps associatedValue="5" associatedColor="//@userColorsPalettes[name='Greens']/@entries[name='Flabber%20Green']"/>
     </entries>
   </userColorsPalettes>
+  <extensions xsi:type="properties:ViewExtensionDescription" name="Properties">
+    <metamodels href="http://www.obeonetwork.org/dsl/interaction/1.0.0#/"/>
+    <categories name="Default Category">
+      <pages name="Interaction Page" labelExpression="Interaction" domainClass="interaction::Interaction" semanticCandidateExpression="var:self" groups="//@extensions.0/@categories.0/@groups.0"/>
+      <pages name="Participant Page" labelExpression="Participant" domainClass="interaction::Participant" semanticCandidateExpression="var:self" groups="//@extensions.0/@categories.0/@groups.1"/>
+      <pages name="Execution Page" labelExpression="Execution" domainClass="interaction::Execution" semanticCandidateExpression="var:self" groups="//@extensions.0/@categories.0/@groups.2"/>
+      <pages name="Message Page" labelExpression="aql:self.eClass().name" domainClass="interaction::Message" semanticCandidateExpression="var:self" preconditionExpression="aql:not(self.oclIsKindOf(interaction::InteractionUse))" groups="//@extensions.0/@categories.0/@groups.3"/>
+      <pages name="InteractionUse Page" labelExpression="InteractionUse" domainClass="interaction::InteractionUse" semanticCandidateExpression="var:self" groups="//@extensions.0/@categories.0/@groups.4"/>
+      <pages name="StateInvariant Page" labelExpression="StateInvariant" domainClass="interaction::StateInvariant" semanticCandidateExpression="var:self" groups="//@extensions.0/@categories.0/@groups.5"/>
+      <pages name="CombinedFragment Page" labelExpression="CombinedFragment" domainClass="interaction::CombinedFragment" semanticCandidateExpression="var:self" groups="//@extensions.0/@categories.0/@groups.6"/>
+      <pages name="Operand Page" labelExpression="Operand" domainClass="interaction::Operand" semanticCandidateExpression="var:self" groups="//@extensions.0/@categories.0/@groups.7"/>
+      <groups name="Interaction Group" labelExpression="Properties" domainClass="interaction::Interaction" semanticCandidateExpression="var:self">
+        <controls xsi:type="properties:TextDescription" name="interaction::Interaction name" labelExpression="aql:input.emfEditServices(self).getText(self.eClass().getEStructuralFeature('name')) + ':'" helpExpression="aql:input.emfEditServices(self).getDescription(self.eClass().getEStructuralFeature('name'))" isEnabledExpression="aql:self.eClass().getEStructuralFeature('name').changeable" valueExpression="aql:self.name">
+          <initialOperation>
+            <firstModelOperations xsi:type="tool_2:SetValue" featureName="name" valueExpression="var:newValue"/>
+          </initialOperation>
+        </controls>
+        <controls xsi:type="properties:TextAreaDescription" name="interaction::Interaction description" labelExpression="aql:input.emfEditServices(self).getText(self.eClass().getEStructuralFeature('description')) + ':'" helpExpression="aql:input.emfEditServices(self).getDescription(self.eClass().getEStructuralFeature('description'))" isEnabledExpression="aql:self.eClass().getEStructuralFeature('description').changeable" valueExpression="aql:self.description">
+          <initialOperation>
+            <firstModelOperations xsi:type="tool_2:SetValue" featureName="description" valueExpression="aql:newValue"/>
+          </initialOperation>
+        </controls>
+      </groups>
+      <groups name="Participant Group" labelExpression="Properties" domainClass="interaction::Participant" semanticCandidateExpression="var:self">
+        <controls xsi:type="properties:TextDescription" name="interaction::Participant name" labelExpression="aql:input.emfEditServices(self).getText(self.eClass().getEStructuralFeature('name')) + ':'" helpExpression="aql:input.emfEditServices(self).getDescription(self.eClass().getEStructuralFeature('name'))" isEnabledExpression="aql:self.eClass().getEStructuralFeature('name').changeable" valueExpression="aql:self.name">
+          <initialOperation>
+            <firstModelOperations xsi:type="tool_2:SetValue" featureName="name" valueExpression="var:newValue"/>
+          </initialOperation>
+        </controls>
+        <controls xsi:type="properties:CustomDescription" name="org.obeonetwork.dsl.database.design.custom.reference" label="interaction::Participant type" labelExpression="aql:input.emfEditServices(self).getText(self.eClass().getEStructuralFeature('type')) + ':'" helpExpression="aql:input.emfEditServices(self).getDescription(self.eClass().getEStructuralFeature('type'))" isEnabledExpression="aql:self.eClass().getEStructuralFeature('type').changeable">
+          <customExpressions name="referenceNameExpression" customExpression="aql:'type'"/>
+        </controls>
+        <controls xsi:type="properties:TextAreaDescription" name="interaction::Participant description" labelExpression="aql:input.emfEditServices(self).getText(self.eClass().getEStructuralFeature('description')) + ':'" helpExpression="aql:input.emfEditServices(self).getDescription(self.eClass().getEStructuralFeature('description'))" isEnabledExpression="aql:self.eClass().getEStructuralFeature('description').changeable" valueExpression="aql:self.description">
+          <initialOperation>
+            <firstModelOperations xsi:type="tool_2:SetValue" featureName="description" valueExpression="aql:newValue"/>
+          </initialOperation>
+        </controls>
+      </groups>
+      <groups name="Execution Group" labelExpression="Properties" domainClass="interaction::Execution" semanticCandidateExpression="var:self">
+        <controls xsi:type="properties:TextDescription" name="interaction::Execution name" labelExpression="aql:input.emfEditServices(self).getText(self.eClass().getEStructuralFeature('name')) + ':'" helpExpression="aql:input.emfEditServices(self).getDescription(self.eClass().getEStructuralFeature('name'))" isEnabledExpression="aql:self.eClass().getEStructuralFeature('name').changeable" valueExpression="aql:self.name">
+          <initialOperation>
+            <firstModelOperations xsi:type="tool_2:SetValue" featureName="name" valueExpression="var:newValue"/>
+          </initialOperation>
+        </controls>
+        <controls xsi:type="properties:TextAreaDescription" name="interaction::Execution description" labelExpression="aql:input.emfEditServices(self).getText(self.eClass().getEStructuralFeature('description')) + ':'" helpExpression="aql:input.emfEditServices(self).getDescription(self.eClass().getEStructuralFeature('description'))" isEnabledExpression="aql:self.eClass().getEStructuralFeature('description').changeable" valueExpression="aql:self.description">
+          <initialOperation>
+            <firstModelOperations xsi:type="tool_2:SetValue" featureName="description" valueExpression="aql:newValue"/>
+          </initialOperation>
+        </controls>
+      </groups>
+      <groups name="Message Group" labelExpression="Properties" domainClass="interaction::Message" semanticCandidateExpression="var:self">
+        <controls xsi:type="properties:TextDescription" name="interaction::Message name" labelExpression="aql:input.emfEditServices(self).getText(self.eClass().getEStructuralFeature('name')) + ':'" helpExpression="aql:input.emfEditServices(self).getDescription(self.eClass().getEStructuralFeature('name'))" isEnabledExpression="aql:self.eClass().getEStructuralFeature('name').changeable" valueExpression="aql:self.name">
+          <initialOperation>
+            <firstModelOperations xsi:type="tool_2:SetValue" featureName="name" valueExpression="var:newValue"/>
+          </initialOperation>
+        </controls>
+        <controls xsi:type="properties:TextAreaDescription" name="interaction::Message description" labelExpression="aql:input.emfEditServices(self).getText(self.eClass().getEStructuralFeature('description')) + ':'" helpExpression="aql:input.emfEditServices(self).getDescription(self.eClass().getEStructuralFeature('description'))" isEnabledExpression="aql:self.eClass().getEStructuralFeature('description').changeable" valueExpression="aql:self.description">
+          <initialOperation>
+            <firstModelOperations xsi:type="tool_2:SetValue" featureName="description" valueExpression="aql:newValue"/>
+          </initialOperation>
+        </controls>
+      </groups>
+      <groups name="InteractionUse Group" labelExpression="Properties" domainClass="interaction::InteractionUse" semanticCandidateExpression="var:self">
+        <controls xsi:type="properties:TextDescription" name="interaction::InteractionUse name" labelExpression="aql:input.emfEditServices(self).getText(self.eClass().getEStructuralFeature('name')) + ':'" helpExpression="aql:input.emfEditServices(self).getDescription(self.eClass().getEStructuralFeature('name'))" isEnabledExpression="aql:self.eClass().getEStructuralFeature('name').changeable" valueExpression="aql:self.name">
+          <initialOperation>
+            <firstModelOperations xsi:type="tool_2:SetValue" featureName="name" valueExpression="var:newValue"/>
+          </initialOperation>
+        </controls>
+        <controls xsi:type="properties:TextDescription" name="interaction::InteractionUse type" labelExpression="aql:input.emfEditServices(self).getText(self.eClass().getEStructuralFeature('type')) + ':'" helpExpression="aql:input.emfEditServices(self).getDescription(self.eClass().getEStructuralFeature('type'))" isEnabledExpression="aql:self.eClass().getEStructuralFeature('type').changeable" valueExpression="aql:self.type">
+          <initialOperation>
+            <firstModelOperations xsi:type="tool_2:SetValue" featureName="type" valueExpression="var:newValue"/>
+          </initialOperation>
+          <conditionalStyles preconditionExpression="aql:self.eClass().getEStructuralFeature('type').lowerBound = 1">
+            <style>
+              <labelFontFormat>bold</labelFontFormat>
+            </style>
+          </conditionalStyles>
+        </controls>
+        <controls xsi:type="properties:CustomDescription" name="org.obeonetwork.dsl.database.design.custom.reference" label="interaction::InteractionUse interaction" labelExpression="aql:input.emfEditServices(self).getText(self.eClass().getEStructuralFeature('interaction')) + ':'" helpExpression="aql:input.emfEditServices(self).getDescription(self.eClass().getEStructuralFeature('interaction'))" isEnabledExpression="aql:self.eClass().getEStructuralFeature('interaction').changeable">
+          <customExpressions name="referenceNameExpression" customExpression="aql:'interaction'"/>
+        </controls>
+        <controls xsi:type="properties:TextAreaDescription" name="interaction::InteractionUse description" labelExpression="aql:input.emfEditServices(self).getText(self.eClass().getEStructuralFeature('description')) + ':'" helpExpression="aql:input.emfEditServices(self).getDescription(self.eClass().getEStructuralFeature('description'))" isEnabledExpression="aql:self.eClass().getEStructuralFeature('description').changeable" valueExpression="aql:self.description">
+          <initialOperation>
+            <firstModelOperations xsi:type="tool_2:SetValue" featureName="description" valueExpression="aql:newValue"/>
+          </initialOperation>
+        </controls>
+      </groups>
+      <groups name="StateInvariant Group" labelExpression="Properties" domainClass="interaction::StateInvariant" semanticCandidateExpression="var:self">
+        <controls xsi:type="properties:TextDescription" name="interaction::StateInvariant name" labelExpression="aql:input.emfEditServices(self).getText(self.eClass().getEStructuralFeature('name')) + ':'" helpExpression="aql:input.emfEditServices(self).getDescription(self.eClass().getEStructuralFeature('name'))" isEnabledExpression="aql:self.eClass().getEStructuralFeature('name').changeable" valueExpression="aql:self.name">
+          <initialOperation>
+            <firstModelOperations xsi:type="tool_2:SetValue" featureName="name" valueExpression="var:newValue"/>
+          </initialOperation>
+        </controls>
+        <controls xsi:type="properties:TextAreaDescription" name="interaction::StateInvariant description" labelExpression="aql:input.emfEditServices(self).getText(self.eClass().getEStructuralFeature('description')) + ':'" helpExpression="aql:input.emfEditServices(self).getDescription(self.eClass().getEStructuralFeature('description'))" isEnabledExpression="aql:self.eClass().getEStructuralFeature('description').changeable" valueExpression="aql:self.description">
+          <initialOperation>
+            <firstModelOperations xsi:type="tool_2:SetValue" featureName="description" valueExpression="aql:newValue"/>
+          </initialOperation>
+        </controls>
+      </groups>
+      <groups name="CombinedFragment Group" labelExpression="Properties" domainClass="interaction::CombinedFragment" semanticCandidateExpression="var:self">
+        <controls xsi:type="properties:TextDescription" name="interaction::Interaction name" labelExpression="aql:input.emfEditServices(self).getText(self.eClass().getEStructuralFeature('name')) + ':'" helpExpression="aql:input.emfEditServices(self).getDescription(self.eClass().getEStructuralFeature('name'))" isEnabledExpression="aql:self.eClass().getEStructuralFeature('name').changeable" valueExpression="aql:self.name">
+          <initialOperation>
+            <firstModelOperations xsi:type="tool_2:SetValue" featureName="name" valueExpression="var:newValue"/>
+          </initialOperation>
+        </controls>
+        <controls xsi:type="properties:TextDescription" name="interaction::CombinedFragment operator" labelExpression="aql:input.emfEditServices(self).getText(self.eClass().getEStructuralFeature('operator')) + ':'" helpExpression="aql:input.emfEditServices(self).getDescription(self.eClass().getEStructuralFeature('operator'))" isEnabledExpression="aql:self.eClass().getEStructuralFeature('operator').changeable" valueExpression="aql:self.operator">
+          <initialOperation>
+            <firstModelOperations xsi:type="tool_2:SetValue" featureName="operator" valueExpression="var:newValue"/>
+          </initialOperation>
+        </controls>
+        <controls xsi:type="properties:TextAreaDescription" name="interaction::Interaction description" labelExpression="aql:input.emfEditServices(self).getText(self.eClass().getEStructuralFeature('description')) + ':'" helpExpression="aql:input.emfEditServices(self).getDescription(self.eClass().getEStructuralFeature('description'))" isEnabledExpression="aql:self.eClass().getEStructuralFeature('description').changeable" valueExpression="aql:self.description">
+          <initialOperation>
+            <firstModelOperations xsi:type="tool_2:SetValue" featureName="description" valueExpression="aql:newValue"/>
+          </initialOperation>
+        </controls>
+      </groups>
+      <groups name="Operand Group" labelExpression="Properties" domainClass="interaction::Operand" semanticCandidateExpression="var:self">
+        <controls xsi:type="properties:TextDescription" name="interaction::Interaction name" labelExpression="aql:input.emfEditServices(self).getText(self.eClass().getEStructuralFeature('name')) + ':'" helpExpression="aql:input.emfEditServices(self).getDescription(self.eClass().getEStructuralFeature('name'))" isEnabledExpression="aql:self.eClass().getEStructuralFeature('name').changeable" valueExpression="aql:self.name">
+          <initialOperation>
+            <firstModelOperations xsi:type="tool_2:SetValue" featureName="name" valueExpression="var:newValue"/>
+          </initialOperation>
+        </controls>
+        <controls xsi:type="properties:TextAreaDescription" name="interaction::Interaction description" labelExpression="aql:input.emfEditServices(self).getText(self.eClass().getEStructuralFeature('description')) + ':'" helpExpression="aql:input.emfEditServices(self).getDescription(self.eClass().getEStructuralFeature('description'))" isEnabledExpression="aql:self.eClass().getEStructuralFeature('description').changeable" valueExpression="aql:self.description">
+          <initialOperation>
+            <firstModelOperations xsi:type="tool_2:SetValue" featureName="description" valueExpression="aql:newValue"/>
+          </initialOperation>
+        </controls>
+      </groups>
+    </categories>
+  </extensions>
 </description:Group>
