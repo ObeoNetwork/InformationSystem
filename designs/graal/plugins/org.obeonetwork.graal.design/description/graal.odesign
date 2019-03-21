@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<description:Group xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:description="http://www.eclipse.org/sirius/description/1.1.0" xmlns:description_1="http://www.eclipse.org/sirius/diagram/description/1.1.0" xmlns:description_2="http://www.eclipse.org/sirius/table/description/1.1.0" xmlns:style="http://www.eclipse.org/sirius/diagram/description/style/1.1.0" xmlns:tool="http://www.eclipse.org/sirius/diagram/description/tool/1.1.0" xmlns:tool_1="http://www.eclipse.org/sirius/description/tool/1.1.0" documentation="Copyright (c) 2011, 2017 Obeo.&#xD;&#xA;All rights reserved. This program and the accompanying materials&#xD;&#xA;are made available under the terms of the Eclipse Public License v1.0&#xD;&#xA;which accompanies this distribution, and is available at&#xD;&#xA;http://www.eclipse.org/legal/epl-v10.html&#xD;&#xA;&#xD;&#xA;Contributors:&#xD;&#xA;   Obeo - initial API and implementation" name="graal" version="12.0.0.2017041100">
+<description:Group xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:description="http://www.eclipse.org/sirius/description/1.1.0" xmlns:description_1="http://www.eclipse.org/sirius/diagram/description/1.1.0" xmlns:description_2="http://www.eclipse.org/sirius/table/description/1.1.0" xmlns:properties="http://www.eclipse.org/sirius/properties/1.0.0" xmlns:properties-ext-widgets-reference="http://www.eclipse.org/sirius/properties/1.0.0/ext/widgets/reference" xmlns:style="http://www.eclipse.org/sirius/diagram/description/style/1.1.0" xmlns:tool="http://www.eclipse.org/sirius/diagram/description/tool/1.1.0" xmlns:tool_1="http://www.eclipse.org/sirius/description/tool/1.1.0" documentation="Copyright (c) 2011, 2017 Obeo.&#xD;&#xA;All rights reserved. This program and the accompanying materials&#xD;&#xA;are made available under the terms of the Eclipse Public License v1.0&#xD;&#xA;which accompanies this distribution, and is available at&#xD;&#xA;http://www.eclipse.org/legal/epl-v10.html&#xD;&#xA;&#xD;&#xA;Contributors:&#xD;&#xA;   Obeo - initial API and implementation" name="graal" version="12.0.0.2017041100">
   <ownedViewpoints name="Graal Methodology" modelFileExtension="*.graal">
     <ownedRepresentations xsi:type="description_1:DiagramDescription" name="Reused Description" domainClass="graal.System" preconditionExpression="false">
       <defaultLayer name="Default">
@@ -1793,6 +1793,7 @@
       <intersection name="ACL_ActorOnTask" lineMapping="//@ownedViewpoints[name='Graal%20Methodology']/@ownedRepresentations[name='Actors%20list']/@ownedLineMappings[name='ACL_Task'] //@ownedViewpoints[name='Graal%20Methodology']/@ownedRepresentations[name='Actors%20list']/@ownedLineMappings[name='ACL_TasksGroup']" columnMapping="//@ownedViewpoints[name='Graal%20Methodology']/@ownedRepresentations[name='Actors%20list']/@ownedColumnMappings.0" labelExpression="X" columnFinderExpression="service:getVisibleActors()"/>
     </ownedRepresentations>
     <ownedJavaExtensions qualifiedClassName="org.obeonetwork.graal.design.services.actor.ActorUtils"/>
+    <ownedJavaExtensions qualifiedClassName="org.obeonetwork.graal.design.services.extensions.properties.ExtensionsPropertiesServices"/>
     <ownedJavaExtensions qualifiedClassName="org.obeonetwork.graal.design.services.group.GroupAction"/>
     <ownedJavaExtensions qualifiedClassName="org.obeonetwork.graal.design.services.group.UngroupAction"/>
     <ownedJavaExtensions qualifiedClassName="org.obeonetwork.graal.design.services.task.CreateUseRelationshipAction"/>
@@ -1833,4 +1834,486 @@
     <entries xsi:type="description:UserFixedColor" red="223" green="241" blue="249" name="Graal_Light_Blue"/>
     <entries xsi:type="description:UserFixedColor" red="54" green="157" blue="214" name="Graal_Dark_Blue"/>
   </userColorsPalettes>
+  <userColorsPalettes name="User Color Palette">
+    <entries xsi:type="description:UserFixedColor" red="229" green="241" blue="251" name="light_light_blue"/>
+  </userColorsPalettes>
+  <extensions xsi:type="properties:ViewExtensionDescription" name="Properties">
+    <metamodels href="http://www.obeonetwork.org/dsl/graal/2.0.0#/"/>
+    <metamodels href="http://www.obeonetwork.org/dsl/environment/3.0.0#/"/>
+    <metamodels href="http://mindef.gouv.fr/dsl/safran/graal-extensions/1.0.0#/"/>
+    <categories name="Task">
+      <pages name="Task Page" labelExpression="Task" domainClass="graal::Task" semanticCandidateExpression="var:self" groups="//@extensions.0/@categories.0/@groups.2"/>
+      <pages name="Loop Page" labelExpression="Loop" domainClass="graal::Loop" semanticCandidateExpression="var:self" groups="//@extensions.0/@categories.0/@groups.3"/>
+      <pages name="Operator Page" labelExpression="Operator" domainClass="graal::Operator" semanticCandidateExpression="var:self" groups="//@extensions.0/@categories.0/@groups.4"/>
+      <pages name="Transition Page" labelExpression="Transition" domainClass="graal::Transition" semanticCandidateExpression="var:self" groups="//@extensions.0/@categories.0/@groups.5"/>
+      <pages name="TaskReference Page" labelExpression="Task Reference" domainClass="graal::TaskReference" semanticCandidateExpression="var:self" groups="//@extensions.0/@categories.0/@groups.6"/>
+      <pages name="InitialNode Page" labelExpression="Initial Node" domainClass="graal::InitialNode" semanticCandidateExpression="var:self" groups="//@extensions.0/@categories.0/@groups.0"/>
+      <pages name="FinalNode Page" labelExpression="Final Node" domainClass="graal::FinalNode" semanticCandidateExpression="var:self" groups="//@extensions.0/@categories.0/@groups.0"/>
+      <pages name="AbortNode Page" labelExpression="Abort Node" domainClass="graal::AbortNode" semanticCandidateExpression="var:self" groups="//@extensions.0/@categories.0/@groups.0"/>
+      <pages name="User View Page" labelExpression="User View" domainClass="graal::UserView" semanticCandidateExpression="var:self" groups="//@extensions.0/@categories.0/@groups.1"/>
+      <pages name="User Action Page" labelExpression="User Action" domainClass="graal::UserAction" semanticCandidateExpression="var:self" groups="//@extensions.0/@categories.0/@groups.1"/>
+      <pages name="AppliEvent Page" labelExpression="Appli Event" domainClass="graal::AppliEvent" semanticCandidateExpression="var:self" groups="//@extensions.0/@categories.0/@groups.1"/>
+      <pages name="AppliAction Page" labelExpression="Appli Action" domainClass="graal::AppliAction" semanticCandidateExpression="var:self" groups="//@extensions.0/@categories.0/@groups.1"/>
+      <pages name="TasksGroup Page" labelExpression="Tasks Group" domainClass="graal::TasksGroup" semanticCandidateExpression="var:self" groups="//@extensions.0/@categories.0/@groups.7"/>
+      <groups name="Node Group" labelExpression="Properties" domainClass="graal::Node" semanticCandidateExpression="var:self">
+        <controls xsi:type="properties:TextAreaDescription" name="graal::Node description" labelExpression="aql:input.emfEditServices(self).getText(self.eClass().getEStructuralFeature('description')) + ':'" helpExpression="aql:input.emfEditServices(self).getDescription(self.eClass().getEStructuralFeature('description'))" isEnabledExpression="aql:self.eClass().getEStructuralFeature('description').changeable" valueExpression="aql:self.description">
+          <initialOperation>
+            <firstModelOperations xsi:type="tool_1:SetValue" featureName="description" valueExpression="var:newValue"/>
+          </initialOperation>
+        </controls>
+        <controls xsi:type="properties:CustomDescription" name="org.obeonetwork.dsl.database.design.custom.reference" label="graal::Node outgoingTransitions" labelExpression="aql:'Outgoing Transitions :'" helpExpression="aql:input.emfEditServices(self).getDescription(self.eClass().getEStructuralFeature('outgoingTransitions'))" isEnabledExpression="aql:false">
+          <customExpressions name="referenceNameExpression" customExpression="aql:'outgoingTransitions'"/>
+          <customOperations name="onDoubleClickOperation">
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="aql:selection->first()">
+                <subModelOperations xsi:type="properties:DialogModelOperation" titleExpression="Edit Node outgoingTransition Dialog">
+                  <buttons labelExpression="Cancel" closeDialogOnClick="true" rollbackChangesOnClose="true">
+                    <initialOperation/>
+                  </buttons>
+                  <buttons labelExpression="OK" default="true" closeDialogOnClick="true">
+                    <initialOperation/>
+                  </buttons>
+                  <page name="Edit Node outgoingTransition Page" extends="//@extensions.0/@categories.0/@pages.3"/>
+                </subModelOperations>
+              </firstModelOperations>
+            </initialOperation>
+          </customOperations>
+        </controls>
+        <controls xsi:type="properties:CustomDescription" name="org.obeonetwork.dsl.database.design.custom.reference" label="graal::Node incomingTransitions" labelExpression="aql:'Incoming Transitions :'" helpExpression="aql:input.emfEditServices(self).getDescription(self.eClass().getEStructuralFeature('incomingTransitions'))" isEnabledExpression="aql:false">
+          <customExpressions name="referenceNameExpression" customExpression="aql:'incomingTransitions'"/>
+          <customOperations name="onDoubleClickOperation">
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="aql:selection->first()">
+                <subModelOperations xsi:type="properties:DialogModelOperation" titleExpression="Edit Node incomingTransition Dialog">
+                  <buttons labelExpression="Cancel" closeDialogOnClick="true" rollbackChangesOnClose="true">
+                    <initialOperation/>
+                  </buttons>
+                  <buttons labelExpression="OK" default="true" closeDialogOnClick="true">
+                    <initialOperation/>
+                  </buttons>
+                  <page name="Edit Node incomingTransition Page" extends="//@extensions.0/@categories.0/@pages.3"/>
+                </subModelOperations>
+              </firstModelOperations>
+            </initialOperation>
+          </customOperations>
+        </controls>
+      </groups>
+      <groups name="NamedNode Group" labelExpression="Properties" domainClass="graal::NamedNode" semanticCandidateExpression="var:self">
+        <controls xsi:type="properties:TextDescription" name="graal::NamedNode name" labelExpression="aql:input.emfEditServices(self).getText(self.eClass().getEStructuralFeature('name')) + ':'" helpExpression="aql:input.emfEditServices(self).getDescription(self.eClass().getEStructuralFeature('name'))" isEnabledExpression="aql:self.eClass().getEStructuralFeature('name').changeable" valueExpression="aql:self.name">
+          <initialOperation>
+            <firstModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="var:newValue"/>
+          </initialOperation>
+        </controls>
+        <controls xsi:type="properties:TextAreaDescription" name="graal::NamedNode description" extends="//@extensions.0/@categories.0/@groups.0/@controls.0"/>
+        <controls xsi:type="properties:CustomDescription" name="org.obeonetwork.dsl.database.design.custom.reference" label="graal::NamedNode outgoingTransitions" extends="//@extensions.0/@categories.0/@groups.0/@controls.1"/>
+        <controls xsi:type="properties:CustomDescription" name="org.obeonetwork.dsl.database.design.custom.reference" label="graal::NamedNode incomingTransitions" extends="//@extensions.0/@categories.0/@groups.0/@controls.2"/>
+      </groups>
+      <groups name="Task Group" labelExpression="Properties" domainClass="graal::Task" semanticCandidateExpression="var:self">
+        <controls xsi:type="properties:TextDescription" name="graal::Task id" labelExpression="aql:input.emfEditServices(self).getText(self.eClass().getEStructuralFeature('id')) + ':'" helpExpression="aql:input.emfEditServices(self).getDescription(self.eClass().getEStructuralFeature('id'))" isEnabledExpression="aql:self.eClass().getEStructuralFeature('id').changeable" valueExpression="aql:self.id">
+          <initialOperation>
+            <firstModelOperations xsi:type="tool_1:SetValue" featureName="id" valueExpression="var:newValue"/>
+          </initialOperation>
+        </controls>
+        <controls xsi:type="properties:TextDescription" name="graal::Task name" labelExpression="aql:input.emfEditServices(self).getText(self.eClass().getEStructuralFeature('name')) + ':'" helpExpression="aql:input.emfEditServices(self).getDescription(self.eClass().getEStructuralFeature('name'))" isEnabledExpression="aql:self.eClass().getEStructuralFeature('name').changeable" valueExpression="aql:self.name">
+          <initialOperation>
+            <firstModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="var:newValue"/>
+          </initialOperation>
+        </controls>
+        <controls xsi:type="properties:TextAreaDescription" name="graal::Task description" labelExpression="aql:input.emfEditServices(self).getText(self.eClass().getEStructuralFeature('description')) + ':'" helpExpression="aql:input.emfEditServices(self).getDescription(self.eClass().getEStructuralFeature('description'))" isEnabledExpression="aql:self.eClass().getEStructuralFeature('description').changeable" valueExpression="aql:self.description">
+          <initialOperation>
+            <firstModelOperations xsi:type="tool_1:SetValue" featureName="description" valueExpression="var:newValue"/>
+          </initialOperation>
+        </controls>
+        <controls xsi:type="properties:TextAreaDescription" name="graal::Task preconditions" labelExpression="aql:input.emfEditServices(self).getText(self.eClass().getEStructuralFeature('preconditions')) + ':'" helpExpression="aql:input.emfEditServices(self).getDescription(self.eClass().getEStructuralFeature('preconditions'))" isEnabledExpression="aql:self.eClass().getEStructuralFeature('preconditions').changeable" valueExpression="aql:self.preconditions">
+          <initialOperation>
+            <firstModelOperations xsi:type="tool_1:SetValue" featureName="description" valueExpression="var:newValue"/>
+          </initialOperation>
+        </controls>
+        <controls xsi:type="properties:TextAreaDescription" name="graal::Task postconditions" labelExpression="aql:input.emfEditServices(self).getText(self.eClass().getEStructuralFeature('postconditions')) + ':'" helpExpression="aql:input.emfEditServices(self).getDescription(self.eClass().getEStructuralFeature('postconditions'))" isEnabledExpression="aql:self.eClass().getEStructuralFeature('postconditions').changeable" valueExpression="aql:self.postconditions">
+          <initialOperation>
+            <firstModelOperations xsi:type="tool_1:SetValue" featureName="description" valueExpression="var:newValue"/>
+          </initialOperation>
+        </controls>
+        <controls xsi:type="properties:CustomDescription" name="org.obeonetwork.dsl.database.design.custom.reference" label="graal::Task subActivities" labelExpression="aql:'SubActivities :'" helpExpression="aql:input.emfEditServices(self).getDescription(self.eClass().getEStructuralFeature('subActivities'))" isEnabledExpression="aql:false">
+          <customExpressions name="referenceNameExpression" customExpression="aql:'subActivities'"/>
+          <customOperations name="onDoubleClickOperation">
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="aql:selection->first()">
+                <subModelOperations xsi:type="properties:DialogModelOperation" titleExpression="Edit Task subActivity Dialog">
+                  <buttons labelExpression="Cancel" closeDialogOnClick="true" rollbackChangesOnClose="true">
+                    <initialOperation/>
+                  </buttons>
+                  <buttons labelExpression="OK" default="true" closeDialogOnClick="true">
+                    <initialOperation/>
+                  </buttons>
+                  <page name="Edit Task subActivity Page" extends="//@extensions.0/@categories.0/@pages.1"/>
+                </subModelOperations>
+              </firstModelOperations>
+            </initialOperation>
+          </customOperations>
+        </controls>
+        <controls xsi:type="properties:CustomDescription" name="org.obeonetwork.dsl.database.design.custom.reference" label="graal::Task actors" labelExpression="aql:'Actors :'" helpExpression="aql:input.emfEditServices(self).getDescription(self.eClass().getEStructuralFeature('actors'))" isEnabledExpression="aql:self.eClass().getEStructuralFeature('actors').changeable">
+          <customExpressions name="referenceNameExpression" customExpression="aql:'actors'"/>
+          <customOperations name="onDoubleClickOperation">
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="aql:selection->first()">
+                <subModelOperations xsi:type="properties:DialogModelOperation" titleExpression="Edit Task actor Dialog">
+                  <buttons labelExpression="Cancel" closeDialogOnClick="true" rollbackChangesOnClose="true">
+                    <initialOperation/>
+                  </buttons>
+                  <buttons labelExpression="OK" default="true" closeDialogOnClick="true">
+                    <initialOperation/>
+                  </buttons>
+                  <page name="Edit Task actor Page" extends="//@extensions.0/@categories.1/@pages.0"/>
+                </subModelOperations>
+              </firstModelOperations>
+            </initialOperation>
+          </customOperations>
+        </controls>
+        <controls xsi:type="properties:CustomDescription" name="org.obeonetwork.dsl.database.design.custom.reference" label="graal::Task uses" labelExpression="aql:'Uses :'" helpExpression="aql:input.emfEditServices(self).getDescription(self.eClass().getEStructuralFeature('uses'))" isEnabledExpression="aql:self.eClass().getEStructuralFeature('uses').changeable">
+          <customExpressions name="referenceNameExpression" customExpression="aql:'uses'"/>
+          <customOperations name="onDoubleClickOperation">
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="aql:selection->first()">
+                <subModelOperations xsi:type="properties:DialogModelOperation" titleExpression="Edit Task use Dialog">
+                  <buttons labelExpression="Cancel" closeDialogOnClick="true" rollbackChangesOnClose="true">
+                    <initialOperation/>
+                  </buttons>
+                  <buttons labelExpression="OK" default="true" closeDialogOnClick="true">
+                    <initialOperation/>
+                  </buttons>
+                  <page name="Edit Task use Page" extends="//@extensions.0/@categories.0/@pages.0"/>
+                </subModelOperations>
+              </firstModelOperations>
+            </initialOperation>
+          </customOperations>
+        </controls>
+      </groups>
+      <groups name="Loop Group" labelExpression="Properties" domainClass="graal::Loop" semanticCandidateExpression="var:self">
+        <controls xsi:type="properties:TextDescription" name="graal::Loop lowerBound" labelExpression="aql:input.emfEditServices(self).getText(self.eClass().getEStructuralFeature('lowerBound')) + ':'" helpExpression="aql:input.emfEditServices(self).getDescription(self.eClass().getEStructuralFeature('lowerBound'))" isEnabledExpression="aql:self.eClass().getEStructuralFeature('lowerBound').changeable" valueExpression="aql:self.lowerBound">
+          <initialOperation>
+            <firstModelOperations xsi:type="tool_1:SetValue" featureName="lowerBound" valueExpression="var:newValue"/>
+          </initialOperation>
+        </controls>
+        <controls xsi:type="properties:TextDescription" name="graal::Loop upperBound" labelExpression="aql:input.emfEditServices(self).getText(self.eClass().getEStructuralFeature('upperBound')) + ':'" helpExpression="aql:input.emfEditServices(self).getDescription(self.eClass().getEStructuralFeature('upperBound'))" isEnabledExpression="aql:self.eClass().getEStructuralFeature('upperBound').changeable" valueExpression="aql:self.upperBound">
+          <initialOperation>
+            <firstModelOperations xsi:type="tool_1:SetValue" featureName="upperBound" valueExpression="var:newValue"/>
+          </initialOperation>
+        </controls>
+        <controls xsi:type="properties:TextAreaDescription" name="graal::Loop description" labelExpression="aql:input.emfEditServices(self).getText(self.eClass().getEStructuralFeature('description')) + ':'" helpExpression="aql:input.emfEditServices(self).getDescription(self.eClass().getEStructuralFeature('description'))" isEnabledExpression="aql:self.eClass().getEStructuralFeature('description').changeable" valueExpression="aql:self.description">
+          <initialOperation>
+            <firstModelOperations xsi:type="tool_1:SetValue" featureName="description" valueExpression="var:newValue"/>
+          </initialOperation>
+        </controls>
+        <controls xsi:type="properties:CustomDescription" name="org.obeonetwork.dsl.database.design.custom.reference" label="graal::Loop subActivities" labelExpression="aql:'SubActivities :'" helpExpression="aql:input.emfEditServices(self).getDescription(self.eClass().getEStructuralFeature('subActivities'))" isEnabledExpression="aql:false">
+          <customExpressions name="referenceNameExpression" customExpression="aql:'subActivities'"/>
+          <customOperations name="onDoubleClickOperation">
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="aql:selection->first()">
+                <subModelOperations xsi:type="properties:DialogModelOperation" titleExpression="Edit Task subActivity Dialog">
+                  <buttons labelExpression="Cancel" closeDialogOnClick="true" rollbackChangesOnClose="true">
+                    <initialOperation/>
+                  </buttons>
+                  <buttons labelExpression="OK" default="true" closeDialogOnClick="true">
+                    <initialOperation/>
+                  </buttons>
+                  <page name="Edit Task subActivity Page" extends="//@extensions.0/@categories.0/@pages.1"/>
+                </subModelOperations>
+              </firstModelOperations>
+            </initialOperation>
+          </customOperations>
+        </controls>
+      </groups>
+      <groups name="Operator Group" labelExpression="Properties" domainClass="graal::Operator" semanticCandidateExpression="var:self">
+        <controls xsi:type="properties:SelectDescription" name="graal::Operator kind" labelExpression="aql:input.emfEditServices(self).getText(self.eClass().getEStructuralFeature('kind')) + ':'" helpExpression="aql:input.emfEditServices(self).getDescription(self.eClass().getEStructuralFeature('kind'))" isEnabledExpression="aql:self.eClass().getEStructuralFeature('kind').changeable" valueExpression="aql:self.eClass().getEStructuralFeature('kind').eType.getEEnumLiteralByLiteral(self.kind.toString())" candidatesExpression="aql:self.eClass().getEStructuralFeature('kind').eType.eLiterals" candidateDisplayExpression="aql:candidate.name">
+          <initialOperation>
+            <firstModelOperations xsi:type="tool_1:SetValue" featureName="kind" valueExpression="aql:newValue.instance"/>
+          </initialOperation>
+        </controls>
+        <controls xsi:type="properties:TextAreaDescription" name="graal::Operator description" labelExpression="aql:input.emfEditServices(self).getText(self.eClass().getEStructuralFeature('description')) + ':'" helpExpression="aql:input.emfEditServices(self).getDescription(self.eClass().getEStructuralFeature('description'))" isEnabledExpression="aql:self.eClass().getEStructuralFeature('description').changeable" valueExpression="aql:self.description">
+          <initialOperation>
+            <firstModelOperations xsi:type="tool_1:SetValue" featureName="description" valueExpression="var:newValue"/>
+          </initialOperation>
+        </controls>
+        <controls xsi:type="properties:CustomDescription" name="org.obeonetwork.dsl.database.design.custom.reference" label="graal::Operator outgoingTransitions" extends="//@extensions.0/@categories.0/@groups.0/@controls.1"/>
+        <controls xsi:type="properties:CustomDescription" name="org.obeonetwork.dsl.database.design.custom.reference" label="graal::Operator incomingTransitions" extends="//@extensions.0/@categories.0/@groups.0/@controls.2"/>
+      </groups>
+      <groups name="Transition Group" labelExpression="Properties" domainClass="graal::Transition" semanticCandidateExpression="var:self">
+        <controls xsi:type="properties:TextDescription" name="graal::Transition guard" labelExpression="aql:input.emfEditServices(self).getText(self.eClass().getEStructuralFeature('guard')) + ':'" helpExpression="aql:input.emfEditServices(self).getDescription(self.eClass().getEStructuralFeature('guard'))" isEnabledExpression="aql:self.eClass().getEStructuralFeature('guard').changeable" valueExpression="aql:self.guard">
+          <initialOperation>
+            <firstModelOperations xsi:type="tool_1:SetValue" featureName="guard" valueExpression="var:newValue"/>
+          </initialOperation>
+        </controls>
+        <controls xsi:type="properties:SelectDescription" name="graal::Transition kind" labelExpression="aql:input.emfEditServices(self).getText(self.eClass().getEStructuralFeature('kind')) + ':'" helpExpression="aql:input.emfEditServices(self).getDescription(self.eClass().getEStructuralFeature('kind'))" isEnabledExpression="aql:self.eClass().getEStructuralFeature('kind').changeable" valueExpression="aql:self.eClass().getEStructuralFeature('kind').eType.getEEnumLiteralByLiteral(self.kind.toString())" candidatesExpression="aql:self.eClass().getEStructuralFeature('kind').eType.eLiterals" candidateDisplayExpression="aql:candidate.literal">
+          <initialOperation>
+            <firstModelOperations xsi:type="tool_1:SetValue" featureName="kind" valueExpression="aql:newValue.instance"/>
+          </initialOperation>
+          <style>
+            <labelFontFormat>bold</labelFontFormat>
+          </style>
+        </controls>
+        <controls xsi:type="properties-ext-widgets-reference:ExtReferenceDescription" name="graal::Transition source" labelExpression="aql:'Source :'" helpExpression="aql:input.emfEditServices(self).getDescription(self.eClass().getEStructuralFeature('source'))" isEnabledExpression="aql:false" referenceNameExpression="aql:'source'">
+          <style>
+            <labelFontFormat>bold</labelFontFormat>
+          </style>
+        </controls>
+        <controls xsi:type="properties-ext-widgets-reference:ExtReferenceDescription" name="graal::Transition target" labelExpression="aql:'Target :'" helpExpression="aql:input.emfEditServices(self).getDescription(self.eClass().getEStructuralFeature('target'))" isEnabledExpression="aql:false" referenceNameExpression="aql:'target'">
+          <style>
+            <labelFontFormat>bold</labelFontFormat>
+          </style>
+        </controls>
+        <controls xsi:type="properties:TextAreaDescription" name="graal::Transition description" labelExpression="aql:input.emfEditServices(self).getText(self.eClass().getEStructuralFeature('description')) + ':'" helpExpression="aql:input.emfEditServices(self).getDescription(self.eClass().getEStructuralFeature('description'))" isEnabledExpression="aql:self.eClass().getEStructuralFeature('description').changeable" valueExpression="aql:self.description">
+          <initialOperation>
+            <firstModelOperations xsi:type="tool_1:SetValue" featureName="description" valueExpression="var:newValue"/>
+          </initialOperation>
+        </controls>
+      </groups>
+      <groups name="TaskReference Group" labelExpression="Properties" domainClass="graal::TaskReference" semanticCandidateExpression="var:self">
+        <controls xsi:type="properties-ext-widgets-reference:ExtReferenceDescription" name="graal::TaskReference task" isEnabledExpression="aql:false" referenceNameExpression="aql:'task'"/>
+        <controls xsi:type="properties:TextAreaDescription" name="graal::TaskReference description" labelExpression="aql:input.emfEditServices(self).getText(self.eClass().getEStructuralFeature('description')) + ':'" helpExpression="aql:input.emfEditServices(self).getDescription(self.eClass().getEStructuralFeature('description'))" isEnabledExpression="aql:self.eClass().getEStructuralFeature('description').changeable" valueExpression="aql:self.description">
+          <initialOperation>
+            <firstModelOperations xsi:type="tool_1:SetValue" featureName="description" valueExpression="var:newValue"/>
+          </initialOperation>
+        </controls>
+        <controls xsi:type="properties:CustomDescription" name="org.obeonetwork.dsl.database.design.custom.reference" label="graal::TaskReference outgoingTransitions" extends="//@extensions.0/@categories.0/@groups.0/@controls.1"/>
+        <controls xsi:type="properties:CustomDescription" name="org.obeonetwork.dsl.database.design.custom.reference" label="graal::TaskReference incomingTransitions" extends="//@extensions.0/@categories.0/@groups.0/@controls.2"/>
+      </groups>
+      <groups name="TasksGroup Group" labelExpression="Properties" domainClass="graal::TasksGroup" semanticCandidateExpression="var:self">
+        <controls xsi:type="properties:TextDescription" name="graal::TasksGroup id" labelExpression="aql:input.emfEditServices(self).getText(self.eClass().getEStructuralFeature('id')) + ':'" helpExpression="aql:input.emfEditServices(self).getDescription(self.eClass().getEStructuralFeature('id'))" isEnabledExpression="aql:self.eClass().getEStructuralFeature('id').changeable" valueExpression="aql:self.id">
+          <initialOperation>
+            <firstModelOperations xsi:type="tool_1:SetValue" featureName="id" valueExpression="var:newValue"/>
+          </initialOperation>
+        </controls>
+        <controls xsi:type="properties:TextDescription" name="graal::TasksGroup name" labelExpression="aql:input.emfEditServices(self).getText(self.eClass().getEStructuralFeature('name')) + ':'" helpExpression="aql:input.emfEditServices(self).getDescription(self.eClass().getEStructuralFeature('name'))" isEnabledExpression="aql:self.eClass().getEStructuralFeature('name').changeable" valueExpression="aql:self.name">
+          <initialOperation>
+            <firstModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="var:newValue"/>
+          </initialOperation>
+        </controls>
+        <controls xsi:type="properties:TextAreaDescription" name="graal::TaskGroup description" labelExpression="aql:input.emfEditServices(self).getText(self.eClass().getEStructuralFeature('description')) + ':'" helpExpression="aql:input.emfEditServices(self).getDescription(self.eClass().getEStructuralFeature('description'))" isEnabledExpression="aql:self.eClass().getEStructuralFeature('description').changeable" valueExpression="aql:self.description">
+          <initialOperation>
+            <firstModelOperations xsi:type="tool_1:SetValue" featureName="description" valueExpression="var:newValue"/>
+          </initialOperation>
+        </controls>
+      </groups>
+    </categories>
+    <categories name="Use Case">
+      <pages name="Actor Page" labelExpression="Actor" domainClass="graal::Actor" semanticCandidateExpression="var:self" groups="//@extensions.0/@categories.1/@groups.0"/>
+      <pages name="UseCase Page" labelExpression="Use Case" domainClass="graal::UseCase" semanticCandidateExpression="var:self" groups="//@extensions.0/@categories.1/@groups.1"/>
+      <pages name="UserStory Page" labelExpression="UserStory" domainClass="graal::UserStory" semanticCandidateExpression="var:self" groups="//@extensions.0/@categories.1/@groups.2"/>
+      <groups name="Actor Group" labelExpression="Properties" domainClass="graal::Actor" semanticCandidateExpression="var:self">
+        <controls xsi:type="properties:TextDescription" name="graal::Actor name" labelExpression="aql:input.emfEditServices(self).getText(self.eClass().getEStructuralFeature('name')) + ':'" helpExpression="aql:input.emfEditServices(self).getDescription(self.eClass().getEStructuralFeature('name'))" isEnabledExpression="aql:self.eClass().getEStructuralFeature('name').changeable" valueExpression="aql:self.name">
+          <initialOperation>
+            <firstModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="var:newValue"/>
+          </initialOperation>
+        </controls>
+        <controls xsi:type="properties:TextAreaDescription" name="graal::Actor description" labelExpression="aql:input.emfEditServices(self).getText(self.eClass().getEStructuralFeature('description')) + ':'" helpExpression="aql:input.emfEditServices(self).getDescription(self.eClass().getEStructuralFeature('description'))" isEnabledExpression="aql:self.eClass().getEStructuralFeature('description').changeable" valueExpression="aql:self.description">
+          <initialOperation>
+            <firstModelOperations xsi:type="tool_1:SetValue" featureName="description" valueExpression="var:newValue"/>
+          </initialOperation>
+        </controls>
+        <controls xsi:type="properties-ext-widgets-reference:ExtReferenceDescription" name="graal::Actor superActor" isEnabledExpression="aql:false" referenceNameExpression="aql:'superActor'"/>
+        <controls xsi:type="properties:CustomDescription" name="org.obeonetwork.dsl.database.design.custom.reference" label="graal::Actor subActors" labelExpression="aql:'Sub Actors :'" helpExpression="aql:input.emfEditServices(self).getDescription(self.eClass().getEStructuralFeature('subActors'))" isEnabledExpression="aql:false">
+          <customExpressions name="referenceNameExpression" customExpression="aql:'subActors'"/>
+          <customOperations name="onDoubleClickOperation">
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="aql:selection->first()">
+                <subModelOperations xsi:type="properties:DialogModelOperation" titleExpression="Edit Actor subActors Dialog">
+                  <buttons labelExpression="Cancel" closeDialogOnClick="true" rollbackChangesOnClose="true">
+                    <initialOperation/>
+                  </buttons>
+                  <buttons labelExpression="OK" default="true" closeDialogOnClick="true">
+                    <initialOperation/>
+                  </buttons>
+                  <page name="Edit Actor subActors Page" extends="//@extensions.0/@categories.1/@pages.0"/>
+                </subModelOperations>
+              </firstModelOperations>
+            </initialOperation>
+          </customOperations>
+        </controls>
+      </groups>
+      <groups name="UseCase Group" labelExpression="Properties" domainClass="graal::UseCase" semanticCandidateExpression="var:self">
+        <controls xsi:type="properties:TextDescription" name="graal::UseCase name" labelExpression="aql:input.emfEditServices(self).getText(self.eClass().getEStructuralFeature('name')) + ':'" helpExpression="aql:input.emfEditServices(self).getDescription(self.eClass().getEStructuralFeature('name'))" isEnabledExpression="aql:self.eClass().getEStructuralFeature('name').changeable" valueExpression="aql:self.name">
+          <initialOperation>
+            <firstModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="var:newValue"/>
+          </initialOperation>
+        </controls>
+        <controls xsi:type="properties:TextAreaDescription" name="graal::UseCase description" labelExpression="aql:input.emfEditServices(self).getText(self.eClass().getEStructuralFeature('description')) + ':'" helpExpression="aql:input.emfEditServices(self).getDescription(self.eClass().getEStructuralFeature('description'))" isEnabledExpression="aql:self.eClass().getEStructuralFeature('description').changeable" valueExpression="aql:self.description">
+          <initialOperation>
+            <firstModelOperations xsi:type="tool_1:SetValue" featureName="description" valueExpression="var:newValue"/>
+          </initialOperation>
+        </controls>
+        <controls xsi:type="properties:CustomDescription" name="org.obeonetwork.dsl.database.design.custom.reference" label="graal::UseCase tasks" labelExpression="aql:'Tasks :'" helpExpression="aql:input.emfEditServices(self).getDescription(self.eClass().getEStructuralFeature('tasks'))" isEnabledExpression="aql:self.eClass().getEStructuralFeature('tasks').changeable">
+          <customExpressions name="referenceNameExpression" customExpression="aql:'tasks'"/>
+          <customOperations name="onDoubleClickOperation">
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="aql:selection->first()">
+                <subModelOperations xsi:type="properties:DialogModelOperation" titleExpression="Edit UseCase tasks Dialog">
+                  <buttons labelExpression="Cancel" closeDialogOnClick="true" rollbackChangesOnClose="true">
+                    <initialOperation/>
+                  </buttons>
+                  <buttons labelExpression="OK" default="true" closeDialogOnClick="true">
+                    <initialOperation/>
+                  </buttons>
+                  <page name="Edit UseCase tasks Page" extends="//@extensions.0/@categories.0/@pages.0"/>
+                </subModelOperations>
+              </firstModelOperations>
+            </initialOperation>
+          </customOperations>
+        </controls>
+        <controls xsi:type="properties:CustomDescription" name="org.obeonetwork.dsl.database.design.custom.reference" label="graal::UseCase namespaces" labelExpression="aql:'Namespaces :'" helpExpression="aql:input.emfEditServices(self).getDescription(self.eClass().getEStructuralFeature('namespaces'))" isEnabledExpression="aql:self.eClass().getEStructuralFeature('namespaces').changeable">
+          <customExpressions name="referenceNameExpression" customExpression="aql:'namespaces'"/>
+          <customOperations name="onDoubleClickOperation">
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="aql:selection->first()">
+                <subModelOperations xsi:type="properties:DialogModelOperation" titleExpression="Edit UseCase namespace Dialog">
+                  <buttons labelExpression="Cancel" closeDialogOnClick="true" rollbackChangesOnClose="true">
+                    <initialOperation/>
+                  </buttons>
+                  <buttons labelExpression="OK" default="true" closeDialogOnClick="true">
+                    <initialOperation/>
+                  </buttons>
+                  <page name="Edit UseCase namespace Page">
+                    <extends href="platform:/plugin/org.obeonetwork.dsl.environment.properties/description/environment-properties.odesign#//@extensions.0/@categories.1/@pages.5"/>
+                  </page>
+                </subModelOperations>
+              </firstModelOperations>
+            </initialOperation>
+          </customOperations>
+        </controls>
+        <controls xsi:type="properties:CustomDescription" name="org.obeonetwork.dsl.database.design.custom.reference" label="graal::UseCase domainClasses" labelExpression="aql:'Domain Classes :'" helpExpression="aql:input.emfEditServices(self).getDescription(self.eClass().getEStructuralFeature('domainClasses'))" isEnabledExpression="aql:self.eClass().getEStructuralFeature('domainClasses').changeable">
+          <customExpressions name="referenceNameExpression" customExpression="aql:'domainClasses'"/>
+          <customOperations name="onDoubleClickOperation">
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="aql:selection->first()">
+                <subModelOperations xsi:type="properties:DialogModelOperation" titleExpression="Edit UseCase domainClasses Dialog">
+                  <buttons labelExpression="Cancel" closeDialogOnClick="true" rollbackChangesOnClose="true">
+                    <initialOperation/>
+                  </buttons>
+                  <buttons labelExpression="OK" default="true" closeDialogOnClick="true">
+                    <initialOperation/>
+                  </buttons>
+                  <page name="EditUseCase domainClasses Page" extends="//@extensions.0/@categories.2/@pages.1"/>
+                </subModelOperations>
+              </firstModelOperations>
+            </initialOperation>
+          </customOperations>
+        </controls>
+      </groups>
+      <groups name="UserStory Group" labelExpression="Properties" domainClass="graal::UserStory" semanticCandidateExpression="var:self">
+        <controls xsi:type="properties:TextDescription" name="graal::UseStory name" labelExpression="aql:input.emfEditServices(self).getText(self.eClass().getEStructuralFeature('name')) + ':'" helpExpression="aql:input.emfEditServices(self).getDescription(self.eClass().getEStructuralFeature('name'))" isEnabledExpression="aql:self.eClass().getEStructuralFeature('name').changeable" valueExpression="aql:self.name">
+          <initialOperation>
+            <firstModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="var:newValue"/>
+          </initialOperation>
+        </controls>
+        <controls xsi:type="properties:TextAreaDescription" name="graal::UseStory description" labelExpression="aql:input.emfEditServices(self).getText(self.eClass().getEStructuralFeature('description')) + ':'" helpExpression="aql:input.emfEditServices(self).getDescription(self.eClass().getEStructuralFeature('description'))" isEnabledExpression="aql:self.eClass().getEStructuralFeature('description').changeable" valueExpression="aql:self.description">
+          <initialOperation>
+            <firstModelOperations xsi:type="tool_1:SetValue" featureName="description" valueExpression="var:newValue"/>
+          </initialOperation>
+        </controls>
+      </groups>
+    </categories>
+    <categories name="Default Category">
+      <pages name="System Page" labelExpression="System" domainClass="graal::System" semanticCandidateExpression="var:self" groups="//@extensions.0/@categories.2/@groups.0"/>
+      <pages name="DomainClass Page" labelExpression="Domain Class" domainClass="graal::DomainClass" semanticCandidateExpression="var:self">
+        <groups href="platform:/plugin/org.obeonetwork.dsl.environment.properties/description/environment-properties.odesign#//@extensions.0/@categories.0/@groups.0"/>
+      </pages>
+      <pages name="Persistence Page" labelExpression="Persistence" domainClass="graal::DomainClass" semanticCandidateExpression="var:self" groups="//@extensions.0/@categories.2/@groups.1"/>
+      <pages name="Risk Page" labelExpression="Risk" domainClass="environment::ObeoDSMObject" semanticCandidateExpression="var:self" preconditionExpression="service:self.handleRiskAndVersionProperties()" groups="//@extensions.0/@categories.2/@groups.2"/>
+      <pages name="Version Page" labelExpression="Version" domainClass="environment::ObeoDSMObject" semanticCandidateExpression="var:self" preconditionExpression="service:self.handleRiskAndVersionProperties()" groups="//@extensions.0/@categories.2/@groups.3"/>
+      <groups name="System Group" labelExpression="Properties" domainClass="graal::System" semanticCandidateExpression="var:self">
+        <controls xsi:type="properties:TextDescription" name="graal::System name" labelExpression="aql:input.emfEditServices(self).getText(self.eClass().getEStructuralFeature('name')) + ':'" helpExpression="aql:input.emfEditServices(self).getDescription(self.eClass().getEStructuralFeature('name'))" isEnabledExpression="aql:self.eClass().getEStructuralFeature('name').changeable" valueExpression="aql:self.name">
+          <initialOperation>
+            <firstModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="var:newValue"/>
+          </initialOperation>
+        </controls>
+        <controls xsi:type="properties:TextAreaDescription" name="graal::System description" labelExpression="aql:input.emfEditServices(self).getText(self.eClass().getEStructuralFeature('description')) + ':'" helpExpression="aql:input.emfEditServices(self).getDescription(self.eClass().getEStructuralFeature('description'))" isEnabledExpression="aql:self.eClass().getEStructuralFeature('description').changeable" valueExpression="aql:self.description">
+          <initialOperation>
+            <firstModelOperations xsi:type="tool_1:SetValue" featureName="description" valueExpression="var:newValue"/>
+          </initialOperation>
+        </controls>
+      </groups>
+      <groups name="Persistence Group" labelExpression="Properties" domainClass="graal::DomainClass" semanticCandidateExpression="var:self">
+        <controls xsi:type="properties:TextDescription" name="graal::DomainClass estimatedVolumetry" labelExpression="aql:input.emfEditServices(self).getText(self.eClass().getEStructuralFeature('estimatedVolumetry')) + ':'" helpExpression="aql:input.emfEditServices(self).getDescription(self.eClass().getEStructuralFeature('estimatedVolumetry'))" isEnabledExpression="aql:self.eClass().getEStructuralFeature('estimatedVolumetry').changeable" valueExpression="aql:self.estimatedVolumetry">
+          <initialOperation>
+            <firstModelOperations xsi:type="tool_1:SetValue" featureName="estimatedVolumetry" valueExpression="var:newValue"/>
+          </initialOperation>
+        </controls>
+        <controls xsi:type="properties:CheckboxDescription" name="graal::DomainClass historized" labelExpression="aql:input.emfEditServices(self).getText(self.eClass().getEStructuralFeature('historized'))" helpExpression="aql:input.emfEditServices(self).getDescription(self.eClass().getEStructuralFeature('historized'))" isEnabledExpression="aql:self.eClass().getEStructuralFeature('historized').changeable" valueExpression="aql:self.historized">
+          <initialOperation>
+            <firstModelOperations xsi:type="tool_1:SetValue" featureName="historized" valueExpression="var:newValue"/>
+          </initialOperation>
+          <conditionalStyles preconditionExpression="aql:self.eClass().getEStructuralFeature('historized').lowerBound = 1">
+            <style>
+              <labelFontFormat>bold</labelFontFormat>
+            </style>
+          </conditionalStyles>
+        </controls>
+      </groups>
+      <groups name="Risk Group" labelExpression="Properties" domainClass="environment::ObeoDSMObject" semanticCandidateExpression="var:self">
+        <controls xsi:type="properties:SelectDescription" name="graalextensions::Risk benefits" labelExpression="aql:input.emfEditServices(self.getRisk()).getText(self.getRisk().eClass().getEStructuralFeature('benefits')) + ':'" helpExpression="aql:input.emfEditServices(self.getRisk()).getDescription(self.getRisk().eClass().getEStructuralFeature('benefits'))" isEnabledExpression="aql:self.getRisk().eClass().getEStructuralFeature('benefits').changeable" valueExpression="aql:self.getRisk().eClass().getEStructuralFeature('benefits').eType.getEEnumLiteralByLiteral(self.getRisk().benefits.toString())" candidatesExpression="aql:self.getRisk().eClass().getEStructuralFeature('benefits').eType.eLiterals" candidateDisplayExpression="aql:candidate.literal">
+          <initialOperation>
+            <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:self">
+              <subModelOperations xsi:type="tool_1:If" conditionExpression="aql:self.metadatas = null">
+                <subModelOperations xsi:type="tool_1:CreateInstance" typeName="environment::MetaDataContainer" referenceName="metadatas"/>
+              </subModelOperations>
+              <subModelOperations xsi:type="tool_1:ChangeContext" browseExpression="feature:metadatas">
+                <subModelOperations xsi:type="tool_1:If" conditionExpression="aql:self.metadatas->filter(graalextensions::Risk)->first() = null">
+                  <subModelOperations xsi:type="tool_1:CreateInstance" typeName="graalextensions::Risk" referenceName="metadatas"/>
+                </subModelOperations>
+                <subModelOperations xsi:type="tool_1:ChangeContext" browseExpression="aql:self.metadatas->filter(graalextensions::Risk)->first()">
+                  <subModelOperations xsi:type="tool_1:SetValue" featureName="benefits" valueExpression="aql:newValue.instance"/>
+                </subModelOperations>
+              </subModelOperations>
+            </firstModelOperations>
+          </initialOperation>
+        </controls>
+        <controls xsi:type="properties:SelectDescription" name="graalextensions::Risk drawbacks" labelExpression="aql:input.emfEditServices(self.getRisk()).getText(self.getRisk().eClass().getEStructuralFeature('drawbacks')) + ':'" helpExpression="aql:input.emfEditServices(self.getRisk()).getDescription(self.getRisk().eClass().getEStructuralFeature('drawbacks'))" isEnabledExpression="aql:self.getRisk().eClass().getEStructuralFeature('drawbacks').changeable" valueExpression="aql:self.getRisk().eClass().getEStructuralFeature('drawbacks').eType.getEEnumLiteralByLiteral(self.getRisk().drawbacks.toString())" candidatesExpression="aql:self.getRisk().eClass().getEStructuralFeature('drawbacks').eType.eLiterals" candidateDisplayExpression="aql:candidate.literal">
+          <initialOperation>
+            <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:self">
+              <subModelOperations xsi:type="tool_1:If" conditionExpression="aql:self.metadatas = null">
+                <subModelOperations xsi:type="tool_1:CreateInstance" typeName="environment::MetaDataContainer" referenceName="metadatas"/>
+              </subModelOperations>
+              <subModelOperations xsi:type="tool_1:ChangeContext" browseExpression="feature:metadatas">
+                <subModelOperations xsi:type="tool_1:If" conditionExpression="aql:self.metadatas->filter(graalextensions::Risk)->first() = null">
+                  <subModelOperations xsi:type="tool_1:CreateInstance" typeName="graalextensions::Risk" referenceName="metadatas"/>
+                </subModelOperations>
+                <subModelOperations xsi:type="tool_1:ChangeContext" browseExpression="aql:self.metadatas->filter(graalextensions::Risk)->first()">
+                  <subModelOperations xsi:type="tool_1:SetValue" featureName="drawbacks" valueExpression="aql:newValue.instance"/>
+                </subModelOperations>
+              </subModelOperations>
+            </firstModelOperations>
+          </initialOperation>
+        </controls>
+        <controls xsi:type="properties:SelectDescription" name="graalextensions::Risk risk" labelExpression="aql:input.emfEditServices(self.getRisk()).getText(self.getRisk().eClass().getEStructuralFeature('risk')) + ':'" helpExpression="aql:input.emfEditServices(self.getRisk()).getDescription(self.getRisk().eClass().getEStructuralFeature('risk'))" isEnabledExpression="aql:self.getRisk().eClass().getEStructuralFeature('risk').changeable" valueExpression="aql:self.getRisk().eClass().getEStructuralFeature('risk').eType.getEEnumLiteralByLiteral(self.getRisk().risk.toString())" candidatesExpression="aql:self.getRisk().eClass().getEStructuralFeature('risk').eType.eLiterals" candidateDisplayExpression="aql:candidate.literal">
+          <initialOperation>
+            <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:self">
+              <subModelOperations xsi:type="tool_1:If" conditionExpression="aql:self.metadatas = null">
+                <subModelOperations xsi:type="tool_1:CreateInstance" typeName="environment::MetaDataContainer" referenceName="metadatas"/>
+              </subModelOperations>
+              <subModelOperations xsi:type="tool_1:ChangeContext" browseExpression="feature:metadatas">
+                <subModelOperations xsi:type="tool_1:If" conditionExpression="aql:self.metadatas->filter(graalextensions::Risk)->first() = null">
+                  <subModelOperations xsi:type="tool_1:CreateInstance" typeName="graalextensions::Risk" referenceName="metadatas"/>
+                </subModelOperations>
+                <subModelOperations xsi:type="tool_1:ChangeContext" browseExpression="aql:self.metadatas->filter(graalextensions::Risk)->first()">
+                  <subModelOperations xsi:type="tool_1:SetValue" featureName="risk" valueExpression="aql:newValue.instance"/>
+                </subModelOperations>
+              </subModelOperations>
+            </firstModelOperations>
+          </initialOperation>
+        </controls>
+      </groups>
+      <groups name="Version Group" labelExpression="Properties" domainClass="environment::ObeoDSMObject" semanticCandidateExpression="var:self">
+        <controls xsi:type="properties:LabelDescription" name="environment::ObeoDSMObject version" labelExpression="aql:input.emfEditServices(self).getText(self.eClass().getEStructuralFeature('version')) + ':'" helpExpression="aql:input.emfEditServices(self).getDescription(self.eClass().getEStructuralFeature('version'))" isEnabledExpression="aql:self.eClass().getEStructuralFeature('version').changeable" valueExpression="aql:self.version">
+          <style backgroundColor="//@userColorsPalettes[name='User%20Color%20Palette']/@entries[name='light_light_blue']"/>
+          <actions labelExpression="aql:'+1'">
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:SetValue" featureName="version" valueExpression="aql:self.version+1"/>
+            </initialOperation>
+          </actions>
+        </controls>
+        <controls xsi:type="properties:TextDescription" name="environment::ObeoDSMObject modifiedOn" labelExpression="aql:input.emfEditServices(self).getText(self.eClass().getEStructuralFeature('modifiedOn')) + ':'" helpExpression="aql:input.emfEditServices(self).getDescription(self.eClass().getEStructuralFeature('modifiedOn'))" isEnabledExpression="aql:false" valueExpression="aql:self.modifiedOn"/>
+        <controls xsi:type="properties:TextDescription" name="environment::ObeoDSMObject createdOn" labelExpression="aql:input.emfEditServices(self).getText(self.eClass().getEStructuralFeature('createdOn')) + ':'" helpExpression="aql:input.emfEditServices(self).getDescription(self.eClass().getEStructuralFeature('createdOn'))" isEnabledExpression="aql:false" valueExpression="aql:self.createdOn"/>
+      </groups>
+    </categories>
+  </extensions>
 </description:Group>
