@@ -16,6 +16,7 @@ import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EReference;
 import org.eclipse.jface.viewers.IStructuredContentProvider;
 import org.eclipse.jface.viewers.Viewer;
+import org.obeonetwork.dsl.environment.Annotation;
 
 /**
  * The content provider for the table of the table widget.
@@ -62,7 +63,7 @@ public class TableReferenceContentProvider implements IStructuredContentProvider
 			Object values = eObject.eGet(eReference);
 			if (values instanceof Collection<?>) {
 				Collection<?> collections = (Collection<?>) values;
-				return collections.toArray();
+				return collections.stream().filter(Annotation.class::isInstance).toArray();
 			}
 		}
 		return new Object[] {};

@@ -47,7 +47,10 @@ public class TableColumnsLabelProvider extends CellLabelProvider implements ILab
 	public String getText(Object element) {
 		if (element instanceof EObject) {
 			EStructuralFeature eStructuralFeature = ((EObject) element).eClass().getEStructuralFeature(columnName);
-			Object object = ((EObject) element).eGet(eStructuralFeature);
+			Object object = null;
+			if (eStructuralFeature != null) {
+				object = ((EObject) element).eGet(eStructuralFeature);
+			}
 			return object == null ? "" : object.toString();
 		}
 		return element == null ? "" : element.toString();

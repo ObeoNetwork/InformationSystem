@@ -535,7 +535,7 @@
               </firstModelOperations>
             </initialOperation>
           </customOperations>
-          <customOperations name="onClickOperation">
+          <customOperations name="onDoubleClickOperation">
             <initialOperation>
               <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="aql:selection->first()">
                 <subModelOperations xsi:type="properties:DialogModelOperation" titleExpression="Edit Column Dialog">
@@ -685,7 +685,7 @@
               </firstModelOperations>
             </initialOperation>
           </customOperations>
-          <customOperations name="onClickOperation">
+          <customOperations name="onDoubleClickOperation">
             <initialOperation>
               <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="aql:selection->first()">
                 <subModelOperations xsi:type="properties:DialogModelOperation" titleExpression="Edit ForeignKey Dialog">
@@ -727,7 +727,7 @@
               </firstModelOperations>
             </initialOperation>
           </customOperations>
-          <customOperations name="onClickOperation">
+          <customOperations name="onDoubleClickOperation">
             <initialOperation>
               <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="aql:selection->first()">
                 <subModelOperations xsi:type="properties:DialogModelOperation" titleExpression="Edit Index Dialog">
@@ -777,7 +777,7 @@
               </firstModelOperations>
             </initialOperation>
           </customOperations>
-          <customOperations name="onClickOperation">
+          <customOperations name="onDoubleClickOperation">
             <initialOperation>
               <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="aql:selection->first()">
                 <subModelOperations xsi:type="properties:DialogModelOperation" titleExpression="Edit Constraint Dialog">
@@ -837,7 +837,7 @@
               </firstModelOperations>
             </initialOperation>
           </customOperations>
-          <customOperations name="onClickOperation">
+          <customOperations name="onDoubleClickOperation">
             <initialOperation>
               <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="aql:selection->first()">
                 <subModelOperations xsi:type="properties:DialogModelOperation" titleExpression="Edit Foreign Key Element Dialog">
@@ -938,7 +938,7 @@
               </firstModelOperations>
             </initialOperation>
           </customOperations>
-          <customOperations name="onClickOperation">
+          <customOperations name="onDoubleClickOperation">
             <initialOperation>
               <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="aql:selection->first()">
                 <subModelOperations xsi:type="properties:DialogModelOperation" titleExpression="Edit Index Element Dialog">

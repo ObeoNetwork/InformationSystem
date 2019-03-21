@@ -10,6 +10,8 @@
  *******************************************************************************/
 package org.obeonetwork.dsl.database.design.reference.custom;
 
+import java.util.HashMap;
+import java.util.Map;
 import java.util.Optional;
 
 import org.eclipse.eef.EEFCustomExpression;
@@ -18,6 +20,7 @@ import org.eclipse.eef.EEFWidgetDescription;
 import org.eclipse.eef.EefPackage;
 import org.eclipse.eef.core.api.EEFExpressionUtils;
 import org.eclipse.eef.core.api.EditingContextAdapter;
+import org.eclipse.eef.core.api.utils.EvalFactory;
 import org.eclipse.eef.core.ext.widgets.reference.internal.EEFExtReferenceController;
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.sirius.common.interpreter.api.IEvaluationResult;
@@ -44,6 +47,8 @@ public class CustomReferenceController extends EEFExtReferenceController {
 	private static final String ENABLE_REMOVE_BUTTON_EXPRESSION_ID = "enableRemoveButtonExpression";
 	
 	private static final String ON_CLICK_EXPRESSION = "onClickOperation";
+	
+	private static final String ON_DOUBLE_CLICK_EXPRESSION = "onDoubleClickOperation";
 
 	private EEFCustomWidgetDescription description;
 	
@@ -126,9 +131,30 @@ public class CustomReferenceController extends EEFExtReferenceController {
 	
 	@Override
 	public void onClick(Object element, String onClickEventKind) {
+		this.editingContextAdapter.performModelChange(() -> {
+			String expression = "";
+			if (EEFExpressionUtils.EEFList.DOUBLE_CLICK.equals(onClickEventKind)) {
+				expression = this.getOnDoubleClickExpression();
+			} else if (EEFExpressionUtils.EEFList.SINGLE_CLICK.equals(onClickEventKind)) {
+				expression = this.getOnClickExpression();
+			}
+			
+			Map<String, Object> variables = new HashMap<String, Object>();
+			variables.putAll(this.variableManager.getVariables());
+			variables.put(EEFExpressionUtils.EEFList.SELECTION, element);
+			variables.put(EEFExpressionUtils.EEFList.ON_CLICK_EVENT_KIND, onClickEventKind);
+
+			EvalFactory.of(this.interpreter, variables).call(expression);
+		});
+		
+		
 		if (EEFExpressionUtils.EEFList.DOUBLE_CLICK.equals(onClickEventKind)) {
 			super.onClick(element, onClickEventKind);
 		}
+	}
+
+	protected String getOnDoubleClickExpression() {
+		return this.getCustomExpression(ON_DOUBLE_CLICK_EXPRESSION).orElse("");
 	}
 
 	@Override

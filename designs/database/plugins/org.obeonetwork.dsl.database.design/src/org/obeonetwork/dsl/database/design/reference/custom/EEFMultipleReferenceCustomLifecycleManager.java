@@ -43,6 +43,7 @@ public class EEFMultipleReferenceCustomLifecycleManager extends EEFExtMultipleRe
 	
 	@Override
 	protected void setEnabled(boolean isEnabled) {
+		super.setEnabled(isEnabled);
 		if (this.addButton != null && !this.addButton.isDisposed()) {
 			this.addButton.setEnabled(isEnabled && this.customDescription.addButtonNeeded());
 		}

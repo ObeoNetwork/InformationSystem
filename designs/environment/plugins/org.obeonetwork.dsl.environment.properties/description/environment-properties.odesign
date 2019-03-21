@@ -6,7 +6,6 @@
   <extensions xsi:type="properties:ViewExtensionDescription" name="Properties">
     <metamodels href="http://www.obeonetwork.org/dsl/environment/3.0.0#/"/>
     <categories name="StructuredType">
-      <pages name="StructuredType Page" labelExpression="StructuredType" domainClass="environment::StructuredType" semanticCandidateExpression="var:self" preconditionExpression="aql:false" groups="//@extensions.0/@categories.0/@groups.0"/>
       <groups name="StructuredType Group" labelExpression="Propetries" domainClass="environment::StructuredType" semanticCandidateExpression="var:self">
         <controls xsi:type="properties:TextDescription" name="environment::StructuredType name" labelExpression="aql:input.emfEditServices(self).getText(self.eClass().getEStructuralFeature('name')) + ':'" helpExpression="aql:input.emfEditServices(self).getDescription(self.eClass().getEStructuralFeature('name'))" isEnabledExpression="aql:self.eClass().getEStructuralFeature('name').changeable" valueExpression="aql:self.name">
           <initialOperation>
@@ -18,9 +17,48 @@
             </style>
           </conditionalStyles>
         </controls>
-        <controls xsi:type="properties-ext-widgets-reference:ExtReferenceDescription" name="environment::StructuredType supertype" labelExpression="aql:input.emfEditServices(self).getText(self.eClass().getEStructuralFeature('supertype')) + ':'" helpExpression="aql:input.emfEditServices(self).getDescription(self.eClass().getEStructuralFeature('supertype'))" isEnabledExpression="aql:self.eClass().getEStructuralFeature('supertype').changeable" referenceNameExpression="aql:'supertype'"/>
-        <controls xsi:type="properties-ext-widgets-reference:ExtReferenceDescription" name="environment::StructuredType attributes" labelExpression="Attributes:" helpExpression="aql:input.emfEditServices(self).getDescription(self.eClass().getEStructuralFeature('ownedAttributes'))" isEnabledExpression="aql:self.eClass().getEStructuralFeature('ownedAttributes').changeable" referenceNameExpression="aql:'ownedAttributes'"/>
-        <controls xsi:type="properties-ext-widgets-reference:ExtReferenceDescription" name="environment::StructuredType associatedTypes" labelExpression="aql:input.emfEditServices(self).getText(self.eClass().getEStructuralFeature('associatedTypes')) + ':'" helpExpression="aql:input.emfEditServices(self).getDescription(self.eClass().getEStructuralFeature('associatedTypes'))" isEnabledExpression="aql:self.eClass().getEStructuralFeature('associatedTypes').changeable" referenceNameExpression="aql:'associatedTypes'"/>
+        <controls xsi:type="properties:CustomDescription" name="org.obeonetwork.dsl.database.design.custom.reference" label="environment::StructuredType supertype" labelExpression="aql:input.emfEditServices(self).getText(self.eClass().getEStructuralFeature('supertype')) + ':'" helpExpression="aql:input.emfEditServices(self).getDescription(self.eClass().getEStructuralFeature('supertype'))" isEnabledExpression="aql:self.eClass().getEStructuralFeature('supertype').changeable">
+          <customExpressions name="referenceNameExpression" customExpression="aql:'supertype'"/>
+        </controls>
+        <controls xsi:type="properties:CustomDescription" name="org.obeonetwork.dsl.database.design.custom.reference" label="environment::StructuredType attributes" labelExpression="aql:'Attributes :'" helpExpression="aql:input.emfEditServices(self).getDescription(self.eClass().getEStructuralFeature('ownedAttributes'))" isEnabledExpression="aql:self.eClass().getEStructuralFeature('ownedAttributes').changeable">
+          <customExpressions name="referenceNameExpression" customExpression="aql:'ownedAttributes'"/>
+          <customExpressions name="enableAddButtonExpression" customExpression="aql:false"/>
+          <customExpressions name="enableBrowseButtonExpression" customExpression="aql:false"/>
+          <customExpressions name="enableRemoveButtonExpression" customExpression="aql:false"/>
+          <customOperations name="onDoubleClickOperation">
+            <initialOperation>
+              <firstModelOperations xsi:type="tool:ChangeContext" browseExpression="aql:selection->first()">
+                <subModelOperations xsi:type="properties:DialogModelOperation" titleExpression="Edit attributes Dialog">
+                  <buttons labelExpression="Cancel" closeDialogOnClick="true" rollbackChangesOnClose="true">
+                    <initialOperation/>
+                  </buttons>
+                  <buttons labelExpression="OK" default="true" closeDialogOnClick="true">
+                    <initialOperation/>
+                  </buttons>
+                  <page name="Edit attribute Page" extends="//@extensions.0/@categories.1/@pages.2"/>
+                </subModelOperations>
+              </firstModelOperations>
+            </initialOperation>
+          </customOperations>
+        </controls>
+        <controls xsi:type="properties:CustomDescription" name="org.obeonetwork.dsl.database.design.custom.reference" label="environment::StructuredType associatedTypes" labelExpression="aql:input.emfEditServices(self).getText(self.eClass().getEStructuralFeature('associatedTypes')) + ':'" helpExpression="aql:input.emfEditServices(self).getDescription(self.eClass().getEStructuralFeature('associatedTypes'))" isEnabledExpression="aql:self.eClass().getEStructuralFeature('associatedTypes').changeable">
+          <customExpressions name="referenceNameExpression" customExpression="aql:'associatedTypes'"/>
+          <customOperations name="onDoubleClickOperation">
+            <initialOperation>
+              <firstModelOperations xsi:type="tool:ChangeContext" browseExpression="aql:selection->first()">
+                <subModelOperations xsi:type="properties:DialogModelOperation" titleExpression="Edit associatedTypes Dialog">
+                  <buttons labelExpression="Cancel" closeDialogOnClick="true" rollbackChangesOnClose="true">
+                    <initialOperation/>
+                  </buttons>
+                  <buttons labelExpression="OK" default="true" closeDialogOnClick="true">
+                    <initialOperation/>
+                  </buttons>
+                  <page name="Edit associatedTypes Page"/>
+                </subModelOperations>
+              </firstModelOperations>
+            </initialOperation>
+          </customOperations>
+        </controls>
         <controls xsi:type="properties:TextAreaDescription" name="environment::StructuredType description" labelExpression="aql:input.emfEditServices(self).getText(self.eClass().getEStructuralFeature('description')) + ':'" helpExpression="aql:input.emfEditServices(self).getDescription(self.eClass().getEStructuralFeature('description'))" isEnabledExpression="aql:self.eClass().getEStructuralFeature('description').changeable" valueExpression="aql:self.description">
           <initialOperation>
             <firstModelOperations xsi:type="tool:SetValue" featureName="description" valueExpression="var:newValue"/>
@@ -34,7 +72,7 @@
       <pages name="Attribute Page" labelExpression="Attribute" domainClass="environment::Attribute" semanticCandidateExpression="var:self" groups="//@extensions.0/@categories.1/@groups.2"/>
       <pages name="Enumeration Page" labelExpression="Enumeration" domainClass="environment::Enumeration" semanticCandidateExpression="var:self" groups="//@extensions.0/@categories.1/@groups.3"/>
       <pages name="Literal Page" labelExpression="Literal" domainClass="environment::Literal" semanticCandidateExpression="var:self" groups="//@extensions.0/@categories.1/@groups.4"/>
-      <pages name="Namespace Page" labelExpression="Namespace" domainClass="environment::Namespace" semanticCandidateExpression="var:self" groups="//@extensions.0/@categories.1/@groups.5"/>
+      <pages name="Namespace Page" labelExpression="aql:self.eClass().name" domainClass="environment::Namespace" semanticCandidateExpression="var:self" groups="//@extensions.0/@categories.1/@groups.5"/>
       <pages name="Annotation Page" labelExpression="Annotation" domainClass="environment::Annotation" semanticCandidateExpression="var:self" groups="//@extensions.0/@categories.1/@groups.6"/>
       <groups name="Reference Group" labelExpression="Properties" domainClass="environment::Reference" semanticCandidateExpression="var:self">
         <controls xsi:type="properties:TextDescription" name="environment::Reference name" labelExpression="aql:input.emfEditServices(self).getText(self.eClass().getEStructuralFeature('name')) + ':'" helpExpression="aql:input.emfEditServices(self).getDescription(self.eClass().getEStructuralFeature('name'))" isEnabledExpression="aql:self.eClass().getEStructuralFeature('name').changeable" valueExpression="aql:self.name">
@@ -73,7 +111,9 @@
             <firstModelOperations xsi:type="tool:SetValue" featureName="isIdentifier" valueExpression="var:newValue"/>
           </initialOperation>
         </controls>
-        <controls xsi:type="properties-ext-widgets-reference:ExtReferenceDescription" name="environment::Reference oppositeOf" referenceNameExpression="aql:'oppositeOf'"/>
+        <controls xsi:type="properties:CustomDescription" name="org.obeonetwork.dsl.database.design.custom.reference" label="environment::Reference oppositeOf" labelExpression="aql:input.emfEditServices(self).getText(self.eClass().getEStructuralFeature('oppositeOf')) + ':'" helpExpression="aql:input.emfEditServices(self).getDescription(self.eClass().getEStructuralFeature('oppositeOf'))" isEnabledExpression="aql:self.eClass().getEStructuralFeature('oppositeOf').changeable">
+          <customExpressions name="referenceNameExpression" customExpression="aql:'oppositeOf'"/>
+        </controls>
         <controls xsi:type="properties:TextAreaDescription" name="environment::Reference description" labelExpression="aql:input.emfEditServices(self).getText(self.eClass().getEStructuralFeature('description')) + ':'" helpExpression="aql:input.emfEditServices(self).getDescription(self.eClass().getEStructuralFeature('description'))" isEnabledExpression="aql:self.eClass().getEStructuralFeature('description').changeable" valueExpression="aql:self.description">
           <initialOperation>
             <firstModelOperations xsi:type="tool:SetValue" featureName="description" valueExpression="var:newValue"/>
@@ -129,7 +169,9 @@
             <firstModelOperations xsi:type="tool:SetValue" featureName="name" valueExpression="var:newValue"/>
           </initialOperation>
         </controls>
-        <controls xsi:type="properties-ext-widgets-reference:ExtReferenceDescription" name="environment::Attribute type" referenceNameExpression="aql:'type'"/>
+        <controls xsi:type="properties:CustomDescription" name="org.obeonetwork.dsl.database.design.custom.reference" label="environment::Attribute type" labelExpression="aql:input.emfEditServices(self).getText(self.eClass().getEStructuralFeature('type')) + ':'" helpExpression="aql:input.emfEditServices(self).getDescription(self.eClass().getEStructuralFeature('type'))" isEnabledExpression="aql:self.eClass().getEStructuralFeature('type').changeable">
+          <customExpressions name="referenceNameExpression" customExpression="aql:'type'"/>
+        </controls>
         <controls xsi:type="properties:SelectDescription" name="environment::Attribute multiplicity" labelExpression="aql:input.emfEditServices(self).getText(self.eClass().getEStructuralFeature('multiplicity')) + ':'" helpExpression="aql:input.emfEditServices(self).getDescription(self.eClass().getEStructuralFeature('multiplicity'))" isEnabledExpression="aql:self.eClass().getEStructuralFeature('multiplicity').changeable" valueExpression="aql:self.eClass().getEStructuralFeature('multiplicity').eType.getEEnumLiteralByLiteral(self.multiplicity.toString())" candidatesExpression="aql:self.eClass().getEStructuralFeature('multiplicity').eType.eLiterals" candidateDisplayExpression="aql:candidate.literal">
           <initialOperation>
             <firstModelOperations xsi:type="tool:SetValue" featureName="multiplicity" valueExpression="aql:newValue.instance"/>
@@ -158,6 +200,24 @@
           </conditionalStyles>
         </controls>
         <controls xsi:type="properties-ext-widgets-reference:ExtReferenceDescription" name="environment::Enumeration literals" referenceNameExpression="aql:'literals'"/>
+        <controls xsi:type="properties:CustomDescription" name="org.obeonetwork.dsl.database.design.custom.reference" label="environment::Enumeration literals" labelExpression="aql:input.emfEditServices(self).getText(self.eClass().getEStructuralFeature('literals')) + ':'" helpExpression="aql:input.emfEditServices(self).getDescription(self.eClass().getEStructuralFeature('literals'))" isEnabledExpression="aql:self.eClass().getEStructuralFeature('literals').changeable">
+          <customExpressions name="referenceNameExpression" customExpression="aql:'literals'"/>
+          <customOperations name="onDoubleClickOperation">
+            <initialOperation>
+              <firstModelOperations xsi:type="tool:ChangeContext" browseExpression="aql:selection->first()">
+                <subModelOperations xsi:type="properties:DialogModelOperation" titleExpression="Edit Enumeration literal Dialog">
+                  <buttons labelExpression="Cancel" closeDialogOnClick="true" rollbackChangesOnClose="true">
+                    <initialOperation/>
+                  </buttons>
+                  <buttons labelExpression="OK" default="true" closeDialogOnClick="true">
+                    <initialOperation/>
+                  </buttons>
+                  <page name="Edit Enumeration literal Page" extends="//@extensions.0/@categories.1/@pages.4"/>
+                </subModelOperations>
+              </firstModelOperations>
+            </initialOperation>
+          </customOperations>
+        </controls>
         <controls xsi:type="properties:TextAreaDescription" name="environment::Enumeration description" labelExpression="aql:input.emfEditServices(self).getText(self.eClass().getEStructuralFeature('description')) + ':'" helpExpression="aql:input.emfEditServices(self).getDescription(self.eClass().getEStructuralFeature('description'))" isEnabledExpression="aql:self.eClass().getEStructuralFeature('description').changeable" valueExpression="aql:self.description">
           <initialOperation>
             <firstModelOperations xsi:type="tool:SetValue" featureName="description" valueExpression="var:newValue"/>
