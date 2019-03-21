@@ -708,8 +708,8 @@
   <extensions xsi:type="properties:ViewExtensionDescription" name="Properties">
     <metamodels href="http://www.obeonetwork.org/dsl/entity/3.0.0#/"/>
     <categories name="Entity Category">
-      <pages name="Entity Page" labelExpression="Entity" domainClass="entity::Entity" semanticCandidateExpression="var:self" preconditionExpression="aql:true">
-        <extends href="platform:/plugin/org.obeonetwork.dsl.environment.properties/description/environment-properties.odesign#//@extensions.0/@categories.0/@pages.0"/>
+      <pages name="Entity Page" labelExpression="Entity" domainClass="entity::Entity" semanticCandidateExpression="var:self">
+        <groups href="platform:/plugin/org.obeonetwork.dsl.environment.properties/description/environment-properties.odesign#//@extensions.0/@categories.0/@groups.0"/>
       </pages>
       <pages name="Persistence Page" labelExpression="Persistence" domainClass="entity::Entity" semanticCandidateExpression="var:self" groups="//@extensions.0/@categories.0/@groups.0"/>
       <pages name="Root Page" labelExpression="Root" domainClass="entity::Root" semanticCandidateExpression="var:self" groups="//@extensions.0/@categories.0/@groups.1"/>
