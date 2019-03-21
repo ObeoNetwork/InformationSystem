@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="ASCII"?>
-<description:Group xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:description="http://www.eclipse.org/sirius/description/1.1.0" xmlns:description_1="http://www.eclipse.org/sirius/table/description/1.1.0" xmlns:description_2="http://www.eclipse.org/sirius/diagram/description/1.1.0" xmlns:tool="http://www.eclipse.org/sirius/description/tool/1.1.0" documentation="Copyright (c) 2010, 2017 Obeo.&#xD;&#xA;All rights reserved. This program and the accompanying materials&#xD;&#xA;are made available under the terms of the Eclipse Public License v1.0&#xD;&#xA;which accompanies this distribution, and is available at&#xD;&#xA;http://www.eclipse.org/legal/epl-v10.html&#xD;&#xA;&#xD;&#xA;Contributors:&#xD;&#xA;   Obeo - initial API and implementation" name="requirements" version="12.0.0.2017041100">
+<description:Group xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:description="http://www.eclipse.org/sirius/description/1.1.0" xmlns:description_1="http://www.eclipse.org/sirius/table/description/1.1.0" xmlns:description_2="http://www.eclipse.org/sirius/diagram/description/1.1.0" xmlns:properties="http://www.eclipse.org/sirius/properties/1.0.0" xmlns:properties-ext-widgets-reference="http://www.eclipse.org/sirius/properties/1.0.0/ext/widgets/reference" xmlns:tool="http://www.eclipse.org/sirius/description/tool/1.1.0" documentation="Copyright (c) 2010, 2017 Obeo.&#xD;&#xA;All rights reserved. This program and the accompanying materials&#xD;&#xA;are made available under the terms of the Eclipse Public License v1.0&#xD;&#xA;which accompanies this distribution, and is available at&#xD;&#xA;http://www.eclipse.org/legal/epl-v10.html&#xD;&#xA;&#xD;&#xA;Contributors:&#xD;&#xA;   Obeo - initial API and implementation" name="requirements" version="12.0.0.2017041100">
   <ownedViewpoints endUserDocumentation="There are two representations available on requirements' Repository instances : &#xD;&#xA;&lt;ul>&#xD;&#xA;&lt;li>&lt;b>Requirements Table&lt;/b> : a table that allows to edit the requirements.&lt;/li>&#xD;&#xA;&lt;li>&lt;b>Requirements Traceability Matrix&lt;/b> : a table that traces the relation between objects on which the requirements hold and the requirements themselves.&lt;/li>&#xD;&#xA;&lt;/ul>&#xD;" name="Requirements">
     <ownedRepresentations xsi:type="description_1:EditionTableDescription" name="Requirements Table" titleExpression="[name + ' Requirements Table'/]" domainClass="requirement.CategoriesContainer" initialHeaderColumnWidth="80">
       <ownedLineMappings name="REQ_CategoriesContainer" domainClass="requirement.CategoriesContainer" semanticCandidatesExpression="var:self" headerLabelExpression="feature:name">
@@ -158,4 +158,204 @@
     <ownedJavaExtensions qualifiedClassName="org.obeonetwork.dsl.requirement.design.services.RequirementsServices"/>
     <ownedJavaExtensions qualifiedClassName="org.eclipse.sirius.common.tools.api.interpreter.StandardServices"/>
   </ownedViewpoints>
+  <userColorsPalettes>
+    <entries xsi:type="description:UserFixedColor" red="229" green="241" blue="251" name="light_light_blue"/>
+  </userColorsPalettes>
+  <extensions xsi:type="properties:ViewExtensionDescription" name="Properties">
+    <metamodels href="http://www.obeonetwork.org/dsl/requirement/1.0#/"/>
+    <categories name="Default Category">
+      <pages name="Requierment Page" labelExpression="Requirement" domainClass="requirement::Requirement" semanticCandidateExpression="var:self" groups="//@extensions.0/@categories.0/@groups.0"/>
+      <pages name="Advanced Page" labelExpression="Advanced" domainClass="requirement::Requirement" semanticCandidateExpression="var:self" groups="//@extensions.0/@categories.0/@groups.1"/>
+      <pages name="Category Page" labelExpression="Category" domainClass="requirement::Category" semanticCandidateExpression="var:self" groups="//@extensions.0/@categories.0/@groups.2"/>
+      <pages name="Repository Page" labelExpression="Repository" domainClass="requirement::Repository" semanticCandidateExpression="var:self" groups="//@extensions.0/@categories.0/@groups.3"/>
+      <groups name="Requirement Group" labelExpression="Properties" domainClass="requirement::Requirement" semanticCandidateExpression="var:self">
+        <controls xsi:type="properties:SelectDescription" name="requirement::Requirement type" labelExpression="aql:input.emfEditServices(self).getText(self.eClass().getEStructuralFeature('type')) + ':'" helpExpression="aql:input.emfEditServices(self).getDescription(self.eClass().getEStructuralFeature('type'))" isEnabledExpression="aql:self.eClass().getEStructuralFeature('type').changeable" valueExpression="aql:self.eClass().getEStructuralFeature('type').eType.getEEnumLiteralByLiteral(self.type.toString())" candidatesExpression="aql:self.eClass().getEStructuralFeature('type').eType.eLiterals" candidateDisplayExpression="aql:candidate.name">
+          <initialOperation>
+            <firstModelOperations xsi:type="tool:SetValue" featureName="type" valueExpression="aql:newValue.instance"/>
+          </initialOperation>
+        </controls>
+        <controls xsi:type="properties:TextDescription" name="requirement::Requirement subtype" labelExpression="aql:input.emfEditServices(self).getText(self.eClass().getEStructuralFeature('subtype')) + ':'" helpExpression="aql:input.emfEditServices(self).getDescription(self.eClass().getEStructuralFeature('subtype'))" isEnabledExpression="aql:self.eClass().getEStructuralFeature('subtype').changeable" valueExpression="aql:self.subtype">
+          <initialOperation>
+            <firstModelOperations xsi:type="tool:SetValue" featureName="subtype" valueExpression="var:newValue"/>
+          </initialOperation>
+        </controls>
+        <controls xsi:type="properties:TextDescription" name="requirement::Requirement id" labelExpression="aql:input.emfEditServices(self).getText(self.eClass().getEStructuralFeature('id')) + ':'" helpExpression="aql:input.emfEditServices(self).getDescription(self.eClass().getEStructuralFeature('id'))" isEnabledExpression="aql:self.eClass().getEStructuralFeature('id').changeable" valueExpression="aql:self.id">
+          <initialOperation>
+            <firstModelOperations xsi:type="tool:SetValue" featureName="id" valueExpression="var:newValue"/>
+          </initialOperation>
+        </controls>
+        <controls xsi:type="properties:TextDescription" name="requirement::Requirement name" labelExpression="aql:input.emfEditServices(self).getText(self.eClass().getEStructuralFeature('name')) + ':'" helpExpression="aql:input.emfEditServices(self).getDescription(self.eClass().getEStructuralFeature('name'))" isEnabledExpression="aql:self.eClass().getEStructuralFeature('name').changeable" valueExpression="aql:self.name">
+          <initialOperation>
+            <firstModelOperations xsi:type="tool:SetValue" featureName="name" valueExpression="var:newValue"/>
+          </initialOperation>
+        </controls>
+        <controls xsi:type="properties:LabelDescription" name="requirement::Requirement version" labelExpression="aql:input.emfEditServices(self).getText(self.eClass().getEStructuralFeature('version')) + ':'" helpExpression="aql:input.emfEditServices(self).getDescription(self.eClass().getEStructuralFeature('version'))" isEnabledExpression="aql:self.eClass().getEStructuralFeature('version').changeable" valueExpression="aql:self.version">
+          <style backgroundColor="//@userColorsPalettes[name=null]/@entries[name='light_light_blue']"/>
+          <actions labelExpression="aql:'+1'">
+            <initialOperation>
+              <firstModelOperations xsi:type="tool:SetValue" featureName="version" valueExpression="aql:self.version+1"/>
+            </initialOperation>
+          </actions>
+        </controls>
+        <controls xsi:type="properties:TextDescription" name="requirement::Requirement status" labelExpression="aql:input.emfEditServices(self).getText(self.eClass().getEStructuralFeature('status')) + ':'" helpExpression="aql:input.emfEditServices(self).getDescription(self.eClass().getEStructuralFeature('status'))" isEnabledExpression="aql:self.eClass().getEStructuralFeature('status').changeable" valueExpression="aql:self.status">
+          <initialOperation>
+            <firstModelOperations xsi:type="tool:SetValue" featureName="status" valueExpression="var:newValue"/>
+          </initialOperation>
+        </controls>
+        <controls xsi:type="properties:TextAreaDescription" name="requirement::Requirement statement" labelExpression="aql:input.emfEditServices(self).getText(self.eClass().getEStructuralFeature('statement')) + ':'" helpExpression="aql:input.emfEditServices(self).getDescription(self.eClass().getEStructuralFeature('statement'))" isEnabledExpression="aql:self.eClass().getEStructuralFeature('statement').changeable" valueExpression="aql:self.statement">
+          <initialOperation>
+            <firstModelOperations xsi:type="tool:SetValue" featureName="statement" valueExpression="var:newValue"/>
+          </initialOperation>
+        </controls>
+        <controls xsi:type="properties:TextDescription" name="requirement::Requirement modifiedOn" labelExpression="aql:input.emfEditServices(self).getText(self.eClass().getEStructuralFeature('modifiedOn')) + ':'" helpExpression="aql:input.emfEditServices(self).getDescription(self.eClass().getEStructuralFeature('modifiedOn'))" isEnabledExpression="aql:false" valueExpression="aql:self.modifiedOn">
+          <initialOperation>
+            <firstModelOperations xsi:type="tool:SetValue" featureName="modifiedOn" valueExpression="var:newValue"/>
+          </initialOperation>
+        </controls>
+        <controls xsi:type="properties:TextDescription" name="requirement::Requirement createdOn" labelExpression="aql:input.emfEditServices(self).getText(self.eClass().getEStructuralFeature('createdOn')) + ':'" helpExpression="aql:input.emfEditServices(self).getDescription(self.eClass().getEStructuralFeature('createdOn'))" isEnabledExpression="aql:false" valueExpression="aql:self.createdOn">
+          <initialOperation>
+            <firstModelOperations xsi:type="tool:SetValue" featureName="createdOn" valueExpression="var:newValue"/>
+          </initialOperation>
+        </controls>
+      </groups>
+      <groups name="Advanced Group" labelExpression="Properties" domainClass="requirement::Requirement" semanticCandidateExpression="var:self">
+        <controls xsi:type="properties:TextAreaDescription" name="requirement::Requirement rationale" labelExpression="aql:input.emfEditServices(self).getText(self.eClass().getEStructuralFeature('rationale')) + ':'" helpExpression="aql:input.emfEditServices(self).getDescription(self.eClass().getEStructuralFeature('rationale'))" isEnabledExpression="aql:self.eClass().getEStructuralFeature('rationale').changeable" valueExpression="aql:self.rationale">
+          <initialOperation>
+            <firstModelOperations xsi:type="tool:SetValue" featureName="rationale" valueExpression="var:newValue"/>
+          </initialOperation>
+        </controls>
+        <controls xsi:type="properties:TextAreaDescription" name="requirement::Requirement acceptanceCriteria" labelExpression="aql:input.emfEditServices(self).getText(self.eClass().getEStructuralFeature('acceptanceCriteria')) + ':'" helpExpression="aql:input.emfEditServices(self).getDescription(self.eClass().getEStructuralFeature('acceptanceCriteria'))" isEnabledExpression="aql:self.eClass().getEStructuralFeature('acceptanceCriteria').changeable" valueExpression="aql:self.acceptanceCriteria">
+          <initialOperation>
+            <firstModelOperations xsi:type="tool:SetValue" featureName="acceptanceCriteria" valueExpression="var:newValue"/>
+          </initialOperation>
+        </controls>
+        <controls xsi:type="properties-ext-widgets-reference:ExtReferenceDescription" name="requirement::Requirement referencedObject" isEnabledExpression="aql:false" referenceNameExpression="aql:'referencedObject'"/>
+      </groups>
+      <groups name="Category Group" labelExpression="Properties" domainClass="requirement::Category" semanticCandidateExpression="var:self">
+        <controls xsi:type="properties:TextDescription" name="requirement::Category id" labelExpression="aql:input.emfEditServices(self).getText(self.eClass().getEStructuralFeature('id')) + ':'" helpExpression="aql:input.emfEditServices(self).getDescription(self.eClass().getEStructuralFeature('id'))" isEnabledExpression="aql:self.eClass().getEStructuralFeature('id').changeable" valueExpression="aql:self.id">
+          <initialOperation>
+            <firstModelOperations xsi:type="tool:SetValue" featureName="id" valueExpression="var:newValue"/>
+          </initialOperation>
+        </controls>
+        <controls xsi:type="properties:TextDescription" name="requirement::Category name" labelExpression="aql:input.emfEditServices(self).getText(self.eClass().getEStructuralFeature('name')) + ':'" helpExpression="aql:input.emfEditServices(self).getDescription(self.eClass().getEStructuralFeature('name'))" isEnabledExpression="aql:self.eClass().getEStructuralFeature('name').changeable" valueExpression="aql:self.name">
+          <initialOperation>
+            <firstModelOperations xsi:type="tool:SetValue" featureName="name" valueExpression="var:newValue"/>
+          </initialOperation>
+        </controls>
+        <controls xsi:type="properties:CustomDescription" name="org.obeonetwork.dsl.database.design.custom.reference" label="requirement::Category requirements" labelExpression="aql:input.emfEditServices(self).getText(self.eClass().getEStructuralFeature('requirements')) + ':'" helpExpression="aql:input.emfEditServices(self).getDescription(self.eClass().getEStructuralFeature('requirements'))" isEnabledExpression="aql:self.eClass().getEStructuralFeature('requirements').changeable">
+          <customExpressions name="referenceNameExpression" customExpression="aql:'requirements'"/>
+          <customOperations name="addButtonOperation">
+            <initialOperation>
+              <firstModelOperations xsi:type="tool:CreateInstance" typeName="requirement::Requirement" referenceName="requirements" variableName="requirement">
+                <subModelOperations xsi:type="properties:DialogModelOperation" titleExpression="Create Category requirement Dialog">
+                  <buttons labelExpression="Cancel" closeDialogOnClick="true" rollbackChangesOnClose="true">
+                    <initialOperation>
+                      <firstModelOperations xsi:type="tool:RemoveElement"/>
+                    </initialOperation>
+                  </buttons>
+                  <buttons labelExpression="OK" default="true" closeDialogOnClick="true">
+                    <initialOperation/>
+                  </buttons>
+                  <page name="Create Category requirement Page" extends="//@extensions.0/@categories.0/@pages.0"/>
+                </subModelOperations>
+              </firstModelOperations>
+            </initialOperation>
+          </customOperations>
+          <customOperations name="onDoubleClickOperation">
+            <initialOperation>
+              <firstModelOperations xsi:type="tool:ChangeContext" browseExpression="aql:selection->first()">
+                <subModelOperations xsi:type="properties:DialogModelOperation" titleExpression="Edit Category requirement Dialog">
+                  <buttons labelExpression="Cancel" closeDialogOnClick="true" rollbackChangesOnClose="true">
+                    <initialOperation/>
+                  </buttons>
+                  <buttons labelExpression="OK" default="true" closeDialogOnClick="true">
+                    <initialOperation/>
+                  </buttons>
+                  <page name="Edit Category requirement Page" extends="//@extensions.0/@categories.0/@pages.0"/>
+                </subModelOperations>
+              </firstModelOperations>
+            </initialOperation>
+          </customOperations>
+        </controls>
+        <controls xsi:type="properties:CustomDescription" name="org.obeonetwork.dsl.database.design.custom.reference" label="requirement::Category subCategories" labelExpression="aql:input.emfEditServices(self).getText(self.eClass().getEStructuralFeature('subCategories')) + ':'" helpExpression="aql:input.emfEditServices(self).getDescription(self.eClass().getEStructuralFeature('subCategories'))" isEnabledExpression="aql:self.eClass().getEStructuralFeature('subCategories').changeable">
+          <customExpressions name="referenceNameExpression" customExpression="aql:'subCategories'"/>
+          <customOperations name="addButtonOperation">
+            <initialOperation>
+              <firstModelOperations xsi:type="tool:CreateInstance" typeName="requirement::Category" referenceName="subCategories" variableName="category">
+                <subModelOperations xsi:type="properties:DialogModelOperation" titleExpression="Create Category subCategory Dialog">
+                  <buttons labelExpression="Cancel" closeDialogOnClick="true" rollbackChangesOnClose="true">
+                    <initialOperation>
+                      <firstModelOperations xsi:type="tool:RemoveElement"/>
+                    </initialOperation>
+                  </buttons>
+                  <buttons labelExpression="OK" default="true" closeDialogOnClick="true">
+                    <initialOperation/>
+                  </buttons>
+                  <page name="Create Category subCategory Page" extends="//@extensions.0/@categories.0/@pages.2"/>
+                </subModelOperations>
+              </firstModelOperations>
+            </initialOperation>
+          </customOperations>
+          <customOperations name="onDoubleClickOperation">
+            <initialOperation>
+              <firstModelOperations xsi:type="tool:ChangeContext" browseExpression="aql:selection->first()">
+                <subModelOperations xsi:type="properties:DialogModelOperation" titleExpression="Edit Category subCategory Dialog">
+                  <buttons labelExpression="Cancel" closeDialogOnClick="true" rollbackChangesOnClose="true">
+                    <initialOperation/>
+                  </buttons>
+                  <buttons labelExpression="OK" default="true" closeDialogOnClick="true">
+                    <initialOperation/>
+                  </buttons>
+                  <page name="Edit Category subCategory Page" extends="//@extensions.0/@categories.0/@pages.2"/>
+                </subModelOperations>
+              </firstModelOperations>
+            </initialOperation>
+          </customOperations>
+        </controls>
+      </groups>
+      <groups name="Repository Group" labelExpression="Properties" domainClass="requirement::Repository" semanticCandidateExpression="var:self">
+        <controls xsi:type="properties:TextDescription" name="requirement::Requirement name" labelExpression="aql:input.emfEditServices(self).getText(self.eClass().getEStructuralFeature('name')) + ':'" helpExpression="aql:input.emfEditServices(self).getDescription(self.eClass().getEStructuralFeature('name'))" isEnabledExpression="aql:self.eClass().getEStructuralFeature('name').changeable" valueExpression="aql:self.name">
+          <initialOperation>
+            <firstModelOperations xsi:type="tool:SetValue" featureName="name" valueExpression="var:newValue"/>
+          </initialOperation>
+        </controls>
+        <controls xsi:type="properties:CustomDescription" name="org.obeonetwork.dsl.database.design.custom.reference" label="requirement::Category mainCategories" labelExpression="aql:input.emfEditServices(self).getText(self.eClass().getEStructuralFeature('mainCategories')) + ':'" helpExpression="aql:input.emfEditServices(self).getDescription(self.eClass().getEStructuralFeature('mainCategories'))" isEnabledExpression="aql:self.eClass().getEStructuralFeature('mainCategories').changeable">
+          <customExpressions name="referenceNameExpression" customExpression="aql:'mainCategories'"/>
+          <customOperations name="addButtonOperation">
+            <initialOperation>
+              <firstModelOperations xsi:type="tool:CreateInstance" typeName="requirement::Category" referenceName="mainCategories" variableName="category">
+                <subModelOperations xsi:type="properties:DialogModelOperation" titleExpression="Create Repository mainCategory Dialog">
+                  <buttons labelExpression="Cancel" closeDialogOnClick="true" rollbackChangesOnClose="true">
+                    <initialOperation>
+                      <firstModelOperations xsi:type="tool:RemoveElement"/>
+                    </initialOperation>
+                  </buttons>
+                  <buttons labelExpression="OK" default="true" closeDialogOnClick="true">
+                    <initialOperation/>
+                  </buttons>
+                  <page name="Create Repository mainCategory Page" extends="//@extensions.0/@categories.0/@pages.2"/>
+                </subModelOperations>
+              </firstModelOperations>
+            </initialOperation>
+          </customOperations>
+          <customOperations name="onDoubleClickOperation">
+            <initialOperation>
+              <firstModelOperations xsi:type="tool:ChangeContext" browseExpression="aql:selection->first()">
+                <subModelOperations xsi:type="properties:DialogModelOperation" titleExpression="Edit Repository mainCategory Dialog">
+                  <buttons labelExpression="Cancel" closeDialogOnClick="true" rollbackChangesOnClose="true">
+                    <initialOperation/>
+                  </buttons>
+                  <buttons labelExpression="OK" default="true" closeDialogOnClick="true">
+                    <initialOperation/>
+                  </buttons>
+                  <page name="Edit Repository mainCategory Page" extends="//@extensions.0/@categories.0/@pages.2"/>
+                </subModelOperations>
+              </firstModelOperations>
+            </initialOperation>
+          </customOperations>
+        </controls>
+        <controls xsi:type="properties-ext-widgets-reference:ExtReferenceDescription" name="requirement::Repository referencedObject" isEnabledExpression="aql:false" referenceNameExpression="aql:'referencedObject'"/>
+      </groups>
+    </categories>
+  </extensions>
 </description:Group>
