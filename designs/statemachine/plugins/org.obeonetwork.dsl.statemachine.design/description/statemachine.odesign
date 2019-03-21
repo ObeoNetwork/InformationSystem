@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<description:Group xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:description="http://www.eclipse.org/sirius/description/1.1.0" xmlns:description_1="http://www.eclipse.org/sirius/diagram/description/1.1.0" xmlns:style="http://www.eclipse.org/sirius/diagram/description/style/1.1.0" xmlns:tool="http://www.eclipse.org/sirius/description/tool/1.1.0" xmlns:tool_1="http://www.eclipse.org/sirius/diagram/description/tool/1.1.0" documentation="Copyright (c) 2012, 2017 Obeo.&#xD;&#xA;All rights reserved. This program and the accompanying materials&#xD;&#xA;are made available under the terms of the Eclipse Public License v1.0&#xD;&#xA;which accompanies this distribution, and is available at&#xD;&#xA;http://www.eclipse.org/legal/epl-v10.html&#xD;&#xA;&#xD;&#xA;Contributors:&#xD;&#xA;   Obeo - initial API and implementation" name="statemachine" version="12.0.0.2017041100">
+<description:Group xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:description="http://www.eclipse.org/sirius/description/1.1.0" xmlns:description_1="http://www.eclipse.org/sirius/diagram/description/1.1.0" xmlns:properties="http://www.eclipse.org/sirius/properties/1.0.0" xmlns:properties-ext-widgets-reference="http://www.eclipse.org/sirius/properties/1.0.0/ext/widgets/reference" xmlns:style="http://www.eclipse.org/sirius/diagram/description/style/1.1.0" xmlns:tool="http://www.eclipse.org/sirius/description/tool/1.1.0" xmlns:tool_1="http://www.eclipse.org/sirius/diagram/description/tool/1.1.0" documentation="Copyright (c) 2012, 2017 Obeo.&#xD;&#xA;All rights reserved. This program and the accompanying materials&#xD;&#xA;are made available under the terms of the Eclipse Public License v1.0&#xD;&#xA;which accompanies this distribution, and is available at&#xD;&#xA;http://www.eclipse.org/legal/epl-v10.html&#xD;&#xA;&#xD;&#xA;Contributors:&#xD;&#xA;   Obeo - initial API and implementation" name="statemachine" version="12.0.0.2017041100">
   <ownedViewpoints name="State Machine">
     <ownedRepresentations xsi:type="description_1:DiagramDescription" dropDescriptions="//@ownedViewpoints[name='State%20Machine']/@ownedRepresentations[name='State%20Machine%20Diagram']/@defaultLayer/@toolSections.1/@subSections[name='D%26D%20Tools']/@ownedTools[name='D%26D_States']" name="State Machine Diagram" titleExpression="[name + ' State Machine Diagram'/]" domainClass="statemachine.StateMachine" enablePopupBars="true">
       <metamodel href="platform:/plugin/org.obeonetwork.dsl.statemachine/model/statemachine.ecore#/"/>
@@ -231,4 +231,135 @@
     </ownedRepresentations>
     <ownedJavaExtensions qualifiedClassName="org.obeonetwork.dsl.statemachine.design.services.StateMachineServices"/>
   </ownedViewpoints>
+  <extensions xsi:type="properties:ViewExtensionDescription" name="Properties">
+    <metamodels href="http://www.obeonetwork.org/dsl/statemachine/1.0.0#/"/>
+    <categories name="Default Category">
+      <pages name="Region Page" labelExpression="Region" domainClass="statemachine::Region" semanticCandidateExpression="var:self" groups="//@extensions.0/@categories.0/@groups.0"/>
+      <pages name="AbstractState Page" labelExpression="aql:self.eClass().name" domainClass="statemachine::AbstractState" semanticCandidateExpression="var:self" preconditionExpression="aql:not(self.oclIsKindOf(statemachine::State))" groups="//@extensions.0/@categories.0/@groups.1"/>
+      <pages name="State Page" labelExpression="State" domainClass="statemachine::State" semanticCandidateExpression="var:self" groups="//@extensions.0/@categories.0/@groups.2"/>
+      <pages name="StateMachine Page" labelExpression="StateMachine" domainClass="statemachine::StateMachine" semanticCandidateExpression="var:self" groups="//@extensions.0/@categories.0/@groups.3"/>
+      <pages name="Transition Page" labelExpression="Transition" domainClass="statemachine::Transition" semanticCandidateExpression="var:self" groups="//@extensions.0/@categories.0/@groups.4"/>
+      <groups name="Region Group" labelExpression="Properties" domainClass="statemachine::Region" semanticCandidateExpression="var:self">
+        <controls xsi:type="properties:TextDescription" name="statemachine::Region name" labelExpression="aql:input.emfEditServices(self).getText(self.eClass().getEStructuralFeature('name')) + ':'" helpExpression="aql:input.emfEditServices(self).getDescription(self.eClass().getEStructuralFeature('name'))" isEnabledExpression="aql:self.eClass().getEStructuralFeature('name').changeable" valueExpression="aql:self.name">
+          <initialOperation>
+            <firstModelOperations xsi:type="tool:SetValue" featureName="name" valueExpression="var:newValue"/>
+          </initialOperation>
+        </controls>
+        <controls xsi:type="properties:TextAreaDescription" name="statemachine::Region description" labelExpression="aql:input.emfEditServices(self).getText(self.eClass().getEStructuralFeature('description')) + ':'" helpExpression="aql:input.emfEditServices(self).getDescription(self.eClass().getEStructuralFeature('description'))" isEnabledExpression="aql:self.eClass().getEStructuralFeature('description').changeable" valueExpression="aql:self.description">
+          <initialOperation>
+            <firstModelOperations xsi:type="tool:SetValue" featureName="description" valueExpression="var:newValue"/>
+          </initialOperation>
+        </controls>
+      </groups>
+      <groups name="AbstractState Group" labelExpression="Properties" domainClass="statemachine::AbstractState" semanticCandidateExpression="var:self">
+        <controls xsi:type="properties:CustomDescription" name="org.obeonetwork.dsl.database.design.custom.reference" label="statemachine::AbstractState incomingTransitions" labelExpression="aql:'Incoming Transitions :'" helpExpression="aql:input.emfEditServices(self).getDescription(self.eClass().getEStructuralFeature('incomingTransitions'))" isEnabledExpression="aql:false">
+          <customExpressions name="referenceNameExpression" customExpression="aql:'incomingTransitions'"/>
+          <customOperations name="onDoubleClickOperation">
+            <initialOperation>
+              <firstModelOperations xsi:type="tool:ChangeContext" browseExpression="aql:selection->first()">
+                <subModelOperations xsi:type="properties:DialogModelOperation" titleExpression="Edit AbstractState incomingTransition Dialog">
+                  <buttons labelExpression="Cancel" closeDialogOnClick="true" rollbackChangesOnClose="true">
+                    <initialOperation/>
+                  </buttons>
+                  <buttons labelExpression="OK" default="true" closeDialogOnClick="true">
+                    <initialOperation/>
+                  </buttons>
+                  <page name="Edit AbstractState incomingTransition Page" extends="//@extensions.0/@categories.0/@pages.4"/>
+                </subModelOperations>
+              </firstModelOperations>
+            </initialOperation>
+          </customOperations>
+        </controls>
+        <controls xsi:type="properties:CustomDescription" name="org.obeonetwork.dsl.database.design.custom.reference" label="statemachine::AbstractState outcomingTransitions" labelExpression="aql:'Outcoming Transitions :'" helpExpression="aql:input.emfEditServices(self).getDescription(self.eClass().getEStructuralFeature('outcomingTransitions'))" isEnabledExpression="aql:false">
+          <customExpressions name="referenceNameExpression" customExpression="aql:'outcomingTransitions'"/>
+          <customOperations name="onDoubleClickOperation">
+            <initialOperation>
+              <firstModelOperations xsi:type="tool:ChangeContext" browseExpression="aql:selection->first()">
+                <subModelOperations xsi:type="properties:DialogModelOperation" titleExpression="Edit AbstractState outcomingTransition Dialog">
+                  <buttons labelExpression="Cancel" closeDialogOnClick="true" rollbackChangesOnClose="true">
+                    <initialOperation/>
+                  </buttons>
+                  <buttons labelExpression="OK" default="true" closeDialogOnClick="true">
+                    <initialOperation/>
+                  </buttons>
+                  <page name="Edit AbstractState outcomingTransition Page" extends="//@extensions.0/@categories.0/@pages.4"/>
+                </subModelOperations>
+              </firstModelOperations>
+            </initialOperation>
+          </customOperations>
+        </controls>
+        <controls xsi:type="properties:TextAreaDescription" name="statemachine::AbstractState description" labelExpression="aql:input.emfEditServices(self).getText(self.eClass().getEStructuralFeature('description')) + ':'" helpExpression="aql:input.emfEditServices(self).getDescription(self.eClass().getEStructuralFeature('description'))" isEnabledExpression="aql:self.eClass().getEStructuralFeature('description').changeable" valueExpression="aql:self.description">
+          <initialOperation>
+            <firstModelOperations xsi:type="tool:SetValue" featureName="description" valueExpression="var:newValue"/>
+          </initialOperation>
+        </controls>
+      </groups>
+      <groups name="State Group" labelExpression="Properties" domainClass="statemachine::State" semanticCandidateExpression="var:self">
+        <controls xsi:type="properties:TextDescription" name="statemachine::State name" labelExpression="aql:input.emfEditServices(self).getText(self.eClass().getEStructuralFeature('name')) + ':'" helpExpression="aql:input.emfEditServices(self).getDescription(self.eClass().getEStructuralFeature('name'))" isEnabledExpression="aql:self.eClass().getEStructuralFeature('name').changeable" valueExpression="aql:self.name">
+          <initialOperation>
+            <firstModelOperations xsi:type="tool:SetValue" featureName="name" valueExpression="var:newValue"/>
+          </initialOperation>
+        </controls>
+        <controls xsi:type="properties:CustomDescription" name="org.obeonetwork.dsl.database.design.custom.reference" label="statemachine::State incomingTransitions" extends="//@extensions.0/@categories.0/@groups.1/@controls.0"/>
+        <controls xsi:type="properties:CustomDescription" name="org.obeonetwork.dsl.database.design.custom.reference" label="statemachine::State outgoingTransitions" extends="//@extensions.0/@categories.0/@groups.1/@controls.1"/>
+        <controls xsi:type="properties:TextAreaDescription" name="statemachine::State description" labelExpression="aql:input.emfEditServices(self).getText(self.eClass().getEStructuralFeature('description')) + ':'" helpExpression="aql:input.emfEditServices(self).getDescription(self.eClass().getEStructuralFeature('description'))" isEnabledExpression="aql:self.eClass().getEStructuralFeature('description').changeable" valueExpression="aql:self.description">
+          <initialOperation>
+            <firstModelOperations xsi:type="tool:SetValue" featureName="description" valueExpression="var:newValue"/>
+          </initialOperation>
+        </controls>
+      </groups>
+      <groups name="StateMachine Group" labelExpression="Properties" domainClass="statemachine::StateMachine" semanticCandidateExpression="var:self">
+        <controls xsi:type="properties:TextDescription" name="statemachine::StateMachine name" labelExpression="aql:input.emfEditServices(self).getText(self.eClass().getEStructuralFeature('name')) + ':'" helpExpression="aql:input.emfEditServices(self).getDescription(self.eClass().getEStructuralFeature('name'))" isEnabledExpression="aql:self.eClass().getEStructuralFeature('name').changeable" valueExpression="aql:self.name">
+          <initialOperation>
+            <firstModelOperations xsi:type="tool:SetValue" featureName="name" valueExpression="var:newValue"/>
+          </initialOperation>
+        </controls>
+        <controls xsi:type="properties:CustomDescription" name="org.obeonetwork.dsl.database.design.custom.reference" label="statemachine::StateMachine regions" labelExpression="aql:'Regions :'" helpExpression="aql:input.emfEditServices(self).getDescription(self.eClass().getEStructuralFeature('regions'))" isEnabledExpression="aql:false">
+          <customExpressions name="referenceNameExpression" customExpression="aql:'regions'"/>
+          <customOperations name="onDoubleClickOperation">
+            <initialOperation>
+              <firstModelOperations xsi:type="tool:ChangeContext" browseExpression="aql:selection->first()">
+                <subModelOperations xsi:type="properties:DialogModelOperation" titleExpression="Edit StateMachine region Dialog">
+                  <buttons labelExpression="Cancel" closeDialogOnClick="true" rollbackChangesOnClose="true">
+                    <initialOperation/>
+                  </buttons>
+                  <buttons labelExpression="OK" default="true" closeDialogOnClick="true">
+                    <initialOperation/>
+                  </buttons>
+                  <page name="Edit StateMachine region Page" extends="//@extensions.0/@categories.0/@pages.0"/>
+                </subModelOperations>
+              </firstModelOperations>
+            </initialOperation>
+          </customOperations>
+        </controls>
+        <controls xsi:type="properties:TextAreaDescription" name="statemachine::StateMachine description" labelExpression="aql:input.emfEditServices(self).getText(self.eClass().getEStructuralFeature('description')) + ':'" helpExpression="aql:input.emfEditServices(self).getDescription(self.eClass().getEStructuralFeature('description'))" isEnabledExpression="aql:self.eClass().getEStructuralFeature('description').changeable" valueExpression="aql:self.description">
+          <initialOperation>
+            <firstModelOperations xsi:type="tool:SetValue" featureName="description" valueExpression="var:newValue"/>
+          </initialOperation>
+        </controls>
+      </groups>
+      <groups name="Transition Group" labelExpression="Properties" domainClass="statemachine::Transition" semanticCandidateExpression="var:self">
+        <controls xsi:type="properties:TextDescription" name="statemachine::Transition guard" labelExpression="aql:input.emfEditServices(self).getText(self.eClass().getEStructuralFeature('guard')) + ':'" helpExpression="aql:input.emfEditServices(self).getDescription(self.eClass().getEStructuralFeature('guard'))" isEnabledExpression="aql:self.eClass().getEStructuralFeature('guard').changeable" valueExpression="aql:self.guard">
+          <initialOperation>
+            <firstModelOperations xsi:type="tool:SetValue" featureName="guard" valueExpression="var:newValue"/>
+          </initialOperation>
+        </controls>
+        <controls xsi:type="properties-ext-widgets-reference:ExtReferenceDescription" name="statemachine::Transition from" labelExpression="aql:input.emfEditServices(self).getText(self.eClass().getEStructuralFeature('from')) + ':'" helpExpression="aql:input.emfEditServices(self).getDescription(self.eClass().getEStructuralFeature('from'))" isEnabledExpression="aql:false" referenceNameExpression="aql:'from'">
+          <style>
+            <labelFontFormat>bold</labelFontFormat>
+          </style>
+        </controls>
+        <controls xsi:type="properties-ext-widgets-reference:ExtReferenceDescription" name="statemachine::Transition to" labelExpression="aql:input.emfEditServices(self).getText(self.eClass().getEStructuralFeature('to')) + ':'" helpExpression="aql:input.emfEditServices(self).getDescription(self.eClass().getEStructuralFeature('to'))" isEnabledExpression="aql:false" referenceNameExpression="aql:'to'">
+          <style>
+            <labelFontFormat>bold</labelFontFormat>
+          </style>
+        </controls>
+        <controls xsi:type="properties:TextAreaDescription" name="statemachine::Transition description" labelExpression="aql:input.emfEditServices(self).getText(self.eClass().getEStructuralFeature('description')) + ':'" helpExpression="aql:input.emfEditServices(self).getDescription(self.eClass().getEStructuralFeature('description'))" isEnabledExpression="aql:self.eClass().getEStructuralFeature('description').changeable" valueExpression="aql:self.description">
+          <initialOperation>
+            <firstModelOperations xsi:type="tool:SetValue" featureName="description" valueExpression="var:newValue"/>
+          </initialOperation>
+        </controls>
+      </groups>
+    </categories>
+  </extensions>
 </description:Group>
