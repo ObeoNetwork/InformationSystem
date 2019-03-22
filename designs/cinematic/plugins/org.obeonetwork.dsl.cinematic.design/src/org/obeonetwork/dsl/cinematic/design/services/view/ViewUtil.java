@@ -13,7 +13,9 @@ package org.obeonetwork.dsl.cinematic.design.services.view;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
+import java.util.Optional;
 
+import org.eclipse.emf.ecore.EObject;
 import org.obeonetwork.dsl.cinematic.view.AbstractViewElement;
 import org.obeonetwork.dsl.cinematic.view.ViewContainer;
 import org.obeonetwork.dsl.cinematic.view.ViewContainerReference;
@@ -22,16 +24,16 @@ import org.obeonetwork.dsl.cinematic.view.ViewElement;
 public class ViewUtil {
 	public static Collection<AbstractViewElement> getAssociatedAbstractViewElements(ViewContainer container) {
 		Collection<AbstractViewElement> elements = new ArrayList<AbstractViewElement>();
-		
+
 		// Add children
 		for (AbstractViewElement child : container.getOwnedElements()) {
 			if (child instanceof ViewElement) {
-				elements.add(child);				
+				elements.add(child);
 			} else if (child instanceof ViewContainer) {
 				elements.add(child);
-				elements.addAll(getAssociatedAbstractViewElements((ViewContainer)child));
+				elements.addAll(getAssociatedAbstractViewElements((ViewContainer) child));
 			} else if (child instanceof ViewContainerReference) {
-				ViewContainerReference vcr  = (ViewContainerReference)child;
+				ViewContainerReference vcr = (ViewContainerReference) child;
 				if (vcr.getViewContainer() != null) {
 					ViewContainer refContainer = vcr.getViewContainer();
 					elements.add(refContainer);
@@ -39,32 +41,24 @@ public class ViewUtil {
 				}
 			}
 		}
-		
+
 		return elements;
 	}
-	
-	/**
-	 * Return actions size.
-	 * @param context the AbstractViewElement
-	 * @return The actions size
-	 */
-	public Integer getActionsSize (AbstractViewElement context){
-		return context.getActions().size();
-	}
-	
+
 	/**
 	 * Return list of viewContainer present in its ownedElements.
+	 * 
 	 * @param context the ViewContainer
 	 * @return list of ViewContainer
 	 */
-	public List<ViewContainer> getViewContainers (ViewContainer context){
+	public List<ViewContainer> getViewContainers(ViewContainer context) {
 		List<ViewContainer> viewContainers = new ArrayList<ViewContainer>();
-		for (AbstractViewElement ownedElement :context.getOwnedElements()){
-			if (ownedElement instanceof ViewContainerReference){
-				viewContainers.add(((ViewContainerReference)ownedElement).getViewContainer());
+		for (AbstractViewElement ownedElement : context.getOwnedElements()) {
+			if (ownedElement instanceof ViewContainerReference) {
+				viewContainers.add(((ViewContainerReference) ownedElement).getViewContainer());
 			}
 		}
 		return viewContainers;
 	}
-	
+
 }
