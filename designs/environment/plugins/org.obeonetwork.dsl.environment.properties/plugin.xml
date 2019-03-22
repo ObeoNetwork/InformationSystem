@@ -27,4 +27,13 @@
            label="%metadataTableLifecycleManagerProvider.Label">
      </descriptor>
   </extension>
+  <extension
+        point="org.eclipse.sirius.properties.core.descriptionLinkResolver">
+     <descriptor
+           class="org.obeonetwork.dsl.environment.properties.internal.link.resolver.MetadataEnvironmentPropertiesLinkResolver"
+           description="%environmentPropertiesLinkResolver.Description"
+           id="org.obeonetwork.dsl.environment.properties.internal.link.resolver"
+           label="%environmentPropertiesLinkResolver.Label">
+     </descriptor>
+  </extension>
 </plugin>
