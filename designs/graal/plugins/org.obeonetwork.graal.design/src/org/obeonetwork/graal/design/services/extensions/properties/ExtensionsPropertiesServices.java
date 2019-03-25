@@ -10,6 +10,8 @@
  *******************************************************************************/
 package org.obeonetwork.graal.design.services.extensions.properties;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.Optional;
 
 import org.eclipse.emf.ecore.EObject;
@@ -39,5 +41,13 @@ public class ExtensionsPropertiesServices {
 				.flatMap(l -> l.stream().filter(Risk.class::isInstance).findFirst())
 				.map(Risk.class::cast)
 				.orElse(GraalExtensionsFactory.eINSTANCE.createRisk());
+	}
+	
+	public String formatVersionDateValue(Date date) {
+		if (date != null) {
+			SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+			return simpleDateFormat.format(date);
+		}
+		return "";
 	}
 }
