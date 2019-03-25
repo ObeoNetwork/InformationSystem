@@ -28,6 +28,7 @@
   </extension>
 
 	<!-- EEF extensions -->
+	<!--
    <extension point="org.eclipse.emf.edit.itemProviderAdapterFactories">
       <factory
             uri="http://www.obeonetwork.org/dsl/environment/3.0.0"
@@ -40,9 +41,10 @@
             providerClass="org.obeonetwork.dsl.environment.providers.EnvironmentPropertiesEditionPartProvider">
       </PropertiesEditionPartProvider>
    </extension>
-   
+   -->
    
    <!-- Diagram -->
+   <!--
    <extension
          point="org.eclipse.ui.views.properties.tabbed.propertyTabs">
       <propertyTabs
@@ -253,8 +255,9 @@
          </propertySection>
       </propertySections>
    </extension>
-   
+   -->
   <!-- Tree --> 
+  <!--
    <extension
          point="org.eclipse.ui.views.properties.tabbed.propertyTabs">
       <propertyTabs
@@ -466,9 +469,10 @@
          </propertySection>
       </propertySections>
    </extension>
-   
+   -->
    
    <!-- Table -->
+   <!--
    <extension
          point="org.eclipse.ui.views.properties.tabbed.propertyTabs">
       <propertyTabs
@@ -679,5 +683,6 @@
          </propertySection>
       </propertySections>
    </extension>
+   -->
 </plugin>
 

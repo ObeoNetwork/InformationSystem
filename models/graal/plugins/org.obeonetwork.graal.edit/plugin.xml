@@ -27,6 +27,7 @@
    </extension>
 
 <!-- EEF extensions -->
+<!--
    <extension point="org.eclipse.emf.edit.itemProviderAdapterFactories">
       <factory
             uri="http://www.obeonetwork.org/dsl/graal/2.0.0"
@@ -279,4 +280,5 @@
          </propertySection>
       </propertySections>
    </extension>
+   -->
 </plugin>

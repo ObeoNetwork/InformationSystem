@@ -27,6 +27,7 @@
    </extension>
 
   <!-- EEF extensions -->
+  <!--
    <extension point="org.eclipse.emf.edit.itemProviderAdapterFactories">
       <factory
             uri="http://www.obeonetwork.org/dsl/typeslibrary/1.0"
@@ -128,4 +129,5 @@
          </propertySection>
       </propertySections>
    </extension>
+   -->
 </plugin>

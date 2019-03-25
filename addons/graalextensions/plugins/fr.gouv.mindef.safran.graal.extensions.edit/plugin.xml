@@ -27,6 +27,7 @@
    </extension>
 
   <!-- EEF extensions -->
+  <!--
    <extension point="org.eclipse.emf.edit.itemProviderAdapterFactories">
       <factory
             uri="http://mindef.gouv.fr/dsl/safran/graal-extensions/1.0.0"
@@ -39,8 +40,9 @@
             providerClass="fr.gouv.mindef.safran.graalextensions.providers.GraalextensionsPropertiesEditionPartProvider">
       </PropertiesEditionPartProvider>
    </extension>
-   
+   -->
   <!-- Tabbed properties views extension -->
+  <!--
    <extension
          point="org.eclipse.ui.views.properties.tabbed.propertyTabs">
       <propertyTabs
@@ -126,4 +128,5 @@
          </propertySection>
       </propertySections>
    </extension>
+   -->
 </plugin>

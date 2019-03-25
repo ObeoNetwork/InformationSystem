@@ -32,7 +32,7 @@
             uri="http://www.obeonetwork.org/dsl/environment/3.0.0"
             class="org.obeonetwork.dsl.statemachine.provider.StateMachineItemProviderAdapterFactory$EnvironmentChildCreationExtender"/>
    </extension>
-
+<!--
    <extension point="org.eclipse.emf.edit.itemProviderAdapterFactories">
       <factory
             uri="http://www.obeonetwork.org/dsl/statemachine/1.0.0"
@@ -45,12 +45,13 @@
             providerClass="org.obeonetwork.dsl.statemachine.providers.StatemachinePropertiesEditionPartProvider">
       </PropertiesEditionPartProvider>
    </extension>
-
+-->
    <extension point="org.eclipse.emf.edit.childCreationExtenders">
       <extender
             uri="http://www.obeonetwork.org/dsl/environment/3.0.0"
             class="org.obeonetwork.dsl.statemachine.provider.StateMachineItemProviderAdapterFactory$EnvironmentChildCreationExtender"/>
    </extension>
+   <!--
    <extension
          point="org.eclipse.ui.views.properties.tabbed.propertyTabs">
       <propertyTabs
@@ -134,5 +135,5 @@
          </propertySection>
       </propertySections>
    </extension>
-
+-->
 </plugin>

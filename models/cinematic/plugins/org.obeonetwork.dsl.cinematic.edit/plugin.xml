@@ -63,6 +63,7 @@
    </extension>
 
  <!-- EEF extensions -->
+ <!--
    <extension point="org.eclipse.emf.edit.itemProviderAdapterFactories">
       <factory
             uri="http://www.obeonetwork.org/dsl/cinematic/3.0.0"
@@ -137,8 +138,9 @@
             providerClass="org.obeonetwork.dsl.cinematic.providers.CinematicPropertiesEditionPartProvider">
       </PropertiesEditionPartProvider>
    </extension>
-   
+   -->
    <!-- Cinematic -->
+   <!--
       <extension
          point="org.eclipse.ui.views.properties.tabbed.propertyTabs">
       <propertyTabs
@@ -188,9 +190,9 @@
          </propertySection>
       </propertySections>
    </extension>
-   
+   -->
    <!-- Views -->
-   
+   <!--
    <extension
          point="org.eclipse.ui.views.properties.tabbed.propertyTabs">
       <propertyTabs
@@ -287,8 +289,9 @@
          </propertySection>
       </propertySections>
    </extension>
-   
+   -->
    <!-- flow -->
+   <!--
       <extension
          point="org.eclipse.ui.views.properties.tabbed.propertyTabs">
       <propertyTabs
@@ -445,10 +448,10 @@
          </propertySection>
       </propertySections>
    </extension>
-
+-->
 <!-- Table -->
-   
    <!-- Cinematic -->
+   <!--
       <extension
          point="org.eclipse.ui.views.properties.tabbed.propertyTabs">
       <propertyTabs
@@ -498,9 +501,9 @@
          </propertySection>
       </propertySections>
    </extension>
-   
+   -->
    <!-- Views -->
-   
+   <!--
    <extension
          point="org.eclipse.ui.views.properties.tabbed.propertyTabs">
       <propertyTabs
@@ -597,8 +600,9 @@
          </propertySection>
       </propertySections>
    </extension>
-   
+   -->
    <!-- flow -->
+   <!--
       <extension
          point="org.eclipse.ui.views.properties.tabbed.propertyTabs">
       <propertyTabs
@@ -755,10 +759,11 @@
          </propertySection>
       </propertySections>
    </extension>
-   
+   -->
 <!-- Tree -->
    
    <!-- Cinematic -->
+   <!--
       <extension
          point="org.eclipse.ui.views.properties.tabbed.propertyTabs">
       <propertyTabs
@@ -808,9 +813,9 @@
          </propertySection>
       </propertySections>
    </extension>
-   
+   -->
    <!-- Views -->
-   
+   <!--
    <extension
          point="org.eclipse.ui.views.properties.tabbed.propertyTabs">
       <propertyTabs
@@ -907,8 +912,9 @@
          </propertySection>
       </propertySections>
    </extension>
-   
+   -->
    <!-- flow -->
+   <!--
       <extension
          point="org.eclipse.ui.views.properties.tabbed.propertyTabs">
       <propertyTabs
@@ -1065,4 +1071,5 @@
          </propertySection>
       </propertySections>
    </extension>
+   -->
 </plugin>
