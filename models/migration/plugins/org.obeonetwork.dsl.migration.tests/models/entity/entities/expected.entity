@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <oent:Root xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:oent="http://www.obeonetwork.org/dsl/entity/3.0.0" xmlns:oenv="http://www.obeonetwork.org/dsl/environment/3.0.0" xmi:id="_Z8s4kF7EEeSWnuhhgfhS7w" createdOn="2014-10-28T18:03:57.593+0100" modifiedOn="2014-10-28T18:04:08.296+0100">
-  <namespaces xmi:id="_bixegF7EEeSWnuhhgfhS7w" createdOn="2014-10-28T18:04:11.726+0100" modifiedOn="2014-10-30T15:52:53.588+0100" name="blk1">
+  <ownedNamespaces xmi:id="_bixegF7EEeSWnuhhgfhS7w" createdOn="2014-10-28T18:04:11.726+0100" modifiedOn="2014-10-30T15:52:53.588+0100" name="blk1">
     <metadatas xmi:id="_bU7JQGBEEeSjza5bRaI8SA">
       <metadatas xsi:type="oenv:Annotation" xmi:id="_bsxBgGBEEeSjza5bRaI8SA" title="ann1" body="body1&#xD;&#xA;"/>
     </metadatas>
@@ -46,5 +46,5 @@
         </ownedFinders>
       </types>
     </ownedNamespaces>
-  </namespaces>
+  </ownedNamespaces>
 </oent:Root>

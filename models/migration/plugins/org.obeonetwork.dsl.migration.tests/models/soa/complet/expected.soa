@@ -3,31 +3,7 @@
   <metadatas xmi:id="_NlNYUGBBEeSjza5bRaI8SA">
     <metadatas xsi:type="oenv:Annotation" xmi:id="_SQEk8GBBEeSjza5bRaI8SA" title="annot_title" body="annot_body&#xD;&#xA;"/>
   </metadatas>
-  <ownedComponents xmi:id="_PLEi4GBBEeSjza5bRaI8SA" createdOn="2014-10-30T15:33:54.103+0100" modifiedOn="2014-10-30T15:34:38.072+0100" name="Cpt1">
-    <ownedServices xmi:id="_zGMGYGBBEeSjza5bRaI8SA" createdOn="2014-10-30T15:34:12.512+0100" modifiedOn="2014-11-03T14:51:47.382+0100" name="provided1">
-      <ownedInterface xmi:id="_io_WEGNgEeSKhIwHXF3Qtw" createdOn="2014-11-03T14:51:47.382+0100" modifiedOn="2014-11-03T14:52:00.583+0100" name="Itf">
-        <ownedOperations xmi:id="_kOIu8GNgEeSKhIwHXF3Qtw" createdOn="2014-11-03T14:51:57.123+0100" modifiedOn="2014-11-03T14:54:12.092+0100" name="Ope1">
-          <input xmi:id="_oCB3UGNgEeSKhIwHXF3Qtw" createdOn="2014-11-03T14:52:20.668+0100" modifiedOn="2014-11-03T14:52:20.668+0100" name="a"/>
-          <input xmi:id="_2btSoGNgEeSKhIwHXF3Qtw" createdOn="2014-11-03T14:53:56.520+0100" modifiedOn="2014-11-03T14:54:02.050+0100" name="e" multiplicity="1..*"/>
-          <output xmi:id="_xMMg0GNgEeSKhIwHXF3Qtw" createdOn="2014-11-03T14:53:21.195+0100" modifiedOn="2014-11-03T14:53:25.306+0100" name="b" multiplicity="0..1"/>
-          <output xmi:id="_zCJ84GNgEeSKhIwHXF3Qtw" createdOn="2014-11-03T14:53:35.720+0100" modifiedOn="2014-11-03T14:53:42.690+0100" name="c" multiplicity="0..*"/>
-          <fault xmi:id="_1FNZwGNgEeSKhIwHXF3Qtw" createdOn="2014-11-03T14:53:48.420+0100" modifiedOn="2014-11-03T14:53:52.330+0100" name="d" multiplicity="1..*"/>
-        </ownedOperations>
-        <ownedOperations xmi:id="_lPMjUGNgEeSKhIwHXF3Qtw" createdOn="2014-11-03T14:51:57.123+0100" modifiedOn="2014-11-03T14:52:04.841+0100" name="Ope2" kind="ONE_WAY"/>
-        <ownedOperations xmi:id="_lUWJEGNgEeSKhIwHXF3Qtw" createdOn="2014-11-03T14:51:57.123+0100" modifiedOn="2014-11-03T14:52:09.351+0100" name="Ope3" public="true"/>
-        <ownedOperations xmi:id="_lZl1cGNgEeSKhIwHXF3Qtw" createdOn="2014-11-03T14:51:57.123+0100" modifiedOn="2014-11-03T14:52:14.425+0100" name="Ope4" kind="ONE_WAY" public="true"/>
-      </ownedInterface>
-    </ownedServices>
-    <ownedServices xmi:id="_1dHhgGBBEeSjza5bRaI8SA" createdOn="2014-10-30T15:34:22.100+0100" modifiedOn="2014-10-30T15:34:26.431+0100" synchronization="asynchronous" name="provided2"/>
-    <ownedServices xmi:id="_20Y2cGBBEeSjza5bRaI8SA" createdOn="2014-10-30T15:34:32.342+0100" modifiedOn="2014-10-30T15:34:34.782+0100" kind="required" name="required1"/>
-    <ownedServices xmi:id="_4FRPgGBBEeSjza5bRaI8SA" createdOn="2014-10-30T15:34:39.772+0100" modifiedOn="2014-10-30T15:34:43.912+0100" synchronization="asynchronous" kind="required" name="required2"/>
-  </ownedComponents>
-  <ownedComponents xmi:id="_yJPV8GBBEeSjza5bRaI8SA" createdOn="2014-10-30T15:34:00.503+0100" modifiedOn="2014-10-30T15:34:48.448+0100" name="Cpt2">
-    <ownedServices xmi:id="_5oOQAGBBEeSjza5bRaI8SA" createdOn="2014-10-30T15:34:53.518+0100" modifiedOn="2014-10-30T15:34:53.528+0100" name="provided21"/>
-  </ownedComponents>
-  <ownedWires xmi:id="_Pk6mQGBBEeSjza5bRaI8SA" createdOn="2014-10-30T15:35:02.279+0100" modifiedOn="2014-10-30T15:35:06.773+0100" source="_zGMGYGBBEeSjza5bRaI8SA" dest="_5oOQAGBBEeSjza5bRaI8SA"/>
-  <ownedWires xmi:id="_9Y66cGBBEeSjza5bRaI8SA" createdOn="2014-10-30T15:35:18.317+0100" modifiedOn="2014-10-30T15:35:23.117+0100" source="_20Y2cGBBEeSjza5bRaI8SA" dest="_5oOQAGBBEeSjza5bRaI8SA"/>
-  <namespaces xmi:id="__pvtkGBBEeSjza5bRaI8SA" createdOn="2014-10-30T15:35:32.073+0100" modifiedOn="2014-10-30T15:35:46.985+0100" name="cat1">
+  <ownedNamespaces xmi:id="__pvtkGBBEeSjza5bRaI8SA" createdOn="2014-10-30T15:35:32.073+0100" modifiedOn="2014-10-30T15:35:46.985+0100" name="cat1">
     <ownedNamespaces xmi:id="_BmUH8GBCEeSjza5bRaI8SA" createdOn="2014-10-30T15:35:44.725+0100" modifiedOn="2014-10-30T15:36:16.786+0100" name="cat11">
       <types xsi:type="oenv:PrimitiveType" xmi:id="_FiHPIGBCEeSjza5bRaI8SA" createdOn="2014-10-30T15:36:08.338+0100" modifiedOn="2014-10-30T15:36:12.612+0100" name="primitive1"/>
       <types xsi:type="oenv:Enumeration" xmi:id="_GyrfIGBCEeSjza5bRaI8SA" createdOn="2014-10-30T15:36:16.786+0100" modifiedOn="2014-10-30T15:46:19.242+0100" name="enum1">
@@ -57,8 +33,8 @@
       </types>
       <types xsi:type="oenv:DTO" xmi:id="_j9qWIGBDEeSjza5bRaI8SA" createdOn="2014-10-30T15:46:32.126+0100" modifiedOn="2014-10-30T15:46:47.940+0100" name="dto2" supertype="_ifBN4GBDEeSjza5bRaI8SA"/>
     </ownedNamespaces>
-  </namespaces>
-  <namespaces xmi:id="_AqTysGBCEeSjza5bRaI8SA" createdOn="2014-10-30T15:35:38.443+0100" modifiedOn="2014-10-30T15:35:55.240+0100" name="cat2">
+  </ownedNamespaces>
+  <ownedNamespaces xmi:id="_AqTysGBCEeSjza5bRaI8SA" createdOn="2014-10-30T15:35:38.443+0100" modifiedOn="2014-10-30T15:35:55.240+0100" name="cat2">
     <ownedNamespaces xmi:id="_DlM2gGBCEeSjza5bRaI8SA" createdOn="2014-10-30T15:35:44.725+0100" modifiedOn="2014-10-30T15:46:55.002+0100" name="cat21">
       <types xsi:type="oenv:DTO" xmi:id="_l5LnoGBDEeSjza5bRaI8SA" createdOn="2014-10-30T15:46:32.126+0100" modifiedOn="2014-10-30T15:50:46.983+0100" name="dto3" supertype="_ifBN4GBDEeSjza5bRaI8SA" associatedTypes="_l5LnoWBDEeSjza5bRaI8SA _ifBN4GBDEeSjza5bRaI8SA">
         <ownedAttributes xmi:id="_9DkqoGBDEeSjza5bRaI8SA" createdOn="2014-10-30T15:48:57.941+0100" modifiedOn="2014-10-30T15:49:30.442+0100" name="att1">
@@ -90,5 +66,29 @@
       </types>
     </ownedNamespaces>
     <ownedNamespaces xmi:id="_DlM2gWBCEeSjza5bRaI8SA" createdOn="2014-10-30T15:35:44.725+0100" modifiedOn="2014-10-30T15:36:03.278+0100" name="cat22"/>
-  </namespaces>
+  </ownedNamespaces>
+  <ownedComponents xmi:id="_PLEi4GBBEeSjza5bRaI8SA" createdOn="2014-10-30T15:33:54.103+0100" modifiedOn="2014-10-30T15:34:38.072+0100" name="Cpt1">
+    <ownedServices xmi:id="_zGMGYGBBEeSjza5bRaI8SA" createdOn="2014-10-30T15:34:12.512+0100" modifiedOn="2014-11-03T14:51:47.382+0100" name="provided1">
+      <ownedInterface xmi:id="_io_WEGNgEeSKhIwHXF3Qtw" createdOn="2014-11-03T14:51:47.382+0100" modifiedOn="2014-11-03T14:52:00.583+0100" name="Itf">
+        <ownedOperations xmi:id="_kOIu8GNgEeSKhIwHXF3Qtw" createdOn="2014-11-03T14:51:57.123+0100" modifiedOn="2014-11-03T14:54:12.092+0100" name="Ope1">
+          <input xmi:id="_oCB3UGNgEeSKhIwHXF3Qtw" createdOn="2014-11-03T14:52:20.668+0100" modifiedOn="2014-11-03T14:52:20.668+0100" name="a"/>
+          <input xmi:id="_2btSoGNgEeSKhIwHXF3Qtw" createdOn="2014-11-03T14:53:56.520+0100" modifiedOn="2014-11-03T14:54:02.050+0100" name="e" multiplicity="1..*"/>
+          <output xmi:id="_xMMg0GNgEeSKhIwHXF3Qtw" createdOn="2014-11-03T14:53:21.195+0100" modifiedOn="2014-11-03T14:53:25.306+0100" name="b" multiplicity="0..1"/>
+          <output xmi:id="_zCJ84GNgEeSKhIwHXF3Qtw" createdOn="2014-11-03T14:53:35.720+0100" modifiedOn="2014-11-03T14:53:42.690+0100" name="c" multiplicity="0..*"/>
+          <fault xmi:id="_1FNZwGNgEeSKhIwHXF3Qtw" createdOn="2014-11-03T14:53:48.420+0100" modifiedOn="2014-11-03T14:53:52.330+0100" name="d" multiplicity="1..*"/>
+        </ownedOperations>
+        <ownedOperations xmi:id="_lPMjUGNgEeSKhIwHXF3Qtw" createdOn="2014-11-03T14:51:57.123+0100" modifiedOn="2014-11-03T14:52:04.841+0100" name="Ope2" kind="ONE_WAY"/>
+        <ownedOperations xmi:id="_lUWJEGNgEeSKhIwHXF3Qtw" createdOn="2014-11-03T14:51:57.123+0100" modifiedOn="2014-11-03T14:52:09.351+0100" name="Ope3" public="true"/>
+        <ownedOperations xmi:id="_lZl1cGNgEeSKhIwHXF3Qtw" createdOn="2014-11-03T14:51:57.123+0100" modifiedOn="2014-11-03T14:52:14.425+0100" name="Ope4" kind="ONE_WAY" public="true"/>
+      </ownedInterface>
+    </ownedServices>
+    <ownedServices xmi:id="_1dHhgGBBEeSjza5bRaI8SA" createdOn="2014-10-30T15:34:22.100+0100" modifiedOn="2014-10-30T15:34:26.431+0100" synchronization="asynchronous" name="provided2"/>
+    <ownedServices xmi:id="_20Y2cGBBEeSjza5bRaI8SA" createdOn="2014-10-30T15:34:32.342+0100" modifiedOn="2014-10-30T15:34:34.782+0100" kind="required" name="required1"/>
+    <ownedServices xmi:id="_4FRPgGBBEeSjza5bRaI8SA" createdOn="2014-10-30T15:34:39.772+0100" modifiedOn="2014-10-30T15:34:43.912+0100" synchronization="asynchronous" kind="required" name="required2"/>
+  </ownedComponents>
+  <ownedComponents xmi:id="_yJPV8GBBEeSjza5bRaI8SA" createdOn="2014-10-30T15:34:00.503+0100" modifiedOn="2014-10-30T15:34:48.448+0100" name="Cpt2">
+    <ownedServices xmi:id="_5oOQAGBBEeSjza5bRaI8SA" createdOn="2014-10-30T15:34:53.518+0100" modifiedOn="2014-10-30T15:34:53.528+0100" name="provided21"/>
+  </ownedComponents>
+  <ownedWires xmi:id="_Pk6mQGBBEeSjza5bRaI8SA" createdOn="2014-10-30T15:35:02.279+0100" modifiedOn="2014-10-30T15:35:06.773+0100" source="_zGMGYGBBEeSjza5bRaI8SA" dest="_5oOQAGBBEeSjza5bRaI8SA"/>
+  <ownedWires xmi:id="_9Y66cGBBEeSjza5bRaI8SA" createdOn="2014-10-30T15:35:18.317+0100" modifiedOn="2014-10-30T15:35:23.117+0100" source="_20Y2cGBBEeSjza5bRaI8SA" dest="_5oOQAGBBEeSjza5bRaI8SA"/>
 </soa:System>

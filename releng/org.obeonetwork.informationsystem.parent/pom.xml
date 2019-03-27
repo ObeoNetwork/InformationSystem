@@ -133,6 +133,9 @@
 
 		<module>../../models/application/features/org.obeonetwork.dsl.application.feature</module>
 
+		<!-- migration tests -->
+		<module>../../models/migration/plugins/org.obeonetwork.dsl.migration.tests</module>
+
 		<!-- ********************************************************************************************* 
 			* Tools & Commons ********************************************************************************************* -->
 		<!-- commons/nebula/ -->

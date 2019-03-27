@@ -42,10 +42,12 @@ abstract public class MigrationTests {
 		
 		
 		URI sourceModelURI = URI.createPlatformPluginURI(PLUGIN_ID + "/" + sourceModelPath, true);
-		ResourceSet set = loadResource(sourceModelURI);
+		loadResource(sourceModelURI);
 		
+		testMigration(sourceModelPath, expectedModelPath);
 	}
 	
+	// Not sure whether this method is useless
 	protected void testMigrationWithFragments(String folder, String fragmentsNames) {
 		String sourceModelPath = getFullPathForBeforeModel(folder);
 		String expectedModelPath = getFullPathForExpectedModel(folder);
@@ -101,6 +103,10 @@ abstract public class MigrationTests {
 		String result = contents;
 		result = result.replaceAll("\\r\\n", "\n");
 		result = result.replaceAll("\\r", "\n");
+		
+		// Remove technical IDs
+		// technicalid="_csCF0U_cEemzjNnG2EkV5g"
+		result = result.replaceAll(" technicalid=\"[^\\\"]*\"", "");
 		
 		// Convert links to environment.common
 		result = result.replaceAll("\\.\\./\\.\\./\\.\\./\\.\\./org.obeonetwork.dsl.environment.common/model/obeo.environment", "platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment");
