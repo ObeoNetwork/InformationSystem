@@ -19,7 +19,7 @@ public class PostgresTests extends AbstractTests {
 	
 	private static final String JDBC_POSTGRES_URL_PATTERN = "jdbc:postgresql://%1$s:%2$s/%3$s";
 	
-	private static final String POSTGRES_HOST_DEFAULT = "127.0.0.1";
+	private static final String POSTGRES_HOST_DEFAULT = "192.168.99.100";
 	
 	private static final String POSTGRES_PORT_DEFAULT = "5432";
 	

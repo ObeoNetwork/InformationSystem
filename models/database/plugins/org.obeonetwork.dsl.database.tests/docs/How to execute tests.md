@@ -17,6 +17,9 @@ Installation :
 - docker pull mariadb/server:10.2
 - docker run --name mariadbtest -p 127.0.0.1:3306:3306 -e MYSQL_ROOT_PASSWORD=root -d mariadb/server:10.2
 
+docker volume create crv_maria
+docker run --name mariadbtest -e MYSQL_ROOT_PASSWORD=root -e MYSQL_DATABASE=northwind -e MYSQL_USER=test -e MYSQL_PASSWORD=test --mount type=volume,src=crv_maria,dst=/var/lib/maria -p 3306:3306 -d mariadb/server:10.2
+
 Arrêt :
 
 - docker stop mariadbtest
@@ -31,6 +34,10 @@ Installation :
 
 - docker pull mysql:5.7
 - docker run --name mysqltest -p 127.0.0.1:3306:3306 -e MYSQL_ROOT_PASSWORD=root -d mysql:5.7
+- docker run --name mysqltest -p 3306:3306 -e MYSQL_ROOT_PASSWORD=root -d mysql:5.7
+
+docker volume create crv_mysql
+docker run --name mysqltest -e MYSQL_ROOT_PASSWORD=root -e MYSQL_DATABASE=northwind -e MYSQL_USER=test -e MYSQL_PASSWORD=test --mount type=volume,src=crv_mysql,dst=/var/lib/mysql -p 3306:3306 -d mysql:5.7
 
 Arrêt :
 
@@ -46,6 +53,7 @@ Installation :
 
 - docker pull postgres:9.3-alpine
 - docker run --name postgrestest -p 127.0.0.1:5432:5432 -e POSTGRES_PASSWORD=postgres -e POSTGRES_DB=northwind -d postgres:9.3-alpine
+- docker run --name postgrestest -p 5432:5432 -e POSTGRES_PASSWORD=postgres -e POSTGRES_DB=northwind -d postgres:9.3-alpine
 
 Arrêt :
 
@@ -61,6 +69,7 @@ Installation :
 
 - docker pull mcr.microsoft.com/mssql/server:2017-latest
 - docker run --name sqlservertest -p 127.0.0.1:1433:1433 -e ACCEPT_EULA=Y -e SA_PASSWORD=Sqls3rv3r -d mcr.microsoft.com/mssql/server:2017-latest
+docker run --name sqlservertest -p 1433:1433 -e ACCEPT_EULA=Y -e SA_PASSWORD=Sqls3rv3r -d mcr.microsoft.com/mssql/server:2017-latest
 
 Arrêt :
 
@@ -82,6 +91,7 @@ Installation :
 
 - docker pull oscarfonts/h2:1.3.176
 - docker run --name h2test -p 127.0.0.1:1521:1521 -p 127.0.0.1:8081:81 -d oscarfonts/h2:1.3.176
+docker run --name h2test -p 1521:1521 -p 8081:81 -d oscarfonts/h2:1.3.176
 
 Arrêt :
 
@@ -101,6 +111,9 @@ Installation :
   - Rename Dockerfile.xe en Dockerfile
   - Execute cmd : docker build -t oracle/database:11.2.0.2-xe . 
 - docker run --name oracletest --shm-size=1g -p 127.0.0.1:1521:1521 -e ORACLE_PWD=oracleserver -v path/to/directory:/u01/app/oracle/oradata -d oracle/database:11.2.0.2-xe
+docker run --name oracletest --shm-size=1g -p 1521:1521 -e ORACLE_PWD=oracleserver -v /d/temp/oradata:/u01/app/oracle/oradata -d oracle/database:11.2.0.2-xe
+docker run --name oracletest --shm-size=1g -p 1521:1521 -e ORACLE_PWD=oracleserver -v /d/temp/oradata:/u01/app/oracle/oradata -d oracle/database:11.2.0.2-xe
+docker run --name oracletest --shm-size=1g -p 1521:1521 -e ORACLE_PWD=oracleserver -v temp/oradata:/u01/app/oracle/oradata -d oracle/database:11.2.0.2-xe
 
 Arrêt :
 

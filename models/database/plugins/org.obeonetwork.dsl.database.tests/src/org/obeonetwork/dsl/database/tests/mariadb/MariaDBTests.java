@@ -19,13 +19,14 @@ public class MariaDBTests extends AbstractTests {
 
 	private static final String MARIADB_PORT_DEFAULT = "3306";
 
-	private static final String MARIADB_HOST_DEFAULT = "127.0.0.1";
+//	private static final String MARIADB_HOST_DEFAULT = "127.0.0.1";
+	private static final String MARIADB_HOST_DEFAULT = "192.168.99.100";
 
 	private static final String JDBC_MARIADB_URL_PATTERN = "jdbc:mariadb://%1$s:%2$s/%3$s?createDatabaseIfNotExist=%4$s";
 	
-	private static final String MARIADB_USERNAME_DEFAULT = "root";
+	private static final String MARIADB_USERNAME_DEFAULT = "test";
 	
-	private static final String MARIADB_PASSWORD_DEFAULT = "root";
+	private static final String MARIADB_PASSWORD_DEFAULT = "test";
 
 	@BeforeClass
 	public static void setUpBeforeClass() throws DatabaseException {

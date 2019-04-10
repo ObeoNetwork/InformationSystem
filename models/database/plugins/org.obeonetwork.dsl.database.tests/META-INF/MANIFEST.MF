@@ -10,7 +10,11 @@ Require-Bundle: org.eclipse.core.runtime,
  org.obeonetwork.dsl.database.reverse;bundle-version="11.0.0",
  org.obeonetwork.dsl.database,
  org.eclipse.core.resources,
- org.slf4j.api;bundle-version="1.7.2"
+ org.slf4j.api;bundle-version="1.7.2",
+ com.google.guava,
+ org.apache.commons.lang,
+ org.apache.commons.logging,
+ org.obeonetwork.docker.common
 Bundle-RequiredExecutionEnvironment: JavaSE-1.8
 Automatic-Module-Name: org.obeonetwork.dsl.database.tests
 Bundle-ActivationPolicy: lazy

@@ -24,7 +24,7 @@ public class SqlServerTests extends AbstractTests {
 
 	private static final String JDBC_MSSQL_URL_PATTERN = "jdbc:sqlserver://%1$s:%2$s;databaseName=%3$s";
 	
-	private static final String MSSQL_HOST_DEFAULT = "127.0.0.1";
+	private static final String MSSQL_HOST_DEFAULT = "192.168.99.100";
 	
 	private static final String MSSQL_PORT_DEFAULT = "1433";
 	

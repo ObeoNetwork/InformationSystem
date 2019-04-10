@@ -31,7 +31,8 @@ public class H2Tests extends AbstractTests {
 
 	private static final String JDBC_H2_URL_PATTERN = "jdbc:h2:tcp://%1$s:%2$s/%3$s";
 
-	private static final Object H2_HOST_DEFAULT = "127.0.0.1";
+//	private static final Object H2_HOST_DEFAULT = "127.0.0.1";
+	private static final Object H2_HOST_DEFAULT = "192.168.99.100";
 
 	private static final Object H2_PORT_DEFAULT = "1521";
 
