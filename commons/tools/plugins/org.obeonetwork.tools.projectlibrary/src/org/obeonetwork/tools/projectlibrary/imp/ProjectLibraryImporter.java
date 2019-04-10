@@ -59,9 +59,9 @@ import org.obeonetwork.tools.projectlibrary.extension.point.AbstractImportHandle
 import org.obeonetwork.tools.projectlibrary.extension.point.ImportHandlerFactory;
 import org.obeonetwork.tools.projectlibrary.util.ProjectLibraryUtils;
 import org.obeonetwork.tools.projectlibrary.util.RestorableAndNonRestorableReferences;
-import org.obeonetwork.tools.projectlibrary.util.SessionUtils;
 import org.obeonetwork.tools.projectlibrary.util.ToBeRestoredReference;
 import org.obeonetwork.tools.projectlibrary.util.ZipUtils;
+import org.obeonetwork.utils.sirius.session.SessionUtils;
 
 /**
  * Import a zipped library into a modeling project 

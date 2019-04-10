@@ -153,6 +153,9 @@
    <feature url="features/org.obeonetwork.cinematic.m2doc.feature_1.0.0.qualifier.jar" id="org.obeonetwork.cinematic.m2doc.feature" version="1.0.0.qualifier">
       <category name="org.obeonetwork.informationsystem.m2doc"/>
    </feature>
+   <feature url="features/org.obeonetwork.utils.feature_11.0.0.qualifier.jar" id="org.obeonetwork.utils.feature" version="11.0.0.qualifier">
+      <category name="org.obeonetwork.informationsystem.commons"/>
+   </feature>
    <category-def name="org.obeonetwork.informationsystem.models" label="Information System - Models"/>
    <category-def name="org.obeonetwork.informationsystem.designs" label="Information System - Designs"/>
    <category-def name="org.obeonetwork.informationsystem.commons" label="Information System - Commons"/>

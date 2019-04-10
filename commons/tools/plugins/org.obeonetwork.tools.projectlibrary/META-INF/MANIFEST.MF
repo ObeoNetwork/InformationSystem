@@ -19,7 +19,12 @@ Require-Bundle: org.eclipse.ui,
  org.eclipse.ui.ide,
  com.google.guava,
  org.eclipse.sirius.ecore.extender,
- org.eclipse.sirius.common
+ org.eclipse.sirius.common,
+ org.eclipse.emf.cdo,
+ fr.obeo.dsl.viewpoint.collab,
+ org.obeonetwork.dsl.technicalid,
+ org.obeonetwork.dsl.database,
+ org.obeonetwork.utils.sirius;bundle-version="11.0.0"
 Eclipse-LazyStart: true
 Bundle-RequiredExecutionEnvironment: JavaSE-1.8
 Bundle-ActivationPolicy: lazy

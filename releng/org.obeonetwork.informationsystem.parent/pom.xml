@@ -168,6 +168,9 @@
 		<module>../../commons/tools/plugins/org.obeonetwork.tools.projectlibrary.ui</module>
 		<module>../../commons/tools/plugins/org.obeonetwork.tools.projectlibrary.doc</module>
 		<module>../../commons/tools/features/org.obeonetwork.tools.projectlibrary.feature</module>
+		
+		<module>../../commons/utils/plugins/org.obeonetwork.utils.sirius</module>
+		<module>../../commons/utils/features/org.obeonetwork.utils.feature</module>
 
 		<!-- ********************************************************************************************* 
 			* Designs ********************************************************************************************* -->
