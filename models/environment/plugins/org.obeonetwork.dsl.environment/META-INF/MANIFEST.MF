@@ -6,7 +6,7 @@ Bundle-Version: 11.0.0.qualifier
 Bundle-ClassPath: .
 Bundle-Vendor: %providerName
 Bundle-Localization: plugin
-Bundle-RequiredExecutionEnvironment: J2SE-1.5
+Bundle-RequiredExecutionEnvironment: JavaSE-1.8
 Export-Package: org.obeonetwork.dsl.environment,
  org.obeonetwork.dsl.environment.impl,
  org.obeonetwork.dsl.environment.migration,
@@ -17,5 +17,10 @@ Require-Bundle: org.eclipse.core.runtime,
  org.eclipse.emf.ecore.xmi;visibility:=reexport,
  org.obeonetwork.dsl.technicalid;visibility:=reexport,
  org.eclipse.emf.cdo;visibility:=reexport,
- org.obeonetwork.tools.migration
+ org.obeonetwork.tools.migration,
+ org.eclipse.sirius,
+ org.eclipse.sirius.ext.base,
+ org.obeonetwork.utils.sirius,
+ org.eclipse.emf.common,
+ org.eclipse.emf.transaction;bundle-version="1.9.1"
 Bundle-ActivationPolicy: lazy
