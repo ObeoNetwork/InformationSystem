@@ -63,7 +63,7 @@ ALTER SEQUENCE [sequence.name()/][sequence.genIncrementBy()/][sequence.genStartW
 
 [template private genDropSequence(sequence : Sequence) post(trim())]
 [sequence.genSequenceDoc()/]
-DROP SEQUENCE [sequence.name()/];
+DROP SEQUENCE [sequence.fullname()/];
 [/template]
 
 [template private genCreateSequence(addSequence : AddSequence) post(trim())]

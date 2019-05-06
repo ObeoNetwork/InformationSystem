@@ -1,5 +1,5 @@
 -- ==============================================================
 --  Sequence : SEQUENCE14_1_SUPPRIMEE                                    
 -- ==============================================================
-DROP SEQUENCE SEQUENCE14_1_SUPPRIMEE;
+DROP SEQUENCE DEMO.SEQUENCE14_1_SUPPRIMEE;
 
