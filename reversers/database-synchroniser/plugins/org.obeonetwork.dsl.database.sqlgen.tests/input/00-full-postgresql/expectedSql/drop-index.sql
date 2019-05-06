@@ -1,10 +1,10 @@
 -- ==============================================================
 --  Index : Index11_1_Supprime                                    
 -- ==============================================================
-ALTER TABLE TABLE11 DROP INDEX Index11_1_Supprime;
+DROP INDEX IF EXISTS DEMO.Index11_1_Supprime;
 
 -- ==============================================================
 --  Index : Table2_UNIQUE_INDEX                                    
 -- ==============================================================
-ALTER TABLE TABLE2 DROP INDEX Table2_UNIQUE_INDEX;
+DROP INDEX IF EXISTS DEMO.Table2_UNIQUE_INDEX;
 

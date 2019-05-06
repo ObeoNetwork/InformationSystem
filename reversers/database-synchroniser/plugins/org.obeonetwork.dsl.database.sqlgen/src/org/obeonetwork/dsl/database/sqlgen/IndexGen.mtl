@@ -99,6 +99,10 @@ CREATE [if (index.unique)]UNIQUE [/if]INDEX [index.name/] ON [index.getTable().f
 [/if]
 [/template]
 
+[template private genDropIndex(index : Index) ? (index.shouldGenerateIndex() and index.isTargetPostgreSQL()) post(trim())]
+DROP INDEX IF EXISTS [index.owner.genSchemaPrefix()/][index.name/];
+[/template]
+
 [template private genDropIndex(index : Index) ? (index.shouldGenerateIndex()) post(trim())]
 ALTER TABLE [index.owner.name()/] DROP INDEX [index.name/];
 [/template]
