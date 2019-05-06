@@ -129,6 +129,10 @@ COMMENT ON TABLE [table.fullname()/] IS '[table.comments.replaceAll('\'','\'\'')
 [table.genCreateTableComment()/]
 [/template]
 
+[template private genRenameTable(oldTable : Table, newTable : Table) ? (oldTable.isTargetPostgreSQL()) post(trim())]
+ALTER TABLE [oldTable.fullname()/] RENAME TO [newTable.name.toUpper()/];
+[/template]
+
 [template private genRenameTable(oldTable : Table, newTable : Table) post(trim())]
 ALTER TABLE [oldTable.fullname()/] RENAME TO [newTable.fullname()/];
 [/template]
