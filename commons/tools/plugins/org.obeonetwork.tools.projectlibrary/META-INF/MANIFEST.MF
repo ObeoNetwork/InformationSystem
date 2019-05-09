@@ -20,8 +20,7 @@ Require-Bundle: org.eclipse.ui,
  com.google.guava,
  org.eclipse.sirius.ecore.extender,
  org.eclipse.sirius.common,
- org.eclipse.emf.cdo,
- fr.obeo.dsl.viewpoint.collab
+ org.eclipse.emf.cdo
 Eclipse-LazyStart: true
 Bundle-RequiredExecutionEnvironment: JavaSE-1.8
 Bundle-ActivationPolicy: lazy
