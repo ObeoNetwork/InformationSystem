@@ -61,7 +61,7 @@ public class ProjectLibraryUtils {
 								Object eGet = sourceObject.eGet(referencingFeature);
 								if (eGet instanceof List) {
 									List<Object> list = (List<Object>)eGet;
-									list.remove(targetObject);
+									list.remove(position);
 									list.add(position, targetObject);
 								}
 							}

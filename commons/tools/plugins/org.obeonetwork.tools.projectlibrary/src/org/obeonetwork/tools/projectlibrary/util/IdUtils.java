@@ -18,13 +18,17 @@ import java.util.Map;
 
 import org.eclipse.emf.common.notify.Notifier;
 import org.eclipse.emf.common.util.TreeIterator;
+import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EClassifier;
 import org.eclipse.emf.ecore.EObject;
+import org.eclipse.emf.ecore.EPackage;
+import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.resource.ResourceSet;
 import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.sirius.business.api.session.Session;
-import org.obeonetwork.dsl.database.DatabaseElement;
-import org.obeonetwork.dsl.technicalid.Identifiable;
+//import org.obeonetwork.dsl.database.DatabaseElement;
+//import org.obeonetwork.dsl.technicalid.Identifiable;
 
 /**
  * Utilities objects and their identifiers
@@ -33,6 +37,10 @@ import org.obeonetwork.dsl.technicalid.Identifiable;
  */
 public class IdUtils {
 
+	private static final String DATABASE_DATABASEELEMENT_ID = "techID";
+	private static final String TECHNICALID_IDENTIFIABLE_ID = "technicalid";
+	private static final String DATABASE_DATABASEELEMENT = "org.obeonetwork.dsl.database.DatabaseElement";
+	private static final String TECHNICALID_IDENTIFIABLE = "org.obeonetwork.dsl.technicalid.Identifiable";
 	private Session session;
 	private Map<String, EObject> cache = new HashMap<String, EObject>();
 	private Collection<Notifier> computedObjects = new ArrayList<Notifier>();
@@ -91,13 +99,35 @@ public class IdUtils {
 		return object.eClass().getName() + "#" + getId(object);
 	}
 	
-	private String getId(EObject object) {
-		if (object instanceof Identifiable) {
-			return ((Identifiable) object).getTechnicalid();
-		} else if (object instanceof DatabaseElement) {
-			return ((DatabaseElement) object).getTechID();
-		} else {
-			return EcoreUtil.getID(object);
+	private String getFeatureValueAsString(EObject object, String eClassName, String eAttributeName) {
+		EClass eClass = object.eClass();
+		EStructuralFeature eStructuralFeature = eClass.getEStructuralFeature(eAttributeName);
+		if (eStructuralFeature != null) {
+			// Check whether it is not a synonym from another EClass
+			EObject containingEClass = eStructuralFeature.eContainer();
+			if (containingEClass instanceof EClass) {
+				if (eClassName.equals(((EClass) containingEClass).getInstanceClassName())) {
+					Object value = object.eGet(eStructuralFeature);
+					if (value instanceof String) {
+						return (String)value;
+					}
+				}
+			}
 		}
+		return null;
+	}
+	
+	private String getId(EObject object) {
+		// Retrieve the ID to be used to retrieve an object
+		String id = null;
+		
+		id = getFeatureValueAsString(object, TECHNICALID_IDENTIFIABLE, TECHNICALID_IDENTIFIABLE_ID);
+		if (id == null) {
+			id = getFeatureValueAsString(object, DATABASE_DATABASEELEMENT, DATABASE_DATABASEELEMENT_ID);
+		}
+		if (id == null) {
+			id = EcoreUtil.getID(object);
+		}
+		return id;
 	}
 }

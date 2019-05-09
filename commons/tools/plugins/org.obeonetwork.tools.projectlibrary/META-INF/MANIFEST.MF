@@ -21,9 +21,7 @@ Require-Bundle: org.eclipse.ui,
  org.eclipse.sirius.ecore.extender,
  org.eclipse.sirius.common,
  org.eclipse.emf.cdo,
- fr.obeo.dsl.viewpoint.collab,
- org.obeonetwork.dsl.technicalid,
- org.obeonetwork.dsl.database
+ fr.obeo.dsl.viewpoint.collab
 Eclipse-LazyStart: true
 Bundle-RequiredExecutionEnvironment: JavaSE-1.8
 Bundle-ActivationPolicy: lazy
