@@ -199,6 +199,9 @@
 		<module>../../designs/environment/plugins/org.obeonetwork.dsl.environment.properties</module>
 
 		<module>../../designs/environment/features/org.obeonetwork.dsl.environment.design.feature</module>
+		
+		<!-- Design environment tests -->
+		<module>../../designs/environment/plugins/org.obeonetwork.dsl.environment.design.tests</module>
 
 		<!-- designs/cinematic/ -->
 		<module>../../designs/cinematic/plugins/org.obeonetwork.dsl.cinematic.design</module>
@@ -408,9 +411,26 @@
 						<encoding>UTF-8</encoding>
 					</configuration>
 				</plugin>
-				<!-- <plugin> <groupId>org.eclipse.tycho</groupId> <artifactId>tycho-surefire-plugin</artifactId> 
-					<version>${tycho-version}</version> <configuration> <defaultStartLevel> <level>6</level> 
-					<autoStart>true</autoStart> </defaultStartLevel> </configuration> </plugin> -->
+				<plugin>
+					<groupId>org.eclipse.tycho</groupId>
+					<artifactId>tycho-surefire-plugin</artifactId> 
+					<version>${tycho-version}</version>
+					<configuration>
+						<dependencies>
+							<dependency>
+								<type>eclipse-feature</type>
+								<artifactId>org.eclipse.e4.rcp</artifactId>
+								<version>0.0.0</version>
+							</dependency>
+						</dependencies>
+						<!--<defaultStartLevel>
+							<level>6</level> 
+							<autoStart>true</autoStart>
+						</defaultStartLevel>-->
+						<useUIHarness>true</useUIHarness>
+						<useUIThread>true</useUIThread>
+					</configuration>
+				</plugin>
 				<!-- enable source bundle generation -->
 				<plugin>
 					<groupId>org.eclipse.tycho</groupId>
