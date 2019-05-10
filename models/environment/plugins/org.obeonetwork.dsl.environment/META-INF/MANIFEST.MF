@@ -10,6 +10,7 @@ Bundle-RequiredExecutionEnvironment: JavaSE-1.8
 Export-Package: org.obeonetwork.dsl.environment,
  org.obeonetwork.dsl.environment.impl,
  org.obeonetwork.dsl.environment.migration,
+ org.obeonetwork.dsl.environment.session,
  org.obeonetwork.dsl.environment.spec,
  org.obeonetwork.dsl.environment.util
 Require-Bundle: org.eclipse.core.runtime,

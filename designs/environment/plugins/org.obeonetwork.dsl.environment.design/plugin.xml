@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <?eclipse version="3.0"?>
 <!--
-    Copyright (c) 2015, 2017 Obeo.
+    Copyright (c) 2015, 2019 Obeo.
     All rights reserved. This program and the accompanying materials
     are made available under the terms of the Eclipse Public License v1.0
     which accompanies this distribution, and is available at
@@ -18,6 +18,50 @@
                id="org.obeonetwork.dsl.environment.design"
 	       name="environment">
     </component>
+  </extension>
+  <extension
+        point="org.eclipse.ui.commands">
+     <command
+           id="org.obeonetwork.dsl.environment.design.commands.openEnvResources"
+           name="Manage environment resources">
+     </command>
+  </extension>
+  <extension
+        point="org.eclipse.ui.handlers">
+     <handler
+           class="org.obeonetwork.dsl.environment.design.ui.handlers.OpenEnvResourcesDialog"
+           commandId="org.obeonetwork.dsl.environment.design.commands.openEnvResources">
+     </handler>
+  </extension>
+  <extension
+        point="org.eclipse.ui.menus">
+     <menuContribution
+           locationURI="popup:org.eclipse.ui.popup.any?after=additions">
+        <command
+              commandId="org.obeonetwork.dsl.environment.design.commands.openEnvResources"
+              id="org.obeonetwork.dsl.environment.design.menus.openEnvResources">
+           <visibleWhen
+                 checkEnabled="false">
+              <with
+                    variable="selection">
+                 <test
+                       forcePluginActivation="true"
+                       property="org.obeonetwork.dsl.environment.design.propertyTester.isModelingPrjOrAird">
+                 </test>
+              </with>
+           </visibleWhen>
+        </command>
+     </menuContribution>
+  </extension>
+  <extension
+        point="org.eclipse.core.expressions.propertyTesters">
+     <propertyTester
+           class="org.obeonetwork.dsl.environment.design.ui.testers.IsModelingPrjOrAirdPropertyTester"
+           id="org.obeonetwork.dsl.environment.design.propertyTester.isModelingPrjOrAird"
+           namespace="org.obeonetwork.dsl.environment.design.propertyTester"
+           properties="isModelingPrjOrAird"
+           type="java.lang.Object">
+     </propertyTester>
   </extension>
   
 </plugin>

@@ -6,7 +6,8 @@
          <meta.schema plugin="org.obeonetwork.dsl.environment" id="providedEnvironmentModel" name="providedEnvironmentModel"/>
       </appInfo>
       <documentation>
-         [Enter description of this extension point.]
+         This extension point is used to provide environment resource.
+It will be used to select environment resources with highest priority to adding them in project dependencies when a new modeling project is created.
       </documentation>
    </annotation>
 
@@ -52,21 +53,21 @@
          <attribute name="uri" type="string" use="required">
             <annotation>
                <documentation>
-                  
+                  The uri of the resource. It must include the platform:/plugin schema
                </documentation>
             </annotation>
          </attribute>
          <attribute name="name" type="string" use="required">
             <annotation>
                <documentation>
-                  
+                  The name of the resource
                </documentation>
             </annotation>
          </attribute>
          <attribute name="priority" type="string">
             <annotation>
                <documentation>
-                  
+                  The priority of the contributed resource (default: 0)
                </documentation>
             </annotation>
          </attribute>
@@ -87,7 +88,13 @@
          <meta.section type="examples"/>
       </appInfo>
       <documentation>
-         [Enter extension point usage example here.]
+         &lt;extension 
+	point=&quot;org.obeonetwork.dsl.environment.providedEnvironmentModel&quot;&gt;
+	&lt;model
+		name=&quot;Obeo Common&quot;
+		uri=&quot;platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment&quot;&gt;
+	&lt;/model&gt;
+&lt;/extension&gt;
       </documentation>
    </annotation>
 
@@ -96,7 +103,10 @@
          <meta.section type="apiinfo"/>
       </appInfo>
       <documentation>
-         [Enter API information here.]
+         This extension point is composed of three attribute:
+- uri: the uri of the resource. It must include the platform:/plugin schema
+- name: the name of the resource
+- priority(optional): used to define the priority of a contribution (default: 0).
       </documentation>
    </annotation>
 
