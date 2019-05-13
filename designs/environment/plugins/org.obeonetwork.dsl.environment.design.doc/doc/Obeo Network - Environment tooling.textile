@@ -1,0 +1,37 @@
+__Copyright (c) Obeo 2019 -  All rights reserved. This program and the accompanying materials are made available under the terms of the Eclipse Public License v1.0__
+
+@Authors@ Guillaume Coutable
+@Contact@ guillaume.coutable@obeo.fr
+
+h1. Obeo Network - Outillage environnement
+
+les modèles environnements sont principalement utilisés pour définir des librairies de types dans le but de rendre ces types disponibles dans les modèles Safr@n.
+Avant la version Safr@n 1.9 le modèle "obeo.environment" était ajouté par défaut dans les dépendances des projets modeling. Depuis la version Safr@n 1.9 il est possible de choisir quelles seront les ressources environnements ajoutées lors de la création d'un projet modeling, ainsi que de gérer les ressources environnement d'un projet.
+
+h2. Création d'un projet modeling
+
+A la création d'un projet modeling la ressource "obeo.environement" est ajoutée par defaut. Il est possible de contribuer au point d'extension "org.obeonetwork.dsl.environment.providedEnvironmentModel" pour modifier le choix par défaut de la ressource environnement. Si une ou plusieurs ressources environnements sont contribuées, la ou les ressources ajoutées par défaut seront celles dont la priorités est la plus élevée.
+
+Note: La ressource "obeo.environment" est contribuée à l'aide de ce point d'extension avec une priorité de zéro.
+
+h2(#manage_env_resource). Gestion des ressources environnement
+
+Il est possible de faire apparaître une boîte de dialogue permettant de gérer les ressources environnemet d'un projet modeling en utilisant le menu "clic-droit -> Manage environment resources" soit sur un projet modeling, soit sur une ressource aird ou soit sur l'élément "Project Dependencies"
+
+!{width:1200px}./pics/Manage environment resources - actions.png!
+
+La boîte de dialogue est composé d'un tableau listant toutes les ressources environnements de IS Designer. Les premières ressources affichées sont celles présentes dans les dépendances du projet.
+
+!{width:800px}./pics/Manage environment resources - dialog.png!
+
+Il est possible d'ajouter et de retirer des dépendances du projet en cochant ou en décochant la checkbox en début de ligne. Le résultat sera appliqué lors de la validation de la boîte de dialogue.
+Si certains éléments d'une ressource retirée du projet sont utilisés dans d'autres ressources, un message d'avertissement s'affiche.
+
+!{width:500px}./pics/Manage environment resources - warning dialog.png!
+
+Ce message affiche sous forme d'arbre les objets qui références des éléments de la ressource environnement sur le point d'être retirée des dépendances du projet (ici obeo.environment). Si le message d'avertissement est validé les références listées seront supprimées. Si le message d'avertissement est annulé la ressource environnement ne sera pas retirée des dépendances du projet.
+Il est possible que plusieurs messages d'avertissements se succèdent si plusieurs ressources environnement sont retirées des dépendances du projet.
+
+Remarques :
+- Les changements sont appliqués mais pas sauvés
+- Il est possible d'annuler tous les changements opérés en faisant un "Ctrl+Z.
