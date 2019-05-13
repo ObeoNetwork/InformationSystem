@@ -3,6 +3,7 @@ Bundle-ManifestVersion: 2
 Bundle-SymbolicName: org.obeonetwork.utils.sirius;singleton:=true
 Bundle-Version: 11.0.0.qualifier
 Bundle-Activator: org.obeonetwork.utils.sirius.Activator
+Bundle-Localization: plugin
 Require-Bundle: org.eclipse.core.runtime,
  org.eclipse.sirius,
  org.eclipse.sirius.ext.base
