@@ -36,7 +36,7 @@
   <extension
         point="org.eclipse.ui.menus">
      <menuContribution
-           locationURI="popup:org.eclipse.ui.popup.any?after=additions">
+           locationURI="popup:org.obeonetwork.is.designer.menu?after=additions">
         <command
               commandId="org.obeonetwork.dsl.environment.design.commands.openEnvResources"
               id="org.obeonetwork.dsl.environment.design.menus.openEnvResources">
