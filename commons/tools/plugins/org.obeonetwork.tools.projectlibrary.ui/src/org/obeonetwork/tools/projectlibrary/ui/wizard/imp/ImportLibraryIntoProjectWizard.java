@@ -17,7 +17,9 @@ import java.util.Map.Entry;
 
 import org.eclipse.core.resources.IProject;
 import org.eclipse.core.runtime.IProgressMonitor;
+import org.eclipse.core.runtime.IStatus;
 import org.eclipse.core.runtime.Platform;
+import org.eclipse.core.runtime.Status;
 import org.eclipse.core.runtime.SubMonitor;
 import org.eclipse.core.runtime.preferences.IEclipsePreferences;
 import org.eclipse.core.runtime.preferences.InstanceScope;
@@ -34,6 +36,7 @@ import org.eclipse.ui.PlatformUI;
 import org.obeonetwork.tools.projectlibrary.imp.IConfirmationRunnable;
 import org.obeonetwork.tools.projectlibrary.imp.LibraryImportException;
 import org.obeonetwork.tools.projectlibrary.imp.ProjectLibraryImporter;
+import org.obeonetwork.tools.projectlibrary.ui.Activator;
 import org.obeonetwork.tools.projectlibrary.ui.wizard.WizardUtils;
 
 /**
@@ -99,6 +102,8 @@ public class ImportLibraryIntoProjectWizard extends Wizard implements IImportWiz
 			getContainer().run(true, true, runnable);
 		} catch (Exception e) {
 			// Do nothing
+			Activator.getDefault().getLog().log(new Status(IStatus.ERROR, Activator.PLUGIN_ID, "The following unexpected exception occurred while importing a library", e));
+			MessageDialog.openError(getShell(), "Importing library", "An unexpected exception occured while importing a library. See Error log view for more details");
 		}
 		return runnable.getResult();
 	}
