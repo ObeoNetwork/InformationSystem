@@ -60,6 +60,7 @@ public class ProjectLibraryUtils {
 							protected void doExecute() {
 								Object eGet = sourceObject.eGet(referencingFeature);
 								if (eGet instanceof List) {
+									@SuppressWarnings("unchecked")
 									List<Object> list = (List<Object>)eGet;
 									list.remove(position);
 									list.add(position, targetObject);
