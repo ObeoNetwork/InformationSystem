@@ -46,6 +46,7 @@ location "http://update.obeo.fr/integration/informationsystem/11.0/design/reposi
 	org.obeonetwork.is.samples.feature.feature.group lazy
 	org.obeonetwork.tools.projectlibrary.feature.feature.group lazy
 	org.obeonetwork.cinematic.m2doc.feature.feature.group lazy
+	org.obeonetwork.utils.feature.feature.group lazy
 }
 
 location "http://download.eclipse.org/modeling/emft/eef/updates/milestones/1.5/S201707060903" {
