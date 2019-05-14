@@ -228,7 +228,7 @@
    <includes
          id="fr.gouv.mindef.safran.cinematic.gen.html.feature"
          version="0.0.0"/>
-         
+
    <includes
          id="org.obeonetwork.tools.projectlibrary.feature"
          version="0.0.0"/>
@@ -244,4 +244,9 @@
    <includes
          id="org.obeonetwork.cinematic.m2doc.feature"
          version="0.0.0"/>
+
+   <includes
+         id="org.obeonetwork.utils.feature"
+         version="0.0.0"/>
+
 </feature>
