@@ -171,6 +171,7 @@
 		<module>../../commons/tools/features/org.obeonetwork.tools.projectlibrary.feature</module>
 		
 		<module>../../commons/tools/plugins/org.obeonetwork.tools.contextual.explorer.ui</module>
+		<module>../../commons/tools/plugins/org.obeonetwork.tools.contextual.explorer.ui.tests</module>
 		<module>../../commons/tools/features/org.obeonetwork.tools.contextual.explorer.feature</module>
 		
 		<module>../../commons/utils/plugins/org.obeonetwork.utils.sirius</module>

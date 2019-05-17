@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<graal:System xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:graal="http://www.obeonetwork.org/dsl/graal/2.0.0" xmlns:oenv="http://www.obeonetwork.org/dsl/environment/3.0.0" xmi:id="_9TIpEHfXEemFhe1KA748Fw" technicalid="_9TICAHfXEemFhe1KA748Fw" createdOn="2019-05-16T14:41:42.688+0200" modifiedOn="2019-05-16T14:52:40.568+0200" name="contextualExplorer_test_graal">
+  <tasks xsi:type="graal:Task" xmi:id="_fVKHgXfZEemFhe1KA748Fw" technicalid="_fVKHgHfZEemFhe1KA748Fw" createdOn="2019-05-16T14:52:41.002+0200" modifiedOn="2019-05-16T14:55:07.334+0200" name="Contextual_explorer_task" id="T1">
+    <metadatas xmi:id="_1M0-YnfZEemFhe1KA748Fw" technicalid="_1M0-YXfZEemFhe1KA748Fw">
+      <metadatas xsi:type="oenv:Annotation" xmi:id="_1M1lcHfZEemFhe1KA748Fw" technicalid="_1M0-YHfZEemFhe1KA748Fw" title="DocumentationLink - contextualExplorer_test" body="https://obeo.fr"/>
+      <metadatas xsi:type="oenv:Annotation" xmi:id="_2eD8wXfZEemFhe1KA748Fw" technicalid="_2eD8wHfZEemFhe1KA748Fw" title="contextualExplorer_test" body="test"/>
+    </metadatas>
+    <nodes xsi:type="graal:InitialNode" xmi:id="_kRfeoXfZEemFhe1KA748Fw" technicalid="_kRfeoHfZEemFhe1KA748Fw" createdOn="2019-05-16T14:53:29.850+0200" modifiedOn="2019-05-16T14:53:29.850+0200" outgoingTransitions="_mrJdoXfZEemFhe1KA748Fw"/>
+    <nodes xsi:type="graal:UserView" xmi:id="_lbsA4XfZEemFhe1KA748Fw" technicalid="_lbsA4HfZEemFhe1KA748Fw" createdOn="2019-05-16T14:53:21.885+0200" modifiedOn="2019-05-16T14:53:49.008+0200" incomingTransitions="_mrJdoXfZEemFhe1KA748Fw" name="Contextual_user_view"/>
+    <transitions xmi:id="_mrJdoXfZEemFhe1KA748Fw" technicalid="_mrJdoHfZEemFhe1KA748Fw" createdOn="2019-05-16T14:53:29.850+0200" modifiedOn="2019-05-16T14:53:29.851+0200" source="_kRfeoXfZEemFhe1KA748Fw" target="_lbsA4XfZEemFhe1KA748Fw"/>
+  </tasks>
+</graal:System>

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<requirement:Repository xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:requirement="http://www.obeonetwork.org/dsl/requirement/1.0" xmi:id="_jHgpsXfXEemFhe1KA748Fw" technicalid="_jHgpsHfXEemFhe1KA748Fw" name="contextualExplorer_test_requirement">
+  <mainCategories xmi:id="_fPZTMXfYEemFhe1KA748Fw" technicalid="_fPZTMHfYEemFhe1KA748Fw" name="Contextual explorer category" id="CAT1">
+    <requirements xmi:id="_lavbIXfYEemFhe1KA748Fw" technicalid="_lavbIHfYEemFhe1KA748Fw" name="GRAAL_REQUIREMENT" id="R3" createdOn="2019-05-16T14:46:11.922+0200" modifiedOn="2019-05-16T14:48:03.705+0200">
+      <referencedObject href="contextualExplorer_test_graal.graal#_lbsA4XfZEemFhe1KA748Fw"/>
+    </requirements>
+    <requirements xmi:id="_mqo8wXfYEemFhe1KA748Fw" technicalid="_mqo8wHfYEemFhe1KA748Fw" name="DATABASE_REQUIREMENT" id="R1" createdOn="2019-05-16T14:46:20.300+0200" modifiedOn="2019-05-16T14:51:16.533+0200">
+      <referencedObject href="contextualExplorer_test_database.database#_L9SwYXfYEemFhe1KA748Fw"/>
+    </requirements>
+    <requirements xmi:id="_ttWKgXfYEemFhe1KA748Fw" technicalid="_ttWKgHfYEemFhe1KA748Fw" name="GRAAL_DATABASE_REQUIREMENT" id="R2" createdOn="2019-05-16T14:47:07.560+0200" modifiedOn="2019-05-16T14:48:39.394+0200">
+      <referencedObject href="contextualExplorer_test_database.database#_L9SwYXfYEemFhe1KA748Fw"/>
+      <referencedObject href="contextualExplorer_test_graal.graal#_lbsA4XfZEemFhe1KA748Fw"/>
+    </requirements>
+  </mainCategories>
+</requirement:Repository>

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<database:DataBase xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:database="http://www.obeonetwork.org/dsl/database/1.0" xmlns:typeslibrary="http://www.obeonetwork.org/dsl/typeslibrary/1.0" xmi:id="_ds1wwHfXEemFhe1KA748Fw" techID="_ds1JsHfXEemFhe1KA748Fw" name="contextualExplorer_test_database">
+  <usedLibraries xsi:type="typeslibrary:NativeTypesLibrary" href="pathmap://NativeDBTypes/MariaDB-10.2#_oGtuUCY4EemALc7s7nxPuQ"/>
+  <schemas xmi:id="_IWoywXfYEemFhe1KA748Fw" techID="_IWoywHfYEemFhe1KA748Fw" name="main">
+    <tables xsi:type="database:Table" xmi:id="_L9SwYXfYEemFhe1KA748Fw" techID="_L9SwYHfYEemFhe1KA748Fw" name="TEST_TABLE">
+      <primaryKey xmi:id="_Wl_NYXfYEemFhe1KA748Fw" techID="_Wl_NYHfYEemFhe1KA748Fw" name="TEST_TABLE_PK" columns="_PDWiYXfYEemFhe1KA748Fw"/>
+      <columns xmi:id="_PDWiYXfYEemFhe1KA748Fw" techID="_PDWiYHfYEemFhe1KA748Fw" name="TEST_COLUMN" primaryKey="_Wl_NYXfYEemFhe1KA748Fw">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_PDWiYnfYEemFhe1KA748Fw">
+          <nativeType href="pathmap://NativeDBTypes/MariaDB-10.2#_yD7TcCY6EemALc7s7nxPuQ"/>
+        </type>
+      </columns>
+    </tables>
+  </schemas>
+</database:DataBase>
