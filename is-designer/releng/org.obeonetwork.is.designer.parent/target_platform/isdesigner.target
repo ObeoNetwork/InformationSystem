@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <?pde?>
 <!-- generated with https://github.com/eclipse-cbi/targetplatform-dsl -->
-<target name="IS Designer Target Definition" sequenceNumber="1557831036">
+<target name="IS Designer Target Definition" sequenceNumber="1558343687">
   <locations>
     <location includeMode="planner" includeAllPlatforms="false" includeSource="true" includeConfigurePhase="false" type="InstallableUnit">
       <unit id="org.obeonetwork.dsl.feature.environment.feature.group" version="0.0.0"/>
@@ -50,6 +50,7 @@
       <unit id="org.obeonetwork.tools.projectlibrary.feature.feature.group" version="0.0.0"/>
       <unit id="org.obeonetwork.cinematic.m2doc.feature.feature.group" version="0.0.0"/>
       <unit id="org.obeonetwork.utils.feature.feature.group" version="0.0.0"/>
+      <unit id="org.obeonetwork.tools.contextual.explorer.feature.feature.group" version="0.0.0"/>
       <repository location="http://update.obeo.fr/integration/informationsystem/11.0/design/repository/"/>
     </location>
     <location includeMode="planner" includeAllPlatforms="false" includeSource="true" includeConfigurePhase="false" type="InstallableUnit">
@@ -92,6 +93,12 @@
     <location includeMode="planner" includeAllPlatforms="false" includeSource="true" includeConfigurePhase="false" type="InstallableUnit">
       <unit id="fr.obeo.dsl.viewpoint.collab" version="1.0.0.201901151724"/>
       <repository id="Obeo-Designer-Team" location="http://update.obeo.fr/release/designer/11.1/team/11.1.1/photon/repository/"/>
+    </location>
+    <location includeMode="planner" includeAllPlatforms="false" includeSource="true" includeConfigurePhase="false" type="InstallableUnit">
+      <unit id="org.eclipse.amalgam.explorer.contextual.sirius.feature.group" version="0.0.0"/>
+      <unit id="org.eclipse.amalgam.explorer.contextual.core.feature.group" version="0.0.0"/>
+      <unit id="org.eclipse.amalgam.discovery.feature.group" version="0.0.0"/>
+      <repository id="Amalgam" location="https://download.eclipse.org/modeling/amalgam/updates/stable/1.10.1-S20190419/capella/"/>
     </location>
     <location includeMode="planner" includeAllPlatforms="false" includeSource="true" includeConfigurePhase="false" type="InstallableUnit">
       <unit id="org.apache.log4j" version="0.0.0"/>

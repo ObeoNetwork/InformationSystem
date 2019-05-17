@@ -47,6 +47,7 @@ location "http://update.obeo.fr/integration/informationsystem/11.0/design/reposi
 	org.obeonetwork.tools.projectlibrary.feature.feature.group lazy
 	org.obeonetwork.cinematic.m2doc.feature.feature.group lazy
 	org.obeonetwork.utils.feature.feature.group lazy
+	org.obeonetwork.tools.contextual.explorer.feature.feature.group lazy
 }
 
 location "http://download.eclipse.org/modeling/emft/eef/updates/milestones/1.5/S201707060903" {
@@ -90,6 +91,12 @@ location "https://download.eclipse.org/tools/orbit/downloads/drops/R201806061451
 
 location Obeo-Designer-Team "http://update.obeo.fr/release/designer/11.1/team/11.1.1/photon/repository/" {
 	fr.obeo.dsl.viewpoint.collab
+}
+
+location Amalgam "https://download.eclipse.org/modeling/amalgam/updates/stable/1.10.1-S20190419/capella/" {
+	org.eclipse.amalgam.explorer.contextual.sirius.feature.group lazy
+	org.eclipse.amalgam.explorer.contextual.core.feature.group lazy
+	org.eclipse.amalgam.discovery.feature.group lazy
 }
 
 location Obeo-Designer-Community "http://update.obeo.fr/release/designer/11.1/community/11.1.1/photon/repository/" {

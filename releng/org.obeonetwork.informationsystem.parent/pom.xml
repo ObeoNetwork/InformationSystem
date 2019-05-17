@@ -22,6 +22,7 @@
 		<od-site>http://update.obeo.fr/release/designer/11.1/team/11.1.1/photon/repository/</od-site>
 		<od-site2>http://update.obeo.fr/release/designer/11.1/community/11.1.1/photon/repository/</od-site2>
 		<eef-site>https://download.eclipse.org/modeling/emft/eef/updates/milestones/1.5/S201707060903</eef-site>
+		<amalgam-site>https://download.eclipse.org/modeling/amalgam/updates/stable/1.10.1-S20190419/capella/</amalgam-site>
 		<!-- <acceleo-site>http://mirror.update.eclipse.obeo.fr/releases-acceleo-3.4/</acceleo-site> -->
 		<eclipse-site>http://download.eclipse.org/releases/photon/</eclipse-site>
 		<orbit-site>https://download.eclipse.org/tools/orbit/downloads/drops/R20180606145124/repository/</orbit-site>
@@ -168,6 +169,9 @@
 		<module>../../commons/tools/plugins/org.obeonetwork.tools.projectlibrary.ui</module>
 		<module>../../commons/tools/plugins/org.obeonetwork.tools.projectlibrary.doc</module>
 		<module>../../commons/tools/features/org.obeonetwork.tools.projectlibrary.feature</module>
+		
+		<module>../../commons/tools/plugins/org.obeonetwork.tools.contextual.explorer.ui</module>
+		<module>../../commons/tools/features/org.obeonetwork.tools.contextual.explorer.feature</module>
 		
 		<module>../../commons/utils/plugins/org.obeonetwork.utils.sirius</module>
 		<module>../../commons/utils/features/org.obeonetwork.utils.feature</module>
@@ -340,6 +344,11 @@
 			<id>od</id>
 			<layout>p2</layout>
 			<url>${od-site}</url>
+		</repository>
+		<repository>
+			<id>amalgam</id>
+			<layout>p2</layout>
+			<url>${amalgam-site}</url>
 		</repository>
 		<repository>
 			<id>m2doc</id>
