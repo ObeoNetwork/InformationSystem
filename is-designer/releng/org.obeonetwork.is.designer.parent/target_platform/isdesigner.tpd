@@ -89,7 +89,7 @@ location "https://download.eclipse.org/tools/orbit/downloads/drops/R201806061451
 	org.kohsuke.args4j [2.0.21,2.1.0)
 }
 
-location Obeo-Designer-Team "http://update.obeo.fr/release/designer/11.1/team/11.1.1/photon/repository/" {
+location Obeo-Designer-Team "http://update.obeo.fr/stable/designer/11.1.2_te_T4C_it8-2/team/11.1.2/repository/" {
 	fr.obeo.dsl.viewpoint.collab
 }
 
@@ -99,7 +99,7 @@ location Amalgam "https://download.eclipse.org/modeling/amalgam/updates/stable/1
 	org.eclipse.amalgam.discovery.feature.group lazy
 }
 
-location Obeo-Designer-Community "http://update.obeo.fr/release/designer/11.1/community/11.1.1/photon/repository/" {
+location Obeo-Designer-Community "http://update.obeo.fr/stable/designer/11.1.2_te_T4C_it8-2/community/11.1.2/repository/" {
 	org.apache.log4j lazy
     org.easymock lazy
     org.hamcrest.core lazy
