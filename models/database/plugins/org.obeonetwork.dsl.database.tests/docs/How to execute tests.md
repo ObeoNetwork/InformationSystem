@@ -115,6 +115,9 @@ docker run --name oracletest --shm-size=1g -p 1521:1521 -e ORACLE_PWD=oracleserv
 docker run --name oracletest --shm-size=1g -p 1521:1521 -e ORACLE_PWD=oracleserver -v /d/temp/oradata:/u01/app/oracle/oradata -d oracle/database:11.2.0.2-xe
 docker run --name oracletest --shm-size=1g -p 1521:1521 -e ORACLE_PWD=oracleserver -v temp/oradata:/u01/app/oracle/oradata -d oracle/database:11.2.0.2-xe
 
+docker run --name oracletest --shm-size=1g -p 1521:1521 -e ORACLE_PWD=oracleserver -v oradata:/u01/app/oracle/oradata -d oracle/database:11.2.0.2-xe
+docker run --name oracletest --shm-size=1g -p 1521:1521 -e ORACLE_PWD=oracleserver -v oradataxyz:/u01/app/oracle/oradata -d oracle/database:11.2.0.2-xe
+
 Arrêt :
 
 - docker stop oracletest

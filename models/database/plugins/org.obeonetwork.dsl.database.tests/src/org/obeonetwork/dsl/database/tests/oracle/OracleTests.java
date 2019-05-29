@@ -3,18 +3,14 @@ package org.obeonetwork.dsl.database.tests.oracle;
 import static org.junit.Assert.fail;
 
 import java.io.File;
-import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.net.URL;
 import java.nio.file.Files;
-import java.sql.Connection;
 import java.sql.SQLException;
 import java.time.Duration;
 import java.time.Instant;
-import java.util.Arrays;
-import java.util.Date;
 import java.util.List;
 
-import org.apache.commons.lang.StringUtils;
 import org.junit.AfterClass;
 import org.junit.Before;
 import org.junit.BeforeClass;
@@ -26,13 +22,11 @@ import org.obeonetwork.dsl.database.reverse.source.DataSource;
 import org.obeonetwork.dsl.database.reverse.source.DataSourceException;
 import org.obeonetwork.dsl.database.reverse.utils.MultiDataBaseQueries;
 import org.obeonetwork.dsl.database.spec.DatabaseConstants;
-import org.obeonetwork.dsl.database.tests.AbstractTests;
 import org.obeonetwork.dsl.database.tests.utils.TestUtils;
 import org.obeonetwork.dsl.typeslibrary.util.TypesLibraryUtil;
 
 import com.github.dockerjava.api.command.CreateContainerResponse;
 import com.github.dockerjava.api.model.Bind;
-import com.github.dockerjava.api.model.Container;
 import com.github.dockerjava.api.model.ExposedPort;
 import com.github.dockerjava.api.model.HostConfig;
 import com.github.dockerjava.api.model.Image;
@@ -133,8 +127,9 @@ public class OracleTests {
 		if (images.isEmpty()) {
 			// Load image
 			try {
-				docker.loadImage("D:/temp/docker/oracle11G-XE/oracle-xe-docker.tar");
-			} catch (FileNotFoundException e) {
+				//docker.loadImage("D:/temp/docker/oracle11G-XE/oracle-xe-docker.tar");
+				docker.loadImage(new URL("http://update.obeo.fr/livraisonsClients/Minist%c3%a8re%20de%20la%20d%c3%a9fense/Docker/oracle/oracle-xe-docker.tar"));
+			} catch (IOException e) {
 				fail("load oracle image failed : " + e.getMessage());
 			}
 			images = docker.getImages("oracle/database:11.2.0.2-xe");
@@ -146,12 +141,13 @@ public class OracleTests {
 		Image image = loadOracleImage();
 		if (image != null) {
 			
-			
-//			docker run --name oracletest --shm-size=1g -p 1521:1521 -e ORACLE_PWD=oracleserver -v temp/oradata:/u01/app/oracle/oradata -d oracle/database:11.2.0.2-xe
+//			docker run --name orcl --shm-size=1g -p 1521:1521 -p 8080:8080 -e ORACLE_PWD=oracleserver oracle/database:11.2.0.2-xe
 			ExposedPort tcp1521 = ExposedPort.tcp(1521);
+			ExposedPort tcp8080 = ExposedPort.tcp(8080);
 			
 			Ports portBindings = new Ports();
 	        portBindings.bind(tcp1521, Binding.bindPort(tcp1521.getPort()));
+	        portBindings.bind(tcp8080, Binding.bindPort(tcp8080.getPort()));
 	        
 			CreateContainerResponse exec = docker.createContainerCmd("oracle/database:11.2.0.2-xe")
 					.withName(containerName)
@@ -159,8 +155,7 @@ public class OracleTests {
 					.withAttachStdin(Boolean.FALSE)
 					.withAttachStdout(Boolean.FALSE)
 					.withAttachStderr(Boolean.FALSE)
-					.withEnv("ORACLE_PWD=oracleserver",
-							"ORACLE_ALLOW_REMOTE=true")
+					.withEnv("ORACLE_PWD=oracleserver")
 //					.withVolumes(new Volume("oradata:/u01/app/oracle/oradata"))
 					.withExposedPorts(tcp1521)
 					.withHostConfig(HostConfig.newHostConfig()
@@ -181,50 +176,9 @@ public class OracleTests {
 		containerID = createOracleContainer("oracletest_junit");
 		docker.startContainer(containerID);
 		
-		listContainers(docker.getContainers(false));
+		boolean started = docker.waitUntilContainerIsStarted(containerID, FIRST_CONNECTION_TIMEOUT);
 		
-		String url = String.format(JDBC_ORACLE_URL_PATTERN, ORACLE_HOST_DEFAULT, ORACLE_PORT_DEFAULT, ORACLE_SID);
-		
-//		DataSource tempDS = new DataSource(ORACLE_SID, ORACLE_SYSTEM_USER);
-//		tempDS.setJdbcUrl(url);
-//		tempDS.setJdbcUsername(ORACLE_SYSTEM_USER);
-//		tempDS.setJdbcPassword(ORACLE_SYSTEM_USER_PASSWORD);
-//		tempDS.setVendor(DatabaseConstants.DB_ORACLE_11G);
-		
-//		Connection connection = null;
-		Database database = null;
-		Instant start = Instant.now();
-		boolean timeoutOccured = false;
-		while (database == null && timeoutOccured == false) {
-			System.out.println(new Date());
-//				connection = tempDS.getConnection();
-			try {
-				database = TestUtils.openDatabaseConnectionWithDriver(url, ORACLE_SYSTEM_USER, ORACLE_SYSTEM_USER_PASSWORD, "oracle.jdbc.OracleDriver");
-			} catch (DatabaseException e) {
-				// Do nothing but retry
-				System.out.println(e.getMessage());
-			}
-				
-			timeoutOccured = Duration.between(start, Instant.now()).toMillis() > FIRST_CONNECTION_TIMEOUT;
-		}
-		
-		if (database == null) {
-			fail("Unable to connect to database within " + FIRST_CONNECTION_TIMEOUT +  " ms");
-		} else {
-			try {
-				database.close();
-			} catch (DatabaseException e) {
-				// Do nothing
-			}
-			
-		}
-	}
-	
-	private static void listContainers(List<Container> containers) {
-		for (Container container : containers) {
-			System.out.println("ID=" + container.getId());
-			System.out.println("Names=" + StringUtils.join(Arrays.asList(container.getNames()), ","));
-		}
+		System.out.println("started = " + started);
 	}
 	
 	@BeforeClass
