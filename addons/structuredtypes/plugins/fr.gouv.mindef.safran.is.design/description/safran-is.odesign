@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="ASCII"?>
 <description:Group xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:description="http://www.eclipse.org/sirius/description/1.1.0" xmlns:description_1="http://www.eclipse.org/sirius/table/description/1.1.0" xmlns:tool="http://www.eclipse.org/sirius/description/tool/1.1.0" name="safran-is" version="12.0.0.2017041100">
   <ownedViewpoints name="Entity (Safr@n consolidated view)" label="Entity (Safr@n consolidated view)" modelFileExtension="entity ois">
-    <ownedRepresentations xsi:type="description_1:EditionTableDescription" name="EV_Entities_PhysicalNames" label="Entities Physical Names" initialisation="true" domainClass="entity.Root" initialHeaderColumnWidth="80">
+    <ownedRepresentations xsi:type="description_1:EditionTableDescription" name="EV_Entities_PhysicalNames" label="Entities Physical Names" domainClass="entity.Root" initialHeaderColumnWidth="80">
       <metamodel href="http://www.obeonetwork.org/dsl/environment/3.0.0#/"/>
       <metamodel href="http://www.obeonetwork.org/dsl/entity/3.0.0#/"/>
       <ownedLineMappings name="EPN_Namespace" reusedSubLines="//@ownedViewpoints[name='Entity%20(Safr@n%20consolidated%20view)']/@ownedRepresentations[name='EV_Entities_PhysicalNames']/@ownedLineMappings[name='EPN_Namespace']/@ownedSubLines[name='EPN_SubNamespaces']/@ownedSubLines[name='EPN_Entity']" domainClass="environment.Namespace" semanticCandidatesExpression="feature:ownedNamespaces" headerLabelExpression="feature:name">
@@ -93,7 +93,7 @@
     <ownedJavaExtensions qualifiedClassName="fr.gouv.mindef.safran.is.design.services.AnnotationServices"/>
   </ownedViewpoints>
   <ownedViewpoints name="Graal Methodology (Safr@n consolidated view)" label="Graal Methodology (Safr@n consolidated view)" modelFileExtension="graal ois">
-    <ownedRepresentations xsi:type="description_1:EditionTableDescription" name="EV_DomainClasses_Annotations" label="Domain Classes Annotations" initialisation="true" domainClass="graal.System" initialHeaderColumnWidth="80">
+    <ownedRepresentations xsi:type="description_1:EditionTableDescription" name="EV_DomainClasses_Annotations" label="Domain Classes Annotations" domainClass="graal.System" initialHeaderColumnWidth="80">
       <metamodel href="http://www.obeonetwork.org/dsl/environment/3.0.0#/"/>
       <metamodel href="http://www.obeonetwork.org/dsl/graal/2.0.0#/"/>
       <ownedLineMappings name="EPN_Namespace" reusedSubLines="//@ownedViewpoints[name='Graal%20Methodology%20(Safr@n%20consolidated%20view)']/@ownedRepresentations[name='EV_DomainClasses_Annotations']/@ownedLineMappings[name='EPN_Namespace']/@ownedSubLines[name='EPN_SubNamespaces']/@ownedSubLines[name='EPN_DomainClass']" domainClass="environment.Namespace" semanticCandidatesExpression="feature:ownedNamespaces" headerLabelExpression="feature:name">
@@ -174,7 +174,7 @@
     <ownedJavaExtensions qualifiedClassName="fr.gouv.mindef.safran.is.design.services.AnnotationServices"/>
   </ownedViewpoints>
   <ownedViewpoints name="SOA (Safr@n consolidated view)" label="SOA (Safr@n consolidated view)" modelFileExtension="soa ois">
-    <ownedRepresentations xsi:type="description_1:EditionTableDescription" name="EV_DTO_PhysicalNames" label="DTO Physical Names" initialisation="true" domainClass="soa.System" initialHeaderColumnWidth="80">
+    <ownedRepresentations xsi:type="description_1:EditionTableDescription" name="EV_DTO_PhysicalNames" label="DTO Physical Names" domainClass="soa.System" initialHeaderColumnWidth="80">
       <metamodel href="http://www.obeonetwork.org/dsl/environment/3.0.0#/"/>
       <metamodel href="http://www.obeonetwork.org/dsl/soa/3.0.0#/"/>
       <ownedLineMappings name="DPN_Namespace" reusedSubLines="//@ownedViewpoints[name='SOA%20(Safr@n%20consolidated%20view)']/@ownedRepresentations[name='EV_DTO_PhysicalNames']/@ownedLineMappings[name='DPN_Namespace']/@ownedSubLines[name='DPN_SubNamespaces']/@ownedSubLines[name='DPN_DTO']" domainClass="environment.Namespace" semanticCandidatesExpression="feature:ownedNamespaces" headerLabelExpression="feature:name">

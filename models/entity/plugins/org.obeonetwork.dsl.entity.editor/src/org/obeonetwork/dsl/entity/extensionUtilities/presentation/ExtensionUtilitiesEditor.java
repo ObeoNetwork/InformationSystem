@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2008, 2017 Obeo.
+ * Copyright (c) 2008, 2019 Obeo.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -135,6 +135,7 @@ import org.obeonetwork.dsl.technicalid.provider.TechnicalIDItemProviderAdapterFa
 /**
  * This is an example of a ExtensionUtilities model editor.
  * <!-- begin-user-doc -->
+ * @deprecated Since 1.9 model edition rely on Sirius representation only
  * <!-- end-user-doc -->
  * @generated
  */

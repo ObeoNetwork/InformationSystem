@@ -134,6 +134,7 @@ import org.obeonetwork.dsl.technicalid.provider.TechnicalIDItemProviderAdapterFa
  * This is an example of a Entity model editor.
  * <!-- begin-user-doc -->
  * @implements ITabbedPropertySheetPageContributor
+ * @deprecated Since 1.9 model edition rely on Sirius representation only
  * <!-- end-user-doc -->
  * @generated
  */
