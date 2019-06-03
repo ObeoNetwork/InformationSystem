@@ -18,4 +18,17 @@
 	       name="cinematic">
     </component>
   </extension>
+  <extension
+        point="org.eclipse.ui.newWizards">
+     <wizard
+           category="org.obeonetwork.dsl.is.ui.categoryID"
+           class="org.obeonetwork.dsl.cinematic.design.wizards.NewCinematicModelWizard"
+           icon="icons/full/obj16/CinematicModelFile.gif"
+           id="org.obeonetwork.dsl.cinematic.design.wizards.NewCinematicModelWizard"
+           name="Cinematic Model">
+        <description>
+           New cinematic model wizard
+        </description>
+     </wizard>
+  </extension>
 </plugin>

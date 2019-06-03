@@ -128,6 +128,7 @@ import org.obeonetwork.dsl.technicalid.provider.TechnicalIDItemProviderAdapterFa
 /**
  * This is an example of a View model editor.
  * <!-- begin-user-doc -->
+ * @deprecated Since 1.9 model edition rely on Sirius representation only
  * <!-- end-user-doc -->
  * @generated
  */
