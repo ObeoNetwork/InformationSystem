@@ -14,17 +14,6 @@
 
 <plugin>
 
-   <extension point="org.eclipse.ui.newWizards">
-      <wizard
-            id="org.obeonetwork.dsl.database.presentation.DatabaseModelWizardID"
-            name="%_UI_DatabaseModelWizard_label"
-            class="org.obeonetwork.dsl.database.presentation.DatabaseModelWizard"
-            category="org.obeonetwork.dsl.is.ui.categoryID"
-            icon="icons/full/obj16/DatabaseModelFile.gif">
-         <description>%_UI_DatabaseModelWizard_description</description>
-         <selection class="org.eclipse.core.resources.IResource"/>
-      </wizard>
-   </extension>
 
    <extension point="org.eclipse.ui.editors">
       <editor

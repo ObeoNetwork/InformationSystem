@@ -21,7 +21,7 @@
   <extension
          point="org.eclipse.eef.ide.ui.ext.widgets.reference.eefExtReferenceViewerFilterProvider">
       <descriptor
-            class="org.obeonetwork.dsl.database.design.wizard.viewer.filters.SafranReferenceViewerFilter"
+            class="org.obeonetwork.dsl.database.design.wizards.viewer.filters.SafranReferenceViewerFilter"
             description="This extension is used to filter the content of the tree viewer used to select a element in the EEF Reference Filter"
             id="org.obeonetwork.dsl.database.design.viewerFilterProvider"
             label="Safran Viewer Filter Provider">
@@ -35,5 +35,18 @@
            id="org.obeonetwork.dsl.database.design.custom.reference"
            label="SafranCustomReference">
      </descriptor>
+  </extension>
+  <extension
+        point="org.eclipse.ui.newWizards">
+     <wizard
+           category="org.obeonetwork.dsl.is.ui.categoryID"
+           class="org.obeonetwork.dsl.database.design.wizards.NewDatabaseModelWizard"
+           icon="icons/full/obj16/DatabaseModelFile.gif"
+           id="org.obeonetwork.dsl.database.design.wizards.NewDatabaseModelWizard"
+           name="Database Model">
+        <description>
+           New database model wizard
+        </description>
+     </wizard>
   </extension>
  </plugin>

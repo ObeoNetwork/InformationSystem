@@ -128,6 +128,7 @@ import org.obeonetwork.dsl.typeslibrary.provider.TypesLibraryItemProviderAdapter
  * This is an example of a Database model editor.
  * <!-- begin-user-doc -->
  * @implements ITabbedPropertySheetPageContributor
+ * @deprecated Since 1.9 model edition rely on Sirius representation only
  * <!-- end-user-doc -->
  * @generated
  */

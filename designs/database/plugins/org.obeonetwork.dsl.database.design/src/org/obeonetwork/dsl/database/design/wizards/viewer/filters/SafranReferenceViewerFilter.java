@@ -8,7 +8,7 @@
  * Contributors:
  *     Obeo - initial API and implementation
  *******************************************************************************/
-package org.obeonetwork.dsl.database.design.wizard.viewer.filters;
+package org.obeonetwork.dsl.database.design.wizards.viewer.filters;
 
 import java.util.ArrayList;
 import java.util.List;

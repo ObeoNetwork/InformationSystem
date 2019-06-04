@@ -26,7 +26,9 @@ Require-Bundle: org.eclipse.ui,
  org.eclipse.emf.ecore,
  org.eclipse.eef.common.ui;bundle-version="2.1.1",
  org.eclipse.eef.common;bundle-version="2.1.1",
- org.eclipse.jface
+ org.eclipse.jface,
+ org.obeonetwork.dsl.is,
+ org.eclipse.swt
 Bundle-ActivationPolicy: lazy
 Bundle-RequiredExecutionEnvironment: JavaSE-1.6
 Bundle-ManifestVersion: 2

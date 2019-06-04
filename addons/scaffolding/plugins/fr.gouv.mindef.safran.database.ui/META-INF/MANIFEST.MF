@@ -50,5 +50,4 @@ Export-Package: fr.gouv.mindef.safran.database.ui,
  fr.gouv.mindef.safran.database.ui.compare.viewer.filters,
  fr.gouv.mindef.safran.database.ui.dialogs,
  fr.gouv.mindef.safran.database.ui.wizards.imports,
- fr.gouv.mindef.safran.database.ui.wizards.scaffolding,
- fr.gouv.mindef.safran.database.ui.wizards.scaffolding.newmodel
+ fr.gouv.mindef.safran.database.ui.wizards.scaffolding
