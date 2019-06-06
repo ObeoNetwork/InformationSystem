@@ -213,4 +213,17 @@
          </propertySection>
       </propertySections>
    </extension>
+   <extension
+         point="org.eclipse.ui.newWizards">
+      <wizard
+            category="org.obeonetwork.dsl.is.ui.categoryID"
+            class="org.obeonetwork.graal.design.wizards.NewGraalModelWizard"
+            icon="icons/full/obj16/GraalModelFile.gif"
+            id="org.obeonetwork.graal.design.wizards.NewGraalModelWizard"
+            name="Graal Model">
+         <description>
+            New graal model wizard
+         </description>
+      </wizard>
+   </extension>
 </plugin>

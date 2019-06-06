@@ -2,7 +2,7 @@
 <?eclipse version="3.0"?>
 
 <!--
-    Copyright (c) 2010, 2017 Obeo.
+    Copyright (c) 2010, 2019 Obeo.
     All rights reserved. This program and the accompanying materials
     are made available under the terms of the Eclipse Public License v1.0
     which accompanies this distribution, and is available at
@@ -13,19 +13,6 @@
  -->
 
 <plugin>
-
-   <extension point="org.eclipse.ui.newWizards">
-      <wizard
-            id="org.obeonetwork.graal.presentation.GraalModelWizardID"
-            name="%_UI_GraalModelWizard_label"
-            class="org.obeonetwork.graal.presentation.GraalModelWizard"
-            category="org.obeonetwork.dsl.is.ui.categoryID"
-            icon="icons/full/obj16/graal.gif">
-         <description>%_UI_GraalModelWizard_description</description>
-         <selection class="org.eclipse.core.resources.IResource"/>
-      </wizard>
-   </extension>
-
    <extension point="org.eclipse.ui.editors">
       <editor
             id="org.obeonetwork.graal.presentation.GraalEditorID"
