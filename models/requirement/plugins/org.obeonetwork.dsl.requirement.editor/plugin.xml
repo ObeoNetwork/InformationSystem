@@ -14,17 +14,6 @@
 
 <plugin>
 
-   <extension point="org.eclipse.ui.newWizards">
-      <wizard
-            id="org.obeonetwork.dsl.requirement.presentation.RequirementModelWizardID"
-            name="%_UI_RequirementModelWizard_label"
-            class="org.obeonetwork.dsl.requirement.presentation.RequirementModelWizard"
-            category="org.obeonetwork.dsl.is.ui.categoryID"
-            icon="icons/full/obj16/RequirementModelFile.gif">
-         <description>%_UI_RequirementModelWizard_description</description>
-         <selection class="org.eclipse.core.resources.IResource"/>
-      </wizard>
-   </extension>
 
    <extension point="org.eclipse.ui.editors">
       <!-- @generated requirement -->
