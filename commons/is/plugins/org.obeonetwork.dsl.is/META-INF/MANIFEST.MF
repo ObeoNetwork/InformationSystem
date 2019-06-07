@@ -31,7 +31,6 @@ Require-Bundle: org.eclipse.ui,
  org.eclipse.sirius.diagram
 Export-Package: org.obeonetwork.dsl.is,
  org.obeonetwork.dsl.is.overview,
- org.obeonetwork.dsl.is.ui.editor,
  org.obeonetwork.dsl.is.ui.wizards
 Bundle-RequiredExecutionEnvironment: JavaSE-1.8
 Bundle-ActivationPolicy: lazy

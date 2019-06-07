@@ -14,20 +14,6 @@
 
 <plugin>
 
-   <extension point="org.eclipse.ui.newWizards">
-      <category
-            id="org.eclipse.emf.ecore.Wizard.category.ID"
-            name="%_UI_Wizard_category"/>
-      <wizard
-            id="org.obeonetwork.dsl.interaction.presentation.InteractionModelWizardID"
-            name="%_UI_InteractionModelWizard_label"
-            class="org.obeonetwork.dsl.interaction.presentation.InteractionModelWizard"
-            category="org.obeonetwork.dsl.is.ui.categoryID"
-            icon="icons/full/obj16/InteractionModelFile.gif">
-         <description>%_UI_InteractionModelWizard_description</description>
-         <selection class="org.eclipse.core.resources.IResource"/>
-      </wizard>
-   </extension>
 
    <extension point="org.eclipse.ui.editors">
       <editor

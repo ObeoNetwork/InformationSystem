@@ -16,37 +16,12 @@
 	<!-- 
 	Obeo Designer Category : org.obeonetwork.dsl.viewpoint.category
     -->
-   
-	<!-- contribute new IS Model wizard  -->
-	<extension point = "org.eclipse.ui.newWizards">
-    	<wizard
-			id = "org.obeonetwork.dsl.is.ui.wizards.ISModelWizardID"
-			name = "IS Model"
-			class = "org.obeonetwork.dsl.is.ui.wizards.ISModelWizard"      
-			category = "org.obeonetwork.dsl.is.ui.categoryID"
-			icon = "icons/full/obj16/ISModelFile.png">
-			<description>Semantic IS and Graphical model</description>
-			<selection class = "org.eclipse.core.resources.IResource"/>
-		</wizard>
-	</extension>
 
 	<!-- contribute new IS Model wizard shortcut in CNF compliant views -->
 	<extension point="org.eclipse.ui.navigator.navigatorContent">
 		<commonWizard type="new" wizardId="org.obeonetwork.dsl.is.ui.wizards.ISModelWizardID">
 			<enablement></enablement>
 		</commonWizard>
-	</extension>
-
-	<!-- contribute IS Model editor -->
-	<extension point = "org.eclipse.ui.editors">
-	    <editor
-	          class="org.obeonetwork.dsl.is.ui.editor.ISEditor"
-	          contributorClass="org.obeonetwork.dsl.overview.presentation.OverviewActionBarContributor"
-	          extensions="ois"
-	          icon="icons/full/obj16/ISModelFile.png"
-	          id="org.obeonetwork.dsl.is.ui.editor.ISEditorID"
-	          name="IS Editor">
-	    </editor>
 	</extension>
 
 	<!-- contribute new IS Overview Model Def  -->
