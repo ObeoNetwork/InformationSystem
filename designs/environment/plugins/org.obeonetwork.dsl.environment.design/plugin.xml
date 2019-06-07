@@ -63,5 +63,18 @@
            type="java.lang.Object">
      </propertyTester>
   </extension>
+  <extension
+        point="org.eclipse.ui.newWizards">
+     <wizard
+           category="org.obeonetwork.dsl.is.ui.categoryID"
+           class="org.obeonetwork.dsl.environment.design.wizards.NewEnvironmentModelWizard"
+           icon="icons/full/obj16/EnvironmentModelFile.gif"
+           id="org.obeonetwork.dsl.environment.design.wizards.NewEnvironmentWizard"
+           name="Environment Model">
+        <description>
+           New environment model wizard
+        </description>
+     </wizard>
+  </extension>
   
 </plugin>

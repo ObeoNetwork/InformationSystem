@@ -130,6 +130,7 @@ import org.obeonetwork.dsl.environment.provider.EnvironmentItemProviderAdapterFa
 /**
  * This is an example of a Environment model editor.
  * <!-- begin-user-doc -->
+ * @deprecated Since 1.9 model edition rely on Sirius representation only
  * <!-- end-user-doc -->
  * @generated
  */

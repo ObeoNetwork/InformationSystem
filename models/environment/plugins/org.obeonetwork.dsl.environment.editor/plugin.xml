@@ -15,40 +15,7 @@
 <plugin>
 
 
-  <extension
-    point = "org.eclipse.ui.newWizards">
-    <!--
-    <category
-			id="org.obeonetwork.dsl.category.modelers"
-			name="Acceleo Pro">
-	</category>
-	-->	
-    <wizard
-      id = "org.obeonetwork.dsl.environment.presentation.EnvironmentModelWizardID"
-      name = "%_UI_EnvironmentModelWizard_label"
-      class = "org.obeonetwork.dsl.environment.presentation.EnvironmentModelWizard"
-      category = "org.obeonetwork.dsl.is.ui.categoryID"
-      icon = "icons/full/obj16/EnvironmentModelFile.gif">
-      <description>%_UI_EnvironmentModelWizard_description</description>
-      <selection class = "org.eclipse.core.resources.IResource" />
-    </wizard>
-  </extension>
 
-   <extension point="org.eclipse.ui.newWizards">
-      <!-- @generated environment -->
-      <category
-            id="org.eclipse.emf.ecore.Wizard.category.ID"
-            name="%_UI_Wizard_category"/>
-      <wizard
-            id="org.obeonetwork.dsl.environment.presentation.EnvironmentModelWizardID"
-            name="%_UI_EnvironmentModelWizard_label"
-            class="org.obeonetwork.dsl.environment.presentation.EnvironmentModelWizard"
-            category="org.eclipse.emf.ecore.Wizard.category.ID"
-            icon="icons/full/obj16/EnvironmentModelFile.gif">
-         <description>%_UI_EnvironmentModelWizard_description</description>
-         <selection class="org.eclipse.core.resources.IResource"/>
-      </wizard>
-   </extension>
 
    <extension point="org.eclipse.ui.editors">
       <!-- @generated environment -->
