@@ -48,5 +48,15 @@
            New database model wizard
         </description>
      </wizard>
+     <wizard
+           category="org.obeonetwork.dsl.is.ui.categoryID"
+           class="org.obeonetwork.dsl.database.design.wizards.NewTypesLibraryModelWizard"
+           icon="icons/full/obj16/TypesLibraryModelFile.gif"
+           id="org.obeonetwork.dsl.database.design.wizards.NewTypesLibraryModelWizard"
+           name="Types Library Model">
+        <description>
+           New Types Library model wizard
+        </description>
+     </wizard>
   </extension>
  </plugin>

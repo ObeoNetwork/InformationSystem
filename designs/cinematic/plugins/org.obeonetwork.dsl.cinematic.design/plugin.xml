@@ -30,5 +30,15 @@
            New cinematic model wizard
         </description>
      </wizard>
+     <wizard
+           category="org.obeonetwork.dsl.is.ui.categoryID"
+           class="org.obeonetwork.dsl.cinematic.design.wizards.NewToolkitsModelWizard"
+           icon="icons/full/obj16/ToolkitsModelFile.gif"
+           id="org.obeonetwork.dsl.cinematic.design.wizards.NewToolkitsModelWizard"
+           name="Toolkits Model">
+        <description>
+           New toolkits model wizard
+        </description>
+     </wizard>
   </extension>
 </plugin>
