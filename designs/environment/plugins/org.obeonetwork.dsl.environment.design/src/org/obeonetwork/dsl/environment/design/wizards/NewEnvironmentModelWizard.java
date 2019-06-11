@@ -46,6 +46,8 @@ public class NewEnvironmentModelWizard extends AbstractISNewModelWizard {
 	@Override
 	public void addPages() {
 		modelCreationPage = new NewModelCreationPage("ModelCreationPage", selection, ENVIRONMENT_RESOURCE_FILE_EXTENSION);
+		modelCreationPage.setTitle("Create a new environment model");
+		modelCreationPage.setDescription("Choose the new environment model name and path.");
 		addPage(modelCreationPage);
 	}
 

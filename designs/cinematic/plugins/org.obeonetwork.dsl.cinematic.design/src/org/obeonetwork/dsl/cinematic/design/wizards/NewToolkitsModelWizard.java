@@ -38,6 +38,8 @@ public class NewToolkitsModelWizard extends AbstractISNewModelWizard {
 	@Override
 	public void addPages() {
 		modelCreationPage = new NewModelCreationPage("ModelCreationPage", selection, TOOLKITS_RESOURCE_FILE_EXTENSION);
+		modelCreationPage.setTitle("Create a new toolkit model");
+		modelCreationPage.setDescription("Choose the new toolkit model name and path.");
 		addPage(modelCreationPage);
 	}
 

@@ -50,6 +50,8 @@ public class NewSoaModelWizard extends AbstractISNewModelWizard {
 	@Override
 	public void addPages() {
 		modelCreationPage = new NewModelCreationPage("ModelCreationPage", selection, SOA_RESOURCE_FILE_EXTENSION);
+		modelCreationPage.setTitle("Create a new soa model");
+		modelCreationPage.setDescription("Choose the new soa model name and path.");
 		addPage(modelCreationPage);
 	}
 

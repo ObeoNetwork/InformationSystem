@@ -44,6 +44,8 @@ public class NewGraalModelWizard extends AbstractISNewModelWizard {
 	@Override
 	public void addPages() {
 		modelCreationPage = new NewModelCreationPage("ModelCreationPage", selection, GRAAL_RESOURCE_FILE_EXTENSION);
+		modelCreationPage.setTitle("Create a new graal model");
+		modelCreationPage.setDescription("Choose the new graal model name and path.");
 		addPage(modelCreationPage);
 	}
 

@@ -49,6 +49,8 @@ public class NewEntityModelWizard extends AbstractISNewModelWizard {
 	@Override
 	public void addPages() {
 		modelCreationPage = new NewModelCreationPage("ModelCreationPage", selection, ENTITY_RESOURCE_FILE_EXTENSION);
+		modelCreationPage.setTitle("Create a new entity model");
+		modelCreationPage.setDescription("Choose the new entity model name and path.");
 		addPage(modelCreationPage);
 	}
 

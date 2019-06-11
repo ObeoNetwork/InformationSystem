@@ -50,6 +50,8 @@ public class NewCinematicModelWizard extends AbstractISNewModelWizard {
 	@Override
 	public void addPages() {
 		modelCreationPage = new NewModelCreationPage("ModelCreationPage", selection, CINEMATIC_RESOURCE_FILE_EXTENSION);
+		modelCreationPage.setTitle("Create a new cinematic model");
+		modelCreationPage.setDescription("Choose the new cinematic model name and path.");
 		addPage(modelCreationPage);
 	}
 

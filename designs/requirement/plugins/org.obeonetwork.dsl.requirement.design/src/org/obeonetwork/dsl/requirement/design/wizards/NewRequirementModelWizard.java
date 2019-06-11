@@ -50,6 +50,8 @@ public class NewRequirementModelWizard extends AbstractISNewModelWizard {
 	@Override
 	public void addPages() {
 		modelCreationPage = new NewModelCreationPage("ModelCreationPage", selection, REQUIREMENT_RESOURCE_FILE_EXTENSION);
+		modelCreationPage.setTitle("Create a new requirement model");
+		modelCreationPage.setDescription("Choose the new requirement model name and path.");
 		addPage(modelCreationPage);
 	}
 

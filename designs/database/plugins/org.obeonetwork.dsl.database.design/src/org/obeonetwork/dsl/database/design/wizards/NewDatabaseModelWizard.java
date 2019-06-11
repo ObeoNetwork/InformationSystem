@@ -105,6 +105,8 @@ public class NewDatabaseModelWizard extends AbstractISNewModelWizard {
 	@Override
 	public void addPages() {
 		modelCreationPage = new NewModelCreationPage("ModelCreationPage", selection, DATABASE_RESOURCE_FILE_EXTENSION);
+		modelCreationPage.setTitle("Create a new database model");
+		modelCreationPage.setDescription("Choose the new database model name and path.");
 		addPage(modelCreationPage);
 		initialDatabaseCreationPage = new DatabaseModelWizardInitialObjectCreationPage("DatabaseOptionSelection");
 		addPage(initialDatabaseCreationPage);

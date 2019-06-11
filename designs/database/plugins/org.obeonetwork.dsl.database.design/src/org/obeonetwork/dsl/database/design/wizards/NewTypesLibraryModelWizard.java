@@ -37,6 +37,8 @@ public class NewTypesLibraryModelWizard extends AbstractISNewModelWizard {
 	@Override
 	public void addPages() {
 		modelCreationPage = new NewModelCreationPage("ModelCreationPage", selection, TYPESLIBRARY_RESOURCE_FILE_EXTENSION);
+		modelCreationPage.setTitle("Create a new typeslibrary model");
+		modelCreationPage.setDescription("Choose the new typeslibrary model name and path.");
 		addPage(modelCreationPage);
 	}
 
