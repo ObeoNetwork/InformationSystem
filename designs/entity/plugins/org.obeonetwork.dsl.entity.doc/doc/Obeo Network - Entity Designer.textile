@@ -15,21 +15,20 @@ h2. Création d'un modèle Entity
  
 Un assistant permet la création de modèles Entity. Cet assistant est accessible via le menu :
 
-bq. File > New > Other ... > Entity Model (Catégorie Obeo Designer For IS)
+bq. File > New > Other ... > Entity Model (Catégorie IS Designer)
+
+!pics/Safran - entity - wizard01.png!
 
 Cet assistant vous permet de définir le nom du modèle que vous souhaitez créer ainsi que de définir son répertoire destination. 
 
-Une fois l'assistant validé, le modèle est créé et un éditeur s'ouvre afin de commencer l'édition.
+!pics/Safran - entity - wizard02.png!
 
-!pics/Entity%20editor.png!
+Une fois l'assistant validé, le modèle est créé, la représentation _Entity Namespace Hierarchy_ est créée et ouverte afin de commencer l'édition.
 
-L'éditeur permet de visualiser le contenu d'un modèle Entity sous forme arborescente. Pour modifier les propriétés d'un élément il faut utiliser la vue _Properties_ (partie basse sur la capture d'écran précédente). Si cette vue n'est pas visible, il est possible de l'ouvrir par un clic droit sur un élément de l'arbre et sélection de _Show Properties View_.
+!pics/Safran - entity - model created.png!
 
-La création de nouveaux éléments se fait dans l'arbre par le menu contextuel _New Child_  du conteneur où l'on souhaite créer l'élément. Ainsi pour créer une nouvelle entité, il faut invoquer, depuis le package voulu, le menu :
-
-bq. New Child > Entity
-
-Un modèle Entity peut être édité avec cet éditeur arborescent mais ce n'est pas la méthode privilégiée : les éditeurs graphiques (diagrammes) permettent de remplir cette tâche plus efficacement.
+Lorsqu'un modèle entity est créé à l'aide de ce wizard, les points de vues _Entity Views_, _Entity (Safr@n Consolidated view)_ et _Environment View_ sont activés.
+Le point de vue _Entity Views_ est décrit dans la section suivante. Le point de vue _Entity (Safr@n Consolidated view)_ est décrit dans la section de documentation "Safr@n - Entity (Safr@n consolidated view)":../../fr.gouv.mindef.safran.is.design.doc/doc/Safr@n%20-%20Entity%20(Safr@n%20consolidated%20view).html. Le point de vue _Environment View_ permet d'activer les vues propriétés EEF.
 
 h2. Point de vue Entity Views
 

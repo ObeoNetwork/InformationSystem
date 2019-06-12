@@ -1,1 +1,223 @@
-<?xml version='1.0' encoding='utf-8' ?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/></head><body><p><i>Copyright &#169; Obeo 2012, 2017 -  All rights reserved. This program and the accompanying materials are made available under the terms of the Eclipse Public License v1.0</i></p><p><code>Authors</code> Stéphane Thibaudeau<br/><code>Contact</code> stephane.thibaudeau@obeo.fr</p><h1 id="ObeoNetworkOutillageCinematic">Obeo Network &#8211; Outillage Cinematic</h1><h2 id="CrationdunmodleCinematic">Création d&#8217;un modèle Cinematic</h2><p>La création d&#8217;un modèle Cinematic se fait en utilisant le wizard dédié.</p><p>Le wizard est invoqué via le menu <code>&#xa0;File &gt; New &gt; Other...&#xa0;</code> ou le raccourci clavier <em>Ctrl+N</em>, puis en choisissant  l&#8217;entrée <em>Cinematic Model</em> (Catégorie Obeo Designer For IS).</p><p><img border="0" src="pics/NewModel_01.png"/></p><p>Il suffit ensuite choisir le nom et l&#8217;emplacement du fichier et de valider.</p><h2 id="Activationdupointdevue">Activation du point de vue</h2><h3 id="Utilisationdunmodelingproject">Utilisation d&#8217;un modeling project</h3><p>Si le fichier a été créé dans un modeling project, il reste juste à activer le point de vue <em>Cinematic Views</em>. Pour l&#8217;activer choisir <em>Viewpoints Selection</em> dans le menu contextuel du <em>modeling project</em>.</p><h3 id="Utilisationdunautretypedeprojet">Utilisation d&#8217;un autre type de projet</h3><p>Pour les autres types de projet, il faut créer un <em>representations file</em> (fichier .aird) ou en utiliser un existant puis ajouter le modèle Cinematic comme ressource sémantique à ce <em>representations file</em>.<br/>Pour créer un nouveau <em>representations file</em>, cliquer sur <code>&#xa0;File &gt; New &gt; Other..&#xa0;</code> ouis choisir <em>Representations file</em>. Le wizard propose d&#8217;initialiser le fichier à partir d&#8217;un modèle existant qui peut être le modèle Cinematic créé précédemment.<br/>Pour ajouter le modèle Cinematic à un <em>representations file</em> existant, choisir <em>Add Model</em> dans le menu contextuel du fichier .aird, puis sélectionner le modèle Cinematic créé.<br/>Activer un point de vue se fait alors en choisissant <em>Viewpoints Selection</em> dans le menu contextuel du fichier .aird.</p><h2 id="Fonctionnalitsdumodeleur">Fonctionnalités du modeleur</h2><p>Le modeleur Cinematic V2 propose les représentations suivantes&#xa0;:</p><ul><li>Package Diagram&#xa0;: diagramme permettant de visualiser les Packages, Flows et ViewContainers.</li><li>UI Structure&#xa0;: représentation aborescente permettant de visualiser et modifier la description statique de l&#8217;IHM (écrans, panels, widgets, ...).</li><li>Flow Diagram&#xa0;: diagramme permettant de visualiser et modifier un Flow, i.e la description dynamique de l&#8217;IHM.</li></ul><p>Les maquettes proposées dans ce document ont pour objectif de présenter l&#8217;agencement des différents éléments, les détails de représentations graphiques seront certainement différents.<br/>Pour toutes les représentations proposées des vues Properties générées avec EEF seront mises en place.</p><h3 id="PackageDiagram">Package Diagram</h3><h4 id="Contenu">Contenu</h4><p>Ce diagramme est défini sur un objet de type Package.</p><p><img border="0" src="pics/PackageDiagram_01.png"/></p><p>Sont affichés sur ce diagramme&#xa0;:</p><ul><li>les sous-packages fils du package courant,</li><li>les Flow du package courant,</li><li>les ViewContainer directement contenus par le package courant,</li><li>les dépendances entre flux, ViewContainers et packages quand elles existent (activables/désactivables par un calque <em>Dependencies</em>).</li></ul><p>Pour un ViewContainer, sont affichés&#xa0;:</p><ul><li>son nom et son type,</li><li>les widgets directement contenus ou référencés,</li><li>les containers directement contenus ou référencés.</li></ul><p>Les éléments référencés sont distingués des éléments directement contenus (par une couleur différente ou une mention <em><notextile>&lt;</notextile>referenced<notextile>&gt;</notextile></em> par exemple).</p><h4 id="Paletteetoutils">Palette et outils</h4><p>Les outils disponibles sont&#xa0;:</p><ul><li>création / navigation vers le diagramme d&#8217;un sous-package (par menu contextuel et par double-clic),</li><li>création / navigation vers le diagramme d&#8217;un Flow (par menu contextuel et par double-clic),</li><li>création / navigation vers le diagramme contenant la description d&#8217;un ViewContainer (par menu contextuel et par double-clic),</li><li>création/navigation vers le diagramme contenant la description d&#8217;un ViewContainer référencé (par menu contextuel et par double-clic),</li><li>création d&#8217;un sous-package,</li><li>création d&#8217;un Flow,</li><li>création d&#8217;un ViewContainer (mais pas de création des widgets ou containers contenus ou référencés),</li><li>édition directe du label sur tous les éléments (sauf widgets et containers contenus ou référencés par un ViewContainer),</li><li>suppression des sous-packages, Flow et ViewContainer (mais de suppression du contenu d&#8217;un ViewContainer),</li><li>calque <em>Dependencies</em> pour afficher ou non les dépendances,</li><li>filtre pour afficher/masquer le contenu des ViewContainer.</li></ul><h3 id="DiagrammedeFlow">Diagramme de Flow </h3><h4 id="Contenu2">Contenu</h4><p>Ce diagramme est défini sur un objet de type Flow.</p><p><img border="0" src="pics/FlowDiagram_01.png"/></p><p>Sont affichés sur ce diagramme&#xa0;:</p><ul><li>Les états du Flow (InitialState, FinalState, ViewState, ActionState, DecisionState, AsyncEventState, SubflowState).<ul><li>Pour chaque état, son nom est affiché.</li><li>Chaque type d'état sera différencié soit par sa forme graphique globale soit par l&#8217;utilisation d&#8217;icônes.</li><li>Ainsi pour les InitialState, FinalState et DecisionState la forme habituelle pourrait être utilisée&#xa0;: cercle plus ou moins plein pour les 2 premiers et losange pour le dernier.</li><li>Pour les autres états une représentation du type de celle présentée sur la maquette pourrait être utilisée avec des icônes différentes devant le libellé de l'état.</li></ul></li><li>Les transitions du Flow<ul><li>Si la transition est déclenchée par un(des) événement(s), les événements sont affichées sous la forme <em><img border="0" src="pics/FlowDiagram_02.png"/> evenement1,evenement2</em></li><li>Si une garde est présente elle est affichée sous la forme <em>[guard]</em></li><li>Si une garde et des événements déclencheurs sont présents, les deux notations sont séparées par un espace</li></ul></li><li>Une forme nommée <em>FlowEvents</em> présentant les FlowEvents contenus par le flot et permettant d&#8217;en créer de nouvelles. Cet affichage ainsi que l&#8217;outil de création associé peut être désactivé par un calque <em>Flow Events</em></li><li>Les ViewContainers référencés par les ViewState affichés. Cet affichage peut être désactivé via un calque <em>View Containers</em>.<ul><li>Les informations affichées pour chaque ViewContainer sont les mêmes que pour le diagramme de package décrit au chapitre précédent.</li></ul></li><li>Pour chaque état sur lequel des actions ont été définies, un décorateur <img border="0" src="pics/FlowDiagram_03.png"/> est affiché. Le détail des actions associées est visible et modifiable dans la vue Properties de l'état.</li><li>Les opérations (services métiers) associées aux actions peuvent être affichées/masquées avec un calque associé. Pour chaque opération, les paramètres d&#8217;entrée/sortie sont affichés.</li></ul><h4 id="Paletteetoutils2">Palette et outils </h4><p>Les outils disponibles sont&#xa0;:</p><ul><li>création / suppression d'état. Pour la création de SubflowState, un outil permettra d&#8217;utiliser un Flow déjà existant, un deuxième outil permettra de créer un nouveau Flow dans le package du Flow courant,</li><li>création / suppression / reconnection de transition,</li><li>édition directe des libellés sur les états et transitions. L'édition directe du libellé d&#8217;une transition positionnera la garde sur cette transition mais sera sans effet sur les événements associés à la transition,</li><li>création / navigation vers le diagramme de flux pour un SubFlowState,</li><li>création / suppression de FlowEvent,</li><li>édition directe du libellé d&#8217;une FlowEvent,</li><li>calque permettant d&#8217;afficher/masquer la forme <em>FlowEvents</em> et l&#8217;outil de création de FlowEvent,</li><li>association de ViewContainer avec des ViewState,</li><li>calque permettant d&#8217;afficher / masquer les ViewContainer et l&#8217;outil d&#8217;association correspondant,</li><li>création / navigation vers le diagramme contenant la description d&#8217;un ViewContainer (par menu contextuel et par double-clic),</li><li>filtre pour afficher / masquer le contenu des ViewContainer,</li><li>filtre pour afficher / masquer le contenu des Operation (paramètres d&#8217;entrée et de sortie).</li></ul><h3 id="DescriptionstatiquedelIHM">Description statique de l&#8217;IHM</h3><h4 id="Contenu3">Contenu</h4><p>Pour visualiser la description statique de l&#8217;IHM nous proposons une représentation arborescente. Ce type de représentation permet pour un ViewContainer de visualiser les ViewElement et les ViewContainers dont il est le parent et ceux qu&#8217;il référence.<br/>Cette représentation est basée sur un objet de type Package.</p><p><img border="0" src="pics/IHM_01.png"/></p><p>Sont affichés&#xa0;:</p><ul><li>le package principal et ses sous-packages,</li><li>les ViewContainers,<ul><li>quand un ViewContainer est référencé il apparaît également sous l'élément qui le référence. Ex&#xa0;: AdressePanel apparaît sous DetailPersonne. Dans ce cas, une indication permet de voir que le ViewContainer est simplement référencé et non pas contenu (mention dans le libellé ou couleur différente).</li></ul></li><li>les ViewElement,</li><li>les Events associées aux ViewContainer et ViewElements,</li><li>les Actions associées aux ViewContainer et ViewElements.</li></ul><h4 id="Paletteetoutils3">Palette et outils</h4><p>Les outils disponibles sont&#xa0;:</p><ul><li>création / suppression de Package,</li><li>création / suppression de ViewContainer,</li><li>création / suppression de ViewElement,</li><li>création / suppression de Event,</li><li>création / suppression de Action,</li><li>modification de ces éléments via des vues Properties EEF,</li><li>action pour déplacer / dupliquer un élément dans l&#8217;arborescence.</li></ul><h3 id="Crationdetoolkits">Création de toolkits</h3><p>Un des objectifs du méta-modèle est de permettre de créer facilement de nouveaux toolkits.</p><p><img border="0" src="pics/Toolkit_01.png"/></p><p>La création d&#8217;un toolkit consiste à créer les widgets et à associer à chaque widget les types d'événements qu&#8217;il peut initier.<br/>Par exemple, un toolkit peut contenir un widget <em>button</em> avec un événement <em>buttonPressed</em>.</p><p>La création de toolkits est une tâche réalisée par l'équipe réalisant l&#8217;outillage. Il n&#8217;est donc pas nécessaire d&#8217;intégrer un modeleur spécifique pour cela dans le studio Safr@n. La réalisation de toolkits se fera donc par le biais d&#8217;un éditeur EMF arborescent classique.</p><p>Pour une meilleure expérience utilisateur nous proposons d&#8217;associer une icône à chaque widget, cette icône est affichée devant le nom des ViewElement utilisant le widget.<br/>Pour cela, il est nécessaire de modifier légèrement le méta-modèle pour permettre d&#8217;associer une icône à un widget.</p></body></html>
+<?xml version='1.0' encoding='utf-8' ?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+	</head>
+	<body>
+		<p>
+			<i>Copyright &#169; Obeo 2012, 2017 -  All rights reserved. This program and the accompanying materials are made available under the terms of the Eclipse Public License v1.0</i>
+		</p>
+		<p>
+			<code>Authors</code> Stéphane Thibaudeau
+			<br/>
+			<code>Contact</code> stephane.thibaudeau@obeo.fr
+		</p>
+		<h1 id="ObeoNetworkOutillageCinematic">Obeo Network &#8211; Outillage Cinematic</h1>
+		<h2 id="CrationdunmodleCinematic">Création d&#8217;un modèle Cinematic</h2>
+		<p>Un assistant permet la création de modèles Cinematic. Cet assistant est accessible via le menu :</p>
+		<blockquote>
+			<p>File &gt; New &gt; Other ... &gt; Cinematic Model (Catégorie IS Designer)</p>
+		</blockquote>
+		<p>
+			<img border="0" src="pics/Safran - cinematic - wizard01.png"/>
+		</p>
+		<p>Cet assistant vous permet de définir le nom du modèle que vous souhaitez créer ainsi que de définir son répertoire destination. </p>
+		<p>
+			<img border="0" src="pics/Safran - cinematic - wizard02.png"/>
+		</p>
+		<p>Une fois l&#8217;assistant validé, le modèle est créé, les représentations 
+			<em>Package Diagram</em> et 
+			<em>UI Structure</em> sont créées. La représentation 
+			<em>Package Diagram</em> est ouverte afin de commencer l'édition.
+		</p>
+		<p>
+			<img border="0" src="pics/Safran - cinematic - model created.png"/>
+		</p>
+		<p>Lorsqu&#8217;un modèle cinematic est créé à l&#8217;aide de ce wizard, les points de vues 
+			<em>Cinematic Views</em> et 
+			<em>Environment View</em> sont activés.
+			<br/>Le point de vue 
+			<em>Cinematic Views</em> permet de visualiser et modifier un modèle cinematic via plusieurs types de diagrammes. Se référer à la section suivante pour plus de détails. Le point de vue 
+			<em>Environment View</em> permet d&#8217;activer les vues propriétés EEF.
+		</p>
+		<h2 id="Activationdupointdevue">Activation du point de vue</h2>
+		<h3 id="Utilisationdunmodelingproject">Utilisation d&#8217;un modeling project</h3>
+		<p>Si le fichier a été créé dans un modeling project, il reste juste à activer le point de vue 
+			<em>Cinematic Views</em>. Pour l&#8217;activer choisir 
+			<em>Viewpoints Selection</em> dans le menu contextuel du 
+			<em>modeling project</em>.
+		</p>
+		<h3 id="Utilisationdunautretypedeprojet">Utilisation d&#8217;un autre type de projet</h3>
+		<p>Pour les autres types de projet, il faut créer un 
+			<em>representations file</em> (fichier .aird) ou en utiliser un existant puis ajouter le modèle Cinematic comme ressource sémantique à ce 
+			<em>representations file</em>.
+			<br/>Pour créer un nouveau 
+			<em>representations file</em>, cliquer sur 
+			<code> File &gt; New &gt; Other.. </code> ouis choisir 
+			<em>Representations file</em>. Le wizard propose d&#8217;initialiser le fichier à partir d&#8217;un modèle existant qui peut être le modèle Cinematic créé précédemment.
+			<br/>Pour ajouter le modèle Cinematic à un 
+			<em>representations file</em> existant, choisir 
+			<em>Add Model</em> dans le menu contextuel du fichier .aird, puis sélectionner le modèle Cinematic créé.
+			<br/>Activer un point de vue se fait alors en choisissant 
+			<em>Viewpoints Selection</em> dans le menu contextuel du fichier .aird.
+		</p>
+		<h2 id="Fonctionnalitsdumodeleur">Fonctionnalités du modeleur</h2>
+		<p>Le modeleur Cinematic V2 propose les représentations suivantes :</p>
+		<ul>
+			<li>Package Diagram : diagramme permettant de visualiser les Packages, Flows et ViewContainers.</li>
+			<li>UI Structure : représentation aborescente permettant de visualiser et modifier la description statique de l&#8217;IHM (écrans, panels, widgets, ...).</li>
+			<li>Flow Diagram : diagramme permettant de visualiser et modifier un Flow, i.e la description dynamique de l&#8217;IHM.</li>
+		</ul>
+		<p>Les maquettes proposées dans ce document ont pour objectif de présenter l&#8217;agencement des différents éléments, les détails de représentations graphiques seront certainement différents.
+			<br/>Pour toutes les représentations proposées des vues Properties générées avec EEF seront mises en place.
+		</p>
+		<h3 id="PackageDiagram">Package Diagram</h3>
+		<h4 id="Contenu">Contenu</h4>
+		<p>Ce diagramme est défini sur un objet de type Package.</p>
+		<p>
+			<img border="0" src="pics/PackageDiagram_01.png"/>
+		</p>
+		<p>Sont affichés sur ce diagramme :</p>
+		<ul>
+			<li>les sous-packages fils du package courant,</li>
+			<li>les Flow du package courant,</li>
+			<li>les ViewContainer directement contenus par le package courant,</li>
+			<li>les dépendances entre flux, ViewContainers et packages quand elles existent (activables/désactivables par un calque 
+				<em>Dependencies</em>).
+			</li>
+		</ul>
+		<p>Pour un ViewContainer, sont affichés :</p>
+		<ul>
+			<li>son nom et son type,</li>
+			<li>les widgets directement contenus ou référencés,</li>
+			<li>les containers directement contenus ou référencés.</li>
+		</ul>
+		<p>Les éléments référencés sont distingués des éléments directement contenus (par une couleur différente ou une mention 
+			<em>&lt;referenced&gt;</em> par exemple).
+		</p>
+		<h4 id="Paletteetoutils">Palette et outils</h4>
+		<p>Les outils disponibles sont :</p>
+		<ul>
+			<li>création / navigation vers le diagramme d&#8217;un sous-package (par menu contextuel et par double-clic),</li>
+			<li>création / navigation vers le diagramme d&#8217;un Flow (par menu contextuel et par double-clic),</li>
+			<li>création / navigation vers le diagramme contenant la description d&#8217;un ViewContainer (par menu contextuel et par double-clic),</li>
+			<li>création/navigation vers le diagramme contenant la description d&#8217;un ViewContainer référencé (par menu contextuel et par double-clic),</li>
+			<li>création d&#8217;un sous-package,</li>
+			<li>création d&#8217;un Flow,</li>
+			<li>création d&#8217;un ViewContainer (mais pas de création des widgets ou containers contenus ou référencés),</li>
+			<li>édition directe du label sur tous les éléments (sauf widgets et containers contenus ou référencés par un ViewContainer),</li>
+			<li>suppression des sous-packages, Flow et ViewContainer (mais de suppression du contenu d&#8217;un ViewContainer),</li>
+			<li>calque 
+				<em>Dependencies</em> pour afficher ou non les dépendances,
+			</li>
+			<li>filtre pour afficher/masquer le contenu des ViewContainer.</li>
+		</ul>
+		<h3 id="DiagrammedeFlow">Diagramme de Flow </h3>
+		<h4 id="Contenu2">Contenu</h4>
+		<p>Ce diagramme est défini sur un objet de type Flow.</p>
+		<p>
+			<img border="0" src="pics/FlowDiagram_01.png"/>
+		</p>
+		<p>Sont affichés sur ce diagramme :</p>
+		<ul>
+			<li>Les états du Flow (InitialState, FinalState, ViewState, ActionState, DecisionState, AsyncEventState, SubflowState).
+				<ul>
+					<li>Pour chaque état, son nom est affiché.</li>
+					<li>Chaque type d'état sera différencié soit par sa forme graphique globale soit par l&#8217;utilisation d&#8217;icônes.</li>
+					<li>Ainsi pour les InitialState, FinalState et DecisionState la forme habituelle pourrait être utilisée : cercle plus ou moins plein pour les 2 premiers et losange pour le dernier.</li>
+					<li>Pour les autres états une représentation du type de celle présentée sur la maquette pourrait être utilisée avec des icônes différentes devant le libellé de l'état.</li>
+				</ul>
+			</li>
+			<li>Les transitions du Flow
+				<ul>
+					<li>Si la transition est déclenchée par un(des) événement(s), les événements sont affichées sous la forme 
+						<em>
+							<img border="0" src="pics/FlowDiagram_02.png"/> evenement1,evenement2
+						</em>
+					</li>
+					<li>Si une garde est présente elle est affichée sous la forme 
+						<em>[guard]</em>
+					</li>
+					<li>Si une garde et des événements déclencheurs sont présents, les deux notations sont séparées par un espace</li>
+				</ul>
+			</li>
+			<li>Une forme nommée 
+				<em>FlowEvents</em> présentant les FlowEvents contenus par le flot et permettant d&#8217;en créer de nouvelles. Cet affichage ainsi que l&#8217;outil de création associé peut être désactivé par un calque 
+				<em>Flow Events</em>
+			</li>
+			<li>Les ViewContainers référencés par les ViewState affichés. Cet affichage peut être désactivé via un calque 
+				<em>View Containers</em>.
+				<ul>
+					<li>Les informations affichées pour chaque ViewContainer sont les mêmes que pour le diagramme de package décrit au chapitre précédent.</li>
+				</ul>
+			</li>
+			<li>Pour chaque état sur lequel des actions ont été définies, un décorateur 
+				<img border="0" src="pics/FlowDiagram_03.png"/> est affiché. Le détail des actions associées est visible et modifiable dans la vue Properties de l'état.
+			</li>
+			<li>Les opérations (services métiers) associées aux actions peuvent être affichées/masquées avec un calque associé. Pour chaque opération, les paramètres d&#8217;entrée/sortie sont affichés.</li>
+		</ul>
+		<h4 id="Paletteetoutils2">Palette et outils </h4>
+		<p>Les outils disponibles sont :</p>
+		<ul>
+			<li>création / suppression d'état. Pour la création de SubflowState, un outil permettra d&#8217;utiliser un Flow déjà existant, un deuxième outil permettra de créer un nouveau Flow dans le package du Flow courant,</li>
+			<li>création / suppression / reconnection de transition,</li>
+			<li>édition directe des libellés sur les états et transitions. L'édition directe du libellé d&#8217;une transition positionnera la garde sur cette transition mais sera sans effet sur les événements associés à la transition,</li>
+			<li>création / navigation vers le diagramme de flux pour un SubFlowState,</li>
+			<li>création / suppression de FlowEvent,</li>
+			<li>édition directe du libellé d&#8217;une FlowEvent,</li>
+			<li>calque permettant d&#8217;afficher/masquer la forme 
+				<em>FlowEvents</em> et l&#8217;outil de création de FlowEvent,
+			</li>
+			<li>association de ViewContainer avec des ViewState,</li>
+			<li>calque permettant d&#8217;afficher / masquer les ViewContainer et l&#8217;outil d&#8217;association correspondant,</li>
+			<li>création / navigation vers le diagramme contenant la description d&#8217;un ViewContainer (par menu contextuel et par double-clic),</li>
+			<li>filtre pour afficher / masquer le contenu des ViewContainer,</li>
+			<li>filtre pour afficher / masquer le contenu des Operation (paramètres d&#8217;entrée et de sortie).</li>
+		</ul>
+		<h3 id="DescriptionstatiquedelIHM">Description statique de l&#8217;IHM</h3>
+		<h4 id="Contenu3">Contenu</h4>
+		<p>Pour visualiser la description statique de l&#8217;IHM nous proposons une représentation arborescente. Ce type de représentation permet pour un ViewContainer de visualiser les ViewElement et les ViewContainers dont il est le parent et ceux qu&#8217;il référence.
+			<br/>Cette représentation est basée sur un objet de type Package.
+		</p>
+		<p>
+			<img border="0" src="pics/IHM_01.png"/>
+		</p>
+		<p>Sont affichés :</p>
+		<ul>
+			<li>le package principal et ses sous-packages,</li>
+			<li>les ViewContainers,
+				<ul>
+					<li>quand un ViewContainer est référencé il apparaît également sous l'élément qui le référence. Ex : AdressePanel apparaît sous DetailPersonne. Dans ce cas, une indication permet de voir que le ViewContainer est simplement référencé et non pas contenu (mention dans le libellé ou couleur différente).</li>
+				</ul>
+			</li>
+			<li>les ViewElement,</li>
+			<li>les Events associées aux ViewContainer et ViewElements,</li>
+			<li>les Actions associées aux ViewContainer et ViewElements.</li>
+		</ul>
+		<h4 id="Paletteetoutils3">Palette et outils</h4>
+		<p>Les outils disponibles sont :</p>
+		<ul>
+			<li>création / suppression de Package,</li>
+			<li>création / suppression de ViewContainer,</li>
+			<li>création / suppression de ViewElement,</li>
+			<li>création / suppression de Event,</li>
+			<li>création / suppression de Action,</li>
+			<li>modification de ces éléments via des vues Properties EEF,</li>
+			<li>action pour déplacer / dupliquer un élément dans l&#8217;arborescence.</li>
+		</ul>
+		<h3 id="Crationdetoolkits">Création de toolkits</h3>
+		<p>Un des objectifs du méta-modèle est de permettre de créer facilement de nouveaux toolkits.</p>
+		<p>
+			<img border="0" src="pics/Toolkit_01.png"/>
+		</p>
+		<p>La création d&#8217;un toolkit consiste à créer les widgets et à associer à chaque widget les types d'événements qu&#8217;il peut initier.
+			<br/>Par exemple, un toolkit peut contenir un widget 
+			<em>button</em> avec un événement 
+			<em>buttonPressed</em>.
+		</p>
+		<p>La création de toolkits est une tâche réalisée par l'équipe réalisant l&#8217;outillage. Il n&#8217;est donc pas nécessaire d&#8217;intégrer un modeleur spécifique pour cela dans le studio Safr@n. La réalisation de toolkits se fera donc par le biais d&#8217;un éditeur EMF arborescent classique.</p>
+		<p>Pour une meilleure expérience utilisateur nous proposons d&#8217;associer une icône à chaque widget, cette icône est affichée devant le nom des ViewElement utilisant le widget.
+			<br/>Pour cela, il est nécessaire de modifier légèrement le méta-modèle pour permettre d&#8217;associer une icône à un widget.
+		</p>
+	</body>
+</html>

@@ -6,14 +6,23 @@ __Copyright (c) Obeo 2012, 2017 -  All rights reserved. This program and the acc
 h1. Obeo Network - Outillage Cinematic
 
 h2. Création d'un modèle Cinematic
- 
-La création d'un modèle Cinematic se fait en utilisant le wizard dédié.
 
-Le wizard est invoqué via le menu @ File > New > Other... @ ou le raccourci clavier _Ctrl+N_, puis en choisissant  l'entrée _Cinematic Model_ (Catégorie Obeo Designer For IS).
+Un assistant permet la création de modèles Cinematic. Cet assistant est accessible via le menu :
 
-!pics/NewModel_01.png!
+bq. File > New > Other ... > Cinematic Model (Catégorie IS Designer)
 
-Il suffit ensuite choisir le nom et l'emplacement du fichier et de valider.
+!pics/Safran - cinematic - wizard01.png!
+
+Cet assistant vous permet de définir le nom du modèle que vous souhaitez créer ainsi que de définir son répertoire destination. 
+
+!pics/Safran - cinematic - wizard02.png!
+
+Une fois l'assistant validé, le modèle est créé, les représentations _Package Diagram_ et _UI Structure_ sont créées. La représentation _Package Diagram_ est ouverte afin de commencer l'édition.
+
+!pics/Safran - cinematic - model created.png!
+
+Lorsqu'un modèle cinematic est créé à l'aide de ce wizard, les points de vues _Cinematic Views_ et _Environment View_ sont activés.
+Le point de vue _Cinematic Views_ permet de visualiser et modifier un modèle cinematic via plusieurs types de diagrammes. Se référer à la section suivante pour plus de détails. Le point de vue _Environment View_ permet d'activer les vues propriétés EEF.
 
 h2. Activation du point de vue
 
@@ -57,7 +66,7 @@ Pour un ViewContainer, sont affichés :
 * les widgets directement contenus ou référencés,
 * les containers directement contenus ou référencés.
 
-Les éléments référencés sont distingués des éléments directement contenus (par une couleur différente ou une mention _<notextile><</notextile>referenced<notextile>></notextile>_ par exemple).
+Les éléments référencés sont distingués des éléments directement contenus (par une couleur différente ou une mention _<notextile>&lt;</notextile>referenced<notextile>&gt;</notextile>_ par exemple).
 
 h4. Palette et outils
 

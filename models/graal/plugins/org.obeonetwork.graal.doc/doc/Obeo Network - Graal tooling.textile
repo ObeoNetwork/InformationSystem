@@ -16,21 +16,20 @@ h2. Création d'un modèle Graal
  
 Un assistant permet la création de modèles Graal. Cet assistant est accessible via le menu :
 
-bq. File > New > Other ... > Graal Model (Catégorie Obeo Designer For IS)
+bq. File > New > Other ... > Graal Model (Catégorie IS Designer)
 
-Cet assistant vous permet de définir le nom du modèle que vous souhaitez créer ainsi que de définir son répertoire destination. 
+!pics/Safran - graal - wizard01.png!
 
-Une fois l'assistant validé, le modèle est créé et un éditeur s'ouvre afin de commencer l'édition.
+Cet assistant vous permet de définir le nom du modèle que vous souhaitez créer ainsi que de définir son répertoire destination.
 
-!pics/Graal%20Editor.png!
+!pics/Safran - graal - wizard02.png!
 
-L'éditeur permet de visualiser le contenu d'un modèle Graal sous forme arborescente. Pour modifier les propriétés d'un élément il faut utiliser la vue _Properties_ (partie basse sur la capture d'écran précédente). Si cette vue n'est pas visible, il est possible de l'ouvrir par un clic droit sur un élément de l'arbre et sélection de _Show Properties View_.
+Une fois l'assistant validé, le modèle est créé, les représentations _Task Graph_, _Actors Graph_, _Use Cases Main view_ et _Domain Namespaces Hierarchy_ sont créées. La représentation _Task Graph_ est ouverte afin de commencer l'édition.
 
-La création de nouveaux éléments se fait dans l'arbre par le menu contextuel _New Child_  du conteneur où l'on souhaite créer l'élément. Ainsi pour créer une nouvelle tâche dans un système, il faut invoquer, depuis le système voulu, le menu :
+!pics/Safran - graal - model created.png!
 
-bq. New Child > Task
-
-Un modèle Graal peut être édité avec cet éditeur arborescent mais ce n'est pas la méthode privilégiée : les éditeurs graphiques (diagrammes) permettent de remplir cette tâche plus efficacement.
+Lorsqu'un modèle graal est créé à l'aide de ce wizard, les points de vues _Graal Methodology_, _Graal Methodology (Safr@n Consolidated view)_, _Interaction_, _State Machine_ et _Environment View_ sont activés.
+Le point de vue _Graal Methodology_ est décrit dans la section suivante. Le point de vue _Graal Methodology (Safr@n Consolidated view)_ est décrit dans la section de documentation "Safr@n - Graal Methodology (Safr@n consolidated view)":../../fr.gouv.mindef.safran.is.design.doc/doc/Safr@n%20-%20Graal%20Methodology%20(Safr@n%20consolidated%20view).html. Le point de vue _Interaction_ est décrit dans la section de documentation "Obeo Network - Interaction tooling":../../org.obeonetwork.dsl.interaction.doc/doc/Obeo%20Network%20-%20Interaction%20tooling.html. Le point de vue _State Machine_ est décrit dans la section de documentation "Obeo Network - State Machine tooling":../../org.obeonetwork.dsl.statemachine.doc/doc/Obeo%20Network%20-%20State%20Machine%20tooling.html. Le point de vue _Environment View_ permet d'activer les vues propriétés EEF.
 
 h2. Point de vue Graal
 

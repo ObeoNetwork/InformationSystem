@@ -25,24 +25,41 @@
 		<h2 id="CrationdunmodleGraal">Création d&#8217;un modèle Graal</h2>
 		<p>Un assistant permet la création de modèles Graal. Cet assistant est accessible via le menu :</p>
 		<blockquote>
-			<p>File &gt; New &gt; Other ... &gt; Graal Model (Catégorie Obeo Designer For IS)</p>
+			<p>File &gt; New &gt; Other ... &gt; Graal Model (Catégorie IS Designer)</p>
 		</blockquote>
-		<p>Cet assistant vous permet de définir le nom du modèle que vous souhaitez créer ainsi que de définir son répertoire destination. </p>
-		<p>Une fois l&#8217;assistant validé, le modèle est créé et un éditeur s&#8217;ouvre afin de commencer l'édition.</p>
 		<p>
-			<img border="0" src="pics/Graal%20Editor.png"/>
+			<img border="0" src="pics/Safran - graal - wizard01.png"/>
 		</p>
-		<p>L'éditeur permet de visualiser le contenu d&#8217;un modèle Graal sous forme arborescente. Pour modifier les propriétés d&#8217;un élément il faut utiliser la vue 
-			<em>Properties</em> (partie basse sur la capture d'écran précédente). Si cette vue n&#8217;est pas visible, il est possible de l&#8217;ouvrir par un clic droit sur un élément de l&#8217;arbre et sélection de 
-			<em>Show Properties View</em>.
+		<p>Cet assistant vous permet de définir le nom du modèle que vous souhaitez créer ainsi que de définir son répertoire destination.</p>
+		<p>
+			<img border="0" src="pics/Safran - graal - wizard02.png"/>
 		</p>
-		<p>La création de nouveaux éléments se fait dans l&#8217;arbre par le menu contextuel 
-			<em>New Child</em>  du conteneur où l&#8217;on souhaite créer l'élément. Ainsi pour créer une nouvelle tâche dans un système, il faut invoquer, depuis le système voulu, le menu :
+		<p>Une fois l&#8217;assistant validé, le modèle est créé, les représentations 
+			<em>Task Graph</em>, 
+			<em>Actors Graph</em>, 
+			<em>Use Cases Main view</em> et 
+			<em>Domain Namespaces Hierarchy</em> sont créées. La représentation 
+			<em>Task Graph</em> est ouverte afin de commencer l'édition.
 		</p>
-		<blockquote>
-			<p>New Child &gt; Task</p>
-		</blockquote>
-		<p>Un modèle Graal peut être édité avec cet éditeur arborescent mais ce n&#8217;est pas la méthode privilégiée : les éditeurs graphiques (diagrammes) permettent de remplir cette tâche plus efficacement.</p>
+		<p>
+			<img border="0" src="pics/Safran - graal - model created.png"/>
+		</p>
+		<p>Lorsqu&#8217;un modèle graal est créé à l&#8217;aide de ce wizard, les points de vues 
+			<em>Graal Methodology</em>, 
+			<em>Graal Methodology (Safr@n Consolidated view)</em>, 
+			<em>Interaction</em>, 
+			<em>State Machine</em> et 
+			<em>Environment View</em> sont activés.
+			<br/>Le point de vue 
+			<em>Graal Methodology</em> est décrit dans la section suivante. Le point de vue 
+			<em>Graal Methodology (Safr@n Consolidated view)</em> est décrit dans la section de documentation 
+			<a href="../../fr.gouv.mindef.safran.is.design.doc/doc/Safr@n%20-%20Graal%20Methodology%20(Safr@n%20consolidated%20view).html">Safr@n &#8211; Graal Methodology (Safr@n consolidated view)</a>. Le point de vue 
+			<em>Interaction</em> est décrit dans la section de documentation 
+			<a href="../../org.obeonetwork.dsl.interaction.doc/doc/Obeo%20Network%20-%20Interaction%20tooling.html">Obeo Network &#8211; Interaction tooling</a>. Le point de vue 
+			<em>State Machine</em> est décrit dans la section de documentation 
+			<a href="../../org.obeonetwork.dsl.statemachine.doc/doc/Obeo%20Network%20-%20State%20Machine%20tooling.html">Obeo Network &#8211; State Machine tooling</a>. Le point de vue 
+			<em>Environment View</em> permet d&#8217;activer les vues propriétés EEF.
+		</p>
 		<h2 id="PointdevueGraal">Point de vue Graal</h2>
 		<p>L&#8217;outillage Graal fournit un point de vue dédié à la méthodologie Graal. Ce point de vue permet de visualiser et modifier un modèle Graal via plusieurs types de diagrammes.</p>
 		<h3 id="OuverturedunesessionetactivationdupointdevueGraal">Ouverture d&#8217;une session  et activation du point de vue Graal</h3>
@@ -152,6 +169,12 @@
 			</tr>
 			<tr>
 				<td>
+					<img border="0" src="pics/diagrams/grouptasksgraph/Import%20existing%20task.png"/>
+				</td>
+				<td>Import d&#8217;une tâche existante. Une boîte de dialogue permet de choisir une tâche existante. La tâche est importée dans le groupe actuel et détachée de son conteneur précédent.</td>
+			</tr>
+			<tr>
+				<td>
 					<img border="0" src="pics/diagrams/tasksgraph/Create%20group.png"/>
 				</td>
 				<td>Création d&#8217;un groupe.</td>
@@ -254,15 +277,15 @@
 		<table>
 			<tr>
 				<td>
-					<img border="0" src="pics/diagrams/grouptasksgraph/Import%20existing%20task.png"/>
-				</td>
-				<td>Import d&#8217;une tâche existante. Une boîte de dialogue permet de choisir une tâche existante. La tâche est importée dans le groupe actuel et détachée de son conteneur précédent.</td>
-			</tr>
-			<tr>
-				<td>
 					<img border="0" src="pics/diagrams/tasksgraph/Create%20task.png"/>
 				</td>
 				<td>Création d&#8217;une nouvelle tâche.</td>
+			</tr>
+			<tr>
+				<td>
+					<img border="0" src="pics/diagrams/grouptasksgraph/Import%20existing%20task.png"/>
+				</td>
+				<td>Import d&#8217;une tâche existante. Une boîte de dialogue permet de choisir une tâche existante. La tâche est importée dans le groupe actuel et détachée de son conteneur précédent.</td>
 			</tr>
 			<tr>
 				<td>

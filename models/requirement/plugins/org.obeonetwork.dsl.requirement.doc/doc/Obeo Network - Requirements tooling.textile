@@ -13,12 +13,19 @@ h3. Initialisation d'un modèle d'exigences
 
 Un assistant permet de créer un modèle d'exigences. Il est accessible via le menu :
 
-bq. File > New > Other ... > Requirement Model (Catégorie Obeo Designer For IS)
+bq. File > New > Other ... > Requirement Model (Catégorie IS Designer)
 
-Cet assistant vous permet de définir le nom du modèle que vous souhaitez créer ainsi que de définir son répertoire destination. 
+!pics/Safran - requirement - wizard01.png!
 
-Une fois l'assistant validé, le modèle est créé et un éditeur s'ouvre.
-L'édition ne doit pas se faire dans cet éditeur mais par le biais de la _Requirements table_ du point de vue _Requirements_. L'utilisation de la _Requirements table_ est encore plus nécessaire quand le projet est partagé en mode collaboratif (sur CDO) car dans ce cas l'éditeur simple ne fonctionnera pas.
+Cet assistant vous permet de définir le nom du modèle que vous souhaitez créer ainsi que de définir son répertoire destination.
+
+!pics/Safran - requirement - wizard02.png!
+
+Une fois l'assistant validé, le modèle est créé, la représentation _Requirements table_ est créée et ouverte afin de commencer l'édition.
+
+!pics/Safran - requirement - model created.png!
+
+Lorsqu'un modèle requirement est créé à l'aide de ce wizard, le point de vue _Requirement_ est activé. Dans le cas ou un modèle graal existe déjà dans le projet le point de vue _Requirement (Graal Consolidated view)_ est activé. Le point de vue _Requirement_ est décrit dans la section "Point de vue Requirement":#requirement_viewpoint. Le point de vue _Requirement (Graal Consolidated view)_ est décrit dans la section de documentation "Safr@n - Graal Methodology (Safr@n consolidated view)":../../fr.gouv.mindef.safran.is.design.doc/doc/Safr@n%20-%20Graal%20Methodology%20(Safr@n%20consolidated%20view).
 
 h3. Concepts des modèles d'exigences
 
@@ -32,7 +39,7 @@ Finalement un _Requirement_ modélise une exigence. Elle est typée selon les cr
 Il est possible de définir sa provenance (_Rationale_), ses critères d'acceptation (_AcceptanceCriteria_) et de référencer un objet de modèle.
 A noter qu'un _Requirement_ a aussi un numéro de version. Ce numéro de version est initialisé à 1 et peut simplement être incrémenté de 1 en 1 en utilisant le bouton "+1" affiché sur la vue _Properties_ pour l'exigence.
 
-h2. Point de vue Requirement
+h2(#requirement_viewpoint). Point de vue Requirement
 
 L'outillage de gestion d'exigences embarque un point vue permettant :
 * La gestion des exigences (création, modification, suppression)

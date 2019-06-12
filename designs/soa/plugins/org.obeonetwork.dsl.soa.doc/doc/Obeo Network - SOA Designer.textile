@@ -17,21 +17,20 @@ h2. Création d'un modèle Soa
  
 Un assistant permet la création de modèles SOA. Cet assistant est accessible via le menu :
 
-bq. File > New > Other ... > SOA Model (Catégorie Obeo Designer For IS)
+bq. File > New > Other ... > SOA Model (Catégorie IS Designer)
 
-Cet assistant vous permet de définir le nom du modèle que vous souhaitez créer ainsi que de définir son répertoire destination. 
+!pics/Safran - soa - wizard01.png!
 
-Une fois l'assistant validé, le modèle est créé et un éditeur s'ouvre afin de commencer l'édition.
+Cet assistant vous permet de définir le nom du modèle que vous souhaitez créer ainsi que de définir son répertoire destination.
 
-!pics/SOA%20editor.png!
+!pics/Safran - soa - wizard02.png!
 
-L'éditeur permet de visualiser le contenu d'un modèle SOA sous forme arborescente. Pour modifier les propriétés d'un élément il faut utiliser la vue _Properties_ (partie basse sur la capture d'écran précédente). Si cette vue n'est pas visible, il est possible de l'ouvrir par un clic droit sur un élément de l'arbre et sélection de _Show Properties View_.
+Une fois l'assistant validé, le modèle est créé, les représentations _SOA Diagram_, _DTO Namespaces Hierarchy_ et _DTO Physical Names_ sont créées. La représentation _DTO Namespaces Hierarchy_ est ouverte afin de commencer l'édition.
 
-La création de nouveaux éléments se fait dans l'arbre par le menu contextuel _New Child_  du conteneur où l'on souhaite créer l'élément. Ainsi pour créer un nouveau DTO, il faut invoquer, depuis le package voulu, le menu :
+!pics/Safran - soa - model created.png!
 
-bq. New Child > DTO
-
-Un modèle SOA peut être édité avec cet éditeur arborescent mais ce n'est pas la méthode privilégiée : les éditeurs graphiques (diagrammes) permettent de remplir cette tâche plus efficacement.
+Lorsqu'un modèle soa est créé à l'aide de ce wizard, les points de vues _SOA Views_, _SOA (Safr@n Consolidated view)_ et _Environment View_ sont activés.
+Le point de vue _SOA Views_ est décrit dans la section suivante. Le point de vue _SOA (Safr@n Consolidated view)_ est décrit dans la section de documentation "Safr@n - SOA (Safr@n consolidated view)":../../fr.gouv.mindef.safran.is.design.doc/doc/Safr@n%20-%20SOA%20(Safr@n%20consolidated%20view).html. Le point de vue _Environment View_ permet d'activer les vues propriétés EEF.
 
 h2. Point de vue SOA Views
 

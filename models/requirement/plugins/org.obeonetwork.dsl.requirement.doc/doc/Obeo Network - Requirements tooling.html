@@ -21,14 +21,28 @@
 		<h3 id="Initialisationdunmodledexigences">Initialisation d&#8217;un modèle d&#8217;exigences</h3>
 		<p>Un assistant permet de créer un modèle d&#8217;exigences. Il est accessible via le menu :</p>
 		<blockquote>
-			<p>File &gt; New &gt; Other ... &gt; Requirement Model (Catégorie Obeo Designer For IS)</p>
+			<p>File &gt; New &gt; Other ... &gt; Requirement Model (Catégorie IS Designer)</p>
 		</blockquote>
-		<p>Cet assistant vous permet de définir le nom du modèle que vous souhaitez créer ainsi que de définir son répertoire destination. </p>
-		<p>Une fois l&#8217;assistant validé, le modèle est créé et un éditeur s&#8217;ouvre.
-			<br/>L'édition ne doit pas se faire dans cet éditeur mais par le biais de la 
-			<em>Requirements table</em> du point de vue 
-			<em>Requirements</em>. L&#8217;utilisation de la 
-			<em>Requirements table</em> est encore plus nécessaire quand le projet est partagé en mode collaboratif (sur CDO) car dans ce cas l'éditeur simple ne fonctionnera pas.
+		<p>
+			<img border="0" src="pics/Safran - requirement - wizard01.png"/>
+		</p>
+		<p>Cet assistant vous permet de définir le nom du modèle que vous souhaitez créer ainsi que de définir son répertoire destination.</p>
+		<p>
+			<img border="0" src="pics/Safran - requirement - wizard02.png"/>
+		</p>
+		<p>Une fois l&#8217;assistant validé, le modèle est créé, la représentation 
+			<em>Requirements table</em> est créée et ouverte afin de commencer l'édition.
+		</p>
+		<p>
+			<img border="0" src="pics/Safran - requirement - model created.png"/>
+		</p>
+		<p>Lorsqu&#8217;un modèle requirement est créé à l&#8217;aide de ce wizard, le point de vue 
+			<em>Requirement</em> est activé. Dans le cas ou un modèle graal existe déjà dans le projet le point de vue 
+			<em>Requirement (Graal Consolidated view)</em> est activé. Le point de vue 
+			<em>Requirement</em> est décrit dans la section 
+			<a href="#requirement_viewpoint">Point de vue Requirement</a>. Le point de vue 
+			<em>Requirement (Graal Consolidated view)</em> est décrit dans la section de documentation 
+			<a href="../../fr.gouv.mindef.safran.is.design.doc/doc/Safr@n%20-%20Graal%20Methodology%20(Safr@n%20consolidated%20view)">Safr@n &#8211; Graal Methodology (Safr@n consolidated view)</a>.
 		</p>
 		<h3 id="Conceptsdesmodlesdexigences">Concepts des modèles d&#8217;exigences</h3>
 		<p>Trois concepts peuvent être manipulés dans un modèle d&#8217;exigences : le 
@@ -54,7 +68,7 @@
 			<em>Requirement</em> a aussi un numéro de version. Ce numéro de version est initialisé à 1 et peut simplement être incrémenté de 1 en 1 en utilisant le bouton &#171;+1&#187; affiché sur la vue 
 			<em>Properties</em> pour l&#8217;exigence.
 		</p>
-		<h2 id="PointdevueRequirement">Point de vue Requirement</h2>
+		<h2 id="requirement_viewpoint">Point de vue Requirement</h2>
 		<p>L&#8217;outillage de gestion d&#8217;exigences embarque un point vue permettant :</p>
 		<ul>
 			<li>La gestion des exigences (création, modification, suppression)</li>
