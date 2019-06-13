@@ -80,7 +80,8 @@ public class NewRequirementModelWizard extends AbstractISNewModelWizard {
 	}
 	
 	private boolean isGraalResource(Resource resource) {
-		return resource.getURI().fileExtension().equals("graal");
+		String fileExtension = resource.getURI().fileExtension();
+		return "graal".equals(fileExtension);
 	}
 	
 	@Override
