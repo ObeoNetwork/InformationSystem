@@ -242,7 +242,7 @@ abstract public class AbstractISNewModelWizard extends Wizard implements INewWiz
 			
 			if (resource instanceof CDOResource) {
 				TreeSelection treeSelection = buildTreeSelection(resource);
-				activePart.getSite().getSelectionProvider().setSelection(treeSelection);				
+				activePart.getSite().getSelectionProvider().setSelection(treeSelection);
 			} else {
 				URI uri = resource.getURI();
 				if (uri.isPlatformResource()) {

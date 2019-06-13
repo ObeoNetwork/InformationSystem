@@ -159,6 +159,10 @@ public class ProjectsAndFoldersContentProvider implements ITreeContentProvider {
 				if (element instanceof IProject) {
 					// Should be always true
 					IProject project = (IProject)element;
+					CDOResourceFolder remoteRootFolder = SiriusSessionUtils.getRemoteRootFolder(SiriusSessionUtils.getSession(project));
+					if (remoteRootFolder != null && !cacheFoldersProject.containsKey(remoteRootFolder)) {
+						cacheFoldersProject.put(remoteRootFolder, project);
+					}
 					List<CDOResourceFolder> folders = SiriusSessionUtils.getFoldersForModelingProject(project);
 					for (CDOResourceFolder folder : folders) {
 						cacheFoldersProject.put(folder, project);
