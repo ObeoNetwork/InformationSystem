@@ -99,6 +99,13 @@ location Amalgam "https://download.eclipse.org/modeling/amalgam/updates/stable/1
 	org.eclipse.amalgam.discovery.feature.group lazy
 }
 
+location EEF-2.1.2 "https://download.eclipse.org/modeling/emft/eef/updates/nightly/2.1.2/2018-19" {
+	org.eclipse.eef.sdk.feature.feature.group lazy
+    org.eclipse.eef.sdk.feature.source.feature.group lazy
+    org.eclipse.eef.ext.widgets.reference.feature.feature.group lazy
+    org.eclipse.eef.ext.widgets.reference.feature.source.feature.group lazy
+}
+ 
 location Obeo-Designer-Community "http://update.obeo.fr/stable/designer/11.1.2_te_T4C_it8-2/community/11.1.2/repository/" {
 	org.apache.log4j lazy
     org.easymock lazy
@@ -147,10 +154,6 @@ location Obeo-Designer-Community "http://update.obeo.fr/stable/designer/11.1.2_t
     org.eclipse.acceleo.ide.ui lazy
     org.eclipse.acceleo.source.feature.group lazy
     org.antlr.runtime [4.3.0,4.4.0)
-	org.eclipse.eef.sdk.feature.feature.group lazy
-    org.eclipse.eef.sdk.feature.source.feature.group lazy
-    org.eclipse.eef.ext.widgets.reference.feature.feature.group lazy
-    org.eclipse.eef.ext.widgets.reference.feature.source.feature.group lazy
 	org.eclipse.sirius.doc.feature.feature.group lazy
     org.eclipse.sirius.runtime.acceleo.source.feature.group lazy
     org.eclipse.sirius.runtime.aql.source.feature.group lazy
