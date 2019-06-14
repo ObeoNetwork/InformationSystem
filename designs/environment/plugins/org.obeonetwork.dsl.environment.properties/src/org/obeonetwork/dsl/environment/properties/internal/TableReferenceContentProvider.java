@@ -13,10 +13,10 @@ package org.obeonetwork.dsl.environment.properties.internal;
 import java.util.Collection;
 
 import org.eclipse.emf.ecore.EObject;
-import org.eclipse.emf.ecore.EReference;
 import org.eclipse.jface.viewers.IStructuredContentProvider;
 import org.eclipse.jface.viewers.Viewer;
 import org.obeonetwork.dsl.environment.Annotation;
+import org.obeonetwork.dsl.environment.properties.ui.eef.widget.TableController;
 
 /**
  * The content provider for the table of the table widget.
@@ -28,16 +28,16 @@ public class TableReferenceContentProvider implements IStructuredContentProvider
 	/**
 	 * The EReference.
 	 */
-	private EReference eReference;
+	private TableController tableController;
 
 	/**
 	 * The constructor.
 	 *
-	 * @param eReference
+	 * @param controller
 	 *            The EReference
 	 */
-	public TableReferenceContentProvider(EReference eReference) {
-		this.eReference = eReference;
+	public TableReferenceContentProvider(TableController controller) {
+		this.tableController = controller;
 	}
 
 	/**
@@ -58,9 +58,9 @@ public class TableReferenceContentProvider implements IStructuredContentProvider
 	 */
 	@Override
 	public Object[] getElements(Object inputElement) {
-		if (inputElement instanceof EObject && ((EObject) inputElement).eClass().getEAllStructuralFeatures().contains(this.eReference)) {
+		if (inputElement instanceof EObject && ((EObject) inputElement).eClass().getEAllStructuralFeatures().contains(this.tableController.getReference())) {
 			EObject eObject = (EObject) inputElement;
-			Object values = eObject.eGet(eReference);
+			Object values = eObject.eGet(tableController.getReference());
 			if (values instanceof Collection<?>) {
 				Collection<?> collections = (Collection<?>) values;
 				return collections.stream().filter(Annotation.class::isInstance).toArray();

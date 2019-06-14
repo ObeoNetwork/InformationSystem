@@ -202,7 +202,7 @@ public class TableLifecycleManager extends AbstractEEFWidgetLifecycleManager {
 		
 		this.addColumns(this.tableViewer, tableColumnLayout);
 		
-		this.tableViewer.setContentProvider(new TableReferenceContentProvider(this.controller.getReference()));
+		this.tableViewer.setContentProvider(new TableReferenceContentProvider(this.controller));
 	}
 
 	private void addColumns(TableViewer viewer, TableColumnLayout columnLayout) {
