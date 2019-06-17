@@ -99,7 +99,7 @@ location Amalgam "https://download.eclipse.org/modeling/amalgam/updates/stable/1
 	org.eclipse.amalgam.discovery.feature.group lazy
 }
 
-location EEF-2.1.2 "https://download.eclipse.org/modeling/emft/eef/updates/nightly/2.1.2/2018-19" {
+location EEF-2.1.2 "http://download.eclipse.org/modeling/emft/eef/updates/releases/2.1" {
 	org.eclipse.eef.sdk.feature.feature.group lazy
     org.eclipse.eef.sdk.feature.source.feature.group lazy
     org.eclipse.eef.ext.widgets.reference.feature.feature.group lazy

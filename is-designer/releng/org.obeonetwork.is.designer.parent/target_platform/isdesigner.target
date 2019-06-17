@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <?pde?>
 <!-- generated with https://github.com/eclipse-cbi/targetplatform-dsl -->
-<target name="IS Designer Target Definition" sequenceNumber="1560531423">
+<target name="IS Designer Target Definition" sequenceNumber="1560758175">
   <locations>
     <location includeMode="planner" includeAllPlatforms="false" includeSource="true" includeConfigurePhase="false" type="InstallableUnit">
       <unit id="org.obeonetwork.dsl.feature.environment.feature.group" version="0.0.0"/>
@@ -105,7 +105,7 @@
       <unit id="org.eclipse.eef.sdk.feature.source.feature.group" version="0.0.0"/>
       <unit id="org.eclipse.eef.ext.widgets.reference.feature.feature.group" version="0.0.0"/>
       <unit id="org.eclipse.eef.ext.widgets.reference.feature.source.feature.group" version="0.0.0"/>
-      <repository id="EEF-2.1.2" location="https://download.eclipse.org/modeling/emft/eef/updates/nightly/2.1.2/2018-19"/>
+      <repository id="EEF-2.1.2" location="http://download.eclipse.org/modeling/emft/eef/updates/releases/2.1"/>
     </location>
     <location includeMode="planner" includeAllPlatforms="false" includeSource="true" includeConfigurePhase="false" type="InstallableUnit">
       <unit id="org.apache.log4j" version="0.0.0"/>
