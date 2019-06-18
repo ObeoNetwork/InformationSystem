@@ -47,7 +47,6 @@ public class EEFCustomReferenceDescription extends EEFExtReferenceDescriptionImp
 	public boolean removeButtonNeeded() {
 		return this.controller.removeButtonNeed();
 	}
-
 	
 	public boolean addButtonNeeded() {
 		return this.controller.addButtonNeeded();

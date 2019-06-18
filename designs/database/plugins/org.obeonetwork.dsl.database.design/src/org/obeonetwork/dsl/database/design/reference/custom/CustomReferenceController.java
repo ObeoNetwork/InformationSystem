@@ -51,7 +51,7 @@ public class CustomReferenceController extends EEFExtReferenceController {
 	private static final String ON_DOUBLE_CLICK_EXPRESSION = "onDoubleClickOperation";
 
 	private EEFCustomWidgetDescription description;
-	
+
 	public CustomReferenceController(EEFCustomWidgetDescription description, IVariableManager variableManager,
 			IInterpreter interpreter, EditingContextAdapter contextAdapter) {
 		super(null, variableManager, interpreter, contextAdapter);
@@ -146,11 +146,6 @@ public class CustomReferenceController extends EEFExtReferenceController {
 
 			EvalFactory.of(this.interpreter, variables).call(expression);
 		});
-		
-		
-		if (EEFExpressionUtils.EEFList.DOUBLE_CLICK.equals(onClickEventKind)) {
-			super.onClick(element, onClickEventKind);
-		}
 	}
 
 	protected String getOnDoubleClickExpression() {
@@ -191,5 +186,4 @@ public class CustomReferenceController extends EEFExtReferenceController {
 			});
 		});
 	}
-
 }
