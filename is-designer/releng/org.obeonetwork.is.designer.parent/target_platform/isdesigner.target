@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <?pde?>
 <!-- generated with https://github.com/eclipse-cbi/targetplatform-dsl -->
-<target name="IS Designer Target Definition" sequenceNumber="1560758175">
+<target name="IS Designer Target Definition" sequenceNumber="1560780403">
   <locations>
     <location includeMode="planner" includeAllPlatforms="false" includeSource="true" includeConfigurePhase="false" type="InstallableUnit">
       <unit id="org.obeonetwork.dsl.feature.environment.feature.group" version="0.0.0"/>
@@ -91,8 +91,8 @@
       <repository location="https://download.eclipse.org/tools/orbit/downloads/drops/R20180606145124/repository/"/>
     </location>
     <location includeMode="planner" includeAllPlatforms="false" includeSource="true" includeConfigurePhase="false" type="InstallableUnit">
-      <unit id="fr.obeo.dsl.viewpoint.collab" version="1.0.0.201905201805"/>
-      <repository id="Obeo-Designer-Team" location="http://update.obeo.fr/stable/designer/11.1.2_te_T4C_it8-2/team/11.1.2/repository/"/>
+      <unit id="fr.obeo.dsl.viewpoint.collab" version="1.0.0.201906041422"/>
+      <repository id="Obeo-Designer-Team" location="http://update.obeo.fr/release/designer/11.1/team/11.1.2/repository/"/>
     </location>
     <location includeMode="planner" includeAllPlatforms="false" includeSource="true" includeConfigurePhase="false" type="InstallableUnit">
       <unit id="org.eclipse.amalgam.explorer.contextual.sirius.feature.group" version="0.0.0"/>
@@ -173,7 +173,7 @@
       <unit id="org.eclipse.sirius.properties.feature.source.feature.group" version="0.0.0"/>
       <unit id="org.eclipse.sirius.specifier.properties.feature.feature.group" version="0.0.0"/>
       <unit id="org.eclipse.sirius.specifier.properties.feature.source.feature.group" version="0.0.0"/>
-      <repository id="Obeo-Designer-Community" location="http://update.obeo.fr/stable/designer/11.1.2_te_T4C_it8-2/community/11.1.2/repository/"/>
+      <repository id="Obeo-Designer-Community" location="http://update.obeo.fr/release/designer/11.1/community/11.1.2/repository/"/>
     </location>
   </locations>
 </target>
