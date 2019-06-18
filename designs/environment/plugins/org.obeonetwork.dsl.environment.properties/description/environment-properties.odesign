@@ -201,9 +201,27 @@
             </style>
           </conditionalStyles>
         </controls>
-        <controls xsi:type="properties-ext-widgets-reference:ExtReferenceDescription" name="environment::Enumeration literals" referenceNameExpression="aql:'literals'"/>
-        <controls xsi:type="properties:CustomDescription" name="org.obeonetwork.dsl.database.design.custom.reference" label="environment::Enumeration literals" labelExpression="aql:input.emfEditServices(self).getText(self.eClass().getEStructuralFeature('literals')) + ':'" helpExpression="aql:input.emfEditServices(self).getDescription(self.eClass().getEStructuralFeature('literals'))" isEnabledExpression="aql:self.eClass().getEStructuralFeature('literals').changeable">
+        <controls xsi:type="properties:CustomDescription" name="org.obeonetwork.dsl.database.design.custom.reference" label="environment::Enumeration literals" labelExpression="aql:'Literals:'" helpExpression="aql:input.emfEditServices(self).getDescription(self.eClass().getEStructuralFeature('literals'))" isEnabledExpression="aql:self.eClass().getEStructuralFeature('literals').changeable">
           <customExpressions name="referenceNameExpression" customExpression="aql:'literals'"/>
+          <customOperations name="addButtonOperation">
+            <initialOperation>
+              <firstModelOperations xsi:type="tool:CreateInstance" typeName="environment::Literal" referenceName="literals">
+                <subModelOperations xsi:type="tool:SetValue" featureName="name" valueExpression="aql:''"/>
+                <subModelOperations xsi:type="tool:SetValue" featureName="description" valueExpression="aql:''"/>
+                <subModelOperations xsi:type="properties:DialogModelOperation" titleExpression="Create Literal Dialog">
+                  <buttons labelExpression="Cancel" closeDialogOnClick="true" rollbackChangesOnClose="true">
+                    <initialOperation>
+                      <firstModelOperations xsi:type="tool:RemoveElement"/>
+                    </initialOperation>
+                  </buttons>
+                  <buttons labelExpression="OK" default="true" closeDialogOnClick="true">
+                    <initialOperation/>
+                  </buttons>
+                  <page name="Create Enumeration literal Page" extends="//@extensions.0/@categories.1/@pages.4"/>
+                </subModelOperations>
+              </firstModelOperations>
+            </initialOperation>
+          </customOperations>
           <customOperations name="onDoubleClickOperation">
             <initialOperation>
               <firstModelOperations xsi:type="tool:ChangeContext" browseExpression="aql:selection->first()">
