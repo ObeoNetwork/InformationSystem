@@ -120,7 +120,7 @@
           </initialOperation>
         </controls>
       </groups>
-      <groups name="Opposite Group" labelExpression="Properties" domainClass="environment::Reference" semanticCandidateExpression="aql:self.oppositeOf" preconditionExpression="aql:self.oppositeOf &lt;> null">
+      <groups name="Opposite Group" labelExpression="Properties" domainClass="environment::Reference" semanticCandidateExpression="var:self">
         <controls xsi:type="properties:TextDescription" name="environment::Reference name" labelExpression="aql:input.emfEditServices(self).getText(self.eClass().getEStructuralFeature('name')) + ':'" helpExpression="aql:input.emfEditServices(self).getDescription(self.eClass().getEStructuralFeature('name'))" isEnabledExpression="aql:self.eClass().getEStructuralFeature('name').changeable" valueExpression="aql:self.name">
           <initialOperation>
             <firstModelOperations xsi:type="tool:SetValue" featureName="name" valueExpression="var:newValue"/>
