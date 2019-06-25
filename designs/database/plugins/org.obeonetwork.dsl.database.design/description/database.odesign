@@ -483,13 +483,13 @@
             <firstModelOperations xsi:type="tool_1:SetValue" featureName="url" valueExpression="var:newValue"/>
           </initialOperation>
         </controls>
-        <controls xsi:type="properties:CustomDescription" name="org.obeonetwork.dsl.database.design.custom.reference" label="database::Database usedLibraries" labelExpression="aql:input.emfEditServices(self).getText(self.eClass().getEStructuralFeature('usedLibraries')) + ':'" helpExpression="aql:input.emfEditServices(self).getDescription(self.eClass().getEStructuralFeature('usedLibraries')) + ':'" isEnabledExpression="aql:self.eClass().getEStructuralFeature('usedLibraries').changeable">
-          <customExpressions name="referenceNameExpression" customExpression="aql:'usedLibraries'"/>
-        </controls>
         <controls xsi:type="properties:TextAreaDescription" name="database::Database comments" labelExpression="aql:input.emfEditServices(self).getText(self.eClass().getEStructuralFeature('comments')) + ':'" helpExpression="aql:input.emfEditServices(self).getDescription(self.eClass().getEStructuralFeature('comments'))" isEnabledExpression="aql:self.eClass().getEStructuralFeature('comments').changeable" valueExpression="aql:self.comments">
           <initialOperation>
             <firstModelOperations xsi:type="tool_1:SetValue" featureName="comments" valueExpression="var:newValue"/>
           </initialOperation>
+        </controls>
+        <controls xsi:type="properties:CustomDescription" name="org.obeonetwork.dsl.database.design.custom.reference" label="database::Database usedLibraries" labelExpression="aql:input.emfEditServices(self).getText(self.eClass().getEStructuralFeature('usedLibraries')) + ':'" helpExpression="aql:input.emfEditServices(self).getDescription(self.eClass().getEStructuralFeature('usedLibraries')) + ':'" isEnabledExpression="aql:false">
+          <customExpressions name="referenceNameExpression" customExpression="aql:'usedLibraries'"/>
         </controls>
       </groups>
     </categories>
