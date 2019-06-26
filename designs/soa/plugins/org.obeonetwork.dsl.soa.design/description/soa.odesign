@@ -1212,7 +1212,7 @@
             <firstModelOperations xsi:type="tool_1:SetValue" featureName="multiplicity" valueExpression="aql:newValue.instance"/>
           </initialOperation>
         </controls>
-        <controls xsi:type="properties:CheckboxDescription" name="soa::Parameter isUnique" labelExpression="aql:input.emfEditServices(self).getText(self.eClass().getEStructuralFeature('isUnique'))" helpExpression="aql:input.emfEditServices(self).getDescription(self.eClass().getEStructuralFeature('isUnique'))" isEnabledExpression="aql:self.eClass().getEStructuralFeature('isUnique').changeable" valueExpression="aql:self.isUnique">
+        <controls xsi:type="properties:CheckboxDescription" name="soa::Parameter isUnique" labelExpression="aql:input.emfEditServices(self).getText(self.eClass().getEStructuralFeature('isUnique'))" helpExpression="aql:input.emfEditServices(self).getDescription(self.eClass().getEStructuralFeature('isUnique'))" isEnabledExpression="aql:self.eClass().getEStructuralFeature('isUnique').changeable" valueExpression="feature:isUnique">
           <initialOperation>
             <firstModelOperations xsi:type="tool_1:SetValue" featureName="isUnique" valueExpression="var:newValue"/>
           </initialOperation>
