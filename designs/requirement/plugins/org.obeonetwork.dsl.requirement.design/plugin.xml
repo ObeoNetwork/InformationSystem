@@ -19,7 +19,7 @@
 		</extension>
 		
 <!-- EEF extensions -->
-
+<!--
    <extension
          point="org.eclipse.ui.views.properties.tabbed.propertyContributor">
       <propertyContributor
@@ -109,4 +109,5 @@
          </description>
       </wizard>
    </extension>
+   -->
 </plugin>

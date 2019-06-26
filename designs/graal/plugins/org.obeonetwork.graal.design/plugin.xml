@@ -178,7 +178,7 @@
             type="graalfeatureextensions"
             class="org.obeonetwork.graal.design.graalfeatureextensions.util.GraalfeatureextensionsResourceFactoryImpl"/>
    </extension>
-
+<!--
 	<extension
          point="org.eclipse.ui.views.properties.tabbed.propertyContributor">
       <propertyContributor
@@ -213,6 +213,7 @@
          </propertySection>
       </propertySections>
    </extension>
+   -->
    <extension
          point="org.eclipse.ui.newWizards">
       <wizard
