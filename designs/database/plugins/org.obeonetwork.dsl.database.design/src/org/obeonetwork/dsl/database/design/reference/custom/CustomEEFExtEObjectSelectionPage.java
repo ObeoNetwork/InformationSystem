@@ -10,6 +10,7 @@
  *******************************************************************************/
 package org.obeonetwork.dsl.database.design.reference.custom;
 
+import java.util.List;
 import java.util.function.Function;
 
 import org.eclipse.core.runtime.IProgressMonitor;
@@ -33,6 +34,7 @@ import org.eclipse.jface.viewers.StructuredViewer;
 import org.eclipse.jface.viewers.TreeViewer;
 import org.eclipse.jface.viewers.Viewer;
 import org.eclipse.jface.wizard.WizardPage;
+import org.eclipse.sirius.ext.emf.edit.EditingDomainServices;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.events.ModifyEvent;
 import org.eclipse.swt.events.ModifyListener;
@@ -41,6 +43,7 @@ import org.eclipse.swt.layout.GridLayout;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Label;
 import org.eclipse.swt.widgets.Text;
+import org.eclipse.swt.widgets.TreeItem;
 import org.eclipse.ui.dialogs.PatternFilter;
 
 @SuppressWarnings("restriction")
@@ -61,14 +64,15 @@ public class CustomEEFExtEObjectSelectionPage extends WizardPage {
 			return false;
 		}
 
-		private boolean isOfCorrectType(Object leaf){
-			return eClassifier.isInstance(leaf);
+		@Override
+		protected boolean isLeafMatch(Viewer viewer, Object element) {
+			return choiceOfValues.contains(element) && super.isLeafMatch(viewer, element);
 		}
-
+		
 		@Override
 		public boolean isElementVisible(Viewer viewer, Object element) {
 			if (isLeaf(element)) {
-				return isOfCorrectType(element) && isLeafMatch(viewer, element);
+				return isLeafMatch(viewer, element);
 			} else {
 				StructuredViewer sviewer = (StructuredViewer) viewer;
 				ITreeContentProvider provider = (ITreeContentProvider) sviewer.getContentProvider();
@@ -85,9 +89,11 @@ public class CustomEEFExtEObjectSelectionPage extends WizardPage {
 	private EReference eReference;
 	private ComposedAdapterFactory composedAdapterFactory;
 	private TreeViewer eReferenceTreeViewer;
+	private EditingDomainServices editingDomainServices;
 	private ISelectionChangedListener eReferenceTreeViewerListener;
 	private EClassifier eClassifier;
 	private Text text;
+	private List<?> choiceOfValues;
 
 	public CustomEEFExtEObjectSelectionPage(EObject target, EReference eReference,
 			EditingContextAdapter editingContextAdapter) {
@@ -95,6 +101,8 @@ public class CustomEEFExtEObjectSelectionPage extends WizardPage {
 		this.target = target;
 		this.eReference = eReference;
 		this.eClassifier = this.eReference.getEType();
+		this.editingDomainServices = new EditingDomainServices();
+		this.choiceOfValues = this.editingDomainServices.getPropertyDescriptorChoiceOfValues(target, eReference.getName());
 		
 		this.setTitle(Messages.ReferenceSelectionWizardPage_title);
 		this.setDescription(Messages.ReferenceSelectionWizardPage_description);
@@ -126,6 +134,10 @@ public class CustomEEFExtEObjectSelectionPage extends WizardPage {
 		if (initialValue != null) {
 			this.eReferenceTreeViewer.setSelection(new StructuredSelection(initialValue));
 		}
+		TreeItem[] items = this.eReferenceTreeViewer.getTree().getItems();
+		if (items.length == 1) {
+			eReferenceTreeViewer.expandToLevel(target.eResource().getResourceSet(), AbstractTreeViewer.ALL_LEVELS, true);
+		}
 	}
 	
 	private void createTreeViewer(Composite control) {
@@ -150,7 +162,10 @@ public class CustomEEFExtEObjectSelectionPage extends WizardPage {
 				patternFilter.setPattern(textField);
 	        	eReferenceTreeViewer.refresh();
 	        	if (textField.isEmpty()) {
-	        		initializeInput();
+	        		Object initialValue = target.eGet(eReference);
+	        		if (initialValue != null) {
+	        			eReferenceTreeViewer.setSelection(new StructuredSelection(initialValue));
+	        		}
 	        	} else {
 	        		eReferenceTreeViewer.expandToLevel(target.eResource().getResourceSet(), AbstractTreeViewer.ALL_LEVELS, true);
 	        	}
@@ -171,7 +186,6 @@ public class CustomEEFExtEObjectSelectionPage extends WizardPage {
 				CustomEEFExtEObjectSelectionPage.this.determinePageCompletion();
 			}
 		};
-		
 		this.eReferenceTreeViewer.addSelectionChangedListener(this.eReferenceTreeViewerListener);
 	}
 
