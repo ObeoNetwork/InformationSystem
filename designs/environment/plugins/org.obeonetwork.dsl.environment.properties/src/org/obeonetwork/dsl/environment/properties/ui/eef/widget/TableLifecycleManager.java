@@ -41,6 +41,7 @@ import org.eclipse.swt.widgets.Button;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Control;
 import org.eclipse.swt.widgets.Table;
+import org.eclipse.swt.widgets.TableItem;
 import org.obeonetwork.dsl.environment.properties.Activator;
 import org.obeonetwork.dsl.environment.properties.internal.TableColumnsLabelProvider;
 import org.obeonetwork.dsl.environment.properties.internal.TableReferenceContentProvider;
@@ -112,8 +113,20 @@ public class TableLifecycleManager extends AbstractEEFWidgetLifecycleManager {
 		}
 		this.setEnableWidgetWithSelection(this.editButton, isEnabled);
 		this.setEnableWidgetWithSelection(this.removeButton, isEnabled);
-		this.setEnableWidgetWithSelection(this.upButton, isEnabled);
-		this.setEnableWidgetWithSelection(this.downButton, isEnabled);
+		this.handleUpDownButtons(isEnabled);
+	}
+	
+	private void handleUpDownButtons(boolean isEnabled) {
+		boolean shouldEnableUpButton = false;
+		boolean shouldEnableDownButton = false;
+		int selectionIndex = this.tableViewer.getTable().getSelectionIndex();
+		if (isEnabled && selectionIndex >= 0) {
+			TableItem[] items = this.tableViewer.getTable().getItems();
+			shouldEnableUpButton = selectionIndex > 0;
+			shouldEnableDownButton = items.length > selectionIndex + 1;
+		}
+		this.upButton.setEnabled(shouldEnableUpButton);
+		this.downButton.setEnabled(shouldEnableDownButton);
 	}
 	
 	/**
@@ -256,6 +269,7 @@ public class TableLifecycleManager extends AbstractEEFWidgetLifecycleManager {
 
 	private void editButtonCallback() {
 		this.controller.displayEditWizard();
+		this.tableViewer.refresh();
 	}
 	
 	private void initializeAddButton() {
@@ -266,6 +280,7 @@ public class TableLifecycleManager extends AbstractEEFWidgetLifecycleManager {
 
 	private void addButtonCallback() {
 		this.controller.displayAddButtonWizard();
+		this.tableViewer.refresh();
 	}
 
 	private void initializeRemoveButton() {
@@ -277,6 +292,8 @@ public class TableLifecycleManager extends AbstractEEFWidgetLifecycleManager {
 	private void removeButtonCallback() {
 		if (this.controller.getSelection() != null) {
 			EcoreUtil.remove(this.controller.getTarget(), this.controller.getReference(), this.controller.getSelection());
+			this.controller.resetSelection();
+			this.tableViewer.refresh();
 		}
 	}
 

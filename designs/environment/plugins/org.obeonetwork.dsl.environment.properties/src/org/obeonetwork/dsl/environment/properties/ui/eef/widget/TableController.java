@@ -234,4 +234,11 @@ public class TableController extends AbstractEEFCustomWidgetController implement
 	public EObject getSelection() {
 		return this.currentSelection;
 	}
+
+	/**
+	 * Resets the selection to <code>null</code>.
+	 */
+	public void resetSelection() {
+		this.currentSelection = null;
+	}
 }
