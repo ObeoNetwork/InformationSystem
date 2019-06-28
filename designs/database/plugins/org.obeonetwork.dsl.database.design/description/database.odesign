@@ -946,8 +946,10 @@
         </controls>
       </groups>
       <groups name="Index Element Group" labelExpression="properties" domainClass="database::IndexElement" semanticCandidateExpression="var:self">
-        <controls xsi:type="properties:CustomDescription" name="org.obeonetwork.dsl.database.design.custom.reference" label="database::IndexElement column" labelExpression="aql:input.emfEditServices(self).getText(self.eClass().getEStructuralFeature('column')) + ':'" helpExpression="aql:input.emfEditServices(self).getDescription(self.eClass().getEStructuralFeature('column')) + ':'" isEnabledExpression="aql:self.eClass().getEStructuralFeature('column').changeable">
-          <customExpressions name="referenceNameExpression" customExpression="aql:'column'"/>
+        <controls xsi:type="properties:SelectDescription" name="database::IndexElement column" labelExpression="aql:input.emfEditServices(self).getText(self.eClass().getEStructuralFeature('column')) + ':'" helpExpression="aql:input.emfEditServices(self).getDescription(self.eClass().getEStructuralFeature('column')) + ':'" isEnabledExpression="aql:self.eClass().getEStructuralFeature('column').changeable" valueExpression="feature:column" candidatesExpression="aql:input.emfEditServices(self).getChoiceOfValues(self.eClass().getEStructuralFeature('column'))" candidateDisplayExpression="aql:candidate.name">
+          <initialOperation>
+            <firstModelOperations xsi:type="tool_1:SetValue" featureName="column" valueExpression="aql:newValue"/>
+          </initialOperation>
         </controls>
         <controls xsi:type="properties:CheckboxDescription" name="database::IndexElement asc" labelExpression="aql:input.emfEditServices(self).getText(self.eClass().getEStructuralFeature('asc'))" helpExpression="aql:input.emfEditServices(self).getDescription(self.eClass().getEStructuralFeature('asc'))" isEnabledExpression="aql:self.eClass().getEStructuralFeature('asc').changeable" valueExpression="aql:self.asc">
           <initialOperation>
