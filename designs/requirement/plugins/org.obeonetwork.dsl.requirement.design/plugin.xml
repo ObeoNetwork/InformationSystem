@@ -96,6 +96,7 @@
          </propertySection>
       </propertySections>
    </extension>
+   -->
    <extension
          point="org.eclipse.ui.newWizards">
       <wizard
@@ -109,5 +110,4 @@
          </description>
       </wizard>
    </extension>
-   -->
 </plugin>
