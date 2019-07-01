@@ -375,17 +375,17 @@
         </controls>
         <controls xsi:type="properties:TextDescription" name="database::Sequence increment" labelExpression="aql:input.emfEditServices(self).getText(self.eClass().getEStructuralFeature('increment')) + ':'" helpExpression="aql:input.emfEditServices(self).getDescription(self.eClass().getEStructuralFeature('increment'))" isEnabledExpression="aql:self.eClass().getEStructuralFeature('increment').changeable" valueExpression="aql:self.increment">
           <initialOperation>
-            <firstModelOperations xsi:type="tool_1:SetValue" featureName="start" valueExpression="var:newValue"/>
+            <firstModelOperations xsi:type="tool_1:SetValue" featureName="increment" valueExpression="var:newValue"/>
           </initialOperation>
         </controls>
         <controls xsi:type="properties:TextDescription" name="database::Sequence minValue" labelExpression="aql:input.emfEditServices(self).getText(self.eClass().getEStructuralFeature('minValue')) + ':'" helpExpression="aql:input.emfEditServices(self).getDescription(self.eClass().getEStructuralFeature('minValue'))" isEnabledExpression="aql:self.eClass().getEStructuralFeature('minValue').changeable" valueExpression="aql:self.minValue">
           <initialOperation>
-            <firstModelOperations xsi:type="tool_1:SetValue" featureName="start" valueExpression="var:newValue"/>
+            <firstModelOperations xsi:type="tool_1:SetValue" featureName="minValue" valueExpression="var:newValue"/>
           </initialOperation>
         </controls>
         <controls xsi:type="properties:TextDescription" name="database::Sequence maxValue" labelExpression="aql:input.emfEditServices(self).getText(self.eClass().getEStructuralFeature('maxValue')) + ':'" helpExpression="aql:input.emfEditServices(self).getDescription(self.eClass().getEStructuralFeature('maxValue'))" isEnabledExpression="aql:self.eClass().getEStructuralFeature('maxValue').changeable" valueExpression="aql:self.maxValue">
           <initialOperation>
-            <firstModelOperations xsi:type="tool_1:SetValue" featureName="start" valueExpression="var:newValue"/>
+            <firstModelOperations xsi:type="tool_1:SetValue" featureName="maxValue" valueExpression="var:newValue"/>
           </initialOperation>
         </controls>
         <controls xsi:type="properties:CheckboxDescription" name="database::Sequence cycle" labelExpression="aql:input.emfEditServices(self).getText(self.eClass().getEStructuralFeature('cycle'))" helpExpression="aql:input.emfEditServices(self).getDescription(self.eClass().getEStructuralFeature('cycle'))" isEnabledExpression="aql:self.eClass().getEStructuralFeature('cycle').changeable" valueExpression="aql:self.cycle">
@@ -395,7 +395,7 @@
         </controls>
         <controls xsi:type="properties:TextDescription" name="database::Sequence cacheSize" labelExpression="aql:input.emfEditServices(self).getText(self.eClass().getEStructuralFeature('cacheSize')) + ':'" helpExpression="aql:input.emfEditServices(self).getDescription(self.eClass().getEStructuralFeature('cacheSize'))" isEnabledExpression="aql:self.eClass().getEStructuralFeature('cacheSize').changeable" valueExpression="aql:self.cacheSize">
           <initialOperation>
-            <firstModelOperations xsi:type="tool_1:SetValue" featureName="start" valueExpression="var:newValue"/>
+            <firstModelOperations xsi:type="tool_1:SetValue" featureName="cacheSize" valueExpression="var:newValue"/>
           </initialOperation>
         </controls>
         <controls xsi:type="properties:TextAreaDescription" name="database::Sequence comments" labelExpression="aql:input.emfEditServices(self).getText(self.eClass().getEStructuralFeature('comments')) + ':'" helpExpression="aql:input.emfEditServices(self).getDescription(self.eClass().getEStructuralFeature('comments'))" isEnabledExpression="aql:self.eClass().getEStructuralFeature('comments').changeable" valueExpression="aql:self.comments">
@@ -417,7 +417,7 @@
         </controls>
         <controls xsi:type="properties:TextAreaDescription" name="database::Constraint expression" labelExpression="aql:input.emfEditServices(self).getText(self.eClass().getEStructuralFeature('expression')) + ':'" helpExpression="aql:input.emfEditServices(self).getDescription(self.eClass().getEStructuralFeature('expression'))" isEnabledExpression="aql:self.eClass().getEStructuralFeature('expression').changeable" valueExpression="aql:self.expression">
           <initialOperation>
-            <firstModelOperations xsi:type="tool_1:SetValue" featureName="comments" valueExpression="var:newValue"/>
+            <firstModelOperations xsi:type="tool_1:SetValue" featureName="expression" valueExpression="var:newValue"/>
           </initialOperation>
         </controls>
         <controls xsi:type="properties:TextAreaDescription" name="database::Constraint comments" labelExpression="aql:input.emfEditServices(self).getText(self.eClass().getEStructuralFeature('comments')) + ':'" helpExpression="aql:input.emfEditServices(self).getDescription(self.eClass().getEStructuralFeature('comments'))" isEnabledExpression="aql:self.eClass().getEStructuralFeature('comments').changeable" valueExpression="aql:self.comments">
