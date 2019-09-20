@@ -28,4 +28,12 @@
 	<extension point="org.obeonetwork.dsl.overview.overviewModelDef">
 		<overviewModelDef class="org.obeonetwork.dsl.is.overview.IsOverviewModelDef"/>
 	</extension>
+	
+	<extension
+         point="org.eclipse.emf.compare.rcp.matchEngine">
+      <engineFactory
+            class="org.obeonetwork.dsl.is.compare.ISMatchEngineFactory"
+            ranking="30">
+      </engineFactory>
+   </extension>
 </plugin>

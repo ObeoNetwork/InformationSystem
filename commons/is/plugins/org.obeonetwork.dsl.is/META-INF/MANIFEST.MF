@@ -28,7 +28,10 @@ Require-Bundle: org.eclipse.ui,
  org.eclipse.core.databinding.observable,
  org.eclipse.core.databinding.property,
  com.ibm.icu,
- org.eclipse.sirius.diagram
+ org.eclipse.sirius.diagram,
+ org.obeonetwork.dsl.database,
+ org.eclipse.emf.compare,
+ com.google.guava
 Export-Package: org.obeonetwork.dsl.is,
  org.obeonetwork.dsl.is.overview,
  org.obeonetwork.dsl.is.ui.wizards
