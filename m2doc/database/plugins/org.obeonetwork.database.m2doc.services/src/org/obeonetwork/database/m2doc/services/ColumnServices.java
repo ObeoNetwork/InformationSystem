@@ -11,6 +11,7 @@
 package org.obeonetwork.database.m2doc.services;
 
 import org.obeonetwork.dsl.database.Column;
+import org.obeonetwork.dsl.typeslibrary.NativeType;
 import org.obeonetwork.dsl.typeslibrary.Type;
 import org.obeonetwork.dsl.typeslibrary.TypeInstance;
 import org.obeonetwork.dsl.typeslibrary.UserDefinedTypeRef;
@@ -212,16 +213,19 @@ public class ColumnServices {
      * @return the name of the column's type.
      */
     public String typeName(Column column) {
-        final String res;
+        String res = null;
         Type type = column.getType();
         if (type instanceof UserDefinedTypeRef) {
             res = ((UserDefinedTypeRef) type).getType().getName();
         } else if (type instanceof TypeInstance) {
-            res = ((TypeInstance) type).getNativeType().getName();
-        } else {
+            NativeType nativeType = ((TypeInstance) type).getNativeType();
+            if (nativeType != null) {
+                res = nativeType.getName();
+            }
+        }
+        if (res == null) {
             res = "no name found";
         }
-
         return res;
     }
 
@@ -241,28 +245,29 @@ public class ColumnServices {
         Type type = col.getType();
         if (type instanceof TypeInstance) {
             TypeInstance instance = (TypeInstance) type;
-            switch (instance.getNativeType().getSpec()) {
-                case LENGTH:
-                    // Fix for SAFRAN-676 : Potential NPE
-                    if (instance.getLength() != null) {
-                        res = instance.getLength().toString();
-                    }
-                    break;
-                case LENGTH_AND_PRECISION:
-                    // Fix for SAFRAN-676 : Potential NPE
-                    if (instance.getLength() != null) {
-                        res += instance.getLength();
-                    }
-                    res += ",";
-                    if (instance.getPrecision() != null) {
-                        res += instance.getPrecision();
-                    }
-                    break;
-                default:
-                    res = "";
+            NativeType nativeType = instance.getNativeType();
+            if (nativeType != null) {
+                switch (nativeType.getSpec()) {
+                    case LENGTH:
+                        // Fix for SAFRAN-676 : Potential NPE
+                        if (instance.getLength() != null) {
+                            res = instance.getLength().toString();
+                        }
+                        break;
+                    case LENGTH_AND_PRECISION:
+                        // Fix for SAFRAN-676 : Potential NPE
+                        if (instance.getLength() != null) {
+                            res += instance.getLength();
+                        }
+                        res += ",";
+                        if (instance.getPrecision() != null) {
+                            res += instance.getPrecision();
+                        }
+                        break;
+                    default:
+                        res = "";
+                }
             }
-        } else {
-            res = "";
         }
         return res;
     }
