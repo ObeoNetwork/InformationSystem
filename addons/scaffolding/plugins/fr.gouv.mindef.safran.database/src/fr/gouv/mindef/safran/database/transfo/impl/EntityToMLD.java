@@ -31,6 +31,7 @@ import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EReference;
 import org.eclipse.emf.ecore.EStructuralFeature.Setting;
 import org.eclipse.emf.ecore.resource.Resource;
+import org.eclipse.emf.ecore.resource.ResourceSet;
 import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.obeonetwork.dsl.database.Column;
 import org.obeonetwork.dsl.database.Constraint;
@@ -110,7 +111,11 @@ public class EntityToMLD extends AbstractTransformation {
 			}
 			targetResource = targetObject.eResource();
 			defaultTarget = targetObject;
-			nativeTypesMap = loadTypesLibrary();
+			ResourceSet resourceSet = null;
+			if (targetResource != null) {
+				resourceSet = targetResource.getResourceSet();
+			}
+			nativeTypesMap = loadTypesLibrary(resourceSet);
 			return (!nativeTypesMap.isEmpty());
 		}
 		return false;
@@ -1332,9 +1337,10 @@ public class EntityToMLD extends AbstractTransformation {
 		return "Entity-to-LogicalTypes.properties";
 	}
 
-	private Map<String, NativeType> loadTypesLibrary() {
+	private Map<String, NativeType> loadTypesLibrary(ResourceSet set) {
 		Map<String, NativeType> types = new HashMap<String, NativeType>();
-		TypesLibrary typesLibrary = TypesLibraryUtil.getLogicalTypesLibrary(getResourceSet());
+		ResourceSet resourceSet = set != null ? set : getResourceSet();
+		TypesLibrary typesLibrary = TypesLibraryUtil.getLogicalTypesLibrary(resourceSet);
 		for (Iterator<EObject> it = typesLibrary.eAllContents(); it.hasNext();) {
 			EObject object = it.next();
 			if (object instanceof NativeType) {
