@@ -20,6 +20,7 @@ import org.eclipse.sirius.business.api.session.SessionManager;
 import org.eclipse.sirius.business.api.session.SessionManagerListener;
 import org.eclipse.sirius.viewpoint.description.Viewpoint;
 import org.eclipse.ui.plugin.AbstractUIPlugin;
+import org.obeonetwork.dsl.database.triggers.DeleteColumnChangeTrigger;
 import org.obeonetwork.dsl.database.triggers.ViewQueryChangeTrigger;
 import org.osgi.framework.BundleContext;
 
@@ -57,9 +58,9 @@ public class Activator extends AbstractUIPlugin {
 				new SessionManagerListener.Stub() {
 					@Override
 					public void notifyAddSession(Session newSession) {
-						newSession.getEventBroker().addLocalTrigger(
-								NotificationFilter.NOT_TOUCH, 
-								new ViewQueryChangeTrigger());
+						newSession.getEventBroker().addLocalTrigger(NotificationFilter.NOT_TOUCH, new ViewQueryChangeTrigger());
+						newSession.getEventBroker().addLocalTrigger(DeleteColumnChangeTrigger.IS_DELETE_COLUMN, new DeleteColumnChangeTrigger());
+						
 					}
 				});
 	}
