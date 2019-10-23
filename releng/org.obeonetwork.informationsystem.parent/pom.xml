@@ -26,8 +26,8 @@
 		<!-- <acceleo-site>http://mirror.update.eclipse.obeo.fr/releases-acceleo-3.4/</acceleo-site> -->
 		<eclipse-site>http://download.eclipse.org/releases/photon/</eclipse-site>
 		<orbit-site>https://download.eclipse.org/tools/orbit/downloads/drops/R20180606145124/repository/</orbit-site>
-		<m2doc-site>https://s3-eu-west-1.amazonaws.com/obeo-m2doc-releases/2.0.2/repository</m2doc-site>
-		<!-- m2doc-site>https://s3-eu-west-1.amazonaws.com/obeo-m2doc-releases/master/nightly/repository</m2doc-site -->
+		<!-- m2doc-site>https://s3-eu-west-1.amazonaws.com/obeo-m2doc-releases/2.0.2/repository</m2doc-site -->
+		>m2doc-site>https://s3-eu-west-1.amazonaws.com/obeo-m2doc-releases/master/nightly/repository</m2doc-site
 		<!-- <acceleo-snapshots-site>https://repo.eclipse.org/content/repositories/acceleo-snapshots</acceleo-snapshots-site> -->
 		<!-- <acceleo-releases-site>https://repo.eclipse.org/content/repositories/acceleo-releases</acceleo-releases-site> -->
 		<svn-site>https://download.eclipse.org/releases/oxygen/</svn-site>
