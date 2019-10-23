@@ -18,6 +18,7 @@ import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EStructuralFeature;
+import org.eclipse.emf.ecore.resource.URIConverter;
 import org.eclipse.emf.edit.provider.ComposedAdapterFactory;
 import org.eclipse.emf.edit.ui.provider.AdapterFactoryLabelProvider;
 import org.eclipse.swt.SWT;
@@ -199,9 +200,15 @@ public class CinematicServices {
 				tempFile.deleteOnExit();
 				imageLoader.save(new FileOutputStream(tempFile), SWT.IMAGE_PNG);
 				
+				URIConverter uriConverter = URIConverter.INSTANCE;
+				if (obj.eResource() != null && obj.eResource().getResourceSet() != null) {
+					uriConverter = obj.eResource().getResourceSet().getURIConverter();
+				}
+				
 				URL imageUrl = tempFile.toURI().toURL();
 				URI uri = URI.createURI(imageUrl.toString());
-				return new MImageImpl(uri);
+				
+				return new MImageImpl(uriConverter, uri);
 			} catch (MalformedURLException e) {
 				e.printStackTrace();
 			} catch (IOException e) {
