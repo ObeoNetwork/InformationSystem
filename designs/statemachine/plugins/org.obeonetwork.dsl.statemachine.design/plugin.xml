@@ -19,6 +19,19 @@
     </component>
   </extension>
   <extension
+        point="org.eclipse.ui.newWizards">
+     <wizard
+           category="org.obeonetwork.dsl.is.ui.categoryID"
+           class="org.obeonetwork.dsl.statemachine.design.wizards.NewStateMachineModelWizard"
+           icon="icons/full/obj16/StateMachineModelFile.gif"
+           id="org.obeonetwork.dsl.statemachine.design.wizards.NewStateMachineModelWizard"
+           name="State Machine Model">
+        <description>
+           New state machine model wizard
+        </description>
+     </wizard>
+  </extension>
+  <extension
         id="popup:org.eclipse.ui.popup.any?after=additions"
         point="org.eclipse.ui.menus">
      <menuContribution
