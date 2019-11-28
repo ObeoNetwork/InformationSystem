@@ -51,7 +51,9 @@ public final class ContextualExplorerUtils {
 		Set<Object> result = new HashSet<>();
 		if (object instanceof EObject) {
 			EList<EReference> eAllReferences = ((EObject) object).eClass().getEAllReferences();
-			List<Object> values = eAllReferences.stream().map(ref -> ((EObject) object).eGet(ref)).collect(Collectors.toList());
+			List<Object> values = eAllReferences.stream()
+					.filter(ref -> !ContextualExplorerUtils.isOppositeOfContainmentReference(ref))
+					.map(ref -> ((EObject) object).eGet(ref)).collect(Collectors.toList());
 			result.addAll(values);
 		}
 		return result;
@@ -78,13 +80,19 @@ public final class ContextualExplorerUtils {
 	public static Collection<Setting> getAllReferring(Object object) {
 		return ContextualExplorerUtils.getAllInverseReferences(object)
 				.stream()
-				.filter(s -> ContextualExplorerUtils.isNotContainementFeature(s.getEStructuralFeature()))
+				.filter(s -> !ContextualExplorerUtils.isOppositeOfContainmentReference(s.getEStructuralFeature()))
 				.collect(Collectors.toList());
 	}
 	
-	private static boolean isNotContainementFeature(EStructuralFeature feature) {
-		return !(feature instanceof EReference)
-				|| !((EReference) feature).isContainment();
+	private static boolean isOppositeOfContainmentReference(EStructuralFeature feature) {
+		// Filter references which are opposite of containement
+		if (feature instanceof EReference) {
+			EReference eOpposite = ((EReference) feature).getEOpposite();
+			if (eOpposite != null && eOpposite.isContainment()) {
+				return true;	
+			}
+		}
+		return false;
 	}
 
 }
