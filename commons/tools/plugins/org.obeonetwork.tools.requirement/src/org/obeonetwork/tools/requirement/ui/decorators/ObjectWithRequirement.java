@@ -15,8 +15,10 @@ import java.net.URL;
 import org.eclipse.core.resources.IFile;
 import org.eclipse.core.resources.IProject;
 import org.eclipse.core.runtime.FileLocator;
+import org.eclipse.core.runtime.IStatus;
 import org.eclipse.core.runtime.Path;
 import org.eclipse.core.runtime.Platform;
+import org.eclipse.core.runtime.Status;
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.resource.Resource;
@@ -61,19 +63,30 @@ public class ObjectWithRequirement implements ILightweightLabelDecorator {
 	 */
 	public void decorate(Object element, IDecoration decoration) {
 		ImageDescriptor descriptor = null;
-		if (element instanceof IFile) {
-			if (!(element instanceof IProject)) {
-				// Decorate resource
-				Resource resource = getResourceFromFile((IFile)element);
-				descriptor = getDescriptor(resource);				
+		try {
+			if (element instanceof IFile) {
+				if (!(element instanceof IProject)) {
+					// Decorate resource
+					Resource resource = getResourceFromFile((IFile)element);
+					descriptor = getDescriptor(resource);				
+				}
+			} else if (element instanceof EObject) { // CDOResource are also EObject so they will be handled here
+				descriptor = getDescriptor((EObject)element);
 			}
-		} else if (element instanceof EObject) { // CDOResource are also EObject so they will be handled here
-			descriptor = getDescriptor((EObject)element);
-		}
-		
-		// Add decoration if a descriptor has been found
-		if (descriptor != null) {
-			decoration.addOverlay(descriptor, quadrant);
+			
+			// Add decoration if a descriptor has been found
+			if (descriptor != null) {
+				decoration.addOverlay(descriptor, quadrant);
+			}
+		} catch (Exception e) {
+			// NullPointerExceptions can be raised by underlying calls
+			// We catch them or the decorator will be disabled
+			// but log a warning in the error log to help with debugging
+			String message = "RequirementDecorator - The following exception has been catched to avoid decorator from being disabled";
+			if (element != null) { 
+				message += " (Context : " + element.toString() + ")";
+			}
+			RequirementLinkerPlugin.getInstance().getLog().log(new Status(IStatus.WARNING, RequirementLinkerPlugin.PLUGIN_ID, message, e));
 		}
 	}
 	
@@ -128,7 +141,7 @@ public class ObjectWithRequirement implements ILightweightLabelDecorator {
 	}
 	
 	/**
-	 * Returns the right ImageDescriptor depending for a resource by lloking at its children
+	 * Returns the right ImageDescriptor depending for a resource by looking at its children
 	 * @param resource
 	 * @return
 	 */
