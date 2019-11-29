@@ -61,8 +61,8 @@ import org.obeonetwork.dsl.database.DatabasePackage;
 import org.obeonetwork.dsl.database.sqlgen.DatabaseGen;
 
 import fr.gouv.mindef.safran.database.ui.Activator;
+import fr.gouv.mindef.safran.database.ui.util.ScaffoldingUtils;
 
-@SuppressWarnings("restriction")
 /**
  * Action made available when comparing two database models to generate the SQL scripts to corresponding to the EMFCompare comparison.
  * 
@@ -307,10 +307,18 @@ public class ExportAsSQLScriptsAction extends Action implements IEditorActionDel
 			}
 			EObject left = parentMatch.getLeft(); // Should be DataBase
 			EObject right = parentMatch.getRight(); // Should be DataBase
-			if (left != null && left.eClass().getEPackage() == DatabasePackage.eINSTANCE
-					|| right != null && right.eClass().getEPackage() == DatabasePackage.eINSTANCE) {
+			
+			// Right and left should be from the database package
+			if (left == null || left.eClass().getEPackage() != DatabasePackage.eINSTANCE
+					|| right == null || right.eClass().getEPackage() != DatabasePackage.eINSTANCE) {
+				return false;
+			}
+			
+			// Should be disabled for Logical and not Physical types libraries
+			if (ScaffoldingUtils.isValidInputForMpd(left) && ScaffoldingUtils.isValidInputForMpd(right)) {
 				return true;
 			}
+			
 		}
 		return false;
 	}
