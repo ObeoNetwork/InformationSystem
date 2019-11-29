@@ -13,6 +13,16 @@
                 <variables name="root" documentation="The semantic root element of the table."/>
               </delete>
             </ownedSubLines>
+            <ownedSubLines name="EPN_AssociatedAttribute" domainClass="environment.Attribute" semanticCandidatesExpression="aql:self.associatedTypes.attributes" headerLabelExpression="aql:self.name+ ' (from ' + self.eContainer().eClass().name +')'">
+              <defaultForeground labelSize="8">
+                <labelFormat>italic</labelFormat>
+                <foreGroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              </defaultForeground>
+              <delete name="DEL_PreventDeletion_Attribute" precondition="false">
+                <variables name="element" documentation="The semantic currently edited element."/>
+                <variables name="root" documentation="The semantic root element of the table."/>
+              </delete>
+            </ownedSubLines>
             <ownedSubLines name="EPN_Reference" domainClass="environment.Reference" semanticCandidatesExpression="feature:references" headerLabelExpression="feature:name">
               <delete name="DEL_PreventDeletion_Reference" precondition="false">
                 <variables name="element" documentation="The semantic currently edited element."/>
@@ -34,7 +44,7 @@
           <variables name="root" documentation="The semantic root element of the table."/>
         </delete>
       </ownedLineMappings>
-      <ownedColumnMappings name="EPN_PhysicalName" headerLabelExpression="Name" initialWidth="120" featureName="name" labelExpression="service:lineSemantic.getPhysicalName()">
+      <ownedColumnMappings name="EPN_PhysicalName" headerLabelExpression="Name" initialWidth="120" canEdit="aql:self.canEditObject('Entity')" featureName="name" labelExpression="service:lineSemantic.getPhysicalName()">
         <directEdit>
           <variables name="table" documentation="The current DTable."/>
           <variables name="line" documentation="The DLine of the current DCell."/>
@@ -45,7 +55,7 @@
           <mask mask="{0}"/>
         </directEdit>
       </ownedColumnMappings>
-      <ownedColumnMappings name="EPN_Size" headerLabelExpression="Size" initialWidth="80" featureName="name" labelExpression="service:lineSemantic.getPhysicalSize()">
+      <ownedColumnMappings name="EPN_Size" headerLabelExpression="Size" initialWidth="80" canEdit="aql:self.canEditObject('Entity')" featureName="name" labelExpression="service:lineSemantic.getPhysicalSize()">
         <directEdit>
           <variables name="table" documentation="The current DTable."/>
           <variables name="line" documentation="The DLine of the current DCell."/>
@@ -56,7 +66,7 @@
           <mask mask="{0}"/>
         </directEdit>
       </ownedColumnMappings>
-      <ownedColumnMappings name="EPN_Check" headerLabelExpression="Check" initialWidth="80" featureName="name" labelExpression="service:lineSemantic.getPhysicalCheck()">
+      <ownedColumnMappings name="EPN_Check" headerLabelExpression="Check" initialWidth="80" canEdit="aql:self.canEditObject('Entity')" featureName="name" labelExpression="service:lineSemantic.getPhysicalCheck()">
         <directEdit>
           <variables name="table" documentation="The current DTable."/>
           <variables name="line" documentation="The DLine of the current DCell."/>
@@ -67,7 +77,7 @@
           <mask mask="{0}"/>
         </directEdit>
       </ownedColumnMappings>
-      <ownedColumnMappings name="EPN_Unique" headerLabelExpression="Unique" initialWidth="80" featureName="name" labelExpression="service:lineSemantic.getPhysicalUnique()">
+      <ownedColumnMappings name="EPN_Unique" headerLabelExpression="Unique" initialWidth="80" canEdit="aql:self.canEditObject('Entity')" featureName="name" labelExpression="service:lineSemantic.getPhysicalUnique()">
         <directEdit>
           <variables name="table" documentation="The current DTable."/>
           <variables name="line" documentation="The DLine of the current DCell."/>
@@ -78,7 +88,7 @@
           <mask mask="{0}"/>
         </directEdit>
       </ownedColumnMappings>
-      <ownedColumnMappings name="EPN_Default" headerLabelExpression="Default" initialWidth="80" featureName="name" labelExpression="service:lineSemantic.getPhysicalDefault()">
+      <ownedColumnMappings name="EPN_Default" headerLabelExpression="Default" initialWidth="80" canEdit="aql:self.canEditObject('Entity')" featureName="name" labelExpression="service:lineSemantic.getPhysicalDefault()">
         <directEdit>
           <variables name="table" documentation="The current DTable."/>
           <variables name="line" documentation="The DLine of the current DCell."/>
@@ -186,6 +196,16 @@
                 <variables name="root" documentation="The semantic root element of the table."/>
               </delete>
             </ownedSubLines>
+            <ownedSubLines name="DPN_AssociatedAttribute" domainClass="environment.Attribute" semanticCandidatesExpression="aql:self.associatedTypes.attributes" headerLabelExpression="aql:self.name+ ' (from ' + self.eContainer().eClass().name +')'">
+              <defaultForeground labelSize="8">
+                <labelFormat>italic</labelFormat>
+                <foreGroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              </defaultForeground>
+              <delete name="DEL_PreventDeletion_Attribute" precondition="false">
+                <variables name="element" documentation="The semantic currently edited element."/>
+                <variables name="root" documentation="The semantic root element of the table."/>
+              </delete>
+            </ownedSubLines>
             <ownedSubLines name="DPN_Reference" domainClass="environment.Reference" semanticCandidatesExpression="feature:references" headerLabelExpression="feature:name">
               <delete name="DEL_PreventDeletion_Reference" precondition="false">
                 <variables name="element" documentation="The semantic currently edited element."/>
@@ -207,7 +227,7 @@
           <variables name="root" documentation="The semantic root element of the table."/>
         </delete>
       </ownedLineMappings>
-      <ownedColumnMappings name="DPN_Size" headerLabelExpression="Size" initialWidth="80" featureName="name" labelExpression="service:lineSemantic.getPhysicalSize()">
+      <ownedColumnMappings name="DPN_Size" headerLabelExpression="Size" initialWidth="80" canEdit="aql:self.canEditObject('DTO')" featureName="name" labelExpression="service:lineSemantic.getPhysicalSize()">
         <directEdit>
           <variables name="table" documentation="The current DTable."/>
           <variables name="line" documentation="The DLine of the current DCell."/>
@@ -218,7 +238,7 @@
           <mask mask="{0}"/>
         </directEdit>
       </ownedColumnMappings>
-      <ownedColumnMappings name="DPN_Check" headerLabelExpression="Check" initialWidth="80" featureName="name" labelExpression="service:lineSemantic.getPhysicalCheck()">
+      <ownedColumnMappings name="DPN_Check" headerLabelExpression="Check" initialWidth="80" canEdit="aql:self.canEditObject('DTO')" featureName="name" labelExpression="service:lineSemantic.getPhysicalCheck()">
         <directEdit>
           <variables name="table" documentation="The current DTable."/>
           <variables name="line" documentation="The DLine of the current DCell."/>
@@ -229,7 +249,7 @@
           <mask mask="{0}"/>
         </directEdit>
       </ownedColumnMappings>
-      <ownedColumnMappings name="DPN_Unique" headerLabelExpression="Unique" initialWidth="80" featureName="name" labelExpression="service:lineSemantic.getPhysicalUnique()">
+      <ownedColumnMappings name="DPN_Unique" headerLabelExpression="Unique" initialWidth="80" canEdit="aql:self.canEditObject('DTO')" featureName="name" labelExpression="service:lineSemantic.getPhysicalUnique()">
         <directEdit>
           <variables name="table" documentation="The current DTable."/>
           <variables name="line" documentation="The DLine of the current DCell."/>
@@ -240,7 +260,7 @@
           <mask mask="{0}"/>
         </directEdit>
       </ownedColumnMappings>
-      <ownedColumnMappings name="DPN_Default" headerLabelExpression="Default" initialWidth="80" featureName="name" labelExpression="service:lineSemantic.getPhysicalDefault()">
+      <ownedColumnMappings name="DPN_Default" headerLabelExpression="Default" initialWidth="80" canEdit="aql:self.canEditObject('DTO')" featureName="name" labelExpression="service:lineSemantic.getPhysicalDefault()">
         <directEdit>
           <variables name="table" documentation="The current DTable."/>
           <variables name="line" documentation="The DLine of the current DCell."/>

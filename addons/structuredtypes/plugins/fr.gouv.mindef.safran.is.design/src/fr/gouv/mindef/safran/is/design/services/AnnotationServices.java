@@ -10,7 +10,9 @@
  *******************************************************************************/
 package fr.gouv.mindef.safran.is.design.services;
 
+import org.eclipse.emf.ecore.EObject;
 import org.obeonetwork.dsl.environment.Annotation;
+import org.obeonetwork.dsl.environment.Attribute;
 import org.obeonetwork.dsl.environment.EnvironmentFactory;
 import org.obeonetwork.dsl.environment.MetaData;
 import org.obeonetwork.dsl.environment.MetaDataContainer;
@@ -29,6 +31,19 @@ public class AnnotationServices {
 	private static final String PHYSICAL_UNIQUE = "PHYSICAL_UNIQUE";
 	private static final String PHYSICAL_DEFAULT = "PHYSICAL_DEFAULT";
 
+	/**
+	 * Returns true if an attribute is in a context allowing the user to edit label
+	 */
+	public boolean canEditObject(Object attribute, String requiredEClass) {
+		if (attribute instanceof Attribute) {
+			EObject eContainer = ((Attribute)attribute).eContainer();
+			if (eContainer != null) {
+				return requiredEClass.equals(eContainer.eClass().getName());
+			}
+		}
+		return false;
+	}
+	
 	/**
 	 * Returns the physical name of an object
 	 * This physical name is persisted as an annotation
