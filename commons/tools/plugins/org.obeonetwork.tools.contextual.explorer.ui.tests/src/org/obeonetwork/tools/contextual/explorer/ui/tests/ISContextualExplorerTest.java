@@ -11,6 +11,7 @@
 package org.obeonetwork.tools.contextual.explorer.ui.tests;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 import java.util.Optional;
@@ -115,6 +116,7 @@ public class ISContextualExplorerTest extends SiriusTestCase {
 		System system = (System) getRootElementOfResource(GRAAL_SEMANTIC_MODEL);
 		Task task = system.getOwnedTasks().get(0);
 		Transition transition = task.getTransitions().get(0);
+		expectedResult.add(task);
 		expectedResult.add(transition);
 		EList<Node> nodes = task.getNodes();
 		UserView userView = (UserView) nodes.get(1);
@@ -174,9 +176,8 @@ public class ISContextualExplorerTest extends SiriusTestCase {
 		// Build expected result and get the context object
 		DataBase database = (DataBase) getRootElementOfResource(DATABASE_SEMANTIC_MODEL);
 		Schema schema = database.getSchemas().get(0);
+		expectedResult.add(schema);
 		Table table = (Table) schema.getTables().get(0);
-		expectedResult.add(table.getPrimaryKey());
-		expectedResult.addAll(table.getColumns());
 		
 		testQuery(query, table, expectedResult);
 	}
@@ -188,11 +189,10 @@ public class ISContextualExplorerTest extends SiriusTestCase {
 		// Build expected result and get the context object
 		DataBase database = (DataBase) getRootElementOfResource(DATABASE_SEMANTIC_MODEL);
 		Schema schema = database.getSchemas().get(0);
-		expectedResult.add(schema);
 		Table table = (Table) schema.getTables().get(0);
 		expectedResult.add(table.getPrimaryKey());
 		expectedResult.addAll(table.getColumns());
-		
+				
 		testQuery(query, table, expectedResult);
 	}
 	
@@ -275,11 +275,10 @@ public class ISContextualExplorerTest extends SiriusTestCase {
 		Repository repository = (Repository) getRootElementOfResource(REQUIREMENT_SEMANTIC_MODEL);
 		Category mainCategory = repository.getMainCategories().get(0);
 		Requirement requirement = mainCategory.getRequirements().get(0);
-		testQuery(query, requirement, Collections.emptyList());
 		
-		List<Object> expectedResult = new ArrayList<>();
-		expectedResult.addAll(mainCategory.getRequirements());
-		testQuery(query, mainCategory, expectedResult);
+		testQuery(query, requirement, Arrays.asList(mainCategory));
+		
+		testQuery(query, mainCategory, Arrays.asList(repository));
 	}
 	
 	public void testRequirementReferencesOtherQuery() {
@@ -289,7 +288,7 @@ public class ISContextualExplorerTest extends SiriusTestCase {
 		Category mainCategory = repository.getMainCategories().get(0);
 		Requirement r1 = mainCategory.getRequirements().get(1);
 		
-		testQuery(query, r1, Collections.singletonList(mainCategory));
+		testQuery(query, r1, Collections.emptyList());
 	}
 	
 	public void testCategoriesContainerReferencesQuery() {
@@ -299,7 +298,6 @@ public class ISContextualExplorerTest extends SiriusTestCase {
 		Repository repository = (Repository) getRootElementOfResource(REQUIREMENT_SEMANTIC_MODEL);
 		Category mainCategory = repository.getMainCategories().get(0);
 		
-		expectedResult.add(repository);
 		expectedResult.addAll(mainCategory.getRequirements());
 		
 		testQuery(query, mainCategory, expectedResult);

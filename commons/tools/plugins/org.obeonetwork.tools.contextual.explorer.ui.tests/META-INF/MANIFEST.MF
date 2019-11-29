@@ -16,7 +16,8 @@ Require-Bundle: org.eclipse.core.runtime,
  org.obeonetwork.dsl.requirement,
  org.obeonetwork.dsl.requirement.edit,
  org.obeonetwork.dsl.database,
- org.obeonetwork.dsl.database.edit
+ org.obeonetwork.dsl.database.edit,
+ org.eclipse.sirius.ext.base
 Bundle-RequiredExecutionEnvironment: JavaSE-1.8
 Automatic-Module-Name: org.obeonetwork.tools.contextual.explorer.ui.tests
 Bundle-ActivationPolicy: lazy
