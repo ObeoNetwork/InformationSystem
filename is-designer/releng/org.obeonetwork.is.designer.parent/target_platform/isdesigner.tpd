@@ -36,6 +36,8 @@ location "http://update.obeo.fr/integration/informationsystem/11.0/design/reposi
 	org.obeonetwork.dsl.environment.design.feature.feature.group lazy
 	org.obeonetwork.database.m2doc.feature.feature.group lazy
 	org.obeonetwork.dsl.requirement.m2doc.feature.feature.group lazy
+	org.obeonetwork.dsl.entity.m2doc.feature.feature.group lazy
+	org.obeonetwork.dsl.environment.m2doc.feature.feature.group lazy
 	org.obeonetwork.dsl.graal.m2doc.feature.feature.group lazy
 	fr.gouv.mindef.safran.database.scaffold.feature.feature.group lazy
 	fr.gouv.mindef.safran.database.ui.feature.feature.group lazy

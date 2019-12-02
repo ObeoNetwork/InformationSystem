@@ -11,7 +11,7 @@ Require-Bundle: org.eclipse.core.runtime,
  org.eclipse.emf.edit.ui,
  org.obeonetwork.graal.edit,
  org.eclipse.acceleo.annotations,
- org.obeonetwork.environment.m2doc.services,
+ org.obeonetwork.dsl.environment.m2doc.services,
  org.obeonetwork.dsl.entity,
  org.eclipse.acceleo.query
 Bundle-RequiredExecutionEnvironment: JavaSE-1.7

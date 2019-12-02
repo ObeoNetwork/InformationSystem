@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+   <extension
+         point="org.obeonetwork.m2doc.ide.services.register">
+      <token
+            name="Environment">
+         <package
+               uri="http://www.obeonetwork.org/dsl/environment/3.0.0"></package>
+         <service
+               class="org.obeonetwork.dsl.environment.m2doc.services.EnvironmentServices">
+         </service>
+      </token>
+      <token
+            name="Default">
+         <package
+               uri="http://www.obeonetwork.org/dsl/environment/3.0.0"></package>
+         <service
+               class="org.obeonetwork.dsl.environment.m2doc.services.EnvironmentServices">
+         </service>
+      </token>
+   </extension>
+
+</plugin>
