@@ -10,6 +10,9 @@
          <package
                uri="http://www.obeonetwork.org/dsl/entity/2.0.0/utilities">
          </package>
+         <service
+               class="org.obeonetwork.entity.m2doc.services.EntityServices">
+         </service>
       </token>
       <token
             name="Default">

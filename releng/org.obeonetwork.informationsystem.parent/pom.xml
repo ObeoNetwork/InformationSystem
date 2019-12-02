@@ -291,7 +291,11 @@
 		<module>../../m2doc/cinematic/plugins/org.obeonetwork.cinematic.m2doc.services.test</module>
 		<module>../../m2doc/cinematic/features/org.obeonetwork.cinematic.m2doc.feature</module>
 		<module>../../m2doc/entity/plugins/org.obeonetwork.entity.m2doc.services</module>
+		<module>../../m2doc/entity/plugins/org.obeonetwork.entity.m2doc.services.test</module>
 		<module>../../m2doc/entity/feature/org.obeonetwork.entity.m2doc.services.feature</module>
+		<module>../../m2doc/environment/plugins/org.obeonetwork.environment.m2doc.services</module>
+		<module>../../m2doc/environment/plugins/org.obeonetwork.environment.m2doc.services.test</module>
+		<module>../../m2doc/environment/feature/org.obeonetwork.environment.m2doc.services.feature</module>
 
 		<!-- ********************************************************************************************* 
 			* Scaffolding ********************************************************************************************* -->
