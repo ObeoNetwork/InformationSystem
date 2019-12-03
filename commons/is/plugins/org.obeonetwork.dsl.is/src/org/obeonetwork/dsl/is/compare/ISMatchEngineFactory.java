@@ -1,6 +1,21 @@
+/*******************************************************************************
+ * Copyright (c) 2019 Obeo.
+ * All rights reserved. This program and the accompanying materials
+ * are made available under the terms of the Eclipse Public License v1.0
+ * which accompanies this distribution, and is available at
+ * http://www.eclipse.org/legal/epl-v10.html
+ *
+ * Contributors:
+ *     Obeo - initial API and implementation
+ *******************************************************************************/
 package org.obeonetwork.dsl.is.compare;
 
 
+import org.eclipse.core.runtime.CoreException;
+import org.eclipse.core.runtime.IConfigurationElement;
+import org.eclipse.core.runtime.IStatus;
+import org.eclipse.core.runtime.Platform;
+import org.eclipse.core.runtime.Status;
 import org.eclipse.emf.compare.match.DefaultComparisonFactory;
 import org.eclipse.emf.compare.match.DefaultEqualityHelperFactory;
 import org.eclipse.emf.compare.match.DefaultMatchEngine;
@@ -15,11 +30,13 @@ import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.emf.ecore.xmi.XMIResource;
 import org.obeonetwork.dsl.database.DatabaseElement;
+import org.obeonetwork.dsl.is.Activator;
 
 import com.google.common.base.Function;
 
 public class ISMatchEngineFactory implements IMatchEngine.Factory {
 	
+	private static final String EXTENSION_POINT_ID = "org.obeonetwork.dsl.is.compare.matcher";
 	private int ranking;
 
 	public ISMatchEngineFactory() {
@@ -37,10 +54,7 @@ public class ISMatchEngineFactory implements IMatchEngine.Factory {
 				return getIdentifier(input);
 			}
 		};
-		// Using this matcher as fall back, EMF Compare will still search for XMI IDs on EObjects
-		// for which we had no custom id function.
-		//IEObjectMatcher fallBackMatcher = DefaultMatchEngine.createDefaultEObjectMatcher(UseIdentifiers.WHEN_AVAILABLE);
-		IEObjectMatcher customIDMatcher = new IdentifierEObjectMatcher(idFunction);
+		IEObjectMatcher customIDMatcher = new IdentifierEObjectMatcher(getSpecificEObjectMatcher(), idFunction);
 		 
 		IComparisonFactory comparisonFactory = new DefaultComparisonFactory(new DefaultEqualityHelperFactory());
 
@@ -75,5 +89,21 @@ public class ISMatchEngineFactory implements IMatchEngine.Factory {
 			}
 		}
 		return identifier;
+	}
+	
+	private IEObjectMatcher getSpecificEObjectMatcher() {
+		IConfigurationElement[] elements = Platform.getExtensionRegistry().getConfigurationElementsFor(EXTENSION_POINT_ID);
+		try {
+			for (IConfigurationElement element : elements) {
+				Object executable = element.createExecutableExtension("class");
+				if (executable instanceof IEObjectMatcherProvider) {
+					return ((IEObjectMatcherProvider) executable).getMatcher();
+				}
+			}
+		} catch (CoreException ex) {
+			Status status = new Status(IStatus.ERROR, Activator.PLUGIN_ID, "Error while loading extension point " + EXTENSION_POINT_ID, ex);
+			Activator.getDefault().getLog().log(status);
+		}
+		return null;
 	}
 }

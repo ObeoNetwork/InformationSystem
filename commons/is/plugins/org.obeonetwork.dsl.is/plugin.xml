@@ -12,6 +12,7 @@
  -->
 
 <plugin>
+   <extension-point id="org.obeonetwork.dsl.is.compare.matcher" name="CompareMatcher" schema="schema/org.obeonetwork.dsl.is.compare.matcher.exsd"/>
 	
 	<!-- 
 	Obeo Designer Category : org.obeonetwork.dsl.viewpoint.category
@@ -28,7 +29,6 @@
 	<extension point="org.obeonetwork.dsl.overview.overviewModelDef">
 		<overviewModelDef class="org.obeonetwork.dsl.is.overview.IsOverviewModelDef"/>
 	</extension>
-	
 	<extension
          point="org.eclipse.emf.compare.rcp.matchEngine">
       <engineFactory
@@ -36,4 +36,5 @@
             ranking="30">
       </engineFactory>
    </extension>
+   
 </plugin>

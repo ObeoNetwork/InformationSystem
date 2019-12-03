@@ -24,7 +24,8 @@ Require-Bundle: org.eclipse.core.runtime,
  org.eclipse.emf.compare;visibility:=reexport,
  org.eclipse.emf.ecore.xmi,
  com.google.guava,
- org.eclipse.emf.compare.rcp
+ org.eclipse.emf.compare.rcp,
+ org.obeonetwork.dsl.is;resolution:=optional
 Bundle-ActivationPolicy: lazy
 Bundle-Activator: org.obeonetwork.dsl.database.compare.Activator
 Bundle-RequiredExecutionEnvironment: JavaSE-1.6

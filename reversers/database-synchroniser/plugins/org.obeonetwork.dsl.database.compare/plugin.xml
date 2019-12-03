@@ -50,6 +50,11 @@
             ranking="10">
       </merger>
    </extension>
+   <extension
+         point="org.obeonetwork.dsl.is.compare.matcher">
+      <matcher
+            class="org.obeonetwork.dsl.database.compare.extensions.match.DatabaseEObjectMatcherProvider"></matcher>
+   </extension>
    
 
 </plugin>
