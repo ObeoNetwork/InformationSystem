@@ -1,7 +1,0 @@
-Manifest-Version: 1.0
-Bundle-ManifestVersion: 2
-Bundle-Name: Services
-Bundle-SymbolicName: org.obeonetwork.entity.m2doc.services;singleton:=true
-Bundle-Version: 1.0.0.qualifier
-Bundle-RequiredExecutionEnvironment: JavaSE-1.8
-Require-Bundle: org.obeonetwork.m2doc.ide;bundle-version="2.0.0"

@@ -9,7 +9,11 @@ Require-Bundle: org.eclipse.core.runtime,
  org.obeonetwork.m2doc;bundle-version="0.11.0",
  org.obeonetwork.tools.doc,
  org.eclipse.emf.edit.ui,
- org.obeonetwork.graal.edit
+ org.obeonetwork.graal.edit,
+ org.eclipse.acceleo.annotations,
+ org.obeonetwork.dsl.environment.m2doc.services,
+ org.obeonetwork.dsl.entity,
+ org.eclipse.acceleo.query
 Bundle-RequiredExecutionEnvironment: JavaSE-1.7
 Bundle-ActivationPolicy: lazy
 Bundle-Vendor: Obeo Network
