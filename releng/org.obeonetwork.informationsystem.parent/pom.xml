@@ -296,6 +296,9 @@
 		<module>../../m2doc/environment/plugins/org.obeonetwork.dsl.environment.m2doc.services</module>
 		<module>../../m2doc/environment/plugins/org.obeonetwork.dsl.environment.m2doc.services.test</module>
 		<module>../../m2doc/environment/feature/org.obeonetwork.dsl.environment.m2doc.feature</module>
+		<module>../../m2doc/soa/plugins/org.obeonetwork.dsl.soa.m2doc.services</module>
+		<module>../../m2doc/soa/plugins/org.obeonetwork.dsl.soa.m2doc.services.test</module>
+		<module>../../m2doc/soa/feature/org.obeonetwork.dsl.soa.m2doc.feature</module>
 
 		<!-- ********************************************************************************************* 
 			* Scaffolding ********************************************************************************************* -->

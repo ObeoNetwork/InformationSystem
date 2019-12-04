@@ -160,6 +160,21 @@ public class DomainClassServices extends AbstractServiceProvider {
 		return documentationLinks;
 	}
 
+	// @formatter:off
+	@Documentation(
+			comment = "{m:myObeoDSMObject.hasDocumentationLinks()}",
+		    value = "Returns true if the given ObeoDSMObject has at least one documentation link, false otherwise.",
+		    examples = {
+		    		@Example(
+		    				expression = "{m:myObeoDSMObject.hasDocumentationLinks()}", 
+		    				result = "true or false.")
+		    }
+		)
+	// @formatter:on	
+	public boolean hasDocumentationLinks(ObeoDSMObject object) {
+		return !getDocumentationLinks(object).isEmpty();
+	}
+	
 	/**
 	 * Tells if the given {@link Annotation} is a documentation link.
 	 * 
@@ -175,11 +190,11 @@ public class DomainClassServices extends AbstractServiceProvider {
 	// @formatter:off
 	@Documentation(
 			comment = "{m:myObeoDSMObject.getAnnotations()}",
-		    value = "Returns the list of metadata annotations of the target ObeoDSMObject that are documentation links.",
+		    value = "Returns the list of metadata annotations of the target ObeoDSMObject that are not documentation links.",
 		    examples = {
 		    		@Example(
 		    				expression = "{m:myObeoDSMObject.getAnnotations().getDocumentTitle()->sep(',')}", 
-		    				result = "A comma separated list of ObeoDSMObject's document link titles.")
+		    				result = "A comma separated list of ObeoDSMObject's annotation titles.")
 		    }
 		)
 	// @formatter:on	
@@ -201,6 +216,22 @@ public class DomainClassServices extends AbstractServiceProvider {
 		return result;
 	}
 
+	// @formatter:off
+	@Documentation(
+			comment = "{m:myObeoDSMObject.getAnnotations()}",
+		    value = "Returns true if the given ObeoDSMObject has at least one metadata annotations that is not documentation links, false otherwise.",
+		    examples = {
+		    		@Example(
+		    				expression = "{m:myObeoDSMObject.hasAnnotations()}", 
+		    				result = "true or false.")
+		    }
+		)
+	// @formatter:on	
+	public boolean hasAnnotations(ObeoDSMObject obj) {
+		return !getAnnotations(obj).isEmpty();
+	}
+
+	
 	// @formatter:off
 	@Documentation(
 			comment = "{m:myAnnotation.getDocumentTitle()}",
