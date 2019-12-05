@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<!--
+/********************************************************************************
+** Copyright (c) 2016, 2017, 2018, 2019 Obeo.
+** All rights reserved. This program and the accompanying materials
+** are made available under the terms of the Eclipse Public License v1.0
+** which accompanies this distribution, and is available at
+** http://www.eclipse.org/legal/epl-v10.html
+**
+** Contributors:
+**    Obeo - initial API and implementation
+*********************************************************************************/
+-->
+  <head>
+    <meta charset="utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta name="description" content=""/>
+    <meta name="author" content="Obeo"/>
+    <!-- IE6-8 support of HTML elements -->
+    <!--if lt IE 9>
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <!endif-->
+    <link href="../assets/css/bootstrap.css" rel="stylesheet"/>
+    <link href="../assets/css/docs.css" rel="stylesheet"/>
+    <title>M2Doc Services and attributes for EntityFilter</title>
+  </head>
+
+  <body>
+   <header class="jumbotron subhead" id="overview">
+  </header>
+
+    <h1 id="EntityFilter">Services and attributes for the EntityFilter concept</h1>
+    <div class="page-header">
+      <h2 id="Attributes">Attributes</h2>
+    </div>
+    <table class="table table-striped">
+    <thead>
+      <tr>
+        <th colspan="1" rowspan="1">Name</th>
+        <th colspan="1" rowspan="1">Returned type</th>
+        <th colspan="1" rowspan="1">M2Doc Syntax</th>
+        <th colspan="1" rowspan="1">Description</th>
+        <th colspan="1" rowspan="1">Example</th>
+      </tr>
+    </thead>
+  <tbody>
+    <tr>
+      <td colspan="1" rowspan="1"><strong>attributeReferences</strong></td>
+      <td colspan="1" rowspan="1">List of Attribute</td>
+      <td colspan="1" rowspan="1">{m:entityFilter.attributeReferences}</td>
+      <td colspan="1" rowspan="1"></td>
+      <td colspan="1" rowspan="1">{m:for attribute | entityFilter.attributeReferences} attribute {m:attribute.name}, {m:endfor}</td>
+    </tr>
+    <tr>
+      <td colspan="1" rowspan="1"><strong>behaviours</strong></td>
+      <td colspan="1" rowspan="1">List of Behaviour</td>
+      <td colspan="1" rowspan="1">{m:entityFilter.behaviours}</td>
+      <td colspan="1" rowspan="1">The Behaviours owned by this object.</td>
+      <td colspan="1" rowspan="1">{m:for behaviour | entityFilter.behaviours} behaviour {m:behaviour.name}, {m:endfor}</td>
+    </tr>
+    <tr>
+      <td colspan="1" rowspan="1"><strong>bindingRegistries</strong></td>
+      <td colspan="1" rowspan="1">List of BindingRegistry</td>
+      <td colspan="1" rowspan="1">{m:entityFilter.bindingRegistries}</td>
+      <td colspan="1" rowspan="1">The binding registries of this object.</td>
+      <td colspan="1" rowspan="1">{m:for bindingRegistry | entityFilter.bindingRegistries} bindingRegistry {m:bindingRegistry.name}, {m:endfor}</td>
+    </tr>
+    <tr>
+      <td colspan="1" rowspan="1"><strong>createdOn</strong></td>
+      <td colspan="1" rowspan="1">EDate</td>
+      <td colspan="1" rowspan="1">{m:entityFilter.createdOn}</td>
+      <td colspan="1" rowspan="1">The creation date of this object.</td>
+      <td colspan="1" rowspan="1">{m:entityFilter.createdOn}</td>
+    </tr>
+    <tr>
+      <td colspan="1" rowspan="1"><strong>description</strong></td>
+      <td colspan="1" rowspan="1">EString</td>
+      <td colspan="1" rowspan="1">{m:entityFilter.description}</td>
+      <td colspan="1" rowspan="1">The description of this object.</td>
+      <td colspan="1" rowspan="1">{m:entityFilter.description}</td>
+    </tr>
+    <tr>
+      <td colspan="1" rowspan="1"><strong>entity</strong></td>
+      <td colspan="1" rowspan="1">Entity</td>
+      <td colspan="1" rowspan="1">{m:entityFilter.entity}</td>
+      <td colspan="1" rowspan="1"></td>
+      <td colspan="1" rowspan="1">{m:entityFilter.entity}</td>
+    </tr>
+    <tr>
+      <td colspan="1" rowspan="1"><strong>keywords</strong></td>
+      <td colspan="1" rowspan="1">List of EString</td>
+      <td colspan="1" rowspan="1">{m:entityFilter.keywords}</td>
+      <td colspan="1" rowspan="1">The list of keywords applied to this object.</td>
+      <td colspan="1" rowspan="1">{m:for eString | entityFilter.keywords} eString {m:eString.name}, {m:endfor}</td>
+    </tr>
+    <tr>
+      <td colspan="1" rowspan="1"><strong>metadatas</strong></td>
+      <td colspan="1" rowspan="1">MetaDataContainer</td>
+      <td colspan="1" rowspan="1">{m:entityFilter.metadatas}</td>
+      <td colspan="1" rowspan="1">The metadatas defined on this object.</td>
+      <td colspan="1" rowspan="1">{m:entityFilter.metadatas}</td>
+    </tr>
+    <tr>
+      <td colspan="1" rowspan="1"><strong>modifiedOn</strong></td>
+      <td colspan="1" rowspan="1">EDate</td>
+      <td colspan="1" rowspan="1">{m:entityFilter.modifiedOn}</td>
+      <td colspan="1" rowspan="1">The modification date of this obect.</td>
+      <td colspan="1" rowspan="1">{m:entityFilter.modifiedOn}</td>
+    </tr>
+    <tr>
+      <td colspan="1" rowspan="1"><strong>ownedPropertyReferences</strong></td>
+      <td colspan="1" rowspan="1">List of Property</td>
+      <td colspan="1" rowspan="1">{m:entityFilter.ownedPropertyReferences}</td>
+      <td colspan="1" rowspan="1"></td>
+      <td colspan="1" rowspan="1">{m:for property | entityFilter.ownedPropertyReferences} property {m:property.name}, {m:endfor}</td>
+    </tr>
+    <tr>
+      <td colspan="1" rowspan="1"><strong>referenceReferences</strong></td>
+      <td colspan="1" rowspan="1">List of Reference</td>
+      <td colspan="1" rowspan="1">{m:entityFilter.referenceReferences}</td>
+      <td colspan="1" rowspan="1"></td>
+      <td colspan="1" rowspan="1">{m:for reference | entityFilter.referenceReferences} reference {m:reference.name}, {m:endfor}</td>
+    </tr>
+    <tr>
+      <td colspan="1" rowspan="1"><strong>technicalid</strong></td>
+      <td colspan="1" rowspan="1">EString</td>
+      <td colspan="1" rowspan="1">{m:entityFilter.technicalid}</td>
+      <td colspan="1" rowspan="1">Technical identifier of the element.</td>
+      <td colspan="1" rowspan="1">{m:entityFilter.technicalid}</td>
+    </tr>
+    <tr>
+      <td colspan="1" rowspan="1"><strong>version</strong></td>
+      <td colspan="1" rowspan="1">EInt</td>
+      <td colspan="1" rowspan="1">{m:entityFilter.version}</td>
+      <td colspan="1" rowspan="1">The version of this object.</td>
+      <td colspan="1" rowspan="1">{m:entityFilter.version}</td>
+    </tr>
+    </tbody>
+    </table>
+    <div class="page-header">
+      <h2 id="Services">Services</h2>
+    </div>
+    <table class="table table-striped">
+    <thead>
+      <tr>
+        <th colspan="1" rowspan="1">Name</th>
+        <th colspan="1" rowspan="1">Returned type</th>
+        <th colspan="1" rowspan="1">M2Doc Syntax</th>
+        <th colspan="1" rowspan="1">Description</th>
+        <th colspan="1" rowspan="1">Example</th>
+      </tr>
+    </thead>
+  <tbody>
+    </tbody>
+    </table>
+  </body>
+
+</html>

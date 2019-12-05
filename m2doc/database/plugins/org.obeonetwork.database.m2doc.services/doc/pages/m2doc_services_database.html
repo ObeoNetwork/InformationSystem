@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="en">
+<!--
+/********************************************************************************
+** Copyright (c) 2016, 2017, 2018, 2019 Obeo.
+** All rights reserved. This program and the accompanying materials
+** are made available under the terms of the Eclipse Public License v1.0
+** which accompanies this distribution, and is available at
+** http://www.eclipse.org/legal/epl-v10.html
+**
+** Contributors:
+**    Obeo - initial API and implementation
+*********************************************************************************/
+-->
+  <head>
+    <meta charset="utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta name="description" content=""/>
+    <meta name="author" content="Obeo"/>
+    <!-- IE6-8 support of HTML elements -->
+    <!--if lt IE 9>
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <!endif-->
+    <link href="../assets/css/bootstrap.css" rel="stylesheet"/>
+    <link href="../assets/css/docs.css" rel="stylesheet"/>
+    <title>M2Doc Services and attributes for DataBase</title>
+  </head>
+
+  <body>
+   <header class="jumbotron subhead" id="overview">
+  </header>
+
+    <h1 id="DataBase">Services and attributes for the DataBase concept</h1>
+    <div class="page-header">
+      <h2 id="Attributes">Attributes</h2>
+    </div>
+    <table class="table table-striped">
+    <thead>
+      <tr>
+        <th colspan="1" rowspan="1">Name</th>
+        <th colspan="1" rowspan="1">Returned type</th>
+        <th colspan="1" rowspan="1">M2Doc Syntax</th>
+        <th colspan="1" rowspan="1">Description</th>
+        <th colspan="1" rowspan="1">Example</th>
+      </tr>
+    </thead>
+  <tbody>
+    <tr>
+      <td colspan="1" rowspan="1"><strong>ID</strong></td>
+      <td colspan="1" rowspan="1">EString</td>
+      <td colspan="1" rowspan="1">{m:dataBase.ID}</td>
+      <td colspan="1" rowspan="1"></td>
+      <td colspan="1" rowspan="1">{m:dataBase.ID}</td>
+    </tr>
+    <tr>
+      <td colspan="1" rowspan="1"><strong>comments</strong></td>
+      <td colspan="1" rowspan="1">EString</td>
+      <td colspan="1" rowspan="1">{m:dataBase.comments}</td>
+      <td colspan="1" rowspan="1"></td>
+      <td colspan="1" rowspan="1">{m:dataBase.comments}</td>
+    </tr>
+    <tr>
+      <td colspan="1" rowspan="1"><strong>defines</strong></td>
+      <td colspan="1" rowspan="1">List of UserDefinedTypesLibrary</td>
+      <td colspan="1" rowspan="1">{m:dataBase.defines}</td>
+      <td colspan="1" rowspan="1"></td>
+      <td colspan="1" rowspan="1">{m:for userDefinedTypesLibrary | dataBase.defines} userDefinedTypesLibrary {m:userDefinedTypesLibrary.name}, {m:endfor}</td>
+    </tr>
+    <tr>
+      <td colspan="1" rowspan="1"><strong>name</strong></td>
+      <td colspan="1" rowspan="1">EString</td>
+      <td colspan="1" rowspan="1">{m:dataBase.name}</td>
+      <td colspan="1" rowspan="1"></td>
+      <td colspan="1" rowspan="1">{m:dataBase.name}</td>
+    </tr>
+    <tr>
+      <td colspan="1" rowspan="1"><strong>schemas</strong></td>
+      <td colspan="1" rowspan="1">List of Schema</td>
+      <td colspan="1" rowspan="1">{m:dataBase.schemas}</td>
+      <td colspan="1" rowspan="1"></td>
+      <td colspan="1" rowspan="1">{m:for schema | dataBase.schemas} schema {m:schema.name}, {m:endfor}</td>
+    </tr>
+    <tr>
+      <td colspan="1" rowspan="1"><strong>sequences</strong></td>
+      <td colspan="1" rowspan="1">List of Sequence</td>
+      <td colspan="1" rowspan="1">{m:dataBase.sequences}</td>
+      <td colspan="1" rowspan="1"></td>
+      <td colspan="1" rowspan="1">{m:for sequence | dataBase.sequences} sequence {m:sequence.name}, {m:endfor}</td>
+    </tr>
+    <tr>
+      <td colspan="1" rowspan="1"><strong>tables</strong></td>
+      <td colspan="1" rowspan="1">List of AbstractTable</td>
+      <td colspan="1" rowspan="1">{m:dataBase.tables}</td>
+      <td colspan="1" rowspan="1"></td>
+      <td colspan="1" rowspan="1">{m:for abstractTable | dataBase.tables} abstractTable {m:abstractTable.name}, {m:endfor}</td>
+    </tr>
+    <tr>
+      <td colspan="1" rowspan="1"><strong>techID</strong></td>
+      <td colspan="1" rowspan="1">EString</td>
+      <td colspan="1" rowspan="1">{m:dataBase.techID}</td>
+      <td colspan="1" rowspan="1"></td>
+      <td colspan="1" rowspan="1">{m:dataBase.techID}</td>
+    </tr>
+    <tr>
+      <td colspan="1" rowspan="1"><strong>url</strong></td>
+      <td colspan="1" rowspan="1">EString</td>
+      <td colspan="1" rowspan="1">{m:dataBase.url}</td>
+      <td colspan="1" rowspan="1"></td>
+      <td colspan="1" rowspan="1">{m:dataBase.url}</td>
+    </tr>
+    <tr>
+      <td colspan="1" rowspan="1"><strong>usedLibraries</strong></td>
+      <td colspan="1" rowspan="1">List of TypesLibrary</td>
+      <td colspan="1" rowspan="1">{m:dataBase.usedLibraries}</td>
+      <td colspan="1" rowspan="1"></td>
+      <td colspan="1" rowspan="1">{m:for typesLibrary | dataBase.usedLibraries} typesLibrary {m:typesLibrary.name}, {m:endfor}</td>
+    </tr>
+    </tbody>
+    </table>
+    <div class="page-header">
+      <h2 id="Services">Services</h2>
+    </div>
+    <table class="table table-striped">
+    <thead>
+      <tr>
+        <th colspan="1" rowspan="1">Name</th>
+        <th colspan="1" rowspan="1">Returned type</th>
+        <th colspan="1" rowspan="1">M2Doc Syntax</th>
+        <th colspan="1" rowspan="1">Description</th>
+        <th colspan="1" rowspan="1">Example</th>
+      </tr>
+    </thead>
+  <tbody>
+    <tr>
+      <td colspan="1" rowspan="1"><strong>allSequences</strong></td>
+      <td colspan="1" rowspan="1">Set of Sequence</td>
+      <td colspan="1" rowspan="1"></td>
+      <td colspan="1" rowspan="1"></td>
+      <td colspan="1" rowspan="1"></td>
+    </tr>
+    <tr>
+      <td colspan="1" rowspan="1"><strong>allTables</strong></td>
+      <td colspan="1" rowspan="1">Set of Table</td>
+      <td colspan="1" rowspan="1"></td>
+      <td colspan="1" rowspan="1"></td>
+      <td colspan="1" rowspan="1"></td>
+    </tr>
+    <tr>
+      <td colspan="1" rowspan="1"><strong>allViews</strong></td>
+      <td colspan="1" rowspan="1">Set of View</td>
+      <td colspan="1" rowspan="1"></td>
+      <td colspan="1" rowspan="1"></td>
+      <td colspan="1" rowspan="1"></td>
+    </tr>
+    <tr>
+      <td colspan="1" rowspan="1"><strong>caseDataBase</strong></td>
+      <td colspan="1" rowspan="1">Object</td>
+      <td colspan="1" rowspan="1"></td>
+      <td colspan="1" rowspan="1"></td>
+      <td colspan="1" rowspan="1"></td>
+    </tr>
+    <tr>
+      <td colspan="1" rowspan="1"><strong>caseDataBase</strong></td>
+      <td colspan="1" rowspan="1">String</td>
+      <td colspan="1" rowspan="1"></td>
+      <td colspan="1" rowspan="1"></td>
+      <td colspan="1" rowspan="1"></td>
+    </tr>
+    <tr>
+      <td colspan="1" rowspan="1"><strong>caseDataBase</strong></td>
+      <td colspan="1" rowspan="1">Object</td>
+      <td colspan="1" rowspan="1"></td>
+      <td colspan="1" rowspan="1"></td>
+      <td colspan="1" rowspan="1"></td>
+    </tr>
+    <tr>
+      <td colspan="1" rowspan="1"><strong>caseDataBase</strong></td>
+      <td colspan="1" rowspan="1">String</td>
+      <td colspan="1" rowspan="1"></td>
+      <td colspan="1" rowspan="1"></td>
+      <td colspan="1" rowspan="1"></td>
+    </tr>
+    <tr>
+      <td colspan="1" rowspan="1"><strong>caseDatabaseElement</strong></td>
+      <td colspan="1" rowspan="1">Object</td>
+      <td colspan="1" rowspan="1"></td>
+      <td colspan="1" rowspan="1"></td>
+      <td colspan="1" rowspan="1"></td>
+    </tr>
+    <tr>
+      <td colspan="1" rowspan="1"><strong>caseDatabaseElement</strong></td>
+      <td colspan="1" rowspan="1">Object</td>
+      <td colspan="1" rowspan="1"></td>
+      <td colspan="1" rowspan="1"></td>
+      <td colspan="1" rowspan="1"></td>
+    </tr>
+    <tr>
+      <td colspan="1" rowspan="1"><strong>caseNamedElement</strong></td>
+      <td colspan="1" rowspan="1">Object</td>
+      <td colspan="1" rowspan="1"></td>
+      <td colspan="1" rowspan="1"></td>
+      <td colspan="1" rowspan="1"></td>
+    </tr>
+    <tr>
+      <td colspan="1" rowspan="1"><strong>caseNamedElement</strong></td>
+      <td colspan="1" rowspan="1">Object</td>
+      <td colspan="1" rowspan="1"></td>
+      <td colspan="1" rowspan="1"></td>
+      <td colspan="1" rowspan="1"></td>
+    </tr>
+    <tr>
+      <td colspan="1" rowspan="1"><strong>caseTableContainer</strong></td>
+      <td colspan="1" rowspan="1">Object</td>
+      <td colspan="1" rowspan="1"></td>
+      <td colspan="1" rowspan="1"></td>
+      <td colspan="1" rowspan="1"></td>
+    </tr>
+    <tr>
+      <td colspan="1" rowspan="1"><strong>caseTableContainer</strong></td>
+      <td colspan="1" rowspan="1">Object</td>
+      <td colspan="1" rowspan="1"></td>
+      <td colspan="1" rowspan="1"></td>
+      <td colspan="1" rowspan="1"></td>
+    </tr>
+    <tr>
+      <td colspan="1" rowspan="1"><strong>caseTypesLibraryUser</strong></td>
+      <td colspan="1" rowspan="1">Object</td>
+      <td colspan="1" rowspan="1"></td>
+      <td colspan="1" rowspan="1"></td>
+      <td colspan="1" rowspan="1"></td>
+    </tr>
+    <tr>
+      <td colspan="1" rowspan="1"><strong>caseTypesLibraryUser</strong></td>
+      <td colspan="1" rowspan="1">Object</td>
+      <td colspan="1" rowspan="1"></td>
+      <td colspan="1" rowspan="1"></td>
+      <td colspan="1" rowspan="1"></td>
+    </tr>
+    <tr>
+      <td colspan="1" rowspan="1"><strong>defaultCase</strong></td>
+      <td colspan="1" rowspan="1">Object</td>
+      <td colspan="1" rowspan="1"></td>
+      <td colspan="1" rowspan="1"></td>
+      <td colspan="1" rowspan="1"></td>
+    </tr>
+    <tr>
+      <td colspan="1" rowspan="1"><strong>defaultCase</strong></td>
+      <td colspan="1" rowspan="1">Object</td>
+      <td colspan="1" rowspan="1"></td>
+      <td colspan="1" rowspan="1"></td>
+      <td colspan="1" rowspan="1"></td>
+    </tr>
+    <tr>
+      <td colspan="1" rowspan="1"><strong>doSwitch</strong></td>
+      <td colspan="1" rowspan="1">Object</td>
+      <td colspan="1" rowspan="1"></td>
+      <td colspan="1" rowspan="1"></td>
+      <td colspan="1" rowspan="1"></td>
+    </tr>
+    <tr>
+      <td colspan="1" rowspan="1"><strong>doSwitch</strong></td>
+      <td colspan="1" rowspan="1">Object</td>
+      <td colspan="1" rowspan="1"></td>
+      <td colspan="1" rowspan="1"></td>
+      <td colspan="1" rowspan="1"></td>
+    </tr>
+    <tr>
+      <td colspan="1" rowspan="1"><strong>localSequences</strong></td>
+      <td colspan="1" rowspan="1">List of Sequence</td>
+      <td colspan="1" rowspan="1"></td>
+      <td colspan="1" rowspan="1"></td>
+      <td colspan="1" rowspan="1"></td>
+    </tr>
+    <tr>
+      <td colspan="1" rowspan="1"><strong>localTables</strong></td>
+      <td colspan="1" rowspan="1">List of Table</td>
+      <td colspan="1" rowspan="1"></td>
+      <td colspan="1" rowspan="1"></td>
+      <td colspan="1" rowspan="1"></td>
+    </tr>
+    <tr>
+      <td colspan="1" rowspan="1"><strong>localViews</strong></td>
+      <td colspan="1" rowspan="1">List of View</td>
+      <td colspan="1" rowspan="1"></td>
+      <td colspan="1" rowspan="1"></td>
+      <td colspan="1" rowspan="1"></td>
+    </tr>
+    <tr>
+      <td colspan="1" rowspan="1"><strong>tables</strong></td>
+      <td colspan="1" rowspan="1">List of Table</td>
+      <td colspan="1" rowspan="1"></td>
+      <td colspan="1" rowspan="1"></td>
+      <td colspan="1" rowspan="1"></td>
+    </tr>
+    <tr>
+      <td colspan="1" rowspan="1"><strong>typeLibraryName</strong></td>
+      <td colspan="1" rowspan="1">String</td>
+      <td colspan="1" rowspan="1"></td>
+      <td colspan="1" rowspan="1"></td>
+      <td colspan="1" rowspan="1"></td>
+    </tr>
+    <tr>
+      <td colspan="1" rowspan="1"><strong>views</strong></td>
+      <td colspan="1" rowspan="1">List of View</td>
+      <td colspan="1" rowspan="1"></td>
+      <td colspan="1" rowspan="1"></td>
+      <td colspan="1" rowspan="1"></td>
+    </tr>
+    </tbody>
+    </table>
+  </body>
+
+</html>

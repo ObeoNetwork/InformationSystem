@@ -17,6 +17,15 @@ Require-Bundle: org.eclipse.core.runtime,
  org.eclipse.emf.edit,
  org.obeonetwork.m2doc,
  org.eclipse.sirius.tree,
- org.obeonetwork.dsl.requirement
+ org.obeonetwork.dsl.requirement,
+ org.eclipse.sirius.properties,
+ org.obeonetwork.dsl.environment,
+ org.eclipse.sirius.properties.ext.widgets.reference,
+ org.eclipse.sirius.ecore.extender,
+ org.obeonetwork.dsl.entity,
+ org.obeonetwork.dsl.soa,
+ org.obeonetwork.graal,
+ org.obeonetwork.dsl.database,
+ org.eclipse.acceleo.query
 Bundle-RequiredExecutionEnvironment: JavaSE-1.8
 Bundle-ActivationPolicy: lazy
