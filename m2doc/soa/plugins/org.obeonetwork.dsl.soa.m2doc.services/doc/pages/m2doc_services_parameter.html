@@ -168,11 +168,18 @@
       <td colspan="1" rowspan="1">{m:myParameter.kind()} returns: 'input' or 'output' or 'fault'.</td>
     </tr>
     <tr>
+      <td colspan="1" rowspan="1"><strong>qualifiedTypeName</strong></td>
+      <td colspan="1" rowspan="1">String</td>
+      <td colspan="1" rowspan="1">{m:myParameter.qualifiedTypeName()}</td>
+      <td colspan="1" rowspan="1">Returns the String representation of the type of the given Parameter.</td>
+      <td colspan="1" rowspan="1">{m:myParameter.qualifiedTypeName()} returns: namespace1.namespace2.MyEntity[0..1]</td>
+    </tr>
+    <tr>
       <td colspan="1" rowspan="1"><strong>typeName</strong></td>
       <td colspan="1" rowspan="1">String</td>
       <td colspan="1" rowspan="1">{m:myParameter.typeName()}</td>
       <td colspan="1" rowspan="1">Returns the String representation of the type of the given Parameter.</td>
-      <td colspan="1" rowspan="1">{m:myParameter.typeName()} returns: namespace1.namespace2.MyEntity</td>
+      <td colspan="1" rowspan="1">{m:myParameter.typeName()} returns: MyEntity[0..1]</td>
     </tr>
     <tr>
       <td colspan="1" rowspan="1"><strong>unique</strong></td>

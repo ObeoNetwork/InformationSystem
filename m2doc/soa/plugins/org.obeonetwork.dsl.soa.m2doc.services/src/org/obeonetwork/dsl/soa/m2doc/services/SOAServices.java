@@ -192,11 +192,26 @@ public class SOAServices {
 		    examples = {
 		    		@Example(
 		    				expression = "{m:myParameter.typeName()}", 
-		    				result = "namespace1.namespace2.MyEntity")
+		    				result = "MyEntity[0..1]")
 		    }
 		)
 	// @formatter:on	
 	public String typeName(Parameter parameter) {
+		return parameter.getType().getName() + "[" + parameter.getMultiplicity() + "]";
+	}
+
+	// @formatter:off
+	@Documentation(
+			comment = "{m:myParameter.qualifiedTypeName()}",
+		    value = "Returns the String representation of the type of the given Parameter.",
+		    examples = {
+		    		@Example(
+		    				expression = "{m:myParameter.qualifiedTypeName()}", 
+		    				result = "namespace1.namespace2.MyEntity[0..1]")
+		    }
+		)
+	// @formatter:on	
+	public String qualifiedTypeName(Parameter parameter) {
 		final String result;
 
 		if (parameter.getType() instanceof StructuredType) {
@@ -205,7 +220,7 @@ public class SOAServices {
 			result = parameter.getType().getName();
 		}
 
-		return result;
+		return result + "[" + parameter.getMultiplicity() + "]";
 	}
 
 }

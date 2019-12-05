@@ -271,7 +271,37 @@ public class SOAServicesTest {
 		final Parameter parameter = SoaPackage.eINSTANCE.getSoaFactory().createParameter();
 		parameter.setType(entity3);
 
-		assertEquals("namespace.namespace2.namespace3.entity3", soas.typeName(parameter));
+		assertEquals("entity3[1]", soas.typeName(parameter));
+	}
+
+	@Test(expected = NullPointerException.class)
+	public void qualifiedTypeNameNull() {
+		soas.qualifiedTypeName(null);
+	}
+
+	@Test
+	public void qualifiedTypeName() {
+		final Root root = EntityPackage.eINSTANCE.getEntityFactory().createRoot();
+		root.setName("root");
+		final Namespace namespace = EnvironmentPackage.eINSTANCE.getEnvironmentFactory().createNamespace();
+		namespace.setName("namespace");
+		root.getOwnedNamespaces().add(namespace);
+		final Namespace namespace1 = EnvironmentPackage.eINSTANCE.getEnvironmentFactory().createNamespace();
+		namespace1.setName("namespace1");
+		final Namespace namespace2 = EnvironmentPackage.eINSTANCE.getEnvironmentFactory().createNamespace();
+		namespace2.setName("namespace2");
+		final Namespace namespace3 = EnvironmentPackage.eINSTANCE.getEnvironmentFactory().createNamespace();
+		namespace3.setName("namespace3");
+		namespace.getOwnedNamespaces().add(namespace2);
+		namespace.getOwnedNamespaces().add(namespace1);
+		namespace2.getOwnedNamespaces().add(namespace3);
+		final Entity entity3 = EntityPackage.eINSTANCE.getEntityFactory().createEntity();
+		entity3.setName("entity3");
+		namespace3.getTypes().add(entity3);
+		final Parameter parameter = SoaPackage.eINSTANCE.getSoaFactory().createParameter();
+		parameter.setType(entity3);
+
+		assertEquals("namespace.namespace2.namespace3.entity3[1]", soas.qualifiedTypeName(parameter));
 	}
 
 }
