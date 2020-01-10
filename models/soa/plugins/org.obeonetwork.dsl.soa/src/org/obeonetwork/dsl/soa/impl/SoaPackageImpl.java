@@ -26,10 +26,12 @@ import org.obeonetwork.dsl.soa.InterfaceKind;
 import org.obeonetwork.dsl.soa.Operation;
 import org.obeonetwork.dsl.soa.OperationKind;
 import org.obeonetwork.dsl.soa.Parameter;
+import org.obeonetwork.dsl.soa.ParameterPassingMode;
 import org.obeonetwork.dsl.soa.Service;
 import org.obeonetwork.dsl.soa.SoaFactory;
 import org.obeonetwork.dsl.soa.SoaPackage;
 import org.obeonetwork.dsl.soa.SynchronizationKind;
+import org.obeonetwork.dsl.soa.Verb;
 import org.obeonetwork.dsl.soa.Wire;
 import org.obeonetwork.dsl.technicalid.TechnicalIDPackage;
 
@@ -139,6 +141,20 @@ public class SoaPackageImpl extends EPackageImpl implements SoaPackage {
 	private EEnum operationKindEEnum = null;
 
 	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EEnum verbEEnum = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EEnum parameterPassingModeEEnum = null;
+
+	/**
 	 * Creates an instance of the model <b>Package</b>, registered with
 	 * {@link org.eclipse.emf.ecore.EPackage.Registry EPackage.Registry} by the package
 	 * package URI value.
@@ -166,7 +182,7 @@ public class SoaPackageImpl extends EPackageImpl implements SoaPackage {
 
 	/**
 	 * Creates, registers, and initializes the <b>Package</b> for this model, and for any others upon which it depends.
-	 * 
+	 *
 	 * <p>This method is used to initialize {@link SoaPackage#eINSTANCE} when that field is accessed.
 	 * Clients should not invoke it directly. Instead, they should simply access that field to obtain the package.
 	 * <!-- begin-user-doc -->
@@ -180,7 +196,8 @@ public class SoaPackageImpl extends EPackageImpl implements SoaPackage {
 		if (isInited) return (SoaPackage)EPackage.Registry.INSTANCE.getEPackage(SoaPackage.eNS_URI);
 
 		// Obtain or create and register package
-		SoaPackageImpl theSoaPackage = (SoaPackageImpl)(EPackage.Registry.INSTANCE.get(eNS_URI) instanceof SoaPackageImpl ? EPackage.Registry.INSTANCE.get(eNS_URI) : new SoaPackageImpl());
+		Object registeredSoaPackage = EPackage.Registry.INSTANCE.get(eNS_URI);
+		SoaPackageImpl theSoaPackage = registeredSoaPackage instanceof SoaPackageImpl ? (SoaPackageImpl)registeredSoaPackage : new SoaPackageImpl();
 
 		isInited = true;
 
@@ -197,7 +214,6 @@ public class SoaPackageImpl extends EPackageImpl implements SoaPackage {
 		// Mark meta-data to indicate it can't be changed
 		theSoaPackage.freeze();
 
-  
 		// Update the registry and return the package
 		EPackage.Registry.INSTANCE.put(SoaPackage.eNS_URI, theSoaPackage);
 		return theSoaPackage;
@@ -228,6 +244,15 @@ public class SoaPackageImpl extends EPackageImpl implements SoaPackage {
 	 */
 	public EReference getSystem_OwnedWires() {
 		return (EReference)systemEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getSystem_URL() {
+		return (EAttribute)systemEClass.getEStructuralFeatures().get(2);
 	}
 
 	/**
@@ -307,6 +332,15 @@ public class SoaPackageImpl extends EPackageImpl implements SoaPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EAttribute getComponent_URI() {
+		return (EAttribute)componentEClass.getEStructuralFeatures().get(7);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getService() {
 		return serviceEClass;
 	}
@@ -372,6 +406,15 @@ public class SoaPackageImpl extends EPackageImpl implements SoaPackage {
 	 */
 	public EReference getService_UsedTypes() {
 		return (EReference)serviceEClass.getEStructuralFeatures().get(6);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getService_URI() {
+		return (EAttribute)serviceEClass.getEStructuralFeatures().get(7);
 	}
 
 	/**
@@ -505,6 +548,24 @@ public class SoaPackageImpl extends EPackageImpl implements SoaPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EAttribute getOperation_URI() {
+		return (EAttribute)operationEClass.getEStructuralFeatures().get(5);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getOperation_Verb() {
+		return (EAttribute)operationEClass.getEStructuralFeatures().get(6);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getImplementationComponent() {
 		return implementationComponentEClass;
 	}
@@ -586,6 +647,15 @@ public class SoaPackageImpl extends EPackageImpl implements SoaPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EAttribute getParameter_PassingMode() {
+		return (EAttribute)parameterEClass.getEStructuralFeatures().get(5);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EEnum getInterfaceKind() {
 		return interfaceKindEEnum;
 	}
@@ -622,6 +692,24 @@ public class SoaPackageImpl extends EPackageImpl implements SoaPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EEnum getVerb() {
+		return verbEEnum;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EEnum getParameterPassingMode() {
+		return parameterPassingModeEEnum;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public SoaFactory getSoaFactory() {
 		return (SoaFactory)getEFactoryInstance();
 	}
@@ -648,6 +736,7 @@ public class SoaPackageImpl extends EPackageImpl implements SoaPackage {
 		systemEClass = createEClass(SYSTEM);
 		createEReference(systemEClass, SYSTEM__OWNED_COMPONENTS);
 		createEReference(systemEClass, SYSTEM__OWNED_WIRES);
+		createEAttribute(systemEClass, SYSTEM__URL);
 
 		componentEClass = createEClass(COMPONENT);
 		createEReference(componentEClass, COMPONENT__OWNED_SERVICES);
@@ -657,6 +746,7 @@ public class SoaPackageImpl extends EPackageImpl implements SoaPackage {
 		createEAttribute(componentEClass, COMPONENT__NAME);
 		createEReference(componentEClass, COMPONENT__OWNED_BINDING);
 		createEReference(componentEClass, COMPONENT__BLOCK);
+		createEAttribute(componentEClass, COMPONENT__URI);
 
 		serviceEClass = createEClass(SERVICE);
 		createEReference(serviceEClass, SERVICE__OWNED_INTERFACE);
@@ -666,6 +756,7 @@ public class SoaPackageImpl extends EPackageImpl implements SoaPackage {
 		createEReference(serviceEClass, SERVICE__BINDINGS);
 		createEAttribute(serviceEClass, SERVICE__NAME);
 		createEReference(serviceEClass, SERVICE__USED_TYPES);
+		createEAttribute(serviceEClass, SERVICE__URI);
 
 		wireEClass = createEClass(WIRE);
 		createEReference(wireEClass, WIRE__SOURCE);
@@ -684,6 +775,8 @@ public class SoaPackageImpl extends EPackageImpl implements SoaPackage {
 		createEAttribute(operationEClass, OPERATION__KIND);
 		createEAttribute(operationEClass, OPERATION__PUBLIC);
 		createEReference(operationEClass, OPERATION__FAULT);
+		createEAttribute(operationEClass, OPERATION__URI);
+		createEAttribute(operationEClass, OPERATION__VERB);
 
 		implementationComponentEClass = createEClass(IMPLEMENTATION_COMPONENT);
 		createEReference(implementationComponentEClass, IMPLEMENTATION_COMPONENT__IMPLEMENT);
@@ -695,12 +788,15 @@ public class SoaPackageImpl extends EPackageImpl implements SoaPackage {
 		createEAttribute(parameterEClass, PARAMETER__MULTIPLICITY);
 		createEAttribute(parameterEClass, PARAMETER__IS_UNIQUE);
 		createEAttribute(parameterEClass, PARAMETER__IS_ORDERED);
+		createEAttribute(parameterEClass, PARAMETER__PASSING_MODE);
 
 		// Create enums
 		interfaceKindEEnum = createEEnum(INTERFACE_KIND);
 		synchronizationKindEEnum = createEEnum(SYNCHRONIZATION_KIND);
 		bindingKindEEnum = createEEnum(BINDING_KIND);
 		operationKindEEnum = createEEnum(OPERATION_KIND);
+		verbEEnum = createEEnum(VERB);
+		parameterPassingModeEEnum = createEEnum(PARAMETER_PASSING_MODE);
 	}
 
 	/**
@@ -748,6 +844,7 @@ public class SoaPackageImpl extends EPackageImpl implements SoaPackage {
 		initEClass(systemEClass, org.obeonetwork.dsl.soa.System.class, "System", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getSystem_OwnedComponents(), this.getComponent(), null, "ownedComponents", null, 0, -1, org.obeonetwork.dsl.soa.System.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getSystem_OwnedWires(), this.getWire(), null, "ownedWires", null, 0, -1, org.obeonetwork.dsl.soa.System.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getSystem_URL(), ecorePackage.getEString(), "URL", null, 0, 1, org.obeonetwork.dsl.soa.System.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(componentEClass, Component.class, "Component", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getComponent_OwnedServices(), this.getService(), null, "ownedServices", null, 0, -1, Component.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -757,6 +854,7 @@ public class SoaPackageImpl extends EPackageImpl implements SoaPackage {
 		initEAttribute(getComponent_Name(), ecorePackage.getEString(), "name", null, 0, 1, Component.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getComponent_OwnedBinding(), this.getBinding(), null, "ownedBinding", null, 0, -1, Component.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getComponent_Block(), theEnvironmentPackage.getTypesDefinition(), null, "block", null, 0, -1, Component.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getComponent_URI(), ecorePackage.getEString(), "URI", null, 0, 1, Component.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(serviceEClass, Service.class, "Service", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getService_OwnedInterface(), this.getInterface(), null, "ownedInterface", null, 0, 1, Service.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -766,6 +864,7 @@ public class SoaPackageImpl extends EPackageImpl implements SoaPackage {
 		initEReference(getService_Bindings(), this.getBinding(), null, "bindings", null, 0, 1, Service.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getService_Name(), ecorePackage.getEString(), "name", null, 0, 1, Service.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getService_UsedTypes(), theEnvironmentPackage.getType(), null, "usedTypes", null, 0, -1, Service.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getService_URI(), ecorePackage.getEString(), "URI", null, 0, 1, Service.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(wireEClass, Wire.class, "Wire", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getWire_Source(), this.getService(), null, "source", null, 0, 1, Wire.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -784,6 +883,8 @@ public class SoaPackageImpl extends EPackageImpl implements SoaPackage {
 		initEAttribute(getOperation_Kind(), this.getOperationKind(), "kind", null, 0, 1, Operation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getOperation_Public(), ecorePackage.getEBoolean(), "public", null, 1, 1, Operation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getOperation_Fault(), this.getParameter(), null, "fault", null, 0, -1, Operation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getOperation_URI(), ecorePackage.getEString(), "URI", null, 0, 1, Operation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getOperation_Verb(), this.getVerb(), "verb", "GET", 0, 1, Operation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(implementationComponentEClass, ImplementationComponent.class, "ImplementationComponent", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getImplementationComponent_Implement(), this.getInterface(), null, "implement", null, 0, 1, ImplementationComponent.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -795,6 +896,7 @@ public class SoaPackageImpl extends EPackageImpl implements SoaPackage {
 		initEAttribute(getParameter_Multiplicity(), theEnvironmentPackage.getMultiplicityKind(), "multiplicity", "1", 1, 1, Parameter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getParameter_IsUnique(), ecorePackage.getEBoolean(), "isUnique", "false", 0, 1, Parameter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getParameter_IsOrdered(), ecorePackage.getEBoolean(), "isOrdered", "true", 0, 1, Parameter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getParameter_PassingMode(), this.getParameterPassingMode(), "passingMode", null, 0, 1, Parameter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		// Initialize enums and add enum literals
 		initEEnum(interfaceKindEEnum, InterfaceKind.class, "InterfaceKind");
@@ -815,6 +917,19 @@ public class SoaPackageImpl extends EPackageImpl implements SoaPackage {
 		initEEnum(operationKindEEnum, OperationKind.class, "OperationKind");
 		addEEnumLiteral(operationKindEEnum, OperationKind.REQUEST_RESPONSE_LITERAL);
 		addEEnumLiteral(operationKindEEnum, OperationKind.ONE_WAY_LITERAL);
+
+		initEEnum(verbEEnum, Verb.class, "Verb");
+		addEEnumLiteral(verbEEnum, Verb.GET);
+		addEEnumLiteral(verbEEnum, Verb.POST);
+		addEEnumLiteral(verbEEnum, Verb.PUT);
+		addEEnumLiteral(verbEEnum, Verb.DELETE);
+
+		initEEnum(parameterPassingModeEEnum, ParameterPassingMode.class, "ParameterPassingMode");
+		addEEnumLiteral(parameterPassingModeEEnum, ParameterPassingMode.BODY);
+		addEEnumLiteral(parameterPassingModeEEnum, ParameterPassingMode.PATH);
+		addEEnumLiteral(parameterPassingModeEEnum, ParameterPassingMode.QUERY);
+		addEEnumLiteral(parameterPassingModeEEnum, ParameterPassingMode.COOKIE);
+		addEEnumLiteral(parameterPassingModeEEnum, ParameterPassingMode.HEADER);
 
 		// Create resource
 		createResource(eNS_URI);

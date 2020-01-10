@@ -42,6 +42,7 @@ import org.obeonetwork.dsl.soa.SoaPackage;
  *   <li>{@link org.obeonetwork.dsl.soa.impl.ComponentImpl#getName <em>Name</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.soa.impl.ComponentImpl#getOwnedBinding <em>Owned Binding</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.soa.impl.ComponentImpl#getBlock <em>Block</em>}</li>
+ *   <li>{@link org.obeonetwork.dsl.soa.impl.ComponentImpl#getURI <em>URI</em>}</li>
  * </ul>
  *
  * @generated
@@ -63,6 +64,16 @@ public class ComponentImpl extends ObeoDSMObjectImpl implements Component {
 	 * @ordered
 	 */
 	protected static final String NAME_EDEFAULT = null;
+
+	/**
+	 * The default value of the '{@link #getURI() <em>URI</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getURI()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String URI_EDEFAULT = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -176,6 +187,24 @@ public class ComponentImpl extends ObeoDSMObjectImpl implements Component {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public String getURI() {
+		return (String)eDynamicGet(SoaPackage.COMPONENT__URI, SoaPackage.Literals.COMPONENT__URI, true, true);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setURI(String newURI) {
+		eDynamicSet(SoaPackage.COMPONENT__URI, SoaPackage.Literals.COMPONENT__URI, newURI);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
@@ -211,6 +240,8 @@ public class ComponentImpl extends ObeoDSMObjectImpl implements Component {
 				return getOwnedBinding();
 			case SoaPackage.COMPONENT__BLOCK:
 				return getBlock();
+			case SoaPackage.COMPONENT__URI:
+				return getURI();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -243,6 +274,9 @@ public class ComponentImpl extends ObeoDSMObjectImpl implements Component {
 				getBlock().clear();
 				getBlock().addAll((Collection<? extends TypesDefinition>)newValue);
 				return;
+			case SoaPackage.COMPONENT__URI:
+				setURI((String)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -270,6 +304,9 @@ public class ComponentImpl extends ObeoDSMObjectImpl implements Component {
 			case SoaPackage.COMPONENT__BLOCK:
 				getBlock().clear();
 				return;
+			case SoaPackage.COMPONENT__URI:
+				setURI(URI_EDEFAULT);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -296,6 +333,8 @@ public class ComponentImpl extends ObeoDSMObjectImpl implements Component {
 				return !getOwnedBinding().isEmpty();
 			case SoaPackage.COMPONENT__BLOCK:
 				return !getBlock().isEmpty();
+			case SoaPackage.COMPONENT__URI:
+				return URI_EDEFAULT == null ? getURI() != null : !URI_EDEFAULT.equals(getURI());
 		}
 		return super.eIsSet(featureID);
 	}

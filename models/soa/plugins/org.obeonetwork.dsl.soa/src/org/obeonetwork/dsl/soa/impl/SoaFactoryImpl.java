@@ -25,10 +25,12 @@ import org.obeonetwork.dsl.soa.InterfaceKind;
 import org.obeonetwork.dsl.soa.Operation;
 import org.obeonetwork.dsl.soa.OperationKind;
 import org.obeonetwork.dsl.soa.Parameter;
+import org.obeonetwork.dsl.soa.ParameterPassingMode;
 import org.obeonetwork.dsl.soa.Service;
 import org.obeonetwork.dsl.soa.SoaFactory;
 import org.obeonetwork.dsl.soa.SoaPackage;
 import org.obeonetwork.dsl.soa.SynchronizationKind;
+import org.obeonetwork.dsl.soa.Verb;
 import org.obeonetwork.dsl.soa.Wire;
 import org.obeonetwork.dsl.soa.spec.InterfaceSpec;
 import org.obeonetwork.dsl.soa.spec.ServiceSpec;
@@ -114,6 +116,10 @@ public class SoaFactoryImpl extends EFactoryImpl implements SoaFactory {
 				return createBindingKindFromString(eDataType, initialValue);
 			case SoaPackage.OPERATION_KIND:
 				return createOperationKindFromString(eDataType, initialValue);
+			case SoaPackage.VERB:
+				return createVerbFromString(eDataType, initialValue);
+			case SoaPackage.PARAMETER_PASSING_MODE:
+				return createParameterPassingModeFromString(eDataType, initialValue);
 			default:
 				throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
 		}
@@ -135,6 +141,10 @@ public class SoaFactoryImpl extends EFactoryImpl implements SoaFactory {
 				return convertBindingKindToString(eDataType, instanceValue);
 			case SoaPackage.OPERATION_KIND:
 				return convertOperationKindToString(eDataType, instanceValue);
+			case SoaPackage.VERB:
+				return convertVerbToString(eDataType, instanceValue);
+			case SoaPackage.PARAMETER_PASSING_MODE:
+				return convertParameterPassingModeToString(eDataType, instanceValue);
 			default:
 				throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
 		}
@@ -309,6 +319,46 @@ public class SoaFactoryImpl extends EFactoryImpl implements SoaFactory {
 	 * @generated
 	 */
 	public String convertOperationKindToString(EDataType eDataType, Object instanceValue) {
+		return instanceValue == null ? null : instanceValue.toString();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Verb createVerbFromString(EDataType eDataType, String initialValue) {
+		Verb result = Verb.get(initialValue);
+		if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
+		return result;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String convertVerbToString(EDataType eDataType, Object instanceValue) {
+		return instanceValue == null ? null : instanceValue.toString();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public ParameterPassingMode createParameterPassingModeFromString(EDataType eDataType, String initialValue) {
+		ParameterPassingMode result = ParameterPassingMode.get(initialValue);
+		if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
+		return result;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String convertParameterPassingModeToString(EDataType eDataType, Object instanceValue) {
 		return instanceValue == null ? null : instanceValue.toString();
 	}
 

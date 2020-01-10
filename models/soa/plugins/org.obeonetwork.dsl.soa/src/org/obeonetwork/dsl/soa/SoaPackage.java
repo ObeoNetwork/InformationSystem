@@ -218,13 +218,22 @@ public interface SoaPackage extends EPackage {
 	int SYSTEM__OWNED_WIRES = EnvironmentPackage.NAMESPACE_FEATURE_COUNT + 1;
 
 	/**
+	 * The feature id for the '<em><b>URL</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SYSTEM__URL = EnvironmentPackage.NAMESPACE_FEATURE_COUNT + 2;
+
+	/**
 	 * The number of structural features of the '<em>System</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SYSTEM_FEATURE_COUNT = EnvironmentPackage.NAMESPACE_FEATURE_COUNT + 2;
+	int SYSTEM_FEATURE_COUNT = EnvironmentPackage.NAMESPACE_FEATURE_COUNT + 3;
 
 	/**
 	 * The meta object id for the '{@link org.obeonetwork.dsl.soa.impl.ComponentImpl <em>Component</em>}' class.
@@ -381,13 +390,22 @@ public interface SoaPackage extends EPackage {
 	int COMPONENT__BLOCK = EnvironmentPackage.OBEO_DSM_OBJECT_FEATURE_COUNT + 6;
 
 	/**
+	 * The feature id for the '<em><b>URI</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMPONENT__URI = EnvironmentPackage.OBEO_DSM_OBJECT_FEATURE_COUNT + 7;
+
+	/**
 	 * The number of structural features of the '<em>Component</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int COMPONENT_FEATURE_COUNT = EnvironmentPackage.OBEO_DSM_OBJECT_FEATURE_COUNT + 7;
+	int COMPONENT_FEATURE_COUNT = EnvironmentPackage.OBEO_DSM_OBJECT_FEATURE_COUNT + 8;
 
 	/**
 	 * The meta object id for the '{@link org.obeonetwork.dsl.soa.impl.ServiceImpl <em>Service</em>}' class.
@@ -544,13 +562,22 @@ public interface SoaPackage extends EPackage {
 	int SERVICE__USED_TYPES = EnvironmentPackage.OBEO_DSM_OBJECT_FEATURE_COUNT + 6;
 
 	/**
+	 * The feature id for the '<em><b>URI</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SERVICE__URI = EnvironmentPackage.OBEO_DSM_OBJECT_FEATURE_COUNT + 7;
+
+	/**
 	 * The number of structural features of the '<em>Service</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SERVICE_FEATURE_COUNT = EnvironmentPackage.OBEO_DSM_OBJECT_FEATURE_COUNT + 7;
+	int SERVICE_FEATURE_COUNT = EnvironmentPackage.OBEO_DSM_OBJECT_FEATURE_COUNT + 8;
 
 	/**
 	 * The meta object id for the '{@link org.obeonetwork.dsl.soa.impl.WireImpl <em>Wire</em>}' class.
@@ -1043,13 +1070,31 @@ public interface SoaPackage extends EPackage {
 	int OPERATION__FAULT = EnvironmentPackage.ACTION_FEATURE_COUNT + 4;
 
 	/**
+	 * The feature id for the '<em><b>URI</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int OPERATION__URI = EnvironmentPackage.ACTION_FEATURE_COUNT + 5;
+
+	/**
+	 * The feature id for the '<em><b>Verb</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int OPERATION__VERB = EnvironmentPackage.ACTION_FEATURE_COUNT + 6;
+
+	/**
 	 * The number of structural features of the '<em>Operation</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int OPERATION_FEATURE_COUNT = EnvironmentPackage.ACTION_FEATURE_COUNT + 5;
+	int OPERATION_FEATURE_COUNT = EnvironmentPackage.ACTION_FEATURE_COUNT + 7;
 
 	/**
 	 * The meta object id for the '{@link org.obeonetwork.dsl.soa.impl.ParameterImpl <em>Parameter</em>}' class.
@@ -1306,13 +1351,22 @@ public interface SoaPackage extends EPackage {
 	int PARAMETER__IS_ORDERED = EnvironmentPackage.OBEO_DSM_OBJECT_FEATURE_COUNT + 4;
 
 	/**
+	 * The feature id for the '<em><b>Passing Mode</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PARAMETER__PASSING_MODE = EnvironmentPackage.OBEO_DSM_OBJECT_FEATURE_COUNT + 5;
+
+	/**
 	 * The number of structural features of the '<em>Parameter</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int PARAMETER_FEATURE_COUNT = EnvironmentPackage.OBEO_DSM_OBJECT_FEATURE_COUNT + 5;
+	int PARAMETER_FEATURE_COUNT = EnvironmentPackage.OBEO_DSM_OBJECT_FEATURE_COUNT + 6;
 
 	/**
 	 * The meta object id for the '{@link org.obeonetwork.dsl.soa.InterfaceKind <em>Interface Kind</em>}' enum.
@@ -1355,6 +1409,26 @@ public interface SoaPackage extends EPackage {
 	int OPERATION_KIND = 12;
 
 	/**
+	 * The meta object id for the '{@link org.obeonetwork.dsl.soa.Verb <em>Verb</em>}' enum.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.obeonetwork.dsl.soa.Verb
+	 * @see org.obeonetwork.dsl.soa.impl.SoaPackageImpl#getVerb()
+	 * @generated
+	 */
+	int VERB = 13;
+
+	/**
+	 * The meta object id for the '{@link org.obeonetwork.dsl.soa.ParameterPassingMode <em>Parameter Passing Mode</em>}' enum.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.obeonetwork.dsl.soa.ParameterPassingMode
+	 * @see org.obeonetwork.dsl.soa.impl.SoaPackageImpl#getParameterPassingMode()
+	 * @generated
+	 */
+	int PARAMETER_PASSING_MODE = 14;
+
+	/**
 	 * Returns the meta object for class '{@link org.obeonetwork.dsl.soa.System <em>System</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1385,6 +1459,17 @@ public interface SoaPackage extends EPackage {
 	 * @generated
 	 */
 	EReference getSystem_OwnedWires();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.obeonetwork.dsl.soa.System#getURL <em>URL</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>URL</em>'.
+	 * @see org.obeonetwork.dsl.soa.System#getURL()
+	 * @see #getSystem()
+	 * @generated
+	 */
+	EAttribute getSystem_URL();
 
 	/**
 	 * Returns the meta object for class '{@link org.obeonetwork.dsl.soa.Component <em>Component</em>}'.
@@ -1474,6 +1559,17 @@ public interface SoaPackage extends EPackage {
 	EReference getComponent_Block();
 
 	/**
+	 * Returns the meta object for the attribute '{@link org.obeonetwork.dsl.soa.Component#getURI <em>URI</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>URI</em>'.
+	 * @see org.obeonetwork.dsl.soa.Component#getURI()
+	 * @see #getComponent()
+	 * @generated
+	 */
+	EAttribute getComponent_URI();
+
+	/**
 	 * Returns the meta object for class '{@link org.obeonetwork.dsl.soa.Service <em>Service</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1559,6 +1655,17 @@ public interface SoaPackage extends EPackage {
 	 * @generated
 	 */
 	EReference getService_UsedTypes();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.obeonetwork.dsl.soa.Service#getURI <em>URI</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>URI</em>'.
+	 * @see org.obeonetwork.dsl.soa.Service#getURI()
+	 * @see #getService()
+	 * @generated
+	 */
+	EAttribute getService_URI();
 
 	/**
 	 * Returns the meta object for class '{@link org.obeonetwork.dsl.soa.Wire <em>Wire</em>}'.
@@ -1711,6 +1818,28 @@ public interface SoaPackage extends EPackage {
 	EReference getOperation_Fault();
 
 	/**
+	 * Returns the meta object for the attribute '{@link org.obeonetwork.dsl.soa.Operation#getURI <em>URI</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>URI</em>'.
+	 * @see org.obeonetwork.dsl.soa.Operation#getURI()
+	 * @see #getOperation()
+	 * @generated
+	 */
+	EAttribute getOperation_URI();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.obeonetwork.dsl.soa.Operation#getVerb <em>Verb</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Verb</em>'.
+	 * @see org.obeonetwork.dsl.soa.Operation#getVerb()
+	 * @see #getOperation()
+	 * @generated
+	 */
+	EAttribute getOperation_Verb();
+
+	/**
 	 * Returns the meta object for class '{@link org.obeonetwork.dsl.soa.ImplementationComponent <em>Implementation Component</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1808,6 +1937,17 @@ public interface SoaPackage extends EPackage {
 	EAttribute getParameter_IsOrdered();
 
 	/**
+	 * Returns the meta object for the attribute '{@link org.obeonetwork.dsl.soa.Parameter#getPassingMode <em>Passing Mode</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Passing Mode</em>'.
+	 * @see org.obeonetwork.dsl.soa.Parameter#getPassingMode()
+	 * @see #getParameter()
+	 * @generated
+	 */
+	EAttribute getParameter_PassingMode();
+
+	/**
 	 * Returns the meta object for enum '{@link org.obeonetwork.dsl.soa.InterfaceKind <em>Interface Kind</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1846,6 +1986,26 @@ public interface SoaPackage extends EPackage {
 	 * @generated
 	 */
 	EEnum getOperationKind();
+
+	/**
+	 * Returns the meta object for enum '{@link org.obeonetwork.dsl.soa.Verb <em>Verb</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for enum '<em>Verb</em>'.
+	 * @see org.obeonetwork.dsl.soa.Verb
+	 * @generated
+	 */
+	EEnum getVerb();
+
+	/**
+	 * Returns the meta object for enum '{@link org.obeonetwork.dsl.soa.ParameterPassingMode <em>Parameter Passing Mode</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for enum '<em>Parameter Passing Mode</em>'.
+	 * @see org.obeonetwork.dsl.soa.ParameterPassingMode
+	 * @generated
+	 */
+	EEnum getParameterPassingMode();
 
 	/**
 	 * Returns the factory that creates the instances of the model.
@@ -1894,6 +2054,14 @@ public interface SoaPackage extends EPackage {
 		 * @generated
 		 */
 		EReference SYSTEM__OWNED_WIRES = eINSTANCE.getSystem_OwnedWires();
+
+		/**
+		 * The meta object literal for the '<em><b>URL</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute SYSTEM__URL = eINSTANCE.getSystem_URL();
 
 		/**
 		 * The meta object literal for the '{@link org.obeonetwork.dsl.soa.impl.ComponentImpl <em>Component</em>}' class.
@@ -1962,6 +2130,14 @@ public interface SoaPackage extends EPackage {
 		EReference COMPONENT__BLOCK = eINSTANCE.getComponent_Block();
 
 		/**
+		 * The meta object literal for the '<em><b>URI</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute COMPONENT__URI = eINSTANCE.getComponent_URI();
+
+		/**
 		 * The meta object literal for the '{@link org.obeonetwork.dsl.soa.impl.ServiceImpl <em>Service</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -2026,6 +2202,14 @@ public interface SoaPackage extends EPackage {
 		 * @generated
 		 */
 		EReference SERVICE__USED_TYPES = eINSTANCE.getService_UsedTypes();
+
+		/**
+		 * The meta object literal for the '<em><b>URI</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute SERVICE__URI = eINSTANCE.getService_URI();
 
 		/**
 		 * The meta object literal for the '{@link org.obeonetwork.dsl.soa.impl.WireImpl <em>Wire</em>}' class.
@@ -2148,6 +2332,22 @@ public interface SoaPackage extends EPackage {
 		EReference OPERATION__FAULT = eINSTANCE.getOperation_Fault();
 
 		/**
+		 * The meta object literal for the '<em><b>URI</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute OPERATION__URI = eINSTANCE.getOperation_URI();
+
+		/**
+		 * The meta object literal for the '<em><b>Verb</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute OPERATION__VERB = eINSTANCE.getOperation_Verb();
+
+		/**
 		 * The meta object literal for the '{@link org.obeonetwork.dsl.soa.impl.ImplementationComponentImpl <em>Implementation Component</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -2224,6 +2424,14 @@ public interface SoaPackage extends EPackage {
 		EAttribute PARAMETER__IS_ORDERED = eINSTANCE.getParameter_IsOrdered();
 
 		/**
+		 * The meta object literal for the '<em><b>Passing Mode</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute PARAMETER__PASSING_MODE = eINSTANCE.getParameter_PassingMode();
+
+		/**
 		 * The meta object literal for the '{@link org.obeonetwork.dsl.soa.InterfaceKind <em>Interface Kind</em>}' enum.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -2262,6 +2470,26 @@ public interface SoaPackage extends EPackage {
 		 * @generated
 		 */
 		EEnum OPERATION_KIND = eINSTANCE.getOperationKind();
+
+		/**
+		 * The meta object literal for the '{@link org.obeonetwork.dsl.soa.Verb <em>Verb</em>}' enum.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.obeonetwork.dsl.soa.Verb
+		 * @see org.obeonetwork.dsl.soa.impl.SoaPackageImpl#getVerb()
+		 * @generated
+		 */
+		EEnum VERB = eINSTANCE.getVerb();
+
+		/**
+		 * The meta object literal for the '{@link org.obeonetwork.dsl.soa.ParameterPassingMode <em>Parameter Passing Mode</em>}' enum.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.obeonetwork.dsl.soa.ParameterPassingMode
+		 * @see org.obeonetwork.dsl.soa.impl.SoaPackageImpl#getParameterPassingMode()
+		 * @generated
+		 */
+		EEnum PARAMETER_PASSING_MODE = eINSTANCE.getParameterPassingMode();
 
 }
 

@@ -15,6 +15,7 @@ import org.obeonetwork.dsl.environment.MultiplicityKind;
 import org.obeonetwork.dsl.environment.Type;
 import org.obeonetwork.dsl.environment.impl.ObeoDSMObjectImpl;
 import org.obeonetwork.dsl.soa.Parameter;
+import org.obeonetwork.dsl.soa.ParameterPassingMode;
 import org.obeonetwork.dsl.soa.SoaPackage;
 
 /**
@@ -30,6 +31,7 @@ import org.obeonetwork.dsl.soa.SoaPackage;
  *   <li>{@link org.obeonetwork.dsl.soa.impl.ParameterImpl#getMultiplicity <em>Multiplicity</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.soa.impl.ParameterImpl#isIsUnique <em>Is Unique</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.soa.impl.ParameterImpl#isIsOrdered <em>Is Ordered</em>}</li>
+ *   <li>{@link org.obeonetwork.dsl.soa.impl.ParameterImpl#getPassingMode <em>Passing Mode</em>}</li>
  * </ul>
  *
  * @generated
@@ -79,6 +81,16 @@ public class ParameterImpl extends ObeoDSMObjectImpl implements Parameter {
 	 * @ordered
 	 */
 	protected static final boolean IS_ORDERED_EDEFAULT = true;
+
+	/**
+	 * The default value of the '{@link #getPassingMode() <em>Passing Mode</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getPassingMode()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final ParameterPassingMode PASSING_MODE_EDEFAULT = ParameterPassingMode.BODY;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -203,6 +215,24 @@ public class ParameterImpl extends ObeoDSMObjectImpl implements Parameter {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public ParameterPassingMode getPassingMode() {
+		return (ParameterPassingMode)eDynamicGet(SoaPackage.PARAMETER__PASSING_MODE, SoaPackage.Literals.PARAMETER__PASSING_MODE, true, true);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setPassingMode(ParameterPassingMode newPassingMode) {
+		eDynamicSet(SoaPackage.PARAMETER__PASSING_MODE, SoaPackage.Literals.PARAMETER__PASSING_MODE, newPassingMode);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
@@ -217,6 +247,8 @@ public class ParameterImpl extends ObeoDSMObjectImpl implements Parameter {
 				return isIsUnique();
 			case SoaPackage.PARAMETER__IS_ORDERED:
 				return isIsOrdered();
+			case SoaPackage.PARAMETER__PASSING_MODE:
+				return getPassingMode();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -243,6 +275,9 @@ public class ParameterImpl extends ObeoDSMObjectImpl implements Parameter {
 				return;
 			case SoaPackage.PARAMETER__IS_ORDERED:
 				setIsOrdered((Boolean)newValue);
+				return;
+			case SoaPackage.PARAMETER__PASSING_MODE:
+				setPassingMode((ParameterPassingMode)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -271,6 +306,9 @@ public class ParameterImpl extends ObeoDSMObjectImpl implements Parameter {
 			case SoaPackage.PARAMETER__IS_ORDERED:
 				setIsOrdered(IS_ORDERED_EDEFAULT);
 				return;
+			case SoaPackage.PARAMETER__PASSING_MODE:
+				setPassingMode(PASSING_MODE_EDEFAULT);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -293,6 +331,8 @@ public class ParameterImpl extends ObeoDSMObjectImpl implements Parameter {
 				return isIsUnique() != IS_UNIQUE_EDEFAULT;
 			case SoaPackage.PARAMETER__IS_ORDERED:
 				return isIsOrdered() != IS_ORDERED_EDEFAULT;
+			case SoaPackage.PARAMETER__PASSING_MODE:
+				return getPassingMode() != PASSING_MODE_EDEFAULT;
 		}
 		return super.eIsSet(featureID);
 	}

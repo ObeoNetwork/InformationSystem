@@ -70,6 +70,8 @@ public class OperationItemProvider
 
 			addKindPropertyDescriptor(object);
 			addPublicPropertyDescriptor(object);
+			addURIPropertyDescriptor(object);
+			addVerbPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -114,6 +116,50 @@ public class OperationItemProvider
 				 false,
 				 false,
 				 ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the URI feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addURIPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_Operation_URI_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Operation_URI_feature", "_UI_Operation_type"),
+				 SoaPackage.Literals.OPERATION__URI,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Verb feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addVerbPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_Operation_verb_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Operation_verb_feature", "_UI_Operation_type"),
+				 SoaPackage.Literals.OPERATION__VERB,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
 				 null,
 				 null));
 	}
@@ -199,6 +245,8 @@ public class OperationItemProvider
 		switch (notification.getFeatureID(Operation.class)) {
 			case SoaPackage.OPERATION__KIND:
 			case SoaPackage.OPERATION__PUBLIC:
+			case SoaPackage.OPERATION__URI:
+			case SoaPackage.OPERATION__VERB:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 			case SoaPackage.OPERATION__INPUT:

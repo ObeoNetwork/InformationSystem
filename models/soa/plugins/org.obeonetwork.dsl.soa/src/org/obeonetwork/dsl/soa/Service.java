@@ -30,6 +30,7 @@ import org.obeonetwork.dsl.environment.Type;
  *   <li>{@link org.obeonetwork.dsl.soa.Service#getBindings <em>Bindings</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.soa.Service#getName <em>Name</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.soa.Service#getUsedTypes <em>Used Types</em>}</li>
+ *   <li>{@link org.obeonetwork.dsl.soa.Service#getURI <em>URI</em>}</li>
  * </ul>
  *
  * @see org.obeonetwork.dsl.soa.SoaPackage#getService()
@@ -221,5 +222,31 @@ public interface Service extends ObeoDSMObject {
 	 * @generated
 	 */
 	EList<Type> getUsedTypes();
+
+	/**
+	 * Returns the value of the '<em><b>URI</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>URI</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>URI</em>' attribute.
+	 * @see #setURI(String)
+	 * @see org.obeonetwork.dsl.soa.SoaPackage#getService_URI()
+	 * @model
+	 * @generated
+	 */
+	String getURI();
+
+	/**
+	 * Sets the value of the '{@link org.obeonetwork.dsl.soa.Service#getURI <em>URI</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>URI</em>' attribute.
+	 * @see #getURI()
+	 * @generated
+	 */
+	void setURI(String value);
 
 } // Service

@@ -30,6 +30,7 @@ import org.obeonetwork.dsl.environment.TypesDefinition;
  *   <li>{@link org.obeonetwork.dsl.soa.Component#getName <em>Name</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.soa.Component#getOwnedBinding <em>Owned Binding</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.soa.Component#getBlock <em>Block</em>}</li>
+ *   <li>{@link org.obeonetwork.dsl.soa.Component#getURI <em>URI</em>}</li>
  * </ul>
  *
  * @see org.obeonetwork.dsl.soa.SoaPackage#getComponent()
@@ -165,5 +166,31 @@ public interface Component extends ObeoDSMObject {
 	 * @generated
 	 */
 	EList<TypesDefinition> getBlock();
+
+	/**
+	 * Returns the value of the '<em><b>URI</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>URI</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>URI</em>' attribute.
+	 * @see #setURI(String)
+	 * @see org.obeonetwork.dsl.soa.SoaPackage#getComponent_URI()
+	 * @model
+	 * @generated
+	 */
+	String getURI();
+
+	/**
+	 * Sets the value of the '{@link org.obeonetwork.dsl.soa.Component#getURI <em>URI</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>URI</em>' attribute.
+	 * @see #getURI()
+	 * @generated
+	 */
+	void setURI(String value);
 
 } // Component

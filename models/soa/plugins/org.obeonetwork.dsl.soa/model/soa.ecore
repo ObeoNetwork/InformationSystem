@@ -6,6 +6,7 @@
         eType="#//Component" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="ownedWires" upperBound="-1"
         eType="#//Wire" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="URL" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Component" eSuperTypes="../../org.obeonetwork.dsl.environment/model/environment.ecore#//ObeoDSMObject">
     <eStructuralFeatures xsi:type="ecore:EReference" name="ownedServices" upperBound="-1"
@@ -21,6 +22,7 @@
         eType="#//Binding" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="block" upperBound="-1"
         eType="ecore:EClass ../../org.obeonetwork.dsl.environment/model/environment.ecore#//TypesDefinition"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="URI" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Service" eSuperTypes="../../org.obeonetwork.dsl.environment/model/environment.ecore#//ObeoDSMObject">
     <eStructuralFeatures xsi:type="ecore:EReference" name="ownedInterface" eType="#//Interface"
@@ -33,6 +35,7 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="usedTypes" upperBound="-1"
         eType="ecore:EClass ../../org.obeonetwork.dsl.environment/model/environment.ecore#//Type"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="URI" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Wire" eSuperTypes="../../org.obeonetwork.dsl.environment/model/environment.ecore#//ObeoDSMObject">
     <eStructuralFeatures xsi:type="ecore:EReference" name="source" eType="#//Service"/>
@@ -64,6 +67,8 @@
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="fault" upperBound="-1"
         eType="#//Parameter" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="URI" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="verb" eType="#//Verb" defaultValueLiteral="GET"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ImplementationComponent" eSuperTypes="../../org.obeonetwork.dsl.environment/model/environment.ecore#//ObeoDSMObject">
     <eStructuralFeatures xsi:type="ecore:EReference" name="implement" eType="#//Interface"/>
@@ -79,6 +84,7 @@
         defaultValueLiteral="false"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="isOrdered" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"
         defaultValueLiteral="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="passingMode" eType="#//ParameterPassingMode"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EEnum" name="BindingKind">
     <eLiterals name="webservice"/>
@@ -90,5 +96,18 @@
   <eClassifiers xsi:type="ecore:EEnum" name="OperationKind">
     <eLiterals name="REQUEST_RESPONSE"/>
     <eLiterals name="ONE_WAY" value="1"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="Verb">
+    <eLiterals name="GET"/>
+    <eLiterals name="POST" value="1"/>
+    <eLiterals name="PUT" value="2"/>
+    <eLiterals name="DELETE" value="3"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="ParameterPassingMode">
+    <eLiterals name="BODY"/>
+    <eLiterals name="PATH" value="1"/>
+    <eLiterals name="QUERY" value="2"/>
+    <eLiterals name="COOKIE" value="3"/>
+    <eLiterals name="HEADER" value="5"/>
   </eClassifiers>
 </ecore:EPackage>

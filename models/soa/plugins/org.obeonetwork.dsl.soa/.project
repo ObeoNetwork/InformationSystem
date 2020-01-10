@@ -27,6 +27,7 @@
 		</buildCommand>
 	</buildSpec>
 	<natures>
+		<nature>org.eclipse.sirius.nature.modelingproject</nature>
 		<nature>org.obeonetwork.oo15oo.oo345oo.oo221oo.acceleoSyncNature</nature>
 		<nature>org.eclipse.jdt.core.javanature</nature>
 		<nature>org.eclipse.pde.PluginNature</nature>

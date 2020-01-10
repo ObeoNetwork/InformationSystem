@@ -28,6 +28,7 @@ import org.obeonetwork.dsl.environment.Type;
  *   <li>{@link org.obeonetwork.dsl.soa.Parameter#getMultiplicity <em>Multiplicity</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.soa.Parameter#isIsUnique <em>Is Unique</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.soa.Parameter#isIsOrdered <em>Is Ordered</em>}</li>
+ *   <li>{@link org.obeonetwork.dsl.soa.Parameter#getPassingMode <em>Passing Mode</em>}</li>
  * </ul>
  *
  * @see org.obeonetwork.dsl.soa.SoaPackage#getParameter()
@@ -177,5 +178,34 @@ public interface Parameter extends ObeoDSMObject {
 	 * @generated
 	 */
 	void setIsOrdered(boolean value);
+
+	/**
+	 * Returns the value of the '<em><b>Passing Mode</b></em>' attribute.
+	 * The literals are from the enumeration {@link org.obeonetwork.dsl.soa.ParameterPassingMode}.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Passing Mode</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Passing Mode</em>' attribute.
+	 * @see org.obeonetwork.dsl.soa.ParameterPassingMode
+	 * @see #setPassingMode(ParameterPassingMode)
+	 * @see org.obeonetwork.dsl.soa.SoaPackage#getParameter_PassingMode()
+	 * @model
+	 * @generated
+	 */
+	ParameterPassingMode getPassingMode();
+
+	/**
+	 * Sets the value of the '{@link org.obeonetwork.dsl.soa.Parameter#getPassingMode <em>Passing Mode</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Passing Mode</em>' attribute.
+	 * @see org.obeonetwork.dsl.soa.ParameterPassingMode
+	 * @see #getPassingMode()
+	 * @generated
+	 */
+	void setPassingMode(ParameterPassingMode value);
 
 } // Parameter

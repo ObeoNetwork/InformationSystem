@@ -73,6 +73,7 @@ public class ParameterItemProvider
 			addMultiplicityPropertyDescriptor(object);
 			addIsUniquePropertyDescriptor(object);
 			addIsOrderedPropertyDescriptor(object);
+			addPassingModePropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -188,6 +189,28 @@ public class ParameterItemProvider
 	}
 
 	/**
+	 * This adds a property descriptor for the Passing Mode feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addPassingModePropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_Parameter_passingMode_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Parameter_passingMode_feature", "_UI_Parameter_type"),
+				 SoaPackage.Literals.PARAMETER__PASSING_MODE,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
 	 * This returns Parameter.gif.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -253,6 +276,7 @@ public class ParameterItemProvider
 			case SoaPackage.PARAMETER__MULTIPLICITY:
 			case SoaPackage.PARAMETER__IS_UNIQUE:
 			case SoaPackage.PARAMETER__IS_ORDERED:
+			case SoaPackage.PARAMETER__PASSING_MODE:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 		}

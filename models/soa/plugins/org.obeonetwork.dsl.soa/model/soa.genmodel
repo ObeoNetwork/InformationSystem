@@ -29,9 +29,23 @@
       <genEnumLiterals ecoreEnumLiteral="soa.ecore#//OperationKind/REQUEST_RESPONSE"/>
       <genEnumLiterals ecoreEnumLiteral="soa.ecore#//OperationKind/ONE_WAY"/>
     </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="soa.ecore#//Verb">
+      <genEnumLiterals ecoreEnumLiteral="soa.ecore#//Verb/GET"/>
+      <genEnumLiterals ecoreEnumLiteral="soa.ecore#//Verb/POST"/>
+      <genEnumLiterals ecoreEnumLiteral="soa.ecore#//Verb/PUT"/>
+      <genEnumLiterals ecoreEnumLiteral="soa.ecore#//Verb/DELETE"/>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="soa.ecore#//ParameterPassingMode">
+      <genEnumLiterals ecoreEnumLiteral="soa.ecore#//ParameterPassingMode/BODY"/>
+      <genEnumLiterals ecoreEnumLiteral="soa.ecore#//ParameterPassingMode/PATH"/>
+      <genEnumLiterals ecoreEnumLiteral="soa.ecore#//ParameterPassingMode/QUERY"/>
+      <genEnumLiterals ecoreEnumLiteral="soa.ecore#//ParameterPassingMode/COOKIE"/>
+      <genEnumLiterals ecoreEnumLiteral="soa.ecore#//ParameterPassingMode/HEADER"/>
+    </genEnums>
     <genClasses ecoreClass="soa.ecore#//System">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference soa.ecore#//System/ownedComponents"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference soa.ecore#//System/ownedWires"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute soa.ecore#//System/URL"/>
     </genClasses>
     <genClasses ecoreClass="soa.ecore#//Component">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference soa.ecore#//Component/ownedServices"/>
@@ -41,6 +55,7 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute soa.ecore#//Component/name"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference soa.ecore#//Component/ownedBinding"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference soa.ecore#//Component/block"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute soa.ecore#//Component/URI"/>
     </genClasses>
     <genClasses ecoreClass="soa.ecore#//Service">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference soa.ecore#//Service/ownedInterface"/>
@@ -50,6 +65,7 @@
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference soa.ecore#//Service/bindings"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute soa.ecore#//Service/name"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference soa.ecore#//Service/usedTypes"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute soa.ecore#//Service/URI"/>
     </genClasses>
     <genClasses image="false" ecoreClass="soa.ecore#//Wire" labelFeature="../../org.obeonetwork.dsl.environment/model/environment.genmodel#//environment/ObeoDSMObject/description">
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference soa.ecore#//Wire/source"/>
@@ -68,6 +84,8 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute soa.ecore#//Operation/kind"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute soa.ecore#//Operation/public"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference soa.ecore#//Operation/fault"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute soa.ecore#//Operation/URI"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute soa.ecore#//Operation/verb"/>
     </genClasses>
     <genClasses ecoreClass="soa.ecore#//ImplementationComponent" labelFeature="../../org.obeonetwork.dsl.environment/model/environment.genmodel#//environment/ObeoDSMObject/description">
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference soa.ecore#//ImplementationComponent/implement"/>
@@ -79,6 +97,7 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute soa.ecore#//Parameter/multiplicity"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute soa.ecore#//Parameter/isUnique"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute soa.ecore#//Parameter/isOrdered"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute soa.ecore#//Parameter/passingMode"/>
     </genClasses>
   </genPackages>
 </genmodel:GenModel>

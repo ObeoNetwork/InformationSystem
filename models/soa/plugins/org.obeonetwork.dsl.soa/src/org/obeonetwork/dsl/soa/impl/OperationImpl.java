@@ -22,6 +22,7 @@ import org.obeonetwork.dsl.soa.Operation;
 import org.obeonetwork.dsl.soa.OperationKind;
 import org.obeonetwork.dsl.soa.Parameter;
 import org.obeonetwork.dsl.soa.SoaPackage;
+import org.obeonetwork.dsl.soa.Verb;
 
 /**
  * <!-- begin-user-doc -->
@@ -36,6 +37,8 @@ import org.obeonetwork.dsl.soa.SoaPackage;
  *   <li>{@link org.obeonetwork.dsl.soa.impl.OperationImpl#getKind <em>Kind</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.soa.impl.OperationImpl#isPublic <em>Public</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.soa.impl.OperationImpl#getFault <em>Fault</em>}</li>
+ *   <li>{@link org.obeonetwork.dsl.soa.impl.OperationImpl#getURI <em>URI</em>}</li>
+ *   <li>{@link org.obeonetwork.dsl.soa.impl.OperationImpl#getVerb <em>Verb</em>}</li>
  * </ul>
  *
  * @generated
@@ -66,6 +69,26 @@ public class OperationImpl extends ActionImpl implements Operation {
 	 * @ordered
 	 */
 	protected static final boolean PUBLIC_EDEFAULT = false;
+
+	/**
+	 * The default value of the '{@link #getURI() <em>URI</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getURI()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String URI_EDEFAULT = null;
+
+	/**
+	 * The default value of the '{@link #getVerb() <em>Verb</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getVerb()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final Verb VERB_EDEFAULT = Verb.GET;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -157,6 +180,42 @@ public class OperationImpl extends ActionImpl implements Operation {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public String getURI() {
+		return (String)eDynamicGet(SoaPackage.OPERATION__URI, SoaPackage.Literals.OPERATION__URI, true, true);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setURI(String newURI) {
+		eDynamicSet(SoaPackage.OPERATION__URI, SoaPackage.Literals.OPERATION__URI, newURI);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Verb getVerb() {
+		return (Verb)eDynamicGet(SoaPackage.OPERATION__VERB, SoaPackage.Literals.OPERATION__VERB, true, true);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setVerb(Verb newVerb) {
+		eDynamicSet(SoaPackage.OPERATION__VERB, SoaPackage.Literals.OPERATION__VERB, newVerb);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
@@ -188,6 +247,10 @@ public class OperationImpl extends ActionImpl implements Operation {
 				return isPublic();
 			case SoaPackage.OPERATION__FAULT:
 				return getFault();
+			case SoaPackage.OPERATION__URI:
+				return getURI();
+			case SoaPackage.OPERATION__VERB:
+				return getVerb();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -219,6 +282,12 @@ public class OperationImpl extends ActionImpl implements Operation {
 				getFault().clear();
 				getFault().addAll((Collection<? extends Parameter>)newValue);
 				return;
+			case SoaPackage.OPERATION__URI:
+				setURI((String)newValue);
+				return;
+			case SoaPackage.OPERATION__VERB:
+				setVerb((Verb)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -246,6 +315,12 @@ public class OperationImpl extends ActionImpl implements Operation {
 			case SoaPackage.OPERATION__FAULT:
 				getFault().clear();
 				return;
+			case SoaPackage.OPERATION__URI:
+				setURI(URI_EDEFAULT);
+				return;
+			case SoaPackage.OPERATION__VERB:
+				setVerb(VERB_EDEFAULT);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -268,6 +343,10 @@ public class OperationImpl extends ActionImpl implements Operation {
 				return isPublic() != PUBLIC_EDEFAULT;
 			case SoaPackage.OPERATION__FAULT:
 				return !getFault().isEmpty();
+			case SoaPackage.OPERATION__URI:
+				return URI_EDEFAULT == null ? getURI() != null : !URI_EDEFAULT.equals(getURI());
+			case SoaPackage.OPERATION__VERB:
+				return getVerb() != VERB_EDEFAULT;
 		}
 		return super.eIsSet(featureID);
 	}
