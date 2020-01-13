@@ -2,10 +2,22 @@ Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: org.obeonetwork.dsl.soa.gen.swagger
 Bundle-SymbolicName: org.obeonetwork.dsl.soa.gen.swagger
-Bundle-Version: 1.0.0.qualifier
+Bundle-Version: 11.0.0.qualifier
 Automatic-Module-Name: org.obeonetwork.dsl.soa.gen.swagger
 Bundle-RequiredExecutionEnvironment: JavaSE-1.8
 Bundle-Vendor: Obeo Network
 Export-Package: org.obeonetwork.dsl.soa.gen.swagger,
  org.obeonetwork.dsl.soa.gen.swagger.utils
 Require-Bundle: org.obeonetwork.dsl.soa
+Bundle-ClassPath: target/jars/commons-lang3-3.7.jar,
+ target/jars/jackson-annotations-2.8.8.jar,
+ target/jars/jackson-core-2.8.8.jar,
+ target/jars/jackson-databind-2.8.8.jar,
+ target/jars/jackson-dataformat-yaml-2.8.8.jar,
+ target/jars/jaxb-api-2.3.0.jar,
+ target/jars/slf4j-api-1.7.9.jar,
+ target/jars/swagger-annotations-2.0.8.jar,
+ target/jars/swagger-core-2.0.8.jar,
+ target/jars/swagger-models-2.0.8.jar,
+ target/jars/validation-api-1.1.0.Final.jar,
+ .

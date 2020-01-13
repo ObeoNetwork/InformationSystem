@@ -5,6 +5,16 @@ import java.io.IOException;
 
 import org.obeonetwork.dsl.soa.System;
 
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
+import com.fasterxml.jackson.core.JsonGenerationException;
+import com.fasterxml.jackson.databind.JsonMappingException;
+import com.fasterxml.jackson.databind.MapperFeature;
+import com.fasterxml.jackson.databind.ObjectMapper;
+
+import io.swagger.v3.core.util.Json;
+import io.swagger.v3.core.util.Yaml;
+import io.swagger.v3.oas.models.OpenAPI;
+
 public class SwaggerGenerator {
 	
     public enum MapperType {
@@ -14,16 +24,12 @@ public class SwaggerGenerator {
 	public static void generateInDir(System system, MapperType mapperType, File outputDir) throws IOException {
 		String systemName = (system.getName() == null || system.getName().isEmpty())? "UnnamedSystem" : system.getName();
 		
-//		java.lang.System.out.println(system);
-//		java.lang.System.out.println(mapperType);
-//		java.lang.System.out.println(outputDir);
-		
         File outputFile = new File(outputDir, systemName + "." + mapperType.toString().toLowerCase());
         generateInFile(system, mapperType, outputFile);
 		
 	}
 
-	private static void generateInFile(System system, MapperType mapperType, File outputFile) {
+	private static void generateInFile(System system, MapperType mapperType, File outputFile) throws JsonGenerationException, JsonMappingException, IOException {
 		SwaggerBuilder swaggerBuilder = new SwaggerBuilder(system);
 		
         OpenAPI swagger = swaggerBuilder.build();

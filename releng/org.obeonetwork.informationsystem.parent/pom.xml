@@ -346,6 +346,10 @@
 		<module>../../addons/graalextensions/plugins/fr.gouv.mindef.safran.graal.extensions</module>
 		<module>../../addons/graalextensions/plugins/fr.gouv.mindef.safran.graal.extensions.edit</module>
 
+		<!-- ********************************************************************************************* 
+			* Swagger SOA Extensions ********************************************************************************************* -->
+		<module>../../addons/soa/plugins/org.obeonetwork.dsl.soa.gen.swagger</module>
+
 	</modules>
 
 	<repositories>
