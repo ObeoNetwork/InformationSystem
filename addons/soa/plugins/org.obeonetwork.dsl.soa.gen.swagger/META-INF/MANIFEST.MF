@@ -1,0 +1,11 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: org.obeonetwork.dsl.soa.gen.swagger
+Bundle-SymbolicName: org.obeonetwork.dsl.soa.gen.swagger
+Bundle-Version: 1.0.0.qualifier
+Automatic-Module-Name: org.obeonetwork.dsl.soa.gen.swagger
+Bundle-RequiredExecutionEnvironment: JavaSE-1.8
+Bundle-Vendor: Obeo Network
+Export-Package: org.obeonetwork.dsl.soa.gen.swagger,
+ org.obeonetwork.dsl.soa.gen.swagger.utils
+Require-Bundle: org.obeonetwork.dsl.soa

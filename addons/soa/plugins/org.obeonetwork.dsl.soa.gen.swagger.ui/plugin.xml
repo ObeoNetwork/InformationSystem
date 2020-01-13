@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+   <extension
+         point="org.eclipse.ui.commands">
+      <command
+            id="org.obeonetwork.dsl.soa.gen.swagger.ui.command.GenerateSwagger"
+            name="Generate Swagger">
+      </command>
+   </extension>
+   <extension
+         point="org.eclipse.ui.menus">
+      <menuContribution
+            allPopups="false"
+            locationURI="popup:org.obeonetwork.is.designer.menu?after=additions">
+         <command
+               commandId="org.obeonetwork.dsl.soa.gen.swagger.ui.command.GenerateSwagger"
+               icon="icons/swagger-logo-16x16.png"
+               style="push">
+            <visibleWhen
+                  checkEnabled="true">
+            </visibleWhen>
+         </command>
+      </menuContribution>
+   </extension>
+   <extension
+         point="org.eclipse.ui.handlers">
+      <handler
+            class="org.obeonetwork.dsl.soa.gen.swagger.ui.handlers.GenerateSwaggerHandler"
+            commandId="org.obeonetwork.dsl.soa.gen.swagger.ui.command.GenerateSwagger">
+         <enabledWhen>
+            <with
+                  variable="selection">
+               <count
+                     value="1">
+               </count>
+               <iterate
+                     ifEmpty="false"
+                     operator="and">
+                  <instanceof
+                        value="org.obeonetwork.dsl.soa.System">
+                  </instanceof>
+               </iterate>
+            </with>
+         </enabledWhen>
+      </handler>
+   </extension>
+
+</plugin>
