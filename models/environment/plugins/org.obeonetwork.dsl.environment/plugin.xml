@@ -13,8 +13,6 @@
  -->
 
 <plugin>
-   <extension-point id="providedEnvironmentModel" name="providedEnvironmentModel" schema="schema/providedEnvironmentModel.exsd"/>
-
   <extension point="org.eclipse.emf.ecore.generated_package">
     <package 
        uri = "http://www.obeonetwork.org/dsl/environment/3.0.0" 
@@ -32,12 +30,6 @@
            file-extensions="environment"
            file-names="*">
      </file-association>
-   </extension>
-   <extension
-         point="org.eclipse.sirius.sessionManagerListener">
-      <listener
-            class="org.obeonetwork.dsl.environment.session.EnvironmentSessionManagerListener">
-      </listener>
    </extension>
 </plugin>
 

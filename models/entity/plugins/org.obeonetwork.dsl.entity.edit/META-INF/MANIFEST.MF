@@ -15,7 +15,6 @@ Require-Bundle: org.eclipse.core.runtime,
  org.obeonetwork.dsl.environment.edit;visibility:=reexport,
  org.obeonetwork.dsl.technicalid;visibility:=reexport,
  org.obeonetwork.dsl.technicalid.edit;visibility:=reexport,
- org.obeonetwork.dsl.entity;visibility:=reexport,
- org.eclipse.emf.eef.runtime
+ org.obeonetwork.dsl.entity;visibility:=reexport
 Bundle-ActivationPolicy: lazy
 Bundle-RequiredExecutionEnvironment: J2SE-1.5

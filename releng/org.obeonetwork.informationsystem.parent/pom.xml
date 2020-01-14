@@ -43,6 +43,7 @@
 
 		<!-- models/environment/ -->
 		<module>../../models/environment/plugins/org.obeonetwork.dsl.environment</module>
+		<module>../../models/environment/plugins/org.obeonetwork.dsl.environment.ui</module>
 		<module>../../models/environment/plugins/org.obeonetwork.dsl.environment.edit</module>
 		<module>../../models/environment/plugins/org.obeonetwork.dsl.environment.editor</module>
 		<module>../../models/environment/plugins/org.obeonetwork.dsl.environment.common</module>
@@ -77,6 +78,7 @@
 		<!-- models/cinematic/ -->
 		<module>../../models/cinematic/plugins/org.obeonetwork.dsl.cinematic</module>
 		<module>../../models/cinematic/plugins/org.obeonetwork.dsl.cinematic.edit</module>
+		<module>../../models/cinematic/plugins/org.obeonetwork.dsl.cinematic.edit.ui</module>
 		<module>../../models/cinematic/plugins/org.obeonetwork.dsl.cinematic.editor</module>
 		<module>../../models/cinematic/plugins/org.obeonetwork.dsl.cinematic.doc</module>
 

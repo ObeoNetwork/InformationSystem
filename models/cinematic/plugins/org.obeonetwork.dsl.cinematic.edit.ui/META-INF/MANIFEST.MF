@@ -1,0 +1,13 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: %pluginName
+Bundle-SymbolicName: org.obeonetwork.dsl.cinematic.edit.ui;singleton:=true
+Bundle-Version: 11.0.0.qualifier
+Bundle-ClassPath: .
+Bundle-Vendor: %providerName
+Bundle-Localization: plugin
+Bundle-RequiredExecutionEnvironment: J2SE-1.5
+Require-Bundle: org.obeonetwork.dsl.cinematic.edit,
+ org.eclipse.core.resources,
+ org.eclipse.jface
+Bundle-ActivationPolicy: lazy

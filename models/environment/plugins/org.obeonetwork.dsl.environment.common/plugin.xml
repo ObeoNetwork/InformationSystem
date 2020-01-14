@@ -20,7 +20,7 @@
       </category>
     </extension>
    <extension
-         point="org.obeonetwork.dsl.environment.providedEnvironmentModel">
+         point="org.obeonetwork.dsl.environment.ui.providedEnvironmentModel">
       <model
             name="Obeo Common"
             uri="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment">

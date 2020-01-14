@@ -10,7 +10,6 @@ Bundle-RequiredExecutionEnvironment: JavaSE-1.8
 Export-Package: org.obeonetwork.dsl.environment,
  org.obeonetwork.dsl.environment.impl,
  org.obeonetwork.dsl.environment.migration,
- org.obeonetwork.dsl.environment.session,
  org.obeonetwork.dsl.environment.spec,
  org.obeonetwork.dsl.environment.util
 Require-Bundle: org.eclipse.core.runtime,
@@ -21,7 +20,6 @@ Require-Bundle: org.eclipse.core.runtime,
  org.obeonetwork.tools.migration,
  org.eclipse.sirius,
  org.eclipse.sirius.ext.base,
- org.obeonetwork.utils.sirius,
  org.eclipse.emf.common,
  org.eclipse.emf.transaction;bundle-version="1.9.1"
 Bundle-ActivationPolicy: lazy

@@ -8,9 +8,7 @@ Bundle-Activator: org.obeonetwork.graal.provider.GraalEditPlugin$Implementation
 Bundle-Vendor: %providerName
 Bundle-Localization: plugin
 Bundle-RequiredExecutionEnvironment: J2SE-1.5
-Export-Package: org.obeonetwork.graal.filters,
- org.obeonetwork.graal.parts.forms,
- org.obeonetwork.graal.provider
+Export-Package: org.obeonetwork.graal.provider
 Require-Bundle: org.eclipse.core.runtime,
  org.obeonetwork.graal;visibility:=reexport,
  org.eclipse.emf.edit;visibility:=reexport,
@@ -18,6 +16,5 @@ Require-Bundle: org.eclipse.core.runtime,
  org.obeonetwork.dsl.environment.edit;visibility:=reexport,
  org.obeonetwork.dsl.technicalid;visibility:=reexport,
  org.obeonetwork.dsl.technicalid.edit;visibility:=reexport,
- org.eclipse.emf.eef.runtime;visibility:=reexport,
  org.eclipse.emf.ecore.xmi
 Bundle-ActivationPolicy: lazy

@@ -16,7 +16,8 @@ Require-Bundle: org.eclipse.ui,
  org.eclipse.sirius.diagram.ui,
  org.eclipse.gmf.runtime.notation,
  org.eclipse.emf.transaction,
- org.obeonetwork.dsl.is
+ org.obeonetwork.dsl.is,
+ org.eclipse.emf.edit.ui
 Bundle-ActivationPolicy: lazy
 Bundle-RequiredExecutionEnvironment: J2SE-1.5
 Bundle-Vendor: Obeo Network
