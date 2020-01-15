@@ -15,5 +15,7 @@ Require-Bundle: org.eclipse.core.runtime,
  org.eclipse.emf.ecore.xmi;visibility:=reexport,
  org.eclipse.emf.edit.ui;visibility:=reexport,
  org.eclipse.ui.ide;visibility:=reexport,
- org.obeonetwork.dsl.technicalid.edit;visibility:=reexport
+ org.obeonetwork.dsl.technicalid.edit;visibility:=reexport,
+ org.eclipse.ui.views.properties.tabbed,
+ org.eclipse.emf.eef.runtime
 Bundle-ActivationPolicy: lazy

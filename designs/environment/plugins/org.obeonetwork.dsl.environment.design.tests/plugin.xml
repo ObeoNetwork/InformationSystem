@@ -13,7 +13,7 @@
 
 <plugin>
    <extension
-         point="org.obeonetwork.dsl.environment.providedEnvironmentModel">
+         point="org.obeonetwork.dsl.environment.ui.providedEnvironmentModel">
       <model
             name="Test Environment"
             priority="2147483647"
