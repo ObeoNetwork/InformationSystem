@@ -28,7 +28,7 @@ import org.obeonetwork.dsl.environment.Environment;
 
 public class ProvidedModelsService {
 	
-	private static final String PROVIDED_ENVIRONMENT_MODEL_EXTENSION_ID = "org.obeonetwork.dsl.environment.providedEnvironmentModel";
+	private static final String PROVIDED_ENVIRONMENT_MODEL_EXTENSION_ID = "org.obeonetwork.dsl.environment.ui.providedEnvironmentModel";
 	
 	public static Collection<Environment> getProvidedEnvironmentModels(Collection<URI> alreadyUsedURIs) {
 
