@@ -173,6 +173,7 @@ public class TypesLibraryActionBarContributor
 	 */
 	@Override
 	public void contributeToToolBar(IToolBarManager toolBarManager) {
+		super.contributeToToolBar(toolBarManager);
 		toolBarManager.add(new Separator("typeslibrary-settings"));
 		toolBarManager.add(new Separator("typeslibrary-additions"));
 	}
