@@ -17,9 +17,5 @@ Require-Bundle: org.eclipse.core.runtime,
  org.eclipse.emf.ecore.xmi;visibility:=reexport,
  org.obeonetwork.dsl.technicalid;visibility:=reexport,
  org.eclipse.emf.cdo;visibility:=reexport,
- org.obeonetwork.tools.migration,
- org.eclipse.sirius,
- org.eclipse.sirius.ext.base,
- org.eclipse.emf.common,
- org.eclipse.emf.transaction;bundle-version="1.9.1"
+ org.obeonetwork.tools.migration
 Bundle-ActivationPolicy: lazy
