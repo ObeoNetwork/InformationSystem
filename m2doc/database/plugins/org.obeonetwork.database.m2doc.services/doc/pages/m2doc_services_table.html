@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en">
+<!--
+/********************************************************************************
+** Copyright (c) 2016, 2017, 2018, 2019 Obeo.
+** All rights reserved. This program and the accompanying materials
+** are made available under the terms of the Eclipse Public License v1.0
+** which accompanies this distribution, and is available at
+** http://www.eclipse.org/legal/epl-v10.html
+**
+** Contributors:
+**    Obeo - initial API and implementation
+*********************************************************************************/
+-->
+  <head>
+    <meta charset="utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta name="description" content=""/>
+    <meta name="author" content="Obeo"/>
+    <!-- IE6-8 support of HTML elements -->
+    <!--if lt IE 9>
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <!endif-->
+    <link href="../assets/css/bootstrap.css" rel="stylesheet"/>
+    <link href="../assets/css/docs.css" rel="stylesheet"/>
+    <title>M2Doc Services and attributes for Table</title>
+  </head>
+
+  <body>
+   <header class="jumbotron subhead" id="overview">
+  </header>
+
+    <h1 id="Table">Services and attributes for the Table concept</h1>
+    <div class="page-header">
+      <h2 id="Attributes">Attributes</h2>
+    </div>
+    <table class="table table-striped">
+    <thead>
+      <tr>
+        <th colspan="1" rowspan="1">Name</th>
+        <th colspan="1" rowspan="1">Returned type</th>
+        <th colspan="1" rowspan="1">M2Doc Syntax</th>
+        <th colspan="1" rowspan="1">Description</th>
+        <th colspan="1" rowspan="1">Example</th>
+      </tr>
+    </thead>
+  <tbody>
+    <tr>
+      <td colspan="1" rowspan="1"><strong>ID</strong></td>
+      <td colspan="1" rowspan="1">EString</td>
+      <td colspan="1" rowspan="1">{m:table.ID}</td>
+      <td colspan="1" rowspan="1"></td>
+      <td colspan="1" rowspan="1">{m:table.ID}</td>
+    </tr>
+    <tr>
+      <td colspan="1" rowspan="1"><strong>columns</strong></td>
+      <td colspan="1" rowspan="1">List of Column</td>
+      <td colspan="1" rowspan="1">{m:table.columns}</td>
+      <td colspan="1" rowspan="1"></td>
+      <td colspan="1" rowspan="1">{m:for column | table.columns} column {m:column.name}, {m:endfor}</td>
+    </tr>
+    <tr>
+      <td colspan="1" rowspan="1"><strong>comments</strong></td>
+      <td colspan="1" rowspan="1">EString</td>
+      <td colspan="1" rowspan="1">{m:table.comments}</td>
+      <td colspan="1" rowspan="1"></td>
+      <td colspan="1" rowspan="1">{m:table.comments}</td>
+    </tr>
+    <tr>
+      <td colspan="1" rowspan="1"><strong>constraints</strong></td>
+      <td colspan="1" rowspan="1">List of Constraint</td>
+      <td colspan="1" rowspan="1">{m:table.constraints}</td>
+      <td colspan="1" rowspan="1"></td>
+      <td colspan="1" rowspan="1">{m:for constraint | table.constraints} constraint {m:constraint.name}, {m:endfor}</td>
+    </tr>
+    <tr>
+      <td colspan="1" rowspan="1"><strong>foreignKeys</strong></td>
+      <td colspan="1" rowspan="1">List of ForeignKey</td>
+      <td colspan="1" rowspan="1">{m:table.foreignKeys}</td>
+      <td colspan="1" rowspan="1"></td>
+      <td colspan="1" rowspan="1">{m:for foreignKey | table.foreignKeys} foreignKey {m:foreignKey.name}, {m:endfor}</td>
+    </tr>
+    <tr>
+      <td colspan="1" rowspan="1"><strong>indexes</strong></td>
+      <td colspan="1" rowspan="1">List of Index</td>
+      <td colspan="1" rowspan="1">{m:table.indexes}</td>
+      <td colspan="1" rowspan="1"></td>
+      <td colspan="1" rowspan="1">{m:for index | table.indexes} index {m:index.name}, {m:endfor}</td>
+    </tr>
+    <tr>
+      <td colspan="1" rowspan="1"><strong>name</strong></td>
+      <td colspan="1" rowspan="1">EString</td>
+      <td colspan="1" rowspan="1">{m:table.name}</td>
+      <td colspan="1" rowspan="1"></td>
+      <td colspan="1" rowspan="1">{m:table.name}</td>
+    </tr>
+    <tr>
+      <td colspan="1" rowspan="1"><strong>owner</strong></td>
+      <td colspan="1" rowspan="1">TableContainer</td>
+      <td colspan="1" rowspan="1">{m:table.owner}</td>
+      <td colspan="1" rowspan="1"></td>
+      <td colspan="1" rowspan="1">{m:table.owner}</td>
+    </tr>
+    <tr>
+      <td colspan="1" rowspan="1"><strong>primaryKey</strong></td>
+      <td colspan="1" rowspan="1">PrimaryKey</td>
+      <td colspan="1" rowspan="1">{m:table.primaryKey}</td>
+      <td colspan="1" rowspan="1"></td>
+      <td colspan="1" rowspan="1">{m:table.primaryKey}</td>
+    </tr>
+    <tr>
+      <td colspan="1" rowspan="1"><strong>techID</strong></td>
+      <td colspan="1" rowspan="1">EString</td>
+      <td colspan="1" rowspan="1">{m:table.techID}</td>
+      <td colspan="1" rowspan="1"></td>
+      <td colspan="1" rowspan="1">{m:table.techID}</td>
+    </tr>
+    </tbody>
+    </table>
+    <div class="page-header">
+      <h2 id="Services">Services</h2>
+    </div>
+    <table class="table table-striped">
+    <thead>
+      <tr>
+        <th colspan="1" rowspan="1">Name</th>
+        <th colspan="1" rowspan="1">Returned type</th>
+        <th colspan="1" rowspan="1">M2Doc Syntax</th>
+        <th colspan="1" rowspan="1">Description</th>
+        <th colspan="1" rowspan="1">Example</th>
+      </tr>
+    </thead>
+  <tbody>
+    <tr>
+      <td colspan="1" rowspan="1"><strong>allColumnNames</strong></td>
+      <td colspan="1" rowspan="1">List of String</td>
+      <td colspan="1" rowspan="1"></td>
+      <td colspan="1" rowspan="1"></td>
+      <td colspan="1" rowspan="1"></td>
+    </tr>
+    <tr>
+      <td colspan="1" rowspan="1"><strong>allColumns</strong></td>
+      <td colspan="1" rowspan="1">List of Column</td>
+      <td colspan="1" rowspan="1"></td>
+      <td colspan="1" rowspan="1"></td>
+      <td colspan="1" rowspan="1"></td>
+    </tr>
+    <tr>
+      <td colspan="1" rowspan="1"><strong>caseAbstractTable</strong></td>
+      <td colspan="1" rowspan="1">Object</td>
+      <td colspan="1" rowspan="1"></td>
+      <td colspan="1" rowspan="1"></td>
+      <td colspan="1" rowspan="1"></td>
+    </tr>
+    <tr>
+      <td colspan="1" rowspan="1"><strong>caseAbstractTable</strong></td>
+      <td colspan="1" rowspan="1">Object</td>
+      <td colspan="1" rowspan="1"></td>
+      <td colspan="1" rowspan="1"></td>
+      <td colspan="1" rowspan="1"></td>
+    </tr>
+    <tr>
+      <td colspan="1" rowspan="1"><strong>caseDatabaseElement</strong></td>
+      <td colspan="1" rowspan="1">Object</td>
+      <td colspan="1" rowspan="1"></td>
+      <td colspan="1" rowspan="1"></td>
+      <td colspan="1" rowspan="1"></td>
+    </tr>
+    <tr>
+      <td colspan="1" rowspan="1"><strong>caseDatabaseElement</strong></td>
+      <td colspan="1" rowspan="1">Object</td>
+      <td colspan="1" rowspan="1"></td>
+      <td colspan="1" rowspan="1"></td>
+      <td colspan="1" rowspan="1"></td>
+    </tr>
+    <tr>
+      <td colspan="1" rowspan="1"><strong>caseNamedElement</strong></td>
+      <td colspan="1" rowspan="1">Object</td>
+      <td colspan="1" rowspan="1"></td>
+      <td colspan="1" rowspan="1"></td>
+      <td colspan="1" rowspan="1"></td>
+    </tr>
+    <tr>
+      <td colspan="1" rowspan="1"><strong>caseNamedElement</strong></td>
+      <td colspan="1" rowspan="1">Object</td>
+      <td colspan="1" rowspan="1"></td>
+      <td colspan="1" rowspan="1"></td>
+      <td colspan="1" rowspan="1"></td>
+    </tr>
+    <tr>
+      <td colspan="1" rowspan="1"><strong>caseTable</strong></td>
+      <td colspan="1" rowspan="1">Object</td>
+      <td colspan="1" rowspan="1"></td>
+      <td colspan="1" rowspan="1"></td>
+      <td colspan="1" rowspan="1"></td>
+    </tr>
+    <tr>
+      <td colspan="1" rowspan="1"><strong>caseTable</strong></td>
+      <td colspan="1" rowspan="1">Object</td>
+      <td colspan="1" rowspan="1"></td>
+      <td colspan="1" rowspan="1"></td>
+      <td colspan="1" rowspan="1"></td>
+    </tr>
+    <tr>
+      <td colspan="1" rowspan="1"><strong>caseTable</strong></td>
+      <td colspan="1" rowspan="1">String</td>
+      <td colspan="1" rowspan="1"></td>
+      <td colspan="1" rowspan="1"></td>
+      <td colspan="1" rowspan="1"></td>
+    </tr>
+    <tr>
+      <td colspan="1" rowspan="1"><strong>defaultCase</strong></td>
+      <td colspan="1" rowspan="1">Object</td>
+      <td colspan="1" rowspan="1"></td>
+      <td colspan="1" rowspan="1"></td>
+      <td colspan="1" rowspan="1"></td>
+    </tr>
+    <tr>
+      <td colspan="1" rowspan="1"><strong>defaultCase</strong></td>
+      <td colspan="1" rowspan="1">Object</td>
+      <td colspan="1" rowspan="1"></td>
+      <td colspan="1" rowspan="1"></td>
+      <td colspan="1" rowspan="1"></td>
+    </tr>
+    <tr>
+      <td colspan="1" rowspan="1"><strong>doSwitch</strong></td>
+      <td colspan="1" rowspan="1">Object</td>
+      <td colspan="1" rowspan="1"></td>
+      <td colspan="1" rowspan="1"></td>
+      <td colspan="1" rowspan="1"></td>
+    </tr>
+    <tr>
+      <td colspan="1" rowspan="1"><strong>doSwitch</strong></td>
+      <td colspan="1" rowspan="1">Object</td>
+      <td colspan="1" rowspan="1"></td>
+      <td colspan="1" rowspan="1"></td>
+      <td colspan="1" rowspan="1"></td>
+    </tr>
+    <tr>
+      <td colspan="1" rowspan="1"><strong>foreignKeyNames</strong></td>
+      <td colspan="1" rowspan="1">List of String</td>
+      <td colspan="1" rowspan="1"></td>
+      <td colspan="1" rowspan="1"></td>
+      <td colspan="1" rowspan="1"></td>
+    </tr>
+    <tr>
+      <td colspan="1" rowspan="1"><strong>primaryKeyName</strong></td>
+      <td colspan="1" rowspan="1">String</td>
+      <td colspan="1" rowspan="1"></td>
+      <td colspan="1" rowspan="1"></td>
+      <td colspan="1" rowspan="1"></td>
+    </tr>
+    <tr>
+      <td colspan="1" rowspan="1"><strong>pureColumnNames</strong></td>
+      <td colspan="1" rowspan="1">List of String</td>
+      <td colspan="1" rowspan="1"></td>
+      <td colspan="1" rowspan="1"></td>
+      <td colspan="1" rowspan="1"></td>
+    </tr>
+    <tr>
+      <td colspan="1" rowspan="1"><strong>pureColumns</strong></td>
+      <td colspan="1" rowspan="1">List of Column</td>
+      <td colspan="1" rowspan="1"></td>
+      <td colspan="1" rowspan="1"></td>
+      <td colspan="1" rowspan="1"></td>
+    </tr>
+    </tbody>
+    </table>
+  </body>
+
+</html>

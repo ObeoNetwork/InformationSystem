@@ -1,28 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <?NLS TYPE="org.eclipse.help.toc"?>
-<!--
-    Copyright (c) 2016, 2017 Obeo.
-    All rights reserved. This program and the accompanying materials
-    are made available under the terms of the Eclipse Public License v1.0
-    which accompanies this distribution, and is available at
-    http://www.eclipse.org/legal/epl-v10.html
-   
-    Contributors:
-        Obeo - initial API and implementation
- -->
-
-<toc label="M2Doc : Database&apos;s services" topic="doc/pages/Database_package.html">
-<topic href="doc/pages/Column_services.html" label="Services available for Columns."></topic>
-<topic href="doc/pages/Constraint_services.html" label="Services available for Constraints."></topic>
-<topic href="doc/pages/DataBase_services.html" label="Services available for DataBases."></topic>
-<topic href="doc/pages/ForeignKey_services.html" label="Services available for ForeignKeys"></topic>
-<topic href="doc/pages/ForeignKeyElement_services.html" label="Services available for ForeignKeyElements"></topic>
-<topic href="doc/pages/Index_services.html" label="Services available for Indexes"></topic>
-<topic href="doc/pages/IndexElement_services.html" label="Services available for IndexElements"></topic>
-<topic href="doc/pages/PrimaryKey_services.html" label="Services available for PrimaryKeys"></topic>
-<topic href="doc/pages/Schema_services.html" label="Services available for Schemas"></topic>
-<topic href="doc/pages/Sequence_services.html" label="Services available for Sequences"></topic>
-<topic href="doc/pages/Table_services.html" label="Services available for Tables"></topic>
-<topic href="doc/pages/View_services.html" label="Services available for Views"></topic>
-<topic href="doc/pages/ViewElement_services.html" label="Services available for View Elements"></topic>
+<toc label="M2Doc : Database services" topic="doc/pages/index.html">
+<topic href="doc/pages/m2doc_services_abstracttable.html" label="M2Doc Services and Attributes for AbstractTable"></topic>
+<topic href="doc/pages/m2doc_services_column.html" label="M2Doc Services and Attributes for Column"></topic>
+<topic href="doc/pages/m2doc_services_constraint.html" label="M2Doc Services and Attributes for Constraint"></topic>
+<topic href="doc/pages/m2doc_services_database.html" label="M2Doc Services and Attributes for DataBase"></topic>
+<topic href="doc/pages/m2doc_services_databaseelement.html" label="M2Doc Services and Attributes for DatabaseElement"></topic>
+<topic href="doc/pages/m2doc_services_eobject.html" label="M2Doc Services and Attributes for EObject"></topic>
+<topic href="doc/pages/m2doc_services_foreignkey.html" label="M2Doc Services and Attributes for ForeignKey"></topic>
+<topic href="doc/pages/m2doc_services_foreignkeyelement.html" label="M2Doc Services and Attributes for ForeignKeyElement"></topic>
+<topic href="doc/pages/m2doc_services_index.html" label="M2Doc Services and Attributes for Index"></topic>
+<topic href="doc/pages/m2doc_services_indexelement.html" label="M2Doc Services and Attributes for IndexElement"></topic>
+<topic href="doc/pages/m2doc_services_namedelement.html" label="M2Doc Services and Attributes for NamedElement"></topic>
+<topic href="doc/pages/m2doc_services_primarykey.html" label="M2Doc Services and Attributes for PrimaryKey"></topic>
+<topic href="doc/pages/m2doc_services_schema.html" label="M2Doc Services and Attributes for Schema"></topic>
+<topic href="doc/pages/m2doc_services_sequence.html" label="M2Doc Services and Attributes for Sequence"></topic>
+<topic href="doc/pages/m2doc_services_table.html" label="M2Doc Services and Attributes for Table"></topic>
+<topic href="doc/pages/m2doc_services_tablecontainer.html" label="M2Doc Services and Attributes for TableContainer"></topic>
+<topic href="doc/pages/m2doc_services_typeslibraryuser.html" label="M2Doc Services and Attributes for TypesLibraryUser"></topic>
+<topic href="doc/pages/m2doc_services_view.html" label="M2Doc Services and Attributes for View"></topic>
+<topic href="doc/pages/m2doc_services_viewelement.html" label="M2Doc Services and Attributes for ViewElement"></topic>
 </toc>

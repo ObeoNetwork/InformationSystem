@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<!--
+/********************************************************************************
+** Copyright (c) 2016, 2017, 2018, 2019 Obeo.
+** All rights reserved. This program and the accompanying materials
+** are made available under the terms of the Eclipse Public License v1.0
+** which accompanies this distribution, and is available at
+** http://www.eclipse.org/legal/epl-v10.html
+**
+** Contributors:
+**    Obeo - initial API and implementation
+*********************************************************************************/
+-->
+  <head>
+    <meta charset="utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta name="description" content=""/>
+    <meta name="author" content="Obeo"/>
+    <!-- IE6-8 support of HTML elements -->
+    <!--if lt IE 9>
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <!endif-->
+    <link href="../assets/css/bootstrap.css" rel="stylesheet"/>
+    <link href="../assets/css/docs.css" rel="stylesheet"/>
+    <title>M2Doc Services and attributes for System</title>
+  </head>
+
+  <body>
+   <header class="jumbotron subhead" id="overview">
+  </header>
+
+    <h1 id="System">Services and attributes for the System concept</h1>
+    <div class="page-header">
+      <h2 id="Attributes">Attributes</h2>
+    </div>
+    <table class="table table-striped">
+    <thead>
+      <tr>
+        <th colspan="1" rowspan="1">Name</th>
+        <th colspan="1" rowspan="1">Returned type</th>
+        <th colspan="1" rowspan="1">M2Doc Syntax</th>
+        <th colspan="1" rowspan="1">Description</th>
+        <th colspan="1" rowspan="1">Example</th>
+      </tr>
+    </thead>
+  <tbody>
+    <tr>
+      <td colspan="1" rowspan="1"><strong>behaviours</strong></td>
+      <td colspan="1" rowspan="1">List of Behaviour</td>
+      <td colspan="1" rowspan="1">{m:system.behaviours}</td>
+      <td colspan="1" rowspan="1">The Behaviours owned by this object.</td>
+      <td colspan="1" rowspan="1">{m:for behaviour | system.behaviours} behaviour {m:behaviour.name}, {m:endfor}</td>
+    </tr>
+    <tr>
+      <td colspan="1" rowspan="1"><strong>bindingRegistries</strong></td>
+      <td colspan="1" rowspan="1">List of BindingRegistry</td>
+      <td colspan="1" rowspan="1">{m:system.bindingRegistries}</td>
+      <td colspan="1" rowspan="1">The binding registries of this object.</td>
+      <td colspan="1" rowspan="1">{m:for bindingRegistry | system.bindingRegistries} bindingRegistry {m:bindingRegistry.name}, {m:endfor}</td>
+    </tr>
+    <tr>
+      <td colspan="1" rowspan="1"><strong>createdOn</strong></td>
+      <td colspan="1" rowspan="1">EDate</td>
+      <td colspan="1" rowspan="1">{m:system.createdOn}</td>
+      <td colspan="1" rowspan="1">The creation date of this object.</td>
+      <td colspan="1" rowspan="1">{m:system.createdOn}</td>
+    </tr>
+    <tr>
+      <td colspan="1" rowspan="1"><strong>description</strong></td>
+      <td colspan="1" rowspan="1">EString</td>
+      <td colspan="1" rowspan="1">{m:system.description}</td>
+      <td colspan="1" rowspan="1">The description of this object.</td>
+      <td colspan="1" rowspan="1">{m:system.description}</td>
+    </tr>
+    <tr>
+      <td colspan="1" rowspan="1"><strong>keywords</strong></td>
+      <td colspan="1" rowspan="1">List of EString</td>
+      <td colspan="1" rowspan="1">{m:system.keywords}</td>
+      <td colspan="1" rowspan="1">The list of keywords applied to this object.</td>
+      <td colspan="1" rowspan="1">{m:for eString | system.keywords} eString {m:eString.name}, {m:endfor}</td>
+    </tr>
+    <tr>
+      <td colspan="1" rowspan="1"><strong>metadatas</strong></td>
+      <td colspan="1" rowspan="1">MetaDataContainer</td>
+      <td colspan="1" rowspan="1">{m:system.metadatas}</td>
+      <td colspan="1" rowspan="1">The metadatas defined on this object.</td>
+      <td colspan="1" rowspan="1">{m:system.metadatas}</td>
+    </tr>
+    <tr>
+      <td colspan="1" rowspan="1"><strong>modifiedOn</strong></td>
+      <td colspan="1" rowspan="1">EDate</td>
+      <td colspan="1" rowspan="1">{m:system.modifiedOn}</td>
+      <td colspan="1" rowspan="1">The modification date of this obect.</td>
+      <td colspan="1" rowspan="1">{m:system.modifiedOn}</td>
+    </tr>
+    <tr>
+      <td colspan="1" rowspan="1"><strong>name</strong></td>
+      <td colspan="1" rowspan="1">EString</td>
+      <td colspan="1" rowspan="1">{m:system.name}</td>
+      <td colspan="1" rowspan="1"></td>
+      <td colspan="1" rowspan="1">{m:system.name}</td>
+    </tr>
+    <tr>
+      <td colspan="1" rowspan="1"><strong>ownedComponents</strong></td>
+      <td colspan="1" rowspan="1">List of Component</td>
+      <td colspan="1" rowspan="1">{m:system.ownedComponents}</td>
+      <td colspan="1" rowspan="1"></td>
+      <td colspan="1" rowspan="1">{m:for component | system.ownedComponents} component {m:component.name}, {m:endfor}</td>
+    </tr>
+    <tr>
+      <td colspan="1" rowspan="1"><strong>ownedNamespaces</strong></td>
+      <td colspan="1" rowspan="1">List of Namespace</td>
+      <td colspan="1" rowspan="1">{m:system.ownedNamespaces}</td>
+      <td colspan="1" rowspan="1"></td>
+      <td colspan="1" rowspan="1">{m:for namespace | system.ownedNamespaces} namespace {m:namespace.name}, {m:endfor}</td>
+    </tr>
+    <tr>
+      <td colspan="1" rowspan="1"><strong>ownedWires</strong></td>
+      <td colspan="1" rowspan="1">List of Wire</td>
+      <td colspan="1" rowspan="1">{m:system.ownedWires}</td>
+      <td colspan="1" rowspan="1"></td>
+      <td colspan="1" rowspan="1">{m:for wire | system.ownedWires} wire {m:wire.name}, {m:endfor}</td>
+    </tr>
+    <tr>
+      <td colspan="1" rowspan="1"><strong>owner</strong></td>
+      <td colspan="1" rowspan="1">NamespacesContainer</td>
+      <td colspan="1" rowspan="1">{m:system.owner}</td>
+      <td colspan="1" rowspan="1"></td>
+      <td colspan="1" rowspan="1">{m:system.owner}</td>
+    </tr>
+    <tr>
+      <td colspan="1" rowspan="1"><strong>technicalid</strong></td>
+      <td colspan="1" rowspan="1">EString</td>
+      <td colspan="1" rowspan="1">{m:system.technicalid}</td>
+      <td colspan="1" rowspan="1">Technical identifier of the element.</td>
+      <td colspan="1" rowspan="1">{m:system.technicalid}</td>
+    </tr>
+    <tr>
+      <td colspan="1" rowspan="1"><strong>types</strong></td>
+      <td colspan="1" rowspan="1">List of Type</td>
+      <td colspan="1" rowspan="1">{m:system.types}</td>
+      <td colspan="1" rowspan="1"></td>
+      <td colspan="1" rowspan="1">{m:for type | system.types} type {m:type.name}, {m:endfor}</td>
+    </tr>
+    <tr>
+      <td colspan="1" rowspan="1"><strong>version</strong></td>
+      <td colspan="1" rowspan="1">EInt</td>
+      <td colspan="1" rowspan="1">{m:system.version}</td>
+      <td colspan="1" rowspan="1">The version of this object.</td>
+      <td colspan="1" rowspan="1">{m:system.version}</td>
+    </tr>
+    </tbody>
+    </table>
+    <div class="page-header">
+      <h2 id="Services">Services</h2>
+    </div>
+    <table class="table table-striped">
+    <thead>
+      <tr>
+        <th colspan="1" rowspan="1">Name</th>
+        <th colspan="1" rowspan="1">Returned type</th>
+        <th colspan="1" rowspan="1">M2Doc Syntax</th>
+        <th colspan="1" rowspan="1">Description</th>
+        <th colspan="1" rowspan="1">Example</th>
+      </tr>
+    </thead>
+  <tbody>
+    <tr>
+      <td colspan="1" rowspan="1"><strong>hasOwnedComponent</strong></td>
+      <td colspan="1" rowspan="1">boolean</td>
+      <td colspan="1" rowspan="1">{m:mySystem.hasOwnedComponents()}</td>
+      <td colspan="1" rowspan="1">Returns if the given System direclty contains at least one Component.</td>
+      <td colspan="1" rowspan="1">{m:mySystem.hasOwnedComponents()} returns: true or false.</td>
+    </tr>
+    <tr>
+      <td colspan="1" rowspan="1"><strong>hasOwnedWire</strong></td>
+      <td colspan="1" rowspan="1">boolean</td>
+      <td colspan="1" rowspan="1">{m:mySystem.hasOwnedWires()}</td>
+      <td colspan="1" rowspan="1">Returns if the given System direclty contains at least one Wire.</td>
+      <td colspan="1" rowspan="1">{m:mySystem.hasOwnedWires()} returns: true or false.</td>
+    </tr>
+    </tbody>
+    </table>
+  </body>
+
+</html>

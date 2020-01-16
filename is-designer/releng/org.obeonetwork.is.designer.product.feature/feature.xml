@@ -186,6 +186,10 @@
          version="0.0.0"/>
 
    <includes
+         id="org.obeonetwork.dsl.soa.m2doc.feature"
+         version="0.0.0"/>
+
+   <includes
          id="org.obeonetwork.m2doc.feature"
          version="0.0.0"/>
 

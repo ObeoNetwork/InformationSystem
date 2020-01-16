@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<!--
+/********************************************************************************
+** Copyright (c) 2016, 2017, 2018, 2019 Obeo.
+** All rights reserved. This program and the accompanying materials
+** are made available under the terms of the Eclipse Public License v1.0
+** which accompanies this distribution, and is available at
+** http://www.eclipse.org/legal/epl-v10.html
+**
+** Contributors:
+**    Obeo - initial API and implementation
+*********************************************************************************/
+-->
+  <head>
+    <meta charset="utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta name="description" content=""/>
+    <meta name="author" content="Obeo"/>
+    <!-- IE6-8 support of HTML elements -->
+    <!--if lt IE 9>
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <!endif-->
+    <link href="../assets/css/bootstrap.css" rel="stylesheet"/>
+    <link href="../assets/css/docs.css" rel="stylesheet"/>
+    <title>M2Doc Services and attributes for Operation</title>
+  </head>
+
+  <body>
+   <header class="jumbotron subhead" id="overview">
+  </header>
+
+    <h1 id="Operation">Services and attributes for the Operation concept</h1>
+    <div class="page-header">
+      <h2 id="Attributes">Attributes</h2>
+    </div>
+    <table class="table table-striped">
+    <thead>
+      <tr>
+        <th colspan="1" rowspan="1">Name</th>
+        <th colspan="1" rowspan="1">Returned type</th>
+        <th colspan="1" rowspan="1">M2Doc Syntax</th>
+        <th colspan="1" rowspan="1">Description</th>
+        <th colspan="1" rowspan="1">Example</th>
+      </tr>
+    </thead>
+  <tbody>
+    <tr>
+      <td colspan="1" rowspan="1"><strong>behaviours</strong></td>
+      <td colspan="1" rowspan="1">List of Behaviour</td>
+      <td colspan="1" rowspan="1">{m:operation.behaviours}</td>
+      <td colspan="1" rowspan="1">The Behaviours owned by this object.</td>
+      <td colspan="1" rowspan="1">{m:for behaviour | operation.behaviours} behaviour {m:behaviour.name}, {m:endfor}</td>
+    </tr>
+    <tr>
+      <td colspan="1" rowspan="1"><strong>bindingRegistries</strong></td>
+      <td colspan="1" rowspan="1">List of BindingRegistry</td>
+      <td colspan="1" rowspan="1">{m:operation.bindingRegistries}</td>
+      <td colspan="1" rowspan="1">The binding registries of this object.</td>
+      <td colspan="1" rowspan="1">{m:for bindingRegistry | operation.bindingRegistries} bindingRegistry {m:bindingRegistry.name}, {m:endfor}</td>
+    </tr>
+    <tr>
+      <td colspan="1" rowspan="1"><strong>createdOn</strong></td>
+      <td colspan="1" rowspan="1">EDate</td>
+      <td colspan="1" rowspan="1">{m:operation.createdOn}</td>
+      <td colspan="1" rowspan="1">The creation date of this object.</td>
+      <td colspan="1" rowspan="1">{m:operation.createdOn}</td>
+    </tr>
+    <tr>
+      <td colspan="1" rowspan="1"><strong>description</strong></td>
+      <td colspan="1" rowspan="1">EString</td>
+      <td colspan="1" rowspan="1">{m:operation.description}</td>
+      <td colspan="1" rowspan="1">The description of this object.</td>
+      <td colspan="1" rowspan="1">{m:operation.description}</td>
+    </tr>
+    <tr>
+      <td colspan="1" rowspan="1"><strong>fault</strong></td>
+      <td colspan="1" rowspan="1">List of Parameter</td>
+      <td colspan="1" rowspan="1">{m:operation.fault}</td>
+      <td colspan="1" rowspan="1"></td>
+      <td colspan="1" rowspan="1">{m:for parameter | operation.fault} parameter {m:parameter.name}, {m:endfor}</td>
+    </tr>
+    <tr>
+      <td colspan="1" rowspan="1"><strong>input</strong></td>
+      <td colspan="1" rowspan="1">List of Parameter</td>
+      <td colspan="1" rowspan="1">{m:operation.input}</td>
+      <td colspan="1" rowspan="1"></td>
+      <td colspan="1" rowspan="1">{m:for parameter | operation.input} parameter {m:parameter.name}, {m:endfor}</td>
+    </tr>
+    <tr>
+      <td colspan="1" rowspan="1"><strong>keywords</strong></td>
+      <td colspan="1" rowspan="1">List of EString</td>
+      <td colspan="1" rowspan="1">{m:operation.keywords}</td>
+      <td colspan="1" rowspan="1">The list of keywords applied to this object.</td>
+      <td colspan="1" rowspan="1">{m:for eString | operation.keywords} eString {m:eString.name}, {m:endfor}</td>
+    </tr>
+    <tr>
+      <td colspan="1" rowspan="1"><strong>kind</strong></td>
+      <td colspan="1" rowspan="1">OperationKind</td>
+      <td colspan="1" rowspan="1">{m:operation.kind}</td>
+      <td colspan="1" rowspan="1"></td>
+      <td colspan="1" rowspan="1">{m:operation.kind}</td>
+    </tr>
+    <tr>
+      <td colspan="1" rowspan="1"><strong>metadatas</strong></td>
+      <td colspan="1" rowspan="1">MetaDataContainer</td>
+      <td colspan="1" rowspan="1">{m:operation.metadatas}</td>
+      <td colspan="1" rowspan="1">The metadatas defined on this object.</td>
+      <td colspan="1" rowspan="1">{m:operation.metadatas}</td>
+    </tr>
+    <tr>
+      <td colspan="1" rowspan="1"><strong>modifiedOn</strong></td>
+      <td colspan="1" rowspan="1">EDate</td>
+      <td colspan="1" rowspan="1">{m:operation.modifiedOn}</td>
+      <td colspan="1" rowspan="1">The modification date of this obect.</td>
+      <td colspan="1" rowspan="1">{m:operation.modifiedOn}</td>
+    </tr>
+    <tr>
+      <td colspan="1" rowspan="1"><strong>name</strong></td>
+      <td colspan="1" rowspan="1">EString</td>
+      <td colspan="1" rowspan="1">{m:operation.name}</td>
+      <td colspan="1" rowspan="1"></td>
+      <td colspan="1" rowspan="1">{m:operation.name}</td>
+    </tr>
+    <tr>
+      <td colspan="1" rowspan="1"><strong>output</strong></td>
+      <td colspan="1" rowspan="1">List of Parameter</td>
+      <td colspan="1" rowspan="1">{m:operation.output}</td>
+      <td colspan="1" rowspan="1"></td>
+      <td colspan="1" rowspan="1">{m:for parameter | operation.output} parameter {m:parameter.name}, {m:endfor}</td>
+    </tr>
+    <tr>
+      <td colspan="1" rowspan="1"><strong>public</strong></td>
+      <td colspan="1" rowspan="1">EBoolean</td>
+      <td colspan="1" rowspan="1">{m:operation.public}</td>
+      <td colspan="1" rowspan="1"></td>
+      <td colspan="1" rowspan="1">{m:operation.public}</td>
+    </tr>
+    <tr>
+      <td colspan="1" rowspan="1"><strong>technicalid</strong></td>
+      <td colspan="1" rowspan="1">EString</td>
+      <td colspan="1" rowspan="1">{m:operation.technicalid}</td>
+      <td colspan="1" rowspan="1">Technical identifier of the element.</td>
+      <td colspan="1" rowspan="1">{m:operation.technicalid}</td>
+    </tr>
+    <tr>
+      <td colspan="1" rowspan="1"><strong>version</strong></td>
+      <td colspan="1" rowspan="1">EInt</td>
+      <td colspan="1" rowspan="1">{m:operation.version}</td>
+      <td colspan="1" rowspan="1">The version of this object.</td>
+      <td colspan="1" rowspan="1">{m:operation.version}</td>
+    </tr>
+    </tbody>
+    </table>
+    <div class="page-header">
+      <h2 id="Services">Services</h2>
+    </div>
+    <table class="table table-striped">
+    <thead>
+      <tr>
+        <th colspan="1" rowspan="1">Name</th>
+        <th colspan="1" rowspan="1">Returned type</th>
+        <th colspan="1" rowspan="1">M2Doc Syntax</th>
+        <th colspan="1" rowspan="1">Description</th>
+        <th colspan="1" rowspan="1">Example</th>
+      </tr>
+    </thead>
+  <tbody>
+    <tr>
+      <td colspan="1" rowspan="1"><strong>getOwnedParameters</strong></td>
+      <td colspan="1" rowspan="1">List of Parameter</td>
+      <td colspan="1" rowspan="1">{m:myOperation.getOwnedParameters()}</td>
+      <td colspan="1" rowspan="1">Returns the list of Parameter directly contained in the given Operation.</td>
+      <td colspan="1" rowspan="1">{m:myOperation.getOwnedParameters().name->sep(',')} returns: The list of Parameter directly contained in the given Operation names separated by coma.</td>
+    </tr>
+    <tr>
+      <td colspan="1" rowspan="1"><strong>hasOwnedParameters</strong></td>
+      <td colspan="1" rowspan="1">boolean</td>
+      <td colspan="1" rowspan="1">{m:myOperation.hasOwnedParameters()}</td>
+      <td colspan="1" rowspan="1">Returns if the given Operation direclty contains at least one Parameter.</td>
+      <td colspan="1" rowspan="1">{m:myOperation.hasOwnedParameters()} returns: true or false.</td>
+    </tr>
+    </tbody>
+    </table>
+  </body>
+
+</html>

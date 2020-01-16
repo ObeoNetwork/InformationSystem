@@ -21,6 +21,7 @@ import org.eclipse.emf.ecore.EObject;
 import org.obeonetwork.dsl.environment.Attribute;
 import org.obeonetwork.dsl.environment.DTO;
 import org.obeonetwork.dsl.environment.Enumeration;
+import org.obeonetwork.dsl.environment.EnvironmentPackage;
 import org.obeonetwork.dsl.environment.Namespace;
 import org.obeonetwork.dsl.environment.NamespacesContainer;
 import org.obeonetwork.dsl.environment.Reference;
@@ -87,7 +88,7 @@ public class EnvironmentServices {
 		if (namespacesContainer instanceof Namespace) {
 			final StringBuilder result = new StringBuilder();
 			EObject current = namespacesContainer;
-			while (current instanceof Namespace) {
+			while (current != null && current.eClass() == EnvironmentPackage.eINSTANCE.getNamespace()) {
 				if (current instanceof Namespace) {
 					result.insert(0, ((Namespace) current).getName());
 					result.insert(0, ".");
@@ -117,8 +118,8 @@ public class EnvironmentServices {
 		final String result;
 
 		final EObject container = structuredType.eContainer();
-		if (container instanceof NamespacesContainer) {
-			result = qualifiedName((NamespacesContainer) container) + "." + structuredType.getName();
+		if (container instanceof Namespace) {
+			result = qualifiedName((Namespace) container) + "." + structuredType.getName();
 		} else {
 			result = structuredType.getName();
 		}

@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+   <extension
+         point="org.obeonetwork.m2doc.ide.services.register">
+      <token
+            name="SOA">
+         <package
+               uri="http://www.obeonetwork.org/dsl/soa/3.0.0"></package>
+         <service
+               class="org.obeonetwork.dsl.soa.m2doc.services.SOAServices">
+         </service>
+      </token>
+      <token
+            name="Default">
+         <package
+               uri="http://www.obeonetwork.org/dsl/soa/3.0.0"></package>
+         <service
+               class="org.obeonetwork.dsl.soa.m2doc.services.SOAServices">
+         </service>
+      </token>
+   </extension>
+   <extension
+         point="org.eclipse.help.toc">
+      <toc
+            file="doc/toc.xml"
+            primary="true">
+      </toc>
+   </extension>
+
+</plugin>

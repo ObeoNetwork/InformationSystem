@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+<!--
+/********************************************************************************
+** Copyright (c) 2016, 2017, 2018, 2019 Obeo.
+** All rights reserved. This program and the accompanying materials
+** are made available under the terms of the Eclipse Public License v1.0
+** which accompanies this distribution, and is available at
+** http://www.eclipse.org/legal/epl-v10.html
+**
+** Contributors:
+**    Obeo - initial API and implementation
+*********************************************************************************/
+-->
+  <head>
+    <meta charset="utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta name="description" content=""/>
+    <meta name="author" content="Obeo"/>
+    <!-- IE6-8 support of HTML elements -->
+    <!--if lt IE 9>
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <!endif-->
+    <link href="../assets/css/bootstrap.css" rel="stylesheet"/>
+    <link href="../assets/css/docs.css" rel="stylesheet"/>
+    <title>M2Doc Services and attributes for Namespace</title>
+  </head>
+
+  <body>
+   <header class="jumbotron subhead" id="overview">
+  </header>
+
+    <h1 id="Namespace">Services and attributes for the Namespace concept</h1>
+    <div class="page-header">
+      <h2 id="Attributes">Attributes</h2>
+    </div>
+    <table class="table table-striped">
+    <thead>
+      <tr>
+        <th colspan="1" rowspan="1">Name</th>
+        <th colspan="1" rowspan="1">Returned type</th>
+        <th colspan="1" rowspan="1">M2Doc Syntax</th>
+        <th colspan="1" rowspan="1">Description</th>
+        <th colspan="1" rowspan="1">Example</th>
+      </tr>
+    </thead>
+  <tbody>
+    <tr>
+      <td colspan="1" rowspan="1"><strong>behaviours</strong></td>
+      <td colspan="1" rowspan="1">List of Behaviour</td>
+      <td colspan="1" rowspan="1">{m:namespace.behaviours}</td>
+      <td colspan="1" rowspan="1">The Behaviours owned by this object.</td>
+      <td colspan="1" rowspan="1">{m:for behaviour | namespace.behaviours} behaviour {m:behaviour.name}, {m:endfor}</td>
+    </tr>
+    <tr>
+      <td colspan="1" rowspan="1"><strong>bindingRegistries</strong></td>
+      <td colspan="1" rowspan="1">List of BindingRegistry</td>
+      <td colspan="1" rowspan="1">{m:namespace.bindingRegistries}</td>
+      <td colspan="1" rowspan="1">The binding registries of this object.</td>
+      <td colspan="1" rowspan="1">{m:for bindingRegistry | namespace.bindingRegistries} bindingRegistry {m:bindingRegistry.name}, {m:endfor}</td>
+    </tr>
+    <tr>
+      <td colspan="1" rowspan="1"><strong>createdOn</strong></td>
+      <td colspan="1" rowspan="1">EDate</td>
+      <td colspan="1" rowspan="1">{m:namespace.createdOn}</td>
+      <td colspan="1" rowspan="1">The creation date of this object.</td>
+      <td colspan="1" rowspan="1">{m:namespace.createdOn}</td>
+    </tr>
+    <tr>
+      <td colspan="1" rowspan="1"><strong>description</strong></td>
+      <td colspan="1" rowspan="1">EString</td>
+      <td colspan="1" rowspan="1">{m:namespace.description}</td>
+      <td colspan="1" rowspan="1">The description of this object.</td>
+      <td colspan="1" rowspan="1">{m:namespace.description}</td>
+    </tr>
+    <tr>
+      <td colspan="1" rowspan="1"><strong>keywords</strong></td>
+      <td colspan="1" rowspan="1">List of EString</td>
+      <td colspan="1" rowspan="1">{m:namespace.keywords}</td>
+      <td colspan="1" rowspan="1">The list of keywords applied to this object.</td>
+      <td colspan="1" rowspan="1">{m:for eString | namespace.keywords} eString {m:eString.name}, {m:endfor}</td>
+    </tr>
+    <tr>
+      <td colspan="1" rowspan="1"><strong>metadatas</strong></td>
+      <td colspan="1" rowspan="1">MetaDataContainer</td>
+      <td colspan="1" rowspan="1">{m:namespace.metadatas}</td>
+      <td colspan="1" rowspan="1">The metadatas defined on this object.</td>
+      <td colspan="1" rowspan="1">{m:namespace.metadatas}</td>
+    </tr>
+    <tr>
+      <td colspan="1" rowspan="1"><strong>modifiedOn</strong></td>
+      <td colspan="1" rowspan="1">EDate</td>
+      <td colspan="1" rowspan="1">{m:namespace.modifiedOn}</td>
+      <td colspan="1" rowspan="1">The modification date of this obect.</td>
+      <td colspan="1" rowspan="1">{m:namespace.modifiedOn}</td>
+    </tr>
+    <tr>
+      <td colspan="1" rowspan="1"><strong>name</strong></td>
+      <td colspan="1" rowspan="1">EString</td>
+      <td colspan="1" rowspan="1">{m:namespace.name}</td>
+      <td colspan="1" rowspan="1"></td>
+      <td colspan="1" rowspan="1">{m:namespace.name}</td>
+    </tr>
+    <tr>
+      <td colspan="1" rowspan="1"><strong>ownedNamespaces</strong></td>
+      <td colspan="1" rowspan="1">List of Namespace</td>
+      <td colspan="1" rowspan="1">{m:namespace.ownedNamespaces}</td>
+      <td colspan="1" rowspan="1"></td>
+      <td colspan="1" rowspan="1">{m:for namespace | namespace.ownedNamespaces} namespace {m:namespace.name}, {m:endfor}</td>
+    </tr>
+    <tr>
+      <td colspan="1" rowspan="1"><strong>owner</strong></td>
+      <td colspan="1" rowspan="1">NamespacesContainer</td>
+      <td colspan="1" rowspan="1">{m:namespace.owner}</td>
+      <td colspan="1" rowspan="1"></td>
+      <td colspan="1" rowspan="1">{m:namespace.owner}</td>
+    </tr>
+    <tr>
+      <td colspan="1" rowspan="1"><strong>technicalid</strong></td>
+      <td colspan="1" rowspan="1">EString</td>
+      <td colspan="1" rowspan="1">{m:namespace.technicalid}</td>
+      <td colspan="1" rowspan="1">Technical identifier of the element.</td>
+      <td colspan="1" rowspan="1">{m:namespace.technicalid}</td>
+    </tr>
+    <tr>
+      <td colspan="1" rowspan="1"><strong>types</strong></td>
+      <td colspan="1" rowspan="1">List of Type</td>
+      <td colspan="1" rowspan="1">{m:namespace.types}</td>
+      <td colspan="1" rowspan="1"></td>
+      <td colspan="1" rowspan="1">{m:for type | namespace.types} type {m:type.name}, {m:endfor}</td>
+    </tr>
+    <tr>
+      <td colspan="1" rowspan="1"><strong>version</strong></td>
+      <td colspan="1" rowspan="1">EInt</td>
+      <td colspan="1" rowspan="1">{m:namespace.version}</td>
+      <td colspan="1" rowspan="1">The version of this object.</td>
+      <td colspan="1" rowspan="1">{m:namespace.version}</td>
+    </tr>
+    </tbody>
+    </table>
+    <div class="page-header">
+      <h2 id="Services">Services</h2>
+    </div>
+    <table class="table table-striped">
+    <thead>
+      <tr>
+        <th colspan="1" rowspan="1">Name</th>
+        <th colspan="1" rowspan="1">Returned type</th>
+        <th colspan="1" rowspan="1">M2Doc Syntax</th>
+        <th colspan="1" rowspan="1">Description</th>
+        <th colspan="1" rowspan="1">Example</th>
+      </tr>
+    </thead>
+  <tbody>
+    <tr>
+      <td colspan="1" rowspan="1"><strong>getAllNamespaces</strong></td>
+      <td colspan="1" rowspan="1">List of Namespace</td>
+      <td colspan="1" rowspan="1">{m:myNamespacesContainer.getAllNamespaces()}</td>
+      <td colspan="1" rowspan="1">Returns the list of Namespace directly and indireclty contained in the given NamespacesContainer.</td>
+      <td colspan="1" rowspan="1">{m:myNamespacesContainer.getAllNamespaces().name->sep(',')} returns: A comma separated list of the given  NamespacesContainer's Namespaces name.</td>
+    </tr>
+    <tr>
+      <td colspan="1" rowspan="1"><strong>getOwnedDTO</strong></td>
+      <td colspan="1" rowspan="1">List of DTO</td>
+      <td colspan="1" rowspan="1">{m:myNamespace.getOwnedDTO()}</td>
+      <td colspan="1" rowspan="1">Returns the list of DTO directly contained in the given Namespace.</td>
+      <td colspan="1" rowspan="1">{m:myNamespace.getOwnedDTO().name->sep(',')} returns: The list of DTO directly contained in the given Namespace names separated by coma.</td>
+    </tr>
+    <tr>
+      <td colspan="1" rowspan="1"><strong>getOwnedEnumerations</strong></td>
+      <td colspan="1" rowspan="1">List of Enumeration</td>
+      <td colspan="1" rowspan="1">{m:myNamespace.getOwnedEnumerations()}</td>
+      <td colspan="1" rowspan="1">Returns the list of Enumeration directly contained in the given Namespace.</td>
+      <td colspan="1" rowspan="1">{m:myNamespace.getOwnedEnumerations().name->sep(',')} returns: The list of Enumration directly contained in the given Namespace names separated by coma.</td>
+    </tr>
+    <tr>
+      <td colspan="1" rowspan="1"><strong>getOwnedReferences</strong></td>
+      <td colspan="1" rowspan="1">List of Reference</td>
+      <td colspan="1" rowspan="1">{m:myNamespace.getOwnedReferences()}</td>
+      <td colspan="1" rowspan="1">Returns the list of Reference directly contained in the given Namespace.</td>
+      <td colspan="1" rowspan="1">{m:myNamespace.getOwnedEnumerations().name->sep(',')} returns: The list of Reference directly contained in the given Namespace names separated by coma.</td>
+    </tr>
+    <tr>
+      <td colspan="1" rowspan="1"><strong>hasAllNamespaces</strong></td>
+      <td colspan="1" rowspan="1">boolean</td>
+      <td colspan="1" rowspan="1">{m:myNamespacesContainer.hasAllNamespaces()}</td>
+      <td colspan="1" rowspan="1">Returns true if the given NamespacesContainer contains at least one Namespace.</td>
+      <td colspan="1" rowspan="1">{m:myNamespacesContainer.hasAllNamespaces()} returns: true or false.</td>
+    </tr>
+    <tr>
+      <td colspan="1" rowspan="1"><strong>hasOwnedDTO</strong></td>
+      <td colspan="1" rowspan="1">boolean</td>
+      <td colspan="1" rowspan="1">{m:myNamespace.hasOwnedDTO()}</td>
+      <td colspan="1" rowspan="1">Returns true if there is at least one DTO directly contained in the given Namespace, false otherwise.</td>
+      <td colspan="1" rowspan="1">{m:myNamespace.hasOwnedDTO()} returns: true or false.</td>
+    </tr>
+    <tr>
+      <td colspan="1" rowspan="1"><strong>hasOwnedEnumerations</strong></td>
+      <td colspan="1" rowspan="1">boolean</td>
+      <td colspan="1" rowspan="1">{m:myNamespace.hasOwnedEnumerations()}</td>
+      <td colspan="1" rowspan="1">Returns true if there is at least one Enumeration directly contained in the given Namespace, false otherwise.</td>
+      <td colspan="1" rowspan="1">{m:myNamespace.hasOwnedEnumerations()} returns: true or false.</td>
+    </tr>
+    <tr>
+      <td colspan="1" rowspan="1"><strong>hasOwnedReferences</strong></td>
+      <td colspan="1" rowspan="1">boolean</td>
+      <td colspan="1" rowspan="1">{m:myNamespace.hasOwnedReferences()}</td>
+      <td colspan="1" rowspan="1">Returns  true if there is at least one Reference directly contained in the given Namespace, false otherwise.</td>
+      <td colspan="1" rowspan="1">{m:myNamespace.hasOwnedEnumerations()} returns: true or false.</td>
+    </tr>
+    <tr>
+      <td colspan="1" rowspan="1"><strong>qualifiedName</strong></td>
+      <td colspan="1" rowspan="1">String</td>
+      <td colspan="1" rowspan="1">{m:myNamespaceContainer.qualifiedName()}</td>
+      <td colspan="1" rowspan="1">Returns the qualifiedname of the given NamespaceContainer.</td>
+      <td colspan="1" rowspan="1">{m:myNamespace.qualifiedName()} returns: a.b.mynamespacecontainer</td>
+    </tr>
+    </tbody>
+    </table>
+  </body>
+
+</html>

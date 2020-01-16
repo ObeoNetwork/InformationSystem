@@ -73,6 +73,20 @@ public class RequirementServices {
 	
 	// @formatter:off
 	@Documentation(
+			comment = "{m:obj.hasRelatedRequirements()}",
+		    value = "Returns true if the given Object as at least one related Requirement.",
+		    examples = {
+		    		@Example(expression = "{m:obj.hasRelatedRequirements()}", result = "true or false.")
+		    }
+
+		)
+	// @formatter:on	
+	public boolean hasRelatedRequirements(EObject eObject) {
+		return !relatedRequirements(eObject).isEmpty();
+	}
+	
+	// @formatter:off
+	@Documentation(
 			comment = "{m:obj.allRelatedRequirements()}",
 		    value = "Returns a list of all the Requirements related to "
 		    		+ "the target object or one of its sub objects. The result "

@@ -26,6 +26,12 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.emf.ecore.util.EcoreUtil;
+import org.eclipse.sirius.diagram.description.DiagramDescription;
+import org.eclipse.sirius.diagram.description.DiagramImportDescription;
+import org.eclipse.sirius.diagram.description.Layer;
+import org.eclipse.sirius.table.metamodel.table.description.TableDescription;
+import org.eclipse.sirius.viewpoint.description.RepresentationDescription;
+import org.eclipse.sirius.viewpoint.description.RepresentationImportDescription;
 import org.eclipse.sirius.viewpoint.description.Viewpoint;
 import org.obeonetwork.m2doc.doc.generator.reflection.OEcoreUtil;
 
@@ -149,7 +155,7 @@ public final class M2DocHelpContentUtils {
         StringBuffer buffer = new StringBuffer();
         buffer.append("<?xml version=\"1.0\" encoding=\"UTF-8\"?>").append(LS);
         buffer.append("<?NLS TYPE=\"org.eclipse.help.toc\"?>").append(LS);
-        buffer.append("<toc label=\"M2Doc : " + metamodelName + "'s services\" topic=\"doc/pages/index.html\">").append(LS);
+        buffer.append("<toc label=\"M2Doc : " + metamodelName + " services\" topic=\"doc/pages/index.html\">").append(LS);
         for (Class<?> metaClass : metaClasses) {
         	buffer.append(
                     "<topic href=\"doc/pages/" + computeHtmlFileName(metaClass) + 
@@ -391,9 +397,47 @@ public final class M2DocHelpContentUtils {
 			buffer.append("      <h1>Viewpoints</h1>").append(LS);
 			buffer.append("    </div>").append(LS);
 			for(Viewpoint vp : viewPoints) {
+				if (vp.getLabel() != null) {
+					buffer.append("      <h2>" + vp.getLabel() + "</h2>").append(LS);
+				} else {
+					buffer.append("      <h2>" + vp.getName() + "</h2>").append(LS);
+				}
 				buffer.append("    <p>").append(LS);
 				buffer.append(vp.getEndUserDocumentation());
 				buffer.append("    </p>").append(LS);
+				for (RepresentationDescription representation : vp.getOwnedRepresentations()) {
+					if (representation instanceof DiagramImportDescription) {
+						representation = ((DiagramImportDescription) representation).getImportedDiagram();
+					}
+					if (representation instanceof DiagramDescription) {
+						if (representation.getLabel() != null) {
+							buffer.append("            <h3>Diagram " + representation.getLabel() + "</h3>").append(LS);
+						} else {
+							buffer.append("            <h3>Diagram " + representation.getName() + "</h3>").append(LS);
+						}
+						buffer.append("    <p>ID: ").append(LS);
+						buffer.append(representation.getName());
+						buffer.append("    </p>").append(LS);
+						buffer.append("    <p>Layers:<ul>").append(LS);
+						for (Layer layer : ((DiagramDescription)representation).getAllLayers()) {
+							if (layer.getLabel() != null) {
+								buffer.append("        <li>" + layer.getLabel() + " (ID: " + layer.getName() + ")</lil>").append(LS);
+							} else {
+								buffer.append("        <li>" + layer.getName() + " (ID: " + layer.getName() + ")</lil>").append(LS);
+							}
+						}
+						buffer.append("    </ul></p>").append(LS);
+					} else if (representation instanceof TableDescription) {
+						if (representation.getLabel() != null) {
+							buffer.append("            <h3>Table " + representation.getLabel() + "</h3>").append(LS);
+						} else {
+							buffer.append("            <h3>Table " + representation.getName() + "</h3>").append(LS);
+						}
+						buffer.append("    <p>ID: ").append(LS);
+						buffer.append(representation.getName());
+						buffer.append("    </p>").append(LS);
+					}
+				}
 			}
 			
 			buffer.append("  </section>").append(LS);
