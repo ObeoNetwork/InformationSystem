@@ -41,7 +41,7 @@ public class AnnotationServices {
 				return requiredEClass.equals(eContainer.eClass().getName());
 			}
 		}
-		return false;
+		return true;
 	}
 	
 	/**
