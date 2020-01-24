@@ -27,7 +27,7 @@ public class SwaggerGenerator {
         generateInFile(system, mapperType, outputFile);
 	}
 
-	private static void generateInFile(System system, MapperType mapperType, File outputFile) throws JsonGenerationException, JsonMappingException, IOException {
+	public static void generateInFile(System system, MapperType mapperType, File outputFile) throws JsonGenerationException, JsonMappingException, IOException {
 		SwaggerBuilder swaggerBuilder = new SwaggerBuilder(system);
 		
         OpenAPI swagger = swaggerBuilder.createOpenAPI();

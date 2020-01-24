@@ -1,0 +1,19 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: org.obeonetwork.dsl.soa.gen.swagger.preview
+Bundle-SymbolicName: org.obeonetwork.dsl.soa.gen.swagger.preview;singleton:=true
+Bundle-Version: 11.0.0.qualifier
+Automatic-Module-Name: org.obeonetwork.dsl.soa.gen.swagger.preview
+Bundle-RequiredExecutionEnvironment: JavaSE-1.8
+Bundle-Vendor: Obeo Network
+Require-Bundle: org.eclipse.ui,
+ org.eclipse.ui.browser,
+ org.obeonetwork.dsl.soa,
+ org.obeonetwork.dsl.soa.gen.swagger,
+ org.eclipse.ui.workbench,
+ javax.servlet,
+ org.eclipse.osgi.services,
+ com.google.guava,
+ org.eclipse.equinox.http.jetty
+Bundle-Activator: org.obeonetwork.dsl.soa.gen.swagger.preview.Activator
+Bundle-ActivationPolicy: lazy

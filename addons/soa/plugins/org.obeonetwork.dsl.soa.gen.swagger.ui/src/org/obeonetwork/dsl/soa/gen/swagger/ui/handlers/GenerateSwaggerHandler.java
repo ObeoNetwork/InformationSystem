@@ -20,7 +20,6 @@ public class GenerateSwaggerHandler extends AbstractHandler implements IHandler 
 
 	@Override
 	public Object execute(ExecutionEvent event) throws ExecutionException {
-
 		
 		System system = null;
 		
