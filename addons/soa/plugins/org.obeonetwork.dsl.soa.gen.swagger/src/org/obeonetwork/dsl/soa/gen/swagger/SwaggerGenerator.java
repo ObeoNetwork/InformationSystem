@@ -4,6 +4,7 @@ import java.io.File;
 import java.io.IOException;
 
 import org.obeonetwork.dsl.soa.System;
+import org.obeonetwork.dsl.soa.gen.swagger.utils.SystemGenUtil;
 
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.core.JsonGenerationException;
@@ -22,17 +23,14 @@ public class SwaggerGenerator {
     }
 
 	public static void generateInDir(System system, MapperType mapperType, File outputDir) throws IOException {
-		String systemName = (system.getName() == null || system.getName().isEmpty())? "UnnamedSystem" : system.getName();
-		
-        File outputFile = new File(outputDir, systemName + "." + mapperType.toString().toLowerCase());
+        File outputFile = new File(outputDir, SystemGenUtil.getName(system) + "." + mapperType.toString().toLowerCase());
         generateInFile(system, mapperType, outputFile);
-		
 	}
 
 	private static void generateInFile(System system, MapperType mapperType, File outputFile) throws JsonGenerationException, JsonMappingException, IOException {
 		SwaggerBuilder swaggerBuilder = new SwaggerBuilder(system);
 		
-        OpenAPI swagger = swaggerBuilder.build();
+        OpenAPI swagger = swaggerBuilder.createOpenAPI();
         
         ObjectMapper mapper = null;
         switch (mapperType) {

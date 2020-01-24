@@ -9,4 +9,8 @@ public class StringUtils {
 		return s;
 	}
 
+	public static String emptyIfNull(String s) {
+		return (s == null)? "" : s;
+	}
+	
 }

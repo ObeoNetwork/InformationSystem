@@ -29,6 +29,7 @@ import org.obeonetwork.dsl.environment.Type;
  *   <li>{@link org.obeonetwork.dsl.soa.Parameter#isIsUnique <em>Is Unique</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.soa.Parameter#isIsOrdered <em>Is Ordered</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.soa.Parameter#getPassingMode <em>Passing Mode</em>}</li>
+ *   <li>{@link org.obeonetwork.dsl.soa.Parameter#getStatusCode <em>Status Code</em>}</li>
  * </ul>
  *
  * @see org.obeonetwork.dsl.soa.SoaPackage#getParameter()
@@ -207,5 +208,31 @@ public interface Parameter extends ObeoDSMObject {
 	 * @generated
 	 */
 	void setPassingMode(ParameterPassingMode value);
+
+	/**
+	 * Returns the value of the '<em><b>Status Code</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Status Code</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Status Code</em>' attribute.
+	 * @see #setStatusCode(String)
+	 * @see org.obeonetwork.dsl.soa.SoaPackage#getParameter_StatusCode()
+	 * @model
+	 * @generated
+	 */
+	String getStatusCode();
+
+	/**
+	 * Sets the value of the '{@link org.obeonetwork.dsl.soa.Parameter#getStatusCode <em>Status Code</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Status Code</em>' attribute.
+	 * @see #getStatusCode()
+	 * @generated
+	 */
+	void setStatusCode(String value);
 
 } // Parameter

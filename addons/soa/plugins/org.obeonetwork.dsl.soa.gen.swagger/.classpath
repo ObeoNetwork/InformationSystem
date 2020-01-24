@@ -11,6 +11,7 @@
 	<classpathentry exported="true" kind="lib" path="target/jars/swagger-core-2.0.8.jar"/>
 	<classpathentry exported="true" kind="lib" path="target/jars/swagger-models-2.0.8.jar"/>
 	<classpathentry exported="true" kind="lib" path="target/jars/validation-api-1.1.0.Final.jar"/>
+	<classpathentry exported="true" kind="lib" path="target/jars/snakeyaml-1.18.jar"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.8"/>
 	<classpathentry kind="con" path="org.eclipse.pde.core.requiredPlugins"/>
 	<classpathentry kind="src" path="src"/>

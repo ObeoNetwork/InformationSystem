@@ -1116,7 +1116,7 @@
       <pages name="Component Exposition Page" labelExpression="Exposition" domainClass="soa::Component" semanticCandidateExpression="var:self" groups="//@extensions.0/@categories.1/@groups.6"/>
       <pages name="Service Exposition Page" labelExpression="Exposition" domainClass="soa::Service" semanticCandidateExpression="var:self" groups="//@extensions.0/@categories.1/@groups.7 //@extensions.0/@categories.1/@groups.10"/>
       <pages name="Operation Exposition Page" labelExpression="Exposition" domainClass="soa::Operation" semanticCandidateExpression="var:self" groups="//@extensions.0/@categories.1/@groups.8 //@extensions.0/@categories.1/@groups.10"/>
-      <pages name="Parameter Exposition Page" labelExpression="Exposition" domainClass="soa::Parameter" semanticCandidateExpression="var:self" preconditionExpression="aql:self.eContainingFeature().name='input'" groups="//@extensions.0/@categories.1/@groups.9 //@extensions.0/@categories.1/@groups.10"/>
+      <pages name="Parameter Exposition Page" labelExpression="Exposition" domainClass="soa::Parameter" semanticCandidateExpression="var:self" groups="//@extensions.0/@categories.1/@groups.9 //@extensions.0/@categories.1/@groups.10"/>
       <groups name="Operation Group" labelExpression="Properties" domainClass="soa::Operation" semanticCandidateExpression="var:self">
         <controls xsi:type="properties:TextDescription" name="soa::Operation name" labelExpression="aql:input.emfEditServices(self).getText(self.eClass().getEStructuralFeature('name')) + ':'" helpExpression="aql:input.emfEditServices(self).getDescription(self.eClass().getEStructuralFeature('name'))" isEnabledExpression="aql:self.eClass().getEStructuralFeature('name').changeable" valueExpression="aql:self.name">
           <initialOperation>
@@ -1270,10 +1270,21 @@
         </controls>
       </groups>
       <groups name="Parameter Exposition Group" labelExpression="Properties" domainClass="soa::Parameter" semanticCandidateExpression="var:self" preconditionExpression="aql:self.eContainer(soa::Service).kind=soa::InterfaceKind::provided">
-        <controls xsi:type="properties:SelectDescription" name="soa::Parameter verb" labelExpression="aql:input.emfEditServices(self).getText(self.eClass().getEStructuralFeature('passingMode')) + ':'" helpExpression="aql:input.emfEditServices(self).getDescription(self.eClass().getEStructuralFeature('passingMode'))" isEnabledExpression="aql:self.eClass().getEStructuralFeature('passingMode').changeable" valueExpression="aql:self.eClass().getEStructuralFeature('passingMode').eType.getEEnumLiteralByLiteral(self.passingMode.toString())" candidatesExpression="aql:self.eClass().getEStructuralFeature('passingMode').eType.eLiterals" candidateDisplayExpression="aql:candidate.literal">
-          <initialOperation>
-            <firstModelOperations xsi:type="tool_1:SetValue" featureName="passingMode" valueExpression="aql:newValue.instance"/>
-          </initialOperation>
+        <controls xsi:type="properties:DynamicMappingForDescription" iterator="single" iterableExpression="aql:Sequence{self}">
+          <ifs name="Is input parameter" predicateExpression="aql:single.eContainingFeature().name='input'">
+            <widget xsi:type="properties:SelectDescription" name="soa::Parameter passingMode" labelExpression="aql:input.emfEditServices(self).getText(self.eClass().getEStructuralFeature('passingMode')) + ':'" helpExpression="aql:input.emfEditServices(self).getDescription(self.eClass().getEStructuralFeature('passingMode'))" isEnabledExpression="aql:self.eClass().getEStructuralFeature('passingMode').changeable" valueExpression="aql:self.eClass().getEStructuralFeature('passingMode').eType.getEEnumLiteralByLiteral(self.passingMode.toString())" candidatesExpression="aql:self.eClass().getEStructuralFeature('passingMode').eType.eLiterals" candidateDisplayExpression="aql:candidate.literal">
+              <initialOperation>
+                <firstModelOperations xsi:type="tool_1:SetValue" featureName="passingMode" valueExpression="aql:newValue.instance"/>
+              </initialOperation>
+            </widget>
+          </ifs>
+          <ifs name="Is output or fault parameter" predicateExpression="aql:single.eContainingFeature().name='output' or single.eContainingFeature().name='fault'">
+            <widget xsi:type="properties:TextDescription" name="soa::Parameter statusCode" labelExpression="aql:input.emfEditServices(self).getText(self.eClass().getEStructuralFeature('statusCode')) + ':'" helpExpression="aql:input.emfEditServices(self).getDescription(self.eClass().getEStructuralFeature('statusCode'))" isEnabledExpression="aql:self.eClass().getEStructuralFeature('statusCode').changeable" valueExpression="aql:self.statusCode">
+              <initialOperation>
+                <firstModelOperations xsi:type="tool_1:SetValue" featureName="statusCode" valueExpression="var:newValue"/>
+              </initialOperation>
+            </widget>
+          </ifs>
         </controls>
       </groups>
       <groups name="Exposition Not Applicable Group" labelExpression="Properties" domainClass="environment::ObeoDSMObject" semanticCandidateExpression="var:self" preconditionExpression="aql:self.eContainerOrSelf(soa::Service)&lt;>null and self.eContainerOrSelf(soa::Service).kind=soa::InterfaceKind::required">
