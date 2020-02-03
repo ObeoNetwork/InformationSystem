@@ -13,4 +13,8 @@ public class StringUtils {
 		return (s == null)? "" : s;
 	}
 	
+	public static boolean isNullOrWhite(String s) {
+		return s == null || s.trim().isEmpty();
+	}
+
 }

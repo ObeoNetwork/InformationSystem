@@ -1,6 +1,7 @@
 package org.obeonetwork.dsl.soa.gen.swagger;
 
 import static org.obeonetwork.dsl.soa.gen.swagger.utils.StringUtils.emptyIfNull;
+import static org.obeonetwork.dsl.soa.gen.swagger.utils.StringUtils.isNullOrWhite;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -429,7 +430,7 @@ public class SwaggerBuilder {
 	
 	private String getDescription(org.obeonetwork.dsl.soa.Parameter soaParameter) {
 		String description = null;
-		if(soaParameter.getDescription() != null && !soaParameter.getDescription().trim().isEmpty()) {
+		if(!isNullOrWhite(soaParameter.getDescription())) {
 			description = soaParameter.getDescription();
 		} else {
 			description = getDefaultDescriptionFromStatusCode(getStatusCode(soaParameter));
@@ -439,7 +440,7 @@ public class SwaggerBuilder {
 
 	private String getStatusCode(org.obeonetwork.dsl.soa.Parameter soaParameter) {
 		String statusCode = soaParameter.getStatusCode();
-		if(statusCode == null) {
+		if(isNullOrWhite(statusCode)) {
 			if(ParameterGenUtil.isOutput(soaParameter)) {
 				statusCode = getDefaultOutputStatusCode(ParameterGenUtil.getOperation(soaParameter));
 			}
