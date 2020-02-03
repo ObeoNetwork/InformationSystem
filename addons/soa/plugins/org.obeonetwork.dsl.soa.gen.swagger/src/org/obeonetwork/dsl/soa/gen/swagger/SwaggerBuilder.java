@@ -48,12 +48,25 @@ public class SwaggerBuilder {
 
     private static final String COMPONENT_SCHEMA_$REF = "#/components/schemas/";
     
-    private static final String OPEN_API_OBJECT = "object";
-    private static final String OPEN_API_STRING = "string";
-    private static final String OPEN_API_NUMBER = "number";
-    private static final String OPEN_API_INTEGER = "integer";
-    private static final String OPEN_API_BOOLEAN = "boolean";
-    private static final String OPEN_API_QUERY = "query";
+    private static final String OPEN_API_TYPE_OBJECT = "object";
+    private static final String OPEN_API_TYPE_STRING = "string";
+    private static final String OPEN_API_TYPE_NUMBER = "number";
+    private static final String OPEN_API_TYPE_INTEGER = "integer";
+    private static final String OPEN_API_TYPE_BOOLEAN = "boolean";
+    
+    private static final String OPEN_API_FORMAT_BINARY = "binary";
+    private static final String OPEN_API_FORMAT_DATE = "date";
+    private static final String OPEN_API_FORMAT_DOUBLE = "double";
+    private static final String OPEN_API_FORMAT_FLOAT = "float";
+    private static final String OPEN_API_FORMAT_INT32 = "int32";
+    private static final String OPEN_API_FORMAT_INT64 = "int64";
+    private static final String OPEN_API_FORMAT_DATETIME = "date-time";
+    
+    private static final String OPEN_API_IN_BODY = "body";
+    private static final String OPEN_API_IN_COOKIE = "cookie";
+    private static final String OPEN_API_IN_HEADER = "header";
+    private static final String OPEN_API_IN_PATH = "path";
+    private static final String OPEN_API_IN_QUERY = "query";
     
 	protected System soaSystem;
 	
@@ -133,7 +146,7 @@ public class SwaggerBuilder {
     }
     
 	private Schema<Object> createSoaEnumerationSchema(Enumeration soaEnumeration) {
-		Schema<Object> schema = createSchema(OPEN_API_STRING, null);
+		Schema<Object> schema = createSchema(OPEN_API_TYPE_STRING, null);
 		soaEnumeration.getLiterals().forEach(soaLiteral -> schema.addEnumItemObject(soaLiteral.getName()));
 		return schema;
 	}
@@ -145,7 +158,7 @@ public class SwaggerBuilder {
     private Schema<Object> createSoaDtoSchema(DTO soaDto) {
     	Schema<Object> dtoSchema = null;
     	
-		Schema<Object> schema = createSchema(OPEN_API_OBJECT, null);
+		Schema<Object> schema = createSchema(OPEN_API_TYPE_OBJECT, null);
 		schema.setDescription(soaDto.getDescription());
 		
 		soaDto.getAttributes().forEach(a -> buildProperty(schema, a));
@@ -226,16 +239,16 @@ public class SwaggerBuilder {
 
     private static final Map<String, Schema<Object>> dataTypePrototypeSchemas = new HashMap<>();
     static {
-    	dataTypePrototypeSchemas.put("Binary",    createSchema(OPEN_API_STRING,  "binary"));
-    	dataTypePrototypeSchemas.put("Boolean",   createSchema(OPEN_API_BOOLEAN, null));
-    	dataTypePrototypeSchemas.put("Date",      createSchema(OPEN_API_STRING,  "date"));
-    	dataTypePrototypeSchemas.put("Double",    createSchema(OPEN_API_NUMBER,  "double"));
-    	dataTypePrototypeSchemas.put("Float",     createSchema(OPEN_API_NUMBER,  "float"));
-    	dataTypePrototypeSchemas.put("Integer",   createSchema(OPEN_API_INTEGER, "int32"));
-    	dataTypePrototypeSchemas.put("Long",      createSchema(OPEN_API_INTEGER, "int64"));
-    	dataTypePrototypeSchemas.put("String",    createSchema(OPEN_API_STRING,  null));
-    	dataTypePrototypeSchemas.put("Time",      createSchema(OPEN_API_STRING,  "date-time"));
-    	dataTypePrototypeSchemas.put("Timestamp", createSchema(OPEN_API_STRING,  "date-time"));
+		dataTypePrototypeSchemas.put("Binary",    createSchema(OPEN_API_TYPE_STRING,  OPEN_API_FORMAT_BINARY));
+    	dataTypePrototypeSchemas.put("Boolean",   createSchema(OPEN_API_TYPE_BOOLEAN, null));
+		dataTypePrototypeSchemas.put("Date",      createSchema(OPEN_API_TYPE_STRING,  OPEN_API_FORMAT_DATE));
+		dataTypePrototypeSchemas.put("Double",    createSchema(OPEN_API_TYPE_NUMBER,  OPEN_API_FORMAT_DOUBLE));
+		dataTypePrototypeSchemas.put("Float",     createSchema(OPEN_API_TYPE_NUMBER,  OPEN_API_FORMAT_FLOAT));
+		dataTypePrototypeSchemas.put("Integer",   createSchema(OPEN_API_TYPE_INTEGER, OPEN_API_FORMAT_INT32));
+		dataTypePrototypeSchemas.put("Long",      createSchema(OPEN_API_TYPE_INTEGER, OPEN_API_FORMAT_INT64));
+    	dataTypePrototypeSchemas.put("String",    createSchema(OPEN_API_TYPE_STRING,  null));
+		dataTypePrototypeSchemas.put("Time",      createSchema(OPEN_API_TYPE_STRING,  OPEN_API_FORMAT_DATETIME));
+    	dataTypePrototypeSchemas.put("Timestamp", createSchema(OPEN_API_TYPE_STRING,  OPEN_API_FORMAT_DATETIME));
     }
 	private Schema<Object> createSoaDataTypeSchema(DataType soaDataType) {
 		Schema<Object> prototypeSchema = dataTypePrototypeSchemas.get(soaDataType.getName());
@@ -378,10 +391,10 @@ public class SwaggerBuilder {
 	}
     
     private <T> Schema<T> createErrorSchema() {
-		Schema<T> error = createSchema(OPEN_API_OBJECT, null);
-		error.addProperties("code", createSchema(OPEN_API_STRING, null));
-		error.addProperties("message", createSchema(OPEN_API_STRING, null));
-		error.addProperties("internalReferenceId", createSchema(OPEN_API_STRING, null));
+		Schema<T> error = createSchema(OPEN_API_TYPE_OBJECT, null);
+		error.addProperties("code", createSchema(OPEN_API_TYPE_STRING, null));
+		error.addProperties("message", createSchema(OPEN_API_TYPE_STRING, null));
+		error.addProperties("internalReferenceId", createSchema(OPEN_API_TYPE_STRING, null));
 		return error;
 	}
     
@@ -394,11 +407,11 @@ public class SwaggerBuilder {
 			apiResponse.setDescription(getDescription(soaOutputParameter));
 			
 			if(/* ParameterGenUtil.getOperation(soaOutputParameter).isPaginable() */ falseForFutureEvolution()) {
-				apiResponse.addHeaderObject("X-Total-Element", createResponseHeader(OPEN_API_INTEGER, "int64"));
-				apiResponse.addHeaderObject("X-Page-Element-Count", createResponseHeader(OPEN_API_INTEGER, "int64"));
-				apiResponse.addHeaderObject("Accept-Range", createResponseHeader(OPEN_API_STRING, null));
-				apiResponse.addHeaderObject("Content-Range", createResponseHeader(OPEN_API_STRING, null));
-				apiResponse.addHeaderObject("Link", createResponseHeader(OPEN_API_STRING, null));
+				apiResponse.addHeaderObject("X-Total-Element", createResponseHeader(OPEN_API_TYPE_INTEGER, OPEN_API_FORMAT_INT64));
+				apiResponse.addHeaderObject("X-Page-Element-Count", createResponseHeader(OPEN_API_TYPE_INTEGER, OPEN_API_FORMAT_INT64));
+				apiResponse.addHeaderObject("Accept-Range", createResponseHeader(OPEN_API_TYPE_STRING, null));
+				apiResponse.addHeaderObject("Content-Range", createResponseHeader(OPEN_API_TYPE_STRING, null));
+				apiResponse.addHeaderObject("Link", createResponseHeader(OPEN_API_TYPE_STRING, null));
 			}
 			
 			if(soaOutputParameter.getType() != null){
@@ -550,21 +563,21 @@ public class SwaggerBuilder {
     }
     
 	private void buildSortParameter(Operation operation) {
-    	Parameter param = createParameter("sort", false, OPEN_API_QUERY);
-    	param.schema(createSchema(OPEN_API_STRING, null));
+    	Parameter param = createParameter("sort", false, OPEN_API_IN_QUERY);
+    	param.schema(createSchema(OPEN_API_TYPE_STRING, null));
     	operation.addParametersItem(param);
     }
     
     private void buildPaginableSizeParameter(Operation operation, org.obeonetwork.dsl.soa.Operation soaOperation) {
-    	Parameter sizeParameter = createParameter("size", false, OPEN_API_QUERY);
-    	sizeParameter.schema(createSchema(OPEN_API_INTEGER, "int64"));
+    	Parameter sizeParameter = createParameter("size", false, OPEN_API_IN_QUERY);
+    	sizeParameter.schema(createSchema(OPEN_API_TYPE_INTEGER, OPEN_API_FORMAT_INT64));
 //    	sizeParameter.description("Default size : " + soaOperation.getDefautPageSize());
     	operation.addParametersItem(sizeParameter);
     }
     
     private void buildPaginablePageParameter(Operation operation) {
-    	Parameter pageParameter = createParameter("page", false, OPEN_API_QUERY);
-    	pageParameter.schema(createSchema(OPEN_API_INTEGER, "int64"));
+    	Parameter pageParameter = createParameter("page", false, OPEN_API_IN_QUERY);
+    	pageParameter.schema(createSchema(OPEN_API_TYPE_INTEGER, OPEN_API_FORMAT_INT64));
     	operation.addParametersItem(pageParameter);
     }
     
@@ -581,19 +594,19 @@ public class SwaggerBuilder {
     	
     	switch (soaParameter.getPassingMode()) {
 		case BODY:
-			in = "body";
+			in = OPEN_API_IN_BODY;
 			break;
 		case COOKIE:
-			in = "cookie";
+			in = OPEN_API_IN_COOKIE;
 			break;
 		case HEADER:
-			in = "header";
+			in = OPEN_API_IN_HEADER;
 			break;
 		case PATH:
-			in = "path";
+			in = OPEN_API_IN_PATH;
 			break;
 		case QUERY:
-			in = "query";
+			in = OPEN_API_IN_QUERY;
 			break;
 		default:
 			break;
