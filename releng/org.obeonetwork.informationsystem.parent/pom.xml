@@ -351,6 +351,25 @@
 	</modules>
 
 	<repositories>
+
+		<!-- [1/2] Workaround necessary since january 2020, due to https://www.infoq.com/news/2020/01/no-more-unencrypted-maven/
+			Jenkins is too old to use 3.6.3 at this time, when it will be possible this workaround won't be required anymore -->
+	    <repository>
+	        <id>central</id>
+	        <url>http://insecure.repo1.maven.org/maven2</url>
+	        <snapshots>
+	            <enabled>false</enabled>
+	        </snapshots>
+	    </repository>
+	    <repository>
+	        <id>snapshots</id>
+	        <url>http://insecure.repo1.maven.org/maven2</url>
+	        <releases>
+	            <enabled>false</enabled>
+	        </releases>
+	    </repository>
+		<!-- end workaround -->
+
 		<repository>
 			<id>od</id>
 			<layout>p2</layout>
@@ -394,6 +413,25 @@
 	</repositories>
 
 	<pluginRepositories>
+
+		<!-- [2/2] Workaround necessary since january 2020, due to https://www.infoq.com/news/2020/01/no-more-unencrypted-maven/
+			Jenkins is too old to use 3.6.3 at this time, when it will be possible this workaround won't be required anymore -->
+	    <pluginRepository>
+	        <id>central</id>
+	        <url>http://insecure.repo1.maven.org/maven2</url>
+	        <snapshots>
+	            <enabled>false</enabled>
+	        </snapshots>
+	    </pluginRepository>
+	    <pluginRepository>
+	        <id>snapshots</id>
+	        <url>http://insecure.repo1.maven.org/maven2</url>
+	        <releases>
+	            <enabled>false</enabled>
+	        </releases>
+	    </pluginRepository>
+	    <!-- end workaround -->
+	
 		<pluginRepository>
 			<id>Eclipse - Acceleo Snapshots</id>
 			<url>https://repo.eclipse.org/content/repositories/acceleo-snapshots</url>
