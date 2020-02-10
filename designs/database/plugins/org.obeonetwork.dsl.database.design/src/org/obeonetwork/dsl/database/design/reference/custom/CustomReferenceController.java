@@ -38,7 +38,9 @@ public class CustomReferenceController extends EEFExtReferenceController {
 	
 	private static final String ENABLE_ADD_BUTTON_EXPRESSION_ID = "enableAddButtonExpression";
 	
-	private static final String DISABLE_ADD_BUTTON_DEFAULT_EXPRESSION_FORMAT = "aql:self.eClass().getEStructuralFeature('%1$s').many and self.eClass().getEStructuralFeature('%1$s').containment";
+	private static final String ENABLE_ADD_BUTTON_DEFAULT_EXPRESSION_FORMAT = "aql:self.eClass().getEStructuralFeature('%1$s').many";
+	
+	private static final String ENABLE_BROWSE_BUTTON_DEFAULT_EXPRESSION_FORMAT = "aql:self.eClass().getEStructuralFeature('%1$s').many and not self.eClass().getEStructuralFeature('%1$s').containment";
 
 	private static final String ADD_BUTTON_OPERATION_ID = "addButtonOperation";
 
@@ -49,7 +51,7 @@ public class CustomReferenceController extends EEFExtReferenceController {
 	private static final String ON_CLICK_EXPRESSION = "onClickOperation";
 	
 	private static final String ON_DOUBLE_CLICK_EXPRESSION = "onDoubleClickOperation";
-
+	
 	private EEFCustomWidgetDescription description;
 
 	public CustomReferenceController(EEFCustomWidgetDescription description, IVariableManager variableManager,
@@ -80,11 +82,12 @@ public class CustomReferenceController extends EEFExtReferenceController {
 	}
 	
 	public boolean browseButtonNeed() {
-		return this.getCustomExpression(ENABLE_BROWSE_BUTTON_EXPRESSION_ID)
-				.map(addButtonExpr -> this.newEval().evaluate(addButtonExpr))
-				.filter(Boolean.class::isInstance)
-				.map(Boolean.class::cast)
-				.orElse(true);
+		String browseButtonNeededExpression = this.getCustomExpression(ENABLE_BROWSE_BUTTON_EXPRESSION_ID).orElse(String.format(ENABLE_BROWSE_BUTTON_DEFAULT_EXPRESSION_FORMAT, this.getReferenceName()));
+		Object evaluated = this.newEval().evaluate(browseButtonNeededExpression);
+		if (evaluated instanceof Boolean) {
+			return (Boolean) evaluated;
+		}
+		return true;
 	}
 
 	public boolean hasBrowseButtonOperation() {
@@ -105,7 +108,7 @@ public class CustomReferenceController extends EEFExtReferenceController {
 	 *         <code>false</code> otherwise
 	 */
 	public boolean addButtonNeeded() {
-		String addButtonNeededExpression = this.getCustomExpression(ENABLE_ADD_BUTTON_EXPRESSION_ID).orElse(String.format(DISABLE_ADD_BUTTON_DEFAULT_EXPRESSION_FORMAT, this.getReferenceName()));
+		String addButtonNeededExpression = this.getCustomExpression(ENABLE_ADD_BUTTON_EXPRESSION_ID).orElse(String.format(ENABLE_ADD_BUTTON_DEFAULT_EXPRESSION_FORMAT, this.getReferenceName()));
 		Object evaluated = this.newEval().evaluate(addButtonNeededExpression);
 		if (evaluated instanceof Boolean) {
 			return (Boolean) evaluated;

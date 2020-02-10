@@ -10,16 +10,12 @@
  *******************************************************************************/
 package org.obeonetwork.dsl.database.design.reference.custom;
 
-import java.lang.reflect.InvocationTargetException;
-
-import org.eclipse.core.runtime.IStatus;
-import org.eclipse.core.runtime.Status;
 import org.eclipse.eef.core.api.EditingContextAdapter;
 import org.eclipse.eef.ide.ui.ext.widgets.reference.internal.EEFExtEObjectSelectionWizard;
-import org.eclipse.eef.ide.ui.ext.widgets.reference.internal.EEFExtReferenceUIPlugin;
+import org.eclipse.emf.common.util.BasicEList;
+import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EReference;
-import org.eclipse.jface.operation.IRunnableWithProgress;
 import org.eclipse.jface.wizard.IWizard;
 
 @SuppressWarnings("restriction")
@@ -44,22 +40,13 @@ public class CustomEEFExtEObjectSelectionWizard extends EEFExtEObjectSelectionWi
 		this.addPage(this.eObjectSelectionPage);
 	}
 	
-	@Override
-	public boolean performFinish() {
-		boolean finishedProperly = true;
-
-		IRunnableWithProgress runnableWithProgress = (monitor) -> {
-			this.editingContextAdapter.performModelChange(() -> this.eObjectSelectionPage.performFinish(monitor));
-		};
-
-		try {
-			this.getContainer().run(false, false, runnableWithProgress);
-		} catch (InvocationTargetException | InterruptedException e) {
-			finishedProperly = false;
-			IStatus status = new Status(IStatus.ERROR, EEFExtReferenceUIPlugin.PLUGIN_ID, e.getMessage());
-			EEFExtReferenceUIPlugin.getPlugin().getLog().log(status);
+	public EList<?> getResult() {
+		BasicEList<Object> result = new BasicEList<Object>();
+		
+		EObject selectedEObject = this.eObjectSelectionPage.getSelectedEObject();
+		if (selectedEObject != null) {
+			result.add(selectedEObject);			
 		}
-
-		return finishedProperly;
+		return result;
 	}
 }

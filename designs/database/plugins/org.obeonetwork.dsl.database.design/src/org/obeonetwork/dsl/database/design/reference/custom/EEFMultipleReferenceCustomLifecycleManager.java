@@ -19,11 +19,12 @@ import org.eclipse.eef.core.api.EditingContextAdapter;
 import org.eclipse.eef.ide.ui.api.widgets.EEFTableSelectionListener;
 import org.eclipse.eef.ide.ui.api.widgets.IEEFLifecycleManager;
 import org.eclipse.eef.ide.ui.ext.widgets.reference.internal.EEFExtMultipleReferenceLifecycleManager;
+import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EReference;
 import org.eclipse.jface.viewers.IStructuredSelection;
 import org.eclipse.jface.viewers.TableViewer;
-import org.eclipse.jface.wizard.IWizard;
+import org.eclipse.jface.window.Window;
 import org.eclipse.jface.wizard.WizardDialog;
 import org.eclipse.sirius.common.interpreter.api.IInterpreter;
 import org.eclipse.sirius.common.interpreter.api.IVariableManager;
@@ -197,8 +198,20 @@ public class EEFMultipleReferenceCustomLifecycleManager extends EEFExtMultipleRe
 	protected void addButtonCallback() {
 		if (this.customDescription.hasAddButtonOperation()) {
 			this.customDescription.executeAddButtonOperation();
-		} else {
+		} else if (this.eReference.isContainment()){
 			super.addButtonCallback();
+		} else {
+			CustomEEFExtEObjectSelectionWizard wizard = new CustomEEFExtEObjectSelectionWizard(this.target, this.eReference, this.editingContextAdapter);
+			WizardDialog wizardDialog = new WizardDialog(this.label.getShell(), wizard);
+			if (Window.OK == wizardDialog.open()) {
+				EList<?> result = wizard.getResult();
+				if (result != null) {
+					Object oldValue = this.target.eGet(this.eReference);
+					if (oldValue instanceof Collection) {
+						((Collection<Object>)oldValue).addAll(result);
+					}
+				}						
+			}
 		}
 	}
 	
@@ -206,10 +219,6 @@ public class EEFMultipleReferenceCustomLifecycleManager extends EEFExtMultipleRe
 	protected void browseButtonCallback() {
 		if (this.customDescription.hasBrowseButtonOperation()) {
 			this.customDescription.executeBrowseButtonOperation();
-		} else if(this.eReference.isContainment()) {
-			IWizard wizard = new CustomEEFExtEObjectSelectionWizard(this.target, this.eReference, this.editingContextAdapter);
-			WizardDialog wizardDialog = new WizardDialog(this.label.getShell(), wizard);
-			wizardDialog.open();
 		} else {
 			super.browseButtonCallback();
 		}

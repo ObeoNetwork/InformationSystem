@@ -398,7 +398,7 @@
             <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
           </style>
         </nodeMappings>
-        <nodeMappings name="AP_TaskReference" detailDescriptions="//@ownedViewpoints[name='Graal%20Methodology']/@ownedRepresentations[name='Actions%20Plan']/@defaultLayer/@toolSections.4/@ownedTools[name='Create%20Actions%20Plan']" navigationDescriptions="//@ownedViewpoints[name='Graal%20Methodology']/@ownedRepresentations[name='Actions%20Plan']/@defaultLayer/@toolSections.4/@ownedTools[name='Actions%20Plan']" deletionDescription="//@ownedViewpoints[name='Graal%20Methodology']/@ownedRepresentations[name='Actions%20Plan']/@defaultLayer/@toolSections.4/@ownedTools[name='TaskReference']" labelDirectEdit="//@ownedViewpoints[name='Graal%20Methodology']/@ownedRepresentations[name='Reused%20Description']/@defaultLayer/@toolSections.0/@ownedTools[name='Generic%20Edit%20Label']" semanticCandidatesExpression="feature:nodes" semanticElements="feature:task" doubleClickDescription="//@ownedViewpoints[name='Graal%20Methodology']/@ownedRepresentations[name='Actions%20Plan']/@defaultLayer/@toolSections.4/@ownedTools[name='Go%20To%20Actions%20Plan']" domainClass="graal.TaskReference">
+        <nodeMappings name="AP_TaskReference" detailDescriptions="//@ownedViewpoints[name='Graal%20Methodology']/@ownedRepresentations[name='Actions%20Plan']/@defaultLayer/@toolSections.4/@ownedTools[name='Create%20Actions%20Plan']" navigationDescriptions="//@ownedViewpoints[name='Graal%20Methodology']/@ownedRepresentations[name='Actions%20Plan']/@defaultLayer/@toolSections.4/@ownedTools[name='Actions%20Plan']" deletionDescription="//@ownedViewpoints[name='Graal%20Methodology']/@ownedRepresentations[name='Actions%20Plan']/@defaultLayer/@toolSections.4/@ownedTools[name='TaskReference']" labelDirectEdit="//@ownedViewpoints[name='Graal%20Methodology']/@ownedRepresentations[name='Reused%20Description']/@defaultLayer/@toolSections.0/@ownedTools[name='Generic%20Edit%20Label']" semanticCandidatesExpression="feature:nodes" doubleClickDescription="//@ownedViewpoints[name='Graal%20Methodology']/@ownedRepresentations[name='Actions%20Plan']/@defaultLayer/@toolSections.4/@ownedTools[name='Go%20To%20Actions%20Plan']" domainClass="graal.TaskReference">
           <style xsi:type="style:WorkspaceImageDescription" showIcon="false" labelExpression="service:computeGraalLabel" sizeComputationExpression="15" labelPosition="node" resizeKind="NSEW" arcWidth="1" arcHeight="1" workspacePath="/org.obeonetwork.graal.design/images/shape_graal_grey.svg">
             <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
             <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
@@ -1846,7 +1846,7 @@
       <pages name="Loop Page" labelExpression="Loop" domainClass="graal::Loop" semanticCandidateExpression="var:self" groups="//@extensions.0/@categories.0/@groups.3"/>
       <pages name="Operator Page" labelExpression="Operator" domainClass="graal::Operator" semanticCandidateExpression="var:self" groups="//@extensions.0/@categories.0/@groups.4"/>
       <pages name="Transition Page" labelExpression="Transition" domainClass="graal::Transition" semanticCandidateExpression="var:self" groups="//@extensions.0/@categories.0/@groups.5"/>
-      <pages name="TaskReference Page" labelExpression="Task Reference" domainClass="graal::TaskReference" semanticCandidateExpression="var:self" groups="//@extensions.0/@categories.0/@groups.6"/>
+      <pages name="TaskReference Page" labelExpression="Task" domainClass="graal::Task" semanticCandidateExpression="aql:self.task" preconditionExpression="aql:self.oclIsKindOf(graal::TaskReference)" groups="//@extensions.0/@categories.0/@groups.2"/>
       <pages name="InitialNode Page" labelExpression="Initial Node" domainClass="graal::InitialNode" semanticCandidateExpression="var:self" groups="//@extensions.0/@categories.0/@groups.0"/>
       <pages name="FinalNode Page" labelExpression="Final Node" domainClass="graal::FinalNode" semanticCandidateExpression="var:self" groups="//@extensions.0/@categories.0/@groups.0"/>
       <pages name="AbortNode Page" labelExpression="Abort Node" domainClass="graal::AbortNode" semanticCandidateExpression="var:self" groups="//@extensions.0/@categories.0/@groups.0"/>
@@ -2094,6 +2094,9 @@
             <firstModelOperations xsi:type="tool_1:SetValue" featureName="description" valueExpression="var:newValue"/>
           </initialOperation>
         </controls>
+      </groups>
+      <groups name="TaskReference Metadata Group" labelExpression="MetadataCusto" domainClass="environment::ObeoDSMObject" semanticCandidateExpression="aql:self">
+        <extends href="platform:/plugin/org.obeonetwork.dsl.environment.properties/description/environment-properties.odesign#//@extensions.0/@categories.2/@groups.0"/>
       </groups>
     </categories>
     <categories name="Use Case">
