@@ -42,7 +42,6 @@ import org.eclipse.sirius.business.api.session.ViewpointSelector;
 import org.eclipse.sirius.ui.business.api.dialect.DialectEditor;
 import org.eclipse.sirius.ui.business.api.session.IEditingSession;
 import org.eclipse.sirius.ui.business.api.session.SessionUIManager;
-import org.eclipse.sirius.ui.business.api.session.UserSession;
 import org.eclipse.sirius.viewpoint.DRepresentation;
 import org.eclipse.sirius.viewpoint.DRepresentationDescriptor;
 import org.eclipse.sirius.viewpoint.DView;
@@ -239,8 +238,12 @@ public class BusinessProjectImporter {
 				// Add representations
 				for(DRepresentationDescriptor sourceRepresentationDescriptor : importData.getSourceRepresentationDescriptors()) {
 					DRepresentationDescriptor copyRepresentationDescriptor = (DRepresentationDescriptor)importData.getCopyEObject(sourceRepresentationDescriptor);
-					Viewpoint viewpoint = getViewpoint(copyRepresentationDescriptor);
-					addRepresentationDescriptor(copyRepresentationDescriptor, viewpoint);
+					EObject copiedRepresentationAsObject = importData.getCopyEObject(sourceRepresentationDescriptor.getRepresentation());
+					if (copiedRepresentationAsObject instanceof DRepresentation) {
+						DRepresentation copyRepresentation = (DRepresentation)copiedRepresentationAsObject;						
+						Viewpoint viewpoint = getViewpoint(copyRepresentationDescriptor);
+						addRepresentationDescriptor(copyRepresentationDescriptor, copyRepresentation, viewpoint);
+					}
 				}
 				
 				// Restore the local requirement references
@@ -366,8 +369,8 @@ public class BusinessProjectImporter {
         return null;
 	}
 	
-	private void addRepresentationDescriptor(final DRepresentationDescriptor representationDescriptor, final Viewpoint viewpoint) {
-		addRepresentationDescriptor(targetSession, representationDescriptor, viewpoint);
+	private void addRepresentationDescriptor(final DRepresentationDescriptor representationDescriptor, final DRepresentation representation, final Viewpoint viewpoint) {
+		addRepresentationDescriptor(targetSession, representationDescriptor, representation, viewpoint);
 	}
 
 	private String getTargetResourcePath(final EObject sourceObject) {
@@ -410,12 +413,13 @@ public class BusinessProjectImporter {
 		return false;
 	}
 	
-	private void addRepresentationDescriptor(Session session, DRepresentationDescriptor representationDescriptor, Viewpoint viewpoint) {
+	private void addRepresentationDescriptor(Session session, DRepresentationDescriptor representationDescriptor, DRepresentation representation, Viewpoint viewpoint) {
 		if (viewpoint != null) {
 			DView view = getViewForViewpoint(viewpoint, session);
 			if (view != null) {
 				view.getOwnedRepresentationDescriptors().add(representationDescriptor);
-				view.eResource().getContents().add(representationDescriptor.getRepresentation());
+				view.eResource().getContents().add(representation);
+				representationDescriptor.setRepresentation(representation);
 				return;
 			}
 			
@@ -424,7 +428,8 @@ public class BusinessProjectImporter {
 			view = getViewForViewpoint(viewpoint, session);
 			if (view != null) {
 				view.getOwnedRepresentationDescriptors().add(representationDescriptor);
-				view.eResource().getContents().add(representationDescriptor.getRepresentation());
+				view.eResource().getContents().add(representation);
+				representationDescriptor.setRepresentation(representation);
 				return;
 			}
 		}
