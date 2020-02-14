@@ -38,7 +38,7 @@
                      ifEmpty="false"
                      operator="and">
                   <instanceof
-                        value="org.obeonetwork.dsl.soa.System">
+                        value="org.obeonetwork.dsl.soa.Component">
                   </instanceof>
                </iterate>
             </with>

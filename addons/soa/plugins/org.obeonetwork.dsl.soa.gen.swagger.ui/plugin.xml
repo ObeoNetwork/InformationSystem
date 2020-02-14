@@ -31,16 +31,27 @@
          <enabledWhen>
             <with
                   variable="selection">
-               <count
-                     value="1">
-               </count>
-               <iterate
-                     ifEmpty="false"
-                     operator="and">
-                  <instanceof
-                        value="org.obeonetwork.dsl.soa.System">
-                  </instanceof>
-               </iterate>
+               <or>
+                  <and>
+                     <count
+                           value="1">
+                     </count>
+                     <iterate
+                           ifEmpty="false"
+                           operator="and">
+                        <instanceof
+                              value="org.obeonetwork.dsl.soa.System">
+                        </instanceof>
+                     </iterate>
+                  </and>
+                  <iterate
+                        ifEmpty="false"
+                        operator="and">
+                     <instanceof
+                           value="org.obeonetwork.dsl.soa.Component">
+                     </instanceof>
+                  </iterate>
+               </or>
             </with>
          </enabledWhen>
       </handler>

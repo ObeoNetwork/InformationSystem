@@ -30,10 +30,10 @@ import org.eclipse.swt.widgets.Text;
 import org.obeonetwork.dsl.soa.gen.swagger.SwaggerGenerator.MapperType;
 import org.obeonetwork.dsl.soa.gen.swagger.utils.StringUtils;
 
-public class GenerateSwaggerWizardOptionsPage extends WizardPage {
+public class GenerateComponentsSwaggerWizardOptionsPage extends WizardPage {
 
 	@SuppressWarnings("unused")
-	private GenerateSwaggerWizard wizard;
+	private GenerateComponentsSwaggerWizard wizard;
 	
 	private DataBindingContext bindingContext;
 	
@@ -81,7 +81,7 @@ public class GenerateSwaggerWizardOptionsPage extends WizardPage {
 		
 	}
 	
-	public GenerateSwaggerWizardOptionsPage(GenerateSwaggerWizard wizard) {
+	public GenerateComponentsSwaggerWizardOptionsPage(GenerateComponentsSwaggerWizard wizard) {
 		super("generateSwaggerWizardOptionsPage");
 		setTitle(wizard.getWindowTitle());
 		setDescription("Sélectionner les options d'export.");
@@ -111,7 +111,7 @@ public class GenerateSwaggerWizardOptionsPage extends WizardPage {
 		btnSelectOutputDirPath.addSelectionListener(new SelectionAdapter() {
 			@Override
 			public void widgetSelected(SelectionEvent e) {
-				DirectoryDialog dialog = new DirectoryDialog(GenerateSwaggerWizardOptionsPage.this.getShell(), SWT.OPEN);
+				DirectoryDialog dialog = new DirectoryDialog(GenerateComponentsSwaggerWizardOptionsPage.this.getShell(), SWT.OPEN);
 				model.setOutputDirPath(dialog.open());
 			}
 		});
@@ -142,7 +142,7 @@ public class GenerateSwaggerWizardOptionsPage extends WizardPage {
 			
 			@Override
 			public void propertyChange(PropertyChangeEvent evt) {
-				setPageComplete(checkStatus());
+				setPageComplete(isComplete());
 			}
 
 		};
@@ -171,7 +171,7 @@ public class GenerateSwaggerWizardOptionsPage extends WizardPage {
 		return bindingContext;
 	}
 	
-	public boolean checkStatus() {
+	public boolean isComplete() {
 		return model.getOutputDirPath() != null && new File(model.getOutputDirPath()).isDirectory();
 	}
 	

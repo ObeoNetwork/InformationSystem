@@ -73,6 +73,8 @@ public class ComponentItemProvider
 			addNamePropertyDescriptor(object);
 			addBlockPropertyDescriptor(object);
 			addURIPropertyDescriptor(object);
+			addURLPropertyDescriptor(object);
+			addApiVersionPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -188,6 +190,50 @@ public class ComponentItemProvider
 	}
 
 	/**
+	 * This adds a property descriptor for the URL feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addURLPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_Component_URL_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Component_URL_feature", "_UI_Component_type"),
+				 SoaPackage.Literals.COMPONENT__URL,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Api Version feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addApiVersionPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_Component_apiVersion_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Component_apiVersion_feature", "_UI_Component_type"),
+				 SoaPackage.Literals.COMPONENT__API_VERSION,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
 	 * This specifies how to implement {@link #getChildren} and is used to deduce an appropriate feature for an
 	 * {@link org.eclipse.emf.edit.command.AddCommand}, {@link org.eclipse.emf.edit.command.RemoveCommand} or
 	 * {@link org.eclipse.emf.edit.command.MoveCommand} in {@link #createCommand}.
@@ -268,6 +314,8 @@ public class ComponentItemProvider
 		switch (notification.getFeatureID(Component.class)) {
 			case SoaPackage.COMPONENT__NAME:
 			case SoaPackage.COMPONENT__URI:
+			case SoaPackage.COMPONENT__URL:
+			case SoaPackage.COMPONENT__API_VERSION:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 			case SoaPackage.COMPONENT__OWNED_SERVICES:

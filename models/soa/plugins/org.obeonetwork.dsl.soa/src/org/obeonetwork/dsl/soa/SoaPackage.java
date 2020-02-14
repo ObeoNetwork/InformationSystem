@@ -218,22 +218,13 @@ public interface SoaPackage extends EPackage {
 	int SYSTEM__OWNED_WIRES = EnvironmentPackage.NAMESPACE_FEATURE_COUNT + 1;
 
 	/**
-	 * The feature id for the '<em><b>URL</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SYSTEM__URL = EnvironmentPackage.NAMESPACE_FEATURE_COUNT + 2;
-
-	/**
 	 * The number of structural features of the '<em>System</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SYSTEM_FEATURE_COUNT = EnvironmentPackage.NAMESPACE_FEATURE_COUNT + 3;
+	int SYSTEM_FEATURE_COUNT = EnvironmentPackage.NAMESPACE_FEATURE_COUNT + 2;
 
 	/**
 	 * The meta object id for the '{@link org.obeonetwork.dsl.soa.impl.ComponentImpl <em>Component</em>}' class.
@@ -399,13 +390,31 @@ public interface SoaPackage extends EPackage {
 	int COMPONENT__URI = EnvironmentPackage.OBEO_DSM_OBJECT_FEATURE_COUNT + 7;
 
 	/**
+	 * The feature id for the '<em><b>URL</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMPONENT__URL = EnvironmentPackage.OBEO_DSM_OBJECT_FEATURE_COUNT + 8;
+
+	/**
+	 * The feature id for the '<em><b>Api Version</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMPONENT__API_VERSION = EnvironmentPackage.OBEO_DSM_OBJECT_FEATURE_COUNT + 9;
+
+	/**
 	 * The number of structural features of the '<em>Component</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int COMPONENT_FEATURE_COUNT = EnvironmentPackage.OBEO_DSM_OBJECT_FEATURE_COUNT + 8;
+	int COMPONENT_FEATURE_COUNT = EnvironmentPackage.OBEO_DSM_OBJECT_FEATURE_COUNT + 10;
 
 	/**
 	 * The meta object id for the '{@link org.obeonetwork.dsl.soa.impl.ServiceImpl <em>Service</em>}' class.
@@ -1470,17 +1479,6 @@ public interface SoaPackage extends EPackage {
 	EReference getSystem_OwnedWires();
 
 	/**
-	 * Returns the meta object for the attribute '{@link org.obeonetwork.dsl.soa.System#getURL <em>URL</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>URL</em>'.
-	 * @see org.obeonetwork.dsl.soa.System#getURL()
-	 * @see #getSystem()
-	 * @generated
-	 */
-	EAttribute getSystem_URL();
-
-	/**
 	 * Returns the meta object for class '{@link org.obeonetwork.dsl.soa.Component <em>Component</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1577,6 +1575,28 @@ public interface SoaPackage extends EPackage {
 	 * @generated
 	 */
 	EAttribute getComponent_URI();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.obeonetwork.dsl.soa.Component#getURL <em>URL</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>URL</em>'.
+	 * @see org.obeonetwork.dsl.soa.Component#getURL()
+	 * @see #getComponent()
+	 * @generated
+	 */
+	EAttribute getComponent_URL();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.obeonetwork.dsl.soa.Component#getApiVersion <em>Api Version</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Api Version</em>'.
+	 * @see org.obeonetwork.dsl.soa.Component#getApiVersion()
+	 * @see #getComponent()
+	 * @generated
+	 */
+	EAttribute getComponent_ApiVersion();
 
 	/**
 	 * Returns the meta object for class '{@link org.obeonetwork.dsl.soa.Service <em>Service</em>}'.
@@ -2076,14 +2096,6 @@ public interface SoaPackage extends EPackage {
 		EReference SYSTEM__OWNED_WIRES = eINSTANCE.getSystem_OwnedWires();
 
 		/**
-		 * The meta object literal for the '<em><b>URL</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute SYSTEM__URL = eINSTANCE.getSystem_URL();
-
-		/**
 		 * The meta object literal for the '{@link org.obeonetwork.dsl.soa.impl.ComponentImpl <em>Component</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -2156,6 +2168,22 @@ public interface SoaPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute COMPONENT__URI = eINSTANCE.getComponent_URI();
+
+		/**
+		 * The meta object literal for the '<em><b>URL</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute COMPONENT__URL = eINSTANCE.getComponent_URL();
+
+		/**
+		 * The meta object literal for the '<em><b>Api Version</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute COMPONENT__API_VERSION = eINSTANCE.getComponent_ApiVersion();
 
 		/**
 		 * The meta object literal for the '{@link org.obeonetwork.dsl.soa.impl.ServiceImpl <em>Service</em>}' class.

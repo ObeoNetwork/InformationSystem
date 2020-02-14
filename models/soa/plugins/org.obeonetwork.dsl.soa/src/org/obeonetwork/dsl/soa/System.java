@@ -24,7 +24,6 @@ import org.obeonetwork.dsl.environment.Namespace;
  * <ul>
  *   <li>{@link org.obeonetwork.dsl.soa.System#getOwnedComponents <em>Owned Components</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.soa.System#getOwnedWires <em>Owned Wires</em>}</li>
- *   <li>{@link org.obeonetwork.dsl.soa.System#getURL <em>URL</em>}</li>
  * </ul>
  *
  * @see org.obeonetwork.dsl.soa.SoaPackage#getSystem()
@@ -70,31 +69,5 @@ public interface System extends Namespace {
 	 * @generated
 	 */
 	EList<Wire> getOwnedWires();
-
-	/**
-	 * Returns the value of the '<em><b>URL</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>URL</em>' attribute isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>URL</em>' attribute.
-	 * @see #setURL(String)
-	 * @see org.obeonetwork.dsl.soa.SoaPackage#getSystem_URL()
-	 * @model
-	 * @generated
-	 */
-	String getURL();
-
-	/**
-	 * Sets the value of the '{@link org.obeonetwork.dsl.soa.System#getURL <em>URL</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>URL</em>' attribute.
-	 * @see #getURL()
-	 * @generated
-	 */
-	void setURL(String value);
 
 } // System

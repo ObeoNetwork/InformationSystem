@@ -4,11 +4,15 @@ import static org.obeonetwork.dsl.soa.gen.swagger.utils.StringUtils.emptyIfNull;
 import static org.obeonetwork.dsl.soa.gen.swagger.utils.StringUtils.isNullOrWhite;
 
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import org.obeonetwork.dsl.environment.DTO;
+import org.eclipse.emf.ecore.EObject;
+import org.eclipse.emf.ecore.EStructuralFeature;
+import org.eclipse.emf.ecore.resource.Resource;
+import org.obeonetwork.dsl.entity.EntityPackage;
 import org.obeonetwork.dsl.environment.DataType;
 import org.obeonetwork.dsl.environment.Enumeration;
 import org.obeonetwork.dsl.environment.Property;
@@ -17,14 +21,12 @@ import org.obeonetwork.dsl.environment.Type;
 import org.obeonetwork.dsl.soa.Component;
 import org.obeonetwork.dsl.soa.ParameterPassingMode;
 import org.obeonetwork.dsl.soa.Service;
-import org.obeonetwork.dsl.soa.System;
 import org.obeonetwork.dsl.soa.Verb;
+import org.obeonetwork.dsl.soa.gen.swagger.utils.ComponentGenUtil;
 import org.obeonetwork.dsl.soa.gen.swagger.utils.OperationGenUtil;
 import org.obeonetwork.dsl.soa.gen.swagger.utils.ParameterGenUtil;
 import org.obeonetwork.dsl.soa.gen.swagger.utils.PropertyGenUtil;
 import org.obeonetwork.dsl.soa.gen.swagger.utils.ServiceGenUtil;
-import org.obeonetwork.dsl.soa.gen.swagger.utils.StreamUtils;
-import org.obeonetwork.dsl.soa.gen.swagger.utils.SystemGenUtil;
 
 import io.swagger.v3.oas.models.Components;
 import io.swagger.v3.oas.models.OpenAPI;
@@ -69,12 +71,17 @@ public class SwaggerBuilder {
     private static final String OPEN_API_IN_PATH = "path";
     private static final String OPEN_API_IN_QUERY = "query";
     
-	protected System soaSystem;
+    private static final String QUALIFIED_KEY_SEPARATOR = "/";
+    
+	private OpenAPI openApi;
 	
-	protected OpenAPI openApi;
+	private Component soaComponent;
+	
+	private Collection<Type> exposedSoaTypes = null;
+	private Map<Type, String> exposedSoaTypeKeys = null;
 
-	public SwaggerBuilder(System system) {
-		this.soaSystem = system;
+	public SwaggerBuilder(Component soaComponent) {
+		this.soaComponent = soaComponent;
 	}
 
 	public OpenAPI createOpenAPI() {
@@ -96,9 +103,9 @@ public class SwaggerBuilder {
     
 	private Info createInfo() {
     	Info info = new Info();
-    	info.setTitle(SystemGenUtil.getName(soaSystem));
-		info.setDescription(soaSystem.getDescription());
-		info.setVersion(Integer.toString(soaSystem.getVersion()));
+    	info.setTitle(ComponentGenUtil.getName(soaComponent));
+		info.setDescription(soaComponent.getDescription());
+		info.setVersion(soaComponent.getApiVersion());
     	info.setLicense(createLicense());
     	return info;
     }
@@ -121,7 +128,7 @@ public class SwaggerBuilder {
 
 	private Server createDefaultServer() {
     	Server server = new Server();
-    	server.setUrl(emptyIfNull(soaSystem.getURL()));
+    	server.setUrl(emptyIfNull(soaComponent.getURL()));
     	return server;
 	}
 
@@ -130,49 +137,117 @@ public class SwaggerBuilder {
     private void buildComponents() {
     	openApi.setComponents(new Components());
     	
-    	// Enums
-    	StreamUtils.asStream(soaSystem.eAllContents())
-    	.filter(Enumeration.class::isInstance).map(Enumeration.class::cast)
-    	.forEach(soaEnumeration -> buildSoaEnumerationComponent(soaEnumeration));
+    	exposedSoaTypes = ComponentGenUtil.getExposedTypes(soaComponent);
     	
-    	// DTOs
-    	StreamUtils.asStream(soaSystem.eAllContents())
-    	.filter(DTO.class::isInstance).map(DTO.class::cast)
-    	.forEach(soaDto -> buildSoaDtoComponent(soaDto));
+    	// Compute the exposedSoaTypes keys
+    	Map<String, Type> keyReferential = new HashMap<>();
+    	for(Type soaType : exposedSoaTypes) {
+    		String key = computeSoaTypeKey(soaType, "");
+    		
+    		// While computed key is already in use
+    		while(keyReferential.get(key) != null) {
+    			// Compute a longer key for both objects matching the key
+    			Type otherType = keyReferential.remove(key);
+    			String otherKey = computeSoaTypeKey(otherType, key);
+    			keyReferential.put(otherKey, otherType);
+    			
+    			key = computeSoaTypeKey(soaType, key);
+    		}
+    		keyReferential.put(key, soaType);
+    	}
+    	
+    	exposedSoaTypeKeys = new HashMap<>();
+    	keyReferential.entrySet().forEach(entry -> exposedSoaTypeKeys.put(entry.getValue(), entry.getKey()));
+    	
+    	// Build the components
+    	exposedSoaTypes.forEach(exposedSoaType -> buildComponent(exposedSoaType));
     	
     }
 	
-    private void buildSoaEnumerationComponent(Enumeration soaEnumeration) {
-    	openApi.getComponents().addSchemas(getSoaTypeKey(soaEnumeration), createSoaEnumerationSchema(soaEnumeration));
+	private String computeSoaTypeKey(Type soaType, String key) {
+		StringBuffer computedKey = new StringBuffer(asQNSegment(soaType));
+		Object parent = getQNParent(soaType);
+		while(computedKey.length() <= key.length() && parent != null) {
+			computedKey.insert(0, QUALIFIED_KEY_SEPARATOR);
+			computedKey.insert(0, asQNSegment(parent));
+			parent = getQNParent(parent);
+		}
+		
+		return computedKey.toString();
+	}
+    
+	private String asQNSegment(Object qnElement) {
+		String qnSegment = null;
+		if(qnElement instanceof EObject) {
+			EObject eObject = (EObject) qnElement;
+			EStructuralFeature nameFeature = eObject.eClass().getEStructuralFeature("name");
+			if(nameFeature != null) {
+				qnSegment = (String) eObject.eGet(nameFeature);
+			}
+			if(isNullOrWhite(qnSegment)) {
+				if(eObject.eClass() == EntityPackage.eINSTANCE.getRoot()) {
+					qnSegment = "Entities";
+				} else {
+					qnSegment = eObject.eClass().getName();
+				}
+			}
+		} else if(qnElement instanceof Resource) {
+			Resource resource = (Resource) qnElement;
+			qnSegment = resource.getURI().lastSegment();
+		}
+		
+		return qnSegment;
+	}
+	
+	private Object getQNParent(Object qnElement) {
+		Object parent = null;
+		
+		if(qnElement instanceof EObject) {
+			parent = ((EObject) qnElement).eContainer();
+			if(parent == null && !(qnElement instanceof Resource)) {
+				parent = ((EObject) qnElement).eResource();
+			}
+		}
+		return parent;
+	}
+
+	private void buildComponent(Type soaType) {
+    	openApi.getComponents().addSchemas(getSoaTypeKey(soaType), createSchema(soaType));
     }
     
+	private Schema<Object> createSchema(Type soaType) {
+		Schema<Object> schema = null;
+		if(soaType instanceof Enumeration) {
+			schema = createSoaEnumerationSchema((Enumeration) soaType);
+		} else if(soaType instanceof StructuredType) {
+			schema = createSoaStructuredTypeSchema((StructuredType) soaType);
+		}
+		return schema;
+	}
+	
 	private Schema<Object> createSoaEnumerationSchema(Enumeration soaEnumeration) {
 		Schema<Object> schema = createSchema(OPEN_API_TYPE_STRING, null);
 		soaEnumeration.getLiterals().forEach(soaLiteral -> schema.addEnumItemObject(soaLiteral.getName()));
 		return schema;
 	}
 
-    private void buildSoaDtoComponent(DTO soaDto) {
-    	openApi.getComponents().addSchemas(getSoaTypeKey(soaDto), createSoaDtoSchema(soaDto));
-    }
-    
-    private Schema<Object> createSoaDtoSchema(DTO soaDto) {
-    	Schema<Object> dtoSchema = null;
+    private Schema<Object> createSoaStructuredTypeSchema(StructuredType soaStructuredType) {
+    	Schema<Object> structuredTypeSchema = null;
     	
 		Schema<Object> schema = createSchema(OPEN_API_TYPE_OBJECT, null);
-		schema.setDescription(soaDto.getDescription());
+		schema.setDescription(soaStructuredType.getDescription());
 		
-		soaDto.getAttributes().forEach(a -> buildProperty(schema, a));
+		soaStructuredType.getAttributes().forEach(a -> buildProperty(schema, a));
 		
-		soaDto.getReferences().forEach(r -> buildProperty(schema, r));
+		soaStructuredType.getReferences().forEach(r -> buildProperty(schema, r));
 		
-		if(soaDto.getSupertype() != null) {
-			dtoSchema = createComposedSchema(schema, soaDto.getSupertype());
+		if(soaStructuredType.getSupertype() != null) {
+			structuredTypeSchema = createComposedSchema(schema, soaStructuredType.getSupertype());
 		} else {
-			dtoSchema = schema;
+			structuredTypeSchema = schema;
 		}
 		
-		return dtoSchema;
+		return structuredTypeSchema;
 		
 	}
 
@@ -191,7 +266,7 @@ public class SwaggerBuilder {
 		}
 	}
 
-	protected Schema<Object> createSoaPropertySchema(Property soaProperty) {
+	private Schema<Object> createSoaPropertySchema(Property soaProperty) {
 		Schema<Object> schema = createTypeUseSchema(PropertyGenUtil.getType(soaProperty));
 		
 		// Set read only
@@ -235,7 +310,7 @@ public class SwaggerBuilder {
 	}
 
 	private String getSoaTypeKey(Type soaType) {
-		return soaType.getName();
+		return exposedSoaTypeKeys.get(soaType);
 	}
 
     private static final Map<String, Schema<Object>> dataTypePrototypeSchemas = new HashMap<>();
@@ -260,7 +335,7 @@ public class SwaggerBuilder {
 		return null;
 	}
 
-	protected static <T> Schema<T> createSchema(String type, String format) {
+	private static <T> Schema<T> createSchema(String type, String format) {
     	Schema<T> schema = new Schema<>();
     	schema.setType(type);
     	schema.setFormat(format);
@@ -272,10 +347,8 @@ public class SwaggerBuilder {
 	private void buildPaths() {
 		openApi.setPaths(new Paths());
 		
-		soaSystem.getOwnedComponents().stream()
-		.flatMap(soaComponent -> soaComponent.getProvidedServices().stream())
-		.map(soaService -> soaService.getOwnedInterface())
-		.flatMap(soaInterface -> soaInterface.getOwnedOperations().stream())
+		soaComponent.getProvidedServices().stream()
+		.flatMap(soaService -> soaService.getOwnedInterface().getOwnedOperations().stream())
 		.forEach(soaOperation -> buildPathItem(soaOperation));
 	}
 
@@ -329,7 +402,7 @@ public class SwaggerBuilder {
     	Operation operation = new Operation();
     	operation.operationId(soaOperation.getName());
     	
-		operation.addTagsItem(OperationGenUtil.getComponent(soaOperation).getName());
+		operation.addTagsItem(OperationGenUtil.getService(soaOperation).getName());
 //		operation.summary(soaOperation.getDescription());
 		operation.description(soaOperation.getDescription());
 //		operation.deprecated(soaOperation.isDeprecated());
@@ -490,7 +563,6 @@ public class SwaggerBuilder {
     	
     	return description;
     }
-    
 
 	private Operation buildParameters(Operation operation, org.obeonetwork.dsl.soa.Operation soaOperation) {
     	soaOperation.getInput().stream()
@@ -523,7 +595,7 @@ public class SwaggerBuilder {
     	return parameter;
     }
     
-	protected Schema<Object> createParameterSchema(org.obeonetwork.dsl.soa.Parameter soaParameter) {
+	private Schema<Object> createParameterSchema(org.obeonetwork.dsl.soa.Parameter soaParameter) {
 		
 		Schema<Object> schema = createTypeUseSchema(soaParameter.getType());
 		

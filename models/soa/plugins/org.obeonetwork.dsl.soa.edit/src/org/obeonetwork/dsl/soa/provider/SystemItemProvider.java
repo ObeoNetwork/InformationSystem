@@ -64,31 +64,8 @@ public class SystemItemProvider
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
-			addURLPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
-	}
-
-	/**
-	 * This adds a property descriptor for the URL feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addURLPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_System_URL_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_System_URL_feature", "_UI_System_type"),
-				 SoaPackage.Literals.SYSTEM__URL,
-				 true,
-				 false,
-				 false,
-				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-				 null,
-				 null));
 	}
 
 	/**
@@ -170,9 +147,6 @@ public class SystemItemProvider
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(org.obeonetwork.dsl.soa.System.class)) {
-			case SoaPackage.SYSTEM__URL:
-				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
-				return;
 			case SoaPackage.SYSTEM__OWNED_COMPONENTS:
 			case SoaPackage.SYSTEM__OWNED_WIRES:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));

@@ -19,11 +19,12 @@ import org.eclipse.ui.PlatformUI;
 import org.eclipse.ui.handlers.HandlerUtil;
 import org.eclipse.ui.internal.browser.WebBrowserEditor;
 import org.eclipse.ui.internal.browser.WebBrowserEditorInput;
-import org.obeonetwork.dsl.soa.System;
+import org.obeonetwork.dsl.soa.Component;
 import org.obeonetwork.dsl.soa.gen.swagger.SwaggerGenerator;
 import org.obeonetwork.dsl.soa.gen.swagger.SwaggerGenerator.MapperType;
 import org.obeonetwork.dsl.soa.gen.swagger.preview.webserver.SwaggerPreviewJettyServer;
-import org.obeonetwork.dsl.soa.gen.swagger.utils.SystemGenUtil;
+
+import com.google.common.io.Files;
 
 @SuppressWarnings("restriction")
 public class SwaggerPreviewHandler extends AbstractHandler implements IHandler {
@@ -34,7 +35,7 @@ public class SwaggerPreviewHandler extends AbstractHandler implements IHandler {
 	@Override
 	public Object execute(ExecutionEvent event) throws ExecutionException {
 		
-		System system = null;
+		Component component = null;
 		
 		IWorkbenchWindow window = HandlerUtil.getActiveWorkbenchWindowChecked(event);
 		ISelectionService service = window.getSelectionService();
@@ -43,7 +44,7 @@ public class SwaggerPreviewHandler extends AbstractHandler implements IHandler {
 		if (selection instanceof IStructuredSelection) {
 			IStructuredSelection structuredSelection = (IStructuredSelection) selection;
 			Iterator<?> selectionIteratror = structuredSelection.iterator();
-			system = (System) selectionIteratror.next();
+			component = (Component) selectionIteratror.next();
 		}
 		
 		try {
@@ -51,13 +52,11 @@ public class SwaggerPreviewHandler extends AbstractHandler implements IHandler {
 			SwaggerPreviewJettyServer.instance().start();
 			
 			// Generate the swagger in a temporary file
-			String swaggerFileNamePrefix = SystemGenUtil.getName(system);
-			String swaggerFileNameSuffix = "." + MAPPER_TYPE.toString().toLowerCase();
-			String swaggerFileName = swaggerFileNamePrefix + swaggerFileNameSuffix;
-			File swaggerFile = File.createTempFile(swaggerFileNamePrefix, swaggerFileNameSuffix);
+			String swaggerFileName = SwaggerGenerator.getFileNameForComponent(component, MAPPER_TYPE);
+			File swaggerFile = File.createTempFile(Files.getNameWithoutExtension(swaggerFileName), Files.getFileExtension(swaggerFileName));
 			swaggerFile.deleteOnExit();
 			
-			SwaggerGenerator.generateInFile(system, MAPPER_TYPE, swaggerFile);
+			SwaggerGenerator.generateInFile(component, MAPPER_TYPE, swaggerFile);
 			
 			// Register the generated file in the SwaggerPreviewJettyServer
 			SwaggerPreviewJettyServer.instance().putSwaggerFile(swaggerFileName, swaggerFile);

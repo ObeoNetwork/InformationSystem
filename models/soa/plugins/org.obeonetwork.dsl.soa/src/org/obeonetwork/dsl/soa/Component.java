@@ -31,6 +31,8 @@ import org.obeonetwork.dsl.environment.TypesDefinition;
  *   <li>{@link org.obeonetwork.dsl.soa.Component#getOwnedBinding <em>Owned Binding</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.soa.Component#getBlock <em>Block</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.soa.Component#getURI <em>URI</em>}</li>
+ *   <li>{@link org.obeonetwork.dsl.soa.Component#getURL <em>URL</em>}</li>
+ *   <li>{@link org.obeonetwork.dsl.soa.Component#getApiVersion <em>Api Version</em>}</li>
  * </ul>
  *
  * @see org.obeonetwork.dsl.soa.SoaPackage#getComponent()
@@ -192,5 +194,57 @@ public interface Component extends ObeoDSMObject {
 	 * @generated
 	 */
 	void setURI(String value);
+
+	/**
+	 * Returns the value of the '<em><b>URL</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>URL</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>URL</em>' attribute.
+	 * @see #setURL(String)
+	 * @see org.obeonetwork.dsl.soa.SoaPackage#getComponent_URL()
+	 * @model
+	 * @generated
+	 */
+	String getURL();
+
+	/**
+	 * Sets the value of the '{@link org.obeonetwork.dsl.soa.Component#getURL <em>URL</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>URL</em>' attribute.
+	 * @see #getURL()
+	 * @generated
+	 */
+	void setURL(String value);
+
+	/**
+	 * Returns the value of the '<em><b>Api Version</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Api Version</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Api Version</em>' attribute.
+	 * @see #setApiVersion(String)
+	 * @see org.obeonetwork.dsl.soa.SoaPackage#getComponent_ApiVersion()
+	 * @model
+	 * @generated
+	 */
+	String getApiVersion();
+
+	/**
+	 * Sets the value of the '{@link org.obeonetwork.dsl.soa.Component#getApiVersion <em>Api Version</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Api Version</em>' attribute.
+	 * @see #getApiVersion()
+	 * @generated
+	 */
+	void setApiVersion(String value);
 
 } // Component

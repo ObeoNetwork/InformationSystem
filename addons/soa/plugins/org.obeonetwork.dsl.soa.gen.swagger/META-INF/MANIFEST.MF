@@ -8,7 +8,8 @@ Bundle-RequiredExecutionEnvironment: JavaSE-1.8
 Bundle-Vendor: Obeo Network
 Export-Package: org.obeonetwork.dsl.soa.gen.swagger,
  org.obeonetwork.dsl.soa.gen.swagger.utils
-Require-Bundle: org.obeonetwork.dsl.soa
+Require-Bundle: org.obeonetwork.dsl.soa,
+ org.obeonetwork.dsl.entity
 Bundle-ClassPath: .,
  target/jars/commons-lang3-3.7.jar,
  target/jars/jackson-annotations-2.8.8.jar,

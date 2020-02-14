@@ -251,15 +251,6 @@ public class SoaPackageImpl extends EPackageImpl implements SoaPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getSystem_URL() {
-		return (EAttribute)systemEClass.getEStructuralFeatures().get(2);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EClass getComponent() {
 		return componentEClass;
 	}
@@ -334,6 +325,24 @@ public class SoaPackageImpl extends EPackageImpl implements SoaPackage {
 	 */
 	public EAttribute getComponent_URI() {
 		return (EAttribute)componentEClass.getEStructuralFeatures().get(7);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getComponent_URL() {
+		return (EAttribute)componentEClass.getEStructuralFeatures().get(8);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getComponent_ApiVersion() {
+		return (EAttribute)componentEClass.getEStructuralFeatures().get(9);
 	}
 
 	/**
@@ -745,7 +754,6 @@ public class SoaPackageImpl extends EPackageImpl implements SoaPackage {
 		systemEClass = createEClass(SYSTEM);
 		createEReference(systemEClass, SYSTEM__OWNED_COMPONENTS);
 		createEReference(systemEClass, SYSTEM__OWNED_WIRES);
-		createEAttribute(systemEClass, SYSTEM__URL);
 
 		componentEClass = createEClass(COMPONENT);
 		createEReference(componentEClass, COMPONENT__OWNED_SERVICES);
@@ -756,6 +764,8 @@ public class SoaPackageImpl extends EPackageImpl implements SoaPackage {
 		createEReference(componentEClass, COMPONENT__OWNED_BINDING);
 		createEReference(componentEClass, COMPONENT__BLOCK);
 		createEAttribute(componentEClass, COMPONENT__URI);
+		createEAttribute(componentEClass, COMPONENT__URL);
+		createEAttribute(componentEClass, COMPONENT__API_VERSION);
 
 		serviceEClass = createEClass(SERVICE);
 		createEReference(serviceEClass, SERVICE__OWNED_INTERFACE);
@@ -854,7 +864,6 @@ public class SoaPackageImpl extends EPackageImpl implements SoaPackage {
 		initEClass(systemEClass, org.obeonetwork.dsl.soa.System.class, "System", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getSystem_OwnedComponents(), this.getComponent(), null, "ownedComponents", null, 0, -1, org.obeonetwork.dsl.soa.System.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getSystem_OwnedWires(), this.getWire(), null, "ownedWires", null, 0, -1, org.obeonetwork.dsl.soa.System.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getSystem_URL(), ecorePackage.getEString(), "URL", null, 0, 1, org.obeonetwork.dsl.soa.System.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(componentEClass, Component.class, "Component", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getComponent_OwnedServices(), this.getService(), null, "ownedServices", null, 0, -1, Component.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -865,6 +874,8 @@ public class SoaPackageImpl extends EPackageImpl implements SoaPackage {
 		initEReference(getComponent_OwnedBinding(), this.getBinding(), null, "ownedBinding", null, 0, -1, Component.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getComponent_Block(), theEnvironmentPackage.getTypesDefinition(), null, "block", null, 0, -1, Component.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getComponent_URI(), ecorePackage.getEString(), "URI", null, 0, 1, Component.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getComponent_URL(), ecorePackage.getEString(), "URL", null, 0, 1, Component.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getComponent_ApiVersion(), ecorePackage.getEString(), "apiVersion", null, 0, 1, Component.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(serviceEClass, Service.class, "Service", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getService_OwnedInterface(), this.getInterface(), null, "ownedInterface", null, 0, 1, Service.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

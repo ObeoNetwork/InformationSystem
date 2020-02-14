@@ -43,6 +43,8 @@ import org.obeonetwork.dsl.soa.SoaPackage;
  *   <li>{@link org.obeonetwork.dsl.soa.impl.ComponentImpl#getOwnedBinding <em>Owned Binding</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.soa.impl.ComponentImpl#getBlock <em>Block</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.soa.impl.ComponentImpl#getURI <em>URI</em>}</li>
+ *   <li>{@link org.obeonetwork.dsl.soa.impl.ComponentImpl#getURL <em>URL</em>}</li>
+ *   <li>{@link org.obeonetwork.dsl.soa.impl.ComponentImpl#getApiVersion <em>Api Version</em>}</li>
  * </ul>
  *
  * @generated
@@ -74,6 +76,26 @@ public class ComponentImpl extends ObeoDSMObjectImpl implements Component {
 	 * @ordered
 	 */
 	protected static final String URI_EDEFAULT = null;
+
+	/**
+	 * The default value of the '{@link #getURL() <em>URL</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getURL()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String URL_EDEFAULT = null;
+
+	/**
+	 * The default value of the '{@link #getApiVersion() <em>Api Version</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getApiVersion()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String API_VERSION_EDEFAULT = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -205,6 +227,42 @@ public class ComponentImpl extends ObeoDSMObjectImpl implements Component {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public String getURL() {
+		return (String)eDynamicGet(SoaPackage.COMPONENT__URL, SoaPackage.Literals.COMPONENT__URL, true, true);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setURL(String newURL) {
+		eDynamicSet(SoaPackage.COMPONENT__URL, SoaPackage.Literals.COMPONENT__URL, newURL);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String getApiVersion() {
+		return (String)eDynamicGet(SoaPackage.COMPONENT__API_VERSION, SoaPackage.Literals.COMPONENT__API_VERSION, true, true);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setApiVersion(String newApiVersion) {
+		eDynamicSet(SoaPackage.COMPONENT__API_VERSION, SoaPackage.Literals.COMPONENT__API_VERSION, newApiVersion);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
@@ -242,6 +300,10 @@ public class ComponentImpl extends ObeoDSMObjectImpl implements Component {
 				return getBlock();
 			case SoaPackage.COMPONENT__URI:
 				return getURI();
+			case SoaPackage.COMPONENT__URL:
+				return getURL();
+			case SoaPackage.COMPONENT__API_VERSION:
+				return getApiVersion();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -277,6 +339,12 @@ public class ComponentImpl extends ObeoDSMObjectImpl implements Component {
 			case SoaPackage.COMPONENT__URI:
 				setURI((String)newValue);
 				return;
+			case SoaPackage.COMPONENT__URL:
+				setURL((String)newValue);
+				return;
+			case SoaPackage.COMPONENT__API_VERSION:
+				setApiVersion((String)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -307,6 +375,12 @@ public class ComponentImpl extends ObeoDSMObjectImpl implements Component {
 			case SoaPackage.COMPONENT__URI:
 				setURI(URI_EDEFAULT);
 				return;
+			case SoaPackage.COMPONENT__URL:
+				setURL(URL_EDEFAULT);
+				return;
+			case SoaPackage.COMPONENT__API_VERSION:
+				setApiVersion(API_VERSION_EDEFAULT);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -335,6 +409,10 @@ public class ComponentImpl extends ObeoDSMObjectImpl implements Component {
 				return !getBlock().isEmpty();
 			case SoaPackage.COMPONENT__URI:
 				return URI_EDEFAULT == null ? getURI() != null : !URI_EDEFAULT.equals(getURI());
+			case SoaPackage.COMPONENT__URL:
+				return URL_EDEFAULT == null ? getURL() != null : !URL_EDEFAULT.equals(getURL());
+			case SoaPackage.COMPONENT__API_VERSION:
+				return API_VERSION_EDEFAULT == null ? getApiVersion() != null : !API_VERSION_EDEFAULT.equals(getApiVersion());
 		}
 		return super.eIsSet(featureID);
 	}

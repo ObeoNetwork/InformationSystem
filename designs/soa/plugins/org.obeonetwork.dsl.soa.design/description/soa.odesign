@@ -1112,11 +1112,10 @@
       <pages name="Service Page" labelExpression="Service" domainClass="soa::Service" semanticCandidateExpression="var:self" groups="//@extensions.0/@categories.1/@groups.2"/>
       <pages name="Wire Page" labelExpression="Wire" domainClass="soa::Wire" semanticCandidateExpression="var:self" groups="//@extensions.0/@categories.1/@groups.3"/>
       <pages name="Parameter Page" labelExpression="Parameter" domainClass="soa::Parameter" semanticCandidateExpression="var:self" groups="//@extensions.0/@categories.1/@groups.4"/>
-      <pages name="System Exposition Page" labelExpression="Exposition" domainClass="soa::System" semanticCandidateExpression="var:self" groups="//@extensions.0/@categories.1/@groups.5"/>
-      <pages name="Component Exposition Page" labelExpression="Exposition" domainClass="soa::Component" semanticCandidateExpression="var:self" groups="//@extensions.0/@categories.1/@groups.6"/>
-      <pages name="Service Exposition Page" labelExpression="Exposition" domainClass="soa::Service" semanticCandidateExpression="var:self" groups="//@extensions.0/@categories.1/@groups.7 //@extensions.0/@categories.1/@groups.10"/>
-      <pages name="Operation Exposition Page" labelExpression="Exposition" domainClass="soa::Operation" semanticCandidateExpression="var:self" groups="//@extensions.0/@categories.1/@groups.8 //@extensions.0/@categories.1/@groups.10"/>
-      <pages name="Parameter Exposition Page" labelExpression="Exposition" domainClass="soa::Parameter" semanticCandidateExpression="var:self" groups="//@extensions.0/@categories.1/@groups.9 //@extensions.0/@categories.1/@groups.10"/>
+      <pages name="Component Exposition Page" labelExpression="Exposition" domainClass="soa::Component" semanticCandidateExpression="var:self" groups="//@extensions.0/@categories.1/@groups.5"/>
+      <pages name="Service Exposition Page" labelExpression="Exposition" domainClass="soa::Service" semanticCandidateExpression="var:self" groups="//@extensions.0/@categories.1/@groups.6 //@extensions.0/@categories.1/@groups.9"/>
+      <pages name="Operation Exposition Page" labelExpression="Exposition" domainClass="soa::Operation" semanticCandidateExpression="var:self" groups="//@extensions.0/@categories.1/@groups.7 //@extensions.0/@categories.1/@groups.9"/>
+      <pages name="Parameter Exposition Page" labelExpression="Exposition" domainClass="soa::Parameter" semanticCandidateExpression="var:self" groups="//@extensions.0/@categories.1/@groups.8 //@extensions.0/@categories.1/@groups.9"/>
       <groups name="Operation Group" labelExpression="Properties" domainClass="soa::Operation" semanticCandidateExpression="var:self">
         <controls xsi:type="properties:TextDescription" name="soa::Operation name" labelExpression="aql:input.emfEditServices(self).getText(self.eClass().getEStructuralFeature('name')) + ':'" helpExpression="aql:input.emfEditServices(self).getDescription(self.eClass().getEStructuralFeature('name'))" isEnabledExpression="aql:self.eClass().getEStructuralFeature('name').changeable" valueExpression="aql:self.name">
           <initialOperation>
@@ -1236,17 +1235,20 @@
           </initialOperation>
         </controls>
       </groups>
-      <groups name="System Exposition Group" labelExpression="Properties" domainClass="soa::System" semanticCandidateExpression="var:self">
+      <groups name="Component Exposition Group" labelExpression="Properties" domainClass="soa::Component" semanticCandidateExpression="var:self">
         <controls xsi:type="properties:TextDescription" name="soa::System URL" labelExpression="aql:input.emfEditServices(self).getText(self.eClass().getEStructuralFeature('URL')) + ':'" helpExpression="aql:input.emfEditServices(self).getDescription(self.eClass().getEStructuralFeature('URL'))" isEnabledExpression="aql:self.eClass().getEStructuralFeature('URL').changeable" valueExpression="aql:self.URL">
           <initialOperation>
             <firstModelOperations xsi:type="tool_1:SetValue" featureName="URL" valueExpression="var:newValue"/>
           </initialOperation>
         </controls>
-      </groups>
-      <groups name="Component Exposition Group" labelExpression="Properties" domainClass="soa::Component" semanticCandidateExpression="var:self">
         <controls xsi:type="properties:TextDescription" name="soa::Component URI" labelExpression="aql:input.emfEditServices(self).getText(self.eClass().getEStructuralFeature('URI')) + ':'" helpExpression="aql:input.emfEditServices(self).getDescription(self.eClass().getEStructuralFeature('URI'))" isEnabledExpression="aql:self.eClass().getEStructuralFeature('URI').changeable" valueExpression="aql:self.URI">
           <initialOperation>
             <firstModelOperations xsi:type="tool_1:SetValue" featureName="URI" valueExpression="var:newValue"/>
+          </initialOperation>
+        </controls>
+        <controls xsi:type="properties:TextDescription" name="soa::Component apiVersion" labelExpression="aql:input.emfEditServices(self).getText(self.eClass().getEStructuralFeature('apiVersion')) + ':'" helpExpression="aql:input.emfEditServices(self).getDescription(self.eClass().getEStructuralFeature('apiVersion'))" isEnabledExpression="aql:self.eClass().getEStructuralFeature('apiVersion').changeable" valueExpression="aql:self.apiVersion">
+          <initialOperation>
+            <firstModelOperations xsi:type="tool_1:SetValue" featureName="apiVersion" valueExpression="var:newValue"/>
           </initialOperation>
         </controls>
       </groups>

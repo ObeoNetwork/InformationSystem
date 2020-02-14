@@ -32,7 +32,6 @@ import org.obeonetwork.dsl.soa.Wire;
  * <ul>
  *   <li>{@link org.obeonetwork.dsl.soa.impl.SystemImpl#getOwnedComponents <em>Owned Components</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.soa.impl.SystemImpl#getOwnedWires <em>Owned Wires</em>}</li>
- *   <li>{@link org.obeonetwork.dsl.soa.impl.SystemImpl#getURL <em>URL</em>}</li>
  * </ul>
  *
  * @generated
@@ -44,16 +43,6 @@ public class SystemImpl extends NamespaceImpl implements org.obeonetwork.dsl.soa
 	 * @generated
 	 */
 	public static final String copyright = "Copyright (c) 2008, 2017 Obeo.\nAll rights reserved. This program and the accompanying materials\nare made available under the terms of the Eclipse Public License v1.0\nwhich accompanies this distribution, and is available at\nhttp://www.eclipse.org/legal/epl-v10.html\n\nContributors:\n    Obeo - initial API and implementation";
-
-	/**
-	 * The default value of the '{@link #getURL() <em>URL</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getURL()
-	 * @generated
-	 * @ordered
-	 */
-	protected static final String URL_EDEFAULT = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -99,24 +88,6 @@ public class SystemImpl extends NamespaceImpl implements org.obeonetwork.dsl.soa
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public String getURL() {
-		return (String)eDynamicGet(SoaPackage.SYSTEM__URL, SoaPackage.Literals.SYSTEM__URL, true, true);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setURL(String newURL) {
-		eDynamicSet(SoaPackage.SYSTEM__URL, SoaPackage.Literals.SYSTEM__URL, newURL);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
@@ -140,8 +111,6 @@ public class SystemImpl extends NamespaceImpl implements org.obeonetwork.dsl.soa
 				return getOwnedComponents();
 			case SoaPackage.SYSTEM__OWNED_WIRES:
 				return getOwnedWires();
-			case SoaPackage.SYSTEM__URL:
-				return getURL();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -163,9 +132,6 @@ public class SystemImpl extends NamespaceImpl implements org.obeonetwork.dsl.soa
 				getOwnedWires().clear();
 				getOwnedWires().addAll((Collection<? extends Wire>)newValue);
 				return;
-			case SoaPackage.SYSTEM__URL:
-				setURL((String)newValue);
-				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -184,9 +150,6 @@ public class SystemImpl extends NamespaceImpl implements org.obeonetwork.dsl.soa
 			case SoaPackage.SYSTEM__OWNED_WIRES:
 				getOwnedWires().clear();
 				return;
-			case SoaPackage.SYSTEM__URL:
-				setURL(URL_EDEFAULT);
-				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -203,8 +166,6 @@ public class SystemImpl extends NamespaceImpl implements org.obeonetwork.dsl.soa
 				return !getOwnedComponents().isEmpty();
 			case SoaPackage.SYSTEM__OWNED_WIRES:
 				return !getOwnedWires().isEmpty();
-			case SoaPackage.SYSTEM__URL:
-				return URL_EDEFAULT == null ? getURL() != null : !URL_EDEFAULT.equals(getURL());
 		}
 		return super.eIsSet(featureID);
 	}
