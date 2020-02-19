@@ -30,6 +30,8 @@ import org.eclipse.sirius.diagram.description.DiagramDescription;
 import org.eclipse.sirius.diagram.description.DiagramImportDescription;
 import org.eclipse.sirius.diagram.description.Layer;
 import org.eclipse.sirius.table.metamodel.table.description.TableDescription;
+import org.eclipse.sirius.tree.description.TreeDescription;
+import org.eclipse.sirius.viewpoint.description.Group;
 import org.eclipse.sirius.viewpoint.description.RepresentationDescription;
 import org.eclipse.sirius.viewpoint.description.RepresentationImportDescription;
 import org.eclipse.sirius.viewpoint.description.Viewpoint;
@@ -405,7 +407,11 @@ public final class M2DocHelpContentUtils {
 				buffer.append("    <p>").append(LS);
 				buffer.append(vp.getEndUserDocumentation());
 				buffer.append("    </p>").append(LS);
+				final boolean isSafranIS = "safran-is".equals(((Group)vp.eContainer()).getName());
 				for (RepresentationDescription representation : vp.getOwnedRepresentations()) {
+					if (isSafranIS && !getDomainClass(representation).startsWith(metamodelName.toLowerCase() + ".")) {
+						continue;
+					}
 					if (representation instanceof DiagramImportDescription) {
 						representation = ((DiagramImportDescription) representation).getImportedDiagram();
 					}
@@ -449,7 +455,23 @@ public final class M2DocHelpContentUtils {
         return buffer;
     }
 
-    public static StringBuffer computeMetaClassBody(String metamodelName, String pluginName, Class<?> metaClass, List<Method> services, boolean isExternal) {
+    private static String getDomainClass(RepresentationDescription representation) {
+		final String res;
+
+		if (representation instanceof DiagramDescription) {
+			res = ((DiagramDescription) representation).getDomainClass();
+		} else if (representation instanceof TableDescription) {
+			res = ((TableDescription) representation).getDomainClass();
+		} else if (representation instanceof TreeDescription) {
+			res = ((TreeDescription) representation).getDomainClass();
+		} else {
+			res = "";
+		}
+
+		return res;
+	}
+
+	public static StringBuffer computeMetaClassBody(String metamodelName, String pluginName, Class<?> metaClass, List<Method> services, boolean isExternal) {
 		
 		StringBuffer buffer = new StringBuffer();
 		buffer.append("  <body>").append(LS);
