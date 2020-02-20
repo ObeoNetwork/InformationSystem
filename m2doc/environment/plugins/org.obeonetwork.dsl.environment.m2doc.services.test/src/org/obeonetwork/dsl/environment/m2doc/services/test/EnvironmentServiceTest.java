@@ -581,4 +581,28 @@ public class EnvironmentServiceTest {
 		assertTrue(es.hasOwnedReferences(namespace));
 	}
 
+	@Test(expected = NullPointerException.class)
+	public void getNameWithSuperTypeNull() {
+		es.getNameWithSuperType(null);
+	}
+
+	@Test
+	public void getNameWithSuperTypeNoSuperType() {
+		final DTO dto = EnvironmentPackage.eINSTANCE.getEnvironmentFactory().createDTO();
+		dto.setName("dto");
+
+		assertEquals("dto", es.getNameWithSuperType(dto));
+	}
+
+	@Test
+	public void getNameWithSuperType() {
+		final DTO dto1 = EnvironmentPackage.eINSTANCE.getEnvironmentFactory().createDTO();
+		dto1.setName("dto1");
+		final DTO dto2 = EnvironmentPackage.eINSTANCE.getEnvironmentFactory().createDTO();
+		dto2.setName("dto2");
+		dto1.setSupertype(dto2);
+
+		assertEquals("dto1 \u2192 dto2", es.getNameWithSuperType(dto1));
+	}
+
 }

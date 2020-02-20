@@ -210,6 +210,13 @@
       <td colspan="1" rowspan="1">{m:myStructuredType.getAllAttributes().name->sep(',')} returns: the names of all Attribute (owned, inherited, and associated) names separeted by a coma.</td>
     </tr>
     <tr>
+      <td colspan="1" rowspan="1"><strong>getNameWithSuperType</strong></td>
+      <td colspan="1" rowspan="1">String</td>
+      <td colspan="1" rowspan="1">{m:myType.getNameWithSuperType()}</td>
+      <td colspan="1" rowspan="1">Returns a string representation of the given StructuredType with its super type if any.</td>
+      <td colspan="1" rowspan="1">{m:myType.getNameWithSuperType()} returns: SomeEntity → SuperEntity</td>
+    </tr>
+    <tr>
       <td colspan="1" rowspan="1"><strong>hasAllAttributes</strong></td>
       <td colspan="1" rowspan="1">boolean</td>
       <td colspan="1" rowspan="1">{m:myStructuredType.hasAllAttributes()}</td>

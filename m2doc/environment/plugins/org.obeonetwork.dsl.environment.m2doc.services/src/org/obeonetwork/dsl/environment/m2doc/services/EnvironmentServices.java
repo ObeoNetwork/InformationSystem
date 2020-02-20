@@ -398,4 +398,26 @@ public class EnvironmentServices {
 		return !getOwnedReferences(namespace).isEmpty();
 	}
 
+	@Documentation(
+			comment = "{m:myType.getNameWithSuperType()}",
+		    value = "Returns a string representation of the given StructuredType with its super type if any.",
+		    examples = {
+		    		@Example(
+		    				expression = "{m:myType.getNameWithSuperType()}", 
+		    				result = "SomeEntity \u2192 SuperEntity")
+		    }
+		)
+	// @formatter:on	
+	public String getNameWithSuperType(StructuredType type) {
+		final String res;
+
+		if (type.getSupertype() != null) {
+			res = type.getName() + " \u2192 " + type.getSupertype().getName();
+		} else {
+			res = type.getName();
+		}
+
+		return res;
+	}
+	
 }
