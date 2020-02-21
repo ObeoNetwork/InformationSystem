@@ -13,7 +13,9 @@ package org.obeonetwork.dsl.environment.m2doc.services;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 import org.eclipse.acceleo.annotations.api.documentation.Documentation;
 import org.eclipse.acceleo.annotations.api.documentation.Example;
@@ -201,17 +203,47 @@ public class EnvironmentServices {
 		    }
 		)
 	// @formatter:on	
-	public StructuredType getOriginTypeIfDifferent(Attribute attribute, StructuredType context) {
-		final StructuredType result;
+	public String getOriginTypeIfDifferent(Attribute attribute, StructuredType context) {
+		final String result;
 
 		final EObject container = attribute.eContainer();
-		if (container == context) {
-			result = null;
+		if (container instanceof StructuredType) {
+			final StructuredType attributeOwnerType;
+			if (container == context) {
+				attributeOwnerType = null;
+			} else {
+				attributeOwnerType = (StructuredType) container;
+			}
+
+			if (attributeOwnerType != null) {
+				final Set<StructuredType> superTypes = getAllSuperTypes(context);
+				if (superTypes.contains(attributeOwnerType)) {
+					res = "From supertype " + qualifiedName(attributeOwnerType);
+				} else {
+					res = "From " + attributeOwnerType.eClass().getName() + " " + qualifiedName(attributeOwnerType);
+				}
+			} else {
+				res = "";
+			}
 		} else {
-			result = (StructuredType) container;
+			res = "";
 		}
 
-		return result;
+		return res;
+	}
+
+	private Set<StructuredType> getAllSuperTypes(StructuredType type) {
+		final Set<StructuredType> res = new HashSet<>();
+
+		if (type != null) {
+			StructuredType current = type.getSupertype();
+			while (current != null) {
+				res.add(current);
+				current = current.getSupertype();
+			}
+		}
+
+		return res;
 	}
 
 	// @formatter:off
@@ -419,5 +451,5 @@ public class EnvironmentServices {
 
 		return res;
 	}
-	
+
 }

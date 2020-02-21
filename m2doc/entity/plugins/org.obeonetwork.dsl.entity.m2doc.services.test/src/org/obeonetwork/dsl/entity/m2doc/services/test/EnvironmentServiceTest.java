@@ -138,4 +138,87 @@ public class EnvironmentServiceTest {
 		assertTrue(es.hasAllAttributes(entity));
 	}
 
+	@Test
+	public void getOriginTypeIfDifferentAttributeNull() {
+		final Entity entity = EntityPackage.eINSTANCE.getEntityFactory().createEntity();
+		entity.setName("entity");
+		Attribute attribute = EnvironmentPackage.eINSTANCE.getEnvironmentFactory().createAttribute();
+		entity.getOwnedAttributes().add(attribute);
+
+		assertEquals("From Entity entity", es.getOriginTypeIfDifferent(attribute, null));
+	}
+
+	@Test
+	public void getOriginTypeIfDifferentAttributeParent() {
+		final Entity entity = EntityPackage.eINSTANCE.getEntityFactory().createEntity();
+		entity.setName("entity");
+		Attribute attribute = EnvironmentPackage.eINSTANCE.getEnvironmentFactory().createAttribute();
+		entity.getOwnedAttributes().add(attribute);
+
+		assertEquals("", es.getOriginTypeIfDifferent(attribute, entity));
+	}
+
+	@Test
+	public void getOriginTypeIfDifferentAttribute() {
+		final Entity entity = EntityPackage.eINSTANCE.getEntityFactory().createEntity();
+		entity.setName("entity");
+		final Entity entity1 = EntityPackage.eINSTANCE.getEntityFactory().createEntity();
+		entity1.setName("entity1");
+		Attribute attribute = EnvironmentPackage.eINSTANCE.getEnvironmentFactory().createAttribute();
+		entity.getOwnedAttributes().add(attribute);
+
+		assertEquals("From Entity entity", es.getOriginTypeIfDifferent(attribute, entity1));
+	}
+
+	@Test
+	public void getOriginTypeIfDifferentAttributeQualifiedNameNamespace() {
+		final Entity entity = EntityPackage.eINSTANCE.getEntityFactory().createEntity();
+		entity.setName("entity");
+		final Entity entity1 = EntityPackage.eINSTANCE.getEntityFactory().createEntity();
+		entity1.setName("entity1");
+		Attribute attribute = EnvironmentPackage.eINSTANCE.getEnvironmentFactory().createAttribute();
+		entity.getOwnedAttributes().add(attribute);
+		final Namespace namespace = EnvironmentPackage.eINSTANCE.getEnvironmentFactory().createNamespace();
+		namespace.setName("namespace");
+		final Namespace namespace1 = EnvironmentPackage.eINSTANCE.getEnvironmentFactory().createNamespace();
+		namespace1.setName("namespace1");
+		final Namespace namespace2 = EnvironmentPackage.eINSTANCE.getEnvironmentFactory().createNamespace();
+		namespace2.setName("namespace2");
+		final Namespace namespace3 = EnvironmentPackage.eINSTANCE.getEnvironmentFactory().createNamespace();
+		namespace3.setName("namespace3");
+		namespace.getOwnedNamespaces().add(namespace2);
+		namespace.getOwnedNamespaces().add(namespace1);
+		namespace2.getOwnedNamespaces().add(namespace3);
+		namespace3.getTypes().add(entity);
+
+		assertEquals("From Entity namespace.namespace2.namespace3.entity",
+				es.getOriginTypeIfDifferent(attribute, entity1));
+	}
+
+	@Test
+	public void getOriginTypeIfDifferentAttributeQualifiedNameNamespaceSuperType() {
+		final Entity entity = EntityPackage.eINSTANCE.getEntityFactory().createEntity();
+		entity.setName("entity");
+		final Entity entity1 = EntityPackage.eINSTANCE.getEntityFactory().createEntity();
+		entity1.setName("entity1");
+		entity1.setSupertype(entity);
+		Attribute attribute = EnvironmentPackage.eINSTANCE.getEnvironmentFactory().createAttribute();
+		entity.getOwnedAttributes().add(attribute);
+		final Namespace namespace = EnvironmentPackage.eINSTANCE.getEnvironmentFactory().createNamespace();
+		namespace.setName("namespace");
+		final Namespace namespace1 = EnvironmentPackage.eINSTANCE.getEnvironmentFactory().createNamespace();
+		namespace1.setName("namespace1");
+		final Namespace namespace2 = EnvironmentPackage.eINSTANCE.getEnvironmentFactory().createNamespace();
+		namespace2.setName("namespace2");
+		final Namespace namespace3 = EnvironmentPackage.eINSTANCE.getEnvironmentFactory().createNamespace();
+		namespace3.setName("namespace3");
+		namespace.getOwnedNamespaces().add(namespace2);
+		namespace.getOwnedNamespaces().add(namespace1);
+		namespace2.getOwnedNamespaces().add(namespace3);
+		namespace3.getTypes().add(entity);
+
+		assertEquals("From supertype namespace.namespace2.namespace3.entity",
+				es.getOriginTypeIfDifferent(attribute, entity1));
+	}
+
 }
