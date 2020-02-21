@@ -1097,13 +1097,22 @@ public interface SoaPackage extends EPackage {
 	int OPERATION__VERB = EnvironmentPackage.ACTION_FEATURE_COUNT + 6;
 
 	/**
+	 * The feature id for the '<em><b>Exposition</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int OPERATION__EXPOSITION = EnvironmentPackage.ACTION_FEATURE_COUNT + 7;
+
+	/**
 	 * The number of structural features of the '<em>Operation</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int OPERATION_FEATURE_COUNT = EnvironmentPackage.ACTION_FEATURE_COUNT + 7;
+	int OPERATION_FEATURE_COUNT = EnvironmentPackage.ACTION_FEATURE_COUNT + 8;
 
 	/**
 	 * The meta object id for the '{@link org.obeonetwork.dsl.soa.impl.ParameterImpl <em>Parameter</em>}' class.
@@ -1445,6 +1454,16 @@ public interface SoaPackage extends EPackage {
 	 * @generated
 	 */
 	int PARAMETER_PASSING_MODE = 14;
+
+	/**
+	 * The meta object id for the '{@link org.obeonetwork.dsl.soa.ExpositionKind <em>Exposition Kind</em>}' enum.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.obeonetwork.dsl.soa.ExpositionKind
+	 * @see org.obeonetwork.dsl.soa.impl.SoaPackageImpl#getExpositionKind()
+	 * @generated
+	 */
+	int EXPOSITION_KIND = 15;
 
 	/**
 	 * Returns the meta object for class '{@link org.obeonetwork.dsl.soa.System <em>System</em>}'.
@@ -1869,6 +1888,17 @@ public interface SoaPackage extends EPackage {
 	EAttribute getOperation_Verb();
 
 	/**
+	 * Returns the meta object for the attribute '{@link org.obeonetwork.dsl.soa.Operation#getExposition <em>Exposition</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Exposition</em>'.
+	 * @see org.obeonetwork.dsl.soa.Operation#getExposition()
+	 * @see #getOperation()
+	 * @generated
+	 */
+	EAttribute getOperation_Exposition();
+
+	/**
 	 * Returns the meta object for class '{@link org.obeonetwork.dsl.soa.ImplementationComponent <em>Implementation Component</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2046,6 +2076,16 @@ public interface SoaPackage extends EPackage {
 	 * @generated
 	 */
 	EEnum getParameterPassingMode();
+
+	/**
+	 * Returns the meta object for enum '{@link org.obeonetwork.dsl.soa.ExpositionKind <em>Exposition Kind</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for enum '<em>Exposition Kind</em>'.
+	 * @see org.obeonetwork.dsl.soa.ExpositionKind
+	 * @generated
+	 */
+	EEnum getExpositionKind();
 
 	/**
 	 * Returns the factory that creates the instances of the model.
@@ -2396,6 +2436,14 @@ public interface SoaPackage extends EPackage {
 		EAttribute OPERATION__VERB = eINSTANCE.getOperation_Verb();
 
 		/**
+		 * The meta object literal for the '<em><b>Exposition</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute OPERATION__EXPOSITION = eINSTANCE.getOperation_Exposition();
+
+		/**
 		 * The meta object literal for the '{@link org.obeonetwork.dsl.soa.impl.ImplementationComponentImpl <em>Implementation Component</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -2546,6 +2594,16 @@ public interface SoaPackage extends EPackage {
 		 * @generated
 		 */
 		EEnum PARAMETER_PASSING_MODE = eINSTANCE.getParameterPassingMode();
+
+		/**
+		 * The meta object literal for the '{@link org.obeonetwork.dsl.soa.ExpositionKind <em>Exposition Kind</em>}' enum.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.obeonetwork.dsl.soa.ExpositionKind
+		 * @see org.obeonetwork.dsl.soa.impl.SoaPackageImpl#getExpositionKind()
+		 * @generated
+		 */
+		EEnum EXPOSITION_KIND = eINSTANCE.getExpositionKind();
 
 }
 

@@ -42,6 +42,11 @@
       <genEnumLiterals ecoreEnumLiteral="soa.ecore#//ParameterPassingMode/COOKIE"/>
       <genEnumLiterals ecoreEnumLiteral="soa.ecore#//ParameterPassingMode/HEADER"/>
     </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="soa.ecore#//ExpositionKind">
+      <genEnumLiterals ecoreEnumLiteral="soa.ecore#//ExpositionKind/NONE"/>
+      <genEnumLiterals ecoreEnumLiteral="soa.ecore#//ExpositionKind/REST"/>
+      <genEnumLiterals ecoreEnumLiteral="soa.ecore#//ExpositionKind/SOAP"/>
+    </genEnums>
     <genClasses ecoreClass="soa.ecore#//System">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference soa.ecore#//System/ownedComponents"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference soa.ecore#//System/ownedWires"/>
@@ -87,6 +92,7 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference soa.ecore#//Operation/fault"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute soa.ecore#//Operation/URI"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute soa.ecore#//Operation/verb"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute soa.ecore#//Operation/exposition"/>
     </genClasses>
     <genClasses ecoreClass="soa.ecore#//ImplementationComponent" labelFeature="../../org.obeonetwork.dsl.environment/model/environment.genmodel#//environment/ObeoDSMObject/description">
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference soa.ecore#//ImplementationComponent/implement"/>

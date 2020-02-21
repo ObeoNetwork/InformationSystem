@@ -70,6 +70,7 @@
         eType="#//Parameter" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="URI" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="verb" eType="#//Verb" defaultValueLiteral="GET"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="exposition" eType="#//ExpositionKind"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ImplementationComponent" eSuperTypes="../../org.obeonetwork.dsl.environment/model/environment.ecore#//ObeoDSMObject">
     <eStructuralFeatures xsi:type="ecore:EReference" name="implement" eType="#//Interface"/>
@@ -111,5 +112,10 @@
     <eLiterals name="QUERY" value="2"/>
     <eLiterals name="COOKIE" value="3"/>
     <eLiterals name="HEADER" value="5"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="ExpositionKind">
+    <eLiterals name="NONE"/>
+    <eLiterals name="REST" value="1"/>
+    <eLiterals name="SOAP" value="2"/>
   </eClassifiers>
 </ecore:EPackage>

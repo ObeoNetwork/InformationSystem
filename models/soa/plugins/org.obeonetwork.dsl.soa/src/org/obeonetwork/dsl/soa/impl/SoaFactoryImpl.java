@@ -19,6 +19,7 @@ import org.eclipse.emf.ecore.plugin.EcorePlugin;
 import org.obeonetwork.dsl.soa.Binding;
 import org.obeonetwork.dsl.soa.BindingKind;
 import org.obeonetwork.dsl.soa.Component;
+import org.obeonetwork.dsl.soa.ExpositionKind;
 import org.obeonetwork.dsl.soa.ImplementationComponent;
 import org.obeonetwork.dsl.soa.Interface;
 import org.obeonetwork.dsl.soa.InterfaceKind;
@@ -120,6 +121,8 @@ public class SoaFactoryImpl extends EFactoryImpl implements SoaFactory {
 				return createVerbFromString(eDataType, initialValue);
 			case SoaPackage.PARAMETER_PASSING_MODE:
 				return createParameterPassingModeFromString(eDataType, initialValue);
+			case SoaPackage.EXPOSITION_KIND:
+				return createExpositionKindFromString(eDataType, initialValue);
 			default:
 				throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
 		}
@@ -145,6 +148,8 @@ public class SoaFactoryImpl extends EFactoryImpl implements SoaFactory {
 				return convertVerbToString(eDataType, instanceValue);
 			case SoaPackage.PARAMETER_PASSING_MODE:
 				return convertParameterPassingModeToString(eDataType, instanceValue);
+			case SoaPackage.EXPOSITION_KIND:
+				return convertExpositionKindToString(eDataType, instanceValue);
 			default:
 				throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
 		}
@@ -359,6 +364,26 @@ public class SoaFactoryImpl extends EFactoryImpl implements SoaFactory {
 	 * @generated
 	 */
 	public String convertParameterPassingModeToString(EDataType eDataType, Object instanceValue) {
+		return instanceValue == null ? null : instanceValue.toString();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public ExpositionKind createExpositionKindFromString(EDataType eDataType, String initialValue) {
+		ExpositionKind result = ExpositionKind.get(initialValue);
+		if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
+		return result;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String convertExpositionKindToString(EDataType eDataType, Object instanceValue) {
 		return instanceValue == null ? null : instanceValue.toString();
 	}
 

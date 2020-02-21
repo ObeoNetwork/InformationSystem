@@ -20,6 +20,7 @@ import org.obeonetwork.dsl.environment.EnvironmentPackage;
 import org.obeonetwork.dsl.soa.Binding;
 import org.obeonetwork.dsl.soa.BindingKind;
 import org.obeonetwork.dsl.soa.Component;
+import org.obeonetwork.dsl.soa.ExpositionKind;
 import org.obeonetwork.dsl.soa.ImplementationComponent;
 import org.obeonetwork.dsl.soa.Interface;
 import org.obeonetwork.dsl.soa.InterfaceKind;
@@ -153,6 +154,13 @@ public class SoaPackageImpl extends EPackageImpl implements SoaPackage {
 	 * @generated
 	 */
 	private EEnum parameterPassingModeEEnum = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EEnum expositionKindEEnum = null;
 
 	/**
 	 * Creates an instance of the model <b>Package</b>, registered with
@@ -575,6 +583,15 @@ public class SoaPackageImpl extends EPackageImpl implements SoaPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EAttribute getOperation_Exposition() {
+		return (EAttribute)operationEClass.getEStructuralFeatures().get(7);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getImplementationComponent() {
 		return implementationComponentEClass;
 	}
@@ -728,6 +745,15 @@ public class SoaPackageImpl extends EPackageImpl implements SoaPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EEnum getExpositionKind() {
+		return expositionKindEEnum;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public SoaFactory getSoaFactory() {
 		return (SoaFactory)getEFactoryInstance();
 	}
@@ -796,6 +822,7 @@ public class SoaPackageImpl extends EPackageImpl implements SoaPackage {
 		createEReference(operationEClass, OPERATION__FAULT);
 		createEAttribute(operationEClass, OPERATION__URI);
 		createEAttribute(operationEClass, OPERATION__VERB);
+		createEAttribute(operationEClass, OPERATION__EXPOSITION);
 
 		implementationComponentEClass = createEClass(IMPLEMENTATION_COMPONENT);
 		createEReference(implementationComponentEClass, IMPLEMENTATION_COMPONENT__IMPLEMENT);
@@ -817,6 +844,7 @@ public class SoaPackageImpl extends EPackageImpl implements SoaPackage {
 		operationKindEEnum = createEEnum(OPERATION_KIND);
 		verbEEnum = createEEnum(VERB);
 		parameterPassingModeEEnum = createEEnum(PARAMETER_PASSING_MODE);
+		expositionKindEEnum = createEEnum(EXPOSITION_KIND);
 	}
 
 	/**
@@ -906,6 +934,7 @@ public class SoaPackageImpl extends EPackageImpl implements SoaPackage {
 		initEReference(getOperation_Fault(), this.getParameter(), null, "fault", null, 0, -1, Operation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getOperation_URI(), ecorePackage.getEString(), "URI", null, 0, 1, Operation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getOperation_Verb(), this.getVerb(), "verb", "GET", 0, 1, Operation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getOperation_Exposition(), this.getExpositionKind(), "exposition", null, 0, 1, Operation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(implementationComponentEClass, ImplementationComponent.class, "ImplementationComponent", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getImplementationComponent_Implement(), this.getInterface(), null, "implement", null, 0, 1, ImplementationComponent.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -952,6 +981,11 @@ public class SoaPackageImpl extends EPackageImpl implements SoaPackage {
 		addEEnumLiteral(parameterPassingModeEEnum, ParameterPassingMode.QUERY);
 		addEEnumLiteral(parameterPassingModeEEnum, ParameterPassingMode.COOKIE);
 		addEEnumLiteral(parameterPassingModeEEnum, ParameterPassingMode.HEADER);
+
+		initEEnum(expositionKindEEnum, ExpositionKind.class, "ExpositionKind");
+		addEEnumLiteral(expositionKindEEnum, ExpositionKind.NONE);
+		addEEnumLiteral(expositionKindEEnum, ExpositionKind.REST);
+		addEEnumLiteral(expositionKindEEnum, ExpositionKind.SOAP);
 
 		// Create resource
 		createResource(eNS_URI);

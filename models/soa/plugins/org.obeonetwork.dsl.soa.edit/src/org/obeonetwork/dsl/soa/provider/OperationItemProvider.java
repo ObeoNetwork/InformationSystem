@@ -19,12 +19,7 @@ import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.util.ResourceLocator;
 import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
-import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
-import org.eclipse.emf.edit.provider.IItemLabelProvider;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
-import org.eclipse.emf.edit.provider.IItemPropertySource;
-import org.eclipse.emf.edit.provider.IStructuredItemContentProvider;
-import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
 import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 import org.obeonetwork.dsl.environment.provider.ActionItemProvider;
@@ -72,6 +67,7 @@ public class OperationItemProvider
 			addPublicPropertyDescriptor(object);
 			addURIPropertyDescriptor(object);
 			addVerbPropertyDescriptor(object);
+			addExpositionPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -165,6 +161,28 @@ public class OperationItemProvider
 	}
 
 	/**
+	 * This adds a property descriptor for the Exposition feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addExpositionPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_Operation_exposition_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Operation_exposition_feature", "_UI_Operation_type"),
+				 SoaPackage.Literals.OPERATION__EXPOSITION,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
 	 * This specifies how to implement {@link #getChildren} and is used to deduce an appropriate feature for an
 	 * {@link org.eclipse.emf.edit.command.AddCommand}, {@link org.eclipse.emf.edit.command.RemoveCommand} or
 	 * {@link org.eclipse.emf.edit.command.MoveCommand} in {@link #createCommand}.
@@ -200,11 +218,26 @@ public class OperationItemProvider
 	 * This returns Operation.gif.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/Operation"));
+		String imagePath = "full/obj16/Operation";
+		Operation operation = (Operation)object;
+		if(operation.isPublic()) {
+			switch(operation.getExposition()) {
+			case NONE: 
+				imagePath = "full/obj16/OperationPublic";
+				break;
+			case REST: 
+				imagePath = "full/obj16/OperationRest";
+				break;
+			case SOAP: 
+				imagePath = "full/obj16/OperationSoap";
+				break;
+			}
+		}
+		return overlayImage(object, getResourceLocator().getImage(imagePath));
 	}
 
 	/**
@@ -247,6 +280,7 @@ public class OperationItemProvider
 			case SoaPackage.OPERATION__PUBLIC:
 			case SoaPackage.OPERATION__URI:
 			case SoaPackage.OPERATION__VERB:
+			case SoaPackage.OPERATION__EXPOSITION:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 			case SoaPackage.OPERATION__INPUT:

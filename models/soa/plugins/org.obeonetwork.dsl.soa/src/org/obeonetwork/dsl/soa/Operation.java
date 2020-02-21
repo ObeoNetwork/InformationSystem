@@ -29,6 +29,7 @@ import org.obeonetwork.dsl.environment.Action;
  *   <li>{@link org.obeonetwork.dsl.soa.Operation#getFault <em>Fault</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.soa.Operation#getURI <em>URI</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.soa.Operation#getVerb <em>Verb</em>}</li>
+ *   <li>{@link org.obeonetwork.dsl.soa.Operation#getExposition <em>Exposition</em>}</li>
  * </ul>
  *
  * @see org.obeonetwork.dsl.soa.SoaPackage#getOperation()
@@ -201,5 +202,34 @@ public interface Operation extends Action {
 	 * @generated
 	 */
 	void setVerb(Verb value);
+
+	/**
+	 * Returns the value of the '<em><b>Exposition</b></em>' attribute.
+	 * The literals are from the enumeration {@link org.obeonetwork.dsl.soa.ExpositionKind}.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Exposition</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Exposition</em>' attribute.
+	 * @see org.obeonetwork.dsl.soa.ExpositionKind
+	 * @see #setExposition(ExpositionKind)
+	 * @see org.obeonetwork.dsl.soa.SoaPackage#getOperation_Exposition()
+	 * @model
+	 * @generated
+	 */
+	ExpositionKind getExposition();
+
+	/**
+	 * Sets the value of the '{@link org.obeonetwork.dsl.soa.Operation#getExposition <em>Exposition</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Exposition</em>' attribute.
+	 * @see org.obeonetwork.dsl.soa.ExpositionKind
+	 * @see #getExposition()
+	 * @generated
+	 */
+	void setExposition(ExpositionKind value);
 
 } // Operation

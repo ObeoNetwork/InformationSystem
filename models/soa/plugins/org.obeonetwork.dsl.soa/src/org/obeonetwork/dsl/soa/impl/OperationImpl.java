@@ -18,6 +18,7 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.util.InternalEList;
 import org.obeonetwork.dsl.environment.impl.ActionImpl;
+import org.obeonetwork.dsl.soa.ExpositionKind;
 import org.obeonetwork.dsl.soa.Operation;
 import org.obeonetwork.dsl.soa.OperationKind;
 import org.obeonetwork.dsl.soa.Parameter;
@@ -39,6 +40,7 @@ import org.obeonetwork.dsl.soa.Verb;
  *   <li>{@link org.obeonetwork.dsl.soa.impl.OperationImpl#getFault <em>Fault</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.soa.impl.OperationImpl#getURI <em>URI</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.soa.impl.OperationImpl#getVerb <em>Verb</em>}</li>
+ *   <li>{@link org.obeonetwork.dsl.soa.impl.OperationImpl#getExposition <em>Exposition</em>}</li>
  * </ul>
  *
  * @generated
@@ -89,6 +91,16 @@ public class OperationImpl extends ActionImpl implements Operation {
 	 * @ordered
 	 */
 	protected static final Verb VERB_EDEFAULT = Verb.GET;
+
+	/**
+	 * The default value of the '{@link #getExposition() <em>Exposition</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getExposition()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final ExpositionKind EXPOSITION_EDEFAULT = ExpositionKind.NONE;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -216,6 +228,24 @@ public class OperationImpl extends ActionImpl implements Operation {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public ExpositionKind getExposition() {
+		return (ExpositionKind)eDynamicGet(SoaPackage.OPERATION__EXPOSITION, SoaPackage.Literals.OPERATION__EXPOSITION, true, true);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setExposition(ExpositionKind newExposition) {
+		eDynamicSet(SoaPackage.OPERATION__EXPOSITION, SoaPackage.Literals.OPERATION__EXPOSITION, newExposition);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
@@ -251,6 +281,8 @@ public class OperationImpl extends ActionImpl implements Operation {
 				return getURI();
 			case SoaPackage.OPERATION__VERB:
 				return getVerb();
+			case SoaPackage.OPERATION__EXPOSITION:
+				return getExposition();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -288,6 +320,9 @@ public class OperationImpl extends ActionImpl implements Operation {
 			case SoaPackage.OPERATION__VERB:
 				setVerb((Verb)newValue);
 				return;
+			case SoaPackage.OPERATION__EXPOSITION:
+				setExposition((ExpositionKind)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -321,6 +356,9 @@ public class OperationImpl extends ActionImpl implements Operation {
 			case SoaPackage.OPERATION__VERB:
 				setVerb(VERB_EDEFAULT);
 				return;
+			case SoaPackage.OPERATION__EXPOSITION:
+				setExposition(EXPOSITION_EDEFAULT);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -347,6 +385,8 @@ public class OperationImpl extends ActionImpl implements Operation {
 				return URI_EDEFAULT == null ? getURI() != null : !URI_EDEFAULT.equals(getURI());
 			case SoaPackage.OPERATION__VERB:
 				return getVerb() != VERB_EDEFAULT;
+			case SoaPackage.OPERATION__EXPOSITION:
+				return getExposition() != EXPOSITION_EDEFAULT;
 		}
 		return super.eIsSet(featureID);
 	}
