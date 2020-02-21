@@ -582,27 +582,27 @@ public class EnvironmentServiceTest {
 	}
 
 	@Test(expected = NullPointerException.class)
-	public void getNameWithSuperTypeNull() {
-		es.getNameWithSuperType(null);
+	public void getNameNull() {
+		es.getName(null);
 	}
 
 	@Test
-	public void getNameWithSuperTypeNoSuperType() {
+	public void getNameNoSuperType() {
 		final DTO dto = EnvironmentPackage.eINSTANCE.getEnvironmentFactory().createDTO();
 		dto.setName("dto");
 
-		assertEquals("dto", es.getNameWithSuperType(dto));
+		assertEquals("dto", es.getName(dto));
 	}
 
 	@Test
-	public void getNameWithSuperType() {
+	public void getName() {
 		final DTO dto1 = EnvironmentPackage.eINSTANCE.getEnvironmentFactory().createDTO();
 		dto1.setName("dto1");
 		final DTO dto2 = EnvironmentPackage.eINSTANCE.getEnvironmentFactory().createDTO();
 		dto2.setName("dto2");
 		dto1.setSupertype(dto2);
 
-		assertEquals("dto1 \u2192 dto2", es.getNameWithSuperType(dto1));
+		assertEquals("dto1 \u2192 dto2", es.getName(dto1));
 	}
 
 }
