@@ -195,11 +195,11 @@ public class EnvironmentServices {
 	// @formatter:off
 	@Documentation(
 			comment = "{m:myAttribute.getOriginTypeIfDifferent(someStructuredType)}",
-		    value = "Returns the origin StructuredType of the given Attribute if its differente from the given StructuredType.",
+		    value = "Returns a String representing the origin StructuredType of the given Attribute if its differente from the given context StructuredType.",
 		    examples = {
 		    		@Example(
 		    				expression = "{m:myAttribute.getOriginTypeIfDifferent(someStructuredType)}", 
-		    				result = "someDTO or null.")
+		    				result = "'From supertype namespace1.someDTO' or 'From Entity namespace1.someEntity' or 'From DTO namespace1.someDTO' or ''.")
 		    }
 		)
 	// @formatter:on	
@@ -218,18 +218,18 @@ public class EnvironmentServices {
 			if (attributeOwnerType != null) {
 				final Set<StructuredType> superTypes = getAllSuperTypes(context);
 				if (superTypes.contains(attributeOwnerType)) {
-					res = "From supertype " + qualifiedName(attributeOwnerType);
+					result = "From supertype " + qualifiedName(attributeOwnerType);
 				} else {
-					res = "From " + attributeOwnerType.eClass().getName() + " " + qualifiedName(attributeOwnerType);
+					result = "From " + attributeOwnerType.eClass().getName() + " " + qualifiedName(attributeOwnerType);
 				}
 			} else {
-				res = "";
+				result = "";
 			}
 		} else {
-			res = "";
+			result = "";
 		}
 
-		return res;
+		return result;
 	}
 
 	private Set<StructuredType> getAllSuperTypes(StructuredType type) {

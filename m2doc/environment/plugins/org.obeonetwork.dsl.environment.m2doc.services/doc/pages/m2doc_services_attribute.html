@@ -169,10 +169,10 @@
     </tr>
     <tr>
       <td colspan="1" rowspan="1"><strong>getOriginTypeIfDifferent</strong></td>
-      <td colspan="1" rowspan="1">StructuredType</td>
+      <td colspan="1" rowspan="1">String</td>
       <td colspan="1" rowspan="1">{m:myAttribute.getOriginTypeIfDifferent(someStructuredType)}</td>
-      <td colspan="1" rowspan="1">Returns the origin StructuredType of the given Attribute if its differente from the given StructuredType.</td>
-      <td colspan="1" rowspan="1">{m:myAttribute.getOriginTypeIfDifferent(someStructuredType)} returns: someDTO or null.</td>
+      <td colspan="1" rowspan="1">Returns a String representing the origin StructuredType of the given Attribute if its differente from the given context StructuredType.</td>
+      <td colspan="1" rowspan="1">{m:myAttribute.getOriginTypeIfDifferent(someStructuredType)} returns: 'From supertype namespace1.someDTO' or 'From Entity namespace1.someEntity' or 'From DTO namespace1.someDTO' or ''.</td>
     </tr>
     <tr>
       <td colspan="1" rowspan="1"><strong>typeName</strong></td>
