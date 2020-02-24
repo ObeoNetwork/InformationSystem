@@ -26,6 +26,7 @@ import org.obeonetwork.dsl.environment.Enumeration;
 import org.obeonetwork.dsl.environment.EnvironmentPackage;
 import org.obeonetwork.dsl.environment.Namespace;
 import org.obeonetwork.dsl.environment.NamespacesContainer;
+import org.obeonetwork.dsl.environment.Property;
 import org.obeonetwork.dsl.environment.Reference;
 import org.obeonetwork.dsl.environment.StructuredType;
 import org.obeonetwork.dsl.environment.Type;
@@ -194,19 +195,19 @@ public class EnvironmentServices {
 
 	// @formatter:off
 	@Documentation(
-			comment = "{m:myAttribute.getOriginTypeIfDifferent(someStructuredType)}",
-		    value = "Returns a String representing the origin StructuredType of the given Attribute if its differente from the given context StructuredType.",
+			comment = "{m:myProperty.getOriginTypeIfDifferent(someStructuredType)}",
+		    value = "Returns a String representing the origin StructuredType of the given Property if its differente from the given context StructuredType.",
 		    examples = {
 		    		@Example(
-		    				expression = "{m:myAttribute.getOriginTypeIfDifferent(someStructuredType)}", 
+		    				expression = "{m:myProperty.getOriginTypeIfDifferent(someStructuredType)}", 
 		    				result = "'From supertype namespace1.someDTO' or 'From Entity namespace1.someEntity' or 'From DTO namespace1.someDTO' or ''.")
 		    }
 		)
 	// @formatter:on	
-	public String getOriginTypeIfDifferent(Attribute attribute, StructuredType context) {
+	public String getOriginTypeIfDifferent(Property property, StructuredType context) {
 		final String result;
 
-		final EObject container = attribute.eContainer();
+		final EObject container = property.eContainer();
 		if (container instanceof StructuredType) {
 			final StructuredType attributeOwnerType;
 			if (container == context) {
@@ -425,11 +426,12 @@ public class EnvironmentServices {
 		    				result = "true or false.")
 		    }
 		)
-	// @formatter:on	
+	// @formatter:on
 	public boolean hasOwnedReferences(Namespace namespace) {
 		return !getOwnedReferences(namespace).isEmpty();
 	}
 
+	// @formatter:off
 	@Documentation(
 			comment = "{m:myType.getName()}",
 		    value = "Returns a string representation of the given StructuredType with its super type if any.",
@@ -439,7 +441,7 @@ public class EnvironmentServices {
 		    				result = "SomeEntity \u2192 SuperEntity")
 		    }
 		)
-	// @formatter:on	
+	// @formatter:on
 	public String getName(StructuredType type) {
 		final String res;
 
@@ -452,4 +454,34 @@ public class EnvironmentServices {
 		return res;
 	}
 
+	// @formatter:off
+	@Documentation(
+			comment = "{m:myProperty.getName()}",
+		    value = "Returns the name of the given Property.",
+		    examples = {
+		    		@Example(
+		    				expression = "{m:myProperty.getName()}", 
+		    				result = "'myReference' or 'myAttribute'")
+		    }
+		)
+	// @formatter:on
+	public String getName(Property property) {
+		return property.getName();
+	}
+
+	// @formatter:off
+	@Documentation(
+			comment = "{m:myEnumeration.getName()}",
+		    value = "Returns the name of the given Enumeration.",
+		    examples = {
+		    		@Example(
+		    				expression = "{m:myEnumeration.getName()}", 
+		    				result = "'myEnumeration'")
+		    }
+		)
+	// @formatter:on
+	public String getName(Enumeration enumeration) {
+		return enumeration.getName();
+	}
+	
 }

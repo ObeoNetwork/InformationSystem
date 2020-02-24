@@ -349,6 +349,89 @@ public class EnvironmentServiceTest {
 				es.getOriginTypeIfDifferent(attribute, dto1));
 	}
 
+
+	@Test
+	public void getOriginTypeIfDifferentReferenceNull() {
+		final DTO dto = EnvironmentPackage.eINSTANCE.getEnvironmentFactory().createDTO();
+		dto.setName("dto");
+		Reference reference = EnvironmentPackage.eINSTANCE.getEnvironmentFactory().createReference();
+		dto.getOwnedReferences().add(reference);
+
+		assertEquals("From DTO dto", es.getOriginTypeIfDifferent(reference, null));
+	}
+
+	@Test
+	public void getOriginTypeIfDifferentReferenceParent() {
+		final DTO dto = EnvironmentPackage.eINSTANCE.getEnvironmentFactory().createDTO();
+		dto.setName("dto");
+		Reference reference = EnvironmentPackage.eINSTANCE.getEnvironmentFactory().createReference();
+		dto.getOwnedReferences().add(reference);
+
+		assertEquals("", es.getOriginTypeIfDifferent(reference, dto));
+	}
+
+	@Test
+	public void getOriginTypeIfDifferentReference() {
+		final DTO dto = EnvironmentPackage.eINSTANCE.getEnvironmentFactory().createDTO();
+		dto.setName("dto");
+		final DTO dto1 = EnvironmentPackage.eINSTANCE.getEnvironmentFactory().createDTO();
+		dto1.setName("dto1");
+		Reference reference = EnvironmentPackage.eINSTANCE.getEnvironmentFactory().createReference();
+		dto.getOwnedReferences().add(reference);
+
+		assertEquals("From DTO dto", es.getOriginTypeIfDifferent(reference, dto1));
+	}
+
+	@Test
+	public void getOriginTypeIfDifferentReferenceQualifiedNameNamespace() {
+		final DTO dto = EnvironmentPackage.eINSTANCE.getEnvironmentFactory().createDTO();
+		dto.setName("dto");
+		final DTO dto1 = EnvironmentPackage.eINSTANCE.getEnvironmentFactory().createDTO();
+		dto1.setName("dto1");
+		Reference reference = EnvironmentPackage.eINSTANCE.getEnvironmentFactory().createReference();
+		dto.getOwnedReferences().add(reference);
+		final Namespace namespace = EnvironmentPackage.eINSTANCE.getEnvironmentFactory().createNamespace();
+		namespace.setName("namespace");
+		final Namespace namespace1 = EnvironmentPackage.eINSTANCE.getEnvironmentFactory().createNamespace();
+		namespace1.setName("namespace1");
+		final Namespace namespace2 = EnvironmentPackage.eINSTANCE.getEnvironmentFactory().createNamespace();
+		namespace2.setName("namespace2");
+		final Namespace namespace3 = EnvironmentPackage.eINSTANCE.getEnvironmentFactory().createNamespace();
+		namespace3.setName("namespace3");
+		namespace.getOwnedNamespaces().add(namespace2);
+		namespace.getOwnedNamespaces().add(namespace1);
+		namespace2.getOwnedNamespaces().add(namespace3);
+		namespace3.getTypes().add(dto);
+
+		assertEquals("From DTO namespace.namespace2.namespace3.dto", es.getOriginTypeIfDifferent(reference, dto1));
+	}
+
+	@Test
+	public void getOriginTypeIfDifferentReferenceQualifiedNameNamespaceSuperType() {
+		final DTO dto = EnvironmentPackage.eINSTANCE.getEnvironmentFactory().createDTO();
+		dto.setName("dto");
+		final DTO dto1 = EnvironmentPackage.eINSTANCE.getEnvironmentFactory().createDTO();
+		dto1.setName("dto1");
+		dto1.setSupertype(dto);
+		Reference reference = EnvironmentPackage.eINSTANCE.getEnvironmentFactory().createReference();
+		dto.getOwnedReferences().add(reference);
+		final Namespace namespace = EnvironmentPackage.eINSTANCE.getEnvironmentFactory().createNamespace();
+		namespace.setName("namespace");
+		final Namespace namespace1 = EnvironmentPackage.eINSTANCE.getEnvironmentFactory().createNamespace();
+		namespace1.setName("namespace1");
+		final Namespace namespace2 = EnvironmentPackage.eINSTANCE.getEnvironmentFactory().createNamespace();
+		namespace2.setName("namespace2");
+		final Namespace namespace3 = EnvironmentPackage.eINSTANCE.getEnvironmentFactory().createNamespace();
+		namespace3.setName("namespace3");
+		namespace.getOwnedNamespaces().add(namespace2);
+		namespace.getOwnedNamespaces().add(namespace1);
+		namespace2.getOwnedNamespaces().add(namespace3);
+		namespace3.getTypes().add(dto);
+
+		assertEquals("From supertype namespace.namespace2.namespace3.dto",
+				es.getOriginTypeIfDifferent(reference, dto1));
+	}
+
 	@Test(expected = NullPointerException.class)
 	public void getReferencedTypeNameNull() {
 		es.getReferencedTypeName(null);
@@ -636,7 +719,7 @@ public class EnvironmentServiceTest {
 
 	@Test(expected = NullPointerException.class)
 	public void getNameNull() {
-		es.getName(null);
+		es.getName((StructuredType)null);
 	}
 
 	@Test

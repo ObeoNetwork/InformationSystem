@@ -23,6 +23,7 @@ import org.obeonetwork.dsl.entity.Root;
 import org.obeonetwork.dsl.environment.Attribute;
 import org.obeonetwork.dsl.environment.EnvironmentPackage;
 import org.obeonetwork.dsl.environment.Namespace;
+import org.obeonetwork.dsl.environment.Reference;
 import org.obeonetwork.dsl.environment.m2doc.services.EnvironmentServices;
 
 public class EnvironmentServiceTest {
@@ -219,6 +220,90 @@ public class EnvironmentServiceTest {
 
 		assertEquals("From supertype namespace.namespace2.namespace3.entity",
 				es.getOriginTypeIfDifferent(attribute, entity1));
+	}
+
+
+	@Test
+	public void getOriginTypeIfDifferentReferenceNull() {
+		final Entity entity = EntityPackage.eINSTANCE.getEntityFactory().createEntity();
+		entity.setName("entity");
+		Reference reference = EnvironmentPackage.eINSTANCE.getEnvironmentFactory().createReference();
+		entity.getOwnedReferences().add(reference);
+
+		assertEquals("From Entity entity", es.getOriginTypeIfDifferent(reference, null));
+	}
+
+	@Test
+	public void getOriginTypeIfDifferentReferenceParent() {
+		final Entity entity = EntityPackage.eINSTANCE.getEntityFactory().createEntity();
+		entity.setName("entity");
+		Reference reference = EnvironmentPackage.eINSTANCE.getEnvironmentFactory().createReference();
+		entity.getOwnedReferences().add(reference);
+
+		assertEquals("", es.getOriginTypeIfDifferent(reference, entity));
+	}
+
+	@Test
+	public void getOriginTypeIfDifferentReference() {
+		final Entity entity = EntityPackage.eINSTANCE.getEntityFactory().createEntity();
+		entity.setName("entity");
+		final Entity entity1 = EntityPackage.eINSTANCE.getEntityFactory().createEntity();
+		entity1.setName("entity1");
+		Reference reference = EnvironmentPackage.eINSTANCE.getEnvironmentFactory().createReference();
+		entity.getOwnedReferences().add(reference);
+
+		assertEquals("From Entity entity", es.getOriginTypeIfDifferent(reference, entity1));
+	}
+
+	@Test
+	public void getOriginTypeIfDifferentReferenceQualifiedNameNamespace() {
+		final Entity entity = EntityPackage.eINSTANCE.getEntityFactory().createEntity();
+		entity.setName("entity");
+		final Entity entity1 = EntityPackage.eINSTANCE.getEntityFactory().createEntity();
+		entity1.setName("entity1");
+		Reference reference = EnvironmentPackage.eINSTANCE.getEnvironmentFactory().createReference();
+		entity.getOwnedReferences().add(reference);
+		final Namespace namespace = EnvironmentPackage.eINSTANCE.getEnvironmentFactory().createNamespace();
+		namespace.setName("namespace");
+		final Namespace namespace1 = EnvironmentPackage.eINSTANCE.getEnvironmentFactory().createNamespace();
+		namespace1.setName("namespace1");
+		final Namespace namespace2 = EnvironmentPackage.eINSTANCE.getEnvironmentFactory().createNamespace();
+		namespace2.setName("namespace2");
+		final Namespace namespace3 = EnvironmentPackage.eINSTANCE.getEnvironmentFactory().createNamespace();
+		namespace3.setName("namespace3");
+		namespace.getOwnedNamespaces().add(namespace2);
+		namespace.getOwnedNamespaces().add(namespace1);
+		namespace2.getOwnedNamespaces().add(namespace3);
+		namespace3.getTypes().add(entity);
+
+		assertEquals("From Entity namespace.namespace2.namespace3.entity",
+				es.getOriginTypeIfDifferent(reference, entity1));
+	}
+
+	@Test
+	public void getOriginTypeIfDifferentReferenceQualifiedNameNamespaceSuperType() {
+		final Entity entity = EntityPackage.eINSTANCE.getEntityFactory().createEntity();
+		entity.setName("entity");
+		final Entity entity1 = EntityPackage.eINSTANCE.getEntityFactory().createEntity();
+		entity1.setName("entity1");
+		entity1.setSupertype(entity);
+		Reference reference = EnvironmentPackage.eINSTANCE.getEnvironmentFactory().createReference();
+		entity.getOwnedReferences().add(reference);
+		final Namespace namespace = EnvironmentPackage.eINSTANCE.getEnvironmentFactory().createNamespace();
+		namespace.setName("namespace");
+		final Namespace namespace1 = EnvironmentPackage.eINSTANCE.getEnvironmentFactory().createNamespace();
+		namespace1.setName("namespace1");
+		final Namespace namespace2 = EnvironmentPackage.eINSTANCE.getEnvironmentFactory().createNamespace();
+		namespace2.setName("namespace2");
+		final Namespace namespace3 = EnvironmentPackage.eINSTANCE.getEnvironmentFactory().createNamespace();
+		namespace3.setName("namespace3");
+		namespace.getOwnedNamespaces().add(namespace2);
+		namespace.getOwnedNamespaces().add(namespace1);
+		namespace2.getOwnedNamespaces().add(namespace3);
+		namespace3.getTypes().add(entity);
+
+		assertEquals("From supertype namespace.namespace2.namespace3.entity",
+				es.getOriginTypeIfDifferent(reference, entity1));
 	}
 
 }

@@ -189,6 +189,20 @@
       <td colspan="1" rowspan="1"></td>
     </tr>
     <tr>
+      <td colspan="1" rowspan="1"><strong>getName</strong></td>
+      <td colspan="1" rowspan="1">String</td>
+      <td colspan="1" rowspan="1">{m:myProperty.getName()}</td>
+      <td colspan="1" rowspan="1">Returns the name of the given Property.</td>
+      <td colspan="1" rowspan="1">{m:myProperty.getName()} returns: 'myReference' or 'myAttribute'</td>
+    </tr>
+    <tr>
+      <td colspan="1" rowspan="1"><strong>getOriginTypeIfDifferent</strong></td>
+      <td colspan="1" rowspan="1">String</td>
+      <td colspan="1" rowspan="1">{m:myProperty.getOriginTypeIfDifferent(someStructuredType)}</td>
+      <td colspan="1" rowspan="1">Returns a String representing the origin StructuredType of the given Property if its differente from the given context StructuredType.</td>
+      <td colspan="1" rowspan="1">{m:myProperty.getOriginTypeIfDifferent(someStructuredType)} returns: 'From supertype namespace1.someDTO' or 'From Entity namespace1.someEntity' or 'From DTO namespace1.someDTO' or ''.</td>
+    </tr>
+    <tr>
       <td colspan="1" rowspan="1"><strong>getReferencedTypeName</strong></td>
       <td colspan="1" rowspan="1">String</td>
       <td colspan="1" rowspan="1">{m:myReference.getReferencedTypeName()}</td>

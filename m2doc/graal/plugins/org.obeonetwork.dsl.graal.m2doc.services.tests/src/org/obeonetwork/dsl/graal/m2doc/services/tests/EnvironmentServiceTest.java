@@ -16,6 +16,7 @@ import org.junit.Test;
 import org.obeonetwork.dsl.environment.Attribute;
 import org.obeonetwork.dsl.environment.EnvironmentPackage;
 import org.obeonetwork.dsl.environment.Namespace;
+import org.obeonetwork.dsl.environment.Reference;
 import org.obeonetwork.dsl.environment.m2doc.services.EnvironmentServices;
 import org.obeonetwork.graal.DomainClass;
 import org.obeonetwork.graal.GraalPackage;
@@ -105,6 +106,90 @@ public class EnvironmentServiceTest {
 
 		assertEquals("From supertype namespace.namespace2.namespace3.domainClass",
 				es.getOriginTypeIfDifferent(attribute, domainClass1));
+	}
+
+
+	@Test
+	public void getOriginTypeIfDifferentReferenceNull() {
+		final DomainClass domainClass = GraalPackage.eINSTANCE.getGraalFactory().createDomainClass();
+		domainClass.setName("domainClass");
+		Reference reference = EnvironmentPackage.eINSTANCE.getEnvironmentFactory().createReference();
+		domainClass.getOwnedReferences().add(reference);
+
+		assertEquals("From DomainClass domainClass", es.getOriginTypeIfDifferent(reference, null));
+	}
+
+	@Test
+	public void getOriginTypeIfDifferentReferenceParent() {
+		final DomainClass domainClass = GraalPackage.eINSTANCE.getGraalFactory().createDomainClass();
+		domainClass.setName("domainClass");
+		Reference reference = EnvironmentPackage.eINSTANCE.getEnvironmentFactory().createReference();
+		domainClass.getOwnedReferences().add(reference);
+
+		assertEquals("", es.getOriginTypeIfDifferent(reference, domainClass));
+	}
+
+	@Test
+	public void getOriginTypeIfDifferentReference() {
+		final DomainClass domainClass = GraalPackage.eINSTANCE.getGraalFactory().createDomainClass();
+		domainClass.setName("domainClass");
+		final DomainClass domainClass1 = GraalPackage.eINSTANCE.getGraalFactory().createDomainClass();
+		domainClass1.setName("domainClass1");
+		Reference reference = EnvironmentPackage.eINSTANCE.getEnvironmentFactory().createReference();
+		domainClass.getOwnedReferences().add(reference);
+
+		assertEquals("From DomainClass domainClass", es.getOriginTypeIfDifferent(reference, domainClass1));
+	}
+
+	@Test
+	public void getOriginTypeIfDifferentReferenceQualifiedNameNamespace() {
+		final DomainClass domainClass = GraalPackage.eINSTANCE.getGraalFactory().createDomainClass();
+		domainClass.setName("domainClass");
+		final DomainClass domainClass1 = GraalPackage.eINSTANCE.getGraalFactory().createDomainClass();
+		domainClass1.setName("domainClass1");
+		Reference reference = EnvironmentPackage.eINSTANCE.getEnvironmentFactory().createReference();
+		domainClass.getOwnedReferences().add(reference);
+		final Namespace namespace = EnvironmentPackage.eINSTANCE.getEnvironmentFactory().createNamespace();
+		namespace.setName("namespace");
+		final Namespace namespace1 = EnvironmentPackage.eINSTANCE.getEnvironmentFactory().createNamespace();
+		namespace1.setName("namespace1");
+		final Namespace namespace2 = EnvironmentPackage.eINSTANCE.getEnvironmentFactory().createNamespace();
+		namespace2.setName("namespace2");
+		final Namespace namespace3 = EnvironmentPackage.eINSTANCE.getEnvironmentFactory().createNamespace();
+		namespace3.setName("namespace3");
+		namespace.getOwnedNamespaces().add(namespace2);
+		namespace.getOwnedNamespaces().add(namespace1);
+		namespace2.getOwnedNamespaces().add(namespace3);
+		namespace3.getTypes().add(domainClass);
+
+		assertEquals("From DomainClass namespace.namespace2.namespace3.domainClass",
+				es.getOriginTypeIfDifferent(reference, domainClass1));
+	}
+
+	@Test
+	public void getOriginTypeIfDifferentReferenceQualifiedNameNamespaceSuperType() {
+		final DomainClass domainClass = GraalPackage.eINSTANCE.getGraalFactory().createDomainClass();
+		domainClass.setName("domainClass");
+		final DomainClass domainClass1 = GraalPackage.eINSTANCE.getGraalFactory().createDomainClass();
+		domainClass1.setName("domainClass1");
+		domainClass1.setSupertype(domainClass);
+		Reference reference = EnvironmentPackage.eINSTANCE.getEnvironmentFactory().createReference();
+		domainClass.getOwnedReferences().add(reference);
+		final Namespace namespace = EnvironmentPackage.eINSTANCE.getEnvironmentFactory().createNamespace();
+		namespace.setName("namespace");
+		final Namespace namespace1 = EnvironmentPackage.eINSTANCE.getEnvironmentFactory().createNamespace();
+		namespace1.setName("namespace1");
+		final Namespace namespace2 = EnvironmentPackage.eINSTANCE.getEnvironmentFactory().createNamespace();
+		namespace2.setName("namespace2");
+		final Namespace namespace3 = EnvironmentPackage.eINSTANCE.getEnvironmentFactory().createNamespace();
+		namespace3.setName("namespace3");
+		namespace.getOwnedNamespaces().add(namespace2);
+		namespace.getOwnedNamespaces().add(namespace1);
+		namespace2.getOwnedNamespaces().add(namespace3);
+		namespace3.getTypes().add(domainClass);
+
+		assertEquals("From supertype namespace.namespace2.namespace3.domainClass",
+				es.getOriginTypeIfDifferent(reference, domainClass1));
 	}
 
 }
