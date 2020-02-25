@@ -483,5 +483,20 @@ public class EnvironmentServices {
 	public String getName(Enumeration enumeration) {
 		return enumeration.getName();
 	}
+
+	// @formatter:off
+	@Documentation(
+			comment = "{m:myNamespace.getName()}",
+		    value = "Returns the name of the given Namespace.",
+		    examples = {
+		    		@Example(
+		    				expression = "{m:myNamespace.getName()}", 
+		    				result = "'mynamespace'")
+		    }
+		)
+	// @formatter:on
+	public String getName(Namespace namespace) {
+		return namespace.getName();
+	}
 	
 }
