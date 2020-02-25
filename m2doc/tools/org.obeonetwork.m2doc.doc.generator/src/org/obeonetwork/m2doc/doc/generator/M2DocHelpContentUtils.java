@@ -71,7 +71,7 @@ public final class M2DocHelpContentUtils {
 		buffer.append("<html lang=\"en\">").append(LS);
 		buffer.append("<!--").append(LS);
 		buffer.append("/********************************************************************************").append(LS);
-		buffer.append("** Copyright (c) 2016, 2017, 2018, 2019 Obeo.").append(LS);
+		buffer.append("** Copyright (c) 2016, 2017, 2018, 2019, 2020 Obeo.").append(LS);
 		buffer.append("** All rights reserved. This program and the accompanying materials").append(LS);
 		buffer.append("** are made available under the terms of the Eclipse Public License v1.0").append(LS);
 		buffer.append("** which accompanies this distribution, and is available at").append(LS);
@@ -410,7 +410,7 @@ public final class M2DocHelpContentUtils {
 		buffer.append("  </section>").append(LS);
 
 		buffer.append("  <h1>Documentation of M2Doc Services for the " + metamodelName + " package</h1>").append(LS);
-		buffer.append("  <p>Each concept of database is documented in it's own page :</p>").append(LS);
+		buffer.append("  <p>Each concept of " + metamodelName + " is documented in it's own page :</p>").append(LS);
 
 		buffer.append("  <ul>").append(LS);
 		for (Class<?> metaClass : metaClasses) {
