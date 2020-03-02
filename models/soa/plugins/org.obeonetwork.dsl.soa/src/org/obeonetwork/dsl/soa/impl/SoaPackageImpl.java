@@ -358,6 +358,15 @@ public class SoaPackageImpl extends EPackageImpl implements SoaPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EAttribute getComponent_Deprecated() {
+		return (EAttribute)componentEClass.getEStructuralFeatures().get(10);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getService() {
 		return serviceEClass;
 	}
@@ -801,6 +810,7 @@ public class SoaPackageImpl extends EPackageImpl implements SoaPackage {
 		createEAttribute(componentEClass, COMPONENT__URI);
 		createEAttribute(componentEClass, COMPONENT__URL);
 		createEAttribute(componentEClass, COMPONENT__API_VERSION);
+		createEAttribute(componentEClass, COMPONENT__DEPRECATED);
 
 		serviceEClass = createEClass(SERVICE);
 		createEReference(serviceEClass, SERVICE__OWNED_INTERFACE);
@@ -914,6 +924,7 @@ public class SoaPackageImpl extends EPackageImpl implements SoaPackage {
 		initEAttribute(getComponent_URI(), ecorePackage.getEString(), "URI", null, 0, 1, Component.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getComponent_URL(), ecorePackage.getEString(), "URL", null, 0, 1, Component.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getComponent_ApiVersion(), ecorePackage.getEString(), "apiVersion", null, 0, 1, Component.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getComponent_Deprecated(), ecorePackage.getEBoolean(), "deprecated", null, 0, 1, Component.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(serviceEClass, Service.class, "Service", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getService_OwnedInterface(), this.getInterface(), null, "ownedInterface", null, 0, 1, Service.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

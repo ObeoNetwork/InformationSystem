@@ -45,6 +45,7 @@ import org.obeonetwork.dsl.soa.SoaPackage;
  *   <li>{@link org.obeonetwork.dsl.soa.impl.ComponentImpl#getURI <em>URI</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.soa.impl.ComponentImpl#getURL <em>URL</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.soa.impl.ComponentImpl#getApiVersion <em>Api Version</em>}</li>
+ *   <li>{@link org.obeonetwork.dsl.soa.impl.ComponentImpl#isDeprecated <em>Deprecated</em>}</li>
  * </ul>
  *
  * @generated
@@ -96,6 +97,16 @@ public class ComponentImpl extends ObeoDSMObjectImpl implements Component {
 	 * @ordered
 	 */
 	protected static final String API_VERSION_EDEFAULT = null;
+
+	/**
+	 * The default value of the '{@link #isDeprecated() <em>Deprecated</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isDeprecated()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final boolean DEPRECATED_EDEFAULT = false;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -263,6 +274,24 @@ public class ComponentImpl extends ObeoDSMObjectImpl implements Component {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public boolean isDeprecated() {
+		return (Boolean)eDynamicGet(SoaPackage.COMPONENT__DEPRECATED, SoaPackage.Literals.COMPONENT__DEPRECATED, true, true);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setDeprecated(boolean newDeprecated) {
+		eDynamicSet(SoaPackage.COMPONENT__DEPRECATED, SoaPackage.Literals.COMPONENT__DEPRECATED, newDeprecated);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
@@ -304,6 +333,8 @@ public class ComponentImpl extends ObeoDSMObjectImpl implements Component {
 				return getURL();
 			case SoaPackage.COMPONENT__API_VERSION:
 				return getApiVersion();
+			case SoaPackage.COMPONENT__DEPRECATED:
+				return isDeprecated();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -345,6 +376,9 @@ public class ComponentImpl extends ObeoDSMObjectImpl implements Component {
 			case SoaPackage.COMPONENT__API_VERSION:
 				setApiVersion((String)newValue);
 				return;
+			case SoaPackage.COMPONENT__DEPRECATED:
+				setDeprecated((Boolean)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -381,6 +415,9 @@ public class ComponentImpl extends ObeoDSMObjectImpl implements Component {
 			case SoaPackage.COMPONENT__API_VERSION:
 				setApiVersion(API_VERSION_EDEFAULT);
 				return;
+			case SoaPackage.COMPONENT__DEPRECATED:
+				setDeprecated(DEPRECATED_EDEFAULT);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -413,6 +450,8 @@ public class ComponentImpl extends ObeoDSMObjectImpl implements Component {
 				return URL_EDEFAULT == null ? getURL() != null : !URL_EDEFAULT.equals(getURL());
 			case SoaPackage.COMPONENT__API_VERSION:
 				return API_VERSION_EDEFAULT == null ? getApiVersion() != null : !API_VERSION_EDEFAULT.equals(getApiVersion());
+			case SoaPackage.COMPONENT__DEPRECATED:
+				return isDeprecated() != DEPRECATED_EDEFAULT;
 		}
 		return super.eIsSet(featureID);
 	}

@@ -408,13 +408,22 @@ public interface SoaPackage extends EPackage {
 	int COMPONENT__API_VERSION = EnvironmentPackage.OBEO_DSM_OBJECT_FEATURE_COUNT + 9;
 
 	/**
+	 * The feature id for the '<em><b>Deprecated</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMPONENT__DEPRECATED = EnvironmentPackage.OBEO_DSM_OBJECT_FEATURE_COUNT + 10;
+
+	/**
 	 * The number of structural features of the '<em>Component</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int COMPONENT_FEATURE_COUNT = EnvironmentPackage.OBEO_DSM_OBJECT_FEATURE_COUNT + 10;
+	int COMPONENT_FEATURE_COUNT = EnvironmentPackage.OBEO_DSM_OBJECT_FEATURE_COUNT + 11;
 
 	/**
 	 * The meta object id for the '{@link org.obeonetwork.dsl.soa.impl.ServiceImpl <em>Service</em>}' class.
@@ -1627,6 +1636,17 @@ public interface SoaPackage extends EPackage {
 	EAttribute getComponent_ApiVersion();
 
 	/**
+	 * Returns the meta object for the attribute '{@link org.obeonetwork.dsl.soa.Component#isDeprecated <em>Deprecated</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Deprecated</em>'.
+	 * @see org.obeonetwork.dsl.soa.Component#isDeprecated()
+	 * @see #getComponent()
+	 * @generated
+	 */
+	EAttribute getComponent_Deprecated();
+
+	/**
 	 * Returns the meta object for class '{@link org.obeonetwork.dsl.soa.Service <em>Service</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2244,6 +2264,14 @@ public interface SoaPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute COMPONENT__API_VERSION = eINSTANCE.getComponent_ApiVersion();
+
+		/**
+		 * The meta object literal for the '<em><b>Deprecated</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute COMPONENT__DEPRECATED = eINSTANCE.getComponent_Deprecated();
 
 		/**
 		 * The meta object literal for the '{@link org.obeonetwork.dsl.soa.impl.ServiceImpl <em>Service</em>}' class.

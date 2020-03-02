@@ -62,6 +62,7 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute soa.ecore#//Component/URI"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute soa.ecore#//Component/URL"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute soa.ecore#//Component/apiVersion"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute soa.ecore#//Component/deprecated"/>
     </genClasses>
     <genClasses ecoreClass="soa.ecore#//Service">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference soa.ecore#//Service/ownedInterface"/>

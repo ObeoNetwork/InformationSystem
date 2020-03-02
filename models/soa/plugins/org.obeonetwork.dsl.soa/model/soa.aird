@@ -4697,6 +4697,10 @@
               <styles xmi:type="notation:FontStyle" xmi:id="_2vKWgU2CEeqQduwuIewglA" fontColor="2697711" fontName="Noto Sans" fontHeight="8"/>
               <layoutConstraint xmi:type="notation:Location" xmi:id="_2vKWgk2CEeqQduwuIewglA"/>
             </children>
+            <children xmi:type="notation:Node" xmi:id="_Rt-jYFyXEeqW0Ng_wrkYaA" type="3010" element="_RtHAsFyXEeqW0Ng_wrkYaA">
+              <styles xmi:type="notation:FontStyle" xmi:id="_Rt-jYVyXEeqW0Ng_wrkYaA" fontColor="2697711" fontName="Noto Sans" fontHeight="8"/>
+              <layoutConstraint xmi:type="notation:Location" xmi:id="_Rt-jYlyXEeqW0Ng_wrkYaA"/>
+            </children>
             <children xmi:type="notation:Node" xmi:id="_UYgesDCfEeqhQ4RqNEfMCA" type="3010" element="_UWeeYDCfEeqhQ4RqNEfMCA">
               <styles xmi:type="notation:FontStyle" xmi:id="_UYgesTCfEeqhQ4RqNEfMCA" fontColor="8224125" fontName="Noto Sans" fontHeight="8" italic="true"/>
               <layoutConstraint xmi:type="notation:Location" xmi:id="_UYgesjCfEeqhQ4RqNEfMCA"/>
@@ -5451,7 +5455,7 @@
       <arrangeConstraints>KEEP_LOCATION</arrangeConstraints>
       <arrangeConstraints>KEEP_SIZE</arrangeConstraints>
       <arrangeConstraints>KEEP_RATIO</arrangeConstraints>
-      <ownedStyle xmi:type="diagram:FlatContainerStyle" uid="_UZfb8k2EEeqQduwuIewglA" borderSize="1" borderSizeComputationExpression="1" backgroundStyle="Liquid" foregroundColor="255,252,216">
+      <ownedStyle xmi:type="diagram:FlatContainerStyle" uid="_cqDPYVyXEeqW0Ng_wrkYaA" borderSize="1" borderSizeComputationExpression="1" backgroundStyle="Liquid" foregroundColor="255,252,216">
         <description xmi:type="style:FlatContainerStyleDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@style"/>
       </ownedStyle>
       <actualMapping xmi:type="description_1:ContainerMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']"/>
@@ -5483,6 +5487,14 @@
         <target xmi:type="ecore:EAttribute" href="soa.ecore#//Component/apiVersion"/>
         <semanticElements xmi:type="ecore:EAttribute" href="soa.ecore#//Component/apiVersion"/>
         <ownedStyle xmi:type="diagram:BundledImage" uid="_6p9_M02CEeqQduwuIewglA" labelAlignment="LEFT">
+          <description xmi:type="style:BundledImageDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='EC%20EAttribute']/@style"/>
+        </ownedStyle>
+        <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='EC%20EAttribute']"/>
+      </ownedElements>
+      <ownedElements xmi:type="diagram:DNodeListElement" uid="_RtHAsFyXEeqW0Ng_wrkYaA" name="deprecated : EBoolean = false" tooltipText="">
+        <target xmi:type="ecore:EAttribute" href="soa.ecore#//Component/deprecated"/>
+        <semanticElements xmi:type="ecore:EAttribute" href="soa.ecore#//Component/deprecated"/>
+        <ownedStyle xmi:type="diagram:BundledImage" uid="_cqGStVyXEeqW0Ng_wrkYaA" labelAlignment="LEFT">
           <description xmi:type="style:BundledImageDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='EC%20EAttribute']/@style"/>
         </ownedStyle>
         <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='EC%20EAttribute']"/>

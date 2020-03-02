@@ -33,6 +33,7 @@ import org.obeonetwork.dsl.environment.TypesDefinition;
  *   <li>{@link org.obeonetwork.dsl.soa.Component#getURI <em>URI</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.soa.Component#getURL <em>URL</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.soa.Component#getApiVersion <em>Api Version</em>}</li>
+ *   <li>{@link org.obeonetwork.dsl.soa.Component#isDeprecated <em>Deprecated</em>}</li>
  * </ul>
  *
  * @see org.obeonetwork.dsl.soa.SoaPackage#getComponent()
@@ -246,5 +247,31 @@ public interface Component extends ObeoDSMObject {
 	 * @generated
 	 */
 	void setApiVersion(String value);
+
+	/**
+	 * Returns the value of the '<em><b>Deprecated</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Deprecated</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Deprecated</em>' attribute.
+	 * @see #setDeprecated(boolean)
+	 * @see org.obeonetwork.dsl.soa.SoaPackage#getComponent_Deprecated()
+	 * @model
+	 * @generated
+	 */
+	boolean isDeprecated();
+
+	/**
+	 * Sets the value of the '{@link org.obeonetwork.dsl.soa.Component#isDeprecated <em>Deprecated</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Deprecated</em>' attribute.
+	 * @see #isDeprecated()
+	 * @generated
+	 */
+	void setDeprecated(boolean value);
 
 } // Component
