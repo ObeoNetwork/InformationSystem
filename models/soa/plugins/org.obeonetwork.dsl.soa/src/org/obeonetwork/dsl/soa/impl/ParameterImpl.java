@@ -33,6 +33,7 @@ import org.obeonetwork.dsl.soa.SoaPackage;
  *   <li>{@link org.obeonetwork.dsl.soa.impl.ParameterImpl#isIsOrdered <em>Is Ordered</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.soa.impl.ParameterImpl#getPassingMode <em>Passing Mode</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.soa.impl.ParameterImpl#getStatusCode <em>Status Code</em>}</li>
+ *   <li>{@link org.obeonetwork.dsl.soa.impl.ParameterImpl#getStatusMessage <em>Status Message</em>}</li>
  * </ul>
  *
  * @generated
@@ -102,6 +103,16 @@ public class ParameterImpl extends ObeoDSMObjectImpl implements Parameter {
 	 * @ordered
 	 */
 	protected static final String STATUS_CODE_EDEFAULT = null;
+
+	/**
+	 * The default value of the '{@link #getStatusMessage() <em>Status Message</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getStatusMessage()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String STATUS_MESSAGE_EDEFAULT = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -262,6 +273,24 @@ public class ParameterImpl extends ObeoDSMObjectImpl implements Parameter {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public String getStatusMessage() {
+		return (String)eDynamicGet(SoaPackage.PARAMETER__STATUS_MESSAGE, SoaPackage.Literals.PARAMETER__STATUS_MESSAGE, true, true);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setStatusMessage(String newStatusMessage) {
+		eDynamicSet(SoaPackage.PARAMETER__STATUS_MESSAGE, SoaPackage.Literals.PARAMETER__STATUS_MESSAGE, newStatusMessage);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
@@ -280,6 +309,8 @@ public class ParameterImpl extends ObeoDSMObjectImpl implements Parameter {
 				return getPassingMode();
 			case SoaPackage.PARAMETER__STATUS_CODE:
 				return getStatusCode();
+			case SoaPackage.PARAMETER__STATUS_MESSAGE:
+				return getStatusMessage();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -312,6 +343,9 @@ public class ParameterImpl extends ObeoDSMObjectImpl implements Parameter {
 				return;
 			case SoaPackage.PARAMETER__STATUS_CODE:
 				setStatusCode((String)newValue);
+				return;
+			case SoaPackage.PARAMETER__STATUS_MESSAGE:
+				setStatusMessage((String)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -346,6 +380,9 @@ public class ParameterImpl extends ObeoDSMObjectImpl implements Parameter {
 			case SoaPackage.PARAMETER__STATUS_CODE:
 				setStatusCode(STATUS_CODE_EDEFAULT);
 				return;
+			case SoaPackage.PARAMETER__STATUS_MESSAGE:
+				setStatusMessage(STATUS_MESSAGE_EDEFAULT);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -372,6 +409,8 @@ public class ParameterImpl extends ObeoDSMObjectImpl implements Parameter {
 				return getPassingMode() != PASSING_MODE_EDEFAULT;
 			case SoaPackage.PARAMETER__STATUS_CODE:
 				return STATUS_CODE_EDEFAULT == null ? getStatusCode() != null : !STATUS_CODE_EDEFAULT.equals(getStatusCode());
+			case SoaPackage.PARAMETER__STATUS_MESSAGE:
+				return STATUS_MESSAGE_EDEFAULT == null ? getStatusMessage() != null : !STATUS_MESSAGE_EDEFAULT.equals(getStatusMessage());
 		}
 		return super.eIsSet(featureID);
 	}

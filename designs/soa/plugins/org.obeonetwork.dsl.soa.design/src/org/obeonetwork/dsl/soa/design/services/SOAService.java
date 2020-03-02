@@ -17,11 +17,19 @@ import java.util.List;
 import java.util.Set;
 
 import org.eclipse.emf.ecore.EObject;
+import org.eclipse.jface.dialogs.Dialog;
+import org.eclipse.jface.viewers.ArrayContentProvider;
+import org.eclipse.jface.viewers.LabelProvider;
 import org.eclipse.sirius.diagram.DNodeContainer;
 import org.eclipse.sirius.diagram.DSemanticDiagram;
+import org.eclipse.swt.widgets.Shell;
+import org.eclipse.ui.PlatformUI;
+import org.eclipse.ui.dialogs.ListDialog;
 import org.obeonetwork.dsl.soa.Component;
 import org.obeonetwork.dsl.soa.InterfaceKind;
+import org.obeonetwork.dsl.soa.Parameter;
 import org.obeonetwork.dsl.soa.Service;
+import org.obeonetwork.dsl.soa.SoaPackage;
 import org.obeonetwork.dsl.soa.System;
 import org.obeonetwork.dsl.soa.Wire;
 
@@ -151,4 +159,96 @@ public class SOAService {
 	public InterfaceKind getRequiredLiteral(EObject object){
 		return InterfaceKind.REQUIRED_LITERAL;
 	}
+	
+	private static String[][] successStatus =  {
+			{ "200", Messages.SOAService_HTTP_responseMessage200 }, //$NON-NLS-1$
+			{ "201", Messages.SOAService_HTTP_responseMessage201 }, //$NON-NLS-1$
+			{ "202", Messages.SOAService_HTTP_responseMessage202 }, //$NON-NLS-1$
+			{ "203", Messages.SOAService_HTTP_responseMessage203 }, //$NON-NLS-1$
+			{ "204", Messages.SOAService_HTTP_responseMessage204 }, //$NON-NLS-1$
+			{ "205", Messages.SOAService_HTTP_responseMessage205 }, //$NON-NLS-1$
+			{ "206", Messages.SOAService_HTTP_responseMessage206 }, //$NON-NLS-1$
+			{ "207", Messages.SOAService_HTTP_responseMessage207 }, //$NON-NLS-1$
+			{ "208", Messages.SOAService_HTTP_responseMessage208 }, //$NON-NLS-1$
+			{ "226", Messages.SOAService_HTTP_responseMessage226 } //$NON-NLS-1$
+	};
+	
+	private static String[][] faultStatus =  {
+			{ "400", Messages.SOAService_HTTP_responseMessage400 }, //$NON-NLS-1$
+			{ "401", Messages.SOAService_HTTP_responseMessage401 }, //$NON-NLS-1$
+			{ "402", Messages.SOAService_HTTP_responseMessage402 }, //$NON-NLS-1$
+			{ "403", Messages.SOAService_HTTP_responseMessage403 }, //$NON-NLS-1$
+			{ "404", Messages.SOAService_HTTP_responseMessage404 }, //$NON-NLS-1$
+			{ "405", Messages.SOAService_HTTP_responseMessage405 }, //$NON-NLS-1$
+			{ "406", Messages.SOAService_HTTP_responseMessage406 }, //$NON-NLS-1$
+			{ "407", Messages.SOAService_HTTP_responseMessage407 }, //$NON-NLS-1$
+			{ "408", Messages.SOAService_HTTP_responseMessage408 }, //$NON-NLS-1$
+			{ "409", Messages.SOAService_HTTP_responseMessage409 }, //$NON-NLS-1$
+			{ "410", Messages.SOAService_HTTP_responseMessage410 }, //$NON-NLS-1$
+			{ "411", Messages.SOAService_HTTP_responseMessage411 }, //$NON-NLS-1$
+			{ "412", Messages.SOAService_HTTP_responseMessage412 }, //$NON-NLS-1$
+			{ "413", Messages.SOAService_HTTP_responseMessage413 }, //$NON-NLS-1$
+			{ "414", Messages.SOAService_HTTP_responseMessage414 }, //$NON-NLS-1$
+			{ "415", Messages.SOAService_HTTP_responseMessage415 }, //$NON-NLS-1$
+			{ "416", Messages.SOAService_HTTP_responseMessage416 }, //$NON-NLS-1$
+			{ "417", Messages.SOAService_HTTP_responseMessage417 }, //$NON-NLS-1$
+			{ "418", Messages.SOAService_HTTP_responseMessage418 }, //$NON-NLS-1$
+			{ "421", Messages.SOAService_HTTP_responseMessage421 }, //$NON-NLS-1$
+			{ "422", Messages.SOAService_HTTP_responseMessage422 }, //$NON-NLS-1$
+			{ "423", Messages.SOAService_HTTP_responseMessage423 }, //$NON-NLS-1$
+			{ "424", Messages.SOAService_HTTP_responseMessage424 }, //$NON-NLS-1$
+			{ "425", Messages.SOAService_HTTP_responseMessage425 }, //$NON-NLS-1$
+			{ "426", Messages.SOAService_HTTP_responseMessage426 }, //$NON-NLS-1$
+			{ "428", Messages.SOAService_HTTP_responseMessage428 }, //$NON-NLS-1$
+			{ "429", Messages.SOAService_HTTP_responseMessage429 }, //$NON-NLS-1$
+			{ "431", Messages.SOAService_HTTP_responseMessage431 }, //$NON-NLS-1$
+			{ "451", Messages.SOAService_HTTP_responseMessage451 }, //$NON-NLS-1$
+			{ "500", Messages.SOAService_HTTP_responseMessage500 }, //$NON-NLS-1$
+			{ "501", Messages.SOAService_HTTP_responseMessage501 }, //$NON-NLS-1$
+			{ "502", Messages.SOAService_HTTP_responseMessage502 }, //$NON-NLS-1$
+			{ "503", Messages.SOAService_HTTP_responseMessage503 }, //$NON-NLS-1$
+			{ "504", Messages.SOAService_HTTP_responseMessage504 }, //$NON-NLS-1$
+			{ "505", Messages.SOAService_HTTP_responseMessage505 }, //$NON-NLS-1$
+			{ "506", Messages.SOAService_HTTP_responseMessage506 }, //$NON-NLS-1$
+			{ "507", Messages.SOAService_HTTP_responseMessage507 }, //$NON-NLS-1$
+			{ "508", Messages.SOAService_HTTP_responseMessage508 }, //$NON-NLS-1$
+			{ "510", Messages.SOAService_HTTP_responseMessage510 }, //$NON-NLS-1$
+			{ "511", Messages.SOAService_HTTP_responseMessage511 } //$NON-NLS-1$
+	};
+
+	private static class StatusLabelProvider extends LabelProvider {
+
+		@Override
+		public String getText(Object element) {
+			String[] status = (String[]) element; 
+			return status[0] + " : " + status[1]; //$NON-NLS-1$
+		}
+		
+	}
+	
+	public void openStatusCodeSelectionDialog(Parameter parameter) {
+		
+		Shell shell = PlatformUI.getWorkbench().getActiveWorkbenchWindow().getShell();
+		
+		String[][] status = new String[][] {};
+		if(parameter.eContainingFeature() == SoaPackage.eINSTANCE.getOperation_Output()) {
+			status = successStatus;
+		} else if(parameter.eContainingFeature() == SoaPackage.eINSTANCE.getOperation_Fault()) {
+			status = faultStatus;
+		}
+		
+		ListDialog dialog = new ListDialog(shell);
+		dialog.setTitle(Messages.SOAService_StatusSelectionDiaglogTitle);
+		dialog.setMessage(Messages.SOAService_StatusSelectionDiaglogMessage + parameter.getName());
+		dialog.setContentProvider(ArrayContentProvider.getInstance());
+		dialog.setLabelProvider(new StatusLabelProvider());
+		dialog.setInput(status);
+		if (dialog.open() == Dialog.OK && dialog.getResult().length == 1) {
+        	String[] selectedStatus = (String[]) dialog.getResult()[0];
+    		parameter.setStatusCode(selectedStatus[0]);
+    		parameter.setStatusMessage(selectedStatus[1]);
+		}
+		
+	}
+	
 }

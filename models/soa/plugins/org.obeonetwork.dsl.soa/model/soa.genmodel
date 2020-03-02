@@ -106,6 +106,7 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute soa.ecore#//Parameter/isOrdered"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute soa.ecore#//Parameter/passingMode"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute soa.ecore#//Parameter/statusCode"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute soa.ecore#//Parameter/statusMessage"/>
     </genClasses>
   </genPackages>
 </genmodel:GenModel>

@@ -75,6 +75,7 @@ public class ParameterItemProvider
 			addIsOrderedPropertyDescriptor(object);
 			addPassingModePropertyDescriptor(object);
 			addStatusCodePropertyDescriptor(object);
+			addStatusMessagePropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -234,6 +235,28 @@ public class ParameterItemProvider
 	}
 
 	/**
+	 * This adds a property descriptor for the Status Message feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addStatusMessagePropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_Parameter_statusMessage_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Parameter_statusMessage_feature", "_UI_Parameter_type"),
+				 SoaPackage.Literals.PARAMETER__STATUS_MESSAGE,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
 	 * This returns Parameter.gif.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -301,6 +324,7 @@ public class ParameterItemProvider
 			case SoaPackage.PARAMETER__IS_ORDERED:
 			case SoaPackage.PARAMETER__PASSING_MODE:
 			case SoaPackage.PARAMETER__STATUS_CODE:
+			case SoaPackage.PARAMETER__STATUS_MESSAGE:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 		}
