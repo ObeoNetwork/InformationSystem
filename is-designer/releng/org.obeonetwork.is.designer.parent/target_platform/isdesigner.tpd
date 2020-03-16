@@ -62,7 +62,8 @@ location "http://download.eclipse.org/modeling/emft/eef/updates/milestones/1.5/S
 	org.eclipse.emf.eef.cdo.runtime lazy
 }
 
-location "https://s3-eu-west-1.amazonaws.com/obeo-m2doc-releases/3.0.0/repository" {
+location "https://s3-eu-west-1.amazonaws.com/obeo-m2doc-releases/3.0.x/nightly/repository/" {
+//location "https://s3-eu-west-1.amazonaws.com/obeo-m2doc-releases/3.0.0/repository" {
 //location "https://s3-eu-west-1.amazonaws.com/obeo-m2doc-releases/master/nightly/repository" {
 //location "https://s3-eu-west-1.amazonaws.com/obeo-m2doc-releases/2.0.2/repository" {
 	org.apache.poi.feature.feature.group lazy
