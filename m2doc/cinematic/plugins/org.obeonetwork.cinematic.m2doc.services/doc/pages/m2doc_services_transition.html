@@ -175,6 +175,13 @@
       <td colspan="1" rowspan="1">{m:obj.allRelatedRequirements()->sep(',')} returns: A comma separated list of related requirements.</td>
     </tr>
     <tr>
+      <td colspan="1" rowspan="1"><strong>annotation</strong></td>
+      <td colspan="1" rowspan="1">String</td>
+      <td colspan="1" rowspan="1"></td>
+      <td colspan="1" rowspan="1"></td>
+      <td colspan="1" rowspan="1"></td>
+    </tr>
+    <tr>
       <td colspan="1" rowspan="1"><strong>cinematicIcon</strong></td>
       <td colspan="1" rowspan="1">org.obeonetwork.m2doc.element.MImage</td>
       <td colspan="1" rowspan="1">{m:obj.cinematicIcon()}</td>
@@ -196,6 +203,20 @@
       <td colspan="1" rowspan="1">{m:flowEvent.getAnnotations().title->sep(',')} returns: A comma separated list of Flow Event's annotation titles.</td>
     </tr>
     <tr>
+      <td colspan="1" rowspan="1"><strong>getAnnotations</strong></td>
+      <td colspan="1" rowspan="1">List of Annotation</td>
+      <td colspan="1" rowspan="1">{m:myObeoDSMObject.getAnnotations()}</td>
+      <td colspan="1" rowspan="1">Returns the list of metadata annotations of the target ObeoDSMObject that are not documentation links.</td>
+      <td colspan="1" rowspan="1">{m:myObeoDSMObject.getAnnotations().getDocumentTitle()->sep(',')} returns: A comma separated list of ObeoDSMObject's annotation titles.</td>
+    </tr>
+    <tr>
+      <td colspan="1" rowspan="1"><strong>getDocumentationLinks</strong></td>
+      <td colspan="1" rowspan="1">List of Annotation</td>
+      <td colspan="1" rowspan="1">{m:myObeoDSMObject.getDocumentationLinks()}</td>
+      <td colspan="1" rowspan="1">Returns the list of metadata annotations of the target ObeoDSMObject that are documentation links.</td>
+      <td colspan="1" rowspan="1">{m:myObeoDSMObject.getDocumentationLinks().title->sep(',')} returns: A comma separated list of ObeoDSMObject's annotation titles.</td>
+    </tr>
+    <tr>
       <td colspan="1" rowspan="1"><strong>getName</strong></td>
       <td colspan="1" rowspan="1">String</td>
       <td colspan="1" rowspan="1">{m:obj.getName()}</td>
@@ -208,6 +229,27 @@
       <td colspan="1" rowspan="1">{m:obj.getTypeName()}</td>
       <td colspan="1" rowspan="1">Returns the name of the given object's type, formatted with white spaces.</td>
       <td colspan="1" rowspan="1">{m:obj.getTypeName()} returns: A string representation of the given object's type.</td>
+    </tr>
+    <tr>
+      <td colspan="1" rowspan="1"><strong>getTypeName</strong></td>
+      <td colspan="1" rowspan="1">String</td>
+      <td colspan="1" rowspan="1">{m:myEObject.getTypeName()}</td>
+      <td colspan="1" rowspan="1">Returns the name of the EClass of the given EObject.</td>
+      <td colspan="1" rowspan="1">{m:myEObject.getTypeName()} returns: ObeoDSMObject</td>
+    </tr>
+    <tr>
+      <td colspan="1" rowspan="1"><strong>hasAnnotations</strong></td>
+      <td colspan="1" rowspan="1">boolean</td>
+      <td colspan="1" rowspan="1">{m:myObeoDSMObject.getAnnotations()}</td>
+      <td colspan="1" rowspan="1">Returns true if the given ObeoDSMObject has at least one metadata annotations that is not documentation links, false otherwise.</td>
+      <td colspan="1" rowspan="1">{m:myObeoDSMObject.hasAnnotations()} returns: true or false.</td>
+    </tr>
+    <tr>
+      <td colspan="1" rowspan="1"><strong>hasDocumentationLinks</strong></td>
+      <td colspan="1" rowspan="1">boolean</td>
+      <td colspan="1" rowspan="1">{m:myObeoDSMObject.hasDocumentationLinks()}</td>
+      <td colspan="1" rowspan="1">Returns true if the given ObeoDSMObject has at least one documentation link, false otherwise.</td>
+      <td colspan="1" rowspan="1">{m:myObeoDSMObject.hasDocumentationLinks()} returns: true or false.</td>
     </tr>
     <tr>
       <td colspan="1" rowspan="1"><strong>hasRelatedRequirements</strong></td>

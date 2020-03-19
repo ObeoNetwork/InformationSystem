@@ -203,6 +203,13 @@
     </thead>
   <tbody>
     <tr>
+      <td colspan="1" rowspan="1"><strong>allRelatedRequirements</strong></td>
+      <td colspan="1" rowspan="1">List of Requirement</td>
+      <td colspan="1" rowspan="1">{m:obj.allRelatedRequirements()}</td>
+      <td colspan="1" rowspan="1">Returns a list of all the Requirements related to the target object or one of its sub objects. The result is a list with no duplicates sorted against the requirements ids.</td>
+      <td colspan="1" rowspan="1">{m:obj.allRelatedRequirements()->sep(',')} returns: A comma separated list of related requirements.</td>
+    </tr>
+    <tr>
       <td colspan="1" rowspan="1"><strong>annotation</strong></td>
       <td colspan="1" rowspan="1">String</td>
       <td colspan="1" rowspan="1"></td>
@@ -210,25 +217,18 @@
       <td colspan="1" rowspan="1"></td>
     </tr>
     <tr>
-      <td colspan="1" rowspan="1"><strong>compare</strong></td>
-      <td colspan="1" rowspan="1">int</td>
-      <td colspan="1" rowspan="1"></td>
-      <td colspan="1" rowspan="1"></td>
-      <td colspan="1" rowspan="1"></td>
+      <td colspan="1" rowspan="1"><strong>cinematicIcon</strong></td>
+      <td colspan="1" rowspan="1">org.obeonetwork.m2doc.element.MImage</td>
+      <td colspan="1" rowspan="1">{m:obj.cinematicIcon()}</td>
+      <td colspan="1" rowspan="1">Returns the presentation icon of the target Cinematic element.</td>
+      <td colspan="1" rowspan="1">{m:obj.getCinematicIcon()} returns: The icon of the element.</td>
     </tr>
     <tr>
-      <td colspan="1" rowspan="1"><strong>compare</strong></td>
-      <td colspan="1" rowspan="1">int</td>
-      <td colspan="1" rowspan="1"></td>
-      <td colspan="1" rowspan="1"></td>
-      <td colspan="1" rowspan="1"></td>
-    </tr>
-    <tr>
-      <td colspan="1" rowspan="1"><strong>compare</strong></td>
-      <td colspan="1" rowspan="1">int</td>
-      <td colspan="1" rowspan="1"></td>
-      <td colspan="1" rowspan="1"></td>
-      <td colspan="1" rowspan="1"></td>
+      <td colspan="1" rowspan="1"><strong>cinematicLabel</strong></td>
+      <td colspan="1" rowspan="1">String</td>
+      <td colspan="1" rowspan="1">{m:obj.cinematicLabel()}</td>
+      <td colspan="1" rowspan="1">Returns the presentation label of the target Cinematic element.</td>
+      <td colspan="1" rowspan="1">{m:obj.getCinematicLabel()} returns: The label of the element.</td>
     </tr>
     <tr>
       <td colspan="1" rowspan="1"><strong>fullQualifiedName</strong></td>
@@ -236,6 +236,20 @@
       <td colspan="1" rowspan="1"></td>
       <td colspan="1" rowspan="1"></td>
       <td colspan="1" rowspan="1"></td>
+    </tr>
+    <tr>
+      <td colspan="1" rowspan="1"><strong>getAllAttributes</strong></td>
+      <td colspan="1" rowspan="1">List of Attribute</td>
+      <td colspan="1" rowspan="1">{m:myStructuredType.getAllAttributes()}</td>
+      <td colspan="1" rowspan="1">Returns the List of all Attribute (owned, inherited, and associated) for the given StructuredType.</td>
+      <td colspan="1" rowspan="1">{m:myStructuredType.getAllAttributes().name->sep(',')} returns: the names of all Attribute (owned, inherited, and associated) names separeted by a coma.</td>
+    </tr>
+    <tr>
+      <td colspan="1" rowspan="1"><strong>getAnnotations</strong></td>
+      <td colspan="1" rowspan="1">List of Annotation</td>
+      <td colspan="1" rowspan="1">{m:flowEvent.getAnnotations()}</td>
+      <td colspan="1" rowspan="1">Returns the list of metadata annotations of the target Flow Event.</td>
+      <td colspan="1" rowspan="1">{m:flowEvent.getAnnotations().title->sep(',')} returns: A comma separated list of Flow Event's annotation titles.</td>
     </tr>
     <tr>
       <td colspan="1" rowspan="1"><strong>getAnnotations</strong></td>
@@ -252,11 +266,39 @@
       <td colspan="1" rowspan="1">{m:myObeoDSMObject.getDocumentationLinks().title->sep(',')} returns: A comma separated list of ObeoDSMObject's annotation titles.</td>
     </tr>
     <tr>
+      <td colspan="1" rowspan="1"><strong>getName</strong></td>
+      <td colspan="1" rowspan="1">String</td>
+      <td colspan="1" rowspan="1">{m:obj.getName()}</td>
+      <td colspan="1" rowspan="1">Returns the name of the given object if it defines one. Returns an empty string in all other cases.</td>
+      <td colspan="1" rowspan="1">{m:obj.getName()} returns: The object name.</td>
+    </tr>
+    <tr>
+      <td colspan="1" rowspan="1"><strong>getName</strong></td>
+      <td colspan="1" rowspan="1">String</td>
+      <td colspan="1" rowspan="1">{m:myType.getName()}</td>
+      <td colspan="1" rowspan="1">Returns a string representation of the given StructuredType with its super type if any.</td>
+      <td colspan="1" rowspan="1">{m:myType.getName()} returns: SomeEntity → SuperEntity</td>
+    </tr>
+    <tr>
+      <td colspan="1" rowspan="1"><strong>getTypeName</strong></td>
+      <td colspan="1" rowspan="1">String</td>
+      <td colspan="1" rowspan="1">{m:obj.getTypeName()}</td>
+      <td colspan="1" rowspan="1">Returns the name of the given object's type, formatted with white spaces.</td>
+      <td colspan="1" rowspan="1">{m:obj.getTypeName()} returns: A string representation of the given object's type.</td>
+    </tr>
+    <tr>
       <td colspan="1" rowspan="1"><strong>getTypeName</strong></td>
       <td colspan="1" rowspan="1">String</td>
       <td colspan="1" rowspan="1">{m:myEObject.getTypeName()}</td>
       <td colspan="1" rowspan="1">Returns the name of the EClass of the given EObject.</td>
       <td colspan="1" rowspan="1">{m:myEObject.getTypeName()} returns: ObeoDSMObject</td>
+    </tr>
+    <tr>
+      <td colspan="1" rowspan="1"><strong>hasAllAttributes</strong></td>
+      <td colspan="1" rowspan="1">boolean</td>
+      <td colspan="1" rowspan="1">{m:myStructuredType.hasAllAttributes()}</td>
+      <td colspan="1" rowspan="1">Returns true if there is at least one attribut even from a DTO or inherited.</td>
+      <td colspan="1" rowspan="1">{m:myStructuredType.hasAllAttributes()} returns: true or false.</td>
     </tr>
     <tr>
       <td colspan="1" rowspan="1"><strong>hasAnnotations</strong></td>
@@ -271,6 +313,41 @@
       <td colspan="1" rowspan="1">{m:myObeoDSMObject.hasDocumentationLinks()}</td>
       <td colspan="1" rowspan="1">Returns true if the given ObeoDSMObject has at least one documentation link, false otherwise.</td>
       <td colspan="1" rowspan="1">{m:myObeoDSMObject.hasDocumentationLinks()} returns: true or false.</td>
+    </tr>
+    <tr>
+      <td colspan="1" rowspan="1"><strong>hasRelatedRequirements</strong></td>
+      <td colspan="1" rowspan="1">boolean</td>
+      <td colspan="1" rowspan="1">{m:obj.hasRelatedRequirements()}</td>
+      <td colspan="1" rowspan="1">Returns true if the given Object as at least one related Requirement.</td>
+      <td colspan="1" rowspan="1">{m:obj.hasRelatedRequirements()} returns: true or false.</td>
+    </tr>
+    <tr>
+      <td colspan="1" rowspan="1"><strong>isCinematicObject</strong></td>
+      <td colspan="1" rowspan="1">boolean</td>
+      <td colspan="1" rowspan="1">{m:obj.isCinematicObject()}</td>
+      <td colspan="1" rowspan="1">Returns if the target object is a Cinematic element.</td>
+      <td colspan="1" rowspan="1">{m:obj.isCinematicObject()} returns: True if the target object is a Cinematic element, false otherwise.</td>
+    </tr>
+    <tr>
+      <td colspan="1" rowspan="1"><strong>qualifiedName</strong></td>
+      <td colspan="1" rowspan="1">String</td>
+      <td colspan="1" rowspan="1">{m:myStructuredType.qualifiedName()}</td>
+      <td colspan="1" rowspan="1">Returns the qualifiedname of the given StructuredType.</td>
+      <td colspan="1" rowspan="1">{m:myStructuredType.qualifiedName()} returns: a.b.MyStructuredType</td>
+    </tr>
+    <tr>
+      <td colspan="1" rowspan="1"><strong>relatedRequirements</strong></td>
+      <td colspan="1" rowspan="1">List of Requirement</td>
+      <td colspan="1" rowspan="1">{m:obj.relatedRequirements()}</td>
+      <td colspan="1" rowspan="1">Returns the set of Requirement that are related to the target object.</td>
+      <td colspan="1" rowspan="1">{m:obj.relatedRequirements()->sep(',')} returns: A comma separated list of related requirements.</td>
+    </tr>
+    <tr>
+      <td colspan="1" rowspan="1"><strong>relatedRequirementsWithSubtype</strong></td>
+      <td colspan="1" rowspan="1">List of Requirement</td>
+      <td colspan="1" rowspan="1">{m:obj.relatedRequirementsWithSubtype('SUBTYPE')}</td>
+      <td colspan="1" rowspan="1">Returns the list of Requirements that reference the target object and that have the specified subtype.</td>
+      <td colspan="1" rowspan="1">{m:obj.relatedRequirementsWithSubtype('performance')->sep(',')} returns: A comma separated list of related requirements of performance subtype.</td>
     </tr>
     </tbody>
     </table>
