@@ -46,6 +46,9 @@ public interface Reference extends Property {
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * Tells if the reference is composite.
+	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Is Composite</em>' attribute.
 	 * @see #setIsComposite(boolean)
 	 * @see org.obeonetwork.dsl.environment.EnvironmentPackage#getReference_IsComposite()
@@ -73,6 +76,9 @@ public interface Reference extends Property {
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * Tells if the reference is navigable.
+	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Navigable</em>' attribute.
 	 * @see #setNavigable(boolean)
 	 * @see org.obeonetwork.dsl.environment.EnvironmentPackage#getReference_Navigable()
@@ -99,6 +105,9 @@ public interface Reference extends Property {
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * The opposite relation.
+	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Opposite Of</em>' reference.
 	 * @see #setOppositeOf(Reference)
 	 * @see org.obeonetwork.dsl.environment.EnvironmentPackage#getReference_OppositeOf()
@@ -126,6 +135,9 @@ public interface Reference extends Property {
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * The containing structured type.
+	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Containing Type</em>' container reference.
 	 * @see #setContainingType(StructuredType)
 	 * @see org.obeonetwork.dsl.environment.EnvironmentPackage#getReference_ContainingType()
@@ -153,6 +165,9 @@ public interface Reference extends Property {
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * The type of the reference.
+	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Referenced Type</em>' reference.
 	 * @see #setReferencedType(StructuredType)
 	 * @see org.obeonetwork.dsl.environment.EnvironmentPackage#getReference_ReferencedType()

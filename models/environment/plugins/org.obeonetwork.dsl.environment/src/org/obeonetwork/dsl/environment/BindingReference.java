@@ -44,6 +44,9 @@ public interface BindingReference extends ObeoDSMObject {
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * The left binding element.
+	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Left</em>' reference.
 	 * @see #setLeft(BindingElement)
 	 * @see org.obeonetwork.dsl.environment.EnvironmentPackage#getBindingReference_Left()
@@ -72,6 +75,9 @@ public interface BindingReference extends ObeoDSMObject {
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * The right binding element.
+	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Right</em>' reference.
 	 * @see #setRight(BindingElement)
 	 * @see org.obeonetwork.dsl.environment.EnvironmentPackage#getBindingReference_Right()

@@ -50,6 +50,9 @@ public interface Parameter extends ObeoDSMObject {
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * The type of the parameter.
+	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Type</em>' reference.
 	 * @see #setType(Type)
 	 * @see org.obeonetwork.dsl.soa.SoaPackage#getParameter_Type()
@@ -76,6 +79,9 @@ public interface Parameter extends ObeoDSMObject {
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * The name of the parameter.
+	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Name</em>' attribute.
 	 * @see #setName(String)
 	 * @see org.obeonetwork.dsl.soa.SoaPackage#getParameter_Name()
@@ -104,6 +110,9 @@ public interface Parameter extends ObeoDSMObject {
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * The multiplicity of the parameter.
+	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Multiplicity</em>' attribute.
 	 * @see org.obeonetwork.dsl.environment.MultiplicityKind
 	 * @see #setMultiplicity(MultiplicityKind)
@@ -133,6 +142,9 @@ public interface Parameter extends ObeoDSMObject {
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * Tells if the parameter contains duplicates.
+	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Is Unique</em>' attribute.
 	 * @see #setIsUnique(boolean)
 	 * @see org.obeonetwork.dsl.soa.SoaPackage#getParameter_IsUnique()
@@ -160,6 +172,9 @@ public interface Parameter extends ObeoDSMObject {
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * Tells if the parameter is ordered.
+	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Is Ordered</em>' attribute.
 	 * @see #setIsOrdered(boolean)
 	 * @see org.obeonetwork.dsl.soa.SoaPackage#getParameter_IsOrdered()

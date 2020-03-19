@@ -46,6 +46,9 @@ public interface ImplementationComponent extends ObeoDSMObject {
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * The implemented interface.
+	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Implement</em>' reference.
 	 * @see #setImplement(Interface)
 	 * @see org.obeonetwork.dsl.soa.SoaPackage#getImplementationComponent_Implement()
@@ -72,6 +75,9 @@ public interface ImplementationComponent extends ObeoDSMObject {
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * The type definition.
+	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Entities</em>' reference.
 	 * @see #setEntities(TypesDefinition)
 	 * @see org.obeonetwork.dsl.soa.SoaPackage#getImplementationComponent_Entities()

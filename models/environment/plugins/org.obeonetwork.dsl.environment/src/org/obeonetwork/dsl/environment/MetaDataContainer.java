@@ -46,6 +46,9 @@ public interface MetaDataContainer extends Identifiable {
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * The list of metadata.
+	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Metadatas</em>' containment reference list.
 	 * @see org.obeonetwork.dsl.environment.EnvironmentPackage#getMetaDataContainer_Metadatas()
 	 * @model containment="true" resolveProxies="true"

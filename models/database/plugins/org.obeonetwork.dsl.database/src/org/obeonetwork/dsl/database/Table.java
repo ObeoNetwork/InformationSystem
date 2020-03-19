@@ -50,6 +50,9 @@ public interface Table extends AbstractTable {
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * The primary key.
+	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Primary Key</em>' containment reference.
 	 * @see #setPrimaryKey(PrimaryKey)
 	 * @see org.obeonetwork.dsl.database.DatabasePackage#getTable_PrimaryKey()
@@ -79,6 +82,9 @@ public interface Table extends AbstractTable {
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * The list of foreign keys.
+	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Foreign Keys</em>' containment reference list.
 	 * @see org.obeonetwork.dsl.database.DatabasePackage#getTable_ForeignKeys()
 	 * @see org.obeonetwork.dsl.database.ForeignKey#getOwner
@@ -97,6 +103,9 @@ public interface Table extends AbstractTable {
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * The list of constraints.
+	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Constraints</em>' containment reference list.
 	 * @see org.obeonetwork.dsl.database.DatabasePackage#getTable_Constraints()
 	 * @see org.obeonetwork.dsl.database.Constraint#getOwner
@@ -115,6 +124,9 @@ public interface Table extends AbstractTable {
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * The list of indexes.
+	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Indexes</em>' containment reference list.
 	 * @see org.obeonetwork.dsl.database.DatabasePackage#getTable_Indexes()
 	 * @see org.obeonetwork.dsl.database.Index#getOwner
@@ -133,6 +145,9 @@ public interface Table extends AbstractTable {
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * The list of columns.
+	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Columns</em>' containment reference list.
 	 * @see org.obeonetwork.dsl.database.DatabasePackage#getTable_Columns()
 	 * @see org.obeonetwork.dsl.database.Column#getOwner

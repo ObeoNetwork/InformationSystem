@@ -48,6 +48,9 @@ public interface Environment extends ObeoDSMObject, NamespacesContainer {
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * The name of the environment.
+	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Name</em>' attribute.
 	 * @see #setName(String)
 	 * @see org.obeonetwork.dsl.environment.EnvironmentPackage#getEnvironment_Name()
@@ -75,6 +78,9 @@ public interface Environment extends ObeoDSMObject, NamespacesContainer {
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * The list of actions.
+	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Actions</em>' containment reference list.
 	 * @see org.obeonetwork.dsl.environment.EnvironmentPackage#getEnvironment_Actions()
 	 * @model containment="true" resolveProxies="true"
@@ -91,6 +97,9 @@ public interface Environment extends ObeoDSMObject, NamespacesContainer {
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * The list of links.
+	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Links</em>' containment reference list.
 	 * @see org.obeonetwork.dsl.environment.EnvironmentPackage#getEnvironment_Links()
 	 * @model containment="true" resolveProxies="true"
@@ -106,6 +115,9 @@ public interface Environment extends ObeoDSMObject, NamespacesContainer {
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * The priority.
+	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Priority Definitions</em>' containment reference.
 	 * @see #setPriorityDefinitions(PriorityDefinition)
 	 * @see org.obeonetwork.dsl.environment.EnvironmentPackage#getEnvironment_PriorityDefinitions()
@@ -132,6 +144,9 @@ public interface Environment extends ObeoDSMObject, NamespacesContainer {
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * The types definitions.
+	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Types Definition</em>' containment reference.
 	 * @see #setTypesDefinition(TypesDefinition)
 	 * @see org.obeonetwork.dsl.environment.EnvironmentPackage#getEnvironment_TypesDefinition()

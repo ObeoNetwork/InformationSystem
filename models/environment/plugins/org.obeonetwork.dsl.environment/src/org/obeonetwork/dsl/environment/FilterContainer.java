@@ -45,6 +45,9 @@ public interface FilterContainer extends ObeoDSMObject {
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * The list of owned filters.
+	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Owned Filters</em>' containment reference list.
 	 * @see org.obeonetwork.dsl.environment.EnvironmentPackage#getFilterContainer_OwnedFilters()
 	 * @model containment="true" resolveProxies="true"

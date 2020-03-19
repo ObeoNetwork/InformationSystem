@@ -43,6 +43,9 @@ public interface Attribute extends Property {
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * The type of the attribute.
+	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Type</em>' reference.
 	 * @see #setType(DataType)
 	 * @see org.obeonetwork.dsl.environment.EnvironmentPackage#getAttribute_Type()
@@ -70,6 +73,9 @@ public interface Attribute extends Property {
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * The containing structured type.
+	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Containing Type</em>' container reference.
 	 * @see #setContainingType(StructuredType)
 	 * @see org.obeonetwork.dsl.environment.EnvironmentPackage#getAttribute_ContainingType()

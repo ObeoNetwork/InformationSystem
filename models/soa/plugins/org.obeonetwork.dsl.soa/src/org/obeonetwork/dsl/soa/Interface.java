@@ -47,6 +47,9 @@ public interface Interface extends ObeoDSMObject {
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * The list of owned operations.
+	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Owned Operations</em>' containment reference list.
 	 * @see org.obeonetwork.dsl.soa.SoaPackage#getInterface_OwnedOperations()
 	 * @model containment="true" resolveProxies="true"
@@ -62,6 +65,9 @@ public interface Interface extends ObeoDSMObject {
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * The name of the interface.
+	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Name</em>' attribute.
 	 * @see #setName(String)
 	 * @see org.obeonetwork.dsl.soa.SoaPackage#getInterface_Name()

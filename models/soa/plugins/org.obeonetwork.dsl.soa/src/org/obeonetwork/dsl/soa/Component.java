@@ -53,6 +53,9 @@ public interface Component extends ObeoDSMObject {
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * The list of owned services.
+	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Owned Services</em>' containment reference list.
 	 * @see org.obeonetwork.dsl.soa.SoaPackage#getComponent_OwnedServices()
 	 * @model containment="true" resolveProxies="true"
@@ -69,6 +72,9 @@ public interface Component extends ObeoDSMObject {
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * The list of required services.
+	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Required Services</em>' reference list.
 	 * @see org.obeonetwork.dsl.soa.SoaPackage#getComponent_RequiredServices()
 	 * @model transient="true" changeable="false" volatile="true" derived="true"
@@ -85,6 +91,9 @@ public interface Component extends ObeoDSMObject {
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * The list of provided services.
+	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Provided Services</em>' reference list.
 	 * @see org.obeonetwork.dsl.soa.SoaPackage#getComponent_ProvidedServices()
 	 * @model transient="true" changeable="false" volatile="true" derived="true"
@@ -101,6 +110,9 @@ public interface Component extends ObeoDSMObject {
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * The list of implementations.
+	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Implementations</em>' containment reference list.
 	 * @see org.obeonetwork.dsl.soa.SoaPackage#getComponent_Implementations()
 	 * @model containment="true" resolveProxies="true"
@@ -116,6 +128,9 @@ public interface Component extends ObeoDSMObject {
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * The name of the component.
+	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Name</em>' attribute.
 	 * @see #setName(String)
 	 * @see org.obeonetwork.dsl.soa.SoaPackage#getComponent_Name()
@@ -143,6 +158,9 @@ public interface Component extends ObeoDSMObject {
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * The list of owned bindings.
+	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Owned Binding</em>' containment reference list.
 	 * @see org.obeonetwork.dsl.soa.SoaPackage#getComponent_OwnedBinding()
 	 * @model containment="true" resolveProxies="true"
@@ -159,6 +177,9 @@ public interface Component extends ObeoDSMObject {
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * The list of block type definitions.
+	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Block</em>' reference list.
 	 * @see org.obeonetwork.dsl.soa.SoaPackage#getComponent_Block()
 	 * @model

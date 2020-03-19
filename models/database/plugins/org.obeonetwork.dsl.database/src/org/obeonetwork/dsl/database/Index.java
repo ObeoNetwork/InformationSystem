@@ -49,6 +49,9 @@ public interface Index extends NamedElement {
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * The index qualifier.
+	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Qualifier</em>' attribute.
 	 * @see #setQualifier(String)
 	 * @see org.obeonetwork.dsl.database.DatabasePackage#getIndex_Qualifier()
@@ -76,6 +79,9 @@ public interface Index extends NamedElement {
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * The list of index elements.
+	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Elements</em>' containment reference list.
 	 * @see org.obeonetwork.dsl.database.DatabasePackage#getIndex_Elements()
 	 * @model containment="true"
@@ -91,6 +97,9 @@ public interface Index extends NamedElement {
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * Tells if the index is unique.
+	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Unique</em>' attribute.
 	 * @see #setUnique(boolean)
 	 * @see org.obeonetwork.dsl.database.DatabasePackage#getIndex_Unique()
@@ -117,6 +126,9 @@ public interface Index extends NamedElement {
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * The index cardinality.
+	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Cardinality</em>' attribute.
 	 * @see #setCardinality(int)
 	 * @see org.obeonetwork.dsl.database.DatabasePackage#getIndex_Cardinality()
@@ -143,6 +155,9 @@ public interface Index extends NamedElement {
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * The index type.
+	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Index Type</em>' attribute.
 	 * @see #setIndexType(String)
 	 * @see org.obeonetwork.dsl.database.DatabasePackage#getIndex_IndexType()
@@ -170,6 +185,9 @@ public interface Index extends NamedElement {
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * The containing table.
+	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Owner</em>' container reference.
 	 * @see #setOwner(Table)
 	 * @see org.obeonetwork.dsl.database.DatabasePackage#getIndex_Owner()

@@ -45,6 +45,9 @@ public interface Binding extends ObeoDSMObject {
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * The binding kind.
+	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Technology</em>' attribute.
 	 * @see org.obeonetwork.dsl.soa.BindingKind
 	 * @see #setTechnology(BindingKind)

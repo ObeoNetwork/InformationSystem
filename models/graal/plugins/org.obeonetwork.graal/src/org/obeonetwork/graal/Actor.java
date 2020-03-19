@@ -40,6 +40,9 @@ public interface Actor extends NamedElement {
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * The list of sub actors.
+	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Sub Actors</em>' reference list.
 	 * @see org.obeonetwork.graal.GraalPackage#getActor_SubActors()
 	 * @see org.obeonetwork.graal.Actor#getSuperActor
@@ -57,6 +60,9 @@ public interface Actor extends NamedElement {
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * The super actor.
+	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Super Actor</em>' reference.
 	 * @see #setSuperActor(Actor)
 	 * @see org.obeonetwork.graal.GraalPackage#getActor_SuperActor()

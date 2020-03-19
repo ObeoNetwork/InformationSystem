@@ -52,6 +52,9 @@ public interface Sequence extends NamedElement {
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * The starting value.
+	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Start</em>' attribute.
 	 * @see #setStart(BigInteger)
 	 * @see org.obeonetwork.dsl.database.DatabasePackage#getSequence_Start()
@@ -78,6 +81,9 @@ public interface Sequence extends NamedElement {
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * The increment size.
+	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Increment</em>' attribute.
 	 * @see #setIncrement(BigInteger)
 	 * @see org.obeonetwork.dsl.database.DatabasePackage#getSequence_Increment()
@@ -104,6 +110,9 @@ public interface Sequence extends NamedElement {
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * The minimum value.
+	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Min Value</em>' attribute.
 	 * @see #setMinValue(BigInteger)
 	 * @see org.obeonetwork.dsl.database.DatabasePackage#getSequence_MinValue()
@@ -130,6 +139,9 @@ public interface Sequence extends NamedElement {
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * The maximum value.
+	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Max Value</em>' attribute.
 	 * @see #setMaxValue(BigInteger)
 	 * @see org.obeonetwork.dsl.database.DatabasePackage#getSequence_MaxValue()
@@ -156,6 +168,9 @@ public interface Sequence extends NamedElement {
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * The cache size.
+	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Cache Size</em>' attribute.
 	 * @see #setCacheSize(BigInteger)
 	 * @see org.obeonetwork.dsl.database.DatabasePackage#getSequence_CacheSize()
@@ -182,6 +197,9 @@ public interface Sequence extends NamedElement {
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * Tells if the sequence is cyclic.
+	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Cycle</em>' attribute.
 	 * @see #setCycle(boolean)
 	 * @see org.obeonetwork.dsl.database.DatabasePackage#getSequence_Cycle()
@@ -210,6 +228,9 @@ public interface Sequence extends NamedElement {
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * The list of colums this sequence is applied.
+	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Columns</em>' reference list.
 	 * @see org.obeonetwork.dsl.database.DatabasePackage#getSequence_Columns()
 	 * @see org.obeonetwork.dsl.database.Column#getSequence

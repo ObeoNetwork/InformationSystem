@@ -42,6 +42,9 @@ public interface TasksContainer extends CDOObject {
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * The list of tasks.
+	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Tasks</em>' containment reference list.
 	 * @see org.obeonetwork.graal.GraalPackage#getTasksContainer_Tasks()
 	 * @model containment="true" resolveProxies="true"
@@ -58,6 +61,9 @@ public interface TasksContainer extends CDOObject {
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * The list of owned tasks.
+	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Owned Tasks</em>' reference list.
 	 * @see org.obeonetwork.graal.GraalPackage#getTasksContainer_OwnedTasks()
 	 * @model transient="true" changeable="false" volatile="true" derived="true"
@@ -74,6 +80,9 @@ public interface TasksContainer extends CDOObject {
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * The list of owned groups.
+	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Owned Groups</em>' reference list.
 	 * @see org.obeonetwork.graal.GraalPackage#getTasksContainer_OwnedGroups()
 	 * @model transient="true" changeable="false" volatile="true" derived="true"

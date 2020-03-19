@@ -50,14 +50,14 @@
       <td colspan="1" rowspan="1"><strong>associatedTypes</strong></td>
       <td colspan="1" rowspan="1">List of StructuredType</td>
       <td colspan="1" rowspan="1">{m:entity.associatedTypes}</td>
-      <td colspan="1" rowspan="1"></td>
+      <td colspan="1" rowspan="1">The list of associated structured types.</td>
       <td colspan="1" rowspan="1">{m:for structuredType | entity.associatedTypes} structuredType {m:structuredType.name}, {m:endfor}</td>
     </tr>
     <tr>
       <td colspan="1" rowspan="1"><strong>attributes</strong></td>
       <td colspan="1" rowspan="1">List of Attribute</td>
       <td colspan="1" rowspan="1">{m:entity.attributes}</td>
-      <td colspan="1" rowspan="1"></td>
+      <td colspan="1" rowspan="1">The list of attributes.</td>
       <td colspan="1" rowspan="1">{m:for attribute | entity.attributes} attribute {m:attribute.name}, {m:endfor}</td>
     </tr>
     <tr>
@@ -92,28 +92,28 @@
       <td colspan="1" rowspan="1"><strong>estimatedAccess</strong></td>
       <td colspan="1" rowspan="1">EInt</td>
       <td colspan="1" rowspan="1">{m:entity.estimatedAccess}</td>
-      <td colspan="1" rowspan="1"></td>
+      <td colspan="1" rowspan="1">The estimated accesses.</td>
       <td colspan="1" rowspan="1">{m:entity.estimatedAccess}</td>
     </tr>
     <tr>
       <td colspan="1" rowspan="1"><strong>estimatedVolumetry</strong></td>
       <td colspan="1" rowspan="1">EInt</td>
       <td colspan="1" rowspan="1">{m:entity.estimatedVolumetry}</td>
-      <td colspan="1" rowspan="1"></td>
+      <td colspan="1" rowspan="1">The estimated volumetry</td>
       <td colspan="1" rowspan="1">{m:entity.estimatedVolumetry}</td>
     </tr>
     <tr>
       <td colspan="1" rowspan="1"><strong>historized</strong></td>
       <td colspan="1" rowspan="1">EBoolean</td>
       <td colspan="1" rowspan="1">{m:entity.historized}</td>
-      <td colspan="1" rowspan="1"></td>
+      <td colspan="1" rowspan="1">Tells if historized</td>
       <td colspan="1" rowspan="1">{m:entity.historized}</td>
     </tr>
     <tr>
       <td colspan="1" rowspan="1"><strong>inheritanceKind</strong></td>
       <td colspan="1" rowspan="1">InheritanceKind</td>
       <td colspan="1" rowspan="1">{m:entity.inheritanceKind}</td>
-      <td colspan="1" rowspan="1"></td>
+      <td colspan="1" rowspan="1">The inheritance kind.</td>
       <td colspan="1" rowspan="1">{m:entity.inheritanceKind}</td>
     </tr>
     <tr>
@@ -141,49 +141,49 @@
       <td colspan="1" rowspan="1"><strong>name</strong></td>
       <td colspan="1" rowspan="1">EString</td>
       <td colspan="1" rowspan="1">{m:entity.name}</td>
-      <td colspan="1" rowspan="1"></td>
+      <td colspan="1" rowspan="1">The name of the type.</td>
       <td colspan="1" rowspan="1">{m:entity.name}</td>
     </tr>
     <tr>
       <td colspan="1" rowspan="1"><strong>ownedAttributes</strong></td>
       <td colspan="1" rowspan="1">List of Attribute</td>
       <td colspan="1" rowspan="1">{m:entity.ownedAttributes}</td>
-      <td colspan="1" rowspan="1"></td>
+      <td colspan="1" rowspan="1">The list of owned attributes.</td>
       <td colspan="1" rowspan="1">{m:for attribute | entity.ownedAttributes} attribute {m:attribute.name}, {m:endfor}</td>
     </tr>
     <tr>
       <td colspan="1" rowspan="1"><strong>ownedFinders</strong></td>
       <td colspan="1" rowspan="1">List of Finder</td>
       <td colspan="1" rowspan="1">{m:entity.ownedFinders}</td>
-      <td colspan="1" rowspan="1"></td>
+      <td colspan="1" rowspan="1">The list of finders.</td>
       <td colspan="1" rowspan="1">{m:for finder | entity.ownedFinders} finder {m:finder.name}, {m:endfor}</td>
     </tr>
     <tr>
       <td colspan="1" rowspan="1"><strong>ownedReferences</strong></td>
       <td colspan="1" rowspan="1">List of Reference</td>
       <td colspan="1" rowspan="1">{m:entity.ownedReferences}</td>
-      <td colspan="1" rowspan="1"></td>
+      <td colspan="1" rowspan="1">The list of owned references.</td>
       <td colspan="1" rowspan="1">{m:for reference | entity.ownedReferences} reference {m:reference.name}, {m:endfor}</td>
     </tr>
     <tr>
       <td colspan="1" rowspan="1"><strong>properties</strong></td>
       <td colspan="1" rowspan="1">List of Property</td>
       <td colspan="1" rowspan="1">{m:entity.properties}</td>
-      <td colspan="1" rowspan="1"></td>
+      <td colspan="1" rowspan="1">The list of priorities.</td>
       <td colspan="1" rowspan="1">{m:for property | entity.properties} property {m:property.name}, {m:endfor}</td>
     </tr>
     <tr>
       <td colspan="1" rowspan="1"><strong>references</strong></td>
       <td colspan="1" rowspan="1">List of Reference</td>
       <td colspan="1" rowspan="1">{m:entity.references}</td>
-      <td colspan="1" rowspan="1"></td>
+      <td colspan="1" rowspan="1">The list of references.</td>
       <td colspan="1" rowspan="1">{m:for reference | entity.references} reference {m:reference.name}, {m:endfor}</td>
     </tr>
     <tr>
       <td colspan="1" rowspan="1"><strong>supertype</strong></td>
       <td colspan="1" rowspan="1">StructuredType</td>
       <td colspan="1" rowspan="1">{m:entity.supertype}</td>
-      <td colspan="1" rowspan="1"></td>
+      <td colspan="1" rowspan="1">The super structuredtype.</td>
       <td colspan="1" rowspan="1">{m:entity.supertype}</td>
     </tr>
     <tr>
@@ -197,7 +197,7 @@
       <td colspan="1" rowspan="1"><strong>typeDefinition</strong></td>
       <td colspan="1" rowspan="1">TypesDefinition</td>
       <td colspan="1" rowspan="1">{m:entity.typeDefinition}</td>
-      <td colspan="1" rowspan="1"></td>
+      <td colspan="1" rowspan="1">The type definition.</td>
       <td colspan="1" rowspan="1">{m:entity.typeDefinition}</td>
     </tr>
     <tr>

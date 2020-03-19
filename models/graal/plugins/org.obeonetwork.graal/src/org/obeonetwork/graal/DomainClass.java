@@ -38,6 +38,9 @@ public interface DomainClass extends StructuredType {
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * The estimated volumetry.
+	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Estimated Volumetry</em>' attribute.
 	 * @see #setEstimatedVolumetry(int)
 	 * @see org.obeonetwork.graal.GraalPackage#getDomainClass_EstimatedVolumetry()
@@ -64,6 +67,9 @@ public interface DomainClass extends StructuredType {
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * Tells if the domain class is historized.
+	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Historized</em>' attribute.
 	 * @see #setHistorized(boolean)
 	 * @see org.obeonetwork.graal.GraalPackage#getDomainClass_Historized()

@@ -1725,6 +1725,20 @@ public class EnvironmentPackageImpl extends EPackageImpl implements EnvironmentP
 	 */
 	protected void createGenModelAnnotations() {
 		String source = "http://www.eclipse.org/emf/2002/GenModel";
+		addAnnotation(getEnvironment_Name(), source, new String[] { "documentation", "The name of the environment." });
+		addAnnotation(getEnvironment_Actions(), source, new String[] { "documentation", "The list of actions." });
+		addAnnotation(getEnvironment_Links(), source, new String[] { "documentation", "The list of links." });
+		addAnnotation(getEnvironment_PriorityDefinitions(), source, new String[] { "documentation", "The priority." });
+		addAnnotation(getEnvironment_TypesDefinition(), source,
+				new String[] { "documentation", "The types definitions." });
+		addAnnotation(getType_Name(), source, new String[] { "documentation", "The name of the type." });
+		addAnnotation(getType_TypeDefinition(), source, new String[] { "documentation", "The type definition." });
+		addAnnotation(getEnumeration_Literals(), source,
+				new String[] { "documentation", "The list of literals for this enumeration." });
+		addAnnotation(getLiteral_Name(), source, new String[] { "documentation", "The name of the literal." });
+		addAnnotation(getAction_Name(), source, new String[] { "documentation", "The name of the action." });
+		addAnnotation(getInterDSMLink_Name(), source, new String[] { "documentation", "The name of the link." });
+		addAnnotation(getInterDSMLink_Target(), source, new String[] { "documentation", "The target of the link." });
 		addAnnotation(getObeoDSMObject_Metadatas(), source,
 				new String[] { "documentation", "The metadatas defined on this object." });
 		addAnnotation(getObeoDSMObject_Description(), source,
@@ -1741,6 +1755,80 @@ public class EnvironmentPackageImpl extends EPackageImpl implements EnvironmentP
 				new String[] { "documentation", "The creation date of this object." });
 		addAnnotation(getObeoDSMObject_ModifiedOn(), source,
 				new String[] { "documentation", "The modification date of this obect." });
+		addAnnotation(getMetaDataContainer_Metadatas(), source,
+				new String[] { "documentation", "The list of metadata." });
+		addAnnotation(getAnnotation_Title(), source, new String[] { "documentation", "The title of the annotation." });
+		addAnnotation(getAnnotation_Body(), source, new String[] { "documentation", "The body of the annotation." });
+		addAnnotation(getPriorityDefinition_Priorities(), source,
+				new String[] { "documentation", "The list of priorities." });
+		addAnnotation(getPriority_Name(), source, new String[] { "documentation", "The name of the priority." });
+		addAnnotation(getTypesDefinition_Types(), source, new String[] { "documentation", "The list of types." });
+		addAnnotation(getStructuredType_Supertype(), source,
+				new String[] { "documentation", "The super structuredtype." });
+		addAnnotation(getStructuredType_AssociatedTypes(), source,
+				new String[] { "documentation", "The list of associated structured types." });
+		addAnnotation(getStructuredType_OwnedAttributes(), source,
+				new String[] { "documentation", "The list of owned attributes." });
+		addAnnotation(getStructuredType_Attributes(), source,
+				new String[] { "documentation", "The list of attributes." });
+		addAnnotation(getStructuredType_OwnedReferences(), source,
+				new String[] { "documentation", "The list of owned references." });
+		addAnnotation(getStructuredType_References(), source,
+				new String[] { "documentation", "The list of references." });
+		addAnnotation(getStructuredType_Properties(), source,
+				new String[] { "documentation", "The list of priorities." });
+		addAnnotation(getDTO_OwnedContainer(), source, new String[] { "documentation", "The owned filter container." });
+		addAnnotation(getFilterContainer_OwnedFilters(), source,
+				new String[] { "documentation", "The list of owned filters." });
+		addAnnotation(getNamespace_Owner(), source,
+				new String[] { "documentation", "The containing namespace container." });
+		addAnnotation(getNamespace_Name(), source, new String[] { "documentation", "The name of the namespace." });
+		addAnnotation(getAttribute_Type(), source, new String[] { "documentation", "The type of the attribute." });
+		addAnnotation(getAttribute_ContainingType(), source,
+				new String[] { "documentation", "The containing structured type." });
+		addAnnotation(getReference_IsComposite(), source,
+				new String[] { "documentation", "Tells if the reference is composite." });
+		addAnnotation(getReference_Navigable(), source,
+				new String[] { "documentation", "Tells if the reference is navigable." });
+		addAnnotation(getReference_OppositeOf(), source, new String[] { "documentation", "The opposite relation." });
+		addAnnotation(getReference_ContainingType(), source,
+				new String[] { "documentation", "The containing structured type." });
+		addAnnotation(getReference_ReferencedType(), source,
+				new String[] { "documentation", "The type of the reference." });
+		addAnnotation(getProperty_Name(), source, new String[] { "documentation", "The name of the property." });
+		addAnnotation(getProperty_Multiplicity(), source,
+				new String[] { "documentation", "The multiplicity of the property." });
+		addAnnotation(getProperty_IsIdentifier(), source,
+				new String[] { "documentation", "Tells if the property is an identifier." });
+		addAnnotation(getBindingInfo_References(), source,
+				new String[] { "documentation", "The list of binding references." });
+		addAnnotation(getBindingInfo_Left(), source, new String[] { "documentation", "The left boundable element." });
+		addAnnotation(getBindingInfo_Right(), source, new String[] { "documentation", "The right boundable element." });
+		addAnnotation(getBindingInfo_SubBindingInfos(), source,
+				new String[] { "documentation", "The list of sub binding infos." });
+		addAnnotation(getBindingInfo_Targets(), source,
+				new String[] { "documentation", "The list of targeted boundable elements." });
+		addAnnotation(getBindingInfo_Elements(), source,
+				new String[] { "documentation", "The list of binding elements." });
+		addAnnotation(getBindingReference_Left(), source,
+				new String[] { "documentation", "The left binding element." });
+		addAnnotation(getBindingReference_Right(), source,
+				new String[] { "documentation", "The right binding element." });
+		addAnnotation(getBindingElement_BoundElement(), source, new String[] { "documentation", "The bound element." });
+		addAnnotation(getBindingElement_BindingExpression(), source,
+				new String[] { "documentation", "The binding expression." });
+		addAnnotation(getBindingElement_ReferencedByAsLeft(), source,
+				new String[] { "documentation", "The referenced by as left binding reference." });
+		addAnnotation(getBindingElement_ReferencedByAsRight(), source,
+				new String[] { "documentation", "The referenced by as right binding reference." });
+		addAnnotation(getBindingElement_ReferencedBy(), source,
+				new String[] { "documentation", "The referenced by binding reference." });
+		addAnnotation(getBindingElement_PathReferences(), source,
+				new String[] { "documentation", "The list of boundable elements path." });
+		addAnnotation(getBindingRegistry_BindingInfos(), source,
+				new String[] { "documentation", "The list of binding infos." });
+		addAnnotation(getNamespacesContainer_OwnedNamespaces(), source,
+				new String[] { "documentation", "The list of owned namespaces." });
 	}
 
 } //EnvironmentPackageImpl

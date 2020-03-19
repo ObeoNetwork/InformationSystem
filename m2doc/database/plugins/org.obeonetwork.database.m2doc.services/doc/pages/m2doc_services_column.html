@@ -50,126 +50,126 @@
       <td colspan="1" rowspan="1"><strong>ID</strong></td>
       <td colspan="1" rowspan="1">EString</td>
       <td colspan="1" rowspan="1">{m:column.ID}</td>
-      <td colspan="1" rowspan="1"></td>
+      <td colspan="1" rowspan="1">The identifier of the element.</td>
       <td colspan="1" rowspan="1">{m:column.ID}</td>
     </tr>
     <tr>
       <td colspan="1" rowspan="1"><strong>autoincrement</strong></td>
       <td colspan="1" rowspan="1">EBoolean</td>
       <td colspan="1" rowspan="1">{m:column.autoincrement}</td>
-      <td colspan="1" rowspan="1"></td>
+      <td colspan="1" rowspan="1">Tells if the column auto increments.</td>
       <td colspan="1" rowspan="1">{m:column.autoincrement}</td>
     </tr>
     <tr>
       <td colspan="1" rowspan="1"><strong>comments</strong></td>
       <td colspan="1" rowspan="1">EString</td>
       <td colspan="1" rowspan="1">{m:column.comments}</td>
-      <td colspan="1" rowspan="1"></td>
+      <td colspan="1" rowspan="1">The comment.</td>
       <td colspan="1" rowspan="1">{m:column.comments}</td>
     </tr>
     <tr>
       <td colspan="1" rowspan="1"><strong>defaultValue</strong></td>
       <td colspan="1" rowspan="1">EString</td>
       <td colspan="1" rowspan="1">{m:column.defaultValue}</td>
-      <td colspan="1" rowspan="1"></td>
+      <td colspan="1" rowspan="1">The column default value.</td>
       <td colspan="1" rowspan="1">{m:column.defaultValue}</td>
     </tr>
     <tr>
       <td colspan="1" rowspan="1"><strong>foreignKeyElements</strong></td>
       <td colspan="1" rowspan="1">List of ForeignKeyElement</td>
       <td colspan="1" rowspan="1">{m:column.foreignKeyElements}</td>
-      <td colspan="1" rowspan="1"></td>
+      <td colspan="1" rowspan="1">The list of foreign key elements for this column.</td>
       <td colspan="1" rowspan="1">{m:for foreignKeyElement | column.foreignKeyElements} foreignKeyElement {m:foreignKeyElement.name}, {m:endfor}</td>
     </tr>
     <tr>
       <td colspan="1" rowspan="1"><strong>foreignKeys</strong></td>
       <td colspan="1" rowspan="1">List of ForeignKey</td>
       <td colspan="1" rowspan="1">{m:column.foreignKeys}</td>
-      <td colspan="1" rowspan="1"></td>
+      <td colspan="1" rowspan="1">The list of foreign keys for this column.</td>
       <td colspan="1" rowspan="1">{m:for foreignKey | column.foreignKeys} foreignKey {m:foreignKey.name}, {m:endfor}</td>
     </tr>
     <tr>
       <td colspan="1" rowspan="1"><strong>inForeignKey</strong></td>
       <td colspan="1" rowspan="1">EBoolean</td>
       <td colspan="1" rowspan="1">{m:column.inForeignKey}</td>
-      <td colspan="1" rowspan="1"></td>
+      <td colspan="1" rowspan="1">Tells if the column is in foreign keys.</td>
       <td colspan="1" rowspan="1">{m:column.inForeignKey}</td>
     </tr>
     <tr>
       <td colspan="1" rowspan="1"><strong>inPrimaryKey</strong></td>
       <td colspan="1" rowspan="1">EBoolean</td>
       <td colspan="1" rowspan="1">{m:column.inPrimaryKey}</td>
-      <td colspan="1" rowspan="1"></td>
+      <td colspan="1" rowspan="1">Tells if the column is in primary keys.</td>
       <td colspan="1" rowspan="1">{m:column.inPrimaryKey}</td>
     </tr>
     <tr>
       <td colspan="1" rowspan="1"><strong>indexElements</strong></td>
       <td colspan="1" rowspan="1">List of IndexElement</td>
       <td colspan="1" rowspan="1">{m:column.indexElements}</td>
-      <td colspan="1" rowspan="1"></td>
+      <td colspan="1" rowspan="1">The list of index elements for this column.</td>
       <td colspan="1" rowspan="1">{m:for indexElement | column.indexElements} indexElement {m:indexElement.name}, {m:endfor}</td>
     </tr>
     <tr>
       <td colspan="1" rowspan="1"><strong>indexes</strong></td>
       <td colspan="1" rowspan="1">List of Index</td>
       <td colspan="1" rowspan="1">{m:column.indexes}</td>
-      <td colspan="1" rowspan="1"></td>
+      <td colspan="1" rowspan="1">The list of indexes for this column.</td>
       <td colspan="1" rowspan="1">{m:for index | column.indexes} index {m:index.name}, {m:endfor}</td>
     </tr>
     <tr>
       <td colspan="1" rowspan="1"><strong>name</strong></td>
       <td colspan="1" rowspan="1">EString</td>
       <td colspan="1" rowspan="1">{m:column.name}</td>
-      <td colspan="1" rowspan="1"></td>
+      <td colspan="1" rowspan="1">The name of this model element.</td>
       <td colspan="1" rowspan="1">{m:column.name}</td>
     </tr>
     <tr>
       <td colspan="1" rowspan="1"><strong>nullable</strong></td>
       <td colspan="1" rowspan="1">EBoolean</td>
       <td colspan="1" rowspan="1">{m:column.nullable}</td>
-      <td colspan="1" rowspan="1"></td>
+      <td colspan="1" rowspan="1">Tells if this column value can be null.</td>
       <td colspan="1" rowspan="1">{m:column.nullable}</td>
     </tr>
     <tr>
       <td colspan="1" rowspan="1"><strong>owner</strong></td>
       <td colspan="1" rowspan="1">Table</td>
       <td colspan="1" rowspan="1">{m:column.owner}</td>
-      <td colspan="1" rowspan="1"></td>
+      <td colspan="1" rowspan="1">The containing table.</td>
       <td colspan="1" rowspan="1">{m:column.owner}</td>
     </tr>
     <tr>
       <td colspan="1" rowspan="1"><strong>primaryKey</strong></td>
       <td colspan="1" rowspan="1">PrimaryKey</td>
       <td colspan="1" rowspan="1">{m:column.primaryKey}</td>
-      <td colspan="1" rowspan="1"></td>
+      <td colspan="1" rowspan="1">The list of primary keys for this column.</td>
       <td colspan="1" rowspan="1">{m:column.primaryKey}</td>
     </tr>
     <tr>
       <td colspan="1" rowspan="1"><strong>sequence</strong></td>
       <td colspan="1" rowspan="1">Sequence</td>
       <td colspan="1" rowspan="1">{m:column.sequence}</td>
-      <td colspan="1" rowspan="1"></td>
+      <td colspan="1" rowspan="1">The sequence for this column.</td>
       <td colspan="1" rowspan="1">{m:column.sequence}</td>
     </tr>
     <tr>
       <td colspan="1" rowspan="1"><strong>techID</strong></td>
       <td colspan="1" rowspan="1">EString</td>
       <td colspan="1" rowspan="1">{m:column.techID}</td>
-      <td colspan="1" rowspan="1"></td>
+      <td colspan="1" rowspan="1">The technical identifier.</td>
       <td colspan="1" rowspan="1">{m:column.techID}</td>
     </tr>
     <tr>
       <td colspan="1" rowspan="1"><strong>type</strong></td>
       <td colspan="1" rowspan="1">Type</td>
       <td colspan="1" rowspan="1">{m:column.type}</td>
-      <td colspan="1" rowspan="1"></td>
+      <td colspan="1" rowspan="1">The type of this column.</td>
       <td colspan="1" rowspan="1">{m:column.type}</td>
     </tr>
     <tr>
       <td colspan="1" rowspan="1"><strong>unique</strong></td>
       <td colspan="1" rowspan="1">EBoolean</td>
       <td colspan="1" rowspan="1">{m:column.unique}</td>
-      <td colspan="1" rowspan="1"></td>
+      <td colspan="1" rowspan="1">Tells if the column values are unique.</td>
       <td colspan="1" rowspan="1">{m:column.unique}</td>
     </tr>
     </tbody>

@@ -45,6 +45,9 @@ public interface InterDSMLink extends ObeoDSMObject {
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * The name of the link.
+	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Name</em>' attribute.
 	 * @see #setName(String)
 	 * @see org.obeonetwork.dsl.environment.EnvironmentPackage#getInterDSMLink_Name()
@@ -71,6 +74,9 @@ public interface InterDSMLink extends ObeoDSMObject {
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * The target of the link.
+	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Target</em>' reference.
 	 * @see #setTarget(EObject)
 	 * @see org.obeonetwork.dsl.environment.EnvironmentPackage#getInterDSMLink_Target()

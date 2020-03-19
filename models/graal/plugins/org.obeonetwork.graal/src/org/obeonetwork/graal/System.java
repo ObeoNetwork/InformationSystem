@@ -42,6 +42,9 @@ public interface System extends NamedElement, DomainModelRegistry, TasksContaine
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * The list of actors.
+	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Actors</em>' containment reference list.
 	 * @see org.obeonetwork.graal.GraalPackage#getSystem_Actors()
 	 * @model containment="true" resolveProxies="true"
@@ -58,6 +61,9 @@ public interface System extends NamedElement, DomainModelRegistry, TasksContaine
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * The list of use cases.
+	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Use Cases</em>' containment reference list.
 	 * @see org.obeonetwork.graal.GraalPackage#getSystem_UseCases()
 	 * @model containment="true" resolveProxies="true"
@@ -74,6 +80,9 @@ public interface System extends NamedElement, DomainModelRegistry, TasksContaine
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * The list of user stories.
+	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>User Stories</em>' containment reference list.
 	 * @see org.obeonetwork.graal.GraalPackage#getSystem_UserStories()
 	 * @model containment="true" resolveProxies="true"
@@ -98,6 +107,9 @@ public interface System extends NamedElement, DomainModelRegistry, TasksContaine
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * The list of sub systems.
+	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Sub Systems</em>' containment reference list.
 	 * @see org.obeonetwork.graal.GraalPackage#getSystem_SubSystems()
 	 * @model containment="true" resolveProxies="true"

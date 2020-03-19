@@ -45,6 +45,9 @@ public interface ForeignKeyElement extends DatabaseElement {
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * The foreign key column.
+	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Fk Column</em>' reference.
 	 * @see #setFkColumn(Column)
 	 * @see org.obeonetwork.dsl.database.DatabasePackage#getForeignKeyElement_FkColumn()
@@ -72,6 +75,9 @@ public interface ForeignKeyElement extends DatabaseElement {
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * The primary key column.
+	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Pk Column</em>' reference.
 	 * @see #setPkColumn(Column)
 	 * @see org.obeonetwork.dsl.database.DatabasePackage#getForeignKeyElement_PkColumn()

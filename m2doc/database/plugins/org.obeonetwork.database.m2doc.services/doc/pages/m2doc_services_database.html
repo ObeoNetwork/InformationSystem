@@ -50,63 +50,63 @@
       <td colspan="1" rowspan="1"><strong>ID</strong></td>
       <td colspan="1" rowspan="1">EString</td>
       <td colspan="1" rowspan="1">{m:dataBase.ID}</td>
-      <td colspan="1" rowspan="1"></td>
+      <td colspan="1" rowspan="1">The identifier of the element.</td>
       <td colspan="1" rowspan="1">{m:dataBase.ID}</td>
     </tr>
     <tr>
       <td colspan="1" rowspan="1"><strong>comments</strong></td>
       <td colspan="1" rowspan="1">EString</td>
       <td colspan="1" rowspan="1">{m:dataBase.comments}</td>
-      <td colspan="1" rowspan="1"></td>
+      <td colspan="1" rowspan="1">The comment.</td>
       <td colspan="1" rowspan="1">{m:dataBase.comments}</td>
     </tr>
     <tr>
       <td colspan="1" rowspan="1"><strong>defines</strong></td>
       <td colspan="1" rowspan="1">List of UserDefinedTypesLibrary</td>
       <td colspan="1" rowspan="1">{m:dataBase.defines}</td>
-      <td colspan="1" rowspan="1"></td>
+      <td colspan="1" rowspan="1">The list of user defined type libraries in this database.</td>
       <td colspan="1" rowspan="1">{m:for userDefinedTypesLibrary | dataBase.defines} userDefinedTypesLibrary {m:userDefinedTypesLibrary.name}, {m:endfor}</td>
     </tr>
     <tr>
       <td colspan="1" rowspan="1"><strong>name</strong></td>
       <td colspan="1" rowspan="1">EString</td>
       <td colspan="1" rowspan="1">{m:dataBase.name}</td>
-      <td colspan="1" rowspan="1"></td>
+      <td colspan="1" rowspan="1">The name of this model element.</td>
       <td colspan="1" rowspan="1">{m:dataBase.name}</td>
     </tr>
     <tr>
       <td colspan="1" rowspan="1"><strong>schemas</strong></td>
       <td colspan="1" rowspan="1">List of Schema</td>
       <td colspan="1" rowspan="1">{m:dataBase.schemas}</td>
-      <td colspan="1" rowspan="1"></td>
+      <td colspan="1" rowspan="1">The list of schemas contained in this database.</td>
       <td colspan="1" rowspan="1">{m:for schema | dataBase.schemas} schema {m:schema.name}, {m:endfor}</td>
     </tr>
     <tr>
       <td colspan="1" rowspan="1"><strong>sequences</strong></td>
       <td colspan="1" rowspan="1">List of Sequence</td>
       <td colspan="1" rowspan="1">{m:dataBase.sequences}</td>
-      <td colspan="1" rowspan="1"></td>
+      <td colspan="1" rowspan="1">The list of contained sequences.</td>
       <td colspan="1" rowspan="1">{m:for sequence | dataBase.sequences} sequence {m:sequence.name}, {m:endfor}</td>
     </tr>
     <tr>
       <td colspan="1" rowspan="1"><strong>tables</strong></td>
       <td colspan="1" rowspan="1">List of AbstractTable</td>
       <td colspan="1" rowspan="1">{m:dataBase.tables}</td>
-      <td colspan="1" rowspan="1"></td>
+      <td colspan="1" rowspan="1">The list of contained tables.</td>
       <td colspan="1" rowspan="1">{m:for abstractTable | dataBase.tables} abstractTable {m:abstractTable.name}, {m:endfor}</td>
     </tr>
     <tr>
       <td colspan="1" rowspan="1"><strong>techID</strong></td>
       <td colspan="1" rowspan="1">EString</td>
       <td colspan="1" rowspan="1">{m:dataBase.techID}</td>
-      <td colspan="1" rowspan="1"></td>
+      <td colspan="1" rowspan="1">The technical identifier.</td>
       <td colspan="1" rowspan="1">{m:dataBase.techID}</td>
     </tr>
     <tr>
       <td colspan="1" rowspan="1"><strong>url</strong></td>
       <td colspan="1" rowspan="1">EString</td>
       <td colspan="1" rowspan="1">{m:dataBase.url}</td>
-      <td colspan="1" rowspan="1"></td>
+      <td colspan="1" rowspan="1">The URL of the database.</td>
       <td colspan="1" rowspan="1">{m:dataBase.url}</td>
     </tr>
     <tr>

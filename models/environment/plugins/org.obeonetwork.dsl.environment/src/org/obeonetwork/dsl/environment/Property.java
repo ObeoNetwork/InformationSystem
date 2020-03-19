@@ -44,6 +44,9 @@ public interface Property extends ObeoDSMObject, BoundableElement {
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * The name of the property.
+	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Name</em>' attribute.
 	 * @see #setName(String)
 	 * @see org.obeonetwork.dsl.environment.EnvironmentPackage#getProperty_Name()
@@ -71,6 +74,9 @@ public interface Property extends ObeoDSMObject, BoundableElement {
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * The multiplicity of the property.
+	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Multiplicity</em>' attribute.
 	 * @see org.obeonetwork.dsl.environment.MultiplicityKind
 	 * @see #setMultiplicity(MultiplicityKind)
@@ -99,6 +105,9 @@ public interface Property extends ObeoDSMObject, BoundableElement {
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * Tells if the property is an identifier.
+	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Is Identifier</em>' attribute.
 	 * @see #setIsIdentifier(boolean)
 	 * @see org.obeonetwork.dsl.environment.EnvironmentPackage#getProperty_IsIdentifier()

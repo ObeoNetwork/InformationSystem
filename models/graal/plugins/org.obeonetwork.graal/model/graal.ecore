@@ -5,22 +5,54 @@
     <eOperations name="getReferencedBy" upperBound="-1" eType="#//TaskReference"/>
     <eOperations name="getUsedBy" upperBound="-1" eType="#//Task"/>
     <eOperations name="getRelatedActors" upperBound="-1" eType="#//Actor"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="uses" upperBound="-1" eType="#//Task"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="preconditions" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="postconditions" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="uses" upperBound="-1" eType="#//Task">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="The list of uses tasks."/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="preconditions" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="The precondition."/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="postconditions" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="The post condition."/>
+      </eAnnotations>
+    </eStructuralFeatures>
     <eStructuralFeatures xsi:type="ecore:EReference" name="actors" upperBound="-1"
-        eType="#//Actor"/>
+        eType="#//Actor">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="The list of actors."/>
+      </eAnnotations>
+    </eStructuralFeatures>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="System" eSuperTypes="#//NamedElement #//DomainModelRegistry #//TasksContainer ../../org.obeonetwork.dsl.environment/model/environment.ecore#//NamespacesContainer">
     <eOperations name="getRelatedActors" upperBound="-1" eType="#//Actor"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="subSystems" upperBound="-1"
-        eType="#//System" containment="true"/>
+        eType="#//System" containment="true">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="The list of sub systems."/>
+      </eAnnotations>
+    </eStructuralFeatures>
     <eStructuralFeatures xsi:type="ecore:EReference" name="actors" upperBound="-1"
-        eType="#//Actor" containment="true"/>
+        eType="#//Actor" containment="true">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="The list of actors."/>
+      </eAnnotations>
+    </eStructuralFeatures>
     <eStructuralFeatures xsi:type="ecore:EReference" name="useCases" upperBound="-1"
-        eType="#//UseCase" containment="true"/>
+        eType="#//UseCase" containment="true">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="The list of use cases."/>
+      </eAnnotations>
+    </eStructuralFeatures>
     <eStructuralFeatures xsi:type="ecore:EReference" name="userStories" upperBound="-1"
-        eType="#//UserStory" containment="true"/>
+        eType="#//UserStory" containment="true">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="The list of user stories."/>
+      </eAnnotations>
+    </eStructuralFeatures>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Activity" abstract="true" eSuperTypes="#//GraalObject">
     <eOperations name="hasChildAttachedToUserStory" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">
@@ -28,33 +60,77 @@
     </eOperations>
     <eOperations name="getContainingTask" eType="#//Task"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="nodes" upperBound="-1"
-        eType="#//Node" containment="true"/>
+        eType="#//Node" containment="true">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="The list of nodes."/>
+      </eAnnotations>
+    </eStructuralFeatures>
     <eStructuralFeatures xsi:type="ecore:EReference" name="transitions" upperBound="-1"
-        eType="#//Transition" containment="true"/>
+        eType="#//Transition" containment="true">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="The list of transitions."/>
+      </eAnnotations>
+    </eStructuralFeatures>
     <eStructuralFeatures xsi:type="ecore:EReference" name="subActivities" upperBound="-1"
-        eType="#//Loop" containment="true"/>
+        eType="#//Loop" containment="true">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="The list of sub activities."/>
+      </eAnnotations>
+    </eStructuralFeatures>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Operator" eSuperTypes="#//Node">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="kind" lowerBound="1" eType="#//OperatorKind"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="kind" lowerBound="1" eType="#//OperatorKind">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="The kind of the operator."/>
+      </eAnnotations>
+    </eStructuralFeatures>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Node" abstract="true" eSuperTypes="#//GraalObject #//UserStoryElement">
     <eOperations name="getContainingTask" eType="#//Task"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="outgoingTransitions" upperBound="-1"
-        eType="#//Transition" eOpposite="#//Transition/source"/>
+        eType="#//Transition" eOpposite="#//Transition/source">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="The list of outgoing transitions."/>
+      </eAnnotations>
+    </eStructuralFeatures>
     <eStructuralFeatures xsi:type="ecore:EReference" name="incomingTransitions" upperBound="-1"
-        eType="#//Transition" eOpposite="#//Transition/target"/>
+        eType="#//Transition" eOpposite="#//Transition/target">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="The list of incoming transitions."/>
+      </eAnnotations>
+    </eStructuralFeatures>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Transition" eSuperTypes="#//GraalObject #//UserStoryElement">
     <eOperations name="getContainingTask" eType="#//Task"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="guard" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="guard" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="The guard of the transition."/>
+      </eAnnotations>
+    </eStructuralFeatures>
     <eStructuralFeatures xsi:type="ecore:EReference" name="source" lowerBound="1"
-        eType="#//Node" eOpposite="#//Node/outgoingTransitions"/>
+        eType="#//Node" eOpposite="#//Node/outgoingTransitions">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="The source node."/>
+      </eAnnotations>
+    </eStructuralFeatures>
     <eStructuralFeatures xsi:type="ecore:EReference" name="target" lowerBound="1"
-        eType="#//Node" eOpposite="#//Node/incomingTransitions"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="kind" lowerBound="1" eType="#//TransitionKind"/>
+        eType="#//Node" eOpposite="#//Node/incomingTransitions">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="The target node."/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="kind" lowerBound="1" eType="#//TransitionKind">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="The kind of the transition."/>
+      </eAnnotations>
+    </eStructuralFeatures>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="TaskReference" eSuperTypes="#//Node">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="task" lowerBound="1" eType="#//Task"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="task" lowerBound="1" eType="#//Task">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="The referenced task."/>
+      </eAnnotations>
+    </eStructuralFeatures>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="UserView" eSuperTypes="#//NamedNode"/>
   <eClassifiers xsi:type="ecore:EClass" name="UserAction" eSuperTypes="#//NamedNode"/>
@@ -69,8 +145,16 @@
     <eLiterals name="abort" value="2"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Loop" eSuperTypes="#//Activity">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="lowerBound" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="upperBound" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="lowerBound" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="The lower bound of the loop."/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="upperBound" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="The upper bound of the loop."/>
+      </eAnnotations>
+    </eStructuralFeatures>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EEnum" name="OperatorKind">
     <eLiterals name="and"/>
@@ -79,52 +163,112 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Actor" eSuperTypes="#//NamedElement">
     <eStructuralFeatures xsi:type="ecore:EReference" name="subActors" upperBound="-1"
-        eType="#//Actor" eOpposite="#//Actor/superActor"/>
+        eType="#//Actor" eOpposite="#//Actor/superActor">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="The list of sub actors."/>
+      </eAnnotations>
+    </eStructuralFeatures>
     <eStructuralFeatures xsi:type="ecore:EReference" name="superActor" eType="#//Actor"
-        eOpposite="#//Actor/subActors"/>
+        eOpposite="#//Actor/subActors">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="The super actor."/>
+      </eAnnotations>
+    </eStructuralFeatures>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="AbstractTask" abstract="true" eSuperTypes="#//NamedElement">
     <eOperations name="getUseCase" eType="#//UseCase"/>
     <eOperations name="getContainingSystem" eType="#//System"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="id" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="id" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="The identifier of the task."/>
+      </eAnnotations>
+    </eStructuralFeatures>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="TasksGroup" eSuperTypes="#//AbstractTask #//TasksContainer">
     <eOperations name="getRelatedActors" upperBound="-1" eType="#//Actor"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="UseCase" eSuperTypes="#//NamedElement #//DomainModelRegistry">
     <eStructuralFeatures xsi:type="ecore:EReference" name="actors" upperBound="-1"
-        eType="#//Actor"/>
+        eType="#//Actor">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="The list of actors."/>
+      </eAnnotations>
+    </eStructuralFeatures>
     <eStructuralFeatures xsi:type="ecore:EReference" name="tasks" upperBound="-1"
-        eType="#//AbstractTask"/>
+        eType="#//AbstractTask">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="The list of tasks."/>
+      </eAnnotations>
+    </eStructuralFeatures>
     <eStructuralFeatures xsi:type="ecore:EReference" name="includes" upperBound="-1"
-        eType="#//UseCase"/>
+        eType="#//UseCase">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="The list of inclided use cases."/>
+      </eAnnotations>
+    </eStructuralFeatures>
     <eStructuralFeatures xsi:type="ecore:EReference" name="extends" upperBound="-1"
-        eType="#//UseCase"/>
+        eType="#//UseCase">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="The list of extended use cases."/>
+      </eAnnotations>
+    </eStructuralFeatures>
     <eStructuralFeatures xsi:type="ecore:EReference" name="domainClasses" upperBound="-1"
-        eType="#//DomainClass"/>
+        eType="#//DomainClass">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="The list of domain classes."/>
+      </eAnnotations>
+    </eStructuralFeatures>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="NamedElement" abstract="true" eSuperTypes="#//GraalObject">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="The name of the element."/>
+      </eAnnotations>
+    </eStructuralFeatures>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="NamedNode" abstract="true" eSuperTypes="#//Node #//NamedElement"/>
   <eClassifiers xsi:type="ecore:EClass" name="DomainModelRegistry" abstract="true">
     <eStructuralFeatures xsi:type="ecore:EReference" name="namespaces" upperBound="-1"
-        eType="ecore:EClass ../../org.obeonetwork.dsl.environment/model/environment.ecore#//Namespace"/>
+        eType="ecore:EClass ../../org.obeonetwork.dsl.environment/model/environment.ecore#//Namespace">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="The list of namespaces."/>
+      </eAnnotations>
+    </eStructuralFeatures>
     <eStructuralFeatures xsi:type="ecore:EReference" name="types" upperBound="-1"
-        eType="ecore:EClass ../../org.obeonetwork.dsl.environment/model/environment.ecore#//StructuredType"/>
+        eType="ecore:EClass ../../org.obeonetwork.dsl.environment/model/environment.ecore#//StructuredType">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="The list of structured types."/>
+      </eAnnotations>
+    </eStructuralFeatures>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="TasksContainer" abstract="true">
     <eStructuralFeatures xsi:type="ecore:EReference" name="tasks" upperBound="-1"
-        eType="#//AbstractTask" containment="true"/>
+        eType="#//AbstractTask" containment="true">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="The list of tasks."/>
+      </eAnnotations>
+    </eStructuralFeatures>
     <eStructuralFeatures xsi:type="ecore:EReference" name="ownedTasks" upperBound="-1"
-        eType="#//Task" changeable="false" volatile="true" transient="true" derived="true"/>
+        eType="#//Task" changeable="false" volatile="true" transient="true" derived="true">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="The list of owned tasks."/>
+      </eAnnotations>
+    </eStructuralFeatures>
     <eStructuralFeatures xsi:type="ecore:EReference" name="ownedGroups" upperBound="-1"
         eType="#//TasksGroup" changeable="false" volatile="true" transient="true"
-        derived="true"/>
+        derived="true">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="The list of owned groups."/>
+      </eAnnotations>
+    </eStructuralFeatures>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="UserStory" eSuperTypes="#//NamedElement">
     <eStructuralFeatures xsi:type="ecore:EReference" name="elements" upperBound="-1"
-        eType="#//UserStoryElement"/>
+        eType="#//UserStoryElement">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="The list of user stories elements."/>
+      </eAnnotations>
+    </eStructuralFeatures>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="UserStoryElement" abstract="true" interface="true"/>
   <eClassifiers xsi:type="ecore:EClass" name="GraalObject" abstract="true" eSuperTypes="../../org.obeonetwork.dsl.environment/model/environment.ecore#//ObeoDSMObject">
@@ -142,8 +286,16 @@
     </eOperations>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="DomainClass" eSuperTypes="../../org.obeonetwork.dsl.environment/model/environment.ecore#//StructuredType">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="estimatedVolumetry" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="estimatedVolumetry" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="The estimated volumetry."/>
+      </eAnnotations>
+    </eStructuralFeatures>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="historized" lowerBound="1"
-        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Tells if the domain class is historized."/>
+      </eAnnotations>
+    </eStructuralFeatures>
   </eClassifiers>
 </ecore:EPackage>

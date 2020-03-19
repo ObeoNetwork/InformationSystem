@@ -37,6 +37,9 @@ public interface Operator extends Node {
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * The kind of the operator.
+	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Kind</em>' attribute.
 	 * @see org.obeonetwork.graal.OperatorKind
 	 * @see #setKind(OperatorKind)

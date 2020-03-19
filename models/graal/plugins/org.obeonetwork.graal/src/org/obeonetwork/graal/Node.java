@@ -40,6 +40,9 @@ public interface Node extends GraalObject, UserStoryElement {
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * The list of outgoing transitions.
+	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Outgoing Transitions</em>' reference list.
 	 * @see org.obeonetwork.graal.GraalPackage#getNode_OutgoingTransitions()
 	 * @see org.obeonetwork.graal.Transition#getSource
@@ -58,6 +61,9 @@ public interface Node extends GraalObject, UserStoryElement {
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * The list of incoming transitions.
+	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Incoming Transitions</em>' reference list.
 	 * @see org.obeonetwork.graal.GraalPackage#getNode_IncomingTransitions()
 	 * @see org.obeonetwork.graal.Transition#getTarget

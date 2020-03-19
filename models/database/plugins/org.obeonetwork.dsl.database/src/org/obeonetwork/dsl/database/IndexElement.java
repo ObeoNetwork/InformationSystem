@@ -45,6 +45,9 @@ public interface IndexElement extends DatabaseElement {
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * The column to index.
+	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Column</em>' reference.
 	 * @see #setColumn(Column)
 	 * @see org.obeonetwork.dsl.database.DatabasePackage#getIndexElement_Column()
@@ -72,6 +75,9 @@ public interface IndexElement extends DatabaseElement {
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * The order.
+	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Asc</em>' attribute.
 	 * @see #setAsc(boolean)
 	 * @see org.obeonetwork.dsl.database.DatabasePackage#getIndexElement_Asc()

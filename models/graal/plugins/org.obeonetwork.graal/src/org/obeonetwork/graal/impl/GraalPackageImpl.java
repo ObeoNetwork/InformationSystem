@@ -1260,6 +1260,248 @@ public class GraalPackageImpl extends EPackageImpl implements GraalPackage {
 
 		// Create resource
 		createResource(eNS_URI);
+
+		// Create annotations
+		// http://www.eclipse.org/emf/2002/GenModel
+		createGenModelAnnotations();
+	}
+
+	/**
+	 * Initializes the annotations for <b>http://www.eclipse.org/emf/2002/GenModel</b>.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void createGenModelAnnotations() {
+		String source = "http://www.eclipse.org/emf/2002/GenModel";
+		addAnnotation
+		  (getTask_Uses(),
+		   source,
+		   new String[] {
+			   "documentation", "The list of uses tasks."
+		   });
+		addAnnotation
+		  (getTask_Preconditions(),
+		   source,
+		   new String[] {
+			   "documentation", "The precondition."
+		   });
+		addAnnotation
+		  (getTask_Postconditions(),
+		   source,
+		   new String[] {
+			   "documentation", "The post condition."
+		   });
+		addAnnotation
+		  (getTask_Actors(),
+		   source,
+		   new String[] {
+			   "documentation", "The list of actors."
+		   });
+		addAnnotation
+		  (getSystem_SubSystems(),
+		   source,
+		   new String[] {
+			   "documentation", "The list of sub systems."
+		   });
+		addAnnotation
+		  (getSystem_Actors(),
+		   source,
+		   new String[] {
+			   "documentation", "The list of actors."
+		   });
+		addAnnotation
+		  (getSystem_UseCases(),
+		   source,
+		   new String[] {
+			   "documentation", "The list of use cases."
+		   });
+		addAnnotation
+		  (getSystem_UserStories(),
+		   source,
+		   new String[] {
+			   "documentation", "The list of user stories."
+		   });
+		addAnnotation
+		  (getActivity_Nodes(),
+		   source,
+		   new String[] {
+			   "documentation", "The list of nodes."
+		   });
+		addAnnotation
+		  (getActivity_Transitions(),
+		   source,
+		   new String[] {
+			   "documentation", "The list of transitions."
+		   });
+		addAnnotation
+		  (getActivity_SubActivities(),
+		   source,
+		   new String[] {
+			   "documentation", "The list of sub activities."
+		   });
+		addAnnotation
+		  (getOperator_Kind(),
+		   source,
+		   new String[] {
+			   "documentation", "The kind of the operator."
+		   });
+		addAnnotation
+		  (getNode_OutgoingTransitions(),
+		   source,
+		   new String[] {
+			   "documentation", "The list of outgoing transitions."
+		   });
+		addAnnotation
+		  (getNode_IncomingTransitions(),
+		   source,
+		   new String[] {
+			   "documentation", "The list of incoming transitions."
+		   });
+		addAnnotation
+		  (getTransition_Guard(),
+		   source,
+		   new String[] {
+			   "documentation", "The guard of the transition."
+		   });
+		addAnnotation
+		  (getTransition_Source(),
+		   source,
+		   new String[] {
+			   "documentation", "The source node."
+		   });
+		addAnnotation
+		  (getTransition_Target(),
+		   source,
+		   new String[] {
+			   "documentation", "The target node."
+		   });
+		addAnnotation
+		  (getTransition_Kind(),
+		   source,
+		   new String[] {
+			   "documentation", "The kind of the transition."
+		   });
+		addAnnotation
+		  (getTaskReference_Task(),
+		   source,
+		   new String[] {
+			   "documentation", "The referenced task."
+		   });
+		addAnnotation
+		  (getLoop_LowerBound(),
+		   source,
+		   new String[] {
+			   "documentation", "The lower bound of the loop."
+		   });
+		addAnnotation
+		  (getLoop_UpperBound(),
+		   source,
+		   new String[] {
+			   "documentation", "The upper bound of the loop."
+		   });
+		addAnnotation
+		  (getActor_SubActors(),
+		   source,
+		   new String[] {
+			   "documentation", "The list of sub actors."
+		   });
+		addAnnotation
+		  (getActor_SuperActor(),
+		   source,
+		   new String[] {
+			   "documentation", "The super actor."
+		   });
+		addAnnotation
+		  (getAbstractTask_Id(),
+		   source,
+		   new String[] {
+			   "documentation", "The identifier of the task."
+		   });
+		addAnnotation
+		  (getUseCase_Actors(),
+		   source,
+		   new String[] {
+			   "documentation", "The list of actors."
+		   });
+		addAnnotation
+		  (getUseCase_Tasks(),
+		   source,
+		   new String[] {
+			   "documentation", "The list of tasks."
+		   });
+		addAnnotation
+		  (getUseCase_Includes(),
+		   source,
+		   new String[] {
+			   "documentation", "The list of inclided use cases."
+		   });
+		addAnnotation
+		  (getUseCase_Extends(),
+		   source,
+		   new String[] {
+			   "documentation", "The list of extended use cases."
+		   });
+		addAnnotation
+		  (getUseCase_DomainClasses(),
+		   source,
+		   new String[] {
+			   "documentation", "The list of domain classes."
+		   });
+		addAnnotation
+		  (getNamedElement_Name(),
+		   source,
+		   new String[] {
+			   "documentation", "The name of the element."
+		   });
+		addAnnotation
+		  (getDomainModelRegistry_Namespaces(),
+		   source,
+		   new String[] {
+			   "documentation", "The list of namespaces."
+		   });
+		addAnnotation
+		  (getDomainModelRegistry_Types(),
+		   source,
+		   new String[] {
+			   "documentation", "The list of structured types."
+		   });
+		addAnnotation
+		  (getTasksContainer_Tasks(),
+		   source,
+		   new String[] {
+			   "documentation", "The list of tasks."
+		   });
+		addAnnotation
+		  (getTasksContainer_OwnedTasks(),
+		   source,
+		   new String[] {
+			   "documentation", "The list of owned tasks."
+		   });
+		addAnnotation
+		  (getTasksContainer_OwnedGroups(),
+		   source,
+		   new String[] {
+			   "documentation", "The list of owned groups."
+		   });
+		addAnnotation
+		  (getUserStory_Elements(),
+		   source,
+		   new String[] {
+			   "documentation", "The list of user stories elements."
+		   });
+		addAnnotation
+		  (getDomainClass_EstimatedVolumetry(),
+		   source,
+		   new String[] {
+			   "documentation", "The estimated volumetry."
+		   });
+		addAnnotation
+		  (getDomainClass_Historized(),
+		   source,
+		   new String[] {
+			   "documentation", "Tells if the domain class is historized."
+		   });
 	}
 
 } //GraalPackageImpl

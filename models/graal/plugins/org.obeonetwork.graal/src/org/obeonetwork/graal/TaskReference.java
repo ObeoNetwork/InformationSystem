@@ -36,6 +36,9 @@ public interface TaskReference extends Node {
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * The referenced task.
+	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Task</em>' reference.
 	 * @see #setTask(Task)
 	 * @see org.obeonetwork.graal.GraalPackage#getTaskReference_Task()

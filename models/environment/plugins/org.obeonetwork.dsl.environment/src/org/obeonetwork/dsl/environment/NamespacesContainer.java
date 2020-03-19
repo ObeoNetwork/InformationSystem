@@ -47,6 +47,9 @@ public interface NamespacesContainer extends Identifiable {
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * The list of owned namespaces.
+	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Owned Namespaces</em>' containment reference list.
 	 * @see org.obeonetwork.dsl.environment.EnvironmentPackage#getNamespacesContainer_OwnedNamespaces()
 	 * @see org.obeonetwork.dsl.environment.Namespace#getOwner

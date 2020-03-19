@@ -45,6 +45,9 @@ public interface BindingRegistry extends ObeoDSMObject {
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * The list of binding infos.
+	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Binding Infos</em>' containment reference list.
 	 * @see org.obeonetwork.dsl.environment.EnvironmentPackage#getBindingRegistry_BindingInfos()
 	 * @model containment="true" resolveProxies="true"

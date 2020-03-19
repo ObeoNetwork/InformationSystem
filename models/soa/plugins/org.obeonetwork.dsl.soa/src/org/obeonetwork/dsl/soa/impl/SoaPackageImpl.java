@@ -197,7 +197,6 @@ public class SoaPackageImpl extends EPackageImpl implements SoaPackage {
 		// Mark meta-data to indicate it can't be changed
 		theSoaPackage.freeze();
 
-  
 		// Update the registry and return the package
 		EPackage.Registry.INSTANCE.put(SoaPackage.eNS_URI, theSoaPackage);
 		return theSoaPackage;
@@ -818,6 +817,218 @@ public class SoaPackageImpl extends EPackageImpl implements SoaPackage {
 
 		// Create resource
 		createResource(eNS_URI);
+
+		// Create annotations
+		// http://www.eclipse.org/emf/2002/GenModel
+		createGenModelAnnotations();
+	}
+
+	/**
+	 * Initializes the annotations for <b>http://www.eclipse.org/emf/2002/GenModel</b>.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void createGenModelAnnotations() {
+		String source = "http://www.eclipse.org/emf/2002/GenModel";
+		addAnnotation
+		  (getSystem_OwnedComponents(),
+		   source,
+		   new String[] {
+			   "documentation", "The list of owned components."
+		   });
+		addAnnotation
+		  (getSystem_OwnedWires(),
+		   source,
+		   new String[] {
+			   "documentation", "The list of owned wires."
+		   });
+		addAnnotation
+		  (getComponent_OwnedServices(),
+		   source,
+		   new String[] {
+			   "documentation", "The list of owned services."
+		   });
+		addAnnotation
+		  (getComponent_RequiredServices(),
+		   source,
+		   new String[] {
+			   "documentation", "The list of required services."
+		   });
+		addAnnotation
+		  (getComponent_ProvidedServices(),
+		   source,
+		   new String[] {
+			   "documentation", "The list of provided services."
+		   });
+		addAnnotation
+		  (getComponent_Implementations(),
+		   source,
+		   new String[] {
+			   "documentation", "The list of implementations."
+		   });
+		addAnnotation
+		  (getComponent_Name(),
+		   source,
+		   new String[] {
+			   "documentation", "The name of the component."
+		   });
+		addAnnotation
+		  (getComponent_OwnedBinding(),
+		   source,
+		   new String[] {
+			   "documentation", "The list of owned bindings."
+		   });
+		addAnnotation
+		  (getComponent_Block(),
+		   source,
+		   new String[] {
+			   "documentation", "The list of block type definitions."
+		   });
+		addAnnotation
+		  (getService_OwnedInterface(),
+		   source,
+		   new String[] {
+			   "documentation", "The owned interface."
+		   });
+		addAnnotation
+		  (getService_Synchronization(),
+		   source,
+		   new String[] {
+			   "documentation", "The kind of synchronization."
+		   });
+		addAnnotation
+		  (getService_Kind(),
+		   source,
+		   new String[] {
+			   "documentation", "The kind of interface."
+		   });
+		addAnnotation
+		  (getService_ReferencedInterface(),
+		   source,
+		   new String[] {
+			   "documentation", "The referenced interface."
+		   });
+		addAnnotation
+		  (getService_Bindings(),
+		   source,
+		   new String[] {
+			   "documentation", "The binding."
+		   });
+		addAnnotation
+		  (getService_Name(),
+		   source,
+		   new String[] {
+			   "documentation", "The name of the service."
+		   });
+		addAnnotation
+		  (getService_UsedTypes(),
+		   source,
+		   new String[] {
+			   "documentation", "The list of used types."
+		   });
+		addAnnotation
+		  (getWire_Source(),
+		   source,
+		   new String[] {
+			   "documentation", "The source service."
+		   });
+		addAnnotation
+		  (getWire_Dest(),
+		   source,
+		   new String[] {
+			   "documentation", "The target service."
+		   });
+		addAnnotation
+		  (getBinding_Technology(),
+		   source,
+		   new String[] {
+			   "documentation", "The binding kind."
+		   });
+		addAnnotation
+		  (getInterface_OwnedOperations(),
+		   source,
+		   new String[] {
+			   "documentation", "The list of owned operations."
+		   });
+		addAnnotation
+		  (getInterface_Name(),
+		   source,
+		   new String[] {
+			   "documentation", "The name of the interface."
+		   });
+		addAnnotation
+		  (getOperation_Input(),
+		   source,
+		   new String[] {
+			   "documentation", "The list of input parameters."
+		   });
+		addAnnotation
+		  (getOperation_Output(),
+		   source,
+		   new String[] {
+			   "documentation", "The list of output parameters"
+		   });
+		addAnnotation
+		  (getOperation_Kind(),
+		   source,
+		   new String[] {
+			   "documentation", "The kind of operation."
+		   });
+		addAnnotation
+		  (getOperation_Public(),
+		   source,
+		   new String[] {
+			   "documentation", "Tells of tje operation is public."
+		   });
+		addAnnotation
+		  (getOperation_Fault(),
+		   source,
+		   new String[] {
+			   "documentation", "The list of fault parameters."
+		   });
+		addAnnotation
+		  (getImplementationComponent_Implement(),
+		   source,
+		   new String[] {
+			   "documentation", "The implemented interface."
+		   });
+		addAnnotation
+		  (getImplementationComponent_Entities(),
+		   source,
+		   new String[] {
+			   "documentation", "The type definition."
+		   });
+		addAnnotation
+		  (getParameter_Type(),
+		   source,
+		   new String[] {
+			   "documentation", "The type of the parameter."
+		   });
+		addAnnotation
+		  (getParameter_Name(),
+		   source,
+		   new String[] {
+			   "documentation", "The name of the parameter."
+		   });
+		addAnnotation
+		  (getParameter_Multiplicity(),
+		   source,
+		   new String[] {
+			   "documentation", "The multiplicity of the parameter."
+		   });
+		addAnnotation
+		  (getParameter_IsUnique(),
+		   source,
+		   new String[] {
+			   "documentation", "Tells if the parameter contains duplicates."
+		   });
+		addAnnotation
+		  (getParameter_IsOrdered(),
+		   source,
+		   new String[] {
+			   "documentation", "Tells if the parameter is ordered."
+		   });
 	}
 
 } //SoaPackageImpl

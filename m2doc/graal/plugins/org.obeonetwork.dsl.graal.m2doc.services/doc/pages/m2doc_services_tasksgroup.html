@@ -78,7 +78,7 @@
       <td colspan="1" rowspan="1"><strong>id</strong></td>
       <td colspan="1" rowspan="1">EString</td>
       <td colspan="1" rowspan="1">{m:tasksGroup.id}</td>
-      <td colspan="1" rowspan="1"></td>
+      <td colspan="1" rowspan="1">The identifier of the task.</td>
       <td colspan="1" rowspan="1">{m:tasksGroup.id}</td>
     </tr>
     <tr>
@@ -106,28 +106,28 @@
       <td colspan="1" rowspan="1"><strong>name</strong></td>
       <td colspan="1" rowspan="1">EString</td>
       <td colspan="1" rowspan="1">{m:tasksGroup.name}</td>
-      <td colspan="1" rowspan="1"></td>
+      <td colspan="1" rowspan="1">The name of the element.</td>
       <td colspan="1" rowspan="1">{m:tasksGroup.name}</td>
     </tr>
     <tr>
       <td colspan="1" rowspan="1"><strong>ownedGroups</strong></td>
       <td colspan="1" rowspan="1">List of TasksGroup</td>
       <td colspan="1" rowspan="1">{m:tasksGroup.ownedGroups}</td>
-      <td colspan="1" rowspan="1"></td>
+      <td colspan="1" rowspan="1">The list of owned groups.</td>
       <td colspan="1" rowspan="1">{m:for tasksGroup | tasksGroup.ownedGroups} tasksGroup {m:tasksGroup.name}, {m:endfor}</td>
     </tr>
     <tr>
       <td colspan="1" rowspan="1"><strong>ownedTasks</strong></td>
       <td colspan="1" rowspan="1">List of Task</td>
       <td colspan="1" rowspan="1">{m:tasksGroup.ownedTasks}</td>
-      <td colspan="1" rowspan="1"></td>
+      <td colspan="1" rowspan="1">The list of owned tasks.</td>
       <td colspan="1" rowspan="1">{m:for task | tasksGroup.ownedTasks} task {m:task.name}, {m:endfor}</td>
     </tr>
     <tr>
       <td colspan="1" rowspan="1"><strong>tasks</strong></td>
       <td colspan="1" rowspan="1">List of AbstractTask</td>
       <td colspan="1" rowspan="1">{m:tasksGroup.tasks}</td>
-      <td colspan="1" rowspan="1"></td>
+      <td colspan="1" rowspan="1">The list of tasks.</td>
       <td colspan="1" rowspan="1">{m:for abstractTask | tasksGroup.tasks} abstractTask {m:abstractTask.name}, {m:endfor}</td>
     </tr>
     <tr>

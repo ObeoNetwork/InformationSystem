@@ -221,6 +221,44 @@ public class ExtensionUtilitiesPackageImpl extends EPackageImpl implements
 		initEReference(getEntityFilter_ReferenceReferences(), theEnvironmentPackage.getReference(), null, "referenceReferences", null, 0, -1, EntityFilter.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
 		initEReference(getEntityFilter_OwnedPropertyReferences(), theEnvironmentPackage.getProperty(), null, "ownedPropertyReferences", null, 0, -1, EntityFilter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getEntityFilter_Entity(), theEntityPackage.getEntity(), null, "entity", null, 1, 1, EntityFilter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		// Create annotations
+		// http://www.eclipse.org/emf/2002/GenModel
+		createGenModelAnnotations();
+	}
+
+	/**
+	 * Initializes the annotations for <b>http://www.eclipse.org/emf/2002/GenModel</b>.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void createGenModelAnnotations() {
+		String source = "http://www.eclipse.org/emf/2002/GenModel";
+		addAnnotation
+		  (getEntityFilter_AttributeReferences(),
+		   source,
+		   new String[] {
+			   "documentation", "The list of referenced attributes."
+		   });
+		addAnnotation
+		  (getEntityFilter_ReferenceReferences(),
+		   source,
+		   new String[] {
+			   "documentation", "The list of referenced references."
+		   });
+		addAnnotation
+		  (getEntityFilter_OwnedPropertyReferences(),
+		   source,
+		   new String[] {
+			   "documentation", "The list of property."
+		   });
+		addAnnotation
+		  (getEntityFilter_Entity(),
+		   source,
+		   new String[] {
+			   "documentation", "The entity."
+		   });
 	}
 
 } // ExtensionUtilitiesPackageImpl

@@ -49,6 +49,9 @@ public interface BindingElement extends ObeoDSMObject {
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * The bound element.
+	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Bound Element</em>' reference.
 	 * @see #setBoundElement(BoundableElement)
 	 * @see org.obeonetwork.dsl.environment.EnvironmentPackage#getBindingElement_BoundElement()
@@ -75,6 +78,9 @@ public interface BindingElement extends ObeoDSMObject {
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * The binding expression.
+	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Binding Expression</em>' attribute.
 	 * @see #setBindingExpression(String)
 	 * @see org.obeonetwork.dsl.environment.EnvironmentPackage#getBindingElement_BindingExpression()
@@ -103,6 +109,9 @@ public interface BindingElement extends ObeoDSMObject {
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * The referenced by as left binding reference.
+	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Referenced By As Left</em>' reference list.
 	 * @see org.obeonetwork.dsl.environment.EnvironmentPackage#getBindingElement_ReferencedByAsLeft()
 	 * @see org.obeonetwork.dsl.environment.BindingReference#getLeft
@@ -121,6 +130,9 @@ public interface BindingElement extends ObeoDSMObject {
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * The referenced by as right binding reference.
+	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Referenced By As Right</em>' reference list.
 	 * @see org.obeonetwork.dsl.environment.EnvironmentPackage#getBindingElement_ReferencedByAsRight()
 	 * @see org.obeonetwork.dsl.environment.BindingReference#getRight
@@ -138,6 +150,9 @@ public interface BindingElement extends ObeoDSMObject {
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * The referenced by binding reference.
+	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Referenced By</em>' reference list.
 	 * @see org.obeonetwork.dsl.environment.EnvironmentPackage#getBindingElement_ReferencedBy()
 	 * @model transient="true" changeable="false" volatile="true" derived="true"
@@ -154,6 +169,9 @@ public interface BindingElement extends ObeoDSMObject {
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * The list of boundable elements path.
+	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Path References</em>' reference list.
 	 * @see org.obeonetwork.dsl.environment.EnvironmentPackage#getBindingElement_PathReferences()
 	 * @model

@@ -47,6 +47,9 @@ public interface PrimaryKey extends NamedElement {
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * The list of columns.
+	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Columns</em>' reference list.
 	 * @see org.obeonetwork.dsl.database.DatabasePackage#getPrimaryKey_Columns()
 	 * @see org.obeonetwork.dsl.database.Column#getPrimaryKey
@@ -64,6 +67,9 @@ public interface PrimaryKey extends NamedElement {
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * The containing table.
+	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Owner</em>' container reference.
 	 * @see #setOwner(Table)
 	 * @see org.obeonetwork.dsl.database.DatabasePackage#getPrimaryKey_Owner()

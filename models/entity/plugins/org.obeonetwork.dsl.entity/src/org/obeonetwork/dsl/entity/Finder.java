@@ -67,6 +67,9 @@ public interface Finder extends ObeoDSMObject {
 	 * clear, there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * The entity.
+	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Entity</em>' container reference.
 	 * @see #setEntity(Entity)
 	 * @see org.obeonetwork.dsl.entity.EntityPackage#getFinder_Entity()
@@ -93,6 +96,9 @@ public interface Finder extends ObeoDSMObject {
 	 * clear, there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * The customized name.
+	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Customized Name</em>' attribute.
 	 * @see #setCustomizedName(String)
 	 * @see org.obeonetwork.dsl.entity.EntityPackage#getFinder_CustomizedName()
@@ -119,6 +125,9 @@ public interface Finder extends ObeoDSMObject {
 	 * list isn't clear, there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * The list of criterions.
+	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Criterions</em>' containment reference list.
 	 * @see org.obeonetwork.dsl.entity.EntityPackage#getFinder_Criterions()
 	 * @model containment="true" resolveProxies="true"
@@ -135,6 +144,9 @@ public interface Finder extends ObeoDSMObject {
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * The multiplicity.
+	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Multiplicity</em>' attribute.
 	 * @see org.obeonetwork.dsl.environment.MultiplicityKind
 	 * @see #setMultiplicity(MultiplicityKind)

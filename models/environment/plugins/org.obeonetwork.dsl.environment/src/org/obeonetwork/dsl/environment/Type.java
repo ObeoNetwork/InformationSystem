@@ -43,6 +43,9 @@ public interface Type extends ObeoDSMObject, BoundableElement {
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * The name of the type.
+	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Name</em>' attribute.
 	 * @see #setName(String)
 	 * @see org.obeonetwork.dsl.environment.EnvironmentPackage#getType_Name()
@@ -70,6 +73,9 @@ public interface Type extends ObeoDSMObject, BoundableElement {
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * The type definition.
+	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Type Definition</em>' container reference.
 	 * @see #setTypeDefinition(TypesDefinition)
 	 * @see org.obeonetwork.dsl.environment.EnvironmentPackage#getType_TypeDefinition()

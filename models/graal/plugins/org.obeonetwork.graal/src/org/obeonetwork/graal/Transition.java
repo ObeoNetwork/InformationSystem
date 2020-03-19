@@ -39,6 +39,9 @@ public interface Transition extends GraalObject, UserStoryElement {
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * The guard of the transition.
+	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Guard</em>' attribute.
 	 * @see #setGuard(String)
 	 * @see org.obeonetwork.graal.GraalPackage#getTransition_Guard()
@@ -66,6 +69,9 @@ public interface Transition extends GraalObject, UserStoryElement {
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * The source node.
+	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Source</em>' reference.
 	 * @see #setSource(Node)
 	 * @see org.obeonetwork.graal.GraalPackage#getTransition_Source()
@@ -94,6 +100,9 @@ public interface Transition extends GraalObject, UserStoryElement {
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * The target node.
+	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Target</em>' reference.
 	 * @see #setTarget(Node)
 	 * @see org.obeonetwork.graal.GraalPackage#getTransition_Target()
@@ -122,6 +131,9 @@ public interface Transition extends GraalObject, UserStoryElement {
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * The kind of the transition.
+	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Kind</em>' attribute.
 	 * @see org.obeonetwork.graal.TransitionKind
 	 * @see #setKind(TransitionKind)

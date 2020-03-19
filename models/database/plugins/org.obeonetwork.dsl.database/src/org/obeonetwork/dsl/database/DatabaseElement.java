@@ -47,6 +47,9 @@ public interface DatabaseElement extends CDOObject {
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * The identifier of the element.
+	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>ID</em>' attribute.
 	 * @see org.obeonetwork.dsl.database.DatabasePackage#getDatabaseElement_ID()
 	 * @model id="true" transient="true" changeable="false" volatile="true" derived="true"
@@ -62,6 +65,9 @@ public interface DatabaseElement extends CDOObject {
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * The comment.
+	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Comments</em>' attribute.
 	 * @see #setComments(String)
 	 * @see org.obeonetwork.dsl.database.DatabasePackage#getDatabaseElement_Comments()
@@ -88,6 +94,9 @@ public interface DatabaseElement extends CDOObject {
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * The technical identifier.
+	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Tech ID</em>' attribute.
 	 * @see #setTechID(String)
 	 * @see org.obeonetwork.dsl.database.DatabasePackage#getDatabaseElement_TechID()

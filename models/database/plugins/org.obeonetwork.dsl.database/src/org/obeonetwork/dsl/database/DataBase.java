@@ -48,6 +48,9 @@ public interface DataBase extends TableContainer, TypesLibraryUser {
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * The URL of the database.
+	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Url</em>' attribute.
 	 * @see #setUrl(String)
 	 * @see org.obeonetwork.dsl.database.DatabasePackage#getDataBase_Url()
@@ -75,6 +78,9 @@ public interface DataBase extends TableContainer, TypesLibraryUser {
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * The list of schemas contained in this database.
+	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Schemas</em>' containment reference list.
 	 * @see org.obeonetwork.dsl.database.DatabasePackage#getDataBase_Schemas()
 	 * @model containment="true"
@@ -91,6 +97,9 @@ public interface DataBase extends TableContainer, TypesLibraryUser {
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * The list of user defined type libraries in this database.
+	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Defines</em>' containment reference list.
 	 * @see org.obeonetwork.dsl.database.DatabasePackage#getDataBase_Defines()
 	 * @model containment="true"

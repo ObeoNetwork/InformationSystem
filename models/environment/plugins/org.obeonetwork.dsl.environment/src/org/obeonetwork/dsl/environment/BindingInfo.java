@@ -50,6 +50,9 @@ public interface BindingInfo extends ObeoDSMObject {
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * The list of binding references.
+	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>References</em>' containment reference list.
 	 * @see org.obeonetwork.dsl.environment.EnvironmentPackage#getBindingInfo_References()
 	 * @model containment="true" resolveProxies="true"
@@ -65,6 +68,9 @@ public interface BindingInfo extends ObeoDSMObject {
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * The left boundable element.
+	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Left</em>' reference.
 	 * @see #setLeft(BoundableElement)
 	 * @see org.obeonetwork.dsl.environment.EnvironmentPackage#getBindingInfo_Left()
@@ -91,6 +97,9 @@ public interface BindingInfo extends ObeoDSMObject {
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * The right boundable element.
+	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Right</em>' reference.
 	 * @see #setRight(BoundableElement)
 	 * @see org.obeonetwork.dsl.environment.EnvironmentPackage#getBindingInfo_Right()
@@ -118,6 +127,9 @@ public interface BindingInfo extends ObeoDSMObject {
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * The list of sub binding infos.
+	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Sub Binding Infos</em>' reference list.
 	 * @see org.obeonetwork.dsl.environment.EnvironmentPackage#getBindingInfo_SubBindingInfos()
 	 * @model
@@ -134,6 +146,9 @@ public interface BindingInfo extends ObeoDSMObject {
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * The list of targeted boundable elements.
+	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Targets</em>' reference list.
 	 * @see org.obeonetwork.dsl.environment.EnvironmentPackage#getBindingInfo_Targets()
 	 * @model transient="true" changeable="false" volatile="true" derived="true"
@@ -150,6 +165,9 @@ public interface BindingInfo extends ObeoDSMObject {
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * The list of binding elements.
+	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Elements</em>' containment reference list.
 	 * @see org.obeonetwork.dsl.environment.EnvironmentPackage#getBindingInfo_Elements()
 	 * @model containment="true" resolveProxies="true"

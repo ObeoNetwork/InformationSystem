@@ -37,6 +37,9 @@ public interface Loop extends Activity {
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * The lower bound of the loop.
+	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Lower Bound</em>' attribute.
 	 * @see #setLowerBound(int)
 	 * @see org.obeonetwork.graal.GraalPackage#getLoop_LowerBound()
@@ -63,6 +66,9 @@ public interface Loop extends Activity {
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * The upper bound of the loop.
+	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Upper Bound</em>' attribute.
 	 * @see #setUpperBound(int)
 	 * @see org.obeonetwork.graal.GraalPackage#getLoop_UpperBound()

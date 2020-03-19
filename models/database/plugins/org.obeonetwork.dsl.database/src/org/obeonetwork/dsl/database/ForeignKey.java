@@ -47,6 +47,9 @@ public interface ForeignKey extends NamedElement {
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * The list of foreign key elements.
+	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Elements</em>' containment reference list.
 	 * @see org.obeonetwork.dsl.database.DatabasePackage#getForeignKey_Elements()
 	 * @model containment="true"
@@ -63,6 +66,9 @@ public interface ForeignKey extends NamedElement {
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * The containing table.
+	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Owner</em>' container reference.
 	 * @see #setOwner(Table)
 	 * @see org.obeonetwork.dsl.database.DatabasePackage#getForeignKey_Owner()
@@ -90,6 +96,9 @@ public interface ForeignKey extends NamedElement {
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * The targeted table.
+	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Target</em>' reference.
 	 * @see #setTarget(Table)
 	 * @see org.obeonetwork.dsl.database.DatabasePackage#getForeignKey_Target()

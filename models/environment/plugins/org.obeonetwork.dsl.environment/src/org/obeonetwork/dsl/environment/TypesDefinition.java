@@ -46,6 +46,9 @@ public interface TypesDefinition extends ObeoDSMObject {
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * The list of types.
+	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Types</em>' containment reference list.
 	 * @see org.obeonetwork.dsl.environment.EnvironmentPackage#getTypesDefinition_Types()
 	 * @see org.obeonetwork.dsl.environment.Type#getTypeDefinition

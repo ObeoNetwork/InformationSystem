@@ -40,6 +40,9 @@ public interface UserStory extends NamedElement {
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * The list of user stories elements.
+	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Elements</em>' reference list.
 	 * @see org.obeonetwork.graal.GraalPackage#getUserStory_Elements()
 	 * @model
