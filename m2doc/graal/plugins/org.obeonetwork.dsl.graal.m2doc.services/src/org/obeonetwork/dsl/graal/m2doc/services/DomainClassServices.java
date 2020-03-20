@@ -112,6 +112,17 @@ public class DomainClassServices extends AbstractServiceProvider {
 	/**
 	 * Return first annotation with the specified title
 	 */
+	// @formatter:off
+	@Documentation(
+			comment = "{m:myObeoDSMObject.annotation(String)}",
+		    value = "Return first annotation with the specified title.",
+		    examples = {
+		    		@Example(
+		    				expression = "{m:myObeoDSMObject.annotation('some title')}", 
+		    				result = "The string of the annotation.")
+		    }
+		)
+	// @formatter:on	
 	public String annotation(ObeoDSMObject object, String title) {
 		if (title == null) {
 			return "";

@@ -10,6 +10,8 @@
  *******************************************************************************/
 package org.obeonetwork.database.m2doc.services;
 
+import org.eclipse.acceleo.annotations.api.documentation.Documentation;
+import org.eclipse.acceleo.annotations.api.documentation.Example;
 import org.obeonetwork.dsl.database.Column;
 import org.obeonetwork.dsl.database.ForeignKeyElement;
 
@@ -20,22 +22,32 @@ import org.obeonetwork.dsl.database.ForeignKeyElement;
  */
 public class ForeignKeyElementServices {
 
-    /**
-     * returns the column associated to the foreign key element.
-     * 
-     * @param element
-     * @return the associated column.
-     */
+    // @formatter:off
+    @Documentation(
+            comment = "{m:myForeignKeyElement.foreignKeyColumn()}",
+            value = "Returns the column associated to the foreign key element.",
+            examples = {
+                    @Example(
+                            expression = "{m:myForeignKeyElement.foreignKeyColumn()}", 
+                            result = "the column associated to the foreign key element.")
+            }
+        )
+    // @formatter:on    
     public Column foreignKeyColumn(ForeignKeyElement element) {
         return element.getFkColumn();
     }
 
-    /**
-     * returns the column associated to the foreign key element as a primary key.
-     * 
-     * @param element
-     * @return the associated column.
-     */
+    // @formatter:off
+    @Documentation(
+            comment = "{m:myForeignKeyElement.primaryKeyColumn()}",
+            value = "Returns the column associated to the foreign key element as a primary key.",
+            examples = {
+                    @Example(
+                            expression = "{m:myForeignKeyElement.primaryKeyColumn()}", 
+                            result = "the column associated to the foreign key element as a primary key.")
+            }
+        )
+    // @formatter:on    
     public Column primaryKeyColumn(ForeignKeyElement element) {
         return element.getPkColumn();
     }

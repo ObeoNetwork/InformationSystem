@@ -10,6 +10,8 @@
  *******************************************************************************/
 package org.obeonetwork.database.m2doc.services;
 
+import org.eclipse.acceleo.annotations.api.documentation.Documentation;
+import org.eclipse.acceleo.annotations.api.documentation.Example;
 import org.obeonetwork.dsl.database.Column;
 import org.obeonetwork.dsl.typeslibrary.NativeType;
 import org.obeonetwork.dsl.typeslibrary.Type;
@@ -38,12 +40,17 @@ public class ColumnServices {
         return b ? "Oui" : "Non";
     }
 
-    /**
-     * Returns the "Oui" string if the column is automatically incremented and "No" otherwise.
-     * 
-     * @param column
-     * @return "Oui" or "Non" depending on whether the column is automatically incremented or not.
-     */
+    // @formatter:off
+    @Documentation(
+            comment = "{m:mycolumn.isAutoincrement()}",
+            value = "Returns the 'Oui' string if the column is automatically incremented and 'No' otherwise.",
+            examples = {
+                    @Example(
+                            expression = "{m:mycolumn.isAutoincrement()}", 
+                            result = "insert 'Oui' or 'Non'.")
+            }
+        )
+    // @formatter:on    
     public String isAutoincrement(Column column) {
         if (column != null) {
             return yesNo(column.isAutoincrement());
@@ -52,12 +59,17 @@ public class ColumnServices {
         }
     }
 
-    /**
-     * Returns "X" when the column is autoincrement and "" if the column is not unique or is <code>null</code>
-     * 
-     * @param column
-     * @return
-     */
+    // @formatter:off
+    @Documentation(
+            comment = "{m:mycolumn.checkAutoincrement()}",
+            value = "Returns the 'X' string if the column is automatically incremented and '' otherwise.",
+            examples = {
+                    @Example(
+                            expression = "{m:mycolumn.checkAutoincrement()}", 
+                            result = "insert 'X' or ''.")
+            }
+        )
+    // @formatter:on    
     public String checkAutoincrement(Column column) {
         if (column != null) {
             return column.isAutoincrement() ? "X" : "";
@@ -66,12 +78,17 @@ public class ColumnServices {
         }
     }
 
-    /**
-     * Returns the "Oui" string if the column is in a primary key and "No" otherwise.
-     * 
-     * @param column
-     * @return "Oui" or "Non" depending on whether the column is in a primary key or not.
-     */
+    // @formatter:off
+    @Documentation(
+            comment = "{m:mycolumn.isInPrimaryKey()}",
+            value = "Returns the 'Oui' string if the column is in a primary key and 'Non' otherwise.",
+            examples = {
+                    @Example(
+                            expression = "{m:mycolumn.isInPrimaryKey()}", 
+                            result = "insert 'Oui' or 'Non'.")
+            }
+        )
+    // @formatter:on    
     public String isInPrimaryKey(Column column) {
         if (column != null) {
             return yesNo(column.isInPrimaryKey());
@@ -80,12 +97,17 @@ public class ColumnServices {
         }
     }
 
-    /**
-     * Returns the "Oui" string if the column is in a foreign key and "No" otherwise.
-     * 
-     * @param column
-     * @return "Oui" or "Non" depending on whether the column is in a foreign key or not.
-     */
+    // @formatter:off
+    @Documentation(
+            comment = "{m:mycolumn.isInForeignKey()}",
+            value = "Returns the 'Oui' string if the column is in a foreign key and 'Non' otherwise.",
+            examples = {
+                    @Example(
+                            expression = "{m:mycolumn.isInForeignKey()}", 
+                            result = "insert 'Oui' or 'Non'.")
+            }
+        )
+    // @formatter:on    
     public String isInForeignKey(Column column) {
         if (column != null) {
             return yesNo(column.isInForeignKey());
@@ -94,12 +116,17 @@ public class ColumnServices {
         }
     }
 
-    /**
-     * Returns the "Oui" string if the column is unique and "No" otherwise.
-     * 
-     * @param column
-     * @return "Oui" or "Non" depending on whether the column is unique or not.
-     */
+    // @formatter:off
+    @Documentation(
+            comment = "{m:mycolumn.isUnic()}",
+            value = "Returns the 'Oui' string if the column is unique and 'Non' otherwise.",
+            examples = {
+                    @Example(
+                            expression = "{m:mycolumn.isUnic()}", 
+                            result = "insert 'Oui' or 'Non'.")
+            }
+        )
+    // @formatter:on    
     public String isUnic(Column column) {
         if (column != null) {
             return yesNo(column.isUnique());
@@ -108,12 +135,17 @@ public class ColumnServices {
         }
     }
 
-    /**
-     * Returns "X" when the column is nullable and "" if the column is not nullable or is <code>null</code>
-     * 
-     * @param column
-     * @return "X" if the column is nullable and "" in any other case.
-     */
+    // @formatter:off
+    @Documentation(
+            comment = "{m:mycolumn.checkNullable()}",
+            value = "Returns the 'X' string if the column is nullable and '' otherwise.",
+            examples = {
+                    @Example(
+                            expression = "{m:mycolumn.checkNullable()}", 
+                            result = "insert 'X' or ''.")
+            }
+        )
+    // @formatter:on    
     public String checkNullable(Column column) {
         if (column != null) {
             return column.isNullable() ? "X" : "";
@@ -122,12 +154,17 @@ public class ColumnServices {
         }
     }
 
-    /**
-     * Returns "Yes" when the column is nullable and "No" otherwise or if it is <code>null</code>.
-     * 
-     * @param column
-     * @return "Oui" or "Non" depending on whether the column is nullable or not.
-     */
+    // @formatter:off
+    @Documentation(
+            comment = "{m:mycolumn.isNullable()}",
+            value = "Returns the 'Oui' string if the column is nullable and 'Non' otherwise.",
+            examples = {
+                    @Example(
+                            expression = "{m:mycolumn.isNullable()}", 
+                            result = "insert 'Oui' or 'Non'.")
+            }
+        )
+    // @formatter:on    
     public String isNullable(Column column) {
         if (column != null) {
             return yesNo(column.isNullable());
@@ -136,12 +173,17 @@ public class ColumnServices {
         }
     }
 
-    /**
-     * Returns "X" when the column is mandatory and "" if the column is not mandatory or is <code>null</code>
-     * 
-     * @param column
-     * @return "X" if the column is mandatory and "" in any other case.
-     */
+    // @formatter:off
+    @Documentation(
+            comment = "{m:mycolumn.checkMandatory()}",
+            value = "Returns the 'X' string if the column is mandatory and '' otherwise.",
+            examples = {
+                    @Example(
+                            expression = "{m:mycolumn.checkMandatory()}", 
+                            result = "insert 'X' or ''.")
+            }
+        )
+    // @formatter:on    
     public String checkMandatory(Column column) {
         if (column != null) {
             return column.isNullable() ? "" : "X";
@@ -150,12 +192,17 @@ public class ColumnServices {
         }
     }
 
-    /**
-     * Returns "Yes" when the column is nullable and "No" otherwise or if it is <code>null</code>.
-     * 
-     * @param column
-     * @return "Oui" or "Non" depending on whether the column is mandatory or not.
-     */
+    // @formatter:off
+    @Documentation(
+            comment = "{m:mycolumn.isMandatory()}",
+            value = "Returns the 'Oui' string if the column is mandatory and 'Non' otherwise.",
+            examples = {
+                    @Example(
+                            expression = "{m:mycolumn.isMandatory()}", 
+                            result = "insert 'Oui' or 'Non'.")
+            }
+        )
+    // @formatter:on    
     public String isMandatory(Column column) {
         if (column != null) {
             return yesNo(!column.isNullable());
@@ -164,12 +211,17 @@ public class ColumnServices {
         }
     }
 
-    /**
-     * Returns "X" when the column is in a foreign key and "" otherwise or if the column is <code>null</code/
-     * 
-     * @param column
-     * @return "X" if the column is in a foreign key and "" in any other case.
-     */
+    // @formatter:off
+    @Documentation(
+            comment = "{m:mycolumn.checkInForeignKey()}",
+            value = "Returns the 'X' string if the column is in foreign key and '' otherwise.",
+            examples = {
+                    @Example(
+                            expression = "{m:mycolumn.checkInForeignKey()}", 
+                            result = "insert 'X' or ''.")
+            }
+        )
+    // @formatter:on    
     public String checkInForeignKey(Column column) {
         if (column != null) {
             return column.isInForeignKey() ? "X" : "";
@@ -178,12 +230,17 @@ public class ColumnServices {
         }
     }
 
-    /**
-     * Returns "X" when the column is unique and "" if the column is not unique or is <code>null</code/
-     * 
-     * @param column
-     * @return "X" if the column is unique and "" in any other case.
-     */
+    // @formatter:off
+    @Documentation(
+            comment = "{m:mycolumn.checkUnique()}",
+            value = "Returns the 'X' string if the column is unique and '' otherwise.",
+            examples = {
+                    @Example(
+                            expression = "{m:mycolumn.checkUnique()}", 
+                            result = "insert 'X' or ''.")
+            }
+        )
+    // @formatter:on    
     public String checkUnique(Column column) {
         if (column != null) {
             return column.isUnique() ? "X" : "";
@@ -192,12 +249,17 @@ public class ColumnServices {
         }
     }
 
-    /**
-     * Returns "X" when the column is in a primary key and "" otherwise or if the column is <code>null</code/
-     * 
-     * @param column
-     * @return "X" if the column is in a primary key and "" in any other case.
-     */
+    // @formatter:off
+    @Documentation(
+            comment = "{m:mycolumn.checkInPrimaryKey()}",
+            value = "Returns the 'X' string if the column is in primary key and '' otherwise.",
+            examples = {
+                    @Example(
+                            expression = "{m:mycolumn.checkInPrimaryKey()}", 
+                            result = "insert 'X' or ''.")
+            }
+        )
+    // @formatter:on    
     public String checkInPrimaryKey(Column col) {
         if (col != null) {
             return col.isInPrimaryKey() ? "X" : "";
@@ -206,12 +268,17 @@ public class ColumnServices {
         }
     }
 
-    /**
-     * Returns the name of the column's type.
-     * 
-     * @param column
-     * @return the name of the column's type.
-     */
+    // @formatter:off
+    @Documentation(
+            comment = "{m:mycolumn.typeName()}",
+            value = "Returns the name of the column type.",
+            examples = {
+                    @Example(
+                            expression = "{m:mycolumn.typeName()}", 
+                            result = "insert 'SomeType' or 'no name found'.")
+            }
+        )
+    // @formatter:on    
     public String typeName(Column column) {
         String res = null;
         Type type = column.getType();
@@ -229,17 +296,22 @@ public class ColumnServices {
         return res;
     }
 
-    /**
-     * Returns the length and the precision of the type associated to the column.
-     * Result is like follows :
-     * <ul>
-     * <li>&lt;length&gt; if the type has the NativeKind.LENGTH attribute</li>
-     * <li>&lt;length,precision&gt; if the type has the NativeKind.LENGTH_AND_PRECISION attribute</li>
-     * 
-     * @param col
-     *            the column
-     * @return a description of the length of the column's type.
-     */
+    // @formatter:off
+    @Documentation(
+            comment = "{m:mycolumn.typeLength()}",
+            value = "Returns the length and the precision of the type associated to the column.\n" + 
+                "Result is like follows :\n" + 
+                "<ul>\n" + 
+                "<li>&lt;length&gt; if the type has the NativeKind.LENGTH attribute</li>\n" + 
+                "<li>&lt;length,precision&gt; if the type has the NativeKind.LENGTH_AND_PRECISION attribute</li>\n" + 
+                "</ul>\n",
+            examples = {
+                    @Example(
+                            expression = "{m:mycolumn.typeLength()}", 
+                            result = "insert a description of the length of the column's type.")
+            }
+        )
+    // @formatter:on    
     public String typeLength(Column col) {
         String res = "";
         Type type = col.getType();
@@ -272,13 +344,17 @@ public class ColumnServices {
         return res;
     }
 
-    /**
-     * Returns the default value of the column if one is specified and the empty string otherwise.
-     * 
-     * @param col
-     *            the column
-     * @return the default value
-     */
+    // @formatter:off
+    @Documentation(
+            comment = "{m:mycolumn.defaultValue()}",
+            value = "Returns the default value of the column.",
+            examples = {
+                    @Example(
+                            expression = "{m:mycolumn.defaultValue()}", 
+                            result = "insert the default value.")
+            }
+        )
+    // @formatter:on    
     public String defaultValue(Column col) {
         if (col.getDefaultValue() != null) {
             return col.getDefaultValue();

@@ -18,6 +18,8 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
+import org.eclipse.acceleo.annotations.api.documentation.Documentation;
+import org.eclipse.acceleo.annotations.api.documentation.Example;
 import org.obeonetwork.dsl.environment.Namespace;
 import org.obeonetwork.dsl.environment.StructuredType;
 import org.obeonetwork.dsl.environment.Type;
@@ -26,11 +28,17 @@ import org.obeonetwork.graal.UseCase;
 
 public class UseCaseServices {
 
-	/**
-	 * Collect all domain classes referenced by a use case
-	 * @param uc
-	 * @return
-	 */
+	// @formatter:off
+	@Documentation(
+			comment = "{m:myUseCase.allDomainClasses()}",
+		    value = "Return a list containing all domain classes referenced by a use case.",
+		    examples = {
+		    		@Example(
+		    				expression = "{m:myUseCase.allDomainClasses()}", 
+		    				result = "a list containing all domain classes referenced by a use case.")
+		    }
+		)
+	// @formatter:on	
 	public List<DomainClass> allDomainClasses(UseCase uc){
 		Set<DomainClass> classes = new HashSet<DomainClass>();
 		
@@ -80,6 +88,17 @@ public class UseCaseServices {
 		}
 	}
 	
+	// @formatter:off
+	@Documentation(
+			comment = "{m:myDomainClass.fullQualifiedName()}",
+		    value = "Return the full qualified name of the domain class.",
+		    examples = {
+		    		@Example(
+		    				expression = "{m:myDomainClass.fullQualifiedName()}", 
+		    				result = "the full qualified name of the domain class.")
+		    }
+		)
+	// @formatter:on	
 	public String fullQualifiedName(DomainClass dc){
 		StringBuilder result = new StringBuilder();
 		if(dc.eContainer() instanceof Namespace){
@@ -89,6 +108,7 @@ public class UseCaseServices {
 		result.append(dc.getName());
 		return result.toString();
 	}
+
 	private void fullQualifiedNamespace(Namespace ns,StringBuilder builder){
 		if(ns.getOwner() instanceof Namespace){
 			fullQualifiedNamespace((Namespace) ns.getOwner(),builder);
