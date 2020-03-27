@@ -16,6 +16,7 @@ import java.lang.reflect.Type;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
+import java.util.Map;
 import java.util.function.Function;
 import java.util.stream.Collectors;
 
@@ -33,7 +34,6 @@ import org.eclipse.sirius.table.metamodel.table.description.TableDescription;
 import org.eclipse.sirius.tree.description.TreeDescription;
 import org.eclipse.sirius.viewpoint.description.Group;
 import org.eclipse.sirius.viewpoint.description.RepresentationDescription;
-import org.eclipse.sirius.viewpoint.description.RepresentationImportDescription;
 import org.eclipse.sirius.viewpoint.description.Viewpoint;
 import org.obeonetwork.m2doc.doc.generator.reflection.OEcoreUtil;
 
@@ -175,7 +175,7 @@ public final class M2DocHelpContentUtils {
 		return buffer;
 	}
 
-	private static String prettySimpleName(Class<?> argType) {
+	private static String prettySimpleName(Map<EClass, String> eClassToHTMLPages, Class<?> argType) {
 		String typeName = argType.getCanonicalName();
 		if ("org.eclipse.acceleo.query.runtime.impl.LambdaValue".equals(typeName)) {
 			typeName = " x | ... ";
@@ -183,6 +183,13 @@ public final class M2DocHelpContentUtils {
 		if (typeName.startsWith("java.lang") || typeName.startsWith("java.util")
 				|| EObject.class.isAssignableFrom(argType)) {
 			typeName = argType.getSimpleName();
+			final EClass eClass = OEcoreUtil.getEClass(argType);
+			if (eClass != null) {
+				final String page = eClassToHTMLPages.get(eClass);
+				if (page != null) {
+					typeName = "<a href=\"" + page + "\">" + typeName + "</a>";
+				}
+			}
 		}
 		if (typeName.startsWith("org.eclipse.emf")) {
 			typeName = argType.getSimpleName();
@@ -196,20 +203,20 @@ public final class M2DocHelpContentUtils {
 		return typeName;
 	}
 
-	private static String getPrettyGenericTypename(Type type, Class<?> argType) {
-		String typename = prettySimpleName(argType);
+	private static String getPrettyGenericTypename(Map<EClass, String> eClassToHTMLPages, Type type, Class<?> argType) {
+		String typename = prettySimpleName(eClassToHTMLPages, argType);
 		if (type instanceof Class<?>) {
-			typename = prettySimpleName((Class<?>) type);
+			typename = prettySimpleName(eClassToHTMLPages, (Class<?>) type);
 		} else if (type instanceof ParameterizedType) {
 			String canonical = ((Class<?>) argType).getCanonicalName();
 			Type t = ((ParameterizedType) type).getActualTypeArguments()[0];
 			if (t instanceof Class<?>) {
 				if ("java.util.Set".equals(canonical)) {
-					typename = "Set of " + prettySimpleName((Class<?>) t);
+					typename = "Set of " + prettySimpleName(eClassToHTMLPages, (Class<?>) t);
 				} else if ("java.util.List".equals(canonical) || "java.util.Collection".equals(canonical)) {
-					typename = "List of " + prettySimpleName((Class<?>) t);
+					typename = "List of " + prettySimpleName(eClassToHTMLPages, (Class<?>) t);
 				} else {
-					typename = "{" + prettySimpleName((Class<?>) t) + "}";
+					typename = "{" + prettySimpleName(eClassToHTMLPages, (Class<?>) t) + "}";
 				}
 
 			}
@@ -261,12 +268,12 @@ public final class M2DocHelpContentUtils {
 		return buffer;
 	}
 
-	private static StringBuffer computeAttributeTableRow(EClass eClass, EStructuralFeature feature) {
+	private static StringBuffer computeAttributeTableRow(Map<EClass, String> eClassToHTMLPages, EClass eClass, EStructuralFeature feature) {
 		StringBuffer tableRowBuffer = new StringBuffer();
 		tableRowBuffer.append("    <tr>").append(LS);
 		tableRowBuffer.append("      <td colspan=\"1\" rowspan=\"1\"><strong>" + feature.getName() + "</strong></td>")
 				.append(LS); // Name
-		tableRowBuffer.append("      <td colspan=\"1\" rowspan=\"1\">" + prettyReturnType(feature) + "</td>")
+		tableRowBuffer.append("      <td colspan=\"1\" rowspan=\"1\">" + prettyReturnType(eClassToHTMLPages, feature) + "</td>")
 				.append(LS); // Returned type
 		tableRowBuffer.append(
 				"      <td colspan=\"1\" rowspan=\"1\">" + computeAttributeM2DocSyntax(eClass, feature) + "</td>")
@@ -281,7 +288,7 @@ public final class M2DocHelpContentUtils {
 		return tableRowBuffer;
 	}
 
-	private static StringBuffer prettyReturnType(EStructuralFeature feature) {
+	private static StringBuffer prettyReturnType(Map<EClass, String> eClassToHTMLPages, EStructuralFeature feature) {
 		StringBuffer buffer = new StringBuffer();
 		if (feature.isMany()) {
 			if (feature.isUnique()) {
@@ -289,14 +296,20 @@ public final class M2DocHelpContentUtils {
 			} else {
 				buffer.append("Set of ");
 			}
+		}
+		final String page = eClassToHTMLPages.get(feature.getEType());
+		if (page != null) {
+			buffer.append("<a href=\"" + page + "\">");
 			buffer.append(feature.getEType().getName());
+			buffer.append("</a>");
 		} else {
 			buffer.append(feature.getEType().getName());
 		}
+
 		return buffer;
 	}
 
-	private static StringBuffer computeServiceTableRow(Method service) {
+	private static StringBuffer computeServiceTableRow(Map<EClass, String> eClassToHTMLPages, Method service) {
 		StringBuffer tableRowBuffer = new StringBuffer();
 
 		String comment = "";
@@ -312,7 +325,7 @@ public final class M2DocHelpContentUtils {
 				.append(LS); // Name
 		tableRowBuffer
 				.append("      <td colspan=\"1\" rowspan=\"1\">"
-						+ getPrettyGenericTypename(service.getGenericReturnType(), service.getReturnType()) + "</td>")
+						+ getPrettyGenericTypename(eClassToHTMLPages, service.getGenericReturnType(), service.getReturnType()) + "</td>")
 				.append(LS); // Returned type
 		tableRowBuffer.append("      <td colspan=\"1\" rowspan=\"1\">" + comment + "</td>").append(LS); // M2Doc Syntax
 		tableRowBuffer.append("      <td colspan=\"1\" rowspan=\"1\">" + value + "</td>").append(LS); // Description
@@ -322,14 +335,14 @@ public final class M2DocHelpContentUtils {
 		return tableRowBuffer;
 	}
 
-	private static StringBuffer computeAttributeTableRows(Class<?> metaClass) {
+	private static StringBuffer computeAttributeTableRows(Map<EClass, String> eClassToHTMLPages, Class<?> metaClass) {
 		StringBuffer tableRowBuffer = new StringBuffer();
 
 		EClass eClass = OEcoreUtil.getEClass(metaClass);
 
 		for (EStructuralFeature feature : eClass.getEAllStructuralFeatures().stream()
 				.sorted((f1, f2) -> f1.getName().compareTo(f2.getName())).collect(Collectors.toList())) {
-			tableRowBuffer.append(computeAttributeTableRow(eClass, feature));
+			tableRowBuffer.append(computeAttributeTableRow(eClassToHTMLPages, eClass, feature));
 		}
 
 //		for(Method method : Arrays.asList(metaClass.getMethods()).stream().sorted((m1, m2) -> m1.getName().compareTo(m2.getName())).collect(Collectors.toList())) {
@@ -338,11 +351,11 @@ public final class M2DocHelpContentUtils {
 		return tableRowBuffer;
 	}
 
-	private static StringBuffer computeServiceTableRows(Class<?> metaClass, List<Method> services) {
+	private static StringBuffer computeServiceTableRows(Map<EClass, String> eClassToHTMLPages, Class<?> metaClass, List<Method> services) {
 		StringBuffer tableRowBuffer = new StringBuffer();
 
 		for (Method service : getCompatibleServices(metaClass, services)) {
-			tableRowBuffer.append(computeServiceTableRow(service));
+			tableRowBuffer.append(computeServiceTableRow(eClassToHTMLPages, service));
 		}
 		return tableRowBuffer;
 	}
@@ -530,7 +543,7 @@ public final class M2DocHelpContentUtils {
 		return res;
 	}
 
-	public static StringBuffer computeMetaClassBody(String metamodelName, String pluginName, Class<?> metaClass,
+	public static StringBuffer computeMetaClassBody(String metamodelName, String pluginName, Map<EClass, String> eClassToHTMLPages, Class<?> metaClass,
 			List<Method> services, boolean isExternal) {
 
 		StringBuffer buffer = new StringBuffer();
@@ -545,10 +558,10 @@ public final class M2DocHelpContentUtils {
 		}
 
 		if (!isExternal) {
-			buffer.append(computeTable(metaClass, "Attributes", c -> computeAttributeTableRows(c)));
+			buffer.append(computeTable(metaClass, "Attributes", c -> computeAttributeTableRows(eClassToHTMLPages, c)));
 		}
 
-		buffer.append(computeTable(metaClass, "Services", c -> computeServiceTableRows(c, services)));
+		buffer.append(computeTable(metaClass, "Services", c -> computeServiceTableRows(eClassToHTMLPages, c, services)));
 
 		buffer.append("  </body>").append(LS);
 

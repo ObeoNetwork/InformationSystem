@@ -76,7 +76,7 @@
     </tr>
     <tr>
       <td colspan="1" rowspan="1"><strong>possibleEvents</strong></td>
-      <td colspan="1" rowspan="1">List of WidgetEventType</td>
+      <td colspan="1" rowspan="1">List of <a href="/help/topic/org.obeonetwork.cinematic.m2doc.services/doc/pages/m2doc_services_widgeteventtype.html">WidgetEventType</a></td>
       <td colspan="1" rowspan="1">{m:widget.possibleEvents}</td>
       <td colspan="1" rowspan="1">The list of the events this Widget handles.</td>
       <td colspan="1" rowspan="1">{m:for widgetEventType | widget.possibleEvents} widgetEventType {m:widgetEventType.name}, {m:endfor}</td>
@@ -90,7 +90,7 @@
     </tr>
     <tr>
       <td colspan="1" rowspan="1"><strong>toolkit</strong></td>
-      <td colspan="1" rowspan="1">Toolkit</td>
+      <td colspan="1" rowspan="1"><a href="/help/topic/org.obeonetwork.cinematic.m2doc.services/doc/pages/m2doc_services_toolkit.html">Toolkit</a></td>
       <td colspan="1" rowspan="1">{m:widget.toolkit}</td>
       <td colspan="1" rowspan="1">The Toolkit owning this Widget.</td>
       <td colspan="1" rowspan="1">{m:widget.toolkit}</td>
@@ -113,7 +113,7 @@
   <tbody>
     <tr>
       <td colspan="1" rowspan="1"><strong>allRelatedRequirements</strong></td>
-      <td colspan="1" rowspan="1">List of Requirement</td>
+      <td colspan="1" rowspan="1">List of <a href="/help/topic/org.obeonetwork.dsl.requirement.m2doc.services/doc/pages/m2doc_services_requirement.html">Requirement</a></td>
       <td colspan="1" rowspan="1">{m:obj.allRelatedRequirements()}</td>
       <td colspan="1" rowspan="1">Returns a list of all the Requirements related to the target object or one of its sub objects. The result is a list with no duplicates sorted against the requirements ids.</td>
       <td colspan="1" rowspan="1">{m:obj.allRelatedRequirements()->sep(',')} returns: A comma separated list of related requirements.</td>
@@ -169,14 +169,14 @@
     </tr>
     <tr>
       <td colspan="1" rowspan="1"><strong>relatedRequirements</strong></td>
-      <td colspan="1" rowspan="1">List of Requirement</td>
+      <td colspan="1" rowspan="1">List of <a href="/help/topic/org.obeonetwork.dsl.requirement.m2doc.services/doc/pages/m2doc_services_requirement.html">Requirement</a></td>
       <td colspan="1" rowspan="1">{m:obj.relatedRequirements()}</td>
       <td colspan="1" rowspan="1">Returns the set of Requirement that are related to the target object.</td>
       <td colspan="1" rowspan="1">{m:obj.relatedRequirements()->sep(',')} returns: A comma separated list of related requirements.</td>
     </tr>
     <tr>
       <td colspan="1" rowspan="1"><strong>relatedRequirementsWithSubtype</strong></td>
-      <td colspan="1" rowspan="1">List of Requirement</td>
+      <td colspan="1" rowspan="1">List of <a href="/help/topic/org.obeonetwork.dsl.requirement.m2doc.services/doc/pages/m2doc_services_requirement.html">Requirement</a></td>
       <td colspan="1" rowspan="1">{m:obj.relatedRequirementsWithSubtype('SUBTYPE')}</td>
       <td colspan="1" rowspan="1">Returns the list of Requirements that reference the target object and that have the specified subtype.</td>
       <td colspan="1" rowspan="1">{m:obj.relatedRequirementsWithSubtype('performance')->sep(',')} returns: A comma separated list of related requirements of performance subtype.</td>

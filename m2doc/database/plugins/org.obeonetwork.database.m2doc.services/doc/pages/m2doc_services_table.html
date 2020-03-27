@@ -55,7 +55,7 @@
     </tr>
     <tr>
       <td colspan="1" rowspan="1"><strong>columns</strong></td>
-      <td colspan="1" rowspan="1">List of Column</td>
+      <td colspan="1" rowspan="1">List of <a href="/help/topic/org.obeonetwork.database.m2doc.services/doc/pages/m2doc_services_column.html">Column</a></td>
       <td colspan="1" rowspan="1">{m:table.columns}</td>
       <td colspan="1" rowspan="1">The list of columns.</td>
       <td colspan="1" rowspan="1">{m:for column | table.columns} column {m:column.name}, {m:endfor}</td>
@@ -69,21 +69,21 @@
     </tr>
     <tr>
       <td colspan="1" rowspan="1"><strong>constraints</strong></td>
-      <td colspan="1" rowspan="1">List of Constraint</td>
+      <td colspan="1" rowspan="1">List of <a href="/help/topic/org.obeonetwork.database.m2doc.services/doc/pages/m2doc_services_constraint.html">Constraint</a></td>
       <td colspan="1" rowspan="1">{m:table.constraints}</td>
       <td colspan="1" rowspan="1">The list of constraints.</td>
       <td colspan="1" rowspan="1">{m:for constraint | table.constraints} constraint {m:constraint.name}, {m:endfor}</td>
     </tr>
     <tr>
       <td colspan="1" rowspan="1"><strong>foreignKeys</strong></td>
-      <td colspan="1" rowspan="1">List of ForeignKey</td>
+      <td colspan="1" rowspan="1">List of <a href="/help/topic/org.obeonetwork.database.m2doc.services/doc/pages/m2doc_services_foreignkey.html">ForeignKey</a></td>
       <td colspan="1" rowspan="1">{m:table.foreignKeys}</td>
       <td colspan="1" rowspan="1">The list of foreign keys.</td>
       <td colspan="1" rowspan="1">{m:for foreignKey | table.foreignKeys} foreignKey {m:foreignKey.name}, {m:endfor}</td>
     </tr>
     <tr>
       <td colspan="1" rowspan="1"><strong>indexes</strong></td>
-      <td colspan="1" rowspan="1">List of Index</td>
+      <td colspan="1" rowspan="1">List of <a href="/help/topic/org.obeonetwork.database.m2doc.services/doc/pages/m2doc_services_index.html">Index</a></td>
       <td colspan="1" rowspan="1">{m:table.indexes}</td>
       <td colspan="1" rowspan="1">The list of indexes.</td>
       <td colspan="1" rowspan="1">{m:for index | table.indexes} index {m:index.name}, {m:endfor}</td>
@@ -104,7 +104,7 @@
     </tr>
     <tr>
       <td colspan="1" rowspan="1"><strong>primaryKey</strong></td>
-      <td colspan="1" rowspan="1">PrimaryKey</td>
+      <td colspan="1" rowspan="1"><a href="/help/topic/org.obeonetwork.database.m2doc.services/doc/pages/m2doc_services_primarykey.html">PrimaryKey</a></td>
       <td colspan="1" rowspan="1">{m:table.primaryKey}</td>
       <td colspan="1" rowspan="1">The primary key.</td>
       <td colspan="1" rowspan="1">{m:table.primaryKey}</td>
@@ -141,14 +141,14 @@
     </tr>
     <tr>
       <td colspan="1" rowspan="1"><strong>allColumns</strong></td>
-      <td colspan="1" rowspan="1">List of Column</td>
+      <td colspan="1" rowspan="1">List of <a href="/help/topic/org.obeonetwork.database.m2doc.services/doc/pages/m2doc_services_column.html">Column</a></td>
       <td colspan="1" rowspan="1"></td>
       <td colspan="1" rowspan="1"></td>
       <td colspan="1" rowspan="1"></td>
     </tr>
     <tr>
       <td colspan="1" rowspan="1"><strong>allRelatedRequirements</strong></td>
-      <td colspan="1" rowspan="1">List of Requirement</td>
+      <td colspan="1" rowspan="1">List of <a href="/help/topic/org.obeonetwork.dsl.requirement.m2doc.services/doc/pages/m2doc_services_requirement.html">Requirement</a></td>
       <td colspan="1" rowspan="1">{m:obj.allRelatedRequirements()}</td>
       <td colspan="1" rowspan="1">Returns a list of all the Requirements related to the target object or one of its sub objects. The result is a list with no duplicates sorted against the requirements ids.</td>
       <td colspan="1" rowspan="1">{m:obj.allRelatedRequirements()->sep(',')} returns: A comma separated list of related requirements.</td>
@@ -225,21 +225,21 @@
     </tr>
     <tr>
       <td colspan="1" rowspan="1"><strong>pureColumns</strong></td>
-      <td colspan="1" rowspan="1">List of Column</td>
+      <td colspan="1" rowspan="1">List of <a href="/help/topic/org.obeonetwork.database.m2doc.services/doc/pages/m2doc_services_column.html">Column</a></td>
       <td colspan="1" rowspan="1">{m:myTable.pureColumns()}</td>
       <td colspan="1" rowspan="1">Returns the list of columns that are nor primary key neither foreign key.</td>
       <td colspan="1" rowspan="1">{m:myTable.pureColumns()} returns: the list of columns that are nor primary key neither foreign key.</td>
     </tr>
     <tr>
       <td colspan="1" rowspan="1"><strong>relatedRequirements</strong></td>
-      <td colspan="1" rowspan="1">List of Requirement</td>
+      <td colspan="1" rowspan="1">List of <a href="/help/topic/org.obeonetwork.dsl.requirement.m2doc.services/doc/pages/m2doc_services_requirement.html">Requirement</a></td>
       <td colspan="1" rowspan="1">{m:obj.relatedRequirements()}</td>
       <td colspan="1" rowspan="1">Returns the set of Requirement that are related to the target object.</td>
       <td colspan="1" rowspan="1">{m:obj.relatedRequirements()->sep(',')} returns: A comma separated list of related requirements.</td>
     </tr>
     <tr>
       <td colspan="1" rowspan="1"><strong>relatedRequirementsWithSubtype</strong></td>
-      <td colspan="1" rowspan="1">List of Requirement</td>
+      <td colspan="1" rowspan="1">List of <a href="/help/topic/org.obeonetwork.dsl.requirement.m2doc.services/doc/pages/m2doc_services_requirement.html">Requirement</a></td>
       <td colspan="1" rowspan="1">{m:obj.relatedRequirementsWithSubtype('SUBTYPE')}</td>
       <td colspan="1" rowspan="1">Returns the list of Requirements that reference the target object and that have the specified subtype.</td>
       <td colspan="1" rowspan="1">{m:obj.relatedRequirementsWithSubtype('performance')->sep(',')} returns: A comma separated list of related requirements of performance subtype.</td>

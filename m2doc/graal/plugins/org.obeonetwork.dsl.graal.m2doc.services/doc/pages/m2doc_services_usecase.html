@@ -48,7 +48,7 @@
   <tbody>
     <tr>
       <td colspan="1" rowspan="1"><strong>actors</strong></td>
-      <td colspan="1" rowspan="1">List of Actor</td>
+      <td colspan="1" rowspan="1">List of <a href="/help/topic/org.obeonetwork.dsl.graal.m2doc.services/doc/pages/m2doc_services_actor.html">Actor</a></td>
       <td colspan="1" rowspan="1">{m:useCase.actors}</td>
       <td colspan="1" rowspan="1">The list of actors.</td>
       <td colspan="1" rowspan="1">{m:for actor | useCase.actors} actor {m:actor.name}, {m:endfor}</td>
@@ -62,7 +62,7 @@
     </tr>
     <tr>
       <td colspan="1" rowspan="1"><strong>bindingRegistries</strong></td>
-      <td colspan="1" rowspan="1">List of BindingRegistry</td>
+      <td colspan="1" rowspan="1">List of <a href="/help/topic/org.obeonetwork.dsl.environment.m2doc.services/doc/pages/m2doc_services_bindingregistry.html">BindingRegistry</a></td>
       <td colspan="1" rowspan="1">{m:useCase.bindingRegistries}</td>
       <td colspan="1" rowspan="1">The binding registries of this object.</td>
       <td colspan="1" rowspan="1">{m:for bindingRegistry | useCase.bindingRegistries} bindingRegistry {m:bindingRegistry.name}, {m:endfor}</td>
@@ -83,21 +83,21 @@
     </tr>
     <tr>
       <td colspan="1" rowspan="1"><strong>domainClasses</strong></td>
-      <td colspan="1" rowspan="1">List of DomainClass</td>
+      <td colspan="1" rowspan="1">List of <a href="/help/topic/org.obeonetwork.dsl.graal.m2doc.services/doc/pages/m2doc_services_domainclass.html">DomainClass</a></td>
       <td colspan="1" rowspan="1">{m:useCase.domainClasses}</td>
       <td colspan="1" rowspan="1">The list of domain classes.</td>
       <td colspan="1" rowspan="1">{m:for domainClass | useCase.domainClasses} domainClass {m:domainClass.name}, {m:endfor}</td>
     </tr>
     <tr>
       <td colspan="1" rowspan="1"><strong>extends</strong></td>
-      <td colspan="1" rowspan="1">List of UseCase</td>
+      <td colspan="1" rowspan="1">List of <a href="/help/topic/org.obeonetwork.dsl.graal.m2doc.services/doc/pages/m2doc_services_usecase.html">UseCase</a></td>
       <td colspan="1" rowspan="1">{m:useCase.extends}</td>
       <td colspan="1" rowspan="1">The list of extended use cases.</td>
       <td colspan="1" rowspan="1">{m:for useCase | useCase.extends} useCase {m:useCase.name}, {m:endfor}</td>
     </tr>
     <tr>
       <td colspan="1" rowspan="1"><strong>includes</strong></td>
-      <td colspan="1" rowspan="1">List of UseCase</td>
+      <td colspan="1" rowspan="1">List of <a href="/help/topic/org.obeonetwork.dsl.graal.m2doc.services/doc/pages/m2doc_services_usecase.html">UseCase</a></td>
       <td colspan="1" rowspan="1">{m:useCase.includes}</td>
       <td colspan="1" rowspan="1">The list of inclided use cases.</td>
       <td colspan="1" rowspan="1">{m:for useCase | useCase.includes} useCase {m:useCase.name}, {m:endfor}</td>
@@ -111,7 +111,7 @@
     </tr>
     <tr>
       <td colspan="1" rowspan="1"><strong>metadatas</strong></td>
-      <td colspan="1" rowspan="1">MetaDataContainer</td>
+      <td colspan="1" rowspan="1"><a href="/help/topic/org.obeonetwork.dsl.environment.m2doc.services/doc/pages/m2doc_services_metadatacontainer.html">MetaDataContainer</a></td>
       <td colspan="1" rowspan="1">{m:useCase.metadatas}</td>
       <td colspan="1" rowspan="1">The metadatas defined on this object.</td>
       <td colspan="1" rowspan="1">{m:useCase.metadatas}</td>
@@ -132,7 +132,7 @@
     </tr>
     <tr>
       <td colspan="1" rowspan="1"><strong>namespaces</strong></td>
-      <td colspan="1" rowspan="1">List of Namespace</td>
+      <td colspan="1" rowspan="1">List of <a href="/help/topic/org.obeonetwork.dsl.environment.m2doc.services/doc/pages/m2doc_services_namespace.html">Namespace</a></td>
       <td colspan="1" rowspan="1">{m:useCase.namespaces}</td>
       <td colspan="1" rowspan="1">The list of namespaces.</td>
       <td colspan="1" rowspan="1">{m:for namespace | useCase.namespaces} namespace {m:namespace.name}, {m:endfor}</td>
@@ -183,14 +183,14 @@
   <tbody>
     <tr>
       <td colspan="1" rowspan="1"><strong>allDomainClasses</strong></td>
-      <td colspan="1" rowspan="1">List of DomainClass</td>
+      <td colspan="1" rowspan="1">List of <a href="/help/topic/org.obeonetwork.dsl.graal.m2doc.services/doc/pages/m2doc_services_domainclass.html">DomainClass</a></td>
       <td colspan="1" rowspan="1">{m:myUseCase.allDomainClasses()}</td>
       <td colspan="1" rowspan="1">Return a list containing all domain classes referenced by a use case.</td>
       <td colspan="1" rowspan="1">{m:myUseCase.allDomainClasses()} returns: a list containing all domain classes referenced by a use case.</td>
     </tr>
     <tr>
       <td colspan="1" rowspan="1"><strong>allRelatedRequirements</strong></td>
-      <td colspan="1" rowspan="1">List of Requirement</td>
+      <td colspan="1" rowspan="1">List of <a href="/help/topic/org.obeonetwork.dsl.requirement.m2doc.services/doc/pages/m2doc_services_requirement.html">Requirement</a></td>
       <td colspan="1" rowspan="1">{m:obj.allRelatedRequirements()}</td>
       <td colspan="1" rowspan="1">Returns a list of all the Requirements related to the target object or one of its sub objects. The result is a list with no duplicates sorted against the requirements ids.</td>
       <td colspan="1" rowspan="1">{m:obj.allRelatedRequirements()->sep(',')} returns: A comma separated list of related requirements.</td>
@@ -218,21 +218,21 @@
     </tr>
     <tr>
       <td colspan="1" rowspan="1"><strong>getAnnotations</strong></td>
-      <td colspan="1" rowspan="1">List of Annotation</td>
+      <td colspan="1" rowspan="1">List of <a href="/help/topic/org.obeonetwork.dsl.environment.m2doc.services/doc/pages/m2doc_services_annotation.html">Annotation</a></td>
       <td colspan="1" rowspan="1">{m:flowEvent.getAnnotations()}</td>
       <td colspan="1" rowspan="1">Returns the list of metadata annotations of the target Flow Event.</td>
       <td colspan="1" rowspan="1">{m:flowEvent.getAnnotations().title->sep(',')} returns: A comma separated list of Flow Event's annotation titles.</td>
     </tr>
     <tr>
       <td colspan="1" rowspan="1"><strong>getAnnotations</strong></td>
-      <td colspan="1" rowspan="1">List of Annotation</td>
+      <td colspan="1" rowspan="1">List of <a href="/help/topic/org.obeonetwork.dsl.environment.m2doc.services/doc/pages/m2doc_services_annotation.html">Annotation</a></td>
       <td colspan="1" rowspan="1">{m:myObeoDSMObject.getAnnotations()}</td>
       <td colspan="1" rowspan="1">Returns the list of metadata annotations of the target ObeoDSMObject that are not documentation links.</td>
       <td colspan="1" rowspan="1">{m:myObeoDSMObject.getAnnotations().getDocumentTitle()->sep(',')} returns: A comma separated list of ObeoDSMObject's annotation titles.</td>
     </tr>
     <tr>
       <td colspan="1" rowspan="1"><strong>getDocumentationLinks</strong></td>
-      <td colspan="1" rowspan="1">List of Annotation</td>
+      <td colspan="1" rowspan="1">List of <a href="/help/topic/org.obeonetwork.dsl.environment.m2doc.services/doc/pages/m2doc_services_annotation.html">Annotation</a></td>
       <td colspan="1" rowspan="1">{m:myObeoDSMObject.getDocumentationLinks()}</td>
       <td colspan="1" rowspan="1">Returns the list of metadata annotations of the target ObeoDSMObject that are documentation links.</td>
       <td colspan="1" rowspan="1">{m:myObeoDSMObject.getDocumentationLinks().title->sep(',')} returns: A comma separated list of ObeoDSMObject's annotation titles.</td>
@@ -288,14 +288,14 @@
     </tr>
     <tr>
       <td colspan="1" rowspan="1"><strong>relatedRequirements</strong></td>
-      <td colspan="1" rowspan="1">List of Requirement</td>
+      <td colspan="1" rowspan="1">List of <a href="/help/topic/org.obeonetwork.dsl.requirement.m2doc.services/doc/pages/m2doc_services_requirement.html">Requirement</a></td>
       <td colspan="1" rowspan="1">{m:obj.relatedRequirements()}</td>
       <td colspan="1" rowspan="1">Returns the set of Requirement that are related to the target object.</td>
       <td colspan="1" rowspan="1">{m:obj.relatedRequirements()->sep(',')} returns: A comma separated list of related requirements.</td>
     </tr>
     <tr>
       <td colspan="1" rowspan="1"><strong>relatedRequirementsWithSubtype</strong></td>
-      <td colspan="1" rowspan="1">List of Requirement</td>
+      <td colspan="1" rowspan="1">List of <a href="/help/topic/org.obeonetwork.dsl.requirement.m2doc.services/doc/pages/m2doc_services_requirement.html">Requirement</a></td>
       <td colspan="1" rowspan="1">{m:obj.relatedRequirementsWithSubtype('SUBTYPE')}</td>
       <td colspan="1" rowspan="1">Returns the list of Requirements that reference the target object and that have the specified subtype.</td>
       <td colspan="1" rowspan="1">{m:obj.relatedRequirementsWithSubtype('performance')->sep(',')} returns: A comma separated list of related requirements of performance subtype.</td>

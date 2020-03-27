@@ -16,11 +16,14 @@ import java.lang.reflect.Modifier;
 import java.lang.reflect.Type;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.stream.Collectors;
 
 import org.eclipse.acceleo.query.ast.AstPackage;
 import org.eclipse.emf.common.util.URI;
+import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.resource.ResourceSet;
@@ -116,15 +119,17 @@ public class DocumentationGenerator {
 				.flatMap(a -> a.stream()).filter(m -> isService(m))
 				.sorted((m1, m2) -> m1.getName().compareTo(m2.getName())).collect(Collectors.toList());
 		System.out.println("Found Total Services : " + allServices.size());
-
+		
+		final Map<EClass, String> eClassToHTMLPages = initEClassToHTMLPage(configurations);
+		
 		for (Configuration configuration : configurations) {
 			System.out.println("\n*** " + configuration.metamodelName + " ***");
 			File pluginFolder = new File(configuration.outputPluginParentFolder + configuration.outputPluginName);
 			File documentationFolder = new File(pluginFolder, "doc"); //$NON-NLS-1$
+			File pagesFolder = new File(documentationFolder, "pages"); //$NON-NLS-1$
 			if(!documentationFolder.exists()) {
 				documentationFolder.mkdir();
 			}
-			File pagesFolder = new File(documentationFolder, "pages"); //$NON-NLS-1$
 			if(!pagesFolder.exists()) {
 				pagesFolder.mkdir();
 			}
@@ -196,7 +201,7 @@ public class DocumentationGenerator {
 
 			// Metaclasses
 			for(Class<?> metaClass : allMetaClasses) {
-				StringBuffer metaClassBuffer = html(head(false, computeMetaClassName(metaClass), configuration.outputPluginName), computeMetaClassBody(configuration.metamodelName, configuration.outputPluginName, metaClass, allServices, externalMetaClasses.contains(metaClass)));
+				StringBuffer metaClassBuffer = html(head(false, computeMetaClassName(metaClass), configuration.outputPluginName), computeMetaClassBody(configuration.metamodelName, configuration.outputPluginName, eClassToHTMLPages, metaClass, allServices, externalMetaClasses.contains(metaClass)));
 				File file = new File(pagesFolder, computeHtmlFileName(metaClass));
 				System.out.println("Writing " + file.getAbsolutePath());
 				try (PrintWriter writer = new PrintWriter(file, UTF8);) {
@@ -206,6 +211,27 @@ public class DocumentationGenerator {
 		}
         
         System.out.println("Done writing.");
+	}
+
+	private static Map<EClass, String> initEClassToHTMLPage(List<Configuration> configurations) {
+		final Map<EClass, String> res = new HashMap<>();
+		
+		for (Configuration configuration : configurations) {
+			List<Class<?>> metaClassesImpl = Arrays.asList(configuration.metamodelJavaPackages).stream()
+					.map(p -> ReflectionHelper.getClasses(p)).flatMap(s -> s.stream())
+					.filter(c -> !c.isAnonymousClass() && !c.isMemberClass() && !c.isInterface()
+							&& !Modifier.isAbstract(c.getModifiers())
+							&& OEcoreUtil.getEClass(getMetaInterface(c)) != null)
+					.sorted((c1, c2) -> c1.getSimpleName().compareTo(c2.getSimpleName())).collect(Collectors.toList());
+
+			
+			for (Class<?> metaClassImpl : metaClassesImpl) {
+				final Class<?> cls = getMetaInterface(metaClassImpl);
+				res.put(OEcoreUtil.getEClass(cls), "/help/topic/" + configuration.outputPluginName +"/doc/pages/" +computeHtmlFileName(cls));
+			}
+		}
+		
+		return res;
 	}
 
 	private static boolean isServiceClass(Class<?> cls) {
