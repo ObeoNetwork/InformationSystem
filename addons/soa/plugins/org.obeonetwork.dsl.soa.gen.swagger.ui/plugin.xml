@@ -7,6 +7,10 @@
             id="org.obeonetwork.dsl.soa.gen.swagger.ui.command.GenerateSwagger"
             name="Generate Swagger...">
       </command>
+      <command
+            id="org.obeonetwork.dsl.soa.gen.swagger.ui.command.ImportSwagger"
+            name="Import Swagger...">
+      </command>
    </extension>
    <extension
          point="org.eclipse.ui.menus">
@@ -15,6 +19,14 @@
             locationURI="popup:org.obeonetwork.is.designer.menu?after=additions">
          <command
                commandId="org.obeonetwork.dsl.soa.gen.swagger.ui.command.GenerateSwagger"
+               icon="icons/swagger-logo-16x16.png"
+               style="push">
+            <visibleWhen
+                  checkEnabled="true">
+            </visibleWhen>
+         </command>
+         <command
+               commandId="org.obeonetwork.dsl.soa.gen.swagger.ui.command.ImportSwagger"
                icon="icons/swagger-logo-16x16.png"
                style="push">
             <visibleWhen
@@ -52,6 +64,25 @@
                      </instanceof>
                   </iterate>
                </or>
+            </with>
+         </enabledWhen>
+      </handler>
+      <handler
+            class="org.obeonetwork.dsl.soa.gen.swagger.ui.handlers.ImportSwaggerHandler"
+            commandId="org.obeonetwork.dsl.soa.gen.swagger.ui.command.ImportSwagger">
+         <enabledWhen>
+            <with
+                  variable="selection">
+               <count
+                     value="1">
+               </count>
+               <iterate
+                     ifEmpty="false"
+                     operator="and">
+                  <instanceof
+                        value="org.obeonetwork.dsl.soa.System">
+                  </instanceof>
+               </iterate>
             </with>
          </enabledWhen>
       </handler>

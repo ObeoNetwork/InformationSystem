@@ -50,5 +50,4 @@ public class GenerateSwaggerHandler extends AbstractHandler implements IHandler 
 		return null;
 		
 	}
-
 }

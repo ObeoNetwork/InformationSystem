@@ -20,8 +20,8 @@ import org.eclipse.ui.handlers.HandlerUtil;
 import org.eclipse.ui.internal.browser.WebBrowserEditor;
 import org.eclipse.ui.internal.browser.WebBrowserEditorInput;
 import org.obeonetwork.dsl.soa.Component;
-import org.obeonetwork.dsl.soa.gen.swagger.SwaggerGenerator;
-import org.obeonetwork.dsl.soa.gen.swagger.SwaggerGenerator.MapperType;
+import org.obeonetwork.dsl.soa.gen.swagger.SwaggerExporter;
+import org.obeonetwork.dsl.soa.gen.swagger.SwaggerExporter.MapperType;
 import org.obeonetwork.dsl.soa.gen.swagger.preview.webserver.SwaggerPreviewJettyServer;
 
 import com.google.common.io.Files;
@@ -52,11 +52,11 @@ public class SwaggerPreviewHandler extends AbstractHandler implements IHandler {
 			SwaggerPreviewJettyServer.instance().start();
 			
 			// Generate the swagger in a temporary file
-			String swaggerFileName = SwaggerGenerator.getFileNameForComponent(component, MAPPER_TYPE);
+			String swaggerFileName = SwaggerExporter.getFileNameForComponent(component, MAPPER_TYPE);
 			File swaggerFile = File.createTempFile(Files.getNameWithoutExtension(swaggerFileName), Files.getFileExtension(swaggerFileName));
 			swaggerFile.deleteOnExit();
 			
-			SwaggerGenerator.generateInFile(component, MAPPER_TYPE, swaggerFile);
+			SwaggerExporter.exportInFile(component, MAPPER_TYPE, swaggerFile);
 			
 			// Register the generated file in the SwaggerPreviewJettyServer
 			SwaggerPreviewJettyServer.instance().putSwaggerFile(swaggerFileName, swaggerFile);

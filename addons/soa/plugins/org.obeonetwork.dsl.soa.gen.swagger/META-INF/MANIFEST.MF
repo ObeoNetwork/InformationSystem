@@ -6,10 +6,13 @@ Bundle-Version: 11.0.0.qualifier
 Automatic-Module-Name: org.obeonetwork.dsl.soa.gen.swagger
 Bundle-RequiredExecutionEnvironment: JavaSE-1.8
 Bundle-Vendor: Obeo Network
-Export-Package: org.obeonetwork.dsl.soa.gen.swagger,
+Export-Package: com.fasterxml.jackson.core,
+ com.fasterxml.jackson.databind,
+ org.obeonetwork.dsl.soa.gen.swagger,
  org.obeonetwork.dsl.soa.gen.swagger.utils
 Require-Bundle: org.obeonetwork.dsl.soa,
- org.obeonetwork.dsl.entity
+ org.obeonetwork.dsl.entity,
+ org.obeonetwork.dsl.environment.design.services
 Bundle-ClassPath: .,
  target/jars/commons-lang3-3.7.jar,
  target/jars/jackson-annotations-2.8.8.jar,
@@ -23,3 +26,5 @@ Bundle-ClassPath: .,
  target/jars/swagger-core-2.0.8.jar,
  target/jars/swagger-models-2.0.8.jar,
  target/jars/validation-api-1.1.0.Final.jar
+Bundle-Activator: org.obeonetwork.dsl.soa.gen.swagger.Activator
+Bundle-ActivationPolicy: lazy

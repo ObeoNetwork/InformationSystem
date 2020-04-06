@@ -41,4 +41,17 @@ public class ModelServices {
 		}
 	}
 	
+	public static <T extends EObject> T getContainerOrSelf(EObject eObject, Class<T> type) {
+		EObject container = eObject;
+		T matchingContainer = null;
+		while(container != null && matchingContainer == null) {
+			if(type.isInstance(container)) {
+				matchingContainer = type.cast(container);
+			}
+			container = container.eContainer();
+		}
+
+		return matchingContainer;
+	}
+	
 }

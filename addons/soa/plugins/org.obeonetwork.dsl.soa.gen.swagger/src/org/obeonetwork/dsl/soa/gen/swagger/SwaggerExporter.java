@@ -18,15 +18,15 @@ import io.swagger.v3.core.util.Json;
 import io.swagger.v3.core.util.Yaml;
 import io.swagger.v3.oas.models.OpenAPI;
 
-public class SwaggerGenerator {
+public class SwaggerExporter {
 	
     public enum MapperType {
         YAML, JSON;
     }
 
-	public static void generateInDir(Component component, MapperType mapperType, File outputDir) throws IOException {
+	public static void exportInDir(Component component, MapperType mapperType, File outputDir) throws IOException {
         File outputFile = new File(outputDir, getFileNameForComponent(component, mapperType));
-        generateInFile(component, mapperType, outputFile);
+        exportInFile(component, mapperType, outputFile);
 	}
 	
 	public static String getFileNameForComponent(Component component, MapperType mapperType) {
@@ -42,7 +42,7 @@ public class SwaggerGenerator {
 		return outputFileName.toString();
 	}
 
-	public static void generateInFile(Component component, MapperType mapperType, File outputFile) throws JsonGenerationException, JsonMappingException, IOException {
+	public static void exportInFile(Component component, MapperType mapperType, File outputFile) throws JsonGenerationException, JsonMappingException, IOException {
 		SwaggerBuilder swaggerBuilder = new SwaggerBuilder(component);
 		
         OpenAPI swagger = swaggerBuilder.createOpenAPI();

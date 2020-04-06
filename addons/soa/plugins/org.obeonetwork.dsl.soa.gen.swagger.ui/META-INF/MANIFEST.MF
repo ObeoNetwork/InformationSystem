@@ -15,5 +15,8 @@ Require-Bundle: org.eclipse.ui,
  org.eclipse.core.databinding,
  org.eclipse.core.databinding.property,
  org.eclipse.core.databinding.beans,
- org.eclipse.jface.databinding
+ org.eclipse.jface.databinding,
+ org.obeonetwork.dsl.environment.design.services,
+ org.eclipse.sirius,
+ org.eclipse.emf.transaction
 Import-Package: org.eclipse.jface.databinding.swt

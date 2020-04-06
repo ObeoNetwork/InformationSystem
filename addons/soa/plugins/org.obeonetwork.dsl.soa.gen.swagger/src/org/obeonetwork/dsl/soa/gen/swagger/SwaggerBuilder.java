@@ -1,5 +1,17 @@
 package org.obeonetwork.dsl.soa.gen.swagger;
 
+import static org.obeonetwork.dsl.soa.gen.swagger.OpenApiParserHelper.COMPONENT_SCHEMA_$REF;
+import static org.obeonetwork.dsl.soa.gen.swagger.OpenApiParserHelper.OPEN_API_FORMAT_INT64;
+import static org.obeonetwork.dsl.soa.gen.swagger.OpenApiParserHelper.OPEN_API_IN_BODY;
+import static org.obeonetwork.dsl.soa.gen.swagger.OpenApiParserHelper.OPEN_API_IN_COOKIE;
+import static org.obeonetwork.dsl.soa.gen.swagger.OpenApiParserHelper.OPEN_API_IN_HEADER;
+import static org.obeonetwork.dsl.soa.gen.swagger.OpenApiParserHelper.OPEN_API_IN_PATH;
+import static org.obeonetwork.dsl.soa.gen.swagger.OpenApiParserHelper.OPEN_API_IN_QUERY;
+import static org.obeonetwork.dsl.soa.gen.swagger.OpenApiParserHelper.OPEN_API_TYPE_INTEGER;
+import static org.obeonetwork.dsl.soa.gen.swagger.OpenApiParserHelper.OPEN_API_TYPE_OBJECT;
+import static org.obeonetwork.dsl.soa.gen.swagger.OpenApiParserHelper.OPEN_API_TYPE_STRING;
+import static org.obeonetwork.dsl.soa.gen.swagger.OpenApiParserHelper.QUALIFIED_KEY_SEPARATOR;
+import static org.obeonetwork.dsl.soa.gen.swagger.OpenApiParserHelper.createPrimitiveTypeSchema;
 import static org.obeonetwork.dsl.soa.gen.swagger.utils.StringUtils.emptyIfNull;
 import static org.obeonetwork.dsl.soa.gen.swagger.utils.StringUtils.isNullOrWhite;
 
@@ -13,7 +25,6 @@ import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.obeonetwork.dsl.entity.EntityPackage;
-import org.obeonetwork.dsl.environment.DataType;
 import org.obeonetwork.dsl.environment.Enumeration;
 import org.obeonetwork.dsl.environment.Property;
 import org.obeonetwork.dsl.environment.StructuredType;
@@ -47,32 +58,9 @@ import io.swagger.v3.oas.models.responses.ApiResponse;
 import io.swagger.v3.oas.models.responses.ApiResponses;
 import io.swagger.v3.oas.models.servers.Server;
 
+@SuppressWarnings("unchecked")
 public class SwaggerBuilder {
 
-    private static final String COMPONENT_SCHEMA_$REF = "#/components/schemas/";
-    
-    private static final String OPEN_API_TYPE_OBJECT = "object";
-    private static final String OPEN_API_TYPE_STRING = "string";
-    private static final String OPEN_API_TYPE_NUMBER = "number";
-    private static final String OPEN_API_TYPE_INTEGER = "integer";
-    private static final String OPEN_API_TYPE_BOOLEAN = "boolean";
-    
-    private static final String OPEN_API_FORMAT_BINARY = "binary";
-    private static final String OPEN_API_FORMAT_DATE = "date";
-    private static final String OPEN_API_FORMAT_DOUBLE = "double";
-    private static final String OPEN_API_FORMAT_FLOAT = "float";
-    private static final String OPEN_API_FORMAT_INT32 = "int32";
-    private static final String OPEN_API_FORMAT_INT64 = "int64";
-    private static final String OPEN_API_FORMAT_DATETIME = "date-time";
-    
-    private static final String OPEN_API_IN_BODY = "body";
-    private static final String OPEN_API_IN_COOKIE = "cookie";
-    private static final String OPEN_API_IN_HEADER = "header";
-    private static final String OPEN_API_IN_PATH = "path";
-    private static final String OPEN_API_IN_QUERY = "query";
-    
-    private static final String QUALIFIED_KEY_SEPARATOR = "/";
-    
 	private OpenAPI openApi;
 	
 	private Component soaComponent;
@@ -215,6 +203,13 @@ public class SwaggerBuilder {
     	openApi.getComponents().addSchemas(getSoaTypeKey(soaType), createSchema(soaType));
     }
     
+	private <T> Schema<T> createSchema(String type, String format) {
+    	Schema<T> schema = new Schema<>();
+    	schema.setType(type);
+    	schema.setFormat(format);
+    	return schema;
+    }
+	
 	private Schema<Object> createSchema(Type soaType) {
 		Schema<Object> schema = null;
 		if(soaType instanceof Enumeration) {
@@ -298,7 +293,7 @@ public class SwaggerBuilder {
 		if(soaType instanceof StructuredType || soaType instanceof Enumeration) {
 			schema.set$ref(getType$ref(soaType));
 		} else {
-			schema = createSoaDataTypeSchema((DataType)soaType);
+			schema = createPrimitiveTypeSchema(soaType.getName());
 		}
 		return schema;
 	}
@@ -312,35 +307,6 @@ public class SwaggerBuilder {
 	private String getSoaTypeKey(Type soaType) {
 		return exposedSoaTypeKeys.get(soaType);
 	}
-
-    private static final Map<String, Schema<Object>> dataTypePrototypeSchemas = new HashMap<>();
-    static {
-		dataTypePrototypeSchemas.put("Binary",    createSchema(OPEN_API_TYPE_STRING,  OPEN_API_FORMAT_BINARY));
-    	dataTypePrototypeSchemas.put("Boolean",   createSchema(OPEN_API_TYPE_BOOLEAN, null));
-		dataTypePrototypeSchemas.put("Date",      createSchema(OPEN_API_TYPE_STRING,  OPEN_API_FORMAT_DATE));
-		dataTypePrototypeSchemas.put("Double",    createSchema(OPEN_API_TYPE_NUMBER,  OPEN_API_FORMAT_DOUBLE));
-		dataTypePrototypeSchemas.put("Float",     createSchema(OPEN_API_TYPE_NUMBER,  OPEN_API_FORMAT_FLOAT));
-		dataTypePrototypeSchemas.put("Integer",   createSchema(OPEN_API_TYPE_INTEGER, OPEN_API_FORMAT_INT32));
-		dataTypePrototypeSchemas.put("Long",      createSchema(OPEN_API_TYPE_INTEGER, OPEN_API_FORMAT_INT64));
-    	dataTypePrototypeSchemas.put("String",    createSchema(OPEN_API_TYPE_STRING,  null));
-		dataTypePrototypeSchemas.put("Time",      createSchema(OPEN_API_TYPE_STRING,  OPEN_API_FORMAT_DATETIME));
-    	dataTypePrototypeSchemas.put("Timestamp", createSchema(OPEN_API_TYPE_STRING,  OPEN_API_FORMAT_DATETIME));
-    }
-	private Schema<Object> createSoaDataTypeSchema(DataType soaDataType) {
-		Schema<Object> prototypeSchema = dataTypePrototypeSchemas.get(soaDataType.getName());
-		if(prototypeSchema != null) {
-			return createSchema(prototypeSchema.getType(), prototypeSchema.getFormat());
-		}
-		
-		return null;
-	}
-
-	private static <T> Schema<T> createSchema(String type, String format) {
-    	Schema<T> schema = new Schema<>();
-    	schema.setType(type);
-    	schema.setFormat(format);
-    	return schema;
-    }
 
 	//// Paths ////
 	

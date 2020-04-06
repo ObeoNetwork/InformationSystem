@@ -7,8 +7,8 @@ import java.util.List;
 import org.eclipse.jface.wizard.Wizard;
 import org.obeonetwork.dsl.soa.Component;
 import org.obeonetwork.dsl.soa.System;
-import org.obeonetwork.dsl.soa.gen.swagger.SwaggerGenerator;
-import org.obeonetwork.dsl.soa.gen.swagger.SwaggerGenerator.MapperType;
+import org.obeonetwork.dsl.soa.gen.swagger.SwaggerExporter;
+import org.obeonetwork.dsl.soa.gen.swagger.SwaggerExporter.MapperType;
 
 public class GenerateComponentsSwaggerWizard extends Wizard {
 
@@ -46,7 +46,7 @@ public class GenerateComponentsSwaggerWizard extends Wizard {
 			File outputDir = new File(generateComponentsSwaggerWizardOptionsPage.getOutputDirPath());
 			
 			for(Component component : components) {
-				SwaggerGenerator.generateInDir(component, mapperType, outputDir);
+				SwaggerExporter.exportInDir(component, mapperType, outputDir);
 			}
 		} catch (IOException e) {
 			exitStatus = false;
