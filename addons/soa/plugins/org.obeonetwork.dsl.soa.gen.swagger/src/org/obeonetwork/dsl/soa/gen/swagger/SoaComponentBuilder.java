@@ -2,6 +2,7 @@ package org.obeonetwork.dsl.soa.gen.swagger;
 
 import static java.util.stream.Collectors.joining;
 import static java.util.stream.Collectors.toSet;
+import static java.util.stream.Collectors.toList;
 import static org.obeonetwork.dsl.environment.design.services.ModelServices.getContainerOrSelf;
 import static org.obeonetwork.dsl.soa.gen.swagger.Activator.logError;
 import static org.obeonetwork.dsl.soa.gen.swagger.Activator.logWarning;
@@ -137,6 +138,13 @@ public class SoaComponentBuilder {
 			openApi.getPaths().get(path).readOperationsMap().entrySet().stream()
 			.forEach(operationsMapEntry -> createSoaOperation(path, operationsMapEntry.getKey(), operationsMapEntry.getValue()));
 		}
+		
+		java.lang.System.out.println("Qualified Operations URIs:");
+		for(Service soaService : soaComponent.getProvidedServices()) {
+			for(org.obeonetwork.dsl.soa.Operation soaOperation : soaService.getOwnedInterface().getOwnedOperations()) {
+				java.lang.System.out.println(soaComponent.getURI() + soaService.getURI() + soaOperation.getURI());
+			}
+		}
 	}
 
 	private org.obeonetwork.dsl.soa.Operation createSoaOperation(String path, HttpMethod verb, Operation operation) {
@@ -251,21 +259,25 @@ public class SoaComponentBuilder {
 		
 		soaParameter.setDescription(requestBody.getDescription());
 		
-		Set<Entry<String, MediaType>> contents = requestBody.getContent().entrySet();
-		if(contents.size() > 1) {
-			logWarning("Media Types not supported. Taking the first found to define the request body.");
+		if(requestBody.getContent() != null && !requestBody.getContent().isEmpty()) {
+			Set<Entry<String, MediaType>> contents = requestBody.getContent().entrySet();
+			if(contents.size() > 1) {
+				logWarning("Multiple media types not supported. Taking the first typed one to define the request body.");
+			}
+			Schema schema = contents.stream()
+					.map(c -> c.getValue())
+					.filter(m -> m.getSchema() != null)
+					.map(m -> m.getSchema())
+					.findFirst().orElse(null);
+			
+			if(schema != null) {
+				soaParameter.setMultiplicity(computeMultiplicity(requestBody.getRequired() != null && requestBody.getRequired(), schema));
+				
+				Schema unwrappedSchema = unwrapArraySchema(schema);
+				Type soaParameterType = getOrCreateSoaParameterType(soaOperation, unwrappedSchema, BODY_PARAMETER_NAME);
+				soaParameter.setType(soaParameterType);
+			}
 		}
-		Schema schema = contents.stream()
-				.map(c -> c.getValue())
-				.filter(m -> m.getSchema() != null)
-				.map(m -> m.getSchema())
-				.findFirst().orElse(null);
-		
-		soaParameter.setMultiplicity(computeMultiplicity(requestBody.getRequired() != null && requestBody.getRequired(), schema));
-		
-		Schema unwrappedSchema = unwrapArraySchema(schema);
-		Type soaParameterType = getOrCreateSoaParameterType(soaOperation, unwrappedSchema, BODY_PARAMETER_NAME);
-		soaParameter.setType(soaParameterType);
 		
 		return soaParameter;
 	}
@@ -312,22 +324,26 @@ public class SoaComponentBuilder {
 
 		soaParameter.setDescription(apiResponse.getDescription());
 		
-		Set<Entry<String, MediaType>> contents = apiResponse.getContent().entrySet();
-		if(contents.size() > 1) {
-			logWarning("Media Types not supported. Taking the first found to define the response type.");
+		if(apiResponse.getContent() != null && !apiResponse.getContent().isEmpty()) {
+			Set<Entry<String, MediaType>> contents = apiResponse.getContent().entrySet();
+			if(contents.size() > 1) {
+				logWarning("Multiple media types not supported. Taking the first typed one to define the response type.");
+			}
+			Schema schema = contents.stream()
+					.map(c -> c.getValue())
+					.filter(m -> m.getSchema() != null)
+					.map(m -> m.getSchema())
+					.findFirst().orElse(null);
+			
+			if(schema != null) {
+				soaParameter.setMultiplicity(computeMultiplicity(false, schema));
+				
+				Schema unwrappedSchema = unwrapArraySchema(schema);
+				
+				Type soaParameterType = getOrCreateSoaParameterType(soaOperation, unwrappedSchema, parameterName);
+				soaParameter.setType(soaParameterType);
+			}
 		}
-		Schema schema = contents.stream()
-				.map(c -> c.getValue())
-				.filter(m -> m.getSchema() != null)
-				.map(m -> m.getSchema())
-				.findFirst().orElse(null);
-		
-		soaParameter.setMultiplicity(computeMultiplicity(false, schema));
-		
-		Schema unwrappedSchema = unwrapArraySchema(schema);
-		
-		Type soaParameterType = getOrCreateSoaParameterType(soaOperation, unwrappedSchema, parameterName);
-		soaParameter.setType(soaParameterType);
 		
 		return soaParameter;
 	}
@@ -372,6 +388,7 @@ public class SoaComponentBuilder {
 		
 		// If if the root is not unique, create a new root with an empty segment name
 		if(pathSegmentRoot.size() > 1) {
+			java.lang.System.out.println("No unique path root found. Empty root added.");
 			Map<String, Map> pathSegmentSubRoot = new HashMap<String, Map>();
 			pathSegmentSubRoot.put("", pathSegmentRoot);
 			pathSegmentRoot = pathSegmentSubRoot;
@@ -379,36 +396,62 @@ public class SoaComponentBuilder {
 		
 		// Now that the tree structure is built, extract the component uri out of it
 		// by following the path starting at the root and ending when it splits.
-		String componentUri = "";
+		String longestComponentUri = "";
 		pathSegmentNodePointer = pathSegmentRoot;
 		while(pathSegmentNodePointer.size() == 1) {
 			String segment = pathSegmentNodePointer.keySet().iterator().next();
 			if(!segment.isEmpty()) {
-				componentUri = componentUri + QUALIFIED_KEY_SEPARATOR + segment;
+				longestComponentUri = longestComponentUri + QUALIFIED_KEY_SEPARATOR + segment;
 			}
 			pathSegmentNodePointer = pathSegmentNodePointer.values().iterator().next();
 		}
-		// Note : pathSegmentNodePointer now points on the node having several children
+		
+		java.lang.System.out.println("Longest Component URI match:");
+		soaComponent.setURI(longestComponentUri);
+		
+		String shortestComponentUri = longestComponentUri;
+		for(String path : openApi.getPaths().keySet()) {
+			if(shortestComponentUri.startsWith(path) && path.length() <= shortestComponentUri.length()) {
+				shortestComponentUri = path;
+			}
+		}
 		
 		java.lang.System.out.println("Component URI:");
-		soaComponent.setURI(componentUri);
-		java.lang.System.out.println(componentUri);
+		soaComponent.setURI(shortestComponentUri);
+		java.lang.System.out.println(shortestComponentUri);
+		
+		// Make pathSegmentNodePointer coherent with shortestComponentUri
+		pathSegmentNodePointer = pathSegmentRoot;
+		for(String segment : Arrays.asList(shortestComponentUri.split(QUALIFIED_KEY_SEPARATOR))) {
+			if(pathSegmentNodePointer.get(segment) != null) {
+				pathSegmentNodePointer = pathSegmentNodePointer.get(segment);
+			}
+		}
 		
 		// For each of the following path, repeat the process of finding the paths 
 		// until they split again.
 		// Each of such path constitues the service URIs.
 		java.lang.System.out.println("Services URIs:");
 		for(String serviceSegment : pathSegmentNodePointer.keySet()) {
-			String serviceUri = QUALIFIED_KEY_SEPARATOR + serviceSegment;
+			String longestServiceUri = QUALIFIED_KEY_SEPARATOR + serviceSegment;
 			Map<String, Map> serviceSegmentNode = pathSegmentNodePointer.get(serviceSegment);
 			while(serviceSegmentNode.size() == 1) {
 				Entry<String, Map> entry = serviceSegmentNode.entrySet().iterator().next();
-				serviceUri = serviceUri + QUALIFIED_KEY_SEPARATOR + entry.getKey();
+				longestServiceUri = longestServiceUri + QUALIFIED_KEY_SEPARATOR + entry.getKey();
 				serviceSegmentNode = entry.getValue();
 			}
-			java.lang.System.out.println("\t" + serviceUri);
+			
+			String shortestServiceUri = longestServiceUri;
+			for(String path : openApi.getPaths().keySet()) {
+				if((shortestComponentUri + shortestServiceUri).startsWith(path) && 
+						path.length() <= shortestComponentUri.length() + shortestServiceUri.length()) {
+					shortestServiceUri = path.substring(shortestComponentUri.length());
+				}
+			}
+			
+			java.lang.System.out.println("\t" + shortestServiceUri);
 			Service soaService =  SoaFactory.eINSTANCE.createService();
-			soaService.setURI(serviceUri);
+			soaService.setURI(shortestServiceUri);
 			soaService.setKind(InterfaceKind.PROVIDED_LITERAL);
 			soaComponent.getOwnedServices().add(soaService);
 		}
