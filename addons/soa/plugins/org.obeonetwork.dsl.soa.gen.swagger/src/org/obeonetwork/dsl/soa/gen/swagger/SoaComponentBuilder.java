@@ -40,6 +40,7 @@ import org.obeonetwork.dsl.environment.Reference;
 import org.obeonetwork.dsl.environment.StructuredType;
 import org.obeonetwork.dsl.environment.Type;
 import org.obeonetwork.dsl.soa.Component;
+import org.obeonetwork.dsl.soa.ExpositionKind;
 import org.obeonetwork.dsl.soa.Interface;
 import org.obeonetwork.dsl.soa.InterfaceKind;
 import org.obeonetwork.dsl.soa.ParameterPassingMode;
@@ -108,11 +109,11 @@ public class SoaComponentBuilder {
 		// ? info.getLicense();
 
 		List<Server> servers = openApi.getServers();
-		if(servers.size() > 1) {
+		if(servers != null && servers.size() > 1) {
 			logWarning("Multiple servers not supported.");
 		}
 		
-		if(!servers.isEmpty()) {
+		if(servers != null && !servers.isEmpty()) {
 			Server server = servers.get(0);
 			soaComponent.setURI(server.getUrl());
 		}
@@ -154,6 +155,9 @@ public class SoaComponentBuilder {
 		org.obeonetwork.dsl.soa.Operation soaOperation = SoaFactory.eINSTANCE.createOperation();
 		soaInterface.getOwnedOperations().add(soaOperation);
 		
+		soaOperation.setPublic(true);
+		soaOperation.setExposition(ExpositionKind.REST);
+		
 		String soaOperationUri = path.substring((soaComponent.getURI() + soaService.getURI()).length());
 		soaOperation.setURI(soaOperationUri);
 		
@@ -180,7 +184,9 @@ public class SoaComponentBuilder {
 		
 		if(operation.getParameters() != null) {
 			for(Parameter parameter : operation.getParameters()) {
-				createSoaInputParameter(soaOperation, parameter);
+				if(parameter != null) {
+					createSoaInputParameter(soaOperation, parameter);
+				}
 			}
 		}
 		
@@ -232,9 +238,10 @@ public class SoaComponentBuilder {
 		}
 		
 		Schema schema = unwrapArraySchema(parameter.getSchema());
-		
-		Type soaParameterType = getOrCreateSoaParameterType(soaOperation, schema, parameter.getName());
-		soaParameter.setType(soaParameterType);
+		if(schema != null) {
+			Type soaParameterType = getOrCreateSoaParameterType(soaOperation, schema, parameter.getName());
+			soaParameter.setType(soaParameterType);
+		}
 		
 		return soaParameter;
 	}
@@ -287,6 +294,8 @@ public class SoaComponentBuilder {
 		
 		if(schema.get$ref() != null) {
 			soaParameterType = getExposedTypeFrom$ref(schema.get$ref());
+		} else if(isPrimitiveType(schema)) {
+			soaParameterType = getPrimitiveType(schema);
 		} else {
 			Namespace namespace = getOrCreateNamespaceForInlineTypes(soaOperation);
 			String typeName = computeTypeNameFromParameterName(parameterName);
@@ -298,8 +307,6 @@ public class SoaComponentBuilder {
 				DTO dto = touchDto(namespace, typeName);
 				updateDto(dto, schema);
 				soaParameterType = dto;
-			} else if(isPrimitiveType(schema)) {
-				soaParameterType = getPrimitiveType(schema);
 			} 
 		}
 		
@@ -482,11 +489,12 @@ public class SoaComponentBuilder {
 				.map(s -> upperFirst(s))
 				.collect(joining());
 	}
-	//// Components ////
 	
 	private void createSoaExposedTypes() {
-		openApi.getComponents().getSchemas().forEach((key, schema) -> touchExposedType(key, schema));
-		openApi.getComponents().getSchemas().forEach((key, schema) -> updateExposedType(getExposedTypeFromKey(key), schema));
+		if(openApi.getComponents() != null) {
+			openApi.getComponents().getSchemas().forEach((key, schema) -> touchExposedType(key, schema));
+			openApi.getComponents().getSchemas().forEach((key, schema) -> updateExposedType(getExposedTypeFromKey(key), schema));
+		}
 	}
 
 	private Type touchExposedType(String key, Schema schema) {
@@ -524,25 +532,7 @@ public class SoaComponentBuilder {
 		return touchEnumeration(namespace, enumerationName);
 	}
 
-	private Namespace getOrCreateNamespaceFromComponentKey(String key) {
-		Namespace namespace = getOrCreateRootNamespace();
-		List<String> segments = new LinkedList<>(Arrays.asList(key.split(QUALIFIED_KEY_SEPARATOR)));
-		segments.remove(segments.size() - 1);
-		for (String segment : segments) {
-			namespace = getOrCreateOwnedNamespace(namespace, segment);
-		}
-		return namespace;
-	}
-
-	private Namespace getOrCreateRootNamespace() {
-		return getOrCreateOwnedNamespace(soaSystem, soaComponent.getName());
-	}
-	
-	private Namespace getRootNamespace() {
-		return NamespaceGenUtil.getNamespaceByName(soaSystem, soaComponent.getName());
-	}
-	
-	private Namespace getOrCreateOwnedNamespace(Namespace namespace, String name) {
+	private Namespace getOrCreateNamespace(Namespace namespace, String name) {
 		
 		Namespace ownedNamespace = NamespaceGenUtil.getNamespaceByName(namespace, name);
 		
@@ -553,6 +543,47 @@ public class SoaComponentBuilder {
 		}
 		
 		return ownedNamespace;
+	}
+
+	private Namespace getOrCreateRootNamespace() {
+		return getOrCreateNamespace(soaSystem, soaComponent.getName());
+	}
+	
+	private Namespace getOrCreateServicesNamespace() {
+		Namespace rootNamespace = getOrCreateRootNamespace(); 
+		Namespace servicesNamespace = getOrCreateNamespace(rootNamespace, "services");
+		return servicesNamespace;
+	}
+	
+	private Namespace getOrCreateTypesNamespace() {
+		Namespace rootNamespace = getOrCreateRootNamespace(); 
+		Namespace typesNamespace = getOrCreateNamespace(rootNamespace, "types");
+		return typesNamespace;
+	}
+	
+	private Namespace getOrCreateNamespaceFromComponentKey(String key) {
+		Namespace namespace = getOrCreateTypesNamespace();
+		List<String> segments = new LinkedList<>(Arrays.asList(key.split(QUALIFIED_KEY_SEPARATOR)));
+		segments.remove(segments.size() - 1);
+		for (String segment : segments) {
+			namespace = getOrCreateNamespace(namespace, segment);
+		}
+		return namespace;
+	}
+
+	private Namespace getOrCreateNamespaceForInlineTypes(org.obeonetwork.dsl.soa.Operation soaOperation) {
+		Namespace servicesNamespace = getOrCreateServicesNamespace();
+		Namespace serviceNamespace = getOrCreateNamespace(servicesNamespace, getContainerOrSelf(soaOperation, Service.class).getName());
+		Namespace operationNamespace = getOrCreateNamespace(serviceNamespace, soaOperation.getName());
+		
+		return operationNamespace;
+	}
+	
+	private Namespace getOrCreateNamespaceForInlineTypes(StructuredType type) {
+		Namespace container = getContainerOrSelf(type, Namespace.class);
+		String inlineTypesNamespaceName = type.getName();
+		
+		return getOrCreateNamespace(container, inlineTypesNamespaceName);
 	}
 
 	private int computeSoaType(Schema schema) {
@@ -861,30 +892,6 @@ public class SoaComponentBuilder {
 		return attribute;
 	}
 
-	private Namespace getOrCreateNamespaceForInlineTypes(org.obeonetwork.dsl.soa.Operation soaOperation) {
-		Namespace rootNamespace = getOrCreateRootNamespace();
-		Namespace serviceNamespace = getOrCreateOwnedNamespace(rootNamespace, getContainerOrSelf(soaOperation, Service.class).getName());
-		Namespace operationNamespace = getOrCreateOwnedNamespace(serviceNamespace, soaOperation.getName());
-		
-		return operationNamespace;
-	}
-	
-	private Namespace getOrCreateNamespaceForInlineTypes(StructuredType type) {
-		Namespace inlineTypesNamespace = null;
-		
-		String inlineTypesNamespaceName = type.getName();
-		NamespacesContainer container = getContainerOrSelf(type, NamespacesContainer.class);
-		
-		if(container instanceof Namespace && inlineTypesNamespaceName.equals(((Namespace) container).getName())) {
-			inlineTypesNamespace = (Namespace) container;
-		} else {
-			inlineTypesNamespace = EnvironmentFactory.eINSTANCE.createNamespace();
-			container.getOwnedNamespaces().add(inlineTypesNamespace);
-			inlineTypesNamespace.setName(inlineTypesNamespaceName);
-		}
-		return inlineTypesNamespace;
-	}
-
 	private Enumeration touchEnumeration(Namespace namespace, String enumertionName) {
 		Enumeration soaEnumeration = EnvironmentFactory.eINSTANCE.createEnumeration();
 		namespace.getTypes().add(soaEnumeration);
@@ -956,7 +963,7 @@ public class SoaComponentBuilder {
 	}
 	
 	private Type getExposedTypeFromKey(String key) {
-		Namespace namespace = getRootNamespace();
+		Namespace namespace = getOrCreateTypesNamespace();
 		List<String> segments = new LinkedList<>(Arrays.asList(key.split(QUALIFIED_KEY_SEPARATOR)));
 		String typeName = segments.remove(segments.size() - 1);
 		
