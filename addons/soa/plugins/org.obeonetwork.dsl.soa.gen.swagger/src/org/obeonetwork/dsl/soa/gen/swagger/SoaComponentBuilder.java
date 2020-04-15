@@ -2,12 +2,10 @@ package org.obeonetwork.dsl.soa.gen.swagger;
 
 import static java.util.stream.Collectors.joining;
 import static java.util.stream.Collectors.toSet;
-import static java.util.stream.Collectors.toList;
 import static org.obeonetwork.dsl.environment.design.services.ModelServices.getContainerOrSelf;
 import static org.obeonetwork.dsl.soa.gen.swagger.Activator.logError;
 import static org.obeonetwork.dsl.soa.gen.swagger.Activator.logWarning;
 import static org.obeonetwork.dsl.soa.gen.swagger.OpenApiParserHelper.COMPONENT_SCHEMA_$REF;
-import static org.obeonetwork.dsl.soa.gen.swagger.OpenApiParserHelper.QUALIFIED_KEY_SEPARATOR;
 import static org.obeonetwork.dsl.soa.gen.swagger.OpenApiParserHelper.getPrimitiveTypeName;
 import static org.obeonetwork.dsl.soa.gen.swagger.OpenApiParserHelper.isEnum;
 import static org.obeonetwork.dsl.soa.gen.swagger.OpenApiParserHelper.isObject;
@@ -34,7 +32,6 @@ import org.obeonetwork.dsl.environment.EnvironmentPackage;
 import org.obeonetwork.dsl.environment.Literal;
 import org.obeonetwork.dsl.environment.MultiplicityKind;
 import org.obeonetwork.dsl.environment.Namespace;
-import org.obeonetwork.dsl.environment.NamespacesContainer;
 import org.obeonetwork.dsl.environment.Property;
 import org.obeonetwork.dsl.environment.Reference;
 import org.obeonetwork.dsl.environment.StructuredType;
@@ -74,6 +71,8 @@ public class SoaComponentBuilder {
 	
 	private static final String DEFAULT_FOR_UNNAMED = "unnamed";
 	private static final String BODY_PARAMETER_NAME = "body";
+	
+	private static final String QUALIFIED_PATH_SEPARATOR = "/";
 	
 	private OpenAPI openApi;
 	private Environment environment;
@@ -381,7 +380,7 @@ public class SoaComponentBuilder {
 		for(String path : openApi.getPaths().keySet()) {
 			java.lang.System.out.println(path);
 			pathSegmentNodePointer = pathSegmentRoot;
-			for(String segment : Arrays.asList(path.split(QUALIFIED_KEY_SEPARATOR))) {
+			for(String segment : Arrays.asList(path.split(QUALIFIED_PATH_SEPARATOR))) {
 				if(!segment.isEmpty()) {
 					Map<String, Map> pathSegmentSubNode = pathSegmentNodePointer.get(segment);
 					if(pathSegmentSubNode == null) {
@@ -408,7 +407,7 @@ public class SoaComponentBuilder {
 		while(pathSegmentNodePointer.size() == 1) {
 			String segment = pathSegmentNodePointer.keySet().iterator().next();
 			if(!segment.isEmpty()) {
-				longestComponentUri = longestComponentUri + QUALIFIED_KEY_SEPARATOR + segment;
+				longestComponentUri = longestComponentUri + QUALIFIED_PATH_SEPARATOR + segment;
 			}
 			pathSegmentNodePointer = pathSegmentNodePointer.values().iterator().next();
 		}
@@ -429,7 +428,7 @@ public class SoaComponentBuilder {
 		
 		// Make pathSegmentNodePointer coherent with shortestComponentUri
 		pathSegmentNodePointer = pathSegmentRoot;
-		for(String segment : Arrays.asList(shortestComponentUri.split(QUALIFIED_KEY_SEPARATOR))) {
+		for(String segment : Arrays.asList(shortestComponentUri.split(QUALIFIED_PATH_SEPARATOR))) {
 			if(pathSegmentNodePointer.get(segment) != null) {
 				pathSegmentNodePointer = pathSegmentNodePointer.get(segment);
 			}
@@ -440,11 +439,11 @@ public class SoaComponentBuilder {
 		// Each of such path constitues the service URIs.
 		java.lang.System.out.println("Services URIs:");
 		for(String serviceSegment : pathSegmentNodePointer.keySet()) {
-			String longestServiceUri = QUALIFIED_KEY_SEPARATOR + serviceSegment;
+			String longestServiceUri = QUALIFIED_PATH_SEPARATOR + serviceSegment;
 			Map<String, Map> serviceSegmentNode = pathSegmentNodePointer.get(serviceSegment);
 			while(serviceSegmentNode.size() == 1) {
 				Entry<String, Map> entry = serviceSegmentNode.entrySet().iterator().next();
-				longestServiceUri = longestServiceUri + QUALIFIED_KEY_SEPARATOR + entry.getKey();
+				longestServiceUri = longestServiceUri + QUALIFIED_PATH_SEPARATOR + entry.getKey();
 				serviceSegmentNode = entry.getValue();
 			}
 			
@@ -485,7 +484,7 @@ public class SoaComponentBuilder {
 	}
 
 	private String camelCaseFromUri(String uri) {
-		return Arrays.asList(uri.split(QUALIFIED_KEY_SEPARATOR)).stream()
+		return Arrays.asList(uri.split(QUALIFIED_PATH_SEPARATOR)).stream()
 				.map(s -> upperFirst(s))
 				.collect(joining());
 	}
@@ -522,7 +521,7 @@ public class SoaComponentBuilder {
 	}
 
 	private String computeExposedTypeNameFromKey(String key) {
-		String[] segments = key.split(QUALIFIED_KEY_SEPARATOR);
+		String[] segments = key.split(QUALIFIED_PATH_SEPARATOR);
 		return  segments[segments.length - 1];
 	}
 
@@ -563,7 +562,7 @@ public class SoaComponentBuilder {
 	
 	private Namespace getOrCreateNamespaceFromComponentKey(String key) {
 		Namespace namespace = getOrCreateTypesNamespace();
-		List<String> segments = new LinkedList<>(Arrays.asList(key.split(QUALIFIED_KEY_SEPARATOR)));
+		List<String> segments = new LinkedList<>(Arrays.asList(key.split(QUALIFIED_PATH_SEPARATOR)));
 		segments.remove(segments.size() - 1);
 		for (String segment : segments) {
 			namespace = getOrCreateNamespace(namespace, segment);
@@ -964,7 +963,7 @@ public class SoaComponentBuilder {
 	
 	private Type getExposedTypeFromKey(String key) {
 		Namespace namespace = getOrCreateTypesNamespace();
-		List<String> segments = new LinkedList<>(Arrays.asList(key.split(QUALIFIED_KEY_SEPARATOR)));
+		List<String> segments = new LinkedList<>(Arrays.asList(key.split(QUALIFIED_PATH_SEPARATOR)));
 		String typeName = segments.remove(segments.size() - 1);
 		
 		Iterator<String> i = segments.iterator();

@@ -33,8 +33,6 @@ public class OpenApiParserHelper {
 	public static final String OPEN_API_IN_PATH = "path";
 	public static final String OPEN_API_IN_QUERY = "query";
     
-	public static final String QUALIFIED_KEY_SEPARATOR = "/";
-    
     private static final Map<String, Schema> dataTypePrototypeSchemas = new HashMap<>();
     static {
 		dataTypePrototypeSchemas.put("Binary",    createSchema(OPEN_API_TYPE_STRING,  OPEN_API_FORMAT_BINARY));

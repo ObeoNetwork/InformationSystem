@@ -1,5 +1,7 @@
 package org.obeonetwork.dsl.soa.gen.swagger;
 
+import static org.obeonetwork.dsl.environment.design.services.ModelServices.getContainerOrSelf;
+import static org.obeonetwork.dsl.soa.gen.swagger.Activator.logError;
 import static org.obeonetwork.dsl.soa.gen.swagger.OpenApiParserHelper.COMPONENT_SCHEMA_$REF;
 import static org.obeonetwork.dsl.soa.gen.swagger.OpenApiParserHelper.OPEN_API_FORMAT_INT64;
 import static org.obeonetwork.dsl.soa.gen.swagger.OpenApiParserHelper.OPEN_API_IN_BODY;
@@ -10,7 +12,6 @@ import static org.obeonetwork.dsl.soa.gen.swagger.OpenApiParserHelper.OPEN_API_I
 import static org.obeonetwork.dsl.soa.gen.swagger.OpenApiParserHelper.OPEN_API_TYPE_INTEGER;
 import static org.obeonetwork.dsl.soa.gen.swagger.OpenApiParserHelper.OPEN_API_TYPE_OBJECT;
 import static org.obeonetwork.dsl.soa.gen.swagger.OpenApiParserHelper.OPEN_API_TYPE_STRING;
-import static org.obeonetwork.dsl.soa.gen.swagger.OpenApiParserHelper.QUALIFIED_KEY_SEPARATOR;
 import static org.obeonetwork.dsl.soa.gen.swagger.OpenApiParserHelper.createPrimitiveTypeSchema;
 import static org.obeonetwork.dsl.soa.gen.swagger.utils.StringUtils.emptyIfNull;
 import static org.obeonetwork.dsl.soa.gen.swagger.utils.StringUtils.isNullOrWhite;
@@ -26,6 +27,7 @@ import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.obeonetwork.dsl.entity.EntityPackage;
 import org.obeonetwork.dsl.environment.Enumeration;
+import org.obeonetwork.dsl.environment.Namespace;
 import org.obeonetwork.dsl.environment.Property;
 import org.obeonetwork.dsl.environment.StructuredType;
 import org.obeonetwork.dsl.environment.Type;
@@ -61,12 +63,16 @@ import io.swagger.v3.oas.models.servers.Server;
 @SuppressWarnings("unchecked")
 public class SwaggerBuilder {
 
+	private static final String QUALIFIED_TYPE_NAME_SEPARATOR = "_";
+
 	private OpenAPI openApi;
 	
 	private Component soaComponent;
 	
 	private Collection<Type> exposedSoaTypes = null;
 	private Map<Type, String> exposedSoaTypeKeys = null;
+
+	private boolean computeShortestKey = false;
 
 	public SwaggerBuilder(Component soaComponent) {
 		this.soaComponent = soaComponent;
@@ -110,13 +116,19 @@ public class SwaggerBuilder {
         	// Handle multiple servers
     	}
     	List<Server> servers = new ArrayList<>();
-    	servers.add(createDefaultServer());
+    	Server defaultServer = createDefaultServer();
+    	if(defaultServer != null) {
+    		servers.add(defaultServer);
+    	}
     	return servers;
 	}
 
 	private Server createDefaultServer() {
-    	Server server = new Server();
-    	server.setUrl(emptyIfNull(soaComponent.getURL()));
+    	Server server = null;
+    	if(!isNullOrWhite(soaComponent.getURL())) {
+    		server = new Server();
+        	server.setUrl(soaComponent.getURL().trim());
+    	}
     	return server;
 	}
 
@@ -129,19 +141,47 @@ public class SwaggerBuilder {
     	
     	// Compute the exposedSoaTypes keys
     	Map<String, Type> keyReferential = new HashMap<>();
-    	for(Type soaType : exposedSoaTypes) {
-    		String key = computeSoaTypeKey(soaType, "");
+    	if(computeShortestKey ) {
+        	for(Type soaType : exposedSoaTypes) {
+        		String key = computeSoaTypeKey(soaType, "");
+        		
+        		// While computed key is already in use
+        		while(keyReferential.get(key) != null) {
+        			// Compute a longer key for both objects matching the key
+        			Type otherType = keyReferential.remove(key);
+        			String otherKey = computeSoaTypeKey(otherType, key);
+        			keyReferential.put(otherKey, otherType);
+        			
+        			key = computeSoaTypeKey(soaType, key);
+        		}
+        		keyReferential.put(key, soaType);
+        	}
+    	} else {
+    		List<String> keys = new ArrayList<>();
+        	for(Type soaType : exposedSoaTypes) {
+        		keys.add(computeSoaTypeLongKey(soaType));
+        	}
+        	
+        	int index = 0;
+        	if(!keys.isEmpty() && ! keys.get(0).isEmpty()) {
+            	boolean isCharAtIndexCommon = true;
+            	while(isCharAtIndexCommon && index < keys.get(0).length()) {
+                	char charAtIndex = keys.get(0).charAt(index);
+                	int keyIndex = 1;
+                	while(isCharAtIndexCommon && keyIndex < keys.size()) {
+                		isCharAtIndexCommon = isCharAtIndexCommon && index < keys.get(keyIndex).length() && keys.get(keyIndex).charAt(index) == charAtIndex;
+                		keyIndex++;
+                	}
+                	if(isCharAtIndexCommon) {
+                		index++;
+                	}
+            	}
+        	}
+        	
+        	for(Type soaType : exposedSoaTypes) {
+        		keyReferential.put(computeSoaTypeLongKey(soaType).substring(index), soaType);
+        	}
     		
-    		// While computed key is already in use
-    		while(keyReferential.get(key) != null) {
-    			// Compute a longer key for both objects matching the key
-    			Type otherType = keyReferential.remove(key);
-    			String otherKey = computeSoaTypeKey(otherType, key);
-    			keyReferential.put(otherKey, otherType);
-    			
-    			key = computeSoaTypeKey(soaType, key);
-    		}
-    		keyReferential.put(key, soaType);
     	}
     	
     	exposedSoaTypeKeys = new HashMap<>();
@@ -152,11 +192,23 @@ public class SwaggerBuilder {
     	
     }
 	
+	private String computeSoaTypeLongKey(Type soaType) {
+		StringBuffer computedKey = new StringBuffer(soaType.getName());
+		Namespace namespace = getContainerOrSelf(soaType, Namespace.class);
+		while(namespace != null) {
+			computedKey.insert(0, QUALIFIED_TYPE_NAME_SEPARATOR);
+			computedKey.insert(0, namespace.getName());
+			namespace = getContainerOrSelf(namespace.eContainer(), Namespace.class);
+		}
+		
+		return computedKey.toString();
+	}
+
 	private String computeSoaTypeKey(Type soaType, String key) {
 		StringBuffer computedKey = new StringBuffer(asQNSegment(soaType));
 		Object parent = getQNParent(soaType);
 		while(computedKey.length() <= key.length() && parent != null) {
-			computedKey.insert(0, QUALIFIED_KEY_SEPARATOR);
+			computedKey.insert(0, QUALIFIED_TYPE_NAME_SEPARATOR);
 			computedKey.insert(0, asQNSegment(parent));
 			parent = getQNParent(parent);
 		}
@@ -289,11 +341,19 @@ public class SwaggerBuilder {
 	}
 
 	private Schema<Object> createTypeUseSchema(Type soaType) {
-    	Schema<Object> schema = new Schema<>();
-		if(soaType instanceof StructuredType || soaType instanceof Enumeration) {
+    	Schema<Object> schema = null;
+    	if(soaType == null) {
+    		schema = new Schema<>();
+    	} else if(soaType instanceof StructuredType || soaType instanceof Enumeration) {
+    		schema = new Schema<>();
 			schema.set$ref(getType$ref(soaType));
 		} else {
 			schema = createPrimitiveTypeSchema(soaType.getName());
+		}
+    	
+		if(schema == null) {
+			logError(String.format("Unsupported type : %s.", soaType.getName()));
+			schema = new Schema<>();
 		}
 		return schema;
 	}

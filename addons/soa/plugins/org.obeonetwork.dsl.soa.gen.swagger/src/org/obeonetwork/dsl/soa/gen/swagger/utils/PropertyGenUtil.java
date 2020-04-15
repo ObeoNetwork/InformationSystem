@@ -27,8 +27,7 @@ public class PropertyGenUtil {
 		Type propertyType = null;
 		if(property instanceof Attribute) {
 			propertyType = ((Attribute) property).getType();
-		}
-		if(property instanceof Reference) {
+		} else if(property instanceof Reference) {
 			propertyType = ((Reference) property).getReferencedType();
 		}
 		return propertyType;
