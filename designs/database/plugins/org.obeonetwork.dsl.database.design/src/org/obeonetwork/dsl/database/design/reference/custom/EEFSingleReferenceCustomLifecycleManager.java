@@ -10,12 +10,16 @@
  *******************************************************************************/
 package org.obeonetwork.dsl.database.design.reference.custom;
 
+import java.util.Collection;
+
 import org.eclipse.eef.common.ui.api.IEEFFormContainer;
 import org.eclipse.eef.core.api.EditingContextAdapter;
 import org.eclipse.eef.ide.ui.api.widgets.IEEFLifecycleManager;
 import org.eclipse.eef.ide.ui.ext.widgets.reference.internal.EEFExtSingleReferenceLifecycleManager;
+import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EReference;
+import org.eclipse.jface.window.Window;
 import org.eclipse.jface.wizard.IWizard;
 import org.eclipse.jface.wizard.WizardDialog;
 import org.eclipse.sirius.common.interpreter.api.IInterpreter;
@@ -67,9 +71,16 @@ public class EEFSingleReferenceCustomLifecycleManager extends EEFExtSingleRefere
 		if (this.customDescription.hasBrowseButtonOperation()) {
 			this.customDescription.executeBrowseButtonOperation();
 		} else {
-			IWizard wizard = new CustomEEFExtEObjectSelectionWizard(this.target, this.eReference, this.editingContextAdapter);
+			CustomEEFExtEObjectSelectionWizard wizard = new CustomEEFExtEObjectSelectionWizard(this.target, this.eReference, this.editingContextAdapter);
 			WizardDialog wizardDialog = new WizardDialog(this.label.getShell(), wizard);
-			wizardDialog.open();
+			if (Window.OK == wizardDialog.open()) {
+				EList<?> result = wizard.getResult();
+				if (result != null && !result.isEmpty()) {
+					// single value
+					Object newValue = result.get(0);
+					this.target.eSet(this.eReference, newValue);
+				}						
+			}
 		}
 	}
 }

@@ -49,4 +49,9 @@ public class CustomEEFExtEObjectSelectionWizard extends EEFExtEObjectSelectionWi
 		}
 		return result;
 	}
+	
+	@Override
+	public boolean performFinish() {
+		return true;
+	}
 }
