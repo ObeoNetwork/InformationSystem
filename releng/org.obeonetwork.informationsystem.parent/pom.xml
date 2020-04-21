@@ -353,6 +353,15 @@
 
 	<repositories>
 		<repository>
+		    <id>central</id>
+		    <name>Central Repository</name>
+		    <url>https://repo.maven.apache.org/maven2</url>
+		    <layout>default</layout>
+		    <snapshots>
+				<enabled>false</enabled>
+		    </snapshots>
+		</repository>
+		<repository>
 			<id>od</id>
 			<layout>p2</layout>
 			<url>${od-site}</url>
@@ -395,6 +404,18 @@
 	</repositories>
 
 	<pluginRepositories>
+	    <pluginRepository>
+			<id>central</id>
+			<name>Central Repository</name>
+			<url>https://repo.maven.apache.org/maven2</url>
+			<layout>default</layout>
+			<snapshots>
+				<enabled>false</enabled>
+			</snapshots>
+			<releases>
+				<updatePolicy>never</updatePolicy>
+			</releases>
+	    </pluginRepository>
 		<pluginRepository>
 			<id>Eclipse - Acceleo Snapshots</id>
 			<url>https://repo.eclipse.org/content/repositories/acceleo-snapshots</url>
