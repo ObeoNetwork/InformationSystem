@@ -217,9 +217,13 @@ public class DataBaseServices {
 
         @Override
         public String caseTable(Table object) {
-            tables.add(object);
-            for (ForeignKey key : object.getForeignKeys()) {
-                doSwitch(key.getTarget());
+            // SAFRAN-832 : check if the table has already been handled
+            // this is to avoid StackOverflowError because of recursive FK
+            if (!tables.contains(object)) {
+                tables.add(object);
+                for (ForeignKey key : object.getForeignKeys()) {
+                    doSwitch(key.getTarget());
+                }
             }
             return "";
         }

@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="ASCII"?>
+<database:DataBase xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:database="http://www.obeonetwork.org/dsl/database/1.0" xmlns:typeslibrary="http://www.obeonetwork.org/dsl/typeslibrary/1.0" xmi:id="_bhTJgIOlEeqo9sQbQvDurw" techID="_bhLNsIOlEeqo9sQbQvDurw" name="safran832">
+  <tables xsi:type="database:Table" xmi:id="_d2zWYIOnEeqo9sQbQvDurw" techID="_d2yvUIOnEeqo9sQbQvDurw" name="Table0"/>
+  <sequences xmi:id="_c84EwYOnEeqo9sQbQvDurw" techID="_c84EwIOnEeqo9sQbQvDurw" name="Sequence0"/>
+  <usedLibraries xsi:type="typeslibrary:NativeTypesLibrary" href="pathmap://LogicalDBTypes#_WWbGkREnEeGTa_JlZYBw1A"/>
+  <schemas xmi:id="_fPwYQYOlEeqo9sQbQvDurw" techID="_fPwYQIOlEeqo9sQbQvDurw" name="Schema1">
+    <tables xsi:type="database:Table" xmi:id="_gOsFsYOlEeqo9sQbQvDurw" techID="_gOsFsIOlEeqo9sQbQvDurw" name="Table1">
+      <primaryKey xmi:id="_ku5sEIOmEeqo9sQbQvDurw" techID="_ku5FAIOmEeqo9sQbQvDurw" name="Table1_PK" columns="_ku4d8YOmEeqo9sQbQvDurw"/>
+      <foreignKeys xmi:id="_vsW4IYOmEeqo9sQbQvDurw" techID="_vsW4IIOmEeqo9sQbQvDurw" name="FK_1" target="_gsD-MIOlEeqo9sQbQvDurw">
+        <elements xmi:id="_vsZUYoOmEeqo9sQbQvDurw" techID="_vsZUYYOmEeqo9sQbQvDurw" fkColumn="_vsW4I4OmEeqo9sQbQvDurw" pkColumn="_kzM9QYOmEeqo9sQbQvDurw"/>
+      </foreignKeys>
+      <foreignKeys xmi:id="_x5lksYOmEeqo9sQbQvDurw" techID="_x5lksIOmEeqo9sQbQvDurw" name="FK_2" target="_ia6FoIOlEeqo9sQbQvDurw">
+        <elements xmi:id="_x5mLxoOmEeqo9sQbQvDurw" techID="_x5mLxYOmEeqo9sQbQvDurw" fkColumn="_x5mLwYOmEeqo9sQbQvDurw" pkColumn="_jMeQAYOmEeqo9sQbQvDurw"/>
+      </foreignKeys>
+      <foreignKeys xmi:id="_6CYQwYOmEeqo9sQbQvDurw" techID="_6CYQwIOmEeqo9sQbQvDurw" name="FK_3" target="_gOsFsYOlEeqo9sQbQvDurw">
+        <elements xmi:id="_6CYQw4OmEeqo9sQbQvDurw" techID="_6CYQwoOmEeqo9sQbQvDurw" fkColumn="_3rOMIYOmEeqo9sQbQvDurw" pkColumn="_ku4d8YOmEeqo9sQbQvDurw"/>
+      </foreignKeys>
+      <columns xmi:id="_ku4d8YOmEeqo9sQbQvDurw" techID="_ku4d8IOmEeqo9sQbQvDurw" name="id1" primaryKey="_ku5sEIOmEeqo9sQbQvDurw">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_ku4d8oOmEeqo9sQbQvDurw">
+          <nativeType href="pathmap://LogicalDBTypes#_WWeJ4BEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+      <columns xmi:id="_vsW4I4OmEeqo9sQbQvDurw" techID="_vsW4IoOmEeqo9sQbQvDurw" name="id2" foreignKeyElements="_vsZUYoOmEeqo9sQbQvDurw">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_vsZUYIOmEeqo9sQbQvDurw" technicalid="_vsYtUIOmEeqo9sQbQvDurw">
+          <nativeType href="pathmap://LogicalDBTypes#_WWeJ4BEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+      <columns xmi:id="_x5mLwYOmEeqo9sQbQvDurw" techID="_x5mLwIOmEeqo9sQbQvDurw" name="id4" foreignKeyElements="_x5mLxoOmEeqo9sQbQvDurw">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_x5mLxIOmEeqo9sQbQvDurw" technicalid="_x5mLw4OmEeqo9sQbQvDurw">
+          <nativeType href="pathmap://LogicalDBTypes#_WWeJ4BEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+      <columns xmi:id="_0vurY4OmEeqo9sQbQvDurw" techID="_0vurYoOmEeqo9sQbQvDurw" name="id5">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_0vurZoOmEeqo9sQbQvDurw" technicalid="_0vurZYOmEeqo9sQbQvDurw">
+          <nativeType href="pathmap://LogicalDBTypes#_WWeJ4BEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+      <columns xmi:id="_3rOMIYOmEeqo9sQbQvDurw" techID="_3rOMIIOmEeqo9sQbQvDurw" name="id1_pere" foreignKeyElements="_6CYQw4OmEeqo9sQbQvDurw">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_3rOMIoOmEeqo9sQbQvDurw">
+          <nativeType href="pathmap://LogicalDBTypes#_WWeJ4BEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+    </tables>
+    <tables xsi:type="database:Table" xmi:id="_gsD-MIOlEeqo9sQbQvDurw" techID="_gsDXIIOlEeqo9sQbQvDurw" name="Table2">
+      <primaryKey xmi:id="_kzNkUYOmEeqo9sQbQvDurw" techID="_kzNkUIOmEeqo9sQbQvDurw" name="Table2_PK" columns="_kzM9QYOmEeqo9sQbQvDurw"/>
+      <columns xmi:id="_kzM9QYOmEeqo9sQbQvDurw" techID="_kzM9QIOmEeqo9sQbQvDurw" name="id2" primaryKey="_kzNkUYOmEeqo9sQbQvDurw">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_kzM9QoOmEeqo9sQbQvDurw">
+          <nativeType href="pathmap://LogicalDBTypes#_WWeJ4BEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+      <columns xmi:id="_yMsG44OmEeqo9sQbQvDurw" techID="_yMsG4oOmEeqo9sQbQvDurw" name="id5">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_yMsG5oOmEeqo9sQbQvDurw" technicalid="_yMsG5YOmEeqo9sQbQvDurw">
+          <nativeType href="pathmap://LogicalDBTypes#_WWeJ4BEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+    </tables>
+    <tables xsi:type="database:Table" xmi:id="_g9vkEYOlEeqo9sQbQvDurw" techID="_g9vkEIOlEeqo9sQbQvDurw" name="Table3">
+      <primaryKey xmi:id="_k4Ut0YOmEeqo9sQbQvDurw" techID="_k4Ut0IOmEeqo9sQbQvDurw" name="Table3_PK" columns="_k4UGwYOmEeqo9sQbQvDurw"/>
+      <columns xmi:id="_k4UGwYOmEeqo9sQbQvDurw" techID="_k4UGwIOmEeqo9sQbQvDurw" name="id3" primaryKey="_k4Ut0YOmEeqo9sQbQvDurw">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_k4UGwoOmEeqo9sQbQvDurw">
+          <nativeType href="pathmap://LogicalDBTypes#_WWeJ4BEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+    </tables>
+    <sequences xmi:id="_Z3m88YOnEeqo9sQbQvDurw" techID="_Z3m88IOnEeqo9sQbQvDurw" name="Sequence1"/>
+    <sequences xmi:id="_bEwFgYOnEeqo9sQbQvDurw" techID="_bEwFgIOnEeqo9sQbQvDurw" name="Sequence2"/>
+  </schemas>
+  <schemas xmi:id="_faGAAYOlEeqo9sQbQvDurw" techID="_faGAAIOlEeqo9sQbQvDurw" name="Schema2">
+    <tables xsi:type="database:Table" xmi:id="_ia6FoIOlEeqo9sQbQvDurw" techID="_ia5ekIOlEeqo9sQbQvDurw" name="Table4">
+      <primaryKey xmi:id="_jMxyAYOmEeqo9sQbQvDurw" techID="_jMxyAIOmEeqo9sQbQvDurw" name="Table4_PK" columns="_jMeQAYOmEeqo9sQbQvDurw"/>
+      <columns xmi:id="_jMeQAYOmEeqo9sQbQvDurw" techID="_jMeQAIOmEeqo9sQbQvDurw" name="id4" primaryKey="_jMxyAYOmEeqo9sQbQvDurw">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_jMeQAoOmEeqo9sQbQvDurw">
+          <nativeType href="pathmap://LogicalDBTypes#_WWeJ4BEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+    </tables>
+    <tables xsi:type="database:Table" xmi:id="_i0m_EYOlEeqo9sQbQvDurw" techID="_i0m_EIOlEeqo9sQbQvDurw" name="Table5">
+      <primaryKey xmi:id="_jdMMkYOmEeqo9sQbQvDurw" techID="_jdMMkIOmEeqo9sQbQvDurw" name="Table5_PK" columns="_jdLlgYOmEeqo9sQbQvDurw"/>
+      <columns xmi:id="_jdLlgYOmEeqo9sQbQvDurw" techID="_jdLlgIOmEeqo9sQbQvDurw" name="id5" primaryKey="_jdMMkYOmEeqo9sQbQvDurw">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_jdLlgoOmEeqo9sQbQvDurw">
+          <nativeType href="pathmap://LogicalDBTypes#_WWeJ4BEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+    </tables>
+    <sequences xmi:id="_bj9xEYOnEeqo9sQbQvDurw" techID="_bj9xEIOnEeqo9sQbQvDurw" name="Sequence3"/>
+  </schemas>
+</database:DataBase>
