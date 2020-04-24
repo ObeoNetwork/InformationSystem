@@ -1,7 +1,9 @@
 package org.obeonetwork.dsl.soa.gen.swagger;
 
 import static java.util.stream.Collectors.joining;
+import static java.util.stream.Collectors.toList;
 import static java.util.stream.Collectors.toSet;
+import static org.obeonetwork.dsl.environment.design.services.ModelServices.getAncestors;
 import static org.obeonetwork.dsl.environment.design.services.ModelServices.getContainerOrSelf;
 import static org.obeonetwork.dsl.soa.gen.swagger.Activator.logError;
 import static org.obeonetwork.dsl.soa.gen.swagger.Activator.logWarning;
@@ -12,6 +14,7 @@ import static org.obeonetwork.dsl.soa.gen.swagger.OpenApiParserHelper.isObject;
 import static org.obeonetwork.dsl.soa.gen.swagger.OpenApiParserHelper.isPrimitiveType;
 import static org.obeonetwork.dsl.soa.gen.swagger.utils.StringUtils.upperFirst;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.HashSet;
@@ -20,8 +23,15 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
+import java.util.Objects;
 import java.util.Set;
+import java.util.stream.Collectors;
 
+import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EObject;
+import org.eclipse.emf.ecore.EReference;
+import org.eclipse.emf.ecore.EStructuralFeature;
+import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.obeonetwork.dsl.environment.Attribute;
 import org.obeonetwork.dsl.environment.DTO;
 import org.obeonetwork.dsl.environment.DataType;
@@ -32,10 +42,12 @@ import org.obeonetwork.dsl.environment.EnvironmentPackage;
 import org.obeonetwork.dsl.environment.Literal;
 import org.obeonetwork.dsl.environment.MultiplicityKind;
 import org.obeonetwork.dsl.environment.Namespace;
+import org.obeonetwork.dsl.environment.ObeoDSMObject;
 import org.obeonetwork.dsl.environment.Property;
 import org.obeonetwork.dsl.environment.Reference;
 import org.obeonetwork.dsl.environment.StructuredType;
 import org.obeonetwork.dsl.environment.Type;
+import org.obeonetwork.dsl.environment.TypesDefinition;
 import org.obeonetwork.dsl.soa.Component;
 import org.obeonetwork.dsl.soa.ExpositionKind;
 import org.obeonetwork.dsl.soa.Interface;
@@ -47,6 +59,7 @@ import org.obeonetwork.dsl.soa.System;
 import org.obeonetwork.dsl.soa.Verb;
 import org.obeonetwork.dsl.soa.gen.swagger.utils.NamespaceGenUtil;
 import org.obeonetwork.dsl.soa.gen.swagger.utils.SystemGenUtil;
+import org.obeonetwork.dsl.technicalid.TechnicalIDPackage;
 
 import io.swagger.v3.oas.models.OpenAPI;
 import io.swagger.v3.oas.models.Operation;
@@ -79,6 +92,11 @@ public class SoaComponentBuilder {
 	private System soaSystem;
 	private Component soaComponent;
 
+	/**
+	 * Typed elements (Attribute, Reference or Parameter) using inline types (DTO or Enumeration) as their type.
+	 */
+	private Map<Type, List<ObeoDSMObject>> inlineTypes;
+	
 	public SoaComponentBuilder(OpenAPI swagger, System system, Environment environment) {
 		this.openApi = swagger;
 		this.soaSystem = system;
@@ -117,13 +135,389 @@ public class SoaComponentBuilder {
 			soaComponent.setURI(server.getUrl());
 		}
 		
+		inlineTypes = new HashMap<>();
+		
 		createSoaExposedTypes();
 		
 		createSoaServices();
 		
 		createSoaOperations();
 		
+		processInlineTypes();
+		
 		return soaComponent;
+	}
+
+	private void processInlineTypes() {
+		// Start by processing the types originating from schemas.
+		// To be processed, a type has to be used by a type already in the model.
+		// Therefore, the process is reapeted over all the schema inline types
+		// until all the types are processed.
+		List<Type> unprocessedSchemaInlineTypes = getUnprocessedSchemaInlineTypes();
+		
+		while(!unprocessedSchemaInlineTypes.isEmpty()) {
+			for(Type inlineType : unprocessedSchemaInlineTypes) {
+				processSchemaInlineType(inlineType);
+			}
+			unprocessedSchemaInlineTypes = getUnprocessedSchemaInlineTypes();
+		}
+		
+		// Now process the types inline to service parameters.
+		List<Type> unprocessedParameterInlineTypes = getUnprocessedParameterInlineTypes();
+		for(Type inlineType : unprocessedParameterInlineTypes) {
+			processParameterInlineType(inlineType);
+		}
+		
+		// The unprocessed types remaining at this stage are the types inline to 
+		// parameter inline types at any level of depth.
+		List<Type> unprocessedInlineTypes = getUnprocessedInlineTypes();
+		while(!unprocessedInlineTypes.isEmpty()) {
+			for(Type inlineType : unprocessedInlineTypes) {
+				processParameterSubInlineType(inlineType);
+			}
+			unprocessedInlineTypes = getUnprocessedInlineTypes();
+		}
+	}
+
+	private void processParameterSubInlineType(Type inlineType) {
+		List<Property> usingProperties = inlineTypes.get(inlineType).stream()
+				.filter(Property.class::isInstance)
+				.map(Property.class::cast)
+				.filter(p -> p.eContainer().eContainer() != null)
+				.collect(toList());
+		
+		if(!usingProperties.isEmpty()) {
+			Property usingProperty = usingProperties.get(0);
+			StructuredType usingType = (StructuredType) usingProperty.eContainer();
+			
+			TypesDefinition commonTypesContainer = getCommonAncestor(usingProperties, TypesDefinition.class);
+			if(commonTypesContainer == null) {
+				Namespace typesNamesapce = getOrCreateTypesNamespace();
+				logWarning(String.format("Could not find common types container for %s. Using %s instead.", 
+						usingProperties.stream().map(p -> ((Type)p.eContainer()).getName()).collect(joining(", ")), 
+						typesNamesapce.getName()));
+				commonTypesContainer = typesNamesapce;
+			}
+			
+			String inlineTypeName = (usingProperties.size() == 1)? 
+			usingType.getName() + upperFirst(usingProperty.getName()) 
+			: upperFirst(usingProperty.getName());
+			
+			inlineTypeName = toUniqueName(commonTypesContainer, inlineTypeName);
+			inlineType.setName(inlineTypeName);
+			commonTypesContainer.getTypes().add(inlineType);
+		}
+	}
+
+	private void processParameterInlineType(Type inlineType) {
+		List<org.obeonetwork.dsl.soa.Parameter> usingParameters = inlineTypes.get(inlineType).stream()
+				.filter(org.obeonetwork.dsl.soa.Parameter.class::isInstance)
+				.map(org.obeonetwork.dsl.soa.Parameter.class::cast)
+				.collect(toList());
+		
+		Namespace destinationNamespace = getOrCreateServicesNamespace();
+		
+		Service soaService = getCommonAncestor(usingParameters, Service.class);
+		if(soaService != null) {
+			destinationNamespace = getOrCreateNamespace(destinationNamespace, soaService.getName());
+		}
+		
+		String inlineTypeName = usingParameters.stream().map(p -> upperFirst(p.getName())).collect(toSet()).stream().collect(Collectors.joining());
+		
+		org.obeonetwork.dsl.soa.Operation soaOperation = getCommonAncestor(usingParameters, org.obeonetwork.dsl.soa.Operation.class);
+		if(soaOperation != null) {
+			inlineTypeName = upperFirst(soaOperation.getName()) + inlineTypeName;
+		}
+
+		inlineTypeName = toUniqueName(destinationNamespace, inlineTypeName);
+		inlineType.setName(inlineTypeName);
+			
+		destinationNamespace.getTypes().add(inlineType);
+		
+	}
+
+	private <T extends EObject> T getCommonAncestor(List<? extends EObject> eObjects, Class<T> type) {
+		List<Iterator<EObject>> eObjectsAncestors = eObjects.stream().map(o -> getAncestors(o).iterator()).collect(toList());
+		
+		List<EObject> upwardCommonAncestors = new ArrayList<>();
+		Set<EObject> ancestorsTreeLevelAsSet = eObjectsAncestors.stream().filter(i -> i.hasNext()).map(i -> i.next()).collect(toSet());
+		while(ancestorsTreeLevelAsSet.size() == 1) {
+			upwardCommonAncestors.add(0, ancestorsTreeLevelAsSet.iterator().next());
+			ancestorsTreeLevelAsSet = eObjectsAncestors.stream().filter(i -> i.hasNext()).map(i -> i.next()).collect(toSet());
+		}
+
+		return (T)upwardCommonAncestors.stream().filter(e -> type.isInstance(e)).findFirst().orElse(null);
+	}
+
+	private void processSchemaInlineType(Type inlineType) {
+		List<Property> usingProperties = inlineTypes.get(inlineType).stream()
+				.filter(Property.class::isInstance)
+				.map(Property.class::cast)
+				.filter(p -> p.eContainer().eContainer() != null)
+				.collect(toList());
+		if(!usingProperties.isEmpty()) {
+			Property usingProperty = usingProperties.get(0);
+			StructuredType usingType = (StructuredType) usingProperty.eContainer();
+			TypesDefinition typesContainer = (TypesDefinition) usingType.eContainer();
+			
+			String inlineTypeName = (usingProperties.size() == 1)? 
+					usingType.getName() + upperFirst(usingProperty.getName()) 
+					: upperFirst(usingProperty.getName());
+					
+			inlineTypeName = toUniqueName(typesContainer, inlineTypeName);
+			inlineType.setName(inlineTypeName);
+			typesContainer.getTypes().add(inlineType);
+		}
+	}
+
+	private static final String NAME_INDEX_SEPARATOR = "_";
+	private String toUniqueName(TypesDefinition typesContainer, String inlineTypeName) {
+		String uniqueName = inlineTypeName;
+		List<String> usedNames = typesContainer.getTypes().stream().map(t -> t.getName()).collect(toList());
+		while(usedNames.contains(uniqueName)) {
+			if(uniqueName.matches(".*" + NAME_INDEX_SEPARATOR + "([0-9]+)")) {
+				int index = Integer.valueOf(uniqueName.substring(uniqueName.lastIndexOf(NAME_INDEX_SEPARATOR) + NAME_INDEX_SEPARATOR.length()));
+				index++;
+				uniqueName = uniqueName.substring(0, uniqueName.lastIndexOf(NAME_INDEX_SEPARATOR)) + NAME_INDEX_SEPARATOR + index;
+			} else {
+				uniqueName = uniqueName + NAME_INDEX_SEPARATOR + "1";
+			}
+		}
+		
+		return uniqueName;
+	}
+
+	private List<Type> getUnprocessedSchemaInlineTypes() {
+		return inlineTypes.keySet().stream()
+				.filter(t -> t.eContainer() == null)
+				.filter(t -> isSchemaInlineType(t))
+				.collect(toList());
+	}
+
+	/**
+	 * This test supposes that no parameter inline type is already in the model.
+	 * Therefore, a type is supposed to be originating from a schema if it is used
+	 * by a property owned by a type already in the model, or if one of these types
+	 * is (recursively).
+	 */
+	private boolean isSchemaInlineType(Type inlineType) {
+		if(inlineTypes.get(inlineType) == null) {
+			return false;
+		}
+		
+		List<Property> usingProperties = inlineTypes.get(inlineType).stream()
+				.filter(Property.class::isInstance)
+				.map(Property.class::cast)
+				.collect(toList());
+		
+		if(usingProperties.isEmpty()) {
+			return false;
+		}
+		
+		List<Type> usingTypes = usingProperties.stream().map(p -> (Type)p.eContainer()).collect(toList());
+		
+		if(usingTypes.stream().anyMatch(t -> t.eContainer() != null)) {
+			return true;
+		}
+		
+		return usingTypes.stream().anyMatch(t -> isSchemaInlineType(t));
+	}
+
+	private List<Type> getUnprocessedParameterInlineTypes() {
+		return inlineTypes.keySet().stream()
+				.filter(t -> t.eContainer() == null)
+				.filter(t -> inlineTypes.get(t).stream().anyMatch(org.obeonetwork.dsl.soa.Parameter.class::isInstance))
+				.collect(toList());
+	}
+
+	private List<Type> getUnprocessedInlineTypes() {
+		return inlineTypes.keySet().stream()
+				.filter(t -> t.eContainer() == null)
+				.collect(toList());
+	}
+	
+	private <T extends Type> T registerInlineType(ObeoDSMObject context, T soaType) {
+		// context is of type Attribute, Reference or Parameter
+		// soaType is of type DTO or Enumeration
+		
+		T registeredType = (T) inlineTypes.keySet().stream().filter(t -> soaEqualsDebug(soaType, t)).findFirst().orElse(soaType); 
+		
+		List<ObeoDSMObject> contexts = inlineTypes.get(registeredType);
+		if(contexts == null) {
+			contexts = new LinkedList<>();
+			inlineTypes.put(registeredType, contexts);
+		}
+		contexts.add(context);
+		
+		return registeredType;
+	}
+
+	private boolean soaEqualsDebug(EObject a, EObject b) {
+		
+//		java.lang.System.out.println("COMPARING " + eClass.getName());
+//		if(a instanceof Enumeration) {
+//			java.lang.System.out.println("a = " + ((Enumeration) a).getLiterals().stream().map(l -> l.getName()).collect(joining(", ")));
+//			java.lang.System.out.println("b = " + ((Enumeration) b).getLiterals().stream().map(l -> l.getName()).collect(joining(", ")));
+//			java.lang.System.out.println(eClass.getEAllStructuralFeatures().stream().filter(feature-> !Objects.equals(a.eGet(feature), b.eGet(feature))).map(feature -> feature.getName()).collect(joining(", ")));;
+//		}
+		
+		if(a instanceof DTO && b instanceof DTO) {
+			DTO dtoA = (DTO)a;
+			DTO dtoB = (DTO)b;
+			if(true 
+					&& dtoA.getAttributes().size() == 2 
+					&& dtoA.getAttributes().stream().anyMatch(att -> "message".equals(att.getName()))
+					&& dtoA.getAttributes().stream().anyMatch(att -> "status".equals(att.getName()))
+					
+					&& dtoB.getAttributes().size() == 2 
+					&& dtoB.getAttributes().stream().anyMatch(att -> "message".equals(att.getName()))
+					&& dtoB.getAttributes().stream().anyMatch(att -> "status".equals(att.getName()))
+					
+					&& dtoA.getReferences().size() == 1
+					&& dtoA.getReferences().stream().anyMatch(att -> "repository".equals(att.getName()))
+					
+					&& dtoB.getReferences().size() == 1
+					&& dtoB.getReferences().stream().anyMatch(att -> "repository".equals(att.getName()))
+					
+					) {
+				java.lang.System.out.println("hop");
+			}
+		}
+		
+		boolean equals = soaEquals(a, b);
+		java.lang.System.out.println(equals);
+		
+		return equals;
+		
+	}
+	
+	private static final List<EStructuralFeature> IGNORED_FEATURES = new ArrayList<>();
+	static {
+		IGNORED_FEATURES.add(TechnicalIDPackage.eINSTANCE.getIdentifiable_Technicalid());
+		IGNORED_FEATURES.add(EnvironmentPackage.eINSTANCE.getObeoDSMObject_CreatedOn());
+		IGNORED_FEATURES.add(EnvironmentPackage.eINSTANCE.getObeoDSMObject_ModifiedOn());
+		IGNORED_FEATURES.add(EnvironmentPackage.eINSTANCE.getObeoDSMObject_Version());
+	}
+	private boolean soaEquals(EObject a, EObject b) {
+		if(a == b) {
+			return true;
+		}
+		
+		if(a.eClass() != b.eClass()) {
+			return false;
+		}
+		
+		EClass eClass = a.eClass();
+
+		boolean attributesEquals = eClass.getEAllAttributes().stream()
+				.filter(attribute -> !IGNORED_FEATURES.contains(attribute))
+				.filter(attribute -> !attribute.isDerived())
+				.map(attr -> Objects.equals(a.eGet(attr), b.eGet(attr)))
+				.reduce((t1, t2) -> t1 && t2).orElse(true);
+		
+//		java.lang.System.out.println("attributesEquals = " + attributesEquals);
+		
+		boolean containmentReferencesMono = eClass.getEAllContainments().stream()
+			.filter(containment -> !containment.isMany())
+			.map(containment -> soaEquals((EObject)a.eGet(containment), (EObject)b.eGet(containment)))
+			.reduce((t1, t2) -> t1 && t2).orElse(true);
+		
+//		java.lang.System.out.println("containmentReferencesMono = " + containmentReferencesMono);
+		
+		boolean containmentReferencesMulti = eClass.getEAllContainments().stream()
+				.filter(containment -> containment.isMany())
+				.map(containment -> soaContentMultiEquals((List<?>)a.eGet(containment), (List<?>)b.eGet(containment)))
+				.reduce((t1, t2) -> t1 && t2).orElse(true);
+		
+//		java.lang.System.out.println("containmentReferencesMulti = " + containmentReferencesMulti);
+//		EReference r; r.getEOpposite().isContainment()
+		boolean referencesMono = eClass.getEAllReferences().stream()
+				.filter(reference -> !reference.isContainment())
+				.filter(reference -> reference.getEOpposite() == null || !reference.getEOpposite().isContainment())
+				.filter(reference -> !reference.isDerived())
+				.filter(reference -> !reference.isMany())
+//				.map(reference -> a.eGet(reference) == b.eGet(reference))
+				.map(reference -> debugEqualReference(reference, a.eGet(reference), b.eGet(reference)))
+				.reduce((t1, t2) -> t1 && t2).orElse(true);
+//		java.lang.System.out.println("referencesMono = " + referencesMono);
+		
+		boolean referencesMulti = eClass.getEAllReferences().stream()
+				.filter(reference -> !reference.isContainment())
+				.filter(reference -> reference.getEOpposite() == null || !reference.getEOpposite().isContainment())
+				.filter(reference -> !reference.isDerived())
+				.filter(reference -> reference.isMany())
+				.map(reference -> soaReferenceMultiEquals((List<?>)a.eGet(reference), (List<?>)b.eGet(reference)))
+				.reduce((t1, t2) -> t1 && t2).orElse(true);
+		
+//		java.lang.System.out.println("referencesMulti = " + referencesMulti);
+		
+		return attributesEquals && containmentReferencesMono && containmentReferencesMulti && referencesMono && referencesMulti;
+	}
+	
+	private boolean debugEqualReference(EReference reference, Object a, Object b) {
+		boolean equals = (a == b);
+		if(!equals) {
+			java.lang.System.out.println(reference.getEContainingClass().getName() + "." + reference.getName());
+			if(a instanceof DTO && b instanceof DTO) {
+				java.lang.System.out.println("a = " + ((DTO)a).getName());
+				java.lang.System.out.println("b = " + ((DTO)b).getName());
+			}
+		}
+		return equals;
+	}
+	
+	private boolean soaContentMultiEquals(List<?> la, List<?> lb) {
+		if(la == null && lb == null) {
+			return true;
+		}
+		
+		if(la == null || lb == null) {
+			return false;
+		}
+		
+		if(la.size() != lb.size()) {
+			return false;
+		}
+		
+		Iterator<?> ia = la.iterator();
+		Iterator<?> ib = lb.iterator();
+		boolean equals = true;
+		while(equals && ia.hasNext()) {
+			Object a = ia.next();
+			Object b = ib.next();
+			if(a instanceof EObject && b instanceof EObject) {
+				equals = equals && soaEquals((EObject)a, (EObject)b);
+			} else {
+				equals = equals && a.equals(b);
+			}
+		}
+		
+		return equals;
+	}
+	
+	private boolean soaReferenceMultiEquals(List<?> la, List<?> lb) {
+		if(la == null && lb == null) {
+			return true;
+		}
+		
+		if(la == null || lb == null) {
+			return false;
+		}
+		
+		if(la.size() != lb.size()) {
+			return false;
+		}
+		
+		Iterator<?> ia = la.iterator();
+		Iterator<?> ib = lb.iterator();
+		boolean equals = true;
+		while(equals && ia.hasNext()) {
+			Object a = ia.next();
+			Object b = ib.next();
+			equals = equals && (a == b);
+		}
+		
+		return equals;
 	}
 
 	private String getSoaComponentName() {
@@ -238,7 +632,7 @@ public class SoaComponentBuilder {
 		
 		Schema schema = unwrapArraySchema(parameter.getSchema());
 		if(schema != null) {
-			Type soaParameterType = getOrCreateSoaParameterType(soaOperation, schema, parameter.getName());
+			Type soaParameterType = getOrCreateSoaParameterType(soaOperation, schema, soaParameter);
 			soaParameter.setType(soaParameterType);
 		}
 		
@@ -280,7 +674,7 @@ public class SoaComponentBuilder {
 				soaParameter.setMultiplicity(computeMultiplicity(requestBody.getRequired() != null && requestBody.getRequired(), schema));
 				
 				Schema unwrappedSchema = unwrapArraySchema(schema);
-				Type soaParameterType = getOrCreateSoaParameterType(soaOperation, unwrappedSchema, BODY_PARAMETER_NAME);
+				Type soaParameterType = getOrCreateSoaParameterType(soaOperation, unwrappedSchema, soaParameter);
 				soaParameter.setType(soaParameterType);
 			}
 		}
@@ -288,7 +682,9 @@ public class SoaComponentBuilder {
 		return soaParameter;
 	}
 
-	private Type getOrCreateSoaParameterType(org.obeonetwork.dsl.soa.Operation soaOperation, Schema schema, String parameterName) {
+	private Type getOrCreateSoaParameterType(org.obeonetwork.dsl.soa.Operation soaOperation, Schema schema, org.obeonetwork.dsl.soa.Parameter soaParameter) {
+		// TODO wip
+		
 		Type soaParameterType = null;
 		
 		if(schema.get$ref() != null) {
@@ -296,16 +692,20 @@ public class SoaComponentBuilder {
 		} else if(isPrimitiveType(schema)) {
 			soaParameterType = getPrimitiveType(schema);
 		} else {
-			Namespace namespace = getOrCreateNamespaceForInlineTypes(soaOperation);
-			String typeName = computeTypeNameFromParameterName(parameterName);
+//			Namespace namespace = getOrCreateNamespaceForInlineTypes(soaOperation);
+//			String typeName = computeTypeNameFromParameterName(soaParameter.getName());
 			if(isEnum(schema)) {
-				Enumeration enumeration = touchEnumeration(namespace, typeName);
-				updateEnumeration(enumeration, schema);
-				soaParameterType = enumeration;
+//				Enumeration soaEnumeration = touchEnumeration(namespace, typeName);
+				Enumeration soaEnumeration = EnvironmentFactory.eINSTANCE.createEnumeration();
+				
+				updateEnumeration(soaEnumeration, schema);
+				soaParameterType = registerInlineType(soaParameter, soaEnumeration);
 			} else if(isObject(schema)) {
-				DTO dto = touchDto(namespace, typeName);
-				updateDto(dto, schema);
-				soaParameterType = dto;
+//				DTO soaDto = touchDto(namespace, typeName);
+				DTO soaDto = EnvironmentFactory.eINSTANCE.createDTO();
+				
+				updateDto(soaDto, schema);
+				soaParameterType = registerInlineType(soaParameter, soaDto);
 			} 
 		}
 		
@@ -346,7 +746,7 @@ public class SoaComponentBuilder {
 				
 				Schema unwrappedSchema = unwrapArraySchema(schema);
 				
-				Type soaParameterType = getOrCreateSoaParameterType(soaOperation, unwrappedSchema, parameterName);
+				Type soaParameterType = getOrCreateSoaParameterType(soaOperation, unwrappedSchema, soaParameter);
 				soaParameter.setType(soaParameterType);
 			}
 		}
@@ -549,14 +949,22 @@ public class SoaComponentBuilder {
 	}
 	
 	private Namespace getOrCreateServicesNamespace() {
-		Namespace rootNamespace = getOrCreateRootNamespace(); 
-		Namespace servicesNamespace = getOrCreateNamespace(rootNamespace, "services");
-		return servicesNamespace;
+		return getOrCreateRootNamespace();
+//		Namespace rootNamespace = getOrCreateRootNamespace();
+//		Namespace servicesNamespace = getOrCreateNamespace(rootNamespace, "services");
+//		return servicesNamespace;
 	}
 	
 	private Namespace getOrCreateTypesNamespace() {
+		return getOrCreateRootNamespace();
+//		Namespace rootNamespace = getOrCreateRootNamespace(); 
+//		Namespace typesNamespace = getOrCreateNamespace(rootNamespace, "types");
+//		return typesNamespace;
+	}
+	
+	private Namespace getOrCreateCommonNamespace() {
 		Namespace rootNamespace = getOrCreateRootNamespace(); 
-		Namespace typesNamespace = getOrCreateNamespace(rootNamespace, "types");
+		Namespace typesNamespace = getOrCreateNamespace(rootNamespace, "common");
 		return typesNamespace;
 	}
 	
@@ -578,9 +986,9 @@ public class SoaComponentBuilder {
 		return operationNamespace;
 	}
 	
-	private Namespace getOrCreateNamespaceForInlineTypes(StructuredType type) {
-		Namespace container = getContainerOrSelf(type, Namespace.class);
-		String inlineTypesNamespaceName = type.getName();
+	private Namespace getOrCreateNamespaceForInlineTypes(StructuredType soaType) {
+		Namespace container = getContainerOrSelf(soaType, Namespace.class);
+		String inlineTypesNamespaceName = soaType.getName();
 		
 		return getOrCreateNamespace(container, inlineTypesNamespaceName);
 	}
@@ -856,15 +1264,21 @@ public class SoaComponentBuilder {
 	}
 
 	private Reference createInlineDtoReference(StructuredType type, String propertyKey, Schema propertySchema) {
-		Namespace namespace = getOrCreateNamespaceForInlineTypes(type);
+		// TODO wip
 		
-		DTO dto = touchDto(namespace, computeTypeNameFromPropertyKey(propertyKey));
-		updateDto(dto, propertySchema);
+//		Namespace namespace = getOrCreateNamespaceForInlineTypes(type);
+		
+//		DTO soaDto = touchDto(namespace, computeTypeNameFromPropertyKey(propertyKey));
+		DTO soaDto = EnvironmentFactory.eINSTANCE.createDTO();
+		
+		updateDto(soaDto, propertySchema);
 		
 		Reference reference = EnvironmentFactory.eINSTANCE.createReference();
 		type.getOwnedReferences().add(reference);
 		
-		reference.setReferencedType(dto);
+		soaDto = registerInlineType(reference, soaDto);
+		
+		reference.setReferencedType(soaDto);
 		
 		return reference;
 	}
@@ -878,15 +1292,21 @@ public class SoaComponentBuilder {
 	}
 
 	private Attribute createInlineEnumerationAttribute(StructuredType type, String propertyKey, Schema propertySchema) {
-		Namespace namespace = getOrCreateNamespaceForInlineTypes(type);
+		// TODO wip
 		
-		Enumeration enumeration = touchEnumeration(namespace, computeTypeNameFromPropertyKey(propertyKey));
-		updateEnumeration(enumeration, propertySchema);
+//		Namespace namespace = getOrCreateNamespaceForInlineTypes(type);
+		
+//		Enumeration soaEnumeration = touchEnumeration(namespace, computeTypeNameFromPropertyKey(propertyKey));
+		Enumeration soaEnumeration = EnvironmentFactory.eINSTANCE.createEnumeration();
+		
+		updateEnumeration(soaEnumeration, propertySchema);
 		
 		Attribute attribute = EnvironmentFactory.eINSTANCE.createAttribute();
 		type.getOwnedAttributes().add(attribute);
 
-		attribute.setType(enumeration);
+		soaEnumeration = registerInlineType(attribute, soaEnumeration);
+		
+		attribute.setType(soaEnumeration);
 		
 		return attribute;
 	}
