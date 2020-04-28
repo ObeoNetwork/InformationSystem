@@ -4,6 +4,7 @@ import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
 import java.net.URL;
+import java.net.URLDecoder;
 import java.nio.file.Files;
 
 import javax.servlet.ServletException;
@@ -45,7 +46,7 @@ public class SwaggerPreviewHttpServlet extends HttpServlet {
 				ServletOutputStream outputStream = resp.getOutputStream();
 				ByteStreams.copy(inputStream, outputStream);
 			} else {
-				String swaggerFileName = req.getPathInfo().substring(1);
+				String swaggerFileName = URLDecoder.decode(req.getPathInfo().substring(1), "UTF-8");
 				File swaggerFile = SwaggerPreviewJettyServer.instance().getSwaggerFile(swaggerFileName);
 				if(swaggerFile != null) {
 					Files.copy(swaggerFile.toPath(), resp.getOutputStream());
