@@ -240,13 +240,24 @@ public class SoaComponentBuilder {
 		List<Iterator<EObject>> eObjectsAncestors = eObjects.stream().map(o -> getAncestors(o).iterator()).collect(toList());
 		
 		List<EObject> upwardCommonAncestors = new LinkedList<>();
-		Set<EObject> ancestorsTreeLevelAsSet = eObjectsAncestors.stream().filter(i -> i.hasNext()).map(i -> i.next()).collect(toSet());
-		while(ancestorsTreeLevelAsSet.size() == 1) {
-			upwardCommonAncestors.add(0, ancestorsTreeLevelAsSet.iterator().next());
-			ancestorsTreeLevelAsSet = eObjectsAncestors.stream().filter(i -> i.hasNext()).map(i -> i.next()).collect(toSet());
+		EObject nextCommonElement = nextCommonElement(eObjectsAncestors);
+		while(nextCommonElement != null) {
+			upwardCommonAncestors.add(0, nextCommonElement);
+			nextCommonElement = nextCommonElement(eObjectsAncestors);
 		}
 
 		return (T)upwardCommonAncestors.stream().filter(e -> type.isInstance(e)).findFirst().orElse(null);
+	}
+	
+	private <T> T nextCommonElement(List<Iterator<T>> elements) {
+		T nextCommonElement = null;
+		if(elements.stream().map(i -> i.hasNext()).reduce((t1, t2) -> t1 && t2).orElse(false)) {
+			Set<T> nextDistinctElements = elements.stream().map(i -> i.next()).collect(toSet());
+			if(nextDistinctElements.size() == 1) {
+				nextCommonElement = nextDistinctElements.iterator().next();
+			}
+		}
+		return nextCommonElement;
 	}
 
 	private void processSchemaInlineType(Type inlineType) {
