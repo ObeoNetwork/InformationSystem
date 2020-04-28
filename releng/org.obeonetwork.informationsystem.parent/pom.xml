@@ -348,9 +348,10 @@
 
 		<!-- ********************************************************************************************* 
 			* Swagger SOA Extensions ********************************************************************************************* -->
-		<module>../../addons/soa/plugins/org.obeonetwork.dsl.soa.gen.swagger</module>
-		<module>../../addons/soa/plugins/org.obeonetwork.dsl.soa.gen.swagger.preview</module>
-		<module>../../addons/soa/plugins/org.obeonetwork.dsl.soa.gen.swagger.ui</module>
+		<module>../../addons/swagger/features/org.obeonetwork.dsl.soa.gen.swagger.feature</module>
+		<module>../../addons/swagger/plugins/org.obeonetwork.dsl.soa.gen.swagger</module>
+		<module>../../addons/swagger/plugins/org.obeonetwork.dsl.soa.gen.swagger.preview</module>
+		<module>../../addons/swagger/plugins/org.obeonetwork.dsl.soa.gen.swagger.ui</module>
 
 	</modules>
 
