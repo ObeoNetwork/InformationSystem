@@ -10,6 +10,8 @@
  *******************************************************************************/
 package org.obeonetwork.dsl.environment.binding.dialect;
 
+import java.util.Optional;
+
 import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EStructuralFeature;
@@ -17,6 +19,8 @@ import org.eclipse.sirius.business.api.dialect.AbstractRepresentationDialectServ
 import org.eclipse.sirius.business.api.dialect.description.IInterpretedExpressionQuery;
 import org.eclipse.sirius.business.api.query.EObjectQuery;
 import org.eclipse.sirius.business.api.session.Session;
+import org.eclipse.sirius.business.internal.query.DRepresentationDescriptorInternalHelper;
+import org.eclipse.sirius.business.internal.session.danalysis.DAnalysisSessionImpl;
 import org.eclipse.sirius.viewpoint.DRepresentation;
 import org.eclipse.sirius.viewpoint.DRepresentationDescriptor;
 import org.eclipse.sirius.viewpoint.description.RepresentationDescription;
@@ -124,13 +128,18 @@ public class BindingDialectServices extends AbstractRepresentationDialectService
 	public DRepresentation createRepresentation(String name, EObject semantic, RepresentationDescription description,
 			IProgressMonitor monitor) {
 		// ensureDescriptionResourceInMainResourceSet(description);
+		Optional<Session> sessionOpt = Session.of(semantic);
+		DBindingEditor editor = null;
+		if (sessionOpt.isPresent()) {
+			editor = BindingdialectFactory.eINSTANCE.createDBindingEditor();
+			editor.setDescription((DBindingEditorDescription) description);
+			editor.setTarget(semantic);
 
-		DBindingEditor editor = BindingdialectFactory.eINSTANCE.createDBindingEditor();
-		editor.setName(name);
-		editor.setDescription((DBindingEditorDescription) description);
-		editor.setTarget(semantic);
-
-		refresh(editor, monitor);
+			refresh(editor, monitor);
+			
+			DRepresentationDescriptorInternalHelper.createDRepresentationDescriptor(editor, (DAnalysisSessionImpl) sessionOpt.get(), semantic.eResource(), name, ""); //$NON-NLS-1$
+		}
+		
 
 		return editor;
 	}

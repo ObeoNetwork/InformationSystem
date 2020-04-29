@@ -1,40 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project default="main" name="fr.gouv.mindef.safran.cinematic.gen.html">
-    <property name="ECLIPSE_HOME" value="../../../../../../../_DEV/OD4IS/tools/ObeoDesigner-Team"/>
-    <property name="ECLIPSE_WORKSPACE" value="../../../../../../../_DEV/OD4IS/workspaces/runtime-New_configuration"/>
+    <property name="ECLIPSE_HOME" value="../../../../../../../../../eclipse/ObeoDesigner/OD_11/Migration IS/ObeoDesigner-Team"/>
+    <property name="ECLIPSE_WORKSPACE" value="../../../../../../../../../eclipse/ObeoDesigner/OD_11/Migration IS/ObeoDesigner-Team/workspace"/>
 
     <!-- The classpath with only the dependencies used by the project -->
     <path id="fr.gouv.mindef.safran.cinematic.gen.html.libraryclasspath">
         <pathelement location="${ECLIPSE_WORKSPACE}/fr.gouv.mindef.safran.cinematic.gen.html/bin"/>
-        <pathelement location="${ECLIPSE_HOME}/plugins/org.eclipse.core.runtime_3.14.0.v20180417-0825.jar"/>
-        <pathelement location="${ECLIPSE_HOME}/plugins/javax.inject_1.0.0.v20091030.jar"/>
-        <pathelement location="${ECLIPSE_HOME}/plugins/org.eclipse.osgi_3.13.0.v20180409-1500.jar"/>
-        <pathelement location="${ECLIPSE_HOME}/plugins/org.eclipse.osgi.compatibility.state_1.1.100.v20180331-1743.jar"/>
-        <pathelement location="${ECLIPSE_HOME}/plugins/org.eclipse.equinox.common_3.10.0.v20180412-1130.jar"/>
-        <pathelement location="${ECLIPSE_HOME}/plugins/org.eclipse.core.jobs_3.10.0.v20180427-1454.jar"/>
-        <pathelement location="${ECLIPSE_HOME}/plugins/org.eclipse.equinox.registry_3.8.0.v20180426-1327.jar"/>
-        <pathelement location="${ECLIPSE_HOME}/plugins/org.eclipse.equinox.preferences_3.7.100.v20180510-1129.jar"/>
-        <pathelement location="${ECLIPSE_HOME}/plugins/org.eclipse.core.contenttype_3.7.0.v20180426-1644.jar"/>
-        <pathelement location="${ECLIPSE_HOME}/plugins/org.eclipse.equinox.app_1.3.500.v20171221-2204.jar"/>
-        <pathelement location="${ECLIPSE_HOME}/plugins/org.eclipse.emf.ecore_2.14.0.v20180529-1144.jar"/>
-        <pathelement location="${ECLIPSE_HOME}/plugins/org.eclipse.emf.common_2.14.0.v20180527-1134.jar"/>
-        <pathelement location="${ECLIPSE_HOME}/plugins/org.eclipse.emf.cdo_4.6.100.v20180919-1309.jar"/>
-        <pathelement location="${ECLIPSE_HOME}/plugins/org.eclipse.emf.cdo.common_4.7.0.v20180919-1309.jar"/>
-        <pathelement location="${ECLIPSE_HOME}/plugins/org.eclipse.emf.ecore.change_2.12.0.v20180125-1130.jar"/>
-        <pathelement location="${ECLIPSE_HOME}/plugins/org.eclipse.emf.ecore.xmi_2.14.0.v20180129-1548.jar"/>
-        <pathelement location="${ECLIPSE_HOME}/plugins/org.eclipse.net4j.util_3.8.0.v20180919-1309.jar"/>
-        <pathelement location="${ECLIPSE_HOME}/plugins/org.eclipse.ocl_3.9.0.v20180611-1119.jar"/>
-        <pathelement location="${ECLIPSE_HOME}/plugins/lpg.runtime.java_2.0.17.v201004271640.jar"/>
-        <pathelement location="${ECLIPSE_HOME}/plugins/org.eclipse.ocl.common_1.4.300.v20180611-1119.jar"/>
-        <pathelement location="${ECLIPSE_HOME}/plugins/org.eclipse.ocl.ecore_3.9.0.v20180611-1119.jar"/>
-        <pathelement location="${ECLIPSE_HOME}/plugins/org.eclipse.acceleo.common_3.7.4.201807201001.jar"/>
-        <pathelement location="${ECLIPSE_HOME}/plugins/org.eclipse.acceleo.parser_3.7.4.201807201001.jar"/>
-        <pathelement location="${ECLIPSE_HOME}/plugins/org.eclipse.acceleo.model_3.7.4.201807201001.jar"/>
-        <pathelement location="${ECLIPSE_HOME}/plugins/org.eclipse.acceleo.profiler_3.7.4.201807201001.jar"/>
-        <pathelement location="${ECLIPSE_HOME}/plugins/org.eclipse.acceleo.engine_3.7.4.201807201001.jar"/>
-        <pathelement location="${ECLIPSE_HOME}/plugins/org.eclipse.emf.codegen.ecore_2.14.0.v20180418-0836.jar"/>
-        <pathelement location="${ECLIPSE_HOME}/plugins/org.eclipse.emf.codegen_2.13.0.v20180319-0813.jar"/>
-        <pathelement location="${ECLIPSE_HOME}/plugins/com.google.guava_21.0.0.v20170206-1425.jar"/>
     </path>
 
     <path id="fr.gouv.mindef.safran.cinematic.gen.html.classpath">
