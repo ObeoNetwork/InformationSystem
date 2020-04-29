@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:cinematic="http://www.obeonetwork.org/dsl/cinematic/3.0.0" xmlns:cinematic-flow="http://www.obeonetwork.org/dsl/cinematic/flow/1.0.0" xmlns:cinematic-toolkits="http://www.obeonetwork.org/dsl/cinematic/toolkits/1.0.0" xmlns:cinematic-view="http://www.obeonetwork.org/dsl/cinematic/view/1.0.0" xmlns:database="http://www.obeonetwork.org/dsl/database/1.0" xmlns:description="http://www.eclipse.org/sirius/description/1.1.0" xmlns:description_1="http://www.eclipse.org/sirius/diagram/description/1.1.0" xmlns:description_2="http://www.eclipse.org/sirius/tree/description/1.0.0" xmlns:description_3="http://www.eclipse.org/sirius/table/description/1.1.0" xmlns:description_4="http://www.eclipse.org/sirius/diagram/sequence/description/2.0.0" xmlns:description_5="http://www.obeonetwork.org/dsl/environment/binding/dialect/description/1.0.0" xmlns:diagram="http://www.eclipse.org/sirius/diagram/1.1.0" xmlns:graal="http://www.obeonetwork.org/dsl/graal/2.0.0" xmlns:interaction="http://www.obeonetwork.org/dsl/interaction/1.0.0" xmlns:notation="http://www.eclipse.org/gmf/runtime/1.0.2/notation" xmlns:oent="http://www.obeonetwork.org/dsl/entity/3.0.0" xmlns:oenv="http://www.obeonetwork.org/dsl/environment/3.0.0" xmlns:requirement="http://www.obeonetwork.org/dsl/requirement/1.0" xmlns:sequence="http://www.eclipse.org/sirius/diagram/sequence/2.0.0" xmlns:soa="http://www.obeonetwork.org/dsl/soa/3.0.0" xmlns:statemachine="http://www.obeonetwork.org/dsl/statemachine/1.0.0" xmlns:style="http://www.eclipse.org/sirius/diagram/description/style/1.1.0" xmlns:table="http://www.eclipse.org/sirius/table/1.1.0" xmlns:tree="http://www.eclipse.org/sirius/tree/1.0.0" xmlns:viewpoint="http://www.eclipse.org/sirius/1.1.0" xsi:schemaLocation="http://www.obeonetwork.org/dsl/cinematic/flow/1.0.0 http://www.obeonetwork.org/dsl/cinematic/3.0.0#//flow http://www.obeonetwork.org/dsl/cinematic/toolkits/1.0.0 http://www.obeonetwork.org/dsl/cinematic/3.0.0#//toolkits http://www.obeonetwork.org/dsl/cinematic/view/1.0.0 http://www.obeonetwork.org/dsl/cinematic/3.0.0#//view http://www.eclipse.org/sirius/description/1.1.0 http://www.eclipse.org/sirius/1.1.0#//description http://www.eclipse.org/sirius/diagram/description/1.1.0 http://www.eclipse.org/sirius/diagram/1.1.0#//description http://www.eclipse.org/sirius/tree/description/1.0.0 http://www.eclipse.org/sirius/tree/1.0.0#//description http://www.eclipse.org/sirius/table/description/1.1.0 http://www.eclipse.org/sirius/table/1.1.0#//description http://www.eclipse.org/sirius/diagram/sequence/description/2.0.0 http://www.eclipse.org/sirius/diagram/sequence/2.0.0#//description http://www.obeonetwork.org/dsl/environment/binding/dialect/description/1.0.0 http://www.obeonetwork.org/dsl/environment/binding/dialect/1.0.0#//description http://www.eclipse.org/sirius/diagram/description/style/1.1.0 http://www.eclipse.org/sirius/diagram/1.1.0#//description/style">
-  <viewpoint:DAnalysis uid="_6FUs8B_GEeW_TuSj9xLcNQ" selectedViews="_5eK4ECBREeePq_6Kzvn9AQ _8YjgUJEcEeauDets12NBwQ _7lOZcB_GEeW_TuSj9xLcNQ _5oKhkCBREeePq_6Kzvn9AQ _T-FxwJEeEeauDets12NBwQ _7lGdoB_GEeW_TuSj9xLcNQ _5rs9wCBREeePq_6Kzvn9AQ _5sAfwCBREeePq_6Kzvn9AQ _5yEEcCBREeePq_6Kzvn9AQ _7l-nYB_GEeW_TuSj9xLcNQ _51OGICBREeePq_6Kzvn9AQ _7lmz8B_GEeW_TuSj9xLcNQ _7mFVEB_GEeW_TuSj9xLcNQ _ekaCgCBgEeepLOchfVBnlA _yEgX0JKOEem6NOD0XGqP1Q" version="14.1.0.201810161215">
+<xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:cinematic="http://www.obeonetwork.org/dsl/cinematic/3.0.0" xmlns:cinematic-flow="http://www.obeonetwork.org/dsl/cinematic/flow/1.0.0" xmlns:cinematic-toolkits="http://www.obeonetwork.org/dsl/cinematic/toolkits/1.0.0" xmlns:cinematic-view="http://www.obeonetwork.org/dsl/cinematic/view/1.0.0" xmlns:database="http://www.obeonetwork.org/dsl/database/1.0" xmlns:description="http://www.eclipse.org/sirius/description/1.1.0" xmlns:description_1="http://www.eclipse.org/sirius/diagram/description/1.1.0" xmlns:description_1.0.0="http://www.obeonetwork.org/dsl/environment/binding/dialect/description/1.0.0" xmlns:description_2="http://www.eclipse.org/sirius/tree/description/1.0.0" xmlns:description_3="http://www.eclipse.org/sirius/table/description/1.1.0" xmlns:description_4="http://www.eclipse.org/sirius/diagram/sequence/description/2.0.0" xmlns:diagram="http://www.eclipse.org/sirius/diagram/1.1.0" xmlns:graal="http://www.obeonetwork.org/dsl/graal/2.0.0" xmlns:interaction="http://www.obeonetwork.org/dsl/interaction/1.0.0" xmlns:notation="http://www.eclipse.org/gmf/runtime/1.0.3/notation" xmlns:oent="http://www.obeonetwork.org/dsl/entity/3.0.0" xmlns:oenv="http://www.obeonetwork.org/dsl/environment/3.0.0" xmlns:requirement="http://www.obeonetwork.org/dsl/requirement/1.0" xmlns:sequence="http://www.eclipse.org/sirius/diagram/sequence/2.0.0" xmlns:soa="http://www.obeonetwork.org/dsl/soa/3.0.0" xmlns:statemachine="http://www.obeonetwork.org/dsl/statemachine/1.0.0" xmlns:style="http://www.eclipse.org/sirius/diagram/description/style/1.1.0" xmlns:table="http://www.eclipse.org/sirius/table/1.1.0" xmlns:tree="http://www.eclipse.org/sirius/tree/1.0.0" xmlns:viewpoint="http://www.eclipse.org/sirius/1.1.0" xsi:schemaLocation="http://www.obeonetwork.org/dsl/cinematic/flow/1.0.0 http://www.obeonetwork.org/dsl/cinematic/3.0.0#//flow http://www.obeonetwork.org/dsl/cinematic/toolkits/1.0.0 http://www.obeonetwork.org/dsl/cinematic/3.0.0#//toolkits http://www.obeonetwork.org/dsl/cinematic/view/1.0.0 http://www.obeonetwork.org/dsl/cinematic/3.0.0#//view http://www.eclipse.org/sirius/description/1.1.0 http://www.eclipse.org/sirius/1.1.0#//description http://www.eclipse.org/sirius/diagram/description/1.1.0 http://www.eclipse.org/sirius/diagram/1.1.0#//description http://www.eclipse.org/sirius/tree/description/1.0.0 http://www.eclipse.org/sirius/tree/1.0.0#//description http://www.eclipse.org/sirius/table/description/1.1.0 http://www.eclipse.org/sirius/table/1.1.0#//description http://www.eclipse.org/sirius/diagram/sequence/description/2.0.0 http://www.eclipse.org/sirius/diagram/sequence/2.0.0#//description http://www.eclipse.org/sirius/diagram/description/style/1.1.0 http://www.eclipse.org/sirius/diagram/1.1.0#//description/style">
+  <viewpoint:DAnalysis uid="_6FUs8B_GEeW_TuSj9xLcNQ" selectedViews="_5eK4ECBREeePq_6Kzvn9AQ _5oKhkCBREeePq_6Kzvn9AQ _7lGdoB_GEeW_TuSj9xLcNQ _51OGICBREeePq_6Kzvn9AQ _7lmz8B_GEeW_TuSj9xLcNQ _ekaCgCBgEeepLOchfVBnlA _VFF9IIoeEeqW3bcS5K80Dg" version="14.3.1.202003101500">
     <semanticResources>E-BookStore.cinematic</semanticResources>
     <semanticResources>pathmap://cinematic/toolkits/Web</semanticResources>
     <semanticResources>E-BookStore.graal</semanticResources>
@@ -20,6 +20,7 @@
     <semanticResources>http://www.eclipse.org/emf/2002/Ecore</semanticResources>
     <semanticResources>http://www.obeonetwork.org/dsl/environment/3.0.0</semanticResources>
     <semanticResources>http://www.obeonetwork.org/dsl/technicalid/2.0.0</semanticResources>
+    <eAnnotations xmi:type="description:DAnnotationEntry" uid="_Eh6woIocEeqW3bcS5K80Dg" source="FIRST_SESSION_OPENNING_PERFORMED"/>
     <ownedViews xmi:type="viewpoint:DView" uid="_7lGdoB_GEeW_TuSj9xLcNQ">
       <viewpoint xmi:type="description:Viewpoint" href="platform:/plugin/org.obeonetwork.dsl.cinematic.design/description/cinematic.odesign#//@ownedViewpoints[name='Cinematic%20Views']"/>
       <ownedRepresentationDescriptors xmi:type="viewpoint:DRepresentationDescriptor" uid="_AiYAGcLbEeaKX_JUX0UT5w" name="E-BookStore Package Diagram" repPath="#_9WPEEB_GEeW_TuSj9xLcNQ">
@@ -33,6 +34,10 @@
       <ownedRepresentationDescriptors xmi:type="viewpoint:DRepresentationDescriptor" uid="_AiYAG8LbEeaKX_JUX0UT5w" name="Main Flow Diagram" repPath="#__AcjIB_GEeW_TuSj9xLcNQ">
         <description xmi:type="description_1:DiagramDescription" href="platform:/plugin/org.obeonetwork.dsl.cinematic.design/description/cinematic.odesign#//@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='Flow%20Diagram']"/>
         <target xmi:type="cinematic-flow:Flow" href="E-BookStore.cinematic#_aIPqAIjWEeGStfxeQK0zeA"/>
+      </ownedRepresentationDescriptors>
+      <ownedRepresentationDescriptors xmi:type="viewpoint:DRepresentationDescriptor" uid="_O3nHMIoeEeqW3bcS5K80Dg" name="Payment on partner site Flow Diagram" repPath="#_O3ImEIoeEeqW3bcS5K80Dg" changeId="af015ac6-c803-4c98-a1bc-8be5ffbc2ef9">
+        <description xmi:type="description_1:DiagramDescription" href="platform:/plugin/org.obeonetwork.dsl.cinematic.design/description/cinematic.odesign#//@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='Flow%20Diagram']"/>
+        <target xmi:type="cinematic-flow:Flow" href="E-BookStore.cinematic#_R5JR4IjnEeGOp5IdJE0AIw"/>
       </ownedRepresentationDescriptors>
     </ownedViews>
     <ownedViews xmi:type="viewpoint:DView" uid="_7lOZcB_GEeW_TuSj9xLcNQ">
@@ -48,7 +53,7 @@
         <description xmi:type="description_1:DiagramDescription" href="platform:/plugin/org.obeonetwork.graal.design/description/graal.odesign#//@ownedViewpoints[name='Graal%20Methodology']/@ownedRepresentations[name='Tasks%20Graph']"/>
         <target xmi:type="graal:System" href="E-BookStore.graal#_rynOsEjHEeGbkNJePX2AYQ"/>
       </ownedRepresentationDescriptors>
-      <ownedRepresentationDescriptors xmi:type="viewpoint:DRepresentationDescriptor" uid="_AiYAEcLbEeaKX_JUX0UT5w" name="Actors Graph" repPath="#_BrPVcB_HEeW_TuSj9xLcNQ">
+      <ownedRepresentationDescriptors xmi:type="viewpoint:DRepresentationDescriptor" uid="_AiYAEcLbEeaKX_JUX0UT5w" name="Actors Graph" repPath="#_BrPVcB_HEeW_TuSj9xLcNQ" changeId="b5bed4ae-d401-4b73-a09f-13123ef4d842">
         <description xmi:type="description_1:DiagramDescription" href="platform:/plugin/org.obeonetwork.graal.design/description/graal.odesign#//@ownedViewpoints[name='Graal%20Methodology']/@ownedRepresentations[name='Actors%20Graph']"/>
         <target xmi:type="graal:System" href="E-BookStore.graal#_rynOsEjHEeGbkNJePX2AYQ"/>
       </ownedRepresentationDescriptors>
@@ -163,7 +168,7 @@
     </ownedViews>
     <ownedViews xmi:type="viewpoint:DView" uid="_5eK4ECBREeePq_6Kzvn9AQ">
       <viewpoint xmi:type="description:Viewpoint" href="platform:/plugin/fr.gouv.mindef.safran.is.design/description/safran-is.odesign#//@ownedViewpoints[name='Entity%20(Safr@n%20consolidated%20view)']"/>
-      <ownedRepresentationDescriptors xmi:type="viewpoint:DRepresentationDescriptor" uid="_5lHNkCBREeePq_6Kzvn9AQ" name="Entities Physical Names" repPath="#_5lHNkSBREeePq_6Kzvn9AQ">
+      <ownedRepresentationDescriptors xmi:type="viewpoint:DRepresentationDescriptor" uid="_5lHNkCBREeePq_6Kzvn9AQ" name="Entities Physical Names" repPath="#_5lHNkSBREeePq_6Kzvn9AQ" changeId="3148bdf9-bb9e-4de3-85d8-3d72425923d7">
         <description xmi:type="description_3:EditionTableDescription" href="platform:/plugin/fr.gouv.mindef.safran.is.design/description/safran-is.odesign#//@ownedViewpoints[name='Entity%20(Safr@n%20consolidated%20view)']/@ownedRepresentations[name='EV_Entities_PhysicalNames']"/>
         <target xmi:type="oent:Root" href="E-BookStore.entity#_62l-UJEcEeauDets12NBwQ"/>
       </ownedRepresentationDescriptors>
@@ -197,20 +202,27 @@
     </ownedViews>
     <ownedViews xmi:type="viewpoint:DView" uid="_ekaCgCBgEeepLOchfVBnlA">
       <viewpoint xmi:type="description:Viewpoint" href="platform:/resource/org.obeonetwork.dsl.environment.binding.design/description/binding.odesign#//@ownedViewpoints[name='IS%20Databinding']"/>
-      <ownedRepresentationDescriptors xmi:type="viewpoint:DRepresentationDescriptor" uid="_fgNjcCBgEeepLOchfVBnlA" name=" Databinding" repPath="#_fgNjcSBgEeepLOchfVBnlA">
+      <ownedRepresentationDescriptors xmi:type="viewpoint:DRepresentationDescriptor" uid="_fgNjcCBgEeepLOchfVBnlA" name=" Databinding" repPath="#_fgNjcSBgEeepLOchfVBnlA" changeId="5b86c7d1-6db5-4685-a192-f719d617a622">
         <description xmi:type="description_1:DiagramDescription" href="platform:/resource/org.obeonetwork.dsl.environment.binding.design/description/binding.odesign#//@ownedViewpoints[name='IS%20Databinding']/@ownedRepresentations[name='Databinding%20diagram']"/>
         <target xmi:type="soa:System" href="E-BookStore.soa#_h6PKMYjXEeGlA5e_Ze9-Rg"/>
       </ownedRepresentationDescriptors>
       <ownedRepresentationDescriptors xmi:type="viewpoint:DRepresentationDescriptor" uid="_kE3aYCBgEeepLOchfVBnlA" name="Binding Author - Author" repPath="#_kE7r0CBgEeepLOchfVBnlA">
-        <description xmi:type="description_5:DBindingEditorDescription" href="platform:/resource/org.obeonetwork.dsl.environment.binding.design/description/binding.odesign#//@ownedViewpoints[name='IS%20Databinding']/@ownedRepresentations[name='Binding%20Details']"/>
         <target xmi:type="oenv:BindingInfo" href="E-BookStore.soa#_joQ98CBgEeepLOchfVBnlA"/>
+        <description xmi:type="description_1.0.0:DBindingEditorDescription" href="platform:/resource/org.obeonetwork.dsl.environment.binding.design/description/binding.odesign#//@ownedViewpoints[name='IS%20Databinding']/@ownedRepresentations[name='Binding%20Details']"/>
       </ownedRepresentationDescriptors>
     </ownedViews>
     <ownedViews xmi:type="viewpoint:DView" uid="_yEgX0JKOEem6NOD0XGqP1Q">
       <viewpoint xmi:type="description:Viewpoint" href="platform:/plugin/org.obeonetwork.dsl.environment.properties/description/environment-properties.odesign#//@ownedViewpoints[name='Environment%20Views']"/>
     </ownedViews>
+    <ownedViews xmi:type="viewpoint:DView" uid="_VFF9IIoeEeqW3bcS5K80Dg">
+      <viewpoint xmi:type="description:Viewpoint" href="platform:/resource/org.obeonetwork.dsl.database.design/description/database.odesign#//@ownedViewpoints[name='Database']"/>
+      <ownedRepresentationDescriptors xmi:type="viewpoint:DRepresentationDescriptor" uid="_WFEMY4oeEeqW3bcS5K80Dg" name="E-BookStore-MLD Database" repPath="#_VtXeEIoeEeqW3bcS5K80Dg" changeId="501ad104-2e36-4b15-8ff8-01a1b4f6ac9d">
+        <description xmi:type="description_1:DiagramDescription" href="platform:/resource/org.obeonetwork.dsl.database.design/description/database.odesign#//@ownedViewpoints[name='Database']/@ownedRepresentations[name='Database%20Diagram']"/>
+        <target xmi:type="database:DataBase" href="E-BookStore-MLD.database#_7NK10ZEdEeauDets12NBwQ"/>
+      </ownedRepresentationDescriptors>
+    </ownedViews>
   </viewpoint:DAnalysis>
-  <diagram:DSemanticDiagram uid="_A_LgsB_HEeW_TuSj9xLcNQ" name="Tasks Graph">
+  <diagram:DSemanticDiagram uid="_A_LgsB_HEeW_TuSj9xLcNQ">
     <ownedAnnotationEntries xmi:type="description:AnnotationEntry" uid="_A_QZMB_HEeW_TuSj9xLcNQ" source="GMF_DIAGRAMS">
       <data xmi:type="notation:Diagram" xmi:id="_A_QZMR_HEeW_TuSj9xLcNQ" type="Sirius" element="_A_LgsB_HEeW_TuSj9xLcNQ" measurementUnit="Pixel">
         <children xmi:type="notation:Node" xmi:id="_A_QZMx_HEeW_TuSj9xLcNQ" type="2001" element="_qvHRgBWxEemPcZQonXs-Bw">
@@ -701,12 +713,12 @@
     <activatedLayers xmi:type="description_1:AdditionalLayer" href="platform:/plugin/org.obeonetwork.graal.design/description/graal.odesign#//@ownedViewpoints[name='Graal%20Methodology']/@ownedRepresentations[name='Tasks%20Graph']/@additionalLayers[name='Actors']"/>
     <target xmi:type="graal:System" href="E-BookStore.graal#_rynOsEjHEeGbkNJePX2AYQ"/>
   </diagram:DSemanticDiagram>
-  <diagram:DSemanticDiagram uid="_BrPVcB_HEeW_TuSj9xLcNQ" name="Actors Graph">
+  <diagram:DSemanticDiagram uid="_BrPVcB_HEeW_TuSj9xLcNQ">
     <ownedAnnotationEntries xmi:type="description:AnnotationEntry" uid="_BrWqMB_HEeW_TuSj9xLcNQ" source="GMF_DIAGRAMS">
       <data xmi:type="notation:Diagram" xmi:id="_BrWqMR_HEeW_TuSj9xLcNQ" type="Sirius" element="_BrPVcB_HEeW_TuSj9xLcNQ" measurementUnit="Pixel">
         <children xmi:type="notation:Node" xmi:id="_BrWqMx_HEeW_TuSj9xLcNQ" type="2001" element="_q1eYMBWxEemPcZQonXs-Bw">
           <children xmi:type="notation:Node" xmi:id="_BrX4UB_HEeW_TuSj9xLcNQ" type="5002">
-            <layoutConstraint xmi:type="notation:Location" xmi:id="_BrX4UR_HEeW_TuSj9xLcNQ" x="-13" y="60"/>
+            <layoutConstraint xmi:type="notation:Location" xmi:id="_BrX4UR_HEeW_TuSj9xLcNQ" x="-9" y="60"/>
           </children>
           <children xmi:type="notation:Node" xmi:id="_BrbisB_HEeW_TuSj9xLcNQ" type="3005" element="_q1e_QBWxEemPcZQonXs-Bw">
             <styles xmi:type="notation:ShapeStyle" xmi:id="_BrbisR_HEeW_TuSj9xLcNQ" fontName="Segoe UI"/>
@@ -717,7 +729,7 @@
         </children>
         <children xmi:type="notation:Node" xmi:id="_BrZtgB_HEeW_TuSj9xLcNQ" type="2001" element="_q1e_QhWxEemPcZQonXs-Bw">
           <children xmi:type="notation:Node" xmi:id="_BrZtgx_HEeW_TuSj9xLcNQ" type="5002">
-            <layoutConstraint xmi:type="notation:Location" xmi:id="_BrZthB_HEeW_TuSj9xLcNQ" x="-3" y="60"/>
+            <layoutConstraint xmi:type="notation:Location" xmi:id="_BrZthB_HEeW_TuSj9xLcNQ" x="-1" y="60"/>
           </children>
           <children xmi:type="notation:Node" xmi:id="_Brbisx_HEeW_TuSj9xLcNQ" type="3005" element="_q1e_QxWxEemPcZQonXs-Bw">
             <styles xmi:type="notation:ShapeStyle" xmi:id="_BrbitB_HEeW_TuSj9xLcNQ" fontName="Segoe UI"/>
@@ -725,6 +737,17 @@
           </children>
           <styles xmi:type="notation:ShapeStyle" xmi:id="_BrZtgR_HEeW_TuSj9xLcNQ" fontName="Segoe UI" fontHeight="8"/>
           <layoutConstraint xmi:type="notation:Bounds" xmi:id="_BrZtgh_HEeW_TuSj9xLcNQ" x="648" y="198" width="30" height="59"/>
+        </children>
+        <children xmi:type="notation:Node" xmi:id="_kJFgwIoeEeqW3bcS5K80Dg" type="2001" element="_kBXIIIoeEeqW3bcS5K80Dg">
+          <children xmi:type="notation:Node" xmi:id="_kJGH0IoeEeqW3bcS5K80Dg" type="5002">
+            <layoutConstraint xmi:type="notation:Location" xmi:id="_kJGH0YoeEeqW3bcS5K80Dg" x="-3" y="-14"/>
+          </children>
+          <children xmi:type="notation:Node" xmi:id="_kJGH0ooeEeqW3bcS5K80Dg" type="3005" element="_kBXIIYoeEeqW3bcS5K80Dg">
+            <styles xmi:type="notation:ShapeStyle" xmi:id="_kJGH04oeEeqW3bcS5K80Dg" fontName="Segoe UI"/>
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_kJGH1IoeEeqW3bcS5K80Dg"/>
+          </children>
+          <styles xmi:type="notation:ShapeStyle" xmi:id="_kJFgwYoeEeqW3bcS5K80Dg" fontName="Segoe UI" fontHeight="8"/>
+          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_kJFgwooeEeqW3bcS5K80Dg" x="915" y="320" width="30" height="59"/>
         </children>
         <styles xmi:type="notation:DiagramStyle" xmi:id="_BrWqMh_HEeW_TuSj9xLcNQ"/>
         <edges xmi:type="notation:Edge" xmi:id="_BrcJwB_HEeW_TuSj9xLcNQ" type="4001" element="_q1fmURWxEemPcZQonXs-Bw" source="_BrWqMx_HEeW_TuSj9xLcNQ" target="_BrZtgB_HEeW_TuSj9xLcNQ">
@@ -768,9 +791,17 @@
       </ownedStyle>
       <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.obeonetwork.graal.design/description/graal.odesign#//@ownedViewpoints[name='Graal%20Methodology']/@ownedRepresentations[name='Actors%20Graph']/@defaultLayer/@nodeMappings[name='AG_Actor']"/>
     </ownedDiagramElements>
+    <ownedDiagramElements xmi:type="diagram:DNode" uid="_kBXIIIoeEeqW3bcS5K80Dg" name="Actor 3" width="3" height="3">
+      <target xmi:type="graal:Actor" href="E-BookStore.graal#_j9sJEYoeEeqW3bcS5K80Dg"/>
+      <semanticElements xmi:type="graal:Actor" href="E-BookStore.graal#_j9sJEYoeEeqW3bcS5K80Dg"/>
+      <ownedStyle xmi:type="diagram:WorkspaceImage" uid="_kBXIIYoeEeqW3bcS5K80Dg" showIcon="false" workspacePath="/org.obeonetwork.graal.design/images/actor.png">
+        <description xmi:type="style:WorkspaceImageDescription" href="platform:/plugin/org.obeonetwork.graal.design/description/graal.odesign#//@ownedViewpoints[name='Graal%20Methodology']/@ownedRepresentations[name='Actors%20Graph']/@defaultLayer/@nodeMappings[name='AG_Actor']/@style"/>
+      </ownedStyle>
+      <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.obeonetwork.graal.design/description/graal.odesign#//@ownedViewpoints[name='Graal%20Methodology']/@ownedRepresentations[name='Actors%20Graph']/@defaultLayer/@nodeMappings[name='AG_Actor']"/>
+    </ownedDiagramElements>
     <ownedDiagramElements xmi:type="diagram:DEdge" uid="_q1fmURWxEemPcZQonXs-Bw" sourceNode="_q1eYMBWxEemPcZQonXs-Bw" targetNode="_q1e_QhWxEemPcZQonXs-Bw">
       <target xmi:type="graal:Actor" href="E-BookStore.graal#_LcBscEjIEeGbkNJePX2AYQ"/>
-      <ownedStyle xmi:type="diagram:EdgeStyle" uid="_q1fmUhWxEemPcZQonXs-Bw" targetArrow="InputClosedArrow" strokeColor="0,0,0">
+      <ownedStyle xmi:type="diagram:EdgeStyle" uid="_q1fmUhWxEemPcZQonXs-Bw" targetArrow="InputClosedArrow" size="0" strokeColor="0,0,0">
         <description xmi:type="style:EdgeStyleDescription" href="platform:/plugin/org.obeonetwork.graal.design/description/graal.odesign#//@ownedViewpoints[name='Graal%20Methodology']/@ownedRepresentations[name='Actors%20Graph']/@defaultLayer/@edgeMappings[name='AG_Inherits']/@style"/>
         <centerLabelStyle xmi:type="diagram:CenterLabelStyle" uid="_q1fmUxWxEemPcZQonXs-Bw" showIcon="false"/>
       </ownedStyle>
@@ -781,7 +812,7 @@
     <activatedLayers xmi:type="description_1:Layer" href="platform:/plugin/org.obeonetwork.graal.design/description/graal.odesign#//@ownedViewpoints[name='Graal%20Methodology']/@ownedRepresentations[name='Actors%20Graph']/@defaultLayer"/>
     <target xmi:type="graal:System" href="E-BookStore.graal#_rynOsEjHEeGbkNJePX2AYQ"/>
   </diagram:DSemanticDiagram>
-  <diagram:DSemanticDiagram uid="_Ch8T8B_HEeW_TuSj9xLcNQ" name="Use Cases Main View">
+  <diagram:DSemanticDiagram uid="_Ch8T8B_HEeW_TuSj9xLcNQ">
     <ownedAnnotationEntries xmi:type="description:AnnotationEntry" uid="_Ch9iEB_HEeW_TuSj9xLcNQ" source="GMF_DIAGRAMS">
       <data xmi:type="notation:Diagram" xmi:id="_Ch9iER_HEeW_TuSj9xLcNQ" type="Sirius" element="_Ch8T8B_HEeW_TuSj9xLcNQ" measurementUnit="Pixel">
         <children xmi:type="notation:Node" xmi:id="_Ch9iEx_HEeW_TuSj9xLcNQ" type="2001" element="_q16dEBWxEemPcZQonXs-Bw">
@@ -1030,7 +1061,7 @@
     <activatedLayers xmi:type="description_1:AdditionalLayer" href="platform:/plugin/org.obeonetwork.graal.design/description/graal.odesign#//@ownedViewpoints[name='Graal%20Methodology']/@ownedRepresentations[name='Use%20Cases%20Main%20View']/@additionalLayers[name='Actors']"/>
     <target xmi:type="graal:System" href="E-BookStore.graal#_rynOsEjHEeGbkNJePX2AYQ"/>
   </diagram:DSemanticDiagram>
-  <table:DTable uid="_DPv1IB_HEeW_TuSj9xLcNQ" name="User Stories Table" headerColumnWidth="235">
+  <table:DTable uid="_DPv1IB_HEeW_TuSj9xLcNQ" headerColumnWidth="235">
     <target xmi:type="graal:System" href="E-BookStore.graal#_rynOsEjHEeGbkNJePX2AYQ"/>
     <lines xmi:type="table:DLine" uid="_DPv1IR_HEeW_TuSj9xLcNQ" label="User Story Search books on author">
       <target xmi:type="graal:UserStory" href="E-BookStore.graal#_TAFggEjYEeGbkNJePX2AYQ"/>
@@ -1139,7 +1170,7 @@
     </columns>
     <description xmi:type="description_3:CrossTableDescription" href="platform:/plugin/org.obeonetwork.graal.design/description/graal.odesign#//@ownedViewpoints[name='Graal%20Methodology']/@ownedRepresentations[name='User%20Stories%20Table']"/>
   </table:DTable>
-  <diagram:DSemanticDiagram uid="_EdT0cB_HEeW_TuSj9xLcNQ" name="Buy books Actions Plan">
+  <diagram:DSemanticDiagram uid="_EdT0cB_HEeW_TuSj9xLcNQ">
     <ownedAnnotationEntries xmi:type="description:AnnotationEntry" uid="_EdVpoB_HEeW_TuSj9xLcNQ" source="GMF_DIAGRAMS">
       <data xmi:type="notation:Diagram" xmi:id="_EdVpoR_HEeW_TuSj9xLcNQ" type="Sirius" element="_EdT0cB_HEeW_TuSj9xLcNQ" measurementUnit="Pixel">
         <children xmi:type="notation:Node" xmi:id="_EdWQsB_HEeW_TuSj9xLcNQ" type="2001" element="_q9V6wBWxEemPcZQonXs-Bw">
@@ -1504,7 +1535,7 @@
     <activatedLayers xmi:type="description_1:Layer" href="platform:/plugin/org.obeonetwork.graal.design/description/graal.odesign#//@ownedViewpoints[name='Graal%20Methodology']/@ownedRepresentations[name='Actions%20Plan']/@defaultLayer"/>
     <target xmi:type="graal:Task" href="E-BookStore.graal#_MEgzUEjJEeGbkNJePX2AYQ"/>
   </diagram:DSemanticDiagram>
-  <table:DTable uid="_GH-mgB_HEeW_TuSj9xLcNQ" name="E-BookStore Requirements Table" headerColumnWidth="255">
+  <table:DTable uid="_GH-mgB_HEeW_TuSj9xLcNQ" headerColumnWidth="255">
     <target xmi:type="requirement:Repository" href="E-BookStore.requirement#_UIbdoIjLEeGrHN3Vq969QA"/>
     <lines xmi:type="table:DLine" uid="_A8cF4MLbEeaKX_JUX0UT5w" label="E-BookStore">
       <target xmi:type="requirement:Repository" href="E-BookStore.requirement#_UIbdoIjLEeGrHN3Vq969QA"/>
@@ -1650,7 +1681,7 @@
     </columns>
     <description xmi:type="description_3:EditionTableDescription" href="platform:/plugin/org.obeonetwork.dsl.requirement.design/description/requirement.odesign#//@ownedViewpoints[name='Requirements']/@ownedRepresentations[name='Requirements%20Table']"/>
   </table:DTable>
-  <diagram:DSemanticDiagram uid="_9R_pwJEcEeauDets12NBwQ" name="Entities Namespaces Hierarchy">
+  <diagram:DSemanticDiagram uid="_9R_pwJEcEeauDets12NBwQ">
     <ownedAnnotationEntries xmi:type="description:AnnotationEntry" uid="_9SbuoJEcEeauDets12NBwQ" source="GMF_DIAGRAMS">
       <data xmi:type="notation:Diagram" xmi:id="_9SbuoZEcEeauDets12NBwQ" type="Sirius" element="_9R_pwJEcEeauDets12NBwQ" measurementUnit="Pixel">
         <children xmi:type="notation:Node" xmi:id="_90UTsJEcEeauDets12NBwQ" type="2002" element="_rZedIBWxEemPcZQonXs-Bw">
@@ -1681,7 +1712,7 @@
     <activatedLayers xmi:type="description_1:Layer" href="platform:/plugin/org.obeonetwork.dsl.entity.design/description/entity.odesign#//@ownedViewpoints[name='Entity%20Views']/@ownedRepresentations[name='Entities%20Namespaces%20Hierarchy']/@defaultLayer"/>
     <target xmi:type="oent:Root" href="E-BookStore.entity#_62l-UJEcEeauDets12NBwQ"/>
   </diagram:DSemanticDiagram>
-  <diagram:DSemanticDiagram uid="_-xRrMJEcEeauDets12NBwQ" name="main - Entities diagram">
+  <diagram:DSemanticDiagram uid="_-xRrMJEcEeauDets12NBwQ">
     <ownedAnnotationEntries xmi:type="description:AnnotationEntry" uid="_-xaOEJEcEeauDets12NBwQ" source="GMF_DIAGRAMS">
       <data xmi:type="notation:Diagram" xmi:id="_-xaOEZEcEeauDets12NBwQ" type="Sirius" element="_-xRrMJEcEeauDets12NBwQ" measurementUnit="Pixel">
         <children xmi:type="notation:Node" xmi:id="_CxZRsJEdEeauDets12NBwQ" type="2003" element="_rZfrQBWxEemPcZQonXs-Bw">
@@ -2110,7 +2141,7 @@
     <activatedLayers xmi:type="description_1:Layer" href="platform:/plugin/org.obeonetwork.dsl.entity.design/description/entity.odesign#//@ownedViewpoints[name='Entity%20Views']/@ownedRepresentations[name='Entities%20Diagram']/@defaultLayer"/>
     <target xmi:type="oenv:Namespace" href="E-BookStore.entity#_9nCFoJEcEeauDets12NBwQ"/>
   </diagram:DSemanticDiagram>
-  <diagram:DSemanticDiagram uid="_UpF2kJEeEeauDets12NBwQ" name="main Schema">
+  <diagram:DSemanticDiagram uid="_UpF2kJEeEeauDets12NBwQ">
     <ownedAnnotationEntries xmi:type="description:AnnotationEntry" uid="_UpF2kZEeEeauDets12NBwQ" source="DANNOTATION_CUSTOMIZATION_KEY">
       <data xmi:type="diagram:ComputedStyleDescriptionRegistry" uid="_UpF2kpEeEeauDets12NBwQ">
         <computedStyleDescriptions xmi:type="style:SquareDescription" xmi:id="_UpF2k5EeEeauDets12NBwQ" labelExpression="service:getDatabaseElementLabel" labelAlignment="LEFT">
@@ -3129,7 +3160,7 @@
     <activatedLayers xmi:type="description_1:AdditionalLayer" href="platform:/plugin/org.obeonetwork.dsl.database.design/description/database.odesign#//@ownedViewpoints[name='Database']/@ownedRepresentations[name='Schema%20Diagram']/@additionalLayers[name='Index']"/>
     <target xmi:type="database:Schema" href="E-BookStore-Oracle.database#_PZ84MZEeEeauDets12NBwQ"/>
   </diagram:DSemanticDiagram>
-  <diagram:DSemanticDiagram uid="_9WPEEB_GEeW_TuSj9xLcNQ" name="E-BookStore Package Diagram">
+  <diagram:DSemanticDiagram uid="_9WPEEB_GEeW_TuSj9xLcNQ">
     <ownedAnnotationEntries xmi:type="description:AnnotationEntry" uid="_9WRgUB_GEeW_TuSj9xLcNQ" source="GMF_DIAGRAMS">
       <data xmi:type="notation:Diagram" xmi:id="_9WRgUR_GEeW_TuSj9xLcNQ" type="Sirius" element="_9WPEEB_GEeW_TuSj9xLcNQ" measurementUnit="Pixel">
         <children xmi:type="notation:Node" xmi:id="_9WRgUx_GEeW_TuSj9xLcNQ" type="2002" element="_qbcuoBWxEemPcZQonXs-Bw">
@@ -3664,7 +3695,7 @@
     <activatedLayers xmi:type="description_1:AdditionalLayer" href="platform:/plugin/org.obeonetwork.dsl.cinematic.design/description/cinematic.odesign#//@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='Package%20Diagram']/@additionalLayers[name='Dependencies']"/>
     <target xmi:type="cinematic:CinematicRoot" href="E-BookStore.cinematic#_N-7IwIjLEeGrHN3Vq969QA"/>
   </diagram:DSemanticDiagram>
-  <tree:DTree uid="_9_rpsB_GEeW_TuSj9xLcNQ" name="E-BookStore UI Structure">
+  <tree:DTree uid="_9_rpsB_GEeW_TuSj9xLcNQ">
     <target xmi:type="cinematic:CinematicRoot" href="E-BookStore.cinematic#_N-7IwIjLEeGrHN3Vq969QA"/>
     <ownedTreeItems xmi:type="tree:DTreeItem" uid="_9_rpsR_GEeW_TuSj9xLcNQ" name="E-BookStore" expanded="true">
       <target xmi:type="cinematic:CinematicRoot" href="E-BookStore.cinematic#_N-7IwIjLEeGrHN3Vq969QA"/>
@@ -3884,7 +3915,7 @@
     </ownedTreeItems>
     <description xmi:type="description_2:TreeDescription" href="platform:/plugin/org.obeonetwork.dsl.cinematic.design/description/cinematic.odesign#//@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='UI%20Structure']"/>
   </tree:DTree>
-  <diagram:DSemanticDiagram uid="__AcjIB_GEeW_TuSj9xLcNQ" name="Main Flow Diagram">
+  <diagram:DSemanticDiagram uid="__AcjIB_GEeW_TuSj9xLcNQ">
     <ownedAnnotationEntries xmi:type="description:AnnotationEntry" uid="__Ag0kB_GEeW_TuSj9xLcNQ" source="GMF_DIAGRAMS">
       <data xmi:type="notation:Diagram" xmi:id="__Ag0kR_GEeW_TuSj9xLcNQ" type="Sirius" element="__AcjIB_GEeW_TuSj9xLcNQ" measurementUnit="Pixel">
         <children xmi:type="notation:Node" xmi:id="__AhboB_GEeW_TuSj9xLcNQ" type="2001" element="_qb6osBWxEemPcZQonXs-Bw">
@@ -4700,7 +4731,7 @@
     <activatedLayers xmi:type="description_1:AdditionalLayer" href="platform:/plugin/org.obeonetwork.dsl.cinematic.design/description/cinematic.odesign#//@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='Flow%20Diagram']/@additionalLayers[name='View%20Containers']"/>
     <target xmi:type="cinematic-flow:Flow" href="E-BookStore.cinematic#_aIPqAIjWEeGStfxeQK0zeA"/>
   </diagram:DSemanticDiagram>
-  <diagram:DSemanticDiagram uid="_HK1xsB_HEeW_TuSj9xLcNQ" name=" SOA Diagram">
+  <diagram:DSemanticDiagram uid="_HK1xsB_HEeW_TuSj9xLcNQ">
     <ownedAnnotationEntries xmi:type="description:AnnotationEntry" uid="_HK2YwB_HEeW_TuSj9xLcNQ" source="GMF_DIAGRAMS">
       <data xmi:type="notation:Diagram" xmi:id="_HK2YwR_HEeW_TuSj9xLcNQ" type="Sirius" element="_HK1xsB_HEeW_TuSj9xLcNQ" measurementUnit="Pixel">
         <children xmi:type="notation:Node" xmi:id="_HK2Ywx_HEeW_TuSj9xLcNQ" type="2002" element="_rEzNoBWxEemPcZQonXs-Bw">
@@ -4754,7 +4785,7 @@
     <activatedLayers xmi:type="description_1:Layer" href="platform:/plugin/org.obeonetwork.dsl.soa.design/description/soa.odesign#//@ownedViewpoints[name='SOA%20Views']/@ownedRepresentations[name='SOA%20Diagram']/@defaultLayer"/>
     <target xmi:type="soa:System" href="E-BookStore.soa#_h6PKMYjXEeGlA5e_Ze9-Rg"/>
   </diagram:DSemanticDiagram>
-  <diagram:DSemanticDiagram uid="_H_5xcB_HEeW_TuSj9xLcNQ" name="DTO Namespaces Hierarchy">
+  <diagram:DSemanticDiagram uid="_H_5xcB_HEeW_TuSj9xLcNQ">
     <ownedAnnotationEntries xmi:type="description:AnnotationEntry" uid="_H_6YgB_HEeW_TuSj9xLcNQ" source="GMF_DIAGRAMS">
       <data xmi:type="notation:Diagram" xmi:id="_H_6YgR_HEeW_TuSj9xLcNQ" type="Sirius" element="_H_5xcB_HEeW_TuSj9xLcNQ" measurementUnit="Pixel">
         <children xmi:type="notation:Node" xmi:id="_H_6Ygx_HEeW_TuSj9xLcNQ" type="2002" element="_rE4tMBWxEemPcZQonXs-Bw">
@@ -4788,7 +4819,7 @@
     <activatedLayers xmi:type="description_1:Layer" href="platform:/plugin/org.obeonetwork.dsl.soa.design/description/soa.odesign#//@ownedViewpoints[name='SOA%20Views']/@ownedRepresentations[name='DTO%20Namespaces%20Hierarchy']/@defaultLayer"/>
     <target xmi:type="soa:System" href="E-BookStore.soa#_h6PKMYjXEeGlA5e_Ze9-Rg"/>
   </diagram:DSemanticDiagram>
-  <diagram:DSemanticDiagram uid="_I-m1YB_HEeW_TuSj9xLcNQ" name="main - DTO diagram">
+  <diagram:DSemanticDiagram uid="_I-m1YB_HEeW_TuSj9xLcNQ">
     <ownedAnnotationEntries xmi:type="description:AnnotationEntry" uid="_I-oqkB_HEeW_TuSj9xLcNQ" source="GMF_DIAGRAMS">
       <data xmi:type="notation:Diagram" xmi:id="_I-oqkR_HEeW_TuSj9xLcNQ" type="Sirius" element="_I-m1YB_HEeW_TuSj9xLcNQ" measurementUnit="Pixel">
         <children xmi:type="notation:Node" xmi:id="_I-oqkx_HEeW_TuSj9xLcNQ" type="2003" element="_rE57UBWxEemPcZQonXs-Bw">
@@ -5211,11 +5242,11 @@
     <activatedLayers xmi:type="description_1:Layer" href="platform:/plugin/org.obeonetwork.dsl.soa.design/description/soa.odesign#//@ownedViewpoints[name='SOA%20Views']/@ownedRepresentations[name='DTO%20Diagram']/@defaultLayer"/>
     <target xmi:type="oenv:Namespace" href="E-BookStore.soa#_JVvEMIjYEeGlA5e_Ze9-Rg"/>
   </diagram:DSemanticDiagram>
-  <table:DTable uid="_Ttw3IBLNEeesAc7mKQrh4A" name="Actors list" headerColumnWidth="15">
+  <table:DTable uid="_Ttw3IBLNEeesAc7mKQrh4A" headerColumnWidth="15">
     <target xmi:type="graal:UseCase" href="E-BookStore.graal#_LFIHAEjWEeGbkNJePX2AYQ"/>
     <description xmi:type="description_3:CrossTableDescription" href="platform:/plugin/org.obeonetwork.graal.design/description/graal.odesign#//@ownedViewpoints[name='Graal%20Methodology']/@ownedRepresentations[name='Actors%20list']"/>
   </table:DTable>
-  <table:DTable uid="_T2ZOsRLNEeesAc7mKQrh4A" name="Actors list">
+  <table:DTable uid="_T2ZOsRLNEeesAc7mKQrh4A">
     <target xmi:type="graal:UseCase" href="E-BookStore.graal#__mMxcIlTEeGBksR6VpbZgA"/>
     <lines xmi:type="table:DLine" uid="_q_5fgBWxEemPcZQonXs-Bw" label="Add book to shopping cart">
       <target xmi:type="graal:Task" href="E-BookStore.graal#_MybpQEjJEeGbkNJePX2AYQ"/>
@@ -5264,7 +5295,7 @@
     </columns>
     <description xmi:type="description_3:CrossTableDescription" href="platform:/plugin/org.obeonetwork.graal.design/description/graal.odesign#//@ownedViewpoints[name='Graal%20Methodology']/@ownedRepresentations[name='Actors%20list']"/>
   </table:DTable>
-  <table:DTable uid="_UgUVcRLNEeesAc7mKQrh4A" name="Actors list">
+  <table:DTable uid="_UgUVcRLNEeesAc7mKQrh4A">
     <target xmi:type="graal:UseCase" href="E-BookStore.graal#_S4JM0EjVEeGbkNJePX2AYQ"/>
     <lines xmi:type="table:DLine" uid="_q_77wBWxEemPcZQonXs-Bw" label="Enter payment&#xD;&#xA;informations">
       <target xmi:type="graal:Task" href="E-BookStore.graal#_MemHQEjJEeGbkNJePX2AYQ"/>
@@ -5293,7 +5324,7 @@
     </columns>
     <description xmi:type="description_3:CrossTableDescription" href="platform:/plugin/org.obeonetwork.graal.design/description/graal.odesign#//@ownedViewpoints[name='Graal%20Methodology']/@ownedRepresentations[name='Actors%20list']"/>
   </table:DTable>
-  <table:DTable uid="_VAu64RLNEeesAc7mKQrh4A" name="Actors list">
+  <table:DTable uid="_VAu64RLNEeesAc7mKQrh4A">
     <target xmi:type="graal:UseCase" href="E-BookStore.graal#_PzXNMEjVEeGbkNJePX2AYQ"/>
     <lines xmi:type="table:DLine" uid="_q_9w8BWxEemPcZQonXs-Bw" label="Add book to shopping cart">
       <target xmi:type="graal:Task" href="E-BookStore.graal#_MybpQEjJEeGbkNJePX2AYQ"/>
@@ -5342,7 +5373,7 @@
     </columns>
     <description xmi:type="description_3:CrossTableDescription" href="platform:/plugin/org.obeonetwork.graal.design/description/graal.odesign#//@ownedViewpoints[name='Graal%20Methodology']/@ownedRepresentations[name='Actors%20list']"/>
   </table:DTable>
-  <diagram:DSemanticDiagram uid="_lzfJkBLREeesAc7mKQrh4A" name="BookStore Component Contract">
+  <diagram:DSemanticDiagram uid="_lzfJkBLREeesAc7mKQrh4A">
     <ownedAnnotationEntries xmi:type="description:AnnotationEntry" uid="_lzfJkRLREeesAc7mKQrh4A" source="DANNOTATION_CUSTOMIZATION_KEY">
       <data xmi:type="diagram:ComputedStyleDescriptionRegistry" uid="_lzfJkhLREeesAc7mKQrh4A"/>
     </ownedAnnotationEntries>
@@ -5541,7 +5572,7 @@
     <activatedLayers xmi:type="description_1:Layer" href="platform:/plugin/org.obeonetwork.dsl.soa.design/description/soa.odesign#//@ownedViewpoints[name='SOA%20Views']/@ownedRepresentations[name='Component%20Contract%20Diagram']/@defaultLayer"/>
     <target xmi:type="soa:Component" href="E-BookStore.soa#_jok7UIjXEeGlA5e_Ze9-Rg"/>
   </diagram:DSemanticDiagram>
-  <diagram:DSemanticDiagram uid="_HodpgBVPEeetFdz5pzgWAw" name="Use Case Diagram">
+  <diagram:DSemanticDiagram uid="_HodpgBVPEeetFdz5pzgWAw">
     <ownedAnnotationEntries xmi:type="description:AnnotationEntry" uid="_HodpgRVPEeetFdz5pzgWAw" source="DANNOTATION_CUSTOMIZATION_KEY">
       <data xmi:type="diagram:ComputedStyleDescriptionRegistry" uid="_HodpghVPEeetFdz5pzgWAw"/>
     </ownedAnnotationEntries>
@@ -5556,7 +5587,7 @@
     <activatedLayers xmi:type="description_1:AdditionalLayer" href="platform:/plugin/org.obeonetwork.graal.design/description/graal.odesign#//@ownedViewpoints[name='Graal%20Methodology']/@ownedRepresentations[name='Use%20Case%20Diagram']/@additionalLayers[name='Actors']"/>
     <target xmi:type="graal:UseCase" href="E-BookStore.graal#_LFIHAEjWEeGbkNJePX2AYQ"/>
   </diagram:DSemanticDiagram>
-  <diagram:DSemanticDiagram uid="_Hp7pIBVPEeetFdz5pzgWAw" name="Use Case Diagram">
+  <diagram:DSemanticDiagram uid="_Hp7pIBVPEeetFdz5pzgWAw">
     <ownedAnnotationEntries xmi:type="description:AnnotationEntry" uid="_Hp7pIRVPEeetFdz5pzgWAw" source="DANNOTATION_CUSTOMIZATION_KEY">
       <data xmi:type="diagram:ComputedStyleDescriptionRegistry" uid="_Hp7pIhVPEeetFdz5pzgWAw"/>
     </ownedAnnotationEntries>
@@ -5762,7 +5793,7 @@
     <activatedLayers xmi:type="description_1:AdditionalLayer" href="platform:/plugin/org.obeonetwork.graal.design/description/graal.odesign#//@ownedViewpoints[name='Graal%20Methodology']/@ownedRepresentations[name='Use%20Case%20Diagram']/@additionalLayers[name='Actors']"/>
     <target xmi:type="graal:UseCase" href="E-BookStore.graal#__mMxcIlTEeGBksR6VpbZgA"/>
   </diagram:DSemanticDiagram>
-  <diagram:DSemanticDiagram uid="_HraP0RVPEeetFdz5pzgWAw" name="Use Case Diagram">
+  <diagram:DSemanticDiagram uid="_HraP0RVPEeetFdz5pzgWAw">
     <ownedAnnotationEntries xmi:type="description:AnnotationEntry" uid="_HraP0hVPEeetFdz5pzgWAw" source="DANNOTATION_CUSTOMIZATION_KEY">
       <data xmi:type="diagram:ComputedStyleDescriptionRegistry" uid="_HraP0xVPEeetFdz5pzgWAw"/>
     </ownedAnnotationEntries>
@@ -5925,7 +5956,7 @@
     <activatedLayers xmi:type="description_1:AdditionalLayer" href="platform:/plugin/org.obeonetwork.graal.design/description/graal.odesign#//@ownedViewpoints[name='Graal%20Methodology']/@ownedRepresentations[name='Use%20Case%20Diagram']/@additionalLayers[name='Actors']"/>
     <target xmi:type="graal:UseCase" href="E-BookStore.graal#_S4JM0EjVEeGbkNJePX2AYQ"/>
   </diagram:DSemanticDiagram>
-  <diagram:DSemanticDiagram uid="_Ht3t8RVPEeetFdz5pzgWAw" name="Use Case Diagram">
+  <diagram:DSemanticDiagram uid="_Ht3t8RVPEeetFdz5pzgWAw">
     <ownedAnnotationEntries xmi:type="description:AnnotationEntry" uid="_Ht3t8hVPEeetFdz5pzgWAw" source="DANNOTATION_CUSTOMIZATION_KEY">
       <data xmi:type="diagram:ComputedStyleDescriptionRegistry" uid="_Ht3t8xVPEeetFdz5pzgWAw"/>
     </ownedAnnotationEntries>
@@ -6131,7 +6162,7 @@
     <activatedLayers xmi:type="description_1:AdditionalLayer" href="platform:/plugin/org.obeonetwork.graal.design/description/graal.odesign#//@ownedViewpoints[name='Graal%20Methodology']/@ownedRepresentations[name='Use%20Case%20Diagram']/@additionalLayers[name='Actors']"/>
     <target xmi:type="graal:UseCase" href="E-BookStore.graal#_PzXNMEjVEeGbkNJePX2AYQ"/>
   </diagram:DSemanticDiagram>
-  <diagram:DSemanticDiagram uid="_r52mgRoGEeeI54xxyz7jFA" name="E-BookStore-Oracle Database">
+  <diagram:DSemanticDiagram uid="_r52mgRoGEeeI54xxyz7jFA">
     <ownedAnnotationEntries xmi:type="description:AnnotationEntry" uid="_r52mghoGEeeI54xxyz7jFA" source="DANNOTATION_CUSTOMIZATION_KEY">
       <data xmi:type="diagram:ComputedStyleDescriptionRegistry" uid="_r52mgxoGEeeI54xxyz7jFA">
         <computedStyleDescriptions xmi:type="style:SquareDescription" xmi:id="_NmX_gCRPEee91ZpYc9mQwQ" labelExpression="service:getDatabaseElementLabel" labelAlignment="LEFT">
@@ -6270,7 +6301,7 @@
     <activatedLayers xmi:type="description_1:AdditionalLayer" href="platform:/plugin/org.obeonetwork.dsl.database.design/description/database.odesign#//@ownedViewpoints[name='Database']/@ownedRepresentations[name='Database%20Diagram']/@additionalLayers[name='External%20Tables']"/>
     <target xmi:type="database:DataBase" href="E-BookStore-Oracle.database#_MX0j8ZEeEeauDets12NBwQ"/>
   </diagram:DSemanticDiagram>
-  <diagram:DSemanticDiagram uid="_viSAgBrcEee4oac7c6IUFQ" name="Search books Actions Plan">
+  <diagram:DSemanticDiagram uid="_viSAgBrcEee4oac7c6IUFQ">
     <ownedAnnotationEntries xmi:type="description:AnnotationEntry" uid="_viSAgRrcEee4oac7c6IUFQ" source="DANNOTATION_CUSTOMIZATION_KEY">
       <data xmi:type="diagram:ComputedStyleDescriptionRegistry" uid="_viSAghrcEee4oac7c6IUFQ"/>
     </ownedAnnotationEntries>
@@ -6768,7 +6799,7 @@
     <activatedLayers xmi:type="description_1:Layer" href="platform:/plugin/org.obeonetwork.graal.design/description/graal.odesign#//@ownedViewpoints[name='Graal%20Methodology']/@ownedRepresentations[name='Actions%20Plan']/@defaultLayer"/>
     <target xmi:type="graal:Task" href="E-BookStore.graal#_MsicoEjJEeGbkNJePX2AYQ"/>
   </diagram:DSemanticDiagram>
-  <diagram:DSemanticDiagram uid="_Zzrz0RrhEee4oac7c6IUFQ" name="Domain Classes Namespaces Hierarchy">
+  <diagram:DSemanticDiagram uid="_Zzrz0RrhEee4oac7c6IUFQ">
     <ownedAnnotationEntries xmi:type="description:AnnotationEntry" uid="_Zzrz0hrhEee4oac7c6IUFQ" source="DANNOTATION_CUSTOMIZATION_KEY">
       <data xmi:type="diagram:ComputedStyleDescriptionRegistry" uid="_Zzrz0xrhEee4oac7c6IUFQ"/>
     </ownedAnnotationEntries>
@@ -6782,7 +6813,7 @@
     <activatedLayers xmi:type="description_1:Layer" href="platform:/plugin/org.obeonetwork.graal.design/description/graal.odesign#//@ownedViewpoints[name='Graal%20Methodology']/@ownedRepresentations[name='Domain%20Classes%20Namespaces%20Hierarchy']/@defaultLayer"/>
     <target xmi:type="graal:System" href="E-BookStore.graal#_rynOsEjHEeGbkNJePX2AYQ"/>
   </diagram:DSemanticDiagram>
-  <diagram:DSemanticDiagram uid="_1LuB4CBFEee_JZNCQUcCsQ" name=" Databinding">
+  <diagram:DSemanticDiagram uid="_1LuB4CBFEee_JZNCQUcCsQ">
     <ownedAnnotationEntries xmi:type="description:AnnotationEntry" uid="_1LuB4SBFEee_JZNCQUcCsQ" source="DANNOTATION_CUSTOMIZATION_KEY">
       <data xmi:type="diagram:ComputedStyleDescriptionRegistry" uid="_1LuB4iBFEee_JZNCQUcCsQ"/>
     </ownedAnnotationEntries>
@@ -6796,7 +6827,7 @@
     <activatedLayers xmi:type="description_1:Layer" href="platform:/plugin/org.obeonetwork.dsl.environment.binding.design/description/binding.odesign#//@ownedViewpoints[name='IS%20Databinding']/@ownedRepresentations[name='Databinding%20diagram']/@defaultLayer"/>
     <target xmi:type="soa:System" href="E-BookStore.soa#_h6PKMYjXEeGlA5e_Ze9-Rg"/>
   </diagram:DSemanticDiagram>
-  <table:DTable uid="_5lHNkSBREeePq_6Kzvn9AQ" name="Entities Physical Names" headerColumnWidth="80">
+  <table:DTable uid="_5lHNkSBREeePq_6Kzvn9AQ" headerColumnWidth="235">
     <target xmi:type="oent:Root" href="E-BookStore.entity#_62l-UJEcEeauDets12NBwQ"/>
     <lines xmi:type="table:DLine" uid="_5lHNkiBREeePq_6Kzvn9AQ" label="main">
       <target xmi:type="oenv:Namespace" href="E-BookStore.entity#_9nCFoJEcEeauDets12NBwQ"/>
@@ -6806,23 +6837,23 @@
           <target xmi:type="oenv:Attribute" href="E-BookStore.entity#_ZPB8YJEdEeauDets12NBwQ"/>
           <semanticElements xmi:type="oenv:Attribute" href="E-BookStore.entity#_ZPB8YJEdEeauDets12NBwQ"/>
           <originMapping xmi:type="description_3:LineMapping" href="platform:/plugin/fr.gouv.mindef.safran.is.design/description/safran-is.odesign#//@ownedViewpoints[name='Entity%20(Safr@n%20consolidated%20view)']/@ownedRepresentations[name='EV_Entities_PhysicalNames']/@ownedLineMappings[name='EPN_Namespace']/@ownedSubLines[name='EPN_SubNamespaces']/@ownedSubLines[name='EPN_Entity']/@ownedSubLines[name='EPN_Attribute']"/>
-          <cells xmi:type="table:DCell" uid="_5lHNlSBREeePq_6Kzvn9AQ" label="" column="_5lHOKCBREeePq_6Kzvn9AQ">
+          <cells xmi:type="table:DCell" uid="_5lHNlSBREeePq_6Kzvn9AQ" column="_5lHOKCBREeePq_6Kzvn9AQ">
             <target xmi:type="oenv:Attribute" href="E-BookStore.entity#_ZPB8YJEdEeauDets12NBwQ"/>
             <semanticElements xmi:type="oenv:Attribute" href="E-BookStore.entity#_ZPB8YJEdEeauDets12NBwQ"/>
           </cells>
-          <cells xmi:type="table:DCell" uid="_5lHNliBREeePq_6Kzvn9AQ" label="" column="_5lHOKSBREeePq_6Kzvn9AQ">
+          <cells xmi:type="table:DCell" uid="_5lHNliBREeePq_6Kzvn9AQ" column="_5lHOKSBREeePq_6Kzvn9AQ">
             <target xmi:type="oenv:Attribute" href="E-BookStore.entity#_ZPB8YJEdEeauDets12NBwQ"/>
             <semanticElements xmi:type="oenv:Attribute" href="E-BookStore.entity#_ZPB8YJEdEeauDets12NBwQ"/>
           </cells>
-          <cells xmi:type="table:DCell" uid="_5lHNlyBREeePq_6Kzvn9AQ" label="" column="_5lHOKiBREeePq_6Kzvn9AQ">
+          <cells xmi:type="table:DCell" uid="_5lHNlyBREeePq_6Kzvn9AQ" column="_5lHOKiBREeePq_6Kzvn9AQ">
             <target xmi:type="oenv:Attribute" href="E-BookStore.entity#_ZPB8YJEdEeauDets12NBwQ"/>
             <semanticElements xmi:type="oenv:Attribute" href="E-BookStore.entity#_ZPB8YJEdEeauDets12NBwQ"/>
           </cells>
-          <cells xmi:type="table:DCell" uid="_5lHNmCBREeePq_6Kzvn9AQ" label="" column="_5lHOKyBREeePq_6Kzvn9AQ">
+          <cells xmi:type="table:DCell" uid="_5lHNmCBREeePq_6Kzvn9AQ" column="_5lHOKyBREeePq_6Kzvn9AQ">
             <target xmi:type="oenv:Attribute" href="E-BookStore.entity#_ZPB8YJEdEeauDets12NBwQ"/>
             <semanticElements xmi:type="oenv:Attribute" href="E-BookStore.entity#_ZPB8YJEdEeauDets12NBwQ"/>
           </cells>
-          <cells xmi:type="table:DCell" uid="_5lHNmSBREeePq_6Kzvn9AQ" label="" column="_5lHOLCBREeePq_6Kzvn9AQ">
+          <cells xmi:type="table:DCell" uid="_5lHNmSBREeePq_6Kzvn9AQ" column="_5lHOLCBREeePq_6Kzvn9AQ">
             <target xmi:type="oenv:Attribute" href="E-BookStore.entity#_ZPB8YJEdEeauDets12NBwQ"/>
             <semanticElements xmi:type="oenv:Attribute" href="E-BookStore.entity#_ZPB8YJEdEeauDets12NBwQ"/>
           </cells>
@@ -6831,46 +6862,46 @@
           <target xmi:type="oenv:Reference" href="E-BookStore.entity#_CqD6oJEdEeauDets12NBwQ"/>
           <semanticElements xmi:type="oenv:Reference" href="E-BookStore.entity#_CqD6oJEdEeauDets12NBwQ"/>
           <originMapping xmi:type="description_3:LineMapping" href="platform:/plugin/fr.gouv.mindef.safran.is.design/description/safran-is.odesign#//@ownedViewpoints[name='Entity%20(Safr@n%20consolidated%20view)']/@ownedRepresentations[name='EV_Entities_PhysicalNames']/@ownedLineMappings[name='EPN_Namespace']/@ownedSubLines[name='EPN_SubNamespaces']/@ownedSubLines[name='EPN_Entity']/@ownedSubLines[name='EPN_Reference']"/>
-          <cells xmi:type="table:DCell" uid="_5lHNmyBREeePq_6Kzvn9AQ" label="" column="_5lHOKCBREeePq_6Kzvn9AQ">
+          <cells xmi:type="table:DCell" uid="_5lHNmyBREeePq_6Kzvn9AQ" column="_5lHOKCBREeePq_6Kzvn9AQ">
             <target xmi:type="oenv:Reference" href="E-BookStore.entity#_CqD6oJEdEeauDets12NBwQ"/>
             <semanticElements xmi:type="oenv:Reference" href="E-BookStore.entity#_CqD6oJEdEeauDets12NBwQ"/>
           </cells>
-          <cells xmi:type="table:DCell" uid="_5lHNnCBREeePq_6Kzvn9AQ" label="" column="_5lHOKSBREeePq_6Kzvn9AQ">
+          <cells xmi:type="table:DCell" uid="_5lHNnCBREeePq_6Kzvn9AQ" column="_5lHOKSBREeePq_6Kzvn9AQ">
             <target xmi:type="oenv:Reference" href="E-BookStore.entity#_CqD6oJEdEeauDets12NBwQ"/>
             <semanticElements xmi:type="oenv:Reference" href="E-BookStore.entity#_CqD6oJEdEeauDets12NBwQ"/>
           </cells>
-          <cells xmi:type="table:DCell" uid="_5lHNnSBREeePq_6Kzvn9AQ" label="" column="_5lHOKiBREeePq_6Kzvn9AQ">
+          <cells xmi:type="table:DCell" uid="_5lHNnSBREeePq_6Kzvn9AQ" column="_5lHOKiBREeePq_6Kzvn9AQ">
             <target xmi:type="oenv:Reference" href="E-BookStore.entity#_CqD6oJEdEeauDets12NBwQ"/>
             <semanticElements xmi:type="oenv:Reference" href="E-BookStore.entity#_CqD6oJEdEeauDets12NBwQ"/>
           </cells>
-          <cells xmi:type="table:DCell" uid="_5lHNniBREeePq_6Kzvn9AQ" label="" column="_5lHOKyBREeePq_6Kzvn9AQ">
+          <cells xmi:type="table:DCell" uid="_5lHNniBREeePq_6Kzvn9AQ" column="_5lHOKyBREeePq_6Kzvn9AQ">
             <target xmi:type="oenv:Reference" href="E-BookStore.entity#_CqD6oJEdEeauDets12NBwQ"/>
             <semanticElements xmi:type="oenv:Reference" href="E-BookStore.entity#_CqD6oJEdEeauDets12NBwQ"/>
           </cells>
-          <cells xmi:type="table:DCell" uid="_5lHNnyBREeePq_6Kzvn9AQ" label="" column="_5lHOLCBREeePq_6Kzvn9AQ">
+          <cells xmi:type="table:DCell" uid="_5lHNnyBREeePq_6Kzvn9AQ" column="_5lHOLCBREeePq_6Kzvn9AQ">
             <target xmi:type="oenv:Reference" href="E-BookStore.entity#_CqD6oJEdEeauDets12NBwQ"/>
             <semanticElements xmi:type="oenv:Reference" href="E-BookStore.entity#_CqD6oJEdEeauDets12NBwQ"/>
           </cells>
         </lines>
         <semanticElements xmi:type="oent:Entity" href="E-BookStore.entity#_Cp_CIJEdEeauDets12NBwQ"/>
         <originMapping xmi:type="description_3:LineMapping" href="platform:/plugin/fr.gouv.mindef.safran.is.design/description/safran-is.odesign#//@ownedViewpoints[name='Entity%20(Safr@n%20consolidated%20view)']/@ownedRepresentations[name='EV_Entities_PhysicalNames']/@ownedLineMappings[name='EPN_Namespace']/@ownedSubLines[name='EPN_SubNamespaces']/@ownedSubLines[name='EPN_Entity']"/>
-        <cells xmi:type="table:DCell" uid="_5lHNoCBREeePq_6Kzvn9AQ" label="" column="_5lHOKCBREeePq_6Kzvn9AQ">
+        <cells xmi:type="table:DCell" uid="_5lHNoCBREeePq_6Kzvn9AQ" column="_5lHOKCBREeePq_6Kzvn9AQ">
           <target xmi:type="oent:Entity" href="E-BookStore.entity#_Cp_CIJEdEeauDets12NBwQ"/>
           <semanticElements xmi:type="oent:Entity" href="E-BookStore.entity#_Cp_CIJEdEeauDets12NBwQ"/>
         </cells>
-        <cells xmi:type="table:DCell" uid="_5lHNoSBREeePq_6Kzvn9AQ" label="" column="_5lHOKSBREeePq_6Kzvn9AQ">
+        <cells xmi:type="table:DCell" uid="_5lHNoSBREeePq_6Kzvn9AQ" column="_5lHOKSBREeePq_6Kzvn9AQ">
           <target xmi:type="oent:Entity" href="E-BookStore.entity#_Cp_CIJEdEeauDets12NBwQ"/>
           <semanticElements xmi:type="oent:Entity" href="E-BookStore.entity#_Cp_CIJEdEeauDets12NBwQ"/>
         </cells>
-        <cells xmi:type="table:DCell" uid="_5lHNoiBREeePq_6Kzvn9AQ" label="" column="_5lHOKiBREeePq_6Kzvn9AQ">
+        <cells xmi:type="table:DCell" uid="_5lHNoiBREeePq_6Kzvn9AQ" column="_5lHOKiBREeePq_6Kzvn9AQ">
           <target xmi:type="oent:Entity" href="E-BookStore.entity#_Cp_CIJEdEeauDets12NBwQ"/>
           <semanticElements xmi:type="oent:Entity" href="E-BookStore.entity#_Cp_CIJEdEeauDets12NBwQ"/>
         </cells>
-        <cells xmi:type="table:DCell" uid="_5lHNoyBREeePq_6Kzvn9AQ" label="" column="_5lHOKyBREeePq_6Kzvn9AQ">
+        <cells xmi:type="table:DCell" uid="_5lHNoyBREeePq_6Kzvn9AQ" column="_5lHOKyBREeePq_6Kzvn9AQ">
           <target xmi:type="oent:Entity" href="E-BookStore.entity#_Cp_CIJEdEeauDets12NBwQ"/>
           <semanticElements xmi:type="oent:Entity" href="E-BookStore.entity#_Cp_CIJEdEeauDets12NBwQ"/>
         </cells>
-        <cells xmi:type="table:DCell" uid="_5lHNpCBREeePq_6Kzvn9AQ" label="" column="_5lHOLCBREeePq_6Kzvn9AQ">
+        <cells xmi:type="table:DCell" uid="_5lHNpCBREeePq_6Kzvn9AQ" column="_5lHOLCBREeePq_6Kzvn9AQ">
           <target xmi:type="oent:Entity" href="E-BookStore.entity#_Cp_CIJEdEeauDets12NBwQ"/>
           <semanticElements xmi:type="oent:Entity" href="E-BookStore.entity#_Cp_CIJEdEeauDets12NBwQ"/>
         </cells>
@@ -6881,23 +6912,23 @@
           <target xmi:type="oenv:Attribute" href="E-BookStore.entity#_QscQQJEdEeauDets12NBwQ"/>
           <semanticElements xmi:type="oenv:Attribute" href="E-BookStore.entity#_QscQQJEdEeauDets12NBwQ"/>
           <originMapping xmi:type="description_3:LineMapping" href="platform:/plugin/fr.gouv.mindef.safran.is.design/description/safran-is.odesign#//@ownedViewpoints[name='Entity%20(Safr@n%20consolidated%20view)']/@ownedRepresentations[name='EV_Entities_PhysicalNames']/@ownedLineMappings[name='EPN_Namespace']/@ownedSubLines[name='EPN_SubNamespaces']/@ownedSubLines[name='EPN_Entity']/@ownedSubLines[name='EPN_Attribute']"/>
-          <cells xmi:type="table:DCell" uid="_5lHNpyBREeePq_6Kzvn9AQ" label="" column="_5lHOKCBREeePq_6Kzvn9AQ">
+          <cells xmi:type="table:DCell" uid="_5lHNpyBREeePq_6Kzvn9AQ" column="_5lHOKCBREeePq_6Kzvn9AQ">
             <target xmi:type="oenv:Attribute" href="E-BookStore.entity#_QscQQJEdEeauDets12NBwQ"/>
             <semanticElements xmi:type="oenv:Attribute" href="E-BookStore.entity#_QscQQJEdEeauDets12NBwQ"/>
           </cells>
-          <cells xmi:type="table:DCell" uid="_5lHNqCBREeePq_6Kzvn9AQ" label="" column="_5lHOKSBREeePq_6Kzvn9AQ">
+          <cells xmi:type="table:DCell" uid="_5lHNqCBREeePq_6Kzvn9AQ" column="_5lHOKSBREeePq_6Kzvn9AQ">
             <target xmi:type="oenv:Attribute" href="E-BookStore.entity#_QscQQJEdEeauDets12NBwQ"/>
             <semanticElements xmi:type="oenv:Attribute" href="E-BookStore.entity#_QscQQJEdEeauDets12NBwQ"/>
           </cells>
-          <cells xmi:type="table:DCell" uid="_5lHNqSBREeePq_6Kzvn9AQ" label="" column="_5lHOKiBREeePq_6Kzvn9AQ">
+          <cells xmi:type="table:DCell" uid="_5lHNqSBREeePq_6Kzvn9AQ" column="_5lHOKiBREeePq_6Kzvn9AQ">
             <target xmi:type="oenv:Attribute" href="E-BookStore.entity#_QscQQJEdEeauDets12NBwQ"/>
             <semanticElements xmi:type="oenv:Attribute" href="E-BookStore.entity#_QscQQJEdEeauDets12NBwQ"/>
           </cells>
-          <cells xmi:type="table:DCell" uid="_5lHNqiBREeePq_6Kzvn9AQ" label="" column="_5lHOKyBREeePq_6Kzvn9AQ">
+          <cells xmi:type="table:DCell" uid="_5lHNqiBREeePq_6Kzvn9AQ" column="_5lHOKyBREeePq_6Kzvn9AQ">
             <target xmi:type="oenv:Attribute" href="E-BookStore.entity#_QscQQJEdEeauDets12NBwQ"/>
             <semanticElements xmi:type="oenv:Attribute" href="E-BookStore.entity#_QscQQJEdEeauDets12NBwQ"/>
           </cells>
-          <cells xmi:type="table:DCell" uid="_5lHNqyBREeePq_6Kzvn9AQ" label="" column="_5lHOLCBREeePq_6Kzvn9AQ">
+          <cells xmi:type="table:DCell" uid="_5lHNqyBREeePq_6Kzvn9AQ" column="_5lHOLCBREeePq_6Kzvn9AQ">
             <target xmi:type="oenv:Attribute" href="E-BookStore.entity#_QscQQJEdEeauDets12NBwQ"/>
             <semanticElements xmi:type="oenv:Attribute" href="E-BookStore.entity#_QscQQJEdEeauDets12NBwQ"/>
           </cells>
@@ -6906,23 +6937,23 @@
           <target xmi:type="oenv:Attribute" href="E-BookStore.entity#_Q2GikJEdEeauDets12NBwQ"/>
           <semanticElements xmi:type="oenv:Attribute" href="E-BookStore.entity#_Q2GikJEdEeauDets12NBwQ"/>
           <originMapping xmi:type="description_3:LineMapping" href="platform:/plugin/fr.gouv.mindef.safran.is.design/description/safran-is.odesign#//@ownedViewpoints[name='Entity%20(Safr@n%20consolidated%20view)']/@ownedRepresentations[name='EV_Entities_PhysicalNames']/@ownedLineMappings[name='EPN_Namespace']/@ownedSubLines[name='EPN_SubNamespaces']/@ownedSubLines[name='EPN_Entity']/@ownedSubLines[name='EPN_Attribute']"/>
-          <cells xmi:type="table:DCell" uid="_5lHNrSBREeePq_6Kzvn9AQ" label="" column="_5lHOKCBREeePq_6Kzvn9AQ">
+          <cells xmi:type="table:DCell" uid="_5lHNrSBREeePq_6Kzvn9AQ" column="_5lHOKCBREeePq_6Kzvn9AQ">
             <target xmi:type="oenv:Attribute" href="E-BookStore.entity#_Q2GikJEdEeauDets12NBwQ"/>
             <semanticElements xmi:type="oenv:Attribute" href="E-BookStore.entity#_Q2GikJEdEeauDets12NBwQ"/>
           </cells>
-          <cells xmi:type="table:DCell" uid="_5lHNriBREeePq_6Kzvn9AQ" label="" column="_5lHOKSBREeePq_6Kzvn9AQ">
+          <cells xmi:type="table:DCell" uid="_5lHNriBREeePq_6Kzvn9AQ" column="_5lHOKSBREeePq_6Kzvn9AQ">
             <target xmi:type="oenv:Attribute" href="E-BookStore.entity#_Q2GikJEdEeauDets12NBwQ"/>
             <semanticElements xmi:type="oenv:Attribute" href="E-BookStore.entity#_Q2GikJEdEeauDets12NBwQ"/>
           </cells>
-          <cells xmi:type="table:DCell" uid="_5lHNryBREeePq_6Kzvn9AQ" label="" column="_5lHOKiBREeePq_6Kzvn9AQ">
+          <cells xmi:type="table:DCell" uid="_5lHNryBREeePq_6Kzvn9AQ" column="_5lHOKiBREeePq_6Kzvn9AQ">
             <target xmi:type="oenv:Attribute" href="E-BookStore.entity#_Q2GikJEdEeauDets12NBwQ"/>
             <semanticElements xmi:type="oenv:Attribute" href="E-BookStore.entity#_Q2GikJEdEeauDets12NBwQ"/>
           </cells>
-          <cells xmi:type="table:DCell" uid="_5lHNsCBREeePq_6Kzvn9AQ" label="" column="_5lHOKyBREeePq_6Kzvn9AQ">
+          <cells xmi:type="table:DCell" uid="_5lHNsCBREeePq_6Kzvn9AQ" column="_5lHOKyBREeePq_6Kzvn9AQ">
             <target xmi:type="oenv:Attribute" href="E-BookStore.entity#_Q2GikJEdEeauDets12NBwQ"/>
             <semanticElements xmi:type="oenv:Attribute" href="E-BookStore.entity#_Q2GikJEdEeauDets12NBwQ"/>
           </cells>
-          <cells xmi:type="table:DCell" uid="_5lHNsSBREeePq_6Kzvn9AQ" label="" column="_5lHOLCBREeePq_6Kzvn9AQ">
+          <cells xmi:type="table:DCell" uid="_5lHNsSBREeePq_6Kzvn9AQ" column="_5lHOLCBREeePq_6Kzvn9AQ">
             <target xmi:type="oenv:Attribute" href="E-BookStore.entity#_Q2GikJEdEeauDets12NBwQ"/>
             <semanticElements xmi:type="oenv:Attribute" href="E-BookStore.entity#_Q2GikJEdEeauDets12NBwQ"/>
           </cells>
@@ -6931,23 +6962,23 @@
           <target xmi:type="oenv:Attribute" href="E-BookStore.entity#_RIAK4JEdEeauDets12NBwQ"/>
           <semanticElements xmi:type="oenv:Attribute" href="E-BookStore.entity#_RIAK4JEdEeauDets12NBwQ"/>
           <originMapping xmi:type="description_3:LineMapping" href="platform:/plugin/fr.gouv.mindef.safran.is.design/description/safran-is.odesign#//@ownedViewpoints[name='Entity%20(Safr@n%20consolidated%20view)']/@ownedRepresentations[name='EV_Entities_PhysicalNames']/@ownedLineMappings[name='EPN_Namespace']/@ownedSubLines[name='EPN_SubNamespaces']/@ownedSubLines[name='EPN_Entity']/@ownedSubLines[name='EPN_Attribute']"/>
-          <cells xmi:type="table:DCell" uid="_5lHNsyBREeePq_6Kzvn9AQ" label="" column="_5lHOKCBREeePq_6Kzvn9AQ">
+          <cells xmi:type="table:DCell" uid="_5lHNsyBREeePq_6Kzvn9AQ" column="_5lHOKCBREeePq_6Kzvn9AQ">
             <target xmi:type="oenv:Attribute" href="E-BookStore.entity#_RIAK4JEdEeauDets12NBwQ"/>
             <semanticElements xmi:type="oenv:Attribute" href="E-BookStore.entity#_RIAK4JEdEeauDets12NBwQ"/>
           </cells>
-          <cells xmi:type="table:DCell" uid="_5lHNtCBREeePq_6Kzvn9AQ" label="" column="_5lHOKSBREeePq_6Kzvn9AQ">
+          <cells xmi:type="table:DCell" uid="_5lHNtCBREeePq_6Kzvn9AQ" column="_5lHOKSBREeePq_6Kzvn9AQ">
             <target xmi:type="oenv:Attribute" href="E-BookStore.entity#_RIAK4JEdEeauDets12NBwQ"/>
             <semanticElements xmi:type="oenv:Attribute" href="E-BookStore.entity#_RIAK4JEdEeauDets12NBwQ"/>
           </cells>
-          <cells xmi:type="table:DCell" uid="_5lHNtSBREeePq_6Kzvn9AQ" label="" column="_5lHOKiBREeePq_6Kzvn9AQ">
+          <cells xmi:type="table:DCell" uid="_5lHNtSBREeePq_6Kzvn9AQ" column="_5lHOKiBREeePq_6Kzvn9AQ">
             <target xmi:type="oenv:Attribute" href="E-BookStore.entity#_RIAK4JEdEeauDets12NBwQ"/>
             <semanticElements xmi:type="oenv:Attribute" href="E-BookStore.entity#_RIAK4JEdEeauDets12NBwQ"/>
           </cells>
-          <cells xmi:type="table:DCell" uid="_5lHNtiBREeePq_6Kzvn9AQ" label="" column="_5lHOKyBREeePq_6Kzvn9AQ">
+          <cells xmi:type="table:DCell" uid="_5lHNtiBREeePq_6Kzvn9AQ" column="_5lHOKyBREeePq_6Kzvn9AQ">
             <target xmi:type="oenv:Attribute" href="E-BookStore.entity#_RIAK4JEdEeauDets12NBwQ"/>
             <semanticElements xmi:type="oenv:Attribute" href="E-BookStore.entity#_RIAK4JEdEeauDets12NBwQ"/>
           </cells>
-          <cells xmi:type="table:DCell" uid="_5lHNtyBREeePq_6Kzvn9AQ" label="" column="_5lHOLCBREeePq_6Kzvn9AQ">
+          <cells xmi:type="table:DCell" uid="_5lHNtyBREeePq_6Kzvn9AQ" column="_5lHOLCBREeePq_6Kzvn9AQ">
             <target xmi:type="oenv:Attribute" href="E-BookStore.entity#_RIAK4JEdEeauDets12NBwQ"/>
             <semanticElements xmi:type="oenv:Attribute" href="E-BookStore.entity#_RIAK4JEdEeauDets12NBwQ"/>
           </cells>
@@ -6956,46 +6987,46 @@
           <target xmi:type="oenv:Reference" href="E-BookStore.entity#_CqDTkZEdEeauDets12NBwQ"/>
           <semanticElements xmi:type="oenv:Reference" href="E-BookStore.entity#_CqDTkZEdEeauDets12NBwQ"/>
           <originMapping xmi:type="description_3:LineMapping" href="platform:/plugin/fr.gouv.mindef.safran.is.design/description/safran-is.odesign#//@ownedViewpoints[name='Entity%20(Safr@n%20consolidated%20view)']/@ownedRepresentations[name='EV_Entities_PhysicalNames']/@ownedLineMappings[name='EPN_Namespace']/@ownedSubLines[name='EPN_SubNamespaces']/@ownedSubLines[name='EPN_Entity']/@ownedSubLines[name='EPN_Reference']"/>
-          <cells xmi:type="table:DCell" uid="_5lHNuSBREeePq_6Kzvn9AQ" label="" column="_5lHOKCBREeePq_6Kzvn9AQ">
+          <cells xmi:type="table:DCell" uid="_5lHNuSBREeePq_6Kzvn9AQ" column="_5lHOKCBREeePq_6Kzvn9AQ">
             <target xmi:type="oenv:Reference" href="E-BookStore.entity#_CqDTkZEdEeauDets12NBwQ"/>
             <semanticElements xmi:type="oenv:Reference" href="E-BookStore.entity#_CqDTkZEdEeauDets12NBwQ"/>
           </cells>
-          <cells xmi:type="table:DCell" uid="_5lHNuiBREeePq_6Kzvn9AQ" label="" column="_5lHOKSBREeePq_6Kzvn9AQ">
+          <cells xmi:type="table:DCell" uid="_5lHNuiBREeePq_6Kzvn9AQ" column="_5lHOKSBREeePq_6Kzvn9AQ">
             <target xmi:type="oenv:Reference" href="E-BookStore.entity#_CqDTkZEdEeauDets12NBwQ"/>
             <semanticElements xmi:type="oenv:Reference" href="E-BookStore.entity#_CqDTkZEdEeauDets12NBwQ"/>
           </cells>
-          <cells xmi:type="table:DCell" uid="_5lHNuyBREeePq_6Kzvn9AQ" label="" column="_5lHOKiBREeePq_6Kzvn9AQ">
+          <cells xmi:type="table:DCell" uid="_5lHNuyBREeePq_6Kzvn9AQ" column="_5lHOKiBREeePq_6Kzvn9AQ">
             <target xmi:type="oenv:Reference" href="E-BookStore.entity#_CqDTkZEdEeauDets12NBwQ"/>
             <semanticElements xmi:type="oenv:Reference" href="E-BookStore.entity#_CqDTkZEdEeauDets12NBwQ"/>
           </cells>
-          <cells xmi:type="table:DCell" uid="_5lHNvCBREeePq_6Kzvn9AQ" label="" column="_5lHOKyBREeePq_6Kzvn9AQ">
+          <cells xmi:type="table:DCell" uid="_5lHNvCBREeePq_6Kzvn9AQ" column="_5lHOKyBREeePq_6Kzvn9AQ">
             <target xmi:type="oenv:Reference" href="E-BookStore.entity#_CqDTkZEdEeauDets12NBwQ"/>
             <semanticElements xmi:type="oenv:Reference" href="E-BookStore.entity#_CqDTkZEdEeauDets12NBwQ"/>
           </cells>
-          <cells xmi:type="table:DCell" uid="_5lHNvSBREeePq_6Kzvn9AQ" label="" column="_5lHOLCBREeePq_6Kzvn9AQ">
+          <cells xmi:type="table:DCell" uid="_5lHNvSBREeePq_6Kzvn9AQ" column="_5lHOLCBREeePq_6Kzvn9AQ">
             <target xmi:type="oenv:Reference" href="E-BookStore.entity#_CqDTkZEdEeauDets12NBwQ"/>
             <semanticElements xmi:type="oenv:Reference" href="E-BookStore.entity#_CqDTkZEdEeauDets12NBwQ"/>
           </cells>
         </lines>
         <semanticElements xmi:type="oent:Entity" href="E-BookStore.entity#_CqAQQJEdEeauDets12NBwQ"/>
         <originMapping xmi:type="description_3:LineMapping" href="platform:/plugin/fr.gouv.mindef.safran.is.design/description/safran-is.odesign#//@ownedViewpoints[name='Entity%20(Safr@n%20consolidated%20view)']/@ownedRepresentations[name='EV_Entities_PhysicalNames']/@ownedLineMappings[name='EPN_Namespace']/@ownedSubLines[name='EPN_SubNamespaces']/@ownedSubLines[name='EPN_Entity']"/>
-        <cells xmi:type="table:DCell" uid="_5lHNviBREeePq_6Kzvn9AQ" label="" column="_5lHOKCBREeePq_6Kzvn9AQ">
+        <cells xmi:type="table:DCell" uid="_5lHNviBREeePq_6Kzvn9AQ" column="_5lHOKCBREeePq_6Kzvn9AQ">
           <target xmi:type="oent:Entity" href="E-BookStore.entity#_CqAQQJEdEeauDets12NBwQ"/>
           <semanticElements xmi:type="oent:Entity" href="E-BookStore.entity#_CqAQQJEdEeauDets12NBwQ"/>
         </cells>
-        <cells xmi:type="table:DCell" uid="_5lHNvyBREeePq_6Kzvn9AQ" label="" column="_5lHOKSBREeePq_6Kzvn9AQ">
+        <cells xmi:type="table:DCell" uid="_5lHNvyBREeePq_6Kzvn9AQ" column="_5lHOKSBREeePq_6Kzvn9AQ">
           <target xmi:type="oent:Entity" href="E-BookStore.entity#_CqAQQJEdEeauDets12NBwQ"/>
           <semanticElements xmi:type="oent:Entity" href="E-BookStore.entity#_CqAQQJEdEeauDets12NBwQ"/>
         </cells>
-        <cells xmi:type="table:DCell" uid="_5lHNwCBREeePq_6Kzvn9AQ" label="" column="_5lHOKiBREeePq_6Kzvn9AQ">
+        <cells xmi:type="table:DCell" uid="_5lHNwCBREeePq_6Kzvn9AQ" column="_5lHOKiBREeePq_6Kzvn9AQ">
           <target xmi:type="oent:Entity" href="E-BookStore.entity#_CqAQQJEdEeauDets12NBwQ"/>
           <semanticElements xmi:type="oent:Entity" href="E-BookStore.entity#_CqAQQJEdEeauDets12NBwQ"/>
         </cells>
-        <cells xmi:type="table:DCell" uid="_5lHNwSBREeePq_6Kzvn9AQ" label="" column="_5lHOKyBREeePq_6Kzvn9AQ">
+        <cells xmi:type="table:DCell" uid="_5lHNwSBREeePq_6Kzvn9AQ" column="_5lHOKyBREeePq_6Kzvn9AQ">
           <target xmi:type="oent:Entity" href="E-BookStore.entity#_CqAQQJEdEeauDets12NBwQ"/>
           <semanticElements xmi:type="oent:Entity" href="E-BookStore.entity#_CqAQQJEdEeauDets12NBwQ"/>
         </cells>
-        <cells xmi:type="table:DCell" uid="_5lHNwiBREeePq_6Kzvn9AQ" label="" column="_5lHOLCBREeePq_6Kzvn9AQ">
+        <cells xmi:type="table:DCell" uid="_5lHNwiBREeePq_6Kzvn9AQ" column="_5lHOLCBREeePq_6Kzvn9AQ">
           <target xmi:type="oent:Entity" href="E-BookStore.entity#_CqAQQJEdEeauDets12NBwQ"/>
           <semanticElements xmi:type="oent:Entity" href="E-BookStore.entity#_CqAQQJEdEeauDets12NBwQ"/>
         </cells>
@@ -7006,23 +7037,23 @@
           <target xmi:type="oenv:Attribute" href="E-BookStore.entity#_tPeL4JEdEeauDets12NBwQ"/>
           <semanticElements xmi:type="oenv:Attribute" href="E-BookStore.entity#_tPeL4JEdEeauDets12NBwQ"/>
           <originMapping xmi:type="description_3:LineMapping" href="platform:/plugin/fr.gouv.mindef.safran.is.design/description/safran-is.odesign#//@ownedViewpoints[name='Entity%20(Safr@n%20consolidated%20view)']/@ownedRepresentations[name='EV_Entities_PhysicalNames']/@ownedLineMappings[name='EPN_Namespace']/@ownedSubLines[name='EPN_SubNamespaces']/@ownedSubLines[name='EPN_Entity']/@ownedSubLines[name='EPN_Attribute']"/>
-          <cells xmi:type="table:DCell" uid="_5lHNxSBREeePq_6Kzvn9AQ" label="" column="_5lHOKCBREeePq_6Kzvn9AQ">
+          <cells xmi:type="table:DCell" uid="_5lHNxSBREeePq_6Kzvn9AQ" column="_5lHOKCBREeePq_6Kzvn9AQ">
             <target xmi:type="oenv:Attribute" href="E-BookStore.entity#_tPeL4JEdEeauDets12NBwQ"/>
             <semanticElements xmi:type="oenv:Attribute" href="E-BookStore.entity#_tPeL4JEdEeauDets12NBwQ"/>
           </cells>
-          <cells xmi:type="table:DCell" uid="_5lHNxiBREeePq_6Kzvn9AQ" label="" column="_5lHOKSBREeePq_6Kzvn9AQ">
+          <cells xmi:type="table:DCell" uid="_5lHNxiBREeePq_6Kzvn9AQ" column="_5lHOKSBREeePq_6Kzvn9AQ">
             <target xmi:type="oenv:Attribute" href="E-BookStore.entity#_tPeL4JEdEeauDets12NBwQ"/>
             <semanticElements xmi:type="oenv:Attribute" href="E-BookStore.entity#_tPeL4JEdEeauDets12NBwQ"/>
           </cells>
-          <cells xmi:type="table:DCell" uid="_5lHNxyBREeePq_6Kzvn9AQ" label="" column="_5lHOKiBREeePq_6Kzvn9AQ">
+          <cells xmi:type="table:DCell" uid="_5lHNxyBREeePq_6Kzvn9AQ" column="_5lHOKiBREeePq_6Kzvn9AQ">
             <target xmi:type="oenv:Attribute" href="E-BookStore.entity#_tPeL4JEdEeauDets12NBwQ"/>
             <semanticElements xmi:type="oenv:Attribute" href="E-BookStore.entity#_tPeL4JEdEeauDets12NBwQ"/>
           </cells>
-          <cells xmi:type="table:DCell" uid="_5lHNyCBREeePq_6Kzvn9AQ" label="" column="_5lHOKyBREeePq_6Kzvn9AQ">
+          <cells xmi:type="table:DCell" uid="_5lHNyCBREeePq_6Kzvn9AQ" column="_5lHOKyBREeePq_6Kzvn9AQ">
             <target xmi:type="oenv:Attribute" href="E-BookStore.entity#_tPeL4JEdEeauDets12NBwQ"/>
             <semanticElements xmi:type="oenv:Attribute" href="E-BookStore.entity#_tPeL4JEdEeauDets12NBwQ"/>
           </cells>
-          <cells xmi:type="table:DCell" uid="_5lHNySBREeePq_6Kzvn9AQ" label="" column="_5lHOLCBREeePq_6Kzvn9AQ">
+          <cells xmi:type="table:DCell" uid="_5lHNySBREeePq_6Kzvn9AQ" column="_5lHOLCBREeePq_6Kzvn9AQ">
             <target xmi:type="oenv:Attribute" href="E-BookStore.entity#_tPeL4JEdEeauDets12NBwQ"/>
             <semanticElements xmi:type="oenv:Attribute" href="E-BookStore.entity#_tPeL4JEdEeauDets12NBwQ"/>
           </cells>
@@ -7031,23 +7062,23 @@
           <target xmi:type="oenv:Attribute" href="E-BookStore.entity#_tW97AJEdEeauDets12NBwQ"/>
           <semanticElements xmi:type="oenv:Attribute" href="E-BookStore.entity#_tW97AJEdEeauDets12NBwQ"/>
           <originMapping xmi:type="description_3:LineMapping" href="platform:/plugin/fr.gouv.mindef.safran.is.design/description/safran-is.odesign#//@ownedViewpoints[name='Entity%20(Safr@n%20consolidated%20view)']/@ownedRepresentations[name='EV_Entities_PhysicalNames']/@ownedLineMappings[name='EPN_Namespace']/@ownedSubLines[name='EPN_SubNamespaces']/@ownedSubLines[name='EPN_Entity']/@ownedSubLines[name='EPN_Attribute']"/>
-          <cells xmi:type="table:DCell" uid="_5lHNyyBREeePq_6Kzvn9AQ" label="" column="_5lHOKCBREeePq_6Kzvn9AQ">
+          <cells xmi:type="table:DCell" uid="_5lHNyyBREeePq_6Kzvn9AQ" column="_5lHOKCBREeePq_6Kzvn9AQ">
             <target xmi:type="oenv:Attribute" href="E-BookStore.entity#_tW97AJEdEeauDets12NBwQ"/>
             <semanticElements xmi:type="oenv:Attribute" href="E-BookStore.entity#_tW97AJEdEeauDets12NBwQ"/>
           </cells>
-          <cells xmi:type="table:DCell" uid="_5lHNzCBREeePq_6Kzvn9AQ" label="" column="_5lHOKSBREeePq_6Kzvn9AQ">
+          <cells xmi:type="table:DCell" uid="_5lHNzCBREeePq_6Kzvn9AQ" column="_5lHOKSBREeePq_6Kzvn9AQ">
             <target xmi:type="oenv:Attribute" href="E-BookStore.entity#_tW97AJEdEeauDets12NBwQ"/>
             <semanticElements xmi:type="oenv:Attribute" href="E-BookStore.entity#_tW97AJEdEeauDets12NBwQ"/>
           </cells>
-          <cells xmi:type="table:DCell" uid="_5lHNzSBREeePq_6Kzvn9AQ" label="" column="_5lHOKiBREeePq_6Kzvn9AQ">
+          <cells xmi:type="table:DCell" uid="_5lHNzSBREeePq_6Kzvn9AQ" column="_5lHOKiBREeePq_6Kzvn9AQ">
             <target xmi:type="oenv:Attribute" href="E-BookStore.entity#_tW97AJEdEeauDets12NBwQ"/>
             <semanticElements xmi:type="oenv:Attribute" href="E-BookStore.entity#_tW97AJEdEeauDets12NBwQ"/>
           </cells>
-          <cells xmi:type="table:DCell" uid="_5lHNziBREeePq_6Kzvn9AQ" label="" column="_5lHOKyBREeePq_6Kzvn9AQ">
+          <cells xmi:type="table:DCell" uid="_5lHNziBREeePq_6Kzvn9AQ" column="_5lHOKyBREeePq_6Kzvn9AQ">
             <target xmi:type="oenv:Attribute" href="E-BookStore.entity#_tW97AJEdEeauDets12NBwQ"/>
             <semanticElements xmi:type="oenv:Attribute" href="E-BookStore.entity#_tW97AJEdEeauDets12NBwQ"/>
           </cells>
-          <cells xmi:type="table:DCell" uid="_5lHNzyBREeePq_6Kzvn9AQ" label="" column="_5lHOLCBREeePq_6Kzvn9AQ">
+          <cells xmi:type="table:DCell" uid="_5lHNzyBREeePq_6Kzvn9AQ" column="_5lHOLCBREeePq_6Kzvn9AQ">
             <target xmi:type="oenv:Attribute" href="E-BookStore.entity#_tW97AJEdEeauDets12NBwQ"/>
             <semanticElements xmi:type="oenv:Attribute" href="E-BookStore.entity#_tW97AJEdEeauDets12NBwQ"/>
           </cells>
@@ -7056,23 +7087,23 @@
           <target xmi:type="oenv:Reference" href="E-BookStore.entity#_CqCsgZEdEeauDets12NBwQ"/>
           <semanticElements xmi:type="oenv:Reference" href="E-BookStore.entity#_CqCsgZEdEeauDets12NBwQ"/>
           <originMapping xmi:type="description_3:LineMapping" href="platform:/plugin/fr.gouv.mindef.safran.is.design/description/safran-is.odesign#//@ownedViewpoints[name='Entity%20(Safr@n%20consolidated%20view)']/@ownedRepresentations[name='EV_Entities_PhysicalNames']/@ownedLineMappings[name='EPN_Namespace']/@ownedSubLines[name='EPN_SubNamespaces']/@ownedSubLines[name='EPN_Entity']/@ownedSubLines[name='EPN_Reference']"/>
-          <cells xmi:type="table:DCell" uid="_5lHN0SBREeePq_6Kzvn9AQ" label="" column="_5lHOKCBREeePq_6Kzvn9AQ">
+          <cells xmi:type="table:DCell" uid="_5lHN0SBREeePq_6Kzvn9AQ" column="_5lHOKCBREeePq_6Kzvn9AQ">
             <target xmi:type="oenv:Reference" href="E-BookStore.entity#_CqCsgZEdEeauDets12NBwQ"/>
             <semanticElements xmi:type="oenv:Reference" href="E-BookStore.entity#_CqCsgZEdEeauDets12NBwQ"/>
           </cells>
-          <cells xmi:type="table:DCell" uid="_5lHN0iBREeePq_6Kzvn9AQ" label="" column="_5lHOKSBREeePq_6Kzvn9AQ">
+          <cells xmi:type="table:DCell" uid="_5lHN0iBREeePq_6Kzvn9AQ" column="_5lHOKSBREeePq_6Kzvn9AQ">
             <target xmi:type="oenv:Reference" href="E-BookStore.entity#_CqCsgZEdEeauDets12NBwQ"/>
             <semanticElements xmi:type="oenv:Reference" href="E-BookStore.entity#_CqCsgZEdEeauDets12NBwQ"/>
           </cells>
-          <cells xmi:type="table:DCell" uid="_5lHN0yBREeePq_6Kzvn9AQ" label="" column="_5lHOKiBREeePq_6Kzvn9AQ">
+          <cells xmi:type="table:DCell" uid="_5lHN0yBREeePq_6Kzvn9AQ" column="_5lHOKiBREeePq_6Kzvn9AQ">
             <target xmi:type="oenv:Reference" href="E-BookStore.entity#_CqCsgZEdEeauDets12NBwQ"/>
             <semanticElements xmi:type="oenv:Reference" href="E-BookStore.entity#_CqCsgZEdEeauDets12NBwQ"/>
           </cells>
-          <cells xmi:type="table:DCell" uid="_5lHN1CBREeePq_6Kzvn9AQ" label="" column="_5lHOKyBREeePq_6Kzvn9AQ">
+          <cells xmi:type="table:DCell" uid="_5lHN1CBREeePq_6Kzvn9AQ" column="_5lHOKyBREeePq_6Kzvn9AQ">
             <target xmi:type="oenv:Reference" href="E-BookStore.entity#_CqCsgZEdEeauDets12NBwQ"/>
             <semanticElements xmi:type="oenv:Reference" href="E-BookStore.entity#_CqCsgZEdEeauDets12NBwQ"/>
           </cells>
-          <cells xmi:type="table:DCell" uid="_5lHN1SBREeePq_6Kzvn9AQ" label="" column="_5lHOLCBREeePq_6Kzvn9AQ">
+          <cells xmi:type="table:DCell" uid="_5lHN1SBREeePq_6Kzvn9AQ" column="_5lHOLCBREeePq_6Kzvn9AQ">
             <target xmi:type="oenv:Reference" href="E-BookStore.entity#_CqCsgZEdEeauDets12NBwQ"/>
             <semanticElements xmi:type="oenv:Reference" href="E-BookStore.entity#_CqCsgZEdEeauDets12NBwQ"/>
           </cells>
@@ -7081,46 +7112,46 @@
           <target xmi:type="oenv:Reference" href="E-BookStore.entity#_CqDTkJEdEeauDets12NBwQ"/>
           <semanticElements xmi:type="oenv:Reference" href="E-BookStore.entity#_CqDTkJEdEeauDets12NBwQ"/>
           <originMapping xmi:type="description_3:LineMapping" href="platform:/plugin/fr.gouv.mindef.safran.is.design/description/safran-is.odesign#//@ownedViewpoints[name='Entity%20(Safr@n%20consolidated%20view)']/@ownedRepresentations[name='EV_Entities_PhysicalNames']/@ownedLineMappings[name='EPN_Namespace']/@ownedSubLines[name='EPN_SubNamespaces']/@ownedSubLines[name='EPN_Entity']/@ownedSubLines[name='EPN_Reference']"/>
-          <cells xmi:type="table:DCell" uid="_5lHN1yBREeePq_6Kzvn9AQ" label="" column="_5lHOKCBREeePq_6Kzvn9AQ">
+          <cells xmi:type="table:DCell" uid="_5lHN1yBREeePq_6Kzvn9AQ" column="_5lHOKCBREeePq_6Kzvn9AQ">
             <target xmi:type="oenv:Reference" href="E-BookStore.entity#_CqDTkJEdEeauDets12NBwQ"/>
             <semanticElements xmi:type="oenv:Reference" href="E-BookStore.entity#_CqDTkJEdEeauDets12NBwQ"/>
           </cells>
-          <cells xmi:type="table:DCell" uid="_5lHN2CBREeePq_6Kzvn9AQ" label="" column="_5lHOKSBREeePq_6Kzvn9AQ">
+          <cells xmi:type="table:DCell" uid="_5lHN2CBREeePq_6Kzvn9AQ" column="_5lHOKSBREeePq_6Kzvn9AQ">
             <target xmi:type="oenv:Reference" href="E-BookStore.entity#_CqDTkJEdEeauDets12NBwQ"/>
             <semanticElements xmi:type="oenv:Reference" href="E-BookStore.entity#_CqDTkJEdEeauDets12NBwQ"/>
           </cells>
-          <cells xmi:type="table:DCell" uid="_5lHN2SBREeePq_6Kzvn9AQ" label="" column="_5lHOKiBREeePq_6Kzvn9AQ">
+          <cells xmi:type="table:DCell" uid="_5lHN2SBREeePq_6Kzvn9AQ" column="_5lHOKiBREeePq_6Kzvn9AQ">
             <target xmi:type="oenv:Reference" href="E-BookStore.entity#_CqDTkJEdEeauDets12NBwQ"/>
             <semanticElements xmi:type="oenv:Reference" href="E-BookStore.entity#_CqDTkJEdEeauDets12NBwQ"/>
           </cells>
-          <cells xmi:type="table:DCell" uid="_5lHN2iBREeePq_6Kzvn9AQ" label="" column="_5lHOKyBREeePq_6Kzvn9AQ">
+          <cells xmi:type="table:DCell" uid="_5lHN2iBREeePq_6Kzvn9AQ" column="_5lHOKyBREeePq_6Kzvn9AQ">
             <target xmi:type="oenv:Reference" href="E-BookStore.entity#_CqDTkJEdEeauDets12NBwQ"/>
             <semanticElements xmi:type="oenv:Reference" href="E-BookStore.entity#_CqDTkJEdEeauDets12NBwQ"/>
           </cells>
-          <cells xmi:type="table:DCell" uid="_5lHN2yBREeePq_6Kzvn9AQ" label="" column="_5lHOLCBREeePq_6Kzvn9AQ">
+          <cells xmi:type="table:DCell" uid="_5lHN2yBREeePq_6Kzvn9AQ" column="_5lHOLCBREeePq_6Kzvn9AQ">
             <target xmi:type="oenv:Reference" href="E-BookStore.entity#_CqDTkJEdEeauDets12NBwQ"/>
             <semanticElements xmi:type="oenv:Reference" href="E-BookStore.entity#_CqDTkJEdEeauDets12NBwQ"/>
           </cells>
         </lines>
         <semanticElements xmi:type="oent:Entity" href="E-BookStore.entity#_CqAQQZEdEeauDets12NBwQ"/>
         <originMapping xmi:type="description_3:LineMapping" href="platform:/plugin/fr.gouv.mindef.safran.is.design/description/safran-is.odesign#//@ownedViewpoints[name='Entity%20(Safr@n%20consolidated%20view)']/@ownedRepresentations[name='EV_Entities_PhysicalNames']/@ownedLineMappings[name='EPN_Namespace']/@ownedSubLines[name='EPN_SubNamespaces']/@ownedSubLines[name='EPN_Entity']"/>
-        <cells xmi:type="table:DCell" uid="_5lHN3CBREeePq_6Kzvn9AQ" label="" column="_5lHOKCBREeePq_6Kzvn9AQ">
+        <cells xmi:type="table:DCell" uid="_5lHN3CBREeePq_6Kzvn9AQ" column="_5lHOKCBREeePq_6Kzvn9AQ">
           <target xmi:type="oent:Entity" href="E-BookStore.entity#_CqAQQZEdEeauDets12NBwQ"/>
           <semanticElements xmi:type="oent:Entity" href="E-BookStore.entity#_CqAQQZEdEeauDets12NBwQ"/>
         </cells>
-        <cells xmi:type="table:DCell" uid="_5lHN3SBREeePq_6Kzvn9AQ" label="" column="_5lHOKSBREeePq_6Kzvn9AQ">
+        <cells xmi:type="table:DCell" uid="_5lHN3SBREeePq_6Kzvn9AQ" column="_5lHOKSBREeePq_6Kzvn9AQ">
           <target xmi:type="oent:Entity" href="E-BookStore.entity#_CqAQQZEdEeauDets12NBwQ"/>
           <semanticElements xmi:type="oent:Entity" href="E-BookStore.entity#_CqAQQZEdEeauDets12NBwQ"/>
         </cells>
-        <cells xmi:type="table:DCell" uid="_5lHN3iBREeePq_6Kzvn9AQ" label="" column="_5lHOKiBREeePq_6Kzvn9AQ">
+        <cells xmi:type="table:DCell" uid="_5lHN3iBREeePq_6Kzvn9AQ" column="_5lHOKiBREeePq_6Kzvn9AQ">
           <target xmi:type="oent:Entity" href="E-BookStore.entity#_CqAQQZEdEeauDets12NBwQ"/>
           <semanticElements xmi:type="oent:Entity" href="E-BookStore.entity#_CqAQQZEdEeauDets12NBwQ"/>
         </cells>
-        <cells xmi:type="table:DCell" uid="_5lHN3yBREeePq_6Kzvn9AQ" label="" column="_5lHOKyBREeePq_6Kzvn9AQ">
+        <cells xmi:type="table:DCell" uid="_5lHN3yBREeePq_6Kzvn9AQ" column="_5lHOKyBREeePq_6Kzvn9AQ">
           <target xmi:type="oent:Entity" href="E-BookStore.entity#_CqAQQZEdEeauDets12NBwQ"/>
           <semanticElements xmi:type="oent:Entity" href="E-BookStore.entity#_CqAQQZEdEeauDets12NBwQ"/>
         </cells>
-        <cells xmi:type="table:DCell" uid="_5lHN4CBREeePq_6Kzvn9AQ" label="" column="_5lHOLCBREeePq_6Kzvn9AQ">
+        <cells xmi:type="table:DCell" uid="_5lHN4CBREeePq_6Kzvn9AQ" column="_5lHOLCBREeePq_6Kzvn9AQ">
           <target xmi:type="oent:Entity" href="E-BookStore.entity#_CqAQQZEdEeauDets12NBwQ"/>
           <semanticElements xmi:type="oent:Entity" href="E-BookStore.entity#_CqAQQZEdEeauDets12NBwQ"/>
         </cells>
@@ -7131,23 +7162,23 @@
           <target xmi:type="oenv:Attribute" href="E-BookStore.entity#_cOA2AJEdEeauDets12NBwQ"/>
           <semanticElements xmi:type="oenv:Attribute" href="E-BookStore.entity#_cOA2AJEdEeauDets12NBwQ"/>
           <originMapping xmi:type="description_3:LineMapping" href="platform:/plugin/fr.gouv.mindef.safran.is.design/description/safran-is.odesign#//@ownedViewpoints[name='Entity%20(Safr@n%20consolidated%20view)']/@ownedRepresentations[name='EV_Entities_PhysicalNames']/@ownedLineMappings[name='EPN_Namespace']/@ownedSubLines[name='EPN_SubNamespaces']/@ownedSubLines[name='EPN_Entity']/@ownedSubLines[name='EPN_Attribute']"/>
-          <cells xmi:type="table:DCell" uid="_5lHN4yBREeePq_6Kzvn9AQ" label="" column="_5lHOKCBREeePq_6Kzvn9AQ">
+          <cells xmi:type="table:DCell" uid="_5lHN4yBREeePq_6Kzvn9AQ" column="_5lHOKCBREeePq_6Kzvn9AQ">
             <target xmi:type="oenv:Attribute" href="E-BookStore.entity#_cOA2AJEdEeauDets12NBwQ"/>
             <semanticElements xmi:type="oenv:Attribute" href="E-BookStore.entity#_cOA2AJEdEeauDets12NBwQ"/>
           </cells>
-          <cells xmi:type="table:DCell" uid="_5lHN5CBREeePq_6Kzvn9AQ" label="" column="_5lHOKSBREeePq_6Kzvn9AQ">
+          <cells xmi:type="table:DCell" uid="_5lHN5CBREeePq_6Kzvn9AQ" column="_5lHOKSBREeePq_6Kzvn9AQ">
             <target xmi:type="oenv:Attribute" href="E-BookStore.entity#_cOA2AJEdEeauDets12NBwQ"/>
             <semanticElements xmi:type="oenv:Attribute" href="E-BookStore.entity#_cOA2AJEdEeauDets12NBwQ"/>
           </cells>
-          <cells xmi:type="table:DCell" uid="_5lHN5SBREeePq_6Kzvn9AQ" label="" column="_5lHOKiBREeePq_6Kzvn9AQ">
+          <cells xmi:type="table:DCell" uid="_5lHN5SBREeePq_6Kzvn9AQ" column="_5lHOKiBREeePq_6Kzvn9AQ">
             <target xmi:type="oenv:Attribute" href="E-BookStore.entity#_cOA2AJEdEeauDets12NBwQ"/>
             <semanticElements xmi:type="oenv:Attribute" href="E-BookStore.entity#_cOA2AJEdEeauDets12NBwQ"/>
           </cells>
-          <cells xmi:type="table:DCell" uid="_5lHN5iBREeePq_6Kzvn9AQ" label="" column="_5lHOKyBREeePq_6Kzvn9AQ">
+          <cells xmi:type="table:DCell" uid="_5lHN5iBREeePq_6Kzvn9AQ" column="_5lHOKyBREeePq_6Kzvn9AQ">
             <target xmi:type="oenv:Attribute" href="E-BookStore.entity#_cOA2AJEdEeauDets12NBwQ"/>
             <semanticElements xmi:type="oenv:Attribute" href="E-BookStore.entity#_cOA2AJEdEeauDets12NBwQ"/>
           </cells>
-          <cells xmi:type="table:DCell" uid="_5lHN5yBREeePq_6Kzvn9AQ" label="" column="_5lHOLCBREeePq_6Kzvn9AQ">
+          <cells xmi:type="table:DCell" uid="_5lHN5yBREeePq_6Kzvn9AQ" column="_5lHOLCBREeePq_6Kzvn9AQ">
             <target xmi:type="oenv:Attribute" href="E-BookStore.entity#_cOA2AJEdEeauDets12NBwQ"/>
             <semanticElements xmi:type="oenv:Attribute" href="E-BookStore.entity#_cOA2AJEdEeauDets12NBwQ"/>
           </cells>
@@ -7156,46 +7187,46 @@
           <target xmi:type="oenv:Reference" href="E-BookStore.entity#_CqBeYJEdEeauDets12NBwQ"/>
           <semanticElements xmi:type="oenv:Reference" href="E-BookStore.entity#_CqBeYJEdEeauDets12NBwQ"/>
           <originMapping xmi:type="description_3:LineMapping" href="platform:/plugin/fr.gouv.mindef.safran.is.design/description/safran-is.odesign#//@ownedViewpoints[name='Entity%20(Safr@n%20consolidated%20view)']/@ownedRepresentations[name='EV_Entities_PhysicalNames']/@ownedLineMappings[name='EPN_Namespace']/@ownedSubLines[name='EPN_SubNamespaces']/@ownedSubLines[name='EPN_Entity']/@ownedSubLines[name='EPN_Reference']"/>
-          <cells xmi:type="table:DCell" uid="_5lHN6SBREeePq_6Kzvn9AQ" label="" column="_5lHOKCBREeePq_6Kzvn9AQ">
+          <cells xmi:type="table:DCell" uid="_5lHN6SBREeePq_6Kzvn9AQ" column="_5lHOKCBREeePq_6Kzvn9AQ">
             <target xmi:type="oenv:Reference" href="E-BookStore.entity#_CqBeYJEdEeauDets12NBwQ"/>
             <semanticElements xmi:type="oenv:Reference" href="E-BookStore.entity#_CqBeYJEdEeauDets12NBwQ"/>
           </cells>
-          <cells xmi:type="table:DCell" uid="_5lHN6iBREeePq_6Kzvn9AQ" label="" column="_5lHOKSBREeePq_6Kzvn9AQ">
+          <cells xmi:type="table:DCell" uid="_5lHN6iBREeePq_6Kzvn9AQ" column="_5lHOKSBREeePq_6Kzvn9AQ">
             <target xmi:type="oenv:Reference" href="E-BookStore.entity#_CqBeYJEdEeauDets12NBwQ"/>
             <semanticElements xmi:type="oenv:Reference" href="E-BookStore.entity#_CqBeYJEdEeauDets12NBwQ"/>
           </cells>
-          <cells xmi:type="table:DCell" uid="_5lHN6yBREeePq_6Kzvn9AQ" label="" column="_5lHOKiBREeePq_6Kzvn9AQ">
+          <cells xmi:type="table:DCell" uid="_5lHN6yBREeePq_6Kzvn9AQ" column="_5lHOKiBREeePq_6Kzvn9AQ">
             <target xmi:type="oenv:Reference" href="E-BookStore.entity#_CqBeYJEdEeauDets12NBwQ"/>
             <semanticElements xmi:type="oenv:Reference" href="E-BookStore.entity#_CqBeYJEdEeauDets12NBwQ"/>
           </cells>
-          <cells xmi:type="table:DCell" uid="_5lHN7CBREeePq_6Kzvn9AQ" label="" column="_5lHOKyBREeePq_6Kzvn9AQ">
+          <cells xmi:type="table:DCell" uid="_5lHN7CBREeePq_6Kzvn9AQ" column="_5lHOKyBREeePq_6Kzvn9AQ">
             <target xmi:type="oenv:Reference" href="E-BookStore.entity#_CqBeYJEdEeauDets12NBwQ"/>
             <semanticElements xmi:type="oenv:Reference" href="E-BookStore.entity#_CqBeYJEdEeauDets12NBwQ"/>
           </cells>
-          <cells xmi:type="table:DCell" uid="_5lHN7SBREeePq_6Kzvn9AQ" label="" column="_5lHOLCBREeePq_6Kzvn9AQ">
+          <cells xmi:type="table:DCell" uid="_5lHN7SBREeePq_6Kzvn9AQ" column="_5lHOLCBREeePq_6Kzvn9AQ">
             <target xmi:type="oenv:Reference" href="E-BookStore.entity#_CqBeYJEdEeauDets12NBwQ"/>
             <semanticElements xmi:type="oenv:Reference" href="E-BookStore.entity#_CqBeYJEdEeauDets12NBwQ"/>
           </cells>
         </lines>
         <semanticElements xmi:type="oent:Entity" href="E-BookStore.entity#_CqAQQpEdEeauDets12NBwQ"/>
         <originMapping xmi:type="description_3:LineMapping" href="platform:/plugin/fr.gouv.mindef.safran.is.design/description/safran-is.odesign#//@ownedViewpoints[name='Entity%20(Safr@n%20consolidated%20view)']/@ownedRepresentations[name='EV_Entities_PhysicalNames']/@ownedLineMappings[name='EPN_Namespace']/@ownedSubLines[name='EPN_SubNamespaces']/@ownedSubLines[name='EPN_Entity']"/>
-        <cells xmi:type="table:DCell" uid="_5lHN7iBREeePq_6Kzvn9AQ" label="" column="_5lHOKCBREeePq_6Kzvn9AQ">
+        <cells xmi:type="table:DCell" uid="_5lHN7iBREeePq_6Kzvn9AQ" column="_5lHOKCBREeePq_6Kzvn9AQ">
           <target xmi:type="oent:Entity" href="E-BookStore.entity#_CqAQQpEdEeauDets12NBwQ"/>
           <semanticElements xmi:type="oent:Entity" href="E-BookStore.entity#_CqAQQpEdEeauDets12NBwQ"/>
         </cells>
-        <cells xmi:type="table:DCell" uid="_5lHN7yBREeePq_6Kzvn9AQ" label="" column="_5lHOKSBREeePq_6Kzvn9AQ">
+        <cells xmi:type="table:DCell" uid="_5lHN7yBREeePq_6Kzvn9AQ" column="_5lHOKSBREeePq_6Kzvn9AQ">
           <target xmi:type="oent:Entity" href="E-BookStore.entity#_CqAQQpEdEeauDets12NBwQ"/>
           <semanticElements xmi:type="oent:Entity" href="E-BookStore.entity#_CqAQQpEdEeauDets12NBwQ"/>
         </cells>
-        <cells xmi:type="table:DCell" uid="_5lHN8CBREeePq_6Kzvn9AQ" label="" column="_5lHOKiBREeePq_6Kzvn9AQ">
+        <cells xmi:type="table:DCell" uid="_5lHN8CBREeePq_6Kzvn9AQ" column="_5lHOKiBREeePq_6Kzvn9AQ">
           <target xmi:type="oent:Entity" href="E-BookStore.entity#_CqAQQpEdEeauDets12NBwQ"/>
           <semanticElements xmi:type="oent:Entity" href="E-BookStore.entity#_CqAQQpEdEeauDets12NBwQ"/>
         </cells>
-        <cells xmi:type="table:DCell" uid="_5lHN8SBREeePq_6Kzvn9AQ" label="" column="_5lHOKyBREeePq_6Kzvn9AQ">
+        <cells xmi:type="table:DCell" uid="_5lHN8SBREeePq_6Kzvn9AQ" column="_5lHOKyBREeePq_6Kzvn9AQ">
           <target xmi:type="oent:Entity" href="E-BookStore.entity#_CqAQQpEdEeauDets12NBwQ"/>
           <semanticElements xmi:type="oent:Entity" href="E-BookStore.entity#_CqAQQpEdEeauDets12NBwQ"/>
         </cells>
-        <cells xmi:type="table:DCell" uid="_5lHN8iBREeePq_6Kzvn9AQ" label="" column="_5lHOLCBREeePq_6Kzvn9AQ">
+        <cells xmi:type="table:DCell" uid="_5lHN8iBREeePq_6Kzvn9AQ" column="_5lHOLCBREeePq_6Kzvn9AQ">
           <target xmi:type="oent:Entity" href="E-BookStore.entity#_CqAQQpEdEeauDets12NBwQ"/>
           <semanticElements xmi:type="oent:Entity" href="E-BookStore.entity#_CqAQQpEdEeauDets12NBwQ"/>
         </cells>
@@ -7206,23 +7237,23 @@
           <target xmi:type="oenv:Attribute" href="E-BookStore.entity#_hkNeoJEdEeauDets12NBwQ"/>
           <semanticElements xmi:type="oenv:Attribute" href="E-BookStore.entity#_hkNeoJEdEeauDets12NBwQ"/>
           <originMapping xmi:type="description_3:LineMapping" href="platform:/plugin/fr.gouv.mindef.safran.is.design/description/safran-is.odesign#//@ownedViewpoints[name='Entity%20(Safr@n%20consolidated%20view)']/@ownedRepresentations[name='EV_Entities_PhysicalNames']/@ownedLineMappings[name='EPN_Namespace']/@ownedSubLines[name='EPN_SubNamespaces']/@ownedSubLines[name='EPN_Entity']/@ownedSubLines[name='EPN_Attribute']"/>
-          <cells xmi:type="table:DCell" uid="_5lHN9SBREeePq_6Kzvn9AQ" label="" column="_5lHOKCBREeePq_6Kzvn9AQ">
+          <cells xmi:type="table:DCell" uid="_5lHN9SBREeePq_6Kzvn9AQ" column="_5lHOKCBREeePq_6Kzvn9AQ">
             <target xmi:type="oenv:Attribute" href="E-BookStore.entity#_hkNeoJEdEeauDets12NBwQ"/>
             <semanticElements xmi:type="oenv:Attribute" href="E-BookStore.entity#_hkNeoJEdEeauDets12NBwQ"/>
           </cells>
-          <cells xmi:type="table:DCell" uid="_5lHN9iBREeePq_6Kzvn9AQ" label="" column="_5lHOKSBREeePq_6Kzvn9AQ">
+          <cells xmi:type="table:DCell" uid="_5lHN9iBREeePq_6Kzvn9AQ" column="_5lHOKSBREeePq_6Kzvn9AQ">
             <target xmi:type="oenv:Attribute" href="E-BookStore.entity#_hkNeoJEdEeauDets12NBwQ"/>
             <semanticElements xmi:type="oenv:Attribute" href="E-BookStore.entity#_hkNeoJEdEeauDets12NBwQ"/>
           </cells>
-          <cells xmi:type="table:DCell" uid="_5lHN9yBREeePq_6Kzvn9AQ" label="" column="_5lHOKiBREeePq_6Kzvn9AQ">
+          <cells xmi:type="table:DCell" uid="_5lHN9yBREeePq_6Kzvn9AQ" column="_5lHOKiBREeePq_6Kzvn9AQ">
             <target xmi:type="oenv:Attribute" href="E-BookStore.entity#_hkNeoJEdEeauDets12NBwQ"/>
             <semanticElements xmi:type="oenv:Attribute" href="E-BookStore.entity#_hkNeoJEdEeauDets12NBwQ"/>
           </cells>
-          <cells xmi:type="table:DCell" uid="_5lHN-CBREeePq_6Kzvn9AQ" label="" column="_5lHOKyBREeePq_6Kzvn9AQ">
+          <cells xmi:type="table:DCell" uid="_5lHN-CBREeePq_6Kzvn9AQ" column="_5lHOKyBREeePq_6Kzvn9AQ">
             <target xmi:type="oenv:Attribute" href="E-BookStore.entity#_hkNeoJEdEeauDets12NBwQ"/>
             <semanticElements xmi:type="oenv:Attribute" href="E-BookStore.entity#_hkNeoJEdEeauDets12NBwQ"/>
           </cells>
-          <cells xmi:type="table:DCell" uid="_5lHN-SBREeePq_6Kzvn9AQ" label="" column="_5lHOLCBREeePq_6Kzvn9AQ">
+          <cells xmi:type="table:DCell" uid="_5lHN-SBREeePq_6Kzvn9AQ" column="_5lHOLCBREeePq_6Kzvn9AQ">
             <target xmi:type="oenv:Attribute" href="E-BookStore.entity#_hkNeoJEdEeauDets12NBwQ"/>
             <semanticElements xmi:type="oenv:Attribute" href="E-BookStore.entity#_hkNeoJEdEeauDets12NBwQ"/>
           </cells>
@@ -7231,46 +7262,46 @@
           <target xmi:type="oenv:Reference" href="E-BookStore.entity#_CqCsgJEdEeauDets12NBwQ"/>
           <semanticElements xmi:type="oenv:Reference" href="E-BookStore.entity#_CqCsgJEdEeauDets12NBwQ"/>
           <originMapping xmi:type="description_3:LineMapping" href="platform:/plugin/fr.gouv.mindef.safran.is.design/description/safran-is.odesign#//@ownedViewpoints[name='Entity%20(Safr@n%20consolidated%20view)']/@ownedRepresentations[name='EV_Entities_PhysicalNames']/@ownedLineMappings[name='EPN_Namespace']/@ownedSubLines[name='EPN_SubNamespaces']/@ownedSubLines[name='EPN_Entity']/@ownedSubLines[name='EPN_Reference']"/>
-          <cells xmi:type="table:DCell" uid="_5lHN-yBREeePq_6Kzvn9AQ" label="" column="_5lHOKCBREeePq_6Kzvn9AQ">
+          <cells xmi:type="table:DCell" uid="_5lHN-yBREeePq_6Kzvn9AQ" column="_5lHOKCBREeePq_6Kzvn9AQ">
             <target xmi:type="oenv:Reference" href="E-BookStore.entity#_CqCsgJEdEeauDets12NBwQ"/>
             <semanticElements xmi:type="oenv:Reference" href="E-BookStore.entity#_CqCsgJEdEeauDets12NBwQ"/>
           </cells>
-          <cells xmi:type="table:DCell" uid="_5lHN_CBREeePq_6Kzvn9AQ" label="" column="_5lHOKSBREeePq_6Kzvn9AQ">
+          <cells xmi:type="table:DCell" uid="_5lHN_CBREeePq_6Kzvn9AQ" column="_5lHOKSBREeePq_6Kzvn9AQ">
             <target xmi:type="oenv:Reference" href="E-BookStore.entity#_CqCsgJEdEeauDets12NBwQ"/>
             <semanticElements xmi:type="oenv:Reference" href="E-BookStore.entity#_CqCsgJEdEeauDets12NBwQ"/>
           </cells>
-          <cells xmi:type="table:DCell" uid="_5lHN_SBREeePq_6Kzvn9AQ" label="" column="_5lHOKiBREeePq_6Kzvn9AQ">
+          <cells xmi:type="table:DCell" uid="_5lHN_SBREeePq_6Kzvn9AQ" column="_5lHOKiBREeePq_6Kzvn9AQ">
             <target xmi:type="oenv:Reference" href="E-BookStore.entity#_CqCsgJEdEeauDets12NBwQ"/>
             <semanticElements xmi:type="oenv:Reference" href="E-BookStore.entity#_CqCsgJEdEeauDets12NBwQ"/>
           </cells>
-          <cells xmi:type="table:DCell" uid="_5lHN_iBREeePq_6Kzvn9AQ" label="" column="_5lHOKyBREeePq_6Kzvn9AQ">
+          <cells xmi:type="table:DCell" uid="_5lHN_iBREeePq_6Kzvn9AQ" column="_5lHOKyBREeePq_6Kzvn9AQ">
             <target xmi:type="oenv:Reference" href="E-BookStore.entity#_CqCsgJEdEeauDets12NBwQ"/>
             <semanticElements xmi:type="oenv:Reference" href="E-BookStore.entity#_CqCsgJEdEeauDets12NBwQ"/>
           </cells>
-          <cells xmi:type="table:DCell" uid="_5lHN_yBREeePq_6Kzvn9AQ" label="" column="_5lHOLCBREeePq_6Kzvn9AQ">
+          <cells xmi:type="table:DCell" uid="_5lHN_yBREeePq_6Kzvn9AQ" column="_5lHOLCBREeePq_6Kzvn9AQ">
             <target xmi:type="oenv:Reference" href="E-BookStore.entity#_CqCsgJEdEeauDets12NBwQ"/>
             <semanticElements xmi:type="oenv:Reference" href="E-BookStore.entity#_CqCsgJEdEeauDets12NBwQ"/>
           </cells>
         </lines>
         <semanticElements xmi:type="oent:Entity" href="E-BookStore.entity#_CqA3UJEdEeauDets12NBwQ"/>
         <originMapping xmi:type="description_3:LineMapping" href="platform:/plugin/fr.gouv.mindef.safran.is.design/description/safran-is.odesign#//@ownedViewpoints[name='Entity%20(Safr@n%20consolidated%20view)']/@ownedRepresentations[name='EV_Entities_PhysicalNames']/@ownedLineMappings[name='EPN_Namespace']/@ownedSubLines[name='EPN_SubNamespaces']/@ownedSubLines[name='EPN_Entity']"/>
-        <cells xmi:type="table:DCell" uid="_5lHOACBREeePq_6Kzvn9AQ" label="" column="_5lHOKCBREeePq_6Kzvn9AQ">
+        <cells xmi:type="table:DCell" uid="_5lHOACBREeePq_6Kzvn9AQ" column="_5lHOKCBREeePq_6Kzvn9AQ">
           <target xmi:type="oent:Entity" href="E-BookStore.entity#_CqA3UJEdEeauDets12NBwQ"/>
           <semanticElements xmi:type="oent:Entity" href="E-BookStore.entity#_CqA3UJEdEeauDets12NBwQ"/>
         </cells>
-        <cells xmi:type="table:DCell" uid="_5lHOASBREeePq_6Kzvn9AQ" label="" column="_5lHOKSBREeePq_6Kzvn9AQ">
+        <cells xmi:type="table:DCell" uid="_5lHOASBREeePq_6Kzvn9AQ" column="_5lHOKSBREeePq_6Kzvn9AQ">
           <target xmi:type="oent:Entity" href="E-BookStore.entity#_CqA3UJEdEeauDets12NBwQ"/>
           <semanticElements xmi:type="oent:Entity" href="E-BookStore.entity#_CqA3UJEdEeauDets12NBwQ"/>
         </cells>
-        <cells xmi:type="table:DCell" uid="_5lHOAiBREeePq_6Kzvn9AQ" label="" column="_5lHOKiBREeePq_6Kzvn9AQ">
+        <cells xmi:type="table:DCell" uid="_5lHOAiBREeePq_6Kzvn9AQ" column="_5lHOKiBREeePq_6Kzvn9AQ">
           <target xmi:type="oent:Entity" href="E-BookStore.entity#_CqA3UJEdEeauDets12NBwQ"/>
           <semanticElements xmi:type="oent:Entity" href="E-BookStore.entity#_CqA3UJEdEeauDets12NBwQ"/>
         </cells>
-        <cells xmi:type="table:DCell" uid="_5lHOAyBREeePq_6Kzvn9AQ" label="" column="_5lHOKyBREeePq_6Kzvn9AQ">
+        <cells xmi:type="table:DCell" uid="_5lHOAyBREeePq_6Kzvn9AQ" column="_5lHOKyBREeePq_6Kzvn9AQ">
           <target xmi:type="oent:Entity" href="E-BookStore.entity#_CqA3UJEdEeauDets12NBwQ"/>
           <semanticElements xmi:type="oent:Entity" href="E-BookStore.entity#_CqA3UJEdEeauDets12NBwQ"/>
         </cells>
-        <cells xmi:type="table:DCell" uid="_5lHOBCBREeePq_6Kzvn9AQ" label="" column="_5lHOLCBREeePq_6Kzvn9AQ">
+        <cells xmi:type="table:DCell" uid="_5lHOBCBREeePq_6Kzvn9AQ" column="_5lHOLCBREeePq_6Kzvn9AQ">
           <target xmi:type="oent:Entity" href="E-BookStore.entity#_CqA3UJEdEeauDets12NBwQ"/>
           <semanticElements xmi:type="oent:Entity" href="E-BookStore.entity#_CqA3UJEdEeauDets12NBwQ"/>
         </cells>
@@ -7281,23 +7312,23 @@
           <target xmi:type="oenv:Attribute" href="E-BookStore.entity#_kfCRAJEdEeauDets12NBwQ"/>
           <semanticElements xmi:type="oenv:Attribute" href="E-BookStore.entity#_kfCRAJEdEeauDets12NBwQ"/>
           <originMapping xmi:type="description_3:LineMapping" href="platform:/plugin/fr.gouv.mindef.safran.is.design/description/safran-is.odesign#//@ownedViewpoints[name='Entity%20(Safr@n%20consolidated%20view)']/@ownedRepresentations[name='EV_Entities_PhysicalNames']/@ownedLineMappings[name='EPN_Namespace']/@ownedSubLines[name='EPN_SubNamespaces']/@ownedSubLines[name='EPN_Entity']/@ownedSubLines[name='EPN_Attribute']"/>
-          <cells xmi:type="table:DCell" uid="_5lHOByBREeePq_6Kzvn9AQ" label="" column="_5lHOKCBREeePq_6Kzvn9AQ">
+          <cells xmi:type="table:DCell" uid="_5lHOByBREeePq_6Kzvn9AQ" column="_5lHOKCBREeePq_6Kzvn9AQ">
             <target xmi:type="oenv:Attribute" href="E-BookStore.entity#_kfCRAJEdEeauDets12NBwQ"/>
             <semanticElements xmi:type="oenv:Attribute" href="E-BookStore.entity#_kfCRAJEdEeauDets12NBwQ"/>
           </cells>
-          <cells xmi:type="table:DCell" uid="_5lHOCCBREeePq_6Kzvn9AQ" label="" column="_5lHOKSBREeePq_6Kzvn9AQ">
+          <cells xmi:type="table:DCell" uid="_5lHOCCBREeePq_6Kzvn9AQ" column="_5lHOKSBREeePq_6Kzvn9AQ">
             <target xmi:type="oenv:Attribute" href="E-BookStore.entity#_kfCRAJEdEeauDets12NBwQ"/>
             <semanticElements xmi:type="oenv:Attribute" href="E-BookStore.entity#_kfCRAJEdEeauDets12NBwQ"/>
           </cells>
-          <cells xmi:type="table:DCell" uid="_5lHOCSBREeePq_6Kzvn9AQ" label="" column="_5lHOKiBREeePq_6Kzvn9AQ">
+          <cells xmi:type="table:DCell" uid="_5lHOCSBREeePq_6Kzvn9AQ" column="_5lHOKiBREeePq_6Kzvn9AQ">
             <target xmi:type="oenv:Attribute" href="E-BookStore.entity#_kfCRAJEdEeauDets12NBwQ"/>
             <semanticElements xmi:type="oenv:Attribute" href="E-BookStore.entity#_kfCRAJEdEeauDets12NBwQ"/>
           </cells>
-          <cells xmi:type="table:DCell" uid="_5lHOCiBREeePq_6Kzvn9AQ" label="" column="_5lHOKyBREeePq_6Kzvn9AQ">
+          <cells xmi:type="table:DCell" uid="_5lHOCiBREeePq_6Kzvn9AQ" column="_5lHOKyBREeePq_6Kzvn9AQ">
             <target xmi:type="oenv:Attribute" href="E-BookStore.entity#_kfCRAJEdEeauDets12NBwQ"/>
             <semanticElements xmi:type="oenv:Attribute" href="E-BookStore.entity#_kfCRAJEdEeauDets12NBwQ"/>
           </cells>
-          <cells xmi:type="table:DCell" uid="_5lHOCyBREeePq_6Kzvn9AQ" label="" column="_5lHOLCBREeePq_6Kzvn9AQ">
+          <cells xmi:type="table:DCell" uid="_5lHOCyBREeePq_6Kzvn9AQ" column="_5lHOLCBREeePq_6Kzvn9AQ">
             <target xmi:type="oenv:Attribute" href="E-BookStore.entity#_kfCRAJEdEeauDets12NBwQ"/>
             <semanticElements xmi:type="oenv:Attribute" href="E-BookStore.entity#_kfCRAJEdEeauDets12NBwQ"/>
           </cells>
@@ -7306,23 +7337,23 @@
           <target xmi:type="oenv:Attribute" href="E-BookStore.entity#_kHyOoJEdEeauDets12NBwQ"/>
           <semanticElements xmi:type="oenv:Attribute" href="E-BookStore.entity#_kHyOoJEdEeauDets12NBwQ"/>
           <originMapping xmi:type="description_3:LineMapping" href="platform:/plugin/fr.gouv.mindef.safran.is.design/description/safran-is.odesign#//@ownedViewpoints[name='Entity%20(Safr@n%20consolidated%20view)']/@ownedRepresentations[name='EV_Entities_PhysicalNames']/@ownedLineMappings[name='EPN_Namespace']/@ownedSubLines[name='EPN_SubNamespaces']/@ownedSubLines[name='EPN_Entity']/@ownedSubLines[name='EPN_Attribute']"/>
-          <cells xmi:type="table:DCell" uid="_5lHODSBREeePq_6Kzvn9AQ" label="" column="_5lHOKCBREeePq_6Kzvn9AQ">
+          <cells xmi:type="table:DCell" uid="_5lHODSBREeePq_6Kzvn9AQ" column="_5lHOKCBREeePq_6Kzvn9AQ">
             <target xmi:type="oenv:Attribute" href="E-BookStore.entity#_kHyOoJEdEeauDets12NBwQ"/>
             <semanticElements xmi:type="oenv:Attribute" href="E-BookStore.entity#_kHyOoJEdEeauDets12NBwQ"/>
           </cells>
-          <cells xmi:type="table:DCell" uid="_5lHODiBREeePq_6Kzvn9AQ" label="" column="_5lHOKSBREeePq_6Kzvn9AQ">
+          <cells xmi:type="table:DCell" uid="_5lHODiBREeePq_6Kzvn9AQ" column="_5lHOKSBREeePq_6Kzvn9AQ">
             <target xmi:type="oenv:Attribute" href="E-BookStore.entity#_kHyOoJEdEeauDets12NBwQ"/>
             <semanticElements xmi:type="oenv:Attribute" href="E-BookStore.entity#_kHyOoJEdEeauDets12NBwQ"/>
           </cells>
-          <cells xmi:type="table:DCell" uid="_5lHODyBREeePq_6Kzvn9AQ" label="" column="_5lHOKiBREeePq_6Kzvn9AQ">
+          <cells xmi:type="table:DCell" uid="_5lHODyBREeePq_6Kzvn9AQ" column="_5lHOKiBREeePq_6Kzvn9AQ">
             <target xmi:type="oenv:Attribute" href="E-BookStore.entity#_kHyOoJEdEeauDets12NBwQ"/>
             <semanticElements xmi:type="oenv:Attribute" href="E-BookStore.entity#_kHyOoJEdEeauDets12NBwQ"/>
           </cells>
-          <cells xmi:type="table:DCell" uid="_5lHOECBREeePq_6Kzvn9AQ" label="" column="_5lHOKyBREeePq_6Kzvn9AQ">
+          <cells xmi:type="table:DCell" uid="_5lHOECBREeePq_6Kzvn9AQ" column="_5lHOKyBREeePq_6Kzvn9AQ">
             <target xmi:type="oenv:Attribute" href="E-BookStore.entity#_kHyOoJEdEeauDets12NBwQ"/>
             <semanticElements xmi:type="oenv:Attribute" href="E-BookStore.entity#_kHyOoJEdEeauDets12NBwQ"/>
           </cells>
-          <cells xmi:type="table:DCell" uid="_5lHOESBREeePq_6Kzvn9AQ" label="" column="_5lHOLCBREeePq_6Kzvn9AQ">
+          <cells xmi:type="table:DCell" uid="_5lHOESBREeePq_6Kzvn9AQ" column="_5lHOLCBREeePq_6Kzvn9AQ">
             <target xmi:type="oenv:Attribute" href="E-BookStore.entity#_kHyOoJEdEeauDets12NBwQ"/>
             <semanticElements xmi:type="oenv:Attribute" href="E-BookStore.entity#_kHyOoJEdEeauDets12NBwQ"/>
           </cells>
@@ -7331,23 +7362,23 @@
           <target xmi:type="oenv:Attribute" href="E-BookStore.entity#_kSykwJEdEeauDets12NBwQ"/>
           <semanticElements xmi:type="oenv:Attribute" href="E-BookStore.entity#_kSykwJEdEeauDets12NBwQ"/>
           <originMapping xmi:type="description_3:LineMapping" href="platform:/plugin/fr.gouv.mindef.safran.is.design/description/safran-is.odesign#//@ownedViewpoints[name='Entity%20(Safr@n%20consolidated%20view)']/@ownedRepresentations[name='EV_Entities_PhysicalNames']/@ownedLineMappings[name='EPN_Namespace']/@ownedSubLines[name='EPN_SubNamespaces']/@ownedSubLines[name='EPN_Entity']/@ownedSubLines[name='EPN_Attribute']"/>
-          <cells xmi:type="table:DCell" uid="_5lHOEyBREeePq_6Kzvn9AQ" label="" column="_5lHOKCBREeePq_6Kzvn9AQ">
+          <cells xmi:type="table:DCell" uid="_5lHOEyBREeePq_6Kzvn9AQ" column="_5lHOKCBREeePq_6Kzvn9AQ">
             <target xmi:type="oenv:Attribute" href="E-BookStore.entity#_kSykwJEdEeauDets12NBwQ"/>
             <semanticElements xmi:type="oenv:Attribute" href="E-BookStore.entity#_kSykwJEdEeauDets12NBwQ"/>
           </cells>
-          <cells xmi:type="table:DCell" uid="_5lHOFCBREeePq_6Kzvn9AQ" label="" column="_5lHOKSBREeePq_6Kzvn9AQ">
+          <cells xmi:type="table:DCell" uid="_5lHOFCBREeePq_6Kzvn9AQ" column="_5lHOKSBREeePq_6Kzvn9AQ">
             <target xmi:type="oenv:Attribute" href="E-BookStore.entity#_kSykwJEdEeauDets12NBwQ"/>
             <semanticElements xmi:type="oenv:Attribute" href="E-BookStore.entity#_kSykwJEdEeauDets12NBwQ"/>
           </cells>
-          <cells xmi:type="table:DCell" uid="_5lHOFSBREeePq_6Kzvn9AQ" label="" column="_5lHOKiBREeePq_6Kzvn9AQ">
+          <cells xmi:type="table:DCell" uid="_5lHOFSBREeePq_6Kzvn9AQ" column="_5lHOKiBREeePq_6Kzvn9AQ">
             <target xmi:type="oenv:Attribute" href="E-BookStore.entity#_kSykwJEdEeauDets12NBwQ"/>
             <semanticElements xmi:type="oenv:Attribute" href="E-BookStore.entity#_kSykwJEdEeauDets12NBwQ"/>
           </cells>
-          <cells xmi:type="table:DCell" uid="_5lHOFiBREeePq_6Kzvn9AQ" label="" column="_5lHOKyBREeePq_6Kzvn9AQ">
+          <cells xmi:type="table:DCell" uid="_5lHOFiBREeePq_6Kzvn9AQ" column="_5lHOKyBREeePq_6Kzvn9AQ">
             <target xmi:type="oenv:Attribute" href="E-BookStore.entity#_kSykwJEdEeauDets12NBwQ"/>
             <semanticElements xmi:type="oenv:Attribute" href="E-BookStore.entity#_kSykwJEdEeauDets12NBwQ"/>
           </cells>
-          <cells xmi:type="table:DCell" uid="_5lHOFyBREeePq_6Kzvn9AQ" label="" column="_5lHOLCBREeePq_6Kzvn9AQ">
+          <cells xmi:type="table:DCell" uid="_5lHOFyBREeePq_6Kzvn9AQ" column="_5lHOLCBREeePq_6Kzvn9AQ">
             <target xmi:type="oenv:Attribute" href="E-BookStore.entity#_kSykwJEdEeauDets12NBwQ"/>
             <semanticElements xmi:type="oenv:Attribute" href="E-BookStore.entity#_kSykwJEdEeauDets12NBwQ"/>
           </cells>
@@ -7356,69 +7387,69 @@
           <target xmi:type="oenv:Reference" href="E-BookStore.entity#_CqCFcJEdEeauDets12NBwQ"/>
           <semanticElements xmi:type="oenv:Reference" href="E-BookStore.entity#_CqCFcJEdEeauDets12NBwQ"/>
           <originMapping xmi:type="description_3:LineMapping" href="platform:/plugin/fr.gouv.mindef.safran.is.design/description/safran-is.odesign#//@ownedViewpoints[name='Entity%20(Safr@n%20consolidated%20view)']/@ownedRepresentations[name='EV_Entities_PhysicalNames']/@ownedLineMappings[name='EPN_Namespace']/@ownedSubLines[name='EPN_SubNamespaces']/@ownedSubLines[name='EPN_Entity']/@ownedSubLines[name='EPN_Reference']"/>
-          <cells xmi:type="table:DCell" uid="_5lHOGSBREeePq_6Kzvn9AQ" label="" column="_5lHOKCBREeePq_6Kzvn9AQ">
+          <cells xmi:type="table:DCell" uid="_5lHOGSBREeePq_6Kzvn9AQ" column="_5lHOKCBREeePq_6Kzvn9AQ">
             <target xmi:type="oenv:Reference" href="E-BookStore.entity#_CqCFcJEdEeauDets12NBwQ"/>
             <semanticElements xmi:type="oenv:Reference" href="E-BookStore.entity#_CqCFcJEdEeauDets12NBwQ"/>
           </cells>
-          <cells xmi:type="table:DCell" uid="_5lHOGiBREeePq_6Kzvn9AQ" label="" column="_5lHOKSBREeePq_6Kzvn9AQ">
+          <cells xmi:type="table:DCell" uid="_5lHOGiBREeePq_6Kzvn9AQ" column="_5lHOKSBREeePq_6Kzvn9AQ">
             <target xmi:type="oenv:Reference" href="E-BookStore.entity#_CqCFcJEdEeauDets12NBwQ"/>
             <semanticElements xmi:type="oenv:Reference" href="E-BookStore.entity#_CqCFcJEdEeauDets12NBwQ"/>
           </cells>
-          <cells xmi:type="table:DCell" uid="_5lHOGyBREeePq_6Kzvn9AQ" label="" column="_5lHOKiBREeePq_6Kzvn9AQ">
+          <cells xmi:type="table:DCell" uid="_5lHOGyBREeePq_6Kzvn9AQ" column="_5lHOKiBREeePq_6Kzvn9AQ">
             <target xmi:type="oenv:Reference" href="E-BookStore.entity#_CqCFcJEdEeauDets12NBwQ"/>
             <semanticElements xmi:type="oenv:Reference" href="E-BookStore.entity#_CqCFcJEdEeauDets12NBwQ"/>
           </cells>
-          <cells xmi:type="table:DCell" uid="_5lHOHCBREeePq_6Kzvn9AQ" label="" column="_5lHOKyBREeePq_6Kzvn9AQ">
+          <cells xmi:type="table:DCell" uid="_5lHOHCBREeePq_6Kzvn9AQ" column="_5lHOKyBREeePq_6Kzvn9AQ">
             <target xmi:type="oenv:Reference" href="E-BookStore.entity#_CqCFcJEdEeauDets12NBwQ"/>
             <semanticElements xmi:type="oenv:Reference" href="E-BookStore.entity#_CqCFcJEdEeauDets12NBwQ"/>
           </cells>
-          <cells xmi:type="table:DCell" uid="_5lHOHSBREeePq_6Kzvn9AQ" label="" column="_5lHOLCBREeePq_6Kzvn9AQ">
+          <cells xmi:type="table:DCell" uid="_5lHOHSBREeePq_6Kzvn9AQ" column="_5lHOLCBREeePq_6Kzvn9AQ">
             <target xmi:type="oenv:Reference" href="E-BookStore.entity#_CqCFcJEdEeauDets12NBwQ"/>
             <semanticElements xmi:type="oenv:Reference" href="E-BookStore.entity#_CqCFcJEdEeauDets12NBwQ"/>
           </cells>
         </lines>
         <semanticElements xmi:type="oent:Entity" href="E-BookStore.entity#_CqA3UZEdEeauDets12NBwQ"/>
         <originMapping xmi:type="description_3:LineMapping" href="platform:/plugin/fr.gouv.mindef.safran.is.design/description/safran-is.odesign#//@ownedViewpoints[name='Entity%20(Safr@n%20consolidated%20view)']/@ownedRepresentations[name='EV_Entities_PhysicalNames']/@ownedLineMappings[name='EPN_Namespace']/@ownedSubLines[name='EPN_SubNamespaces']/@ownedSubLines[name='EPN_Entity']"/>
-        <cells xmi:type="table:DCell" uid="_5lHOHiBREeePq_6Kzvn9AQ" label="" column="_5lHOKCBREeePq_6Kzvn9AQ">
+        <cells xmi:type="table:DCell" uid="_5lHOHiBREeePq_6Kzvn9AQ" column="_5lHOKCBREeePq_6Kzvn9AQ">
           <target xmi:type="oent:Entity" href="E-BookStore.entity#_CqA3UZEdEeauDets12NBwQ"/>
           <semanticElements xmi:type="oent:Entity" href="E-BookStore.entity#_CqA3UZEdEeauDets12NBwQ"/>
         </cells>
-        <cells xmi:type="table:DCell" uid="_5lHOHyBREeePq_6Kzvn9AQ" label="" column="_5lHOKSBREeePq_6Kzvn9AQ">
+        <cells xmi:type="table:DCell" uid="_5lHOHyBREeePq_6Kzvn9AQ" column="_5lHOKSBREeePq_6Kzvn9AQ">
           <target xmi:type="oent:Entity" href="E-BookStore.entity#_CqA3UZEdEeauDets12NBwQ"/>
           <semanticElements xmi:type="oent:Entity" href="E-BookStore.entity#_CqA3UZEdEeauDets12NBwQ"/>
         </cells>
-        <cells xmi:type="table:DCell" uid="_5lHOICBREeePq_6Kzvn9AQ" label="" column="_5lHOKiBREeePq_6Kzvn9AQ">
+        <cells xmi:type="table:DCell" uid="_5lHOICBREeePq_6Kzvn9AQ" column="_5lHOKiBREeePq_6Kzvn9AQ">
           <target xmi:type="oent:Entity" href="E-BookStore.entity#_CqA3UZEdEeauDets12NBwQ"/>
           <semanticElements xmi:type="oent:Entity" href="E-BookStore.entity#_CqA3UZEdEeauDets12NBwQ"/>
         </cells>
-        <cells xmi:type="table:DCell" uid="_5lHOISBREeePq_6Kzvn9AQ" label="" column="_5lHOKyBREeePq_6Kzvn9AQ">
+        <cells xmi:type="table:DCell" uid="_5lHOISBREeePq_6Kzvn9AQ" column="_5lHOKyBREeePq_6Kzvn9AQ">
           <target xmi:type="oent:Entity" href="E-BookStore.entity#_CqA3UZEdEeauDets12NBwQ"/>
           <semanticElements xmi:type="oent:Entity" href="E-BookStore.entity#_CqA3UZEdEeauDets12NBwQ"/>
         </cells>
-        <cells xmi:type="table:DCell" uid="_5lHOIiBREeePq_6Kzvn9AQ" label="" column="_5lHOLCBREeePq_6Kzvn9AQ">
+        <cells xmi:type="table:DCell" uid="_5lHOIiBREeePq_6Kzvn9AQ" column="_5lHOLCBREeePq_6Kzvn9AQ">
           <target xmi:type="oent:Entity" href="E-BookStore.entity#_CqA3UZEdEeauDets12NBwQ"/>
           <semanticElements xmi:type="oent:Entity" href="E-BookStore.entity#_CqA3UZEdEeauDets12NBwQ"/>
         </cells>
       </lines>
       <semanticElements xmi:type="oenv:Namespace" href="E-BookStore.entity#_9nCFoJEcEeauDets12NBwQ"/>
       <originMapping xmi:type="description_3:LineMapping" href="platform:/plugin/fr.gouv.mindef.safran.is.design/description/safran-is.odesign#//@ownedViewpoints[name='Entity%20(Safr@n%20consolidated%20view)']/@ownedRepresentations[name='EV_Entities_PhysicalNames']/@ownedLineMappings[name='EPN_Namespace']"/>
-      <cells xmi:type="table:DCell" uid="_5lHOIyBREeePq_6Kzvn9AQ" label="" column="_5lHOKCBREeePq_6Kzvn9AQ">
+      <cells xmi:type="table:DCell" uid="_5lHOIyBREeePq_6Kzvn9AQ" column="_5lHOKCBREeePq_6Kzvn9AQ">
         <target xmi:type="oenv:Namespace" href="E-BookStore.entity#_9nCFoJEcEeauDets12NBwQ"/>
         <semanticElements xmi:type="oenv:Namespace" href="E-BookStore.entity#_9nCFoJEcEeauDets12NBwQ"/>
       </cells>
-      <cells xmi:type="table:DCell" uid="_5lHOJCBREeePq_6Kzvn9AQ" label="" column="_5lHOKSBREeePq_6Kzvn9AQ">
+      <cells xmi:type="table:DCell" uid="_5lHOJCBREeePq_6Kzvn9AQ" column="_5lHOKSBREeePq_6Kzvn9AQ">
         <target xmi:type="oenv:Namespace" href="E-BookStore.entity#_9nCFoJEcEeauDets12NBwQ"/>
         <semanticElements xmi:type="oenv:Namespace" href="E-BookStore.entity#_9nCFoJEcEeauDets12NBwQ"/>
       </cells>
-      <cells xmi:type="table:DCell" uid="_5lHOJSBREeePq_6Kzvn9AQ" label="" column="_5lHOKiBREeePq_6Kzvn9AQ">
+      <cells xmi:type="table:DCell" uid="_5lHOJSBREeePq_6Kzvn9AQ" column="_5lHOKiBREeePq_6Kzvn9AQ">
         <target xmi:type="oenv:Namespace" href="E-BookStore.entity#_9nCFoJEcEeauDets12NBwQ"/>
         <semanticElements xmi:type="oenv:Namespace" href="E-BookStore.entity#_9nCFoJEcEeauDets12NBwQ"/>
       </cells>
-      <cells xmi:type="table:DCell" uid="_5lHOJiBREeePq_6Kzvn9AQ" label="" column="_5lHOKyBREeePq_6Kzvn9AQ">
+      <cells xmi:type="table:DCell" uid="_5lHOJiBREeePq_6Kzvn9AQ" column="_5lHOKyBREeePq_6Kzvn9AQ">
         <target xmi:type="oenv:Namespace" href="E-BookStore.entity#_9nCFoJEcEeauDets12NBwQ"/>
         <semanticElements xmi:type="oenv:Namespace" href="E-BookStore.entity#_9nCFoJEcEeauDets12NBwQ"/>
       </cells>
-      <cells xmi:type="table:DCell" uid="_5lHOJyBREeePq_6Kzvn9AQ" label="" column="_5lHOLCBREeePq_6Kzvn9AQ">
+      <cells xmi:type="table:DCell" uid="_5lHOJyBREeePq_6Kzvn9AQ" column="_5lHOLCBREeePq_6Kzvn9AQ">
         <target xmi:type="oenv:Namespace" href="E-BookStore.entity#_9nCFoJEcEeauDets12NBwQ"/>
         <semanticElements xmi:type="oenv:Namespace" href="E-BookStore.entity#_9nCFoJEcEeauDets12NBwQ"/>
       </cells>
@@ -7440,7 +7471,7 @@
     </columns>
     <description xmi:type="description_3:EditionTableDescription" href="platform:/plugin/fr.gouv.mindef.safran.is.design/description/safran-is.odesign#//@ownedViewpoints[name='Entity%20(Safr@n%20consolidated%20view)']/@ownedRepresentations[name='EV_Entities_PhysicalNames']"/>
   </table:DTable>
-  <table:DTable uid="_5oMWwSBREeePq_6Kzvn9AQ" name="Domain Classes Annotations" headerColumnWidth="80">
+  <table:DTable uid="_5oMWwSBREeePq_6Kzvn9AQ" headerColumnWidth="80">
     <target xmi:type="graal:System" href="E-BookStore.graal#_rynOsEjHEeGbkNJePX2AYQ"/>
     <columns xmi:type="table:DFeatureColumn" uid="_5oMWwiBREeePq_6Kzvn9AQ" label="Size" width="80" featureName="name">
       <originMapping xmi:type="description_3:FeatureColumnMapping" href="platform:/plugin/fr.gouv.mindef.safran.is.design/description/safran-is.odesign#//@ownedViewpoints[name='Graal%20Methodology%20(Safr@n%20consolidated%20view)']/@ownedRepresentations[name='EV_DomainClasses_Annotations']/@ownedColumnMappings[name='EPN_Size']"/>
@@ -7456,7 +7487,7 @@
     </columns>
     <description xmi:type="description_3:EditionTableDescription" href="platform:/plugin/fr.gouv.mindef.safran.is.design/description/safran-is.odesign#//@ownedViewpoints[name='Graal%20Methodology%20(Safr@n%20consolidated%20view)']/@ownedRepresentations[name='EV_DomainClasses_Annotations']"/>
   </table:DTable>
-  <diagram:DSemanticDiagram uid="_f9UekCBSEeePq_6Kzvn9AQ" name="main Databinding">
+  <diagram:DSemanticDiagram uid="_f9UekCBSEeePq_6Kzvn9AQ">
     <ownedAnnotationEntries xmi:type="description:AnnotationEntry" uid="_f9UekSBSEeePq_6Kzvn9AQ" source="DANNOTATION_CUSTOMIZATION_KEY">
       <data xmi:type="diagram:ComputedStyleDescriptionRegistry" uid="_f9UekiBSEeePq_6Kzvn9AQ"/>
     </ownedAnnotationEntries>
@@ -7571,21 +7602,40 @@
     <activatedLayers xmi:type="description_1:Layer" href="platform:/plugin/org.obeonetwork.dsl.environment.binding.design/description/binding.odesign#//@ownedViewpoints[name='IS%20Databinding']/@ownedRepresentations[name='Databinding%20diagram']/@defaultLayer"/>
     <target xmi:type="oenv:Namespace" href="E-BookStore.soa#_JVvEMIjYEeGlA5e_Ze9-Rg"/>
   </diagram:DSemanticDiagram>
-  <diagram:DSemanticDiagram uid="_fgNjcSBgEeepLOchfVBnlA" name=" Databinding">
+  <diagram:DSemanticDiagram uid="_fgNjcSBgEeepLOchfVBnlA">
     <ownedAnnotationEntries xmi:type="description:AnnotationEntry" uid="_fgNjciBgEeepLOchfVBnlA" source="DANNOTATION_CUSTOMIZATION_KEY">
       <data xmi:type="diagram:ComputedStyleDescriptionRegistry" uid="_fgNjcyBgEeepLOchfVBnlA"/>
     </ownedAnnotationEntries>
     <ownedAnnotationEntries xmi:type="description:AnnotationEntry" uid="_fg-YcCBgEeepLOchfVBnlA" source="GMF_DIAGRAMS">
       <data xmi:type="notation:Diagram" xmi:id="_fg-YcSBgEeepLOchfVBnlA" type="Sirius" element="_fgNjcSBgEeepLOchfVBnlA" measurementUnit="Pixel">
+        <children xmi:type="notation:Node" xmi:id="_nIcN0IoeEeqW3bcS5K80Dg" type="2001" element="_m70HEIoeEeqW3bcS5K80Dg">
+          <children xmi:type="notation:Node" xmi:id="_nIcN04oeEeqW3bcS5K80Dg" type="5002">
+            <layoutConstraint xmi:type="notation:Location" xmi:id="_nIcN1IoeEeqW3bcS5K80Dg" x="-1"/>
+          </children>
+          <children xmi:type="notation:Node" xmi:id="_nIeDAIoeEeqW3bcS5K80Dg" type="3005" element="_m70HEYoeEeqW3bcS5K80Dg">
+            <styles xmi:type="notation:ShapeStyle" xmi:id="_nIeDAYoeEeqW3bcS5K80Dg" fontName="Segoe UI"/>
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_nIeDAooeEeqW3bcS5K80Dg"/>
+          </children>
+          <styles xmi:type="notation:ShapeStyle" xmi:id="_nIcN0YoeEeqW3bcS5K80Dg" fontName="Segoe UI" fontHeight="8"/>
+          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_nIcN0ooeEeqW3bcS5K80Dg" x="550" y="140" width="42" height="45"/>
+        </children>
         <styles xmi:type="notation:DiagramStyle" xmi:id="_fg-YciBgEeepLOchfVBnlA"/>
       </data>
     </ownedAnnotationEntries>
+    <ownedDiagramElements xmi:type="diagram:DNode" uid="_m70HEIoeEeqW3bcS5K80Dg" width="-1" height="-1" resizeKind="NSEW">
+      <target xmi:type="oenv:BindingInfo" href="E-BookStore.soa#_m7zgAooeEeqW3bcS5K80Dg"/>
+      <semanticElements xmi:type="oenv:BindingInfo" href="E-BookStore.soa#_m7zgAooeEeqW3bcS5K80Dg"/>
+      <ownedStyle xmi:type="diagram:WorkspaceImage" uid="_m70HEYoeEeqW3bcS5K80Dg" workspacePath="/org.obeonetwork.dsl.environment.binding.design/icons/BindingInfo.gif">
+        <description xmi:type="style:WorkspaceImageDescription" href="platform:/resource/org.obeonetwork.dsl.environment.binding.design/description/binding.odesign#//@ownedViewpoints[name='IS%20Databinding']/@ownedRepresentations[name='Databinding%20diagram']/@defaultLayer/@nodeMappings[name='DBI_BindingInfo']/@style"/>
+      </ownedStyle>
+      <actualMapping xmi:type="description_1:NodeMapping" href="platform:/resource/org.obeonetwork.dsl.environment.binding.design/description/binding.odesign#//@ownedViewpoints[name='IS%20Databinding']/@ownedRepresentations[name='Databinding%20diagram']/@defaultLayer/@nodeMappings[name='DBI_BindingInfo']"/>
+    </ownedDiagramElements>
     <description xmi:type="description_1:DiagramDescription" href="platform:/resource/org.obeonetwork.dsl.environment.binding.design/description/binding.odesign#//@ownedViewpoints[name='IS%20Databinding']/@ownedRepresentations[name='Databinding%20diagram']"/>
     <filterVariableHistory xmi:type="diagram:FilterVariableHistory" uid="_fgNjdiBgEeepLOchfVBnlA"/>
     <activatedLayers xmi:type="description_1:Layer" href="platform:/resource/org.obeonetwork.dsl.environment.binding.design/description/binding.odesign#//@ownedViewpoints[name='IS%20Databinding']/@ownedRepresentations[name='Databinding%20diagram']/@defaultLayer"/>
     <target xmi:type="soa:System" href="E-BookStore.soa#_h6PKMYjXEeGlA5e_Ze9-Rg"/>
   </diagram:DSemanticDiagram>
-  <diagram:DSemanticDiagram uid="_dt4BoB_qEemJWrjtYU6dTA" name="main Schema">
+  <diagram:DSemanticDiagram uid="_dt4BoB_qEemJWrjtYU6dTA">
     <ownedAnnotationEntries xmi:type="description:AnnotationEntry" uid="_d1SRMB_qEemJWrjtYU6dTA" source="DANNOTATION_CUSTOMIZATION_KEY">
       <data xmi:type="diagram:ComputedStyleDescriptionRegistry" uid="_d1SRMR_qEemJWrjtYU6dTA">
         <computedStyleDescriptions xmi:type="style:SquareDescription" xmi:id="_d3Yi8B_qEemJWrjtYU6dTA" labelExpression="service:getDatabaseElementLabel" labelAlignment="LEFT">
@@ -8491,7 +8541,7 @@
     <activatedLayers xmi:type="description_1:AdditionalLayer" href="platform:/plugin/org.obeonetwork.dsl.database.design/description/database.odesign#//@ownedViewpoints[name='Database']/@ownedRepresentations[name='Schema%20Diagram']/@additionalLayers[name='Index']"/>
     <target xmi:type="database:Schema" href="E-BookStore-MLD.database#_CqwowZEeEeauDets12NBwQ"/>
   </diagram:DSemanticDiagram>
-  <diagram:DSemanticDiagram uid="_4CppwCPLEem2jZ0_ML8PBQ" name="new State machine diagram">
+  <diagram:DSemanticDiagram uid="_4CppwCPLEem2jZ0_ML8PBQ">
     <ownedAnnotationEntries xmi:type="description:AnnotationEntry" uid="_4N7ssCPLEem2jZ0_ML8PBQ" source="DANNOTATION_CUSTOMIZATION_KEY">
       <data xmi:type="diagram:ComputedStyleDescriptionRegistry" uid="_4N7ssSPLEem2jZ0_ML8PBQ"/>
     </ownedAnnotationEntries>
@@ -8678,7 +8728,7 @@
     <activatedLayers xmi:type="description_1:Layer" href="platform:/plugin/org.obeonetwork.dsl.statemachine.design/description/statemachine.odesign#//@ownedViewpoints[name='State%20Machine']/@ownedRepresentations[name='State%20Machine%20Diagram']/@defaultLayer"/>
     <target xmi:type="statemachine:StateMachine" href="E-BookStore.entity#_4CoboCPLEem2jZ0_ML8PBQ"/>
   </diagram:DSemanticDiagram>
-  <sequence:SequenceDDiagram uid="_UWJUkCPMEem2jZ0_ML8PBQ" name="new Sequence diagram">
+  <sequence:SequenceDDiagram uid="_UWJUkCPMEem2jZ0_ML8PBQ">
     <ownedAnnotationEntries xmi:type="description:AnnotationEntry" uid="_UalIoCPMEem2jZ0_ML8PBQ" source="DANNOTATION_CUSTOMIZATION_KEY">
       <data xmi:type="diagram:ComputedStyleDescriptionRegistry" uid="_UalIoSPMEem2jZ0_ML8PBQ"/>
     </ownedAnnotationEntries>
@@ -8872,4 +8922,145 @@
     <activatedLayers xmi:type="description_1:Layer" href="platform:/plugin/org.obeonetwork.dsl.interaction.design/description/interaction.odesign#//@ownedViewpoints[name='Interaction']/@ownedRepresentations[name='Sequence%20Diagram']/@defaultLayer"/>
     <target xmi:type="interaction:Interaction" href="E-BookStore.entity#_UWGRQCPMEem2jZ0_ML8PBQ"/>
   </sequence:SequenceDDiagram>
+  <diagram:DSemanticDiagram uid="_O3ImEIoeEeqW3bcS5K80Dg">
+    <ownedAnnotationEntries xmi:type="description:AnnotationEntry" uid="_O3jc0IoeEeqW3bcS5K80Dg" source="DANNOTATION_CUSTOMIZATION_KEY">
+      <data xmi:type="diagram:ComputedStyleDescriptionRegistry" uid="_O3jc0YoeEeqW3bcS5K80Dg"/>
+    </ownedAnnotationEntries>
+    <ownedAnnotationEntries xmi:type="description:AnnotationEntry" uid="_O38eYIoeEeqW3bcS5K80Dg" source="GMF_DIAGRAMS">
+      <data xmi:type="notation:Diagram" xmi:id="_O38eYYoeEeqW3bcS5K80Dg" type="Sirius" element="_O3ImEIoeEeqW3bcS5K80Dg" measurementUnit="Pixel">
+        <children xmi:type="notation:Node" xmi:id="_O3-TkIoeEeqW3bcS5K80Dg" type="2001" element="_O3hAkIoeEeqW3bcS5K80Dg">
+          <children xmi:type="notation:Node" xmi:id="_O4BW4IoeEeqW3bcS5K80Dg" type="5002">
+            <layoutConstraint xmi:type="notation:Location" xmi:id="_O4BW4YoeEeqW3bcS5K80Dg" x="-1"/>
+          </children>
+          <children xmi:type="notation:Node" xmi:id="_O4G2cIoeEeqW3bcS5K80Dg" type="3005" element="_O3hnoIoeEeqW3bcS5K80Dg">
+            <styles xmi:type="notation:ShapeStyle" xmi:id="_O4G2cYoeEeqW3bcS5K80Dg" fontName="Segoe UI"/>
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_O4G2cooeEeqW3bcS5K80Dg"/>
+          </children>
+          <styles xmi:type="notation:ShapeStyle" xmi:id="_O3-TkYoeEeqW3bcS5K80Dg" fontName="Segoe UI" fontHeight="8"/>
+          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_O3-TkooeEeqW3bcS5K80Dg" width="24" height="24"/>
+        </children>
+        <children xmi:type="notation:Node" xmi:id="_O4FBQIoeEeqW3bcS5K80Dg" type="2003" element="_O3i1wIoeEeqW3bcS5K80Dg">
+          <children xmi:type="notation:Node" xmi:id="_O4FoUIoeEeqW3bcS5K80Dg" type="5007"/>
+          <children xmi:type="notation:Node" xmi:id="_O4GPYIoeEeqW3bcS5K80Dg" type="7004">
+            <styles xmi:type="notation:SortingStyle" xmi:id="_O4GPYYoeEeqW3bcS5K80Dg"/>
+            <styles xmi:type="notation:FilteringStyle" xmi:id="_O4GPYooeEeqW3bcS5K80Dg"/>
+          </children>
+          <styles xmi:type="notation:ShapeStyle" xmi:id="_O4FBQYoeEeqW3bcS5K80Dg" fontName="Segoe UI" fontHeight="8"/>
+          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_O4FBQooeEeqW3bcS5K80Dg" y="55"/>
+        </children>
+        <children xmi:type="notation:Node" xmi:id="_P5y88IoeEeqW3bcS5K80Dg" type="2001" element="_P5QKYIoeEeqW3bcS5K80Dg">
+          <children xmi:type="notation:Node" xmi:id="_P5zkAIoeEeqW3bcS5K80Dg" type="5002">
+            <layoutConstraint xmi:type="notation:Location" xmi:id="_P5zkAYoeEeqW3bcS5K80Dg" y="5"/>
+          </children>
+          <children xmi:type="notation:Node" xmi:id="_P531cIoeEeqW3bcS5K80Dg" type="3005" element="_P5QxcIoeEeqW3bcS5K80Dg">
+            <styles xmi:type="notation:ShapeStyle" xmi:id="_P531cYoeEeqW3bcS5K80Dg" fontName="Segoe UI"/>
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_P531cooeEeqW3bcS5K80Dg"/>
+          </children>
+          <styles xmi:type="notation:ShapeStyle" xmi:id="_P5y88YoeEeqW3bcS5K80Dg" fontName="Segoe UI" fontHeight="8"/>
+          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_P5y88ooeEeqW3bcS5K80Dg" x="250" y="220" width="123" height="63"/>
+        </children>
+        <children xmi:type="notation:Node" xmi:id="_QYwJ0IoeEeqW3bcS5K80Dg" type="2001" element="_QYOlYIoeEeqW3bcS5K80Dg">
+          <children xmi:type="notation:Node" xmi:id="_QYww4IoeEeqW3bcS5K80Dg" type="5002">
+            <layoutConstraint xmi:type="notation:Location" xmi:id="_QYww4YoeEeqW3bcS5K80Dg" y="5"/>
+          </children>
+          <children xmi:type="notation:Node" xmi:id="_QY2QcIoeEeqW3bcS5K80Dg" type="3005" element="_QYOlYYoeEeqW3bcS5K80Dg">
+            <styles xmi:type="notation:ShapeStyle" xmi:id="_QY2QcYoeEeqW3bcS5K80Dg" fontName="Segoe UI"/>
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_QY2QcooeEeqW3bcS5K80Dg"/>
+          </children>
+          <styles xmi:type="notation:ShapeStyle" xmi:id="_QYwJ0YoeEeqW3bcS5K80Dg" fontName="Segoe UI" fontHeight="8"/>
+          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_QYwJ0ooeEeqW3bcS5K80Dg" x="445" y="295" width="123" height="63"/>
+        </children>
+        <styles xmi:type="notation:DiagramStyle" xmi:id="_O38eYooeEeqW3bcS5K80Dg"/>
+      </data>
+    </ownedAnnotationEntries>
+    <ownedDiagramElements xmi:type="diagram:DNode" uid="_O3hAkIoeEeqW3bcS5K80Dg" width="-1" height="-1" resizeKind="NSEW">
+      <target xmi:type="cinematic-flow:InitialState" href="E-BookStore.cinematic#_O3d9QIoeEeqW3bcS5K80Dg"/>
+      <semanticElements xmi:type="cinematic-flow:InitialState" href="E-BookStore.cinematic#_O3d9QIoeEeqW3bcS5K80Dg"/>
+      <ownedStyle xmi:type="diagram:WorkspaceImage" uid="_O3hnoIoeEeqW3bcS5K80Dg" showIcon="false" workspacePath="/org.obeonetwork.dsl.cinematic.design/icons/viewpoint/initial_state.png">
+        <description xmi:type="style:WorkspaceImageDescription" href="platform:/plugin/org.obeonetwork.dsl.cinematic.design/description/cinematic.odesign#//@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='Flow%20Diagram']/@defaultLayer/@nodeMappings[name='FLD_InitialState']/@style"/>
+      </ownedStyle>
+      <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.obeonetwork.dsl.cinematic.design/description/cinematic.odesign#//@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='Flow%20Diagram']/@defaultLayer/@nodeMappings[name='FLD_InitialState']"/>
+    </ownedDiagramElements>
+    <ownedDiagramElements xmi:type="diagram:DNodeList" uid="_O3i1wIoeEeqW3bcS5K80Dg" name="Flow Events">
+      <target xmi:type="cinematic-flow:Flow" href="E-BookStore.cinematic#_R5JR4IjnEeGOp5IdJE0AIw"/>
+      <semanticElements xmi:type="cinematic-flow:Flow" href="E-BookStore.cinematic#_R5JR4IjnEeGOp5IdJE0AIw"/>
+      <ownedStyle xmi:type="diagram:FlatContainerStyle" uid="_O3i1wYoeEeqW3bcS5K80Dg" borderSize="1" borderSizeComputationExpression="1" backgroundColor="209,209,209" foregroundColor="255,255,255">
+        <description xmi:type="style:FlatContainerStyleDescription" href="platform:/plugin/org.obeonetwork.dsl.cinematic.design/description/cinematic.odesign#//@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='Flow%20Diagram']/@additionalLayers[name='Flow%20Events']/@containerMappings[name='FLD_FlowEvents']/@style"/>
+      </ownedStyle>
+      <actualMapping xmi:type="description_1:ContainerMapping" href="platform:/plugin/org.obeonetwork.dsl.cinematic.design/description/cinematic.odesign#//@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='Flow%20Diagram']/@additionalLayers[name='Flow%20Events']/@containerMappings[name='FLD_FlowEvents']"/>
+    </ownedDiagramElements>
+    <ownedDiagramElements xmi:type="diagram:DNode" uid="_P5QKYIoeEeqW3bcS5K80Dg" name="View1" width="-1" height="-1" resizeKind="NSEW">
+      <target xmi:type="cinematic-flow:ViewState" href="E-BookStore.cinematic#_P1o1sYoeEeqW3bcS5K80Dg"/>
+      <semanticElements xmi:type="cinematic-flow:ViewState" href="E-BookStore.cinematic#_P1o1sYoeEeqW3bcS5K80Dg"/>
+      <ownedStyle xmi:type="diagram:WorkspaceImage" uid="_P5QxcIoeEeqW3bcS5K80Dg" labelPosition="node" workspacePath="/org.obeonetwork.dsl.cinematic.design/icons/viewpoint/state.svg">
+        <description xmi:type="style:WorkspaceImageDescription" href="platform:/plugin/org.obeonetwork.dsl.cinematic.design/description/cinematic.odesign#//@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='Flow%20Diagram']/@defaultLayer/@nodeMappings[name='FLD_ViewState']/@style"/>
+      </ownedStyle>
+      <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.obeonetwork.dsl.cinematic.design/description/cinematic.odesign#//@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='Flow%20Diagram']/@defaultLayer/@nodeMappings[name='FLD_ViewState']"/>
+    </ownedDiagramElements>
+    <ownedDiagramElements xmi:type="diagram:DNode" uid="_QYOlYIoeEeqW3bcS5K80Dg" name="AsyncEvent1" width="-1" height="-1" resizeKind="NSEW">
+      <target xmi:type="cinematic-flow:AsyncEventState" href="E-BookStore.cinematic#_QX84kYoeEeqW3bcS5K80Dg"/>
+      <semanticElements xmi:type="cinematic-flow:AsyncEventState" href="E-BookStore.cinematic#_QX84kYoeEeqW3bcS5K80Dg"/>
+      <ownedStyle xmi:type="diagram:WorkspaceImage" uid="_QYOlYYoeEeqW3bcS5K80Dg" labelPosition="node" workspacePath="/org.obeonetwork.dsl.cinematic.design/icons/viewpoint/state.svg">
+        <description xmi:type="style:WorkspaceImageDescription" href="platform:/plugin/org.obeonetwork.dsl.cinematic.design/description/cinematic.odesign#//@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='Flow%20Diagram']/@defaultLayer/@nodeMappings[name='FLD_AsyncEventState']/@style"/>
+      </ownedStyle>
+      <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.obeonetwork.dsl.cinematic.design/description/cinematic.odesign#//@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='Flow%20Diagram']/@defaultLayer/@nodeMappings[name='FLD_AsyncEventState']"/>
+    </ownedDiagramElements>
+    <description xmi:type="description_1:DiagramDescription" href="platform:/plugin/org.obeonetwork.dsl.cinematic.design/description/cinematic.odesign#//@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='Flow%20Diagram']"/>
+    <filterVariableHistory xmi:type="diagram:FilterVariableHistory" uid="_O3fLYIoeEeqW3bcS5K80Dg"/>
+    <activatedLayers xmi:type="description_1:Layer" href="platform:/plugin/org.obeonetwork.dsl.cinematic.design/description/cinematic.odesign#//@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='Flow%20Diagram']/@defaultLayer"/>
+    <activatedLayers xmi:type="description_1:AdditionalLayer" href="platform:/plugin/org.obeonetwork.dsl.cinematic.design/description/cinematic.odesign#//@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='Flow%20Diagram']/@additionalLayers[name='Flow%20Events']"/>
+    <activatedLayers xmi:type="description_1:AdditionalLayer" href="platform:/plugin/org.obeonetwork.dsl.cinematic.design/description/cinematic.odesign#//@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='Flow%20Diagram']/@additionalLayers[name='View%20Containers']"/>
+    <target xmi:type="cinematic-flow:Flow" href="E-BookStore.cinematic#_R5JR4IjnEeGOp5IdJE0AIw"/>
+  </diagram:DSemanticDiagram>
+  <diagram:DSemanticDiagram uid="_VtXeEIoeEeqW3bcS5K80Dg">
+    <ownedAnnotationEntries xmi:type="description:AnnotationEntry" uid="_WFEMYIoeEeqW3bcS5K80Dg" source="DANNOTATION_CUSTOMIZATION_KEY">
+      <data xmi:type="diagram:ComputedStyleDescriptionRegistry" uid="_WFEMYYoeEeqW3bcS5K80Dg"/>
+    </ownedAnnotationEntries>
+    <ownedAnnotationEntries xmi:type="description:AnnotationEntry" uid="_WFEzcIoeEeqW3bcS5K80Dg" source="GMF_DIAGRAMS">
+      <data xmi:type="notation:Diagram" xmi:id="_WFEzcYoeEeqW3bcS5K80Dg" type="Sirius" element="_VtXeEIoeEeqW3bcS5K80Dg" measurementUnit="Pixel">
+        <children xmi:type="notation:Node" xmi:id="_WFGBkIoeEeqW3bcS5K80Dg" type="2002" element="_WFBwIIoeEeqW3bcS5K80Dg">
+          <children xmi:type="notation:Node" xmi:id="_WFGooIoeEeqW3bcS5K80Dg" type="5006"/>
+          <children xmi:type="notation:Node" xmi:id="_WFGooYoeEeqW3bcS5K80Dg" type="7001">
+            <styles xmi:type="notation:SortingStyle" xmi:id="_WFGooooeEeqW3bcS5K80Dg"/>
+            <styles xmi:type="notation:FilteringStyle" xmi:id="_WFGoo4oeEeqW3bcS5K80Dg"/>
+          </children>
+          <styles xmi:type="notation:ShapeStyle" xmi:id="_WFGBkYoeEeqW3bcS5K80Dg" fontName="Segoe UI" fontHeight="8"/>
+          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_WFGBkooeEeqW3bcS5K80Dg"/>
+        </children>
+        <children xmi:type="notation:Node" xmi:id="_XSbXYIoeEeqW3bcS5K80Dg" type="2003" element="_XNB6AIoeEeqW3bcS5K80Dg">
+          <children xmi:type="notation:Node" xmi:id="_XSbXY4oeEeqW3bcS5K80Dg" type="5007"/>
+          <children xmi:type="notation:Node" xmi:id="_XSbXZIoeEeqW3bcS5K80Dg" type="7004">
+            <styles xmi:type="notation:SortingStyle" xmi:id="_XSbXZYoeEeqW3bcS5K80Dg"/>
+            <styles xmi:type="notation:FilteringStyle" xmi:id="_XSbXZooeEeqW3bcS5K80Dg"/>
+          </children>
+          <styles xmi:type="notation:ShapeStyle" xmi:id="_XSbXYYoeEeqW3bcS5K80Dg" fontName="Segoe UI" fontHeight="8"/>
+          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_XSbXYooeEeqW3bcS5K80Dg" x="180" y="125"/>
+        </children>
+        <styles xmi:type="notation:DiagramStyle" xmi:id="_WFEzcooeEeqW3bcS5K80Dg"/>
+      </data>
+    </ownedAnnotationEntries>
+    <ownedDiagramElements xmi:type="diagram:DNodeContainer" uid="_WFBwIIoeEeqW3bcS5K80Dg" name="main">
+      <target xmi:type="database:Schema" href="E-BookStore-MLD.database#_CqwowZEeEeauDets12NBwQ"/>
+      <semanticElements xmi:type="database:Schema" href="E-BookStore-MLD.database#_CqwowZEeEeauDets12NBwQ"/>
+      <ownedStyle xmi:type="diagram:FlatContainerStyle" uid="_WFCXMIoeEeqW3bcS5K80Dg" borderSize="1" borderSizeComputationExpression="1">
+        <description xmi:type="style:FlatContainerStyleDescription" href="platform:/resource/org.obeonetwork.dsl.database.design/description/database.odesign#//@ownedViewpoints[name='Database']/@ownedRepresentations[name='Database%20Diagram']/@additionalLayers[name='Schemas']/@containerMappings[name='DB_Schema']/@style"/>
+      </ownedStyle>
+      <actualMapping xmi:type="description_1:ContainerMapping" href="platform:/resource/org.obeonetwork.dsl.database.design/description/database.odesign#//@ownedViewpoints[name='Database']/@ownedRepresentations[name='Database%20Diagram']/@additionalLayers[name='Schemas']/@containerMappings[name='DB_Schema']"/>
+    </ownedDiagramElements>
+    <ownedDiagramElements xmi:type="diagram:DNodeList" uid="_XNB6AIoeEeqW3bcS5K80Dg" name="Table1">
+      <target xmi:type="database:Table" href="E-BookStore-MLD.database#_XI62EYoeEeqW3bcS5K80Dg"/>
+      <semanticElements xmi:type="database:Table" href="E-BookStore-MLD.database#_XI62EYoeEeqW3bcS5K80Dg"/>
+      <ownedStyle xmi:type="diagram:FlatContainerStyle" uid="_XNChEIoeEeqW3bcS5K80Dg" borderSize="1" borderSizeComputationExpression="1" borderColor="39,76,114" foregroundColor="114,159,207">
+        <description xmi:type="style:FlatContainerStyleDescription" href="platform:/resource/org.obeonetwork.dsl.database.design/description/database.odesign#//@ownedViewpoints[name='Database']/@ownedRepresentations[name='Database%20Diagram']/@defaultLayer/@containerMappings[name='DB_Table']/@style"/>
+      </ownedStyle>
+      <actualMapping xmi:type="description_1:ContainerMappingImport" href="platform:/resource/org.obeonetwork.dsl.database.design/description/database.odesign#//@ownedViewpoints[name='Database']/@ownedRepresentations[name='Database%20Diagram']/@additionalLayers[name='Index']/@containerMappings[name='DB_TableWithIndex']"/>
+    </ownedDiagramElements>
+    <description xmi:type="description_1:DiagramDescription" href="platform:/resource/org.obeonetwork.dsl.database.design/description/database.odesign#//@ownedViewpoints[name='Database']/@ownedRepresentations[name='Database%20Diagram']"/>
+    <filterVariableHistory xmi:type="diagram:FilterVariableHistory" uid="_VtYFIIoeEeqW3bcS5K80Dg"/>
+    <activatedLayers xmi:type="description_1:Layer" href="platform:/resource/org.obeonetwork.dsl.database.design/description/database.odesign#//@ownedViewpoints[name='Database']/@ownedRepresentations[name='Database%20Diagram']/@defaultLayer"/>
+    <activatedLayers xmi:type="description_1:AdditionalLayer" href="platform:/resource/org.obeonetwork.dsl.database.design/description/database.odesign#//@ownedViewpoints[name='Database']/@ownedRepresentations[name='Database%20Diagram']/@additionalLayers[name='Schemas']"/>
+    <activatedLayers xmi:type="description_1:AdditionalLayer" href="platform:/resource/org.obeonetwork.dsl.database.design/description/database.odesign#//@ownedViewpoints[name='Database']/@ownedRepresentations[name='Database%20Diagram']/@additionalLayers[name='External%20Tables']"/>
+    <activatedLayers xmi:type="description_1:AdditionalLayer" href="platform:/resource/org.obeonetwork.dsl.database.design/description/database.odesign#//@ownedViewpoints[name='Database']/@ownedRepresentations[name='Database%20Diagram']/@additionalLayers[name='Index']"/>
+    <target xmi:type="database:DataBase" href="E-BookStore-MLD.database#_7NK10ZEdEeauDets12NBwQ"/>
+  </diagram:DSemanticDiagram>
 </xmi:XMI>
