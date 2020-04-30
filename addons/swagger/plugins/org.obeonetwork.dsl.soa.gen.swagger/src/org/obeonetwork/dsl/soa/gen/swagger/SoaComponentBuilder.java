@@ -23,6 +23,8 @@ import static org.obeonetwork.dsl.soa.gen.swagger.utils.StringUtils.upperFirst;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collection;
+import java.util.Collections;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Iterator;
@@ -158,7 +160,7 @@ public class SoaComponentBuilder {
 		
 		if(servers != null && !servers.isEmpty()) {
 			Server server = servers.get(0);
-			soaComponent.setURI(server.getUrl());
+			soaComponent.setURL(server.getUrl());
 		}
 		
 		inlineTypes = new HashMap<>();
@@ -267,16 +269,26 @@ public class SoaComponentBuilder {
 	}
 
 	private <T extends EObject> T getCommonAncestor(List<? extends EObject> eObjects, Class<T> type) {
-		List<Iterator<EObject>> eObjectsAncestors = eObjects.stream().map(o -> getAncestors(o).iterator()).collect(toList());
+		Collection<List<EObject>> eObjectsAncestors = eObjects.stream().map(o -> getAncestors(o)).collect(toList());
 		
-		List<EObject> upwardCommonAncestors = new LinkedList<>();
-		EObject nextCommonElement = nextCommonElement(eObjectsAncestors);
-		while(nextCommonElement != null) {
-			upwardCommonAncestors.add(0, nextCommonElement);
-			nextCommonElement = nextCommonElement(eObjectsAncestors);
-		}
+		List<EObject> commonAncestors = getCommonPath(eObjectsAncestors);
+		
+		Collections.reverse(commonAncestors);
 
-		return (T)upwardCommonAncestors.stream().filter(e -> type.isInstance(e)).findFirst().orElse(null);
+		return (T)commonAncestors.stream().filter(e -> type.isInstance(e)).findFirst().orElse(null);
+	}
+	
+	private <T> List<T> getCommonPath(Collection<List<T>> pathCollection) {
+		List<Iterator<T>> pathIterators = pathCollection.stream().map(l -> l.iterator()).collect(toList());
+		
+		List<T> commonPath = new ArrayList<>();
+		T nextCommonElement = nextCommonElement(pathIterators);
+		while(nextCommonElement != null) {
+			commonPath.add(nextCommonElement);
+			nextCommonElement = nextCommonElement(pathIterators);
+		}
+		
+		return commonPath;
 	}
 	
 	private <T> T nextCommonElement(List<Iterator<T>> elements) {
@@ -682,14 +694,14 @@ public class SoaComponentBuilder {
 	private org.obeonetwork.dsl.soa.Parameter createSoaResponseParameter(org.obeonetwork.dsl.soa.Operation soaOperation, String responseKey, ApiResponse apiResponse) {
 		org.obeonetwork.dsl.soa.Parameter soaParameter = SoaFactory.eINSTANCE.createParameter();
 		String parameterName = null;
-		if(responseKey.matches("[123]..")) {
+		if(responseKey.matches("[123]..") || responseKey.equals("default")) {
 			soaOperation.getOutput().add(soaParameter);
 			parameterName = "output" + responseKey;
 		} else if(responseKey.matches("[45]..")) {
 			soaOperation.getFault().add(soaParameter);
 			parameterName = "fault" + responseKey;
 		} else {
-			logError(String.format("Unsupported status code : %s.", responseKey));
+			logError(String.format("Unsupported status code : %s for operation %s with path %s.", responseKey, soaOperation.getName(), soaComponent.getURI() + soaOperation.getURI()));
 			return null;
 		}
 		soaParameter.setName(parameterName);
@@ -722,12 +734,98 @@ public class SoaComponentBuilder {
 	}
 
 	private Service getSoaServiceFromPath(String path) {
+		String soaServiceName = getSoaServiceNameFromPath(path);
+		
 		return soaComponent.getProvidedServices().stream()
-		.filter(soaService -> path.startsWith(soaComponent.getURI() + soaService.getURI()))
+		.filter(soaService -> Objects.equals(soaServiceName, soaService.getName()))
 		.findFirst().orElse(null);
 	}
 
 	private void createSoaServices() {
+		// TODO wip -- remove sysouts
+		
+		System.out.println("### Paths:");
+		openApi.getPaths().keySet().stream()
+		.sorted().forEach(path -> System.out.println(path));
+		
+		String soaComponentUri = getCommonPathBeforePathParam(openApi.getPaths().keySet());
+		
+		System.out.println("### Deduced component URI:");
+		System.out.println(soaComponentUri);
+		
+		soaComponent.setURI(soaComponentUri);
+		
+		Map<String, List<String>> soaServicesPaths = new HashMap<>();
+		for(String path : openApi.getPaths().keySet()) {
+			String soaServiceName = getSoaServiceNameFromPath(path);
+			List<String> servicePaths = soaServicesPaths.get(soaServiceName);
+			if(servicePaths == null) {
+				servicePaths = new ArrayList<>();
+				soaServicesPaths.put(soaServiceName, servicePaths);
+			}
+			servicePaths.add(path);
+		}
+		
+		for(String soaServiceName : soaServicesPaths.keySet()) {
+			String soaServiceUri = getCommonPathBeforePathParam(
+					soaServicesPaths.get(soaServiceName).stream()
+					.map(path -> path.substring(soaComponentUri.length()))
+					.collect(toList()));
+			
+			Service soaService =  SoaFactory.eINSTANCE.createService();
+			soaService.setName(soaServiceName);
+			soaService.setURI(soaServiceUri);
+			soaService.setKind(InterfaceKind.PROVIDED_LITERAL);
+			soaComponent.getOwnedServices().add(soaService);
+		}
+		
+		System.out.println("### Services:");
+		for(Service soaService : soaComponent.getProvidedServices()) {
+			System.out.println(soaService.getName());
+			System.out.println("\t" + soaService.getURI());
+		}
+	}
+	
+	private String getCommonPathBeforePathParam(Collection<String> paths) {
+		List<String> commonPath = getCommonPath(
+				paths.stream()
+				.map(path -> Arrays.asList(path.split(QUALIFIED_PATH_SEPARATOR)))
+				.collect(toList()));
+		
+		List<String> commonPathBeforePathParam = new ArrayList<>();
+		Iterator<String> commonPathSegmentsIterator = commonPath.iterator();
+		boolean stop = false;
+		while(commonPathSegmentsIterator.hasNext() && !stop) {
+			String segment = commonPathSegmentsIterator.next();
+			stop = segment.matches("\\{.*\\}");
+			if(!stop) {
+				commonPathBeforePathParam.add(segment);
+			}
+		}
+		
+		return commonPathBeforePathParam.stream().collect(joining(QUALIFIED_PATH_SEPARATOR));
+	}
+	
+	private String getSoaServiceNameFromPath(String path) {
+		String soaServiceName = openApi.getPaths().get(path).readOperations().stream()
+		.flatMap(op -> op.getTags().stream())
+		.collect(toSet()).stream()
+		.map(tag -> upperFirst(tag))
+		.sorted()
+		.collect(joining());
+		
+		if(soaServiceName.isEmpty()) {
+			soaServiceName = upperFirst(DEFAULT_FOR_UNNAMED);
+		}
+		
+		return soaServiceName;
+	}
+
+	private void createSoaServices_old() {
+		
+		System.out.println("### Paths:");
+		openApi.getPaths().keySet().stream()
+		.sorted().forEach(path -> System.out.println(path));
 		
 		/* Parse the paths of the api along their segments, building a tree
 		 * based on the paths segments.
@@ -735,7 +833,7 @@ public class SoaComponentBuilder {
 		 * The longest path found starting from the root will serve as the 
 		 * component uri.
 		 * Then for each of the following sub segments, the longest path found 
-		 * will serve as the segments uris.
+		 * will serve as the services uris.
 		 * 
 		 * The following algorithm uses a Map<String, Map> tree structure to 
 		 * decompose the different paths in a structure removing the duplicated 
@@ -786,6 +884,9 @@ public class SoaComponentBuilder {
 		
 		soaComponent.setURI(shortestComponentUri);
 		
+		System.out.println("### Deduced component URI:");
+		System.out.println(soaComponent.getURI());
+		
 		// Make pathSegmentNodePointer coherent with shortestComponentUri
 		pathSegmentNodePointer = pathSegmentRoot;
 		for(String segment : Arrays.asList(shortestComponentUri.split(QUALIFIED_PATH_SEPARATOR))) {
@@ -819,6 +920,10 @@ public class SoaComponentBuilder {
 			soaService.setKind(InterfaceKind.PROVIDED_LITERAL);
 			soaComponent.getOwnedServices().add(soaService);
 		}
+		
+		System.out.println("### Deduced services URIs:");
+		soaComponent.getProvidedServices().stream().map(service -> service.getURI())
+		.sorted().forEach(path -> System.out.println(path));
 		
 		// Attempt to find a name for the SOA Services, looking for a unique tag
 		// among the rest operations.
