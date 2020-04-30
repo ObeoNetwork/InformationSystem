@@ -10,12 +10,15 @@
  *******************************************************************************/
 package org.obeonetwork.dsl.soa.gen.swagger.ui.handlers;
 
+import static org.obeonetwork.dsl.soa.gen.swagger.Activator.logError;
+
 import org.eclipse.core.commands.AbstractHandler;
 import org.eclipse.core.commands.ExecutionEvent;
 import org.eclipse.core.commands.ExecutionException;
 import org.eclipse.core.commands.IHandler;
-import org.eclipse.emf.transaction.RecordingCommand;
+import org.eclipse.core.runtime.IStatus;
 import org.eclipse.emf.transaction.TransactionalEditingDomain;
+import org.eclipse.jface.dialogs.MessageDialog;
 import org.eclipse.jface.viewers.ISelection;
 import org.eclipse.jface.viewers.IStructuredSelection;
 import org.eclipse.sirius.business.api.query.EObjectQuery;
@@ -28,8 +31,8 @@ import org.eclipse.ui.handlers.HandlerUtil;
 import org.obeonetwork.dsl.environment.Environment;
 import org.obeonetwork.dsl.environment.design.services.ModelServices;
 import org.obeonetwork.dsl.soa.System;
-import org.obeonetwork.dsl.soa.gen.swagger.Activator;
 import org.obeonetwork.dsl.soa.gen.swagger.SwaggerImporter;
+import org.obeonetwork.utils.sirius.transaction.RecordingCommandWithResult;
 
 public class ImportSwaggerHandler extends AbstractHandler implements IHandler {
 
@@ -40,7 +43,7 @@ public class ImportSwaggerHandler extends AbstractHandler implements IHandler {
 		
 		Shell shell = HandlerUtil.getActiveShell(event);
 		FileDialog dialog = new FileDialog(shell, SWT.OPEN);
-		dialog.setFilterExtensions(new String [] { "*.yaml", "*.json" });
+		dialog.setFilterExtensions(new String [] { "*.yaml", "*.json" }); //$NON-NLS-1$ //$NON-NLS-2$
 		String swaggerFilePath = dialog.open();	
 		
 		if(swaggerFilePath != null) {
@@ -51,18 +54,37 @@ public class ImportSwaggerHandler extends AbstractHandler implements IHandler {
 			.findFirst().orElse(null);
 			
 			TransactionalEditingDomain ted = new EObjectQuery(system).getSession().getTransactionalEditingDomain();
-			ted.getCommandStack().execute(new RecordingCommand(ted) {
-				
+			
+			RecordingCommandWithResult<Integer> swaggerImportCommand = new RecordingCommandWithResult<Integer>(ted) {
+
 				@Override
-				protected void doExecute() {
-					try {
-						SwaggerImporter importer = new SwaggerImporter(system, environment);
-						importer.importFromFile(swaggerFilePath);
-					} catch (Exception e) {
-						Activator.getDefault().logError(String.format("Problem encountered while importing swagger file %s.", swaggerFilePath), e);
-					}
+				protected Integer doExecuteWithResult() {
+					SwaggerImporter swaggerImporter = new SwaggerImporter(system, environment);
+					return swaggerImporter.importFromFile(swaggerFilePath);
 				}
-			});
+				
+			};
+			
+			ted.getCommandStack().execute(swaggerImportCommand);
+			
+			Integer status = swaggerImportCommand.getSingleResult();
+			
+			if(swaggerImportCommand.getException() != null) {
+				logError("Unexpected error.", swaggerImportCommand.getException());
+				status = IStatus.ERROR;
+			}
+			
+			switch (status) {
+			case IStatus.OK:
+				MessageDialog.openInformation(shell, Messages.ImportSwaggerHandler_ResultDialog_Title, Messages.ImportSwaggerHandler_ResultDialog_Success_message);
+				break;
+			case IStatus.WARNING:
+				MessageDialog.openWarning(shell, Messages.ImportSwaggerHandler_ResultDialog_Title, Messages.ImportSwaggerHandler_ResultDialog_Warning_message);
+				break;
+			case IStatus.ERROR:
+				MessageDialog.openError(shell, Messages.ImportSwaggerHandler_ResultDialog_Title, Messages.ImportSwaggerHandler_ResultDialog_Failure_message);
+				break;
+			}
 			
 		}
 		

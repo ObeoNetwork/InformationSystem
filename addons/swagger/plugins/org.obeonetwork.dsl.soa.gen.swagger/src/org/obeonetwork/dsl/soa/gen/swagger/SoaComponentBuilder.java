@@ -14,8 +14,6 @@ import static java.util.stream.Collectors.joining;
 import static java.util.stream.Collectors.toList;
 import static java.util.stream.Collectors.toSet;
 import static org.obeonetwork.dsl.environment.design.services.ModelServices.getAncestors;
-import static org.obeonetwork.dsl.soa.gen.swagger.Activator.logError;
-import static org.obeonetwork.dsl.soa.gen.swagger.Activator.logWarning;
 import static org.obeonetwork.dsl.soa.gen.swagger.OpenApiParserHelper.COMPONENT_SCHEMA_$REF;
 import static org.obeonetwork.dsl.soa.gen.swagger.OpenApiParserHelper.getPrimitiveTypeName;
 import static org.obeonetwork.dsl.soa.gen.swagger.OpenApiParserHelper.isEnum;
@@ -35,6 +33,7 @@ import java.util.Map.Entry;
 import java.util.Objects;
 import java.util.Set;
 
+import org.eclipse.core.runtime.IStatus;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EStructuralFeature;
@@ -61,10 +60,8 @@ import org.obeonetwork.dsl.soa.InterfaceKind;
 import org.obeonetwork.dsl.soa.ParameterPassingMode;
 import org.obeonetwork.dsl.soa.Service;
 import org.obeonetwork.dsl.soa.SoaFactory;
-import org.obeonetwork.dsl.soa.System;
 import org.obeonetwork.dsl.soa.Verb;
 import org.obeonetwork.dsl.soa.gen.swagger.utils.NamespaceGenUtil;
-import org.obeonetwork.dsl.soa.gen.swagger.utils.SystemGenUtil;
 import org.obeonetwork.dsl.technicalid.TechnicalIDPackage;
 
 import io.swagger.v3.oas.models.OpenAPI;
@@ -93,36 +90,57 @@ public class SoaComponentBuilder {
 	
 	private static final String QUALIFIED_PATH_SEPARATOR = "/";
 	
+	int status;
 	private OpenAPI openApi;
 	private Environment environment;
-	private System soaSystem;
 	private Component soaComponent;
+	private Namespace soaRootNamespace;
 
 	/**
 	 * Typed elements (Attribute, Reference or Parameter) using inline types (DTO or Enumeration) as their type.
 	 */
 	private Map<Type, List<ObeoDSMObject>> inlineTypes;
 	
-	public SoaComponentBuilder(OpenAPI swagger, System system, Environment environment) {
+	public SoaComponentBuilder(OpenAPI swagger, Environment environment) {
 		this.openApi = swagger;
-		this.soaSystem = system;
 		this.environment = environment;
 	}
+	
+	public int build() {
+		status = IStatus.OK;
+		
+		createSoaComponent();
+		
+		return status;
+	}
 
-	public Component createSoaComponent() {
+	public Namespace getNamespace() {
+		return soaRootNamespace;
+	}
+	
+	public Component getComponent() {
+		return soaComponent;
+	}
+	
+	private void logError(String message) {
+		Activator.logError(message);
+		status = IStatus.ERROR;
+	}
+	
+	private void logWarning(String message) {
+		Activator.logWarning(message);
+		status = IStatus.WARNING;
+	}
+	
+	private Component createSoaComponent() {
 		
 		String soaComponentName = getSoaComponentName();
 		if(soaComponentName == null) {
 			logError("Component name could not be computed.");
 			return null;
 		}
-		soaComponent = SystemGenUtil.getComponentByName(soaSystem, soaComponentName);
-		if(soaComponent != null) {
-			logError(String.format("Component with name %s already exist.", soaComponentName));
-		}
 		
 		soaComponent = SoaFactory.eINSTANCE.createComponent();
-		soaSystem.getOwnedComponents().add(soaComponent);
 		soaComponent.setName(soaComponentName);
 		
 		Info info = openApi.getInfo();
@@ -525,10 +543,11 @@ public class SoaComponentBuilder {
 		
 		soaOperation.setDescription(operation.getDescription());
 		
-		Verb soaVerb = Verb.valueOf(verb.toString());
+		Verb soaVerb = Verb.get(verb.toString());
 		if(soaVerb != null) {
 			soaOperation.setVerb(soaVerb);
 		} else {
+			// TODO Support all HTTP Methods
 			logError(String.format("Unsupported verb %s for path %s.", verb.toString(), path));
 		}
 		
@@ -881,7 +900,11 @@ public class SoaComponentBuilder {
 	}
 
 	private Namespace getOrCreateRootNamespace() {
-		return getOrCreateNamespace(soaSystem, soaComponent.getName());
+		if(soaRootNamespace == null) {
+			soaRootNamespace = EnvironmentFactory.eINSTANCE.createNamespace();
+			soaRootNamespace.setName(soaComponent.getName());
+		}
+		return soaRootNamespace;
 	}
 	
 	private Namespace getOrCreateServicesNamespace() {

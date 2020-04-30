@@ -64,7 +64,7 @@ public class Activator extends Plugin {
     	plugin.getLog().log(status);
     }
 
-	public void logError(String message, Exception e) {
+	public static void logError(String message, Throwable e) {
         IStatus status = new Status(IStatus.INFO, plugin.getBundle().getSymbolicName(), message, e);
     	plugin.getLog().log(status);
 	}

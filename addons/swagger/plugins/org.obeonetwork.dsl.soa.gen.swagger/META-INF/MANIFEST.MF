@@ -12,7 +12,8 @@ Export-Package: com.fasterxml.jackson.core,
  org.obeonetwork.dsl.soa.gen.swagger.utils
 Require-Bundle: org.obeonetwork.dsl.soa,
  org.obeonetwork.dsl.entity,
- org.obeonetwork.dsl.environment.design.services
+ org.obeonetwork.dsl.environment.design.services,
+ org.obeonetwork.dsl.environment
 Bundle-ClassPath: .,
  target/jars/commons-lang3-3.7.jar,
  target/jars/jackson-annotations-2.8.8.jar,

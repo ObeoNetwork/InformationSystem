@@ -10,12 +10,18 @@
  *******************************************************************************/
 package org.obeonetwork.dsl.soa.gen.swagger;
 
+import static org.obeonetwork.dsl.soa.gen.swagger.Activator.logError;
+
 import java.io.File;
 import java.io.IOException;
 
+import org.eclipse.core.runtime.IStatus;
 import org.obeonetwork.dsl.environment.Environment;
+import org.obeonetwork.dsl.environment.Namespace;
 import org.obeonetwork.dsl.soa.Component;
 import org.obeonetwork.dsl.soa.System;
+import org.obeonetwork.dsl.soa.gen.swagger.utils.NamespaceGenUtil;
+import org.obeonetwork.dsl.soa.gen.swagger.utils.SystemGenUtil;
 
 import com.fasterxml.jackson.core.JsonParseException;
 import com.fasterxml.jackson.databind.JsonMappingException;
@@ -35,7 +41,8 @@ public class SwaggerImporter {
 		this.environment = environment;
 	}
 
-	public Component importFromFile(String inputFilePath) throws JsonParseException, JsonMappingException, IOException {
+	public int importFromFile(String inputFilePath) {
+		int status = IStatus.OK;
 		
 		ObjectMapper objectMapper = null;
 		if(inputFilePath.endsWith(".yaml")) {
@@ -46,12 +53,47 @@ public class SwaggerImporter {
 
 		File file = new File(inputFilePath);
 
-		OpenAPI swagger = objectMapper.readValue(file, OpenAPI.class);
+		OpenAPI swagger = null;
+		try {
+			swagger = objectMapper.readValue(file, OpenAPI.class);
+		} catch (JsonParseException e) {
+			logError("Json parsing exception.", e);
+			status = IStatus.ERROR;
+		} catch (JsonMappingException e) {
+			logError("Json mapping exception.", e);
+			status = IStatus.ERROR;
+		} catch (IOException e) {
+			logError("I/O exception.", e);
+			status = IStatus.ERROR;
+		}
 		
-		SoaComponentBuilder soaComponentBuilder = new SoaComponentBuilder(swagger, soaSystem, environment);
-		Component soaComponent = soaComponentBuilder.createSoaComponent();
-
-		return soaComponent;
+		if(status != IStatus.ERROR) {
+			SoaComponentBuilder soaComponentBuilder = new SoaComponentBuilder(swagger, environment);
+			status = soaComponentBuilder.build();
+			
+			if(status != IStatus.ERROR) {
+				Component soaComponent = soaComponentBuilder.getComponent();
+				Namespace soaComponentNamespace = soaComponentBuilder.getNamespace();
+				
+				if(SystemGenUtil.getComponentByName(soaSystem, soaComponent.getName()) != null) {
+					logError(String.format("Component with name %s already exist.", soaComponent.getName()));
+					status = IStatus.ERROR;
+				}
+				
+				if(NamespaceGenUtil.getNamespaceByName(soaSystem, soaComponentNamespace.getName()) != null) {
+					logError(String.format("Namespace with name %s already exist.", soaComponentNamespace.getName()));
+					status = IStatus.ERROR;
+				}
+				
+				if(status != IStatus.ERROR) {
+					soaSystem.getOwnedComponents().add(soaComponent);
+					soaSystem.getOwnedNamespaces().add(soaComponentNamespace);
+				}
+				
+			}
+		}
+		
+		return status;
 		
 	}
 
