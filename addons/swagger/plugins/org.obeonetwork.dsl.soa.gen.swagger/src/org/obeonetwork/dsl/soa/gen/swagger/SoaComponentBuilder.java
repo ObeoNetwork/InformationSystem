@@ -28,7 +28,6 @@ import java.util.Collections;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Iterator;
-import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
@@ -742,17 +741,7 @@ public class SoaComponentBuilder {
 	}
 
 	private void createSoaServices() {
-		// TODO wip -- remove sysouts
-		
-		System.out.println("### Paths:");
-		openApi.getPaths().keySet().stream()
-		.sorted().forEach(path -> System.out.println(path));
-		
 		String soaComponentUri = getCommonPathBeforePathParam(openApi.getPaths().keySet());
-		
-		System.out.println("### Deduced component URI:");
-		System.out.println(soaComponentUri);
-		
 		soaComponent.setURI(soaComponentUri);
 		
 		Map<String, List<String>> soaServicesPaths = new HashMap<>();
@@ -777,12 +766,6 @@ public class SoaComponentBuilder {
 			soaService.setURI(soaServiceUri);
 			soaService.setKind(InterfaceKind.PROVIDED_LITERAL);
 			soaComponent.getOwnedServices().add(soaService);
-		}
-		
-		System.out.println("### Services:");
-		for(Service soaService : soaComponent.getProvidedServices()) {
-			System.out.println(soaService.getName());
-			System.out.println("\t" + soaService.getURI());
 		}
 	}
 	
@@ -819,129 +802,6 @@ public class SoaComponentBuilder {
 		}
 		
 		return soaServiceName;
-	}
-
-	private void createSoaServices_old() {
-		
-		System.out.println("### Paths:");
-		openApi.getPaths().keySet().stream()
-		.sorted().forEach(path -> System.out.println(path));
-		
-		/* Parse the paths of the api along their segments, building a tree
-		 * based on the paths segments.
-		 * 
-		 * The longest path found starting from the root will serve as the 
-		 * component uri.
-		 * Then for each of the following sub segments, the longest path found 
-		 * will serve as the services uris.
-		 * 
-		 * The following algorithm uses a Map<String, Map> tree structure to 
-		 * decompose the different paths in a structure removing the duplicated 
-		 * segments.
-		 */
-		Map<String, Map> pathSegmentRoot = new HashMap<String, Map>();
-		Map<String, Map> pathSegmentNodePointer = null;
-		for(String path : openApi.getPaths().keySet()) {
-			pathSegmentNodePointer = pathSegmentRoot;
-			for(String segment : Arrays.asList(path.split(QUALIFIED_PATH_SEPARATOR))) {
-				if(!segment.isEmpty()) {
-					Map<String, Map> pathSegmentSubNode = pathSegmentNodePointer.get(segment);
-					if(pathSegmentSubNode == null) {
-						pathSegmentSubNode = new HashMap<>();
-						pathSegmentNodePointer.put(segment, pathSegmentSubNode);
-					}
-					pathSegmentNodePointer = pathSegmentSubNode;
-				}
-			}
-		}
-		
-		// If if the root is not unique, create a new root with an empty segment name
-		if(pathSegmentRoot.size() > 1) {
-			Map<String, Map> pathSegmentSubRoot = new HashMap<String, Map>();
-			pathSegmentSubRoot.put("", pathSegmentRoot);
-			pathSegmentRoot = pathSegmentSubRoot;
-		}
-		
-		// Now that the tree structure is built, extract the component uri out of it
-		// by following the path starting at the root and ending when it splits.
-		String longestComponentUri = "";
-		pathSegmentNodePointer = pathSegmentRoot;
-		while(pathSegmentNodePointer.size() == 1) {
-			String segment = pathSegmentNodePointer.keySet().iterator().next();
-			if(!segment.isEmpty()) {
-				longestComponentUri = longestComponentUri + QUALIFIED_PATH_SEPARATOR + segment;
-			}
-			pathSegmentNodePointer = pathSegmentNodePointer.values().iterator().next();
-		}
-		
-		// Now that the longest common path has been found, look among all the paths to find a shortest path 
-		String shortestComponentUri = longestComponentUri;
-		for(String path : openApi.getPaths().keySet()) {
-			if(shortestComponentUri.startsWith(path) && path.length() <= shortestComponentUri.length()) {
-				shortestComponentUri = path;
-			}
-		}
-		
-		soaComponent.setURI(shortestComponentUri);
-		
-		System.out.println("### Deduced component URI:");
-		System.out.println(soaComponent.getURI());
-		
-		// Make pathSegmentNodePointer coherent with shortestComponentUri
-		pathSegmentNodePointer = pathSegmentRoot;
-		for(String segment : Arrays.asList(shortestComponentUri.split(QUALIFIED_PATH_SEPARATOR))) {
-			if(pathSegmentNodePointer.get(segment) != null) {
-				pathSegmentNodePointer = pathSegmentNodePointer.get(segment);
-			}
-		}
-		
-		// For each of the following path, repeat the process of finding the paths 
-		// until they split again.
-		// Each of such path constitues the service URIs.
-		for(String serviceSegment : pathSegmentNodePointer.keySet()) {
-			String longestServiceUri = QUALIFIED_PATH_SEPARATOR + serviceSegment;
-			Map<String, Map> serviceSegmentNode = pathSegmentNodePointer.get(serviceSegment);
-			while(serviceSegmentNode.size() == 1) {
-				Entry<String, Map> entry = serviceSegmentNode.entrySet().iterator().next();
-				longestServiceUri = longestServiceUri + QUALIFIED_PATH_SEPARATOR + entry.getKey();
-				serviceSegmentNode = entry.getValue();
-			}
-			
-			String shortestServiceUri = longestServiceUri;
-			for(String path : openApi.getPaths().keySet()) {
-				if((shortestComponentUri + shortestServiceUri).startsWith(path) && 
-						path.length() <= shortestComponentUri.length() + shortestServiceUri.length()) {
-					shortestServiceUri = path.substring(shortestComponentUri.length());
-				}
-			}
-			
-			Service soaService =  SoaFactory.eINSTANCE.createService();
-			soaService.setURI(shortestServiceUri);
-			soaService.setKind(InterfaceKind.PROVIDED_LITERAL);
-			soaComponent.getOwnedServices().add(soaService);
-		}
-		
-		System.out.println("### Deduced services URIs:");
-		soaComponent.getProvidedServices().stream().map(service -> service.getURI())
-		.sorted().forEach(path -> System.out.println(path));
-		
-		// Attempt to find a name for the SOA Services, looking for a unique tag
-		// among the rest operations.
-		// If no unique tag is found, compute a name out of the service URI.
-		for(Service soaService : soaComponent.getProvidedServices()) {
-			String qualifiedServiceUri = soaComponent.getURI() + soaService.getURI();
-			Set<String> appliedTags = openApi.getPaths().keySet().stream()
-					.filter(key -> key.startsWith(qualifiedServiceUri))
-					.map(key -> openApi.getPaths().get(key))
-					.flatMap(path -> path.readOperations().stream())
-					.flatMap(op -> op.getTags().stream())
-					.collect(toSet());
-			if(appliedTags.size() == 1) {
-				soaService.setName(appliedTags.iterator().next());
-			} else {
-				soaService.setName(camelCaseFromUri(soaService.getURI()));
-			}
-		}
 	}
 
 	private String camelCaseFromUri(String uri) {
