@@ -64,7 +64,39 @@ public enum Verb implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	DELETE(3, "DELETE", "DELETE");
+	DELETE(3, "DELETE", "DELETE"), /**
+	 * The '<em><b>HEAD</b></em>' literal object.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #HEAD_VALUE
+	 * @generated
+	 * @ordered
+	 */
+	HEAD(4, "HEAD", "HEAD"), /**
+	 * The '<em><b>OPTIONS</b></em>' literal object.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #OPTIONS_VALUE
+	 * @generated
+	 * @ordered
+	 */
+	OPTIONS(5, "OPTIONS", "OPTIONS"), /**
+	 * The '<em><b>PATCH</b></em>' literal object.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #PATCH_VALUE
+	 * @generated
+	 * @ordered
+	 */
+	PATCH(6, "PATCH", "PATCH"), /**
+	 * The '<em><b>TRACE</b></em>' literal object.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #TRACE_VALUE
+	 * @generated
+	 * @ordered
+	 */
+	TRACE(7, "TRACE", "TRACE");
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -134,6 +166,66 @@ public enum Verb implements Enumerator {
 	public static final int DELETE_VALUE = 3;
 
 	/**
+	 * The '<em><b>HEAD</b></em>' literal value.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of '<em><b>HEAD</b></em>' literal object isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @see #HEAD
+	 * @model
+	 * @generated
+	 * @ordered
+	 */
+	public static final int HEAD_VALUE = 4;
+
+	/**
+	 * The '<em><b>OPTIONS</b></em>' literal value.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of '<em><b>OPTIONS</b></em>' literal object isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @see #OPTIONS
+	 * @model
+	 * @generated
+	 * @ordered
+	 */
+	public static final int OPTIONS_VALUE = 5;
+
+	/**
+	 * The '<em><b>PATCH</b></em>' literal value.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of '<em><b>PATCH</b></em>' literal object isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @see #PATCH
+	 * @model
+	 * @generated
+	 * @ordered
+	 */
+	public static final int PATCH_VALUE = 6;
+
+	/**
+	 * The '<em><b>TRACE</b></em>' literal value.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of '<em><b>TRACE</b></em>' literal object isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @see #TRACE
+	 * @model
+	 * @generated
+	 * @ordered
+	 */
+	public static final int TRACE_VALUE = 7;
+
+	/**
 	 * An array of all the '<em><b>Verb</b></em>' enumerators.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -145,6 +237,10 @@ public enum Verb implements Enumerator {
 			POST,
 			PUT,
 			DELETE,
+			HEAD,
+			OPTIONS,
+			PATCH,
+			TRACE,
 		};
 
 	/**
@@ -205,6 +301,10 @@ public enum Verb implements Enumerator {
 			case POST_VALUE: return POST;
 			case PUT_VALUE: return PUT;
 			case DELETE_VALUE: return DELETE;
+			case HEAD_VALUE: return HEAD;
+			case OPTIONS_VALUE: return OPTIONS;
+			case PATCH_VALUE: return PATCH;
+			case TRACE_VALUE: return TRACE;
 		}
 		return null;
 	}

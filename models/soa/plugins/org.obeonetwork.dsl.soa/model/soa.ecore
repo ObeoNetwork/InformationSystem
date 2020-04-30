@@ -107,6 +107,10 @@
     <eLiterals name="POST" value="1"/>
     <eLiterals name="PUT" value="2"/>
     <eLiterals name="DELETE" value="3"/>
+    <eLiterals name="HEAD" value="4"/>
+    <eLiterals name="OPTIONS" value="5"/>
+    <eLiterals name="PATCH" value="6"/>
+    <eLiterals name="TRACE" value="7"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EEnum" name="ParameterPassingMode">
     <eLiterals name="BODY"/>

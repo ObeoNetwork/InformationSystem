@@ -996,6 +996,10 @@ public class SoaPackageImpl extends EPackageImpl implements SoaPackage {
 		addEEnumLiteral(verbEEnum, Verb.POST);
 		addEEnumLiteral(verbEEnum, Verb.PUT);
 		addEEnumLiteral(verbEEnum, Verb.DELETE);
+		addEEnumLiteral(verbEEnum, Verb.HEAD);
+		addEEnumLiteral(verbEEnum, Verb.OPTIONS);
+		addEEnumLiteral(verbEEnum, Verb.PATCH);
+		addEEnumLiteral(verbEEnum, Verb.TRACE);
 
 		initEEnum(parameterPassingModeEEnum, ParameterPassingMode.class, "ParameterPassingMode");
 		addEEnumLiteral(parameterPassingModeEEnum, ParameterPassingMode.BODY);

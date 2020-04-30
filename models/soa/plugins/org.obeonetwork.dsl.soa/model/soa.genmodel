@@ -34,6 +34,10 @@
       <genEnumLiterals ecoreEnumLiteral="soa.ecore#//Verb/POST"/>
       <genEnumLiterals ecoreEnumLiteral="soa.ecore#//Verb/PUT"/>
       <genEnumLiterals ecoreEnumLiteral="soa.ecore#//Verb/DELETE"/>
+      <genEnumLiterals ecoreEnumLiteral="soa.ecore#//Verb/HEAD"/>
+      <genEnumLiterals ecoreEnumLiteral="soa.ecore#//Verb/OPTIONS"/>
+      <genEnumLiterals ecoreEnumLiteral="soa.ecore#//Verb/PATCH"/>
+      <genEnumLiterals ecoreEnumLiteral="soa.ecore#//Verb/TRACE"/>
     </genEnums>
     <genEnums typeSafeEnumCompatible="false" ecoreEnum="soa.ecore#//ParameterPassingMode">
       <genEnumLiterals ecoreEnumLiteral="soa.ecore#//ParameterPassingMode/BODY"/>

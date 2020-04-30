@@ -547,7 +547,6 @@ public class SoaComponentBuilder {
 		if(soaVerb != null) {
 			soaOperation.setVerb(soaVerb);
 		} else {
-			// TODO Support all HTTP Methods
 			logError(String.format("Unsupported verb %s for path %s.", verb.toString(), path));
 		}
 		
