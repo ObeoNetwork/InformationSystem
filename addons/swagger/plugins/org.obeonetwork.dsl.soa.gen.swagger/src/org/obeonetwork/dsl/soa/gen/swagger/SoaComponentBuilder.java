@@ -129,7 +129,9 @@ public class SoaComponentBuilder {
 	
 	private void logWarning(String message) {
 		Activator.logWarning(message);
-		status = IStatus.WARNING;
+		if(status != IStatus.ERROR) {
+			status = IStatus.WARNING;
+		}
 	}
 	
 	private Component createSoaComponent() {
