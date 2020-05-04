@@ -43,7 +43,7 @@ public class ImportSwaggerHandler extends AbstractHandler implements IHandler {
 		
 		Shell shell = HandlerUtil.getActiveShell(event);
 		FileDialog dialog = new FileDialog(shell, SWT.OPEN);
-		dialog.setFilterExtensions(new String [] { "*.yaml", "*.json" }); //$NON-NLS-1$ //$NON-NLS-2$
+		dialog.setFilterExtensions(new String [] { "*.yaml;*.json", "*.yaml", "*.json" }); //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 		String swaggerFilePath = dialog.open();	
 		
 		if(swaggerFilePath != null) {

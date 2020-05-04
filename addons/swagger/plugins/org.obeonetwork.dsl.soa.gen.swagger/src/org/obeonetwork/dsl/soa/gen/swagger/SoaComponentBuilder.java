@@ -31,8 +31,10 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
+import java.util.regex.Pattern;
 import java.util.Objects;
 import java.util.Set;
+import java.util.function.Predicate;
 
 import org.eclipse.core.runtime.IStatus;
 import org.eclipse.emf.ecore.EClass;
@@ -90,6 +92,8 @@ public class SoaComponentBuilder {
 	private static final String BODY_PARAMETER_NAME = "body";
 	
 	private static final String QUALIFIED_PATH_SEPARATOR = "/";
+	
+	private static final Predicate<String> PATH_PARAM_PATTERN_PREDICATE = Pattern.compile("\\{[^}]+\\}").asPredicate();
 	
 	int status;
 	private OpenAPI openApi;
@@ -546,7 +550,7 @@ public class SoaComponentBuilder {
 		if(operation.getOperationId() != null && !operation.getOperationId().isEmpty()) {
 			soaOperationName = operation.getOperationId();
 		} else {
-			soaOperationName = verb.toString().toLowerCase() + camelCaseFromUri(soaService.getURI());
+			soaOperationName = computeSoaOperationName(verb, soaOperation.getURI());
 		}
 		
 		if(soaOperationName == null || soaOperationName.isEmpty()) {
@@ -584,6 +588,30 @@ public class SoaComponentBuilder {
 		}
 		
 		return soaOperation;
+	}
+
+	private String computeSoaOperationName(HttpMethod verb, String uri) {
+		List<String> segments = Arrays.asList(uri.split(QUALIFIED_PATH_SEPARATOR));
+		
+		StringBuffer name = new StringBuffer();
+		name.append(verb.toString().toLowerCase());
+		
+		name.append(segments.stream()
+		.filter(PATH_PARAM_PATTERN_PREDICATE.negate())
+		.map(segment -> upperFirst(segment))
+		.collect(joining()));
+
+		String suffix = segments.stream()
+		.filter(PATH_PARAM_PATTERN_PREDICATE)
+		.map(segment -> upperFirst(segment.substring(1, segment.length() - 1)))
+		.collect(joining("And"));
+		
+		if(!suffix.isEmpty()) {
+			name.append("From");
+			name.append(suffix);
+		}
+		
+		return name.toString();
 	}
 
 	private Interface getOrCreateInterface(Service soaService) {
@@ -780,7 +808,7 @@ public class SoaComponentBuilder {
 		boolean stop = false;
 		while(commonPathSegmentsIterator.hasNext() && !stop) {
 			String segment = commonPathSegmentsIterator.next();
-			stop = segment.matches("\\{.*\\}");
+			stop = PATH_PARAM_PATTERN_PREDICATE.test(segment);
 			if(!stop) {
 				commonPathBeforePathParam.add(segment);
 			}
@@ -804,12 +832,6 @@ public class SoaComponentBuilder {
 		return soaServiceName;
 	}
 
-	private String camelCaseFromUri(String uri) {
-		return Arrays.asList(uri.split(QUALIFIED_PATH_SEPARATOR)).stream()
-				.map(s -> upperFirst(s))
-				.collect(joining());
-	}
-	
 	private void createSoaExposedTypes() {
 		if(openApi.getComponents() != null) {
 			openApi.getComponents().getSchemas().forEach((key, schema) -> touchExposedType(key, schema));
