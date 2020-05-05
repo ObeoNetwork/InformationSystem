@@ -31,10 +31,10 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
-import java.util.regex.Pattern;
 import java.util.Objects;
 import java.util.Set;
 import java.util.function.Predicate;
+import java.util.regex.Pattern;
 
 import org.eclipse.core.runtime.IStatus;
 import org.eclipse.emf.ecore.EClass;
@@ -90,6 +90,7 @@ public class SoaComponentBuilder {
 	
 	private static final String DEFAULT_FOR_UNNAMED = "unnamed";
 	private static final String BODY_PARAMETER_NAME = "body";
+	private static final String DEFAULT_SERVICE_NAME = "Default";
 	
 	private static final String QUALIFIED_PATH_SEPARATOR = "/";
 	
@@ -826,7 +827,7 @@ public class SoaComponentBuilder {
 		.collect(joining());
 		
 		if(soaServiceName.isEmpty()) {
-			soaServiceName = upperFirst(DEFAULT_FOR_UNNAMED);
+			soaServiceName = upperFirst(DEFAULT_SERVICE_NAME);
 		}
 		
 		return soaServiceName;
