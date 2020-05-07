@@ -158,13 +158,14 @@ public class SoaComponentBuilder {
 		// ? info.getLicense();
 
 		List<Server> servers = openApi.getServers();
-		if(servers != null && servers.size() > 1) {
-			logWarning("Multiple servers not supported.");
-		}
-		
 		if(servers != null && !servers.isEmpty()) {
 			Server server = servers.get(0);
 			soaComponent.setURL(server.getUrl());
+			
+			if(servers.size() > 1) {
+				logWarning(String.format("Multiple servers not supported. Found URLs : %s.", 
+						servers.stream().map(s -> s.getUrl()).collect(joining(", "))));
+			}
 		}
 		
 		inlineTypes = new HashMap<>();
