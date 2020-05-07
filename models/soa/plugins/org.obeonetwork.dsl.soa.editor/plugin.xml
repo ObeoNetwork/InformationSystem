@@ -13,22 +13,6 @@
  -->
 
 <plugin>
-   <extension point="org.eclipse.ui.newWizards">
-      <!-- @generated soa -->
-      <category
-            id="org.eclipse.emf.ecore.Wizard.category.ID"
-            name="%_UI_Wizard_category"/>
-      <wizard
-            id="org.obeonetwork.dsl.soa.presentation.SoaModelWizardID"
-            name="%_UI_SoaModelWizard_label"
-            class="org.obeonetwork.dsl.soa.presentation.SoaModelWizard"
-            category="org.eclipse.emf.ecore.Wizard.category.ID"
-            icon="icons/full/obj16/SoaModelFile.gif">
-         <description>%_UI_SoaModelWizard_description</description>
-         <selection class="org.eclipse.core.resources.IResource"/>
-      </wizard>
-   </extension>
-
    <extension point="org.eclipse.ui.editors">
       <!-- @generated soa -->
       <editor

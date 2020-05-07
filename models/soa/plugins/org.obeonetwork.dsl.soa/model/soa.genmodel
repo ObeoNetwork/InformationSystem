@@ -9,7 +9,7 @@
   <foreignModel>soa.ecore</foreignModel>
   <modelPluginVariables>CDO=org.eclipse.emf.cdo</modelPluginVariables>
   <genPackages prefix="Soa" basePackage="org.obeonetwork.dsl" resource="XMI" disposableProviderFactory="true"
-      multipleEditorPages="false" ecorePackage="soa.ecore#/">
+      multipleEditorPages="false" generateModelWizard="false" ecorePackage="soa.ecore#/">
     <genEnums ecoreEnum="soa.ecore#//InterfaceKind">
       <genEnumLiterals ecoreEnumLiteral="soa.ecore#//InterfaceKind/provided"/>
       <genEnumLiterals ecoreEnumLiteral="soa.ecore#//InterfaceKind/required"/>
