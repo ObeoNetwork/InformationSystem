@@ -9,16 +9,17 @@
  *     Obeo - initial API and implementation
  *******************************************************************************/
 package org.obeonetwork.dsl.soa.gen.swagger.ui.wizards;
-
 import java.io.File;
-import java.io.IOException;
 import java.util.List;
 
+import org.eclipse.core.runtime.IStatus;
+import org.eclipse.jface.dialogs.MessageDialog;
 import org.eclipse.jface.wizard.Wizard;
 import org.obeonetwork.dsl.soa.Component;
-import org.obeonetwork.dsl.soa.System;
 import org.obeonetwork.dsl.soa.gen.swagger.SwaggerExporter;
 import org.obeonetwork.dsl.soa.gen.swagger.SwaggerExporter.MapperType;
+import org.obeonetwork.dsl.soa.gen.swagger.ui.handlers.Messages;
+import org.obeonetwork.dsl.soa.gen.swagger.utils.ComponentGenUtil;
 
 public class GenerateComponentsSwaggerWizard extends Wizard {
 
@@ -30,9 +31,8 @@ public class GenerateComponentsSwaggerWizard extends Wizard {
 		super();
 		this.components = components;
 		
-//		String systemName = (system.getName() == null || system.getName().isEmpty())? "<Unnamed>" : system.getName();
+		setWindowTitle(Messages.GenerateComponentsSwaggerWizard_Title);
 		
-		setWindowTitle("Export Swagger du Systeme " + "TODO"); // TODO
 		generateComponentsSwaggerWizardOptionsPage = new GenerateComponentsSwaggerWizardOptionsPage(this);
 	}
 
@@ -51,15 +51,53 @@ public class GenerateComponentsSwaggerWizard extends Wizard {
 	public boolean performFinish() {
 		boolean exitStatus = true;
 		
-		try {
-			MapperType mapperType = generateComponentsSwaggerWizardOptionsPage.getMapperType();
-			File outputDir = new File(generateComponentsSwaggerWizardOptionsPage.getOutputDirPath());
+		MapperType mapperType = generateComponentsSwaggerWizardOptionsPage.getMapperType();
+		File outputDir = new File(generateComponentsSwaggerWizardOptionsPage.getOutputDirPath());
+		
+		int status = IStatus.OK;
+		StringBuffer message = new StringBuffer();
+		
+		for(Component component : components) {
+			SwaggerExporter swaggerExporter = new SwaggerExporter(component);
+			swaggerExporter.setOutputFormat(mapperType);
 			
-			for(Component component : components) {
-				SwaggerExporter.exportInDir(component, mapperType, outputDir);
+			int componentExportStatus = swaggerExporter.exportInDir(outputDir);
+			switch(componentExportStatus) {
+			case IStatus.OK:
+				message.append(String.format(Messages.GenerateComponentsSwaggerWizard_ResultDialog_Success_message, 
+						ComponentGenUtil.getName(component), 
+						new File(outputDir, swaggerExporter.getOutputFileName()).getPath()));
+				break;
+			case IStatus.WARNING:
+				message.append(String.format(Messages.GenerateComponentsSwaggerWizard_ResultDialog_Warning_message, 
+						ComponentGenUtil.getName(component), 
+						new File(outputDir, swaggerExporter.getOutputFileName()).getPath()));
+				if(status != IStatus.ERROR) {
+					status = IStatus.WARNING;
+				}
+				break;
+			case IStatus.ERROR:
+				status = IStatus.ERROR;
+				message.append(String.format(Messages.GenerateComponentsSwaggerWizard_ResultDialog_Failure_message, 
+						ComponentGenUtil.getName(component), 
+						new File(outputDir, swaggerExporter.getOutputFileName()).getPath()));
+				break;
 			}
-		} catch (IOException e) {
-			exitStatus = false;
+			message.append("\n"); //$NON-NLS-1$
+		}
+		
+		switch (status) {
+		case IStatus.OK:
+			MessageDialog.openInformation(getShell(), Messages.GenerateComponentsSwaggerWizard_ResultDialog_Title, message.toString());
+			break;
+		case IStatus.WARNING:
+			message.append(Messages.GenerateComponentsSwaggerWizard_ResultDialog_see_log_message);
+			MessageDialog.openWarning(getShell(), Messages.GenerateComponentsSwaggerWizard_ResultDialog_Title, message.toString());
+			break;
+		case IStatus.ERROR:
+			message.append(Messages.GenerateComponentsSwaggerWizard_ResultDialog_see_log_message);
+			MessageDialog.openError(getShell(), Messages.GenerateComponentsSwaggerWizard_ResultDialog_Title, message.toString());
+			break;
 		}
 		
 		return exitStatus;

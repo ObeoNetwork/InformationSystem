@@ -58,7 +58,7 @@ public class GenerateComponentsSwaggerWizardOptionsPage extends WizardPage {
 
 	
 	static class GenerateSwaggerWizardParameters {
-		private String outputDirPath = "";
+		private String outputDirPath = ""; //$NON-NLS-1$
 		private MapperType mapperType = MapperType.YAML;
 		
 		private PropertyChangeSupport propertyChangeSupport = new PropertyChangeSupport(this);
@@ -77,7 +77,7 @@ public class GenerateComponentsSwaggerWizardOptionsPage extends WizardPage {
 
 		public void setOutputDirPath(String outputDirPath) {
 			if(!Objects.equals(this.outputDirPath, outputDirPath)) 
-				propertyChangeSupport.firePropertyChange("outputDirPath", this.outputDirPath, this.outputDirPath = outputDirPath);
+				propertyChangeSupport.firePropertyChange("outputDirPath", this.outputDirPath, this.outputDirPath = outputDirPath); //$NON-NLS-1$
 		}
 
 		public MapperType getMapperType() {
@@ -86,15 +86,15 @@ public class GenerateComponentsSwaggerWizardOptionsPage extends WizardPage {
 
 		public void setMapperType(MapperType mapperType) {
 			if(this.mapperType != mapperType) 
-				propertyChangeSupport.firePropertyChange("mapperType", this.mapperType, this.mapperType = mapperType);
+				propertyChangeSupport.firePropertyChange("mapperType", this.mapperType, this.mapperType = mapperType); //$NON-NLS-1$
 		}
 		
 	}
 	
 	public GenerateComponentsSwaggerWizardOptionsPage(GenerateComponentsSwaggerWizard wizard) {
-		super("generateSwaggerWizardOptionsPage");
+		super("generateSwaggerWizardOptionsPage"); //$NON-NLS-1$
 		setTitle(wizard.getWindowTitle());
-		setDescription("Sélectionner les options d'export.");
+		setDescription(Messages.GenerateComponentsSwaggerWizardOptionsPage_Description);
 		this.wizard = wizard;
 		this.model = new GenerateSwaggerWizardParameters();
 	}
@@ -111,10 +111,10 @@ public class GenerateComponentsSwaggerWizardOptionsPage extends WizardPage {
 		
 		Label lblOutputDirPath = new Label(container, SWT.NONE);
 		lblOutputDirPath.setLayoutData(new GridData(SWT.RIGHT, SWT.CENTER, false, false, 1, 1));
-		lblOutputDirPath.setText("Répertoire de destination");
+		lblOutputDirPath.setText(Messages.GenerateComponentsSwaggerWizardOptionsPage_Label_Export_directory);
 		
 		txtOutputDirPath = new Text(container, SWT.BORDER);
-		txtOutputDirPath.setText("Répertoire de destination");
+		txtOutputDirPath.setText(Messages.GenerateComponentsSwaggerWizardOptionsPage_Label_Export_directory);
 		txtOutputDirPath.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, true, false, 1, 1));
 		
 		Button btnSelectOutputDirPath = new Button(container, SWT.NONE);
@@ -125,7 +125,7 @@ public class GenerateComponentsSwaggerWizardOptionsPage extends WizardPage {
 				model.setOutputDirPath(dialog.open());
 			}
 		});
-		btnSelectOutputDirPath.setText("...");
+		btnSelectOutputDirPath.setText("..."); //$NON-NLS-1$
 		
 		LabelProvider enumLabelProvider = new LabelProvider() {
 
@@ -137,7 +137,7 @@ public class GenerateComponentsSwaggerWizardOptionsPage extends WizardPage {
 		};
 		
 		Label lblMapperType = new Label(container, SWT.NONE);
-		lblMapperType.setText("Format de sortie");
+		lblMapperType.setText(Messages.GenerateComponentsSwaggerWizardOptionsPage_Label_Output_format);
 		
 		comboMapperTypeViewer = new ComboViewer(container, SWT.NONE);
 		comboMapperTypeViewer.setContentProvider(ArrayContentProvider.getInstance());
@@ -156,7 +156,7 @@ public class GenerateComponentsSwaggerWizardOptionsPage extends WizardPage {
 			}
 
 		};
-		model.addPropertyChangeListener("outputDirPath", outputDirPathModelListener);
+		model.addPropertyChangeListener("outputDirPath", outputDirPathModelListener); //$NON-NLS-1$
 	}
 
 	private <T> T[] sortArray(T[] values) {
@@ -170,12 +170,12 @@ public class GenerateComponentsSwaggerWizardOptionsPage extends WizardPage {
 		
 		// outputDirPath
 		IObservableValue observeTextOutputDirPathObserveWidget = WidgetProperties.text(SWT.FocusOut).observe(txtOutputDirPath);
-		IObservableValue textOutputDirPathPathModelObserveValue = BeanProperties.value("outputDirPath").observe(model);
+		IObservableValue textOutputDirPathPathModelObserveValue = BeanProperties.value("outputDirPath").observe(model); //$NON-NLS-1$
 		bindingContext.bindValue(observeTextOutputDirPathObserveWidget, textOutputDirPathPathModelObserveValue, null, null);
 		
 		// mapperType
 		IObservableValue<MapperType> comboMapperTypeViewerObservable = ViewerProperties.singleSelection().observe(comboMapperTypeViewer);
-		IObservableValue mapperTypeModelObserveValue = BeanProperties.value(GenerateSwaggerWizardParameters.class, "mapperType").observe(model);
+		IObservableValue mapperTypeModelObserveValue = BeanProperties.value(GenerateSwaggerWizardParameters.class, "mapperType").observe(model); //$NON-NLS-1$
 		bindingContext.bindValue(comboMapperTypeViewerObservable, mapperTypeModelObserveValue);
 		
 		return bindingContext;

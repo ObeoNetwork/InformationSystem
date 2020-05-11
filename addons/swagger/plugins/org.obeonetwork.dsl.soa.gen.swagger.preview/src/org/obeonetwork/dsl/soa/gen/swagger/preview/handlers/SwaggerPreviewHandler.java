@@ -62,11 +62,13 @@ public class SwaggerPreviewHandler extends AbstractHandler implements IHandler {
 			SwaggerPreviewJettyServer.instance().start();
 			
 			// Generate the swagger in a temporary file
-			String swaggerFileName = SwaggerExporter.getFileNameForComponent(component, MAPPER_TYPE);
+			SwaggerExporter swaggerExporter = new SwaggerExporter(component);
+			swaggerExporter.setOutputFormat(MAPPER_TYPE);
+			String swaggerFileName = swaggerExporter.getOutputFileName();
 			File swaggerFile = File.createTempFile(Files.getNameWithoutExtension(swaggerFileName), Files.getFileExtension(swaggerFileName));
 			swaggerFile.deleteOnExit();
 			
-			SwaggerExporter.exportInFile(component, MAPPER_TYPE, swaggerFile);
+			swaggerExporter.exportInFile(swaggerFile);
 			
 			// Register the generated file in the SwaggerPreviewJettyServer
 			SwaggerPreviewJettyServer.instance().putSwaggerFile(swaggerFileName, swaggerFile);

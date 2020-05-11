@@ -11,7 +11,6 @@
 package org.obeonetwork.dsl.soa.gen.swagger;
 
 import static org.obeonetwork.dsl.environment.design.services.ModelServices.getContainerOrSelf;
-import static org.obeonetwork.dsl.soa.gen.swagger.Activator.logError;
 import static org.obeonetwork.dsl.soa.gen.swagger.OpenApiParserHelper.COMPONENT_SCHEMA_$REF;
 import static org.obeonetwork.dsl.soa.gen.swagger.OpenApiParserHelper.OPEN_API_FORMAT_INT64;
 import static org.obeonetwork.dsl.soa.gen.swagger.OpenApiParserHelper.OPEN_API_IN_BODY;
@@ -32,6 +31,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import org.eclipse.core.runtime.IStatus;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.emf.ecore.resource.Resource;
@@ -84,11 +84,30 @@ public class SwaggerBuilder {
 
 	private boolean computeShortestKey = false;
 
+	private int status;
+
 	public SwaggerBuilder(Component soaComponent) {
 		this.soaComponent = soaComponent;
 	}
+	
+	public int build() {
+		status = IStatus.OK;
+		
+		createOpenAPI();
+		
+		return status;
+	}
 
-	public OpenAPI createOpenAPI() {
+	private void logError(String message) {
+		Activator.logError(message);
+		status = IStatus.ERROR;
+	}
+	
+	public OpenAPI getOpenAPI() {
+		return openApi;
+	}
+	
+	private OpenAPI createOpenAPI() {
     	openApi = new OpenAPI();
     	
     	buildHeader();
