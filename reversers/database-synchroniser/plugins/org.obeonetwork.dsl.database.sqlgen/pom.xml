@@ -30,8 +30,8 @@
      <plugins>
        <plugin>
          <groupId>org.eclipse.acceleo</groupId>
-         <artifactId>org.eclipse.acceleo.maven.compatibility</artifactId>
-         <version>3.6.4-SNAPSHOT</version>
+         <artifactId>org.eclipse.acceleo.maven</artifactId>
+         <version>3.6.4</version>
          <executions>
            <execution>
              <phase>compile</phase>

@@ -39,7 +39,7 @@
 
 	</modules>
 
-	<pluginRepositories>
+	<!--<pluginRepositories>
 		<pluginRepository>
 			<id>Eclipse - Acceleo Snapshots</id>
 			<url>https://repo.eclipse.org/content/repositories/acceleo-snapshots</url>
@@ -48,7 +48,7 @@
 			<id>Eclipse - Acceleo Releases</id>
 			<url>https://repo.eclipse.org/content/repositories/acceleo-releases</url>
 		</pluginRepository>
-	</pluginRepositories>
+	</pluginRepositories>-->
 
 	<properties>
 		<tycho-version>1.0.0</tycho-version>
