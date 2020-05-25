@@ -7,6 +7,7 @@ public class Messages extends NLS {
 	public static String GenerateComponentsSwaggerWizard_ResultDialog_Failure_message;
 	public static String GenerateComponentsSwaggerWizard_ResultDialog_see_log_message;
 	public static String GenerateComponentsSwaggerWizard_ResultDialog_Success_message;
+	public static String GenerateComponentsSwaggerWizard_ResultDialog_Swagger_version;
 	public static String GenerateComponentsSwaggerWizard_ResultDialog_Title;
 	public static String GenerateComponentsSwaggerWizard_ResultDialog_Warning_message;
 	public static String GenerateComponentsSwaggerWizard_Title;

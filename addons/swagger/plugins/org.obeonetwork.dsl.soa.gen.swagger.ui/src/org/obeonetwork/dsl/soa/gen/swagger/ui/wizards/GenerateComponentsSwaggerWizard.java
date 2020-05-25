@@ -56,6 +56,7 @@ public class GenerateComponentsSwaggerWizard extends Wizard {
 		
 		int status = IStatus.OK;
 		StringBuffer message = new StringBuffer();
+		String swaggerVersion = null;
 		
 		for(Component component : components) {
 			SwaggerExporter swaggerExporter = new SwaggerExporter(component);
@@ -83,6 +84,17 @@ public class GenerateComponentsSwaggerWizard extends Wizard {
 						new File(outputDir, swaggerExporter.getOutputFileName()).getPath()));
 				break;
 			}
+			
+			if(swaggerExporter.getExportedSwagger() != null 
+					&& swaggerExporter.getExportedSwagger().getOpenapi() != null) {
+				swaggerVersion = swaggerExporter.getExportedSwagger().getOpenapi();
+			}
+			
+			message.append("\n"); //$NON-NLS-1$
+		}
+		
+		if(swaggerVersion != null) {
+			message.append(String.format(Messages.GenerateComponentsSwaggerWizard_ResultDialog_Swagger_version, swaggerVersion));
 			message.append("\n"); //$NON-NLS-1$
 		}
 		

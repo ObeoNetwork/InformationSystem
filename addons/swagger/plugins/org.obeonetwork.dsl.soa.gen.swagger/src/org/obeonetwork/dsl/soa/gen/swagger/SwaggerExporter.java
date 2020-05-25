@@ -35,6 +35,7 @@ public class SwaggerExporter {
 	
 	private Component component;
 	private MapperType mapperType = MapperType.YAML;
+	private OpenAPI swagger = null;
 	
     public enum MapperType {
         YAML, JSON;
@@ -67,13 +68,17 @@ public class SwaggerExporter {
 		return outputFileName.toString();
 	}
 
+	public OpenAPI getExportedSwagger() {
+		return swagger;
+	}
+
 	public int exportInFile(File outputFile) {
 		SwaggerBuilder swaggerBuilder = new SwaggerBuilder(component);
 		
 		int status = swaggerBuilder.build();
 		
 		if(status != IStatus.ERROR) {
-	        OpenAPI swagger = swaggerBuilder.getOpenAPI();
+	        swagger  = swaggerBuilder.getOpenAPI();
 	        
 	        ObjectMapper mapper = null;
 	        switch (mapperType) {

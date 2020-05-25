@@ -8,6 +8,8 @@ Bundle-RequiredExecutionEnvironment: JavaSE-1.8
 Bundle-Vendor: Obeo Network
 Export-Package: com.fasterxml.jackson.core,
  com.fasterxml.jackson.databind,
+ io.swagger.v3.oas.models,
+ io.swagger.v3.oas.models.info,
  org.obeonetwork.dsl.soa.gen.swagger,
  org.obeonetwork.dsl.soa.gen.swagger.utils
 Require-Bundle: org.obeonetwork.dsl.soa,
