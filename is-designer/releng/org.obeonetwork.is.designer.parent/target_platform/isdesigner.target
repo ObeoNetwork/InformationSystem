@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <?pde?>
 <!-- generated with https://github.com/eclipse-cbi/targetplatform-dsl -->
-<target name="IS Designer Target Definition" sequenceNumber="1589898793">
+<target name="IS Designer Target Definition" sequenceNumber="1590574992">
   <locations>
     <location includeMode="planner" includeAllPlatforms="false" includeSource="true" includeConfigurePhase="false" type="InstallableUnit">
       <unit id="org.obeonetwork.dsl.feature.environment.feature.group" version="0.0.0"/>
@@ -54,7 +54,7 @@
       <unit id="org.obeonetwork.cinematic.m2doc.feature.feature.group" version="0.0.0"/>
       <unit id="org.obeonetwork.utils.feature.feature.group" version="0.0.0"/>
       <unit id="org.obeonetwork.tools.contextual.explorer.feature.feature.group" version="0.0.0"/>
-      <repository location="file:/C:/Users/jdupont/git/InformationSystem/releng/org.obeonetwork.informationsystem.design.repository/target/repository/"/>
+      <repository location="http://update.obeo.fr/integration/informationsystem/11.3/design/repository/"/>
     </location>
     <location includeMode="planner" includeAllPlatforms="false" includeSource="true" includeConfigurePhase="false" type="InstallableUnit">
       <unit id="org.eclipse.emf.eef.runtime-feature.feature.group" version="0.0.0"/>
