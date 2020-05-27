@@ -1,7 +1,7 @@
 target "IS Designer Target Definition" with source, requirements
 
-//location "http://update.obeo.fr/integration/informationsystem/11.0/design/repository/" {
-location "file:/C:/Users/jdupont/git/InformationSystem/releng/org.obeonetwork.informationsystem.design.repository/target/repository/"{
+location "http://update.obeo.fr/integration/informationsystem/11.3/design/repository/" {
+//location "file:/C:/Users/jdupont/git/InformationSystem/releng/org.obeonetwork.informationsystem.design.repository/target/repository/"{
 	org.obeonetwork.dsl.feature.environment.feature.group lazy
 	org.obeonetwork.dsl.feature.entity.feature.group lazy
 	org.obeonetwork.dsl.feature.cinematic.feature.group lazy
