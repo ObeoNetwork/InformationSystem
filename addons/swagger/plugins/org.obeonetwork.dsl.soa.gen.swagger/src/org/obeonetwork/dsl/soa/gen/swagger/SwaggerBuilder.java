@@ -35,6 +35,7 @@ import org.eclipse.core.runtime.IStatus;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.emf.ecore.resource.Resource;
+import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.obeonetwork.dsl.entity.EntityPackage;
 import org.obeonetwork.dsl.environment.Enumeration;
 import org.obeonetwork.dsl.environment.Namespace;
@@ -223,11 +224,11 @@ public class SwaggerBuilder {
 	
 	private String computeSoaTypeLongKey(Type soaType) {
 		StringBuffer computedKey = new StringBuffer(soaType.getName());
-		Namespace namespace = getContainerOrSelf(soaType, Namespace.class);
-		while(namespace != null) {
+		Object qnElement = getQNParent(soaType);
+		while(qnElement != null) {
 			computedKey.insert(0, QUALIFIED_TYPE_NAME_SEPARATOR);
-			computedKey.insert(0, namespace.getName());
-			namespace = getContainerOrSelf(namespace.eContainer(), Namespace.class);
+			computedKey.insert(0, asQNSegment(qnElement));
+			qnElement = getQNParent(qnElement);
 		}
 		
 		return computedKey.toString();
@@ -265,21 +266,37 @@ public class SwaggerBuilder {
 			qnSegment = resource.getURI().lastSegment();
 		}
 		
-		return qnSegment;
+		return qnSegment.replaceAll("\\.", QUALIFIED_TYPE_NAME_SEPARATOR);
 	}
 	
 	private Object getQNParent(Object qnElement) {
 		Object parent = null;
 		
+		if(qnElement instanceof Resource) {
+			return null;
+		}
+		
 		if(qnElement instanceof EObject) {
-			parent = ((EObject) qnElement).eContainer();
-			if(parent == null && !(qnElement instanceof Resource)) {
-				parent = ((EObject) qnElement).eResource();
+			EObject eObject = (EObject)qnElement;
+			
+			parent = eObject.eContainer();
+			if(parent == null) {
+				parent = eObject.eResource();
 			}
 		}
+		
+		// Skip the model root and move to the containing resource
+		if(parent instanceof EObject && isModelRoot((EObject)parent)) {
+			parent = getQNParent(parent);
+		}
+
 		return parent;
 	}
 
+	private boolean isModelRoot(EObject eObject) {
+		return (!(eObject instanceof Resource)) && (eObject.eContainer() == null || eObject.eContainer() instanceof Resource);
+	}
+	
 	private void buildComponent(Type soaType) {
     	openApi.getComponents().addSchemas(getSoaTypeKey(soaType), createSchema(soaType));
     }
