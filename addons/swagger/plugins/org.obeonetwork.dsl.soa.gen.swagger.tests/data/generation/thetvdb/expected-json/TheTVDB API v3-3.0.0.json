@@ -1,0 +1,2584 @@
+{
+  "openapi" : "3.0.1",
+  "info" : {
+    "title" : "TheTVDB API v3",
+    "description" : "API v3 targets v2 functionality with a few minor additions. The API is accessible via https://api.thetvdb.com and provides the following REST endpoints in JSON format.\n\n\nHow to use this API documentation\n----------------\n\n\nYou may browse the API routes without authentication, but if you wish to send requests to the API and see response data, then you must authenticate.\n1. Obtain a JWT token by `POST`ing  to the `/login` route in the `Authentication` section with your API key and credentials.\n1. Paste the JWT token from the response into the \"JWT Token\" field at the top of the page and click the 'Add Token' button.\n\n\nYou will now be able to use the remaining routes to send requests to the API and get a response.\n\n\nLanguage Selection\n----------------\n\n\nLanguage selection is done via the `Accept-Language` header. At the moment, you may only pass one language abbreviation in the header at a time. Valid language abbreviations can be found at the `/languages` route..\n\n\nAuthentication\n----------------\n\n\nAuthentication to use the API is similar to the How-to section above. Users must `POST` to the `/login` route with their API key and credentials in the following format in order to obtain a JWT token.\n\n`{\"apikey\":\"APIKEY\",\"username\":\"USERNAME\",\"userkey\":\"USERKEY\"}`\n\nNote that the username and key are ONLY required for the `/user` routes. The user's key is labled `Account Identifier` in the account section of the main site.\nThe token is then used in all subsequent requests by providing it in the `Authorization` header. The header will look like: `Authorization: Bearer <yourJWTtoken>`. Currently, the token expires after 24 hours. You can `GET` the `/refresh_token` route to extend that expiration date.\n\n\nVersioning\n----------------\n\n\nYou may request a different version of the API by including an `Accept` header in your request with the following format: `Accept:application/vnd.thetvdb.v$VERSION`. This documentation automatically uses the version seen at the top and bottom of the page.",
+    "license" : {
+      "name" : "Apache 2.0",
+      "url" : "http://www.apache.org/licenses/LICENSE-2.0.html"
+    },
+    "version" : "3.0.0"
+  },
+  "servers" : [ {
+    "url" : "/"
+  } ],
+  "paths" : {
+    "/series/{id}" : {
+      "get" : {
+        "tags" : [ "Series" ],
+        "description" : "Returns a series records that contains all information known about a particular series id.",
+        "operationId" : "getFromId",
+        "parameters" : [ {
+          "name" : "id",
+          "in" : "path",
+          "required" : true,
+          "schema" : {
+            "type" : "integer",
+            "format" : "int64"
+          }
+        }, {
+          "name" : "Accept-Language",
+          "in" : "header",
+          "required" : false,
+          "schema" : {
+            "type" : "string"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "A series record.",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/SeriesData"
+                }
+              }
+            }
+          },
+          "401" : {
+            "description" : "Returned if your JWT token is missing or expired",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/NotAuthorized"
+                }
+              }
+            }
+          },
+          "404" : {
+            "description" : "Returned if the given series ID does not exist",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/NotFound"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/series/{id}/actors" : {
+      "get" : {
+        "tags" : [ "Series" ],
+        "description" : "Returns actors for the given series id",
+        "operationId" : "getActorsFromId",
+        "parameters" : [ {
+          "name" : "id",
+          "in" : "path",
+          "required" : true,
+          "schema" : {
+            "type" : "integer",
+            "format" : "int64"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "An array of actor objects for the given series id.",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/SeriesActors"
+                }
+              }
+            }
+          },
+          "401" : {
+            "description" : "Returned if your JWT token is missing or expired",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/NotAuthorized"
+                }
+              }
+            }
+          },
+          "404" : {
+            "description" : "Returned if the given series ID does not exist",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/NotFound"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/series/{id}/episodes" : {
+      "get" : {
+        "tags" : [ "Series" ],
+        "description" : "All episodes for a given series. Paginated with 100 results per page.",
+        "operationId" : "getEpisodesFromId",
+        "parameters" : [ {
+          "name" : "id",
+          "in" : "path",
+          "required" : true,
+          "schema" : {
+            "type" : "integer",
+            "format" : "int64"
+          }
+        }, {
+          "name" : "page",
+          "in" : "query",
+          "required" : false,
+          "schema" : {
+            "type" : "string"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "An array of episode objects for the given series id.",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/SeriesEpisodes"
+                }
+              }
+            }
+          },
+          "401" : {
+            "description" : "Returned if your JWT token is missing or expired",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/NotAuthorized"
+                }
+              }
+            }
+          },
+          "404" : {
+            "description" : "Returned if the given series ID does not exist",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/NotFound"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/series/{id}/episodes/query" : {
+      "get" : {
+        "tags" : [ "Series" ],
+        "description" : "This route allows the user to query against episodes for the given series. The response is a paginated array of episode records.",
+        "operationId" : "getEpisodesQueryFromId",
+        "parameters" : [ {
+          "name" : "id",
+          "in" : "path",
+          "required" : true,
+          "schema" : {
+            "type" : "integer",
+            "format" : "int64"
+          }
+        }, {
+          "name" : "absoluteNumber",
+          "in" : "query",
+          "required" : false,
+          "schema" : {
+            "type" : "string"
+          }
+        }, {
+          "name" : "airedSeason",
+          "in" : "query",
+          "required" : false,
+          "schema" : {
+            "type" : "string"
+          }
+        }, {
+          "name" : "airedEpisode",
+          "in" : "query",
+          "required" : false,
+          "schema" : {
+            "type" : "string"
+          }
+        }, {
+          "name" : "dvdSeason",
+          "in" : "query",
+          "required" : false,
+          "schema" : {
+            "type" : "string"
+          }
+        }, {
+          "name" : "dvdEpisode",
+          "in" : "query",
+          "required" : false,
+          "schema" : {
+            "type" : "string"
+          }
+        }, {
+          "name" : "imdbId",
+          "in" : "query",
+          "required" : false,
+          "schema" : {
+            "type" : "string"
+          }
+        }, {
+          "name" : "page",
+          "in" : "query",
+          "required" : false,
+          "schema" : {
+            "type" : "string"
+          }
+        }, {
+          "name" : "Accept-Language",
+          "in" : "header",
+          "required" : false,
+          "schema" : {
+            "type" : "string"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "An array of basic Episode results that matched the query",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/SeriesEpisodesQuery"
+                }
+              }
+            }
+          },
+          "401" : {
+            "description" : "Returned if your JWT token is missing or expired",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/NotAuthorized"
+                }
+              }
+            }
+          },
+          "404" : {
+            "description" : "Returned if the given series ID does not exist or the query returns no results.",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/NotFound"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/series/{id}/episodes/query/params" : {
+      "get" : {
+        "tags" : [ "Series" ],
+        "description" : "Returns the allowed query keys for the `/series/{id}/episodes/query` route",
+        "operationId" : "getEpisodesQueryParamsFromId",
+        "parameters" : [ {
+          "name" : "id",
+          "in" : "path",
+          "required" : true,
+          "schema" : {
+            "type" : "integer",
+            "format" : "int64"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "An array of query keys as strings",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/SeriesEpisodesQueryParams"
+                }
+              }
+            }
+          },
+          "401" : {
+            "description" : "Returned if your JWT token is missing or expired",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/NotAuthorized"
+                }
+              }
+            }
+          },
+          "404" : {
+            "description" : "Returned if the given series ID does not exist or the query returns no results.",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/NotFound"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/series/{id}/episodes/summary" : {
+      "get" : {
+        "tags" : [ "Series" ],
+        "description" : "Returns a summary of the episodes and seasons available for the series.\n\n__Note__: Season \"0\" is for all episodes that are considered to be specials.",
+        "operationId" : "getEpisodesSummaryFromId",
+        "parameters" : [ {
+          "name" : "id",
+          "in" : "path",
+          "required" : true,
+          "schema" : {
+            "type" : "integer",
+            "format" : "int64"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "A summary of the episodes and seasons avaialable for the given series.",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/SeriesEpisodesSummary"
+                }
+              }
+            }
+          },
+          "401" : {
+            "description" : "Returned if your JWT token is missing or expired",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/NotAuthorized"
+                }
+              }
+            }
+          },
+          "404" : {
+            "description" : "Returned if the given series ID does not exist",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/NotFound"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/series/{id}/filter" : {
+      "get" : {
+        "tags" : [ "Series" ],
+        "description" : "Returns a series records, filtered by the supplied comma-separated list of keys. Query keys can be found at the `/series/{id}/filter/params` route.",
+        "operationId" : "getFilterFromId",
+        "parameters" : [ {
+          "name" : "id",
+          "in" : "path",
+          "required" : true,
+          "schema" : {
+            "type" : "integer",
+            "format" : "int64"
+          }
+        }, {
+          "name" : "keys",
+          "in" : "query",
+          "required" : true,
+          "schema" : {
+            "type" : "string"
+          }
+        }, {
+          "name" : "Accept-Language",
+          "in" : "header",
+          "required" : false,
+          "schema" : {
+            "type" : "string"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "A filtered series record",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/SeriesData"
+                }
+              }
+            }
+          },
+          "401" : {
+            "description" : "Returned if your JWT token is missing or expired",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/NotAuthorized"
+                }
+              }
+            }
+          },
+          "404" : {
+            "description" : "Returned if the given series ID does not exist",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/NotFound"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/series/{id}/filter/params" : {
+      "get" : {
+        "tags" : [ "Series" ],
+        "description" : "Returns the list of keys available for the `/series/{id}/filter` route",
+        "operationId" : "getFilterParamsFromId",
+        "parameters" : [ {
+          "name" : "id",
+          "in" : "path",
+          "required" : true,
+          "schema" : {
+            "type" : "integer",
+            "format" : "int64"
+          }
+        }, {
+          "name" : "Accept-Language",
+          "in" : "header",
+          "required" : false,
+          "schema" : {
+            "type" : "string"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "A list of keys to filter by",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/FilterKeys"
+                }
+              }
+            }
+          },
+          "401" : {
+            "description" : "Returned if your JWT token is missing or expired",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/NotAuthorized"
+                }
+              }
+            }
+          },
+          "404" : {
+            "description" : "Returned if the given series ID does not exist",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/NotFound"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/series/{id}/images" : {
+      "get" : {
+        "tags" : [ "Series" ],
+        "description" : "Returns a summary of the images for a particular series",
+        "operationId" : "getImagesFromId",
+        "parameters" : [ {
+          "name" : "id",
+          "in" : "path",
+          "required" : true,
+          "schema" : {
+            "type" : "integer",
+            "format" : "int64"
+          }
+        }, {
+          "name" : "Accept-Language",
+          "in" : "header",
+          "required" : false,
+          "schema" : {
+            "type" : "string"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "A summary of the image types and counts available for the given series.",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/SeriesImagesCounts"
+                }
+              }
+            }
+          },
+          "401" : {
+            "description" : "Returned if your JWT token is missing or expired",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/NotAuthorized"
+                }
+              }
+            }
+          },
+          "404" : {
+            "description" : "Returned if the given series ID does not exist",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/NotFound"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/series/{id}/images/query" : {
+      "get" : {
+        "tags" : [ "Series" ],
+        "description" : "Query images for the given series ID.",
+        "operationId" : "getImagesQueryFromId",
+        "parameters" : [ {
+          "name" : "id",
+          "in" : "path",
+          "required" : true,
+          "schema" : {
+            "type" : "integer",
+            "format" : "int64"
+          }
+        }, {
+          "name" : "keyType",
+          "in" : "query",
+          "required" : false,
+          "schema" : {
+            "type" : "string"
+          }
+        }, {
+          "name" : "resolution",
+          "in" : "query",
+          "required" : false,
+          "schema" : {
+            "type" : "string"
+          }
+        }, {
+          "name" : "subKey",
+          "in" : "query",
+          "required" : false,
+          "schema" : {
+            "type" : "string"
+          }
+        }, {
+          "name" : "Accept-Language",
+          "in" : "header",
+          "required" : false,
+          "schema" : {
+            "type" : "string"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "An array of basic Episode results that matched the query",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/SeriesImageQueryResults"
+                }
+              }
+            }
+          },
+          "401" : {
+            "description" : "Returned if your JWT token is missing or expired",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/NotAuthorized"
+                }
+              }
+            }
+          },
+          "404" : {
+            "description" : "Returned if the given series ID does not exist or the query returns no results.",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/NotFound"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/series/{id}/images/query/params" : {
+      "get" : {
+        "tags" : [ "Series" ],
+        "description" : "Returns the allowed query keys for the `/series/{id}/images/query` route. Contains a parameter record for each unique `keyType`, listing values that will return results.",
+        "operationId" : "getImagesQueryParamsFromId",
+        "parameters" : [ {
+          "name" : "id",
+          "in" : "path",
+          "required" : true,
+          "schema" : {
+            "type" : "integer",
+            "format" : "int64"
+          }
+        }, {
+          "name" : "Accept-Language",
+          "in" : "header",
+          "required" : false,
+          "schema" : {
+            "type" : "string"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "An array of query keys as strings",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/SeriesImagesQueryParams"
+                }
+              }
+            }
+          },
+          "401" : {
+            "description" : "Returned if your JWT token is missing or expired",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/NotAuthorized"
+                }
+              }
+            }
+          },
+          "404" : {
+            "description" : "Returned if the given series ID does not exist or the query returns no results.",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/NotFound"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/updated/query" : {
+      "get" : {
+        "tags" : [ "Updates" ],
+        "description" : "Returns an array of series that have changed in a maximum of one week blocks since the provided `fromTime`.\n\n\nThe user may specify a `toTime` to grab results for less than a week. Any timespan larger than a week will be reduced down to one week automatically.",
+        "operationId" : "get",
+        "parameters" : [ {
+          "name" : "fromTime",
+          "in" : "query",
+          "required" : true,
+          "schema" : {
+            "type" : "string"
+          }
+        }, {
+          "name" : "toTime",
+          "in" : "query",
+          "required" : false,
+          "schema" : {
+            "type" : "string"
+          }
+        }, {
+          "name" : "Accept-Language",
+          "in" : "header",
+          "required" : false,
+          "schema" : {
+            "type" : "string"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "An array of Update objects that match the given timeframe.",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/UpdateData"
+                }
+              }
+            }
+          },
+          "401" : {
+            "description" : "Returned if your JWT token is missing or expired",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/NotAuthorized"
+                }
+              }
+            }
+          },
+          "404" : {
+            "description" : "Returned if no records exist for the given timespan",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/NotFound"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/updated/query/params" : {
+      "get" : {
+        "tags" : [ "Updates" ],
+        "description" : "Returns an array of valid query keys for the `/updated/query/params` route.",
+        "operationId" : "getParams",
+        "responses" : {
+          "200" : {
+            "description" : "An array of Update objects that match the given timeframe.",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/UpdateDataQueryParams"
+                }
+              }
+            }
+          },
+          "401" : {
+            "description" : "Returned if your JWT token is missing or expired",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/NotAuthorized"
+                }
+              }
+            }
+          },
+          "404" : {
+            "description" : "Returned if no records exist for the given timespan",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/NotFound"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/login" : {
+      "post" : {
+        "tags" : [ "Authentication" ],
+        "description" : "Returns a session token to be included in the rest of the requests. Note that API key authentication is required for all subsequent requests and user auth is required for routes in the `User` section",
+        "operationId" : "postLogin",
+        "requestBody" : {
+          "content" : {
+            "application/json" : {
+              "schema" : {
+                "$ref" : "#/components/schemas/Auth"
+              }
+            }
+          }
+        },
+        "responses" : {
+          "200" : {
+            "description" : "Returns a JWT token for use with the rest of the API routes",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/Token"
+                }
+              }
+            }
+          },
+          "401" : {
+            "description" : "Invalid credentials and/or API token",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/NotAuthorized"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/refresh_token" : {
+      "get" : {
+        "tags" : [ "Authentication" ],
+        "description" : "Refreshes your current, valid JWT token and returns a new token. Hit this route so that you do not have to post to `/login` with your API key and credentials once you have already been authenticated.",
+        "operationId" : "getRefresh_token",
+        "responses" : {
+          "200" : {
+            "description" : "Returns a new token to use in your subsequent requests",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/Token"
+                }
+              }
+            }
+          },
+          "401" : {
+            "description" : "Returned if your JWT token is missing or expired",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/NotAuthorized"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/search/series" : {
+      "get" : {
+        "tags" : [ "Search" ],
+        "description" : "Allows the user to search for a series based on the following parameters.",
+        "operationId" : "get",
+        "parameters" : [ {
+          "name" : "name",
+          "in" : "query",
+          "required" : false,
+          "schema" : {
+            "type" : "string"
+          }
+        }, {
+          "name" : "imdbId",
+          "in" : "query",
+          "required" : false,
+          "schema" : {
+            "type" : "string"
+          }
+        }, {
+          "name" : "zap2itId",
+          "in" : "query",
+          "required" : false,
+          "schema" : {
+            "type" : "string"
+          }
+        }, {
+          "name" : "slug",
+          "in" : "query",
+          "required" : false,
+          "schema" : {
+            "type" : "string"
+          }
+        }, {
+          "name" : "Accept-Language",
+          "in" : "header",
+          "required" : false,
+          "schema" : {
+            "type" : "string"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "An array of results that match the provided query.",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/SeriesSearchResults"
+                }
+              }
+            }
+          },
+          "401" : {
+            "description" : "Returned if your JWT token is missing or expired",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/NotAuthorized"
+                }
+              }
+            }
+          },
+          "404" : {
+            "description" : "Returned if no records are found that match your query.",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/NotFound"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/search/series/params" : {
+      "get" : {
+        "tags" : [ "Search" ],
+        "description" : "Returns an array of parameters to query by in the `/search/series` route.",
+        "operationId" : "getParams",
+        "responses" : {
+          "200" : {
+            "description" : "An array of query keys as strings",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/EpisodeDataQueryParams"
+                }
+              }
+            }
+          },
+          "401" : {
+            "description" : "Returned if your JWT token is missing or expired",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/NotAuthorized"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/episodes/{id}" : {
+      "get" : {
+        "tags" : [ "Episodes" ],
+        "description" : "Returns the full information for a given episode id. __Deprecation Warning:__ The _director_ key will be deprecated in favor of the new _directors_ key in a future release.",
+        "operationId" : "getFromId",
+        "parameters" : [ {
+          "name" : "id",
+          "in" : "path",
+          "required" : true,
+          "schema" : {
+            "type" : "integer",
+            "format" : "int64"
+          }
+        }, {
+          "name" : "Accept-Language",
+          "in" : "header",
+          "required" : false,
+          "schema" : {
+            "type" : "string"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "An array of query keys as strings",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/EpisodeRecordData"
+                }
+              }
+            }
+          },
+          "401" : {
+            "description" : "Returned if your JWT token is missing or expired",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/NotAuthorized"
+                }
+              }
+            }
+          },
+          "404" : {
+            "description" : "Returned if the given episode ID does not exist.",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/NotFound"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/languages" : {
+      "get" : {
+        "tags" : [ "Languages" ],
+        "description" : "All available languages. These language abbreviations can be used in the `Accept-Language` header for routes that return translation records.",
+        "operationId" : "get",
+        "responses" : {
+          "200" : {
+            "description" : "An array of language objects.",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/LanguageData"
+                }
+              }
+            }
+          },
+          "401" : {
+            "description" : "Returned if your JWT token is missing or expired",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/NotAuthorized"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/languages/{id}" : {
+      "get" : {
+        "tags" : [ "Languages" ],
+        "description" : "Information about a particular language, given the language ID.",
+        "operationId" : "getFromId",
+        "parameters" : [ {
+          "name" : "id",
+          "in" : "path",
+          "required" : true,
+          "schema" : {
+            "type" : "string"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "An array of language objects.",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/Language"
+                }
+              }
+            }
+          },
+          "401" : {
+            "description" : "Returned if your JWT token is missing or expired",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/NotAuthorized"
+                }
+              }
+            }
+          },
+          "404" : {
+            "description" : "Returned if the given language ID does not exist.",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/NotFound"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/movies/{id}" : {
+      "get" : {
+        "tags" : [ "Movies" ],
+        "description" : "Returns a movies records that contains all information known about a particular movies id.",
+        "operationId" : "getMoviesFromId",
+        "parameters" : [ {
+          "name" : "id",
+          "in" : "path",
+          "required" : true,
+          "schema" : {
+            "type" : "integer",
+            "format" : "int64"
+          }
+        }, {
+          "name" : "Accept-Language",
+          "in" : "header",
+          "required" : false,
+          "schema" : {
+            "type" : "string"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "A movie record.",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/Movie"
+                }
+              }
+            }
+          },
+          "401" : {
+            "description" : "Returned if your JWT token is missing or expired",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/NotAuthorized"
+                }
+              }
+            }
+          },
+          "404" : {
+            "description" : "Returned if the given series ID does not exist",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/NotFound"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/movieupdates" : {
+      "get" : {
+        "tags" : [ "Movies" ],
+        "description" : "Returns all movies ids updated since a given timestamp.",
+        "operationId" : "getMovieupdates",
+        "parameters" : [ {
+          "name" : "since",
+          "in" : "query",
+          "required" : true,
+          "schema" : {
+            "type" : "string"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "All movies ids updated since a given date",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/UpdatedMovies"
+                }
+              }
+            }
+          },
+          "401" : {
+            "description" : "Returned if your JWT token is missing or expired",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/NotAuthorized"
+                }
+              }
+            }
+          },
+          "405" : {
+            "description" : "Missing query params are given",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/InvalidQueryParams"
+                }
+              }
+            }
+          },
+          "422" : {
+            "description" : "Invalid query params provided",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/InvalidQueryParams"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/user" : {
+      "get" : {
+        "tags" : [ "Users" ],
+        "description" : "Returns basic information about the currently authenticated user.",
+        "operationId" : "get",
+        "responses" : {
+          "200" : {
+            "description" : "User information.",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/UserData"
+                }
+              }
+            }
+          },
+          "401" : {
+            "description" : "Returned if your JWT token is missing or expired",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/NotAuthorized"
+                }
+              }
+            }
+          },
+          "404" : {
+            "description" : "Returned if no information exists for the current user",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/NotFound"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/user/favorites" : {
+      "get" : {
+        "tags" : [ "Users" ],
+        "description" : "Returns an array of favorite series for a given user, will be a blank array if no favorites exist.",
+        "operationId" : "getFavorites",
+        "responses" : {
+          "200" : {
+            "description" : "User favorites.",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/UserFavoritesData"
+                }
+              }
+            }
+          },
+          "401" : {
+            "description" : "Returned if your JWT token is missing or expired",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/NotAuthorized"
+                }
+              }
+            }
+          },
+          "404" : {
+            "description" : "Returned if no information exists for the current user",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/NotFound"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/user/favorites/{id}" : {
+      "put" : {
+        "tags" : [ "Users" ],
+        "description" : "Adds the supplied series ID to the user’s favorite’s list and returns the updated list.",
+        "operationId" : "putFavoritesFromId",
+        "parameters" : [ {
+          "name" : "id",
+          "in" : "path",
+          "required" : true,
+          "schema" : {
+            "type" : "integer",
+            "format" : "int64"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "List of user favorites.",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/UserFavoritesData"
+                }
+              }
+            }
+          },
+          "401" : {
+            "description" : "Returned if your JWT token is missing or expired",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/NotAuthorized"
+                }
+              }
+            }
+          },
+          "404" : {
+            "description" : "Returned if no information exists for the current user",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/NotFound"
+                }
+              }
+            }
+          },
+          "409" : {
+            "description" : "Returned if requested record could not be updated",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/Conflict"
+                }
+              }
+            }
+          }
+        }
+      },
+      "delete" : {
+        "tags" : [ "Users" ],
+        "description" : "Deletes the given series ID from the user’s favorite’s list and returns the updated list.",
+        "operationId" : "deleteFavoritesFromId",
+        "parameters" : [ {
+          "name" : "id",
+          "in" : "path",
+          "required" : true,
+          "schema" : {
+            "type" : "integer",
+            "format" : "int64"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "List of user favorites.",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/UserFavoritesData"
+                }
+              }
+            }
+          },
+          "401" : {
+            "description" : "Returned if your JWT token is missing or expired",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/NotAuthorized"
+                }
+              }
+            }
+          },
+          "404" : {
+            "description" : "Returned if no information exists for the current user",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/NotFound"
+                }
+              }
+            }
+          },
+          "409" : {
+            "description" : "Returned if requested record could not be deleted",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/Conflict"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/user/ratings" : {
+      "get" : {
+        "tags" : [ "Users" ],
+        "description" : "Returns an array of ratings for the given user.",
+        "operationId" : "getRatings",
+        "responses" : {
+          "200" : {
+            "description" : "Array of user ratings.",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/UserRatingsData"
+                }
+              }
+            }
+          },
+          "401" : {
+            "description" : "Returned if your JWT token is missing or expired",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/NotAuthorized"
+                }
+              }
+            }
+          },
+          "404" : {
+            "description" : "Returned if no information exists for the current user",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/NotFound"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/user/ratings/query" : {
+      "get" : {
+        "tags" : [ "Users" ],
+        "description" : "Returns an array of ratings for a given user that match the query.",
+        "operationId" : "getRatingsQuery",
+        "parameters" : [ {
+          "name" : "itemType",
+          "in" : "query",
+          "required" : false,
+          "schema" : { }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "List of user ratings that match the given query.",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/UserRatingsData"
+                }
+              }
+            }
+          },
+          "401" : {
+            "description" : "Returned if your JWT token is missing or expired",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/NotAuthorized"
+                }
+              }
+            }
+          },
+          "404" : {
+            "description" : "Returned if no information exists for the current user",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/NotFound"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/user/ratings/query/params" : {
+      "get" : {
+        "tags" : [ "Users" ],
+        "description" : "Returns a list of query params for use in the `/user/ratings/query` route.",
+        "operationId" : "getRatingsQueryParams",
+        "responses" : {
+          "200" : {
+            "description" : "Parameters to use for querying.",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/UserRatingsQueryParams"
+                }
+              }
+            }
+          },
+          "401" : {
+            "description" : "Returned if your JWT token is missing or expired",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/NotAuthorized"
+                }
+              }
+            }
+          },
+          "404" : {
+            "description" : "Returned if no information exists for the current user",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/NotFound"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/user/ratings/{itemType}/{itemId}" : {
+      "delete" : {
+        "tags" : [ "Users" ],
+        "description" : "This route deletes a given rating of a given type.",
+        "operationId" : "deleteRatingsFromItemTypeAndItemId",
+        "parameters" : [ {
+          "name" : "itemType",
+          "in" : "path",
+          "required" : true,
+          "schema" : { }
+        }, {
+          "name" : "itemId",
+          "in" : "path",
+          "required" : true,
+          "schema" : {
+            "type" : "integer",
+            "format" : "int64"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "Returns OK if the delete was successful",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/UserRatingsDataNoLinksEmptyArray"
+                }
+              }
+            }
+          },
+          "401" : {
+            "description" : "Returned if your JWT token is missing or expired",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/NotAuthorized"
+                }
+              }
+            }
+          },
+          "404" : {
+            "description" : "Returned if no rating is found that matches your given parameters",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/NotFound"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/user/ratings/{itemType}/{itemId}/{itemRating}" : {
+      "put" : {
+        "tags" : [ "Users" ],
+        "description" : "This route updates a given rating of a given type.",
+        "operationId" : "putRatingsFromItemTypeAndItemIdAndItemRating",
+        "parameters" : [ {
+          "name" : "itemType",
+          "in" : "path",
+          "required" : true,
+          "schema" : { }
+        }, {
+          "name" : "itemId",
+          "in" : "path",
+          "required" : true,
+          "schema" : {
+            "type" : "integer",
+            "format" : "int64"
+          }
+        }, {
+          "name" : "itemRating",
+          "in" : "path",
+          "required" : true,
+          "schema" : {
+            "type" : "integer",
+            "format" : "int64"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "Update OK if the update was successful",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/UserRatingsDataNoLinks"
+                }
+              }
+            }
+          },
+          "401" : {
+            "description" : "Returned if your JWT token is missing or expired",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/NotAuthorized"
+                }
+              }
+            }
+          },
+          "404" : {
+            "description" : "Returned if no rating is found that matches your given parameters",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/NotFound"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components" : {
+    "schemas" : {
+      "SeriesEpisodesSummary" : {
+        "type" : "object",
+        "properties" : {
+          "dvdEpisodes" : {
+            "type" : "string"
+          },
+          "dvdSeasons" : {
+            "minItems" : 0,
+            "type" : "array",
+            "items" : {
+              "type" : "string"
+            }
+          },
+          "airedSeasons" : {
+            "minItems" : 0,
+            "type" : "array",
+            "items" : {
+              "type" : "string"
+            }
+          },
+          "airedEpisodes" : {
+            "type" : "string"
+          }
+        }
+      },
+      "UpdatedMovies" : {
+        "type" : "object",
+        "properties" : {
+          "movies" : {
+            "minItems" : 0,
+            "type" : "array",
+            "items" : { }
+          }
+        }
+      },
+      "EpisodeDataQueryParams" : {
+        "type" : "object",
+        "properties" : {
+          "data" : {
+            "minItems" : 0,
+            "type" : "array",
+            "items" : {
+              "type" : "string"
+            }
+          }
+        }
+      },
+      "UpdateData" : {
+        "type" : "object",
+        "properties" : {
+          "data" : {
+            "minItems" : 0,
+            "type" : "array",
+            "items" : {
+              "$ref" : "#/components/schemas/Update"
+            }
+          },
+          "errors" : {
+            "$ref" : "#/components/schemas/JSONErrors"
+          }
+        }
+      },
+      "SeriesEpisodesQueryParams" : {
+        "type" : "object",
+        "properties" : {
+          "data" : {
+            "minItems" : 0,
+            "type" : "array",
+            "items" : {
+              "type" : "string"
+            }
+          }
+        }
+      },
+      "SeriesEpisodes" : {
+        "type" : "object",
+        "properties" : {
+          "links" : {
+            "$ref" : "#/components/schemas/Links"
+          },
+          "data" : {
+            "minItems" : 0,
+            "type" : "array",
+            "items" : {
+              "$ref" : "#/components/schemas/Episode"
+            }
+          },
+          "errors" : {
+            "$ref" : "#/components/schemas/JSONErrors"
+          }
+        }
+      },
+      "MoviePeople_1" : {
+        "type" : "object",
+        "properties" : {
+          "actors" : {
+            "minItems" : 0,
+            "type" : "array",
+            "items" : {
+              "$ref" : "#/components/schemas/MoviePeople"
+            }
+          },
+          "writers" : {
+            "minItems" : 0,
+            "type" : "array",
+            "items" : {
+              "$ref" : "#/components/schemas/MoviePeople"
+            }
+          },
+          "directors" : {
+            "minItems" : 0,
+            "type" : "array",
+            "items" : {
+              "$ref" : "#/components/schemas/MoviePeople"
+            }
+          },
+          "producers" : {
+            "minItems" : 0,
+            "type" : "array",
+            "items" : {
+              "$ref" : "#/components/schemas/MoviePeople"
+            }
+          }
+        }
+      },
+      "Conflict" : {
+        "type" : "object",
+        "properties" : {
+          "Error" : {
+            "type" : "string"
+          }
+        }
+      },
+      "UserRatings" : {
+        "type" : "object",
+        "properties" : {
+          "rating" : { },
+          "ratingItemId" : { },
+          "ratingType" : {
+            "type" : "string"
+          }
+        }
+      },
+      "SeriesData" : {
+        "type" : "object",
+        "properties" : {
+          "data" : {
+            "$ref" : "#/components/schemas/Series"
+          },
+          "errors" : {
+            "$ref" : "#/components/schemas/JSONErrors"
+          }
+        }
+      },
+      "JSONErrors" : {
+        "type" : "object",
+        "properties" : {
+          "invalidLanguage" : {
+            "type" : "string"
+          },
+          "invalidQueryParams" : {
+            "minItems" : 0,
+            "type" : "array",
+            "items" : {
+              "type" : "string"
+            }
+          },
+          "invalidFilters" : {
+            "minItems" : 0,
+            "type" : "array",
+            "items" : {
+              "type" : "string"
+            }
+          }
+        }
+      },
+      "FilterKeys" : {
+        "type" : "object",
+        "properties" : {
+          "data" : {
+            "minItems" : 0,
+            "type" : "array",
+            "items" : {
+              "type" : "string"
+            }
+          }
+        }
+      },
+      "SeriesImageQueryResults" : {
+        "type" : "object",
+        "properties" : {
+          "data" : {
+            "minItems" : 0,
+            "type" : "array",
+            "items" : {
+              "$ref" : "#/components/schemas/SeriesImageQueryResult"
+            }
+          },
+          "errors" : {
+            "$ref" : "#/components/schemas/JSONErrors"
+          }
+        }
+      },
+      "UserFavorites" : {
+        "type" : "object",
+        "properties" : {
+          "favorites" : {
+            "minItems" : 0,
+            "type" : "array",
+            "items" : {
+              "type" : "string"
+            }
+          }
+        }
+      },
+      "UserRatingsQueryParams" : {
+        "type" : "object",
+        "properties" : {
+          "data" : {
+            "minItems" : 0,
+            "type" : "array",
+            "items" : {
+              "type" : "string"
+            }
+          }
+        }
+      },
+      "Auth" : {
+        "type" : "object",
+        "properties" : {
+          "apikey" : {
+            "type" : "string"
+          },
+          "userkey" : {
+            "type" : "string"
+          },
+          "username" : {
+            "type" : "string"
+          }
+        }
+      },
+      "SeriesImagesCount" : {
+        "type" : "object",
+        "properties" : {
+          "fanart" : { },
+          "season" : { },
+          "poster" : { },
+          "seasonwide" : { },
+          "series" : { }
+        }
+      },
+      "MovieTranslation" : {
+        "type" : "object",
+        "properties" : {
+          "name" : {
+            "type" : "string"
+          },
+          "language_code" : {
+            "type" : "string"
+          },
+          "overview" : {
+            "type" : "string"
+          },
+          "tagline" : {
+            "type" : "string"
+          },
+          "is_primary" : {
+            "type" : "boolean"
+          }
+        }
+      },
+      "InvalidQueryParams" : {
+        "type" : "object",
+        "properties" : {
+          "Error" : {
+            "type" : "string"
+          }
+        }
+      },
+      "SeriesImagesQueryParam" : {
+        "type" : "object",
+        "properties" : {
+          "languageId" : {
+            "type" : "string"
+          },
+          "keyType" : {
+            "type" : "string"
+          },
+          "subKey" : {
+            "minItems" : 0,
+            "type" : "array",
+            "items" : {
+              "type" : "string"
+            }
+          },
+          "resolution" : {
+            "minItems" : 0,
+            "type" : "array",
+            "items" : {
+              "type" : "string"
+            }
+          }
+        }
+      },
+      "MoviePeople" : {
+        "type" : "object",
+        "properties" : {
+          "people_id" : {
+            "type" : "string"
+          },
+          "role" : {
+            "type" : "string"
+          },
+          "imdb_id" : {
+            "type" : "string"
+          },
+          "people_facebook" : {
+            "type" : "string"
+          },
+          "people_instagram" : {
+            "type" : "string"
+          },
+          "name" : {
+            "type" : "string"
+          },
+          "people_twitter" : {
+            "type" : "string"
+          },
+          "role_image" : {
+            "type" : "string"
+          },
+          "id" : {
+            "type" : "string"
+          },
+          "people_image" : {
+            "type" : "string"
+          },
+          "is_featured" : {
+            "type" : "boolean"
+          }
+        }
+      },
+      "EpisodeRecordData" : {
+        "type" : "object",
+        "properties" : {
+          "data" : {
+            "$ref" : "#/components/schemas/Episode"
+          },
+          "errors" : {
+            "$ref" : "#/components/schemas/JSONErrors"
+          }
+        }
+      },
+      "LanguageData" : {
+        "type" : "object",
+        "properties" : {
+          "data" : {
+            "minItems" : 0,
+            "type" : "array",
+            "items" : {
+              "$ref" : "#/components/schemas/Language"
+            }
+          }
+        }
+      },
+      "NotAuthorized" : {
+        "type" : "object",
+        "properties" : {
+          "Error" : {
+            "type" : "string"
+          }
+        }
+      },
+      "UserRatingsData" : {
+        "type" : "object",
+        "properties" : {
+          "links" : {
+            "$ref" : "#/components/schemas/Links"
+          },
+          "data" : {
+            "minItems" : 0,
+            "type" : "array",
+            "items" : {
+              "$ref" : "#/components/schemas/UserRatings"
+            }
+          },
+          "errors" : {
+            "$ref" : "#/components/schemas/JSONErrors"
+          }
+        }
+      },
+      "SeriesImagesCounts" : {
+        "type" : "object",
+        "properties" : {
+          "data" : {
+            "$ref" : "#/components/schemas/SeriesImagesCount"
+          }
+        }
+      },
+      "Links" : {
+        "type" : "object",
+        "properties" : {
+          "next" : { },
+          "last" : { },
+          "previous" : { },
+          "first" : { }
+        }
+      },
+      "UpdateDataQueryParams" : {
+        "type" : "object",
+        "properties" : {
+          "data" : {
+            "minItems" : 0,
+            "type" : "array",
+            "items" : {
+              "type" : "string"
+            }
+          }
+        }
+      },
+      "User" : {
+        "type" : "object",
+        "properties" : {
+          "language" : {
+            "type" : "string"
+          },
+          "favoritesDisplaymode" : {
+            "type" : "string"
+          },
+          "userName" : {
+            "type" : "string"
+          }
+        }
+      },
+      "SeriesImageQueryResult" : {
+        "type" : "object",
+        "properties" : {
+          "fileName" : {
+            "type" : "string"
+          },
+          "thumbnail" : {
+            "type" : "string"
+          },
+          "subKey" : {
+            "type" : "string"
+          },
+          "languageId" : { },
+          "id" : { },
+          "keyType" : {
+            "type" : "string"
+          },
+          "resolution" : {
+            "type" : "string"
+          },
+          "ratingsInfo" : {
+            "$ref" : "#/components/schemas/SeriesImageQueryResultRatingsInfo"
+          }
+        }
+      },
+      "Language" : {
+        "type" : "object",
+        "properties" : {
+          "name" : {
+            "type" : "string"
+          },
+          "englishName" : {
+            "type" : "string"
+          },
+          "id" : { },
+          "abbreviation" : {
+            "type" : "string"
+          }
+        }
+      },
+      "MovieReleaseDate" : {
+        "type" : "object",
+        "properties" : {
+          "date" : {
+            "type" : "string"
+          },
+          "country" : {
+            "type" : "string"
+          },
+          "type" : {
+            "type" : "string"
+          }
+        }
+      },
+      "UserData" : {
+        "type" : "object",
+        "properties" : {
+          "data" : {
+            "$ref" : "#/components/schemas/User"
+          }
+        }
+      },
+      "SeriesEpisodesQuery" : {
+        "type" : "object",
+        "properties" : {
+          "links" : {
+            "$ref" : "#/components/schemas/Links"
+          },
+          "data" : {
+            "minItems" : 0,
+            "type" : "array",
+            "items" : {
+              "$ref" : "#/components/schemas/Episode"
+            }
+          },
+          "errors" : {
+            "$ref" : "#/components/schemas/JSONErrors"
+          }
+        }
+      },
+      "Episode" : {
+        "type" : "object",
+        "properties" : {
+          "thumbHeight" : {
+            "type" : "string"
+          },
+          "dvdSeason" : { },
+          "airsBeforeEpisode" : { },
+          "imdbId" : {
+            "type" : "string"
+          },
+          "directors" : {
+            "minItems" : 0,
+            "type" : "array",
+            "items" : {
+              "type" : "string"
+            }
+          },
+          "thumbAdded" : {
+            "type" : "string"
+          },
+          "airedSeason" : { },
+          "showUrl" : {
+            "type" : "string"
+          },
+          "seriesId" : {
+            "type" : "string"
+          },
+          "lastUpdated" : { },
+          "productionCode" : {
+            "type" : "string"
+          },
+          "thumbAuthor" : { },
+          "id" : { },
+          "dvdDiscid" : {
+            "type" : "string"
+          },
+          "airedEpisodeNumber" : { },
+          "airsBeforeSeason" : { },
+          "lastUpdatedBy" : {
+            "type" : "string"
+          },
+          "overview" : {
+            "type" : "string"
+          },
+          "airsAfterSeason" : { },
+          "siteRating" : { },
+          "absoluteNumber" : { },
+          "director" : {
+            "type" : "string"
+          },
+          "episodeName" : {
+            "type" : "string"
+          },
+          "firstAired" : {
+            "type" : "string"
+          },
+          "thumbWidth" : {
+            "type" : "string"
+          },
+          "writers" : {
+            "minItems" : 0,
+            "type" : "array",
+            "items" : {
+              "type" : "string"
+            }
+          },
+          "dvdChapter" : { },
+          "siteRatingCount" : { },
+          "filename" : {
+            "type" : "string"
+          },
+          "guestStars" : {
+            "minItems" : 0,
+            "type" : "array",
+            "items" : {
+              "type" : "string"
+            }
+          },
+          "dvdEpisodeNumber" : { }
+        }
+      },
+      "Token" : {
+        "type" : "object",
+        "properties" : {
+          "token" : {
+            "type" : "string"
+          }
+        }
+      },
+      "Movie" : {
+        "type" : "object",
+        "properties" : {
+          "runtime" : { },
+          "id" : { },
+          "url" : {
+            "type" : "string"
+          },
+          "remoteids" : {
+            "minItems" : 0,
+            "type" : "array",
+            "items" : {
+              "$ref" : "#/components/schemas/MovieRemoteId"
+            }
+          },
+          "artworks" : {
+            "minItems" : 0,
+            "type" : "array",
+            "items" : {
+              "$ref" : "#/components/schemas/MovieArtwork"
+            }
+          },
+          "genres" : {
+            "minItems" : 0,
+            "type" : "array",
+            "items" : {
+              "$ref" : "#/components/schemas/MovieGenre"
+            }
+          },
+          "translations" : {
+            "minItems" : 0,
+            "type" : "array",
+            "items" : {
+              "$ref" : "#/components/schemas/MovieTranslation"
+            }
+          },
+          "release_dates" : {
+            "minItems" : 0,
+            "type" : "array",
+            "items" : {
+              "$ref" : "#/components/schemas/MovieReleaseDate"
+            }
+          },
+          "people" : {
+            "$ref" : "#/components/schemas/MoviePeople_1"
+          },
+          "trailers" : {
+            "minItems" : 0,
+            "type" : "array",
+            "items" : {
+              "$ref" : "#/components/schemas/MovieTrailer"
+            }
+          }
+        }
+      },
+      "UserRatingsDataNoLinksEmptyArray" : {
+        "type" : "object",
+        "properties" : {
+          "data" : {
+            "minItems" : 0,
+            "type" : "array",
+            "items" : {
+              "$ref" : "#/components/schemas/UserRatingsDataNoLinksEmptyArrayData"
+            }
+          }
+        }
+      },
+      "NotFound" : {
+        "type" : "object",
+        "properties" : {
+          "Error" : {
+            "type" : "string"
+          }
+        }
+      },
+      "SeriesSearchResults" : {
+        "type" : "object",
+        "properties" : {
+          "data" : {
+            "minItems" : 0,
+            "type" : "array",
+            "items" : {
+              "$ref" : "#/components/schemas/SeriesSearchResult"
+            }
+          }
+        }
+      },
+      "UserRatingsDataNoLinks" : {
+        "type" : "object",
+        "properties" : {
+          "data" : {
+            "minItems" : 0,
+            "type" : "array",
+            "items" : {
+              "$ref" : "#/components/schemas/UserRatings"
+            }
+          }
+        }
+      },
+      "UserFavoritesData" : {
+        "type" : "object",
+        "properties" : {
+          "data" : {
+            "$ref" : "#/components/schemas/UserFavorites"
+          },
+          "errors" : {
+            "$ref" : "#/components/schemas/JSONErrors"
+          }
+        }
+      },
+      "Series" : {
+        "type" : "object",
+        "properties" : {
+          "airsDayOfWeek" : {
+            "type" : "string"
+          },
+          "overview" : {
+            "type" : "string"
+          },
+          "aliases" : {
+            "minItems" : 0,
+            "type" : "array",
+            "items" : {
+              "type" : "string"
+            }
+          },
+          "siteRating" : { },
+          "added" : {
+            "type" : "string"
+          },
+          "imdbId" : {
+            "type" : "string"
+          },
+          "seriesName" : {
+            "type" : "string"
+          },
+          "firstAired" : {
+            "type" : "string"
+          },
+          "rating" : {
+            "type" : "string"
+          },
+          "banner" : {
+            "type" : "string"
+          },
+          "runtime" : {
+            "type" : "string"
+          },
+          "seriesId" : {
+            "type" : "string"
+          },
+          "siteRatingCount" : { },
+          "network" : {
+            "type" : "string"
+          },
+          "lastUpdated" : { },
+          "airsTime" : {
+            "type" : "string"
+          },
+          "zap2itId" : {
+            "type" : "string"
+          },
+          "genre" : {
+            "minItems" : 0,
+            "type" : "array",
+            "items" : {
+              "type" : "string"
+            }
+          },
+          "networkId" : {
+            "type" : "string"
+          },
+          "id" : { },
+          "slug" : {
+            "type" : "string"
+          },
+          "status" : {
+            "type" : "string"
+          }
+        }
+      },
+      "MovieArtwork" : {
+        "type" : "object",
+        "properties" : {
+          "thumb_url" : {
+            "type" : "string"
+          },
+          "is_primary" : {
+            "type" : "boolean"
+          },
+          "width" : { },
+          "artwork_type" : {
+            "type" : "string"
+          },
+          "id" : {
+            "type" : "string"
+          },
+          "url" : {
+            "type" : "string"
+          },
+          "height" : { },
+          "tags" : {
+            "type" : "string"
+          }
+        }
+      },
+      "SeriesImagesQueryParams" : {
+        "type" : "object",
+        "properties" : {
+          "data" : {
+            "minItems" : 0,
+            "type" : "array",
+            "items" : {
+              "$ref" : "#/components/schemas/SeriesImagesQueryParam"
+            }
+          }
+        }
+      },
+      "Update" : {
+        "type" : "object",
+        "properties" : {
+          "lastUpdated" : { },
+          "id" : { }
+        }
+      },
+      "SeriesSearchResult" : {
+        "type" : "object",
+        "properties" : {
+          "image" : {
+            "type" : "string"
+          },
+          "overview" : {
+            "type" : "string"
+          },
+          "aliases" : {
+            "minItems" : 0,
+            "type" : "array",
+            "items" : {
+              "type" : "string"
+            }
+          },
+          "seriesName" : {
+            "type" : "string"
+          },
+          "firstAired" : {
+            "type" : "string"
+          },
+          "banner" : {
+            "type" : "string"
+          },
+          "id" : { },
+          "poster" : {
+            "type" : "string"
+          },
+          "slug" : {
+            "type" : "string"
+          },
+          "network" : {
+            "type" : "string"
+          },
+          "status" : {
+            "type" : "string"
+          }
+        }
+      },
+      "UserRatingsDataNoLinksEmptyArrayData" : {
+        "type" : "object"
+      },
+      "MovieRemoteId" : {
+        "type" : "object",
+        "properties" : {
+          "id" : {
+            "type" : "string"
+          },
+          "source_id" : { },
+          "source_name" : {
+            "type" : "string"
+          },
+          "source_url" : {
+            "type" : "string"
+          },
+          "url" : {
+            "type" : "string"
+          }
+        }
+      },
+      "MovieTrailer" : {
+        "type" : "object",
+        "properties" : {
+          "name" : {
+            "type" : "string"
+          },
+          "url" : {
+            "type" : "string"
+          }
+        }
+      },
+      "SeriesActors" : {
+        "type" : "object",
+        "properties" : {
+          "data" : {
+            "minItems" : 0,
+            "type" : "array",
+            "items" : {
+              "$ref" : "#/components/schemas/SeriesActorsData"
+            }
+          },
+          "errors" : {
+            "$ref" : "#/components/schemas/JSONErrors"
+          }
+        }
+      },
+      "SeriesActorsData" : {
+        "type" : "object",
+        "properties" : {
+          "image" : {
+            "type" : "string"
+          },
+          "lastUpdated" : {
+            "type" : "string"
+          },
+          "role" : {
+            "type" : "string"
+          },
+          "imageAdded" : {
+            "type" : "string"
+          },
+          "imageAuthor" : { },
+          "sortOrder" : { },
+          "name" : {
+            "type" : "string"
+          },
+          "id" : { },
+          "seriesId" : { }
+        }
+      },
+      "SeriesImageQueryResultRatingsInfo" : {
+        "type" : "object",
+        "properties" : {
+          "count" : { },
+          "average" : { }
+        }
+      },
+      "MovieGenre" : {
+        "type" : "object",
+        "properties" : {
+          "name" : {
+            "type" : "string"
+          },
+          "id" : { },
+          "url" : {
+            "type" : "string"
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,701 @@
+{
+  "openapi" : "3.0.1",
+  "info" : {
+    "title" : "Obeo Designer Team Server - Administration Server",
+    "description" : "This guide describe the REST API of the administration server for Obeo Designer Team Server. This API will allow you to manage CDO repositories, shared modeling projects and depending on the type of repository you manage, you will be able to manager the repository users. If you already have configured the [administration server](../Obeo_Designer_Team_Administration_Server.html) for Obeo Designer Team Server you can start to use our API.\n\nRemark: The protocol, host and port can be different from your server configuration.\n\nIn this documentation we will use the web service API in the version **v1.0**.\n\n**Disclaimer:** As basic authentication is enabled for the administration server, the _Authorization_ header must be added in all requests with the base64 encoded credentials.\n",
+    "license" : {
+      "name" : "Apache 2.0",
+      "url" : "http://www.apache.org/licenses/LICENSE-2.0.html"
+    },
+    "version" : "1.0.0"
+  },
+  "servers" : [ {
+    "url" : "/api/v1.0"
+  } ],
+  "paths" : {
+    "/repositories" : {
+      "get" : {
+        "tags" : [ "Repositories" ],
+        "description" : "Retrieve all repositories on the current server.\n",
+        "operationId" : "getRepositories",
+        "responses" : {
+          "200" : {
+            "description" : "Ok",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/Repositories_GetRepositoriesOutput200"
+                }
+              }
+            }
+          },
+          "404" : {
+            "description" : "Not Found"
+          }
+        }
+      },
+      "post" : {
+        "tags" : [ "Repositories" ],
+        "description" : "This request will allow you to creates a repository.\nThe body of the request take a JSON object with the following parameters: *repositoryName*, *authenticationType* and *datasourceType* which are mandatory and also *authenticationData* and *datasourceData* which are optional.\n\nWhile the *authenticationType* value can be empty, the *repositoryName* and the *datasourceType* values cannot.\n\nBy default you can use the following values to manage your repositories:\n  * *authenticationType* can take:\n    * an empty value\n    * LDAP\n    * FILE\n    * LDAP_FILE\n    * USERPROFILE\n    * LDAP_USERPROFILE\n  * *datasourceType* can take:\n    * H2_EMBEDDED\n    * H2_SERVER\n\nYou can also contribute your own extensions and use the key value of your extension as described in the Administration Server [documentation](../Obeo_Designer_Team_Administration_Server.html#Contribute_administration_server).\n\nThose values describe how your repository will manage authentication and database.\n\nAs the optional parameters (*authenticationData* and *datasourceDat*) depends on the mandatory parameters, we will use examples to describe how to use them.\n\nThe repository is started after its creation and lifecycle hooks are called before and after its start.\n",
+        "operationId" : "addRepository",
+        "requestBody" : {
+          "content" : {
+            "application/json" : {
+              "schema" : {
+                "$ref" : "#/components/schemas/NewRepository"
+              }
+            }
+          }
+        },
+        "responses" : {
+          "201" : {
+            "description" : "Repository response",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/Repositories_Output201Output200"
+                }
+              }
+            }
+          },
+          "400" : {
+            "description" : "Bad Request\n\nSome parameters depend on the repository type (authentication and database), their validation is done by the corresponding extensions. \n"
+          },
+          "500" : {
+            "description" : "Internal error\n\nSomething unexpected occurred during the repository creation.\n"
+          }
+        }
+      }
+    },
+    "/repositories/{repositoryId}" : {
+      "delete" : {
+        "tags" : [ "Repositories" ],
+        "description" : "Delete a repository that was created using the *create repository* web service.\n\nThe deletetion of repository removes the folder and all of its content in the directory that contains the repositories. This directory can be configured in the properties files of the administration server as described in [Administration Server configuration](../Obeo_Designer_Team_Administration_Server.html#Webservice_configuration).\n\nNo effect on static repositories.\n",
+        "operationId" : "deleteRepository",
+        "parameters" : [ {
+          "name" : "repositoryId",
+          "in" : "path",
+          "required" : true,
+          "schema" : {
+            "type" : "string"
+          }
+        }, {
+          "name" : "deleteDatabase",
+          "in" : "query",
+          "required" : false,
+          "schema" : {
+            "type" : "boolean"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "Ok",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/Output200"
+                }
+              }
+            }
+          },
+          "204" : {
+            "description" : "No Content"
+          },
+          "404" : {
+            "description" : "Not Found"
+          },
+          "500" : {
+            "description" : "Server error for static repository"
+          }
+        }
+      }
+    },
+    "/repositories/start/{repositoryId}" : {
+      "get" : {
+        "tags" : [ "Repositories" ],
+        "description" : "Start a repository that was created using the web service to create a repository.\n\nThe lifecycle hooks will be called before and after its start.\n\nNo effect on static repositories.\n",
+        "operationId" : "startRepository",
+        "parameters" : [ {
+          "name" : "repositoryId",
+          "in" : "path",
+          "required" : true,
+          "schema" : {
+            "type" : "string"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "Ok",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/Repositories_Output201Output200"
+                }
+              }
+            }
+          },
+          "400" : {
+            "description" : "Ko"
+          },
+          "404" : {
+            "description" : "Not Found"
+          }
+        }
+      }
+    },
+    "/repositories/stop/{repositoryId}" : {
+      "get" : {
+        "tags" : [ "Repositories" ],
+        "description" : "Stop a repository that was created using the web service to create a repository.\n\nThe lifecycle hooks will be called before and after its stop.\n\nNo effect on static repositories.\n",
+        "operationId" : "stopRepository",
+        "parameters" : [ {
+          "name" : "repositoryId",
+          "in" : "path",
+          "required" : true,
+          "schema" : {
+            "type" : "string"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "Ok",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/Repositories_StopRepositoryOutput200"
+                }
+              }
+            }
+          },
+          "400" : {
+            "description" : "Not Found"
+          },
+          "404" : {
+            "description" : "Not Found"
+          },
+          "500" : {
+            "description" : "Server error for static repository"
+          }
+        }
+      }
+    },
+    "/repositories/export/{repositoryId}" : {
+      "post" : {
+        "tags" : [ "Repositories" ],
+        "description" : "Export the database of the repository into an xml file.\n\nThe body of the request take two parameters: *needsEncryption* which is mandatory and *password* which is optional but needed if *needsEncryption* is set to true.\n\nAs the export of the database can take time, the web service will schedule an asynchronous job and return the link where you will be able to download the file in the response under the *url* attribute.\n\nIf *needsEncryption* is set to false the export of the database will create an xml file representing the CDO database in the *export* folder which can be configured in the properties files of the Administration Server as described in [Administration Server configuration](../Obeo_Designer_Team_Administration_Server.html#Webservice_configuration). If *needsEncryption* is set to true then an encrypted zip file containing the xml file will be created instead.\n",
+        "operationId" : "exportRepository",
+        "parameters" : [ {
+          "name" : "repositoryId",
+          "in" : "path",
+          "required" : true,
+          "schema" : {
+            "type" : "string"
+          }
+        } ],
+        "requestBody" : {
+          "content" : {
+            "application/json" : {
+              "schema" : {
+                "$ref" : "#/components/schemas/Repositories_ExportRepositoryBody"
+              }
+            }
+          }
+        },
+        "responses" : {
+          "202" : {
+            "description" : "Ok"
+          },
+          "400" : {
+            "description" : "Bad request"
+          },
+          "404" : {
+            "description" : "Not Found"
+          }
+        }
+      }
+    },
+    "/repositories/import/{repositoryId}" : {
+      "post" : {
+        "tags" : [ "Repositories" ],
+        "description" : "Restore a repository from the uploaded xml file.\n\nThis file must be a backup of the database.\n\nAs this API needs a file, we suggest you to use the input file of your favorite browser in order to let it set the correct headers for the upload of the file.\nAs the import of the database can take time, the web service will schedule an asynchronous job.\n\nThe state (ONLINE | OFFLINE) of the repository will be the same after the import as before the import.\n\nStatic repositories are not managed.\n",
+        "operationId" : "importRepository",
+        "parameters" : [ {
+          "name" : "repositoryId",
+          "in" : "path",
+          "required" : true,
+          "schema" : {
+            "type" : "string"
+          }
+        } ],
+        "requestBody" : {
+          "content" : {
+            "application/json" : {
+              "schema" : {
+                "$ref" : "#/components/schemas/Repositories_ImportRepositoryBody"
+              }
+            }
+          }
+        },
+        "responses" : {
+          "202" : {
+            "description" : "Request accepted"
+          },
+          "400" : {
+            "description" : "Bad Request"
+          },
+          "404" : {
+            "description" : "Not Found"
+          }
+        }
+      }
+    },
+    "/projects" : {
+      "post" : {
+        "tags" : [ "Projects" ],
+        "description" : "Create an empty shared modeling project.\n\nThe repository where you want to create the shared modeling project should be started.\n\nThe project post creation lifcycle hook will be called after the project creation.\nFor example, the user profile extension lifecycle hook will create roles for users. The name of the created role will have the project name and will authorize a user to create, read, update and delete resources inside the project.\n",
+        "operationId" : "createSharedProject",
+        "requestBody" : {
+          "content" : {
+            "application/json" : {
+              "schema" : {
+                "$ref" : "#/components/schemas/Projects_CreateSharedProjectBody"
+              }
+            }
+          }
+        },
+        "responses" : {
+          "201" : {
+            "description" : "Ok",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/Projects_CreateSharedProjectOutput201"
+                }
+              }
+            }
+          },
+          "404" : {
+            "description" : "Not Found"
+          }
+        }
+      }
+    },
+    "/users" : {
+      "get" : {
+        "tags" : [ "Users" ],
+        "description" : "List all users the given repository.\n",
+        "operationId" : "listUsers",
+        "parameters" : [ {
+          "name" : "repositoryName",
+          "in" : "query",
+          "required" : true,
+          "schema" : {
+            "type" : "string"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "Ok",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/Users_ListUsersOutput200"
+                }
+              }
+            }
+          },
+          "400" : {
+            "description" : "Not Found"
+          }
+        }
+      },
+      "post" : {
+        "tags" : [ "Users" ],
+        "description" : "Create a user in the repository.\n\nThe body of the request take a JSON object with the following parameters: *id*, *isAdministrator*, *password* and *permissions*.\nThe *id* and *isAdministrator* are mandatory.\n\nThe *password* is required if the repository authentication is not managed with LDAP.\n\nThe *permissions* parameter is used for repositories with authorization managed with user profiles. This parameter is an array of project name which will be used to grant writing rights to the user for those projects.\n",
+        "operationId" : "addUser",
+        "parameters" : [ {
+          "name" : "repositoryName",
+          "in" : "query",
+          "required" : true,
+          "schema" : {
+            "type" : "string"
+          }
+        } ],
+        "requestBody" : {
+          "content" : {
+            "application/json" : {
+              "schema" : {
+                "$ref" : "#/components/schemas/NewUser"
+              }
+            }
+          }
+        },
+        "responses" : {
+          "200" : {
+            "description" : "Ok",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/Users_Output200"
+                }
+              }
+            }
+          },
+          "400" : {
+            "description" : "Bad Request"
+          }
+        }
+      }
+    },
+    "/users/{userName}" : {
+      "put" : {
+        "tags" : [ "Users" ],
+        "description" : "Update user data.\n\nThe behavior of this service is to delete and recreate the user with the new data.\n\nThe body of the request takes the same data than the creation request.\n",
+        "operationId" : "updateUser",
+        "parameters" : [ {
+          "name" : "userName",
+          "in" : "path",
+          "required" : true,
+          "schema" : {
+            "type" : "string"
+          }
+        }, {
+          "name" : "repositoryName",
+          "in" : "query",
+          "required" : true,
+          "schema" : {
+            "type" : "string"
+          }
+        } ],
+        "requestBody" : {
+          "content" : {
+            "application/json" : {
+              "schema" : {
+                "$ref" : "#/components/schemas/NewUser"
+              }
+            }
+          }
+        },
+        "responses" : {
+          "200" : {
+            "description" : "Ok",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/Users_Output200"
+                }
+              }
+            }
+          },
+          "400" : {
+            "description" : "Bad Request"
+          },
+          "404" : {
+            "description" : "Not Found"
+          }
+        }
+      },
+      "delete" : {
+        "tags" : [ "Users" ],
+        "description" : "Deletes the user from the repository.\n",
+        "operationId" : "delteUser",
+        "parameters" : [ {
+          "name" : "userName",
+          "in" : "path",
+          "required" : true,
+          "schema" : {
+            "type" : "string"
+          }
+        }, {
+          "name" : "repositoryName",
+          "in" : "query",
+          "required" : true,
+          "schema" : {
+            "type" : "string"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "Ok",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/Output200"
+                }
+              }
+            }
+          },
+          "404" : {
+            "description" : "Not Found"
+          },
+          "400" : {
+            "description" : "Bad Request"
+          }
+        }
+      }
+    }
+  },
+  "components" : {
+    "schemas" : {
+      "Repositories_GetRepositoriesOutput200" : {
+        "type" : "object",
+        "properties" : {
+          "message" : {
+            "type" : "string"
+          },
+          "status" : {
+            "type" : "string"
+          },
+          "repositories" : {
+            "minItems" : 0,
+            "type" : "array",
+            "items" : {
+              "$ref" : "#/components/schemas/Repository"
+            }
+          }
+        }
+      },
+      "Repositories_Output201Output200" : {
+        "type" : "object",
+        "properties" : {
+          "message" : {
+            "type" : "string"
+          },
+          "status" : {
+            "type" : "string"
+          },
+          "repository" : {
+            "$ref" : "#/components/schemas/Repository"
+          }
+        }
+      },
+      "SimpleRepository" : {
+        "type" : "object",
+        "properties" : {
+          "repositorName" : {
+            "type" : "string"
+          },
+          "type" : {
+            "$ref" : "#/components/schemas/Type"
+          },
+          "status" : {
+            "$ref" : "#/components/schemas/Status"
+          }
+        }
+      },
+      "Repository" : {
+        "type" : "object",
+        "properties" : {
+          "datasourceType" : {
+            "$ref" : "#/components/schemas/DatasourceType"
+          },
+          "authenticationType" : {
+            "$ref" : "#/components/schemas/AuthenticationType"
+          },
+          "repositorName" : {
+            "type" : "string"
+          },
+          "type" : {
+            "$ref" : "#/components/schemas/Type"
+          },
+          "status" : {
+            "$ref" : "#/components/schemas/Status"
+          }
+        }
+      },
+      "Repositories_StopRepositoryOutput200" : {
+        "type" : "object",
+        "properties" : {
+          "message" : {
+            "type" : "string"
+          },
+          "status" : {
+            "type" : "string"
+          },
+          "repository" : {
+            "$ref" : "#/components/schemas/SimpleRepository"
+          }
+        }
+      },
+      "AuthenticationType" : {
+        "type" : "string",
+        "enum" : [ "", "LDAP_FILE", "LDAP", "USERPROFILE", "LDAP_USERPROFILE", "FILE" ]
+      },
+      "Users_Output200" : {
+        "type" : "object",
+        "properties" : {
+          "repositoryName" : {
+            "type" : "string"
+          },
+          "message" : {
+            "type" : "string"
+          },
+          "projectNames" : {
+            "minItems" : 0,
+            "type" : "array",
+            "items" : {
+              "type" : "string"
+            }
+          },
+          "status" : {
+            "type" : "string"
+          },
+          "user" : {
+            "$ref" : "#/components/schemas/User"
+          }
+        }
+      },
+      "NewUser" : {
+        "required" : [ "id", "isAdmin" ],
+        "type" : "object",
+        "properties" : {
+          "password" : { },
+          "id" : {
+            "type" : "string"
+          },
+          "isAdmin" : {
+            "type" : "boolean"
+          },
+          "permissions" : {
+            "minItems" : 0,
+            "type" : "array",
+            "items" : {
+              "type" : "string"
+            }
+          }
+        }
+      },
+      "NewRepository" : {
+        "required" : [ "authenticationType", "datasourceType" ],
+        "type" : "object",
+        "properties" : {
+          "authenticationData" : {
+            "type" : "string"
+          },
+          "datasourceType" : {
+            "$ref" : "#/components/schemas/DatasourceType"
+          },
+          "authenticationType" : {
+            "$ref" : "#/components/schemas/AuthenticationType"
+          },
+          "repositorName" : {
+            "type" : "string"
+          },
+          "datasourceData" : {
+            "type" : "string"
+          }
+        }
+      },
+      "User" : {
+        "type" : "object",
+        "properties" : {
+          "id" : {
+            "type" : "string"
+          },
+          "isAdmin" : {
+            "type" : "boolean"
+          },
+          "permissions" : {
+            "minItems" : 0,
+            "type" : "array",
+            "items" : {
+              "type" : "string"
+            }
+          }
+        }
+      },
+      "Repositories_ExportRepositoryBody" : {
+        "required" : [ "needsEncryption" ],
+        "type" : "object",
+        "properties" : {
+          "password" : { },
+          "needsEncryption" : {
+            "type" : "boolean"
+          }
+        }
+      },
+      "Projects_CreateSharedProjectOutput201" : {
+        "type" : "object",
+        "properties" : {
+          "projectName" : {
+            "type" : "string"
+          },
+          "message" : {
+            "type" : "string"
+          },
+          "status" : {
+            "type" : "string"
+          }
+        }
+      },
+      "Users_ListUsersOutput200" : {
+        "type" : "object",
+        "properties" : {
+          "repositoryName" : {
+            "type" : "string"
+          },
+          "message" : {
+            "type" : "string"
+          },
+          "status" : {
+            "type" : "string"
+          },
+          "users" : {
+            "minItems" : 0,
+            "type" : "array",
+            "items" : {
+              "$ref" : "#/components/schemas/User"
+            }
+          }
+        }
+      },
+      "Output200" : {
+        "type" : "object",
+        "properties" : {
+          "repositoryName" : {
+            "type" : "string"
+          },
+          "message" : {
+            "type" : "string"
+          },
+          "status" : {
+            "type" : "string"
+          }
+        }
+      },
+      "Repositories_ImportRepositoryBody" : {
+        "type" : "object",
+        "properties" : {
+          "upFile" : {
+            "type" : "string",
+            "format" : "binary"
+          }
+        }
+      },
+      "Projects_CreateSharedProjectBody" : {
+        "required" : [ "projectName", "repositoryName" ],
+        "type" : "object",
+        "properties" : {
+          "projectName" : {
+            "type" : "string"
+          },
+          "repositoryName" : {
+            "type" : "string"
+          }
+        }
+      },
+      "Status" : {
+        "type" : "string",
+        "enum" : [ "ONLINE", "OFFLINE" ]
+      },
+      "DatasourceType" : {
+        "type" : "string",
+        "enum" : [ "H2_EMBEDDED", "H2_SERVER" ]
+      },
+      "Type" : {
+        "type" : "string",
+        "enum" : [ "STATIC", "DYNAMIC" ]
+      }
+    }
+  }
+}

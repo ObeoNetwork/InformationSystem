@@ -11,7 +11,8 @@ Export-Package: com.fasterxml.jackson.core,
  io.swagger.v3.oas.models,
  io.swagger.v3.oas.models.info,
  org.obeonetwork.dsl.soa.gen.swagger,
- org.obeonetwork.dsl.soa.gen.swagger.utils
+ org.obeonetwork.dsl.soa.gen.swagger.utils,
+ org.yaml.snakeyaml
 Require-Bundle: org.obeonetwork.dsl.soa,
  org.obeonetwork.dsl.entity,
  org.obeonetwork.dsl.environment.design.services,
