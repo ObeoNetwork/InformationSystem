@@ -166,53 +166,59 @@ public class SwaggerBuilder {
     	
     	exposedSoaTypes = ComponentGenUtil.getExposedTypes(soaComponent);
     	
-    	// Compute the exposedSoaTypes keys
-    	Map<String, Type> keyReferential = new HashMap<>();
-    	if(computeShortestKey ) {
-        	for(Type soaType : exposedSoaTypes) {
-        		String key = computeSoaTypeKey(soaType, "");
-        		
-        		// While computed key is already in use
-        		while(keyReferential.get(key) != null) {
-        			// Compute a longer key for both objects matching the key
-        			Type otherType = keyReferential.remove(key);
-        			String otherKey = computeSoaTypeKey(otherType, key);
-        			keyReferential.put(otherKey, otherType);
-        			
-        			key = computeSoaTypeKey(soaType, key);
-        		}
-        		keyReferential.put(key, soaType);
-        	}
+    	// Compute the exposed Soa Types keys
+    	exposedSoaTypeKeys = new HashMap<>();
+    	
+    	if(exposedSoaTypes.size() == 1) {
+    		Type soaType = exposedSoaTypes.iterator().next();
+    		exposedSoaTypeKeys.put(soaType, soaType.getName());
     	} else {
-    		List<String> keys = new ArrayList<>();
-        	for(Type soaType : exposedSoaTypes) {
-        		keys.add(computeSoaTypeLongKey(soaType));
-        	}
-        	
-        	int index = 0;
-        	if(!keys.isEmpty() && ! keys.get(0).isEmpty()) {
-            	boolean isCharAtIndexCommon = true;
-            	while(isCharAtIndexCommon && index < keys.get(0).length()) {
-                	char charAtIndex = keys.get(0).charAt(index);
-                	int keyIndex = 1;
-                	while(isCharAtIndexCommon && keyIndex < keys.size()) {
-                		isCharAtIndexCommon = isCharAtIndexCommon && index < keys.get(keyIndex).length() && keys.get(keyIndex).charAt(index) == charAtIndex;
-                		keyIndex++;
-                	}
-                	if(isCharAtIndexCommon) {
-                		index++;
+        	if(computeShortestKey ) {
+            	Map<String, Type> keyReferential = new HashMap<>();
+            	for(Type soaType : exposedSoaTypes) {
+            		String key = computeSoaTypeKey(soaType, "");
+            		
+            		// While computed key is already in use
+            		while(keyReferential.get(key) != null) {
+            			// Compute a longer key for both objects matching the key
+            			Type otherType = keyReferential.remove(key);
+            			String otherKey = computeSoaTypeKey(otherType, key);
+            			keyReferential.put(otherKey, otherType);
+            			
+            			key = computeSoaTypeKey(soaType, key);
+            		}
+            		keyReferential.put(key, soaType);
+            	}
+            	
+            	keyReferential.entrySet().forEach(entry -> exposedSoaTypeKeys.put(entry.getValue(), entry.getKey()));
+        	} else {
+        		List<String> keys = new ArrayList<>();
+            	for(Type soaType : exposedSoaTypes) {
+            		keys.add(computeSoaTypeLongKey(soaType));
+            	}
+            	
+            	int index = 0;
+            	if(!keys.isEmpty() && ! keys.get(0).isEmpty()) {
+                	boolean isCharAtIndexCommon = true;
+                	while(isCharAtIndexCommon && index < keys.get(0).length()) {
+                    	char charAtIndex = keys.get(0).charAt(index);
+                    	int keyIndex = 1;
+                    	while(isCharAtIndexCommon && keyIndex < keys.size()) {
+                    		isCharAtIndexCommon = isCharAtIndexCommon && index < keys.get(keyIndex).length() && keys.get(keyIndex).charAt(index) == charAtIndex;
+                    		keyIndex++;
+                    	}
+                    	if(isCharAtIndexCommon) {
+                    		index++;
+                    	}
                 	}
             	}
+            	
+            	for(Type soaType : exposedSoaTypes) {
+            		exposedSoaTypeKeys.put(soaType, computeSoaTypeLongKey(soaType).substring(index));
+            	}
         	}
-        	
-        	for(Type soaType : exposedSoaTypes) {
-        		keyReferential.put(computeSoaTypeLongKey(soaType).substring(index), soaType);
-        	}
-    		
     	}
     	
-    	exposedSoaTypeKeys = new HashMap<>();
-    	keyReferential.entrySet().forEach(entry -> exposedSoaTypeKeys.put(entry.getValue(), entry.getKey()));
     	
     	// Build the components
     	exposedSoaTypes.forEach(exposedSoaType -> buildComponent(exposedSoaType));

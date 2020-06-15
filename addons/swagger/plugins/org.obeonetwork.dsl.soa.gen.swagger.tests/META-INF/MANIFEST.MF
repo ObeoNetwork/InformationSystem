@@ -10,4 +10,5 @@ Require-Bundle: org.junit,
  org.obeonetwork.dsl.soa.gen.swagger,
  org.eclipse.emf.ecore,
  org.obeonetwork.dsl.soa,
- org.obeonetwork.dsl.environment
+ org.obeonetwork.dsl.environment,
+ org.obeonetwork.tools.migration;bundle-version="11.0.0"

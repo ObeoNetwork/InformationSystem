@@ -1,0 +1,1473 @@
+{
+  "openapi": "3.0.3",
+  "info": {
+    "title": "Obeo Designer Team Server - Administration Server",
+    "description": "This guide describe the REST API of the administration server for Obeo Designer Team Server. This API will allow you to manage CDO repositories, shared modeling projects and depending on the type of repository you manage, you will be able to manager the repository users. If you already have configured the [administration server](../Obeo_Designer_Team_Administration_Server.html) for Obeo Designer Team Server you can start to use our API.\n\nRemark: The protocol, host and port can be different from your server configuration.\n\nIn this documentation we will use the web service API in the version **v1.0**.\n\n**Disclaimer:** As basic authentication is enabled for the administration server, the _Authorization_ header must be added in all requests with the base64 encoded credentials.\n",
+    "license": {
+      "name": "Copyright (C) 2008, 2020 Obeo.",
+      "url": "/doc/license.html"
+    },
+    "version": "1.0.0",
+    "contact": {
+      "email": "support@obeo.fr"
+    }
+  },
+  "servers": [
+    {
+      "url": "/api/v1.0",
+      "description": "Production server (use live data)"
+    },
+    {
+      "url": "{protocol}://localhost:8080/api/v1.0",
+      "description": "Server on the current host",
+      "variables": {
+        "protocol": {
+          "enum": [
+            "http",
+            "https"
+          ],
+          "default": "http"
+        }
+      }
+    }
+  ],
+  "tags": [
+    {
+      "name": "Repositories"
+    },
+    {
+      "name": "Projects"
+    },
+    {
+      "name": "Users"
+    }
+  ],
+  "paths": {
+    "/repositories": {
+      "get": {
+        "summary": "List all repositories",
+        "operationId": "getRepositories",
+        "tags": [
+          "Repositories"
+        ],
+        "description": "Retrieve all repositories on the current server.\n",
+        "responses": {
+          "200": {
+            "description": "Ok",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "repositories": {
+                      "type": "array",
+                      "items": {
+                        "$ref": "#/components/schemas/Repository"
+                      }
+                    },
+                    "message": {
+                      "type": "string"
+                    },
+                    "status": {
+                      "type": "string"
+                    }
+                  }
+                },
+                "example": {
+                  "repositories": [
+                    {
+                      "name": "OnlineDynamicRepositorySample",
+                      "status": "ONLINE",
+                      "type": "DYNAMIC",
+                      "authenticationType": "",
+                      "datasourceType": "H2_EMBEDDED"
+                    },
+                    {
+                      "name": "OfflineDynamicRepositorySample",
+                      "status": "OFFLINE",
+                      "type": "DYNAMIC",
+                      "authenticationType": "",
+                      "datasourceType": "H2_EMBEDDED"
+                    },
+                    {
+                      "name": "designer-server",
+                      "status": "ONLINE",
+                      "type": "STATIC"
+                    }
+                  ],
+                  "message": "All available repositories",
+                  "status": 200
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        }
+      },
+      "post": {
+        "summary": "Create a repository",
+        "operationId": "addRepository",
+        "tags": [
+          "Repositories"
+        ],
+        "description": "This request will allow you to creates a repository.\nThe body of the request take a JSON object with the following parameters: *repositoryName*, *authenticationType* and *datasourceType* which are mandatory and also *authenticationData* and *datasourceData* which are optional.\n\nWhile the *authenticationType* value can be empty, the *repositoryName* and the *datasourceType* values cannot.\n\nBy default you can use the following values to manage your repositories:\n  * *authenticationType* can take:\n    * an empty value\n    * LDAP\n    * FILE\n    * LDAP_FILE\n    * USERPROFILE\n    * LDAP_USERPROFILE\n  * *datasourceType* can take:\n    * H2_EMBEDDED\n    * H2_SERVER\n\nYou can also contribute your own extensions and use the key value of your extension as described in the Administration Server [documentation](../Obeo_Designer_Team_Administration_Server.html#Contribute_administration_server).\n\nThose values describe how your repository will manage authentication and database.\n\nAs the optional parameters (*authenticationData* and *datasourceDat*) depends on the mandatory parameters, we will use examples to describe how to use them.\n\nThe repository is started after its creation and lifecycle hooks are called before and after its start.\n",
+        "requestBody": {
+          "description": "See example descriptions.",
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/NewRepository"
+              },
+              "examples": {
+                "No authentication, H2 Embedded": {
+                  "description": "Create a repository without authentication with an H2 embedded database.\n\nWith an empty value set to _authenticationType_ your repository will not have authentication. With _H2_EMBEDDED_ value set to _datasourceType_ your repository database will be an h2 embedded database.\n",
+                  "value": {
+                    "repositoryName": "repository-without-authentication",
+                    "authenticationType": "",
+                    "datasourceType": "H2_EMBEDDED"
+                  }
+                },
+                "No authentication, H2 Server": {
+                  "description": "Create a repository without authentication on H2 server database.\n\nWith an empty value set to _authenticationType_ your repository will not have authentication. With _H2_SERVER_ value set to _datasourceType_ your repository database will be an h2 server database and you will need to provide additional data like the _h2ServerPort_ within the _datasourceData_ map.\n\nThe _h2ServerPort_ is used in the connection between the repository and the h2 database. The _h2ServerPort_ value must be a string.\n\n***Disclaimer***\n\nIf your repository is configured with an h2 server database, we use the IP address of the current machine to set up the h2 server before it starts.\n\nThe attribute \"port\" of datasourceData has been deprecated in favor of \"h2ServerPort\". This changes has been made to avoid confusion with the port used to connect to the repository.\n",
+                  "value": {
+                    "repositoryName": "repository-without-authentication",
+                    "authenticationType": "",
+                    "datasourceType": "H2_SERVER",
+                    "datasourceData": {
+                      "h2ServerPort": "9092"
+                    }
+                  }
+                },
+                "LDAP authentication, H2 Embedded": {
+                  "description": "Create a repository with LDAP authentication on H2 embedded database.\n\nWith _LDAP_ value set to _authenticationType_, your repository will use LDAP to authenticate users who have the right to modify the repository. You will need to provide within the _authenticationData_ map the same data described in the *Configure LDAP* section of the Administrator manual available in the integrated help of Obeo Designer Team Edition, namely:\n- the url (url)\n- the distinguished names (dnPattern)\n- If TLS is enabled [Optional] (isTlsEnabled)\n- the trust store path [Optional] (trustStorePath): needed only if TLS is enabled\n- the trust store passphrase [Optional] (trustStorePassphrase): needed only if TLS is enabled\n\n***Note:*** An H2 server database can be used instead of an H2 embedded database. Select a sample with _H2 Server_ see how to create a repository with this kind of database.\n",
+                  "value": {
+                    "repositoryName": "repository-with-ldap",
+                    "authenticationType": "LDAP",
+                    "authenticationData": {
+                      "url": "ldap://localhost:10389",
+                      "dnPattern": "cn={user},ou=people,o=sevenSeas"
+                    },
+                    "datasourceType": "H2_EMBEDDED"
+                  }
+                },
+                "UserManager authentication, H2 Embedded": {
+                  "description": "Create a repository with User manager authentication on H2 embedded database.\n\nWith _FILE_ value set to the _authenticationType_, your repository will use the user manager to authorize registered user to modify the repository. You will need to provide within the _authenticationData_ map a list of users used to populate the _users.properties_ file as described in the _Authenticated Configuration_ section of the Administrator manual available in the integrated help of Obeo Designer Team Edition. The list of users is an array of map containing at least the _login_ and _password_ keys.\n\n  ***Note:*** An H2 server database can be used instead of an H2 embedded database. Select a sample with _H2 Server_ see how to create a repository with this kind of database.\n",
+                  "value": {
+                    "repositoryName": "repository-with-file",
+                    "authenticationType": "FILE",
+                    "authenticationData": {
+                      "users": [
+                        {
+                          "login": "Horatio Nelson",
+                          "password": "pass"
+                        }
+                      ]
+                    },
+                    "datasourceType": "H2_EMBEDDED"
+                  }
+                },
+                "UserManager + LDAP authentication, H2 Embedded": {
+                  "description": "Create a repository with user manager and LDAP authentication on H2 embedded database.\n\nWith _LDAP_FILE_ value set to _authenticationType_, your repository will use the user manager to register to authorize registered user to modify the repository and use LDAP to authenticate them. You will need to provide within the _authenticationData_ map a list of users used to populate the _users.properties_ file and also additional data to handle LDAP as as described in the _Configure LDAP_ section of the Administrator manual available in the integrated help of Obeo Designer Team Edition.\n\nThe list of users is an array of map containing at least the _login_ keys. The additional data needed to handle LDAP are :\n- the url (url)\n- the distinguished names (dnPattern)\n- if TLS is enable [Optional] (isTlsEnabled)\n- the trust store path [Optional] (trustStorePath): needed only if TLS is enabled\n- the trust store passphrase [Optional] (trustStorePassphrase): needed only if TLS is enabled\n\n ***Note:*** An H2 server database can be used instead of an H2 embedded database. Select a sample with _H2 Server_ see how to create a repository with this kind of database.\n",
+                  "value": {
+                    "repositoryName": "repository-with-file-ldap",
+                    "authenticationType": "LDAP_FILE",
+                    "authenticationData": {
+                      "url": "ldap://localhost:10389",
+                      "dnPattern": "cn={user},ou=people,o=sevenSeas",
+                      "users": [
+                        {
+                          "login": "Horatio Nelson"
+                        }
+                      ]
+                    },
+                    "datasourceType": "H2_EMBEDDED"
+                  }
+                },
+                "UserProfile authentication, H2 Embedded": {
+                  "description": "Create a repository with user profile authentication on H2 embedded database.\n\nWith _USERPROFILE_ value set to the _authenticationType_, your repository will use the user profile to manage authorization on your repository. You will need to provide within the _authenticationData_ map a list of administrators used to populate the user profile model with users who have the write right on the repository as as described in the_User Profile Configuration_ section of the Administrator manual available in the integrated help of Obeo Designer Team Edition. The list of administrators is an array of map containing at least the _login_ and _password_ keys.\n\n***Note:*** An H2 server database can be used instead of an H2 embedded database. Select a sample with _H2 Server_ see how to create a repository with this kind of database.\n",
+                  "value": {
+                    "repositoryName": "repository-with-userprofile",
+                    "authenticationType": "USERPROFILE",
+                    "authenticationData": {
+                      "administrators": [
+                        {
+                          "login": "Horatio Nelson",
+                          "password": "pass"
+                        }
+                      ]
+                    },
+                    "datasourceType": "H2_EMBEDDED"
+                  }
+                },
+                "UserProfile + LDAP authentication, H2 Embedded": {
+                  "description": "Create a repository with user profile and LDAP authentication on H2 embedded database.\n\nWith _LDAP_USERPROFILE_ value set to the _authenticationType_, your repository will use the user profile to manage authorization on your repository. You will need to provide within the _authenticationData_ map a list of administrators used to populate the user profile model with users who have the write right on the repository and also additional data to handle LDAP as described in the _Configure LDAP_ section of the Administrator manual available in the integrated help of Obeo Designer Team Edition.\n\nThe list of administrators is an array of map containing at least the _login_ key. The additional data needed to handle LDAP are :\n- the url (url)\n- the distinguished names (dnPattern)\n- if TLS is enabled [Optional] (isTlsEnabled)\n- the trust store path [Optional] (trustStorePath): needed only if TS is enabled\n- the trust store passphrase [Optional] (trustStorePassphrase): needed only if TLS is enabled\n\n***Note:*** An H2 server database can be used instead of an H2 embedded database. Select a sample with _H2 Server_ see how to create a repository with this kind of database.\n",
+                  "value": {
+                    "repositoryName": "repository-with-userprofile-ldap",
+                    "authenticationType": "LDAP_USERPROFILE",
+                    "authenticationData": {
+                      "url": "ldap://localhost:10389",
+                      "dnPattern": "cn={user},ou=people,o=sevenSeas",
+                      "administrators": [
+                        {
+                          "login": "Horatio Nelson"
+                        }
+                      ]
+                    },
+                    "datasourceType": "H2_EMBEDDED"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Repository response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "repository": {
+                      "$ref": "#/components/schemas/Repository"
+                    },
+                    "message": {
+                      "type": "string"
+                    },
+                    "status": {
+                      "type": "string"
+                    }
+                  }
+                },
+                "examples": {
+                  "No authentication, H2 Embedded": {
+                    "value": {
+                      "repository": {
+                        "name": "repository-without-authentication",
+                        "status": "ONLINE",
+                        "type": "DYNAMIC",
+                        "authenticationType": "",
+                        "datasourceType": "H2_EMBEDDED"
+                      },
+                      "message": "The repository repository-without-authentication has been created.",
+                      "status": 201
+                    }
+                  },
+                  "No authentication, H2 Server": {
+                    "value": {
+                      "repository": {
+                        "name": "repository-without-authentication",
+                        "status": "ONLINE",
+                        "type": "DYNAMIC",
+                        "authenticationType": "",
+                        "datasourceType": "H2_SERVER"
+                      },
+                      "message": "The repository repository-without-authentication3 has been created.",
+                      "status": 201
+                    }
+                  },
+                  "LDAP authenticationn, H2 Embedded": {
+                    "value": {
+                      "repository": {
+                        "name": "repository-with-ldap",
+                        "status": "ONLINE",
+                        "type": "DYNAMIC",
+                        "authenticationType": "LDAP",
+                        "datasourceType": "H2_EMBEDDED"
+                      },
+                      "message": "The repository repository-with-ldap has been created.",
+                      "status": 201
+                    }
+                  },
+                  "UserManager authentication, H2 Embedded": {
+                    "value": {
+                      "repository": {
+                        "name": "repository-with-file",
+                        "status": "ONLINE",
+                        "type": "DYNAMIC",
+                        "authenticationType": "FILE",
+                        "datasourceType": "H2_EMBEDDED"
+                      },
+                      "message": "The repository repository-with-file has been created.",
+                      "status": 201
+                    }
+                  },
+                  "UserManager + LDAP authentication, H2 Embedded": {
+                    "value": {
+                      "repository": {
+                        "name": "repository-with-file-ldap",
+                        "status": "ONLINE",
+                        "type": "DYNAMIC",
+                        "authenticationType": "LDAP_FILE",
+                        "datasourceType": "H2_EMBEDDED"
+                      },
+                      "message": "The repository repository-with-file-ldap has been created.",
+                      "status": 201
+                    }
+                  },
+                  "UseUserProfilerManager authentication, H2 Embedded": {
+                    "value": {
+                      "repository": {
+                        "name": "repository-with-userprofile",
+                        "status": "ONLINE",
+                        "type": "DYNAMIC",
+                        "authenticationType": "USERPROFILE",
+                        "datasourceType": "H2_EMBEDDED"
+                      },
+                      "message": "The repository repository-with-userprofile has been created.",
+                      "status": 201
+                    }
+                  },
+                  "UserProfile + LDAP authentication, H2 Embedded": {
+                    "value": {
+                      "repository": {
+                        "name": "repository-with-userprofile-ldap",
+                        "status": "ONLINE",
+                        "type": "DYNAMIC",
+                        "authenticationType": "LDAP_USERPROFILE",
+                        "datasourceType": "H2_EMBEDDED"
+                      },
+                      "message": "The repository repository-with-userprofile-ldap has been created.",
+                      "status": 201
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request\n\nSome parameters depend on the repository type (authentication and database), their validation is done by the corresponding extensions. \n",
+            "content": {
+              "application/json": {
+                "example": {
+                  "message": "The repository repository-with-userprofile-ldap has not been created.",
+                  "status": 400,
+                  "error": "The url to the ldap server is empty."
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal error\n\nSomething unexpected occurred during the repository creation.\n",
+            "content": {
+              "application/json": {
+                "example": {
+                  "message": "The repository repository-with-userprofile-ldap has not been created.",
+                  "status": 500,
+                  "error": "An error occurred during the repository configuration: The h2 server was not able to start.\nException: ...."
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/repositories/{repositoryId}": {
+      "delete": {
+        "tags": [
+          "Repositories"
+        ],
+        "summary": "Delete a repository",
+        "operationId": "deleteRepository",
+        "description": "Delete a repository that was created using the *create repository* web service.\n\nThe deletetion of repository removes the folder and all of its content in the directory that contains the repositories. This directory can be configured in the properties files of the administration server as described in [Administration Server configuration](../Obeo_Designer_Team_Administration_Server.html#Webservice_configuration).\n\nNo effect on static repositories.\n",
+        "parameters": [
+          {
+            "name": "repositoryId",
+            "in": "path",
+            "required": true,
+            "description": "id of a repository",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "deleteDatabase",
+            "in": "query",
+            "required": false,
+            "description": "Parameter to indicate if the databse must be deleted or kep. true by default. No effect for the moment",
+            "schema": {
+              "type": "boolean"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Ok",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "repositoryName": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    },
+                    "status": {
+                      "type": "string"
+                    }
+                  }
+                },
+                "example": {
+                  "repositoryName": "repository-without-authentication",
+                  "isDatabaseDeleted": true,
+                  "message": "The repository repository-without-authentication has been completely deleted.",
+                  "status": 200
+                }
+              }
+            }
+          },
+          "204": {
+            "description": "No Content"
+          },
+          "404": {
+            "description": "Not Found",
+            "content": {
+              "application/json": {
+                "example": {
+                  "error": "The repository SampleRepository has not been found.",
+                  "message": "The repository SampleRepository has not been deleted.",
+                  "status": 404
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Server error for static repository",
+            "content": {
+              "application/json": {
+                "example": {
+                  "error": "Something happens during the repository deletion: The repository designer-server could not to be stopped because the file used to store repository data has not been found.",
+                  "message": "The repository repository-with has not been deleted.",
+                  "status": 500
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/repositories/start/{repositoryId}": {
+      "get": {
+        "summary": "Create a repository",
+        "operationId": "startRepository",
+        "tags": [
+          "Repositories"
+        ],
+        "description": "Start a repository that was created using the web service to create a repository.\n\nThe lifecycle hooks will be called before and after its start.\n\nNo effect on static repositories.\n",
+        "parameters": [
+          {
+            "name": "repositoryId",
+            "in": "path",
+            "required": true,
+            "description": "id of a repository",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Ok",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "repository": {
+                      "$ref": "#/components/schemas/Repository"
+                    },
+                    "message": {
+                      "type": "string"
+                    },
+                    "status": {
+                      "type": "string"
+                    }
+                  }
+                },
+                "example": {
+                  "repository": {
+                    "name": "SampleRepository",
+                    "status": "ONLINE",
+                    "type": "DYNAMIC",
+                    "authenticationType": "LDAP_USERPROFILE",
+                    "datasourceType": "H2_EMBEDDED"
+                  },
+                  "message": "The repository uc1 has been started.",
+                  "status": 200
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Ko",
+            "content": {
+              "application/json": {
+                "example": {
+                  "error": "The repository SampleRepository is not stopped.",
+                  "message": "The repository SampleRepository has not been started.",
+                  "status": 400
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not Found",
+            "content": {
+              "application/json": {
+                "example": {
+                  "error": "The repository SampleRepository has not been found.",
+                  "message": "The repository SampleRepository has not been started.",
+                  "status": 404
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/repositories/stop/{repositoryId}": {
+      "get": {
+        "summary": "Stop a repository",
+        "operationId": "stopRepository",
+        "tags": [
+          "Repositories"
+        ],
+        "description": "Stop a repository that was created using the web service to create a repository.\n\nThe lifecycle hooks will be called before and after its stop.\n\nNo effect on static repositories.\n",
+        "parameters": [
+          {
+            "name": "repositoryId",
+            "in": "path",
+            "required": true,
+            "description": "id of a repository",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Ok",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "repository": {
+                      "$ref": "#/components/schemas/SimpleRepository"
+                    },
+                    "message": {
+                      "type": "string"
+                    },
+                    "status": {
+                      "type": "string"
+                    }
+                  }
+                },
+                "example": {
+                  "repository": {
+                    "name": "SampleRepository",
+                    "status": "OFFLINE",
+                    "type": "DYNAMIC"
+                  },
+                  "message": "The repository SampleRepository has been stopped.",
+                  "status": 200
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Not Found",
+            "content": {
+              "application/json": {
+                "example": {
+                  "error": "The repository SampleRepository is not started.",
+                  "message": "The repository SampleRepository has not been stopped.",
+                  "status": 400
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not Found",
+            "content": {
+              "application/json": {
+                "example": {
+                  "error": "The repository SampleRepository has not been found.",
+                  "message": "The repository SampleRepository has not been stopped.",
+                  "status": 404
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Server error for static repository",
+            "content": {
+              "application/json": {
+                "example": {
+                  "error": "An error occurred while stopping the repository: The repository designer-server could not to be stopped because the file used to store repository data has not been found.",
+                  "message": "The repository designer-server has not been stopped.",
+                  "status": 500
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/repositories/export/{repositoryId}": {
+      "post": {
+        "summary": "Export the repository database as xml or encrypted zip file",
+        "operationId": "exportRepository",
+        "tags": [
+          "Repositories"
+        ],
+        "description": "Export the database of the repository into an xml file.\n\nThe body of the request take two parameters: *needsEncryption* which is mandatory and *password* which is optional but needed if *needsEncryption* is set to true.\n\nAs the export of the database can take time, the web service will schedule an asynchronous job and return the link where you will be able to download the file in the response under the *url* attribute.\n\nIf *needsEncryption* is set to false the export of the database will create an xml file representing the CDO database in the *export* folder which can be configured in the properties files of the Administration Server as described in [Administration Server configuration](../Obeo_Designer_Team_Administration_Server.html#Webservice_configuration). If *needsEncryption* is set to true then an encrypted zip file containing the xml file will be created instead.\n",
+        "parameters": [
+          {
+            "name": "repositoryId",
+            "in": "path",
+            "required": true,
+            "description": "id of a repository",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "description": "Export parameters",
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "required": [
+                  "needsEncryption"
+                ],
+                "properties": {
+                  "needsEncryption": {
+                    "type": "boolean"
+                  },
+                  "password": {
+                    "type": "string",
+                    "format": "password"
+                  }
+                }
+              },
+              "examples": {
+                "encryptedExport": {
+                  "value": {
+                    "needsEncryption": true,
+                    "password": "aPassword"
+                  }
+                },
+                "clearExport": {
+                  "value": {
+                    "needsEncryption": false
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "202": {
+            "description": "Ok",
+            "content": {
+              "application/json": {
+                "examples": {
+                  "encryptedExport": {
+                    "value": {
+                      "url": "http://localhost:8080/api/v1.0/exports/uc2/uc2_200306122313+0100.zip",
+                      "repository": "SampleRepository",
+                      "message": "The export for the repository uc2 as been launched. You will be able to retrieved the exported data at the url: http://localhost:8080/api/v1.0/exports/uc2/uc2_200306122313+0100.zip",
+                      "status": 202
+                    }
+                  },
+                  "clearExport": {
+                    "value": {
+                      "url": "http://localhost:8080/api/v1.0/exports/uc2/uc2_200306122258+0100.xml",
+                      "repository": "SampleRepository",
+                      "message": "The export for the repository uc2 as been launched. You will be able to retrieved the exported data at the url: http://localhost:8080/api/v1.0/exports/uc2/uc2_200306122258+0100.xml",
+                      "status": 202
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad request",
+            "content": {
+              "application/json": {
+                "example": {
+                  "error": "NO_ISSUE_DIAGNOSTIC",
+                  "message": "The repository repository-with-file will not be exported.",
+                  "status": 400
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not Found",
+            "content": {
+              "application/json": {
+                "example": {
+                  "error": "The repository SampleRepository has not been found.",
+                  "message": "The repository SampleRepository will not be exported.",
+                  "status": 404
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/repositories/import/{repositoryId}": {
+      "post": {
+        "summary": "Restores the repository database from an xml file",
+        "operationId": "importRepository",
+        "tags": [
+          "Repositories"
+        ],
+        "description": "Restore a repository from the uploaded xml file.\n\nThis file must be a backup of the database.\n\nAs this API needs a file, we suggest you to use the input file of your favorite browser in order to let it set the correct headers for the upload of the file.\nAs the import of the database can take time, the web service will schedule an asynchronous job.\n\nThe state (ONLINE | OFFLINE) of the repository will be the same after the import as before the import.\n\nStatic repositories are not managed.\n",
+        "parameters": [
+          {
+            "name": "repositoryId",
+            "in": "path",
+            "required": true,
+            "description": "id of a repository",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "description": "content to upload",
+          "required": true,
+          "content": {
+            "multipart/form-data": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "upFile": {
+                    "type": "string",
+                    "format": "binary"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "202": {
+            "description": "Request accepted",
+            "content": {
+              "appication/json": {
+                "example": {
+                  "repository": "SampleRespository",
+                  "message": "The data are being imported to the repository SampleRepository. The state of the repository will be the same after and before the import.",
+                  "status": 202
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "appication/json": {
+                "examples": {
+                  "Wrong kind of request": {
+                    "value": {
+                      "error": "javax.servlet.ServletException: Not a multipart request!",
+                      "status": 400
+                    }
+                  },
+                  "Connected users": {
+                    "value": {
+                      "message": "The import of the repository repository-with-userprofile will not be launched.",
+                      "status": 400,
+                      "error": "The import will not be executed because some connections remains (alice, bob)"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not Found",
+            "content": {
+              "application/json": {
+                "example": {
+                  "error": "The repository SampleRepository has not been found.",
+                  "message": "The import of the repository SampleRepository will not be launched.",
+                  "status": 404
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/projects": {
+      "post": {
+        "summary": "Create a new shared modeling project",
+        "operationId": "createSharedProject",
+        "tags": [
+          "Projects"
+        ],
+        "description": "Create an empty shared modeling project.\n\nThe repository where you want to create the shared modeling project should be started.\n\nThe project post creation lifcycle hook will be called after the project creation.\nFor example, the user profile extension lifecycle hook will create roles for users. The name of the created role will have the project name and will authorize a user to create, read, update and delete resources inside the project.\n",
+        "requestBody": {
+          "description": "If the repository uses the user profiles to manage its users, the post created project lifecycle hook will create roles that will allow to give write access to users for the project.\n",
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "required": [
+                  "projectName",
+                  "repositoryName"
+                ],
+                "properties": {
+                  "projectName": {
+                    "type": "string"
+                  },
+                  "repositoryName": {
+                    "type": "string"
+                  }
+                }
+              },
+              "example": {
+                "projectName": "Awesome-project",
+                "repositoryName": "SampleRepository"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Ok",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "projectName": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    },
+                    "status": {
+                      "type": "string"
+                    }
+                  }
+                },
+                "example": {
+                  "projectName": "Awesome-project",
+                  "message": "The project Awesome-project has been successfully created in the repository repo.",
+                  "status": 201
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not Found",
+            "content": {
+              "application/json": {
+                "example": {
+                  "error": "The repository SampleRepository has not been found.",
+                  "message": "The project Awesome-project has not been created.",
+                  "status": 404
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/users": {
+      "get": {
+        "tags": [
+          "Users"
+        ],
+        "summary": "List all users of a repository",
+        "operationId": "listUsers",
+        "description": "List all users the given repository.\n",
+        "parameters": [
+          {
+            "name": "repositoryName",
+            "in": "query",
+            "required": true,
+            "description": "id of a repository",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Ok",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "repositoryName": {
+                      "type": "string"
+                    },
+                    "users": {
+                      "type": "array",
+                      "items": {
+                        "$ref": "#/components/schemas/User"
+                      }
+                    },
+                    "message": {
+                      "type": "string"
+                    },
+                    "status": {
+                      "type": "string"
+                    }
+                  }
+                },
+                "example": {
+                  "repositoryName": "repository-with-userprofile",
+                  "users": [
+                    {
+                      "id": "Horatio Nelson",
+                      "isAdmin": true,
+                      "permissions": []
+                    }
+                  ],
+                  "message": "The list of users for the repository repository-with-userprofile.",
+                  "status": 200
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Not Found",
+            "content": {
+              "application/json": {
+                "example": {
+                  "error": "The repository SampleRepository has not been found.",
+                  "message": "Users cannot be listed on repository SampleRepository.",
+                  "status": 400
+                }
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "Users"
+        ],
+        "summary": "Create a new user to the repository",
+        "operationId": "addUser",
+        "description": "Create a user in the repository.\n\nThe body of the request take a JSON object with the following parameters: *id*, *isAdministrator*, *password* and *permissions*.\nThe *id* and *isAdministrator* are mandatory.\n\nThe *password* is required if the repository authentication is not managed with LDAP.\n\nThe *permissions* parameter is used for repositories with authorization managed with user profiles. This parameter is an array of project name which will be used to grant writing rights to the user for those projects.\n",
+        "parameters": [
+          {
+            "name": "repositoryName",
+            "in": "query",
+            "required": true,
+            "description": "id of a repository",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "description": "User to create.",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/NewUser"
+              },
+              "examples": {
+                "Admin": {
+                  "value": {
+                    "id": "Horatio Nelson",
+                    "isAdmin": true,
+                    "password": "samplePassword",
+                    "permissions": []
+                  }
+                },
+                "User with permissions": {
+                  "description": "This example will create the user \"John Fryer\". It can be used in USERPROFILE repository. A password is provided as the repository is not a LDAP_USERPROFILE repository. \n \nWe do not want \"John Fryer\" to be an administrator but we want give him the writing rights on the \"Awesome-project\" project.\n",
+                  "value": {
+                    "id": "John Fryer",
+                    "isAdmin": false,
+                    "password": "samplePassword",
+                    "permissions": [
+                      "Awesome-project"
+                    ]
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Ok",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "user": {
+                      "$ref": "#/components/schemas/User"
+                    },
+                    "repositoryName": {
+                      "type": "string"
+                    },
+                    "projectNames": {
+                      "type": "array",
+                      "items": {
+                        "type": "string"
+                      }
+                    },
+                    "message": {
+                      "type": "string"
+                    },
+                    "status": {
+                      "type": "string"
+                    }
+                  }
+                },
+                "examples": {
+                  "Admin": {
+                    "value": {
+                      "user": {
+                        "id": "Horatio Nelson",
+                        "isAdmin": true,
+                        "permissions": []
+                      },
+                      "repositoryName": "repository-with-userprofile",
+                      "projectNames": [
+                        "Awesome-project"
+                      ],
+                      "message": "The user Horatio Nelson has been created in the repository repository-with-userprofile.",
+                      "status": 201
+                    }
+                  },
+                  "User with permissions": {
+                    "value": {
+                      "user": {
+                        "id": "John Fryer",
+                        "isAdmin": false,
+                        "permissions": [
+                          "Awesome-project"
+                        ]
+                      },
+                      "repositoryName": "repository-with-userprofile",
+                      "projectNames": [
+                        "Awesome-project"
+                      ],
+                      "message": "The user Horatio Nelson has been created in the repository repository-with-userprofile.",
+                      "status": 201
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "examples": {
+                  "Respository not found": {
+                    "value": {
+                      "error": "The repository SampleRepository has not been found.",
+                      "message": "The user Horatio Nelson4 cannot be created.",
+                      "status": 400
+                    }
+                  },
+                  "Existing user": {
+                    "value": {
+                      "error": "The user is already registered for repository repository-with-userprofile.",
+                      "message": "The user Horatio Nelson cannot be created.",
+                      "status": 400
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/users/{userName}": {
+      "put": {
+        "tags": [
+          "Users"
+        ],
+        "summary": "Update the user of the repository",
+        "operationId": "updateUser",
+        "description": "Update user data.\n\nThe behavior of this service is to delete and recreate the user with the new data.\n\nThe body of the request takes the same data than the creation request.\n",
+        "parameters": [
+          {
+            "name": "userName",
+            "in": "path",
+            "required": true,
+            "description": "id of a user",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "repositoryName",
+            "in": "query",
+            "required": true,
+            "description": "id of a repository",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "description": "New user data.",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/NewUser"
+              },
+              "example": {
+                "id": "Horatio Nelson",
+                "isAdmin": false,
+                "password": "samplePassword",
+                "permissions": [
+                  "Other-project"
+                ]
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Ok",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "user": {
+                      "$ref": "#/components/schemas/User"
+                    },
+                    "repositoryName": {
+                      "type": "string"
+                    },
+                    "projectNames": {
+                      "type": "array",
+                      "items": {
+                        "type": "string"
+                      }
+                    },
+                    "message": {
+                      "type": "string"
+                    },
+                    "status": {
+                      "type": "string"
+                    }
+                  }
+                },
+                "example": {
+                  "user": {
+                    "id": "Horatio Nelson",
+                    "isAdmin": false,
+                    "permissions": [
+                      "Other-project"
+                    ]
+                  },
+                  "repositoryName": "repository-with-userprofile",
+                  "projectNames": [
+                    "Awesome-project",
+                    "Other-project"
+                  ],
+                  "message": "The user Horatio Nelson has been updated in the repository repository-with-userprofile.",
+                  "status": 201
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "examples": {
+                  "Respository not found": {
+                    "value": {
+                      "error": "The repository SampleRepository has not been found.",
+                      "message": "The user Horatio Nelson has not been updated in the repository SampleRepository.",
+                      "status": 400
+                    }
+                  },
+                  "Different user name in data": {
+                    "value": {
+                      "error": "The user name of the user (John Fryer) to update is not the same than the user name provided in data used to update (John Fryer2).",
+                      "message": "The user John Fryer has not been updated in the repository SampleRepository.",
+                      "status": 400
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not Found",
+            "content": {
+              "application/json": {
+                "example": {
+                  "error": "The user John Fryer has not been found in the repository repository-with-userprofile.",
+                  "message": "The user John Fryers has not been updated in the repository repository-with-userprofile.",
+                  "status": 404
+                }
+              }
+            }
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "Users"
+        ],
+        "summary": "Delete the user from the repository",
+        "operationId": "delteUser",
+        "description": "Deletes the user from the repository.\n",
+        "parameters": [
+          {
+            "name": "userName",
+            "in": "path",
+            "required": true,
+            "description": "id of a user",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "repositoryName",
+            "in": "query",
+            "required": true,
+            "description": "id of a repository",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Ok",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "repositoryName": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    },
+                    "status": {
+                      "type": "string"
+                    }
+                  }
+                },
+                "example": {
+                  "repositoryName": "repository-with-userprofile",
+                  "message": "The user Horatio Nelson has been deleted from the repository repository-with-userprofile.",
+                  "status": 200
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "example": {
+                  "error": "The repository repository-with-userprofile has not been found.",
+                  "message": "The user Horatio Nelson has not been deleted from the repository repository-with-userprofile.",
+                  "status": 400
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not Found",
+            "content": {
+              "application/json": {
+                "example": {
+                  "error": "The user Horatio Nelson has not been found in the repository repository-with-userprofile.",
+                  "message": "The user Horatio Nelson has not been deleted from the repository repository-with-userprofile.",
+                  "status": 404
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "SimpleRepository": {
+        "type": "object",
+        "properties": {
+          "repositorName": {
+            "type": "string"
+          },
+          "status": {
+            "type": "string",
+            "enum": [
+              "ONLINE",
+              "OFFLINE"
+            ]
+          },
+          "type": {
+            "type": "string",
+            "enum": [
+              "STATIC",
+              "DYNAMIC"
+            ]
+          }
+        }
+      },
+      "Repository": {
+        "type": "object",
+        "properties": {
+          "repositorName": {
+            "type": "string"
+          },
+          "status": {
+            "type": "string",
+            "enum": [
+              "ONLINE",
+              "OFFLINE"
+            ]
+          },
+          "type": {
+            "type": "string",
+            "enum": [
+              "STATIC",
+              "DYNAMIC"
+            ]
+          },
+          "authenticationType": {
+            "type": "string",
+            "enum": [
+              "",
+              "LDAP",
+              "USERPROFILE",
+              "LDAP_USERPROFILE",
+              "FILE",
+              "LDAP_FILE"
+            ]
+          },
+          "datasourceType": {
+            "type": "string",
+            "enum": [
+              "H2_EMBEDDED",
+              "H2_SERVER"
+            ]
+          }
+        }
+      },
+      "NewRepository": {
+        "type": "object",
+        "required": [
+          "repositoryName",
+          "authenticationType",
+          "datasourceType"
+        ],
+        "properties": {
+          "repositorName": {
+            "type": "string"
+          },
+          "authenticationType": {
+            "type": "string",
+            "enum": [
+              "",
+              "LDAP",
+              "USERPROFILE",
+              "LDAP_USERPROFILE",
+              "FILE",
+              "LDAP_FILE"
+            ]
+          },
+          "authenticationData": {
+            "type": "string"
+          },
+          "datasourceType": {
+            "type": "string",
+            "enum": [
+              "H2_EMBEDDED",
+              "H2_SERVER"
+            ]
+          },
+          "datasourceData": {
+            "type": "string"
+          }
+        }
+      },
+      "User": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "isAdmin": {
+            "type": "boolean"
+          },
+          "permissions": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          }
+        }
+      },
+      "NewUser": {
+        "type": "object",
+        "required": [
+          "id",
+          "isAdmin"
+        ],
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "password": {
+            "type": "string",
+            "format": "password"
+          },
+          "isAdmin": {
+            "type": "boolean"
+          },
+          "permissions": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          }
+        }
+      }
+    },
+    "securitySchemes": {
+      "basicAuth": {
+        "type": "http",
+        "scheme": "basic"
+      }
+    }
+  },
+  "security": [
+    {
+      "basicAuth": []
+    }
+  ]
+}

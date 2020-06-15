@@ -91,12 +91,13 @@ public class SoaComponentBuilder {
 	private static final String DEFAULT_FOR_UNNAMED = "unnamed";
 	private static final String BODY_PARAMETER_NAME = "body";
 	private static final String DEFAULT_SERVICE_NAME = "Default";
+	private static final String TOO_WILD_TO_BE_NAMED_DTO = "Data";
 	
 	private static final String QUALIFIED_PATH_SEPARATOR = "/";
 	
 	private static final Predicate<String> PATH_PARAM_PATTERN_PREDICATE = Pattern.compile("\\{[^}]+\\}").asPredicate();
 	
-	int status;
+	private int status;
 	private OpenAPI openApi;
 	private Environment environment;
 	private Component soaComponent;
@@ -322,7 +323,12 @@ public class SoaComponentBuilder {
 				StructuredType usingType = (StructuredType) usingProperty.eContainer();
 				inlineTypeName = usingType.getName() + upperFirst(usingProperty.getName());
 			} else {
-				inlineTypeName = usingProperties.stream().map(p -> upperFirst(p.getName())).collect(toSet()).stream().collect(joining());
+				Set<String> distinctUsingPropertyNames = usingProperties.stream().map(p -> upperFirst(p.getName())).collect(toSet());
+				if(distinctUsingPropertyNames.size() > 3) {
+					inlineTypeName = TOO_WILD_TO_BE_NAMED_DTO;
+				} else {
+					inlineTypeName = usingProperties.stream().map(p -> upperFirst(p.getName())).collect(toSet()).stream().collect(joining());
+				}
 			}
 			
 			inlineTypeName = toUniqueName(typesContainer, inlineTypeName);

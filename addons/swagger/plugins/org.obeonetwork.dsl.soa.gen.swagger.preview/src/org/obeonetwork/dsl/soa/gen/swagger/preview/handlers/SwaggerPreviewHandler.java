@@ -65,7 +65,7 @@ public class SwaggerPreviewHandler extends AbstractHandler implements IHandler {
 			SwaggerExporter swaggerExporter = new SwaggerExporter(component);
 			swaggerExporter.setOutputFormat(MAPPER_TYPE);
 			String swaggerFileName = swaggerExporter.getOutputFileName();
-			File swaggerFile = File.createTempFile(Files.getNameWithoutExtension(swaggerFileName), Files.getFileExtension(swaggerFileName));
+			File swaggerFile = File.createTempFile(Files.getNameWithoutExtension(swaggerFileName), "." + Files.getFileExtension(swaggerFileName));
 			swaggerFile.deleteOnExit();
 			
 			swaggerExporter.exportInFile(swaggerFile);

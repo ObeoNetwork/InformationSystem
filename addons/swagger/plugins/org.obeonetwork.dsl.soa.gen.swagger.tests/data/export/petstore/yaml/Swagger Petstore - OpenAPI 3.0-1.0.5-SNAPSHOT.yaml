@@ -525,66 +525,6 @@ components:
           type: string
         message:
           type: string
-    OrderStatus:
-      type: string
-      enum:
-      - approved
-      - placed
-      - delivered
-    Order:
-      type: object
-      properties:
-        petId:
-          type: integer
-          format: int64
-        quantity:
-          type: integer
-          format: int32
-        id:
-          type: integer
-          format: int64
-        shipDate:
-          type: string
-          format: date-time
-        complete:
-          type: boolean
-        status:
-          $ref: '#/components/schemas/OrderStatus'
-    User:
-      type: object
-      properties:
-        firstName:
-          type: string
-        lastName:
-          type: string
-        password:
-          type: string
-        userStatus:
-          type: integer
-          format: int32
-        phone:
-          type: string
-        id:
-          type: integer
-          format: int64
-        email:
-          type: string
-        username:
-          type: string
-    Category:
-      type: object
-      properties:
-        name:
-          type: string
-        id:
-          type: integer
-          format: int64
-    PetStatus:
-      type: string
-      enum:
-      - sold
-      - pending
-      - available
     Pet:
       required:
       - name
@@ -610,7 +550,67 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/Tag'
+    User:
+      type: object
+      properties:
+        firstName:
+          type: string
+        lastName:
+          type: string
+        password:
+          type: string
+        userStatus:
+          type: integer
+          format: int32
+        phone:
+          type: string
+        id:
+          type: integer
+          format: int64
+        email:
+          type: string
+        username:
+          type: string
+    Order:
+      type: object
+      properties:
+        petId:
+          type: integer
+          format: int64
+        quantity:
+          type: integer
+          format: int32
+        id:
+          type: integer
+          format: int64
+        shipDate:
+          type: string
+          format: date-time
+        complete:
+          type: boolean
+        status:
+          $ref: '#/components/schemas/OrderStatus'
+    PetStatus:
+      type: string
+      enum:
+      - sold
+      - pending
+      - available
     Tag:
+      type: object
+      properties:
+        name:
+          type: string
+        id:
+          type: integer
+          format: int64
+    OrderStatus:
+      type: string
+      enum:
+      - approved
+      - placed
+      - delivered
+    Category:
       type: object
       properties:
         name:

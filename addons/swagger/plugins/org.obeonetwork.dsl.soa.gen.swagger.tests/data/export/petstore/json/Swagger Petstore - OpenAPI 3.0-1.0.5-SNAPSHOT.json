@@ -756,34 +756,36 @@
           }
         }
       },
-      "OrderStatus" : {
-        "type" : "string",
-        "enum" : [ "approved", "placed", "delivered" ]
-      },
-      "Order" : {
+      "Pet" : {
+        "required" : [ "name", "photoUrls" ],
         "type" : "object",
         "properties" : {
-          "petId" : {
-            "type" : "integer",
-            "format" : "int64"
+          "photoUrls" : {
+            "minItems" : 1,
+            "type" : "array",
+            "items" : {
+              "type" : "string"
+            }
           },
-          "quantity" : {
-            "type" : "integer",
-            "format" : "int32"
+          "name" : {
+            "type" : "string"
           },
           "id" : {
             "type" : "integer",
             "format" : "int64"
           },
-          "shipDate" : {
-            "type" : "string",
-            "format" : "date-time"
-          },
-          "complete" : {
-            "type" : "boolean"
-          },
           "status" : {
-            "$ref" : "#/components/schemas/OrderStatus"
+            "$ref" : "#/components/schemas/PetStatus"
+          },
+          "category" : {
+            "$ref" : "#/components/schemas/Category"
+          },
+          "tags" : {
+            "minItems" : 0,
+            "type" : "array",
+            "items" : {
+              "$ref" : "#/components/schemas/Tag"
+            }
           }
         }
       },
@@ -818,15 +820,30 @@
           }
         }
       },
-      "Category" : {
+      "Order" : {
         "type" : "object",
         "properties" : {
-          "name" : {
-            "type" : "string"
+          "petId" : {
+            "type" : "integer",
+            "format" : "int64"
+          },
+          "quantity" : {
+            "type" : "integer",
+            "format" : "int32"
           },
           "id" : {
             "type" : "integer",
             "format" : "int64"
+          },
+          "shipDate" : {
+            "type" : "string",
+            "format" : "date-time"
+          },
+          "complete" : {
+            "type" : "boolean"
+          },
+          "status" : {
+            "$ref" : "#/components/schemas/OrderStatus"
           }
         }
       },
@@ -834,40 +851,23 @@
         "type" : "string",
         "enum" : [ "sold", "pending", "available" ]
       },
-      "Pet" : {
-        "required" : [ "name", "photoUrls" ],
+      "Tag" : {
         "type" : "object",
         "properties" : {
-          "photoUrls" : {
-            "minItems" : 1,
-            "type" : "array",
-            "items" : {
-              "type" : "string"
-            }
-          },
           "name" : {
             "type" : "string"
           },
           "id" : {
             "type" : "integer",
             "format" : "int64"
-          },
-          "status" : {
-            "$ref" : "#/components/schemas/PetStatus"
-          },
-          "category" : {
-            "$ref" : "#/components/schemas/Category"
-          },
-          "tags" : {
-            "minItems" : 0,
-            "type" : "array",
-            "items" : {
-              "$ref" : "#/components/schemas/Tag"
-            }
           }
         }
       },
-      "Tag" : {
+      "OrderStatus" : {
+        "type" : "string",
+        "enum" : [ "approved", "placed", "delivered" ]
+      },
+      "Category" : {
         "type" : "object",
         "properties" : {
           "name" : {

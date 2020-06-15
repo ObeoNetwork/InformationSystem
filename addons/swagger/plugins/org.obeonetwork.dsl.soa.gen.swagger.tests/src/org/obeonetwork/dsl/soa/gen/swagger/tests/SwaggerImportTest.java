@@ -1,17 +1,80 @@
 package org.obeonetwork.dsl.soa.gen.swagger.tests;
 
+import static org.obeonetwork.dsl.soa.gen.swagger.tests.TestHelper.assertECoreEquals;
+import static org.obeonetwork.dsl.soa.gen.swagger.tests.TestHelper.createSoaResourceSet;
+import static org.obeonetwork.dsl.soa.gen.swagger.tests.TestHelper.createSoaResourceSetFromBundleEntryPath;
+import static org.obeonetwork.dsl.soa.gen.swagger.tests.TestHelper.createSystem;
+import static org.obeonetwork.dsl.soa.gen.swagger.tests.TestHelper.createTempFolderFromBundleEntryPath;
+import static org.obeonetwork.dsl.soa.gen.swagger.tests.TestHelper.findFirstFile;
+import static org.obeonetwork.dsl.soa.gen.swagger.tests.TestHelper.loadEnvironment;
+
+import java.io.File;
+
+import org.eclipse.emf.ecore.resource.ResourceSet;
 import org.junit.Test;
+import org.obeonetwork.dsl.environment.Environment;
+import org.obeonetwork.dsl.soa.System;
+import org.obeonetwork.dsl.soa.gen.swagger.SwaggerExporter.MapperType;
+import org.obeonetwork.dsl.soa.gen.swagger.SwaggerImporter;
 
 public class SwaggerImportTest {
-
-	@Test
-	public void testImportFromJson() {
+	
+	private static final String INPUT_FOLDER_PATH_FORMAT = "/data/import/%s/%s";
+	private static final String EXPECTED_FOLDER_PATH_FORMAT = "/data/import/%s/xmi";
+	
+	public void testImportFromFile(String testId, MapperType inputFormat) {
+		String inputFolderPath = String.format(INPUT_FOLDER_PATH_FORMAT, testId, inputFormat.toString().toLowerCase());
+		File inputFolder = createTempFolderFromBundleEntryPath(inputFolderPath);
+		File inputFile = findFirstFile(inputFolder);
 		
+		ResourceSet destinationResourceSet = createSoaResourceSet();
+		Environment environment = loadEnvironment(destinationResourceSet);
+		System destinationSystem = createSystem(destinationResourceSet);
+		
+		SwaggerImporter swaggerImporter = new SwaggerImporter(destinationSystem, environment);
+		swaggerImporter.importFromFile(inputFile.getAbsolutePath());
+		
+		String expectedBundleEntryFolderPath = String.format(EXPECTED_FOLDER_PATH_FORMAT, testId);
+		ResourceSet expectedResourceSet = createSoaResourceSetFromBundleEntryPath(expectedBundleEntryFolderPath);
+		System expectedSystem = expectedResourceSet.getResources().stream()
+		.flatMap(resource -> resource.getContents().stream())
+		.filter(root -> root instanceof org.obeonetwork.dsl.soa.System)
+		.map(root -> (org.obeonetwork.dsl.soa.System)root)
+		.findFirst().orElse(null);
+		
+		destinationSystem.setName(expectedSystem.getName());
+		
+		assertECoreEquals("Imported model is different for file " + inputFile.getAbsolutePath(), expectedSystem, destinationSystem); 
 	}
 
 	@Test
-	public void testImportFromYaml() {
-		
+	public void testJsonImportPetstore() {
+		testImportFromFile("petstore", MapperType.JSON);
+	}
+
+	@Test
+	public void testYamlImportPetstore() {
+		testImportFromFile("petstore", MapperType.YAML);
+	}
+
+	@Test
+	public void testJsonImportThetvdb() {
+		testImportFromFile("thetvdb", MapperType.JSON);
+	}
+
+	@Test
+	public void testYamlImportThetvdb() {
+		testImportFromFile("thetvdb", MapperType.YAML);
+	}
+
+	@Test
+	public void testJsonImportOdtsAdminWs() {
+		testImportFromFile("odts-admin-ws", MapperType.JSON);
+	}
+
+	@Test
+	public void testYamlImportOdtsAdminWs() {
+		testImportFromFile("odts-admin-ws", MapperType.YAML);
 	}
 
 }

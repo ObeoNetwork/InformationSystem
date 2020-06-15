@@ -389,6 +389,52 @@ paths:
           description: Bad Request
 components:
   schemas:
+    Users_ListUsersOutput200:
+      type: object
+      properties:
+        repositoryName:
+          type: string
+        message:
+          type: string
+        status:
+          type: string
+        users:
+          minItems: 0
+          type: array
+          items:
+            $ref: '#/components/schemas/User'
+    Repositories_StopRepositoryOutput200:
+      type: object
+      properties:
+        message:
+          type: string
+        status:
+          type: string
+        repository:
+          $ref: '#/components/schemas/SimpleRepository'
+    User:
+      type: object
+      properties:
+        id:
+          type: string
+        isAdmin:
+          type: boolean
+        permissions:
+          minItems: 0
+          type: array
+          items:
+            type: string
+    Status:
+      type: string
+      enum:
+      - ONLINE
+      - OFFLINE
+    Repositories_ImportRepositoryBody:
+      type: object
+      properties:
+        upFile:
+          type: string
+          format: binary
     Repositories_GetRepositoriesOutput200:
       type: object
       properties:
@@ -401,55 +447,6 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/Repository'
-    Repositories_Output201Output200:
-      type: object
-      properties:
-        message:
-          type: string
-        status:
-          type: string
-        repository:
-          $ref: '#/components/schemas/Repository'
-    SimpleRepository:
-      type: object
-      properties:
-        repositorName:
-          type: string
-        type:
-          $ref: '#/components/schemas/Type'
-        status:
-          $ref: '#/components/schemas/Status'
-    Repository:
-      type: object
-      properties:
-        datasourceType:
-          $ref: '#/components/schemas/DatasourceType'
-        authenticationType:
-          $ref: '#/components/schemas/AuthenticationType'
-        repositorName:
-          type: string
-        type:
-          $ref: '#/components/schemas/Type'
-        status:
-          $ref: '#/components/schemas/Status'
-    Repositories_StopRepositoryOutput200:
-      type: object
-      properties:
-        message:
-          type: string
-        status:
-          type: string
-        repository:
-          $ref: '#/components/schemas/SimpleRepository'
-    AuthenticationType:
-      type: string
-      enum:
-      - ""
-      - LDAP_FILE
-      - LDAP
-      - USERPROFILE
-      - LDAP_USERPROFILE
-      - FILE
     Users_Output200:
       type: object
       properties:
@@ -466,6 +463,24 @@ components:
           type: string
         user:
           $ref: '#/components/schemas/User'
+    AuthenticationType:
+      type: string
+      enum:
+      - ""
+      - LDAP_FILE
+      - LDAP
+      - USERPROFILE
+      - LDAP_USERPROFILE
+      - FILE
+    Output200:
+      type: object
+      properties:
+        repositoryName:
+          type: string
+        message:
+          type: string
+        status:
+          type: string
     NewUser:
       required:
       - id
@@ -482,6 +497,74 @@ components:
           type: array
           items:
             type: string
+    Projects_CreateSharedProjectBody:
+      required:
+      - projectName
+      - repositoryName
+      type: object
+      properties:
+        projectName:
+          type: string
+        repositoryName:
+          type: string
+    Repository:
+      type: object
+      properties:
+        datasourceType:
+          $ref: '#/components/schemas/DatasourceType'
+        authenticationType:
+          $ref: '#/components/schemas/AuthenticationType'
+        repositorName:
+          type: string
+        type:
+          $ref: '#/components/schemas/Type'
+        status:
+          $ref: '#/components/schemas/Status'
+    SimpleRepository:
+      type: object
+      properties:
+        repositorName:
+          type: string
+        type:
+          $ref: '#/components/schemas/Type'
+        status:
+          $ref: '#/components/schemas/Status'
+    Projects_CreateSharedProjectOutput201:
+      type: object
+      properties:
+        projectName:
+          type: string
+        message:
+          type: string
+        status:
+          type: string
+    DatasourceType:
+      type: string
+      enum:
+      - H2_EMBEDDED
+      - H2_SERVER
+    Type:
+      type: string
+      enum:
+      - STATIC
+      - DYNAMIC
+    Repositories_Output201Output200:
+      type: object
+      properties:
+        message:
+          type: string
+        status:
+          type: string
+        repository:
+          $ref: '#/components/schemas/Repository'
+    Repositories_ExportRepositoryBody:
+      required:
+      - needsEncryption
+      type: object
+      properties:
+        password: {}
+        needsEncryption:
+          type: boolean
     NewRepository:
       required:
       - authenticationType
@@ -498,86 +581,3 @@ components:
           type: string
         datasourceData:
           type: string
-    User:
-      type: object
-      properties:
-        id:
-          type: string
-        isAdmin:
-          type: boolean
-        permissions:
-          minItems: 0
-          type: array
-          items:
-            type: string
-    Repositories_ExportRepositoryBody:
-      required:
-      - needsEncryption
-      type: object
-      properties:
-        password: {}
-        needsEncryption:
-          type: boolean
-    Projects_CreateSharedProjectOutput201:
-      type: object
-      properties:
-        projectName:
-          type: string
-        message:
-          type: string
-        status:
-          type: string
-    Users_ListUsersOutput200:
-      type: object
-      properties:
-        repositoryName:
-          type: string
-        message:
-          type: string
-        status:
-          type: string
-        users:
-          minItems: 0
-          type: array
-          items:
-            $ref: '#/components/schemas/User'
-    Output200:
-      type: object
-      properties:
-        repositoryName:
-          type: string
-        message:
-          type: string
-        status:
-          type: string
-    Repositories_ImportRepositoryBody:
-      type: object
-      properties:
-        upFile:
-          type: string
-          format: binary
-    Projects_CreateSharedProjectBody:
-      required:
-      - projectName
-      - repositoryName
-      type: object
-      properties:
-        projectName:
-          type: string
-        repositoryName:
-          type: string
-    Status:
-      type: string
-      enum:
-      - ONLINE
-      - OFFLINE
-    DatasourceType:
-      type: string
-      enum:
-      - H2_EMBEDDED
-      - H2_SERVER
-    Type:
-      type: string
-      enum:
-      - STATIC
-      - DYNAMIC
