@@ -1,5 +1,6 @@
 package org.obeonetwork.dsl.soa.gen.swagger.tests;
 
+import static org.junit.Assert.assertTrue;
 import static org.obeonetwork.dsl.soa.gen.swagger.tests.TestHelper.assertECoreEquals;
 import static org.obeonetwork.dsl.soa.gen.swagger.tests.TestHelper.createSoaResourceSet;
 import static org.obeonetwork.dsl.soa.gen.swagger.tests.TestHelper.createSoaResourceSetFromBundleEntryPath;
@@ -10,6 +11,7 @@ import static org.obeonetwork.dsl.soa.gen.swagger.tests.TestHelper.loadEnvironme
 
 import java.io.File;
 
+import org.eclipse.core.runtime.IStatus;
 import org.eclipse.emf.ecore.resource.ResourceSet;
 import org.junit.Test;
 import org.obeonetwork.dsl.environment.Environment;
@@ -32,7 +34,7 @@ public class SwaggerImportTest {
 		System destinationSystem = createSystem(destinationResourceSet);
 		
 		SwaggerImporter swaggerImporter = new SwaggerImporter(destinationSystem, environment);
-		swaggerImporter.importFromFile(inputFile.getAbsolutePath());
+		int status = swaggerImporter.importFromFile(inputFile.getAbsolutePath());
 		
 		String expectedBundleEntryFolderPath = String.format(EXPECTED_FOLDER_PATH_FORMAT, testId);
 		ResourceSet expectedResourceSet = createSoaResourceSetFromBundleEntryPath(expectedBundleEntryFolderPath);
@@ -43,6 +45,8 @@ public class SwaggerImportTest {
 		.findFirst().orElse(null);
 		
 		destinationSystem.setName(expectedSystem.getName());
+		
+		assertTrue("Swagger import returned with error status code", status != IStatus.ERROR);
 		
 		assertECoreEquals("Imported model is different for file " + inputFile.getAbsolutePath(), expectedSystem, destinationSystem); 
 	}

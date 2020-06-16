@@ -1,5 +1,6 @@
 package org.obeonetwork.dsl.soa.gen.swagger.tests;
 
+import static org.junit.Assert.assertTrue;
 import static org.obeonetwork.dsl.soa.gen.swagger.tests.TestHelper.assertFolderEquals;
 import static org.obeonetwork.dsl.soa.gen.swagger.tests.TestHelper.createSoaResourceSetFromBundleEntryPath;
 import static org.obeonetwork.dsl.soa.gen.swagger.tests.TestHelper.createTempFolderFromBundleEntryPath;
@@ -8,6 +9,7 @@ import static org.obeonetwork.dsl.soa.gen.swagger.tests.TestHelper.findFirstComp
 
 import java.io.File;
 
+import org.eclipse.core.runtime.IStatus;
 import org.eclipse.emf.ecore.resource.ResourceSet;
 import org.junit.Test;
 import org.obeonetwork.dsl.soa.Component;
@@ -32,7 +34,9 @@ public class SwaggerGenerationTest {
 		
 		SwaggerExporter swaggerExporter = new SwaggerExporter(component);
 		swaggerExporter.setOutputFormat(outputFormat);
-		swaggerExporter.exportInDir(outputFolder);
+		int status = swaggerExporter.exportInDir(outputFolder);
+		
+		assertTrue("Swagger generation returned with error status code", status != IStatus.ERROR);
 		
 		assertFolderEquals("Swagger generation unexpected folder content.", outputFolder, expectedFolder); 
 	}
