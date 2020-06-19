@@ -5,8 +5,7 @@ Element-Type: testcase
 Element-Version: 3.0
 External-Reference: 
 Id: _6MdHwGNdEeSg_dTG4Ei-uQ
-Runtime-Version: 2.3.0.201806262310
-Save-Time: 1/9/19 6:28 PM
+Save-Time: 6/18/20 4:20 PM
 Testcase-Type: ecl
 
 ------=_.description-216f885c-d591-38ce-8ea2-e4f8cb4d6ffa
@@ -72,8 +71,8 @@ with [get-editor "Buy books Actions Plan" | get-diagram -index 1 | get-edit-part
     get-property className | equals "org.eclipse.sirius.diagram.ui.internal.edit.parts.DNodeEditPart" | verify-true
     get-property itemAddress | equals "[0, 8]" | verify-true
     get-property selected | equals true | verify-true
-    get-property x | equals 25 | verify-true
-    get-property y | equals 54 | verify-true
+    get-property x | equals 30 | verify-true
+    get-property y | equals 55 | verify-true
     get-property width | equals 20 | verify-true
     get-property height | equals 20 | verify-true
     get-property childrenCount | equals 1 | verify-true
@@ -107,8 +106,8 @@ with [get-editor "Buy books Actions Plan" | get-diagram -index 1 | get-edit-part
     get-property text | equals "" | verify-true
     get-property tooltip | equals "" | verify-true
     get-property selected | equals false | verify-true
-    get-property x | equals 108 | verify-true
-    get-property y | equals 54 | verify-true
+    get-property x | equals 105 | verify-true
+    get-property y | equals 55 | verify-true
     get-property width | equals 20 | verify-true
     get-property height | equals 19 | verify-true
     get-property childrenCount | equals 0 | verify-true
@@ -142,8 +141,8 @@ with [get-editor "Buy books Actions Plan" | get-diagram -index 1 | get-edit-part
     get-property className | equals "org.eclipse.sirius.diagram.ui.internal.edit.parts.DNodeEditPart" | verify-true
     get-property itemAddress | equals "[0, 10]" | verify-true
     get-property selected | equals true | verify-true
-    get-property x | equals 204 | verify-true
-    get-property y | equals 55 | verify-true
+    get-property x | equals 200 | verify-true
+    get-property y | equals 65 | verify-true
     get-property width | equals 20 | verify-true
     get-property height | equals 20 | verify-true
     get-property childrenCount | equals 1 | verify-true
@@ -811,14 +810,14 @@ with [get-editor "Buy books Actions Plan"] {
             }
         }
         // Check Tool Navigation Actions Plan
-        get-menu "Open/Actions PlanConstitute shopping cart Actions Plan" | click
+        //get-menu "Open/Actions PlanConstitute shopping cart Actions Plan" | click
     }
 }
-with [get-editor "Constitute shopping cart Actions Plan"] {
+/**with [get-editor "Constitute shopping cart Actions Plan"] {
     get-palette | get-palette-entry "Appli Event" | mouse-move 10 1 -height 23 -width 125
     get-diagram -index 1 | get-edit-part -name "Constitute shopping cart Actions Plan" | mouse-move 33 1 -height 309 
         -width 728
-}
+}**/
 with [get-editor "Buy books Actions Plan" | get-diagram -index 1] {
     with [get-edit-part -name "Buy books Actions Plan"] {
         mouse-move 563 145 -height 381 -width 1015
@@ -843,14 +842,14 @@ with [get-editor "Buy books Actions Plan" | get-diagram -index 1 | get-edit-part
     mouse-release 46 47 button1 524288 -height 73 -width 150
     mouse-press 46 47 button1 -height 73 -width 150
     // Check Tool Go To Actions Plan
-    mouse-double-click 46 47 button1 -height 73 -width 150
+   // mouse-double-click 46 47 button1 -height 73 -width 150
 }
-with [get-editor "Constitute shopping cart Actions Plan" | get-diagram -index 1 | get-edit-part 
+/**with [get-editor "Constitute shopping cart Actions Plan" | get-diagram -index 1 | get-edit-part 
     -name "Constitute shopping cart Actions Plan"] {
     mouse-release 606 117 button1 524288 -height 309 -width 728
     mouse-move 562 115 -height 309 -width 728
     mouse-move 165 10 -height 309 -width 728
-}
+}**/
 get-editor "Buy books Actions Plan" | get-diagram -index 1 | key-type "" "\\u0000" -times 2
 get-editor "Buy books Actions Plan" | get-diagram -index 1 | get-edit-part -name "Buy books Actions Plan" 
     | mouse-move 789 96 -height 520 -width 1130
@@ -877,8 +876,8 @@ with [get-editor "Buy books Actions Plan" | get-diagram -index 1 | get-edit-part
     mouse-move 13 357 -height 520 -width 1130
 }
 get-view "Model Explorer" | get-tree 
-    | select "E-BookStore/E-BookStore.graal/System E-BookStore/Task Constitute shopping\r\n"
-    + "cart/Constitute shopping cart Actions Plan" | key-type Del
+    | select "E-BookStore/E-BookStore.graal/System E-BookStore/Task Constitute shopping/Constitute shopping\r\n" +
+    "cart Actions Plan" | key-type Del
 get-window "Delete representation" | get-button OK | click
 with [get-editor "Buy books Actions Plan" | get-diagram -index 1] {
     with [get-edit-part -name "Buy books Actions Plan"] {

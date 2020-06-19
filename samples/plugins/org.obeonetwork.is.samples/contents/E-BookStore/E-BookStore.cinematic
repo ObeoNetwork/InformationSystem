@@ -161,7 +161,11 @@
         <events xmi:id="_h4AF0IjoEeGJh95Ab8olLw" technicalid="_48vDqxVIEeetFdz5pzgWAw" name="forgotPassword" binds="_bLzTkIjoEeGJh95Ab8olLw"/>
         <events xmi:id="_HKrnQIjrEeG7p-MOgK2yMQ" technicalid="_48vDrBVIEeetFdz5pzgWAw" name="cancelPayment" binds="___ek0IjqEeG7p-MOgK2yMQ"/>
       </flows>
-      <flows xmi:id="_R5JR4IjnEeGOp5IdJE0AIw" technicalid="_48vDrRVIEeetFdz5pzgWAw" name="Payment on partner site"/>
+      <flows xmi:id="_R5JR4IjnEeGOp5IdJE0AIw" technicalid="_48vDrRVIEeetFdz5pzgWAw" createdOn="2020-04-29T15:35:03.956+0200" modifiedOn="2020-04-29T15:35:14.073+0200" name="Payment on partner site">
+        <states xsi:type="cinematic-flow:InitialState" xmi:id="_O3d9QIoeEeqW3bcS5K80Dg" technicalid="_O3dWMIoeEeqW3bcS5K80Dg" createdOn="2020-04-29T15:35:03.958+0200" modifiedOn="2020-04-29T15:35:03.958+0200" name="Initial"/>
+        <states xsi:type="cinematic-flow:ViewState" xmi:id="_P1o1sYoeEeqW3bcS5K80Dg" technicalid="_P1o1sIoeEeqW3bcS5K80Dg" createdOn="2020-04-29T15:35:10.852+0200" modifiedOn="2020-04-29T15:35:10.852+0200" name="View1"/>
+        <states xsi:type="cinematic-flow:AsyncEventState" xmi:id="_QX84kYoeEeqW3bcS5K80Dg" technicalid="_QX84kIoeEeqW3bcS5K80Dg" createdOn="2020-04-29T15:35:14.101+0200" modifiedOn="2020-04-29T15:35:14.101+0200" name="AsyncEvent1"/>
+      </flows>
       <viewContainers xmi:id="_kKmsgIjmEeGOp5IdJE0AIw" technicalid="_48vDrhVIEeetFdz5pzgWAw" name="Login">
         <widget href="pathmap://cinematic/toolkits/Web#_tGHvxYjeEeGIXsoZxTXHQA"/>
         <ownedElements xsi:type="cinematic-view:ViewElement" xmi:id="_5_h78IjnEeGrE9Ykd6PeHg" technicalid="_48vDsBVIEeetFdz5pzgWAw" name="email" required="true">
