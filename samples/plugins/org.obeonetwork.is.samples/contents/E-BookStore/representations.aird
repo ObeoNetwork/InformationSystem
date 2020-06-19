@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:cinematic="http://www.obeonetwork.org/dsl/cinematic/3.0.0" xmlns:cinematic-flow="http://www.obeonetwork.org/dsl/cinematic/flow/1.0.0" xmlns:cinematic-toolkits="http://www.obeonetwork.org/dsl/cinematic/toolkits/1.0.0" xmlns:cinematic-view="http://www.obeonetwork.org/dsl/cinematic/view/1.0.0" xmlns:database="http://www.obeonetwork.org/dsl/database/1.0" xmlns:description="http://www.eclipse.org/sirius/description/1.1.0" xmlns:description_1="http://www.eclipse.org/sirius/diagram/description/1.1.0" xmlns:description_1.0.0="http://www.obeonetwork.org/dsl/environment/binding/dialect/description/1.0.0" xmlns:description_2="http://www.eclipse.org/sirius/tree/description/1.0.0" xmlns:description_3="http://www.eclipse.org/sirius/table/description/1.1.0" xmlns:description_4="http://www.eclipse.org/sirius/diagram/sequence/description/2.0.0" xmlns:diagram="http://www.eclipse.org/sirius/diagram/1.1.0" xmlns:graal="http://www.obeonetwork.org/dsl/graal/2.0.0" xmlns:interaction="http://www.obeonetwork.org/dsl/interaction/1.0.0" xmlns:notation="http://www.eclipse.org/gmf/runtime/1.0.3/notation" xmlns:oent="http://www.obeonetwork.org/dsl/entity/3.0.0" xmlns:oenv="http://www.obeonetwork.org/dsl/environment/3.0.0" xmlns:requirement="http://www.obeonetwork.org/dsl/requirement/1.0" xmlns:sequence="http://www.eclipse.org/sirius/diagram/sequence/2.0.0" xmlns:soa="http://www.obeonetwork.org/dsl/soa/3.0.0" xmlns:statemachine="http://www.obeonetwork.org/dsl/statemachine/1.0.0" xmlns:style="http://www.eclipse.org/sirius/diagram/description/style/1.1.0" xmlns:table="http://www.eclipse.org/sirius/table/1.1.0" xmlns:tree="http://www.eclipse.org/sirius/tree/1.0.0" xmlns:viewpoint="http://www.eclipse.org/sirius/1.1.0" xsi:schemaLocation="http://www.obeonetwork.org/dsl/cinematic/flow/1.0.0 http://www.obeonetwork.org/dsl/cinematic/3.0.0#//flow http://www.obeonetwork.org/dsl/cinematic/toolkits/1.0.0 http://www.obeonetwork.org/dsl/cinematic/3.0.0#//toolkits http://www.obeonetwork.org/dsl/cinematic/view/1.0.0 http://www.obeonetwork.org/dsl/cinematic/3.0.0#//view http://www.eclipse.org/sirius/description/1.1.0 http://www.eclipse.org/sirius/1.1.0#//description http://www.eclipse.org/sirius/diagram/description/1.1.0 http://www.eclipse.org/sirius/diagram/1.1.0#//description http://www.eclipse.org/sirius/tree/description/1.0.0 http://www.eclipse.org/sirius/tree/1.0.0#//description http://www.eclipse.org/sirius/table/description/1.1.0 http://www.eclipse.org/sirius/table/1.1.0#//description http://www.eclipse.org/sirius/diagram/sequence/description/2.0.0 http://www.eclipse.org/sirius/diagram/sequence/2.0.0#//description http://www.eclipse.org/sirius/diagram/description/style/1.1.0 http://www.eclipse.org/sirius/diagram/1.1.0#//description/style">
-  <viewpoint:DAnalysis uid="_6FUs8B_GEeW_TuSj9xLcNQ" selectedViews="_5eK4ECBREeePq_6Kzvn9AQ _5oKhkCBREeePq_6Kzvn9AQ _7lGdoB_GEeW_TuSj9xLcNQ _51OGICBREeePq_6Kzvn9AQ _7lmz8B_GEeW_TuSj9xLcNQ _ekaCgCBgEeepLOchfVBnlA _VFF9IIoeEeqW3bcS5K80Dg" version="14.3.1.202003101500">
+<xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:cinematic="http://www.obeonetwork.org/dsl/cinematic/3.0.0" xmlns:cinematic-flow="http://www.obeonetwork.org/dsl/cinematic/flow/1.0.0" xmlns:cinematic-toolkits="http://www.obeonetwork.org/dsl/cinematic/toolkits/1.0.0" xmlns:cinematic-view="http://www.obeonetwork.org/dsl/cinematic/view/1.0.0" xmlns:database="http://www.obeonetwork.org/dsl/database/1.0" xmlns:description="http://www.eclipse.org/sirius/description/1.1.0" xmlns:description_1="http://www.eclipse.org/sirius/diagram/description/1.1.0" xmlns:description_1.0.0="http://www.obeonetwork.org/dsl/environment/binding/dialect/description/1.0.0" xmlns:description_2="http://www.eclipse.org/sirius/tree/description/1.0.0" xmlns:description_3="http://www.eclipse.org/sirius/table/description/1.1.0" xmlns:description_4="http://www.eclipse.org/sirius/diagram/sequence/description/2.0.0" xmlns:diagram="http://www.eclipse.org/sirius/diagram/1.1.0" xmlns:graal="http://www.obeonetwork.org/dsl/graal/2.0.0" xmlns:interaction="http://www.obeonetwork.org/dsl/interaction/1.0.0" xmlns:notation="http://www.eclipse.org/gmf/runtime/1.0.2/notation" xmlns:oent="http://www.obeonetwork.org/dsl/entity/3.0.0" xmlns:oenv="http://www.obeonetwork.org/dsl/environment/3.0.0" xmlns:requirement="http://www.obeonetwork.org/dsl/requirement/1.0" xmlns:sequence="http://www.eclipse.org/sirius/diagram/sequence/2.0.0" xmlns:soa="http://www.obeonetwork.org/dsl/soa/3.0.0" xmlns:statemachine="http://www.obeonetwork.org/dsl/statemachine/1.0.0" xmlns:style="http://www.eclipse.org/sirius/diagram/description/style/1.1.0" xmlns:table="http://www.eclipse.org/sirius/table/1.1.0" xmlns:tree="http://www.eclipse.org/sirius/tree/1.0.0" xmlns:viewpoint="http://www.eclipse.org/sirius/1.1.0" xsi:schemaLocation="http://www.obeonetwork.org/dsl/cinematic/flow/1.0.0 http://www.obeonetwork.org/dsl/cinematic/3.0.0#//flow http://www.obeonetwork.org/dsl/cinematic/toolkits/1.0.0 http://www.obeonetwork.org/dsl/cinematic/3.0.0#//toolkits http://www.obeonetwork.org/dsl/cinematic/view/1.0.0 http://www.obeonetwork.org/dsl/cinematic/3.0.0#//view http://www.eclipse.org/sirius/description/1.1.0 http://www.eclipse.org/sirius/1.1.0#//description http://www.eclipse.org/sirius/diagram/description/1.1.0 http://www.eclipse.org/sirius/diagram/1.1.0#//description http://www.eclipse.org/sirius/tree/description/1.0.0 http://www.eclipse.org/sirius/tree/1.0.0#//description http://www.eclipse.org/sirius/table/description/1.1.0 http://www.eclipse.org/sirius/table/1.1.0#//description http://www.eclipse.org/sirius/diagram/sequence/description/2.0.0 http://www.eclipse.org/sirius/diagram/sequence/2.0.0#//description http://www.eclipse.org/sirius/diagram/description/style/1.1.0 http://www.eclipse.org/sirius/diagram/1.1.0#//description/style">
+  <viewpoint:DAnalysis uid="_6FUs8B_GEeW_TuSj9xLcNQ" selectedViews="_5eK4ECBREeePq_6Kzvn9AQ _5oKhkCBREeePq_6Kzvn9AQ _7lGdoB_GEeW_TuSj9xLcNQ _51OGICBREeePq_6Kzvn9AQ _7lmz8B_GEeW_TuSj9xLcNQ _ekaCgCBgEeepLOchfVBnlA __Hxw0KpUEeqpN8GodWJphQ __kPqYKpUEeqpN8GodWJphQ" version="14.3.0.201909031200">
     <semanticResources>E-BookStore.cinematic</semanticResources>
     <semanticResources>pathmap://cinematic/toolkits/Web</semanticResources>
     <semanticResources>E-BookStore.graal</semanticResources>
@@ -20,7 +20,7 @@
     <semanticResources>http://www.eclipse.org/emf/2002/Ecore</semanticResources>
     <semanticResources>http://www.obeonetwork.org/dsl/environment/3.0.0</semanticResources>
     <semanticResources>http://www.obeonetwork.org/dsl/technicalid/2.0.0</semanticResources>
-    <eAnnotations xmi:type="description:DAnnotationEntry" uid="_Eh6woIocEeqW3bcS5K80Dg" source="FIRST_SESSION_OPENNING_PERFORMED"/>
+    <eAnnotations xmi:type="description:DAnnotationEntry" uid="_8ha2kKooEeqpN8GodWJphQ" source="FIRST_SESSION_OPENNING_PERFORMED"/>
     <ownedViews xmi:type="viewpoint:DView" uid="_7lGdoB_GEeW_TuSj9xLcNQ">
       <viewpoint xmi:type="description:Viewpoint" href="platform:/plugin/org.obeonetwork.dsl.cinematic.design/description/cinematic.odesign#//@ownedViewpoints[name='Cinematic%20Views']"/>
       <ownedRepresentationDescriptors xmi:type="viewpoint:DRepresentationDescriptor" uid="_AiYAGcLbEeaKX_JUX0UT5w" name="E-BookStore Package Diagram" repPath="#_9WPEEB_GEeW_TuSj9xLcNQ">
@@ -35,9 +35,9 @@
         <description xmi:type="description_1:DiagramDescription" href="platform:/plugin/org.obeonetwork.dsl.cinematic.design/description/cinematic.odesign#//@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='Flow%20Diagram']"/>
         <target xmi:type="cinematic-flow:Flow" href="E-BookStore.cinematic#_aIPqAIjWEeGStfxeQK0zeA"/>
       </ownedRepresentationDescriptors>
-      <ownedRepresentationDescriptors xmi:type="viewpoint:DRepresentationDescriptor" uid="_O3nHMIoeEeqW3bcS5K80Dg" name="Payment on partner site Flow Diagram" repPath="#_O3ImEIoeEeqW3bcS5K80Dg" changeId="af015ac6-c803-4c98-a1bc-8be5ffbc2ef9">
+      <ownedRepresentationDescriptors xmi:type="viewpoint:DRepresentationDescriptor" uid="_Iq4akKpcEeqpN8GodWJphQ" name="Checkout Flow Diagram" repPath="#_Ip1RsKpcEeqpN8GodWJphQ" changeId="68ffed66-7cd3-46cd-8450-e4a05c39e9ee">
         <description xmi:type="description_1:DiagramDescription" href="platform:/plugin/org.obeonetwork.dsl.cinematic.design/description/cinematic.odesign#//@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='Flow%20Diagram']"/>
-        <target xmi:type="cinematic-flow:Flow" href="E-BookStore.cinematic#_R5JR4IjnEeGOp5IdJE0AIw"/>
+        <target xmi:type="cinematic-flow:Flow" href="E-BookStore.cinematic#_yYt1MIjfEeGIXsoZxTXHQA"/>
       </ownedRepresentationDescriptors>
     </ownedViews>
     <ownedViews xmi:type="viewpoint:DView" uid="_7lOZcB_GEeW_TuSj9xLcNQ">
@@ -53,7 +53,7 @@
         <description xmi:type="description_1:DiagramDescription" href="platform:/plugin/org.obeonetwork.graal.design/description/graal.odesign#//@ownedViewpoints[name='Graal%20Methodology']/@ownedRepresentations[name='Tasks%20Graph']"/>
         <target xmi:type="graal:System" href="E-BookStore.graal#_rynOsEjHEeGbkNJePX2AYQ"/>
       </ownedRepresentationDescriptors>
-      <ownedRepresentationDescriptors xmi:type="viewpoint:DRepresentationDescriptor" uid="_AiYAEcLbEeaKX_JUX0UT5w" name="Actors Graph" repPath="#_BrPVcB_HEeW_TuSj9xLcNQ" changeId="b5bed4ae-d401-4b73-a09f-13123ef4d842">
+      <ownedRepresentationDescriptors xmi:type="viewpoint:DRepresentationDescriptor" uid="_AiYAEcLbEeaKX_JUX0UT5w" name="Actors Graph" repPath="#_BrPVcB_HEeW_TuSj9xLcNQ">
         <description xmi:type="description_1:DiagramDescription" href="platform:/plugin/org.obeonetwork.graal.design/description/graal.odesign#//@ownedViewpoints[name='Graal%20Methodology']/@ownedRepresentations[name='Actors%20Graph']"/>
         <target xmi:type="graal:System" href="E-BookStore.graal#_rynOsEjHEeGbkNJePX2AYQ"/>
       </ownedRepresentationDescriptors>
@@ -65,7 +65,7 @@
         <description xmi:type="description_3:CrossTableDescription" href="platform:/plugin/org.obeonetwork.graal.design/description/graal.odesign#//@ownedViewpoints[name='Graal%20Methodology']/@ownedRepresentations[name='User%20Stories%20Table']"/>
         <target xmi:type="graal:System" href="E-BookStore.graal#_rynOsEjHEeGbkNJePX2AYQ"/>
       </ownedRepresentationDescriptors>
-      <ownedRepresentationDescriptors xmi:type="viewpoint:DRepresentationDescriptor" uid="_AiYAFMLbEeaKX_JUX0UT5w" name="Buy books Actions Plan" repPath="#_EdT0cB_HEeW_TuSj9xLcNQ">
+      <ownedRepresentationDescriptors xmi:type="viewpoint:DRepresentationDescriptor" uid="_AiYAFMLbEeaKX_JUX0UT5w" name="Buy books Actions Plan" repPath="#_EdT0cB_HEeW_TuSj9xLcNQ" changeId="a27a912f-3cfc-423f-957f-888b23326f6d">
         <description xmi:type="description_1:DiagramDescription" href="platform:/plugin/org.obeonetwork.graal.design/description/graal.odesign#//@ownedViewpoints[name='Graal%20Methodology']/@ownedRepresentations[name='Actions%20Plan']"/>
         <target xmi:type="graal:Task" href="E-BookStore.graal#_MEgzUEjJEeGbkNJePX2AYQ"/>
       </ownedRepresentationDescriptors>
@@ -168,7 +168,7 @@
     </ownedViews>
     <ownedViews xmi:type="viewpoint:DView" uid="_5eK4ECBREeePq_6Kzvn9AQ">
       <viewpoint xmi:type="description:Viewpoint" href="platform:/plugin/fr.gouv.mindef.safran.is.design/description/safran-is.odesign#//@ownedViewpoints[name='Entity%20(Safr@n%20consolidated%20view)']"/>
-      <ownedRepresentationDescriptors xmi:type="viewpoint:DRepresentationDescriptor" uid="_5lHNkCBREeePq_6Kzvn9AQ" name="Entities Physical Names" repPath="#_5lHNkSBREeePq_6Kzvn9AQ" changeId="3148bdf9-bb9e-4de3-85d8-3d72425923d7">
+      <ownedRepresentationDescriptors xmi:type="viewpoint:DRepresentationDescriptor" uid="_5lHNkCBREeePq_6Kzvn9AQ" name="Entities Physical Names" repPath="#_5lHNkSBREeePq_6Kzvn9AQ" changeId="aaa779e9-94b2-4c87-b9a7-c45850990fe2">
         <description xmi:type="description_3:EditionTableDescription" href="platform:/plugin/fr.gouv.mindef.safran.is.design/description/safran-is.odesign#//@ownedViewpoints[name='Entity%20(Safr@n%20consolidated%20view)']/@ownedRepresentations[name='EV_Entities_PhysicalNames']"/>
         <target xmi:type="oent:Root" href="E-BookStore.entity#_62l-UJEcEeauDets12NBwQ"/>
       </ownedRepresentationDescriptors>
@@ -202,7 +202,7 @@
     </ownedViews>
     <ownedViews xmi:type="viewpoint:DView" uid="_ekaCgCBgEeepLOchfVBnlA">
       <viewpoint xmi:type="description:Viewpoint" href="platform:/resource/org.obeonetwork.dsl.environment.binding.design/description/binding.odesign#//@ownedViewpoints[name='IS%20Databinding']"/>
-      <ownedRepresentationDescriptors xmi:type="viewpoint:DRepresentationDescriptor" uid="_fgNjcCBgEeepLOchfVBnlA" name=" Databinding" repPath="#_fgNjcSBgEeepLOchfVBnlA" changeId="5b86c7d1-6db5-4685-a192-f719d617a622">
+      <ownedRepresentationDescriptors xmi:type="viewpoint:DRepresentationDescriptor" uid="_fgNjcCBgEeepLOchfVBnlA" name=" Databinding" repPath="#_fgNjcSBgEeepLOchfVBnlA">
         <description xmi:type="description_1:DiagramDescription" href="platform:/resource/org.obeonetwork.dsl.environment.binding.design/description/binding.odesign#//@ownedViewpoints[name='IS%20Databinding']/@ownedRepresentations[name='Databinding%20diagram']"/>
         <target xmi:type="soa:System" href="E-BookStore.soa#_h6PKMYjXEeGlA5e_Ze9-Rg"/>
       </ownedRepresentationDescriptors>
@@ -214,11 +214,14 @@
     <ownedViews xmi:type="viewpoint:DView" uid="_yEgX0JKOEem6NOD0XGqP1Q">
       <viewpoint xmi:type="description:Viewpoint" href="platform:/plugin/org.obeonetwork.dsl.environment.properties/description/environment-properties.odesign#//@ownedViewpoints[name='Environment%20Views']"/>
     </ownedViews>
-    <ownedViews xmi:type="viewpoint:DView" uid="_VFF9IIoeEeqW3bcS5K80Dg">
-      <viewpoint xmi:type="description:Viewpoint" href="platform:/resource/org.obeonetwork.dsl.database.design/description/database.odesign#//@ownedViewpoints[name='Database']"/>
-      <ownedRepresentationDescriptors xmi:type="viewpoint:DRepresentationDescriptor" uid="_WFEMY4oeEeqW3bcS5K80Dg" name="E-BookStore-MLD Database" repPath="#_VtXeEIoeEeqW3bcS5K80Dg" changeId="501ad104-2e36-4b15-8ff8-01a1b4f6ac9d">
-        <description xmi:type="description_1:DiagramDescription" href="platform:/resource/org.obeonetwork.dsl.database.design/description/database.odesign#//@ownedViewpoints[name='Database']/@ownedRepresentations[name='Database%20Diagram']"/>
-        <target xmi:type="database:DataBase" href="E-BookStore-MLD.database#_7NK10ZEdEeauDets12NBwQ"/>
+    <ownedViews xmi:type="viewpoint:DView" uid="__Hxw0KpUEeqpN8GodWJphQ">
+      <viewpoint xmi:type="description:Viewpoint" href="platform:/resource/org.obeonetwork.dsl.entity.design/description/entity.odesign#//@ownedViewpoints[name='Entity%20Views']"/>
+    </ownedViews>
+    <ownedViews xmi:type="viewpoint:DView" uid="__kPqYKpUEeqpN8GodWJphQ">
+      <viewpoint xmi:type="description:Viewpoint" href="platform:/resource/designs/entity/plugins/org.obeonetwork.dsl.entity.design/description/entity.odesign#//@ownedViewpoints[name='Entity%20Views']"/>
+      <ownedRepresentationDescriptors xmi:type="viewpoint:DRepresentationDescriptor" uid="_DTe8QKpVEeqpN8GodWJphQ" name="Entities Namespaces Hierarchy" repPath="#_DOl1MKpVEeqpN8GodWJphQ" changeId="be4b0fed-4104-48d0-9627-0abd4b37cfcd">
+        <description xmi:type="description_1:DiagramDescription" href="platform:/resource/designs/entity/plugins/org.obeonetwork.dsl.entity.design/description/entity.odesign#//@ownedViewpoints[name='Entity%20Views']/@ownedRepresentations[name='Entities%20Namespaces%20Hierarchy']"/>
+        <target xmi:type="oent:Root" href="E-BookStore.entity#_62l-UJEcEeauDets12NBwQ"/>
       </ownedRepresentationDescriptors>
     </ownedViews>
   </viewpoint:DAnalysis>
@@ -738,17 +741,6 @@
           <styles xmi:type="notation:ShapeStyle" xmi:id="_BrZtgR_HEeW_TuSj9xLcNQ" fontName="Segoe UI" fontHeight="8"/>
           <layoutConstraint xmi:type="notation:Bounds" xmi:id="_BrZtgh_HEeW_TuSj9xLcNQ" x="648" y="198" width="30" height="59"/>
         </children>
-        <children xmi:type="notation:Node" xmi:id="_kJFgwIoeEeqW3bcS5K80Dg" type="2001" element="_kBXIIIoeEeqW3bcS5K80Dg">
-          <children xmi:type="notation:Node" xmi:id="_kJGH0IoeEeqW3bcS5K80Dg" type="5002">
-            <layoutConstraint xmi:type="notation:Location" xmi:id="_kJGH0YoeEeqW3bcS5K80Dg" x="-3" y="-14"/>
-          </children>
-          <children xmi:type="notation:Node" xmi:id="_kJGH0ooeEeqW3bcS5K80Dg" type="3005" element="_kBXIIYoeEeqW3bcS5K80Dg">
-            <styles xmi:type="notation:ShapeStyle" xmi:id="_kJGH04oeEeqW3bcS5K80Dg" fontName="Segoe UI"/>
-            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_kJGH1IoeEeqW3bcS5K80Dg"/>
-          </children>
-          <styles xmi:type="notation:ShapeStyle" xmi:id="_kJFgwYoeEeqW3bcS5K80Dg" fontName="Segoe UI" fontHeight="8"/>
-          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_kJFgwooeEeqW3bcS5K80Dg" x="915" y="320" width="30" height="59"/>
-        </children>
         <styles xmi:type="notation:DiagramStyle" xmi:id="_BrWqMh_HEeW_TuSj9xLcNQ"/>
         <edges xmi:type="notation:Edge" xmi:id="_BrcJwB_HEeW_TuSj9xLcNQ" type="4001" element="_q1fmURWxEemPcZQonXs-Bw" source="_BrWqMx_HEeW_TuSj9xLcNQ" target="_BrZtgB_HEeW_TuSj9xLcNQ">
           <children xmi:type="notation:Node" xmi:id="_Brcw0B_HEeW_TuSj9xLcNQ" type="6001">
@@ -791,17 +783,9 @@
       </ownedStyle>
       <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.obeonetwork.graal.design/description/graal.odesign#//@ownedViewpoints[name='Graal%20Methodology']/@ownedRepresentations[name='Actors%20Graph']/@defaultLayer/@nodeMappings[name='AG_Actor']"/>
     </ownedDiagramElements>
-    <ownedDiagramElements xmi:type="diagram:DNode" uid="_kBXIIIoeEeqW3bcS5K80Dg" name="Actor 3" width="3" height="3">
-      <target xmi:type="graal:Actor" href="E-BookStore.graal#_j9sJEYoeEeqW3bcS5K80Dg"/>
-      <semanticElements xmi:type="graal:Actor" href="E-BookStore.graal#_j9sJEYoeEeqW3bcS5K80Dg"/>
-      <ownedStyle xmi:type="diagram:WorkspaceImage" uid="_kBXIIYoeEeqW3bcS5K80Dg" showIcon="false" workspacePath="/org.obeonetwork.graal.design/images/actor.png">
-        <description xmi:type="style:WorkspaceImageDescription" href="platform:/plugin/org.obeonetwork.graal.design/description/graal.odesign#//@ownedViewpoints[name='Graal%20Methodology']/@ownedRepresentations[name='Actors%20Graph']/@defaultLayer/@nodeMappings[name='AG_Actor']/@style"/>
-      </ownedStyle>
-      <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.obeonetwork.graal.design/description/graal.odesign#//@ownedViewpoints[name='Graal%20Methodology']/@ownedRepresentations[name='Actors%20Graph']/@defaultLayer/@nodeMappings[name='AG_Actor']"/>
-    </ownedDiagramElements>
     <ownedDiagramElements xmi:type="diagram:DEdge" uid="_q1fmURWxEemPcZQonXs-Bw" sourceNode="_q1eYMBWxEemPcZQonXs-Bw" targetNode="_q1e_QhWxEemPcZQonXs-Bw">
       <target xmi:type="graal:Actor" href="E-BookStore.graal#_LcBscEjIEeGbkNJePX2AYQ"/>
-      <ownedStyle xmi:type="diagram:EdgeStyle" uid="_q1fmUhWxEemPcZQonXs-Bw" targetArrow="InputClosedArrow" size="0" strokeColor="0,0,0">
+      <ownedStyle xmi:type="diagram:EdgeStyle" uid="_q1fmUhWxEemPcZQonXs-Bw" targetArrow="InputClosedArrow" strokeColor="0,0,0">
         <description xmi:type="style:EdgeStyleDescription" href="platform:/plugin/org.obeonetwork.graal.design/description/graal.odesign#//@ownedViewpoints[name='Graal%20Methodology']/@ownedRepresentations[name='Actors%20Graph']/@defaultLayer/@edgeMappings[name='AG_Inherits']/@style"/>
         <centerLabelStyle xmi:type="diagram:CenterLabelStyle" uid="_q1fmUxWxEemPcZQonXs-Bw" showIcon="false"/>
       </ownedStyle>
@@ -1436,7 +1420,7 @@
     </ownedDiagramElements>
     <ownedDiagramElements xmi:type="diagram:DNode" uid="_q9YXABWxEemPcZQonXs-Bw" name="Proceed to checkout" incomingEdges="_q_RNYBWxEemPcZQonXs-Bw" width="15" height="15" resizeKind="NSEW">
       <target xmi:type="graal:TaskReference" href="E-BookStore.graal#_Nv1ssEjJEeGbkNJePX2AYQ"/>
-      <semanticElements xmi:type="graal:Task" href="E-BookStore.graal#_MOaWMEjJEeGbkNJePX2AYQ"/>
+      <semanticElements xmi:type="graal:TaskReference" href="E-BookStore.graal#_Nv1ssEjJEeGbkNJePX2AYQ"/>
       <arrangeConstraints>KEEP_LOCATION</arrangeConstraints>
       <arrangeConstraints>KEEP_SIZE</arrangeConstraints>
       <arrangeConstraints>KEEP_RATIO</arrangeConstraints>
@@ -1447,7 +1431,7 @@
     </ownedDiagramElements>
     <ownedDiagramElements xmi:type="diagram:DNode" uid="_q9YXAxWxEemPcZQonXs-Bw" name="Constitute shopping&#xD;&#xA;cart" incomingEdges="_q_OKFBWxEemPcZQonXs-Bw" width="15" height="15" resizeKind="NSEW">
       <target xmi:type="graal:TaskReference" href="E-BookStore.graal#_N63Q8EjJEeGbkNJePX2AYQ"/>
-      <semanticElements xmi:type="graal:Task" href="E-BookStore.graal#_MnNQsEjJEeGbkNJePX2AYQ"/>
+      <semanticElements xmi:type="graal:TaskReference" href="E-BookStore.graal#_N63Q8EjJEeGbkNJePX2AYQ"/>
       <arrangeConstraints>KEEP_LOCATION</arrangeConstraints>
       <arrangeConstraints>KEEP_SIZE</arrangeConstraints>
       <arrangeConstraints>KEEP_RATIO</arrangeConstraints>
@@ -1458,7 +1442,7 @@
     </ownedDiagramElements>
     <ownedDiagramElements xmi:type="diagram:DNode" uid="_q9Y-ERWxEemPcZQonXs-Bw" name="Create a customer account" incomingEdges="_q_R0dBWxEemPcZQonXs-Bw" width="15" height="15" resizeKind="NSEW">
       <target xmi:type="graal:TaskReference" href="E-BookStore.graal#_OOn6cEjJEeGbkNJePX2AYQ"/>
-      <semanticElements xmi:type="graal:Task" href="E-BookStore.graal#_NBTLsEjJEeGbkNJePX2AYQ"/>
+      <semanticElements xmi:type="graal:TaskReference" href="E-BookStore.graal#_OOn6cEjJEeGbkNJePX2AYQ"/>
       <arrangeConstraints>KEEP_LOCATION</arrangeConstraints>
       <arrangeConstraints>KEEP_SIZE</arrangeConstraints>
       <arrangeConstraints>KEEP_RATIO</arrangeConstraints>
@@ -1470,7 +1454,7 @@
     <ownedDiagramElements xmi:type="diagram:DEdge" uid="_q9xYkBWxEemPcZQonXs-Bw" sourceNode="_q9V6wBWxEemPcZQonXs-Bw" targetNode="_q9Wh0BWxEemPcZQonXs-Bw">
       <target xmi:type="graal:Transition" href="E-BookStore.graal#_RzCm8EjKEeGbkNJePX2AYQ"/>
       <semanticElements xmi:type="graal:Transition" href="E-BookStore.graal#_RzCm8EjKEeGbkNJePX2AYQ"/>
-      <ownedStyle xmi:type="diagram:EdgeStyle" uid="_q_OKEBWxEemPcZQonXs-Bw" strokeColor="0,0,0">
+      <ownedStyle xmi:type="diagram:EdgeStyle" uid="_q_OKEBWxEemPcZQonXs-Bw" size="0" strokeColor="0,0,0">
         <description xmi:type="style:EdgeStyleDescription" href="platform:/plugin/org.obeonetwork.graal.design/description/graal.odesign#//@ownedViewpoints[name='Graal%20Methodology']/@ownedRepresentations[name='Actions%20Plan']/@defaultLayer/@edgeMappings[name='AP_Transition']/@style"/>
         <centerLabelStyle xmi:type="diagram:CenterLabelStyle" uid="_q_OKERWxEemPcZQonXs-Bw" showIcon="false"/>
       </ownedStyle>
@@ -1479,7 +1463,7 @@
     <ownedDiagramElements xmi:type="diagram:DEdge" uid="_q_OKFBWxEemPcZQonXs-Bw" sourceNode="_q9XI4BWxEemPcZQonXs-Bw" targetNode="_q9YXAxWxEemPcZQonXs-Bw">
       <target xmi:type="graal:Transition" href="E-BookStore.graal#_SAYfYEjKEeGbkNJePX2AYQ"/>
       <semanticElements xmi:type="graal:Transition" href="E-BookStore.graal#_SAYfYEjKEeGbkNJePX2AYQ"/>
-      <ownedStyle xmi:type="diagram:EdgeStyle" uid="_q_OxIBWxEemPcZQonXs-Bw" strokeColor="0,0,0">
+      <ownedStyle xmi:type="diagram:EdgeStyle" uid="_q_OxIBWxEemPcZQonXs-Bw" size="0" strokeColor="0,0,0">
         <description xmi:type="style:EdgeStyleDescription" href="platform:/plugin/org.obeonetwork.graal.design/description/graal.odesign#//@ownedViewpoints[name='Graal%20Methodology']/@ownedRepresentations[name='Actions%20Plan']/@defaultLayer/@edgeMappings[name='AP_Transition']/@style"/>
         <centerLabelStyle xmi:type="diagram:CenterLabelStyle" uid="_q_OxIRWxEemPcZQonXs-Bw" showIcon="false"/>
       </ownedStyle>
@@ -1488,7 +1472,7 @@
     <ownedDiagramElements xmi:type="diagram:DEdge" uid="_q_PYMBWxEemPcZQonXs-Bw" name="[shopping cart not empty]" sourceNode="_q9XI4BWxEemPcZQonXs-Bw" targetNode="_q9XI5BWxEemPcZQonXs-Bw">
       <target xmi:type="graal:Transition" href="E-BookStore.graal#_SOfz4EjKEeGbkNJePX2AYQ"/>
       <semanticElements xmi:type="graal:Transition" href="E-BookStore.graal#_SOfz4EjKEeGbkNJePX2AYQ"/>
-      <ownedStyle xmi:type="diagram:EdgeStyle" uid="_q_P_QBWxEemPcZQonXs-Bw" strokeColor="0,0,0">
+      <ownedStyle xmi:type="diagram:EdgeStyle" uid="_q_P_QBWxEemPcZQonXs-Bw" size="0" strokeColor="0,0,0">
         <description xmi:type="style:EdgeStyleDescription" href="platform:/plugin/org.obeonetwork.graal.design/description/graal.odesign#//@ownedViewpoints[name='Graal%20Methodology']/@ownedRepresentations[name='Actions%20Plan']/@defaultLayer/@edgeMappings[name='AP_Transition']/@style"/>
         <centerLabelStyle xmi:type="diagram:CenterLabelStyle" uid="_q_P_QRWxEemPcZQonXs-Bw" showIcon="false"/>
       </ownedStyle>
@@ -1497,7 +1481,7 @@
     <ownedDiagramElements xmi:type="diagram:DEdge" uid="_q_P_RBWxEemPcZQonXs-Bw" sourceNode="_q9XI4BWxEemPcZQonXs-Bw" targetNode="_q9Xv8hWxEemPcZQonXs-Bw">
       <target xmi:type="graal:Transition" href="E-BookStore.graal#_SilNgEjKEeGbkNJePX2AYQ"/>
       <semanticElements xmi:type="graal:Transition" href="E-BookStore.graal#_SilNgEjKEeGbkNJePX2AYQ"/>
-      <ownedStyle xmi:type="diagram:EdgeStyle" uid="_q_QmUBWxEemPcZQonXs-Bw" strokeColor="0,0,0">
+      <ownedStyle xmi:type="diagram:EdgeStyle" uid="_q_QmUBWxEemPcZQonXs-Bw" size="0" strokeColor="0,0,0">
         <description xmi:type="style:EdgeStyleDescription" href="platform:/plugin/org.obeonetwork.graal.design/description/graal.odesign#//@ownedViewpoints[name='Graal%20Methodology']/@ownedRepresentations[name='Actions%20Plan']/@defaultLayer/@edgeMappings[name='AP_Transition']/@style"/>
         <centerLabelStyle xmi:type="diagram:CenterLabelStyle" uid="_q_QmURWxEemPcZQonXs-Bw" showIcon="false"/>
       </ownedStyle>
@@ -1506,7 +1490,7 @@
     <ownedDiagramElements xmi:type="diagram:DEdge" uid="_q_RNYBWxEemPcZQonXs-Bw" sourceNode="_q9XI5BWxEemPcZQonXs-Bw" targetNode="_q9YXABWxEemPcZQonXs-Bw">
       <target xmi:type="graal:Transition" href="E-BookStore.graal#_6bRDQIjHEeGrHN3Vq969QA"/>
       <semanticElements xmi:type="graal:Transition" href="E-BookStore.graal#_6bRDQIjHEeGrHN3Vq969QA"/>
-      <ownedStyle xmi:type="diagram:EdgeStyle" uid="_q_R0cBWxEemPcZQonXs-Bw" strokeColor="0,0,0">
+      <ownedStyle xmi:type="diagram:EdgeStyle" uid="_q_R0cBWxEemPcZQonXs-Bw" size="0" strokeColor="0,0,0">
         <description xmi:type="style:EdgeStyleDescription" href="platform:/plugin/org.obeonetwork.graal.design/description/graal.odesign#//@ownedViewpoints[name='Graal%20Methodology']/@ownedRepresentations[name='Actions%20Plan']/@defaultLayer/@edgeMappings[name='AP_Transition']/@style"/>
         <centerLabelStyle xmi:type="diagram:CenterLabelStyle" uid="_q_R0cRWxEemPcZQonXs-Bw" showIcon="false"/>
       </ownedStyle>
@@ -1515,7 +1499,7 @@
     <ownedDiagramElements xmi:type="diagram:DEdge" uid="_q_R0dBWxEemPcZQonXs-Bw" sourceNode="_q9Xv8hWxEemPcZQonXs-Bw" targetNode="_q9Y-ERWxEemPcZQonXs-Bw">
       <target xmi:type="graal:Transition" href="E-BookStore.graal#_FyeMEIjIEeGrHN3Vq969QA"/>
       <semanticElements xmi:type="graal:Transition" href="E-BookStore.graal#_FyeMEIjIEeGrHN3Vq969QA"/>
-      <ownedStyle xmi:type="diagram:EdgeStyle" uid="_q_TCkBWxEemPcZQonXs-Bw" strokeColor="0,0,0">
+      <ownedStyle xmi:type="diagram:EdgeStyle" uid="_q_TCkBWxEemPcZQonXs-Bw" size="0" strokeColor="0,0,0">
         <description xmi:type="style:EdgeStyleDescription" href="platform:/plugin/org.obeonetwork.graal.design/description/graal.odesign#//@ownedViewpoints[name='Graal%20Methodology']/@ownedRepresentations[name='Actions%20Plan']/@defaultLayer/@edgeMappings[name='AP_Transition']/@style"/>
         <centerLabelStyle xmi:type="diagram:CenterLabelStyle" uid="_q_TCkRWxEemPcZQonXs-Bw" showIcon="false"/>
       </ownedStyle>
@@ -1524,7 +1508,7 @@
     <ownedDiagramElements xmi:type="diagram:DEdge" uid="_q_TClBWxEemPcZQonXs-Bw" sourceNode="_q9Wh0BWxEemPcZQonXs-Bw" targetNode="_q9XI4BWxEemPcZQonXs-Bw">
       <target xmi:type="graal:Transition" href="E-BookStore.graal#_vdgz4IjVEeGStfxeQK0zeA"/>
       <semanticElements xmi:type="graal:Transition" href="E-BookStore.graal#_vdgz4IjVEeGStfxeQK0zeA"/>
-      <ownedStyle xmi:type="diagram:EdgeStyle" uid="_q_TpoBWxEemPcZQonXs-Bw" strokeColor="0,0,0">
+      <ownedStyle xmi:type="diagram:EdgeStyle" uid="_q_TpoBWxEemPcZQonXs-Bw" size="0" strokeColor="0,0,0">
         <description xmi:type="style:EdgeStyleDescription" href="platform:/plugin/org.obeonetwork.graal.design/description/graal.odesign#//@ownedViewpoints[name='Graal%20Methodology']/@ownedRepresentations[name='Actions%20Plan']/@defaultLayer/@edgeMappings[name='AP_Transition']/@style"/>
         <centerLabelStyle xmi:type="diagram:CenterLabelStyle" uid="_q_TpoRWxEemPcZQonXs-Bw" showIcon="false"/>
       </ownedStyle>
@@ -6827,7 +6811,7 @@
     <activatedLayers xmi:type="description_1:Layer" href="platform:/plugin/org.obeonetwork.dsl.environment.binding.design/description/binding.odesign#//@ownedViewpoints[name='IS%20Databinding']/@ownedRepresentations[name='Databinding%20diagram']/@defaultLayer"/>
     <target xmi:type="soa:System" href="E-BookStore.soa#_h6PKMYjXEeGlA5e_Ze9-Rg"/>
   </diagram:DSemanticDiagram>
-  <table:DTable uid="_5lHNkSBREeePq_6Kzvn9AQ" headerColumnWidth="235">
+  <table:DTable uid="_5lHNkSBREeePq_6Kzvn9AQ" headerColumnWidth="80">
     <target xmi:type="oent:Root" href="E-BookStore.entity#_62l-UJEcEeauDets12NBwQ"/>
     <lines xmi:type="table:DLine" uid="_5lHNkiBREeePq_6Kzvn9AQ" label="main">
       <target xmi:type="oenv:Namespace" href="E-BookStore.entity#_9nCFoJEcEeauDets12NBwQ"/>
@@ -7608,28 +7592,9 @@
     </ownedAnnotationEntries>
     <ownedAnnotationEntries xmi:type="description:AnnotationEntry" uid="_fg-YcCBgEeepLOchfVBnlA" source="GMF_DIAGRAMS">
       <data xmi:type="notation:Diagram" xmi:id="_fg-YcSBgEeepLOchfVBnlA" type="Sirius" element="_fgNjcSBgEeepLOchfVBnlA" measurementUnit="Pixel">
-        <children xmi:type="notation:Node" xmi:id="_nIcN0IoeEeqW3bcS5K80Dg" type="2001" element="_m70HEIoeEeqW3bcS5K80Dg">
-          <children xmi:type="notation:Node" xmi:id="_nIcN04oeEeqW3bcS5K80Dg" type="5002">
-            <layoutConstraint xmi:type="notation:Location" xmi:id="_nIcN1IoeEeqW3bcS5K80Dg" x="-1"/>
-          </children>
-          <children xmi:type="notation:Node" xmi:id="_nIeDAIoeEeqW3bcS5K80Dg" type="3005" element="_m70HEYoeEeqW3bcS5K80Dg">
-            <styles xmi:type="notation:ShapeStyle" xmi:id="_nIeDAYoeEeqW3bcS5K80Dg" fontName="Segoe UI"/>
-            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_nIeDAooeEeqW3bcS5K80Dg"/>
-          </children>
-          <styles xmi:type="notation:ShapeStyle" xmi:id="_nIcN0YoeEeqW3bcS5K80Dg" fontName="Segoe UI" fontHeight="8"/>
-          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_nIcN0ooeEeqW3bcS5K80Dg" x="550" y="140" width="42" height="45"/>
-        </children>
         <styles xmi:type="notation:DiagramStyle" xmi:id="_fg-YciBgEeepLOchfVBnlA"/>
       </data>
     </ownedAnnotationEntries>
-    <ownedDiagramElements xmi:type="diagram:DNode" uid="_m70HEIoeEeqW3bcS5K80Dg" width="-1" height="-1" resizeKind="NSEW">
-      <target xmi:type="oenv:BindingInfo" href="E-BookStore.soa#_m7zgAooeEeqW3bcS5K80Dg"/>
-      <semanticElements xmi:type="oenv:BindingInfo" href="E-BookStore.soa#_m7zgAooeEeqW3bcS5K80Dg"/>
-      <ownedStyle xmi:type="diagram:WorkspaceImage" uid="_m70HEYoeEeqW3bcS5K80Dg" workspacePath="/org.obeonetwork.dsl.environment.binding.design/icons/BindingInfo.gif">
-        <description xmi:type="style:WorkspaceImageDescription" href="platform:/resource/org.obeonetwork.dsl.environment.binding.design/description/binding.odesign#//@ownedViewpoints[name='IS%20Databinding']/@ownedRepresentations[name='Databinding%20diagram']/@defaultLayer/@nodeMappings[name='DBI_BindingInfo']/@style"/>
-      </ownedStyle>
-      <actualMapping xmi:type="description_1:NodeMapping" href="platform:/resource/org.obeonetwork.dsl.environment.binding.design/description/binding.odesign#//@ownedViewpoints[name='IS%20Databinding']/@ownedRepresentations[name='Databinding%20diagram']/@defaultLayer/@nodeMappings[name='DBI_BindingInfo']"/>
-    </ownedDiagramElements>
     <description xmi:type="description_1:DiagramDescription" href="platform:/resource/org.obeonetwork.dsl.environment.binding.design/description/binding.odesign#//@ownedViewpoints[name='IS%20Databinding']/@ownedRepresentations[name='Databinding%20diagram']"/>
     <filterVariableHistory xmi:type="diagram:FilterVariableHistory" uid="_fgNjdiBgEeepLOchfVBnlA"/>
     <activatedLayers xmi:type="description_1:Layer" href="platform:/resource/org.obeonetwork.dsl.environment.binding.design/description/binding.odesign#//@ownedViewpoints[name='IS%20Databinding']/@ownedRepresentations[name='Databinding%20diagram']/@defaultLayer"/>
@@ -8922,145 +8887,757 @@
     <activatedLayers xmi:type="description_1:Layer" href="platform:/plugin/org.obeonetwork.dsl.interaction.design/description/interaction.odesign#//@ownedViewpoints[name='Interaction']/@ownedRepresentations[name='Sequence%20Diagram']/@defaultLayer"/>
     <target xmi:type="interaction:Interaction" href="E-BookStore.entity#_UWGRQCPMEem2jZ0_ML8PBQ"/>
   </sequence:SequenceDDiagram>
-  <diagram:DSemanticDiagram uid="_O3ImEIoeEeqW3bcS5K80Dg">
-    <ownedAnnotationEntries xmi:type="description:AnnotationEntry" uid="_O3jc0IoeEeqW3bcS5K80Dg" source="DANNOTATION_CUSTOMIZATION_KEY">
-      <data xmi:type="diagram:ComputedStyleDescriptionRegistry" uid="_O3jc0YoeEeqW3bcS5K80Dg"/>
+  <diagram:DSemanticDiagram uid="_DOl1MKpVEeqpN8GodWJphQ">
+    <ownedAnnotationEntries xmi:type="description:AnnotationEntry" uid="_DTdHEKpVEeqpN8GodWJphQ" source="DANNOTATION_CUSTOMIZATION_KEY">
+      <data xmi:type="diagram:ComputedStyleDescriptionRegistry" uid="_DTdHEapVEeqpN8GodWJphQ"/>
     </ownedAnnotationEntries>
-    <ownedAnnotationEntries xmi:type="description:AnnotationEntry" uid="_O38eYIoeEeqW3bcS5K80Dg" source="GMF_DIAGRAMS">
-      <data xmi:type="notation:Diagram" xmi:id="_O38eYYoeEeqW3bcS5K80Dg" type="Sirius" element="_O3ImEIoeEeqW3bcS5K80Dg" measurementUnit="Pixel">
-        <children xmi:type="notation:Node" xmi:id="_O3-TkIoeEeqW3bcS5K80Dg" type="2001" element="_O3hAkIoeEeqW3bcS5K80Dg">
-          <children xmi:type="notation:Node" xmi:id="_O4BW4IoeEeqW3bcS5K80Dg" type="5002">
-            <layoutConstraint xmi:type="notation:Location" xmi:id="_O4BW4YoeEeqW3bcS5K80Dg" x="-1"/>
+    <ownedAnnotationEntries xmi:type="description:AnnotationEntry" uid="_DTe8QapVEeqpN8GodWJphQ" source="GMF_DIAGRAMS">
+      <data xmi:type="notation:Diagram" xmi:id="_DTfjUKpVEeqpN8GodWJphQ" type="Sirius" element="_DOl1MKpVEeqpN8GodWJphQ" measurementUnit="Pixel">
+        <children xmi:type="notation:Node" xmi:id="_DTfjUqpVEeqpN8GodWJphQ" type="2002" element="_DOoRcKpVEeqpN8GodWJphQ">
+          <children xmi:type="notation:Node" xmi:id="_DTgKYKpVEeqpN8GodWJphQ" type="5006"/>
+          <children xmi:type="notation:Node" xmi:id="_DTgxcKpVEeqpN8GodWJphQ" type="7001">
+            <styles xmi:type="notation:SortingStyle" xmi:id="_DTgxcapVEeqpN8GodWJphQ"/>
+            <styles xmi:type="notation:FilteringStyle" xmi:id="_DTgxcqpVEeqpN8GodWJphQ"/>
           </children>
-          <children xmi:type="notation:Node" xmi:id="_O4G2cIoeEeqW3bcS5K80Dg" type="3005" element="_O3hnoIoeEeqW3bcS5K80Dg">
-            <styles xmi:type="notation:ShapeStyle" xmi:id="_O4G2cYoeEeqW3bcS5K80Dg" fontName="Segoe UI"/>
-            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_O4G2cooeEeqW3bcS5K80Dg"/>
-          </children>
-          <styles xmi:type="notation:ShapeStyle" xmi:id="_O3-TkYoeEeqW3bcS5K80Dg" fontName="Segoe UI" fontHeight="8"/>
-          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_O3-TkooeEeqW3bcS5K80Dg" width="24" height="24"/>
+          <styles xmi:type="notation:ShapeStyle" xmi:id="_DTfjU6pVEeqpN8GodWJphQ" fontName="Segoe UI" fontHeight="8"/>
+          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_DTfjVKpVEeqpN8GodWJphQ"/>
         </children>
-        <children xmi:type="notation:Node" xmi:id="_O4FBQIoeEeqW3bcS5K80Dg" type="2003" element="_O3i1wIoeEeqW3bcS5K80Dg">
-          <children xmi:type="notation:Node" xmi:id="_O4FoUIoeEeqW3bcS5K80Dg" type="5007"/>
-          <children xmi:type="notation:Node" xmi:id="_O4GPYIoeEeqW3bcS5K80Dg" type="7004">
-            <styles xmi:type="notation:SortingStyle" xmi:id="_O4GPYYoeEeqW3bcS5K80Dg"/>
-            <styles xmi:type="notation:FilteringStyle" xmi:id="_O4GPYooeEeqW3bcS5K80Dg"/>
+        <children xmi:type="notation:Node" xmi:id="_D75AEKpVEeqpN8GodWJphQ" type="2002" element="_D4YZEKpVEeqpN8GodWJphQ">
+          <children xmi:type="notation:Node" xmi:id="_D75nIKpVEeqpN8GodWJphQ" type="5006"/>
+          <children xmi:type="notation:Node" xmi:id="_D75nIapVEeqpN8GodWJphQ" type="7001">
+            <styles xmi:type="notation:SortingStyle" xmi:id="_D75nIqpVEeqpN8GodWJphQ"/>
+            <styles xmi:type="notation:FilteringStyle" xmi:id="_D75nI6pVEeqpN8GodWJphQ"/>
           </children>
-          <styles xmi:type="notation:ShapeStyle" xmi:id="_O4FBQYoeEeqW3bcS5K80Dg" fontName="Segoe UI" fontHeight="8"/>
-          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_O4FBQooeEeqW3bcS5K80Dg" y="55"/>
+          <styles xmi:type="notation:ShapeStyle" xmi:id="_D75AEapVEeqpN8GodWJphQ" fontName="Segoe UI" fontHeight="8"/>
+          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_D75AEqpVEeqpN8GodWJphQ" x="465" y="275"/>
         </children>
-        <children xmi:type="notation:Node" xmi:id="_P5y88IoeEeqW3bcS5K80Dg" type="2001" element="_P5QKYIoeEeqW3bcS5K80Dg">
-          <children xmi:type="notation:Node" xmi:id="_P5zkAIoeEeqW3bcS5K80Dg" type="5002">
-            <layoutConstraint xmi:type="notation:Location" xmi:id="_P5zkAYoeEeqW3bcS5K80Dg" y="5"/>
-          </children>
-          <children xmi:type="notation:Node" xmi:id="_P531cIoeEeqW3bcS5K80Dg" type="3005" element="_P5QxcIoeEeqW3bcS5K80Dg">
-            <styles xmi:type="notation:ShapeStyle" xmi:id="_P531cYoeEeqW3bcS5K80Dg" fontName="Segoe UI"/>
-            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_P531cooeEeqW3bcS5K80Dg"/>
-          </children>
-          <styles xmi:type="notation:ShapeStyle" xmi:id="_P5y88YoeEeqW3bcS5K80Dg" fontName="Segoe UI" fontHeight="8"/>
-          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_P5y88ooeEeqW3bcS5K80Dg" x="250" y="220" width="123" height="63"/>
-        </children>
-        <children xmi:type="notation:Node" xmi:id="_QYwJ0IoeEeqW3bcS5K80Dg" type="2001" element="_QYOlYIoeEeqW3bcS5K80Dg">
-          <children xmi:type="notation:Node" xmi:id="_QYww4IoeEeqW3bcS5K80Dg" type="5002">
-            <layoutConstraint xmi:type="notation:Location" xmi:id="_QYww4YoeEeqW3bcS5K80Dg" y="5"/>
-          </children>
-          <children xmi:type="notation:Node" xmi:id="_QY2QcIoeEeqW3bcS5K80Dg" type="3005" element="_QYOlYYoeEeqW3bcS5K80Dg">
-            <styles xmi:type="notation:ShapeStyle" xmi:id="_QY2QcYoeEeqW3bcS5K80Dg" fontName="Segoe UI"/>
-            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_QY2QcooeEeqW3bcS5K80Dg"/>
-          </children>
-          <styles xmi:type="notation:ShapeStyle" xmi:id="_QYwJ0YoeEeqW3bcS5K80Dg" fontName="Segoe UI" fontHeight="8"/>
-          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_QYwJ0ooeEeqW3bcS5K80Dg" x="445" y="295" width="123" height="63"/>
-        </children>
-        <styles xmi:type="notation:DiagramStyle" xmi:id="_O38eYooeEeqW3bcS5K80Dg"/>
+        <styles xmi:type="notation:DiagramStyle" xmi:id="_DTfjUapVEeqpN8GodWJphQ"/>
       </data>
     </ownedAnnotationEntries>
-    <ownedDiagramElements xmi:type="diagram:DNode" uid="_O3hAkIoeEeqW3bcS5K80Dg" width="-1" height="-1" resizeKind="NSEW">
-      <target xmi:type="cinematic-flow:InitialState" href="E-BookStore.cinematic#_O3d9QIoeEeqW3bcS5K80Dg"/>
-      <semanticElements xmi:type="cinematic-flow:InitialState" href="E-BookStore.cinematic#_O3d9QIoeEeqW3bcS5K80Dg"/>
-      <ownedStyle xmi:type="diagram:WorkspaceImage" uid="_O3hnoIoeEeqW3bcS5K80Dg" showIcon="false" workspacePath="/org.obeonetwork.dsl.cinematic.design/icons/viewpoint/initial_state.png">
+    <ownedDiagramElements xmi:type="diagram:DNodeContainer" uid="_DOoRcKpVEeqpN8GodWJphQ" name="main">
+      <target xmi:type="oenv:Namespace" href="E-BookStore.entity#_9nCFoJEcEeauDets12NBwQ"/>
+      <semanticElements xmi:type="oenv:Namespace" href="E-BookStore.entity#_9nCFoJEcEeauDets12NBwQ"/>
+      <ownedStyle xmi:type="diagram:FlatContainerStyle" uid="_DOo4gKpVEeqpN8GodWJphQ" borderSize="1" borderSizeComputationExpression="1" borderColor="136,136,136" backgroundStyle="GradientTopToBottom" backgroundColor="209,209,209" foregroundColor="255,255,255">
+        <description xmi:type="style:FlatContainerStyleDescription" href="platform:/resource/designs/entity/plugins/org.obeonetwork.dsl.entity.design/description/entity.odesign#//@ownedViewpoints[name='Entity%20Views']/@ownedRepresentations[name='Entities%20Namespaces%20Hierarchy']/@defaultLayer/@containerMappings[name='ND_Namespace']/@style"/>
+      </ownedStyle>
+      <actualMapping xmi:type="description_1:ContainerMapping" href="platform:/resource/designs/entity/plugins/org.obeonetwork.dsl.entity.design/description/entity.odesign#//@ownedViewpoints[name='Entity%20Views']/@ownedRepresentations[name='Entities%20Namespaces%20Hierarchy']/@defaultLayer/@containerMappings[name='ND_Namespace']"/>
+    </ownedDiagramElements>
+    <ownedDiagramElements xmi:type="diagram:DNodeContainer" uid="_D4YZEKpVEeqpN8GodWJphQ" name="namespace_2">
+      <target xmi:type="oenv:Namespace" href="E-BookStore.entity#_D2VKoKpVEeqpN8GodWJphQ"/>
+      <semanticElements xmi:type="oenv:Namespace" href="E-BookStore.entity#_D2VKoKpVEeqpN8GodWJphQ"/>
+      <ownedStyle xmi:type="diagram:FlatContainerStyle" uid="_D4ZAIKpVEeqpN8GodWJphQ" borderSize="1" borderSizeComputationExpression="1" borderColor="136,136,136" backgroundStyle="GradientTopToBottom" backgroundColor="209,209,209" foregroundColor="255,255,255">
+        <description xmi:type="style:FlatContainerStyleDescription" href="platform:/resource/designs/entity/plugins/org.obeonetwork.dsl.entity.design/description/entity.odesign#//@ownedViewpoints[name='Entity%20Views']/@ownedRepresentations[name='Entities%20Namespaces%20Hierarchy']/@defaultLayer/@containerMappings[name='ND_Namespace']/@style"/>
+      </ownedStyle>
+      <actualMapping xmi:type="description_1:ContainerMapping" href="platform:/resource/designs/entity/plugins/org.obeonetwork.dsl.entity.design/description/entity.odesign#//@ownedViewpoints[name='Entity%20Views']/@ownedRepresentations[name='Entities%20Namespaces%20Hierarchy']/@defaultLayer/@containerMappings[name='ND_Namespace']"/>
+    </ownedDiagramElements>
+    <description xmi:type="description_1:DiagramDescription" href="platform:/resource/designs/entity/plugins/org.obeonetwork.dsl.entity.design/description/entity.odesign#//@ownedViewpoints[name='Entity%20Views']/@ownedRepresentations[name='Entities%20Namespaces%20Hierarchy']"/>
+    <filterVariableHistory xmi:type="diagram:FilterVariableHistory" uid="_DOl1MapVEeqpN8GodWJphQ"/>
+    <activatedLayers xmi:type="description_1:Layer" href="platform:/resource/designs/entity/plugins/org.obeonetwork.dsl.entity.design/description/entity.odesign#//@ownedViewpoints[name='Entity%20Views']/@ownedRepresentations[name='Entities%20Namespaces%20Hierarchy']/@defaultLayer"/>
+    <activatedLayers xmi:type="description_1:AdditionalLayer" href="platform:/resource/designs/entity/plugins/org.obeonetwork.dsl.entity.design/description/entity.odesign#//@ownedViewpoints[name='Entity%20Views']/@ownedRepresentations[name='Entities%20Namespaces%20Hierarchy']/@additionalLayers[name='Dependencies']"/>
+    <target xmi:type="oent:Root" href="E-BookStore.entity#_62l-UJEcEeauDets12NBwQ"/>
+  </diagram:DSemanticDiagram>
+  <diagram:DSemanticDiagram uid="_Ip1RsKpcEeqpN8GodWJphQ">
+    <ownedAnnotationEntries xmi:type="description:AnnotationEntry" uid="_Iq0wMKpcEeqpN8GodWJphQ" source="DANNOTATION_CUSTOMIZATION_KEY">
+      <data xmi:type="diagram:ComputedStyleDescriptionRegistry" uid="_Iq0wMapcEeqpN8GodWJphQ"/>
+    </ownedAnnotationEntries>
+    <ownedAnnotationEntries xmi:type="description:AnnotationEntry" uid="_Iq5BoKpcEeqpN8GodWJphQ" source="GMF_DIAGRAMS">
+      <data xmi:type="notation:Diagram" xmi:id="_Iq5BoapcEeqpN8GodWJphQ" type="Sirius" element="_Ip1RsKpcEeqpN8GodWJphQ" measurementUnit="Pixel">
+        <children xmi:type="notation:Node" xmi:id="_Iq8sAKpcEeqpN8GodWJphQ" type="2001" element="_IqlfoKpcEeqpN8GodWJphQ">
+          <children xmi:type="notation:Node" xmi:id="_Iq_vUKpcEeqpN8GodWJphQ" type="5002">
+            <layoutConstraint xmi:type="notation:Location" xmi:id="_Iq_vUapcEeqpN8GodWJphQ" x="-1"/>
+          </children>
+          <children xmi:type="notation:Node" xmi:id="_Is0UQKpcEeqpN8GodWJphQ" type="3005" element="_IqmGsKpcEeqpN8GodWJphQ">
+            <styles xmi:type="notation:ShapeStyle" xmi:id="_Is0UQapcEeqpN8GodWJphQ" fontName="Segoe UI"/>
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_Is0UQqpcEeqpN8GodWJphQ"/>
+          </children>
+          <styles xmi:type="notation:ShapeStyle" xmi:id="_Iq8sAapcEeqpN8GodWJphQ" fontName="Segoe UI" fontHeight="8"/>
+          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_Iq8sAqpcEeqpN8GodWJphQ" y="295" width="24" height="24"/>
+        </children>
+        <children xmi:type="notation:Node" xmi:id="_IrXiwKpcEeqpN8GodWJphQ" type="2001" element="_IqnU0KpcEeqpN8GodWJphQ">
+          <children xmi:type="notation:Node" xmi:id="_IrXiw6pcEeqpN8GodWJphQ" type="5002">
+            <layoutConstraint xmi:type="notation:Location" xmi:id="_IrXixKpcEeqpN8GodWJphQ" x="-1"/>
+          </children>
+          <children xmi:type="notation:Node" xmi:id="_Is07UKpcEeqpN8GodWJphQ" type="3005" element="_IqnU0apcEeqpN8GodWJphQ">
+            <styles xmi:type="notation:ShapeStyle" xmi:id="_Is07UapcEeqpN8GodWJphQ" fontName="Segoe UI"/>
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_Is07UqpcEeqpN8GodWJphQ"/>
+          </children>
+          <styles xmi:type="notation:ShapeStyle" xmi:id="_IrXiwapcEeqpN8GodWJphQ" fontName="Segoe UI" fontHeight="8"/>
+          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_IrXiwqpcEeqpN8GodWJphQ" x="460" y="420" width="24" height="23"/>
+        </children>
+        <children xmi:type="notation:Node" xmi:id="_IrYw4KpcEeqpN8GodWJphQ" type="2001" element="_Iqn74apcEeqpN8GodWJphQ">
+          <children xmi:type="notation:Node" xmi:id="_IrZX8KpcEeqpN8GodWJphQ" type="5002">
+            <layoutConstraint xmi:type="notation:Location" xmi:id="_IrZX8apcEeqpN8GodWJphQ" x="-1"/>
+          </children>
+          <children xmi:type="notation:Node" xmi:id="_Is07U6pcEeqpN8GodWJphQ" type="3005" element="_Iqn74qpcEeqpN8GodWJphQ">
+            <styles xmi:type="notation:ShapeStyle" xmi:id="_Is07VKpcEeqpN8GodWJphQ" fontName="Segoe UI"/>
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_Is07VapcEeqpN8GodWJphQ"/>
+          </children>
+          <styles xmi:type="notation:ShapeStyle" xmi:id="_IrYw4apcEeqpN8GodWJphQ" fontName="Segoe UI" fontHeight="8"/>
+          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_IrYw4qpcEeqpN8GodWJphQ" x="460" y="365" width="24" height="23"/>
+        </children>
+        <children xmi:type="notation:Node" xmi:id="_IrZ_AKpcEeqpN8GodWJphQ" type="2001" element="_Iqoi8KpcEeqpN8GodWJphQ">
+          <children xmi:type="notation:Node" xmi:id="_IrZ_A6pcEeqpN8GodWJphQ" type="5002">
+            <layoutConstraint xmi:type="notation:Location" xmi:id="_IrZ_BKpcEeqpN8GodWJphQ" y="5"/>
+          </children>
+          <children xmi:type="notation:Node" xmi:id="_Is07VqpcEeqpN8GodWJphQ" type="3005" element="_Iqoi8apcEeqpN8GodWJphQ">
+            <styles xmi:type="notation:ShapeStyle" xmi:id="_Is07V6pcEeqpN8GodWJphQ" fontName="Segoe UI"/>
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_Is07WKpcEeqpN8GodWJphQ"/>
+          </children>
+          <styles xmi:type="notation:ShapeStyle" xmi:id="_IrZ_AapcEeqpN8GodWJphQ" fontName="Segoe UI" fontHeight="8"/>
+          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_IrZ_AqpcEeqpN8GodWJphQ" x="305" y="400" width="123" height="63"/>
+        </children>
+        <children xmi:type="notation:Node" xmi:id="_IrvWMKpcEeqpN8GodWJphQ" type="2001" element="_Iqoi86pcEeqpN8GodWJphQ">
+          <children xmi:type="notation:Node" xmi:id="_Irv9QKpcEeqpN8GodWJphQ" type="5002">
+            <layoutConstraint xmi:type="notation:Location" xmi:id="_Irv9QapcEeqpN8GodWJphQ" y="5"/>
+          </children>
+          <children xmi:type="notation:Node" xmi:id="_Is1iYKpcEeqpN8GodWJphQ" type="3005" element="_Iqoi9KpcEeqpN8GodWJphQ">
+            <styles xmi:type="notation:ShapeStyle" xmi:id="_Is1iYapcEeqpN8GodWJphQ" fontName="Segoe UI"/>
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_Is1iYqpcEeqpN8GodWJphQ"/>
+          </children>
+          <styles xmi:type="notation:ShapeStyle" xmi:id="_IrvWMapcEeqpN8GodWJphQ" fontName="Segoe UI" fontHeight="8"/>
+          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_IrvWMqpcEeqpN8GodWJphQ" x="305" y="275" width="123" height="63"/>
+        </children>
+        <children xmi:type="notation:Node" xmi:id="_IsEGUKpcEeqpN8GodWJphQ" type="2001" element="_IqpKAKpcEeqpN8GodWJphQ">
+          <children xmi:type="notation:Node" xmi:id="_IsEGU6pcEeqpN8GodWJphQ" type="5002">
+            <layoutConstraint xmi:type="notation:Location" xmi:id="_IsEGVKpcEeqpN8GodWJphQ" y="5"/>
+          </children>
+          <children xmi:type="notation:Node" xmi:id="_Is1iY6pcEeqpN8GodWJphQ" type="3005" element="_IqpKAapcEeqpN8GodWJphQ">
+            <styles xmi:type="notation:ShapeStyle" xmi:id="_Is1iZKpcEeqpN8GodWJphQ" fontName="Segoe UI"/>
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_Is1iZapcEeqpN8GodWJphQ"/>
+          </children>
+          <styles xmi:type="notation:ShapeStyle" xmi:id="_IsEGUapcEeqpN8GodWJphQ" fontName="Segoe UI" fontHeight="8"/>
+          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_IsEGUqpcEeqpN8GodWJphQ" y="380" width="123" height="63"/>
+        </children>
+        <children xmi:type="notation:Node" xmi:id="_IsLbEKpcEeqpN8GodWJphQ" type="2001" element="_IqpKA6pcEeqpN8GodWJphQ">
+          <children xmi:type="notation:Node" xmi:id="_IsLbE6pcEeqpN8GodWJphQ" type="5002">
+            <layoutConstraint xmi:type="notation:Location" xmi:id="_IsLbFKpcEeqpN8GodWJphQ" y="5"/>
+          </children>
+          <children xmi:type="notation:Node" xmi:id="_Is2wgKpcEeqpN8GodWJphQ" type="3005" element="_IqpKBKpcEeqpN8GodWJphQ">
+            <styles xmi:type="notation:ShapeStyle" xmi:id="_Is2wgapcEeqpN8GodWJphQ" fontName="Segoe UI"/>
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_Is2wgqpcEeqpN8GodWJphQ"/>
+          </children>
+          <styles xmi:type="notation:ShapeStyle" xmi:id="_IsLbEapcEeqpN8GodWJphQ" fontName="Segoe UI" fontHeight="8"/>
+          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_IsLbEqpcEeqpN8GodWJphQ" x="155" y="500" width="123" height="63"/>
+        </children>
+        <children xmi:type="notation:Node" xmi:id="_IsXBQKpcEeqpN8GodWJphQ" type="2001" element="_IqpxEapcEeqpN8GodWJphQ">
+          <children xmi:type="notation:Node" xmi:id="_IsXBQ6pcEeqpN8GodWJphQ" type="5002">
+            <layoutConstraint xmi:type="notation:Location" xmi:id="_IsXBRKpcEeqpN8GodWJphQ" y="5"/>
+          </children>
+          <children xmi:type="notation:Node" xmi:id="_Is3XkKpcEeqpN8GodWJphQ" type="3005" element="_IqpxEqpcEeqpN8GodWJphQ">
+            <styles xmi:type="notation:ShapeStyle" xmi:id="_Is3XkapcEeqpN8GodWJphQ" fontName="Segoe UI"/>
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_Is3XkqpcEeqpN8GodWJphQ"/>
+          </children>
+          <styles xmi:type="notation:ShapeStyle" xmi:id="_IsXBQapcEeqpN8GodWJphQ" fontName="Segoe UI" fontHeight="8"/>
+          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_IsXBQqpcEeqpN8GodWJphQ" x="460" y="275" width="123" height="63"/>
+        </children>
+        <children xmi:type="notation:Node" xmi:id="_Ise9EKpcEeqpN8GodWJphQ" type="2001" element="_IqpxFKpcEeqpN8GodWJphQ">
+          <children xmi:type="notation:Node" xmi:id="_Ise9E6pcEeqpN8GodWJphQ" type="5002">
+            <layoutConstraint xmi:type="notation:Location" xmi:id="_Ise9FKpcEeqpN8GodWJphQ" y="5"/>
+          </children>
+          <children xmi:type="notation:Node" xmi:id="_Is3-oKpcEeqpN8GodWJphQ" type="3005" element="_IqpxFapcEeqpN8GodWJphQ">
+            <styles xmi:type="notation:ShapeStyle" xmi:id="_Is3-oapcEeqpN8GodWJphQ" fontName="Segoe UI"/>
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_Is3-oqpcEeqpN8GodWJphQ"/>
+          </children>
+          <styles xmi:type="notation:ShapeStyle" xmi:id="_Ise9EapcEeqpN8GodWJphQ" fontName="Segoe UI" fontHeight="8"/>
+          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_Ise9EqpcEeqpN8GodWJphQ" x="155" y="280" width="44" height="47"/>
+        </children>
+        <children xmi:type="notation:Node" xmi:id="_IsyfEKpcEeqpN8GodWJphQ" type="2003" element="_IqqYIKpcEeqpN8GodWJphQ">
+          <children xmi:type="notation:Node" xmi:id="_IsyfE6pcEeqpN8GodWJphQ" type="5007"/>
+          <children xmi:type="notation:Node" xmi:id="_IszGIKpcEeqpN8GodWJphQ" type="7004">
+            <children xmi:type="notation:Node" xmi:id="_Is3-o6pcEeqpN8GodWJphQ" type="3010" element="_Iqq_MapcEeqpN8GodWJphQ">
+              <styles xmi:type="notation:FontStyle" xmi:id="_Is3-pKpcEeqpN8GodWJphQ" fontName="Segoe UI" fontHeight="8"/>
+              <layoutConstraint xmi:type="notation:Location" xmi:id="_Is3-papcEeqpN8GodWJphQ"/>
+            </children>
+            <children xmi:type="notation:Node" xmi:id="_Is4lsKpcEeqpN8GodWJphQ" type="3010" element="_IqrmQKpcEeqpN8GodWJphQ">
+              <styles xmi:type="notation:FontStyle" xmi:id="_Is4lsapcEeqpN8GodWJphQ" fontName="Segoe UI" fontHeight="8"/>
+              <layoutConstraint xmi:type="notation:Location" xmi:id="_Is4lsqpcEeqpN8GodWJphQ"/>
+            </children>
+            <children xmi:type="notation:Node" xmi:id="_Is4ls6pcEeqpN8GodWJphQ" type="3010" element="_IqrmQqpcEeqpN8GodWJphQ">
+              <styles xmi:type="notation:FontStyle" xmi:id="_Is4ltKpcEeqpN8GodWJphQ" fontName="Segoe UI" fontHeight="8"/>
+              <layoutConstraint xmi:type="notation:Location" xmi:id="_Is4ltapcEeqpN8GodWJphQ"/>
+            </children>
+            <children xmi:type="notation:Node" xmi:id="_Is5MwKpcEeqpN8GodWJphQ" type="3010" element="_IqrmRKpcEeqpN8GodWJphQ">
+              <styles xmi:type="notation:FontStyle" xmi:id="_Is5MwapcEeqpN8GodWJphQ" fontName="Segoe UI" fontHeight="8"/>
+              <layoutConstraint xmi:type="notation:Location" xmi:id="_Is5MwqpcEeqpN8GodWJphQ"/>
+            </children>
+            <styles xmi:type="notation:SortingStyle" xmi:id="_IszGIapcEeqpN8GodWJphQ"/>
+            <styles xmi:type="notation:FilteringStyle" xmi:id="_IszGIqpcEeqpN8GodWJphQ"/>
+          </children>
+          <styles xmi:type="notation:ShapeStyle" xmi:id="_IsyfEapcEeqpN8GodWJphQ" fontName="Segoe UI" fontHeight="8"/>
+          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_IsyfEqpcEeqpN8GodWJphQ" y="15"/>
+        </children>
+        <children xmi:type="notation:Node" xmi:id="_IszGI6pcEeqpN8GodWJphQ" type="2003" element="_IqrmRqpcEeqpN8GodWJphQ">
+          <children xmi:type="notation:Node" xmi:id="_IszGJqpcEeqpN8GodWJphQ" type="5007"/>
+          <children xmi:type="notation:Node" xmi:id="_IszGJ6pcEeqpN8GodWJphQ" type="7004">
+            <children xmi:type="notation:Node" xmi:id="_Is5Mw6pcEeqpN8GodWJphQ" type="3010" element="_Iqs0YKpcEeqpN8GodWJphQ">
+              <styles xmi:type="notation:FontStyle" xmi:id="_Is5MxKpcEeqpN8GodWJphQ" fontName="Segoe UI" fontHeight="8"/>
+              <layoutConstraint xmi:type="notation:Location" xmi:id="_Is5MxapcEeqpN8GodWJphQ"/>
+            </children>
+            <children xmi:type="notation:Node" xmi:id="_Is5z0KpcEeqpN8GodWJphQ" type="3010" element="_Iqs0YqpcEeqpN8GodWJphQ">
+              <styles xmi:type="notation:FontStyle" xmi:id="_Is5z0apcEeqpN8GodWJphQ" fontName="Segoe UI" fontHeight="8"/>
+              <layoutConstraint xmi:type="notation:Location" xmi:id="_Is5z0qpcEeqpN8GodWJphQ"/>
+            </children>
+            <children xmi:type="notation:Node" xmi:id="_Is5z06pcEeqpN8GodWJphQ" type="3010" element="_Iqs0ZKpcEeqpN8GodWJphQ">
+              <styles xmi:type="notation:FontStyle" xmi:id="_Is5z1KpcEeqpN8GodWJphQ" fontName="Segoe UI" fontHeight="8"/>
+              <layoutConstraint xmi:type="notation:Location" xmi:id="_Is5z1apcEeqpN8GodWJphQ"/>
+            </children>
+            <children xmi:type="notation:Node" xmi:id="_Is5z1qpcEeqpN8GodWJphQ" type="3010" element="_Iqs0ZqpcEeqpN8GodWJphQ">
+              <styles xmi:type="notation:FontStyle" xmi:id="_Is5z16pcEeqpN8GodWJphQ" fontName="Segoe UI" fontHeight="8"/>
+              <layoutConstraint xmi:type="notation:Location" xmi:id="_Is5z2KpcEeqpN8GodWJphQ"/>
+            </children>
+            <children xmi:type="notation:Node" xmi:id="_Is6a4KpcEeqpN8GodWJphQ" type="3010" element="_IqtbcKpcEeqpN8GodWJphQ">
+              <styles xmi:type="notation:FontStyle" xmi:id="_Is6a4apcEeqpN8GodWJphQ" fontName="Segoe UI" fontHeight="8"/>
+              <layoutConstraint xmi:type="notation:Location" xmi:id="_Is6a4qpcEeqpN8GodWJphQ"/>
+            </children>
+            <styles xmi:type="notation:SortingStyle" xmi:id="_IszGKKpcEeqpN8GodWJphQ"/>
+            <styles xmi:type="notation:FilteringStyle" xmi:id="_IszGKapcEeqpN8GodWJphQ"/>
+          </children>
+          <styles xmi:type="notation:ShapeStyle" xmi:id="_IszGJKpcEeqpN8GodWJphQ" fontName="Segoe UI" fontHeight="8"/>
+          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_IszGJapcEeqpN8GodWJphQ" x="456" y="475"/>
+        </children>
+        <children xmi:type="notation:Node" xmi:id="_IszGKqpcEeqpN8GodWJphQ" type="2003" element="_IqsNUapcEeqpN8GodWJphQ">
+          <children xmi:type="notation:Node" xmi:id="_IsztMKpcEeqpN8GodWJphQ" type="5007"/>
+          <children xmi:type="notation:Node" xmi:id="_IsztMapcEeqpN8GodWJphQ" type="7004">
+            <children xmi:type="notation:Node" xmi:id="_Is6a46pcEeqpN8GodWJphQ" type="3010" element="_IqtbcqpcEeqpN8GodWJphQ">
+              <styles xmi:type="notation:FontStyle" xmi:id="_Is6a5KpcEeqpN8GodWJphQ" fontName="Segoe UI" fontHeight="8"/>
+              <layoutConstraint xmi:type="notation:Location" xmi:id="_Is6a5apcEeqpN8GodWJphQ"/>
+            </children>
+            <children xmi:type="notation:Node" xmi:id="_Is6a5qpcEeqpN8GodWJphQ" type="3010" element="_IquCgKpcEeqpN8GodWJphQ">
+              <styles xmi:type="notation:FontStyle" xmi:id="_Is6a56pcEeqpN8GodWJphQ" fontName="Segoe UI" fontHeight="8"/>
+              <layoutConstraint xmi:type="notation:Location" xmi:id="_Is6a6KpcEeqpN8GodWJphQ"/>
+            </children>
+            <children xmi:type="notation:Node" xmi:id="_Is6a6apcEeqpN8GodWJphQ" type="3010" element="_IquCgqpcEeqpN8GodWJphQ">
+              <styles xmi:type="notation:FontStyle" xmi:id="_Is6a6qpcEeqpN8GodWJphQ" fontName="Segoe UI" fontHeight="8"/>
+              <layoutConstraint xmi:type="notation:Location" xmi:id="_Is6a66pcEeqpN8GodWJphQ"/>
+            </children>
+            <children xmi:type="notation:Node" xmi:id="_Is7B8KpcEeqpN8GodWJphQ" type="3010" element="_IquChKpcEeqpN8GodWJphQ">
+              <styles xmi:type="notation:FontStyle" xmi:id="_Is7B8apcEeqpN8GodWJphQ" fontName="Segoe UI" fontHeight="8"/>
+              <layoutConstraint xmi:type="notation:Location" xmi:id="_Is7B8qpcEeqpN8GodWJphQ"/>
+            </children>
+            <children xmi:type="notation:Node" xmi:id="_Is7B86pcEeqpN8GodWJphQ" type="3010" element="_IquChqpcEeqpN8GodWJphQ">
+              <styles xmi:type="notation:FontStyle" xmi:id="_Is7B9KpcEeqpN8GodWJphQ" fontName="Segoe UI" fontHeight="8"/>
+              <layoutConstraint xmi:type="notation:Location" xmi:id="_Is7B9apcEeqpN8GodWJphQ"/>
+            </children>
+            <styles xmi:type="notation:SortingStyle" xmi:id="_IsztMqpcEeqpN8GodWJphQ"/>
+            <styles xmi:type="notation:FilteringStyle" xmi:id="_IsztM6pcEeqpN8GodWJphQ"/>
+          </children>
+          <styles xmi:type="notation:ShapeStyle" xmi:id="_IszGK6pcEeqpN8GodWJphQ" fontName="Segoe UI" fontHeight="8"/>
+          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_IszGLKpcEeqpN8GodWJphQ" x="455" y="125"/>
+        </children>
+        <styles xmi:type="notation:DiagramStyle" xmi:id="_Iq5BoqpcEeqpN8GodWJphQ"/>
+        <edges xmi:type="notation:Edge" xmi:id="_Is8QEKpcEeqpN8GodWJphQ" type="4001" element="_IqvQoKpcEeqpN8GodWJphQ" source="_IrZ_AKpcEeqpN8GodWJphQ" target="_IszGI6pcEeqpN8GodWJphQ">
+          <children xmi:type="notation:Node" xmi:id="_Is83IKpcEeqpN8GodWJphQ" type="6001">
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_Is83IapcEeqpN8GodWJphQ" y="-10"/>
+          </children>
+          <children xmi:type="notation:Node" xmi:id="_Is83IqpcEeqpN8GodWJphQ" type="6002">
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_Is83I6pcEeqpN8GodWJphQ" y="10"/>
+          </children>
+          <children xmi:type="notation:Node" xmi:id="_Is83JKpcEeqpN8GodWJphQ" type="6003">
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_Is83JapcEeqpN8GodWJphQ" y="10"/>
+          </children>
+          <styles xmi:type="notation:ConnectorStyle" xmi:id="_Is8QEapcEeqpN8GodWJphQ"/>
+          <styles xmi:type="notation:FontStyle" xmi:id="_Is8QEqpcEeqpN8GodWJphQ" fontName="Segoe UI" fontHeight="8"/>
+          <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_Is8QE6pcEeqpN8GodWJphQ" points="[0, 0, -30, -95]$[30, 94, 0, -1]"/>
+          <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_Is-sUKpcEeqpN8GodWJphQ" id="(1.0,0.49206349206349204)"/>
+          <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_Is-sUapcEeqpN8GodWJphQ" id="(0.0,0.5048543689320388)"/>
+        </edges>
+        <edges xmi:type="notation:Edge" xmi:id="_Is_TYKpcEeqpN8GodWJphQ" type="4001" element="_IqwewqpcEeqpN8GodWJphQ" source="_IrvWMKpcEeqpN8GodWJphQ" target="_IszGKqpcEeqpN8GodWJphQ">
+          <children xmi:type="notation:Node" xmi:id="_Is_TZKpcEeqpN8GodWJphQ" type="6001">
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_Is_TZapcEeqpN8GodWJphQ" y="-10"/>
+          </children>
+          <children xmi:type="notation:Node" xmi:id="_Is_6cKpcEeqpN8GodWJphQ" type="6002">
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_Is_6capcEeqpN8GodWJphQ" y="10"/>
+          </children>
+          <children xmi:type="notation:Node" xmi:id="_Is_6cqpcEeqpN8GodWJphQ" type="6003">
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_Is_6c6pcEeqpN8GodWJphQ" y="10"/>
+          </children>
+          <styles xmi:type="notation:ConnectorStyle" xmi:id="_Is_TYapcEeqpN8GodWJphQ"/>
+          <styles xmi:type="notation:FontStyle" xmi:id="_Is_TYqpcEeqpN8GodWJphQ" fontName="Segoe UI" fontHeight="8"/>
+          <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_Is_TY6pcEeqpN8GodWJphQ" points="[0, 0, -30, 112]$[30, -113, 0, -1]"/>
+          <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_ItAhgKpcEeqpN8GodWJphQ" id="(1.0,0.49206349206349204)"/>
+          <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_ItAhgapcEeqpN8GodWJphQ" id="(0.0,0.504950495049505)"/>
+        </edges>
+        <edges xmi:type="notation:Edge" xmi:id="_ItAhgqpcEeqpN8GodWJphQ" type="4001" element="_Iqxs4KpcEeqpN8GodWJphQ" source="_Iq8sAKpcEeqpN8GodWJphQ" target="_Ise9EKpcEeqpN8GodWJphQ">
+          <children xmi:type="notation:Node" xmi:id="_ItBIkKpcEeqpN8GodWJphQ" type="6001">
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_ItBIkapcEeqpN8GodWJphQ" y="-10"/>
+          </children>
+          <children xmi:type="notation:Node" xmi:id="_ItBIkqpcEeqpN8GodWJphQ" type="6002">
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_ItBIk6pcEeqpN8GodWJphQ" y="10"/>
+          </children>
+          <children xmi:type="notation:Node" xmi:id="_ItBIlKpcEeqpN8GodWJphQ" type="6003">
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_ItBIlapcEeqpN8GodWJphQ" y="10"/>
+          </children>
+          <styles xmi:type="notation:ConnectorStyle" xmi:id="_ItAhg6pcEeqpN8GodWJphQ"/>
+          <styles xmi:type="notation:FontStyle" xmi:id="_ItAhhKpcEeqpN8GodWJphQ" fontName="Segoe UI" fontHeight="8"/>
+          <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_ItAhhapcEeqpN8GodWJphQ" points="[0, 0, -30, 0]$[30, 0, 0, 0]"/>
+          <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_ItBIlqpcEeqpN8GodWJphQ" id="(1.0,0.5)"/>
+          <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_ItBIl6pcEeqpN8GodWJphQ" id="(0.0,0.48936170212765956)"/>
+        </edges>
+        <edges xmi:type="notation:Edge" xmi:id="_ItBImKpcEeqpN8GodWJphQ" type="4001" element="_IqyT9KpcEeqpN8GodWJphQ" source="_Ise9EKpcEeqpN8GodWJphQ" target="_IrvWMKpcEeqpN8GodWJphQ">
+          <children xmi:type="notation:Node" xmi:id="_ItBInKpcEeqpN8GodWJphQ" type="6001">
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_ItBInapcEeqpN8GodWJphQ" y="-10"/>
+          </children>
+          <children xmi:type="notation:Node" xmi:id="_ItBInqpcEeqpN8GodWJphQ" type="6002">
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_ItBIn6pcEeqpN8GodWJphQ" y="10"/>
+          </children>
+          <children xmi:type="notation:Node" xmi:id="_ItBIoKpcEeqpN8GodWJphQ" type="6003">
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_ItBIoapcEeqpN8GodWJphQ" y="10"/>
+          </children>
+          <styles xmi:type="notation:ConnectorStyle" xmi:id="_ItBImapcEeqpN8GodWJphQ"/>
+          <styles xmi:type="notation:FontStyle" xmi:id="_ItBImqpcEeqpN8GodWJphQ" fontName="Segoe UI" fontHeight="8"/>
+          <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_ItBIm6pcEeqpN8GodWJphQ" points="[0, 0, -30, 0]$[30, 0, 0, 0]"/>
+          <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_ItCWsKpcEeqpN8GodWJphQ" id="(1.0,0.48936170212765956)"/>
+          <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_ItCWsapcEeqpN8GodWJphQ" id="(0.0,0.49206349206349204)"/>
+        </edges>
+        <edges xmi:type="notation:Edge" xmi:id="_ItCWsqpcEeqpN8GodWJphQ" type="4001" element="_Iqy7BKpcEeqpN8GodWJphQ" source="_Ise9EKpcEeqpN8GodWJphQ" target="_IrZ_AKpcEeqpN8GodWJphQ">
+          <children xmi:type="notation:Node" xmi:id="_ItCWtqpcEeqpN8GodWJphQ" type="6001">
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_ItCWt6pcEeqpN8GodWJphQ" y="-10"/>
+          </children>
+          <children xmi:type="notation:Node" xmi:id="_ItCWuKpcEeqpN8GodWJphQ" type="6002">
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_ItCWuapcEeqpN8GodWJphQ" y="10"/>
+          </children>
+          <children xmi:type="notation:Node" xmi:id="_ItCWuqpcEeqpN8GodWJphQ" type="6003">
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_ItCWu6pcEeqpN8GodWJphQ" y="10"/>
+          </children>
+          <styles xmi:type="notation:ConnectorStyle" xmi:id="_ItCWs6pcEeqpN8GodWJphQ"/>
+          <styles xmi:type="notation:FontStyle" xmi:id="_ItCWtKpcEeqpN8GodWJphQ" fontName="Segoe UI" fontHeight="8"/>
+          <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_ItCWtapcEeqpN8GodWJphQ" points="[0, 0, -30, -126]$[30, 126, 0, 0]"/>
+          <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_ItC9wKpcEeqpN8GodWJphQ" id="(1.0,0.48936170212765956)"/>
+          <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_ItC9wapcEeqpN8GodWJphQ" id="(0.0,0.49206349206349204)"/>
+        </edges>
+        <edges xmi:type="notation:Edge" xmi:id="_ItC9wqpcEeqpN8GodWJphQ" type="4001" element="_Iqy7CapcEeqpN8GodWJphQ" source="_IsEGUKpcEeqpN8GodWJphQ" target="_Ise9EKpcEeqpN8GodWJphQ">
+          <children xmi:type="notation:Node" xmi:id="_ItC9xqpcEeqpN8GodWJphQ" type="6001">
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_ItC9x6pcEeqpN8GodWJphQ" y="-10"/>
+          </children>
+          <children xmi:type="notation:Node" xmi:id="_ItC9yKpcEeqpN8GodWJphQ" type="6002">
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_ItC9yapcEeqpN8GodWJphQ" y="10"/>
+          </children>
+          <children xmi:type="notation:Node" xmi:id="_ItC9yqpcEeqpN8GodWJphQ" type="6003">
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_ItC9y6pcEeqpN8GodWJphQ" y="10"/>
+          </children>
+          <styles xmi:type="notation:ConnectorStyle" xmi:id="_ItC9w6pcEeqpN8GodWJphQ"/>
+          <styles xmi:type="notation:FontStyle" xmi:id="_ItC9xKpcEeqpN8GodWJphQ" fontName="Segoe UI" fontHeight="8"/>
+          <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_ItC9xapcEeqpN8GodWJphQ" points="[0, 0, -30, 108]$[30, -108, 0, 0]"/>
+          <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_ItC9zKpcEeqpN8GodWJphQ" id="(1.0,0.49206349206349204)"/>
+          <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_ItC9zapcEeqpN8GodWJphQ" id="(0.0,0.48936170212765956)"/>
+        </edges>
+        <edges xmi:type="notation:Edge" xmi:id="_ItC9zqpcEeqpN8GodWJphQ" type="4001" element="_Iqy7DqpcEeqpN8GodWJphQ" source="_IrZ_AKpcEeqpN8GodWJphQ" target="_IsEGUKpcEeqpN8GodWJphQ">
+          <children xmi:type="notation:Node" xmi:id="_ItDk0KpcEeqpN8GodWJphQ" type="6001">
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_ItDk0apcEeqpN8GodWJphQ" y="-10"/>
+          </children>
+          <children xmi:type="notation:Node" xmi:id="_ItDk0qpcEeqpN8GodWJphQ" type="6002">
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_ItDk06pcEeqpN8GodWJphQ" y="10"/>
+          </children>
+          <children xmi:type="notation:Node" xmi:id="_ItDk1KpcEeqpN8GodWJphQ" type="6003">
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_ItDk1apcEeqpN8GodWJphQ" y="10"/>
+          </children>
+          <styles xmi:type="notation:ConnectorStyle" xmi:id="_ItC9z6pcEeqpN8GodWJphQ"/>
+          <styles xmi:type="notation:FontStyle" xmi:id="_ItC90KpcEeqpN8GodWJphQ" fontName="Segoe UI" fontHeight="8"/>
+          <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_ItC90apcEeqpN8GodWJphQ" points="[0, 0, 183, 18]$[-31, -17, 152, 1]$[-183, -18, 0, 0]"/>
+          <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_ItDk1qpcEeqpN8GodWJphQ" id="(0.0,0.49206349206349204)"/>
+          <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_ItDk16pcEeqpN8GodWJphQ" id="(1.0,0.49206349206349204)"/>
+        </edges>
+        <edges xmi:type="notation:Edge" xmi:id="_ItDk2KpcEeqpN8GodWJphQ" type="4001" element="_IqziEapcEeqpN8GodWJphQ" source="_IrvWMKpcEeqpN8GodWJphQ" target="_IsXBQKpcEeqpN8GodWJphQ">
+          <children xmi:type="notation:Node" xmi:id="_ItDk3KpcEeqpN8GodWJphQ" type="6001">
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_ItDk3apcEeqpN8GodWJphQ" y="-10"/>
+          </children>
+          <children xmi:type="notation:Node" xmi:id="_ItEL4KpcEeqpN8GodWJphQ" type="6002">
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_ItEL4apcEeqpN8GodWJphQ" y="10"/>
+          </children>
+          <children xmi:type="notation:Node" xmi:id="_ItEL4qpcEeqpN8GodWJphQ" type="6003">
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_ItEL46pcEeqpN8GodWJphQ" y="10"/>
+          </children>
+          <styles xmi:type="notation:ConnectorStyle" xmi:id="_ItDk2apcEeqpN8GodWJphQ"/>
+          <styles xmi:type="notation:FontStyle" xmi:id="_ItDk2qpcEeqpN8GodWJphQ" fontName="Segoe UI" fontHeight="8"/>
+          <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_ItDk26pcEeqpN8GodWJphQ" points="[0, 0, -30, 0]$[30, 0, 0, 0]"/>
+          <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_ItEL5KpcEeqpN8GodWJphQ" id="(1.0,0.49206349206349204)"/>
+          <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_ItEL5apcEeqpN8GodWJphQ" id="(0.0,0.49206349206349204)"/>
+        </edges>
+        <edges xmi:type="notation:Edge" xmi:id="_ItEL5qpcEeqpN8GodWJphQ" type="4001" element="_IqziFqpcEeqpN8GodWJphQ" source="_IrZ_AKpcEeqpN8GodWJphQ" target="_IsLbEKpcEeqpN8GodWJphQ">
+          <children xmi:type="notation:Node" xmi:id="_ItEL6qpcEeqpN8GodWJphQ" type="6001">
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_ItEL66pcEeqpN8GodWJphQ" y="-10"/>
+          </children>
+          <children xmi:type="notation:Node" xmi:id="_ItEL7KpcEeqpN8GodWJphQ" type="6002">
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_ItEL7apcEeqpN8GodWJphQ" y="10"/>
+          </children>
+          <children xmi:type="notation:Node" xmi:id="_ItEy8KpcEeqpN8GodWJphQ" type="6003">
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_ItEy8apcEeqpN8GodWJphQ" y="10"/>
+          </children>
+          <styles xmi:type="notation:ConnectorStyle" xmi:id="_ItEL56pcEeqpN8GodWJphQ"/>
+          <styles xmi:type="notation:FontStyle" xmi:id="_ItEL6KpcEeqpN8GodWJphQ" fontName="Segoe UI" fontHeight="8"/>
+          <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_ItEL6apcEeqpN8GodWJphQ" points="[0, 0, 30, -98]$[-30, 98, 0, 0]"/>
+          <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_ItEy8qpcEeqpN8GodWJphQ" id="(0.0,0.49206349206349204)"/>
+          <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_ItEy86pcEeqpN8GodWJphQ" id="(1.0,0.49206349206349204)"/>
+        </edges>
+        <edges xmi:type="notation:Edge" xmi:id="_ItEy9KpcEeqpN8GodWJphQ" type="4001" element="_Iq0JIKpcEeqpN8GodWJphQ" source="_IsLbEKpcEeqpN8GodWJphQ" target="_IrZ_AKpcEeqpN8GodWJphQ">
+          <children xmi:type="notation:Node" xmi:id="_ItEy-KpcEeqpN8GodWJphQ" type="6001">
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_ItEy-apcEeqpN8GodWJphQ" y="-10"/>
+          </children>
+          <children xmi:type="notation:Node" xmi:id="_ItEy-qpcEeqpN8GodWJphQ" type="6002">
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_ItEy-6pcEeqpN8GodWJphQ" y="10"/>
+          </children>
+          <children xmi:type="notation:Node" xmi:id="_ItEy_KpcEeqpN8GodWJphQ" type="6003">
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_ItEy_apcEeqpN8GodWJphQ" y="10"/>
+          </children>
+          <styles xmi:type="notation:ConnectorStyle" xmi:id="_ItEy9apcEeqpN8GodWJphQ"/>
+          <styles xmi:type="notation:FontStyle" xmi:id="_ItEy9qpcEeqpN8GodWJphQ" fontName="Segoe UI" fontHeight="8"/>
+          <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_ItEy96pcEeqpN8GodWJphQ" points="[0, 0, -30, 98]$[30, -98, 0, 0]"/>
+          <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_ItEy_qpcEeqpN8GodWJphQ" id="(1.0,0.49206349206349204)"/>
+          <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_ItEy_6pcEeqpN8GodWJphQ" id="(0.0,0.49206349206349204)"/>
+        </edges>
+        <edges xmi:type="notation:Edge" xmi:id="_ItFaAKpcEeqpN8GodWJphQ" type="4001" element="_Iq0JJapcEeqpN8GodWJphQ" source="_IrZ_AKpcEeqpN8GodWJphQ" target="_IrXiwKpcEeqpN8GodWJphQ">
+          <children xmi:type="notation:Node" xmi:id="_ItFaBKpcEeqpN8GodWJphQ" type="6001">
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_ItFaBapcEeqpN8GodWJphQ" y="-10"/>
+          </children>
+          <children xmi:type="notation:Node" xmi:id="_ItFaBqpcEeqpN8GodWJphQ" type="6002">
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_ItFaB6pcEeqpN8GodWJphQ" y="10"/>
+          </children>
+          <children xmi:type="notation:Node" xmi:id="_ItFaCKpcEeqpN8GodWJphQ" type="6003">
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_ItFaCapcEeqpN8GodWJphQ" y="10"/>
+          </children>
+          <styles xmi:type="notation:ConnectorStyle" xmi:id="_ItFaAapcEeqpN8GodWJphQ"/>
+          <styles xmi:type="notation:FontStyle" xmi:id="_ItFaAqpcEeqpN8GodWJphQ" fontName="Segoe UI" fontHeight="8"/>
+          <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_ItFaA6pcEeqpN8GodWJphQ" points="[0, 0, -30, 0]$[30, 0, 0, 0]"/>
+          <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_ItFaCqpcEeqpN8GodWJphQ" id="(1.0,0.49206349206349204)"/>
+          <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_ItFaC6pcEeqpN8GodWJphQ" id="(0.0,0.4782608695652174)"/>
+        </edges>
+        <edges xmi:type="notation:Edge" xmi:id="_ItFaDKpcEeqpN8GodWJphQ" type="4001" element="_Iq0JKqpcEeqpN8GodWJphQ" source="_IrvWMKpcEeqpN8GodWJphQ" target="_IrYw4KpcEeqpN8GodWJphQ">
+          <children xmi:type="notation:Node" xmi:id="_ItFaEKpcEeqpN8GodWJphQ" type="6001">
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_ItFaEapcEeqpN8GodWJphQ" y="-10"/>
+          </children>
+          <children xmi:type="notation:Node" xmi:id="_ItFaEqpcEeqpN8GodWJphQ" type="6002">
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_ItFaE6pcEeqpN8GodWJphQ" y="10"/>
+          </children>
+          <children xmi:type="notation:Node" xmi:id="_ItFaFKpcEeqpN8GodWJphQ" type="6003">
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_ItFaFapcEeqpN8GodWJphQ" y="10"/>
+          </children>
+          <styles xmi:type="notation:ConnectorStyle" xmi:id="_ItFaDapcEeqpN8GodWJphQ"/>
+          <styles xmi:type="notation:FontStyle" xmi:id="_ItFaDqpcEeqpN8GodWJphQ" fontName="Segoe UI" fontHeight="8"/>
+          <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_ItFaD6pcEeqpN8GodWJphQ" points="[0, 0, -30, -73]$[30, 73, 0, 0]"/>
+          <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_ItGBEKpcEeqpN8GodWJphQ" id="(1.0,0.49206349206349204)"/>
+          <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_ItGBEapcEeqpN8GodWJphQ" id="(0.0,0.4782608695652174)"/>
+        </edges>
+      </data>
+    </ownedAnnotationEntries>
+    <ownedDiagramElements xmi:type="diagram:DNode" uid="_IqlfoKpcEeqpN8GodWJphQ" outgoingEdges="_Iqxs4KpcEeqpN8GodWJphQ" width="-1" height="-1" resizeKind="NSEW">
+      <target xmi:type="cinematic-flow:InitialState" href="E-BookStore.cinematic#_15yIMIjfEeGIXsoZxTXHQA"/>
+      <semanticElements xmi:type="cinematic-flow:InitialState" href="E-BookStore.cinematic#_15yIMIjfEeGIXsoZxTXHQA"/>
+      <ownedStyle xmi:type="diagram:WorkspaceImage" uid="_IqmGsKpcEeqpN8GodWJphQ" showIcon="false" workspacePath="/org.obeonetwork.dsl.cinematic.design/icons/viewpoint/initial_state.png">
         <description xmi:type="style:WorkspaceImageDescription" href="platform:/plugin/org.obeonetwork.dsl.cinematic.design/description/cinematic.odesign#//@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='Flow%20Diagram']/@defaultLayer/@nodeMappings[name='FLD_InitialState']/@style"/>
       </ownedStyle>
       <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.obeonetwork.dsl.cinematic.design/description/cinematic.odesign#//@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='Flow%20Diagram']/@defaultLayer/@nodeMappings[name='FLD_InitialState']"/>
     </ownedDiagramElements>
-    <ownedDiagramElements xmi:type="diagram:DNodeList" uid="_O3i1wIoeEeqW3bcS5K80Dg" name="Flow Events">
-      <target xmi:type="cinematic-flow:Flow" href="E-BookStore.cinematic#_R5JR4IjnEeGOp5IdJE0AIw"/>
-      <semanticElements xmi:type="cinematic-flow:Flow" href="E-BookStore.cinematic#_R5JR4IjnEeGOp5IdJE0AIw"/>
-      <ownedStyle xmi:type="diagram:FlatContainerStyle" uid="_O3i1wYoeEeqW3bcS5K80Dg" borderSize="1" borderSizeComputationExpression="1" backgroundColor="209,209,209" foregroundColor="255,255,255">
-        <description xmi:type="style:FlatContainerStyleDescription" href="platform:/plugin/org.obeonetwork.dsl.cinematic.design/description/cinematic.odesign#//@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='Flow%20Diagram']/@additionalLayers[name='Flow%20Events']/@containerMappings[name='FLD_FlowEvents']/@style"/>
+    <ownedDiagramElements xmi:type="diagram:DNode" uid="_IqnU0KpcEeqpN8GodWJphQ" incomingEdges="_Iq0JJapcEeqpN8GodWJphQ" width="-1" height="-1" resizeKind="NSEW">
+      <target xmi:type="cinematic-flow:FinalState" href="E-BookStore.cinematic#_tBnekIjoEeGJh95Ab8olLw"/>
+      <semanticElements xmi:type="cinematic-flow:FinalState" href="E-BookStore.cinematic#_tBnekIjoEeGJh95Ab8olLw"/>
+      <ownedStyle xmi:type="diagram:WorkspaceImage" uid="_IqnU0apcEeqpN8GodWJphQ" showIcon="false" workspacePath="/org.obeonetwork.dsl.cinematic.design/icons/viewpoint/final_state.png">
+        <description xmi:type="style:WorkspaceImageDescription" href="platform:/plugin/org.obeonetwork.dsl.cinematic.design/description/cinematic.odesign#//@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='Flow%20Diagram']/@defaultLayer/@nodeMappings[name='FLD_FinalState']/@style"/>
       </ownedStyle>
-      <actualMapping xmi:type="description_1:ContainerMapping" href="platform:/plugin/org.obeonetwork.dsl.cinematic.design/description/cinematic.odesign#//@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='Flow%20Diagram']/@additionalLayers[name='Flow%20Events']/@containerMappings[name='FLD_FlowEvents']"/>
+      <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.obeonetwork.dsl.cinematic.design/description/cinematic.odesign#//@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='Flow%20Diagram']/@defaultLayer/@nodeMappings[name='FLD_FinalState']"/>
     </ownedDiagramElements>
-    <ownedDiagramElements xmi:type="diagram:DNode" uid="_P5QKYIoeEeqW3bcS5K80Dg" name="View1" width="-1" height="-1" resizeKind="NSEW">
-      <target xmi:type="cinematic-flow:ViewState" href="E-BookStore.cinematic#_P1o1sYoeEeqW3bcS5K80Dg"/>
-      <semanticElements xmi:type="cinematic-flow:ViewState" href="E-BookStore.cinematic#_P1o1sYoeEeqW3bcS5K80Dg"/>
-      <ownedStyle xmi:type="diagram:WorkspaceImage" uid="_P5QxcIoeEeqW3bcS5K80Dg" labelPosition="node" workspacePath="/org.obeonetwork.dsl.cinematic.design/icons/viewpoint/state.svg">
+    <ownedDiagramElements xmi:type="diagram:DNode" uid="_Iqn74apcEeqpN8GodWJphQ" incomingEdges="_Iq0JKqpcEeqpN8GodWJphQ" width="-1" height="-1" resizeKind="NSEW">
+      <target xmi:type="cinematic-flow:FinalState" href="E-BookStore.cinematic#_LKz00IjrEeG7p-MOgK2yMQ"/>
+      <semanticElements xmi:type="cinematic-flow:FinalState" href="E-BookStore.cinematic#_LKz00IjrEeG7p-MOgK2yMQ"/>
+      <ownedStyle xmi:type="diagram:WorkspaceImage" uid="_Iqn74qpcEeqpN8GodWJphQ" showIcon="false" workspacePath="/org.obeonetwork.dsl.cinematic.design/icons/viewpoint/final_state.png">
+        <description xmi:type="style:WorkspaceImageDescription" href="platform:/plugin/org.obeonetwork.dsl.cinematic.design/description/cinematic.odesign#//@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='Flow%20Diagram']/@defaultLayer/@nodeMappings[name='FLD_FinalState']/@style"/>
+      </ownedStyle>
+      <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.obeonetwork.dsl.cinematic.design/description/cinematic.odesign#//@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='Flow%20Diagram']/@defaultLayer/@nodeMappings[name='FLD_FinalState']"/>
+    </ownedDiagramElements>
+    <ownedDiagramElements xmi:type="diagram:DNode" uid="_Iqoi8KpcEeqpN8GodWJphQ" name="Login Page" outgoingEdges="_IqvQoKpcEeqpN8GodWJphQ _Iqy7DqpcEeqpN8GodWJphQ _IqziFqpcEeqpN8GodWJphQ _Iq0JJapcEeqpN8GodWJphQ" incomingEdges="_Iqy7BKpcEeqpN8GodWJphQ _Iq0JIKpcEeqpN8GodWJphQ" width="-1" height="-1" resizeKind="NSEW">
+      <target xmi:type="cinematic-flow:ViewState" href="E-BookStore.cinematic#_qNvJEIjlEeGOp5IdJE0AIw"/>
+      <semanticElements xmi:type="cinematic-flow:ViewState" href="E-BookStore.cinematic#_qNvJEIjlEeGOp5IdJE0AIw"/>
+      <ownedStyle xmi:type="diagram:WorkspaceImage" uid="_Iqoi8apcEeqpN8GodWJphQ" labelPosition="node" workspacePath="/org.obeonetwork.dsl.cinematic.design/icons/viewpoint/state.svg">
         <description xmi:type="style:WorkspaceImageDescription" href="platform:/plugin/org.obeonetwork.dsl.cinematic.design/description/cinematic.odesign#//@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='Flow%20Diagram']/@defaultLayer/@nodeMappings[name='FLD_ViewState']/@style"/>
       </ownedStyle>
       <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.obeonetwork.dsl.cinematic.design/description/cinematic.odesign#//@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='Flow%20Diagram']/@defaultLayer/@nodeMappings[name='FLD_ViewState']"/>
     </ownedDiagramElements>
-    <ownedDiagramElements xmi:type="diagram:DNode" uid="_QYOlYIoeEeqW3bcS5K80Dg" name="AsyncEvent1" width="-1" height="-1" resizeKind="NSEW">
-      <target xmi:type="cinematic-flow:AsyncEventState" href="E-BookStore.cinematic#_QX84kYoeEeqW3bcS5K80Dg"/>
-      <semanticElements xmi:type="cinematic-flow:AsyncEventState" href="E-BookStore.cinematic#_QX84kYoeEeqW3bcS5K80Dg"/>
-      <ownedStyle xmi:type="diagram:WorkspaceImage" uid="_QYOlYYoeEeqW3bcS5K80Dg" labelPosition="node" workspacePath="/org.obeonetwork.dsl.cinematic.design/icons/viewpoint/state.svg">
-        <description xmi:type="style:WorkspaceImageDescription" href="platform:/plugin/org.obeonetwork.dsl.cinematic.design/description/cinematic.odesign#//@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='Flow%20Diagram']/@defaultLayer/@nodeMappings[name='FLD_AsyncEventState']/@style"/>
+    <ownedDiagramElements xmi:type="diagram:DNode" uid="_Iqoi86pcEeqpN8GodWJphQ" name="Payment Page" outgoingEdges="_IqwewqpcEeqpN8GodWJphQ _IqziEapcEeqpN8GodWJphQ _Iq0JKqpcEeqpN8GodWJphQ" incomingEdges="_IqyT9KpcEeqpN8GodWJphQ" width="-1" height="-1" resizeKind="NSEW">
+      <target xmi:type="cinematic-flow:ViewState" href="E-BookStore.cinematic#_yW_vMIjlEeGOp5IdJE0AIw"/>
+      <semanticElements xmi:type="cinematic-flow:ViewState" href="E-BookStore.cinematic#_yW_vMIjlEeGOp5IdJE0AIw"/>
+      <ownedStyle xmi:type="diagram:WorkspaceImage" uid="_Iqoi9KpcEeqpN8GodWJphQ" labelPosition="node" workspacePath="/org.obeonetwork.dsl.cinematic.design/icons/viewpoint/state.svg">
+        <description xmi:type="style:WorkspaceImageDescription" href="platform:/plugin/org.obeonetwork.dsl.cinematic.design/description/cinematic.odesign#//@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='Flow%20Diagram']/@defaultLayer/@nodeMappings[name='FLD_ViewState']/@style"/>
       </ownedStyle>
-      <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.obeonetwork.dsl.cinematic.design/description/cinematic.odesign#//@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='Flow%20Diagram']/@defaultLayer/@nodeMappings[name='FLD_AsyncEventState']"/>
+      <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.obeonetwork.dsl.cinematic.design/description/cinematic.odesign#//@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='Flow%20Diagram']/@defaultLayer/@nodeMappings[name='FLD_ViewState']"/>
+    </ownedDiagramElements>
+    <ownedDiagramElements xmi:type="diagram:DNode" uid="_IqpKAKpcEeqpN8GodWJphQ" name="do login" outgoingEdges="_Iqy7CapcEeqpN8GodWJphQ" incomingEdges="_Iqy7DqpcEeqpN8GodWJphQ" width="-1" height="-1" resizeKind="NSEW">
+      <target xmi:type="cinematic-flow:ActionState" href="E-BookStore.cinematic#_xBuI4IjmEeGOp5IdJE0AIw"/>
+      <semanticElements xmi:type="cinematic-flow:ActionState" href="E-BookStore.cinematic#_xBuI4IjmEeGOp5IdJE0AIw"/>
+      <ownedStyle xmi:type="diagram:WorkspaceImage" uid="_IqpKAapcEeqpN8GodWJphQ" labelPosition="node" workspacePath="/org.obeonetwork.dsl.cinematic.design/icons/viewpoint/state.svg">
+        <description xmi:type="style:WorkspaceImageDescription" href="platform:/plugin/org.obeonetwork.dsl.cinematic.design/description/cinematic.odesign#//@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='Flow%20Diagram']/@defaultLayer/@nodeMappings[name='FLD_ActionState']/@style"/>
+      </ownedStyle>
+      <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.obeonetwork.dsl.cinematic.design/description/cinematic.odesign#//@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='Flow%20Diagram']/@defaultLayer/@nodeMappings[name='FLD_ActionState']"/>
+    </ownedDiagramElements>
+    <ownedDiagramElements xmi:type="diagram:DNode" uid="_IqpKA6pcEeqpN8GodWJphQ" name="Send email" outgoingEdges="_Iq0JIKpcEeqpN8GodWJphQ" incomingEdges="_IqziFqpcEeqpN8GodWJphQ" width="-1" height="-1" resizeKind="NSEW">
+      <target xmi:type="cinematic-flow:ActionState" href="E-BookStore.cinematic#_nDWwYIjoEeGJh95Ab8olLw"/>
+      <semanticElements xmi:type="cinematic-flow:ActionState" href="E-BookStore.cinematic#_nDWwYIjoEeGJh95Ab8olLw"/>
+      <ownedStyle xmi:type="diagram:WorkspaceImage" uid="_IqpKBKpcEeqpN8GodWJphQ" labelPosition="node" workspacePath="/org.obeonetwork.dsl.cinematic.design/icons/viewpoint/state.svg">
+        <description xmi:type="style:WorkspaceImageDescription" href="platform:/plugin/org.obeonetwork.dsl.cinematic.design/description/cinematic.odesign#//@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='Flow%20Diagram']/@defaultLayer/@nodeMappings[name='FLD_ActionState']/@style"/>
+      </ownedStyle>
+      <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.obeonetwork.dsl.cinematic.design/description/cinematic.odesign#//@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='Flow%20Diagram']/@defaultLayer/@nodeMappings[name='FLD_ActionState']"/>
+    </ownedDiagramElements>
+    <ownedDiagramElements xmi:type="diagram:DNode" uid="_IqpxEapcEeqpN8GodWJphQ" name="Payment on partner site" incomingEdges="_IqziEapcEeqpN8GodWJphQ" width="-1" height="-1" resizeKind="NSEW">
+      <target xmi:type="cinematic-flow:SubflowState" href="E-BookStore.cinematic#_R5JR4YjnEeGOp5IdJE0AIw"/>
+      <semanticElements xmi:type="cinematic-flow:SubflowState" href="E-BookStore.cinematic#_R5JR4YjnEeGOp5IdJE0AIw"/>
+      <ownedStyle xmi:type="diagram:WorkspaceImage" uid="_IqpxEqpcEeqpN8GodWJphQ" labelPosition="node" workspacePath="/org.obeonetwork.dsl.cinematic.design/icons/viewpoint/state.svg">
+        <description xmi:type="style:WorkspaceImageDescription" href="platform:/plugin/org.obeonetwork.dsl.cinematic.design/description/cinematic.odesign#//@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='Flow%20Diagram']/@defaultLayer/@nodeMappings[name='FLD_SubflowState']/@style"/>
+      </ownedStyle>
+      <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.obeonetwork.dsl.cinematic.design/description/cinematic.odesign#//@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='Flow%20Diagram']/@defaultLayer/@nodeMappings[name='FLD_SubflowState']"/>
+    </ownedDiagramElements>
+    <ownedDiagramElements xmi:type="diagram:DNode" uid="_IqpxFKpcEeqpN8GodWJphQ" outgoingEdges="_IqyT9KpcEeqpN8GodWJphQ _Iqy7BKpcEeqpN8GodWJphQ" incomingEdges="_Iqxs4KpcEeqpN8GodWJphQ _Iqy7CapcEeqpN8GodWJphQ" width="-1" height="-1" resizeKind="NSEW">
+      <target xmi:type="cinematic-flow:DecisionState" href="E-BookStore.cinematic#_m9uw4IjlEeGOp5IdJE0AIw"/>
+      <semanticElements xmi:type="cinematic-flow:DecisionState" href="E-BookStore.cinematic#_m9uw4IjlEeGOp5IdJE0AIw"/>
+      <ownedStyle xmi:type="diagram:WorkspaceImage" uid="_IqpxFapcEeqpN8GodWJphQ" showIcon="false" labelPosition="node" workspacePath="/org.obeonetwork.dsl.cinematic.design/icons/viewpoint/decision_state.svg">
+        <description xmi:type="style:WorkspaceImageDescription" href="platform:/plugin/org.obeonetwork.dsl.cinematic.design/description/cinematic.odesign#//@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='Flow%20Diagram']/@defaultLayer/@nodeMappings[name='FLD_DecisionState']/@style"/>
+      </ownedStyle>
+      <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.obeonetwork.dsl.cinematic.design/description/cinematic.odesign#//@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='Flow%20Diagram']/@defaultLayer/@nodeMappings[name='FLD_DecisionState']"/>
+    </ownedDiagramElements>
+    <ownedDiagramElements xmi:type="diagram:DNodeList" uid="_IqqYIKpcEeqpN8GodWJphQ" name="Flow Events">
+      <target xmi:type="cinematic-flow:Flow" href="E-BookStore.cinematic#_yYt1MIjfEeGIXsoZxTXHQA"/>
+      <semanticElements xmi:type="cinematic-flow:Flow" href="E-BookStore.cinematic#_yYt1MIjfEeGIXsoZxTXHQA"/>
+      <ownedStyle xmi:type="diagram:FlatContainerStyle" uid="_IqqYIapcEeqpN8GodWJphQ" borderSize="1" borderSizeComputationExpression="1" backgroundColor="209,209,209" foregroundColor="255,255,255">
+        <description xmi:type="style:FlatContainerStyleDescription" href="platform:/plugin/org.obeonetwork.dsl.cinematic.design/description/cinematic.odesign#//@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='Flow%20Diagram']/@additionalLayers[name='Flow%20Events']/@containerMappings[name='FLD_FlowEvents']/@style"/>
+      </ownedStyle>
+      <actualMapping xmi:type="description_1:ContainerMapping" href="platform:/plugin/org.obeonetwork.dsl.cinematic.design/description/cinematic.odesign#//@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='Flow%20Diagram']/@additionalLayers[name='Flow%20Events']/@containerMappings[name='FLD_FlowEvents']"/>
+      <ownedElements xmi:type="diagram:DNodeListElement" uid="_Iqq_MapcEeqpN8GodWJphQ" name="login">
+        <target xmi:type="cinematic-flow:FlowEvent" href="E-BookStore.cinematic#_6fayYIjmEeGOp5IdJE0AIw"/>
+        <semanticElements xmi:type="cinematic-flow:FlowEvent" href="E-BookStore.cinematic#_6fayYIjmEeGOp5IdJE0AIw"/>
+        <ownedStyle xmi:type="diagram:Square" uid="_Iqq_MqpcEeqpN8GodWJphQ" labelAlignment="LEFT">
+          <description xmi:type="style:SquareDescription" href="platform:/plugin/org.obeonetwork.dsl.cinematic.design/description/cinematic.odesign#//@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='Flow%20Diagram']/@additionalLayers[name='Flow%20Events']/@containerMappings[name='FLD_FlowEvents']/@subNodeMappings[name='FLD_FlowEvent']/@style"/>
+        </ownedStyle>
+        <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.obeonetwork.dsl.cinematic.design/description/cinematic.odesign#//@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='Flow%20Diagram']/@additionalLayers[name='Flow%20Events']/@containerMappings[name='FLD_FlowEvents']/@subNodeMappings[name='FLD_FlowEvent']"/>
+      </ownedElements>
+      <ownedElements xmi:type="diagram:DNodeListElement" uid="_IqrmQKpcEeqpN8GodWJphQ" name="validatePayment">
+        <target xmi:type="cinematic-flow:FlowEvent" href="E-BookStore.cinematic#_gE6NAIjnEeGOp5IdJE0AIw"/>
+        <semanticElements xmi:type="cinematic-flow:FlowEvent" href="E-BookStore.cinematic#_gE6NAIjnEeGOp5IdJE0AIw"/>
+        <ownedStyle xmi:type="diagram:Square" uid="_IqrmQapcEeqpN8GodWJphQ" labelAlignment="LEFT">
+          <description xmi:type="style:SquareDescription" href="platform:/plugin/org.obeonetwork.dsl.cinematic.design/description/cinematic.odesign#//@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='Flow%20Diagram']/@additionalLayers[name='Flow%20Events']/@containerMappings[name='FLD_FlowEvents']/@subNodeMappings[name='FLD_FlowEvent']/@style"/>
+        </ownedStyle>
+        <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.obeonetwork.dsl.cinematic.design/description/cinematic.odesign#//@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='Flow%20Diagram']/@additionalLayers[name='Flow%20Events']/@containerMappings[name='FLD_FlowEvents']/@subNodeMappings[name='FLD_FlowEvent']"/>
+      </ownedElements>
+      <ownedElements xmi:type="diagram:DNodeListElement" uid="_IqrmQqpcEeqpN8GodWJphQ" name="forgotPassword">
+        <target xmi:type="cinematic-flow:FlowEvent" href="E-BookStore.cinematic#_h4AF0IjoEeGJh95Ab8olLw"/>
+        <semanticElements xmi:type="cinematic-flow:FlowEvent" href="E-BookStore.cinematic#_h4AF0IjoEeGJh95Ab8olLw"/>
+        <ownedStyle xmi:type="diagram:Square" uid="_IqrmQ6pcEeqpN8GodWJphQ" labelAlignment="LEFT">
+          <description xmi:type="style:SquareDescription" href="platform:/plugin/org.obeonetwork.dsl.cinematic.design/description/cinematic.odesign#//@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='Flow%20Diagram']/@additionalLayers[name='Flow%20Events']/@containerMappings[name='FLD_FlowEvents']/@subNodeMappings[name='FLD_FlowEvent']/@style"/>
+        </ownedStyle>
+        <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.obeonetwork.dsl.cinematic.design/description/cinematic.odesign#//@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='Flow%20Diagram']/@additionalLayers[name='Flow%20Events']/@containerMappings[name='FLD_FlowEvents']/@subNodeMappings[name='FLD_FlowEvent']"/>
+      </ownedElements>
+      <ownedElements xmi:type="diagram:DNodeListElement" uid="_IqrmRKpcEeqpN8GodWJphQ" name="cancelPayment">
+        <target xmi:type="cinematic-flow:FlowEvent" href="E-BookStore.cinematic#_HKrnQIjrEeG7p-MOgK2yMQ"/>
+        <semanticElements xmi:type="cinematic-flow:FlowEvent" href="E-BookStore.cinematic#_HKrnQIjrEeG7p-MOgK2yMQ"/>
+        <ownedStyle xmi:type="diagram:Square" uid="_IqrmRapcEeqpN8GodWJphQ" labelAlignment="LEFT">
+          <description xmi:type="style:SquareDescription" href="platform:/plugin/org.obeonetwork.dsl.cinematic.design/description/cinematic.odesign#//@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='Flow%20Diagram']/@additionalLayers[name='Flow%20Events']/@containerMappings[name='FLD_FlowEvents']/@subNodeMappings[name='FLD_FlowEvent']/@style"/>
+        </ownedStyle>
+        <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.obeonetwork.dsl.cinematic.design/description/cinematic.odesign#//@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='Flow%20Diagram']/@additionalLayers[name='Flow%20Events']/@containerMappings[name='FLD_FlowEvents']/@subNodeMappings[name='FLD_FlowEvent']"/>
+      </ownedElements>
+    </ownedDiagramElements>
+    <ownedDiagramElements xmi:type="diagram:DNodeList" uid="_IqrmRqpcEeqpN8GodWJphQ" name="Login : Page" incomingEdges="_IqvQoKpcEeqpN8GodWJphQ">
+      <target xmi:type="cinematic-view:ViewContainer" href="E-BookStore.cinematic#_kKmsgIjmEeGOp5IdJE0AIw"/>
+      <semanticElements xmi:type="cinematic-view:ViewContainer" href="E-BookStore.cinematic#_kKmsgIjmEeGOp5IdJE0AIw"/>
+      <ownedStyle xmi:type="diagram:FlatContainerStyle" uid="_IqrmR6pcEeqpN8GodWJphQ" borderSize="1" borderSizeComputationExpression="1" backgroundColor="253,206,137" foregroundColor="255,255,255">
+        <description xmi:type="style:FlatContainerStyleDescription" href="platform:/plugin/org.obeonetwork.dsl.cinematic.design/description/cinematic.odesign#//@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='Flow%20Diagram']/@additionalLayers[name='View%20Containers']/@containerMappings[name='FLD_ViewContainer']/@style"/>
+      </ownedStyle>
+      <actualMapping xmi:type="description_1:ContainerMapping" href="platform:/plugin/org.obeonetwork.dsl.cinematic.design/description/cinematic.odesign#//@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='Flow%20Diagram']/@additionalLayers[name='View%20Containers']/@containerMappings[name='FLD_ViewContainer']"/>
+      <ownedElements xmi:type="diagram:DNodeListElement" uid="_Iqs0YKpcEeqpN8GodWJphQ" name="email : Text">
+        <target xmi:type="cinematic-view:ViewElement" href="E-BookStore.cinematic#_5_h78IjnEeGrE9Ykd6PeHg"/>
+        <semanticElements xmi:type="cinematic-view:ViewElement" href="E-BookStore.cinematic#_5_h78IjnEeGrE9Ykd6PeHg"/>
+        <ownedStyle xmi:type="diagram:Square" uid="_Iqs0YapcEeqpN8GodWJphQ" labelAlignment="LEFT">
+          <description xmi:type="style:SquareDescription" href="platform:/plugin/org.obeonetwork.dsl.cinematic.design/description/cinematic.odesign#//@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='Flow%20Diagram']/@additionalLayers[name='View%20Containers']/@containerMappings[name='FLD_ViewContainer']/@subNodeMappings[name='FLD_ViewElement']/@style"/>
+        </ownedStyle>
+        <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.obeonetwork.dsl.cinematic.design/description/cinematic.odesign#//@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='Flow%20Diagram']/@additionalLayers[name='View%20Containers']/@containerMappings[name='FLD_ViewContainer']/@subNodeMappings[name='FLD_ViewElement']"/>
+      </ownedElements>
+      <ownedElements xmi:type="diagram:DNodeListElement" uid="_Iqs0YqpcEeqpN8GodWJphQ" name="password : Password">
+        <target xmi:type="cinematic-view:ViewElement" href="E-BookStore.cinematic#_8MAakIjnEeGrE9Ykd6PeHg"/>
+        <semanticElements xmi:type="cinematic-view:ViewElement" href="E-BookStore.cinematic#_8MAakIjnEeGrE9Ykd6PeHg"/>
+        <ownedStyle xmi:type="diagram:Square" uid="_Iqs0Y6pcEeqpN8GodWJphQ" labelAlignment="LEFT">
+          <description xmi:type="style:SquareDescription" href="platform:/plugin/org.obeonetwork.dsl.cinematic.design/description/cinematic.odesign#//@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='Flow%20Diagram']/@additionalLayers[name='View%20Containers']/@containerMappings[name='FLD_ViewContainer']/@subNodeMappings[name='FLD_ViewElement']/@style"/>
+        </ownedStyle>
+        <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.obeonetwork.dsl.cinematic.design/description/cinematic.odesign#//@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='Flow%20Diagram']/@additionalLayers[name='View%20Containers']/@containerMappings[name='FLD_ViewContainer']/@subNodeMappings[name='FLD_ViewElement']"/>
+      </ownedElements>
+      <ownedElements xmi:type="diagram:DNodeListElement" uid="_Iqs0ZKpcEeqpN8GodWJphQ" name="validate : Button">
+        <target xmi:type="cinematic-view:ViewElement" href="E-BookStore.cinematic#_Lwh4YYjoEeGJh95Ab8olLw"/>
+        <semanticElements xmi:type="cinematic-view:ViewElement" href="E-BookStore.cinematic#_Lwh4YYjoEeGJh95Ab8olLw"/>
+        <ownedStyle xmi:type="diagram:Square" uid="_Iqs0ZapcEeqpN8GodWJphQ" labelAlignment="LEFT">
+          <description xmi:type="style:SquareDescription" href="platform:/plugin/org.obeonetwork.dsl.cinematic.design/description/cinematic.odesign#//@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='Flow%20Diagram']/@additionalLayers[name='View%20Containers']/@containerMappings[name='FLD_ViewContainer']/@subNodeMappings[name='FLD_ViewElement']/@style"/>
+        </ownedStyle>
+        <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.obeonetwork.dsl.cinematic.design/description/cinematic.odesign#//@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='Flow%20Diagram']/@additionalLayers[name='View%20Containers']/@containerMappings[name='FLD_ViewContainer']/@subNodeMappings[name='FLD_ViewElement']"/>
+      </ownedElements>
+      <ownedElements xmi:type="diagram:DNodeListElement" uid="_Iqs0ZqpcEeqpN8GodWJphQ" name="cancel : Button">
+        <target xmi:type="cinematic-view:ViewElement" href="E-BookStore.cinematic#_Oln2MIjoEeGJh95Ab8olLw"/>
+        <semanticElements xmi:type="cinematic-view:ViewElement" href="E-BookStore.cinematic#_Oln2MIjoEeGJh95Ab8olLw"/>
+        <ownedStyle xmi:type="diagram:Square" uid="_Iqs0Z6pcEeqpN8GodWJphQ" labelAlignment="LEFT">
+          <description xmi:type="style:SquareDescription" href="platform:/plugin/org.obeonetwork.dsl.cinematic.design/description/cinematic.odesign#//@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='Flow%20Diagram']/@additionalLayers[name='View%20Containers']/@containerMappings[name='FLD_ViewContainer']/@subNodeMappings[name='FLD_ViewElement']/@style"/>
+        </ownedStyle>
+        <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.obeonetwork.dsl.cinematic.design/description/cinematic.odesign#//@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='Flow%20Diagram']/@additionalLayers[name='View%20Containers']/@containerMappings[name='FLD_ViewContainer']/@subNodeMappings[name='FLD_ViewElement']"/>
+      </ownedElements>
+      <ownedElements xmi:type="diagram:DNodeListElement" uid="_IqtbcKpcEeqpN8GodWJphQ" name="forgotPassword : Link">
+        <target xmi:type="cinematic-view:ViewElement" href="E-BookStore.cinematic#_ZJvVMIjoEeGJh95Ab8olLw"/>
+        <semanticElements xmi:type="cinematic-view:ViewElement" href="E-BookStore.cinematic#_ZJvVMIjoEeGJh95Ab8olLw"/>
+        <ownedStyle xmi:type="diagram:Square" uid="_IqtbcapcEeqpN8GodWJphQ" labelAlignment="LEFT">
+          <description xmi:type="style:SquareDescription" href="platform:/plugin/org.obeonetwork.dsl.cinematic.design/description/cinematic.odesign#//@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='Flow%20Diagram']/@additionalLayers[name='View%20Containers']/@containerMappings[name='FLD_ViewContainer']/@subNodeMappings[name='FLD_ViewElement']/@style"/>
+        </ownedStyle>
+        <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.obeonetwork.dsl.cinematic.design/description/cinematic.odesign#//@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='Flow%20Diagram']/@additionalLayers[name='View%20Containers']/@containerMappings[name='FLD_ViewContainer']/@subNodeMappings[name='FLD_ViewElement']"/>
+      </ownedElements>
+    </ownedDiagramElements>
+    <ownedDiagramElements xmi:type="diagram:DNodeList" uid="_IqsNUapcEeqpN8GodWJphQ" name="PaymentForm : Page" incomingEdges="_IqwewqpcEeqpN8GodWJphQ">
+      <target xmi:type="cinematic-view:ViewContainer" href="E-BookStore.cinematic#_mcNiwIjmEeGOp5IdJE0AIw"/>
+      <semanticElements xmi:type="cinematic-view:ViewContainer" href="E-BookStore.cinematic#_mcNiwIjmEeGOp5IdJE0AIw"/>
+      <ownedStyle xmi:type="diagram:FlatContainerStyle" uid="_IqsNUqpcEeqpN8GodWJphQ" borderSize="1" borderSizeComputationExpression="1" backgroundColor="253,206,137" foregroundColor="255,255,255">
+        <description xmi:type="style:FlatContainerStyleDescription" href="platform:/plugin/org.obeonetwork.dsl.cinematic.design/description/cinematic.odesign#//@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='Flow%20Diagram']/@additionalLayers[name='View%20Containers']/@containerMappings[name='FLD_ViewContainer']/@style"/>
+      </ownedStyle>
+      <actualMapping xmi:type="description_1:ContainerMapping" href="platform:/plugin/org.obeonetwork.dsl.cinematic.design/description/cinematic.odesign#//@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='Flow%20Diagram']/@additionalLayers[name='View%20Containers']/@containerMappings[name='FLD_ViewContainer']"/>
+      <ownedElements xmi:type="diagram:DNodeListElement" uid="_IqtbcqpcEeqpN8GodWJphQ" name="cardNumber : Text">
+        <target xmi:type="cinematic-view:ViewElement" href="E-BookStore.cinematic#_CuKDgIjpEeGJh95Ab8olLw"/>
+        <semanticElements xmi:type="cinematic-view:ViewElement" href="E-BookStore.cinematic#_CuKDgIjpEeGJh95Ab8olLw"/>
+        <ownedStyle xmi:type="diagram:Square" uid="_Iqtbc6pcEeqpN8GodWJphQ" labelAlignment="LEFT">
+          <description xmi:type="style:SquareDescription" href="platform:/plugin/org.obeonetwork.dsl.cinematic.design/description/cinematic.odesign#//@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='Flow%20Diagram']/@additionalLayers[name='View%20Containers']/@containerMappings[name='FLD_ViewContainer']/@subNodeMappings[name='FLD_ViewElement']/@style"/>
+        </ownedStyle>
+        <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.obeonetwork.dsl.cinematic.design/description/cinematic.odesign#//@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='Flow%20Diagram']/@additionalLayers[name='View%20Containers']/@containerMappings[name='FLD_ViewContainer']/@subNodeMappings[name='FLD_ViewElement']"/>
+      </ownedElements>
+      <ownedElements xmi:type="diagram:DNodeListElement" uid="_IquCgKpcEeqpN8GodWJphQ" name="endDate : Text">
+        <target xmi:type="cinematic-view:ViewElement" href="E-BookStore.cinematic#_gS9vwIjqEeGWea74mgZL3g"/>
+        <semanticElements xmi:type="cinematic-view:ViewElement" href="E-BookStore.cinematic#_gS9vwIjqEeGWea74mgZL3g"/>
+        <ownedStyle xmi:type="diagram:Square" uid="_IquCgapcEeqpN8GodWJphQ" labelAlignment="LEFT">
+          <description xmi:type="style:SquareDescription" href="platform:/plugin/org.obeonetwork.dsl.cinematic.design/description/cinematic.odesign#//@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='Flow%20Diagram']/@additionalLayers[name='View%20Containers']/@containerMappings[name='FLD_ViewContainer']/@subNodeMappings[name='FLD_ViewElement']/@style"/>
+        </ownedStyle>
+        <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.obeonetwork.dsl.cinematic.design/description/cinematic.odesign#//@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='Flow%20Diagram']/@additionalLayers[name='View%20Containers']/@containerMappings[name='FLD_ViewContainer']/@subNodeMappings[name='FLD_ViewElement']"/>
+      </ownedElements>
+      <ownedElements xmi:type="diagram:DNodeListElement" uid="_IquCgqpcEeqpN8GodWJphQ" name="validationDate : Text">
+        <target xmi:type="cinematic-view:ViewElement" href="E-BookStore.cinematic#_jkCe8IjqEeGWea74mgZL3g"/>
+        <semanticElements xmi:type="cinematic-view:ViewElement" href="E-BookStore.cinematic#_jkCe8IjqEeGWea74mgZL3g"/>
+        <ownedStyle xmi:type="diagram:Square" uid="_IquCg6pcEeqpN8GodWJphQ" labelAlignment="LEFT">
+          <description xmi:type="style:SquareDescription" href="platform:/plugin/org.obeonetwork.dsl.cinematic.design/description/cinematic.odesign#//@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='Flow%20Diagram']/@additionalLayers[name='View%20Containers']/@containerMappings[name='FLD_ViewContainer']/@subNodeMappings[name='FLD_ViewElement']/@style"/>
+        </ownedStyle>
+        <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.obeonetwork.dsl.cinematic.design/description/cinematic.odesign#//@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='Flow%20Diagram']/@additionalLayers[name='View%20Containers']/@containerMappings[name='FLD_ViewContainer']/@subNodeMappings[name='FLD_ViewElement']"/>
+      </ownedElements>
+      <ownedElements xmi:type="diagram:DNodeListElement" uid="_IquChKpcEeqpN8GodWJphQ" name="validate : Button">
+        <target xmi:type="cinematic-view:ViewElement" href="E-BookStore.cinematic#_mpXRIIjqEeGWea74mgZL3g"/>
+        <semanticElements xmi:type="cinematic-view:ViewElement" href="E-BookStore.cinematic#_mpXRIIjqEeGWea74mgZL3g"/>
+        <ownedStyle xmi:type="diagram:Square" uid="_IquChapcEeqpN8GodWJphQ" labelAlignment="LEFT">
+          <description xmi:type="style:SquareDescription" href="platform:/plugin/org.obeonetwork.dsl.cinematic.design/description/cinematic.odesign#//@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='Flow%20Diagram']/@additionalLayers[name='View%20Containers']/@containerMappings[name='FLD_ViewContainer']/@subNodeMappings[name='FLD_ViewElement']/@style"/>
+        </ownedStyle>
+        <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.obeonetwork.dsl.cinematic.design/description/cinematic.odesign#//@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='Flow%20Diagram']/@additionalLayers[name='View%20Containers']/@containerMappings[name='FLD_ViewContainer']/@subNodeMappings[name='FLD_ViewElement']"/>
+      </ownedElements>
+      <ownedElements xmi:type="diagram:DNodeListElement" uid="_IquChqpcEeqpN8GodWJphQ" name="cancel : Button">
+        <target xmi:type="cinematic-view:ViewElement" href="E-BookStore.cinematic#_97xAoYjqEeG7p-MOgK2yMQ"/>
+        <semanticElements xmi:type="cinematic-view:ViewElement" href="E-BookStore.cinematic#_97xAoYjqEeG7p-MOgK2yMQ"/>
+        <ownedStyle xmi:type="diagram:Square" uid="_IqupkKpcEeqpN8GodWJphQ" labelAlignment="LEFT">
+          <description xmi:type="style:SquareDescription" href="platform:/plugin/org.obeonetwork.dsl.cinematic.design/description/cinematic.odesign#//@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='Flow%20Diagram']/@additionalLayers[name='View%20Containers']/@containerMappings[name='FLD_ViewContainer']/@subNodeMappings[name='FLD_ViewElement']/@style"/>
+        </ownedStyle>
+        <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.obeonetwork.dsl.cinematic.design/description/cinematic.odesign#//@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='Flow%20Diagram']/@additionalLayers[name='View%20Containers']/@containerMappings[name='FLD_ViewContainer']/@subNodeMappings[name='FLD_ViewElement']"/>
+      </ownedElements>
+    </ownedDiagramElements>
+    <ownedDiagramElements xmi:type="diagram:DEdge" uid="_IqvQoKpcEeqpN8GodWJphQ" sourceNode="_Iqoi8KpcEeqpN8GodWJphQ" targetNode="_IqrmRqpcEeqpN8GodWJphQ">
+      <target xmi:type="cinematic-flow:ViewState" href="E-BookStore.cinematic#_qNvJEIjlEeGOp5IdJE0AIw"/>
+      <ownedStyle xmi:type="diagram:EdgeStyle" uid="_IqvQoapcEeqpN8GodWJphQ" lineStyle="dash" size="0">
+        <description xmi:type="style:EdgeStyleDescription" href="platform:/plugin/org.obeonetwork.dsl.cinematic.design/description/cinematic.odesign#//@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='Flow%20Diagram']/@additionalLayers[name='View%20Containers']/@edgeMappings[name='FLD_ViewState_To_ViewContainer']/@style"/>
+        <centerLabelStyle xmi:type="diagram:CenterLabelStyle" uid="_IqvQoqpcEeqpN8GodWJphQ" showIcon="false"/>
+      </ownedStyle>
+      <actualMapping xmi:type="description_1:EdgeMapping" href="platform:/plugin/org.obeonetwork.dsl.cinematic.design/description/cinematic.odesign#//@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='Flow%20Diagram']/@additionalLayers[name='View%20Containers']/@edgeMappings[name='FLD_ViewState_To_ViewContainer']"/>
+    </ownedDiagramElements>
+    <ownedDiagramElements xmi:type="diagram:DEdge" uid="_IqwewqpcEeqpN8GodWJphQ" sourceNode="_Iqoi86pcEeqpN8GodWJphQ" targetNode="_IqsNUapcEeqpN8GodWJphQ">
+      <target xmi:type="cinematic-flow:ViewState" href="E-BookStore.cinematic#_yW_vMIjlEeGOp5IdJE0AIw"/>
+      <ownedStyle xmi:type="diagram:EdgeStyle" uid="_Iqwew6pcEeqpN8GodWJphQ" lineStyle="dash" size="0">
+        <description xmi:type="style:EdgeStyleDescription" href="platform:/plugin/org.obeonetwork.dsl.cinematic.design/description/cinematic.odesign#//@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='Flow%20Diagram']/@additionalLayers[name='View%20Containers']/@edgeMappings[name='FLD_ViewState_To_ViewContainer']/@style"/>
+        <centerLabelStyle xmi:type="diagram:CenterLabelStyle" uid="_IqwexKpcEeqpN8GodWJphQ" showIcon="false"/>
+      </ownedStyle>
+      <actualMapping xmi:type="description_1:EdgeMapping" href="platform:/plugin/org.obeonetwork.dsl.cinematic.design/description/cinematic.odesign#//@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='Flow%20Diagram']/@additionalLayers[name='View%20Containers']/@edgeMappings[name='FLD_ViewState_To_ViewContainer']"/>
+    </ownedDiagramElements>
+    <ownedDiagramElements xmi:type="diagram:DEdge" uid="_Iqxs4KpcEeqpN8GodWJphQ" sourceNode="_IqlfoKpcEeqpN8GodWJphQ" targetNode="_IqpxFKpcEeqpN8GodWJphQ">
+      <target xmi:type="cinematic-flow:Transition" href="E-BookStore.cinematic#_oz5BQIjlEeGOp5IdJE0AIw"/>
+      <semanticElements xmi:type="cinematic-flow:Transition" href="E-BookStore.cinematic#_oz5BQIjlEeGOp5IdJE0AIw"/>
+      <ownedStyle xmi:type="diagram:EdgeStyle" uid="_IqyT8KpcEeqpN8GodWJphQ" strokeColor="0,0,0">
+        <description xmi:type="style:EdgeStyleDescription" href="platform:/plugin/org.obeonetwork.dsl.cinematic.design/description/cinematic.odesign#//@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='Flow%20Diagram']/@defaultLayer/@edgeMappings[name='FLD_Transition']/@conditionnalStyles.0/@style"/>
+        <centerLabelStyle xmi:type="diagram:CenterLabelStyle" uid="_IqyT8apcEeqpN8GodWJphQ" iconPath="/org.obeonetwork.dsl.cinematic.design/icons/viewpoint/event.gif"/>
+      </ownedStyle>
+      <actualMapping xmi:type="description_1:EdgeMapping" href="platform:/plugin/org.obeonetwork.dsl.cinematic.design/description/cinematic.odesign#//@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='Flow%20Diagram']/@defaultLayer/@edgeMappings[name='FLD_Transition']"/>
+    </ownedDiagramElements>
+    <ownedDiagramElements xmi:type="diagram:DEdge" uid="_IqyT9KpcEeqpN8GodWJphQ" name="[userConnected = true]" sourceNode="_IqpxFKpcEeqpN8GodWJphQ" targetNode="_Iqoi86pcEeqpN8GodWJphQ">
+      <target xmi:type="cinematic-flow:Transition" href="E-BookStore.cinematic#_rui0gIjlEeGOp5IdJE0AIw"/>
+      <semanticElements xmi:type="cinematic-flow:Transition" href="E-BookStore.cinematic#_rui0gIjlEeGOp5IdJE0AIw"/>
+      <ownedStyle xmi:type="diagram:EdgeStyle" uid="_Iqy7AKpcEeqpN8GodWJphQ" strokeColor="0,0,0">
+        <description xmi:type="style:EdgeStyleDescription" href="platform:/plugin/org.obeonetwork.dsl.cinematic.design/description/cinematic.odesign#//@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='Flow%20Diagram']/@defaultLayer/@edgeMappings[name='FLD_Transition']/@conditionnalStyles.0/@style"/>
+        <centerLabelStyle xmi:type="diagram:CenterLabelStyle" uid="_Iqy7AapcEeqpN8GodWJphQ" iconPath="/org.obeonetwork.dsl.cinematic.design/icons/viewpoint/event.gif"/>
+      </ownedStyle>
+      <actualMapping xmi:type="description_1:EdgeMapping" href="platform:/plugin/org.obeonetwork.dsl.cinematic.design/description/cinematic.odesign#//@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='Flow%20Diagram']/@defaultLayer/@edgeMappings[name='FLD_Transition']"/>
+    </ownedDiagramElements>
+    <ownedDiagramElements xmi:type="diagram:DEdge" uid="_Iqy7BKpcEeqpN8GodWJphQ" name="[userConnected = false]" sourceNode="_IqpxFKpcEeqpN8GodWJphQ" targetNode="_Iqoi8KpcEeqpN8GodWJphQ">
+      <target xmi:type="cinematic-flow:Transition" href="E-BookStore.cinematic#_qRBRIIjmEeGOp5IdJE0AIw"/>
+      <semanticElements xmi:type="cinematic-flow:Transition" href="E-BookStore.cinematic#_qRBRIIjmEeGOp5IdJE0AIw"/>
+      <ownedStyle xmi:type="diagram:EdgeStyle" uid="_Iqy7BapcEeqpN8GodWJphQ" strokeColor="0,0,0">
+        <description xmi:type="style:EdgeStyleDescription" href="platform:/plugin/org.obeonetwork.dsl.cinematic.design/description/cinematic.odesign#//@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='Flow%20Diagram']/@defaultLayer/@edgeMappings[name='FLD_Transition']/@conditionnalStyles.0/@style"/>
+        <centerLabelStyle xmi:type="diagram:CenterLabelStyle" uid="_Iqy7BqpcEeqpN8GodWJphQ" iconPath="/org.obeonetwork.dsl.cinematic.design/icons/viewpoint/event.gif"/>
+      </ownedStyle>
+      <actualMapping xmi:type="description_1:EdgeMapping" href="platform:/plugin/org.obeonetwork.dsl.cinematic.design/description/cinematic.odesign#//@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='Flow%20Diagram']/@defaultLayer/@edgeMappings[name='FLD_Transition']"/>
+    </ownedDiagramElements>
+    <ownedDiagramElements xmi:type="diagram:DEdge" uid="_Iqy7CapcEeqpN8GodWJphQ" sourceNode="_IqpKAKpcEeqpN8GodWJphQ" targetNode="_IqpxFKpcEeqpN8GodWJphQ">
+      <target xmi:type="cinematic-flow:Transition" href="E-BookStore.cinematic#_y5aDQIjmEeGOp5IdJE0AIw"/>
+      <semanticElements xmi:type="cinematic-flow:Transition" href="E-BookStore.cinematic#_y5aDQIjmEeGOp5IdJE0AIw"/>
+      <ownedStyle xmi:type="diagram:EdgeStyle" uid="_Iqy7CqpcEeqpN8GodWJphQ" strokeColor="0,0,0">
+        <description xmi:type="style:EdgeStyleDescription" href="platform:/plugin/org.obeonetwork.dsl.cinematic.design/description/cinematic.odesign#//@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='Flow%20Diagram']/@defaultLayer/@edgeMappings[name='FLD_Transition']/@conditionnalStyles.0/@style"/>
+        <centerLabelStyle xmi:type="diagram:CenterLabelStyle" uid="_Iqy7C6pcEeqpN8GodWJphQ" iconPath="/org.obeonetwork.dsl.cinematic.design/icons/viewpoint/event.gif"/>
+      </ownedStyle>
+      <actualMapping xmi:type="description_1:EdgeMapping" href="platform:/plugin/org.obeonetwork.dsl.cinematic.design/description/cinematic.odesign#//@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='Flow%20Diagram']/@defaultLayer/@edgeMappings[name='FLD_Transition']"/>
+    </ownedDiagramElements>
+    <ownedDiagramElements xmi:type="diagram:DEdge" uid="_Iqy7DqpcEeqpN8GodWJphQ" name="login" sourceNode="_Iqoi8KpcEeqpN8GodWJphQ" targetNode="_IqpKAKpcEeqpN8GodWJphQ">
+      <target xmi:type="cinematic-flow:Transition" href="E-BookStore.cinematic#_z9Pe0IjmEeGOp5IdJE0AIw"/>
+      <semanticElements xmi:type="cinematic-flow:Transition" href="E-BookStore.cinematic#_z9Pe0IjmEeGOp5IdJE0AIw"/>
+      <ownedStyle xmi:type="diagram:EdgeStyle" uid="_Iqy7D6pcEeqpN8GodWJphQ" strokeColor="0,0,0">
+        <description xmi:type="style:EdgeStyleDescription" href="platform:/plugin/org.obeonetwork.dsl.cinematic.design/description/cinematic.odesign#//@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='Flow%20Diagram']/@defaultLayer/@edgeMappings[name='FLD_Transition']/@conditionnalStyles.0/@style"/>
+        <centerLabelStyle xmi:type="diagram:CenterLabelStyle" uid="_Iqy7EKpcEeqpN8GodWJphQ" iconPath="/org.obeonetwork.dsl.cinematic.design/icons/viewpoint/event.gif"/>
+      </ownedStyle>
+      <actualMapping xmi:type="description_1:EdgeMapping" href="platform:/plugin/org.obeonetwork.dsl.cinematic.design/description/cinematic.odesign#//@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='Flow%20Diagram']/@defaultLayer/@edgeMappings[name='FLD_Transition']"/>
+    </ownedDiagramElements>
+    <ownedDiagramElements xmi:type="diagram:DEdge" uid="_IqziEapcEeqpN8GodWJphQ" name="validatePayment" sourceNode="_Iqoi86pcEeqpN8GodWJphQ" targetNode="_IqpxEapcEeqpN8GodWJphQ">
+      <target xmi:type="cinematic-flow:Transition" href="E-BookStore.cinematic#_fWYTEIjnEeGOp5IdJE0AIw"/>
+      <semanticElements xmi:type="cinematic-flow:Transition" href="E-BookStore.cinematic#_fWYTEIjnEeGOp5IdJE0AIw"/>
+      <ownedStyle xmi:type="diagram:EdgeStyle" uid="_IqziEqpcEeqpN8GodWJphQ" strokeColor="0,0,0">
+        <description xmi:type="style:EdgeStyleDescription" href="platform:/plugin/org.obeonetwork.dsl.cinematic.design/description/cinematic.odesign#//@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='Flow%20Diagram']/@defaultLayer/@edgeMappings[name='FLD_Transition']/@conditionnalStyles.0/@style"/>
+        <centerLabelStyle xmi:type="diagram:CenterLabelStyle" uid="_IqziE6pcEeqpN8GodWJphQ" iconPath="/org.obeonetwork.dsl.cinematic.design/icons/viewpoint/event.gif"/>
+      </ownedStyle>
+      <actualMapping xmi:type="description_1:EdgeMapping" href="platform:/plugin/org.obeonetwork.dsl.cinematic.design/description/cinematic.odesign#//@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='Flow%20Diagram']/@defaultLayer/@edgeMappings[name='FLD_Transition']"/>
+    </ownedDiagramElements>
+    <ownedDiagramElements xmi:type="diagram:DEdge" uid="_IqziFqpcEeqpN8GodWJphQ" name="forgotPassword" sourceNode="_Iqoi8KpcEeqpN8GodWJphQ" targetNode="_IqpKA6pcEeqpN8GodWJphQ">
+      <target xmi:type="cinematic-flow:Transition" href="E-BookStore.cinematic#_nq1AEIjoEeGJh95Ab8olLw"/>
+      <semanticElements xmi:type="cinematic-flow:Transition" href="E-BookStore.cinematic#_nq1AEIjoEeGJh95Ab8olLw"/>
+      <ownedStyle xmi:type="diagram:EdgeStyle" uid="_IqziF6pcEeqpN8GodWJphQ" strokeColor="0,0,0">
+        <description xmi:type="style:EdgeStyleDescription" href="platform:/plugin/org.obeonetwork.dsl.cinematic.design/description/cinematic.odesign#//@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='Flow%20Diagram']/@defaultLayer/@edgeMappings[name='FLD_Transition']/@conditionnalStyles.0/@style"/>
+        <centerLabelStyle xmi:type="diagram:CenterLabelStyle" uid="_IqziGKpcEeqpN8GodWJphQ" iconPath="/org.obeonetwork.dsl.cinematic.design/icons/viewpoint/event.gif"/>
+      </ownedStyle>
+      <actualMapping xmi:type="description_1:EdgeMapping" href="platform:/plugin/org.obeonetwork.dsl.cinematic.design/description/cinematic.odesign#//@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='Flow%20Diagram']/@defaultLayer/@edgeMappings[name='FLD_Transition']"/>
+    </ownedDiagramElements>
+    <ownedDiagramElements xmi:type="diagram:DEdge" uid="_Iq0JIKpcEeqpN8GodWJphQ" sourceNode="_IqpKA6pcEeqpN8GodWJphQ" targetNode="_Iqoi8KpcEeqpN8GodWJphQ">
+      <target xmi:type="cinematic-flow:Transition" href="E-BookStore.cinematic#_pMmU0IjoEeGJh95Ab8olLw"/>
+      <semanticElements xmi:type="cinematic-flow:Transition" href="E-BookStore.cinematic#_pMmU0IjoEeGJh95Ab8olLw"/>
+      <ownedStyle xmi:type="diagram:EdgeStyle" uid="_Iq0JIapcEeqpN8GodWJphQ" strokeColor="0,0,0">
+        <description xmi:type="style:EdgeStyleDescription" href="platform:/plugin/org.obeonetwork.dsl.cinematic.design/description/cinematic.odesign#//@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='Flow%20Diagram']/@defaultLayer/@edgeMappings[name='FLD_Transition']/@conditionnalStyles.0/@style"/>
+        <centerLabelStyle xmi:type="diagram:CenterLabelStyle" uid="_Iq0JIqpcEeqpN8GodWJphQ" iconPath="/org.obeonetwork.dsl.cinematic.design/icons/viewpoint/event.gif"/>
+      </ownedStyle>
+      <actualMapping xmi:type="description_1:EdgeMapping" href="platform:/plugin/org.obeonetwork.dsl.cinematic.design/description/cinematic.odesign#//@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='Flow%20Diagram']/@defaultLayer/@edgeMappings[name='FLD_Transition']"/>
+    </ownedDiagramElements>
+    <ownedDiagramElements xmi:type="diagram:DEdge" uid="_Iq0JJapcEeqpN8GodWJphQ" name="cancel.onClick" sourceNode="_Iqoi8KpcEeqpN8GodWJphQ" targetNode="_IqnU0KpcEeqpN8GodWJphQ">
+      <target xmi:type="cinematic-flow:Transition" href="E-BookStore.cinematic#_uWUAoIjoEeGJh95Ab8olLw"/>
+      <semanticElements xmi:type="cinematic-flow:Transition" href="E-BookStore.cinematic#_uWUAoIjoEeGJh95Ab8olLw"/>
+      <ownedStyle xmi:type="diagram:EdgeStyle" uid="_Iq0JJqpcEeqpN8GodWJphQ" strokeColor="0,0,0">
+        <description xmi:type="style:EdgeStyleDescription" href="platform:/plugin/org.obeonetwork.dsl.cinematic.design/description/cinematic.odesign#//@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='Flow%20Diagram']/@defaultLayer/@edgeMappings[name='FLD_Transition']/@conditionnalStyles.0/@style"/>
+        <centerLabelStyle xmi:type="diagram:CenterLabelStyle" uid="_Iq0JJ6pcEeqpN8GodWJphQ" iconPath="/org.obeonetwork.dsl.cinematic.design/icons/viewpoint/event.gif"/>
+      </ownedStyle>
+      <actualMapping xmi:type="description_1:EdgeMapping" href="platform:/plugin/org.obeonetwork.dsl.cinematic.design/description/cinematic.odesign#//@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='Flow%20Diagram']/@defaultLayer/@edgeMappings[name='FLD_Transition']"/>
+    </ownedDiagramElements>
+    <ownedDiagramElements xmi:type="diagram:DEdge" uid="_Iq0JKqpcEeqpN8GodWJphQ" name="cancelPayment" sourceNode="_Iqoi86pcEeqpN8GodWJphQ" targetNode="_Iqn74apcEeqpN8GodWJphQ">
+      <target xmi:type="cinematic-flow:Transition" href="E-BookStore.cinematic#_Lt4ssIjrEeG7p-MOgK2yMQ"/>
+      <semanticElements xmi:type="cinematic-flow:Transition" href="E-BookStore.cinematic#_Lt4ssIjrEeG7p-MOgK2yMQ"/>
+      <ownedStyle xmi:type="diagram:EdgeStyle" uid="_Iq0JK6pcEeqpN8GodWJphQ" strokeColor="0,0,0">
+        <description xmi:type="style:EdgeStyleDescription" href="platform:/plugin/org.obeonetwork.dsl.cinematic.design/description/cinematic.odesign#//@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='Flow%20Diagram']/@defaultLayer/@edgeMappings[name='FLD_Transition']/@conditionnalStyles.0/@style"/>
+        <centerLabelStyle xmi:type="diagram:CenterLabelStyle" uid="_Iq0JLKpcEeqpN8GodWJphQ" iconPath="/org.obeonetwork.dsl.cinematic.design/icons/viewpoint/event.gif"/>
+      </ownedStyle>
+      <actualMapping xmi:type="description_1:EdgeMapping" href="platform:/plugin/org.obeonetwork.dsl.cinematic.design/description/cinematic.odesign#//@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='Flow%20Diagram']/@defaultLayer/@edgeMappings[name='FLD_Transition']"/>
     </ownedDiagramElements>
     <description xmi:type="description_1:DiagramDescription" href="platform:/plugin/org.obeonetwork.dsl.cinematic.design/description/cinematic.odesign#//@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='Flow%20Diagram']"/>
-    <filterVariableHistory xmi:type="diagram:FilterVariableHistory" uid="_O3fLYIoeEeqW3bcS5K80Dg"/>
+    <filterVariableHistory xmi:type="diagram:FilterVariableHistory" uid="_IqhOMKpcEeqpN8GodWJphQ"/>
     <activatedLayers xmi:type="description_1:Layer" href="platform:/plugin/org.obeonetwork.dsl.cinematic.design/description/cinematic.odesign#//@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='Flow%20Diagram']/@defaultLayer"/>
     <activatedLayers xmi:type="description_1:AdditionalLayer" href="platform:/plugin/org.obeonetwork.dsl.cinematic.design/description/cinematic.odesign#//@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='Flow%20Diagram']/@additionalLayers[name='Flow%20Events']"/>
     <activatedLayers xmi:type="description_1:AdditionalLayer" href="platform:/plugin/org.obeonetwork.dsl.cinematic.design/description/cinematic.odesign#//@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='Flow%20Diagram']/@additionalLayers[name='View%20Containers']"/>
-    <target xmi:type="cinematic-flow:Flow" href="E-BookStore.cinematic#_R5JR4IjnEeGOp5IdJE0AIw"/>
-  </diagram:DSemanticDiagram>
-  <diagram:DSemanticDiagram uid="_VtXeEIoeEeqW3bcS5K80Dg">
-    <ownedAnnotationEntries xmi:type="description:AnnotationEntry" uid="_WFEMYIoeEeqW3bcS5K80Dg" source="DANNOTATION_CUSTOMIZATION_KEY">
-      <data xmi:type="diagram:ComputedStyleDescriptionRegistry" uid="_WFEMYYoeEeqW3bcS5K80Dg"/>
-    </ownedAnnotationEntries>
-    <ownedAnnotationEntries xmi:type="description:AnnotationEntry" uid="_WFEzcIoeEeqW3bcS5K80Dg" source="GMF_DIAGRAMS">
-      <data xmi:type="notation:Diagram" xmi:id="_WFEzcYoeEeqW3bcS5K80Dg" type="Sirius" element="_VtXeEIoeEeqW3bcS5K80Dg" measurementUnit="Pixel">
-        <children xmi:type="notation:Node" xmi:id="_WFGBkIoeEeqW3bcS5K80Dg" type="2002" element="_WFBwIIoeEeqW3bcS5K80Dg">
-          <children xmi:type="notation:Node" xmi:id="_WFGooIoeEeqW3bcS5K80Dg" type="5006"/>
-          <children xmi:type="notation:Node" xmi:id="_WFGooYoeEeqW3bcS5K80Dg" type="7001">
-            <styles xmi:type="notation:SortingStyle" xmi:id="_WFGooooeEeqW3bcS5K80Dg"/>
-            <styles xmi:type="notation:FilteringStyle" xmi:id="_WFGoo4oeEeqW3bcS5K80Dg"/>
-          </children>
-          <styles xmi:type="notation:ShapeStyle" xmi:id="_WFGBkYoeEeqW3bcS5K80Dg" fontName="Segoe UI" fontHeight="8"/>
-          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_WFGBkooeEeqW3bcS5K80Dg"/>
-        </children>
-        <children xmi:type="notation:Node" xmi:id="_XSbXYIoeEeqW3bcS5K80Dg" type="2003" element="_XNB6AIoeEeqW3bcS5K80Dg">
-          <children xmi:type="notation:Node" xmi:id="_XSbXY4oeEeqW3bcS5K80Dg" type="5007"/>
-          <children xmi:type="notation:Node" xmi:id="_XSbXZIoeEeqW3bcS5K80Dg" type="7004">
-            <styles xmi:type="notation:SortingStyle" xmi:id="_XSbXZYoeEeqW3bcS5K80Dg"/>
-            <styles xmi:type="notation:FilteringStyle" xmi:id="_XSbXZooeEeqW3bcS5K80Dg"/>
-          </children>
-          <styles xmi:type="notation:ShapeStyle" xmi:id="_XSbXYYoeEeqW3bcS5K80Dg" fontName="Segoe UI" fontHeight="8"/>
-          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_XSbXYooeEeqW3bcS5K80Dg" x="180" y="125"/>
-        </children>
-        <styles xmi:type="notation:DiagramStyle" xmi:id="_WFEzcooeEeqW3bcS5K80Dg"/>
-      </data>
-    </ownedAnnotationEntries>
-    <ownedDiagramElements xmi:type="diagram:DNodeContainer" uid="_WFBwIIoeEeqW3bcS5K80Dg" name="main">
-      <target xmi:type="database:Schema" href="E-BookStore-MLD.database#_CqwowZEeEeauDets12NBwQ"/>
-      <semanticElements xmi:type="database:Schema" href="E-BookStore-MLD.database#_CqwowZEeEeauDets12NBwQ"/>
-      <ownedStyle xmi:type="diagram:FlatContainerStyle" uid="_WFCXMIoeEeqW3bcS5K80Dg" borderSize="1" borderSizeComputationExpression="1">
-        <description xmi:type="style:FlatContainerStyleDescription" href="platform:/resource/org.obeonetwork.dsl.database.design/description/database.odesign#//@ownedViewpoints[name='Database']/@ownedRepresentations[name='Database%20Diagram']/@additionalLayers[name='Schemas']/@containerMappings[name='DB_Schema']/@style"/>
-      </ownedStyle>
-      <actualMapping xmi:type="description_1:ContainerMapping" href="platform:/resource/org.obeonetwork.dsl.database.design/description/database.odesign#//@ownedViewpoints[name='Database']/@ownedRepresentations[name='Database%20Diagram']/@additionalLayers[name='Schemas']/@containerMappings[name='DB_Schema']"/>
-    </ownedDiagramElements>
-    <ownedDiagramElements xmi:type="diagram:DNodeList" uid="_XNB6AIoeEeqW3bcS5K80Dg" name="Table1">
-      <target xmi:type="database:Table" href="E-BookStore-MLD.database#_XI62EYoeEeqW3bcS5K80Dg"/>
-      <semanticElements xmi:type="database:Table" href="E-BookStore-MLD.database#_XI62EYoeEeqW3bcS5K80Dg"/>
-      <ownedStyle xmi:type="diagram:FlatContainerStyle" uid="_XNChEIoeEeqW3bcS5K80Dg" borderSize="1" borderSizeComputationExpression="1" borderColor="39,76,114" foregroundColor="114,159,207">
-        <description xmi:type="style:FlatContainerStyleDescription" href="platform:/resource/org.obeonetwork.dsl.database.design/description/database.odesign#//@ownedViewpoints[name='Database']/@ownedRepresentations[name='Database%20Diagram']/@defaultLayer/@containerMappings[name='DB_Table']/@style"/>
-      </ownedStyle>
-      <actualMapping xmi:type="description_1:ContainerMappingImport" href="platform:/resource/org.obeonetwork.dsl.database.design/description/database.odesign#//@ownedViewpoints[name='Database']/@ownedRepresentations[name='Database%20Diagram']/@additionalLayers[name='Index']/@containerMappings[name='DB_TableWithIndex']"/>
-    </ownedDiagramElements>
-    <description xmi:type="description_1:DiagramDescription" href="platform:/resource/org.obeonetwork.dsl.database.design/description/database.odesign#//@ownedViewpoints[name='Database']/@ownedRepresentations[name='Database%20Diagram']"/>
-    <filterVariableHistory xmi:type="diagram:FilterVariableHistory" uid="_VtYFIIoeEeqW3bcS5K80Dg"/>
-    <activatedLayers xmi:type="description_1:Layer" href="platform:/resource/org.obeonetwork.dsl.database.design/description/database.odesign#//@ownedViewpoints[name='Database']/@ownedRepresentations[name='Database%20Diagram']/@defaultLayer"/>
-    <activatedLayers xmi:type="description_1:AdditionalLayer" href="platform:/resource/org.obeonetwork.dsl.database.design/description/database.odesign#//@ownedViewpoints[name='Database']/@ownedRepresentations[name='Database%20Diagram']/@additionalLayers[name='Schemas']"/>
-    <activatedLayers xmi:type="description_1:AdditionalLayer" href="platform:/resource/org.obeonetwork.dsl.database.design/description/database.odesign#//@ownedViewpoints[name='Database']/@ownedRepresentations[name='Database%20Diagram']/@additionalLayers[name='External%20Tables']"/>
-    <activatedLayers xmi:type="description_1:AdditionalLayer" href="platform:/resource/org.obeonetwork.dsl.database.design/description/database.odesign#//@ownedViewpoints[name='Database']/@ownedRepresentations[name='Database%20Diagram']/@additionalLayers[name='Index']"/>
-    <target xmi:type="database:DataBase" href="E-BookStore-MLD.database#_7NK10ZEdEeauDets12NBwQ"/>
+    <target xmi:type="cinematic-flow:Flow" href="E-BookStore.cinematic#_yYt1MIjfEeGIXsoZxTXHQA"/>
   </diagram:DSemanticDiagram>
 </xmi:XMI>
