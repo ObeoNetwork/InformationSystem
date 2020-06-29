@@ -1,6 +1,6 @@
 target "IS Designer Target Definition" with source, requirements
 
-location "http://update.obeo.fr/integration/informationsystem/11.0/design/repository/" {
+location "http://update.obeo.fr/integration/informationsystem/11.3/design/repository/" {
 	org.obeonetwork.dsl.feature.environment.feature.group lazy
 	org.obeonetwork.dsl.feature.entity.feature.group lazy
 	org.obeonetwork.dsl.feature.cinematic.feature.group lazy
@@ -72,7 +72,7 @@ location "https://s3-eu-west-1.amazonaws.com/obeo-m2doc-releases/3.0.x/nightly/r
 	org.obeonetwork.m2doc.ui.feature.feature.group lazy
 }
 
-location "http://download.eclipse.org/releases/photon/" {
+location "http://download.eclipse.org/releases/2019-06/" {
 	org.eclipse.equinox.executable.feature.group lazy
 	org.apache.commons.io lazy
 	org.eclipse.emf.cdo.feature.group lazy
@@ -85,36 +85,34 @@ location "http://download.eclipse.org/releases/photon/" {
 	org.eclipse.equinox.p2.discovery.feature.feature.group lazy
 }
 
-// Team SVN is not part of eclipse photon, so we use oxygen to get it
+// Team SVN is not part of eclipse 2019-06, so we use oxygen to get it
 location "http://download.eclipse.org/releases/oxygen/" {
 	org.eclipse.team.svn.feature.group lazy
 }
 
-location "https://download.eclipse.org/tools/orbit/downloads/drops/R20180606145124/repository/" {
+location "https://download.eclipse.org/tools/orbit/downloads/drops/R20190602212107/repository/" {
 	org.kohsuke.args4j [2.0.21,2.1.0)
 }
 
-//location Obeo-Designer-Team "http://update.obeo.fr/release/designer/11.1/team/11.1.2/repository/" {
-location Obeo-Designer-Team "http://update.obeo.fr/release/designer/private/11.1.3_Safran/team/11.1.3/repository/" {
+location Obeo-Designer-Team "http://update.obeo.fr/release/designer/11.3/team/11.3.0/repository/" {
 	fr.obeo.dsl.viewpoint.collab
 }
 
-location Amalgam "https://download.eclipse.org/modeling/amalgam/updates/stable/1.10.1-S20190419/capella/" {
+location Amalgam "https://download.eclipse.org/modeling/amalgam/updates/stable/1.11.0-S20190729/capella/" {
 	org.eclipse.amalgam.explorer.contextual.sirius.feature.group lazy
 	org.eclipse.amalgam.explorer.contextual.core.feature.group lazy
 	org.eclipse.amalgam.discovery.feature.group lazy
 }
 
 // When EEF 2.1.2 will be in Sirius 6.1.4 or Sirius 6.2.2, retrieve EEF from their.
-location EEF-2.1.2 "http://download.eclipse.org/modeling/emft/eef/updates/releases/2.1" {
+location EEF-2.1.3 "http://download.eclipse.org/modeling/emft/eef/updates/releases/2.1/R201909051307" {
 	org.eclipse.eef.sdk.feature.feature.group lazy
     org.eclipse.eef.sdk.feature.source.feature.group lazy
     org.eclipse.eef.ext.widgets.reference.feature.feature.group lazy
     org.eclipse.eef.ext.widgets.reference.feature.source.feature.group lazy
 }
 
-location Obeo-Designer-Community "http://update.obeo.fr/release/designer/private/11.1.3_Safran/community/11.1.3/repository/" { 
-//location Obeo-Designer-Community "http://update.obeo.fr/release/designer/11.1/community/11.1.2/repository/" {
+location Obeo-Designer-Community "http://update.obeo.fr/release/designer/11.3/community/11.3.0/repository" {
 	org.apache.log4j lazy
     org.easymock lazy
     org.hamcrest.core lazy
