@@ -412,10 +412,6 @@
 			</releases>
 	    </pluginRepository>
 		<pluginRepository>
-			<id>Eclipse - Acceleo Snapshots</id>
-			<url>https://repo.eclipse.org/content/repositories/acceleo-snapshots</url>
-		</pluginRepository>
-		<pluginRepository>
 			<id>Eclipse - Acceleo Releases</id>
 			<url>https://repo.eclipse.org/content/repositories/acceleo-releases</url>
 		</pluginRepository>
@@ -536,7 +532,7 @@
 				<plugin>
 					<groupId>org.eclipse.acceleo</groupId>
 					<artifactId>org.eclipse.acceleo.maven</artifactId>
-					<version>3.5.0-SNAPSHOT</version>
+					<version>3.6.4</version>
 					<executions>
 						<execution>
 							<id>acceleo-compile</id>
