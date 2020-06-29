@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!--
-    Copyright (c) 2008, 2020 Obeo.
+    Copyright (c) 2008, 2019 Obeo.
     All rights reserved. This program and the accompanying materials
     are made available under the terms of the Eclipse Public License v1.0
     which accompanies this distribution, and is available at
@@ -16,13 +16,13 @@
 	  <parent>
 		<groupId>org.obeonetwork</groupId>
 		<artifactId>parent</artifactId>
-		<version>11.3.0-SNAPSHOT</version>
+		<version>11.0.0-SNAPSHOT</version>
 		<relativePath>../../../../releng/org.obeonetwork.informationsystem.parent/pom.xml</relativePath>
 	  </parent>
 
 	<groupId>org.obeonetwork</groupId>
 	<artifactId>org.obeonetwork.dsl.database.sqlgen</artifactId>
-	<version>11.3.0-SNAPSHOT</version>
+	<version>11.0.0-SNAPSHOT</version>
 	<packaging>eclipse-plugin</packaging>
 	<name>org.obeonetwork.dsl.database.sqlgen</name>
 
@@ -30,8 +30,8 @@
      <plugins>
        <plugin>
          <groupId>org.eclipse.acceleo</groupId>
-         <artifactId>org.eclipse.acceleo.maven</artifactId>
-         <version>3.6.4</version>
+         <artifactId>org.eclipse.acceleo.maven.compatibility</artifactId>
+         <version>3.6.4-SNAPSHOT</version>
          <executions>
            <execution>
              <phase>compile</phase>

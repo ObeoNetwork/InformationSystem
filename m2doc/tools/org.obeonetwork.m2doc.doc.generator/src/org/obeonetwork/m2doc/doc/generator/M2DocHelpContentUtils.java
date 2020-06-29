@@ -27,7 +27,6 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.emf.ecore.util.EcoreUtil;
-import org.eclipse.sirius.diagram.business.internal.metamodel.helper.LayerHelper;
 import org.eclipse.sirius.diagram.description.DiagramDescription;
 import org.eclipse.sirius.diagram.description.DiagramImportDescription;
 import org.eclipse.sirius.diagram.description.Layer;
@@ -468,8 +467,8 @@ public final class M2DocHelpContentUtils {
 							buffer.append("    <p>ID: ").append(LS);
 							buffer.append(representation.getName());
 							buffer.append("    </p>").append(LS);
-							buffer.append("    <p>Layers:<ul>").append(LS);						
-							for (Layer layer : (LayerHelper.getAllLayers((DiagramDescription) representation))) {
+							buffer.append("    <p>Layers:<ul>").append(LS);
+							for (Layer layer : ((DiagramDescription) representation).getAllLayers()) {
 								if (layer.getLabel() != null) {
 									buffer.append(
 											"        <li>" + layer.getLabel() + " (ID: " + layer.getName() + ")</lil>")

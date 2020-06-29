@@ -5,7 +5,8 @@ Element-Type: testcase
 Element-Version: 3.0
 External-Reference: 
 Id: _6N0ZsGNdEeSg_dTG4Ei-uQ
-Save-Time: 6/15/20 2:22 PM
+Runtime-Version: 2.2.0.201706152316
+Save-Time: 7/5/18 11:01 AM
 Testcase-Type: ecl
 
 ------=_.description-216f885c-d591-38ce-8ea2-e4f8cb4d6ffa
@@ -35,7 +36,7 @@ with [get-editor "Actors Graph"] {
         mouse-press 371 59 button1 -height 309 -width 728
         mouse-release 371 59 button1 524288 -height 309 -width 728
     }
-    get-diagram -index 1 | get-edit-part -name "Actors Graph" | get-edit-part -name "Actor 4" | get-handle ResizeHandle 
+    get-diagram -index 1 | get-edit-part -name "Actors Graph" | get-edit-part -name "Actor 3" | get-handle ResizeHandle 
         -index 6 | mouse-hover 4 4 -mask ALT -height 7 -width 7
 }
 get-editor "Actors Graph" | get-diagram -index 1 | get-edit-part -name "Actors Graph" | get-edit-part -name "Actor 3" 
@@ -112,6 +113,6 @@ get-view "Model Explorer" | get-tree | select "E-BookStore/E-BookStore.graal/Sys
 get-editor "Actors Graph" | get-diagram -index 1 | get-edit-part -name "Actors Graph" | mouse-move 12 194 -height 309 
     -width 728
 get-view "Model Explorer" | get-tree | select "E-BookStore/E-BookStore.graal/System E-BookStore/Actor Actor 3"
-/**get-view Properties | get-tree | get-item "Super Actor" | get-property "getData().getValueAsString()" | equals "" 
-    | verify-true**/
+get-view Properties | get-tree | get-item "Super Actor" | get-property "getData().getValueAsString()" | equals "" 
+    | verify-true
 ------=_.content-0a7243a0-75d3-3d5f-9791-539de0e5b7ac--

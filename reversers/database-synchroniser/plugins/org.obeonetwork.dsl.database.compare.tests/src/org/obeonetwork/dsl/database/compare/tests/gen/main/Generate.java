@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2011, 2020 Obeo.
+ * Copyright (c) 2011, 2019 Obeo.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -351,6 +351,12 @@ public class Generate extends AbstractAcceleoGenerator {
         super.registerPackages(resourceSet);
         if (!isInWorkspace(org.eclipse.emf.compare.ComparePackage.class)) {
             resourceSet.getPackageRegistry().put(org.eclipse.emf.compare.ComparePackage.eINSTANCE.getNsURI(), org.eclipse.emf.compare.ComparePackage.eINSTANCE);
+        }
+        if (!isInWorkspace(org.obeonetwork.dsl.database.DatabasePackage.class)) {
+            resourceSet.getPackageRegistry().put(org.obeonetwork.dsl.database.DatabasePackage.eINSTANCE.getNsURI(), org.obeonetwork.dsl.database.DatabasePackage.eINSTANCE);
+        }
+        if (!isInWorkspace(org.obeonetwork.dsl.database.dbevolution.DbevolutionPackage.class)) {
+            resourceSet.getPackageRegistry().put(org.obeonetwork.dsl.database.dbevolution.DbevolutionPackage.eINSTANCE.getNsURI(), org.obeonetwork.dsl.database.dbevolution.DbevolutionPackage.eINSTANCE);
         }
         
         /*

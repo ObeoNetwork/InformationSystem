@@ -5,8 +5,8 @@ Element-Type: testcase
 Element-Version: 3.0
 External-Reference: 
 Id: _B9gUIGNcEeSg_dTG4Ei-uQ
-Runtime-Version: 2.3.0.201806262310
-Save-Time: 5/15/20 2:14 PM
+Runtime-Version: 2.2.0.201706152316
+Save-Time: 7/4/18 5:48 PM
 Testcase-Type: ecl
 
 ------=_.description-216f885c-d591-38ce-8ea2-e4f8cb4d6ffa
@@ -60,7 +60,7 @@ get-editor "Checkout Flow Diagram" | get-diagram -index 1 | get-edit-part -name 
 get-eclipse-window | key-type "" "\\u0000"
 get-editor "Checkout Flow Diagram" | get-diagram -index 1 | get-edit-part -name "Checkout Flow Diagram" 
     | mouse-move 187 0 -height 515 -width 1102
-get-tab-folder -index 2 | get-property activePage | equals "Checkout Flow Diagram" | verify-true
+get-tab-folder -index 2 | get-property activePage | equals "*Checkout Flow Diagram" | verify-true
 with [get-editor "Main Flow Diagram"] {
     click
     with [get-diagram -index 1] {

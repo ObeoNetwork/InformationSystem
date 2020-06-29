@@ -25,10 +25,8 @@ import org.eclipse.sirius.viewpoint.DRepresentation;
 import org.eclipse.sirius.viewpoint.DRepresentationElement;
 import org.eclipse.sirius.viewpoint.DSemanticDecorator;
 import org.eclipse.sirius.viewpoint.DStylizable;
-import org.eclipse.sirius.viewpoint.IdentifiedElement;
 import org.eclipse.sirius.viewpoint.description.DModelElement;
 import org.eclipse.sirius.viewpoint.description.DocumentedElement;
-import org.obeonetwork.dsl.environment.bindingdialect.*;
 
 /**
  * <!-- begin-user-doc -->
@@ -116,33 +114,31 @@ public class BindingdialectSwitch<T> {
 				T result = caseDBindingEditor(dBindingEditor);
 				if (result == null) result = caseDRepresentation(dBindingEditor);
 				if (result == null) result = caseDSemanticDecorator(dBindingEditor);
-				if (result == null) result = caseIdentifiedElement(dBindingEditor);
-				if (result == null) result = caseDModelElement(dBindingEditor);
+				if (result == null) result = caseDocumentedElement(dBindingEditor);
 				if (result == null) result = caseDRefreshable(dBindingEditor);
+				if (result == null) result = caseDModelElement(dBindingEditor);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
 			case BindingdialectPackage.DBINDING_EDGE: {
 				DBindingEdge dBindingEdge = (DBindingEdge)theEObject;
 				T result = caseDBindingEdge(dBindingEdge);
-				if (result == null) result = caseDRepresentationElement(dBindingEdge);
+				if (result == null) result = caseDRepresentationElement(dBindingEdge);				
 				if (result == null) result = caseDMappingBased(dBindingEdge);
 				if (result == null) result = caseDStylizable(dBindingEdge);
 				if (result == null) result = caseDRefreshable(dBindingEdge);
 				if (result == null) result = caseDSemanticDecorator(dBindingEdge);
-				if (result == null) result = caseIdentifiedElement(dBindingEdge);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
 			case BindingdialectPackage.DBOUND_ELEMENT: {
 				DBoundElement dBoundElement = (DBoundElement)theEObject;
 				T result = caseDBoundElement(dBoundElement);
-				if (result == null) result = caseDRepresentationElement(dBoundElement);
+				if (result == null) result = caseDRepresentationElement(dBoundElement);				
 				if (result == null) result = caseDMappingBased(dBoundElement);
 				if (result == null) result = caseDStylizable(dBoundElement);
 				if (result == null) result = caseDRefreshable(dBoundElement);
 				if (result == null) result = caseDSemanticDecorator(dBoundElement);
-				if (result == null) result = caseIdentifiedElement(dBoundElement);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -196,17 +192,17 @@ public class BindingdialectSwitch<T> {
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Identified Element</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Documented Element</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Identified Element</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Documented Element</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseIdentifiedElement(IdentifiedElement object) {
+	public T caseDocumentedElement(DocumentedElement object) {
 		return null;
 	}
 

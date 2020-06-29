@@ -21,7 +21,6 @@ import org.eclipse.sirius.viewpoint.DRepresentationElement;
  *
  * <p>
  * The following features are supported:
- * </p>
  * <ul>
  *   <li>{@link org.obeonetwork.dsl.environment.bindingdialect.DBoundElement#getParent <em>Parent</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.environment.bindingdialect.DBoundElement#getChildren <em>Children</em>}</li>
@@ -29,6 +28,7 @@ import org.eclipse.sirius.viewpoint.DRepresentationElement;
  *   <li>{@link org.obeonetwork.dsl.environment.bindingdialect.DBoundElement#getEdgesAsRight <em>Edges As Right</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.environment.bindingdialect.DBoundElement#getEdges <em>Edges</em>}</li>
  * </ul>
+ * </p>
  *
  * @see org.obeonetwork.dsl.environment.bindingdialect.BindingdialectPackage#getDBoundElement()
  * @model

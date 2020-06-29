@@ -5,7 +5,8 @@ Element-Type: testcase
 Element-Version: 3.0
 External-Reference: 
 Id: _B9MLEGNcEeSg_dTG4Ei-uQ
-Save-Time: 6/9/20 3:20 PM
+Runtime-Version: 2.2.0.201706152316
+Save-Time: 7/4/18 5:48 PM
 Testcase-Type: ecl
 
 ------=_.description-216f885c-d591-38ce-8ea2-e4f8cb4d6ffa
@@ -544,12 +545,12 @@ with [get-window "Selection Wizard"] {
     get-button Finish | click
 }
 with [get-editor "Main Flow Diagram" | get-diagram -index 1 | get-edit-part -name "Main Flow Diagram" | get-edit-part 
-    -name "ViewContainer3 : Table"] {
-    get-edit-part -className DNodeListNameEditPart | get-property "getEditText()" | equals "ViewContainer3 : Table" 
+    -name "ViewContainer4 : Table"] {
+    get-edit-part -className DNodeListNameEditPart | get-property "getEditText()" | equals "ViewContainer4 : Table" 
         | verify-true
     with [get-target-connection 0] {
         get-property "getTarget().getChildren().DNodeListNameEditPart[0].getEditText()" 
-            | equals "ViewContainer3 : Table" | verify-true
+            | equals "ViewContainer4 : Table" | verify-true
         get-property "getSource().getChildren().WorkspaceImageEditPart[0].getFigure().getChildren().SVGWorkspaceImageFigure[0].getChildren().SiriusWrapLabel[0].getText()" 
             | equals "Display Homepage" | verify-true
     }

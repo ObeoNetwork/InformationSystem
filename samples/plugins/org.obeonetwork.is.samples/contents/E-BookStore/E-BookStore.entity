@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="ASCII"?>
 <xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:interaction="http://www.obeonetwork.org/dsl/interaction/1.0.0" xmlns:oent="http://www.obeonetwork.org/dsl/entity/3.0.0" xmlns:oenv="http://www.obeonetwork.org/dsl/environment/3.0.0" xmlns:statemachine="http://www.obeonetwork.org/dsl/statemachine/1.0.0">
-  <oent:Root xmi:id="_62l-UJEcEeauDets12NBwQ" technicalid="_5CAlMBVIEeetFdz5pzgWAw" createdOn="2016-10-13T10:13:27.605+0200" modifiedOn="2020-06-09T15:28:09.546+0200">
+  <oent:Root xmi:id="_62l-UJEcEeauDets12NBwQ" technicalid="_5CAlMBVIEeetFdz5pzgWAw" createdOn="2016-10-13T10:13:27.605+0200" modifiedOn="2016-10-13T10:13:46.106+0200">
     <ownedNamespaces xmi:id="_9nCFoJEcEeauDets12NBwQ" technicalid="_5CAlMRVIEeetFdz5pzgWAw" bindingRegistries="_pLEosRWtEemPcZQonXs-Bw" createdOn="2016-10-13T10:13:46.106+0200" modifiedOn="2019-01-11T15:31:54.811+0100" name="main">
       <types xsi:type="oent:Entity" xmi:id="_Cp_CIJEdEeauDets12NBwQ" technicalid="_5CBMQBVIEeetFdz5pzgWAw" createdOn="2016-10-13T10:14:19.971+0200" modifiedOn="2019-01-29T14:46:45.716+0100" name="Author">
         <behaviours xsi:type="statemachine:StateMachine" xmi:id="_4CoboCPLEem2jZ0_ML8PBQ" technicalid="_4Cn0kCPLEem2jZ0_ML8PBQ" createdOn="2019-01-29T14:43:36.467+0100" modifiedOn="2019-01-29T14:45:23.654+0100" name="new State machine diagram">
@@ -79,7 +79,6 @@
         <ownedReferences xmi:id="_CqCFcJEdEeauDets12NBwQ" technicalid="_5CEPlRVIEeetFdz5pzgWAw" createdOn="2016-10-13T10:14:19.975+0200" modifiedOn="2016-10-13T10:14:19.975+0200" name="carts" multiplicity="0..*" isComposite="true" referencedType="_CqA3UJEdEeauDets12NBwQ"/>
       </types>
     </ownedNamespaces>
-    <ownedNamespaces xmi:id="_D2VKoKpVEeqpN8GodWJphQ" technicalid="_D2UjkKpVEeqpN8GodWJphQ" createdOn="2020-06-09T15:28:09.546+0200" modifiedOn="2020-06-09T15:28:09.759+0200" name="namespace_2"/>
   </oent:Root>
   <oenv:BindingRegistry xmi:id="_pLEosRWtEemPcZQonXs-Bw" technicalid="_pLEosBWtEemPcZQonXs-Bw" createdOn="2019-01-11T15:31:54.812+0100" modifiedOn="2019-01-11T15:31:54.812+0100">
     <bindingInfos xmi:id="_pLFPwRWtEemPcZQonXs-Bw" technicalid="_pLFPwBWtEemPcZQonXs-Bw" createdOn="2019-01-11T15:31:54.812+0100" modifiedOn="2019-01-11T15:33:02.658+0100" left="_Cp_CIJEdEeauDets12NBwQ">

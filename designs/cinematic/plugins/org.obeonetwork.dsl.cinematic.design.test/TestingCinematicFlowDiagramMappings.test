@@ -5,7 +5,8 @@ Element-Type: testcase
 Element-Version: 3.0
 External-Reference: 
 Id: _B81lwGNcEeSg_dTG4Ei-uQ
-Save-Time: 6/10/20 10:57 AM
+Runtime-Version: 2.3.0.201806262310
+Save-Time: 1/9/19 6:25 PM
 Testcase-Type: ecl
 
 ------=_.description-216f885c-d591-38ce-8ea2-e4f8cb4d6ffa
@@ -71,9 +72,9 @@ with [get-editor "Checkout Flow Diagram" | get-diagram -index 1 | get-edit-part 
 with [get-editor "Checkout Flow Diagram" | get-diagram -index 1 | get-edit-part -name "Checkout Flow Diagram"] {
     with [get-edit-part -name "" -index 3 | get-figure "0/0/0"] {
     //Check  FLD_ViewState mapping 
-        get-property className | equals "org.eclipse.sirius.diagram.ui.tools.api.figure.SVGWorkspaceImageFigure" 
+        get-property className | equals "org.eclipse.sirius.diagram.ui.tools.api.figure.WorkspaceImageFigure" 
             | verify-true
-        get-property "getImageAspectRatio()" | equals "0.9361702127659575" | verify-true
+        get-property "getImageAspectRatio()" | equals "1.0434782608695652" | verify-true
     }   
     get-edit-part -name "" | get-edit-part -className WorkspaceImageEditPart | get-figure 0 | get-property className 
         | equals "org.eclipse.sirius.diagram.ui.tools.api.figure.WorkspaceImageFigure" | verify-true
@@ -169,7 +170,7 @@ with [get-editor "Checkout Flow Diagram" | get-diagram -index 1 | get-edit-part 
     mouse-move 13 174 -height 463 -width 859
 }
 // Check that the viewContainer named PaymentForm:Page contains 8 elements
-/**with [get-editor "Checkout Flow Diagram" | get-diagram -index 1 | get-edit-part -name "Checkout Flow Diagram" 
+with [get-editor "Checkout Flow Diagram" | get-diagram -index 1 | get-edit-part -name "Checkout Flow Diagram" 
     | get-edit-part -name "PaymentForm : Page" | get-edit-part -className DNodeListViewNodeListCompartment2EditPart] {
     get-edit-part -name "ViewContainer1 : Table" | get-property "getEditText()" | equals "ViewContainer1 : Table" 
         | verify-true
@@ -179,6 +180,6 @@ with [get-editor "Checkout Flow Diagram" | get-diagram -index 1 | get-edit-part 
     mouse-move 42 390 -height 463 -width 859
     get-edit-part -name "PaymentForm : Page" | get-edit-part -className DNodeListViewNodeListCompartment2EditPart 
         | mouse-move 111 86 -height 89 -width 234
-}**/
+}
 
 ------=_.content-0a7243a0-75d3-3d5f-9791-539de0e5b7ac--

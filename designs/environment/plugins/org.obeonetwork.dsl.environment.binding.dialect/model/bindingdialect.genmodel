@@ -6,7 +6,7 @@
     editDirectory="/org.obeonetwork.dsl.environment.binding.dialect.ui/src-gen" modelPluginID="org.obeonetwork.dsl.environment.binding.dialect"
     modelName="Bindingdialect" importerID="org.eclipse.emf.importer.ecore" complianceLevel="5.0"
     editPluginID="org.obeonetwork.dsl.environment.binding.dialect.ui" runtimeVersion="2.6"
-    usedGenPackages="platform:/plugin/org.eclipse.emf.ecore/model/Ecore.genmodel#//ecore platform:/plugin/org.eclipse.sirius/model/viewpoint.genmodel#//viewpoint">
+    usedGenPackages="platform:/plugin/org.eclipse.emf.ecore/model/Ecore.genmodel#//ecore platform:/plugin/org.eclipse.sirius/model/viewpoint.genmodel#//viewpoint platform:/plugin/org.eclipse.sirius/model/contribution.genmodel#//contribution">
   <foreignModel>bindingdialect.ecore</foreignModel>
   <genPackages prefix="Bindingdialect" basePackage="org.obeonetwork.dsl.environment"
       resource="XMI" disposableProviderFactory="true" ecorePackage="bindingdialect.ecore#/">

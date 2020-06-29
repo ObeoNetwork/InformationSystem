@@ -19,11 +19,11 @@ import org.eclipse.sirius.viewpoint.DRepresentationElement;
  *
  * <p>
  * The following features are supported:
- * </p>
  * <ul>
  *   <li>{@link org.obeonetwork.dsl.environment.bindingdialect.DBindingEdge#getLeft <em>Left</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.environment.bindingdialect.DBindingEdge#getRight <em>Right</em>}</li>
  * </ul>
+ * </p>
  *
  * @see org.obeonetwork.dsl.environment.bindingdialect.BindingdialectPackage#getDBindingEdge()
  * @model

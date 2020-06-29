@@ -3,7 +3,7 @@ Bundle-ManifestVersion: 2
 Bundle-Name: %pluginName
 Bundle-SymbolicName: org.obeonetwork.dsl.typeslibrary.editor;singleton:=true
 Automatic-Module-Name: org.obeonetwork.dsl.typeslibrary.editor
-Bundle-Version: 11.3.0.qualifier
+Bundle-Version: 11.0.0.qualifier
 Bundle-ClassPath: .
 Bundle-Activator: org.obeonetwork.dsl.typeslibrary.presentation.TypesLibraryEditorPlugin$Implementation
 Bundle-Vendor: %providerName

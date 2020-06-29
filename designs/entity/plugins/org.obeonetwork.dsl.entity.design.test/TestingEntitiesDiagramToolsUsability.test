@@ -5,7 +5,8 @@ Element-Type: testcase
 Element-Version: 3.0
 External-Reference: 
 Id: _GSSi8KKfEeatIdXAOWS3IQ
-Save-Time: 6/17/20 11:36 AM
+Runtime-Version: 2.3.0.201806262310
+Save-Time: 7/6/18 1:45 PM
 Testcase-Type: ecl
 
 ------=_.description-216f885c-d591-38ce-8ea2-e4f8cb4d6ffa
@@ -37,21 +38,18 @@ Testing all tools defines in entity.odesign/Entities Diagram/Section Usability t
 Content-Type: text/ecl
 Entry-Name: .content
 
-/**get-view "Model Explorer" | get-tree | select "E-BookStore" | get-menu -path "New/Other..." | click
+get-view "Model Explorer" | get-tree | select "E-BookStore" | get-menu -path "New/Other..." | click
 with [get-window New] {
     get-editbox -after [get-label "Wizards:"] | set-text ENT
     get-tree | select [ concat $folderNameInWizard "/Entity Model" ]
     get-button "Next >" | click
     get-button Finish | click
 }
-with [get-window "New Entity Model"] {
-	get-window "Load modeling project" | get-button Yes | click
-}**/
-/**get-view "Model Explorer" | get-tree | select "E-BookStore/Project Dependencies" | get-menu "Add Model" | click
+get-view "Model Explorer" | get-tree | select "E-BookStore/Project Dependencies" | get-menu "Add Model" | click
 with [get-window "Select resources to add"] {
     get-button "Browse Workspace..." | click
     with [get-window "File Selection"] {
-        get-tree | select "E-BookStore/E-BookStore.entity"
+        get-tree | select "E-BookStore/My.entity"
         get-button OK | click
     }
     get-button OK | click
@@ -60,11 +58,9 @@ with [get-window "Viewpoints Selection"] {
     get-table | get-item "Entity Views" | check
     get-button OK | click
 }
-get-view "Model Explorer" | get-tree | select "E-BookStore/E-BookStore.entity/Entities" 
+get-view "Model Explorer" | get-tree | select "E-BookStore/My.entity/Entities" 
     | get-menu "New Representation/Entities Namespaces Hierarchy" | click
-get-window "New Entities Namespaces Hierarchy" | get-button OK | click**/
-get-view "Model Explorer" | get-tree 
-    | select "E-BookStore/E-BookStore.entity/Entities/Entities Namespaces Hierarchy" | double-click
+get-window "New Entities Namespaces Hierarchy" | get-button OK | click
 with [get-editor "Entities Namespaces Hierarchy"] {
     get-diagram -index 1 | get-edit-part -name "Entities Namespaces Hierarchy" | mouse-move 595 100 -height 349 -width 596    
 }
@@ -82,7 +78,7 @@ with [get-editor "Entities Namespaces Hierarchy"] {
         mouse-release 295 152 button1 524288 -height 520 -width 1047
     }
     with [get-diagram -index 1 | get-edit-part -name "Entities Namespaces Hierarchy"] {
-        get-edit-part -name "namespace_2" | get-handle ResizeHandle -index 6 | mouse-hover 4 6 -height 7 -width 7
+        get-edit-part -name "namespace_1" | get-handle ResizeHandle -index 6 | mouse-hover 4 6 -height 7 -width 7
         mouse-move 1043 76 -height 520 -width 1047
     }
 }
@@ -96,24 +92,24 @@ with [get-editor "Entities Namespaces Hierarchy" | get-diagram -index 1] {
     key-type "M1+s"
     get-edit-part -name "Entities Namespaces Hierarchy" | mouse-move 1 137 -height 520 -width 1111
 }
-get-view "Model Explorer" | get-tree | select "E-BookStore/E-BookStore.entity/Entities/Namespace namespace_2" 
-    | get-menu "New Representation/namespace_2 - Entities diagram" | click
+get-view "Model Explorer" | get-tree | select "E-BookStore/My.entity/Entities/Namespace namespace_1" 
+    | get-menu "New Representation/namespace_1 - Entities diagram" | click
 get-window "New Entities Diagram" | get-button OK | click
 get-eclipse-window | key-type "" "\\u0000"
-with [get-editor "namespace_2 - Entities diagram"] {
-    get-diagram -index 1 | get-edit-part -name "namespace_2 - Entities diagram" | mouse-move 1108 94 -height 520 
+with [get-editor "namespace_1 - Entities diagram"] {
+    get-diagram -index 1 | get-edit-part -name "namespace_1 - Entities diagram" | mouse-move 1108 94 -height 520 
         -width 1111
     with [get-palette | get-palette-entry Entity -index 1] {
         mouse-move 39 9 button1 -height 23 -width 125
         mouse-press 39 9 button1 -height 23 -width 125
         mouse-release 39 9 button1 524288 -height 23 -width 125
     }
-    with [get-diagram -index 1 | get-edit-part -name "namespace_2 - Entities diagram"] {
+    with [get-diagram -index 1 | get-edit-part -name "namespace_1 - Entities diagram"] {
         mouse-move 267 186 button1 -height 520 -width 1111
         mouse-press 267 186 button1 -height 520 -width 1111
         mouse-release 267 186 button1 524288 -height 520 -width 1111
     }
-    with [get-diagram -index 1 | get-edit-part -name "namespace_2 - Entities diagram"] {
+    with [get-diagram -index 1 | get-edit-part -name "namespace_1 - Entities diagram"] {
         get-edit-part -name Entity1 | get-handle ResizeHandle -index 6 | mouse-hover 6 5 -height 7 -width 7
         mouse-move 1109 124 -height 520 -width 1111
     }
@@ -122,12 +118,12 @@ with [get-editor "namespace_2 - Entities diagram"] {
         mouse-press 29 5 button1 -height 23 -width 125
         mouse-release 29 5 button1 524288 -height 23 -width 125
     }
-    with [get-diagram -index 1 | get-edit-part -name "namespace_2 - Entities diagram"] {
+    with [get-diagram -index 1 | get-edit-part -name "namespace_1 - Entities diagram"] {
         mouse-move 636 238 button1 -height 520 -width 1111
         mouse-press 636 238 button1 -height 520 -width 1111
         mouse-release 636 238 button1 524288 -height 520 -width 1111
     }
-    with [get-diagram -index 1 | get-edit-part -name "namespace_2 - Entities diagram"] {
+    with [get-diagram -index 1 | get-edit-part -name "namespace_1 - Entities diagram"] {
         mouse-move 508 349 button1 -height 520 -width 1111
         mouse-press 508 349 button1 -height 520 -width 1111
         mouse-release 508 349 button1 524288 -height 520 -width 1111
@@ -138,13 +134,13 @@ with [get-editor "namespace_2 - Entities diagram"] {
         mouse-press 41 7 button1 -height 23 -width 125
         mouse-release 41 7 button1 524288 -height 23 -width 125
     }
-    with [get-diagram -index 1 | get-edit-part -name "namespace_2 - Entities diagram"] {
+    with [get-diagram -index 1 | get-edit-part -name "namespace_1 - Entities diagram"] {
         mouse-move 698 266 -height 520 -width 1111
         mouse-move 427 384 button1 -height 520 -width 1111
         mouse-press 427 384 button1 -height 520 -width 1111
         mouse-release 427 384 button1 524288 -height 520 -width 1111
     }
-    with [get-diagram -index 1 | get-edit-part -name "namespace_2 - Entities diagram"] {
+    with [get-diagram -index 1 | get-edit-part -name "namespace_1 - Entities diagram"] {
         mouse-move 787 389 button1 -height 520 -width 1111
         mouse-press 787 389 button1 -height 520 -width 1111
         mouse-release 787 389 button1 524288 -height 520 -width 1111
@@ -155,7 +151,7 @@ with [get-editor "namespace_2 - Entities diagram"] {
         mouse-press 37 11 button1 -height 23 -width 125
         mouse-release 37 11 button1 524288 -height 23 -width 125
     }
-    with [get-diagram -index 1 | get-edit-part -name "namespace_2 - Entities diagram"] {
+    with [get-diagram -index 1 | get-edit-part -name "namespace_1 - Entities diagram"] {
         mouse-move 328 192 -height 520 -width 1111
         with [get-edit-part -name Entity1] {
             mouse-move 46 4 -height 42 -width 61
@@ -175,7 +171,7 @@ with [get-editor "namespace_2 - Entities diagram"] {
             }
         }
     }
-    with [get-diagram -index 1 | get-edit-part -name "namespace_2 - Entities diagram"] {
+    with [get-diagram -index 1 | get-edit-part -name "namespace_1 - Entities diagram"] {
         with [get-edit-part -name Entity3 | get-edit-part -className DNodeListNameEditPart] {
             mouse-release 20 1 button1 524288 -height 17 -width 57
             mouse-hover 20 1 -height 17 -width 57
@@ -189,7 +185,7 @@ with [get-editor "namespace_2 - Entities diagram"] {
         mouse-press 54 10 button1 -height 23 -width 125
         mouse-release 54 10 button1 524288 -height 23 -width 125
     }
-    with [get-diagram -index 1 | get-edit-part -name "namespace_2 - Entities diagram"] {
+    with [get-diagram -index 1 | get-edit-part -name "namespace_1 - Entities diagram"] {
         with [get-edit-part -name Entity3 | get-edit-part -className DNodeListNameEditPart] {
             mouse-move 45 7 button1 -height 17 -width 57
             mouse-press 45 7 button1 -height 17 -width 57
@@ -204,7 +200,7 @@ with [get-editor "namespace_2 - Entities diagram"] {
             }
         }
     }
-    with [get-diagram -index 1 | get-edit-part -name "namespace_2 - Entities diagram"] {
+    with [get-diagram -index 1 | get-edit-part -name "namespace_1 - Entities diagram"] {
         with [get-edit-part -name Entity2] {
             get-edit-part -className DNodeListNameEditPart | mouse-release 27 10 button1 524288 -height 17 -width 57
             mouse-move 32 26 -height 42 -width 61
@@ -219,7 +215,7 @@ with [get-editor "namespace_2 - Entities diagram"] {
         mouse-press 42 15 button1 -height 23 -width 125
         mouse-release 42 15 button1 524288 -height 23 -width 125
     }
-    with [get-diagram -index 1 | get-edit-part -name "namespace_2 - Entities diagram"] {
+    with [get-diagram -index 1 | get-edit-part -name "namespace_1 - Entities diagram"] {
         mouse-move 322 227 -height 520 -width 1111
         with [get-edit-part -name Entity1] {
             mouse-move 45 22 -height 42 -width 61
@@ -236,7 +232,7 @@ with [get-editor "namespace_2 - Entities diagram"] {
             mouse-press 26 4 button1 -height 17 -width 57
         }
     }
-    with [get-diagram -index 1 | get-edit-part -name "namespace_2 - Entities diagram"] {
+    with [get-diagram -index 1 | get-edit-part -name "namespace_1 - Entities diagram"] {
         with [get-edit-part -name Entity2 | get-edit-part -className DNodeListNameEditPart] {
             mouse-release 26 4 button1 524288 -height 17 -width 57
             mouse-hover 26 4 -height 17 -width 57
@@ -245,32 +241,32 @@ with [get-editor "namespace_2 - Entities diagram"] {
     }
 }
 get-eclipse-window | key-type "" "\\u0000"
-with [get-editor "namespace_2 - Entities diagram"] {
-    get-diagram -index 1 | get-edit-part -name "namespace_2 - Entities diagram" | mouse-move 1110 97 -height 520 
+with [get-editor "namespace_1 - Entities diagram"] {
+    get-diagram -index 1 | get-edit-part -name "namespace_1 - Entities diagram" | mouse-move 1110 97 -height 520 
         -width 1111
     with [get-palette | get-palette-entry Entity -index 1] {
         mouse-move 32 5 button1 -height 23 -width 125
         mouse-press 32 5 button1 -height 23 -width 125
         mouse-release 32 5 button1 524288 -height 23 -width 125
     }
-    with [get-diagram -index 1 | get-edit-part -name "namespace_2 - Entities diagram"] {
+    with [get-diagram -index 1 | get-edit-part -name "namespace_1 - Entities diagram"] {
         mouse-move 568 90 button1 -height 520 -width 1111
         mouse-press 568 90 button1 -height 520 -width 1111
         mouse-release 568 90 button1 524288 -height 520 -width 1111
     }
-    get-diagram -index 1 | get-edit-part -name "namespace_2 - Entities diagram" | mouse-move 1107 99 -height 520 
+    get-diagram -index 1 | get-edit-part -name "namespace_1 - Entities diagram" | mouse-move 1107 99 -height 520 
         -width 1111
     with [get-palette | get-palette-entry Entity -index 1] {
         mouse-move 34 17 button1 -height 23 -width 125
         mouse-press 34 17 button1 -height 23 -width 125
         mouse-release 34 17 button1 524288 -height 23 -width 125
     }
-    with [get-diagram -index 1 | get-edit-part -name "namespace_2 - Entities diagram"] {
+    with [get-diagram -index 1 | get-edit-part -name "namespace_1 - Entities diagram"] {
         mouse-move 976 97 button1 -height 520 -width 1111
         mouse-press 976 97 button1 -height 520 -width 1111
         mouse-release 976 97 button1 524288 -height 520 -width 1111
     }
-    get-diagram -index 1 | get-edit-part -name "namespace_2 - Entities diagram" | mouse-move 1109 118 -height 520 
+    get-diagram -index 1 | get-edit-part -name "namespace_1 - Entities diagram" | mouse-move 1109 118 -height 520 
         -width 1111
     with [get-palette | get-palette-entry Entity -index 1] {
         mouse-move 41 14 button1 -height 23 -width 125
@@ -278,19 +274,19 @@ with [get-editor "namespace_2 - Entities diagram"] {
         mouse-release 41 14 button1 524288 -height 23 -width 125
         mouse-move 26 17 -height 23 -width 125
     }
-    with [get-diagram -index 1 | get-edit-part -name "namespace_2 - Entities diagram"] {
+    with [get-diagram -index 1 | get-edit-part -name "namespace_1 - Entities diagram"] {
         mouse-move 878 372 button1 -height 520 -width 1111
         mouse-press 878 372 button1 -height 520 -width 1111
         mouse-release 878 372 button1 524288 -height 520 -width 1111
     }
-    get-diagram -index 1 | get-edit-part -name "namespace_2 - Entities diagram" | mouse-move 1108 365 -height 520 
+    get-diagram -index 1 | get-edit-part -name "namespace_1 - Entities diagram" | mouse-move 1108 365 -height 520 
         -width 1111
     with [get-palette | get-palette-entry "Bidirectional Relation" -index 1] {
         mouse-move 62 10 button1 -height 37 -width 125
         mouse-press 62 10 button1 -height 37 -width 125
         mouse-release 62 10 button1 524288 -height 37 -width 125
     }
-    with [get-diagram -index 1 | get-edit-part -name "namespace_2 - Entities diagram"] {
+    with [get-diagram -index 1 | get-edit-part -name "namespace_1 - Entities diagram"] {
         with [get-edit-part -name Entity6] {
             mouse-move 48 4 -height 42 -width 61
             with [get-edit-part -className DNodeListNameEditPart] {
@@ -307,7 +303,7 @@ with [get-editor "namespace_2 - Entities diagram"] {
             mouse-press 46 25 button1 -height 42 -width 61
         }
     }
-    with [get-diagram -index 1 | get-edit-part -name "namespace_2 - Entities diagram"] {
+    with [get-diagram -index 1 | get-edit-part -name "namespace_1 - Entities diagram"] {
         with [get-edit-part -name Entity4] {
             mouse-release 46 25 button1 524288 -height 42 -width 61
             mouse-hover 46 25 -height 42 -width 61
@@ -320,7 +316,7 @@ with [get-editor "namespace_2 - Entities diagram"] {
         mouse-press 58 16 button1 -height 37 -width 125
         mouse-release 58 16 button1 524288 -height 37 -width 125
     }
-    with [get-diagram -index 1 | get-edit-part -name "namespace_2 - Entities diagram"] {
+    with [get-diagram -index 1 | get-edit-part -name "namespace_1 - Entities diagram"] {
         mouse-move 944 371 -height 520 -width 1111
         with [get-edit-part -name Entity6] {
             mouse-move 45 4 button1 -height 42 -width 61
@@ -337,7 +333,7 @@ with [get-editor "namespace_2 - Entities diagram"] {
             }
         }
     }
-    with [get-diagram -index 1 | get-edit-part -name "namespace_2 - Entities diagram"] {
+    with [get-diagram -index 1 | get-edit-part -name "namespace_1 - Entities diagram"] {
         with [get-edit-part -name Entity5 | get-edit-part -className DNodeListNameEditPart] {
             mouse-release 11 11 button1 524288 -height 17 -width 57
             mouse-hover 11 11 -height 17 -width 57
@@ -349,12 +345,12 @@ with [get-editor "namespace_2 - Entities diagram"] {
         mouse-press 44 11 button1 -height 23 -width 125
         mouse-release 44 11 button1 524288 -height 23 -width 125
     }
-    with [get-diagram -index 1 | get-edit-part -name "namespace_2 - Entities diagram"] {
+    with [get-diagram -index 1 | get-edit-part -name "namespace_1 - Entities diagram"] {
         mouse-move 77 56 button1 -height 520 -width 1111
         mouse-press 77 56 button1 -height 520 -width 1111
         mouse-release 77 56 button1 524288 -height 520 -width 1111
     }
-    with [get-diagram -index 1 | get-edit-part -name "namespace_2 - Entities diagram"] {
+    with [get-diagram -index 1 | get-edit-part -name "namespace_1 - Entities diagram"] {
         get-edit-part -name Enum7 | get-handle ResizeHandle -index 6 | mouse-hover 6 5 -height 7 -width 7
         mouse-move 526 120 -height 520 -width 1111
         mouse-move 1109 203 -height 520 -width 1111
@@ -367,7 +363,7 @@ with [get-editor "namespace_2 - Entities diagram"] {
             mouse-release 37 5 button1 524288 -height 23 -width 125
         }
     }
-    with [get-diagram -index 1 | get-edit-part -name "namespace_2 - Entities diagram" | get-edit-part -name Enum7] {
+    with [get-diagram -index 1 | get-edit-part -name "namespace_1 - Entities diagram" | get-edit-part -name Enum7] {
         mouse-move 49 26 -height 42 -width 62
         with [get-edit-part -className DNodeListViewNodeListCompartment2EditPart] {
             mouse-move 43 3 button1 -height 12 -width 58
@@ -375,7 +371,7 @@ with [get-editor "namespace_2 - Entities diagram"] {
             mouse-release 43 3 button1 524288 -height 12 -width 58
         }
     }
-    with [get-diagram -index 1 | get-edit-part -name "namespace_2 - Entities diagram"] {
+    with [get-diagram -index 1 | get-edit-part -name "namespace_1 - Entities diagram"] {
         get-edit-part -name Enum7 | get-edit-part -className DNodeListViewNodeListCompartment2EditPart | get-edit-part 
             -name literal1 | mouse-hover 39 1 -height 16 -width 54
         mouse-move 1110 201 -height 520 -width 1111
@@ -385,16 +381,16 @@ with [get-editor "namespace_2 - Entities diagram"] {
         mouse-press 35 8 button1 -height 23 -width 125
         mouse-release 35 8 button1 524288 -height 23 -width 125
     }
-    with [get-diagram -index 1 | get-edit-part -name "namespace_2 - Entities diagram"] {
+    with [get-diagram -index 1 | get-edit-part -name "namespace_1 - Entities diagram"] {
         mouse-move 79 279 button1 -height 520 -width 1111
         mouse-press 79 279 button1 -height 520 -width 1111
         mouse-release 79 279 button1 524288 -height 520 -width 1111
     }
     with [get-diagram -index 1] {
-        get-edit-part -name "namespace_2 - Entities diagram" | get-edit-part -name Enum8 | get-handle MoveHandle 
+        get-edit-part -name "namespace_1 - Entities diagram" | get-edit-part -name Enum8 | get-handle MoveHandle 
             | mouse-hover 5 1 -height 42 -width 62
         key-type "M1+s"
-        with [get-edit-part -name "namespace_2 - Entities diagram"] {
+        with [get-edit-part -name "namespace_1 - Entities diagram"] {
             mouse-move 1 272 -height 520 -width 1111
             mouse-move 568 94 -height 520 -width 1111
             mouse-move 1108 58 -height 520 -width 1111
@@ -405,12 +401,12 @@ with [get-editor "namespace_2 - Entities diagram"] {
         mouse-press 38 9 button1 -height 23 -width 125
         mouse-release 38 9 button1 524288 -height 23 -width 125
     }
-    with [get-diagram -index 1 | get-edit-part -name "namespace_2 - Entities diagram"] {
+    with [get-diagram -index 1 | get-edit-part -name "namespace_1 - Entities diagram"] {
         mouse-move 377 72 button1 -height 520 -width 1111
         mouse-press 377 72 button1 -height 520 -width 1111
         mouse-release 377 72 button1 524288 -height 520 -width 1111
     }
-    with [get-diagram -index 1 | get-edit-part -name "namespace_2 - Entities diagram" | get-edit-part 
+    with [get-diagram -index 1 | get-edit-part -name "namespace_1 - Entities diagram" | get-edit-part 
         -name "namespace_1" | get-edit-part -className DNodeContainerViewNodeContainerCompartmentEditPart] {
         mouse-move 43 27 button1 -height 68 -width 148
         mouse-press 43 27 button1 -height 68 -width 148
@@ -556,10 +552,10 @@ with [get-editor "namespace_1 - Entities diagram2"] {
         get-edit-part -name "namespace_1 - Entities diagram2" | mouse-move 821 0 -height 520 -width 1111
     }
 }
-get-editor "namespace_2 - Entities diagram" | click
+get-editor "namespace_1 - Entities diagram" | click
 get-editor "namespace_1 - Entities diagram2" | close
-with [get-editor "namespace_2 - Entities diagram"] {
-    with [get-diagram -index 1 | get-edit-part -name "namespace_2 - Entities diagram"] {
+with [get-editor "namespace_1 - Entities diagram"] {
+    with [get-diagram -index 1 | get-edit-part -name "namespace_1 - Entities diagram"] {
         mouse-move 1105 94 -height 520 -width 1111
         mouse-hover 1105 94 -height 520 -width 1111
         mouse-move 1092 244 -height 520 -width 1111
@@ -573,7 +569,7 @@ with [get-editor "namespace_2 - Entities diagram"] {
         mouse-press 42 11 button1 -height 23 -width 125
         mouse-release 42 11 button1 524288 -height 23 -width 125
     }
-    with [get-diagram -index 1 | get-edit-part -name "namespace_2 - Entities diagram"] {
+    with [get-diagram -index 1 | get-edit-part -name "namespace_1 - Entities diagram"] {
         mouse-move 632 128 -height 520 -width 1111
         with [get-edit-part -name Entity4 | get-edit-part -className DNodeListViewNodeListCompartment2EditPart] {
             mouse-move 31 6 button1 -height 12 -width 57
@@ -581,7 +577,7 @@ with [get-editor "namespace_2 - Entities diagram"] {
             mouse-release 31 6 button1 524288 -height 12 -width 57
         }
     }
-    with [get-diagram -index 1 | get-edit-part -name "namespace_2 - Entities diagram"] {
+    with [get-diagram -index 1 | get-edit-part -name "namespace_1 - Entities diagram"] {
         get-edit-part -name Entity4 | get-edit-part -className DNodeListViewNodeListCompartment2EditPart 
             | get-edit-part -name "attribute1 : String[0..1]" | mouse-hover 27 4 -height 16 -width 134
         mouse-move 1015 154 -height 520 -width 1111
@@ -593,7 +589,7 @@ with [get-editor "namespace_2 - Entities diagram"] {
         mouse-press 37 11 button1 -height 23 -width 125
         mouse-release 37 11 button1 524288 -height 23 -width 125
     }
-    with [get-diagram -index 1 | get-edit-part -name "namespace_2 - Entities diagram"] {
+    with [get-diagram -index 1 | get-edit-part -name "namespace_1 - Entities diagram"] {
         mouse-move 1034 138 -height 520 -width 1111
         with [get-edit-part -name Entity5 | get-edit-part -className DNodeListViewNodeListCompartment2EditPart] {
             mouse-move 33 4 button1 -height 12 -width 57
@@ -602,7 +598,7 @@ with [get-editor "namespace_2 - Entities diagram"] {
         }
     }
     with [get-diagram -index 1] {
-        with [get-edit-part -name "namespace_2 - Entities diagram"] {
+        with [get-edit-part -name "namespace_1 - Entities diagram"] {
             get-edit-part -name Entity5 | get-edit-part -className DNodeListViewNodeListCompartment2EditPart 
                 | get-edit-part -name "attribute1 : String[0..1]" | mouse-hover 29 2 -height 16 -width 134
             mouse-move 848 122 button1 -height 520 -width 1121
@@ -611,7 +607,7 @@ with [get-editor "namespace_2 - Entities diagram"] {
             mouse-hover 848 122 -height 520 -width 1121
         }
         key-type "M1+s"
-        with [get-edit-part -name "namespace_2 - Entities diagram"] {
+        with [get-edit-part -name "namespace_1 - Entities diagram"] {
             mouse-move 844 122 -height 520 -width 1121
             mouse-hover 844 122 -height 520 -width 1121
             mouse-move 1050 65 -height 520 -width 1121
@@ -629,7 +625,7 @@ with [get-editor "namespace_2 - Entities diagram"] {
             mouse-release 33 8 button1 524288 -height 23 -width 125
         }
     }
-    with [get-diagram -index 1 | get-edit-part -name "namespace_2 - Entities diagram"] {
+    with [get-diagram -index 1 | get-edit-part -name "namespace_1 - Entities diagram"] {
         mouse-move 817 116 button1 -height 520 -width 1121
         mouse-press 817 116 button1 -height 520 -width 1121
         mouse-release 817 116 button1 524288 -height 520 -width 1121
@@ -648,9 +644,9 @@ with [get-window "Create Entity from DTO"] {
     }
     get-button Finish | click
 }
-with [get-editor "namespace_2 - Entities diagram"] {
+with [get-editor "namespace_1 - Entities diagram"] {
     with [get-diagram -index 1] {
-        with [get-edit-part -name "namespace_2 - Entities diagram"] {
+        with [get-edit-part -name "namespace_1 - Entities diagram"] {
             mouse-hover 538 477 -height 520 -width 1121
             mouse-move 716 365 button1 -height 520 -width 1121
             mouse-press 716 365 button1 -height 520 -width 1121
@@ -670,7 +666,7 @@ with [get-editor "namespace_2 - Entities diagram"] {
         }
         // Check Tool Direct Edit Label EDT_Generic
         key-type F2
-        get-edit-part -name "namespace_2 - Entities diagram" | get-edit-part -name Entity1 | get-edit-part 
+        get-edit-part -name "namespace_1 - Entities diagram" | get-edit-part -name Entity1 | get-edit-part 
             -className DNodeListNameEditPart | activate-direct-edit
     }
     with [get-editbox] {
@@ -680,7 +676,7 @@ with [get-editor "namespace_2 - Entities diagram"] {
     with [get-diagram -index 1] {
         commit-direct-edit
         key-type Enter
-        with [get-edit-part -name "namespace_2 - Entities diagram"] {
+        with [get-edit-part -name "namespace_1 - Entities diagram"] {
             mouse-move 577 139 -height 520 -width 1121
             // Check Tool Direct Edit Label EDT_ED_Attribute
             with [get-edit-part -name Entity4] {
@@ -695,7 +691,7 @@ with [get-editor "namespace_2 - Entities diagram"] {
             }
         }
         key-type F2
-        get-edit-part -name "namespace_2 - Entities diagram" | get-edit-part -name Entity4 | get-edit-part 
+        get-edit-part -name "namespace_1 - Entities diagram" | get-edit-part -name Entity4 | get-edit-part 
             -className DNodeListViewNodeListCompartment2EditPart | get-edit-part -name "attribute1 : String[0..1]" 
             | activate-direct-edit
     }
@@ -706,7 +702,7 @@ with [get-editor "namespace_2 - Entities diagram"] {
     with [get-diagram -index 1] {
         commit-direct-edit
         key-type Enter
-        with [get-edit-part -name "namespace_2 - Entities diagram"] {
+        with [get-edit-part -name "namespace_1 - Entities diagram"] {
             mouse-move 549 131 -height 520 -width 1121
             with [get-edit-part -name Enum7] {
                 mouse-move 43 22 -height 48 -width 66
@@ -719,7 +715,7 @@ with [get-editor "namespace_2 - Entities diagram"] {
             }
         }
         key-type F2
-        get-edit-part -name "namespace_2 - Entities diagram" | get-edit-part -name Enum7 | get-edit-part 
+        get-edit-part -name "namespace_1 - Entities diagram" | get-edit-part -name Enum7 | get-edit-part 
             -className DNodeListNameEditPart | activate-direct-edit
     }
     with [get-editbox] {
@@ -729,7 +725,7 @@ with [get-editor "namespace_2 - Entities diagram"] {
     with [get-diagram -index 1] {
         commit-direct-edit
         key-type Enter
-        with [get-edit-part -name "namespace_2 - Entities diagram" | get-edit-part -name EnumRename | get-edit-part 
+        with [get-edit-part -name "namespace_1 - Entities diagram" | get-edit-part -name EnumRename | get-edit-part 
             -className DNodeListViewNodeListCompartment2EditPart] {
             mouse-move 41 1 -height 18 -width 98
             with [get-edit-part -name literal1] {
@@ -740,7 +736,7 @@ with [get-editor "namespace_2 - Entities diagram"] {
             }
         }
         key-type F2
-        get-edit-part -name "namespace_2 - Entities diagram" | get-edit-part -name EnumRename | get-edit-part 
+        get-edit-part -name "namespace_1 - Entities diagram" | get-edit-part -name EnumRename | get-edit-part 
             -className DNodeListViewNodeListCompartment2EditPart | get-edit-part -name literal1 | activate-direct-edit
     }
     with [get-editbox] {
@@ -750,7 +746,7 @@ with [get-editor "namespace_2 - Entities diagram"] {
     with [get-diagram -index 1] {
         commit-direct-edit
         key-type Enter
-        with [get-edit-part -name "namespace_2 - Entities diagram"] {
+        with [get-edit-part -name "namespace_1 - Entities diagram"] {
             mouse-move 230 168 -height 520 -width 1121
             mouse-hover 230 168 -height 520 -width 1121
             mouse-move 263 193 -height 520 -width 1121
@@ -764,7 +760,7 @@ with [get-editor "namespace_2 - Entities diagram"] {
             }
         }
         key-type F2
-        get-edit-part -name "namespace_2 - Entities diagram" | get-edit-part -name Entity3 | get-target-connection 0 
+        get-edit-part -name "namespace_1 - Entities diagram" | get-edit-part -name Entity3 | get-target-connection 0 
             | get-edit-part -className DEdgeNameEditPart | activate-direct-edit
     }
     with [get-editbox] {
@@ -774,7 +770,7 @@ with [get-editor "namespace_2 - Entities diagram"] {
     with [get-diagram -index 1] {
         commit-direct-edit
         key-type Enter
-        with [get-edit-part -name "namespace_2 - Entities diagram"] {
+        with [get-edit-part -name "namespace_1 - Entities diagram"] {
             mouse-move 511 310 -height 520 -width 1121
             with [get-edit-part -name Entity2 | get-target-connection 0 | get-edit-part -className DEdgeNameEditPart] {
                 mouse-move 23 0 button1 -height 13 -width 66
@@ -784,7 +780,7 @@ with [get-editor "namespace_2 - Entities diagram"] {
             mouse-hover 538 352 -height 520 -width 1121
         }
         key-type F2
-        get-edit-part -name "namespace_2 - Entities diagram" | get-edit-part -name Entity2 | get-target-connection 0 
+        get-edit-part -name "namespace_1 - Entities diagram" | get-edit-part -name Entity2 | get-target-connection 0 
             | get-edit-part -className DEdgeNameEditPart | activate-direct-edit
     }
     with [get-editbox] {
@@ -794,7 +790,7 @@ with [get-editor "namespace_2 - Entities diagram"] {
     with [get-diagram -index 1] {
         commit-direct-edit
         key-type Enter
-        with [get-edit-part -name "namespace_2 - Entities diagram"] {
+        with [get-edit-part -name "namespace_1 - Entities diagram"] {
             mouse-move 816 340 -height 520 -width 1121
             with [get-edit-part -name Entity6 | get-target-connection 0 | get-edit-part -className "" -index 1] {
                 mouse-move 16 6 button1 -height 13 -width 66
@@ -804,7 +800,7 @@ with [get-editor "namespace_2 - Entities diagram"] {
             }
         }
         key-type F2
-        get-edit-part -name "namespace_2 - Entities diagram" | get-edit-part -name Entity6 | get-target-connection 0 
+        get-edit-part -name "namespace_1 - Entities diagram" | get-edit-part -name Entity6 | get-target-connection 0 
             | get-edit-part -className "" -index 1 | activate-direct-edit
     }
     with [get-editbox] {
@@ -816,7 +812,7 @@ with [get-editor "namespace_2 - Entities diagram"] {
         commit-direct-edit
         key-type Enter
         // Check Tool Direct Edit Label EDT_ED_BidiReference
-        with [get-edit-part -name "namespace_2 - Entities diagram"] {
+        with [get-edit-part -name "namespace_1 - Entities diagram"] {
             mouse-move 688 187 -height 520 -width 1121
             with [get-edit-part -name Entity6 | get-target-connection 0 | get-edit-part -className ""] {
                 mouse-move 33 3 button1 -height 13 -width 66
@@ -826,7 +822,7 @@ with [get-editor "namespace_2 - Entities diagram"] {
             }
         }
         key-type F2
-        get-edit-part -name "namespace_2 - Entities diagram" | get-edit-part -name Entity6 | get-target-connection 0 
+        get-edit-part -name "namespace_1 - Entities diagram" | get-edit-part -name Entity6 | get-target-connection 0 
             | get-edit-part -className "" | activate-direct-edit
     }
     with [get-editbox] {
@@ -836,7 +832,7 @@ with [get-editor "namespace_2 - Entities diagram"] {
     with [get-diagram -index 1] {
         commit-direct-edit
         key-type Enter
-        with [get-edit-part -name "namespace_2 - Entities diagram"] {
+        with [get-edit-part -name "namespace_1 - Entities diagram"] {
             mouse-move 893 335 -height 520 -width 1121
             with [get-edit-part -name Entity6 | get-target-connection 1 | get-edit-part -className "" -index 1] {
                 mouse-move 12 9 button1 -height 13 -width 66
@@ -847,7 +843,7 @@ with [get-editor "namespace_2 - Entities diagram"] {
             mouse-hover 921 345 -height 520 -width 1121
         }
         key-type F2
-        get-edit-part -name "namespace_2 - Entities diagram" | get-edit-part -name Entity6 | get-target-connection 1 
+        get-edit-part -name "namespace_1 - Entities diagram" | get-edit-part -name Entity6 | get-target-connection 1 
             | get-edit-part -className "" -index 1 | activate-direct-edit
     }
     with [get-editbox] {
@@ -857,7 +853,7 @@ with [get-editor "namespace_2 - Entities diagram"] {
     with [get-diagram -index 1] {
         commit-direct-edit
         key-type Enter
-        with [get-edit-part -name "namespace_2 - Entities diagram"] {
+        with [get-edit-part -name "namespace_1 - Entities diagram"] {
             mouse-move 990 179 -height 520 -width 1121
             with [get-edit-part -name Entity6 | get-target-connection 1 | get-edit-part -className ""] {
                 mouse-move 22 6 button1 -height 13 -width 66
@@ -868,7 +864,7 @@ with [get-editor "namespace_2 - Entities diagram"] {
             get-edit-part -name Entity6 | get-target-connection 1 | mouse-hover 146 76 -height 260 -width 193
         }
         key-type F2
-        get-edit-part -name "namespace_2 - Entities diagram" | get-edit-part -name Entity6 | get-target-connection 1 
+        get-edit-part -name "namespace_1 - Entities diagram" | get-edit-part -name Entity6 | get-target-connection 1 
             | get-edit-part -className "" | activate-direct-edit
     }
     with [get-editbox] {
@@ -878,7 +874,7 @@ with [get-editor "namespace_2 - Entities diagram"] {
     with [get-diagram -index 1] {
         commit-direct-edit
         key-type Enter
-        with [get-edit-part -name "namespace_2 - Entities diagram"] {
+        with [get-edit-part -name "namespace_1 - Entities diagram"] {
             mouse-move 958 202 -height 520 -width 1121
             mouse-move 210 321 -height 520 -width 1121
             mouse-hover 210 321 -height 520 -width 1121
@@ -892,29 +888,29 @@ with [get-editor "namespace_2 - Entities diagram"] {
 }
 // Check Tool Container DROP DAD_ED_Entity
 with [get-view "Model Explorer" | get-tree] {
-    select "E-BookStore/E-BookStore.entity/Entities/Namespace namespace_2/Namespace namespace_1/Entity Entity1"
-    get-item "E-BookStore/E-BookStore.entity/Entities/Namespace namespace_2/Namespace namespace_1/Entity Entity1" 
+    select "E-BookStore/My.entity/Entities/Namespace namespace_1/Namespace namespace_1/Entity Entity1"
+    get-item "E-BookStore/My.entity/Entities/Namespace namespace_1/Namespace namespace_1/Entity Entity1" 
         | drag-start 29 8
-    get-item "E-BookStore/E-BookStore.entity/Entities/Namespace namespace_2/Namespace namespace_1/Entity Entity2" 
+    get-item "E-BookStore/My.entity/Entities/Namespace namespace_1/Namespace namespace_1/Entity Entity2" 
         | drag-enter 174 3 -detail move
-    get-item "E-BookStore/E-BookStore.entity/Entities/Namespace namespace_2/Namespace namespace_1/Entity Entity2" 
+    get-item "E-BookStore/My.entity/Entities/Namespace namespace_1/Namespace namespace_1/Entity Entity2" 
         | drag-over 254 12
-    get-item "E-BookStore/E-BookStore.entity/Entities/Namespace namespace_2/Namespace namespace_1/Entity Entity2" | drag-exit
+    get-item "E-BookStore/My.entity/Entities/Namespace namespace_1/Namespace namespace_1/Entity Entity2" | drag-exit
 }
-with [get-editor "namespace_2 - Entities diagram" | get-diagram -index 1 | get-edit-part 
-    -name "namespace_2 - Entities diagram"] {
+with [get-editor "namespace_1 - Entities diagram" | get-diagram -index 1 | get-edit-part 
+    -name "namespace_1 - Entities diagram"] {
     drag-enter 1 346 -detail move
     drag-over 115 384 -detail copy
     drag-exit
     drag-accept 115 384 -detail copy
 }
 get-view "Model Explorer" | get-tree | drag-set-data
-get-editor "namespace_2 - Entities diagram" | get-diagram -index 1 | get-edit-part 
-    -name "namespace_2 - Entities diagram" | drop 115 384 -detail copy
+get-editor "namespace_1 - Entities diagram" | get-diagram -index 1 | get-edit-part 
+    -name "namespace_1 - Entities diagram" | drop 115 384 -detail copy
 get-view "Model Explorer" | get-tree | drag-end -detail copy
-with [get-editor "namespace_2 - Entities diagram"] {
+with [get-editor "namespace_1 - Entities diagram"] {
     with [get-diagram -index 1] {
-        with [get-edit-part -name "namespace_2 - Entities diagram"] {
+        with [get-edit-part -name "namespace_1 - Entities diagram"] {
             mouse-move 115 384 -height 520 -width 1121
             get-edit-part -name Entity1 | get-handle ResizeHandle -index 6 | mouse-hover 4 4 -height 7 -width 7
             mouse-move 187 336 -height 520 -width 1121
@@ -945,14 +941,14 @@ with [get-editor "namespace_2 - Entities diagram"] {
             }
         }
         mouse-drag 580 132 -mask 524288 -height 520 -width 1121
-        with [get-edit-part -name "namespace_2 - Entities diagram" | get-edit-part -name Entity1 | get-edit-part 
+        with [get-edit-part -name "namespace_1 - Entities diagram" | get-edit-part -name Entity1 | get-edit-part 
             -className DNodeListViewNodeListCompartment2EditPart | get-edit-part -name "attribute1 : String[0..1]"] {
             mouse-drag 35 7 button1 524288 -height 16 -width 134
             mouse-release 35 7 button1 524288 -height 16 -width 134
         }
     }
     with [get-diagram -index 1] {
-        with [get-edit-part -name "namespace_2 - Entities diagram"] {
+        with [get-edit-part -name "namespace_1 - Entities diagram"] {
             mouse-move 180 285 button1 -height 520 -width 1121
             mouse-press 180 285 button1 -height 520 -width 1121
             mouse-release 180 285 button1 524288 -height 520 -width 1121
@@ -969,13 +965,13 @@ with [get-editor "namespace_2 - Entities diagram"] {
             }
         }
         mouse-drag 134 99 -mask 524288 -height 520 -width 1121
-        with [get-edit-part -name "namespace_2 - Entities diagram" | get-edit-part -name Enum8 | get-edit-part 
+        with [get-edit-part -name "namespace_1 - Entities diagram" | get-edit-part -name Enum8 | get-edit-part 
             -className DNodeListViewNodeListCompartment2EditPart] {
             mouse-drag 32 3 button1 524288 -height 12 -width 58
             mouse-release 32 3 button1 524288 -height 12 -width 58
         }
     }
-    with [get-diagram -index 1 | get-edit-part -name "namespace_2 - Entities diagram"] {
+    with [get-diagram -index 1 | get-edit-part -name "namespace_1 - Entities diagram"] {
         get-edit-part -name Enum8 | get-edit-part -className DNodeListViewNodeListCompartment2EditPart | get-edit-part 
             -name LitteralRename | mouse-hover 28 1 -height 16 -width 95
         mouse-move 10 269 -height 520 -width 1121
@@ -983,52 +979,52 @@ with [get-editor "namespace_2 - Entities diagram"] {
 }
 // Check Tool Container DROP DAD_ED_Enumeration
 with [get-view "Model Explorer" | get-tree] {
-    select "E-BookStore/E-BookStore.entity/Entities/Namespace namespace_2/Namespace namespace_1/Enumeration Enum3"
-    get-item "E-BookStore/E-BookStore.entity/Entities/Namespace namespace_2/Namespace namespace_1/Enumeration Enum3" 
+    select "E-BookStore/My.entity/Entities/Namespace namespace_1/Namespace namespace_1/Enumeration Enum3"
+    get-item "E-BookStore/My.entity/Entities/Namespace namespace_1/Namespace namespace_1/Enumeration Enum3" 
         | drag-start 46 12
-    get-item "E-BookStore/E-BookStore.entity/Entities/Namespace namespace_2/Namespace namespace_1/Enumeration Enum3" 
+    get-item "E-BookStore/My.entity/Entities/Namespace namespace_1/Namespace namespace_1/Enumeration Enum3" 
         | drag-enter 114 13 -detail move
-    get-item "E-BookStore/E-BookStore.entity/Entities/Namespace namespace_2/Namespace namespace_1/Enumeration Enum3" 
+    get-item "E-BookStore/My.entity/Entities/Namespace namespace_1/Namespace namespace_1/Enumeration Enum3" 
         | drag-over 172 16
-    get-item "E-BookStore/E-BookStore.entity/Entities/Namespace namespace_2/Namespace namespace_1/Enumeration Enum4" 
+    get-item "E-BookStore/My.entity/Entities/Namespace namespace_1/Namespace namespace_1/Enumeration Enum4" 
         | drag-over 247 8
-    get-item "E-BookStore/E-BookStore.entity/Entities/Namespace namespace_2/Namespace namespace_1/Enumeration Enum3" | drag-exit
+    get-item "E-BookStore/My.entity/Entities/Namespace namespace_1/Namespace namespace_1/Enumeration Enum3" | drag-exit
 }
 // Check tool Tool Container DROP DAD_ED_Literal
-get-editor "namespace_2 - Entities diagram" | get-diagram -index 1 | get-edit-part 
-    -name "namespace_2 - Entities diagram" | mouse-move 678 503 -height 520 -width 1121
+get-editor "namespace_1 - Entities diagram" | get-diagram -index 1 | get-edit-part 
+    -name "namespace_1 - Entities diagram" | mouse-move 678 503 -height 520 -width 1121
 with [get-view "Model Explorer" | get-tree] {
-    select "E-BookStore/E-BookStore.entity/Entities/Namespace namespace_2/Namespace namespace_1/Entity Entity2"
-    get-item "E-BookStore/E-BookStore.entity/Entities/Namespace namespace_2/Namespace namespace_1/Entity Entity2" 
+    select "E-BookStore/My.entity/Entities/Namespace namespace_1/Namespace namespace_1/Entity Entity2"
+    get-item "E-BookStore/My.entity/Entities/Namespace namespace_1/Namespace namespace_1/Entity Entity2" 
         | drag-start 26 6
-    get-item "E-BookStore/E-BookStore.entity/Entities/Namespace namespace_2/Namespace namespace_1/namespace_1 - Entities diagram2" 
+    get-item "E-BookStore/My.entity/Entities/Namespace namespace_1/Namespace namespace_1/namespace_1 - Entities diagram2" 
         | drag-enter 59 12 -detail move
-    get-item "E-BookStore/E-BookStore.entity/Entities/Namespace namespace_2/Namespace namespace_1/namespace_1 - Entities diagram2" 
+    get-item "E-BookStore/My.entity/Entities/Namespace namespace_1/Namespace namespace_1/namespace_1 - Entities diagram2" 
         | drag-over 92 0
-    get-item "E-BookStore/E-BookStore.entity/Entities/Namespace main/Entity Author" | drag-over 241 3
-    get-item "E-BookStore/E-BookStore.entity/Entities/Namespace namespace_2/Enumeration Enum8/Literal LitteralRename" 
+    get-item "E-BookStore/My.entity/Entities/Namespace namespace_1/Entity Author" | drag-over 241 3
+    get-item "E-BookStore/My.entity/Entities/Namespace namespace_1/Enumeration Enum8/Literal LitteralRename" 
         | drag-over 253 0
-    get-item "E-BookStore/E-BookStore.entity/Entities/Namespace namespace_2/Namespace namespace_1/namespace_1 - Entities diagram2" 
+    get-item "E-BookStore/My.entity/Entities/Namespace namespace_1/Namespace namespace_1/namespace_1 - Entities diagram2" 
         | drag-exit
 }
-with [get-editor "namespace_2 - Entities diagram" | get-diagram -index 1 | get-edit-part 
-    -name "namespace_2 - Entities diagram"] {
+with [get-editor "namespace_1 - Entities diagram" | get-diagram -index 1 | get-edit-part 
+    -name "namespace_1 - Entities diagram"] {
     drag-enter 5 197 -detail move
     drag-over 134 189 -detail copy
     drag-exit
     drag-accept 134 189 -detail copy
 }
 get-view "Model Explorer" | get-tree | drag-set-data
-get-editor "namespace_2 - Entities diagram" | get-diagram -index 1 | get-edit-part 
-    -name "namespace_2 - Entities diagram" | drop 134 189 -detail copy
+get-editor "namespace_1 - Entities diagram" | get-diagram -index 1 | get-edit-part 
+    -name "namespace_1 - Entities diagram" | drop 134 189 -detail copy
 get-view "Model Explorer" | get-tree | drag-end -detail copy
-with [get-editor "namespace_2 - Entities diagram" | get-diagram -index 1] {
-    with [get-edit-part -name "namespace_2 - Entities diagram" | get-edit-part -name Entity2 -index 1] {
+with [get-editor "namespace_1 - Entities diagram" | get-diagram -index 1] {
+    with [get-edit-part -name "namespace_1 - Entities diagram" | get-edit-part -name Entity2 -index 1] {
         mouse-move 24 11 button1 -height 48 -width 146
         mouse-press 24 11 button1 -height 48 -width 146
     }
     get-figure "0/1/0/0" | mouse-move 128 195 -mask 524288 -height 520 -width 1121
-    with [get-edit-part -name "namespace_2 - Entities diagram"] {
+    with [get-edit-part -name "namespace_1 - Entities diagram"] {
         mouse-drag 89 180 button1 524288 -height 520 -width 1121
         mouse-release 89 180 button1 524288 -height 520 -width 1121
         get-edit-part -name Entity2 -index 1 | mouse-move 10 24 -height 48 -width 146
@@ -1037,19 +1033,19 @@ with [get-editor "namespace_2 - Entities diagram" | get-diagram -index 1] {
 }
 // Check tool Container DROP DAD_ED_Attribute
 with [get-view "Model Explorer" | get-tree] {
-    select "E-BookStore/E-BookStore.entity/Entities/Namespace namespace_2/Entity Entity1/Attribute attribute1"
-    get-item "E-BookStore/E-BookStore.entity/Entities/Namespace namespace_2/Entity Entity1/Attribute attribute1" 
+    select "E-BookStore/My.entity/Entities/Namespace namespace_1/Entity Entity1/Attribute attribute1"
+    get-item "E-BookStore/My.entity/Entities/Namespace namespace_1/Entity Entity1/Attribute attribute1" 
         | drag-start 23 4
-    get-item "E-BookStore/E-BookStore.entity/Entities/Namespace main/Entity Book/Reference writtenBy" | drag-enter 155 8 
+    get-item "E-BookStore/My.entity/Entities/Namespace namespace_1/Entity Book/Reference writtenBy" | drag-enter 155 8 
         -detail move
-    get-item "E-BookStore/E-BookStore.entity/Entities/Namespace main/Entity Book/Reference writtenBy" | drag-over 167 3
-    get-item "E-BookStore/E-BookStore.entity/Entities/Namespace main/Entity Book" | drag-over 220 4
-    get-item "E-BookStore/E-BookStore.entity/Entities/Namespace namespace_2/Enumeration Enum8/Literal LitteralRename" 
+    get-item "E-BookStore/My.entity/Entities/Namespace namespace_1/Entity Book/Reference writtenBy" | drag-over 167 3
+    get-item "E-BookStore/My.entity/Entities/Namespace namespace_1/Entity Book" | drag-over 220 4
+    get-item "E-BookStore/My.entity/Entities/Namespace namespace_1/Enumeration Enum8/Literal LitteralRename" 
         | drag-over 254 13
-    get-item "E-BookStore/E-BookStore.entity/Entities/Namespace main/Entity Book/Reference writtenBy" | drag-exit
+    get-item "E-BookStore/My.entity/Entities/Namespace namespace_1/Entity Book/Reference writtenBy" | drag-exit
 }
-with [get-editor "namespace_2 - Entities diagram" | get-diagram -index 1 | get-edit-part 
-    -name "namespace_2 - Entities diagram"] {
+with [get-editor "namespace_1 - Entities diagram" | get-diagram -index 1 | get-edit-part 
+    -name "namespace_1 - Entities diagram"] {
     drag-enter 6 248 -detail move
     drag-over 62 208 -detail copy
     with [get-edit-part -name Entity2 -index 1] {
@@ -1065,12 +1061,12 @@ with [get-editor "namespace_2 - Entities diagram" | get-diagram -index 1 | get-e
         -detail copy
 }
 get-view "Model Explorer" | get-tree | drag-set-data
-get-editor "namespace_2 - Entities diagram" | get-diagram -index 1 | get-edit-part 
-    -name "namespace_2 - Entities diagram" | get-edit-part -name Entity2 -index 1 | get-edit-part 
+get-editor "namespace_1 - Entities diagram" | get-diagram -index 1 | get-edit-part 
+    -name "namespace_1 - Entities diagram" | get-edit-part -name Entity2 -index 1 | get-edit-part 
     -className DNodeListNameEditPart | drop 10 6 -detail copy
 get-view "Model Explorer" | get-tree | drag-end -detail copy
-with [get-editor "namespace_2 - Entities diagram" | get-diagram -index 1 | get-edit-part 
-    -name "namespace_2 - Entities diagram"] {
+with [get-editor "namespace_1 - Entities diagram" | get-diagram -index 1 | get-edit-part 
+    -name "namespace_1 - Entities diagram"] {
     get-edit-part -name Entity2 -index 1 | get-edit-part -className DNodeListNameEditPart | mouse-hover 10 6 -height 17 
         -width 57
     mouse-move 112 221 -height 520 -width 1121
@@ -1080,15 +1076,15 @@ with [get-editor "namespace_2 - Entities diagram" | get-diagram -index 1 | get-e
     mouse-move 20 250 -height 520 -width 1121
 }
 with [get-view "Model Explorer" | get-tree] {
-    select "E-BookStore/E-BookStore.entity/Entities/Namespace namespace_2/Entity Entity1/Attribute attribute1"
-    get-item "E-BookStore/E-BookStore.entity/Entities/Namespace namespace_2/Entity Entity1/Attribute attribute1" 
+    select "E-BookStore/My.entity/Entities/Namespace namespace_1/Entity Entity1/Attribute attribute1"
+    get-item "E-BookStore/My.entity/Entities/Namespace namespace_1/Entity Entity1/Attribute attribute1" 
         | drag-start 11 7
-    get-item "E-BookStore/E-BookStore.entity/Entities/Namespace namespace_2/Entity Entity1" | drag-enter 154 4 -detail move
-    get-item "E-BookStore/E-BookStore.entity/Entities/Namespace main/Entity Author/Reference wrote" | drag-over 250 5
-    get-item "E-BookStore/E-BookStore.entity/Entities/Namespace namespace_2/Entity Entity1" | drag-exit
+    get-item "E-BookStore/My.entity/Entities/Namespace namespace_1/Entity Entity1" | drag-enter 154 4 -detail move
+    get-item "E-BookStore/My.entity/Entities/Namespace namespace_1/Entity Author/Reference wrote" | drag-over 250 5
+    get-item "E-BookStore/My.entity/Entities/Namespace namespace_1/Entity Entity1" | drag-exit
 }
-with [get-editor "namespace_2 - Entities diagram" | get-diagram -index 1 | get-edit-part 
-    -name "namespace_2 - Entities diagram"] {
+with [get-editor "namespace_1 - Entities diagram" | get-diagram -index 1 | get-edit-part 
+    -name "namespace_1 - Entities diagram"] {
     drag-enter 2 274 -detail move
     drag-over 92 218 -detail copy
     get-edit-part -name Entity2 -index 1 | get-edit-part -className DNodeListViewNodeListCompartment2EditPart 
@@ -1098,29 +1094,29 @@ with [get-editor "namespace_2 - Entities diagram" | get-diagram -index 1 | get-e
         | get-edit-part -name "attribute1 : String[0..1]" | drag-accept 42 4 -detail copy
 }
 get-view "Model Explorer" | get-tree | drag-set-data
-get-editor "namespace_2 - Entities diagram" | get-diagram -index 1 | get-edit-part 
-    -name "namespace_2 - Entities diagram" | get-edit-part -name Entity2 -index 1 | get-edit-part 
+get-editor "namespace_1 - Entities diagram" | get-diagram -index 1 | get-edit-part 
+    -name "namespace_1 - Entities diagram" | get-edit-part -name Entity2 -index 1 | get-edit-part 
     -className DNodeListViewNodeListCompartment2EditPart | get-edit-part -name "attribute1 : String[0..1]" | drop 42 4 
     -detail copy
 get-view "Model Explorer" | get-tree | drag-end -detail copy
-with [get-editor "namespace_2 - Entities diagram" | get-diagram -index 1 | get-edit-part 
-    -name "namespace_2 - Entities diagram"] {
+with [get-editor "namespace_1 - Entities diagram" | get-diagram -index 1 | get-edit-part 
+    -name "namespace_1 - Entities diagram"] {
     get-edit-part -name Entity2 -index 1 | get-edit-part -className DNodeListViewNodeListCompartment2EditPart 
         | get-edit-part -name "attribute1 : String[0..1]" | mouse-hover 42 4 -height 16 -width 134
     mouse-move 1 305 -height 520 -width 1121
 }
 with [get-view "Model Explorer" | get-tree] {
-    select "E-BookStore/E-BookStore.entity/Entities/Namespace namespace_2/Namespace namespace_1/Enumeration Enum3"
-    get-item "E-BookStore/E-BookStore.entity/Entities/Namespace namespace_2/Namespace namespace_1/Enumeration Enum3" 
+    select "E-BookStore/My.entity/Entities/Namespace namespace_1/Namespace namespace_1/Enumeration Enum3"
+    get-item "E-BookStore/My.entity/Entities/Namespace namespace_1/Namespace namespace_1/Enumeration Enum3" 
         | drag-start 25 8
-    get-item "E-BookStore/E-BookStore.entity/Entities/Namespace namespace_2/Namespace namespace_1/Enumeration Enum3" 
+    get-item "E-BookStore/My.entity/Entities/Namespace namespace_1/Namespace namespace_1/Enumeration Enum3" 
         | drag-enter 49 8 -detail move
-    get-item "E-BookStore/E-BookStore.entity/Entities/Namespace namespace_2/Namespace namespace_1/Enumeration Enum3" 
+    get-item "E-BookStore/My.entity/Entities/Namespace namespace_1/Namespace namespace_1/Enumeration Enum3" 
         | drag-over 252 14
-    get-item "E-BookStore/E-BookStore.entity/Entities/Namespace namespace_2/Namespace namespace_1/Enumeration Enum3" | drag-exit
+    get-item "E-BookStore/My.entity/Entities/Namespace namespace_1/Namespace namespace_1/Enumeration Enum3" | drag-exit
 }
-with [get-editor "namespace_2 - Entities diagram" | get-diagram -index 1 | get-edit-part 
-    -name "namespace_2 - Entities diagram"] {
+with [get-editor "namespace_1 - Entities diagram" | get-diagram -index 1 | get-edit-part 
+    -name "namespace_1 - Entities diagram"] {
     drag-enter 7 369 -detail move
     drag-over 110 389 -detail copy
     get-edit-part -name Entity1 | get-edit-part -className DNodeListNameEditPart | drag-over 50 13 -detail copy
@@ -1129,22 +1125,22 @@ with [get-editor "namespace_2 - Entities diagram" | get-diagram -index 1 | get-e
     drag-accept 254 421 -detail copy
 }
 get-view "Model Explorer" | get-tree | drag-set-data
-get-editor "namespace_2 - Entities diagram" | get-diagram -index 1 | get-edit-part 
-    -name "namespace_2 - Entities diagram" | drop 254 421 -detail copy
+get-editor "namespace_1 - Entities diagram" | get-diagram -index 1 | get-edit-part 
+    -name "namespace_1 - Entities diagram" | drop 254 421 -detail copy
 get-view "Model Explorer" | get-tree | drag-end -detail copy
-with [get-editor "namespace_2 - Entities diagram" | get-diagram -index 1 | get-edit-part 
-    -name "namespace_2 - Entities diagram"] {
+with [get-editor "namespace_1 - Entities diagram" | get-diagram -index 1 | get-edit-part 
+    -name "namespace_1 - Entities diagram"] {
     mouse-move 254 421 -height 520 -width 1121
     get-edit-part -name Enum3 | get-handle ResizeHandle -index 6 | mouse-hover 4 4 -height 7 -width 7
     mouse-move 183 425 -height 520 -width 1121
     mouse-move 6 423 -height 520 -width 1121
 }
 with [get-view "Model Explorer" | get-tree] {
-    select "E-BookStore/E-BookStore.entity/Entities/Namespace namespace_2/Enumeration Enum3/Literal literal1"
-    get-item "E-BookStore/E-BookStore.entity/Entities/Namespace namespace_2/Enumeration Enum3/Literal literal1" | drag-start 21 7
+    select "E-BookStore/My.entity/Entities/Namespace namespace_1/Enumeration Enum3/Literal literal1"
+    get-item "E-BookStore/My.entity/Entities/Namespace namespace_1/Enumeration Enum3/Literal literal1" | drag-start 21 7
 }
-with [get-editor "namespace_2 - Entities diagram" | get-diagram -index 1 | get-edit-part 
-    -name "namespace_2 - Entities diagram"] {
+with [get-editor "namespace_1 - Entities diagram" | get-diagram -index 1 | get-edit-part 
+    -name "namespace_1 - Entities diagram"] {
     drag-enter 27 391 -detail move
     drag-over 27 391 -detail copy
     drag-over 263 420 -detail copy
@@ -1164,12 +1160,12 @@ with [get-editor "namespace_2 - Entities diagram" | get-diagram -index 1 | get-e
         -name literal1 | drag-accept 28 3 -detail copy
 }
 get-view "Model Explorer" | get-tree | drag-set-data
-get-editor "namespace_2 - Entities diagram" | get-diagram -index 1 | get-edit-part 
-    -name "namespace_2 - Entities diagram" | get-edit-part -name Enum3 | get-edit-part 
+get-editor "namespace_1 - Entities diagram" | get-diagram -index 1 | get-edit-part 
+    -name "namespace_1 - Entities diagram" | get-edit-part -name Enum3 | get-edit-part 
     -className DNodeListViewNodeListCompartment2EditPart | get-edit-part -name literal1 | drop 28 3 -detail copy
 get-view "Model Explorer" | get-tree | drag-end -detail copy
-with [get-editor "namespace_2 - Entities diagram" | get-diagram -index 1 | get-edit-part 
-    -name "namespace_2 - Entities diagram"] {
+with [get-editor "namespace_1 - Entities diagram" | get-diagram -index 1 | get-edit-part 
+    -name "namespace_1 - Entities diagram"] {
     get-edit-part -name Enum3 | get-edit-part -className DNodeListViewNodeListCompartment2EditPart | get-edit-part 
         -name literal1 | mouse-hover 28 3 -height 16 -width 54
     mouse-move 374 454 button1 -height 520 -width 1121
@@ -1192,18 +1188,18 @@ with [get-editor "namespace_2 - Entities diagram" | get-diagram -index 1 | get-e
     mouse-move 3 403 -height 520 -width 1121
 }
 with [get-view "Model Explorer" | get-tree] {
-    select "E-BookStore/E-BookStore.entity/Entities/Namespace namespace_2/Namespace namespace_1/Enumeration Enum4/Literal literal1"
-    get-item "E-BookStore/E-BookStore.entity/Entities/Namespace namespace_2/Namespace namespace_1/Enumeration Enum4/Literal literal1" 
+    select "E-BookStore/My.entity/Entities/Namespace namespace_1/Namespace namespace_1/Enumeration Enum4/Literal literal1"
+    get-item "E-BookStore/My.entity/Entities/Namespace namespace_1/Namespace namespace_1/Enumeration Enum4/Literal literal1" 
         | drag-start 29 6
-    get-item "E-BookStore/E-BookStore.entity/Entities/Namespace namespace_2/Namespace namespace_1/Enumeration Enum4/Literal literal1" 
+    get-item "E-BookStore/My.entity/Entities/Namespace namespace_1/Namespace namespace_1/Enumeration Enum4/Literal literal1" 
         | drag-enter 38 6 -detail move
-    get-item "E-BookStore/E-BookStore.entity/Entities/Namespace namespace_2/Namespace namespace_1/Enumeration Enum4/Literal literal1" 
+    get-item "E-BookStore/My.entity/Entities/Namespace namespace_1/Namespace namespace_1/Enumeration Enum4/Literal literal1" 
         | drag-over 224 11
-    get-item "E-BookStore/E-BookStore.entity/Entities/Namespace namespace_2/Namespace namespace_1/Enumeration Enum4/Literal literal1" 
+    get-item "E-BookStore/My.entity/Entities/Namespace namespace_1/Namespace namespace_1/Enumeration Enum4/Literal literal1" 
         | drag-exit
 }
-with [get-editor "namespace_2 - Entities diagram" | get-diagram -index 1 | get-edit-part 
-    -name "namespace_2 - Entities diagram"] {
+with [get-editor "namespace_1 - Entities diagram" | get-diagram -index 1 | get-edit-part 
+    -name "namespace_1 - Entities diagram"] {
     drag-enter 2 396 -detail move
     with [get-edit-part -name Entity1] {
         get-edit-part -className DNodeListNameEditPart | drag-over 13 16 -detail copy
@@ -1216,12 +1212,12 @@ with [get-editor "namespace_2 - Entities diagram" | get-diagram -index 1 | get-e
         | drag-accept 61 19 -detail copy
 }
 get-view "Model Explorer" | get-tree | drag-set-data
-get-editor "namespace_2 - Entities diagram" | get-diagram -index 1 | get-edit-part 
-    -name "namespace_2 - Entities diagram" | get-edit-part -name Enum3 | get-edit-part 
+get-editor "namespace_1 - Entities diagram" | get-diagram -index 1 | get-edit-part 
+    -name "namespace_1 - Entities diagram" | get-edit-part -name Enum3 | get-edit-part 
     -className DNodeListViewNodeListCompartment2EditPart | get-figure "1/0/0" | drop 61 19 -detail copy
 get-view "Model Explorer" | get-tree | drag-end -detail copy
-with [get-editor "namespace_2 - Entities diagram" | get-diagram -index 1 | get-edit-part 
-    -name "namespace_2 - Entities diagram"] {
+with [get-editor "namespace_1 - Entities diagram" | get-diagram -index 1 | get-edit-part 
+    -name "namespace_1 - Entities diagram"] {
     with [get-edit-part -name Enum3 | get-edit-part -className DNodeListViewNodeListCompartment2EditPart] {
         mouse-move 61 20 -height 37 -width 100
         mouse-hover 61 20 -height 37 -width 100
@@ -1234,8 +1230,8 @@ with [get-editor "namespace_2 - Entities diagram" | get-diagram -index 1 | get-e
     mouse-hover 411 483 -mask ALT -height 520 -width 1121
     mouse-move 120 344 -height 520 -width 1121
 }
-with [get-editor "namespace_2 - Entities diagram" | get-diagram -index 1 | get-edit-part 
-    -name "namespace_2 - Entities diagram"] {
+with [get-editor "namespace_1 - Entities diagram" | get-diagram -index 1 | get-edit-part 
+    -name "namespace_1 - Entities diagram"] {
     with [get-edit-part -name Entity2 -index 1] {
         get-figure "0/0" | get-property "getChildren().SiriusWrapLabel[0].getText()" | equals Entity2 | verify-true
         with [get-edit-part -className DNodeListViewNodeListCompartment2EditPart | get-figure "1/0/0"] {
@@ -1249,9 +1245,9 @@ with [get-editor "namespace_2 - Entities diagram" | get-diagram -index 1 | get-e
         get-property "getChildren().SiriusWrapLabel[1].getText()" | equals literal1 | verify-true
     }
 }
-with [get-editor "namespace_2 - Entities diagram"] {
+with [get-editor "namespace_1 - Entities diagram"] {
     with [get-diagram -index 1] {
-        with [get-edit-part -name "namespace_2 - Entities diagram" | get-edit-part -name Enum3 | get-edit-part 
+        with [get-edit-part -name "namespace_1 - Entities diagram" | get-edit-part -name Enum3 | get-edit-part 
             -className DNodeListViewNodeListCompartment2EditPart] {
             mouse-move 59 34 -height 37 -width 100
             with [get-edit-part -name literal1] {
@@ -1262,14 +1258,14 @@ with [get-editor "namespace_2 - Entities diagram"] {
             }
         }
         mouse-drag 300 461 -mask 524288 -height 520 -width 1121
-        with [get-edit-part -name "namespace_2 - Entities diagram" | get-edit-part -name Enum8 | get-edit-part 
+        with [get-edit-part -name "namespace_1 - Entities diagram" | get-edit-part -name Enum8 | get-edit-part 
             -className DNodeListViewNodeListCompartment2EditPart | get-edit-part -name LitteralRename] {
             mouse-drag 51 7 button1 524288 -height 16 -width 95
             mouse-release 51 7 button1 524288 -height 16 -width 95
         }
     }
     with [get-diagram -index 1] {
-        with [get-edit-part -name "namespace_2 - Entities diagram"] {
+        with [get-edit-part -name "namespace_1 - Entities diagram"] {
             get-edit-part -name Enum8 | get-edit-part -className DNodeListViewNodeListCompartment2EditPart 
                 | get-edit-part -name LitteralRename | mouse-hover 57 11 -height 16 -width 95
             mouse-move 135 234 -height 520 -width 1121
@@ -1284,18 +1280,18 @@ with [get-editor "namespace_2 - Entities diagram"] {
             }
         }
         mouse-drag 127 228 -mask 524288 -height 520 -width 1121
-        with [get-edit-part -name "namespace_2 - Entities diagram" | get-edit-part -name Entity1 | get-edit-part 
+        with [get-edit-part -name "namespace_1 - Entities diagram" | get-edit-part -name Entity1 | get-edit-part 
             -className DNodeListViewNodeListCompartment2EditPart] {
             mouse-drag 38 5 button1 524288 -height 12 -width 57
             mouse-release 38 5 button1 524288 -height 12 -width 57
         }
     }
-    get-diagram -index 1 | get-edit-part -name "namespace_2 - Entities diagram" | get-edit-part -name Entity1 
+    get-diagram -index 1 | get-edit-part -name "namespace_1 - Entities diagram" | get-edit-part -name Entity1 
         | get-edit-part -className DNodeListViewNodeListCompartment2EditPart | get-edit-part 
         -name "attribute1 : String[0..1]" | mouse-hover 34 3 -height 16 -width 134
 }
-with [get-editor "namespace_2 - Entities diagram" | get-diagram -index 2 | get-edit-part 
-    -name "namespace_2 - Entities diagram"] {
+with [get-editor "namespace_1 - Entities diagram" | get-diagram -index 2 | get-edit-part 
+    -name "namespace_1 - Entities diagram"] {
     with [get-edit-part -name Enum3 | get-edit-part -className DNodeListViewNodeListCompartment2EditPart 
         | get-figure "1/0/0"] {
         get-property "getChildren().SiriusWrapLabel[0].getText()" | equals literal1 | verify-true
@@ -1306,8 +1302,8 @@ with [get-editor "namespace_2 - Entities diagram" | get-diagram -index 2 | get-e
 }
 get-eclipse-window | key-type "" "\\u0000"
 // Check Tool Reconnect Edge REC_ED_Reference_Target
-with [get-editor "namespace_2 - Entities diagram"] {
-    with [get-diagram -index 1 | get-edit-part -name "namespace_2 - Entities diagram"] {
+with [get-editor "namespace_1 - Entities diagram"] {
+    with [get-diagram -index 1 | get-edit-part -name "namespace_1 - Entities diagram"] {
         mouse-move 387 243 -height 520 -width 1121
         with [get-edit-part -name Entity3 | get-target-connection 0] {
             mouse-move 33 62 button1 -height 217 -width 127
@@ -1329,23 +1325,23 @@ with [get-editor "namespace_2 - Entities diagram"] {
         mouse-drag 220 400 button1 524288 -height 520 -width 1121
         mouse-release 220 400 button1 524288 -height 520 -width 1121
     }
-    with [get-diagram -index 1 | get-edit-part -name "namespace_2 - Entities diagram"] {
+    with [get-diagram -index 1 | get-edit-part -name "namespace_1 - Entities diagram"] {
         mouse-move 504 354 -height 520 -width 1121
         get-edit-part -name Entity2 | get-target-connection 0 | mouse-hover 47 113 -height 157 -width 192
         mouse-move 230 379 -height 520 -width 1121
         mouse-move 3 447 -height 520 -width 1121
     }
 }
-get-editor "namespace_2 - Entities diagram" | get-diagram -index 1 | get-edit-part 
-    -name "namespace_2 - Entities diagram" | get-edit-part -name Entity3 | get-target-connection 0 
+get-editor "namespace_1 - Entities diagram" | get-diagram -index 1 | get-edit-part 
+    -name "namespace_1 - Entities diagram" | get-edit-part -name Entity3 | get-target-connection 0 
     | get-property "getSource().getNodeLabel().getText()" | equals Entity1 | verify-true
 get-eclipse-window | key-type "" "\\u0000"
-get-editor "namespace_2 - Entities diagram" | get-diagram -index 1 | get-edit-part 
-    -name "namespace_2 - Entities diagram" | mouse-move 213 371 -height 520 -width 1121
+get-editor "namespace_1 - Entities diagram" | get-diagram -index 1 | get-edit-part 
+    -name "namespace_1 - Entities diagram" | mouse-move 213 371 -height 520 -width 1121
 get-eclipse-window | key-type "" "\\u0000"
 //Check  Tool Reconnect Edge REC_ED_Inheritance_Source
-with [get-editor "namespace_2 - Entities diagram"] {
-    with [get-diagram -index 1 | get-edit-part -name "namespace_2 - Entities diagram"] {
+with [get-editor "namespace_1 - Entities diagram"] {
+    with [get-diagram -index 1 | get-edit-part -name "namespace_1 - Entities diagram"] {
         mouse-move 400 215 -height 520 -width 1121
         with [get-edit-part -name Entity2 | get-target-connection 1] {
             mouse-move 51 20 button1 -height 75 -width 300
@@ -1362,7 +1358,7 @@ with [get-editor "namespace_2 - Entities diagram"] {
         mouse-release 196 197 button1 524288 -height 520 -width 1121
     }
     // Check Tool Reconnect Edge REC_ED_Inheritance_Target
-    with [get-diagram -index 1 | get-edit-part -name "namespace_2 - Entities diagram"] {
+    with [get-diagram -index 1 | get-edit-part -name "namespace_1 - Entities diagram"] {
         mouse-move 612 244 -height 520 -width 1121
         with [get-edit-part -name Entity2 | get-target-connection 1] {
             mouse-hover 425 62 -height 83 -width 453
@@ -1378,19 +1374,19 @@ with [get-editor "namespace_2 - Entities diagram"] {
         mouse-drag 214 395 button1 524288 -height 520 -width 1121
         mouse-release 214 395 button1 524288 -height 520 -width 1121
     }
-    with [get-diagram -index 1 | get-edit-part -name "namespace_2 - Entities diagram"] {
+    with [get-diagram -index 1 | get-edit-part -name "namespace_1 - Entities diagram"] {
         get-edit-part -name Entity1 | get-edit-part -className DNodeListNameEditPart | mouse-hover 56 6 -height 17 
             -width 57
         mouse-move 6 328 -height 520 -width 1121
     }
 }
-with [get-editor "namespace_2 - Entities diagram" | get-diagram -index 1 | get-edit-part 
-    -name "namespace_2 - Entities diagram" | get-edit-part -name Entity1 | get-target-connection 0] {
+with [get-editor "namespace_1 - Entities diagram" | get-diagram -index 1 | get-edit-part 
+    -name "namespace_1 - Entities diagram" | get-edit-part -name Entity1 | get-target-connection 0] {
     get-property "getTarget().getNodeLabel().getText()" | equals Entity1 | verify-true
     get-property "getSource().getNodeLabel().getText()" | equals Entity2 | verify-true
 }
-with [get-editor "namespace_2 - Entities diagram"] {
-    with [get-diagram -index 1 | get-edit-part -name "namespace_2 - Entities diagram"] {
+with [get-editor "namespace_1 - Entities diagram"] {
+    with [get-diagram -index 1 | get-edit-part -name "namespace_1 - Entities diagram"] {
         mouse-move 173 432 -height 520 -width 1121
         mouse-move 510 358 -height 520 -width 1121
         with [get-edit-part -name Entity2 | get-target-connection 0] {
@@ -1407,7 +1403,7 @@ with [get-editor "namespace_2 - Entities diagram"] {
         mouse-drag 355 203 button1 524288 -height 520 -width 1121
         mouse-release 355 203 button1 524288 -height 520 -width 1121
     }
-    with [get-diagram -index 1 | get-edit-part -name "namespace_2 - Entities diagram"] {
+    with [get-diagram -index 1 | get-edit-part -name "namespace_1 - Entities diagram"] {
         mouse-move 625 257 -height 520 -width 1121
         with [get-edit-part -name Entity2 | get-target-connection 0] {
             mouse-move 276 68 button1 -height 83 -width 300
@@ -1422,20 +1418,20 @@ with [get-editor "namespace_2 - Entities diagram"] {
         mouse-drag 457 401 button1 524288 -height 520 -width 1121
         mouse-release 457 401 button1 524288 -height 520 -width 1121
     }
-    with [get-diagram -index 1 | get-edit-part -name "namespace_2 - Entities diagram"] {
+    with [get-diagram -index 1 | get-edit-part -name "namespace_1 - Entities diagram"] {
         get-edit-part -name Entity3 | get-edit-part -className DNodeListNameEditPart | mouse-hover 31 11 -height 17 
             -width 57
         mouse-move 272 419 -height 520 -width 1121
         mouse-move 38 454 -height 520 -width 1121
     }
 }
-with [get-editor "namespace_2 - Entities diagram" | get-diagram -index 1 | get-edit-part 
-    -name "namespace_2 - Entities diagram" | get-edit-part -name Entity3 | get-target-connection 1] {
+with [get-editor "namespace_1 - Entities diagram" | get-diagram -index 1 | get-edit-part 
+    -name "namespace_1 - Entities diagram" | get-edit-part -name Entity3 | get-target-connection 1] {
     get-property "getTarget().getNodeLabel().getText()" | equals Entity3 | verify-true
     get-property "getSource().getNodeLabel().getText()" | equals TheFirstEntity | verify-true
 }
-with [get-editor "namespace_2 - Entities diagram"] {
-    with [get-diagram -index 1 | get-edit-part -name "namespace_2 - Entities diagram"] {
+with [get-editor "namespace_1 - Entities diagram"] {
+    with [get-diagram -index 1 | get-edit-part -name "namespace_1 - Entities diagram"] {
         mouse-move 631 279 -height 520 -width 1121
         mouse-move 751 220 -height 520 -width 1121
         with [get-edit-part -name Entity6 | get-target-connection 0] {
@@ -1452,15 +1448,15 @@ with [get-editor "namespace_2 - Entities diagram"] {
         mouse-drag 655 255 button1 524288 -height 520 -width 1121
         mouse-release 655 255 button1 524288 -height 520 -width 1121
     }
-    with [get-diagram -index 1 | get-edit-part -name "namespace_2 - Entities diagram"] {
+    with [get-diagram -index 1 | get-edit-part -name "namespace_1 - Entities diagram"] {
         get-edit-part -name Entity2 | get-edit-part -className DNodeListNameEditPart | mouse-hover 19 10 -height 17 
             -width 57
         mouse-move 220 441 -height 520 -width 1121
     }
 }
 // Check Tool Reconnect Edge REC_ED_BidiReference_Target
-with [get-editor "namespace_2 - Entities diagram"] {
-    with [get-diagram -index 1 | get-edit-part -name "namespace_2 - Entities diagram"] {
+with [get-editor "namespace_1 - Entities diagram"] {
+    with [get-diagram -index 1 | get-edit-part -name "namespace_1 - Entities diagram"] {
         mouse-move 798 334 -height 520 -width 1121
         with [get-edit-part -name Entity6 | get-target-connection 1] {
             mouse-move 129 68 button1 -height 126 -width 226
@@ -1488,15 +1484,15 @@ with [get-editor "namespace_2 - Entities diagram"] {
         mouse-drag 660 108 button1 524288 -height 520 -width 1121
         mouse-release 660 108 button1 524288 -height 520 -width 1121
     }
-    with [get-diagram -index 1 | get-edit-part -name "namespace_2 - Entities diagram"] {
+    with [get-diagram -index 1 | get-edit-part -name "namespace_1 - Entities diagram"] {
         get-edit-part -name Entity4 | get-edit-part -className DNodeListNameEditPart | mouse-hover 29 13 -height 17 
             -width 57
         mouse-move 241 341 -height 520 -width 1121
         mouse-move 76 454 -height 520 -width 1121
     }
 }
-with [get-editor "namespace_2 - Entities diagram"] {
-    with [get-diagram -index 1 | get-edit-part -name "namespace_2 - Entities diagram"] {
+with [get-editor "namespace_1 - Entities diagram"] {
+    with [get-diagram -index 1 | get-edit-part -name "namespace_1 - Entities diagram"] {
         mouse-move 248 460 -height 520 -width 1121
         mouse-move 381 433 -height 520 -width 1121
         mouse-move 955 292 -height 520 -width 1121
@@ -1515,7 +1511,7 @@ with [get-editor "namespace_2 - Entities diagram"] {
         mouse-drag 460 399 button1 524288 -height 520 -width 1121
         mouse-release 460 399 button1 524288 -height 520 -width 1121
     }
-    with [get-diagram -index 1 | get-edit-part -name "namespace_2 - Entities diagram"] {
+    with [get-diagram -index 1 | get-edit-part -name "namespace_1 - Entities diagram"] {
         mouse-move 989 151 -height 520 -width 1121
         with [get-edit-part -name Entity5 | get-target-connection 0 | get-handle SiriusConnectionEndPointHandle 
             -index 1] {
@@ -1526,7 +1522,7 @@ with [get-editor "namespace_2 - Entities diagram"] {
         mouse-drag 832 137 button1 524288 -height 520 -width 1121
         mouse-release 832 137 button1 524288 -height 520 -width 1121
     }
-    with [get-diagram -index 1 | get-edit-part -name "namespace_2 - Entities diagram"] {
+    with [get-diagram -index 1 | get-edit-part -name "namespace_1 - Entities diagram"] {
         get-edit-part -name "Author > Author" | get-edit-part -className DNodeListNameEditPart | mouse-hover 16 14 
             -height 17 -width 112
         mouse-move 245 264 -height 520 -width 1121
@@ -1534,23 +1530,23 @@ with [get-editor "namespace_2 - Entities diagram"] {
     }
 }
 get-eclipse-window | key-type "" "\\u0000"
-with [get-editor "namespace_2 - Entities diagram" | get-diagram -index 1 | get-edit-part 
-    -name "namespace_2 - Entities diagram"] {
+with [get-editor "namespace_1 - Entities diagram" | get-diagram -index 1 | get-edit-part 
+    -name "namespace_1 - Entities diagram"] {
     mouse-move 668 236 -height 520 -width 1121
     mouse-move 187 454 -height 520 -width 1121
 }
-get-editor "namespace_2 - Entities diagram" | get-diagram -index 1 | get-edit-part 
-    -name "namespace_2 - Entities diagram" | get-property "getChildren().size()" | equals 14 | verify-true
+get-editor "namespace_1 - Entities diagram" | get-diagram -index 1 | get-edit-part 
+    -name "namespace_1 - Entities diagram" | get-property "getChildren().size()" | equals 14 | verify-true
 // Check Tool Delete Element DEL_Generic    
-with [get-editor "namespace_2 - Entities diagram" | get-diagram -index 1] {
-    with [get-edit-part -name "namespace_2 - Entities diagram" | get-edit-part -name Entity6] {
+with [get-editor "namespace_1 - Entities diagram" | get-diagram -index 1] {
+    with [get-edit-part -name "namespace_1 - Entities diagram" | get-edit-part -name Entity6] {
         mouse-move 20 22 button1 -height 42 -width 61
         mouse-press 20 22 button1 -height 42 -width 61
         mouse-release 20 22 button1 524288 -height 42 -width 61
         mouse-hover 20 22 -height 42 -width 61
     }
     key-type Del
-    with [get-edit-part -name "namespace_2 - Entities diagram"] {
+    with [get-edit-part -name "namespace_1 - Entities diagram"] {
         mouse-move 859 393 -height 520 -width 1121
         mouse-hover 859 393 -height 520 -width 1121
         mouse-move 859 393 button1 -height 520 -width 1121
@@ -1559,7 +1555,7 @@ with [get-editor "namespace_2 - Entities diagram" | get-diagram -index 1] {
         mouse-hover 859 393 -height 520 -width 1121
     }
     key-type "" "\\u0000" -times 2
-    with [get-edit-part -name "namespace_2 - Entities diagram"] {
+    with [get-edit-part -name "namespace_1 - Entities diagram"] {
         mouse-move 93 99 -height 520 -width 1121
         with [get-edit-part -name EnumRename] {
             mouse-move 35 22 -height 42 -width 102
@@ -1573,7 +1569,7 @@ with [get-editor "namespace_2 - Entities diagram" | get-diagram -index 1] {
         mouse-hover 236 144 -height 520 -width 1121
     }
     key-type Del
-    with [get-edit-part -name "namespace_2 - Entities diagram" | get-edit-part -name Entity2 -index 1 | get-edit-part 
+    with [get-edit-part -name "namespace_1 - Entities diagram" | get-edit-part -name Entity2 -index 1 | get-edit-part 
         -className DNodeListViewNodeListCompartment2EditPart] {
         mouse-move 135 0 -height 18 -width 142
         with [get-edit-part -name "attribute1 : String[0..1]"] {
@@ -1584,7 +1580,7 @@ with [get-editor "namespace_2 - Entities diagram" | get-diagram -index 1] {
         }
     }
     key-type Del
-    with [get-edit-part -name "namespace_2 - Entities diagram"] {
+    with [get-edit-part -name "namespace_1 - Entities diagram"] {
         mouse-move 145 260 -height 520 -width 1121
         with [get-edit-part -name Enum3 | get-edit-part -className DNodeListViewNodeListCompartment2EditPart] {
             mouse-move 3 6 -height 37 -width 100
@@ -1598,7 +1594,7 @@ with [get-editor "namespace_2 - Entities diagram" | get-diagram -index 1] {
         mouse-hover 365 474 -height 520 -width 1121
     }
     key-type Del
-    with [get-edit-part -name "namespace_2 - Entities diagram" | get-edit-part -name Enum3 | get-edit-part 
+    with [get-edit-part -name "namespace_1 - Entities diagram" | get-edit-part -name Enum3 | get-edit-part 
         -className DNodeListViewNodeListCompartment2EditPart] {
         mouse-move 76 27 button1 -height 37 -width 100
         mouse-press 76 27 button1 -height 37 -width 100
@@ -1606,8 +1602,8 @@ with [get-editor "namespace_2 - Entities diagram" | get-diagram -index 1] {
         mouse-hover 76 27 -mask ALT -height 37 -width 100
     }
 }
-with [get-editor "namespace_2 - Entities diagram" | get-diagram -index 1] {
-    with [get-edit-part -name "namespace_2 - Entities diagram"] {
+with [get-editor "namespace_1 - Entities diagram" | get-diagram -index 1] {
+    with [get-edit-part -name "namespace_1 - Entities diagram"] {
         mouse-move 180 335 -height 520 -width 1121
         with [get-edit-part -name Entity1 | get-target-connection 0] {
             mouse-move 71 143 button1 -height 206 -width 110
@@ -1618,10 +1614,10 @@ with [get-editor "namespace_2 - Entities diagram" | get-diagram -index 1] {
         mouse-hover 215 335 -height 520 -width 1121
     }
     key-type Del
-    get-edit-part -name "namespace_2 - Entities diagram" | mouse-move 10 418 -height 520 -width 1121
+    get-edit-part -name "namespace_1 - Entities diagram" | mouse-move 10 418 -height 520 -width 1121
 }
-with [get-editor "namespace_2 - Entities diagram"] {
-    get-diagram -index 1 | get-edit-part -name "namespace_2 - Entities diagram" | mouse-move 1108 384 -height 520 
+with [get-editor "namespace_1 - Entities diagram"] {
+    get-diagram -index 1 | get-edit-part -name "namespace_1 - Entities diagram" | mouse-move 1108 384 -height 520 
         -width 1121
     with [get-palette] {               
         with [get-palette-entry Inheritance] {
@@ -1630,7 +1626,7 @@ with [get-editor "namespace_2 - Entities diagram"] {
             mouse-release 54 11 button1 524288 -height 23 -width 125
         }
     }
-    with [get-diagram -index 1 | get-edit-part -name "namespace_2 - Entities diagram"] {
+    with [get-diagram -index 1 | get-edit-part -name "namespace_1 - Entities diagram"] {
         mouse-move 242 381 -height 520 -width 1121
         with [get-edit-part -name Entity1] {
             mouse-move 102 9 -height 48 -width 146
@@ -1649,7 +1645,7 @@ with [get-editor "namespace_2 - Entities diagram"] {
             }
         }
     }
-    with [get-diagram -index 1 | get-edit-part -name "namespace_2 - Entities diagram"] {
+    with [get-diagram -index 1 | get-edit-part -name "namespace_1 - Entities diagram"] {
         get-edit-part -name Entity2 -index 1 | get-edit-part -className DNodeListNameEditPart 
             | mouse-release 29 8 button1 524288 -height 17 -width 57
         mouse-move 178 207 button1 -height 520 -width 1121
@@ -1659,8 +1655,8 @@ with [get-editor "namespace_2 - Entities diagram"] {
     }
 }
 // Check Tool Delete Element DEL_ED_Inheritance
-with [get-editor "namespace_2 - Entities diagram" | get-diagram -index 1] {
-    with [get-edit-part -name "namespace_2 - Entities diagram"] {
+with [get-editor "namespace_1 - Entities diagram" | get-diagram -index 1] {
+    with [get-edit-part -name "namespace_1 - Entities diagram"] {
         mouse-move 115 268 -height 520 -width 1121
         with [get-edit-part -name Entity2 -index 1 | get-target-connection 0] {
             mouse-move 36 70 button1 -height 201 -width 98
@@ -1672,11 +1668,11 @@ with [get-editor "namespace_2 - Entities diagram" | get-diagram -index 1] {
         mouse-hover 194 366 -height 520 -width 1121
     }
     key-type Del
-    get-edit-part -name "namespace_2 - Entities diagram" | mouse-move 40 452 -height 520 -width 1121
+    get-edit-part -name "namespace_1 - Entities diagram" | mouse-move 40 452 -height 520 -width 1121
 }
 // Check Tool Delete Element DEL_ED_BidiReference    
-with [get-editor "namespace_2 - Entities diagram" | get-diagram -index 1] {
-    with [get-edit-part -name "namespace_2 - Entities diagram"] {
+with [get-editor "namespace_1 - Entities diagram" | get-diagram -index 1] {
+    with [get-edit-part -name "namespace_1 - Entities diagram"] {
         mouse-move 186 437 -height 520 -width 1121
         mouse-move 304 390 -height 520 -width 1121
         with [get-edit-part -name Entity3 | get-target-connection 0] {
@@ -1689,7 +1685,7 @@ with [get-editor "namespace_2 - Entities diagram" | get-diagram -index 1] {
         mouse-hover 387 417 -height 520 -width 1121
     }
     key-type Del
-    with [get-edit-part -name "namespace_2 - Entities diagram"] {
+    with [get-edit-part -name "namespace_1 - Entities diagram"] {
         mouse-move 407 317 -height 520 -width 1121
         with [get-edit-part -name Entity3 | get-target-connection 0] {
             mouse-move 60 110 button1 -height 193 -width 110
@@ -1699,7 +1695,7 @@ with [get-editor "namespace_2 - Entities diagram" | get-diagram -index 1] {
         mouse-move 494 329 -height 520 -width 1121
     }
     key-type Del
-    with [get-edit-part -name "namespace_2 - Entities diagram"] {
+    with [get-edit-part -name "namespace_1 - Entities diagram"] {
         mouse-move 663 187 -height 520 -width 1121
     }
     key-type Del

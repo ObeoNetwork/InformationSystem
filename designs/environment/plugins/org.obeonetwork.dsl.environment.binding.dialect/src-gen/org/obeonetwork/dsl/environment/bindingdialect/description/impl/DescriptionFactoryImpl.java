@@ -15,7 +15,6 @@ import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.impl.EFactoryImpl;
 import org.eclipse.emf.ecore.plugin.EcorePlugin;
-import org.obeonetwork.dsl.environment.bindingdialect.description.*;
 import org.obeonetwork.dsl.environment.bindingdialect.description.DBindingEditorCreationDescription;
 import org.obeonetwork.dsl.environment.bindingdialect.description.DBindingEditorDescription;
 import org.obeonetwork.dsl.environment.bindingdialect.description.DescriptionFactory;
@@ -43,7 +42,7 @@ public class DescriptionFactoryImpl extends EFactoryImpl implements DescriptionF
 	 */
 	public static DescriptionFactory init() {
 		try {
-			DescriptionFactory theDescriptionFactory = (DescriptionFactory)EPackage.Registry.INSTANCE.getEFactory(DescriptionPackage.eNS_URI);
+			DescriptionFactory theDescriptionFactory = (DescriptionFactory)EPackage.Registry.INSTANCE.getEFactory("http://www.obeonetwork.org/dsl/environment/binding/dialect/description/1.0.0"); 
 			if (theDescriptionFactory != null) {
 				return theDescriptionFactory;
 			}
