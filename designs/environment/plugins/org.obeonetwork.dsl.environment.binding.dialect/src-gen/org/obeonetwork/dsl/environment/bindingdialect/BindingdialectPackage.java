@@ -82,13 +82,13 @@ public interface BindingdialectPackage extends EPackage {
 	int DBINDING_EDITOR = 0;
 
 	/**
-	 * The feature id for the '<em><b>Documentation</b></em>' attribute.
+	 * The feature id for the '<em><b>Uid</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int DBINDING_EDITOR__DOCUMENTATION = ViewpointPackage.DREPRESENTATION__DOCUMENTATION;
+	int DBINDING_EDITOR__UID = ViewpointPackage.DREPRESENTATION__UID;
 
 	/**
 	 * The feature id for the '<em><b>EAnnotations</b></em>' containment reference list.
@@ -118,6 +118,24 @@ public interface BindingdialectPackage extends EPackage {
 	int DBINDING_EDITOR__REPRESENTATION_ELEMENTS = ViewpointPackage.DREPRESENTATION__REPRESENTATION_ELEMENTS;
 
 	/**
+	 * The feature id for the '<em><b>Owned Annotation Entries</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DBINDING_EDITOR__OWNED_ANNOTATION_ENTRIES = ViewpointPackage.DREPRESENTATION__OWNED_ANNOTATION_ENTRIES;
+
+	/**
+	 * The feature id for the '<em><b>Ui State</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DBINDING_EDITOR__UI_STATE = ViewpointPackage.DREPRESENTATION__UI_STATE;
+
+	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -127,13 +145,13 @@ public interface BindingdialectPackage extends EPackage {
 	int DBINDING_EDITOR__NAME = ViewpointPackage.DREPRESENTATION__NAME;
 
 	/**
-	 * The feature id for the '<em><b>Owned Annotation Entries</b></em>' containment reference list.
+	 * The feature id for the '<em><b>Documentation</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int DBINDING_EDITOR__OWNED_ANNOTATION_ENTRIES = ViewpointPackage.DREPRESENTATION__OWNED_ANNOTATION_ENTRIES;
+	int DBINDING_EDITOR__DOCUMENTATION = ViewpointPackage.DREPRESENTATION__DOCUMENTATION;
 
 	/**
 	 * The feature id for the '<em><b>Target</b></em>' reference.
@@ -190,6 +208,15 @@ public interface BindingdialectPackage extends EPackage {
 	 * @generated
 	 */
 	int DBINDING_EDGE = 1;
+
+	/**
+	 * The feature id for the '<em><b>Uid</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DBINDING_EDGE__UID = ViewpointPackage.DREPRESENTATION_ELEMENT__UID;
 
 	/**
 	 * The feature id for the '<em><b>Target</b></em>' reference.
@@ -254,6 +281,15 @@ public interface BindingdialectPackage extends EPackage {
 	 * @generated
 	 */
 	int DBOUND_ELEMENT = 2;
+
+	/**
+	 * The feature id for the '<em><b>Uid</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DBOUND_ELEMENT__UID = ViewpointPackage.DREPRESENTATION_ELEMENT__UID;
 
 	/**
 	 * The feature id for the '<em><b>Target</b></em>' reference.

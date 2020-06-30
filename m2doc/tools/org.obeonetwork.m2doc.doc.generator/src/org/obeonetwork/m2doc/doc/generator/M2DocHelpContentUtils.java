@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2017 Obeo.
+ * Copyright (c) 2017, 2020 Obeo.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -27,6 +27,7 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.emf.ecore.util.EcoreUtil;
+import org.eclipse.sirius.diagram.business.internal.metamodel.helper.LayerHelper;
 import org.eclipse.sirius.diagram.description.DiagramDescription;
 import org.eclipse.sirius.diagram.description.DiagramImportDescription;
 import org.eclipse.sirius.diagram.description.Layer;
@@ -451,7 +452,7 @@ public final class M2DocHelpContentUtils {
                             buffer.append(representation.getName());
                             buffer.append("    </p>").append(LS);
                             buffer.append("    <p>Layers:<ul>").append(LS);
-                            for (Layer layer : ((DiagramDescription) representation).getAllLayers()) {
+                            for (Layer layer : (LayerHelper.getAllLayers((DiagramDescription) representation))) {
                                 if (layer.getLabel() != null) {
                                     buffer.append("        <li>" + layer.getLabel() + " (ID: " + layer.getName() + ")</lil>").append(LS);
                                 } else {

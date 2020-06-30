@@ -25,8 +25,10 @@ import org.eclipse.sirius.viewpoint.DRepresentation;
 import org.eclipse.sirius.viewpoint.DRepresentationElement;
 import org.eclipse.sirius.viewpoint.DSemanticDecorator;
 import org.eclipse.sirius.viewpoint.DStylizable;
+import org.eclipse.sirius.viewpoint.IdentifiedElement;
 import org.eclipse.sirius.viewpoint.description.DModelElement;
 import org.eclipse.sirius.viewpoint.description.DocumentedElement;
+import org.obeonetwork.dsl.environment.bindingdialect.*;
 
 /**
  * <!-- begin-user-doc -->
@@ -104,16 +106,16 @@ public class BindingdialectAdapterFactory extends AdapterFactoryImpl {
 				return createDBoundElementAdapter();
 			}
 			@Override
-			public Adapter caseDocumentedElement(DocumentedElement object) {
-				return createDocumentedElementAdapter();
-			}
-			@Override
-			public Adapter caseDRefreshable(DRefreshable object) {
-				return createDRefreshableAdapter();
+			public Adapter caseIdentifiedElement(IdentifiedElement object) {
+				return createIdentifiedElementAdapter();
 			}
 			@Override
 			public Adapter caseDModelElement(DModelElement object) {
 				return createDModelElementAdapter();
+			}
+			@Override
+			public Adapter caseDRefreshable(DRefreshable object) {
+				return createDRefreshableAdapter();
 			}
 			@Override
 			public Adapter caseDRepresentation(DRepresentation object) {
@@ -122,7 +124,7 @@ public class BindingdialectAdapterFactory extends AdapterFactoryImpl {
 			@Override
 			public Adapter caseDSemanticDecorator(DSemanticDecorator object) {
 				return createDSemanticDecoratorAdapter();
-			}			
+			}
 			@Override
 			public Adapter caseDMappingBased(DMappingBased object) {
 				return createDMappingBasedAdapter();
@@ -198,16 +200,16 @@ public class BindingdialectAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link org.eclipse.sirius.viewpoint.description.DocumentedElement <em>Documented Element</em>}'.
+	 * Creates a new adapter for an object of class '{@link org.eclipse.sirius.viewpoint.IdentifiedElement <em>Identified Element</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see org.eclipse.sirius.viewpoint.description.DocumentedElement
+	 * @see org.eclipse.sirius.viewpoint.IdentifiedElement
 	 * @generated
 	 */
-	public Adapter createDocumentedElementAdapter() {
+	public Adapter createIdentifiedElementAdapter() {
 		return null;
 	}
 
@@ -264,20 +266,6 @@ public class BindingdialectAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createDSemanticDecoratorAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link org.eclipse.sirius.viewpoint.DLabelled <em>DLabelled</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see org.eclipse.sirius.viewpoint.DLabelled
-	 * @generated
-	 */
-	public Adapter createDLabelledAdapter() {
 		return null;
 	}
 
