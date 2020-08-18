@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2011, 2017 Obeo.
+ * Copyright (c) 2011, 2020 Obeo.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -128,6 +128,7 @@ public class BindingDialectServices extends AbstractRepresentationDialectService
 	public DRepresentation createRepresentation(String name, EObject semantic, RepresentationDescription description,
 			IProgressMonitor monitor) {
 		// ensureDescriptionResourceInMainResourceSet(description);
+
 		Optional<Session> sessionOpt = Session.of(semantic);
 		DBindingEditor editor = null;
 		if (sessionOpt.isPresent()) {
@@ -139,7 +140,6 @@ public class BindingDialectServices extends AbstractRepresentationDialectService
 			
 			DRepresentationDescriptorInternalHelper.createDRepresentationDescriptor(editor, (DAnalysisSessionImpl) sessionOpt.get(), semantic.eResource(), name, ""); //$NON-NLS-1$
 		}
-		
 
 		return editor;
 	}

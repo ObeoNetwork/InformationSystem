@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project default="main" name="fr.gouv.mindef.safran.cinematic.gen.html">
-    <property name="ECLIPSE_HOME" value="../../../../../../../../../eclipse/ObeoDesigner/OD_11/Migration IS/OD-11.3"/>
-    <property name="ECLIPSE_WORKSPACE" value="../../../../../../../../../eclipse/ObeoDesigner/OD_11/Migration IS/ObeoDesigner-Team/workspace"/>
+    <property name="ECLIPSE_HOME" value="../../../../../../../../../eclipse/ObeoDesigner/OD_11/Migration IS/OD-11.3.0"/>
+    <property name="ECLIPSE_WORKSPACE" value="../../../../../../../../../eclipse/ObeoDesigner/OD_11/Migration IS/OD-11.3.0/workspace"/>
 
     <!-- The classpath with only the dependencies used by the project -->
     <path id="fr.gouv.mindef.safran.cinematic.gen.html.libraryclasspath">

@@ -14,6 +14,11 @@ import org.eclipse.emf.common.notify.Adapter;
 import org.eclipse.emf.common.notify.Notifier;
 import org.eclipse.emf.common.notify.impl.AdapterFactoryImpl;
 import org.eclipse.emf.ecore.EObject;
+import org.obeonetwork.dsl.environment.bindingdialect.BindingdialectPackage;
+import org.obeonetwork.dsl.environment.bindingdialect.DBindingEdge;
+import org.obeonetwork.dsl.environment.bindingdialect.DBindingEditor;
+import org.obeonetwork.dsl.environment.bindingdialect.DBoundElement;
+
 import org.eclipse.sirius.viewpoint.DMappingBased;
 import org.eclipse.sirius.viewpoint.DRefreshable;
 import org.eclipse.sirius.viewpoint.DRepresentation;
@@ -22,10 +27,8 @@ import org.eclipse.sirius.viewpoint.DSemanticDecorator;
 import org.eclipse.sirius.viewpoint.DStylizable;
 import org.eclipse.sirius.viewpoint.IdentifiedElement;
 import org.eclipse.sirius.viewpoint.description.DModelElement;
-import org.obeonetwork.dsl.environment.bindingdialect.BindingdialectPackage;
-import org.obeonetwork.dsl.environment.bindingdialect.DBindingEdge;
-import org.obeonetwork.dsl.environment.bindingdialect.DBindingEditor;
-import org.obeonetwork.dsl.environment.bindingdialect.DBoundElement;
+import org.eclipse.sirius.viewpoint.description.DocumentedElement;
+import org.obeonetwork.dsl.environment.bindingdialect.*;
 
 /**
  * <!-- begin-user-doc -->

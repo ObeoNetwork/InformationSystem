@@ -1,7 +1,6 @@
 target "IS Designer Target Definition" with source, requirements
 
 location "http://update.obeo.fr/integration/informationsystem/11.3/design/repository/" {
-//location "file:/C:/Users/jdupont/git/InformationSystem/releng/org.obeonetwork.informationsystem.design.repository/target/repository/"{
 	org.obeonetwork.dsl.feature.environment.feature.group lazy
 	org.obeonetwork.dsl.feature.entity.feature.group lazy
 	org.obeonetwork.dsl.feature.cinematic.feature.group lazy
@@ -86,7 +85,7 @@ location "http://download.eclipse.org/releases/2019-06/" {
 	org.eclipse.equinox.p2.discovery.feature.feature.group lazy
 }
 
-// Team SVN is not part of eclipse photon, so we use oxygen to get it
+// Team SVN is not part of eclipse 2019-06, so we use oxygen to get it
 location "http://download.eclipse.org/releases/oxygen/" {
 	org.eclipse.team.svn.feature.group lazy
 }
@@ -113,8 +112,7 @@ location EEF-2.1.3 "http://download.eclipse.org/modeling/emft/eef/updates/releas
     org.eclipse.eef.ext.widgets.reference.feature.source.feature.group lazy
 }
 
-location Obeo-Designer-Community "http://update.obeo.fr/release/designer/11.3/community/11.3.0/repository" { 
-//location Obeo-Designer-Community "http://update.obeo.fr/release/designer/11.1/community/11.1.2/repository/" {
+location Obeo-Designer-Community "http://update.obeo.fr/release/designer/11.3/community/11.3.0/repository" {
 	org.apache.log4j lazy
     org.easymock lazy
     org.hamcrest.core lazy
