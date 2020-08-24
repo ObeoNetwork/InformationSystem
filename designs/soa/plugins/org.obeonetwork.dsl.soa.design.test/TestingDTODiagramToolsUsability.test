@@ -5,8 +5,7 @@ Element-Type: testcase
 Element-Version: 3.0
 External-Reference: 
 Id: _a-5JUJtWEeaMB4JvYD9iTg
-Runtime-Version: 2.3.0.201806262310
-Save-Time: 7/6/18 11:08 AM
+Save-Time: 6/12/20 2:30 PM
 Testcase-Type: ecl
 
 ------=_.description-216f885c-d591-38ce-8ea2-e4f8cb4d6ffa
@@ -102,27 +101,27 @@ with [get-window "Viewpoints Selection"] {
     get-table | get-item "Entity Views" | check
     get-button OK | click
 }
-get-view "Model Explorer" | get-tree | select "E-BookStore/My.entity/Entities" 
-    | get-menu "New Representation/Entities Namespaces Hierarchy" | click
-get-window "New Entities Namespaces Hierarchy" | get-button OK | click
-with [get-editor "Entities Namespaces Hierarchy"] {
-    get-diagram -index 1 | get-edit-part -name "Entities Namespaces Hierarchy" | mouse-move 1124 118 -height 520 
+/**get-view "Model Explorer" | get-tree | select "E-BookStore/My.entity/Entities" 
+    | get-menu "New Representation/E-BookStore - Entities Namespaces Hierarchy" | click
+get-window "New E-BookStore - Entities Namespaces Hierarchy" | get-button OK | click**/
+with [get-editor "E-BookStore - Entities Namespaces Hierarchy"] {
+    get-diagram -index 1 | get-edit-part -name "E-BookStore - Entities Namespaces Hierarchy" | mouse-move 1124 118 -height 520 
         -width 1130
     with [get-palette | get-palette-entry Namespace -index 1] {
         mouse-move 45 9 button1 -height 23 -width 125
         mouse-press 45 9 button1 -height 23 -width 125
         mouse-release 45 9 button1 524288 -height 23 -width 125
     }
-    with [get-diagram -index 1 | get-edit-part -name "Entities Namespaces Hierarchy"] {
+    with [get-diagram -index 1 | get-edit-part -name "E-BookStore - Entities Namespaces Hierarchy"] {
         mouse-move 297 208 button1 -height 520 -width 1130
         mouse-press 297 208 button1 -height 520 -width 1130
         mouse-release 297 208 button1 524288 -height 520 -width 1130
     }
     with [get-diagram -index 1] {
-        get-edit-part -name "Entities Namespaces Hierarchy" | get-edit-part -name "namespace_1" 
+        get-edit-part -name "E-BookStore - Entities Namespaces Hierarchy" | get-edit-part -name "namespace_1" 
             | get-handle ResizeHandle -index 6 | mouse-hover 6 2 -height 7 -width 7
         key-type "M1+s"
-        with [get-edit-part -name "Entities Namespaces Hierarchy"] {
+        with [get-edit-part -name "E-BookStore - Entities Namespaces Hierarchy"] {
             mouse-move 225 202 -height 520 -width 1130
             mouse-hover 225 202 -height 520 -width 1130
             mouse-move 6 157 -height 520 -width 1130

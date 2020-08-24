@@ -13,6 +13,7 @@ package org.obeonetwork.dsl.environment.bindingdialect.impl;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
+import org.eclipse.emf.ecore.EcorePackage;
 import org.eclipse.emf.ecore.impl.EPackageImpl;
 import org.obeonetwork.dsl.environment.bindingdialect.BindingdialectFactory;
 import org.obeonetwork.dsl.environment.bindingdialect.BindingdialectPackage;
@@ -87,7 +88,7 @@ public class BindingdialectPackageImpl extends EPackageImpl implements Bindingdi
 
 	/**
 	 * Creates, registers, and initializes the <b>Package</b> for this model, and for any others upon which it depends.
-	 * 
+	 *
 	 * <p>This method is used to initialize {@link BindingdialectPackage#eINSTANCE} when that field is accessed.
 	 * Clients should not invoke it directly. Instead, they should simply access that field to obtain the package.
 	 * <!-- begin-user-doc -->
@@ -101,15 +102,18 @@ public class BindingdialectPackageImpl extends EPackageImpl implements Bindingdi
 		if (isInited) return (BindingdialectPackage)EPackage.Registry.INSTANCE.getEPackage(BindingdialectPackage.eNS_URI);
 
 		// Obtain or create and register package
-		BindingdialectPackageImpl theBindingdialectPackage = (BindingdialectPackageImpl)(EPackage.Registry.INSTANCE.get(eNS_URI) instanceof BindingdialectPackageImpl ? EPackage.Registry.INSTANCE.get(eNS_URI) : new BindingdialectPackageImpl());
+		Object registeredBindingdialectPackage = EPackage.Registry.INSTANCE.get(eNS_URI);
+		BindingdialectPackageImpl theBindingdialectPackage = registeredBindingdialectPackage instanceof BindingdialectPackageImpl ? (BindingdialectPackageImpl)registeredBindingdialectPackage : new BindingdialectPackageImpl();
 
 		isInited = true;
 
 		// Initialize simple dependencies
+		EcorePackage.eINSTANCE.eClass();
 		ViewpointPackage.eINSTANCE.eClass();
 
 		// Obtain or create and register interdependencies
-		DescriptionPackageImpl theDescriptionPackage = (DescriptionPackageImpl)(EPackage.Registry.INSTANCE.getEPackage(DescriptionPackage.eNS_URI) instanceof DescriptionPackageImpl ? EPackage.Registry.INSTANCE.getEPackage(DescriptionPackage.eNS_URI) : DescriptionPackage.eINSTANCE);
+		Object registeredPackage = EPackage.Registry.INSTANCE.getEPackage(DescriptionPackage.eNS_URI);
+		DescriptionPackageImpl theDescriptionPackage = (DescriptionPackageImpl)(registeredPackage instanceof DescriptionPackageImpl ? registeredPackage : DescriptionPackage.eINSTANCE);
 
 		// Create package meta-data objects
 		theBindingdialectPackage.createPackageContents();
@@ -122,7 +126,6 @@ public class BindingdialectPackageImpl extends EPackageImpl implements Bindingdi
 		// Mark meta-data to indicate it can't be changed
 		theBindingdialectPackage.freeze();
 
-  
 		// Update the registry and return the package
 		EPackage.Registry.INSTANCE.put(BindingdialectPackage.eNS_URI, theBindingdialectPackage);
 		return theBindingdialectPackage;

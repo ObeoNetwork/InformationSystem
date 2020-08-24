@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- Copyright (c) 2008, 2019 Obeo. All rights reserved. This program and 
+<!-- Copyright (c) 2008, 2020 Obeo. All rights reserved. This program and 
 	the accompanying materials are made available under the terms of the Eclipse 
 	Public License v1.0 which accompanies this distribution, and is available 
 	at http://www.eclipse.org/legal/epl-v10.html Contributors: Obeo - initial 
@@ -11,28 +11,23 @@
 
 	<groupId>org.obeonetwork</groupId>
 	<artifactId>parent</artifactId>
-	<version>11.0.0-SNAPSHOT</version>
+	<version>11.3.0-SNAPSHOT</version>
 	<packaging>pom</packaging>
 
 	<name>Information System Parent</name>
 
 	<properties>
-		<tycho-version>1.0.0</tycho-version>
-		<platform-version-name>photon</platform-version-name>
-		<!-- od-site>http://update.obeo.fr/release/designer/11.1/team/11.1.1/photon/repository/</od-site-->
-		<od-site>http://update.obeo.fr/release/designer/private/11.1.3_Safran/team/11.1.3/photon/repository/</od-site>
-		<!-- od-site2>http://update.obeo.fr/release/designer/11.1/community/11.1.1/photon/repository/</od-site2-->
-		<!-- od-site2>http://update.obeo.fr/maintenance/designer/11.1/community/11.1.3/photon/repository/</od-site2-->
-		<od-site2>http://update.obeo.fr/release/designer/private/11.1.3_Safran/team/11.1.3/photon/repository/</od-site2>
-		<eef-site>https://download.eclipse.org/modeling/emft/eef/updates/milestones/1.5/S201707060903</eef-site>
-		<amalgam-site>https://download.eclipse.org/modeling/amalgam/updates/stable/1.10.1-S20190419/capella/</amalgam-site>
-		<!-- <acceleo-site>http://mirror.update.eclipse.obeo.fr/releases-acceleo-3.4/</acceleo-site> -->
-		<eclipse-site>http://download.eclipse.org/releases/photon/</eclipse-site>
-		<orbit-site>https://download.eclipse.org/tools/orbit/downloads/drops/R20180606145124/repository/</orbit-site>
-		<!-- <m2doc-site>https://s3-eu-west-1.amazonaws.com/obeo-m2doc-releases/2.0.2/repository</m2doc-site> -->
+		<tycho-version>1.3.0</tycho-version>
+		<platform-version-name>2019-06</platform-version-name>
+		<od-site>http://update.obeo.fr/release/designer/11.3/team/11.3.0/repository/</od-site>
+		<od-site2>http://update.obeo.fr/release/designer/11.3/community/11.3.0/repository/</od-site2>
+		<eef-site>http://download.eclipse.org/modeling/emft/eef/updates/releases/2.1/R201909051307</eef-site>
+		<amalgam-site>https://download.eclipse.org/modeling/amalgam/updates/stable/1.11.0-S20190729/capella/</amalgam-site>
+		<eclipse-site>http://download.eclipse.org/releases/2019-06/</eclipse-site>
+		<orbit-site>https://download.eclipse.org/tools/orbit/downloads/drops/R20190602212107/repository</orbit-site>
 		<m2doc-site>https://s3-eu-west-1.amazonaws.com/obeo-m2doc-releases/master/nightly/repository</m2doc-site>
 		<!-- <acceleo-snapshots-site>https://repo.eclipse.org/content/repositories/acceleo-snapshots</acceleo-snapshots-site> -->
-		<!-- <acceleo-releases-site>https://repo.eclipse.org/content/repositories/acceleo-releases</acceleo-releases-site> -->
+		<acceleo-releases-site>https://repo.eclipse.org/content/repositories/acceleo-releases</acceleo-releases-site>
 		<svn-site>https://download.eclipse.org/releases/oxygen/</svn-site>
 	</properties>
 
@@ -417,10 +412,6 @@
 			</releases>
 	    </pluginRepository>
 		<pluginRepository>
-			<id>Eclipse - Acceleo Snapshots</id>
-			<url>https://repo.eclipse.org/content/repositories/acceleo-snapshots</url>
-		</pluginRepository>
-		<pluginRepository>
 			<id>Eclipse - Acceleo Releases</id>
 			<url>https://repo.eclipse.org/content/repositories/acceleo-releases</url>
 		</pluginRepository>
@@ -541,7 +532,7 @@
 				<plugin>
 					<groupId>org.eclipse.acceleo</groupId>
 					<artifactId>org.eclipse.acceleo.maven</artifactId>
-					<version>3.5.0-SNAPSHOT</version>
+					<version>3.6.4</version>
 					<executions>
 						<execution>
 							<id>acceleo-compile</id>

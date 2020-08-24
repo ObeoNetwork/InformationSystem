@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!--
-    Copyright (c) 2010, 2019 Obeo.
+    Copyright (c) 2010, 2020 Obeo.
     All rights reserved. This program and the accompanying materials
     are made available under the terms of the Eclipse Public License v1.0
     which accompanies this distribution, and is available at
@@ -11,7 +11,7 @@
  -->
 
 <site>
-   <feature url="features/org.obeonetwork.graal.feature_11.0.0.qualifier.jar" id="org.obeonetwork.graal.feature" version="11.0.0.qualifier">
+   <feature url="features/org.obeonetwork.graal.feature_11.3.0.qualifier.jar" id="org.obeonetwork.graal.feature" version="11.3.0.qualifier">
       <category name="org.obeonetwork.informationsystem.models"/>
    </feature>
    <category-def name="org.obeonetwork.informationsystem.models" label="Information System - Models"/>

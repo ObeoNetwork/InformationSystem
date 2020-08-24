@@ -5,8 +5,7 @@ Element-Type: testcase
 Element-Version: 3.0
 External-Reference: 
 Id: _CBVEMGNcEeSg_dTG4Ei-uQ
-Runtime-Version: 2.2.0.201706152316
-Save-Time: 7/4/18 5:49 PM
+Save-Time: 6/10/20 5:54 PM
 Testcase-Type: ecl
 
 ------=_.description-216f885c-d591-38ce-8ea2-e4f8cb4d6ffa
@@ -25,15 +24,26 @@ with [get-view "Model Explorer" | get-tree] {
     select "E-BookStore/E-BookStore.cinematic/Cinematic Root E-BookStore/E-BookStore UI Structure" | double-click
 }
 with [get-editor "E-BookStore UI Structure" | get-tree] {
-    select "E-BookStore/Checkout/PaymentForm : Page/ViewContainer1 : Table" 
-        | get-item "E-BookStore/Checkout/PaymentForm : Page/ViewContainer1 : Table/ViewContainer1 : Panel/PurchaseOrder.user \\(DTO Reference\\)" 
+    get-item "E-BookStore/HomePage : Page/SearchForm : Panel" | click
+    select "E-BookStore/HomePage : Page/SearchForm : Panel" 
+    	// Tool UIS_ContainedViewContainer/CRE_DataBinding
+        | get-menu "Data Binding" | click
+}
+with [get-window "Selection Wizard"] {
+    get-tree | select "Components/Namespace main/DTO ShoppingCart/Reference lines"
+    get-button Finish | click
+}
+
+with [get-editor "E-BookStore UI Structure" | get-tree] {	
+    select "E-BookStore/HomePage : Page/SearchForm : Panel" 
+    	| get-item "E-BookStore/HomePage : Page/SearchForm : Panel/ShoppingCart.lines \\(DTO Reference\\)"     
         | click
-    select "E-BookStore/Checkout/PaymentForm : Page/ViewContainer1 : Table/ViewContainer1 : Panel/PurchaseOrder.user \\(DTO Reference\\)" 
+    select "E-BookStore/HomePage : Page/SearchForm : Panel/ShoppingCart.lines \\(DTO Reference\\)" 
     	// Check Tool CRE_Duplicate
         | get-menu Duplicate | click
 }
 get-editor "E-BookStore UI Structure" | get-tree 
-    | get-item "E-BookStore/Checkout/PaymentForm : Page/ViewContainer1 : Table/ViewContainer1 : Panel" 
-    | get-item "PurchaseOrder.user \\(DTO Reference\\)" -index 1 | get-property "getText()" 
-    | equals "PurchaseOrder.user (DTO Reference)" | verify-true
+    | get-item "E-BookStore/HomePage : Page/SearchForm : Panel" 
+    | get-item "ShoppingCart.lines \\(DTO Reference\\)" -index 1 | get-property "getText()" 
+    | equals "ShoppingCart.lines \\(DTO Reference\\)" | verify-true
 ------=_.content-0a7243a0-75d3-3d5f-9791-539de0e5b7ac--
