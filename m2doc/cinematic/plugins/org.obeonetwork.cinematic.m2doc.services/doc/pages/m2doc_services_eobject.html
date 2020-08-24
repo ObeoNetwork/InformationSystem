@@ -2,7 +2,7 @@
 <html lang="en">
 <!--
 /********************************************************************************
-** Copyright (c) 2016, 2017, 2018, 2019 Obeo.
+** Copyright (c) 2016, 2020 Obeo.
 ** All rights reserved. This program and the accompanying materials
 ** are made available under the terms of the Eclipse Public License v1.0
 ** which accompanies this distribution, and is available at
@@ -48,7 +48,7 @@
   <tbody>
     <tr>
       <td colspan="1" rowspan="1"><strong>allRelatedRequirements</strong></td>
-      <td colspan="1" rowspan="1">List of Requirement</td>
+      <td colspan="1" rowspan="1">List of <a href="/help/topic/org.obeonetwork.dsl.requirement.m2doc.services/doc/pages/m2doc_services_requirement.html">Requirement</a></td>
       <td colspan="1" rowspan="1">{m:obj.allRelatedRequirements()}</td>
       <td colspan="1" rowspan="1">Returns a list of all the Requirements related to the target object or one of its sub objects. The result is a list with no duplicates sorted against the requirements ids.</td>
       <td colspan="1" rowspan="1">{m:obj.allRelatedRequirements()->sep(',')} returns: A comma separated list of related requirements.</td>
@@ -82,6 +82,13 @@
       <td colspan="1" rowspan="1">{m:obj.getTypeName()} returns: A string representation of the given object's type.</td>
     </tr>
     <tr>
+      <td colspan="1" rowspan="1"><strong>getTypeName</strong></td>
+      <td colspan="1" rowspan="1">String</td>
+      <td colspan="1" rowspan="1">{m:myEObject.getTypeName()}</td>
+      <td colspan="1" rowspan="1">Returns the name of the EClass of the given EObject.</td>
+      <td colspan="1" rowspan="1">{m:myEObject.getTypeName()} returns: ObeoDSMObject</td>
+    </tr>
+    <tr>
       <td colspan="1" rowspan="1"><strong>hasRelatedRequirements</strong></td>
       <td colspan="1" rowspan="1">boolean</td>
       <td colspan="1" rowspan="1">{m:obj.hasRelatedRequirements()}</td>
@@ -97,14 +104,14 @@
     </tr>
     <tr>
       <td colspan="1" rowspan="1"><strong>relatedRequirements</strong></td>
-      <td colspan="1" rowspan="1">List of Requirement</td>
+      <td colspan="1" rowspan="1">List of <a href="/help/topic/org.obeonetwork.dsl.requirement.m2doc.services/doc/pages/m2doc_services_requirement.html">Requirement</a></td>
       <td colspan="1" rowspan="1">{m:obj.relatedRequirements()}</td>
       <td colspan="1" rowspan="1">Returns the set of Requirement that are related to the target object.</td>
       <td colspan="1" rowspan="1">{m:obj.relatedRequirements()->sep(',')} returns: A comma separated list of related requirements.</td>
     </tr>
     <tr>
       <td colspan="1" rowspan="1"><strong>relatedRequirementsWithSubtype</strong></td>
-      <td colspan="1" rowspan="1">List of Requirement</td>
+      <td colspan="1" rowspan="1">List of <a href="/help/topic/org.obeonetwork.dsl.requirement.m2doc.services/doc/pages/m2doc_services_requirement.html">Requirement</a></td>
       <td colspan="1" rowspan="1">{m:obj.relatedRequirementsWithSubtype('SUBTYPE')}</td>
       <td colspan="1" rowspan="1">Returns the list of Requirements that reference the target object and that have the specified subtype.</td>
       <td colspan="1" rowspan="1">{m:obj.relatedRequirementsWithSubtype('performance')->sep(',')} returns: A comma separated list of related requirements of performance subtype.</td>

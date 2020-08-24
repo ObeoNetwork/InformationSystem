@@ -43,6 +43,9 @@ public interface DomainModelRegistry extends CDOObject {
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * The list of namespaces.
+	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Namespaces</em>' reference list.
 	 * @see org.obeonetwork.graal.GraalPackage#getDomainModelRegistry_Namespaces()
 	 * @model
@@ -59,6 +62,9 @@ public interface DomainModelRegistry extends CDOObject {
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * The list of structured types.
+	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Types</em>' reference list.
 	 * @see org.obeonetwork.graal.GraalPackage#getDomainModelRegistry_Types()
 	 * @model

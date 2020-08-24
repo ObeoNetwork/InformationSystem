@@ -51,6 +51,9 @@ public interface StructuredType extends Type {
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * The super structuredtype.
+	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Supertype</em>' reference.
 	 * @see #setSupertype(StructuredType)
 	 * @see org.obeonetwork.dsl.environment.EnvironmentPackage#getStructuredType_Supertype()
@@ -78,6 +81,9 @@ public interface StructuredType extends Type {
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * The list of associated structured types.
+	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Associated Types</em>' reference list.
 	 * @see org.obeonetwork.dsl.environment.EnvironmentPackage#getStructuredType_AssociatedTypes()
 	 * @model
@@ -95,6 +101,9 @@ public interface StructuredType extends Type {
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * The list of owned attributes.
+	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Owned Attributes</em>' containment reference list.
 	 * @see org.obeonetwork.dsl.environment.EnvironmentPackage#getStructuredType_OwnedAttributes()
 	 * @see org.obeonetwork.dsl.environment.Attribute#getContainingType
@@ -112,6 +121,9 @@ public interface StructuredType extends Type {
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * The list of attributes.
+	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Attributes</em>' reference list.
 	 * @see org.obeonetwork.dsl.environment.EnvironmentPackage#getStructuredType_Attributes()
 	 * @model transient="true" changeable="false" volatile="true" derived="true"
@@ -129,6 +141,9 @@ public interface StructuredType extends Type {
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * The list of owned references.
+	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Owned References</em>' containment reference list.
 	 * @see org.obeonetwork.dsl.environment.EnvironmentPackage#getStructuredType_OwnedReferences()
 	 * @see org.obeonetwork.dsl.environment.Reference#getContainingType
@@ -146,6 +161,9 @@ public interface StructuredType extends Type {
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * The list of references.
+	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>References</em>' reference list.
 	 * @see org.obeonetwork.dsl.environment.EnvironmentPackage#getStructuredType_References()
 	 * @model transient="true" changeable="false" volatile="true" derived="true"
@@ -162,6 +180,9 @@ public interface StructuredType extends Type {
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * The list of priorities.
+	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Properties</em>' reference list.
 	 * @see org.obeonetwork.dsl.environment.EnvironmentPackage#getStructuredType_Properties()
 	 * @model transient="true" changeable="false" volatile="true" derived="true"

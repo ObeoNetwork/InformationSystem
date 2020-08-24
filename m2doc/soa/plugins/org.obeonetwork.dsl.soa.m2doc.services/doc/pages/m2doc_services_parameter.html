@@ -2,7 +2,7 @@
 <html lang="en">
 <!--
 /********************************************************************************
-** Copyright (c) 2016, 2017, 2018, 2019 Obeo.
+** Copyright (c) 2016, 2020 Obeo.
 ** All rights reserved. This program and the accompanying materials
 ** are made available under the terms of the Eclipse Public License v1.0
 ** which accompanies this distribution, and is available at
@@ -55,7 +55,7 @@
     </tr>
     <tr>
       <td colspan="1" rowspan="1"><strong>bindingRegistries</strong></td>
-      <td colspan="1" rowspan="1">List of BindingRegistry</td>
+      <td colspan="1" rowspan="1">List of <a href="/help/topic/org.obeonetwork.dsl.environment.m2doc.services/doc/pages/m2doc_services_bindingregistry.html">BindingRegistry</a></td>
       <td colspan="1" rowspan="1">{m:parameter.bindingRegistries}</td>
       <td colspan="1" rowspan="1">The binding registries of this object.</td>
       <td colspan="1" rowspan="1">{m:for bindingRegistry | parameter.bindingRegistries} bindingRegistry {m:bindingRegistry.name}, {m:endfor}</td>
@@ -78,14 +78,14 @@
       <td colspan="1" rowspan="1"><strong>isOrdered</strong></td>
       <td colspan="1" rowspan="1">EBoolean</td>
       <td colspan="1" rowspan="1">{m:parameter.isOrdered}</td>
-      <td colspan="1" rowspan="1"></td>
+      <td colspan="1" rowspan="1">Tells if the parameter is ordered.</td>
       <td colspan="1" rowspan="1">{m:parameter.isOrdered}</td>
     </tr>
     <tr>
       <td colspan="1" rowspan="1"><strong>isUnique</strong></td>
       <td colspan="1" rowspan="1">EBoolean</td>
       <td colspan="1" rowspan="1">{m:parameter.isUnique}</td>
-      <td colspan="1" rowspan="1"></td>
+      <td colspan="1" rowspan="1">Tells if the parameter contains duplicates.</td>
       <td colspan="1" rowspan="1">{m:parameter.isUnique}</td>
     </tr>
     <tr>
@@ -97,7 +97,7 @@
     </tr>
     <tr>
       <td colspan="1" rowspan="1"><strong>metadatas</strong></td>
-      <td colspan="1" rowspan="1">MetaDataContainer</td>
+      <td colspan="1" rowspan="1"><a href="/help/topic/org.obeonetwork.dsl.environment.m2doc.services/doc/pages/m2doc_services_metadatacontainer.html">MetaDataContainer</a></td>
       <td colspan="1" rowspan="1">{m:parameter.metadatas}</td>
       <td colspan="1" rowspan="1">The metadatas defined on this object.</td>
       <td colspan="1" rowspan="1">{m:parameter.metadatas}</td>
@@ -113,14 +113,14 @@
       <td colspan="1" rowspan="1"><strong>multiplicity</strong></td>
       <td colspan="1" rowspan="1">MultiplicityKind</td>
       <td colspan="1" rowspan="1">{m:parameter.multiplicity}</td>
-      <td colspan="1" rowspan="1"></td>
+      <td colspan="1" rowspan="1">The multiplicity of the parameter.</td>
       <td colspan="1" rowspan="1">{m:parameter.multiplicity}</td>
     </tr>
     <tr>
       <td colspan="1" rowspan="1"><strong>name</strong></td>
       <td colspan="1" rowspan="1">EString</td>
       <td colspan="1" rowspan="1">{m:parameter.name}</td>
-      <td colspan="1" rowspan="1"></td>
+      <td colspan="1" rowspan="1">The name of the parameter.</td>
       <td colspan="1" rowspan="1">{m:parameter.name}</td>
     </tr>
     <tr>
@@ -134,7 +134,7 @@
       <td colspan="1" rowspan="1"><strong>type</strong></td>
       <td colspan="1" rowspan="1">Type</td>
       <td colspan="1" rowspan="1">{m:parameter.type}</td>
-      <td colspan="1" rowspan="1"></td>
+      <td colspan="1" rowspan="1">The type of the parameter.</td>
       <td colspan="1" rowspan="1">{m:parameter.type}</td>
     </tr>
     <tr>
@@ -161,6 +161,104 @@
     </thead>
   <tbody>
     <tr>
+      <td colspan="1" rowspan="1"><strong>allRelatedRequirements</strong></td>
+      <td colspan="1" rowspan="1">List of <a href="/help/topic/org.obeonetwork.dsl.requirement.m2doc.services/doc/pages/m2doc_services_requirement.html">Requirement</a></td>
+      <td colspan="1" rowspan="1">{m:obj.allRelatedRequirements()}</td>
+      <td colspan="1" rowspan="1">Returns a list of all the Requirements related to the target object or one of its sub objects. The result is a list with no duplicates sorted against the requirements ids.</td>
+      <td colspan="1" rowspan="1">{m:obj.allRelatedRequirements()->sep(',')} returns: A comma separated list of related requirements.</td>
+    </tr>
+    <tr>
+      <td colspan="1" rowspan="1"><strong>annotation</strong></td>
+      <td colspan="1" rowspan="1">String</td>
+      <td colspan="1" rowspan="1">{m:myObeoDSMObject.annotation(String)}</td>
+      <td colspan="1" rowspan="1">Return first annotation with the specified title.</td>
+      <td colspan="1" rowspan="1">{m:myObeoDSMObject.annotation('some title')} returns: The string of the annotation.</td>
+    </tr>
+    <tr>
+      <td colspan="1" rowspan="1"><strong>cinematicIcon</strong></td>
+      <td colspan="1" rowspan="1">org.obeonetwork.m2doc.element.MImage</td>
+      <td colspan="1" rowspan="1">{m:obj.cinematicIcon()}</td>
+      <td colspan="1" rowspan="1">Returns the presentation icon of the target Cinematic element.</td>
+      <td colspan="1" rowspan="1">{m:obj.getCinematicIcon()} returns: The icon of the element.</td>
+    </tr>
+    <tr>
+      <td colspan="1" rowspan="1"><strong>cinematicLabel</strong></td>
+      <td colspan="1" rowspan="1">String</td>
+      <td colspan="1" rowspan="1">{m:obj.cinematicLabel()}</td>
+      <td colspan="1" rowspan="1">Returns the presentation label of the target Cinematic element.</td>
+      <td colspan="1" rowspan="1">{m:obj.getCinematicLabel()} returns: The label of the element.</td>
+    </tr>
+    <tr>
+      <td colspan="1" rowspan="1"><strong>getAnnotations</strong></td>
+      <td colspan="1" rowspan="1">List of <a href="/help/topic/org.obeonetwork.dsl.environment.m2doc.services/doc/pages/m2doc_services_annotation.html">Annotation</a></td>
+      <td colspan="1" rowspan="1">{m:flowEvent.getAnnotations()}</td>
+      <td colspan="1" rowspan="1">Returns the list of metadata annotations of the target Flow Event.</td>
+      <td colspan="1" rowspan="1">{m:flowEvent.getAnnotations().title->sep(',')} returns: A comma separated list of Flow Event's annotation titles.</td>
+    </tr>
+    <tr>
+      <td colspan="1" rowspan="1"><strong>getAnnotations</strong></td>
+      <td colspan="1" rowspan="1">List of <a href="/help/topic/org.obeonetwork.dsl.environment.m2doc.services/doc/pages/m2doc_services_annotation.html">Annotation</a></td>
+      <td colspan="1" rowspan="1">{m:myObeoDSMObject.getAnnotations()}</td>
+      <td colspan="1" rowspan="1">Returns the list of metadata annotations of the target ObeoDSMObject that are not documentation links.</td>
+      <td colspan="1" rowspan="1">{m:myObeoDSMObject.getAnnotations().getDocumentTitle()->sep(',')} returns: A comma separated list of ObeoDSMObject's annotation titles.</td>
+    </tr>
+    <tr>
+      <td colspan="1" rowspan="1"><strong>getDocumentationLinks</strong></td>
+      <td colspan="1" rowspan="1">List of <a href="/help/topic/org.obeonetwork.dsl.environment.m2doc.services/doc/pages/m2doc_services_annotation.html">Annotation</a></td>
+      <td colspan="1" rowspan="1">{m:myObeoDSMObject.getDocumentationLinks()}</td>
+      <td colspan="1" rowspan="1">Returns the list of metadata annotations of the target ObeoDSMObject that are documentation links.</td>
+      <td colspan="1" rowspan="1">{m:myObeoDSMObject.getDocumentationLinks().title->sep(',')} returns: A comma separated list of ObeoDSMObject's annotation titles.</td>
+    </tr>
+    <tr>
+      <td colspan="1" rowspan="1"><strong>getName</strong></td>
+      <td colspan="1" rowspan="1">String</td>
+      <td colspan="1" rowspan="1">{m:obj.getName()}</td>
+      <td colspan="1" rowspan="1">Returns the name of the given object if it defines one. Returns an empty string in all other cases.</td>
+      <td colspan="1" rowspan="1">{m:obj.getName()} returns: The object name.</td>
+    </tr>
+    <tr>
+      <td colspan="1" rowspan="1"><strong>getTypeName</strong></td>
+      <td colspan="1" rowspan="1">String</td>
+      <td colspan="1" rowspan="1">{m:obj.getTypeName()}</td>
+      <td colspan="1" rowspan="1">Returns the name of the given object's type, formatted with white spaces.</td>
+      <td colspan="1" rowspan="1">{m:obj.getTypeName()} returns: A string representation of the given object's type.</td>
+    </tr>
+    <tr>
+      <td colspan="1" rowspan="1"><strong>getTypeName</strong></td>
+      <td colspan="1" rowspan="1">String</td>
+      <td colspan="1" rowspan="1">{m:myEObject.getTypeName()}</td>
+      <td colspan="1" rowspan="1">Returns the name of the EClass of the given EObject.</td>
+      <td colspan="1" rowspan="1">{m:myEObject.getTypeName()} returns: ObeoDSMObject</td>
+    </tr>
+    <tr>
+      <td colspan="1" rowspan="1"><strong>hasAnnotations</strong></td>
+      <td colspan="1" rowspan="1">boolean</td>
+      <td colspan="1" rowspan="1">{m:myObeoDSMObject.getAnnotations()}</td>
+      <td colspan="1" rowspan="1">Returns true if the given ObeoDSMObject has at least one metadata annotations that is not documentation links, false otherwise.</td>
+      <td colspan="1" rowspan="1">{m:myObeoDSMObject.hasAnnotations()} returns: true or false.</td>
+    </tr>
+    <tr>
+      <td colspan="1" rowspan="1"><strong>hasDocumentationLinks</strong></td>
+      <td colspan="1" rowspan="1">boolean</td>
+      <td colspan="1" rowspan="1">{m:myObeoDSMObject.hasDocumentationLinks()}</td>
+      <td colspan="1" rowspan="1">Returns true if the given ObeoDSMObject has at least one documentation link, false otherwise.</td>
+      <td colspan="1" rowspan="1">{m:myObeoDSMObject.hasDocumentationLinks()} returns: true or false.</td>
+    </tr>
+    <tr>
+      <td colspan="1" rowspan="1"><strong>hasRelatedRequirements</strong></td>
+      <td colspan="1" rowspan="1">boolean</td>
+      <td colspan="1" rowspan="1">{m:obj.hasRelatedRequirements()}</td>
+      <td colspan="1" rowspan="1">Returns true if the given Object as at least one related Requirement.</td>
+      <td colspan="1" rowspan="1">{m:obj.hasRelatedRequirements()} returns: true or false.</td>
+    </tr>
+    <tr>
+      <td colspan="1" rowspan="1"><strong>isCinematicObject</strong></td>
+      <td colspan="1" rowspan="1">boolean</td>
+      <td colspan="1" rowspan="1">{m:obj.isCinematicObject()}</td>
+      <td colspan="1" rowspan="1">Returns if the target object is a Cinematic element.</td>
+      <td colspan="1" rowspan="1">{m:obj.isCinematicObject()} returns: True if the target object is a Cinematic element, false otherwise.</td>
+    </tr>
+    <tr>
       <td colspan="1" rowspan="1"><strong>kind</strong></td>
       <td colspan="1" rowspan="1">String</td>
       <td colspan="1" rowspan="1">{m:myParameter.kind()}</td>
@@ -173,6 +271,20 @@
       <td colspan="1" rowspan="1">{m:myParameter.qualifiedTypeName()}</td>
       <td colspan="1" rowspan="1">Returns the String representation of the type of the given Parameter.</td>
       <td colspan="1" rowspan="1">{m:myParameter.qualifiedTypeName()} returns: namespace1.namespace2.MyEntity[0..1]</td>
+    </tr>
+    <tr>
+      <td colspan="1" rowspan="1"><strong>relatedRequirements</strong></td>
+      <td colspan="1" rowspan="1">List of <a href="/help/topic/org.obeonetwork.dsl.requirement.m2doc.services/doc/pages/m2doc_services_requirement.html">Requirement</a></td>
+      <td colspan="1" rowspan="1">{m:obj.relatedRequirements()}</td>
+      <td colspan="1" rowspan="1">Returns the set of Requirement that are related to the target object.</td>
+      <td colspan="1" rowspan="1">{m:obj.relatedRequirements()->sep(',')} returns: A comma separated list of related requirements.</td>
+    </tr>
+    <tr>
+      <td colspan="1" rowspan="1"><strong>relatedRequirementsWithSubtype</strong></td>
+      <td colspan="1" rowspan="1">List of <a href="/help/topic/org.obeonetwork.dsl.requirement.m2doc.services/doc/pages/m2doc_services_requirement.html">Requirement</a></td>
+      <td colspan="1" rowspan="1">{m:obj.relatedRequirementsWithSubtype('SUBTYPE')}</td>
+      <td colspan="1" rowspan="1">Returns the list of Requirements that reference the target object and that have the specified subtype.</td>
+      <td colspan="1" rowspan="1">{m:obj.relatedRequirementsWithSubtype('performance')->sep(',')} returns: A comma separated list of related requirements of performance subtype.</td>
     </tr>
     <tr>
       <td colspan="1" rowspan="1"><strong>typeName</strong></td>

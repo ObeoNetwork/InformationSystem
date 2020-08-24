@@ -40,6 +40,9 @@ public interface Activity extends GraalObject {
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * The list of nodes.
+	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Nodes</em>' containment reference list.
 	 * @see org.obeonetwork.graal.GraalPackage#getActivity_Nodes()
 	 * @model containment="true" resolveProxies="true"
@@ -56,6 +59,9 @@ public interface Activity extends GraalObject {
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * The list of transitions.
+	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Transitions</em>' containment reference list.
 	 * @see org.obeonetwork.graal.GraalPackage#getActivity_Transitions()
 	 * @model containment="true" resolveProxies="true"
@@ -72,6 +78,9 @@ public interface Activity extends GraalObject {
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * The list of sub activities.
+	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Sub Activities</em>' containment reference list.
 	 * @see org.obeonetwork.graal.GraalPackage#getActivity_SubActivities()
 	 * @model containment="true" resolveProxies="true"

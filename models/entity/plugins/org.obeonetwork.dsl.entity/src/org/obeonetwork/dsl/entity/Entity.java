@@ -48,6 +48,9 @@ public interface Entity extends StructuredType {
 	 * clear, there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * The estimated volumetry
+	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Estimated Volumetry</em>' attribute.
 	 * @see #setEstimatedVolumetry(int)
 	 * @see org.obeonetwork.dsl.entity.EntityPackage#getEntity_EstimatedVolumetry()
@@ -73,6 +76,9 @@ public interface Entity extends StructuredType {
 	 * clear, there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * The estimated accesses.
+	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Estimated Access</em>' attribute.
 	 * @see #setEstimatedAccess(int)
 	 * @see org.obeonetwork.dsl.entity.EntityPackage#getEntity_EstimatedAccess()
@@ -98,6 +104,9 @@ public interface Entity extends StructuredType {
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * Tells if historized
+	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Historized</em>' attribute.
 	 * @see #setHistorized(boolean)
 	 * @see org.obeonetwork.dsl.entity.EntityPackage#getEntity_Historized()
@@ -146,6 +155,9 @@ public interface Entity extends StructuredType {
 	 * clear, there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * The inheritance kind.
+	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Inheritance Kind</em>' attribute.
 	 * @see org.obeonetwork.dsl.entity.InheritanceKind
 	 * @see #setInheritanceKind(InheritanceKind)

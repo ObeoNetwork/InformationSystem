@@ -42,6 +42,9 @@ public interface DTO extends StructuredType {
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * The owned filter container.
+	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Owned Container</em>' containment reference.
 	 * @see #setOwnedContainer(FilterContainer)
 	 * @see org.obeonetwork.dsl.environment.EnvironmentPackage#getDTO_OwnedContainer()

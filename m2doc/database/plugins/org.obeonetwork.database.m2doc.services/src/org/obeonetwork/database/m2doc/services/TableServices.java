@@ -13,6 +13,8 @@ package org.obeonetwork.database.m2doc.services;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.eclipse.acceleo.annotations.api.documentation.Documentation;
+import org.eclipse.acceleo.annotations.api.documentation.Example;
 import org.obeonetwork.dsl.database.Column;
 import org.obeonetwork.dsl.database.ForeignKey;
 import org.obeonetwork.dsl.database.PrimaryKey;
@@ -25,12 +27,17 @@ import org.obeonetwork.dsl.database.Table;
  */
 public class TableServices {
 
-    /**
-     * Returns the name of the specified table's primary key. Returns "" if there's no primary key.
-     * 
-     * @param table
-     * @return the table's primary key name.
-     */
+    // @formatter:off
+    @Documentation(
+            comment = "{m:myTable.primaryKeyName()}",
+            value = "Returns the name of the specified table's primary key. Returns '' if there's no primary key.",
+            examples = {
+                    @Example(
+                            expression = "{m:myTable.primaryKeyName()}", 
+                            result = "insert the table's primary key name.")
+            }
+        )
+    // @formatter:on    
     public String primaryKeyName(Table table) {
         PrimaryKey key = table.getPrimaryKey();
         String result = null;
@@ -40,12 +47,17 @@ public class TableServices {
         return result == null ? "" : result;
     }
 
-    /**
-     * Returns the list of the foreign key's names.
-     * 
-     * @param table
-     * @return the list of foreign key's names.
-     */
+    // @formatter:off
+    @Documentation(
+            comment = "{m:myTable.foreignKeyNames()}",
+            value = "Returns the list of the foreign key's names.",
+            examples = {
+                    @Example(
+                            expression = "{m:myTable.foreignKeyNames()}", 
+                            result = "the list of foreign key's names")
+            }
+        )
+    // @formatter:on    
     public List<String> foreignKeyNames(Table table) {
         final List<String> res = new ArrayList<String>();
 
@@ -56,12 +68,17 @@ public class TableServices {
         return res;
     }
 
-    /**
-     * Returns the list of columns that are nor primary key neither foreign key.
-     * 
-     * @param table
-     * @return
-     */
+    // @formatter:off
+    @Documentation(
+            comment = "{m:myTable.pureColumns()}",
+            value = "Returns the list of columns that are nor primary key neither foreign key.",
+            examples = {
+                    @Example(
+                            expression = "{m:myTable.pureColumns()}", 
+                            result = "the list of columns that are nor primary key neither foreign key.")
+            }
+        )
+    // @formatter:on    
     public List<Column> pureColumns(Table table) {
         final List<Column> res = new ArrayList<Column>();
 
@@ -78,12 +95,17 @@ public class TableServices {
         return table.getColumns();
     }
 
-    /**
-     * Returns the list of all the column's names.
-     * 
-     * @param table
-     * @return the list of column names.
-     */
+    // @formatter:off
+    @Documentation(
+            comment = "{m:myTable.allColumnNames()}",
+            value = "Returns the list of all the column's names.",
+            examples = {
+                    @Example(
+                            expression = "{m:myTable.allColumnNames()}", 
+                            result = "the list of all the column's names.")
+            }
+        )
+    // @formatter:on    
     public List<String> allColumnNames(Table table) {
         List<String> result = new ArrayList<String>();
         for (Column column : table.getColumns()) {
@@ -92,12 +114,17 @@ public class TableServices {
         return result;
     }
 
-    /**
-     * Returns the list of pure column names.
-     * 
-     * @param table
-     * @return the list of pure column names.
-     */
+    // @formatter:off
+    @Documentation(
+            comment = "{m:myTable.pureColumnNames()}",
+            value = "Returns the list of pure column names.",
+            examples = {
+                    @Example(
+                            expression = "{m:myTable.pureColumnNames()}", 
+                            result = "the list of pure column names.")
+            }
+        )
+    // @formatter:on    
     public List<String> pureColumnNames(Table table) {
         final List<String> res = new ArrayList<String>();
         for (Column column : table.getColumns()) {

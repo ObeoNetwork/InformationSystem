@@ -45,6 +45,9 @@ public interface Wire extends ObeoDSMObject {
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * The source service.
+	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Source</em>' reference.
 	 * @see #setSource(Service)
 	 * @see org.obeonetwork.dsl.soa.SoaPackage#getWire_Source()
@@ -71,6 +74,9 @@ public interface Wire extends ObeoDSMObject {
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * The target service.
+	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Dest</em>' reference.
 	 * @see #setDest(Service)
 	 * @see org.obeonetwork.dsl.soa.SoaPackage#getWire_Dest()

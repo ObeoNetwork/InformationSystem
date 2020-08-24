@@ -3,7 +3,7 @@ Bundle-ManifestVersion: 2
 Bundle-Name: %pluginName
 Bundle-SymbolicName: org.obeonetwork.dsl.soa;singleton:=true
 Automatic-Module-Name: org.obeonetwork.dsl.soa
-Bundle-Version: 11.0.0.qualifier
+Bundle-Version: 11.3.0.qualifier
 Bundle-ClassPath: .
 Bundle-Vendor: %providerName
 Bundle-Localization: plugin

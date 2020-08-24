@@ -2,7 +2,7 @@
 <html lang="en">
 <!--
 /********************************************************************************
-** Copyright (c) 2016, 2017, 2018, 2019 Obeo.
+** Copyright (c) 2016, 2020 Obeo.
 ** All rights reserved. This program and the accompanying materials
 ** are made available under the terms of the Eclipse Public License v1.0
 ** which accompanies this distribution, and is available at
@@ -55,7 +55,7 @@
     </tr>
     <tr>
       <td colspan="1" rowspan="1"><strong>bindingRegistries</strong></td>
-      <td colspan="1" rowspan="1">List of BindingRegistry</td>
+      <td colspan="1" rowspan="1">List of <a href="/help/topic/org.obeonetwork.dsl.environment.m2doc.services/doc/pages/m2doc_services_bindingregistry.html">BindingRegistry</a></td>
       <td colspan="1" rowspan="1">{m:cinematicRoot.bindingRegistries}</td>
       <td colspan="1" rowspan="1">The binding registries of this object.</td>
       <td colspan="1" rowspan="1">{m:for bindingRegistry | cinematicRoot.bindingRegistries} bindingRegistry {m:bindingRegistry.name}, {m:endfor}</td>
@@ -76,7 +76,7 @@
     </tr>
     <tr>
       <td colspan="1" rowspan="1"><strong>flows</strong></td>
-      <td colspan="1" rowspan="1">List of Flow</td>
+      <td colspan="1" rowspan="1">List of <a href="/help/topic/org.obeonetwork.cinematic.m2doc.services/doc/pages/m2doc_services_flow.html">Flow</a></td>
       <td colspan="1" rowspan="1">{m:cinematicRoot.flows}</td>
       <td colspan="1" rowspan="1">List of the Flows contained in this package.</td>
       <td colspan="1" rowspan="1">{m:for flow | cinematicRoot.flows} flow {m:flow.name}, {m:endfor}</td>
@@ -90,7 +90,7 @@
     </tr>
     <tr>
       <td colspan="1" rowspan="1"><strong>metadatas</strong></td>
-      <td colspan="1" rowspan="1">MetaDataContainer</td>
+      <td colspan="1" rowspan="1"><a href="/help/topic/org.obeonetwork.dsl.environment.m2doc.services/doc/pages/m2doc_services_metadatacontainer.html">MetaDataContainer</a></td>
       <td colspan="1" rowspan="1">{m:cinematicRoot.metadatas}</td>
       <td colspan="1" rowspan="1">The metadatas defined on this object.</td>
       <td colspan="1" rowspan="1">{m:cinematicRoot.metadatas}</td>
@@ -111,7 +111,7 @@
     </tr>
     <tr>
       <td colspan="1" rowspan="1"><strong>subPackages</strong></td>
-      <td colspan="1" rowspan="1">List of Package</td>
+      <td colspan="1" rowspan="1">List of <a href="/help/topic/org.obeonetwork.cinematic.m2doc.services/doc/pages/m2doc_services_package.html">Package</a></td>
       <td colspan="1" rowspan="1">{m:cinematicRoot.subPackages}</td>
       <td colspan="1" rowspan="1">List of the Packages contained in this packages (only the directly contained ones).</td>
       <td colspan="1" rowspan="1">{m:for package | cinematicRoot.subPackages} package {m:package.name}, {m:endfor}</td>
@@ -125,7 +125,7 @@
     </tr>
     <tr>
       <td colspan="1" rowspan="1"><strong>toolkits</strong></td>
-      <td colspan="1" rowspan="1">List of Toolkit</td>
+      <td colspan="1" rowspan="1">List of <a href="/help/topic/org.obeonetwork.cinematic.m2doc.services/doc/pages/m2doc_services_toolkit.html">Toolkit</a></td>
       <td colspan="1" rowspan="1">{m:cinematicRoot.toolkits}</td>
       <td colspan="1" rowspan="1">List of the Toolkits defined on this Cinematic Root.</td>
       <td colspan="1" rowspan="1">{m:for toolkit | cinematicRoot.toolkits} toolkit {m:toolkit.name}, {m:endfor}</td>
@@ -139,7 +139,7 @@
     </tr>
     <tr>
       <td colspan="1" rowspan="1"><strong>viewContainers</strong></td>
-      <td colspan="1" rowspan="1">List of ViewContainer</td>
+      <td colspan="1" rowspan="1">List of <a href="/help/topic/org.obeonetwork.cinematic.m2doc.services/doc/pages/m2doc_services_viewcontainer.html">ViewContainer</a></td>
       <td colspan="1" rowspan="1">{m:cinematicRoot.viewContainers}</td>
       <td colspan="1" rowspan="1">List of the View Containers contained in this package.</td>
       <td colspan="1" rowspan="1">{m:for viewContainer | cinematicRoot.viewContainers} viewContainer {m:viewContainer.name}, {m:endfor}</td>
@@ -162,10 +162,17 @@
   <tbody>
     <tr>
       <td colspan="1" rowspan="1"><strong>allRelatedRequirements</strong></td>
-      <td colspan="1" rowspan="1">List of Requirement</td>
+      <td colspan="1" rowspan="1">List of <a href="/help/topic/org.obeonetwork.dsl.requirement.m2doc.services/doc/pages/m2doc_services_requirement.html">Requirement</a></td>
       <td colspan="1" rowspan="1">{m:obj.allRelatedRequirements()}</td>
       <td colspan="1" rowspan="1">Returns a list of all the Requirements related to the target object or one of its sub objects. The result is a list with no duplicates sorted against the requirements ids.</td>
       <td colspan="1" rowspan="1">{m:obj.allRelatedRequirements()->sep(',')} returns: A comma separated list of related requirements.</td>
+    </tr>
+    <tr>
+      <td colspan="1" rowspan="1"><strong>annotation</strong></td>
+      <td colspan="1" rowspan="1">String</td>
+      <td colspan="1" rowspan="1">{m:myObeoDSMObject.annotation(String)}</td>
+      <td colspan="1" rowspan="1">Return first annotation with the specified title.</td>
+      <td colspan="1" rowspan="1">{m:myObeoDSMObject.annotation('some title')} returns: The string of the annotation.</td>
     </tr>
     <tr>
       <td colspan="1" rowspan="1"><strong>cinematicIcon</strong></td>
@@ -183,31 +190,45 @@
     </tr>
     <tr>
       <td colspan="1" rowspan="1"><strong>getAllActionStatesWithOperations</strong></td>
-      <td colspan="1" rowspan="1">List of ActionState</td>
+      <td colspan="1" rowspan="1">List of <a href="/help/topic/org.obeonetwork.cinematic.m2doc.services/doc/pages/m2doc_services_actionstate.html">ActionState</a></td>
       <td colspan="1" rowspan="1">{m:cinematicRoot.getAllActionStatesWithOperations()}</td>
       <td colspan="1" rowspan="1">Returns the list of all the Action States contained in the target Cinematic Root, having at least one Operation.</td>
       <td colspan="1" rowspan="1">{m:cinematicRoot.getAllActionStatesWithOperations()} returns: The list of all the Action States having at least one Operation.</td>
     </tr>
     <tr>
       <td colspan="1" rowspan="1"><strong>getAllLinkedDocuments</strong></td>
-      <td colspan="1" rowspan="1">List of Annotation</td>
+      <td colspan="1" rowspan="1">List of <a href="/help/topic/org.obeonetwork.dsl.environment.m2doc.services/doc/pages/m2doc_services_annotation.html">Annotation</a></td>
       <td colspan="1" rowspan="1">{m:cinematicRoot.getAllLinkedDocuments()}</td>
       <td colspan="1" rowspan="1">Returns the list of all documents attached to any of the elements contained in the target Cinematic Root.</td>
       <td colspan="1" rowspan="1">{m:cinematicRoot.getAllLinkedDocuments()} returns: The list of all of the documents.</td>
     </tr>
     <tr>
       <td colspan="1" rowspan="1"><strong>getAllViewContainers</strong></td>
-      <td colspan="1" rowspan="1">List of ViewContainer</td>
+      <td colspan="1" rowspan="1">List of <a href="/help/topic/org.obeonetwork.cinematic.m2doc.services/doc/pages/m2doc_services_viewcontainer.html">ViewContainer</a></td>
       <td colspan="1" rowspan="1">{m:package.getAllViewContainers()}</td>
       <td colspan="1" rowspan="1">Returns all the ViewContainers contained in the given package and any of its sub packages and view containers.</td>
       <td colspan="1" rowspan="1">{m:package.getAllViewContainers()} returns: The list of all contained View Containers.</td>
     </tr>
     <tr>
       <td colspan="1" rowspan="1"><strong>getAnnotations</strong></td>
-      <td colspan="1" rowspan="1">List of Annotation</td>
+      <td colspan="1" rowspan="1">List of <a href="/help/topic/org.obeonetwork.dsl.environment.m2doc.services/doc/pages/m2doc_services_annotation.html">Annotation</a></td>
       <td colspan="1" rowspan="1">{m:flowEvent.getAnnotations()}</td>
       <td colspan="1" rowspan="1">Returns the list of metadata annotations of the target Flow Event.</td>
       <td colspan="1" rowspan="1">{m:flowEvent.getAnnotations().title->sep(',')} returns: A comma separated list of Flow Event's annotation titles.</td>
+    </tr>
+    <tr>
+      <td colspan="1" rowspan="1"><strong>getAnnotations</strong></td>
+      <td colspan="1" rowspan="1">List of <a href="/help/topic/org.obeonetwork.dsl.environment.m2doc.services/doc/pages/m2doc_services_annotation.html">Annotation</a></td>
+      <td colspan="1" rowspan="1">{m:myObeoDSMObject.getAnnotations()}</td>
+      <td colspan="1" rowspan="1">Returns the list of metadata annotations of the target ObeoDSMObject that are not documentation links.</td>
+      <td colspan="1" rowspan="1">{m:myObeoDSMObject.getAnnotations().getDocumentTitle()->sep(',')} returns: A comma separated list of ObeoDSMObject's annotation titles.</td>
+    </tr>
+    <tr>
+      <td colspan="1" rowspan="1"><strong>getDocumentationLinks</strong></td>
+      <td colspan="1" rowspan="1">List of <a href="/help/topic/org.obeonetwork.dsl.environment.m2doc.services/doc/pages/m2doc_services_annotation.html">Annotation</a></td>
+      <td colspan="1" rowspan="1">{m:myObeoDSMObject.getDocumentationLinks()}</td>
+      <td colspan="1" rowspan="1">Returns the list of metadata annotations of the target ObeoDSMObject that are documentation links.</td>
+      <td colspan="1" rowspan="1">{m:myObeoDSMObject.getDocumentationLinks().title->sep(',')} returns: A comma separated list of ObeoDSMObject's annotation titles.</td>
     </tr>
     <tr>
       <td colspan="1" rowspan="1"><strong>getName</strong></td>
@@ -222,6 +243,27 @@
       <td colspan="1" rowspan="1">{m:obj.getTypeName()}</td>
       <td colspan="1" rowspan="1">Returns the name of the given object's type, formatted with white spaces.</td>
       <td colspan="1" rowspan="1">{m:obj.getTypeName()} returns: A string representation of the given object's type.</td>
+    </tr>
+    <tr>
+      <td colspan="1" rowspan="1"><strong>getTypeName</strong></td>
+      <td colspan="1" rowspan="1">String</td>
+      <td colspan="1" rowspan="1">{m:myEObject.getTypeName()}</td>
+      <td colspan="1" rowspan="1">Returns the name of the EClass of the given EObject.</td>
+      <td colspan="1" rowspan="1">{m:myEObject.getTypeName()} returns: ObeoDSMObject</td>
+    </tr>
+    <tr>
+      <td colspan="1" rowspan="1"><strong>hasAnnotations</strong></td>
+      <td colspan="1" rowspan="1">boolean</td>
+      <td colspan="1" rowspan="1">{m:myObeoDSMObject.getAnnotations()}</td>
+      <td colspan="1" rowspan="1">Returns true if the given ObeoDSMObject has at least one metadata annotations that is not documentation links, false otherwise.</td>
+      <td colspan="1" rowspan="1">{m:myObeoDSMObject.hasAnnotations()} returns: true or false.</td>
+    </tr>
+    <tr>
+      <td colspan="1" rowspan="1"><strong>hasDocumentationLinks</strong></td>
+      <td colspan="1" rowspan="1">boolean</td>
+      <td colspan="1" rowspan="1">{m:myObeoDSMObject.hasDocumentationLinks()}</td>
+      <td colspan="1" rowspan="1">Returns true if the given ObeoDSMObject has at least one documentation link, false otherwise.</td>
+      <td colspan="1" rowspan="1">{m:myObeoDSMObject.hasDocumentationLinks()} returns: true or false.</td>
     </tr>
     <tr>
       <td colspan="1" rowspan="1"><strong>hasRelatedRequirements</strong></td>
@@ -239,14 +281,14 @@
     </tr>
     <tr>
       <td colspan="1" rowspan="1"><strong>relatedRequirements</strong></td>
-      <td colspan="1" rowspan="1">List of Requirement</td>
+      <td colspan="1" rowspan="1">List of <a href="/help/topic/org.obeonetwork.dsl.requirement.m2doc.services/doc/pages/m2doc_services_requirement.html">Requirement</a></td>
       <td colspan="1" rowspan="1">{m:obj.relatedRequirements()}</td>
       <td colspan="1" rowspan="1">Returns the set of Requirement that are related to the target object.</td>
       <td colspan="1" rowspan="1">{m:obj.relatedRequirements()->sep(',')} returns: A comma separated list of related requirements.</td>
     </tr>
     <tr>
       <td colspan="1" rowspan="1"><strong>relatedRequirementsWithSubtype</strong></td>
-      <td colspan="1" rowspan="1">List of Requirement</td>
+      <td colspan="1" rowspan="1">List of <a href="/help/topic/org.obeonetwork.dsl.requirement.m2doc.services/doc/pages/m2doc_services_requirement.html">Requirement</a></td>
       <td colspan="1" rowspan="1">{m:obj.relatedRequirementsWithSubtype('SUBTYPE')}</td>
       <td colspan="1" rowspan="1">Returns the list of Requirements that reference the target object and that have the specified subtype.</td>
       <td colspan="1" rowspan="1">{m:obj.relatedRequirementsWithSubtype('performance')->sep(',')} returns: A comma separated list of related requirements of performance subtype.</td>

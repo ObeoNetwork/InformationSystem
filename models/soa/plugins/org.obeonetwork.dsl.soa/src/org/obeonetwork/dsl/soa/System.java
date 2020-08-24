@@ -47,6 +47,9 @@ public interface System extends Namespace {
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * The list of owned components.
+	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Owned Components</em>' containment reference list.
 	 * @see org.obeonetwork.dsl.soa.SoaPackage#getSystem_OwnedComponents()
 	 * @model containment="true" resolveProxies="true"
@@ -63,6 +66,9 @@ public interface System extends Namespace {
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * The list of owned wires.
+	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Owned Wires</em>' containment reference list.
 	 * @see org.obeonetwork.dsl.soa.SoaPackage#getSystem_OwnedWires()
 	 * @model containment="true" resolveProxies="true"

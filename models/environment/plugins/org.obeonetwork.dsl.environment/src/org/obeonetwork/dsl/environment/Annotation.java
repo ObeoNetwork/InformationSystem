@@ -43,6 +43,9 @@ public interface Annotation extends MetaData {
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * The title of the annotation.
+	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Title</em>' attribute.
 	 * @see #setTitle(String)
 	 * @see org.obeonetwork.dsl.environment.EnvironmentPackage#getAnnotation_Title()
@@ -69,6 +72,9 @@ public interface Annotation extends MetaData {
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * The body of the annotation.
+	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Body</em>' attribute.
 	 * @see #setBody(String)
 	 * @see org.obeonetwork.dsl.environment.EnvironmentPackage#getAnnotation_Body()

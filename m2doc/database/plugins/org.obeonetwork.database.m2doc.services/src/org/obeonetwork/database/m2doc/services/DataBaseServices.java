@@ -15,6 +15,8 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
+import org.eclipse.acceleo.annotations.api.documentation.Documentation;
+import org.eclipse.acceleo.annotations.api.documentation.Example;
 import org.obeonetwork.dsl.database.AbstractTable;
 import org.obeonetwork.dsl.database.DataBase;
 import org.obeonetwork.dsl.database.ForeignKey;
@@ -34,12 +36,17 @@ import org.obeonetwork.dsl.typeslibrary.TypesLibrary;
  */
 public class DataBaseServices {
 
-    /**
-     * Returns the name of the used library or the empty string if it's not known.
-     * 
-     * @param db
-     * @return
-     */
+    // @formatter:off
+    @Documentation(
+            comment = "{m:myDataBase.typeLibraryName()}",
+            value = "Returns the name of the used library or the empty string if it's not known.",
+            examples = {
+                    @Example(
+                            expression = "{m:myDataBase.typeLibraryName()}", 
+                            result = "the name of the used library or the empty string if it's not known.")
+            }
+        )
+    // @formatter:on    
     public String typeLibraryName(DataBase db) {
         List<TypesLibrary> libs = db.getUsedLibraries();
         if (libs.size() > 0 && libs.get(0) instanceof NativeTypesLibrary) {
@@ -49,40 +56,51 @@ public class DataBaseServices {
         }
     }
 
-    /**
-     * Returns all the table contained and referenced by the database (including the table of external databases referenced through foreign
-     * keys).
-     * 
-     * @param database
-     * @return the set of all tables contained and referenced by the database.
-     */
+    // @formatter:off
+    @Documentation(
+            comment = "{m:myDataBase.allTables()}",
+            value = "Returns all the table contained and referenced by the database (including the table of external databases referenced through foreign keys).",
+            examples = {
+                    @Example(
+                            expression = "{m:myDataBase.allTables()}", 
+                            result = "the set of all tables contained and referenced by the database.")
+            }
+        )
+    // @formatter:on    
     public Set<Table> allTables(DataBase database) {
         TableCollector collector = new TableCollector();
         collector.doSwitch(database);
         return collector.tables;
     }
 
-    /**
-     * Returns all the views contained and referenced by the database (including the views of external databases referenced through foreign
-     * keys).
-     * 
-     * @param database
-     * @return the set of all views contained and referenced by the database.
-     */
+    // @formatter:off
+    @Documentation(
+            comment = "{m:myDataBase.allViews()}",
+            value = "Returns all the views contained and referenced by the database (including the table of external databases referenced through foreign keys).",
+            examples = {
+                    @Example(
+                            expression = "{m:myDataBase.allViews()}", 
+                            result = "the set of all views contained and referenced by the database.")
+            }
+        )
+    // @formatter:on    
     public Set<View> allViews(DataBase database) {
         ViewCollector collector = new ViewCollector();
         collector.doSwitch(database);
         return collector.tables;
     }
 
-    /**
-     * Returns all the sequences contained and referenced by the database (including the sequences associated to tables of external
-     * databases referenced through foreign
-     * keys).
-     * 
-     * @param database
-     * @return the set of all sequences contained and referenced by the database.
-     */
+    // @formatter:off
+    @Documentation(
+            comment = "{m:myDataBase.allSequences()}",
+            value = "Returns all the sequences contained and referenced by the database (including the sequences associated to tables of external databases referenced through foreign keys).",
+            examples = {
+                    @Example(
+                            expression = "{m:myDataBase.allSequences()}", 
+                            result = "the set of all sequences contained and referenced by the database.")
+            }
+        )
+    // @formatter:on    
     public Set<Sequence> allSequences(DataBase database) {
         Set<Sequence> result = new HashSet<Sequence>();
         result.addAll(database.getSequences());
@@ -95,13 +113,17 @@ public class DataBaseServices {
         return result;
     }
 
-    /**
-     * Returns the list of local tables including tables in schemas.
-     * 
-     * @param db
-     *            the database
-     * @return the list of local tables.
-     */
+    // @formatter:off
+    @Documentation(
+            comment = "{m:myDataBase.localTables()}",
+            value = "Returns the list of local tables including tables in schemas.",
+            examples = {
+                    @Example(
+                            expression = "{m:myDataBase.localTables()}", 
+                            result = "the list of local tables including tables in schemas.")
+            }
+        )
+    // @formatter:on    
     public List<Table> localTables(DataBase db) {
         List<Table> result = new ArrayList<Table>();
         for (AbstractTable table : db.getTables()) {
@@ -119,13 +141,17 @@ public class DataBaseServices {
         return result;
     }
 
-    /**
-     * Returns the list of local tables including tables in schemas.
-     * 
-     * @param db
-     *            the database
-     * @return the list of local tables.
-     */
+    // @formatter:off
+    @Documentation(
+            comment = "{m:myDataBase.localViews()}",
+            value = "Returns the list of local tables including tables in schemas.",
+            examples = {
+                    @Example(
+                            expression = "{m:myDataBase.localViews()}", 
+                            result = "the list of local tables.")
+            }
+        )
+    // @formatter:on    
     public List<View> localViews(DataBase db) {
         List<View> result = new ArrayList<View>();
         for (AbstractTable table : db.getTables()) {
@@ -143,13 +169,17 @@ public class DataBaseServices {
         return result;
     }
 
-    /**
-     * Returns the list of local sequences including sequences in schemas.
-     * 
-     * @param db
-     *            the database
-     * @return the list of local sequences.
-     */
+    // @formatter:off
+    @Documentation(
+            comment = "{m:myDataBase.localSequences()}",
+            value = "Returns the list of local sequences including sequences in schemas.",
+            examples = {
+                    @Example(
+                            expression = "{m:myDataBase.localSequences()}", 
+                            result = "the list of local sequences.")
+            }
+        )
+    // @formatter:on    
     public List<Sequence> localSequences(DataBase db) {
         List<Sequence> result = new ArrayList<Sequence>();
         for (Sequence seq : db.getSequences()) {
@@ -187,9 +217,13 @@ public class DataBaseServices {
 
         @Override
         public String caseTable(Table object) {
-            tables.add(object);
-            for (ForeignKey key : object.getForeignKeys()) {
-                doSwitch(key.getTarget());
+            // SAFRAN-832 : check if the table has already been handled
+            // this is to avoid StackOverflowError because of recursive FK
+            if (!tables.contains(object)) {
+                tables.add(object);
+                for (ForeignKey key : object.getForeignKeys()) {
+                    doSwitch(key.getTarget());
+                }
             }
             return "";
         }

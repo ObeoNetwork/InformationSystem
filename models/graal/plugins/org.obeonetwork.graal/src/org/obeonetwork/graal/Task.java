@@ -41,6 +41,9 @@ public interface Task extends Activity, AbstractTask, UserStoryElement {
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * The list of uses tasks.
+	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Uses</em>' reference list.
 	 * @see org.obeonetwork.graal.GraalPackage#getTask_Uses()
 	 * @model
@@ -56,6 +59,9 @@ public interface Task extends Activity, AbstractTask, UserStoryElement {
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * The precondition.
+	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Preconditions</em>' attribute.
 	 * @see #setPreconditions(String)
 	 * @see org.obeonetwork.graal.GraalPackage#getTask_Preconditions()
@@ -82,6 +88,9 @@ public interface Task extends Activity, AbstractTask, UserStoryElement {
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * The post condition.
+	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Postconditions</em>' attribute.
 	 * @see #setPostconditions(String)
 	 * @see org.obeonetwork.graal.GraalPackage#getTask_Postconditions()
@@ -109,6 +118,9 @@ public interface Task extends Activity, AbstractTask, UserStoryElement {
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * The list of actors.
+	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Actors</em>' reference list.
 	 * @see org.obeonetwork.graal.GraalPackage#getTask_Actors()
 	 * @model

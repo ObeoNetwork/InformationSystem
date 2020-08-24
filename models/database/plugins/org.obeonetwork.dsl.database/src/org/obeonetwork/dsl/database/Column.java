@@ -59,6 +59,9 @@ public interface Column extends NamedElement {
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * Tells if this column value can be null.
+	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Nullable</em>' attribute.
 	 * @see #setNullable(boolean)
 	 * @see org.obeonetwork.dsl.database.DatabasePackage#getColumn_Nullable()
@@ -85,6 +88,9 @@ public interface Column extends NamedElement {
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * The column default value.
+	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Default Value</em>' attribute.
 	 * @see #setDefaultValue(String)
 	 * @see org.obeonetwork.dsl.database.DatabasePackage#getColumn_DefaultValue()
@@ -112,6 +118,9 @@ public interface Column extends NamedElement {
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * The list of indexes for this column.
+	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Indexes</em>' reference list.
 	 * @see org.obeonetwork.dsl.database.DatabasePackage#getColumn_Indexes()
 	 * @model transient="true" changeable="false" volatile="true" derived="true"
@@ -129,6 +138,9 @@ public interface Column extends NamedElement {
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * The list of index elements for this column.
+	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Index Elements</em>' reference list.
 	 * @see org.obeonetwork.dsl.database.DatabasePackage#getColumn_IndexElements()
 	 * @see org.obeonetwork.dsl.database.IndexElement#getColumn
@@ -146,6 +158,9 @@ public interface Column extends NamedElement {
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * The list of primary keys for this column.
+	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Primary Key</em>' reference.
 	 * @see #setPrimaryKey(PrimaryKey)
 	 * @see org.obeonetwork.dsl.database.DatabasePackage#getColumn_PrimaryKey()
@@ -174,6 +189,9 @@ public interface Column extends NamedElement {
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * The list of foreign keys for this column.
+	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Foreign Keys</em>' reference list.
 	 * @see org.obeonetwork.dsl.database.DatabasePackage#getColumn_ForeignKeys()
 	 * @model transient="true" changeable="false" volatile="true" derived="true"
@@ -191,6 +209,9 @@ public interface Column extends NamedElement {
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * The list of foreign key elements for this column.
+	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Foreign Key Elements</em>' reference list.
 	 * @see org.obeonetwork.dsl.database.DatabasePackage#getColumn_ForeignKeyElements()
 	 * @see org.obeonetwork.dsl.database.ForeignKeyElement#getFkColumn
@@ -207,6 +228,9 @@ public interface Column extends NamedElement {
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * The type of this column.
+	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Type</em>' containment reference.
 	 * @see #setType(Type)
 	 * @see org.obeonetwork.dsl.database.DatabasePackage#getColumn_Type()
@@ -234,6 +258,9 @@ public interface Column extends NamedElement {
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * The sequence for this column.
+	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Sequence</em>' reference.
 	 * @see #setSequence(Sequence)
 	 * @see org.obeonetwork.dsl.database.DatabasePackage#getColumn_Sequence()
@@ -262,6 +289,9 @@ public interface Column extends NamedElement {
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * The containing table.
+	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Owner</em>' container reference.
 	 * @see #setOwner(Table)
 	 * @see org.obeonetwork.dsl.database.DatabasePackage#getColumn_Owner()
@@ -289,6 +319,9 @@ public interface Column extends NamedElement {
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * Tells if the column auto increments.
+	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Autoincrement</em>' attribute.
 	 * @see #setAutoincrement(boolean)
 	 * @see org.obeonetwork.dsl.database.DatabasePackage#getColumn_Autoincrement()
@@ -315,6 +348,9 @@ public interface Column extends NamedElement {
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * Tells if the column is in primary keys.
+	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>In Primary Key</em>' attribute.
 	 * @see org.obeonetwork.dsl.database.DatabasePackage#getColumn_InPrimaryKey()
 	 * @model transient="true" changeable="false" volatile="true" derived="true"
@@ -330,6 +366,9 @@ public interface Column extends NamedElement {
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * Tells if the column is in foreign keys.
+	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>In Foreign Key</em>' attribute.
 	 * @see org.obeonetwork.dsl.database.DatabasePackage#getColumn_InForeignKey()
 	 * @model transient="true" changeable="false" volatile="true" derived="true"
@@ -345,6 +384,9 @@ public interface Column extends NamedElement {
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * Tells if the column values are unique.
+	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Unique</em>' attribute.
 	 * @see org.obeonetwork.dsl.database.DatabasePackage#getColumn_Unique()
 	 * @model transient="true" changeable="false" volatile="true" derived="true"

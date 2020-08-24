@@ -53,6 +53,9 @@ public interface Operation extends Action {
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * The list of input parameters.
+	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Input</em>' containment reference list.
 	 * @see org.obeonetwork.dsl.soa.SoaPackage#getOperation_Input()
 	 * @model containment="true" resolveProxies="true"
@@ -69,6 +72,9 @@ public interface Operation extends Action {
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * The list of output parameters
+	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Output</em>' containment reference list.
 	 * @see org.obeonetwork.dsl.soa.SoaPackage#getOperation_Output()
 	 * @model containment="true" resolveProxies="true"
@@ -85,6 +91,9 @@ public interface Operation extends Action {
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * The kind of operation.
+	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Kind</em>' attribute.
 	 * @see org.obeonetwork.dsl.soa.OperationKind
 	 * @see #setKind(OperationKind)
@@ -113,6 +122,9 @@ public interface Operation extends Action {
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * Tells of tje operation is public.
+	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Public</em>' attribute.
 	 * @see #setPublic(boolean)
 	 * @see org.obeonetwork.dsl.soa.SoaPackage#getOperation_Public()
@@ -140,6 +152,9 @@ public interface Operation extends Action {
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * The list of fault parameters.
+	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Fault</em>' containment reference list.
 	 * @see org.obeonetwork.dsl.soa.SoaPackage#getOperation_Fault()
 	 * @model containment="true" resolveProxies="true"

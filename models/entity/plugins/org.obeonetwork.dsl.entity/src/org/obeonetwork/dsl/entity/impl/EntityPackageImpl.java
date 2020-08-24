@@ -147,7 +147,6 @@ public class EntityPackageImpl extends EPackageImpl implements EntityPackage {
 		// Mark meta-data to indicate it can't be changed
 		theEntityPackage.freeze();
 
-  
 		// Update the registry and return the package
 		EPackage.Registry.INSTANCE.put(EntityPackage.eNS_URI, theEntityPackage);
 		return theEntityPackage;
@@ -465,6 +464,110 @@ public class EntityPackageImpl extends EPackageImpl implements EntityPackage {
 
 		// Create resource
 		createResource(eNS_URI);
+
+		// Create annotations
+		// http://www.eclipse.org/emf/2002/GenModel
+		createGenModelAnnotations();
+	}
+
+	/**
+	 * Initializes the annotations for <b>http://www.eclipse.org/emf/2002/GenModel</b>.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void createGenModelAnnotations() {
+		String source = "http://www.eclipse.org/emf/2002/GenModel";
+		addAnnotation
+		  (getRoot_Name(),
+		   source,
+		   new String[] {
+			   "documentation", "The name of the root."
+		   });
+		addAnnotation
+		  (getEntity_EstimatedVolumetry(),
+		   source,
+		   new String[] {
+			   "documentation", "The estimated volumetry"
+		   });
+		addAnnotation
+		  (getEntity_EstimatedAccess(),
+		   source,
+		   new String[] {
+			   "documentation", "The estimated accesses."
+		   });
+		addAnnotation
+		  (getEntity_Historized(),
+		   source,
+		   new String[] {
+			   "documentation", "Tells if historized"
+		   });
+		addAnnotation
+		  (getEntity_OwnedFinders(),
+		   source,
+		   new String[] {
+			   "documentation", "The list of finders."
+		   });
+		addAnnotation
+		  (getEntity_InheritanceKind(),
+		   source,
+		   new String[] {
+			   "documentation", "The inheritance kind."
+		   });
+		addAnnotation
+		  (getFinder_Name(),
+		   source,
+		   new String[] {
+			   "documentation", "The name of the finder."
+		   });
+		addAnnotation
+		  (getFinder_Entity(),
+		   source,
+		   new String[] {
+			   "documentation", "The entity."
+		   });
+		addAnnotation
+		  (getFinder_CustomizedName(),
+		   source,
+		   new String[] {
+			   "documentation", "The customized name."
+		   });
+		addAnnotation
+		  (getFinder_Criterions(),
+		   source,
+		   new String[] {
+			   "documentation", "The list of criterions."
+		   });
+		addAnnotation
+		  (getFinder_Multiplicity(),
+		   source,
+		   new String[] {
+			   "documentation", "The multiplicity."
+		   });
+		addAnnotation
+		  (getInternalCriterion_Target(),
+		   source,
+		   new String[] {
+			   "documentation", "The target of the internal criterion."
+		   });
+		addAnnotation
+		  (getInternalCriterion_Name(),
+		   source,
+		   new String[] {
+			   "documentation", "The name."
+		   });
+		addAnnotation
+		  (getExternalCriterion_Name(),
+		   source,
+		   new String[] {
+			   "documentation", "The name."
+		   });
+		addAnnotation
+		  (getExternalCriterion_Type(),
+		   source,
+		   new String[] {
+			   "documentation", "The type."
+		   });
 	}
 
 } // EntityPackageImpl

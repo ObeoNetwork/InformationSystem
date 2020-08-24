@@ -1186,6 +1186,368 @@ public class DatabasePackageImpl extends EPackageImpl implements DatabasePackage
 
 		// Create resource
 		createResource(eNS_URI);
+
+		// Create annotations
+		// http://www.eclipse.org/emf/2002/GenModel
+		createGenModelAnnotations();
+	}
+
+	/**
+	 * Initializes the annotations for <b>http://www.eclipse.org/emf/2002/GenModel</b>.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void createGenModelAnnotations() {
+		String source = "http://www.eclipse.org/emf/2002/GenModel";
+		addAnnotation
+		  (getNamedElement_Name(),
+		   source,
+		   new String[] {
+			   "documentation", "The name of this model element."
+		   });
+		addAnnotation
+		  (getDataBase_Url(),
+		   source,
+		   new String[] {
+			   "documentation", "The URL of the database."
+		   });
+		addAnnotation
+		  (getDataBase_Schemas(),
+		   source,
+		   new String[] {
+			   "documentation", "The list of schemas contained in this database."
+		   });
+		addAnnotation
+		  (getDataBase_Defines(),
+		   source,
+		   new String[] {
+			   "documentation", "The list of user defined type libraries in this database."
+		   });
+		addAnnotation
+		  (getAbstractTable_Owner(),
+		   source,
+		   new String[] {
+			   "documentation", "The container of this table."
+		   });
+		addAnnotation
+		  (getColumn_Nullable(),
+		   source,
+		   new String[] {
+			   "documentation", "Tells if this column value can be null."
+		   });
+		addAnnotation
+		  (getColumn_DefaultValue(),
+		   source,
+		   new String[] {
+			   "documentation", "The column default value."
+		   });
+		addAnnotation
+		  (getColumn_Indexes(),
+		   source,
+		   new String[] {
+			   "documentation", "The list of indexes for this column."
+		   });
+		addAnnotation
+		  (getColumn_IndexElements(),
+		   source,
+		   new String[] {
+			   "documentation", "The list of index elements for this column."
+		   });
+		addAnnotation
+		  (getColumn_PrimaryKey(),
+		   source,
+		   new String[] {
+			   "documentation", "The list of primary keys for this column."
+		   });
+		addAnnotation
+		  (getColumn_ForeignKeys(),
+		   source,
+		   new String[] {
+			   "documentation", "The list of foreign keys for this column."
+		   });
+		addAnnotation
+		  (getColumn_ForeignKeyElements(),
+		   source,
+		   new String[] {
+			   "documentation", "The list of foreign key elements for this column."
+		   });
+		addAnnotation
+		  (getColumn_Type(),
+		   source,
+		   new String[] {
+			   "documentation", "The type of this column."
+		   });
+		addAnnotation
+		  (getColumn_Sequence(),
+		   source,
+		   new String[] {
+			   "documentation", "The sequence for this column."
+		   });
+		addAnnotation
+		  (getColumn_Owner(),
+		   source,
+		   new String[] {
+			   "documentation", "The containing table."
+		   });
+		addAnnotation
+		  (getColumn_Autoincrement(),
+		   source,
+		   new String[] {
+			   "documentation", "Tells if the column auto increments."
+		   });
+		addAnnotation
+		  (getColumn_InPrimaryKey(),
+		   source,
+		   new String[] {
+			   "documentation", "Tells if the column is in primary keys."
+		   });
+		addAnnotation
+		  (getColumn_InForeignKey(),
+		   source,
+		   new String[] {
+			   "documentation", "Tells if the column is in foreign keys."
+		   });
+		addAnnotation
+		  (getColumn_Unique(),
+		   source,
+		   new String[] {
+			   "documentation", "Tells if the column values are unique."
+		   });
+		addAnnotation
+		  (getIndex_Qualifier(),
+		   source,
+		   new String[] {
+			   "documentation", "The index qualifier."
+		   });
+		addAnnotation
+		  (getIndex_Elements(),
+		   source,
+		   new String[] {
+			   "documentation", "The list of index elements."
+		   });
+		addAnnotation
+		  (getIndex_Unique(),
+		   source,
+		   new String[] {
+			   "documentation", "Tells if the index is unique."
+		   });
+		addAnnotation
+		  (getIndex_Cardinality(),
+		   source,
+		   new String[] {
+			   "documentation", "The index cardinality."
+		   });
+		addAnnotation
+		  (getIndex_IndexType(),
+		   source,
+		   new String[] {
+			   "documentation", "The index type."
+		   });
+		addAnnotation
+		  (getIndex_Owner(),
+		   source,
+		   new String[] {
+			   "documentation", "The containing table."
+		   });
+		addAnnotation
+		  (getView_Query(),
+		   source,
+		   new String[] {
+			   "documentation", "The query populating the view."
+		   });
+		addAnnotation
+		  (getView_Columns(),
+		   source,
+		   new String[] {
+			   "documentation", "The list of columns in this view."
+		   });
+		addAnnotation
+		  (getView_Tables(),
+		   source,
+		   new String[] {
+			   "documentation", "The list of tables in this view."
+		   });
+		addAnnotation
+		  (getTable_PrimaryKey(),
+		   source,
+		   new String[] {
+			   "documentation", "The primary key."
+		   });
+		addAnnotation
+		  (getTable_ForeignKeys(),
+		   source,
+		   new String[] {
+			   "documentation", "The list of foreign keys."
+		   });
+		addAnnotation
+		  (getTable_Constraints(),
+		   source,
+		   new String[] {
+			   "documentation", "The list of constraints."
+		   });
+		addAnnotation
+		  (getTable_Indexes(),
+		   source,
+		   new String[] {
+			   "documentation", "The list of indexes."
+		   });
+		addAnnotation
+		  (getTable_Columns(),
+		   source,
+		   new String[] {
+			   "documentation", "The list of columns."
+		   });
+		addAnnotation
+		  (getPrimaryKey_Columns(),
+		   source,
+		   new String[] {
+			   "documentation", "The list of columns."
+		   });
+		addAnnotation
+		  (getPrimaryKey_Owner(),
+		   source,
+		   new String[] {
+			   "documentation", "The containing table."
+		   });
+		addAnnotation
+		  (getForeignKey_Elements(),
+		   source,
+		   new String[] {
+			   "documentation", "The list of foreign key elements."
+		   });
+		addAnnotation
+		  (getForeignKey_Owner(),
+		   source,
+		   new String[] {
+			   "documentation", "The containing table."
+		   });
+		addAnnotation
+		  (getForeignKey_Target(),
+		   source,
+		   new String[] {
+			   "documentation", "The targeted table."
+		   });
+		addAnnotation
+		  (getForeignKeyElement_FkColumn(),
+		   source,
+		   new String[] {
+			   "documentation", "The foreign key column."
+		   });
+		addAnnotation
+		  (getForeignKeyElement_PkColumn(),
+		   source,
+		   new String[] {
+			   "documentation", "The primary key column."
+		   });
+		addAnnotation
+		  (getIndexElement_Column(),
+		   source,
+		   new String[] {
+			   "documentation", "The column to index."
+		   });
+		addAnnotation
+		  (getIndexElement_Asc(),
+		   source,
+		   new String[] {
+			   "documentation", "The order."
+		   });
+		addAnnotation
+		  (getConstraint_Expression(),
+		   source,
+		   new String[] {
+			   "documentation", "The constaint expression."
+		   });
+		addAnnotation
+		  (getConstraint_Owner(),
+		   source,
+		   new String[] {
+			   "documentation", "The containing table."
+		   });
+		addAnnotation
+		  (getDatabaseElement_ID(),
+		   source,
+		   new String[] {
+			   "documentation", "The identifier of the element."
+		   });
+		addAnnotation
+		  (getDatabaseElement_Comments(),
+		   source,
+		   new String[] {
+			   "documentation", "The comment."
+		   });
+		addAnnotation
+		  (getDatabaseElement_TechID(),
+		   source,
+		   new String[] {
+			   "documentation", "The technical identifier."
+		   });
+		addAnnotation
+		  (getSequence_Start(),
+		   source,
+		   new String[] {
+			   "documentation", "The starting value."
+		   });
+		addAnnotation
+		  (getSequence_Increment(),
+		   source,
+		   new String[] {
+			   "documentation", "The increment size."
+		   });
+		addAnnotation
+		  (getSequence_MinValue(),
+		   source,
+		   new String[] {
+			   "documentation", "The minimum value."
+		   });
+		addAnnotation
+		  (getSequence_MaxValue(),
+		   source,
+		   new String[] {
+			   "documentation", "The maximum value."
+		   });
+		addAnnotation
+		  (getSequence_CacheSize(),
+		   source,
+		   new String[] {
+			   "documentation", "The cache size."
+		   });
+		addAnnotation
+		  (getSequence_Cycle(),
+		   source,
+		   new String[] {
+			   "documentation", "Tells if the sequence is cyclic."
+		   });
+		addAnnotation
+		  (getSequence_Columns(),
+		   source,
+		   new String[] {
+			   "documentation", "The list of colums this sequence is applied."
+		   });
+		addAnnotation
+		  (getTableContainer_Tables(),
+		   source,
+		   new String[] {
+			   "documentation", "The list of contained tables."
+		   });
+		addAnnotation
+		  (getTableContainer_Sequences(),
+		   source,
+		   new String[] {
+			   "documentation", "The list of contained sequences."
+		   });
+		addAnnotation
+		  (getViewElement_Name(),
+		   source,
+		   new String[] {
+			   "documentation", "The name."
+		   });
+		addAnnotation
+		  (getViewElement_Alias(),
+		   source,
+		   new String[] {
+			   "documentation", "The alias."
+		   });
 	}
 
 } //DatabasePackageImpl

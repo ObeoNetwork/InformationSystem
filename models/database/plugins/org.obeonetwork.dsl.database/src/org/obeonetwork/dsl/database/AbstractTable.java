@@ -45,6 +45,9 @@ public interface AbstractTable extends NamedElement {
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * The container of this table.
+	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Owner</em>' container reference.
 	 * @see #setOwner(TableContainer)
 	 * @see org.obeonetwork.dsl.database.DatabasePackage#getAbstractTable_Owner()

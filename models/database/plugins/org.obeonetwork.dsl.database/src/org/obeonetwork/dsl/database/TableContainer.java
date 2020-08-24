@@ -47,6 +47,9 @@ public interface TableContainer extends NamedElement {
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * The list of contained tables.
+	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Tables</em>' containment reference list.
 	 * @see org.obeonetwork.dsl.database.DatabasePackage#getTableContainer_Tables()
 	 * @see org.obeonetwork.dsl.database.AbstractTable#getOwner
@@ -64,6 +67,9 @@ public interface TableContainer extends NamedElement {
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * The list of contained sequences.
+	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Sequences</em>' containment reference list.
 	 * @see org.obeonetwork.dsl.database.DatabasePackage#getTableContainer_Sequences()
 	 * @model containment="true"

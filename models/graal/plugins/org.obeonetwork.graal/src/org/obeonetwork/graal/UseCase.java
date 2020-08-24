@@ -42,6 +42,9 @@ public interface UseCase extends NamedElement, DomainModelRegistry {
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * The list of actors.
+	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Actors</em>' reference list.
 	 * @see org.obeonetwork.graal.GraalPackage#getUseCase_Actors()
 	 * @model
@@ -58,6 +61,9 @@ public interface UseCase extends NamedElement, DomainModelRegistry {
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * The list of tasks.
+	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Tasks</em>' reference list.
 	 * @see org.obeonetwork.graal.GraalPackage#getUseCase_Tasks()
 	 * @model
@@ -74,6 +80,9 @@ public interface UseCase extends NamedElement, DomainModelRegistry {
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * The list of inclided use cases.
+	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Includes</em>' reference list.
 	 * @see org.obeonetwork.graal.GraalPackage#getUseCase_Includes()
 	 * @model
@@ -90,6 +99,9 @@ public interface UseCase extends NamedElement, DomainModelRegistry {
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * The list of extended use cases.
+	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Extends</em>' reference list.
 	 * @see org.obeonetwork.graal.GraalPackage#getUseCase_Extends()
 	 * @model
@@ -106,6 +118,9 @@ public interface UseCase extends NamedElement, DomainModelRegistry {
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * The list of domain classes.
+	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Domain Classes</em>' reference list.
 	 * @see org.obeonetwork.graal.GraalPackage#getUseCase_DomainClasses()
 	 * @model

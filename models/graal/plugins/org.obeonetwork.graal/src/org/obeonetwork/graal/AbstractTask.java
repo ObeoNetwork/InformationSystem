@@ -36,6 +36,9 @@ public interface AbstractTask extends NamedElement {
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * The identifier of the task.
+	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Id</em>' attribute.
 	 * @see #setId(String)
 	 * @see org.obeonetwork.graal.GraalPackage#getAbstractTask_Id()

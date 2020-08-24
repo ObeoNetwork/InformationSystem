@@ -227,6 +227,24 @@ public interface DescriptionPackage extends EPackage {
 	int DBINDING_EDITOR_CREATION_DESCRIPTION__FILTERS = ToolPackage.REPRESENTATION_CREATION_DESCRIPTION__FILTERS;
 
 	/**
+	 * The feature id for the '<em><b>Elements To Select</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DBINDING_EDITOR_CREATION_DESCRIPTION__ELEMENTS_TO_SELECT = ToolPackage.REPRESENTATION_CREATION_DESCRIPTION__ELEMENTS_TO_SELECT;
+
+	/**
+	 * The feature id for the '<em><b>Inverse Selection Order</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DBINDING_EDITOR_CREATION_DESCRIPTION__INVERSE_SELECTION_ORDER = ToolPackage.REPRESENTATION_CREATION_DESCRIPTION__INVERSE_SELECTION_ORDER;
+
+	/**
 	 * The feature id for the '<em><b>Title Expression</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

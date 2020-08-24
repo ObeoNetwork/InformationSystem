@@ -45,6 +45,9 @@ public interface Enumeration extends DataType {
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * The list of literals for this enumeration.
+	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Literals</em>' containment reference list.
 	 * @see org.obeonetwork.dsl.environment.EnvironmentPackage#getEnumeration_Literals()
 	 * @model containment="true" resolveProxies="true" required="true"

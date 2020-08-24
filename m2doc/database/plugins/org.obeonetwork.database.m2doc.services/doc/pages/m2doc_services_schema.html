@@ -2,7 +2,7 @@
 <html lang="en">
 <!--
 /********************************************************************************
-** Copyright (c) 2016, 2017, 2018, 2019 Obeo.
+** Copyright (c) 2016, 2020 Obeo.
 ** All rights reserved. This program and the accompanying materials
 ** are made available under the terms of the Eclipse Public License v1.0
 ** which accompanies this distribution, and is available at
@@ -50,42 +50,42 @@
       <td colspan="1" rowspan="1"><strong>ID</strong></td>
       <td colspan="1" rowspan="1">EString</td>
       <td colspan="1" rowspan="1">{m:schema.ID}</td>
-      <td colspan="1" rowspan="1"></td>
+      <td colspan="1" rowspan="1">The identifier of the element.</td>
       <td colspan="1" rowspan="1">{m:schema.ID}</td>
     </tr>
     <tr>
       <td colspan="1" rowspan="1"><strong>comments</strong></td>
       <td colspan="1" rowspan="1">EString</td>
       <td colspan="1" rowspan="1">{m:schema.comments}</td>
-      <td colspan="1" rowspan="1"></td>
+      <td colspan="1" rowspan="1">The comment.</td>
       <td colspan="1" rowspan="1">{m:schema.comments}</td>
     </tr>
     <tr>
       <td colspan="1" rowspan="1"><strong>name</strong></td>
       <td colspan="1" rowspan="1">EString</td>
       <td colspan="1" rowspan="1">{m:schema.name}</td>
-      <td colspan="1" rowspan="1"></td>
+      <td colspan="1" rowspan="1">The name of this model element.</td>
       <td colspan="1" rowspan="1">{m:schema.name}</td>
     </tr>
     <tr>
       <td colspan="1" rowspan="1"><strong>sequences</strong></td>
-      <td colspan="1" rowspan="1">List of Sequence</td>
+      <td colspan="1" rowspan="1">List of <a href="/help/topic/org.obeonetwork.database.m2doc.services/doc/pages/m2doc_services_sequence.html">Sequence</a></td>
       <td colspan="1" rowspan="1">{m:schema.sequences}</td>
-      <td colspan="1" rowspan="1"></td>
+      <td colspan="1" rowspan="1">The list of contained sequences.</td>
       <td colspan="1" rowspan="1">{m:for sequence | schema.sequences} sequence {m:sequence.name}, {m:endfor}</td>
     </tr>
     <tr>
       <td colspan="1" rowspan="1"><strong>tables</strong></td>
       <td colspan="1" rowspan="1">List of AbstractTable</td>
       <td colspan="1" rowspan="1">{m:schema.tables}</td>
-      <td colspan="1" rowspan="1"></td>
+      <td colspan="1" rowspan="1">The list of contained tables.</td>
       <td colspan="1" rowspan="1">{m:for abstractTable | schema.tables} abstractTable {m:abstractTable.name}, {m:endfor}</td>
     </tr>
     <tr>
       <td colspan="1" rowspan="1"><strong>techID</strong></td>
       <td colspan="1" rowspan="1">EString</td>
       <td colspan="1" rowspan="1">{m:schema.techID}</td>
-      <td colspan="1" rowspan="1"></td>
+      <td colspan="1" rowspan="1">The technical identifier.</td>
       <td colspan="1" rowspan="1">{m:schema.techID}</td>
     </tr>
     </tbody>
@@ -105,116 +105,88 @@
     </thead>
   <tbody>
     <tr>
-      <td colspan="1" rowspan="1"><strong>caseDatabaseElement</strong></td>
-      <td colspan="1" rowspan="1">Object</td>
-      <td colspan="1" rowspan="1"></td>
-      <td colspan="1" rowspan="1"></td>
-      <td colspan="1" rowspan="1"></td>
+      <td colspan="1" rowspan="1"><strong>allRelatedRequirements</strong></td>
+      <td colspan="1" rowspan="1">List of <a href="/help/topic/org.obeonetwork.dsl.requirement.m2doc.services/doc/pages/m2doc_services_requirement.html">Requirement</a></td>
+      <td colspan="1" rowspan="1">{m:obj.allRelatedRequirements()}</td>
+      <td colspan="1" rowspan="1">Returns a list of all the Requirements related to the target object or one of its sub objects. The result is a list with no duplicates sorted against the requirements ids.</td>
+      <td colspan="1" rowspan="1">{m:obj.allRelatedRequirements()->sep(',')} returns: A comma separated list of related requirements.</td>
     </tr>
     <tr>
-      <td colspan="1" rowspan="1"><strong>caseDatabaseElement</strong></td>
-      <td colspan="1" rowspan="1">Object</td>
-      <td colspan="1" rowspan="1"></td>
-      <td colspan="1" rowspan="1"></td>
-      <td colspan="1" rowspan="1"></td>
+      <td colspan="1" rowspan="1"><strong>cinematicIcon</strong></td>
+      <td colspan="1" rowspan="1">org.obeonetwork.m2doc.element.MImage</td>
+      <td colspan="1" rowspan="1">{m:obj.cinematicIcon()}</td>
+      <td colspan="1" rowspan="1">Returns the presentation icon of the target Cinematic element.</td>
+      <td colspan="1" rowspan="1">{m:obj.getCinematicIcon()} returns: The icon of the element.</td>
     </tr>
     <tr>
-      <td colspan="1" rowspan="1"><strong>caseNamedElement</strong></td>
-      <td colspan="1" rowspan="1">Object</td>
-      <td colspan="1" rowspan="1"></td>
-      <td colspan="1" rowspan="1"></td>
-      <td colspan="1" rowspan="1"></td>
-    </tr>
-    <tr>
-      <td colspan="1" rowspan="1"><strong>caseNamedElement</strong></td>
-      <td colspan="1" rowspan="1">Object</td>
-      <td colspan="1" rowspan="1"></td>
-      <td colspan="1" rowspan="1"></td>
-      <td colspan="1" rowspan="1"></td>
-    </tr>
-    <tr>
-      <td colspan="1" rowspan="1"><strong>caseSchema</strong></td>
-      <td colspan="1" rowspan="1">Object</td>
-      <td colspan="1" rowspan="1"></td>
-      <td colspan="1" rowspan="1"></td>
-      <td colspan="1" rowspan="1"></td>
-    </tr>
-    <tr>
-      <td colspan="1" rowspan="1"><strong>caseSchema</strong></td>
+      <td colspan="1" rowspan="1"><strong>cinematicLabel</strong></td>
       <td colspan="1" rowspan="1">String</td>
-      <td colspan="1" rowspan="1"></td>
-      <td colspan="1" rowspan="1"></td>
-      <td colspan="1" rowspan="1"></td>
+      <td colspan="1" rowspan="1">{m:obj.cinematicLabel()}</td>
+      <td colspan="1" rowspan="1">Returns the presentation label of the target Cinematic element.</td>
+      <td colspan="1" rowspan="1">{m:obj.getCinematicLabel()} returns: The label of the element.</td>
     </tr>
     <tr>
-      <td colspan="1" rowspan="1"><strong>caseSchema</strong></td>
-      <td colspan="1" rowspan="1">Object</td>
-      <td colspan="1" rowspan="1"></td>
-      <td colspan="1" rowspan="1"></td>
-      <td colspan="1" rowspan="1"></td>
-    </tr>
-    <tr>
-      <td colspan="1" rowspan="1"><strong>caseSchema</strong></td>
+      <td colspan="1" rowspan="1"><strong>getName</strong></td>
       <td colspan="1" rowspan="1">String</td>
-      <td colspan="1" rowspan="1"></td>
-      <td colspan="1" rowspan="1"></td>
-      <td colspan="1" rowspan="1"></td>
+      <td colspan="1" rowspan="1">{m:obj.getName()}</td>
+      <td colspan="1" rowspan="1">Returns the name of the given object if it defines one. Returns an empty string in all other cases.</td>
+      <td colspan="1" rowspan="1">{m:obj.getName()} returns: The object name.</td>
     </tr>
     <tr>
-      <td colspan="1" rowspan="1"><strong>caseTableContainer</strong></td>
-      <td colspan="1" rowspan="1">Object</td>
-      <td colspan="1" rowspan="1"></td>
-      <td colspan="1" rowspan="1"></td>
-      <td colspan="1" rowspan="1"></td>
+      <td colspan="1" rowspan="1"><strong>getTypeName</strong></td>
+      <td colspan="1" rowspan="1">String</td>
+      <td colspan="1" rowspan="1">{m:obj.getTypeName()}</td>
+      <td colspan="1" rowspan="1">Returns the name of the given object's type, formatted with white spaces.</td>
+      <td colspan="1" rowspan="1">{m:obj.getTypeName()} returns: A string representation of the given object's type.</td>
     </tr>
     <tr>
-      <td colspan="1" rowspan="1"><strong>caseTableContainer</strong></td>
-      <td colspan="1" rowspan="1">Object</td>
-      <td colspan="1" rowspan="1"></td>
-      <td colspan="1" rowspan="1"></td>
-      <td colspan="1" rowspan="1"></td>
+      <td colspan="1" rowspan="1"><strong>getTypeName</strong></td>
+      <td colspan="1" rowspan="1">String</td>
+      <td colspan="1" rowspan="1">{m:myEObject.getTypeName()}</td>
+      <td colspan="1" rowspan="1">Returns the name of the EClass of the given EObject.</td>
+      <td colspan="1" rowspan="1">{m:myEObject.getTypeName()} returns: ObeoDSMObject</td>
     </tr>
     <tr>
-      <td colspan="1" rowspan="1"><strong>defaultCase</strong></td>
-      <td colspan="1" rowspan="1">Object</td>
-      <td colspan="1" rowspan="1"></td>
-      <td colspan="1" rowspan="1"></td>
-      <td colspan="1" rowspan="1"></td>
+      <td colspan="1" rowspan="1"><strong>hasRelatedRequirements</strong></td>
+      <td colspan="1" rowspan="1">boolean</td>
+      <td colspan="1" rowspan="1">{m:obj.hasRelatedRequirements()}</td>
+      <td colspan="1" rowspan="1">Returns true if the given Object as at least one related Requirement.</td>
+      <td colspan="1" rowspan="1">{m:obj.hasRelatedRequirements()} returns: true or false.</td>
     </tr>
     <tr>
-      <td colspan="1" rowspan="1"><strong>defaultCase</strong></td>
-      <td colspan="1" rowspan="1">Object</td>
-      <td colspan="1" rowspan="1"></td>
-      <td colspan="1" rowspan="1"></td>
-      <td colspan="1" rowspan="1"></td>
+      <td colspan="1" rowspan="1"><strong>isCinematicObject</strong></td>
+      <td colspan="1" rowspan="1">boolean</td>
+      <td colspan="1" rowspan="1">{m:obj.isCinematicObject()}</td>
+      <td colspan="1" rowspan="1">Returns if the target object is a Cinematic element.</td>
+      <td colspan="1" rowspan="1">{m:obj.isCinematicObject()} returns: True if the target object is a Cinematic element, false otherwise.</td>
     </tr>
     <tr>
-      <td colspan="1" rowspan="1"><strong>doSwitch</strong></td>
-      <td colspan="1" rowspan="1">Object</td>
-      <td colspan="1" rowspan="1"></td>
-      <td colspan="1" rowspan="1"></td>
-      <td colspan="1" rowspan="1"></td>
+      <td colspan="1" rowspan="1"><strong>relatedRequirements</strong></td>
+      <td colspan="1" rowspan="1">List of <a href="/help/topic/org.obeonetwork.dsl.requirement.m2doc.services/doc/pages/m2doc_services_requirement.html">Requirement</a></td>
+      <td colspan="1" rowspan="1">{m:obj.relatedRequirements()}</td>
+      <td colspan="1" rowspan="1">Returns the set of Requirement that are related to the target object.</td>
+      <td colspan="1" rowspan="1">{m:obj.relatedRequirements()->sep(',')} returns: A comma separated list of related requirements.</td>
     </tr>
     <tr>
-      <td colspan="1" rowspan="1"><strong>doSwitch</strong></td>
-      <td colspan="1" rowspan="1">Object</td>
-      <td colspan="1" rowspan="1"></td>
-      <td colspan="1" rowspan="1"></td>
-      <td colspan="1" rowspan="1"></td>
+      <td colspan="1" rowspan="1"><strong>relatedRequirementsWithSubtype</strong></td>
+      <td colspan="1" rowspan="1">List of <a href="/help/topic/org.obeonetwork.dsl.requirement.m2doc.services/doc/pages/m2doc_services_requirement.html">Requirement</a></td>
+      <td colspan="1" rowspan="1">{m:obj.relatedRequirementsWithSubtype('SUBTYPE')}</td>
+      <td colspan="1" rowspan="1">Returns the list of Requirements that reference the target object and that have the specified subtype.</td>
+      <td colspan="1" rowspan="1">{m:obj.relatedRequirementsWithSubtype('performance')->sep(',')} returns: A comma separated list of related requirements of performance subtype.</td>
     </tr>
     <tr>
       <td colspan="1" rowspan="1"><strong>tables</strong></td>
-      <td colspan="1" rowspan="1">List of Table</td>
-      <td colspan="1" rowspan="1"></td>
-      <td colspan="1" rowspan="1"></td>
-      <td colspan="1" rowspan="1"></td>
+      <td colspan="1" rowspan="1">List of <a href="/help/topic/org.obeonetwork.database.m2doc.services/doc/pages/m2doc_services_table.html">Table</a></td>
+      <td colspan="1" rowspan="1">{m:myTableContainer.tables()}</td>
+      <td colspan="1" rowspan="1">Returns the list of tables contained in the specified table container (database of schema).</td>
+      <td colspan="1" rowspan="1">{m:myTableContainer.tables()} returns: the list of tables contained in the specified table container (database of schema).</td>
     </tr>
     <tr>
       <td colspan="1" rowspan="1"><strong>views</strong></td>
-      <td colspan="1" rowspan="1">List of View</td>
-      <td colspan="1" rowspan="1"></td>
-      <td colspan="1" rowspan="1"></td>
-      <td colspan="1" rowspan="1"></td>
+      <td colspan="1" rowspan="1">List of <a href="/help/topic/org.obeonetwork.database.m2doc.services/doc/pages/m2doc_services_view.html">View</a></td>
+      <td colspan="1" rowspan="1">{m:myTableContainer.views()}</td>
+      <td colspan="1" rowspan="1">Returns the list of views contained in a table container (database or schema).</td>
+      <td colspan="1" rowspan="1">{m:myTableContainer.views()} returns: the list of views contained in a table container (database or schema).</td>
     </tr>
     </tbody>
     </table>

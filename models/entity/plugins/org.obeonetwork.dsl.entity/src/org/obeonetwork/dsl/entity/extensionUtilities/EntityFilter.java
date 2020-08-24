@@ -52,6 +52,9 @@ public interface EntityFilter extends Filter {
 	 * isn't clear, there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * The list of referenced attributes.
+	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Attribute References</em>' reference list.
 	 * @see org.obeonetwork.dsl.entity.extensionUtilities.ExtensionUtilitiesPackage#getEntityFilter_AttributeReferences()
 	 * @model transient="true" changeable="false" volatile="true" derived="true"
@@ -68,6 +71,9 @@ public interface EntityFilter extends Filter {
 	 * isn't clear, there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * The list of referenced references.
+	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Reference References</em>' reference list.
 	 * @see org.obeonetwork.dsl.entity.extensionUtilities.ExtensionUtilitiesPackage#getEntityFilter_ReferenceReferences()
 	 * @model transient="true" changeable="false" volatile="true" derived="true"
@@ -84,6 +90,9 @@ public interface EntityFilter extends Filter {
 	 * list isn't clear, there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * The list of property.
+	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Owned Property References</em>' reference list.
 	 * @see org.obeonetwork.dsl.entity.extensionUtilities.ExtensionUtilitiesPackage#getEntityFilter_OwnedPropertyReferences()
 	 * @model

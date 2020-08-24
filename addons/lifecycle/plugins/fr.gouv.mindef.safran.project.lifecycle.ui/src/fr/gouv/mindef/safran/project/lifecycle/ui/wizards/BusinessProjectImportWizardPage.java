@@ -77,28 +77,6 @@ public class BusinessProjectImportWizardPage extends WizardPage {
 		final ModelingProject targetModelingProject = ModelingProject.asModelingProject(targetProject).get();
 		final BusinessProjectImporter importer = BusinessProjectImporterFactory.getBusinessProjectImporter(sourceModelingProject, targetModelingProject);
 
-		try {
-			getContainer().run(false, false, new IRunnableWithProgress() {
-				@Override
-				public void run(IProgressMonitor monitor) throws InvocationTargetException, InterruptedException {
-					boolean confirm = true;
-					if (importer.shouldSaveAndCloseEditorsOnTargetProject()) {
-						confirm = MessageDialog.openConfirm(getShell(), DIALOG_TITLE, "The project must be saved and editors must be closed before importing business elements.\n"
-																					+ "Save and close the editors on " + targetProject.getName() + " ?");
-					}
-					if (confirm) {
-						try {
-							existingReferences = importer.getImpactedReferences(monitor);
-						} catch (CoreException e) {
-							errorOccured = e;
-						}
-					}
-				}
-			});
-		} catch (Exception e) {
-			reportError(e);
-			return false;
-		}
 		
 		if (errorOccured != null) {
 			reportError(errorOccured);
@@ -139,6 +117,26 @@ public class BusinessProjectImportWizardPage extends WizardPage {
 		if (errorOccured != null) {
 			reportError(errorOccured);
 			return false;
+		}
+		
+		
+		// Close and reopen the project to avoid SAFRAN-811
+		try {
+			getContainer().run(false, false, new IRunnableWithProgress() {
+				@Override
+				public void run(IProgressMonitor monitor) throws InvocationTargetException, InterruptedException {
+					if (MessageDialog.openQuestion(getShell(), DIALOG_TITLE, "The project should be closed and reopened to reload the model.\n"
+							+ "Do you want the project to be automatically refreshed for you ?") ) {
+						try {
+							targetProject.close(monitor);
+							targetProject.open(monitor);;
+						} catch (CoreException e) {
+						}
+					}
+				}
+			});
+		} catch (Exception e) {
+			reportError(e);
 		}
 		
         return true;

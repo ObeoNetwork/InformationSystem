@@ -10,6 +10,8 @@
  *******************************************************************************/
 package org.obeonetwork.database.m2doc.services;
 
+import org.eclipse.acceleo.annotations.api.documentation.Documentation;
+import org.eclipse.acceleo.annotations.api.documentation.Example;
 import org.obeonetwork.dsl.database.IndexElement;
 
 /**
@@ -19,12 +21,17 @@ import org.obeonetwork.dsl.database.IndexElement;
  */
 public class IndexElementServices {
 
-    /**
-     * Returns "X" if the element is sorted in ascending order and "" otherwise (or if it's null).
-     * 
-     * @param element
-     * @return "X" if the element is sorted in ascending order.
-     */
+    // @formatter:off
+    @Documentation(
+            comment = "{m:myIndexElement.checkAscending()}",
+            value = "Returns 'X' if the element is sorted in ascending order and '' otherwise (or if it's null).",
+            examples = {
+                    @Example(
+                            expression = "{m:myIndexElement.checkAscending()}", 
+                            result = "insert 'X' or ''.")
+            }
+        )
+    // @formatter:on    
     public String checkAscending(IndexElement element) {
         if (element != null) {
             return element.isAsc() ? "X" : "";
@@ -33,12 +40,17 @@ public class IndexElementServices {
         }
     }
 
-    /**
-     * Returns "Oui" if the element is sorted in ascending order and "No" otherwise (or "" if it's null).
-     * 
-     * @param element
-     * @return "Oui" or "Non" if the element is sorted in ascending order or not.
-     */
+    // @formatter:off
+    @Documentation(
+            comment = "{m:myIndexElement.checkAscending()}",
+            value = "Returns 'Oui' if the element is sorted in ascending order and 'Non' otherwise (or if it's null).",
+            examples = {
+                    @Example(
+                            expression = "{m:myIndexElement.checkAscending()}", 
+                            result = "insert 'Oui' or 'Non'.")
+            }
+        )
+    // @formatter:on    
     public String isAscending(IndexElement element) {
         if (element != null) {
             return element.isAsc() ? "Oui" : "Non";

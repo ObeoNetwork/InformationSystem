@@ -1,111 +1,111 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <site>
-   <feature url="features/org.obeonetwork.dsl.database.feature_11.0.0.qualifier.jar" id="org.obeonetwork.dsl.database.feature" version="11.0.0.qualifier">
+   <feature url="features/org.obeonetwork.dsl.database.feature_11.3.0.qualifier.jar" id="org.obeonetwork.dsl.database.feature" version="11.3.0.qualifier">
       <category name="org.obeonetwork.informationsystem.models"/>
    </feature>
-   <feature url="features/org.obeonetwork.dsl.feature.cinematic_11.0.0.qualifier.jar" id="org.obeonetwork.dsl.feature.cinematic" version="11.0.0.qualifier">
+   <feature url="features/org.obeonetwork.dsl.feature.cinematic_11.3.0.qualifier.jar" id="org.obeonetwork.dsl.feature.cinematic" version="11.3.0.qualifier">
       <category name="org.obeonetwork.informationsystem.models"/>
    </feature>
-   <feature url="features/org.obeonetwork.dsl.feature.entity_11.0.0.qualifier.jar" id="org.obeonetwork.dsl.feature.entity" version="11.0.0.qualifier">
+   <feature url="features/org.obeonetwork.dsl.feature.entity_11.3.0.qualifier.jar" id="org.obeonetwork.dsl.feature.entity" version="11.3.0.qualifier">
       <category name="org.obeonetwork.informationsystem.models"/>
    </feature>
-   <feature url="features/org.obeonetwork.dsl.feature.environment_11.0.0.qualifier.jar" id="org.obeonetwork.dsl.feature.environment" version="11.0.0.qualifier">
+   <feature url="features/org.obeonetwork.dsl.feature.environment_11.3.0.qualifier.jar" id="org.obeonetwork.dsl.feature.environment" version="11.3.0.qualifier">
       <category name="org.obeonetwork.informationsystem.models"/>
    </feature>
-   <feature url="features/org.obeonetwork.dsl.feature.soa_11.0.0.qualifier.jar" id="org.obeonetwork.dsl.feature.soa" version="11.0.0.qualifier">
+   <feature url="features/org.obeonetwork.dsl.feature.soa_11.3.0.qualifier.jar" id="org.obeonetwork.dsl.feature.soa" version="11.3.0.qualifier">
       <category name="org.obeonetwork.informationsystem.models"/>
    </feature>
-   <feature url="features/org.obeonetwork.dsl.feature.interaction_11.0.0.qualifier.jar" id="org.obeonetwork.dsl.feature.interaction" version="11.0.0.qualifier">
+   <feature url="features/org.obeonetwork.dsl.feature.interaction_11.3.0.qualifier.jar" id="org.obeonetwork.dsl.feature.interaction" version="11.3.0.qualifier">
       <category name="org.obeonetwork.informationsystem.models"/>
    </feature>
-   <feature url="features/org.obeonetwork.dsl.feature.overview_11.0.0.qualifier.jar" id="org.obeonetwork.dsl.feature.overview" version="11.0.0.qualifier">
+   <feature url="features/org.obeonetwork.dsl.feature.overview_11.3.0.qualifier.jar" id="org.obeonetwork.dsl.feature.overview" version="11.3.0.qualifier">
       <category name="org.obeonetwork.informationsystem.models"/>
    </feature>
-   <feature url="features/org.obeonetwork.dsl.feature.requirement_11.0.0.qualifier.jar" id="org.obeonetwork.dsl.feature.requirement" version="11.0.0.qualifier">
+   <feature url="features/org.obeonetwork.dsl.feature.requirement_11.3.0.qualifier.jar" id="org.obeonetwork.dsl.feature.requirement" version="11.3.0.qualifier">
       <category name="org.obeonetwork.informationsystem.models"/>
    </feature>
-   <feature url="features/org.obeonetwork.dsl.feature.statemachine_11.0.0.qualifier.jar" id="org.obeonetwork.dsl.feature.statemachine" version="11.0.0.qualifier">
+   <feature url="features/org.obeonetwork.dsl.feature.statemachine_11.3.0.qualifier.jar" id="org.obeonetwork.dsl.feature.statemachine" version="11.3.0.qualifier">
       <category name="org.obeonetwork.informationsystem.models"/>
    </feature>
-   <feature url="features/org.obeonetwork.graal.feature_11.0.0.qualifier.jar" id="org.obeonetwork.graal.feature" version="11.0.0.qualifier">
+   <feature url="features/org.obeonetwork.graal.feature_11.3.0.qualifier.jar" id="org.obeonetwork.graal.feature" version="11.3.0.qualifier">
       <category name="org.obeonetwork.informationsystem.models"/>
    </feature>
-   <feature url="features/org.obeonetwork.dsl.cinematic.design.feature_11.0.0.qualifier.jar" id="org.obeonetwork.dsl.cinematic.design.feature" version="11.0.0.qualifier">
+   <feature url="features/org.obeonetwork.dsl.cinematic.design.feature_11.3.0.qualifier.jar" id="org.obeonetwork.dsl.cinematic.design.feature" version="11.3.0.qualifier">
       <category name="org.obeonetwork.informationsystem.designs"/>
    </feature>
-   <feature url="features/org.obeonetwork.graal.design.feature_11.0.0.qualifier.jar" id="org.obeonetwork.graal.design.feature" version="11.0.0.qualifier">
+   <feature url="features/org.obeonetwork.graal.design.feature_11.3.0.qualifier.jar" id="org.obeonetwork.graal.design.feature" version="11.3.0.qualifier">
       <category name="org.obeonetwork.informationsystem.designs"/>
    </feature>
-   <feature url="features/org.obeonetwork.dsl.interaction.design.feature_11.0.0.qualifier.jar" id="org.obeonetwork.dsl.interaction.design.feature" version="11.0.0.qualifier">
+   <feature url="features/org.obeonetwork.dsl.interaction.design.feature_11.3.0.qualifier.jar" id="org.obeonetwork.dsl.interaction.design.feature" version="11.3.0.qualifier">
       <category name="org.obeonetwork.informationsystem.designs"/>
    </feature>
-   <feature url="features/org.obeonetwork.dsl.requirement.design.feature_11.0.0.qualifier.jar" id="org.obeonetwork.dsl.requirement.design.feature" version="11.0.0.qualifier">
+   <feature url="features/org.obeonetwork.dsl.requirement.design.feature_11.3.0.qualifier.jar" id="org.obeonetwork.dsl.requirement.design.feature" version="11.3.0.qualifier">
       <category name="org.obeonetwork.informationsystem.designs"/>
    </feature>
-   <feature url="features/org.obeonetwork.dsl.statemachine.design.feature_11.0.0.qualifier.jar" id="org.obeonetwork.dsl.statemachine.design.feature" version="11.0.0.qualifier">
+   <feature url="features/org.obeonetwork.dsl.statemachine.design.feature_11.3.0.qualifier.jar" id="org.obeonetwork.dsl.statemachine.design.feature" version="11.3.0.qualifier">
       <category name="org.obeonetwork.informationsystem.designs"/>
    </feature>
-   <feature url="features/org.obeonetwork.tools.doc.feature_11.0.0.qualifier.jar" id="org.obeonetwork.tools.doc.feature" version="11.0.0.qualifier">
+   <feature url="features/org.obeonetwork.tools.doc.feature_11.3.0.qualifier.jar" id="org.obeonetwork.tools.doc.feature" version="11.3.0.qualifier">
       <category name="org.obeonetwork.informationsystem.commons"/>
    </feature>
-   <feature url="features/org.obeonetwork.tools.linker.feature_11.0.0.qualifier.jar" id="org.obeonetwork.tools.linker.feature" version="11.0.0.qualifier">
+   <feature url="features/org.obeonetwork.tools.linker.feature_11.3.0.qualifier.jar" id="org.obeonetwork.tools.linker.feature" version="11.3.0.qualifier">
       <category name="org.obeonetwork.informationsystem.commons"/>
    </feature>
    <feature url="features/org.eclipse.nebula.treemapper.feature_0.1.0.qualifier.jar" id="org.eclipse.nebula.treemapper.feature" version="0.1.0.qualifier">
       <category name="org.obeonetwork.informationsystem.commons"/>
    </feature>
-   <feature url="features/org.obeonetwork.dsl.typelibrary.feature_11.0.0.qualifier.jar" id="org.obeonetwork.dsl.typelibrary.feature" version="11.0.0.qualifier">
+   <feature url="features/org.obeonetwork.dsl.typelibrary.feature_11.3.0.qualifier.jar" id="org.obeonetwork.dsl.typelibrary.feature" version="11.3.0.qualifier">
       <category name="org.obeonetwork.informationsystem.models"/>
    </feature>
-   <feature url="features/org.obeonetwork.dsl.database.design.feature_11.0.0.qualifier.jar" id="org.obeonetwork.dsl.database.design.feature" version="11.0.0.qualifier">
+   <feature url="features/org.obeonetwork.dsl.database.design.feature_11.3.0.qualifier.jar" id="org.obeonetwork.dsl.database.design.feature" version="11.3.0.qualifier">
       <category name="org.obeonetwork.informationsystem.designs"/>
    </feature>
-   <feature url="features/org.obeonetwork.dsl.feature.is_11.0.0.qualifier.jar" id="org.obeonetwork.dsl.feature.is" version="11.0.0.qualifier">
+   <feature url="features/org.obeonetwork.dsl.feature.is_11.3.0.qualifier.jar" id="org.obeonetwork.dsl.feature.is" version="11.3.0.qualifier">
       <category name="org.obeonetwork.informationsystem.commons"/>
    </feature>
-   <feature url="features/org.obeonetwork.dsl.feature.is.design_11.0.0.qualifier.jar" id="org.obeonetwork.dsl.feature.is.design" version="11.0.0.qualifier">
+   <feature url="features/org.obeonetwork.dsl.feature.is.design_11.3.0.qualifier.jar" id="org.obeonetwork.dsl.feature.is.design" version="11.3.0.qualifier">
       <category name="org.obeonetwork.informationsystem.designs"/>
    </feature>
-   <feature url="features/org.obeonetwork.dsl.application.feature_11.0.0.qualifier.jar" id="org.obeonetwork.dsl.application.feature" version="11.0.0.qualifier">
+   <feature url="features/org.obeonetwork.dsl.application.feature_11.3.0.qualifier.jar" id="org.obeonetwork.dsl.application.feature" version="11.3.0.qualifier">
       <category name="org.obeonetwork.informationsystem.models"/>
    </feature>
-   <feature url="features/org.obeonetwork.dsl.ecorebinding.feature_11.0.0.qualifier.jar" id="org.obeonetwork.dsl.ecorebinding.feature" version="11.0.0.qualifier">
+   <feature url="features/org.obeonetwork.dsl.ecorebinding.feature_11.3.0.qualifier.jar" id="org.obeonetwork.dsl.ecorebinding.feature" version="11.3.0.qualifier">
       <category name="org.obeonetwork.informationsystem.models"/>
    </feature>
-   <feature url="features/org.obeonetwork.dsl.database.synchronizer_11.0.0.qualifier.jar" id="org.obeonetwork.dsl.database.synchronizer" version="11.0.0.qualifier">
+   <feature url="features/org.obeonetwork.dsl.database.synchronizer_11.3.0.qualifier.jar" id="org.obeonetwork.dsl.database.synchronizer" version="11.3.0.qualifier">
       <category name="org.obeonetwork.informationsystem.reversers"/>
    </feature>
-   <feature url="features/org.obeonetwork.dsl.database.reverse.feature_11.0.0.qualifier.jar" id="org.obeonetwork.dsl.database.reverse.feature" version="11.0.0.qualifier">
+   <feature url="features/org.obeonetwork.dsl.database.reverse.feature_11.3.0.qualifier.jar" id="org.obeonetwork.dsl.database.reverse.feature" version="11.3.0.qualifier">
       <category name="org.obeonetwork.informationsystem.reversers"/>
    </feature>
-   <feature url="features/org.obeonetwork.tools.migration.feature_11.0.0.qualifier.jar" id="org.obeonetwork.tools.migration.feature" version="11.0.0.qualifier">
+   <feature url="features/org.obeonetwork.tools.migration.feature_11.3.0.qualifier.jar" id="org.obeonetwork.tools.migration.feature" version="11.3.0.qualifier">
       <category name="org.obeonetwork.informationsystem.commons"/>
    </feature>
-   <feature url="features/org.obeonetwork.dsl.environment.design.services.feature_11.0.0.qualifier.jar" id="org.obeonetwork.dsl.environment.design.services.feature" version="11.0.0.qualifier">
+   <feature url="features/org.obeonetwork.dsl.environment.design.services.feature_11.3.0.qualifier.jar" id="org.obeonetwork.dsl.environment.design.services.feature" version="11.3.0.qualifier">
       <category name="org.obeonetwork.informationsystem.designs"/>
    </feature>
-   <feature url="features/org.obeonetwork.dsl.soa.design.feature_11.0.0.qualifier.jar" id="org.obeonetwork.dsl.soa.design.feature" version="11.0.0.qualifier">
+   <feature url="features/org.obeonetwork.dsl.soa.design.feature_11.3.0.qualifier.jar" id="org.obeonetwork.dsl.soa.design.feature" version="11.3.0.qualifier">
       <category name="org.obeonetwork.informationsystem.designs"/>
    </feature>
-   <feature url="features/org.obeonetwork.dsl.entity.design.feature_11.0.0.qualifier.jar" id="org.obeonetwork.dsl.entity.design.feature" version="11.0.0.qualifier">
+   <feature url="features/org.obeonetwork.dsl.entity.design.feature_11.3.0.qualifier.jar" id="org.obeonetwork.dsl.entity.design.feature" version="11.3.0.qualifier">
       <category name="org.obeonetwork.informationsystem.designs"/>
    </feature>
-   <feature url="features/org.obeonetwork.dsl.environment.design.migration.feature_11.0.0.qualifier.jar" id="org.obeonetwork.dsl.environment.design.migration.feature" version="11.0.0.qualifier">
+   <feature url="features/org.obeonetwork.dsl.environment.design.migration.feature_11.3.0.qualifier.jar" id="org.obeonetwork.dsl.environment.design.migration.feature" version="11.3.0.qualifier">
       <category name="org.obeonetwork.informationsystem.designs"/>
    </feature>
-   <feature url="features/org.obeonetwork.dsl.environment.binding.design.feature_11.0.0.qualifier.jar" id="org.obeonetwork.dsl.environment.binding.design.feature" version="11.0.0.qualifier">
+   <feature url="features/org.obeonetwork.dsl.environment.binding.design.feature_11.3.0.qualifier.jar" id="org.obeonetwork.dsl.environment.binding.design.feature" version="11.3.0.qualifier">
       <category name="org.obeonetwork.informationsystem.designs"/>
    </feature>
-   <feature url="features/org.obeonetwork.dsl.environment.binding.dialect.feature_11.0.0.qualifier.jar" id="org.obeonetwork.dsl.environment.binding.dialect.feature" version="11.0.0.qualifier">
+   <feature url="features/org.obeonetwork.dsl.environment.binding.dialect.feature_11.3.0.qualifier.jar" id="org.obeonetwork.dsl.environment.binding.dialect.feature" version="11.3.0.qualifier">
       <category name="org.obeonetwork.informationsystem.designs"/>
    </feature>
-   <feature url="features/org.obeonetwork.dsl.feature.technicalid_11.0.0.qualifier.jar" id="org.obeonetwork.dsl.feature.technicalid" version="11.0.0.qualifier">
+   <feature url="features/org.obeonetwork.dsl.feature.technicalid_11.3.0.qualifier.jar" id="org.obeonetwork.dsl.feature.technicalid" version="11.3.0.qualifier">
       <category name="org.obeonetwork.informationsystem.models"/>
    </feature>
-   <feature url="features/org.obeonetwork.dsl.environment.design.feature_11.0.0.qualifier.jar" id="org.obeonetwork.dsl.environment.design.feature" version="11.0.0.qualifier">
+   <feature url="features/org.obeonetwork.dsl.environment.design.feature_11.3.0.qualifier.jar" id="org.obeonetwork.dsl.environment.design.feature" version="11.3.0.qualifier">
       <category name="org.obeonetwork.informationsystem.designs"/>
    </feature>
-   <feature url="features/org.obeonetwork.tools.snapshot.viewer.feature_11.0.0.qualifier.jar" id="org.obeonetwork.tools.snapshot.viewer.feature" version="11.0.0.qualifier">
+   <feature url="features/org.obeonetwork.tools.snapshot.viewer.feature_11.3.0.qualifier.jar" id="org.obeonetwork.tools.snapshot.viewer.feature" version="11.3.0.qualifier">
       <category name="org.obeonetwork.informationsystem.commons"/>
    </feature>
    <feature url="features/org.obeonetwork.dsl.graal.m2doc.feature_1.0.0.qualifier.jar" id="org.obeonetwork.dsl.graal.m2doc.feature" version="1.0.0.qualifier">
@@ -150,19 +150,19 @@
    <feature url="features/fr.gouv.mindef.safran.graal.extensions.feature_1.0.0.qualifier.jar" id="fr.gouv.mindef.safran.graal.extensions.feature" version="1.0.0.qualifier">
       <category name="org.obeonetwork.informationsystem.addons"/>
    </feature>
-   <feature url="features/org.obeonetwork.is.samples.feature_11.0.0.qualifier.jar" id="org.obeonetwork.is.samples.feature" version="11.0.0.qualifier">
+   <feature url="features/org.obeonetwork.is.samples.feature_11.3.0.qualifier.jar" id="org.obeonetwork.is.samples.feature" version="11.3.0.qualifier">
       <category name="org.obeonetwork.informationsystem.samples"/>
    </feature>
-   <feature url="features/org.obeonetwork.tools.projectlibrary.feature_11.0.0.qualifier.jar" id="org.obeonetwork.tools.projectlibrary.feature" version="11.0.0.qualifier">
+   <feature url="features/org.obeonetwork.tools.projectlibrary.feature_11.3.0.qualifier.jar" id="org.obeonetwork.tools.projectlibrary.feature" version="11.3.0.qualifier">
       <category name="org.obeonetwork.informationsystem.commons"/>
    </feature>
    <feature url="features/org.obeonetwork.cinematic.m2doc.feature_1.0.0.qualifier.jar" id="org.obeonetwork.cinematic.m2doc.feature" version="1.0.0.qualifier">
       <category name="org.obeonetwork.informationsystem.m2doc"/>
    </feature>
-   <feature url="features/org.obeonetwork.utils.feature_11.0.0.qualifier.jar" id="org.obeonetwork.utils.feature" version="11.0.0.qualifier">
+   <feature url="features/org.obeonetwork.utils.feature_11.3.0.qualifier.jar" id="org.obeonetwork.utils.feature" version="11.3.0.qualifier">
       <category name="org.obeonetwork.informationsystem.commons"/>
    </feature>
-   <feature url="features/org.obeonetwork.tools.contextual.explorer.feature_11.0.0.qualifier.jar" id="org.obeonetwork.tools.contextual.explorer.feature" version="11.0.0.qualifier">
+   <feature url="features/org.obeonetwork.tools.contextual.explorer.feature_11.3.0.qualifier.jar" id="org.obeonetwork.tools.contextual.explorer.feature" version="11.3.0.qualifier">
       <category name="org.obeonetwork.informationsystem.commons"/>
    </feature>
    <feature url="features/org.obeonetwork.dsl.soa.gen.swagger.feature_1.0.0.qualifier.jar" id="org.obeonetwork.dsl.soa.gen.swagger.feature" version="1.0.0.qualifier">

@@ -2,7 +2,7 @@
 <html lang="en">
 <!--
 /********************************************************************************
-** Copyright (c) 2016, 2017, 2018, 2019 Obeo.
+** Copyright (c) 2016, 2020 Obeo.
 ** All rights reserved. This program and the accompanying materials
 ** are made available under the terms of the Eclipse Public License v1.0
 ** which accompanies this distribution, and is available at
@@ -50,126 +50,126 @@
       <td colspan="1" rowspan="1"><strong>ID</strong></td>
       <td colspan="1" rowspan="1">EString</td>
       <td colspan="1" rowspan="1">{m:column.ID}</td>
-      <td colspan="1" rowspan="1"></td>
+      <td colspan="1" rowspan="1">The identifier of the element.</td>
       <td colspan="1" rowspan="1">{m:column.ID}</td>
     </tr>
     <tr>
       <td colspan="1" rowspan="1"><strong>autoincrement</strong></td>
       <td colspan="1" rowspan="1">EBoolean</td>
       <td colspan="1" rowspan="1">{m:column.autoincrement}</td>
-      <td colspan="1" rowspan="1"></td>
+      <td colspan="1" rowspan="1">Tells if the column auto increments.</td>
       <td colspan="1" rowspan="1">{m:column.autoincrement}</td>
     </tr>
     <tr>
       <td colspan="1" rowspan="1"><strong>comments</strong></td>
       <td colspan="1" rowspan="1">EString</td>
       <td colspan="1" rowspan="1">{m:column.comments}</td>
-      <td colspan="1" rowspan="1"></td>
+      <td colspan="1" rowspan="1">The comment.</td>
       <td colspan="1" rowspan="1">{m:column.comments}</td>
     </tr>
     <tr>
       <td colspan="1" rowspan="1"><strong>defaultValue</strong></td>
       <td colspan="1" rowspan="1">EString</td>
       <td colspan="1" rowspan="1">{m:column.defaultValue}</td>
-      <td colspan="1" rowspan="1"></td>
+      <td colspan="1" rowspan="1">The column default value.</td>
       <td colspan="1" rowspan="1">{m:column.defaultValue}</td>
     </tr>
     <tr>
       <td colspan="1" rowspan="1"><strong>foreignKeyElements</strong></td>
-      <td colspan="1" rowspan="1">List of ForeignKeyElement</td>
+      <td colspan="1" rowspan="1">List of <a href="/help/topic/org.obeonetwork.database.m2doc.services/doc/pages/m2doc_services_foreignkeyelement.html">ForeignKeyElement</a></td>
       <td colspan="1" rowspan="1">{m:column.foreignKeyElements}</td>
-      <td colspan="1" rowspan="1"></td>
+      <td colspan="1" rowspan="1">The list of foreign key elements for this column.</td>
       <td colspan="1" rowspan="1">{m:for foreignKeyElement | column.foreignKeyElements} foreignKeyElement {m:foreignKeyElement.name}, {m:endfor}</td>
     </tr>
     <tr>
       <td colspan="1" rowspan="1"><strong>foreignKeys</strong></td>
-      <td colspan="1" rowspan="1">List of ForeignKey</td>
+      <td colspan="1" rowspan="1">List of <a href="/help/topic/org.obeonetwork.database.m2doc.services/doc/pages/m2doc_services_foreignkey.html">ForeignKey</a></td>
       <td colspan="1" rowspan="1">{m:column.foreignKeys}</td>
-      <td colspan="1" rowspan="1"></td>
+      <td colspan="1" rowspan="1">The list of foreign keys for this column.</td>
       <td colspan="1" rowspan="1">{m:for foreignKey | column.foreignKeys} foreignKey {m:foreignKey.name}, {m:endfor}</td>
     </tr>
     <tr>
       <td colspan="1" rowspan="1"><strong>inForeignKey</strong></td>
       <td colspan="1" rowspan="1">EBoolean</td>
       <td colspan="1" rowspan="1">{m:column.inForeignKey}</td>
-      <td colspan="1" rowspan="1"></td>
+      <td colspan="1" rowspan="1">Tells if the column is in foreign keys.</td>
       <td colspan="1" rowspan="1">{m:column.inForeignKey}</td>
     </tr>
     <tr>
       <td colspan="1" rowspan="1"><strong>inPrimaryKey</strong></td>
       <td colspan="1" rowspan="1">EBoolean</td>
       <td colspan="1" rowspan="1">{m:column.inPrimaryKey}</td>
-      <td colspan="1" rowspan="1"></td>
+      <td colspan="1" rowspan="1">Tells if the column is in primary keys.</td>
       <td colspan="1" rowspan="1">{m:column.inPrimaryKey}</td>
     </tr>
     <tr>
       <td colspan="1" rowspan="1"><strong>indexElements</strong></td>
-      <td colspan="1" rowspan="1">List of IndexElement</td>
+      <td colspan="1" rowspan="1">List of <a href="/help/topic/org.obeonetwork.database.m2doc.services/doc/pages/m2doc_services_indexelement.html">IndexElement</a></td>
       <td colspan="1" rowspan="1">{m:column.indexElements}</td>
-      <td colspan="1" rowspan="1"></td>
+      <td colspan="1" rowspan="1">The list of index elements for this column.</td>
       <td colspan="1" rowspan="1">{m:for indexElement | column.indexElements} indexElement {m:indexElement.name}, {m:endfor}</td>
     </tr>
     <tr>
       <td colspan="1" rowspan="1"><strong>indexes</strong></td>
-      <td colspan="1" rowspan="1">List of Index</td>
+      <td colspan="1" rowspan="1">List of <a href="/help/topic/org.obeonetwork.database.m2doc.services/doc/pages/m2doc_services_index.html">Index</a></td>
       <td colspan="1" rowspan="1">{m:column.indexes}</td>
-      <td colspan="1" rowspan="1"></td>
+      <td colspan="1" rowspan="1">The list of indexes for this column.</td>
       <td colspan="1" rowspan="1">{m:for index | column.indexes} index {m:index.name}, {m:endfor}</td>
     </tr>
     <tr>
       <td colspan="1" rowspan="1"><strong>name</strong></td>
       <td colspan="1" rowspan="1">EString</td>
       <td colspan="1" rowspan="1">{m:column.name}</td>
-      <td colspan="1" rowspan="1"></td>
+      <td colspan="1" rowspan="1">The name of this model element.</td>
       <td colspan="1" rowspan="1">{m:column.name}</td>
     </tr>
     <tr>
       <td colspan="1" rowspan="1"><strong>nullable</strong></td>
       <td colspan="1" rowspan="1">EBoolean</td>
       <td colspan="1" rowspan="1">{m:column.nullable}</td>
-      <td colspan="1" rowspan="1"></td>
+      <td colspan="1" rowspan="1">Tells if this column value can be null.</td>
       <td colspan="1" rowspan="1">{m:column.nullable}</td>
     </tr>
     <tr>
       <td colspan="1" rowspan="1"><strong>owner</strong></td>
-      <td colspan="1" rowspan="1">Table</td>
+      <td colspan="1" rowspan="1"><a href="/help/topic/org.obeonetwork.database.m2doc.services/doc/pages/m2doc_services_table.html">Table</a></td>
       <td colspan="1" rowspan="1">{m:column.owner}</td>
-      <td colspan="1" rowspan="1"></td>
+      <td colspan="1" rowspan="1">The containing table.</td>
       <td colspan="1" rowspan="1">{m:column.owner}</td>
     </tr>
     <tr>
       <td colspan="1" rowspan="1"><strong>primaryKey</strong></td>
-      <td colspan="1" rowspan="1">PrimaryKey</td>
+      <td colspan="1" rowspan="1"><a href="/help/topic/org.obeonetwork.database.m2doc.services/doc/pages/m2doc_services_primarykey.html">PrimaryKey</a></td>
       <td colspan="1" rowspan="1">{m:column.primaryKey}</td>
-      <td colspan="1" rowspan="1"></td>
+      <td colspan="1" rowspan="1">The list of primary keys for this column.</td>
       <td colspan="1" rowspan="1">{m:column.primaryKey}</td>
     </tr>
     <tr>
       <td colspan="1" rowspan="1"><strong>sequence</strong></td>
-      <td colspan="1" rowspan="1">Sequence</td>
+      <td colspan="1" rowspan="1"><a href="/help/topic/org.obeonetwork.database.m2doc.services/doc/pages/m2doc_services_sequence.html">Sequence</a></td>
       <td colspan="1" rowspan="1">{m:column.sequence}</td>
-      <td colspan="1" rowspan="1"></td>
+      <td colspan="1" rowspan="1">The sequence for this column.</td>
       <td colspan="1" rowspan="1">{m:column.sequence}</td>
     </tr>
     <tr>
       <td colspan="1" rowspan="1"><strong>techID</strong></td>
       <td colspan="1" rowspan="1">EString</td>
       <td colspan="1" rowspan="1">{m:column.techID}</td>
-      <td colspan="1" rowspan="1"></td>
+      <td colspan="1" rowspan="1">The technical identifier.</td>
       <td colspan="1" rowspan="1">{m:column.techID}</td>
     </tr>
     <tr>
       <td colspan="1" rowspan="1"><strong>type</strong></td>
       <td colspan="1" rowspan="1">Type</td>
       <td colspan="1" rowspan="1">{m:column.type}</td>
-      <td colspan="1" rowspan="1"></td>
+      <td colspan="1" rowspan="1">The type of this column.</td>
       <td colspan="1" rowspan="1">{m:column.type}</td>
     </tr>
     <tr>
       <td colspan="1" rowspan="1"><strong>unique</strong></td>
       <td colspan="1" rowspan="1">EBoolean</td>
       <td colspan="1" rowspan="1">{m:column.unique}</td>
-      <td colspan="1" rowspan="1"></td>
+      <td colspan="1" rowspan="1">Tells if the column values are unique.</td>
       <td colspan="1" rowspan="1">{m:column.unique}</td>
     </tr>
     </tbody>
@@ -189,179 +189,185 @@
     </thead>
   <tbody>
     <tr>
-      <td colspan="1" rowspan="1"><strong>caseColumn</strong></td>
-      <td colspan="1" rowspan="1">Object</td>
-      <td colspan="1" rowspan="1"></td>
-      <td colspan="1" rowspan="1"></td>
-      <td colspan="1" rowspan="1"></td>
-    </tr>
-    <tr>
-      <td colspan="1" rowspan="1"><strong>caseColumn</strong></td>
-      <td colspan="1" rowspan="1">Object</td>
-      <td colspan="1" rowspan="1"></td>
-      <td colspan="1" rowspan="1"></td>
-      <td colspan="1" rowspan="1"></td>
-    </tr>
-    <tr>
-      <td colspan="1" rowspan="1"><strong>caseDatabaseElement</strong></td>
-      <td colspan="1" rowspan="1">Object</td>
-      <td colspan="1" rowspan="1"></td>
-      <td colspan="1" rowspan="1"></td>
-      <td colspan="1" rowspan="1"></td>
-    </tr>
-    <tr>
-      <td colspan="1" rowspan="1"><strong>caseDatabaseElement</strong></td>
-      <td colspan="1" rowspan="1">Object</td>
-      <td colspan="1" rowspan="1"></td>
-      <td colspan="1" rowspan="1"></td>
-      <td colspan="1" rowspan="1"></td>
-    </tr>
-    <tr>
-      <td colspan="1" rowspan="1"><strong>caseNamedElement</strong></td>
-      <td colspan="1" rowspan="1">Object</td>
-      <td colspan="1" rowspan="1"></td>
-      <td colspan="1" rowspan="1"></td>
-      <td colspan="1" rowspan="1"></td>
-    </tr>
-    <tr>
-      <td colspan="1" rowspan="1"><strong>caseNamedElement</strong></td>
-      <td colspan="1" rowspan="1">Object</td>
-      <td colspan="1" rowspan="1"></td>
-      <td colspan="1" rowspan="1"></td>
-      <td colspan="1" rowspan="1"></td>
+      <td colspan="1" rowspan="1"><strong>allRelatedRequirements</strong></td>
+      <td colspan="1" rowspan="1">List of <a href="/help/topic/org.obeonetwork.dsl.requirement.m2doc.services/doc/pages/m2doc_services_requirement.html">Requirement</a></td>
+      <td colspan="1" rowspan="1">{m:obj.allRelatedRequirements()}</td>
+      <td colspan="1" rowspan="1">Returns a list of all the Requirements related to the target object or one of its sub objects. The result is a list with no duplicates sorted against the requirements ids.</td>
+      <td colspan="1" rowspan="1">{m:obj.allRelatedRequirements()->sep(',')} returns: A comma separated list of related requirements.</td>
     </tr>
     <tr>
       <td colspan="1" rowspan="1"><strong>checkAutoincrement</strong></td>
       <td colspan="1" rowspan="1">String</td>
-      <td colspan="1" rowspan="1"></td>
-      <td colspan="1" rowspan="1"></td>
-      <td colspan="1" rowspan="1"></td>
+      <td colspan="1" rowspan="1">{m:mycolumn.checkAutoincrement()}</td>
+      <td colspan="1" rowspan="1">Returns the 'X' string if the column is automatically incremented and '' otherwise.</td>
+      <td colspan="1" rowspan="1">{m:mycolumn.checkAutoincrement()} returns: insert 'X' or ''.</td>
     </tr>
     <tr>
       <td colspan="1" rowspan="1"><strong>checkInForeignKey</strong></td>
       <td colspan="1" rowspan="1">String</td>
-      <td colspan="1" rowspan="1"></td>
-      <td colspan="1" rowspan="1"></td>
-      <td colspan="1" rowspan="1"></td>
+      <td colspan="1" rowspan="1">{m:mycolumn.checkInForeignKey()}</td>
+      <td colspan="1" rowspan="1">Returns the 'X' string if the column is in foreign key and '' otherwise.</td>
+      <td colspan="1" rowspan="1">{m:mycolumn.checkInForeignKey()} returns: insert 'X' or ''.</td>
     </tr>
     <tr>
       <td colspan="1" rowspan="1"><strong>checkInPrimaryKey</strong></td>
       <td colspan="1" rowspan="1">String</td>
-      <td colspan="1" rowspan="1"></td>
-      <td colspan="1" rowspan="1"></td>
-      <td colspan="1" rowspan="1"></td>
+      <td colspan="1" rowspan="1">{m:mycolumn.checkInPrimaryKey()}</td>
+      <td colspan="1" rowspan="1">Returns the 'X' string if the column is in primary key and '' otherwise.</td>
+      <td colspan="1" rowspan="1">{m:mycolumn.checkInPrimaryKey()} returns: insert 'X' or ''.</td>
     </tr>
     <tr>
       <td colspan="1" rowspan="1"><strong>checkMandatory</strong></td>
       <td colspan="1" rowspan="1">String</td>
-      <td colspan="1" rowspan="1"></td>
-      <td colspan="1" rowspan="1"></td>
-      <td colspan="1" rowspan="1"></td>
+      <td colspan="1" rowspan="1">{m:mycolumn.checkMandatory()}</td>
+      <td colspan="1" rowspan="1">Returns the 'X' string if the column is mandatory and '' otherwise.</td>
+      <td colspan="1" rowspan="1">{m:mycolumn.checkMandatory()} returns: insert 'X' or ''.</td>
     </tr>
     <tr>
       <td colspan="1" rowspan="1"><strong>checkNullable</strong></td>
       <td colspan="1" rowspan="1">String</td>
-      <td colspan="1" rowspan="1"></td>
-      <td colspan="1" rowspan="1"></td>
-      <td colspan="1" rowspan="1"></td>
+      <td colspan="1" rowspan="1">{m:mycolumn.checkNullable()}</td>
+      <td colspan="1" rowspan="1">Returns the 'X' string if the column is nullable and '' otherwise.</td>
+      <td colspan="1" rowspan="1">{m:mycolumn.checkNullable()} returns: insert 'X' or ''.</td>
     </tr>
     <tr>
       <td colspan="1" rowspan="1"><strong>checkUnique</strong></td>
       <td colspan="1" rowspan="1">String</td>
-      <td colspan="1" rowspan="1"></td>
-      <td colspan="1" rowspan="1"></td>
-      <td colspan="1" rowspan="1"></td>
+      <td colspan="1" rowspan="1">{m:mycolumn.checkUnique()}</td>
+      <td colspan="1" rowspan="1">Returns the 'X' string if the column is unique and '' otherwise.</td>
+      <td colspan="1" rowspan="1">{m:mycolumn.checkUnique()} returns: insert 'X' or ''.</td>
     </tr>
     <tr>
-      <td colspan="1" rowspan="1"><strong>defaultCase</strong></td>
-      <td colspan="1" rowspan="1">Object</td>
-      <td colspan="1" rowspan="1"></td>
-      <td colspan="1" rowspan="1"></td>
-      <td colspan="1" rowspan="1"></td>
+      <td colspan="1" rowspan="1"><strong>cinematicIcon</strong></td>
+      <td colspan="1" rowspan="1">org.obeonetwork.m2doc.element.MImage</td>
+      <td colspan="1" rowspan="1">{m:obj.cinematicIcon()}</td>
+      <td colspan="1" rowspan="1">Returns the presentation icon of the target Cinematic element.</td>
+      <td colspan="1" rowspan="1">{m:obj.getCinematicIcon()} returns: The icon of the element.</td>
     </tr>
     <tr>
-      <td colspan="1" rowspan="1"><strong>defaultCase</strong></td>
-      <td colspan="1" rowspan="1">Object</td>
-      <td colspan="1" rowspan="1"></td>
-      <td colspan="1" rowspan="1"></td>
-      <td colspan="1" rowspan="1"></td>
+      <td colspan="1" rowspan="1"><strong>cinematicLabel</strong></td>
+      <td colspan="1" rowspan="1">String</td>
+      <td colspan="1" rowspan="1">{m:obj.cinematicLabel()}</td>
+      <td colspan="1" rowspan="1">Returns the presentation label of the target Cinematic element.</td>
+      <td colspan="1" rowspan="1">{m:obj.getCinematicLabel()} returns: The label of the element.</td>
     </tr>
     <tr>
       <td colspan="1" rowspan="1"><strong>defaultValue</strong></td>
       <td colspan="1" rowspan="1">String</td>
-      <td colspan="1" rowspan="1"></td>
-      <td colspan="1" rowspan="1"></td>
-      <td colspan="1" rowspan="1"></td>
+      <td colspan="1" rowspan="1">{m:mycolumn.defaultValue()}</td>
+      <td colspan="1" rowspan="1">Returns the default value of the column.</td>
+      <td colspan="1" rowspan="1">{m:mycolumn.defaultValue()} returns: insert the default value.</td>
     </tr>
     <tr>
-      <td colspan="1" rowspan="1"><strong>doSwitch</strong></td>
-      <td colspan="1" rowspan="1">Object</td>
-      <td colspan="1" rowspan="1"></td>
-      <td colspan="1" rowspan="1"></td>
-      <td colspan="1" rowspan="1"></td>
+      <td colspan="1" rowspan="1"><strong>getName</strong></td>
+      <td colspan="1" rowspan="1">String</td>
+      <td colspan="1" rowspan="1">{m:obj.getName()}</td>
+      <td colspan="1" rowspan="1">Returns the name of the given object if it defines one. Returns an empty string in all other cases.</td>
+      <td colspan="1" rowspan="1">{m:obj.getName()} returns: The object name.</td>
     </tr>
     <tr>
-      <td colspan="1" rowspan="1"><strong>doSwitch</strong></td>
-      <td colspan="1" rowspan="1">Object</td>
-      <td colspan="1" rowspan="1"></td>
-      <td colspan="1" rowspan="1"></td>
-      <td colspan="1" rowspan="1"></td>
+      <td colspan="1" rowspan="1"><strong>getTypeName</strong></td>
+      <td colspan="1" rowspan="1">String</td>
+      <td colspan="1" rowspan="1">{m:obj.getTypeName()}</td>
+      <td colspan="1" rowspan="1">Returns the name of the given object's type, formatted with white spaces.</td>
+      <td colspan="1" rowspan="1">{m:obj.getTypeName()} returns: A string representation of the given object's type.</td>
+    </tr>
+    <tr>
+      <td colspan="1" rowspan="1"><strong>getTypeName</strong></td>
+      <td colspan="1" rowspan="1">String</td>
+      <td colspan="1" rowspan="1">{m:myEObject.getTypeName()}</td>
+      <td colspan="1" rowspan="1">Returns the name of the EClass of the given EObject.</td>
+      <td colspan="1" rowspan="1">{m:myEObject.getTypeName()} returns: ObeoDSMObject</td>
+    </tr>
+    <tr>
+      <td colspan="1" rowspan="1"><strong>hasRelatedRequirements</strong></td>
+      <td colspan="1" rowspan="1">boolean</td>
+      <td colspan="1" rowspan="1">{m:obj.hasRelatedRequirements()}</td>
+      <td colspan="1" rowspan="1">Returns true if the given Object as at least one related Requirement.</td>
+      <td colspan="1" rowspan="1">{m:obj.hasRelatedRequirements()} returns: true or false.</td>
     </tr>
     <tr>
       <td colspan="1" rowspan="1"><strong>isAutoincrement</strong></td>
       <td colspan="1" rowspan="1">String</td>
-      <td colspan="1" rowspan="1"></td>
-      <td colspan="1" rowspan="1"></td>
-      <td colspan="1" rowspan="1"></td>
+      <td colspan="1" rowspan="1">{m:mycolumn.isAutoincrement()}</td>
+      <td colspan="1" rowspan="1">Returns the 'Oui' string if the column is automatically incremented and 'No' otherwise.</td>
+      <td colspan="1" rowspan="1">{m:mycolumn.isAutoincrement()} returns: insert 'Oui' or 'Non'.</td>
+    </tr>
+    <tr>
+      <td colspan="1" rowspan="1"><strong>isCinematicObject</strong></td>
+      <td colspan="1" rowspan="1">boolean</td>
+      <td colspan="1" rowspan="1">{m:obj.isCinematicObject()}</td>
+      <td colspan="1" rowspan="1">Returns if the target object is a Cinematic element.</td>
+      <td colspan="1" rowspan="1">{m:obj.isCinematicObject()} returns: True if the target object is a Cinematic element, false otherwise.</td>
     </tr>
     <tr>
       <td colspan="1" rowspan="1"><strong>isInForeignKey</strong></td>
       <td colspan="1" rowspan="1">String</td>
-      <td colspan="1" rowspan="1"></td>
-      <td colspan="1" rowspan="1"></td>
-      <td colspan="1" rowspan="1"></td>
+      <td colspan="1" rowspan="1">{m:mycolumn.isInForeignKey()}</td>
+      <td colspan="1" rowspan="1">Returns the 'Oui' string if the column is in a foreign key and 'Non' otherwise.</td>
+      <td colspan="1" rowspan="1">{m:mycolumn.isInForeignKey()} returns: insert 'Oui' or 'Non'.</td>
     </tr>
     <tr>
       <td colspan="1" rowspan="1"><strong>isInPrimaryKey</strong></td>
       <td colspan="1" rowspan="1">String</td>
-      <td colspan="1" rowspan="1"></td>
-      <td colspan="1" rowspan="1"></td>
-      <td colspan="1" rowspan="1"></td>
+      <td colspan="1" rowspan="1">{m:mycolumn.isInPrimaryKey()}</td>
+      <td colspan="1" rowspan="1">Returns the 'Oui' string if the column is in a primary key and 'Non' otherwise.</td>
+      <td colspan="1" rowspan="1">{m:mycolumn.isInPrimaryKey()} returns: insert 'Oui' or 'Non'.</td>
     </tr>
     <tr>
       <td colspan="1" rowspan="1"><strong>isMandatory</strong></td>
       <td colspan="1" rowspan="1">String</td>
-      <td colspan="1" rowspan="1"></td>
-      <td colspan="1" rowspan="1"></td>
-      <td colspan="1" rowspan="1"></td>
+      <td colspan="1" rowspan="1">{m:mycolumn.isMandatory()}</td>
+      <td colspan="1" rowspan="1">Returns the 'Oui' string if the column is mandatory and 'Non' otherwise.</td>
+      <td colspan="1" rowspan="1">{m:mycolumn.isMandatory()} returns: insert 'Oui' or 'Non'.</td>
     </tr>
     <tr>
       <td colspan="1" rowspan="1"><strong>isNullable</strong></td>
       <td colspan="1" rowspan="1">String</td>
-      <td colspan="1" rowspan="1"></td>
-      <td colspan="1" rowspan="1"></td>
-      <td colspan="1" rowspan="1"></td>
+      <td colspan="1" rowspan="1">{m:mycolumn.isNullable()}</td>
+      <td colspan="1" rowspan="1">Returns the 'Oui' string if the column is nullable and 'Non' otherwise.</td>
+      <td colspan="1" rowspan="1">{m:mycolumn.isNullable()} returns: insert 'Oui' or 'Non'.</td>
     </tr>
     <tr>
       <td colspan="1" rowspan="1"><strong>isUnic</strong></td>
       <td colspan="1" rowspan="1">String</td>
-      <td colspan="1" rowspan="1"></td>
-      <td colspan="1" rowspan="1"></td>
-      <td colspan="1" rowspan="1"></td>
+      <td colspan="1" rowspan="1">{m:mycolumn.isUnic()}</td>
+      <td colspan="1" rowspan="1">Returns the 'Oui' string if the column is unique and 'Non' otherwise.</td>
+      <td colspan="1" rowspan="1">{m:mycolumn.isUnic()} returns: insert 'Oui' or 'Non'.</td>
+    </tr>
+    <tr>
+      <td colspan="1" rowspan="1"><strong>relatedRequirements</strong></td>
+      <td colspan="1" rowspan="1">List of <a href="/help/topic/org.obeonetwork.dsl.requirement.m2doc.services/doc/pages/m2doc_services_requirement.html">Requirement</a></td>
+      <td colspan="1" rowspan="1">{m:obj.relatedRequirements()}</td>
+      <td colspan="1" rowspan="1">Returns the set of Requirement that are related to the target object.</td>
+      <td colspan="1" rowspan="1">{m:obj.relatedRequirements()->sep(',')} returns: A comma separated list of related requirements.</td>
+    </tr>
+    <tr>
+      <td colspan="1" rowspan="1"><strong>relatedRequirementsWithSubtype</strong></td>
+      <td colspan="1" rowspan="1">List of <a href="/help/topic/org.obeonetwork.dsl.requirement.m2doc.services/doc/pages/m2doc_services_requirement.html">Requirement</a></td>
+      <td colspan="1" rowspan="1">{m:obj.relatedRequirementsWithSubtype('SUBTYPE')}</td>
+      <td colspan="1" rowspan="1">Returns the list of Requirements that reference the target object and that have the specified subtype.</td>
+      <td colspan="1" rowspan="1">{m:obj.relatedRequirementsWithSubtype('performance')->sep(',')} returns: A comma separated list of related requirements of performance subtype.</td>
     </tr>
     <tr>
       <td colspan="1" rowspan="1"><strong>typeLength</strong></td>
       <td colspan="1" rowspan="1">String</td>
-      <td colspan="1" rowspan="1"></td>
-      <td colspan="1" rowspan="1"></td>
-      <td colspan="1" rowspan="1"></td>
+      <td colspan="1" rowspan="1">{m:mycolumn.typeLength()}</td>
+      <td colspan="1" rowspan="1">Returns the length and the precision of the type associated to the column.
+Result is like follows :
+<ul>
+<li>&lt;length&gt; if the type has the NativeKind.LENGTH attribute</li>
+<li>&lt;length,precision&gt; if the type has the NativeKind.LENGTH_AND_PRECISION attribute</li>
+</ul>
+</td>
+      <td colspan="1" rowspan="1">{m:mycolumn.typeLength()} returns: insert a description of the length of the column's type.</td>
     </tr>
     <tr>
       <td colspan="1" rowspan="1"><strong>typeName</strong></td>
       <td colspan="1" rowspan="1">String</td>
-      <td colspan="1" rowspan="1"></td>
-      <td colspan="1" rowspan="1"></td>
-      <td colspan="1" rowspan="1"></td>
+      <td colspan="1" rowspan="1">{m:mycolumn.typeName()}</td>
+      <td colspan="1" rowspan="1">Returns the name of the column type.</td>
+      <td colspan="1" rowspan="1">{m:mycolumn.typeName()} returns: insert 'SomeType' or 'no name found'.</td>
     </tr>
     </tbody>
     </table>

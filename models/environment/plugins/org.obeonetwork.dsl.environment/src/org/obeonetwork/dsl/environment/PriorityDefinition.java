@@ -45,6 +45,9 @@ public interface PriorityDefinition extends ObeoDSMObject {
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * The list of priorities.
+	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Priorities</em>' containment reference list.
 	 * @see org.obeonetwork.dsl.environment.EnvironmentPackage#getPriorityDefinition_Priorities()
 	 * @model containment="true" resolveProxies="true" required="true"

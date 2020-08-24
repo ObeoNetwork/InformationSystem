@@ -10,6 +10,8 @@
  *******************************************************************************/
 package org.obeonetwork.database.m2doc.services;
 
+import org.eclipse.acceleo.annotations.api.documentation.Documentation;
+import org.eclipse.acceleo.annotations.api.documentation.Example;
 import org.obeonetwork.dsl.database.Index;
 
 /**
@@ -19,12 +21,17 @@ import org.obeonetwork.dsl.database.Index;
  */
 public class IndexServices {
 
-    /**
-     * Returns "Oui" if the element is unique and "No" otherwise (or if it's null).
-     * 
-     * @param element
-     * @return "Oui" or "Non" if the element is unique.
-     */
+    // @formatter:off
+    @Documentation(
+            comment = "{m:myIndex.isUnic()}",
+            value = "Returns 'Oui' if the element is unique and 'Non' otherwise (or if it's null).",
+            examples = {
+                    @Example(
+                            expression = "{m:myIndex.isUnic()}", 
+                            result = "insert 'Oui' or 'Non'.")
+            }
+        )
+    // @formatter:on    
     public String isUnic(Index index) {
         if (index != null) {
             return index.isUnique() ? "Oui" : "Non";
@@ -33,12 +40,17 @@ public class IndexServices {
         }
     }
 
-    /**
-     * Returns "X" if the element is unique and "" otherwise (or if it's null).
-     * 
-     * @param element
-     * @return "X" if the element is unique.
-     */
+    // @formatter:off
+    @Documentation(
+            comment = "{m:myIndex.checkUnique()}",
+            value = "Returns 'X' if the element is unique and '' otherwise (or if it's null).",
+            examples = {
+                    @Example(
+                            expression = "{m:myIndex.checkUnique()}", 
+                            result = "insert 'X' or ''.")
+            }
+        )
+    // @formatter:on    
     public String checkUnique(Index index) {
         if (index != null) {
             return index.isUnique() ? "X" : "";

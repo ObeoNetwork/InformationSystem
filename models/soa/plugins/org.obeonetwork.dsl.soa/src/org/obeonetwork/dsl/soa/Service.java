@@ -53,6 +53,9 @@ public interface Service extends ObeoDSMObject {
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * The owned interface.
+	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Owned Interface</em>' containment reference.
 	 * @see #setOwnedInterface(Interface)
 	 * @see org.obeonetwork.dsl.soa.SoaPackage#getService_OwnedInterface()
@@ -80,6 +83,9 @@ public interface Service extends ObeoDSMObject {
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * The kind of synchronization.
+	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Synchronization</em>' attribute.
 	 * @see org.obeonetwork.dsl.soa.SynchronizationKind
 	 * @see #setSynchronization(SynchronizationKind)
@@ -109,6 +115,9 @@ public interface Service extends ObeoDSMObject {
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * The kind of interface.
+	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Kind</em>' attribute.
 	 * @see org.obeonetwork.dsl.soa.InterfaceKind
 	 * @see #setKind(InterfaceKind)
@@ -137,6 +146,9 @@ public interface Service extends ObeoDSMObject {
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * The referenced interface.
+	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Referenced Interface</em>' reference.
 	 * @see #setReferencedInterface(Interface)
 	 * @see org.obeonetwork.dsl.soa.SoaPackage#getService_ReferencedInterface()
@@ -163,6 +175,9 @@ public interface Service extends ObeoDSMObject {
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * The binding.
+	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Bindings</em>' reference.
 	 * @see #setBindings(Binding)
 	 * @see org.obeonetwork.dsl.soa.SoaPackage#getService_Bindings()
@@ -189,6 +204,9 @@ public interface Service extends ObeoDSMObject {
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * The name of the service.
+	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Name</em>' attribute.
 	 * @see #setName(String)
 	 * @see org.obeonetwork.dsl.soa.SoaPackage#getService_Name()
@@ -216,6 +234,9 @@ public interface Service extends ObeoDSMObject {
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * The list of used types.
+	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Used Types</em>' reference list.
 	 * @see org.obeonetwork.dsl.soa.SoaPackage#getService_UsedTypes()
 	 * @model

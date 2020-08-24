@@ -13,6 +13,8 @@ package org.obeonetwork.database.m2doc.services;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.eclipse.acceleo.annotations.api.documentation.Documentation;
+import org.eclipse.acceleo.annotations.api.documentation.Example;
 import org.obeonetwork.dsl.database.AbstractTable;
 import org.obeonetwork.dsl.database.Table;
 import org.obeonetwork.dsl.database.TableContainer;
@@ -25,12 +27,17 @@ import org.obeonetwork.dsl.database.View;
  */
 public class TableContainerServices {
 
-    /**
-     * Returns the list of tables contained in the specified table container (database of schema)
-     * 
-     * @param container
-     * @return the list of tables
-     */
+    // @formatter:off
+    @Documentation(
+            comment = "{m:myTableContainer.tables()}",
+            value = "Returns the list of tables contained in the specified table container (database of schema).",
+            examples = {
+                    @Example(
+                            expression = "{m:myTableContainer.tables()}", 
+                            result = "the list of tables contained in the specified table container (database of schema).")
+            }
+        )
+    // @formatter:on    
     public List<Table> tables(TableContainer container) {
         final List<Table> res = new ArrayList<Table>();
         for (AbstractTable abstractTable : container.getTables()) {
@@ -42,12 +49,17 @@ public class TableContainerServices {
         return res;
     }
 
-    /**
-     * Returns the list of views contained in a table container (database or schema)
-     * 
-     * @param container
-     * @return the list of views.
-     */
+    // @formatter:off
+    @Documentation(
+            comment = "{m:myTableContainer.views()}",
+            value = "Returns the list of views contained in a table container (database or schema).",
+            examples = {
+                    @Example(
+                            expression = "{m:myTableContainer.views()}", 
+                            result = "the list of views contained in a table container (database or schema).")
+            }
+        )
+    // @formatter:on    
     public List<View> views(TableContainer container) {
         final List<View> res = new ArrayList<View>();
 

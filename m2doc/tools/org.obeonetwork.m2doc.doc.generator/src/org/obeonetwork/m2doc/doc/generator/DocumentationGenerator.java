@@ -16,11 +16,14 @@ import java.lang.reflect.Modifier;
 import java.lang.reflect.Type;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.stream.Collectors;
+
 import org.eclipse.acceleo.query.ast.AstPackage;
-import org.eclipse.core.internal.registry.ExtensionsParser;
 import org.eclipse.emf.common.util.URI;
+import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.resource.ResourceSet;
@@ -75,13 +78,13 @@ public class DocumentationGenerator {
 	private static List<Configuration> initializeConfigurations() {
 		final List<Configuration> res = new ArrayList<>();
 		
-		res.add(new Configuration(gitRepoRootPath + "m2doc/cinematic/plugins/", "org.obeonetwork.cinematic.m2doc.services", "Cinematic", new String[] { "org.obeonetwork.cinematic.m2doc.services", "org.obeonetwork.requirement.m2doc.services" }, new String[] { "org.obeonetwork.dsl.cinematic" }, new String[] { gitRepoRootPath + "designs/cinematic/plugins/org.obeonetwork.dsl.cinematic.design/description/cinematic.odesign" }));
-		res.add(new Configuration(gitRepoRootPath + "m2doc/requirement/plugins/", "org.obeonetwork.dsl.requirement.m2doc.services", "Requirement", new String[] { "org.obeonetwork.requirement.m2doc.services" }, new String[] { "org.obeonetwork.dsl.requirement" }, new String[] { gitRepoRootPath + "designs/requirement/plugins/org.obeonetwork.dsl.requirement.design/description/requirement.odesign" }));
-		res.add(new Configuration(gitRepoRootPath + "m2doc/entity/plugins/", "org.obeonetwork.dsl.entity.m2doc.services", "Entity", new String[] { "org.obeonetwork.dsl.entity.m2doc.services" }, new String[] { "org.obeonetwork.dsl.entity" }, new String[] { gitRepoRootPath + "designs/entity/plugins/org.obeonetwork.dsl.entity.design/description/entity.odesign" }));
-		res.add(new Configuration(gitRepoRootPath + "m2doc/soa/plugins/", "org.obeonetwork.dsl.soa.m2doc.services", "SOA", new String[] { "org.obeonetwork.dsl.soa.m2doc.services" }, new String[] { "org.obeonetwork.dsl.soa" }, new String[] { gitRepoRootPath + "designs/soa/plugins/org.obeonetwork.dsl.soa.design/description/soa.odesign" }));
-		res.add(new Configuration(gitRepoRootPath + "m2doc/graal/plugins/", "org.obeonetwork.dsl.graal.m2doc.services", "Graal", new String[] { "org.obeonetwork.dsl.graal.m2doc.services" }, new String[] { "org.obeonetwork.graal" }, new String[] { gitRepoRootPath + "designs/graal/plugins/org.obeonetwork.graal.design/description/graal.odesign", gitRepoRootPath + "designs/graal/plugins/org.obeonetwork.graal.design/description/requirements.odesign"}));
+		res.add(new Configuration(gitRepoRootPath + "m2doc/cinematic/plugins/",   "org.obeonetwork.cinematic.m2doc.services",       "Cinematic",   new String[] { "org.obeonetwork.cinematic.m2doc.services" },       new String[] { "org.obeonetwork.dsl.cinematic" },   new String[] { gitRepoRootPath + "designs/cinematic/plugins/org.obeonetwork.dsl.cinematic.design/description/cinematic.odesign" }));
+		res.add(new Configuration(gitRepoRootPath + "m2doc/requirement/plugins/", "org.obeonetwork.dsl.requirement.m2doc.services", "Requirement", new String[] { "org.obeonetwork.requirement.m2doc.services" },     new String[] { "org.obeonetwork.dsl.requirement" }, new String[] { gitRepoRootPath + "designs/requirement/plugins/org.obeonetwork.dsl.requirement.design/description/requirement.odesign" }));
+		res.add(new Configuration(gitRepoRootPath + "m2doc/entity/plugins/",      "org.obeonetwork.dsl.entity.m2doc.services",      "Entity",      new String[] { "org.obeonetwork.dsl.entity.m2doc.services" },      new String[] { "org.obeonetwork.dsl.entity" },      new String[] { gitRepoRootPath + "designs/entity/plugins/org.obeonetwork.dsl.entity.design/description/entity.odesign", gitRepoRootPath + "addons/structuredtypes/plugins/fr.gouv.mindef.safran.is.design/description/safran-is.odesign" }));
+		res.add(new Configuration(gitRepoRootPath + "m2doc/soa/plugins/",         "org.obeonetwork.dsl.soa.m2doc.services",         "SOA",         new String[] { "org.obeonetwork.dsl.soa.m2doc.services" },         new String[] { "org.obeonetwork.dsl.soa" },         new String[] { gitRepoRootPath + "designs/soa/plugins/org.obeonetwork.dsl.soa.design/description/soa.odesign", gitRepoRootPath + "addons/structuredtypes/plugins/fr.gouv.mindef.safran.is.design/description/safran-is.odesign" }));
+		res.add(new Configuration(gitRepoRootPath + "m2doc/graal/plugins/",       "org.obeonetwork.dsl.graal.m2doc.services",       "Graal",       new String[] { "org.obeonetwork.dsl.graal.m2doc.services" },       new String[] { "org.obeonetwork.graal" },           new String[] { gitRepoRootPath + "designs/graal/plugins/org.obeonetwork.graal.design/description/graal.odesign", gitRepoRootPath + "designs/graal/plugins/org.obeonetwork.graal.design/description/requirements.odesign", gitRepoRootPath + "addons/structuredtypes/plugins/fr.gouv.mindef.safran.is.design/description/safran-is.odesign"}));
 		res.add(new Configuration(gitRepoRootPath + "m2doc/environment/plugins/", "org.obeonetwork.dsl.environment.m2doc.services", "Environment", new String[] { "org.obeonetwork.dsl.environment.m2doc.services" }, new String[] { "org.obeonetwork.dsl.environment" }, new String[] { gitRepoRootPath + "designs/environment/plugins/org.obeonetwork.dsl.environment.design/description/environment.odesign" }));
-		res.add(new Configuration(gitRepoRootPath + "m2doc/database/plugins/", "org.obeonetwork.database.m2doc.services", "Database", new String[] { "org.obeonetwork.database.m2doc.services" }, new String[] { "org.obeonetwork.dsl.database" }, new String[] { gitRepoRootPath + "designs/database/plugins/org.obeonetwork.dsl.database.design/description/database.odesign" }));
+		res.add(new Configuration(gitRepoRootPath + "m2doc/database/plugins/",    "org.obeonetwork.database.m2doc.services",        "Database",    new String[] { "org.obeonetwork.database.m2doc.services" },        new String[] { "org.obeonetwork.dsl.database" },    new String[] { gitRepoRootPath + "designs/database/plugins/org.obeonetwork.dsl.database.design/description/database.odesign" }));
 		
 		return res;
 	}
@@ -104,26 +107,40 @@ public class DocumentationGenerator {
 		
 		final List<Configuration> configurations = initializeConfigurations();
 		
+		final List<Class<?>> allServiceClasses = new ArrayList<>();
+
+		for (Configuration configuration : configurations) {
+			allServiceClasses.addAll(Arrays.asList(configuration.serviceslJavaPackages).stream().map(p -> ReflectionHelper.getClasses(p))
+					.flatMap(a -> a.stream()).filter(c -> isServiceClass(c)).collect(Collectors.toList()));
+		}
+		System.out.println("Found Total Service Classes : " + allServiceClasses.size());
+
+		List<Method> allServices = allServiceClasses.stream().map(s -> Arrays.asList(s.getMethods()))
+				.flatMap(a -> a.stream()).filter(m -> isService(m))
+				.sorted((m1, m2) -> m1.getName().compareTo(m2.getName())).collect(Collectors.toList());
+		System.out.println("Found Total Services : " + allServices.size());
+		
+		final Map<EClass, String> eClassToHTMLPages = initEClassToHTMLPage(configurations);
+		
 		for (Configuration configuration : configurations) {
 			System.out.println("\n*** " + configuration.metamodelName + " ***");
 			File pluginFolder = new File(configuration.outputPluginParentFolder + configuration.outputPluginName);
 			File documentationFolder = new File(pluginFolder, "doc"); //$NON-NLS-1$
+			File pagesFolder = new File(documentationFolder, "pages"); //$NON-NLS-1$
 			if(!documentationFolder.exists()) {
 				documentationFolder.mkdir();
 			}
-			File pagesFolder = new File(documentationFolder, "pages"); //$NON-NLS-1$
 			if(!pagesFolder.exists()) {
 				pagesFolder.mkdir();
 			}
 
 
 			List<Class<?>> serviceClasses = Arrays.asList(configuration.serviceslJavaPackages).stream()
-					.map(p -> ReflectionHelper.getClasses(p)).flatMap(a -> a.stream()).collect(Collectors.toList());
+					.map(p -> ReflectionHelper.getClasses(p)).flatMap(a -> a.stream()).filter(c -> !c.getSimpleName().isEmpty()).collect(Collectors.toList());
 			System.out.println("Found Service Classes : " + serviceClasses.size());
 
-			List<Method> services = serviceClasses.stream()
-					.map(s -> Arrays.asList(s.getMethods())).flatMap(a -> a.stream())
-					.filter(m -> m.getParameters().length > 0 && EObject.class.isAssignableFrom(m.getParameters()[0].getType()))
+			List<Method> services = serviceClasses.stream().map(s -> Arrays.asList(s.getMethods()))
+					.flatMap(a -> a.stream()).filter(m -> isService(m))
 					.sorted((m1, m2) -> m1.getName().compareTo(m2.getName())).collect(Collectors.toList());
 			System.out.println("Found Services : " + services.size());
 
@@ -184,7 +201,7 @@ public class DocumentationGenerator {
 
 			// Metaclasses
 			for(Class<?> metaClass : allMetaClasses) {
-				StringBuffer metaClassBuffer = html(head(false, computeMetaClassName(metaClass), configuration.outputPluginName), computeMetaClassBody(configuration.metamodelName, configuration.outputPluginName, metaClass, services, externalMetaClasses.contains(metaClass)));
+				StringBuffer metaClassBuffer = html(head(false, computeMetaClassName(metaClass), configuration.outputPluginName), computeMetaClassBody(configuration.metamodelName, configuration.outputPluginName, eClassToHTMLPages, metaClass, allServices, externalMetaClasses.contains(metaClass)));
 				File file = new File(pagesFolder, computeHtmlFileName(metaClass));
 				System.out.println("Writing " + file.getAbsolutePath());
 				try (PrintWriter writer = new PrintWriter(file, UTF8);) {
@@ -194,6 +211,35 @@ public class DocumentationGenerator {
 		}
         
         System.out.println("Done writing.");
+	}
+
+	private static Map<EClass, String> initEClassToHTMLPage(List<Configuration> configurations) {
+		final Map<EClass, String> res = new HashMap<>();
+		
+		for (Configuration configuration : configurations) {
+			List<Class<?>> metaClassesImpl = Arrays.asList(configuration.metamodelJavaPackages).stream()
+					.map(p -> ReflectionHelper.getClasses(p)).flatMap(s -> s.stream())
+					.filter(c -> !c.isAnonymousClass() && !c.isMemberClass() && !c.isInterface()
+							&& !Modifier.isAbstract(c.getModifiers())
+							&& OEcoreUtil.getEClass(getMetaInterface(c)) != null)
+					.sorted((c1, c2) -> c1.getSimpleName().compareTo(c2.getSimpleName())).collect(Collectors.toList());
+
+			
+			for (Class<?> metaClassImpl : metaClassesImpl) {
+				final Class<?> cls = getMetaInterface(metaClassImpl);
+				res.put(OEcoreUtil.getEClass(cls), "/help/topic/" + configuration.outputPluginName +"/doc/pages/" +computeHtmlFileName(cls));
+			}
+		}
+		
+		return res;
+	}
+
+	private static boolean isServiceClass(Class<?> cls) {
+		return !cls.getSimpleName().isEmpty() && !cls.isMemberClass();
+	}
+
+	private static boolean isService(Method method) {
+		return method.getParameters().length > 0 && EObject.class.isAssignableFrom(method.getParameters()[0].getType());
 	}
 
 	private static Class<?> getMetaInterface(Class<?> metaClassImpl) {

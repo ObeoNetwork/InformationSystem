@@ -10,15 +10,23 @@
  *******************************************************************************/
 package org.obeonetwork.dsl.graal.m2doc.services;
 
+import org.eclipse.acceleo.annotations.api.documentation.Documentation;
+import org.eclipse.acceleo.annotations.api.documentation.Example;
 import org.obeonetwork.graal.Transition;
 
 public class TransitionServices {
 
-	/**
-	 * 
-	 * @param transition
-	 * @return a textual representation of {@code transition}.
-	 */
+	// @formatter:off
+	@Documentation(
+			comment = "{m:myTransition.getLabel()}",
+		    value = "Returns a textual representation of the transition.",
+		    examples = {
+		    		@Example(
+		    				expression = "{m:myTransition.getLabel()}", 
+		    				result = "insert 'source ---[guard]---> target'.")
+		    }
+		)
+	// @formatter:on	
 	public String getLabel(Transition transition) {
 		UserStoryElementServices nodeServices = new UserStoryElementServices();
 		String result = "";

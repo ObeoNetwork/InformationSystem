@@ -2,7 +2,7 @@
 <html lang="en">
 <!--
 /********************************************************************************
-** Copyright (c) 2016, 2017, 2018, 2019 Obeo.
+** Copyright (c) 2016, 2020 Obeo.
 ** All rights reserved. This program and the accompanying materials
 ** are made available under the terms of the Eclipse Public License v1.0
 ** which accompanies this distribution, and is available at
@@ -48,9 +48,9 @@
   <tbody>
     <tr>
       <td colspan="1" rowspan="1"><strong>actors</strong></td>
-      <td colspan="1" rowspan="1">List of Actor</td>
+      <td colspan="1" rowspan="1">List of <a href="/help/topic/org.obeonetwork.dsl.graal.m2doc.services/doc/pages/m2doc_services_actor.html">Actor</a></td>
       <td colspan="1" rowspan="1">{m:system.actors}</td>
-      <td colspan="1" rowspan="1"></td>
+      <td colspan="1" rowspan="1">The list of actors.</td>
       <td colspan="1" rowspan="1">{m:for actor | system.actors} actor {m:actor.name}, {m:endfor}</td>
     </tr>
     <tr>
@@ -62,7 +62,7 @@
     </tr>
     <tr>
       <td colspan="1" rowspan="1"><strong>bindingRegistries</strong></td>
-      <td colspan="1" rowspan="1">List of BindingRegistry</td>
+      <td colspan="1" rowspan="1">List of <a href="/help/topic/org.obeonetwork.dsl.environment.m2doc.services/doc/pages/m2doc_services_bindingregistry.html">BindingRegistry</a></td>
       <td colspan="1" rowspan="1">{m:system.bindingRegistries}</td>
       <td colspan="1" rowspan="1">The binding registries of this object.</td>
       <td colspan="1" rowspan="1">{m:for bindingRegistry | system.bindingRegistries} bindingRegistry {m:bindingRegistry.name}, {m:endfor}</td>
@@ -90,7 +90,7 @@
     </tr>
     <tr>
       <td colspan="1" rowspan="1"><strong>metadatas</strong></td>
-      <td colspan="1" rowspan="1">MetaDataContainer</td>
+      <td colspan="1" rowspan="1"><a href="/help/topic/org.obeonetwork.dsl.environment.m2doc.services/doc/pages/m2doc_services_metadatacontainer.html">MetaDataContainer</a></td>
       <td colspan="1" rowspan="1">{m:system.metadatas}</td>
       <td colspan="1" rowspan="1">The metadatas defined on this object.</td>
       <td colspan="1" rowspan="1">{m:system.metadatas}</td>
@@ -106,49 +106,49 @@
       <td colspan="1" rowspan="1"><strong>name</strong></td>
       <td colspan="1" rowspan="1">EString</td>
       <td colspan="1" rowspan="1">{m:system.name}</td>
-      <td colspan="1" rowspan="1"></td>
+      <td colspan="1" rowspan="1">The name of the element.</td>
       <td colspan="1" rowspan="1">{m:system.name}</td>
     </tr>
     <tr>
       <td colspan="1" rowspan="1"><strong>namespaces</strong></td>
-      <td colspan="1" rowspan="1">List of Namespace</td>
+      <td colspan="1" rowspan="1">List of <a href="/help/topic/org.obeonetwork.dsl.environment.m2doc.services/doc/pages/m2doc_services_namespace.html">Namespace</a></td>
       <td colspan="1" rowspan="1">{m:system.namespaces}</td>
-      <td colspan="1" rowspan="1"></td>
+      <td colspan="1" rowspan="1">The list of namespaces.</td>
       <td colspan="1" rowspan="1">{m:for namespace | system.namespaces} namespace {m:namespace.name}, {m:endfor}</td>
     </tr>
     <tr>
       <td colspan="1" rowspan="1"><strong>ownedGroups</strong></td>
-      <td colspan="1" rowspan="1">List of TasksGroup</td>
+      <td colspan="1" rowspan="1">List of <a href="/help/topic/org.obeonetwork.dsl.graal.m2doc.services/doc/pages/m2doc_services_tasksgroup.html">TasksGroup</a></td>
       <td colspan="1" rowspan="1">{m:system.ownedGroups}</td>
-      <td colspan="1" rowspan="1"></td>
+      <td colspan="1" rowspan="1">The list of owned groups.</td>
       <td colspan="1" rowspan="1">{m:for tasksGroup | system.ownedGroups} tasksGroup {m:tasksGroup.name}, {m:endfor}</td>
     </tr>
     <tr>
       <td colspan="1" rowspan="1"><strong>ownedNamespaces</strong></td>
-      <td colspan="1" rowspan="1">List of Namespace</td>
+      <td colspan="1" rowspan="1">List of <a href="/help/topic/org.obeonetwork.dsl.environment.m2doc.services/doc/pages/m2doc_services_namespace.html">Namespace</a></td>
       <td colspan="1" rowspan="1">{m:system.ownedNamespaces}</td>
-      <td colspan="1" rowspan="1"></td>
+      <td colspan="1" rowspan="1">The list of owned namespaces.</td>
       <td colspan="1" rowspan="1">{m:for namespace | system.ownedNamespaces} namespace {m:namespace.name}, {m:endfor}</td>
     </tr>
     <tr>
       <td colspan="1" rowspan="1"><strong>ownedTasks</strong></td>
-      <td colspan="1" rowspan="1">List of Task</td>
+      <td colspan="1" rowspan="1">List of <a href="/help/topic/org.obeonetwork.dsl.graal.m2doc.services/doc/pages/m2doc_services_task.html">Task</a></td>
       <td colspan="1" rowspan="1">{m:system.ownedTasks}</td>
-      <td colspan="1" rowspan="1"></td>
+      <td colspan="1" rowspan="1">The list of owned tasks.</td>
       <td colspan="1" rowspan="1">{m:for task | system.ownedTasks} task {m:task.name}, {m:endfor}</td>
     </tr>
     <tr>
       <td colspan="1" rowspan="1"><strong>subSystems</strong></td>
-      <td colspan="1" rowspan="1">List of System</td>
+      <td colspan="1" rowspan="1">List of <a href="/help/topic/org.obeonetwork.dsl.graal.m2doc.services/doc/pages/m2doc_services_system.html">System</a></td>
       <td colspan="1" rowspan="1">{m:system.subSystems}</td>
-      <td colspan="1" rowspan="1"></td>
+      <td colspan="1" rowspan="1">The list of sub systems.</td>
       <td colspan="1" rowspan="1">{m:for system | system.subSystems} system {m:system.name}, {m:endfor}</td>
     </tr>
     <tr>
       <td colspan="1" rowspan="1"><strong>tasks</strong></td>
       <td colspan="1" rowspan="1">List of AbstractTask</td>
       <td colspan="1" rowspan="1">{m:system.tasks}</td>
-      <td colspan="1" rowspan="1"></td>
+      <td colspan="1" rowspan="1">The list of tasks.</td>
       <td colspan="1" rowspan="1">{m:for abstractTask | system.tasks} abstractTask {m:abstractTask.name}, {m:endfor}</td>
     </tr>
     <tr>
@@ -162,21 +162,21 @@
       <td colspan="1" rowspan="1"><strong>types</strong></td>
       <td colspan="1" rowspan="1">List of StructuredType</td>
       <td colspan="1" rowspan="1">{m:system.types}</td>
-      <td colspan="1" rowspan="1"></td>
+      <td colspan="1" rowspan="1">The list of structured types.</td>
       <td colspan="1" rowspan="1">{m:for structuredType | system.types} structuredType {m:structuredType.name}, {m:endfor}</td>
     </tr>
     <tr>
       <td colspan="1" rowspan="1"><strong>useCases</strong></td>
-      <td colspan="1" rowspan="1">List of UseCase</td>
+      <td colspan="1" rowspan="1">List of <a href="/help/topic/org.obeonetwork.dsl.graal.m2doc.services/doc/pages/m2doc_services_usecase.html">UseCase</a></td>
       <td colspan="1" rowspan="1">{m:system.useCases}</td>
-      <td colspan="1" rowspan="1"></td>
+      <td colspan="1" rowspan="1">The list of use cases.</td>
       <td colspan="1" rowspan="1">{m:for useCase | system.useCases} useCase {m:useCase.name}, {m:endfor}</td>
     </tr>
     <tr>
       <td colspan="1" rowspan="1"><strong>userStories</strong></td>
-      <td colspan="1" rowspan="1">List of UserStory</td>
+      <td colspan="1" rowspan="1">List of <a href="/help/topic/org.obeonetwork.dsl.graal.m2doc.services/doc/pages/m2doc_services_userstory.html">UserStory</a></td>
       <td colspan="1" rowspan="1">{m:system.userStories}</td>
-      <td colspan="1" rowspan="1"></td>
+      <td colspan="1" rowspan="1">The list of user stories.</td>
       <td colspan="1" rowspan="1">{m:for userStory | system.userStories} userStory {m:userStory.name}, {m:endfor}</td>
     </tr>
     <tr>
@@ -203,32 +203,74 @@
     </thead>
   <tbody>
     <tr>
-      <td colspan="1" rowspan="1"><strong>annotation</strong></td>
-      <td colspan="1" rowspan="1">String</td>
-      <td colspan="1" rowspan="1"></td>
-      <td colspan="1" rowspan="1"></td>
-      <td colspan="1" rowspan="1"></td>
+      <td colspan="1" rowspan="1"><strong>allRelatedRequirements</strong></td>
+      <td colspan="1" rowspan="1">List of <a href="/help/topic/org.obeonetwork.dsl.requirement.m2doc.services/doc/pages/m2doc_services_requirement.html">Requirement</a></td>
+      <td colspan="1" rowspan="1">{m:obj.allRelatedRequirements()}</td>
+      <td colspan="1" rowspan="1">Returns a list of all the Requirements related to the target object or one of its sub objects. The result is a list with no duplicates sorted against the requirements ids.</td>
+      <td colspan="1" rowspan="1">{m:obj.allRelatedRequirements()->sep(',')} returns: A comma separated list of related requirements.</td>
     </tr>
     <tr>
-      <td colspan="1" rowspan="1"><strong>compare</strong></td>
-      <td colspan="1" rowspan="1">int</td>
-      <td colspan="1" rowspan="1"></td>
-      <td colspan="1" rowspan="1"></td>
-      <td colspan="1" rowspan="1"></td>
+      <td colspan="1" rowspan="1"><strong>annotation</strong></td>
+      <td colspan="1" rowspan="1">String</td>
+      <td colspan="1" rowspan="1">{m:myObeoDSMObject.annotation(String)}</td>
+      <td colspan="1" rowspan="1">Return first annotation with the specified title.</td>
+      <td colspan="1" rowspan="1">{m:myObeoDSMObject.annotation('some title')} returns: The string of the annotation.</td>
+    </tr>
+    <tr>
+      <td colspan="1" rowspan="1"><strong>cinematicIcon</strong></td>
+      <td colspan="1" rowspan="1">org.obeonetwork.m2doc.element.MImage</td>
+      <td colspan="1" rowspan="1">{m:obj.cinematicIcon()}</td>
+      <td colspan="1" rowspan="1">Returns the presentation icon of the target Cinematic element.</td>
+      <td colspan="1" rowspan="1">{m:obj.getCinematicIcon()} returns: The icon of the element.</td>
+    </tr>
+    <tr>
+      <td colspan="1" rowspan="1"><strong>cinematicLabel</strong></td>
+      <td colspan="1" rowspan="1">String</td>
+      <td colspan="1" rowspan="1">{m:obj.cinematicLabel()}</td>
+      <td colspan="1" rowspan="1">Returns the presentation label of the target Cinematic element.</td>
+      <td colspan="1" rowspan="1">{m:obj.getCinematicLabel()} returns: The label of the element.</td>
+    </tr>
+    <tr>
+      <td colspan="1" rowspan="1"><strong>getAllNamespaces</strong></td>
+      <td colspan="1" rowspan="1">List of <a href="/help/topic/org.obeonetwork.dsl.environment.m2doc.services/doc/pages/m2doc_services_namespace.html">Namespace</a></td>
+      <td colspan="1" rowspan="1">{m:myNamespacesContainer.getAllNamespaces()}</td>
+      <td colspan="1" rowspan="1">Returns the list of Namespace directly and indireclty contained in the given NamespacesContainer.</td>
+      <td colspan="1" rowspan="1">{m:myNamespacesContainer.getAllNamespaces().name->sep(',')} returns: A comma separated list of the given  NamespacesContainer's Namespaces name.</td>
     </tr>
     <tr>
       <td colspan="1" rowspan="1"><strong>getAnnotations</strong></td>
-      <td colspan="1" rowspan="1">List of Annotation</td>
+      <td colspan="1" rowspan="1">List of <a href="/help/topic/org.obeonetwork.dsl.environment.m2doc.services/doc/pages/m2doc_services_annotation.html">Annotation</a></td>
+      <td colspan="1" rowspan="1">{m:flowEvent.getAnnotations()}</td>
+      <td colspan="1" rowspan="1">Returns the list of metadata annotations of the target Flow Event.</td>
+      <td colspan="1" rowspan="1">{m:flowEvent.getAnnotations().title->sep(',')} returns: A comma separated list of Flow Event's annotation titles.</td>
+    </tr>
+    <tr>
+      <td colspan="1" rowspan="1"><strong>getAnnotations</strong></td>
+      <td colspan="1" rowspan="1">List of <a href="/help/topic/org.obeonetwork.dsl.environment.m2doc.services/doc/pages/m2doc_services_annotation.html">Annotation</a></td>
       <td colspan="1" rowspan="1">{m:myObeoDSMObject.getAnnotations()}</td>
       <td colspan="1" rowspan="1">Returns the list of metadata annotations of the target ObeoDSMObject that are not documentation links.</td>
       <td colspan="1" rowspan="1">{m:myObeoDSMObject.getAnnotations().getDocumentTitle()->sep(',')} returns: A comma separated list of ObeoDSMObject's annotation titles.</td>
     </tr>
     <tr>
       <td colspan="1" rowspan="1"><strong>getDocumentationLinks</strong></td>
-      <td colspan="1" rowspan="1">List of Annotation</td>
+      <td colspan="1" rowspan="1">List of <a href="/help/topic/org.obeonetwork.dsl.environment.m2doc.services/doc/pages/m2doc_services_annotation.html">Annotation</a></td>
       <td colspan="1" rowspan="1">{m:myObeoDSMObject.getDocumentationLinks()}</td>
       <td colspan="1" rowspan="1">Returns the list of metadata annotations of the target ObeoDSMObject that are documentation links.</td>
       <td colspan="1" rowspan="1">{m:myObeoDSMObject.getDocumentationLinks().title->sep(',')} returns: A comma separated list of ObeoDSMObject's annotation titles.</td>
+    </tr>
+    <tr>
+      <td colspan="1" rowspan="1"><strong>getName</strong></td>
+      <td colspan="1" rowspan="1">String</td>
+      <td colspan="1" rowspan="1">{m:obj.getName()}</td>
+      <td colspan="1" rowspan="1">Returns the name of the given object if it defines one. Returns an empty string in all other cases.</td>
+      <td colspan="1" rowspan="1">{m:obj.getName()} returns: The object name.</td>
+    </tr>
+    <tr>
+      <td colspan="1" rowspan="1"><strong>getTypeName</strong></td>
+      <td colspan="1" rowspan="1">String</td>
+      <td colspan="1" rowspan="1">{m:obj.getTypeName()}</td>
+      <td colspan="1" rowspan="1">Returns the name of the given object's type, formatted with white spaces.</td>
+      <td colspan="1" rowspan="1">{m:obj.getTypeName()} returns: A string representation of the given object's type.</td>
     </tr>
     <tr>
       <td colspan="1" rowspan="1"><strong>getTypeName</strong></td>
@@ -236,6 +278,13 @@
       <td colspan="1" rowspan="1">{m:myEObject.getTypeName()}</td>
       <td colspan="1" rowspan="1">Returns the name of the EClass of the given EObject.</td>
       <td colspan="1" rowspan="1">{m:myEObject.getTypeName()} returns: ObeoDSMObject</td>
+    </tr>
+    <tr>
+      <td colspan="1" rowspan="1"><strong>hasAllNamespaces</strong></td>
+      <td colspan="1" rowspan="1">boolean</td>
+      <td colspan="1" rowspan="1">{m:myNamespacesContainer.hasAllNamespaces()}</td>
+      <td colspan="1" rowspan="1">Returns true if the given NamespacesContainer contains at least one Namespace.</td>
+      <td colspan="1" rowspan="1">{m:myNamespacesContainer.hasAllNamespaces()} returns: true or false.</td>
     </tr>
     <tr>
       <td colspan="1" rowspan="1"><strong>hasAnnotations</strong></td>
@@ -250,6 +299,41 @@
       <td colspan="1" rowspan="1">{m:myObeoDSMObject.hasDocumentationLinks()}</td>
       <td colspan="1" rowspan="1">Returns true if the given ObeoDSMObject has at least one documentation link, false otherwise.</td>
       <td colspan="1" rowspan="1">{m:myObeoDSMObject.hasDocumentationLinks()} returns: true or false.</td>
+    </tr>
+    <tr>
+      <td colspan="1" rowspan="1"><strong>hasRelatedRequirements</strong></td>
+      <td colspan="1" rowspan="1">boolean</td>
+      <td colspan="1" rowspan="1">{m:obj.hasRelatedRequirements()}</td>
+      <td colspan="1" rowspan="1">Returns true if the given Object as at least one related Requirement.</td>
+      <td colspan="1" rowspan="1">{m:obj.hasRelatedRequirements()} returns: true or false.</td>
+    </tr>
+    <tr>
+      <td colspan="1" rowspan="1"><strong>isCinematicObject</strong></td>
+      <td colspan="1" rowspan="1">boolean</td>
+      <td colspan="1" rowspan="1">{m:obj.isCinematicObject()}</td>
+      <td colspan="1" rowspan="1">Returns if the target object is a Cinematic element.</td>
+      <td colspan="1" rowspan="1">{m:obj.isCinematicObject()} returns: True if the target object is a Cinematic element, false otherwise.</td>
+    </tr>
+    <tr>
+      <td colspan="1" rowspan="1"><strong>qualifiedName</strong></td>
+      <td colspan="1" rowspan="1">String</td>
+      <td colspan="1" rowspan="1">{m:myNamespaceContainer.qualifiedName()}</td>
+      <td colspan="1" rowspan="1">Returns the qualifiedname of the given NamespaceContainer.</td>
+      <td colspan="1" rowspan="1">{m:myNamespace.qualifiedName()} returns: a.b.mynamespacecontainer</td>
+    </tr>
+    <tr>
+      <td colspan="1" rowspan="1"><strong>relatedRequirements</strong></td>
+      <td colspan="1" rowspan="1">List of <a href="/help/topic/org.obeonetwork.dsl.requirement.m2doc.services/doc/pages/m2doc_services_requirement.html">Requirement</a></td>
+      <td colspan="1" rowspan="1">{m:obj.relatedRequirements()}</td>
+      <td colspan="1" rowspan="1">Returns the set of Requirement that are related to the target object.</td>
+      <td colspan="1" rowspan="1">{m:obj.relatedRequirements()->sep(',')} returns: A comma separated list of related requirements.</td>
+    </tr>
+    <tr>
+      <td colspan="1" rowspan="1"><strong>relatedRequirementsWithSubtype</strong></td>
+      <td colspan="1" rowspan="1">List of <a href="/help/topic/org.obeonetwork.dsl.requirement.m2doc.services/doc/pages/m2doc_services_requirement.html">Requirement</a></td>
+      <td colspan="1" rowspan="1">{m:obj.relatedRequirementsWithSubtype('SUBTYPE')}</td>
+      <td colspan="1" rowspan="1">Returns the list of Requirements that reference the target object and that have the specified subtype.</td>
+      <td colspan="1" rowspan="1">{m:obj.relatedRequirementsWithSubtype('performance')->sep(',')} returns: A comma separated list of related requirements of performance subtype.</td>
     </tr>
     </tbody>
     </table>

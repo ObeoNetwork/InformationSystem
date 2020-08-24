@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2019 Obeo.
+ * Copyright (c) 2008, 2020 Obeo.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -94,6 +94,7 @@ public class CustomEEFExtEObjectSelectionPage extends WizardPage {
 	private EClassifier eClassifier;
 	private Text text;
 	private List<?> choiceOfValues;
+	private IStructuredSelection currentSelection;
 
 	public CustomEEFExtEObjectSelectionPage(EObject target, EReference eReference,
 			EditingContextAdapter editingContextAdapter) {
@@ -183,6 +184,7 @@ public class CustomEEFExtEObjectSelectionPage extends WizardPage {
 		this.eReferenceTreeViewerListener = new ISelectionChangedListener() {
 			@Override
 			public void selectionChanged(SelectionChangedEvent event) {
+				currentSelection = eReferenceTreeViewer.getStructuredSelection();
 				CustomEEFExtEObjectSelectionPage.this.determinePageCompletion();
 			}
 		};
@@ -220,21 +222,15 @@ public class CustomEEFExtEObjectSelectionPage extends WizardPage {
 		}
 		return isComplete;
 	}
-
-	/**
-	 * Sets the value of the reference to the selected object.
-	 *
-	 * @param monitor
-	 *            The progress monitor
-	 */
-	public void performFinish(IProgressMonitor monitor) {
-		EObject eObject = this.getEObject(this.eReferenceTreeViewer);
-		if (eObject != null) {
-			Object object = this.target.eGet(this.eReference);
-			if (!eObject.equals(object)) {
-				this.target.eSet(this.eReference, eObject);
-			}
+	
+	public EObject getSelectedEObject() {
+		if (currentSelection != null) {
+			Object object = currentSelection.getFirstElement();
+			if (object instanceof EObject) {
+				return (EObject) object;
+			}			
 		}
+		return null;
 	}
 	
 	/**

@@ -10,6 +10,8 @@
  *******************************************************************************/
 package org.obeonetwork.dsl.graal.m2doc.services;
 
+import org.eclipse.acceleo.annotations.api.documentation.Documentation;
+import org.eclipse.acceleo.annotations.api.documentation.Example;
 import org.eclipse.emf.edit.ui.provider.AdapterFactoryLabelProvider;
 import org.obeonetwork.graal.Transition;
 import org.obeonetwork.graal.UserStoryElement;
@@ -22,6 +24,17 @@ public class UserStoryElementServices {
 	 * @param element
 	 * @return the label for {@code element}.
 	 */
+	// @formatter:off
+	@Documentation(
+			comment = "{m:myUserStoryElement.getLabel()}",
+		    value = "Return the label for the user story element.",
+		    examples = {
+		    		@Example(
+		    				expression = "{m:myUserStoryElement.getLabel()}", 
+		    				result = "the label for the user story element.")
+		    }
+		)
+	// @formatter:on	
 	public String getLabel(UserStoryElement element) {
 		if (element instanceof Transition) {
 			return new TransitionServices().getLabel((Transition) element);

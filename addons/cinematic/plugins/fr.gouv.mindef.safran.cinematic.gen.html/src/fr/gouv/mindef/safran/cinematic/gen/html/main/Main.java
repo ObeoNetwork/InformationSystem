@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2008, 2019 Obeo.
+ * Copyright (c) 2008, 2020 Obeo.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -346,18 +346,6 @@ public class Main extends AbstractAcceleoGenerator {
     @Override
     public void registerPackages(ResourceSet resourceSet) {
         super.registerPackages(resourceSet);
-        if (!isInWorkspace(org.obeonetwork.dsl.cinematic.CinematicPackage.class)) {
-            resourceSet.getPackageRegistry().put(org.obeonetwork.dsl.cinematic.CinematicPackage.eINSTANCE.getNsURI(), org.obeonetwork.dsl.cinematic.CinematicPackage.eINSTANCE);
-        }
-        if (!isInWorkspace(org.obeonetwork.dsl.cinematic.view.ViewPackage.class)) {
-            resourceSet.getPackageRegistry().put(org.obeonetwork.dsl.cinematic.view.ViewPackage.eINSTANCE.getNsURI(), org.obeonetwork.dsl.cinematic.view.ViewPackage.eINSTANCE);
-        }
-        if (!isInWorkspace(org.obeonetwork.dsl.cinematic.flow.FlowPackage.class)) {
-            resourceSet.getPackageRegistry().put(org.obeonetwork.dsl.cinematic.flow.FlowPackage.eINSTANCE.getNsURI(), org.obeonetwork.dsl.cinematic.flow.FlowPackage.eINSTANCE);
-        }
-        if (!isInWorkspace(org.obeonetwork.dsl.cinematic.toolkits.ToolkitsPackage.class)) {
-            resourceSet.getPackageRegistry().put(org.obeonetwork.dsl.cinematic.toolkits.ToolkitsPackage.eINSTANCE.getNsURI(), org.obeonetwork.dsl.cinematic.toolkits.ToolkitsPackage.eINSTANCE);
-        }
         
         /*
          * If you want to change the content of this method, do NOT forget to change the "@generated"

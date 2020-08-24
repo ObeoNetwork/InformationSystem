@@ -13,6 +13,8 @@ package org.obeonetwork.database.m2doc.services;
 import java.util.Collections;
 import java.util.List;
 
+import org.eclipse.acceleo.annotations.api.documentation.Documentation;
+import org.eclipse.acceleo.annotations.api.documentation.Example;
 import org.obeonetwork.dsl.database.Column;
 import org.obeonetwork.dsl.database.Sequence;
 
@@ -23,12 +25,17 @@ import org.obeonetwork.dsl.database.Sequence;
  */
 public class SequenceServices {
 
-    /**
-     * Returns "Oui" if the sequence is cyclic and "No" otherwise (or if it's null).
-     * 
-     * @param sequence
-     * @return "Oui" or "Non" if the sequence is cyclic.
-     */
+    // @formatter:off
+    @Documentation(
+            comment = "{m:mySequence.checkCycle()}",
+            value = "Returns 'Oui' if the sequence is cyclic and 'Non' otherwise (or if it's null).",
+            examples = {
+                    @Example(
+                            expression = "{m:mySequence.checkCycle()}", 
+                            result = "insert 'Oui' or 'Non'.")
+            }
+        )
+    // @formatter:on    
     public String isCycle(Sequence sequence) {
         if (sequence != null) {
             return sequence.isCycle() ? "Oui" : "Non";
@@ -37,12 +44,17 @@ public class SequenceServices {
         }
     }
 
-    /**
-     * Returns "X" if the sequence is cyclic and "" otherwise (or if it's null).
-     * 
-     * @param element
-     * @return "X" if the sequence is cyclic.
-     */
+    // @formatter:off
+    @Documentation(
+            comment = "{m:mySequence.checkCycle()}",
+            value = "Returns 'X' if the sequence is cyclic and '' otherwise (or if it's null).",
+            examples = {
+                    @Example(
+                            expression = "{m:mySequence.checkCycle()}", 
+                            result = "insert 'X' or ''.")
+            }
+        )
+    // @formatter:on    
     public String checkCycle(Sequence sequence) {
         if (sequence != null) {
             return sequence.isCycle() ? "X" : "";
@@ -51,12 +63,17 @@ public class SequenceServices {
         }
     }
 
-    /**
-     * REturns the list of columns of the sequence and the empty list if the sequence is null.
-     * 
-     * @param sequence
-     * @return the list of columns.
-     */
+    // @formatter:off
+    @Documentation(
+            comment = "{m:mySequence.columns()}",
+            value = "Returns the list of columns of the sequence and the empty list if the sequence is null.",
+            examples = {
+                    @Example(
+                            expression = "{m:mySequence.columns()}", 
+                            result = "the list of columns of the sequence and the empty list if the sequence is null.")
+            }
+        )
+    // @formatter:on    
     public List<Column> columns(Sequence sequence) {
         if (sequence == null) {
             return Collections.emptyList();

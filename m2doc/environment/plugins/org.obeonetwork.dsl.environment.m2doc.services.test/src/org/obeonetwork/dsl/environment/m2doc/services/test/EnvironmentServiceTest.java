@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2019 Obeo.
+ * Copyright (c) 2008, 2020 Obeo.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -270,29 +270,166 @@ public class EnvironmentServiceTest {
 	@Test
 	public void getOriginTypeIfDifferentAttributeNull() {
 		final DTO dto = EnvironmentPackage.eINSTANCE.getEnvironmentFactory().createDTO();
+		dto.setName("dto");
 		Attribute attribute = EnvironmentPackage.eINSTANCE.getEnvironmentFactory().createAttribute();
 		dto.getOwnedAttributes().add(attribute);
 
-		assertEquals(dto, es.getOriginTypeIfDifferent(attribute, null));
+		assertEquals("From DTO dto", es.getOriginTypeIfDifferent(attribute, null));
 	}
 
 	@Test
 	public void getOriginTypeIfDifferentAttributeParent() {
 		final DTO dto = EnvironmentPackage.eINSTANCE.getEnvironmentFactory().createDTO();
+		dto.setName("dto");
 		Attribute attribute = EnvironmentPackage.eINSTANCE.getEnvironmentFactory().createAttribute();
 		dto.getOwnedAttributes().add(attribute);
 
-		assertEquals(null, es.getOriginTypeIfDifferent(attribute, dto));
+		assertEquals("", es.getOriginTypeIfDifferent(attribute, dto));
 	}
 
 	@Test
 	public void getOriginTypeIfDifferentAttribute() {
 		final DTO dto = EnvironmentPackage.eINSTANCE.getEnvironmentFactory().createDTO();
+		dto.setName("dto");
 		final DTO dto1 = EnvironmentPackage.eINSTANCE.getEnvironmentFactory().createDTO();
+		dto1.setName("dto1");
 		Attribute attribute = EnvironmentPackage.eINSTANCE.getEnvironmentFactory().createAttribute();
 		dto.getOwnedAttributes().add(attribute);
 
-		assertEquals(dto, es.getOriginTypeIfDifferent(attribute, dto1));
+		assertEquals("From DTO dto", es.getOriginTypeIfDifferent(attribute, dto1));
+	}
+
+	@Test
+	public void getOriginTypeIfDifferentAttributeQualifiedNameNamespace() {
+		final DTO dto = EnvironmentPackage.eINSTANCE.getEnvironmentFactory().createDTO();
+		dto.setName("dto");
+		final DTO dto1 = EnvironmentPackage.eINSTANCE.getEnvironmentFactory().createDTO();
+		dto1.setName("dto1");
+		Attribute attribute = EnvironmentPackage.eINSTANCE.getEnvironmentFactory().createAttribute();
+		dto.getOwnedAttributes().add(attribute);
+		final Namespace namespace = EnvironmentPackage.eINSTANCE.getEnvironmentFactory().createNamespace();
+		namespace.setName("namespace");
+		final Namespace namespace1 = EnvironmentPackage.eINSTANCE.getEnvironmentFactory().createNamespace();
+		namespace1.setName("namespace1");
+		final Namespace namespace2 = EnvironmentPackage.eINSTANCE.getEnvironmentFactory().createNamespace();
+		namespace2.setName("namespace2");
+		final Namespace namespace3 = EnvironmentPackage.eINSTANCE.getEnvironmentFactory().createNamespace();
+		namespace3.setName("namespace3");
+		namespace.getOwnedNamespaces().add(namespace2);
+		namespace.getOwnedNamespaces().add(namespace1);
+		namespace2.getOwnedNamespaces().add(namespace3);
+		namespace3.getTypes().add(dto);
+
+		assertEquals("From DTO namespace.namespace2.namespace3.dto", es.getOriginTypeIfDifferent(attribute, dto1));
+	}
+
+	@Test
+	public void getOriginTypeIfDifferentAttributeQualifiedNameNamespaceSuperType() {
+		final DTO dto = EnvironmentPackage.eINSTANCE.getEnvironmentFactory().createDTO();
+		dto.setName("dto");
+		final DTO dto1 = EnvironmentPackage.eINSTANCE.getEnvironmentFactory().createDTO();
+		dto1.setName("dto1");
+		dto1.setSupertype(dto);
+		Attribute attribute = EnvironmentPackage.eINSTANCE.getEnvironmentFactory().createAttribute();
+		dto.getOwnedAttributes().add(attribute);
+		final Namespace namespace = EnvironmentPackage.eINSTANCE.getEnvironmentFactory().createNamespace();
+		namespace.setName("namespace");
+		final Namespace namespace1 = EnvironmentPackage.eINSTANCE.getEnvironmentFactory().createNamespace();
+		namespace1.setName("namespace1");
+		final Namespace namespace2 = EnvironmentPackage.eINSTANCE.getEnvironmentFactory().createNamespace();
+		namespace2.setName("namespace2");
+		final Namespace namespace3 = EnvironmentPackage.eINSTANCE.getEnvironmentFactory().createNamespace();
+		namespace3.setName("namespace3");
+		namespace.getOwnedNamespaces().add(namespace2);
+		namespace.getOwnedNamespaces().add(namespace1);
+		namespace2.getOwnedNamespaces().add(namespace3);
+		namespace3.getTypes().add(dto);
+
+		assertEquals("From supertype namespace.namespace2.namespace3.dto",
+				es.getOriginTypeIfDifferent(attribute, dto1));
+	}
+
+
+	@Test
+	public void getOriginTypeIfDifferentReferenceNull() {
+		final DTO dto = EnvironmentPackage.eINSTANCE.getEnvironmentFactory().createDTO();
+		dto.setName("dto");
+		Reference reference = EnvironmentPackage.eINSTANCE.getEnvironmentFactory().createReference();
+		dto.getOwnedReferences().add(reference);
+
+		assertEquals("From DTO dto", es.getOriginTypeIfDifferent(reference, null));
+	}
+
+	@Test
+	public void getOriginTypeIfDifferentReferenceParent() {
+		final DTO dto = EnvironmentPackage.eINSTANCE.getEnvironmentFactory().createDTO();
+		dto.setName("dto");
+		Reference reference = EnvironmentPackage.eINSTANCE.getEnvironmentFactory().createReference();
+		dto.getOwnedReferences().add(reference);
+
+		assertEquals("", es.getOriginTypeIfDifferent(reference, dto));
+	}
+
+	@Test
+	public void getOriginTypeIfDifferentReference() {
+		final DTO dto = EnvironmentPackage.eINSTANCE.getEnvironmentFactory().createDTO();
+		dto.setName("dto");
+		final DTO dto1 = EnvironmentPackage.eINSTANCE.getEnvironmentFactory().createDTO();
+		dto1.setName("dto1");
+		Reference reference = EnvironmentPackage.eINSTANCE.getEnvironmentFactory().createReference();
+		dto.getOwnedReferences().add(reference);
+
+		assertEquals("From DTO dto", es.getOriginTypeIfDifferent(reference, dto1));
+	}
+
+	@Test
+	public void getOriginTypeIfDifferentReferenceQualifiedNameNamespace() {
+		final DTO dto = EnvironmentPackage.eINSTANCE.getEnvironmentFactory().createDTO();
+		dto.setName("dto");
+		final DTO dto1 = EnvironmentPackage.eINSTANCE.getEnvironmentFactory().createDTO();
+		dto1.setName("dto1");
+		Reference reference = EnvironmentPackage.eINSTANCE.getEnvironmentFactory().createReference();
+		dto.getOwnedReferences().add(reference);
+		final Namespace namespace = EnvironmentPackage.eINSTANCE.getEnvironmentFactory().createNamespace();
+		namespace.setName("namespace");
+		final Namespace namespace1 = EnvironmentPackage.eINSTANCE.getEnvironmentFactory().createNamespace();
+		namespace1.setName("namespace1");
+		final Namespace namespace2 = EnvironmentPackage.eINSTANCE.getEnvironmentFactory().createNamespace();
+		namespace2.setName("namespace2");
+		final Namespace namespace3 = EnvironmentPackage.eINSTANCE.getEnvironmentFactory().createNamespace();
+		namespace3.setName("namespace3");
+		namespace.getOwnedNamespaces().add(namespace2);
+		namespace.getOwnedNamespaces().add(namespace1);
+		namespace2.getOwnedNamespaces().add(namespace3);
+		namespace3.getTypes().add(dto);
+
+		assertEquals("From DTO namespace.namespace2.namespace3.dto", es.getOriginTypeIfDifferent(reference, dto1));
+	}
+
+	@Test
+	public void getOriginTypeIfDifferentReferenceQualifiedNameNamespaceSuperType() {
+		final DTO dto = EnvironmentPackage.eINSTANCE.getEnvironmentFactory().createDTO();
+		dto.setName("dto");
+		final DTO dto1 = EnvironmentPackage.eINSTANCE.getEnvironmentFactory().createDTO();
+		dto1.setName("dto1");
+		dto1.setSupertype(dto);
+		Reference reference = EnvironmentPackage.eINSTANCE.getEnvironmentFactory().createReference();
+		dto.getOwnedReferences().add(reference);
+		final Namespace namespace = EnvironmentPackage.eINSTANCE.getEnvironmentFactory().createNamespace();
+		namespace.setName("namespace");
+		final Namespace namespace1 = EnvironmentPackage.eINSTANCE.getEnvironmentFactory().createNamespace();
+		namespace1.setName("namespace1");
+		final Namespace namespace2 = EnvironmentPackage.eINSTANCE.getEnvironmentFactory().createNamespace();
+		namespace2.setName("namespace2");
+		final Namespace namespace3 = EnvironmentPackage.eINSTANCE.getEnvironmentFactory().createNamespace();
+		namespace3.setName("namespace3");
+		namespace.getOwnedNamespaces().add(namespace2);
+		namespace.getOwnedNamespaces().add(namespace1);
+		namespace2.getOwnedNamespaces().add(namespace3);
+		namespace3.getTypes().add(dto);
+
+		assertEquals("From supertype namespace.namespace2.namespace3.dto",
+				es.getOriginTypeIfDifferent(reference, dto1));
 	}
 
 	@Test(expected = NullPointerException.class)
@@ -395,7 +532,6 @@ public class EnvironmentServiceTest {
 
 		assertTrue(es.hasOwnedEnumerations(namespace));
 	}
-
 
 	@Test(expected = NullPointerException.class)
 	public void getOwnedDTONull() {
@@ -579,6 +715,30 @@ public class EnvironmentServiceTest {
 		namespace.getTypes().add(dto1);
 
 		assertTrue(es.hasOwnedReferences(namespace));
+	}
+
+	@Test(expected = NullPointerException.class)
+	public void getNameNull() {
+		es.getName((StructuredType)null);
+	}
+
+	@Test
+	public void getNameNoSuperType() {
+		final DTO dto = EnvironmentPackage.eINSTANCE.getEnvironmentFactory().createDTO();
+		dto.setName("dto");
+
+		assertEquals("dto", es.getName(dto));
+	}
+
+	@Test
+	public void getName() {
+		final DTO dto1 = EnvironmentPackage.eINSTANCE.getEnvironmentFactory().createDTO();
+		dto1.setName("dto1");
+		final DTO dto2 = EnvironmentPackage.eINSTANCE.getEnvironmentFactory().createDTO();
+		dto2.setName("dto2");
+		dto1.setSupertype(dto2);
+
+		assertEquals("dto1 \u2192 dto2", es.getName(dto1));
 	}
 
 }

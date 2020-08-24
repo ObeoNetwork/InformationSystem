@@ -44,6 +44,9 @@ public interface Namespace extends TypesDefinition, NamespacesContainer {
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * The containing namespace container.
+	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Owner</em>' container reference.
 	 * @see #setOwner(NamespacesContainer)
 	 * @see org.obeonetwork.dsl.environment.EnvironmentPackage#getNamespace_Owner()
@@ -71,6 +74,9 @@ public interface Namespace extends TypesDefinition, NamespacesContainer {
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * The name of the namespace.
+	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Name</em>' attribute.
 	 * @see #setName(String)
 	 * @see org.obeonetwork.dsl.environment.EnvironmentPackage#getNamespace_Name()

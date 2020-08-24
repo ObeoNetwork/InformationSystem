@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2017, 2019 Obeo.
+ * Copyright (c) 2017, 2020 Obeo.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -112,6 +112,17 @@ public class DomainClassServices extends AbstractServiceProvider {
 	/**
 	 * Return first annotation with the specified title
 	 */
+	// @formatter:off
+	@Documentation(
+			comment = "{m:myObeoDSMObject.annotation(String)}",
+		    value = "Return first annotation with the specified title.",
+		    examples = {
+		    		@Example(
+		    				expression = "{m:myObeoDSMObject.annotation('some title')}", 
+		    				result = "The string of the annotation.")
+		    }
+		)
+	// @formatter:on	
 	public String annotation(ObeoDSMObject object, String title) {
 		if (title == null) {
 			return "";

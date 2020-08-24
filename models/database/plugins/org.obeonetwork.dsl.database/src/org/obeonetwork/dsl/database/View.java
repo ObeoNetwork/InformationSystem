@@ -47,6 +47,9 @@ public interface View extends AbstractTable {
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * The query populating the view.
+	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Query</em>' attribute.
 	 * @see #setQuery(String)
 	 * @see org.obeonetwork.dsl.database.DatabasePackage#getView_Query()
@@ -74,6 +77,9 @@ public interface View extends AbstractTable {
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * The list of columns in this view.
+	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Columns</em>' containment reference list.
 	 * @see org.obeonetwork.dsl.database.DatabasePackage#getView_Columns()
 	 * @model containment="true" transient="true"
@@ -90,6 +96,9 @@ public interface View extends AbstractTable {
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * The list of tables in this view.
+	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Tables</em>' containment reference list.
 	 * @see org.obeonetwork.dsl.database.DatabasePackage#getView_Tables()
 	 * @model containment="true" transient="true"
