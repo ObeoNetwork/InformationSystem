@@ -165,6 +165,9 @@
    <feature url="features/org.obeonetwork.tools.contextual.explorer.feature_11.3.0.qualifier.jar" id="org.obeonetwork.tools.contextual.explorer.feature" version="11.3.0.qualifier">
       <category name="org.obeonetwork.informationsystem.commons"/>
    </feature>
+   <feature id="org.obeonetwork.is.license">
+      <category name="org.obeonetwork.informationsystem.branding"/>
+   </feature>
    <category-def name="org.obeonetwork.informationsystem.models" label="Information System - Models"/>
    <category-def name="org.obeonetwork.informationsystem.designs" label="Information System - Designs"/>
    <category-def name="org.obeonetwork.informationsystem.commons" label="Information System - Commons"/>
@@ -172,4 +175,5 @@
    <category-def name="org.obeonetwork.informationsystem.m2doc" label="Information System - M2Doc"/>
    <category-def name="org.obeonetwork.informationsystem.addons" label="Information System - Add-ons"/>
    <category-def name="org.obeonetwork.informationsystem.samples" label="Information System - Samples"/>
+   <category-def name="org.obeonetwork.informationsystem.branding" label="Branding"/>
 </site>

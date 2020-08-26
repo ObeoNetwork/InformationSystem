@@ -5,7 +5,8 @@
 	at http://www.eclipse.org/legal/epl-v10.html Contributors: Obeo - initial 
 	API and implementation -->
 
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 
@@ -17,7 +18,7 @@
 	<name>Information System Parent</name>
 
 	<properties>
-		<tycho-version>1.3.0</tycho-version>
+		<tycho-version>1.7.0</tycho-version>
 		<platform-version-name>2019-06</platform-version-name>
 		<od-site>http://update.obeo.fr/release/designer/11.3/team/11.3.0/repository/</od-site>
 		<od-site2>http://update.obeo.fr/release/designer/11.3/community/11.3.0/repository/</od-site2>
@@ -142,8 +143,6 @@
 		<module>../../commons/nebula/features/org.eclipse.nebula.treemapper.feature</module>
 
 		<!-- commons/is/ -->
-		<module>../../is-designer/branding/plugins/org.obeonetwork.is.designer.ui</module>
-		
 		<module>../../commons/is/plugins/org.obeonetwork.dsl.is</module>
 		<module>../../commons/is/features/org.obeonetwork.dsl.feature.is</module>
 
@@ -162,17 +161,17 @@
 		<module>../../commons/tools/plugins/org.obeonetwork.tools.snapshot.viewer</module>
 		<module>../../commons/tools/plugins/org.obeonetwork.tools.snapshot.viewer.doc</module>
 		<module>../../commons/tools/features/org.obeonetwork.tools.snapshot.viewer.feature</module>
-		
+
 		<module>../../commons/tools/plugins/org.obeonetwork.tools.projectlibrary</module>
 		<module>../../commons/tools/plugins/org.obeonetwork.tools.projectlibrary.ui</module>
 		<module>../../commons/tools/plugins/org.obeonetwork.tools.projectlibrary.doc</module>
 		<module>../../commons/tools/features/org.obeonetwork.tools.projectlibrary.feature</module>
-		
+
 		<module>../../commons/tools/plugins/org.obeonetwork.tools.contextual.explorer.ui</module>
 		<module>../../commons/tools/plugins/org.obeonetwork.tools.contextual.explorer.ui.tests</module>
 		<module>../../commons/tools/plugins/org.obeonetwork.tools.contextual.explorer.ui.doc</module>
 		<module>../../commons/tools/features/org.obeonetwork.tools.contextual.explorer.feature</module>
-		
+
 		<module>../../commons/utils/plugins/org.obeonetwork.utils.sirius</module>
 		<module>../../commons/utils/features/org.obeonetwork.utils.feature</module>
 
@@ -204,7 +203,7 @@
 		<module>../../designs/environment/plugins/org.obeonetwork.dsl.environment.properties</module>
 
 		<module>../../designs/environment/features/org.obeonetwork.dsl.environment.design.feature</module>
-		
+
 		<!-- Design environment tests -->
 		<module>../../designs/environment/plugins/org.obeonetwork.dsl.environment.design.tests</module>
 
@@ -346,60 +345,9 @@
 
 	</modules>
 
-	<repositories>
-		<repository>
-		    <id>central</id>
-		    <name>Central Repository</name>
-		    <url>https://repo.maven.apache.org/maven2</url>
-		    <layout>default</layout>
-		    <snapshots>
-				<enabled>false</enabled>
-		    </snapshots>
-		</repository>
-		<repository>
-			<id>od</id>
-			<layout>p2</layout>
-			<url>${od-site}</url>
-		</repository>
-		<repository>
-			<id>amalgam</id>
-			<layout>p2</layout>
-			<url>${amalgam-site}</url>
-		</repository>
-		<repository>
-			<id>m2doc</id>
-			<layout>p2</layout>
-			<url>${m2doc-site}</url>
-		</repository>
-		<repository>
-			<id>od2</id>
-			<layout>p2</layout>
-			<url>${od-site2}</url>
-		</repository>
-		<repository>
-			<id>oxygen</id>
-			<layout>p2</layout>
-			<url>${eclipse-site}</url>
-		</repository>
-		<repository>
-			<id>eef</id>
-			<layout>p2</layout>
-			<url>${eef-site}</url>
-		</repository>
-		<repository>
-			<id>orbit</id>
-			<layout>p2</layout>
-			<url>${orbit-site}</url>
-		</repository>
-		<repository>
-			<id>svn</id>
-			<layout>p2</layout>
-			<url>${svn-site}</url>
-		</repository>
-	</repositories>
 
 	<pluginRepositories>
-	    <pluginRepository>
+		<pluginRepository>
 			<id>central</id>
 			<name>Central Repository</name>
 			<url>https://repo.maven.apache.org/maven2</url>
@@ -410,7 +358,7 @@
 			<releases>
 				<updatePolicy>never</updatePolicy>
 			</releases>
-	    </pluginRepository>
+		</pluginRepository>
 		<pluginRepository>
 			<id>Eclipse - Acceleo Releases</id>
 			<url>https://repo.eclipse.org/content/repositories/acceleo-releases</url>
@@ -449,7 +397,39 @@
 				</plugin>
 				<plugin>
 					<groupId>org.eclipse.tycho</groupId>
-					<artifactId>tycho-surefire-plugin</artifactId> 
+					<artifactId>target-platform-configuration</artifactId>
+					<version>${tycho-version}</version>
+					<configuration>
+						<environments>
+							<environment>
+								<os>win32</os>
+								<ws>win32</ws>
+								<arch>x86_64</arch>
+							</environment>
+							<environment>
+								<os>macosx</os>
+								<ws>cocoa</ws>
+								<arch>x86_64</arch>
+							</environment>
+							<environment>
+								<os>linux</os>
+								<ws>gtk</ws>
+								<arch>x86_64</arch>
+							</environment>
+						</environments>
+						<target>
+							<artifact>
+								<version>11.3.0-SNAPSHOT</version>
+								<groupId>org.obeonetwork</groupId>
+								<artifactId>parent</artifactId>
+								<classifier>tp/isdesigner</classifier>
+							</artifact>
+						</target>
+					</configuration>
+				</plugin>
+				<plugin>
+					<groupId>org.eclipse.tycho</groupId>
+					<artifactId>tycho-surefire-plugin</artifactId>
 					<version>${tycho-version}</version>
 					<configuration>
 						<dependencies>

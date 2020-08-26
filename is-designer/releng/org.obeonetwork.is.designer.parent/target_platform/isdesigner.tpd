@@ -1,13 +1,13 @@
 target "IS Designer Target Definition" with source, requirements
 
 location "http://update.obeo.fr/integration/informationsystem/11.3/design/repository/" {
-	org.obeonetwork.dsl.feature.environment.feature.group lazy
 	org.obeonetwork.dsl.feature.entity.feature.group lazy
 	org.obeonetwork.dsl.feature.cinematic.feature.group lazy
 	org.obeonetwork.dsl.feature.soa.feature.group lazy
 	org.obeonetwork.graal.feature.feature.group lazy
 	org.obeonetwork.dsl.feature.requirement.feature.group lazy
 	org.obeonetwork.dsl.feature.is.feature.group lazy
+	org.obeonetwork.is.license.feature.group lazy
 	org.obeonetwork.dsl.feature.overview.feature.group lazy
 	org.obeonetwork.dsl.feature.interaction.feature.group lazy
 	org.obeonetwork.dsl.feature.statemachine.feature.group lazy
