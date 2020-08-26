@@ -1,16 +1,16 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <?pde?>
 <!-- generated with https://github.com/eclipse-cbi/targetplatform-dsl -->
-<target name="IS Designer Target Definition" sequenceNumber="1593447977">
+<target name="IS Designer Target Definition" sequenceNumber="1598430122">
   <locations>
     <location includeMode="planner" includeAllPlatforms="false" includeSource="true" includeConfigurePhase="false" type="InstallableUnit">
-      <unit id="org.obeonetwork.dsl.feature.environment.feature.group" version="0.0.0"/>
       <unit id="org.obeonetwork.dsl.feature.entity.feature.group" version="0.0.0"/>
       <unit id="org.obeonetwork.dsl.feature.cinematic.feature.group" version="0.0.0"/>
       <unit id="org.obeonetwork.dsl.feature.soa.feature.group" version="0.0.0"/>
       <unit id="org.obeonetwork.graal.feature.feature.group" version="0.0.0"/>
       <unit id="org.obeonetwork.dsl.feature.requirement.feature.group" version="0.0.0"/>
       <unit id="org.obeonetwork.dsl.feature.is.feature.group" version="0.0.0"/>
+      <unit id="org.obeonetwork.is.license.feature.group" version="0.0.0"/>
       <unit id="org.obeonetwork.dsl.feature.overview.feature.group" version="0.0.0"/>
       <unit id="org.obeonetwork.dsl.feature.interaction.feature.group" version="0.0.0"/>
       <unit id="org.obeonetwork.dsl.feature.statemachine.feature.group" version="0.0.0"/>
