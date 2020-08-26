@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feature
+      id="liquibase.feature"
+      label="Liquibase Feature"
+      version="4.0.0.qualifier"
+      provider-name="Liquibase"
+      plugin="liquibase"
+      license-feature="org.obeonetwork.is.license"
+      license-feature-version="1.0.0.qualifier">
+
+   <description url="https://www.liquibase.org/">
+      Feature that wrap liquibase into a Eclipse bundle
+   </description>
+
+   <copyright url="https://www.liquibase.org/">
+      https://www.liquibase.org/
+   </copyright>
+
+
+   <plugin
+         id="liquibase"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
+
+</feature>
