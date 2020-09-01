@@ -12,35 +12,32 @@ package fr.gouv.mindef.safran.database.ui.actions;
 
 import java.io.File;
 import java.io.IOException;
-import java.util.Collections;
 
 import org.eclipse.core.runtime.IStatus;
-import org.eclipse.core.runtime.Status;
 import org.eclipse.emf.common.util.BasicMonitor;
 import org.eclipse.emf.compare.Comparison;
-import org.obeonetwork.dsl.database.sqlgen.DatabaseGen;
+import org.obeonetwork.dsl.database.liquibasegen.LiquibaseGenerator;
 
 /**
- * Action made available when comparing two database models to generate the SQL
- * scripts to corresponding to the EMFCompare comparison.
+ * Action made available when comparing two database models to generate the Liquibase changelog file corresponding to the EMFCompare comparison.
  * 
  */
-public class ExportAsSQLScriptsAction extends AbstractExportAsAction {
+public class ExportAsLiquibaseScriptsAction extends AbstractExportAsAction{
 
-	private static final String ACTION_TEXT = "Generate SQL";
+	
+	private static final String ACTION_TEXT = "Generate Liquibase changelog";
 
 	@Override
 	protected IStatus doGenerateScripts(Comparison comparison, File targetFolder) throws IOException {
-		DatabaseGen databaseGen = new DatabaseGen(comparison, targetFolder, Collections.emptyList());
-		databaseGen.doGenerate(new BasicMonitor());
-		return Status.OK_STATUS;
+		LiquibaseGenerator gen = new LiquibaseGenerator();
+		return gen.doGenerate(new BasicMonitor(),comparison,targetFolder.toPath());
 	}
-
+	
 	@Override
 	public String getText() {
 		return ACTION_TEXT;
 	}
-
+	
 	@Override
 	public String getToolTipText() {
 		return ACTION_TEXT;
@@ -48,7 +45,8 @@ public class ExportAsSQLScriptsAction extends AbstractExportAsAction {
 
 	@Override
 	protected String getMainFolderName() {
-		return "sql";
+		return "liquibase";
 	}
+
 
 }

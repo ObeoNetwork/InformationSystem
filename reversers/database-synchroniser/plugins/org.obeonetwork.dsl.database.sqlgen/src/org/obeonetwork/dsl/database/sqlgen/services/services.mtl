@@ -6,38 +6,38 @@
  'http://www.obeonetwork.org/dsl/typeslibrary/1.0')/]
 
 [query public getType(arg0 : TypeInstance) : String
-	= invoke('org.obeonetwork.dsl.database.sqlgen.services.TypesServices', 'getType(org.obeonetwork.dsl.typeslibrary.TypeInstance)', Sequence{arg0}) /]
+	= invoke('org.obeonetwork.dsl.database.gen.common.services.TypesServices', 'getType(org.obeonetwork.dsl.typeslibrary.TypeInstance)', Sequence{arg0}) /]
 
 [query public isTargetOracle(arg0 : DatabaseElement) : Boolean
-	= invoke('org.obeonetwork.dsl.database.sqlgen.services.TypesServices', 'isTargetOracle(org.obeonetwork.dsl.database.DatabaseElement)', Sequence{arg0}) /]
+	= invoke('org.obeonetwork.dsl.database.gen.common.services.TypesServices', 'isTargetOracle(org.obeonetwork.dsl.database.DatabaseElement)', Sequence{arg0}) /]
 
 [query public isTargetMySqlOrMariaDB(arg0 : DatabaseElement) : Boolean
-	= invoke('org.obeonetwork.dsl.database.sqlgen.services.TypesServices', 'isTargetMySqlOrMariaDB(org.obeonetwork.dsl.database.DatabaseElement)', Sequence{arg0}) /]
+	= invoke('org.obeonetwork.dsl.database.gen.common.services.TypesServices', 'isTargetMySqlOrMariaDB(org.obeonetwork.dsl.database.DatabaseElement)', Sequence{arg0}) /]
 
 [query public isTargetSqlServer(arg0 : DatabaseElement) : Boolean
-	= invoke('org.obeonetwork.dsl.database.sqlgen.services.TypesServices', 'isTargetSqlServer(org.obeonetwork.dsl.database.DatabaseElement)', Sequence{arg0}) /]
+	= invoke('org.obeonetwork.dsl.database.gen.common.services.TypesServices', 'isTargetSqlServer(org.obeonetwork.dsl.database.DatabaseElement)', Sequence{arg0}) /]
 
 [query public isTargetPostgreSQL(arg0 : DatabaseElement) : Boolean
-	= invoke('org.obeonetwork.dsl.database.sqlgen.services.TypesServices', 'isTargetPostgreSQL(org.obeonetwork.dsl.database.DatabaseElement)', Sequence{arg0}) /]
+	= invoke('org.obeonetwork.dsl.database.gen.common.services.TypesServices', 'isTargetPostgreSQL(org.obeonetwork.dsl.database.DatabaseElement)', Sequence{arg0}) /]
 
 [query public isTargetH2(arg0 : DatabaseElement) : Boolean
-	= invoke('org.obeonetwork.dsl.database.sqlgen.services.TypesServices', 'isTargetH2(org.obeonetwork.dsl.database.DatabaseElement)', Sequence{arg0}) /]
+	= invoke('org.obeonetwork.dsl.database.gen.common.services.TypesServices', 'isTargetH2(org.obeonetwork.dsl.database.DatabaseElement)', Sequence{arg0}) /]
 
 [query public getOrderedChanges(comparison : Comparison) : Sequence(DBDiff)
-	= invoke('org.obeonetwork.dsl.database.sqlgen.services.UtilServices', 'getOrderedChanges(org.eclipse.emf.compare.Comparison)', Sequence{comparison}) /]
+	= invoke('org.obeonetwork.dsl.database.gen.common.services.UtilServices', 'getOrderedChanges(org.eclipse.emf.compare.Comparison)', Sequence{comparison}) /]
 
 [query public getSubDiffs(diff : Diff) : Sequence(DBDiff)
-	= invoke('org.obeonetwork.dsl.database.sqlgen.services.UtilServices', 'getSubDiffs(org.eclipse.emf.compare.Diff)', Sequence{diff}) /]
+	= invoke('org.obeonetwork.dsl.database.gen.common.services.UtilServices', 'getSubDiffs(org.eclipse.emf.compare.Diff)', Sequence{diff}) /]
 
 [query public isIndexForFK(index : Index) : Boolean
-	= invoke('org.obeonetwork.dsl.database.sqlgen.services.DatabaseServices', 'isIndexForForeignKey(org.obeonetwork.dsl.database.Index)', Sequence{index}) /]
+	= invoke('org.obeonetwork.dsl.database.gen.common.services.DatabaseServices', 'isIndexForForeignKey(org.obeonetwork.dsl.database.Index)', Sequence{index}) /]
 
 [query public isIndexOnPKColumns(index : Index) : Boolean
-	= invoke('org.obeonetwork.dsl.database.sqlgen.services.DatabaseServices', 'isIndexOnPKColumns(org.obeonetwork.dsl.database.Index)', Sequence{index}) /]
+	= invoke('org.obeonetwork.dsl.database.gen.common.services.DatabaseServices', 'isIndexOnPKColumns(org.obeonetwork.dsl.database.Index)', Sequence{index}) /]
 
 [query public supportsSchema(arg : DatabaseElement) : Boolean =
 arg.isTargetH2() or arg.isTargetOracle() or arg.isTargetPostgreSQL() or arg.isTargetSqlServer()
 /]
 
 [query public getViewQuery(view : View) : String
-	= invoke('org.obeonetwork.dsl.database.sqlgen.services.DatabaseServices', 'getViewQuery(org.obeonetwork.dsl.database.View)', Sequence{view}) /]
+	= invoke('org.obeonetwork.dsl.database.gen.common.services.DatabaseServices', 'getViewQuery(org.obeonetwork.dsl.database.View)', Sequence{view}) /]

@@ -35,7 +35,7 @@ import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.resource.ResourceSet;
 import org.obeonetwork.dsl.database.DataBase;
 import org.obeonetwork.dsl.database.Schema;
-import org.obeonetwork.dsl.database.sqlgen.services.TypesServices;
+import org.obeonetwork.dsl.database.gen.common.services.TypesServices;
 import org.obeonetwork.dsl.typeslibrary.NativeTypesLibrary;
 import org.obeonetwork.dsl.typeslibrary.TypesLibrary;
 import org.obeonetwork.dsl.typeslibrary.UserDefinedTypesLibrary;

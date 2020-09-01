@@ -8,7 +8,7 @@
  * Contributors:
  *     Obeo - initial API and implementation
  *******************************************************************************/
-package org.obeonetwork.dsl.database.sqlgen.services;
+package org.obeonetwork.dsl.database.gen.common.services;
 
 import java.util.ArrayList;
 import java.util.Collection;

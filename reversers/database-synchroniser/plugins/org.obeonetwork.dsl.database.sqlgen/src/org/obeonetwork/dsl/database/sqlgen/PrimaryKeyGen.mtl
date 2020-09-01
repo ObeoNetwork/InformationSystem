@@ -101,4 +101,4 @@ not diff.oclIsUndefined() and diff.oclIsKindOf(RemoveTable)
 
 
 [query private getRelatedDiff(diff : Diff) : Diff
-	= invoke('org.obeonetwork.dsl.database.sqlgen.services.UtilServices', 'getRelatedDiff(org.eclipse.emf.compare.Diff)', Sequence{diff}) /]
+	= invoke('org.obeonetwork.dsl.database.gen.common.services.UtilServices', 'getRelatedDiff(org.eclipse.emf.compare.Diff)', Sequence{diff}) /]

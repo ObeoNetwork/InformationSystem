@@ -1,23 +1,27 @@
 /*******************************************************************************
- * Copyright (c) 2012, 2020 Obeo.
+ * Copyright (c) 2020 Obeo.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
  * http://www.eclipse.org/legal/epl-v10.html
- * 
+ *
  * Contributors:
  *     Obeo - initial API and implementation
  *******************************************************************************/
-package fr.gouv.mindef.safran.database.ui.actions;
+package org.obeonetwork.dsl.database.liquibasegen;
+
+import java.util.ArrayList;
+import java.util.List;
 
 import org.eclipse.emf.compare.Comparison;
 
-public class GenerateSQLFromDatabaseHandler extends AbstractGenerateScriptsFromDatabaseHandler {
+import liquibase.changelog.ChangeLogChild;
 
-	@Override
-	protected void doGenerate(Comparison comparison) {
-		ExportAsSQLScriptsAction action = new ExportAsSQLScriptsAction();
-		action.exportComparison(comparison);
+public class ChangeLogBuilder {
+
+	public List<ChangeLogChild> buildContent(Comparison comparisonModel) {
+		List<ChangeLogChild> result = new ArrayList<ChangeLogChild>();
+		return result;
 	}
 
 }

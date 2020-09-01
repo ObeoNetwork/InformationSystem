@@ -265,4 +265,8 @@
          id="org.obeonetwork.tools.contextual.explorer.feature"
          version="0.0.0"/>
 
+   <includes
+         id="liquibase.feature"
+         version="0.0.0"/>
+
 </feature>

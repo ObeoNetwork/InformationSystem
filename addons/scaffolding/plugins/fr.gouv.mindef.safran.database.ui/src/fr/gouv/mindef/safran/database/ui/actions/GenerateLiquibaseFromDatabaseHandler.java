@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2012, 2020 Obeo.
+ * Copyright (c) 2020 Obeo.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -12,11 +12,11 @@ package fr.gouv.mindef.safran.database.ui.actions;
 
 import org.eclipse.emf.compare.Comparison;
 
-public class GenerateSQLFromDatabaseHandler extends AbstractGenerateScriptsFromDatabaseHandler {
+public class GenerateLiquibaseFromDatabaseHandler extends AbstractGenerateScriptsFromDatabaseHandler {
 
 	@Override
 	protected void doGenerate(Comparison comparison) {
-		ExportAsSQLScriptsAction action = new ExportAsSQLScriptsAction();
+		ExportAsLiquibaseScriptsAction action = new ExportAsLiquibaseScriptsAction();
 		action.exportComparison(comparison);
 	}
 
