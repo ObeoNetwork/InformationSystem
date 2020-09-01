@@ -54,8 +54,15 @@ public class LiquibaseGenerator {
 			ChangeLogBuilder changeLogBuilder = new ChangeLogBuilder();
 			List<ChangeLogChild> contents = changeLogBuilder.buildContent(comparisonModel);
 			if (!contents.isEmpty()) {
+				XMLChangeLogSerializer xmlSerializer = new XMLChangeLogSerializer();
 				try (OutputStream output = new BufferedOutputStream(new FileOutputStream(file))) {
-					XMLChangeLogSerializer xmlSerializer = new XMLChangeLogSerializer();
+					xmlSerializer.write(contents, output);
+					output.flush();
+				}
+
+				// TODO remove this
+				try (OutputStream output = new BufferedOutputStream(
+						new FileOutputStream(targetFolder.resolve(ChangeLogBuilder.FILE_NAME).toFile()))) {
 					xmlSerializer.write(contents, output);
 					output.flush();
 				}
