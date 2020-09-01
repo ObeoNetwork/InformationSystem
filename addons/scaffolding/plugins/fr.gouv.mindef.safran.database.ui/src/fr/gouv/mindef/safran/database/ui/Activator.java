@@ -10,6 +10,9 @@
  *******************************************************************************/
 package fr.gouv.mindef.safran.database.ui;
 
+import org.eclipse.core.runtime.IStatus;
+import org.eclipse.core.runtime.MultiStatus;
+import org.eclipse.core.runtime.Status;
 import org.eclipse.jface.resource.ImageDescriptor;
 import org.eclipse.jface.resource.ImageRegistry;
 import org.eclipse.ui.plugin.AbstractUIPlugin;
@@ -79,6 +82,41 @@ public class Activator extends AbstractUIPlugin {
 	 */
 	public static ImageDescriptor getImageDescriptor(String path) {
 		return imageDescriptorFromPlugin(PLUGIN_ID, path);
+	}
+
+	/**
+	 * Creates an error status
+	 * 
+	 * @param message
+	 *            the error message
+	 * @return a {@link IStatus}
+	 */
+	public static IStatus createErrorStatus(String message) {
+		return new Status(IStatus.ERROR, PLUGIN_ID, message);
+	}
+
+	public static IStatus createWarningStatus(String message) {
+		return new Status(IStatus.WARNING, PLUGIN_ID, message);
+	}
+
+	/**
+	 * Creates an error status
+	 * 
+	 * @param message
+	 *            the error message
+	 * @param e
+	 *            a throwable
+	 * @return a {@link IStatus}
+	 */
+	public static IStatus createErrorStatus(String message, Throwable e) {
+		Throwable cause = e.getCause();
+		if (cause != null && !cause.equals(e)) {
+			MultiStatus multiStatus = new MultiStatus(PLUGIN_ID, IStatus.ERROR, message, e);
+			multiStatus.add(new Status(IStatus.ERROR, PLUGIN_ID, cause.getMessage(), cause));
+			return multiStatus;
+		} else {
+			return new Status(IStatus.ERROR, PLUGIN_ID, message, e);
+		}
 	}
 
 }

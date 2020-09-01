@@ -53,6 +53,27 @@
                </with>
             </visibleWhen>
          </command>
+         <command
+               commandId="fr.gouv.mindef.safran.database.ui.command.GenerateLiquibase"
+               icon="icons/SqlFile.gif"
+               label="Generate Liquibase changelog"
+               style="push">
+            <visibleWhen
+                  checkEnabled="false">
+               <with
+                     variable="selection">
+                  <iterate
+                        ifEmpty="false">
+                     <test
+                           args="database"
+                           forcePluginActivation="true"
+                           property="fr.gouv.mindef.safran.database.ui.propertyTester.testFileExtension"
+                           value="true">
+                     </test>
+                  </iterate>
+               </with>
+            </visibleWhen>
+         </command>
          <menu
                id="fr.gouv.mindef.safran.ui.menu.scaffolding"
                label="Scaffolding">
@@ -109,6 +130,10 @@
       <command
             id="fr.gouv.mindef.safran.ui.command.scaffold.addAdditionalObjects"
             name="Add additional objects">
+      </command>
+      <command
+            id="fr.gouv.mindef.safran.database.ui.command.GenerateLiquibase"
+            name="Generate Liquibase Changelog">
       </command>
    </extension>
    <extension
@@ -286,6 +311,26 @@
                         property="fr.gouv.mindef.safran.database.ui.propertyTester.scaffold.testInputIsScaffoldModel"
                         value="true">
                   </test>
+               </and>
+            </with>
+         </enabledWhen>
+      </handler>
+      <handler
+            class="fr.gouv.mindef.safran.database.ui.actions.GenerateLiquibaseFromDatabaseHandler"
+            commandId="fr.gouv.mindef.safran.database.ui.command.GenerateLiquibase">
+         <enabledWhen>
+            <with
+                  variable="selection">
+               <and>
+                  <count
+                        value="1">
+                  </count>
+                  <not>
+                     <test
+                           forcePluginActivation="true"
+                           property="fr.gouv.mindef.safran.database.ui.propertyTester.testIsLogical">
+                     </test>
+                  </not>
                </and>
             </with>
          </enabledWhen>

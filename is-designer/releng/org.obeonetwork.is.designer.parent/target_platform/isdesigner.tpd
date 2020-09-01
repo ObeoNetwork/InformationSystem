@@ -10,6 +10,7 @@ location "http://update.obeo.fr/integration/informationsystem/11.3/design/reposi
 	org.obeonetwork.is.license.feature.group lazy
 	org.obeonetwork.dsl.feature.overview.feature.group lazy
 	org.obeonetwork.dsl.feature.interaction.feature.group lazy
+	liquibase.feature.feature.group lazy
 	org.obeonetwork.dsl.feature.statemachine.feature.group lazy
 	org.obeonetwork.dsl.database.feature.feature.group lazy
 	org.obeonetwork.dsl.typelibrary.feature.feature.group lazy
