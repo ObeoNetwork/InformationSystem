@@ -10,12 +10,17 @@
  *******************************************************************************/
 package org.obeonetwork.dsl.database.liquibasegen;
 
+import static java.util.stream.Collectors.joining;
+import static java.util.stream.Collectors.toList;
+
 import java.text.MessageFormat;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.Collections;
 import java.util.List;
+import java.util.Optional;
 import java.util.function.Consumer;
 import java.util.stream.Stream;
 
@@ -23,7 +28,9 @@ import org.eclipse.core.runtime.IStatus;
 import org.eclipse.emf.compare.Comparison;
 import org.obeonetwork.dsl.database.Column;
 import org.obeonetwork.dsl.database.DatabaseElement;
+import org.obeonetwork.dsl.database.ForeignKey;
 import org.obeonetwork.dsl.database.Table;
+import org.obeonetwork.dsl.database.dbevolution.AddForeignKey;
 import org.obeonetwork.dsl.database.dbevolution.AddTable;
 import org.obeonetwork.dsl.database.dbevolution.DBDiff;
 import org.obeonetwork.dsl.database.gen.common.services.StatusUtils;
@@ -35,6 +42,7 @@ import org.obeonetwork.dsl.typeslibrary.TypeInstance;
 
 import liquibase.change.ColumnConfig;
 import liquibase.change.ConstraintsConfig;
+import liquibase.change.core.AddForeignKeyConstraintChange;
 import liquibase.change.core.CreateTableChange;
 import liquibase.changelog.ChangeLogChild;
 import liquibase.changelog.ChangeSet;
@@ -69,12 +77,50 @@ public class ChangeLogBuilder {
 		try {
 			List<DBDiff> diffs = genService.getOrderedChanges(comparisonModel);
 			result.addAll(genChangeSetsForTables(diffs));
+			result.addAll(getChangeSetsForForeignKeys(diffs));
 		} finally {
 			genService.dispose();
 			genService = null;
 		}
 
 		return result;
+
+	}
+
+	private Collection<? extends ChangeLogChild> getChangeSetsForForeignKeys(List<DBDiff> diffs) {
+		return filterAndCast(diffs.stream(), AddForeignKey.class)//
+				.map(this::buildForeignKeyChangeSet)//
+				.filter(Optional::isPresent)//
+				.map(Optional::get)//
+				.collect(toList());
+	}
+
+	private Optional<ChangeSet> buildForeignKeyChangeSet(AddForeignKey adForeign) {
+		ForeignKey fk = adForeign.getForeignKey();
+		AddForeignKeyConstraintChange changeDescription = new AddForeignKeyConstraintChange();
+
+		if (fk.getElements().stream().allMatch(e -> e.getPkColumn() != null)) {
+			Table sourceTable = fk.getOwner();
+			Table target = fk.getElements().stream().map(e -> (Table) e.getPkColumn().eContainer()).findFirst()
+					.orElse(null);
+			if (target != null) {
+				safeTrimSetter(fk.getName(), changeDescription::setConstraintName);
+				safeTrimSetter(sourceTable.getName(), changeDescription::setBaseTableName);
+				safeTrimSetter(target.getName(), changeDescription::setReferencedTableName);
+				changeDescription.setBaseColumnNames(
+						fk.getElements().stream().map(c -> c.getFkColumn().getName()).collect(joining(",")));
+				changeDescription.setReferencedColumnNames(
+						fk.getElements().stream().map(c -> c.getPkColumn().getName()).collect(joining(",")));
+
+				ChangeSet result = buildNextChangeSet();
+				result.setComments("Foreign Key : " + fk.getName());
+				result.addChange(changeDescription);
+				return Optional.of(result);
+			}
+		} else {
+			statuses.add(StatusUtils.createWarningStatus("Invalid foreign key definition : " + fk.getName()));
+		}
+		return Optional.empty();
 
 	}
 
@@ -88,9 +134,12 @@ public class ChangeLogBuilder {
 	}
 
 	private void remarksSetter(DatabaseElement dbe, Consumer<String> setter) {
-		String comment = dbe.getComments();
-		if (comment != null && !comment.trim().isEmpty()) {
-			setter.accept(comment);
+		safeTrimSetter(dbe.getComments(), setter);
+	}
+
+	private void safeTrimSetter(String s, Consumer<String> setter) {
+		if (s != null) {
+			setter.accept(s.trim());
 		}
 	}
 
