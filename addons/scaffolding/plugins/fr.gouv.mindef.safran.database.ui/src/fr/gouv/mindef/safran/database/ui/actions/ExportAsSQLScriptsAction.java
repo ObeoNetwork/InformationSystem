@@ -18,7 +18,10 @@ import org.eclipse.core.runtime.IStatus;
 import org.eclipse.core.runtime.Status;
 import org.eclipse.emf.common.util.BasicMonitor;
 import org.eclipse.emf.compare.Comparison;
+import org.eclipse.jface.resource.ImageDescriptor;
 import org.obeonetwork.dsl.database.sqlgen.DatabaseGen;
+
+import fr.gouv.mindef.safran.database.ui.Activator;
 
 /**
  * Action made available when comparing two database models to generate the SQL
@@ -49,6 +52,17 @@ public class ExportAsSQLScriptsAction extends AbstractExportAsAction {
 	@Override
 	protected String getMainFolderName() {
 		return "sql";
+	}
+
+	@Override
+	public ImageDescriptor getImageDescriptor() {
+		return ImageDescriptor.createFromImage(Activator.getDefault().getImageRegistry().get(Activator.SQL_FILE_IMAGE));
+	}
+
+	@Override
+	public ImageDescriptor getDisabledImageDescriptor() {
+		return ImageDescriptor
+				.createFromImage(Activator.getDefault().getImageRegistry().get(Activator.SQL_FILE_DISABLED_IMAGE));
 	}
 
 }

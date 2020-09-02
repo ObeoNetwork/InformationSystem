@@ -55,7 +55,7 @@
          </command>
          <command
                commandId="fr.gouv.mindef.safran.database.ui.command.GenerateLiquibase"
-               icon="icons/SqlFile.gif"
+               icon="icons/LiquibaseGen.png"
                label="Generate Liquibase changelog"
                style="push">
             <visibleWhen
@@ -378,6 +378,15 @@
                icon="icons/SqlFile.gif"
                id="fr.gouv.mindef.safran.database.ui.action1"
                label="Generate SQL Scripts"
+               style="push"
+               toolbarPath="Normal/navigation">
+         </action>
+         <action
+               class="fr.gouv.mindef.safran.database.ui.actions.ExportAsLiquibaseScriptsAction"
+               disabledIcon="icons/DisabledLiquibaseGen.svg"
+               icon="icons/LiquibaseGen.png"
+               id="fr.gouv.mindef.safran.database.ui.action2"
+               label="Generate Liquibase"
                style="push"
                toolbarPath="Normal/navigation">
          </action>
