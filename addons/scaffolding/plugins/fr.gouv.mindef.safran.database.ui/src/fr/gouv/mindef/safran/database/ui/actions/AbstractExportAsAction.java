@@ -39,7 +39,6 @@ import org.eclipse.jface.action.Action;
 import org.eclipse.jface.action.IAction;
 import org.eclipse.jface.dialogs.ErrorDialog;
 import org.eclipse.jface.dialogs.MessageDialog;
-import org.eclipse.jface.resource.ImageDescriptor;
 import org.eclipse.jface.util.IPropertyChangeListener;
 import org.eclipse.jface.util.PropertyChangeEvent;
 import org.eclipse.jface.viewers.ISelection;
@@ -210,17 +209,6 @@ public abstract class AbstractExportAsAction extends Action implements IEditorAc
 	
 	protected abstract String getMainFolderName();
 
-
-	@Override
-	public ImageDescriptor getDisabledImageDescriptor() {
-		return ImageDescriptor.createFromImage(Activator.getDefault().getImageRegistry().get(Activator.SQL_FILE_DISABLED_IMAGE));
-	}
-	
-	@Override
-	public ImageDescriptor getImageDescriptor() {
-		return ImageDescriptor.createFromImage(Activator.getDefault().getImageRegistry().get(Activator.SQL_FILE_IMAGE));
-	}
-	
 
 	@Override
 	public void run(IAction action) {

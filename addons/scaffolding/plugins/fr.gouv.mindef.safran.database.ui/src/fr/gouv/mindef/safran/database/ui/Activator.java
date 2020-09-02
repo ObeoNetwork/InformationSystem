@@ -28,6 +28,8 @@ public class Activator extends AbstractUIPlugin {
 	public static final String PLUGIN_ID = "fr.gouv.mindef.safran.database.ui"; //$NON-NLS-1$
 	
 	public static final String SQL_FILE_IMAGE = "sql_file"; //$NON-NLS-1$
+	public static final String LIQUIBASE_FILE_IMAGE = "LiquibaseGen"; //$NON-NLS-1$
+	public static final String LIQUIBASE_FILE_DISABLED_IMAGE = "LiquibaseGen_disabled"; //$NON-NLS-1$
 	public static final String SQL_FILE_DISABLED_IMAGE = "sql_file_disabled"; //$NON-NLS-1$
 
 	// The shared instance
@@ -43,6 +45,8 @@ public class Activator extends AbstractUIPlugin {
 	protected void initializeImageRegistry(ImageRegistry reg) {
 		super.initializeImageRegistry(reg);
 		reg.put(SQL_FILE_IMAGE, getImageDescriptor("icons/SqlFile.gif")); //$NON-NLS-1$
+		reg.put(LIQUIBASE_FILE_IMAGE, getImageDescriptor("icons/LiquibaseGen.png")); //$NON-NLS-1$
+		reg.put(LIQUIBASE_FILE_DISABLED_IMAGE, getImageDescriptor("icons/DisabledLiquibaseGen.png")); //$NON-NLS-1$
 		reg.put(SQL_FILE_DISABLED_IMAGE, getImageDescriptor("icons/SqlFileDisabled.gif")); //$NON-NLS-1$
 	}
 
