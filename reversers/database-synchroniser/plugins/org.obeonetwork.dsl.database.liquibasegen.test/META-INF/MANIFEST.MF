@@ -9,4 +9,5 @@ Require-Bundle: liquibase,
  org.junit,
  org.eclipse.emf.ecore,
  org.obeonetwork.dsl.typeslibrary,
- org.obeonetwork.dsl.database.liquibasegen
+ org.obeonetwork.dsl.database.liquibasegen,
+ org.obeonetwork.dsl.database
