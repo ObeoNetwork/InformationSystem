@@ -12,5 +12,6 @@ Require-Bundle: org.obeonetwork.dsl.database,
  org.eclipse.emf.ecore,
  org.eclipse.emf.ecore.xmi,
  org.eclipse.emf.common,
- com.google.guava
+ com.google.guava,
+ org.obeonetwork.dsl.database.gen.common.tests
 Bundle-Vendor: Obeo Network
