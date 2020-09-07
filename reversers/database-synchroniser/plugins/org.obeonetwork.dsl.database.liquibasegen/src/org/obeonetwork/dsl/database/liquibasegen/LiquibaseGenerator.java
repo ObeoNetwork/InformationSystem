@@ -18,7 +18,10 @@ import java.io.OutputStream;
 import java.nio.file.Path;
 import java.sql.Timestamp;
 import java.text.SimpleDateFormat;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.List;
+import java.util.function.Supplier;
 
 import org.eclipse.core.runtime.IStatus;
 import org.eclipse.core.runtime.Status;
@@ -40,6 +43,9 @@ import liquibase.serializer.core.xml.XMLChangeLogSerializer;
  */
 public class LiquibaseGenerator {
 
+	private Supplier<String> idPrefixProvider = () -> LocalDateTime.now()
+			.format(DateTimeFormatter.ofPattern("yyyy-MM-dd-HH-mm-ss--"));
+
 	public IStatus doGenerate(Monitor monitor, Comparison comparisonModel, Path targetFolder) throws IOException {
 
 		File computeTargetFolder = computeTargetFolder(targetFolder.toFile(), comparisonModel);
@@ -52,7 +58,7 @@ public class LiquibaseGenerator {
 		File file = computeTargetFolder.toPath().resolve(ChangeLogBuilder.FILE_NAME).toFile();
 		if (file.createNewFile()) {
 			ChangeLogBuilder changeLogBuilder = new ChangeLogBuilder();
-			List<ChangeLogChild> contents = changeLogBuilder.buildContent(comparisonModel);
+			List<ChangeLogChild> contents = changeLogBuilder.buildContent(comparisonModel, idPrefixProvider.get());
 			if (!contents.isEmpty()) {
 				XMLChangeLogSerializer xmlSerializer = new XMLChangeLogSerializer();
 				try (OutputStream output = new BufferedOutputStream(new FileOutputStream(file))) {
@@ -61,8 +67,9 @@ public class LiquibaseGenerator {
 				}
 
 				// TODO remove this
-				try (OutputStream output = new BufferedOutputStream(
-						new FileOutputStream(targetFolder.resolve(ChangeLogBuilder.FILE_NAME).toFile()))) {
+				File tmpTarget = computeTargetFolder.toPath().getParent().getParent()
+						.resolve(ChangeLogBuilder.FILE_NAME).toFile();
+				try (OutputStream output = new BufferedOutputStream(new FileOutputStream(tmpTarget))) {
 					xmlSerializer.write(contents, output);
 					output.flush();
 				}
@@ -107,6 +114,10 @@ public class LiquibaseGenerator {
 
 		File targetFolder = new File(folder.getAbsolutePath() + "/" + dbtypeFolderName + folderName);
 		return targetFolder;
+	}
+
+	public void setIdPrefixProvider(Supplier<String> idPrefixProvider) {
+		this.idPrefixProvider = idPrefixProvider;
 	}
 
 }

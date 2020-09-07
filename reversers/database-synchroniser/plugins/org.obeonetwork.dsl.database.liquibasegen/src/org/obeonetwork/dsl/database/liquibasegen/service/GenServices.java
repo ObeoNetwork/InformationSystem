@@ -1,13 +1,18 @@
 package org.obeonetwork.dsl.database.liquibasegen.service;
 
 import java.util.List;
+import java.util.Objects;
 import java.util.Optional;
 
 import org.eclipse.emf.compare.Comparison;
 import org.eclipse.emf.ecore.EObject;
+import org.obeonetwork.dsl.database.Index;
+import org.obeonetwork.dsl.database.PrimaryKey;
 import org.obeonetwork.dsl.database.Schema;
 import org.obeonetwork.dsl.database.Table;
 import org.obeonetwork.dsl.database.dbevolution.DBDiff;
+import org.obeonetwork.dsl.database.dbevolution.IndexChange;
+import org.obeonetwork.dsl.database.gen.common.services.DatabaseServices;
 import org.obeonetwork.dsl.database.gen.common.services.TypesServices;
 import org.obeonetwork.dsl.database.gen.common.services.UtilServices;
 import org.obeonetwork.dsl.typeslibrary.TypeInstance;
@@ -31,6 +36,8 @@ public class GenServices {
 	private TypesServices typeService = new TypesServices();
 
 	private UtilServices utilService = new UtilServices();
+
+	private DatabaseServices databaseService = new DatabaseServices();
 
 	/**
 	 * Gets the qualified name of a {@link Table} ($schemaName.$tableName)
@@ -86,6 +93,14 @@ public class GenServices {
 	 */
 	public void dispose() {
 		typeService.dispose();
+	}
+
+	public boolean shouldGenerateIndex(IndexChange indexChange) {
+		Index index = indexChange.getIndex();
+		PrimaryKey primKey = index.getOwner().getPrimaryKey();
+		return (primKey == null || !Objects.equals(primKey.getID(), index.getID())) //
+				&& !databaseService.isIndexForForeignKey(index)
+				&& (!typeService.isTargetOracle(index) || !databaseService.isIndexOnPKColumns(index));
 	}
 
 	/**

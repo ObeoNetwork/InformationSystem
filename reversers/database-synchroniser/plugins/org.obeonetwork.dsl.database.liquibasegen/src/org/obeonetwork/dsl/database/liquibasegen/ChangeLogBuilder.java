@@ -14,8 +14,6 @@ import static java.util.stream.Collectors.joining;
 import static java.util.stream.Collectors.toList;
 
 import java.text.MessageFormat;
-import java.time.LocalDateTime;
-import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Collections;
@@ -30,12 +28,15 @@ import org.obeonetwork.dsl.database.Column;
 import org.obeonetwork.dsl.database.Constraint;
 import org.obeonetwork.dsl.database.DatabaseElement;
 import org.obeonetwork.dsl.database.ForeignKey;
+import org.obeonetwork.dsl.database.Index;
 import org.obeonetwork.dsl.database.Table;
 import org.obeonetwork.dsl.database.dbevolution.AddConstraint;
 import org.obeonetwork.dsl.database.dbevolution.AddForeignKey;
+import org.obeonetwork.dsl.database.dbevolution.AddIndex;
 import org.obeonetwork.dsl.database.dbevolution.AddTable;
 import org.obeonetwork.dsl.database.dbevolution.ConstraintChange;
 import org.obeonetwork.dsl.database.dbevolution.DBDiff;
+import org.obeonetwork.dsl.database.dbevolution.IndexChange;
 import org.obeonetwork.dsl.database.gen.common.services.StatusUtils;
 import org.obeonetwork.dsl.database.liquibasegen.service.DefaultTypeMatcher;
 import org.obeonetwork.dsl.database.liquibasegen.service.DefaultTypeMatcher.LiquibaseDefaultType;
@@ -44,9 +45,11 @@ import org.obeonetwork.dsl.database.liquibasegen.service.SQLService;
 import org.obeonetwork.dsl.typeslibrary.Type;
 import org.obeonetwork.dsl.typeslibrary.TypeInstance;
 
+import liquibase.change.AddColumnConfig;
 import liquibase.change.ColumnConfig;
 import liquibase.change.ConstraintsConfig;
 import liquibase.change.core.AddForeignKeyConstraintChange;
+import liquibase.change.core.CreateIndexChange;
 import liquibase.change.core.CreateTableChange;
 import liquibase.change.core.RawSQLChange;
 import liquibase.changelog.ChangeLogChild;
@@ -70,23 +73,24 @@ public class ChangeLogBuilder {
 	 * List of statutes raised during generation
 	 */
 	private List<IStatus> statuses = new ArrayList<IStatus>();
-	
+
 	private SQLService sqlService;
 
 	private static <E> Stream<E> filterAndCast(Stream<?> stream, Class<E> type) {
 		return stream.filter(e -> type.isInstance(e)).map(e -> type.cast(e));
 	}
 
-	public List<ChangeLogChild> buildContent(Comparison comparisonModel) {
+	public List<ChangeLogChild> buildContent(Comparison comparisonModel, String changeLogIdPrexix) {
 		List<ChangeLogChild> result = new ArrayList<ChangeLogChild>();
 		genService = new GenServices();
 		sqlService = new SQLService();
-		timeStamp = LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyy-MM-dd-HH-mm-ss--"));
+		timeStamp = changeLogIdPrexix;
 		try {
 			List<DBDiff> diffs = genService.getOrderedChanges(comparisonModel);
 			result.addAll(genChangeSetsForTables(diffs));
 			result.addAll(genChangeSetsForConstraints(diffs));
 			result.addAll(getChangeSetsForForeignKeys(diffs));
+			result.addAll(getChangeSetsForIndexes(diffs));
 		} finally {
 			genService.dispose();
 			genService = null;
@@ -94,6 +98,15 @@ public class ChangeLogBuilder {
 
 		return result;
 
+	}
+
+	private Collection<? extends ChangeLogChild> getChangeSetsForIndexes(List<DBDiff> diffs) {
+		return filterAndCast(diffs.stream(), IndexChange.class)//
+				.filter(genService::shouldGenerateIndex)//
+				.map(this::buildIndexChangeSet)//
+				.filter(Optional::isPresent)//
+				.map(Optional::get)//
+				.collect(toList());
 	}
 
 	private Collection<? extends ChangeLogChild> genChangeSetsForConstraints(List<DBDiff> diffs) {
@@ -110,6 +123,35 @@ public class ChangeLogBuilder {
 		}
 		return Optional.empty();
 
+	}
+
+	private Optional<ChangeSet> buildIndexChangeSet(IndexChange indexChange) {
+		if (indexChange instanceof AddIndex) {
+			return Optional.of(buildAddIndexChangeSet((AddIndex) indexChange));
+		}
+		return Optional.empty();
+
+	}
+
+	private ChangeSet buildAddIndexChangeSet(AddIndex addIndex) {
+		Index index = addIndex.getIndex();
+		CreateIndexChange cChangle = new CreateIndexChange();
+		cChangle.setUnique(index.isUnique());
+		safeTrimSetter(index.getName(), cChangle::setIndexName);
+		safeTrimSetter(index.getOwner().getName(), cChangle::setTableName);
+
+		List<AddColumnConfig> columnCongis = index.getElements().stream()//
+				.filter(c -> c.getColumn() != null && c.getColumn().getName() != null).map(c -> {
+					AddColumnConfig config = new AddColumnConfig();
+					safeTrimSetter(c.getColumn().getName(), config::setName);
+					return config;
+				}).collect(toList());
+		cChangle.setColumns(columnCongis);
+
+		ChangeSet changeSet = buildNextChangeSet();
+		changeSet.setComments("Index : " + index.getName());
+		changeSet.addChange(cChangle);
+		return changeSet;
 	}
 
 	private Optional<ChangeSet> buildAddConstraintChangeSet(AddConstraint addConstraint) {
