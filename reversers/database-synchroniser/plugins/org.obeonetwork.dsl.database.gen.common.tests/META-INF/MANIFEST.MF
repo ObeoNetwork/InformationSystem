@@ -1,0 +1,14 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: %pluginName
+Bundle-SymbolicName: org.obeonetwork.dsl.database.gen.common.tests
+Bundle-Version: 11.3.0.qualifier
+Automatic-Module-Name: org.obeonetwork.dsl.database.gen.common.tests
+Bundle-RequiredExecutionEnvironment: JavaSE-1.8
+Bundle-Vendor: %providerName
+Require-Bundle: org.obeonetwork.dsl.database,
+ org.eclipse.emf.compare,
+ com.google.guava,
+ org.obeonetwork.dsl.database.compare,
+ org.junit;bundle-version="4.12.0"
+Export-Package: org.obeonetwork.dsl.database.gen.common.tests
