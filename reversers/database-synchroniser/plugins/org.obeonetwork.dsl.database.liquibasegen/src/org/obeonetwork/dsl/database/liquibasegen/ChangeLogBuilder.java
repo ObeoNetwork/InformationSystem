@@ -307,7 +307,7 @@ public class ChangeLogBuilder {
 
 		cConfig.setConstraints(constraintConfig);
 
-		cConfig.setAutoIncrement(column.isAutoincrement());
+		cConfig.setAutoIncrement(column.isAutoincrement() || column.isInPrimaryKey());
 
 		remarksSetter(column, cConfig::setRemarks);
 
