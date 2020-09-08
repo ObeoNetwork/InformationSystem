@@ -13,6 +13,7 @@ package org.obeonetwork.dsl.database.liquibasegen;
 import static java.util.stream.Collectors.joining;
 import static java.util.stream.Collectors.toList;
 
+import java.math.BigInteger;
 import java.text.MessageFormat;
 import java.util.ArrayList;
 import java.util.Collection;
@@ -29,14 +30,17 @@ import org.obeonetwork.dsl.database.Constraint;
 import org.obeonetwork.dsl.database.DatabaseElement;
 import org.obeonetwork.dsl.database.ForeignKey;
 import org.obeonetwork.dsl.database.Index;
+import org.obeonetwork.dsl.database.Sequence;
 import org.obeonetwork.dsl.database.Table;
 import org.obeonetwork.dsl.database.dbevolution.AddConstraint;
 import org.obeonetwork.dsl.database.dbevolution.AddForeignKey;
 import org.obeonetwork.dsl.database.dbevolution.AddIndex;
+import org.obeonetwork.dsl.database.dbevolution.AddSequence;
 import org.obeonetwork.dsl.database.dbevolution.AddTable;
 import org.obeonetwork.dsl.database.dbevolution.ConstraintChange;
 import org.obeonetwork.dsl.database.dbevolution.DBDiff;
 import org.obeonetwork.dsl.database.dbevolution.IndexChange;
+import org.obeonetwork.dsl.database.dbevolution.SequenceChange;
 import org.obeonetwork.dsl.database.gen.common.services.StatusUtils;
 import org.obeonetwork.dsl.database.liquibasegen.service.DefaultTypeMatcher;
 import org.obeonetwork.dsl.database.liquibasegen.service.DefaultTypeMatcher.LiquibaseDefaultType;
@@ -50,6 +54,7 @@ import liquibase.change.ColumnConfig;
 import liquibase.change.ConstraintsConfig;
 import liquibase.change.core.AddForeignKeyConstraintChange;
 import liquibase.change.core.CreateIndexChange;
+import liquibase.change.core.CreateSequenceChange;
 import liquibase.change.core.CreateTableChange;
 import liquibase.change.core.RawSQLChange;
 import liquibase.changelog.ChangeLogChild;
@@ -91,6 +96,7 @@ public class ChangeLogBuilder {
 			result.addAll(genChangeSetsForConstraints(diffs));
 			result.addAll(getChangeSetsForForeignKeys(diffs));
 			result.addAll(getChangeSetsForIndexes(diffs));
+			result.addAll(getChangeSetsForSequences(diffs));
 		} finally {
 			genService.dispose();
 			genService = null;
@@ -98,6 +104,43 @@ public class ChangeLogBuilder {
 
 		return result;
 
+	}
+
+	private Collection<? extends ChangeLogChild> getChangeSetsForSequences(List<DBDiff> diffs) {
+		return filterAndCast(diffs.stream(), SequenceChange.class)//
+				.map(this::buildSequenceChangeSet)//
+				.filter(Optional::isPresent)//
+				.map(Optional::get)//
+				.collect(toList());
+	}
+
+	private Optional<ChangeSet> buildSequenceChangeSet(SequenceChange sequenceChange) {
+		if (sequenceChange instanceof AddSequence) {
+			return Optional.of(buildAddSequenceChangeSet((AddSequence) sequenceChange));
+
+		}
+		return Optional.empty();
+	}
+
+	private ChangeSet buildAddSequenceChangeSet(AddSequence sequenceChange) {
+		CreateSequenceChange sChange = new CreateSequenceChange();
+
+		Sequence sequence = sequenceChange.getSequence();
+
+		safeTrimSetter(sequence.getName(), sChange::setSequenceName);
+		safeBigIntegerSetter(sequence.getIncrement(), sChange::setIncrementBy);
+		safeBigIntegerSetter(sequence.getMinValue(), sChange::setMinValue);
+		safeBigIntegerSetter(sequence.getMaxValue(), sChange::setMaxValue);
+		safeBigIntegerSetter(sequence.getStart(), sChange::setStartValue);
+		safeBigIntegerSetter(sequence.getCacheSize(), sChange::setCacheSize);
+		safeBigIntegerSetter(sequence.getCacheSize(), sChange::setCacheSize);
+		sChange.setCycle(sequence.isCycle());
+
+		ChangeSet changeSet = buildNextChangeSet();
+		changeSet.setComments("Sequence " + sequence.getName() + " : " + sequence.getComments());
+		changeSet.addChange(sChange);
+
+		return changeSet;
 	}
 
 	private Collection<? extends ChangeLogChild> getChangeSetsForIndexes(List<DBDiff> diffs) {
@@ -222,6 +265,12 @@ public class ChangeLogBuilder {
 	private void safeTrimSetter(String s, Consumer<String> setter) {
 		if (s != null) {
 			setter.accept(s.trim());
+		}
+	}
+
+	private void safeBigIntegerSetter(BigInteger i, Consumer<BigInteger> setter) {
+		if (i != null) {
+			setter.accept(i);
 		}
 	}
 

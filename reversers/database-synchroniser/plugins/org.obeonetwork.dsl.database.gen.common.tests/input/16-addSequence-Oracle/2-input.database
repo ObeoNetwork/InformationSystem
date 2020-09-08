@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="ASCII"?>
+<database:DataBase xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:database="http://www.obeonetwork.org/dsl/database/1.0" xmlns:typeslibrary="http://www.obeonetwork.org/dsl/typeslibrary/1.0" xmi:id="_a58DMPGxEeqUgoZ_UFo-EA" techID="_a53KsPGxEeqUgoZ_UFo-EA" name="add-sequence-mysql-oracle">
+  <usedLibraries xsi:type="typeslibrary:NativeTypesLibrary" href="pathmap://NativeDBTypes/Oracle-11g#_cUvfIBEnEeGTa_JlZYBw1A"/>
+  <schemas xmi:id="_bhdWMfGxEeqUgoZ_UFo-EA" techID="_bhdWMPGxEeqUgoZ_UFo-EA" name="Schema1">
+    <tables xsi:type="database:Table" xmi:id="_cfd2kfGxEeqUgoZ_UFo-EA" techID="_cfd2kPGxEeqUgoZ_UFo-EA" name="Table1">
+      <primaryKey xmi:id="_crbO8fGxEeqUgoZ_UFo-EA" techID="_crbO8PGxEeqUgoZ_UFo-EA" name="Table1_PK" columns="_crPBsfGxEeqUgoZ_UFo-EA"/>
+      <columns xmi:id="_crPBsfGxEeqUgoZ_UFo-EA" techID="_crPBsPGxEeqUgoZ_UFo-EA" name="column1" primaryKey="_crbO8fGxEeqUgoZ_UFo-EA">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_crPBsvGxEeqUgoZ_UFo-EA">
+          <nativeType href="pathmap://NativeDBTypes/Oracle-11g#_EwGJQD77EeaWN4f5B3n2lA"/>
+        </type>
+      </columns>
+    </tables>
+  </schemas>
+</database:DataBase>

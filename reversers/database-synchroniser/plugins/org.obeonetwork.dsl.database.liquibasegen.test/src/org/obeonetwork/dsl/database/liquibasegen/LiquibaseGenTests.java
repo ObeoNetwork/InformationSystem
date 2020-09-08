@@ -26,4 +26,9 @@ public class LiquibaseGenTests extends AbstractLiquibaseTest {
 		assertGenerationEquals("15-addIndex");
 	}
 
+	@Test
+	public void addSequence() {
+		assertGenerationEquals("16-addSequence-Oracle");
+	}
+
 }
