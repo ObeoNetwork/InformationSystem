@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="ASCII"?>
+<database:DataBase xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:database="http://www.obeonetwork.org/dsl/database/1.0" xmlns:typeslibrary="http://www.obeonetwork.org/dsl/typeslibrary/1.0" xmi:id="_pQviMPEYEeqMWoGehODcxg" techID="_pQrQwPEYEeqMWoGehODcxg" name="Base">
+  <usedLibraries xsi:type="typeslibrary:NativeTypesLibrary" href="pathmap://NativeDBTypes/MySQL-5#_Zj69UBEnEeGTa_JlZYBw1A"/>
+  <schemas xmi:id="_p-q_MPEYEeqMWoGehODcxg" techID="_p-qYIPEYEeqMWoGehODcxg" name="MAIN">
+    <tables xsi:type="database:Table" xmi:id="_tFjQkfEYEeqMWoGehODcxg" techID="_tFjQkPEYEeqMWoGehODcxg" name="Table1">
+      <primaryKey xmi:id="_tfxucfEYEeqMWoGehODcxg" techID="_tfxucPEYEeqMWoGehODcxg" name="Table1_PK" columns="_tfkTEfEYEeqMWoGehODcxg"/>
+      <columns xmi:id="_tfkTEfEYEeqMWoGehODcxg" techID="_tfkTEPEYEeqMWoGehODcxg" name="PrimC" primaryKey="_tfxucfEYEeqMWoGehODcxg">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_tfkTEvEYEeqMWoGehODcxg" length="0">
+          <nativeType href="pathmap://NativeDBTypes/MySQL-5#_Zj8LdhEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+      <columns xmi:id="_BxPcgfEZEeqMWoGehODcxg" techID="_BxPcgPEZEeqMWoGehODcxg" name="AnotherC">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_BxPcgvEZEeqMWoGehODcxg" length="20">
+          <nativeType href="pathmap://NativeDBTypes/MySQL-5#_Zj8yihEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+    </tables>
+    <tables xsi:type="database:Table" xmi:id="_5ncooPHNEeqiu_QS5BGaSw" comments="A comment on table 2" techID="_5ncBkPHNEeqiu_QS5BGaSw" name="Table2">
+      <primaryKey xmi:id="_57atgfHNEeqiu_QS5BGaSw" techID="_57atgPHNEeqiu_QS5BGaSw" name="Table2_PK" columns="_56xNQfHNEeqiu_QS5BGaSw"/>
+      <foreignKeys xmi:id="_ijoSQfHOEeqiu_QS5BGaSw" techID="_ijoSQPHOEeqiu_QS5BGaSw" name="FK_1" target="_tFjQkfEYEeqMWoGehODcxg">
+        <elements xmi:id="_ijpgYfHOEeqiu_QS5BGaSw" techID="_ijpgYPHOEeqiu_QS5BGaSw" fkColumn="_ijoSQ_HOEeqiu_QS5BGaSw" pkColumn="_tfkTEfEYEeqMWoGehODcxg"/>
+      </foreignKeys>
+      <columns xmi:id="_56xNQfHNEeqiu_QS5BGaSw" techID="_56xNQPHNEeqiu_QS5BGaSw" name="column1" primaryKey="_57atgfHNEeqiu_QS5BGaSw">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_56xNQvHNEeqiu_QS5BGaSw">
+          <nativeType href="pathmap://NativeDBTypes/MySQL-5#_Zj8LdxEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+      <columns xmi:id="_8PBu4PHNEeqiu_QS5BGaSw" comments="A comment on the text column" techID="_8PBH0PHNEeqiu_QS5BGaSw" name="aTextColumn" defaultValue="'A default value'">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_8PBu4fHNEeqiu_QS5BGaSw" length="20">
+          <nativeType href="pathmap://NativeDBTypes/MySQL-5#_Zj8yihEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+      <columns xmi:id="_FFKpIPHOEeqiu_QS5BGaSw" comments="A column holding images" techID="_FFKCEPHOEeqiu_QS5BGaSw" name="aImgColumn">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_FFKpIfHOEeqiu_QS5BGaSw">
+          <nativeType href="pathmap://NativeDBTypes/MySQL-5#_Zj8LeBEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+      <columns xmi:id="_VbDScPHOEeqiu_QS5BGaSw" comments="A column holding a date" techID="_VbCrYPHOEeqiu_QS5BGaSw" name="aDateColumn" defaultValue="2020-09-10">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_VbDScfHOEeqiu_QS5BGaSw">
+          <nativeType href="pathmap://NativeDBTypes/MySQL-5#_Zj7kZREnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+      <columns xmi:id="_ijoSQ_HOEeqiu_QS5BGaSw" techID="_ijoSQvHOEeqiu_QS5BGaSw" name="PrimC" foreignKeyElements="_ijpgYfHOEeqiu_QS5BGaSw">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_ijo5UfHOEeqiu_QS5BGaSw" technicalid="_ijo5UPHOEeqiu_QS5BGaSw" length="0">
+          <nativeType href="pathmap://NativeDBTypes/MySQL-5#_Zj8LdhEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+    </tables>
+  </schemas>
+</database:DataBase>

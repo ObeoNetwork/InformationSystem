@@ -31,4 +31,12 @@ public class LiquibaseGenTests extends AbstractLiquibaseTest {
 		assertGenerationEquals("16-addSequence-Oracle");
 	}
 
+	/**
+	 * Test how the generator handle table with existing column
+	 */
+	@Test
+	public void addTableWithColumns() {
+		assertGenerationEquals("17-addTable-MySQL");
+	}
+
 }

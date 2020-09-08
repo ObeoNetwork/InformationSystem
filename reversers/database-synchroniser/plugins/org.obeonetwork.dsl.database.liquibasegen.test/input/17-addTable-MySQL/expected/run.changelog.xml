@@ -1,0 +1,27 @@
+<?xml version="1.1" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog" xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext" xmlns:pro="http://www.liquibase.org/xml/ns/pro" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd http://www.liquibase.org/xml/ns/pro http://www.liquibase.org/xml/ns/pro/liquibase-pro-4.0.xsd http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.0.xsd">
+    <changeSet author="IS Designer" id="test0">
+        <comment>[Add table Table2] creation</comment>
+        <createTable remarks="A comment on table 2" tableName="Table2">
+            <column autoIncrement="true" name="column1" type="integer()">
+                <constraints nullable="false" primaryKey="true"/>
+            </column>
+            <column autoIncrement="false" defaultValue="A default value" name="aTextColumn" remarks="A comment on the text column" type="varchar(20)">
+                <constraints nullable="false"/>
+            </column>
+            <column autoIncrement="false" name="aImgColumn" remarks="A column holding images" type="longblob">
+                <constraints nullable="false"/>
+            </column>
+            <column autoIncrement="false" defaultValueDate="2020-09-10" name="aDateColumn" remarks="A column holding a date" type="date">
+                <constraints nullable="false"/>
+            </column>
+            <column autoIncrement="false" name="PrimC" type="int(0)">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="IS Designer" id="test1">
+        <comment>Foreign Key : FK_1</comment>
+        <addForeignKeyConstraint baseColumnNames="PrimC" baseTableName="Table2" constraintName="FK_1" referencedColumnNames="PrimC" referencedTableName="Table1"/>
+    </changeSet>
+</databaseChangeLog>
