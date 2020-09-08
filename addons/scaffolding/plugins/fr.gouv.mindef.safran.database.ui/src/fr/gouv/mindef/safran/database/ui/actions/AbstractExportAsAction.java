@@ -110,7 +110,7 @@ public abstract class AbstractExportAsAction extends Action implements IEditorAc
 						Activator.getDefault().getLog().log(status);
 						Display.getDefault().asyncExec(() -> {
 							ErrorDialog.openError(PlatformUI.getWorkbench().getActiveWorkbenchWindow().getShell(),
-									"Error", "Some errors occured during generation", status);
+									"Generation result", "Some errors/warnings occured during generation", status);
 						});
 					}
 				} catch (IOException e) {
