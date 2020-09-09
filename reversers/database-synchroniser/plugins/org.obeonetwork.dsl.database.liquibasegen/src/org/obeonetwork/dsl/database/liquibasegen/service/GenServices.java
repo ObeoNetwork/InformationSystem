@@ -10,6 +10,7 @@ import org.obeonetwork.dsl.database.Index;
 import org.obeonetwork.dsl.database.PrimaryKey;
 import org.obeonetwork.dsl.database.Schema;
 import org.obeonetwork.dsl.database.Table;
+import org.obeonetwork.dsl.database.View;
 import org.obeonetwork.dsl.database.dbevolution.DBDiff;
 import org.obeonetwork.dsl.database.dbevolution.IndexChange;
 import org.obeonetwork.dsl.database.gen.common.services.DatabaseServices;
@@ -132,6 +133,10 @@ public class GenServices {
 	 */
 	public List<DBDiff> getOrderedChanges(Comparison comparisonModel) {
 		return utilService.getOrderedChanges(comparisonModel);
+	}
+
+	public String getViewQuery(View view) {
+		return databaseService.getViewQuery(view);
 	}
 
 }

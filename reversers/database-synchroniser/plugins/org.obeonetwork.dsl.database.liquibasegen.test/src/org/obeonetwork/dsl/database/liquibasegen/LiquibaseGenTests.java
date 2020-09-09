@@ -39,4 +39,12 @@ public class LiquibaseGenTests extends AbstractLiquibaseTest {
 		assertGenerationEquals("17-addTable-MySQL");
 	}
 
+	/**
+	 * Test how the generator handle add of view
+	 */
+	@Test
+	public void addView() {
+		assertGenerationEquals("18-AddView-MySql");
+	}
+
 }

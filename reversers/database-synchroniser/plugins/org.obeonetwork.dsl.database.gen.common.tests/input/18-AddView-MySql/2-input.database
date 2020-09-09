@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="ASCII"?>
+<database:DataBase xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:database="http://www.obeonetwork.org/dsl/database/1.0" xmlns:typeslibrary="http://www.obeonetwork.org/dsl/typeslibrary/1.0" xmi:id="_ZbbWYPJ4Eeqsu5GFS77CrA" techID="_ZbYTEPJ4Eeqsu5GFS77CrA" name="MySQL">
+  <usedLibraries xsi:type="typeslibrary:NativeTypesLibrary" href="pathmap://NativeDBTypes/MySQL-5#_Zj69UBEnEeGTa_JlZYBw1A"/>
+  <schemas xmi:id="_dW7ioPJ4Eeqsu5GFS77CrA" techID="_dW67kPJ4Eeqsu5GFS77CrA" name="STOREBOOK">
+    <tables xsi:type="database:Table" xmi:id="_fyFWcfJ4Eeqsu5GFS77CrA" techID="_fyFWcPJ4Eeqsu5GFS77CrA" name="Table1">
+      <primaryKey xmi:id="_oHNOUfJ4Eeqsu5GFS77CrA" techID="_oHNOUPJ4Eeqsu5GFS77CrA" name="Table1_PK" columns="_oG8vofJ4Eeqsu5GFS77CrA"/>
+      <columns xmi:id="_oG8vofJ4Eeqsu5GFS77CrA" techID="_oG8voPJ4Eeqsu5GFS77CrA" name="ID" primaryKey="_oHNOUfJ4Eeqsu5GFS77CrA">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_oG8vovJ4Eeqsu5GFS77CrA">
+          <nativeType href="pathmap://NativeDBTypes/MySQL-5#_Zj8LdxEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+      <columns xmi:id="_4JSx4fJ4Eeqsu5GFS77CrA" techID="_4JSx4PJ4Eeqsu5GFS77CrA" name="quantity">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_4JSx4vJ4Eeqsu5GFS77CrA">
+          <nativeType href="pathmap://NativeDBTypes/MySQL-5#_Zj8LdxEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+      <columns xmi:id="_80wbcfJ4Eeqsu5GFS77CrA" techID="_80wbcPJ4Eeqsu5GFS77CrA" name="price">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_80wbcvJ4Eeqsu5GFS77CrA">
+          <nativeType href="pathmap://NativeDBTypes/MySQL-5#_Zj8LdREnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+    </tables>
+  </schemas>
+</database:DataBase>

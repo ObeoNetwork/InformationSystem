@@ -21,26 +21,33 @@ import java.util.Collections;
 import java.util.List;
 import java.util.Optional;
 import java.util.function.Consumer;
+import java.util.function.Function;
 import java.util.stream.Stream;
 
 import org.eclipse.core.runtime.IStatus;
 import org.eclipse.emf.compare.Comparison;
+import org.eclipse.emf.ecore.EObject;
 import org.obeonetwork.dsl.database.Column;
 import org.obeonetwork.dsl.database.Constraint;
 import org.obeonetwork.dsl.database.DatabaseElement;
 import org.obeonetwork.dsl.database.ForeignKey;
 import org.obeonetwork.dsl.database.Index;
+import org.obeonetwork.dsl.database.Schema;
 import org.obeonetwork.dsl.database.Sequence;
 import org.obeonetwork.dsl.database.Table;
+import org.obeonetwork.dsl.database.TableContainer;
+import org.obeonetwork.dsl.database.View;
 import org.obeonetwork.dsl.database.dbevolution.AddConstraint;
 import org.obeonetwork.dsl.database.dbevolution.AddForeignKey;
 import org.obeonetwork.dsl.database.dbevolution.AddIndex;
 import org.obeonetwork.dsl.database.dbevolution.AddSequence;
 import org.obeonetwork.dsl.database.dbevolution.AddTable;
+import org.obeonetwork.dsl.database.dbevolution.AddView;
 import org.obeonetwork.dsl.database.dbevolution.ConstraintChange;
 import org.obeonetwork.dsl.database.dbevolution.DBDiff;
 import org.obeonetwork.dsl.database.dbevolution.IndexChange;
 import org.obeonetwork.dsl.database.dbevolution.SequenceChange;
+import org.obeonetwork.dsl.database.dbevolution.ViewChange;
 import org.obeonetwork.dsl.database.gen.common.services.StatusUtils;
 import org.obeonetwork.dsl.database.liquibasegen.service.DefaultTypeMatcher;
 import org.obeonetwork.dsl.database.liquibasegen.service.DefaultTypeMatcher.LiquibaseDefaultType;
@@ -56,6 +63,7 @@ import liquibase.change.core.AddForeignKeyConstraintChange;
 import liquibase.change.core.CreateIndexChange;
 import liquibase.change.core.CreateSequenceChange;
 import liquibase.change.core.CreateTableChange;
+import liquibase.change.core.CreateViewChange;
 import liquibase.change.core.RawSQLChange;
 import liquibase.changelog.ChangeLogChild;
 import liquibase.changelog.ChangeSet;
@@ -97,6 +105,7 @@ public class ChangeLogBuilder {
 			result.addAll(getChangeSetsForForeignKeys(diffs));
 			result.addAll(getChangeSetsForIndexes(diffs));
 			result.addAll(getChangeSetsForSequences(diffs));
+			result.addAll(getChangeSetsForViews(diffs));
 		} finally {
 			genService.dispose();
 			genService = null;
@@ -104,6 +113,38 @@ public class ChangeLogBuilder {
 
 		return result;
 
+	}
+
+	private Collection<? extends ChangeLogChild> getChangeSetsForViews(List<DBDiff> diffs) {
+		return filterAndCast(diffs.stream(), ViewChange.class)//
+				.map(this::buildViewChangeSet)//
+				.filter(Optional::isPresent)//
+				.map(Optional::get)//
+				.collect(toList());
+	}
+
+	private Optional<ChangeSet> buildViewChangeSet(ViewChange viewChange) {
+		if (viewChange instanceof AddView) {
+			return Optional.of(buildAddViewChangeSet((AddView) viewChange));
+		}
+		return Optional.empty();
+	}
+
+	private ChangeSet buildAddViewChangeSet(AddView viewChange) {
+		CreateViewChange vChange = new CreateViewChange();
+		View view = viewChange.getView();
+		safeTrimSetter(view.getName(), vChange::setViewName);
+		safeTrimSetter(genService.getViewQuery(view), vChange::setSelectQuery);
+		safeTrimSetter(view.getComments(), vChange::setRemarks);
+		vChange.setReplaceIfExists(true);
+		safeSchemaSetter(view.getOwner(), vChange::setSchemaName);
+		ChangeSet changeSet = buildNextChangeSet();
+		// Add the view comment both in the remarks and changset comment since the
+		// COMMENT ON VIEW is not supported by all DB (not supported on MySQL for
+		// example)
+		changeSet.setComments("View  " + view.getName() + " : " + view.getComments());
+		changeSet.addChange(vChange);
+		return changeSet;
 	}
 
 	private Collection<? extends ChangeLogChild> getChangeSetsForSequences(List<DBDiff> diffs) {
@@ -258,13 +299,26 @@ public class ChangeLogBuilder {
 		return result;
 	}
 
+	private void safeSchemaSetter(EObject candidate, Consumer<String> consumer) {
+		if (candidate instanceof Schema) {
+			String name = ((Schema) candidate).getName();
+			if (name != null) {
+				consumer.accept(name.trim());
+			}
+		}
+	}
+
 	private void remarksSetter(DatabaseElement dbe, Consumer<String> setter) {
 		safeTrimSetter(dbe.getComments(), setter);
 	}
 
 	private void safeTrimSetter(String s, Consumer<String> setter) {
+		safeSet(s, String::trim, setter);
+	}
+
+	private void safeSet(String s, Function<String, String> preProcess, Consumer<String> setter) {
 		if (s != null) {
-			setter.accept(s.trim());
+			setter.accept(preProcess.apply(s));
 		}
 	}
 
@@ -279,7 +333,11 @@ public class ChangeLogBuilder {
 		Table table = addTable.getTable();
 		ctChange.setTableName(genService.safeName(table));
 		remarksSetter(table, ctChange::setRemarks);
-
+		
+		TableContainer owner = table.getOwner();
+		if (owner instanceof Schema) {
+			safeTrimSetter(((Schema) owner).getName(), ctChange::setSchemaName);
+		}
 		for (Column column : table.getColumns()) {
 			handleColumnInTable(ctChange, table, column);
 		}
@@ -287,7 +345,6 @@ public class ChangeLogBuilder {
 		ChangeSet changeSet = buildNextChangeSet();
 		changeSet.addChange(ctChange);
 		changeSet.setComments(commentPrefix + "creation");
-
 		return changeSet;
 	}
 
