@@ -25,9 +25,6 @@ import org.eclipse.emf.compare.Comparison;
 import org.obeonetwork.dsl.database.gen.common.tests.AbstractGenerationTest;
 import org.obeonetwork.dsl.database.sqlgen.DatabaseGen;
 
-import com.google.common.base.Charsets;
-import com.google.common.io.Files;
-
 abstract public class AbstractSQLGenerationTest extends AbstractGenerationTest {
 
 	private static final String EXPECTED_RESULT_BUNDLE_ID = "org.obeonetwork.dsl.database.sqlgen.tests";
@@ -78,10 +75,6 @@ abstract public class AbstractSQLGenerationTest extends AbstractGenerationTest {
 	}
 
 
-	private String convertCRLFtoCR(String content) {
-		return content.replaceAll("\r", "");
-	}
-
 	private String getMissingFilesNames(List<String> allNames, List<String> shouldBeHereNames) {
 		StringBuilder sb = new StringBuilder();
 		for (String shouldBeHereName : shouldBeHereNames) {
@@ -122,12 +115,5 @@ abstract public class AbstractSQLGenerationTest extends AbstractGenerationTest {
 		return sqlFiles;
 	}
 
-	private String readFile(File file) {
-		try {
-			return Files.toString(file, Charsets.UTF_8);
-		} catch (IOException e) {
-			fail("Error reading file : " + file.getAbsolutePath());
-		}
-		return null;
-	}
+
 }

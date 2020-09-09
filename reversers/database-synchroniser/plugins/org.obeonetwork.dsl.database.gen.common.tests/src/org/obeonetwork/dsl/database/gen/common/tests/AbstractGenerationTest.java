@@ -33,6 +33,7 @@ import org.obeonetwork.dsl.database.TableContainer;
 import org.obeonetwork.dsl.database.compare.extensions.services.DatabaseCompareService;
 import org.osgi.framework.Bundle;
 
+import com.google.common.base.Charsets;
 import com.google.common.io.Files;
 
 abstract public class AbstractGenerationTest {
@@ -147,6 +148,18 @@ abstract public class AbstractGenerationTest {
 		return file;
 	}
 
+	protected String convertCRLFtoCR(String content) {
+		return content.replaceAll("\r", "");
+	}
+
+	protected String readFile(File file) {
+		try {
+			return Files.toString(file, Charsets.UTF_8);
+		} catch (IOException e) {
+			fail("Error reading file : " + file.getAbsolutePath());
+		}
+		return null;
+	}
 	protected abstract String getExpectedResultBundleId();
 
 	protected abstract String getExpectedResultFileExt();

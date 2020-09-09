@@ -23,12 +23,12 @@ public class LiquibaseGenTests extends AbstractLiquibaseTest {
 	 */
 	@Test
 	public void addIndex() {
-		assertGenerationEquals("15-addIndex");
+		assertGenerationEquals("15-addIndex-mysql");
 	}
 
 	@Test
 	public void addSequence() {
-		assertGenerationEquals("16-addSequence-Oracle");
+		assertGenerationEquals("16-addSequence-oracle");
 	}
 
 	/**
@@ -36,7 +36,7 @@ public class LiquibaseGenTests extends AbstractLiquibaseTest {
 	 */
 	@Test
 	public void addTableWithColumns() {
-		assertGenerationEquals("17-addTable-MySQL");
+		assertGenerationEquals("17-addTable-mysql");
 	}
 
 	/**
@@ -44,7 +44,7 @@ public class LiquibaseGenTests extends AbstractLiquibaseTest {
 	 */
 	@Test
 	public void addView() {
-		assertGenerationEquals("18-AddView-MySql");
+		assertGenerationEquals("18-AddView-mysql");
 	}
 
 }

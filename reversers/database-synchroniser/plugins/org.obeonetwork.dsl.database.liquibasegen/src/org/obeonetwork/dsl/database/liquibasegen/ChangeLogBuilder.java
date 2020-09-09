@@ -35,7 +35,6 @@ import org.obeonetwork.dsl.database.Index;
 import org.obeonetwork.dsl.database.Schema;
 import org.obeonetwork.dsl.database.Sequence;
 import org.obeonetwork.dsl.database.Table;
-import org.obeonetwork.dsl.database.TableContainer;
 import org.obeonetwork.dsl.database.View;
 import org.obeonetwork.dsl.database.dbevolution.AddConstraint;
 import org.obeonetwork.dsl.database.dbevolution.AddForeignKey;
@@ -176,6 +175,7 @@ public class ChangeLogBuilder {
 		safeBigIntegerSetter(sequence.getStart(), sChange::setStartValue);
 		safeBigIntegerSetter(sequence.getCacheSize(), sChange::setCacheSize);
 		safeBigIntegerSetter(sequence.getCacheSize(), sChange::setCacheSize);
+		safeSchemaSetter(sequence.eContainer(), sChange::setSchemaName);
 		sChange.setCycle(sequence.isCycle());
 
 		ChangeSet changeSet = buildNextChangeSet();
@@ -220,10 +220,10 @@ public class ChangeLogBuilder {
 
 	private ChangeSet buildAddIndexChangeSet(AddIndex addIndex) {
 		Index index = addIndex.getIndex();
-		CreateIndexChange cChangle = new CreateIndexChange();
-		cChangle.setUnique(index.isUnique());
-		safeTrimSetter(index.getName(), cChangle::setIndexName);
-		safeTrimSetter(index.getOwner().getName(), cChangle::setTableName);
+		CreateIndexChange iChange = new CreateIndexChange();
+		iChange.setUnique(index.isUnique());
+		safeTrimSetter(index.getName(), iChange::setIndexName);
+		safeTrimSetter(index.getOwner().getName(), iChange::setTableName);
 
 		List<AddColumnConfig> columnCongis = index.getElements().stream()//
 				.filter(c -> c.getColumn() != null && c.getColumn().getName() != null).map(c -> {
@@ -231,11 +231,12 @@ public class ChangeLogBuilder {
 					safeTrimSetter(c.getColumn().getName(), config::setName);
 					return config;
 				}).collect(toList());
-		cChangle.setColumns(columnCongis);
+		iChange.setColumns(columnCongis);
+		safeSchemaSetter(index.getOwner().getOwner(), iChange::setSchemaName);
 
 		ChangeSet changeSet = buildNextChangeSet();
 		changeSet.setComments("Index : " + index.getName());
-		changeSet.addChange(cChangle);
+		changeSet.addChange(iChange);
 		return changeSet;
 	}
 
@@ -296,13 +297,9 @@ public class ChangeLogBuilder {
 		String commentPrefix = "[Add table " + tableName + "] ";
 		CreateTableChange ctChange = new CreateTableChange();
 		Table table = addTable.getTable();
-		ctChange.setTableName(genService.safeName(table));
+		safeTrimSetter(table.getName(), ctChange::setTableName);
+		safeSchemaSetter(table.getOwner(), ctChange::setSchemaName);
 		remarksSetter(table, ctChange::setRemarks);
-
-		TableContainer owner = table.getOwner();
-		if (owner instanceof Schema) {
-			safeTrimSetter(((Schema) owner).getName(), ctChange::setSchemaName);
-		}
 		for (Column column : table.getColumns()) {
 			handleColumnInTable(ctChange, table, column);
 		}

@@ -10,7 +10,6 @@
  *******************************************************************************/
 package org.obeonetwork.dsl.database.liquibasegen;
 
-import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.fail;
 
 import java.io.File;
@@ -20,16 +19,15 @@ import java.nio.file.Path;
 import java.util.List;
 import java.util.Optional;
 
+import javax.xml.parsers.DocumentBuilder;
+import javax.xml.parsers.DocumentBuilderFactory;
+
 import org.eclipse.emf.common.util.BasicMonitor;
 import org.eclipse.emf.compare.Comparison;
 import org.obeonetwork.dsl.database.gen.common.tests.AbstractGenerationTest;
+import org.w3c.dom.Document;
 
-import liquibase.changelog.ChangeLogParameters;
-import liquibase.changelog.ChangeSet;
-import liquibase.changelog.DatabaseChangeLog;
-import liquibase.exception.ChangeLogParseException;
-import liquibase.parser.core.xml.XMLChangeLogSAXParser;
-import liquibase.resource.FileSystemResourceAccessor;
+import com.google.common.base.Charsets;
 
 public class AbstractLiquibaseTest extends AbstractGenerationTest {
 
@@ -53,31 +51,39 @@ public class AbstractLiquibaseTest extends AbstractGenerationTest {
 			Path resultFile = optResultFile.get();
 			Path extectedFile = expectationFolder.toPath().resolve(ChangeLogBuilder.FILE_NAME);
 
-			DatabaseChangeLog resultChangeLog = parse(resultFile);
-			DatabaseChangeLog expectedChangeLog = parse(extectedFile);
+			DocumentBuilderFactory dbf = DocumentBuilderFactory.newInstance();
+			dbf.setNamespaceAware(true);
+			dbf.setCoalescing(true);
+			DocumentBuilder db = dbf.newDocumentBuilder();
+			Document expectedDoc = db.parse(extectedFile.toFile());
+			expectedDoc.normalizeDocument();
 
-			List<ChangeSet> expectedChangeSets = expectedChangeLog.getChangeSets();
-			List<ChangeSet> resultChangeSets = resultChangeLog.getChangeSets();
-			assertEquals(expectedChangeSets.size(), resultChangeSets.size());
-			int i = 0;
-			for (ChangeSet cs : expectedChangeSets) {
-				assertEquals(cs, resultChangeSets.get(i));
-				i++;
+			Document resultDoc = db.parse(resultFile.toFile());
+			resultDoc.normalizeDocument();
+
+			if (!expectedDoc.isEqualNode(resultDoc)) {
+				String resultFileContent = readFile(resultFile.toFile());
+				// Prints content to easily compare file
+				System.out.println(resultFileContent);
+				fail("Non identical XML");
 			}
-			assertEquals(expectedChangeLog, resultChangeLog);
-		} catch (Exception e1) {
+
+		} catch (
+
+		Exception e1) {
 			e1.printStackTrace();
 			fail(e1.getMessage());
 		}
 
 	}
 
-	private DatabaseChangeLog parse(Path file) throws ChangeLogParseException {
-		ChangeLogParameters changeLogParameters = new ChangeLogParameters();
-		FileSystemResourceAccessor resourceAccessor = new FileSystemResourceAccessor(file.getParent().toFile());
-		XMLChangeLogSAXParser parser = new XMLChangeLogSAXParser();
-
-		return parser.parse(file.getFileName().toString(), changeLogParameters, resourceAccessor);
+	protected List<String> readLines(Path path) {
+		try {
+			return Files.readAllLines(path, Charsets.UTF_8);
+		} catch (IOException e) {
+			fail("Error reading file : " + path);
+		}
+		return null;
 	}
 
 	@Override
