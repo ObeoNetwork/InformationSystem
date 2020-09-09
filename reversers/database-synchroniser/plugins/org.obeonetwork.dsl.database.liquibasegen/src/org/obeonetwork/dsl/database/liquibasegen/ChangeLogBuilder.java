@@ -47,6 +47,7 @@ import org.obeonetwork.dsl.database.dbevolution.ConstraintChange;
 import org.obeonetwork.dsl.database.dbevolution.DBDiff;
 import org.obeonetwork.dsl.database.dbevolution.IndexChange;
 import org.obeonetwork.dsl.database.dbevolution.SequenceChange;
+import org.obeonetwork.dsl.database.dbevolution.TableChange;
 import org.obeonetwork.dsl.database.dbevolution.ViewChange;
 import org.obeonetwork.dsl.database.gen.common.services.StatusUtils;
 import org.obeonetwork.dsl.database.liquibasegen.service.DefaultTypeMatcher;
@@ -290,13 +291,26 @@ public class ChangeLogBuilder {
 
 	}
 
-	private List<ChangeSet> buildAddTableChangeSet(AddTable addTable) {
-		List<ChangeSet> result = new ArrayList<ChangeSet>();
+	private ChangeSet buildAddTableChangeSet(AddTable addTable) {
 		String tableName = genService.getFullName(addTable.getTable());
 		String commentPrefix = "[Add table " + tableName + "] ";
-		ChangeSet changeSet = buildCreateTableChangeSet(addTable, commentPrefix);
-		result.add(changeSet);
-		return result;
+		CreateTableChange ctChange = new CreateTableChange();
+		Table table = addTable.getTable();
+		ctChange.setTableName(genService.safeName(table));
+		remarksSetter(table, ctChange::setRemarks);
+
+		TableContainer owner = table.getOwner();
+		if (owner instanceof Schema) {
+			safeTrimSetter(((Schema) owner).getName(), ctChange::setSchemaName);
+		}
+		for (Column column : table.getColumns()) {
+			handleColumnInTable(ctChange, table, column);
+		}
+
+		ChangeSet changeSet = buildNextChangeSet();
+		changeSet.addChange(ctChange);
+		changeSet.setComments(commentPrefix + "creation");
+		return changeSet;
 	}
 
 	private void safeSchemaSetter(EObject candidate, Consumer<String> consumer) {
@@ -328,25 +342,6 @@ public class ChangeLogBuilder {
 		}
 	}
 
-	private ChangeSet buildCreateTableChangeSet(AddTable addTable, String commentPrefix) {
-		CreateTableChange ctChange = new CreateTableChange();
-		Table table = addTable.getTable();
-		ctChange.setTableName(genService.safeName(table));
-		remarksSetter(table, ctChange::setRemarks);
-		
-		TableContainer owner = table.getOwner();
-		if (owner instanceof Schema) {
-			safeTrimSetter(((Schema) owner).getName(), ctChange::setSchemaName);
-		}
-		for (Column column : table.getColumns()) {
-			handleColumnInTable(ctChange, table, column);
-		}
-
-		ChangeSet changeSet = buildNextChangeSet();
-		changeSet.addChange(ctChange);
-		changeSet.setComments(commentPrefix + "creation");
-		return changeSet;
-	}
 
 	private void handleColumnInTable(CreateTableChange ctChange, Table table, Column column) {
 		ColumnConfig cConfig = new ColumnConfig();
@@ -441,11 +436,20 @@ public class ChangeLogBuilder {
 				null, changelog);
 	}
 
-	private List<ChangeLogChild> genChangeSetsForTables(List<DBDiff> diffs) {
-		List<ChangeLogChild> result = new ArrayList<ChangeLogChild>();
-		filterAndCast(diffs.stream(), AddTable.class).map(this::buildAddTableChangeSet).forEachOrdered(result::addAll);
-		return result;
+	private Optional<ChangeSet> buildTableChangeSet(TableChange tableChange) {
+		if (tableChange instanceof AddTable) {
+			return Optional.of(buildAddTableChangeSet((AddTable) tableChange));
+		}
 
+		return Optional.empty();
+	}
+
+	private List<ChangeLogChild> genChangeSetsForTables(List<DBDiff> diffs) {
+		return filterAndCast(diffs.stream(), TableChange.class)//
+				.map(this::buildTableChangeSet)//
+				.filter(Optional::isPresent)//
+				.map(Optional::get)//
+				.collect(toList());
 	}
 
 	private String getNextId() {
