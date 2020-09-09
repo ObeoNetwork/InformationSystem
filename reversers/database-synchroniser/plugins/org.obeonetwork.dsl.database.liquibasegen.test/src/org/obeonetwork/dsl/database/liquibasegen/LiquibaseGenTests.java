@@ -32,11 +32,19 @@ public class LiquibaseGenTests extends AbstractLiquibaseTest {
 	}
 
 	/**
-	 * Test how the generator handle table with existing column
+	 * Test how the generator handle table creation with existing column
 	 */
 	@Test
 	public void addTableWithColumns() {
 		assertGenerationEquals("17-addTable-mysql");
+	}
+
+	/**
+	 * Test how the generator handle table creation with a foreign key
+	 */
+	@Test
+	public void addTableWithForeign() {
+		assertGenerationEquals("19-addTableWithForeign-mysql");
 	}
 
 	/**
@@ -45,6 +53,11 @@ public class LiquibaseGenTests extends AbstractLiquibaseTest {
 	@Test
 	public void addView() {
 		assertGenerationEquals("18-AddView-mysql");
+	}
+
+	@Test
+	public void dropTable() {
+		assertGenerationEquals("20-dropTable-mysql");
 	}
 
 }

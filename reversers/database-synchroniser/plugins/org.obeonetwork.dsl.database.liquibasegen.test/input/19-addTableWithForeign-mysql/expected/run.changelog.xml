@@ -1,0 +1,18 @@
+<?xml version="1.1" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog" xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext" xmlns:pro="http://www.liquibase.org/xml/ns/pro" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd http://www.liquibase.org/xml/ns/pro http://www.liquibase.org/xml/ns/pro/liquibase-pro-4.0.xsd http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.0.xsd">
+    <changeSet author="IS Designer" id="test0">
+        <comment>Create table Table3</comment>
+        <createTable schemaName="STOREBOOK" tableName="Table3">
+            <column autoIncrement="true" name="ID" type="integer()">
+                <constraints nullable="false" primaryKey="true"/>
+            </column>
+            <column autoIncrement="false" name="t1Id" type="integer()">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="IS Designer" id="test1">
+        <comment>Foreign Key : FK_1</comment>
+        <addForeignKeyConstraint baseColumnNames="t1Id" baseTableName="Table3" constraintName="FK_1" referencedColumnNames="ID" referencedTableName="Table1"/>
+    </changeSet>
+</databaseChangeLog>
