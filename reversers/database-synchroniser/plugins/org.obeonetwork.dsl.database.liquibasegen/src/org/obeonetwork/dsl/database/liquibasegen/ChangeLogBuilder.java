@@ -49,6 +49,7 @@ import org.obeonetwork.dsl.database.dbevolution.DBDiff;
 import org.obeonetwork.dsl.database.dbevolution.IndexChange;
 import org.obeonetwork.dsl.database.dbevolution.RemoveColumnChange;
 import org.obeonetwork.dsl.database.dbevolution.RemoveTable;
+import org.obeonetwork.dsl.database.dbevolution.RenameColumnChange;
 import org.obeonetwork.dsl.database.dbevolution.RenameTableChange;
 import org.obeonetwork.dsl.database.dbevolution.SequenceChange;
 import org.obeonetwork.dsl.database.dbevolution.TableChange;
@@ -357,7 +358,7 @@ public class ChangeLogBuilder {
 		cConfig.setName(column.getName());
 
 		Type type = column.getType();
-		setColumnDefaultValue(table, column, cConfig, type);
+		setTypeAndDefaultValue(table, column, cConfig, type);
 
 		// Handle primary key
 		ConstraintsConfig constraintConfig = new ConstraintsConfig();
@@ -373,7 +374,7 @@ public class ChangeLogBuilder {
 		remarksSetter(column, cConfig::setRemarks);
 	}
 
-	private void setColumnDefaultValue(Table table, Column column, ColumnConfig cConfig, Type type) {
+	private void setTypeAndDefaultValue(Table table, Column column, ColumnConfig cConfig, Type type) {
 		if (type instanceof TypeInstance) {
 			TypeInstance typeInstance = (TypeInstance) type;
 			String stringType = genService.getType(typeInstance);
@@ -464,11 +465,38 @@ public class ChangeLogBuilder {
 				} else if (dbDiff instanceof RemoveColumnChange) {
 					RemoveColumnChange removeColumnChange = (RemoveColumnChange) dbDiff;
 					result.add(buildRemoveColumnChangeSet(removeColumnChange));
+				} else if (dbDiff instanceof RenameColumnChange) {
+					RenameColumnChange renameColumnChange = (RenameColumnChange) dbDiff;
+					result.add(buildRenameColumnChangeSet(renameColumnChange));
 				}
 			}
 		}
 
 		return result.stream();
+	}
+
+	private ChangeSet buildRenameColumnChangeSet(RenameColumnChange renameColumnChange) {
+		liquibase.change.core.RenameColumnChange rChange = new liquibase.change.core.RenameColumnChange();
+		Column column = renameColumnChange.getColumn();
+		Table table = column.getOwner();
+		safeSchemaSetter(table.getOwner(), rChange::setSchemaName);
+		safeTrimSetter(table.getName(), rChange::setTableName);
+		safeTrimSetter(column.getName(), rChange::setOldColumnName);
+		safeTrimSetter(renameColumnChange.getNewColumn().getName(), rChange::setNewColumnName);
+
+		Type type = column.getType();
+		if (type instanceof TypeInstance) {
+			TypeInstance typeInstance = (TypeInstance) type;
+			String stringType = genService.getType(typeInstance);
+			// required for MySQL and MariaDB
+			// See https://docs.liquibase.com/change-types/community/rename-column.html
+			rChange.setColumnDataType(stringType);
+		}
+
+		ChangeSet changeSet = buildNextChangeSet();
+		changeSet.addChange(rChange);
+		changeSet.setComments("Renaming column " + column.getName());
+		return changeSet;
 	}
 
 	private ChangeSet buildRemoveColumnChangeSet(RemoveColumnChange removeColumnChange) {

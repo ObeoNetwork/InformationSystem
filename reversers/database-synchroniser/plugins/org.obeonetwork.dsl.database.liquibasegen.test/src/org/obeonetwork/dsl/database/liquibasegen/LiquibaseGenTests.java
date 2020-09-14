@@ -84,4 +84,9 @@ public class LiquibaseGenTests extends AbstractLiquibaseTest {
 	public void deleteColumn() {
 		assertGenerationEquals("25-deleteColumn-oracle");
 	}
+
+	@Test
+	public void renameColumn() {
+		assertGenerationEquals("26-renameColumn-mysql");
+	}
 }
