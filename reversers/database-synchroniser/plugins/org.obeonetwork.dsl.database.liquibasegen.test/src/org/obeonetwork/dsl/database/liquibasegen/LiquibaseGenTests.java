@@ -69,4 +69,14 @@ public class LiquibaseGenTests extends AbstractLiquibaseTest {
 	public void setCommentTable() {
 		assertGenerationEquals("22-setCommentOnTable-oracle");
 	}
+
+	@Test
+	public void addDateColumn() {
+		assertGenerationEquals("23-addDateColumn-oracle");
+	}
+
+	@Test
+	public void addEnumColumn() {
+		assertGenerationEquals("24-addEnumColumn-mysql");
+	}
 }

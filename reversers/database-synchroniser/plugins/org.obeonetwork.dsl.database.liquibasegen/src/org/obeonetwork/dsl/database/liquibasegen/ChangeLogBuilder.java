@@ -36,6 +36,7 @@ import org.obeonetwork.dsl.database.Schema;
 import org.obeonetwork.dsl.database.Sequence;
 import org.obeonetwork.dsl.database.Table;
 import org.obeonetwork.dsl.database.View;
+import org.obeonetwork.dsl.database.dbevolution.AddColumnChange;
 import org.obeonetwork.dsl.database.dbevolution.AddConstraint;
 import org.obeonetwork.dsl.database.dbevolution.AddForeignKey;
 import org.obeonetwork.dsl.database.dbevolution.AddIndex;
@@ -314,7 +315,9 @@ public class ChangeLogBuilder {
 		safeSchemaSetter(table.getOwner(), ctChange::setSchemaName);
 		remarksSetter(table, ctChange::setRemarks);
 		for (Column column : table.getColumns()) {
-			handleColumnInTable(ctChange, table, column);
+			ColumnConfig cConfig = new ColumnConfig();
+			fillColumnConfig(table, column, cConfig);
+			ctChange.addColumn(cConfig);
 		}
 		return ctChange;
 	}
@@ -348,8 +351,7 @@ public class ChangeLogBuilder {
 		}
 	}
 
-	private void handleColumnInTable(CreateTableChange ctChange, Table table, Column column) {
-		ColumnConfig cConfig = new ColumnConfig();
+	private void fillColumnConfig(Table table, Column column, ColumnConfig cConfig) {
 		cConfig.setName(column.getName());
 
 		Type type = column.getType();
@@ -367,8 +369,6 @@ public class ChangeLogBuilder {
 		cConfig.setAutoIncrement(column.isAutoincrement() || column.isInPrimaryKey());
 
 		remarksSetter(column, cConfig::setRemarks);
-
-		ctChange.addColumn(cConfig);
 	}
 
 	private void setColumnDefaultValue(Table table, Column column, ColumnConfig cConfig, Type type) {
@@ -456,11 +456,31 @@ public class ChangeLogBuilder {
 				} else if (dbDiff instanceof UpdateTableCommentChange) {
 					UpdateTableCommentChange updateCommentChange = (UpdateTableCommentChange) dbDiff;
 					result.add(buildUpdateTableCommentChangeSet(updateCommentChange));
+				} else if (dbDiff instanceof AddColumnChange) {
+					AddColumnChange addColumnChange = (AddColumnChange) dbDiff;
+					result.add(buildAddColumnChangeSet(addColumnChange));
 				}
 			}
 		}
 
 		return result.stream();
+	}
+
+	private ChangeSet buildAddColumnChangeSet(AddColumnChange addColumnChange) {
+		liquibase.change.core.AddColumnChange aChange = new liquibase.change.core.AddColumnChange();
+		Column column = addColumnChange.getColumn();
+		Table table = column.getOwner();
+		safeSchemaSetter(table.getOwner(), aChange::setSchemaName);
+		safeTrimSetter(table.getName(), aChange::setTableName);
+
+		AddColumnConfig addColumnConfig = new AddColumnConfig();
+		fillColumnConfig(table, column, addColumnConfig);
+		aChange.addColumn(addColumnConfig);
+
+		ChangeSet changeSet = buildNextChangeSet();
+		changeSet.addChange(aChange);
+		changeSet.setComments("Adding column " + column.getName());
+		return changeSet;
 	}
 
 	private ChangeSet buildUpdateTableCommentChangeSet(UpdateTableCommentChange updateCommentChange) {

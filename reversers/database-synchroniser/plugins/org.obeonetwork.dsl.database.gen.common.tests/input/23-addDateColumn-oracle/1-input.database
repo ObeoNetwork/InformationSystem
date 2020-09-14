@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="ASCII"?>
+<database:DataBase xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:database="http://www.obeonetwork.org/dsl/database/1.0" xmlns:typeslibrary="http://www.obeonetwork.org/dsl/typeslibrary/1.0" xmi:id="_A5MWsPJ4Eeqsu5GFS77CrA" techID="_A5IFQPJ4Eeqsu5GFS77CrA" name="Oracle">
+  <usedLibraries xsi:type="typeslibrary:NativeTypesLibrary" href="pathmap://NativeDBTypes/Oracle-11g#_cUvfIBEnEeGTa_JlZYBw1A"/>
+  <schemas xmi:id="_BY800PJ4Eeqsu5GFS77CrA" techID="_BY8NwPJ4Eeqsu5GFS77CrA" name="STOREBOOK">
+    <tables xsi:type="database:Table" xmi:id="_HjedYPJ4Eeqsu5GFS77CrA" comments="A new comment on 'firstTable'." techID="_Hjd2UPJ4Eeqsu5GFS77CrA" name="FirstTable">
+      <primaryKey xmi:id="_JtjvUfJ4Eeqsu5GFS77CrA" techID="_JtjvUPJ4Eeqsu5GFS77CrA" name="Table1_PK" columns="_JtLU0PJ4Eeqsu5GFS77CrA"/>
+      <indexes xmi:id="_wivWwPKlEeqC1JqxbF9-_g" comments="Commnet on that index" techID="_wiuvsPKlEeqC1JqxbF9-_g" name="Index1">
+        <elements xmi:id="_2s_5kfKlEeqC1JqxbF9-_g" comments="Comment on that 'index element'" techID="_2s_5kPKlEeqC1JqxbF9-_g" column="_zu9UkfJ4Eeqsu5GFS77CrA"/>
+      </indexes>
+      <columns xmi:id="_JtLU0PJ4Eeqsu5GFS77CrA" techID="_JtKtwPJ4Eeqsu5GFS77CrA" name="ID" primaryKey="_JtjvUfJ4Eeqsu5GFS77CrA">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_JtLU0fJ4Eeqsu5GFS77CrA">
+          <nativeType href="pathmap://NativeDBTypes/Oracle-11g#_EwGJQD77EeaWN4f5B3n2lA"/>
+        </type>
+      </columns>
+      <columns xmi:id="_zu9UkfJ4Eeqsu5GFS77CrA" techID="_zu9UkPJ4Eeqsu5GFS77CrA" name="quantity" indexElements="_2s_5kfKlEeqC1JqxbF9-_g">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_zu9UkvJ4Eeqsu5GFS77CrA">
+          <nativeType href="pathmap://NativeDBTypes/Oracle-11g#_EwGJQD77EeaWN4f5B3n2lA"/>
+        </type>
+      </columns>
+      <columns xmi:id="_1y9zsfJ4Eeqsu5GFS77CrA" techID="_1y9zsPJ4Eeqsu5GFS77CrA" name="price">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_1y9zsvJ4Eeqsu5GFS77CrA">
+          <nativeType href="pathmap://NativeDBTypes/Oracle-11g#_IyWEcD8AEeaWN4f5B3n2lA"/>
+        </type>
+      </columns>
+      <columns xmi:id="_RuoKAfZuEeqaxr5aboFqpg" techID="_RuoKAPZuEeqaxr5aboFqpg" name="column4" defaultValue="2020-14-09">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_RuoKAvZuEeqaxr5aboFqpg">
+          <nativeType href="pathmap://NativeDBTypes/Oracle-11g#_cUwGNREnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+    </tables>
+    <tables xsi:type="database:View" xmi:id="_Cxrs4PJ5Eeqsu5GFS77CrA" comments="A comment a 'table'." techID="_CxrF0PJ5Eeqsu5GFS77CrA" name="ValueView" query="select quantity, price from Table1"/>
+    <sequences xmi:id="_XHDScfKYEeqir7Om0lVh3Q" comments="A comment on that 'sequence'" techID="_XHDScPKYEeqir7Om0lVh3Q" name="Sequence1" start="16" increment="2" minValue="16" maxValue="1016" cacheSize="32"/>
+  </schemas>
+</database:DataBase>
