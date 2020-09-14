@@ -50,6 +50,7 @@ import org.obeonetwork.dsl.database.dbevolution.RemoveTable;
 import org.obeonetwork.dsl.database.dbevolution.RenameTableChange;
 import org.obeonetwork.dsl.database.dbevolution.SequenceChange;
 import org.obeonetwork.dsl.database.dbevolution.TableChange;
+import org.obeonetwork.dsl.database.dbevolution.UpdateTableCommentChange;
 import org.obeonetwork.dsl.database.dbevolution.ViewChange;
 import org.obeonetwork.dsl.database.gen.common.services.StatusUtils;
 import org.obeonetwork.dsl.database.liquibasegen.service.DefaultTypeMatcher;
@@ -69,6 +70,7 @@ import liquibase.change.core.CreateTableChange;
 import liquibase.change.core.CreateViewChange;
 import liquibase.change.core.DropTableChange;
 import liquibase.change.core.RawSQLChange;
+import liquibase.change.core.SetTableRemarksChange;
 import liquibase.changelog.ChangeLogChild;
 import liquibase.changelog.ChangeSet;
 import liquibase.changelog.DatabaseChangeLog;
@@ -451,11 +453,27 @@ public class ChangeLogBuilder {
 				if (dbDiff instanceof RenameTableChange) {
 					RenameTableChange renameTableChange = (RenameTableChange) dbDiff;
 					result.add(buildRenameTableChangeSet(renameTableChange));
+				} else if (dbDiff instanceof UpdateTableCommentChange) {
+					UpdateTableCommentChange updateCommentChange = (UpdateTableCommentChange) dbDiff;
+					result.add(buildUpdateTableCommentChangeSet(updateCommentChange));
 				}
 			}
 		}
 
 		return result.stream();
+	}
+
+	private ChangeSet buildUpdateTableCommentChangeSet(UpdateTableCommentChange updateCommentChange) {
+		SetTableRemarksChange srChange = new SetTableRemarksChange();
+		Table table = updateCommentChange.getNewTable();
+		safeSchemaSetter(table.getOwner(), srChange::setSchemaName);
+		safeTrimSetter(table.getName(), srChange::setTableName);
+		safeTrimSetter(table.getComments(), srChange::setRemarks);
+
+		ChangeSet changeSet = buildNextChangeSet();
+		changeSet.addChange(srChange);
+
+		return changeSet;
 	}
 
 	private ChangeSet buildRenameTableChangeSet(RenameTableChange renameTableChange) {

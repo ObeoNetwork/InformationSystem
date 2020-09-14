@@ -64,4 +64,9 @@ public class LiquibaseGenTests extends AbstractLiquibaseTest {
 	public void renameTable() {
 		assertGenerationEquals("21-renameTable-mysql");
 	}
+
+	@Test
+	public void setCommentTable() {
+		assertGenerationEquals("22-setCommentOnTable-oracle");
+	}
 }
