@@ -47,6 +47,7 @@ import org.obeonetwork.dsl.database.dbevolution.AlterTable;
 import org.obeonetwork.dsl.database.dbevolution.ConstraintChange;
 import org.obeonetwork.dsl.database.dbevolution.DBDiff;
 import org.obeonetwork.dsl.database.dbevolution.IndexChange;
+import org.obeonetwork.dsl.database.dbevolution.RemoveColumnChange;
 import org.obeonetwork.dsl.database.dbevolution.RemoveTable;
 import org.obeonetwork.dsl.database.dbevolution.RenameTableChange;
 import org.obeonetwork.dsl.database.dbevolution.SequenceChange;
@@ -69,6 +70,7 @@ import liquibase.change.core.CreateIndexChange;
 import liquibase.change.core.CreateSequenceChange;
 import liquibase.change.core.CreateTableChange;
 import liquibase.change.core.CreateViewChange;
+import liquibase.change.core.DropColumnChange;
 import liquibase.change.core.DropTableChange;
 import liquibase.change.core.RawSQLChange;
 import liquibase.change.core.SetTableRemarksChange;
@@ -459,11 +461,28 @@ public class ChangeLogBuilder {
 				} else if (dbDiff instanceof AddColumnChange) {
 					AddColumnChange addColumnChange = (AddColumnChange) dbDiff;
 					result.add(buildAddColumnChangeSet(addColumnChange));
+				} else if (dbDiff instanceof RemoveColumnChange) {
+					RemoveColumnChange removeColumnChange = (RemoveColumnChange) dbDiff;
+					result.add(buildRemoveColumnChangeSet(removeColumnChange));
 				}
 			}
 		}
 
 		return result.stream();
+	}
+
+	private ChangeSet buildRemoveColumnChangeSet(RemoveColumnChange removeColumnChange) {
+		DropColumnChange dChange = new DropColumnChange();
+		Column column = removeColumnChange.getColumn();
+		Table table = column.getOwner();
+		safeSchemaSetter(table.getOwner(), dChange::setSchemaName);
+		safeTrimSetter(table.getName(), dChange::setTableName);
+		safeTrimSetter(column.getName(), dChange::setColumnName);
+
+		ChangeSet changeSet = buildNextChangeSet();
+		changeSet.addChange(dChange);
+		changeSet.setComments("Dropping column " + column.getName());
+		return changeSet;
 	}
 
 	private ChangeSet buildAddColumnChangeSet(AddColumnChange addColumnChange) {

@@ -79,4 +79,9 @@ public class LiquibaseGenTests extends AbstractLiquibaseTest {
 	public void addEnumColumn() {
 		assertGenerationEquals("24-addEnumColumn-mysql");
 	}
+
+	@Test
+	public void deleteColumn() {
+		assertGenerationEquals("25-deleteColumn-oracle");
+	}
 }
