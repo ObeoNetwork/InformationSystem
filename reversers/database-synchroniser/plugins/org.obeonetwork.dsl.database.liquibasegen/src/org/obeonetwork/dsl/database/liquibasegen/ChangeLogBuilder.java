@@ -42,10 +42,12 @@ import org.obeonetwork.dsl.database.dbevolution.AddIndex;
 import org.obeonetwork.dsl.database.dbevolution.AddSequence;
 import org.obeonetwork.dsl.database.dbevolution.AddTable;
 import org.obeonetwork.dsl.database.dbevolution.AddView;
+import org.obeonetwork.dsl.database.dbevolution.AlterTable;
 import org.obeonetwork.dsl.database.dbevolution.ConstraintChange;
 import org.obeonetwork.dsl.database.dbevolution.DBDiff;
 import org.obeonetwork.dsl.database.dbevolution.IndexChange;
 import org.obeonetwork.dsl.database.dbevolution.RemoveTable;
+import org.obeonetwork.dsl.database.dbevolution.RenameTableChange;
 import org.obeonetwork.dsl.database.dbevolution.SequenceChange;
 import org.obeonetwork.dsl.database.dbevolution.TableChange;
 import org.obeonetwork.dsl.database.dbevolution.ViewChange;
@@ -437,14 +439,37 @@ public class ChangeLogBuilder {
 				null, changelog);
 	}
 
-	private Optional<ChangeSet> buildTableChangeSet(TableChange tableChange) {
+	private Stream<ChangeSet> buildTableChangeSet(TableChange tableChange) {
+		final List<ChangeSet> result = new ArrayList<ChangeSet>();
 		if (tableChange instanceof AddTable) {
-			return Optional.of(buildAddTableChangeSet((AddTable) tableChange));
+			result.add(buildAddTableChangeSet((AddTable) tableChange));
 		} else if (tableChange instanceof RemoveTable) {
-			return Optional.of(buildDropTableChangeSet((RemoveTable) tableChange));
+			result.add((buildDropTableChangeSet((RemoveTable) tableChange)));
+		} else if (tableChange instanceof AlterTable) {
+			AlterTable alterTable = (AlterTable) tableChange;
+			for (DBDiff dbDiff : genService.getSubDiffs(alterTable)) {
+				if (dbDiff instanceof RenameTableChange) {
+					RenameTableChange renameTableChange = (RenameTableChange) dbDiff;
+					result.add(buildRenameTableChangeSet(renameTableChange));
+				}
+			}
 		}
 
-		return Optional.empty();
+		return result.stream();
+	}
+
+	private ChangeSet buildRenameTableChangeSet(RenameTableChange renameTableChange) {
+		liquibase.change.core.RenameTableChange rChange = new liquibase.change.core.RenameTableChange();
+		Table table = renameTableChange.getTable();
+		safeTrimSetter(table.getName(), rChange::setOldTableName);
+		Table newTable = renameTableChange.getNewTable();
+		safeTrimSetter(newTable.getName(), rChange::setNewTableName);
+		safeSchemaSetter(table.getOwner(), rChange::setSchemaName);
+
+		ChangeSet changeSet = buildNextChangeSet();
+		changeSet.setComments("Rename table '" + table.getName() + "' to '" + newTable.getName() + "'");
+		changeSet.addChange(rChange);
+		return changeSet;
 	}
 
 	private ChangeSet buildDropTableChangeSet(RemoveTable removeTable) {
@@ -465,9 +490,7 @@ public class ChangeLogBuilder {
 
 	private List<ChangeLogChild> genChangeSetsForTables(List<DBDiff> diffs) {
 		return filterAndCast(diffs.stream(), TableChange.class)//
-				.map(this::buildTableChangeSet)//
-				.filter(Optional::isPresent)//
-				.map(Optional::get)//
+				.flatMap(this::buildTableChangeSet)//
 				.collect(toList());
 	}
 

@@ -5,6 +5,7 @@ import java.util.Objects;
 import java.util.Optional;
 
 import org.eclipse.emf.compare.Comparison;
+import org.eclipse.emf.compare.Diff;
 import org.eclipse.emf.ecore.EObject;
 import org.obeonetwork.dsl.database.Index;
 import org.obeonetwork.dsl.database.PrimaryKey;
@@ -137,6 +138,10 @@ public class GenServices {
 
 	public String getViewQuery(View view) {
 		return databaseService.getViewQuery(view);
+	}
+
+	public List<DBDiff> getSubDiffs(Diff diff) {
+		return utilService.getSubDiffs(diff);
 	}
 
 }

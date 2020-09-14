@@ -60,4 +60,8 @@ public class LiquibaseGenTests extends AbstractLiquibaseTest {
 		assertGenerationEquals("20-dropTable-mysql");
 	}
 
+	@Test
+	public void renameTable() {
+		assertGenerationEquals("21-renameTable-mysql");
+	}
 }
