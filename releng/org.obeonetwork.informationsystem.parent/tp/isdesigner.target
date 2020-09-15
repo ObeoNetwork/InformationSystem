@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <?pde?>
 <!-- generated with https://github.com/eclipse-cbi/targetplatform-dsl -->
-<target name="IS Designer Update Target Definition" sequenceNumber="1598444989">
+<target name="IS Designer Update Target Definition" sequenceNumber="1600160972">
   <locations>
     <location includeMode="planner" includeAllPlatforms="false" includeSource="true" includeConfigurePhase="false" type="InstallableUnit">
       <unit id="fr.obeo.dsl.designer.gen.html.feature.feature.group" version="0.0.0"/>
@@ -11,7 +11,6 @@
       <unit id="org.eclipse.sirius.properties.feature.feature.group" version="0.0.0"/>
       <unit id="org.eclipse.sirius.runtime.ide.eef.feature.group" version="0.0.0"/>
       <unit id="fr.obeo.dsl.designer.ce.feature.feature.group" version="0.0.0"/>
-      <unit id="org.eclipse.emf.compare.ide.ui.feature.group" version="0.0.0"/>
       <unit id="org.eclipse.sirius.runtime.ide.ui.feature.group" version="0.0.0"/>
       <unit id="org.eclipse.sirius.specifier.ide.ui.feature.group" version="0.0.0"/>
       <unit id="org.eclipse.sirius.runtime.acceleo.feature.group" version="0.0.0"/>
@@ -25,6 +24,10 @@
       <repository location="http://update.obeo.fr/release/designer/11.3/community/11.3.0/repository/"/>
     </location>
     <location includeMode="planner" includeAllPlatforms="false" includeSource="true" includeConfigurePhase="false" type="InstallableUnit">
+      <unit id="org.eclipse.emf.compare.ide.ui.feature.group" version="3.3.11.202005260905"/>
+      <repository location="https://download.eclipse.org/modeling/emf/compare/updates/releases/3.3/R202005260905"/>
+    </location>
+    <location includeMode="planner" includeAllPlatforms="false" includeSource="true" includeConfigurePhase="false" type="InstallableUnit">
       <unit id="fr.obeo.dsl.viewpoint.collab.user.feature.group" version="0.0.0"/>
       <unit id="org.eclipse.emf.cdo.sdk.feature.group" version="0.0.0"/>
       <repository location="http://update.obeo.fr/release/designer/11.3/team/11.3.0/repository/"/>
@@ -34,7 +37,6 @@
       <unit id="org.eclipse.amalgam.discovery.feature.group" version="0.0.0"/>
       <unit id="org.eclipse.amalgam.explorer.contextual.sirius.feature.group" version="0.0.0"/>
       <unit id="org.eclipse.amalgam.explorer.contextual.core.feature.group" version="0.0.0"/>
-      <unit id="org.eclipse.amalgam.explorer.contextual.core.source.feature.group" version="0.0.0"/>
       <unit id="org.eclipse.amalgam.explorer.contextual.feature.group" version="0.0.0"/>
       <repository location="https://download.eclipse.org/modeling/amalgam/updates/stable/1.11.0-S20190729/capella/"/>
     </location>
