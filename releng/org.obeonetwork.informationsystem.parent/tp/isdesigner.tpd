@@ -1,15 +1,11 @@
 target "IS Designer Update Target Definition" with source, requirements
 
 
-location "http://update.obeo.fr/release/designer/11.3/community/11.3.0/repository/" {
-	fr.obeo.dsl.designer.gen.html.feature.feature.group lazy
+location "http://update.obeo.fr/release/designer/11.3/community/11.3.1/repository/" {
 	org.eclipse.eef.sdk.feature.feature.group
-	org.eclipse.acceleo.query.feature.group lazy
-	org.eclipse.acceleo.feature.group lazy
 	org.eclipse.sirius.properties.feature.feature.group lazy
 	org.eclipse.sirius.runtime.ide.eef.feature.group lazy
 	fr.obeo.dsl.designer.ce.feature.feature.group lazy
-	org.eclipse.emf.compare.ide.ui.feature.group lazy
 	org.eclipse.sirius.runtime.ide.ui.feature.group lazy
 	org.eclipse.sirius.specifier.ide.ui.feature.group lazy
     org.eclipse.sirius.runtime.acceleo.feature.group lazy
@@ -20,6 +16,15 @@ location "http://update.obeo.fr/release/designer/11.3/community/11.3.0/repositor
     org.eclipse.sirius.runtime.ide.ui.acceleo.feature.group lazy
     org.eclipse.sirius.runtime.ocl.feature.group lazy
     org.eclipse.sirius.specifier.ide.ui.acceleo.feature.group lazy
+}
+
+location "https://download.eclipse.org/acceleo/updates/releases/3.7/R201911060712/" {
+	org.eclipse.acceleo.query.feature.group lazy
+	org.eclipse.acceleo.feature.group lazy
+}
+
+location "https://download.eclipse.org/modeling/emf/compare/updates/releases/3.3/R202005260905" {
+	org.eclipse.emf.compare.ide.ui.feature.group [3.3.11,3.4.0)
 }
 
 location "http://update.obeo.fr/release/designer/11.3/team/11.3.0/repository/" {
