@@ -12,5 +12,8 @@ Require-Bundle: org.obeonetwork.dsl.database,
  org.eclipse.emf.ecore,
  org.eclipse.emf.ecore.xmi,
  org.eclipse.emf.common,
- com.google.guava
+ org.eclipse.acceleo.engine
+Import-Package: com.google.common.base;version="[27.0.0,28.0.0)",
+ com.google.common.collect;version="[27.0.0,28.0.0)",
+ com.google.common.io;version="27.1.0"
 Bundle-Vendor: Obeo Network
