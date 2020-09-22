@@ -25,5 +25,5 @@ Export-Package: fr.gouv.mindef.safran.database.transfo,
  fr.gouv.mindef.safran.database.transfo.util
 Bundle-Vendor: Obeo Network
 Bundle-Activator: fr.gouv.mindef.safran.database.Activator
-Import-Package: com.google.common.base;version="[27.0.0,28.0.0)",
- com.google.common.collect;version="[27.0.0,28.0.0)"
+Import-Package: com.google.common.base;version="[21.0.0,27.2.0)",
+ com.google.common.collect;version="[21.0.0,27.2.0)"
