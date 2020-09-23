@@ -79,7 +79,7 @@ public class LiquibaseGenerator {
 			if (statuses.isEmpty()) {
 				return Status.OK_STATUS;
 			} else {
-				return StatusUtils.createMultiStatus("Some problem occured during generation", statuses);
+				return StatusUtils.createMultiStatus("See message in the detail section", statuses);
 			}
 		} else {
 			return StatusUtils.createErrorStatus("Unable to create file at " + file);
