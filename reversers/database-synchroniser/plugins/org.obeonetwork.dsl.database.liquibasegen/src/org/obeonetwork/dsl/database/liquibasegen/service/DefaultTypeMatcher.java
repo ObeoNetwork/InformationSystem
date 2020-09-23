@@ -12,10 +12,12 @@ package org.obeonetwork.dsl.database.liquibasegen.service;
 
 import static org.obeonetwork.dsl.database.gen.common.services.StatusUtils.createErrorStatus;
 
+import java.text.MessageFormat;
 import java.text.ParseException;
 
 import org.eclipse.core.runtime.IStatus;
 import org.eclipse.core.runtime.Status;
+import org.obeonetwork.dsl.database.gen.common.services.StatusUtils;
 import org.obeonetwork.dsl.typeslibrary.NativeType;
 
 import liquibase.util.ISODateFormat;
@@ -27,6 +29,10 @@ import liquibase.util.ISODateFormat;
  */
 public class DefaultTypeMatcher {
 
+	private static final String FALSE_NUM = "0";
+	private static final String TRUE_NUM = "1";
+	private static final String FALSE = "false";
+	private static final String TRUE = "true";
 	private static final String BINARY_FORMAT = "Binary";
 	private static final String BOOLEAN_FORMAT = "Booleen";
 	private static final String DATE_FORMAT = "Date";
@@ -104,6 +110,8 @@ public class DefaultTypeMatcher {
 		switch (type) {
 		case DATE:
 			return validateDateDefaultValue(value);
+		case BOOLEAN:
+			return validateProcessBoolean(value);
 		default:
 			return Status.OK_STATUS;
 		}
@@ -123,8 +131,31 @@ public class DefaultTypeMatcher {
 		switch (type) {
 		case STRING:
 			return preProcessString(value);
+		case BOOLEAN:
+			return preProcessBoolean(value);
 		default:
 			return value;
+		}
+	}
+
+	private static String preProcessBoolean(String defaultValueBoolean) {
+		if (TRUE.equalsIgnoreCase(defaultValueBoolean) || TRUE_NUM.equals(defaultValueBoolean)) {
+			return Boolean.TRUE.toString();
+		} else if (FALSE.equalsIgnoreCase(defaultValueBoolean) || FALSE_NUM.equals(defaultValueBoolean)) {
+			return Boolean.TRUE.toString();
+		} else {
+			return defaultValueBoolean;
+		}
+
+	}
+
+	private static IStatus validateProcessBoolean(String defaultValueBoolean) {
+		if (TRUE.equalsIgnoreCase(defaultValueBoolean) || TRUE_NUM.equals(defaultValueBoolean) //
+				|| FALSE.equalsIgnoreCase(defaultValueBoolean) || FALSE_NUM.equals(defaultValueBoolean)) {
+			return Status.OK_STATUS;
+		} else {
+			return StatusUtils.createWarningStatus(MessageFormat.format(
+					"Default value for boolean can only be: {0},{1},{2} or {3}", TRUE, TRUE_NUM, FALSE, FALSE_NUM));
 		}
 	}
 

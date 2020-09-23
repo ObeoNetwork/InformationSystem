@@ -89,4 +89,34 @@ public class LiquibaseGenTests extends AbstractLiquibaseTest {
 	public void renameColumn() {
 		assertGenerationEquals("26-renameColumn-mysql");
 	}
+
+	@Test
+	public void changeColumnType() {
+		assertGenerationEquals("27-changeColumnDataType-h2");
+	}
+
+	@Test
+	public void changeColumnPrecisionType() {
+		assertGenerationEquals("28-changeColumnTypePrecision-h2");
+	}
+
+	@Test
+	public void changeColumnPrecisionLength() {
+		assertGenerationEquals("29-changeColumnTypeLength-h2");
+	}
+
+	@Test
+	public void changeColumnAddNullable() {
+		assertGenerationEquals("30-changeColumnAddNullable-h2");
+	}
+
+	@Test
+	public void changeColumnAddNonNull() {
+		assertGenerationEquals("31-changeColumnAddNonNull-h2");
+	}
+
+	@Test
+	public void changeColumnDefaultValue() {
+		assertGenerationEquals("33-changeColumnDefaultValue-h2");
+	}
 }

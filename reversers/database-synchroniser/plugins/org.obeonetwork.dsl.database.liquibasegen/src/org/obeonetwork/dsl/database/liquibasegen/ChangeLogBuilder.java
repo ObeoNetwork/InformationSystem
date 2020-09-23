@@ -25,11 +25,18 @@ import java.util.function.Function;
 import java.util.stream.Stream;
 
 import org.eclipse.core.runtime.IStatus;
+import org.eclipse.emf.compare.AttributeChange;
 import org.eclipse.emf.compare.Comparison;
+import org.eclipse.emf.compare.Diff;
+import org.eclipse.emf.compare.Match;
+import org.eclipse.emf.compare.ReferenceChange;
+import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EObject;
+import org.eclipse.emf.ecore.EReference;
 import org.obeonetwork.dsl.database.Column;
 import org.obeonetwork.dsl.database.Constraint;
 import org.obeonetwork.dsl.database.DatabaseElement;
+import org.obeonetwork.dsl.database.DatabasePackage;
 import org.obeonetwork.dsl.database.ForeignKey;
 import org.obeonetwork.dsl.database.Index;
 import org.obeonetwork.dsl.database.Schema;
@@ -53,6 +60,7 @@ import org.obeonetwork.dsl.database.dbevolution.RenameColumnChange;
 import org.obeonetwork.dsl.database.dbevolution.RenameTableChange;
 import org.obeonetwork.dsl.database.dbevolution.SequenceChange;
 import org.obeonetwork.dsl.database.dbevolution.TableChange;
+import org.obeonetwork.dsl.database.dbevolution.UpdateColumnChange;
 import org.obeonetwork.dsl.database.dbevolution.UpdateTableCommentChange;
 import org.obeonetwork.dsl.database.dbevolution.ViewChange;
 import org.obeonetwork.dsl.database.gen.common.services.StatusUtils;
@@ -62,17 +70,23 @@ import org.obeonetwork.dsl.database.liquibasegen.service.GenServices;
 import org.obeonetwork.dsl.database.liquibasegen.service.SQLService;
 import org.obeonetwork.dsl.typeslibrary.Type;
 import org.obeonetwork.dsl.typeslibrary.TypeInstance;
+import org.obeonetwork.dsl.typeslibrary.TypesLibraryPackage;
 
 import liquibase.change.AddColumnConfig;
 import liquibase.change.ColumnConfig;
 import liquibase.change.ConstraintsConfig;
+import liquibase.change.core.AddAutoIncrementChange;
+import liquibase.change.core.AddDefaultValueChange;
 import liquibase.change.core.AddForeignKeyConstraintChange;
+import liquibase.change.core.AddNotNullConstraintChange;
 import liquibase.change.core.CreateIndexChange;
 import liquibase.change.core.CreateSequenceChange;
 import liquibase.change.core.CreateTableChange;
 import liquibase.change.core.CreateViewChange;
 import liquibase.change.core.DropColumnChange;
+import liquibase.change.core.DropNotNullConstraintChange;
 import liquibase.change.core.DropTableChange;
+import liquibase.change.core.ModifyDataTypeChange;
 import liquibase.change.core.RawSQLChange;
 import liquibase.change.core.SetTableRemarksChange;
 import liquibase.changelog.ChangeLogChild;
@@ -393,13 +407,9 @@ public class ChangeLogBuilder {
 				.getLiquibaseDefaultType(typeInstance.getNativeType());
 
 		if (liquibaseMatchingType == LiquibaseDefaultType.UNKWOWN) {
-			statuses.add(StatusUtils.createWarningStatus(MessageFormat.format(
-					"Unable to set default value for type {0}#{1}. {2} has an unknown logical type.",
-					genService.getFullName(table), column.getName(), genService.getLabel(typeInstance))));
+			warnUnknownDefaultType(table, column, typeInstance);
 		} else if (liquibaseMatchingType == LiquibaseDefaultType.INVALID) {
-			statuses.add(StatusUtils.createWarningStatus(
-					MessageFormat.format("Unable to set default value for type {0}#{1}. {2} missing type information.",
-							genService.getFullName(table), column.getName(), genService.getLabel(typeInstance))));
+			warnInvalidDataType(table, column, typeInstance);
 		} else {
 			IStatus defaultValueValidation = DefaultTypeMatcher.validateValue(liquibaseMatchingType, defaultValue);
 			String processedValue = DefaultTypeMatcher.preProcessDefaultValue(liquibaseMatchingType, defaultValue);
@@ -426,6 +436,55 @@ public class ChangeLogBuilder {
 						Collections.singletonList(defaultValueValidation)));
 			}
 		}
+	}
+
+	private void setColumnDefaultvalue(Table table, Column column, AddDefaultValueChange defaultValueChange,
+			TypeInstance typeInstance, String defaultValue) {
+		LiquibaseDefaultType liquibaseMatchingType = DefaultTypeMatcher
+				.getLiquibaseDefaultType(typeInstance.getNativeType());
+
+		if (liquibaseMatchingType == LiquibaseDefaultType.UNKWOWN) {
+			warnUnknownDefaultType(table, column, typeInstance);
+		} else if (liquibaseMatchingType == LiquibaseDefaultType.INVALID) {
+			warnInvalidDataType(table, column, typeInstance);
+		} else {
+			IStatus defaultValueValidation = DefaultTypeMatcher.validateValue(liquibaseMatchingType, defaultValue);
+			String processedValue = DefaultTypeMatcher.preProcessDefaultValue(liquibaseMatchingType, defaultValue);
+			if (defaultValueValidation.isOK()) {
+				switch (liquibaseMatchingType) {
+				case BOOLEAN:
+					defaultValueChange.setDefaultValueBoolean(Boolean.valueOf(processedValue));
+					break;
+				case DATE:
+					defaultValueChange.setDefaultValueDate(processedValue);
+					break;
+				case STRING:
+					defaultValueChange.setDefaultValue(processedValue);
+					break;
+				case NUM:
+					defaultValueChange.setDefaultValueNumeric(processedValue);
+					break;
+				default:
+					break;
+				}
+			} else {
+				statuses.add(StatusUtils.createMultiStatus(
+						"Unable to set default value for type {0}#{1}. {2} invalid default value.",
+						Collections.singletonList(defaultValueValidation)));
+			}
+		}
+	}
+
+	private void warnInvalidDataType(Table table, Column column, TypeInstance typeInstance) {
+		statuses.add(StatusUtils.createWarningStatus(
+				MessageFormat.format("Unable to set default value for type {0}#{1}. {2} missing type information.",
+						genService.getFullName(table), column.getName(), genService.getLabel(typeInstance))));
+	}
+
+	private void warnUnknownDefaultType(Table table, Column column, TypeInstance typeInstance) {
+		statuses.add(StatusUtils.createWarningStatus(
+				MessageFormat.format("Unable to set default value for type {0}#{1}. {2} has an unknown logical type.",
+						genService.getFullName(table), column.getName(), genService.getLabel(typeInstance))));
 	}
 
 	public List<IStatus> getStatuses() {
@@ -468,11 +527,226 @@ public class ChangeLogBuilder {
 				} else if (dbDiff instanceof RenameColumnChange) {
 					RenameColumnChange renameColumnChange = (RenameColumnChange) dbDiff;
 					result.add(buildRenameColumnChangeSet(renameColumnChange));
+				} else if (dbDiff instanceof UpdateColumnChange) {
+					UpdateColumnChange updateColumnChange = (UpdateColumnChange) dbDiff;
+					result.addAll(buildUpdateColumnChangeSet(updateColumnChange));
 				}
 			}
 		}
 
 		return result.stream();
+	}
+
+	/***
+	 * Check if the given update change owns a {@link AttributeChange} with the
+	 * given EStructual feature
+	 * 
+	 * @param updateChange a change
+	 * @param attribute    the expected attribute
+	 * @return <code>true</code> if the attributes has changed
+	 */
+	private boolean hasChanged(UpdateColumnChange updateChange, EAttribute attribute) {
+
+		Match match = updateChange.getMatch();
+
+		return match.getDifferences().stream().filter(diff -> diff instanceof AttributeChange)//
+				.map(diff -> ((AttributeChange) diff))//
+				.anyMatch(attChange -> attChange.getAttribute() == attribute);
+	}
+
+	/**
+	 * Check if the given UpdateColumnChange requires to reset its type.
+	 * 
+	 * <p>
+	 * The type can be modified if
+	 * <ul>
+	 * <li>A new type instance is set</li>
+	 * <li>The length of the precision of the type instance has changed</li>
+	 * </ul>
+	 * 
+	 * @param updateChange
+	 * @return
+	 */
+	private boolean hasTypeChanged(UpdateColumnChange updateChange) {
+
+		Match match = updateChange.getMatch();
+
+		// We need to iterate on all sub difference since the change can either be on
+		// the column itself (change of typeIntance) or in its TypeInstance
+		for (Diff diff : match.getAllDifferences()) {
+			if (diff instanceof ReferenceChange) {
+				ReferenceChange refChange = (ReferenceChange) diff;
+				EReference ref = refChange.getReference();
+				if (ref == TypesLibraryPackage.eINSTANCE.getTypeInstance_NativeType()
+						|| ref == DatabasePackage.eINSTANCE.getColumn_Type()) {
+					return true;
+				}
+			} else if (diff instanceof AttributeChange) {
+				EAttribute attr = ((AttributeChange) diff).getAttribute();
+				if (attr == TypesLibraryPackage.eINSTANCE.getTypeInstance_Length()
+						|| attr == TypesLibraryPackage.eINSTANCE.getTypeInstance_Precision()
+						|| attr == TypesLibraryPackage.eINSTANCE.getTypeInstance_Literals()) {
+					return true;
+				}
+			}
+		}
+
+		return false;
+	}
+
+	private List<ChangeSet> buildUpdateColumnChangeSet(UpdateColumnChange updateColumnChange) {
+
+		List<ChangeSet> result = new ArrayList<ChangeSet>();
+
+		Column column = updateColumnChange.getColumn();
+
+		// Change in type
+		if (hasTypeChanged(updateColumnChange)) {
+			buildUpdateDataTypeChangeSet(column).ifPresent(result::add);
+		}
+
+		// Nullable
+		if (hasChanged(updateColumnChange, DatabasePackage.eINSTANCE.getColumn_Nullable())) {
+			if (column.isNullable()) {
+				result.add(buildDropNotNullConstraint(column));
+			} else {
+				result.add(buildSetNotNullConstraint(column));
+			}
+		}
+
+		// Auto increment
+		if (hasChanged(updateColumnChange, DatabasePackage.eINSTANCE.getColumn_Autoincrement())) {
+			if (column.isAutoincrement()) {
+				result.add(buildAddAutoIncrementConstraint(column));
+			} else {
+				// At the time of writing Liquibase do not have a ChangeSet to remove
+				// auto_increment from a column
+				// https://liquibase.jira.com/browse/CORE-486),
+				statuses.add(StatusUtils
+						.createWarningStatus("The Liquibase generator is not able to remove the AutoIncrement "));
+			}
+		}
+		// Default value
+		if (hasChanged(updateColumnChange, DatabasePackage.eINSTANCE.getColumn_DefaultValue())) {
+			buildChangeDefaultValueOnColumn(column).ifPresent(result::add);
+		}
+		return result;
+	}
+
+	private Optional<ChangeSet> buildChangeDefaultValueOnColumn(Column column) {
+		Type type = column.getType();
+		if (type instanceof TypeInstance) {
+			TypeInstance typeInstance = (TypeInstance) type;
+			String defaultValue = column.getDefaultValue();
+			if (defaultValue != null && !defaultValue.isEmpty()) {
+				Table table = column.getOwner();
+				AddDefaultValueChange aChange = new AddDefaultValueChange();
+				safeSchemaSetter(table.getOwner(), aChange::setSchemaName);
+				safeTrimSetter(table.getName(), aChange::setTableName);
+				safeTrimSetter(column.getName(), aChange::setColumnName);
+				// Required for informix DB... might no be necessary but since we have it and
+				// Liquibase does not fail on invalid type on DB that do not requires it.
+				// It generates a SQL query without this information on DB that does not
+				// requires it
+				// https://docs.liquibase.com/change-types/community/add-default-value.html
+				safeSetColumnType(column, aChange::setColumnDataType);
+				setColumnDefaultvalue(table, column, aChange, typeInstance, defaultValue);
+
+				ChangeSet changeSet = buildNextChangeSet();
+				changeSet.setComments("Set default value for column " + column.getName());
+				changeSet.addChange(aChange);
+
+				return Optional.of(changeSet);
+			}
+
+		} else {
+			statuses.add(StatusUtils.createWarningStatus(genService.getFullName(column) + " has no type"));
+		}
+		return Optional.empty();
+	}
+
+	private ChangeSet buildAddAutoIncrementConstraint(Column column) {
+		AddAutoIncrementChange aChange = new AddAutoIncrementChange();
+
+		safeTrimSetter(column.getOwner().getName(), aChange::setTableName);
+		safeSchemaSetter(column.getOwner().getOwner(), aChange::setSchemaName);
+		safeTrimSetter(column.getName(), aChange::setColumnName);
+
+		// Required for MariaDB and MySql. See
+		// https://docs.liquibase.com/change-types/community/add-not-null-constraint.html
+		safeSetColumnType(column, aChange::setColumnDataType);
+
+		ChangeSet changeSet = buildNextChangeSet();
+		changeSet.setComments("Add auto increment to " + column.getName());
+		changeSet.addChange(aChange);
+		return changeSet;
+	}
+
+	private ChangeSet buildSetNotNullConstraint(Column column) {
+		Table table = column.getOwner();
+		AddNotNullConstraintChange aChange = new AddNotNullConstraintChange();
+		safeSchemaSetter(table.getOwner(), aChange::setSchemaName);
+		safeTrimSetter(table.getName(), aChange::setTableName);
+		safeTrimSetter(column.getName(), aChange::setColumnName);
+		// Required for MariaDB and MySql. See
+		// https://docs.liquibase.com/change-types/community/add-not-null-constraint.html
+		safeSetColumnType(column, aChange::setColumnDataType);
+
+		ChangeSet changeSet = buildNextChangeSet();
+		changeSet.setComments("Add NOT NULL constraint on " + table.getName() + "." + column.getName());
+		changeSet.addChange(aChange);
+
+		return changeSet;
+	}
+
+	private void safeSetColumnType(Column column, Consumer<String> typeConsumer) {
+		Type type = column.getType();
+		if (type instanceof TypeInstance) {
+			TypeInstance typeInstance = (TypeInstance) type;
+			String stringType = genService.getType(typeInstance);
+			typeConsumer.accept(stringType);
+		}
+
+	}
+
+	private ChangeSet buildDropNotNullConstraint(Column column) {
+		Table table = column.getOwner();
+		DropNotNullConstraintChange dChange = new DropNotNullConstraintChange();
+		safeSchemaSetter(table.getOwner(), dChange::setSchemaName);
+		safeTrimSetter(table.getName(), dChange::setTableName);
+		safeTrimSetter(column.getName(), dChange::setColumnName);
+
+		// Required for MariaDB and MySql. See
+		// https://docs.liquibase.com/change-types/community/add-not-null-constraint.html
+		safeSetColumnType(column, dChange::setColumnDataType);
+
+		ChangeSet changeSet = buildNextChangeSet();
+		changeSet.setComments("Droping NOT NULL constraint on " + table.getName() + "." + column.getName());
+		changeSet.addChange(dChange);
+
+		return changeSet;
+	}
+
+	private Optional<ChangeSet> buildUpdateDataTypeChangeSet(Column column) {
+		Type type = column.getType();
+		if (type instanceof TypeInstance) {
+			ModifyDataTypeChange mChange = new ModifyDataTypeChange();
+
+			safeSchemaSetter(column.getOwner().getOwner(), mChange::setSchemaName);
+			safeTrimSetter(column.getOwner().getName(), mChange::setTableName);
+			safeTrimSetter(column.getName(), mChange::setColumnName);
+			TypeInstance typeInstance = (TypeInstance) type;
+			String stringType = genService.getType(typeInstance);
+			mChange.setNewDataType(stringType);
+			ChangeSet changeSet = buildNextChangeSet();
+			changeSet.setComments("Update column " + column.getName() + " datatype to " + stringType);
+			changeSet.addChange(mChange);
+			return Optional.of(changeSet);
+		} else {
+			statuses.add(StatusUtils.createWarningStatus("No type for column " + genService.getFullName(column)));
+			return Optional.empty();
+		}
+
 	}
 
 	private ChangeSet buildRenameColumnChangeSet(RenameColumnChange renameColumnChange) {
@@ -484,14 +758,9 @@ public class ChangeLogBuilder {
 		safeTrimSetter(column.getName(), rChange::setOldColumnName);
 		safeTrimSetter(renameColumnChange.getNewColumn().getName(), rChange::setNewColumnName);
 
-		Type type = column.getType();
-		if (type instanceof TypeInstance) {
-			TypeInstance typeInstance = (TypeInstance) type;
-			String stringType = genService.getType(typeInstance);
-			// required for MySQL and MariaDB
-			// See https://docs.liquibase.com/change-types/community/rename-column.html
-			rChange.setColumnDataType(stringType);
-		}
+		// Required for MariaDB and MySql. See
+		// https://docs.liquibase.com/change-types/community/rename-column.html
+		safeSetColumnType(column, rChange::setColumnDataType);
 
 		ChangeSet changeSet = buildNextChangeSet();
 		changeSet.addChange(rChange);

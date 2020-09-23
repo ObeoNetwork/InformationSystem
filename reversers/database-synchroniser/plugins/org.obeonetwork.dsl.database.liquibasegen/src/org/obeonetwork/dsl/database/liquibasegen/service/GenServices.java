@@ -7,6 +7,7 @@ import java.util.Optional;
 import org.eclipse.emf.compare.Comparison;
 import org.eclipse.emf.compare.Diff;
 import org.eclipse.emf.ecore.EObject;
+import org.obeonetwork.dsl.database.Column;
 import org.obeonetwork.dsl.database.Index;
 import org.obeonetwork.dsl.database.PrimaryKey;
 import org.obeonetwork.dsl.database.Schema;
@@ -49,6 +50,10 @@ public class GenServices {
 	 */
 	public String getFullName(Table table) {
 		return (genQualifiedSchemaPrefix(table) + table.getName()).trim();
+	}
+
+	public String getFullName(Column column) {
+		return getFullName(column.getOwner()) + "." + column.getName();
 	}
 
 	/**
