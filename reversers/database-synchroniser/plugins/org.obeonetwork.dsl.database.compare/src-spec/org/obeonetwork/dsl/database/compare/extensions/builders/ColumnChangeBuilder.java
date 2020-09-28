@@ -84,7 +84,8 @@ public class ColumnChangeBuilder extends ChangeBuilder {
 			return createRenameColumnChange(change);
 		}
 		if (DatabasePackage.eINSTANCE.getColumn_Nullable().equals(change.getAttribute())
-				|| DatabasePackage.eINSTANCE.getColumn_DefaultValue().equals(change.getAttribute())) {
+				|| DatabasePackage.eINSTANCE.getColumn_DefaultValue().equals(change.getAttribute())
+				|| DatabasePackage.eINSTANCE.getColumn_Autoincrement().equals(change.getAttribute())) {
 //			Column column = (Column) change.getMatch().getLeft();
 //			if (!alreadyCreatedUpdateColumnChange(column)) {
 				// When changing one of 'nullable', 'length', 'default value',

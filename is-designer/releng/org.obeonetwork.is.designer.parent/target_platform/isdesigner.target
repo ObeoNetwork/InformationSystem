@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <?pde?>
 <!-- generated with https://github.com/eclipse-cbi/targetplatform-dsl -->
-<target name="IS Designer Target Definition" sequenceNumber="1593447977">
+<target name="IS Designer Target Definition" sequenceNumber="1600778082">
   <locations>
     <location includeMode="planner" includeAllPlatforms="false" includeSource="true" includeConfigurePhase="false" type="InstallableUnit">
       <unit id="org.obeonetwork.dsl.soa.gen.swagger.feature.feature.group" version="0.0.0"/>
@@ -12,6 +12,7 @@
       <unit id="org.obeonetwork.graal.feature.feature.group" version="0.0.0"/>
       <unit id="org.obeonetwork.dsl.feature.requirement.feature.group" version="0.0.0"/>
       <unit id="org.obeonetwork.dsl.feature.is.feature.group" version="0.0.0"/>
+      <unit id="org.obeonetwork.is.license.feature.group" version="0.0.0"/>
       <unit id="org.obeonetwork.dsl.feature.overview.feature.group" version="0.0.0"/>
       <unit id="org.obeonetwork.dsl.feature.interaction.feature.group" version="0.0.0"/>
       <unit id="org.obeonetwork.dsl.feature.statemachine.feature.group" version="0.0.0"/>
@@ -177,7 +178,7 @@
       <unit id="org.eclipse.sirius.properties.feature.source.feature.group" version="0.0.0"/>
       <unit id="org.eclipse.sirius.specifier.properties.feature.feature.group" version="0.0.0"/>
       <unit id="org.eclipse.sirius.specifier.properties.feature.source.feature.group" version="0.0.0"/>
-      <repository id="Obeo-Designer-Community" location="http://update.obeo.fr/release/designer/11.3/community/11.3.0/repository"/>
+      <repository id="Obeo-Designer-Community" location="http://update.obeo.fr/stable/designer/11.3.2_dev_safran/community/11.3.2/repository/"/>
     </location>
   </locations>
 </target>

@@ -29,10 +29,9 @@ Require-Bundle: org.eclipse.ui,
  org.obeonetwork.dsl.database.compare,
  fr.gouv.mindef.safran.database.scaffold,
  org.eclipse.compare,
- org.eclipse.emf.compare.rcp.ui,
- com.google.guava,
+ org.eclipse.emf.compare.rcp.ui;bundle-version="4.4.2",
  org.eclipse.emf.compare.ide.ui,
- org.eclipse.emf.compare.rcp;bundle-version="2.2.0",
+ org.eclipse.emf.compare.rcp;bundle-version="2.5.2",
  org.obeonetwork.dsl.database.sqlgen,
  org.eclipse.emf.transaction,
  org.obeonetwork.dsl.database.reverse,
@@ -41,7 +40,7 @@ Require-Bundle: org.eclipse.ui,
  org.eclipse.team.svn.core,
  org.eclipse.sirius.ext.base,
  fr.obeo.dsl.viewpoint.collab
-Bundle-RequiredExecutionEnvironment: JavaSE-1.6
+Bundle-RequiredExecutionEnvironment: JavaSE-1.8
 Bundle-ActivationPolicy: lazy
 Export-Package: fr.gouv.mindef.safran.database.ui,
  fr.gouv.mindef.safran.database.ui.actions,
@@ -51,3 +50,5 @@ Export-Package: fr.gouv.mindef.safran.database.ui,
  fr.gouv.mindef.safran.database.ui.dialogs,
  fr.gouv.mindef.safran.database.ui.wizards.imports,
  fr.gouv.mindef.safran.database.ui.wizards.scaffolding
+Import-Package: com.google.common.base,
+ com.google.common.collect;version="[21.0.0,27.2.0)"

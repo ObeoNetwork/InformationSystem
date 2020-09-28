@@ -11,7 +11,6 @@ Require-Bundle: org.eclipse.ui,
  fr.gouv.mindef.safran.database.scaffold,
  org.obeonetwork.dsl.overview,
  org.eclipse.sirius,
- com.google.guava,
  org.eclipse.sirius.ecore.extender,
  org.eclipse.sirius.ext.emf,
  org.obeonetwork.dsl.environment;bundle-version="3.0.0",
@@ -26,3 +25,5 @@ Export-Package: fr.gouv.mindef.safran.database.transfo,
  fr.gouv.mindef.safran.database.transfo.util
 Bundle-Vendor: Obeo Network
 Bundle-Activator: fr.gouv.mindef.safran.database.Activator
+Import-Package: com.google.common.base;version="[21.0.0,27.2.0)",
+ com.google.common.collect;version="[21.0.0,27.2.0)"

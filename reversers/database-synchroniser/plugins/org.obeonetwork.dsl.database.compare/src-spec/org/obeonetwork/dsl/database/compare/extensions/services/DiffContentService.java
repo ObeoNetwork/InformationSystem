@@ -33,6 +33,7 @@ import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EStructuralFeature;
 import org.obeonetwork.dsl.database.DatabasePackage;
 import org.obeonetwork.dsl.database.dbevolution.AddTable;
+import org.obeonetwork.dsl.database.dbevolution.AddView;
 import org.obeonetwork.dsl.database.dbevolution.AlterTable;
 import org.obeonetwork.dsl.database.dbevolution.AlterView;
 import org.obeonetwork.dsl.database.dbevolution.ColumnChange;
@@ -159,6 +160,7 @@ public class DiffContentService {
 					||	input instanceof AlterTable
 					||	input instanceof SequenceChange
 					||	input instanceof SchemaChange
+					|| input instanceof AddView
 					||	input instanceof RemoveView
 					||	input instanceof AlterView;
 		};

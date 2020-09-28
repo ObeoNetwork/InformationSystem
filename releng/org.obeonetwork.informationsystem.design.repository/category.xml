@@ -167,6 +167,8 @@
    </feature>
    <feature url="features/org.obeonetwork.dsl.soa.gen.swagger.feature_1.0.0.qualifier.jar" id="org.obeonetwork.dsl.soa.gen.swagger.feature" version="1.0.0.qualifier">
       <category name="org.obeonetwork.informationsystem.addons"/>
+   <feature id="org.obeonetwork.is.license">
+      <category name="org.obeonetwork.informationsystem.branding"/>
    </feature>
    <category-def name="org.obeonetwork.informationsystem.models" label="Information System - Models"/>
    <category-def name="org.obeonetwork.informationsystem.designs" label="Information System - Designs"/>
@@ -175,4 +177,5 @@
    <category-def name="org.obeonetwork.informationsystem.m2doc" label="Information System - M2Doc"/>
    <category-def name="org.obeonetwork.informationsystem.addons" label="Information System - Add-ons"/>
    <category-def name="org.obeonetwork.informationsystem.samples" label="Information System - Samples"/>
+   <category-def name="org.obeonetwork.informationsystem.branding" label="Branding"/>
 </site>

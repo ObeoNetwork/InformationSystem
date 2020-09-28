@@ -11,6 +11,7 @@
 package org.obeonetwork.dsl.database.triggers;
 
 import java.util.Collection;
+import java.util.Optional;
 
 import org.eclipse.emf.common.command.Command;
 import org.eclipse.emf.common.notify.Notification;
@@ -20,7 +21,6 @@ import org.eclipse.emf.transaction.TransactionalEditingDomain;
 import org.eclipse.sirius.business.api.helper.SiriusUtil;
 import org.eclipse.sirius.business.api.session.ModelChangeTrigger;
 import org.eclipse.sirius.business.api.session.Session;
-import org.eclipse.sirius.business.api.session.SessionManager;
 import org.eclipse.sirius.ext.base.Option;
 import org.eclipse.sirius.ext.base.Options;
 import org.obeonetwork.dsl.database.Column;
@@ -40,23 +40,30 @@ public class DeleteColumnChangeTrigger implements ModelChangeTrigger{
 	@Override
 	public Option<Command> localChangesAboutToCommit(Collection<Notification> notifications) {
 		for (Notification notification : notifications) {
-			System.out.println(notification);
 			Object notifier = notification.getNotifier();
 			Object oldValue = notification.getOldValue();
 			if (notifier instanceof Column && oldValue instanceof IndexElement) {
 				// A column has been deleted and it was involved in an index
 				// We have to delete the index element too
 				final IndexElement indexElt = (IndexElement)oldValue;
-				final Session session = SessionManager.INSTANCE.getSession(indexElt);
-				final TransactionalEditingDomain domain = session.getTransactionalEditingDomain();
-				final Command result = new RecordingCommand(domain) {
-
-					@Override
-					protected void doExecute() {
-						SiriusUtil.delete(indexElt, session);
+				// We check if the index element still has a container
+				// if not it means it was deleted from the model
+				// thus we don't have to delete it anyway
+				if (indexElt.eContainer() != null) {
+					Optional<Session> sessionOpt = Session.of(indexElt);
+					if (sessionOpt.isPresent()) {
+						Session session = sessionOpt.get();
+						final TransactionalEditingDomain domain = session.getTransactionalEditingDomain();
+						final Command result = new RecordingCommand(domain) {
+							
+							@Override
+							protected void doExecute() {
+								SiriusUtil.delete(indexElt, session);
+							}
+						};
+						return Options.newSome(result);
 					}
-				};
-				return Options.newSome(result);
+				}
 			}
 		}
 		return Options.newNone();
