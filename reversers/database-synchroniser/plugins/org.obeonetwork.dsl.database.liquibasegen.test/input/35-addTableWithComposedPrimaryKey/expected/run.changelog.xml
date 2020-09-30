@@ -3,16 +3,12 @@
     <changeSet author="IS Designer" id="test0">
         <comment>Create table Table3</comment>
         <createTable schemaName="STOREBOOK" tableName="Table3">
-            <column name="ID" type="integer()">
+            <column name="column1" type="int()">
                 <constraints nullable="false" primaryKey="true" primaryKeyName="Table3_PK"/>
             </column>
-            <column name="t1Id" type="integer()">
-                <constraints nullable="false"/>
+            <column name="column2" type="int()">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="Table3_PK"/>
             </column>
         </createTable>
-    </changeSet>
-    <changeSet author="IS Designer" id="test1">
-        <comment>Foreign Key : FK_1</comment>
-        <addForeignKeyConstraint baseColumnNames="t1Id" baseTableName="Table3" constraintName="FK_1" referencedColumnNames="ID" referencedTableName="Table1"/>
     </changeSet>
 </databaseChangeLog>

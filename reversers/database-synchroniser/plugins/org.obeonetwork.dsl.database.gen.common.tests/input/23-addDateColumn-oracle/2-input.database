@@ -23,7 +23,6 @@
         </type>
       </columns>
     </tables>
-    <tables xsi:type="database:View" xmi:id="_Cxrs4PJ5Eeqsu5GFS77CrA" comments="A comment a 'table'." techID="_CxrF0PJ5Eeqsu5GFS77CrA" name="ValueView" query="select quantity, price from Table1"/>
     <sequences xmi:id="_XHDScfKYEeqir7Om0lVh3Q" comments="A comment on that 'sequence'" techID="_XHDScPKYEeqir7Om0lVh3Q" name="Sequence1" start="16" increment="2" minValue="16" maxValue="1016" cacheSize="32"/>
   </schemas>
 </database:DataBase>

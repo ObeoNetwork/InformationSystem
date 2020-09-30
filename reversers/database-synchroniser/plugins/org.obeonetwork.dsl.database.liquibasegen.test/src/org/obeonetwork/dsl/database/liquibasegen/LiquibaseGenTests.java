@@ -119,4 +119,28 @@ public class LiquibaseGenTests extends AbstractLiquibaseTest {
 	public void changeColumnDefaultValue() {
 		assertGenerationEquals("33-changeColumnDefaultValue-h2");
 	}
+
+	/**
+	 * Add a primary in a existing table that reference two existing columns
+	 */
+	@Test
+	public void addPrimaryKeyWith2Columns() {
+		assertGenerationEquals("34-addPrimaryKeyMultipleColumn-h2");
+	}
+
+	/**
+	 * New table with 2 columns and a primary composed of those 2 columns
+	 */
+	@Test
+	public void addTableWithComposedPrimaryKey() {
+		assertGenerationEquals("35-addTableWithComposedPrimaryKey");
+	}
+
+	/**
+	 * New primary key that reference a new column and an existing one
+	 */
+	@Test
+	public void addComposedPrimaryKeyMixed() {
+		assertGenerationEquals("36-addPrimaryComposedMixed-mysql");
+	}
 }

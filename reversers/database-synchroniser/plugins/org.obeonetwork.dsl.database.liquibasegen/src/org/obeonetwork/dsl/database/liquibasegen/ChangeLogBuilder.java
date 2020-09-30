@@ -18,13 +18,16 @@ import java.text.MessageFormat;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Collections;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.Optional;
 import java.util.function.Consumer;
 import java.util.function.Function;
 import java.util.stream.Stream;
 
 import org.eclipse.core.runtime.IStatus;
+import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.compare.AttributeChange;
 import org.eclipse.emf.compare.Comparison;
 import org.eclipse.emf.compare.Diff;
@@ -39,6 +42,7 @@ import org.obeonetwork.dsl.database.DatabaseElement;
 import org.obeonetwork.dsl.database.DatabasePackage;
 import org.obeonetwork.dsl.database.ForeignKey;
 import org.obeonetwork.dsl.database.Index;
+import org.obeonetwork.dsl.database.PrimaryKey;
 import org.obeonetwork.dsl.database.Schema;
 import org.obeonetwork.dsl.database.Sequence;
 import org.obeonetwork.dsl.database.Table;
@@ -47,6 +51,7 @@ import org.obeonetwork.dsl.database.dbevolution.AddColumnChange;
 import org.obeonetwork.dsl.database.dbevolution.AddConstraint;
 import org.obeonetwork.dsl.database.dbevolution.AddForeignKey;
 import org.obeonetwork.dsl.database.dbevolution.AddIndex;
+import org.obeonetwork.dsl.database.dbevolution.AddPrimaryKey;
 import org.obeonetwork.dsl.database.dbevolution.AddSequence;
 import org.obeonetwork.dsl.database.dbevolution.AddTable;
 import org.obeonetwork.dsl.database.dbevolution.AddView;
@@ -54,6 +59,7 @@ import org.obeonetwork.dsl.database.dbevolution.AlterTable;
 import org.obeonetwork.dsl.database.dbevolution.ConstraintChange;
 import org.obeonetwork.dsl.database.dbevolution.DBDiff;
 import org.obeonetwork.dsl.database.dbevolution.IndexChange;
+import org.obeonetwork.dsl.database.dbevolution.PrimaryKeyChange;
 import org.obeonetwork.dsl.database.dbevolution.RemoveColumnChange;
 import org.obeonetwork.dsl.database.dbevolution.RemoveTable;
 import org.obeonetwork.dsl.database.dbevolution.RenameColumnChange;
@@ -79,6 +85,7 @@ import liquibase.change.core.AddAutoIncrementChange;
 import liquibase.change.core.AddDefaultValueChange;
 import liquibase.change.core.AddForeignKeyConstraintChange;
 import liquibase.change.core.AddNotNullConstraintChange;
+import liquibase.change.core.AddPrimaryKeyChange;
 import liquibase.change.core.CreateIndexChange;
 import liquibase.change.core.CreateSequenceChange;
 import liquibase.change.core.CreateTableChange;
@@ -111,6 +118,12 @@ public class ChangeLogBuilder {
 	 */
 	private List<IStatus> statuses = new ArrayList<IStatus>();
 
+	/**
+	 * Keeps track of the constraints set on column that have been created and
+	 * updated.
+	 */
+	private Map<String, ConstraintsConfig> updatedColumnConfs = new HashMap<String, ConstraintsConfig>();
+
 	private SQLService sqlService;
 
 	private static <E> Stream<E> filterAndCast(Stream<?> stream, Class<E> type) {
@@ -124,7 +137,8 @@ public class ChangeLogBuilder {
 		timeStamp = changeLogIdPrexix;
 		try {
 			List<DBDiff> diffs = genService.getOrderedChanges(comparisonModel);
-			result.addAll(genChangeSetsForTables(diffs));
+			result.addAll(genChangeSetsForTables(diffs)); // Needs to be before handled before primary keys
+			result.addAll(getChangeSetsForPrimaryKeys(diffs));
 			result.addAll(genChangeSetsForConstraints(diffs));
 			result.addAll(getChangeSetsForForeignKeys(diffs));
 			result.addAll(getChangeSetsForIndexes(diffs));
@@ -287,6 +301,63 @@ public class ChangeLogBuilder {
 				.collect(toList());
 	}
 
+	private Collection<? extends ChangeLogChild> getChangeSetsForPrimaryKeys(List<DBDiff> diffs) {
+		return filterAndCast(diffs.stream(), PrimaryKeyChange.class)//
+				.map(this::buildPrimaryKeyChangeSet)//
+				.filter(Optional::isPresent)//
+				.map(Optional::get)//
+				.collect(toList());
+	}
+
+	private Optional<ChangeSet> buildPrimaryKeyChangeSet(PrimaryKeyChange primKeyChange) {
+
+		if (primKeyChange instanceof AddPrimaryKey) {
+			AddPrimaryKey addPrimKeyChange = (AddPrimaryKey) primKeyChange;
+			return buildAddPrimaryKeyChangeSet(addPrimKeyChange);
+		}
+
+		return Optional.empty();
+
+	}
+
+	private Optional<ChangeSet> buildAddPrimaryKeyChangeSet(AddPrimaryKey addPrimKeyChange) {
+		PrimaryKey primKey = addPrimKeyChange.getPrimaryKey();
+		EList<Column> columns = primKey.getColumns();
+
+		List<String> columnsQN = columns.stream().map(c -> genService.getFullName(c)).collect(toList());
+		if (columnsQN.stream().allMatch(c -> updatedColumnConfs.containsKey(c))) {
+			// The primary impact only added columns => Update existing contain
+			columnsQN.forEach(qn -> {
+				safeTrimSetter(primKey.getName(), name -> updatedColumnConfs.get(qn).setPrimaryKeyName(name));
+			});
+			return Optional.empty();
+		} else {
+
+			// The primary contains not only added column. In this case remove the primary
+			// key constraint definition from the CreateTable changeset and a specific
+			// change set to create the constraint
+			Table table = primKey.getOwner();
+			columnsQN.stream().filter(qn -> updatedColumnConfs.containsKey(qn)).forEach(qn -> {
+				updatedColumnConfs.get(qn).setPrimaryKey((Boolean) null); // Don't add the primary during the creation
+			});
+
+			// Create a specific changeSet
+			ChangeSet changeSet = buildNextChangeSet();
+			AddPrimaryKeyChange aChange = new AddPrimaryKeyChange();
+
+			safeSchemaSetter(table.getOwner(), aChange::setSchemaName);
+			safeTrimSetter(table.getName(), aChange::setTableName);
+			String columnNames = columns.stream().map(c -> c.getName()).filter(n -> n != null).map(n -> n.trim())
+					.collect(joining(","));
+			aChange.setColumnNames(columnNames);
+			changeSet.setComments("Adding primary key on " + columnNames + " in " + table.getName());
+			safeTrimSetter(primKey.getName(), aChange::setConstraintName);
+			changeSet.addChange(aChange);
+			return Optional.of(changeSet);
+		}
+
+	}
+
 	private Optional<ChangeSet> buildForeignKeyChangeSet(AddForeignKey adForeign) {
 		ForeignKey fk = adForeign.getForeignKey();
 		AddForeignKeyConstraintChange changeDescription = new AddForeignKeyConstraintChange();
@@ -377,13 +448,20 @@ public class ChangeLogBuilder {
 		// Handle primary key
 		ConstraintsConfig constraintConfig = new ConstraintsConfig();
 		constraintConfig.setNullable(column.isNullable());
+
 		if (column.isInPrimaryKey()) {
 			constraintConfig.setPrimaryKey(column.isInPrimaryKey());
 		}
 
+		// We need to keeps tracks on the constraint configured for this column to be
+		// able to modify it afterwards.
+		// For example, the name can be set when the AddPrimaryDiff is handled
+		updatedColumnConfs.put(genService.getFullName(column), constraintConfig);
 		cConfig.setConstraints(constraintConfig);
 
-		cConfig.setAutoIncrement(column.isAutoincrement() || column.isInPrimaryKey());
+		if (column.isAutoincrement()) {
+			cConfig.setAutoIncrement(column.isAutoincrement());
+		}
 
 		remarksSetter(column, cConfig::setRemarks);
 	}

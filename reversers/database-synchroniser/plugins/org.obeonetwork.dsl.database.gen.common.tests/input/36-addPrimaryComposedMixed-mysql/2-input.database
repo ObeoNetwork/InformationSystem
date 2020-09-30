@@ -17,9 +17,30 @@
           <nativeType href="pathmap://NativeDBTypes/MySQL-5#_Zj8LdxEnEeGTa_JlZYBw1A"/>
         </type>
       </columns>
-      <columns xmi:id="_80wbcfJ4Eeqsu5GFS77CrA" techID="_80wbcPJ4Eeqsu5GFS77CrA" name="price">
+      <columns xmi:id="_80wbcfJ4Eeqsu5GFS77CrA" techID="_80wbcPJ4Eeqsu5GFS77CrA" name="price2">
         <type xsi:type="typeslibrary:TypeInstance" xmi:id="_80wbcvJ4Eeqsu5GFS77CrA">
           <nativeType href="pathmap://NativeDBTypes/MySQL-5#_Zj8LdREnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+    </tables>
+    <tables xsi:type="database:View" xmi:id="_IdPhgPJ5Eeqsu5GFS77CrA" comments="A comment a 'table'." techID="_IZlwmPJ5Eeqsu5GFS77CrA" name="ValueView" query="select quantity, price2 from FirstTable"/>
+    <tables xsi:type="database:Table" xmi:id="_sbwTgAMdEeuux-Uvu5Ijmw" techID="_sbvscAMdEeuux-Uvu5Ijmw" name="Table3">
+      <primaryKey xmi:id="_tCF6wQMdEeuux-Uvu5Ijmw" techID="_tCF6wAMdEeuux-Uvu5Ijmw" name="Table3_PK" columns="_tB01AQMdEeuux-Uvu5Ijmw _uAnYgQMdEeuux-Uvu5Ijmw"/>
+      <columns xmi:id="_tB01AQMdEeuux-Uvu5Ijmw" techID="_tB01AAMdEeuux-Uvu5Ijmw" name="column1" primaryKey="_tCF6wQMdEeuux-Uvu5Ijmw">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_tB01AgMdEeuux-Uvu5Ijmw">
+          <nativeType href="pathmap://NativeDBTypes/MySQL-5#_Zj8LdhEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+      <columns xmi:id="_uAnYgQMdEeuux-Uvu5Ijmw" techID="_uAnYgAMdEeuux-Uvu5Ijmw" name="column2" primaryKey="_tCF6wQMdEeuux-Uvu5Ijmw">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_uAnYggMdEeuux-Uvu5Ijmw">
+          <nativeType href="pathmap://NativeDBTypes/MySQL-5#_Zj8LdhEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+    </tables>
+    <tables xsi:type="database:Table" xmi:id="_6LN3sAMeEeuux-Uvu5Ijmw" techID="_6LNQoAMeEeuux-Uvu5Ijmw" name="Table4">
+      <columns xmi:id="_6dxAQAMeEeuux-Uvu5Ijmw" techID="_6dwZMAMeEeuux-Uvu5Ijmw" name="column1">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_6dxAQQMeEeuux-Uvu5Ijmw">
+          <nativeType href="pathmap://NativeDBTypes/MySQL-5#_Zj8LdhEnEeGTa_JlZYBw1A"/>
         </type>
       </columns>
     </tables>

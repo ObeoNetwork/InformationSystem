@@ -3,7 +3,7 @@
     <changeSet author="IS Designer" id="test0">
         <comment>Adding column column4</comment>
         <addColumn schemaName="STOREBOOK" tableName="FirstTable">
-            <column autoIncrement="false" name="column4" type="enum('E1', 'E2')">
+            <column name="column4" type="enum('E1', 'E2')">
                 <constraints nullable="false"/>
             </column>
         </addColumn>
