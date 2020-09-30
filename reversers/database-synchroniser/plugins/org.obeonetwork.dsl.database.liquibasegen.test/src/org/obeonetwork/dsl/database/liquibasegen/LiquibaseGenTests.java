@@ -143,4 +143,12 @@ public class LiquibaseGenTests extends AbstractLiquibaseTest {
 	public void addComposedPrimaryKeyMixed() {
 		assertGenerationEquals("36-addPrimaryComposedMixed-mysql");
 	}
+
+	/**
+	 * Change the comment on a column
+	 */
+	@Test
+	public void changeCommentOnColumn() {
+		assertGenerationEquals("37-changeCommnetOnColumns-mysql");
+	}
 }

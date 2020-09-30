@@ -95,6 +95,7 @@ import liquibase.change.core.DropNotNullConstraintChange;
 import liquibase.change.core.DropTableChange;
 import liquibase.change.core.ModifyDataTypeChange;
 import liquibase.change.core.RawSQLChange;
+import liquibase.change.core.SetColumnRemarksChange;
 import liquibase.change.core.SetTableRemarksChange;
 import liquibase.changelog.ChangeLogChild;
 import liquibase.changelog.ChangeSet;
@@ -708,7 +709,27 @@ public class ChangeLogBuilder {
 		if (hasChanged(updateColumnChange, DatabasePackage.eINSTANCE.getColumn_DefaultValue())) {
 			buildChangeDefaultValueOnColumn(column).ifPresent(result::add);
 		}
+
+		// Update comment
+		if (hasChanged(updateColumnChange, DatabasePackage.eINSTANCE.getDatabaseElement_Comments())) {
+			result.add(buildCommentOnColumn(column));
+		}
 		return result;
+	}
+
+	private ChangeSet buildCommentOnColumn(Column column) {
+		SetColumnRemarksChange sChange = new SetColumnRemarksChange();
+		Table table = column.getOwner();
+		safeSchemaSetter(table.getOwner(), sChange::setSchemaName);
+		safeTrimSetter(table.getName(), sChange::setTableName);
+		safeTrimSetter(column.getName(), sChange::setColumnName);
+		safeTrimSetter(column.getComments(), sChange::setRemarks);
+
+		ChangeSet changeSet = buildNextChangeSet();
+		changeSet.setComments("Updating comment on " + genService.getFullName(column));
+		changeSet.addChange(sChange);
+
+		return changeSet;
 	}
 
 	private Optional<ChangeSet> buildChangeDefaultValueOnColumn(Column column) {
