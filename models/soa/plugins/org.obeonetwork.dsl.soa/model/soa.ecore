@@ -3,53 +3,153 @@
     xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="soa" nsURI="http://www.obeonetwork.org/dsl/soa/3.0.0" nsPrefix="soa">
   <eClassifiers xsi:type="ecore:EClass" name="System" eSuperTypes="../../org.obeonetwork.dsl.environment/model/environment.ecore#//Namespace">
     <eStructuralFeatures xsi:type="ecore:EReference" name="ownedComponents" upperBound="-1"
-        eType="#//Component" containment="true"/>
+        eType="#//Component" containment="true">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="The list of owned components."/>
+      </eAnnotations>
+    </eStructuralFeatures>
     <eStructuralFeatures xsi:type="ecore:EReference" name="ownedWires" upperBound="-1"
-        eType="#//Wire" containment="true"/>
+        eType="#//Wire" containment="true">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="The list of owned wires."/>
+      </eAnnotations>
+    </eStructuralFeatures>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Component" eSuperTypes="../../org.obeonetwork.dsl.environment/model/environment.ecore#//ObeoDSMObject">
     <eStructuralFeatures xsi:type="ecore:EReference" name="ownedServices" upperBound="-1"
-        eType="#//Service" containment="true"/>
+        eType="#//Service" containment="true">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="The list of owned services."/>
+      </eAnnotations>
+    </eStructuralFeatures>
     <eStructuralFeatures xsi:type="ecore:EReference" name="requiredServices" upperBound="-1"
-        eType="#//Service" changeable="false" volatile="true" transient="true" derived="true"/>
+        eType="#//Service" changeable="false" volatile="true" transient="true" derived="true">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="The list of required services."/>
+      </eAnnotations>
+    </eStructuralFeatures>
     <eStructuralFeatures xsi:type="ecore:EReference" name="providedServices" upperBound="-1"
-        eType="#//Service" changeable="false" volatile="true" transient="true" derived="true"/>
+        eType="#//Service" changeable="false" volatile="true" transient="true" derived="true">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="The list of provided services."/>
+      </eAnnotations>
+    </eStructuralFeatures>
     <eStructuralFeatures xsi:type="ecore:EReference" name="implementations" upperBound="-1"
-        eType="#//ImplementationComponent" containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+        eType="#//ImplementationComponent" containment="true">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="The list of implementations."/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="The name of the component."/>
+      </eAnnotations>
+    </eStructuralFeatures>
     <eStructuralFeatures xsi:type="ecore:EReference" name="ownedBinding" upperBound="-1"
-        eType="#//Binding" containment="true"/>
+        eType="#//Binding" containment="true">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="The list of owned bindings."/>
+      </eAnnotations>
+    </eStructuralFeatures>
     <eStructuralFeatures xsi:type="ecore:EReference" name="block" upperBound="-1"
-        eType="ecore:EClass ../../org.obeonetwork.dsl.environment/model/environment.ecore#//TypesDefinition"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="URI" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="URL" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+        eType="ecore:EClass ../../org.obeonetwork.dsl.environment/model/environment.ecore#//TypesDefinition">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="The list of block type definitions."/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="URI" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="The exposition URI of this component."/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="URL" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="The exposition URL of this component."/>
+      </eAnnotations>
+    </eStructuralFeatures>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="apiVersion" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="deprecated" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="deprecated" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Tells if this Component is deprecated."/>
+      </eAnnotations>
+    </eStructuralFeatures>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Service" eSuperTypes="../../org.obeonetwork.dsl.environment/model/environment.ecore#//ObeoDSMObject">
     <eStructuralFeatures xsi:type="ecore:EReference" name="ownedInterface" eType="#//Interface"
-        containment="true"/>
+        containment="true">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="The owned interface."/>
+      </eAnnotations>
+    </eStructuralFeatures>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="synchronization" lowerBound="1"
-        eType="#//SynchronizationKind"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="kind" lowerBound="1" eType="#//InterfaceKind"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="referencedInterface" eType="#//Interface"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="bindings" eType="#//Binding"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+        eType="#//SynchronizationKind">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="The kind of synchronization."/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="kind" lowerBound="1" eType="#//InterfaceKind">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="The kind of interface."/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="referencedInterface" eType="#//Interface">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="The referenced interface."/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="bindings" eType="#//Binding">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="The binding."/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="The name of the service."/>
+      </eAnnotations>
+    </eStructuralFeatures>
     <eStructuralFeatures xsi:type="ecore:EReference" name="usedTypes" upperBound="-1"
-        eType="ecore:EClass ../../org.obeonetwork.dsl.environment/model/environment.ecore#//Type"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="URI" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+        eType="ecore:EClass ../../org.obeonetwork.dsl.environment/model/environment.ecore#//Type">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="The list of used types."/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="URI" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="The exposition URI of this service."/>
+      </eAnnotations>
+    </eStructuralFeatures>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Wire" eSuperTypes="../../org.obeonetwork.dsl.environment/model/environment.ecore#//ObeoDSMObject">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="source" eType="#//Service"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="dest" eType="#//Service"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="source" eType="#//Service">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="The source service."/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="dest" eType="#//Service">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="The target service."/>
+      </eAnnotations>
+    </eStructuralFeatures>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Binding" eSuperTypes="../../org.obeonetwork.dsl.environment/model/environment.ecore#//ObeoDSMObject">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="technology" eType="#//BindingKind"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="technology" eType="#//BindingKind">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="The binding kind."/>
+      </eAnnotations>
+    </eStructuralFeatures>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Interface" eSuperTypes="../../org.obeonetwork.dsl.environment/model/environment.ecore#//ObeoDSMObject">
     <eStructuralFeatures xsi:type="ecore:EReference" name="ownedOperations" upperBound="-1"
-        eType="#//Operation" containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+        eType="#//Operation" containment="true">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="The list of owned operations."/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="The name of the interface."/>
+      </eAnnotations>
+    </eStructuralFeatures>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EEnum" name="InterfaceKind">
     <eLiterals name="provided"/>
@@ -61,35 +161,113 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Operation" eSuperTypes="../../org.obeonetwork.dsl.environment/model/environment.ecore#//Action">
     <eStructuralFeatures xsi:type="ecore:EReference" name="input" upperBound="-1"
-        eType="#//Parameter" containment="true"/>
+        eType="#//Parameter" containment="true">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="The list of input parameters."/>
+      </eAnnotations>
+    </eStructuralFeatures>
     <eStructuralFeatures xsi:type="ecore:EReference" name="output" upperBound="-1"
-        eType="#//Parameter" containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="kind" eType="#//OperationKind"/>
+        eType="#//Parameter" containment="true">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="The list of output parameters"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="kind" eType="#//OperationKind">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="The kind of operation."/>
+      </eAnnotations>
+    </eStructuralFeatures>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="public" lowerBound="1"
-        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Tells if the operation is public."/>
+      </eAnnotations>
+    </eStructuralFeatures>
     <eStructuralFeatures xsi:type="ecore:EReference" name="fault" upperBound="-1"
-        eType="#//Parameter" containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="URI" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="verb" eType="#//Verb" defaultValueLiteral="GET"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="exposition" eType="#//ExpositionKind"/>
+        eType="#//Parameter" containment="true">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="The list of fault parameters."/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="URI" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="The exposition URI of this operation."/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="verb" eType="#//Verb" defaultValueLiteral="GET">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="The HTTP verb of this operation."/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="exposition" eType="#//ExpositionKind">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="The kind of exposition or NONE if not exposed."/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="paged" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"
+        defaultValueLiteral="true">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Tells if this operation is paged."/>
+      </eAnnotations>
+    </eStructuralFeatures>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ImplementationComponent" eSuperTypes="../../org.obeonetwork.dsl.environment/model/environment.ecore#//ObeoDSMObject">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="implement" eType="#//Interface"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="entities" eType="ecore:EClass ../../org.obeonetwork.dsl.environment/model/environment.ecore#//TypesDefinition"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="implement" eType="#//Interface">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="The implemented interface."/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="entities" eType="ecore:EClass ../../org.obeonetwork.dsl.environment/model/environment.ecore#//TypesDefinition">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="The type definition."/>
+      </eAnnotations>
+    </eStructuralFeatures>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Parameter" eSuperTypes="../../org.obeonetwork.dsl.environment/model/environment.ecore#//ObeoDSMObject">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="type" eType="ecore:EClass ../../org.obeonetwork.dsl.environment/model/environment.ecore#//Type"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="type" eType="ecore:EClass ../../org.obeonetwork.dsl.environment/model/environment.ecore#//Type">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="The type of the parameter."/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="The name of the parameter."/>
+      </eAnnotations>
+    </eStructuralFeatures>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="multiplicity" lowerBound="1"
         eType="ecore:EEnum ../../org.obeonetwork.dsl.environment/model/environment.ecore#//MultiplicityKind"
-        defaultValueLiteral="1"/>
+        defaultValueLiteral="1">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="The multiplicity of the parameter."/>
+      </eAnnotations>
+    </eStructuralFeatures>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="isUnique" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"
-        defaultValueLiteral="false"/>
+        defaultValueLiteral="false">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Tells if the parameter contains duplicates."/>
+      </eAnnotations>
+    </eStructuralFeatures>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="isOrdered" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"
-        defaultValueLiteral="true"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="passingMode" eType="#//ParameterPassingMode"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="statusCode" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="statusMessage" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+        defaultValueLiteral="true">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Tells if the parameter is ordered."/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="passingMode" eType="#//ParameterPassingMode">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="The parameter passing mode."/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="statusCode" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="The status code associated with this parameter."/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="statusMessage" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="The status message associated with this parameter."/>
+      </eAnnotations>
+    </eStructuralFeatures>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EEnum" name="BindingKind">
     <eLiterals name="webservice"/>

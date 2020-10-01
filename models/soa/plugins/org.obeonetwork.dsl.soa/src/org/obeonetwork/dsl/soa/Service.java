@@ -252,6 +252,9 @@ public interface Service extends ObeoDSMObject {
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * The exposition URI of this service.
+	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>URI</em>' attribute.
 	 * @see #setURI(String)
 	 * @see org.obeonetwork.dsl.soa.SoaPackage#getService_URI()

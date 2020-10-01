@@ -199,6 +199,9 @@ public interface Component extends ObeoDSMObject {
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * The exposition URI of this component.
+	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>URI</em>' attribute.
 	 * @see #setURI(String)
 	 * @see org.obeonetwork.dsl.soa.SoaPackage#getComponent_URI()
@@ -225,6 +228,9 @@ public interface Component extends ObeoDSMObject {
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * The exposition URL of this component.
+	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>URL</em>' attribute.
 	 * @see #setURL(String)
 	 * @see org.obeonetwork.dsl.soa.SoaPackage#getComponent_URL()
@@ -277,6 +283,9 @@ public interface Component extends ObeoDSMObject {
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * Tells if this Component is deprecated.
+	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Deprecated</em>' attribute.
 	 * @see #setDeprecated(boolean)
 	 * @see org.obeonetwork.dsl.soa.SoaPackage#getComponent_Deprecated()

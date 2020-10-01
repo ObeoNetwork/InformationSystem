@@ -30,6 +30,7 @@ import org.obeonetwork.dsl.environment.Action;
  *   <li>{@link org.obeonetwork.dsl.soa.Operation#getURI <em>URI</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.soa.Operation#getVerb <em>Verb</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.soa.Operation#getExposition <em>Exposition</em>}</li>
+ *   <li>{@link org.obeonetwork.dsl.soa.Operation#isPaged <em>Paged</em>}</li>
  * </ul>
  *
  * @see org.obeonetwork.dsl.soa.SoaPackage#getOperation()
@@ -123,7 +124,7 @@ public interface Operation extends Action {
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * Tells of tje operation is public.
+	 * Tells if the operation is public.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Public</em>' attribute.
 	 * @see #setPublic(boolean)
@@ -170,6 +171,9 @@ public interface Operation extends Action {
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * The exposition URI of this operation.
+	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>URI</em>' attribute.
 	 * @see #setURI(String)
 	 * @see org.obeonetwork.dsl.soa.SoaPackage#getOperation_URI()
@@ -198,6 +202,9 @@ public interface Operation extends Action {
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * The HTTP verb of this operation.
+	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Verb</em>' attribute.
 	 * @see org.obeonetwork.dsl.soa.Verb
 	 * @see #setVerb(Verb)
@@ -227,6 +234,9 @@ public interface Operation extends Action {
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * The kind of exposition or NONE if not exposed.
+	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Exposition</em>' attribute.
 	 * @see org.obeonetwork.dsl.soa.ExpositionKind
 	 * @see #setExposition(ExpositionKind)
@@ -246,5 +256,31 @@ public interface Operation extends Action {
 	 * @generated
 	 */
 	void setExposition(ExpositionKind value);
+
+	/**
+	 * Returns the value of the '<em><b>Paged</b></em>' attribute.
+	 * The default value is <code>"true"</code>.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * Tells if this operation is paged.
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Paged</em>' attribute.
+	 * @see #setPaged(boolean)
+	 * @see org.obeonetwork.dsl.soa.SoaPackage#getOperation_Paged()
+	 * @model default="true"
+	 * @generated
+	 */
+	boolean isPaged();
+
+	/**
+	 * Sets the value of the '{@link org.obeonetwork.dsl.soa.Operation#isPaged <em>Paged</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Paged</em>' attribute.
+	 * @see #isPaged()
+	 * @generated
+	 */
+	void setPaged(boolean value);
 
 } // Operation

@@ -601,6 +601,15 @@ public class SoaPackageImpl extends EPackageImpl implements SoaPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EAttribute getOperation_Paged() {
+		return (EAttribute)operationEClass.getEStructuralFeatures().get(8);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getImplementationComponent() {
 		return implementationComponentEClass;
 	}
@@ -842,6 +851,7 @@ public class SoaPackageImpl extends EPackageImpl implements SoaPackage {
 		createEAttribute(operationEClass, OPERATION__URI);
 		createEAttribute(operationEClass, OPERATION__VERB);
 		createEAttribute(operationEClass, OPERATION__EXPOSITION);
+		createEAttribute(operationEClass, OPERATION__PAGED);
 
 		implementationComponentEClass = createEClass(IMPLEMENTATION_COMPONENT);
 		createEReference(implementationComponentEClass, IMPLEMENTATION_COMPONENT__IMPLEMENT);
@@ -956,6 +966,7 @@ public class SoaPackageImpl extends EPackageImpl implements SoaPackage {
 		initEAttribute(getOperation_URI(), ecorePackage.getEString(), "URI", null, 0, 1, Operation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getOperation_Verb(), this.getVerb(), "verb", "GET", 0, 1, Operation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getOperation_Exposition(), this.getExpositionKind(), "exposition", null, 0, 1, Operation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getOperation_Paged(), ecorePackage.getEBoolean(), "paged", "true", 0, 1, Operation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(implementationComponentEClass, ImplementationComponent.class, "ImplementationComponent", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getImplementationComponent_Implement(), this.getInterface(), null, "implement", null, 0, 1, ImplementationComponent.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -1084,6 +1095,24 @@ public class SoaPackageImpl extends EPackageImpl implements SoaPackage {
 			   "documentation", "The list of block type definitions."
 		   });
 		addAnnotation
+		  (getComponent_URI(),
+		   source,
+		   new String[] {
+			   "documentation", "The exposition URI of this component."
+		   });
+		addAnnotation
+		  (getComponent_URL(),
+		   source,
+		   new String[] {
+			   "documentation", "The exposition URL of this component."
+		   });
+		addAnnotation
+		  (getComponent_Deprecated(),
+		   source,
+		   new String[] {
+			   "documentation", "Tells if this Component is deprecated."
+		   });
+		addAnnotation
 		  (getService_OwnedInterface(),
 		   source,
 		   new String[] {
@@ -1124,6 +1153,12 @@ public class SoaPackageImpl extends EPackageImpl implements SoaPackage {
 		   source,
 		   new String[] {
 			   "documentation", "The list of used types."
+		   });
+		addAnnotation
+		  (getService_URI(),
+		   source,
+		   new String[] {
+			   "documentation", "The exposition URI of this service."
 		   });
 		addAnnotation
 		  (getWire_Source(),
@@ -1177,13 +1212,37 @@ public class SoaPackageImpl extends EPackageImpl implements SoaPackage {
 		  (getOperation_Public(),
 		   source,
 		   new String[] {
-			   "documentation", "Tells of tje operation is public."
+			   "documentation", "Tells if the operation is public."
 		   });
 		addAnnotation
 		  (getOperation_Fault(),
 		   source,
 		   new String[] {
 			   "documentation", "The list of fault parameters."
+		   });
+		addAnnotation
+		  (getOperation_URI(),
+		   source,
+		   new String[] {
+			   "documentation", "The exposition URI of this operation."
+		   });
+		addAnnotation
+		  (getOperation_Verb(),
+		   source,
+		   new String[] {
+			   "documentation", "The HTTP verb of this operation."
+		   });
+		addAnnotation
+		  (getOperation_Exposition(),
+		   source,
+		   new String[] {
+			   "documentation", "The kind of exposition or NONE if not exposed."
+		   });
+		addAnnotation
+		  (getOperation_Paged(),
+		   source,
+		   new String[] {
+			   "documentation", "Tells if this operation is paged."
 		   });
 		addAnnotation
 		  (getImplementationComponent_Implement(),
@@ -1226,6 +1285,24 @@ public class SoaPackageImpl extends EPackageImpl implements SoaPackage {
 		   source,
 		   new String[] {
 			   "documentation", "Tells if the parameter is ordered."
+		   });
+		addAnnotation
+		  (getParameter_PassingMode(),
+		   source,
+		   new String[] {
+			   "documentation", "The parameter passing mode."
+		   });
+		addAnnotation
+		  (getParameter_StatusCode(),
+		   source,
+		   new String[] {
+			   "documentation", "The status code associated with this parameter."
+		   });
+		addAnnotation
+		  (getParameter_StatusMessage(),
+		   source,
+		   new String[] {
+			   "documentation", "The status message associated with this parameter."
 		   });
 	}
 

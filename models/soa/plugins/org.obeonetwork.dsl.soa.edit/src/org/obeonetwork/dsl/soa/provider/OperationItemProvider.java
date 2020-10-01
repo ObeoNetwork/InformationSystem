@@ -68,6 +68,7 @@ public class OperationItemProvider
 			addURIPropertyDescriptor(object);
 			addVerbPropertyDescriptor(object);
 			addExpositionPropertyDescriptor(object);
+			addPagedPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -183,6 +184,28 @@ public class OperationItemProvider
 	}
 
 	/**
+	 * This adds a property descriptor for the Paged feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addPagedPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_Operation_paged_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Operation_paged_feature", "_UI_Operation_type"),
+				 SoaPackage.Literals.OPERATION__PAGED,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
 	 * This specifies how to implement {@link #getChildren} and is used to deduce an appropriate feature for an
 	 * {@link org.eclipse.emf.edit.command.AddCommand}, {@link org.eclipse.emf.edit.command.RemoveCommand} or
 	 * {@link org.eclipse.emf.edit.command.MoveCommand} in {@link #createCommand}.
@@ -281,6 +304,7 @@ public class OperationItemProvider
 			case SoaPackage.OPERATION__URI:
 			case SoaPackage.OPERATION__VERB:
 			case SoaPackage.OPERATION__EXPOSITION:
+			case SoaPackage.OPERATION__PAGED:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 			case SoaPackage.OPERATION__INPUT:

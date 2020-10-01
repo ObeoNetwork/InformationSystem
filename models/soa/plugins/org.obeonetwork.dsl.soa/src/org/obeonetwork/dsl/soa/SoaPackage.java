@@ -1115,13 +1115,22 @@ public interface SoaPackage extends EPackage {
 	int OPERATION__EXPOSITION = EnvironmentPackage.ACTION_FEATURE_COUNT + 7;
 
 	/**
+	 * The feature id for the '<em><b>Paged</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int OPERATION__PAGED = EnvironmentPackage.ACTION_FEATURE_COUNT + 8;
+
+	/**
 	 * The number of structural features of the '<em>Operation</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int OPERATION_FEATURE_COUNT = EnvironmentPackage.ACTION_FEATURE_COUNT + 8;
+	int OPERATION_FEATURE_COUNT = EnvironmentPackage.ACTION_FEATURE_COUNT + 9;
 
 	/**
 	 * The meta object id for the '{@link org.obeonetwork.dsl.soa.impl.ParameterImpl <em>Parameter</em>}' class.
@@ -1928,6 +1937,17 @@ public interface SoaPackage extends EPackage {
 	EAttribute getOperation_Exposition();
 
 	/**
+	 * Returns the meta object for the attribute '{@link org.obeonetwork.dsl.soa.Operation#isPaged <em>Paged</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Paged</em>'.
+	 * @see org.obeonetwork.dsl.soa.Operation#isPaged()
+	 * @see #getOperation()
+	 * @generated
+	 */
+	EAttribute getOperation_Paged();
+
+	/**
 	 * Returns the meta object for class '{@link org.obeonetwork.dsl.soa.ImplementationComponent <em>Implementation Component</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2490,6 +2510,14 @@ public interface SoaPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute OPERATION__EXPOSITION = eINSTANCE.getOperation_Exposition();
+
+		/**
+		 * The meta object literal for the '<em><b>Paged</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute OPERATION__PAGED = eINSTANCE.getOperation_Paged();
 
 		/**
 		 * The meta object literal for the '{@link org.obeonetwork.dsl.soa.impl.ImplementationComponentImpl <em>Implementation Component</em>}' class.

@@ -205,6 +205,9 @@ public interface Parameter extends ObeoDSMObject {
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * The parameter passing mode.
+	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Passing Mode</em>' attribute.
 	 * @see org.obeonetwork.dsl.soa.ParameterPassingMode
 	 * @see #setPassingMode(ParameterPassingMode)
@@ -233,6 +236,9 @@ public interface Parameter extends ObeoDSMObject {
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * The status code associated with this parameter.
+	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Status Code</em>' attribute.
 	 * @see #setStatusCode(String)
 	 * @see org.obeonetwork.dsl.soa.SoaPackage#getParameter_StatusCode()
@@ -259,6 +265,9 @@ public interface Parameter extends ObeoDSMObject {
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * The status message associated with this parameter.
+	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Status Message</em>' attribute.
 	 * @see #setStatusMessage(String)
 	 * @see org.obeonetwork.dsl.soa.SoaPackage#getParameter_StatusMessage()

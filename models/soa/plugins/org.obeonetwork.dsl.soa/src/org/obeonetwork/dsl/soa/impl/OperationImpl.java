@@ -41,6 +41,7 @@ import org.obeonetwork.dsl.soa.Verb;
  *   <li>{@link org.obeonetwork.dsl.soa.impl.OperationImpl#getURI <em>URI</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.soa.impl.OperationImpl#getVerb <em>Verb</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.soa.impl.OperationImpl#getExposition <em>Exposition</em>}</li>
+ *   <li>{@link org.obeonetwork.dsl.soa.impl.OperationImpl#isPaged <em>Paged</em>}</li>
  * </ul>
  *
  * @generated
@@ -101,6 +102,16 @@ public class OperationImpl extends ActionImpl implements Operation {
 	 * @ordered
 	 */
 	protected static final ExpositionKind EXPOSITION_EDEFAULT = ExpositionKind.NONE;
+
+	/**
+	 * The default value of the '{@link #isPaged() <em>Paged</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isPaged()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final boolean PAGED_EDEFAULT = true;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -246,6 +257,24 @@ public class OperationImpl extends ActionImpl implements Operation {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public boolean isPaged() {
+		return (Boolean)eDynamicGet(SoaPackage.OPERATION__PAGED, SoaPackage.Literals.OPERATION__PAGED, true, true);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setPaged(boolean newPaged) {
+		eDynamicSet(SoaPackage.OPERATION__PAGED, SoaPackage.Literals.OPERATION__PAGED, newPaged);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
@@ -283,6 +312,8 @@ public class OperationImpl extends ActionImpl implements Operation {
 				return getVerb();
 			case SoaPackage.OPERATION__EXPOSITION:
 				return getExposition();
+			case SoaPackage.OPERATION__PAGED:
+				return isPaged();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -323,6 +354,9 @@ public class OperationImpl extends ActionImpl implements Operation {
 			case SoaPackage.OPERATION__EXPOSITION:
 				setExposition((ExpositionKind)newValue);
 				return;
+			case SoaPackage.OPERATION__PAGED:
+				setPaged((Boolean)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -359,6 +393,9 @@ public class OperationImpl extends ActionImpl implements Operation {
 			case SoaPackage.OPERATION__EXPOSITION:
 				setExposition(EXPOSITION_EDEFAULT);
 				return;
+			case SoaPackage.OPERATION__PAGED:
+				setPaged(PAGED_EDEFAULT);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -387,6 +424,8 @@ public class OperationImpl extends ActionImpl implements Operation {
 				return getVerb() != VERB_EDEFAULT;
 			case SoaPackage.OPERATION__EXPOSITION:
 				return getExposition() != EXPOSITION_EDEFAULT;
+			case SoaPackage.OPERATION__PAGED:
+				return isPaged() != PAGED_EDEFAULT;
 		}
 		return super.eIsSet(featureID);
 	}
