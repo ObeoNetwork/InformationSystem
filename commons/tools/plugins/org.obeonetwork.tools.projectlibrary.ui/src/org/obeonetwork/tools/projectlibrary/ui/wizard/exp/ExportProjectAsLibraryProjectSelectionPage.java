@@ -97,7 +97,7 @@ public class ExportProjectAsLibraryProjectSelectionPage extends WizardPage {
 		btnBrowse.addSelectionListener(new SelectionAdapter() {
 			@Override
 			public void widgetSelected(SelectionEvent e) {
-				FileDialog dlg = new FileDialog(getShell());
+				FileDialog dlg = new FileDialog(getShell(), SWT.SAVE);
 				dlg.setFileName(txtMarFile.getText());
 				dlg.setOverwrite(true);
 				dlg.setFilterExtensions(new String[]{"*" + ManifestUtils.MODELING_ARCHIVE_FILE_EXTENSION, "*.*"});
