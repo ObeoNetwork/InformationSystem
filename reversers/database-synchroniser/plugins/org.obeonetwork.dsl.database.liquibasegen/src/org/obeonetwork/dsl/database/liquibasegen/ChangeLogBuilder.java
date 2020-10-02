@@ -411,27 +411,36 @@ public class ChangeLogBuilder {
 
 	}
 
-	private ChangeSet buildAddTableChangeSet(AddTable addTable) {
+	private Optional<ChangeSet> buildAddTableChangeSet(AddTable addTable) {
 		Table table = addTable.getTable();
-		CreateTableChange ctChange = buildCreateTableChange(table);
+		Optional<CreateTableChange> buildCreateTableChange = buildCreateTableChange(table);
 
-		ChangeSet changeSet = buildNextChangeSet();
-		changeSet.addChange(ctChange);
-		changeSet.setComments("Create table " + table.getName());
-		return changeSet;
+		return buildCreateTableChange.map(change -> {
+			ChangeSet changeSet = buildNextChangeSet();
+			changeSet.addChange(change);
+			changeSet.setComments("Create table " + table.getName());
+			return changeSet;
+		});
 	}
 
-	private CreateTableChange buildCreateTableChange(Table table) {
+	private Optional<CreateTableChange> buildCreateTableChange(Table table) {
 		CreateTableChange ctChange = new CreateTableChange();
 		safeTrimSetter(table.getName(), ctChange::setTableName);
 		safeSchemaSetter(table.getOwner(), ctChange::setSchemaName);
 		remarksSetter(table, ctChange::setRemarks);
+
+		if (table.getColumns().isEmpty()) {
+			statuses.add(
+					createWarningStatus(table.getName() + " has no column. It will not handled by this generator."));
+			return Optional.empty();
+		}
+
 		for (Column column : table.getColumns()) {
 			ColumnConfig cConfig = new ColumnConfig();
 			fillColumnConfig(table, column, cConfig);
 			ctChange.addColumn(cConfig);
 		}
-		return ctChange;
+		return Optional.of(ctChange);
 	}
 
 	private void safeSchemaSetter(EObject candidate, Consumer<String> consumer) {
@@ -568,7 +577,7 @@ public class ChangeLogBuilder {
 	private Stream<ChangeSet> buildTableChangeSet(TableChange tableChange) {
 		final List<ChangeSet> result = new ArrayList<ChangeSet>();
 		if (tableChange instanceof AddTable) {
-			result.add(buildAddTableChangeSet((AddTable) tableChange));
+			buildAddTableChangeSet((AddTable) tableChange).ifPresent(result::add);
 		} else if (tableChange instanceof RemoveTable) {
 			result.add((buildDropTableChangeSet((RemoveTable) tableChange)));
 		} else if (tableChange instanceof AlterTable) {
