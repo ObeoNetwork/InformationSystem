@@ -12,12 +12,13 @@ package org.obeonetwork.dsl.database.liquibasegen;
 
 import static java.util.stream.Collectors.joining;
 import static java.util.stream.Collectors.toList;
+import static org.obeonetwork.dsl.database.gen.common.services.StatusUtils.createErrorStatus;
+import static org.obeonetwork.dsl.database.gen.common.services.StatusUtils.createWarningStatus;
 
 import java.math.BigInteger;
 import java.text.MessageFormat;
 import java.util.ArrayList;
 import java.util.Collection;
-import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -69,9 +70,9 @@ import org.obeonetwork.dsl.database.dbevolution.TableChange;
 import org.obeonetwork.dsl.database.dbevolution.UpdateColumnChange;
 import org.obeonetwork.dsl.database.dbevolution.UpdateTableCommentChange;
 import org.obeonetwork.dsl.database.dbevolution.ViewChange;
-import org.obeonetwork.dsl.database.gen.common.services.StatusUtils;
 import org.obeonetwork.dsl.database.liquibasegen.service.DefaultTypeMatcher;
 import org.obeonetwork.dsl.database.liquibasegen.service.DefaultTypeMatcher.LiquibaseDefaultType;
+import org.obeonetwork.dsl.database.liquibasegen.service.DefaultValueConfigDelegate;
 import org.obeonetwork.dsl.database.liquibasegen.service.GenServices;
 import org.obeonetwork.dsl.database.liquibasegen.service.SQLService;
 import org.obeonetwork.dsl.typeslibrary.Type;
@@ -251,32 +252,38 @@ public class ChangeLogBuilder {
 
 	private Optional<ChangeSet> buildIndexChangeSet(IndexChange indexChange) {
 		if (indexChange instanceof AddIndex) {
-			return Optional.of(buildAddIndexChangeSet((AddIndex) indexChange));
+			return buildAddIndexChangeSet((AddIndex) indexChange);
 		}
 		return Optional.empty();
 
 	}
 
-	private ChangeSet buildAddIndexChangeSet(AddIndex addIndex) {
+	private Optional<ChangeSet> buildAddIndexChangeSet(AddIndex addIndex) {
 		Index index = addIndex.getIndex();
 		CreateIndexChange iChange = new CreateIndexChange();
 		iChange.setUnique(index.isUnique());
 		safeTrimSetter(index.getName(), iChange::setIndexName);
 		safeTrimSetter(index.getOwner().getName(), iChange::setTableName);
 
-		List<AddColumnConfig> columnCongis = index.getElements().stream()//
+		List<AddColumnConfig> columnConfigs = index.getElements().stream()//
 				.filter(c -> c.getColumn() != null && c.getColumn().getName() != null).map(c -> {
 					AddColumnConfig config = new AddColumnConfig();
 					safeTrimSetter(c.getColumn().getName(), config::setName);
 					return config;
 				}).collect(toList());
-		iChange.setColumns(columnCongis);
+
+		// Do not generate an index if there is element in it
+		if (columnConfigs.isEmpty()) {
+			statuses.add(createWarningStatus("Index " + index.getName() + " has no column."));
+			return Optional.empty();
+		}
+		iChange.setColumns(columnConfigs);
 		safeSchemaSetter(index.getOwner().getOwner(), iChange::setSchemaName);
 
 		ChangeSet changeSet = buildNextChangeSet();
 		changeSet.setComments("Index : " + index.getName());
 		changeSet.addChange(iChange);
-		return changeSet;
+		return Optional.of(changeSet);
 	}
 
 	private Optional<ChangeSet> buildAddConstraintChangeSet(AddConstraint addConstraint) {
@@ -286,6 +293,9 @@ public class ChangeLogBuilder {
 			RawSQLChange sqlChange = new RawSQLChange(sqlService.buildAddConstraintQuery(constraint));
 			ChangeSet result = buildNextChangeSet();
 			result.addChange(sqlChange);
+			// Currently in discussion with the client because there is a problem of
+			// constraint scaffolding (MLD -> MPD) and the different databases
+			// result.setFailOnError(false);
 			result.setComments(MessageFormat.format("Constraint : {0}", constraint.getName()));
 			return Optional.of(result);
 		} else {
@@ -370,11 +380,24 @@ public class ChangeLogBuilder {
 			if (target != null) {
 				safeTrimSetter(fk.getName(), changeDescription::setConstraintName);
 				safeTrimSetter(sourceTable.getName(), changeDescription::setBaseTableName);
+				safeSchemaSetter(sourceTable.getOwner(), changeDescription::setBaseTableSchemaName);
 				safeTrimSetter(target.getName(), changeDescription::setReferencedTableName);
 				changeDescription.setBaseColumnNames(
 						fk.getElements().stream().map(c -> c.getFkColumn().getName()).collect(joining(",")));
 				changeDescription.setReferencedColumnNames(
 						fk.getElements().stream().map(c -> c.getPkColumn().getName()).collect(joining(",")));
+
+				List<Table> referencesTable = fk.getElements().stream().map(c -> c.getPkColumn().getOwner()).distinct()
+						.collect(toList());
+				if (referencesTable.size() > 1) {
+					statuses.add(createErrorStatus(MessageFormat.format(
+							"Foreign key {0} reference more than external schema. Not handled by this generator.",
+							fk.getName())));
+					return Optional.empty();
+				} else if (!referencesTable.isEmpty()) {
+					safeSchemaSetter(referencesTable.get(0).getOwner(),
+							changeDescription::setReferencedTableSchemaName);
+				}
 
 				ChangeSet result = buildNextChangeSet();
 				result.setComments("Foreign Key : " + fk.getName());
@@ -382,7 +405,7 @@ public class ChangeLogBuilder {
 				return Optional.of(result);
 			}
 		} else {
-			statuses.add(StatusUtils.createWarningStatus("Invalid foreign key definition : " + fk.getName()));
+			statuses.add(createWarningStatus("Invalid foreign key definition : " + fk.getName()));
 		}
 		return Optional.empty();
 
@@ -474,14 +497,15 @@ public class ChangeLogBuilder {
 			cConfig.setType(stringType);
 			String defaultValue = column.getDefaultValue();
 			if (defaultValue != null && !defaultValue.isEmpty()) {
-				setColumnDefaultvalue(table, column, cConfig, typeInstance, defaultValue);
+				setColumnDefaultvalue(table, column, typeInstance, defaultValue,
+						new DefaultValueConfigDelegate(cConfig));
 			}
 
 		}
 	}
 
-	private void setColumnDefaultvalue(Table table, Column column, ColumnConfig cConfig, TypeInstance typeInstance,
-			String defaultValue) {
+	private void setColumnDefaultvalue(Table table, Column column, TypeInstance typeInstance, String defaultValue,
+			DefaultValueConfigDelegate configurer) {
 		LiquibaseDefaultType liquibaseMatchingType = DefaultTypeMatcher
 				.getLiquibaseDefaultType(typeInstance.getNativeType());
 
@@ -490,78 +514,37 @@ public class ChangeLogBuilder {
 		} else if (liquibaseMatchingType == LiquibaseDefaultType.INVALID) {
 			warnInvalidDataType(table, column, typeInstance);
 		} else {
-			IStatus defaultValueValidation = DefaultTypeMatcher.validateValue(liquibaseMatchingType, defaultValue);
 			String processedValue = DefaultTypeMatcher.preProcessDefaultValue(liquibaseMatchingType, defaultValue);
-			if (defaultValueValidation.isOK()) {
-				switch (liquibaseMatchingType) {
-				case BOOLEAN:
-					cConfig.setDefaultValueBoolean(processedValue);
-					break;
-				case DATE:
-					cConfig.setDefaultValueDate(processedValue);
-					break;
-				case STRING:
-					cConfig.setDefaultValue(processedValue);
-					break;
-				case NUM:
-					cConfig.setDefaultValueNumeric(processedValue);
-					break;
-				default:
-					break;
-				}
-			} else {
-				statuses.add(StatusUtils.createMultiStatus(
-						"Unable to set default value for type {0}#{1}. {2} invalid default value.",
-						Collections.singletonList(defaultValueValidation)));
-			}
-		}
-	}
 
-	private void setColumnDefaultvalue(Table table, Column column, AddDefaultValueChange defaultValueChange,
-			TypeInstance typeInstance, String defaultValue) {
-		LiquibaseDefaultType liquibaseMatchingType = DefaultTypeMatcher
-				.getLiquibaseDefaultType(typeInstance.getNativeType());
-
-		if (liquibaseMatchingType == LiquibaseDefaultType.UNKWOWN) {
-			warnUnknownDefaultType(table, column, typeInstance);
-		} else if (liquibaseMatchingType == LiquibaseDefaultType.INVALID) {
-			warnInvalidDataType(table, column, typeInstance);
-		} else {
-			IStatus defaultValueValidation = DefaultTypeMatcher.validateValue(liquibaseMatchingType, defaultValue);
-			String processedValue = DefaultTypeMatcher.preProcessDefaultValue(liquibaseMatchingType, defaultValue);
-			if (defaultValueValidation.isOK()) {
-				switch (liquibaseMatchingType) {
-				case BOOLEAN:
-					defaultValueChange.setDefaultValueBoolean(Boolean.valueOf(processedValue));
-					break;
-				case DATE:
-					defaultValueChange.setDefaultValueDate(processedValue);
-					break;
-				case STRING:
-					defaultValueChange.setDefaultValue(processedValue);
-					break;
-				case NUM:
-					defaultValueChange.setDefaultValueNumeric(processedValue);
-					break;
-				default:
-					break;
-				}
-			} else {
-				statuses.add(StatusUtils.createMultiStatus(
-						"Unable to set default value for type {0}#{1}. {2} invalid default value.",
-						Collections.singletonList(defaultValueValidation)));
+			switch (liquibaseMatchingType) {
+			case BOOLEAN:
+				configurer.setDefaultValueBoolean(processedValue);
+				break;
+			case DATE:
+				configurer.setDefaultValueDate(processedValue);
+				break;
+			case STRING:
+				configurer.setDefaultValue(processedValue);
+				break;
+			case NUM:
+				configurer.setDefaultValueNumeric(processedValue);
+				break;
+			default:
+				break;
 			}
+
 		}
+
 	}
 
 	private void warnInvalidDataType(Table table, Column column, TypeInstance typeInstance) {
-		statuses.add(StatusUtils.createWarningStatus(
+		statuses.add(createWarningStatus(
 				MessageFormat.format("Unable to set default value for type {0}#{1}. {2} missing type information.",
 						genService.getFullName(table), column.getName(), genService.getLabel(typeInstance))));
 	}
 
 	private void warnUnknownDefaultType(Table table, Column column, TypeInstance typeInstance) {
-		statuses.add(StatusUtils.createWarningStatus(
+		statuses.add(createWarningStatus(
 				MessageFormat.format("Unable to set default value for type {0}#{1}. {2} has an unknown logical type.",
 						genService.getFullName(table), column.getName(), genService.getLabel(typeInstance))));
 	}
@@ -701,8 +684,7 @@ public class ChangeLogBuilder {
 				// At the time of writing Liquibase do not have a ChangeSet to remove
 				// auto_increment from a column
 				// https://liquibase.jira.com/browse/CORE-486),
-				statuses.add(StatusUtils
-						.createWarningStatus("The Liquibase generator is not able to remove the AutoIncrement "));
+				statuses.add(createWarningStatus("The Liquibase generator is not able to remove the AutoIncrement "));
 			}
 		}
 		// Default value
@@ -749,7 +731,9 @@ public class ChangeLogBuilder {
 				// requires it
 				// https://docs.liquibase.com/change-types/community/add-default-value.html
 				safeSetColumnType(column, aChange::setColumnDataType);
-				setColumnDefaultvalue(table, column, aChange, typeInstance, defaultValue);
+
+				setColumnDefaultvalue(table, column, typeInstance, defaultValue,
+						new DefaultValueConfigDelegate(aChange));
 
 				ChangeSet changeSet = buildNextChangeSet();
 				changeSet.setComments("Set default value for column " + column.getName());
@@ -759,7 +743,7 @@ public class ChangeLogBuilder {
 			}
 
 		} else {
-			statuses.add(StatusUtils.createWarningStatus(genService.getFullName(column) + " has no type"));
+			statuses.add(createWarningStatus(genService.getFullName(column) + " has no type"));
 		}
 		return Optional.empty();
 	}
@@ -842,7 +826,7 @@ public class ChangeLogBuilder {
 			changeSet.addChange(mChange);
 			return Optional.of(changeSet);
 		} else {
-			statuses.add(StatusUtils.createWarningStatus("No type for column " + genService.getFullName(column)));
+			statuses.add(createWarningStatus("No type for column " + genService.getFullName(column)));
 			return Optional.empty();
 		}
 

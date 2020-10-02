@@ -10,17 +10,7 @@
  *******************************************************************************/
 package org.obeonetwork.dsl.database.liquibasegen.service;
 
-import static org.obeonetwork.dsl.database.gen.common.services.StatusUtils.createErrorStatus;
-
-import java.text.MessageFormat;
-import java.text.ParseException;
-
-import org.eclipse.core.runtime.IStatus;
-import org.eclipse.core.runtime.Status;
-import org.obeonetwork.dsl.database.gen.common.services.StatusUtils;
 import org.obeonetwork.dsl.typeslibrary.NativeType;
-
-import liquibase.util.ISODateFormat;
 
 /**
  * Helper class used to handle column type and default value for the liquibase
@@ -96,26 +86,6 @@ public class DefaultTypeMatcher {
 		return LiquibaseDefaultType.INVALID;
 	}
 
-	/**
-	 * Validate the given value for the matching data type
-	 * 
-	 * @param type  a {@link LiquibaseDefaultType}
-	 * @param value the default value
-	 * @return an {@link Status#OK_STATUS} if ok, a status with a message otherwise
-	 */
-	public static IStatus validateValue(LiquibaseDefaultType type, String value) {
-		if (type == null) {
-			return Status.OK_STATUS;
-		}
-		switch (type) {
-		case DATE:
-			return validateDateDefaultValue(value);
-		case BOOLEAN:
-			return validateProcessBoolean(value);
-		default:
-			return Status.OK_STATUS;
-		}
-	}
 
 	/**
 	 * Pre process the default value to it can be used by the Liquibase API
@@ -138,7 +108,7 @@ public class DefaultTypeMatcher {
 		}
 	}
 
-	private static String preProcessBoolean(String defaultValueBoolean) {
+	public static String preProcessBoolean(String defaultValueBoolean) {
 		if (TRUE.equalsIgnoreCase(defaultValueBoolean) || TRUE_NUM.equals(defaultValueBoolean)) {
 			return Boolean.TRUE.toString();
 		} else if (FALSE.equalsIgnoreCase(defaultValueBoolean) || FALSE_NUM.equals(defaultValueBoolean)) {
@@ -149,13 +119,12 @@ public class DefaultTypeMatcher {
 
 	}
 
-	private static IStatus validateProcessBoolean(String defaultValueBoolean) {
+	public static boolean isBooleanValue(String defaultValueBoolean) {
 		if (TRUE.equalsIgnoreCase(defaultValueBoolean) || TRUE_NUM.equals(defaultValueBoolean) //
 				|| FALSE.equalsIgnoreCase(defaultValueBoolean) || FALSE_NUM.equals(defaultValueBoolean)) {
-			return Status.OK_STATUS;
+			return true;
 		} else {
-			return StatusUtils.createWarningStatus(MessageFormat.format(
-					"Default value for boolean can only be: {0},{1},{2} or {3}", TRUE, TRUE_NUM, FALSE, FALSE_NUM));
+			return false;
 		}
 	}
 
@@ -168,15 +137,6 @@ public class DefaultTypeMatcher {
 			return trimmedValue.substring(1, trimmedValue.length() - 1);
 		}
 		return trimmedValue;
-	}
-
-	private static IStatus validateDateDefaultValue(String value) {
-		try {
-			new ISODateFormat().parse(value);
-			return Status.OK_STATUS;
-		} catch (ParseException e) {
-			return createErrorStatus("Unable to use " + value + " has default date. Expecting ISO Date", e);
-		}
 	}
 
 }
