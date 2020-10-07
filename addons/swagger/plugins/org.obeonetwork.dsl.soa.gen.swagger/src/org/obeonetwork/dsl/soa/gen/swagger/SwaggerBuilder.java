@@ -10,6 +10,18 @@
  *******************************************************************************/
 package org.obeonetwork.dsl.soa.gen.swagger;
 
+import static org.obeonetwork.dsl.soa.gen.swagger.HTTPStatusCodes.HTTP_200;
+import static org.obeonetwork.dsl.soa.gen.swagger.HTTPStatusCodes.HTTP_200_DESC;
+import static org.obeonetwork.dsl.soa.gen.swagger.HTTPStatusCodes.HTTP_201;
+import static org.obeonetwork.dsl.soa.gen.swagger.HTTPStatusCodes.HTTP_201_DESC;
+import static org.obeonetwork.dsl.soa.gen.swagger.HTTPStatusCodes.HTTP_204;
+import static org.obeonetwork.dsl.soa.gen.swagger.HTTPStatusCodes.HTTP_204_DESC;
+import static org.obeonetwork.dsl.soa.gen.swagger.HTTPStatusCodes.HTTP_206;
+import static org.obeonetwork.dsl.soa.gen.swagger.HTTPStatusCodes.HTTP_206_DESC;
+import static org.obeonetwork.dsl.soa.gen.swagger.HTTPStatusCodes.HTTP_400;
+import static org.obeonetwork.dsl.soa.gen.swagger.HTTPStatusCodes.HTTP_400_DESC;
+import static org.obeonetwork.dsl.soa.gen.swagger.HTTPStatusCodes.HTTP_404;
+import static org.obeonetwork.dsl.soa.gen.swagger.HTTPStatusCodes.HTTP_404_DESC;
 import static org.obeonetwork.dsl.soa.gen.swagger.OpenApiParserHelper.COMPONENT_SCHEMA_$REF;
 import static org.obeonetwork.dsl.soa.gen.swagger.OpenApiParserHelper.OPEN_API_FORMAT_INT64;
 import static org.obeonetwork.dsl.soa.gen.swagger.OpenApiParserHelper.OPEN_API_IN_BODY;
@@ -40,6 +52,7 @@ import org.obeonetwork.dsl.environment.Property;
 import org.obeonetwork.dsl.environment.StructuredType;
 import org.obeonetwork.dsl.environment.Type;
 import org.obeonetwork.dsl.soa.Component;
+import org.obeonetwork.dsl.soa.ExpositionKind;
 import org.obeonetwork.dsl.soa.ParameterPassingMode;
 import org.obeonetwork.dsl.soa.Service;
 import org.obeonetwork.dsl.soa.Verb;
@@ -70,6 +83,9 @@ import io.swagger.v3.oas.models.servers.Server;
 
 @SuppressWarnings("unchecked")
 public class SwaggerBuilder {
+
+	public static final String SOA_SIZE_PARAMETER_NAME = "size";
+	public static final String SOA_PAGE_PARAMETER_NAME = "page";
 
 	private static final String QUALIFIED_TYPE_NAME_SEPARATOR = "_";
 
@@ -424,6 +440,7 @@ public class SwaggerBuilder {
 		
 		soaComponent.getProvidedServices().stream()
 		.flatMap(soaService -> soaService.getOwnedInterface().getOwnedOperations().stream())
+		.filter(o -> o.getExposition() == ExpositionKind.REST)
 		.forEach(soaOperation -> buildPathItem(soaOperation));
 	}
 
@@ -555,7 +572,7 @@ public class SwaggerBuilder {
 			ApiResponse apiResponse = new ApiResponse();
 			apiResponse.setDescription(getDescription(soaOutputParameter));
 			
-			if(/* ParameterGenUtil.getOperation(soaOutputParameter).isPaginable() */ falseForFutureEvolution()) {
+			if(ParameterGenUtil.getOperation(soaOutputParameter).isPaged()) {
 				apiResponse.addHeaderObject("X-Total-Element", createResponseHeader(OPEN_API_TYPE_INTEGER, OPEN_API_FORMAT_INT64));
 				apiResponse.addHeaderObject("X-Page-Element-Count", createResponseHeader(OPEN_API_TYPE_INTEGER, OPEN_API_FORMAT_INT64));
 				apiResponse.addHeaderObject("Accept-Range", createResponseHeader(OPEN_API_TYPE_STRING, null));
@@ -600,35 +617,35 @@ public class SwaggerBuilder {
 	}
 
 	private String getDefaultFaultStatusCode(org.obeonetwork.dsl.soa.Operation soaOperation) {
-		String statusCode = "404";
+		String statusCode = HTTP_404;
 		if(soaOperation.getVerb() == Verb.POST) {
-			statusCode = "400";
+			statusCode = HTTP_400;
 		}
 		return statusCode;
 	}
 
 	private String getDefaultOutputStatusCode(org.obeonetwork.dsl.soa.Operation soaOperation) {
-		String statusCode = "200";
+		String statusCode = HTTP_200;
 		if(soaOperation.getVerb() == Verb.GET) {
-//			if(soaOperation.isPaginable()){
-//				statusCode = "206";
-//			}
+			if(soaOperation.isPaged()){
+				statusCode = HTTP_206;
+			}
 		} else if(soaOperation.getVerb() == Verb.DELETE) {
-			statusCode = "204";
+			statusCode = HTTP_204;
 		} else if (soaOperation.getVerb() == Verb.PUT || soaOperation.getVerb() == Verb.POST) {
-			statusCode = "201";
+			statusCode = HTTP_201;
 		}
 		return statusCode;
 	}
 
     private static final Map<String, String> defaultDescriptionByStatusCode = new HashMap<>();
     static {
-    	defaultDescriptionByStatusCode.put("200", "Ok");
-    	defaultDescriptionByStatusCode.put("206", "Partial Content");
-    	defaultDescriptionByStatusCode.put("204", "No Content");
-    	defaultDescriptionByStatusCode.put("201", "Created");
-    	defaultDescriptionByStatusCode.put("404", "Not Found");
-    	defaultDescriptionByStatusCode.put("400", "Bad Request");
+    	defaultDescriptionByStatusCode.put(HTTP_200, HTTP_200_DESC);
+    	defaultDescriptionByStatusCode.put(HTTP_206, HTTP_206_DESC);
+    	defaultDescriptionByStatusCode.put(HTTP_204, HTTP_204_DESC);
+    	defaultDescriptionByStatusCode.put(HTTP_201, HTTP_201_DESC);
+    	defaultDescriptionByStatusCode.put(HTTP_404, HTTP_404_DESC);
+    	defaultDescriptionByStatusCode.put(HTTP_400, HTTP_400_DESC);
     }
     private String getDefaultDescriptionFromStatusCode(String statusCode) {
     	String description = defaultDescriptionByStatusCode.get(statusCode);
@@ -652,7 +669,7 @@ public class SwaggerBuilder {
     		buildSortParameter(operation);
     	}
     	
-    	if(/* soaOperation.isPaginable() */ falseForFutureEvolution()) {
+    	if(soaOperation.isPaged() && soaOperation.getVerb() == Verb.GET) {
     		buildPaginableSizeParameter(operation, soaOperation);
     		buildPaginablePageParameter(operation);
     	}
@@ -717,14 +734,14 @@ public class SwaggerBuilder {
     }
     
     private void buildPaginableSizeParameter(Operation operation, org.obeonetwork.dsl.soa.Operation soaOperation) {
-    	Parameter sizeParameter = createParameter("size", false, OPEN_API_IN_QUERY);
+    	Parameter sizeParameter = createParameter(SOA_SIZE_PARAMETER_NAME, false, OPEN_API_IN_QUERY);
     	sizeParameter.schema(createSchema(OPEN_API_TYPE_INTEGER, OPEN_API_FORMAT_INT64));
 //    	sizeParameter.description("Default size : " + soaOperation.getDefautPageSize());
     	operation.addParametersItem(sizeParameter);
     }
     
     private void buildPaginablePageParameter(Operation operation) {
-    	Parameter pageParameter = createParameter("page", false, OPEN_API_IN_QUERY);
+    	Parameter pageParameter = createParameter(SOA_PAGE_PARAMETER_NAME, false, OPEN_API_IN_QUERY);
     	pageParameter.schema(createSchema(OPEN_API_TYPE_INTEGER, OPEN_API_FORMAT_INT64));
     	operation.addParametersItem(pageParameter);
     }

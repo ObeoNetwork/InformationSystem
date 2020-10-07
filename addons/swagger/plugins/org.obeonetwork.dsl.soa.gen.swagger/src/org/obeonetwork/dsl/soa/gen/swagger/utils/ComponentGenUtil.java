@@ -20,6 +20,7 @@ import org.obeonetwork.dsl.environment.PrimitiveType;
 import org.obeonetwork.dsl.environment.StructuredType;
 import org.obeonetwork.dsl.environment.Type;
 import org.obeonetwork.dsl.soa.Component;
+import org.obeonetwork.dsl.soa.ExpositionKind;
 
 public class ComponentGenUtil {
 
@@ -32,6 +33,7 @@ public class ComponentGenUtil {
 		
 		component.getProvidedServices().stream()
 		.flatMap(service -> service.getOwnedInterface().getOwnedOperations().stream())
+		.filter(o -> o.getExposition() == ExpositionKind.REST)
 		.flatMap(operation -> OperationGenUtil.getOwnedParameters(operation).stream())
 		.forEach(parameter -> collectExposedTypes(exposedTypes, parameter.getType()));
 		

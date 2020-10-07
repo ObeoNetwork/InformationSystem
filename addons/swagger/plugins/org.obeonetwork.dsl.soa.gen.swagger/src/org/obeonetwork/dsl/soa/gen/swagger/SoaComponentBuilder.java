@@ -14,11 +14,15 @@ import static java.util.stream.Collectors.joining;
 import static java.util.stream.Collectors.toList;
 import static java.util.stream.Collectors.toSet;
 import static org.obeonetwork.dsl.environment.design.services.ModelServices.getAncestors;
+import static org.obeonetwork.dsl.soa.gen.swagger.HTTPStatusCodes.HTTP_206;
 import static org.obeonetwork.dsl.soa.gen.swagger.OpenApiParserHelper.COMPONENT_SCHEMA_$REF;
+import static org.obeonetwork.dsl.soa.gen.swagger.OpenApiParserHelper.OPEN_API_TYPE_INTEGER;
 import static org.obeonetwork.dsl.soa.gen.swagger.OpenApiParserHelper.getPrimitiveTypeName;
 import static org.obeonetwork.dsl.soa.gen.swagger.OpenApiParserHelper.isEnum;
 import static org.obeonetwork.dsl.soa.gen.swagger.OpenApiParserHelper.isObject;
 import static org.obeonetwork.dsl.soa.gen.swagger.OpenApiParserHelper.isPrimitiveType;
+import static org.obeonetwork.dsl.soa.gen.swagger.SwaggerBuilder.SOA_PAGE_PARAMETER_NAME;
+import static org.obeonetwork.dsl.soa.gen.swagger.SwaggerBuilder.SOA_SIZE_PARAMETER_NAME;
 import static org.obeonetwork.dsl.soa.gen.swagger.utils.StringUtils.upperFirst;
 
 import java.util.ArrayList;
@@ -577,7 +581,7 @@ public class SoaComponentBuilder {
 		
 		if(operation.getParameters() != null) {
 			for(Parameter parameter : operation.getParameters()) {
-				if(parameter != null) {
+				if(parameter != null && !isPaginationParameter(parameter)) {
 					createSoaInputParameter(soaOperation, parameter);
 				}
 			}
@@ -588,6 +592,8 @@ public class SoaComponentBuilder {
 			createSoaBodyParameter(soaOperation, requestBody);
 		}
 		
+		soaOperation.setPaged(operation.getResponses() != null && operation.getResponses().containsKey(HTTP_206));
+		
 		ApiResponses responses = operation.getResponses();
 		if(responses != null) {
 			for(String responseKey : responses.keySet()) {
@@ -596,6 +602,17 @@ public class SoaComponentBuilder {
 		}
 		
 		return soaOperation;
+	}
+
+	private boolean isPaginationParameter(Parameter parameter) {
+		if(SOA_PAGE_PARAMETER_NAME.equals(parameter.getName()) || SOA_SIZE_PARAMETER_NAME.equals(parameter.getName())) {
+			Schema schema = unwrapArraySchema(parameter.getSchema());
+			if(schema != null && OPEN_API_TYPE_INTEGER.equals(schema.getType())) {
+				return true;
+			}
+		}
+		
+		return false;
 	}
 
 	private String computeSoaOperationName(HttpMethod verb, String uri) {
