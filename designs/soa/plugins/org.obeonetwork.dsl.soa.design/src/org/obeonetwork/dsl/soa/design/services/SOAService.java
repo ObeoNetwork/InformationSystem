@@ -26,15 +26,30 @@ import org.eclipse.swt.widgets.Shell;
 import org.eclipse.ui.PlatformUI;
 import org.eclipse.ui.dialogs.ListDialog;
 import org.obeonetwork.dsl.soa.Component;
+import org.obeonetwork.dsl.soa.ExpositionKind;
 import org.obeonetwork.dsl.soa.InterfaceKind;
+import org.obeonetwork.dsl.soa.Operation;
 import org.obeonetwork.dsl.soa.Parameter;
 import org.obeonetwork.dsl.soa.Service;
 import org.obeonetwork.dsl.soa.SoaPackage;
 import org.obeonetwork.dsl.soa.System;
+import org.obeonetwork.dsl.soa.Verb;
 import org.obeonetwork.dsl.soa.Wire;
 
 
 public class SOAService {
+	
+	public Operation setExpositionKind(Operation operation, ExpositionKind expositionKind) {
+		
+		operation.setExposition(expositionKind);
+		if(expositionKind == ExpositionKind.NONE) {
+			operation.setURI(null);
+			operation.setVerb(Verb.GET);
+			operation.setPaged(true);
+		}
+		
+		return operation;
+	}
 	
 	public List<Component> allNonReferencedExternalComponents (System context) {
 		List<Component> allNonReferencedExternalComponents = allExternalComponents(context);

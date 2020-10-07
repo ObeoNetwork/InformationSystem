@@ -1114,7 +1114,7 @@
       <pages name="Parameter Page" labelExpression="Parameter" domainClass="soa::Parameter" semanticCandidateExpression="var:self" groups="//@extensions.0/@categories.1/@groups.4"/>
       <pages name="Component Exposition Page" labelExpression="Exposition" domainClass="soa::Component" semanticCandidateExpression="var:self" groups="//@extensions.0/@categories.1/@groups.5"/>
       <pages name="Service Exposition Page" labelExpression="Exposition" domainClass="soa::Service" semanticCandidateExpression="var:self" groups="//@extensions.0/@categories.1/@groups.6 //@extensions.0/@categories.1/@groups.9"/>
-      <pages name="Operation Exposition Page" labelExpression="Exposition" domainClass="soa::Operation" semanticCandidateExpression="var:self" groups="//@extensions.0/@categories.1/@groups.7 //@extensions.0/@categories.1/@groups.9"/>
+      <pages name="Operation Exposition Page" labelExpression="Exposition" domainClass="soa::Operation" semanticCandidateExpression="var:self" preconditionExpression="aql:self.eContainer(soa::Service).kind=soa::InterfaceKind::provided and self.exposition&lt;>soa::ExpositionKind::NONE" groups="//@extensions.0/@categories.1/@groups.7 //@extensions.0/@categories.1/@groups.9"/>
       <pages name="Parameter Exposition Page" labelExpression="Exposition" domainClass="soa::Parameter" semanticCandidateExpression="var:self" groups="//@extensions.0/@categories.1/@groups.8 //@extensions.0/@categories.1/@groups.9"/>
       <groups name="Operation Group" labelExpression="Properties" domainClass="soa::Operation" semanticCandidateExpression="var:self">
         <controls xsi:type="properties:TextDescription" name="soa::Operation name" labelExpression="aql:input.emfEditServices(self).getText(self.eClass().getEStructuralFeature('name')) + ':'" helpExpression="aql:input.emfEditServices(self).getDescription(self.eClass().getEStructuralFeature('name'))" isEnabledExpression="aql:self.eClass().getEStructuralFeature('name').changeable" valueExpression="aql:self.name">
@@ -1130,6 +1130,11 @@
         <controls xsi:type="properties:CheckboxDescription" name="soa::Operation public" labelExpression="aql:input.emfEditServices(self).getText(self.eClass().getEStructuralFeature('public'))" helpExpression="aql:input.emfEditServices(self).getDescription(self.eClass().getEStructuralFeature('public'))" isEnabledExpression="aql:self.eClass().getEStructuralFeature('public').changeable" valueExpression="aql:self.public">
           <initialOperation>
             <firstModelOperations xsi:type="tool_1:SetValue" featureName="public" valueExpression="var:newValue"/>
+          </initialOperation>
+        </controls>
+        <controls xsi:type="properties:SelectDescription" name="soa::Operation exposition" labelExpression="aql:input.emfEditServices(self).getText(self.eClass().getEStructuralFeature('exposition')) + ':'" helpExpression="aql:input.emfEditServices(self).getDescription(self.eClass().getEStructuralFeature('exposition'))" isEnabledExpression="aql:self.eClass().getEStructuralFeature('exposition').changeable" valueExpression="aql:self.eClass().getEStructuralFeature('exposition').eType.getEEnumLiteralByLiteral(self.exposition.toString())" candidatesExpression="aql:self.eClass().getEStructuralFeature('exposition').eType.eLiterals" candidateDisplayExpression="aql:candidate.literal">
+          <initialOperation>
+            <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="aql:self.setExpositionKind(newValue.instance)"/>
           </initialOperation>
         </controls>
         <controls xsi:type="properties:TextAreaDescription" name="soa::Operation description" labelExpression="aql:input.emfEditServices(self).getText(self.eClass().getEStructuralFeature('description')) + ':'" helpExpression="aql:input.emfEditServices(self).getDescription(self.eClass().getEStructuralFeature('description'))" isEnabledExpression="aql:self.eClass().getEStructuralFeature('description').changeable" valueExpression="aql:self.description">
@@ -1259,7 +1264,7 @@
           </initialOperation>
         </controls>
       </groups>
-      <groups name="Operation Exposition Group" labelExpression="Properties" domainClass="soa::Operation" semanticCandidateExpression="var:self" preconditionExpression="aql:self.eContainer(soa::Service).kind=soa::InterfaceKind::provided">
+      <groups name="Operation Exposition Group" labelExpression="Properties" domainClass="soa::Operation" semanticCandidateExpression="var:self">
         <controls xsi:type="properties:TextDescription" name="soa::Operation URI" labelExpression="aql:input.emfEditServices(self).getText(self.eClass().getEStructuralFeature('URI')) + ':'" helpExpression="aql:input.emfEditServices(self).getDescription(self.eClass().getEStructuralFeature('URI'))" isEnabledExpression="aql:self.eClass().getEStructuralFeature('URI').changeable" valueExpression="aql:self.URI">
           <initialOperation>
             <firstModelOperations xsi:type="tool_1:SetValue" featureName="URI" valueExpression="var:newValue"/>
@@ -1268,11 +1273,6 @@
         <controls xsi:type="properties:SelectDescription" name="soa::Operation verb" labelExpression="aql:input.emfEditServices(self).getText(self.eClass().getEStructuralFeature('verb')) + ':'" helpExpression="aql:input.emfEditServices(self).getDescription(self.eClass().getEStructuralFeature('verb'))" isEnabledExpression="aql:self.eClass().getEStructuralFeature('verb').changeable" valueExpression="aql:self.eClass().getEStructuralFeature('verb').eType.getEEnumLiteralByLiteral(self.verb.toString())" candidatesExpression="aql:self.eClass().getEStructuralFeature('verb').eType.eLiterals" candidateDisplayExpression="aql:candidate.literal">
           <initialOperation>
             <firstModelOperations xsi:type="tool_1:SetValue" featureName="verb" valueExpression="aql:newValue.instance"/>
-          </initialOperation>
-        </controls>
-        <controls xsi:type="properties:SelectDescription" name="soa::Operation exposition" labelExpression="aql:input.emfEditServices(self).getText(self.eClass().getEStructuralFeature('exposition')) + ':'" helpExpression="aql:input.emfEditServices(self).getDescription(self.eClass().getEStructuralFeature('exposition'))" isEnabledExpression="aql:self.eClass().getEStructuralFeature('exposition').changeable" valueExpression="aql:self.eClass().getEStructuralFeature('exposition').eType.getEEnumLiteralByLiteral(self.exposition.toString())" candidatesExpression="aql:self.eClass().getEStructuralFeature('exposition').eType.eLiterals" candidateDisplayExpression="aql:candidate.literal">
-          <initialOperation>
-            <firstModelOperations xsi:type="tool_1:SetValue" featureName="exposition" valueExpression="aql:newValue.instance"/>
           </initialOperation>
         </controls>
         <controls xsi:type="properties:CheckboxDescription" name="soa::Operation paged" labelExpression="aql:input.emfEditServices(self).getText(self.eClass().getEStructuralFeature('paged'))" helpExpression="aql:input.emfEditServices(self).getDescription(self.eClass().getEStructuralFeature('paged'))" isEnabledExpression="aql:self.eClass().getEStructuralFeature('paged').changeable" valueExpression="feature:paged">
