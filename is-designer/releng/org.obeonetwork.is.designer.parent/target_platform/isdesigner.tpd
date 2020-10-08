@@ -52,6 +52,8 @@ location "http://update.obeo.fr/integration/informationsystem/11.3/design/reposi
 	org.obeonetwork.cinematic.m2doc.feature.feature.group lazy
 	org.obeonetwork.utils.feature.feature.group lazy
 	org.obeonetwork.tools.contextual.explorer.feature.feature.group lazy
+	
+	
 }
 
 location "http://download.eclipse.org/modeling/emft/eef/updates/milestones/1.5/S201707060903" {
@@ -119,7 +121,6 @@ location Obeo-Designer-Community "http://update.obeo.fr/stable/designer/11.3.2_d
     org.hamcrest.core lazy
     org.hamcrest.library lazy
     org.junit [4.11.0,5.0.0)
-    com.google.guava [21.0.0,22.0.0)
     com.ibm.icu lazy
     org.eclipse.draw2d.sdk.feature.group lazy
     org.eclipse.emf.common.feature.group lazy
@@ -182,6 +183,10 @@ location Obeo-Designer-Community "http://update.obeo.fr/stable/designer/11.3.2_d
     org.eclipse.sirius.properties.feature.source.feature.group lazy
     org.eclipse.sirius.specifier.properties.feature.feature.group lazy
     org.eclipse.sirius.specifier.properties.feature.source.feature.group lazy
+    
+     // Force both version for guava in the product
+	com.google.guava [21.0.0,22.0.0) // Required for acceleo 3.7.8 (to be remove on 3.7.9)
+	com.google.guava [27.1.0,28.0.0) // Normal OD guava range
     
 //	fr.obeo.dsl.viewpoint.runtime.collab.feature.group lazy
 //	fr.obeo.dsl.viewpoint.runtime.collab.ide.activity.metadata.ui.feature.group lazy
