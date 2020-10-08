@@ -152,6 +152,14 @@ public class LiquibaseGenTest extends AbstractLiquibaseTest {
 		assertGenerationEquals("37-changeCommnetOnColumns-mysql");
 	}
 
+	/**
+	 * Drops a primary key on a MySql model
+	 */
+	@Test
+	public void dropPrimaryKey() {
+		assertGenerationEquals("39-dropPrimaryKey-mysql");
+	}
+
 
 	@Test
 	public void representativeModelFromScratch_MySQL() throws Exception {

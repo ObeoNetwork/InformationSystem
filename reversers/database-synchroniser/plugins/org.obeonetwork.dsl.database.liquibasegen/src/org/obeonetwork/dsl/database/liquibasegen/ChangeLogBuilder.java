@@ -20,9 +20,11 @@ import java.text.MessageFormat;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.Optional;
+import java.util.Set;
 import java.util.function.Consumer;
 import java.util.function.Function;
 import java.util.stream.Stream;
@@ -62,6 +64,7 @@ import org.obeonetwork.dsl.database.dbevolution.DBDiff;
 import org.obeonetwork.dsl.database.dbevolution.IndexChange;
 import org.obeonetwork.dsl.database.dbevolution.PrimaryKeyChange;
 import org.obeonetwork.dsl.database.dbevolution.RemoveColumnChange;
+import org.obeonetwork.dsl.database.dbevolution.RemovePrimaryKey;
 import org.obeonetwork.dsl.database.dbevolution.RemoveTable;
 import org.obeonetwork.dsl.database.dbevolution.RenameColumnChange;
 import org.obeonetwork.dsl.database.dbevolution.RenameTableChange;
@@ -93,6 +96,7 @@ import liquibase.change.core.CreateTableChange;
 import liquibase.change.core.CreateViewChange;
 import liquibase.change.core.DropColumnChange;
 import liquibase.change.core.DropNotNullConstraintChange;
+import liquibase.change.core.DropPrimaryKeyChange;
 import liquibase.change.core.DropTableChange;
 import liquibase.change.core.ModifyDataTypeChange;
 import liquibase.change.core.RawSQLChange;
@@ -125,6 +129,11 @@ public class ChangeLogBuilder {
 	 * updated.
 	 */
 	private Map<String, ConstraintsConfig> updatedColumnConfs = new HashMap<String, ConstraintsConfig>();
+
+	/**
+	 * Keeps tracks of deleted table to avoid generating conflicts with other drop
+	 */
+	private Set<String> deletedTables = new HashSet<String>();
 
 	private SQLService sqlService;
 
@@ -325,10 +334,32 @@ public class ChangeLogBuilder {
 		if (primKeyChange instanceof AddPrimaryKey) {
 			AddPrimaryKey addPrimKeyChange = (AddPrimaryKey) primKeyChange;
 			return buildAddPrimaryKeyChangeSet(addPrimKeyChange);
+		} else if (primKeyChange instanceof RemovePrimaryKey) {
+			return buildDropPrimaryKeyChangeSet((RemovePrimaryKey) primKeyChange);
 		}
 
 		return Optional.empty();
 
+	}
+
+	private Optional<ChangeSet> buildDropPrimaryKeyChangeSet(RemovePrimaryKey primKeyChange) {
+		PrimaryKey pk = primKeyChange.getPrimaryKey();
+		Table table = pk.getOwner();
+		String tableQName = genService.getFullName(table);
+		if (deletedTables.contains(tableQName)) {
+			// Deleting table should also deletes this constraint
+			return Optional.empty();
+		} else {
+			DropPrimaryKeyChange dChange = new DropPrimaryKeyChange();
+			safeTrimSetter(pk.getName(), dChange::setConstraintName);
+			safeSchemaSetter(table.getOwner(), dChange::setSchemaName);
+			safeTrimSetter(table.getName(), dChange::setTableName);
+
+			ChangeSet changeSet = buildNextChangeSet();
+			changeSet.setComments("Dropping primary key " + pk.getName() + " on table " + tableQName);
+			changeSet.addChange(dChange);
+			return Optional.of(changeSet);
+		}
 	}
 
 	private Optional<ChangeSet> buildAddPrimaryKeyChangeSet(AddPrimaryKey addPrimKeyChange) {
@@ -926,6 +957,8 @@ public class ChangeLogBuilder {
 		safeSchemaSetter(table.getOwner(), dChange::setSchemaName);
 		safeTrimSetter(table.getName(), dChange::setTableName);
 		dChange.setCascadeConstraints(true);
+
+		deletedTables.add(genService.getFullName(table));
 
 		ChangeSet changeSet = buildNextChangeSet();
 		changeSet.setComments("Drop Table : " + table.getName());
