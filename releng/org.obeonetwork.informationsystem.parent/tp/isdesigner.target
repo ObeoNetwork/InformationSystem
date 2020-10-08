@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <?pde?>
 <!-- generated with https://github.com/eclipse-cbi/targetplatform-dsl -->
-<target name="IS Designer Update Target Definition" sequenceNumber="1600778512">
+<target name="IS Designer Update Target Definition" sequenceNumber="1601914323">
   <locations>
     <location includeMode="planner" includeAllPlatforms="false" includeSource="true" includeConfigurePhase="false" type="InstallableUnit">
       <unit id="org.eclipse.eef.sdk.feature.feature.group" version="2.1.4.202002101015"/>
@@ -19,14 +19,17 @@
       <unit id="org.eclipse.sirius.runtime.ocl.feature.group" version="0.0.0"/>
       <unit id="org.eclipse.sirius.specifier.ide.ui.acceleo.feature.group" version="0.0.0"/>
       <unit id="org.eclipse.emf.compare.ide.ui.feature.group" version="0.0.0"/>
-      <unit id="org.eclipse.acceleo.query.feature.group" version="0.0.0"/>
-      <unit id="org.eclipse.acceleo.feature.group" version="0.0.0"/>
       <repository location="http://update.obeo.fr/stable/designer/11.3.2_dev_safran/community/11.3.2/repository/"/>
+    </location>
+    <location includeMode="planner" includeAllPlatforms="false" includeSource="true" includeConfigurePhase="false" type="InstallableUnit">
+      <unit id="org.eclipse.acceleo.query.feature.group" version="0.0.0"/>
+      <unit id="org.eclipse.acceleo.feature.group" version="3.7.9.201911060712"/>
+      <repository location="https://download.eclipse.org/acceleo/updates/releases/3.7/R201911060712"/>
     </location>
     <location includeMode="planner" includeAllPlatforms="false" includeSource="true" includeConfigurePhase="false" type="InstallableUnit">
       <unit id="fr.obeo.dsl.viewpoint.collab.user.feature.group" version="0.0.0"/>
       <unit id="org.eclipse.emf.cdo.sdk.feature.group" version="0.0.0"/>
-      <repository location="http://update.obeo.fr/release/designer/11.3/team/11.3.0/repository/"/>
+      <repository location="http://update.obeo.fr/stable/designer/11.3.2_dev_safran/team/latest/repository/"/>
     </location>
     <location includeMode="planner" includeAllPlatforms="false" includeSource="true" includeConfigurePhase="false" type="InstallableUnit">
       <unit id="org.eclipse.amalgam.explorer.activity.feature.group" version="0.0.0"/>
