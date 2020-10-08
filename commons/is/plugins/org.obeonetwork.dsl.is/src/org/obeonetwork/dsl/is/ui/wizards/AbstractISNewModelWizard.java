@@ -23,6 +23,9 @@ import org.eclipse.core.resources.IProject;
 import org.eclipse.core.resources.IResource;
 import org.eclipse.core.resources.ResourcesPlugin;
 import org.eclipse.core.runtime.IProgressMonitor;
+import org.eclipse.core.runtime.NullProgressMonitor;
+import org.eclipse.core.runtime.OperationCanceledException;
+import org.eclipse.core.runtime.jobs.Job;
 import org.eclipse.emf.cdo.eresource.CDOResource;
 import org.eclipse.emf.cdo.eresource.CDOResourceFolder;
 import org.eclipse.emf.cdo.eresource.CDOResourceNode;
@@ -42,6 +45,7 @@ import org.eclipse.sirius.business.api.dialect.DialectManager;
 import org.eclipse.sirius.business.api.dialect.command.CreateRepresentationCommand;
 import org.eclipse.sirius.business.api.modelingproject.ModelingProject;
 import org.eclipse.sirius.business.api.session.Session;
+import org.eclipse.sirius.business.internal.session.danalysis.SaveSessionJob;
 import org.eclipse.sirius.ui.business.api.dialect.DialectUIManager;
 import org.eclipse.sirius.ui.business.api.viewpoint.ViewpointSelectionCallback;
 import org.eclipse.sirius.viewpoint.DRepresentation;
@@ -143,6 +147,14 @@ abstract public class AbstractISNewModelWizard extends Wizard implements INewWiz
 		if (session != null) {
 			Map<EClassifier, Collection<String>> mapDescIDs = getRepresentationDescriptionsIDToBeCreated();
 			if (!mapDescIDs.isEmpty()) {
+				// Ensure that there is no save in progress.
+				// Otherwise, when the representation will be added to the resource (createRepresentation-->CreateRepresentationCommand) can be problematic.
+				// Indeed, during the save, at a specific time (ResourceSaveDiagnose.hasDifferentSerialization), the eSetDeliver is disabled. So in this condition, no adapter is added to the added representation.
+				try {
+					Job.getJobManager().join(SaveSessionJob.FAMILY, new NullProgressMonitor());
+				} catch (OperationCanceledException | InterruptedException e) {
+					// Ignore these exceptions. The join is just here to avoid to have a save in progress.
+				}				
 				for (EObject object : initialObjects) {
 					Collection<String> descIDs = mapDescIDs.get(object.eClass());
 					for (String descID : descIDs) {
