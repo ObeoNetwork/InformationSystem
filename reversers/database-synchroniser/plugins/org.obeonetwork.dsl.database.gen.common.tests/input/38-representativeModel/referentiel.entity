@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="ASCII"?>
+<oent:Root xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:oent="http://www.obeonetwork.org/dsl/entity/3.0.0" xmlns:oenv="http://www.obeonetwork.org/dsl/environment/3.0.0" xmi:id="_a3v_AAbzEeuD6rYgWOP-Jw" technicalid="_a3vX8AbzEeuD6rYgWOP-Jw" createdOn="2020-10-05T12:13:31.503+0200" modifiedOn="2020-10-05T12:14:30.275+0200">
+  <ownedNamespaces xmi:id="_fWGZoQbzEeuD6rYgWOP-Jw" technicalid="_fWGZoAbzEeuD6rYgWOP-Jw" description="Les donn&#xe9;es de r&#xe9;f&#xe9;rence" createdOn="2020-10-05T12:14:01.530+0200" modifiedOn="2020-10-05T12:20:59.344+0200" name="referentiel">
+    <metadatas xmi:id="_dmr1AQb0EeuD6rYgWOP-Jw" technicalid="_dmr1AAb0EeuD6rYgWOP-Jw">
+      <metadatas xsi:type="oenv:Annotation" xmi:id="_dmscEQb0EeuD6rYgWOP-Jw" technicalid="_dmscEAb0EeuD6rYgWOP-Jw" title="PHYSICAL_NAME" body="RF"/>
+    </metadatas>
+    <types xsi:type="oent:Entity" xmi:id="_na1sIQbzEeuD6rYgWOP-Jw" technicalid="_na1sIAbzEeuD6rYgWOP-Jw" description="La tables des pays" createdOn="2020-10-05T12:14:55.714+0200" modifiedOn="2020-10-05T12:22:00.907+0200" name="pays">
+      <metadatas xmi:id="_mxy5sQb0EeuD6rYgWOP-Jw" technicalid="_mxy5sAb0EeuD6rYgWOP-Jw">
+        <metadatas xsi:type="oenv:Annotation" xmi:id="_mxy5swb0EeuD6rYgWOP-Jw" technicalid="_mxy5sgb0EeuD6rYgWOP-Jw" title="PHYSICAL_NAME" body="RF_PAYS"/>
+      </metadatas>
+      <ownedAttributes xmi:id="_t1ATMQbzEeuD6rYgWOP-Jw" technicalid="_t1ATMAbzEeuD6rYgWOP-Jw" description="Le nom du pays" createdOn="2020-10-05T12:15:38.723+0200" modifiedOn="2020-10-05T12:22:08.450+0200" name="nom" multiplicity="1">
+        <metadatas xmi:id="_n5uyIQb0EeuD6rYgWOP-Jw" technicalid="_n5uyIAb0EeuD6rYgWOP-Jw">
+          <metadatas xsi:type="oenv:Annotation" xmi:id="_n5uyIwb0EeuD6rYgWOP-Jw" technicalid="_n5uyIgb0EeuD6rYgWOP-Jw" title="PHYSICAL_NAME" body="RF_PAYS_NOM"/>
+          <metadatas xsi:type="oenv:Annotation" xmi:id="_qn8E0Qb0EeuD6rYgWOP-Jw" technicalid="_qn8E0Ab0EeuD6rYgWOP-Jw" title="PHYSICAL_SIZE" body="50"/>
+          <metadatas xsi:type="oenv:Annotation" xmi:id="_tjWGAQb0EeuD6rYgWOP-Jw" technicalid="_tjWGAAb0EeuD6rYgWOP-Jw" title="PHYSICAL_UNIQUE" body="ASC"/>
+        </metadatas>
+        <type xsi:type="oenv:PrimitiveType" href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5F-EKwKEd2XLNOhkJIazw"/>
+      </ownedAttributes>
+    </types>
+    <types xsi:type="oent:Entity" xmi:id="_oEDBMQbzEeuD6rYgWOP-Jw" technicalid="_oEDBMAbzEeuD6rYgWOP-Jw" description="La table des genres" createdOn="2020-10-05T12:15:00.035+0200" modifiedOn="2020-10-05T12:24:17.094+0200" name="aPourGenre">
+      <metadatas xmi:id="_pNWWIAb0EeuD6rYgWOP-Jw" technicalid="_pNVvEAb0EeuD6rYgWOP-Jw">
+        <metadatas xsi:type="oenv:Annotation" xmi:id="_pNWWIgb0EeuD6rYgWOP-Jw" technicalid="_pNWWIQb0EeuD6rYgWOP-Jw" title="PHYSICAL_NAME" body="RF_GENRE"/>
+      </metadatas>
+      <ownedAttributes xmi:id="_t-BFQQbzEeuD6rYgWOP-Jw" technicalid="_t-BFQAbzEeuD6rYgWOP-Jw" description="Le libell&#xe9; du genre" createdOn="2020-10-05T12:15:39.668+0200" modifiedOn="2020-10-05T12:22:23.112+0200" name="libelle" multiplicity="1">
+        <metadatas xmi:id="_qFjwgQb0EeuD6rYgWOP-Jw" technicalid="_qFjwgAb0EeuD6rYgWOP-Jw">
+          <metadatas xsi:type="oenv:Annotation" xmi:id="_qFjwgwb0EeuD6rYgWOP-Jw" technicalid="_qFjwggb0EeuD6rYgWOP-Jw" title="PHYSICAL_NAME" body="RF_GENRE_LIB"/>
+          <metadatas xsi:type="oenv:Annotation" xmi:id="_rVhjkQb0EeuD6rYgWOP-Jw" technicalid="_rVhjkAb0EeuD6rYgWOP-Jw" title="PHYSICAL_SIZE" body="50"/>
+          <metadatas xsi:type="oenv:Annotation" xmi:id="_uoAA8Qb0EeuD6rYgWOP-Jw" technicalid="_uoAA8Ab0EeuD6rYgWOP-Jw" title="PHYSICAL_UNIQUE" body="ASC"/>
+        </metadatas>
+        <type xsi:type="oenv:PrimitiveType" href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5F-EKwKEd2XLNOhkJIazw"/>
+      </ownedAttributes>
+    </types>
+  </ownedNamespaces>
+  <ownedNamespaces xmi:id="_joO9MQbzEeuD6rYgWOP-Jw" technicalid="_joO9MAbzEeuD6rYgWOP-Jw" description="Les donn&#xe9;es de l'application vid&#xe9;o" createdOn="2020-10-05T12:14:30.275+0200" modifiedOn="2020-10-05T12:21:02.575+0200" name="video">
+    <metadatas xmi:id="_eFf38Qb0EeuD6rYgWOP-Jw" technicalid="_eFf38Ab0EeuD6rYgWOP-Jw">
+      <metadatas xsi:type="oenv:Annotation" xmi:id="_eFgfAQb0EeuD6rYgWOP-Jw" technicalid="_eFgfAAb0EeuD6rYgWOP-Jw" title="PHYSICAL_NAME" body="GS"/>
+    </metadatas>
+    <types xsi:type="oent:Entity" xmi:id="_16hBwAbzEeuD6rYgWOP-Jw" technicalid="_16gasAbzEeuD6rYgWOP-Jw" description="La table des s&#xe9;ries" createdOn="2020-10-05T12:16:32.988+0200" modifiedOn="2020-10-05T12:25:24.927+0200" name="serie">
+      <metadatas xmi:id="_ex5q8Qb0EeuD6rYgWOP-Jw" technicalid="_ex5q8Ab0EeuD6rYgWOP-Jw">
+        <metadatas xsi:type="oenv:Annotation" xmi:id="_ex5q8wb0EeuD6rYgWOP-Jw" technicalid="_ex5q8gb0EeuD6rYgWOP-Jw" title="PHYSICAL_NAME" body="GS_SERIE"/>
+      </metadatas>
+      <ownedAttributes xmi:id="_BNr_IQb0EeuD6rYgWOP-Jw" technicalid="_BNr_IAb0EeuD6rYgWOP-Jw" description="le titre de la s&#xe9;rie" createdOn="2020-10-05T12:17:48.818+0200" modifiedOn="2020-10-05T12:21:13.940+0200" name="titre" multiplicity="1">
+        <metadatas xmi:id="_fx4hQQb0EeuD6rYgWOP-Jw" technicalid="_fx4hQAb0EeuD6rYgWOP-Jw">
+          <metadatas xsi:type="oenv:Annotation" xmi:id="_fx4hQwb0EeuD6rYgWOP-Jw" technicalid="_fx4hQgb0EeuD6rYgWOP-Jw" title="PHYSICAL_NAME" body="GS_SERIE_TITRE"/>
+          <metadatas xsi:type="oenv:Annotation" xmi:id="_sHl5sQb0EeuD6rYgWOP-Jw" technicalid="_sHl5sAb0EeuD6rYgWOP-Jw" title="PHYSICAL_SIZE" body="80"/>
+          <metadatas xsi:type="oenv:Annotation" xmi:id="_vVCtIQb0EeuD6rYgWOP-Jw" technicalid="_vVCtIAb0EeuD6rYgWOP-Jw" title="PHYSICAL_UNIQUE" body="ASC"/>
+        </metadatas>
+        <type xsi:type="oenv:PrimitiveType" href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5F-EKwKEd2XLNOhkJIazw"/>
+      </ownedAttributes>
+      <ownedAttributes xmi:id="_KrnSIQb0EeuD6rYgWOP-Jw" technicalid="_KrnSIAb0EeuD6rYgWOP-Jw" description="Le logo de la s&#xe9;rie" createdOn="2020-10-05T12:18:52.354+0200" modifiedOn="2020-10-05T12:21:21.866+0200" name="logo">
+        <metadatas xmi:id="_g9eKoQb0EeuD6rYgWOP-Jw" technicalid="_g9eKoAb0EeuD6rYgWOP-Jw">
+          <metadatas xsi:type="oenv:Annotation" xmi:id="_g9eKowb0EeuD6rYgWOP-Jw" technicalid="_g9eKogb0EeuD6rYgWOP-Jw" title="PHYSICAL_NAME" body="GS_SERIE_LOGO"/>
+        </metadatas>
+        <type xsi:type="oenv:PrimitiveType" href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_SKJz0PsREeWC2u5kehASiQ"/>
+      </ownedAttributes>
+      <ownedAttributes xmi:id="_P4QWIQb0EeuD6rYgWOP-Jw" technicalid="_P4QWIAb0EeuD6rYgWOP-Jw" description="Date de cr&#xe9;ation de la s&#xe9;rie" createdOn="2020-10-05T12:19:27.234+0200" modifiedOn="2020-10-05T12:21:33.833+0200" name="dateCreation" multiplicity="1">
+        <metadatas xmi:id="_ivmPkQb0EeuD6rYgWOP-Jw" technicalid="_ivmPkAb0EeuD6rYgWOP-Jw">
+          <metadatas xsi:type="oenv:Annotation" xmi:id="_ivmPkwb0EeuD6rYgWOP-Jw" technicalid="_ivmPkgb0EeuD6rYgWOP-Jw" title="PHYSICAL_NAME" body="GS_SERIE_DTCREA"/>
+        </metadatas>
+        <type xsi:type="oenv:PrimitiveType" href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5F-E6wKEd2XLNOhkJIazw"/>
+      </ownedAttributes>
+      <ownedAttributes xmi:id="_XBykoQb0EeuD6rYgWOP-Jw" technicalid="_XBykoAb0EeuD6rYgWOP-Jw" description="Date de fin de la s&#xe9;rie" createdOn="2020-10-05T12:20:15.210+0200" modifiedOn="2020-10-05T12:21:40.741+0200" name="dateFin">
+        <metadatas xmi:id="_jxejUQb0EeuD6rYgWOP-Jw" technicalid="_jxejUAb0EeuD6rYgWOP-Jw">
+          <metadatas xsi:type="oenv:Annotation" xmi:id="_jxejUwb0EeuD6rYgWOP-Jw" technicalid="_jxejUgb0EeuD6rYgWOP-Jw" title="PHYSICAL_NAME" body="GS_SERIE_DTFIN"/>
+        </metadatas>
+        <type xsi:type="oenv:PrimitiveType" href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5F-E6wKEd2XLNOhkJIazw"/>
+      </ownedAttributes>
+      <ownedReferences xmi:id="_EzCVMQb0EeuD6rYgWOP-Jw" technicalid="_EzCVMAb0EeuD6rYgWOP-Jw" description="Les saisons d'une s&#xe9;rie" createdOn="2020-10-05T12:18:12.867+0200" modifiedOn="2020-10-05T12:18:39.447+0200" name="aPourSaison" multiplicity="0..*" referencedType="_48EHMQbzEeuD6rYgWOP-Jw"/>
+      <ownedReferences xmi:id="_4gV_EQb0EeuD6rYgWOP-Jw" technicalid="_4gV_EAb0EeuD6rYgWOP-Jw" description="Le genre de la s&#xe9;rie" createdOn="2020-10-05T12:23:59.873+0200" modifiedOn="2020-10-05T12:28:38.216+0200" name="aPourGenres" referencedType="_oEDBMQbzEeuD6rYgWOP-Jw"/>
+      <ownedReferences xmi:id="_FLe08Qb1EeuD6rYgWOP-Jw" technicalid="_FLe08Ab1EeuD6rYgWOP-Jw" description="Le pays d'origine de la s&#xe9;rie" createdOn="2020-10-05T12:25:24.927+0200" modifiedOn="2020-10-05T12:28:33.505+0200" name="aPourPaysOrigine" referencedType="_na1sIQbzEeuD6rYgWOP-Jw"/>
+    </types>
+    <types xsi:type="oent:Entity" xmi:id="_48EHMQbzEeuD6rYgWOP-Jw" technicalid="_48EHMAbzEeuD6rYgWOP-Jw" description="La table des saisons des s&#xe9;ries" createdOn="2020-10-05T12:16:53.283+0200" modifiedOn="2020-10-05T12:21:55.340+0200" name="saison">
+      <metadatas xmi:id="_l8tEwQb0EeuD6rYgWOP-Jw" technicalid="_l8tEwAb0EeuD6rYgWOP-Jw">
+        <metadatas xsi:type="oenv:Annotation" xmi:id="_l8tEwwb0EeuD6rYgWOP-Jw" technicalid="_l8tEwgb0EeuD6rYgWOP-Jw" title="PHYSICAL_NAME" body="GS_SAISON"/>
+        <metadatas xsi:type="oenv:Annotation" xmi:id="_zgtcUQb0EeuD6rYgWOP-Jw" technicalid="_zgtcUAb0EeuD6rYgWOP-Jw" title="PHYSICAL_UNIQUE" body="GS_SERIE_ID:ASC,GS_SAISON_NUM:ASC"/>
+      </metadatas>
+      <ownedAttributes xmi:id="_8VzqMAbzEeuD6rYgWOP-Jw" technicalid="_8VzDIAbzEeuD6rYgWOP-Jw" description="Le num&#xe9;ro de la saison pour une s&#xe9;rie" createdOn="2020-10-05T12:17:16.115+0200" modifiedOn="2020-10-05T12:21:49.313+0200" name="num&#xe9;ro" multiplicity="1">
+        <metadatas xmi:id="_lDOfEQb0EeuD6rYgWOP-Jw" technicalid="_lDOfEAb0EeuD6rYgWOP-Jw">
+          <metadatas xsi:type="oenv:Annotation" xmi:id="_lDOfEwb0EeuD6rYgWOP-Jw" technicalid="_lDOfEgb0EeuD6rYgWOP-Jw" title="PHYSICAL_NAME" body="GS_SAISON_NUM"/>
+        </metadatas>
+        <type xsi:type="oenv:PrimitiveType" href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5FXAawKEd2XLNOhkJIazw"/>
+      </ownedAttributes>
+    </types>
+  </ownedNamespaces>
+</oent:Root>

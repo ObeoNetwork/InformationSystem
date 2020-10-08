@@ -30,6 +30,7 @@ import org.junit.Before;
 import org.junit.Rule;
 import org.junit.rules.TemporaryFolder;
 import org.obeonetwork.dsl.database.TableContainer;
+import org.obeonetwork.dsl.database.compare.DataBaseCompareUtil;
 import org.obeonetwork.dsl.database.compare.extensions.services.DatabaseCompareService;
 import org.osgi.framework.Bundle;
 
@@ -86,6 +87,8 @@ abstract public class AbstractGenerationTest {
 	}
 
 	public void assertGenerationEquals(String inputFolderName) {
+		// Ease fixing failing tests.
+		System.out.println("Test on folder " + inputFolderName);
 		TableContainer source = getSourceModel(inputFolderName);
 		TableContainer target = getSourceTarget(inputFolderName);
 		assertGenerationEquals(source, target, INPUT + inputFolderName + "/expected");
@@ -110,6 +113,20 @@ abstract public class AbstractGenerationTest {
 
 		compareFolders(targetFolder, expectationsFolder);
 	}
+
+	public void assertGenerationFromScratchEquals(String folder, String fileName, String expectedFolderName)
+			throws Exception {
+
+		String expectationsFolderPath = INPUT + folder + "/" + expectedFolderName;
+		File expectationsFolder = createExpectationsFolder(expectationsFolderPath);
+
+		TableContainer rootContainer = loadTableContainerFromFile(folder, fileName);
+
+		Comparison comparison = DataBaseCompareUtil.buildFromScratchComparison(rootContainer);
+		doGenerate(comparison, targetFolder);
+		compareFolders(targetFolder, expectationsFolder);
+	}
+
 
 	protected abstract void doGenerate(Comparison comparison, File targetFolder) throws IOException;
 

@@ -1,0 +1,158 @@
+<?xml version="1.1" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog" xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext" xmlns:pro="http://www.liquibase.org/xml/ns/pro" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd http://www.liquibase.org/xml/ns/pro http://www.liquibase.org/xml/ns/pro/liquibase-pro-4.0.xsd http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.0.xsd">
+    <changeSet author="IS Designer" id="test0">
+        <comment>Create table GS_SAISON</comment>
+        <createTable remarks="La table des saisons des séries" schemaName="GS" tableName="GS_SAISON">
+            <column name="GS_SAISON_ID" remarks="PK de la table GS_SAISON" type="INTEGER">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="GS_SAISON_PK"/>
+            </column>
+            <column name="GS_SERIE_ID" remarks="Les saisons d'une série" type="INTEGER">
+                <constraints nullable="false"/>
+            </column>
+            <column name="GS_SAISON_NUM" remarks="Le numéro de la saison pour une série" type="INTEGER">
+                <constraints nullable="false"/>
+            </column>
+            <column defaultValue="0" name="GS_XTOPSUP" remarks="Indicateur pour savoir si l'enregistrement est valide" type="VARCHAR2(1)">
+                <constraints nullable="false"/>
+            </column>
+            <column defaultValueComputed="current_date" name="GS_XDMAJ" remarks="Date de mise à jour de la ligne" type="DATE">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="IS Designer" id="test1">
+        <comment>Create table GS_SERIE</comment>
+        <createTable remarks="La table des séries" schemaName="GS" tableName="GS_SERIE">
+            <column name="GS_SERIE_ID" remarks="PK de la table GS_SERIE" type="INTEGER">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="GS_SERIE_PK"/>
+            </column>
+            <column name="RF_GENRE_ID" remarks="Le genre de la série" type="INTEGER">
+                <constraints nullable="true"/>
+            </column>
+            <column name="RF_PAYS_ID" remarks="Le pays d'origine de la série" type="INTEGER">
+                <constraints nullable="true"/>
+            </column>
+            <column name="GS_SERIE_TITRE" remarks="le titre de la série" type="VARCHAR2(80)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="GS_SERIE_LOGO" remarks="Le logo de la série" type="BLOB">
+                <constraints nullable="true"/>
+            </column>
+            <column name="GS_SERIE_DTCREA" remarks="Date de création de la série" type="DATE">
+                <constraints nullable="false"/>
+            </column>
+            <column name="GS_SERIE_DTFIN" remarks="Date de fin de la série" type="DATE">
+                <constraints nullable="true"/>
+            </column>
+            <column defaultValue="0" name="GS_XTOPSUP" remarks="Indicateur pour savoir si l'enregistrement est valide" type="VARCHAR2(1)">
+                <constraints nullable="false"/>
+            </column>
+            <column defaultValueComputed="current_date" name="GS_XDMAJ" remarks="Date de mise à jour de la ligne" type="DATE">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="IS Designer" id="test2">
+        <comment>Create table RF_GENRE</comment>
+        <createTable remarks="La table des genres" schemaName="RF" tableName="RF_GENRE">
+            <column name="RF_GENRE_ID" remarks="PK de la table RF_GENRE" type="INTEGER">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="RF_GENRE_PK"/>
+            </column>
+            <column name="RF_GENRE_LIB" remarks="Le libellé du genre" type="VARCHAR2(50)">
+                <constraints nullable="false"/>
+            </column>
+            <column defaultValue="0" name="RF_XTOPSUP" remarks="Indicateur pour savoir si l'enregistrement est valide" type="VARCHAR2(1)">
+                <constraints nullable="false"/>
+            </column>
+            <column defaultValueComputed="current_date" name="RF_XDMAJ" remarks="Date de mise à jour de la ligne" type="DATE">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="IS Designer" id="test3">
+        <comment>Create table RF_PAYS</comment>
+        <createTable remarks="La tables des pays" schemaName="RF" tableName="RF_PAYS">
+            <column name="RF_PAYS_ID" remarks="PK de la table RF_PAYS" type="INTEGER">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="RF_PAYS_PK"/>
+            </column>
+            <column name="RF_PAYS_NOM" remarks="Le nom du pays" type="VARCHAR2(50)">
+                <constraints nullable="false"/>
+            </column>
+            <column defaultValue="0" name="RF_XTOPSUP" remarks="Indicateur pour savoir si l'enregistrement est valide" type="VARCHAR2(1)">
+                <constraints nullable="false"/>
+            </column>
+            <column defaultValueComputed="current_date" name="RF_XDMAJ" remarks="Date de mise à jour de la ligne" type="DATE">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="IS Designer" id="test4">
+        <comment>Constraint : GS_SAISON_CK1_1</comment>
+        <sql splitStatements="true" stripComments="false">ALTER TABLE GS_SAISON ADD CONSTRAINT GS_SAISON_CK1_1 CHECK(GS_XTOPSUP in ('0','1','3','9'));</sql>
+    </changeSet>
+    <changeSet author="IS Designer" id="test5">
+        <comment>Constraint : GS_SERIE_CK1_1</comment>
+        <sql splitStatements="true" stripComments="false">ALTER TABLE GS_SERIE ADD CONSTRAINT GS_SERIE_CK1_1 CHECK(GS_XTOPSUP in ('0','1','3','9'));</sql>
+    </changeSet>
+    <changeSet author="IS Designer" id="test6">
+        <comment>Constraint : RF_GENRE_CK1_1</comment>
+        <sql splitStatements="true" stripComments="false">ALTER TABLE RF_GENRE ADD CONSTRAINT RF_GENRE_CK1_1 CHECK(RF_XTOPSUP in ('0','1','3','9'));</sql>
+    </changeSet>
+    <changeSet author="IS Designer" id="test7">
+        <comment>Constraint : RF_PAYS_CK1_1</comment>
+        <sql splitStatements="true" stripComments="false">ALTER TABLE RF_PAYS ADD CONSTRAINT RF_PAYS_CK1_1 CHECK(RF_XTOPSUP in ('0','1','3','9'));</sql>
+    </changeSet>
+    <changeSet author="IS Designer" id="test8">
+        <comment>Foreign Key : GS_SAISON_FK1_1</comment>
+        <addForeignKeyConstraint baseColumnNames="GS_SERIE_ID" baseTableName="GS_SAISON" baseTableSchemaName="GS" constraintName="GS_SAISON_FK1_1" referencedColumnNames="GS_SERIE_ID" referencedTableName="GS_SERIE" referencedTableSchemaName="GS"/>
+    </changeSet>
+    <changeSet author="IS Designer" id="test9">
+        <comment>Foreign Key : GS_SERIE_FK1_1</comment>
+        <addForeignKeyConstraint baseColumnNames="RF_GENRE_ID" baseTableName="GS_SERIE" baseTableSchemaName="GS" constraintName="GS_SERIE_FK1_1" referencedColumnNames="RF_GENRE_ID" referencedTableName="RF_GENRE" referencedTableSchemaName="RF"/>
+    </changeSet>
+    <changeSet author="IS Designer" id="test10">
+        <comment>Foreign Key : GS_SERIE_FK1_2</comment>
+        <addForeignKeyConstraint baseColumnNames="RF_PAYS_ID" baseTableName="GS_SERIE" baseTableSchemaName="GS" constraintName="GS_SERIE_FK1_2" referencedColumnNames="RF_PAYS_ID" referencedTableName="RF_PAYS" referencedTableSchemaName="RF"/>
+    </changeSet>
+    <changeSet author="IS Designer" id="test11">
+        <comment>Index : GS_SAISON_UN2_1</comment>
+        <createIndex indexName="GS_SAISON_UN2_1" schemaName="GS" tableName="GS_SAISON" unique="true">
+            <column name="GS_SERIE_ID"/>
+            <column name="GS_SAISON_NUM"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="IS Designer" id="test12">
+        <comment>Index : GS_SERIE_UN1_1</comment>
+        <createIndex indexName="GS_SERIE_UN1_1" schemaName="GS" tableName="GS_SERIE" unique="true">
+            <column name="GS_SERIE_TITRE"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="IS Designer" id="test13">
+        <comment>Index : RF_GENRE_UN1_1</comment>
+        <createIndex indexName="RF_GENRE_UN1_1" schemaName="RF" tableName="RF_GENRE" unique="true">
+            <column name="RF_GENRE_LIB"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="IS Designer" id="test14">
+        <comment>Index : RF_PAYS_UN1_1</comment>
+        <createIndex indexName="RF_PAYS_UN1_1" schemaName="RF" tableName="RF_PAYS" unique="true">
+            <column name="RF_PAYS_NOM"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="IS Designer" id="test15">
+        <comment>Sequence GS_SAISON_SEQ : Séquence de la PK de la table GS_SAISON</comment>
+        <createSequence cycle="false" incrementBy="1" schemaName="GS" sequenceName="GS_SAISON_SEQ" startValue="1"/>
+    </changeSet>
+    <changeSet author="IS Designer" id="test16">
+        <comment>Sequence GS_SERIE_SEQ : Séquence de la PK de la table GS_SERIE</comment>
+        <createSequence cycle="false" incrementBy="1" schemaName="GS" sequenceName="GS_SERIE_SEQ" startValue="1"/>
+    </changeSet>
+    <changeSet author="IS Designer" id="test17">
+        <comment>Sequence RF_GENRE_SEQ : Séquence de la PK de la table RF_GENRE</comment>
+        <createSequence cycle="false" incrementBy="1" schemaName="RF" sequenceName="RF_GENRE_SEQ" startValue="1"/>
+    </changeSet>
+    <changeSet author="IS Designer" id="test18">
+        <comment>Sequence RF_PAYS_SEQ : Séquence de la PK de la table RF_PAYS</comment>
+        <createSequence cycle="false" incrementBy="1" schemaName="RF" sequenceName="RF_PAYS_SEQ" startValue="1"/>
+    </changeSet>
+</databaseChangeLog>

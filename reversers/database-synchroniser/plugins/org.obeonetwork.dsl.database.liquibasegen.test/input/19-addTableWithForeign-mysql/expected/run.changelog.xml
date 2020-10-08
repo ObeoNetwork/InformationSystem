@@ -13,6 +13,6 @@
     </changeSet>
     <changeSet author="IS Designer" id="test1">
         <comment>Foreign Key : FK_1</comment>
-        <addForeignKeyConstraint baseColumnNames="t1Id" baseTableName="Table3" constraintName="FK_1" referencedColumnNames="ID" referencedTableName="Table1"/>
+        <addForeignKeyConstraint baseColumnNames="t1Id" baseTableName="Table3" baseTableSchemaName="STOREBOOK" constraintName="FK_1" referencedColumnNames="ID" referencedTableName="Table1" referencedTableSchemaName="STOREBOOK"/>
     </changeSet>
 </databaseChangeLog>

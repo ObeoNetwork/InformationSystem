@@ -16,7 +16,7 @@ import org.junit.Test;
  * Test the liquibase generator
  *
  */
-public class LiquibaseGenTests extends AbstractLiquibaseTest {
+public class LiquibaseGenTest extends AbstractLiquibaseTest {
 
 	/**
 	 * Test the generation on change that only contains a single AddIndex change
@@ -151,4 +151,27 @@ public class LiquibaseGenTests extends AbstractLiquibaseTest {
 	public void changeCommentOnColumn() {
 		assertGenerationEquals("37-changeCommnetOnColumns-mysql");
 	}
+
+
+	@Test
+	public void representativeModelFromScratch_MySQL() throws Exception {
+		assertGenerationFromScratchEquals("38-representativeModel", "video-mysql.database", "mysql-expected");
+	}
+
+	@Test
+	public void representativeModelFromScratch_Oracle() throws Exception {
+		assertGenerationFromScratchEquals("38-representativeModel", "video-oracle.database", "oracle-expected");
+	}
+
+	@Test
+	public void representativeModelFromScratch_H2() throws Exception {
+		assertGenerationFromScratchEquals("38-representativeModel", "video-h2.database", "h2-expected");
+	}
+
+	@Test
+	public void representativeModelFromScratch_Postgres() throws Exception {
+		assertGenerationFromScratchEquals("38-representativeModel", "video-postgres.database", "postgres-expected");
+	}
+
+
 }

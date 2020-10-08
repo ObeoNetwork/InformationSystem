@@ -22,6 +22,6 @@
     </changeSet>
     <changeSet author="IS Designer" id="test1">
         <comment>Foreign Key : FK_1</comment>
-        <addForeignKeyConstraint baseColumnNames="PrimC" baseTableName="Table2" constraintName="FK_1" referencedColumnNames="PrimC" referencedTableName="Table1"/>
+        <addForeignKeyConstraint baseColumnNames="PrimC" baseTableName="Table2" baseTableSchemaName="STOREBOOK" constraintName="FK_1" referencedColumnNames="PrimC" referencedTableName="Table1" referencedTableSchemaName="STOREBOOK"/>
     </changeSet>
 </databaseChangeLog>

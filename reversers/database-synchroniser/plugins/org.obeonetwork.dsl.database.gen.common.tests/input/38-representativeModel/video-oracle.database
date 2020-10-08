@@ -1,0 +1,169 @@
+<?xml version="1.0" encoding="ASCII"?>
+<database:DataBase xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:database="http://www.obeonetwork.org/dsl/database/1.0" xmlns:typeslibrary="http://www.obeonetwork.org/dsl/typeslibrary/1.0" xmi:id="_ORP34Ab7EeuD6rYgWOP-Jw" techID="_OROpwAb7EeuD6rYgWOP-Jw" name="video-oracle">
+  <usedLibraries xsi:type="typeslibrary:NativeTypesLibrary" href="pathmap://NativeDBTypes/Oracle-11g#_cUvfIBEnEeGTa_JlZYBw1A"/>
+  <schemas xmi:id="_Q44ogQb7EeuD6rYgWOP-Jw" comments="Les donn&#xe9;es de r&#xe9;f&#xe9;rence" techID="_Q44ogAb7EeuD6rYgWOP-Jw" name="RF">
+    <tables xsi:type="database:Table" xmi:id="_Q45PkQb7EeuD6rYgWOP-Jw" comments="La tables des pays" techID="_Q45PkAb7EeuD6rYgWOP-Jw" name="RF_PAYS">
+      <primaryKey xmi:id="_Q45Powb7EeuD6rYgWOP-Jw" comments="Contrainte PK pour la colonne RF_PAYS_ID" techID="_Q45Pogb7EeuD6rYgWOP-Jw" name="RF_PAYS_PK" columns="_Q45Pkwb7EeuD6rYgWOP-Jw"/>
+      <constraints xmi:id="_Q452oQb7EeuD6rYgWOP-Jw" comments="Liste des valeurs possibles pour RF_XTOPSUP" techID="_Q452oAb7EeuD6rYgWOP-Jw" name="RF_PAYS_CK1_1" expression="RF_XTOPSUP in ('0','1','3','9')"/>
+      <indexes xmi:id="_Q45PpQb7EeuD6rYgWOP-Jw" comments="Index d'unicit&#xe9; pour RF_PAYS_NOM" techID="_Q45PpAb7EeuD6rYgWOP-Jw" name="RF_PAYS_UN1_1" unique="true">
+        <elements xmi:id="_Q45Ppwb7EeuD6rYgWOP-Jw" techID="_Q45Ppgb7EeuD6rYgWOP-Jw" column="_Q45Plwb7EeuD6rYgWOP-Jw" asc="true"/>
+      </indexes>
+      <columns xmi:id="_Q45Pkwb7EeuD6rYgWOP-Jw" comments="PK de la table RF_PAYS" techID="_Q45Pkgb7EeuD6rYgWOP-Jw" name="RF_PAYS_ID" primaryKey="_Q45Powb7EeuD6rYgWOP-Jw" sequence="_Q46d9gb7EeuD6rYgWOP-Jw">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_Q45PlQb7EeuD6rYgWOP-Jw" length="19">
+          <nativeType href="pathmap://NativeDBTypes/Oracle-11g#_EwGJQD77EeaWN4f5B3n2lA"/>
+        </type>
+      </columns>
+      <columns xmi:id="_Q45Plwb7EeuD6rYgWOP-Jw" comments="Le nom du pays" techID="_Q45Plgb7EeuD6rYgWOP-Jw" name="RF_PAYS_NOM" indexElements="_Q45Ppwb7EeuD6rYgWOP-Jw">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_Q45PmQb7EeuD6rYgWOP-Jw" length="50">
+          <nativeType href="pathmap://NativeDBTypes/Oracle-11g#_cUx7bxEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+      <columns xmi:id="_Q45Pmwb7EeuD6rYgWOP-Jw" comments="Indicateur pour savoir si l'enregistrement est valide" techID="_Q45Pmgb7EeuD6rYgWOP-Jw" name="RF_XTOPSUP" defaultValue="'0'">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_Q45PnQb7EeuD6rYgWOP-Jw" length="1">
+          <nativeType href="pathmap://NativeDBTypes/Oracle-11g#_cUx7bxEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+      <columns xmi:id="_Q45Pnwb7EeuD6rYgWOP-Jw" comments="Date de mise &#xe0; jour de la ligne" techID="_Q45Pngb7EeuD6rYgWOP-Jw" name="RF_XDMAJ" defaultValue="current_date">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_Q45PoQb7EeuD6rYgWOP-Jw">
+          <nativeType href="pathmap://NativeDBTypes/Oracle-11g#_cUwGNREnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+    </tables>
+    <tables xsi:type="database:Table" xmi:id="_Q452owb7EeuD6rYgWOP-Jw" comments="La table des genres" techID="_Q452ogb7EeuD6rYgWOP-Jw" name="RF_GENRE">
+      <primaryKey xmi:id="_Q452tQb7EeuD6rYgWOP-Jw" comments="Contrainte PK pour la colonne RF_GENRE_ID" techID="_Q452tAb7EeuD6rYgWOP-Jw" name="RF_GENRE_PK" columns="_Q452pQb7EeuD6rYgWOP-Jw"/>
+      <constraints xmi:id="_Q452uwb7EeuD6rYgWOP-Jw" comments="Liste des valeurs possibles pour RF_XTOPSUP" techID="_Q452ugb7EeuD6rYgWOP-Jw" name="RF_GENRE_CK1_1" expression="RF_XTOPSUP in ('0','1','3','9')"/>
+      <indexes xmi:id="_Q452twb7EeuD6rYgWOP-Jw" comments="Index d'unicit&#xe9; pour RF_GENRE_LIB" techID="_Q452tgb7EeuD6rYgWOP-Jw" name="RF_GENRE_UN1_1" unique="true">
+        <elements xmi:id="_Q452uQb7EeuD6rYgWOP-Jw" techID="_Q452uAb7EeuD6rYgWOP-Jw" column="_Q452qQb7EeuD6rYgWOP-Jw" asc="true"/>
+      </indexes>
+      <columns xmi:id="_Q452pQb7EeuD6rYgWOP-Jw" comments="PK de la table RF_GENRE" techID="_Q452pAb7EeuD6rYgWOP-Jw" name="RF_GENRE_ID" primaryKey="_Q452tQb7EeuD6rYgWOP-Jw" sequence="_Q46d-Ab7EeuD6rYgWOP-Jw">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_Q452pwb7EeuD6rYgWOP-Jw" length="19">
+          <nativeType href="pathmap://NativeDBTypes/Oracle-11g#_EwGJQD77EeaWN4f5B3n2lA"/>
+        </type>
+      </columns>
+      <columns xmi:id="_Q452qQb7EeuD6rYgWOP-Jw" comments="Le libell&#xe9; du genre" techID="_Q452qAb7EeuD6rYgWOP-Jw" name="RF_GENRE_LIB" indexElements="_Q452uQb7EeuD6rYgWOP-Jw">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_Q452qwb7EeuD6rYgWOP-Jw" length="50">
+          <nativeType href="pathmap://NativeDBTypes/Oracle-11g#_cUx7bxEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+      <columns xmi:id="_Q452rQb7EeuD6rYgWOP-Jw" comments="Indicateur pour savoir si l'enregistrement est valide" techID="_Q452rAb7EeuD6rYgWOP-Jw" name="RF_XTOPSUP" defaultValue="'0'">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_Q452rwb7EeuD6rYgWOP-Jw" length="1">
+          <nativeType href="pathmap://NativeDBTypes/Oracle-11g#_cUx7bxEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+      <columns xmi:id="_Q452sQb7EeuD6rYgWOP-Jw" comments="Date de mise &#xe0; jour de la ligne" techID="_Q452sAb7EeuD6rYgWOP-Jw" name="RF_XDMAJ" defaultValue="current_date">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_Q452swb7EeuD6rYgWOP-Jw">
+          <nativeType href="pathmap://NativeDBTypes/Oracle-11g#_cUwGNREnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+    </tables>
+    <sequences xmi:id="_Q46d9gb7EeuD6rYgWOP-Jw" comments="S&#xe9;quence de la PK de la table RF_PAYS" techID="_Q46d9Qb7EeuD6rYgWOP-Jw" name="RF_PAYS_SEQ" start="1" increment="1" columns="_Q45Pkwb7EeuD6rYgWOP-Jw"/>
+    <sequences xmi:id="_Q46d-Ab7EeuD6rYgWOP-Jw" comments="S&#xe9;quence de la PK de la table RF_GENRE" techID="_Q46d9wb7EeuD6rYgWOP-Jw" name="RF_GENRE_SEQ" start="1" increment="1" columns="_Q452pQb7EeuD6rYgWOP-Jw"/>
+  </schemas>
+  <schemas xmi:id="_Q452vQb7EeuD6rYgWOP-Jw" comments="Les donn&#xe9;es de l'application vid&#xe9;o" techID="_Q452vAb7EeuD6rYgWOP-Jw" name="GS">
+    <tables xsi:type="database:Table" xmi:id="_Q452vwb7EeuD6rYgWOP-Jw" comments="La table des s&#xe9;ries" techID="_Q452vgb7EeuD6rYgWOP-Jw" name="GS_SERIE">
+      <primaryKey xmi:id="_Q46dtgb7EeuD6rYgWOP-Jw" comments="Contrainte PK pour la colonne GS_SERIE_ID" techID="_Q46dtQb7EeuD6rYgWOP-Jw" name="GS_SERIE_PK" columns="_Q452wQb7EeuD6rYgWOP-Jw"/>
+      <foreignKeys xmi:id="_Q46d6gb7EeuD6rYgWOP-Jw" comments="Le genre de la s&#xe9;rie" techID="_Q46d6Qb7EeuD6rYgWOP-Jw" name="GS_SERIE_FK1_1" target="_Q452owb7EeuD6rYgWOP-Jw">
+        <elements xmi:id="_Q46d7Ab7EeuD6rYgWOP-Jw" techID="_Q46d6wb7EeuD6rYgWOP-Jw" fkColumn="_Q452xQb7EeuD6rYgWOP-Jw" pkColumn="_Q452pQb7EeuD6rYgWOP-Jw"/>
+      </foreignKeys>
+      <foreignKeys xmi:id="_Q46d7gb7EeuD6rYgWOP-Jw" comments="Le pays d'origine de la s&#xe9;rie" techID="_Q46d7Qb7EeuD6rYgWOP-Jw" name="GS_SERIE_FK1_2" target="_Q45PkQb7EeuD6rYgWOP-Jw">
+        <elements xmi:id="_Q46d8Ab7EeuD6rYgWOP-Jw" techID="_Q46d7wb7EeuD6rYgWOP-Jw" fkColumn="_Q452yQb7EeuD6rYgWOP-Jw" pkColumn="_Q45Pkwb7EeuD6rYgWOP-Jw"/>
+      </foreignKeys>
+      <constraints xmi:id="_Q46dxAb7EeuD6rYgWOP-Jw" comments="Liste des valeurs possibles pour GS_XTOPSUP" techID="_Q46dwwb7EeuD6rYgWOP-Jw" name="GS_SERIE_CK1_1" expression="GS_XTOPSUP in ('0','1','3','9')"/>
+      <indexes xmi:id="_Q46duAb7EeuD6rYgWOP-Jw" comments="Index d'unicit&#xe9; pour GS_SERIE_TITRE" techID="_Q46dtwb7EeuD6rYgWOP-Jw" name="GS_SERIE_UN1_1" unique="true">
+        <elements xmi:id="_Q46dugb7EeuD6rYgWOP-Jw" techID="_Q46duQb7EeuD6rYgWOP-Jw" column="_Q452zQb7EeuD6rYgWOP-Jw" asc="true"/>
+      </indexes>
+      <indexes xmi:id="_Q46dvAb7EeuD6rYgWOP-Jw" comments="Index sur la FK (RF_GENRE_ID) de la table GS_SERIE" techID="_Q46duwb7EeuD6rYgWOP-Jw" name="GS_SERIE_FK1_1">
+        <elements xmi:id="_Q46dvgb7EeuD6rYgWOP-Jw" techID="_Q46dvQb7EeuD6rYgWOP-Jw" column="_Q452xQb7EeuD6rYgWOP-Jw" asc="true"/>
+      </indexes>
+      <indexes xmi:id="_Q46dwAb7EeuD6rYgWOP-Jw" comments="Index sur la FK (RF_PAYS_ID) de la table GS_SERIE" techID="_Q46dvwb7EeuD6rYgWOP-Jw" name="GS_SERIE_FK1_2">
+        <elements xmi:id="_Q46dwgb7EeuD6rYgWOP-Jw" techID="_Q46dwQb7EeuD6rYgWOP-Jw" column="_Q452yQb7EeuD6rYgWOP-Jw" asc="true"/>
+      </indexes>
+      <columns xmi:id="_Q452wQb7EeuD6rYgWOP-Jw" comments="PK de la table GS_SERIE" techID="_Q452wAb7EeuD6rYgWOP-Jw" name="GS_SERIE_ID" primaryKey="_Q46dtgb7EeuD6rYgWOP-Jw" sequence="_Q46d-gb7EeuD6rYgWOP-Jw">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_Q452wwb7EeuD6rYgWOP-Jw" length="19">
+          <nativeType href="pathmap://NativeDBTypes/Oracle-11g#_EwGJQD77EeaWN4f5B3n2lA"/>
+        </type>
+      </columns>
+      <columns xmi:id="_Q452xQb7EeuD6rYgWOP-Jw" comments="Le genre de la s&#xe9;rie" techID="_Q452xAb7EeuD6rYgWOP-Jw" name="RF_GENRE_ID" nullable="true" indexElements="_Q46dvgb7EeuD6rYgWOP-Jw" foreignKeyElements="_Q46d7Ab7EeuD6rYgWOP-Jw">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_Q452xwb7EeuD6rYgWOP-Jw" length="19">
+          <nativeType href="pathmap://NativeDBTypes/Oracle-11g#_EwGJQD77EeaWN4f5B3n2lA"/>
+        </type>
+      </columns>
+      <columns xmi:id="_Q452yQb7EeuD6rYgWOP-Jw" comments="Le pays d'origine de la s&#xe9;rie" techID="_Q452yAb7EeuD6rYgWOP-Jw" name="RF_PAYS_ID" nullable="true" indexElements="_Q46dwgb7EeuD6rYgWOP-Jw" foreignKeyElements="_Q46d8Ab7EeuD6rYgWOP-Jw">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_Q452ywb7EeuD6rYgWOP-Jw" length="19">
+          <nativeType href="pathmap://NativeDBTypes/Oracle-11g#_EwGJQD77EeaWN4f5B3n2lA"/>
+        </type>
+      </columns>
+      <columns xmi:id="_Q452zQb7EeuD6rYgWOP-Jw" comments="le titre de la s&#xe9;rie" techID="_Q452zAb7EeuD6rYgWOP-Jw" name="GS_SERIE_TITRE" indexElements="_Q46dugb7EeuD6rYgWOP-Jw">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_Q452zwb7EeuD6rYgWOP-Jw" length="80">
+          <nativeType href="pathmap://NativeDBTypes/Oracle-11g#_cUx7bxEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+      <columns xmi:id="_Q4520Qb7EeuD6rYgWOP-Jw" comments="Le logo de la s&#xe9;rie" techID="_Q4520Ab7EeuD6rYgWOP-Jw" name="GS_SERIE_LOGO" nullable="true">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_Q4520wb7EeuD6rYgWOP-Jw">
+          <nativeType href="pathmap://NativeDBTypes/Oracle-11g#_cUwGMxEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+      <columns xmi:id="_Q4521Qb7EeuD6rYgWOP-Jw" comments="Date de cr&#xe9;ation de la s&#xe9;rie" techID="_Q4521Ab7EeuD6rYgWOP-Jw" name="GS_SERIE_DTCREA">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_Q4521wb7EeuD6rYgWOP-Jw">
+          <nativeType href="pathmap://NativeDBTypes/Oracle-11g#_cUwGNREnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+      <columns xmi:id="_Q4522Qb7EeuD6rYgWOP-Jw" comments="Date de fin de la s&#xe9;rie" techID="_Q4522Ab7EeuD6rYgWOP-Jw" name="GS_SERIE_DTFIN" nullable="true">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_Q4522wb7EeuD6rYgWOP-Jw">
+          <nativeType href="pathmap://NativeDBTypes/Oracle-11g#_cUwGNREnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+      <columns xmi:id="_Q4523Qb7EeuD6rYgWOP-Jw" comments="Indicateur pour savoir si l'enregistrement est valide" techID="_Q4523Ab7EeuD6rYgWOP-Jw" name="GS_XTOPSUP" defaultValue="'0'">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_Q46dsAb7EeuD6rYgWOP-Jw" length="1">
+          <nativeType href="pathmap://NativeDBTypes/Oracle-11g#_cUx7bxEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+      <columns xmi:id="_Q46dsgb7EeuD6rYgWOP-Jw" comments="Date de mise &#xe0; jour de la ligne" techID="_Q46dsQb7EeuD6rYgWOP-Jw" name="GS_XDMAJ" defaultValue="current_date">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_Q46dtAb7EeuD6rYgWOP-Jw">
+          <nativeType href="pathmap://NativeDBTypes/Oracle-11g#_cUwGNREnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+    </tables>
+    <tables xsi:type="database:Table" xmi:id="_Q46dxgb7EeuD6rYgWOP-Jw" comments="La table des saisons des s&#xe9;ries" techID="_Q46dxQb7EeuD6rYgWOP-Jw" name="GS_SAISON">
+      <primaryKey xmi:id="_Q46d3Ab7EeuD6rYgWOP-Jw" comments="Contrainte PK pour la colonne GS_SAISON_ID" techID="_Q46d2wb7EeuD6rYgWOP-Jw" name="GS_SAISON_PK" columns="_Q46dyAb7EeuD6rYgWOP-Jw"/>
+      <foreignKeys xmi:id="_Q46d8gb7EeuD6rYgWOP-Jw" comments="Les saisons d'une s&#xe9;rie" techID="_Q46d8Qb7EeuD6rYgWOP-Jw" name="GS_SAISON_FK1_1" target="_Q452vwb7EeuD6rYgWOP-Jw">
+        <elements xmi:id="_Q46d9Ab7EeuD6rYgWOP-Jw" techID="_Q46d8wb7EeuD6rYgWOP-Jw" fkColumn="_Q46dzAb7EeuD6rYgWOP-Jw" pkColumn="_Q452wQb7EeuD6rYgWOP-Jw"/>
+      </foreignKeys>
+      <constraints xmi:id="_Q46d6Ab7EeuD6rYgWOP-Jw" comments="Liste des valeurs possibles pour GS_XTOPSUP" techID="_Q46d5wb7EeuD6rYgWOP-Jw" name="GS_SAISON_CK1_1" expression="GS_XTOPSUP in ('0','1','3','9')"/>
+      <indexes xmi:id="_Q46d3gb7EeuD6rYgWOP-Jw" comments="Index d'unicit&#xe9; pour GS_SERIE_ID, GS_SAISON_NUM" techID="_Q46d3Qb7EeuD6rYgWOP-Jw" name="GS_SAISON_UN2_1" unique="true">
+        <elements xmi:id="_Q46d4Ab7EeuD6rYgWOP-Jw" techID="_Q46d3wb7EeuD6rYgWOP-Jw" column="_Q46dzAb7EeuD6rYgWOP-Jw" asc="true"/>
+        <elements xmi:id="_Q46d4gb7EeuD6rYgWOP-Jw" techID="_Q46d4Qb7EeuD6rYgWOP-Jw" column="_Q46d0Ab7EeuD6rYgWOP-Jw" asc="true"/>
+      </indexes>
+      <indexes xmi:id="_Q46d5Ab7EeuD6rYgWOP-Jw" comments="Index sur la FK (GS_SERIE_ID) de la table GS_SAISON" techID="_Q46d4wb7EeuD6rYgWOP-Jw" name="GS_SAISON_FK1_1" unique="true">
+        <elements xmi:id="_Q46d5gb7EeuD6rYgWOP-Jw" techID="_Q46d5Qb7EeuD6rYgWOP-Jw" column="_Q46dzAb7EeuD6rYgWOP-Jw" asc="true"/>
+      </indexes>
+      <columns xmi:id="_Q46dyAb7EeuD6rYgWOP-Jw" comments="PK de la table GS_SAISON" techID="_Q46dxwb7EeuD6rYgWOP-Jw" name="GS_SAISON_ID" primaryKey="_Q46d3Ab7EeuD6rYgWOP-Jw" sequence="_Q47EwAb7EeuD6rYgWOP-Jw">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_Q46dygb7EeuD6rYgWOP-Jw" length="19">
+          <nativeType href="pathmap://NativeDBTypes/Oracle-11g#_EwGJQD77EeaWN4f5B3n2lA"/>
+        </type>
+      </columns>
+      <columns xmi:id="_Q46dzAb7EeuD6rYgWOP-Jw" comments="Les saisons d'une s&#xe9;rie" techID="_Q46dywb7EeuD6rYgWOP-Jw" name="GS_SERIE_ID" indexElements="_Q46d4Ab7EeuD6rYgWOP-Jw _Q46d5gb7EeuD6rYgWOP-Jw" foreignKeyElements="_Q46d9Ab7EeuD6rYgWOP-Jw">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_Q46dzgb7EeuD6rYgWOP-Jw" length="19">
+          <nativeType href="pathmap://NativeDBTypes/Oracle-11g#_EwGJQD77EeaWN4f5B3n2lA"/>
+        </type>
+      </columns>
+      <columns xmi:id="_Q46d0Ab7EeuD6rYgWOP-Jw" comments="Le num&#xe9;ro de la saison pour une s&#xe9;rie" techID="_Q46dzwb7EeuD6rYgWOP-Jw" name="GS_SAISON_NUM" indexElements="_Q46d4gb7EeuD6rYgWOP-Jw">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_Q46d0gb7EeuD6rYgWOP-Jw">
+          <nativeType href="pathmap://NativeDBTypes/Oracle-11g#_EwGJQD77EeaWN4f5B3n2lA"/>
+        </type>
+      </columns>
+      <columns xmi:id="_Q46d1Ab7EeuD6rYgWOP-Jw" comments="Indicateur pour savoir si l'enregistrement est valide" techID="_Q46d0wb7EeuD6rYgWOP-Jw" name="GS_XTOPSUP" defaultValue="'0'">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_Q46d1gb7EeuD6rYgWOP-Jw" length="1">
+          <nativeType href="pathmap://NativeDBTypes/Oracle-11g#_cUx7bxEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+      <columns xmi:id="_Q46d2Ab7EeuD6rYgWOP-Jw" comments="Date de mise &#xe0; jour de la ligne" techID="_Q46d1wb7EeuD6rYgWOP-Jw" name="GS_XDMAJ" defaultValue="current_date">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_Q46d2gb7EeuD6rYgWOP-Jw">
+          <nativeType href="pathmap://NativeDBTypes/Oracle-11g#_cUwGNREnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+    </tables>
+    <sequences xmi:id="_Q46d-gb7EeuD6rYgWOP-Jw" comments="S&#xe9;quence de la PK de la table GS_SERIE" techID="_Q46d-Qb7EeuD6rYgWOP-Jw" name="GS_SERIE_SEQ" start="1" increment="1" columns="_Q452wQb7EeuD6rYgWOP-Jw"/>
+    <sequences xmi:id="_Q47EwAb7EeuD6rYgWOP-Jw" comments="S&#xe9;quence de la PK de la table GS_SAISON" techID="_Q46d-wb7EeuD6rYgWOP-Jw" name="GS_SAISON_SEQ" start="1" increment="1" columns="_Q46dyAb7EeuD6rYgWOP-Jw"/>
+  </schemas>
+</database:DataBase>
