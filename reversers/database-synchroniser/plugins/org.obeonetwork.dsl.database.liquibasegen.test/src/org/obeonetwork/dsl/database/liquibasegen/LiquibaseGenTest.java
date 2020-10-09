@@ -180,6 +180,14 @@ public class LiquibaseGenTest extends AbstractLiquibaseTest {
 		assertGenerationEquals("41-dropContraint-mysql");
 	}
 
+	/**
+	 * Rename an existing constraint
+	 */
+	@Test
+	public void updateConstraint() {
+		assertGenerationEquals("42-constraintUpdate-h2");
+	}
+
 
 	@Test
 	public void representativeModelFromScratch_MySQL() throws Exception {

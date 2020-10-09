@@ -72,6 +72,7 @@ import org.obeonetwork.dsl.database.dbevolution.RenameTableChange;
 import org.obeonetwork.dsl.database.dbevolution.SequenceChange;
 import org.obeonetwork.dsl.database.dbevolution.TableChange;
 import org.obeonetwork.dsl.database.dbevolution.UpdateColumnChange;
+import org.obeonetwork.dsl.database.dbevolution.UpdateConstraint;
 import org.obeonetwork.dsl.database.dbevolution.UpdatePrimaryKey;
 import org.obeonetwork.dsl.database.dbevolution.UpdateTableCommentChange;
 import org.obeonetwork.dsl.database.dbevolution.ViewChange;
@@ -258,19 +259,36 @@ public class ChangeLogBuilder {
 			return buildAddConstraintChangeSet((AddConstraint) constraintChange);
 		} else if (constraintChange instanceof RemoveConstraint) {
 			return buildDropConstraintChangeSet((RemoveConstraint) constraintChange);
+		} else if (constraintChange instanceof UpdateConstraint) {
+			return buildUpdateConstraintChangeSet((UpdateConstraint) constraintChange);
 		}
 		return Optional.empty();
 
 	}
 
+	private Optional<ChangeSet> buildUpdateConstraintChangeSet(UpdateConstraint constraintChange) {
+		ChangeSet changeSet = buildNextChangeSet();
+		Constraint newConstraint = constraintChange.getNewConstraint();
+		Constraint oldConstraint = constraintChange.getConstraint();
+		changeSet.setComments("Updating constraint : " + newConstraint.getName());
+		changeSet.addChange(buildDropConstraintChange(oldConstraint));
+		changeSet.addChange(buildAddConstraintChange(newConstraint));
+		return Optional.of(changeSet);
+	}
+
 	private Optional<ChangeSet> buildDropConstraintChangeSet(RemoveConstraint constraintChange) {
 		Constraint constraint = constraintChange.getConstraint();
-		RawSQLChange sqlChange = new RawSQLChange(sqlService
-				.buildDropConstraintQuery(genService.getFullName(constraint.getOwner()), constraint.getName()));
+		RawSQLChange sqlChange = buildDropConstraintChange(constraint);
 		ChangeSet result = buildNextChangeSet();
 		result.addChange(sqlChange);
 		result.setComments(MessageFormat.format("Dropping constraint : {0}", constraint.getName()));
 		return Optional.of(result);
+	}
+
+	private RawSQLChange buildDropConstraintChange(Constraint constraint) {
+		RawSQLChange sqlChange = new RawSQLChange(sqlService
+				.buildDropConstraintQuery(genService.getFullName(constraint.getOwner()), constraint.getName()));
+		return sqlChange;
 	}
 
 	private Optional<ChangeSet> buildIndexChangeSet(IndexChange indexChange) {
@@ -313,8 +331,7 @@ public class ChangeLogBuilder {
 		Constraint constraint = addConstraint.getConstraint();
 		IStatus status = sqlService.validateConstaint(constraint);
 		if (status.isOK()) {
-			RawSQLChange sqlChange = new RawSQLChange(sqlService.buildAddConstraintQuery(
-					genService.getFullName(constraint.getOwner()), constraint.getName(), constraint.getExpression()));
+			RawSQLChange sqlChange = buildAddConstraintChange(constraint);
 			ChangeSet result = buildNextChangeSet();
 			result.addChange(sqlChange);
 			// Currently in discussion with the client because there is a problem of
@@ -326,6 +343,11 @@ public class ChangeLogBuilder {
 			statuses.add(status);
 			return Optional.empty();
 		}
+	}
+
+	private RawSQLChange buildAddConstraintChange(Constraint constraint) {
+		return new RawSQLChange(sqlService.buildAddConstraintQuery(genService.getFullName(constraint.getOwner()),
+				constraint.getName(), constraint.getExpression()));
 	}
 
 	private Collection<? extends ChangeLogChild> getChangeSetsForForeignKeys(List<DBDiff> diffs) {
