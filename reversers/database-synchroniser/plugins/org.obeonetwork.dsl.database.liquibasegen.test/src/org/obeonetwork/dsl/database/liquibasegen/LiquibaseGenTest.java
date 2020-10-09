@@ -160,6 +160,21 @@ public class LiquibaseGenTest extends AbstractLiquibaseTest {
 		assertGenerationEquals("39-dropPrimaryKey-mysql");
 	}
 
+	/**
+	 * Updates 3 primary keys
+	 * 
+	 * <p>
+	 * <ul>
+	 * <li>Add one column</li>
+	 * <li>Remove one column</li<<li>Rename</li>
+	 * </ul>
+	 * </p>
+	 */
+	@Test
+	public void updatePrimareyKeys() {
+		assertGenerationEquals("40-updatePrimKeys-mysql");
+	}
+
 
 	@Test
 	public void representativeModelFromScratch_MySQL() throws Exception {

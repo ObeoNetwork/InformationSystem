@@ -71,6 +71,7 @@ import org.obeonetwork.dsl.database.dbevolution.RenameTableChange;
 import org.obeonetwork.dsl.database.dbevolution.SequenceChange;
 import org.obeonetwork.dsl.database.dbevolution.TableChange;
 import org.obeonetwork.dsl.database.dbevolution.UpdateColumnChange;
+import org.obeonetwork.dsl.database.dbevolution.UpdatePrimaryKey;
 import org.obeonetwork.dsl.database.dbevolution.UpdateTableCommentChange;
 import org.obeonetwork.dsl.database.dbevolution.ViewChange;
 import org.obeonetwork.dsl.database.liquibasegen.service.DefaultTypeMatcher;
@@ -336,10 +337,23 @@ public class ChangeLogBuilder {
 			return buildAddPrimaryKeyChangeSet(addPrimKeyChange);
 		} else if (primKeyChange instanceof RemovePrimaryKey) {
 			return buildDropPrimaryKeyChangeSet((RemovePrimaryKey) primKeyChange);
+		} else if (primKeyChange instanceof UpdatePrimaryKey) {
+			return buildUpdatePrimaryKeyChangeSet((UpdatePrimaryKey) primKeyChange);
 		}
 
 		return Optional.empty();
 
+	}
+
+	private Optional<ChangeSet> buildUpdatePrimaryKeyChangeSet(UpdatePrimaryKey primKeyChange) {
+		PrimaryKey pk = primKeyChange.getPrimaryKey();
+
+		ChangeSet changeSet = buildNextChangeSet();
+		changeSet.setComments("Updating primary key " + pk.getName());
+		changeSet.addChange(buildDropPrimaryKeyChange(pk));
+		changeSet.addChange(buildAddPrimaryChange(pk));
+
+		return Optional.of(changeSet);
 	}
 
 	private Optional<ChangeSet> buildDropPrimaryKeyChangeSet(RemovePrimaryKey primKeyChange) {
@@ -350,16 +364,22 @@ public class ChangeLogBuilder {
 			// Deleting table should also deletes this constraint
 			return Optional.empty();
 		} else {
-			DropPrimaryKeyChange dChange = new DropPrimaryKeyChange();
-			safeTrimSetter(pk.getName(), dChange::setConstraintName);
-			safeSchemaSetter(table.getOwner(), dChange::setSchemaName);
-			safeTrimSetter(table.getName(), dChange::setTableName);
+			DropPrimaryKeyChange dChange = buildDropPrimaryKeyChange(pk);
 
 			ChangeSet changeSet = buildNextChangeSet();
 			changeSet.setComments("Dropping primary key " + pk.getName() + " on table " + tableQName);
 			changeSet.addChange(dChange);
 			return Optional.of(changeSet);
 		}
+	}
+
+	private DropPrimaryKeyChange buildDropPrimaryKeyChange(PrimaryKey pk) {
+		Table table = pk.getOwner();
+		DropPrimaryKeyChange dChange = new DropPrimaryKeyChange();
+		safeTrimSetter(pk.getName(), dChange::setConstraintName);
+		safeSchemaSetter(table.getOwner(), dChange::setSchemaName);
+		safeTrimSetter(table.getName(), dChange::setTableName);
+		return dChange;
 	}
 
 	private Optional<ChangeSet> buildAddPrimaryKeyChangeSet(AddPrimaryKey addPrimKeyChange) {
@@ -378,26 +398,35 @@ public class ChangeLogBuilder {
 			// The primary contains not only added column. In this case remove the primary
 			// key constraint definition from the CreateTable changeset and a specific
 			// change set to create the constraint
-			Table table = primKey.getOwner();
+
 			columnsQN.stream().filter(qn -> updatedColumnConfs.containsKey(qn)).forEach(qn -> {
 				updatedColumnConfs.get(qn).setPrimaryKey((Boolean) null); // Don't add the primary during the creation
 			});
 
 			// Create a specific changeSet
 			ChangeSet changeSet = buildNextChangeSet();
-			AddPrimaryKeyChange aChange = new AddPrimaryKeyChange();
+			AddPrimaryKeyChange aChange = buildAddPrimaryChange(primKey);
 
-			safeSchemaSetter(table.getOwner(), aChange::setSchemaName);
-			safeTrimSetter(table.getName(), aChange::setTableName);
 			String columnNames = columns.stream().map(c -> c.getName()).filter(n -> n != null).map(n -> n.trim())
 					.collect(joining(","));
-			aChange.setColumnNames(columnNames);
-			changeSet.setComments("Adding primary key on " + columnNames + " in " + table.getName());
-			safeTrimSetter(primKey.getName(), aChange::setConstraintName);
+			changeSet.setComments("Adding primary key on " + columnNames + " in " + primKey.getOwner().getName());
 			changeSet.addChange(aChange);
 			return Optional.of(changeSet);
 		}
 
+	}
+
+	private AddPrimaryKeyChange buildAddPrimaryChange(PrimaryKey primKey) {
+		AddPrimaryKeyChange aChange = new AddPrimaryKeyChange();
+		Table table = primKey.getOwner();
+		EList<Column> columns2 = primKey.getColumns();
+		safeSchemaSetter(table.getOwner(), aChange::setSchemaName);
+		safeTrimSetter(table.getName(), aChange::setTableName);
+		String columnNames = columns2.stream().map(c -> c.getName()).filter(n -> n != null).map(n -> n.trim())
+				.collect(joining(","));
+		aChange.setColumnNames(columnNames);
+		safeTrimSetter(primKey.getName(), aChange::setConstraintName);
+		return aChange;
 	}
 
 	private Optional<ChangeSet> buildForeignKeyChangeSet(AddForeignKey adForeign) {

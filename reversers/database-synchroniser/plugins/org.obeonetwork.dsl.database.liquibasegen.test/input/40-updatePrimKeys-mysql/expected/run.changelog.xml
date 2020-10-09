@@ -1,0 +1,18 @@
+<?xml version="1.1" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog" xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext" xmlns:pro="http://www.liquibase.org/xml/ns/pro" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd http://www.liquibase.org/xml/ns/pro http://www.liquibase.org/xml/ns/pro/liquibase-pro-4.0.xsd http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.0.xsd">
+    <changeSet author="IS Designer" id="test0">
+        <comment>Updating primary key Table1_PK</comment>
+        <dropPrimaryKey constraintName="Table1_PK" schemaName="STOREBOOK" tableName="FirstTable"/>
+        <addPrimaryKey columnNames="ID" constraintName="Table1_PK" schemaName="STOREBOOK" tableName="FirstTable"/>
+    </changeSet>
+    <changeSet author="IS Designer" id="test2">
+        <comment>Updating primary key Table3_PK</comment>
+        <dropPrimaryKey constraintName="Table3_PK" schemaName="STOREBOOK" tableName="Table3"/>
+        <addPrimaryKey columnNames="column1,column2" constraintName="Table3_PK" schemaName="STOREBOOK" tableName="Table3"/>
+    </changeSet>
+    <changeSet author="IS Designer" id="test4">
+        <comment>Updating primary key Table4_PK</comment>
+        <dropPrimaryKey constraintName="Table4_PK" schemaName="STOREBOOK" tableName="Table4"/>
+        <addPrimaryKey columnNames="column2,column1" constraintName="Table4_PK" schemaName="STOREBOOK" tableName="Table4"/>
+    </changeSet>
+</databaseChangeLog>
