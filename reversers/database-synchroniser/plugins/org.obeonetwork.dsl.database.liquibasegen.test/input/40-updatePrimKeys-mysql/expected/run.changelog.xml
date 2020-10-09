@@ -5,12 +5,12 @@
         <dropPrimaryKey constraintName="Table1_PK" schemaName="STOREBOOK" tableName="FirstTable"/>
         <addPrimaryKey columnNames="ID" constraintName="Table1_PK" schemaName="STOREBOOK" tableName="FirstTable"/>
     </changeSet>
-    <changeSet author="IS Designer" id="test2">
+    <changeSet author="IS Designer" id="test1">
         <comment>Updating primary key Table3_PK</comment>
         <dropPrimaryKey constraintName="Table3_PK" schemaName="STOREBOOK" tableName="Table3"/>
         <addPrimaryKey columnNames="column1,column2" constraintName="Table3_PK" schemaName="STOREBOOK" tableName="Table3"/>
     </changeSet>
-    <changeSet author="IS Designer" id="test4">
+    <changeSet author="IS Designer" id="test2">
         <comment>Updating primary key Table4_PK</comment>
         <dropPrimaryKey constraintName="Table4_PK" schemaName="STOREBOOK" tableName="Table4"/>
         <addPrimaryKey columnNames="column2,column1" constraintName="Table4_PK" schemaName="STOREBOOK" tableName="Table4"/>

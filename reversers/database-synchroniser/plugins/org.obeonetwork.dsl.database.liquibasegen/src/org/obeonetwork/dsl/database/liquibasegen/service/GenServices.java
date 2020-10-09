@@ -92,6 +92,7 @@ public class GenServices {
 		return typeService.isTargetH2(table) //
 				|| typeService.isTargetOracle(table) //
 				|| typeService.isTargetPostgreSQL(table) //
+				|| typeService.isTargetMySql(table) // In MySQl schema = database
 				|| typeService.isTargetSqlServer(table);
 	}
 

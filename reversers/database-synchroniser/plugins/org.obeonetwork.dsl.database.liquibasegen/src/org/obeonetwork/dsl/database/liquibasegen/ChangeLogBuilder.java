@@ -64,6 +64,7 @@ import org.obeonetwork.dsl.database.dbevolution.DBDiff;
 import org.obeonetwork.dsl.database.dbevolution.IndexChange;
 import org.obeonetwork.dsl.database.dbevolution.PrimaryKeyChange;
 import org.obeonetwork.dsl.database.dbevolution.RemoveColumnChange;
+import org.obeonetwork.dsl.database.dbevolution.RemoveConstraint;
 import org.obeonetwork.dsl.database.dbevolution.RemovePrimaryKey;
 import org.obeonetwork.dsl.database.dbevolution.RemoveTable;
 import org.obeonetwork.dsl.database.dbevolution.RenameColumnChange;
@@ -255,9 +256,21 @@ public class ChangeLogBuilder {
 	private Optional<ChangeSet> buildContraintChangeSet(ConstraintChange constraintChange) {
 		if (constraintChange instanceof AddConstraint) {
 			return buildAddConstraintChangeSet((AddConstraint) constraintChange);
+		} else if (constraintChange instanceof RemoveConstraint) {
+			return buildDropConstraintChangeSet((RemoveConstraint) constraintChange);
 		}
 		return Optional.empty();
 
+	}
+
+	private Optional<ChangeSet> buildDropConstraintChangeSet(RemoveConstraint constraintChange) {
+		Constraint constraint = constraintChange.getConstraint();
+		RawSQLChange sqlChange = new RawSQLChange(sqlService
+				.buildDropConstraintQuery(genService.getFullName(constraint.getOwner()), constraint.getName()));
+		ChangeSet result = buildNextChangeSet();
+		result.addChange(sqlChange);
+		result.setComments(MessageFormat.format("Dropping constraint : {0}", constraint.getName()));
+		return Optional.of(result);
 	}
 
 	private Optional<ChangeSet> buildIndexChangeSet(IndexChange indexChange) {
@@ -300,7 +313,8 @@ public class ChangeLogBuilder {
 		Constraint constraint = addConstraint.getConstraint();
 		IStatus status = sqlService.validateConstaint(constraint);
 		if (status.isOK()) {
-			RawSQLChange sqlChange = new RawSQLChange(sqlService.buildAddConstraintQuery(constraint));
+			RawSQLChange sqlChange = new RawSQLChange(sqlService.buildAddConstraintQuery(
+					genService.getFullName(constraint.getOwner()), constraint.getName(), constraint.getExpression()));
 			ChangeSet result = buildNextChangeSet();
 			result.addChange(sqlChange);
 			// Currently in discussion with the client because there is a problem of

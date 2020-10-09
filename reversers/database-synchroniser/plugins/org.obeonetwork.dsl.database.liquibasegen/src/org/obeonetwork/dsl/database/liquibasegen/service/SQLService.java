@@ -20,6 +20,7 @@ import org.obeonetwork.dsl.database.gen.common.services.StatusUtils;
 
 public class SQLService {
 
+	private static final String EMPTY = "";
 
 	public SQLService() {
 		super();
@@ -52,15 +53,31 @@ public class SQLService {
 	 * Builds the SQL query that add a constraint defined by the given
 	 * {@link Constraint}
 	 * 
-	 * @param constraint a valid constraint
+	 * @param tableQname     qualified name of the table
+	 * @param constraintName name of the constraint
+	 * @param expression     the expression
 	 * @return a SQL query
 	 * @see #validateConstaint(Constraint)
 	 */
-	public String buildAddConstraintQuery(Constraint constraint) {
-		String tableName = constraint.getOwner().getName().trim();
-		String constrainteName = constraint.getName().trim();
-		String expression = constraint.getExpression();
-		return "ALTER TABLE " + tableName + " ADD CONSTRAINT " + constrainteName + " CHECK(" + expression + ");";
+	public String buildAddConstraintQuery(String tableQname, String constraintName, String expression) {
+		return "ALTER TABLE " + trimEmptyOnNull(tableQname) + " ADD CONSTRAINT " + trimEmptyOnNull(constraintName)
+				+ " CHECK(" + trimEmptyOnNull(expression) + ");";
+	}
+
+	/**
+	 * Drops the given constraint
+	 * 
+	 * @param tableQName    qualified name of the table
+	 * @param contraintName name of the constraint
+	 * @return a SQL query
+	 */
+	public String buildDropConstraintQuery(String tableQName, String contraintName) {
+		return "ALTER TABLE " + trimEmptyOnNull(tableQName) + " DROP CONSTRAINT " + trimEmptyOnNull(contraintName)
+				+ ";";
+	}
+
+	private String trimEmptyOnNull(String s) {
+		return s != null ? s.trim() : EMPTY;
 	}
 
 }

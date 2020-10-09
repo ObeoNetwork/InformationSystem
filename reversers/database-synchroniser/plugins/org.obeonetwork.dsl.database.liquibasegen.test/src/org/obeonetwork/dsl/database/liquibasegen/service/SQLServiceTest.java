@@ -59,7 +59,8 @@ public class SQLServiceTest {
 		constraint.setExpression("AN_EXPRESSION");
 
 		assertEquals("ALTER TABLE A_TABLE ADD CONSTRAINT CONSTRAINT_NAME CHECK(AN_EXPRESSION);", //
-				service.buildAddConstraintQuery(constraint));
+				service.buildAddConstraintQuery(constraint.getOwner().getName(), constraint.getName(),
+						constraint.getExpression()));
 
 	}
 

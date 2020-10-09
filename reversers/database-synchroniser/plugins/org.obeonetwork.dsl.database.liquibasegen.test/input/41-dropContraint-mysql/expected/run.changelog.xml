@@ -1,7 +1,7 @@
 <?xml version="1.1" encoding="UTF-8" standalone="no"?>
 <databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog" xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext" xmlns:pro="http://www.liquibase.org/xml/ns/pro" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd http://www.liquibase.org/xml/ns/pro http://www.liquibase.org/xml/ns/pro/liquibase-pro-4.0.xsd http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.0.xsd">
     <changeSet author="IS Designer" id="test0">
-        <comment>Dropping primary key Table4_PK on table STOREBOOK.Table4</comment>
-        <dropPrimaryKey constraintName="Table4_PK" schemaName="STOREBOOK" tableName="Table4"/>
+        <comment>Dropping constraint : RF_PAYS_CK1_1</comment>
+        <sql splitStatements="true" stripComments="false">ALTER TABLE RF.RF_PAYS DROP CONSTRAINT RF_PAYS_CK1_1;</sql>
     </changeSet>
 </databaseChangeLog>

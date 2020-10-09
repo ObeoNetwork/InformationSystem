@@ -175,6 +175,11 @@ public class LiquibaseGenTest extends AbstractLiquibaseTest {
 		assertGenerationEquals("40-updatePrimKeys-mysql");
 	}
 
+	@Test
+	public void dropCheckConstraint() {
+		assertGenerationEquals("41-dropContraint-mysql");
+	}
+
 
 	@Test
 	public void representativeModelFromScratch_MySQL() throws Exception {
