@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="ASCII"?>
+<database:DataBase xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:database="http://www.obeonetwork.org/dsl/database/1.0" xmlns:typeslibrary="http://www.obeonetwork.org/dsl/typeslibrary/1.0" xmi:id="_guzSAAO-EeuRi6b8UjxX2g" techID="_guw1wAO-EeuRi6b8UjxX2g" name="postgres">
+  <usedLibraries xsi:type="typeslibrary:NativeTypesLibrary" href="pathmap://NativeDBTypes/Postgres-9#_Zj69UBEnEeGTa_JlZYBw1A"/>
+  <schemas xmi:id="_hXaxMQO-EeuRi6b8UjxX2g" techID="_hXaxMAO-EeuRi6b8UjxX2g" name="STOREBOOK">
+    <tables xsi:type="database:Table" xmi:id="_iXgVMQO-EeuRi6b8UjxX2g" techID="_iXgVMAO-EeuRi6b8UjxX2g" name="Table1">
+      <primaryKey xmi:id="_qalzAAouEeuxQovx9gHv-A" techID="_qalL8AouEeuxQovx9gHv-A" name="PK_Table1" columns="_i-xwkAO-EeuRi6b8UjxX2g"/>
+      <columns xmi:id="_i-xwkAO-EeuRi6b8UjxX2g" techID="_i-xJgAO-EeuRi6b8UjxX2g" name="ID" primaryKey="_qalzAAouEeuxQovx9gHv-A">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_i-xwkQO-EeuRi6b8UjxX2g">
+          <nativeType href="pathmap://NativeDBTypes/Postgres-9#_EfcOQG5FEeS0qO0NdvQESw"/>
+        </type>
+      </columns>
+    </tables>
+    <tables xsi:type="database:Table" xmi:id="_rqhJ0QouEeuxQovx9gHv-A" techID="_rqhJ0AouEeuxQovx9gHv-A" name="Table2">
+      <primaryKey xmi:id="_sdvWgQouEeuxQovx9gHv-A" techID="_sdvWgAouEeuxQovx9gHv-A" name="Table2_PK" columns="_sduvcQouEeuxQovx9gHv-A"/>
+      <foreignKeys xmi:id="_pGgsEQyLEeuZcqFHdy2CgA" comments="A comment" techID="_pGgsEAyLEeuZcqFHdy2CgA" name="FK_1_2" target="_iXgVMQO-EeuRi6b8UjxX2g">
+        <elements xmi:id="_pGk9gAyLEeuZcqFHdy2CgA" techID="_pGjvYAyLEeuZcqFHdy2CgA" fkColumn="_sduvcQouEeuxQovx9gHv-A" pkColumn="_i-xwkAO-EeuRi6b8UjxX2g"/>
+      </foreignKeys>
+      <columns xmi:id="_sCC5AwouEeuxQovx9gHv-A" techID="_sCC5AgouEeuxQovx9gHv-A" name="ID_Table1">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_sCDgEQouEeuxQovx9gHv-A" technicalid="_sCDgEAouEeuxQovx9gHv-A">
+          <nativeType href="pathmap://NativeDBTypes/Postgres-9#_EfcOQG5FEeS0qO0NdvQESw"/>
+        </type>
+      </columns>
+      <columns xmi:id="_sduvcQouEeuxQovx9gHv-A" techID="_sduvcAouEeuxQovx9gHv-A" name="ID" primaryKey="_sdvWgQouEeuxQovx9gHv-A" foreignKeyElements="_pGk9gAyLEeuZcqFHdy2CgA">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_sduvcgouEeuxQovx9gHv-A">
+          <nativeType href="pathmap://NativeDBTypes/Postgres-9#_EfcOQG5FEeS0qO0NdvQESw"/>
+        </type>
+      </columns>
+    </tables>
+  </schemas>
+</database:DataBase>

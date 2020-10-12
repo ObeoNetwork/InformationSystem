@@ -75,6 +75,7 @@ import org.obeonetwork.dsl.database.dbevolution.SequenceChange;
 import org.obeonetwork.dsl.database.dbevolution.TableChange;
 import org.obeonetwork.dsl.database.dbevolution.UpdateColumnChange;
 import org.obeonetwork.dsl.database.dbevolution.UpdateConstraint;
+import org.obeonetwork.dsl.database.dbevolution.UpdateForeignKey;
 import org.obeonetwork.dsl.database.dbevolution.UpdatePrimaryKey;
 import org.obeonetwork.dsl.database.dbevolution.UpdateTableCommentChange;
 import org.obeonetwork.dsl.database.dbevolution.ViewChange;
@@ -473,13 +474,44 @@ public class ChangeLogBuilder {
 			return buildAddForeignKeyChangeSet((AddForeignKey) foreignKeyChange);
 		} else if (foreignKeyChange instanceof RemoveForeignKey) {
 			return buildDropForeignKeyChangeSet((RemoveForeignKey) foreignKeyChange);
+		} else if (foreignKeyChange instanceof UpdateForeignKey) {
+			return buildUpdateForeignKeyChangeSet((UpdateForeignKey) foreignKeyChange);
 		}
+		return Optional.empty();
+
+	}
+
+	private Optional<ChangeSet> buildUpdateForeignKeyChangeSet(UpdateForeignKey foreignKeyChange) {
+		ForeignKey oldFK = foreignKeyChange.getForeignKey();
+		ForeignKey newFK = foreignKeyChange.getNewForeignKey();
+
+		Optional<AddForeignKeyConstraintChange> optAddFK = buildAddForeignKeyChange(newFK);
+		Optional<DropForeignKeyConstraintChange> optDropFK = buildDropForeignKeyChange(oldFK);
+		// Don't drop the FK if we can't create a new one
+		if (optAddFK.isPresent() && optDropFK.isPresent()) {
+			ChangeSet changeSet = buildNextChangeSet();
+			changeSet.setComments("Updating foreign key " + oldFK.getName());
+			changeSet.addChange(optDropFK.get());
+			changeSet.addChange(optAddFK.get());
+			return Optional.of(changeSet);
+		}
+
 		return Optional.empty();
 
 	}
 
 	private Optional<ChangeSet> buildDropForeignKeyChangeSet(RemoveForeignKey foreignKeyChange) {
 		ForeignKey fk = foreignKeyChange.getForeignKey();
+
+		return buildDropForeignKeyChange(fk).map(change -> {
+			ChangeSet changeSet = buildNextChangeSet();
+			changeSet.setComments("Dropping foreign key " + fk.getName());
+			changeSet.addChange(change);
+			return Optional.of(changeSet);
+		}).orElse(Optional.empty());
+	}
+
+	private Optional<DropForeignKeyConstraintChange> buildDropForeignKeyChange(ForeignKey fk) {
 		Table sourceTable = fk.getSourceTable();
 		String sourceTableQn = genService.getFullName(sourceTable);
 
@@ -492,22 +524,28 @@ public class ChangeLogBuilder {
 			safeTrimSetter(sourceTable.getName(), dChange::setBaseTableName);
 			safeTrimSetter(fk.getName(), dChange::setConstraintName);
 
-			ChangeSet changeSet = buildNextChangeSet();
-			changeSet.setComments("Dropping foreign key " + fk.getName());
-			changeSet.addChange(dChange);
-			return Optional.of(changeSet);
+			return Optional.of(dChange);
 		}
 	}
 
 	private Optional<ChangeSet> buildAddForeignKeyChangeSet(AddForeignKey addForeign) {
 		ForeignKey fk = addForeign.getForeignKey();
-		AddForeignKeyConstraintChange changeDescription = new AddForeignKeyConstraintChange();
+		return buildAddForeignKeyChange(fk).map(change -> {
+			ChangeSet result = buildNextChangeSet();
+			result.setComments("Foreign Key : " + fk.getName());
+			result.addChange(change);
+			return Optional.of(result);
+		}).orElse(Optional.empty());
 
+	}
+
+	private Optional<AddForeignKeyConstraintChange> buildAddForeignKeyChange(ForeignKey fk) {
 		if (fk.getElements().stream().allMatch(e -> e.getPkColumn() != null)) {
 			Table sourceTable = fk.getOwner();
 			Table target = fk.getElements().stream().map(e -> (Table) e.getPkColumn().eContainer()).findFirst()
 					.orElse(null);
 			if (target != null) {
+				AddForeignKeyConstraintChange changeDescription = new AddForeignKeyConstraintChange();
 				safeTrimSetter(fk.getName(), changeDescription::setConstraintName);
 				safeTrimSetter(sourceTable.getName(), changeDescription::setBaseTableName);
 				safeSchemaSetter(sourceTable.getOwner(), changeDescription::setBaseTableSchemaName);
@@ -529,10 +567,7 @@ public class ChangeLogBuilder {
 							changeDescription::setReferencedTableSchemaName);
 				}
 
-				ChangeSet result = buildNextChangeSet();
-				result.setComments("Foreign Key : " + fk.getName());
-				result.addChange(changeDescription);
-				return Optional.of(result);
+				return Optional.of(changeDescription);
 			}
 		} else {
 			statuses.add(createWarningStatus("Invalid foreign key definition : " + fk.getName()));

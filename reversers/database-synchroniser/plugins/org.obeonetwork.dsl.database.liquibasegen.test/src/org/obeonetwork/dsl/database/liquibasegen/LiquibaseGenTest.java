@@ -193,6 +193,11 @@ public class LiquibaseGenTest extends AbstractLiquibaseTest {
 		assertGenerationEquals("43-dropForeingKey_postgres");
 	}
 
+	@Test
+	public void updateForeignKey() {
+		assertGenerationEquals("44-updateForeignKey-postgres");
+	}
+
 
 	@Test
 	public void representativeModelFromScratch_MySQL() throws Exception {
