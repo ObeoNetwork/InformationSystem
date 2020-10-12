@@ -284,6 +284,14 @@ public class ChangeLogBuilder {
 
 	private Optional<ChangeSet> buildDropConstraintChangeSet(RemoveConstraint constraintChange) {
 		Constraint constraint = constraintChange.getConstraint();
+
+		Table table = constraint.getOwner();
+		String tableQN = genService.getFullName(table);
+		if (deletedTables.contains(tableQN)) {
+			// The index will be dropped with the table
+			return Optional.empty();
+		}
+
 		RawSQLChange sqlChange = buildDropConstraintChange(constraint);
 		ChangeSet result = buildNextChangeSet();
 		result.addChange(sqlChange);

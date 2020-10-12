@@ -29,6 +29,7 @@
       <foreignKeys xmi:id="_klUzcfKuEeqkNoKeQXnWXA" techID="_klUzcPKuEeqkNoKeQXnWXA" name="FK_1" target="_fyFWcfJ4Eeqsu5GFS77CrA">
         <elements xmi:id="_lapR4fKuEeqkNoKeQXnWXA" comments="Comment on 'foreign key'" techID="_lapR4PKuEeqkNoKeQXnWXA" fkColumn="_iHT44fKuEeqkNoKeQXnWXA" pkColumn="_oG8vofJ4Eeqsu5GFS77CrA"/>
       </foreignKeys>
+      <constraints xmi:id="_mS3UMQyVEeuMstHiHpRqug" comments="" techID="_mS3UMAyVEeuMstHiHpRqug" name="AGE_CHECK_CONSTRAINT" expression="age >= 0"/>
       <columns xmi:id="_c049APKuEeqkNoKeQXnWXA" techID="_c04V8PKuEeqkNoKeQXnWXA" name="ID" primaryKey="_c1O7QfKuEeqkNoKeQXnWXA">
         <type xsi:type="typeslibrary:TypeInstance" xmi:id="_c049AfKuEeqkNoKeQXnWXA">
           <nativeType href="pathmap://NativeDBTypes/MySQL-5#_Zj8LdxEnEeGTa_JlZYBw1A"/>
@@ -39,7 +40,18 @@
           <nativeType href="pathmap://NativeDBTypes/MySQL-5#_Zj8LdxEnEeGTa_JlZYBw1A"/>
         </type>
       </columns>
+      <columns xmi:id="_iRzSgQyVEeuMstHiHpRqug" techID="_iRzSgAyVEeuMstHiHpRqug" name="columnWithSequence" sequence="_uZ_MUQyVEeuMstHiHpRqug">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_iRzSggyVEeuMstHiHpRqug">
+          <nativeType href="pathmap://NativeDBTypes/MySQL-5#_Zj8LdxEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+      <columns xmi:id="_rkPHMQyVEeuMstHiHpRqug" techID="_rkPHMAyVEeuMstHiHpRqug" name="age">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_rkPHMgyVEeuMstHiHpRqug">
+          <nativeType href="pathmap://NativeDBTypes/MySQL-5#_Zj8LdxEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
     </tables>
     <sequences xmi:id="_ujn8gPKWEeqir7Om0lVh3Q" comments="A comment on that 'sequence'" techID="_ujnVcPKWEeqir7Om0lVh3Q" name="Sequence1" start="16" increment="2" minValue="16" maxValue="1026" cacheSize="32"/>
+    <sequences xmi:id="_uZ_MUQyVEeuMstHiHpRqug" techID="_uZ_MUAyVEeuMstHiHpRqug" name="Sequence2" start="0" increment="1" minValue="0" maxValue="150" columns="_iRzSgQyVEeuMstHiHpRqug"/>
   </schemas>
 </database:DataBase>
