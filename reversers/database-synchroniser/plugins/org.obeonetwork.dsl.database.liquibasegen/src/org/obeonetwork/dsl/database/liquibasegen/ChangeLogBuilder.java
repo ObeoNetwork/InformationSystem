@@ -67,6 +67,7 @@ import org.obeonetwork.dsl.database.dbevolution.PrimaryKeyChange;
 import org.obeonetwork.dsl.database.dbevolution.RemoveColumnChange;
 import org.obeonetwork.dsl.database.dbevolution.RemoveConstraint;
 import org.obeonetwork.dsl.database.dbevolution.RemoveForeignKey;
+import org.obeonetwork.dsl.database.dbevolution.RemoveIndex;
 import org.obeonetwork.dsl.database.dbevolution.RemovePrimaryKey;
 import org.obeonetwork.dsl.database.dbevolution.RemoveTable;
 import org.obeonetwork.dsl.database.dbevolution.RenameColumnChange;
@@ -102,6 +103,7 @@ import liquibase.change.core.CreateTableChange;
 import liquibase.change.core.CreateViewChange;
 import liquibase.change.core.DropColumnChange;
 import liquibase.change.core.DropForeignKeyConstraintChange;
+import liquibase.change.core.DropIndexChange;
 import liquibase.change.core.DropNotNullConstraintChange;
 import liquibase.change.core.DropPrimaryKeyChange;
 import liquibase.change.core.DropTableChange;
@@ -298,9 +300,34 @@ public class ChangeLogBuilder {
 	private Optional<ChangeSet> buildIndexChangeSet(IndexChange indexChange) {
 		if (indexChange instanceof AddIndex) {
 			return buildAddIndexChangeSet((AddIndex) indexChange);
+		} else if (indexChange instanceof RemoveIndex) {
+			return buildDropIndexChangeSet((RemoveIndex) indexChange);
 		}
 		return Optional.empty();
 
+	}
+
+	private Optional<ChangeSet> buildDropIndexChangeSet(RemoveIndex indexChange) {
+
+		Index index = indexChange.getIndex();
+		Table table = index.getOwner();
+		String tableQN = genService.getFullName(table);
+		if (deletedTables.contains(tableQN)) {
+			// The index will be dropped with the table
+			return Optional.empty();
+		}
+
+		DropIndexChange dChange = new DropIndexChange();
+
+		safeSchemaSetter(table.getOwner(), dChange::setSchemaName);
+		safeTrimSetter(table.getName(), dChange::setTableName);
+		safeTrimSetter(index.getName(), dChange::setIndexName);
+
+		ChangeSet changeSet = buildNextChangeSet();
+		changeSet.setComments("Drop index " + index.getName());
+		changeSet.addChange(dChange);
+
+		return Optional.of(changeSet);
 	}
 
 	private Optional<ChangeSet> buildAddIndexChangeSet(AddIndex addIndex) {
