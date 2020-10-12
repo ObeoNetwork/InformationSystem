@@ -61,10 +61,12 @@ import org.obeonetwork.dsl.database.dbevolution.AddView;
 import org.obeonetwork.dsl.database.dbevolution.AlterTable;
 import org.obeonetwork.dsl.database.dbevolution.ConstraintChange;
 import org.obeonetwork.dsl.database.dbevolution.DBDiff;
+import org.obeonetwork.dsl.database.dbevolution.ForeignKeyChange;
 import org.obeonetwork.dsl.database.dbevolution.IndexChange;
 import org.obeonetwork.dsl.database.dbevolution.PrimaryKeyChange;
 import org.obeonetwork.dsl.database.dbevolution.RemoveColumnChange;
 import org.obeonetwork.dsl.database.dbevolution.RemoveConstraint;
+import org.obeonetwork.dsl.database.dbevolution.RemoveForeignKey;
 import org.obeonetwork.dsl.database.dbevolution.RemovePrimaryKey;
 import org.obeonetwork.dsl.database.dbevolution.RemoveTable;
 import org.obeonetwork.dsl.database.dbevolution.RenameColumnChange;
@@ -98,6 +100,7 @@ import liquibase.change.core.CreateSequenceChange;
 import liquibase.change.core.CreateTableChange;
 import liquibase.change.core.CreateViewChange;
 import liquibase.change.core.DropColumnChange;
+import liquibase.change.core.DropForeignKeyConstraintChange;
 import liquibase.change.core.DropNotNullConstraintChange;
 import liquibase.change.core.DropPrimaryKeyChange;
 import liquibase.change.core.DropTableChange;
@@ -351,7 +354,7 @@ public class ChangeLogBuilder {
 	}
 
 	private Collection<? extends ChangeLogChild> getChangeSetsForForeignKeys(List<DBDiff> diffs) {
-		return filterAndCast(diffs.stream(), AddForeignKey.class)//
+		return filterAndCast(diffs.stream(), ForeignKeyChange.class)//
 				.map(this::buildForeignKeyChangeSet)//
 				.filter(Optional::isPresent)//
 				.map(Optional::get)//
@@ -465,8 +468,39 @@ public class ChangeLogBuilder {
 		return aChange;
 	}
 
-	private Optional<ChangeSet> buildForeignKeyChangeSet(AddForeignKey adForeign) {
-		ForeignKey fk = adForeign.getForeignKey();
+	private Optional<ChangeSet> buildForeignKeyChangeSet(ForeignKeyChange foreignKeyChange) {
+		if (foreignKeyChange instanceof AddForeignKey) {
+			return buildAddForeignKeyChangeSet((AddForeignKey) foreignKeyChange);
+		} else if (foreignKeyChange instanceof RemoveForeignKey) {
+			return buildDropForeignKeyChangeSet((RemoveForeignKey) foreignKeyChange);
+		}
+		return Optional.empty();
+
+	}
+
+	private Optional<ChangeSet> buildDropForeignKeyChangeSet(RemoveForeignKey foreignKeyChange) {
+		ForeignKey fk = foreignKeyChange.getForeignKey();
+		Table sourceTable = fk.getSourceTable();
+		String sourceTableQn = genService.getFullName(sourceTable);
+
+		// Dropping the ownign table will also drop the FK constraint
+		if (deletedTables.contains(sourceTableQn)) {
+			return Optional.empty();
+		} else {
+			DropForeignKeyConstraintChange dChange = new DropForeignKeyConstraintChange();
+			safeSchemaSetter(sourceTable.getOwner(), dChange::setBaseTableSchemaName);
+			safeTrimSetter(sourceTable.getName(), dChange::setBaseTableName);
+			safeTrimSetter(fk.getName(), dChange::setConstraintName);
+
+			ChangeSet changeSet = buildNextChangeSet();
+			changeSet.setComments("Dropping foreign key " + fk.getName());
+			changeSet.addChange(dChange);
+			return Optional.of(changeSet);
+		}
+	}
+
+	private Optional<ChangeSet> buildAddForeignKeyChangeSet(AddForeignKey addForeign) {
+		ForeignKey fk = addForeign.getForeignKey();
 		AddForeignKeyConstraintChange changeDescription = new AddForeignKeyConstraintChange();
 
 		if (fk.getElements().stream().allMatch(e -> e.getPkColumn() != null)) {
@@ -504,7 +538,6 @@ public class ChangeLogBuilder {
 			statuses.add(createWarningStatus("Invalid foreign key definition : " + fk.getName()));
 		}
 		return Optional.empty();
-
 	}
 
 	private Optional<ChangeSet> buildAddTableChangeSet(AddTable addTable) {
