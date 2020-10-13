@@ -230,6 +230,11 @@ public class LiquibaseGenTest extends AbstractLiquibaseTest {
 		assertGenerationEquals("49-updateSequenceProps-oracle");
 	}
 
+	@Test
+	public void dropView() {
+		assertGenerationEquals("50-dropView-mysql");
+	}
+
 
 	@Test
 	public void representativeModelFromScratch_MySQL() throws Exception {

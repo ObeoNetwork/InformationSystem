@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="ASCII"?>
+<database:DataBase xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:database="http://www.obeonetwork.org/dsl/database/1.0" xmlns:typeslibrary="http://www.obeonetwork.org/dsl/typeslibrary/1.0" xmi:id="_ZbbWYPJ4Eeqsu5GFS77CrA" techID="_ZbYTEPJ4Eeqsu5GFS77CrA" name="MySQL">
+  <usedLibraries xsi:type="typeslibrary:NativeTypesLibrary" href="pathmap://NativeDBTypes/MySQL-5#_Zj69UBEnEeGTa_JlZYBw1A"/>
+  <schemas xmi:id="_dW7ioPJ4Eeqsu5GFS77CrA" techID="_dW67kPJ4Eeqsu5GFS77CrA" name="STOREBOOK">
+    <tables xsi:type="database:Table" xmi:id="_fyFWcfJ4Eeqsu5GFS77CrA" techID="_fyFWcPJ4Eeqsu5GFS77CrA" name="Table1">
+      <primaryKey xmi:id="_oHNOUfJ4Eeqsu5GFS77CrA" techID="_oHNOUPJ4Eeqsu5GFS77CrA" name="Table1_PK" columns="_oG8vofJ4Eeqsu5GFS77CrA"/>
+      <indexes xmi:id="_iKajIPKhEeqC1JqxbF9-_g" techID="_iKZVAPKhEeqC1JqxbF9-_g" name="Index1">
+        <elements xmi:id="_MsmhQPKiEeqC1JqxbF9-_g" comments="A comment on 'index'" techID="_Msl6MPKiEeqC1JqxbF9-_g" column="_4JSx4fJ4Eeqsu5GFS77CrA"/>
+      </indexes>
+      <columns xmi:id="_oG8vofJ4Eeqsu5GFS77CrA" techID="_oG8voPJ4Eeqsu5GFS77CrA" name="ID" primaryKey="_oHNOUfJ4Eeqsu5GFS77CrA">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_oG8vovJ4Eeqsu5GFS77CrA">
+          <nativeType href="pathmap://NativeDBTypes/MySQL-5#_Zj8LdxEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+      <columns xmi:id="_4JSx4fJ4Eeqsu5GFS77CrA" techID="_4JSx4PJ4Eeqsu5GFS77CrA" name="quantity" indexElements="_MsmhQPKiEeqC1JqxbF9-_g">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_4JSx4vJ4Eeqsu5GFS77CrA">
+          <nativeType href="pathmap://NativeDBTypes/MySQL-5#_Zj8LdxEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+      <columns xmi:id="_80wbcfJ4Eeqsu5GFS77CrA" techID="_80wbcPJ4Eeqsu5GFS77CrA" name="price">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_80wbcvJ4Eeqsu5GFS77CrA">
+          <nativeType href="pathmap://NativeDBTypes/MySQL-5#_Zj8LdREnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+    </tables>
+    <tables xsi:type="database:Table" xmi:id="_bvQKofKuEeqkNoKeQXnWXA" techID="_bvQKoPKuEeqkNoKeQXnWXA" name="Table3">
+      <primaryKey xmi:id="_c1O7QfKuEeqkNoKeQXnWXA" techID="_c1O7QPKuEeqkNoKeQXnWXA" name="Table3_PK" columns="_c049APKuEeqkNoKeQXnWXA"/>
+      <foreignKeys xmi:id="_klUzcfKuEeqkNoKeQXnWXA" techID="_klUzcPKuEeqkNoKeQXnWXA" name="FK_1" target="_fyFWcfJ4Eeqsu5GFS77CrA">
+        <elements xmi:id="_lapR4fKuEeqkNoKeQXnWXA" comments="Comment on 'foreign key'" techID="_lapR4PKuEeqkNoKeQXnWXA" fkColumn="_iHT44fKuEeqkNoKeQXnWXA" pkColumn="_oG8vofJ4Eeqsu5GFS77CrA"/>
+      </foreignKeys>
+      <constraints xmi:id="_mS3UMQyVEeuMstHiHpRqug" comments="" techID="_mS3UMAyVEeuMstHiHpRqug" name="AGE_CHECK_CONSTRAINT" expression="age >= 0"/>
+      <columns xmi:id="_c049APKuEeqkNoKeQXnWXA" techID="_c04V8PKuEeqkNoKeQXnWXA" name="ID" primaryKey="_c1O7QfKuEeqkNoKeQXnWXA">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_c049AfKuEeqkNoKeQXnWXA">
+          <nativeType href="pathmap://NativeDBTypes/MySQL-5#_Zj8LdxEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+      <columns xmi:id="_iHT44fKuEeqkNoKeQXnWXA" techID="_iHT44PKuEeqkNoKeQXnWXA" name="t1Id" foreignKeyElements="_lapR4fKuEeqkNoKeQXnWXA">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_iHT44vKuEeqkNoKeQXnWXA">
+          <nativeType href="pathmap://NativeDBTypes/MySQL-5#_Zj8LdxEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+      <columns xmi:id="_iRzSgQyVEeuMstHiHpRqug" techID="_iRzSgAyVEeuMstHiHpRqug" name="columnWithSequence" sequence="_uZ_MUQyVEeuMstHiHpRqug">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_iRzSggyVEeuMstHiHpRqug">
+          <nativeType href="pathmap://NativeDBTypes/MySQL-5#_Zj8LdxEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+      <columns xmi:id="_rkPHMQyVEeuMstHiHpRqug" techID="_rkPHMAyVEeuMstHiHpRqug" name="age">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_rkPHMgyVEeuMstHiHpRqug">
+          <nativeType href="pathmap://NativeDBTypes/MySQL-5#_Zj8LdxEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+    </tables>
+    <sequences xmi:id="_ujn8gPKWEeqir7Om0lVh3Q" comments="A comment on that 'sequence'" techID="_ujnVcPKWEeqir7Om0lVh3Q" name="Sequence1" start="16" increment="2" minValue="16" maxValue="1026" cacheSize="32"/>
+    <sequences xmi:id="_uZ_MUQyVEeuMstHiHpRqug" techID="_uZ_MUAyVEeuMstHiHpRqug" name="Sequence2" start="0" increment="1" minValue="0" maxValue="150" columns="_iRzSgQyVEeuMstHiHpRqug"/>
+  </schemas>
+</database:DataBase>

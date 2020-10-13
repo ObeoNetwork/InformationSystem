@@ -50,6 +50,7 @@ import org.obeonetwork.dsl.database.PrimaryKey;
 import org.obeonetwork.dsl.database.Schema;
 import org.obeonetwork.dsl.database.Sequence;
 import org.obeonetwork.dsl.database.Table;
+import org.obeonetwork.dsl.database.TableContainer;
 import org.obeonetwork.dsl.database.View;
 import org.obeonetwork.dsl.database.dbevolution.AddColumnChange;
 import org.obeonetwork.dsl.database.dbevolution.AddConstraint;
@@ -72,6 +73,7 @@ import org.obeonetwork.dsl.database.dbevolution.RemoveIndex;
 import org.obeonetwork.dsl.database.dbevolution.RemovePrimaryKey;
 import org.obeonetwork.dsl.database.dbevolution.RemoveSequence;
 import org.obeonetwork.dsl.database.dbevolution.RemoveTable;
+import org.obeonetwork.dsl.database.dbevolution.RemoveView;
 import org.obeonetwork.dsl.database.dbevolution.RenameColumnChange;
 import org.obeonetwork.dsl.database.dbevolution.RenameTableChange;
 import org.obeonetwork.dsl.database.dbevolution.SequenceChange;
@@ -113,6 +115,7 @@ import liquibase.change.core.DropNotNullConstraintChange;
 import liquibase.change.core.DropPrimaryKeyChange;
 import liquibase.change.core.DropSequenceChange;
 import liquibase.change.core.DropTableChange;
+import liquibase.change.core.DropViewChange;
 import liquibase.change.core.ModifyDataTypeChange;
 import liquibase.change.core.RawSQLChange;
 import liquibase.change.core.SetColumnRemarksChange;
@@ -190,8 +193,23 @@ public class ChangeLogBuilder {
 	private Optional<ChangeSet> buildViewChangeSet(ViewChange viewChange) {
 		if (viewChange instanceof AddView) {
 			return Optional.of(buildAddViewChangeSet((AddView) viewChange));
+		} else if (viewChange instanceof RemoveView) {
+			return buildDropViewChangeSet((RemoveView) viewChange);
 		}
 		return Optional.empty();
+	}
+
+	private Optional<ChangeSet> buildDropViewChangeSet(RemoveView viewChange) {
+		View view = viewChange.getView();
+		TableContainer container = view.getOwner();
+		DropViewChange dChange = new DropViewChange();
+		safeSchemaSetter(container, dChange::setSchemaName);
+		safeTrimSetter(view.getName(), dChange::setViewName);
+
+		ChangeSet changeSet = buildNextChangeSet();
+		changeSet.setComments("Dropping view : " + view.getName());
+		changeSet.addChange(dChange);
+		return Optional.of(changeSet);
 	}
 
 	private ChangeSet buildAddViewChangeSet(AddView viewChange) {
