@@ -57,6 +57,10 @@ public class LiquibaseGenTest extends AbstractLiquibaseTest {
 
 	@Test
 	public void dropTable() {
+		// In this test an linked sequence is also dropped during the deleting of the
+		// table
+		// It explain the 2 cahgneSet presents in this changeLog file
+		// This behavior should be challenged against real uses
 		assertGenerationEquals("20-dropTable-mysql");
 	}
 
@@ -206,6 +210,11 @@ public class LiquibaseGenTest extends AbstractLiquibaseTest {
 	@Test
 	public void updateIndex() {
 		assertGenerationEquals("46-updateIndex-mysql");
+	}
+
+	@Test
+	public void dropSequence() {
+		assertGenerationEquals("47-dropSequence-oracle");
 	}
 
 

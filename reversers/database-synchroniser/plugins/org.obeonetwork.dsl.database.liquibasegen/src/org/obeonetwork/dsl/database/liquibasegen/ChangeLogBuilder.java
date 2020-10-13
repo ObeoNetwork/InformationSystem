@@ -69,6 +69,7 @@ import org.obeonetwork.dsl.database.dbevolution.RemoveConstraint;
 import org.obeonetwork.dsl.database.dbevolution.RemoveForeignKey;
 import org.obeonetwork.dsl.database.dbevolution.RemoveIndex;
 import org.obeonetwork.dsl.database.dbevolution.RemovePrimaryKey;
+import org.obeonetwork.dsl.database.dbevolution.RemoveSequence;
 import org.obeonetwork.dsl.database.dbevolution.RemoveTable;
 import org.obeonetwork.dsl.database.dbevolution.RenameColumnChange;
 import org.obeonetwork.dsl.database.dbevolution.RenameTableChange;
@@ -107,6 +108,7 @@ import liquibase.change.core.DropForeignKeyConstraintChange;
 import liquibase.change.core.DropIndexChange;
 import liquibase.change.core.DropNotNullConstraintChange;
 import liquibase.change.core.DropPrimaryKeyChange;
+import liquibase.change.core.DropSequenceChange;
 import liquibase.change.core.DropTableChange;
 import liquibase.change.core.ModifyDataTypeChange;
 import liquibase.change.core.RawSQLChange;
@@ -217,9 +219,26 @@ public class ChangeLogBuilder {
 	private Optional<ChangeSet> buildSequenceChangeSet(SequenceChange sequenceChange) {
 		if (sequenceChange instanceof AddSequence) {
 			return Optional.of(buildAddSequenceChangeSet((AddSequence) sequenceChange));
-
+		} else if (sequenceChange instanceof RemoveSequence) {
+			return buildDropSequenceChangeSet((RemoveSequence) sequenceChange);
 		}
 		return Optional.empty();
+	}
+
+	private Optional<ChangeSet> buildDropSequenceChangeSet(RemoveSequence sequenceChange) {
+		DropSequenceChange dChange = new DropSequenceChange();
+
+		Sequence sequence = sequenceChange.getSequence();
+		EObject container = sequence.eContainer();
+
+		safeSchemaSetter(container, dChange::setSchemaName);
+		safeTrimSetter(sequence.getName(), dChange::setSequenceName);
+
+		ChangeSet changeSet = buildNextChangeSet();
+		changeSet.setComments("Dropping sequence :" + sequence.getName());
+		changeSet.addChange(dChange);
+
+		return Optional.of(changeSet);
 	}
 
 	private ChangeSet buildAddSequenceChangeSet(AddSequence sequenceChange) {
@@ -236,7 +255,6 @@ public class ChangeLogBuilder {
 		safeBigIntegerSetter(sequence.getCacheSize(), sChange::setCacheSize);
 		safeSchemaSetter(sequence.eContainer(), sChange::setSchemaName);
 		sChange.setCycle(sequence.isCycle());
-
 		ChangeSet changeSet = buildNextChangeSet();
 		changeSet.setComments("Sequence " + sequence.getName() + " : " + sequence.getComments());
 		changeSet.addChange(sChange);
