@@ -23,6 +23,7 @@ import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
+import java.util.Objects;
 import java.util.Optional;
 import java.util.Set;
 import java.util.function.Consumer;
@@ -80,6 +81,7 @@ import org.obeonetwork.dsl.database.dbevolution.UpdateConstraint;
 import org.obeonetwork.dsl.database.dbevolution.UpdateForeignKey;
 import org.obeonetwork.dsl.database.dbevolution.UpdateIndex;
 import org.obeonetwork.dsl.database.dbevolution.UpdatePrimaryKey;
+import org.obeonetwork.dsl.database.dbevolution.UpdateSequence;
 import org.obeonetwork.dsl.database.dbevolution.UpdateTableCommentChange;
 import org.obeonetwork.dsl.database.dbevolution.ViewChange;
 import org.obeonetwork.dsl.database.liquibasegen.service.DefaultTypeMatcher;
@@ -99,6 +101,7 @@ import liquibase.change.core.AddDefaultValueChange;
 import liquibase.change.core.AddForeignKeyConstraintChange;
 import liquibase.change.core.AddNotNullConstraintChange;
 import liquibase.change.core.AddPrimaryKeyChange;
+import liquibase.change.core.AlterSequenceChange;
 import liquibase.change.core.CreateIndexChange;
 import liquibase.change.core.CreateSequenceChange;
 import liquibase.change.core.CreateTableChange;
@@ -221,18 +224,54 @@ public class ChangeLogBuilder {
 			return Optional.of(buildAddSequenceChangeSet((AddSequence) sequenceChange));
 		} else if (sequenceChange instanceof RemoveSequence) {
 			return buildDropSequenceChangeSet((RemoveSequence) sequenceChange);
+		} else if (sequenceChange instanceof UpdateSequence) {
+			return buildUpdateSequenceChangeSet((UpdateSequence) sequenceChange);
 		}
 		return Optional.empty();
 	}
 
+	private Optional<ChangeSet> buildUpdateSequenceChangeSet(UpdateSequence sequenceChange) {
+
+		Sequence newSequence = sequenceChange.getNewSequence();
+		Sequence oldSequence = sequenceChange.getSequence();
+		ChangeSet changeSet = buildNextChangeSet();
+		if (Objects.equals(newSequence.getName(), oldSequence.getName())) {
+			AlterSequenceChange aChange = buildAlterSequenceChange(newSequence);
+			changeSet.setComments("Updating existing sequence " + newSequence.getName());
+			changeSet.addChange(aChange);
+			return Optional.of(changeSet);
+
+		} else {
+			changeSet.setComments("Updating existing sequence (name changed)" + newSequence.getName());
+			changeSet.addChange(buildDropSequenceChange(oldSequence));
+			changeSet.addChange(buildAddSequenceChange(newSequence));
+			return Optional.of(changeSet);
+
+		}
+	}
+
+	private AlterSequenceChange buildAlterSequenceChange(Sequence sequence) {
+		EObject owner = sequence.eContainer();
+		AlterSequenceChange aChange = new AlterSequenceChange();
+		safeSchemaSetter(owner, aChange::setSchemaName);
+		safeTrimSetter(sequence.getName(), aChange::setSequenceName);
+
+		safeBigIntegerSetter(sequence.getIncrement(), aChange::setIncrementBy);
+		safeBigIntegerSetter(sequence.getMinValue(), aChange::setMinValue);
+		safeBigIntegerSetter(sequence.getMaxValue(), aChange::setMaxValue);
+		// Impossible to change start value of an existing sequence see
+		// https://support.jira.obeo.fr/browse/SAFRAN-815?focusedCommentId=3540647&page=com.atlassian.jira.plugin.system.issuetabpanels:comment-tabpanel#comment-3540647
+		safeBigIntegerSetter(sequence.getCacheSize(), aChange::setCacheSize);
+		safeBigIntegerSetter(sequence.getCacheSize(), aChange::setCacheSize);
+		safeSchemaSetter(sequence.eContainer(), aChange::setSchemaName);
+		aChange.setCycle(sequence.isCycle());
+		return aChange;
+	}
+
 	private Optional<ChangeSet> buildDropSequenceChangeSet(RemoveSequence sequenceChange) {
-		DropSequenceChange dChange = new DropSequenceChange();
 
 		Sequence sequence = sequenceChange.getSequence();
-		EObject container = sequence.eContainer();
-
-		safeSchemaSetter(container, dChange::setSchemaName);
-		safeTrimSetter(sequence.getName(), dChange::setSequenceName);
+		DropSequenceChange dChange = buildDropSequenceChange(sequence);
 
 		ChangeSet changeSet = buildNextChangeSet();
 		changeSet.setComments("Dropping sequence :" + sequence.getName());
@@ -241,11 +280,30 @@ public class ChangeLogBuilder {
 		return Optional.of(changeSet);
 	}
 
+	private DropSequenceChange buildDropSequenceChange(Sequence sequence) {
+		DropSequenceChange dChange = new DropSequenceChange();
+		EObject container = sequence.eContainer();
+
+		safeSchemaSetter(container, dChange::setSchemaName);
+		safeTrimSetter(sequence.getName(), dChange::setSequenceName);
+
+		return dChange;
+	}
+
 	private ChangeSet buildAddSequenceChangeSet(AddSequence sequenceChange) {
-		CreateSequenceChange sChange = new CreateSequenceChange();
 
 		Sequence sequence = sequenceChange.getSequence();
 
+		CreateSequenceChange sChange = buildAddSequenceChange(sequence);
+		ChangeSet changeSet = buildNextChangeSet();
+		changeSet.setComments("Sequence " + sequence.getName() + " : " + sequence.getComments());
+		changeSet.addChange(sChange);
+
+		return changeSet;
+	}
+
+	private CreateSequenceChange buildAddSequenceChange(Sequence sequence) {
+		CreateSequenceChange sChange = new CreateSequenceChange();
 		safeTrimSetter(sequence.getName(), sChange::setSequenceName);
 		safeBigIntegerSetter(sequence.getIncrement(), sChange::setIncrementBy);
 		safeBigIntegerSetter(sequence.getMinValue(), sChange::setMinValue);
@@ -255,11 +313,7 @@ public class ChangeLogBuilder {
 		safeBigIntegerSetter(sequence.getCacheSize(), sChange::setCacheSize);
 		safeSchemaSetter(sequence.eContainer(), sChange::setSchemaName);
 		sChange.setCycle(sequence.isCycle());
-		ChangeSet changeSet = buildNextChangeSet();
-		changeSet.setComments("Sequence " + sequence.getName() + " : " + sequence.getComments());
-		changeSet.addChange(sChange);
-
-		return changeSet;
+		return sChange;
 	}
 
 	private Collection<? extends ChangeLogChild> getChangeSetsForIndexes(List<DBDiff> diffs) {
@@ -866,7 +920,7 @@ public class ChangeLogBuilder {
 	 * @param attribute    the expected attribute
 	 * @return <code>true</code> if the attributes has changed
 	 */
-	private boolean hasChanged(UpdateColumnChange updateChange, EAttribute attribute) {
+	private boolean hasAttributeChangeChanged(Diff updateChange, EAttribute attribute) {
 
 		Match match = updateChange.getMatch();
 
@@ -927,7 +981,7 @@ public class ChangeLogBuilder {
 		}
 
 		// Nullable
-		if (hasChanged(updateColumnChange, DatabasePackage.eINSTANCE.getColumn_Nullable())) {
+		if (hasAttributeChangeChanged(updateColumnChange, DatabasePackage.eINSTANCE.getColumn_Nullable())) {
 			if (column.isNullable()) {
 				result.add(buildDropNotNullConstraint(column));
 			} else {
@@ -936,7 +990,7 @@ public class ChangeLogBuilder {
 		}
 
 		// Auto increment
-		if (hasChanged(updateColumnChange, DatabasePackage.eINSTANCE.getColumn_Autoincrement())) {
+		if (hasAttributeChangeChanged(updateColumnChange, DatabasePackage.eINSTANCE.getColumn_Autoincrement())) {
 			if (column.isAutoincrement()) {
 				result.add(buildAddAutoIncrementConstraint(column));
 			} else {
@@ -947,12 +1001,12 @@ public class ChangeLogBuilder {
 			}
 		}
 		// Default value
-		if (hasChanged(updateColumnChange, DatabasePackage.eINSTANCE.getColumn_DefaultValue())) {
+		if (hasAttributeChangeChanged(updateColumnChange, DatabasePackage.eINSTANCE.getColumn_DefaultValue())) {
 			buildChangeDefaultValueOnColumn(column).ifPresent(result::add);
 		}
 
 		// Update comment
-		if (hasChanged(updateColumnChange, DatabasePackage.eINSTANCE.getDatabaseElement_Comments())) {
+		if (hasAttributeChangeChanged(updateColumnChange, DatabasePackage.eINSTANCE.getDatabaseElement_Comments())) {
 			result.add(buildCommentOnColumn(column));
 		}
 		return result;

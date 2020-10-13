@@ -217,6 +217,19 @@ public class LiquibaseGenTest extends AbstractLiquibaseTest {
 		assertGenerationEquals("47-dropSequence-oracle");
 	}
 
+	@Test
+	public void updateSequenceName() {
+		assertGenerationEquals("48-updateSequenceName-oracle");
+	}
+
+	/**
+	 * Modify all sequence properties (except its name)
+	 */
+	@Test
+	public void updateSequenceProps() {
+		assertGenerationEquals("49-updateSequenceProps-oracle");
+	}
+
 
 	@Test
 	public void representativeModelFromScratch_MySQL() throws Exception {

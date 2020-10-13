@@ -1,0 +1,19 @@
+<?xml version="1.1" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog" xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext" xmlns:pro="http://www.liquibase.org/xml/ns/pro" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd http://www.liquibase.org/xml/ns/pro http://www.liquibase.org/xml/ns/pro/liquibase-pro-4.0.xsd http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.0.xsd">
+    <changeSet author="IS Designer" id="test0">
+        <comment>Updating existing sequence Sequence2</comment>
+        <alterSequence cacheSize="32" cycle="false" incrementBy="3" maxValue="1016" minValue="16" schemaName="STOREBOOK" sequenceName="Sequence2"/>
+    </changeSet>
+    <changeSet author="IS Designer" id="test1">
+        <comment>Updating existing sequence Sequence5</comment>
+        <alterSequence cacheSize="32" cycle="true" incrementBy="2" maxValue="1016" minValue="16" schemaName="STOREBOOK" sequenceName="Sequence5"/>
+    </changeSet>
+    <changeSet author="IS Designer" id="test2">
+        <comment>Updating existing sequence Sequence7</comment>
+        <alterSequence cacheSize="32" cycle="false" incrementBy="2" maxValue="1016" minValue="16" schemaName="STOREBOOK" sequenceName="Sequence7"/>
+    </changeSet>
+    <changeSet author="IS Designer" id="test3">
+        <comment>Updating existing sequence Sequence1</comment>
+        <alterSequence cacheSize="32" cycle="false" incrementBy="2" maxValue="1016" minValue="16" schemaName="STOREBOOK" sequenceName="Sequence1"/>
+    </changeSet>
+</databaseChangeLog>
