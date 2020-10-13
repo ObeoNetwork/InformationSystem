@@ -4,15 +4,24 @@
   <schemas xmi:id="_dW7ioPJ4Eeqsu5GFS77CrA" techID="_dW67kPJ4Eeqsu5GFS77CrA" name="STOREBOOK">
     <tables xsi:type="database:Table" xmi:id="_fyFWcfJ4Eeqsu5GFS77CrA" techID="_fyFWcPJ4Eeqsu5GFS77CrA" name="Table1">
       <primaryKey xmi:id="_oHNOUfJ4Eeqsu5GFS77CrA" techID="_oHNOUPJ4Eeqsu5GFS77CrA" name="Table1_PK" columns="_oG8vofJ4Eeqsu5GFS77CrA"/>
-      <indexes xmi:id="_iKajIPKhEeqC1JqxbF9-_g" techID="_iKZVAPKhEeqC1JqxbF9-_g" name="Index1">
-        <elements xmi:id="_MsmhQPKiEeqC1JqxbF9-_g" comments="A comment on 'index'" techID="_Msl6MPKiEeqC1JqxbF9-_g" column="_4JSx4fJ4Eeqsu5GFS77CrA"/>
+      <foreignKeys xmi:id="_-1hqEQ03EeuO7oAHXusttQ" techID="_-1hqEA03EeuO7oAHXusttQ" name="FK_1" target="_7p7QwA03EeuO7oAHXusttQ">
+        <elements xmi:id="_-1iRIw03EeuO7oAHXusttQ" techID="_-1iRIg03EeuO7oAHXusttQ" fkColumn="_-1hqEw03EeuO7oAHXusttQ" pkColumn="_8muQMQ03EeuO7oAHXusttQ"/>
+      </foreignKeys>
+      <indexes xmi:id="_imbFIQ05EeuO7oAHXusttQ" techID="_imbFIA05EeuO7oAHXusttQ" name="Table1_ID_UNIQUE_INDEX" unique="true">
+        <elements xmi:id="_imbFIw05EeuO7oAHXusttQ" techID="_imbFIg05EeuO7oAHXusttQ" column="_oG8vofJ4Eeqsu5GFS77CrA" asc="true"/>
       </indexes>
-      <columns xmi:id="_oG8vofJ4Eeqsu5GFS77CrA" techID="_oG8voPJ4Eeqsu5GFS77CrA" name="ID" primaryKey="_oHNOUfJ4Eeqsu5GFS77CrA">
+      <indexes xmi:id="_jQsKIQ05EeuO7oAHXusttQ" techID="_jQsKIA05EeuO7oAHXusttQ" name="IndexOnFK">
+        <elements xmi:id="_kZAdEQ05EeuO7oAHXusttQ" comments="" techID="_kZAdEA05EeuO7oAHXusttQ" column="_-1hqEw03EeuO7oAHXusttQ"/>
+      </indexes>
+      <indexes xmi:id="_nLqK4Q05EeuO7oAHXusttQ" techID="_nLqK4A05EeuO7oAHXusttQ" name="IndexOnQuantity">
+        <elements xmi:id="_o5toIQ05EeuO7oAHXusttQ" comments="With comment" techID="_o5toIA05EeuO7oAHXusttQ" column="_4JSx4fJ4Eeqsu5GFS77CrA"/>
+      </indexes>
+      <columns xmi:id="_oG8vofJ4Eeqsu5GFS77CrA" techID="_oG8voPJ4Eeqsu5GFS77CrA" name="ID" indexElements="_imbFIw05EeuO7oAHXusttQ" primaryKey="_oHNOUfJ4Eeqsu5GFS77CrA">
         <type xsi:type="typeslibrary:TypeInstance" xmi:id="_oG8vovJ4Eeqsu5GFS77CrA">
           <nativeType href="pathmap://NativeDBTypes/MySQL-5#_Zj8LdxEnEeGTa_JlZYBw1A"/>
         </type>
       </columns>
-      <columns xmi:id="_4JSx4fJ4Eeqsu5GFS77CrA" techID="_4JSx4PJ4Eeqsu5GFS77CrA" name="quantity" indexElements="_MsmhQPKiEeqC1JqxbF9-_g">
+      <columns xmi:id="_4JSx4fJ4Eeqsu5GFS77CrA" techID="_4JSx4PJ4Eeqsu5GFS77CrA" name="quantity" indexElements="_o5toIQ05EeuO7oAHXusttQ">
         <type xsi:type="typeslibrary:TypeInstance" xmi:id="_4JSx4vJ4Eeqsu5GFS77CrA">
           <nativeType href="pathmap://NativeDBTypes/MySQL-5#_Zj8LdxEnEeGTa_JlZYBw1A"/>
         </type>
@@ -22,8 +31,21 @@
           <nativeType href="pathmap://NativeDBTypes/MySQL-5#_Zj8LdREnEeGTa_JlZYBw1A"/>
         </type>
       </columns>
+      <columns xmi:id="_-1hqEw03EeuO7oAHXusttQ" techID="_-1hqEg03EeuO7oAHXusttQ" name="column1" indexElements="_kZAdEQ05EeuO7oAHXusttQ" foreignKeyElements="_-1iRIw03EeuO7oAHXusttQ">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_-1iRIQ03EeuO7oAHXusttQ" technicalid="_-1iRIA03EeuO7oAHXusttQ">
+          <nativeType href="pathmap://NativeDBTypes/MySQL-5#_Zj8LdhEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
     </tables>
     <tables xsi:type="database:View" xmi:id="_IdPhgPJ5Eeqsu5GFS77CrA" comments="A comment a 'table'." techID="_IZlwmPJ5Eeqsu5GFS77CrA" name="ValueView" query="select quantity, price from Table1"/>
+    <tables xsi:type="database:Table" xmi:id="_7p7QwA03EeuO7oAHXusttQ" techID="_7p6psA03EeuO7oAHXusttQ" name="Table2">
+      <primaryKey xmi:id="_8m85sQ03EeuO7oAHXusttQ" techID="_8m85sA03EeuO7oAHXusttQ" name="Table2_PK" columns="_8muQMQ03EeuO7oAHXusttQ"/>
+      <columns xmi:id="_8muQMQ03EeuO7oAHXusttQ" techID="_8muQMA03EeuO7oAHXusttQ" name="column1" primaryKey="_8m85sQ03EeuO7oAHXusttQ">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_8muQMg03EeuO7oAHXusttQ">
+          <nativeType href="pathmap://NativeDBTypes/MySQL-5#_Zj8LdhEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+    </tables>
     <sequences xmi:id="_ujn8gPKWEeqir7Om0lVh3Q" comments="A comment on that 'sequence'" techID="_ujnVcPKWEeqir7Om0lVh3Q" name="Sequence1" start="16" increment="2" minValue="16" maxValue="1026" cacheSize="32"/>
   </schemas>
 </database:DataBase>

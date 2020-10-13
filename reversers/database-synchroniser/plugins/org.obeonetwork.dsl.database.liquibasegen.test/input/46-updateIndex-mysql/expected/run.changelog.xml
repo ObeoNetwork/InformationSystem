@@ -1,0 +1,24 @@
+<?xml version="1.1" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog" xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext" xmlns:pro="http://www.liquibase.org/xml/ns/pro" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd http://www.liquibase.org/xml/ns/pro http://www.liquibase.org/xml/ns/pro/liquibase-pro-4.0.xsd http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.0.xsd">
+    <changeSet author="IS Designer" id="test0">
+        <comment>Updating index Index1</comment>
+        <dropIndex indexName="Index1" schemaName="STOREBOOK" tableName="FirstTable"/>
+        <createIndex indexName="Index1v2" schemaName="STOREBOOK" tableName="FirstTable" unique="false">
+            <column descending="true" name="quantity"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="IS Designer" id="test1">
+        <comment>Updating index Index_C4</comment>
+        <dropIndex indexName="Index_C4" schemaName="STOREBOOK" tableName="Table4"/>
+        <createIndex indexName="Index_C4" schemaName="STOREBOOK" tableName="Table4" unique="true">
+            <column descending="true" name="column4"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="IS Designer" id="test2">
+        <comment>Updating index Index_c3</comment>
+        <dropIndex indexName="Index_c3" schemaName="STOREBOOK" tableName="Table4"/>
+        <createIndex indexName="Index_c3" schemaName="STOREBOOK" tableName="Table4" unique="false">
+            <column descending="true" name="column3"/>
+        </createIndex>
+    </changeSet>
+</databaseChangeLog>

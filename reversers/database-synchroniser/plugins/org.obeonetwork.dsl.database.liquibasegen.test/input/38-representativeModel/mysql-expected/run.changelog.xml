@@ -117,26 +117,26 @@
     <changeSet author="IS Designer" id="test11">
         <comment>Index : GS_SAISON_UN2_1</comment>
         <createIndex indexName="GS_SAISON_UN2_1" schemaName="GS" tableName="GS_SAISON" unique="true">
-            <column name="GS_SERIE_ID"/>
-            <column name="GS_SAISON_NUM"/>
+            <column descending="false" name="GS_SERIE_ID"/>
+            <column descending="false" name="GS_SAISON_NUM"/>
         </createIndex>
     </changeSet>
     <changeSet author="IS Designer" id="test12">
         <comment>Index : GS_SERIE_UN1_1</comment>
         <createIndex indexName="GS_SERIE_UN1_1" schemaName="GS" tableName="GS_SERIE" unique="true">
-            <column name="GS_SERIE_TITRE"/>
+            <column descending="false" name="GS_SERIE_TITRE"/>
         </createIndex>
     </changeSet>
     <changeSet author="IS Designer" id="test13">
         <comment>Index : RF_GENRE_UN1_1</comment>
         <createIndex indexName="RF_GENRE_UN1_1" schemaName="RF" tableName="RF_GENRE" unique="true">
-            <column name="RF_GENRE_LIB"/>
+            <column descending="false" name="RF_GENRE_LIB"/>
         </createIndex>
     </changeSet>
     <changeSet author="IS Designer" id="test14">
         <comment>Index : RF_PAYS_UN1_1</comment>
         <createIndex indexName="RF_PAYS_UN1_1" schemaName="RF" tableName="RF_PAYS" unique="true">
-            <column name="RF_PAYS_NOM"/>
+            <column descending="false" name="RF_PAYS_NOM"/>
         </createIndex>
     </changeSet>
 </databaseChangeLog>

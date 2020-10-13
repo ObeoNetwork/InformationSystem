@@ -203,6 +203,11 @@ public class LiquibaseGenTest extends AbstractLiquibaseTest {
 		assertGenerationEquals("45-dropIndex-oracle");
 	}
 
+	@Test
+	public void updateIndex() {
+		assertGenerationEquals("46-updateIndex-mysql");
+	}
+
 
 	@Test
 	public void representativeModelFromScratch_MySQL() throws Exception {

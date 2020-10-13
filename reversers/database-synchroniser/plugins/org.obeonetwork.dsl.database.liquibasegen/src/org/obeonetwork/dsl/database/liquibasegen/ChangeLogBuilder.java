@@ -77,6 +77,7 @@ import org.obeonetwork.dsl.database.dbevolution.TableChange;
 import org.obeonetwork.dsl.database.dbevolution.UpdateColumnChange;
 import org.obeonetwork.dsl.database.dbevolution.UpdateConstraint;
 import org.obeonetwork.dsl.database.dbevolution.UpdateForeignKey;
+import org.obeonetwork.dsl.database.dbevolution.UpdateIndex;
 import org.obeonetwork.dsl.database.dbevolution.UpdatePrimaryKey;
 import org.obeonetwork.dsl.database.dbevolution.UpdateTableCommentChange;
 import org.obeonetwork.dsl.database.dbevolution.ViewChange;
@@ -310,14 +311,44 @@ public class ChangeLogBuilder {
 			return buildAddIndexChangeSet((AddIndex) indexChange);
 		} else if (indexChange instanceof RemoveIndex) {
 			return buildDropIndexChangeSet((RemoveIndex) indexChange);
+		} else if (indexChange instanceof UpdateIndex) {
+			return buildUpdateIndexChangeSet((UpdateIndex) indexChange);
 		}
 		return Optional.empty();
 
 	}
 
+	private Optional<ChangeSet> buildUpdateIndexChangeSet(UpdateIndex indexChange) {
+		Index oldIndex = indexChange.getIndex();
+		Index newIndex = indexChange.getNewIndex();
+
+		Optional<DropIndexChange> optDrop = buildDropIndexChange(oldIndex);
+		Optional<CreateIndexChange> optAddIndex = buildAddIndexChange(newIndex);
+
+		if (optDrop.isPresent() || optAddIndex.isPresent()) {
+			ChangeSet changeSet = buildNextChangeSet();
+			changeSet.setComments("Updating index " + oldIndex.getName());
+			optDrop.ifPresent(changeSet::addChange);
+			optAddIndex.ifPresent(changeSet::addChange);
+
+			return Optional.of(changeSet);
+		}
+
+		return Optional.empty();
+	}
+
 	private Optional<ChangeSet> buildDropIndexChangeSet(RemoveIndex indexChange) {
 
 		Index index = indexChange.getIndex();
+		return buildDropIndexChange(index).map(dChange -> {
+			ChangeSet changeSet = buildNextChangeSet();
+			changeSet.setComments("Drop index " + index.getName());
+			changeSet.addChange(dChange);
+			return Optional.of(changeSet);
+		}).orElse(Optional.empty());
+	}
+
+	private Optional<DropIndexChange> buildDropIndexChange(Index index) {
 		Table table = index.getOwner();
 		String tableQN = genService.getFullName(table);
 		if (deletedTables.contains(tableQN)) {
@@ -330,16 +361,20 @@ public class ChangeLogBuilder {
 		safeSchemaSetter(table.getOwner(), dChange::setSchemaName);
 		safeTrimSetter(table.getName(), dChange::setTableName);
 		safeTrimSetter(index.getName(), dChange::setIndexName);
-
-		ChangeSet changeSet = buildNextChangeSet();
-		changeSet.setComments("Drop index " + index.getName());
-		changeSet.addChange(dChange);
-
-		return Optional.of(changeSet);
+		return Optional.of(dChange);
 	}
 
 	private Optional<ChangeSet> buildAddIndexChangeSet(AddIndex addIndex) {
 		Index index = addIndex.getIndex();
+		return buildAddIndexChange(index).map(iChange -> {
+			ChangeSet changeSet = buildNextChangeSet();
+			changeSet.setComments("Index : " + index.getName());
+			changeSet.addChange(iChange);
+			return Optional.of(changeSet);
+		}).orElse(Optional.empty());
+	}
+
+	private Optional<CreateIndexChange> buildAddIndexChange(Index index) {
 		CreateIndexChange iChange = new CreateIndexChange();
 		iChange.setUnique(index.isUnique());
 		safeTrimSetter(index.getName(), iChange::setIndexName);
@@ -349,21 +384,19 @@ public class ChangeLogBuilder {
 				.filter(c -> c.getColumn() != null && c.getColumn().getName() != null).map(c -> {
 					AddColumnConfig config = new AddColumnConfig();
 					safeTrimSetter(c.getColumn().getName(), config::setName);
+					config.setDescending(!c.isAsc());
 					return config;
 				}).collect(toList());
 
-		// Do not generate an index if there is element in it
+		// Do not generate an index if there is element no in it
+		// This may be removed once a matching validator is implemented
 		if (columnConfigs.isEmpty()) {
 			statuses.add(createWarningStatus("Index " + index.getName() + " has no column."));
 			return Optional.empty();
 		}
 		iChange.setColumns(columnConfigs);
 		safeSchemaSetter(index.getOwner().getOwner(), iChange::setSchemaName);
-
-		ChangeSet changeSet = buildNextChangeSet();
-		changeSet.setComments("Index : " + index.getName());
-		changeSet.addChange(iChange);
-		return Optional.of(changeSet);
+		return Optional.of(iChange);
 	}
 
 	private Optional<ChangeSet> buildAddConstraintChangeSet(AddConstraint addConstraint) {
