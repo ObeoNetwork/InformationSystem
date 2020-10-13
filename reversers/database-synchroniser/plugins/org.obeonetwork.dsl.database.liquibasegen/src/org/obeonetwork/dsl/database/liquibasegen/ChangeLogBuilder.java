@@ -158,9 +158,9 @@ public class ChangeLogBuilder {
 		timeStamp = changeLogIdPrexix;
 		try {
 			List<DBDiff> diffs = genService.getOrderedChanges(comparisonModel);
-			result.addAll(genChangeSetsForTables(diffs)); // Needs to be before handled before primary keys
+			result.addAll(getChangeSetsForTables(diffs)); // Needs to be before handled before primary keys
 			result.addAll(getChangeSetsForPrimaryKeys(diffs));
-			result.addAll(genChangeSetsForConstraints(diffs));
+			result.addAll(getChangeSetsForConstraints(diffs));
 			result.addAll(getChangeSetsForForeignKeys(diffs));
 			result.addAll(getChangeSetsForIndexes(diffs));
 			result.addAll(getChangeSetsForSequences(diffs));
@@ -253,7 +253,7 @@ public class ChangeLogBuilder {
 				.collect(toList());
 	}
 
-	private Collection<? extends ChangeLogChild> genChangeSetsForConstraints(List<DBDiff> diffs) {
+	private Collection<? extends ChangeLogChild> getChangeSetsForConstraints(List<DBDiff> diffs) {
 		return filterAndCast(diffs.stream(), ConstraintChange.class)//
 				.map(this::buildContraintChangeSet)//
 				.filter(Optional::isPresent)//
@@ -1168,7 +1168,7 @@ public class ChangeLogBuilder {
 		return changeSet;
 	}
 
-	private List<ChangeLogChild> genChangeSetsForTables(List<DBDiff> diffs) {
+	private List<ChangeLogChild> getChangeSetsForTables(List<DBDiff> diffs) {
 		return filterAndCast(diffs.stream(), TableChange.class)//
 				.flatMap(this::buildTableChangeSet)//
 				.collect(toList());
