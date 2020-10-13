@@ -61,6 +61,7 @@ import org.obeonetwork.dsl.database.dbevolution.AddSequence;
 import org.obeonetwork.dsl.database.dbevolution.AddTable;
 import org.obeonetwork.dsl.database.dbevolution.AddView;
 import org.obeonetwork.dsl.database.dbevolution.AlterTable;
+import org.obeonetwork.dsl.database.dbevolution.AlterView;
 import org.obeonetwork.dsl.database.dbevolution.ConstraintChange;
 import org.obeonetwork.dsl.database.dbevolution.DBDiff;
 import org.obeonetwork.dsl.database.dbevolution.ForeignKeyChange;
@@ -195,16 +196,26 @@ public class ChangeLogBuilder {
 			return Optional.of(buildAddViewChangeSet((AddView) viewChange));
 		} else if (viewChange instanceof RemoveView) {
 			return buildDropViewChangeSet((RemoveView) viewChange);
+		} else if (viewChange instanceof AlterView) {
+			return buildUpdateViewChangeSet((AlterView) viewChange);
 		}
 		return Optional.empty();
 	}
 
+	private Optional<ChangeSet> buildUpdateViewChangeSet(AlterView viewChange) {
+
+		ChangeSet changeSet = buildNextChangeSet();
+		View oldView = (View) viewChange.getTarget();
+		View newView = viewChange.getView();
+		changeSet.setComments("Updating view : " + oldView);
+		changeSet.addChange(buildDropViewChange(oldView));
+		changeSet.addChange(buildAddViewChange(newView));
+		return Optional.of(changeSet);
+	}
+
 	private Optional<ChangeSet> buildDropViewChangeSet(RemoveView viewChange) {
 		View view = viewChange.getView();
-		TableContainer container = view.getOwner();
-		DropViewChange dChange = new DropViewChange();
-		safeSchemaSetter(container, dChange::setSchemaName);
-		safeTrimSetter(view.getName(), dChange::setViewName);
+		DropViewChange dChange = buildDropViewChange(view);
 
 		ChangeSet changeSet = buildNextChangeSet();
 		changeSet.setComments("Dropping view : " + view.getName());
@@ -212,14 +223,17 @@ public class ChangeLogBuilder {
 		return Optional.of(changeSet);
 	}
 
+	private DropViewChange buildDropViewChange(View view) {
+		TableContainer container = view.getOwner();
+		DropViewChange dChange = new DropViewChange();
+		safeSchemaSetter(container, dChange::setSchemaName);
+		safeTrimSetter(view.getName(), dChange::setViewName);
+		return dChange;
+	}
+
 	private ChangeSet buildAddViewChangeSet(AddView viewChange) {
-		CreateViewChange vChange = new CreateViewChange();
 		View view = viewChange.getView();
-		safeTrimSetter(view.getName(), vChange::setViewName);
-		safeTrimSetter(genService.getViewQuery(view), vChange::setSelectQuery);
-		safeTrimSetter(view.getComments(), vChange::setRemarks);
-		vChange.setReplaceIfExists(true);
-		safeSchemaSetter(view.getOwner(), vChange::setSchemaName);
+		CreateViewChange vChange = buildAddViewChange(view);
 		ChangeSet changeSet = buildNextChangeSet();
 		// Add the view comment both in the remarks and changset comment since the
 		// COMMENT ON VIEW is not supported by all DB (not supported on MySQL for
@@ -227,6 +241,16 @@ public class ChangeLogBuilder {
 		changeSet.setComments("View  " + view.getName() + " : " + view.getComments());
 		changeSet.addChange(vChange);
 		return changeSet;
+	}
+
+	private CreateViewChange buildAddViewChange(View view) {
+		CreateViewChange vChange = new CreateViewChange();
+		safeTrimSetter(view.getName(), vChange::setViewName);
+		safeTrimSetter(genService.getViewQuery(view), vChange::setSelectQuery);
+		safeTrimSetter(view.getComments(), vChange::setRemarks);
+		vChange.setReplaceIfExists(true);
+		safeSchemaSetter(view.getOwner(), vChange::setSchemaName);
+		return vChange;
 	}
 
 	private Collection<? extends ChangeLogChild> getChangeSetsForSequences(List<DBDiff> diffs) {

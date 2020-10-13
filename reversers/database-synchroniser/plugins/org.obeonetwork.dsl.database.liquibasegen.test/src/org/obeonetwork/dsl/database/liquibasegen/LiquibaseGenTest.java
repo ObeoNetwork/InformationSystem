@@ -235,6 +235,11 @@ public class LiquibaseGenTest extends AbstractLiquibaseTest {
 		assertGenerationEquals("50-dropView-mysql");
 	}
 
+	@Test
+	public void updateView() {
+		assertGenerationEquals("51-updateView-mysql");
+	}
+
 
 	@Test
 	public void representativeModelFromScratch_MySQL() throws Exception {
