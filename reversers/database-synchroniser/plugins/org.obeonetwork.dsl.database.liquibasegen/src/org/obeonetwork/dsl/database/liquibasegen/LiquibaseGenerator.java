@@ -57,6 +57,11 @@ public class LiquibaseGenerator {
 
 		File lastFile = computeLastTargetFolder.toPath().resolve(ChangeLogBuilder.FILE_NAME).toFile();
 
+		// Deletes last generation
+		if (lastFile.exists()) {
+			lastFile.delete();
+		}
+
 		ChangeLogBuilder changeLogBuilder = new ChangeLogBuilder();
 		List<ChangeLogChild> contents = changeLogBuilder.buildContent(comparisonModel, idPrefixProvider.get());
 		if (!contents.isEmpty()) {
