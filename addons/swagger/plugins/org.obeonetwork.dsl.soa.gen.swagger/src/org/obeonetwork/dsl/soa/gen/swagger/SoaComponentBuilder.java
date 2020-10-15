@@ -653,6 +653,8 @@ public class SoaComponentBuilder {
 		org.obeonetwork.dsl.soa.Parameter soaParameter = SoaFactory.eINSTANCE.createParameter();
 		soaOperation.getInput().add(soaParameter);
 		
+		soaParameter.setRestData(SoaFactory.eINSTANCE.createParameterRestData());
+		
 		soaParameter.setName(parameter.getName());
 		
 		soaParameter.setDescription(parameter.getDescription());
@@ -660,13 +662,13 @@ public class SoaComponentBuilder {
 		soaParameter.setMultiplicity(computeMultiplicity(parameter.getRequired()!= null && parameter.getRequired(), parameter.getSchema()));
 		
 		if(parameter instanceof CookieParameter) {
-			soaParameter.setPassingMode(ParameterPassingMode.COOKIE);
+			soaParameter.getRestData().setPassingMode(ParameterPassingMode.COOKIE);
 		} else if(parameter instanceof HeaderParameter) {
-			soaParameter.setPassingMode(ParameterPassingMode.HEADER);
+			soaParameter.getRestData().setPassingMode(ParameterPassingMode.HEADER);
 		} else if(parameter instanceof PathParameter) {
-			soaParameter.setPassingMode(ParameterPassingMode.PATH);
+			soaParameter.getRestData().setPassingMode(ParameterPassingMode.PATH);
 		} else if(parameter instanceof QueryParameter) {
-			soaParameter.setPassingMode(ParameterPassingMode.QUERY);
+			soaParameter.getRestData().setPassingMode(ParameterPassingMode.QUERY);
 		} else {
 			logError(String.format("Unsupported parameter type : %s.", parameter.getClass().getName()));
 		}
@@ -690,7 +692,9 @@ public class SoaComponentBuilder {
 	private org.obeonetwork.dsl.soa.Parameter createSoaBodyParameter(org.obeonetwork.dsl.soa.Operation soaOperation, RequestBody requestBody) {
 		org.obeonetwork.dsl.soa.Parameter soaParameter = SoaFactory.eINSTANCE.createParameter();
 		soaOperation.getInput().add(soaParameter);
-		soaParameter.setPassingMode(ParameterPassingMode.BODY);
+		
+		soaParameter.setRestData(SoaFactory.eINSTANCE.createParameterRestData());
+		soaParameter.getRestData().setPassingMode(ParameterPassingMode.BODY);
 		
 		soaParameter.setName(BODY_PARAMETER_NAME);
 		

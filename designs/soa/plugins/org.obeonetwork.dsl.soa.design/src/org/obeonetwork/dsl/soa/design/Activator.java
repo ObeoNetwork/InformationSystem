@@ -14,8 +14,13 @@ import java.util.HashSet;
 import java.util.Set;
 
 import org.eclipse.sirius.business.api.componentization.ViewpointRegistry;
+import org.eclipse.sirius.business.api.session.Session;
+import org.eclipse.sirius.business.api.session.SessionManager;
+import org.eclipse.sirius.business.api.session.SessionManagerListener;
 import org.eclipse.sirius.viewpoint.description.Viewpoint;
 import org.eclipse.ui.plugin.AbstractUIPlugin;
+import org.obeonetwork.dsl.soa.design.triggers.CreateOrRemoveInputParameterChangeTrigger;
+import org.obeonetwork.dsl.soa.design.triggers.OperationRestExpositionChangeTrigger;
 import org.osgi.framework.BundleContext;
 
 /**
@@ -46,6 +51,20 @@ public class Activator extends AbstractUIPlugin {
 	  plugin = this;
 	  viewpoints = new HashSet<Viewpoint>();
 	  viewpoints.addAll(ViewpointRegistry.getInstance().registerFromPlugin(PLUGIN_ID + "/description/soa.odesign")); 
+	  
+		// Add the Sirius session triggers ensuring the semantic model consistency
+		SessionManager.INSTANCE.addSessionsListener(
+				new SessionManagerListener.Stub() {
+					@Override
+					public void notifyAddSession(Session newSession) {
+						// Manage the soa::ParameterRestData lifecycle regarding creation and removal of input parameters
+						newSession.getEventBroker().addLocalTrigger(CreateOrRemoveInputParameterChangeTrigger.IS_CREATE_OR_REMOVE_INPUT_PARAMETER, new CreateOrRemoveInputParameterChangeTrigger());
+						
+						// Manage the soa::ParameterRestData lifecycle regarding operation exposition change 
+						newSession.getEventBroker().addLocalTrigger(OperationRestExpositionChangeTrigger.IS_OPERATION_REST_EXPOSITION_CHANGE, new OperationRestExpositionChangeTrigger());
+					}
+				});
+		
     }
 
     /*

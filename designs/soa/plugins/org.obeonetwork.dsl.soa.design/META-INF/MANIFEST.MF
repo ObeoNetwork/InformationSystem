@@ -17,7 +17,10 @@ Require-Bundle: org.eclipse.ui,
  org.obeonetwork.dsl.is,
  org.eclipse.ui.workbench,
  org.eclipse.swt,
- org.eclipse.jface
+ org.eclipse.jface,
+ org.eclipse.sirius.ext.base,
+ org.eclipse.emf.transaction,
+ org.eclipse.sirius.common
 Bundle-ActivationPolicy: lazy
 Bundle-RequiredExecutionEnvironment: JavaSE-1.8
 Bundle-ManifestVersion: 2

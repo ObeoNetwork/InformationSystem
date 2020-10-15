@@ -1387,22 +1387,13 @@ public interface SoaPackage extends EPackage {
 	int PARAMETER__IS_ORDERED = EnvironmentPackage.OBEO_DSM_OBJECT_FEATURE_COUNT + 4;
 
 	/**
-	 * The feature id for the '<em><b>Passing Mode</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int PARAMETER__PASSING_MODE = EnvironmentPackage.OBEO_DSM_OBJECT_FEATURE_COUNT + 5;
-
-	/**
 	 * The feature id for the '<em><b>Status Code</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int PARAMETER__STATUS_CODE = EnvironmentPackage.OBEO_DSM_OBJECT_FEATURE_COUNT + 6;
+	int PARAMETER__STATUS_CODE = EnvironmentPackage.OBEO_DSM_OBJECT_FEATURE_COUNT + 5;
 
 	/**
 	 * The feature id for the '<em><b>Status Message</b></em>' attribute.
@@ -1411,7 +1402,16 @@ public interface SoaPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PARAMETER__STATUS_MESSAGE = EnvironmentPackage.OBEO_DSM_OBJECT_FEATURE_COUNT + 7;
+	int PARAMETER__STATUS_MESSAGE = EnvironmentPackage.OBEO_DSM_OBJECT_FEATURE_COUNT + 6;
+
+	/**
+	 * The feature id for the '<em><b>Rest Data</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PARAMETER__REST_DATA = EnvironmentPackage.OBEO_DSM_OBJECT_FEATURE_COUNT + 7;
 
 	/**
 	 * The number of structural features of the '<em>Parameter</em>' class.
@@ -1423,6 +1423,43 @@ public interface SoaPackage extends EPackage {
 	int PARAMETER_FEATURE_COUNT = EnvironmentPackage.OBEO_DSM_OBJECT_FEATURE_COUNT + 8;
 
 	/**
+	 * The meta object id for the '{@link org.obeonetwork.dsl.soa.impl.ParameterRestDataImpl <em>Parameter Rest Data</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.obeonetwork.dsl.soa.impl.ParameterRestDataImpl
+	 * @see org.obeonetwork.dsl.soa.impl.SoaPackageImpl#getParameterRestData()
+	 * @generated
+	 */
+	int PARAMETER_REST_DATA = 9;
+
+	/**
+	 * The feature id for the '<em><b>Passing Mode</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PARAMETER_REST_DATA__PASSING_MODE = 0;
+
+	/**
+	 * The feature id for the '<em><b>Rest Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PARAMETER_REST_DATA__REST_ID = 1;
+
+	/**
+	 * The number of structural features of the '<em>Parameter Rest Data</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PARAMETER_REST_DATA_FEATURE_COUNT = 2;
+
+	/**
 	 * The meta object id for the '{@link org.obeonetwork.dsl.soa.InterfaceKind <em>Interface Kind</em>}' enum.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1430,7 +1467,7 @@ public interface SoaPackage extends EPackage {
 	 * @see org.obeonetwork.dsl.soa.impl.SoaPackageImpl#getInterfaceKind()
 	 * @generated
 	 */
-	int INTERFACE_KIND = 9;
+	int INTERFACE_KIND = 10;
 
 	/**
 	 * The meta object id for the '{@link org.obeonetwork.dsl.soa.SynchronizationKind <em>Synchronization Kind</em>}' enum.
@@ -1440,7 +1477,7 @@ public interface SoaPackage extends EPackage {
 	 * @see org.obeonetwork.dsl.soa.impl.SoaPackageImpl#getSynchronizationKind()
 	 * @generated
 	 */
-	int SYNCHRONIZATION_KIND = 10;
+	int SYNCHRONIZATION_KIND = 11;
 
 	/**
 	 * The meta object id for the '{@link org.obeonetwork.dsl.soa.BindingKind <em>Binding Kind</em>}' enum.
@@ -1450,7 +1487,7 @@ public interface SoaPackage extends EPackage {
 	 * @see org.obeonetwork.dsl.soa.impl.SoaPackageImpl#getBindingKind()
 	 * @generated
 	 */
-	int BINDING_KIND = 11;
+	int BINDING_KIND = 12;
 
 	/**
 	 * The meta object id for the '{@link org.obeonetwork.dsl.soa.OperationKind <em>Operation Kind</em>}' enum.
@@ -1460,7 +1497,7 @@ public interface SoaPackage extends EPackage {
 	 * @see org.obeonetwork.dsl.soa.impl.SoaPackageImpl#getOperationKind()
 	 * @generated
 	 */
-	int OPERATION_KIND = 12;
+	int OPERATION_KIND = 13;
 
 	/**
 	 * The meta object id for the '{@link org.obeonetwork.dsl.soa.Verb <em>Verb</em>}' enum.
@@ -1470,7 +1507,7 @@ public interface SoaPackage extends EPackage {
 	 * @see org.obeonetwork.dsl.soa.impl.SoaPackageImpl#getVerb()
 	 * @generated
 	 */
-	int VERB = 13;
+	int VERB = 14;
 
 	/**
 	 * The meta object id for the '{@link org.obeonetwork.dsl.soa.ParameterPassingMode <em>Parameter Passing Mode</em>}' enum.
@@ -1480,7 +1517,7 @@ public interface SoaPackage extends EPackage {
 	 * @see org.obeonetwork.dsl.soa.impl.SoaPackageImpl#getParameterPassingMode()
 	 * @generated
 	 */
-	int PARAMETER_PASSING_MODE = 14;
+	int PARAMETER_PASSING_MODE = 15;
 
 	/**
 	 * The meta object id for the '{@link org.obeonetwork.dsl.soa.ExpositionKind <em>Exposition Kind</em>}' enum.
@@ -1490,7 +1527,7 @@ public interface SoaPackage extends EPackage {
 	 * @see org.obeonetwork.dsl.soa.impl.SoaPackageImpl#getExpositionKind()
 	 * @generated
 	 */
-	int EXPOSITION_KIND = 15;
+	int EXPOSITION_KIND = 16;
 
 	/**
 	 * Returns the meta object for class '{@link org.obeonetwork.dsl.soa.System <em>System</em>}'.
@@ -2045,17 +2082,6 @@ public interface SoaPackage extends EPackage {
 	EAttribute getParameter_IsOrdered();
 
 	/**
-	 * Returns the meta object for the attribute '{@link org.obeonetwork.dsl.soa.Parameter#getPassingMode <em>Passing Mode</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Passing Mode</em>'.
-	 * @see org.obeonetwork.dsl.soa.Parameter#getPassingMode()
-	 * @see #getParameter()
-	 * @generated
-	 */
-	EAttribute getParameter_PassingMode();
-
-	/**
 	 * Returns the meta object for the attribute '{@link org.obeonetwork.dsl.soa.Parameter#getStatusCode <em>Status Code</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2076,6 +2102,49 @@ public interface SoaPackage extends EPackage {
 	 * @generated
 	 */
 	EAttribute getParameter_StatusMessage();
+
+	/**
+	 * Returns the meta object for the containment reference '{@link org.obeonetwork.dsl.soa.Parameter#getRestData <em>Rest Data</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference '<em>Rest Data</em>'.
+	 * @see org.obeonetwork.dsl.soa.Parameter#getRestData()
+	 * @see #getParameter()
+	 * @generated
+	 */
+	EReference getParameter_RestData();
+
+	/**
+	 * Returns the meta object for class '{@link org.obeonetwork.dsl.soa.ParameterRestData <em>Parameter Rest Data</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Parameter Rest Data</em>'.
+	 * @see org.obeonetwork.dsl.soa.ParameterRestData
+	 * @generated
+	 */
+	EClass getParameterRestData();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.obeonetwork.dsl.soa.ParameterRestData#getPassingMode <em>Passing Mode</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Passing Mode</em>'.
+	 * @see org.obeonetwork.dsl.soa.ParameterRestData#getPassingMode()
+	 * @see #getParameterRestData()
+	 * @generated
+	 */
+	EAttribute getParameterRestData_PassingMode();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.obeonetwork.dsl.soa.ParameterRestData#getRestId <em>Rest Id</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Rest Id</em>'.
+	 * @see org.obeonetwork.dsl.soa.ParameterRestData#getRestId()
+	 * @see #getParameterRestData()
+	 * @generated
+	 */
+	EAttribute getParameterRestData_RestId();
 
 	/**
 	 * Returns the meta object for enum '{@link org.obeonetwork.dsl.soa.InterfaceKind <em>Interface Kind</em>}'.
@@ -2596,14 +2665,6 @@ public interface SoaPackage extends EPackage {
 		EAttribute PARAMETER__IS_ORDERED = eINSTANCE.getParameter_IsOrdered();
 
 		/**
-		 * The meta object literal for the '<em><b>Passing Mode</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute PARAMETER__PASSING_MODE = eINSTANCE.getParameter_PassingMode();
-
-		/**
 		 * The meta object literal for the '<em><b>Status Code</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -2618,6 +2679,40 @@ public interface SoaPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute PARAMETER__STATUS_MESSAGE = eINSTANCE.getParameter_StatusMessage();
+
+		/**
+		 * The meta object literal for the '<em><b>Rest Data</b></em>' containment reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference PARAMETER__REST_DATA = eINSTANCE.getParameter_RestData();
+
+		/**
+		 * The meta object literal for the '{@link org.obeonetwork.dsl.soa.impl.ParameterRestDataImpl <em>Parameter Rest Data</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.obeonetwork.dsl.soa.impl.ParameterRestDataImpl
+		 * @see org.obeonetwork.dsl.soa.impl.SoaPackageImpl#getParameterRestData()
+		 * @generated
+		 */
+		EClass PARAMETER_REST_DATA = eINSTANCE.getParameterRestData();
+
+		/**
+		 * The meta object literal for the '<em><b>Passing Mode</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute PARAMETER_REST_DATA__PASSING_MODE = eINSTANCE.getParameterRestData_PassingMode();
+
+		/**
+		 * The meta object literal for the '<em><b>Rest Id</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute PARAMETER_REST_DATA__REST_ID = eINSTANCE.getParameterRestData_RestId();
 
 		/**
 		 * The meta object literal for the '{@link org.obeonetwork.dsl.soa.InterfaceKind <em>Interface Kind</em>}' enum.

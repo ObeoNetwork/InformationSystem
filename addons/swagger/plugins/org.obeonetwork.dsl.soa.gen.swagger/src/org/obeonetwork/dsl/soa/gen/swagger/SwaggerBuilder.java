@@ -658,11 +658,11 @@ public class SwaggerBuilder {
 
 	private Operation buildParameters(Operation operation, org.obeonetwork.dsl.soa.Operation soaOperation) {
     	soaOperation.getInput().stream()
-    	.filter(soaParameter -> soaParameter.getPassingMode() != ParameterPassingMode.BODY)
+    	.filter(soaParameter -> soaParameter.getRestData().getPassingMode() != ParameterPassingMode.BODY)
     	.forEach(soaParameter -> buildParameter(operation, soaParameter));
     	
     	soaOperation.getInput().stream()
-    	.filter(soaParameter -> soaParameter.getPassingMode() == ParameterPassingMode.BODY)
+    	.filter(soaParameter -> soaParameter.getRestData().getPassingMode() == ParameterPassingMode.BODY)
     	.forEach(soaParameter -> buildRequestBody(operation, soaParameter));
     	
     	if(/* soaOperation.isSortable() */ falseForFutureEvolution()) {
@@ -682,7 +682,7 @@ public class SwaggerBuilder {
 	}
 
     private Parameter createParameter(org.obeonetwork.dsl.soa.Parameter soaParameter) {
-    	Parameter parameter = createParameter(soaParameter.getName(), ParameterGenUtil.isRequired(soaParameter), getIn(soaParameter));
+    	Parameter parameter = createParameter(ParameterGenUtil.getName(soaParameter), ParameterGenUtil.isRequired(soaParameter), getIn(soaParameter));
     	parameter.setSchema(createParameterSchema(soaParameter));
     	return parameter;
     }
@@ -757,7 +757,7 @@ public class SwaggerBuilder {
     private String getIn(org.obeonetwork.dsl.soa.Parameter soaParameter) {
     	String in = null;
     	
-    	switch (soaParameter.getPassingMode()) {
+    	switch (soaParameter.getRestData().getPassingMode()) {
 		case BODY:
 			in = OPEN_API_IN_BODY;
 			break;

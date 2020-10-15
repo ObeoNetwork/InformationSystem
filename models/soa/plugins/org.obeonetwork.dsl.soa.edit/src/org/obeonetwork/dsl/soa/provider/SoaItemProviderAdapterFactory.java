@@ -293,6 +293,29 @@ public class SoaItemProviderAdapterFactory extends SoaAdapterFactory implements 
 	}
 
 	/**
+	 * This keeps track of the one adapter used for all {@link org.obeonetwork.dsl.soa.ParameterRestData} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected ParameterRestDataItemProvider parameterRestDataItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link org.obeonetwork.dsl.soa.ParameterRestData}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createParameterRestDataAdapter() {
+		if (parameterRestDataItemProvider == null) {
+			parameterRestDataItemProvider = new ParameterRestDataItemProvider(this);
+		}
+
+		return parameterRestDataItemProvider;
+	}
+
+	/**
 	 * This returns the root adapter factory that contains this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -400,6 +423,7 @@ public class SoaItemProviderAdapterFactory extends SoaAdapterFactory implements 
 		if (operationItemProvider != null) operationItemProvider.dispose();
 		if (implementationComponentItemProvider != null) implementationComponentItemProvider.dispose();
 		if (parameterItemProvider != null) parameterItemProvider.dispose();
+		if (parameterRestDataItemProvider != null) parameterRestDataItemProvider.dispose();
 	}
 
 }

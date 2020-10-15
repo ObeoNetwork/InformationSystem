@@ -253,11 +253,6 @@
         <details key="documentation" value="Tells if the parameter is ordered."/>
       </eAnnotations>
     </eStructuralFeatures>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="passingMode" eType="#//ParameterPassingMode">
-      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-        <details key="documentation" value="The parameter passing mode."/>
-      </eAnnotations>
-    </eStructuralFeatures>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="statusCode" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
         <details key="documentation" value="The status code associated with this parameter."/>
@@ -268,6 +263,8 @@
         <details key="documentation" value="The status message associated with this parameter."/>
       </eAnnotations>
     </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="restData" eType="#//ParameterRestData"
+        containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EEnum" name="BindingKind">
     <eLiterals name="webservice"/>
@@ -301,5 +298,13 @@
     <eLiterals name="NONE"/>
     <eLiterals name="REST" value="1"/>
     <eLiterals name="SOAP" value="2"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ParameterRestData">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="passingMode" eType="#//ParameterPassingMode">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="The parameter passing mode."/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="restId" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
 </ecore:EPackage>

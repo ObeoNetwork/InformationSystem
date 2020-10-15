@@ -110,9 +110,13 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute soa.ecore#//Parameter/multiplicity"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute soa.ecore#//Parameter/isUnique"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute soa.ecore#//Parameter/isOrdered"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute soa.ecore#//Parameter/passingMode"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute soa.ecore#//Parameter/statusCode"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute soa.ecore#//Parameter/statusMessage"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference soa.ecore#//Parameter/restData"/>
+    </genClasses>
+    <genClasses ecoreClass="soa.ecore#//ParameterRestData">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute soa.ecore#//ParameterRestData/passingMode"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute soa.ecore#//ParameterRestData/restId"/>
     </genClasses>
   </genPackages>
 </genmodel:GenModel>

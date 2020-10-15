@@ -27,6 +27,7 @@ import org.obeonetwork.dsl.soa.Operation;
 import org.obeonetwork.dsl.soa.OperationKind;
 import org.obeonetwork.dsl.soa.Parameter;
 import org.obeonetwork.dsl.soa.ParameterPassingMode;
+import org.obeonetwork.dsl.soa.ParameterRestData;
 import org.obeonetwork.dsl.soa.Service;
 import org.obeonetwork.dsl.soa.SoaFactory;
 import org.obeonetwork.dsl.soa.SoaPackage;
@@ -96,6 +97,7 @@ public class SoaFactoryImpl extends EFactoryImpl implements SoaFactory {
 			case SoaPackage.OPERATION: return (EObject)createOperation();
 			case SoaPackage.IMPLEMENTATION_COMPONENT: return (EObject)createImplementationComponent();
 			case SoaPackage.PARAMETER: return (EObject)createParameter();
+			case SoaPackage.PARAMETER_REST_DATA: return (EObject)createParameterRestData();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -243,6 +245,16 @@ public class SoaFactoryImpl extends EFactoryImpl implements SoaFactory {
 	public Parameter createParameter() {
 		ParameterImpl parameter = new ParameterImpl();
 		return parameter;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public ParameterRestData createParameterRestData() {
+		ParameterRestDataImpl parameterRestData = new ParameterRestDataImpl();
+		return parameterRestData;
 	}
 
 	/**

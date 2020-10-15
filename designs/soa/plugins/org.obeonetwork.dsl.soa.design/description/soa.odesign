@@ -1114,7 +1114,7 @@
       <pages name="Parameter Page" labelExpression="Parameter" domainClass="soa::Parameter" semanticCandidateExpression="var:self" groups="//@extensions.0/@categories.1/@groups.4"/>
       <pages name="Component Exposition Page" labelExpression="Exposition" domainClass="soa::Component" semanticCandidateExpression="var:self" groups="//@extensions.0/@categories.1/@groups.5"/>
       <pages name="Service Exposition Page" labelExpression="Exposition" domainClass="soa::Service" semanticCandidateExpression="var:self" groups="//@extensions.0/@categories.1/@groups.6 //@extensions.0/@categories.1/@groups.9"/>
-      <pages name="Operation Exposition Page" labelExpression="Exposition" domainClass="soa::Operation" semanticCandidateExpression="var:self" preconditionExpression="aql:self.eContainer(soa::Service).kind=soa::InterfaceKind::provided and self.exposition&lt;>soa::ExpositionKind::NONE" groups="//@extensions.0/@categories.1/@groups.7 //@extensions.0/@categories.1/@groups.9"/>
+      <pages name="Operation Exposition Page" labelExpression="Exposition" domainClass="soa::Operation" semanticCandidateExpression="var:self" preconditionExpression="aql:self.eContainer(soa::Service).kind=soa::InterfaceKind::provided and self.exposition&lt;>soa::ExpositionKind::NONE" groups="//@extensions.0/@categories.1/@groups.7 //@extensions.0/@categories.1/@groups.9 //@extensions.0/@categories.1/@groups.10"/>
       <pages name="Parameter Exposition Page" labelExpression="Exposition" domainClass="soa::Parameter" semanticCandidateExpression="var:self" preconditionExpression="aql:self.eContainer(soa::Service).kind=soa::InterfaceKind::provided and self.exposition&lt;>soa::ExpositionKind::NONE" groups="//@extensions.0/@categories.1/@groups.8 //@extensions.0/@categories.1/@groups.9"/>
       <groups name="Operation Group" labelExpression="Properties" domainClass="soa::Operation" semanticCandidateExpression="var:self">
         <controls xsi:type="properties:TextDescription" name="soa::Operation name" labelExpression="aql:input.emfEditServices(self).getText(self.eClass().getEStructuralFeature('name')) + ':'" helpExpression="aql:input.emfEditServices(self).getDescription(self.eClass().getEStructuralFeature('name'))" isEnabledExpression="aql:self.eClass().getEStructuralFeature('name').changeable" valueExpression="aql:self.name">
@@ -1285,9 +1285,34 @@
         <controls xsi:type="properties:ContainerDescription">
           <controls xsi:type="properties:DynamicMappingForDescription" iterator="single" iterableExpression="aql:Sequence{self}">
             <ifs name="Is input parameter" predicateExpression="aql:single.eContainingFeature().name='input'">
-              <widget xsi:type="properties:SelectDescription" name="soa::Parameter passingMode" labelExpression="aql:input.emfEditServices(self).getText(self.eClass().getEStructuralFeature('passingMode')) + ':'" helpExpression="aql:input.emfEditServices(self).getDescription(self.eClass().getEStructuralFeature('passingMode'))" isEnabledExpression="aql:self.eClass().getEStructuralFeature('passingMode').changeable" valueExpression="aql:self.eClass().getEStructuralFeature('passingMode').eType.getEEnumLiteralByLiteral(self.passingMode.toString())" candidatesExpression="aql:self.eClass().getEStructuralFeature('passingMode').eType.eLiterals" candidateDisplayExpression="aql:candidate.literal">
+              <widget xsi:type="properties:SelectDescription" name="soa::ParameterRestData passingMode" labelExpression="aql:input.emfEditServices(single.restData).getText(single.restData.eClass().getEStructuralFeature('passingMode')) + ':'" helpExpression="aql:input.emfEditServices(single.restData).getDescription(single.restData.eClass().getEStructuralFeature('passingMode'))" isEnabledExpression="aql:single.restData.eClass().getEStructuralFeature('passingMode').changeable" valueExpression="aql:single.restData.eClass().getEStructuralFeature('passingMode').eType.getEEnumLiteralByLiteral(single.restData.passingMode.toString())" candidatesExpression="aql:single.restData.eClass().getEStructuralFeature('passingMode').eType.eLiterals" candidateDisplayExpression="aql:candidate.literal">
                 <initialOperation>
-                  <firstModelOperations xsi:type="tool_1:SetValue" featureName="passingMode" valueExpression="aql:newValue.instance"/>
+                  <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="aql:single.restData">
+                    <subModelOperations xsi:type="tool_1:SetValue" featureName="passingMode" valueExpression="aql:newValue.instance"/>
+                  </firstModelOperations>
+                </initialOperation>
+              </widget>
+            </ifs>
+            <ifs name="Is input parameter and passingMode=BODY" predicateExpression="aql:single.eContainingFeature().name='input' and single.restData.passingMode=soa::ParameterPassingMode::BODY">
+              <widget xsi:type="properties:TextDescription" name="soa::ParameterRestData restId BODY" labelExpression="aql:input.emfEditServices(single.restData).getText(single.restData.eClass().getEStructuralFeature('restId')) + ':'" helpExpression="aql:input.emfEditServices(single.restData).getDescription(single.restData.eClass().getEStructuralFeature('restId'))" isEnabledExpression="aql:false" valueExpression="aql:'body'">
+                <initialOperation/>
+              </widget>
+            </ifs>
+            <ifs name="Is input parameter and passingMode=PATH" predicateExpression="aql:single.eContainingFeature().name='input' and single.restData.passingMode=soa::ParameterPassingMode::PATH">
+              <widget xsi:type="properties:SelectDescription" name="soa::ParameterRestData restId PATH" labelExpression="aql:input.emfEditServices(single.restData).getText(single.restData.eClass().getEStructuralFeature('restId')) + ':'" helpExpression="aql:input.emfEditServices(single.restData).getDescription(single.restData.eClass().getEStructuralFeature('restId'))" isEnabledExpression="aql:single.restData.eClass().getEStructuralFeature('restId').changeable" valueExpression="aql:single.restData.restId" candidatesExpression="aql:single.eContainer(soa::Operation).getParamIdsFromURI()" candidateDisplayExpression="aql:candidate">
+                <initialOperation>
+                  <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="aql:single.restData">
+                    <subModelOperations xsi:type="tool_1:SetValue" featureName="restId" valueExpression="var:newValue"/>
+                  </firstModelOperations>
+                </initialOperation>
+              </widget>
+            </ifs>
+            <ifs name="Is input parameter and passingMode=COOKIE or QUERY or HEADER" predicateExpression="aql:single.eContainingFeature().name='input' and Sequence{soa::ParameterPassingMode::COOKIE,soa::ParameterPassingMode::QUERY,soa::ParameterPassingMode::HEADER}->includes(single.restData.passingMode)">
+              <widget xsi:type="properties:TextDescription" name="soa::ParameterRestData restId COOKIE QUERY HEADER" labelExpression="aql:input.emfEditServices(single.restData).getText(single.restData.eClass().getEStructuralFeature('restId')) + ':'" helpExpression="aql:input.emfEditServices(single.restData).getDescription(single.restData.eClass().getEStructuralFeature('restId'))" isEnabledExpression="aql:single.restData.eClass().getEStructuralFeature('restId').changeable" valueExpression="aql:single.restData.restId">
+                <initialOperation>
+                  <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="aql:single.restData">
+                    <subModelOperations xsi:type="tool_1:SetValue" featureName="restId" valueExpression="var:newValue"/>
+                  </firstModelOperations>
                 </initialOperation>
               </widget>
             </ifs>
@@ -1315,9 +1340,67 @@
           </controls>
           <layout xsi:type="properties:GridLayoutDescription" numberOfColumns="2"/>
         </controls>
+        <validationSet>
+          <propertyValidationRules name="Invalid rest id" level="ERROR" message="The rest id is not defined in the operation URI." targets="//@extensions.0/@categories.1/@groups.8/@controls.0/@controls.0/@ifs.2/@widget">
+            <audits auditExpression="aql:self.eContainer(soa::Operation).getParamIdsFromURI()->includes(self.restData.restId)"/>
+          </propertyValidationRules>
+        </validationSet>
       </groups>
       <groups name="Exposition Not Applicable Group" labelExpression="Properties" domainClass="environment::ObeoDSMObject" semanticCandidateExpression="var:self" preconditionExpression="aql:self.eContainerOrSelf(soa::Service)&lt;>null and self.eContainerOrSelf(soa::Service).kind=soa::InterfaceKind::required">
         <controls xsi:type="properties:LabelDescription" name="Exposition Parameters Not Applicable Label" labelExpression="Exposition parameters not available on a required service."/>
+      </groups>
+      <groups name="Operation Input Parameters Exposition Group" labelExpression="Input Parameters" domainClass="soa::Operation" semanticCandidateExpression="var:self">
+        <controls xsi:type="properties:ContainerDescription">
+          <controls xsi:type="properties:ContainerDescription">
+            <controls xsi:type="properties:DynamicMappingForDescription" iterator="restData" iterableExpression="aql:self.input.restData">
+              <ifs name="true" predicateExpression="aql:true">
+                <widget xsi:type="properties:LabelDescription" name="restData.eContainer(soa::Parameter).name" valueExpression="aql:restData.eContainer(soa::Parameter).name"/>
+              </ifs>
+              <ifs name="true" predicateExpression="aql:true">
+                <widget xsi:type="properties:SelectDescription" name="soa::ParameterRestData passingMode" labelExpression="aql:input.emfEditServices(restData).getText(restData.eClass().getEStructuralFeature('passingMode')) + ':'" helpExpression="aql:input.emfEditServices(restData).getDescription(restData.eClass().getEStructuralFeature('passingMode'))" isEnabledExpression="aql:restData.eClass().getEStructuralFeature('passingMode').changeable" valueExpression="aql:restData.eClass().getEStructuralFeature('passingMode').eType.getEEnumLiteralByLiteral(restData.passingMode.toString())" candidatesExpression="aql:restData.eClass().getEStructuralFeature('passingMode').eType.eLiterals" candidateDisplayExpression="aql:candidate.literal">
+                  <initialOperation>
+                    <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="aql:restData">
+                      <subModelOperations xsi:type="tool_1:SetValue" featureName="passingMode" valueExpression="aql:newValue.instance"/>
+                    </firstModelOperations>
+                  </initialOperation>
+                </widget>
+              </ifs>
+              <ifs name="passingMode=BODY" predicateExpression="aql:restData.passingMode=soa::ParameterPassingMode::BODY">
+                <widget xsi:type="properties:TextDescription" name="soa::ParameterRestData restId BODY" labelExpression="aql:input.emfEditServices(restData).getText(restData.eClass().getEStructuralFeature('restId')) + ':'" helpExpression="aql:input.emfEditServices(restData).getDescription(restData.eClass().getEStructuralFeature('restId'))" isEnabledExpression="aql:false" valueExpression="aql:'body'">
+                  <initialOperation/>
+                </widget>
+              </ifs>
+              <ifs name="passingMode=PATH" predicateExpression="aql:restData.passingMode=soa::ParameterPassingMode::PATH">
+                <widget xsi:type="properties:SelectDescription" name="soa::ParameterRestData restId PATH" labelExpression="aql:input.emfEditServices(restData).getText(restData.eClass().getEStructuralFeature('restId')) + ':'" helpExpression="aql:input.emfEditServices(restData).getDescription(restData.eClass().getEStructuralFeature('restId'))" isEnabledExpression="aql:restData.eClass().getEStructuralFeature('restId').changeable" valueExpression="aql:restData.restId" candidatesExpression="aql:restData.eContainer(soa::Operation).getParamIdsFromURI()" candidateDisplayExpression="aql:candidate">
+                  <initialOperation>
+                    <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="aql:restData">
+                      <subModelOperations xsi:type="tool_1:SetValue" featureName="restId" valueExpression="var:newValue"/>
+                    </firstModelOperations>
+                  </initialOperation>
+                </widget>
+              </ifs>
+              <ifs name="passingMode=COOKIE or QUERY or HEADER" predicateExpression="aql:Sequence{soa::ParameterPassingMode::COOKIE,soa::ParameterPassingMode::QUERY,soa::ParameterPassingMode::HEADER}->includes(restData.passingMode)">
+                <widget xsi:type="properties:TextDescription" name="soa::ParameterRestData restId COOKIE QUERY HEADER" labelExpression="aql:input.emfEditServices(restData).getText(restData.eClass().getEStructuralFeature('restId')) + ':'" helpExpression="aql:input.emfEditServices(restData).getDescription(restData.eClass().getEStructuralFeature('restId'))" isEnabledExpression="aql:restData.eClass().getEStructuralFeature('restId').changeable" valueExpression="aql:restData.restId">
+                  <initialOperation>
+                    <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="aql:restData">
+                      <subModelOperations xsi:type="tool_1:SetValue" featureName="restId" valueExpression="var:newValue"/>
+                    </firstModelOperations>
+                  </initialOperation>
+                </widget>
+              </ifs>
+            </controls>
+            <layout xsi:type="properties:GridLayoutDescription" numberOfColumns="3"/>
+          </controls>
+          <controls xsi:type="properties:ContainerDescription">
+            <layout xsi:type="properties:FillLayoutDescription" orientation="HORIZONTAL"/>
+          </controls>
+          <layout xsi:type="properties:GridLayoutDescription" numberOfColumns="2" makeColumnsWithEqualWidth="true"/>
+        </controls>
+        <validationSet>
+          <propertyValidationRules name="Invalid rest id" level="ERROR" message="The rest id is not defined in the operation URI." targets="//@extensions.0/@categories.1/@groups.10/@controls.0/@controls.0/@controls.0/@ifs.3/@widget">
+            <audits auditExpression="aql:self.getParamIdsFromURI()->includes(restData.restId)"/>
+          </propertyValidationRules>
+        </validationSet>
       </groups>
     </categories>
   </extensions>

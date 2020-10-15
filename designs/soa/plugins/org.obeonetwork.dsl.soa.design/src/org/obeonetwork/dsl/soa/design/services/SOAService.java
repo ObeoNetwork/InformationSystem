@@ -14,12 +14,18 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.HashSet;
 import java.util.List;
+import java.util.Map;
+import java.util.Optional;
 import java.util.Set;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.jface.dialogs.Dialog;
 import org.eclipse.jface.viewers.ArrayContentProvider;
 import org.eclipse.jface.viewers.LabelProvider;
+import org.eclipse.sirius.business.api.query.EObjectQuery;
+import org.eclipse.sirius.business.api.session.Session;
 import org.eclipse.sirius.diagram.DNodeContainer;
 import org.eclipse.sirius.diagram.DSemanticDiagram;
 import org.eclipse.swt.widgets.Shell;
@@ -38,6 +44,27 @@ import org.obeonetwork.dsl.soa.Wire;
 
 
 public class SOAService {
+	
+	public EObject trace(EObject receiver) {
+		java.lang.System.out.println("receiver.eClass() = \"" + receiver.eClass().getName() + "\"");
+		java.lang.System.out.println("receiver.toString() = \"" + receiver.toString() + "\"");
+		java.lang.System.out.println("receiver.name = \"" + 
+			Optional.ofNullable(receiver.eClass().getEStructuralFeature("name"))
+			.map(f -> (String)receiver.eGet(f)).orElse(null) + "\"");
+		
+		return receiver;
+	}
+	
+	public EObject traceVars(EObject o) {
+		trace(o);
+		Session session = new EObjectQuery(o).getSession();
+		Map<String, ?> vars = session.getInterpreter().getVariables();
+		java.lang.System.out.println(vars.keySet().size() + " variable(s)");
+		for(String var : vars.keySet()) {
+			java.lang.System.out.println(var + " = " + vars.get(var));
+		}
+		return o;
+	}
 	
 	public Operation setExpositionKind(Operation operation, ExpositionKind expositionKind) {
 		
@@ -264,6 +291,21 @@ public class SOAService {
     		parameter.setStatusMessage(selectedStatus[1]);
 		}
 		
+	}
+	
+	private static final Pattern PATH_PARAM_PATTERN = Pattern.compile("\\{[^\\{\\}]*\\}");
+	
+	public List<String> getParamIdsFromURI(Operation operation) {
+		List<String> paramIds = new ArrayList<>();
+		if(operation.getURI() != null) {
+			Matcher matcher = PATH_PARAM_PATTERN.matcher(operation.getURI());
+			while(matcher.find()) {
+				String match = matcher.group();
+				paramIds.add(match.substring(1, match.length() - 1));
+			}
+		}
+		
+		return paramIds;
 	}
 	
 }

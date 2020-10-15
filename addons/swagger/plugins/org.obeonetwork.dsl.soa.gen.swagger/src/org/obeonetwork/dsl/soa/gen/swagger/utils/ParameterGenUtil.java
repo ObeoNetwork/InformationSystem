@@ -44,5 +44,13 @@ public class ParameterGenUtil {
 		return soaParameter.eContainingFeature() == SoaPackage.eINSTANCE.getOperation_Fault();
 	}
 
+	public static String getName(Parameter soaParameter) {
+		
+		if(soaParameter.getRestData() != null && !StringUtils.isNullOrWhite(soaParameter.getRestData().getRestId())) {
+			return soaParameter.getRestData().getRestId();
+		}
+		
+		return soaParameter.getName();
+	}
 	
 }
