@@ -13,6 +13,7 @@ package org.obeonetwork.dsl.database.liquibasegen;
 import java.io.BufferedOutputStream;
 import java.io.File;
 import java.io.FileOutputStream;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.io.OutputStream;
 import java.nio.file.Files;
@@ -55,7 +56,8 @@ public class LiquibaseGenerator {
 		// Current generation path (stored in path holding the date)
 		File file = computeTargetFolder.toPath().resolve(ChangeLogBuilder.FILE_NAME).toFile();
 
-		File lastFile = computeLastTargetFolder.toPath().resolve(ChangeLogBuilder.FILE_NAME).toFile();
+		Path lastFileFolder = computeLastTargetFolder.toPath();
+		File lastFile = lastFileFolder.resolve(ChangeLogBuilder.FILE_NAME).toFile();
 
 		// Deletes last generation
 		if (lastFile.exists()) {
@@ -73,12 +75,59 @@ public class LiquibaseGenerator {
 
 			Files.copy(file.toPath(), lastFile.toPath(), StandardCopyOption.REPLACE_EXISTING);
 
+			Path liquibasePropertyFile = lastFileFolder.resolve("liquibase.properties");
+			if (!liquibasePropertyFile.toFile().exists()) {
+				writtePropertyFile(liquibasePropertyFile);
+			}
+
 		}
 		List<IStatus> statuses = changeLogBuilder.getStatuses();
 		if (statuses.isEmpty()) {
 			return Status.OK_STATUS;
 		} else {
 			return StatusUtils.createMultiStatus("See message in the detail section", statuses);
+		}
+
+	}
+
+
+	private static final String EOL = System.lineSeparator();
+
+	private void writtePropertyFile(Path liquibasePropertyFile) throws IOException {
+		String content = //
+				  "# Enter the path for your changelog file." + EOL //
+				+ "changeLogFile=run.changelog.xml" + EOL //
+				+ EOL //
+				+ "#### Enter the Target database 'url' information  ####" + EOL //
+				+ "url=" + EOL //
+				+ EOL //
+				+ "# Enter the username for your Target database." + EOL //
+				+ "username: " + EOL //
+				+ EOL //
+				+ "# Enter the password for your Target database." + EOL //
+				+ "password: " + EOL //
+				+ EOL //
+				+ "#Driver name" + EOL //
+				+ "driver: " + EOL //
+				+ "#Path to the driver jar" + EOL
+				+ "classpath: " + EOL
+				+ EOL
+				+ "#### Enter the Source Database 'referenceUrl' information ####" + EOL //
+				+ "## The source database is the baseline or reference against which your target database is compared for diff/diffchangelog commands."
+				+ EOL //
+				+ EOL //
+				+ "# Enter URL for the source database" + EOL //
+				+ "#referenceUrl:" + EOL //
+				+ EOL //
+				+ "# Enter the username for your source database" + EOL //
+				+ "#referenceUsername:" + EOL //
+				+ EOL //
+				+ "# Enter the password for your source database" + EOL //
+				+ "#referencePassword:" + EOL //
+				+ EOL;
+
+		try (FileWriter writer = new FileWriter(liquibasePropertyFile.toFile())) {
+			writer.append(content);
 		}
 
 	}
