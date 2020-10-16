@@ -27,6 +27,11 @@ import org.obeonetwork.dsl.environment.Action;
  *   <li>{@link org.obeonetwork.dsl.soa.Operation#getKind <em>Kind</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.soa.Operation#isPublic <em>Public</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.soa.Operation#getFault <em>Fault</em>}</li>
+ *   <li>{@link org.obeonetwork.dsl.soa.Operation#getURI <em>URI</em>}</li>
+ *   <li>{@link org.obeonetwork.dsl.soa.Operation#getVerb <em>Verb</em>}</li>
+ *   <li>{@link org.obeonetwork.dsl.soa.Operation#getExposition <em>Exposition</em>}</li>
+ *   <li>{@link org.obeonetwork.dsl.soa.Operation#isPaged <em>Paged</em>}</li>
+ *   <li>{@link org.obeonetwork.dsl.soa.Operation#getSecurityscheme <em>Securityscheme</em>}</li>
  * </ul>
  *
  * @see org.obeonetwork.dsl.soa.SoaPackage#getOperation()
@@ -120,7 +125,7 @@ public interface Operation extends Action {
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * Tells of tje operation is public.
+	 * Tells if the operation is public.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Public</em>' attribute.
 	 * @see #setPublic(boolean)
@@ -158,5 +163,147 @@ public interface Operation extends Action {
 	 * @generated
 	 */
 	EList<Parameter> getFault();
+
+	/**
+	 * Returns the value of the '<em><b>URI</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>URI</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * The exposition URI of this operation.
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>URI</em>' attribute.
+	 * @see #setURI(String)
+	 * @see org.obeonetwork.dsl.soa.SoaPackage#getOperation_URI()
+	 * @model
+	 * @generated
+	 */
+	String getURI();
+
+	/**
+	 * Sets the value of the '{@link org.obeonetwork.dsl.soa.Operation#getURI <em>URI</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>URI</em>' attribute.
+	 * @see #getURI()
+	 * @generated
+	 */
+	void setURI(String value);
+
+	/**
+	 * Returns the value of the '<em><b>Verb</b></em>' attribute.
+	 * The default value is <code>"GET"</code>.
+	 * The literals are from the enumeration {@link org.obeonetwork.dsl.soa.Verb}.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Verb</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * The HTTP verb of this operation.
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Verb</em>' attribute.
+	 * @see org.obeonetwork.dsl.soa.Verb
+	 * @see #setVerb(Verb)
+	 * @see org.obeonetwork.dsl.soa.SoaPackage#getOperation_Verb()
+	 * @model default="GET"
+	 * @generated
+	 */
+	Verb getVerb();
+
+	/**
+	 * Sets the value of the '{@link org.obeonetwork.dsl.soa.Operation#getVerb <em>Verb</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Verb</em>' attribute.
+	 * @see org.obeonetwork.dsl.soa.Verb
+	 * @see #getVerb()
+	 * @generated
+	 */
+	void setVerb(Verb value);
+
+	/**
+	 * Returns the value of the '<em><b>Exposition</b></em>' attribute.
+	 * The literals are from the enumeration {@link org.obeonetwork.dsl.soa.ExpositionKind}.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Exposition</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * The kind of exposition or NONE if not exposed.
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Exposition</em>' attribute.
+	 * @see org.obeonetwork.dsl.soa.ExpositionKind
+	 * @see #setExposition(ExpositionKind)
+	 * @see org.obeonetwork.dsl.soa.SoaPackage#getOperation_Exposition()
+	 * @model
+	 * @generated
+	 */
+	ExpositionKind getExposition();
+
+	/**
+	 * Sets the value of the '{@link org.obeonetwork.dsl.soa.Operation#getExposition <em>Exposition</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Exposition</em>' attribute.
+	 * @see org.obeonetwork.dsl.soa.ExpositionKind
+	 * @see #getExposition()
+	 * @generated
+	 */
+	void setExposition(ExpositionKind value);
+
+	/**
+	 * Returns the value of the '<em><b>Paged</b></em>' attribute.
+	 * The default value is <code>"true"</code>.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * Tells if this operation is paged.
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Paged</em>' attribute.
+	 * @see #setPaged(boolean)
+	 * @see org.obeonetwork.dsl.soa.SoaPackage#getOperation_Paged()
+	 * @model default="true"
+	 * @generated
+	 */
+	boolean isPaged();
+
+	/**
+	 * Sets the value of the '{@link org.obeonetwork.dsl.soa.Operation#isPaged <em>Paged</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Paged</em>' attribute.
+	 * @see #isPaged()
+	 * @generated
+	 */
+	void setPaged(boolean value);
+
+	/**
+	 * Returns the value of the '<em><b>Securityscheme</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Securityscheme</em>' reference.
+	 * @see #setSecurityscheme(SecurityScheme)
+	 * @see org.obeonetwork.dsl.soa.SoaPackage#getOperation_Securityscheme()
+	 * @model
+	 * @generated
+	 */
+	SecurityScheme getSecurityscheme();
+
+	/**
+	 * Sets the value of the '{@link org.obeonetwork.dsl.soa.Operation#getSecurityscheme <em>Securityscheme</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Securityscheme</em>' reference.
+	 * @see #getSecurityscheme()
+	 * @generated
+	 */
+	void setSecurityscheme(SecurityScheme value);
 
 } // Operation

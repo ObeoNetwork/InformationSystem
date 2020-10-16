@@ -9,7 +9,7 @@
   <foreignModel>soa.ecore</foreignModel>
   <modelPluginVariables>CDO=org.eclipse.emf.cdo</modelPluginVariables>
   <genPackages prefix="Soa" basePackage="org.obeonetwork.dsl" resource="XMI" disposableProviderFactory="true"
-      multipleEditorPages="false" ecorePackage="soa.ecore#/">
+      multipleEditorPages="false" generateModelWizard="false" ecorePackage="soa.ecore#/">
     <genEnums ecoreEnum="soa.ecore#//InterfaceKind">
       <genEnumLiterals ecoreEnumLiteral="soa.ecore#//InterfaceKind/provided"/>
       <genEnumLiterals ecoreEnumLiteral="soa.ecore#//InterfaceKind/required"/>
@@ -29,6 +29,39 @@
       <genEnumLiterals ecoreEnumLiteral="soa.ecore#//OperationKind/REQUEST_RESPONSE"/>
       <genEnumLiterals ecoreEnumLiteral="soa.ecore#//OperationKind/ONE_WAY"/>
     </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="soa.ecore#//Verb">
+      <genEnumLiterals ecoreEnumLiteral="soa.ecore#//Verb/GET"/>
+      <genEnumLiterals ecoreEnumLiteral="soa.ecore#//Verb/POST"/>
+      <genEnumLiterals ecoreEnumLiteral="soa.ecore#//Verb/PUT"/>
+      <genEnumLiterals ecoreEnumLiteral="soa.ecore#//Verb/DELETE"/>
+      <genEnumLiterals ecoreEnumLiteral="soa.ecore#//Verb/HEAD"/>
+      <genEnumLiterals ecoreEnumLiteral="soa.ecore#//Verb/OPTIONS"/>
+      <genEnumLiterals ecoreEnumLiteral="soa.ecore#//Verb/PATCH"/>
+      <genEnumLiterals ecoreEnumLiteral="soa.ecore#//Verb/TRACE"/>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="soa.ecore#//ParameterPassingMode">
+      <genEnumLiterals ecoreEnumLiteral="soa.ecore#//ParameterPassingMode/BODY"/>
+      <genEnumLiterals ecoreEnumLiteral="soa.ecore#//ParameterPassingMode/PATH"/>
+      <genEnumLiterals ecoreEnumLiteral="soa.ecore#//ParameterPassingMode/QUERY"/>
+      <genEnumLiterals ecoreEnumLiteral="soa.ecore#//ParameterPassingMode/COOKIE"/>
+      <genEnumLiterals ecoreEnumLiteral="soa.ecore#//ParameterPassingMode/HEADER"/>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="soa.ecore#//ExpositionKind">
+      <genEnumLiterals ecoreEnumLiteral="soa.ecore#//ExpositionKind/NONE"/>
+      <genEnumLiterals ecoreEnumLiteral="soa.ecore#//ExpositionKind/REST"/>
+      <genEnumLiterals ecoreEnumLiteral="soa.ecore#//ExpositionKind/SOAP"/>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="soa.ecore#//SecuritySchemeType">
+      <genEnumLiterals ecoreEnumLiteral="soa.ecore#//SecuritySchemeType/API_KEY"/>
+      <genEnumLiterals ecoreEnumLiteral="soa.ecore#//SecuritySchemeType/HTTP"/>
+      <genEnumLiterals ecoreEnumLiteral="soa.ecore#//SecuritySchemeType/OAUTH2"/>
+      <genEnumLiterals ecoreEnumLiteral="soa.ecore#//SecuritySchemeType/OPEN_ID_CONNECT"/>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="soa.ecore#//ApiKeyLocation">
+      <genEnumLiterals ecoreEnumLiteral="soa.ecore#//ApiKeyLocation/QUERY"/>
+      <genEnumLiterals ecoreEnumLiteral="soa.ecore#//ApiKeyLocation/HEADER"/>
+      <genEnumLiterals ecoreEnumLiteral="soa.ecore#//ApiKeyLocation/COOKIE"/>
+    </genEnums>
     <genClasses ecoreClass="soa.ecore#//System">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference soa.ecore#//System/ownedComponents"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference soa.ecore#//System/ownedWires"/>
@@ -41,6 +74,11 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute soa.ecore#//Component/name"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference soa.ecore#//Component/ownedBinding"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference soa.ecore#//Component/block"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute soa.ecore#//Component/URI"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute soa.ecore#//Component/URL"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute soa.ecore#//Component/apiVersion"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute soa.ecore#//Component/deprecated"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference soa.ecore#//Component/securitySchemes"/>
     </genClasses>
     <genClasses ecoreClass="soa.ecore#//Service">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference soa.ecore#//Service/ownedInterface"/>
@@ -50,6 +88,7 @@
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference soa.ecore#//Service/bindings"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute soa.ecore#//Service/name"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference soa.ecore#//Service/usedTypes"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute soa.ecore#//Service/URI"/>
     </genClasses>
     <genClasses image="false" ecoreClass="soa.ecore#//Wire" labelFeature="../../org.obeonetwork.dsl.environment/model/environment.genmodel#//environment/ObeoDSMObject/description">
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference soa.ecore#//Wire/source"/>
@@ -68,6 +107,11 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute soa.ecore#//Operation/kind"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute soa.ecore#//Operation/public"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference soa.ecore#//Operation/fault"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute soa.ecore#//Operation/URI"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute soa.ecore#//Operation/verb"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute soa.ecore#//Operation/exposition"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute soa.ecore#//Operation/paged"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference soa.ecore#//Operation/securityscheme"/>
     </genClasses>
     <genClasses ecoreClass="soa.ecore#//ImplementationComponent" labelFeature="../../org.obeonetwork.dsl.environment/model/environment.genmodel#//environment/ObeoDSMObject/description">
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference soa.ecore#//ImplementationComponent/implement"/>
@@ -79,6 +123,20 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute soa.ecore#//Parameter/multiplicity"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute soa.ecore#//Parameter/isUnique"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute soa.ecore#//Parameter/isOrdered"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute soa.ecore#//Parameter/statusCode"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute soa.ecore#//Parameter/statusMessage"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference soa.ecore#//Parameter/restData"/>
+    </genClasses>
+    <genClasses ecoreClass="soa.ecore#//ParameterRestData">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute soa.ecore#//ParameterRestData/passingMode"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute soa.ecore#//ParameterRestData/restId"/>
+    </genClasses>
+    <genClasses ecoreClass="soa.ecore#//SecurityScheme">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute soa.ecore#//SecurityScheme/key"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute soa.ecore#//SecurityScheme/type"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute soa.ecore#//SecurityScheme/description"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute soa.ecore#//SecurityScheme/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute soa.ecore#//SecurityScheme/apiKeyLocation"/>
     </genClasses>
   </genPackages>
 </genmodel:GenModel>

@@ -24,6 +24,7 @@ import org.obeonetwork.dsl.soa.InterfaceKind;
 import org.obeonetwork.dsl.soa.Service;
 import org.obeonetwork.dsl.soa.SoaPackage;
 import org.obeonetwork.dsl.soa.SynchronizationKind;
+import org.obeonetwork.dsl.soa.Verb;
 
 /**
  * <!-- begin-user-doc -->
@@ -40,6 +41,7 @@ import org.obeonetwork.dsl.soa.SynchronizationKind;
  *   <li>{@link org.obeonetwork.dsl.soa.impl.ServiceImpl#getBindings <em>Bindings</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.soa.impl.ServiceImpl#getName <em>Name</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.soa.impl.ServiceImpl#getUsedTypes <em>Used Types</em>}</li>
+ *   <li>{@link org.obeonetwork.dsl.soa.impl.ServiceImpl#getURI <em>URI</em>}</li>
  * </ul>
  *
  * @generated
@@ -79,6 +81,16 @@ public class ServiceImpl extends ObeoDSMObjectImpl implements Service {
 	 * @ordered
 	 */
 	protected static final String NAME_EDEFAULT = null;
+
+	/**
+	 * The default value of the '{@link #getURI() <em>URI</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getURI()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String URI_EDEFAULT = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -259,6 +271,24 @@ public class ServiceImpl extends ObeoDSMObjectImpl implements Service {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public String getURI() {
+		return (String)eDynamicGet(SoaPackage.SERVICE__URI, SoaPackage.Literals.SERVICE__URI, true, true);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setURI(String newURI) {
+		eDynamicSet(SoaPackage.SERVICE__URI, SoaPackage.Literals.SERVICE__URI, newURI);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
@@ -293,6 +323,8 @@ public class ServiceImpl extends ObeoDSMObjectImpl implements Service {
 				return getName();
 			case SoaPackage.SERVICE__USED_TYPES:
 				return getUsedTypes();
+			case SoaPackage.SERVICE__URI:
+				return getURI();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -328,6 +360,9 @@ public class ServiceImpl extends ObeoDSMObjectImpl implements Service {
 				getUsedTypes().clear();
 				getUsedTypes().addAll((Collection<? extends Type>)newValue);
 				return;
+			case SoaPackage.SERVICE__URI:
+				setURI((String)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -361,6 +396,9 @@ public class ServiceImpl extends ObeoDSMObjectImpl implements Service {
 			case SoaPackage.SERVICE__USED_TYPES:
 				getUsedTypes().clear();
 				return;
+			case SoaPackage.SERVICE__URI:
+				setURI(URI_EDEFAULT);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -387,6 +425,8 @@ public class ServiceImpl extends ObeoDSMObjectImpl implements Service {
 				return NAME_EDEFAULT == null ? getName() != null : !NAME_EDEFAULT.equals(getName());
 			case SoaPackage.SERVICE__USED_TYPES:
 				return !getUsedTypes().isEmpty();
+			case SoaPackage.SERVICE__URI:
+				return URI_EDEFAULT == null ? getURI() != null : !URI_EDEFAULT.equals(getURI());
 		}
 		return super.eIsSet(featureID);
 	}

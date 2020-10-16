@@ -18,6 +18,7 @@ import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.util.ResourceLocator;
 import org.eclipse.emf.ecore.EObject;
+import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
 import org.eclipse.emf.edit.provider.IItemLabelProvider;
@@ -30,6 +31,7 @@ import org.eclipse.emf.edit.provider.ViewerNotification;
 import org.obeonetwork.dsl.environment.provider.ObeoDSMObjectItemProvider;
 import org.obeonetwork.dsl.soa.Operation;
 import org.obeonetwork.dsl.soa.Parameter;
+import org.obeonetwork.dsl.soa.SoaFactory;
 import org.obeonetwork.dsl.soa.SoaPackage;
 
 /**
@@ -73,6 +75,8 @@ public class ParameterItemProvider
 			addMultiplicityPropertyDescriptor(object);
 			addIsUniquePropertyDescriptor(object);
 			addIsOrderedPropertyDescriptor(object);
+			addStatusCodePropertyDescriptor(object);
+			addStatusMessagePropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -188,6 +192,80 @@ public class ParameterItemProvider
 	}
 
 	/**
+	 * This adds a property descriptor for the Status Code feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addStatusCodePropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_Parameter_statusCode_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Parameter_statusCode_feature", "_UI_Parameter_type"),
+				 SoaPackage.Literals.PARAMETER__STATUS_CODE,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Status Message feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addStatusMessagePropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_Parameter_statusMessage_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Parameter_statusMessage_feature", "_UI_Parameter_type"),
+				 SoaPackage.Literals.PARAMETER__STATUS_MESSAGE,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This specifies how to implement {@link #getChildren} and is used to deduce an appropriate feature for an
+	 * {@link org.eclipse.emf.edit.command.AddCommand}, {@link org.eclipse.emf.edit.command.RemoveCommand} or
+	 * {@link org.eclipse.emf.edit.command.MoveCommand} in {@link #createCommand}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
+		if (childrenFeatures == null) {
+			super.getChildrenFeatures(object);
+			childrenFeatures.add(SoaPackage.Literals.PARAMETER__REST_DATA);
+		}
+		return childrenFeatures;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	protected EStructuralFeature getChildFeature(Object object, Object child) {
+		// Check the type of the specified child object and return the proper feature to use for
+		// adding (see {@link AddCommand}) it as a child.
+
+		return super.getChildFeature(object, child);
+	}
+
+	/**
 	 * This returns Parameter.gif.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -253,7 +331,12 @@ public class ParameterItemProvider
 			case SoaPackage.PARAMETER__MULTIPLICITY:
 			case SoaPackage.PARAMETER__IS_UNIQUE:
 			case SoaPackage.PARAMETER__IS_ORDERED:
+			case SoaPackage.PARAMETER__STATUS_CODE:
+			case SoaPackage.PARAMETER__STATUS_MESSAGE:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
+				return;
+			case SoaPackage.PARAMETER__REST_DATA:
+				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
 		}
 		super.notifyChanged(notification);
@@ -269,6 +352,11 @@ public class ParameterItemProvider
 	@Override
 	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
 		super.collectNewChildDescriptors(newChildDescriptors, object);
+
+		newChildDescriptors.add
+			(createChildParameter
+				(SoaPackage.Literals.PARAMETER__REST_DATA,
+				 SoaFactory.eINSTANCE.createParameterRestData()));
 	}
 
 	/**

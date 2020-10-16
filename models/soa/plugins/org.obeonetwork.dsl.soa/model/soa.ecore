@@ -57,6 +57,24 @@
         <details key="documentation" value="The list of block type definitions."/>
       </eAnnotations>
     </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="URI" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="The exposition URI of this component."/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="URL" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="The exposition URL of this component."/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="apiVersion" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="deprecated" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Tells if this Component is deprecated."/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="securitySchemes" upperBound="-1"
+        eType="#//SecurityScheme" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Service" eSuperTypes="../../org.obeonetwork.dsl.environment/model/environment.ecore#//ObeoDSMObject">
     <eStructuralFeatures xsi:type="ecore:EReference" name="ownedInterface" eType="#//Interface"
@@ -95,6 +113,11 @@
         eType="ecore:EClass ../../org.obeonetwork.dsl.environment/model/environment.ecore#//Type">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
         <details key="documentation" value="The list of used types."/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="URI" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="The exposition URI of this service."/>
       </eAnnotations>
     </eStructuralFeatures>
   </eClassifiers>
@@ -159,7 +182,7 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="public" lowerBound="1"
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-        <details key="documentation" value="Tells of tje operation is public."/>
+        <details key="documentation" value="Tells if the operation is public."/>
       </eAnnotations>
     </eStructuralFeatures>
     <eStructuralFeatures xsi:type="ecore:EReference" name="fault" upperBound="-1"
@@ -168,6 +191,28 @@
         <details key="documentation" value="The list of fault parameters."/>
       </eAnnotations>
     </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="URI" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="The exposition URI of this operation."/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="verb" eType="#//Verb" defaultValueLiteral="GET">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="The HTTP verb of this operation."/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="exposition" eType="#//ExpositionKind">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="The kind of exposition or NONE if not exposed."/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="paged" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"
+        defaultValueLiteral="true">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Tells if this operation is paged."/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="securityscheme" eType="#//SecurityScheme"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ImplementationComponent" eSuperTypes="../../org.obeonetwork.dsl.environment/model/environment.ecore#//ObeoDSMObject">
     <eStructuralFeatures xsi:type="ecore:EReference" name="implement" eType="#//Interface">
@@ -211,6 +256,18 @@
         <details key="documentation" value="Tells if the parameter is ordered."/>
       </eAnnotations>
     </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="statusCode" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="The status code associated with this parameter."/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="statusMessage" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="The status message associated with this parameter."/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="restData" eType="#//ParameterRestData"
+        containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EEnum" name="BindingKind">
     <eLiterals name="webservice"/>
@@ -222,5 +279,73 @@
   <eClassifiers xsi:type="ecore:EEnum" name="OperationKind">
     <eLiterals name="REQUEST_RESPONSE"/>
     <eLiterals name="ONE_WAY" value="1"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="Verb">
+    <eLiterals name="GET"/>
+    <eLiterals name="POST" value="1"/>
+    <eLiterals name="PUT" value="2"/>
+    <eLiterals name="DELETE" value="3"/>
+    <eLiterals name="HEAD" value="4"/>
+    <eLiterals name="OPTIONS" value="5"/>
+    <eLiterals name="PATCH" value="6"/>
+    <eLiterals name="TRACE" value="7"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="ParameterPassingMode">
+    <eLiterals name="BODY"/>
+    <eLiterals name="PATH" value="1"/>
+    <eLiterals name="QUERY" value="2"/>
+    <eLiterals name="COOKIE" value="3"/>
+    <eLiterals name="HEADER" value="5"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="ExpositionKind">
+    <eLiterals name="NONE"/>
+    <eLiterals name="REST" value="1"/>
+    <eLiterals name="SOAP" value="2"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ParameterRestData">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="passingMode" eType="#//ParameterPassingMode">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="The parameter passing mode."/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="restId" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="SecurityScheme">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="key" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="The unique id of the Security Scheme, used in the OpenAPI serialization format."/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="type" eType="#//SecuritySchemeType">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="The type of the security scheme."/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="description" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="A short description for security scheme."/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="The name of the header, query or cookie parameter to be used."/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="apiKeyLocation" eType="#//ApiKeyLocation">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="The location of the API key. (Named &quot;in&quot; in the OpenAPI specification)."/>
+      </eAnnotations>
+    </eStructuralFeatures>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="SecuritySchemeType">
+    <eLiterals name="API_KEY" literal="apiKey"/>
+    <eLiterals name="HTTP" value="1" literal="http"/>
+    <eLiterals name="OAUTH2" value="2" literal="oauth2"/>
+    <eLiterals name="OPEN_ID_CONNECT" value="3" literal="openIdConnect"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="ApiKeyLocation">
+    <eLiterals name="QUERY" literal="QUERY"/>
+    <eLiterals name="HEADER" value="1" literal="HEADER"/>
+    <eLiterals name="COOKIE" value="2" literal="COOKIE"/>
   </eClassifiers>
 </ecore:EPackage>

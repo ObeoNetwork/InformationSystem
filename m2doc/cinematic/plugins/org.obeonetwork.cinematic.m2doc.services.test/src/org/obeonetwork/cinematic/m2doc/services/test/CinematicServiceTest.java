@@ -23,7 +23,9 @@ import org.obeonetwork.dsl.cinematic.view.ViewPackage;
 import org.obeonetwork.dsl.environment.EnvironmentPackage;
 import org.obeonetwork.dsl.environment.MetaData;
 import org.obeonetwork.dsl.environment.MetaDataContainer;
-import org.obeonetwork.m2doc.element.MImage;public class CinematicServiceTest {
+import org.obeonetwork.m2doc.element.MImage;
+
+public class CinematicServiceTest {
 	
 	CinematicServices cs = new CinematicServices ();
 

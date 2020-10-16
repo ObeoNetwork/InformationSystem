@@ -4,6 +4,7 @@ location "http://update.obeo.fr/integration/informationsystem/11.3/design/reposi
 	org.obeonetwork.dsl.feature.entity.feature.group lazy
 	org.obeonetwork.dsl.feature.cinematic.feature.group lazy
 	org.obeonetwork.dsl.feature.soa.feature.group lazy
+	org.obeonetwork.dsl.soa.gen.swagger.feature.feature.group lazy
 	org.obeonetwork.graal.feature.feature.group lazy
 	org.obeonetwork.dsl.feature.requirement.feature.group lazy
 	org.obeonetwork.dsl.feature.is.feature.group lazy

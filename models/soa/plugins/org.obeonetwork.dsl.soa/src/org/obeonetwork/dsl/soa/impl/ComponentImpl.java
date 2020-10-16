@@ -24,6 +24,7 @@ import org.obeonetwork.dsl.soa.Binding;
 import org.obeonetwork.dsl.soa.Component;
 import org.obeonetwork.dsl.soa.ImplementationComponent;
 import org.obeonetwork.dsl.soa.InterfaceKind;
+import org.obeonetwork.dsl.soa.SecurityScheme;
 import org.obeonetwork.dsl.soa.Service;
 import org.obeonetwork.dsl.soa.SoaPackage;
 
@@ -42,6 +43,11 @@ import org.obeonetwork.dsl.soa.SoaPackage;
  *   <li>{@link org.obeonetwork.dsl.soa.impl.ComponentImpl#getName <em>Name</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.soa.impl.ComponentImpl#getOwnedBinding <em>Owned Binding</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.soa.impl.ComponentImpl#getBlock <em>Block</em>}</li>
+ *   <li>{@link org.obeonetwork.dsl.soa.impl.ComponentImpl#getURI <em>URI</em>}</li>
+ *   <li>{@link org.obeonetwork.dsl.soa.impl.ComponentImpl#getURL <em>URL</em>}</li>
+ *   <li>{@link org.obeonetwork.dsl.soa.impl.ComponentImpl#getApiVersion <em>Api Version</em>}</li>
+ *   <li>{@link org.obeonetwork.dsl.soa.impl.ComponentImpl#isDeprecated <em>Deprecated</em>}</li>
+ *   <li>{@link org.obeonetwork.dsl.soa.impl.ComponentImpl#getSecuritySchemes <em>Security Schemes</em>}</li>
  * </ul>
  *
  * @generated
@@ -63,6 +69,46 @@ public class ComponentImpl extends ObeoDSMObjectImpl implements Component {
 	 * @ordered
 	 */
 	protected static final String NAME_EDEFAULT = null;
+
+	/**
+	 * The default value of the '{@link #getURI() <em>URI</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getURI()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String URI_EDEFAULT = null;
+
+	/**
+	 * The default value of the '{@link #getURL() <em>URL</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getURL()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String URL_EDEFAULT = null;
+
+	/**
+	 * The default value of the '{@link #getApiVersion() <em>Api Version</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getApiVersion()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String API_VERSION_EDEFAULT = null;
+
+	/**
+	 * The default value of the '{@link #isDeprecated() <em>Deprecated</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isDeprecated()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final boolean DEPRECATED_EDEFAULT = false;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -176,6 +222,88 @@ public class ComponentImpl extends ObeoDSMObjectImpl implements Component {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public String getURI() {
+		return (String)eDynamicGet(SoaPackage.COMPONENT__URI, SoaPackage.Literals.COMPONENT__URI, true, true);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setURI(String newURI) {
+		eDynamicSet(SoaPackage.COMPONENT__URI, SoaPackage.Literals.COMPONENT__URI, newURI);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String getURL() {
+		return (String)eDynamicGet(SoaPackage.COMPONENT__URL, SoaPackage.Literals.COMPONENT__URL, true, true);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setURL(String newURL) {
+		eDynamicSet(SoaPackage.COMPONENT__URL, SoaPackage.Literals.COMPONENT__URL, newURL);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String getApiVersion() {
+		return (String)eDynamicGet(SoaPackage.COMPONENT__API_VERSION, SoaPackage.Literals.COMPONENT__API_VERSION, true, true);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setApiVersion(String newApiVersion) {
+		eDynamicSet(SoaPackage.COMPONENT__API_VERSION, SoaPackage.Literals.COMPONENT__API_VERSION, newApiVersion);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean isDeprecated() {
+		return (Boolean)eDynamicGet(SoaPackage.COMPONENT__DEPRECATED, SoaPackage.Literals.COMPONENT__DEPRECATED, true, true);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setDeprecated(boolean newDeprecated) {
+		eDynamicSet(SoaPackage.COMPONENT__DEPRECATED, SoaPackage.Literals.COMPONENT__DEPRECATED, newDeprecated);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@SuppressWarnings("unchecked")
+	public EList<SecurityScheme> getSecuritySchemes() {
+		return (EList<SecurityScheme>)eDynamicGet(SoaPackage.COMPONENT__SECURITY_SCHEMES, SoaPackage.Literals.COMPONENT__SECURITY_SCHEMES, true, true);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
@@ -185,6 +313,8 @@ public class ComponentImpl extends ObeoDSMObjectImpl implements Component {
 				return ((InternalEList<?>)getImplementations()).basicRemove(otherEnd, msgs);
 			case SoaPackage.COMPONENT__OWNED_BINDING:
 				return ((InternalEList<?>)getOwnedBinding()).basicRemove(otherEnd, msgs);
+			case SoaPackage.COMPONENT__SECURITY_SCHEMES:
+				return ((InternalEList<?>)getSecuritySchemes()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -211,6 +341,16 @@ public class ComponentImpl extends ObeoDSMObjectImpl implements Component {
 				return getOwnedBinding();
 			case SoaPackage.COMPONENT__BLOCK:
 				return getBlock();
+			case SoaPackage.COMPONENT__URI:
+				return getURI();
+			case SoaPackage.COMPONENT__URL:
+				return getURL();
+			case SoaPackage.COMPONENT__API_VERSION:
+				return getApiVersion();
+			case SoaPackage.COMPONENT__DEPRECATED:
+				return isDeprecated();
+			case SoaPackage.COMPONENT__SECURITY_SCHEMES:
+				return getSecuritySchemes();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -243,6 +383,22 @@ public class ComponentImpl extends ObeoDSMObjectImpl implements Component {
 				getBlock().clear();
 				getBlock().addAll((Collection<? extends TypesDefinition>)newValue);
 				return;
+			case SoaPackage.COMPONENT__URI:
+				setURI((String)newValue);
+				return;
+			case SoaPackage.COMPONENT__URL:
+				setURL((String)newValue);
+				return;
+			case SoaPackage.COMPONENT__API_VERSION:
+				setApiVersion((String)newValue);
+				return;
+			case SoaPackage.COMPONENT__DEPRECATED:
+				setDeprecated((Boolean)newValue);
+				return;
+			case SoaPackage.COMPONENT__SECURITY_SCHEMES:
+				getSecuritySchemes().clear();
+				getSecuritySchemes().addAll((Collection<? extends SecurityScheme>)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -270,6 +426,21 @@ public class ComponentImpl extends ObeoDSMObjectImpl implements Component {
 			case SoaPackage.COMPONENT__BLOCK:
 				getBlock().clear();
 				return;
+			case SoaPackage.COMPONENT__URI:
+				setURI(URI_EDEFAULT);
+				return;
+			case SoaPackage.COMPONENT__URL:
+				setURL(URL_EDEFAULT);
+				return;
+			case SoaPackage.COMPONENT__API_VERSION:
+				setApiVersion(API_VERSION_EDEFAULT);
+				return;
+			case SoaPackage.COMPONENT__DEPRECATED:
+				setDeprecated(DEPRECATED_EDEFAULT);
+				return;
+			case SoaPackage.COMPONENT__SECURITY_SCHEMES:
+				getSecuritySchemes().clear();
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -296,6 +467,16 @@ public class ComponentImpl extends ObeoDSMObjectImpl implements Component {
 				return !getOwnedBinding().isEmpty();
 			case SoaPackage.COMPONENT__BLOCK:
 				return !getBlock().isEmpty();
+			case SoaPackage.COMPONENT__URI:
+				return URI_EDEFAULT == null ? getURI() != null : !URI_EDEFAULT.equals(getURI());
+			case SoaPackage.COMPONENT__URL:
+				return URL_EDEFAULT == null ? getURL() != null : !URL_EDEFAULT.equals(getURL());
+			case SoaPackage.COMPONENT__API_VERSION:
+				return API_VERSION_EDEFAULT == null ? getApiVersion() != null : !API_VERSION_EDEFAULT.equals(getApiVersion());
+			case SoaPackage.COMPONENT__DEPRECATED:
+				return isDeprecated() != DEPRECATED_EDEFAULT;
+			case SoaPackage.COMPONENT__SECURITY_SCHEMES:
+				return !getSecuritySchemes().isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}

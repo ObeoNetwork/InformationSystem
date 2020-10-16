@@ -28,6 +28,9 @@ import org.obeonetwork.dsl.environment.Type;
  *   <li>{@link org.obeonetwork.dsl.soa.Parameter#getMultiplicity <em>Multiplicity</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.soa.Parameter#isIsUnique <em>Is Unique</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.soa.Parameter#isIsOrdered <em>Is Ordered</em>}</li>
+ *   <li>{@link org.obeonetwork.dsl.soa.Parameter#getStatusCode <em>Status Code</em>}</li>
+ *   <li>{@link org.obeonetwork.dsl.soa.Parameter#getStatusMessage <em>Status Message</em>}</li>
+ *   <li>{@link org.obeonetwork.dsl.soa.Parameter#getRestData <em>Rest Data</em>}</li>
  * </ul>
  *
  * @see org.obeonetwork.dsl.soa.SoaPackage#getParameter()
@@ -192,5 +195,85 @@ public interface Parameter extends ObeoDSMObject {
 	 * @generated
 	 */
 	void setIsOrdered(boolean value);
+
+	/**
+	 * Returns the value of the '<em><b>Status Code</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Status Code</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * The status code associated with this parameter.
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Status Code</em>' attribute.
+	 * @see #setStatusCode(String)
+	 * @see org.obeonetwork.dsl.soa.SoaPackage#getParameter_StatusCode()
+	 * @model
+	 * @generated
+	 */
+	String getStatusCode();
+
+	/**
+	 * Sets the value of the '{@link org.obeonetwork.dsl.soa.Parameter#getStatusCode <em>Status Code</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Status Code</em>' attribute.
+	 * @see #getStatusCode()
+	 * @generated
+	 */
+	void setStatusCode(String value);
+
+	/**
+	 * Returns the value of the '<em><b>Status Message</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Status Message</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * The status message associated with this parameter.
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Status Message</em>' attribute.
+	 * @see #setStatusMessage(String)
+	 * @see org.obeonetwork.dsl.soa.SoaPackage#getParameter_StatusMessage()
+	 * @model
+	 * @generated
+	 */
+	String getStatusMessage();
+
+	/**
+	 * Sets the value of the '{@link org.obeonetwork.dsl.soa.Parameter#getStatusMessage <em>Status Message</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Status Message</em>' attribute.
+	 * @see #getStatusMessage()
+	 * @generated
+	 */
+	void setStatusMessage(String value);
+
+	/**
+	 * Returns the value of the '<em><b>Rest Data</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Rest Data</em>' containment reference.
+	 * @see #setRestData(ParameterRestData)
+	 * @see org.obeonetwork.dsl.soa.SoaPackage#getParameter_RestData()
+	 * @model containment="true" resolveProxies="true"
+	 * @generated
+	 */
+	ParameterRestData getRestData();
+
+	/**
+	 * Sets the value of the '{@link org.obeonetwork.dsl.soa.Parameter#getRestData <em>Rest Data</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Rest Data</em>' containment reference.
+	 * @see #getRestData()
+	 * @generated
+	 */
+	void setRestData(ParameterRestData value);
 
 } // Parameter

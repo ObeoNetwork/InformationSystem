@@ -117,6 +117,24 @@ public interface SoaFactory extends EFactory {
 	Parameter createParameter();
 
 	/**
+	 * Returns a new object of class '<em>Parameter Rest Data</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Parameter Rest Data</em>'.
+	 * @generated
+	 */
+	ParameterRestData createParameterRestData();
+
+	/**
+	 * Returns a new object of class '<em>Security Scheme</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Security Scheme</em>'.
+	 * @generated
+	 */
+	SecurityScheme createSecurityScheme();
+
+	/**
 	 * Returns the package supported by this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

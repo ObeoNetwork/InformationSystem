@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<!--
+    Copyright (c) 2017 Obeo.
+    All rights reserved. This program and the accompanying materials
+    are made available under the terms of the Eclipse Public License v1.0
+    which accompanies this distribution, and is available at
+    http://www.eclipse.org/legal/epl-v10.html
+   
+    Contributors:
+        Obeo - initial API and implementation
+ -->
+<plugin>
+   <extension
+         point="org.eclipse.ui.commands">
+      <command
+            id="org.obeonetwork.dsl.soa.gen.swagger.preview.command.SwaggerPreview"
+            name="Swagger Preview">
+      </command>
+   </extension>
+   <extension
+         point="org.eclipse.ui.menus">
+      <menuContribution
+            allPopups="false"
+            locationURI="popup:org.obeonetwork.is.designer.menu?after=additions">
+         <command
+               commandId="org.obeonetwork.dsl.soa.gen.swagger.preview.command.SwaggerPreview"
+               icon="icons/swagger-logo-16x16.png"
+               style="push">
+            <visibleWhen
+                  checkEnabled="true">
+            </visibleWhen>
+         </command>
+      </menuContribution>
+   </extension>
+   <extension
+         point="org.eclipse.ui.handlers">
+      <handler
+            class="org.obeonetwork.dsl.soa.gen.swagger.preview.handlers.SwaggerPreviewHandler"
+            commandId="org.obeonetwork.dsl.soa.gen.swagger.preview.command.SwaggerPreview">
+         <enabledWhen>
+            <with
+                  variable="selection">
+               <count
+                     value="1">
+               </count>
+               <iterate
+                     ifEmpty="false"
+                     operator="and">
+                  <instanceof
+                        value="org.obeonetwork.dsl.soa.Component">
+                  </instanceof>
+               </iterate>
+            </with>
+         </enabledWhen>
+      </handler>
+   </extension>
+
+</plugin>

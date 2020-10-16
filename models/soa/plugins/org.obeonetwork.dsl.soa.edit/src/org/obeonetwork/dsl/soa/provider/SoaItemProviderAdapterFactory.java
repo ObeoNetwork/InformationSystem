@@ -293,6 +293,52 @@ public class SoaItemProviderAdapterFactory extends SoaAdapterFactory implements 
 	}
 
 	/**
+	 * This keeps track of the one adapter used for all {@link org.obeonetwork.dsl.soa.ParameterRestData} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected ParameterRestDataItemProvider parameterRestDataItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link org.obeonetwork.dsl.soa.ParameterRestData}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createParameterRestDataAdapter() {
+		if (parameterRestDataItemProvider == null) {
+			parameterRestDataItemProvider = new ParameterRestDataItemProvider(this);
+		}
+
+		return parameterRestDataItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link org.obeonetwork.dsl.soa.SecurityScheme} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected SecuritySchemeItemProvider securitySchemeItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link org.obeonetwork.dsl.soa.SecurityScheme}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createSecuritySchemeAdapter() {
+		if (securitySchemeItemProvider == null) {
+			securitySchemeItemProvider = new SecuritySchemeItemProvider(this);
+		}
+
+		return securitySchemeItemProvider;
+	}
+
+	/**
 	 * This returns the root adapter factory that contains this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -400,6 +446,8 @@ public class SoaItemProviderAdapterFactory extends SoaAdapterFactory implements 
 		if (operationItemProvider != null) operationItemProvider.dispose();
 		if (implementationComponentItemProvider != null) implementationComponentItemProvider.dispose();
 		if (parameterItemProvider != null) parameterItemProvider.dispose();
+		if (parameterRestDataItemProvider != null) parameterRestDataItemProvider.dispose();
+		if (securitySchemeItemProvider != null) securitySchemeItemProvider.dispose();
 	}
 
 }

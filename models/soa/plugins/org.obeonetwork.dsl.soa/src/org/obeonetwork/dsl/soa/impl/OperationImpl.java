@@ -18,10 +18,13 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.util.InternalEList;
 import org.obeonetwork.dsl.environment.impl.ActionImpl;
+import org.obeonetwork.dsl.soa.ExpositionKind;
 import org.obeonetwork.dsl.soa.Operation;
 import org.obeonetwork.dsl.soa.OperationKind;
 import org.obeonetwork.dsl.soa.Parameter;
+import org.obeonetwork.dsl.soa.SecurityScheme;
 import org.obeonetwork.dsl.soa.SoaPackage;
+import org.obeonetwork.dsl.soa.Verb;
 
 /**
  * <!-- begin-user-doc -->
@@ -36,6 +39,11 @@ import org.obeonetwork.dsl.soa.SoaPackage;
  *   <li>{@link org.obeonetwork.dsl.soa.impl.OperationImpl#getKind <em>Kind</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.soa.impl.OperationImpl#isPublic <em>Public</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.soa.impl.OperationImpl#getFault <em>Fault</em>}</li>
+ *   <li>{@link org.obeonetwork.dsl.soa.impl.OperationImpl#getURI <em>URI</em>}</li>
+ *   <li>{@link org.obeonetwork.dsl.soa.impl.OperationImpl#getVerb <em>Verb</em>}</li>
+ *   <li>{@link org.obeonetwork.dsl.soa.impl.OperationImpl#getExposition <em>Exposition</em>}</li>
+ *   <li>{@link org.obeonetwork.dsl.soa.impl.OperationImpl#isPaged <em>Paged</em>}</li>
+ *   <li>{@link org.obeonetwork.dsl.soa.impl.OperationImpl#getSecurityscheme <em>Securityscheme</em>}</li>
  * </ul>
  *
  * @generated
@@ -66,6 +74,46 @@ public class OperationImpl extends ActionImpl implements Operation {
 	 * @ordered
 	 */
 	protected static final boolean PUBLIC_EDEFAULT = false;
+
+	/**
+	 * The default value of the '{@link #getURI() <em>URI</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getURI()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String URI_EDEFAULT = null;
+
+	/**
+	 * The default value of the '{@link #getVerb() <em>Verb</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getVerb()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final Verb VERB_EDEFAULT = Verb.GET;
+
+	/**
+	 * The default value of the '{@link #getExposition() <em>Exposition</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getExposition()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final ExpositionKind EXPOSITION_EDEFAULT = ExpositionKind.NONE;
+
+	/**
+	 * The default value of the '{@link #isPaged() <em>Paged</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isPaged()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final boolean PAGED_EDEFAULT = true;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -157,6 +205,105 @@ public class OperationImpl extends ActionImpl implements Operation {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public String getURI() {
+		return (String)eDynamicGet(SoaPackage.OPERATION__URI, SoaPackage.Literals.OPERATION__URI, true, true);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setURI(String newURI) {
+		eDynamicSet(SoaPackage.OPERATION__URI, SoaPackage.Literals.OPERATION__URI, newURI);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Verb getVerb() {
+		return (Verb)eDynamicGet(SoaPackage.OPERATION__VERB, SoaPackage.Literals.OPERATION__VERB, true, true);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setVerb(Verb newVerb) {
+		eDynamicSet(SoaPackage.OPERATION__VERB, SoaPackage.Literals.OPERATION__VERB, newVerb);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public ExpositionKind getExposition() {
+		return (ExpositionKind)eDynamicGet(SoaPackage.OPERATION__EXPOSITION, SoaPackage.Literals.OPERATION__EXPOSITION, true, true);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setExposition(ExpositionKind newExposition) {
+		eDynamicSet(SoaPackage.OPERATION__EXPOSITION, SoaPackage.Literals.OPERATION__EXPOSITION, newExposition);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean isPaged() {
+		return (Boolean)eDynamicGet(SoaPackage.OPERATION__PAGED, SoaPackage.Literals.OPERATION__PAGED, true, true);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setPaged(boolean newPaged) {
+		eDynamicSet(SoaPackage.OPERATION__PAGED, SoaPackage.Literals.OPERATION__PAGED, newPaged);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public SecurityScheme getSecurityscheme() {
+		return (SecurityScheme)eDynamicGet(SoaPackage.OPERATION__SECURITYSCHEME, SoaPackage.Literals.OPERATION__SECURITYSCHEME, true, true);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public SecurityScheme basicGetSecurityscheme() {
+		return (SecurityScheme)eDynamicGet(SoaPackage.OPERATION__SECURITYSCHEME, SoaPackage.Literals.OPERATION__SECURITYSCHEME, false, true);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setSecurityscheme(SecurityScheme newSecurityscheme) {
+		eDynamicSet(SoaPackage.OPERATION__SECURITYSCHEME, SoaPackage.Literals.OPERATION__SECURITYSCHEME, newSecurityscheme);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
@@ -188,6 +335,17 @@ public class OperationImpl extends ActionImpl implements Operation {
 				return isPublic();
 			case SoaPackage.OPERATION__FAULT:
 				return getFault();
+			case SoaPackage.OPERATION__URI:
+				return getURI();
+			case SoaPackage.OPERATION__VERB:
+				return getVerb();
+			case SoaPackage.OPERATION__EXPOSITION:
+				return getExposition();
+			case SoaPackage.OPERATION__PAGED:
+				return isPaged();
+			case SoaPackage.OPERATION__SECURITYSCHEME:
+				if (resolve) return getSecurityscheme();
+				return basicGetSecurityscheme();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -219,6 +377,21 @@ public class OperationImpl extends ActionImpl implements Operation {
 				getFault().clear();
 				getFault().addAll((Collection<? extends Parameter>)newValue);
 				return;
+			case SoaPackage.OPERATION__URI:
+				setURI((String)newValue);
+				return;
+			case SoaPackage.OPERATION__VERB:
+				setVerb((Verb)newValue);
+				return;
+			case SoaPackage.OPERATION__EXPOSITION:
+				setExposition((ExpositionKind)newValue);
+				return;
+			case SoaPackage.OPERATION__PAGED:
+				setPaged((Boolean)newValue);
+				return;
+			case SoaPackage.OPERATION__SECURITYSCHEME:
+				setSecurityscheme((SecurityScheme)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -246,6 +419,21 @@ public class OperationImpl extends ActionImpl implements Operation {
 			case SoaPackage.OPERATION__FAULT:
 				getFault().clear();
 				return;
+			case SoaPackage.OPERATION__URI:
+				setURI(URI_EDEFAULT);
+				return;
+			case SoaPackage.OPERATION__VERB:
+				setVerb(VERB_EDEFAULT);
+				return;
+			case SoaPackage.OPERATION__EXPOSITION:
+				setExposition(EXPOSITION_EDEFAULT);
+				return;
+			case SoaPackage.OPERATION__PAGED:
+				setPaged(PAGED_EDEFAULT);
+				return;
+			case SoaPackage.OPERATION__SECURITYSCHEME:
+				setSecurityscheme((SecurityScheme)null);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -268,6 +456,16 @@ public class OperationImpl extends ActionImpl implements Operation {
 				return isPublic() != PUBLIC_EDEFAULT;
 			case SoaPackage.OPERATION__FAULT:
 				return !getFault().isEmpty();
+			case SoaPackage.OPERATION__URI:
+				return URI_EDEFAULT == null ? getURI() != null : !URI_EDEFAULT.equals(getURI());
+			case SoaPackage.OPERATION__VERB:
+				return getVerb() != VERB_EDEFAULT;
+			case SoaPackage.OPERATION__EXPOSITION:
+				return getExposition() != EXPOSITION_EDEFAULT;
+			case SoaPackage.OPERATION__PAGED:
+				return isPaged() != PAGED_EDEFAULT;
+			case SoaPackage.OPERATION__SECURITYSCHEME:
+				return basicGetSecurityscheme() != null;
 		}
 		return super.eIsSet(featureID);
 	}

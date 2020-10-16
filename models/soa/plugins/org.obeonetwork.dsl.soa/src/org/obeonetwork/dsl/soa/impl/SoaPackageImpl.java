@@ -17,19 +17,26 @@ import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
 import org.eclipse.emf.ecore.impl.EPackageImpl;
 import org.obeonetwork.dsl.environment.EnvironmentPackage;
+import org.obeonetwork.dsl.soa.ApiKeyLocation;
 import org.obeonetwork.dsl.soa.Binding;
 import org.obeonetwork.dsl.soa.BindingKind;
 import org.obeonetwork.dsl.soa.Component;
+import org.obeonetwork.dsl.soa.ExpositionKind;
 import org.obeonetwork.dsl.soa.ImplementationComponent;
 import org.obeonetwork.dsl.soa.Interface;
 import org.obeonetwork.dsl.soa.InterfaceKind;
 import org.obeonetwork.dsl.soa.Operation;
 import org.obeonetwork.dsl.soa.OperationKind;
 import org.obeonetwork.dsl.soa.Parameter;
+import org.obeonetwork.dsl.soa.ParameterPassingMode;
+import org.obeonetwork.dsl.soa.ParameterRestData;
+import org.obeonetwork.dsl.soa.SecurityScheme;
+import org.obeonetwork.dsl.soa.SecuritySchemeType;
 import org.obeonetwork.dsl.soa.Service;
 import org.obeonetwork.dsl.soa.SoaFactory;
 import org.obeonetwork.dsl.soa.SoaPackage;
 import org.obeonetwork.dsl.soa.SynchronizationKind;
+import org.obeonetwork.dsl.soa.Verb;
 import org.obeonetwork.dsl.soa.Wire;
 import org.obeonetwork.dsl.technicalid.TechnicalIDPackage;
 
@@ -115,6 +122,20 @@ public class SoaPackageImpl extends EPackageImpl implements SoaPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	private EClass parameterRestDataEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass securitySchemeEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	private EEnum interfaceKindEEnum = null;
 
 	/**
@@ -137,6 +158,41 @@ public class SoaPackageImpl extends EPackageImpl implements SoaPackage {
 	 * @generated
 	 */
 	private EEnum operationKindEEnum = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EEnum verbEEnum = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EEnum parameterPassingModeEEnum = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EEnum expositionKindEEnum = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EEnum securitySchemeTypeEEnum = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EEnum apiKeyLocationEEnum = null;
 
 	/**
 	 * Creates an instance of the model <b>Package</b>, registered with
@@ -166,7 +222,7 @@ public class SoaPackageImpl extends EPackageImpl implements SoaPackage {
 
 	/**
 	 * Creates, registers, and initializes the <b>Package</b> for this model, and for any others upon which it depends.
-	 * 
+	 *
 	 * <p>This method is used to initialize {@link SoaPackage#eINSTANCE} when that field is accessed.
 	 * Clients should not invoke it directly. Instead, they should simply access that field to obtain the package.
 	 * <!-- begin-user-doc -->
@@ -180,7 +236,8 @@ public class SoaPackageImpl extends EPackageImpl implements SoaPackage {
 		if (isInited) return (SoaPackage)EPackage.Registry.INSTANCE.getEPackage(SoaPackage.eNS_URI);
 
 		// Obtain or create and register package
-		SoaPackageImpl theSoaPackage = (SoaPackageImpl)(EPackage.Registry.INSTANCE.get(eNS_URI) instanceof SoaPackageImpl ? EPackage.Registry.INSTANCE.get(eNS_URI) : new SoaPackageImpl());
+		Object registeredSoaPackage = EPackage.Registry.INSTANCE.get(eNS_URI);
+		SoaPackageImpl theSoaPackage = registeredSoaPackage instanceof SoaPackageImpl ? (SoaPackageImpl)registeredSoaPackage : new SoaPackageImpl();
 
 		isInited = true;
 
@@ -306,6 +363,51 @@ public class SoaPackageImpl extends EPackageImpl implements SoaPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EAttribute getComponent_URI() {
+		return (EAttribute)componentEClass.getEStructuralFeatures().get(7);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getComponent_URL() {
+		return (EAttribute)componentEClass.getEStructuralFeatures().get(8);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getComponent_ApiVersion() {
+		return (EAttribute)componentEClass.getEStructuralFeatures().get(9);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getComponent_Deprecated() {
+		return (EAttribute)componentEClass.getEStructuralFeatures().get(10);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getComponent_SecuritySchemes() {
+		return (EReference)componentEClass.getEStructuralFeatures().get(11);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getService() {
 		return serviceEClass;
 	}
@@ -371,6 +473,15 @@ public class SoaPackageImpl extends EPackageImpl implements SoaPackage {
 	 */
 	public EReference getService_UsedTypes() {
 		return (EReference)serviceEClass.getEStructuralFeatures().get(6);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getService_URI() {
+		return (EAttribute)serviceEClass.getEStructuralFeatures().get(7);
 	}
 
 	/**
@@ -504,6 +615,51 @@ public class SoaPackageImpl extends EPackageImpl implements SoaPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EAttribute getOperation_URI() {
+		return (EAttribute)operationEClass.getEStructuralFeatures().get(5);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getOperation_Verb() {
+		return (EAttribute)operationEClass.getEStructuralFeatures().get(6);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getOperation_Exposition() {
+		return (EAttribute)operationEClass.getEStructuralFeatures().get(7);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getOperation_Paged() {
+		return (EAttribute)operationEClass.getEStructuralFeatures().get(8);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getOperation_Securityscheme() {
+		return (EReference)operationEClass.getEStructuralFeatures().get(9);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getImplementationComponent() {
 		return implementationComponentEClass;
 	}
@@ -585,6 +741,114 @@ public class SoaPackageImpl extends EPackageImpl implements SoaPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EAttribute getParameter_StatusCode() {
+		return (EAttribute)parameterEClass.getEStructuralFeatures().get(5);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getParameter_StatusMessage() {
+		return (EAttribute)parameterEClass.getEStructuralFeatures().get(6);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getParameter_RestData() {
+		return (EReference)parameterEClass.getEStructuralFeatures().get(7);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getParameterRestData() {
+		return parameterRestDataEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getParameterRestData_PassingMode() {
+		return (EAttribute)parameterRestDataEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getParameterRestData_RestId() {
+		return (EAttribute)parameterRestDataEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getSecurityScheme() {
+		return securitySchemeEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getSecurityScheme_Key() {
+		return (EAttribute)securitySchemeEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getSecurityScheme_Type() {
+		return (EAttribute)securitySchemeEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getSecurityScheme_Description() {
+		return (EAttribute)securitySchemeEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getSecurityScheme_Name() {
+		return (EAttribute)securitySchemeEClass.getEStructuralFeatures().get(3);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getSecurityScheme_ApiKeyLocation() {
+		return (EAttribute)securitySchemeEClass.getEStructuralFeatures().get(4);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EEnum getInterfaceKind() {
 		return interfaceKindEEnum;
 	}
@@ -614,6 +878,51 @@ public class SoaPackageImpl extends EPackageImpl implements SoaPackage {
 	 */
 	public EEnum getOperationKind() {
 		return operationKindEEnum;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EEnum getVerb() {
+		return verbEEnum;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EEnum getParameterPassingMode() {
+		return parameterPassingModeEEnum;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EEnum getExpositionKind() {
+		return expositionKindEEnum;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EEnum getSecuritySchemeType() {
+		return securitySchemeTypeEEnum;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EEnum getApiKeyLocation() {
+		return apiKeyLocationEEnum;
 	}
 
 	/**
@@ -656,6 +965,11 @@ public class SoaPackageImpl extends EPackageImpl implements SoaPackage {
 		createEAttribute(componentEClass, COMPONENT__NAME);
 		createEReference(componentEClass, COMPONENT__OWNED_BINDING);
 		createEReference(componentEClass, COMPONENT__BLOCK);
+		createEAttribute(componentEClass, COMPONENT__URI);
+		createEAttribute(componentEClass, COMPONENT__URL);
+		createEAttribute(componentEClass, COMPONENT__API_VERSION);
+		createEAttribute(componentEClass, COMPONENT__DEPRECATED);
+		createEReference(componentEClass, COMPONENT__SECURITY_SCHEMES);
 
 		serviceEClass = createEClass(SERVICE);
 		createEReference(serviceEClass, SERVICE__OWNED_INTERFACE);
@@ -665,6 +979,7 @@ public class SoaPackageImpl extends EPackageImpl implements SoaPackage {
 		createEReference(serviceEClass, SERVICE__BINDINGS);
 		createEAttribute(serviceEClass, SERVICE__NAME);
 		createEReference(serviceEClass, SERVICE__USED_TYPES);
+		createEAttribute(serviceEClass, SERVICE__URI);
 
 		wireEClass = createEClass(WIRE);
 		createEReference(wireEClass, WIRE__SOURCE);
@@ -683,6 +998,11 @@ public class SoaPackageImpl extends EPackageImpl implements SoaPackage {
 		createEAttribute(operationEClass, OPERATION__KIND);
 		createEAttribute(operationEClass, OPERATION__PUBLIC);
 		createEReference(operationEClass, OPERATION__FAULT);
+		createEAttribute(operationEClass, OPERATION__URI);
+		createEAttribute(operationEClass, OPERATION__VERB);
+		createEAttribute(operationEClass, OPERATION__EXPOSITION);
+		createEAttribute(operationEClass, OPERATION__PAGED);
+		createEReference(operationEClass, OPERATION__SECURITYSCHEME);
 
 		implementationComponentEClass = createEClass(IMPLEMENTATION_COMPONENT);
 		createEReference(implementationComponentEClass, IMPLEMENTATION_COMPONENT__IMPLEMENT);
@@ -694,12 +1014,31 @@ public class SoaPackageImpl extends EPackageImpl implements SoaPackage {
 		createEAttribute(parameterEClass, PARAMETER__MULTIPLICITY);
 		createEAttribute(parameterEClass, PARAMETER__IS_UNIQUE);
 		createEAttribute(parameterEClass, PARAMETER__IS_ORDERED);
+		createEAttribute(parameterEClass, PARAMETER__STATUS_CODE);
+		createEAttribute(parameterEClass, PARAMETER__STATUS_MESSAGE);
+		createEReference(parameterEClass, PARAMETER__REST_DATA);
+
+		parameterRestDataEClass = createEClass(PARAMETER_REST_DATA);
+		createEAttribute(parameterRestDataEClass, PARAMETER_REST_DATA__PASSING_MODE);
+		createEAttribute(parameterRestDataEClass, PARAMETER_REST_DATA__REST_ID);
+
+		securitySchemeEClass = createEClass(SECURITY_SCHEME);
+		createEAttribute(securitySchemeEClass, SECURITY_SCHEME__KEY);
+		createEAttribute(securitySchemeEClass, SECURITY_SCHEME__TYPE);
+		createEAttribute(securitySchemeEClass, SECURITY_SCHEME__DESCRIPTION);
+		createEAttribute(securitySchemeEClass, SECURITY_SCHEME__NAME);
+		createEAttribute(securitySchemeEClass, SECURITY_SCHEME__API_KEY_LOCATION);
 
 		// Create enums
 		interfaceKindEEnum = createEEnum(INTERFACE_KIND);
 		synchronizationKindEEnum = createEEnum(SYNCHRONIZATION_KIND);
 		bindingKindEEnum = createEEnum(BINDING_KIND);
 		operationKindEEnum = createEEnum(OPERATION_KIND);
+		verbEEnum = createEEnum(VERB);
+		parameterPassingModeEEnum = createEEnum(PARAMETER_PASSING_MODE);
+		expositionKindEEnum = createEEnum(EXPOSITION_KIND);
+		securitySchemeTypeEEnum = createEEnum(SECURITY_SCHEME_TYPE);
+		apiKeyLocationEEnum = createEEnum(API_KEY_LOCATION);
 	}
 
 	/**
@@ -756,6 +1095,11 @@ public class SoaPackageImpl extends EPackageImpl implements SoaPackage {
 		initEAttribute(getComponent_Name(), ecorePackage.getEString(), "name", null, 0, 1, Component.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getComponent_OwnedBinding(), this.getBinding(), null, "ownedBinding", null, 0, -1, Component.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getComponent_Block(), theEnvironmentPackage.getTypesDefinition(), null, "block", null, 0, -1, Component.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getComponent_URI(), ecorePackage.getEString(), "URI", null, 0, 1, Component.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getComponent_URL(), ecorePackage.getEString(), "URL", null, 0, 1, Component.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getComponent_ApiVersion(), ecorePackage.getEString(), "apiVersion", null, 0, 1, Component.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getComponent_Deprecated(), ecorePackage.getEBoolean(), "deprecated", null, 0, 1, Component.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getComponent_SecuritySchemes(), this.getSecurityScheme(), null, "securitySchemes", null, 0, -1, Component.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(serviceEClass, Service.class, "Service", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getService_OwnedInterface(), this.getInterface(), null, "ownedInterface", null, 0, 1, Service.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -765,6 +1109,7 @@ public class SoaPackageImpl extends EPackageImpl implements SoaPackage {
 		initEReference(getService_Bindings(), this.getBinding(), null, "bindings", null, 0, 1, Service.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getService_Name(), ecorePackage.getEString(), "name", null, 0, 1, Service.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getService_UsedTypes(), theEnvironmentPackage.getType(), null, "usedTypes", null, 0, -1, Service.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getService_URI(), ecorePackage.getEString(), "URI", null, 0, 1, Service.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(wireEClass, Wire.class, "Wire", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getWire_Source(), this.getService(), null, "source", null, 0, 1, Wire.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -783,6 +1128,11 @@ public class SoaPackageImpl extends EPackageImpl implements SoaPackage {
 		initEAttribute(getOperation_Kind(), this.getOperationKind(), "kind", null, 0, 1, Operation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getOperation_Public(), ecorePackage.getEBoolean(), "public", null, 1, 1, Operation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getOperation_Fault(), this.getParameter(), null, "fault", null, 0, -1, Operation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getOperation_URI(), ecorePackage.getEString(), "URI", null, 0, 1, Operation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getOperation_Verb(), this.getVerb(), "verb", "GET", 0, 1, Operation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getOperation_Exposition(), this.getExpositionKind(), "exposition", null, 0, 1, Operation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getOperation_Paged(), ecorePackage.getEBoolean(), "paged", "true", 0, 1, Operation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getOperation_Securityscheme(), this.getSecurityScheme(), null, "securityscheme", null, 0, 1, Operation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(implementationComponentEClass, ImplementationComponent.class, "ImplementationComponent", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getImplementationComponent_Implement(), this.getInterface(), null, "implement", null, 0, 1, ImplementationComponent.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -794,6 +1144,20 @@ public class SoaPackageImpl extends EPackageImpl implements SoaPackage {
 		initEAttribute(getParameter_Multiplicity(), theEnvironmentPackage.getMultiplicityKind(), "multiplicity", "1", 1, 1, Parameter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getParameter_IsUnique(), ecorePackage.getEBoolean(), "isUnique", "false", 0, 1, Parameter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getParameter_IsOrdered(), ecorePackage.getEBoolean(), "isOrdered", "true", 0, 1, Parameter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getParameter_StatusCode(), ecorePackage.getEString(), "statusCode", null, 0, 1, Parameter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getParameter_StatusMessage(), ecorePackage.getEString(), "statusMessage", null, 0, 1, Parameter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getParameter_RestData(), this.getParameterRestData(), null, "restData", null, 0, 1, Parameter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(parameterRestDataEClass, ParameterRestData.class, "ParameterRestData", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getParameterRestData_PassingMode(), this.getParameterPassingMode(), "passingMode", null, 0, 1, ParameterRestData.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getParameterRestData_RestId(), ecorePackage.getEString(), "restId", null, 0, 1, ParameterRestData.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(securitySchemeEClass, SecurityScheme.class, "SecurityScheme", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getSecurityScheme_Key(), ecorePackage.getEString(), "key", null, 0, 1, SecurityScheme.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getSecurityScheme_Type(), this.getSecuritySchemeType(), "type", null, 0, 1, SecurityScheme.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getSecurityScheme_Description(), ecorePackage.getEString(), "description", null, 0, 1, SecurityScheme.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getSecurityScheme_Name(), ecorePackage.getEString(), "name", null, 0, 1, SecurityScheme.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getSecurityScheme_ApiKeyLocation(), this.getApiKeyLocation(), "apiKeyLocation", null, 0, 1, SecurityScheme.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		// Initialize enums and add enum literals
 		initEEnum(interfaceKindEEnum, InterfaceKind.class, "InterfaceKind");
@@ -814,6 +1178,39 @@ public class SoaPackageImpl extends EPackageImpl implements SoaPackage {
 		initEEnum(operationKindEEnum, OperationKind.class, "OperationKind");
 		addEEnumLiteral(operationKindEEnum, OperationKind.REQUEST_RESPONSE_LITERAL);
 		addEEnumLiteral(operationKindEEnum, OperationKind.ONE_WAY_LITERAL);
+
+		initEEnum(verbEEnum, Verb.class, "Verb");
+		addEEnumLiteral(verbEEnum, Verb.GET);
+		addEEnumLiteral(verbEEnum, Verb.POST);
+		addEEnumLiteral(verbEEnum, Verb.PUT);
+		addEEnumLiteral(verbEEnum, Verb.DELETE);
+		addEEnumLiteral(verbEEnum, Verb.HEAD);
+		addEEnumLiteral(verbEEnum, Verb.OPTIONS);
+		addEEnumLiteral(verbEEnum, Verb.PATCH);
+		addEEnumLiteral(verbEEnum, Verb.TRACE);
+
+		initEEnum(parameterPassingModeEEnum, ParameterPassingMode.class, "ParameterPassingMode");
+		addEEnumLiteral(parameterPassingModeEEnum, ParameterPassingMode.BODY);
+		addEEnumLiteral(parameterPassingModeEEnum, ParameterPassingMode.PATH);
+		addEEnumLiteral(parameterPassingModeEEnum, ParameterPassingMode.QUERY);
+		addEEnumLiteral(parameterPassingModeEEnum, ParameterPassingMode.COOKIE);
+		addEEnumLiteral(parameterPassingModeEEnum, ParameterPassingMode.HEADER);
+
+		initEEnum(expositionKindEEnum, ExpositionKind.class, "ExpositionKind");
+		addEEnumLiteral(expositionKindEEnum, ExpositionKind.NONE);
+		addEEnumLiteral(expositionKindEEnum, ExpositionKind.REST);
+		addEEnumLiteral(expositionKindEEnum, ExpositionKind.SOAP);
+
+		initEEnum(securitySchemeTypeEEnum, SecuritySchemeType.class, "SecuritySchemeType");
+		addEEnumLiteral(securitySchemeTypeEEnum, SecuritySchemeType.API_KEY);
+		addEEnumLiteral(securitySchemeTypeEEnum, SecuritySchemeType.HTTP);
+		addEEnumLiteral(securitySchemeTypeEEnum, SecuritySchemeType.OAUTH2);
+		addEEnumLiteral(securitySchemeTypeEEnum, SecuritySchemeType.OPEN_ID_CONNECT);
+
+		initEEnum(apiKeyLocationEEnum, ApiKeyLocation.class, "ApiKeyLocation");
+		addEEnumLiteral(apiKeyLocationEEnum, ApiKeyLocation.QUERY);
+		addEEnumLiteral(apiKeyLocationEEnum, ApiKeyLocation.HEADER);
+		addEEnumLiteral(apiKeyLocationEEnum, ApiKeyLocation.COOKIE);
 
 		// Create resource
 		createResource(eNS_URI);
@@ -886,6 +1283,24 @@ public class SoaPackageImpl extends EPackageImpl implements SoaPackage {
 			   "documentation", "The list of block type definitions."
 		   });
 		addAnnotation
+		  (getComponent_URI(),
+		   source,
+		   new String[] {
+			   "documentation", "The exposition URI of this component."
+		   });
+		addAnnotation
+		  (getComponent_URL(),
+		   source,
+		   new String[] {
+			   "documentation", "The exposition URL of this component."
+		   });
+		addAnnotation
+		  (getComponent_Deprecated(),
+		   source,
+		   new String[] {
+			   "documentation", "Tells if this Component is deprecated."
+		   });
+		addAnnotation
 		  (getService_OwnedInterface(),
 		   source,
 		   new String[] {
@@ -926,6 +1341,12 @@ public class SoaPackageImpl extends EPackageImpl implements SoaPackage {
 		   source,
 		   new String[] {
 			   "documentation", "The list of used types."
+		   });
+		addAnnotation
+		  (getService_URI(),
+		   source,
+		   new String[] {
+			   "documentation", "The exposition URI of this service."
 		   });
 		addAnnotation
 		  (getWire_Source(),
@@ -979,13 +1400,37 @@ public class SoaPackageImpl extends EPackageImpl implements SoaPackage {
 		  (getOperation_Public(),
 		   source,
 		   new String[] {
-			   "documentation", "Tells of tje operation is public."
+			   "documentation", "Tells if the operation is public."
 		   });
 		addAnnotation
 		  (getOperation_Fault(),
 		   source,
 		   new String[] {
 			   "documentation", "The list of fault parameters."
+		   });
+		addAnnotation
+		  (getOperation_URI(),
+		   source,
+		   new String[] {
+			   "documentation", "The exposition URI of this operation."
+		   });
+		addAnnotation
+		  (getOperation_Verb(),
+		   source,
+		   new String[] {
+			   "documentation", "The HTTP verb of this operation."
+		   });
+		addAnnotation
+		  (getOperation_Exposition(),
+		   source,
+		   new String[] {
+			   "documentation", "The kind of exposition or NONE if not exposed."
+		   });
+		addAnnotation
+		  (getOperation_Paged(),
+		   source,
+		   new String[] {
+			   "documentation", "Tells if this operation is paged."
 		   });
 		addAnnotation
 		  (getImplementationComponent_Implement(),
@@ -1028,6 +1473,54 @@ public class SoaPackageImpl extends EPackageImpl implements SoaPackage {
 		   source,
 		   new String[] {
 			   "documentation", "Tells if the parameter is ordered."
+		   });
+		addAnnotation
+		  (getParameter_StatusCode(),
+		   source,
+		   new String[] {
+			   "documentation", "The status code associated with this parameter."
+		   });
+		addAnnotation
+		  (getParameter_StatusMessage(),
+		   source,
+		   new String[] {
+			   "documentation", "The status message associated with this parameter."
+		   });
+		addAnnotation
+		  (getParameterRestData_PassingMode(),
+		   source,
+		   new String[] {
+			   "documentation", "The parameter passing mode."
+		   });
+		addAnnotation
+		  (getSecurityScheme_Key(),
+		   source,
+		   new String[] {
+			   "documentation", "The unique id of the Security Scheme, used in the OpenAPI serialization format."
+		   });
+		addAnnotation
+		  (getSecurityScheme_Type(),
+		   source,
+		   new String[] {
+			   "documentation", "The type of the security scheme."
+		   });
+		addAnnotation
+		  (getSecurityScheme_Description(),
+		   source,
+		   new String[] {
+			   "documentation", "A short description for security scheme."
+		   });
+		addAnnotation
+		  (getSecurityScheme_Name(),
+		   source,
+		   new String[] {
+			   "documentation", "The name of the header, query or cookie parameter to be used."
+		   });
+		addAnnotation
+		  (getSecurityScheme_ApiKeyLocation(),
+		   source,
+		   new String[] {
+			   "documentation", "The location of the API key. (Named \"in\" in the OpenAPI specification)."
 		   });
 	}
 
