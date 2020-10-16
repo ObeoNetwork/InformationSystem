@@ -61,7 +61,7 @@ La sélection de cette librairie de types est également proposée dans l'assist
 
 Il est a noter que la liste des types proposés dans chacune des librairies de types est paramétrable.
 
-h3. Comparaison & génération des scripts SQL
+h3. Comparaison & génération des scripts SQL/Liquibase
 
 h4. Comparaison et fusion
 
@@ -69,6 +69,13 @@ L'outillage de comparaison permet de comparer deux versions de MPD, soit deux fi
 	Pour comparer deux versions de MPD, sélectionnez les deux fichiers à comparer et utiliser le menu _Compare With > Each Other_ proposé dans le menu contextuel.  Lorsque vous utilisez la comparaison de fichiers locaux (par opposition à la comparaison via l'outillage subversion) EMF Compare utilise les fichiers dans l'ordre alphabétique. Par conséquent, vous devez les nommer de manière à ce que la version la plus récente de votre MPD se trouve en première position. Cf. l'exemple ci-dessous : 
 
 !pics/BDD_SQL_01.png!
+
+Note: Si vous rencontrez des problèmes lors de la comparaison d'une base de donnée ayant des liens vers des éléments externes stockés dans des fichiers différents, il est intéressant de lire la documentation sur la résolution du modèle logique qui est utilisé par _EMF Compare_. Pour plus d'information voir la documentation:
+
+* _EMF Compare Documentation/User/User Guide/Features/Logical Model_
+* _EMF Compare Documentation/User/User Guide/Logical Model View_
+* _EMF Compare Documentation/User/User Guide/Customization/Post processors customization/Model resolver_
+.
 
 
 h4. Génération des scripts SQL
@@ -88,6 +95,28 @@ Un répertoire _sql_, contenant l'ensemble des scripts, sera créé à la racine
 Il est possible de générer les scripts SQL pour générer complètement une base de données. Pour cela il suffit d'utiliser le menu clic droit sur le modèle et sélectionner _IS Designer > Generate SQL Scripts_ 
 
 !pics/BDD_GenSQL_02.png!
+
+h4. Génération d'un _ChangeLog_ Liquibase
+
+*Génération d'un _ChangeLog_ de modification*
+
+Il est possible de générer le fichier _ChangeLog_ Liquibase permettant de passer d'une version d'une base de données à une suivante. Pour cela il faut commencer par comparer les 2 modèles de bases de données en s'assurant que le plus récent est en première position (cf. paragraphe précédent). Puis de sélectionner le bouton _Generate Liquibase_ dans la bar de bouton principale.
+
+
+!pics/LiquibaseGen_CMP_01.png!
+
+Une hierachie de répertoire sera créée contenant les fichiers suivants:
+
+* Liquibase/<Type BBD>/<Nom DBD>/<Date>/run.changelog.xml
+* Liquibase/<Type BBD>/<Nom DBD>/run.changelog.xml
+* Liquibase/<Type BBD>/<Nom DBD>/liquibase.properties
+
+Les deux premiers fichiers sont identiques. Le premier permet de garder un historique des changements, alors que le deuxième permet seulement d'utiliser plus facilement les commandes _Liquibase_. En effet, celui-ci est stocké dans le même dossier que le fichier _liquibase.properties_. Le fichier _.properties_ n'est pas écrasé à chaque génération, celui-ci est seulement initialisé à la première génération.
+
+*Génération complète*
+
+Il est possible de générer le fichier _ChangeLog_ Liquibase pour générer complètement une base de données. Pour cela il suffit d'utiliser le menu clic droit sur le modèle et sélectionner _IS Designer > Generate Liquibase Changelog_ 
+
 
 h2. Transformations
 
