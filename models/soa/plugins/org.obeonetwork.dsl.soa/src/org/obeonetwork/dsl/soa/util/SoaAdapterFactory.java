@@ -26,6 +26,7 @@ import org.obeonetwork.dsl.soa.Interface;
 import org.obeonetwork.dsl.soa.Operation;
 import org.obeonetwork.dsl.soa.Parameter;
 import org.obeonetwork.dsl.soa.ParameterRestData;
+import org.obeonetwork.dsl.soa.SecurityScheme;
 import org.obeonetwork.dsl.soa.Service;
 import org.obeonetwork.dsl.soa.SoaPackage;
 import org.obeonetwork.dsl.soa.Wire;
@@ -132,6 +133,10 @@ public class SoaAdapterFactory extends AdapterFactoryImpl {
 			@Override
 			public Adapter caseParameterRestData(ParameterRestData object) {
 				return createParameterRestDataAdapter();
+			}
+			@Override
+			public Adapter caseSecurityScheme(SecurityScheme object) {
+				return createSecuritySchemeAdapter();
 			}
 			@Override
 			public Adapter caseIdentifiable(Identifiable object) {
@@ -314,6 +319,20 @@ public class SoaAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createParameterRestDataAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.obeonetwork.dsl.soa.SecurityScheme <em>Security Scheme</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.obeonetwork.dsl.soa.SecurityScheme
+	 * @generated
+	 */
+	public Adapter createSecuritySchemeAdapter() {
 		return null;
 	}
 

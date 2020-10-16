@@ -271,6 +271,7 @@ public class ComponentItemProvider
 			childrenFeatures.add(SoaPackage.Literals.COMPONENT__OWNED_SERVICES);
 			childrenFeatures.add(SoaPackage.Literals.COMPONENT__IMPLEMENTATIONS);
 			childrenFeatures.add(SoaPackage.Literals.COMPONENT__OWNED_BINDING);
+			childrenFeatures.add(SoaPackage.Literals.COMPONENT__SECURITY_SCHEMES);
 		}
 		return childrenFeatures;
 	}
@@ -345,6 +346,7 @@ public class ComponentItemProvider
 			case SoaPackage.COMPONENT__OWNED_SERVICES:
 			case SoaPackage.COMPONENT__IMPLEMENTATIONS:
 			case SoaPackage.COMPONENT__OWNED_BINDING:
+			case SoaPackage.COMPONENT__SECURITY_SCHEMES:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
 		}
@@ -376,6 +378,11 @@ public class ComponentItemProvider
 			(createChildParameter
 				(SoaPackage.Literals.COMPONENT__OWNED_BINDING,
 				 SoaFactory.eINSTANCE.createBinding()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(SoaPackage.Literals.COMPONENT__SECURITY_SCHEMES,
+				 SoaFactory.eINSTANCE.createSecurityScheme()));
 	}
 
 	/**

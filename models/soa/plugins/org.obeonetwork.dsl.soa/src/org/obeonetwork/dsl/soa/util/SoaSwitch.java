@@ -25,6 +25,7 @@ import org.obeonetwork.dsl.soa.Interface;
 import org.obeonetwork.dsl.soa.Operation;
 import org.obeonetwork.dsl.soa.Parameter;
 import org.obeonetwork.dsl.soa.ParameterRestData;
+import org.obeonetwork.dsl.soa.SecurityScheme;
 import org.obeonetwork.dsl.soa.Service;
 import org.obeonetwork.dsl.soa.SoaPackage;
 import org.obeonetwork.dsl.soa.Wire;
@@ -172,6 +173,12 @@ public class SoaSwitch<T> extends Switch<T> {
 			case SoaPackage.PARAMETER_REST_DATA: {
 				ParameterRestData parameterRestData = (ParameterRestData)theEObject;
 				T result = caseParameterRestData(parameterRestData);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case SoaPackage.SECURITY_SCHEME: {
+				SecurityScheme securityScheme = (SecurityScheme)theEObject;
+				T result = caseSecurityScheme(securityScheme);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -326,6 +333,21 @@ public class SoaSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseParameterRestData(ParameterRestData object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Security Scheme</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Security Scheme</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseSecurityScheme(SecurityScheme object) {
 		return null;
 	}
 

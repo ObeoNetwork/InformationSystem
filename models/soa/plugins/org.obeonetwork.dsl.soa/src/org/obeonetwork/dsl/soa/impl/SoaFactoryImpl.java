@@ -16,6 +16,7 @@ import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.impl.EFactoryImpl;
 import org.eclipse.emf.ecore.plugin.EcorePlugin;
+import org.obeonetwork.dsl.soa.ApiKeyLocation;
 import org.obeonetwork.dsl.soa.Binding;
 import org.obeonetwork.dsl.soa.BindingKind;
 import org.obeonetwork.dsl.soa.Component;
@@ -28,6 +29,8 @@ import org.obeonetwork.dsl.soa.OperationKind;
 import org.obeonetwork.dsl.soa.Parameter;
 import org.obeonetwork.dsl.soa.ParameterPassingMode;
 import org.obeonetwork.dsl.soa.ParameterRestData;
+import org.obeonetwork.dsl.soa.SecurityScheme;
+import org.obeonetwork.dsl.soa.SecuritySchemeType;
 import org.obeonetwork.dsl.soa.Service;
 import org.obeonetwork.dsl.soa.SoaFactory;
 import org.obeonetwork.dsl.soa.SoaPackage;
@@ -98,6 +101,7 @@ public class SoaFactoryImpl extends EFactoryImpl implements SoaFactory {
 			case SoaPackage.IMPLEMENTATION_COMPONENT: return (EObject)createImplementationComponent();
 			case SoaPackage.PARAMETER: return (EObject)createParameter();
 			case SoaPackage.PARAMETER_REST_DATA: return (EObject)createParameterRestData();
+			case SoaPackage.SECURITY_SCHEME: return (EObject)createSecurityScheme();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -125,6 +129,10 @@ public class SoaFactoryImpl extends EFactoryImpl implements SoaFactory {
 				return createParameterPassingModeFromString(eDataType, initialValue);
 			case SoaPackage.EXPOSITION_KIND:
 				return createExpositionKindFromString(eDataType, initialValue);
+			case SoaPackage.SECURITY_SCHEME_TYPE:
+				return createSecuritySchemeTypeFromString(eDataType, initialValue);
+			case SoaPackage.API_KEY_LOCATION:
+				return createApiKeyLocationFromString(eDataType, initialValue);
 			default:
 				throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
 		}
@@ -152,6 +160,10 @@ public class SoaFactoryImpl extends EFactoryImpl implements SoaFactory {
 				return convertParameterPassingModeToString(eDataType, instanceValue);
 			case SoaPackage.EXPOSITION_KIND:
 				return convertExpositionKindToString(eDataType, instanceValue);
+			case SoaPackage.SECURITY_SCHEME_TYPE:
+				return convertSecuritySchemeTypeToString(eDataType, instanceValue);
+			case SoaPackage.API_KEY_LOCATION:
+				return convertApiKeyLocationToString(eDataType, instanceValue);
 			default:
 				throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
 		}
@@ -255,6 +267,16 @@ public class SoaFactoryImpl extends EFactoryImpl implements SoaFactory {
 	public ParameterRestData createParameterRestData() {
 		ParameterRestDataImpl parameterRestData = new ParameterRestDataImpl();
 		return parameterRestData;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public SecurityScheme createSecurityScheme() {
+		SecuritySchemeImpl securityScheme = new SecuritySchemeImpl();
+		return securityScheme;
 	}
 
 	/**
@@ -396,6 +418,46 @@ public class SoaFactoryImpl extends EFactoryImpl implements SoaFactory {
 	 * @generated
 	 */
 	public String convertExpositionKindToString(EDataType eDataType, Object instanceValue) {
+		return instanceValue == null ? null : instanceValue.toString();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public SecuritySchemeType createSecuritySchemeTypeFromString(EDataType eDataType, String initialValue) {
+		SecuritySchemeType result = SecuritySchemeType.get(initialValue);
+		if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
+		return result;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String convertSecuritySchemeTypeToString(EDataType eDataType, Object instanceValue) {
+		return instanceValue == null ? null : instanceValue.toString();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public ApiKeyLocation createApiKeyLocationFromString(EDataType eDataType, String initialValue) {
+		ApiKeyLocation result = ApiKeyLocation.get(initialValue);
+		if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
+		return result;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String convertApiKeyLocationToString(EDataType eDataType, Object instanceValue) {
 		return instanceValue == null ? null : instanceValue.toString();
 	}
 

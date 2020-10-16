@@ -34,6 +34,7 @@ import org.obeonetwork.dsl.environment.TypesDefinition;
  *   <li>{@link org.obeonetwork.dsl.soa.Component#getURL <em>URL</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.soa.Component#getApiVersion <em>Api Version</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.soa.Component#isDeprecated <em>Deprecated</em>}</li>
+ *   <li>{@link org.obeonetwork.dsl.soa.Component#getSecuritySchemes <em>Security Schemes</em>}</li>
  * </ul>
  *
  * @see org.obeonetwork.dsl.soa.SoaPackage#getComponent()
@@ -303,5 +304,17 @@ public interface Component extends ObeoDSMObject {
 	 * @generated
 	 */
 	void setDeprecated(boolean value);
+
+	/**
+	 * Returns the value of the '<em><b>Security Schemes</b></em>' containment reference list.
+	 * The list contents are of type {@link org.obeonetwork.dsl.soa.SecurityScheme}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Security Schemes</em>' containment reference list.
+	 * @see org.obeonetwork.dsl.soa.SoaPackage#getComponent_SecuritySchemes()
+	 * @model containment="true" resolveProxies="true"
+	 * @generated
+	 */
+	EList<SecurityScheme> getSecuritySchemes();
 
 } // Component

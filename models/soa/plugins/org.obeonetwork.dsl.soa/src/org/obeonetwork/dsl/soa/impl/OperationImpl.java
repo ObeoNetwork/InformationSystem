@@ -22,6 +22,7 @@ import org.obeonetwork.dsl.soa.ExpositionKind;
 import org.obeonetwork.dsl.soa.Operation;
 import org.obeonetwork.dsl.soa.OperationKind;
 import org.obeonetwork.dsl.soa.Parameter;
+import org.obeonetwork.dsl.soa.SecurityScheme;
 import org.obeonetwork.dsl.soa.SoaPackage;
 import org.obeonetwork.dsl.soa.Verb;
 
@@ -42,6 +43,7 @@ import org.obeonetwork.dsl.soa.Verb;
  *   <li>{@link org.obeonetwork.dsl.soa.impl.OperationImpl#getVerb <em>Verb</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.soa.impl.OperationImpl#getExposition <em>Exposition</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.soa.impl.OperationImpl#isPaged <em>Paged</em>}</li>
+ *   <li>{@link org.obeonetwork.dsl.soa.impl.OperationImpl#getSecurityscheme <em>Securityscheme</em>}</li>
  * </ul>
  *
  * @generated
@@ -275,6 +277,33 @@ public class OperationImpl extends ActionImpl implements Operation {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public SecurityScheme getSecurityscheme() {
+		return (SecurityScheme)eDynamicGet(SoaPackage.OPERATION__SECURITYSCHEME, SoaPackage.Literals.OPERATION__SECURITYSCHEME, true, true);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public SecurityScheme basicGetSecurityscheme() {
+		return (SecurityScheme)eDynamicGet(SoaPackage.OPERATION__SECURITYSCHEME, SoaPackage.Literals.OPERATION__SECURITYSCHEME, false, true);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setSecurityscheme(SecurityScheme newSecurityscheme) {
+		eDynamicSet(SoaPackage.OPERATION__SECURITYSCHEME, SoaPackage.Literals.OPERATION__SECURITYSCHEME, newSecurityscheme);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
@@ -314,6 +343,9 @@ public class OperationImpl extends ActionImpl implements Operation {
 				return getExposition();
 			case SoaPackage.OPERATION__PAGED:
 				return isPaged();
+			case SoaPackage.OPERATION__SECURITYSCHEME:
+				if (resolve) return getSecurityscheme();
+				return basicGetSecurityscheme();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -357,6 +389,9 @@ public class OperationImpl extends ActionImpl implements Operation {
 			case SoaPackage.OPERATION__PAGED:
 				setPaged((Boolean)newValue);
 				return;
+			case SoaPackage.OPERATION__SECURITYSCHEME:
+				setSecurityscheme((SecurityScheme)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -396,6 +431,9 @@ public class OperationImpl extends ActionImpl implements Operation {
 			case SoaPackage.OPERATION__PAGED:
 				setPaged(PAGED_EDEFAULT);
 				return;
+			case SoaPackage.OPERATION__SECURITYSCHEME:
+				setSecurityscheme((SecurityScheme)null);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -426,6 +464,8 @@ public class OperationImpl extends ActionImpl implements Operation {
 				return getExposition() != EXPOSITION_EDEFAULT;
 			case SoaPackage.OPERATION__PAGED:
 				return isPaged() != PAGED_EDEFAULT;
+			case SoaPackage.OPERATION__SECURITYSCHEME:
+				return basicGetSecurityscheme() != null;
 		}
 		return super.eIsSet(featureID);
 	}

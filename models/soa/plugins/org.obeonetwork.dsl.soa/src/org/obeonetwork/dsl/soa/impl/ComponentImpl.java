@@ -24,6 +24,7 @@ import org.obeonetwork.dsl.soa.Binding;
 import org.obeonetwork.dsl.soa.Component;
 import org.obeonetwork.dsl.soa.ImplementationComponent;
 import org.obeonetwork.dsl.soa.InterfaceKind;
+import org.obeonetwork.dsl.soa.SecurityScheme;
 import org.obeonetwork.dsl.soa.Service;
 import org.obeonetwork.dsl.soa.SoaPackage;
 
@@ -46,6 +47,7 @@ import org.obeonetwork.dsl.soa.SoaPackage;
  *   <li>{@link org.obeonetwork.dsl.soa.impl.ComponentImpl#getURL <em>URL</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.soa.impl.ComponentImpl#getApiVersion <em>Api Version</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.soa.impl.ComponentImpl#isDeprecated <em>Deprecated</em>}</li>
+ *   <li>{@link org.obeonetwork.dsl.soa.impl.ComponentImpl#getSecuritySchemes <em>Security Schemes</em>}</li>
  * </ul>
  *
  * @generated
@@ -292,6 +294,16 @@ public class ComponentImpl extends ObeoDSMObjectImpl implements Component {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@SuppressWarnings("unchecked")
+	public EList<SecurityScheme> getSecuritySchemes() {
+		return (EList<SecurityScheme>)eDynamicGet(SoaPackage.COMPONENT__SECURITY_SCHEMES, SoaPackage.Literals.COMPONENT__SECURITY_SCHEMES, true, true);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
@@ -301,6 +313,8 @@ public class ComponentImpl extends ObeoDSMObjectImpl implements Component {
 				return ((InternalEList<?>)getImplementations()).basicRemove(otherEnd, msgs);
 			case SoaPackage.COMPONENT__OWNED_BINDING:
 				return ((InternalEList<?>)getOwnedBinding()).basicRemove(otherEnd, msgs);
+			case SoaPackage.COMPONENT__SECURITY_SCHEMES:
+				return ((InternalEList<?>)getSecuritySchemes()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -335,6 +349,8 @@ public class ComponentImpl extends ObeoDSMObjectImpl implements Component {
 				return getApiVersion();
 			case SoaPackage.COMPONENT__DEPRECATED:
 				return isDeprecated();
+			case SoaPackage.COMPONENT__SECURITY_SCHEMES:
+				return getSecuritySchemes();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -379,6 +395,10 @@ public class ComponentImpl extends ObeoDSMObjectImpl implements Component {
 			case SoaPackage.COMPONENT__DEPRECATED:
 				setDeprecated((Boolean)newValue);
 				return;
+			case SoaPackage.COMPONENT__SECURITY_SCHEMES:
+				getSecuritySchemes().clear();
+				getSecuritySchemes().addAll((Collection<? extends SecurityScheme>)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -418,6 +438,9 @@ public class ComponentImpl extends ObeoDSMObjectImpl implements Component {
 			case SoaPackage.COMPONENT__DEPRECATED:
 				setDeprecated(DEPRECATED_EDEFAULT);
 				return;
+			case SoaPackage.COMPONENT__SECURITY_SCHEMES:
+				getSecuritySchemes().clear();
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -452,6 +475,8 @@ public class ComponentImpl extends ObeoDSMObjectImpl implements Component {
 				return API_VERSION_EDEFAULT == null ? getApiVersion() != null : !API_VERSION_EDEFAULT.equals(getApiVersion());
 			case SoaPackage.COMPONENT__DEPRECATED:
 				return isDeprecated() != DEPRECATED_EDEFAULT;
+			case SoaPackage.COMPONENT__SECURITY_SCHEMES:
+				return !getSecuritySchemes().isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}
