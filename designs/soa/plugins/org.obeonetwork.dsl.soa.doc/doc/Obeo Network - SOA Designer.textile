@@ -194,6 +194,10 @@ L'outil de création de DTOs à partir d'entités permet de sélectionner des en
 
 !pics/dto/Dlg%20dto%20from%20entity.png!
 
+En plus des outils définis par la palette, l'outil de drag and drop permet de déplacer un DTO d'un namespace à un autre.
+Le drag and drop depuis le _Model Explorer_ d'un DTO d'un autre namespace que le namespace sur lequel est défini le diagramme a pour effet de déplacer le DTO de son namespace d'origine dans le namespace du diagramme.
+Le DTO ainsi déplacé reste référencé là où il l'était, comme par exemple en type de paramètre d'une opération SOA.
+
 h2. Gestion des exigences
 
 La gestion des exigences pour un modèle Entity utilise le mécanisme transverse de gestion des exigences fourni par l'outillage.
