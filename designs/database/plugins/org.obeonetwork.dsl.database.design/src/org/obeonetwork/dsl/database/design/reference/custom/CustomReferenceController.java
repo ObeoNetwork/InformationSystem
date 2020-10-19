@@ -40,7 +40,7 @@ public class CustomReferenceController extends EEFExtReferenceController {
 	
 	private static final String ENABLE_ADD_BUTTON_DEFAULT_EXPRESSION_FORMAT = "aql:self.eClass().getEStructuralFeature('%1$s').many";
 	
-	private static final String ENABLE_BROWSE_BUTTON_DEFAULT_EXPRESSION_FORMAT = "aql:self.eClass().getEStructuralFeature('%1$s').many and not self.eClass().getEStructuralFeature('%1$s').containment";
+	private static final String ENABLE_BROWSE_BUTTON_DEFAULT_EXPRESSION_FORMAT = "aql:not self.eClass().getEStructuralFeature('%1$s').containment";
 
 	private static final String ADD_BUTTON_OPERATION_ID = "addButtonOperation";
 
