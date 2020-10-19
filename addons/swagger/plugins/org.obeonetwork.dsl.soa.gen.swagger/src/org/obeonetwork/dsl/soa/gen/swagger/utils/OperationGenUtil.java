@@ -10,6 +10,8 @@
  *******************************************************************************/
 package org.obeonetwork.dsl.soa.gen.swagger.utils;
 
+import static java.util.stream.Collectors.toList;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -30,9 +32,23 @@ public class OperationGenUtil {
 	
 	public static List<Parameter> getOwnedParameters(Operation operation) {
 		List<Parameter> ownedParameters = new ArrayList<>();
-		ownedParameters.addAll(operation.getInput());
-		ownedParameters.addAll(operation.getOutput());
-		ownedParameters.addAll(operation.getFault());
+		ownedParameters.addAll(getInput(operation));
+		ownedParameters.addAll(getOutput(operation));
+		ownedParameters.addAll(getFault(operation));
+		
 		return ownedParameters;
 	}
+	
+	public static List<Parameter> getInput(Operation operation) {
+		return operation.getInput().stream().filter(p -> p.getRestData() != null).collect(toList());
+	}
+	
+	public static List<Parameter> getOutput(Operation operation) {
+		return operation.getOutput().stream().filter(p -> p.getRestData() != null).collect(toList());
+	}
+	
+	public static List<Parameter> getFault(Operation operation) {
+		return operation.getFault().stream().filter(p -> p.getRestData() != null).collect(toList());
+	}
+	
 }

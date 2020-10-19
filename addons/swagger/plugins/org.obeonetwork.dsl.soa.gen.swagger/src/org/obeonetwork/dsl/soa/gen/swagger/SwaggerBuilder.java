@@ -514,15 +514,15 @@ public class SwaggerBuilder {
 		
 		buildDefaultApiResponses(apiResponses, soaOperation);
 		
-    	soaOperation.getOutput().stream().forEach(soaOutputParameter -> buildApiResponse(apiResponses, soaOutputParameter));
+		OperationGenUtil.getOutput(soaOperation).stream().forEach(soaOutputParameter -> buildApiResponse(apiResponses, soaOutputParameter));
     	
-    	soaOperation.getFault().stream().forEach(soaFaultParameter -> buildApiResponse(apiResponses, soaFaultParameter));
+		OperationGenUtil.getFault(soaOperation).stream().forEach(soaFaultParameter -> buildApiResponse(apiResponses, soaFaultParameter));
     	
 		return apiResponses;
 	}
 
 	private void buildDefaultApiResponses(ApiResponses apiResponses, org.obeonetwork.dsl.soa.Operation soaOperation) {
-		if(soaOperation.getOutput().isEmpty() && soaOperation.getVerb() == Verb.DELETE) {
+		if(OperationGenUtil.getOutput(soaOperation).isEmpty() && soaOperation.getVerb() == Verb.DELETE) {
 			ApiResponse apiResponse = new ApiResponse();
 			String statusCode = getDefaultOutputStatusCode(soaOperation);
 			String description = getDefaultDescriptionFromStatusCode(statusCode);
@@ -530,7 +530,7 @@ public class SwaggerBuilder {
 			apiResponses.addApiResponse(statusCode, apiResponse);
 		}
 		
-		if(soaOperation.getFault().isEmpty()) {
+		if(OperationGenUtil.getFault(soaOperation).isEmpty()) {
 			ApiResponse apiResponse = new ApiResponse();
 			String statusCode = getDefaultFaultStatusCode(soaOperation);
 			String description = getDefaultDescriptionFromStatusCode(statusCode);
@@ -657,11 +657,12 @@ public class SwaggerBuilder {
     }
 
 	private Operation buildParameters(Operation operation, org.obeonetwork.dsl.soa.Operation soaOperation) {
-    	soaOperation.getInput().stream()
+    	OperationGenUtil.getInput(soaOperation).stream()
     	.filter(soaParameter -> soaParameter.getRestData().getPassingMode() != ParameterPassingMode.BODY)
     	.forEach(soaParameter -> buildParameter(operation, soaParameter));
     	
-    	soaOperation.getInput().stream()
+    	OperationGenUtil.getInput(soaOperation).stream()
+    	.filter(soaParameter -> soaParameter.getRestData() != null)
     	.filter(soaParameter -> soaParameter.getRestData().getPassingMode() == ParameterPassingMode.BODY)
     	.forEach(soaParameter -> buildRequestBody(operation, soaParameter));
     	

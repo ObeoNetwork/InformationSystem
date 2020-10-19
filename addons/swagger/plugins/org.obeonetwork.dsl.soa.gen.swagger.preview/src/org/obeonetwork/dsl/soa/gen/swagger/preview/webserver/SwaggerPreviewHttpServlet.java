@@ -27,21 +27,22 @@ public class SwaggerPreviewHttpServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException {
         try {
         	// Mime types handling
-        	if(req.getPathInfo().endsWith(".html")) {
+        	String requestURI = req.getRequestURI(); 
+        	if(requestURI.endsWith(".html")) {
 				resp.setContentType("text/html");
-			} else if(req.getPathInfo().endsWith(".css")) {
+			} else if(requestURI.endsWith(".css")) {
 				resp.setContentType("text/css");
-			} else if(req.getPathInfo().endsWith(".js")) {
+			} else if(requestURI.endsWith(".js")) {
 				resp.setContentType("application/javascript");
-			} else if(req.getPathInfo().endsWith(".js.map")) {
+			} else if(requestURI.endsWith(".js.map")) {
 				resp.setContentType("application/octet-stream");
-			} else if(req.getPathInfo().endsWith(".yaml")) {
+			} else if(requestURI.endsWith(".yaml")) {
 				resp.setContentType("application/yaml");
-			} else if(req.getPathInfo().endsWith(".json")) {
+			} else if(requestURI.endsWith(".json")) {
 				resp.setContentType("application/json");
 			}
 			
-        	String resourceName = URLDecoder.decode(req.getPathInfo().substring(1), "UTF-8");
+        	String resourceName = URLDecoder.decode(req.getRequestURI().substring(1), "UTF-8");
         	File resourceFile = SwaggerPreviewJettyServer.instance().getSwaggerUiDistFile(resourceName);
         	if(resourceFile == null) {
         		resourceFile = SwaggerPreviewJettyServer.instance().getSwaggerFile(resourceName);
