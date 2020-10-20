@@ -1794,27 +1794,28 @@
       <ownedColumnMappings name="ACL_Actor" headerLabelExpression="feature:name" domainClass="graal.Actor" semanticCandidatesExpression="[getVisibleActors()->asSequence()->filter(Actor)->sortedBy(a : graal::Actor | a.name.toUpper())/]"/>
       <intersection name="ACL_ActorOnTask" lineMapping="//@ownedViewpoints[name='Graal%20Methodology']/@ownedRepresentations[name='Actors%20list']/@ownedLineMappings[name='ACL_Task'] //@ownedViewpoints[name='Graal%20Methodology']/@ownedRepresentations[name='Actors%20list']/@ownedLineMappings[name='ACL_TasksGroup']" columnMapping="//@ownedViewpoints[name='Graal%20Methodology']/@ownedRepresentations[name='Actors%20list']/@ownedColumnMappings.0" labelExpression="X" columnFinderExpression="service:getVisibleActors()"/>
     </ownedRepresentations>
+    <ownedJavaExtensions qualifiedClassName="org.eclipse.sirius.common.tools.api.interpreter.StandardServices"/>
+    <ownedJavaExtensions qualifiedClassName="org.obeonetwork.dsl.environment.design.services.DeleteServices"/>
+    <ownedJavaExtensions qualifiedClassName="org.obeonetwork.dsl.environment.design.services.DesignServices"/>
+    <ownedJavaExtensions qualifiedClassName="org.obeonetwork.dsl.environment.design.services.EnvironmentLabelServices"/>
+    <ownedJavaExtensions qualifiedClassName="org.obeonetwork.dsl.environment.design.services.ModelServices"/>
+    <ownedJavaExtensions qualifiedClassName="org.obeonetwork.dsl.environment.design.services.PropertiesServices"/>
+    <ownedJavaExtensions qualifiedClassName="org.obeonetwork.dsl.environment.design.services.ReferencesService"/>
+    <ownedJavaExtensions qualifiedClassName="org.obeonetwork.dsl.environment.design.services.TypesServices"/>
+    <ownedJavaExtensions qualifiedClassName="org.obeonetwork.dsl.environment.design.services.UIServices"/>
     <ownedJavaExtensions qualifiedClassName="org.obeonetwork.graal.design.services.actor.ActorUtils"/>
     <ownedJavaExtensions qualifiedClassName="org.obeonetwork.graal.design.services.extensions.properties.ExtensionsPropertiesServices"/>
     <ownedJavaExtensions qualifiedClassName="org.obeonetwork.graal.design.services.group.GroupAction"/>
     <ownedJavaExtensions qualifiedClassName="org.obeonetwork.graal.design.services.group.UngroupAction"/>
-    <ownedJavaExtensions qualifiedClassName="org.obeonetwork.graal.design.services.task.CreateUseRelationshipAction"/>
     <ownedJavaExtensions qualifiedClassName="org.obeonetwork.graal.design.services.task.ActionsPlanUtils"/>
+    <ownedJavaExtensions qualifiedClassName="org.obeonetwork.graal.design.services.task.CreateUseRelationshipAction"/>
     <ownedJavaExtensions qualifiedClassName="org.obeonetwork.graal.design.services.task.TaskUtils"/>
     <ownedJavaExtensions qualifiedClassName="org.obeonetwork.graal.design.services.usability.DisplayLabelServices"/>
     <ownedJavaExtensions qualifiedClassName="org.obeonetwork.graal.design.services.usability.EditLabelServices"/>
     <ownedJavaExtensions qualifiedClassName="org.obeonetwork.graal.design.services.use.UseReferencesServices"/>
     <ownedJavaExtensions qualifiedClassName="org.obeonetwork.graal.design.services.usecase.CreateUseCaseAction"/>
-    <ownedJavaExtensions qualifiedClassName="org.obeonetwork.graal.design.services.util.MessageServices"/>
     <ownedJavaExtensions qualifiedClassName="org.obeonetwork.graal.design.services.usecase.RemoveFromUseCaseAction"/>
-    <ownedJavaExtensions qualifiedClassName="org.eclipse.sirius.common.tools.api.interpreter.StandardServices"/>
-    <ownedJavaExtensions qualifiedClassName="org.obeonetwork.dsl.environment.design.services.EnvironmentLabelServices"/>
-    <ownedJavaExtensions qualifiedClassName="org.obeonetwork.dsl.environment.design.services.TypesServices"/>
-    <ownedJavaExtensions qualifiedClassName="org.obeonetwork.dsl.environment.design.services.ReferencesService"/>
-    <ownedJavaExtensions qualifiedClassName="org.obeonetwork.dsl.environment.design.services.PropertiesServices"/>
-    <ownedJavaExtensions qualifiedClassName="org.obeonetwork.dsl.environment.design.services.DeleteServices"/>
-    <ownedJavaExtensions qualifiedClassName="org.obeonetwork.dsl.environment.design.services.UIServices"/>
-    <ownedJavaExtensions qualifiedClassName="org.obeonetwork.dsl.environment.design.services.DesignServices"/>
+    <ownedJavaExtensions qualifiedClassName="org.obeonetwork.graal.design.services.util.MessageServices"/>
   </ownedViewpoints>
   <userColorsPalettes name="Palette">
     <entries xsi:type="description:UserFixedColor" red="209" green="209" blue="209" name="Namespace_background"/>
@@ -1994,12 +1995,12 @@
       <groups name="Loop Group" labelExpression="Properties" domainClass="graal::Loop" semanticCandidateExpression="var:self">
         <controls xsi:type="properties:TextDescription" name="graal::Loop lowerBound" labelExpression="aql:input.emfEditServices(self).getText(self.eClass().getEStructuralFeature('lowerBound')) + ':'" helpExpression="aql:input.emfEditServices(self).getDescription(self.eClass().getEStructuralFeature('lowerBound'))" isEnabledExpression="aql:self.eClass().getEStructuralFeature('lowerBound').changeable" valueExpression="aql:self.lowerBound">
           <initialOperation>
-            <firstModelOperations xsi:type="tool_1:SetValue" featureName="lowerBound" valueExpression="var:newValue"/>
+            <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="aql:self.setNullableInteger(self.eClass().getEStructuralFeature('lowerBound'), newValue)"/>
           </initialOperation>
         </controls>
         <controls xsi:type="properties:TextDescription" name="graal::Loop upperBound" labelExpression="aql:input.emfEditServices(self).getText(self.eClass().getEStructuralFeature('upperBound')) + ':'" helpExpression="aql:input.emfEditServices(self).getDescription(self.eClass().getEStructuralFeature('upperBound'))" isEnabledExpression="aql:self.eClass().getEStructuralFeature('upperBound').changeable" valueExpression="aql:self.upperBound">
           <initialOperation>
-            <firstModelOperations xsi:type="tool_1:SetValue" featureName="upperBound" valueExpression="var:newValue"/>
+            <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="aql:self.setNullableInteger(self.eClass().getEStructuralFeature('upperBound'), newValue)"/>
           </initialOperation>
         </controls>
         <controls xsi:type="properties:TextAreaDescription" name="graal::Loop description" labelExpression="aql:input.emfEditServices(self).getText(self.eClass().getEStructuralFeature('description')) + ':'" helpExpression="aql:input.emfEditServices(self).getDescription(self.eClass().getEStructuralFeature('description'))" isEnabledExpression="aql:self.eClass().getEStructuralFeature('description').changeable" valueExpression="aql:self.description">
@@ -2240,7 +2241,7 @@
       <groups name="Persistence Group" labelExpression="Properties" domainClass="graal::DomainClass" semanticCandidateExpression="var:self">
         <controls xsi:type="properties:TextDescription" name="graal::DomainClass estimatedVolumetry" labelExpression="aql:input.emfEditServices(self).getText(self.eClass().getEStructuralFeature('estimatedVolumetry')) + ':'" helpExpression="aql:input.emfEditServices(self).getDescription(self.eClass().getEStructuralFeature('estimatedVolumetry'))" isEnabledExpression="aql:self.eClass().getEStructuralFeature('estimatedVolumetry').changeable" valueExpression="aql:self.estimatedVolumetry">
           <initialOperation>
-            <firstModelOperations xsi:type="tool_1:SetValue" featureName="estimatedVolumetry" valueExpression="var:newValue"/>
+            <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="aql:self.setNullableInteger(self.eClass().getEStructuralFeature('estimatedVolumetry'), newValue)"/>
           </initialOperation>
         </controls>
         <controls xsi:type="properties:CheckboxDescription" name="graal::DomainClass historized" labelExpression="aql:input.emfEditServices(self).getText(self.eClass().getEStructuralFeature('historized'))" helpExpression="aql:input.emfEditServices(self).getDescription(self.eClass().getEStructuralFeature('historized'))" isEnabledExpression="aql:self.eClass().getEStructuralFeature('historized').changeable" valueExpression="aql:self.historized">

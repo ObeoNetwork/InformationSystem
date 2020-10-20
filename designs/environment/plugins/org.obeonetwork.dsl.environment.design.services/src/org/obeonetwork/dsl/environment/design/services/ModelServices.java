@@ -15,6 +15,7 @@ import java.util.Collection;
 import java.util.Collections;
 import java.util.List;
 
+import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.resource.ResourceSet;
@@ -53,6 +54,16 @@ public class ModelServices {
 		}
 
 		return matchingContainer;
+	}
+	
+	public static <T extends EObject> T setNullableInteger(T eObject, EAttribute attribute, String value) {
+		if(value == null || value.trim().isEmpty()) {
+			eObject.eSet(attribute, null);
+		} else {
+			eObject.eSet(attribute, Integer.parseInt(value));
+		}
+		
+		return eObject;
 	}
 	
 }

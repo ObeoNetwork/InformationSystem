@@ -679,13 +679,14 @@
       </ownedColumnMappings>
       <ownedColumnMappings name="historized" headerLabelExpression="Historized" canEdit="true" featureName="historized" labelExpression="feature:historized"/>
     </ownedRepresentations>
-    <ownedJavaExtensions qualifiedClassName="org.obeonetwork.dsl.environment.design.services.EnvironmentLabelServices"/>
-    <ownedJavaExtensions qualifiedClassName="org.obeonetwork.dsl.environment.design.services.TypesServices"/>
-    <ownedJavaExtensions qualifiedClassName="org.obeonetwork.dsl.environment.design.services.ReferencesService"/>
-    <ownedJavaExtensions qualifiedClassName="org.obeonetwork.dsl.environment.design.services.PropertiesServices"/>
     <ownedJavaExtensions qualifiedClassName="org.obeonetwork.dsl.environment.design.services.DeleteServices"/>
-    <ownedJavaExtensions qualifiedClassName="org.obeonetwork.dsl.environment.design.services.UIServices"/>
     <ownedJavaExtensions qualifiedClassName="org.obeonetwork.dsl.environment.design.services.DesignServices"/>
+    <ownedJavaExtensions qualifiedClassName="org.obeonetwork.dsl.environment.design.services.EnvironmentLabelServices"/>
+    <ownedJavaExtensions qualifiedClassName="org.obeonetwork.dsl.environment.design.services.ModelServices"/>
+    <ownedJavaExtensions qualifiedClassName="org.obeonetwork.dsl.environment.design.services.PropertiesServices"/>
+    <ownedJavaExtensions qualifiedClassName="org.obeonetwork.dsl.environment.design.services.ReferencesService"/>
+    <ownedJavaExtensions qualifiedClassName="org.obeonetwork.dsl.environment.design.services.TypesServices"/>
+    <ownedJavaExtensions qualifiedClassName="org.obeonetwork.dsl.environment.design.services.UIServices"/>
   </ownedViewpoints>
   <userColorsPalettes name="Palette">
     <entries xsi:type="description:UserFixedColor" red="209" green="209" blue="209" name="Namespace_background"/>
@@ -716,12 +717,12 @@
       <groups name="Persistence group" labelExpression="Properties" domainClass="entity::Entity" semanticCandidateExpression="var:self">
         <controls xsi:type="properties:TextDescription" name="entity::Entity estimatedVolumetry" labelExpression="aql:input.emfEditServices(self).getText(self.eClass().getEStructuralFeature('estimatedVolumetry')) + ':'" helpExpression="aql:input.emfEditServices(self).getDescription(self.eClass().getEStructuralFeature('estimatedVolumetry'))" isEnabledExpression="aql:self.eClass().getEStructuralFeature('estimatedVolumetry').changeable" valueExpression="aql:self.estimatedVolumetry">
           <initialOperation>
-            <firstModelOperations xsi:type="tool_1:SetValue" featureName="estimatedVolumetry" valueExpression="var:newValue"/>
+            <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="aql:self.setNullableInteger(self.eClass().getEStructuralFeature('estimatedVolumetry'), newValue)"/>
           </initialOperation>
         </controls>
         <controls xsi:type="properties:TextDescription" name="entity::Entity estimatedAccess" labelExpression="aql:input.emfEditServices(self).getText(self.eClass().getEStructuralFeature('estimatedAccess')) + ':'" helpExpression="aql:input.emfEditServices(self).getDescription(self.eClass().getEStructuralFeature('estimatedAccess'))" isEnabledExpression="aql:self.eClass().getEStructuralFeature('estimatedAccess').changeable" valueExpression="aql:self.estimatedAccess">
           <initialOperation>
-            <firstModelOperations xsi:type="tool_1:SetValue" featureName="estimatedAccess" valueExpression="var:newValue"/>
+            <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="aql:self.setNullableInteger(self.eClass().getEStructuralFeature('estimatedAccess'), newValue)"/>
           </initialOperation>
         </controls>
         <controls xsi:type="properties:CheckboxDescription" name="entity::Entity historized" labelExpression="aql:input.emfEditServices(self).getText(self.eClass().getEStructuralFeature('historized'))" helpExpression="aql:input.emfEditServices(self).getDescription(self.eClass().getEStructuralFeature('historized'))" isEnabledExpression="aql:self.eClass().getEStructuralFeature('historized').changeable" valueExpression="aql:self.historized">
