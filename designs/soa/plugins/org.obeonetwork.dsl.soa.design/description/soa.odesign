@@ -1371,7 +1371,7 @@
                 </widget>
               </ifs>
               <ifs name="passingMode=PATH" predicateExpression="aql:restData.passingMode=soa::ParameterPassingMode::PATH">
-                <widget xsi:type="properties:SelectDescription" name="soa::ParameterRestData restId PATH" labelExpression="aql:input.emfEditServices(restData).getText(restData.eClass().getEStructuralFeature('restId')) + ':'" helpExpression="aql:input.emfEditServices(restData).getDescription(restData.eClass().getEStructuralFeature('restId'))" isEnabledExpression="aql:restData.eClass().getEStructuralFeature('restId').changeable" valueExpression="aql:restData.restId" candidatesExpression="aql:restData.eContainer(soa::Operation).getParamIdsFromURI()" candidateDisplayExpression="aql:candidate">
+                <widget xsi:type="properties:SelectDescription" name="soa::ParameterRestData restId PATH" labelExpression="aql:input.emfEditServices(restData).getText(restData.eClass().getEStructuralFeature('restId')) + ':'" helpExpression="aql:input.emfEditServices(restData).getDescription(restData.eClass().getEStructuralFeature('restId'))" isEnabledExpression="aql:restData.eClass().getEStructuralFeature('restId').changeable" valueExpression="aql:restData.restId" candidatesExpression="aql:Sequence{''}->concat(restData.eContainer(soa::Operation).getParamIdsFromURI())" candidateDisplayExpression="aql:candidate">
                   <initialOperation>
                     <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="aql:restData">
                       <subModelOperations xsi:type="tool_1:SetValue" featureName="restId" valueExpression="var:newValue"/>
