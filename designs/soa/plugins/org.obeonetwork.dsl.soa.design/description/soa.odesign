@@ -1352,7 +1352,7 @@
       <groups name="Operation Input Parameters Exposition Group" labelExpression="Input Parameters" domainClass="soa::Operation" semanticCandidateExpression="var:self">
         <controls xsi:type="properties:ContainerDescription">
           <controls xsi:type="properties:ContainerDescription">
-            <controls xsi:type="properties:DynamicMappingForDescription" iterator="restData" iterableExpression="aql:self.input.restData">
+            <controls xsi:type="properties:DynamicMappingForDescription" iterator="restData" iterableExpression="aql:self.input.restData" forceRefresh="true">
               <ifs name="true" predicateExpression="aql:true">
                 <widget xsi:type="properties:LabelDescription" name="restData.eContainer(soa::Parameter).name" valueExpression="aql:restData.eContainer(soa::Parameter).name"/>
               </ifs>
