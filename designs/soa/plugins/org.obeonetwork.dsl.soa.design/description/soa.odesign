@@ -1283,7 +1283,7 @@
       </groups>
       <groups name="Parameter Exposition Group" labelExpression="Properties" domainClass="soa::Parameter" semanticCandidateExpression="var:self" preconditionExpression="aql:self.eContainer(soa::Service).kind=soa::InterfaceKind::provided">
         <controls xsi:type="properties:ContainerDescription">
-          <controls xsi:type="properties:DynamicMappingForDescription" iterator="single" iterableExpression="aql:Sequence{self}">
+          <controls xsi:type="properties:DynamicMappingForDescription" iterator="single" iterableExpression="aql:Sequence{self}" forceRefresh="true">
             <ifs name="Is input parameter" predicateExpression="aql:single.eContainingFeature().name='input'">
               <widget xsi:type="properties:SelectDescription" name="soa::ParameterRestData passingMode" labelExpression="aql:input.emfEditServices(single.restData).getText(single.restData.eClass().getEStructuralFeature('passingMode')) + ':'" helpExpression="aql:input.emfEditServices(single.restData).getDescription(single.restData.eClass().getEStructuralFeature('passingMode'))" isEnabledExpression="aql:single.restData.eClass().getEStructuralFeature('passingMode').changeable" valueExpression="aql:single.restData.eClass().getEStructuralFeature('passingMode').eType.getEEnumLiteralByLiteral(single.restData.passingMode.toString())" candidatesExpression="aql:single.restData.eClass().getEStructuralFeature('passingMode').eType.eLiterals" candidateDisplayExpression="aql:candidate.literal">
                 <initialOperation>
@@ -1371,7 +1371,7 @@
                 </widget>
               </ifs>
               <ifs name="passingMode=PATH" predicateExpression="aql:restData.passingMode=soa::ParameterPassingMode::PATH">
-                <widget xsi:type="properties:SelectDescription" name="soa::ParameterRestData restId PATH" labelExpression="aql:input.emfEditServices(restData).getText(restData.eClass().getEStructuralFeature('restId')) + ':'" helpExpression="aql:input.emfEditServices(restData).getDescription(restData.eClass().getEStructuralFeature('restId'))" isEnabledExpression="aql:restData.eClass().getEStructuralFeature('restId').changeable" valueExpression="aql:restData.restId" candidatesExpression="aql:Sequence{''}->concat(restData.eContainer(soa::Operation).getParamIdsFromURI())" candidateDisplayExpression="aql:candidate">
+                <widget xsi:type="properties:SelectDescription" name="soa::ParameterRestData restId PATH" labelExpression="aql:input.emfEditServices(restData).getText(restData.eClass().getEStructuralFeature('restId')) + ':'" helpExpression="aql:input.emfEditServices(restData).getDescription(restData.eClass().getEStructuralFeature('restId'))" isEnabledExpression="aql:restData.eClass().getEStructuralFeature('restId').changeable" valueExpression="aql:restData.restId" candidatesExpression="aql:restData.eContainer(soa::Operation).getParamIdsFromURI()" candidateDisplayExpression="aql:candidate">
                   <initialOperation>
                     <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="aql:restData">
                       <subModelOperations xsi:type="tool_1:SetValue" featureName="restId" valueExpression="var:newValue"/>

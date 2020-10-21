@@ -65,6 +65,7 @@ import org.obeonetwork.dsl.soa.ExpositionKind;
 import org.obeonetwork.dsl.soa.Interface;
 import org.obeonetwork.dsl.soa.InterfaceKind;
 import org.obeonetwork.dsl.soa.ParameterPassingMode;
+import org.obeonetwork.dsl.soa.ParameterRestData;
 import org.obeonetwork.dsl.soa.Service;
 import org.obeonetwork.dsl.soa.SoaFactory;
 import org.obeonetwork.dsl.soa.Verb;
@@ -653,7 +654,10 @@ public class SoaComponentBuilder {
 		org.obeonetwork.dsl.soa.Parameter soaParameter = SoaFactory.eINSTANCE.createParameter();
 		soaOperation.getInput().add(soaParameter);
 		
-		soaParameter.setRestData(SoaFactory.eINSTANCE.createParameterRestData());
+		ParameterRestData restData = SoaFactory.eINSTANCE.createParameterRestData();
+		restData.setRestId(parameter.getName());
+		
+		soaParameter.setRestData(restData);
 		
 		soaParameter.setName(parameter.getName());
 		
