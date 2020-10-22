@@ -76,6 +76,7 @@ public class ComponentItemProvider
 			addURLPropertyDescriptor(object);
 			addApiVersionPropertyDescriptor(object);
 			addDeprecatedPropertyDescriptor(object);
+			addSecuritySchemesPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -252,6 +253,28 @@ public class ComponentItemProvider
 				 false,
 				 false,
 				 ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Security Schemes feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addSecuritySchemesPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_Component_securitySchemes_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Component_securitySchemes_feature", "_UI_Component_type"),
+				 SoaPackage.Literals.COMPONENT__SECURITY_SCHEMES,
+				 true,
+				 false,
+				 false,
+				 null,
 				 null,
 				 null));
 	}

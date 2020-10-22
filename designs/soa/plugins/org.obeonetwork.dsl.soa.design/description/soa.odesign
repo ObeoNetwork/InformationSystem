@@ -1069,16 +1069,17 @@
         </toolSections>
       </defaultLayer>
     </ownedRepresentations>
-    <ownedJavaExtensions qualifiedClassName="org.obeonetwork.dsl.environment.design.services.EnvironmentLabelServices"/>
-    <ownedJavaExtensions qualifiedClassName="org.obeonetwork.dsl.environment.design.services.TypesServices"/>
-    <ownedJavaExtensions qualifiedClassName="org.obeonetwork.dsl.environment.design.services.ReferencesService"/>
-    <ownedJavaExtensions qualifiedClassName="org.obeonetwork.dsl.environment.design.services.PropertiesServices"/>
     <ownedJavaExtensions qualifiedClassName="org.obeonetwork.dsl.environment.design.services.DeleteServices"/>
+    <ownedJavaExtensions qualifiedClassName="org.obeonetwork.dsl.environment.design.services.DesignServices"/>
+    <ownedJavaExtensions qualifiedClassName="org.obeonetwork.dsl.environment.design.services.EnvironmentLabelServices"/>
+    <ownedJavaExtensions qualifiedClassName="org.obeonetwork.dsl.environment.design.services.ModelServices"/>
+    <ownedJavaExtensions qualifiedClassName="org.obeonetwork.dsl.environment.design.services.PropertiesServices"/>
+    <ownedJavaExtensions qualifiedClassName="org.obeonetwork.dsl.environment.design.services.ReferencesService"/>
+    <ownedJavaExtensions qualifiedClassName="org.obeonetwork.dsl.environment.design.services.TypesServices"/>
     <ownedJavaExtensions qualifiedClassName="org.obeonetwork.dsl.environment.design.services.UIServices"/>
-    <ownedJavaExtensions qualifiedClassName="org.obeonetwork.dsl.soa.design.services.SOAService"/>
     <ownedJavaExtensions qualifiedClassName="org.obeonetwork.dsl.soa.design.services.EcoreService"/>
     <ownedJavaExtensions qualifiedClassName="org.obeonetwork.dsl.soa.design.services.SOALabelService"/>
-    <ownedJavaExtensions qualifiedClassName="org.obeonetwork.dsl.environment.design.services.DesignServices"/>
+    <ownedJavaExtensions qualifiedClassName="org.obeonetwork.dsl.soa.design.services.SOAService"/>
   </ownedViewpoints>
   <userColorsPalettes name="Palette">
     <entries xsi:type="description:UserFixedColor" red="209" green="209" blue="209" name="Namespace_background"/>
@@ -1116,6 +1117,7 @@
       <pages name="Service Exposition Page" labelExpression="Exposition" domainClass="soa::Service" semanticCandidateExpression="var:self" groups="//@extensions.0/@categories.1/@groups.6 //@extensions.0/@categories.1/@groups.9"/>
       <pages name="Operation Exposition Page" labelExpression="Exposition" domainClass="soa::Operation" semanticCandidateExpression="var:self" preconditionExpression="aql:self.eContainer(soa::Service).kind=soa::InterfaceKind::provided and self.exposition&lt;>soa::ExpositionKind::NONE" groups="//@extensions.0/@categories.1/@groups.7 //@extensions.0/@categories.1/@groups.9 //@extensions.0/@categories.1/@groups.10"/>
       <pages name="Parameter Exposition Page" labelExpression="Exposition" domainClass="soa::Parameter" semanticCandidateExpression="var:self" preconditionExpression="aql:self.eContainer(soa::Service).kind=soa::InterfaceKind::provided and self.exposition&lt;>soa::ExpositionKind::NONE" groups="//@extensions.0/@categories.1/@groups.8 //@extensions.0/@categories.1/@groups.9"/>
+      <pages name="Security Scheme Page" labelExpression="Security Scheme" domainClass="soa::SecurityScheme" semanticCandidateExpression="var:self" groups="//@extensions.0/@categories.1/@groups.11"/>
       <groups name="Operation Group" labelExpression="Properties" domainClass="soa::Operation" semanticCandidateExpression="var:self">
         <controls xsi:type="properties:TextDescription" name="soa::Operation name" labelExpression="aql:input.emfEditServices(self).getText(self.eClass().getEStructuralFeature('name')) + ':'" helpExpression="aql:input.emfEditServices(self).getDescription(self.eClass().getEStructuralFeature('name'))" isEnabledExpression="aql:self.eClass().getEStructuralFeature('name').changeable" valueExpression="aql:self.name">
           <initialOperation>
@@ -1255,6 +1257,68 @@
           <initialOperation>
             <firstModelOperations xsi:type="tool_1:SetValue" featureName="apiVersion" valueExpression="var:newValue"/>
           </initialOperation>
+        </controls>
+        <controls xsi:type="properties:DynamicMappingForDescription" name="soa::Component securitySchemes" iterator="component" iterableExpression="aql:Sequence{self}" forceRefresh="true">
+          <ifs name="soa::Component doesn't have securitySchemes" predicateExpression="aql:component.securitySchemes->isEmpty()">
+            <widget xsi:type="properties:ButtonDescription" name="soa::Component Define Security Schemes" labelExpression="aql:input.emfEditServices(self).getText(self.eClass().getEStructuralFeature('securitySchemes')) + ':'" helpExpression="aql:input.emfEditServices(self).getDescription(self.eClass().getEStructuralFeature('securitySchemes'))" isEnabledExpression="aql:true" buttonLabelExpression="Define">
+              <initialOperation>
+                <firstModelOperations xsi:type="tool_1:CreateInstance" typeName="soa::SecurityScheme" referenceName="securitySchemes" variableName="securityScheme"/>
+              </initialOperation>
+            </widget>
+          </ifs>
+          <ifs name="soa::Component do have securitySchemes" predicateExpression="aql:component.securitySchemes->notEmpty()">
+            <widget xsi:type="properties:ListDescription" name="soa::Component Security Schemes" labelExpression="aql:input.emfEditServices(self).getText(self.eClass().getEStructuralFeature('securitySchemes')) + ':'" helpExpression="aql:input.emfEditServices(self).getDescription(self.eClass().getEStructuralFeature('securitySchemes'))" isEnabledExpression="aql:true" valueExpression="aql:self.securitySchemes" displayExpression="aql:input.emfEditServices(value).getText()">
+              <onClickOperation>
+                <firstModelOperations xsi:type="tool_1:If" conditionExpression="aql:onClickEventKind='DOUBLE_CLICK'">
+                  <subModelOperations xsi:type="tool_1:ChangeContext" browseExpression="aql:selection->first()">
+                    <subModelOperations xsi:type="properties:DialogModelOperation" titleExpression="Security Scheme Properties">
+                      <buttons labelExpression="Cancel" closeDialogOnClick="true" rollbackChangesOnClose="true">
+                        <initialOperation/>
+                      </buttons>
+                      <buttons labelExpression="OK" default="true" closeDialogOnClick="true">
+                        <initialOperation/>
+                      </buttons>
+                      <page name="Security Scheme Edition Dialog Page" labelExpression="Security Scheme" domainClass="soa::SecurityScheme" semanticCandidateExpression="var:self" extends="//@extensions.0/@categories.1/@pages.9"/>
+                    </subModelOperations>
+                  </subModelOperations>
+                </firstModelOperations>
+              </onClickOperation>
+              <actions imageExpression="/org.obeonetwork.dsl.environment.design.services/icons/full/etool16/add.gif">
+                <initialOperation>
+                  <firstModelOperations xsi:type="tool_1:CreateInstance" typeName="soa::SecurityScheme" referenceName="securitySchemes" variableName="securityScheme">
+                    <subModelOperations xsi:type="properties:DialogModelOperation" titleExpression="Security Scheme Creation">
+                      <buttons labelExpression="Cancel" closeDialogOnClick="true" rollbackChangesOnClose="true">
+                        <initialOperation>
+                          <firstModelOperations xsi:type="tool_1:RemoveElement"/>
+                        </initialOperation>
+                      </buttons>
+                      <buttons labelExpression="OK" default="true" closeDialogOnClick="true">
+                        <initialOperation/>
+                      </buttons>
+                      <page name="Security Scheme Edition Dialog Page" labelExpression="Security Scheme" domainClass="soa::SecurityScheme" semanticCandidateExpression="var:self" extends="//@extensions.0/@categories.1/@pages.9"/>
+                    </subModelOperations>
+                  </firstModelOperations>
+                </initialOperation>
+              </actions>
+              <actions imageExpression="/org.obeonetwork.dsl.environment.design.services/icons/full/etool16/delete.gif">
+                <initialOperation>
+                  <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="aql:selection->first()">
+                    <subModelOperations xsi:type="tool_1:RemoveElement"/>
+                  </firstModelOperations>
+                </initialOperation>
+              </actions>
+              <actions imageExpression="/org.obeonetwork.dsl.environment.design.services/icons/full/etool16/up.gif">
+                <initialOperation>
+                  <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="aql:selection->first().moveUp()"/>
+                </initialOperation>
+              </actions>
+              <actions imageExpression="/org.obeonetwork.dsl.environment.design.services/icons/full/etool16/down.gif">
+                <initialOperation>
+                  <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="aql:selection->first().moveDown()"/>
+                </initialOperation>
+              </actions>
+            </widget>
+          </ifs>
         </controls>
       </groups>
       <groups name="Service Exposition Group" labelExpression="Properties" domainClass="soa::Service" semanticCandidateExpression="var:self" preconditionExpression="aql:self.kind=soa::InterfaceKind::provided">
@@ -1401,6 +1465,33 @@
             <audits auditExpression="aql:self.getParamIdsFromURI()->includes(restData.restId)"/>
           </propertyValidationRules>
         </validationSet>
+      </groups>
+      <groups name="SecurityScheme Group" labelExpression="Properties" domainClass="soa::SecurityScheme" semanticCandidateExpression="var:self">
+        <controls xsi:type="properties:TextDescription" name="soa::SecurityScheme key" labelExpression="aql:input.emfEditServices(self).getText(self.eClass().getEStructuralFeature('key')) + ':'" helpExpression="aql:input.emfEditServices(self).getDescription(self.eClass().getEStructuralFeature('key'))" isEnabledExpression="aql:self.eClass().getEStructuralFeature('key').changeable" valueExpression="aql:self.key">
+          <initialOperation>
+            <firstModelOperations xsi:type="tool_1:SetValue" featureName="key" valueExpression="var:newValue"/>
+          </initialOperation>
+        </controls>
+        <controls xsi:type="properties:SelectDescription" name="soa::SecurityScheme type" labelExpression="aql:input.emfEditServices(self).getText(self.eClass().getEStructuralFeature('type')) + ':'" helpExpression="aql:input.emfEditServices(self).getDescription(self.eClass().getEStructuralFeature('type'))" isEnabledExpression="aql:self.eClass().getEStructuralFeature('type').changeable" valueExpression="aql:self.eClass().getEStructuralFeature('type').eType.getEEnumLiteralByLiteral(self.type.toString())" candidatesExpression="aql:self.eClass().getEStructuralFeature('type').eType.eLiterals" candidateDisplayExpression="aql:candidate.literal">
+          <initialOperation>
+            <firstModelOperations xsi:type="tool_1:SetValue" featureName="type" valueExpression="aql:newValue.instance"/>
+          </initialOperation>
+        </controls>
+        <controls xsi:type="properties:TextAreaDescription" name="soa::SecurityScheme description" labelExpression="aql:input.emfEditServices(self).getText(self.eClass().getEStructuralFeature('description')) + ':'" helpExpression="aql:input.emfEditServices(self).getDescription(self.eClass().getEStructuralFeature('description'))" isEnabledExpression="aql:self.eClass().getEStructuralFeature('description').changeable" valueExpression="aql:self.description">
+          <initialOperation>
+            <firstModelOperations xsi:type="tool_1:SetValue" featureName="description" valueExpression="var:newValue"/>
+          </initialOperation>
+        </controls>
+        <controls xsi:type="properties:TextDescription" name="soa::SecurityScheme name" labelExpression="aql:input.emfEditServices(self).getText(self.eClass().getEStructuralFeature('name')) + ':'" helpExpression="aql:input.emfEditServices(self).getDescription(self.eClass().getEStructuralFeature('name'))" isEnabledExpression="aql:self.eClass().getEStructuralFeature('name').changeable" valueExpression="aql:self.name">
+          <initialOperation>
+            <firstModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="var:newValue"/>
+          </initialOperation>
+        </controls>
+        <controls xsi:type="properties:SelectDescription" name="soa::SecurityScheme apiKeyLocation" labelExpression="aql:input.emfEditServices(self).getText(self.eClass().getEStructuralFeature('apiKeyLocation')) + ':'" helpExpression="aql:input.emfEditServices(self).getDescription(self.eClass().getEStructuralFeature('apiKeyLocation'))" isEnabledExpression="aql:self.eClass().getEStructuralFeature('apiKeyLocation').changeable" valueExpression="aql:self.eClass().getEStructuralFeature('apiKeyLocation').eType.getEEnumLiteralByLiteral(self.apiKeyLocation.toString())" candidatesExpression="aql:self.eClass().getEStructuralFeature('apiKeyLocation').eType.eLiterals" candidateDisplayExpression="aql:candidate.literal">
+          <initialOperation>
+            <firstModelOperations xsi:type="tool_1:SetValue" featureName="apiKeyLocation" valueExpression="aql:newValue.instance"/>
+          </initialOperation>
+        </controls>
       </groups>
     </categories>
   </extensions>

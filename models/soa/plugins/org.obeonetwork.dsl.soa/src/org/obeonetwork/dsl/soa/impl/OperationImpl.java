@@ -43,7 +43,7 @@ import org.obeonetwork.dsl.soa.Verb;
  *   <li>{@link org.obeonetwork.dsl.soa.impl.OperationImpl#getVerb <em>Verb</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.soa.impl.OperationImpl#getExposition <em>Exposition</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.soa.impl.OperationImpl#isPaged <em>Paged</em>}</li>
- *   <li>{@link org.obeonetwork.dsl.soa.impl.OperationImpl#getSecurityscheme <em>Securityscheme</em>}</li>
+ *   <li>{@link org.obeonetwork.dsl.soa.impl.OperationImpl#getSecurityScheme <em>Security Scheme</em>}</li>
  * </ul>
  *
  * @generated
@@ -277,8 +277,8 @@ public class OperationImpl extends ActionImpl implements Operation {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public SecurityScheme getSecurityscheme() {
-		return (SecurityScheme)eDynamicGet(SoaPackage.OPERATION__SECURITYSCHEME, SoaPackage.Literals.OPERATION__SECURITYSCHEME, true, true);
+	public SecurityScheme getSecurityScheme() {
+		return (SecurityScheme)eDynamicGet(SoaPackage.OPERATION__SECURITY_SCHEME, SoaPackage.Literals.OPERATION__SECURITY_SCHEME, true, true);
 	}
 
 	/**
@@ -286,8 +286,8 @@ public class OperationImpl extends ActionImpl implements Operation {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public SecurityScheme basicGetSecurityscheme() {
-		return (SecurityScheme)eDynamicGet(SoaPackage.OPERATION__SECURITYSCHEME, SoaPackage.Literals.OPERATION__SECURITYSCHEME, false, true);
+	public SecurityScheme basicGetSecurityScheme() {
+		return (SecurityScheme)eDynamicGet(SoaPackage.OPERATION__SECURITY_SCHEME, SoaPackage.Literals.OPERATION__SECURITY_SCHEME, false, true);
 	}
 
 	/**
@@ -295,8 +295,8 @@ public class OperationImpl extends ActionImpl implements Operation {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setSecurityscheme(SecurityScheme newSecurityscheme) {
-		eDynamicSet(SoaPackage.OPERATION__SECURITYSCHEME, SoaPackage.Literals.OPERATION__SECURITYSCHEME, newSecurityscheme);
+	public void setSecurityScheme(SecurityScheme newSecurityScheme) {
+		eDynamicSet(SoaPackage.OPERATION__SECURITY_SCHEME, SoaPackage.Literals.OPERATION__SECURITY_SCHEME, newSecurityScheme);
 	}
 
 	/**
@@ -343,9 +343,9 @@ public class OperationImpl extends ActionImpl implements Operation {
 				return getExposition();
 			case SoaPackage.OPERATION__PAGED:
 				return isPaged();
-			case SoaPackage.OPERATION__SECURITYSCHEME:
-				if (resolve) return getSecurityscheme();
-				return basicGetSecurityscheme();
+			case SoaPackage.OPERATION__SECURITY_SCHEME:
+				if (resolve) return getSecurityScheme();
+				return basicGetSecurityScheme();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -389,8 +389,8 @@ public class OperationImpl extends ActionImpl implements Operation {
 			case SoaPackage.OPERATION__PAGED:
 				setPaged((Boolean)newValue);
 				return;
-			case SoaPackage.OPERATION__SECURITYSCHEME:
-				setSecurityscheme((SecurityScheme)newValue);
+			case SoaPackage.OPERATION__SECURITY_SCHEME:
+				setSecurityScheme((SecurityScheme)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -431,8 +431,8 @@ public class OperationImpl extends ActionImpl implements Operation {
 			case SoaPackage.OPERATION__PAGED:
 				setPaged(PAGED_EDEFAULT);
 				return;
-			case SoaPackage.OPERATION__SECURITYSCHEME:
-				setSecurityscheme((SecurityScheme)null);
+			case SoaPackage.OPERATION__SECURITY_SCHEME:
+				setSecurityScheme((SecurityScheme)null);
 				return;
 		}
 		super.eUnset(featureID);
@@ -464,8 +464,8 @@ public class OperationImpl extends ActionImpl implements Operation {
 				return getExposition() != EXPOSITION_EDEFAULT;
 			case SoaPackage.OPERATION__PAGED:
 				return isPaged() != PAGED_EDEFAULT;
-			case SoaPackage.OPERATION__SECURITYSCHEME:
-				return basicGetSecurityscheme() != null;
+			case SoaPackage.OPERATION__SECURITY_SCHEME:
+				return basicGetSecurityScheme() != null;
 		}
 		return super.eIsSet(featureID);
 	}

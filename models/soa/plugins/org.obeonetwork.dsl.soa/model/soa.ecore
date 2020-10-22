@@ -212,7 +212,7 @@
         <details key="documentation" value="Tells if this operation is paged."/>
       </eAnnotations>
     </eStructuralFeatures>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="securityscheme" eType="#//SecurityScheme"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="securityScheme" eType="#//SecurityScheme"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ImplementationComponent" eSuperTypes="../../org.obeonetwork.dsl.environment/model/environment.ecore#//ObeoDSMObject">
     <eStructuralFeatures xsi:type="ecore:EReference" name="implement" eType="#//Interface">

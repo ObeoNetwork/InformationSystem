@@ -15,8 +15,10 @@ import java.util.Collection;
 import java.util.Collections;
 import java.util.List;
 
+import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EObject;
+import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.resource.ResourceSet;
 
@@ -61,6 +63,37 @@ public class ModelServices {
 			eObject.eSet(attribute, null);
 		} else {
 			eObject.eSet(attribute, Integer.parseInt(value));
+		}
+		
+		return eObject;
+	}
+	
+	private static EList<?> getContainingMultiFeatureValues(EObject eObject) {
+		EList<?> values = null;
+		
+		EStructuralFeature containingFeature = eObject.eContainingFeature();
+		if(containingFeature != null && containingFeature.isMany()) {
+			Object valuesRaw = eObject.eContainer().eGet(containingFeature);
+			if(valuesRaw instanceof EList) {
+				values = (EList<?>) valuesRaw;
+			}
+		}
+		return values;
+	}
+	
+	public static EObject moveUp(EObject eObject) {
+		EList<?> values = getContainingMultiFeatureValues(eObject);
+		if(values != null) {
+			values.move(Math.max(0, values.indexOf(eObject) - 1), values.indexOf(eObject));
+		}
+		
+		return eObject;
+	}
+	
+	public static EObject moveDown(EObject eObject) {
+		EList<?> values = getContainingMultiFeatureValues(eObject);
+		if(values != null) {
+			values.move(Math.min(values.size() - 1, values.indexOf(eObject) + 1), values.indexOf(eObject));
 		}
 		
 		return eObject;

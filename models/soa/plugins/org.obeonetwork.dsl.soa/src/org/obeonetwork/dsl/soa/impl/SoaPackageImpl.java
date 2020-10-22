@@ -651,7 +651,7 @@ public class SoaPackageImpl extends EPackageImpl implements SoaPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getOperation_Securityscheme() {
+	public EReference getOperation_SecurityScheme() {
 		return (EReference)operationEClass.getEStructuralFeatures().get(9);
 	}
 
@@ -1002,7 +1002,7 @@ public class SoaPackageImpl extends EPackageImpl implements SoaPackage {
 		createEAttribute(operationEClass, OPERATION__VERB);
 		createEAttribute(operationEClass, OPERATION__EXPOSITION);
 		createEAttribute(operationEClass, OPERATION__PAGED);
-		createEReference(operationEClass, OPERATION__SECURITYSCHEME);
+		createEReference(operationEClass, OPERATION__SECURITY_SCHEME);
 
 		implementationComponentEClass = createEClass(IMPLEMENTATION_COMPONENT);
 		createEReference(implementationComponentEClass, IMPLEMENTATION_COMPONENT__IMPLEMENT);
@@ -1132,7 +1132,7 @@ public class SoaPackageImpl extends EPackageImpl implements SoaPackage {
 		initEAttribute(getOperation_Verb(), this.getVerb(), "verb", "GET", 0, 1, Operation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getOperation_Exposition(), this.getExpositionKind(), "exposition", null, 0, 1, Operation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getOperation_Paged(), ecorePackage.getEBoolean(), "paged", "true", 0, 1, Operation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getOperation_Securityscheme(), this.getSecurityScheme(), null, "securityscheme", null, 0, 1, Operation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getOperation_SecurityScheme(), this.getSecurityScheme(), null, "securityScheme", null, 0, 1, Operation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(implementationComponentEClass, ImplementationComponent.class, "ImplementationComponent", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getImplementationComponent_Implement(), this.getInterface(), null, "implement", null, 0, 1, ImplementationComponent.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

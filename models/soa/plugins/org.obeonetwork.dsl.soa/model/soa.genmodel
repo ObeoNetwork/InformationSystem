@@ -78,7 +78,7 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute soa.ecore#//Component/URL"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute soa.ecore#//Component/apiVersion"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute soa.ecore#//Component/deprecated"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference soa.ecore#//Component/securitySchemes"/>
+      <genFeatures children="true" createChild="true" propertyDescription="" ecoreFeature="ecore:EReference soa.ecore#//Component/securitySchemes"/>
     </genClasses>
     <genClasses ecoreClass="soa.ecore#//Service">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference soa.ecore#//Service/ownedInterface"/>
@@ -111,7 +111,7 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute soa.ecore#//Operation/verb"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute soa.ecore#//Operation/exposition"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute soa.ecore#//Operation/paged"/>
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference soa.ecore#//Operation/securityscheme"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference soa.ecore#//Operation/securityScheme"/>
     </genClasses>
     <genClasses ecoreClass="soa.ecore#//ImplementationComponent" labelFeature="../../org.obeonetwork.dsl.environment/model/environment.genmodel#//environment/ObeoDSMObject/description">
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference soa.ecore#//ImplementationComponent/implement"/>

@@ -69,7 +69,7 @@ public class OperationItemProvider
 			addVerbPropertyDescriptor(object);
 			addExpositionPropertyDescriptor(object);
 			addPagedPropertyDescriptor(object);
-			addSecurityschemePropertyDescriptor(object);
+			addSecuritySchemePropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -207,19 +207,19 @@ public class OperationItemProvider
 	}
 
 	/**
-	 * This adds a property descriptor for the Securityscheme feature.
+	 * This adds a property descriptor for the Security Scheme feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void addSecurityschemePropertyDescriptor(Object object) {
+	protected void addSecuritySchemePropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_Operation_securityscheme_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_Operation_securityscheme_feature", "_UI_Operation_type"),
-				 SoaPackage.Literals.OPERATION__SECURITYSCHEME,
+				 getString("_UI_Operation_securityScheme_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Operation_securityScheme_feature", "_UI_Operation_type"),
+				 SoaPackage.Literals.OPERATION__SECURITY_SCHEME,
 				 true,
 				 false,
 				 true,
