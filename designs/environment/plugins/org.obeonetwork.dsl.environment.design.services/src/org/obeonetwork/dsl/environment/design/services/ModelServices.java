@@ -68,34 +68,31 @@ public class ModelServices {
 		return eObject;
 	}
 	
-	private static EList<?> getContainingMultiFeatureValues(EObject eObject) {
+	private static EList<?> getMultiFeatureValues(EObject eReferencer, String featureName) {
 		EList<?> values = null;
-		
-		EStructuralFeature containingFeature = eObject.eContainingFeature();
-		if(containingFeature != null && containingFeature.isMany()) {
-			Object valuesRaw = eObject.eContainer().eGet(containingFeature);
+		EStructuralFeature feature = eReferencer.eClass().getEStructuralFeature(featureName);
+		if(feature != null && feature.isMany()) {
+			Object valuesRaw = eReferencer.eGet(feature);
 			if(valuesRaw instanceof EList) {
 				values = (EList<?>) valuesRaw;
-			}
+			}			
 		}
 		return values;
 	}
 	
-	public static EObject moveUp(EObject eObject) {
-		EList<?> values = getContainingMultiFeatureValues(eObject);
+	public static EObject moveUp(EObject eReferencer, EObject eObject, String featureName) {
+		EList<?> values = getMultiFeatureValues(eReferencer, featureName);
 		if(values != null) {
 			values.move(Math.max(0, values.indexOf(eObject) - 1), values.indexOf(eObject));
 		}
-		
 		return eObject;
 	}
 	
-	public static EObject moveDown(EObject eObject) {
-		EList<?> values = getContainingMultiFeatureValues(eObject);
+	public static EObject moveDown(EObject eReferencer, EObject eObject, String featureName) {
+		EList<?> values = getMultiFeatureValues(eReferencer, featureName);
 		if(values != null) {
 			values.move(Math.min(values.size() - 1, values.indexOf(eObject) + 1), values.indexOf(eObject));
 		}
-		
 		return eObject;
 	}
 	

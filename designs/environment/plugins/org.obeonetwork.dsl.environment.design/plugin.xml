@@ -76,5 +76,12 @@
         </description>
      </wizard>
   </extension>
+  <extension
+        point="org.eclipse.sirius.externalJavaAction">
+     <javaActions
+           actionClass="org.obeonetwork.dsl.environment.design.actions.PaneBasedReferenceEditionWizardAction"
+           id="org.obeonetwork.dsl.environment.design.actions.PaneBasedReferenceEditionWizard">
+     </javaActions>
+  </extension>
   
 </plugin>

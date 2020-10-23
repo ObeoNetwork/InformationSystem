@@ -31,7 +31,7 @@ import org.obeonetwork.dsl.environment.Action;
  *   <li>{@link org.obeonetwork.dsl.soa.Operation#getVerb <em>Verb</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.soa.Operation#getExposition <em>Exposition</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.soa.Operation#isPaged <em>Paged</em>}</li>
- *   <li>{@link org.obeonetwork.dsl.soa.Operation#getSecurityScheme <em>Security Scheme</em>}</li>
+ *   <li>{@link org.obeonetwork.dsl.soa.Operation#getSecuritySchemes <em>Security Schemes</em>}</li>
  * </ul>
  *
  * @see org.obeonetwork.dsl.soa.SoaPackage#getOperation()
@@ -285,25 +285,15 @@ public interface Operation extends Action {
 	void setPaged(boolean value);
 
 	/**
-	 * Returns the value of the '<em><b>Security Scheme</b></em>' reference.
+	 * Returns the value of the '<em><b>Security Schemes</b></em>' reference list.
+	 * The list contents are of type {@link org.obeonetwork.dsl.soa.SecurityScheme}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Security Scheme</em>' reference.
-	 * @see #setSecurityScheme(SecurityScheme)
-	 * @see org.obeonetwork.dsl.soa.SoaPackage#getOperation_SecurityScheme()
+	 * @return the value of the '<em>Security Schemes</em>' reference list.
+	 * @see org.obeonetwork.dsl.soa.SoaPackage#getOperation_SecuritySchemes()
 	 * @model
 	 * @generated
 	 */
-	SecurityScheme getSecurityScheme();
-
-	/**
-	 * Sets the value of the '{@link org.obeonetwork.dsl.soa.Operation#getSecurityScheme <em>Security Scheme</em>}' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Security Scheme</em>' reference.
-	 * @see #getSecurityScheme()
-	 * @generated
-	 */
-	void setSecurityScheme(SecurityScheme value);
+	EList<SecurityScheme> getSecuritySchemes();
 
 } // Operation
