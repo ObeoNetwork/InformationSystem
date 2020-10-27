@@ -10,6 +10,8 @@
  *******************************************************************************/
 package org.obeonetwork.dsl.environment.design.services;
 
+import java.lang.reflect.Constructor;
+import java.lang.reflect.InvocationTargetException;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Collections;
@@ -17,8 +19,11 @@ import java.util.List;
 
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EAttribute;
+import org.eclipse.emf.ecore.EDataType;
+import org.eclipse.emf.ecore.EFactory;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EStructuralFeature;
+import org.eclipse.emf.ecore.EcorePackage;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.resource.ResourceSet;
 
@@ -58,11 +63,18 @@ public class ModelServices {
 		return matchingContainer;
 	}
 	
-	public static <T extends EObject> T setNullableInteger(T eObject, EAttribute attribute, String value) {
-		if(value == null || value.trim().isEmpty()) {
-			eObject.eSet(attribute, null);
+	public static <T extends EObject> T setEDataTypeValue(T eObject, EAttribute attribute, String literalValue) {
+		if(literalValue == null || literalValue.trim().isEmpty()) {
+			eObject.eSet(attribute, attribute.getDefaultValue());
 		} else {
-			eObject.eSet(attribute, Integer.parseInt(value));
+			EFactory eFactory = EcorePackage.eINSTANCE.getEcoreFactory();
+			EDataType eDataType = attribute.getEAttributeType();
+			try {
+				Object value = eFactory.createFromString(eDataType, literalValue);
+				eObject.eSet(attribute, value);
+			} catch (IllegalArgumentException e) {
+				// Ignore attempts to set an illegal value
+			}
 		}
 		
 		return eObject;

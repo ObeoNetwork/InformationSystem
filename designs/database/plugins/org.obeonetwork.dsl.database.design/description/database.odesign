@@ -371,22 +371,22 @@
         </controls>
         <controls xsi:type="properties:TextDescription" name="database::Sequence start" labelExpression="aql:input.emfEditServices(self).getText(self.eClass().getEStructuralFeature('start')) + ':'" helpExpression="aql:input.emfEditServices(self).getDescription(self.eClass().getEStructuralFeature('start'))" isEnabledExpression="aql:self.eClass().getEStructuralFeature('start').changeable" valueExpression="aql:self.start">
           <initialOperation>
-            <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="aql:self.setNullableInteger(self.eClass().getEStructuralFeature('start'), newValue)"/>
+            <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="aql:self.setEDataTypeValue(self.eClass().getEStructuralFeature('start'), newValue)"/>
           </initialOperation>
         </controls>
         <controls xsi:type="properties:TextDescription" name="database::Sequence increment" labelExpression="aql:input.emfEditServices(self).getText(self.eClass().getEStructuralFeature('increment')) + ':'" helpExpression="aql:input.emfEditServices(self).getDescription(self.eClass().getEStructuralFeature('increment'))" isEnabledExpression="aql:self.eClass().getEStructuralFeature('increment').changeable" valueExpression="aql:self.increment">
           <initialOperation>
-            <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="aql:self.setNullableInteger(self.eClass().getEStructuralFeature('increment'), newValue)"/>
+            <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="aql:self.setEDataTypeValue(self.eClass().getEStructuralFeature('increment'), newValue)"/>
           </initialOperation>
         </controls>
         <controls xsi:type="properties:TextDescription" name="database::Sequence minValue" labelExpression="aql:input.emfEditServices(self).getText(self.eClass().getEStructuralFeature('minValue')) + ':'" helpExpression="aql:input.emfEditServices(self).getDescription(self.eClass().getEStructuralFeature('minValue'))" isEnabledExpression="aql:self.eClass().getEStructuralFeature('minValue').changeable" valueExpression="aql:self.minValue">
           <initialOperation>
-            <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="aql:self.setNullableInteger(self.eClass().getEStructuralFeature('minValue'), newValue)"/>
+            <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="aql:self.setEDataTypeValue(self.eClass().getEStructuralFeature('minValue'), newValue)"/>
           </initialOperation>
         </controls>
         <controls xsi:type="properties:TextDescription" name="database::Sequence maxValue" labelExpression="aql:input.emfEditServices(self).getText(self.eClass().getEStructuralFeature('maxValue')) + ':'" helpExpression="aql:input.emfEditServices(self).getDescription(self.eClass().getEStructuralFeature('maxValue'))" isEnabledExpression="aql:self.eClass().getEStructuralFeature('maxValue').changeable" valueExpression="aql:self.maxValue">
           <initialOperation>
-            <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="aql:self.setNullableInteger(self.eClass().getEStructuralFeature('maxValue'), newValue)"/>
+            <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="aql:self.setEDataTypeValue(self.eClass().getEStructuralFeature('maxValue'), newValue)"/>
           </initialOperation>
         </controls>
         <controls xsi:type="properties:CheckboxDescription" name="database::Sequence cycle" labelExpression="aql:input.emfEditServices(self).getText(self.eClass().getEStructuralFeature('cycle'))" helpExpression="aql:input.emfEditServices(self).getDescription(self.eClass().getEStructuralFeature('cycle'))" isEnabledExpression="aql:self.eClass().getEStructuralFeature('cycle').changeable" valueExpression="aql:self.cycle">
@@ -396,7 +396,7 @@
         </controls>
         <controls xsi:type="properties:TextDescription" name="database::Sequence cacheSize" labelExpression="aql:input.emfEditServices(self).getText(self.eClass().getEStructuralFeature('cacheSize')) + ':'" helpExpression="aql:input.emfEditServices(self).getDescription(self.eClass().getEStructuralFeature('cacheSize'))" isEnabledExpression="aql:self.eClass().getEStructuralFeature('cacheSize').changeable" valueExpression="aql:self.cacheSize">
           <initialOperation>
-            <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="aql:self.setNullableInteger(self.eClass().getEStructuralFeature('cacheSize'), newValue)"/>
+            <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="aql:self.setEDataTypeValue(self.eClass().getEStructuralFeature('cacheSize'), newValue)"/>
           </initialOperation>
         </controls>
         <controls xsi:type="properties:TextAreaDescription" name="database::Sequence comments" labelExpression="aql:input.emfEditServices(self).getText(self.eClass().getEStructuralFeature('comments')) + ':'" helpExpression="aql:input.emfEditServices(self).getDescription(self.eClass().getEStructuralFeature('comments'))" isEnabledExpression="aql:self.eClass().getEStructuralFeature('comments').changeable" valueExpression="aql:self.comments">
@@ -587,7 +587,7 @@
               <widget xsi:type="properties:TextDescription" name="typeslibrary::TypeInstance length" labelExpression="aql:input.emfEditServices(self.type).getText(self.type.eClass().getEStructuralFeature('length')) + ':'" helpExpression="aql:input.emfEditServices(self.type).getDescription(self.type.eClass().getEStructuralFeature('length'))" isEnabledExpression="aql:self.type.eClass().getEStructuralFeature('length').changeable" valueExpression="aql:self.type.length">
                 <initialOperation>
                   <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="feature:type">
-                    <subModelOperations xsi:type="tool_1:ChangeContext" browseExpression="aql:self.setNullableInteger(self.eClass().getEStructuralFeature('length'), newValue)"/>
+                    <subModelOperations xsi:type="tool_1:ChangeContext" browseExpression="aql:self.setEDataTypeValue(self.eClass().getEStructuralFeature('length'), newValue)"/>
                   </firstModelOperations>
                 </initialOperation>
               </widget>
@@ -596,7 +596,7 @@
               <widget xsi:type="properties:TextDescription" name="typeslibrary::TypeInstance precision" labelExpression="aql:input.emfEditServices(self.type).getText(self.type.eClass().getEStructuralFeature('precision')) + ':'" helpExpression="aql:input.emfEditServices(self.type).getDescription(self.type.eClass().getEStructuralFeature('precision'))" isEnabledExpression="aql:self.type.eClass().getEStructuralFeature('precision').changeable" valueExpression="aql:self.type.precision">
                 <initialOperation>
                   <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="feature:type">
-                    <subModelOperations xsi:type="tool_1:ChangeContext" browseExpression="aql:self.setNullableInteger(self.eClass().getEStructuralFeature('precision'), newValue)"/>
+                    <subModelOperations xsi:type="tool_1:ChangeContext" browseExpression="aql:self.setEDataTypeValue(self.eClass().getEStructuralFeature('precision'), newValue)"/>
                   </firstModelOperations>
                 </initialOperation>
               </widget>
@@ -898,7 +898,7 @@
         </controls>
         <controls xsi:type="properties:TextDescription" name="database::Index cardinality" labelExpression="aql:input.emfEditServices(self).getText(self.eClass().getEStructuralFeature('cardinality')) + ':'" helpExpression="aql:input.emfEditServices(self).getDescription(self.eClass().getEStructuralFeature('cardinality'))" isEnabledExpression="aql:self.eClass().getEStructuralFeature('cardinality').changeable" valueExpression="aql:self.cardinality">
           <initialOperation>
-            <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="aql:self.setNullableInteger(self.eClass().getEStructuralFeature('cardinality'), newValue)"/>
+            <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="aql:self.setEDataTypeValue(self.eClass().getEStructuralFeature('cardinality'), newValue)"/>
           </initialOperation>
         </controls>
         <controls xsi:type="properties:TextDescription" name="database::Index indexType" labelExpression="aql:input.emfEditServices(self).getText(self.eClass().getEStructuralFeature('indexType')) + ':'" helpExpression="aql:input.emfEditServices(self).getDescription(self.eClass().getEStructuralFeature('indexType'))" isEnabledExpression="aql:self.eClass().getEStructuralFeature('indexType').changeable" valueExpression="aql:self.indexType">

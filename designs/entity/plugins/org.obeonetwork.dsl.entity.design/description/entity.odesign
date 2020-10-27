@@ -717,12 +717,12 @@
       <groups name="Persistence group" labelExpression="Properties" domainClass="entity::Entity" semanticCandidateExpression="var:self">
         <controls xsi:type="properties:TextDescription" name="entity::Entity estimatedVolumetry" labelExpression="aql:input.emfEditServices(self).getText(self.eClass().getEStructuralFeature('estimatedVolumetry')) + ':'" helpExpression="aql:input.emfEditServices(self).getDescription(self.eClass().getEStructuralFeature('estimatedVolumetry'))" isEnabledExpression="aql:self.eClass().getEStructuralFeature('estimatedVolumetry').changeable" valueExpression="aql:self.estimatedVolumetry">
           <initialOperation>
-            <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="aql:self.setNullableInteger(self.eClass().getEStructuralFeature('estimatedVolumetry'), newValue)"/>
+            <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="aql:self.setEDataTypeValue(self.eClass().getEStructuralFeature('estimatedVolumetry'), newValue)"/>
           </initialOperation>
         </controls>
         <controls xsi:type="properties:TextDescription" name="entity::Entity estimatedAccess" labelExpression="aql:input.emfEditServices(self).getText(self.eClass().getEStructuralFeature('estimatedAccess')) + ':'" helpExpression="aql:input.emfEditServices(self).getDescription(self.eClass().getEStructuralFeature('estimatedAccess'))" isEnabledExpression="aql:self.eClass().getEStructuralFeature('estimatedAccess').changeable" valueExpression="aql:self.estimatedAccess">
           <initialOperation>
-            <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="aql:self.setNullableInteger(self.eClass().getEStructuralFeature('estimatedAccess'), newValue)"/>
+            <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="aql:self.setEDataTypeValue(self.eClass().getEStructuralFeature('estimatedAccess'), newValue)"/>
           </initialOperation>
         </controls>
         <controls xsi:type="properties:CheckboxDescription" name="entity::Entity historized" labelExpression="aql:input.emfEditServices(self).getText(self.eClass().getEStructuralFeature('historized'))" helpExpression="aql:input.emfEditServices(self).getDescription(self.eClass().getEStructuralFeature('historized'))" isEnabledExpression="aql:self.eClass().getEStructuralFeature('historized').changeable" valueExpression="aql:self.historized">
