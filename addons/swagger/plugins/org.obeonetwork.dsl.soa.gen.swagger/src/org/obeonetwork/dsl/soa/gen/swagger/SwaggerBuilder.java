@@ -51,9 +51,11 @@ import org.obeonetwork.dsl.environment.Enumeration;
 import org.obeonetwork.dsl.environment.Property;
 import org.obeonetwork.dsl.environment.StructuredType;
 import org.obeonetwork.dsl.environment.Type;
+import org.obeonetwork.dsl.soa.ApiKeyLocation;
 import org.obeonetwork.dsl.soa.Component;
 import org.obeonetwork.dsl.soa.ExpositionKind;
 import org.obeonetwork.dsl.soa.ParameterPassingMode;
+import org.obeonetwork.dsl.soa.SecuritySchemeType;
 import org.obeonetwork.dsl.soa.Service;
 import org.obeonetwork.dsl.soa.Verb;
 import org.obeonetwork.dsl.soa.gen.swagger.utils.ComponentGenUtil;
@@ -79,6 +81,8 @@ import io.swagger.v3.oas.models.parameters.Parameter;
 import io.swagger.v3.oas.models.parameters.RequestBody;
 import io.swagger.v3.oas.models.responses.ApiResponse;
 import io.swagger.v3.oas.models.responses.ApiResponses;
+import io.swagger.v3.oas.models.security.SecurityRequirement;
+import io.swagger.v3.oas.models.security.SecurityScheme;
 import io.swagger.v3.oas.models.servers.Server;
 
 @SuppressWarnings("unchecked")
@@ -123,14 +127,75 @@ public class SwaggerBuilder {
 	
 	private OpenAPI createOpenAPI() {
     	openApi = new OpenAPI();
+    	openApi.setComponents(new Components());
     	
     	buildHeader();
-    	buildComponents();
+    	buildSecuritySchemes();
+    	buildSchemas();
     	buildPaths();
     	
 		return openApi;
 	}
 
+	private void buildSecuritySchemes() {		
+		soaComponent.getSecuritySchemes().forEach(soaSecurityScheme -> 
+				openApi.getComponents().addSecuritySchemes(soaSecurityScheme.getKey(), createSecurityScheme(soaSecurityScheme)));
+	}
+
+	private SecurityScheme createSecurityScheme(org.obeonetwork.dsl.soa.SecurityScheme soaSecurityScheme) {
+		SecurityScheme securityScheme = new SecurityScheme();
+		
+		SecurityScheme.Type type = toSwg(soaSecurityScheme.getType());
+		securityScheme.setType(type);
+		
+		securityScheme.setName(soaSecurityScheme.getName());
+		
+		SecurityScheme.In in = toSwg(soaSecurityScheme.getApiKeyLocation());
+		securityScheme.setIn(in);
+		
+		securityScheme.setDescription(soaSecurityScheme.getDescription());
+		
+		return securityScheme;
+	}
+	
+	private SecurityScheme.Type toSwg(SecuritySchemeType soaSecuritySchemeType) {
+		SecurityScheme.Type swgSecuritySchemeType = null;
+		
+		switch (soaSecuritySchemeType) {
+		case API_KEY:
+			swgSecuritySchemeType = SecurityScheme.Type.APIKEY;
+			break;
+		case HTTP:
+			swgSecuritySchemeType = SecurityScheme.Type.HTTP;
+			break;
+		case OAUTH2:
+			swgSecuritySchemeType = SecurityScheme.Type.OAUTH2;
+			break;
+		case OPEN_ID_CONNECT:
+			swgSecuritySchemeType = SecurityScheme.Type.OPENIDCONNECT;
+			break;
+		}
+		
+		return swgSecuritySchemeType;
+	}
+
+	private SecurityScheme.In toSwg(ApiKeyLocation soaApiKeyLocation) {
+		SecurityScheme.In swgSecuritySchemeIn = null;
+		
+		switch (soaApiKeyLocation) {
+		case COOKIE:
+			swgSecuritySchemeIn = SecurityScheme.In.COOKIE;
+			break;
+		case HEADER:
+			swgSecuritySchemeIn = SecurityScheme.In.HEADER;
+			break;
+		case QUERY:
+			swgSecuritySchemeIn = SecurityScheme.In.QUERY;
+			break;
+		}
+		return swgSecuritySchemeIn;
+	}
+	
 	//// Header ////
 	
     private void buildHeader() {
@@ -175,11 +240,9 @@ public class SwaggerBuilder {
     	return server;
 	}
 
-	//// Components ////
+	//// Schemas ////
 	
-    private void buildComponents() {
-    	openApi.setComponents(new Components());
-    	
+    private void buildSchemas() {
     	exposedSoaTypes = ComponentGenUtil.getExposedTypes(soaComponent);
     	
     	// Compute the exposed Soa Types keys
@@ -236,8 +299,8 @@ public class SwaggerBuilder {
     	}
     	
     	
-    	// Build the components
-    	exposedSoaTypes.forEach(exposedSoaType -> buildComponent(exposedSoaType));
+    	// Build the schemas
+    	exposedSoaTypes.forEach(exposedSoaType -> buildSchema(exposedSoaType));
     	
     }
 	
@@ -316,7 +379,7 @@ public class SwaggerBuilder {
 		return (!(eObject instanceof Resource)) && (eObject.eContainer() == null || eObject.eContainer() instanceof Resource);
 	}
 	
-	private void buildComponent(Type soaType) {
+	private void buildSchema(Type soaType) {
     	openApi.getComponents().addSchemas(getSoaTypeKey(soaType), createSchema(soaType));
     }
     
@@ -491,22 +554,28 @@ public class SwaggerBuilder {
 	}
 
 	private Operation createOperation(org.obeonetwork.dsl.soa.Operation soaOperation) {
-    	Operation operation = new Operation();
-    	operation.operationId(soaOperation.getName());
+    	Operation swgOperation = new Operation();
+    	swgOperation.operationId(soaOperation.getName());
     	
-		operation.addTagsItem(OperationGenUtil.getService(soaOperation).getName());
-//		operation.summary(soaOperation.getDescription());
-		operation.description(soaOperation.getDescription());
-//		operation.deprecated(soaOperation.isDeprecated());
+		swgOperation.addTagsItem(OperationGenUtil.getService(soaOperation).getName());
+//		swgOperation.summary(soaOperation.getDescription());
+		swgOperation.description(soaOperation.getDescription());
+//		swgOperation.deprecated(soaOperation.isDeprecated());
     	
-    	buildParameters(operation, soaOperation);
-    	buildApiResponses(operation, soaOperation);
+    	buildParameters(swgOperation, soaOperation);
+    	buildApiResponses(swgOperation, soaOperation);
     	
-    	return operation;
+    	for(org.obeonetwork.dsl.soa.SecurityScheme soaSecurityScheme : soaOperation.getSecuritySchemes()) {
+        	SecurityRequirement swgSecurityRequirement = new SecurityRequirement();
+        	swgSecurityRequirement.addList(soaSecurityScheme.getKey());
+        	swgOperation.addSecurityItem(swgSecurityRequirement);
+    	}
+    	
+    	return swgOperation;
 	}
 	
-    private void buildApiResponses(Operation operation, org.obeonetwork.dsl.soa.Operation soaOperation) {
-    	operation.setResponses(createApiResponses(soaOperation));
+    private void buildApiResponses(Operation swgOperation, org.obeonetwork.dsl.soa.Operation soaOperation) {
+    	swgOperation.setResponses(createApiResponses(soaOperation));
 	}
     
 	private ApiResponses createApiResponses(org.obeonetwork.dsl.soa.Operation soaOperation) {

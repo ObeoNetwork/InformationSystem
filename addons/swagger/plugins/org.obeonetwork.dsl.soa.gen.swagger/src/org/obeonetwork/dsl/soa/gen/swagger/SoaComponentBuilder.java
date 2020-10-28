@@ -60,12 +60,14 @@ import org.obeonetwork.dsl.environment.Reference;
 import org.obeonetwork.dsl.environment.StructuredType;
 import org.obeonetwork.dsl.environment.Type;
 import org.obeonetwork.dsl.environment.TypesDefinition;
+import org.obeonetwork.dsl.soa.ApiKeyLocation;
 import org.obeonetwork.dsl.soa.Component;
 import org.obeonetwork.dsl.soa.ExpositionKind;
 import org.obeonetwork.dsl.soa.Interface;
 import org.obeonetwork.dsl.soa.InterfaceKind;
 import org.obeonetwork.dsl.soa.ParameterPassingMode;
 import org.obeonetwork.dsl.soa.ParameterRestData;
+import org.obeonetwork.dsl.soa.SecuritySchemeType;
 import org.obeonetwork.dsl.soa.Service;
 import org.obeonetwork.dsl.soa.SoaFactory;
 import org.obeonetwork.dsl.soa.Verb;
@@ -88,6 +90,8 @@ import io.swagger.v3.oas.models.parameters.QueryParameter;
 import io.swagger.v3.oas.models.parameters.RequestBody;
 import io.swagger.v3.oas.models.responses.ApiResponse;
 import io.swagger.v3.oas.models.responses.ApiResponses;
+import io.swagger.v3.oas.models.security.SecurityRequirement;
+import io.swagger.v3.oas.models.security.SecurityScheme;
 import io.swagger.v3.oas.models.servers.Server;
 
 @SuppressWarnings({ "unchecked", "rawtypes" })
@@ -176,17 +180,92 @@ public class SoaComponentBuilder {
 		
 		inlineTypes = new HashMap<>();
 		
-		createSoaExposedTypes();
+		buildSoaSecuritySchemes();
 		
-		createSoaServices();
+		buildSoaExposedTypes();
 		
-		createSoaOperations();
+		buildSoaServices();
+		
+		buildSoaOperations();
 		
 		processInlineTypes();
 		
 		return soaComponent;
 	}
 
+	private void buildSoaSecuritySchemes() {
+		Map<String, SecurityScheme> swgSecuritySchemes = openApi.getComponents().getSecuritySchemes();
+		
+		for(String key : swgSecuritySchemes.keySet()) {
+			SecurityScheme swgSecurityScheme = swgSecuritySchemes.get(key);
+			soaComponent.getSecuritySchemes().add(createSecurityScheme(key, swgSecurityScheme));
+		}
+	}
+
+	private org.obeonetwork.dsl.soa.SecurityScheme createSecurityScheme(String key, SecurityScheme swgSecurityScheme) {
+		org.obeonetwork.dsl.soa.SecurityScheme soaSecurityScheme = SoaFactory.eINSTANCE.createSecurityScheme();
+		
+		soaSecurityScheme.setKey(key);
+		
+		if(swgSecurityScheme.getType() != null) {
+			soaSecurityScheme.setType(toSoa(swgSecurityScheme.getType()));
+		}
+		
+		if(swgSecurityScheme.getName() != null) {
+			soaSecurityScheme.setName(swgSecurityScheme.getName());
+		}
+		
+		if(swgSecurityScheme.getIn() != null) {
+			soaSecurityScheme.setApiKeyLocation(toSoa(swgSecurityScheme.getIn()));
+		}
+		
+		if(swgSecurityScheme.getDescription() != null) {
+			soaSecurityScheme.setDescription(swgSecurityScheme.getDescription());
+		}
+		
+		return soaSecurityScheme;
+	}
+	
+	private SecuritySchemeType toSoa(SecurityScheme.Type swgSecuritySchemeType) {
+		SecuritySchemeType soaSecuritySchemeType = null;
+		
+		switch (swgSecuritySchemeType) {
+		case APIKEY:
+			soaSecuritySchemeType = SecuritySchemeType.API_KEY;
+			break;
+		case HTTP:
+			soaSecuritySchemeType = SecuritySchemeType.HTTP;
+			break;
+		case OAUTH2:
+			soaSecuritySchemeType = SecuritySchemeType.OAUTH2;
+			break;
+		case OPENIDCONNECT:
+			soaSecuritySchemeType = SecuritySchemeType.OPEN_ID_CONNECT;
+			break;
+		}
+		
+		return soaSecuritySchemeType;
+	}
+
+	private ApiKeyLocation toSoa(SecurityScheme.In swgIn) {
+		ApiKeyLocation soaApiKeyLocation = null;
+		
+		switch (swgIn) {
+		case COOKIE:
+			soaApiKeyLocation = ApiKeyLocation.COOKIE;
+			break;
+		case HEADER:
+			soaApiKeyLocation = ApiKeyLocation.HEADER;
+			break;
+		case QUERY:
+			soaApiKeyLocation = ApiKeyLocation.QUERY;
+			break;
+		}
+		
+		return soaApiKeyLocation;
+	}
+	
+	
 	private void processInlineTypes() {
 		// Start by processing the types originating from schemas.
 		// To be processed, a type has to be used by a type already in the model.
@@ -539,14 +618,14 @@ public class SoaComponentBuilder {
 		return null;
 	}
 
-	private void createSoaOperations() {
+	private void buildSoaOperations() {
 		for(String path : openApi.getPaths().keySet()) {
 			openApi.getPaths().get(path).readOperationsMap().entrySet().stream()
 			.forEach(operationsMapEntry -> createSoaOperation(path, operationsMapEntry.getKey(), operationsMapEntry.getValue()));
 		}
 	}
 
-	private org.obeonetwork.dsl.soa.Operation createSoaOperation(String path, HttpMethod verb, Operation operation) {
+	private org.obeonetwork.dsl.soa.Operation createSoaOperation(String path, HttpMethod swgVerb, Operation swgOperation) {
 		Service soaService = getSoaServiceFromPath(path);
 		Interface soaInterface = getOrCreateInterface(soaService);
 		
@@ -560,10 +639,10 @@ public class SoaComponentBuilder {
 		soaOperation.setURI(soaOperationUri);
 		
 		String soaOperationName = null;
-		if(operation.getOperationId() != null && !operation.getOperationId().isEmpty()) {
-			soaOperationName = operation.getOperationId();
+		if(swgOperation.getOperationId() != null && !swgOperation.getOperationId().isEmpty()) {
+			soaOperationName = swgOperation.getOperationId();
 		} else {
-			soaOperationName = computeSoaOperationName(verb, soaOperation.getURI());
+			soaOperationName = computeSoaOperationName(swgVerb, soaOperation.getURI());
 		}
 		
 		if(soaOperationName == null || soaOperationName.isEmpty()) {
@@ -571,34 +650,54 @@ public class SoaComponentBuilder {
 		}
 		soaOperation.setName(soaOperationName);
 		
-		soaOperation.setDescription(operation.getDescription());
+		soaOperation.setDescription(swgOperation.getDescription());
 		
-		Verb soaVerb = Verb.get(verb.toString());
+		Verb soaVerb = Verb.get(swgVerb.toString());
 		if(soaVerb != null) {
 			soaOperation.setVerb(soaVerb);
 		} else {
-			logError(String.format("Unsupported verb %s for path %s.", verb.toString(), path));
+			logError(String.format("Unsupported verb %s for path %s.", swgVerb.toString(), path));
 		}
 		
-		if(operation.getParameters() != null) {
-			for(Parameter parameter : operation.getParameters()) {
+		if(swgOperation.getParameters() != null) {
+			for(Parameter parameter : swgOperation.getParameters()) {
 				if(parameter != null && !isPaginationParameter(parameter)) {
 					createSoaInputParameter(soaOperation, parameter);
 				}
 			}
 		}
 		
-		RequestBody requestBody = operation.getRequestBody();
+		RequestBody requestBody = swgOperation.getRequestBody();
 		if(requestBody != null) {
 			createSoaBodyParameter(soaOperation, requestBody);
 		}
 		
-		soaOperation.setPaged(operation.getResponses() != null && operation.getResponses().containsKey(HTTP_206));
+		soaOperation.setPaged(swgOperation.getResponses() != null && swgOperation.getResponses().containsKey(HTTP_206));
 		
-		ApiResponses responses = operation.getResponses();
+		ApiResponses responses = swgOperation.getResponses();
 		if(responses != null) {
 			for(String responseKey : responses.keySet()) {
 				createSoaResponseParameter(soaOperation, responseKey, responses.get(responseKey));
+			}
+		}
+		
+		if(swgOperation.getSecurity() != null) {
+			System.out.println(swgOperation.getSecurity().size());
+			for(SecurityRequirement swgSecurityRequirement : swgOperation.getSecurity()) {
+				
+				if(!swgSecurityRequirement.keySet().isEmpty()) {
+					String key = swgSecurityRequirement.keySet().iterator().next();
+					
+					org.obeonetwork.dsl.soa.SecurityScheme soaSecurityScheme = 
+							soaComponent.getSecuritySchemes().stream()
+							.filter(ss -> key.equals(ss.getKey()))
+							.findFirst()
+							.orElse(null);
+					
+					if(soaSecurityScheme != null) {
+						soaOperation.getSecuritySchemes().add(soaSecurityScheme);
+					}
+				}
 			}
 		}
 		
@@ -801,7 +900,7 @@ public class SoaComponentBuilder {
 		.findFirst().orElse(null);
 	}
 
-	private void createSoaServices() {
+	private void buildSoaServices() {
 		String soaComponentUri = getCommonPathBeforePathParam(openApi.getPaths().keySet());
 		soaComponent.setURI(soaComponentUri);
 		
@@ -865,7 +964,7 @@ public class SoaComponentBuilder {
 		return soaServiceName;
 	}
 
-	private void createSoaExposedTypes() {
+	private void buildSoaExposedTypes() {
 		if(openApi.getComponents() != null) {
 			openApi.getComponents().getSchemas().forEach((key, schema) -> touchExposedType(key, schema));
 			openApi.getComponents().getSchemas().forEach((key, schema) -> updateExposedType(getExposedTypeFromKey(key), schema));
@@ -1035,16 +1134,16 @@ public class SoaComponentBuilder {
 			DTO superType = (DTO) getExposedTypeFrom$ref(parentSchema.get$ref());
 			Schema baseSchema = getBaseFromGeneralizationSchema(schema);
 			dto.setSupertype(superType);
-			createSoaProperties(dto, schema, getProperties(baseSchema));
+			buildSoaProperties(dto, schema, getProperties(baseSchema));
 		} else if(schema instanceof ComposedSchema) {
-			createSoaProperties(dto, schema, getAllProperties(schema));
+			buildSoaProperties(dto, schema, getAllProperties(schema));
 		} else if(schema.get$ref() != null) {
 			// Case of a pass-trough type
 			DTO superType = (DTO) getExposedTypeFrom$ref(schema.get$ref());
 			dto.setSupertype(superType);
 		} else {
 			// Terminal case of a structure defining properties
-			createSoaProperties(dto, schema, getProperties(schema));
+			buildSoaProperties(dto, schema, getProperties(schema));
 		}
 		
 		return dto;
@@ -1120,7 +1219,7 @@ public class SoaComponentBuilder {
 		return schema2;
 	}
 
-	private void createSoaProperties(StructuredType type, Schema enclosingSchema, Map<String, Schema> properties) {
+	private void buildSoaProperties(StructuredType type, Schema enclosingSchema, Map<String, Schema> properties) {
 		for(String propertyKey : properties.keySet()) {
 			Schema property = properties.get(propertyKey);
 			Property soaProperty = createSoaProperty(type, enclosingSchema, propertyKey, property);
