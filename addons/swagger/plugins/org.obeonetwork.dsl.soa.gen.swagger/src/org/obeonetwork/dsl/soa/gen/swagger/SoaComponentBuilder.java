@@ -952,6 +952,7 @@ public class SoaComponentBuilder {
 	
 	private String getSoaServiceNameFromPath(String path) {
 		String soaServiceName = openApi.getPaths().get(path).readOperations().stream()
+		.filter(op -> op.getTags() != null)
 		.flatMap(op -> op.getTags().stream())
 		.collect(toSet()).stream()
 		.map(tag -> upperFirst(tag))
