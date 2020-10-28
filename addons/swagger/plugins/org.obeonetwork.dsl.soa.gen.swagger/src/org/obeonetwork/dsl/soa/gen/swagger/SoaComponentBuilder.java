@@ -194,11 +194,13 @@ public class SoaComponentBuilder {
 	}
 
 	private void buildSoaSecuritySchemes() {
-		Map<String, SecurityScheme> swgSecuritySchemes = openApi.getComponents().getSecuritySchemes();
-		
-		for(String key : swgSecuritySchemes.keySet()) {
-			SecurityScheme swgSecurityScheme = swgSecuritySchemes.get(key);
-			soaComponent.getSecuritySchemes().add(createSecurityScheme(key, swgSecurityScheme));
+		if(openApi.getComponents() != null && openApi.getComponents().getSecuritySchemes() != null) {
+			Map<String, SecurityScheme> swgSecuritySchemes = openApi.getComponents().getSecuritySchemes();
+			
+			for(String key : swgSecuritySchemes.keySet()) {
+				SecurityScheme swgSecurityScheme = swgSecuritySchemes.get(key);
+				soaComponent.getSecuritySchemes().add(createSecurityScheme(key, swgSecurityScheme));
+			}
 		}
 	}
 
@@ -682,7 +684,6 @@ public class SoaComponentBuilder {
 		}
 		
 		if(swgOperation.getSecurity() != null) {
-			System.out.println(swgOperation.getSecurity().size());
 			for(SecurityRequirement swgSecurityRequirement : swgOperation.getSecurity()) {
 				
 				if(!swgSecurityRequirement.keySet().isEmpty()) {
@@ -749,34 +750,34 @@ public class SoaComponentBuilder {
 		return soaInterface;
 	}
 
-	private org.obeonetwork.dsl.soa.Parameter createSoaInputParameter(org.obeonetwork.dsl.soa.Operation soaOperation, Parameter parameter) {
+	private org.obeonetwork.dsl.soa.Parameter createSoaInputParameter(org.obeonetwork.dsl.soa.Operation soaOperation, Parameter swgParameter) {
 		org.obeonetwork.dsl.soa.Parameter soaParameter = SoaFactory.eINSTANCE.createParameter();
 		soaOperation.getInput().add(soaParameter);
 		
-		ParameterRestData restData = SoaFactory.eINSTANCE.createParameterRestData();
-		restData.setRestId(parameter.getName());
+		ParameterRestData soaRestData = SoaFactory.eINSTANCE.createParameterRestData();
+		soaRestData.setRestId(swgParameter.getName());
 		
-		soaParameter.setRestData(restData);
+		soaParameter.setRestData(soaRestData);
 		
-		soaParameter.setName(parameter.getName());
+		soaParameter.setName(swgParameter.getName());
 		
-		soaParameter.setDescription(parameter.getDescription());
+		soaParameter.setDescription(swgParameter.getDescription());
 		
-		soaParameter.setMultiplicity(computeMultiplicity(parameter.getRequired()!= null && parameter.getRequired(), parameter.getSchema()));
+		soaParameter.setMultiplicity(computeMultiplicity(swgParameter.getRequired()!= null && swgParameter.getRequired(), swgParameter.getSchema()));
 		
-		if(parameter instanceof CookieParameter) {
+		if(swgParameter instanceof CookieParameter) {
 			soaParameter.getRestData().setPassingMode(ParameterPassingMode.COOKIE);
-		} else if(parameter instanceof HeaderParameter) {
+		} else if(swgParameter instanceof HeaderParameter) {
 			soaParameter.getRestData().setPassingMode(ParameterPassingMode.HEADER);
-		} else if(parameter instanceof PathParameter) {
+		} else if(swgParameter instanceof PathParameter) {
 			soaParameter.getRestData().setPassingMode(ParameterPassingMode.PATH);
-		} else if(parameter instanceof QueryParameter) {
+		} else if(swgParameter instanceof QueryParameter) {
 			soaParameter.getRestData().setPassingMode(ParameterPassingMode.QUERY);
 		} else {
-			logError(String.format("Unsupported parameter type : %s.", parameter.getClass().getName()));
+			logError(String.format("Unsupported parameter type : %s.", swgParameter.getClass().getName()));
 		}
 		
-		Schema schema = unwrapArraySchema(parameter.getSchema());
+		Schema schema = unwrapArraySchema(swgParameter.getSchema());
 		if(schema != null) {
 			Type soaParameterType = getOrCreateSoaParameterType(soaOperation, schema, soaParameter);
 			soaParameter.setType(soaParameterType);
@@ -1373,6 +1374,8 @@ public class SoaComponentBuilder {
 			.filter(t -> t instanceof DataType).map(t -> (DataType)t)
 			.filter(t -> primitiveTypeName.equals(t.getName()))
 			.findFirst().orElse(null);
+		} else {
+			logWarning(String.format("Primitive type mapping not found for schema type \"%s\" and format \"%s\".", schema.getType(), schema.getFormat()));
 		}
 		return null;
 	}

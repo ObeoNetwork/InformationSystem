@@ -13,8 +13,6 @@ package org.obeonetwork.dsl.soa.gen.swagger;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import java.util.Map.Entry;
-import java.util.Objects;
 
 import io.swagger.v3.oas.models.media.Schema;
 
@@ -36,6 +34,8 @@ public class OpenApiParserHelper {
 	public static final String OPEN_API_FORMAT_INT32 = "int32";
 	public static final String OPEN_API_FORMAT_INT64 = "int64";
 	public static final String OPEN_API_FORMAT_DATETIME = "date-time";
+	public static final String OPEN_API_FORMAT_BYTE = "byte";
+	public static final String OPEN_API_FORMAT_PASSWORD = "password";
     
 	public static final String OPEN_API_IN_BODY = "body";
 	public static final String OPEN_API_IN_COOKIE = "cookie";
@@ -43,18 +43,29 @@ public class OpenApiParserHelper {
 	public static final String OPEN_API_IN_PATH = "path";
 	public static final String OPEN_API_IN_QUERY = "query";
     
+	public static final String SOA_PRIMITIVE_TYPE_NAME_BINARY = "Binary";
+	public static final String SOA_PRIMITIVE_TYPE_NAME_BOOLEAN = "Boolean";
+	public static final String SOA_PRIMITIVE_TYPE_NAME_DATE = "Date";
+	public static final String SOA_PRIMITIVE_TYPE_NAME_DOUBLE = "Double";
+	public static final String SOA_PRIMITIVE_TYPE_NAME_FLOAT = "Float";
+	public static final String SOA_PRIMITIVE_TYPE_NAME_INTEGER = "Integer";
+	public static final String SOA_PRIMITIVE_TYPE_NAME_LONG = "Long";
+	public static final String SOA_PRIMITIVE_TYPE_NAME_STRING = "String";
+	public static final String SOA_PRIMITIVE_TYPE_NAME_TIME = "Time";
+	public static final String SOA_PRIMITIVE_TYPE_NAME_TIMESTAMP = "Timestamp";
+	
     private static final Map<String, Schema> dataTypePrototypeSchemas = new HashMap<>();
     static {
-		dataTypePrototypeSchemas.put("Binary",    createSchema(OPEN_API_TYPE_STRING,  OPEN_API_FORMAT_BINARY));
-    	dataTypePrototypeSchemas.put("Boolean",   createSchema(OPEN_API_TYPE_BOOLEAN, null));
-		dataTypePrototypeSchemas.put("Date",      createSchema(OPEN_API_TYPE_STRING,  OPEN_API_FORMAT_DATE));
-		dataTypePrototypeSchemas.put("Double",    createSchema(OPEN_API_TYPE_NUMBER,  OPEN_API_FORMAT_DOUBLE));
-		dataTypePrototypeSchemas.put("Float",     createSchema(OPEN_API_TYPE_NUMBER,  OPEN_API_FORMAT_FLOAT));
-		dataTypePrototypeSchemas.put("Integer",   createSchema(OPEN_API_TYPE_INTEGER, OPEN_API_FORMAT_INT32));
-		dataTypePrototypeSchemas.put("Long",      createSchema(OPEN_API_TYPE_INTEGER, OPEN_API_FORMAT_INT64));
-    	dataTypePrototypeSchemas.put("String",    createSchema(OPEN_API_TYPE_STRING,  null));
-		dataTypePrototypeSchemas.put("Time",      createSchema(OPEN_API_TYPE_STRING,  OPEN_API_FORMAT_DATETIME));
-    	dataTypePrototypeSchemas.put("Timestamp", createSchema(OPEN_API_TYPE_STRING,  OPEN_API_FORMAT_DATETIME));
+		dataTypePrototypeSchemas.put(SOA_PRIMITIVE_TYPE_NAME_BINARY,    createSchema(OPEN_API_TYPE_STRING,  OPEN_API_FORMAT_BINARY));
+		dataTypePrototypeSchemas.put(SOA_PRIMITIVE_TYPE_NAME_DATE,      createSchema(OPEN_API_TYPE_STRING,  OPEN_API_FORMAT_DATE));
+		dataTypePrototypeSchemas.put(SOA_PRIMITIVE_TYPE_NAME_STRING,    createSchema(OPEN_API_TYPE_STRING,  null));
+		dataTypePrototypeSchemas.put(SOA_PRIMITIVE_TYPE_NAME_TIME,      createSchema(OPEN_API_TYPE_STRING,  OPEN_API_FORMAT_DATETIME));
+		dataTypePrototypeSchemas.put(SOA_PRIMITIVE_TYPE_NAME_TIMESTAMP, createSchema(OPEN_API_TYPE_STRING,  OPEN_API_FORMAT_DATETIME));
+    	dataTypePrototypeSchemas.put(SOA_PRIMITIVE_TYPE_NAME_BOOLEAN,   createSchema(OPEN_API_TYPE_BOOLEAN, null));
+    	dataTypePrototypeSchemas.put(SOA_PRIMITIVE_TYPE_NAME_INTEGER,   createSchema(OPEN_API_TYPE_INTEGER, OPEN_API_FORMAT_INT32));
+    	dataTypePrototypeSchemas.put(SOA_PRIMITIVE_TYPE_NAME_LONG,      createSchema(OPEN_API_TYPE_INTEGER, OPEN_API_FORMAT_INT64));
+    	dataTypePrototypeSchemas.put(SOA_PRIMITIVE_TYPE_NAME_FLOAT,     createSchema(OPEN_API_TYPE_NUMBER,  OPEN_API_FORMAT_FLOAT));
+		dataTypePrototypeSchemas.put(SOA_PRIMITIVE_TYPE_NAME_DOUBLE,    createSchema(OPEN_API_TYPE_NUMBER,  OPEN_API_FORMAT_DOUBLE));
     }
     public static Schema createPrimitiveTypeSchema(String primitiveTypeName) {
 		Schema prototypeSchema = dataTypePrototypeSchemas.get(primitiveTypeName);
@@ -66,16 +77,39 @@ public class OpenApiParserHelper {
 	}
 
 	public static String getPrimitiveTypeName(Schema schema) {
-		Entry<String, Schema> entry = dataTypePrototypeSchemas.entrySet().stream()
-		.filter(e -> 
-			Objects.equals(e.getValue().getType(), schema.getType())
-			&& Objects.equals(e.getValue().getFormat(), schema.getFormat()))
-		.findFirst().orElse(null);
-
-		if(entry != null) {
-			return entry.getKey();
-		}
-		return null;
+		String primitiveTypeName = null;
+		
+		if(OPEN_API_TYPE_STRING.equals(schema.getType())) {
+			if(OPEN_API_FORMAT_BINARY.equals(schema.getFormat())) {
+				primitiveTypeName = SOA_PRIMITIVE_TYPE_NAME_BINARY;
+			} else if(OPEN_API_FORMAT_DATE.equals(schema.getFormat())) {
+				primitiveTypeName = SOA_PRIMITIVE_TYPE_NAME_DATE;
+			} else if(OPEN_API_FORMAT_DATETIME.equals(schema.getFormat())) {
+				primitiveTypeName = SOA_PRIMITIVE_TYPE_NAME_TIMESTAMP;
+			} else {
+				primitiveTypeName = SOA_PRIMITIVE_TYPE_NAME_STRING;
+			}
+		} else if(OPEN_API_TYPE_BOOLEAN.equals(schema.getType())) {
+			primitiveTypeName = SOA_PRIMITIVE_TYPE_NAME_BOOLEAN;
+		} else if(OPEN_API_TYPE_INTEGER.equals(schema.getType())) {
+			if(OPEN_API_FORMAT_INT32.equals(schema.getFormat())) {
+				primitiveTypeName = SOA_PRIMITIVE_TYPE_NAME_INTEGER;
+			} else if(OPEN_API_FORMAT_INT64.equals(schema.getFormat())) {
+				primitiveTypeName = SOA_PRIMITIVE_TYPE_NAME_LONG;
+			} else {
+				primitiveTypeName = SOA_PRIMITIVE_TYPE_NAME_LONG;
+			}
+		} else if(OPEN_API_TYPE_NUMBER.equals(schema.getType())) {
+			if(OPEN_API_FORMAT_FLOAT.equals(schema.getFormat())) {
+				primitiveTypeName = SOA_PRIMITIVE_TYPE_NAME_FLOAT;
+			} else if(OPEN_API_FORMAT_DOUBLE.equals(schema.getFormat())) {
+				primitiveTypeName = SOA_PRIMITIVE_TYPE_NAME_DOUBLE;
+			} else {
+				primitiveTypeName = SOA_PRIMITIVE_TYPE_NAME_DOUBLE;
+			}
+		} 
+		
+		return primitiveTypeName;
     }
     
 	private static <T> Schema<T> createSchema(String type, String format) {
@@ -89,8 +123,8 @@ public class OpenApiParserHelper {
 		String type = schema.getType();
 		List _enum = schema.getEnum();
 		return OPEN_API_TYPE_INTEGER.equals(type) 
-				|| (OPEN_API_TYPE_STRING.equals(type) && (_enum == null || _enum.isEmpty())) 
 				|| OPEN_API_TYPE_NUMBER.equals(type) 
+				|| (OPEN_API_TYPE_STRING.equals(type) && (_enum == null || _enum.isEmpty())) 
 				|| OPEN_API_TYPE_BOOLEAN.equals(type);
 	}
 
