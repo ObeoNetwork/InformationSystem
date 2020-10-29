@@ -53,7 +53,7 @@ location "http://update.obeo.fr/integration/informationsystem/11.3/design/reposi
 	org.obeonetwork.cinematic.m2doc.feature.feature.group lazy
 	org.obeonetwork.utils.feature.feature.group lazy
 	org.obeonetwork.tools.contextual.explorer.feature.feature.group lazy
-	
+	org.obeonetwork.dsl.feature.environment.feature.group lazy
 	
 }
 

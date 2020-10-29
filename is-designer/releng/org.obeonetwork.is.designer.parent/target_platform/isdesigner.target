@@ -1,14 +1,13 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <?pde?>
 <!-- generated with https://github.com/eclipse-cbi/targetplatform-dsl -->
-<target name="IS Designer Target Definition" sequenceNumber="1602832026">
+<target name="IS Designer Target Definition" sequenceNumber="1603982514">
   <locations>
     <location includeMode="planner" includeAllPlatforms="false" includeSource="true" includeConfigurePhase="false" type="InstallableUnit">
-      <unit id="org.obeonetwork.dsl.soa.gen.swagger.feature.feature.group" version="0.0.0"/>
-      <unit id="org.obeonetwork.dsl.feature.environment.feature.group" version="0.0.0"/>
       <unit id="org.obeonetwork.dsl.feature.entity.feature.group" version="0.0.0"/>
       <unit id="org.obeonetwork.dsl.feature.cinematic.feature.group" version="0.0.0"/>
       <unit id="org.obeonetwork.dsl.feature.soa.feature.group" version="0.0.0"/>
+      <unit id="org.obeonetwork.dsl.soa.gen.swagger.feature.feature.group" version="0.0.0"/>
       <unit id="org.obeonetwork.graal.feature.feature.group" version="0.0.0"/>
       <unit id="org.obeonetwork.dsl.feature.requirement.feature.group" version="0.0.0"/>
       <unit id="org.obeonetwork.dsl.feature.is.feature.group" version="0.0.0"/>
@@ -57,6 +56,7 @@
       <unit id="org.obeonetwork.cinematic.m2doc.feature.feature.group" version="0.0.0"/>
       <unit id="org.obeonetwork.utils.feature.feature.group" version="0.0.0"/>
       <unit id="org.obeonetwork.tools.contextual.explorer.feature.feature.group" version="0.0.0"/>
+      <unit id="org.obeonetwork.dsl.feature.environment.feature.group" version="0.0.0"/>
       <repository location="http://update.obeo.fr/integration/informationsystem/11.3/design/repository/"/>
     </location>
     <location includeMode="planner" includeAllPlatforms="false" includeSource="true" includeConfigurePhase="false" type="InstallableUnit">
@@ -97,7 +97,7 @@
       <repository location="https://download.eclipse.org/tools/orbit/downloads/drops/R20190602212107/repository/"/>
     </location>
     <location includeMode="planner" includeAllPlatforms="false" includeSource="true" includeConfigurePhase="false" type="InstallableUnit">
-      <unit id="fr.obeo.dsl.viewpoint.collab" version="1.0.0.201911200829"/>
+      <unit id="fr.obeo.dsl.viewpoint.collab" version="1.0.0.202010271305"/>
       <repository id="Obeo-Designer-Team" location="http://update.obeo.fr/stable/designer/11.3.2/team/11.3.2/repository/"/>
     </location>
     <location includeMode="planner" includeAllPlatforms="false" includeSource="true" includeConfigurePhase="false" type="InstallableUnit">
