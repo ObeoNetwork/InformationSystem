@@ -93,6 +93,7 @@ import io.swagger.v3.oas.models.responses.ApiResponses;
 import io.swagger.v3.oas.models.security.SecurityRequirement;
 import io.swagger.v3.oas.models.security.SecurityScheme;
 import io.swagger.v3.oas.models.servers.Server;
+import io.swagger.v3.oas.models.tags.Tag;
 
 @SuppressWarnings({ "unchecked", "rawtypes" })
 public class SoaComponentBuilder {
@@ -917,6 +918,14 @@ public class SoaComponentBuilder {
 		}
 		
 		for(String soaServiceName : soaServicesPaths.keySet()) {
+			List<String> servicePaths = soaServicesPaths.get(soaServiceName);
+			System.out.println(soaServiceName);
+			for(String servicePath : servicePaths) {
+				System.out.println("  " + servicePath);
+			}
+		}
+		
+		for(String soaServiceName : soaServicesPaths.keySet()) {
 			String soaServiceUri = getCommonPathBeforePathParam(
 					soaServicesPaths.get(soaServiceName).stream()
 					.map(path -> path.substring(soaComponentUri.length()))
@@ -926,6 +935,33 @@ public class SoaComponentBuilder {
 			soaService.setName(soaServiceName);
 			soaService.setURI(soaServiceUri);
 			soaService.setKind(InterfaceKind.PROVIDED_LITERAL);
+			
+			List<String> soaServiceTags = soaServicesPaths.get(soaServiceName).stream()
+			.flatMap(path -> openApi.getPaths().get(path).readOperations().stream())
+			.flatMap(op -> op.getTags().stream())
+			.collect(toSet()).stream()
+			.sorted().collect(toList());
+			
+			StringBuffer soaServiceDescription = new StringBuffer();
+			for(int tagIndex = 0; tagIndex < soaServiceTags.size(); tagIndex++) {
+				String tagName = soaServiceTags.get(tagIndex);
+				Tag tagElement = openApi.getTags().stream().filter(t -> tagName.equals(t.getName())).findFirst().orElse(null);
+				if(soaServiceTags.size() > 1) {
+					soaServiceDescription
+					.append(tagName)
+					.append(":")
+					.append(System.lineSeparator());
+				}
+				soaServiceDescription
+				.append(tagElement.getDescription());
+				
+				if(tagIndex < soaServiceTags.size() - 1) {
+					soaServiceDescription
+					.append(System.lineSeparator());
+				}
+			}
+			soaService.setDescription(soaServiceDescription.toString());
+			
 			soaComponent.getOwnedServices().add(soaService);
 		}
 	}

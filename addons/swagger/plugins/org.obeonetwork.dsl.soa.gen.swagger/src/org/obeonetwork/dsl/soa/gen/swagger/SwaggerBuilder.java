@@ -84,6 +84,7 @@ import io.swagger.v3.oas.models.responses.ApiResponses;
 import io.swagger.v3.oas.models.security.SecurityRequirement;
 import io.swagger.v3.oas.models.security.SecurityScheme;
 import io.swagger.v3.oas.models.servers.Server;
+import io.swagger.v3.oas.models.tags.Tag;
 
 @SuppressWarnings("unchecked")
 public class SwaggerBuilder {
@@ -130,11 +131,24 @@ public class SwaggerBuilder {
     	openApi.setComponents(new Components());
     	
     	buildHeader();
+    	buildTags();
     	buildSecuritySchemes();
     	buildSchemas();
     	buildPaths();
     	
 		return openApi;
+	}
+
+	private void buildTags() {
+		soaComponent.getProvidedServices().forEach(soaService -> openApi.addTagsItem(createTag(soaService)));
+	}
+
+	private Tag createTag(Service soaService) {
+		Tag tag = new Tag();
+		tag.setName(soaService.getName());
+		tag.setDescription(soaService.getDescription());
+		
+		return tag;
 	}
 
 	private void buildSecuritySchemes() {		
@@ -570,6 +584,8 @@ public class SwaggerBuilder {
         	swgSecurityRequirement.addList(soaSecurityScheme.getKey());
         	swgOperation.addSecurityItem(swgSecurityRequirement);
     	}
+    	
+    	swgOperation.addTagsItem(OperationGenUtil.getService(soaOperation).getName());
     	
     	return swgOperation;
 	}
