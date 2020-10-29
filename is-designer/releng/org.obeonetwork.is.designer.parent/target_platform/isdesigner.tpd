@@ -98,7 +98,7 @@ location "https://download.eclipse.org/tools/orbit/downloads/drops/R201906022121
 	org.kohsuke.args4j [2.0.21,2.1.0)
 }
 
-location Obeo-Designer-Team "http://update.obeo.fr/release/designer/11.3/team/11.3.0/repository/" {
+location Obeo-Designer-Team "http://update.obeo.fr/stable/designer/11.3.2/team/11.3.2/repository/" {
 	fr.obeo.dsl.viewpoint.collab
 }
 
@@ -116,7 +116,7 @@ location EEF-2.1.3 "http://download.eclipse.org/modeling/emft/eef/updates/releas
     org.eclipse.eef.ext.widgets.reference.feature.source.feature.group lazy
 }
 
-location Obeo-Designer-Community "http://update.obeo.fr/stable/designer/11.3.2_dev_safran_sirius_6.3.5/community/11.3.2/repository/" {
+location Obeo-Designer-Community "http://update.obeo.fr/stable/designer/11.3.2/community/11.3.2/repository/" {
 	org.apache.log4j lazy
     org.easymock lazy
     org.hamcrest.core lazy

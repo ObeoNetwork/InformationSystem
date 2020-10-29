@@ -1,6 +1,6 @@
 target "IS Designer Update Target Definition" with source, requirements
 
-location "http://update.obeo.fr/stable/designer/11.3.2_dev_safran_sirius_6.3.5/community/11.3.2/repository/" {
+location "http://update.obeo.fr/stable/designer/11.3.2/community/11.3.2/repository/" {
 	org.eclipse.eef.sdk.feature.feature.group
 	org.eclipse.sirius.properties.feature.feature.group lazy
 	org.eclipse.sirius.runtime.ide.eef.feature.group lazy
@@ -25,7 +25,7 @@ location "http://update.obeo.fr/stable/designer/11.3.2_dev_safran_sirius_6.3.5/c
 }
 
 
-location "http://update.obeo.fr/stable/designer/11.3.2_dev_safran/team/latest/repository/" {
+location "http://update.obeo.fr/stable/designer/11.3.2/team/11.3.2/repository/" {
 	fr.obeo.dsl.viewpoint.collab.user.feature.group lazy
 	org.eclipse.emf.cdo.sdk.feature.group lazy
 }
