@@ -585,8 +585,6 @@ public class SwaggerBuilder {
         	swgOperation.addSecurityItem(swgSecurityRequirement);
     	}
     	
-    	swgOperation.addTagsItem(OperationGenUtil.getService(soaOperation).getName());
-    	
     	return swgOperation;
 	}
 	
@@ -599,9 +597,9 @@ public class SwaggerBuilder {
 		
 		buildDefaultApiResponses(apiResponses, soaOperation);
 		
-		OperationGenUtil.getOutput(soaOperation).stream().forEach(soaOutputParameter -> buildApiResponse(apiResponses, soaOutputParameter));
+		OperationGenUtil.getOutput(soaOperation).forEach(soaOutputParameter -> buildApiResponse(apiResponses, soaOutputParameter));
     	
-		OperationGenUtil.getFault(soaOperation).stream().forEach(soaFaultParameter -> buildApiResponse(apiResponses, soaFaultParameter));
+		OperationGenUtil.getFault(soaOperation).forEach(soaFaultParameter -> buildApiResponse(apiResponses, soaFaultParameter));
     	
 		return apiResponses;
 	}
@@ -768,9 +766,11 @@ public class SwaggerBuilder {
 	}
 
     private Parameter createParameter(org.obeonetwork.dsl.soa.Parameter soaParameter) {
-    	Parameter parameter = createParameter(ParameterGenUtil.getName(soaParameter), ParameterGenUtil.isRequired(soaParameter), getIn(soaParameter));
-    	parameter.setSchema(createParameterSchema(soaParameter));
-    	return parameter;
+    	Parameter swgParameter = createParameter(ParameterGenUtil.getName(soaParameter), ParameterGenUtil.isRequired(soaParameter), getIn(soaParameter));
+    	swgParameter.setSchema(createParameterSchema(soaParameter));
+    	swgParameter.setDescription(soaParameter.getDescription());
+    	
+    	return swgParameter;
     }
     
 	private Schema<Object> createParameterSchema(org.obeonetwork.dsl.soa.Parameter soaParameter) {

@@ -938,6 +938,7 @@ public class SoaComponentBuilder {
 			
 			List<String> soaServiceTags = soaServicesPaths.get(soaServiceName).stream()
 			.flatMap(path -> openApi.getPaths().get(path).readOperations().stream())
+			.filter(op -> op.getTags() != null)
 			.flatMap(op -> op.getTags().stream())
 			.collect(toSet()).stream()
 			.sorted().collect(toList());

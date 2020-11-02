@@ -44,11 +44,11 @@ public class OperationGenUtil {
 	}
 	
 	public static List<Parameter> getOutput(Operation operation) {
-		return operation.getOutput().stream().filter(p -> p.getRestData() != null).collect(toList());
+		return operation.getOutput();
 	}
 	
 	public static List<Parameter> getFault(Operation operation) {
-		return operation.getFault().stream().filter(p -> p.getRestData() != null).collect(toList());
+		return operation.getFault();
 	}
 	
 }
