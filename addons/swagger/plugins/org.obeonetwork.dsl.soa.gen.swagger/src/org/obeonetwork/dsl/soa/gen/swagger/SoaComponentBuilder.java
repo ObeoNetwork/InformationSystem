@@ -917,13 +917,13 @@ public class SoaComponentBuilder {
 			servicePaths.add(path);
 		}
 		
-		for(String soaServiceName : soaServicesPaths.keySet()) {
-			List<String> servicePaths = soaServicesPaths.get(soaServiceName);
-			System.out.println(soaServiceName);
-			for(String servicePath : servicePaths) {
-				System.out.println("  " + servicePath);
-			}
-		}
+//		for(String soaServiceName : soaServicesPaths.keySet()) {
+//			List<String> servicePaths = soaServicesPaths.get(soaServiceName);
+//			System.out.println(soaServiceName);
+//			for(String servicePath : servicePaths) {
+//				System.out.println("  " + servicePath);
+//			}
+//		}
 		
 		for(String soaServiceName : soaServicesPaths.keySet()) {
 			String soaServiceUri = getCommonPathBeforePathParam(
