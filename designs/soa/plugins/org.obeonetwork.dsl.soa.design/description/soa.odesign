@@ -394,6 +394,9 @@
             </ownedTools>
           </subSections>
         </toolSections>
+        <decorationDescriptionsSet>
+          <decorationDescriptions xsi:type="description_1:MappingBasedDecoration" name="DEC_Operation_has_security_requirements" position="NORTH_EAST" preconditionExpression="aql:self.securitySchemes->notEmpty()" imageExpression="/org.obeonetwork.dsl.soa.edit/icons/full/obj16/SecurityScheme.gif" mappings="//@ownedViewpoints[name='SOA%20Views']/@ownedRepresentations[name='Component%20Contract%20Diagram']/@defaultLayer/@containerMappings[name='Cc_ServiceInterface_CM']/@subContainerMappings[name='Cc_Operation_CM']"/>
+        </decorationDescriptionsSet>
       </defaultLayer>
     </ownedRepresentations>
     <ownedRepresentations xsi:type="description_1:DiagramDescription" dropDescriptions="//@ownedViewpoints[name='SOA%20Views']/@ownedRepresentations[name='DTO%20Namespaces%20Hierarchy']/@defaultLayer/@toolSections.1/@ownedTools[name='DAD_Namespace']" name="DTO Namespaces Hierarchy" label="DTO Namespaces Hierarchy" titleExpression="DTO Namespaces Hierarchy" domainClass="soa.System">
