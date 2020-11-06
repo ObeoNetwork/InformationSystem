@@ -99,7 +99,7 @@ location "https://download.eclipse.org/tools/orbit/downloads/drops/R201906022121
 }
 
 location Obeo-Designer-Team "http://update.obeo.fr/stable/designer/11.3.2/team/11.3.2/repository/" {
-	fr.obeo.dsl.viewpoint.collab
+	fr.obeo.dsl.viewpoint.collab lazy
 }
 
 location Amalgam "https://download.eclipse.org/modeling/amalgam/updates/stable/1.11.0-S20190729/capella/" {
