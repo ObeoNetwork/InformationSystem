@@ -55,7 +55,7 @@ public class EEFMultipleReferenceCustomLifecycleManager extends EEFExtMultipleRe
 	@Override
 	protected void setEnabled(boolean isEnabled) {
 		if (this.addButton != null && !this.addButton.isDisposed()) {
-			this.addButton.setEnabled(isEnabled && this.customDescription.addButtonNeeded());
+			this.addButton.setEnabled(isEnabled && this.customDescription.addButtonEnabled());
 		}
 		if (this.browseButton != null && !this.browseButton.isDisposed()) {
 			this.browseButton.setEnabled(isEnabled && this.customDescription.browseButtonNeeded());
@@ -74,9 +74,15 @@ public class EEFMultipleReferenceCustomLifecycleManager extends EEFExtMultipleRe
 	@Override
 	public void aboutToBeShown() {
 		super.aboutToBeShown();
+		
 		// Delete super table selection listener to add ours in order to do the same thing as the super table listener + a refresh of the widget
 		handleTableSelectionListener();
-		// No need to do override aboutToBeHidden as it will be handle by super
+		// No need to do override aboutToBeHidden as it will be handled by super
+		
+		// Dispose the Add button if necessary
+		if(customDescription.addButtonIsHidden()) {
+			addButton.dispose();
+		}
 	}
 	
 	@Override

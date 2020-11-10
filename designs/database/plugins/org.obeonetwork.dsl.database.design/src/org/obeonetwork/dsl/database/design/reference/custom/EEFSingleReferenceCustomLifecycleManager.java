@@ -42,7 +42,7 @@ public class EEFSingleReferenceCustomLifecycleManager extends EEFExtSingleRefere
 	@Override
 	protected void setEnabled(boolean isEnabled) {
 		if (isEnabled && this.addButton != null && !this.addButton.isDisposed()) {
-			this.addButton.setEnabled(this.customDescription.addButtonNeeded());
+			this.addButton.setEnabled(this.customDescription.addButtonEnabled());
 		}
 		if (isEnabled && this.removeButton != null && !this.removeButton.isDisposed()) {
 			this.removeButton.setEnabled(this.target.eGet(eReference) != null && this.customDescription.removeButtonNeeded());

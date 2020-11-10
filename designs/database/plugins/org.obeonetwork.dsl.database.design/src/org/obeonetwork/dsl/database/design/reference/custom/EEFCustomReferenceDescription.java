@@ -48,8 +48,8 @@ public class EEFCustomReferenceDescription extends EEFExtReferenceDescriptionImp
 		return this.controller.removeButtonNeed();
 	}
 	
-	public boolean addButtonNeeded() {
-		return this.controller.addButtonNeeded();
+	public boolean addButtonEnabled() {
+		return this.controller.addButtonEnabled();
 	}
 	
 	public boolean hasAddButtonOperation() {
@@ -60,6 +60,10 @@ public class EEFCustomReferenceDescription extends EEFExtReferenceDescriptionImp
 		this.controller.executeAddButtonOperation();
 	}
 	
+	public boolean addButtonIsHidden() {
+		return this.controller.addButtonIsHidden();
+	}
+
 	@Override
 	public String getReferenceOwnerExpression() {
 		return this.controller.getReferenceOwnerExpression();

@@ -38,6 +38,8 @@ public class CustomReferenceController extends EEFExtReferenceController {
 	
 	private static final String ENABLE_ADD_BUTTON_EXPRESSION_ID = "enableAddButtonExpression";
 	
+	private static final String HIDE_ADD_BUTTON_EXPRESSION_ID = "hideAddButtonExpression";
+	
 	private static final String ENABLE_ADD_BUTTON_DEFAULT_EXPRESSION_FORMAT = "aql:self.eClass().getEStructuralFeature('%1$s').many";
 	
 	private static final String ENABLE_BROWSE_BUTTON_DEFAULT_EXPRESSION_FORMAT = "aql:not self.eClass().getEStructuralFeature('%1$s').containment";
@@ -99,17 +101,17 @@ public class CustomReferenceController extends EEFExtReferenceController {
 	}
 
 	/**
-	 * Whether add button is needed. Evaluates the expression identified by
+	 * Whether add button is enabled. Evaluates the expression identified by
 	 * {@link CustomReferenceController#ENABLE_ADD_BUTTON_EXPRESSION_ID} or if this
 	 * expression is not defined, enable the add button only if the reference is not
 	 * many and not containment.
 	 * 
-	 * @return <code>true</code> whether the add button is needed,
+	 * @return <code>true</code> whether the add button is enabled,
 	 *         <code>false</code> otherwise
 	 */
-	public boolean addButtonNeeded() {
-		String addButtonNeededExpression = this.getCustomExpression(ENABLE_ADD_BUTTON_EXPRESSION_ID).orElse(String.format(ENABLE_ADD_BUTTON_DEFAULT_EXPRESSION_FORMAT, this.getReferenceName()));
-		Object evaluated = this.newEval().evaluate(addButtonNeededExpression);
+	public boolean addButtonEnabled() {
+		String addButtonEnabledExpression = this.getCustomExpression(ENABLE_ADD_BUTTON_EXPRESSION_ID).orElse(String.format(ENABLE_ADD_BUTTON_DEFAULT_EXPRESSION_FORMAT, this.getReferenceName()));
+		Object evaluated = this.newEval().evaluate(addButtonEnabledExpression);
 		if (evaluated instanceof Boolean) {
 			return (Boolean) evaluated;
 		}
@@ -188,5 +190,17 @@ public class CustomReferenceController extends EEFExtReferenceController {
 				CustomReferenceController.this.newEval().logIfBlank(attr).call(expression);
 			});
 		});
+	}
+
+	public boolean addButtonIsHidden() {
+		Optional<String> hideAddButtonExpression = this.getCustomExpression(HIDE_ADD_BUTTON_EXPRESSION_ID);
+		if(hideAddButtonExpression.isPresent()) {
+			Object evaluated = this.newEval().evaluate(hideAddButtonExpression.get());
+			if (evaluated instanceof Boolean) {
+				return (Boolean) evaluated;
+			}
+		}
+		
+		return false;
 	}
 }
