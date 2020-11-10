@@ -242,7 +242,7 @@
             <firstModelOperations xsi:type="tool:SetValue" featureName="name" valueExpression="var:newValue"/>
           </initialOperation>
         </controls>
-        <controls xsi:type="properties:CustomDescription" name="org.obeonetwork.dsl.database.design.custom.reference" label="requirement::Category requirements" labelExpression="aql:input.emfEditServices(self).getText(self.eClass().getEStructuralFeature('requirements')) + ':'" helpExpression="aql:input.emfEditServices(self).getDescription(self.eClass().getEStructuralFeature('requirements'))" isEnabledExpression="aql:self.eClass().getEStructuralFeature('requirements').changeable">
+        <controls xsi:type="properties:CustomDescription" name="org.obeonetwork.is.eef.custom.reference" label="requirement::Category requirements" labelExpression="aql:input.emfEditServices(self).getText(self.eClass().getEStructuralFeature('requirements')) + ':'" helpExpression="aql:input.emfEditServices(self).getDescription(self.eClass().getEStructuralFeature('requirements'))" isEnabledExpression="aql:self.eClass().getEStructuralFeature('requirements').changeable">
           <customExpressions name="referenceNameExpression" customExpression="aql:'requirements'"/>
           <customOperations name="addButtonOperation">
             <initialOperation>
@@ -277,7 +277,7 @@
             </initialOperation>
           </customOperations>
         </controls>
-        <controls xsi:type="properties:CustomDescription" name="org.obeonetwork.dsl.database.design.custom.reference" label="requirement::Category subCategories" labelExpression="aql:input.emfEditServices(self).getText(self.eClass().getEStructuralFeature('subCategories')) + ':'" helpExpression="aql:input.emfEditServices(self).getDescription(self.eClass().getEStructuralFeature('subCategories'))" isEnabledExpression="aql:self.eClass().getEStructuralFeature('subCategories').changeable">
+        <controls xsi:type="properties:CustomDescription" name="org.obeonetwork.is.eef.custom.reference" label="requirement::Category subCategories" labelExpression="aql:input.emfEditServices(self).getText(self.eClass().getEStructuralFeature('subCategories')) + ':'" helpExpression="aql:input.emfEditServices(self).getDescription(self.eClass().getEStructuralFeature('subCategories'))" isEnabledExpression="aql:self.eClass().getEStructuralFeature('subCategories').changeable">
           <customExpressions name="referenceNameExpression" customExpression="aql:'subCategories'"/>
           <customOperations name="addButtonOperation">
             <initialOperation>
@@ -319,7 +319,7 @@
             <firstModelOperations xsi:type="tool:SetValue" featureName="name" valueExpression="var:newValue"/>
           </initialOperation>
         </controls>
-        <controls xsi:type="properties:CustomDescription" name="org.obeonetwork.dsl.database.design.custom.reference" label="requirement::Category mainCategories" labelExpression="aql:input.emfEditServices(self).getText(self.eClass().getEStructuralFeature('mainCategories')) + ':'" helpExpression="aql:input.emfEditServices(self).getDescription(self.eClass().getEStructuralFeature('mainCategories'))" isEnabledExpression="aql:self.eClass().getEStructuralFeature('mainCategories').changeable">
+        <controls xsi:type="properties:CustomDescription" name="org.obeonetwork.is.eef.custom.reference" label="requirement::Category mainCategories" labelExpression="aql:input.emfEditServices(self).getText(self.eClass().getEStructuralFeature('mainCategories')) + ':'" helpExpression="aql:input.emfEditServices(self).getDescription(self.eClass().getEStructuralFeature('mainCategories'))" isEnabledExpression="aql:self.eClass().getEStructuralFeature('mainCategories').changeable">
           <customExpressions name="referenceNameExpression" customExpression="aql:'mainCategories'"/>
           <customOperations name="addButtonOperation">
             <initialOperation>

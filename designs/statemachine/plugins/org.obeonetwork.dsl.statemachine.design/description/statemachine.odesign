@@ -252,7 +252,7 @@
         </controls>
       </groups>
       <groups name="AbstractState Group" labelExpression="Properties" domainClass="statemachine::AbstractState" semanticCandidateExpression="var:self">
-        <controls xsi:type="properties:CustomDescription" name="org.obeonetwork.dsl.database.design.custom.reference" label="statemachine::AbstractState incomingTransitions" labelExpression="aql:'Incoming Transitions :'" helpExpression="aql:input.emfEditServices(self).getDescription(self.eClass().getEStructuralFeature('incomingTransitions'))" isEnabledExpression="aql:false">
+        <controls xsi:type="properties:CustomDescription" name="org.obeonetwork.is.eef.custom.reference" label="statemachine::AbstractState incomingTransitions" labelExpression="aql:'Incoming Transitions :'" helpExpression="aql:input.emfEditServices(self).getDescription(self.eClass().getEStructuralFeature('incomingTransitions'))" isEnabledExpression="aql:false">
           <customExpressions name="referenceNameExpression" customExpression="aql:'incomingTransitions'"/>
           <customOperations name="onDoubleClickOperation">
             <initialOperation>
@@ -270,7 +270,7 @@
             </initialOperation>
           </customOperations>
         </controls>
-        <controls xsi:type="properties:CustomDescription" name="org.obeonetwork.dsl.database.design.custom.reference" label="statemachine::AbstractState outcomingTransitions" labelExpression="aql:'Outcoming Transitions :'" helpExpression="aql:input.emfEditServices(self).getDescription(self.eClass().getEStructuralFeature('outcomingTransitions'))" isEnabledExpression="aql:false">
+        <controls xsi:type="properties:CustomDescription" name="org.obeonetwork.is.eef.custom.reference" label="statemachine::AbstractState outcomingTransitions" labelExpression="aql:'Outcoming Transitions :'" helpExpression="aql:input.emfEditServices(self).getDescription(self.eClass().getEStructuralFeature('outcomingTransitions'))" isEnabledExpression="aql:false">
           <customExpressions name="referenceNameExpression" customExpression="aql:'outcomingTransitions'"/>
           <customOperations name="onDoubleClickOperation">
             <initialOperation>
@@ -300,8 +300,8 @@
             <firstModelOperations xsi:type="tool:SetValue" featureName="name" valueExpression="var:newValue"/>
           </initialOperation>
         </controls>
-        <controls xsi:type="properties:CustomDescription" name="org.obeonetwork.dsl.database.design.custom.reference" label="statemachine::State incomingTransitions" extends="//@extensions.0/@categories.0/@groups.1/@controls.0"/>
-        <controls xsi:type="properties:CustomDescription" name="org.obeonetwork.dsl.database.design.custom.reference" label="statemachine::State outgoingTransitions" extends="//@extensions.0/@categories.0/@groups.1/@controls.1"/>
+        <controls xsi:type="properties:CustomDescription" name="org.obeonetwork.is.eef.custom.reference" label="statemachine::State incomingTransitions" extends="//@extensions.0/@categories.0/@groups.1/@controls.0"/>
+        <controls xsi:type="properties:CustomDescription" name="org.obeonetwork.is.eef.custom.reference" label="statemachine::State outgoingTransitions" extends="//@extensions.0/@categories.0/@groups.1/@controls.1"/>
         <controls xsi:type="properties:TextAreaDescription" name="statemachine::State description" labelExpression="aql:input.emfEditServices(self).getText(self.eClass().getEStructuralFeature('description')) + ':'" helpExpression="aql:input.emfEditServices(self).getDescription(self.eClass().getEStructuralFeature('description'))" isEnabledExpression="aql:self.eClass().getEStructuralFeature('description').changeable" valueExpression="aql:self.description">
           <initialOperation>
             <firstModelOperations xsi:type="tool:SetValue" featureName="description" valueExpression="var:newValue"/>
@@ -314,7 +314,7 @@
             <firstModelOperations xsi:type="tool:SetValue" featureName="name" valueExpression="var:newValue"/>
           </initialOperation>
         </controls>
-        <controls xsi:type="properties:CustomDescription" name="org.obeonetwork.dsl.database.design.custom.reference" label="statemachine::StateMachine regions" labelExpression="aql:'Regions :'" helpExpression="aql:input.emfEditServices(self).getDescription(self.eClass().getEStructuralFeature('regions'))" isEnabledExpression="aql:false">
+        <controls xsi:type="properties:CustomDescription" name="org.obeonetwork.is.eef.custom.reference" label="statemachine::StateMachine regions" labelExpression="aql:'Regions :'" helpExpression="aql:input.emfEditServices(self).getDescription(self.eClass().getEStructuralFeature('regions'))" isEnabledExpression="aql:false">
           <customExpressions name="referenceNameExpression" customExpression="aql:'regions'"/>
           <customOperations name="onDoubleClickOperation">
             <initialOperation>

@@ -8,7 +8,7 @@
  * Contributors:
  *     Obeo - initial API and implementation
  *******************************************************************************/
-package org.obeonetwork.dsl.database.design.reference.custom;
+package org.obeonetwork.is.eef.custom.reference;
 
 import org.eclipse.eef.EEFCustomWidgetDescription;
 import org.eclipse.eef.core.api.EditingContextAdapter;

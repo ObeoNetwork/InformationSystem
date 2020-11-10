@@ -489,7 +489,7 @@
             <firstModelOperations xsi:type="tool_1:SetValue" featureName="comments" valueExpression="var:newValue"/>
           </initialOperation>
         </controls>
-        <controls xsi:type="properties:CustomDescription" name="org.obeonetwork.dsl.database.design.custom.reference" label="database::Database usedLibraries" labelExpression="aql:input.emfEditServices(self).getText(self.eClass().getEStructuralFeature('usedLibraries')) + ':'" helpExpression="aql:input.emfEditServices(self).getDescription(self.eClass().getEStructuralFeature('usedLibraries')) + ':'" isEnabledExpression="aql:false">
+        <controls xsi:type="properties:CustomDescription" name="org.obeonetwork.is.eef.custom.reference" label="database::Database usedLibraries" labelExpression="aql:input.emfEditServices(self).getText(self.eClass().getEStructuralFeature('usedLibraries')) + ':'" helpExpression="aql:input.emfEditServices(self).getDescription(self.eClass().getEStructuralFeature('usedLibraries')) + ':'" isEnabledExpression="aql:false">
           <customExpressions name="referenceNameExpression" customExpression="aql:'usedLibraries'"/>
         </controls>
       </groups>
@@ -512,7 +512,7 @@
             </style>
           </conditionalStyles>
         </controls>
-        <controls xsi:type="properties:CustomDescription" name="org.obeonetwork.dsl.database.design.custom.reference" label="database::Table columns" labelExpression="Columns:" helpExpression="aql:input.emfEditServices(self).getDescription(self.eClass().getEStructuralFeature('columns'))" isEnabledExpression="aql:self.eClass().getEStructuralFeature('columns').changeable">
+        <controls xsi:type="properties:CustomDescription" name="org.obeonetwork.is.eef.custom.reference" label="database::Table columns" labelExpression="Columns:" helpExpression="aql:input.emfEditServices(self).getDescription(self.eClass().getEStructuralFeature('columns'))" isEnabledExpression="aql:self.eClass().getEStructuralFeature('columns').changeable">
           <customExpressions name="referenceNameExpression" customExpression="aql:'columns'"/>
           <customOperations name="addButtonOperation">
             <initialOperation>
@@ -630,7 +630,7 @@
             <firstModelOperations xsi:type="tool_1:SetValue" featureName="autoincrement" valueExpression="var:newValue"/>
           </initialOperation>
         </controls>
-        <controls xsi:type="properties:CustomDescription" name="org.obeonetwork.dsl.database.design.custom.reference" label="database::Column sequence" labelExpression="aql:input.emfEditServices(self).getText(self.eClass().getEStructuralFeature('sequence')) + ':'" helpExpression="aql:input.emfEditServices(self).getDescription(self.eClass().getEStructuralFeature('sequence')) + ':'" isEnabledExpression="aql:self.eClass().getEStructuralFeature('sequence').changeable">
+        <controls xsi:type="properties:CustomDescription" name="org.obeonetwork.is.eef.custom.reference" label="database::Column sequence" labelExpression="aql:input.emfEditServices(self).getText(self.eClass().getEStructuralFeature('sequence')) + ':'" helpExpression="aql:input.emfEditServices(self).getDescription(self.eClass().getEStructuralFeature('sequence')) + ':'" isEnabledExpression="aql:self.eClass().getEStructuralFeature('sequence').changeable">
           <customExpressions name="referenceNameExpression" customExpression="aql:'sequence'"/>
           <customExpressions name="enableBrowseButtonExpression" customExpression="aql:true"/>
         </controls>
@@ -656,7 +656,7 @@
             </style>
           </conditionalStyles>
         </controls>
-        <controls xsi:type="properties:CustomDescription" name="org.obeonetwork.dsl.database.design.custom.reference" label="database::PrimaryKey columns" labelExpression="aql:input.emfEditServices(self).getText(self.eClass().getEStructuralFeature('columns')) + ':'" helpExpression="aql:input.emfEditServices(self).getDescription(self.eClass().getEStructuralFeature('columns'))" isEnabledExpression="aql:self.eClass().getEStructuralFeature('columns').changeable">
+        <controls xsi:type="properties:CustomDescription" name="org.obeonetwork.is.eef.custom.reference" label="database::PrimaryKey columns" labelExpression="aql:input.emfEditServices(self).getText(self.eClass().getEStructuralFeature('columns')) + ':'" helpExpression="aql:input.emfEditServices(self).getDescription(self.eClass().getEStructuralFeature('columns'))" isEnabledExpression="aql:self.eClass().getEStructuralFeature('columns').changeable">
           <customExpressions name="referenceNameExpression" customExpression="aql:'columns'"/>
         </controls>
         <controls xsi:type="properties:TextAreaDescription" name="database::PrimaryKey comments" labelExpression="aql:input.emfEditServices(self).getText(self.eClass().getEStructuralFeature('comments')) + ':'" helpExpression="aql:input.emfEditServices(self).getDescription(self.eClass().getEStructuralFeature('comments'))" isEnabledExpression="aql:self.eClass().getEStructuralFeature('comments').changeable" valueExpression="aql:self.comments">
@@ -666,7 +666,7 @@
         </controls>
       </groups>
       <groups name="ForeignKeys Group" labelExpression="Properties" domainClass="database::Table" semanticCandidateExpression="var:self">
-        <controls xsi:type="properties:CustomDescription" name="org.obeonetwork.dsl.database.design.custom.reference" label="database::Table foreignKeys" labelExpression="Foreign Keys:" helpExpression="aql:input.emfEditServices(self).getDescription(self.eClass().getEStructuralFeature('foreignKeys'))" isEnabledExpression="aql:self.eClass().getEStructuralFeature('foreignKeys').changeable">
+        <controls xsi:type="properties:CustomDescription" name="org.obeonetwork.is.eef.custom.reference" label="database::Table foreignKeys" labelExpression="Foreign Keys:" helpExpression="aql:input.emfEditServices(self).getDescription(self.eClass().getEStructuralFeature('foreignKeys'))" isEnabledExpression="aql:self.eClass().getEStructuralFeature('foreignKeys').changeable">
           <customExpressions name="referenceNameExpression" customExpression="aql:'foreignKeys'"/>
           <customOperations name="addButtonOperation">
             <initialOperation>
@@ -705,7 +705,7 @@
         </controls>
       </groups>
       <groups name="Indexes Group" labelExpression="Properties" domainClass="database::Table" semanticCandidateExpression="var:self">
-        <controls xsi:type="properties:CustomDescription" name="org.obeonetwork.dsl.database.design.custom.reference" label="database::Table indexes" labelExpression="Indexes:" helpExpression="aql:input.emfEditServices(self).getDescription(self.eClass().getEStructuralFeature('indexes'))" isEnabledExpression="aql:self.eClass().getEStructuralFeature('indexes').changeable">
+        <controls xsi:type="properties:CustomDescription" name="org.obeonetwork.is.eef.custom.reference" label="database::Table indexes" labelExpression="Indexes:" helpExpression="aql:input.emfEditServices(self).getDescription(self.eClass().getEStructuralFeature('indexes'))" isEnabledExpression="aql:self.eClass().getEStructuralFeature('indexes').changeable">
           <customExpressions name="referenceNameExpression" customExpression="aql:'indexes'"/>
           <customOperations name="addButtonOperation">
             <initialOperation>
@@ -747,7 +747,7 @@
         </controls>
       </groups>
       <groups name="Constraints Group" labelExpression="Properties" domainClass="database::Table" semanticCandidateExpression="var:self">
-        <controls xsi:type="properties:CustomDescription" name="org.obeonetwork.dsl.database.design.custom.reference" label="database::Table constraints" labelExpression="Constraints:" helpExpression="aql:input.emfEditServices(self).getDescription(self.eClass().getEStructuralFeature('constraints'))" isEnabledExpression="aql:self.eClass().getEStructuralFeature('constraints').changeable">
+        <controls xsi:type="properties:CustomDescription" name="org.obeonetwork.is.eef.custom.reference" label="database::Table constraints" labelExpression="Constraints:" helpExpression="aql:input.emfEditServices(self).getDescription(self.eClass().getEStructuralFeature('constraints'))" isEnabledExpression="aql:self.eClass().getEStructuralFeature('constraints').changeable">
           <customExpressions name="referenceNameExpression" customExpression="aql:'constraints'"/>
           <customOperations name="addButtonOperation">
             <initialOperation>
@@ -801,10 +801,10 @@
             </style>
           </conditionalStyles>
         </controls>
-        <controls xsi:type="properties:CustomDescription" name="org.obeonetwork.dsl.database.design.custom.reference" label="database::ForeignKey target" labelExpression="aql:input.emfEditServices(self).getText(self.eClass().getEStructuralFeature('target')) + ':'" helpExpression="aql:input.emfEditServices(self).getDescription(self.eClass().getEStructuralFeature('target')) + ':'" isEnabledExpression="aql:self.eClass().getEStructuralFeature('target').changeable">
+        <controls xsi:type="properties:CustomDescription" name="org.obeonetwork.is.eef.custom.reference" label="database::ForeignKey target" labelExpression="aql:input.emfEditServices(self).getText(self.eClass().getEStructuralFeature('target')) + ':'" helpExpression="aql:input.emfEditServices(self).getDescription(self.eClass().getEStructuralFeature('target')) + ':'" isEnabledExpression="aql:self.eClass().getEStructuralFeature('target').changeable">
           <customExpressions name="referenceNameExpression" customExpression="aql:'target'"/>
         </controls>
-        <controls xsi:type="properties:CustomDescription" name="org.obeonetwork.dsl.database.design.custom.reference" label="database::ForeignKey elements" labelExpression="aql:'Elements :'" helpExpression="aql:input.emfEditServices(self).getDescription(self.eClass().getEStructuralFeature('elements'))" isEnabledExpression="aql:self.eClass().getEStructuralFeature('elements').changeable">
+        <controls xsi:type="properties:CustomDescription" name="org.obeonetwork.is.eef.custom.reference" label="database::ForeignKey elements" labelExpression="aql:'Elements :'" helpExpression="aql:input.emfEditServices(self).getDescription(self.eClass().getEStructuralFeature('elements'))" isEnabledExpression="aql:self.eClass().getEStructuralFeature('elements').changeable">
           <customExpressions name="referenceNameExpression" customExpression="aql:'elements'"/>
           <customOperations name="addButtonOperation">
             <initialOperation>
@@ -852,7 +852,7 @@
             <labelFontFormat>bold</labelFontFormat>
           </style>
         </controls>
-        <controls xsi:type="properties:CustomDescription" name="org.obeonetwork.dsl.database.design.custom.reference" label="database::ForeignKeyElement fkColumn" labelExpression="aql:input.emfEditServices(self).getText(self.eClass().getEStructuralFeature('fkColumn')) + ':'" helpExpression="aql:input.emfEditServices(self).getDescription(self.eClass().getEStructuralFeature('fkColumn')) + ':'" isEnabledExpression="aql:self.eClass().getEStructuralFeature('fkColumn').changeable">
+        <controls xsi:type="properties:CustomDescription" name="org.obeonetwork.is.eef.custom.reference" label="database::ForeignKeyElement fkColumn" labelExpression="aql:input.emfEditServices(self).getText(self.eClass().getEStructuralFeature('fkColumn')) + ':'" helpExpression="aql:input.emfEditServices(self).getDescription(self.eClass().getEStructuralFeature('fkColumn')) + ':'" isEnabledExpression="aql:self.eClass().getEStructuralFeature('fkColumn').changeable">
           <customExpressions name="referenceNameExpression" customExpression="aql:'fkColumn'"/>
           <customExpressions name="enableBrowseButtonExpression" customExpression="aql:true"/>
         </controls>
@@ -861,7 +861,7 @@
             <labelFontFormat>bold</labelFontFormat>
           </style>
         </controls>
-        <controls xsi:type="properties:CustomDescription" name="org.obeonetwork.dsl.database.design.custom.reference" label="database::ForeignKeyElement pkColumn" labelExpression="aql:input.emfEditServices(self).getText(self.eClass().getEStructuralFeature('pkColumn')) + ':'" helpExpression="aql:input.emfEditServices(self).getDescription(self.eClass().getEStructuralFeature('pkColumn')) + ':'" isEnabledExpression="aql:self.eClass().getEStructuralFeature('pkColumn').changeable">
+        <controls xsi:type="properties:CustomDescription" name="org.obeonetwork.is.eef.custom.reference" label="database::ForeignKeyElement pkColumn" labelExpression="aql:input.emfEditServices(self).getText(self.eClass().getEStructuralFeature('pkColumn')) + ':'" helpExpression="aql:input.emfEditServices(self).getDescription(self.eClass().getEStructuralFeature('pkColumn')) + ':'" isEnabledExpression="aql:self.eClass().getEStructuralFeature('pkColumn').changeable">
           <customExpressions name="referenceNameExpression" customExpression="aql:'pkColumn'"/>
           <customExpressions name="enableBrowseButtonExpression" customExpression="aql:true"/>
         </controls>
@@ -906,7 +906,7 @@
             <firstModelOperations xsi:type="tool_1:SetValue" featureName="indexType" valueExpression="var:newValue"/>
           </initialOperation>
         </controls>
-        <controls xsi:type="properties:CustomDescription" name="org.obeonetwork.dsl.database.design.custom.reference" label="database::Index elements" labelExpression="aql:'Elements :'" helpExpression="aql:input.emfEditServices(self).getDescription(self.eClass().getEStructuralFeature('elements'))" isEnabledExpression="aql:self.eClass().getEStructuralFeature('elements').changeable">
+        <controls xsi:type="properties:CustomDescription" name="org.obeonetwork.is.eef.custom.reference" label="database::Index elements" labelExpression="aql:'Elements :'" helpExpression="aql:input.emfEditServices(self).getDescription(self.eClass().getEStructuralFeature('elements'))" isEnabledExpression="aql:self.eClass().getEStructuralFeature('elements').changeable">
           <customExpressions name="referenceNameExpression" customExpression="aql:'elements'"/>
           <customOperations name="addButtonOperation">
             <initialOperation>

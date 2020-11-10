@@ -1864,7 +1864,7 @@
             <firstModelOperations xsi:type="tool_1:SetValue" featureName="description" valueExpression="var:newValue"/>
           </initialOperation>
         </controls>
-        <controls xsi:type="properties:CustomDescription" name="org.obeonetwork.dsl.database.design.custom.reference" label="graal::Node outgoingTransitions" labelExpression="aql:'Outgoing Transitions :'" helpExpression="aql:input.emfEditServices(self).getDescription(self.eClass().getEStructuralFeature('outgoingTransitions'))" isEnabledExpression="aql:false">
+        <controls xsi:type="properties:CustomDescription" name="org.obeonetwork.is.eef.custom.reference" label="graal::Node outgoingTransitions" labelExpression="aql:'Outgoing Transitions :'" helpExpression="aql:input.emfEditServices(self).getDescription(self.eClass().getEStructuralFeature('outgoingTransitions'))" isEnabledExpression="aql:false">
           <customExpressions name="referenceNameExpression" customExpression="aql:'outgoingTransitions'"/>
           <customOperations name="onDoubleClickOperation">
             <initialOperation>
@@ -1882,7 +1882,7 @@
             </initialOperation>
           </customOperations>
         </controls>
-        <controls xsi:type="properties:CustomDescription" name="org.obeonetwork.dsl.database.design.custom.reference" label="graal::Node incomingTransitions" labelExpression="aql:'Incoming Transitions :'" helpExpression="aql:input.emfEditServices(self).getDescription(self.eClass().getEStructuralFeature('incomingTransitions'))" isEnabledExpression="aql:false">
+        <controls xsi:type="properties:CustomDescription" name="org.obeonetwork.is.eef.custom.reference" label="graal::Node incomingTransitions" labelExpression="aql:'Incoming Transitions :'" helpExpression="aql:input.emfEditServices(self).getDescription(self.eClass().getEStructuralFeature('incomingTransitions'))" isEnabledExpression="aql:false">
           <customExpressions name="referenceNameExpression" customExpression="aql:'incomingTransitions'"/>
           <customOperations name="onDoubleClickOperation">
             <initialOperation>
@@ -1908,8 +1908,8 @@
           </initialOperation>
         </controls>
         <controls xsi:type="properties:TextAreaDescription" name="graal::NamedNode description" extends="//@extensions.0/@categories.0/@groups.0/@controls.0"/>
-        <controls xsi:type="properties:CustomDescription" name="org.obeonetwork.dsl.database.design.custom.reference" label="graal::NamedNode outgoingTransitions" extends="//@extensions.0/@categories.0/@groups.0/@controls.1"/>
-        <controls xsi:type="properties:CustomDescription" name="org.obeonetwork.dsl.database.design.custom.reference" label="graal::NamedNode incomingTransitions" extends="//@extensions.0/@categories.0/@groups.0/@controls.2"/>
+        <controls xsi:type="properties:CustomDescription" name="org.obeonetwork.is.eef.custom.reference" label="graal::NamedNode outgoingTransitions" extends="//@extensions.0/@categories.0/@groups.0/@controls.1"/>
+        <controls xsi:type="properties:CustomDescription" name="org.obeonetwork.is.eef.custom.reference" label="graal::NamedNode incomingTransitions" extends="//@extensions.0/@categories.0/@groups.0/@controls.2"/>
       </groups>
       <groups name="Task Group" labelExpression="Properties" domainClass="graal::Task" semanticCandidateExpression="var:self">
         <controls xsi:type="properties:TextDescription" name="graal::Task id" labelExpression="aql:input.emfEditServices(self).getText(self.eClass().getEStructuralFeature('id')) + ':'" helpExpression="aql:input.emfEditServices(self).getDescription(self.eClass().getEStructuralFeature('id'))" isEnabledExpression="aql:self.eClass().getEStructuralFeature('id').changeable" valueExpression="aql:self.id">
@@ -1937,7 +1937,7 @@
             <firstModelOperations xsi:type="tool_1:SetValue" featureName="postconditions" valueExpression="var:newValue"/>
           </initialOperation>
         </controls>
-        <controls xsi:type="properties:CustomDescription" name="org.obeonetwork.dsl.database.design.custom.reference" label="graal::Task subActivities" labelExpression="aql:'SubActivities :'" helpExpression="aql:input.emfEditServices(self).getDescription(self.eClass().getEStructuralFeature('subActivities'))" isEnabledExpression="aql:false">
+        <controls xsi:type="properties:CustomDescription" name="org.obeonetwork.is.eef.custom.reference" label="graal::Task subActivities" labelExpression="aql:'SubActivities :'" helpExpression="aql:input.emfEditServices(self).getDescription(self.eClass().getEStructuralFeature('subActivities'))" isEnabledExpression="aql:false">
           <customExpressions name="referenceNameExpression" customExpression="aql:'subActivities'"/>
           <customOperations name="onDoubleClickOperation">
             <initialOperation>
@@ -1955,7 +1955,7 @@
             </initialOperation>
           </customOperations>
         </controls>
-        <controls xsi:type="properties:CustomDescription" name="org.obeonetwork.dsl.database.design.custom.reference" label="graal::Task actors" labelExpression="aql:'Actors :'" helpExpression="aql:input.emfEditServices(self).getDescription(self.eClass().getEStructuralFeature('actors'))" isEnabledExpression="aql:self.eClass().getEStructuralFeature('actors').changeable">
+        <controls xsi:type="properties:CustomDescription" name="org.obeonetwork.is.eef.custom.reference" label="graal::Task actors" labelExpression="aql:'Actors :'" helpExpression="aql:input.emfEditServices(self).getDescription(self.eClass().getEStructuralFeature('actors'))" isEnabledExpression="aql:self.eClass().getEStructuralFeature('actors').changeable">
           <customExpressions name="referenceNameExpression" customExpression="aql:'actors'"/>
           <customOperations name="onDoubleClickOperation">
             <initialOperation>
@@ -1973,7 +1973,7 @@
             </initialOperation>
           </customOperations>
         </controls>
-        <controls xsi:type="properties:CustomDescription" name="org.obeonetwork.dsl.database.design.custom.reference" label="graal::Task uses" labelExpression="aql:'Uses :'" helpExpression="aql:input.emfEditServices(self).getDescription(self.eClass().getEStructuralFeature('uses'))" isEnabledExpression="aql:self.eClass().getEStructuralFeature('uses').changeable">
+        <controls xsi:type="properties:CustomDescription" name="org.obeonetwork.is.eef.custom.reference" label="graal::Task uses" labelExpression="aql:'Uses :'" helpExpression="aql:input.emfEditServices(self).getDescription(self.eClass().getEStructuralFeature('uses'))" isEnabledExpression="aql:self.eClass().getEStructuralFeature('uses').changeable">
           <customExpressions name="referenceNameExpression" customExpression="aql:'uses'"/>
           <customOperations name="onDoubleClickOperation">
             <initialOperation>
@@ -2008,7 +2008,7 @@
             <firstModelOperations xsi:type="tool_1:SetValue" featureName="description" valueExpression="var:newValue"/>
           </initialOperation>
         </controls>
-        <controls xsi:type="properties:CustomDescription" name="org.obeonetwork.dsl.database.design.custom.reference" label="graal::Loop subActivities" labelExpression="aql:'SubActivities :'" helpExpression="aql:input.emfEditServices(self).getDescription(self.eClass().getEStructuralFeature('subActivities'))" isEnabledExpression="aql:false">
+        <controls xsi:type="properties:CustomDescription" name="org.obeonetwork.is.eef.custom.reference" label="graal::Loop subActivities" labelExpression="aql:'SubActivities :'" helpExpression="aql:input.emfEditServices(self).getDescription(self.eClass().getEStructuralFeature('subActivities'))" isEnabledExpression="aql:false">
           <customExpressions name="referenceNameExpression" customExpression="aql:'subActivities'"/>
           <customOperations name="onDoubleClickOperation">
             <initialOperation>
@@ -2038,8 +2038,8 @@
             <firstModelOperations xsi:type="tool_1:SetValue" featureName="description" valueExpression="var:newValue"/>
           </initialOperation>
         </controls>
-        <controls xsi:type="properties:CustomDescription" name="org.obeonetwork.dsl.database.design.custom.reference" label="graal::Operator outgoingTransitions" extends="//@extensions.0/@categories.0/@groups.0/@controls.1"/>
-        <controls xsi:type="properties:CustomDescription" name="org.obeonetwork.dsl.database.design.custom.reference" label="graal::Operator incomingTransitions" extends="//@extensions.0/@categories.0/@groups.0/@controls.2"/>
+        <controls xsi:type="properties:CustomDescription" name="org.obeonetwork.is.eef.custom.reference" label="graal::Operator outgoingTransitions" extends="//@extensions.0/@categories.0/@groups.0/@controls.1"/>
+        <controls xsi:type="properties:CustomDescription" name="org.obeonetwork.is.eef.custom.reference" label="graal::Operator incomingTransitions" extends="//@extensions.0/@categories.0/@groups.0/@controls.2"/>
       </groups>
       <groups name="Transition Group" labelExpression="Properties" domainClass="graal::Transition" semanticCandidateExpression="var:self">
         <controls xsi:type="properties:TextDescription" name="graal::Transition guard" labelExpression="aql:input.emfEditServices(self).getText(self.eClass().getEStructuralFeature('guard')) + ':'" helpExpression="aql:input.emfEditServices(self).getDescription(self.eClass().getEStructuralFeature('guard'))" isEnabledExpression="aql:self.eClass().getEStructuralFeature('guard').changeable" valueExpression="aql:self.guard">
@@ -2078,8 +2078,8 @@
             <firstModelOperations xsi:type="tool_1:SetValue" featureName="description" valueExpression="var:newValue"/>
           </initialOperation>
         </controls>
-        <controls xsi:type="properties:CustomDescription" name="org.obeonetwork.dsl.database.design.custom.reference" label="graal::TaskReference outgoingTransitions" extends="//@extensions.0/@categories.0/@groups.0/@controls.1"/>
-        <controls xsi:type="properties:CustomDescription" name="org.obeonetwork.dsl.database.design.custom.reference" label="graal::TaskReference incomingTransitions" extends="//@extensions.0/@categories.0/@groups.0/@controls.2"/>
+        <controls xsi:type="properties:CustomDescription" name="org.obeonetwork.is.eef.custom.reference" label="graal::TaskReference outgoingTransitions" extends="//@extensions.0/@categories.0/@groups.0/@controls.1"/>
+        <controls xsi:type="properties:CustomDescription" name="org.obeonetwork.is.eef.custom.reference" label="graal::TaskReference incomingTransitions" extends="//@extensions.0/@categories.0/@groups.0/@controls.2"/>
       </groups>
       <groups name="TasksGroup Group" labelExpression="Properties" domainClass="graal::TasksGroup" semanticCandidateExpression="var:self">
         <controls xsi:type="properties:TextDescription" name="graal::TasksGroup id" labelExpression="aql:input.emfEditServices(self).getText(self.eClass().getEStructuralFeature('id')) + ':'" helpExpression="aql:input.emfEditServices(self).getDescription(self.eClass().getEStructuralFeature('id'))" isEnabledExpression="aql:self.eClass().getEStructuralFeature('id').changeable" valueExpression="aql:self.id">
@@ -2118,7 +2118,7 @@
           </initialOperation>
         </controls>
         <controls xsi:type="properties-ext-widgets-reference:ExtReferenceDescription" name="graal::Actor superActor" isEnabledExpression="aql:false" referenceNameExpression="aql:'superActor'"/>
-        <controls xsi:type="properties:CustomDescription" name="org.obeonetwork.dsl.database.design.custom.reference" label="graal::Actor subActors" labelExpression="aql:'Sub Actors :'" helpExpression="aql:input.emfEditServices(self).getDescription(self.eClass().getEStructuralFeature('subActors'))" isEnabledExpression="aql:false">
+        <controls xsi:type="properties:CustomDescription" name="org.obeonetwork.is.eef.custom.reference" label="graal::Actor subActors" labelExpression="aql:'Sub Actors :'" helpExpression="aql:input.emfEditServices(self).getDescription(self.eClass().getEStructuralFeature('subActors'))" isEnabledExpression="aql:false">
           <customExpressions name="referenceNameExpression" customExpression="aql:'subActors'"/>
           <customOperations name="onDoubleClickOperation">
             <initialOperation>
@@ -2148,7 +2148,7 @@
             <firstModelOperations xsi:type="tool_1:SetValue" featureName="description" valueExpression="var:newValue"/>
           </initialOperation>
         </controls>
-        <controls xsi:type="properties:CustomDescription" name="org.obeonetwork.dsl.database.design.custom.reference" label="graal::UseCase tasks" labelExpression="aql:'Tasks :'" helpExpression="aql:input.emfEditServices(self).getDescription(self.eClass().getEStructuralFeature('tasks'))" isEnabledExpression="aql:self.eClass().getEStructuralFeature('tasks').changeable">
+        <controls xsi:type="properties:CustomDescription" name="org.obeonetwork.is.eef.custom.reference" label="graal::UseCase tasks" labelExpression="aql:'Tasks :'" helpExpression="aql:input.emfEditServices(self).getDescription(self.eClass().getEStructuralFeature('tasks'))" isEnabledExpression="aql:self.eClass().getEStructuralFeature('tasks').changeable">
           <customExpressions name="referenceNameExpression" customExpression="aql:'tasks'"/>
           <customOperations name="onDoubleClickOperation">
             <initialOperation>
@@ -2166,7 +2166,7 @@
             </initialOperation>
           </customOperations>
         </controls>
-        <controls xsi:type="properties:CustomDescription" name="org.obeonetwork.dsl.database.design.custom.reference" label="graal::UseCase namespaces" labelExpression="aql:'Namespaces :'" helpExpression="aql:input.emfEditServices(self).getDescription(self.eClass().getEStructuralFeature('namespaces'))" isEnabledExpression="aql:self.eClass().getEStructuralFeature('namespaces').changeable">
+        <controls xsi:type="properties:CustomDescription" name="org.obeonetwork.is.eef.custom.reference" label="graal::UseCase namespaces" labelExpression="aql:'Namespaces :'" helpExpression="aql:input.emfEditServices(self).getDescription(self.eClass().getEStructuralFeature('namespaces'))" isEnabledExpression="aql:self.eClass().getEStructuralFeature('namespaces').changeable">
           <customExpressions name="referenceNameExpression" customExpression="aql:'namespaces'"/>
           <customOperations name="onDoubleClickOperation">
             <initialOperation>
@@ -2186,7 +2186,7 @@
             </initialOperation>
           </customOperations>
         </controls>
-        <controls xsi:type="properties:CustomDescription" name="org.obeonetwork.dsl.database.design.custom.reference" label="graal::UseCase domainClasses" labelExpression="aql:'Domain Classes :'" helpExpression="aql:input.emfEditServices(self).getDescription(self.eClass().getEStructuralFeature('domainClasses'))" isEnabledExpression="aql:self.eClass().getEStructuralFeature('domainClasses').changeable">
+        <controls xsi:type="properties:CustomDescription" name="org.obeonetwork.is.eef.custom.reference" label="graal::UseCase domainClasses" labelExpression="aql:'Domain Classes :'" helpExpression="aql:input.emfEditServices(self).getDescription(self.eClass().getEStructuralFeature('domainClasses'))" isEnabledExpression="aql:self.eClass().getEStructuralFeature('domainClasses').changeable">
           <customExpressions name="referenceNameExpression" customExpression="aql:'domainClasses'"/>
           <customOperations name="onDoubleClickOperation">
             <initialOperation>

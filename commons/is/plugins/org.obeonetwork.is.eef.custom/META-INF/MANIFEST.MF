@@ -1,0 +1,31 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Information System EEF Customization
+Bundle-SymbolicName: org.obeonetwork.is.eef.custom;singleton:=true
+Bundle-Version: 11.0.0.qualifier
+Automatic-Module-Name: org.obeonetwork.is.eef.custom
+Bundle-RequiredExecutionEnvironment: JavaSE-1.8
+Bundle-Vendor: Obeo Network
+Require-Bundle: org.eclipse.core.runtime,
+ org.eclipse.eef.common.ui,
+ org.eclipse.eef.common,
+ org.eclipse.eef.core.ext.widgets.reference,
+ org.eclipse.eef.core,
+ org.eclipse.eef.ext.widgets.reference,
+ org.eclipse.eef.ide.ui.ext.widgets.reference,
+ org.eclipse.eef.ide.ui,
+ org.eclipse.eef,
+ org.eclipse.emf.ecore,
+ org.eclipse.emf.eef.runtime,
+ org.eclipse.emf.transaction,
+ org.eclipse.jface,
+ org.eclipse.sirius.common.interpreter,
+ org.eclipse.sirius.common,
+ org.eclipse.sirius.diagram,
+ org.eclipse.sirius.ext.base,
+ org.eclipse.sirius.ext.emf.edit,
+ org.eclipse.sirius.ui,
+ org.eclipse.sirius,
+ org.eclipse.swt,
+ org.eclipse.ui
+Export-Package: org.obeonetwork.is.eef.custom.reference

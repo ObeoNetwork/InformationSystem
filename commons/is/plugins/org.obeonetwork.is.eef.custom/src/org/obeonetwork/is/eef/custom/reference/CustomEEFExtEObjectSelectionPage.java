@@ -8,12 +8,11 @@
  * Contributors:
  *     Obeo - initial API and implementation
  *******************************************************************************/
-package org.obeonetwork.dsl.database.design.reference.custom;
+package org.obeonetwork.is.eef.custom.reference;
 
 import java.util.List;
 import java.util.function.Function;
 
-import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.eef.core.api.EditingContextAdapter;
 import org.eclipse.eef.ide.ui.ext.widgets.reference.internal.Messages;
 import org.eclipse.emf.ecore.EClassifier;

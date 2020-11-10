@@ -1199,10 +1199,10 @@
         </controls>
       </groups>
       <groups name="Wire Group" labelExpression="Properties" domainClass="soa::Wire" semanticCandidateExpression="var:self">
-        <controls xsi:type="properties:CustomDescription" name="org.obeonetwork.dsl.database.design.custom.reference" label="soa::Component source" labelExpression="aql:input.emfEditServices(self).getText(self.eClass().getEStructuralFeature('source')) + ':'" helpExpression="aql:input.emfEditServices(self).getDescription(self.eClass().getEStructuralFeature('source'))" isEnabledExpression="aql:self.eClass().getEStructuralFeature('source').changeable">
+        <controls xsi:type="properties:CustomDescription" name="org.obeonetwork.is.eef.custom.reference" label="soa::Component source" labelExpression="aql:input.emfEditServices(self).getText(self.eClass().getEStructuralFeature('source')) + ':'" helpExpression="aql:input.emfEditServices(self).getDescription(self.eClass().getEStructuralFeature('source'))" isEnabledExpression="aql:self.eClass().getEStructuralFeature('source').changeable">
           <customExpressions name="referenceNameExpression" customExpression="aql:'source'"/>
         </controls>
-        <controls xsi:type="properties:CustomDescription" name="org.obeonetwork.dsl.database.design.custom.reference" label="soa::Component dest" labelExpression="aql:input.emfEditServices(self).getText(self.eClass().getEStructuralFeature('dest')) + ':'" helpExpression="aql:input.emfEditServices(self).getDescription(self.eClass().getEStructuralFeature('dest'))" isEnabledExpression="aql:self.eClass().getEStructuralFeature('dest').changeable">
+        <controls xsi:type="properties:CustomDescription" name="org.obeonetwork.is.eef.custom.reference" label="soa::Component dest" labelExpression="aql:input.emfEditServices(self).getText(self.eClass().getEStructuralFeature('dest')) + ':'" helpExpression="aql:input.emfEditServices(self).getDescription(self.eClass().getEStructuralFeature('dest'))" isEnabledExpression="aql:self.eClass().getEStructuralFeature('dest').changeable">
           <customExpressions name="referenceNameExpression" customExpression="aql:'dest'"/>
         </controls>
         <controls xsi:type="properties:TextAreaDescription" name="soa::Component description" labelExpression="aql:input.emfEditServices(self).getText(self.eClass().getEStructuralFeature('description')) + ':'" helpExpression="aql:input.emfEditServices(self).getDescription(self.eClass().getEStructuralFeature('description'))" isEnabledExpression="aql:self.eClass().getEStructuralFeature('description').changeable" valueExpression="aql:self.description">
@@ -1237,7 +1237,7 @@
             <firstModelOperations xsi:type="tool_1:SetValue" featureName="isOrdered" valueExpression="var:newValue"/>
           </initialOperation>
         </controls>
-        <controls xsi:type="properties:CustomDescription" name="org.obeonetwork.dsl.database.design.custom.reference" label="soa::Parameter type" labelExpression="aql:input.emfEditServices(self).getText(self.eClass().getEStructuralFeature('type')) + ':'" helpExpression="aql:input.emfEditServices(self).getDescription(self.eClass().getEStructuralFeature('type'))" isEnabledExpression="aql:self.eClass().getEStructuralFeature('type').changeable">
+        <controls xsi:type="properties:CustomDescription" name="org.obeonetwork.is.eef.custom.reference" label="soa::Parameter type" labelExpression="aql:input.emfEditServices(self).getText(self.eClass().getEStructuralFeature('type')) + ':'" helpExpression="aql:input.emfEditServices(self).getDescription(self.eClass().getEStructuralFeature('type'))" isEnabledExpression="aql:self.eClass().getEStructuralFeature('type').changeable">
           <customExpressions name="referenceNameExpression" customExpression="aql:'type'"/>
         </controls>
         <controls xsi:type="properties:TextAreaDescription" name="soa::Component description" labelExpression="aql:input.emfEditServices(self).getText(self.eClass().getEStructuralFeature('description')) + ':'" helpExpression="aql:input.emfEditServices(self).getDescription(self.eClass().getEStructuralFeature('description'))" isEnabledExpression="aql:self.eClass().getEStructuralFeature('description').changeable" valueExpression="aql:self.description">
@@ -1430,7 +1430,7 @@
         </controls>
       </groups>
       <groups name="Operation Security Group" labelExpression="Security" domainClass="soa::Operation" semanticCandidateExpression="var:self" preconditionExpression="aql:self.eContainer(soa::Component).securitySchemes->notEmpty()">
-        <controls xsi:type="properties:CustomDescription" name="org.obeonetwork.dsl.database.design.custom.reference" label="soa::Operation securitySchemes" labelExpression="aql:input.emfEditServices(self).getText(self.eClass().getEStructuralFeature('securitySchemes')) + ':'" helpExpression="aql:input.emfEditServices(self).getDescription(self.eClass().getEStructuralFeature('securitySchemes'))" isEnabledExpression="aql:self.eClass().getEStructuralFeature('securitySchemes').changeable">
+        <controls xsi:type="properties:CustomDescription" name="org.obeonetwork.is.eef.custom.reference" label="soa::Operation securitySchemes" labelExpression="aql:input.emfEditServices(self).getText(self.eClass().getEStructuralFeature('securitySchemes')) + ':'" helpExpression="aql:input.emfEditServices(self).getDescription(self.eClass().getEStructuralFeature('securitySchemes'))" isEnabledExpression="aql:self.eClass().getEStructuralFeature('securitySchemes').changeable">
           <customExpressions name="referenceNameExpression" customExpression="securitySchemes"/>
           <customExpressions name="hideAddButtonExpression" customExpression="aql:true"/>
           <customOperations name="browseButtonOperation">
@@ -1452,7 +1452,7 @@
         </controls>
       </groups>
       <groups name="Component Security Schemes Group" labelExpression="Security Schemes" domainClass="soa::Component" semanticCandidateExpression="var:self">
-        <controls xsi:type="properties:CustomDescription" name="org.obeonetwork.dsl.database.design.custom.reference" label="soa::Component Security Schemes" labelExpression="aql:input.emfEditServices(self).getText(self.eClass().getEStructuralFeature('securitySchemes')) + ':'" helpExpression="aql:input.emfEditServices(self).getDescription(self.eClass().getEStructuralFeature('securitySchemes'))" isEnabledExpression="aql:self.eClass().getEStructuralFeature('securitySchemes').changeable">
+        <controls xsi:type="properties:CustomDescription" name="org.obeonetwork.is.eef.custom.reference" label="soa::Component Security Schemes" labelExpression="aql:input.emfEditServices(self).getText(self.eClass().getEStructuralFeature('securitySchemes')) + ':'" helpExpression="aql:input.emfEditServices(self).getDescription(self.eClass().getEStructuralFeature('securitySchemes'))" isEnabledExpression="aql:self.eClass().getEStructuralFeature('securitySchemes').changeable">
           <customExpressions name="referenceNameExpression" customExpression="securitySchemes"/>
           <customOperations name="addButtonOperation">
             <initialOperation>

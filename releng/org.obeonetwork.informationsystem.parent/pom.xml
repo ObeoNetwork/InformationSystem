@@ -144,6 +144,7 @@
 
 		<!-- commons/is/ -->
 		<module>../../commons/is/plugins/org.obeonetwork.dsl.is</module>
+		<module>../../commons/is/plugins/org.obeonetwork.is.eef.custom</module>
 		<module>../../commons/is/features/org.obeonetwork.dsl.feature.is</module>
 
 		<module>../../commons/tools/plugins/org.obeonetwork.tools.doc</module>

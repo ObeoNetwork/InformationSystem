@@ -8,7 +8,7 @@
  * Contributors:
  *     Obeo - initial API and implementation
  *******************************************************************************/
-package org.obeonetwork.dsl.database.design.reference.custom;
+package org.obeonetwork.is.eef.custom.reference;
 
 import java.util.Collection;
 
@@ -28,7 +28,7 @@ import org.eclipse.sirius.common.interpreter.api.IVariableManager;
 
 public class EEFReferenceCustomLifecycleManagerProvider implements IEEFLifecycleManagerProvider {
 	
-	private static final String SUPPORTED_ID = "org.obeonetwork.dsl.database.design.custom.reference";
+	private static final String SUPPORTED_ID = "org.obeonetwork.is.eef.custom.reference";
 
 	@Override
 	public boolean canHandle(EEFControlDescription controlDescription) {
