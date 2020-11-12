@@ -62,8 +62,8 @@ public class ModelServices {
 	}
 	
 	public static <T extends EObject> T setEDataTypeValue(T eObject, EAttribute attribute, String literalValue) {
-		if(literalValue == null || literalValue.trim().isEmpty()) {
-			eObject.eSet(attribute, attribute.getDefaultValue());
+		if(literalValue.trim().isEmpty() && attribute.getDefaultValueLiteral() == null && attribute.isUnsettable()) {
+			eObject.eUnset(attribute);
 		} else {
 			EFactory eFactory = EcorePackage.eINSTANCE.getEcoreFactory();
 			EDataType eDataType = attribute.getEAttributeType();
