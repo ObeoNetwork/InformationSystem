@@ -17,5 +17,7 @@ public class EnvironmentRow {
 	public String name;
 	
 	public String uri;
+
+	public boolean unselectable;
 	
 }

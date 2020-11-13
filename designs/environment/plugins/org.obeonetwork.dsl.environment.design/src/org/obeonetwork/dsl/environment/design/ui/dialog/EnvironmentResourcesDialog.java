@@ -17,12 +17,15 @@ import org.eclipse.jface.dialogs.IDialogConstants;
 import org.eclipse.jface.layout.TableColumnLayout;
 import org.eclipse.jface.viewers.ArrayContentProvider;
 import org.eclipse.jface.viewers.CheckboxTableViewer;
+import org.eclipse.jface.viewers.ColumnPixelData;
 import org.eclipse.jface.viewers.ColumnWeightData;
 import org.eclipse.jface.viewers.ICheckStateProvider;
 import org.eclipse.jface.viewers.ILabelProviderListener;
+import org.eclipse.jface.viewers.ITableColorProvider;
 import org.eclipse.jface.viewers.ITableLabelProvider;
 import org.eclipse.jface.viewers.TableViewerColumn;
 import org.eclipse.swt.SWT;
+import org.eclipse.swt.graphics.Color;
 import org.eclipse.swt.graphics.Image;
 import org.eclipse.swt.graphics.Point;
 import org.eclipse.swt.layout.GridData;
@@ -35,7 +38,6 @@ import org.eclipse.swt.widgets.Table;
 import org.eclipse.swt.widgets.TableColumn;
 import org.eclipse.wb.swt.SWTResourceManager;
 import org.obeonetwork.dsl.environment.design.internal.EnvironmentRow;
-import org.eclipse.jface.viewers.ColumnPixelData;
 
 public class EnvironmentResourcesDialog extends Dialog {
 	private Table table_1;
@@ -104,40 +106,7 @@ public class EnvironmentResourcesDialog extends Dialog {
 
 		
 		tableViewer.setContentProvider(ArrayContentProvider.getInstance());
-		tableViewer.setLabelProvider(new ITableLabelProvider() {
-			
-			public void removeListener(ILabelProviderListener listener) {
-			}
-			
-			public boolean isLabelProperty(Object element, String property) {
-				return false;
-			}
-			
-			public void dispose() {
-			}
-			
-			public void addListener(ILabelProviderListener listener) {
-			}
-			
-			public String getColumnText(Object element, int columnIndex) {
-				String text = "";
-				switch (columnIndex) {
-				case 1:
-					text = ((EnvironmentRow) element).name;
-					break;
-			    case 2:
-			    	text = ((EnvironmentRow) element).uri;
-			    	break;
-				default:
-					break;
-				}
-				return text;
-			}
-			
-			public Image getColumnImage(Object element, int columnIndex) {
-				return null;
-			}
-		});
+		tableViewer.setLabelProvider(new LabelProvider());
 		
 		tableViewer.setCheckStateProvider(new ICheckStateProvider() {
 			
@@ -155,11 +124,11 @@ public class EnvironmentResourcesDialog extends Dialog {
 		
 		tableViewer.addCheckStateListener((event) -> {
 			EnvironmentRow row = (EnvironmentRow) event.getElement();
-			row.selected = event.getChecked();
+			row.selected = event.getChecked() || row.unselectable;
+			tableViewer.refresh();
 		});
 		
 		tableViewer.setInput(environmentRows);
-//		tableViewer.setCheckedElements(selecetdEnvironmentRows.toArray());
 		return container;
 	}
 	
@@ -188,5 +157,52 @@ public class EnvironmentResourcesDialog extends Dialog {
 
 	public List<EnvironmentRow> getEnvironmentRows() {
 		return environmentRows;
+	}
+	
+	private static class LabelProvider implements ITableLabelProvider, ITableColorProvider {
+		public void removeListener(ILabelProviderListener listener) {
+		}
+		
+		public boolean isLabelProperty(Object element, String property) {
+			return false;
+		}
+		
+		public void dispose() {
+		}
+		
+		public void addListener(ILabelProviderListener listener) {
+		}
+		
+		public String getColumnText(Object element, int columnIndex) {
+			String text = "";
+			switch (columnIndex) {
+			case 1:
+				text = ((EnvironmentRow) element).name;
+				break;
+		    case 2:
+		    	text = ((EnvironmentRow) element).uri;
+		    	break;
+			default:
+				break;
+			}
+			return text;
+		}
+		
+		public Image getColumnImage(Object element, int columnIndex) {
+			return null;
+		}
+
+		@Override
+		public Color getForeground(Object element, int columnIndex) {
+			if(((EnvironmentRow) element).unselectable) {
+				return SWTResourceManager.getColor(SWT.COLOR_GRAY);
+			}
+			return null;
+		}
+
+		@Override
+		public Color getBackground(Object element, int columnIndex) {
+			return null;
+		}
 	}
 }

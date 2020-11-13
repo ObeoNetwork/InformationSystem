@@ -10,10 +10,11 @@
  *******************************************************************************/
 package org.obeonetwork.dsl.environment.design.ui.handlers;
 
+import static java.util.stream.Collectors.toList;
+
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
-import java.util.stream.Collectors;
 
 import org.eclipse.core.commands.AbstractHandler;
 import org.eclipse.core.commands.ExecutionEvent;
@@ -44,6 +45,7 @@ import org.eclipse.sirius.tools.api.command.semantic.RemoveSemanticResourceComma
 import org.eclipse.sirius.ui.tools.api.views.common.item.ProjectDependenciesItem;
 import org.eclipse.swt.widgets.Shell;
 import org.eclipse.ui.handlers.HandlerUtil;
+import org.obeonetwork.dsl.environment.Environment;
 import org.obeonetwork.dsl.environment.design.internal.EnvironmentRow;
 import org.obeonetwork.dsl.environment.design.internal.commands.UnsetCrossReferenceCommand;
 import org.obeonetwork.dsl.environment.design.ui.dialog.EnvironmentResourcesDialog;
@@ -64,16 +66,15 @@ public class OpenEnvResourcesDialog extends AbstractHandler {
 		ModelingProject project = context.getModelingProject();
 		Session session = context.getSession();
 		
-		List<URI> alreadyPresentURIs = session.getSemanticResources().stream().map(Resource::getURI).collect(Collectors.toList());
-		
-		List<EnvironmentRow> environmentRows = getAllEnvironmentResources(alreadyPresentURIs);
-		List<EnvironmentRow> selectedEnvironmentRows = environmentRows.stream().filter(env -> env.selected).collect(Collectors.toList());
-		List<EnvironmentRow> nonSelectedEnvironmentRows = environmentRows.stream().filter(env -> !env.selected).collect(Collectors.toList());
+		List<EnvironmentRow> environmentRows = getAllEnvironmentResources(session);
+		List<EnvironmentRow> selectedEnvironmentRows = environmentRows.stream().filter(env -> env.selected).collect(toList());
+		List<EnvironmentRow> nonSelectedEnvironmentRows = environmentRows.stream().filter(env -> !env.selected).collect(toList());
 		
 		selectedEnvironmentRows.sort((er1, er2) -> er1.name.compareTo(er2.name));
 		nonSelectedEnvironmentRows.sort((er1, er2) -> er1.name.compareTo(er2.name));
 		
-		List<EnvironmentRow> sortedEnvironmentRows = new ArrayList<>(selectedEnvironmentRows);
+		List<EnvironmentRow> sortedEnvironmentRows = new ArrayList<>();
+		sortedEnvironmentRows.addAll(selectedEnvironmentRows);
 		sortedEnvironmentRows.addAll(nonSelectedEnvironmentRows);
 		
 		// Display the dialog allowing to choose environment resource in the project.
@@ -114,7 +115,7 @@ public class OpenEnvResourcesDialog extends AbstractHandler {
 	}
 
 	private CompoundCommand handleSemanticResourceUse(List<Setting> crossReferencesUsingSettings, Shell parentShell, Session session, Resource resource, TransactionalEditingDomain ted) {
-		List<EObject> crossReferences = crossReferencesUsingSettings.stream().map(Setting::getEObject).collect(Collectors.toList());
+		List<EObject> crossReferences = crossReferencesUsingSettings.stream().map(Setting::getEObject).collect(toList());
 		List<Resource> roots = computeRoots(crossReferences);
 		EnvironmentUsedElementResourceWarning environmentUsedElementResourceWarning = new EnvironmentUsedElementResourceWarning(parentShell, roots, crossReferences, resource.getURI().lastSegment());
 		CompoundCommand compoundCommand = new CompoundCommand();
@@ -163,23 +164,40 @@ public class OpenEnvResourcesDialog extends AbstractHandler {
 		return crossReferences;
 	}
 
-	private List<EnvironmentRow> getAllEnvironmentResources(Collection<URI> alreadyPresentURIs) {
+	private List<EnvironmentRow> getAllEnvironmentResources(Session session) {
 		List<EnvironmentRow> environmentRows = new ArrayList<>();
+		
+		List<Resource> sessionEnvironmentResources = session.getSemanticResources().stream()
+				.filter(r -> !r.getContents().isEmpty() && r.getContents().get(0) instanceof Environment)
+				.collect(toList());
+		
 		for (IConfigurationElement configElement : ProvidedModelsService.getProvidedEnvironment()) {
-			EnvironmentRow environmentRow = createEnvironmentRowFromConfigElement(configElement);
-			environmentRow.selected = alreadyPresentURIs.contains(URI.createURI(environmentRow.uri));
+			EnvironmentRow environmentRow = new EnvironmentRow();
+			environmentRow.name = configElement.getAttribute("name");
+			environmentRow.uri = configElement.getAttribute("uri");
+			environmentRow.selected = sessionEnvironmentResources.stream()
+					.anyMatch(r -> r.getURI().equals(URI.createURI(environmentRow.uri)));
+			environmentRow.unselectable = false;
 			environmentRows.add(environmentRow);
 		}
+		
+		List<URI> providedEnvironmentURIs = environmentRows.stream().map(er -> URI.createURI(er.uri)).collect(toList());
+		
+		List<Resource> otherEnvironmentResources = sessionEnvironmentResources.stream().filter(env -> !providedEnvironmentURIs.contains(env.getURI())).collect(toList());
+		for(Resource otherEnvironmentResource : otherEnvironmentResources) {
+			Environment environment = (Environment)otherEnvironmentResource.getContents().get(0);
+			
+			EnvironmentRow environmentRow = new EnvironmentRow();
+			environmentRow.name = environment.getName();
+			environmentRow.uri = otherEnvironmentResource.getURI().toString();
+			environmentRow.selected = true;
+			environmentRow.unselectable = true;
+			environmentRows.add(environmentRow);
+		}
+		
 		return environmentRows;
 	}
 	
-	private static EnvironmentRow createEnvironmentRowFromConfigElement(IConfigurationElement configElement) {
-		EnvironmentRow environmentRow = new EnvironmentRow();
-		environmentRow.name = configElement.getAttribute("name");
-		environmentRow.uri = configElement.getAttribute("uri");
-		return environmentRow;
-	}
-
 	private class OpenEnvResourceDialogContext {
 		
 		private ModelingProject modelingProject;
