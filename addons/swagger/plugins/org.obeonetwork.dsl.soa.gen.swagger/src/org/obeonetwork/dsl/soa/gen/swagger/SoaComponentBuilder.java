@@ -946,15 +946,21 @@ public class SoaComponentBuilder {
 			StringBuffer soaServiceDescription = new StringBuffer();
 			for(int tagIndex = 0; tagIndex < soaServiceTags.size(); tagIndex++) {
 				String tagName = soaServiceTags.get(tagIndex);
-				Tag tagElement = openApi.getTags().stream().filter(t -> tagName.equals(t.getName())).findFirst().orElse(null);
 				if(soaServiceTags.size() > 1) {
 					soaServiceDescription
 					.append(tagName)
 					.append(":")
 					.append(System.lineSeparator());
 				}
-				soaServiceDescription
-				.append(tagElement.getDescription());
+				
+				Tag tagElement = null;
+				if(openApi.getTags() != null) {
+					tagElement = openApi.getTags().stream().filter(t -> tagName.equals(t.getName())).findFirst().orElse(null);
+				}
+				if(tagElement != null) {
+					soaServiceDescription
+					.append(tagElement.getDescription());
+				}
 				
 				if(tagIndex < soaServiceTags.size() - 1) {
 					soaServiceDescription

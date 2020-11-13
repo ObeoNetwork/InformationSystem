@@ -24,6 +24,7 @@ import org.obeonetwork.dsl.soa.gen.swagger.utils.NamespaceGenUtil;
 import org.obeonetwork.dsl.soa.gen.swagger.utils.SystemGenUtil;
 
 import com.fasterxml.jackson.core.JsonParseException;
+import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.JsonMappingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
@@ -32,6 +33,8 @@ import io.swagger.v3.core.util.Yaml;
 import io.swagger.v3.oas.models.OpenAPI;
 
 public class SwaggerImporter {
+	
+	private static final String OPEN_API_MINIMAL_SUPPORTED_VERSION = "OpenAPI 3.0";
 	
 	private System soaSystem;
 	private Environment environment;
@@ -44,27 +47,46 @@ public class SwaggerImporter {
 	public int importFromFile(String inputFilePath) {
 		int status = IStatus.OK;
 		
-		ObjectMapper objectMapper = null;
-		if(inputFilePath.endsWith(".yaml")) {
-			objectMapper = Yaml.mapper();
-		} else if(inputFilePath.endsWith(".json")) {
-			objectMapper = Json.mapper();
-		}
+		File inputFile = new File(inputFilePath);
 
-		File file = new File(inputFilePath);
-
-		OpenAPI swagger = null;
+		String swaggerVersion = null;
 		try {
-			swagger = objectMapper.readValue(file, OpenAPI.class);
-		} catch (JsonParseException e) {
-			logError("Json parsing exception.", e);
-			status = IStatus.ERROR;
-		} catch (JsonMappingException e) {
-			logError("Json mapping exception.", e);
+			swaggerVersion = new SwaggerFileQuery(inputFile).getVersion();
+		} catch (JsonProcessingException e) {
+			logError(String.format("Invalid file content : %s.", inputFilePath), e);
 			status = IStatus.ERROR;
 		} catch (IOException e) {
 			logError("I/O exception.", e);
 			status = IStatus.ERROR;
+		}
+		
+		if(status != IStatus.ERROR && !swaggerVersion.startsWith(OPEN_API_MINIMAL_SUPPORTED_VERSION)) {
+			logError(String.format("Unsupported format : %s. Minimal supported version is %s.", swaggerVersion, OPEN_API_MINIMAL_SUPPORTED_VERSION));
+			status = IStatus.ERROR;
+		}
+		
+		OpenAPI swagger = null;
+		if(status != IStatus.ERROR) {
+			
+			ObjectMapper objectMapper = null;
+			if(inputFilePath.endsWith(".yaml")) {
+				objectMapper = Yaml.mapper();
+			} else if(inputFilePath.endsWith(".json")) {
+				objectMapper = Json.mapper();
+			}
+
+			try {
+				swagger = objectMapper.readValue(inputFile, OpenAPI.class);
+			} catch (JsonParseException e) {
+				logError("Json parsing exception.", e);
+				status = IStatus.ERROR;
+			} catch (JsonMappingException e) {
+				logError("Json mapping exception.", e);
+				status = IStatus.ERROR;
+			} catch (IOException e) {
+				logError("I/O exception.", e);
+				status = IStatus.ERROR;
+			}
 		}
 		
 		if(status != IStatus.ERROR) {
@@ -75,19 +97,23 @@ public class SwaggerImporter {
 				Component soaComponent = soaComponentBuilder.getComponent();
 				Namespace soaComponentNamespace = soaComponentBuilder.getNamespace();
 				
-				if(SystemGenUtil.getComponentByName(soaSystem, soaComponent.getName()) != null) {
+				if(soaComponent != null && SystemGenUtil.getComponentByName(soaSystem, soaComponent.getName()) != null) {
 					logError(String.format("Component with name %s already exist.", soaComponent.getName()));
 					status = IStatus.ERROR;
 				}
 				
-				if(NamespaceGenUtil.getNamespaceByName(soaSystem, soaComponentNamespace.getName()) != null) {
+				if(soaComponentNamespace != null && NamespaceGenUtil.getNamespaceByName(soaSystem, soaComponentNamespace.getName()) != null) {
 					logError(String.format("Namespace with name %s already exist.", soaComponentNamespace.getName()));
 					status = IStatus.ERROR;
 				}
 				
 				if(status != IStatus.ERROR) {
-					soaSystem.getOwnedComponents().add(soaComponent);
-					soaSystem.getOwnedNamespaces().add(soaComponentNamespace);
+					if(soaComponent != null) {
+						soaSystem.getOwnedComponents().add(soaComponent);
+					}
+					if(soaComponentNamespace != null) {
+						soaSystem.getOwnedNamespaces().add(soaComponentNamespace);
+					}
 				}
 				
 			}
