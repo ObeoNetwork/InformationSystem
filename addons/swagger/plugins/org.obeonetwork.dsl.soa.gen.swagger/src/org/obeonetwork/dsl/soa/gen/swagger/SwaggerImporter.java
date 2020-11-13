@@ -34,7 +34,8 @@ import io.swagger.v3.oas.models.OpenAPI;
 
 public class SwaggerImporter {
 	
-	private static final String OPEN_API_MINIMAL_SUPPORTED_VERSION = "OpenAPI 3.0";
+	private static final String OPEN_API_SUPPORTED_VERSION_PATTERN = "OpenAPI 3.[0-9]+(.[0-9]+)?";
+	private static final String OPEN_API_SUPPORTED_VERSIONS = "OpenAPI 3.x";
 	
 	private System soaSystem;
 	private Environment environment;
@@ -60,8 +61,9 @@ public class SwaggerImporter {
 			status = IStatus.ERROR;
 		}
 		
-		if(status != IStatus.ERROR && !swaggerVersion.startsWith(OPEN_API_MINIMAL_SUPPORTED_VERSION)) {
-			logError(String.format("Unsupported format : %s. Minimal supported version is %s.", swaggerVersion, OPEN_API_MINIMAL_SUPPORTED_VERSION));
+		
+		if(status != IStatus.ERROR && !swaggerVersion.matches(OPEN_API_SUPPORTED_VERSION_PATTERN)) {
+			logError(String.format("Unsupported format : %s. Supported version are %s.", swaggerVersion, OPEN_API_SUPPORTED_VERSIONS));
 			status = IStatus.ERROR;
 		}
 		
