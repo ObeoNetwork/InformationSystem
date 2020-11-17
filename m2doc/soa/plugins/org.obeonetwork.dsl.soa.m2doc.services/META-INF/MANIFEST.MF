@@ -1,6 +1,6 @@
 Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
-Bundle-Name: Services
+Bundle-Name: M2Doc SOA Services
 Bundle-SymbolicName: org.obeonetwork.dsl.soa.m2doc.services;singleton:=true
 Bundle-Version: 1.0.0.qualifier
 Bundle-RequiredExecutionsoa: JavaSE-1.8
@@ -10,3 +10,4 @@ Require-Bundle: org.obeonetwork.m2doc.ide;bundle-version="2.0.0",
  org.obeonetwork.dsl.environment.m2doc.services
 Automatic-Module-Name: org.obeonetwork.dsl.soa.m2doc.services
 Export-Package: org.obeonetwork.dsl.soa.m2doc.services
+Bundle-Vendor: Obeo Network

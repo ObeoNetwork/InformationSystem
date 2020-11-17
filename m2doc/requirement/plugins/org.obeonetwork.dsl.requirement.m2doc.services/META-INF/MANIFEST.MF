@@ -1,6 +1,6 @@
 Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
-Bundle-Name: Services
+Bundle-Name: M2Doc Requirement Services
 Bundle-SymbolicName: org.obeonetwork.dsl.requirement.m2doc.services;singleton:=true
 Bundle-Version: 1.0.0.qualifier
 Bundle-Activator: org.obeonetwork.requirement.m2doc.services.Activator

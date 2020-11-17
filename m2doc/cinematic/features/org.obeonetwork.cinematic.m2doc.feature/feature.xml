@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <feature
       id="org.obeonetwork.cinematic.m2doc.feature"
-      label="CinematicServices"
-      version="1.0.0.qualifier">
+      label="Obeo Network - M2Doc Cinematic Services"
+      version="1.0.0.qualifier"
+      provider-name="Obeo Network">
 
    <description url="https://www.obeo.fr">
-      Obeo - Cinematic Model Service implementations and documentation
+      Obeo Network - Cinematic Model Service implementations and documentation.
    </description>
 
    <copyright url="http://www.example.com/copyright">

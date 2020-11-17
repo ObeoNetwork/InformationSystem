@@ -1,4 +1,4 @@
-__Copyright (c) Obeo 2016, 2017 -  All rights reserved. This program and the accompanying materials are made available under the terms of the Eclipse Public License v1.0__
+__Copyright (c) 2008, 2020 Obeo -  All rights reserved. This program and the accompanying materials are made available under the terms of the Eclipse Public License v1.0__
 
 @Authors@ Stéphane Thibaudeau
 @Contact@ stephane.thibaudeau@obeo.fr
@@ -59,7 +59,8 @@ Le _Binding editor_ est un éditeur spécifique permettant décrire en détail l
 
 h4. Structure générale de l'éditeur
 
-L'éditeur est divisé en différentes parties :
+
+L'éditeur est divisé en différentes parties :
 * Une vue arborescente du premier type structuré à gauche
 * Une vue arborescente du deuxième type structuré à droite
 * Une zone centrale affichant les liens entre types

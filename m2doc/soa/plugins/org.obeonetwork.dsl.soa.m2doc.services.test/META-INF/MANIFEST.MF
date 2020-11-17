@@ -1,6 +1,6 @@
 Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
-Bundle-Name: Entity m2doc  services tests
+Bundle-Name: M2Doc SOA Services Tests
 Bundle-SymbolicName: org.obeonetwork.dsl.soa.m2doc.services.test
 Bundle-Version: 1.0.0.qualifier
 Bundle-RequiredExecutionsoa: JavaSE-1.8
@@ -9,3 +9,4 @@ Require-Bundle: org.obeonetwork.dsl.soa.m2doc.services;bundle-version="1.0.0",
  org.obeonetwork.dsl.soa,
  org.obeonetwork.dsl.entity,
  org.obeonetwork.dsl.environment.m2doc.services
+Bundle-Vendor: Obeo Network

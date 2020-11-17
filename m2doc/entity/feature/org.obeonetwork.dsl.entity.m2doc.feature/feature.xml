@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <feature
       id="org.obeonetwork.dsl.entity.m2doc.feature"
-      label="entity m2doc Feature"
-      version="1.0.0.qualifier">
+      label="Obeo Network - M2Doc Entity Services"
+      version="1.0.0.qualifier"
+      provider-name="Obeo Network">
 
    <description url="https://www.obeo.fr">
-      Obeo - Entity Model Service implementations and documentation
+      Obeo Network - M2Doc Entity Services implementation and documentation.
    </description>
 
    <copyright url="http://www.example.com/copyright">

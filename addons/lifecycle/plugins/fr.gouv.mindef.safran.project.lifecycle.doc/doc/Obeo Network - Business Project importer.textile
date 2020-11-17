@@ -1,13 +1,13 @@
-__(c) Obeo 2016 -  All rights reserved. This program and the accompanying materials are made available under the terms of the Eclipse Public License v1.0__
+__Copyright (c) 2008, 2020 Obeo -  All rights reserved. This program and the accompanying materials are made available under the terms of the Eclipse Public License v1.0__
 
 @Authors@ Stéphane Thibaudeau
 @Contact@ stephane.thibaudeau@obeo.fr
 
-h1. Safr@n - Business Project importer
+h1. Obeo Network - Business Project importer
 
 h2. Principe
 
-Dans le cadre de Safr@n, les équipes MOA et MOE travaillent sur des projets différents et des modèles différents.
+Dans le cadre de IS-Designer, les équipes MOA et MOE travaillent sur des projets différents et des modèles différents.
 L'équipe MOE a néanmoins besoin des modèles réalisés par l'équipe MOA pour travailler.
 Les cycles de vie des projets MOA et MOE pouvant être décalés, il est intéressant de bénéficier d'une fonctionnalité permettant d'importer le contenu d'un projet MOA dans un projet MOE. Ainsi l'équipe MOE peut travailler sur une version stable des spécifications.
 
@@ -35,7 +35,7 @@ L'import métier se lance au moyen d'un _Import wizard_ spécifique accessible p
 
 !pics/import2.png!
 
-L'assistant se nomme _Import business project_ et est disponible dans la catégorie _Safr@n_
+L'assistant se nomme _Import business project_ et est disponible dans la catégorie _IS-Designer_
 
 !pics/import3.png!
 

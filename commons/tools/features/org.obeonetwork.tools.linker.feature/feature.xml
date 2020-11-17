@@ -11,14 +11,14 @@
  -->
 <feature
       id="org.obeonetwork.tools.linker.feature"
-      label="Obeo Linker"
+      label="Obeo Network - Obeo Linker"
       version="11.3.0.qualifier"
       provider-name="%providerName"
       license-feature="org.obeonetwork.is.license"
       license-feature-version="1.0.0.qualifier">
 
    <description url="https://www.obeo.fr">
-      ObeoNetwork - Obeo Linker
+      Obeo Network - Obeo Linker
    </description>
 
    <copyright url="https://www.obeo.fr">

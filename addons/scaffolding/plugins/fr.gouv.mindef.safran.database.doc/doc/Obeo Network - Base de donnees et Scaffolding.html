@@ -5,7 +5,7 @@
 	</head>
 	<body>
 		<p>
-			<i>&#169; Obeo 2012, 2017 -  All rights reserved. This program and the accompanying materials are made available under the terms of the Eclipse Public License v1.0</i>
+			<i>Copyright &#169; 2008, 2020 Obeo -  All rights reserved. This program and the accompanying materials are made available under the terms of the Eclipse Public License v1.0</i>
 		</p>
 		<p>
 			<code>Authors</code> Stéphane Thibaudeau
@@ -86,7 +86,7 @@
 			<img border="0" src="pics/BDD_ModeleLogique_02.png"/>
 		</p>
 		<p>Il est a noter que la liste des types proposés dans chacune des librairies de types est paramétrable.</p>
-		<h3 id="ComparaisongnrationdesscriptsSQL">Comparaison &amp; génération des scripts SQL</h3>
+		<h3 id="ComparaisongnrationdesscriptsSQLLiquibase">Comparaison &amp; génération des scripts SQL/Liquibase</h3>
 		<h4 id="Comparaisonetfusion">Comparaison et fusion</h4>
 		<p>L&#8217;outillage de comparaison permet de comparer deux versions de MPD, soit deux fichiers stockés localement, soit une version locale avec une autre version stockée dans un référentiel de type subversion. L&#8217;outillage se base sur EMF Compare et fournit une extension permettant d&#8217;améliorer la pertinence de la comparaison sur ce type particulier de modèle.
 			<br/>	Pour comparer deux versions de MPD, sélectionnez les deux fichiers à comparer et utiliser le menu 
@@ -95,6 +95,21 @@
 		<p>
 			<img border="0" src="pics/BDD_SQL_01.png"/>
 		</p>
+		<p>Note: Si vous rencontrez des problèmes lors de la comparaison d&#8217;une base de donnée ayant des liens vers des éléments externes stockés dans des fichiers différents, il est intéressant de lire la documentation sur la résolution du modèle logique qui est utilisé par 
+			<em>EMF Compare</em>. Pour plus d&#8217;information voir la documentation:
+		</p>
+		<ul>
+			<li>
+				<em>EMF Compare Documentation/User/User Guide/Features/Logical Model</em>
+			</li>
+			<li>
+				<em>EMF Compare Documentation/User/User Guide/Logical Model View</em>
+			</li>
+			<li>
+				<em>EMF Compare Documentation/User/User Guide/Customization/Post processors customization/Model resolver</em>
+			</li>
+		</ul>
+		<p>.</p>
 		<h4 id="GnrationdesscriptsSQL">Génération des scripts SQL</h4>
 		<p>
 			<strong>Génération des scripts de modification</strong>
@@ -117,6 +132,39 @@
 		</p>
 		<p>
 			<img border="0" src="pics/BDD_GenSQL_02.png"/>
+		</p>
+		<h4 id="GnrationdunChangeLogLiquibase">Génération d&#8217;un 
+			<em>ChangeLog</em> Liquibase
+		</h4>
+		<p>
+			<strong>Génération d&#8217;un 
+				<em>ChangeLog</em> de modification
+			</strong>
+		</p>
+		<p>Il est possible de générer le fichier 
+			<em>ChangeLog</em> Liquibase permettant de passer d&#8217;une version d&#8217;une base de données à une suivante. Pour cela il faut commencer par comparer les 2 modèles de bases de données en s&#8217;assurant que le plus récent est en première position (cf. paragraphe précédent). Puis de sélectionner le bouton 
+			<em>Generate Liquibase</em> dans la bar de bouton principale.
+		</p>
+		<p>
+			<img border="0" src="pics/LiquibaseGen_CMP_01.png"/>
+		</p>
+		<p>Une hierachie de répertoire sera créée contenant les fichiers suivants:</p>
+		<ul>
+			<li>Liquibase/&lt;Type BBD&gt;/&lt;Nom DBD&gt;/<Date>/run.changelog.xml</li>
+			<li>Liquibase/&lt;Type BBD&gt;/&lt;Nom DBD&gt;/run.changelog.xml</li>
+			<li>Liquibase/&lt;Type BBD&gt;/&lt;Nom DBD&gt;/liquibase.properties</li>
+		</ul>
+		<p>Les deux premiers fichiers sont identiques. Le premier permet de garder un historique des changements, alors que le deuxième permet seulement d&#8217;utiliser plus facilement les commandes 
+			<em>Liquibase</em>. En effet, celui-ci est stocké dans le même dossier que le fichier 
+			<em>liquibase.properties</em>. Le fichier 
+			<em>.properties</em> n&#8217;est pas écrasé à chaque génération, celui-ci est seulement initialisé à la première génération.
+		</p>
+		<p>
+			<strong>Génération complète</strong>
+		</p>
+		<p>Il est possible de générer le fichier 
+			<em>ChangeLog</em> Liquibase pour générer complètement une base de données. Pour cela il suffit d&#8217;utiliser le menu clic droit sur le modèle et sélectionner 
+			<em>IS Designer &gt; Generate Liquibase Changelog</em> 
 		</p>
 		<h2 id="Transformations">Transformations</h2>
 		<p>Les transformations suivantes sont proposées afin d&#8217;initialiser un modèle à partir d&#8217;un autre :</p>
