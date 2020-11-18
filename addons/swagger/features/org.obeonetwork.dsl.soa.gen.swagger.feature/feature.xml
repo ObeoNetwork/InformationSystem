@@ -18,16 +18,12 @@
       license-feature-version="1.0.0.qualifier">
 
    <description url="https://www.obeo.fr">
-      Obeo Network Swagger format support.
+      Obeo Network - Swagger format support.
    </description>
 
    <copyright url="https://www.obeo.fr">
       %copyright
    </copyright>
-
-   <license url="http://www.example.com/license">
-      [Enter License Description here.]
-   </license>
 
    <plugin
          id="org.obeonetwork.dsl.soa.gen.swagger"

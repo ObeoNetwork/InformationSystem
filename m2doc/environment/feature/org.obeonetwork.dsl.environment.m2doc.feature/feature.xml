@@ -1,21 +1,29 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<!--
+    Copyright (c) 2008, 2020 Obeo.
+    All rights reserved. This program and the accompanying materials
+    are made available under the terms of the Eclipse Public License v1.0
+    which accompanies this distribution, and is available at
+    http://www.eclipse.org/legal/epl-v10.html
+   
+    Contributors:
+        Obeo - initial API and implementation
+ -->
 <feature
       id="org.obeonetwork.dsl.environment.m2doc.feature"
       label="Obeo Network - M2Doc Environment Services"
       version="1.0.0.qualifier"
-      provider-name="Obeo Network">
+      provider-name="Obeo Network"
+      license-feature="org.obeonetwork.is.license"
+      license-feature-version="1.0.0.qualifier">
 
    <description url="https://www.obeo.fr">
       Obeo Network - M2Doc Environment Services implementations and documentation.
    </description>
 
-   <copyright url="http://www.example.com/copyright">
-      [Enter Copyright Description here.]
+   <copyright url="https://www.obeo.fr">
+      %copyright
    </copyright>
-
-   <license url="http://www.example.com/license">
-      [Enter License Description here.]
-   </license>
 
    <plugin
          id="org.obeonetwork.dsl.environment.m2doc.services"
