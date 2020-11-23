@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="ASCII"?>
 <description:Group xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:description="http://www.eclipse.org/sirius/description/1.1.0" xmlns:description_1="http://www.eclipse.org/sirius/table/description/1.1.0" xmlns:tool="http://www.eclipse.org/sirius/description/tool/1.1.0" documentation="Copyright (c) 2008, 2020 Obeo.&#xD;&#xA;All rights reserved. This program and the accompanying materials&#xD;&#xA;are made available under the terms of the Eclipse Public License v1.0&#xD;&#xA;which accompanies this distribution, and is available at&#xD;&#xA;http://www.eclipse.org/legal/epl-v10.html&#xD;&#xA;&#xD;&#xA;Contributors:&#xD;&#xA;   Obeo - initial API and implementation" name="safran-is" version="12.0.0.2017041100">
-  <ownedViewpoints name="Entity (Safr@n consolidated view)" label="Entity (Safr@n consolidated view)" modelFileExtension="entity ois">
+  <ownedViewpoints endUserDocumentation="The &lt;b>Entity (Safr@n consolidated view)&lt;/b> viewpoint provides one representation : &#xD;&#xA;&lt;ul>&#xD;&#xA;&lt;li>&lt;b>Entities Physical Names&lt;/b> : a table allowing to view and edit informations related physical storage of entities.&lt;/li>&#xD;&#xA;&lt;/ul>&#xA;" name="Entity (Safr@n consolidated view)" label="Entity (Safr@n consolidated view)" modelFileExtension="entity ois">
     <ownedRepresentations xsi:type="description_1:EditionTableDescription" name="EV_Entities_PhysicalNames" label="Entities Physical Names" domainClass="entity.Root" initialHeaderColumnWidth="80">
       <metamodel href="http://www.obeonetwork.org/dsl/environment/3.0.0#/"/>
       <metamodel href="http://www.obeonetwork.org/dsl/entity/3.0.0#/"/>
@@ -102,7 +102,7 @@
     </ownedRepresentations>
     <ownedJavaExtensions qualifiedClassName="fr.gouv.mindef.safran.is.design.services.AnnotationServices"/>
   </ownedViewpoints>
-  <ownedViewpoints name="Graal Methodology (Safr@n consolidated view)" label="Graal Methodology (Safr@n consolidated view)" modelFileExtension="graal ois">
+  <ownedViewpoints endUserDocumentation="The &lt;b>Graal Methodology (Safr@n consolidated view)&lt;/b> viewpoint provides one representation : &#xD;&#xA;&lt;ul>&#xD;&#xA;&lt;li>&lt;b>Domain Classes Annotations&lt;/b> : a table allowing to view and edit informations related physical storage of domain classes.&lt;/li>&#xD;&#xA;&lt;/ul>&#xA;" name="Graal Methodology (Safr@n consolidated view)" label="Graal Methodology (Safr@n consolidated view)" modelFileExtension="graal ois">
     <ownedRepresentations xsi:type="description_1:EditionTableDescription" name="EV_DomainClasses_Annotations" label="Domain Classes Annotations" domainClass="graal.System" initialHeaderColumnWidth="80">
       <metamodel href="http://www.obeonetwork.org/dsl/environment/3.0.0#/"/>
       <metamodel href="http://www.obeonetwork.org/dsl/graal/2.0.0#/"/>
@@ -183,7 +183,7 @@
     </ownedRepresentations>
     <ownedJavaExtensions qualifiedClassName="fr.gouv.mindef.safran.is.design.services.AnnotationServices"/>
   </ownedViewpoints>
-  <ownedViewpoints name="SOA (Safr@n consolidated view)" label="SOA (Safr@n consolidated view)" modelFileExtension="soa ois">
+  <ownedViewpoints endUserDocumentation="The &lt;b>SOA (Safr@n consolidated view)&lt;/b> viewpoint provides one representation : &#xD;&#xA;&lt;ul>&#xD;&#xA;&lt;li>&lt;b>DTO Physical Names&lt;/b> : a table allowing to view and edit informations related physical storage of DTOs.&lt;/li>&#xD;&#xA;&lt;/ul>&#xA;" name="SOA (Safr@n consolidated view)" label="SOA (Safr@n consolidated view)" modelFileExtension="soa ois">
     <ownedRepresentations xsi:type="description_1:EditionTableDescription" name="EV_DTO_PhysicalNames" label="DTO Physical Names" domainClass="soa.System" initialHeaderColumnWidth="80">
       <metamodel href="http://www.obeonetwork.org/dsl/environment/3.0.0#/"/>
       <metamodel href="http://www.obeonetwork.org/dsl/soa/3.0.0#/"/>
