@@ -20,45 +20,56 @@
 			<br/>En l’occurrence, l&#8217;outillage de scaffolding IS Designer propose les fonctionnalités suivantes : 
 		</p>
 		<ul>
-			<li>un module capable d&#8217;extraire les informations structurelles d&#8217;une base de données relationnelles existantes (MySQL, Oracle, PostgreSQL, SQL Server ou H2) et de produire un modèle EMF conforme au méta-modèle 
-				<em>Database</em> hébergé par Obeo Network : https://github.com/ObeoNetwork/InformationSystem
+			<li>un module capable d&#8217;extraire les informations structurelles d&#8217;une base de données relationnelles existante (MySQL, Oracle, PostgreSQL, SQL Server ou H2) et de produire un modèle EMF conforme au méta-modèle 
+				<em>Database</em> hébergé par Obeo Network : https://github.com/ObeoNetwork/InformationSystem,
 			</li>
-			<li>un modeleur de base de données, basé sur Obeo Designer, permettant de réaliser des Modèles Physique et Logique de Données.</li>
-			<li>un module de comparaison de deux modèles 
-				<em>Database</em> et un générateur de scripts SQL capable de déduire les instructions SQL permettant la mise à jour de la base de données.
+			<li>un modeleur de base de données, basé sur Obeo Designer, permettant de réaliser des Modèles Physique et Logique de Données (MPD et MLD),</li>
+			<li>un module de comparaison de modèles 
+				<em>Database</em> et un générateur de scripts SQL capable de déduire les instructions SQL de mise à jour de la base de données,
 			</li>
-			<li>un ensemble de transformationq permettant d&#8217;automatiser le passage d&#8217;un modèle physique à logique, puis d&#8217;un modèle logique à un modèle d&#8217;entités. Ces transformations sont aussi proposées dans le sens inverse (modèle entité jusqu&#8217;au modèle physique).</li>
+			<li>un ensemble de transformations permettant d&#8217;automatiser la conversion et maintenir la cohérence entre un modèle physique et un modèle logique, ainsi qu&#8217;entre un modèle logique et un modèle d&#8217;entités. Ces transformations sont bidirectionnelles (du modèle entité jusqu&#8217;au modèle physique et vice versa).</li>
 		</ul>
 		<h2 id="Basededonnes">Base de données</h2>
 		<h3 id="Rtroingnierie">Rétro-ingénierie</h3>
 		<p>Cet outil permet d&#8217;initialiser un MPD à partir d&#8217;une base de donnée existante. Un assistant est accessible via le menu 
-			<code>File &gt; Import … &gt; Database &gt; Import Database</code>. Voici un exemple permettant d&#8217;extraire les informations du schéma Oracle 
+			<em>File &gt; Import … &gt; Database &gt; Import Database</em>. Voici un exemple permettant d&#8217;extraire les informations d&#8217;un schéma Oracle nommé 
 			<em>RF</em> :
 		</p>
 		<p>
 			<img border="0" src="pics/BDD_Retro_01.png"/>
 		</p>
-		<p>Il est à noter qu&#8217;il est possible de référencer (à l&#8217;aide de la zone 
-			<em>Referenced file</em>) des MPD existants. Ce référencement est utile lorsque vous souhaitez charger un schéma qui comporte des clés étrangères pointant sur des tables appartenant à une autre schéma.
-			<br/>Le résultat obtenu est le suivant :
+		<p>La zone 
+			<em>Referenced files</em> permet de référencer des MPD existants. Ce référencement est nécessaire pour importer un schéma qui comporte des clés étrangères pointant sur des tables appartenant à un autre schéma.
 		</p>
+		<p>Le résultat obtenu est le suivant :</p>
 		<p>
 			<img border="0" src="pics/BDD_Retro_02.png"/>
 		</p>
 		<h3 id="Modlisation">Modélisation</h3>
 		<h4 id="Vuedensemble2">Vue d&#8217;ensemble</h4>
-		<p>Pour manipuler graphiquement le contenu d&#8217;un fichier 
-			<em>.database</em>, vous devez glisser-déposer votre fichier dans la vue 
-			<em>Model Explorer</em> d&#8217;Obeo Designer afin de créer une session de travail.
-			<br/>Vous devez ensuite sélectionner le point de vue 
-			<em>Database</em> dans la boite de dialogue qui vous est proposée.
-			<br/>Ensuite ouvrez le diagramme 
-			<em>Database Diagram</em> pour visualiser le contenu de votre fichier. Le résultat obtenu est le suivant :
+		<p>Pour manipuler graphiquement le contenu d&#8217;une ressource 
+			<em>.database</em>, celle-ci doit se trouver dans un 
+			<em>Modeling Project</em> ouvert dans la vue 
+			<em>Model Explorer</em> d&#8217;Obeo Designer.
+			<br/>Le point de vue 
+			<em>Database</em> doit être activé (via la la boite de dialogue 
+			<em>Viewpoints Selection</em> disponible en action du menu contextuel sur le 
+			<em>Modeling project</em>.
+		</p>
+		<p>La création d&#8217;un diagramme 
+			<em>Database Diagram</em> est disponible en menu contextuel sur un élément de type Database :
 		</p>
 		<p>
-			<img border="0" src="pics/BDD_Modelisation_01.png"/>
+			<img style="width:395px" border="0" src="pics/BDD_CreateDatabaseRepresentation_01.png"/>
 		</p>
-		<p>L'éditeur ci-dessus propose :</p>
+		<p>Une action similaire sur un élément de type Schema est disponible pour créer un 
+			<em>Schema Diagram</em>.
+		</p>
+		<p>L&#8217;ouverture du diagramme permet de visualiser de manière graphique le contenu du fichier:</p>
+		<p>
+			<img style="width:100%" border="0" src="pics/BDD_Modelisation_01.png"/>
+		</p>
+		<p>Cet éditeur propose :</p>
 		<ul>
 			<li>un environnement de modélisation graphique,</li>
 			<li>une palette d&#8217;outils permettant d&#8217;ajouter de nouvelles tables, colonnes, index, contraintes, ...</li>
@@ -66,37 +77,46 @@
 			<li>une vue propriétés dédiée.</li>
 		</ul>
 		<h4 id="ModlePhysiquedeDonnes">Modèle Physique de Données</h4>
-		<p>L'édition de Modèle Physique de Données se fait à l&#8217;aide du modeleur présenté précédemment. Un MPD est caractérisé par l&#8217;utilisation d&#8217;une librairie de type spécifique à un moteur de base de données : Oracle ou MySQL. Cette librairie est spécifiée à l&#8217;aide de la propriété suivante disponible sur l'élément 
+		<p>L'édition de Modèle Physique de Données se fait à l&#8217;aide du modeleur présenté ci-dessus. Un MPD est caractérisé par l&#8217;utilisation d&#8217;une librairie de type spécifique à un moteur de base de données : Oracle, MySQL ou autre. Les librairies utilisées sont consultables par la propriété 
+			<em>Used Libraries</em> disponible sur l'élément 
 			<em>Database</em>  :
 		</p>
 		<p>
 			<img border="0" src="pics/BDD_ModelePhysique_01.png"/>
 		</p>
 		<h4 id="ModleLogiquedeDonnes">Modèle Logique de Données</h4>
-		<p>L'édition de Modèle Logique de Données se fait à l&#8217;aide du modeleur présenté précédemment. Un MLD est caractérisé par l&#8217;utilisation d&#8217;une librairie de type logique indépendante de tout moteur de base de données. Cette librairie est spécifiée à l&#8217;aide de la propriété suivante disponible sur l'élément 
+		<p>L'édition de Modèle Logique de Données se fait à l&#8217;aide du modeleur présenté ci-dessus. Un MLD est caractérisé par l&#8217;utilisation d&#8217;une librairie de types logiques indépendante de tout moteur de base de données. Les librairies utilisées sont consultables par la propriété 
+			<em>Used Libraries</em> disponible sur l'élément 
 			<em>Database</em>  :
 		</p>
 		<p>
 			<img border="0" src="pics/BDD_ModeleLogique_01.png"/>
 		</p>
 		<p>La sélection de cette librairie de types est également proposée dans l&#8217;assistant de création de modèle 
-			<em>database</em>, cf. capture ci-dessous :
+			<em>database</em> :
 		</p>
 		<p>
 			<img border="0" src="pics/BDD_ModeleLogique_02.png"/>
 		</p>
-		<p>Il est a noter que la liste des types proposés dans chacune des librairies de types est paramétrable.</p>
+		<p>La liste des types contenus dans chacune des librairies est paramétrable.</p>
 		<h3 id="ComparaisongnrationdesscriptsSQLLiquibase">Comparaison &amp; génération des scripts SQL/Liquibase</h3>
 		<h4 id="Comparaisonetfusion">Comparaison et fusion</h4>
-		<p>L&#8217;outillage de comparaison permet de comparer deux versions de MPD, soit deux fichiers stockés localement, soit une version locale avec une autre version stockée dans un référentiel de type subversion. L&#8217;outillage se base sur EMF Compare et fournit une extension permettant d&#8217;améliorer la pertinence de la comparaison sur ce type particulier de modèle.
-			<br/>	Pour comparer deux versions de MPD, sélectionnez les deux fichiers à comparer et utiliser le menu 
-			<em>Compare With &gt; Each Other</em> proposé dans le menu contextuel.  Lorsque vous utilisez la comparaison de fichiers locaux (par opposition à la comparaison via l&#8217;outillage subversion) EMF Compare utilise les fichiers dans l&#8217;ordre alphabétique. Par conséquent, vous devez les nommer de manière à ce que la version la plus récente de votre MPD se trouve en première position. Cf. l&#8217;exemple ci-dessous : 
+		<p>L&#8217;outillage de comparaison permet de comparer deux versions de MPD, soit de deux fichiers stockés localement, soit d&#8217;une version locale avec une version stockée dans un référentiel de type subversion. L&#8217;outillage est basé sur EMF Compare et fournit une extension permettant d&#8217;améliorer la pertinence de la comparaison sur ce type particulier de modèle.
+			<br/>Pour comparer deux versions de MPD, sélectionner les deux fichiers à comparer et utiliser 
+			<em>Compare With &gt; Each Other</em> proposé dans le menu contextuel. Lors d&#8217;une comparaison de fichiers locaux (par opposition à la comparaison via l&#8217;outillage subversion) EMF Compare considère les fichiers dans un ordre alphabétique. Idéalement, le nommage à adpter doit être tel que la version la plus récente du MPD se trouve en première position tel que dans l&#8217;exemple ci-dessous : 
 		</p>
 		<p>
 			<img border="0" src="pics/BDD_SQL_01.png"/>
 		</p>
-		<p>Note: Si vous rencontrez des problèmes lors de la comparaison d&#8217;une base de donnée ayant des liens vers des éléments externes stockés dans des fichiers différents, il est intéressant de lire la documentation sur la résolution du modèle logique qui est utilisé par 
-			<em>EMF Compare</em>. Pour plus d&#8217;information voir la documentation:
+		<p>L&#8217;option de menu 
+			<em>Compare with Each Other</em> est également disponible dans la vue 
+			<em>History</em> :
+		</p>
+		<p>
+			<img border="0" src="pics/BDD_Compare_01.png"/>
+		</p>
+		<p>En cas de problème lors de la comparaison d&#8217;une base de donnée ayant des liens vers des éléments externes stockés dans des fichiers différents, il est recommandé de lire la documentation sur la résolution de modèle logique utilisée par 
+			<em>EMF Compare</em>:
 		</p>
 		<ul>
 			<li>
@@ -109,62 +129,84 @@
 				<em>EMF Compare Documentation/User/User Guide/Customization/Post processors customization/Model resolver</em>
 			</li>
 		</ul>
-		<p>.</p>
-		<h4 id="GnrationdesscriptsSQL">Génération des scripts SQL</h4>
+		<h4 id="GnrationdescriptsSQL">Génération de scripts SQL</h4>
 		<p>
-			<strong>Génération des scripts de modification</strong>
+			<strong>Génération de scripts de modification</strong>
 		</p>
-		<p>Il est possible de générer les scripts SQL permettant de passer d&#8217;une version d&#8217;une base de données à une suivante. Pour cela il faut commencer par comparer les 2 modèles de bases de données en s&#8217;assurant que le plus récent est en première position (cf. paragraphe précédent). </p>
-		<p>Une fois la comparaison effectuée, vous pouvez demander la génération du script SQL en cliquant sur le bouton 
-			<em>Generate SQL Scripts</em> présent dans la barre d&#8217;outils. Ainsi le script généré vous permettra de mettre à jour le schéma correspondant au MPD le plus ancien :
+		<p>Un script SQL de modification permet de passer d&#8217;une version d&#8217;une base de données à une suivante. Pour générer un tel script, la première étape est de comparer les 2 modèles de bases de données en s&#8217;assurant que le plus récent soit en première position (cf. paragraphe précédent). </p>
+		<p>Une fois la comparaison effectuée, la génération du script SQL est rendue accessible par le bouton 
+			<em>Generate SQL Scripts</em> présent dans la barre d&#8217;outils. Le script généré permet la mise à jour du schéma correspondant au MPD le plus ancien :
 		</p>
 		<p>
 			<img border="0" src="pics/BDD_GenSQL_01.png"/>
 		</p>
-		<p>Un répertoire 
-			<em>sql</em>, contenant l&#8217;ensemble des scripts, sera créé à la racine du projet.
+		<p>Si il n&#8217;existe pas déjà, un répertoire 
+			<code>sql</code> est créé à la racine du projet pour contenir l&#8217;ensemble des scripts.
 		</p>
 		<p>
-			<strong>Génération complète</strong>
+			<strong>Génération de scripts de création</strong>
 		</p>
-		<p>Il est possible de générer les scripts SQL pour générer complètement une base de données. Pour cela il suffit d&#8217;utiliser le menu clic droit sur le modèle et sélectionner 
-			<em>IS Designer &gt; Generate SQL Scripts</em> 
+		<p>Un script SQL de création permet d&#8217;initialiser la structure d&#8217;une base de données. La génération d&#8217;un tel script est disponible en menu clic droit sur le modèle database, sous l&#8217;entrée 
+			<em>IS Designer &gt; Generate SQL Scripts</em> :
 		</p>
 		<p>
-			<img border="0" src="pics/BDD_GenSQL_02.png"/>
+			<img style="width:495px" border="0" src="pics/BDD_GenSQL_02.png"/>
 		</p>
-		<h4 id="GnrationdunChangeLogLiquibase">Génération d&#8217;un 
+		<h4 id="GnrationdeChangeLogLiquibase">Génération de 
 			<em>ChangeLog</em> Liquibase
 		</h4>
 		<p>
-			<strong>Génération d&#8217;un 
+			<strong>Génération de 
 				<em>ChangeLog</em> de modification
 			</strong>
 		</p>
-		<p>Il est possible de générer le fichier 
-			<em>ChangeLog</em> Liquibase permettant de passer d&#8217;une version d&#8217;une base de données à une suivante. Pour cela il faut commencer par comparer les 2 modèles de bases de données en s&#8217;assurant que le plus récent est en première position (cf. paragraphe précédent). Puis de sélectionner le bouton 
-			<em>Generate Liquibase</em> dans la bar de bouton principale.
+		<p>Un fichier 
+			<em>ChangeLog</em> Liquibase permet de passer d&#8217;une version d&#8217;une base de données à une suivante. Pour générer un tel fichier 
+			<em>ChangeLog</em>, la première étape est de comparer les 2 modèles de bases de données en s&#8217;assurant que le plus récent soit en première position (cf. paragraphe précédent). 
+		</p>
+		<p>Une fois la comparaison effectuée, la génération du fichier 
+			<em>ChangeLog</em> est rendue accessible par le bouton 
+			<em>Generate Liquibase</em> présent dans la barre d&#8217;outils. Le fichier 
+			<em>ChangeLog</em> généré permet la mise à jour du schéma correspondant au MPD le plus ancien :
 		</p>
 		<p>
-			<img border="0" src="pics/LiquibaseGen_CMP_01.png"/>
+			<img style="width:100%" border="0" src="pics/BDD_Liquibase_Gen_01.png"/>
 		</p>
-		<p>Une hierachie de répertoire sera créée contenant les fichiers suivants:</p>
+		<p>Si il n&#8217;existe pas déjà, un répertoire 
+			<code>liquibase</code> est créé à la racine du projet pour contenir l&#8217;ensemble des scripts. Ce répertoire est structuré de la manière suivante :
+		</p>
 		<ul>
-			<li>Liquibase/&lt;Type BBD&gt;/&lt;Nom DBD&gt;/<Date>/run.changelog.xml</li>
-			<li>Liquibase/&lt;Type BBD&gt;/&lt;Nom DBD&gt;/run.changelog.xml</li>
-			<li>Liquibase/&lt;Type BBD&gt;/&lt;Nom DBD&gt;/liquibase.properties</li>
+			<li>
+				<code>liquibase/&lt;Type BDD&gt;/&lt;Nom BDD&gt;/&lt;Date&gt;/run.changelog.xml</code>
+			</li>
+			<li>
+				<code>liquibase/&lt;Type BDD&gt;/&lt;Nom BDD&gt;/run.changelog.xml</code>
+			</li>
+			<li>
+				<code>liquibase/&lt;Type BDD&gt;/&lt;Nom BDD&gt;/liquibase.properties</code>
+			</li>
 		</ul>
-		<p>Les deux premiers fichiers sont identiques. Le premier permet de garder un historique des changements, alors que le deuxième permet seulement d&#8217;utiliser plus facilement les commandes 
-			<em>Liquibase</em>. En effet, celui-ci est stocké dans le même dossier que le fichier 
-			<em>liquibase.properties</em>. Le fichier 
-			<em>.properties</em> n&#8217;est pas écrasé à chaque génération, celui-ci est seulement initialisé à la première génération.
+		<p>Les deux fichiers 
+			<code>run.changelog.xml</code> générés sont identiques, l&#8217;un est généré sous un répertoire daté permettant de conserver un historique. L&#8217;autre permet d&#8217;utiliser plus facilement les commandes 
+			<em>Liquibase</em> étant donné qu&#8217;il est référencé par le fichier 
+			<code>liquibase.properties</code>.
+		</p>
+		<p>Contrairement au fichier 
+			<code>run.changelog.xml</code>, le fichier 
+			<code>liquibase.properties</code> n&#8217;est pas écrasé à chaque génération, il est initialisé seulement si il n&#8217;existe pas.
 		</p>
 		<p>
-			<strong>Génération complète</strong>
+			<strong>Génération de 
+				<em>ChangeLog</em> de création
+			</strong>
 		</p>
-		<p>Il est possible de générer le fichier 
-			<em>ChangeLog</em> Liquibase pour générer complètement une base de données. Pour cela il suffit d&#8217;utiliser le menu clic droit sur le modèle et sélectionner 
-			<em>IS Designer &gt; Generate Liquibase Changelog</em> 
+		<p>Un 
+			<em>ChangeLog</em> de création permet de générer la structure complète d’une base de données. La génération d’un tel 
+			<em>ChangeLog</em> est disponible en menu clic droit sur le modèle database, sous l’entrée 
+			<em>IS Designer &gt; Generate Liquibase Changelog</em> :
+		</p>
+		<p>
+			<img style="width:480px" border="0" src="pics/BDD_Liquibase_Gen_02.png"/>
 		</p>
 		<h2 id="Transformations">Transformations</h2>
 		<p>Les transformations suivantes sont proposées afin d&#8217;initialiser un modèle à partir d&#8217;un autre :</p>
@@ -176,9 +218,9 @@
 		</ul>
 		<p>Le mode opératoire est le même pour chacune des transformations.</p>
 		<h3 id="Transformationdepuislesmodlessourceetcible">Transformation depuis les modèles source et cible</h3>
-		<p>Pour lancer une transformation, le modèle cible doit exister. Pour une transformation d&#8217;un MPD en MLD par exemple il vous faudra commencer par créer un MLD vide avant toute chose.</p>
-		<p>Vous devez ensuite sélectionner un objet source et un objet cible en dépliant les modèles dans la vue 
-			<em>Model Explorer</em>. Si vous sélectionnez les fichiers le traitement ne pourra pas être lancé.
+		<p>Pour lancer une transformation, le modèle cible doit exister. Par exemple, pour une transformation d&#8217;un MPD en MLD, la première étape est la création d&#8217;un MLD vide.</p>
+		<p>La sélection doit porter sur un objet source et un objet cible, en dépliant les modèles dans la vue 
+			<em>Model Explorer</em>. Si la sélection porte sur les fichiers le traitement ne pourra pas être lancé.
 		</p>
 		<p>Pour un MPD ou un MLD, les objets source ou cible doivent être des 
 			<em>Data Base</em> ou des 
@@ -188,54 +230,66 @@
 			<em>Namespace</em>.
 		</p>
 		<ul>
-			<li>A l&#8217;aide du menu contextuel 
-				<em>Safr@n &gt; Scaffolding</em> sélectionnez le type de transformation à effectuer. Seules les transformations possibles selon les objets sélectionnés seront activées. :
+			<li>Le menu contextuel 
+				<em>Safr@n &gt; Scaffolding</em> permet de sélectionner le type de transformation à effectuer. Seules les transformations possibles en fonction des objets sélectionnés sont activées :
 			</li>
 		</ul>
 		<p>
 			<img border="0" src="pics/BDD_Transfo_05.png"/>!
 		</p>
 		<ul>
-			<li>Un assistant s&#8217;ouvre. Il permet de sélectionner les ressources permettant la résolution des dépendances externes. En effet, lorsque vous effectuez par exemple une transformation d&#8217;un MLD vers un MPD, il est possible que votre MLD contiennent des tables référençant des tables issues dans un autre MLD. Par conséquent vous devrez référencer le MPD correspondant à ce MLD externe afin que les clés étrangères référencent correctement les tables externes :</li>
+			<li>La sélection d&#8217;une entré de menu déclenche l&#8217;ouverture d&#8217;un assistant de sélection des ressources nécessaires à la résolution des dépendances externes. En effet, lors par exemple d&#8217;une transformation d&#8217;un MLD vers un MPD, il est possible que le MLD contienne des tables référençant des tables d&#8217;un autre MLD. Dans ce cs, le MPD externe en question doit être référencé afin que les clés étrangères soient résolues correctement :</li>
 		</ul>
 		<p>
 			<img border="0" src="pics/BDD_Transfo_06.png"/>
 		</p>
 		<p>Une fois le traitement exécuté, un message de confirmation s&#8217;affiche. Un modèle contenant les informations de scaffolding est créé dans le répertoire 
-			<em>scaffold</em>. Ce modèle peut être utilisé pour lancer un nouveau traitement de scaffolding sur les mêmes éléments. 
+			<code>scaffold</code>. Ce modèle peut être utilisé pour lancer un nouveau traitement de scaffolding sur les mêmes éléments. 
 		</p>
 		<h3 id="Transformationdepuisunmodledescaffold">Transformation depuis un modèle de scaffold</h3>
-		<p>Une transformation peut être lancée directement depuis un modèle de scaffold :</p>
+		<p>La transformation peut être lancée directement depuis un modèle de scaffold par :</p>
 		<ul>
-			<li>Sélectionnez le modèle</li>
-			<li>Utilisez le menu contextuel _Safr@n &gt; Scaffolding _</li>
+			<li>La sélection du modèle dans le 
+				<em>Model Explorer</em>
+			</li>
+			<li>Le lancement de l&#8217;action de menu contextuel 
+				<em>Safr@n &gt; Scaffolding</em>
+			</li>
 		</ul>
-		<p>Les transformations proposées dépendent des objets source et cible utilisés par le modèle de scaffolding.
-			<br/>Un menu permet également d&#8217;ajouter des ressources pour résoudre les dépendances externes comme lorsque l&#8217;assistant est utilisé.
+		<p>Les transformations disponibles dans le menu dépendent des objets source et cible utilisés par le modèle de scaffolding.
+			<br/>Une entrée de menu permet d&#8217;ajouter des ressources pour résoudre les dépendances externes comme lorsque l&#8217;assistant est utilisé (cf. paragraphe précédent).
 		</p>
-		<p>A noter que lorsque vous lancez une transformation en sélectionnant des objets source et cible pour lesquels un modèle de scaffold existe déjà, il vous est proposé d&#8217;utiliser le modèle existant ou d&#8217;en créer un nouveau.  </p>
+		<p>A noter que lorsqu&#8217;une transformation est lancée en sélectionnant des objets source et cible pour lesquels un modèle de scaffold existe déjà, il est proposé d&#8217;utiliser le modèle existant ou d&#8217;en créer un nouveau.  </p>
 		<h3 id="ParamtragedelatransformationdunmodledentitsenMLD">Paramétrage de la transformation d&#8217;un modèle d&#8217;entités en MLD</h3>
-		<p>Dans le cas d&#8217;une transformation d&#8217;un modèle d&#8217;entités en MLD pour chaque table qui sera créée 2 colonnes techniques sont créées automatiquement.
+		<p>Dans le cas d&#8217;une transformation d&#8217;un modèle d&#8217;entités en MLD, deux colonnes techniques sont créées pour chaque table créée.
 			<br/>Ces colonnes sont :
 		</p>
 		<ul>
-			<li>Une colonne de validité nommée avec le nom du schéma suffixé par _XTOPSUP</li>
-			<li>Une colonne de date de mise à jour nommée avec le nom du schéma suffixé par _XDMAJ</li>
+			<li>Une colonne de validité nommée avec le nom du schéma suffixé par 
+				<code>_XTOPSUP</code>
+			</li>
+			<li>Une colonne de date de mise à jour nommée avec le nom du schéma suffixé par 
+				<code>_XDMAJ</code>
+			</li>
 		</ul>
-		<p>La génération de ces colonnes peut être désactivée. Pour ceci, il faut ajouter une metadata sur une entité ou un namespace :</p>
+		<p>La génération de ces colonnes peut être désactivée en ajoutant une metadata sur l&#8217;entité ou l&#8217;un des namespaces parent :</p>
 		<ul>
-			<li>Clé : DISABLE_ADDITIONAL_FIELDS_KEY</li>
-			<li>Valeur : true</li>
+			<li>
+				<code>Clé : DISABLE_ADDITIONAL_FIELDS_KEY</code>
+			</li>
+			<li>
+				<code>Valeur : true</code>
+			</li>
 		</ul>
-		<p>Les 2 colonnes ne seront alors pas créées soit pour l&#8217;entité en question, soit pour toutes les entités contenues par le namespace. </p>
+		<p>Ces deux colonnes ne seront alors pas créées pour l&#8217;entité en question, ou pour toutes les entités contenues par le namespace en question. </p>
 		<h2 id="Notes">Notes</h2>
-		<p>Les équivalences entre les types logiques et physiques, etc … ainsi que les règles de nommage sont  paramétrables.</p>
-		<p>Aussi, dans le cas où vous disposez déjà d&#8217;une version du modèle cible nous vous conseillons d&#8217;effectuer la transformation vers un nouveau modèle puis d&#8217;utiliser l&#8217;outillage de comparaison/fusion afin de gérer l’incrémentalité des modifications. Prenons un exemple pour illustrer ce scénario :</p>
+		<p>Les équivalences entre les types logiques et physiques, etc..., ainsi que les règles de nommage sont  paramétrables.</p>
+		<p>Aussi, dans le cas où une version du modèle cible existe déjà, il est conseillé d&#8217;effectuer la transformation vers un nouveau modèle puis d&#8217;utiliser l&#8217;outillage de comparaison/fusion afin de gérer l’incrémentalité des modifications. Voici un exemple illustrant ce scénario :</p>
 		<ul>
 			<li>l'équipe de développement fait évoluer le modèle d&#8217;entités et le livre à l'équipe DBA,</li>
 			<li>l'équipe DBA peut ainsi lancer une transformation du modèle d&#8217;entités vers un nouveau MLD V2,</li>
-			<li>l'équipe DBA peut ensuite comparer et fusionner le MLD V1 (incluant des modifications ajouter préalablement par l'équipe DBA) et le MLD V2,</li>
-			<li>l'équipe DBA peut ensuite effectuer une transformation MLD V2 fusionné vers un MPD Oracle par exemple. Elle peut ensuite demander la comparaison et génération du script SQL par rapport à un version plus ancienne du MPD.</li>
+			<li>l'équipe DBA peut ensuite comparer et fusionner le MLD V1 (incluant des modifications ajoutées préalablement par l'équipe DBA) et le MLD V2,</li>
+			<li>l'équipe DBA peut ensuite effectuer une transformation MLD V2 fusionné vers un MPD Oracle par exemple. Elle peut ensuite demander la comparaison et génération du script SQL par rapport à une version plus ancienne du MPD.</li>
 		</ul>
 	</body>
 </html>

@@ -14,19 +14,19 @@
 <plugin>
    <extension point="org.eclipse.help.toc">
       <toc
-            file="doc/Obeo Network - SOA (IS-Designer consolidated view)-toc.xml"
+            file="doc/Obeo Network - SOA (Safr@n consolidated view)-toc.xml"
             primary="true">
       </toc>
    </extension>
    <extension point="org.eclipse.help.toc">
       <toc
-            file="doc/Obeo Network - Entity (IS-Designer consolidated view)-toc.xml"
+            file="doc/Obeo Network - Entity (Safr@n consolidated view)-toc.xml"
             primary="true">
       </toc>
    </extension>
    <extension point="org.eclipse.help.toc">
       <toc
-            file="doc/Obeo Network - Graal Methodology (IS-Designer consolidated view)-toc.xml"
+            file="doc/Obeo Network - Graal Methodology (Safr@n consolidated view)-toc.xml"
             primary="true">
       </toc>
    </extension>

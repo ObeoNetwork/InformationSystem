@@ -11,6 +11,6 @@ Require-Bundle: liquibase,
  org.obeonetwork.dsl.typeslibrary,
  org.obeonetwork.dsl.database.liquibasegen,
  org.obeonetwork.dsl.database,
- org.obeonetwork.dsl.database.gen.common.tests;bundle-version="11.3.0",
+ org.obeonetwork.dsl.database.gen.common.tests,
  org.eclipse.emf.compare,
  com.google.guava
