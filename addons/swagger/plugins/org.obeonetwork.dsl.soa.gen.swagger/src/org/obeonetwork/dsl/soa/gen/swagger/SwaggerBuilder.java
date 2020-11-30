@@ -290,28 +290,33 @@ public class SwaggerBuilder {
             		keys.add(computeSoaTypeLongKey(soaType));
             	}
             	
-            	int index = 0;
+            	// Computes the minimal index allowing to cut the beginning of the keys without loosing differentiation 
+            	int disambiguationIndex = 0;
             	if(!keys.isEmpty() && ! keys.get(0).isEmpty()) {
                 	boolean isCharAtIndexCommon = true;
-                	while(isCharAtIndexCommon && index < keys.get(0).length()) {
-                    	char charAtIndex = keys.get(0).charAt(index);
+                	while(isCharAtIndexCommon && disambiguationIndex < keys.get(0).length()) {
+                    	char charAtIndex = keys.get(0).charAt(disambiguationIndex);
                     	int keyIndex = 1;
                     	while(isCharAtIndexCommon && keyIndex < keys.size()) {
-                    		isCharAtIndexCommon = isCharAtIndexCommon && index < keys.get(keyIndex).length() && keys.get(keyIndex).charAt(index) == charAtIndex;
+                    		isCharAtIndexCommon = isCharAtIndexCommon && disambiguationIndex < keys.get(keyIndex).length() && keys.get(keyIndex).charAt(disambiguationIndex) == charAtIndex;
                     		keyIndex++;
                     	}
                     	if(isCharAtIndexCommon) {
-                    		index++;
+                    		disambiguationIndex++;
                     	}
                 	}
             	}
             	
             	for(Type soaType : exposedSoaTypes) {
-            		exposedSoaTypeKeys.put(soaType, computeSoaTypeLongKey(soaType).substring(index));
+            		String soaTypeLongKey = computeSoaTypeLongKey(soaType);
+            		
+            		// Ensure to keep the full name of the soaType as the minimal string for the key
+            		int index = Math.min(disambiguationIndex, soaTypeLongKey.length() - asQNSegment(soaType).length());
+            		
+					exposedSoaTypeKeys.put(soaType, soaTypeLongKey.substring(index));
             	}
         	}
     	}
-    	
     	
     	// Build the schemas
     	exposedSoaTypes.forEach(exposedSoaType -> buildSchema(exposedSoaType));
