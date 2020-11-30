@@ -20,7 +20,27 @@
 				<topic href="doc/Obeo Network - SOA Designer.html#Elmentsaffichsetpalettedoutils4" label="Eléments affichés et palette d&apos;outils"></topic>
 			</topic>
 		</topic>
-		<topic href="doc/Obeo Network - SOA Designer.html#ModlisationdAPIRest" label="Modélisation d&apos;API Rest"></topic>
+		<topic href="doc/Obeo Network - SOA Designer.html#ExpositiondesservicesetmodlisationdAPIRest" label="Exposition des services et modélisation d&apos;API Rest">
+			<topic href="doc/Obeo Network - SOA Designer.html#exposition_type" label="Types d&apos;exposition"></topic>
+			<topic href="doc/Obeo Network - SOA Designer.html#ModlisationdAPIRest" label="Modélisation d&apos;API Rest">
+				<topic href="doc/Obeo Network - SOA Designer.html#TerminologieSOAvsterminologieREST" label="Terminologie _SOA_ vs terminologie _REST_"></topic>
+				<topic href="doc/Obeo Network - SOA Designer.html#ModlisationduneAPIRestOpenAPI" label="Modélisation d&apos;une API Rest OpenAPI"></topic>
+				<topic href="doc/Obeo Network - SOA Designer.html#ModlisationdunTagOpenAPI" label="Modélisation d&apos;un Tag OpenAPI"></topic>
+				<topic href="doc/Obeo Network - SOA Designer.html#ModlisationdunServiceOpenAPI" label="Modélisation d&apos;un Service OpenAPI"></topic>
+				<topic href="doc/Obeo Network - SOA Designer.html#parameter" label="Modélisation d&apos;un paramètre">
+					<topic href="doc/Obeo Network - SOA Designer.html#input_parameter" label="Modélisation d&apos;un paramètre d&apos;entrée"></topic>
+					<topic href="doc/Obeo Network - SOA Designer.html#output_fault_parameter" label="Modélisation d&apos;un paramètre de retour ou d&apos;erreur"></topic>
+				</topic>
+				<topic href="doc/Obeo Network - SOA Designer.html#Modlisationdelascurit" label="Modélisation de la sécurité">
+					<topic href="doc/Obeo Network - SOA Designer.html#Modlisationdesschmasdescurit" label="Modélisation des schémas de sécurité"></topic>
+					<topic href="doc/Obeo Network - SOA Designer.html#Utilisationdesschmasdescurit" label="Utilisation des schémas de sécurité"></topic>
+				</topic>
+			</topic>
+			<topic href="doc/Obeo Network - SOA Designer.html#ExportImportauformatSwaggerOpenAPI" label="Export / Import au format Swagger OpenAPI">
+				<topic href="doc/Obeo Network - SOA Designer.html#ExportauformatSwaggerOpenAPI" label="Export au format Swagger OpenAPI"></topic>
+				<topic href="doc/Obeo Network - SOA Designer.html#ImportdunfichierdespcificationSwagger" label="Import d&apos;un fichier de spécification Swagger"></topic>
+			</topic>
+		</topic>
 		<topic href="doc/Obeo Network - SOA Designer.html#Gestiondesexigences" label="Gestion des exigences"></topic>
 		<topic href="doc/Obeo Network - SOA Designer.html#Gestiondeladocumentationlie" label="Gestion de la documentation liée"></topic>
 		<topic href="doc/Obeo Network - SOA Designer.html#Crationdediagrammedinteraction" label="Création de diagramme d&apos;interaction"></topic>

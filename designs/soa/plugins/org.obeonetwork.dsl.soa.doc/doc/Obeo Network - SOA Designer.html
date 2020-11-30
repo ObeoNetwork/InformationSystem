@@ -536,6 +536,385 @@
 			<img border="0" src="pics/dto/DTO_Diagram_ExternalDTOs.png"/>
 		</p>
 		<h2 id="ExpositiondesservicesetmodlisationdAPIRest">Exposition des services et modélisation d&#8217;API Rest</h2>
+		<p>L&#8217;exposition d&#8217;un composant consiste à publier tout ou partie des services qu&#8217;il fournit de manière à les rendre accessibles à des clients (autres composants ou systèmes, et potentiellement au travers d&#8217;un réseau).</p>
+		<p>L&#8217;ensemble des services exposés d&#8217;un composant constitue son API (Application Programming Interface).</p>
+		<h3 id="exposition_type">Types d&#8217;exposition</h3>
+		<p>Dans 
+			<em>SOA Designer</em>, le type d&#8217;exposition est paramétrable au niveau d&#8217;une 
+			<em>Operation</em>, sur l&#8217;onglet principal de la vue de propriétés :
+		</p>
+		<p>
+			<img border="0" src="pics/exposition/Properties_Operation_Operation_Tab.png"/>
+		</p>
+		<p>La notion de visibilité (
+			<em>Public/Privé</em>) fait référence à la notion du même nom définie par les langages orientés objet et concernant les méthodes de classes. Ainsi, une 
+			<em>Operation</em> publique sera accessible depuis les implémentations des autres 
+			<em>Operations</em> du 
+			<em>Composant</em> ou bien depuis un autre composant destiné à être déployé dans la même application, mais il ne sera pas accessible depuis un autre système.
+		</p>
+		<p>La notion d&#8217;exposition fait référence à la publication par une technologie permettant de la rendre accessible depuis un autre système, et çe typiquement au travers d&#8217;un réseau. C&#8217;est ce qu&#8217;adresse par exemple de manière non exaustive les technologies REST, SOAP ou gRPC. Ainsi, pour être exposée, une opération doit avoir une visibilité 
+			<em>Publique</em>.
+		</p>
+		<p>
+			<em>SOA Designer</em> propose les types d&#8217;exposition suivants :
+		</p>
+		<ul>
+			<li>
+				<em>NONE</em> : Non exposée,
+			</li>
+			<li>
+				<em>REST</em> : Exposée en web service par Representational State Transfer
+			</li>
+			<li>
+				<em>SOAP</em> : Exposée en web service par Simple Object Access Protocol
+			</li>
+		</ul>
+		<p>Le type d&#8217;exposition couvert par 
+			<em>SOA Designer</em> est 
+			<em>REST</em>. Le type d&#8217;exposition 
+			<em>SOAP</em> n&#8217;est disponible dans le studio qu'à titre indicatif, aucun outillage spécifique n&#8217;ayant été développé pour l&#8217;exploiter.
+		</p>
+		<p>L&#8217;icone des 
+			<em>Operations</em> diffère suivant le type d&#8217;exposition :
+		</p>
+		<table>
+			<tr>
+				<td>
+					<img border="0" src="pics/exposition/Icon_Operation.gif"/>
+				</td>
+				<td>Privée</td>
+				<td>(type d&#8217;exposition ignoré)</td>
+			</tr>
+			<tr>
+				<td>
+					<img border="0" src="pics/exposition/Icon_OperationPublic.gif"/>
+				</td>
+				<td>NONE</td>
+				<td>(opération publique non exposée)</td>
+			</tr>
+			<tr>
+				<td>
+					<img border="0" src="pics/exposition/Icon_OperationRest.gif"/>
+				</td>
+				<td>REST</td>
+				<td>(opération publique exposée en REST)</td>
+			</tr>
+			<tr>
+				<td>
+					<img border="0" src="pics/exposition/Icon_OperationSoap.gif"/>
+				</td>
+				<td>SOAP</td>
+				<td>(opération publique exposée en SOAP)</td>
+			</tr>
+		</table>
+		<h3 id="ModlisationdAPIRest">Modélisation d&#8217;API Rest</h3>
+		<p>
+			<em>SOA Designer</em> permet de :
+		</p>
+		<ul>
+			<li>modéliser des 
+				<em>API Rest</em> via un modeleur graphique basé sur Sirius,
+			</li>
+			<li>exporter / importer ces API au format Swagger (conforme à la norme OpenAPI),</li>
+			<li>prévisualiser un export Swagger dans une vue web Swagger-UI.</li>
+		</ul>
+		<h4 id="TerminologieSOAvsterminologieREST">Terminologie 
+			<em>SOA</em> vs terminologie 
+			<em>REST</em>
+		</h4>
+		<p>La terminologie utilisée par 
+			<em>SOA Designer</em> provient du champ lexical de SOA (Service Oriented Architecture), dans lequel le concept de service est défini comme une fonction ou fonctionnalité. Cette définition est suffisament large pour autoriser un raffinement de la notion de 
+			<em>Service</em> en 
+			<em>Operations</em>, tel qu&#8217;il est fait dans 
+			<em>SOA Designer</em>.
+		</p>
+		<p>Or, cette notion d'
+			<em>Operation SOA</em> est celle qui se prête à être en correspondance avec la notion de 
+			<em>Service REST</em>.
+			<br/>Le concept de 
+			<em>Service SOA</em> quand à lui, est mis en correspondance avec le concept de 
+			<em>Tag</em> défini par la norme 
+			<em>OpenAPI</em>.
+			<br/>Enfin, le concept de 
+			<em>Component SOA</em> est mis en correspondance avec le concept d&#8217;API, ce qui est appelé de manière générique Composant d&#8217;Exposition.
+		</p>
+		<p>De manière synthétique, voici les correspondances clé entre les deux terminologies :</p>
+		<table>
+			<tr>
+				<th>
+					<em>SOA Designer</em>
+				</th>
+				<th>
+					<em>OpenAPI</em>
+				</th>
+			</tr>
+			<tr>
+				<td>Component</td>
+				<td>OpenAPI</td>
+			</tr>
+			<tr>
+				<td>Service</td>
+				<td>Tag</td>
+			</tr>
+			<tr>
+				<td>Operation</td>
+				<td>Service</td>
+			</tr>
+		</table>
+		<p>
+			<strong>La suite de ce document privilègie la terminologie SOA. Les exceptions à cette règle seront clairement explicitées.</strong>
+		</p>
+		<h4 id="ModlisationduneAPIRestOpenAPI">Modélisation d&#8217;une API Rest OpenAPI</h4>
+		<p>Le concept de 
+			<em>SOA Designer</em> correspondant à une API REST OpenAPI est le 
+			<em>Component</em>.
+		</p>
+		<p>Les données d&#8217;exposition sont accessibles via l&#8217;onglet 
+			<em>Exposition</em> de la vue des propriétés :
+		</p>
+		<p>
+			<img border="0" src="pics/exposition/Properties_Component_Exposition_Tab.png"/>
+		</p>
+		<p>L'
+			<em>URL</em> est l&#8217;URL de base du serveur destiné à héberger l&#8217;API.
+		</p>
+		<p>Une 
+			<em>URI</em> peut être définie à chaque niveau de profondeur dans le modèle sur les concepts 
+			<em>Component</em>, 
+			<em>Service</em> et 
+			<em>Operation</em> :
+		</p>
+		<p>
+			<img border="0" src="pics/exposition/ModelExplorer_SOA_Hierarchy.png"/>
+		</p>
+		<p>L&#8217;URL d&#8217;une 
+			<em>Operation</em> peut donc être calculée par la concaténation de l&#8217;URL du 
+			<em>Component</em> et de chacune des URI sur les trois niveaux 
+			<em>Component</em>, 
+			<em>Service</em> et 
+			<em>Operation</em>.
+		</p>
+		<h4 id="ModlisationdunTagOpenAPI">Modélisation d&#8217;un Tag OpenAPI</h4>
+		<p>Le concept en correspondance avec le 
+			<em>Tag OpenAPI</em> est le concept 
+			<em>Service</em>.
+		</p>
+		<p>L&#8217;onglet principal du service permet d&#8217;en définir le nom, l&#8217;onglet 
+			<em>Exposition</em> permet d&#8217;en définir l&#8217;URI. Celle-ci peut rester vide.
+		</p>
+		<p>
+			<img border="0" src="pics/exposition/Properties_Service_Exposition_Tab.png"/>
+		</p>
+		<h4 id="ModlisationdunServiceOpenAPI">Modélisation d&#8217;un Service OpenAPI</h4>
+		<p>Le concept en correspondance avec le 
+			<em>Service OpenAPI</em> est le concept 
+			<em>Operation</em>. Lorsqu&#8217;un type d&#8217;exposition autre que 
+			<em>NONE</em> est sélectionné comme expliqué au paragraphe 
+			<a href="#exposition_type">Types d&#8217;exposition</a> , l&#8217;onglet 
+			<em>Exposition</em> devient visible et accessible :
+		</p>
+		<p>
+			<img border="0" src="pics/exposition/Properties_Operation_Exposition_Tab.png"/>
+		</p>
+		<p>Le verbe correspond au verbe HTTP et peut prendre l&#8217;une des valeurs : 
+			<em>GET</em>, 
+			<em>POST</em>, 
+			<em>PUT</em>, 
+			<em>DELETE</em>, 
+			<em>HEAD</em>, 
+			<em>OPTIONS</em>, 
+			<em>PATCH</em>, 
+			<em>TRACE</em>.
+		</p>
+		<p>Dans le cas où l&#8217;opération définit des paramètres d&#8217;entrée, ceux-ci sont listés dans la section 
+			<em>Input Parameters</em>, qui offre la possibilité de définir le mode de passage et les identifiants REST de chacun d&#8217;eux. Ceci est expliqué plus en détail ci-dessous dans la section 
+			<a href="#input_parameter">Modélisation d&#8217;un paramètre d&#8217;entrée</a> .
+		</p>
+		<h4 id="parameter">Modélisation d&#8217;un paramètre</h4>
+		<p>Le contenu de l&#8217;onglet 
+			<em>Exposition</em> d&#8217;un paramètre n&#8217;est pas le même pour un paramètre d&#8217;entrée, de retour ou d&#8217;erreur.
+		</p>
+		<h5 id="input_parameter">Modélisation d&#8217;un paramètre d&#8217;entrée</h5>
+		<p>L&#8217;identifiant REST est un moyen pour identifier un paramètre autrement que par son nom, et a des particularités liées au mode de passage du paramètre.</p>
+		<p>Pour un mode de passage 
+			<em>BODY</em>, l&#8217;identifiant REST n&#8217;a pas de sens.
+			<br/>Lorsque le mode de passage 
+			<em>BODY</em> est sélectionné dans la liste déroulante, la vue de propriétés affiche à côté de celle-ci une zone de texte non modifiable affichant le texte &#171;body&#187; :
+		</p>
+		<p>
+			<img border="0" src="pics/exposition/Properties_InputParameter_Exposition_Tab_PassingMode_BODY.png"/>
+		</p>
+		<p>Pour un mode de passage 
+			<em>PATH</em>, l&#8217;identifiant REST doit correspondre à l&#8217;un des identifiants définis entre accolades dans l&#8217;URI de l'
+			<em>Operation</em>.
+			<br/>Lorsque le mode de passage 
+			<em>PATH</em> est sélectionné dans la liste déroulante, la vue de propriétés affiche à côté de celle-ci une autre liste déroulante proposant un choix déduit de l&#8217;analyse de l&#8217;URI de l'
+			<em>Operation</em>. Ainsi, si l&#8217;URI est &#171;/{country}/{author}&#187;, la liste déroulante proposera les deux choix &#171;country&#187; et &#171;author&#187; :
+		</p>
+		<p>
+			<img border="0" src="pics/exposition/Properties_InputParameter_Exposition_Tab_PassingMode_PATH.png"/>
+		</p>
+		<p>Suite à une édition de l&#8217;URI d&#8217;une 
+			<em>Operation</em>, il est possible que la valeur de l&#8217;identifiant REST d&#8217;un 
+			<em>Parametre</em> PATH ne soit pas dans l&#8217;URI. Dans ce cas un message d&#8217;erreur est affiché :
+		</p>
+		<p>
+			<img border="0" src="pics/exposition/Properties_InputParameter_Exposition_Tab_PassingMode_PATH_WithError.png"/>
+		</p>
+		<p>Pour un mode de passage 
+			<em>QUERY</em>, 
+			<em>COOKIE</em> ou 
+			<em>HEADER</em>, l&#8217;identifiant REST permet d&#8217;identifier le paramètre soit dans l&#8217;URL d&#8217;appel du service REST, soit dans le cookie, soit dans le header HTTP.
+			<br/>Lorsque l&#8217;un de ces modes de passage est sélectionné dans la liste déroulante, la vue de propriétés affiche à côté de celle-ci une zone de texte libre permettant la saisie de l&#8217;identifiant :
+		</p>
+		<p>
+			<img border="0" src="pics/exposition/Properties_InputParameter_Exposition_Tab_PassingMode_QUERY.png"/>
+		</p>
+		<h5 id="output_fault_parameter">Modélisation d&#8217;un paramètre de retour ou d&#8217;erreur</h5>
+		<p>L&#8217;onglet 
+			<em>Exposition</em> des vues de propriétés pour un paramètre de retour ou d&#8217;erreur présente la même IHM permettant de saisir un code de status et une description :
+		</p>
+		<p>
+			<img border="0" src="pics/exposition/Properties_OutputParameter_Exposition_Tab.png"/>
+		</p>
+		<p>Le bouton à droite de la zone de texte 
+			<em>Status Code</em> ouvre une boîte de dialogue permettant de saisir facilement parmi une liste de valeurs par défaut des couples code / description.
+		</p>
+		<p>Le dialogue propose les codes de succès dans le cas d&#8217;un paramètre de sortie, et des codes d&#8217;erreur dans le cas d&#8217;un paramètre d&#8217;erreur :</p>
+		<p>
+			<img border="0" src="pics/exposition/Dialog_SelectStatus_OutputParameter.png"/> 
+			<img border="0" src="pics/exposition/Dialog_SelectStatus_FaultParameter.png"/>
+		</p>
+		<h4 id="Modlisationdelascurit">Modélisation de la sécurité</h4>
+		<h5 id="Modlisationdesschmasdescurit">Modélisation des schémas de sécurité</h5>
+		<p>Les schemas de sécurité sont définis sur l&#8217;onglet 
+			<em>Security Schemes</em> de la vue de propriétés d&#8217;un 
+			<em>Component</em> :
+		</p>
+		<p>
+			<img border="0" src="pics/exposition/Properties_Component_SecuritySchemes_Tab.png"/>
+		</p>
+		<p>Cette vue permet de créer (
+			<img border="0" src="pics/etool16/add.gif"/>), supprimer (
+			<img border="0" src="pics/etool16/delete.gif"/>) et réordonner (
+			<img border="0" src="pics/etool16/up.gif"/>, 
+			<img border="0" src="pics/etool16/down.gif"/>) les 
+			<em>Security Schemes</em> du 
+			<em>Component</em>.
+		</p>
+		<p>La création d&#8217;un 
+			<em>Security Scheme</em> déclenche l&#8217;affichage d&#8217;une boîte de dialogue permettant de le spécifier :
+		</p>
+		<p>
+			<img border="0" src="pics/exposition/Dialog_SecurityScheme_Creation.png"/>
+		</p>
+		<p>L'édition des valeurs saisies est modifiable par la suite en double-cliquant sur un 
+			<em>SecurityScheme</em> dans cette même vue de propriétés, ou bien dans la vue de propriétés d&#8217;un 
+			<em>SecurityScheme</em> lorsque celui-ci est séléctionné dans la vue 
+			<em>Model Explorer</em> :
+		</p>
+		<p>
+			<img border="0" src="pics/exposition/Properties_SecurityScheme.png"/>
+		</p>
+		<p>Lorsqu&#8217;ils existent, les 
+			<em>SecuritySchemes</em> sont présentés dans la vue 
+			<em>Model Explorer</em> au niveau de profondeur suivant celui du 
+			<em>Component</em>.
+		</p>
+		<h5 id="Utilisationdesschmasdescurit">Utilisation des schémas de sécurité</h5>
+		<p>Lorsqu&#8217;il existe au moins une définition de 
+			<em>SecurityScheme</em> dans le 
+			<em>Component</em>, alors une section 
+			<em>Security</em> apparaît dans l&#8217;onglet 
+			<em>Exposition</em> de la vue des propriétés d&#8217;une 
+			<em>Operation</em> :
+		</p>
+		<p>
+			<img border="0" src="pics/exposition/Properties_Operation_Operation_Tab_Security.png"/>
+		</p>
+		<p>Cette vue permet de sélectionner les 
+			<em>SecuritySchemes</em> à appliquer à l'
+			<em>Operation</em> (
+			<img border="0" src="pics/etool16/edit.gif"/>), supprimer une affectation de 
+			<em>Security Scheme</em> à l'
+			<em>Operation</em> (
+			<img border="0" src="pics/etool16/delete.gif"/>) et réordonner (
+			<img border="0" src="pics/etool16/up.gif"/>, 
+			<img border="0" src="pics/etool16/down.gif"/>) les applications de 
+			<em>Security Schemes</em>.
+		</p>
+		<p>La suppression ne supprime pas le 
+			<em>Security Scheme</em> du modèle, mais simplement son affectation à l'
+			<em>Operation</em>.
+		</p>
+		<p>La sélection des 
+			<em>Security Schemes</em> ouvre une boîte de dialogue permettant d&#8217;ajouter, retirer, réordonner les affectations de 
+			<em>Security Schemes</em> à l'
+			<em>Operation</em> :
+		</p>
+		<p>
+			<img border="0" src="pics/exposition/Dialog_SecurityScheme_Selection.png"/>
+		</p>
+		<p>Les 
+			<em>Security Schemes</em> accessibles pour une affectation à une 
+			<em>Operation</em> sont ceux définis au niveau du 
+			<em>Component</em> auquel appartient l'
+			<em>Operation</em>.
+		</p>
+		<p>Quand au moins un 
+			<em>Security Scheme</em> est appliqué à une 
+			<em>Operation</em>, celle-ci est décorée avec l&#8217;icone 
+			<img border="0" src="pics/exposition/Icon_SecurityScheme.gif"/> :
+		</p>
+		<p>
+			<img border="0" src="pics/exposition/Diagram_Operation_Decorated_SecurityScheme.png"/>
+		</p>
+		<h3 id="ExportImportauformatSwaggerOpenAPI">Export / Import au format Swagger OpenAPI</h3>
+		<h4 id="ExportauformatSwaggerOpenAPI">Export au format Swagger OpenAPI</h4>
+		<p>Une fois que les infomrations requises à la définition d&#8217;une 
+			<em>API Rest</em> sont modélisées, il est possible de générer un fichier de spécification Swagger.
+		</p>
+		<p>Une fonctionnalité de prévisualisation est disponible en menu contextuel du 
+			<em>Component</em> :
+		</p>
+		<p>
+			<img border="0" src="pics/exposition/Menu_SwaggerPreview.png"/>
+		</p>
+		<p>Celle-ci ouvre un navigateur montrant le résultat de l&#8217;export dans Swagger UI, permettant de s&#8217;assurer que la génération produit un résultat satisfaisant :</p>
+		<p>
+			<img style="width:100%" border="0" src="pics/exposition/SwaggerPreview.png"/>
+		</p>
+		<p>La fonctionnalité d&#8217;export permet de produire des fichier Swagger au format 
+			<code>yaml</code> ou 
+			<code>json</code>. Elle est disponible en menu contextuel sur l&#8217;objet racine 
+			<em>Components</em> ou bien sur l&#8217;objet 
+			<em>Component</em>. Dans les deux cas, une boîte de dialogue invite à choisir le dossier de destination :
+		</p>
+		<p>
+			<img border="0" src="pics/exposition/Dialog_SwaggerExport.png"/>
+		</p>
+		<p>Suite à la validation du Dialogue, un fichier est généré par 
+			<em>Component</em>, avec la convention de nommage suivante :
+		</p>
+		<p>
+			<code>&lt;Nom du Component&gt;-&lt;Version du Component&gt;.&lt;yaml|json&gt;</code>
+		</p>
+		<h4 id="ImportdunfichierdespcificationSwagger">Import d&#8217;un fichier de spécification Swagger</h4>
+		<p>La fonctionnalité d&#8217;import Swagger permet d&#8217;importer un fichier de spécifiction Swagger dans 
+			<em>SOA Designer</em> sous forme d&#8217;un 
+			<em>Component</em>. L&#8217;import incrémental n&#8217;est pas supporté. Si un 
+			<em>Component</em> du nom de l&#8217;API existe déjà dans le modèle SOA, alors l&#8217;import échoue avec un message d&#8217;erreur du type &#171;Component with name BookStore already exist.&#187;.
+		</p>
+		<p>La fonctionnalité d&#8217;import Swagger est disponible en menu contextuel sur l&#8217;objet racine 
+			<em>Components</em> :
+		</p>
+		<p>
+			<img border="0" src="pics/exposition/Menu_SwaggerImport.png"/>
+		</p>
+		<p>En cas de succès suite à l&#8217;import, un nouveau 
+			<em>Component</em> est créé, prêt à être utilisé dans un ensemble plus vaste de 
+			<em>Components SOA</em>.
+		</p>
 		<h2 id="Gestiondesexigences">Gestion des exigences</h2>
 		<p>La gestion des exigences pour un modèle SOA utilise le mécanisme transverse de gestion des exigences. Pour plus de détails, voir 
 			<a href="../../org.obeonetwork.dsl.requirement.doc/doc/Obeo%20Network%20-%20Requirements%20tooling.html">Obeo Network &#8211; Requirements Tooling</a> .

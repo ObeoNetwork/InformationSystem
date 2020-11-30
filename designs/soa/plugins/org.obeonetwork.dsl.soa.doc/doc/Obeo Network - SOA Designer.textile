@@ -12,7 +12,7 @@ h1. Obeo Network - SOA Designer
 * Modéliser les contrats des composants (interfaces et services),
 * Modéliser les DTOs, leur structure et les relations entre eux,
 * Organiser les DTOs en packages,
-* Modéliser l'exposition REST des services et gérer le format Open API (Swagger)
+* Modéliser l'exposition REST des services et gérer le format Open API (Swagger).
 
 h2. Création d'un modèle Soa
  
@@ -218,6 +218,204 @@ Le drag and drop depuis le _Model Explorer_ d'un _DTO_ d'un autre _Namespace_ qu
 Le _DTO_ ainsi déplacé reste référencé là où il l'était, comme par exemple en type de paramètre d'une opération SOA ou en référence sur une _Relation_. Si le calque _External DTOs_ est activé, alors les _DTO_ externes figurent sur le diagramme avec une couleur différente et un label représentant leur nom qualifié :
 
 !pics/dto/DTO_Diagram_ExternalDTOs.png!
+
+h2. Exposition des services et modélisation d'API Rest
+
+L'exposition d'un composant consiste à publier tout ou partie des services qu'il fournit de manière à les rendre accessibles à des clients (autres composants ou systèmes, et potentiellement au travers d'un réseau).
+
+L'ensemble des services exposés d'un composant constitue son API (Application Programming Interface).
+
+h3(#exposition_type). Types d'exposition
+
+Dans _SOA Designer_, le type d'exposition est paramétrable au niveau d'une _Operation_, sur l'onglet principal de la vue de propriétés :
+
+!pics/exposition/Properties_Operation_Operation_Tab.png!
+
+La notion de visibilité (_Public/Privé_) fait référence à la notion du même nom définie par les langages orientés objet et concernant les méthodes de classes. Ainsi, une _Operation_ publique sera accessible depuis les implémentations des autres _Operations_ du _Composant_ ou bien depuis un autre composant destiné à être déployé dans la même application, mais il ne sera pas accessible depuis un autre système.
+
+La notion d'exposition fait référence à la publication par une technologie permettant de la rendre accessible depuis un autre système, et çe typiquement au travers d'un réseau. C'est ce qu'adresse par exemple de manière non exaustive les technologies REST, SOAP ou gRPC. Ainsi, pour être exposée, une opération doit avoir une visibilité _Publique_.
+ 
+_SOA Designer_ propose les types d'exposition suivants :
+* _NONE_ : Non exposée,
+* _REST_ : Exposée en web service par Representational State Transfer
+* _SOAP_ : Exposée en web service par Simple Object Access Protocol
+
+Le type d'exposition couvert par _SOA Designer_ est _REST_. Le type d'exposition _SOAP_ n'est disponible dans le studio qu'à titre indicatif, aucun outillage spécifique n'ayant été développé pour l'exploiter.
+
+L'icone des _Operations_ diffère suivant le type d'exposition :
+
+| !pics/exposition/Icon_Operation.gif! | Privée | (type d'exposition ignoré) |
+| !pics/exposition/Icon_OperationPublic.gif! | NONE | (opération publique non exposée) |
+| !pics/exposition/Icon_OperationRest.gif! | REST | (opération publique exposée en REST) |
+| !pics/exposition/Icon_OperationSoap.gif! | SOAP | (opération publique exposée en SOAP) |
+
+h3. Modélisation d'API Rest
+
+_SOA Designer_ permet de :
+* modéliser des _API Rest_ via un modeleur graphique basé sur Sirius,
+* exporter / importer ces API au format Swagger (conforme à la norme OpenAPI),
+* prévisualiser un export Swagger dans une vue web Swagger-UI.
+
+h4. Terminologie _SOA_ vs terminologie _REST_
+
+La terminologie utilisée par _SOA Designer_ provient du champ lexical de SOA (Service Oriented Architecture), dans lequel le concept de service est défini comme une fonction ou fonctionnalité. Cette définition est suffisament large pour autoriser un raffinement de la notion de _Service_ en _Operations_, tel qu'il est fait dans _SOA Designer_.
+
+Or, cette notion d'_Operation SOA_ est celle qui se prête à être en correspondance avec la notion de _Service REST_.
+Le concept de _Service SOA_ quand à lui, est mis en correspondance avec le concept de _Tag_ défini par la norme _OpenAPI_.
+Enfin, le concept de _Component SOA_ est mis en correspondance avec le concept d'API, ce qui est appelé de manière générique Composant d'Exposition.
+
+De manière synthétique, voici les correspondances clé entre les deux terminologies :
+|_. _SOA Designer_ |_. _OpenAPI_ |
+| Component | OpenAPI |
+| Service | Tag |
+| Operation | Service |
+
+*La suite de ce document privilègie la terminologie SOA. Les exceptions à cette règle seront clairement explicitées.*
+
+h4. Modélisation d'une API Rest OpenAPI
+
+Le concept de _SOA Designer_ correspondant à une API REST OpenAPI est le _Component_.
+
+Les données d'exposition sont accessibles via l'onglet _Exposition_ de la vue des propriétés :
+
+!pics/exposition/Properties_Component_Exposition_Tab.png!
+
+L'_URL_ est l'URL de base du serveur destiné à héberger l'API.
+
+Une _URI_ peut être définie à chaque niveau de profondeur dans le modèle sur les concepts _Component_, _Service_ et _Operation_ :
+
+!pics/exposition/ModelExplorer_SOA_Hierarchy.png!
+
+L'URL d'une _Operation_ peut donc être calculée par la concaténation de l'URL du _Component_ et de chacune des URI sur les trois niveaux _Component_, _Service_ et _Operation_.
+
+h4. Modélisation d'un Tag OpenAPI
+
+Le concept en correspondance avec le _Tag OpenAPI_ est le concept _Service_.
+
+L'onglet principal du service permet d'en définir le nom, l'onglet _Exposition_ permet d'en définir l'URI. Celle-ci peut rester vide.
+
+!pics/exposition/Properties_Service_Exposition_Tab.png!
+
+h4. Modélisation d'un Service OpenAPI
+
+Le concept en correspondance avec le _Service OpenAPI_ est le concept _Operation_. Lorsqu'un type d'exposition autre que _NONE_ est sélectionné comme expliqué au paragraphe "Types d'exposition":#exposition_type , l'onglet _Exposition_ devient visible et accessible :
+
+!pics/exposition/Properties_Operation_Exposition_Tab.png!
+
+Le verbe correspond au verbe HTTP et peut prendre l'une des valeurs : _GET_, _POST_, _PUT_, _DELETE_, _HEAD_, _OPTIONS_, _PATCH_, _TRACE_.
+
+Dans le cas où l'opération définit des paramètres d'entrée, ceux-ci sont listés dans la section _Input Parameters_, qui offre la possibilité de définir le mode de passage et les identifiants REST de chacun d'eux. Ceci est expliqué plus en détail ci-dessous dans la section "Modélisation d'un paramètre d'entrée":#input_parameter .
+
+h4(#parameter). Modélisation d'un paramètre
+
+Le contenu de l'onglet _Exposition_ d'un paramètre n'est pas le même pour un paramètre d'entrée, de retour ou d'erreur.
+
+h5(#input_parameter). Modélisation d'un paramètre d'entrée
+
+L'identifiant REST est un moyen pour identifier un paramètre autrement que par son nom, et a des particularités liées au mode de passage du paramètre.
+
+Pour un mode de passage _BODY_, l'identifiant REST n'a pas de sens.
+Lorsque le mode de passage _BODY_ est sélectionné dans la liste déroulante, la vue de propriétés affiche à côté de celle-ci une zone de texte non modifiable affichant le texte "body" :
+
+!pics/exposition/Properties_InputParameter_Exposition_Tab_PassingMode_BODY.png!
+
+Pour un mode de passage _PATH_, l'identifiant REST doit correspondre à l'un des identifiants définis entre accolades dans l'URI de l'_Operation_.
+Lorsque le mode de passage _PATH_ est sélectionné dans la liste déroulante, la vue de propriétés affiche à côté de celle-ci une autre liste déroulante proposant un choix déduit de l'analyse de l'URI de l'_Operation_. Ainsi, si l'URI est "/{country}/{author}", la liste déroulante proposera les deux choix "country" et "author" :
+
+!pics/exposition/Properties_InputParameter_Exposition_Tab_PassingMode_PATH.png!
+
+Suite à une édition de l'URI d'une _Operation_, il est possible que la valeur de l'identifiant REST d'un _Parametre_ PATH ne soit pas dans l'URI. Dans ce cas un message d'erreur est affiché :
+
+!pics/exposition/Properties_InputParameter_Exposition_Tab_PassingMode_PATH_WithError.png!
+
+Pour un mode de passage _QUERY_, _COOKIE_ ou _HEADER_, l'identifiant REST permet d'identifier le paramètre soit dans l'URL d'appel du service REST, soit dans le cookie, soit dans le header HTTP.
+Lorsque l'un de ces modes de passage est sélectionné dans la liste déroulante, la vue de propriétés affiche à côté de celle-ci une zone de texte libre permettant la saisie de l'identifiant :
+
+!pics/exposition/Properties_InputParameter_Exposition_Tab_PassingMode_QUERY.png!
+
+h5(#output_fault_parameter). Modélisation d'un paramètre de retour ou d'erreur
+
+L'onglet _Exposition_ des vues de propriétés pour un paramètre de retour ou d'erreur présente la même IHM permettant de saisir un code de status et une description :
+
+!pics/exposition/Properties_OutputParameter_Exposition_Tab.png!
+
+Le bouton à droite de la zone de texte _Status Code_ ouvre une boîte de dialogue permettant de saisir facilement parmi une liste de valeurs par défaut des couples code / description.
+
+Le dialogue propose les codes de succès dans le cas d'un paramètre de sortie, et des codes d'erreur dans le cas d'un paramètre d'erreur :
+
+!pics/exposition/Dialog_SelectStatus_OutputParameter.png! !pics/exposition/Dialog_SelectStatus_FaultParameter.png!
+
+h4. Modélisation de la sécurité
+
+h5. Modélisation des schémas de sécurité
+
+Les schemas de sécurité sont définis sur l'onglet _Security Schemes_ de la vue de propriétés d'un _Component_ :
+
+!pics/exposition/Properties_Component_SecuritySchemes_Tab.png!
+
+Cette vue permet de créer (!pics/etool16/add.gif!), supprimer (!pics/etool16/delete.gif!) et réordonner (!pics/etool16/up.gif!, !pics/etool16/down.gif!) les _Security Schemes_ du _Component_.
+
+La création d'un _Security Scheme_ déclenche l'affichage d'une boîte de dialogue permettant de le spécifier :
+
+!pics/exposition/Dialog_SecurityScheme_Creation.png!
+
+L'édition des valeurs saisies est modifiable par la suite en double-cliquant sur un _SecurityScheme_ dans cette même vue de propriétés, ou bien dans la vue de propriétés d'un _SecurityScheme_ lorsque celui-ci est séléctionné dans la vue _Model Explorer_ :
+
+!pics/exposition/Properties_SecurityScheme.png!
+
+Lorsqu'ils existent, les _SecuritySchemes_ sont présentés dans la vue _Model Explorer_ au niveau de profondeur suivant celui du _Component_.
+
+h5. Utilisation des schémas de sécurité
+
+Lorsqu'il existe au moins une définition de _SecurityScheme_ dans le _Component_, alors une section _Security_ apparaît dans l'onglet _Exposition_ de la vue des propriétés d'une _Operation_ :
+
+!pics/exposition/Properties_Operation_Operation_Tab_Security.png!
+
+Cette vue permet de sélectionner les _SecuritySchemes_ à appliquer à l'_Operation_ (!pics/etool16/edit.gif!), supprimer une affectation de _Security Scheme_ à l'_Operation_ (!pics/etool16/delete.gif!) et réordonner (!pics/etool16/up.gif!, !pics/etool16/down.gif!) les applications de _Security Schemes_.
+
+La suppression ne supprime pas le _Security Scheme_ du modèle, mais simplement son affectation à l'_Operation_.
+
+La sélection des _Security Schemes_ ouvre une boîte de dialogue permettant d'ajouter, retirer, réordonner les affectations de _Security Schemes_ à l'_Operation_ :
+
+!pics/exposition/Dialog_SecurityScheme_Selection.png!
+
+Les _Security Schemes_ accessibles pour une affectation à une _Operation_ sont ceux définis au niveau du _Component_ auquel appartient l'_Operation_.
+
+Quand au moins un _Security Scheme_ est appliqué à une _Operation_, celle-ci est décorée avec l'icone !pics/exposition/Icon_SecurityScheme.gif! :
+
+!pics/exposition/Diagram_Operation_Decorated_SecurityScheme.png!
+
+h3. Export / Import au format Swagger OpenAPI
+
+h4. Export au format Swagger OpenAPI
+
+Une fois que les infomrations requises à la définition d'une _API Rest_ sont modélisées, il est possible de générer un fichier de spécification Swagger.
+
+Une fonctionnalité de prévisualisation est disponible en menu contextuel du _Component_ :
+
+!pics/exposition/Menu_SwaggerPreview.png!
+
+Celle-ci ouvre un navigateur montrant le résultat de l'export dans Swagger UI, permettant de s'assurer que la génération produit un résultat satisfaisant :
+
+!{width:100%}pics/exposition/SwaggerPreview.png!
+
+La fonctionnalité d'export permet de produire des fichier Swagger au format @yaml@ ou @json@. Elle est disponible en menu contextuel sur l'objet racine _Components_ ou bien sur l'objet _Component_. Dans les deux cas, une boîte de dialogue invite à choisir le dossier de destination :
+
+!pics/exposition/Dialog_SwaggerExport.png!
+
+Suite à la validation du Dialogue, un fichier est généré par _Component_, avec la convention de nommage suivante :
+
+@<Nom du Component>-<Version du Component>.<yaml|json>@
+
+h4. Import d'un fichier de spécification Swagger
+
+La fonctionnalité d'import Swagger permet d'importer un fichier de spécifiction Swagger dans _SOA Designer_ sous forme d'un _Component_. L'import incrémental n'est pas supporté. Si un _Component_ du nom de l'API existe déjà dans le modèle SOA, alors l'import échoue avec un message d'erreur du type "Component with name BookStore already exist.".
+
+La fonctionnalité d'import Swagger est disponible en menu contextuel sur l'objet racine _Components_ :
+
+!pics/exposition/Menu_SwaggerImport.png!
+
+En cas de succès suite à l'import, un nouveau _Component_ est créé, prêt à être utilisé dans un ensemble plus vaste de _Components SOA_.
 
 h2. Gestion des exigences
 
