@@ -482,7 +482,10 @@ public class SwaggerBuilder {
 	
 	private Schema<Object> createArraySchema(Schema<Object> schema, Property soaProperty) {
     	ArraySchema arraySchema = new ArraySchema();
-    	arraySchema.minItems(PropertyGenUtil.getLowerBound(soaProperty));
+    	int lowerBound = PropertyGenUtil.getLowerBound(soaProperty);
+    	if(lowerBound > 0) {
+    		arraySchema.minItems(lowerBound);
+    	}
 		arraySchema.setItems(schema);
 		return arraySchema;
 	}
@@ -791,7 +794,10 @@ public class SwaggerBuilder {
 	
 	private Schema<Object> createArraySchema(Schema<Object> schema, org.obeonetwork.dsl.soa.Parameter soaParameter) {
     	ArraySchema arraySchema = new ArraySchema();
-    	arraySchema.minItems(ParameterGenUtil.getLowerBound(soaParameter));
+    	Integer lowerBound = ParameterGenUtil.getLowerBound(soaParameter);
+    	if(lowerBound > 0) {
+    		arraySchema.minItems(lowerBound);
+    	}
 		arraySchema.setItems(schema);
 		return arraySchema;
 	}
