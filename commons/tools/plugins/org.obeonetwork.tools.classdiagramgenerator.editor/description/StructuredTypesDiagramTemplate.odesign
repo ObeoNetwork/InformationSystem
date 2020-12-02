@@ -69,6 +69,12 @@
               </firstModelOperations>
             </initialOperation>
           </ownedTools>
+          <ownedTools xsi:type="tool:DeleteElementDescription" name="DEL_ND_External" precondition="false">
+            <element name="element"/>
+            <elementView name="elementView"/>
+            <containerView name="containerView"/>
+            <initialOperation/>
+          </ownedTools>
         </toolSections>
       </defaultLayer>
       <additionalLayers name="Dependencies" activeByDefault="true">
@@ -83,14 +89,28 @@
             </endLabelStyleDescription>
           </style>
         </edgeMappings>
+        <edgeMappings name="ND_Dependency_External" deletionDescription="//@ownedViewpoints[name='StructuredTypesDiagramTemplate']/@ownedRepresentations[name='{Hierarchy.id}']/@defaultLayer/@toolSections.1/@ownedTools[name='DEL_ND_External']" sourceMapping="//@ownedViewpoints[name='StructuredTypesDiagramTemplate']/@ownedRepresentations[name='{Hierarchy.id}']/@defaultLayer/@containerMappings[name='ND_Namespace']" targetMapping="//@ownedViewpoints[name='StructuredTypesDiagramTemplate']/@ownedRepresentations[name='{Hierarchy.id}']/@additionalLayers[name='Dependencies']/@containerMappings[name='ND_Namespace_External']" targetFinderExpression="service:self.getExternalNamespaces()">
+          <style targetArrow="NoDecoration">
+            <strokeColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='gray']"/>
+            <beginLabelStyleDescription showIcon="false">
+              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            </beginLabelStyleDescription>
+            <endLabelStyleDescription showIcon="false">
+              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            </endLabelStyleDescription>
+          </style>
+        </edgeMappings>
+        <containerMappings name="ND_Namespace_External" deletionDescription="//@ownedViewpoints[name='StructuredTypesDiagramTemplate']/@ownedRepresentations[name='{Hierarchy.id}']/@defaultLayer/@toolSections.1/@ownedTools[name='DEL_ND_External']" semanticCandidatesExpression="service:self.getExternalNamespacesRecursive()" domainClass="environment.Namespace">
+          <style xsi:type="style:FlatContainerStyleDescription" borderSizeComputationExpression="1" borderColor="//@userColorsPalettes[name='Class%20Diagram']/@entries[name='ExternalNamespace_border']" labelExpression="service:self.getEnvironmentQualifiedName()" labelColor="//@userColorsPalettes[name='Class%20Diagram']/@entries[name='ExternalNamespace_color']" backgroundStyle="GradientTopToBottom" backgroundColor="//@userColorsPalettes[name='Class%20Diagram']/@entries[name='ExternalNamespace_background']" foregroundColor="//@userColorsPalettes[name='Class%20Diagram']/@entries[name='ExternalNamespace_foreground']"/>
+        </containerMappings>
         <customization>
           <vsmElementCustomizations xsi:type="description:VSMElementCustomization" predicateExpression="aql:view.isDependencyBeginDecorated()">
-            <featureCustomizations xsi:type="description:EAttributeCustomization" appliedOn="//@ownedViewpoints[name='StructuredTypesDiagramTemplate']/@ownedRepresentations[name='{Hierarchy.id}']/@additionalLayers[name='Dependencies']/@edgeMappings[name='ND_Dependency']/@style/@beginLabelStyleDescription" attributeName="labelExpression" value="aql:view.getDependencyBeginLabel()"/>
-            <featureCustomizations xsi:type="description:EAttributeCustomization" appliedOn="//@ownedViewpoints[name='StructuredTypesDiagramTemplate']/@ownedRepresentations[name='{Hierarchy.id}']/@additionalLayers[name='Dependencies']/@edgeMappings[name='ND_Dependency']/@style" attributeName="sourceArrow" value="InputArrow"/>
+            <featureCustomizations xsi:type="description:EAttributeCustomization" appliedOn="//@ownedViewpoints[name='StructuredTypesDiagramTemplate']/@ownedRepresentations[name='{Hierarchy.id}']/@additionalLayers[name='Dependencies']/@edgeMappings[name='ND_Dependency']/@style/@beginLabelStyleDescription //@ownedViewpoints[name='StructuredTypesDiagramTemplate']/@ownedRepresentations[name='{Hierarchy.id}']/@additionalLayers[name='Dependencies']/@edgeMappings[name='ND_Dependency_External']/@style/@beginLabelStyleDescription" attributeName="labelExpression" value="aql:view.getDependencyBeginLabel()"/>
+            <featureCustomizations xsi:type="description:EAttributeCustomization" appliedOn="//@ownedViewpoints[name='StructuredTypesDiagramTemplate']/@ownedRepresentations[name='{Hierarchy.id}']/@additionalLayers[name='Dependencies']/@edgeMappings[name='ND_Dependency']/@style //@ownedViewpoints[name='StructuredTypesDiagramTemplate']/@ownedRepresentations[name='{Hierarchy.id}']/@additionalLayers[name='Dependencies']/@edgeMappings[name='ND_Dependency_External']/@style" attributeName="sourceArrow" value="InputArrow"/>
           </vsmElementCustomizations>
           <vsmElementCustomizations xsi:type="description:VSMElementCustomization" predicateExpression="aql:view.isDependencyEndDecorated()">
-            <featureCustomizations xsi:type="description:EAttributeCustomization" appliedOn="//@ownedViewpoints[name='StructuredTypesDiagramTemplate']/@ownedRepresentations[name='{Hierarchy.id}']/@additionalLayers[name='Dependencies']/@edgeMappings[name='ND_Dependency']/@style/@endLabelStyleDescription" attributeName="labelExpression" value="aql:view.getDependencyEndLabel()"/>
-            <featureCustomizations xsi:type="description:EAttributeCustomization" appliedOn="//@ownedViewpoints[name='StructuredTypesDiagramTemplate']/@ownedRepresentations[name='{Hierarchy.id}']/@additionalLayers[name='Dependencies']/@edgeMappings[name='ND_Dependency']/@style" attributeName="targetArrow" value="InputArrow"/>
+            <featureCustomizations xsi:type="description:EAttributeCustomization" appliedOn="//@ownedViewpoints[name='StructuredTypesDiagramTemplate']/@ownedRepresentations[name='{Hierarchy.id}']/@additionalLayers[name='Dependencies']/@edgeMappings[name='ND_Dependency']/@style/@endLabelStyleDescription //@ownedViewpoints[name='StructuredTypesDiagramTemplate']/@ownedRepresentations[name='{Hierarchy.id}']/@additionalLayers[name='Dependencies']/@edgeMappings[name='ND_Dependency_External']/@style/@endLabelStyleDescription" attributeName="labelExpression" value="aql:view.getDependencyEndLabel()"/>
+            <featureCustomizations xsi:type="description:EAttributeCustomization" appliedOn="//@ownedViewpoints[name='StructuredTypesDiagramTemplate']/@ownedRepresentations[name='{Hierarchy.id}']/@additionalLayers[name='Dependencies']/@edgeMappings[name='ND_Dependency']/@style //@ownedViewpoints[name='StructuredTypesDiagramTemplate']/@ownedRepresentations[name='{Hierarchy.id}']/@additionalLayers[name='Dependencies']/@edgeMappings[name='ND_Dependency_External']/@style" attributeName="targetArrow" value="InputArrow"/>
           </vsmElementCustomizations>
         </customization>
       </additionalLayers>
@@ -684,5 +704,9 @@
     <entries xsi:type="description:UserFixedColor" red="255" green="255" blue="255" name="ExternalType_foreground"/>
     <entries xsi:type="description:UserFixedColor" red="0" green="0" blue="0" name="ExternalType_color"/>
     <entries xsi:type="description:UserFixedColor" red="252" green="175" blue="62" name="ExternalType_border"/>
+    <entries xsi:type="description:UserFixedColor" red="253" green="206" blue="137" name="ExternalNamespace_background"/>
+    <entries xsi:type="description:UserFixedColor" red="255" green="255" blue="255" name="ExternalNamespace_foreground"/>
+    <entries xsi:type="description:UserFixedColor" red="0" green="0" blue="0" name="ExternalNamespace_color"/>
+    <entries xsi:type="description:UserFixedColor" red="252" green="175" blue="62" name="ExternalNamespace_border"/>
   </userColorsPalettes>
 </description:Group>

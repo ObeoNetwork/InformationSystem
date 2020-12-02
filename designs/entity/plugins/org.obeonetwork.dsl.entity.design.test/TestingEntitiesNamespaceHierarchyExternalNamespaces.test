@@ -1,0 +1,306 @@
+--- RCPTT testcase ---
+Format-Version: 1.0
+Element-Name: TestingEntitiesNamespaceHierarchyExternalNamespaces
+Element-Type: testcase
+Element-Version: 3.0
+External-Reference: 
+Id: _0amQgDofEeu-6M4tSPO0Uw
+Save-Time: 12/9/20 2:30 PM
+Testcase-Type: ecl
+
+------=_.description-216f885c-d591-38ce-8ea2-e4f8cb4d6ffa
+Content-Type: text/plain
+Entry-Name: .description
+
+Testing external namespaces displayed in optional layer defined in entity.odesign/Entities Namespaces Hierarchy
+The optional layer must display :
+- parent namespaces of external Entities that are supertypes of Entities of the internal namespaces hierarchy
+- parent namespaces of external Entities that are related to Entities of the internal namespaces hierarchy
+- parent namespaces of external datatypes that are types of Entities attributes of the internal namespaces hierarchy
+
+Steps of the test :
+- Create a new entities diagram (My.entities)
+- Create a new namespace in My.entities (namespace_1)
+- Create a new namespace in namespace_1 (also named namespace_1)
+- Create an Entity in namespace_1 (named Entity1)
+- Create an Entity in namespace::namespace_1 (named Entity2)
+- Create an Enum in namespace::namespace_1 (named Enum2)
+- Connect Book from E-BookStore.entities to Entity1 from My.entities (via a relation)
+- Connect ShoppingCartLine from E-BookStore.entities to Entity2 from My.entities (via inheritence)
+- Change ShoppingCart/status type from E-BookStore.entities to Enum2 from My.entities
+- Open E-BookStore.entities/Entities Namespaces Hierarchy diagram
+- Activate Optional Layer Dependencies
+- Check that namespace1 and namespace_1::namespace_1 external namespace are displayed
+- Check the label edge between main and namespace1 is '1'
+- Check the label edge between main and namespace1::namespace_1 is '2'
+
+
+------=_.description-216f885c-d591-38ce-8ea2-e4f8cb4d6ffa--
+------=_.content-0a7243a0-75d3-3d5f-9791-539de0e5b7ac
+Content-Type: text/ecl
+Entry-Name: .content
+
+with [get-view "Model Explorer"] {
+    get-tree | select "E-BookStore/representations.aird" | double-click
+    click
+}
+get-editor "E-BookStore" | close
+get-view "Model Explorer" | get-tree | select "E-BookStore" | get-menu -path "New/Other..." | click
+with [get-window New] {
+    get-tree | select "Safr@n/Entity Model"
+    get-button "Next >" | click
+}
+get-window "New Entity Model" | get-button Finish | click
+with [get-editor "E-BookStore - Entities Namespaces Hierarchy"] {
+    get-diagram -index 1 | get-edit-part -name "E-BookStore - Entities Namespaces Hierarchy" | mouse-move 1199 98 
+        -height 604 -width 1207
+    with [get-palette | get-palette-entry Namespace -index 1] {
+        mouse-move 35 12 button1 -height 23 -width 125
+        mouse-press 35 12 button1 -height 23 -width 125
+        mouse-release 35 12 button1 "" -height 23 -width 125
+        mouse-hover 35 12 -height 23 -width 125
+    }
+    with [get-diagram -index 1 | get-edit-part -name "E-BookStore - Entities Namespaces Hierarchy"] {
+        mouse-move 36 36 button1 -height 604 -width 1207
+        mouse-press 36 36 button1 -height 604 -width 1207
+        mouse-release 36 36 button1 "" -height 604 -width 1207
+    }
+    with [get-diagram -index 1 | get-edit-part -name "E-BookStore - Entities Namespaces Hierarchy"] {
+        get-edit-part -name "namespace_1" | get-edit-part -className DNodeContainerViewNodeContainerCompartmentEditPart 
+            | mouse-hover 0 0 -height 68 -width 148
+        mouse-move 1206 84 -height 607 -width 1207
+    }
+    with [get-palette | get-palette-entry Namespace -index 1] {
+        mouse-move 80 10 button1 -height 23 -width 125
+        mouse-press 80 10 button1 -height 23 -width 125
+        mouse-release 80 10 button1 "" -height 23 -width 125
+        mouse-hover 80 10 -height 23 -width 125
+    }
+    with [get-diagram -index 1 | get-edit-part -name "E-BookStore - Entities Namespaces Hierarchy" | get-edit-part 
+        -name "namespace_1" | get-edit-part -className DNodeContainerViewNodeContainerCompartmentEditPart] {
+        mouse-move 42 27 -height 68 -width 148
+        mouse-hover 42 27 -height 68 -width 148
+        mouse-move 42 27 button1 -height 68 -width 148
+        mouse-press 42 27 button1 -height 68 -width 148
+        mouse-release 42 27 button1 "" -height 68 -width 148
+    }
+    get-diagram -index 1 | get-edit-part -name "E-BookStore - Entities Namespaces Hierarchy" | mouse-move 7 85 
+        -height 607 -width 1207
+}
+get-view "Model Explorer" | get-tree | select "E-BookStore/My.entity/Entities/Namespace namespace_1" | get-menu 
+    -path "New Representation/namespace_1 - Entities diagram" | click
+get-window "New Entities Diagram" | get-button OK | click
+with [get-editor "namespace_1 - Entities diagram"] {
+    get-diagram -index 1 | get-edit-part -name "namespace_1 - Entities diagram" | mouse-move 1205 192 -height 604 
+        -width 1207
+    with [get-palette] {
+        get-palette-entry Attribute | mouse-move 9 2 -height 23 -width 125
+        get-palette-entry "Entity from DTO" | mouse-move 48 2 -height 39 -width 125
+        with [get-palette-entry Entity -index 1] {
+            mouse-move 55 16 button1 -height 23 -width 125
+            mouse-press 55 16 button1 -height 23 -width 125
+            mouse-move 55 16 -height 23 -width 125
+            mouse-release 55 16 button1 "" -height 23 -width 125
+        }
+    }
+    with [get-diagram -index 1 | get-edit-part -name "namespace_1 - Entities diagram"] {
+        mouse-move 255 200 button1 -height 604 -width 1207
+        mouse-press 255 200 button1 -height 604 -width 1207
+        mouse-release 255 200 button1 "" -height 604 -width 1207
+    }
+    with [get-diagram -index 1 | get-edit-part -name "namespace_1 - Entities diagram"] {
+        mouse-hover 255 200 -height 604 -width 1207
+        mouse-move 1 227 -height 607 -width 1207
+    }
+}
+get-view "Model Explorer" | get-tree 
+    | select "E-BookStore/My.entity/Entities/Namespace namespace_1/Namespace namespace_1" | get-menu 
+    -path "New Representation/namespace_1 - Entities diagram" | click
+get-window "New Entities Diagram" | get-button OK | click
+with [get-editor "namespace_1 - Entities diagram" -index 1] {
+    get-diagram -index 1 | get-edit-part -name "namespace_1 - Entities diagram" | mouse-move 1205 231 -height 604 
+        -width 1207
+    with [get-palette] {
+        get-palette-entry Enumeration | mouse-move 31 0 -height 23 -width 125
+        get-palette-entry Attribute | mouse-move 43 20 -height 23 -width 125
+        get-palette-entry "Entity from DTO" | mouse-move 49 5 -height 39 -width 125
+        with [get-palette-entry Entity -index 1] {
+            mouse-move 49 3 button1 -height 23 -width 125
+            mouse-press 49 3 button1 -height 23 -width 125
+            mouse-release 49 3 button1 "" -height 23 -width 125
+        }
+    }
+    with [get-diagram -index 1 | get-edit-part -name "namespace_1 - Entities diagram"] {
+        mouse-move 48 98 button1 -height 604 -width 1207
+        mouse-press 48 98 button1 -height 604 -width 1207
+        mouse-release 48 98 button1 "" -height 604 -width 1207
+    }
+    with [get-diagram -index 1] {
+        get-edit-part -name "namespace_1 - Entities diagram" | get-edit-part -name Entity1 | mouse-hover 0 2 -height 41 
+            -width 58
+        key-type "M2+e"
+        get-edit-part -name "namespace_1 - Entities diagram" | get-edit-part -name Entity1 | get-edit-part 
+            -className DNodeListNameEditPart | activate-direct-edit
+    }
+    with [get-editbox] {
+        set-text Entity2
+        key-type Enter
+    }
+    with [get-diagram -index 1] {
+        commit-direct-edit
+        get-edit-part -name "namespace_1 - Entities diagram" | mouse-move 1204 252 -height 607 -width 1207
+    }
+    with [get-palette] {
+        get-palette-entry Literal | mouse-move 25 1 -height 23 -width 125
+        with [get-palette-entry Enumeration] {
+            mouse-move 56 17 button1 -height 23 -width 125
+            mouse-press 56 17 button1 -height 23 -width 125
+            mouse-release 56 17 button1 "" -height 23 -width 125
+        }
+    }
+    with [get-diagram -index 1 | get-edit-part -name "namespace_1 - Entities diagram"] {
+        mouse-move 239 95 button1 -height 607 -width 1207
+        mouse-press 239 95 button1 -height 607 -width 1207
+        mouse-move 239 96 -mask "" -height 607 -width 1207
+        mouse-drag 239 96 button1 "" -height 607 -width 1207
+        mouse-release 239 96 button1 "" -height 607 -width 1207
+    }
+    get-diagram -index 1 | get-edit-part -name "namespace_1 - Entities diagram" | mouse-move 1161 218 -height 607 
+        -width 1207
+    with [get-palette | get-palette-entry Literal] {
+        mouse-move 49 14 button1 -height 23 -width 125
+        mouse-press 49 14 button1 -height 23 -width 125
+        mouse-release 49 14 button1 "" -height 23 -width 125
+        mouse-hover 49 14 -height 23 -width 125
+    }
+    with [get-diagram -index 1 | get-edit-part -name "namespace_1 - Entities diagram" | get-edit-part -name Enum2] {
+        mouse-move 20 25 -height 41 -width 33
+        mouse-move 14 25 button1 -height 41 -width 33
+        mouse-press 14 25 button1 -height 41 -width 33
+        mouse-release 14 25 button1 "" -height 41 -width 33
+    }
+    with [get-diagram -index 1 | get-edit-part -name "namespace_1 - Entities diagram"] {
+        get-edit-part -name Enum2 | mouse-hover 14 25 -height 41 -width 33
+        mouse-move 150 131 -height 607 -width 1207
+        mouse-hover 150 131 -height 607 -width 1207
+        mouse-move 3 166 -height 607 -width 1207
+    }
+}
+get-view "Model Explorer" | get-tree 
+    | select "E-BookStore/E-BookStore.entity/Entities/Namespace main/main - Entities diagram" | double-click
+with [get-editor "main - Entities diagram"] {
+    get-diagram -index 1 | get-edit-part -name "main - Entities diagram" | mouse-move 1205 301 -height 604 -width 1207
+    with [get-palette] {
+        get-palette-entry Literal | mouse-move 13 8 -height 23 -width 125
+        get-palette-entry Enumeration | mouse-move 20 6 -height 23 -width 125
+        get-palette-entry Attribute | mouse-move 35 0 -height 23 -width 125
+    }
+    with [get-diagram -index 1 | get-edit-part -name "main - Entities diagram"] {
+        mouse-move 254 33 -height 604 -width 1207
+        mouse-move 193 0 -height 604 -width 1207
+    }
+    get-button Layers | click -arrow
+}
+get-menu -path "External Entities" | click
+with [get-editor "main - Entities diagram"] {
+    get-diagram -index 1 | get-edit-part -name "main - Entities diagram" | mouse-move 1190 514 -height 604 -width 1207
+    with [get-palette | get-palette-entry "External entity"] {
+        mouse-move 84 22 button1 -height 23 -width 125
+        mouse-press 84 22 button1 -height 23 -width 125
+        mouse-release 84 22 button1 "" -height 23 -width 125
+    }
+    with [get-diagram -index 1 | get-edit-part -name "main - Entities diagram"] {
+        mouse-move 551 87 button1 -height 604 -width 1207
+        mouse-press 551 87 button1 -height 604 -width 1207
+        mouse-release 551 87 button1 "" -height 604 -width 1207
+    }
+}
+with [get-window "Selection Wizard"] {
+    get-tree | select "Entities/Namespace namespace_1/Entity Entity1"
+    get-button Finish | click
+}
+with [get-editor "main - Entities diagram"] {
+    get-diagram -index 1 | get-edit-part -name "main - Entities diagram" | mouse-move 1203 383 -height 607 -width 1207
+    with [get-palette] {
+        with [get-palette-entry Relation] {
+            mouse-move 53 13 button1 -height 23 -width 125
+            mouse-press 53 13 button1 -height 23 -width 125
+            mouse-release 53 13 button1 "" -height 23 -width 125
+        }
+    }
+    with [get-diagram -index 1 | get-edit-part -name "main - Entities diagram"] {
+        mouse-move 245 82 -height 607 -width 1207
+        with [get-edit-part -name Book] {
+            mouse-move 83 19 button1 -height 79 -width 93
+            mouse-press 83 19 button1 -height 79 -width 93
+            mouse-release 83 19 button1 "" -height 79 -width 93
+        }
+        mouse-move 528 104 -height 607 -width 1207
+        with [get-edit-part -name "namespace_1:Entity1" | get-handle ResizeHandle -index 3] {
+            mouse-move 6 0 button1 -height 7 -width 7
+            mouse-press 6 0 button1 -height 7 -width 7
+        }
+    }
+    with [get-diagram -index 1 | get-edit-part -name "main - Entities diagram"] {
+        mouse-release 554 100 button1 "" -height 607 -width 1207
+        mouse-hover 554 100 -height 607 -width 1207
+        mouse-move 544 231 -height 604 -width 1207
+        mouse-hover 548 238 -height 611 -width 1211
+        mouse-move 1205 435 -height 607 -width 1207
+    }
+    get-palette | get-palette-entry "Bidirectional Composition" | mouse-move 18 31 -height 39 -width 125
+    with [get-diagram -index 1 | get-edit-part -name "main - Entities diagram"] {
+        mouse-move 296 191 -height 607 -width 1207
+        with [get-edit-part -name ShoopingCartLine] {
+            mouse-move 85 22 -height 47 -width 110
+            mouse-hover 85 22 -height 47 -width 110
+            mouse-move 85 22 button1 -height 47 -width 110
+            mouse-press 85 22 button1 -height 47 -width 110
+            mouse-release 85 22 button1 "" -height 47 -width 110
+        }
+        mouse-move 354 590 -height 607 -width 1207
+    }
+}
+get-view Properties | get-section Propetries | get-button "Browse your data to edit the current value" | click
+with [get-window Select] {
+    get-tree 
+        | select "platform:\\/resource\\/E-BookStore\\/My.entity/Entities/Namespace namespace_1/Namespace namespace_1/Entity Entity2"
+    get-button Finish | click
+}
+with [get-editor "main - Entities diagram" | get-diagram -index 1 | get-edit-part -name "main - Entities diagram"] {
+    with [get-edit-part -name ShoppingCart | get-edit-part -className DNodeListViewNodeListCompartment2EditPart] {
+        mouse-move 84 8 -height 18 -width 88
+        with [get-edit-part -name "status : String[1]"] {
+            mouse-move 60 8 button1 -height 16 -width 80
+            mouse-press 60 8 button1 -height 16 -width 80
+            mouse-release 60 8 button1 "" -height 16 -width 80
+            mouse-hover 60 8 -height 16 -width 80
+        }
+    }
+    mouse-move 353 609 -height 655 -width 1233
+}
+get-view Properties | get-section Properties | get-combo | select "Enumeration Enum2"
+get-editor "main - Entities diagram" | get-diagram -index 1 | get-edit-part -name "main - Entities diagram" 
+    | mouse-move 41 111 -height 655 -width 1233
+get-button "Save All (M1+M2+S)" | click
+get-view "Model Explorer" | get-tree | select "E-BookStore/E-BookStore.entity/Entities/Entities Namespaces Hierarchy" 
+    | double-click
+with [get-editor "Entities Namespaces Hierarchy"] {
+    get-diagram -index 1 | get-edit-part -name "Entities Namespaces Hierarchy" | mouse-move 112 0 -height 604 
+        -width 1207
+    get-button Layers | click -arrow
+}
+get-menu -path Dependencies | click
+get-editor "Entities Namespaces Hierarchy" | get-diagram -index 1 | get-edit-part -name "Entities Namespaces Hierarchy" 
+    | mouse-move 119 132 -height 611 -width 1211
+with [get-editor "Entities Namespaces Hierarchy" | get-diagram -index 1 | get-edit-part 
+    -name "Entities Namespaces Hierarchy"] {
+    get-property "children.size" | equals 3 | verify-true
+    get-property "children.Node[0].element.name" | equals main | verify-true
+    get-property "children.Node[1].element.name" | equals "namespace_1" | verify-true
+    get-property "children.Node[2].element.name" | equals "namespace_1:namespace_1" | verify-true
+    get-property "edges.size" | equals 2 | verify-true
+    get-property "edges.Edge[0].element.endLabel" | equals 1 | verify-true
+    get-property "edges.Edge[1].element.endLabel" | equals 2 | verify-true
+}
+------=_.content-0a7243a0-75d3-3d5f-9791-539de0e5b7ac--
