@@ -767,7 +767,6 @@ public class SoaComponentBuilder {
 			operationNamesDisambiguationIndex.put(rawComputedSoaOperationName, 0);
 		} else {
 			soaOperationName = computeNextOperationDisambiguedName(rawComputedSoaOperationName);
-			System.out.println(soaOperationName);
 		}
 		
 		while(reservedOperationNames.contains(soaOperationName)) {
@@ -1144,7 +1143,9 @@ public class SoaComponentBuilder {
 			}
 		} else if(schema.get$ref() != null) {
 			Schema refSchema = getReferencedSchema(schema.get$ref());
-			typeId = computeSoaType(refSchema);
+			if(refSchema != null) {
+				typeId = computeSoaType(refSchema);
+			}
 		} else if(isEnum(schema)) {
 			typeId = EnvironmentPackage.ENUMERATION;
 		} else if(isObject(schema)) {
@@ -1166,6 +1167,9 @@ public class SoaComponentBuilder {
 		} else {
 			String key = $ref.substring(COMPONENT_SCHEMA_$REF.length());
 			schema = openApi.getComponents().getSchemas().get(key);
+			if(schema == null) {
+				logError(String.format("Reference \"%s\" cannot be resolved.", $ref));
+			}
 		}
 		
 		return schema;
@@ -1200,7 +1204,9 @@ public class SoaComponentBuilder {
 			}
 		} else if(schema.get$ref() != null) {
 			Schema refSchema = getReferencedSchema(schema.get$ref());
-			collectLiterals(literalNames, refSchema);
+			if(refSchema != null) {
+				collectLiterals(literalNames, refSchema);
+			}
 		} else if(schema.getEnum() != null) {
 			schema.getEnum().forEach(e -> literalNames.add(e.toString()));
 		}
@@ -1252,8 +1258,10 @@ public class SoaComponentBuilder {
 				collectAllProperties(allProperties, subSchema);
 			}
 		} else if(schema.get$ref() != null) {
-			Schema referencedSchema = getReferencedSchema(schema.get$ref());
-			collectAllProperties(allProperties, referencedSchema);
+			Schema refSchema = getReferencedSchema(schema.get$ref());
+			if(refSchema != null) {
+				collectAllProperties(allProperties, refSchema);
+			}
 		}
 	}
 

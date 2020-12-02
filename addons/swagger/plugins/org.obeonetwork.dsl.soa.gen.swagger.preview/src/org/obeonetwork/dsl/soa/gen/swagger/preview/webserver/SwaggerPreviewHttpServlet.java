@@ -46,6 +46,10 @@ public class SwaggerPreviewHttpServlet extends HttpServlet {
         	File resourceFile = SwaggerPreviewJettyServer.instance().getSwaggerUiDistFile(resourceName);
         	if(resourceFile == null) {
         		resourceFile = SwaggerPreviewJettyServer.instance().getSwaggerFile(resourceName);
+    			if(resourceFile != null) {
+    				System.out.println();
+            		System.out.println("Serving file " + resourceFile.getAbsolutePath());
+    			}
         	}
 			if(resourceFile != null) {
 				Files.copy(resourceFile.toPath(), resp.getOutputStream());
