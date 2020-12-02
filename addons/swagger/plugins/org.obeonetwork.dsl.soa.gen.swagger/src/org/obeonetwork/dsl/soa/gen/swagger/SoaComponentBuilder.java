@@ -113,6 +113,9 @@ public class SoaComponentBuilder {
 	private Component soaComponent;
 	private Namespace soaRootNamespace;
 
+	private Set<String> reservedOperationNames = null;
+	private Map<String, Integer> operationNamesDisambiguationIndex = null;
+	
 	/**
 	 * Typed elements (Attribute, Reference or Parameter) using inline types (DTO or Enumeration) as their type.
 	 */
@@ -125,6 +128,24 @@ public class SoaComponentBuilder {
 	
 	public int build() {
 		status = IStatus.OK;
+		
+		operationNamesDisambiguationIndex = new HashMap<>();
+		
+		reservedOperationNames = new HashSet<>();
+		for(Operation operation : 
+			openApi.getPaths().entrySet().stream()
+			.map(Map.Entry::getValue)
+			.flatMap(pathItem -> pathItem.readOperations().stream())
+			.collect(toList())) {
+			if(operation.getOperationId() != null) {
+				String operationId = operation.getOperationId();
+				if(reservedOperationNames.contains(operationId)) {
+					logWarning(String.format("Operation Id \"%s\" used on more than one operation.", operationId));
+				} else {
+					reservedOperationNames.add(operationId);
+				}
+			}
+		}
 		
 		createSoaComponent();
 		
@@ -645,7 +666,7 @@ public class SoaComponentBuilder {
 		if(swgOperation.getOperationId() != null && !swgOperation.getOperationId().isEmpty()) {
 			soaOperationName = swgOperation.getOperationId();
 		} else {
-			soaOperationName = computeSoaOperationName(swgVerb, soaOperation.getURI());
+			soaOperationName = computeSoaOperationName(swgVerb, soaOperationUri);
 		}
 		
 		if(soaOperationName == null || soaOperationName.isEmpty()) {
@@ -738,9 +759,31 @@ public class SoaComponentBuilder {
 			name.append(suffix);
 		}
 		
-		return name.toString();
+		String rawComputedSoaOperationName = name.toString();
+		
+		String soaOperationName = rawComputedSoaOperationName;
+		
+		if(operationNamesDisambiguationIndex.get(rawComputedSoaOperationName) == null) {
+			operationNamesDisambiguationIndex.put(rawComputedSoaOperationName, 0);
+		} else {
+			soaOperationName = computeNextOperationDisambiguedName(rawComputedSoaOperationName);
+			System.out.println(soaOperationName);
+		}
+		
+		while(reservedOperationNames.contains(soaOperationName)) {
+			soaOperationName = computeNextOperationDisambiguedName(rawComputedSoaOperationName);
+		}
+		
+		return soaOperationName;
 	}
 
+	private String computeNextOperationDisambiguedName(String rawComputedSoaOperationName) {
+		int disambiguationIndex = operationNamesDisambiguationIndex.get(rawComputedSoaOperationName) + 1;
+		operationNamesDisambiguationIndex.put(rawComputedSoaOperationName, disambiguationIndex);
+		
+		return rawComputedSoaOperationName + disambiguationIndex;
+	}
+	
 	private Interface getOrCreateInterface(Service soaService) {
 		Interface soaInterface = soaService.getOwnedInterface();
 		if(soaInterface == null) {

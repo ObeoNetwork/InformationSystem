@@ -10,6 +10,7 @@
  *******************************************************************************/
 package org.obeonetwork.dsl.soa.gen.swagger;
 
+import static java.util.stream.Collectors.toList;
 import static org.obeonetwork.dsl.soa.gen.swagger.HTTPStatusCodes.HTTP_200;
 import static org.obeonetwork.dsl.soa.gen.swagger.HTTPStatusCodes.HTTP_200_DESC;
 import static org.obeonetwork.dsl.soa.gen.swagger.HTTPStatusCodes.HTTP_201;
@@ -39,8 +40,10 @@ import static org.obeonetwork.dsl.soa.gen.swagger.utils.StringUtils.isNullOrWhit
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
+import java.util.Set;
 
 import org.eclipse.core.runtime.IStatus;
 import org.eclipse.emf.ecore.EObject;
@@ -130,6 +133,10 @@ public class SwaggerBuilder {
     	openApi = new OpenAPI();
     	openApi.setComponents(new Components());
     	
+    	if(!validatePreConditions()) {
+    		return openApi;
+    	}
+    	
     	buildHeader();
     	buildTags();
     	buildSecuritySchemes();
@@ -137,6 +144,25 @@ public class SwaggerBuilder {
     	buildPaths();
     	
 		return openApi;
+	}
+
+	private boolean validatePreConditions() {
+		boolean validationOk = true;
+		
+		Set<String> operationNames = new HashSet<>();
+		
+		for(org.obeonetwork.dsl.soa.Operation soaOperation : soaComponent.getOwnedServices().stream()
+				.flatMap(s -> s.getOwnedInterface().getOwnedOperations().stream())
+				.collect(toList())) {
+			if(operationNames.contains(soaOperation.getName())) {
+				logError(String.format("Multiple operations with the same name : \"%s\". Can't generate OpenAPI compliant specification file.", soaOperation.getName()));
+				validationOk = false;
+			} else {
+				operationNames.add(soaOperation.getName());
+			}
+		}
+		
+		return validationOk;
 	}
 
 	private void buildTags() {
