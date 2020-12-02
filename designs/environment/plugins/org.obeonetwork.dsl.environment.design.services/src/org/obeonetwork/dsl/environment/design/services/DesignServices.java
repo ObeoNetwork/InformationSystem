@@ -12,9 +12,11 @@ package org.obeonetwork.dsl.environment.design.services;
 
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.HashSet;
 import java.util.Iterator;
 import java.util.Set;
 
+import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.sirius.diagram.DEdge;
@@ -25,6 +27,7 @@ import org.obeonetwork.dsl.environment.Attribute;
 import org.obeonetwork.dsl.environment.DataType;
 import org.obeonetwork.dsl.environment.Enumeration;
 import org.obeonetwork.dsl.environment.Namespace;
+import org.obeonetwork.dsl.environment.NamespacesContainer;
 import org.obeonetwork.dsl.environment.Reference;
 import org.obeonetwork.dsl.environment.StructuredType;
 import org.obeonetwork.dsl.environment.Type;
@@ -222,5 +225,85 @@ public class DesignServices {
 
 	public static int getNbDependencies(DEdge edge) {
 		return 2;
+	}
+
+	public static Collection<Namespace> getExternalNamespacesRecursive(NamespacesContainer nsContainer) {
+		Collection<Namespace> externalNSs = new HashSet<Namespace>();
+		NamespacesContainer rootNSContainer = getRootNamespaceContainer(nsContainer);
+		if (rootNSContainer != null) {
+			EList<Namespace> namespaces = nsContainer.getOwnedNamespaces();
+			for (Namespace namespace : namespaces) {
+				externalNSs.addAll(getExternalNamespaces(namespace, rootNSContainer));
+				externalNSs.addAll(getExternalNamespacesRecursive(namespace));
+			}
+		}
+		return externalNSs;
+	}
+
+	public static Collection<Namespace> getExternalNamespaces(Namespace namespace) {
+		Collection<Namespace> externalNSs = new HashSet<Namespace>();
+		NamespacesContainer rootNSContainer = getRootNamespaceContainer(namespace);
+		if (rootNSContainer != null) {
+			externalNSs.addAll(getExternalNamespaces(namespace, rootNSContainer));
+		}
+		return externalNSs;
+	}
+
+	private static Collection<Namespace> getExternalNamespaces(Namespace namespace, NamespacesContainer rootNSContainer) {
+		Collection<Namespace> externalNSs = new HashSet<Namespace>();
+		for (Type type : namespace.getTypes()) {
+			if (type instanceof StructuredType) {
+				StructuredType structuredType = (StructuredType)type;
+				
+				// Check inheritance
+				StructuredType supertype = structuredType.getSupertype();
+				if (supertype != null && !rootNSContainer.equals(getRootNamespaceContainer(supertype))) {
+					EObject supertypeContainer = supertype.eContainer();
+					if (supertypeContainer instanceof Namespace) {
+						externalNSs.add((Namespace) supertypeContainer);
+					}
+				}
+				
+				// Check references
+				for (Reference reference : structuredType.getOwnedReferences()) {
+					StructuredType referencedType = reference.getReferencedType();
+					if (referencedType != null && !rootNSContainer.equals(getRootNamespaceContainer(referencedType))) {
+						EObject referencedTypeContainer = referencedType.eContainer();
+						if (referencedTypeContainer instanceof Namespace) {
+							externalNSs.add((Namespace) referencedTypeContainer);
+						}
+					}
+				}
+				
+				// Check attributes
+				for (Attribute attribute : structuredType.getOwnedAttributes()) {
+					DataType datatype = attribute.getType();
+					if (datatype instanceof Enumeration && !rootNSContainer.equals(getRootNamespaceContainer(datatype))) {
+						EObject datatypeContainer = datatype.eContainer();
+						if (datatypeContainer instanceof Namespace) {
+							externalNSs.add((Namespace) datatypeContainer);
+						}
+					}
+				}
+			}
+		}
+		return externalNSs;
+	}
+
+	private static NamespacesContainer getRootNamespaceContainer(EObject object) {
+		if (object == null) {
+			return null;
+		}
+		EObject eContainer = object.eContainer();
+		if (eContainer instanceof NamespacesContainer) {
+			NamespacesContainer nsC = getRootNamespaceContainer((NamespacesContainer) eContainer);
+			if (nsC == null) {
+				return (NamespacesContainer) eContainer;
+			}
+			return nsC;
+		} else if (object instanceof NamespacesContainer) {
+			return (NamespacesContainer) object;
+		}
+		return null;
 	}
 }
