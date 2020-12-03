@@ -29,6 +29,7 @@ import org.eclipse.jface.wizard.WizardDialog;
 import org.eclipse.sirius.common.interpreter.api.IInterpreter;
 import org.eclipse.sirius.common.interpreter.api.IVariableManager;
 import org.eclipse.swt.events.SelectionEvent;
+import org.eclipse.swt.layout.GridData;
 import org.eclipse.swt.widgets.Button;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Control;
@@ -79,9 +80,11 @@ public class EEFMultipleReferenceCustomLifecycleManager extends EEFExtMultipleRe
 		handleTableSelectionListener();
 		// No need to do override aboutToBeHidden as it will be handled by super
 		
-		// Dispose the Add button if necessary
+		// Hide the Add button if necessary
 		if(customDescription.addButtonIsHidden()) {
-			addButton.dispose();
+			GridData gridData = (GridData) addButton.getLayoutData();
+			gridData.exclude = true; // Exclude the widget from the layout to avoid an empty space 
+			addButton.setVisible(false);
 		}
 	}
 	
