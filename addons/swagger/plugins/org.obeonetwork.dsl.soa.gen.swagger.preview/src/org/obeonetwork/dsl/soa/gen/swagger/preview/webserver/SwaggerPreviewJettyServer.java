@@ -145,8 +145,9 @@ public class SwaggerPreviewJettyServer {
 	}
 	
 	public URL getUrlForFile(String swaggerFileName) throws MalformedURLException {
-		return new URL("http://localhost:" + HTTP_PORT
-				+ "/index.html?url=" + swaggerFileName);
+		String stringUrl = "http://localhost:" + HTTP_PORT + "/index.html?url=" + swaggerFileName;
+		URL url = new URL(stringUrl.replaceAll(" ", "%20"));
+		return url;
 	}
 	
 }

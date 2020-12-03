@@ -17,6 +17,10 @@
             id="org.obeonetwork.dsl.soa.gen.swagger.preview.command.SwaggerPreview"
             name="Swagger Preview">
       </command>
+      <command
+            id="org.obeonetwork.dsl.soa.gen.swagger.preview.command.SwaggerPreviewSystemNavigator"
+            name="Swagger Preview (in System Navigator)">
+      </command>
    </extension>
    <extension
          point="org.eclipse.ui.menus">
@@ -31,6 +35,14 @@
                   checkEnabled="true">
             </visibleWhen>
          </command>
+         <command
+               commandId="org.obeonetwork.dsl.soa.gen.swagger.preview.command.SwaggerPreviewSystemNavigator"
+               icon="icons/swagger-logo-16x16.png"
+               style="push">
+            <visibleWhen
+                  checkEnabled="true">
+            </visibleWhen>
+         </command>
       </menuContribution>
    </extension>
    <extension
@@ -38,6 +50,25 @@
       <handler
             class="org.obeonetwork.dsl.soa.gen.swagger.preview.handlers.SwaggerPreviewHandler"
             commandId="org.obeonetwork.dsl.soa.gen.swagger.preview.command.SwaggerPreview">
+         <enabledWhen>
+            <with
+                  variable="selection">
+               <count
+                     value="1">
+               </count>
+               <iterate
+                     ifEmpty="false"
+                     operator="and">
+                  <instanceof
+                        value="org.obeonetwork.dsl.soa.Component">
+                  </instanceof>
+               </iterate>
+            </with>
+         </enabledWhen>
+      </handler>
+      <handler
+            class="org.obeonetwork.dsl.soa.gen.swagger.preview.handlers.SwaggerPreviewSystemNavigatorHandler"
+            commandId="org.obeonetwork.dsl.soa.gen.swagger.preview.command.SwaggerPreviewSystemNavigator">
          <enabledWhen>
             <with
                   variable="selection">
