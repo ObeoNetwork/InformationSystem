@@ -260,7 +260,7 @@ public interface Operation extends Action {
 
 	/**
 	 * Returns the value of the '<em><b>Paged</b></em>' attribute.
-	 * The default value is <code>"true"</code>.
+	 * The default value is <code>"false"</code>.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
@@ -269,7 +269,7 @@ public interface Operation extends Action {
 	 * @return the value of the '<em>Paged</em>' attribute.
 	 * @see #setPaged(boolean)
 	 * @see org.obeonetwork.dsl.soa.SoaPackage#getOperation_Paged()
-	 * @model default="true"
+	 * @model default="false"
 	 * @generated
 	 */
 	boolean isPaged();

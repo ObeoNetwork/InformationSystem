@@ -85,7 +85,7 @@ public class ParameterImpl extends ObeoDSMObjectImpl implements Parameter {
 	 * @generated
 	 * @ordered
 	 */
-	protected static final boolean IS_ORDERED_EDEFAULT = true;
+	protected static final boolean IS_ORDERED_EDEFAULT = false;
 
 	/**
 	 * The default value of the '{@link #getStatusCode() <em>Status Code</em>}' attribute.

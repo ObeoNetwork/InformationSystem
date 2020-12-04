@@ -113,7 +113,7 @@ public class OperationImpl extends ActionImpl implements Operation {
 	 * @generated
 	 * @ordered
 	 */
-	protected static final boolean PAGED_EDEFAULT = true;
+	protected static final boolean PAGED_EDEFAULT = false;
 
 	/**
 	 * <!-- begin-user-doc -->

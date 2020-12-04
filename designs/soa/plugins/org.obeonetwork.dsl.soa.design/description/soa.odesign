@@ -1138,6 +1138,11 @@
             <firstModelOperations xsi:type="tool_1:SetValue" featureName="public" valueExpression="var:newValue"/>
           </initialOperation>
         </controls>
+        <controls xsi:type="properties:CheckboxDescription" name="soa::Operation paged" labelExpression="aql:input.emfEditServices(self).getText(self.eClass().getEStructuralFeature('paged'))" helpExpression="aql:input.emfEditServices(self).getDescription(self.eClass().getEStructuralFeature('paged'))" isEnabledExpression="aql:self.eClass().getEStructuralFeature('paged').changeable" valueExpression="feature:paged">
+          <initialOperation>
+            <firstModelOperations xsi:type="tool_1:SetValue" featureName="paged" valueExpression="var:newValue"/>
+          </initialOperation>
+        </controls>
         <controls xsi:type="properties:SelectDescription" name="soa::Operation exposition" labelExpression="aql:input.emfEditServices(self).getText(self.eClass().getEStructuralFeature('exposition')) + ':'" helpExpression="aql:input.emfEditServices(self).getDescription(self.eClass().getEStructuralFeature('exposition'))" isEnabledExpression="aql:self.eClass().getEStructuralFeature('exposition').changeable" valueExpression="aql:self.eClass().getEStructuralFeature('exposition').eType.getEEnumLiteralByLiteral(self.exposition.toString())" candidatesExpression="aql:self.eClass().getEStructuralFeature('exposition').eType.eLiterals" candidateDisplayExpression="aql:candidate.literal">
           <initialOperation>
             <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="aql:self.setExpositionKind(newValue.instance)"/>
@@ -1279,11 +1284,6 @@
         <controls xsi:type="properties:SelectDescription" name="soa::Operation verb" labelExpression="aql:input.emfEditServices(self).getText(self.eClass().getEStructuralFeature('verb')) + ':'" helpExpression="aql:input.emfEditServices(self).getDescription(self.eClass().getEStructuralFeature('verb'))" isEnabledExpression="aql:self.eClass().getEStructuralFeature('verb').changeable" valueExpression="aql:self.eClass().getEStructuralFeature('verb').eType.getEEnumLiteralByLiteral(self.verb.toString())" candidatesExpression="aql:self.eClass().getEStructuralFeature('verb').eType.eLiterals" candidateDisplayExpression="aql:candidate.literal">
           <initialOperation>
             <firstModelOperations xsi:type="tool_1:SetValue" featureName="verb" valueExpression="aql:newValue.instance"/>
-          </initialOperation>
-        </controls>
-        <controls xsi:type="properties:CheckboxDescription" name="soa::Operation paged" labelExpression="aql:input.emfEditServices(self).getText(self.eClass().getEStructuralFeature('paged'))" helpExpression="aql:input.emfEditServices(self).getDescription(self.eClass().getEStructuralFeature('paged'))" isEnabledExpression="aql:self.eClass().getEStructuralFeature('paged').changeable" valueExpression="feature:paged">
-          <initialOperation>
-            <firstModelOperations xsi:type="tool_1:SetValue" featureName="paged" valueExpression="var:newValue"/>
           </initialOperation>
         </controls>
       </groups>
