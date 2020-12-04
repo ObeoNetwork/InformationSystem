@@ -30,6 +30,7 @@ import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ItemProviderAdapter;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 
+import org.obeonetwork.dsl.environment.provider.ObeoDSMObjectItemProvider;
 import org.obeonetwork.dsl.soa.SecurityScheme;
 import org.obeonetwork.dsl.soa.SoaPackage;
 
@@ -40,13 +41,7 @@ import org.obeonetwork.dsl.soa.SoaPackage;
  * @generated
  */
 public class SecuritySchemeItemProvider 
-	extends ItemProviderAdapter
-	implements
-		IEditingDomainItemProvider,
-		IStructuredItemContentProvider,
-		ITreeItemContentProvider,
-		IItemLabelProvider,
-		IItemPropertySource {
+	extends ObeoDSMObjectItemProvider {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -77,7 +72,6 @@ public class SecuritySchemeItemProvider
 
 			addKeyPropertyDescriptor(object);
 			addTypePropertyDescriptor(object);
-			addDescriptionPropertyDescriptor(object);
 			addNamePropertyDescriptor(object);
 			addApiKeyLocationPropertyDescriptor(object);
 		}
@@ -120,28 +114,6 @@ public class SecuritySchemeItemProvider
 				 getString("_UI_SecurityScheme_type_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_SecurityScheme_type_feature", "_UI_SecurityScheme_type"),
 				 SoaPackage.Literals.SECURITY_SCHEME__TYPE,
-				 true,
-				 false,
-				 false,
-				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-				 null,
-				 null));
-	}
-
-	/**
-	 * This adds a property descriptor for the Description feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addDescriptionPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_SecurityScheme_description_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_SecurityScheme_description_feature", "_UI_SecurityScheme_type"),
-				 SoaPackage.Literals.SECURITY_SCHEME__DESCRIPTION,
 				 true,
 				 false,
 				 false,
@@ -244,7 +216,6 @@ public class SecuritySchemeItemProvider
 		switch (notification.getFeatureID(SecurityScheme.class)) {
 			case SoaPackage.SECURITY_SCHEME__KEY:
 			case SoaPackage.SECURITY_SCHEME__TYPE:
-			case SoaPackage.SECURITY_SCHEME__DESCRIPTION:
 			case SoaPackage.SECURITY_SCHEME__NAME:
 			case SoaPackage.SECURITY_SCHEME__API_KEY_LOCATION:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));

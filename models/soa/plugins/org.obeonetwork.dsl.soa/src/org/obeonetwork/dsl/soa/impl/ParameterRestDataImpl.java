@@ -17,6 +17,7 @@ import org.eclipse.emf.internal.cdo.CDOObjectImpl;
 import org.obeonetwork.dsl.soa.ParameterPassingMode;
 import org.obeonetwork.dsl.soa.ParameterRestData;
 import org.obeonetwork.dsl.soa.SoaPackage;
+import org.obeonetwork.dsl.technicalid.impl.IdentifiableImpl;
 
 /**
  * <!-- begin-user-doc -->
@@ -32,7 +33,7 @@ import org.obeonetwork.dsl.soa.SoaPackage;
  *
  * @generated
  */
-public class ParameterRestDataImpl extends CDOObjectImpl implements ParameterRestData {
+public class ParameterRestDataImpl extends IdentifiableImpl implements ParameterRestData {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -77,16 +78,6 @@ public class ParameterRestDataImpl extends CDOObjectImpl implements ParameterRes
 	@Override
 	protected EClass eStaticClass() {
 		return SoaPackage.Literals.PARAMETER_REST_DATA;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	protected int eStaticFeatureCount() {
-		return 0;
 	}
 
 	/**

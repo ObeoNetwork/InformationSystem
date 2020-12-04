@@ -16,6 +16,7 @@ import org.eclipse.emf.ecore.EEnum;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
 import org.obeonetwork.dsl.environment.EnvironmentPackage;
+import org.obeonetwork.dsl.technicalid.TechnicalIDPackage;
 
 /**
  * <!-- begin-user-doc -->
@@ -1451,13 +1452,22 @@ public interface SoaPackage extends EPackage {
 	int PARAMETER_REST_DATA = 9;
 
 	/**
+	 * The feature id for the '<em><b>Technicalid</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PARAMETER_REST_DATA__TECHNICALID = TechnicalIDPackage.IDENTIFIABLE__TECHNICALID;
+
+	/**
 	 * The feature id for the '<em><b>Passing Mode</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int PARAMETER_REST_DATA__PASSING_MODE = 0;
+	int PARAMETER_REST_DATA__PASSING_MODE = TechnicalIDPackage.IDENTIFIABLE_FEATURE_COUNT + 0;
 
 	/**
 	 * The feature id for the '<em><b>Rest Id</b></em>' attribute.
@@ -1466,7 +1476,7 @@ public interface SoaPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PARAMETER_REST_DATA__REST_ID = 1;
+	int PARAMETER_REST_DATA__REST_ID = TechnicalIDPackage.IDENTIFIABLE_FEATURE_COUNT + 1;
 
 	/**
 	 * The number of structural features of the '<em>Parameter Rest Data</em>' class.
@@ -1475,7 +1485,7 @@ public interface SoaPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PARAMETER_REST_DATA_FEATURE_COUNT = 2;
+	int PARAMETER_REST_DATA_FEATURE_COUNT = TechnicalIDPackage.IDENTIFIABLE_FEATURE_COUNT + 2;
 
 	/**
 	 * The meta object id for the '{@link org.obeonetwork.dsl.soa.impl.SecuritySchemeImpl <em>Security Scheme</em>}' class.
@@ -1488,22 +1498,22 @@ public interface SoaPackage extends EPackage {
 	int SECURITY_SCHEME = 10;
 
 	/**
-	 * The feature id for the '<em><b>Key</b></em>' attribute.
+	 * The feature id for the '<em><b>Technicalid</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SECURITY_SCHEME__KEY = 0;
+	int SECURITY_SCHEME__TECHNICALID = EnvironmentPackage.OBEO_DSM_OBJECT__TECHNICALID;
 
 	/**
-	 * The feature id for the '<em><b>Type</b></em>' attribute.
+	 * The feature id for the '<em><b>Metadatas</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SECURITY_SCHEME__TYPE = 1;
+	int SECURITY_SCHEME__METADATAS = EnvironmentPackage.OBEO_DSM_OBJECT__METADATAS;
 
 	/**
 	 * The feature id for the '<em><b>Description</b></em>' attribute.
@@ -1512,7 +1522,79 @@ public interface SoaPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SECURITY_SCHEME__DESCRIPTION = 2;
+	int SECURITY_SCHEME__DESCRIPTION = EnvironmentPackage.OBEO_DSM_OBJECT__DESCRIPTION;
+
+	/**
+	 * The feature id for the '<em><b>Keywords</b></em>' attribute list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SECURITY_SCHEME__KEYWORDS = EnvironmentPackage.OBEO_DSM_OBJECT__KEYWORDS;
+
+	/**
+	 * The feature id for the '<em><b>Behaviours</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SECURITY_SCHEME__BEHAVIOURS = EnvironmentPackage.OBEO_DSM_OBJECT__BEHAVIOURS;
+
+	/**
+	 * The feature id for the '<em><b>Binding Registries</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SECURITY_SCHEME__BINDING_REGISTRIES = EnvironmentPackage.OBEO_DSM_OBJECT__BINDING_REGISTRIES;
+
+	/**
+	 * The feature id for the '<em><b>Version</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SECURITY_SCHEME__VERSION = EnvironmentPackage.OBEO_DSM_OBJECT__VERSION;
+
+	/**
+	 * The feature id for the '<em><b>Created On</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SECURITY_SCHEME__CREATED_ON = EnvironmentPackage.OBEO_DSM_OBJECT__CREATED_ON;
+
+	/**
+	 * The feature id for the '<em><b>Modified On</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SECURITY_SCHEME__MODIFIED_ON = EnvironmentPackage.OBEO_DSM_OBJECT__MODIFIED_ON;
+
+	/**
+	 * The feature id for the '<em><b>Key</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SECURITY_SCHEME__KEY = EnvironmentPackage.OBEO_DSM_OBJECT_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Type</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SECURITY_SCHEME__TYPE = EnvironmentPackage.OBEO_DSM_OBJECT_FEATURE_COUNT + 1;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -1521,7 +1603,7 @@ public interface SoaPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SECURITY_SCHEME__NAME = 3;
+	int SECURITY_SCHEME__NAME = EnvironmentPackage.OBEO_DSM_OBJECT_FEATURE_COUNT + 2;
 
 	/**
 	 * The feature id for the '<em><b>Api Key Location</b></em>' attribute.
@@ -1530,7 +1612,7 @@ public interface SoaPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SECURITY_SCHEME__API_KEY_LOCATION = 4;
+	int SECURITY_SCHEME__API_KEY_LOCATION = EnvironmentPackage.OBEO_DSM_OBJECT_FEATURE_COUNT + 3;
 
 	/**
 	 * The number of structural features of the '<em>Security Scheme</em>' class.
@@ -1539,7 +1621,7 @@ public interface SoaPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SECURITY_SCHEME_FEATURE_COUNT = 5;
+	int SECURITY_SCHEME_FEATURE_COUNT = EnvironmentPackage.OBEO_DSM_OBJECT_FEATURE_COUNT + 4;
 
 	/**
 	 * The meta object id for the '{@link org.obeonetwork.dsl.soa.InterfaceKind <em>Interface Kind</em>}' enum.
@@ -2303,17 +2385,6 @@ public interface SoaPackage extends EPackage {
 	EAttribute getSecurityScheme_Type();
 
 	/**
-	 * Returns the meta object for the attribute '{@link org.obeonetwork.dsl.soa.SecurityScheme#getDescription <em>Description</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Description</em>'.
-	 * @see org.obeonetwork.dsl.soa.SecurityScheme#getDescription()
-	 * @see #getSecurityScheme()
-	 * @generated
-	 */
-	EAttribute getSecurityScheme_Description();
-
-	/**
 	 * Returns the meta object for the attribute '{@link org.obeonetwork.dsl.soa.SecurityScheme#getName <em>Name</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2964,14 +3035,6 @@ public interface SoaPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute SECURITY_SCHEME__TYPE = eINSTANCE.getSecurityScheme_Type();
-
-		/**
-		 * The meta object literal for the '<em><b>Description</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute SECURITY_SCHEME__DESCRIPTION = eINSTANCE.getSecurityScheme_Description();
 
 		/**
 		 * The meta object literal for the '<em><b>Name</b></em>' attribute feature.

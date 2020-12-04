@@ -11,6 +11,7 @@
 package org.obeonetwork.dsl.soa;
 
 import org.eclipse.emf.cdo.CDOObject;
+import org.obeonetwork.dsl.technicalid.Identifiable;
 
 /**
  * <!-- begin-user-doc -->
@@ -27,10 +28,9 @@ import org.eclipse.emf.cdo.CDOObject;
  *
  * @see org.obeonetwork.dsl.soa.SoaPackage#getParameterRestData()
  * @model
- * @extends CDOObject
  * @generated
  */
-public interface ParameterRestData extends CDOObject {
+public interface ParameterRestData extends Identifiable {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

@@ -822,7 +822,7 @@ public class SoaPackageImpl extends EPackageImpl implements SoaPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getSecurityScheme_Description() {
+	public EAttribute getSecurityScheme_Name() {
 		return (EAttribute)securitySchemeEClass.getEStructuralFeatures().get(2);
 	}
 
@@ -831,17 +831,8 @@ public class SoaPackageImpl extends EPackageImpl implements SoaPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getSecurityScheme_Name() {
-		return (EAttribute)securitySchemeEClass.getEStructuralFeatures().get(3);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EAttribute getSecurityScheme_ApiKeyLocation() {
-		return (EAttribute)securitySchemeEClass.getEStructuralFeatures().get(4);
+		return (EAttribute)securitySchemeEClass.getEStructuralFeatures().get(3);
 	}
 
 	/**
@@ -1025,7 +1016,6 @@ public class SoaPackageImpl extends EPackageImpl implements SoaPackage {
 		securitySchemeEClass = createEClass(SECURITY_SCHEME);
 		createEAttribute(securitySchemeEClass, SECURITY_SCHEME__KEY);
 		createEAttribute(securitySchemeEClass, SECURITY_SCHEME__TYPE);
-		createEAttribute(securitySchemeEClass, SECURITY_SCHEME__DESCRIPTION);
 		createEAttribute(securitySchemeEClass, SECURITY_SCHEME__NAME);
 		createEAttribute(securitySchemeEClass, SECURITY_SCHEME__API_KEY_LOCATION);
 
@@ -1066,6 +1056,7 @@ public class SoaPackageImpl extends EPackageImpl implements SoaPackage {
 
 		// Obtain other dependent packages
 		EnvironmentPackage theEnvironmentPackage = (EnvironmentPackage)EPackage.Registry.INSTANCE.getEPackage(EnvironmentPackage.eNS_URI);
+		TechnicalIDPackage theTechnicalIDPackage = (TechnicalIDPackage)EPackage.Registry.INSTANCE.getEPackage(TechnicalIDPackage.eNS_URI);
 
 		// Create type parameters
 
@@ -1081,6 +1072,8 @@ public class SoaPackageImpl extends EPackageImpl implements SoaPackage {
 		operationEClass.getESuperTypes().add(theEnvironmentPackage.getAction());
 		implementationComponentEClass.getESuperTypes().add(theEnvironmentPackage.getObeoDSMObject());
 		parameterEClass.getESuperTypes().add(theEnvironmentPackage.getObeoDSMObject());
+		parameterRestDataEClass.getESuperTypes().add(theTechnicalIDPackage.getIdentifiable());
+		securitySchemeEClass.getESuperTypes().add(theEnvironmentPackage.getObeoDSMObject());
 
 		// Initialize classes and features; add operations and parameters
 		initEClass(systemEClass, org.obeonetwork.dsl.soa.System.class, "System", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -1155,7 +1148,6 @@ public class SoaPackageImpl extends EPackageImpl implements SoaPackage {
 		initEClass(securitySchemeEClass, SecurityScheme.class, "SecurityScheme", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getSecurityScheme_Key(), ecorePackage.getEString(), "key", null, 0, 1, SecurityScheme.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getSecurityScheme_Type(), this.getSecuritySchemeType(), "type", null, 0, 1, SecurityScheme.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getSecurityScheme_Description(), ecorePackage.getEString(), "description", null, 0, 1, SecurityScheme.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getSecurityScheme_Name(), ecorePackage.getEString(), "name", null, 0, 1, SecurityScheme.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getSecurityScheme_ApiKeyLocation(), this.getApiKeyLocation(), "apiKeyLocation", null, 0, 1, SecurityScheme.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
@@ -1503,12 +1495,6 @@ public class SoaPackageImpl extends EPackageImpl implements SoaPackage {
 		   source,
 		   new String[] {
 			   "documentation", "The type of the security scheme."
-		   });
-		addAnnotation
-		  (getSecurityScheme_Description(),
-		   source,
-		   new String[] {
-			   "documentation", "A short description for security scheme."
 		   });
 		addAnnotation
 		  (getSecurityScheme_Name(),

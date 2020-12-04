@@ -33,6 +33,7 @@ import org.eclipse.emf.edit.provider.ViewerNotification;
 import org.obeonetwork.dsl.soa.ParameterPassingMode;
 import org.obeonetwork.dsl.soa.ParameterRestData;
 import org.obeonetwork.dsl.soa.SoaPackage;
+import org.obeonetwork.dsl.technicalid.provider.IdentifiableItemProvider;
 
 /**
  * This is the item provider adapter for a {@link org.obeonetwork.dsl.soa.ParameterRestData} object.
@@ -41,13 +42,7 @@ import org.obeonetwork.dsl.soa.SoaPackage;
  * @generated
  */
 public class ParameterRestDataItemProvider 
-	extends ItemProviderAdapter
-	implements
-		IEditingDomainItemProvider,
-		IStructuredItemContentProvider,
-		ITreeItemContentProvider,
-		IItemLabelProvider,
-		IItemPropertySource {
+	extends IdentifiableItemProvider {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -155,8 +150,7 @@ public class ParameterRestDataItemProvider
 	 */
 	@Override
 	public String getText(Object object) {
-		ParameterPassingMode labelValue = ((ParameterRestData)object).getPassingMode();
-		String label = labelValue == null ? null : labelValue.toString();
+		String label = ((ParameterRestData)object).getTechnicalid();
 		return label == null || label.length() == 0 ?
 			getString("_UI_ParameterRestData_type") :
 			getString("_UI_ParameterRestData_type") + " " + label;

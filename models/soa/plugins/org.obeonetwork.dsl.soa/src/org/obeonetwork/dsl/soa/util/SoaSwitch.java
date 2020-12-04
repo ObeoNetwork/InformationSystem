@@ -173,12 +173,15 @@ public class SoaSwitch<T> extends Switch<T> {
 			case SoaPackage.PARAMETER_REST_DATA: {
 				ParameterRestData parameterRestData = (ParameterRestData)theEObject;
 				T result = caseParameterRestData(parameterRestData);
+				if (result == null) result = caseIdentifiable(parameterRestData);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
 			case SoaPackage.SECURITY_SCHEME: {
 				SecurityScheme securityScheme = (SecurityScheme)theEObject;
 				T result = caseSecurityScheme(securityScheme);
+				if (result == null) result = caseObeoDSMObject(securityScheme);
+				if (result == null) result = caseIdentifiable(securityScheme);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}

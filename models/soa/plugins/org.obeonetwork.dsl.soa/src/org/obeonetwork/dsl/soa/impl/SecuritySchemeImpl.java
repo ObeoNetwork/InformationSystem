@@ -14,6 +14,7 @@ import org.eclipse.emf.ecore.EClass;
 
 import org.eclipse.emf.internal.cdo.CDOObjectImpl;
 
+import org.obeonetwork.dsl.environment.impl.ObeoDSMObjectImpl;
 import org.obeonetwork.dsl.soa.ApiKeyLocation;
 import org.obeonetwork.dsl.soa.SecurityScheme;
 import org.obeonetwork.dsl.soa.SecuritySchemeType;
@@ -29,14 +30,13 @@ import org.obeonetwork.dsl.soa.SoaPackage;
  * <ul>
  *   <li>{@link org.obeonetwork.dsl.soa.impl.SecuritySchemeImpl#getKey <em>Key</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.soa.impl.SecuritySchemeImpl#getType <em>Type</em>}</li>
- *   <li>{@link org.obeonetwork.dsl.soa.impl.SecuritySchemeImpl#getDescription <em>Description</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.soa.impl.SecuritySchemeImpl#getName <em>Name</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.soa.impl.SecuritySchemeImpl#getApiKeyLocation <em>Api Key Location</em>}</li>
  * </ul>
  *
  * @generated
  */
-public class SecuritySchemeImpl extends CDOObjectImpl implements SecurityScheme {
+public class SecuritySchemeImpl extends ObeoDSMObjectImpl implements SecurityScheme {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -63,16 +63,6 @@ public class SecuritySchemeImpl extends CDOObjectImpl implements SecurityScheme 
 	 * @ordered
 	 */
 	protected static final SecuritySchemeType TYPE_EDEFAULT = SecuritySchemeType.API_KEY;
-
-	/**
-	 * The default value of the '{@link #getDescription() <em>Description</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getDescription()
-	 * @generated
-	 * @ordered
-	 */
-	protected static final String DESCRIPTION_EDEFAULT = null;
 
 	/**
 	 * The default value of the '{@link #getName() <em>Name</em>}' attribute.
@@ -118,16 +108,6 @@ public class SecuritySchemeImpl extends CDOObjectImpl implements SecurityScheme 
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
-	protected int eStaticFeatureCount() {
-		return 0;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public String getKey() {
 		return (String)eDynamicGet(SoaPackage.SECURITY_SCHEME__KEY, SoaPackage.Literals.SECURITY_SCHEME__KEY, true, true);
 	}
@@ -157,24 +137,6 @@ public class SecuritySchemeImpl extends CDOObjectImpl implements SecurityScheme 
 	 */
 	public void setType(SecuritySchemeType newType) {
 		eDynamicSet(SoaPackage.SECURITY_SCHEME__TYPE, SoaPackage.Literals.SECURITY_SCHEME__TYPE, newType);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public String getDescription() {
-		return (String)eDynamicGet(SoaPackage.SECURITY_SCHEME__DESCRIPTION, SoaPackage.Literals.SECURITY_SCHEME__DESCRIPTION, true, true);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setDescription(String newDescription) {
-		eDynamicSet(SoaPackage.SECURITY_SCHEME__DESCRIPTION, SoaPackage.Literals.SECURITY_SCHEME__DESCRIPTION, newDescription);
 	}
 
 	/**
@@ -225,8 +187,6 @@ public class SecuritySchemeImpl extends CDOObjectImpl implements SecurityScheme 
 				return getKey();
 			case SoaPackage.SECURITY_SCHEME__TYPE:
 				return getType();
-			case SoaPackage.SECURITY_SCHEME__DESCRIPTION:
-				return getDescription();
 			case SoaPackage.SECURITY_SCHEME__NAME:
 				return getName();
 			case SoaPackage.SECURITY_SCHEME__API_KEY_LOCATION:
@@ -248,9 +208,6 @@ public class SecuritySchemeImpl extends CDOObjectImpl implements SecurityScheme 
 				return;
 			case SoaPackage.SECURITY_SCHEME__TYPE:
 				setType((SecuritySchemeType)newValue);
-				return;
-			case SoaPackage.SECURITY_SCHEME__DESCRIPTION:
-				setDescription((String)newValue);
 				return;
 			case SoaPackage.SECURITY_SCHEME__NAME:
 				setName((String)newValue);
@@ -276,9 +233,6 @@ public class SecuritySchemeImpl extends CDOObjectImpl implements SecurityScheme 
 			case SoaPackage.SECURITY_SCHEME__TYPE:
 				setType(TYPE_EDEFAULT);
 				return;
-			case SoaPackage.SECURITY_SCHEME__DESCRIPTION:
-				setDescription(DESCRIPTION_EDEFAULT);
-				return;
 			case SoaPackage.SECURITY_SCHEME__NAME:
 				setName(NAME_EDEFAULT);
 				return;
@@ -301,8 +255,6 @@ public class SecuritySchemeImpl extends CDOObjectImpl implements SecurityScheme 
 				return KEY_EDEFAULT == null ? getKey() != null : !KEY_EDEFAULT.equals(getKey());
 			case SoaPackage.SECURITY_SCHEME__TYPE:
 				return getType() != TYPE_EDEFAULT;
-			case SoaPackage.SECURITY_SCHEME__DESCRIPTION:
-				return DESCRIPTION_EDEFAULT == null ? getDescription() != null : !DESCRIPTION_EDEFAULT.equals(getDescription());
 			case SoaPackage.SECURITY_SCHEME__NAME:
 				return NAME_EDEFAULT == null ? getName() != null : !NAME_EDEFAULT.equals(getName());
 			case SoaPackage.SECURITY_SCHEME__API_KEY_LOCATION:

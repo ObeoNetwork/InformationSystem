@@ -11,6 +11,7 @@
 package org.obeonetwork.dsl.soa;
 
 import org.eclipse.emf.cdo.CDOObject;
+import org.obeonetwork.dsl.environment.ObeoDSMObject;
 
 /**
  * <!-- begin-user-doc -->
@@ -23,17 +24,15 @@ import org.eclipse.emf.cdo.CDOObject;
  * <ul>
  *   <li>{@link org.obeonetwork.dsl.soa.SecurityScheme#getKey <em>Key</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.soa.SecurityScheme#getType <em>Type</em>}</li>
- *   <li>{@link org.obeonetwork.dsl.soa.SecurityScheme#getDescription <em>Description</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.soa.SecurityScheme#getName <em>Name</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.soa.SecurityScheme#getApiKeyLocation <em>Api Key Location</em>}</li>
  * </ul>
  *
  * @see org.obeonetwork.dsl.soa.SoaPackage#getSecurityScheme()
  * @model
- * @extends CDOObject
  * @generated
  */
-public interface SecurityScheme extends CDOObject {
+public interface SecurityScheme extends ObeoDSMObject {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -93,31 +92,6 @@ public interface SecurityScheme extends CDOObject {
 	 * @generated
 	 */
 	void setType(SecuritySchemeType value);
-
-	/**
-	 * Returns the value of the '<em><b>Description</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * <!-- begin-model-doc -->
-	 * A short description for security scheme.
-	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Description</em>' attribute.
-	 * @see #setDescription(String)
-	 * @see org.obeonetwork.dsl.soa.SoaPackage#getSecurityScheme_Description()
-	 * @model
-	 * @generated
-	 */
-	String getDescription();
-
-	/**
-	 * Sets the value of the '{@link org.obeonetwork.dsl.soa.SecurityScheme#getDescription <em>Description</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Description</em>' attribute.
-	 * @see #getDescription()
-	 * @generated
-	 */
-	void setDescription(String value);
 
 	/**
 	 * Returns the value of the '<em><b>Name</b></em>' attribute.
