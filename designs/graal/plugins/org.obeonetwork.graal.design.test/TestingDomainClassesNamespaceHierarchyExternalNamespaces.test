@@ -1,0 +1,415 @@
+--- RCPTT testcase ---
+Format-Version: 1.0
+Element-Name: TestingDomainClassesNamespaceHierarchyExternalNamespaces
+Element-Type: testcase
+Element-Version: 3.0
+External-Reference: 
+Id: _XdtGkDojEeu-6M4tSPO0Uw
+Save-Time: 12/9/20 2:50 PM
+Testcase-Type: ecl
+
+------=_.description-216f885c-d591-38ce-8ea2-e4f8cb4d6ffa
+Content-Type: text/plain
+Entry-Name: .description
+
+Testing external namespaces displayed in optional layer defined in graal.odesign/Domain Classes Namespaces Hierarchy
+The optional layer must display :
+- parent namespaces of external Domain Classes that are supertypes of Domain Classes of the internal namespaces hierarchy
+- parent namespaces of external Domain Classes that are related to Domain Classes of the internal namespaces hierarchy
+- parent namespaces of external datatypes that are types of Domain Classes attributes of the internal namespaces hierarchy
+
+Steps of the test :
+- Create a new graal diagram (My.graal)
+- Create a new namespace in My.graal (namespace_1)
+- Create a new namespace in namespace_1 (also named namespace_1)
+- Create a Domain Class in namespace_1 (named DCA)
+- Create a Domain Class in namespace::namespace_1 (named DCB)
+- Create an Enum in namespace::namespace_1 (named Enum2)
+- In E-Bookstore.graal create a new namespace (named namespace_1)
+- In E-Bookstore.graal create a new Domain Class (named DomainClass1)
+- In E-Bookstore.graal create a new Domain Class (named DomainClass2)
+- In E-Bookstore.graal create a new attribute under DomainClass2
+- Connect DomainClass1 from E-BookStore.graal to DCA from My.graal (via a relation)
+- Connect DomainClass2 from E-BookStore.graal to DCB from My.graal (via inheritence)
+- Change DomainClass2/attribute1 type from E-BookStore.graal to Enum2 from My.graal
+- Open E-BookStore.graal/Domain Classes Namespaces Hierarchy diagram
+- Activate Optional Layer Dependencies
+- Check that namespace1 and namespace_1::namespace_1 external namespace are displayed
+- Check the label edge between main and namespace1 is '1'
+- Check the label edge between main and namespace1::namespace_1 is '2'
+
+
+------=_.description-216f885c-d591-38ce-8ea2-e4f8cb4d6ffa--
+------=_.content-0a7243a0-75d3-3d5f-9791-539de0e5b7ac
+Content-Type: text/ecl
+Entry-Name: .content
+
+with [get-view "Model Explorer"] {
+    get-tree | select "E-BookStore/representations.aird" | double-click
+    click
+}
+get-editor "E-BookStore" | close
+get-view "Model Explorer" | get-tree | select "E-BookStore" | get-menu -path "New/Other..." | click
+with [get-window New] {
+    get-tree | select "Safr@n/Graal Model"
+    get-button "Next >" | click
+}
+get-window "New Graal Model" | get-button Finish | click
+get-editor "E-BookStore - Tasks Graph" | get-diagram -index 1 | get-edit-part -name "E-BookStore - Tasks Graph" 
+    | mouse-move 0 250 -height 604 -width 1207
+get-view "Model Explorer" | get-tree 
+    | select "E-BookStore/My.graal/System My/E-BookStore - Domain Classes Namespaces Hierarchy" | double-click
+with [get-editor "E-BookStore - Domain Classes Namespaces Hierarchy"] {
+    get-diagram -index 1 | get-edit-part -name "E-BookStore - Domain Classes Namespaces Hierarchy" | mouse-move 1201 50 
+        -height 604 -width 1207
+    with [get-palette | get-palette-entry Namespace -index 1] {
+        mouse-move 78 21 button1 -height 23 -width 125
+        mouse-press 78 21 button1 -height 23 -width 125
+        mouse-release 78 21 button1 "" -height 23 -width 125
+        mouse-hover 78 21 -height 23 -width 125
+    }
+    with [get-diagram -index 1 | get-edit-part -name "E-BookStore - Domain Classes Namespaces Hierarchy"] {
+        mouse-move 77 86 button1 -height 604 -width 1207
+        mouse-press 77 86 button1 -height 604 -width 1207
+        mouse-release 77 86 button1 "" -height 604 -width 1207
+    }
+    with [get-diagram -index 1 | get-edit-part -name "E-BookStore - Domain Classes Namespaces Hierarchy"] {
+        mouse-hover 77 86 -height 604 -width 1207
+        mouse-move 1202 42 -height 607 -width 1207
+    }
+    with [get-palette | get-palette-entry Namespace -index 1] {
+        mouse-move 84 3 button1 -height 23 -width 125
+        mouse-press 84 3 button1 -height 23 -width 125
+        mouse-move 84 3 -height 23 -width 125
+        mouse-release 84 3 button1 "" -height 23 -width 125
+    }
+    with [get-diagram -index 1 | get-edit-part -name "E-BookStore - Domain Classes Namespaces Hierarchy" 
+        | get-edit-part -name "namespace_1" | get-edit-part 
+        -className DNodeContainerViewNodeContainerCompartmentEditPart] {
+        mouse-move 56 25 button1 -height 68 -width 148
+        mouse-press 56 25 button1 -height 68 -width 148
+        mouse-release 56 25 button1 "" -height 68 -width 148
+    }
+    with [get-diagram -index 1 | get-edit-part -name "E-BookStore - Domain Classes Namespaces Hierarchy"] {
+        get-edit-part -name "namespace_1" | get-edit-part -className DNodeContainerViewNodeContainerCompartmentEditPart 
+            | get-edit-part -name "namespace_1" | get-edit-part 
+            -className DNodeContainerViewNodeContainerCompartment2EditPart | mouse-hover 0 1 -height 68 -width 148
+        mouse-move 55 180 -height 607 -width 1207
+    }
+}
+get-view "Model Explorer" | get-tree | select "E-BookStore/My.graal/System My/Namespace namespace_1" | get-menu 
+    -path "New Representation/namespace_1 - Domain Classes diagram" | click
+get-window "New Domain Classes Diagram" | get-button OK | click
+with [get-editor "namespace_1 - Domain Classes diagram"] {
+    get-diagram -index 1 | get-edit-part -name "namespace_1 - Domain Classes diagram" | mouse-move 1205 137 -height 604 
+        -width 1207
+    with [get-palette | get-palette-entry "Domain Class" -index 1] {
+        mouse-move 42 9 button1 -height 23 -width 125
+        mouse-press 42 9 button1 -height 23 -width 125
+        mouse-release 42 9 button1 "" -height 23 -width 125
+    }
+    with [get-diagram -index 1 | get-edit-part -name "namespace_1 - Domain Classes diagram"] {
+        mouse-move 228 192 button1 -height 604 -width 1207
+        mouse-press 228 192 button1 -height 604 -width 1207
+        mouse-release 228 192 button1 "" -height 604 -width 1207
+    }
+    with [get-diagram -index 1] {
+        with [get-edit-part -name "namespace_1 - Domain Classes diagram" | get-edit-part -name DomainClass1] {
+            mouse-hover 0 0 -height 41 -width 93
+            get-edit-part -className DNodeListNameEditPart | mouse-hover 25 11 -height 16 -width 89
+        }
+        key-type "M2+c"
+        get-edit-part -name "namespace_1 - Domain Classes diagram" | get-edit-part -name DomainClass1 | get-edit-part 
+            -className DNodeListNameEditPart | activate-direct-edit
+    }
+    with [get-editbox] {
+        set-text CDA
+        key-type Enter
+    }
+    with [get-diagram -index 1] {
+        commit-direct-edit
+        key-type "M2+d"
+        get-edit-part -name "namespace_1 - Domain Classes diagram" | get-edit-part -name CDA | get-edit-part 
+            -className DNodeListNameEditPart | activate-direct-edit
+    }
+    with [get-editbox] {
+        set-text DCA
+        key-type Enter
+    }
+    with [get-diagram -index 1] {
+        commit-direct-edit
+        get-edit-part -name "namespace_1 - Domain Classes diagram" | mouse-move 4 281 -height 607 -width 1207
+    }
+}
+get-view "Model Explorer" | get-tree 
+    | select "E-BookStore/My.graal/System My/Namespace namespace_1/Namespace namespace_1" | get-menu 
+    -path "New Representation/namespace_1 - Domain Classes diagram" | click
+get-window "New Domain Classes Diagram" | get-button OK | click
+with [get-editor "namespace_1 - Domain Classes diagram" -index 1] {
+    get-diagram -index 1 | get-edit-part -name "namespace_1 - Domain Classes diagram" | mouse-move 1203 203 -height 604 
+        -width 1207
+    with [get-palette] {
+        get-palette-entry Enumeration | mouse-move 17 2 -height 23 -width 125
+        get-palette-entry Attribute | mouse-move 74 0 -height 23 -width 125
+        with [get-palette-entry "Domain Class" -index 1] {
+            mouse-move 82 18 button1 -height 23 -width 125
+            mouse-press 82 18 button1 -height 23 -width 125
+            mouse-release 82 18 button1 "" -height 23 -width 125
+        }
+    }
+    with [get-diagram -index 1 | get-edit-part -name "namespace_1 - Domain Classes diagram"] {
+        mouse-move 53 87 button1 -height 604 -width 1207
+        mouse-press 53 87 button1 -height 604 -width 1207
+        mouse-move 53 87 -mask "" -height 604 -width 1207
+        mouse-drag 53 87 button1 "" -height 604 -width 1207
+        mouse-release 53 87 button1 "" -height 604 -width 1207
+    }
+    with [get-diagram -index 1] {
+        get-edit-part -name "namespace_1 - Domain Classes diagram" | mouse-hover 53 87 -height 604 -width 1207
+        key-type "M2+d"
+        get-edit-part -name "namespace_1 - Domain Classes diagram" | get-edit-part -name DomainClass1 | get-edit-part 
+            -className DNodeListNameEditPart | activate-direct-edit
+    }
+    with [get-editbox] {
+        set-text DCB
+        key-type Enter
+    }
+    with [get-diagram -index 1] {
+        commit-direct-edit
+        get-edit-part -name "namespace_1 - Domain Classes diagram" | mouse-move 1206 149 -height 607 -width 1207
+    }
+    with [get-palette] {
+        get-palette-entry Attribute | mouse-move 40 21 -height 23 -width 125
+        with [get-palette-entry Enumeration] {
+            mouse-move 47 21 -height 23 -width 125
+            mouse-move 56 11 button1 -height 23 -width 125
+            mouse-press 56 11 button1 -height 23 -width 125
+            mouse-release 56 11 button1 "" -height 23 -width 125
+        }
+    }
+    with [get-diagram -index 1 | get-edit-part -name "namespace_1 - Domain Classes diagram"] {
+        mouse-move 235 110 button1 -height 607 -width 1207
+        mouse-press 235 110 button1 -height 607 -width 1207
+        mouse-release 235 110 button1 "" -height 607 -width 1207
+    }
+    with [get-diagram -index 1 | get-edit-part -name "namespace_1 - Domain Classes diagram"] {
+        mouse-hover 235 110 -height 607 -width 1207
+        mouse-move 1146 177 -height 607 -width 1207
+    }
+    with [get-palette] {
+        get-palette-entry Enumeration | mouse-move 53 7 -height 23 -width 125
+        with [get-palette-entry Literal] {
+            mouse-move 59 3 button1 -height 23 -width 125
+            mouse-press 59 3 button1 -height 23 -width 125
+            mouse-move 59 3 -height 23 -width 125
+            mouse-release 59 3 button1 "" -height 23 -width 125
+            mouse-hover 59 3 -height 23 -width 125
+        }
+    }
+    with [get-diagram -index 1 | get-edit-part -name "namespace_1 - Domain Classes diagram"] {
+        mouse-move 231 129 -height 607 -width 1207
+        with [get-edit-part -name Enum2 | get-edit-part -className DNodeListViewNodeListCompartment2EditPart] {
+            mouse-move 17 1 button1 -height 12 -width 53
+            mouse-press 17 1 button1 -height 12 -width 53
+            mouse-release 17 1 button1 "" -height 12 -width 53
+        }
+    }
+    with [get-diagram -index 1 | get-edit-part -name "namespace_1 - Domain Classes diagram"] {
+        get-edit-part -name Enum2 | get-edit-part -className DNodeListViewNodeListCompartment2EditPart 
+            | mouse-hover 17 1 -height 18 -width 55
+        mouse-move 5 91 -height 607 -width 1207
+    }
+}
+get-button "Save All (M1+M2+S)" | click
+get-view "Model Explorer" | get-tree 
+    | select "E-BookStore/E-BookStore.graal/System E-BookStore/Domain Classes Namespaces Hierarchy" | double-click
+with [get-editor "Domain Classes Namespaces Hierarchy"] {
+    get-diagram -index 1 | get-edit-part -name "Domain Classes Namespaces Hierarchy" | mouse-move 1205 72 -height 604 
+        -width 1207
+    with [get-palette | get-palette-entry Namespace -index 1] {
+        mouse-move 37 9 button1 -height 23 -width 125
+        mouse-press 37 9 button1 -height 23 -width 125
+        mouse-move 37 10 -height 23 -width 125
+        mouse-release 37 10 button1 "" -height 23 -width 125
+    }
+    with [get-diagram -index 1 | get-edit-part -name "Domain Classes Namespaces Hierarchy"] {
+        mouse-move 86 71 button1 -height 604 -width 1207
+        mouse-press 86 71 button1 -height 604 -width 1207
+        mouse-release 86 71 button1 "" -height 604 -width 1207
+    }
+    get-diagram -index 1 | get-edit-part -name "Domain Classes Namespaces Hierarchy" | mouse-move 7 105 -height 607 
+        -width 1207
+}
+get-view "Model Explorer" | get-tree | select "E-BookStore/E-BookStore.graal/System E-BookStore/Namespace namespace_1" 
+    | get-menu -path "New Representation/namespace_1 - Domain Classes diagram" | click
+get-window "New Domain Classes Diagram" | get-button OK | click
+with [get-editor "namespace_1 - Domain Classes diagram" -index 2] {
+    get-diagram -index 1 | get-edit-part -name "namespace_1 - Domain Classes diagram" | mouse-move 1204 180 -height 604 
+        -width 1207
+    with [get-palette] {
+        get-palette-entry Attribute | mouse-move 55 0 -height 23 -width 125
+        with [get-palette-entry "Domain Class" -index 1] {
+            mouse-move 86 8 button1 -height 23 -width 125
+            mouse-press 86 8 button1 -height 23 -width 125
+            mouse-release 86 8 button1 "" -height 23 -width 125
+        }
+    }
+    with [get-diagram -index 1 | get-edit-part -name "namespace_1 - Domain Classes diagram"] {
+        mouse-move 72 86 button1 -height 604 -width 1207
+        mouse-press 72 86 button1 -height 604 -width 1207
+        mouse-release 72 86 button1 "" -height 604 -width 1207
+    }
+    get-diagram -index 1 | get-edit-part -name "namespace_1 - Domain Classes diagram" | mouse-move 1157 178 -height 604 
+        -width 1207
+    with [get-palette] {
+        get-palette-entry Attribute | mouse-move 17 6 -height 23 -width 125
+        with [get-palette-entry "Domain Class" -index 1] {
+            mouse-move 63 12 button1 -height 23 -width 125
+            mouse-press 63 12 button1 -height 23 -width 125
+            mouse-release 63 12 button1 "" -height 23 -width 125
+            mouse-hover 63 12 -height 23 -width 125
+        }
+    }
+    with [get-diagram -index 1 | get-edit-part -name "namespace_1 - Domain Classes diagram"] {
+        mouse-move 71 198 button1 -height 607 -width 1207
+        mouse-press 71 198 button1 -height 607 -width 1207
+        mouse-release 71 198 button1 "" -height 607 -width 1207
+    }
+    with [get-diagram -index 1 | get-edit-part -name "namespace_1 - Domain Classes diagram"] {
+        mouse-hover 171 198 -height 607 -width 1207
+        mouse-move 1204 433 -height 607 -width 1207
+    }
+    with [get-palette | get-palette-entry "External Domain Class"] {
+        mouse-move 67 25 button1 -height 39 -width 125
+        mouse-press 67 25 button1 -height 39 -width 125
+        mouse-release 67 25 button1 "" -height 39 -width 125
+        mouse-hover 67 25 -height 39 -width 125
+    }
+    with [get-diagram -index 1 | get-edit-part -name "namespace_1 - Domain Classes diagram"] {
+        mouse-move 287 97 button1 -height 607 -width 1207
+        mouse-press 287 97 button1 -height 607 -width 1207
+        mouse-release 287 97 button1 "" -height 607 -width 1207
+    }
+}
+with [get-window "Selection Wizard"] {
+    get-tree | select "System My/Namespace namespace_1/Domain Class DCA"
+    get-button Finish | click
+}
+with [get-editor "namespace_1 - Domain Classes diagram" -index 2] {
+    get-diagram -index 1 | get-edit-part -name "namespace_1 - Domain Classes diagram" | mouse-move 1206 304 -height 607 
+        -width 1207
+    with [get-palette] {
+        get-palette-entry Composition | mouse-move 49 1 -height 23 -width 125
+        with [get-palette-entry Relation] {
+            mouse-move 58 9 button1 -height 23 -width 125
+            mouse-press 58 9 button1 -height 23 -width 125
+            mouse-release 58 9 button1 "" -height 23 -width 125
+        }
+    }
+    with [get-diagram -index 1 | get-edit-part -name "namespace_1 - Domain Classes diagram"] {
+        mouse-move 120 130 -height 607 -width 1207
+        with [get-edit-part -name DomainClass1] {
+            mouse-move 43 22 -height 41 -width 93
+            with [get-edit-part -className DNodeListNameEditPart] {
+                mouse-move 51 13 button1 -height 16 -width 89
+                mouse-press 51 13 button1 -height 16 -width 89
+                mouse-release 51 13 button1 "" -height 16 -width 89
+            }
+        }
+        mouse-move 229 107 -height 607 -width 1207
+        with [get-edit-part -name "namespace_1:DCA"] {
+            mouse-move 20 18 button1 -height 40 -width 78
+            mouse-press 20 18 button1 -height 40 -width 78
+        }
+    }
+    with [get-diagram -index 1 | get-edit-part -name "namespace_1 - Domain Classes diagram"] {
+        mouse-release 308 114 button1 "" -height 607 -width 1207
+        mouse-move 367 217 -height 604 -width 1207
+        mouse-hover 367 217 -height 604 -width 1207
+        mouse-move 165 229 -height 607 -width 1207
+        with [get-edit-part -name DomainClass2] {
+            mouse-move 79 21 -height 41 -width 93
+            with [get-edit-part -className DNodeListNameEditPart] {
+                mouse-move 69 9 button1 -height 16 -width 89
+                mouse-press 69 9 button1 -height 16 -width 89
+                mouse-release 69 9 button1 "" -height 16 -width 89
+                mouse-hover 69 9 -height 16 -width 89
+            }
+        }
+        mouse-move 285 596 -height 607 -width 1207
+    }
+}
+get-view Properties | get-section Propetries | get-button "Browse your data to edit the current value" | click
+with [get-window Select] {
+    get-tree 
+        | select "platform:\\/resource\\/E-BookStore\\/My.graal/System My/Namespace namespace_1/Namespace namespace_1/Domain Class DCB"
+    get-button Finish | click
+}
+with [get-editor "namespace_1 - Domain Classes diagram" -index 2] {
+    with [get-diagram -index 1 | get-edit-part -name "namespace_1 - Domain Classes diagram"] {
+        mouse-move 378 398 -height 607 -width 1207
+        mouse-hover 378 398 -height 607 -width 1207
+        mouse-move 1198 205 -height 607 -width 1207
+    }
+    with [get-palette] {
+        get-palette-entry Enumeration | mouse-move 46 0 -height 23 -width 125
+        with [get-palette-entry Attribute] {
+            mouse-move 60 13 button1 -height 23 -width 125
+            mouse-press 60 13 button1 -height 23 -width 125
+            mouse-release 60 13 button1 "" -height 23 -width 125
+        }
+    }
+    with [get-diagram -index 1 | get-edit-part -name "namespace_1 - Domain Classes diagram"] {
+        mouse-move 104 245 -height 611 -width 1211
+        with [get-edit-part -name DomainClass2 | get-edit-part -className DNodeListViewNodeListCompartment2EditPart] {
+            mouse-move 24 3 button1 -height 12 -width 89
+            mouse-press 24 3 button1 -height 12 -width 89
+            mouse-release 24 3 button1 "" -height 12 -width 89
+        }
+    }
+    with [get-diagram -index 1 | get-edit-part -name "namespace_1 - Domain Classes diagram"] {
+        get-edit-part -name DomainClass2 | get-edit-part -className DNodeListViewNodeListCompartment2EditPart 
+            | get-edit-part -name "attribute1 : String[0..1]" | mouse-hover 20 1 -height 16 -width 113
+        mouse-move 278 592 -height 607 -width 1207
+    }
+}
+get-view Properties | get-section Properties | get-combo | select "Enumeration Enum2"
+with [get-editor "namespace_1 - Domain Classes diagram" -index 2 | get-diagram -index 1 | get-edit-part 
+    -name "namespace_1 - Domain Classes diagram"] {
+    mouse-move 74 269 -height 607 -width 1207
+    mouse-hover 74 269 -height 607 -width 1207
+    mouse-move 17 233 -height 607 -width 1207
+}
+get-button "Save All (M1+M2+S)" | click
+get-view "Model Explorer" | get-tree 
+    | select "E-BookStore/E-BookStore.graal/System E-BookStore/Domain Classes Namespaces Hierarchy" | double-click
+with [get-editor "Domain Classes Namespaces Hierarchy"] {
+    with [get-diagram -index 1 | get-edit-part -name "Domain Classes Namespaces Hierarchy"] {
+        mouse-move 138 29 button1 -height 607 -width 1207
+        mouse-press 138 29 button1 -height 607 -width 1207
+        mouse-release 138 29 button1 "" -height 607 -width 1207
+        mouse-hover 138 26 -height 604 -width 1207
+        mouse-move 119 0 -height 604 -width 1207
+    }
+    get-button Layers | click -arrow
+}
+get-menu -path Dependencies | click
+with [get-editor "Domain Classes Namespaces Hierarchy" | get-diagram -index 1 | get-edit-part 
+    -name "Domain Classes Namespaces Hierarchy"] {
+    mouse-move 220 89 -height 639 -width 1303
+    mouse-move 280 381 -height 639 -width 1303
+    mouse-hover 280 381 -height 639 -width 1303
+    mouse-move 277 383 -height 639 -width 1303
+    mouse-hover 277 383 -height 639 -width 1303
+}
+with [get-editor "Domain Classes Namespaces Hierarchy" | get-diagram -index 1 | get-edit-part 
+    -name "Domain Classes Namespaces Hierarchy"] {
+    get-property "children.size" | equals 3 | verify-true
+    get-property "children.Node[0].element.name" | equals "namespace_1" | verify-true
+    get-property "children.Node[1].element.name" | equals "namespace_1:namespace_1" | verify-true
+    get-property "children.Node[2].element.name" | equals "namespace_1" | verify-true
+    get-property "edges.size" | equals 2 | verify-true
+    get-property "edges.Edge[0].element.endLabel" | equals 2 | verify-true
+    get-property "edges.Edge[1].element.endLabel" | equals 1 | verify-true
+}
+------=_.content-0a7243a0-75d3-3d5f-9791-539de0e5b7ac--
