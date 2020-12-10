@@ -106,5 +106,9 @@
   <colors name="ExternalType_foreground" red="255" green="255" blue="255"/>
   <colors name="ExternalType_color"/>
   <colors name="ExternalType_border" red="252" green="175" blue="62"/>
+  <colors name="ExternalNamespace_background" red="253" green="206" blue="137"/>
+  <colors name="ExternalNamespace_foreground" red="255" green="255" blue="255"/>
+  <colors name="ExternalNamespace_color"/>
+  <colors name="ExternalNamespace_border" red="252" green="175" blue="62"/>
   <javaExtensions>org.obeonetwork.dsl.environment.design.services.EnvironmentLabelServices</javaExtensions>
 </classdiagramconf:Configuration>

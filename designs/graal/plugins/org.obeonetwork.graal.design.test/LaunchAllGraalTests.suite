@@ -4,8 +4,7 @@ Element-Name: LaunchAllGraalTests
 Element-Type: testsuite
 Element-Version: 2.0
 Id: _6Kzh8GNdEeSg_dTG4Ei-uQ
-Runtime-Version: 1.5.2.201408180747
-Save-Time: 11/17/14 2:46 PM
+Save-Time: 12/10/20 9:41 AM
 
 ------=_testcase-items-62c497da-4241-31f4-811a-6b453a3ecff8
 Content-Type: text/testcase
@@ -19,5 +18,6 @@ _6O6l4GNdEeSg_dTG4Ei-uQ	// kind: 'test' name: 'TestingTasksGraphTools' path: 'Te
 _6QUUEGNdEeSg_dTG4Ei-uQ	// kind: 'test' name: 'TestingUseCaseDiagramTools' path: 'TestingUseCaseDiagramTools.test'
 _6SSqAGNdEeSg_dTG4Ei-uQ	// kind: 'test' name: 'TestingUseCasesMainViewTools' path: 'TestingUseCasesMainViewTools.test'
 _6S5G8GNdEeSg_dTG4Ei-uQ	// kind: 'test' name: 'TestingUserStoriesTableTools' path: 'TestingUserStoriesTableTools.test'
+_XdtGkDojEeu-6M4tSPO0Uw	// kind: 'test' name: 'TestingDomainClassesNamespaceHierarchyExternalNamespaces' path: 'TestingDomainClassesNamespaceHierarchyExternalNamespaces.test'
 
 ------=_testcase-items-62c497da-4241-31f4-811a-6b453a3ecff8--
