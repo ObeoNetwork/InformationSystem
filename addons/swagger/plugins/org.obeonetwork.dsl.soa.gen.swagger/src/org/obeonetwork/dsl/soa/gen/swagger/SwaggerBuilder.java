@@ -12,17 +12,11 @@ package org.obeonetwork.dsl.soa.gen.swagger;
 
 import static java.util.stream.Collectors.toList;
 import static org.obeonetwork.dsl.soa.gen.swagger.HTTPStatusCodes.HTTP_200;
-import static org.obeonetwork.dsl.soa.gen.swagger.HTTPStatusCodes.HTTP_200_DESC;
 import static org.obeonetwork.dsl.soa.gen.swagger.HTTPStatusCodes.HTTP_201;
-import static org.obeonetwork.dsl.soa.gen.swagger.HTTPStatusCodes.HTTP_201_DESC;
 import static org.obeonetwork.dsl.soa.gen.swagger.HTTPStatusCodes.HTTP_204;
-import static org.obeonetwork.dsl.soa.gen.swagger.HTTPStatusCodes.HTTP_204_DESC;
 import static org.obeonetwork.dsl.soa.gen.swagger.HTTPStatusCodes.HTTP_206;
-import static org.obeonetwork.dsl.soa.gen.swagger.HTTPStatusCodes.HTTP_206_DESC;
 import static org.obeonetwork.dsl.soa.gen.swagger.HTTPStatusCodes.HTTP_400;
-import static org.obeonetwork.dsl.soa.gen.swagger.HTTPStatusCodes.HTTP_400_DESC;
 import static org.obeonetwork.dsl.soa.gen.swagger.HTTPStatusCodes.HTTP_404;
-import static org.obeonetwork.dsl.soa.gen.swagger.HTTPStatusCodes.HTTP_404_DESC;
 import static org.obeonetwork.dsl.soa.gen.swagger.OpenApiParserHelper.COMPONENT_SCHEMA_$REF;
 import static org.obeonetwork.dsl.soa.gen.swagger.OpenApiParserHelper.OPEN_API_FORMAT_INT64;
 import static org.obeonetwork.dsl.soa.gen.swagger.OpenApiParserHelper.OPEN_API_IN_BODY;
@@ -34,8 +28,8 @@ import static org.obeonetwork.dsl.soa.gen.swagger.OpenApiParserHelper.OPEN_API_T
 import static org.obeonetwork.dsl.soa.gen.swagger.OpenApiParserHelper.OPEN_API_TYPE_OBJECT;
 import static org.obeonetwork.dsl.soa.gen.swagger.OpenApiParserHelper.OPEN_API_TYPE_STRING;
 import static org.obeonetwork.dsl.soa.gen.swagger.OpenApiParserHelper.createPrimitiveTypeSchema;
-import static org.obeonetwork.dsl.soa.gen.swagger.utils.StringUtils.emptyIfNull;
-import static org.obeonetwork.dsl.soa.gen.swagger.utils.StringUtils.isNullOrWhite;
+import static org.obeonetwork.utils.common.StringUtils.emptyIfNull;
+import static org.obeonetwork.utils.common.StringUtils.isNullOrWhite;
 
 import java.util.ArrayList;
 import java.util.Collection;
@@ -66,6 +60,7 @@ import org.obeonetwork.dsl.soa.gen.swagger.utils.OperationGenUtil;
 import org.obeonetwork.dsl.soa.gen.swagger.utils.ParameterGenUtil;
 import org.obeonetwork.dsl.soa.gen.swagger.utils.PropertyGenUtil;
 import org.obeonetwork.dsl.soa.gen.swagger.utils.ServiceGenUtil;
+import org.obeonetwork.dsl.soa.services.HttpStatusService;
 
 import io.swagger.v3.oas.models.Components;
 import io.swagger.v3.oas.models.OpenAPI;
@@ -757,12 +752,12 @@ public class SwaggerBuilder {
 
     private static final Map<String, String> defaultDescriptionByStatusCode = new HashMap<>();
     static {
-    	defaultDescriptionByStatusCode.put(HTTP_200, HTTP_200_DESC);
-    	defaultDescriptionByStatusCode.put(HTTP_206, HTTP_206_DESC);
-    	defaultDescriptionByStatusCode.put(HTTP_204, HTTP_204_DESC);
-    	defaultDescriptionByStatusCode.put(HTTP_201, HTTP_201_DESC);
-    	defaultDescriptionByStatusCode.put(HTTP_404, HTTP_404_DESC);
-    	defaultDescriptionByStatusCode.put(HTTP_400, HTTP_400_DESC);
+    	defaultDescriptionByStatusCode.put(HTTP_200, HttpStatusService.getHttpMessage(HTTP_200));
+    	defaultDescriptionByStatusCode.put(HTTP_206, HttpStatusService.getHttpMessage(HTTP_206));
+    	defaultDescriptionByStatusCode.put(HTTP_204, HttpStatusService.getHttpMessage(HTTP_204));
+    	defaultDescriptionByStatusCode.put(HTTP_201, HttpStatusService.getHttpMessage(HTTP_201));
+    	defaultDescriptionByStatusCode.put(HTTP_404, HttpStatusService.getHttpMessage(HTTP_404));
+    	defaultDescriptionByStatusCode.put(HTTP_400, HttpStatusService.getHttpMessage(HTTP_400));
     }
     private String getDefaultDescriptionFromStatusCode(String statusCode) {
     	String description = defaultDescriptionByStatusCode.get(statusCode);
@@ -802,7 +797,15 @@ public class SwaggerBuilder {
     private Parameter createParameter(org.obeonetwork.dsl.soa.Parameter soaParameter) {
     	Parameter swgParameter = createParameter(ParameterGenUtil.getName(soaParameter), ParameterGenUtil.isRequired(soaParameter), getIn(soaParameter));
     	swgParameter.setSchema(createParameterSchema(soaParameter));
-    	swgParameter.setDescription(soaParameter.getDescription());
+    	
+    	StringBuffer description = new StringBuffer();
+    	if(!isNullOrWhite(soaParameter.getStatusMessage()) && !soaParameter.getStatusMessage().equals(soaParameter.getDescription())) {
+    		description.append(soaParameter.getStatusMessage());
+    		description.append(System.lineSeparator());
+    		description.append(System.lineSeparator());
+    	}
+		description.append(soaParameter.getDescription());
+    	swgParameter.setDescription(description.toString());
     	
     	return swgParameter;
     }

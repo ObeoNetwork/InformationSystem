@@ -23,7 +23,7 @@ import static org.obeonetwork.dsl.soa.gen.swagger.OpenApiParserHelper.isObject;
 import static org.obeonetwork.dsl.soa.gen.swagger.OpenApiParserHelper.isPrimitiveType;
 import static org.obeonetwork.dsl.soa.gen.swagger.SwaggerBuilder.SOA_PAGE_PARAMETER_NAME;
 import static org.obeonetwork.dsl.soa.gen.swagger.SwaggerBuilder.SOA_SIZE_PARAMETER_NAME;
-import static org.obeonetwork.dsl.soa.gen.swagger.utils.StringUtils.upperFirst;
+import static org.obeonetwork.utils.common.StringUtils.upperFirst;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -36,6 +36,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Objects;
+import java.util.Optional;
 import java.util.Set;
 import java.util.function.Predicate;
 import java.util.regex.Pattern;
@@ -72,6 +73,7 @@ import org.obeonetwork.dsl.soa.Service;
 import org.obeonetwork.dsl.soa.SoaFactory;
 import org.obeonetwork.dsl.soa.Verb;
 import org.obeonetwork.dsl.soa.gen.swagger.utils.NamespaceGenUtil;
+import org.obeonetwork.dsl.soa.services.HttpStatusService;
 import org.obeonetwork.dsl.technicalid.TechnicalIDPackage;
 
 import io.swagger.v3.oas.models.OpenAPI;
@@ -908,9 +910,10 @@ public class SoaComponentBuilder {
 			return null;
 		}
 		soaParameter.setName(parameterName);
+		
 		soaParameter.setStatusCode(responseKey);
-
 		soaParameter.setDescription(apiResponse.getDescription());
+		soaParameter.setStatusMessage(Optional.ofNullable(HttpStatusService.getHttpMessage(responseKey)).orElse(""));
 		
 		if(apiResponse.getContent() != null && !apiResponse.getContent().isEmpty()) {
 			Set<Entry<String, MediaType>> contents = apiResponse.getContent().entrySet();

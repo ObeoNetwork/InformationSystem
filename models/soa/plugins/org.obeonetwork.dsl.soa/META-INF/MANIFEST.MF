@@ -10,6 +10,7 @@ Bundle-Localization: plugin
 Export-Package: org.obeonetwork.dsl.soa,
  org.obeonetwork.dsl.soa.impl,
  org.obeonetwork.dsl.soa.migration,
+ org.obeonetwork.dsl.soa.services,
  org.obeonetwork.dsl.soa.spec,
  org.obeonetwork.dsl.soa.util
 Require-Bundle: org.eclipse.core.runtime,
@@ -20,4 +21,4 @@ Require-Bundle: org.eclipse.core.runtime,
  org.eclipse.emf.ecore.xmi;visibility:=reexport,
  org.obeonetwork.tools.migration
 Bundle-ActivationPolicy: lazy
-Bundle-RequiredExecutionEnvironment: J2SE-1.5
+Bundle-RequiredExecutionEnvironment: JavaSE-1.8

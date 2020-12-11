@@ -10,7 +10,7 @@
  *******************************************************************************/
 package org.obeonetwork.dsl.soa.gen.swagger.utils;
 
-import static org.obeonetwork.dsl.soa.gen.swagger.utils.StringUtils.isNullOrWhite;
+import static org.obeonetwork.utils.common.StringUtils.isNullOrWhite;
 
 import java.util.Collection;
 import java.util.HashSet;

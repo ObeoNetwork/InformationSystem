@@ -20,10 +20,12 @@ Require-Bundle: org.eclipse.ui,
  org.eclipse.jface,
  org.eclipse.sirius.ext.base,
  org.eclipse.emf.transaction,
- org.eclipse.sirius.common
+ org.eclipse.sirius.common,
+ org.obeonetwork.utils.common
 Bundle-ActivationPolicy: lazy
 Bundle-RequiredExecutionEnvironment: JavaSE-1.8
 Bundle-ManifestVersion: 2
 Export-Package: org.obeonetwork.dsl.soa.design,
  org.obeonetwork.dsl.soa.design.services
 Bundle-Vendor: Obeo Network
+Automatic-Module-Name: org.obeonetwork.dsl.soa.design

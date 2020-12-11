@@ -11,4 +11,5 @@ Require-Bundle: org.junit,
  org.eclipse.emf.ecore,
  org.obeonetwork.dsl.soa,
  org.obeonetwork.dsl.environment,
- org.obeonetwork.dsl.environment.common
+ org.obeonetwork.dsl.environment.common,
+ org.obeonetwork.utils.common

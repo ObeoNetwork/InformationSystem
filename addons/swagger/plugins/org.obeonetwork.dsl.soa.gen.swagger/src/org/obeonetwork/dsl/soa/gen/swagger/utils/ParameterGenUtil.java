@@ -14,6 +14,7 @@ import org.obeonetwork.dsl.environment.MultiplicityKind;
 import org.obeonetwork.dsl.soa.Operation;
 import org.obeonetwork.dsl.soa.Parameter;
 import org.obeonetwork.dsl.soa.SoaPackage;
+import org.obeonetwork.utils.common.StringUtils;
 
 public class ParameterGenUtil {
 

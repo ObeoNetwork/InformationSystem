@@ -8,7 +8,7 @@
  * Contributors:
  *     Obeo - initial API and implementation
  *******************************************************************************/
-package org.obeonetwork.dsl.soa.gen.swagger.utils;
+package org.obeonetwork.utils.common;
 
 import java.util.Iterator;
 import java.util.stream.Stream;

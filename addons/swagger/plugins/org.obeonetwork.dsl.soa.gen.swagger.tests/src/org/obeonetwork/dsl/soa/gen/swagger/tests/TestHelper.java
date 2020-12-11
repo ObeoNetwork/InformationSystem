@@ -15,7 +15,7 @@ import static java.util.stream.Collectors.toList;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 import static org.junit.Assert.fail;
-import static org.obeonetwork.dsl.soa.gen.swagger.utils.StreamUtils.asStream;
+import static org.obeonetwork.utils.common.StreamUtils.asStream;
 
 import java.io.File;
 import java.io.FileInputStream;

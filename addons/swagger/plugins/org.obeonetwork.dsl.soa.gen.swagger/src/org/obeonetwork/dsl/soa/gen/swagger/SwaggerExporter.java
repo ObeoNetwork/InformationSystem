@@ -12,7 +12,7 @@ package org.obeonetwork.dsl.soa.gen.swagger;
 
 import static org.obeonetwork.dsl.soa.gen.swagger.Activator.logError;
 import static org.obeonetwork.dsl.soa.gen.swagger.Activator.logInfo;
-import static org.obeonetwork.dsl.soa.gen.swagger.utils.StringUtils.isNullOrWhite;
+import static org.obeonetwork.utils.common.StringUtils.isNullOrWhite;
 
 import java.io.File;
 import java.io.IOException;
