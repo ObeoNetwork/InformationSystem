@@ -100,6 +100,7 @@ public class SwaggerBuilder {
 	private Map<Type, String> exposedSoaTypeKeys = null;
 
 	private boolean computeShortestKey = false;
+	private boolean completeOutputWithDefaults = false;
 
 	private int status;
 
@@ -624,7 +625,9 @@ public class SwaggerBuilder {
 	private ApiResponses createApiResponses(org.obeonetwork.dsl.soa.Operation soaOperation) {
 		ApiResponses apiResponses = new ApiResponses();
 		
-		buildDefaultApiResponses(apiResponses, soaOperation);
+		if(completeOutputWithDefaults) {
+			buildDefaultApiResponses(apiResponses, soaOperation);
+		}
 		
 		OperationGenUtil.getOutput(soaOperation).forEach(soaOutputParameter -> buildApiResponse(apiResponses, soaOutputParameter));
     	
@@ -692,7 +695,7 @@ public class SwaggerBuilder {
 				apiResponse.addHeaderObject("Link", createResponseHeader(OPEN_API_TYPE_STRING, null));
 			}
 			
-			if(soaOutputParameter.getType() != null){
+			if(soaOutputParameter.getType() != null) {
 				apiResponse.setContent(createContent(soaOutputParameter));
 			}
 			
@@ -706,18 +709,24 @@ public class SwaggerBuilder {
 	}
 	
 	private String getDescription(org.obeonetwork.dsl.soa.Parameter soaParameter) {
-		String description = null;
-		if(!isNullOrWhite(soaParameter.getDescription())) {
-			description = soaParameter.getDescription();
-		} else {
-			description = getDefaultDescriptionFromStatusCode(getStatusCode(soaParameter));
+    	StringBuffer description = new StringBuffer();
+    	if((ParameterGenUtil.isOutput(soaParameter) || ParameterGenUtil.isFault(soaParameter)) && !isNullOrWhite(soaParameter.getStatusMessage()) && !soaParameter.getStatusMessage().equals(soaParameter.getDescription())) {
+    		description.append(soaParameter.getStatusMessage());
+    		description.append(System.lineSeparator());
+    		description.append(System.lineSeparator());
+    	}
+		description.append(soaParameter.getDescription());
+		
+		if(isNullOrWhite(description.toString()) && completeOutputWithDefaults) {
+			description.append(getDefaultDescriptionFromStatusCode(getStatusCode(soaParameter)));
 		}
-		return description;
+		
+		return description.toString();
 	}
 
 	private String getStatusCode(org.obeonetwork.dsl.soa.Parameter soaParameter) {
 		String statusCode = soaParameter.getStatusCode();
-		if(isNullOrWhite(statusCode)) {
+		if(isNullOrWhite(statusCode) && completeOutputWithDefaults) {
 			if(ParameterGenUtil.isOutput(soaParameter)) {
 				statusCode = getDefaultOutputStatusCode(ParameterGenUtil.getOperation(soaParameter));
 			}
@@ -750,19 +759,10 @@ public class SwaggerBuilder {
 		return statusCode;
 	}
 
-    private static final Map<String, String> defaultDescriptionByStatusCode = new HashMap<>();
-    static {
-    	defaultDescriptionByStatusCode.put(HTTP_200, HttpStatusService.getHttpMessage(HTTP_200));
-    	defaultDescriptionByStatusCode.put(HTTP_206, HttpStatusService.getHttpMessage(HTTP_206));
-    	defaultDescriptionByStatusCode.put(HTTP_204, HttpStatusService.getHttpMessage(HTTP_204));
-    	defaultDescriptionByStatusCode.put(HTTP_201, HttpStatusService.getHttpMessage(HTTP_201));
-    	defaultDescriptionByStatusCode.put(HTTP_404, HttpStatusService.getHttpMessage(HTTP_404));
-    	defaultDescriptionByStatusCode.put(HTTP_400, HttpStatusService.getHttpMessage(HTTP_400));
-    }
     private String getDefaultDescriptionFromStatusCode(String statusCode) {
-    	String description = defaultDescriptionByStatusCode.get(statusCode);
+    	String description = HttpStatusService.getHttpMessage(statusCode);
     	if(description == null) {
-    		description = "Unknown Status Code";
+    		description = "<Unknown Status Code>";
     	}
     	
     	return description;
@@ -798,14 +798,7 @@ public class SwaggerBuilder {
     	Parameter swgParameter = createParameter(ParameterGenUtil.getName(soaParameter), ParameterGenUtil.isRequired(soaParameter), getIn(soaParameter));
     	swgParameter.setSchema(createParameterSchema(soaParameter));
     	
-    	StringBuffer description = new StringBuffer();
-    	if(!isNullOrWhite(soaParameter.getStatusMessage()) && !soaParameter.getStatusMessage().equals(soaParameter.getDescription())) {
-    		description.append(soaParameter.getStatusMessage());
-    		description.append(System.lineSeparator());
-    		description.append(System.lineSeparator());
-    	}
-		description.append(soaParameter.getDescription());
-    	swgParameter.setDescription(description.toString());
+    	swgParameter.setDescription(getDescription(soaParameter));
     	
     	return swgParameter;
     }
