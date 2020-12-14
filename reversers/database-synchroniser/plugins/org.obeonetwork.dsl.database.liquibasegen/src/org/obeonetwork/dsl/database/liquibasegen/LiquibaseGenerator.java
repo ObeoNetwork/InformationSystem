@@ -24,6 +24,7 @@ import java.text.SimpleDateFormat;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.List;
+import java.util.Optional;
 import java.util.function.Supplier;
 
 import org.eclipse.core.runtime.IStatus;
@@ -31,6 +32,7 @@ import org.eclipse.core.runtime.Status;
 import org.eclipse.emf.common.util.Monitor;
 import org.eclipse.emf.compare.Comparison;
 import org.obeonetwork.dsl.database.DataBase;
+import org.obeonetwork.dsl.database.DatabaseElement;
 import org.obeonetwork.dsl.database.gen.common.services.StatusUtils;
 import org.obeonetwork.dsl.database.gen.common.services.TypesServices;
 import org.obeonetwork.dsl.typeslibrary.NativeTypesLibrary;
@@ -45,6 +47,8 @@ import liquibase.serializer.core.xml.XMLChangeLogSerializer;
  */
 public class LiquibaseGenerator {
 
+	private TypesServices typesServices = new TypesServices();
+	
 	private Supplier<String> idPrefixProvider = () -> LocalDateTime.now()
 			.format(DateTimeFormatter.ofPattern("yyyy-MM-dd-HH-mm-ss--"));
 
@@ -77,7 +81,7 @@ public class LiquibaseGenerator {
 
 			Path liquibasePropertyFile = lastFileFolder.resolve("liquibase.properties");
 			if (!liquibasePropertyFile.toFile().exists()) {
-				writtePropertyFile(liquibasePropertyFile);
+				writePropertyFile(liquibasePropertyFile, comparisonModel);
 			}
 
 		}
@@ -93,13 +97,19 @@ public class LiquibaseGenerator {
 
 	private static final String EOL = System.lineSeparator();
 
-	private void writtePropertyFile(Path liquibasePropertyFile) throws IOException {
+	private void writePropertyFile(Path liquibasePropertyFile, Comparison comparisonModel) throws IOException {
+		
+		DatabaseElement databaseElement = comparisonModel.getMatches().stream()
+		.filter(match -> match.getLeft() instanceof DatabaseElement)
+		.map(match -> (DatabaseElement)match.getLeft())
+		.findAny().orElse(null);
+		
 		String content = //
 				  "# Enter the path for your changelog file." + EOL //
 				+ "changeLogFile=run.changelog.xml" + EOL //
 				+ EOL //
 				+ "#### Enter the Target database 'url' information  ####" + EOL //
-				+ "url=" + EOL //
+				+ genPropertyFileURLSectionContents("url", databaseElement) //
 				+ EOL //
 				+ "# Enter the username for your Target database." + EOL //
 				+ "username: " + EOL //
@@ -108,7 +118,7 @@ public class LiquibaseGenerator {
 				+ "password: " + EOL //
 				+ EOL //
 				+ "#Driver name" + EOL //
-				+ "driver: " + EOL //
+				+ "driver: " + genDriver(databaseElement) + EOL //
 				+ "#Path to the driver jar" + EOL
 				+ "classpath: " + EOL
 				+ EOL
@@ -117,7 +127,7 @@ public class LiquibaseGenerator {
 				+ EOL //
 				+ EOL //
 				+ "# Enter URL for the source database" + EOL //
-				+ "#referenceUrl:" + EOL //
+				+ genPropertyFileURLSectionContents("referenceUrl", databaseElement) //
 				+ EOL //
 				+ "# Enter the username for your source database" + EOL //
 				+ "#referenceUsername:" + EOL //
@@ -131,7 +141,52 @@ public class LiquibaseGenerator {
 		}
 
 	}
+	
+	private String genDriver(DatabaseElement databaseElement) {
+		String driver = "";
+		
+		if(databaseElement != null) {
+			if(typesServices.isTargetH2(databaseElement)) {
+				driver = "org.h2.Driver";
+			} else if(typesServices.isTargetPostgreSQL(databaseElement)) {
+				driver = "org.postgresql.Driver";
+			} else if(typesServices.isTargetOracle(databaseElement)) {
+				driver = "oracle.jdbc.OracleDriver";
+			} else if(typesServices.isTargetMySql(databaseElement)) {
+				driver = "com.mysql.jdbc.Driver";
+			} else if(typesServices.isTargetMariaDB(databaseElement)) {
+				driver = "org.mariadb.jdbc.Driver";
+			} else if(typesServices.isTargetSqlServer(databaseElement)) {
+				driver = "com.microsoft.sqlserver.jdbc.SQLServerDriver";
+			}
+		}
+		return driver;
+	}
 
+	private String genPropertyFileURLSectionContents(String propertyName, DatabaseElement databaseElement) {
+		
+		StringBuffer urlSection = new StringBuffer();
+		
+		if(databaseElement != null) {
+			if(typesServices.isTargetH2(databaseElement)) {
+				urlSection.append(propertyName + ": jdbc:h2:<path><dbName>" + EOL);
+				urlSection.append("#" + propertyName + ": jdbc:h2:tcp://<hostname>:<port>/<path><dbName>" + EOL);
+			} else if(typesServices.isTargetPostgreSQL(databaseElement)) {
+				urlSection.append(propertyName + ": jdbc:postgresql://<hostname>:5432/<dbName>" + EOL);
+			} else if(typesServices.isTargetOracle(databaseElement)) {
+				urlSection.append(propertyName + ": jdbc:oracle:thin:@<hostname>:1521:<dbName>" + EOL);
+			} else if(typesServices.isTargetMySql(databaseElement)) {
+				urlSection.append(propertyName + ": jdbc:mysql://<hostname>:3306/<dbName>" + EOL);
+			} else if(typesServices.isTargetMariaDB(databaseElement)) {
+				urlSection.append(propertyName + ": jdbc:mysql://<hostname>:3306/<dbName>" + EOL);
+			} else if(typesServices.isTargetSqlServer(databaseElement)) {
+				urlSection.append(propertyName + ": jdbc:sqlserver://<hostname>:1433;DatabaseName=<dbName>" + EOL);
+			}
+		}
+		
+		return urlSection.toString();
+	}
+	
 	/**
 	 * Compute the folder holding the last generated shnage log for the given model
 	 * 
