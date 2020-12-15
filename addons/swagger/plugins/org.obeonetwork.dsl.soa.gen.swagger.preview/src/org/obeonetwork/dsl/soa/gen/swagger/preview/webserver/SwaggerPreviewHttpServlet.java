@@ -37,9 +37,13 @@ public class SwaggerPreviewHttpServlet extends HttpServlet {
 			} else if(requestURI.endsWith(".js.map")) {
 				resp.setContentType("application/octet-stream");
 			} else if(requestURI.endsWith(".yaml")) {
+				resp.setHeader("Cache-Control", "no-store");
+				resp.setHeader("Cache-Control", "max-age=0");
 				resp.setContentType("application/yaml");
 			} else if(requestURI.endsWith(".json")) {
 				resp.setContentType("application/json");
+				resp.setHeader("Cache-Control", "no-store");
+				resp.setHeader("Cache-Control", "max-age=0");
 			}
 			
         	String resourceName = URLDecoder.decode(req.getRequestURI().substring(1), "UTF-8");
