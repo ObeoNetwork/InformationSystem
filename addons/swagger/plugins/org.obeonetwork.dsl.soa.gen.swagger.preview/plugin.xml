@@ -13,10 +13,14 @@
 <plugin>
    <extension
          point="org.eclipse.ui.commands">
-      <command
+      <!-- Swagger preview in embedded navigator is not stable due to the fact that it relies on the OS web browser.
+           This can be reconsidered when IS-Designer will be upgraded to Obeo Designer 12. A new implementation
+           of the web browser based on a embedded fixed version of Chromium will then be available, making the
+           result stable regardless of the undelying OS configuration. (Ref. [SAFRAN-912]).  -->
+      <!-- command
             id="org.obeonetwork.dsl.soa.gen.swagger.preview.command.SwaggerPreview"
             name="Swagger Preview">
-      </command>
+      </command -->
       <command
             id="org.obeonetwork.dsl.soa.gen.swagger.preview.command.SwaggerPreviewSystemNavigator"
             name="Swagger Preview (in System Navigator)">
@@ -27,14 +31,14 @@
       <menuContribution
             allPopups="false"
             locationURI="popup:org.obeonetwork.is.designer.menu?after=additions">
-         <command
+         <!-- command
                commandId="org.obeonetwork.dsl.soa.gen.swagger.preview.command.SwaggerPreview"
                icon="icons/swagger-logo-16x16.png"
                style="push">
             <visibleWhen
                   checkEnabled="true">
             </visibleWhen>
-         </command>
+         </command -->
          <command
                commandId="org.obeonetwork.dsl.soa.gen.swagger.preview.command.SwaggerPreviewSystemNavigator"
                icon="icons/swagger-logo-16x16.png"
@@ -47,7 +51,7 @@
    </extension>
    <extension
          point="org.eclipse.ui.handlers">
-      <handler
+      <!-- handler
             class="org.obeonetwork.dsl.soa.gen.swagger.preview.handlers.SwaggerPreviewHandler"
             commandId="org.obeonetwork.dsl.soa.gen.swagger.preview.command.SwaggerPreview">
          <enabledWhen>
@@ -65,7 +69,7 @@
                </iterate>
             </with>
          </enabledWhen>
-      </handler>
+      </handler -->
       <handler
             class="org.obeonetwork.dsl.soa.gen.swagger.preview.handlers.SwaggerPreviewSystemNavigatorHandler"
             commandId="org.obeonetwork.dsl.soa.gen.swagger.preview.command.SwaggerPreviewSystemNavigator">

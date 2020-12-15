@@ -20,6 +20,10 @@ import org.eclipse.ui.PlatformUI;
 import org.eclipse.ui.internal.browser.WebBrowserEditor;
 import org.eclipse.ui.internal.browser.WebBrowserEditorInput;
 
+/**
+ * Unplugged. See comment in plugin.xml for the reason.
+ *
+ */
 @SuppressWarnings("restriction")
 public class SwaggerPreviewHandler extends SwaggerPreviewAbstractHandler {
 
