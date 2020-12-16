@@ -24,14 +24,14 @@
     <!endif-->
     <link href="../assets/css/bootstrap.css" rel="stylesheet"/>
     <link href="../assets/css/docs.css" rel="stylesheet"/>
-    <title>M2Doc Services and attributes for Literal</title>
+    <title>M2Doc Services and attributes for SecurityScheme</title>
   </head>
 
   <body>
    <header class="jumbotron subhead" id="overview">
   </header>
 
-    <h1 id="Literal">Services and attributes for the Literal concept</h1>
+    <h1 id="SecurityScheme">Services and attributes for the SecurityScheme concept</h1>
     <div class="page-header">
       <h2 id="Attributes">Attributes</h2>
     </div>
@@ -47,74 +47,95 @@
     </thead>
   <tbody>
     <tr>
+      <td colspan="1" rowspan="1"><strong>apiKeyLocation</strong></td>
+      <td colspan="1" rowspan="1">ApiKeyLocation</td>
+      <td colspan="1" rowspan="1">{m:securityScheme.apiKeyLocation}</td>
+      <td colspan="1" rowspan="1">The location of the API key. (Named "in" in the OpenAPI specification).</td>
+      <td colspan="1" rowspan="1">{m:securityScheme.apiKeyLocation}</td>
+    </tr>
+    <tr>
       <td colspan="1" rowspan="1"><strong>behaviours</strong></td>
       <td colspan="1" rowspan="1">List of Behaviour</td>
-      <td colspan="1" rowspan="1">{m:literal.behaviours}</td>
+      <td colspan="1" rowspan="1">{m:securityScheme.behaviours}</td>
       <td colspan="1" rowspan="1">The Behaviours owned by this object.</td>
-      <td colspan="1" rowspan="1">{m:for behaviour | literal.behaviours} behaviour {m:behaviour.name}, {m:endfor}</td>
+      <td colspan="1" rowspan="1">{m:for behaviour | securityScheme.behaviours} behaviour {m:behaviour.name}, {m:endfor}</td>
     </tr>
     <tr>
       <td colspan="1" rowspan="1"><strong>bindingRegistries</strong></td>
       <td colspan="1" rowspan="1">List of <a href="/help/topic/org.obeonetwork.dsl.environment.m2doc.services/doc/pages/m2doc_services_bindingregistry.html">BindingRegistry</a></td>
-      <td colspan="1" rowspan="1">{m:literal.bindingRegistries}</td>
+      <td colspan="1" rowspan="1">{m:securityScheme.bindingRegistries}</td>
       <td colspan="1" rowspan="1">The binding registries of this object.</td>
-      <td colspan="1" rowspan="1">{m:for bindingRegistry | literal.bindingRegistries} bindingRegistry {m:bindingRegistry.name}, {m:endfor}</td>
+      <td colspan="1" rowspan="1">{m:for bindingRegistry | securityScheme.bindingRegistries} bindingRegistry {m:bindingRegistry.name}, {m:endfor}</td>
     </tr>
     <tr>
       <td colspan="1" rowspan="1"><strong>createdOn</strong></td>
       <td colspan="1" rowspan="1">EDate</td>
-      <td colspan="1" rowspan="1">{m:literal.createdOn}</td>
+      <td colspan="1" rowspan="1">{m:securityScheme.createdOn}</td>
       <td colspan="1" rowspan="1">The creation date of this object.</td>
-      <td colspan="1" rowspan="1">{m:literal.createdOn}</td>
+      <td colspan="1" rowspan="1">{m:securityScheme.createdOn}</td>
     </tr>
     <tr>
       <td colspan="1" rowspan="1"><strong>description</strong></td>
       <td colspan="1" rowspan="1">EString</td>
-      <td colspan="1" rowspan="1">{m:literal.description}</td>
+      <td colspan="1" rowspan="1">{m:securityScheme.description}</td>
       <td colspan="1" rowspan="1">The description of this object.</td>
-      <td colspan="1" rowspan="1">{m:literal.description}</td>
+      <td colspan="1" rowspan="1">{m:securityScheme.description}</td>
+    </tr>
+    <tr>
+      <td colspan="1" rowspan="1"><strong>key</strong></td>
+      <td colspan="1" rowspan="1">EString</td>
+      <td colspan="1" rowspan="1">{m:securityScheme.key}</td>
+      <td colspan="1" rowspan="1">The unique id of the Security Scheme, used in the OpenAPI serialization format.</td>
+      <td colspan="1" rowspan="1">{m:securityScheme.key}</td>
     </tr>
     <tr>
       <td colspan="1" rowspan="1"><strong>keywords</strong></td>
       <td colspan="1" rowspan="1">List of EString</td>
-      <td colspan="1" rowspan="1">{m:literal.keywords}</td>
+      <td colspan="1" rowspan="1">{m:securityScheme.keywords}</td>
       <td colspan="1" rowspan="1">The list of keywords applied to this object.</td>
-      <td colspan="1" rowspan="1">{m:for eString | literal.keywords} eString {m:eString.name}, {m:endfor}</td>
+      <td colspan="1" rowspan="1">{m:for eString | securityScheme.keywords} eString {m:eString.name}, {m:endfor}</td>
     </tr>
     <tr>
       <td colspan="1" rowspan="1"><strong>metadatas</strong></td>
       <td colspan="1" rowspan="1"><a href="/help/topic/org.obeonetwork.dsl.environment.m2doc.services/doc/pages/m2doc_services_metadatacontainer.html">MetaDataContainer</a></td>
-      <td colspan="1" rowspan="1">{m:literal.metadatas}</td>
+      <td colspan="1" rowspan="1">{m:securityScheme.metadatas}</td>
       <td colspan="1" rowspan="1">The metadatas defined on this object.</td>
-      <td colspan="1" rowspan="1">{m:literal.metadatas}</td>
+      <td colspan="1" rowspan="1">{m:securityScheme.metadatas}</td>
     </tr>
     <tr>
       <td colspan="1" rowspan="1"><strong>modifiedOn</strong></td>
       <td colspan="1" rowspan="1">EDate</td>
-      <td colspan="1" rowspan="1">{m:literal.modifiedOn}</td>
+      <td colspan="1" rowspan="1">{m:securityScheme.modifiedOn}</td>
       <td colspan="1" rowspan="1">The modification date of this obect.</td>
-      <td colspan="1" rowspan="1">{m:literal.modifiedOn}</td>
+      <td colspan="1" rowspan="1">{m:securityScheme.modifiedOn}</td>
     </tr>
     <tr>
       <td colspan="1" rowspan="1"><strong>name</strong></td>
       <td colspan="1" rowspan="1">EString</td>
-      <td colspan="1" rowspan="1">{m:literal.name}</td>
-      <td colspan="1" rowspan="1">The name of the literal.</td>
-      <td colspan="1" rowspan="1">{m:literal.name}</td>
+      <td colspan="1" rowspan="1">{m:securityScheme.name}</td>
+      <td colspan="1" rowspan="1">The name of the header, query or cookie parameter to be used.</td>
+      <td colspan="1" rowspan="1">{m:securityScheme.name}</td>
     </tr>
     <tr>
       <td colspan="1" rowspan="1"><strong>technicalid</strong></td>
       <td colspan="1" rowspan="1">EString</td>
-      <td colspan="1" rowspan="1">{m:literal.technicalid}</td>
+      <td colspan="1" rowspan="1">{m:securityScheme.technicalid}</td>
       <td colspan="1" rowspan="1">Technical identifier of the element.</td>
-      <td colspan="1" rowspan="1">{m:literal.technicalid}</td>
+      <td colspan="1" rowspan="1">{m:securityScheme.technicalid}</td>
+    </tr>
+    <tr>
+      <td colspan="1" rowspan="1"><strong>type</strong></td>
+      <td colspan="1" rowspan="1">SecuritySchemeType</td>
+      <td colspan="1" rowspan="1">{m:securityScheme.type}</td>
+      <td colspan="1" rowspan="1">The type of the security scheme.</td>
+      <td colspan="1" rowspan="1">{m:securityScheme.type}</td>
     </tr>
     <tr>
       <td colspan="1" rowspan="1"><strong>version</strong></td>
       <td colspan="1" rowspan="1">EInt</td>
-      <td colspan="1" rowspan="1">{m:literal.version}</td>
+      <td colspan="1" rowspan="1">{m:securityScheme.version}</td>
       <td colspan="1" rowspan="1">The version of this object.</td>
-      <td colspan="1" rowspan="1">{m:literal.version}</td>
+      <td colspan="1" rowspan="1">{m:securityScheme.version}</td>
     </tr>
     </tbody>
     </table>

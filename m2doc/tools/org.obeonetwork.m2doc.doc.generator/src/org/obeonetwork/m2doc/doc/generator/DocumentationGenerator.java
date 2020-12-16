@@ -73,17 +73,17 @@ public class DocumentationGenerator {
 		private String[] odesignResourcePaths;
 
 		private Configuration(String outputPluginParentFolder, String outputPluginName, String metamodelName, String[] serviceslJavaPackages, String[] metamodelJavaPackages, String[] odesignResourcePaths) {
-			this.outputPluginParentFolder =outputPluginParentFolder ;
-			this. outputPluginName= outputPluginName;
+			this.outputPluginParentFolder = outputPluginParentFolder ;
+			this. outputPluginName = outputPluginName;
 			this.metamodelName = metamodelName;
-			this.serviceslJavaPackages =serviceslJavaPackages ;
-			this. metamodelJavaPackages= metamodelJavaPackages;
+			this.serviceslJavaPackages = serviceslJavaPackages ;
+			this. metamodelJavaPackages = metamodelJavaPackages;
 			this.odesignResourcePaths = odesignResourcePaths;
 		}
 	}
 	
 	// Absolute path to InformationSystem git working copy
-	private static String gitRepoRootPath = "/home/development/git/InformationSystem/";
+	private static String gitRepoRootPath = "/home/obeo/git/InformationSystem/";
 
 	private static List<Configuration> initializeConfigurations() {
 		final List<Configuration> res = new ArrayList<>();

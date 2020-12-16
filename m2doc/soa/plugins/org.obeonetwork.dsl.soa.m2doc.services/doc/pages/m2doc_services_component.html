@@ -2,7 +2,7 @@
 <html lang="en">
 <!--
 /********************************************************************************
-** Copyright (c) 2016, 2020 Obeo.
+** Copyright (c) 2008, 2020 Obeo.
 ** All rights reserved. This program and the accompanying materials
 ** are made available under the terms of the Eclipse Public License v1.0
 ** which accompanies this distribution, and is available at
@@ -47,6 +47,27 @@
     </thead>
   <tbody>
     <tr>
+      <td colspan="1" rowspan="1"><strong>URI</strong></td>
+      <td colspan="1" rowspan="1">EString</td>
+      <td colspan="1" rowspan="1">{m:component.URI}</td>
+      <td colspan="1" rowspan="1">The exposition URI of this component.</td>
+      <td colspan="1" rowspan="1">{m:component.URI}</td>
+    </tr>
+    <tr>
+      <td colspan="1" rowspan="1"><strong>URL</strong></td>
+      <td colspan="1" rowspan="1">EString</td>
+      <td colspan="1" rowspan="1">{m:component.URL}</td>
+      <td colspan="1" rowspan="1">The exposition URL of this component.</td>
+      <td colspan="1" rowspan="1">{m:component.URL}</td>
+    </tr>
+    <tr>
+      <td colspan="1" rowspan="1"><strong>apiVersion</strong></td>
+      <td colspan="1" rowspan="1">EString</td>
+      <td colspan="1" rowspan="1">{m:component.apiVersion}</td>
+      <td colspan="1" rowspan="1"></td>
+      <td colspan="1" rowspan="1">{m:component.apiVersion}</td>
+    </tr>
+    <tr>
       <td colspan="1" rowspan="1"><strong>behaviours</strong></td>
       <td colspan="1" rowspan="1">List of Behaviour</td>
       <td colspan="1" rowspan="1">{m:component.behaviours}</td>
@@ -73,6 +94,13 @@
       <td colspan="1" rowspan="1">{m:component.createdOn}</td>
       <td colspan="1" rowspan="1">The creation date of this object.</td>
       <td colspan="1" rowspan="1">{m:component.createdOn}</td>
+    </tr>
+    <tr>
+      <td colspan="1" rowspan="1"><strong>deprecated</strong></td>
+      <td colspan="1" rowspan="1">EBoolean</td>
+      <td colspan="1" rowspan="1">{m:component.deprecated}</td>
+      <td colspan="1" rowspan="1">Tells if this Component is deprecated.</td>
+      <td colspan="1" rowspan="1">{m:component.deprecated}</td>
     </tr>
     <tr>
       <td colspan="1" rowspan="1"><strong>description</strong></td>
@@ -143,6 +171,13 @@
       <td colspan="1" rowspan="1">{m:component.requiredServices}</td>
       <td colspan="1" rowspan="1">The list of required services.</td>
       <td colspan="1" rowspan="1">{m:for service | component.requiredServices} service {m:service.name}, {m:endfor}</td>
+    </tr>
+    <tr>
+      <td colspan="1" rowspan="1"><strong>securitySchemes</strong></td>
+      <td colspan="1" rowspan="1">List of <a href="/help/topic/org.obeonetwork.dsl.soa.m2doc.services/doc/pages/m2doc_services_securityscheme.html">SecurityScheme</a></td>
+      <td colspan="1" rowspan="1">{m:component.securitySchemes}</td>
+      <td colspan="1" rowspan="1"></td>
+      <td colspan="1" rowspan="1">{m:for securityScheme | component.securitySchemes} securityScheme {m:securityScheme.name}, {m:endfor}</td>
     </tr>
     <tr>
       <td colspan="1" rowspan="1"><strong>technicalid</strong></td>
