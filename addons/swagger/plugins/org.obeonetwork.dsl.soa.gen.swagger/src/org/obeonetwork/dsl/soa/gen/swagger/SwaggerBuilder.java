@@ -11,6 +11,11 @@
 package org.obeonetwork.dsl.soa.gen.swagger;
 
 import static java.util.stream.Collectors.toList;
+import static org.obeonetwork.dsl.soa.gen.swagger.HTTPResponseHeaders.ACCEPT_RANGE;
+import static org.obeonetwork.dsl.soa.gen.swagger.HTTPResponseHeaders.CONTENT_RANGE;
+import static org.obeonetwork.dsl.soa.gen.swagger.HTTPResponseHeaders.LINK;
+import static org.obeonetwork.dsl.soa.gen.swagger.HTTPResponseHeaders.X_PAGE_ELEMENT_COUNT;
+import static org.obeonetwork.dsl.soa.gen.swagger.HTTPResponseHeaders.X_TOTAL_ELEMENT;
 import static org.obeonetwork.dsl.soa.gen.swagger.HTTPStatusCodes.HTTP_200;
 import static org.obeonetwork.dsl.soa.gen.swagger.HTTPStatusCodes.HTTP_201;
 import static org.obeonetwork.dsl.soa.gen.swagger.HTTPStatusCodes.HTTP_204;
@@ -119,6 +124,13 @@ public class SwaggerBuilder {
 	private void logError(String message) {
 		Activator.logError(message);
 		status = IStatus.ERROR;
+	}
+	
+	private void logWarning(String message) {
+		Activator.logWarning(message);
+		if(status != IStatus.ERROR) {
+			status = IStatus.WARNING;
+		}
 	}
 	
 	public OpenAPI getOpenAPI() {
@@ -606,6 +618,10 @@ public class SwaggerBuilder {
 		swgOperation.description(soaOperation.getDescription());
 //		swgOperation.deprecated(soaOperation.isDeprecated());
     	
+		if(soaOperation.isPaged() && getPagedOutputParameters(soaOperation).isEmpty()) {
+			logWarning(String.format("Paged operation %s defines no paginable output parameter.", soaOperation.getName()));
+		}
+		
     	buildParameters(swgOperation, soaOperation);
     	buildApiResponses(swgOperation, soaOperation);
     	
@@ -680,19 +696,26 @@ public class SwaggerBuilder {
 	}
     
 	private void buildApiResponse(ApiResponses apiResponses, org.obeonetwork.dsl.soa.Parameter soaOutputParameter) {
-		apiResponses.addApiResponse(getStatusCode(soaOutputParameter), createApiResponse(soaOutputParameter));
+		String statusCode = getStatusCode(soaOutputParameter);
+		if(isNullOrWhite(statusCode)) {
+			logError(String.format("Output parameter %s of operation %s doesn't define a status code.", 
+					soaOutputParameter.getName(), 
+					ParameterGenUtil.getOperation(soaOutputParameter).getName()));
+		} else {
+			apiResponses.addApiResponse(statusCode, createApiResponse(soaOutputParameter));
+		}
 	}
 
 	private ApiResponse createApiResponse(org.obeonetwork.dsl.soa.Parameter soaOutputParameter) {
 			ApiResponse apiResponse = new ApiResponse();
 			apiResponse.setDescription(getDescription(soaOutputParameter));
 			
-			if(ParameterGenUtil.getOperation(soaOutputParameter).isPaged()) {
-				apiResponse.addHeaderObject("X-Total-Element", createResponseHeader(OPEN_API_TYPE_INTEGER, OPEN_API_FORMAT_INT64));
-				apiResponse.addHeaderObject("X-Page-Element-Count", createResponseHeader(OPEN_API_TYPE_INTEGER, OPEN_API_FORMAT_INT64));
-				apiResponse.addHeaderObject("Accept-Range", createResponseHeader(OPEN_API_TYPE_STRING, null));
-				apiResponse.addHeaderObject("Content-Range", createResponseHeader(OPEN_API_TYPE_STRING, null));
-				apiResponse.addHeaderObject("Link", createResponseHeader(OPEN_API_TYPE_STRING, null));
+			if(getPagedOutputParameters(ParameterGenUtil.getOperation(soaOutputParameter)).contains(soaOutputParameter)) {
+				apiResponse.addHeaderObject(X_TOTAL_ELEMENT, createResponseHeader(OPEN_API_TYPE_INTEGER, OPEN_API_FORMAT_INT64));
+				apiResponse.addHeaderObject(X_PAGE_ELEMENT_COUNT, createResponseHeader(OPEN_API_TYPE_INTEGER, OPEN_API_FORMAT_INT64));
+				apiResponse.addHeaderObject(ACCEPT_RANGE, createResponseHeader(OPEN_API_TYPE_STRING, null));
+				apiResponse.addHeaderObject(CONTENT_RANGE, createResponseHeader(OPEN_API_TYPE_STRING, null));
+				apiResponse.addHeaderObject(LINK, createResponseHeader(OPEN_API_TYPE_STRING, null));
 			}
 			
 			if(soaOutputParameter.getType() != null) {
@@ -701,6 +724,24 @@ public class SwaggerBuilder {
 			
 			return apiResponse;
 		}
+
+	private List<org.obeonetwork.dsl.soa.Parameter> getPagedOutputParameters(org.obeonetwork.dsl.soa.Operation soaOperation) {
+		List<org.obeonetwork.dsl.soa.Parameter> pagedOutputParameters = new ArrayList<>();
+		
+		pagedOutputParameters.addAll(
+				soaOperation.getOutput().stream()
+				.filter(prm -> HTTP_206.equals(prm.getStatusCode()))
+				.collect(toList()));
+		
+		if(pagedOutputParameters.isEmpty()) {
+			pagedOutputParameters.addAll(
+					soaOperation.getOutput().stream()
+					.filter(prm -> HTTP_200.equals(prm.getStatusCode()))
+					.collect(toList()));
+		}
+		
+		return pagedOutputParameters;
+	}
 	
 	private Header createResponseHeader(String type, String format) {
 		Header header = new Header();

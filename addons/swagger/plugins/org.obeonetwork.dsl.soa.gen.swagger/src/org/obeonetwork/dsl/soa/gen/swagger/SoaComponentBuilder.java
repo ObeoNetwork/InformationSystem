@@ -14,6 +14,8 @@ import static java.util.stream.Collectors.joining;
 import static java.util.stream.Collectors.toList;
 import static java.util.stream.Collectors.toSet;
 import static org.obeonetwork.dsl.environment.design.services.ModelServices.getAncestors;
+import static org.obeonetwork.dsl.soa.gen.swagger.HTTPResponseHeaders.X_PAGE_ELEMENT_COUNT;
+import static org.obeonetwork.dsl.soa.gen.swagger.HTTPResponseHeaders.X_TOTAL_ELEMENT;
 import static org.obeonetwork.dsl.soa.gen.swagger.HTTPStatusCodes.HTTP_206;
 import static org.obeonetwork.dsl.soa.gen.swagger.OpenApiParserHelper.COMPONENT_SCHEMA_$REF;
 import static org.obeonetwork.dsl.soa.gen.swagger.OpenApiParserHelper.OPEN_API_TYPE_INTEGER;
@@ -687,7 +689,7 @@ public class SoaComponentBuilder {
 		
 		if(swgOperation.getParameters() != null) {
 			for(Parameter parameter : swgOperation.getParameters()) {
-				if(parameter != null && !isPaginationParameter(parameter)) {
+				if(parameter != null && !(isPaged(swgOperation) && looksLikePaginationParameter(parameter))) {
 					createSoaInputParameter(soaOperation, parameter);
 				}
 			}
@@ -698,7 +700,7 @@ public class SoaComponentBuilder {
 			createSoaBodyParameter(soaOperation, requestBody);
 		}
 		
-		soaOperation.setPaged(swgOperation.getResponses() != null && swgOperation.getResponses().containsKey(HTTP_206));
+		soaOperation.setPaged(isPaged(swgOperation));
 		
 		ApiResponses responses = swgOperation.getResponses();
 		if(responses != null) {
@@ -729,7 +731,17 @@ public class SoaComponentBuilder {
 		return soaOperation;
 	}
 
-	private boolean isPaginationParameter(Parameter parameter) {
+	private boolean isPaged(Operation swgOperation) {
+		
+		return swgOperation.getResponses() != null && 
+				(swgOperation.getResponses().containsKey(HTTP_206) ||
+						swgOperation.getResponses().values().stream()
+						.anyMatch(resp -> 
+							resp.getHeaders().keySet().contains(X_PAGE_ELEMENT_COUNT) ||
+							resp.getHeaders().keySet().contains(X_TOTAL_ELEMENT)));
+	}
+
+	private boolean looksLikePaginationParameter(Parameter parameter) {
 		if(SOA_PAGE_PARAMETER_NAME.equals(parameter.getName()) || SOA_SIZE_PARAMETER_NAME.equals(parameter.getName())) {
 			Schema schema = unwrapArraySchema(parameter.getSchema());
 			if(schema != null && OPEN_API_TYPE_INTEGER.equals(schema.getType())) {
