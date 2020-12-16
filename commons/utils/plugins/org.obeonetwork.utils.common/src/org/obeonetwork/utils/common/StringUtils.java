@@ -12,6 +12,8 @@ package org.obeonetwork.utils.common;
 
 public class StringUtils {
 	
+	public static final String EMPTY_STRING = "";
+	
 	public static String upperFirst(String s) {
 		if(s != null && s.length() > 0) {
 			return s.substring(0, 1).toUpperCase() + s.substring(1);
@@ -20,7 +22,7 @@ public class StringUtils {
 	}
 
 	public static String emptyIfNull(String s) {
-		return (s == null)? "" : s;
+		return (s == null)? EMPTY_STRING : s;
 	}
 	
 	public static boolean isNullOrWhite(String s) {

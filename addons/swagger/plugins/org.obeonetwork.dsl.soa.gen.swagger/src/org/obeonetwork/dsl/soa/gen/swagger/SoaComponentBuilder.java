@@ -25,6 +25,7 @@ import static org.obeonetwork.dsl.soa.gen.swagger.OpenApiParserHelper.isObject;
 import static org.obeonetwork.dsl.soa.gen.swagger.OpenApiParserHelper.isPrimitiveType;
 import static org.obeonetwork.dsl.soa.gen.swagger.SwaggerBuilder.SOA_PAGE_PARAMETER_NAME;
 import static org.obeonetwork.dsl.soa.gen.swagger.SwaggerBuilder.SOA_SIZE_PARAMETER_NAME;
+import static org.obeonetwork.utils.common.StringUtils.emptyIfNull;
 import static org.obeonetwork.utils.common.StringUtils.upperFirst;
 
 import java.util.ArrayList;
@@ -38,7 +39,6 @@ import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Objects;
-import java.util.Optional;
 import java.util.Set;
 import java.util.function.Predicate;
 import java.util.regex.Pattern;
@@ -925,7 +925,7 @@ public class SoaComponentBuilder {
 		
 		soaParameter.setStatusCode(responseKey);
 		soaParameter.setDescription(apiResponse.getDescription());
-		soaParameter.setStatusMessage(Optional.ofNullable(HttpStatusService.getHttpMessage(responseKey)).orElse(""));
+		soaParameter.setStatusMessage(emptyIfNull(HttpStatusService.getHttpMessage(responseKey)));
 		
 		if(apiResponse.getContent() != null && !apiResponse.getContent().isEmpty()) {
 			Set<Entry<String, MediaType>> contents = apiResponse.getContent().entrySet();

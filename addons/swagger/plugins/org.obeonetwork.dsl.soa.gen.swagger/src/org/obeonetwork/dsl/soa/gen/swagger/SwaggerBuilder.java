@@ -35,6 +35,7 @@ import static org.obeonetwork.dsl.soa.gen.swagger.OpenApiParserHelper.OPEN_API_T
 import static org.obeonetwork.dsl.soa.gen.swagger.OpenApiParserHelper.createPrimitiveTypeSchema;
 import static org.obeonetwork.utils.common.StringUtils.emptyIfNull;
 import static org.obeonetwork.utils.common.StringUtils.isNullOrWhite;
+import static org.obeonetwork.utils.common.StringUtils.EMPTY_STRING;
 
 import java.util.ArrayList;
 import java.util.Collection;
@@ -180,7 +181,9 @@ public class SwaggerBuilder {
 	private Tag createTag(Service soaService) {
 		Tag tag = new Tag();
 		tag.setName(soaService.getName());
-		tag.setDescription(soaService.getDescription());
+		if(soaService.getDescription() != null) {
+			tag.setDescription(soaService.getDescription());
+		}
 		
 		return tag;
 	}
@@ -201,7 +204,9 @@ public class SwaggerBuilder {
 		SecurityScheme.In in = toSwg(soaSecurityScheme.getApiKeyLocation());
 		securityScheme.setIn(in);
 		
-		securityScheme.setDescription(soaSecurityScheme.getDescription());
+		if(soaSecurityScheme.getDescription() != null) {
+			securityScheme.setDescription(soaSecurityScheme.getDescription());
+		}
 		
 		return securityScheme;
 	}
@@ -254,7 +259,9 @@ public class SwaggerBuilder {
 	private Info createInfo() {
     	Info info = new Info();
     	info.setTitle(ComponentGenUtil.getName(soaComponent));
-		info.setDescription(soaComponent.getDescription());
+    	if(soaComponent.getDescription() != null) {
+    		info.setDescription(soaComponent.getDescription());
+    	}
 		info.setVersion(soaComponent.getApiVersion());
     	info.setLicense(createLicense());
     	return info;
@@ -303,7 +310,7 @@ public class SwaggerBuilder {
         	if(computeShortestKey ) {
             	Map<String, Type> keyReferential = new HashMap<>();
             	for(Type soaType : exposedSoaTypes) {
-            		String key = computeSoaTypeKey(soaType, "");
+            		String key = computeSoaTypeKey(soaType, EMPTY_STRING);
             		
             		// While computed key is already in use
             		while(keyReferential.get(key) != null) {
@@ -463,7 +470,9 @@ public class SwaggerBuilder {
     	Schema<Object> structuredTypeSchema = null;
     	
 		Schema<Object> schema = createSchema(OPEN_API_TYPE_OBJECT, null);
-		schema.setDescription(soaStructuredType.getDescription());
+		if(soaStructuredType.getDescription() != null) {
+			schema.setDescription(soaStructuredType.getDescription());
+		}
 		
 		soaStructuredType.getAttributes().forEach(a -> buildProperty(schema, a));
 		
@@ -615,7 +624,9 @@ public class SwaggerBuilder {
     	
 		swgOperation.addTagsItem(OperationGenUtil.getService(soaOperation).getName());
 //		swgOperation.summary(soaOperation.getDescription());
-		swgOperation.description(soaOperation.getDescription());
+		if(soaOperation.getDescription() != null) {
+			swgOperation.description(soaOperation.getDescription());
+		}
 //		swgOperation.deprecated(soaOperation.isDeprecated());
     	
 		if(soaOperation.isPaged() && getPagedOutputParameters(soaOperation).isEmpty()) {
@@ -756,7 +767,9 @@ public class SwaggerBuilder {
     		description.append(System.lineSeparator());
     		description.append(System.lineSeparator());
     	}
-		description.append(soaParameter.getDescription());
+    	if(soaParameter.getDescription() != null) {
+    		description.append(soaParameter.getDescription());
+    	}
 		
 		if(isNullOrWhite(description.toString()) && completeOutputWithDefaults) {
 			description.append(getDefaultDescriptionFromStatusCode(getStatusCode(soaParameter)));
