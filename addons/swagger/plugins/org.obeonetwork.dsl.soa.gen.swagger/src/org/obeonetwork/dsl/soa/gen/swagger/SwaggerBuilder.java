@@ -879,7 +879,11 @@ public class SwaggerBuilder {
 	}
 
 	private void buildRequestBody(Operation operation, org.obeonetwork.dsl.soa.Parameter soaParameter) {
-		operation.requestBody(createRequestBody(soaParameter));
+		if(operation.getRequestBody() != null) {
+			logError(String.format("Operation %s defines more than one request body.", ParameterGenUtil.getOperation(soaParameter).getName()));
+		} else {
+			operation.requestBody(createRequestBody(soaParameter));
+		}
 	}
 	
     private RequestBody createRequestBody(org.obeonetwork.dsl.soa.Parameter soaParameter) {
