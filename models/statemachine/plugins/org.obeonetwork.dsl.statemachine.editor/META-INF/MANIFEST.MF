@@ -1,11 +1,11 @@
 Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
-Bundle-Name: %pluginName
+Bundle-Name: StateMachine Editor
 Bundle-SymbolicName: org.obeonetwork.dsl.statemachine.editor;singleton:=true
 Bundle-Version: 11.3.0.qualifier
 Bundle-ClassPath: .
 Bundle-Activator: org.obeonetwork.dsl.statemachine.presentation.StateMachineEditorPlugin$Implementation
-Bundle-Vendor: %providerName
+Bundle-Vendor: Obeo Network
 Bundle-Localization: plugin
 Bundle-RequiredExecutionEnvironment: J2SE-1.5
 Export-Package: org.obeonetwork.dsl.statemachine.presentation

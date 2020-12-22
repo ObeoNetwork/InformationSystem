@@ -1,10 +1,9 @@
 Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
-Bundle-Name: %pluginName
+Bundle-Name: Obeo Network - Contextual Explorer UI
 Bundle-SymbolicName: org.obeonetwork.tools.contextual.explorer.ui;singleton:=true
 Bundle-Version: 11.3.0.qualifier
 Bundle-Activator: org.obeonetwork.tools.contextual.explorer.ui.Activator
-Bundle-Localization: plugin
 Require-Bundle: org.eclipse.core.runtime,
  org.eclipse.amalgam.explorer.contextual.core,
  org.obeonetwork.dsl.database,
@@ -16,5 +15,5 @@ Require-Bundle: org.eclipse.core.runtime,
 Bundle-RequiredExecutionEnvironment: JavaSE-1.8
 Automatic-Module-Name: org.obeonetwork.tools.contextual.explorer
 Bundle-ActivationPolicy: lazy
-Bundle-Vendor: %providerName
+Bundle-Vendor: Obeo Network
 Export-Package: org.obeonetwork.tools.contextual.explorer.ui.queries

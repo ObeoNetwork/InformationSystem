@@ -1,10 +1,10 @@
 Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
-Bundle-Name: %pluginName
+Bundle-Name: Database Model Yesys
 Bundle-SymbolicName: org.obeonetwork.dsl.database.tests
 Bundle-Version: 11.3.0.qualifier
 Bundle-Activator: org.obeonetwork.dsl.database.tests.Activator
-Bundle-Vendor: %providerName
+Bundle-Vendor: Obeo Network
 Require-Bundle: org.eclipse.core.runtime,
  org.junit;bundle-version="4.12.0",
  org.obeonetwork.dsl.database.reverse;bundle-version="11.3.0",

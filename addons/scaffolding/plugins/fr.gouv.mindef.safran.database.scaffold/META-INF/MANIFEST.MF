@@ -1,11 +1,9 @@
 Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
-Bundle-Name: %pluginName
-Bundle-SymbolicName: fr.gouv.mindef.safran.database.scaffold;singleton:=true
+Bundle-Name: Obeo Network Scaffold ModelBundle-SymbolicName: fr.gouv.mindef.safran.database.scaffold;singleton:=true
 Bundle-Version: 1.0.0.qualifier
 Bundle-ClassPath: .
-Bundle-Vendor: %providerName
-Bundle-Localization: plugin
+Bundle-Vendor: Obeo Network
 Bundle-RequiredExecutionEnvironment: JavaSE-1.6
 Export-Package: fr.gouv.mindef.safran.database.scaffold,
  fr.gouv.mindef.safran.database.scaffold.impl,

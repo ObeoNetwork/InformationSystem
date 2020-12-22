@@ -1,11 +1,10 @@
 Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
-Bundle-Name: %pluginName
+Bundle-Name: Dbevolution Model
 Bundle-SymbolicName: org.obeonetwork.dsl.database.compare;singleton:=true
 Bundle-Version: 11.3.0.qualifier
 Bundle-ClassPath: .
-Bundle-Vendor: %providerName
-Bundle-Localization: plugin
+Bundle-Vendor: Obeo Network
 Export-Package: org.obeonetwork.dsl.database.compare,
  org.obeonetwork.dsl.database.compare.extensions.builders,
  org.obeonetwork.dsl.database.compare.extensions.match,

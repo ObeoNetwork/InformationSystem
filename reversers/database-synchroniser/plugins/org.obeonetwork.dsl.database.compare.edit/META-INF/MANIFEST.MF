@@ -1,11 +1,11 @@
 Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
-Bundle-Name: %pluginName
+Bundle-Name: Dbevolution Edit Support
 Bundle-SymbolicName: org.obeonetwork.dsl.database.compare.edit;singleton:=true
 Bundle-Version: 11.3.0.qualifier
 Bundle-ClassPath: .
 Bundle-Activator: org.obeonetwork.dsl.database.dbevolution.provider.DbevolutionEditPlugin$Implementation
-Bundle-Vendor: %providerName
+Bundle-Vendor: Obeo Network
 Bundle-Localization: plugin
 Export-Package: org.obeonetwork.dsl.database.dbevolution.provider,
  org.obeonetwork.dsl.database.dbevolution.provider.match
