@@ -29,6 +29,7 @@
 
   <properties>
     <product-id>org.obeonetwork.is.designer.branding.product</product-id>
+    <archive-prefix>ISDesigner</archive-prefix>
   </properties>
 
   <build>
@@ -67,8 +68,8 @@
           <products>
             <product>
               <id>${product-id}</id>
-              <rootFolder>ISDesigner</rootFolder>
-              <archiveFileName>ISDesigner-1.9.2-${maven.build.timestamp}</archiveFileName>
+              <rootFolder>${archive-prefix}</rootFolder>
+              <archiveFileName>${archive-prefix}-1.9.2-${maven.build.timestamp}</archiveFileName>
             </product>
           </products>
         </configuration>
