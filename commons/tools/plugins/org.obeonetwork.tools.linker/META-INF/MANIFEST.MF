@@ -1,6 +1,6 @@
 Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
-Bundle-Name: %plugin.name
+Bundle-Name: Obeo Network - Linker
 Bundle-SymbolicName: org.obeonetwork.tools.linker
 Bundle-Version: 11.3.0.qualifier
 Bundle-Activator: org.obeonetwork.tools.linker.ObeoLinkerPlugin
@@ -17,4 +17,5 @@ Export-Package: org.obeonetwork.tools.linker,
  org.obeonetwork.tools.linker.command,
  org.obeonetwork.tools.linker.ui.view,
  org.obeonetwork.tools.linker.ui.view.util
-Bundle-Vendor: %plugin.provider
+Bundle-Vendor: Obeo Network
+Automatic-Module-Name: org.obeonetwork.tools.linker
