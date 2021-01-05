@@ -30,6 +30,7 @@
 		<!-- <acceleo-snapshots-site>https://repo.eclipse.org/content/repositories/acceleo-snapshots</acceleo-snapshots-site> -->
 		<acceleo-releases-site>https://repo.eclipse.org/content/repositories/acceleo-releases</acceleo-releases-site>
 		<svn-site>https://download.eclipse.org/releases/oxygen/</svn-site>
+        <target-artifact-version>11.3.0-SNAPSHOT</target-artifact-version>
 	</properties>
 
 	<modules>
@@ -437,7 +438,7 @@
 						</environments>
 						<target>
 							<artifact>
-								<version>11.3.0-SNAPSHOT</version>
+								<version>${target-artifact-version}</version>
 								<groupId>org.obeonetwork</groupId>
 								<artifactId>parent</artifactId>
 								<classifier>tp/isdesigner</classifier>
