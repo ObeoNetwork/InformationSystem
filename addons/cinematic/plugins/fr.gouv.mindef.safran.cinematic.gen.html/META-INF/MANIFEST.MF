@@ -2,7 +2,7 @@ Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: Obeo Network Acceleo Html Module Runtime
 Bundle-SymbolicName: fr.gouv.mindef.safran.cinematic.gen.html
-Bundle-Version: 1.0.0.qualifier
+Bundle-Version: 2.0.0.qualifier
 Bundle-Activator: fr.gouv.mindef.safran.cinematic.gen.html.Activator
 Bundle-Vendor: Obeo Network
 Require-Bundle: org.eclipse.core.runtime, 

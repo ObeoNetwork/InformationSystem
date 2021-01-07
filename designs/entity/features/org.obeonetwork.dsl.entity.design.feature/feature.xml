@@ -12,10 +12,10 @@
 <feature
       id="org.obeonetwork.dsl.entity.design.feature"
       label="Obeo Network - Entity Designer Feature"
-      version="11.3.0.qualifier"
+      version="2.0.0.qualifier"
       provider-name="%providerName"
       license-feature="org.obeonetwork.is.license"
-      license-feature-version="1.0.0.qualifier">
+      license-feature-version="2.0.0.qualifier">
 
    <description url="https://www.obeo.fr">
       ObeoNetwork - Designer for IS entity models
@@ -26,7 +26,7 @@
    </copyright>
 
    <requires>
-      <import feature="org.obeonetwork.dsl.environment.design.migration.feature" version="11.3.0.qualifier"/>
+      <import feature="org.obeonetwork.dsl.environment.design.migration.feature"/>
    </requires>
 
    <plugin

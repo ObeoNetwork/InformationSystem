@@ -1,7 +1,7 @@
 Manifest-Version: 1.0
 Bundle-Name: Obeo Designer Viewpoint Project
 Bundle-SymbolicName: org.obeonetwork.dsl.database.design;singleton:=true
-Bundle-Version: 11.3.0.qualifier
+Bundle-Version: 2.0.0.qualifier
 Bundle-Activator: org.obeonetwork.dsl.database.design.Activator
 Require-Bundle: org.obeonetwork.dsl.database,
  org.obeonetwork.dsl.database.edit,

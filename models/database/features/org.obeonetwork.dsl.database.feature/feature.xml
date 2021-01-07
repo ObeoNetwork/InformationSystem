@@ -12,10 +12,10 @@
 <feature
       id="org.obeonetwork.dsl.database.feature"
       label="Obeo Network - Database"
-      version="11.3.0.qualifier"
+      version="2.0.0.qualifier"
       provider-name="%providerName"
       license-feature="org.obeonetwork.is.license"
-      license-feature-version="1.0.0.qualifier">
+      license-feature-version="2.0.0.qualifier">
 
    <description url="http://www.obeo.fr">
       Obeo - Database
@@ -26,7 +26,7 @@
    </copyright>
 
    <requires>
-      <import feature="org.obeonetwork.dsl.typelibrary.feature" version="1.0.0" match="greaterOrEqual"/>
+      <import feature="org.obeonetwork.dsl.typelibrary.feature"/>
    </requires>
 
    <plugin

@@ -2,7 +2,7 @@ Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: Obeo Network Database-Entity Scaffolding
 Bundle-SymbolicName: fr.gouv.mindef.safran.database;singleton:=true
-Bundle-Version: 3.0.0.qualifier
+Bundle-Version: 2.0.0.qualifier
 Require-Bundle: org.eclipse.ui,
  org.eclipse.core.runtime,
  org.eclipse.core.resources,
@@ -13,9 +13,9 @@ Require-Bundle: org.eclipse.ui,
  org.eclipse.sirius,
  org.eclipse.sirius.ecore.extender,
  org.eclipse.sirius.ext.emf,
- org.obeonetwork.dsl.environment;bundle-version="3.0.0",
- org.obeonetwork.dsl.entity;bundle-version="3.0.0",
- org.obeonetwork.dsl.database;bundle-version="1.0.0",
+ org.obeonetwork.dsl.environment,
+ org.obeonetwork.dsl.entity,
+ org.obeonetwork.dsl.database,
  fr.obeo.dsl.viewpoint.collab;resolution:=optional
 Bundle-ActivationPolicy: lazy
 Bundle-RequiredExecutionEnvironment: JavaSE-1.6

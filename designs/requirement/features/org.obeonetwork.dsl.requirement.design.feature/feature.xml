@@ -12,10 +12,10 @@
 <feature
       id="org.obeonetwork.dsl.requirement.design.feature"
       label="Obeo Network - Requirement Designer"
-      version="11.3.0.qualifier"
+      version="2.0.0.qualifier"
       provider-name="%providerName"
       license-feature="org.obeonetwork.is.license"
-      license-feature-version="1.0.0.qualifier">
+      license-feature-version="2.0.0.qualifier">
 
    <description url="https://www.obeo.fr">
       ObeoNetwork - Requirements Designer
@@ -26,8 +26,8 @@
    </copyright>
 
    <requires>
-      <import feature="org.obeonetwork.dsl.feature.requirement" version="4.0.0" match="greaterOrEqual"/>
-      <import feature="org.obeonetwork.tools.linker.feature" version="11.3.0.qualifier"/>
+      <import feature="org.obeonetwork.dsl.feature.requirement"/>
+      <import feature="org.obeonetwork.tools.linker.feature"/>
       <import feature="org.eclipse.sirius.runtime" version="2.0.0.201410241344"/>
       <import feature="org.eclipse.sirius.runtime.acceleo" version="2.0.0.201410241344"/>
       <import feature="org.eclipse.sirius.runtime.ide.ui" version="2.0.0.201410241344"/>

@@ -12,10 +12,10 @@
 <feature
       id="org.obeonetwork.dsl.feature.is.design"
       label="Obeo Network - IS Designer"
-      version="11.3.0.qualifier"
+      version="2.0.0.qualifier"
       provider-name="%providerName"
       license-feature="org.obeonetwork.is.license"
-      license-feature-version="1.0.0.qualifier">
+      license-feature-version="2.0.0.qualifier">
 
    <description url="https://www.obeo.fr">
       ObeoNetwork - Designer for IS models
@@ -26,11 +26,11 @@
    </copyright>
 
    <requires>
-      <import feature="org.obeonetwork.dsl.cinematic.design.feature" version="3.0.0" match="greaterOrEqual"/>
-      <import feature="org.obeonetwork.dsl.feature.entity" version="3.0.0" match="greaterOrEqual"/>
-      <import feature="org.obeonetwork.dsl.feature.overview" version="3.0.0" match="greaterOrEqual"/>
-      <import feature="org.obeonetwork.dsl.feature.soa" version="3.0.0" match="greaterOrEqual"/>
-      <import feature="org.obeonetwork.dsl.environment.design.feature" version="2.4.0" match="greaterOrEqual"/>
+      <import feature="org.obeonetwork.dsl.cinematic.design.feature"/>
+      <import feature="org.obeonetwork.dsl.feature.entity"/>
+      <import feature="org.obeonetwork.dsl.feature.overview"/>
+      <import feature="org.obeonetwork.dsl.feature.soa"/>
+      <import feature="org.obeonetwork.dsl.environment.design.feature"/>
       <import feature="org.eclipse.sirius.runtime" version="2.0.0.201410241344"/>
       <import feature="org.eclipse.sirius.runtime.acceleo" version="2.0.0.201410241344"/>
       <import feature="org.eclipse.sirius.runtime.ide.ui" version="2.0.0.201410241344"/>

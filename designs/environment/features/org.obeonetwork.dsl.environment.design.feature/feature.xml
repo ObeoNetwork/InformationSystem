@@ -12,10 +12,10 @@
 <feature
       id="org.obeonetwork.dsl.environment.design.feature"
       label="Obeo Network - Environment Designer"
-      version="11.3.0.qualifier"
+      version="2.0.0.qualifier"
       provider-name="%providerName"
       license-feature="org.obeonetwork.is.license"
-      license-feature-version="1.0.0.qualifier">
+      license-feature-version="2.0.0.qualifier">
 
    <description url="https://www.obeo.fr">
       ObeoNetwork - Environment Designer
@@ -27,9 +27,9 @@
 
    <requires>
       <import feature="org.eclipse.nebula.treemapper.feature" version="0.1.0" match="greaterOrEqual"/>
-      <import feature="org.obeonetwork.dsl.feature.soa" version="2.4.0" match="greaterOrEqual"/>
-      <import feature="org.obeonetwork.dsl.feature.entity" version="2.4.0" match="greaterOrEqual"/>
-      <import feature="org.obeonetwork.dsl.feature.environment" version="2.4.0" match="greaterOrEqual"/>
+      <import feature="org.obeonetwork.dsl.feature.soa"/>
+      <import feature="org.obeonetwork.dsl.feature.entity"/>
+      <import feature="org.obeonetwork.dsl.feature.environment"/>
    </requires>
 
    <plugin

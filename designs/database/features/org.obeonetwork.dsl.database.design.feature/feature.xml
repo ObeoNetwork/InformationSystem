@@ -12,10 +12,10 @@
 <feature
       id="org.obeonetwork.dsl.database.design.feature"
       label="Obeo Network - Database Designer"
-      version="11.3.0.qualifier"
+      version="2.0.0.qualifier"
       provider-name="%providerName"
       license-feature="org.obeonetwork.is.license"
-      license-feature-version="1.0.0.qualifier">
+      license-feature-version="2.0.0.qualifier">
 
    <description url="https://www.obeo.fr">
       ObeoNetwork - Database Designer
@@ -33,7 +33,7 @@
       <import feature="org.eclipse.sirius.runtime.ocl" version="2.0.0.201410241344"/>
       <import feature="org.eclipse.sirius.specifier.ide.ui" version="2.0.0.201410241344"/>
       <import feature="org.eclipse.sirius.specifier.ide.ui.acceleo" version="2.0.0.201410241344"/>
-      <import feature="org.obeonetwork.dsl.database.feature" version="11.3.0.qualifier"/>
+      <import feature="org.obeonetwork.dsl.database.feature"/>
    </requires>
 
    <plugin

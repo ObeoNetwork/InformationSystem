@@ -2,11 +2,11 @@ Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: M2Doc Database Services
 Bundle-SymbolicName: org.obeonetwork.database.m2doc.services;singleton:=true
-Bundle-Version: 1.0.0.qualifier
+Bundle-Version: 2.0.0.qualifier
 Bundle-Activator: org.obeonetwork.database.m2doc.Activator
 Require-Bundle: org.eclipse.core.runtime,
- org.obeonetwork.dsl.database;bundle-version="4.0.0",
- org.obeonetwork.m2doc;bundle-version="0.11.0",
+ org.obeonetwork.dsl.database,
+ org.obeonetwork.m2doc,
  org.eclipse.help,
  org.eclipse.emf.common,
  org.eclipse.acceleo.annotations

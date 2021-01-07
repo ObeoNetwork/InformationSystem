@@ -3,7 +3,7 @@ Bundle-ManifestVersion: 2
 Bundle-Name: SOA Editor
 Bundle-SymbolicName: org.obeonetwork.dsl.soa.editor;singleton:=true
 Automatic-Module-Name: org.obeonetwork.dsl.soa.editor
-Bundle-Version: 11.3.0.qualifier
+Bundle-Version: 2.0.0.qualifier
 Bundle-ClassPath: .
 Bundle-Activator: org.obeonetwork.dsl.soa.presentation.SoaEditorPlugin$Implementation
 Bundle-Vendor: Obeo Network
@@ -15,7 +15,7 @@ Require-Bundle: org.eclipse.core.runtime,
  org.eclipse.emf.ecore.xmi;visibility:=reexport,
  org.eclipse.emf.edit.ui;visibility:=reexport,
  org.eclipse.ui.ide;visibility:=reexport,
- org.obeonetwork.dsl.environment.edit;bundle-version="3.0.0";visibility:=reexport,
+ org.obeonetwork.dsl.environment.edit;visibility:=reexport,
  org.obeonetwork.dsl.technicalid.edit;visibility:=reexport,
  org.eclipse.emf.eef.runtime
 Bundle-ActivationPolicy: lazy
