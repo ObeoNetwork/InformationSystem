@@ -2,7 +2,7 @@ Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: Common
 Bundle-SymbolicName: org.obeonetwork.dsl.database.gen.common
-Bundle-Version: 11.3.0.qualifier
+Bundle-Version: 2.0.0.qualifier
 Bundle-Activator: org.obeonetwork.dsl.database.gen.common.Activator
 Require-Bundle: org.eclipse.core.runtime,
  org.obeonetwork.dsl.typeslibrary,
@@ -15,3 +15,4 @@ Automatic-Module-Name: org.obeonetwork.dsl.database.gen.common
 Bundle-ActivationPolicy: lazy
 Export-Package: org.obeonetwork.dsl.database.gen.common,
  org.obeonetwork.dsl.database.gen.common.services
+Bundle-Vendor: Obeo Network
