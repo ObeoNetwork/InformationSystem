@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2008, 2020 Obeo.
+ * Copyright (c) 2008, 2021 Obeo.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -74,7 +74,7 @@ public final class M2DocHelpContentUtils {
 		buffer.append("<html lang=\"en\">").append(LS);
 		buffer.append("<!--").append(LS);
 		buffer.append("/********************************************************************************").append(LS);
-		buffer.append("** Copyright (c) 2008, 2020 Obeo.").append(LS);
+		buffer.append("** Copyright (c) 2008, 2021 Obeo.").append(LS);
 		buffer.append("** All rights reserved. This program and the accompanying materials").append(LS);
 		buffer.append("** are made available under the terms of the Eclipse Public License v1.0").append(LS);
 		buffer.append("** which accompanies this distribution, and is available at").append(LS);
