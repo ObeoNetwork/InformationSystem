@@ -117,7 +117,6 @@ public class GenServices {
 		Index index = indexChange.getIndex();
 		PrimaryKey primKey = index.getOwner().getPrimaryKey();
 		return (primKey == null || !Objects.equals(primKey.getID(), index.getID())) //
-				&& !databaseService.isIndexForForeignKey(index)
 				&& (!typeService.isTargetOracle(index) || !databaseService.isIndexOnPKColumns(index));
 	}
 

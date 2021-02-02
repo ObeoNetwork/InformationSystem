@@ -10,7 +10,6 @@
 
 [query private shouldGenerateIndex(index : Index) : Boolean =
 (index.owner.primaryKey.oclIsUndefined() or index.ID<>index.owner.primaryKey.ID)
-and not index.isIndexForFK()
 and (not index.isTargetOracle() or not index.isIndexOnPKColumns())
 /]
 
