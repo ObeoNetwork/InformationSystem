@@ -12,24 +12,39 @@ package org.obeonetwork.dsl.soa.gen.swagger.ui.wizards;
 import java.io.File;
 import java.util.List;
 
+import org.eclipse.core.resources.IResource;
+import org.eclipse.core.resources.ResourcesPlugin;
+import org.eclipse.core.runtime.CoreException;
 import org.eclipse.core.runtime.IStatus;
+import org.eclipse.core.runtime.NullProgressMonitor;
 import org.eclipse.jface.dialogs.MessageDialog;
 import org.eclipse.jface.wizard.Wizard;
+import org.eclipse.sirius.business.api.modelingproject.ModelingProject;
+import org.eclipse.sirius.business.api.query.EObjectQuery;
+import org.eclipse.sirius.business.api.session.Session;
 import org.obeonetwork.dsl.soa.Component;
 import org.obeonetwork.dsl.soa.gen.swagger.SwaggerExporter;
 import org.obeonetwork.dsl.soa.gen.swagger.SwaggerExporter.MapperType;
 import org.obeonetwork.dsl.soa.gen.swagger.ui.handlers.Messages;
 import org.obeonetwork.dsl.soa.gen.swagger.utils.ComponentGenUtil;
+import org.obeonetwork.utils.sirius.session.SessionUtils;
 
 public class GenerateComponentsSwaggerWizard extends Wizard {
 
 	private List<Component> components;
+	private ModelingProject enclosingModelingProject = null;
 	
 	private GenerateComponentsSwaggerWizardOptionsPage generateComponentsSwaggerWizardOptionsPage;
 
 	public GenerateComponentsSwaggerWizard(List<Component> components) {
 		super();
 		this.components = components;
+		
+		if(components != null && !components.isEmpty()) {
+			Component firstComponent = components.get(0);
+			Session session = new EObjectQuery(firstComponent).getSession();
+			enclosingModelingProject = SessionUtils.getModelingProjectFromSession(session);
+		}
 		
 		setWindowTitle(Messages.GenerateComponentsSwaggerWizard_Title);
 		
@@ -45,6 +60,17 @@ public class GenerateComponentsSwaggerWizard extends Wizard {
 	@Override
 	public boolean canFinish() {
 		return !components.isEmpty() && generateComponentsSwaggerWizardOptionsPage.isComplete();
+	}
+
+	public String getDefaultOutputDirPath() {
+		String defaultOutputDirPath = null; 
+		if(enclosingModelingProject != null) {
+			defaultOutputDirPath = enclosingModelingProject.getProject().getLocation().toOSString();
+		} else {
+			defaultOutputDirPath = ResourcesPlugin.getWorkspace().getRoot().getLocation().toOSString();
+		}
+
+		return defaultOutputDirPath;
 	}
 
 	@Override
@@ -110,6 +136,14 @@ public class GenerateComponentsSwaggerWizard extends Wizard {
 			message.append(Messages.GenerateComponentsSwaggerWizard_ResultDialog_see_log_message);
 			MessageDialog.openError(getShell(), Messages.GenerateComponentsSwaggerWizard_ResultDialog_Title, message.toString());
 			break;
+		}
+		
+		if(status != IStatus.ERROR) {
+			try {
+				enclosingModelingProject.getProject().refreshLocal(IResource.DEPTH_INFINITE, new NullProgressMonitor());
+			} catch (CoreException e) {
+				// That can't be that critical
+			}
 		}
 		
 		return exitStatus;

@@ -16,12 +16,15 @@ import org.eclipse.core.commands.AbstractHandler;
 import org.eclipse.core.commands.ExecutionEvent;
 import org.eclipse.core.commands.ExecutionException;
 import org.eclipse.core.commands.IHandler;
+import org.eclipse.core.resources.ResourcesPlugin;
 import org.eclipse.core.runtime.IStatus;
 import org.eclipse.emf.transaction.TransactionalEditingDomain;
 import org.eclipse.jface.dialogs.MessageDialog;
 import org.eclipse.jface.viewers.ISelection;
 import org.eclipse.jface.viewers.IStructuredSelection;
+import org.eclipse.sirius.business.api.modelingproject.ModelingProject;
 import org.eclipse.sirius.business.api.query.EObjectQuery;
+import org.eclipse.sirius.business.api.session.Session;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.widgets.FileDialog;
 import org.eclipse.swt.widgets.Shell;
@@ -32,6 +35,7 @@ import org.obeonetwork.dsl.environment.Environment;
 import org.obeonetwork.dsl.environment.design.services.ModelServices;
 import org.obeonetwork.dsl.soa.System;
 import org.obeonetwork.dsl.soa.gen.swagger.SwaggerImporter;
+import org.obeonetwork.utils.sirius.session.SessionUtils;
 import org.obeonetwork.utils.sirius.transaction.RecordingCommandWithResult;
 
 public class ImportSwaggerHandler extends AbstractHandler implements IHandler {
@@ -44,6 +48,7 @@ public class ImportSwaggerHandler extends AbstractHandler implements IHandler {
 		Shell shell = HandlerUtil.getActiveShell(event);
 		FileDialog dialog = new FileDialog(shell, SWT.OPEN);
 		dialog.setFilterExtensions(new String [] { "*.yaml;*.json", "*.yaml", "*.json" }); //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+		dialog.setFilterPath(getDefaultInputDirPath(system));
 		String swaggerFilePath = dialog.open();	
 		
 		if(swaggerFilePath != null) {
@@ -90,6 +95,19 @@ public class ImportSwaggerHandler extends AbstractHandler implements IHandler {
 		
 		return null;
 		
+	}
+	
+	public String getDefaultInputDirPath(System system) {
+		String defaultInputDirPath = null;
+		if(system != null) {
+			Session session = new EObjectQuery(system).getSession();
+			ModelingProject modelingProject = SessionUtils.getModelingProjectFromSession(session);
+			defaultInputDirPath = modelingProject.getProject().getLocation().toOSString();
+		} else {
+			defaultInputDirPath = ResourcesPlugin.getWorkspace().getRoot().getLocation().toOSString();
+		}
+
+		return defaultInputDirPath;
 	}
 	
 	private System unwrapSelection(ExecutionEvent event) throws ExecutionException {

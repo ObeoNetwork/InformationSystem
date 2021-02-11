@@ -122,10 +122,16 @@ public class GenerateComponentsSwaggerWizardOptionsPage extends WizardPage {
 			@Override
 			public void widgetSelected(SelectionEvent e) {
 				DirectoryDialog dialog = new DirectoryDialog(GenerateComponentsSwaggerWizardOptionsPage.this.getShell(), SWT.OPEN);
-				model.setOutputDirPath(dialog.open());
+				dialog.setFilterPath(model.getOutputDirPath());
+				String outputDirPath = dialog.open();
+				if(outputDirPath != null) {
+					model.setOutputDirPath(outputDirPath);
+				}
 			}
 		});
 		btnSelectOutputDirPath.setText("..."); //$NON-NLS-1$
+		
+		model.setOutputDirPath(wizard.getDefaultOutputDirPath());
 		
 		LabelProvider enumLabelProvider = new LabelProvider() {
 

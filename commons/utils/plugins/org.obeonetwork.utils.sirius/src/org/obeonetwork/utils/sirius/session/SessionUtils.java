@@ -10,8 +10,13 @@
  *******************************************************************************/
 package org.obeonetwork.utils.sirius.session;
 
+import org.eclipse.core.resources.IProject;
+import org.eclipse.core.resources.ResourcesPlugin;
+import org.eclipse.core.runtime.IPath;
+import org.eclipse.core.runtime.Path;
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.resource.Resource;
+import org.eclipse.sirius.business.api.modelingproject.ModelingProject;
 import org.eclipse.sirius.business.api.query.AirDResouceQuery;
 import org.eclipse.sirius.business.api.query.URIQuery;
 import org.eclipse.sirius.business.api.session.Session;
@@ -77,4 +82,20 @@ public class SessionUtils {
 		}
 		return false;
 	}
+	
+	public static ModelingProject getModelingProjectFromSession(Session session) {
+	    if (session == null || session.getSessionResource() == null) {
+	        return null;
+	    }
+	    URI uri = session.getSessionResource().getURI();
+	    if (!uri.isPlatformResource()) {
+	        return null;
+	    }
+	    
+	    IPath path = new Path(uri.toPlatformString(true));
+	    IProject project = ResourcesPlugin.getWorkspace().getRoot().getFile(path).getProject();
+	    
+	    return ModelingProject.asModelingProject(project).get();
+	}
+	
 }
