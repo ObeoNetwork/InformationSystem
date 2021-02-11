@@ -1,12 +1,18 @@
 <?xml version="1.1" encoding="UTF-8" standalone="no"?>
 <databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog" xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext" xmlns:pro="http://www.liquibase.org/xml/ns/pro" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd http://www.liquibase.org/xml/ns/pro http://www.liquibase.org/xml/ns/pro/liquibase-pro-4.0.xsd http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.0.xsd">
     <changeSet author="IS Designer" id="test0">
+        <comment>Index : IndexOnFK</comment>
+        <createIndex indexName="IndexOnFK" schemaName="STOREBOOK" tableName="Table1" unique="false">
+            <column descending="true" name="column1"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="IS Designer" id="test1">
         <comment>Index : IndexOnQuantity</comment>
         <createIndex indexName="IndexOnQuantity" schemaName="STOREBOOK" tableName="Table1" unique="false">
             <column descending="true" name="quantity"/>
         </createIndex>
     </changeSet>
-    <changeSet author="IS Designer" id="test1">
+    <changeSet author="IS Designer" id="test2">
         <comment>Index : Table1_ID_UNIQUE_INDEX</comment>
         <createIndex indexName="Table1_ID_UNIQUE_INDEX" schemaName="STOREBOOK" tableName="Table1" unique="true">
             <column descending="false" name="ID"/>

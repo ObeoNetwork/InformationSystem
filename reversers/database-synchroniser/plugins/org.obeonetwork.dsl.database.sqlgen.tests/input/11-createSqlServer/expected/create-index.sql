@@ -233,9 +233,153 @@ CREATE INDEX PostalCode ON DBO.EMPLOYEES(PostalCode)
   );
 
 -- ==============================================================
+--  Index : OrderID                                    
+-- ==============================================================
+CREATE INDEX OrderID ON DBO.ORDER DETAILS(OrderID)
+  pctfree 10
+  pctused 40
+  initrans 1
+  online
+  compute statistics
+  tablespace TS_INDEX_DBO
+  logging
+  nosort
+  noparallel
+  parallel
+  (
+       1
+  );
+
+-- ==============================================================
+--  Index : OrdersOrder_Details                                    
+-- ==============================================================
+CREATE INDEX OrdersOrder_Details ON DBO.ORDER DETAILS(OrderID)
+  pctfree 10
+  pctused 40
+  initrans 1
+  online
+  compute statistics
+  tablespace TS_INDEX_DBO
+  logging
+  nosort
+  noparallel
+  parallel
+  (
+       1
+  );
+
+-- ==============================================================
 --  Index : PK_Order_Details                                    
 -- ==============================================================
 CREATE UNIQUE INDEX PK_Order_Details ON DBO.ORDER DETAILS(OrderID, ProductID)
+  pctfree 10
+  pctused 40
+  initrans 1
+  online
+  compute statistics
+  tablespace TS_INDEX_DBO
+  logging
+  nosort
+  noparallel
+  parallel
+  (
+       1
+  );
+
+-- ==============================================================
+--  Index : ProductID                                    
+-- ==============================================================
+CREATE INDEX ProductID ON DBO.ORDER DETAILS(ProductID)
+  pctfree 10
+  pctused 40
+  initrans 1
+  online
+  compute statistics
+  tablespace TS_INDEX_DBO
+  logging
+  nosort
+  noparallel
+  parallel
+  (
+       1
+  );
+
+-- ==============================================================
+--  Index : ProductsOrder_Details                                    
+-- ==============================================================
+CREATE INDEX ProductsOrder_Details ON DBO.ORDER DETAILS(ProductID)
+  pctfree 10
+  pctused 40
+  initrans 1
+  online
+  compute statistics
+  tablespace TS_INDEX_DBO
+  logging
+  nosort
+  noparallel
+  parallel
+  (
+       1
+  );
+
+-- ==============================================================
+--  Index : CustomerID                                    
+-- ==============================================================
+CREATE INDEX CustomerID ON DBO.ORDERS(CustomerID)
+  pctfree 10
+  pctused 40
+  initrans 1
+  online
+  compute statistics
+  tablespace TS_INDEX_DBO
+  logging
+  nosort
+  noparallel
+  parallel
+  (
+       1
+  );
+
+-- ==============================================================
+--  Index : CustomersOrders                                    
+-- ==============================================================
+CREATE INDEX CustomersOrders ON DBO.ORDERS(CustomerID)
+  pctfree 10
+  pctused 40
+  initrans 1
+  online
+  compute statistics
+  tablespace TS_INDEX_DBO
+  logging
+  nosort
+  noparallel
+  parallel
+  (
+       1
+  );
+
+-- ==============================================================
+--  Index : EmployeeID                                    
+-- ==============================================================
+CREATE INDEX EmployeeID ON DBO.ORDERS(EmployeeID)
+  pctfree 10
+  pctused 40
+  initrans 1
+  online
+  compute statistics
+  tablespace TS_INDEX_DBO
+  logging
+  nosort
+  noparallel
+  parallel
+  (
+       1
+  );
+
+-- ==============================================================
+--  Index : EmployeesOrders                                    
+-- ==============================================================
+CREATE INDEX EmployeesOrders ON DBO.ORDERS(EmployeeID)
   pctfree 10
   pctused 40
   initrans 1
@@ -323,6 +467,60 @@ CREATE INDEX ShippedDate ON DBO.ORDERS(ShippedDate)
   );
 
 -- ==============================================================
+--  Index : ShippersOrders                                    
+-- ==============================================================
+CREATE INDEX ShippersOrders ON DBO.ORDERS(ShipVia)
+  pctfree 10
+  pctused 40
+  initrans 1
+  online
+  compute statistics
+  tablespace TS_INDEX_DBO
+  logging
+  nosort
+  noparallel
+  parallel
+  (
+       1
+  );
+
+-- ==============================================================
+--  Index : CategoriesProducts                                    
+-- ==============================================================
+CREATE INDEX CategoriesProducts ON DBO.PRODUCTS(CategoryID)
+  pctfree 10
+  pctused 40
+  initrans 1
+  online
+  compute statistics
+  tablespace TS_INDEX_DBO
+  logging
+  nosort
+  noparallel
+  parallel
+  (
+       1
+  );
+
+-- ==============================================================
+--  Index : CategoryID                                    
+-- ==============================================================
+CREATE INDEX CategoryID ON DBO.PRODUCTS(CategoryID)
+  pctfree 10
+  pctused 40
+  initrans 1
+  online
+  compute statistics
+  tablespace TS_INDEX_DBO
+  logging
+  nosort
+  noparallel
+  parallel
+  (
+       1
+  );
+
+-- ==============================================================
 --  Index : PK_Products                                    
 -- ==============================================================
 CREATE UNIQUE INDEX PK_Products ON DBO.PRODUCTS(ProductID)
@@ -344,6 +542,42 @@ CREATE UNIQUE INDEX PK_Products ON DBO.PRODUCTS(ProductID)
 --  Index : ProductName                                    
 -- ==============================================================
 CREATE INDEX ProductName ON DBO.PRODUCTS(ProductName)
+  pctfree 10
+  pctused 40
+  initrans 1
+  online
+  compute statistics
+  tablespace TS_INDEX_DBO
+  logging
+  nosort
+  noparallel
+  parallel
+  (
+       1
+  );
+
+-- ==============================================================
+--  Index : SupplierID                                    
+-- ==============================================================
+CREATE INDEX SupplierID ON DBO.PRODUCTS(SupplierID)
+  pctfree 10
+  pctused 40
+  initrans 1
+  online
+  compute statistics
+  tablespace TS_INDEX_DBO
+  logging
+  nosort
+  noparallel
+  parallel
+  (
+       1
+  );
+
+-- ==============================================================
+--  Index : SuppliersProducts                                    
+-- ==============================================================
+CREATE INDEX SuppliersProducts ON DBO.PRODUCTS(SupplierID)
   pctfree 10
   pctused 40
   initrans 1

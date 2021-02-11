@@ -115,25 +115,43 @@
         <addForeignKeyConstraint baseColumnNames="RF_PAYS_ID" baseTableName="GS_SERIE" baseTableSchemaName="GS" constraintName="GS_SERIE_FK1_2" referencedColumnNames="RF_PAYS_ID" referencedTableName="RF_PAYS" referencedTableSchemaName="RF"/>
     </changeSet>
     <changeSet author="IS Designer" id="test11">
+        <comment>Index : GS_SAISON_FK1_1</comment>
+        <createIndex indexName="GS_SAISON_FK1_1" schemaName="GS" tableName="GS_SAISON" unique="true">
+            <column descending="false" name="GS_SERIE_ID"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="IS Designer" id="test12">
         <comment>Index : GS_SAISON_UN2_1</comment>
         <createIndex indexName="GS_SAISON_UN2_1" schemaName="GS" tableName="GS_SAISON" unique="true">
             <column descending="false" name="GS_SERIE_ID"/>
             <column descending="false" name="GS_SAISON_NUM"/>
         </createIndex>
     </changeSet>
-    <changeSet author="IS Designer" id="test12">
+    <changeSet author="IS Designer" id="test13">
+        <comment>Index : GS_SERIE_FK1_1</comment>
+        <createIndex indexName="GS_SERIE_FK1_1" schemaName="GS" tableName="GS_SERIE" unique="false">
+            <column descending="false" name="RF_GENRE_ID"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="IS Designer" id="test14">
+        <comment>Index : GS_SERIE_FK1_2</comment>
+        <createIndex indexName="GS_SERIE_FK1_2" schemaName="GS" tableName="GS_SERIE" unique="false">
+            <column descending="false" name="RF_PAYS_ID"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="IS Designer" id="test15">
         <comment>Index : GS_SERIE_UN1_1</comment>
         <createIndex indexName="GS_SERIE_UN1_1" schemaName="GS" tableName="GS_SERIE" unique="true">
             <column descending="false" name="GS_SERIE_TITRE"/>
         </createIndex>
     </changeSet>
-    <changeSet author="IS Designer" id="test13">
+    <changeSet author="IS Designer" id="test16">
         <comment>Index : RF_GENRE_UN1_1</comment>
         <createIndex indexName="RF_GENRE_UN1_1" schemaName="RF" tableName="RF_GENRE" unique="true">
             <column descending="false" name="RF_GENRE_LIB"/>
         </createIndex>
     </changeSet>
-    <changeSet author="IS Designer" id="test14">
+    <changeSet author="IS Designer" id="test17">
         <comment>Index : RF_PAYS_UN1_1</comment>
         <createIndex indexName="RF_PAYS_UN1_1" schemaName="RF" tableName="RF_PAYS" unique="true">
             <column descending="false" name="RF_PAYS_NOM"/>

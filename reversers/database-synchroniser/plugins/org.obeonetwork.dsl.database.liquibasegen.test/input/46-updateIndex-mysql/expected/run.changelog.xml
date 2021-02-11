@@ -8,13 +8,20 @@
         </createIndex>
     </changeSet>
     <changeSet author="IS Designer" id="test1">
+        <comment>Updating index IndexOnForeign</comment>
+        <dropIndex indexName="IndexOnForeign" schemaName="STOREBOOK" tableName="Table4"/>
+        <createIndex indexName="IndexOnForeign3" schemaName="STOREBOOK" tableName="Table4" unique="false">
+            <column descending="true" name="column1"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="IS Designer" id="test2">
         <comment>Updating index Index_C4</comment>
         <dropIndex indexName="Index_C4" schemaName="STOREBOOK" tableName="Table4"/>
         <createIndex indexName="Index_C4" schemaName="STOREBOOK" tableName="Table4" unique="true">
             <column descending="true" name="column4"/>
         </createIndex>
     </changeSet>
-    <changeSet author="IS Designer" id="test2">
+    <changeSet author="IS Designer" id="test3">
         <comment>Updating index Index_c3</comment>
         <dropIndex indexName="Index_c3" schemaName="STOREBOOK" tableName="Table4"/>
         <createIndex indexName="Index_c3" schemaName="STOREBOOK" tableName="Table4" unique="false">

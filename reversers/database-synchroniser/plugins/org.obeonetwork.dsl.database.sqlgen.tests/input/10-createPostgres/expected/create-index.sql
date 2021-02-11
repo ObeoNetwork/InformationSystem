@@ -1,4 +1,9 @@
 -- ==============================================================
+--  Index : aw_adresse_personne_id_idx                                    
+-- ==============================================================
+CREATE INDEX aw_adresse_personne_id_idx ON PUBLIC.AW_ADRESSE(personne_id);
+
+-- ==============================================================
 --  Index : aw_adresse_pk                                    
 -- ==============================================================
 CREATE UNIQUE INDEX aw_adresse_pk ON PUBLIC.AW_ADRESSE(adresse_id);
@@ -17,6 +22,11 @@ CREATE UNIQUE INDEX aw_competence_id_pk ON PUBLIC.AW_COMPETENCE_ID(personne_id, 
 --  Index : aw_competence_perso_pk                                    
 -- ==============================================================
 CREATE UNIQUE INDEX aw_competence_perso_pk ON PUBLIC.AW_COMPETENCE_PERSO(competence_perso_id);
+
+-- ==============================================================
+--  Index : aw_mail_personne_idx                                    
+-- ==============================================================
+CREATE INDEX aw_mail_personne_idx ON PUBLIC.AW_MAIL(personne_id);
 
 -- ==============================================================
 --  Index : aw_mail_pk                                    
@@ -44,6 +54,16 @@ CREATE UNIQUE INDEX aw_personne_pk ON PUBLIC.AW_PERSONNE(personne_id);
 CREATE UNIQUE INDEX aw_personne_n_competence_pe_pk ON PUBLIC.AW_PERSONNE_N_COMPETENCE_PERSO(personne_n_competence_perso_id);
 
 -- ==============================================================
+--  Index : aw_personne_n_competencepe_idx                                    
+-- ==============================================================
+CREATE INDEX aw_personne_n_competencepe_idx ON PUBLIC.AW_PERSONNE_N_COMPETENCE_PERSO(competenceperso_id);
+
+-- ==============================================================
+--  Index : aw_personne_n_personne_idx                                    
+-- ==============================================================
+CREATE INDEX aw_personne_n_personne_idx ON PUBLIC.AW_PERSONNE_N_COMPETENCE_PERSO(personne_id);
+
+-- ==============================================================
 --  Index : aw_role_pk                                    
 -- ==============================================================
 CREATE UNIQUE INDEX aw_role_pk ON PUBLIC.AW_ROLE(role_id);
@@ -57,6 +77,11 @@ CREATE UNIQUE INDEX aw_role_utilisateur_pk ON PUBLIC.AW_ROLE_UTILISATEUR(utilisa
 --  Index : aw_rolepermission_pk                                    
 -- ==============================================================
 CREATE UNIQUE INDEX aw_rolepermission_pk ON PUBLIC.AW_ROLEPERMISSION(role_id, permission_id);
+
+-- ==============================================================
+--  Index : aw_telephone_personne_idx                                    
+-- ==============================================================
+CREATE INDEX aw_telephone_personne_idx ON PUBLIC.AW_TELEPHONE(personne_id);
 
 -- ==============================================================
 --  Index : aw_telephone_pk                                    
