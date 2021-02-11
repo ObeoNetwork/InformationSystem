@@ -15,6 +15,13 @@ info:
   version: 1.0.0
 servers:
 - url: /api/v1.0
+tags:
+- name: Repositories
+  description: null
+- name: Projects
+  description: null
+- name: Users
+  description: null
 paths:
   /repositories:
     get:
@@ -25,7 +32,28 @@ paths:
       operationId: getRepositories
       responses:
         200:
-          description: Ok
+          description: |-
+            OK
+
+            Ok
+          headers:
+            X-Total-Element:
+              schema:
+                type: integer
+                format: int64
+            X-Page-Element-Count:
+              schema:
+                type: integer
+                format: int64
+            Accept-Range:
+              schema:
+                type: string
+            Content-Range:
+              schema:
+                type: string
+            Link:
+              schema:
+                type: string
           content:
             application/json:
               schema:
@@ -68,17 +96,22 @@ paths:
               $ref: '#/components/schemas/NewRepository'
       responses:
         201:
-          description: Repository response
+          description: |-
+            Created
+
+            Repository response
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/Repositories_Output201Output200'
         400:
-          description: "Bad Request\n\nSome parameters depend on the repository type\
-            \ (authentication and database), their validation is done by the corresponding\
-            \ extensions. \n"
+          description: "Bad Request\n\nBad Request\n\nSome parameters depend on the\
+            \ repository type (authentication and database), their validation is done\
+            \ by the corresponding extensions. \n"
         500:
           description: |
+            Internal Server Error
+
             Internal error
 
             Something unexpected occurred during the repository creation.
@@ -96,17 +129,41 @@ paths:
       parameters:
       - name: repositoryId
         in: path
+        description: id of a repository
         required: true
         schema:
           type: string
       - name: deleteDatabase
         in: query
+        description: Parameter to indicate if the databse must be deleted or kep.
+          true by default. No effect for the moment
         required: false
         schema:
           type: boolean
       responses:
         200:
-          description: Ok
+          description: |-
+            OK
+
+            Ok
+          headers:
+            X-Total-Element:
+              schema:
+                type: integer
+                format: int64
+            X-Page-Element-Count:
+              schema:
+                type: integer
+                format: int64
+            Accept-Range:
+              schema:
+                type: string
+            Content-Range:
+              schema:
+                type: string
+            Link:
+              schema:
+                type: string
           content:
             application/json:
               schema:
@@ -116,7 +173,10 @@ paths:
         404:
           description: Not Found
         500:
-          description: Server error for static repository
+          description: |-
+            Internal Server Error
+
+            Server error for static repository
   /repositories/start/{repositoryId}:
     get:
       tags:
@@ -131,18 +191,43 @@ paths:
       parameters:
       - name: repositoryId
         in: path
+        description: id of a repository
         required: true
         schema:
           type: string
       responses:
         200:
-          description: Ok
+          description: |-
+            OK
+
+            Ok
+          headers:
+            X-Total-Element:
+              schema:
+                type: integer
+                format: int64
+            X-Page-Element-Count:
+              schema:
+                type: integer
+                format: int64
+            Accept-Range:
+              schema:
+                type: string
+            Content-Range:
+              schema:
+                type: string
+            Link:
+              schema:
+                type: string
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/Repositories_Output201Output200'
         400:
-          description: Ko
+          description: |-
+            Bad Request
+
+            Ko
         404:
           description: Not Found
   /repositories/stop/{repositoryId}:
@@ -159,22 +244,50 @@ paths:
       parameters:
       - name: repositoryId
         in: path
+        description: id of a repository
         required: true
         schema:
           type: string
       responses:
         200:
-          description: Ok
+          description: |-
+            OK
+
+            Ok
+          headers:
+            X-Total-Element:
+              schema:
+                type: integer
+                format: int64
+            X-Page-Element-Count:
+              schema:
+                type: integer
+                format: int64
+            Accept-Range:
+              schema:
+                type: string
+            Content-Range:
+              schema:
+                type: string
+            Link:
+              schema:
+                type: string
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/Repositories_StopRepositoryOutput200'
         400:
-          description: Not Found
+          description: |-
+            Bad Request
+
+            Not Found
         404:
           description: Not Found
         500:
-          description: Server error for static repository
+          description: |-
+            Internal Server Error
+
+            Server error for static repository
   /repositories/export/{repositoryId}:
     post:
       tags:
@@ -191,6 +304,7 @@ paths:
       parameters:
       - name: repositoryId
         in: path
+        description: id of a repository
         required: true
         schema:
           type: string
@@ -201,9 +315,15 @@ paths:
               $ref: '#/components/schemas/Repositories_ExportRepositoryBody'
       responses:
         202:
-          description: Ok
+          description: |-
+            Accepted
+
+            Ok
         400:
-          description: Bad request
+          description: |-
+            Bad Request
+
+            Bad request
         404:
           description: Not Found
   /repositories/import/{repositoryId}:
@@ -225,6 +345,7 @@ paths:
       parameters:
       - name: repositoryId
         in: path
+        description: id of a repository
         required: true
         schema:
           type: string
@@ -235,7 +356,10 @@ paths:
               $ref: '#/components/schemas/Repositories_ImportRepositoryBody'
       responses:
         202:
-          description: Request accepted
+          description: |-
+            Accepted
+
+            Request accepted
         400:
           description: Bad Request
         404:
@@ -259,7 +383,10 @@ paths:
               $ref: '#/components/schemas/Projects_CreateSharedProjectBody'
       responses:
         201:
-          description: Ok
+          description: |-
+            Created
+
+            Ok
           content:
             application/json:
               schema:
@@ -276,18 +403,43 @@ paths:
       parameters:
       - name: repositoryName
         in: query
+        description: id of a repository
         required: true
         schema:
           type: string
       responses:
         200:
-          description: Ok
+          description: |-
+            OK
+
+            Ok
+          headers:
+            X-Total-Element:
+              schema:
+                type: integer
+                format: int64
+            X-Page-Element-Count:
+              schema:
+                type: integer
+                format: int64
+            Accept-Range:
+              schema:
+                type: string
+            Content-Range:
+              schema:
+                type: string
+            Link:
+              schema:
+                type: string
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/Users_ListUsersOutput200'
         400:
-          description: Not Found
+          description: |-
+            Bad Request
+
+            Not Found
     post:
       tags:
       - Users
@@ -304,6 +456,7 @@ paths:
       parameters:
       - name: repositoryName
         in: query
+        description: id of a repository
         required: true
         schema:
           type: string
@@ -314,7 +467,28 @@ paths:
               $ref: '#/components/schemas/NewUser'
       responses:
         200:
-          description: Ok
+          description: |-
+            OK
+
+            Ok
+          headers:
+            X-Total-Element:
+              schema:
+                type: integer
+                format: int64
+            X-Page-Element-Count:
+              schema:
+                type: integer
+                format: int64
+            Accept-Range:
+              schema:
+                type: string
+            Content-Range:
+              schema:
+                type: string
+            Link:
+              schema:
+                type: string
           content:
             application/json:
               schema:
@@ -335,11 +509,13 @@ paths:
       parameters:
       - name: userName
         in: path
+        description: id of a user
         required: true
         schema:
           type: string
       - name: repositoryName
         in: query
+        description: id of a repository
         required: true
         schema:
           type: string
@@ -350,7 +526,28 @@ paths:
               $ref: '#/components/schemas/NewUser'
       responses:
         200:
-          description: Ok
+          description: |-
+            OK
+
+            Ok
+          headers:
+            X-Total-Element:
+              schema:
+                type: integer
+                format: int64
+            X-Page-Element-Count:
+              schema:
+                type: integer
+                format: int64
+            Accept-Range:
+              schema:
+                type: string
+            Content-Range:
+              schema:
+                type: string
+            Link:
+              schema:
+                type: string
           content:
             application/json:
               schema:
@@ -368,17 +565,40 @@ paths:
       parameters:
       - name: userName
         in: path
+        description: id of a user
         required: true
         schema:
           type: string
       - name: repositoryName
         in: query
+        description: id of a repository
         required: true
         schema:
           type: string
       responses:
         200:
-          description: Ok
+          description: |-
+            OK
+
+            Ok
+          headers:
+            X-Total-Element:
+              schema:
+                type: integer
+                format: int64
+            X-Page-Element-Count:
+              schema:
+                type: integer
+                format: int64
+            Accept-Range:
+              schema:
+                type: string
+            Content-Range:
+              schema:
+                type: string
+            Link:
+              schema:
+                type: string
           content:
             application/json:
               schema:
@@ -389,182 +609,6 @@ paths:
           description: Bad Request
 components:
   schemas:
-    Users_ListUsersOutput200:
-      type: object
-      properties:
-        repositoryName:
-          type: string
-        message:
-          type: string
-        status:
-          type: string
-        users:
-          minItems: 0
-          type: array
-          items:
-            $ref: '#/components/schemas/User'
-    Repositories_StopRepositoryOutput200:
-      type: object
-      properties:
-        message:
-          type: string
-        status:
-          type: string
-        repository:
-          $ref: '#/components/schemas/SimpleRepository'
-    User:
-      type: object
-      properties:
-        id:
-          type: string
-        isAdmin:
-          type: boolean
-        permissions:
-          minItems: 0
-          type: array
-          items:
-            type: string
-    Status:
-      type: string
-      enum:
-      - ONLINE
-      - OFFLINE
-    Repositories_ImportRepositoryBody:
-      type: object
-      properties:
-        upFile:
-          type: string
-          format: binary
-    Repositories_GetRepositoriesOutput200:
-      type: object
-      properties:
-        message:
-          type: string
-        status:
-          type: string
-        repositories:
-          minItems: 0
-          type: array
-          items:
-            $ref: '#/components/schemas/Repository'
-    Users_Output200:
-      type: object
-      properties:
-        repositoryName:
-          type: string
-        message:
-          type: string
-        projectNames:
-          minItems: 0
-          type: array
-          items:
-            type: string
-        status:
-          type: string
-        user:
-          $ref: '#/components/schemas/User'
-    AuthenticationType:
-      type: string
-      enum:
-      - ""
-      - LDAP_FILE
-      - LDAP
-      - USERPROFILE
-      - LDAP_USERPROFILE
-      - FILE
-    Output200:
-      type: object
-      properties:
-        repositoryName:
-          type: string
-        message:
-          type: string
-        status:
-          type: string
-    NewUser:
-      required:
-      - id
-      - isAdmin
-      type: object
-      properties:
-        password: {}
-        id:
-          type: string
-        isAdmin:
-          type: boolean
-        permissions:
-          minItems: 0
-          type: array
-          items:
-            type: string
-    Projects_CreateSharedProjectBody:
-      required:
-      - projectName
-      - repositoryName
-      type: object
-      properties:
-        projectName:
-          type: string
-        repositoryName:
-          type: string
-    Repository:
-      type: object
-      properties:
-        datasourceType:
-          $ref: '#/components/schemas/DatasourceType'
-        authenticationType:
-          $ref: '#/components/schemas/AuthenticationType'
-        repositorName:
-          type: string
-        type:
-          $ref: '#/components/schemas/Type'
-        status:
-          $ref: '#/components/schemas/Status'
-    SimpleRepository:
-      type: object
-      properties:
-        repositorName:
-          type: string
-        type:
-          $ref: '#/components/schemas/Type'
-        status:
-          $ref: '#/components/schemas/Status'
-    Projects_CreateSharedProjectOutput201:
-      type: object
-      properties:
-        projectName:
-          type: string
-        message:
-          type: string
-        status:
-          type: string
-    DatasourceType:
-      type: string
-      enum:
-      - H2_EMBEDDED
-      - H2_SERVER
-    Type:
-      type: string
-      enum:
-      - STATIC
-      - DYNAMIC
-    Repositories_Output201Output200:
-      type: object
-      properties:
-        message:
-          type: string
-        status:
-          type: string
-        repository:
-          $ref: '#/components/schemas/Repository'
-    Repositories_ExportRepositoryBody:
-      required:
-      - needsEncryption
-      type: object
-      properties:
-        password: {}
-        needsEncryption:
-          type: boolean
     NewRepository:
       required:
       - authenticationType
@@ -581,3 +625,180 @@ components:
           type: string
         datasourceData:
           type: string
+    NewUser:
+      required:
+      - id
+      - isAdmin
+      type: object
+      properties:
+        password:
+          type: string
+        id:
+          type: string
+        isAdmin:
+          type: boolean
+        permissions:
+          type: array
+          items:
+            type: string
+    Projects_CreateSharedProjectBody:
+      required:
+      - projectName
+      - repositoryName
+      type: object
+      properties:
+        projectName:
+          type: string
+        repositoryName:
+          type: string
+    Output200:
+      type: object
+      properties:
+        repositoryName:
+          type: string
+        message:
+          type: string
+        status:
+          type: string
+    SimpleRepository:
+      type: object
+      properties:
+        repositorName:
+          type: string
+        type:
+          $ref: '#/components/schemas/Type'
+        status:
+          $ref: '#/components/schemas/Status'
+    Type:
+      type: string
+      enum:
+      - STATIC
+      - DYNAMIC
+    Repositories_ImportRepositoryBody:
+      type: object
+      properties:
+        upFile:
+          type: string
+          format: binary
+    Status:
+      type: string
+      enum:
+      - ONLINE
+      - OFFLINE
+    Projects_CreateSharedProjectOutput201:
+      type: object
+      properties:
+        projectName:
+          type: string
+        message:
+          type: string
+        status:
+          type: string
+    User:
+      type: object
+      properties:
+        id:
+          type: string
+        isAdmin:
+          type: boolean
+        permissions:
+          type: array
+          items:
+            type: string
+    Users_ListUsersOutput200:
+      type: object
+      properties:
+        repositoryName:
+          type: string
+        message:
+          type: string
+        status:
+          type: string
+        users:
+          type: array
+          items:
+            $ref: '#/components/schemas/User'
+    Users_Output200:
+      type: object
+      properties:
+        repositoryName:
+          type: string
+        message:
+          type: string
+        projectNames:
+          type: array
+          items:
+            type: string
+        status:
+          type: string
+        user:
+          $ref: '#/components/schemas/User'
+    Repositories_GetRepositoriesOutput200:
+      type: object
+      properties:
+        message:
+          type: string
+        status:
+          type: string
+        repositories:
+          type: array
+          items:
+            $ref: '#/components/schemas/Repository'
+    AuthenticationType:
+      type: string
+      enum:
+      - ""
+      - LDAP_FILE
+      - LDAP
+      - USERPROFILE
+      - LDAP_USERPROFILE
+      - FILE
+    Repositories_StopRepositoryOutput200:
+      type: object
+      properties:
+        message:
+          type: string
+        status:
+          type: string
+        repository:
+          $ref: '#/components/schemas/SimpleRepository'
+    DatasourceType:
+      type: string
+      enum:
+      - H2_EMBEDDED
+      - H2_SERVER
+    Repositories_Output201Output200:
+      type: object
+      properties:
+        message:
+          type: string
+        status:
+          type: string
+        repository:
+          $ref: '#/components/schemas/Repository'
+    Repositories_ExportRepositoryBody:
+      required:
+      - needsEncryption
+      type: object
+      properties:
+        password:
+          type: string
+        needsEncryption:
+          type: boolean
+    Repository:
+      type: object
+      properties:
+        datasourceType:
+          $ref: '#/components/schemas/DatasourceType'
+        authenticationType:
+          $ref: '#/components/schemas/AuthenticationType'
+        repositorName:
+          type: string
+        type:
+          $ref: '#/components/schemas/Type'
+        status:
+          $ref: '#/components/schemas/Status'
+  securitySchemes:
+    basicAuth:
+      type: http
+      in: query

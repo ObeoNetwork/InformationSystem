@@ -1,274 +1,307 @@
 <?xml version="1.0" encoding="ASCII"?>
-<soa:System xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:oenv="http://www.obeonetwork.org/dsl/environment/3.0.0" xmlns:soa="http://www.obeonetwork.org/dsl/soa/3.0.0" xmi:id="_fH1zYHKDEeqhocD8uuHTzw" technicalid="_fHyJAHKDEeqhocD8uuHTzw" createdOn="2020-03-30T14:39:24.304+0200" modifiedOn="2020-06-11T16:08:04.774+0200" name="Petstore">
-  <ownedNamespaces xmi:id="_9-OUYKvsEeq4bswLyduutQ" technicalid="_9-FxgavsEeq4bswLyduutQ" createdOn="2020-06-11T16:08:04.774+0200" modifiedOn="2020-06-11T16:08:04.774+0200" name="Swagger Petstore - OpenAPI 3.0">
-    <types xsi:type="oenv:DTO" xmi:id="_9-OUYavsEeq4bswLyduutQ" technicalid="_9-FxgqvsEeq4bswLyduutQ" name="Order">
-      <ownedAttributes xmi:id="_9-OUYqvsEeq4bswLyduutQ" technicalid="_9-FxiqvsEeq4bswLyduutQ" name="petId">
+<soa:System xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:oenv="http://www.obeonetwork.org/dsl/environment/3.0.0" xmlns:soa="http://www.obeonetwork.org/dsl/soa/3.0.0" xmi:id="_pcXwoGxtEeuYi_YuNNGyqg" technicalid="_pcVUYGxtEeuYi_YuNNGyqg" createdOn="2021-02-11T14:32:55.334+0100" modifiedOn="2021-02-11T14:34:20.267+0100" name="Petstore">
+  <ownedNamespaces xmi:id="_2GUTsGxtEeuYi_YuNNGyqg" technicalid="_2GJ7oGxtEeuYi_YuNNGyqg" createdOn="2021-02-11T14:34:20.267+0100" modifiedOn="2021-02-11T14:34:20.267+0100" name="Swagger Petstore - OpenAPI 3.0">
+    <types xsi:type="oenv:DTO" xmi:id="_2GUTsWxtEeuYi_YuNNGyqg" technicalid="_2GJ7oWxtEeuYi_YuNNGyqg" name="Order">
+      <ownedAttributes xmi:id="_2GUTsmxtEeuYi_YuNNGyqg" technicalid="_2GJ7qWxtEeuYi_YuNNGyqg" name="petId">
         <type xsi:type="oenv:PrimitiveType" href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_9dnH8bGqEd2SRpTkL4GntA"/>
       </ownedAttributes>
-      <ownedAttributes xmi:id="_9-OUY6vsEeq4bswLyduutQ" technicalid="_9-Fxi6vsEeq4bswLyduutQ" name="quantity">
+      <ownedAttributes xmi:id="_2GUTs2xtEeuYi_YuNNGyqg" technicalid="_2GJ7qmxtEeuYi_YuNNGyqg" name="quantity">
         <type xsi:type="oenv:PrimitiveType" href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5FXAawKEd2XLNOhkJIazw"/>
       </ownedAttributes>
-      <ownedAttributes xmi:id="_9-OUZKvsEeq4bswLyduutQ" technicalid="_9-FxjKvsEeq4bswLyduutQ" name="id">
+      <ownedAttributes xmi:id="_2GUTtGxtEeuYi_YuNNGyqg" technicalid="_2GJ7q2xtEeuYi_YuNNGyqg" name="id">
         <type xsi:type="oenv:PrimitiveType" href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_9dnH8bGqEd2SRpTkL4GntA"/>
       </ownedAttributes>
-      <ownedAttributes xmi:id="_9-OUZavsEeq4bswLyduutQ" technicalid="_9-FxjavsEeq4bswLyduutQ" name="shipDate">
-        <type xsi:type="oenv:PrimitiveType" href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_rWTrcTwHEeiOd8zmfAzmGQ"/>
+      <ownedAttributes xmi:id="_2GUTtWxtEeuYi_YuNNGyqg" technicalid="_2GJ7rGxtEeuYi_YuNNGyqg" name="shipDate">
+        <type xsi:type="oenv:PrimitiveType" href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_rGXK8DwHEeiOd8zmfAzmGQ"/>
       </ownedAttributes>
-      <ownedAttributes xmi:id="_9-OUZqvsEeq4bswLyduutQ" technicalid="_9-FxjqvsEeq4bswLyduutQ" name="complete">
+      <ownedAttributes xmi:id="_2GUTtmxtEeuYi_YuNNGyqg" technicalid="_2GKisGxtEeuYi_YuNNGyqg" name="complete">
         <type xsi:type="oenv:PrimitiveType" href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5FXAqwKEd2XLNOhkJIazw"/>
       </ownedAttributes>
-      <ownedAttributes xmi:id="_9-OUZ6vsEeq4bswLyduutQ" technicalid="_9-Fxk6vsEeq4bswLyduutQ" name="status" type="_9-OUj6vsEeq4bswLyduutQ"/>
+      <ownedAttributes xmi:id="_2GUTt2xtEeuYi_YuNNGyqg" technicalid="_2GKitWxtEeuYi_YuNNGyqg" name="status" type="_2GUT22xtEeuYi_YuNNGyqg"/>
     </types>
-    <types xsi:type="oenv:DTO" xmi:id="_9-OUaKvsEeq4bswLyduutQ" technicalid="_9-Fxg6vsEeq4bswLyduutQ" name="Customer">
-      <ownedAttributes xmi:id="_9-OUaavsEeq4bswLyduutQ" technicalid="_9-FxlKvsEeq4bswLyduutQ" name="id">
+    <types xsi:type="oenv:DTO" xmi:id="_2GUTuGxtEeuYi_YuNNGyqg" technicalid="_2GJ7omxtEeuYi_YuNNGyqg" name="Customer">
+      <ownedAttributes xmi:id="_2GUTuWxtEeuYi_YuNNGyqg" technicalid="_2GKitmxtEeuYi_YuNNGyqg" name="id">
         <type xsi:type="oenv:PrimitiveType" href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_9dnH8bGqEd2SRpTkL4GntA"/>
       </ownedAttributes>
-      <ownedAttributes xmi:id="_9-OUaqvsEeq4bswLyduutQ" technicalid="_9-FxlqvsEeq4bswLyduutQ" name="username">
+      <ownedAttributes xmi:id="_2GUTumxtEeuYi_YuNNGyqg" technicalid="_2GKiuGxtEeuYi_YuNNGyqg" name="username">
         <type xsi:type="oenv:PrimitiveType" href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5F-EKwKEd2XLNOhkJIazw"/>
       </ownedAttributes>
-      <ownedReferences xmi:id="_9-OUa6vsEeq4bswLyduutQ" technicalid="_9-FxlavsEeq4bswLyduutQ" name="address" multiplicity="0..*" referencedType="_9-OUbKvsEeq4bswLyduutQ"/>
+      <ownedReferences xmi:id="_2GUTu2xtEeuYi_YuNNGyqg" technicalid="_2GKit2xtEeuYi_YuNNGyqg" name="address" multiplicity="0..*" referencedType="_2GUTvGxtEeuYi_YuNNGyqg"/>
     </types>
-    <types xsi:type="oenv:DTO" xmi:id="_9-OUbKvsEeq4bswLyduutQ" technicalid="_9-FxhKvsEeq4bswLyduutQ" name="Address">
-      <ownedAttributes xmi:id="_9-OUbavsEeq4bswLyduutQ" technicalid="_9-Fxl6vsEeq4bswLyduutQ" name="zip">
+    <types xsi:type="oenv:DTO" xmi:id="_2GUTvGxtEeuYi_YuNNGyqg" technicalid="_2GJ7o2xtEeuYi_YuNNGyqg" name="Address">
+      <ownedAttributes xmi:id="_2GUTvWxtEeuYi_YuNNGyqg" technicalid="_2GKiuWxtEeuYi_YuNNGyqg" name="zip">
         <type xsi:type="oenv:PrimitiveType" href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5F-EKwKEd2XLNOhkJIazw"/>
       </ownedAttributes>
-      <ownedAttributes xmi:id="_9-OUbqvsEeq4bswLyduutQ" technicalid="_9-FxmKvsEeq4bswLyduutQ" name="state">
+      <ownedAttributes xmi:id="_2GUTvmxtEeuYi_YuNNGyqg" technicalid="_2GKiumxtEeuYi_YuNNGyqg" name="state">
         <type xsi:type="oenv:PrimitiveType" href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5F-EKwKEd2XLNOhkJIazw"/>
       </ownedAttributes>
-      <ownedAttributes xmi:id="_9-OUb6vsEeq4bswLyduutQ" technicalid="_9-FxmavsEeq4bswLyduutQ" name="city">
+      <ownedAttributes xmi:id="_2GUTv2xtEeuYi_YuNNGyqg" technicalid="_2GKiu2xtEeuYi_YuNNGyqg" name="city">
         <type xsi:type="oenv:PrimitiveType" href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5F-EKwKEd2XLNOhkJIazw"/>
       </ownedAttributes>
-      <ownedAttributes xmi:id="_9-OUcKvsEeq4bswLyduutQ" technicalid="_9-FxmqvsEeq4bswLyduutQ" name="street">
+      <ownedAttributes xmi:id="_2GUTwGxtEeuYi_YuNNGyqg" technicalid="_2GKivGxtEeuYi_YuNNGyqg" name="street">
         <type xsi:type="oenv:PrimitiveType" href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5F-EKwKEd2XLNOhkJIazw"/>
       </ownedAttributes>
     </types>
-    <types xsi:type="oenv:DTO" xmi:id="_9-OUcavsEeq4bswLyduutQ" technicalid="_9-FxhavsEeq4bswLyduutQ" name="Category">
-      <ownedAttributes xmi:id="_9-OUcqvsEeq4bswLyduutQ" technicalid="_9-Fxm6vsEeq4bswLyduutQ" name="name">
+    <types xsi:type="oenv:DTO" xmi:id="_2GUTwWxtEeuYi_YuNNGyqg" technicalid="_2GJ7pGxtEeuYi_YuNNGyqg" name="Category">
+      <ownedAttributes xmi:id="_2GUTwmxtEeuYi_YuNNGyqg" technicalid="_2GKivWxtEeuYi_YuNNGyqg" name="name">
         <type xsi:type="oenv:PrimitiveType" href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5F-EKwKEd2XLNOhkJIazw"/>
       </ownedAttributes>
-      <ownedAttributes xmi:id="_9-OUc6vsEeq4bswLyduutQ" technicalid="_9-FxnKvsEeq4bswLyduutQ" name="id">
+      <ownedAttributes xmi:id="_2GUTw2xtEeuYi_YuNNGyqg" technicalid="_2GKivmxtEeuYi_YuNNGyqg" name="id">
         <type xsi:type="oenv:PrimitiveType" href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_9dnH8bGqEd2SRpTkL4GntA"/>
       </ownedAttributes>
     </types>
-    <types xsi:type="oenv:DTO" xmi:id="_9-OUdKvsEeq4bswLyduutQ" technicalid="_9-FxhqvsEeq4bswLyduutQ" name="User">
-      <ownedAttributes xmi:id="_9-OUdavsEeq4bswLyduutQ" technicalid="_9-FxnavsEeq4bswLyduutQ" name="firstName">
+    <types xsi:type="oenv:DTO" xmi:id="_2GUTxGxtEeuYi_YuNNGyqg" technicalid="_2GJ7pWxtEeuYi_YuNNGyqg" name="User">
+      <ownedAttributes xmi:id="_2GUTxWxtEeuYi_YuNNGyqg" technicalid="_2GKiv2xtEeuYi_YuNNGyqg" name="firstName">
         <type xsi:type="oenv:PrimitiveType" href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5F-EKwKEd2XLNOhkJIazw"/>
       </ownedAttributes>
-      <ownedAttributes xmi:id="_9-OUdqvsEeq4bswLyduutQ" technicalid="_9-FxnqvsEeq4bswLyduutQ" name="lastName">
+      <ownedAttributes xmi:id="_2GUTxmxtEeuYi_YuNNGyqg" technicalid="_2GKiwGxtEeuYi_YuNNGyqg" name="lastName">
         <type xsi:type="oenv:PrimitiveType" href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5F-EKwKEd2XLNOhkJIazw"/>
       </ownedAttributes>
-      <ownedAttributes xmi:id="_9-OUd6vsEeq4bswLyduutQ" technicalid="_9-Fxn6vsEeq4bswLyduutQ" name="password">
+      <ownedAttributes xmi:id="_2GUTx2xtEeuYi_YuNNGyqg" technicalid="_2GKiwWxtEeuYi_YuNNGyqg" name="password">
         <type xsi:type="oenv:PrimitiveType" href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5F-EKwKEd2XLNOhkJIazw"/>
       </ownedAttributes>
-      <ownedAttributes xmi:id="_9-OUeKvsEeq4bswLyduutQ" technicalid="_9-FxoKvsEeq4bswLyduutQ" name="userStatus">
+      <ownedAttributes xmi:id="_2GUTyGxtEeuYi_YuNNGyqg" technicalid="_2GKiwmxtEeuYi_YuNNGyqg" name="userStatus">
         <type xsi:type="oenv:PrimitiveType" href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5FXAawKEd2XLNOhkJIazw"/>
       </ownedAttributes>
-      <ownedAttributes xmi:id="_9-OUeavsEeq4bswLyduutQ" technicalid="_9-FxoavsEeq4bswLyduutQ" name="phone">
+      <ownedAttributes xmi:id="_2GUTyWxtEeuYi_YuNNGyqg" technicalid="_2GKiw2xtEeuYi_YuNNGyqg" name="phone">
         <type xsi:type="oenv:PrimitiveType" href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5F-EKwKEd2XLNOhkJIazw"/>
       </ownedAttributes>
-      <ownedAttributes xmi:id="_9-OUeqvsEeq4bswLyduutQ" technicalid="_9-FxoqvsEeq4bswLyduutQ" name="id">
+      <ownedAttributes xmi:id="_2GUTymxtEeuYi_YuNNGyqg" technicalid="_2GKixGxtEeuYi_YuNNGyqg" name="id">
         <type xsi:type="oenv:PrimitiveType" href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_9dnH8bGqEd2SRpTkL4GntA"/>
       </ownedAttributes>
-      <ownedAttributes xmi:id="_9-OUe6vsEeq4bswLyduutQ" technicalid="_9-GYkKvsEeq4bswLyduutQ" name="email">
+      <ownedAttributes xmi:id="_2GUTy2xtEeuYi_YuNNGyqg" technicalid="_2GKixWxtEeuYi_YuNNGyqg" name="email">
         <type xsi:type="oenv:PrimitiveType" href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5F-EKwKEd2XLNOhkJIazw"/>
       </ownedAttributes>
-      <ownedAttributes xmi:id="_9-OUfKvsEeq4bswLyduutQ" technicalid="_9-GYkavsEeq4bswLyduutQ" name="username">
+      <ownedAttributes xmi:id="_2GUTzGxtEeuYi_YuNNGyqg" technicalid="_2GKixmxtEeuYi_YuNNGyqg" name="username">
         <type xsi:type="oenv:PrimitiveType" href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5F-EKwKEd2XLNOhkJIazw"/>
       </ownedAttributes>
     </types>
-    <types xsi:type="oenv:DTO" xmi:id="_9-OUfavsEeq4bswLyduutQ" technicalid="_9-Fxh6vsEeq4bswLyduutQ" name="Tag">
-      <ownedAttributes xmi:id="_9-OUfqvsEeq4bswLyduutQ" technicalid="_9-GYkqvsEeq4bswLyduutQ" name="name">
+    <types xsi:type="oenv:DTO" xmi:id="_2GUTzWxtEeuYi_YuNNGyqg" technicalid="_2GJ7pmxtEeuYi_YuNNGyqg" name="Tag">
+      <ownedAttributes xmi:id="_2GUTzmxtEeuYi_YuNNGyqg" technicalid="_2GKix2xtEeuYi_YuNNGyqg" name="name">
         <type xsi:type="oenv:PrimitiveType" href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5F-EKwKEd2XLNOhkJIazw"/>
       </ownedAttributes>
-      <ownedAttributes xmi:id="_9-OUf6vsEeq4bswLyduutQ" technicalid="_9-GYk6vsEeq4bswLyduutQ" name="id">
+      <ownedAttributes xmi:id="_2GUTz2xtEeuYi_YuNNGyqg" technicalid="_2GKiyGxtEeuYi_YuNNGyqg" name="id">
         <type xsi:type="oenv:PrimitiveType" href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_9dnH8bGqEd2SRpTkL4GntA"/>
       </ownedAttributes>
     </types>
-    <types xsi:type="oenv:DTO" xmi:id="_9-OUgKvsEeq4bswLyduutQ" technicalid="_9-FxiKvsEeq4bswLyduutQ" name="Pet">
-      <ownedAttributes xmi:id="_9-OUgavsEeq4bswLyduutQ" technicalid="_9-GYlKvsEeq4bswLyduutQ" name="photoUrls" multiplicity="1..*">
+    <types xsi:type="oenv:DTO" xmi:id="_2GUT0GxtEeuYi_YuNNGyqg" technicalid="_2GJ7p2xtEeuYi_YuNNGyqg" name="Pet">
+      <ownedAttributes xmi:id="_2GUT0WxtEeuYi_YuNNGyqg" technicalid="_2GKiyWxtEeuYi_YuNNGyqg" name="photoUrls" multiplicity="1..*">
         <type xsi:type="oenv:PrimitiveType" href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5F-EKwKEd2XLNOhkJIazw"/>
       </ownedAttributes>
-      <ownedAttributes xmi:id="_9-OUgqvsEeq4bswLyduutQ" technicalid="_9-GYlavsEeq4bswLyduutQ" name="name" multiplicity="1">
+      <ownedAttributes xmi:id="_2GUT0mxtEeuYi_YuNNGyqg" technicalid="_2GLJwGxtEeuYi_YuNNGyqg" name="name" multiplicity="1">
         <type xsi:type="oenv:PrimitiveType" href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5F-EKwKEd2XLNOhkJIazw"/>
       </ownedAttributes>
-      <ownedAttributes xmi:id="_9-OUg6vsEeq4bswLyduutQ" technicalid="_9-GYlqvsEeq4bswLyduutQ" name="id">
+      <ownedAttributes xmi:id="_2GUT02xtEeuYi_YuNNGyqg" technicalid="_2GLJwWxtEeuYi_YuNNGyqg" name="id">
         <type xsi:type="oenv:PrimitiveType" href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_9dnH8bGqEd2SRpTkL4GntA"/>
       </ownedAttributes>
-      <ownedAttributes xmi:id="_9-OUhKvsEeq4bswLyduutQ" technicalid="_9-GYnavsEeq4bswLyduutQ" name="status" type="_9-OUi6vsEeq4bswLyduutQ"/>
-      <ownedReferences xmi:id="_9-OUhavsEeq4bswLyduutQ" technicalid="_9-GYl6vsEeq4bswLyduutQ" name="category" referencedType="_9-OUcavsEeq4bswLyduutQ"/>
-      <ownedReferences xmi:id="_9-OUhqvsEeq4bswLyduutQ" technicalid="_9-GYmKvsEeq4bswLyduutQ" name="tags" multiplicity="0..*" referencedType="_9-OUfavsEeq4bswLyduutQ"/>
+      <ownedAttributes xmi:id="_2GUT1GxtEeuYi_YuNNGyqg" technicalid="_2GLJyGxtEeuYi_YuNNGyqg" name="status" type="_2GUT32xtEeuYi_YuNNGyqg"/>
+      <ownedReferences xmi:id="_2GUT1WxtEeuYi_YuNNGyqg" technicalid="_2GLJwmxtEeuYi_YuNNGyqg" name="category" referencedType="_2GUTwWxtEeuYi_YuNNGyqg"/>
+      <ownedReferences xmi:id="_2GUT1mxtEeuYi_YuNNGyqg" technicalid="_2GLJw2xtEeuYi_YuNNGyqg" name="tags" multiplicity="0..*" referencedType="_2GUTzWxtEeuYi_YuNNGyqg"/>
     </types>
-    <types xsi:type="oenv:DTO" xmi:id="_9-OUh6vsEeq4bswLyduutQ" technicalid="_9-FxiavsEeq4bswLyduutQ" name="ApiResponse">
-      <ownedAttributes xmi:id="_9-OUiKvsEeq4bswLyduutQ" technicalid="_9-GYnqvsEeq4bswLyduutQ" name="code">
+    <types xsi:type="oenv:DTO" xmi:id="_2GUT12xtEeuYi_YuNNGyqg" technicalid="_2GJ7qGxtEeuYi_YuNNGyqg" name="ApiResponse">
+      <ownedAttributes xmi:id="_2GUT2GxtEeuYi_YuNNGyqg" technicalid="_2GLJyWxtEeuYi_YuNNGyqg" name="code">
         <type xsi:type="oenv:PrimitiveType" href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5FXAawKEd2XLNOhkJIazw"/>
       </ownedAttributes>
-      <ownedAttributes xmi:id="_9-OUiavsEeq4bswLyduutQ" technicalid="_9-GYn6vsEeq4bswLyduutQ" name="type">
+      <ownedAttributes xmi:id="_2GUT2WxtEeuYi_YuNNGyqg" technicalid="_2GLJymxtEeuYi_YuNNGyqg" name="type">
         <type xsi:type="oenv:PrimitiveType" href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5F-EKwKEd2XLNOhkJIazw"/>
       </ownedAttributes>
-      <ownedAttributes xmi:id="_9-OUiqvsEeq4bswLyduutQ" technicalid="_9-GYoKvsEeq4bswLyduutQ" name="message">
+      <ownedAttributes xmi:id="_2GUT2mxtEeuYi_YuNNGyqg" technicalid="_2GLJy2xtEeuYi_YuNNGyqg" name="message">
         <type xsi:type="oenv:PrimitiveType" href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5F-EKwKEd2XLNOhkJIazw"/>
       </ownedAttributes>
     </types>
-    <types xsi:type="oenv:Enumeration" xmi:id="_9-OUi6vsEeq4bswLyduutQ" technicalid="_9-GYmavsEeq4bswLyduutQ" name="PetStatus">
-      <literals xmi:id="_9-OUjKvsEeq4bswLyduutQ" technicalid="_9-GYmqvsEeq4bswLyduutQ" name="sold"/>
-      <literals xmi:id="_9-OUjavsEeq4bswLyduutQ" technicalid="_9-GYm6vsEeq4bswLyduutQ" name="pending"/>
-      <literals xmi:id="_9-OUjqvsEeq4bswLyduutQ" technicalid="_9-GYnKvsEeq4bswLyduutQ" name="available"/>
+    <types xsi:type="oenv:Enumeration" xmi:id="_2GUT22xtEeuYi_YuNNGyqg" technicalid="_2GKisWxtEeuYi_YuNNGyqg" name="OrderStatus">
+      <literals xmi:id="_2GUT3GxtEeuYi_YuNNGyqg" technicalid="_2GKismxtEeuYi_YuNNGyqg" name="approved"/>
+      <literals xmi:id="_2GUT3WxtEeuYi_YuNNGyqg" technicalid="_2GKis2xtEeuYi_YuNNGyqg" name="placed"/>
+      <literals xmi:id="_2GUT3mxtEeuYi_YuNNGyqg" technicalid="_2GKitGxtEeuYi_YuNNGyqg" name="delivered"/>
     </types>
-    <types xsi:type="oenv:Enumeration" xmi:id="_9-OUj6vsEeq4bswLyduutQ" technicalid="_9-Fxj6vsEeq4bswLyduutQ" name="OrderStatus">
-      <literals xmi:id="_9-OUkKvsEeq4bswLyduutQ" technicalid="_9-FxkKvsEeq4bswLyduutQ" name="approved"/>
-      <literals xmi:id="_9-OUkavsEeq4bswLyduutQ" technicalid="_9-FxkavsEeq4bswLyduutQ" name="placed"/>
-      <literals xmi:id="_9-OUkqvsEeq4bswLyduutQ" technicalid="_9-FxkqvsEeq4bswLyduutQ" name="delivered"/>
+    <types xsi:type="oenv:Enumeration" xmi:id="_2GUT32xtEeuYi_YuNNGyqg" technicalid="_2GLJxGxtEeuYi_YuNNGyqg" name="PetStatus">
+      <literals xmi:id="_2GUT4GxtEeuYi_YuNNGyqg" technicalid="_2GLJxWxtEeuYi_YuNNGyqg" name="sold"/>
+      <literals xmi:id="_2GUT4WxtEeuYi_YuNNGyqg" technicalid="_2GLJxmxtEeuYi_YuNNGyqg" name="pending"/>
+      <literals xmi:id="_2GUT4mxtEeuYi_YuNNGyqg" technicalid="_2GLJx2xtEeuYi_YuNNGyqg" name="available"/>
     </types>
-    <ownedNamespaces xmi:id="_9-OUk6vsEeq4bswLyduutQ" technicalid="_9-NtUKvsEeq4bswLyduutQ" name="Store">
-      <types xsi:type="oenv:DTO" xmi:id="_9-OUlKvsEeq4bswLyduutQ" technicalid="_9-KC-avsEeq4bswLyduutQ" name="GetInventoryOutput200"/>
+    <ownedNamespaces xmi:id="_2GUT42xtEeuYi_YuNNGyqg" technicalid="_2GTsoGxtEeuYi_YuNNGyqg" name="Store">
+      <types xsi:type="oenv:DTO" xmi:id="_2GUT5GxtEeuYi_YuNNGyqg" technicalid="_2GQCW2xtEeuYi_YuNNGyqg" name="GetInventoryOutput200"/>
     </ownedNamespaces>
   </ownedNamespaces>
-  <ownedComponents xmi:id="_9-NtUavsEeq4bswLyduutQ" technicalid="_9-FxgKvsEeq4bswLyduutQ" description="This is a sample Pet Store Server based on the OpenAPI 3.0 specification.  You can find out more about&#xA;Swagger at [http://swagger.io](http://swagger.io). In the third iteration of the pet store, we've switched to the design first approach!&#xA;You can now help us improve the API whether it's by making changes to the definition itself or to the code.&#xA;That way, with time, we can improve the API in general, and expose some of the new features in OAS3.&#xA;&#xA;Some useful links:&#xA;- [The Pet Store repository](https://github.com/swagger-api/swagger-petstore)&#xA;- [The source API definition for the Pet Store](https://github.com/swagger-api/swagger-petstore/blob/master/src/main/resources/openapi.yaml) " name="Swagger Petstore - OpenAPI 3.0" URI="" URL="/v3" apiVersion="1.0.5-SNAPSHOT">
-    <ownedServices xmi:id="_9-NtUqvsEeq4bswLyduutQ" technicalid="_9-GYoavsEeq4bswLyduutQ" name="User" URI="/user">
-      <ownedInterface xmi:id="_9-NtU6vsEeq4bswLyduutQ" technicalid="_9-KqC6vsEeq4bswLyduutQ" name="User">
-        <ownedOperations xmi:id="_9-NtVKvsEeq4bswLyduutQ" technicalid="_9-KqDKvsEeq4bswLyduutQ" description="This can only be done by the logged in user." name="createUser" public="true" URI="" verb="POST" exposition="REST">
-          <input xmi:id="_9-NtVavsEeq4bswLyduutQ" technicalid="_9-KqDavsEeq4bswLyduutQ" description="Created user object" type="_9-OUdKvsEeq4bswLyduutQ" name="body" multiplicity="0..1"/>
-          <output xmi:id="_9-NtVqvsEeq4bswLyduutQ" technicalid="_9-LREKvsEeq4bswLyduutQ" description="successful operation" type="_9-OUdKvsEeq4bswLyduutQ" name="outputdefault" multiplicity="0..1" statusCode="default"/>
-        </ownedOperations>
-        <ownedOperations xmi:id="_9-NtV6vsEeq4bswLyduutQ" technicalid="_9-LREavsEeq4bswLyduutQ" description="Creates list of users with given input array" name="createUsersWithListInput" public="true" URI="/createWithList" verb="POST" exposition="REST">
-          <input xmi:id="_9-NtWKvsEeq4bswLyduutQ" technicalid="_9-LREqvsEeq4bswLyduutQ" type="_9-OUdKvsEeq4bswLyduutQ" name="body" multiplicity="0..*"/>
-          <output xmi:id="_9-NtWavsEeq4bswLyduutQ" technicalid="_9-LRE6vsEeq4bswLyduutQ" description="Successful operation" type="_9-OUdKvsEeq4bswLyduutQ" name="output200" multiplicity="0..1" statusCode="200"/>
-          <output xmi:id="_9-NtWqvsEeq4bswLyduutQ" technicalid="_9-L4IKvsEeq4bswLyduutQ" description="successful operation" name="outputdefault" statusCode="default"/>
-        </ownedOperations>
-        <ownedOperations xmi:id="_9-NtW6vsEeq4bswLyduutQ" technicalid="_9-L4IavsEeq4bswLyduutQ" description="" name="loginUser" public="true" URI="/login" exposition="REST">
-          <input xmi:id="_9-NtXKvsEeq4bswLyduutQ" technicalid="_9-L4IqvsEeq4bswLyduutQ" description="The user name for login" name="username" multiplicity="0..1" passingMode="QUERY">
-            <type xsi:type="oenv:PrimitiveType" href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5F-EKwKEd2XLNOhkJIazw"/>
+  <ownedComponents xmi:id="_2GTsoWxtEeuYi_YuNNGyqg" technicalid="_2GJUkGxtEeuYi_YuNNGyqg" description="This is a sample Pet Store Server based on the OpenAPI 3.0 specification.  You can find out more about&#xA;Swagger at [http://swagger.io](http://swagger.io). In the third iteration of the pet store, we've switched to the design first approach!&#xA;You can now help us improve the API whether it's by making changes to the definition itself or to the code.&#xA;That way, with time, we can improve the API in general, and expose some of the new features in OAS3.&#xA;&#xA;Some useful links:&#xA;- [The Pet Store repository](https://github.com/swagger-api/swagger-petstore)&#xA;- [The source API definition for the Pet Store](https://github.com/swagger-api/swagger-petstore/blob/master/src/main/resources/openapi.yaml) " name="Swagger Petstore - OpenAPI 3.0" URI="" URL="/v3" apiVersion="1.0.5-SNAPSHOT">
+    <ownedServices xmi:id="_2GTsomxtEeuYi_YuNNGyqg" technicalid="_2GLw0GxtEeuYi_YuNNGyqg" description="Access to Petstore orders" name="User" URI="/user">
+      <ownedInterface xmi:id="_2GTso2xtEeuYi_YuNNGyqg" technicalid="_2GRQZ2xtEeuYi_YuNNGyqg" name="User">
+        <ownedOperations xmi:id="_2GTspGxtEeuYi_YuNNGyqg" technicalid="_2GRQaGxtEeuYi_YuNNGyqg" description="This can only be done by the logged in user." name="createUser" public="true" URI="" verb="POST" exposition="REST">
+          <input xmi:id="_2GTspWxtEeuYi_YuNNGyqg" technicalid="_2GRQaWxtEeuYi_YuNNGyqg" description="Created user object" type="_2GUTxGxtEeuYi_YuNNGyqg" name="body" multiplicity="0..1">
+            <restData xmi:id="_2GTspmxtEeuYi_YuNNGyqg" technicalid="_2GRQamxtEeuYi_YuNNGyqg"/>
           </input>
-          <input xmi:id="_9-NtXavsEeq4bswLyduutQ" technicalid="_9-L4I6vsEeq4bswLyduutQ" description="The password for login in clear text" name="password" multiplicity="0..1" passingMode="QUERY">
-            <type xsi:type="oenv:PrimitiveType" href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5F-EKwKEd2XLNOhkJIazw"/>
+          <output xmi:id="_2GTsp2xtEeuYi_YuNNGyqg" technicalid="_2GRQa2xtEeuYi_YuNNGyqg" description="successful operation" type="_2GUTxGxtEeuYi_YuNNGyqg" name="outputdefault" multiplicity="0..1" statusCode="default" statusMessage=""/>
+        </ownedOperations>
+        <ownedOperations xmi:id="_2GTsqGxtEeuYi_YuNNGyqg" technicalid="_2GR3cGxtEeuYi_YuNNGyqg" description="Creates list of users with given input array" name="createUsersWithListInput" public="true" URI="/createWithList" verb="POST" exposition="REST">
+          <input xmi:id="_2GTsqWxtEeuYi_YuNNGyqg" technicalid="_2GR3cWxtEeuYi_YuNNGyqg" type="_2GUTxGxtEeuYi_YuNNGyqg" name="body" multiplicity="0..*">
+            <restData xmi:id="_2GTsqmxtEeuYi_YuNNGyqg" technicalid="_2GR3cmxtEeuYi_YuNNGyqg"/>
           </input>
-          <output xmi:id="_9-NtXqvsEeq4bswLyduutQ" technicalid="_9-L4JKvsEeq4bswLyduutQ" description="successful operation" name="output200" multiplicity="0..1" statusCode="200">
+          <output xmi:id="_2GTsq2xtEeuYi_YuNNGyqg" technicalid="_2GR3c2xtEeuYi_YuNNGyqg" description="Successful operation" type="_2GUTxGxtEeuYi_YuNNGyqg" name="output200" multiplicity="0..1" statusCode="200" statusMessage="OK"/>
+          <output xmi:id="_2GTsrGxtEeuYi_YuNNGyqg" technicalid="_2GR3dGxtEeuYi_YuNNGyqg" description="successful operation" name="outputdefault" statusCode="default" statusMessage=""/>
+        </ownedOperations>
+        <ownedOperations xmi:id="_2GTsrWxtEeuYi_YuNNGyqg" technicalid="_2GSegGxtEeuYi_YuNNGyqg" description="" name="loginUser" public="true" URI="/login" exposition="REST">
+          <input xmi:id="_2GTsrmxtEeuYi_YuNNGyqg" technicalid="_2GSegWxtEeuYi_YuNNGyqg" description="The user name for login" name="username" multiplicity="0..1">
+            <type xsi:type="oenv:PrimitiveType" href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5F-EKwKEd2XLNOhkJIazw"/>
+            <restData xmi:id="_2GTsr2xtEeuYi_YuNNGyqg" technicalid="_2GSegmxtEeuYi_YuNNGyqg" passingMode="QUERY" restId="username"/>
+          </input>
+          <input xmi:id="_2GTssGxtEeuYi_YuNNGyqg" technicalid="_2GSeg2xtEeuYi_YuNNGyqg" description="The password for login in clear text" name="password" multiplicity="0..1">
+            <type xsi:type="oenv:PrimitiveType" href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5F-EKwKEd2XLNOhkJIazw"/>
+            <restData xmi:id="_2GTssWxtEeuYi_YuNNGyqg" technicalid="_2GSehGxtEeuYi_YuNNGyqg" passingMode="QUERY" restId="password"/>
+          </input>
+          <output xmi:id="_2GTssmxtEeuYi_YuNNGyqg" technicalid="_2GSehWxtEeuYi_YuNNGyqg" description="successful operation" name="output200" multiplicity="0..1" statusCode="200" statusMessage="OK">
             <type xsi:type="oenv:PrimitiveType" href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5F-EKwKEd2XLNOhkJIazw"/>
           </output>
-          <fault xmi:id="_9-NtX6vsEeq4bswLyduutQ" technicalid="_9-L4JavsEeq4bswLyduutQ" description="Invalid username/password supplied" name="fault400" statusCode="400"/>
+          <fault xmi:id="_2GTss2xtEeuYi_YuNNGyqg" technicalid="_2GSehmxtEeuYi_YuNNGyqg" description="Invalid username/password supplied" name="fault400" statusCode="400" statusMessage="Bad Request"/>
         </ownedOperations>
-        <ownedOperations xmi:id="_9-NtYKvsEeq4bswLyduutQ" technicalid="_9-MfMKvsEeq4bswLyduutQ" description="" name="logoutUser" public="true" URI="/logout" exposition="REST">
-          <output xmi:id="_9-NtYavsEeq4bswLyduutQ" technicalid="_9-MfMavsEeq4bswLyduutQ" description="successful operation" name="outputdefault" statusCode="default"/>
+        <ownedOperations xmi:id="_2GTstGxtEeuYi_YuNNGyqg" technicalid="_2GSeh2xtEeuYi_YuNNGyqg" description="" name="logoutUser" public="true" URI="/logout" exposition="REST">
+          <output xmi:id="_2GTstWxtEeuYi_YuNNGyqg" technicalid="_2GSeiGxtEeuYi_YuNNGyqg" description="successful operation" name="outputdefault" statusCode="default" statusMessage=""/>
         </ownedOperations>
-        <ownedOperations xmi:id="_9-NtYqvsEeq4bswLyduutQ" technicalid="_9-MfMqvsEeq4bswLyduutQ" description="" name="getUserByName" public="true" URI="/{username}" exposition="REST">
-          <input xmi:id="_9-NtY6vsEeq4bswLyduutQ" technicalid="_9-MfM6vsEeq4bswLyduutQ" description="The name that needs to be fetched. Use user1 for testing. " name="username" passingMode="PATH">
+        <ownedOperations xmi:id="_2GTstmxtEeuYi_YuNNGyqg" technicalid="_2GSeiWxtEeuYi_YuNNGyqg" description="" name="getUserByName" public="true" URI="/{username}" exposition="REST">
+          <input xmi:id="_2GTst2xtEeuYi_YuNNGyqg" technicalid="_2GSeimxtEeuYi_YuNNGyqg" description="The name that needs to be fetched. Use user1 for testing. " name="username">
             <type xsi:type="oenv:PrimitiveType" href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5F-EKwKEd2XLNOhkJIazw"/>
+            <restData xmi:id="_2GTsuGxtEeuYi_YuNNGyqg" technicalid="_2GSei2xtEeuYi_YuNNGyqg" passingMode="PATH" restId="username"/>
           </input>
-          <output xmi:id="_9-NtZKvsEeq4bswLyduutQ" technicalid="_9-MfNKvsEeq4bswLyduutQ" description="successful operation" type="_9-OUdKvsEeq4bswLyduutQ" name="output200" multiplicity="0..1" statusCode="200"/>
-          <fault xmi:id="_9-NtZavsEeq4bswLyduutQ" technicalid="_9-MfNavsEeq4bswLyduutQ" description="Invalid username supplied" name="fault400" statusCode="400"/>
-          <fault xmi:id="_9-NtZqvsEeq4bswLyduutQ" technicalid="_9-MfNqvsEeq4bswLyduutQ" description="User not found" name="fault404" statusCode="404"/>
+          <output xmi:id="_2GTsuWxtEeuYi_YuNNGyqg" technicalid="_2GSejGxtEeuYi_YuNNGyqg" description="successful operation" type="_2GUTxGxtEeuYi_YuNNGyqg" name="output200" multiplicity="0..1" statusCode="200" statusMessage="OK"/>
+          <fault xmi:id="_2GTsumxtEeuYi_YuNNGyqg" technicalid="_2GTFkGxtEeuYi_YuNNGyqg" description="Invalid username supplied" name="fault400" statusCode="400" statusMessage="Bad Request"/>
+          <fault xmi:id="_2GTsu2xtEeuYi_YuNNGyqg" technicalid="_2GTFkWxtEeuYi_YuNNGyqg" description="User not found" name="fault404" statusCode="404" statusMessage="Not Found"/>
         </ownedOperations>
-        <ownedOperations xmi:id="_9-NtZ6vsEeq4bswLyduutQ" technicalid="_9-MfN6vsEeq4bswLyduutQ" description="This can only be done by the logged in user." name="updateUser" public="true" URI="/{username}" verb="PUT" exposition="REST">
-          <input xmi:id="_9-NtaKvsEeq4bswLyduutQ" technicalid="_9-NGQKvsEeq4bswLyduutQ" description="name that need to be deleted" name="username" passingMode="PATH">
+        <ownedOperations xmi:id="_2GTsvGxtEeuYi_YuNNGyqg" technicalid="_2GTFkmxtEeuYi_YuNNGyqg" description="This can only be done by the logged in user." name="updateUser" public="true" URI="/{username}" verb="PUT" exposition="REST">
+          <input xmi:id="_2GTsvWxtEeuYi_YuNNGyqg" technicalid="_2GTFk2xtEeuYi_YuNNGyqg" description="name that need to be deleted" name="username">
             <type xsi:type="oenv:PrimitiveType" href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5F-EKwKEd2XLNOhkJIazw"/>
+            <restData xmi:id="_2GTsvmxtEeuYi_YuNNGyqg" technicalid="_2GTFlGxtEeuYi_YuNNGyqg" passingMode="PATH" restId="username"/>
           </input>
-          <input xmi:id="_9-NtaavsEeq4bswLyduutQ" technicalid="_9-NGQavsEeq4bswLyduutQ" description="Update an existent user in the store" type="_9-OUdKvsEeq4bswLyduutQ" name="body" multiplicity="0..1"/>
-          <output xmi:id="_9-NtaqvsEeq4bswLyduutQ" technicalid="_9-NGQqvsEeq4bswLyduutQ" description="successful operation" name="outputdefault" statusCode="default"/>
+          <input xmi:id="_2GTsv2xtEeuYi_YuNNGyqg" technicalid="_2GTFlWxtEeuYi_YuNNGyqg" description="Update an existent user in the store" type="_2GUTxGxtEeuYi_YuNNGyqg" name="body" multiplicity="0..1">
+            <restData xmi:id="_2GTswGxtEeuYi_YuNNGyqg" technicalid="_2GTFlmxtEeuYi_YuNNGyqg"/>
+          </input>
+          <output xmi:id="_2GTswWxtEeuYi_YuNNGyqg" technicalid="_2GTFl2xtEeuYi_YuNNGyqg" description="successful operation" name="outputdefault" statusCode="default" statusMessage=""/>
         </ownedOperations>
-        <ownedOperations xmi:id="_9-Nta6vsEeq4bswLyduutQ" technicalid="_9-NGQ6vsEeq4bswLyduutQ" description="This can only be done by the logged in user." name="deleteUser" public="true" URI="/{username}" verb="DELETE" exposition="REST">
-          <input xmi:id="_9-NtbKvsEeq4bswLyduutQ" technicalid="_9-NGRKvsEeq4bswLyduutQ" description="The name that needs to be deleted" name="username" passingMode="PATH">
+        <ownedOperations xmi:id="_2GTswmxtEeuYi_YuNNGyqg" technicalid="_2GTFmGxtEeuYi_YuNNGyqg" description="This can only be done by the logged in user." name="deleteUser" public="true" URI="/{username}" verb="DELETE" exposition="REST">
+          <input xmi:id="_2GTsw2xtEeuYi_YuNNGyqg" technicalid="_2GTFmWxtEeuYi_YuNNGyqg" description="The name that needs to be deleted" name="username">
             <type xsi:type="oenv:PrimitiveType" href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5F-EKwKEd2XLNOhkJIazw"/>
+            <restData xmi:id="_2GTsxGxtEeuYi_YuNNGyqg" technicalid="_2GTFmmxtEeuYi_YuNNGyqg" passingMode="PATH" restId="username"/>
           </input>
-          <fault xmi:id="_9-NtbavsEeq4bswLyduutQ" technicalid="_9-NGRavsEeq4bswLyduutQ" description="Invalid username supplied" name="fault400" statusCode="400"/>
-          <fault xmi:id="_9-NtbqvsEeq4bswLyduutQ" technicalid="_9-NGRqvsEeq4bswLyduutQ" description="User not found" name="fault404" statusCode="404"/>
+          <fault xmi:id="_2GTsxWxtEeuYi_YuNNGyqg" technicalid="_2GTFm2xtEeuYi_YuNNGyqg" description="Invalid username supplied" name="fault400" statusCode="400" statusMessage="Bad Request"/>
+          <fault xmi:id="_2GTsxmxtEeuYi_YuNNGyqg" technicalid="_2GTFnGxtEeuYi_YuNNGyqg" description="User not found" name="fault404" statusCode="404" statusMessage="Not Found"/>
         </ownedOperations>
       </ownedInterface>
     </ownedServices>
-    <ownedServices xmi:id="_9-Ntb6vsEeq4bswLyduutQ" technicalid="_9-GYoqvsEeq4bswLyduutQ" name="Store" URI="/store">
-      <ownedInterface xmi:id="_9-NtcKvsEeq4bswLyduutQ" technicalid="_9-KC9qvsEeq4bswLyduutQ" name="Store">
-        <ownedOperations xmi:id="_9-NtcavsEeq4bswLyduutQ" technicalid="_9-KC96vsEeq4bswLyduutQ" description="Returns a map of status codes to quantities" name="getInventory" public="true" URI="/inventory" exposition="REST">
-          <output xmi:id="_9-NtcqvsEeq4bswLyduutQ" technicalid="_9-KC-KvsEeq4bswLyduutQ" description="successful operation" type="_9-OUlKvsEeq4bswLyduutQ" name="output200" multiplicity="0..1" statusCode="200"/>
+    <ownedServices xmi:id="_2GTsx2xtEeuYi_YuNNGyqg" technicalid="_2GMX4GxtEeuYi_YuNNGyqg" description="Operations about user" name="Store" URI="/store">
+      <ownedInterface xmi:id="_2GTsyGxtEeuYi_YuNNGyqg" technicalid="_2GQCWGxtEeuYi_YuNNGyqg" name="Store">
+        <ownedOperations xmi:id="_2GTsyWxtEeuYi_YuNNGyqg" technicalid="_2GQCWWxtEeuYi_YuNNGyqg" description="Returns a map of status codes to quantities" name="getInventory" public="true" URI="/inventory" exposition="REST" securitySchemes="_2GTtEGxtEeuYi_YuNNGyqg">
+          <output xmi:id="_2GTsymxtEeuYi_YuNNGyqg" technicalid="_2GQCWmxtEeuYi_YuNNGyqg" description="successful operation" type="_2GUT5GxtEeuYi_YuNNGyqg" name="output200" multiplicity="0..1" statusCode="200" statusMessage="OK"/>
         </ownedOperations>
-        <ownedOperations xmi:id="_9-Ntc6vsEeq4bswLyduutQ" technicalid="_9-KC-qvsEeq4bswLyduutQ" description="Place a new order in the store" name="placeOrder" public="true" URI="/order" verb="POST" exposition="REST">
-          <input xmi:id="_9-NtdKvsEeq4bswLyduutQ" technicalid="_9-KC-6vsEeq4bswLyduutQ" type="_9-OUYavsEeq4bswLyduutQ" name="body" multiplicity="0..1"/>
-          <output xmi:id="_9-NtdavsEeq4bswLyduutQ" technicalid="_9-KqAKvsEeq4bswLyduutQ" description="successful operation" type="_9-OUYavsEeq4bswLyduutQ" name="output200" multiplicity="0..1" statusCode="200"/>
-          <fault xmi:id="_9-NtdqvsEeq4bswLyduutQ" technicalid="_9-KqAavsEeq4bswLyduutQ" description="Invalid input" name="fault405" statusCode="405"/>
-        </ownedOperations>
-        <ownedOperations xmi:id="_9-Ntd6vsEeq4bswLyduutQ" technicalid="_9-KqAqvsEeq4bswLyduutQ" description="For valid response try integer IDs with value &lt;= 5 or > 10. Other values will generated exceptions" name="getOrderById" public="true" URI="/order/{orderId}" exposition="REST">
-          <input xmi:id="_9-NteKvsEeq4bswLyduutQ" technicalid="_9-KqA6vsEeq4bswLyduutQ" description="ID of order that needs to be fetched" name="orderId" passingMode="PATH">
-            <type xsi:type="oenv:PrimitiveType" href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_9dnH8bGqEd2SRpTkL4GntA"/>
+        <ownedOperations xmi:id="_2GTsy2xtEeuYi_YuNNGyqg" technicalid="_2GQCXGxtEeuYi_YuNNGyqg" description="Place a new order in the store" name="placeOrder" public="true" URI="/order" verb="POST" exposition="REST">
+          <input xmi:id="_2GTszGxtEeuYi_YuNNGyqg" technicalid="_2GQCXWxtEeuYi_YuNNGyqg" type="_2GUTsWxtEeuYi_YuNNGyqg" name="body" multiplicity="0..1">
+            <restData xmi:id="_2GTszWxtEeuYi_YuNNGyqg" technicalid="_2GQCXmxtEeuYi_YuNNGyqg"/>
           </input>
-          <output xmi:id="_9-NteavsEeq4bswLyduutQ" technicalid="_9-KqBKvsEeq4bswLyduutQ" description="successful operation" type="_9-OUYavsEeq4bswLyduutQ" name="output200" multiplicity="0..1" statusCode="200"/>
-          <fault xmi:id="_9-NteqvsEeq4bswLyduutQ" technicalid="_9-KqBavsEeq4bswLyduutQ" description="Invalid ID supplied" name="fault400" statusCode="400"/>
-          <fault xmi:id="_9-Nte6vsEeq4bswLyduutQ" technicalid="_9-KqBqvsEeq4bswLyduutQ" description="Order not found" name="fault404" statusCode="404"/>
+          <output xmi:id="_2GTszmxtEeuYi_YuNNGyqg" technicalid="_2GQpUGxtEeuYi_YuNNGyqg" description="successful operation" type="_2GUTsWxtEeuYi_YuNNGyqg" name="output200" multiplicity="0..1" statusCode="200" statusMessage="OK"/>
+          <fault xmi:id="_2GTsz2xtEeuYi_YuNNGyqg" technicalid="_2GQpUWxtEeuYi_YuNNGyqg" description="Invalid input" name="fault405" statusCode="405" statusMessage="Method Not Allowed"/>
         </ownedOperations>
-        <ownedOperations xmi:id="_9-NtfKvsEeq4bswLyduutQ" technicalid="_9-KqB6vsEeq4bswLyduutQ" description="For valid response try integer IDs with value &lt; 1000. Anything above 1000 or nonintegers will generate API errors" name="deleteOrder" public="true" URI="/order/{orderId}" verb="DELETE" exposition="REST">
-          <input xmi:id="_9-NtfavsEeq4bswLyduutQ" technicalid="_9-KqCKvsEeq4bswLyduutQ" description="ID of the order that needs to be deleted" name="orderId" passingMode="PATH">
+        <ownedOperations xmi:id="_2GTs0GxtEeuYi_YuNNGyqg" technicalid="_2GQpUmxtEeuYi_YuNNGyqg" description="For valid response try integer IDs with value &lt;= 5 or > 10. Other values will generated exceptions" name="getOrderById" public="true" URI="/order/{orderId}" exposition="REST">
+          <input xmi:id="_2GTs0WxtEeuYi_YuNNGyqg" technicalid="_2GQpU2xtEeuYi_YuNNGyqg" description="ID of order that needs to be fetched" name="orderId">
             <type xsi:type="oenv:PrimitiveType" href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_9dnH8bGqEd2SRpTkL4GntA"/>
+            <restData xmi:id="_2GTs0mxtEeuYi_YuNNGyqg" technicalid="_2GQpVGxtEeuYi_YuNNGyqg" passingMode="PATH" restId="orderId"/>
           </input>
-          <fault xmi:id="_9-NtfqvsEeq4bswLyduutQ" technicalid="_9-KqCavsEeq4bswLyduutQ" description="Invalid ID supplied" name="fault400" statusCode="400"/>
-          <fault xmi:id="_9-Ntf6vsEeq4bswLyduutQ" technicalid="_9-KqCqvsEeq4bswLyduutQ" description="Order not found" name="fault404" statusCode="404"/>
+          <output xmi:id="_2GTs02xtEeuYi_YuNNGyqg" technicalid="_2GQpVWxtEeuYi_YuNNGyqg" description="successful operation" type="_2GUTsWxtEeuYi_YuNNGyqg" name="output200" multiplicity="0..1" statusCode="200" statusMessage="OK"/>
+          <fault xmi:id="_2GTs1GxtEeuYi_YuNNGyqg" technicalid="_2GRQYGxtEeuYi_YuNNGyqg" description="Invalid ID supplied" name="fault400" statusCode="400" statusMessage="Bad Request"/>
+          <fault xmi:id="_2GTs1WxtEeuYi_YuNNGyqg" technicalid="_2GRQYWxtEeuYi_YuNNGyqg" description="Order not found" name="fault404" statusCode="404" statusMessage="Not Found"/>
+        </ownedOperations>
+        <ownedOperations xmi:id="_2GTs1mxtEeuYi_YuNNGyqg" technicalid="_2GRQYmxtEeuYi_YuNNGyqg" description="For valid response try integer IDs with value &lt; 1000. Anything above 1000 or nonintegers will generate API errors" name="deleteOrder" public="true" URI="/order/{orderId}" verb="DELETE" exposition="REST">
+          <input xmi:id="_2GTs12xtEeuYi_YuNNGyqg" technicalid="_2GRQY2xtEeuYi_YuNNGyqg" description="ID of the order that needs to be deleted" name="orderId">
+            <type xsi:type="oenv:PrimitiveType" href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_9dnH8bGqEd2SRpTkL4GntA"/>
+            <restData xmi:id="_2GTs2GxtEeuYi_YuNNGyqg" technicalid="_2GRQZGxtEeuYi_YuNNGyqg" passingMode="PATH" restId="orderId"/>
+          </input>
+          <fault xmi:id="_2GTs2WxtEeuYi_YuNNGyqg" technicalid="_2GRQZWxtEeuYi_YuNNGyqg" description="Invalid ID supplied" name="fault400" statusCode="400" statusMessage="Bad Request"/>
+          <fault xmi:id="_2GTs2mxtEeuYi_YuNNGyqg" technicalid="_2GRQZmxtEeuYi_YuNNGyqg" description="Order not found" name="fault404" statusCode="404" statusMessage="Not Found"/>
         </ownedOperations>
       </ownedInterface>
     </ownedServices>
-    <ownedServices xmi:id="_9-NtgKvsEeq4bswLyduutQ" technicalid="_9-GYo6vsEeq4bswLyduutQ" name="Pet" URI="/pet">
-      <ownedInterface xmi:id="_9-NtgavsEeq4bswLyduutQ" technicalid="_9-G_oKvsEeq4bswLyduutQ" name="Pet">
-        <ownedOperations xmi:id="_9-NtgqvsEeq4bswLyduutQ" technicalid="_9-G_oavsEeq4bswLyduutQ" description="Update an existing pet by Id" name="updatePet" public="true" URI="" verb="PUT" exposition="REST">
-          <input xmi:id="_9-Ntg6vsEeq4bswLyduutQ" technicalid="_9-G_oqvsEeq4bswLyduutQ" description="Update an existent pet in the store" type="_9-OUgKvsEeq4bswLyduutQ" name="body"/>
-          <output xmi:id="_9-NthKvsEeq4bswLyduutQ" technicalid="_9-G_o6vsEeq4bswLyduutQ" description="Successful operation" type="_9-OUgKvsEeq4bswLyduutQ" name="output200" multiplicity="0..1" statusCode="200"/>
-          <fault xmi:id="_9-NthavsEeq4bswLyduutQ" technicalid="_9-HmsKvsEeq4bswLyduutQ" description="Invalid ID supplied" name="fault400" statusCode="400"/>
-          <fault xmi:id="_9-NthqvsEeq4bswLyduutQ" technicalid="_9-HmsavsEeq4bswLyduutQ" description="Pet not found" name="fault404" statusCode="404"/>
-          <fault xmi:id="_9-Nth6vsEeq4bswLyduutQ" technicalid="_9-HmsqvsEeq4bswLyduutQ" description="Validation exception" name="fault405" statusCode="405"/>
-        </ownedOperations>
-        <ownedOperations xmi:id="_9-NtiKvsEeq4bswLyduutQ" technicalid="_9-Hms6vsEeq4bswLyduutQ" description="Add a new pet to the store" name="addPet" public="true" URI="" verb="POST" exposition="REST">
-          <input xmi:id="_9-NtiavsEeq4bswLyduutQ" technicalid="_9-HmtKvsEeq4bswLyduutQ" description="Create a new pet in the store" type="_9-OUgKvsEeq4bswLyduutQ" name="body"/>
-          <output xmi:id="_9-NtiqvsEeq4bswLyduutQ" technicalid="_9-INwKvsEeq4bswLyduutQ" description="Successful operation" type="_9-OUgKvsEeq4bswLyduutQ" name="output200" multiplicity="0..1" statusCode="200"/>
-          <fault xmi:id="_9-Nti6vsEeq4bswLyduutQ" technicalid="_9-INwavsEeq4bswLyduutQ" description="Invalid input" name="fault405" statusCode="405"/>
-        </ownedOperations>
-        <ownedOperations xmi:id="_9-NtjKvsEeq4bswLyduutQ" technicalid="_9-INwqvsEeq4bswLyduutQ" description="Multiple status values can be provided with comma separated strings" name="findPetsByStatus" public="true" URI="/findByStatus" exposition="REST">
-          <input xmi:id="_9-NtjavsEeq4bswLyduutQ" technicalid="_9-INw6vsEeq4bswLyduutQ" description="Status values that need to be considered for filter" type="_9-OUi6vsEeq4bswLyduutQ" name="status" multiplicity="0..1" passingMode="QUERY"/>
-          <output xmi:id="_9-NtjqvsEeq4bswLyduutQ" technicalid="_9-INyKvsEeq4bswLyduutQ" description="successful operation" type="_9-OUgKvsEeq4bswLyduutQ" name="output200" multiplicity="0..*" statusCode="200"/>
-          <fault xmi:id="_9-Ntj6vsEeq4bswLyduutQ" technicalid="_9-I00KvsEeq4bswLyduutQ" description="Invalid status value" name="fault400" statusCode="400"/>
-        </ownedOperations>
-        <ownedOperations xmi:id="_9-NtkKvsEeq4bswLyduutQ" technicalid="_9-I00avsEeq4bswLyduutQ" description="Multiple tags can be provided with comma separated strings. Use tag1, tag2, tag3 for testing." name="findPetsByTags" public="true" URI="/findByTags" exposition="REST">
-          <input xmi:id="_9-NtkavsEeq4bswLyduutQ" technicalid="_9-I00qvsEeq4bswLyduutQ" description="Tags to filter by" name="tags" multiplicity="0..*" passingMode="QUERY">
-            <type xsi:type="oenv:PrimitiveType" href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5F-EKwKEd2XLNOhkJIazw"/>
+    <ownedServices xmi:id="_2GTs22xtEeuYi_YuNNGyqg" technicalid="_2GMX4WxtEeuYi_YuNNGyqg" description="Everything about your Pets" name="Pet" URI="/pet">
+      <ownedInterface xmi:id="_2GTs3GxtEeuYi_YuNNGyqg" technicalid="_2GMX4mxtEeuYi_YuNNGyqg" name="Pet">
+        <ownedOperations xmi:id="_2GTs3WxtEeuYi_YuNNGyqg" technicalid="_2GMX42xtEeuYi_YuNNGyqg" description="Update an existing pet by Id" name="updatePet" public="true" URI="" verb="PUT" exposition="REST" securitySchemes="_2GTtD2xtEeuYi_YuNNGyqg">
+          <input xmi:id="_2GTs3mxtEeuYi_YuNNGyqg" technicalid="_2GMX5GxtEeuYi_YuNNGyqg" description="Update an existent pet in the store" type="_2GUT0GxtEeuYi_YuNNGyqg" name="body">
+            <restData xmi:id="_2GTs32xtEeuYi_YuNNGyqg" technicalid="_2GMX5WxtEeuYi_YuNNGyqg"/>
           </input>
-          <output xmi:id="_9-NtkqvsEeq4bswLyduutQ" technicalid="_9-I006vsEeq4bswLyduutQ" description="successful operation" type="_9-OUgKvsEeq4bswLyduutQ" name="output200" multiplicity="0..*" statusCode="200"/>
-          <fault xmi:id="_9-Ntk6vsEeq4bswLyduutQ" technicalid="_9-Jb4KvsEeq4bswLyduutQ" description="Invalid tag value" name="fault400" statusCode="400"/>
+          <output xmi:id="_2GTs4GxtEeuYi_YuNNGyqg" technicalid="_2GM-8GxtEeuYi_YuNNGyqg" description="Successful operation" type="_2GUT0GxtEeuYi_YuNNGyqg" name="output200" multiplicity="0..1" statusCode="200" statusMessage="OK"/>
+          <fault xmi:id="_2GTs4WxtEeuYi_YuNNGyqg" technicalid="_2GNmAGxtEeuYi_YuNNGyqg" description="Invalid ID supplied" name="fault400" statusCode="400" statusMessage="Bad Request"/>
+          <fault xmi:id="_2GTs4mxtEeuYi_YuNNGyqg" technicalid="_2GNmAWxtEeuYi_YuNNGyqg" description="Pet not found" name="fault404" statusCode="404" statusMessage="Not Found"/>
+          <fault xmi:id="_2GTs42xtEeuYi_YuNNGyqg" technicalid="_2GNmAmxtEeuYi_YuNNGyqg" description="Validation exception" name="fault405" statusCode="405" statusMessage="Method Not Allowed"/>
         </ownedOperations>
-        <ownedOperations xmi:id="_9-NtlKvsEeq4bswLyduutQ" technicalid="_9-Jb4avsEeq4bswLyduutQ" description="Returns a single pet" name="getPetById" public="true" URI="/{petId}" exposition="REST">
-          <input xmi:id="_9-NtlavsEeq4bswLyduutQ" technicalid="_9-Jb4qvsEeq4bswLyduutQ" description="ID of pet to return" name="petId" passingMode="PATH">
+        <ownedOperations xmi:id="_2GTs5GxtEeuYi_YuNNGyqg" technicalid="_2GNmA2xtEeuYi_YuNNGyqg" description="Add a new pet to the store" name="addPet" public="true" URI="" verb="POST" exposition="REST" securitySchemes="_2GTtD2xtEeuYi_YuNNGyqg">
+          <input xmi:id="_2GTs5WxtEeuYi_YuNNGyqg" technicalid="_2GNmBGxtEeuYi_YuNNGyqg" description="Create a new pet in the store" type="_2GUT0GxtEeuYi_YuNNGyqg" name="body">
+            <restData xmi:id="_2GTs5mxtEeuYi_YuNNGyqg" technicalid="_2GNmBWxtEeuYi_YuNNGyqg"/>
+          </input>
+          <output xmi:id="_2GTs52xtEeuYi_YuNNGyqg" technicalid="_2GONEGxtEeuYi_YuNNGyqg" description="Successful operation" type="_2GUT0GxtEeuYi_YuNNGyqg" name="output200" multiplicity="0..1" statusCode="200" statusMessage="OK"/>
+          <fault xmi:id="_2GTs6GxtEeuYi_YuNNGyqg" technicalid="_2GONEWxtEeuYi_YuNNGyqg" description="Invalid input" name="fault405" statusCode="405" statusMessage="Method Not Allowed"/>
+        </ownedOperations>
+        <ownedOperations xmi:id="_2GTs6WxtEeuYi_YuNNGyqg" technicalid="_2GO0IGxtEeuYi_YuNNGyqg" description="Multiple status values can be provided with comma separated strings" name="findPetsByStatus" public="true" URI="/findByStatus" exposition="REST" securitySchemes="_2GTtD2xtEeuYi_YuNNGyqg">
+          <input xmi:id="_2GTs6mxtEeuYi_YuNNGyqg" technicalid="_2GO0IWxtEeuYi_YuNNGyqg" description="Status values that need to be considered for filter" type="_2GUT32xtEeuYi_YuNNGyqg" name="status" multiplicity="0..1">
+            <restData xmi:id="_2GTs62xtEeuYi_YuNNGyqg" technicalid="_2GO0ImxtEeuYi_YuNNGyqg" passingMode="QUERY" restId="status"/>
+          </input>
+          <output xmi:id="_2GTs7GxtEeuYi_YuNNGyqg" technicalid="_2GO0J2xtEeuYi_YuNNGyqg" description="successful operation" type="_2GUT0GxtEeuYi_YuNNGyqg" name="output200" multiplicity="0..*" statusCode="200" statusMessage="OK"/>
+          <fault xmi:id="_2GTs7WxtEeuYi_YuNNGyqg" technicalid="_2GO0KGxtEeuYi_YuNNGyqg" description="Invalid status value" name="fault400" statusCode="400" statusMessage="Bad Request"/>
+        </ownedOperations>
+        <ownedOperations xmi:id="_2GTs7mxtEeuYi_YuNNGyqg" technicalid="_2GPbMGxtEeuYi_YuNNGyqg" description="Multiple tags can be provided with comma separated strings. Use tag1, tag2, tag3 for testing." name="findPetsByTags" public="true" URI="/findByTags" exposition="REST" securitySchemes="_2GTtD2xtEeuYi_YuNNGyqg">
+          <input xmi:id="_2GTs72xtEeuYi_YuNNGyqg" technicalid="_2GPbMWxtEeuYi_YuNNGyqg" description="Tags to filter by" name="tags" multiplicity="0..*">
+            <type xsi:type="oenv:PrimitiveType" href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5F-EKwKEd2XLNOhkJIazw"/>
+            <restData xmi:id="_2GTs8GxtEeuYi_YuNNGyqg" technicalid="_2GPbMmxtEeuYi_YuNNGyqg" passingMode="QUERY" restId="tags"/>
+          </input>
+          <output xmi:id="_2GTs8WxtEeuYi_YuNNGyqg" technicalid="_2GPbM2xtEeuYi_YuNNGyqg" description="successful operation" type="_2GUT0GxtEeuYi_YuNNGyqg" name="output200" multiplicity="0..*" statusCode="200" statusMessage="OK"/>
+          <fault xmi:id="_2GTs8mxtEeuYi_YuNNGyqg" technicalid="_2GPbNGxtEeuYi_YuNNGyqg" description="Invalid tag value" name="fault400" statusCode="400" statusMessage="Bad Request"/>
+        </ownedOperations>
+        <ownedOperations xmi:id="_2GTs82xtEeuYi_YuNNGyqg" technicalid="_2GPbNWxtEeuYi_YuNNGyqg" description="Returns a single pet" name="getPetById" public="true" URI="/{petId}" exposition="REST" securitySchemes="_2GTtEGxtEeuYi_YuNNGyqg _2GTtD2xtEeuYi_YuNNGyqg">
+          <input xmi:id="_2GTs9GxtEeuYi_YuNNGyqg" technicalid="_2GPbNmxtEeuYi_YuNNGyqg" description="ID of pet to return" name="petId">
             <type xsi:type="oenv:PrimitiveType" href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_9dnH8bGqEd2SRpTkL4GntA"/>
+            <restData xmi:id="_2GTs9WxtEeuYi_YuNNGyqg" technicalid="_2GPbN2xtEeuYi_YuNNGyqg" passingMode="PATH" restId="petId"/>
           </input>
-          <output xmi:id="_9-NtlqvsEeq4bswLyduutQ" technicalid="_9-Jb46vsEeq4bswLyduutQ" description="successful operation" type="_9-OUgKvsEeq4bswLyduutQ" name="output200" multiplicity="0..1" statusCode="200"/>
-          <fault xmi:id="_9-Ntl6vsEeq4bswLyduutQ" technicalid="_9-Jb5KvsEeq4bswLyduutQ" description="Invalid ID supplied" name="fault400" statusCode="400"/>
-          <fault xmi:id="_9-NtmKvsEeq4bswLyduutQ" technicalid="_9-Jb5avsEeq4bswLyduutQ" description="Pet not found" name="fault404" statusCode="404"/>
+          <output xmi:id="_2GTs9mxtEeuYi_YuNNGyqg" technicalid="_2GPbOGxtEeuYi_YuNNGyqg" description="successful operation" type="_2GUT0GxtEeuYi_YuNNGyqg" name="output200" multiplicity="0..1" statusCode="200" statusMessage="OK"/>
+          <fault xmi:id="_2GTs92xtEeuYi_YuNNGyqg" technicalid="_2GQCQGxtEeuYi_YuNNGyqg" description="Invalid ID supplied" name="fault400" statusCode="400" statusMessage="Bad Request"/>
+          <fault xmi:id="_2GTs-GxtEeuYi_YuNNGyqg" technicalid="_2GQCQWxtEeuYi_YuNNGyqg" description="Pet not found" name="fault404" statusCode="404" statusMessage="Not Found"/>
         </ownedOperations>
-        <ownedOperations xmi:id="_9-NtmavsEeq4bswLyduutQ" technicalid="_9-Jb5qvsEeq4bswLyduutQ" description="" name="updatePetWithForm" public="true" URI="/{petId}" verb="POST" exposition="REST">
-          <input xmi:id="_9-NtmqvsEeq4bswLyduutQ" technicalid="_9-Jb56vsEeq4bswLyduutQ" description="ID of pet that needs to be updated" name="petId" passingMode="PATH">
+        <ownedOperations xmi:id="_2GTs-WxtEeuYi_YuNNGyqg" technicalid="_2GQCQmxtEeuYi_YuNNGyqg" description="" name="updatePetWithForm" public="true" URI="/{petId}" verb="POST" exposition="REST" securitySchemes="_2GTtD2xtEeuYi_YuNNGyqg">
+          <input xmi:id="_2GTs-mxtEeuYi_YuNNGyqg" technicalid="_2GQCQ2xtEeuYi_YuNNGyqg" description="ID of pet that needs to be updated" name="petId">
             <type xsi:type="oenv:PrimitiveType" href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_9dnH8bGqEd2SRpTkL4GntA"/>
+            <restData xmi:id="_2GTs-2xtEeuYi_YuNNGyqg" technicalid="_2GQCRGxtEeuYi_YuNNGyqg" passingMode="PATH" restId="petId"/>
           </input>
-          <input xmi:id="_9-Ntm6vsEeq4bswLyduutQ" technicalid="_9-Jb6KvsEeq4bswLyduutQ" description="Name of pet that needs to be updated" name="name" multiplicity="0..1" passingMode="QUERY">
+          <input xmi:id="_2GTs_GxtEeuYi_YuNNGyqg" technicalid="_2GQCRWxtEeuYi_YuNNGyqg" description="Name of pet that needs to be updated" name="name" multiplicity="0..1">
             <type xsi:type="oenv:PrimitiveType" href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5F-EKwKEd2XLNOhkJIazw"/>
+            <restData xmi:id="_2GTs_WxtEeuYi_YuNNGyqg" technicalid="_2GQCRmxtEeuYi_YuNNGyqg" passingMode="QUERY" restId="name"/>
           </input>
-          <input xmi:id="_9-NtnKvsEeq4bswLyduutQ" technicalid="_9-Jb6avsEeq4bswLyduutQ" description="Status of pet that needs to be updated" name="status" multiplicity="0..1" passingMode="QUERY">
+          <input xmi:id="_2GTs_mxtEeuYi_YuNNGyqg" technicalid="_2GQCR2xtEeuYi_YuNNGyqg" description="Status of pet that needs to be updated" name="status" multiplicity="0..1">
             <type xsi:type="oenv:PrimitiveType" href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5F-EKwKEd2XLNOhkJIazw"/>
+            <restData xmi:id="_2GTs_2xtEeuYi_YuNNGyqg" technicalid="_2GQCSGxtEeuYi_YuNNGyqg" passingMode="QUERY" restId="status"/>
           </input>
-          <fault xmi:id="_9-NtnavsEeq4bswLyduutQ" technicalid="_9-Jb6qvsEeq4bswLyduutQ" description="Invalid input" name="fault405" statusCode="405"/>
+          <fault xmi:id="_2GTtAGxtEeuYi_YuNNGyqg" technicalid="_2GQCSWxtEeuYi_YuNNGyqg" description="Invalid input" name="fault405" statusCode="405" statusMessage="Method Not Allowed"/>
         </ownedOperations>
-        <ownedOperations xmi:id="_9-NtnqvsEeq4bswLyduutQ" technicalid="_9-Jb66vsEeq4bswLyduutQ" description="" name="deletePet" public="true" URI="/{petId}" verb="DELETE" exposition="REST">
-          <input xmi:id="_9-Ntn6vsEeq4bswLyduutQ" technicalid="_9-Jb7KvsEeq4bswLyduutQ" description="" name="api_key" multiplicity="0..1" passingMode="HEADER">
+        <ownedOperations xmi:id="_2GTtAWxtEeuYi_YuNNGyqg" technicalid="_2GQCSmxtEeuYi_YuNNGyqg" description="" name="deletePet" public="true" URI="/{petId}" verb="DELETE" exposition="REST" securitySchemes="_2GTtD2xtEeuYi_YuNNGyqg">
+          <input xmi:id="_2GTtAmxtEeuYi_YuNNGyqg" technicalid="_2GQCS2xtEeuYi_YuNNGyqg" description="" name="api_key" multiplicity="0..1">
             <type xsi:type="oenv:PrimitiveType" href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5F-EKwKEd2XLNOhkJIazw"/>
+            <restData xmi:id="_2GTtA2xtEeuYi_YuNNGyqg" technicalid="_2GQCTGxtEeuYi_YuNNGyqg" passingMode="HEADER" restId="api_key"/>
           </input>
-          <input xmi:id="_9-NtoKvsEeq4bswLyduutQ" technicalid="_9-Jb7avsEeq4bswLyduutQ" description="Pet id to delete" name="petId" passingMode="PATH">
+          <input xmi:id="_2GTtBGxtEeuYi_YuNNGyqg" technicalid="_2GQCTWxtEeuYi_YuNNGyqg" description="Pet id to delete" name="petId">
             <type xsi:type="oenv:PrimitiveType" href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_9dnH8bGqEd2SRpTkL4GntA"/>
+            <restData xmi:id="_2GTtBWxtEeuYi_YuNNGyqg" technicalid="_2GQCTmxtEeuYi_YuNNGyqg" passingMode="PATH" restId="petId"/>
           </input>
-          <fault xmi:id="_9-NtoavsEeq4bswLyduutQ" technicalid="_9-KC8KvsEeq4bswLyduutQ" description="Invalid pet value" name="fault400" statusCode="400"/>
+          <fault xmi:id="_2GTtBmxtEeuYi_YuNNGyqg" technicalid="_2GQCT2xtEeuYi_YuNNGyqg" description="Invalid pet value" name="fault400" statusCode="400" statusMessage="Bad Request"/>
         </ownedOperations>
-        <ownedOperations xmi:id="_9-NtoqvsEeq4bswLyduutQ" technicalid="_9-KC8avsEeq4bswLyduutQ" description="" name="uploadFile" public="true" URI="/{petId}/uploadImage" verb="POST" exposition="REST">
-          <input xmi:id="_9-Nto6vsEeq4bswLyduutQ" technicalid="_9-KC8qvsEeq4bswLyduutQ" description="ID of pet to update" name="petId" passingMode="PATH">
+        <ownedOperations xmi:id="_2GTtB2xtEeuYi_YuNNGyqg" technicalid="_2GQCUGxtEeuYi_YuNNGyqg" description="" name="uploadFile" public="true" URI="/{petId}/uploadImage" verb="POST" exposition="REST" securitySchemes="_2GTtD2xtEeuYi_YuNNGyqg">
+          <input xmi:id="_2GTtCGxtEeuYi_YuNNGyqg" technicalid="_2GQCUWxtEeuYi_YuNNGyqg" description="ID of pet to update" name="petId">
             <type xsi:type="oenv:PrimitiveType" href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_9dnH8bGqEd2SRpTkL4GntA"/>
+            <restData xmi:id="_2GTtCWxtEeuYi_YuNNGyqg" technicalid="_2GQCUmxtEeuYi_YuNNGyqg" passingMode="PATH" restId="petId"/>
           </input>
-          <input xmi:id="_9-NtpKvsEeq4bswLyduutQ" technicalid="_9-KC86vsEeq4bswLyduutQ" description="Additional Metadata" name="additionalMetadata" multiplicity="0..1" passingMode="QUERY">
+          <input xmi:id="_2GTtCmxtEeuYi_YuNNGyqg" technicalid="_2GQCU2xtEeuYi_YuNNGyqg" description="Additional Metadata" name="additionalMetadata" multiplicity="0..1">
             <type xsi:type="oenv:PrimitiveType" href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5F-EKwKEd2XLNOhkJIazw"/>
+            <restData xmi:id="_2GTtC2xtEeuYi_YuNNGyqg" technicalid="_2GQCVGxtEeuYi_YuNNGyqg" passingMode="QUERY" restId="additionalMetadata"/>
           </input>
-          <input xmi:id="_9-NtpavsEeq4bswLyduutQ" technicalid="_9-KC9KvsEeq4bswLyduutQ" name="body" multiplicity="0..1">
+          <input xmi:id="_2GTtDGxtEeuYi_YuNNGyqg" technicalid="_2GQCVWxtEeuYi_YuNNGyqg" name="body" multiplicity="0..1">
             <type xsi:type="oenv:PrimitiveType" href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_SKJz0PsREeWC2u5kehASiQ"/>
+            <restData xmi:id="_2GTtDWxtEeuYi_YuNNGyqg" technicalid="_2GQCVmxtEeuYi_YuNNGyqg"/>
           </input>
-          <output xmi:id="_9-NtpqvsEeq4bswLyduutQ" technicalid="_9-KC9avsEeq4bswLyduutQ" description="successful operation" type="_9-OUh6vsEeq4bswLyduutQ" name="output200" multiplicity="0..1" statusCode="200"/>
+          <output xmi:id="_2GTtDmxtEeuYi_YuNNGyqg" technicalid="_2GQCV2xtEeuYi_YuNNGyqg" description="successful operation" type="_2GUT12xtEeuYi_YuNNGyqg" name="output200" multiplicity="0..1" statusCode="200" statusMessage="OK"/>
         </ownedOperations>
       </ownedInterface>
     </ownedServices>
+    <securitySchemes xmi:id="_2GTtD2xtEeuYi_YuNNGyqg" technicalid="_2GJUkWxtEeuYi_YuNNGyqg" key="petstore_auth" type="oauth2"/>
+    <securitySchemes xmi:id="_2GTtEGxtEeuYi_YuNNGyqg" technicalid="_2GJUkmxtEeuYi_YuNNGyqg" key="api_key" name="api_key" apiKeyLocation="HEADER"/>
   </ownedComponents>
 </soa:System>

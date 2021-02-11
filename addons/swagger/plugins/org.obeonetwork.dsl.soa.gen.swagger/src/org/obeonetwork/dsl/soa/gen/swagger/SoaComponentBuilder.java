@@ -737,8 +737,9 @@ public class SoaComponentBuilder {
 				(swgOperation.getResponses().containsKey(HTTP_206) ||
 						swgOperation.getResponses().values().stream()
 						.anyMatch(resp -> 
-							resp.getHeaders().keySet().contains(X_PAGE_ELEMENT_COUNT) ||
-							resp.getHeaders().keySet().contains(X_TOTAL_ELEMENT)));
+							resp.getHeaders() != null &&
+							(resp.getHeaders().keySet().contains(X_PAGE_ELEMENT_COUNT) ||
+									resp.getHeaders().keySet().contains(X_TOTAL_ELEMENT))));
 	}
 
 	private boolean looksLikePaginationParameter(Parameter parameter) {

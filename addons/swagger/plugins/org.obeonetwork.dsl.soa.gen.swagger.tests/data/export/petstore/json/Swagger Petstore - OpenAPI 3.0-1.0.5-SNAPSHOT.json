@@ -12,6 +12,16 @@
   "servers" : [ {
     "url" : "/v3"
   } ],
+  "tags" : [ {
+    "name" : "User",
+    "description" : "Access to Petstore orders"
+  }, {
+    "name" : "Store",
+    "description" : "Operations about user"
+  }, {
+    "name" : "Pet",
+    "description" : "Everything about your Pets"
+  } ],
   "paths" : {
     "/user" : {
       "post" : {
@@ -28,30 +38,6 @@
           }
         },
         "responses" : {
-          "400" : {
-            "description" : "Bad Request",
-            "content" : {
-              "application/json" : {
-                "schema" : {
-                  "type" : "array",
-                  "items" : {
-                    "type" : "object",
-                    "properties" : {
-                      "code" : {
-                        "type" : "string"
-                      },
-                      "message" : {
-                        "type" : "string"
-                      },
-                      "internalReferenceId" : {
-                        "type" : "string"
-                      }
-                    }
-                  }
-                }
-              }
-            }
-          },
           "default" : {
             "description" : "successful operation",
             "content" : {
@@ -74,7 +60,6 @@
           "content" : {
             "application/json" : {
               "schema" : {
-                "minItems" : 0,
                 "type" : "array",
                 "items" : {
                   "$ref" : "#/components/schemas/User"
@@ -84,32 +69,37 @@
           }
         },
         "responses" : {
-          "400" : {
-            "description" : "Bad Request",
-            "content" : {
-              "application/json" : {
+          "200" : {
+            "description" : "OK\n\nSuccessful operation",
+            "headers" : {
+              "X-Total-Element" : {
                 "schema" : {
-                  "type" : "array",
-                  "items" : {
-                    "type" : "object",
-                    "properties" : {
-                      "code" : {
-                        "type" : "string"
-                      },
-                      "message" : {
-                        "type" : "string"
-                      },
-                      "internalReferenceId" : {
-                        "type" : "string"
-                      }
-                    }
-                  }
+                  "type" : "integer",
+                  "format" : "int64"
+                }
+              },
+              "X-Page-Element-Count" : {
+                "schema" : {
+                  "type" : "integer",
+                  "format" : "int64"
+                }
+              },
+              "Accept-Range" : {
+                "schema" : {
+                  "type" : "string"
+                }
+              },
+              "Content-Range" : {
+                "schema" : {
+                  "type" : "string"
+                }
+              },
+              "Link" : {
+                "schema" : {
+                  "type" : "string"
                 }
               }
-            }
-          },
-          "200" : {
-            "description" : "Successful operation",
+            },
             "content" : {
               "application/json" : {
                 "schema" : {
@@ -131,6 +121,7 @@
         "parameters" : [ {
           "name" : "username",
           "in" : "query",
+          "description" : "The user name for login",
           "required" : false,
           "schema" : {
             "type" : "string"
@@ -138,6 +129,7 @@
         }, {
           "name" : "password",
           "in" : "query",
+          "description" : "The password for login in clear text",
           "required" : false,
           "schema" : {
             "type" : "string"
@@ -145,7 +137,36 @@
         } ],
         "responses" : {
           "200" : {
-            "description" : "successful operation",
+            "description" : "OK\n\nsuccessful operation",
+            "headers" : {
+              "X-Total-Element" : {
+                "schema" : {
+                  "type" : "integer",
+                  "format" : "int64"
+                }
+              },
+              "X-Page-Element-Count" : {
+                "schema" : {
+                  "type" : "integer",
+                  "format" : "int64"
+                }
+              },
+              "Accept-Range" : {
+                "schema" : {
+                  "type" : "string"
+                }
+              },
+              "Content-Range" : {
+                "schema" : {
+                  "type" : "string"
+                }
+              },
+              "Link" : {
+                "schema" : {
+                  "type" : "string"
+                }
+              }
+            },
             "content" : {
               "application/json" : {
                 "schema" : {
@@ -155,7 +176,7 @@
             }
           },
           "400" : {
-            "description" : "Invalid username/password supplied"
+            "description" : "Bad Request\n\nInvalid username/password supplied"
           }
         }
       }
@@ -165,30 +186,6 @@
         "tags" : [ "User" ],
         "operationId" : "logoutUser",
         "responses" : {
-          "404" : {
-            "description" : "Not Found",
-            "content" : {
-              "application/json" : {
-                "schema" : {
-                  "type" : "array",
-                  "items" : {
-                    "type" : "object",
-                    "properties" : {
-                      "code" : {
-                        "type" : "string"
-                      },
-                      "message" : {
-                        "type" : "string"
-                      },
-                      "internalReferenceId" : {
-                        "type" : "string"
-                      }
-                    }
-                  }
-                }
-              }
-            }
-          },
           "default" : {
             "description" : "successful operation"
           }
@@ -202,6 +199,7 @@
         "parameters" : [ {
           "name" : "username",
           "in" : "path",
+          "description" : "The name that needs to be fetched. Use user1 for testing. ",
           "required" : true,
           "schema" : {
             "type" : "string"
@@ -209,7 +207,36 @@
         } ],
         "responses" : {
           "200" : {
-            "description" : "successful operation",
+            "description" : "OK\n\nsuccessful operation",
+            "headers" : {
+              "X-Total-Element" : {
+                "schema" : {
+                  "type" : "integer",
+                  "format" : "int64"
+                }
+              },
+              "X-Page-Element-Count" : {
+                "schema" : {
+                  "type" : "integer",
+                  "format" : "int64"
+                }
+              },
+              "Accept-Range" : {
+                "schema" : {
+                  "type" : "string"
+                }
+              },
+              "Content-Range" : {
+                "schema" : {
+                  "type" : "string"
+                }
+              },
+              "Link" : {
+                "schema" : {
+                  "type" : "string"
+                }
+              }
+            },
             "content" : {
               "application/json" : {
                 "schema" : {
@@ -219,10 +246,10 @@
             }
           },
           "400" : {
-            "description" : "Invalid username supplied"
+            "description" : "Bad Request\n\nInvalid username supplied"
           },
           "404" : {
-            "description" : "User not found"
+            "description" : "Not Found\n\nUser not found"
           }
         }
       },
@@ -233,6 +260,7 @@
         "parameters" : [ {
           "name" : "username",
           "in" : "path",
+          "description" : "name that need to be deleted",
           "required" : true,
           "schema" : {
             "type" : "string"
@@ -248,30 +276,6 @@
           }
         },
         "responses" : {
-          "404" : {
-            "description" : "Not Found",
-            "content" : {
-              "application/json" : {
-                "schema" : {
-                  "type" : "array",
-                  "items" : {
-                    "type" : "object",
-                    "properties" : {
-                      "code" : {
-                        "type" : "string"
-                      },
-                      "message" : {
-                        "type" : "string"
-                      },
-                      "internalReferenceId" : {
-                        "type" : "string"
-                      }
-                    }
-                  }
-                }
-              }
-            }
-          },
           "default" : {
             "description" : "successful operation"
           }
@@ -284,20 +288,18 @@
         "parameters" : [ {
           "name" : "username",
           "in" : "path",
+          "description" : "The name that needs to be deleted",
           "required" : true,
           "schema" : {
             "type" : "string"
           }
         } ],
         "responses" : {
-          "204" : {
-            "description" : "No Content"
-          },
           "400" : {
-            "description" : "Invalid username supplied"
+            "description" : "Bad Request\n\nInvalid username supplied"
           },
           "404" : {
-            "description" : "User not found"
+            "description" : "Not Found\n\nUser not found"
           }
         }
       }
@@ -308,32 +310,37 @@
         "description" : "Returns a map of status codes to quantities",
         "operationId" : "getInventory",
         "responses" : {
-          "404" : {
-            "description" : "Not Found",
-            "content" : {
-              "application/json" : {
+          "200" : {
+            "description" : "OK\n\nsuccessful operation",
+            "headers" : {
+              "X-Total-Element" : {
                 "schema" : {
-                  "type" : "array",
-                  "items" : {
-                    "type" : "object",
-                    "properties" : {
-                      "code" : {
-                        "type" : "string"
-                      },
-                      "message" : {
-                        "type" : "string"
-                      },
-                      "internalReferenceId" : {
-                        "type" : "string"
-                      }
-                    }
-                  }
+                  "type" : "integer",
+                  "format" : "int64"
+                }
+              },
+              "X-Page-Element-Count" : {
+                "schema" : {
+                  "type" : "integer",
+                  "format" : "int64"
+                }
+              },
+              "Accept-Range" : {
+                "schema" : {
+                  "type" : "string"
+                }
+              },
+              "Content-Range" : {
+                "schema" : {
+                  "type" : "string"
+                }
+              },
+              "Link" : {
+                "schema" : {
+                  "type" : "string"
                 }
               }
-            }
-          },
-          "200" : {
-            "description" : "successful operation",
+            },
             "content" : {
               "application/json" : {
                 "schema" : {
@@ -342,7 +349,10 @@
               }
             }
           }
-        }
+        },
+        "security" : [ {
+          "api_key" : [ ]
+        } ]
       }
     },
     "/store/order" : {
@@ -361,7 +371,36 @@
         },
         "responses" : {
           "200" : {
-            "description" : "successful operation",
+            "description" : "OK\n\nsuccessful operation",
+            "headers" : {
+              "X-Total-Element" : {
+                "schema" : {
+                  "type" : "integer",
+                  "format" : "int64"
+                }
+              },
+              "X-Page-Element-Count" : {
+                "schema" : {
+                  "type" : "integer",
+                  "format" : "int64"
+                }
+              },
+              "Accept-Range" : {
+                "schema" : {
+                  "type" : "string"
+                }
+              },
+              "Content-Range" : {
+                "schema" : {
+                  "type" : "string"
+                }
+              },
+              "Link" : {
+                "schema" : {
+                  "type" : "string"
+                }
+              }
+            },
             "content" : {
               "application/json" : {
                 "schema" : {
@@ -371,7 +410,7 @@
             }
           },
           "405" : {
-            "description" : "Invalid input"
+            "description" : "Method Not Allowed\n\nInvalid input"
           }
         }
       }
@@ -384,6 +423,7 @@
         "parameters" : [ {
           "name" : "orderId",
           "in" : "path",
+          "description" : "ID of order that needs to be fetched",
           "required" : true,
           "schema" : {
             "type" : "integer",
@@ -392,7 +432,36 @@
         } ],
         "responses" : {
           "200" : {
-            "description" : "successful operation",
+            "description" : "OK\n\nsuccessful operation",
+            "headers" : {
+              "X-Total-Element" : {
+                "schema" : {
+                  "type" : "integer",
+                  "format" : "int64"
+                }
+              },
+              "X-Page-Element-Count" : {
+                "schema" : {
+                  "type" : "integer",
+                  "format" : "int64"
+                }
+              },
+              "Accept-Range" : {
+                "schema" : {
+                  "type" : "string"
+                }
+              },
+              "Content-Range" : {
+                "schema" : {
+                  "type" : "string"
+                }
+              },
+              "Link" : {
+                "schema" : {
+                  "type" : "string"
+                }
+              }
+            },
             "content" : {
               "application/json" : {
                 "schema" : {
@@ -402,10 +471,10 @@
             }
           },
           "400" : {
-            "description" : "Invalid ID supplied"
+            "description" : "Bad Request\n\nInvalid ID supplied"
           },
           "404" : {
-            "description" : "Order not found"
+            "description" : "Not Found\n\nOrder not found"
           }
         }
       },
@@ -416,6 +485,7 @@
         "parameters" : [ {
           "name" : "orderId",
           "in" : "path",
+          "description" : "ID of the order that needs to be deleted",
           "required" : true,
           "schema" : {
             "type" : "integer",
@@ -423,14 +493,11 @@
           }
         } ],
         "responses" : {
-          "204" : {
-            "description" : "No Content"
-          },
           "400" : {
-            "description" : "Invalid ID supplied"
+            "description" : "Bad Request\n\nInvalid ID supplied"
           },
           "404" : {
-            "description" : "Order not found"
+            "description" : "Not Found\n\nOrder not found"
           }
         }
       }
@@ -451,7 +518,36 @@
         },
         "responses" : {
           "200" : {
-            "description" : "Successful operation",
+            "description" : "OK\n\nSuccessful operation",
+            "headers" : {
+              "X-Total-Element" : {
+                "schema" : {
+                  "type" : "integer",
+                  "format" : "int64"
+                }
+              },
+              "X-Page-Element-Count" : {
+                "schema" : {
+                  "type" : "integer",
+                  "format" : "int64"
+                }
+              },
+              "Accept-Range" : {
+                "schema" : {
+                  "type" : "string"
+                }
+              },
+              "Content-Range" : {
+                "schema" : {
+                  "type" : "string"
+                }
+              },
+              "Link" : {
+                "schema" : {
+                  "type" : "string"
+                }
+              }
+            },
             "content" : {
               "application/json" : {
                 "schema" : {
@@ -461,15 +557,18 @@
             }
           },
           "400" : {
-            "description" : "Invalid ID supplied"
+            "description" : "Bad Request\n\nInvalid ID supplied"
           },
           "404" : {
-            "description" : "Pet not found"
+            "description" : "Not Found\n\nPet not found"
           },
           "405" : {
-            "description" : "Validation exception"
+            "description" : "Method Not Allowed\n\nValidation exception"
           }
-        }
+        },
+        "security" : [ {
+          "petstore_auth" : [ ]
+        } ]
       },
       "post" : {
         "tags" : [ "Pet" ],
@@ -486,7 +585,36 @@
         },
         "responses" : {
           "200" : {
-            "description" : "Successful operation",
+            "description" : "OK\n\nSuccessful operation",
+            "headers" : {
+              "X-Total-Element" : {
+                "schema" : {
+                  "type" : "integer",
+                  "format" : "int64"
+                }
+              },
+              "X-Page-Element-Count" : {
+                "schema" : {
+                  "type" : "integer",
+                  "format" : "int64"
+                }
+              },
+              "Accept-Range" : {
+                "schema" : {
+                  "type" : "string"
+                }
+              },
+              "Content-Range" : {
+                "schema" : {
+                  "type" : "string"
+                }
+              },
+              "Link" : {
+                "schema" : {
+                  "type" : "string"
+                }
+              }
+            },
             "content" : {
               "application/json" : {
                 "schema" : {
@@ -496,9 +624,12 @@
             }
           },
           "405" : {
-            "description" : "Invalid input"
+            "description" : "Method Not Allowed\n\nInvalid input"
           }
-        }
+        },
+        "security" : [ {
+          "petstore_auth" : [ ]
+        } ]
       }
     },
     "/pet/findByStatus" : {
@@ -509,6 +640,7 @@
         "parameters" : [ {
           "name" : "status",
           "in" : "query",
+          "description" : "Status values that need to be considered for filter",
           "required" : false,
           "schema" : {
             "$ref" : "#/components/schemas/PetStatus"
@@ -516,11 +648,39 @@
         } ],
         "responses" : {
           "200" : {
-            "description" : "successful operation",
+            "description" : "OK\n\nsuccessful operation",
+            "headers" : {
+              "X-Total-Element" : {
+                "schema" : {
+                  "type" : "integer",
+                  "format" : "int64"
+                }
+              },
+              "X-Page-Element-Count" : {
+                "schema" : {
+                  "type" : "integer",
+                  "format" : "int64"
+                }
+              },
+              "Accept-Range" : {
+                "schema" : {
+                  "type" : "string"
+                }
+              },
+              "Content-Range" : {
+                "schema" : {
+                  "type" : "string"
+                }
+              },
+              "Link" : {
+                "schema" : {
+                  "type" : "string"
+                }
+              }
+            },
             "content" : {
               "application/json" : {
                 "schema" : {
-                  "minItems" : 0,
                   "type" : "array",
                   "items" : {
                     "$ref" : "#/components/schemas/Pet"
@@ -530,9 +690,12 @@
             }
           },
           "400" : {
-            "description" : "Invalid status value"
+            "description" : "Bad Request\n\nInvalid status value"
           }
-        }
+        },
+        "security" : [ {
+          "petstore_auth" : [ ]
+        } ]
       }
     },
     "/pet/findByTags" : {
@@ -543,9 +706,9 @@
         "parameters" : [ {
           "name" : "tags",
           "in" : "query",
+          "description" : "Tags to filter by",
           "required" : false,
           "schema" : {
-            "minItems" : 0,
             "type" : "array",
             "items" : {
               "type" : "string"
@@ -554,11 +717,39 @@
         } ],
         "responses" : {
           "200" : {
-            "description" : "successful operation",
+            "description" : "OK\n\nsuccessful operation",
+            "headers" : {
+              "X-Total-Element" : {
+                "schema" : {
+                  "type" : "integer",
+                  "format" : "int64"
+                }
+              },
+              "X-Page-Element-Count" : {
+                "schema" : {
+                  "type" : "integer",
+                  "format" : "int64"
+                }
+              },
+              "Accept-Range" : {
+                "schema" : {
+                  "type" : "string"
+                }
+              },
+              "Content-Range" : {
+                "schema" : {
+                  "type" : "string"
+                }
+              },
+              "Link" : {
+                "schema" : {
+                  "type" : "string"
+                }
+              }
+            },
             "content" : {
               "application/json" : {
                 "schema" : {
-                  "minItems" : 0,
                   "type" : "array",
                   "items" : {
                     "$ref" : "#/components/schemas/Pet"
@@ -568,9 +759,12 @@
             }
           },
           "400" : {
-            "description" : "Invalid tag value"
+            "description" : "Bad Request\n\nInvalid tag value"
           }
-        }
+        },
+        "security" : [ {
+          "petstore_auth" : [ ]
+        } ]
       }
     },
     "/pet/{petId}" : {
@@ -581,6 +775,7 @@
         "parameters" : [ {
           "name" : "petId",
           "in" : "path",
+          "description" : "ID of pet to return",
           "required" : true,
           "schema" : {
             "type" : "integer",
@@ -589,7 +784,36 @@
         } ],
         "responses" : {
           "200" : {
-            "description" : "successful operation",
+            "description" : "OK\n\nsuccessful operation",
+            "headers" : {
+              "X-Total-Element" : {
+                "schema" : {
+                  "type" : "integer",
+                  "format" : "int64"
+                }
+              },
+              "X-Page-Element-Count" : {
+                "schema" : {
+                  "type" : "integer",
+                  "format" : "int64"
+                }
+              },
+              "Accept-Range" : {
+                "schema" : {
+                  "type" : "string"
+                }
+              },
+              "Content-Range" : {
+                "schema" : {
+                  "type" : "string"
+                }
+              },
+              "Link" : {
+                "schema" : {
+                  "type" : "string"
+                }
+              }
+            },
             "content" : {
               "application/json" : {
                 "schema" : {
@@ -599,12 +823,17 @@
             }
           },
           "400" : {
-            "description" : "Invalid ID supplied"
+            "description" : "Bad Request\n\nInvalid ID supplied"
           },
           "404" : {
-            "description" : "Pet not found"
+            "description" : "Not Found\n\nPet not found"
           }
-        }
+        },
+        "security" : [ {
+          "api_key" : [ ]
+        }, {
+          "petstore_auth" : [ ]
+        } ]
       },
       "post" : {
         "tags" : [ "Pet" ],
@@ -612,6 +841,7 @@
         "parameters" : [ {
           "name" : "petId",
           "in" : "path",
+          "description" : "ID of pet that needs to be updated",
           "required" : true,
           "schema" : {
             "type" : "integer",
@@ -620,6 +850,7 @@
         }, {
           "name" : "name",
           "in" : "query",
+          "description" : "Name of pet that needs to be updated",
           "required" : false,
           "schema" : {
             "type" : "string"
@@ -627,6 +858,7 @@
         }, {
           "name" : "status",
           "in" : "query",
+          "description" : "Status of pet that needs to be updated",
           "required" : false,
           "schema" : {
             "type" : "string"
@@ -634,9 +866,12 @@
         } ],
         "responses" : {
           "405" : {
-            "description" : "Invalid input"
+            "description" : "Method Not Allowed\n\nInvalid input"
           }
-        }
+        },
+        "security" : [ {
+          "petstore_auth" : [ ]
+        } ]
       },
       "delete" : {
         "tags" : [ "Pet" ],
@@ -651,6 +886,7 @@
         }, {
           "name" : "petId",
           "in" : "path",
+          "description" : "Pet id to delete",
           "required" : true,
           "schema" : {
             "type" : "integer",
@@ -658,13 +894,13 @@
           }
         } ],
         "responses" : {
-          "204" : {
-            "description" : "No Content"
-          },
           "400" : {
-            "description" : "Invalid pet value"
+            "description" : "Bad Request\n\nInvalid pet value"
           }
-        }
+        },
+        "security" : [ {
+          "petstore_auth" : [ ]
+        } ]
       }
     },
     "/pet/{petId}/uploadImage" : {
@@ -674,6 +910,7 @@
         "parameters" : [ {
           "name" : "petId",
           "in" : "path",
+          "description" : "ID of pet to update",
           "required" : true,
           "schema" : {
             "type" : "integer",
@@ -682,6 +919,7 @@
         }, {
           "name" : "additionalMetadata",
           "in" : "query",
+          "description" : "Additional Metadata",
           "required" : false,
           "schema" : {
             "type" : "string"
@@ -698,32 +936,37 @@
           }
         },
         "responses" : {
-          "400" : {
-            "description" : "Bad Request",
-            "content" : {
-              "application/json" : {
+          "200" : {
+            "description" : "OK\n\nsuccessful operation",
+            "headers" : {
+              "X-Total-Element" : {
                 "schema" : {
-                  "type" : "array",
-                  "items" : {
-                    "type" : "object",
-                    "properties" : {
-                      "code" : {
-                        "type" : "string"
-                      },
-                      "message" : {
-                        "type" : "string"
-                      },
-                      "internalReferenceId" : {
-                        "type" : "string"
-                      }
-                    }
-                  }
+                  "type" : "integer",
+                  "format" : "int64"
+                }
+              },
+              "X-Page-Element-Count" : {
+                "schema" : {
+                  "type" : "integer",
+                  "format" : "int64"
+                }
+              },
+              "Accept-Range" : {
+                "schema" : {
+                  "type" : "string"
+                }
+              },
+              "Content-Range" : {
+                "schema" : {
+                  "type" : "string"
+                }
+              },
+              "Link" : {
+                "schema" : {
+                  "type" : "string"
                 }
               }
-            }
-          },
-          "200" : {
-            "description" : "successful operation",
+            },
             "content" : {
               "application/json" : {
                 "schema" : {
@@ -732,62 +975,37 @@
               }
             }
           }
-        }
+        },
+        "security" : [ {
+          "petstore_auth" : [ ]
+        } ]
       }
     }
   },
   "components" : {
     "schemas" : {
-      "Store_GetInventoryOutput200" : {
-        "type" : "object"
-      },
-      "ApiResponse" : {
+      "Category" : {
         "type" : "object",
         "properties" : {
-          "code" : {
-            "type" : "integer",
-            "format" : "int32"
-          },
-          "type" : {
-            "type" : "string"
-          },
-          "message" : {
-            "type" : "string"
-          }
-        }
-      },
-      "Pet" : {
-        "required" : [ "name", "photoUrls" ],
-        "type" : "object",
-        "properties" : {
-          "photoUrls" : {
-            "minItems" : 1,
-            "type" : "array",
-            "items" : {
-              "type" : "string"
-            }
-          },
           "name" : {
             "type" : "string"
           },
           "id" : {
             "type" : "integer",
             "format" : "int64"
-          },
-          "status" : {
-            "$ref" : "#/components/schemas/PetStatus"
-          },
-          "category" : {
-            "$ref" : "#/components/schemas/Category"
-          },
-          "tags" : {
-            "minItems" : 0,
-            "type" : "array",
-            "items" : {
-              "$ref" : "#/components/schemas/Tag"
-            }
           }
         }
+      },
+      "OrderStatus" : {
+        "type" : "string",
+        "enum" : [ "approved", "placed", "delivered" ]
+      },
+      "Store_GetInventoryOutput200" : {
+        "type" : "object"
+      },
+      "PetStatus" : {
+        "type" : "string",
+        "enum" : [ "sold", "pending", "available" ]
       },
       "User" : {
         "type" : "object",
@@ -820,6 +1038,18 @@
           }
         }
       },
+      "Tag" : {
+        "type" : "object",
+        "properties" : {
+          "name" : {
+            "type" : "string"
+          },
+          "id" : {
+            "type" : "integer",
+            "format" : "int64"
+          }
+        }
+      },
       "Order" : {
         "type" : "object",
         "properties" : {
@@ -847,37 +1077,63 @@
           }
         }
       },
-      "PetStatus" : {
-        "type" : "string",
-        "enum" : [ "sold", "pending", "available" ]
-      },
-      "Tag" : {
+      "Pet" : {
+        "required" : [ "name", "photoUrls" ],
         "type" : "object",
         "properties" : {
+          "photoUrls" : {
+            "minItems" : 1,
+            "type" : "array",
+            "items" : {
+              "type" : "string"
+            }
+          },
           "name" : {
             "type" : "string"
           },
           "id" : {
             "type" : "integer",
             "format" : "int64"
+          },
+          "status" : {
+            "$ref" : "#/components/schemas/PetStatus"
+          },
+          "category" : {
+            "$ref" : "#/components/schemas/Category"
+          },
+          "tags" : {
+            "type" : "array",
+            "items" : {
+              "$ref" : "#/components/schemas/Tag"
+            }
           }
         }
       },
-      "OrderStatus" : {
-        "type" : "string",
-        "enum" : [ "approved", "placed", "delivered" ]
-      },
-      "Category" : {
+      "ApiResponse" : {
         "type" : "object",
         "properties" : {
-          "name" : {
+          "code" : {
+            "type" : "integer",
+            "format" : "int32"
+          },
+          "type" : {
             "type" : "string"
           },
-          "id" : {
-            "type" : "integer",
-            "format" : "int64"
+          "message" : {
+            "type" : "string"
           }
         }
+      }
+    },
+    "securitySchemes" : {
+      "petstore_auth" : {
+        "type" : "oauth2",
+        "in" : "query"
+      },
+      "api_key" : {
+        "type" : "apiKey",
+        "name" : "api_key",
+        "in" : "header"
       }
     }
   }

@@ -293,7 +293,7 @@ public class TestHelper {
                 	while(ancestor != null) {
                     	EStructuralFeature nameFeature = ancestor.eClass().getEStructuralFeature("name");
                     	if(nameFeature != null) {
-                        	href.insert(0, "[" + ancestor.eGet(nameFeature).toString() + "]");
+                        	href.insert(0, "[" + ancestor.eGet(nameFeature) + "]");
                     	}
                     	
                 		if(ancestor.eContainingFeature() != null) {
@@ -360,7 +360,7 @@ public class TestHelper {
 		if(object instanceof EObject) {
 			EObject eObject = (EObject) object;
         	EStructuralFeature nameFeature = eObject.eClass().getEStructuralFeature("name");
-        	if(nameFeature != null) {
+        	if(nameFeature != null && eObject.eGet(nameFeature) != null) {
         		sortKey = eObject.eGet(nameFeature).toString();
         	} else {
             	sortKey = Integer.toString(eObject.toString().length());
