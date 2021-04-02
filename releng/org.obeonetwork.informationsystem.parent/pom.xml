@@ -20,8 +20,8 @@
 	<properties>
 		<tycho-version>1.7.0</tycho-version>
 		<platform-version-name>2019-06</platform-version-name>
-		<od-site>http://update.obeo.fr/stable/designer/11.3.2/team/11.3.2/repository/</od-site>
-		<od-site2>http://update.obeo.fr/stable/designer/11.3.2/community/11.3.2/repository/</od-site2>
+		<od-site>http://update.obeo.fr/release/designer/11.3/team/11.3.2/repository/</od-site>
+		<od-site2>http://update.obeo.fr/release/designer/11.3/community/11.3.2/repository/</od-site2>
 		<eef-site>http://download.eclipse.org/modeling/emft/eef/updates/releases/2.1/R201909051307</eef-site>
 		<amalgam-site>https://download.eclipse.org/modeling/amalgam/updates/stable/1.11.0-S20190729/capella/</amalgam-site>
 		<eclipse-site>http://download.eclipse.org/releases/2019-06/</eclipse-site>
