@@ -11,15 +11,15 @@ Un assistant permet la création de modèles Cinematic. Cet assistant est access
 
 bq. File > New > Other ... > Cinematic Model (Catégorie IS Designer)
 
-!pics/Safran - cinematic - wizard01.png!
+!pics/Safran-cinematic-wizard01.png!
 
 Cet assistant vous permet de définir le nom du modèle que vous souhaitez créer ainsi que de définir son répertoire destination. 
 
-!pics/Safran - cinematic - wizard02.png!
+!pics/Safran-cinematic-wizard02.png!
 
 Une fois l'assistant validé, le modèle est créé, les représentations _Package Diagram_ et _UI Structure_ sont créées. La représentation _Package Diagram_ est ouverte afin de commencer l'édition.
 
-!pics/Safran - cinematic - model created.png!
+!pics/Safran-cinematic-modelcreated.png!
 
 Lorsqu'un modèle cinematic est créé à l'aide de ce wizard, les points de vues _Cinematic Views_ et _Environment View_ sont activés.
 Le point de vue _Cinematic Views_ permet de visualiser et modifier un modèle cinematic via plusieurs types de diagrammes. Se référer à la section suivante pour plus de détails. Le point de vue _Environment View_ permet d'activer les vues propriétés EEF.
