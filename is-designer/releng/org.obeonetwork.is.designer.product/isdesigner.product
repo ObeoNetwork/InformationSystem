@@ -198,10 +198,11 @@ This Agreement is governed by the laws of the State of New York and the intellec
       <feature id="org.eclipse.amalgam.explorer.contextual.core"/>
       <feature id="org.eclipse.amalgam.explorer.contextual.sirius"/>
       <feature id="org.eclipse.amalgam.discovery"/>
+      <feature id="org.eclipse.team.svn" installMode="root"/>
    </features>
 
    <configurations>
-      <plugin id="org.apache.felix.scr" autoStart="true" startLevel="2"/>	
+      <plugin id="org.apache.felix.scr" autoStart="true" startLevel="2" />
       <plugin id="org.eclipse.core.runtime" autoStart="true" startLevel="4" />
       <plugin id="org.eclipse.equinox.common" autoStart="true" startLevel="2" />
       <plugin id="org.eclipse.equinox.event" autoStart="true" startLevel="2" />
