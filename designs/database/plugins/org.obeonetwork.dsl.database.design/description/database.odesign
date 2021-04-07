@@ -582,8 +582,8 @@
           </initialOperation>
         </controls>
         <controls xsi:type="properties:ContainerDescription" name="typesLibraries::TypeInstance features container">
-          <controls xsi:type="properties:DynamicMappingForDescription" name="typeslibrary::TypeInstance iterator" iterator="feature" iterableExpression="aql:input.emfEditServices(self.type).getEStructuralFeatures()" forceRefresh="true">
-            <ifs name="typeslibrary::TypeInstance Length Condition" predicateExpression="aql:self.type.typeInstanceLengthFeatureIsVisible(feature)">
+          <controls xsi:type="properties:DynamicMappingForDescription" name="typeslibrary::TypeInstance iterator" iterator="feature" iterableExpression="aql:if self.type.oclIsTypeOf(typeslibrary::TypeInstance) and self.type.nativeType = null then Sequence{} else input.emfEditServices(self.type).getEStructuralFeatures() endif" forceRefresh="true">
+            <ifs name="typeslibrary::TypeInstance length Condition" predicateExpression="aql:self.type.typeInstanceLengthFeatureIsVisible(feature)">
               <widget xsi:type="properties:TextDescription" name="typeslibrary::TypeInstance length" labelExpression="aql:input.emfEditServices(self.type).getText(self.type.eClass().getEStructuralFeature('length')) + ':'" helpExpression="aql:input.emfEditServices(self.type).getDescription(self.type.eClass().getEStructuralFeature('length'))" isEnabledExpression="aql:self.type.eClass().getEStructuralFeature('length').changeable" valueExpression="aql:self.type.length">
                 <initialOperation>
                   <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="feature:type">
