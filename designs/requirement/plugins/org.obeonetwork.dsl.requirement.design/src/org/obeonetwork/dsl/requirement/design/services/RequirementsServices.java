@@ -51,9 +51,9 @@ import org.obeonetwork.tools.requirement.ui.decorators.ObjectWithRequirement;
  */
 public class RequirementsServices {
 	
-	private static final String COPY = "Copy";
-
-
+	private static final String COPY = "Copy";	
+	private static final RequirementDecoratorBlacklist REQUIREMENT_DECORATOR_BLACKLIST = new RequirementDecoratorBlacklist();
+	
 	public String getRequirementsLabel(EObject element) {
 		return new RequirementLabelProvider().getText(element);
 	}
@@ -306,13 +306,15 @@ public class RequirementsServices {
 			return false;
 		} else if (semanticDecorator instanceof DEdge) {
 			return false;
+		} else if (REQUIREMENT_DECORATOR_BLACKLIST.isBlacklisted(semanticDecorator)) {			
+			return false;
 		}
 		
 		// We check if we can compute an image for the decorator
 		boolean result = getImagePathForLinkedRequirementDecorator(semanticDecorator.getTarget()) != null;
 		return result;
 	}
-	
+		
 	/**
 	 * Checks whether a DNode is a bordered node
 	 * @param semanticDecorator
