@@ -63,9 +63,10 @@ public class Activator extends AbstractUIPlugin {
 	private static Activator plugin;
 
 	private static Set<Viewpoint> viewpoints; 
-
+ 	
 	// Cache value for decorator enablement
 	private boolean requirementsDecoratorEnabled = ObjectWithRequirement.isDecoratorEnabled();
+	
 	
 	/**
 	 * The constructor
@@ -82,6 +83,7 @@ public class Activator extends AbstractUIPlugin {
 		plugin = this;
 		viewpoints = new HashSet<Viewpoint>();
 		viewpoints.addAll(ViewpointRegistry.getInstance().registerFromPlugin(PLUGIN_ID + "/description/requirement.odesign"));
+				
 		installAllDecoratorListeners();
 	}
 
@@ -244,4 +246,7 @@ public class Activator extends AbstractUIPlugin {
 			}
 		});
 	}
+	
+		
+	
 }
