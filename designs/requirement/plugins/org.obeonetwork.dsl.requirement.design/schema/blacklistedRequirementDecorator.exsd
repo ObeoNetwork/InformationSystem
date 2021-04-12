@@ -3,10 +3,10 @@
 <schema targetNamespace="org.obeonetwork.dsl.requirement.design" xmlns="http://www.w3.org/2001/XMLSchema">
 <annotation>
       <appInfo>
-         <meta.schema plugin="org.obeonetwork.dsl.requirement.design" id="blacklistedSemanticDecorator" name="blacklistedSemanticDecorator"/>
+         <meta.schema plugin="org.obeonetwork.dsl.requirement.design" id="blacklistedRequirementDecorator" name="blacklistedRequirementDecorator"/>
       </appInfo>
       <documentation>
-         [Enter description of this extension point.]
+         This extension point allows plugins to specify labels of Sirius nodes that should not be decorated with requirements.
       </documentation>
    </annotation>
 
@@ -18,7 +18,7 @@
       </annotation>
       <complexType>
          <choice minOccurs="0" maxOccurs="unbounded">
-            <element ref="blacklistedSemanticDecorator"/>
+            <element ref="blacklistedRequirementDecorator"/>
          </choice>
          <attribute name="point" type="string" use="required">
             <annotation>
@@ -47,7 +47,7 @@
       </complexType>
    </element>
 
-   <element name="blacklistedSemanticDecorator">
+   <element name="blacklistedRequirementDecorator">
       <complexType>
          <attribute name="name" type="string">
             <annotation>
@@ -95,5 +95,20 @@
       </documentation>
    </annotation>
 
+   <annotation>
+      <appInfo>
+         <meta.section type="copyright"/>
+      </appInfo>
+      <documentation>
+         # Copyright (c) 2008, 2021 Obeo.
+# All rights reserved. This program and the accompanying materials
+# are made available under the terms of the Eclipse Public License v1.0
+# which accompanies this distribution, and is available at
+# http://www.eclipse.org/legal/epl-v10.html
+# 
+# Contributors:
+#     Obeo - initial API and implementation
+      </documentation>
+   </annotation>
 
 </schema>
