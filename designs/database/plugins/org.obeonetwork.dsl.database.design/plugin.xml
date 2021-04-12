@@ -41,4 +41,10 @@
         </description>
      </wizard>
   </extension>
+  <extension
+        point="org.obeonetwork.dsl.requirement.design.blacklistedRequirementDecorator">
+     <blacklistedRequirementDecorator
+           name="DB_Sequence">
+     </blacklistedRequirementDecorator>
+  </extension>
  </plugin>

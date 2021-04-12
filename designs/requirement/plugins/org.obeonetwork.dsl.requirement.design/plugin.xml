@@ -11,7 +11,7 @@
         Obeo - initial API and implementation
  -->
 <plugin>
-   <extension-point id="blacklistedSemanticDecorator" name="blacklistedSemanticDecorator" schema="schema/blacklistedSemanticDecorator.exsd"/>
+   <extension-point id="blacklistedRequirementDecorator" name="blacklistedRequirementDecorator" schema="schema/blacklistedRequirementDecorator.exsd"/>
 		<extension
 				point="org.eclipse.sirius.componentization">
 		<component
