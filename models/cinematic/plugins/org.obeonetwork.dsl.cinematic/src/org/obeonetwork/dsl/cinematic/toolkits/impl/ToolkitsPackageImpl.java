@@ -85,7 +85,7 @@ public class ToolkitsPackageImpl extends EPackageImpl implements ToolkitsPackage
 
 	/**
 	 * Creates, registers, and initializes the <b>Package</b> for this model, and for any others upon which it depends.
-	 * 
+	 *
 	 * <p>This method is used to initialize {@link ToolkitsPackage#eINSTANCE} when that field is accessed.
 	 * Clients should not invoke it directly. Instead, they should simply access that field to obtain the package.
 	 * <!-- begin-user-doc -->
@@ -99,7 +99,8 @@ public class ToolkitsPackageImpl extends EPackageImpl implements ToolkitsPackage
 		if (isInited) return (ToolkitsPackage)EPackage.Registry.INSTANCE.getEPackage(ToolkitsPackage.eNS_URI);
 
 		// Obtain or create and register package
-		ToolkitsPackageImpl theToolkitsPackage = (ToolkitsPackageImpl)(EPackage.Registry.INSTANCE.get(eNS_URI) instanceof ToolkitsPackageImpl ? EPackage.Registry.INSTANCE.get(eNS_URI) : new ToolkitsPackageImpl());
+		Object registeredToolkitsPackage = EPackage.Registry.INSTANCE.get(eNS_URI);
+		ToolkitsPackageImpl theToolkitsPackage = registeredToolkitsPackage instanceof ToolkitsPackageImpl ? (ToolkitsPackageImpl)registeredToolkitsPackage : new ToolkitsPackageImpl();
 
 		isInited = true;
 
@@ -108,9 +109,12 @@ public class ToolkitsPackageImpl extends EPackageImpl implements ToolkitsPackage
 		TechnicalIDPackage.eINSTANCE.eClass();
 
 		// Obtain or create and register interdependencies
-		CinematicPackageImpl theCinematicPackage = (CinematicPackageImpl)(EPackage.Registry.INSTANCE.getEPackage(CinematicPackage.eNS_URI) instanceof CinematicPackageImpl ? EPackage.Registry.INSTANCE.getEPackage(CinematicPackage.eNS_URI) : CinematicPackage.eINSTANCE);
-		ViewPackageImpl theViewPackage = (ViewPackageImpl)(EPackage.Registry.INSTANCE.getEPackage(ViewPackage.eNS_URI) instanceof ViewPackageImpl ? EPackage.Registry.INSTANCE.getEPackage(ViewPackage.eNS_URI) : ViewPackage.eINSTANCE);
-		FlowPackageImpl theFlowPackage = (FlowPackageImpl)(EPackage.Registry.INSTANCE.getEPackage(FlowPackage.eNS_URI) instanceof FlowPackageImpl ? EPackage.Registry.INSTANCE.getEPackage(FlowPackage.eNS_URI) : FlowPackage.eINSTANCE);
+		Object registeredPackage = EPackage.Registry.INSTANCE.getEPackage(CinematicPackage.eNS_URI);
+		CinematicPackageImpl theCinematicPackage = (CinematicPackageImpl)(registeredPackage instanceof CinematicPackageImpl ? registeredPackage : CinematicPackage.eINSTANCE);
+		registeredPackage = EPackage.Registry.INSTANCE.getEPackage(ViewPackage.eNS_URI);
+		ViewPackageImpl theViewPackage = (ViewPackageImpl)(registeredPackage instanceof ViewPackageImpl ? registeredPackage : ViewPackage.eINSTANCE);
+		registeredPackage = EPackage.Registry.INSTANCE.getEPackage(FlowPackage.eNS_URI);
+		FlowPackageImpl theFlowPackage = (FlowPackageImpl)(registeredPackage instanceof FlowPackageImpl ? registeredPackage : FlowPackage.eINSTANCE);
 
 		// Create package meta-data objects
 		theToolkitsPackage.createPackageContents();
@@ -127,7 +131,6 @@ public class ToolkitsPackageImpl extends EPackageImpl implements ToolkitsPackage
 		// Mark meta-data to indicate it can't be changed
 		theToolkitsPackage.freeze();
 
-  
 		// Update the registry and return the package
 		EPackage.Registry.INSTANCE.put(ToolkitsPackage.eNS_URI, theToolkitsPackage);
 		return theToolkitsPackage;
@@ -348,60 +351,60 @@ public class ToolkitsPackageImpl extends EPackageImpl implements ToolkitsPackage
 	 * @generated
 	 */
 	protected void createGenModelAnnotations() {
-		String source = "http://www.eclipse.org/emf/2002/GenModel";	
+		String source = "http://www.eclipse.org/emf/2002/GenModel";
 		addAnnotation
-		  (getToolkit_Widgets(), 
-		   source, 
+		  (getToolkit_Widgets(),
+		   source,
 		   new String[] {
-			 "documentation", "The widgets owned by this Toolkit."
-		   });	
+			   "documentation", "The widgets owned by this Toolkit."
+		   });
 		addAnnotation
-		  (getToolkit_Name(), 
-		   source, 
+		  (getToolkit_Name(),
+		   source,
 		   new String[] {
-			 "documentation", "The name of this Toolkit."
-		   });	
+			   "documentation", "The name of this Toolkit."
+		   });
 		addAnnotation
-		  (getWidget_Name(), 
-		   source, 
+		  (getWidget_Name(),
+		   source,
 		   new String[] {
-			 "documentation", "The name of this Widget."
-		   });	
+			   "documentation", "The name of this Widget."
+		   });
 		addAnnotation
-		  (getWidget_Icon(), 
-		   source, 
+		  (getWidget_Icon(),
+		   source,
 		   new String[] {
-			 "documentation", "The icon path of this widget."
-		   });	
+			   "documentation", "The icon path of this widget."
+		   });
 		addAnnotation
-		  (getWidget_Implementation(), 
-		   source, 
+		  (getWidget_Implementation(),
+		   source,
 		   new String[] {
-			 "documentation", "The target implementation of this Widget."
-		   });	
+			   "documentation", "The target implementation of this Widget."
+		   });
 		addAnnotation
-		  (getWidget_Toolkit(), 
-		   source, 
+		  (getWidget_Toolkit(),
+		   source,
 		   new String[] {
-			 "documentation", "The Toolkit owning this Widget."
-		   });	
+			   "documentation", "The Toolkit owning this Widget."
+		   });
 		addAnnotation
-		  (getWidget_PossibleEvents(), 
-		   source, 
+		  (getWidget_PossibleEvents(),
+		   source,
 		   new String[] {
-			 "documentation", "The list of the events this Widget handles."
-		   });	
+			   "documentation", "The list of the events this Widget handles."
+		   });
 		addAnnotation
-		  (getWidget_IsContainer(), 
-		   source, 
+		  (getWidget_IsContainer(),
+		   source,
 		   new String[] {
-			 "documentation", "True if this Widget is a container."
-		   });	
+			   "documentation", "True if this Widget is a container."
+		   });
 		addAnnotation
-		  (getWidgetEventType_Name(), 
-		   source, 
+		  (getWidgetEventType_Name(),
+		   source,
 		   new String[] {
-			 "documentation", "The name of this Widget Event Type."
+			   "documentation", "The name of this Widget Event Type."
 		   });
 	}
 

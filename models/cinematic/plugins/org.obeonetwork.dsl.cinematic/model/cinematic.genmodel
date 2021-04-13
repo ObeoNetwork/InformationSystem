@@ -27,6 +27,10 @@
     <nestedGenPackages prefix="View" basePackage="org.obeonetwork.dsl.cinematic" resource="XMI"
         disposableProviderFactory="true" multipleEditorPages="false" fileExtensions="cinematic_view"
         ecorePackage="cinematic.ecore#//view">
+      <genEnums typeSafeEnumCompatible="false" ecoreEnum="cinematic.ecore#//view/LayoutDirection">
+        <genEnumLiterals ecoreEnumLiteral="cinematic.ecore#//view/LayoutDirection/VERTICAL"/>
+        <genEnumLiterals ecoreEnumLiteral="cinematic.ecore#//view/LayoutDirection/HORIZONTAL"/>
+      </genEnums>
       <genClasses image="false" ecoreClass="cinematic.ecore#//view/AbstractViewElement">
         <genFeatures notify="false" createChild="false" propertySortChoices="true"
             ecoreFeature="ecore:EReference cinematic.ecore#//view/AbstractViewElement/widget"/>
@@ -39,11 +43,13 @@
         <genFeatures property="Readonly" notify="false" createChild="false" ecoreFeature="ecore:EReference cinematic.ecore#//view/ViewContainer/viewContainers"/>
         <genFeatures property="Readonly" notify="false" createChild="false" ecoreFeature="ecore:EReference cinematic.ecore#//view/ViewContainer/viewElements"/>
         <genFeatures property="Readonly" notify="false" createChild="false" ecoreFeature="ecore:EReference cinematic.ecore#//view/ViewContainer/viewContainerReferences"/>
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference cinematic.ecore#//view/ViewContainer/layout"/>
       </genClasses>
       <genClasses ecoreClass="cinematic.ecore#//view/ViewElement">
         <genFeatures createChild="false" ecoreFeature="ecore:EAttribute cinematic.ecore#//view/ViewElement/required"/>
         <genFeatures notify="false" createChild="false" propertySortChoices="true"
             ecoreFeature="ecore:EReference cinematic.ecore#//view/ViewElement/type"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute cinematic.ecore#//view/ViewElement/example"/>
       </genClasses>
       <genClasses ecoreClass="cinematic.ecore#//view/ViewAction"/>
       <genClasses ecoreClass="cinematic.ecore#//view/ViewEvent">
@@ -53,6 +59,16 @@
       <genClasses ecoreClass="cinematic.ecore#//view/ViewContainerReference">
         <genFeatures notify="false" createChild="false" propertySortChoices="true"
             ecoreFeature="ecore:EReference cinematic.ecore#//view/ViewContainerReference/viewContainer"/>
+      </genClasses>
+      <genClasses ecoreClass="cinematic.ecore#//view/Layout">
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute cinematic.ecore#//view/Layout/x"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute cinematic.ecore#//view/Layout/y"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute cinematic.ecore#//view/Layout/width"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute cinematic.ecore#//view/Layout/height"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute cinematic.ecore#//view/Layout/direction"/>
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference cinematic.ecore#//view/Layout/viewElement"/>
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference cinematic.ecore#//view/Layout/ownedLayouts"/>
       </genClasses>
     </nestedGenPackages>
     <nestedGenPackages prefix="Flow" basePackage="org.obeonetwork.dsl.cinematic" resource="XMI"

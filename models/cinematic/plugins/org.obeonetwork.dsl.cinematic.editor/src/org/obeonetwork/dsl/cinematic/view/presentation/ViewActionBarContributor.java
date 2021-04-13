@@ -167,6 +167,7 @@ public class ViewActionBarContributor
 	 */
 	@Override
 	public void contributeToToolBar(IToolBarManager toolBarManager) {
+		super.contributeToToolBar(toolBarManager);
 		toolBarManager.add(new Separator("view-settings"));
 		toolBarManager.add(new Separator("view-additions"));
 	}

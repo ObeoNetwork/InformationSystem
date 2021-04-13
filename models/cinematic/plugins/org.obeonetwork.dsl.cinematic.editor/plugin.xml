@@ -13,6 +13,22 @@
  -->
 
 <plugin>
+   <extension point="org.eclipse.ui.newWizards">
+      <!-- @generated cinematic -->
+      <category
+            id="org.eclipse.emf.ecore.Wizard.category.ID"
+            name="%_UI_Wizard_category"/>
+      <wizard
+            id="org.obeonetwork.dsl.cinematic.presentation.CinematicModelWizardID"
+            name="%_UI_CinematicModelWizard_label"
+            class="org.obeonetwork.dsl.cinematic.presentation.CinematicModelWizard"
+            category="org.eclipse.emf.ecore.Wizard.category.ID"
+            icon="icons/full/obj16/CinematicModelFile.gif">
+         <description>%_UI_CinematicModelWizard_description</description>
+         <selection class="org.eclipse.core.resources.IResource"/>
+      </wizard>
+   </extension>
+
    <extension point="org.eclipse.ui.editors">
       <editor
             id="org.obeonetwork.dsl.cinematic.presentation.CinematicEditorID"
@@ -22,6 +38,22 @@
             class="org.obeonetwork.dsl.cinematic.presentation.CinematicEditor"
             contributorClass="org.obeonetwork.dsl.cinematic.presentation.CinematicActionBarContributor">
       </editor>
+   </extension>
+
+   <extension point="org.eclipse.ui.newWizards">
+      <!-- @generated cinematic -->
+      <category
+            id="org.eclipse.emf.ecore.Wizard.category.ID"
+            name="%_UI_Wizard_category"/>
+      <wizard
+            id="org.obeonetwork.dsl.cinematic.view.presentation.ViewModelWizardID"
+            name="%_UI_ViewModelWizard_label"
+            class="org.obeonetwork.dsl.cinematic.view.presentation.ViewModelWizard"
+            category="org.eclipse.emf.ecore.Wizard.category.ID"
+            icon="icons/full/obj16/ViewModelFile.gif">
+         <description>%_UI_ViewModelWizard_description</description>
+         <selection class="org.eclipse.core.resources.IResource"/>
+      </wizard>
    </extension>
 
 
@@ -36,6 +68,22 @@
       </editor>
    </extension>
 
+   <extension point="org.eclipse.ui.newWizards">
+      <!-- @generated cinematic -->
+      <category
+            id="org.eclipse.emf.ecore.Wizard.category.ID"
+            name="%_UI_Wizard_category"/>
+      <wizard
+            id="org.obeonetwork.dsl.cinematic.flow.presentation.FlowModelWizardID"
+            name="%_UI_FlowModelWizard_label"
+            class="org.obeonetwork.dsl.cinematic.flow.presentation.FlowModelWizard"
+            category="org.eclipse.emf.ecore.Wizard.category.ID"
+            icon="icons/full/obj16/FlowModelFile.gif">
+         <description>%_UI_FlowModelWizard_description</description>
+         <selection class="org.eclipse.core.resources.IResource"/>
+      </wizard>
+   </extension>
+
 
    <extension point="org.eclipse.ui.editors">
       <editor
@@ -46,6 +94,22 @@
             class="org.obeonetwork.dsl.cinematic.flow.presentation.FlowEditor"
             contributorClass="org.obeonetwork.dsl.cinematic.flow.presentation.FlowActionBarContributor">
       </editor>
+   </extension>
+
+   <extension point="org.eclipse.ui.newWizards">
+      <!-- @generated cinematic -->
+      <category
+            id="org.eclipse.emf.ecore.Wizard.category.ID"
+            name="%_UI_Wizard_category"/>
+      <wizard
+            id="org.obeonetwork.dsl.cinematic.toolkits.presentation.ToolkitsModelWizardID"
+            name="%_UI_ToolkitsModelWizard_label"
+            class="org.obeonetwork.dsl.cinematic.toolkits.presentation.ToolkitsModelWizard"
+            category="org.eclipse.emf.ecore.Wizard.category.ID"
+            icon="icons/full/obj16/ToolkitsModelFile.gif">
+         <description>%_UI_ToolkitsModelWizard_description</description>
+         <selection class="org.eclipse.core.resources.IResource"/>
+      </wizard>
    </extension>
    
 

@@ -12,6 +12,7 @@ package org.obeonetwork.dsl.cinematic.view;
 
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EEnum;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
 import org.obeonetwork.dsl.cinematic.CinematicPackage;
@@ -382,13 +383,22 @@ public interface ViewPackage extends EPackage {
 	int VIEW_CONTAINER__VIEW_CONTAINER_REFERENCES = ABSTRACT_VIEW_ELEMENT_FEATURE_COUNT + 3;
 
 	/**
+	 * The feature id for the '<em><b>Layout</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int VIEW_CONTAINER__LAYOUT = ABSTRACT_VIEW_ELEMENT_FEATURE_COUNT + 4;
+
+	/**
 	 * The number of structural features of the '<em>Container</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int VIEW_CONTAINER_FEATURE_COUNT = ABSTRACT_VIEW_ELEMENT_FEATURE_COUNT + 4;
+	int VIEW_CONTAINER_FEATURE_COUNT = ABSTRACT_VIEW_ELEMENT_FEATURE_COUNT + 5;
 
 	/**
 	 * The meta object id for the '{@link org.obeonetwork.dsl.cinematic.view.impl.ViewElementImpl <em>Element</em>}' class.
@@ -936,6 +946,99 @@ public interface ViewPackage extends EPackage {
 
 
 	/**
+	 * The meta object id for the '{@link org.obeonetwork.dsl.cinematic.view.impl.LayoutImpl <em>Layout</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.obeonetwork.dsl.cinematic.view.impl.LayoutImpl
+	 * @see org.obeonetwork.dsl.cinematic.view.impl.ViewPackageImpl#getLayout()
+	 * @generated
+	 */
+	int LAYOUT = 6;
+
+	/**
+	 * The feature id for the '<em><b>X</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LAYOUT__X = 0;
+
+	/**
+	 * The feature id for the '<em><b>Y</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LAYOUT__Y = 1;
+
+	/**
+	 * The feature id for the '<em><b>Width</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LAYOUT__WIDTH = 2;
+
+	/**
+	 * The feature id for the '<em><b>Height</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LAYOUT__HEIGHT = 3;
+
+	/**
+	 * The feature id for the '<em><b>Direction</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LAYOUT__DIRECTION = 4;
+
+	/**
+	 * The feature id for the '<em><b>View Element</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LAYOUT__VIEW_ELEMENT = 5;
+
+	/**
+	 * The feature id for the '<em><b>Owned Layouts</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LAYOUT__OWNED_LAYOUTS = 6;
+
+	/**
+	 * The number of structural features of the '<em>Layout</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LAYOUT_FEATURE_COUNT = 7;
+
+	/**
+	 * The meta object id for the '{@link org.obeonetwork.dsl.cinematic.view.LayoutDirection <em>Layout Direction</em>}' enum.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.obeonetwork.dsl.cinematic.view.LayoutDirection
+	 * @see org.obeonetwork.dsl.cinematic.view.impl.ViewPackageImpl#getLayoutDirection()
+	 * @generated
+	 */
+	int LAYOUT_DIRECTION = 7;
+
+
+	/**
 	 * Returns the meta object for class '{@link org.obeonetwork.dsl.cinematic.view.AbstractViewElement <em>Abstract View Element</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1044,6 +1147,17 @@ public interface ViewPackage extends EPackage {
 	EReference getViewContainer_ViewContainerReferences();
 
 	/**
+	 * Returns the meta object for the containment reference '{@link org.obeonetwork.dsl.cinematic.view.ViewContainer#getLayout <em>Layout</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference '<em>Layout</em>'.
+	 * @see org.obeonetwork.dsl.cinematic.view.ViewContainer#getLayout()
+	 * @see #getViewContainer()
+	 * @generated
+	 */
+	EReference getViewContainer_Layout();
+
+	/**
 	 * Returns the meta object for class '{@link org.obeonetwork.dsl.cinematic.view.ViewElement <em>Element</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1126,6 +1240,103 @@ public interface ViewPackage extends EPackage {
 	 * @generated
 	 */
 	EReference getViewContainerReference_ViewContainer();
+
+	/**
+	 * Returns the meta object for class '{@link org.obeonetwork.dsl.cinematic.view.Layout <em>Layout</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Layout</em>'.
+	 * @see org.obeonetwork.dsl.cinematic.view.Layout
+	 * @generated
+	 */
+	EClass getLayout();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.obeonetwork.dsl.cinematic.view.Layout#getX <em>X</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>X</em>'.
+	 * @see org.obeonetwork.dsl.cinematic.view.Layout#getX()
+	 * @see #getLayout()
+	 * @generated
+	 */
+	EAttribute getLayout_X();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.obeonetwork.dsl.cinematic.view.Layout#getY <em>Y</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Y</em>'.
+	 * @see org.obeonetwork.dsl.cinematic.view.Layout#getY()
+	 * @see #getLayout()
+	 * @generated
+	 */
+	EAttribute getLayout_Y();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.obeonetwork.dsl.cinematic.view.Layout#getWidth <em>Width</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Width</em>'.
+	 * @see org.obeonetwork.dsl.cinematic.view.Layout#getWidth()
+	 * @see #getLayout()
+	 * @generated
+	 */
+	EAttribute getLayout_Width();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.obeonetwork.dsl.cinematic.view.Layout#getHeight <em>Height</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Height</em>'.
+	 * @see org.obeonetwork.dsl.cinematic.view.Layout#getHeight()
+	 * @see #getLayout()
+	 * @generated
+	 */
+	EAttribute getLayout_Height();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.obeonetwork.dsl.cinematic.view.Layout#getDirection <em>Direction</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Direction</em>'.
+	 * @see org.obeonetwork.dsl.cinematic.view.Layout#getDirection()
+	 * @see #getLayout()
+	 * @generated
+	 */
+	EAttribute getLayout_Direction();
+
+	/**
+	 * Returns the meta object for the reference '{@link org.obeonetwork.dsl.cinematic.view.Layout#getViewElement <em>View Element</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>View Element</em>'.
+	 * @see org.obeonetwork.dsl.cinematic.view.Layout#getViewElement()
+	 * @see #getLayout()
+	 * @generated
+	 */
+	EReference getLayout_ViewElement();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link org.obeonetwork.dsl.cinematic.view.Layout#getOwnedLayouts <em>Owned Layouts</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Owned Layouts</em>'.
+	 * @see org.obeonetwork.dsl.cinematic.view.Layout#getOwnedLayouts()
+	 * @see #getLayout()
+	 * @generated
+	 */
+	EReference getLayout_OwnedLayouts();
+
+	/**
+	 * Returns the meta object for enum '{@link org.obeonetwork.dsl.cinematic.view.LayoutDirection <em>Layout Direction</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for enum '<em>Layout Direction</em>'.
+	 * @see org.obeonetwork.dsl.cinematic.view.LayoutDirection
+	 * @generated
+	 */
+	EEnum getLayoutDirection();
 
 	/**
 	 * Returns the factory that creates the instances of the model.
@@ -1234,6 +1445,14 @@ public interface ViewPackage extends EPackage {
 		EReference VIEW_CONTAINER__VIEW_CONTAINER_REFERENCES = eINSTANCE.getViewContainer_ViewContainerReferences();
 
 		/**
+		 * The meta object literal for the '<em><b>Layout</b></em>' containment reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference VIEW_CONTAINER__LAYOUT = eINSTANCE.getViewContainer_Layout();
+
+		/**
 		 * The meta object literal for the '{@link org.obeonetwork.dsl.cinematic.view.impl.ViewElementImpl <em>Element</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -1304,6 +1523,82 @@ public interface ViewPackage extends EPackage {
 		 * @generated
 		 */
 		EReference VIEW_CONTAINER_REFERENCE__VIEW_CONTAINER = eINSTANCE.getViewContainerReference_ViewContainer();
+
+		/**
+		 * The meta object literal for the '{@link org.obeonetwork.dsl.cinematic.view.impl.LayoutImpl <em>Layout</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.obeonetwork.dsl.cinematic.view.impl.LayoutImpl
+		 * @see org.obeonetwork.dsl.cinematic.view.impl.ViewPackageImpl#getLayout()
+		 * @generated
+		 */
+		EClass LAYOUT = eINSTANCE.getLayout();
+
+		/**
+		 * The meta object literal for the '<em><b>X</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute LAYOUT__X = eINSTANCE.getLayout_X();
+
+		/**
+		 * The meta object literal for the '<em><b>Y</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute LAYOUT__Y = eINSTANCE.getLayout_Y();
+
+		/**
+		 * The meta object literal for the '<em><b>Width</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute LAYOUT__WIDTH = eINSTANCE.getLayout_Width();
+
+		/**
+		 * The meta object literal for the '<em><b>Height</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute LAYOUT__HEIGHT = eINSTANCE.getLayout_Height();
+
+		/**
+		 * The meta object literal for the '<em><b>Direction</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute LAYOUT__DIRECTION = eINSTANCE.getLayout_Direction();
+
+		/**
+		 * The meta object literal for the '<em><b>View Element</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference LAYOUT__VIEW_ELEMENT = eINSTANCE.getLayout_ViewElement();
+
+		/**
+		 * The meta object literal for the '<em><b>Owned Layouts</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference LAYOUT__OWNED_LAYOUTS = eINSTANCE.getLayout_OwnedLayouts();
+
+		/**
+		 * The meta object literal for the '{@link org.obeonetwork.dsl.cinematic.view.LayoutDirection <em>Layout Direction</em>}' enum.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.obeonetwork.dsl.cinematic.view.LayoutDirection
+		 * @see org.obeonetwork.dsl.cinematic.view.impl.ViewPackageImpl#getLayoutDirection()
+		 * @generated
+		 */
+		EEnum LAYOUT_DIRECTION = eINSTANCE.getLayoutDirection();
 
 	}
 

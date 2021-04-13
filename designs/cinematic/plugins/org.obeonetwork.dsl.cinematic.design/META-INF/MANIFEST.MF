@@ -13,7 +13,15 @@ Require-Bundle: org.eclipse.ui,
  org.eclipse.sirius.common.ui;bundle-version="2.0.0",
  org.obeonetwork.dsl.is,
  org.eclipse.sirius.diagram,
- org.eclipse.sirius.tree
+ org.eclipse.sirius.tree,
+ org.eclipse.sirius.diagram.ui,
+ org.eclipse.emf.transaction,
+ org.eclipse.sirius.ext.base,
+ org.eclipse.draw2d,
+ org.eclipse.gmf.runtime.notation.edit,
+ org.eclipse.gmf.runtime.draw2d.ui,
+ org.obeonetwork.dsl.environment.design.services,
+ org.obeonetwork.utils.common
 Bundle-ActivationPolicy: lazy
 Bundle-RequiredExecutionEnvironment: J2SE-1.5
 Bundle-Vendor: Obeo Network
