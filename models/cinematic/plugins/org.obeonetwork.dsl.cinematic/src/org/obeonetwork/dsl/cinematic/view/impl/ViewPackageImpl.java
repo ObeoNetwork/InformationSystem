@@ -308,6 +308,15 @@ public class ViewPackageImpl extends EPackageImpl implements ViewPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EAttribute getViewElement_Example() {
+		return (EAttribute)viewElementEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getViewAction() {
 		return viewActionEClass;
 	}
@@ -473,6 +482,7 @@ public class ViewPackageImpl extends EPackageImpl implements ViewPackage {
 		viewElementEClass = createEClass(VIEW_ELEMENT);
 		createEAttribute(viewElementEClass, VIEW_ELEMENT__REQUIRED);
 		createEReference(viewElementEClass, VIEW_ELEMENT__TYPE);
+		createEAttribute(viewElementEClass, VIEW_ELEMENT__EXAMPLE);
 
 		viewActionEClass = createEClass(VIEW_ACTION);
 
@@ -553,6 +563,7 @@ public class ViewPackageImpl extends EPackageImpl implements ViewPackage {
 		initEClass(viewElementEClass, ViewElement.class, "ViewElement", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getViewElement_Required(), ecorePackage.getEBoolean(), "required", null, 0, 1, ViewElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getViewElement_Type(), theEnvironmentPackage.getType(), null, "type", null, 0, 1, ViewElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getViewElement_Example(), ecorePackage.getEString(), "example", null, 0, 1, ViewElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(viewActionEClass, ViewAction.class, "ViewAction", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
@@ -648,6 +659,12 @@ public class ViewPackageImpl extends EPackageImpl implements ViewPackage {
 		   source,
 		   new String[] {
 			   "documentation", "The data type this View Element is manipulating."
+		   });
+		addAnnotation
+		  (getViewElement_Example(),
+		   source,
+		   new String[] {
+			   "documentation", "Enables the definition of how a widget can be used in the context of this view element."
 		   });
 		addAnnotation
 		  (getViewEvent_Type(),
