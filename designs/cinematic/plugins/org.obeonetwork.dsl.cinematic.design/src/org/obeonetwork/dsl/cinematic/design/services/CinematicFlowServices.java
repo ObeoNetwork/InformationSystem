@@ -15,6 +15,9 @@ import java.util.List;
 
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EObject;
+import org.eclipse.swt.widgets.Shell;
+import org.eclipse.ui.PlatformUI;
+import org.obeonetwork.dsl.cinematic.design.services.flows.ViewContainerSelectionDialog;
 import org.obeonetwork.dsl.cinematic.flow.Flow;
 import org.obeonetwork.dsl.cinematic.flow.FlowState;
 import org.obeonetwork.dsl.cinematic.flow.ViewState;
@@ -84,4 +87,21 @@ public class CinematicFlowServices {
 		}
 		return viewContainersAncestors;
 	}
+	
+	public void openViewContainerSelectionDialog(EObject viewState) {
+		ArrayList<EObject> arrayList = new ArrayList<>();
+		arrayList.add(viewState);
+		
+		Shell shell = PlatformUI.getWorkbench().getActiveWorkbenchWindow().getShell();
+		
+		if (viewState instanceof ViewState) {
+			ViewContainerSelectionDialog dialog = new ViewContainerSelectionDialog(shell, (ViewState) viewState);
+			dialog.open();
+		}					
+	}
+	
+	public static boolean isSubViewContainer(ViewContainer container) {
+		return container.eContainer() instanceof ViewContainer;
+	}
+	
 }
