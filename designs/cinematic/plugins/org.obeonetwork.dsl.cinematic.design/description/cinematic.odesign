@@ -1718,24 +1718,6 @@
             </style>
           </conditionalStyles>
         </controls>
-        <controls xsi:type="properties:CustomDescription" name="org.obeonetwork.is.eef.custom.reference" label="flow::FlowAction calls" labelExpression="aql:'Calls :'" helpExpression="aql:input.emfEditServices(self).getDescription(self.eClass().getEStructuralFeature('calls'))" isEnabledExpression="aql:self.eClass().getEStructuralFeature('calls').changeable">
-          <customExpressions name="referenceNameExpression" customExpression="aql:'calls'"/>
-          <customOperations name="onDoubleClickOperation">
-            <initialOperation>
-              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="aql:selection->first()">
-                <subModelOperations xsi:type="properties:DialogModelOperation" titleExpression="Edit FlowAction call Dialog">
-                  <buttons labelExpression="Cancel" closeDialogOnClick="true" rollbackChangesOnClose="true">
-                    <initialOperation/>
-                  </buttons>
-                  <buttons labelExpression="OK" default="true" closeDialogOnClick="true">
-                    <initialOperation/>
-                  </buttons>
-                  <page name="Edit View Action Page" labelExpression="ViewAction" domainClass="view::ViewAction" semanticCandidateExpression="var:self" extends="//@extensions.0/@categories.1/@pages.0"/>
-                </subModelOperations>
-              </firstModelOperations>
-            </initialOperation>
-          </customOperations>
-        </controls>
         <controls xsi:type="properties:CustomDescription" name="org.obeonetwork.is.eef.custom.reference" label="flow::FlowAction operations" labelExpression="aql:'Operations :'" helpExpression="aql:input.emfEditServices(self).getDescription(self.eClass().getEStructuralFeature('operations'))" isEnabledExpression="aql:self.eClass().getEStructuralFeature('operations').changeable">
           <customExpressions name="referenceNameExpression" customExpression="aql:'operations'"/>
           <customOperations name="onDoubleClickOperation">
@@ -1751,6 +1733,24 @@
                   <page name="Edit FlowAction operation Page" labelExpression="Operation" domainClass="soa::Operation" semanticCandidateExpression="var:self">
                     <extends href="platform:/plugin/org.obeonetwork.dsl.soa.design/description/soa.odesign#//@extensions.0/@categories.1/@pages.0"/>
                   </page>
+                </subModelOperations>
+              </firstModelOperations>
+            </initialOperation>
+          </customOperations>
+        </controls>
+        <controls xsi:type="properties:CustomDescription" name="org.obeonetwork.is.eef.custom.reference" label="flow::FlowAction calls" labelExpression="aql:'Calls :'" helpExpression="aql:input.emfEditServices(self).getDescription(self.eClass().getEStructuralFeature('calls'))" isEnabledExpression="aql:self.eClass().getEStructuralFeature('calls').changeable">
+          <customExpressions name="referenceNameExpression" customExpression="aql:'calls'"/>
+          <customOperations name="onDoubleClickOperation">
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="aql:selection->first()">
+                <subModelOperations xsi:type="properties:DialogModelOperation" titleExpression="Edit FlowAction call Dialog">
+                  <buttons labelExpression="Cancel" closeDialogOnClick="true" rollbackChangesOnClose="true">
+                    <initialOperation/>
+                  </buttons>
+                  <buttons labelExpression="OK" default="true" closeDialogOnClick="true">
+                    <initialOperation/>
+                  </buttons>
+                  <page name="Edit View Action Page" labelExpression="ViewAction" domainClass="view::ViewAction" semanticCandidateExpression="var:self" extends="//@extensions.0/@categories.1/@pages.0"/>
                 </subModelOperations>
               </firstModelOperations>
             </initialOperation>
