@@ -15,10 +15,14 @@ import java.util.Collection;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
+import java.util.stream.Collectors;
 
+import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.common.util.TreeIterator;
 import org.eclipse.emf.ecore.EObject;
+import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.obeonetwork.dsl.cinematic.AbstractPackage;
+import org.obeonetwork.dsl.cinematic.CinematicRoot;
 import org.obeonetwork.dsl.cinematic.Event;
 import org.obeonetwork.dsl.cinematic.design.services.CinematicEcoreServices;
 import org.obeonetwork.dsl.cinematic.design.services.view.ViewUtil;
@@ -218,6 +222,55 @@ public class FlowsUtil {
 		}
 		return containers;
 	}
-
+	
+	/**
+	 * Get all packages and subpackages starting from the specified AbstractPackage parameter
+	 * @param abstractPackage an {@link AbstractPackage}
+	 * @return a Collection containing all of {@link AbstractPackage}s
+	 */
+	public static Collection<AbstractPackage> getAllPackagesFromRoot(AbstractPackage abstractPackage) {
+		Collection<AbstractPackage> packageList = new ArrayList<>();		
+		packageList.add(abstractPackage); 
 		
+		packageList.addAll(
+			abstractPackage.getSubPackages().stream() 
+				.map(FlowsUtil::getAllPackagesFromRoot) // collection of collection of sub packages
+				.flatMap(Collection::stream) // flatten to a single collection of packages
+				.collect(Collectors.toList()) 
+		);
+		
+		return packageList;
+	}
+
+	/**
+	 * Return the Cinematic Root of the model
+	 * @param object any {@link EObject}
+	 * @return a {@link CinematicRoot}	 
+	 * <pre> object belongs to the Cinematic metamodel </pre> 
+	 */
+	public static CinematicRoot getCinematicRoot(EObject object) {
+		EObject container = EcoreUtil.getRootContainer(object);
+		if (container instanceof CinematicRoot) {
+			return (CinematicRoot) container;
+		}
+		return null;
+	}
+	
+	/**
+	 * Return all the {@link ViewState} from a root {@link AbstractPackage}
+	 * @param abstractPackage, an {@link AbstractPackage}, such as a {@link CinematicRoot}
+	 * @return a Collection of {@link ViewState}
+	 */
+	public static Collection<ViewState> getAllViewStateInPackage(AbstractPackage abstractPackage) {
+			
+		return getAllPackagesFromRoot(abstractPackage) 
+				.stream() // Stream<AbstractPackage>		
+				.flatMap(ap -> ap.getFlows().stream()) // Stream<Flow>
+				.flatMap(flow -> flow.getStates().stream()) // Stream<FlowState>
+				.filter(ViewState.class::isInstance)
+				.map(ViewState.class::cast) // Stream<ViewState>
+				.collect(Collectors.toList()); // Collection<ViewState>
+	}
+	
+
 }
