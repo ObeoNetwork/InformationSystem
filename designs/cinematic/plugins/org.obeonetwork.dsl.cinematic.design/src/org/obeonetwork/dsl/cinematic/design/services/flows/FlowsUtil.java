@@ -271,6 +271,4 @@ public class FlowsUtil {
 				.collect(Collectors.toList()); // Collection<ViewState>
 	}
 	
-
-
 }
