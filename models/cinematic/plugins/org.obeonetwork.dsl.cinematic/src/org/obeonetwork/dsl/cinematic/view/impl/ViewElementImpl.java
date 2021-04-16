@@ -25,6 +25,7 @@ import org.obeonetwork.dsl.environment.Type;
  * <ul>
  *   <li>{@link org.obeonetwork.dsl.cinematic.view.impl.ViewElementImpl#isRequired <em>Required</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.cinematic.view.impl.ViewElementImpl#getType <em>Type</em>}</li>
+ *   <li>{@link org.obeonetwork.dsl.cinematic.view.impl.ViewElementImpl#getExample <em>Example</em>}</li>
  * </ul>
  *
  * @generated
@@ -39,6 +40,16 @@ public class ViewElementImpl extends AbstractViewElementImpl implements ViewElem
 	 * @ordered
 	 */
 	protected static final boolean REQUIRED_EDEFAULT = false;
+
+	/**
+	 * The default value of the '{@link #getExample() <em>Example</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getExample()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String EXAMPLE_EDEFAULT = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -109,6 +120,24 @@ public class ViewElementImpl extends AbstractViewElementImpl implements ViewElem
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public String getExample() {
+		return (String)eDynamicGet(ViewPackage.VIEW_ELEMENT__EXAMPLE, ViewPackage.Literals.VIEW_ELEMENT__EXAMPLE, true, true);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setExample(String newExample) {
+		eDynamicSet(ViewPackage.VIEW_ELEMENT__EXAMPLE, ViewPackage.Literals.VIEW_ELEMENT__EXAMPLE, newExample);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
@@ -117,6 +146,8 @@ public class ViewElementImpl extends AbstractViewElementImpl implements ViewElem
 			case ViewPackage.VIEW_ELEMENT__TYPE:
 				if (resolve) return getType();
 				return basicGetType();
+			case ViewPackage.VIEW_ELEMENT__EXAMPLE:
+				return getExample();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -134,6 +165,9 @@ public class ViewElementImpl extends AbstractViewElementImpl implements ViewElem
 				return;
 			case ViewPackage.VIEW_ELEMENT__TYPE:
 				setType((Type)newValue);
+				return;
+			case ViewPackage.VIEW_ELEMENT__EXAMPLE:
+				setExample((String)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -153,6 +187,9 @@ public class ViewElementImpl extends AbstractViewElementImpl implements ViewElem
 			case ViewPackage.VIEW_ELEMENT__TYPE:
 				setType((Type)null);
 				return;
+			case ViewPackage.VIEW_ELEMENT__EXAMPLE:
+				setExample(EXAMPLE_EDEFAULT);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -169,6 +206,8 @@ public class ViewElementImpl extends AbstractViewElementImpl implements ViewElem
 				return isRequired() != REQUIRED_EDEFAULT;
 			case ViewPackage.VIEW_ELEMENT__TYPE:
 				return basicGetType() != null;
+			case ViewPackage.VIEW_ELEMENT__EXAMPLE:
+				return EXAMPLE_EDEFAULT == null ? getExample() != null : !EXAMPLE_EDEFAULT.equals(getExample());
 		}
 		return super.eIsSet(featureID);
 	}

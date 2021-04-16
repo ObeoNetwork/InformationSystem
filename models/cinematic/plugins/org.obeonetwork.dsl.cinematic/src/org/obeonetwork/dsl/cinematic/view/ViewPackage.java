@@ -555,13 +555,22 @@ public interface ViewPackage extends EPackage {
 	int VIEW_ELEMENT__TYPE = ABSTRACT_VIEW_ELEMENT_FEATURE_COUNT + 1;
 
 	/**
+	 * The feature id for the '<em><b>Example</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int VIEW_ELEMENT__EXAMPLE = ABSTRACT_VIEW_ELEMENT_FEATURE_COUNT + 2;
+
+	/**
 	 * The number of structural features of the '<em>Element</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int VIEW_ELEMENT_FEATURE_COUNT = ABSTRACT_VIEW_ELEMENT_FEATURE_COUNT + 2;
+	int VIEW_ELEMENT_FEATURE_COUNT = ABSTRACT_VIEW_ELEMENT_FEATURE_COUNT + 3;
 
 	/**
 	 * The meta object id for the '{@link org.obeonetwork.dsl.cinematic.view.impl.ViewActionImpl <em>Action</em>}' class.
@@ -1190,6 +1199,17 @@ public interface ViewPackage extends EPackage {
 	EReference getViewElement_Type();
 
 	/**
+	 * Returns the meta object for the attribute '{@link org.obeonetwork.dsl.cinematic.view.ViewElement#getExample <em>Example</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Example</em>'.
+	 * @see org.obeonetwork.dsl.cinematic.view.ViewElement#getExample()
+	 * @see #getViewElement()
+	 * @generated
+	 */
+	EAttribute getViewElement_Example();
+
+	/**
 	 * Returns the meta object for class '{@link org.obeonetwork.dsl.cinematic.view.ViewAction <em>Action</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1477,6 +1497,14 @@ public interface ViewPackage extends EPackage {
 		 * @generated
 		 */
 		EReference VIEW_ELEMENT__TYPE = eINSTANCE.getViewElement_Type();
+
+		/**
+		 * The meta object literal for the '<em><b>Example</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute VIEW_ELEMENT__EXAMPLE = eINSTANCE.getViewElement_Example();
 
 		/**
 		 * The meta object literal for the '{@link org.obeonetwork.dsl.cinematic.view.impl.ViewActionImpl <em>Action</em>}' class.
