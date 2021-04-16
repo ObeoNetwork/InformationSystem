@@ -19,7 +19,6 @@ import org.obeonetwork.dsl.cinematic.design.services.flows.listeners.ViewContain
 import org.obeonetwork.dsl.cinematic.design.services.flows.providers.ViewContainerCheckStateProvider;
 import org.obeonetwork.dsl.cinematic.design.services.flows.providers.ViewContainerLabelProvider;
 import org.obeonetwork.dsl.cinematic.design.services.flows.providers.ViewContainerTreeContentProvider;
-import org.obeonetwork.dsl.cinematic.design.services.flows.providers.ViewContainerViewerFilter;
 import org.obeonetwork.dsl.cinematic.flow.ViewState;
 
 public class ViewContainerSelectionDialog extends Dialog {
@@ -47,7 +46,11 @@ public class ViewContainerSelectionDialog extends Dialog {
 		container.setLayout(new GridLayout(1, false));
 		
 		Composite composite = new Composite(container, SWT.NONE);
-		composite.setLayoutData(new GridData(SWT.FILL, SWT.TOP, true, false, 1, 1));
+
+		GridData gd_composite = new GridData(SWT.FILL, SWT.TOP, true, false, 1, 1);
+		gd_composite.widthHint = 429;
+		gd_composite.heightHint = 59;
+		composite.setLayoutData(gd_composite);
 		composite.setLayout(new GridLayout(2, false));
 		
 		Button btnCheckButton = new Button(composite, SWT.CHECK);
@@ -56,35 +59,31 @@ public class ViewContainerSelectionDialog extends Dialog {
 		new Label(composite, SWT.NONE);
 		
 		txtFilterText = new Text(composite, SWT.SEARCH | SWT.ICON_CANCEL);
-		txtFilterText.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, true, false, 1, 1));
+
+		GridData gd_txtFilterText = new GridData(SWT.FILL, SWT.CENTER, true, false, 1, 1);
+		gd_txtFilterText.widthHint = 363;
+		txtFilterText.setLayoutData(gd_txtFilterText);
 		txtFilterText.setMessage("Filter text (? = any character, * = any String)");
 		
-		Button btnClearButton = new Button(composite, SWT.NONE);
-		btnClearButton.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, false, false, 1, 1));
-		btnClearButton.setText("clear");
-		
+		Button btnNewButton = new Button(composite, SWT.NONE);
+		GridData gd_btnNewButton = new GridData(SWT.FILL, SWT.CENTER, false, false, 1, 1);
+		gd_btnNewButton.widthHint = 55;
+		btnNewButton.setLayoutData(gd_btnNewButton);
+		btnNewButton.setText("clear");		
 		CheckboxTreeViewer checkboxTreeViewer = new CheckboxTreeViewer(container, SWT.BORDER);
 		Tree tree = checkboxTreeViewer.getTree();
 		tree.setLayoutData(new GridData(SWT.FILL, SWT.FILL, true, true, 1, 1));
 		
 		ViewContainerTreeContentProvider containerTreeContentProvider = new ViewContainerTreeContentProvider(viewState);
-		ViewContainerViewerFilter containerViewerFilter = new ViewContainerViewerFilter(checkboxTreeViewer);
-		txtFilterText.addKeyListener(containerViewerFilter);
-		
-		btnCheckButton.addSelectionListener(new ViewContainerHideBoundContainersListener(checkboxTreeViewer, containerTreeContentProvider));		
+
 		checkboxTreeViewer.setContentProvider(containerTreeContentProvider);
+		btnCheckButton.addSelectionListener(new ViewContainerHideBoundContainersListener(checkboxTreeViewer, containerTreeContentProvider));
 		checkboxTreeViewer.setLabelProvider(new ViewContainerLabelProvider());			
 		checkboxTreeViewer.addCheckStateListener(new ViewContainerCheckStateListener(checkboxTreeViewer, viewState));		
-		checkboxTreeViewer.setCheckStateProvider(new ViewContainerCheckStateProvider(viewState));	
-		checkboxTreeViewer.addFilter(containerViewerFilter);		
+		checkboxTreeViewer.setCheckStateProvider(new ViewContainerCheckStateProvider(viewState));
+		
 		checkboxTreeViewer.setInput(FlowsUtil.getCinematicRoot(this.viewState));
-		
-		btnClearButton.addListener(SWT.Selection, event -> {
-			txtFilterText.setText(""); // clearing the text input		
-			event.widget = txtFilterText;
-			txtFilterText.notifyListeners(SWT.KeyUp, event); // we notify the text area listeners to consider the new text value.
-		});
-		
+
 		return container;
 	}
 
@@ -96,6 +95,15 @@ public class ViewContainerSelectionDialog extends Dialog {
 	protected void createButtonsForButtonBar(Composite parent) {
 		createButton(parent, IDialogConstants.OK_ID, IDialogConstants.OK_LABEL, true);
 		createButton(parent, IDialogConstants.CANCEL_ID, IDialogConstants.CANCEL_LABEL, false);
+	}
+
+
+	/**
+	 * Return the initial size of the dialog.
+	 */
+	@Override
+	protected Point getInitialSize() {
+		return new Point(450, 361);
 	}
 
 	@Override
