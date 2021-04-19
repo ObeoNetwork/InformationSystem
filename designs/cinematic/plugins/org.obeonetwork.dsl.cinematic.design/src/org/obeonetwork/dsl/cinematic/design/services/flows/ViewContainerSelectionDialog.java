@@ -19,6 +19,7 @@ import org.obeonetwork.dsl.cinematic.design.services.flows.listeners.ViewContain
 import org.obeonetwork.dsl.cinematic.design.services.flows.providers.ViewContainerCheckStateProvider;
 import org.obeonetwork.dsl.cinematic.design.services.flows.providers.ViewContainerLabelProvider;
 import org.obeonetwork.dsl.cinematic.design.services.flows.providers.ViewContainerTreeContentProvider;
+import org.obeonetwork.dsl.cinematic.design.services.flows.providers.ViewContainerViewerFilter;
 import org.obeonetwork.dsl.cinematic.flow.ViewState;
 
 public class ViewContainerSelectionDialog extends Dialog {
@@ -65,25 +66,36 @@ public class ViewContainerSelectionDialog extends Dialog {
 		txtFilterText.setLayoutData(gd_txtFilterText);
 		txtFilterText.setMessage("Filter text (? = any character, * = any String)");
 		
-		Button btnNewButton = new Button(composite, SWT.NONE);
+		Button btnClearButton = new Button(composite, SWT.NONE);
 		GridData gd_btnNewButton = new GridData(SWT.FILL, SWT.CENTER, false, false, 1, 1);
 		gd_btnNewButton.widthHint = 55;
-		btnNewButton.setLayoutData(gd_btnNewButton);
-		btnNewButton.setText("clear");		
+
+		btnClearButton.setLayoutData(gd_btnNewButton);
+		btnClearButton.setText("clear");
+		
 		CheckboxTreeViewer checkboxTreeViewer = new CheckboxTreeViewer(container, SWT.BORDER);
 		Tree tree = checkboxTreeViewer.getTree();
 		tree.setLayoutData(new GridData(SWT.FILL, SWT.FILL, true, true, 1, 1));
 		
 		ViewContainerTreeContentProvider containerTreeContentProvider = new ViewContainerTreeContentProvider(viewState);
 
+		ViewContainerViewerFilter containerViewerFilter = new ViewContainerViewerFilter(checkboxTreeViewer);
+		txtFilterText.addKeyListener(containerViewerFilter);
+		
+		btnCheckButton.addSelectionListener(new ViewContainerHideBoundContainersListener(checkboxTreeViewer, containerTreeContentProvider));		
 		checkboxTreeViewer.setContentProvider(containerTreeContentProvider);
-		btnCheckButton.addSelectionListener(new ViewContainerHideBoundContainersListener(checkboxTreeViewer, containerTreeContentProvider));
 		checkboxTreeViewer.setLabelProvider(new ViewContainerLabelProvider());			
 		checkboxTreeViewer.addCheckStateListener(new ViewContainerCheckStateListener(checkboxTreeViewer, viewState));		
-		checkboxTreeViewer.setCheckStateProvider(new ViewContainerCheckStateProvider(viewState));
-		
+		checkboxTreeViewer.setCheckStateProvider(new ViewContainerCheckStateProvider(viewState));	
+		checkboxTreeViewer.addFilter(containerViewerFilter);		
 		checkboxTreeViewer.setInput(FlowsUtil.getCinematicRoot(this.viewState));
-
+		
+		btnClearButton.addListener(SWT.Selection, event -> {
+			txtFilterText.setText(""); // clearing the text input		
+			event.widget = txtFilterText;
+			txtFilterText.notifyListeners(SWT.KeyUp, event); // we notify the text area listeners to consider the new text value.
+		});
+		
 		return container;
 	}
 
