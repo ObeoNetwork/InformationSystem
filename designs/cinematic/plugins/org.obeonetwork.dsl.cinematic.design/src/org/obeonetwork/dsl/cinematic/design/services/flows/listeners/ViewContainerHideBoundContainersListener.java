@@ -5,6 +5,10 @@ import org.eclipse.swt.events.SelectionAdapter;
 import org.eclipse.swt.events.SelectionEvent;
 import org.obeonetwork.dsl.cinematic.design.services.flows.providers.ViewContainerTreeContentProvider;
 
+/**
+ *  
+ * @author <a href="mailto:thibault.beziers-la-fosse@obeo.fr">Thibault Béziers la Fosse</a> 
+ */
 public class ViewContainerHideBoundContainersListener extends SelectionAdapter {
 
 	private ViewContainerTreeContentProvider containerTreeContentProvider;
