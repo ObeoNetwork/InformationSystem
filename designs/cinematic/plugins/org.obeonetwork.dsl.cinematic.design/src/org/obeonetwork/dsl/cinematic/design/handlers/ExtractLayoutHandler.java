@@ -19,7 +19,7 @@ import org.eclipse.ui.handlers.HandlerUtil;
 import org.obeonetwork.dsl.cinematic.design.services.CinematicLayoutServices;
 import org.obeonetwork.dsl.cinematic.view.ViewContainer;
 
-//TODO implement the pre conditions in plugin.xml
+//TODO VRI implement the pre conditions in plugin.xml
 public class ExtractLayoutHandler extends AbstractHandler {
 
 	@Override

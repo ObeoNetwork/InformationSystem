@@ -261,7 +261,7 @@ public class CinematicWidgetServices {
 		return getWidgetDecoratorPath(viewElement, cardinalPosition) != null;
 	}
 	
-	// TODO Use the values from the model (this is a remaining of the POC)
+	// TODO VRI Use the values from the model (this is a remaining of the POC)
 	public String getWidgetDecoratorPath(ViewElement viewElement, String cardinalPosition) {
 		Widget widget = viewElement.getWidget();
 		String decoratorPath = null;
@@ -289,7 +289,7 @@ public class CinematicWidgetServices {
 		String path = getWidgetDecoratorPath(viewElement, cardinalPosition);
 		Bounds bounds = CinematicLayoutServices.getBounds(diagramElement);
 		
-		// TODO : Calculer la largeur proportionellement à la hauteur
+		// TODO VRI : Calculer la largeur proportionellement à la hauteur
 		int h = bounds.getHeight() - 4;
 		Image image  = SVGImageFigure.flyWeightImage(path, h, h);
 		return image;
@@ -321,7 +321,7 @@ public class CinematicWidgetServices {
 				.findFirst().orElse(null);
 	}
 	
-	// TODO Comment
+	// TODO VRI Comment
 	public EObject buildWidgetPalette(CinematicElement context) {
 		Collection<Viewpoint> viewpoints = new EObjectQuery(context).getAvailableViewpointsInResourceSet();
 		Viewpoint cinematicVP = viewpoints.stream().filter(vp -> vp.getName().equals(ICinematicViewpoint.ID)).findFirst().orElse(null);
@@ -408,7 +408,7 @@ public class CinematicWidgetServices {
 		
 	}
 
-	// TODO Move the trace methods to a Debug sevices component
+	// TODO VRI Move the trace methods to a Debug sevices component
 	public EObject trace(EObject receiver) {
 		java.lang.System.out.println("receiver.eClass() = \"" + receiver.eClass().getName() + "\"");
 		java.lang.System.out.println("receiver.toString() = \"" + receiver.toString() + "\"");

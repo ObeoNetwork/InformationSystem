@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project default="main" name="fr.gouv.mindef.safran.cinematic.gen.html">
-    <property name="ECLIPSE_HOME" value="../../../../../../../Documents/Obeo/Projets/MinArm/Env/Dev/SafranStudio-1.9.2"/>
-    <property name="ECLIPSE_WORKSPACE" value="../../../../../../../Documents/Obeo/Projets/MinArm/Env/Workspaces/SafranStudio-1.9.2-restapi"/>
+    <property name="ECLIPSE_HOME" value="../../../../../../../Documents/Obeo/Projets/MinEduc/Env/Dev/ISDesigner-2.0.0"/>
+    <property name="ECLIPSE_WORKSPACE" value="../../../../../../../Documents/Obeo/Projets/MinEduc/Env/Workspaces/ISDesigner-2.0.0-EvolCinematic"/>
 
     <!-- The classpath with only the dependencies used by the project -->
     <path id="fr.gouv.mindef.safran.cinematic.gen.html.libraryclasspath">
@@ -27,6 +27,7 @@
         <pathelement location="${ECLIPSE_HOME}/plugins/lpg.runtime.java_2.0.17.v201004271640.jar"/>
         <pathelement location="${ECLIPSE_HOME}/plugins/org.eclipse.ocl.common_1.8.300.v20190603-1146.jar"/>
         <pathelement location="${ECLIPSE_HOME}/plugins/org.eclipse.ocl.ecore_3.10.300.v20190603-1146.jar"/>
+        <pathelement location="${ECLIPSE_HOME}/plugins/org.eclipse.acceleo.common_3.7.8.201902261618.jar"/>
         <pathelement location="${ECLIPSE_HOME}/plugins/org.eclipse.acceleo.parser_3.7.8.201902261618.jar"/>
         <pathelement location="${ECLIPSE_HOME}/plugins/org.eclipse.acceleo.model_3.7.8.201902261618.jar"/>
         <pathelement location="${ECLIPSE_HOME}/plugins/org.eclipse.acceleo.profiler_3.7.8.201902261618.jar"/>

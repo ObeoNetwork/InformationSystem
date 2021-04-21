@@ -21,7 +21,7 @@ import org.obeonetwork.dsl.cinematic.design.services.CinematicLayoutServices;
 import org.obeonetwork.dsl.cinematic.view.Layout;
 import org.obeonetwork.dsl.cinematic.view.ViewContainer;
 
-// TODO implement the pre conditions in plugin.xml
+// TODO VRI implement the pre conditions in plugin.xml
 public class RestoreLayoutHandler extends AbstractHandler {
 
 	@Override
@@ -43,7 +43,7 @@ public class RestoreLayoutHandler extends AbstractHandler {
 
 				@Override
 				protected void doExecute() {
-					// TODO implement another handler specific to the preview
+					// TODO VRI implement another handler specific to the preview
 					// This switch was good enough for the poc, but a specific handler has to be developped for the preview (this one is for the restore)
 					if(semanticElement instanceof ViewContainer) {
 						CinematicLayoutServices.restoreLayout((ViewContainer) semanticElement, dNodeContainer);

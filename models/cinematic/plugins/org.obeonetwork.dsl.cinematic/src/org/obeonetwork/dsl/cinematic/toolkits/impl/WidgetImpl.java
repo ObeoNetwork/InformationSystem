@@ -17,6 +17,7 @@ import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.util.InternalEList;
+import org.obeonetwork.dsl.cinematic.toolkits.Style;
 import org.obeonetwork.dsl.cinematic.toolkits.Toolkit;
 import org.obeonetwork.dsl.cinematic.toolkits.ToolkitsPackage;
 import org.obeonetwork.dsl.cinematic.toolkits.Widget;
@@ -37,6 +38,7 @@ import org.obeonetwork.dsl.technicalid.impl.IdentifiableImpl;
  *   <li>{@link org.obeonetwork.dsl.cinematic.toolkits.impl.WidgetImpl#getToolkit <em>Toolkit</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.cinematic.toolkits.impl.WidgetImpl#getPossibleEvents <em>Possible Events</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.cinematic.toolkits.impl.WidgetImpl#isIsContainer <em>Is Container</em>}</li>
+ *   <li>{@link org.obeonetwork.dsl.cinematic.toolkits.impl.WidgetImpl#getStyle <em>Style</em>}</li>
  * </ul>
  *
  * @generated
@@ -222,6 +224,43 @@ public class WidgetImpl extends IdentifiableImpl implements Widget {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public Style getStyle() {
+		return (Style)eDynamicGet(ToolkitsPackage.WIDGET__STYLE, ToolkitsPackage.Literals.WIDGET__STYLE, true, true);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Style basicGetStyle() {
+		return (Style)eDynamicGet(ToolkitsPackage.WIDGET__STYLE, ToolkitsPackage.Literals.WIDGET__STYLE, false, true);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetStyle(Style newStyle, NotificationChain msgs) {
+		msgs = eDynamicInverseAdd((InternalEObject)newStyle, ToolkitsPackage.WIDGET__STYLE, msgs);
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setStyle(Style newStyle) {
+		eDynamicSet(ToolkitsPackage.WIDGET__STYLE, ToolkitsPackage.Literals.WIDGET__STYLE, newStyle);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
@@ -245,6 +284,8 @@ public class WidgetImpl extends IdentifiableImpl implements Widget {
 				return basicSetToolkit(null, msgs);
 			case ToolkitsPackage.WIDGET__POSSIBLE_EVENTS:
 				return ((InternalEList<?>)getPossibleEvents()).basicRemove(otherEnd, msgs);
+			case ToolkitsPackage.WIDGET__STYLE:
+				return basicSetStyle(null, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -284,6 +325,9 @@ public class WidgetImpl extends IdentifiableImpl implements Widget {
 				return getPossibleEvents();
 			case ToolkitsPackage.WIDGET__IS_CONTAINER:
 				return isIsContainer();
+			case ToolkitsPackage.WIDGET__STYLE:
+				if (resolve) return getStyle();
+				return basicGetStyle();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -316,6 +360,9 @@ public class WidgetImpl extends IdentifiableImpl implements Widget {
 			case ToolkitsPackage.WIDGET__IS_CONTAINER:
 				setIsContainer((Boolean)newValue);
 				return;
+			case ToolkitsPackage.WIDGET__STYLE:
+				setStyle((Style)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -346,6 +393,9 @@ public class WidgetImpl extends IdentifiableImpl implements Widget {
 			case ToolkitsPackage.WIDGET__IS_CONTAINER:
 				setIsContainer(IS_CONTAINER_EDEFAULT);
 				return;
+			case ToolkitsPackage.WIDGET__STYLE:
+				setStyle((Style)null);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -370,6 +420,8 @@ public class WidgetImpl extends IdentifiableImpl implements Widget {
 				return !getPossibleEvents().isEmpty();
 			case ToolkitsPackage.WIDGET__IS_CONTAINER:
 				return isIsContainer() != IS_CONTAINER_EDEFAULT;
+			case ToolkitsPackage.WIDGET__STYLE:
+				return basicGetStyle() != null;
 		}
 		return super.eIsSet(featureID);
 	}

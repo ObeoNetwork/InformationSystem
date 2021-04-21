@@ -124,6 +124,17 @@
     <nestedGenPackages prefix="Toolkits" basePackage="org.obeonetwork.dsl.cinematic"
         resource="XMI" disposableProviderFactory="true" multipleEditorPages="false"
         ecorePackage="cinematic.ecore#//toolkits">
+      <genEnums typeSafeEnumCompatible="false" ecoreEnum="cinematic.ecore#//toolkits/CardinalPosition">
+        <genEnumLiterals ecoreEnumLiteral="cinematic.ecore#//toolkits/CardinalPosition/WEST"/>
+        <genEnumLiterals ecoreEnumLiteral="cinematic.ecore#//toolkits/CardinalPosition/EAST"/>
+        <genEnumLiterals ecoreEnumLiteral="cinematic.ecore#//toolkits/CardinalPosition/NORTH_WEST"/>
+        <genEnumLiterals ecoreEnumLiteral="cinematic.ecore#//toolkits/CardinalPosition/NORTH_EAST"/>
+      </genEnums>
+      <genEnums typeSafeEnumCompatible="false" ecoreEnum="cinematic.ecore#//toolkits/HorizontalAlignment">
+        <genEnumLiterals ecoreEnumLiteral="cinematic.ecore#//toolkits/HorizontalAlignment/CENTER"/>
+        <genEnumLiterals ecoreEnumLiteral="cinematic.ecore#//toolkits/HorizontalAlignment/LEFT"/>
+        <genEnumLiterals ecoreEnumLiteral="cinematic.ecore#//toolkits/HorizontalAlignment/RIGHT"/>
+      </genEnums>
       <genClasses ecoreClass="cinematic.ecore#//toolkits/Toolkit">
         <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference cinematic.ecore#//toolkits/Toolkit/widgets"/>
         <genFeatures createChild="false" ecoreFeature="ecore:EAttribute cinematic.ecore#//toolkits/Toolkit/name"/>
@@ -135,9 +146,23 @@
         <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference cinematic.ecore#//toolkits/Widget/toolkit"/>
         <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference cinematic.ecore#//toolkits/Widget/possibleEvents"/>
         <genFeatures createChild="false" ecoreFeature="ecore:EAttribute cinematic.ecore#//toolkits/Widget/isContainer"/>
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference cinematic.ecore#//toolkits/Widget/style"/>
       </genClasses>
       <genClasses ecoreClass="cinematic.ecore#//toolkits/WidgetEventType">
         <genFeatures createChild="false" ecoreFeature="ecore:EAttribute cinematic.ecore#//toolkits/WidgetEventType/name"/>
+      </genClasses>
+      <genClasses ecoreClass="cinematic.ecore#//toolkits/Style">
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute cinematic.ecore#//toolkits/Style/decorator"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute cinematic.ecore#//toolkits/Style/decoratorPosition"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute cinematic.ecore#//toolkits/Style/decoratorVFill"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute cinematic.ecore#//toolkits/Style/decoratorHFill"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute cinematic.ecore#//toolkits/Style/border"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute cinematic.ecore#//toolkits/Style/roundedCorners"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute cinematic.ecore#//toolkits/Style/fontColor"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute cinematic.ecore#//toolkits/Style/fontUnderline"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute cinematic.ecore#//toolkits/Style/labelHAlignment"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute cinematic.ecore#//toolkits/Style/defaultWidth"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute cinematic.ecore#//toolkits/Style/defaultHeight"/>
       </genClasses>
     </nestedGenPackages>
   </genPackages>

@@ -59,6 +59,7 @@ public class ViewElementItemProvider
 
 			addRequiredPropertyDescriptor(object);
 			addTypePropertyDescriptor(object);
+			addExamplePropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -103,6 +104,28 @@ public class ViewElementItemProvider
 				 false,
 				 true,
 				 null,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Example feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addExamplePropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_ViewElement_example_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_ViewElement_example_feature", "_UI_ViewElement_type"),
+				 ViewPackage.Literals.VIEW_ELEMENT__EXAMPLE,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
 				 null,
 				 null));
 	}
@@ -166,6 +189,7 @@ public class ViewElementItemProvider
 
 		switch (notification.getFeatureID(ViewElement.class)) {
 			case ViewPackage.VIEW_ELEMENT__REQUIRED:
+			case ViewPackage.VIEW_ELEMENT__EXAMPLE:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 		}

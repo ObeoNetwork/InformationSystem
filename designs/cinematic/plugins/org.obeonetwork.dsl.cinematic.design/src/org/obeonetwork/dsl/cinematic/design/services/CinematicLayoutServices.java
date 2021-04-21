@@ -219,7 +219,7 @@ public class CinematicLayoutServices {
 		DialectManager.INSTANCE.refresh(layoutDNC.getParentDiagram(), new NullProgressMonitor());
 	}
 
-	// TODO take into account the thickness of the borders
+	// TODO VRI take into account the thickness of the borders
 	private static void previewLayout(DNodeContainer layoutDNC) {
 		Layout layout = (Layout) layoutDNC.getTarget();
 		Bounds bounds = getBounds(layoutDNC);
