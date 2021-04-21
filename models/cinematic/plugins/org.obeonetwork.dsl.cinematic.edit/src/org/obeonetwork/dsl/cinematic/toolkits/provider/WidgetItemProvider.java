@@ -172,6 +172,7 @@ public class WidgetItemProvider
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
 			childrenFeatures.add(ToolkitsPackage.Literals.WIDGET__POSSIBLE_EVENTS);
+			childrenFeatures.add(ToolkitsPackage.Literals.WIDGET__STYLE);
 		}
 		return childrenFeatures;
 	}
@@ -243,6 +244,7 @@ public class WidgetItemProvider
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 			case ToolkitsPackage.WIDGET__POSSIBLE_EVENTS:
+			case ToolkitsPackage.WIDGET__STYLE:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
 		}
@@ -264,6 +266,11 @@ public class WidgetItemProvider
 			(createChildParameter
 				(ToolkitsPackage.Literals.WIDGET__POSSIBLE_EVENTS,
 				 ToolkitsFactory.eINSTANCE.createWidgetEventType()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(ToolkitsPackage.Literals.WIDGET__STYLE,
+				 ToolkitsFactory.eINSTANCE.createStyle()));
 	}
 
 	/**

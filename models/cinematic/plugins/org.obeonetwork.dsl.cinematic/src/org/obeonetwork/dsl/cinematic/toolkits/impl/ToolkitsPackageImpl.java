@@ -12,6 +12,7 @@ package org.obeonetwork.dsl.cinematic.toolkits.impl;
 
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EEnum;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
 import org.eclipse.emf.ecore.impl.EPackageImpl;
@@ -19,6 +20,9 @@ import org.obeonetwork.dsl.cinematic.CinematicPackage;
 import org.obeonetwork.dsl.cinematic.flow.FlowPackage;
 import org.obeonetwork.dsl.cinematic.flow.impl.FlowPackageImpl;
 import org.obeonetwork.dsl.cinematic.impl.CinematicPackageImpl;
+import org.obeonetwork.dsl.cinematic.toolkits.CardinalPosition;
+import org.obeonetwork.dsl.cinematic.toolkits.HorizontalAlignment;
+import org.obeonetwork.dsl.cinematic.toolkits.Style;
 import org.obeonetwork.dsl.cinematic.toolkits.Toolkit;
 import org.obeonetwork.dsl.cinematic.toolkits.ToolkitsFactory;
 import org.obeonetwork.dsl.cinematic.toolkits.ToolkitsPackage;
@@ -56,6 +60,27 @@ public class ToolkitsPackageImpl extends EPackageImpl implements ToolkitsPackage
 	 * @generated
 	 */
 	private EClass widgetEventTypeEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass styleEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EEnum cardinalPositionEEnum = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EEnum horizontalAlignmentEEnum = null;
 
 	/**
 	 * Creates an instance of the model <b>Package</b>, registered with
@@ -231,6 +256,15 @@ public class ToolkitsPackageImpl extends EPackageImpl implements ToolkitsPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EReference getWidget_Style() {
+		return (EReference)widgetEClass.getEStructuralFeatures().get(6);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getWidgetEventType() {
 		return widgetEventTypeEClass;
 	}
@@ -242,6 +276,132 @@ public class ToolkitsPackageImpl extends EPackageImpl implements ToolkitsPackage
 	 */
 	public EAttribute getWidgetEventType_Name() {
 		return (EAttribute)widgetEventTypeEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getStyle() {
+		return styleEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getStyle_Decorator() {
+		return (EAttribute)styleEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getStyle_DecoratorPosition() {
+		return (EAttribute)styleEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getStyle_DecoratorVFill() {
+		return (EAttribute)styleEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getStyle_DecoratorHFill() {
+		return (EAttribute)styleEClass.getEStructuralFeatures().get(3);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getStyle_Border() {
+		return (EAttribute)styleEClass.getEStructuralFeatures().get(4);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getStyle_RoundedCorners() {
+		return (EAttribute)styleEClass.getEStructuralFeatures().get(5);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getStyle_FontColor() {
+		return (EAttribute)styleEClass.getEStructuralFeatures().get(6);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getStyle_FontUnderline() {
+		return (EAttribute)styleEClass.getEStructuralFeatures().get(7);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getStyle_LabelHAlignment() {
+		return (EAttribute)styleEClass.getEStructuralFeatures().get(8);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getStyle_DefaultWidth() {
+		return (EAttribute)styleEClass.getEStructuralFeatures().get(9);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getStyle_DefaultHeight() {
+		return (EAttribute)styleEClass.getEStructuralFeatures().get(10);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EEnum getCardinalPosition() {
+		return cardinalPositionEEnum;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EEnum getHorizontalAlignment() {
+		return horizontalAlignmentEEnum;
 	}
 
 	/**
@@ -283,9 +443,27 @@ public class ToolkitsPackageImpl extends EPackageImpl implements ToolkitsPackage
 		createEReference(widgetEClass, WIDGET__TOOLKIT);
 		createEReference(widgetEClass, WIDGET__POSSIBLE_EVENTS);
 		createEAttribute(widgetEClass, WIDGET__IS_CONTAINER);
+		createEReference(widgetEClass, WIDGET__STYLE);
 
 		widgetEventTypeEClass = createEClass(WIDGET_EVENT_TYPE);
 		createEAttribute(widgetEventTypeEClass, WIDGET_EVENT_TYPE__NAME);
+
+		styleEClass = createEClass(STYLE);
+		createEAttribute(styleEClass, STYLE__DECORATOR);
+		createEAttribute(styleEClass, STYLE__DECORATOR_POSITION);
+		createEAttribute(styleEClass, STYLE__DECORATOR_VFILL);
+		createEAttribute(styleEClass, STYLE__DECORATOR_HFILL);
+		createEAttribute(styleEClass, STYLE__BORDER);
+		createEAttribute(styleEClass, STYLE__ROUNDED_CORNERS);
+		createEAttribute(styleEClass, STYLE__FONT_COLOR);
+		createEAttribute(styleEClass, STYLE__FONT_UNDERLINE);
+		createEAttribute(styleEClass, STYLE__LABEL_HALIGNMENT);
+		createEAttribute(styleEClass, STYLE__DEFAULT_WIDTH);
+		createEAttribute(styleEClass, STYLE__DEFAULT_HEIGHT);
+
+		// Create enums
+		cardinalPositionEEnum = createEEnum(CARDINAL_POSITION);
+		horizontalAlignmentEEnum = createEEnum(HORIZONTAL_ALIGNMENT);
 	}
 
 	/**
@@ -335,9 +513,35 @@ public class ToolkitsPackageImpl extends EPackageImpl implements ToolkitsPackage
 		initEReference(getWidget_Toolkit(), this.getToolkit(), this.getToolkit_Widgets(), "toolkit", null, 0, 1, Widget.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getWidget_PossibleEvents(), this.getWidgetEventType(), null, "possibleEvents", null, 0, -1, Widget.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getWidget_IsContainer(), ecorePackage.getEBoolean(), "isContainer", null, 0, 1, Widget.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getWidget_Style(), this.getStyle(), null, "style", null, 0, 1, Widget.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(widgetEventTypeEClass, WidgetEventType.class, "WidgetEventType", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getWidgetEventType_Name(), ecorePackage.getEString(), "name", null, 1, 1, WidgetEventType.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(styleEClass, Style.class, "Style", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getStyle_Decorator(), ecorePackage.getEString(), "decorator", null, 0, 1, Style.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getStyle_DecoratorPosition(), this.getCardinalPosition(), "decoratorPosition", null, 0, 1, Style.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getStyle_DecoratorVFill(), ecorePackage.getEBoolean(), "decoratorVFill", "true", 0, 1, Style.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getStyle_DecoratorHFill(), ecorePackage.getEBoolean(), "decoratorHFill", null, 0, 1, Style.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getStyle_Border(), ecorePackage.getEBoolean(), "border", "true", 0, 1, Style.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getStyle_RoundedCorners(), ecorePackage.getEBoolean(), "roundedCorners", null, 0, 1, Style.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getStyle_FontColor(), ecorePackage.getEString(), "fontColor", null, 0, 1, Style.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getStyle_FontUnderline(), ecorePackage.getEBoolean(), "fontUnderline", "false", 0, 1, Style.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getStyle_LabelHAlignment(), this.getHorizontalAlignment(), "labelHAlignment", null, 0, 1, Style.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getStyle_DefaultWidth(), ecorePackage.getEInt(), "defaultWidth", null, 0, 1, Style.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getStyle_DefaultHeight(), ecorePackage.getEInt(), "defaultHeight", null, 0, 1, Style.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		// Initialize enums and add enum literals
+		initEEnum(cardinalPositionEEnum, CardinalPosition.class, "CardinalPosition");
+		addEEnumLiteral(cardinalPositionEEnum, CardinalPosition.WEST);
+		addEEnumLiteral(cardinalPositionEEnum, CardinalPosition.EAST);
+		addEEnumLiteral(cardinalPositionEEnum, CardinalPosition.NORTH_WEST);
+		addEEnumLiteral(cardinalPositionEEnum, CardinalPosition.NORTH_EAST);
+
+		initEEnum(horizontalAlignmentEEnum, HorizontalAlignment.class, "HorizontalAlignment");
+		addEEnumLiteral(horizontalAlignmentEEnum, HorizontalAlignment.CENTER);
+		addEEnumLiteral(horizontalAlignmentEEnum, HorizontalAlignment.LEFT);
+		addEEnumLiteral(horizontalAlignmentEEnum, HorizontalAlignment.RIGHT);
 
 		// Create annotations
 		// http://www.eclipse.org/emf/2002/GenModel

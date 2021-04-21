@@ -90,6 +90,10 @@ public class ToolkitsAdapterFactory extends AdapterFactoryImpl {
 				return createWidgetEventTypeAdapter();
 			}
 			@Override
+			public Adapter caseStyle(Style object) {
+				return createStyleAdapter();
+			}
+			@Override
 			public Adapter caseIdentifiable(Identifiable object) {
 				return createIdentifiableAdapter();
 			}
@@ -152,6 +156,20 @@ public class ToolkitsAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createWidgetEventTypeAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.obeonetwork.dsl.cinematic.toolkits.Style <em>Style</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.obeonetwork.dsl.cinematic.toolkits.Style
+	 * @generated
+	 */
+	public Adapter createStyleAdapter() {
 		return null;
 	}
 

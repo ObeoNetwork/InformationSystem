@@ -28,6 +28,7 @@ import org.obeonetwork.dsl.technicalid.Identifiable;
  *   <li>{@link org.obeonetwork.dsl.cinematic.toolkits.Widget#getToolkit <em>Toolkit</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.cinematic.toolkits.Widget#getPossibleEvents <em>Possible Events</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.cinematic.toolkits.Widget#isIsContainer <em>Is Container</em>}</li>
+ *   <li>{@link org.obeonetwork.dsl.cinematic.toolkits.Widget#getStyle <em>Style</em>}</li>
  * </ul>
  *
  * @see org.obeonetwork.dsl.cinematic.toolkits.ToolkitsPackage#getWidget()
@@ -200,5 +201,27 @@ public interface Widget extends Identifiable {
 	 * @generated
 	 */
 	void setIsContainer(boolean value);
+
+	/**
+	 * Returns the value of the '<em><b>Style</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Style</em>' containment reference.
+	 * @see #setStyle(Style)
+	 * @see org.obeonetwork.dsl.cinematic.toolkits.ToolkitsPackage#getWidget_Style()
+	 * @model containment="true" resolveProxies="true"
+	 * @generated
+	 */
+	Style getStyle();
+
+	/**
+	 * Sets the value of the '{@link org.obeonetwork.dsl.cinematic.toolkits.Widget#getStyle <em>Style</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Style</em>' containment reference.
+	 * @see #getStyle()
+	 * @generated
+	 */
+	void setStyle(Style value);
 
 } // Widget
