@@ -21,7 +21,9 @@ Require-Bundle: org.eclipse.ui,
  org.eclipse.gmf.runtime.notation.edit,
  org.eclipse.gmf.runtime.draw2d.ui,
  org.obeonetwork.dsl.environment.design.services,
- org.obeonetwork.utils.common
+ org.obeonetwork.utils.common,
+ org.eclipse.ui.themes,
+ org.obeonetwork.utils.sirius
 Bundle-ActivationPolicy: lazy
 Bundle-RequiredExecutionEnvironment: J2SE-1.5
 Bundle-Vendor: Obeo Network

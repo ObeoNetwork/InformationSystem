@@ -10,12 +10,9 @@
  *******************************************************************************/
 package org.obeonetwork.dsl.cinematic.design.services;
 
-import java.net.URL;
 import java.util.ArrayList;
 import java.util.Collection;
-import java.util.Enumeration;
 import java.util.List;
-import java.util.Map;
 import java.util.Optional;
 import java.util.stream.Collectors;
 
@@ -26,6 +23,7 @@ import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.emf.ecore.util.EcoreUtil.Copier;
 import org.eclipse.gmf.runtime.draw2d.ui.internal.figures.ImageFigureEx;
 import org.eclipse.gmf.runtime.notation.Bounds;
+import org.eclipse.gmf.runtime.notation.Node;
 import org.eclipse.jface.dialogs.MessageDialog;
 import org.eclipse.sirius.business.api.query.EObjectQuery;
 import org.eclipse.sirius.business.api.session.Session;
@@ -33,25 +31,36 @@ import org.eclipse.sirius.business.api.session.SessionListener;
 import org.eclipse.sirius.business.internal.session.danalysis.DAnalysisSessionImpl;
 import org.eclipse.sirius.diagram.DDiagramElement;
 import org.eclipse.sirius.diagram.DDiagramElementContainer;
+import org.eclipse.sirius.diagram.DNodeContainer;
+import org.eclipse.sirius.diagram.business.api.refresh.CanonicalSynchronizer;
+import org.eclipse.sirius.diagram.business.api.refresh.CanonicalSynchronizerFactory;
 import org.eclipse.sirius.diagram.description.DiagramDescription;
 import org.eclipse.sirius.diagram.description.tool.ContainerCreationDescription;
 import org.eclipse.sirius.diagram.description.tool.ToolSection;
+import org.eclipse.sirius.diagram.ui.business.api.view.SiriusGMFHelper;
+import org.eclipse.sirius.viewpoint.LabelAlignment;
 import org.eclipse.sirius.viewpoint.description.Viewpoint;
 import org.eclipse.swt.graphics.Image;
+import org.eclipse.swt.graphics.RGB;
 import org.eclipse.swt.widgets.Display;
 import org.obeonetwork.dsl.cinematic.CinematicElement;
 import org.obeonetwork.dsl.cinematic.CinematicRoot;
-import org.obeonetwork.dsl.cinematic.design.Activator;
 import org.obeonetwork.dsl.cinematic.design.ICinematicViewpoint;
 import org.obeonetwork.dsl.cinematic.design.decorators.SVGImageFigure;
+import org.obeonetwork.dsl.cinematic.toolkits.CardinalPosition;
+import org.obeonetwork.dsl.cinematic.toolkits.Style;
 import org.obeonetwork.dsl.cinematic.toolkits.Toolkit;
 import org.obeonetwork.dsl.cinematic.toolkits.Widget;
 import org.obeonetwork.dsl.cinematic.toolkits.WidgetEventType;
+import org.obeonetwork.dsl.cinematic.view.AbstractViewElement;
 import org.obeonetwork.dsl.cinematic.view.ViewContainer;
 import org.obeonetwork.dsl.cinematic.view.ViewContainerReference;
 import org.obeonetwork.dsl.cinematic.view.ViewElement;
 import org.obeonetwork.dsl.environment.design.services.ModelServices;
+import org.obeonetwork.dsl.environment.design.ui.RGBSystemColorUtil;
 import org.obeonetwork.utils.common.StreamUtils;
+import org.obeonetwork.utils.common.StringUtils;
+import org.obeonetwork.utils.sirius.services.DebugServices;
 
 /**
  * Services to use the widgets
@@ -59,7 +68,7 @@ import org.obeonetwork.utils.common.StreamUtils;
  * @author jdupont
  * 
  */
-public class CinematicWidgetServices {
+public class CinematicWidgetServices extends DebugServices {
 
 	private static final String CREATE_VIEW_CONTAINER_TITLE = "Create View container";
 
@@ -239,79 +248,195 @@ public class CinematicWidgetServices {
 	 * @param context The view container reference
 	 * @return list of widget event type
 	 */
-	public List<WidgetEventType> getPosssibleEvents(
-			ViewContainerReference context) {
+	public List<WidgetEventType> getPosssibleEvents(ViewContainerReference context) {
 		return context.getViewContainer().getWidget().getPossibleEvents();
 	}
 
-	public String getWorkspaceImagePath(Widget widget) {
-		String workspaceImagePath = null;
-		Enumeration<URL> entries = Activator.getDefault().getBundle().findEntries("/icons/toolkit", widget.getName() + ".*", false);
-		if(entries != null && entries.hasMoreElements()) {
-			URL entry = entries.nextElement();
-			workspaceImagePath = "/org.obeonetwork.dsl.cinematic.design" + entry.getFile();
-		} else {
-			workspaceImagePath = "/org.obeonetwork.dsl.cinematic.design/icons/toolkit/Unknown.png";
-		}
-		
-		return workspaceImagePath;
+	/**
+	 * Tests if the given ViewElement's Widget has a style defining rounded corners.
+	 * Default value is false.
+	 * 
+	 * @param viewElement
+	 * @return true if the style if the widget defines rounded corners.
+	 */
+	public boolean hasRoundedCorners(AbstractViewElement viewElement) {
+		return Optional.ofNullable(viewElement.getWidget().getStyle()).map(s -> s.isRoundedCorners()).orElse(false);
 	}
 	
-	public boolean hasWidgetDecoration(ViewElement viewElement, String cardinalPosition) {
+	public boolean isUnderlined(AbstractViewElement viewElement) {
+		return Optional.ofNullable(viewElement.getWidget().getStyle()).map(s -> s.isFontUnderline()).orElse(false);
+	}
+	
+	public DNodeContainer setDefaultSize(DNodeContainer viewElementDNodeContainer) {
+		AbstractViewElement viewElement = (AbstractViewElement) viewElementDNodeContainer.getTarget();
+		
+		// Get the parent Node to Launch a refresh so that the GMF view corresponding to the new DNodeContainer is created
+		Node parentNode = SiriusGMFHelper.getGmfNode((DDiagramElement) viewElementDNodeContainer.eContainer());
+		CanonicalSynchronizer canonicalSynchronizer = CanonicalSynchronizerFactory.INSTANCE.createCanonicalSynchronizer(parentNode.getDiagram());
+		canonicalSynchronizer.synchronize();
+		
+		// Now node should not be null
+		Node node = SiriusGMFHelper.getGmfNode(viewElementDNodeContainer);
+		Bounds bounds = (Bounds) node.getLayoutConstraint();
+		bounds.setHeight(getDefaultHeight(viewElement));
+		bounds.setWidth(getDefaultWidth(viewElement));
+		
+		return viewElementDNodeContainer;
+	}
+	
+	public int getDefaultHeight(AbstractViewElement viewElement) {
+		return Optional.ofNullable(viewElement.getWidget().getStyle()).map(s -> s.getDefaultHeight()).orElse(-1);
+	}
+	
+	public int getDefaultWidth(AbstractViewElement viewElement) {
+		return Optional.ofNullable(viewElement.getWidget().getStyle()).map(s -> s.getDefaultWidth()).orElse(-1);
+	}
+	
+	public LabelAlignment getLabelHorizontalAlignment(AbstractViewElement viewElement) {
+		if(viewElement.getWidget().getStyle() != null) {
+			return LabelAlignment.get(viewElement.getWidget().getStyle().getLabelHAlignment().getLiteral());
+		}
+		return LabelAlignment.CENTER;
+	}
+	
+	public int getBorderSize(AbstractViewElement viewElement) {
+		int borderSize = ICinematicViewpoint.VIEW_CONTAINER_DIAGRAM_DEFAULT_BORDER_SIZE;
+		Style style = viewElement.getWidget().getStyle();
+		if(style != null && !style.isBorder()) {
+			borderSize = 0;
+		}
+		return borderSize;
+	}
+		
+	private RGB getLabelRGB(AbstractViewElement viewElement) {
+		String colorDef = "BLACK";
+		if(viewElement.getWidget().getStyle() != null) {
+			if(viewElement.getWidget().getStyle().getFontColor() != null) {
+				colorDef = viewElement.getWidget().getStyle().getFontColor();
+			}
+		}
+		return RGBSystemColorUtil.getRGBByName(colorDef);
+	}
+	
+	public int getLabelColorRed(AbstractViewElement viewElement) {
+		return getLabelRGB(viewElement).red;
+	}
+	
+	public int getLabelColorGreen(AbstractViewElement viewElement) {
+		return getLabelRGB(viewElement).green;
+	}
+	
+	public int getLabelColorBlue(AbstractViewElement viewElement) {
+		return getLabelRGB(viewElement).blue;
+	}
+	/**
+	 * Tests if the ViewElement's Widget is decorated at the given cardinal position.
+	 * 
+	 * @param viewElement
+	 * @param cardinalPosition
+	 * @return true if the given ViewElement's Widget is decorated at the given cardinal position.
+	 */
+	public boolean hasWidgetDecoration(AbstractViewElement viewElement, String cardinalPosition) {
 		return getWidgetDecoratorPath(viewElement, cardinalPosition) != null;
 	}
 	
-	// TODO VRI Use the values from the model (this is a remaining of the POC)
-	public String getWidgetDecoratorPath(ViewElement viewElement, String cardinalPosition) {
-		Widget widget = viewElement.getWidget();
-		String decoratorPath = null;
+	/**
+	 * Returns the path to the decorator image supposed to decorate the View Element
+	 * at the given cardinal position as defined in the widget it represents, or null if 
+	 * no decorator is defined at this position for the widget.
+	 * 
+	 * @param viewElement A ViewElement representing a widget usage
+	 * @param cardinalPositionLiteral The position of the decorator as an enum literal
+	 * @return a path to the decorator image or null.
+	 */
+	public String getWidgetDecoratorPath(AbstractViewElement viewElement, String cardinalPositionLiteral) {
 		
-		if("Combo".equals(widget.getName())) {
-			if("East".equals(cardinalPosition)) {
-				decoratorPath = "/org.obeonetwork.dsl.cinematic.design/icons/decorators/DropDownArrow.svg";
-			}
-		} else if("Radio".equals(widget.getName())) {
-			if("West".equals(cardinalPosition)) {
-				decoratorPath = "/org.obeonetwork.dsl.cinematic.design/icons/decorators/RadioChecked.svg";
-			}
+		CardinalPosition cardinalPosition = CardinalPosition.get(cardinalPositionLiteral);
+		Style style = viewElement.getWidget().getStyle();
+		if(cardinalPosition != null && style != null && cardinalPosition == style.getDecoratorPosition() 
+				&& !StringUtils.isNullOrWhite(style.getDecorator())) {
+			return style.getDecorator();
 		}
 		
-		return decoratorPath;
+		return null;
 	}
 	
 	/**
-	 * Note : When used as a public service from the VSM, Sirius keeps in cache the image, thus ignoring the resize of the container.
+	 * Note : When used from the VSM in an expression, Sirius keeps the image in
+	 * cache, thus ignoring the resize of the container.
+	 * 
 	 * @see #getWidgetDecoratorFigure()
 	 */
-	private Image getWidgetDecoratorImage(ViewElement viewElement, String cardinalPosition, DDiagramElementContainer containerDiagramElement) {
-		DDiagramElement diagramElement = containerDiagramElement.getElements().stream().filter(dde -> dde.getTarget() == viewElement).findFirst().orElse(null);
+	private Image getWidgetDecoratorImage(AbstractViewElement viewElement, String cardinalPosition, DDiagramElementContainer containerDiagramElement) {
+		Image image  = null;
 		
+		DDiagramElement diagramElement = containerDiagramElement.getElements().stream().
+				filter(dde -> dde.getTarget() == viewElement)
+				.findFirst().orElse(null);
+		
+		Style style = viewElement.getWidget().getStyle();
 		String path = getWidgetDecoratorPath(viewElement, cardinalPosition);
-		Bounds bounds = CinematicLayoutServices.getBounds(diagramElement);
-		
-		// TODO VRI : Calculer la largeur proportionellement à la hauteur
-		int h = bounds.getHeight() - 4;
-		Image image  = SVGImageFigure.flyWeightImage(path, h, h);
+		if(style != null && path != null) {
+			
+			Bounds bounds = CinematicLayoutServices.getBounds(diagramElement);
+//			ContainerStyle containerStyle = (ContainerStyle) diagramElement.getStyle();
+//			int borderThickness = (style.isBorder())? containerStyle.getBorderSize() : 0;
+			int borderThickness = 4; // Seems to be the working value in any case
+			
+			int width = 0;
+			int height = 0;
+			
+			if(style.isDecoratorHFill() && style.isDecoratorVFill()) {
+				width = bounds.getWidth() - borderThickness;
+				height = bounds.getHeight() - borderThickness;
+				image  = SVGImageFigure.flyWeightImage(path, width, height);
+			} else {
+				image  = SVGImageFigure.flyWeightImage(path);
+				if(style.isDecoratorHFill()) {
+					width = bounds.getWidth() - borderThickness;
+					height = (image.getBounds().height * width) / image.getBounds().width;
+					image  = SVGImageFigure.flyWeightImage(path, width, height);
+				} else if(style.isDecoratorVFill()) {
+					height = bounds.getHeight() - borderThickness;
+					width = (image.getBounds().width * height) / image.getBounds().height;
+					image  = SVGImageFigure.flyWeightImage(path, width, height);
+				}
+			}
+		}
+
 		return image;
 	}
 
 	/**
-	 * This service assumes that getWidgetDecoratorPath(viewElement,
-	 * cardinalPosition) does not return null.
+	 * <p>
+	 * Returns the figure to be used as a decoration on the given view element at
+	 * the given cardinal position proportionally sized to the dimensions of the
+	 * given container diagram element according to the fill attributes of the
+	 * widget.
+	 * </p>
+	 * <p>
+	 * Note: This service is not supposed to be called if
+	 * getWidgetDecoratorPath(viewElement, cardinalPosition) returns null.
+	 * </p>
 	 * 
 	 * @param viewElement
 	 * @param cardinalPosition
 	 * @param containerDiagramElement
-	 * @return the figure to be used as a decoration on the given view element at
-	 *         the given cardinal position and proportionnaly sized to the height of
-	 *         the given container diagram element.
+	 * @return the figure to be used as a decoration or null if no decoration is
+	 *         defined at this cardinal position.
 	 */
-	public IFigure getWidgetDecoratorFigure(ViewElement viewElement, String cardinalPosition, DDiagramElementContainer containerDiagramElement) {
+	public IFigure getWidgetDecoratorFigure(AbstractViewElement viewElement, String cardinalPosition, DDiagramElementContainer containerDiagramElement) {
+		// TODO VRI containerDiagramElement can actually be an instance of DSemanticDiagram
+		// Use DSemanticDecorator instead ?
+		System.out.println("CinematicWidgetServices.getWidgetDecoratorFigure()");
 		Image image = getWidgetDecoratorImage(viewElement, cardinalPosition, containerDiagramElement);
-		ImageFigureEx figureImage = new ImageFigureEx();
-        figureImage.setImage(image);
-        figureImage.setSize(image.getBounds().width, image.getBounds().height);
-        return figureImage;
+		if(image != null) {
+			ImageFigureEx figureImage = new ImageFigureEx();
+	        figureImage.setImage(image);
+	        figureImage.setSize(image.getBounds().width, image.getBounds().height);
+	        return figureImage;
+		}
+		return null;
 	}
 	
 	public Widget getWidgetByName(CinematicElement context, String widgetName) {
@@ -321,8 +446,16 @@ public class CinematicWidgetServices {
 				.findFirst().orElse(null);
 	}
 	
-	// TODO VRI Comment
-	public EObject buildWidgetPalette(CinematicElement context) {
+	/**
+	 * Hook method to be called in the View Container Diagram root mapping semantic
+	 * expression. It has the side effect of building the palette according to the
+	 * widgets present in the active toolkit.
+	 * 
+	 * @param context This happen to be the contextual element of the diagram but it
+	 *                could be any element of the Cinematic model.
+	 * @return the given contextual element unchanged.
+	 */
+	public CinematicElement buildWidgetPalette(CinematicElement context) {
 		Collection<Viewpoint> viewpoints = new EObjectQuery(context).getAvailableViewpointsInResourceSet();
 		Viewpoint cinematicVP = viewpoints.stream().filter(vp -> vp.getName().equals(ICinematicViewpoint.ID)).findFirst().orElse(null);
 		
@@ -334,7 +467,7 @@ public class CinematicWidgetServices {
 		Optional<ContainerCreationDescription> viewElementCreationToolPrototypeOption = StreamUtils.asStream(viewContainerDiagramDescription.getDefaultLayer().eAllContents())
 		.filter(ContainerCreationDescription.class::isInstance)
 		.map(ContainerCreationDescription.class::cast)
-		.filter(d -> "CRE_ViewElement%widget%".equals(d.getName()))
+		.filter(d -> "CRE_ViewElement{{widget}}".equals(d.getName()))
 		.findFirst();
 		
 		if(viewElementCreationToolPrototypeOption.isPresent()) {
@@ -350,7 +483,7 @@ public class CinematicWidgetServices {
 				copier.copy(viewElementCreationToolPrototype);
 				copier.copyReferences();
 				ContainerCreationDescription anotherCreationTool = (ContainerCreationDescription) copier.get(viewElementCreationToolPrototype);
-				applyStringPattern(anotherCreationTool, "%widget%", widget.getName());
+				applyStringPattern(anotherCreationTool, "{{widget}}", widget.getName());
 
 				toolSection.getOwnedTools().add(anotherCreationTool);
 			}
@@ -361,7 +494,7 @@ public class CinematicWidgetServices {
 		Optional<ContainerCreationDescription> viewContainerCreationToolPrototypeOption = StreamUtils.asStream(viewContainerDiagramDescription.getDefaultLayer().eAllContents())
 		.filter(ContainerCreationDescription.class::isInstance)
 		.map(ContainerCreationDescription.class::cast)
-		.filter(d -> "CRE_ViewContainer%container%".equals(d.getName()))
+		.filter(d -> "CRE_ViewContainer{{container}}".equals(d.getName()))
 		.findFirst();
 		
 		if(viewContainerCreationToolPrototypeOption.isPresent()) {
@@ -377,7 +510,7 @@ public class CinematicWidgetServices {
 				copier.copy(viewContainerCreationToolPrototype);
 				copier.copyReferences();
 				ContainerCreationDescription anotherCreationTool = (ContainerCreationDescription) copier.get(viewContainerCreationToolPrototype);
-				applyStringPattern(anotherCreationTool, "%container%", widget.getName());
+				applyStringPattern(anotherCreationTool, "{{container}}", widget.getName());
 
 				toolSection.getOwnedTools().add(anotherCreationTool);
 			}
@@ -400,7 +533,7 @@ public class CinematicWidgetServices {
 		for(EStructuralFeature feature : eObject.eClass().getEAllStructuralFeatures()) {
 			if(eObject.eGet(feature) instanceof String) {
 				String value = (String) eObject.eGet(feature);
-				value = value.replaceAll(pattern, replacement);
+				value = value.replace(pattern, replacement);
 				eObject.eSet(feature, value);
 			}
 		}
@@ -408,26 +541,4 @@ public class CinematicWidgetServices {
 		
 	}
 
-	// TODO VRI Move the trace methods to a Debug sevices component
-	public EObject trace(EObject receiver) {
-		java.lang.System.out.println("receiver.eClass() = \"" + receiver.eClass().getName() + "\"");
-		java.lang.System.out.println("receiver.toString() = \"" + receiver.toString() + "\"");
-		java.lang.System.out.println("receiver.name = \"" + 
-			Optional.ofNullable(receiver.eClass().getEStructuralFeature("name"))
-			.map(f -> (String)receiver.eGet(f)).orElse(null) + "\"");
-		
-		return receiver;
-	}
-	
-	public EObject traceVars(EObject o) {
-		trace(o);
-		Session session = new EObjectQuery(o).getSession();
-		Map<String, ?> vars = session.getInterpreter().getVariables();
-		java.lang.System.out.println(vars.keySet().size() + " variable(s)");
-		for(String var : vars.keySet()) {
-			java.lang.System.out.println(var + " = " + vars.get(var) + " (" + vars.get(var).getClass() + ")");
-		}
-		return o;
-	}
-	
 }
