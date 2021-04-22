@@ -6,12 +6,14 @@ Bundle-Activator: org.obeonetwork.utils.sirius.Activator
 Require-Bundle: org.eclipse.core.runtime,
  org.eclipse.sirius,
  org.eclipse.sirius.ext.base,
- org.eclipse.emf.transaction
+ org.eclipse.emf.transaction,
+ org.eclipse.sirius.common
 Bundle-RequiredExecutionEnvironment: JavaSE-1.8
 Automatic-Module-Name: org.obeonetwork.utils
 Bundle-ActivationPolicy: lazy
 Bundle-Name: Common Sirius Utils
 Bundle-Vendor: Obeo Network
 Export-Package: org.obeonetwork.utils.sirius,
+ org.obeonetwork.utils.sirius.services,
  org.obeonetwork.utils.sirius.session,
  org.obeonetwork.utils.sirius.transaction

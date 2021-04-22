@@ -1161,59 +1161,63 @@
       <defaultLayer name="Default">
         <containerMappings name="VCD_RootViewContainer" semanticCandidatesExpression="aql:self.buildWidgetPalette()" domainClass="view::ViewContainer">
           <subContainerMappings name="VCD_ViewElement" semanticCandidatesExpression="aql:self.ownedElements" domainClass="view::ViewElement">
-            <style xsi:type="style:FlatContainerStyleDescription" borderSizeComputationExpression="4" labelSize="12" showIcon="false" labelExpression="aql:self.label">
+            <style xsi:type="style:FlatContainerStyleDescription" arcWidth="20" arcHeight="20" borderSizeComputationExpression="aql:self.getBorderSize()" labelSize="12" showIcon="false" labelExpression="aql:self.label" labelColor="//@userColorsPalettes[name=null]/@entries[name='VCD_ViewElement_LabelColor']">
               <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
-              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
               <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
               <foregroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
             </style>
           </subContainerMappings>
           <subContainerMappings name="VCD_ViewContainer" semanticCandidatesExpression="aql:self.ownedElements" domainClass="view::ViewContainer">
-            <style xsi:type="style:FlatContainerStyleDescription" borderSizeComputationExpression="1" labelSize="12" backgroundStyle="GradientTopToBottom">
+            <style xsi:type="style:FlatContainerStyleDescription" arcWidth="20" arcHeight="20" borderSizeComputationExpression="aql:self.getBorderSize()" labelSize="12" labelColor="//@userColorsPalettes[name=null]/@entries[name='VCD_ViewElement_LabelColor']" backgroundStyle="GradientTopToBottom">
               <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
-              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
               <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
               <foregroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
+              <labelBorderStyle href="environment:/viewpoint#//@labelBorderStyles/@labelBorderStyleDescriptions.1"/>
             </style>
           </subContainerMappings>
           <subContainerMappings name="VCD_ViewContainerReference" semanticCandidatesExpression="aql:self.ownedElements" domainClass="view::ViewContainerReference">
-            <style xsi:type="style:FlatContainerStyleDescription" borderSizeComputationExpression="1" labelSize="12" backgroundStyle="GradientTopToBottom">
+            <style xsi:type="style:FlatContainerStyleDescription" arcWidth="20" arcHeight="20" borderSizeComputationExpression="1" labelSize="12" backgroundStyle="GradientTopToBottom">
               <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='gray']"/>
               <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='gray']"/>
               <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
               <foregroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
             </style>
           </subContainerMappings>
-          <style xsi:type="style:FlatContainerStyleDescription" borderSizeComputationExpression="1" labelSize="12" backgroundStyle="GradientTopToBottom">
+          <style xsi:type="style:FlatContainerStyleDescription" arcWidth="20" arcHeight="20" borderSizeComputationExpression="aql:self.getBorderSize()" labelSize="12" labelColor="//@userColorsPalettes[name=null]/@entries[name='VCD_ViewElement_LabelColor']" backgroundStyle="GradientTopToBottom">
             <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
-            <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
             <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
             <foregroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
           </style>
         </containerMappings>
         <toolSections name="Widgets">
-          <ownedTools xsi:type="tool:ContainerCreationDescription" name="CRE_ViewElement%widget%" label="%widget%" containerMappings="//@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='View%20Container%20Diagram']/@defaultLayer/@containerMappings[name='VCD_RootViewContainer']/@subContainerMappings[name='VCD_ViewElement']">
+          <ownedTools xsi:type="tool:ContainerCreationDescription" name="CRE_ViewElement{{widget}}" label="{{widget}}" containerMappings="//@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='View%20Container%20Diagram']/@defaultLayer/@containerMappings[name='VCD_RootViewContainer']/@subContainerMappings[name='VCD_ViewElement']" iconPath="/org.obeonetwork.dsl.cinematic/icons/{{widget}}.gif">
             <variable name="container"/>
             <viewVariable name="containerView"/>
             <initialOperation>
               <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:container">
                 <subModelOperations xsi:type="tool_1:CreateInstance" typeName="view::ViewElement" referenceName="ownedElements">
                   <subModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="aql:'viewElement'+self.eContainer(view::ViewContainer).ownedElements->filter(view::ViewElement)->size()"/>
-                  <subModelOperations xsi:type="tool_1:SetValue" featureName="widget" valueExpression="aql:self.getWidgetByName('%widget%')"/>
+                  <subModelOperations xsi:type="tool_1:SetValue" featureName="widget" valueExpression="aql:self.getWidgetByName('{{widget}}')"/>
+                  <subModelOperations xsi:type="tool:CreateView" mapping="//@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='View%20Container%20Diagram']/@defaultLayer/@containerMappings[name='VCD_RootViewContainer']/@subContainerMappings[name='VCD_ViewElement']" containerViewExpression="var:containerView">
+                    <subModelOperations xsi:type="tool_1:ChangeContext" browseExpression="aql:createdView.setDefaultSize()"/>
+                  </subModelOperations>
                 </subModelOperations>
               </firstModelOperations>
             </initialOperation>
           </ownedTools>
         </toolSections>
         <toolSections name="Containers">
-          <ownedTools xsi:type="tool:ContainerCreationDescription" name="CRE_ViewContainer%container%" label="%container%" containerMappings="//@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='View%20Container%20Diagram']/@defaultLayer/@containerMappings[name='VCD_RootViewContainer']/@subContainerMappings[name='VCD_ViewContainer']">
+          <ownedTools xsi:type="tool:ContainerCreationDescription" name="CRE_ViewContainer{{container}}" label="{{container}}" containerMappings="//@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='View%20Container%20Diagram']/@defaultLayer/@containerMappings[name='VCD_RootViewContainer']/@subContainerMappings[name='VCD_ViewContainer']" iconPath="/org.obeonetwork.dsl.cinematic/icons/{{container}}.gif">
             <variable name="container"/>
             <viewVariable name="containerView"/>
             <initialOperation>
               <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:container">
                 <subModelOperations xsi:type="tool_1:CreateInstance" typeName="view::ViewContainer" referenceName="ownedElements">
                   <subModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="aql:'viewElement'+self.eContainer(view::ViewContainer).ownedElements->filter(view::ViewContainer)->size()"/>
-                  <subModelOperations xsi:type="tool_1:SetValue" featureName="widget" valueExpression="aql:self.getWidgetContainerByName('%container%')"/>
+                  <subModelOperations xsi:type="tool_1:SetValue" featureName="widget" valueExpression="aql:self.getWidgetByName('{{container}}')"/>
+                  <subModelOperations xsi:type="tool:CreateView" mapping="//@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='View%20Container%20Diagram']/@defaultLayer/@containerMappings[name='VCD_RootViewContainer']/@subContainerMappings[name='VCD_ViewContainer']" containerViewExpression="var:containerView">
+                    <subModelOperations xsi:type="tool_1:ChangeContext" browseExpression="aql:createdView.setDefaultSize()"/>
+                  </subModelOperations>
                 </subModelOperations>
               </firstModelOperations>
             </initialOperation>
@@ -1238,12 +1242,20 @@
           </ownedTools>
         </toolSections>
         <decorationDescriptionsSet>
-          <decorationDescriptions xsi:type="description_1:MappingBasedDecoration" name="VCD_WidgetDecorator_East" position="EAST" distributionDirection="HORIZONTAL" preconditionExpression="aql:self.hasWidgetDecoration('East')" imageExpression="aql:self.getWidgetDecoratorFigure('East', containerView)" mappings="//@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='View%20Container%20Diagram']/@defaultLayer/@containerMappings[name='VCD_RootViewContainer']/@subContainerMappings[name='VCD_ViewElement']"/>
-          <decorationDescriptions xsi:type="description_1:MappingBasedDecoration" name="VCD_WidgetDecorator_West" position="WEST" distributionDirection="HORIZONTAL" preconditionExpression="aql:self.hasWidgetDecoration('West')" imageExpression="aql:self.getWidgetDecoratorFigure('West', containerView)" mappings="//@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='View%20Container%20Diagram']/@defaultLayer/@containerMappings[name='VCD_RootViewContainer']/@subContainerMappings[name='VCD_ViewElement']"/>
+          <decorationDescriptions xsi:type="description_1:MappingBasedDecoration" name="VCD_WidgetDecorator_West" position="WEST" distributionDirection="HORIZONTAL" preconditionExpression="aql:self.hasWidgetDecoration('WEST')" imageExpression="aql:self.getWidgetDecoratorFigure('WEST', containerView)" mappings="//@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='View%20Container%20Diagram']/@defaultLayer/@containerMappings[name='VCD_RootViewContainer']/@subContainerMappings[name='VCD_ViewElement'] //@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='View%20Container%20Diagram']/@defaultLayer/@containerMappings[name='VCD_RootViewContainer']/@subContainerMappings[name='VCD_ViewContainer'] //@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='View%20Container%20Diagram']/@defaultLayer/@containerMappings[name='VCD_RootViewContainer']"/>
+          <decorationDescriptions xsi:type="description_1:MappingBasedDecoration" name="VCD_WidgetDecorator_East" position="EAST" distributionDirection="HORIZONTAL" preconditionExpression="aql:self.hasWidgetDecoration('EAST')" imageExpression="aql:self.getWidgetDecoratorFigure('EAST', containerView)" mappings="//@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='View%20Container%20Diagram']/@defaultLayer/@containerMappings[name='VCD_RootViewContainer']/@subContainerMappings[name='VCD_ViewElement'] //@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='View%20Container%20Diagram']/@defaultLayer/@containerMappings[name='VCD_RootViewContainer']/@subContainerMappings[name='VCD_ViewContainer'] //@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='View%20Container%20Diagram']/@defaultLayer/@containerMappings[name='VCD_RootViewContainer']"/>
+          <decorationDescriptions xsi:type="description_1:MappingBasedDecoration" name="VCD_WidgetDecorator_NorthWest" position="NORTH_WEST" distributionDirection="HORIZONTAL" preconditionExpression="aql:self.hasWidgetDecoration('NORTH_WEST')" imageExpression="aql:self.getWidgetDecoratorFigure('NORTH_WEST', containerView)" mappings="//@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='View%20Container%20Diagram']/@defaultLayer/@containerMappings[name='VCD_RootViewContainer']/@subContainerMappings[name='VCD_ViewElement'] //@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='View%20Container%20Diagram']/@defaultLayer/@containerMappings[name='VCD_RootViewContainer']/@subContainerMappings[name='VCD_ViewContainer'] //@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='View%20Container%20Diagram']/@defaultLayer/@containerMappings[name='VCD_RootViewContainer']"/>
+          <decorationDescriptions xsi:type="description_1:MappingBasedDecoration" name="VCD_WidgetDecorator_NorthEast" position="NORTH_EAST" distributionDirection="HORIZONTAL" preconditionExpression="aql:self.hasWidgetDecoration('NORTH_EAST')" imageExpression="aql:self.getWidgetDecoratorFigure('NORTH_EAST', containerView)" mappings="//@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='View%20Container%20Diagram']/@defaultLayer/@containerMappings[name='VCD_RootViewContainer']/@subContainerMappings[name='VCD_ViewElement'] //@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='View%20Container%20Diagram']/@defaultLayer/@containerMappings[name='VCD_RootViewContainer']/@subContainerMappings[name='VCD_ViewContainer'] //@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='View%20Container%20Diagram']/@defaultLayer/@containerMappings[name='VCD_RootViewContainer']"/>
         </decorationDescriptionsSet>
         <customization>
-          <vsmElementCustomizations xsi:type="description:VSMElementCustomization" predicateExpression="aql:self.widget.name='Button'">
-            <featureCustomizations xsi:type="description:EAttributeCustomization" appliedOn="//@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='View%20Container%20Diagram']/@defaultLayer/@containerMappings[name='VCD_RootViewContainer']/@subContainerMappings[name='VCD_ViewElement']/@style" attributeName="roundedCorner" value="aql:true"/>
+          <vsmElementCustomizations xsi:type="description:VSMElementCustomization" predicateExpression="aql:self.hasRoundedCorners()">
+            <featureCustomizations xsi:type="description:EAttributeCustomization" appliedOn="//@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='View%20Container%20Diagram']/@defaultLayer/@containerMappings[name='VCD_RootViewContainer']/@subContainerMappings[name='VCD_ViewElement']/@style //@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='View%20Container%20Diagram']/@defaultLayer/@containerMappings[name='VCD_RootViewContainer']/@subContainerMappings[name='VCD_ViewContainer']/@style //@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='View%20Container%20Diagram']/@defaultLayer/@containerMappings[name='VCD_RootViewContainer']/@style" attributeName="roundedCorner" value="aql:true"/>
+          </vsmElementCustomizations>
+          <vsmElementCustomizations xsi:type="description:VSMElementCustomization" predicateExpression="aql:self.isUnderlined()">
+            <featureCustomizations xsi:type="description:EAttributeCustomization" appliedOn="//@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='View%20Container%20Diagram']/@defaultLayer/@containerMappings[name='VCD_RootViewContainer']/@subContainerMappings[name='VCD_ViewElement']/@style //@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='View%20Container%20Diagram']/@defaultLayer/@containerMappings[name='VCD_RootViewContainer']/@subContainerMappings[name='VCD_ViewContainer']/@style //@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='View%20Container%20Diagram']/@defaultLayer/@containerMappings[name='VCD_RootViewContainer']/@style" attributeName="labelFormat" value="underline"/>
+          </vsmElementCustomizations>
+          <vsmElementCustomizations xsi:type="description:VSMElementCustomization" predicateExpression="aql:true">
+            <featureCustomizations xsi:type="description:EAttributeCustomization" appliedOn="//@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='View%20Container%20Diagram']/@defaultLayer/@containerMappings[name='VCD_RootViewContainer']/@subContainerMappings[name='VCD_ViewElement']/@style //@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='View%20Container%20Diagram']/@defaultLayer/@containerMappings[name='VCD_RootViewContainer']/@subContainerMappings[name='VCD_ViewContainer']/@style //@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='View%20Container%20Diagram']/@defaultLayer/@containerMappings[name='VCD_RootViewContainer']/@style" attributeName="labelAlignment" value="aql:self.getLabelHorizontalAlignment()"/>
           </vsmElementCustomizations>
         </customization>
       </defaultLayer>
@@ -1287,6 +1299,9 @@
     <ownedJavaExtensions qualifiedClassName="org.eclipse.sirius.common.tools.api.interpreter.StandardServices"/>
     <ownedJavaExtensions qualifiedClassName="org.obeonetwork.dsl.cinematic.design.services.CinematicLayoutServices"/>
   </ownedViewpoints>
+  <userColorsPalettes>
+    <entries xsi:type="description:ComputedColor" name="VCD_ViewElement_LabelColor" red="aql:self.getLabelColorRed()" green="aql:self.getLabelColorGreen()" blue="aql:self.getLabelColorBlue()"/>
+  </userColorsPalettes>
   <extensions xsi:type="properties:ViewExtensionDescription" name="Properties">
     <metamodels href="http://www.obeonetwork.org/dsl/cinematic/3.0.0#/"/>
     <metamodels href="http://www.obeonetwork.org/dsl/cinematic/3.0.0#//flow"/>

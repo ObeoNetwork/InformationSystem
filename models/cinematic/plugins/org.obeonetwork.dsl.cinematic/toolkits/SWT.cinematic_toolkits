@@ -32,7 +32,7 @@
     <possibleEvents xmi:id="_JB3xMIjREeG_dvC9P_PKfA" technicalid="_KwXB9qK1Eeuqs9mIRWXCLA" name="onClick"/>
     <possibleEvents xmi:id="_QfG-0IjREeG_dvC9P_PKfA" technicalid="_KwXB96K1Eeuqs9mIRWXCLA" name="onFocus"/>
     <possibleEvents xmi:id="_QfG-0YjREeG_dvC9P_PKfA" technicalid="_KwXB-KK1Eeuqs9mIRWXCLA" name="onFocusLost"/>
-    <style xmi:id="_OtTXoKLAEeuqs9mIRWXCLA" border="false" fontColor="blue" fontUnderline="true" labelHAlignment="LEFT" defaultWidth="187" defaultHeight="41"/>
+    <style xmi:id="_OtTXoKLAEeuqs9mIRWXCLA" border="false" fontColor="LINK_FOREGROUND" fontUnderline="true" labelHAlignment="LEFT" defaultWidth="187" defaultHeight="41"/>
   </widgets>
   <widgets xmi:id="_1xtPeIjNEeGrHN3Vq969QA" technicalid="_KwXB-aK1Eeuqs9mIRWXCLA" name="Panel" icon="/org.obeonetwork.dsl.cinematic/icons/Panel.gif" isContainer="true">
     <possibleEvents xmi:id="_N0KbgIjREeG_dvC9P_PKfA" technicalid="_KwXB-qK1Eeuqs9mIRWXCLA" name="onFocus"/>
@@ -50,7 +50,7 @@
     <possibleEvents xmi:id="_NimxcYjREeG_dvC9P_PKfA" technicalid="_KwXCAqK1Eeuqs9mIRWXCLA" name="onFocusLost"/>
     <style xmi:id="_y_pIUKLAEeuqs9mIRWXCLA" decorator="/org.obeonetwork.dsl.cinematic/decorators/RadioChecked.svg" defaultWidth="187" defaultHeight="41"/>
   </widgets>
-  <widgets xmi:id="_VnC2EIjeEeGIXsoZxTXHQA" technicalid="_KwXCA6K1Eeuqs9mIRWXCLA" name="Table" icon="/org.obeonetwork.dsl.cinematic/icons/Table.png" isContainer="true">
+  <widgets xmi:id="_VnC2EIjeEeGIXsoZxTXHQA" technicalid="_KwXCA6K1Eeuqs9mIRWXCLA" name="Table" icon="/org.obeonetwork.dsl.cinematic/icons/Table.gif" isContainer="true">
     <possibleEvents xmi:id="_fBohMIjeEeGIXsoZxTXHQA" technicalid="_KwXCBKK1Eeuqs9mIRWXCLA" name="onFocus"/>
     <possibleEvents xmi:id="_fBohMYjeEeGIXsoZxTXHQA" technicalid="_KwXCBaK1Eeuqs9mIRWXCLA" name="onFocusLost"/>
     <style xmi:id="_BMhdwKLBEeuqs9mIRWXCLA" defaultWidth="191" defaultHeight="163"/>

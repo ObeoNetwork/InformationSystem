@@ -32,7 +32,7 @@
     <possibleEvents xmi:id="_tGHvrYjeEeGIXsoZxTXHQA" technicalid="_IxeAhKLCEeuqs9mIRWXCLA" name="onClick"/>
     <possibleEvents xmi:id="_tGHvrojeEeGIXsoZxTXHQA" technicalid="_IxeAhaLCEeuqs9mIRWXCLA" name="onFocus"/>
     <possibleEvents xmi:id="_tGHvr4jeEeGIXsoZxTXHQA" technicalid="_IxeAhqLCEeuqs9mIRWXCLA" name="onFocusLost"/>
-    <style xmi:id="_L2kJIKLCEeuqs9mIRWXCLA" border="false" fontColor="blue" fontUnderline="true" labelHAlignment="LEFT" defaultWidth="187" defaultHeight="41"/>
+    <style xmi:id="_L2kJIKLCEeuqs9mIRWXCLA" border="false" fontColor="LINK_FOREGROUND" fontUnderline="true" labelHAlignment="LEFT" defaultWidth="187" defaultHeight="41"/>
   </widgets>
   <widgets xmi:id="_tGHvsIjeEeGIXsoZxTXHQA" technicalid="_IxeAiqLCEeuqs9mIRWXCLA" name="Panel" icon="/org.obeonetwork.dsl.cinematic/icons/Panel.gif" isContainer="true">
     <possibleEvents xmi:id="_tGHvsYjeEeGIXsoZxTXHQA" technicalid="_IxeAi6LCEeuqs9mIRWXCLA" name="onFocus"/>
@@ -50,7 +50,7 @@
     <possibleEvents xmi:id="_tGHvuYjeEeGIXsoZxTXHQA" technicalid="_IxeAk6LCEeuqs9mIRWXCLA" name="onFocusLost"/>
     <style xmi:id="_NoFKEKLCEeuqs9mIRWXCLA" decorator="/org.obeonetwork.dsl.cinematic/decorators/RadioChecked.svg" defaultWidth="187" defaultHeight="41"/>
   </widgets>
-  <widgets xmi:id="_tGHvuojeEeGIXsoZxTXHQA" technicalid="_IxeAlKLCEeuqs9mIRWXCLA" name="Table" icon="/org.obeonetwork.dsl.cinematic/icons/Table.png" isContainer="true">
+  <widgets xmi:id="_tGHvuojeEeGIXsoZxTXHQA" technicalid="_IxeAlKLCEeuqs9mIRWXCLA" name="Table" icon="/org.obeonetwork.dsl.cinematic/icons/Table.gif" isContainer="true">
     <possibleEvents xmi:id="_tGHvu4jeEeGIXsoZxTXHQA" technicalid="_IxeAlaLCEeuqs9mIRWXCLA" name="onFocus"/>
     <possibleEvents xmi:id="_tGHvvIjeEeGIXsoZxTXHQA" technicalid="_IxeAlqLCEeuqs9mIRWXCLA" name="onFocusLost"/>
     <style xmi:id="_OKwZUKLCEeuqs9mIRWXCLA" defaultWidth="191" defaultHeight="163"/>
@@ -67,7 +67,7 @@
     <possibleEvents xmi:id="_tGHvxIjeEeGIXsoZxTXHQA" technicalid="_IxengqLCEeuqs9mIRWXCLA" name="onFocusLost"/>
     <style xmi:id="_PG-xAKLCEeuqs9mIRWXCLA" labelHAlignment="LEFT" defaultWidth="187" defaultHeight="82"/>
   </widgets>
-  <widgets xmi:id="_tGHvxYjeEeGIXsoZxTXHQA" technicalid="_IxeAh6LCEeuqs9mIRWXCLA" name="Page" icon="/org.obeonetwork.dsl.cinematic/icons/Page.png" isContainer="true">
+  <widgets xmi:id="_tGHvxYjeEeGIXsoZxTXHQA" technicalid="_IxeAh6LCEeuqs9mIRWXCLA" name="Page" icon="/org.obeonetwork.dsl.cinematic/icons/Page.gif" isContainer="true">
     <possibleEvents xmi:id="_tGHvxojeEeGIXsoZxTXHQA" technicalid="_IxeAiKLCEeuqs9mIRWXCLA" name="onFocus"/>
     <possibleEvents xmi:id="_tGHvx4jeEeGIXsoZxTXHQA" technicalid="_IxeAiaLCEeuqs9mIRWXCLA" name="onFocusLost"/>
     <style xmi:id="_MQxY4KLCEeuqs9mIRWXCLA" decorator="" defaultWidth="443" defaultHeight="419"/>
