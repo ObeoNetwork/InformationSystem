@@ -7,10 +7,13 @@ import java.util.stream.Stream;
 
 
 import org.eclipse.jface.viewers.ITreeContentProvider;
+import org.eclipse.sirius.business.api.query.EObjectQuery;
 import org.obeonetwork.dsl.cinematic.AbstractPackage;
 import org.obeonetwork.dsl.cinematic.design.services.flows.FlowsUtil;
+import org.obeonetwork.dsl.cinematic.flow.FlowPackage;
 import org.obeonetwork.dsl.cinematic.flow.ViewState;
 import org.obeonetwork.dsl.cinematic.view.ViewContainer;
+import org.obeonetwork.dsl.cinematic.view.ViewPackage;
 
 /**
  * 
@@ -30,31 +33,28 @@ public class ViewContainerTreeContentProvider implements ITreeContentProvider {
 	public Object[] getElements(Object inputElement) {
 		Collection<ViewContainer> viewContainerCollection;
 		
-		if (inputElement instanceof AbstractPackage) {
-			Stream<ViewContainer> viewContainerStream = FlowsUtil.getAllPackagesFromRoot((AbstractPackage) inputElement)
-				.stream()
-				.map(abstractPackage -> abstractPackage.getViewContainers())				
-				.flatMap(Collection::stream); 					
+		if (inputElement instanceof AbstractPackage) {		
 				
-			viewContainerCollection = viewContainerStream.collect(Collectors.toList());
+			// we fetch all the viewContainers from the model
+			viewContainerCollection = FlowsUtil.getAllPackagesFromRoot((AbstractPackage) inputElement)
+					.stream()
+					.map(abstractPackage -> abstractPackage.getViewContainers())				
+					.flatMap(Collection::stream).collect(Collectors.toList());
 			
 			if (hideContainersBoundToOtherViewStates) {
 				// do not return viewContainers related to an other ViewState than the current one.
-				// FIXME @VRI: is there a way to do eOpposite() on the viewContainer instead, to easily remove the elements ?
 				
-
-				Collection<ViewState> collectionViewStates = FlowsUtil.getAllViewStateInPackage((AbstractPackage)inputElement);
-				collectionViewStates.remove(viewState);			
-				viewContainerCollection.removeAll(collectionViewStates.stream().flatMap(vs -> vs.getViewContainers().stream()).collect(Collectors.toList()));
+				viewContainerCollection.removeIf(vc -> {					
+					return new EObjectQuery(vc).getInverseReferences(FlowPackage.eINSTANCE.getViewState_ViewContainers()) // find all view states linked to view containers
+							.stream()  // we are going to remove all viewContainers referenced by these viewStates
+							.anyMatch(eObject -> eObject != viewState); // thus we remove when the references come from a different viewstate than the current one.							
+				});			
 			}
 			
 		} else {
 			viewContainerCollection = Collections.emptyList();
 		}
 		
-		if (hideContainersBoundToOtherViewStates) {
-			
-		}
 		
 		return viewContainerCollection.toArray(); 
 	}
