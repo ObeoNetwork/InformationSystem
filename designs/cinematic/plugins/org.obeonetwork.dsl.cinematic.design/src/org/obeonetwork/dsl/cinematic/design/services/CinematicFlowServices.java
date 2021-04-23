@@ -17,7 +17,8 @@ import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.swt.widgets.Shell;
 import org.eclipse.ui.PlatformUI;
-import org.obeonetwork.dsl.cinematic.design.services.flows.ViewContainerSelectionDialog;
+import org.obeonetwork.dsl.cinematic.design.services.flows.dialog.flowstate.FlowstateToViewstateEventDialog;
+import org.obeonetwork.dsl.cinematic.design.services.flows.dialog.viewcontainer.ViewContainerSelectionDialog;
 import org.obeonetwork.dsl.cinematic.flow.Flow;
 import org.obeonetwork.dsl.cinematic.flow.FlowState;
 import org.obeonetwork.dsl.cinematic.flow.ViewState;
@@ -95,13 +96,20 @@ public class CinematicFlowServices {
 	 * @return <code>true</code> if contained in a {@link ViewContainer}
 	 */
 	public void openViewContainerSelectionDialog(EObject viewState) {
-		ArrayList<EObject> arrayList = new ArrayList<>();
-		arrayList.add(viewState);
-		
 		Shell shell = PlatformUI.getWorkbench().getActiveWorkbenchWindow().getShell();
 		
 		if (viewState instanceof ViewState) {
 			ViewContainerSelectionDialog dialog = new ViewContainerSelectionDialog(shell, (ViewState) viewState);
+			dialog.open();
+		}					
+	}
+	
+	public void openEventSelectionDialog(EObject transition) {
+		Shell shell = PlatformUI.getWorkbench().getActiveWorkbenchWindow().getShell();
+		System.out.println("Opening dialog on "+transition.getClass());
+		
+		if (transition instanceof Transition) {
+			FlowstateToViewstateEventDialog dialog = new FlowstateToViewstateEventDialog(shell, (Transition) transition);
 			dialog.open();
 		}					
 	}

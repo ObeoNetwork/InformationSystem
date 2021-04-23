@@ -1,4 +1,4 @@
-package org.obeonetwork.dsl.cinematic.design.services.flows;
+package org.obeonetwork.dsl.cinematic.design.services.flows.dialog.flowstate;
 
 import java.util.ArrayList;
 import java.util.Collection;
@@ -6,6 +6,8 @@ import java.util.HashSet;
 import java.util.stream.Collectors;
 
 import org.eclipse.emf.ecore.EObject;
+import org.eclipse.emf.edit.provider.ComposedAdapterFactory;
+import org.eclipse.emf.edit.ui.provider.AdapterFactoryLabelProvider;
 import org.eclipse.jface.dialogs.Dialog;
 import org.eclipse.jface.dialogs.IDialogConstants;
 import org.eclipse.jface.viewers.CheckboxTreeViewer;
@@ -28,12 +30,16 @@ import org.obeonetwork.dsl.cinematic.AbstractPackage;
 import org.obeonetwork.dsl.cinematic.CinematicRoot;
 import org.obeonetwork.dsl.cinematic.Event;
 import org.obeonetwork.dsl.cinematic.NamedElement;
+import org.obeonetwork.dsl.cinematic.design.services.flows.FlowsUtil;
 import org.obeonetwork.dsl.cinematic.flow.Flow;
 import org.obeonetwork.dsl.cinematic.flow.SubflowState;
 import org.obeonetwork.dsl.cinematic.flow.Transition;
+import org.obeonetwork.dsl.cinematic.flow.provider.FlowItemProviderAdapterFactory;
+import org.obeonetwork.dsl.cinematic.provider.CinematicItemProviderAdapterFactory;
 import org.obeonetwork.dsl.cinematic.toolkits.WidgetEventType;
 import org.obeonetwork.dsl.cinematic.view.AbstractViewElement;
 import org.obeonetwork.dsl.cinematic.view.ViewContainer;
+import org.obeonetwork.dsl.cinematic.view.provider.ViewItemProviderAdapterFactory;
 import org.obeonetwork.dsl.technicalid.Identifiable;
 
 public class FlowstateToViewstateEventDialog extends Dialog {
@@ -66,7 +72,7 @@ public class FlowstateToViewstateEventDialog extends Dialog {
 		
 		Button btnCheckButton = new Button(composite, SWT.CHECK);
 
-		btnCheckButton.setText("Hide View Containers bound to other View States");
+		btnCheckButton.setText("Hide non contextual View Containers");
 		new Label(composite, SWT.NONE);
 		
 		txtFilterText = new Text(composite, SWT.SEARCH | SWT.ICON_CANCEL);
@@ -130,11 +136,18 @@ public class FlowstateToViewstateEventDialog extends Dialog {
 		});
 		
 		checkboxTreeViewer.setLabelProvider(new LabelProvider() {
+			private AdapterFactoryLabelProvider labelProvider = new AdapterFactoryLabelProvider(new  ComposedAdapterFactory(ComposedAdapterFactory.Descriptor.Registry.INSTANCE));
 
 			@Override
 			public Image getImage(Object element) {
-				// TODO Auto-generated method stub
-				return super.getImage(element);
+				System.out.println("Getting image of "+element.getClass());
+				return labelProvider.getImage(element);
+
+//				if (element instanceof WidgetEventType) {
+//					return null;
+//				} else {
+//				}
+				
 			}
 
 			@Override
