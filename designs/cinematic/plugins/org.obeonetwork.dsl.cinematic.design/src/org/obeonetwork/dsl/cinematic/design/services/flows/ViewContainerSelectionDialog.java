@@ -47,10 +47,7 @@ public class ViewContainerSelectionDialog extends Dialog {
 		container.setLayout(new GridLayout(1, false));
 		
 		Composite composite = new Composite(container, SWT.NONE);
-		GridData gd_composite = new GridData(SWT.FILL, SWT.TOP, true, false, 1, 1);
-		gd_composite.widthHint = 429;
-		gd_composite.heightHint = 59;
-		composite.setLayoutData(gd_composite);
+		composite.setLayoutData(new GridData(SWT.FILL, SWT.TOP, true, false, 1, 1));
 		composite.setLayout(new GridLayout(2, false));
 		
 		Button btnCheckButton = new Button(composite, SWT.CHECK);
@@ -59,15 +56,11 @@ public class ViewContainerSelectionDialog extends Dialog {
 		new Label(composite, SWT.NONE);
 		
 		txtFilterText = new Text(composite, SWT.SEARCH | SWT.ICON_CANCEL);
-		GridData gd_txtFilterText = new GridData(SWT.FILL, SWT.CENTER, true, false, 1, 1);
-		gd_txtFilterText.widthHint = 363;
-		txtFilterText.setLayoutData(gd_txtFilterText);
+		txtFilterText.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, true, false, 1, 1));
 		txtFilterText.setMessage("Filter text (? = any character, * = any String)");
 		
 		Button btnClearButton = new Button(composite, SWT.NONE);
-		GridData gd_btnNewButton = new GridData(SWT.FILL, SWT.CENTER, false, false, 1, 1);
-		gd_btnNewButton.widthHint = 55;
-		btnClearButton.setLayoutData(gd_btnNewButton);
+		btnClearButton.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, false, false, 1, 1));
 		btnClearButton.setText("clear");
 		
 		CheckboxTreeViewer checkboxTreeViewer = new CheckboxTreeViewer(container, SWT.BORDER);
@@ -103,14 +96,6 @@ public class ViewContainerSelectionDialog extends Dialog {
 	protected void createButtonsForButtonBar(Composite parent) {
 		createButton(parent, IDialogConstants.OK_ID, IDialogConstants.OK_LABEL, true);
 		createButton(parent, IDialogConstants.CANCEL_ID, IDialogConstants.CANCEL_LABEL, false);
-	}
-
-	/**
-	 * Return the initial size of the dialog.
-	 */
-	@Override
-	protected Point getInitialSize() {
-		return new Point(450, 361);
 	}
 
 	@Override

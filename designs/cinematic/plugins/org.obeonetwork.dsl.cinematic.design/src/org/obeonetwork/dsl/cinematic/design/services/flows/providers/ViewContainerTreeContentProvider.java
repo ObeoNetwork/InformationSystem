@@ -5,11 +5,15 @@ import java.util.Collections;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
+import org.eclipse.emf.ecore.EObject;
 import org.eclipse.jface.viewers.ITreeContentProvider;
+import org.eclipse.sirius.business.api.query.EObjectQuery;
 import org.obeonetwork.dsl.cinematic.AbstractPackage;
 import org.obeonetwork.dsl.cinematic.design.services.flows.FlowsUtil;
+import org.obeonetwork.dsl.cinematic.flow.FlowPackage;
 import org.obeonetwork.dsl.cinematic.flow.ViewState;
 import org.obeonetwork.dsl.cinematic.view.ViewContainer;
+import org.obeonetwork.dsl.cinematic.view.ViewPackage;
 
 /**
  * 
@@ -41,9 +45,14 @@ public class ViewContainerTreeContentProvider implements ITreeContentProvider {
 				// do not return viewContainers related to an other ViewState than the current one.
 				// FIXME @VRI: is there a way to do eOpposite() on the viewContainer instead, to easily remove the elements ?
 				
+				// Use Sirius Cross referencer
+				//e.g., new EObjectQuery((EObject) inputElement).getInverseReferences(FlowPackage.eINSTANCE.getViewState_ViewContainers());
+				
 				Collection<ViewState> collectionViewStates = FlowsUtil.getAllViewStateInPackage((AbstractPackage)inputElement);
 				collectionViewStates.remove(viewState);			
-				viewContainerCollection.removeAll(collectionViewStates.stream().flatMap(vs -> vs.getViewContainers().stream()).collect(Collectors.toList()));
+				viewContainerCollection.removeAll(collectionViewStates.stream()
+						.flatMap(vs -> vs.getViewContainers().stream())
+						.collect(Collectors.toList()));
 			}
 			
 		} else {

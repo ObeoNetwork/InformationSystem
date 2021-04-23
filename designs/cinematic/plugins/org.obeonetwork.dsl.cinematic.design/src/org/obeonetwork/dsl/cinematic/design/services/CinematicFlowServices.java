@@ -17,9 +17,11 @@ import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.swt.widgets.Shell;
 import org.eclipse.ui.PlatformUI;
+import org.obeonetwork.dsl.cinematic.design.services.flows.FlowstateToViewstateEventDialog;
 import org.obeonetwork.dsl.cinematic.design.services.flows.ViewContainerSelectionDialog;
 import org.obeonetwork.dsl.cinematic.flow.Flow;
 import org.obeonetwork.dsl.cinematic.flow.FlowState;
+import org.obeonetwork.dsl.cinematic.flow.Transition;
 import org.obeonetwork.dsl.cinematic.flow.ViewState;
 import org.obeonetwork.dsl.cinematic.view.ViewContainer;
 
@@ -88,18 +90,33 @@ public class CinematicFlowServices {
 		return viewContainersAncestors;
 	}
 	
-	public void openViewContainerSelectionDialog(EObject viewState) {
-		ArrayList<EObject> arrayList = new ArrayList<>();
-		arrayList.add(viewState);
-		
+	/**
+	 * Opens a dialog than enables the selection of ViewContainer for the given {@link ViewState}
+	 * @param viewState, a {@link ViewState} 
+	 */
+	public void openViewContainerSelectionDialog(ViewState viewState) {		
 		Shell shell = PlatformUI.getWorkbench().getActiveWorkbenchWindow().getShell();
 		
-		if (viewState instanceof ViewState) {
-			ViewContainerSelectionDialog dialog = new ViewContainerSelectionDialog(shell, (ViewState) viewState);
-			dialog.open();
-		}					
+		ViewContainerSelectionDialog dialog = new ViewContainerSelectionDialog(shell, (ViewState) viewState);
+		dialog.open();
 	}
 	
+	public void openFlowstateToViewstateEventDialog(EObject transition)  {
+		System.out.println("Calling the service from "+transition.eClass());
+		Shell shell = PlatformUI.getWorkbench().getActiveWorkbenchWindow().getShell();
+		
+		if (transition instanceof Transition) {
+			FlowstateToViewstateEventDialog dialog = new FlowstateToViewstateEventDialog(shell, (Transition) transition);
+			dialog.open();
+		}
+		
+	}
+	
+	/**
+	 * Checks if the given {@link ViewContainer} is contained in a {@link ViewContainer}
+	 * @param container a {@link ViewContainer}
+	 * @return <code>true</code> if contained in a {@link ViewContainer}
+	 */
 	public static boolean isSubViewContainer(ViewContainer container) {
 		return container.eContainer() instanceof ViewContainer;
 	}

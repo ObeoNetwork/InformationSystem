@@ -40,7 +40,6 @@ public class ViewContainerCheckStateListener implements ICheckStateListener {
 			
 			checkboxTreeViewer.expandToLevel(container, TreeViewer.ALL_LEVELS);
 		} else {
-			// FIXME @VRI: Should we be able to uncheck children containers ? If so: what happens ? 
 			viewState.getViewContainers().remove(container);
 		}
 		
