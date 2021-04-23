@@ -1,4 +1,4 @@
-package org.obeonetwork.dsl.cinematic.design.services.flows;
+package org.obeonetwork.dsl.cinematic.design.services.flows.dialog.viewcontainer;
 
 import org.eclipse.jface.dialogs.Dialog;
 import org.eclipse.jface.dialogs.IDialogConstants;
@@ -14,12 +14,7 @@ import org.eclipse.swt.widgets.Label;
 import org.eclipse.swt.widgets.Shell;
 import org.eclipse.swt.widgets.Text;
 import org.eclipse.swt.widgets.Tree;
-import org.obeonetwork.dsl.cinematic.design.services.flows.listeners.ViewContainerCheckStateListener;
-import org.obeonetwork.dsl.cinematic.design.services.flows.listeners.ViewContainerHideBoundContainersListener;
-import org.obeonetwork.dsl.cinematic.design.services.flows.providers.ViewContainerCheckStateProvider;
-import org.obeonetwork.dsl.cinematic.design.services.flows.providers.ViewContainerLabelProvider;
-import org.obeonetwork.dsl.cinematic.design.services.flows.providers.ViewContainerTreeContentProvider;
-import org.obeonetwork.dsl.cinematic.design.services.flows.providers.ViewContainerViewerFilter;
+import org.obeonetwork.dsl.cinematic.design.services.flows.FlowsUtil;
 import org.obeonetwork.dsl.cinematic.flow.ViewState;
 
 public class ViewContainerSelectionDialog extends Dialog {

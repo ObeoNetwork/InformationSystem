@@ -1,4 +1,4 @@
-package org.obeonetwork.dsl.cinematic.design.services.flows.providers;
+package org.obeonetwork.dsl.cinematic.design.services.flows.dialog.viewcontainer;
 
 import org.eclipse.core.internal.propertytester.StringMatcher;
 import org.eclipse.jface.viewers.CheckboxTreeViewer;

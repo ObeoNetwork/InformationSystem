@@ -1,9 +1,8 @@
-package org.obeonetwork.dsl.cinematic.design.services.flows.listeners;
+package org.obeonetwork.dsl.cinematic.design.services.flows.dialog.viewcontainer;
 
 import org.eclipse.jface.viewers.CheckboxTreeViewer;
 import org.eclipse.swt.events.SelectionAdapter;
 import org.eclipse.swt.events.SelectionEvent;
-import org.obeonetwork.dsl.cinematic.design.services.flows.providers.ViewContainerTreeContentProvider;
 
 /**
  *  

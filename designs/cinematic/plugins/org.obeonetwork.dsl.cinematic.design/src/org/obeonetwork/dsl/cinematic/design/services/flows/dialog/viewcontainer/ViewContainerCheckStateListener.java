@@ -1,4 +1,4 @@
-package org.obeonetwork.dsl.cinematic.design.services.flows.listeners;
+package org.obeonetwork.dsl.cinematic.design.services.flows.dialog.viewcontainer;
 
 import org.eclipse.jface.viewers.CheckStateChangedEvent;
 import org.eclipse.jface.viewers.CheckboxTreeViewer;

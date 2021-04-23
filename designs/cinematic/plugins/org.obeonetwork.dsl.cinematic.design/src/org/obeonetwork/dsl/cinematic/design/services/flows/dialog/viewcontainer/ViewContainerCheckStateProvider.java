@@ -1,4 +1,4 @@
-package org.obeonetwork.dsl.cinematic.design.services.flows.providers;
+package org.obeonetwork.dsl.cinematic.design.services.flows.dialog.viewcontainer;
 
 import org.eclipse.jface.viewers.ICheckStateProvider;
 import org.obeonetwork.dsl.cinematic.flow.ViewState;
