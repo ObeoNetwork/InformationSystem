@@ -32,12 +32,14 @@ import org.eclipse.sirius.business.internal.session.danalysis.DAnalysisSessionIm
 import org.eclipse.sirius.diagram.DDiagramElement;
 import org.eclipse.sirius.diagram.DDiagramElementContainer;
 import org.eclipse.sirius.diagram.DNodeContainer;
+import org.eclipse.sirius.diagram.DSemanticDiagram;
 import org.eclipse.sirius.diagram.business.api.refresh.CanonicalSynchronizer;
 import org.eclipse.sirius.diagram.business.api.refresh.CanonicalSynchronizerFactory;
 import org.eclipse.sirius.diagram.description.DiagramDescription;
 import org.eclipse.sirius.diagram.description.tool.ContainerCreationDescription;
 import org.eclipse.sirius.diagram.description.tool.ToolSection;
 import org.eclipse.sirius.diagram.ui.business.api.view.SiriusGMFHelper;
+import org.eclipse.sirius.viewpoint.DSemanticDecorator;
 import org.eclipse.sirius.viewpoint.LabelAlignment;
 import org.eclipse.sirius.viewpoint.description.Viewpoint;
 import org.eclipse.swt.graphics.Image;
@@ -68,6 +70,7 @@ import org.obeonetwork.utils.sirius.services.DebugServices;
  * @author jdupont
  * 
  */
+@SuppressWarnings("restriction")
 public class CinematicWidgetServices extends DebugServices {
 
 	private static final String CREATE_VIEW_CONTAINER_TITLE = "Create View container";
@@ -367,10 +370,17 @@ public class CinematicWidgetServices extends DebugServices {
 	 * 
 	 * @see #getWidgetDecoratorFigure()
 	 */
-	private Image getWidgetDecoratorImage(AbstractViewElement viewElement, String cardinalPosition, DDiagramElementContainer containerDiagramElement) {
+	private Image getWidgetDecoratorImage(AbstractViewElement viewElement, String cardinalPosition, DSemanticDecorator diagramElementContainer) {
 		Image image  = null;
 		
-		DDiagramElement diagramElement = containerDiagramElement.getElements().stream().
+		EList<DDiagramElement> diagramElements = null;
+		if(diagramElementContainer instanceof DDiagramElementContainer) {
+			diagramElements = ((DDiagramElementContainer) diagramElementContainer).getElements();
+		} else if(diagramElementContainer instanceof DSemanticDiagram) {
+			diagramElements = ((DSemanticDiagram) diagramElementContainer).getOwnedDiagramElements();
+		}
+		
+		DDiagramElement diagramElement = diagramElements.stream().
 				filter(dde -> dde.getTarget() == viewElement)
 				.findFirst().orElse(null);
 		
@@ -425,11 +435,8 @@ public class CinematicWidgetServices extends DebugServices {
 	 * @return the figure to be used as a decoration or null if no decoration is
 	 *         defined at this cardinal position.
 	 */
-	public IFigure getWidgetDecoratorFigure(AbstractViewElement viewElement, String cardinalPosition, DDiagramElementContainer containerDiagramElement) {
-		// TODO VRI containerDiagramElement can actually be an instance of DSemanticDiagram
-		// Use DSemanticDecorator instead ?
-		System.out.println("CinematicWidgetServices.getWidgetDecoratorFigure()");
-		Image image = getWidgetDecoratorImage(viewElement, cardinalPosition, containerDiagramElement);
+	public IFigure getWidgetDecoratorFigure(AbstractViewElement viewElement, String cardinalPosition, DSemanticDecorator diagramElementContainer) {
+		Image image = getWidgetDecoratorImage(viewElement, cardinalPosition, diagramElementContainer);
 		if(image != null) {
 			ImageFigureEx figureImage = new ImageFigureEx();
 	        figureImage.setImage(image);
