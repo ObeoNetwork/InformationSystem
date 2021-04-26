@@ -74,10 +74,10 @@ public class StyleItemProvider
 			addDecoratorPositionPropertyDescriptor(object);
 			addDecoratorVFillPropertyDescriptor(object);
 			addDecoratorHFillPropertyDescriptor(object);
-			addBorderPropertyDescriptor(object);
+			addBorderedPropertyDescriptor(object);
 			addRoundedCornersPropertyDescriptor(object);
 			addFontColorPropertyDescriptor(object);
-			addFontUnderlinePropertyDescriptor(object);
+			addFontUnderlinedPropertyDescriptor(object);
 			addLabelHAlignmentPropertyDescriptor(object);
 			addDefaultWidthPropertyDescriptor(object);
 			addDefaultHeightPropertyDescriptor(object);
@@ -174,19 +174,19 @@ public class StyleItemProvider
 	}
 
 	/**
-	 * This adds a property descriptor for the Border feature.
+	 * This adds a property descriptor for the Bordered feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void addBorderPropertyDescriptor(Object object) {
+	protected void addBorderedPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_Style_border_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_Style_border_feature", "_UI_Style_type"),
-				 ToolkitsPackage.Literals.STYLE__BORDER,
+				 getString("_UI_Style_bordered_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Style_bordered_feature", "_UI_Style_type"),
+				 ToolkitsPackage.Literals.STYLE__BORDERED,
 				 true,
 				 false,
 				 false,
@@ -240,19 +240,19 @@ public class StyleItemProvider
 	}
 
 	/**
-	 * This adds a property descriptor for the Font Underline feature.
+	 * This adds a property descriptor for the Font Underlined feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void addFontUnderlinePropertyDescriptor(Object object) {
+	protected void addFontUnderlinedPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_Style_fontUnderline_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_Style_fontUnderline_feature", "_UI_Style_type"),
-				 ToolkitsPackage.Literals.STYLE__FONT_UNDERLINE,
+				 getString("_UI_Style_fontUnderlined_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Style_fontUnderlined_feature", "_UI_Style_type"),
+				 ToolkitsPackage.Literals.STYLE__FONT_UNDERLINED,
 				 true,
 				 false,
 				 false,
@@ -379,10 +379,10 @@ public class StyleItemProvider
 			case ToolkitsPackage.STYLE__DECORATOR_POSITION:
 			case ToolkitsPackage.STYLE__DECORATOR_VFILL:
 			case ToolkitsPackage.STYLE__DECORATOR_HFILL:
-			case ToolkitsPackage.STYLE__BORDER:
+			case ToolkitsPackage.STYLE__BORDERED:
 			case ToolkitsPackage.STYLE__ROUNDED_CORNERS:
 			case ToolkitsPackage.STYLE__FONT_COLOR:
-			case ToolkitsPackage.STYLE__FONT_UNDERLINE:
+			case ToolkitsPackage.STYLE__FONT_UNDERLINED:
 			case ToolkitsPackage.STYLE__LABEL_HALIGNMENT:
 			case ToolkitsPackage.STYLE__DEFAULT_WIDTH:
 			case ToolkitsPackage.STYLE__DEFAULT_HEIGHT:

@@ -25,10 +25,10 @@ import org.eclipse.emf.cdo.CDOObject;
  *   <li>{@link org.obeonetwork.dsl.cinematic.toolkits.Style#getDecoratorPosition <em>Decorator Position</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.cinematic.toolkits.Style#isDecoratorVFill <em>Decorator VFill</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.cinematic.toolkits.Style#isDecoratorHFill <em>Decorator HFill</em>}</li>
- *   <li>{@link org.obeonetwork.dsl.cinematic.toolkits.Style#isBorder <em>Border</em>}</li>
+ *   <li>{@link org.obeonetwork.dsl.cinematic.toolkits.Style#isBordered <em>Bordered</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.cinematic.toolkits.Style#isRoundedCorners <em>Rounded Corners</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.cinematic.toolkits.Style#getFontColor <em>Font Color</em>}</li>
- *   <li>{@link org.obeonetwork.dsl.cinematic.toolkits.Style#isFontUnderline <em>Font Underline</em>}</li>
+ *   <li>{@link org.obeonetwork.dsl.cinematic.toolkits.Style#isFontUnderlined <em>Font Underlined</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.cinematic.toolkits.Style#getLabelHAlignment <em>Label HAlignment</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.cinematic.toolkits.Style#getDefaultWidth <em>Default Width</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.cinematic.toolkits.Style#getDefaultHeight <em>Default Height</em>}</li>
@@ -133,27 +133,27 @@ public interface Style extends CDOObject {
 	void setDecoratorHFill(boolean value);
 
 	/**
-	 * Returns the value of the '<em><b>Border</b></em>' attribute.
+	 * Returns the value of the '<em><b>Bordered</b></em>' attribute.
 	 * The default value is <code>"true"</code>.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Border</em>' attribute.
-	 * @see #setBorder(boolean)
-	 * @see org.obeonetwork.dsl.cinematic.toolkits.ToolkitsPackage#getStyle_Border()
+	 * @return the value of the '<em>Bordered</em>' attribute.
+	 * @see #setBordered(boolean)
+	 * @see org.obeonetwork.dsl.cinematic.toolkits.ToolkitsPackage#getStyle_Bordered()
 	 * @model default="true"
 	 * @generated
 	 */
-	boolean isBorder();
+	boolean isBordered();
 
 	/**
-	 * Sets the value of the '{@link org.obeonetwork.dsl.cinematic.toolkits.Style#isBorder <em>Border</em>}' attribute.
+	 * Sets the value of the '{@link org.obeonetwork.dsl.cinematic.toolkits.Style#isBordered <em>Bordered</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Border</em>' attribute.
-	 * @see #isBorder()
+	 * @param value the new value of the '<em>Bordered</em>' attribute.
+	 * @see #isBordered()
 	 * @generated
 	 */
-	void setBorder(boolean value);
+	void setBordered(boolean value);
 
 	/**
 	 * Returns the value of the '<em><b>Rounded Corners</b></em>' attribute.
@@ -200,27 +200,27 @@ public interface Style extends CDOObject {
 	void setFontColor(String value);
 
 	/**
-	 * Returns the value of the '<em><b>Font Underline</b></em>' attribute.
+	 * Returns the value of the '<em><b>Font Underlined</b></em>' attribute.
 	 * The default value is <code>"false"</code>.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Font Underline</em>' attribute.
-	 * @see #setFontUnderline(boolean)
-	 * @see org.obeonetwork.dsl.cinematic.toolkits.ToolkitsPackage#getStyle_FontUnderline()
+	 * @return the value of the '<em>Font Underlined</em>' attribute.
+	 * @see #setFontUnderlined(boolean)
+	 * @see org.obeonetwork.dsl.cinematic.toolkits.ToolkitsPackage#getStyle_FontUnderlined()
 	 * @model default="false"
 	 * @generated
 	 */
-	boolean isFontUnderline();
+	boolean isFontUnderlined();
 
 	/**
-	 * Sets the value of the '{@link org.obeonetwork.dsl.cinematic.toolkits.Style#isFontUnderline <em>Font Underline</em>}' attribute.
+	 * Sets the value of the '{@link org.obeonetwork.dsl.cinematic.toolkits.Style#isFontUnderlined <em>Font Underlined</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Font Underline</em>' attribute.
-	 * @see #isFontUnderline()
+	 * @param value the new value of the '<em>Font Underlined</em>' attribute.
+	 * @see #isFontUnderlined()
 	 * @generated
 	 */
-	void setFontUnderline(boolean value);
+	void setFontUnderlined(boolean value);
 
 	/**
 	 * Returns the value of the '<em><b>Label HAlignment</b></em>' attribute.

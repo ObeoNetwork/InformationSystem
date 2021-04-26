@@ -287,13 +287,13 @@ public interface ToolkitsPackage extends EPackage {
 	int STYLE__DECORATOR_HFILL = 3;
 
 	/**
-	 * The feature id for the '<em><b>Border</b></em>' attribute.
+	 * The feature id for the '<em><b>Bordered</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int STYLE__BORDER = 4;
+	int STYLE__BORDERED = 4;
 
 	/**
 	 * The feature id for the '<em><b>Rounded Corners</b></em>' attribute.
@@ -314,13 +314,13 @@ public interface ToolkitsPackage extends EPackage {
 	int STYLE__FONT_COLOR = 6;
 
 	/**
-	 * The feature id for the '<em><b>Font Underline</b></em>' attribute.
+	 * The feature id for the '<em><b>Font Underlined</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int STYLE__FONT_UNDERLINE = 7;
+	int STYLE__FONT_UNDERLINED = 7;
 
 	/**
 	 * The feature id for the '<em><b>Label HAlignment</b></em>' attribute.
@@ -574,15 +574,15 @@ public interface ToolkitsPackage extends EPackage {
 	EAttribute getStyle_DecoratorHFill();
 
 	/**
-	 * Returns the meta object for the attribute '{@link org.obeonetwork.dsl.cinematic.toolkits.Style#isBorder <em>Border</em>}'.
+	 * Returns the meta object for the attribute '{@link org.obeonetwork.dsl.cinematic.toolkits.Style#isBordered <em>Bordered</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Border</em>'.
-	 * @see org.obeonetwork.dsl.cinematic.toolkits.Style#isBorder()
+	 * @return the meta object for the attribute '<em>Bordered</em>'.
+	 * @see org.obeonetwork.dsl.cinematic.toolkits.Style#isBordered()
 	 * @see #getStyle()
 	 * @generated
 	 */
-	EAttribute getStyle_Border();
+	EAttribute getStyle_Bordered();
 
 	/**
 	 * Returns the meta object for the attribute '{@link org.obeonetwork.dsl.cinematic.toolkits.Style#isRoundedCorners <em>Rounded Corners</em>}'.
@@ -607,15 +607,15 @@ public interface ToolkitsPackage extends EPackage {
 	EAttribute getStyle_FontColor();
 
 	/**
-	 * Returns the meta object for the attribute '{@link org.obeonetwork.dsl.cinematic.toolkits.Style#isFontUnderline <em>Font Underline</em>}'.
+	 * Returns the meta object for the attribute '{@link org.obeonetwork.dsl.cinematic.toolkits.Style#isFontUnderlined <em>Font Underlined</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Font Underline</em>'.
-	 * @see org.obeonetwork.dsl.cinematic.toolkits.Style#isFontUnderline()
+	 * @return the meta object for the attribute '<em>Font Underlined</em>'.
+	 * @see org.obeonetwork.dsl.cinematic.toolkits.Style#isFontUnderlined()
 	 * @see #getStyle()
 	 * @generated
 	 */
-	EAttribute getStyle_FontUnderline();
+	EAttribute getStyle_FontUnderlined();
 
 	/**
 	 * Returns the meta object for the attribute '{@link org.obeonetwork.dsl.cinematic.toolkits.Style#getLabelHAlignment <em>Label HAlignment</em>}'.
@@ -845,12 +845,12 @@ public interface ToolkitsPackage extends EPackage {
 		EAttribute STYLE__DECORATOR_HFILL = eINSTANCE.getStyle_DecoratorHFill();
 
 		/**
-		 * The meta object literal for the '<em><b>Border</b></em>' attribute feature.
+		 * The meta object literal for the '<em><b>Bordered</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute STYLE__BORDER = eINSTANCE.getStyle_Border();
+		EAttribute STYLE__BORDERED = eINSTANCE.getStyle_Bordered();
 
 		/**
 		 * The meta object literal for the '<em><b>Rounded Corners</b></em>' attribute feature.
@@ -869,12 +869,12 @@ public interface ToolkitsPackage extends EPackage {
 		EAttribute STYLE__FONT_COLOR = eINSTANCE.getStyle_FontColor();
 
 		/**
-		 * The meta object literal for the '<em><b>Font Underline</b></em>' attribute feature.
+		 * The meta object literal for the '<em><b>Font Underlined</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute STYLE__FONT_UNDERLINE = eINSTANCE.getStyle_FontUnderline();
+		EAttribute STYLE__FONT_UNDERLINED = eINSTANCE.getStyle_FontUnderlined();
 
 		/**
 		 * The meta object literal for the '<em><b>Label HAlignment</b></em>' attribute feature.

@@ -21,18 +21,18 @@
   <widgets xmi:id="_kEsycIjeEeGIXsoZxTXHQA" technicalid="_KwWa7aK1Eeuqs9mIRWXCLA" name="Image" icon="/org.obeonetwork.dsl.cinematic/icons/Image.gif" implementation="">
     <possibleEvents xmi:id="_mAV_wIjeEeGIXsoZxTXHQA" technicalid="_KwXB8KK1Eeuqs9mIRWXCLA" name="onFocus"/>
     <possibleEvents xmi:id="_mAV_wYjeEeGIXsoZxTXHQA" technicalid="_KwXB8aK1Eeuqs9mIRWXCLA" name="onFocusLost"/>
-    <style xmi:id="_STGvwKK3Eeuqs9mIRWXCLA" decorator="/org.obeonetwork.dsl.cinematic/decorators/ImagePlaceholder.svg" decoratorHFill="true" border="false" defaultWidth="219" defaultHeight="139"/>
+    <style xmi:id="_STGvwKK3Eeuqs9mIRWXCLA" decorator="/org.obeonetwork.dsl.cinematic/decorators/ImagePlaceholder.svg" decoratorHFill="true" bordered="false" defaultWidth="219" defaultHeight="139"/>
   </widgets>
   <widgets xmi:id="_7HoV0IjOEeGrHN3Vq969QA" technicalid="_KwXB8qK1Eeuqs9mIRWXCLA" name="Label" icon="/org.obeonetwork.dsl.cinematic/icons/Label.gif">
     <possibleEvents xmi:id="_QU_ZgIjREeG_dvC9P_PKfA" technicalid="_KwXB86K1Eeuqs9mIRWXCLA" name="onFocus"/>
     <possibleEvents xmi:id="_QU_ZgYjREeG_dvC9P_PKfA" technicalid="_KwXB9KK1Eeuqs9mIRWXCLA" name="onFocusLost"/>
-    <style xmi:id="_i6W14KK3Eeuqs9mIRWXCLA" border="false" labelHAlignment="LEFT" defaultWidth="187" defaultHeight="41"/>
+    <style xmi:id="_i6W14KK3Eeuqs9mIRWXCLA" bordered="false" labelHAlignment="LEFT" defaultWidth="187" defaultHeight="41"/>
   </widgets>
   <widgets xmi:id="_8kxCMIjOEeGrHN3Vq969QA" technicalid="_KwXB9aK1Eeuqs9mIRWXCLA" name="Link" icon="/org.obeonetwork.dsl.cinematic/icons/Link.gif">
     <possibleEvents xmi:id="_JB3xMIjREeG_dvC9P_PKfA" technicalid="_KwXB9qK1Eeuqs9mIRWXCLA" name="onClick"/>
     <possibleEvents xmi:id="_QfG-0IjREeG_dvC9P_PKfA" technicalid="_KwXB96K1Eeuqs9mIRWXCLA" name="onFocus"/>
     <possibleEvents xmi:id="_QfG-0YjREeG_dvC9P_PKfA" technicalid="_KwXB-KK1Eeuqs9mIRWXCLA" name="onFocusLost"/>
-    <style xmi:id="_OtTXoKLAEeuqs9mIRWXCLA" border="false" fontColor="LINK_FOREGROUND" fontUnderline="true" labelHAlignment="LEFT" defaultWidth="187" defaultHeight="41"/>
+    <style xmi:id="_OtTXoKLAEeuqs9mIRWXCLA" bordered="false" fontColor="LINK_FOREGROUND" fontUnderlined="true" labelHAlignment="LEFT" defaultWidth="187" defaultHeight="41"/>
   </widgets>
   <widgets xmi:id="_1xtPeIjNEeGrHN3Vq969QA" technicalid="_KwXB-aK1Eeuqs9mIRWXCLA" name="Panel" icon="/org.obeonetwork.dsl.cinematic/icons/Panel.gif" isContainer="true">
     <possibleEvents xmi:id="_N0KbgIjREeG_dvC9P_PKfA" technicalid="_KwXB-qK1Eeuqs9mIRWXCLA" name="onFocus"/>

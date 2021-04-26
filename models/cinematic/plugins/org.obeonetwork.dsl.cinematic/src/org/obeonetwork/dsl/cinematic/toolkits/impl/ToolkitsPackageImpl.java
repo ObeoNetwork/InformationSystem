@@ -328,7 +328,7 @@ public class ToolkitsPackageImpl extends EPackageImpl implements ToolkitsPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getStyle_Border() {
+	public EAttribute getStyle_Bordered() {
 		return (EAttribute)styleEClass.getEStructuralFeatures().get(4);
 	}
 
@@ -355,7 +355,7 @@ public class ToolkitsPackageImpl extends EPackageImpl implements ToolkitsPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getStyle_FontUnderline() {
+	public EAttribute getStyle_FontUnderlined() {
 		return (EAttribute)styleEClass.getEStructuralFeatures().get(7);
 	}
 
@@ -453,10 +453,10 @@ public class ToolkitsPackageImpl extends EPackageImpl implements ToolkitsPackage
 		createEAttribute(styleEClass, STYLE__DECORATOR_POSITION);
 		createEAttribute(styleEClass, STYLE__DECORATOR_VFILL);
 		createEAttribute(styleEClass, STYLE__DECORATOR_HFILL);
-		createEAttribute(styleEClass, STYLE__BORDER);
+		createEAttribute(styleEClass, STYLE__BORDERED);
 		createEAttribute(styleEClass, STYLE__ROUNDED_CORNERS);
 		createEAttribute(styleEClass, STYLE__FONT_COLOR);
-		createEAttribute(styleEClass, STYLE__FONT_UNDERLINE);
+		createEAttribute(styleEClass, STYLE__FONT_UNDERLINED);
 		createEAttribute(styleEClass, STYLE__LABEL_HALIGNMENT);
 		createEAttribute(styleEClass, STYLE__DEFAULT_WIDTH);
 		createEAttribute(styleEClass, STYLE__DEFAULT_HEIGHT);
@@ -523,10 +523,10 @@ public class ToolkitsPackageImpl extends EPackageImpl implements ToolkitsPackage
 		initEAttribute(getStyle_DecoratorPosition(), this.getCardinalPosition(), "decoratorPosition", null, 0, 1, Style.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getStyle_DecoratorVFill(), ecorePackage.getEBoolean(), "decoratorVFill", "true", 0, 1, Style.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getStyle_DecoratorHFill(), ecorePackage.getEBoolean(), "decoratorHFill", null, 0, 1, Style.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getStyle_Border(), ecorePackage.getEBoolean(), "border", "true", 0, 1, Style.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getStyle_Bordered(), ecorePackage.getEBoolean(), "bordered", "true", 0, 1, Style.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getStyle_RoundedCorners(), ecorePackage.getEBoolean(), "roundedCorners", null, 0, 1, Style.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getStyle_FontColor(), ecorePackage.getEString(), "fontColor", null, 0, 1, Style.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getStyle_FontUnderline(), ecorePackage.getEBoolean(), "fontUnderline", "false", 0, 1, Style.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getStyle_FontUnderlined(), ecorePackage.getEBoolean(), "fontUnderlined", "false", 0, 1, Style.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getStyle_LabelHAlignment(), this.getHorizontalAlignment(), "labelHAlignment", null, 0, 1, Style.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getStyle_DefaultWidth(), ecorePackage.getEInt(), "defaultWidth", null, 0, 1, Style.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getStyle_DefaultHeight(), ecorePackage.getEInt(), "defaultHeight", null, 0, 1, Style.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

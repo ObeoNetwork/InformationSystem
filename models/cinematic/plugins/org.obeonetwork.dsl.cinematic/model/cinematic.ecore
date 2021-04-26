@@ -335,11 +335,11 @@
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="decoratorVFill" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"
           defaultValueLiteral="true"/>
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="decoratorHFill" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
-      <eStructuralFeatures xsi:type="ecore:EAttribute" name="border" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="bordered" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"
           defaultValueLiteral="true"/>
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="roundedCorners" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="fontColor" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-      <eStructuralFeatures xsi:type="ecore:EAttribute" name="fontUnderline" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="fontUnderlined" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"
           defaultValueLiteral="false"/>
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="labelHAlignment" eType="#//toolkits/HorizontalAlignment"/>
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="defaultWidth" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
