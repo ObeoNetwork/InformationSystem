@@ -31,10 +31,10 @@ import org.obeonetwork.dsl.cinematic.toolkits.ToolkitsPackage;
  *   <li>{@link org.obeonetwork.dsl.cinematic.toolkits.impl.StyleImpl#getDecoratorPosition <em>Decorator Position</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.cinematic.toolkits.impl.StyleImpl#isDecoratorVFill <em>Decorator VFill</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.cinematic.toolkits.impl.StyleImpl#isDecoratorHFill <em>Decorator HFill</em>}</li>
- *   <li>{@link org.obeonetwork.dsl.cinematic.toolkits.impl.StyleImpl#isBorder <em>Border</em>}</li>
+ *   <li>{@link org.obeonetwork.dsl.cinematic.toolkits.impl.StyleImpl#isBordered <em>Bordered</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.cinematic.toolkits.impl.StyleImpl#isRoundedCorners <em>Rounded Corners</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.cinematic.toolkits.impl.StyleImpl#getFontColor <em>Font Color</em>}</li>
- *   <li>{@link org.obeonetwork.dsl.cinematic.toolkits.impl.StyleImpl#isFontUnderline <em>Font Underline</em>}</li>
+ *   <li>{@link org.obeonetwork.dsl.cinematic.toolkits.impl.StyleImpl#isFontUnderlined <em>Font Underlined</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.cinematic.toolkits.impl.StyleImpl#getLabelHAlignment <em>Label HAlignment</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.cinematic.toolkits.impl.StyleImpl#getDefaultWidth <em>Default Width</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.cinematic.toolkits.impl.StyleImpl#getDefaultHeight <em>Default Height</em>}</li>
@@ -84,14 +84,14 @@ public class StyleImpl extends CDOObjectImpl implements Style {
 	protected static final boolean DECORATOR_HFILL_EDEFAULT = false;
 
 	/**
-	 * The default value of the '{@link #isBorder() <em>Border</em>}' attribute.
+	 * The default value of the '{@link #isBordered() <em>Bordered</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #isBorder()
+	 * @see #isBordered()
 	 * @generated
 	 * @ordered
 	 */
-	protected static final boolean BORDER_EDEFAULT = true;
+	protected static final boolean BORDERED_EDEFAULT = true;
 
 	/**
 	 * The default value of the '{@link #isRoundedCorners() <em>Rounded Corners</em>}' attribute.
@@ -114,14 +114,14 @@ public class StyleImpl extends CDOObjectImpl implements Style {
 	protected static final String FONT_COLOR_EDEFAULT = null;
 
 	/**
-	 * The default value of the '{@link #isFontUnderline() <em>Font Underline</em>}' attribute.
+	 * The default value of the '{@link #isFontUnderlined() <em>Font Underlined</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #isFontUnderline()
+	 * @see #isFontUnderlined()
 	 * @generated
 	 * @ordered
 	 */
-	protected static final boolean FONT_UNDERLINE_EDEFAULT = false;
+	protected static final boolean FONT_UNDERLINED_EDEFAULT = false;
 
 	/**
 	 * The default value of the '{@link #getLabelHAlignment() <em>Label HAlignment</em>}' attribute.
@@ -259,8 +259,8 @@ public class StyleImpl extends CDOObjectImpl implements Style {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public boolean isBorder() {
-		return (Boolean)eDynamicGet(ToolkitsPackage.STYLE__BORDER, ToolkitsPackage.Literals.STYLE__BORDER, true, true);
+	public boolean isBordered() {
+		return (Boolean)eDynamicGet(ToolkitsPackage.STYLE__BORDERED, ToolkitsPackage.Literals.STYLE__BORDERED, true, true);
 	}
 
 	/**
@@ -268,8 +268,8 @@ public class StyleImpl extends CDOObjectImpl implements Style {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setBorder(boolean newBorder) {
-		eDynamicSet(ToolkitsPackage.STYLE__BORDER, ToolkitsPackage.Literals.STYLE__BORDER, newBorder);
+	public void setBordered(boolean newBordered) {
+		eDynamicSet(ToolkitsPackage.STYLE__BORDERED, ToolkitsPackage.Literals.STYLE__BORDERED, newBordered);
 	}
 
 	/**
@@ -313,8 +313,8 @@ public class StyleImpl extends CDOObjectImpl implements Style {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public boolean isFontUnderline() {
-		return (Boolean)eDynamicGet(ToolkitsPackage.STYLE__FONT_UNDERLINE, ToolkitsPackage.Literals.STYLE__FONT_UNDERLINE, true, true);
+	public boolean isFontUnderlined() {
+		return (Boolean)eDynamicGet(ToolkitsPackage.STYLE__FONT_UNDERLINED, ToolkitsPackage.Literals.STYLE__FONT_UNDERLINED, true, true);
 	}
 
 	/**
@@ -322,8 +322,8 @@ public class StyleImpl extends CDOObjectImpl implements Style {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setFontUnderline(boolean newFontUnderline) {
-		eDynamicSet(ToolkitsPackage.STYLE__FONT_UNDERLINE, ToolkitsPackage.Literals.STYLE__FONT_UNDERLINE, newFontUnderline);
+	public void setFontUnderlined(boolean newFontUnderlined) {
+		eDynamicSet(ToolkitsPackage.STYLE__FONT_UNDERLINED, ToolkitsPackage.Literals.STYLE__FONT_UNDERLINED, newFontUnderlined);
 	}
 
 	/**
@@ -396,14 +396,14 @@ public class StyleImpl extends CDOObjectImpl implements Style {
 				return isDecoratorVFill();
 			case ToolkitsPackage.STYLE__DECORATOR_HFILL:
 				return isDecoratorHFill();
-			case ToolkitsPackage.STYLE__BORDER:
-				return isBorder();
+			case ToolkitsPackage.STYLE__BORDERED:
+				return isBordered();
 			case ToolkitsPackage.STYLE__ROUNDED_CORNERS:
 				return isRoundedCorners();
 			case ToolkitsPackage.STYLE__FONT_COLOR:
 				return getFontColor();
-			case ToolkitsPackage.STYLE__FONT_UNDERLINE:
-				return isFontUnderline();
+			case ToolkitsPackage.STYLE__FONT_UNDERLINED:
+				return isFontUnderlined();
 			case ToolkitsPackage.STYLE__LABEL_HALIGNMENT:
 				return getLabelHAlignment();
 			case ToolkitsPackage.STYLE__DEFAULT_WIDTH:
@@ -434,8 +434,8 @@ public class StyleImpl extends CDOObjectImpl implements Style {
 			case ToolkitsPackage.STYLE__DECORATOR_HFILL:
 				setDecoratorHFill((Boolean)newValue);
 				return;
-			case ToolkitsPackage.STYLE__BORDER:
-				setBorder((Boolean)newValue);
+			case ToolkitsPackage.STYLE__BORDERED:
+				setBordered((Boolean)newValue);
 				return;
 			case ToolkitsPackage.STYLE__ROUNDED_CORNERS:
 				setRoundedCorners((Boolean)newValue);
@@ -443,8 +443,8 @@ public class StyleImpl extends CDOObjectImpl implements Style {
 			case ToolkitsPackage.STYLE__FONT_COLOR:
 				setFontColor((String)newValue);
 				return;
-			case ToolkitsPackage.STYLE__FONT_UNDERLINE:
-				setFontUnderline((Boolean)newValue);
+			case ToolkitsPackage.STYLE__FONT_UNDERLINED:
+				setFontUnderlined((Boolean)newValue);
 				return;
 			case ToolkitsPackage.STYLE__LABEL_HALIGNMENT:
 				setLabelHAlignment((HorizontalAlignment)newValue);
@@ -479,8 +479,8 @@ public class StyleImpl extends CDOObjectImpl implements Style {
 			case ToolkitsPackage.STYLE__DECORATOR_HFILL:
 				setDecoratorHFill(DECORATOR_HFILL_EDEFAULT);
 				return;
-			case ToolkitsPackage.STYLE__BORDER:
-				setBorder(BORDER_EDEFAULT);
+			case ToolkitsPackage.STYLE__BORDERED:
+				setBordered(BORDERED_EDEFAULT);
 				return;
 			case ToolkitsPackage.STYLE__ROUNDED_CORNERS:
 				setRoundedCorners(ROUNDED_CORNERS_EDEFAULT);
@@ -488,8 +488,8 @@ public class StyleImpl extends CDOObjectImpl implements Style {
 			case ToolkitsPackage.STYLE__FONT_COLOR:
 				setFontColor(FONT_COLOR_EDEFAULT);
 				return;
-			case ToolkitsPackage.STYLE__FONT_UNDERLINE:
-				setFontUnderline(FONT_UNDERLINE_EDEFAULT);
+			case ToolkitsPackage.STYLE__FONT_UNDERLINED:
+				setFontUnderlined(FONT_UNDERLINED_EDEFAULT);
 				return;
 			case ToolkitsPackage.STYLE__LABEL_HALIGNMENT:
 				setLabelHAlignment(LABEL_HALIGNMENT_EDEFAULT);
@@ -520,14 +520,14 @@ public class StyleImpl extends CDOObjectImpl implements Style {
 				return isDecoratorVFill() != DECORATOR_VFILL_EDEFAULT;
 			case ToolkitsPackage.STYLE__DECORATOR_HFILL:
 				return isDecoratorHFill() != DECORATOR_HFILL_EDEFAULT;
-			case ToolkitsPackage.STYLE__BORDER:
-				return isBorder() != BORDER_EDEFAULT;
+			case ToolkitsPackage.STYLE__BORDERED:
+				return isBordered() != BORDERED_EDEFAULT;
 			case ToolkitsPackage.STYLE__ROUNDED_CORNERS:
 				return isRoundedCorners() != ROUNDED_CORNERS_EDEFAULT;
 			case ToolkitsPackage.STYLE__FONT_COLOR:
 				return FONT_COLOR_EDEFAULT == null ? getFontColor() != null : !FONT_COLOR_EDEFAULT.equals(getFontColor());
-			case ToolkitsPackage.STYLE__FONT_UNDERLINE:
-				return isFontUnderline() != FONT_UNDERLINE_EDEFAULT;
+			case ToolkitsPackage.STYLE__FONT_UNDERLINED:
+				return isFontUnderlined() != FONT_UNDERLINED_EDEFAULT;
 			case ToolkitsPackage.STYLE__LABEL_HALIGNMENT:
 				return getLabelHAlignment() != LABEL_HALIGNMENT_EDEFAULT;
 			case ToolkitsPackage.STYLE__DEFAULT_WIDTH:

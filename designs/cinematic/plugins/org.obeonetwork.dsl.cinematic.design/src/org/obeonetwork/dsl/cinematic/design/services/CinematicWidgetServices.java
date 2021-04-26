@@ -264,7 +264,7 @@ public class CinematicWidgetServices extends DebugServices {
 	}
 	
 	public boolean isUnderlined(AbstractViewElement viewElement) {
-		return Optional.ofNullable(viewElement.getWidget().getStyle()).map(s -> s.isFontUnderline()).orElse(false);
+		return Optional.ofNullable(viewElement.getWidget().getStyle()).map(s -> s.isFontUnderlined()).orElse(false);
 	}
 	
 	public DNodeContainer setDefaultSize(DNodeContainer viewElementDNodeContainer) {
@@ -302,7 +302,7 @@ public class CinematicWidgetServices extends DebugServices {
 	public int getBorderSize(AbstractViewElement viewElement) {
 		int borderSize = ICinematicViewpoint.VIEW_CONTAINER_DIAGRAM_DEFAULT_BORDER_SIZE;
 		Style style = viewElement.getWidget().getStyle();
-		if(style != null && !style.isBorder()) {
+		if(style != null && !style.isBordered()) {
 			borderSize = 0;
 		}
 		return borderSize;

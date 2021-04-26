@@ -29,7 +29,7 @@
         <description xmi:type="description_1:DiagramDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']"/>
         <target xmi:type="ecore:EPackage" href="model/cinematic.ecore#//flow"/>
       </ownedRepresentationDescriptors>
-      <ownedRepresentationDescriptors xmi:type="viewpoint:DRepresentationDescriptor" uid="_VcZrgKKBEeugYvKy4eH7Zw" name="toolkits class diagram" repPath="#_VcPTcKKBEeugYvKy4eH7Zw" changeId="dabd1143-2e02-4550-8cc2-57bd0b0f1fa9">
+      <ownedRepresentationDescriptors xmi:type="viewpoint:DRepresentationDescriptor" uid="_VcZrgKKBEeugYvKy4eH7Zw" name="toolkits class diagram" repPath="#_VcPTcKKBEeugYvKy4eH7Zw" changeId="12899faf-1c98-470d-9243-6b534bc1e860">
         <description xmi:type="description_1:DiagramDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']"/>
         <target xmi:type="ecore:EPackage" href="model/cinematic.ecore#//toolkits"/>
       </ownedRepresentationDescriptors>
@@ -6896,9 +6896,9 @@
         </ownedStyle>
         <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='EC%20EAttribute']"/>
       </ownedElements>
-      <ownedElements xmi:type="diagram:DNodeListElement" uid="_zMlE0KKDEeugYvKy4eH7Zw" name="border : EBoolean = true" tooltipText="">
-        <target xmi:type="ecore:EAttribute" href="model/cinematic.ecore#//toolkits/Style/border"/>
-        <semanticElements xmi:type="ecore:EAttribute" href="model/cinematic.ecore#//toolkits/Style/border"/>
+      <ownedElements xmi:type="diagram:DNodeListElement" uid="_zMlE0KKDEeugYvKy4eH7Zw" name="bordered : EBoolean = true" tooltipText="">
+        <target xmi:type="ecore:EAttribute" href="model/cinematic.ecore#//toolkits/Style/bordered"/>
+        <semanticElements xmi:type="ecore:EAttribute" href="model/cinematic.ecore#//toolkits/Style/bordered"/>
         <ownedStyle xmi:type="diagram:BundledImage" uid="_1MUH-aKDEeugYvKy4eH7Zw" labelAlignment="LEFT">
           <description xmi:type="style:BundledImageDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='EC%20EAttribute']/@style"/>
         </ownedStyle>
@@ -6920,9 +6920,9 @@
         </ownedStyle>
         <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='EC%20EAttribute']"/>
       </ownedElements>
-      <ownedElements xmi:type="diagram:DNodeListElement" uid="_CHF8UKKEEeugYvKy4eH7Zw" name="fontUnderline : EBoolean = false" tooltipText="">
-        <target xmi:type="ecore:EAttribute" href="model/cinematic.ecore#//toolkits/Style/fontUnderline"/>
-        <semanticElements xmi:type="ecore:EAttribute" href="model/cinematic.ecore#//toolkits/Style/fontUnderline"/>
+      <ownedElements xmi:type="diagram:DNodeListElement" uid="_CHF8UKKEEeugYvKy4eH7Zw" name="fontUnderlined : EBoolean = false" tooltipText="">
+        <target xmi:type="ecore:EAttribute" href="model/cinematic.ecore#//toolkits/Style/fontUnderlined"/>
+        <semanticElements xmi:type="ecore:EAttribute" href="model/cinematic.ecore#//toolkits/Style/fontUnderlined"/>
         <ownedStyle xmi:type="diagram:BundledImage" uid="_Iw0pbaKEEeugYvKy4eH7Zw" labelAlignment="LEFT">
           <description xmi:type="style:BundledImageDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='EC%20EAttribute']/@style"/>
         </ownedStyle>
