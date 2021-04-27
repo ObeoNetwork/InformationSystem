@@ -9,8 +9,6 @@ import java.util.Map;
 import org.eclipse.jface.dialogs.Dialog;
 import org.eclipse.jface.dialogs.IDialogConstants;
 import org.eclipse.jface.viewers.CheckboxTreeViewer;
-import org.eclipse.jface.viewers.Viewer;
-import org.eclipse.jface.viewers.ViewerFilter;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.graphics.Point;
 import org.eclipse.swt.layout.GridData;
@@ -68,11 +66,6 @@ public class FlowstateEventSelectionDialog extends Dialog {
 		
 		Button btnCheckButton = new Button(composite, SWT.CHECK);
 
-		/**
-		 * La case à cocher « Hide non contextual View Containers » permet de cacher les View Containers qui ne sont
-		 * pas liés au View State source de la transition. A l’affichage du dialogue elle est cochée si au moins un View
-		 * Container est lié au View State source.
-		 */
 		btnCheckButton.setText("Hide non contextual View Containers");
 		new Label(composite, SWT.NONE);
 		
@@ -92,21 +85,22 @@ public class FlowstateEventSelectionDialog extends Dialog {
 		btnCheckButton.addSelectionListener(new FlowstateEventHideViewContainersListener(checkboxTreeViewer, contentProvider));
 		btnCheckButton.setSelection(contentProvider.isHideNonContextualViewContainer());
 		
-		checkboxTreeViewer.setContentProvider(contentProvider);		
-		checkboxTreeViewer.setLabelProvider(new FlowstateEventLabelProvider());		
-		checkboxTreeViewer.setFilters(new ViewerFilter() {
-					
-			@Override
-			public boolean select(Viewer viewer, Object parentElement, Object element) {
-				// TODO Auto-generated method stub
-				return true;
-			}
-		});
+		FlowstateEventViewerFilter eventViewerFilter = new FlowstateEventViewerFilter(checkboxTreeViewer);
+		txtFilterText.addKeyListener(eventViewerFilter);
 		
+		checkboxTreeViewer.setFilters(eventViewerFilter);
+		checkboxTreeViewer.setContentProvider(contentProvider);		
+		checkboxTreeViewer.setLabelProvider(new FlowstateEventLabelProvider());					
 		checkboxTreeViewer.setCheckStateProvider(new FlowstateEventCheckstateProvider(viewElementWidgetMap, flowEventsCollection));
 		checkboxTreeViewer.addCheckStateListener(new FlowstateEventCheckstateListener(viewElementWidgetMap, flowEventsCollection));	
 		checkboxTreeViewer.setInput(transition);
-				
+		
+		btnClearButton.addListener(SWT.Selection, event -> {
+			txtFilterText.setText(""); // clearing the text input		
+			event.widget = txtFilterText;
+			txtFilterText.notifyListeners(SWT.KeyUp, event); // we notify the text area listeners to consider the new text value.
+		});
+		
 		return container;
 	}
 
@@ -143,8 +137,11 @@ public class FlowstateEventSelectionDialog extends Dialog {
 	 */
 	@Override
 	protected void createButtonsForButtonBar(Composite parent) {
-		Button button = createButton(parent, IDialogConstants.OK_ID, IDialogConstants.OK_LABEL, true);		
-		button.addListener(SWT.Selection, new FlowstateEventButtonListener(transition, viewElementWidgetMap, flowEventsCollection));		
+		Button button = createButton(parent, IDialogConstants.OK_ID, IDialogConstants.OK_LABEL, true);
+		
+		// Will add the entities created to the model when OK is pressed
+		button.addListener(SWT.Selection, new FlowstateEventButtonListener(transition, viewElementWidgetMap, flowEventsCollection));
+		
 		createButton(parent, IDialogConstants.CANCEL_ID, IDialogConstants.CANCEL_LABEL, false);
 	}
 

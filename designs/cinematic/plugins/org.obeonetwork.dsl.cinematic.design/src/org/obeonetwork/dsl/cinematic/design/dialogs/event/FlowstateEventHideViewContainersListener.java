@@ -4,6 +4,11 @@ import org.eclipse.jface.viewers.CheckboxTreeViewer;
 import org.eclipse.swt.events.SelectionAdapter;
 import org.eclipse.swt.events.SelectionEvent;
 
+/**
+ * 
+ * @author <a href="mailto:thibault.beziers-la-fosse@obeo.fr">Thibault Béziers la Fosse</a>
+ *
+ */
 public class FlowstateEventHideViewContainersListener extends SelectionAdapter {
 	
 	private CheckboxTreeViewer checkboxTreeViewer;
