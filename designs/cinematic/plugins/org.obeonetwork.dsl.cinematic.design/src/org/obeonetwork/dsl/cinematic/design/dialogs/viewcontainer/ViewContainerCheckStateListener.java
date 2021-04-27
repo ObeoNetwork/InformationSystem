@@ -1,4 +1,4 @@
-package org.obeonetwork.dsl.cinematic.design.services.flows.dialog.viewcontainer;
+package org.obeonetwork.dsl.cinematic.design.dialogs.viewcontainer;
 
 import org.eclipse.jface.viewers.CheckStateChangedEvent;
 import org.eclipse.jface.viewers.CheckboxTreeViewer;
@@ -20,7 +20,6 @@ public class ViewContainerCheckStateListener implements ICheckStateListener {
 		this.viewState = viewState;
 		this.checkboxTreeViewer = checkboxTreeViewer;
 	}
-
 
 	@Override
 	public void checkStateChanged(CheckStateChangedEvent event) {

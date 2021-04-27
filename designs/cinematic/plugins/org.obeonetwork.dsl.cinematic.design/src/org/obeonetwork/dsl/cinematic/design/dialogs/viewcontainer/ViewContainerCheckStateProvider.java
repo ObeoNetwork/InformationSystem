@@ -1,4 +1,4 @@
-package org.obeonetwork.dsl.cinematic.design.services.flows.dialog.viewcontainer;
+package org.obeonetwork.dsl.cinematic.design.dialogs.viewcontainer;
 
 import org.eclipse.jface.viewers.ICheckStateProvider;
 import org.obeonetwork.dsl.cinematic.flow.ViewState;
@@ -35,5 +35,6 @@ public class ViewContainerCheckStateProvider implements ICheckStateProvider {
 		else
 			return false;
 	}
-
+	
+	
 }

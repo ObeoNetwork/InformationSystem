@@ -1,4 +1,4 @@
-package org.obeonetwork.dsl.cinematic.design.services.flows.dialog.viewcontainer;
+package org.obeonetwork.dsl.cinematic.design.dialogs.viewcontainer;
 
 import org.eclipse.jface.dialogs.Dialog;
 import org.eclipse.jface.dialogs.IDialogConstants;
@@ -67,7 +67,7 @@ public class ViewContainerSelectionDialog extends Dialog {
 
 		btnClearButton.setLayoutData(gd_btnNewButton);
 		btnClearButton.setText("clear");
-		
+
 		CheckboxTreeViewer checkboxTreeViewer = new CheckboxTreeViewer(container, SWT.BORDER);
 		Tree tree = checkboxTreeViewer.getTree();
 		tree.setLayoutData(new GridData(SWT.FILL, SWT.FILL, true, true, 1, 1));
@@ -83,6 +83,7 @@ public class ViewContainerSelectionDialog extends Dialog {
 		checkboxTreeViewer.addCheckStateListener(new ViewContainerCheckStateListener(checkboxTreeViewer, viewState));		
 		checkboxTreeViewer.setCheckStateProvider(new ViewContainerCheckStateProvider(viewState));	
 		checkboxTreeViewer.addFilter(containerViewerFilter);		
+				
 		checkboxTreeViewer.setInput(FlowsUtil.getCinematicRoot(this.viewState));
 		
 		btnClearButton.addListener(SWT.Selection, event -> {

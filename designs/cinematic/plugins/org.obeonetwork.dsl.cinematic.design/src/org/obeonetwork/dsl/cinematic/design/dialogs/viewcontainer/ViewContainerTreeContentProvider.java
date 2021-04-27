@@ -1,9 +1,8 @@
-package org.obeonetwork.dsl.cinematic.design.services.flows.dialog.viewcontainer;
+package org.obeonetwork.dsl.cinematic.design.dialogs.viewcontainer;
 
 import java.util.Collection;
 import java.util.Collections;
 import java.util.stream.Collectors;
-import java.util.stream.Stream;
 
 
 import org.eclipse.jface.viewers.ITreeContentProvider;
@@ -13,7 +12,6 @@ import org.obeonetwork.dsl.cinematic.design.services.flows.FlowsUtil;
 import org.obeonetwork.dsl.cinematic.flow.FlowPackage;
 import org.obeonetwork.dsl.cinematic.flow.ViewState;
 import org.obeonetwork.dsl.cinematic.view.ViewContainer;
-import org.obeonetwork.dsl.cinematic.view.ViewPackage;
 
 /**
  * 
