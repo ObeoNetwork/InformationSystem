@@ -8,9 +8,9 @@ Require-Bundle: org.eclipse.ui,
  org.obeonetwork.dsl.cinematic,
  org.obeonetwork.dsl.cinematic.edit,
  org.eclipse.emf.edit.ui,
- org.eclipse.sirius;bundle-version="2.0.0",
- org.eclipse.sirius.common;bundle-version="2.0.0",
- org.eclipse.sirius.common.ui;bundle-version="2.0.0",
+ org.eclipse.sirius,
+ org.eclipse.sirius.common,
+ org.eclipse.sirius.common.ui,
  org.obeonetwork.dsl.is,
  org.eclipse.sirius.diagram,
  org.eclipse.sirius.tree,
@@ -23,9 +23,11 @@ Require-Bundle: org.eclipse.ui,
  org.obeonetwork.dsl.environment.design.services,
  org.obeonetwork.utils.common,
  org.eclipse.ui.themes,
- org.obeonetwork.utils.sirius
+ org.obeonetwork.utils.sirius,
+ org.eclipse.gmf.runtime.diagram.ui,
+ org.eclipse.sirius.diagram.ui.ext
 Bundle-ActivationPolicy: lazy
-Bundle-RequiredExecutionEnvironment: J2SE-1.5
+Bundle-RequiredExecutionEnvironment: JavaSE-1.8
 Bundle-Vendor: Obeo Network
 Export-Package: org.obeonetwork.dsl.cinematic.design.services,org.obeonetwork.dsl.cinematic.design.services.label
 Bundle-ManifestVersion: 2

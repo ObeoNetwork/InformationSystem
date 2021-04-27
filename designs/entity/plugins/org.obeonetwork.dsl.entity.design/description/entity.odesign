@@ -702,7 +702,7 @@
     <ownedJavaExtensions qualifiedClassName="org.obeonetwork.dsl.environment.design.services.DeleteServices"/>
     <ownedJavaExtensions qualifiedClassName="org.obeonetwork.dsl.environment.design.services.DesignServices"/>
     <ownedJavaExtensions qualifiedClassName="org.obeonetwork.dsl.environment.design.services.EnvironmentLabelServices"/>
-    <ownedJavaExtensions qualifiedClassName="org.obeonetwork.dsl.environment.design.services.ModelServices"/>
+    <ownedJavaExtensions qualifiedClassName="org.obeonetwork.utils.sirius.services.EObjectUtils"/>
     <ownedJavaExtensions qualifiedClassName="org.obeonetwork.dsl.environment.design.services.PropertiesServices"/>
     <ownedJavaExtensions qualifiedClassName="org.obeonetwork.dsl.environment.design.services.ReferencesService"/>
     <ownedJavaExtensions qualifiedClassName="org.obeonetwork.dsl.environment.design.services.TypesServices"/>

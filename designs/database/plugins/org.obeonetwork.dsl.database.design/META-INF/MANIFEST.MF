@@ -10,7 +10,8 @@ Require-Bundle: org.obeonetwork.dsl.database,
  org.eclipse.sirius,
  org.eclipse.emf.transaction,
  org.eclipse.sirius.ext.base,
- org.eclipse.sirius.diagram
+ org.eclipse.sirius.diagram,
+ org.obeonetwork.utils.sirius
 Bundle-ActivationPolicy: lazy
 Bundle-RequiredExecutionEnvironment: JavaSE-1.6
 Bundle-ManifestVersion: 2

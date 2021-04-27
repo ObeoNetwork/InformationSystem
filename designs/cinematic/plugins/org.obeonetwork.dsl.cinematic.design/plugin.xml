@@ -82,10 +82,50 @@
      <handler
            class="org.obeonetwork.dsl.cinematic.design.handlers.ExtractLayoutHandler"
            commandId="org.obeonetwork.dsl.cinematic.design.command.ExtractLayout">
+        <enabledWhen>
+           <with
+                 variable="selection">
+              <count
+                    value="1">
+              </count>
+              <iterate
+                    ifEmpty="false"
+                    operator="and">
+                 <adapt
+                       type="org.eclipse.sirius.diagram.ui.edit.api.part.IDDiagramEditPart">
+                    <test
+                          forcePluginActivation="true"
+                          property="org.eclipse.sirius.diagram.ui.edit.api.part.ISiriusEditPart.diagramName"
+                          value="View Container Diagram">
+                    </test>
+                 </adapt>
+              </iterate>
+           </with>
+        </enabledWhen>
      </handler>
      <handler
            class="org.obeonetwork.dsl.cinematic.design.handlers.RestoreLayoutHandler"
            commandId="org.obeonetwork.dsl.cinematic.design.command.RestoreLayout">
+        <enabledWhen>
+           <with
+                 variable="selection">
+              <count
+                    value="1">
+              </count>
+              <iterate
+                    ifEmpty="false"
+                    operator="and">
+                 <adapt
+                       type="org.eclipse.sirius.diagram.ui.edit.api.part.IDDiagramEditPart">
+                    <test
+                          forcePluginActivation="true"
+                          property="org.eclipse.sirius.diagram.ui.edit.api.part.ISiriusEditPart.diagramName"
+                          value="View Container Diagram">
+                    </test>
+                 </adapt>
+              </iterate>
+           </with>
+        </enabledWhen>
      </handler>
   </extension>
 </plugin>

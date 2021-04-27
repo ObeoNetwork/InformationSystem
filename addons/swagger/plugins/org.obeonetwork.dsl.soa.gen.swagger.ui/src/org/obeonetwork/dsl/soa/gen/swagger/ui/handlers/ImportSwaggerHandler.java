@@ -32,9 +32,9 @@ import org.eclipse.ui.ISelectionService;
 import org.eclipse.ui.IWorkbenchWindow;
 import org.eclipse.ui.handlers.HandlerUtil;
 import org.obeonetwork.dsl.environment.Environment;
-import org.obeonetwork.dsl.environment.design.services.ModelServices;
 import org.obeonetwork.dsl.soa.System;
 import org.obeonetwork.dsl.soa.gen.swagger.SwaggerImporter;
+import org.obeonetwork.utils.sirius.services.EObjectUtils;
 import org.obeonetwork.utils.sirius.session.SessionUtils;
 import org.obeonetwork.utils.sirius.transaction.RecordingCommandWithResult;
 
@@ -52,7 +52,7 @@ public class ImportSwaggerHandler extends AbstractHandler implements IHandler {
 		String swaggerFilePath = dialog.open();	
 		
 		if(swaggerFilePath != null) {
-			Environment environment = ModelServices.getAllResources(system).stream()
+			Environment environment = EObjectUtils.getAllResources(system).stream()
 			.flatMap(resource -> resource.getContents().stream())
 			.filter(eObject -> eObject instanceof Environment)
 			.map(eObject -> (Environment)eObject)

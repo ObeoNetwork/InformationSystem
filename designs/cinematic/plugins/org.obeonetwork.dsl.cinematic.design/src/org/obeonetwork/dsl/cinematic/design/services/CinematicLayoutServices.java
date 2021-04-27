@@ -18,6 +18,7 @@ import org.eclipse.gmf.runtime.notation.Bounds;
 import org.eclipse.gmf.runtime.notation.Node;
 import org.eclipse.gmf.runtime.notation.NotationFactory;
 import org.eclipse.sirius.business.api.dialect.DialectManager;
+import org.eclipse.sirius.diagram.DDiagram;
 import org.eclipse.sirius.diagram.DDiagramElement;
 import org.eclipse.sirius.diagram.DNodeContainer;
 import org.eclipse.sirius.diagram.business.api.refresh.CanonicalSynchronizer;
@@ -31,19 +32,21 @@ import org.obeonetwork.dsl.cinematic.view.ViewFactory;
 
 public class CinematicLayoutServices {
 
-	public static Layout extractLayout(DNodeContainer viewContainerDNC) {
+	public static Layout extractLayout(DDiagram viewContainerDDiagram) {
 		
-		// Launch refresh so that the GMF views are created and up to date
-		refreshDiagram(viewContainerDNC);
-		
-		Bounds viewContainerBounds = getBounds(viewContainerDNC);
-		ViewContainer viewContainer = (ViewContainer) viewContainerDNC.getTarget();
-		
-		Layout viewContainerLayout = createLayout(viewContainerBounds, LayoutDirection.VERTICAL, viewContainer);
-		
-		populateLayout(viewContainerLayout, viewContainerDNC);
-		
-		return viewContainerLayout;
+//		// Launch refresh so that the GMF views are created and up to date
+//		refreshDiagram(viewContainerDDiagram);
+//		
+//		Bounds viewContainerBounds = getBounds(viewContainerDNC);
+//		ViewContainer viewContainer = (ViewContainer) viewContainerDNC.getTarget();
+//		
+//		Layout viewContainerLayout = createLayout(viewContainerBounds, LayoutDirection.VERTICAL, viewContainer);
+//		
+//		populateLayout(viewContainerLayout, viewContainerDNC);
+//		
+//		return viewContainerLayout;
+		System.out.println("CinematicLayoutServices.extractLayout()");
+		return null;
 	}
 
 	private static void refreshDiagram(DNodeContainer viewContainerDNC) {
