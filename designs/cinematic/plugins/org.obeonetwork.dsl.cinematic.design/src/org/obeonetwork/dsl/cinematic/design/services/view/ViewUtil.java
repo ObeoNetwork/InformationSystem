@@ -15,11 +15,13 @@ import java.util.Collection;
 import java.util.List;
 import java.util.Optional;
 
-import org.eclipse.emf.ecore.EObject;
+import org.obeonetwork.dsl.cinematic.toolkits.WidgetEventType;
 import org.obeonetwork.dsl.cinematic.view.AbstractViewElement;
 import org.obeonetwork.dsl.cinematic.view.ViewContainer;
 import org.obeonetwork.dsl.cinematic.view.ViewContainerReference;
 import org.obeonetwork.dsl.cinematic.view.ViewElement;
+import org.obeonetwork.dsl.cinematic.view.ViewEvent;
+import org.obeonetwork.dsl.cinematic.view.ViewFactory;
 
 public class ViewUtil {
 	public static Collection<AbstractViewElement> getAssociatedAbstractViewElements(ViewContainer container) {
@@ -51,7 +53,7 @@ public class ViewUtil {
 	 * @param context the ViewContainer
 	 * @return list of ViewContainer
 	 */
-	public List<ViewContainer> getViewContainers(ViewContainer context) {
+	public static List<ViewContainer> getViewContainers(ViewContainer context) {
 		List<ViewContainer> viewContainers = new ArrayList<ViewContainer>();
 		for (AbstractViewElement ownedElement : context.getOwnedElements()) {
 			if (ownedElement instanceof ViewContainerReference) {
@@ -60,5 +62,34 @@ public class ViewUtil {
 		}
 		return viewContainers;
 	}
-
+	
+	/**
+	 * Get a {@link ViewEvent} with a type corresponding to the provided {@link WidgetEventType}
+	 * in a provided {@link AbstractViewElement} or create it in the {@link AbstractViewElement} 
+	 * and return it if it does not exist.
+	 * @param viewElement an {@link AbstractViewElement}
+	 * @param eventType a {@link WidgetEventType}
+	 * @return a {@link ViewEvent}
+	 */
+	public static ViewEvent getOrCreateViewEvent(AbstractViewElement viewElement, WidgetEventType eventType) {
+		 
+		Optional<ViewEvent> optionalViewEvent = viewElement.getEvents()
+				.stream()
+				.filter(viewEvent -> viewEvent.getType() == eventType)
+				.findAny(); 
+		
+		if (optionalViewEvent.isPresent()) {
+			return optionalViewEvent.get();
+		} else {
+			// Creating the new ViewEvent, and adding it in viewElement
+			ViewEvent event = ViewFactory.eINSTANCE.createViewEvent();
+			event.setName(eventType.getName());
+			event.setType(eventType);
+			viewElement.getEvents().add(event);
+			
+			return event;
+		}
+						
+	}
+	
 }
