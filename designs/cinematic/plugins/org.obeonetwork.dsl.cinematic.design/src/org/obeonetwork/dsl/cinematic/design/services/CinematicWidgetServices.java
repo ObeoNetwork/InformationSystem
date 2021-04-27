@@ -58,11 +58,11 @@ import org.obeonetwork.dsl.cinematic.view.AbstractViewElement;
 import org.obeonetwork.dsl.cinematic.view.ViewContainer;
 import org.obeonetwork.dsl.cinematic.view.ViewContainerReference;
 import org.obeonetwork.dsl.cinematic.view.ViewElement;
-import org.obeonetwork.dsl.environment.design.services.ModelServices;
 import org.obeonetwork.dsl.environment.design.ui.RGBSystemColorUtil;
 import org.obeonetwork.utils.common.StreamUtils;
 import org.obeonetwork.utils.common.StringUtils;
 import org.obeonetwork.utils.sirius.services.DebugServices;
+import org.obeonetwork.utils.sirius.services.EObjectUtils;
 
 /**
  * Services to use the widgets
@@ -447,7 +447,7 @@ public class CinematicWidgetServices extends DebugServices {
 	}
 	
 	public Widget getWidgetByName(CinematicElement context, String widgetName) {
-		return ModelServices.getContainerOrSelf(context, CinematicRoot.class).getToolkits().stream()
+		return EObjectUtils.getContainerOrSelf(context, CinematicRoot.class).getToolkits().stream()
 				.flatMap(tk -> tk.getWidgets().stream())
 				.filter(w -> w.getName().equals(widgetName))
 				.findFirst().orElse(null);
@@ -480,7 +480,7 @@ public class CinematicWidgetServices extends DebugServices {
 		if(viewElementCreationToolPrototypeOption.isPresent()) {
 			ContainerCreationDescription viewElementCreationToolPrototype = viewElementCreationToolPrototypeOption.get();
 			ToolSection toolSection = (ToolSection) viewElementCreationToolPrototype.eContainer();
-			List<Widget> widgets = ModelServices.getContainerOrSelf(context, CinematicRoot.class).getToolkits().stream()
+			List<Widget> widgets = EObjectUtils.getContainerOrSelf(context, CinematicRoot.class).getToolkits().stream()
 					.flatMap(tk -> tk.getWidgets().stream())
 					.filter(w -> !w.isIsContainer())
 					.collect(Collectors.toList());
@@ -507,7 +507,7 @@ public class CinematicWidgetServices extends DebugServices {
 		if(viewContainerCreationToolPrototypeOption.isPresent()) {
 			ContainerCreationDescription viewContainerCreationToolPrototype = viewContainerCreationToolPrototypeOption.get();
 			ToolSection toolSection = (ToolSection) viewContainerCreationToolPrototype.eContainer();
-			List<Widget> widgets = ModelServices.getContainerOrSelf(context, CinematicRoot.class).getToolkits().stream()
+			List<Widget> widgets = EObjectUtils.getContainerOrSelf(context, CinematicRoot.class).getToolkits().stream()
 					.flatMap(tk -> tk.getWidgets().stream())
 					.filter(w -> w.isIsContainer())
 					.collect(Collectors.toList());

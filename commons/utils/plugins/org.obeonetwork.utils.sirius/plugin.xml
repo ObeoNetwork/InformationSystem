@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+   <extension
+         point="org.eclipse.core.expressions.propertyTesters">
+      <propertyTester
+            class="org.obeonetwork.utils.sirius.propertyTesters.SiriusEditPartPropertyTester"
+            id="org.obeonetwork.utils.sirius.propertyTesters.SiriusEditPartPropertyTester"
+            namespace="org.eclipse.sirius.diagram.ui.edit.api.part.ISiriusEditPart"
+            properties="diagramName,viewpointId"
+            type="org.eclipse.sirius.diagram.ui.edit.api.part.ISiriusEditPart">
+      </propertyTester>
+   </extension>
+
+</plugin>

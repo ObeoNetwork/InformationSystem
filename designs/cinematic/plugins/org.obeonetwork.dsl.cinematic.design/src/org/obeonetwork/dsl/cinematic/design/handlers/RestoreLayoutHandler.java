@@ -21,7 +21,6 @@ import org.obeonetwork.dsl.cinematic.design.services.CinematicLayoutServices;
 import org.obeonetwork.dsl.cinematic.view.Layout;
 import org.obeonetwork.dsl.cinematic.view.ViewContainer;
 
-// TODO VRI implement the pre conditions in plugin.xml
 public class RestoreLayoutHandler extends AbstractHandler {
 
 	@Override

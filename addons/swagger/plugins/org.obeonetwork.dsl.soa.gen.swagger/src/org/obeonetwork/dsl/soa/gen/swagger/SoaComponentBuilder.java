@@ -13,7 +13,7 @@ package org.obeonetwork.dsl.soa.gen.swagger;
 import static java.util.stream.Collectors.joining;
 import static java.util.stream.Collectors.toList;
 import static java.util.stream.Collectors.toSet;
-import static org.obeonetwork.dsl.environment.design.services.ModelServices.getAncestors;
+import static org.obeonetwork.utils.sirius.services.EObjectUtils.getAncestors;
 import static org.obeonetwork.dsl.soa.gen.swagger.HTTPResponseHeaders.X_PAGE_ELEMENT_COUNT;
 import static org.obeonetwork.dsl.soa.gen.swagger.HTTPResponseHeaders.X_TOTAL_ELEMENT;
 import static org.obeonetwork.dsl.soa.gen.swagger.HTTPStatusCodes.HTTP_206;

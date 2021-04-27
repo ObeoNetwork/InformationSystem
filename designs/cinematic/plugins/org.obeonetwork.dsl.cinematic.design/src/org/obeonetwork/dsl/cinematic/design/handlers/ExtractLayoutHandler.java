@@ -11,26 +11,24 @@ import org.eclipse.jface.viewers.ISelection;
 import org.eclipse.jface.viewers.IStructuredSelection;
 import org.eclipse.sirius.business.api.query.EObjectQuery;
 import org.eclipse.sirius.business.api.session.Session;
-import org.eclipse.sirius.diagram.DNodeContainer;
-import org.eclipse.sirius.diagram.ui.edit.api.part.IDiagramElementEditPart;
+import org.eclipse.sirius.diagram.DDiagram;
+import org.eclipse.sirius.diagram.ui.edit.api.part.IDDiagramEditPart;
 import org.eclipse.ui.ISelectionService;
 import org.eclipse.ui.IWorkbenchWindow;
 import org.eclipse.ui.handlers.HandlerUtil;
 import org.obeonetwork.dsl.cinematic.design.services.CinematicLayoutServices;
 import org.obeonetwork.dsl.cinematic.view.ViewContainer;
 
-//TODO VRI implement the pre conditions in plugin.xml
 public class ExtractLayoutHandler extends AbstractHandler {
 
 	@Override
 	public Object execute(ExecutionEvent event) throws ExecutionException {
 
-		IDiagramElementEditPart selectedDiagramElementEditPart = uwrapSelection(event);
+		IDDiagramEditPart selectedDDiagramEditPart = uwrapSelection(event);
+		DDiagram viewContainerDDiagram = selectedDDiagramEditPart.resolveDDiagram().get();
+		ViewContainer viewContainer = (ViewContainer) selectedDDiagramEditPart.resolveSemanticElement();
 		
-		DNodeContainer dNodeContainer = (DNodeContainer) selectedDiagramElementEditPart.resolveDiagramElement();
-		ViewContainer viewContainer = (ViewContainer) selectedDiagramElementEditPart.resolveTargetSemanticElement();
-		
-		Session session = new EObjectQuery(dNodeContainer).getSession();
+		Session session = new EObjectQuery(viewContainerDDiagram).getSession();
 		if (session != null) {
 			TransactionalEditingDomain ted = session.getTransactionalEditingDomain();
 
@@ -38,7 +36,7 @@ public class ExtractLayoutHandler extends AbstractHandler {
 
 				@Override
 				protected void doExecute() {
-					viewContainer.setLayout(CinematicLayoutServices.extractLayout(dNodeContainer));
+					viewContainer.setLayout(CinematicLayoutServices.extractLayout(viewContainerDDiagram));
 				}
 			});
 
@@ -47,8 +45,8 @@ public class ExtractLayoutHandler extends AbstractHandler {
 		return null;
 	}
 
-	private IDiagramElementEditPart uwrapSelection(ExecutionEvent event) throws ExecutionException {
-		IDiagramElementEditPart selectedDiagramElementEditPart = null;
+	private IDDiagramEditPart uwrapSelection(ExecutionEvent event) throws ExecutionException {
+		IDDiagramEditPart selectedDDiagramEditPart = null;
 		
 		IWorkbenchWindow window = HandlerUtil.getActiveWorkbenchWindowChecked(event);
 		ISelectionService service = window.getSelectionService();
@@ -60,12 +58,12 @@ public class ExtractLayoutHandler extends AbstractHandler {
 			Iterator<?> selectionIteratror = structuredSelection.iterator();
 			if (selectionIteratror.hasNext()) {
 				Object selectedObject = selectionIteratror.next();
-				if (selectedObject instanceof IDiagramElementEditPart) {
-					selectedDiagramElementEditPart = ((IDiagramElementEditPart) selectedObject);
+				if (selectedObject instanceof IDDiagramEditPart) {
+					selectedDDiagramEditPart = ((IDDiagramEditPart) selectedObject);
 				}				
 			}
 		}
-		return selectedDiagramElementEditPart;
+		return selectedDDiagramEditPart;
 	}
 	
 }

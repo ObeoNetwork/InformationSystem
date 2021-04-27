@@ -20,6 +20,7 @@ import org.obeonetwork.dsl.environment.DataType;
 import org.obeonetwork.dsl.environment.MultiplicityKind;
 import org.obeonetwork.dsl.environment.Property;
 import org.obeonetwork.dsl.environment.Reference;
+import org.obeonetwork.utils.sirius.services.EObjectUtils;
 
 public class PropertiesServices {
 
@@ -86,7 +87,7 @@ public class PropertiesServices {
 	
 	private DataType getDataType(EObject context, String name){
 		String searchedName = name.trim();
-		Collection<Resource> semanticResources = ModelServices.getAllResources(context);
+		Collection<Resource> semanticResources = EObjectUtils.getAllResources(context);
 		for (Resource semanticResource : semanticResources) {
 			TreeIterator<?> iterator = semanticResource.getAllContents();
 			while(iterator.hasNext()){
