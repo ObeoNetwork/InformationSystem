@@ -11,6 +11,7 @@ import org.obeonetwork.dsl.cinematic.CinematicRoot;
 import org.obeonetwork.dsl.cinematic.design.services.flows.FlowsUtil;
 import org.obeonetwork.dsl.cinematic.flow.Flow;
 import org.obeonetwork.dsl.cinematic.flow.Transition;
+import org.obeonetwork.dsl.cinematic.flow.ViewState;
 import org.obeonetwork.dsl.cinematic.toolkits.WidgetEventType;
 import org.obeonetwork.dsl.cinematic.view.AbstractViewElement;
 import org.obeonetwork.dsl.cinematic.view.ViewContainer;
@@ -20,6 +21,17 @@ import org.obeonetwork.dsl.cinematic.view.ViewContainer;
  * @author <a href="mailto:thibault.beziers-la-fosse@obeo.fr">Thibault Béziers la Fosse</a>
  */
 public class FlowstateEventContentProvider implements ITreeContentProvider {
+	
+	private boolean hideNonContextualViewContainer = false;
+	private Transition transition;
+	
+	public FlowstateEventContentProvider(Transition transition) {
+		this.transition = transition;
+		
+		if (transition.getFrom() instanceof ViewState) {
+			hideNonContextualViewContainer = ! ((ViewState) transition.getFrom()).getViewContainers().isEmpty();
+		}
+	}
 
 	@Override
 	public boolean hasChildren(Object element) {
@@ -38,10 +50,17 @@ public class FlowstateEventContentProvider implements ITreeContentProvider {
 		
 		if (root instanceof Transition) {
 			elements.add(((Transition) root).eContainer());
-			CinematicRoot cinematicRoot = FlowsUtil.getCinematicRoot((EObject) root);
-			elements.addAll(FlowsUtil.getAllPackagesFromRoot(cinematicRoot).stream()
-				.flatMap(abstractPackage -> abstractPackage.getViewContainers().stream())
-				.collect(Collectors.toList()));
+			if (hideNonContextualViewContainer) {
+				if (transition.getFrom() instanceof ViewState) {					
+					elements.addAll(((ViewState) transition.getFrom()).getViewContainers());	
+				}
+				
+			} else {
+				CinematicRoot cinematicRoot = FlowsUtil.getCinematicRoot((EObject) root);
+				elements.addAll(FlowsUtil.getAllPackagesFromRoot(cinematicRoot).stream()
+						.flatMap(abstractPackage -> abstractPackage.getViewContainers().stream())
+						.collect(Collectors.toList()));	
+			}							
 		}
 		
 		return elements.toArray();
@@ -72,6 +91,14 @@ public class FlowstateEventContentProvider implements ITreeContentProvider {
 		}
 		
 		return null;
+	}
+
+	public boolean isHideNonContextualViewContainer() {
+		return hideNonContextualViewContainer;
+	}
+
+	public void switchHideNonContextualViewContainers() {
+		hideNonContextualViewContainer = ! hideNonContextualViewContainer;
 	}
 
 }

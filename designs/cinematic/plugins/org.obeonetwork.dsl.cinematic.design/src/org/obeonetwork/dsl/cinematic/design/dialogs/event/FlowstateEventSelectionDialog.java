@@ -68,6 +68,11 @@ public class FlowstateEventSelectionDialog extends Dialog {
 		
 		Button btnCheckButton = new Button(composite, SWT.CHECK);
 
+		/**
+		 * La case à cocher « Hide non contextual View Containers » permet de cacher les View Containers qui ne sont
+		 * pas liés au View State source de la transition. A l’affichage du dialogue elle est cochée si au moins un View
+		 * Container est lié au View State source.
+		 */
 		btnCheckButton.setText("Hide non contextual View Containers");
 		new Label(composite, SWT.NONE);
 		
@@ -83,7 +88,11 @@ public class FlowstateEventSelectionDialog extends Dialog {
 		Tree tree = checkboxTreeViewer.getTree();
 		tree.setLayoutData(new GridData(SWT.FILL, SWT.FILL, true, true, 1, 1));
 		
-		checkboxTreeViewer.setContentProvider(new FlowstateEventContentProvider());		
+		FlowstateEventContentProvider contentProvider = new FlowstateEventContentProvider(transition);
+		btnCheckButton.addSelectionListener(new FlowstateEventHideViewContainersListener(checkboxTreeViewer, contentProvider));
+		btnCheckButton.setSelection(contentProvider.isHideNonContextualViewContainer());
+		
+		checkboxTreeViewer.setContentProvider(contentProvider);		
 		checkboxTreeViewer.setLabelProvider(new FlowstateEventLabelProvider());		
 		checkboxTreeViewer.setFilters(new ViewerFilter() {
 					
