@@ -21,6 +21,7 @@ import org.obeonetwork.dsl.cinematic.design.dialogs.event.FlowstateEventSelectio
 import org.obeonetwork.dsl.cinematic.design.dialogs.viewcontainer.ViewContainerSelectionDialog;
 import org.obeonetwork.dsl.cinematic.flow.Flow;
 import org.obeonetwork.dsl.cinematic.flow.FlowState;
+import org.obeonetwork.dsl.cinematic.flow.Transition;
 import org.obeonetwork.dsl.cinematic.flow.ViewState;
 import org.obeonetwork.dsl.cinematic.view.ViewContainer;
 
