@@ -88,14 +88,14 @@ public class CinematicFlowServices {
 		}
 		return viewContainersAncestors;
 	}
-	
-	
+		
 	/**
 	 * Checks if the given {@link ViewContainer} is contained in a {@link ViewContainer}
 	 * @param container a {@link ViewContainer}
 	 * @return <code>true</code> if contained in a {@link ViewContainer}
 	 */
 	public void openViewContainerSelectionDialog(EObject viewState) {
+
 		Shell shell = PlatformUI.getWorkbench().getActiveWorkbenchWindow().getShell();
 		
 		if (viewState instanceof ViewState) {
