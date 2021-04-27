@@ -83,7 +83,7 @@ public class ViewUtil {
 		} else {
 			// Creating the new ViewEvent, and adding it in viewElement
 			ViewEvent event = ViewFactory.eINSTANCE.createViewEvent();
-			event.setName(eventType.getName());
+			event.setName(viewElement.getName()+"_"+eventType.getName());
 			event.setType(eventType);
 			viewElement.getEvents().add(event);
 			
