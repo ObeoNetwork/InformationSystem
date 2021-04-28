@@ -476,7 +476,6 @@
               </firstModelOperations>
             </initialOperation>
           </ownedTools>
-
           <ownedTools xsi:type="tool:DoubleClickDescription" name="EditViewState" mappings="//@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='Flow%20Diagram']/@defaultLayer/@nodeMappings[name='FLD_ViewState']">
             <element name="element"/>
             <elementView name="elementView"/>

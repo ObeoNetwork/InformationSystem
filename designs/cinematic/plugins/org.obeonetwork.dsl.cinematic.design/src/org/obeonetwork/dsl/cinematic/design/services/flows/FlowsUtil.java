@@ -270,5 +270,4 @@ public class FlowsUtil {
 				.map(ViewState.class::cast) // Stream<ViewState>
 				.collect(Collectors.toList()); // Collection<ViewState>
 	}
-	
 }

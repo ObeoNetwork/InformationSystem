@@ -90,7 +90,6 @@ public class CinematicFlowServices {
 		return viewContainersAncestors;
 	}
 	
-	
 	/**
 	 * Checks if the given {@link ViewContainer} is contained in a {@link ViewContainer}
 	 * @param container a {@link ViewContainer}
