@@ -1,6 +1,5 @@
 package org.obeonetwork.dsl.cinematic.design.dialogs.event;
 
-import java.util.AbstractMap;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.stream.Collectors;
@@ -9,6 +8,7 @@ import org.eclipse.emf.ecore.EObject;
 import org.eclipse.jface.viewers.ITreeContentProvider;
 import org.obeonetwork.dsl.cinematic.CinematicRoot;
 import org.obeonetwork.dsl.cinematic.design.services.flows.FlowsUtil;
+import org.obeonetwork.dsl.cinematic.design.services.flows.WidgetEventTypeAndAbstractViewElement;
 import org.obeonetwork.dsl.cinematic.flow.Flow;
 import org.obeonetwork.dsl.cinematic.flow.Transition;
 import org.obeonetwork.dsl.cinematic.flow.ViewState;
@@ -78,7 +78,7 @@ public class FlowstateEventContentProvider implements ITreeContentProvider {
 			
 			objects.addAll(possibleWidgetEvents.stream()
 				.map(possibleEvent -> {
-						return new AbstractMap.SimpleEntry<>(parentElement, possibleEvent);
+					return new WidgetEventTypeAndAbstractViewElement(possibleEvent, (AbstractViewElement) parentElement);
 					})
 				.collect(Collectors.toList()));			
 			

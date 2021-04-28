@@ -1,14 +1,12 @@
 package org.obeonetwork.dsl.cinematic.design.dialogs.event;
 
-import java.util.AbstractMap;
-
 import org.eclipse.emf.edit.provider.ComposedAdapterFactory;
 import org.eclipse.emf.edit.ui.provider.AdapterFactoryLabelProvider;
 import org.eclipse.jface.viewers.LabelProvider;
 import org.eclipse.swt.graphics.Image;
 import org.obeonetwork.dsl.cinematic.NamedElement;
+import org.obeonetwork.dsl.cinematic.design.services.flows.WidgetEventTypeAndAbstractViewElement;
 import org.obeonetwork.dsl.cinematic.flow.Flow;
-import org.obeonetwork.dsl.cinematic.toolkits.WidgetEventType;
 
 
 /**
@@ -20,8 +18,8 @@ public class FlowstateEventLabelProvider extends LabelProvider {
 
 	@Override
 	public Image getImage(Object element) {
-		if (element instanceof AbstractMap.SimpleEntry) {
-			element = ((AbstractMap.SimpleEntry<?,?>) element).getValue();
+		if (element instanceof WidgetEventTypeAndAbstractViewElement) {
+			element = ((WidgetEventTypeAndAbstractViewElement) element).getAbstractViewElement();
 		}
 		
 		return labelProvider.getImage(element);
@@ -38,10 +36,8 @@ public class FlowstateEventLabelProvider extends LabelProvider {
 			return ((NamedElement) element).getName();
 		}
 		
-		if (element instanceof AbstractMap.SimpleEntry) {
-			if (((AbstractMap.SimpleEntry<?, ?>) element).getValue() instanceof WidgetEventType) {				
-				return ((WidgetEventType) ((AbstractMap.SimpleEntry<?, ?>) element).getValue()).getName();
-			}
+		if (element instanceof WidgetEventTypeAndAbstractViewElement) {
+			return ((WidgetEventTypeAndAbstractViewElement) element).getWidgetEventType().getName();
 		}
 		
 		return super.getText(element);
