@@ -4,6 +4,8 @@ import org.eclipse.jface.dialogs.Dialog;
 import org.eclipse.jface.dialogs.IDialogConstants;
 import org.eclipse.jface.viewers.CheckboxTreeViewer;
 import org.eclipse.swt.SWT;
+import org.eclipse.swt.events.SelectionAdapter;
+import org.eclipse.swt.events.SelectionEvent;
 import org.eclipse.swt.graphics.Point;
 import org.eclipse.swt.layout.GridData;
 import org.eclipse.swt.layout.GridLayout;
@@ -77,7 +79,16 @@ public class ViewContainerSelectionDialog extends Dialog {
 		ViewContainerViewerFilter containerViewerFilter = new ViewContainerViewerFilter(checkboxTreeViewer);
 		txtFilterText.addKeyListener(containerViewerFilter);
 		
-		btnCheckButton.addSelectionListener(new ViewContainerHideBoundContainersListener(checkboxTreeViewer, containerTreeContentProvider));		
+		btnCheckButton.addSelectionListener(new SelectionAdapter() {
+
+			@Override
+			public void widgetSelected(SelectionEvent e) {
+				containerTreeContentProvider.switchHideContainersBoundToOtherViewStates();
+				checkboxTreeViewer.refresh();
+			}
+			
+		});		
+		
 		checkboxTreeViewer.setContentProvider(containerTreeContentProvider);
 		checkboxTreeViewer.setLabelProvider(new ViewContainerLabelProvider());			
 		checkboxTreeViewer.addCheckStateListener(new ViewContainerCheckStateListener(checkboxTreeViewer, viewState));		
