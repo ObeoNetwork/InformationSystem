@@ -10,6 +10,8 @@ import org.eclipse.jface.dialogs.Dialog;
 import org.eclipse.jface.dialogs.IDialogConstants;
 import org.eclipse.jface.viewers.CheckboxTreeViewer;
 import org.eclipse.swt.SWT;
+import org.eclipse.swt.events.SelectionAdapter;
+import org.eclipse.swt.events.SelectionEvent;
 import org.eclipse.swt.graphics.Point;
 import org.eclipse.swt.layout.GridData;
 import org.eclipse.swt.layout.GridLayout;
@@ -82,7 +84,15 @@ public class FlowstateEventSelectionDialog extends Dialog {
 		tree.setLayoutData(new GridData(SWT.FILL, SWT.FILL, true, true, 1, 1));
 		
 		FlowstateEventContentProvider contentProvider = new FlowstateEventContentProvider(transition);
-		btnCheckButton.addSelectionListener(new FlowstateEventHideViewContainersListener(checkboxTreeViewer, contentProvider));
+		
+		btnCheckButton.addSelectionListener(new SelectionAdapter() {
+			@Override
+			public void widgetSelected(SelectionEvent e) {
+				contentProvider.switchHideNonContextualViewContainers();
+				checkboxTreeViewer.refresh();
+			}				
+		});
+		
 		btnCheckButton.setSelection(contentProvider.isHideNonContextualViewContainer());
 		
 		FlowstateEventViewerFilter eventViewerFilter = new FlowstateEventViewerFilter(checkboxTreeViewer);
