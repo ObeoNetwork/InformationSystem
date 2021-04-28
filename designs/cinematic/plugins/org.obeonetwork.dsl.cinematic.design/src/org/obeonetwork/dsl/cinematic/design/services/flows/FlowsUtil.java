@@ -79,8 +79,7 @@ public class FlowsUtil {
 		
 		return elements;
 	}
-	
-	
+		
 	public static Collection<ViewState> getViewStates(Flow flow) {
 		Collection<ViewState> viewStates = new ArrayList<ViewState>();
 		for (FlowState state : flow.getStates()) {
@@ -271,6 +270,4 @@ public class FlowsUtil {
 				.map(ViewState.class::cast) // Stream<ViewState>
 				.collect(Collectors.toList()); // Collection<ViewState>
 	}
-	
-
 }
