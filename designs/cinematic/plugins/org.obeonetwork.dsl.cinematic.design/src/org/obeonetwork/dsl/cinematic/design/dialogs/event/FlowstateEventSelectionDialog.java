@@ -22,6 +22,7 @@ import org.eclipse.swt.widgets.Label;
 import org.eclipse.swt.widgets.Shell;
 import org.eclipse.swt.widgets.Text;
 import org.eclipse.swt.widgets.Tree;
+import org.obeonetwork.dsl.cinematic.design.dialogs.Messages;
 import org.obeonetwork.dsl.cinematic.flow.FlowEvent;
 import org.obeonetwork.dsl.cinematic.flow.Transition;
 import org.obeonetwork.dsl.cinematic.toolkits.WidgetEventType;
@@ -68,16 +69,16 @@ public class FlowstateEventSelectionDialog extends Dialog {
 		
 		Button btnCheckButton = new Button(composite, SWT.CHECK);
 
-		btnCheckButton.setText("Hide non contextual View Containers");
+		btnCheckButton.setText(Messages.CinematicDialog_hideNonContextualViewContainers);
 		new Label(composite, SWT.NONE);
 		
 		txtFilterText = new Text(composite, SWT.SEARCH | SWT.ICON_CANCEL);
 		txtFilterText.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, true, false, 1, 1));
-		txtFilterText.setMessage("Filter text (? = any character, * = any String)");
+		txtFilterText.setMessage(Messages.CinematicDialog_filterText);
 		
 		Button btnClearButton = new Button(composite, SWT.NONE);
 		btnClearButton.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, false, false, 1, 1));
-		btnClearButton.setText("clear");
+		btnClearButton.setText(Messages.CinematicDialog_clear);
 		
 		CheckboxTreeViewer checkboxTreeViewer = new CheckboxTreeViewer(container, SWT.BORDER);
 		Tree tree = checkboxTreeViewer.getTree();
@@ -106,7 +107,7 @@ public class FlowstateEventSelectionDialog extends Dialog {
 		checkboxTreeViewer.setInput(transition);
 		
 		btnClearButton.addListener(SWT.Selection, event -> {
-			txtFilterText.setText(""); // clearing the text input		
+			txtFilterText.setText(""); // clearing the text input		 //$NON-NLS-1$
 			event.widget = txtFilterText;
 			txtFilterText.notifyListeners(SWT.KeyUp, event); // we notify the text area listeners to consider the new text value.
 		});
@@ -167,7 +168,7 @@ public class FlowstateEventSelectionDialog extends Dialog {
 	@Override
 	protected void configureShell(Shell shell) {
 		super.configureShell(shell);
-		shell.setText("Event selection");	
+		shell.setText(Messages.CinematicDialog_EventSelection);	
 	}
 }
  
