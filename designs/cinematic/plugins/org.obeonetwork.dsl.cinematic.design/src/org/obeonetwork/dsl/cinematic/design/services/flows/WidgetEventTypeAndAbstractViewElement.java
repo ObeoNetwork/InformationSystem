@@ -21,7 +21,7 @@ public class WidgetEventTypeAndAbstractViewElement {
 	public WidgetEventTypeAndAbstractViewElement(
 			WidgetEventType widgetEventType,
 			AbstractViewElement abstractViewElement) {
-		super();
+		
 		this.widgetEventType = widgetEventType;
 		this.abstractViewElement = abstractViewElement;
 	}

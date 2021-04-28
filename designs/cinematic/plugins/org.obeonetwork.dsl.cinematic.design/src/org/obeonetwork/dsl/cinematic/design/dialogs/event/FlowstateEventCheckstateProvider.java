@@ -1,10 +1,10 @@
 package org.obeonetwork.dsl.cinematic.design.dialogs.event;
 
-import java.util.AbstractMap.SimpleEntry;
 import java.util.Collection;
 import java.util.Map;
 
 import org.eclipse.jface.viewers.ICheckStateProvider;
+import org.obeonetwork.dsl.cinematic.design.services.flows.WidgetEventTypeAndAbstractViewElement;
 import org.obeonetwork.dsl.cinematic.flow.Flow;
 import org.obeonetwork.dsl.cinematic.flow.FlowEvent;
 import org.obeonetwork.dsl.cinematic.toolkits.WidgetEventType;
@@ -32,11 +32,12 @@ public class FlowstateEventCheckstateProvider implements ICheckStateProvider {
 	
 	@Override
 	public boolean isChecked(Object element) {
-		if (element instanceof SimpleEntry) {
-			Object key = ((SimpleEntry<?, ?>) element).getKey() ;
-			Object value = ((SimpleEntry<?, ?>) element).getValue();
-			if (viewElementWidgetMap.containsKey(key)) { // a ViewEvent of an AbstractViewElement is referred by the Transition
-				if (viewElementWidgetMap.get(key).contains(value)) { // we check if this event is present in the map, in case it has been unchecked by the user.
+		if (element instanceof WidgetEventTypeAndAbstractViewElement) {
+			AbstractViewElement abstractViewElement = ((WidgetEventTypeAndAbstractViewElement) element).getAbstractViewElement();
+			WidgetEventType eventType = ((WidgetEventTypeAndAbstractViewElement) element).getWidgetEventType();
+	
+			if (viewElementWidgetMap.containsKey(abstractViewElement)) { // a ViewEvent of an AbstractViewElement is referred by the Transition
+				if (viewElementWidgetMap.get(abstractViewElement).contains(eventType)) { // we check if this event is present in the map, in case it has been unchecked by the user.
 					return true;
 				}
 			}

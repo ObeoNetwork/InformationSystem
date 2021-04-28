@@ -1,12 +1,12 @@
 package org.obeonetwork.dsl.cinematic.design.dialogs.event;
 
-import java.util.AbstractMap.SimpleEntry;
 import java.util.Collection;
 import java.util.HashSet;
 import java.util.Map;
 
 import org.eclipse.jface.viewers.CheckStateChangedEvent;
 import org.eclipse.jface.viewers.ICheckStateListener;
+import org.obeonetwork.dsl.cinematic.design.services.flows.WidgetEventTypeAndAbstractViewElement;
 import org.obeonetwork.dsl.cinematic.flow.FlowEvent;
 import org.obeonetwork.dsl.cinematic.flow.Transition;
 import org.obeonetwork.dsl.cinematic.toolkits.WidgetEventType;
@@ -40,13 +40,10 @@ public class FlowstateEventCheckstateListener implements ICheckStateListener{
 				}
 			} 
 			
-			if (event.getElement() instanceof SimpleEntry) {
-				Object key = ((SimpleEntry<?, ?>) event.getElement()).getKey();
-				Object value = ((SimpleEntry<?, ?>) event.getElement()).getValue();
-				
-				if (key instanceof AbstractViewElement && value instanceof WidgetEventType) {
-					addViewEvent((AbstractViewElement) key, (WidgetEventType) value);
-				}				
+			if (event.getElement() instanceof WidgetEventTypeAndAbstractViewElement) {
+				AbstractViewElement abstractViewElement = ((WidgetEventTypeAndAbstractViewElement) event.getElement()).getAbstractViewElement();
+				WidgetEventType widgetEventType = ((WidgetEventTypeAndAbstractViewElement) event.getElement()).getWidgetEventType();
+				addViewEvent(abstractViewElement, widgetEventType);			
 			}
 			
 		} else { // unchecked event
@@ -56,13 +53,10 @@ public class FlowstateEventCheckstateListener implements ICheckStateListener{
 				}
 			}
 			
-			if (event.getElement() instanceof SimpleEntry) {
-				Object key = ((SimpleEntry<?, ?>) event.getElement()).getKey();
-				Object value = ((SimpleEntry<?, ?>) event.getElement()).getValue();
-				
-				if (key instanceof AbstractViewElement && value instanceof WidgetEventType) {
-					removeViewEvent((AbstractViewElement) key, (WidgetEventType) value);
-				}				
+			if (event.getElement() instanceof WidgetEventTypeAndAbstractViewElement) {
+				AbstractViewElement abstractViewElement = ((WidgetEventTypeAndAbstractViewElement) event.getElement()).getAbstractViewElement();
+				WidgetEventType widgetEventType = ((WidgetEventTypeAndAbstractViewElement) event.getElement()).getWidgetEventType();
+				removeViewEvent(abstractViewElement, widgetEventType);						
 			}			
 		}			
 	}
