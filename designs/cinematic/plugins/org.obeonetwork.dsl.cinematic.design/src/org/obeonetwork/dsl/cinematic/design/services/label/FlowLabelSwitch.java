@@ -28,12 +28,7 @@ public class FlowLabelSwitch extends FlowSwitch<String> {
 				}
 			}
 		}
-		if (transition.getGuard() != null && transition.getGuard().trim().equals("") == false) {
-			if (!label.equals("")) {
-				label += " ";
-			}
-			label += "[" + transition.getGuard() + "]";
-		}
+		
 		return label;
 	}
 	
