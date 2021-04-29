@@ -522,7 +522,7 @@
             <foregroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
           </style>
         </containerMappings>
-        <containerMappings name="PAD_Flow" labelDirectEdit="//@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='Reused%20Description']/@toolSection/@ownedTools[name='EDT_Common']" semanticCandidatesExpression="feature:flows" doubleClickDescription="//@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='Package%20Diagram']/@defaultLayer/@toolSections.1/@ownedTools[name='DBL_Nav_To_Flow_Diagram']" domainClass="flow.Flow">
+        <containerMappings name="PAD_Flow" detailDescriptions="//@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='Package%20Diagram']/@defaultLayer/@toolSections.1/@ownedTools[name='CRE_Flow_Diagram']" labelDirectEdit="//@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='Reused%20Description']/@toolSection/@ownedTools[name='EDT_Common']" semanticCandidatesExpression="feature:flows" doubleClickDescription="//@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='Package%20Diagram']/@defaultLayer/@toolSections.1/@ownedTools[name='DBL_Nav_To_Flow_Diagram']" domainClass="flow.Flow">
           <style xsi:type="style:FlatContainerStyleDescription" arcWidth="1" arcHeight="1" borderSizeComputationExpression="1">
             <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
             <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
