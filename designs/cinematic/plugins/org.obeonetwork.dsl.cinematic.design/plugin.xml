@@ -64,6 +64,15 @@
                  checkEnabled="true">
            </visibleWhen>
         </command>
+        <command
+              commandId="org.obeonetwork.dsl.cinematic.design.command.PreviewLayout"
+              icon="icons/tools/layout.png"
+              label="Preview Layout"
+              style="push">
+           <visibleWhen
+                 checkEnabled="true">
+           </visibleWhen>
+        </command>
      </menuContribution>
   </extension>
   <extension
@@ -75,6 +84,10 @@
      <command
            id="org.obeonetwork.dsl.cinematic.design.command.RestoreLayout"
            name="Restore Layout">
+     </command>
+     <command
+           id="org.obeonetwork.dsl.cinematic.design.command.PreviewLayout"
+           name="Preview Layout">
      </command>
   </extension>
   <extension
@@ -121,6 +134,30 @@
                           forcePluginActivation="true"
                           property="org.eclipse.sirius.diagram.ui.edit.api.part.ISiriusEditPart.diagramName"
                           value="View Container Diagram">
+                    </test>
+                 </adapt>
+              </iterate>
+           </with>
+        </enabledWhen>
+     </handler>
+     <handler
+           class="org.obeonetwork.dsl.cinematic.design.handlers.PreviewLayoutHandler"
+           commandId="org.obeonetwork.dsl.cinematic.design.command.PreviewLayout">
+        <enabledWhen>
+           <with
+                 variable="selection">
+              <count
+                    value="1">
+              </count>
+              <iterate
+                    ifEmpty="false"
+                    operator="and">
+                 <adapt
+                       type="org.eclipse.sirius.diagram.ui.edit.api.part.IDDiagramEditPart">
+                    <test
+                          forcePluginActivation="true"
+                          property="org.eclipse.sirius.diagram.ui.edit.api.part.ISiriusEditPart.diagramName"
+                          value="Layout Diagram">
                     </test>
                  </adapt>
               </iterate>

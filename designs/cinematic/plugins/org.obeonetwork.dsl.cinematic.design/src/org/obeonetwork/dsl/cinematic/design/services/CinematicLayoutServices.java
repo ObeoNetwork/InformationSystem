@@ -2,6 +2,7 @@ package org.obeonetwork.dsl.cinematic.design.services;
 
 import static java.util.stream.Collectors.toList;
 
+import java.util.ArrayList;
 import java.util.Collection;
 import java.util.HashMap;
 import java.util.HashSet;
@@ -15,12 +16,15 @@ import java.util.Set;
 import org.eclipse.core.runtime.NullProgressMonitor;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.gmf.runtime.notation.Bounds;
+import org.eclipse.gmf.runtime.notation.Diagram;
 import org.eclipse.gmf.runtime.notation.Node;
 import org.eclipse.gmf.runtime.notation.NotationFactory;
+import org.eclipse.gmf.runtime.notation.NotationPackage;
 import org.eclipse.sirius.business.api.dialect.DialectManager;
 import org.eclipse.sirius.diagram.DDiagram;
 import org.eclipse.sirius.diagram.DDiagramElement;
 import org.eclipse.sirius.diagram.DNodeContainer;
+import org.eclipse.sirius.diagram.business.api.query.DDiagramQuery;
 import org.eclipse.sirius.diagram.business.api.refresh.CanonicalSynchronizer;
 import org.eclipse.sirius.diagram.business.api.refresh.CanonicalSynchronizerFactory;
 import org.eclipse.sirius.diagram.ui.business.api.view.SiriusGMFHelper;
@@ -33,35 +37,32 @@ import org.obeonetwork.dsl.cinematic.view.ViewFactory;
 public class CinematicLayoutServices {
 
 	public static Layout extractLayout(DDiagram viewContainerDDiagram) {
-		
-//		// Launch refresh so that the GMF views are created and up to date
-//		refreshDiagram(viewContainerDDiagram);
-//		
-//		Bounds viewContainerBounds = getBounds(viewContainerDNC);
-//		ViewContainer viewContainer = (ViewContainer) viewContainerDNC.getTarget();
-//		
-//		Layout viewContainerLayout = createLayout(viewContainerBounds, LayoutDirection.VERTICAL, viewContainer);
-//		
-//		populateLayout(viewContainerLayout, viewContainerDNC);
-//		
-//		return viewContainerLayout;
-		System.out.println("CinematicLayoutServices.extractLayout()");
-		return null;
-	}
-
-	private static void refreshDiagram(DNodeContainer viewContainerDNC) {
-		Node viewContainerNode = SiriusGMFHelper.getGmfNode(viewContainerDNC);
-		CanonicalSynchronizer canonicalSynchronizer = CanonicalSynchronizerFactory.INSTANCE.createCanonicalSynchronizer(viewContainerNode.getDiagram());
+		// Launch refresh so that the GMF views are created and up to date
+		Diagram gmfDiagram = SiriusGMFHelper.getGmfDiagram(viewContainerDDiagram);
+		CanonicalSynchronizer canonicalSynchronizer = CanonicalSynchronizerFactory.INSTANCE.createCanonicalSynchronizer(gmfDiagram);
 		canonicalSynchronizer.synchronize();
+		
+		ViewContainer viewContainer = (ViewContainer) new DDiagramQuery(viewContainerDDiagram).getRepresentationDescriptor().getTarget();
+		DNodeContainer rootDNC = viewContainerDDiagram.getOwnedDiagramElements().stream()
+				.filter(e -> e.getTarget() == viewContainer)
+				.map(DNodeContainer.class::cast)
+				.findFirst().orElse(null);
+		Bounds viewContainerBounds = getBounds(rootDNC);
+		
+		Layout viewContainerLayout = createLayout(viewContainerBounds, LayoutDirection.VERTICAL, viewContainer);
+		
+		buildSubLayouts(viewContainerLayout, rootDNC);
+		
+		return viewContainerLayout;
 	}
 
-	private static void populateLayout(Layout viewContainerLayout, DNodeContainer viewContainerDNC) {
+	private static void buildSubLayouts(Layout viewContainerLayout, DNodeContainer viewContainerDNC) {
 		EList<DDiagramElement> ownedDiagramElements = viewContainerDNC.getOwnedDiagramElements();
 		Map<DDiagramElement, Layout> diagramElementToLayout = createLayoutCompartments(viewContainerLayout, ownedDiagramElements);
 		
 		for(DDiagramElement ownedDiagramElement : ownedDiagramElements) {
 			if(ownedDiagramElement.getTarget() instanceof ViewContainer) {
-				populateLayout(diagramElementToLayout.get(ownedDiagramElement), (DNodeContainer) ownedDiagramElement);
+				buildSubLayouts(diagramElementToLayout.get(ownedDiagramElement), (DNodeContainer) ownedDiagramElement);
 			}
 		}
 	}
@@ -212,27 +213,79 @@ public class CinematicLayoutServices {
 		return bounds;
 	}
 
-	public static void restoreLayout(ViewContainer viewContainer, DNodeContainer viewContainerDNC) {
-		restoreLayout(viewContainer.getLayout(), viewContainerDNC);
-		DialectManager.INSTANCE.refresh(viewContainerDNC.getParentDiagram(), new NullProgressMonitor());
+	public static void restoreLayout(ViewContainer viewContainer, DDiagram viewContainerDDiagram) {
+		DNodeContainer rootDNC = viewContainerDDiagram.getOwnedDiagramElements().stream()
+				.filter(e -> e.getTarget() == viewContainer)
+				.map(DNodeContainer.class::cast)
+				.findFirst().orElse(null);
+		
+		restoreLayout(viewContainer.getLayout(), rootDNC);
+		
+		DialectManager.INSTANCE.refresh(viewContainerDDiagram, new NullProgressMonitor());
 	}
 	
-	public static void previewLayout(Layout layout, DNodeContainer layoutDNC) {
-		previewLayout(layoutDNC);
-		DialectManager.INSTANCE.refresh(layoutDNC.getParentDiagram(), new NullProgressMonitor());
+	public static void previewLayout(Layout layout, DDiagram layoutDDiagram) {
+		DNodeContainer rootDNC = layoutDDiagram.getOwnedDiagramElements().stream()
+				.filter(e -> e.getTarget() == layout)
+				.map(DNodeContainer.class::cast)
+				.findFirst().orElse(null);
+		
+		int treeDepth = getLayoutTreeDepth(layout, 1);
+		previewLayout(rootDNC, treeDepth);
+		
+		DialectManager.INSTANCE.refresh(layoutDDiagram, new NullProgressMonitor());
 	}
 
-	// TODO VRI take into account the thickness of the borders
-	private static void previewLayout(DNodeContainer layoutDNC) {
-		Layout layout = (Layout) layoutDNC.getTarget();
-		Bounds bounds = getBounds(layoutDNC);
-		bounds.setX(layout.getX());
-		bounds.setY(layout.getY());
-		bounds.setWidth(layout.getWidth());
-		bounds.setHeight(layout.getHeight());
-		for(DNodeContainer childLayoutDNC : layoutDNC.getOwnedDiagramElements().stream().filter(de -> de.getTarget() instanceof Layout).map(DNodeContainer.class::cast).collect(toList())) {
-			previewLayout(childLayoutDNC);
+	private static void previewLayout(DNodeContainer layoutDNC, int treeDepth) {
+		computeGmfBounds(layoutDNC, treeDepth);
+		
+		for(DNodeContainer childLayoutDNC : layoutDNC.getOwnedDiagramElements().stream()
+				.filter(de -> de.getTarget() instanceof Layout)
+				.map(DNodeContainer.class::cast).collect(toList())) {
+			previewLayout(childLayoutDNC, treeDepth);
 		}
+	}
+
+	private static Bounds computeGmfBounds(DNodeContainer layoutDNC, int treeDepth) {
+		// FIXME 
+		Layout layout = (Layout) layoutDNC.getTarget();
+		
+		List<Layout> parentLayouts = getParentLayoutsBottomUp(layoutDNC);
+		int x = layout.getX();
+		int y = layout.getY();
+		
+		if(!parentLayouts.isEmpty() && parentLayouts.get(0).getViewElement() == null) {
+			Layout virtualLayout = parentLayouts.get(0);
+			x -= virtualLayout.getX();
+			y -= virtualLayout.getY();
+		}
+		
+		int bordersMargin = (treeDepth - parentLayouts.size() - 1) * 4;
+		int width = layout.getWidth() + bordersMargin;
+		int height = layout.getHeight() + bordersMargin;
+		x += bordersMargin / 2;
+		y += bordersMargin / 2;
+		
+		Bounds gmfBounds = getBounds(layoutDNC);
+		gmfBounds.setX(x);
+		gmfBounds.setY(y);
+		gmfBounds.setWidth(width);
+		gmfBounds.setHeight(height);
+		
+		return gmfBounds;
+	}
+
+	private static List<Layout> getParentLayoutsBottomUp(DNodeContainer layoutDNC) {
+		Layout layout = (Layout) layoutDNC.getTarget();
+		Layout rootLayout = (Layout) new DDiagramQuery(layoutDNC.getParentDiagram()).getRepresentationDescriptor().getTarget();
+		List<Layout> parentLayouts = new ArrayList<>();
+		while(layout != null && layout != rootLayout) {
+			layout = (layout.eContainer() instanceof Layout)? (Layout) layout.eContainer() : null;
+			if(layout != null) {
+				parentLayouts.add(layout);
+			}
+		}
+		return parentLayouts;
 	}
 
 	private static void restoreLayout(Layout layout, DDiagramElement dDiagramElement) {
@@ -255,6 +308,13 @@ public class CinematicLayoutServices {
 		
 	}
 
+	private static int getLayoutTreeDepth(Layout layout, int depth) {
+		return layout.getOwnedLayouts().stream()
+				.map(subLayout -> getLayoutTreeDepth(subLayout, depth + 1))
+				.mapToInt(d -> d).max()
+				.orElse(depth);
+	}
+	
 	private static Layout getViewElementLayout(Layout layout, AbstractViewElement viewElement) {
 		Queue<Layout> queue = new LinkedList<>();
 		queue.add(layout);
