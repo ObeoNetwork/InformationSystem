@@ -6,4 +6,8 @@ Bundle-Version: 2.0.0.qualifier
 Automatic-Module-Name: org.obeonetwork.utils.common
 Bundle-RequiredExecutionEnvironment: JavaSE-1.8
 Bundle-Vendor: Obeo Network
-Export-Package: org.obeonetwork.utils.common
+Export-Package: org.obeonetwork.utils.common,
+ org.obeonetwork.utils.common.handlers
+Require-Bundle: org.eclipse.core.commands,
+ org.eclipse.ui.workbench,
+ org.eclipse.jface

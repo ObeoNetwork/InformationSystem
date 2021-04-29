@@ -1260,7 +1260,7 @@
         </customization>
       </defaultLayer>
     </ownedRepresentations>
-    <ownedRepresentations xsi:type="description_1:DiagramDescription" name="Layout Diagram" domainClass="view::Layout" enablePopupBars="true">
+    <ownedRepresentations xsi:type="description_1:DiagramDescription" name="Layout Diagram" titleExpression="aql:self.eContainer(cinematic::NamedElement).name+' Layout Diagram'" domainClass="view::Layout" enablePopupBars="true">
       <defaultLayer name="Default">
         <containerMappings name="LAD_Layout" semanticCandidatesExpression="aql:self" domainClass="view::Layout">
           <subContainerMappings name="LAD_ChildLayout" semanticCandidatesExpression="aql:self.ownedLayouts" domainClass="view::Layout" reusedContainerMappings="//@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='Layout%20Diagram']/@defaultLayer/@containerMappings[name='LAD_Layout']/@subContainerMappings[name='LAD_ChildLayout']">
@@ -1283,6 +1283,9 @@
             <featureCustomizations xsi:type="description:EReferenceCustomization" appliedOn="//@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='Layout%20Diagram']/@defaultLayer/@containerMappings[name='LAD_Layout']/@style //@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='Layout%20Diagram']/@defaultLayer/@containerMappings[name='LAD_Layout']/@subContainerMappings[name='LAD_ChildLayout']/@style" referenceName="borderColor">
               <value href="environment:/viewpoint#//@systemColors/@entries[name='dark_green']"/>
             </featureCustomizations>
+          </vsmElementCustomizations>
+          <vsmElementCustomizations xsi:type="description:VSMElementCustomization" predicateExpression="aql:self.viewElement=null">
+            <featureCustomizations xsi:type="description:EAttributeCustomization" appliedOn="//@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='Layout%20Diagram']/@defaultLayer/@containerMappings[name='LAD_Layout']/@style //@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='Layout%20Diagram']/@defaultLayer/@containerMappings[name='LAD_Layout']/@subContainerMappings[name='LAD_ChildLayout']/@style" attributeName="borderLineStyle" value="dash"/>
           </vsmElementCustomizations>
         </customization>
       </defaultLayer>

@@ -11,19 +11,19 @@ import org.eclipse.sirius.diagram.DDiagram;
 import org.eclipse.sirius.diagram.business.api.query.DDiagramQuery;
 import org.eclipse.sirius.diagram.ui.edit.api.part.IDDiagramEditPart;
 import org.obeonetwork.dsl.cinematic.design.services.CinematicLayoutServices;
-import org.obeonetwork.dsl.cinematic.view.ViewContainer;
+import org.obeonetwork.dsl.cinematic.view.Layout;
 import org.obeonetwork.utils.common.handlers.EventHelper;
 
-public class RestoreLayoutHandler extends AbstractHandler {
+public class PreviewLayoutHandler extends AbstractHandler {
 
 	@Override
 	public Object execute(ExecutionEvent event) throws ExecutionException {
 
 		IDDiagramEditPart selectedDDiagramEditPart = EventHelper.uwrapSingleSelection(event, IDDiagramEditPart.class);
-		DDiagram viewContainerDDiagram = selectedDDiagramEditPart.resolveDDiagram().get();
-		ViewContainer viewContainer = (ViewContainer) new DDiagramQuery(viewContainerDDiagram).getRepresentationDescriptor().getTarget();
+		DDiagram layoutDDiagram = selectedDDiagramEditPart.resolveDDiagram().get();
+		Layout layout = (Layout) new DDiagramQuery(layoutDDiagram).getRepresentationDescriptor().getTarget();
 		
-		Session session = new EObjectQuery(viewContainerDDiagram).getSession();
+		Session session = new EObjectQuery(layoutDDiagram).getSession();
 		if (session != null) {
 			TransactionalEditingDomain ted = session.getTransactionalEditingDomain();
 
@@ -31,7 +31,7 @@ public class RestoreLayoutHandler extends AbstractHandler {
 
 				@Override
 				protected void doExecute() {
-					CinematicLayoutServices.restoreLayout(viewContainer, viewContainerDDiagram);
+					CinematicLayoutServices.previewLayout(layout, layoutDDiagram);
 				}
 			});
 
@@ -40,4 +40,5 @@ public class RestoreLayoutHandler extends AbstractHandler {
 		return null;
 	}
 
+	
 }
