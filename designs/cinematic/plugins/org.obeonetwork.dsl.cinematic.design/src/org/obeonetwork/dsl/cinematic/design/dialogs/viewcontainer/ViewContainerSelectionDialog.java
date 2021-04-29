@@ -4,6 +4,8 @@ import org.eclipse.jface.dialogs.Dialog;
 import org.eclipse.jface.dialogs.IDialogConstants;
 import org.eclipse.jface.viewers.CheckboxTreeViewer;
 import org.eclipse.swt.SWT;
+import org.eclipse.swt.events.SelectionAdapter;
+import org.eclipse.swt.events.SelectionEvent;
 import org.eclipse.swt.graphics.Point;
 import org.eclipse.swt.layout.GridData;
 import org.eclipse.swt.layout.GridLayout;
@@ -14,6 +16,7 @@ import org.eclipse.swt.widgets.Label;
 import org.eclipse.swt.widgets.Shell;
 import org.eclipse.swt.widgets.Text;
 import org.eclipse.swt.widgets.Tree;
+import org.obeonetwork.dsl.cinematic.design.dialogs.Messages;
 import org.obeonetwork.dsl.cinematic.design.services.flows.FlowsUtil;
 import org.obeonetwork.dsl.cinematic.flow.ViewState;
 
@@ -51,7 +54,7 @@ public class ViewContainerSelectionDialog extends Dialog {
 		
 		Button btnCheckButton = new Button(composite, SWT.CHECK);
 
-		btnCheckButton.setText("Hide View Containers bound to other View States");
+		btnCheckButton.setText(Messages.CinemlaticDialog_HideViewContainerBoundToOtherViewStates);
 		new Label(composite, SWT.NONE);
 		
 		txtFilterText = new Text(composite, SWT.SEARCH | SWT.ICON_CANCEL);
@@ -59,14 +62,14 @@ public class ViewContainerSelectionDialog extends Dialog {
 		GridData gd_txtFilterText = new GridData(SWT.FILL, SWT.CENTER, true, false, 1, 1);
 		gd_txtFilterText.widthHint = 363;
 		txtFilterText.setLayoutData(gd_txtFilterText);
-		txtFilterText.setMessage("Filter text (? = any character, * = any String)");
+		txtFilterText.setMessage(Messages.CinematicDialog_filterText);
 		
 		Button btnClearButton = new Button(composite, SWT.NONE);
 		GridData gd_btnNewButton = new GridData(SWT.FILL, SWT.CENTER, false, false, 1, 1);
 		gd_btnNewButton.widthHint = 55;
 
 		btnClearButton.setLayoutData(gd_btnNewButton);
-		btnClearButton.setText("clear");
+		btnClearButton.setText(Messages.CinematicDialog_clear);
 
 		CheckboxTreeViewer checkboxTreeViewer = new CheckboxTreeViewer(container, SWT.BORDER);
 		Tree tree = checkboxTreeViewer.getTree();
@@ -77,7 +80,16 @@ public class ViewContainerSelectionDialog extends Dialog {
 		ViewContainerViewerFilter containerViewerFilter = new ViewContainerViewerFilter(checkboxTreeViewer);
 		txtFilterText.addKeyListener(containerViewerFilter);
 		
-		btnCheckButton.addSelectionListener(new ViewContainerHideBoundContainersListener(checkboxTreeViewer, containerTreeContentProvider));		
+		btnCheckButton.addSelectionListener(new SelectionAdapter() {
+
+			@Override
+			public void widgetSelected(SelectionEvent e) {
+				containerTreeContentProvider.switchHideContainersBoundToOtherViewStates();
+				checkboxTreeViewer.refresh();
+			}
+			
+		});		
+		
 		checkboxTreeViewer.setContentProvider(containerTreeContentProvider);
 		checkboxTreeViewer.setLabelProvider(new ViewContainerLabelProvider());			
 		checkboxTreeViewer.addCheckStateListener(new ViewContainerCheckStateListener(checkboxTreeViewer, viewState));		
@@ -87,7 +99,7 @@ public class ViewContainerSelectionDialog extends Dialog {
 		checkboxTreeViewer.setInput(FlowsUtil.getCinematicRoot(this.viewState));
 		
 		btnClearButton.addListener(SWT.Selection, event -> {
-			txtFilterText.setText(""); // clearing the text input		
+			txtFilterText.setText(""); // clearing the text input		 //$NON-NLS-1$
 			event.widget = txtFilterText;
 			txtFilterText.notifyListeners(SWT.KeyUp, event); // we notify the text area listeners to consider the new text value.
 		});
@@ -117,6 +129,6 @@ public class ViewContainerSelectionDialog extends Dialog {
 	@Override
 	protected void configureShell(Shell shell) {
 		super.configureShell(shell);
-		shell.setText("View Container selection");	
+		shell.setText(Messages.CinemlaticDialog_ViewContainerSelection);	
 	}
 }

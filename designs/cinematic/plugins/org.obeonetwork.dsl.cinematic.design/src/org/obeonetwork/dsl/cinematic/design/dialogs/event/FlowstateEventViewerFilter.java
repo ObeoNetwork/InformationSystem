@@ -1,7 +1,5 @@
 package org.obeonetwork.dsl.cinematic.design.dialogs.event;
 
-import java.util.AbstractMap.SimpleEntry;
-
 import org.eclipse.core.internal.propertytester.StringMatcher;
 import org.eclipse.jface.viewers.CheckboxTreeViewer;
 import org.eclipse.jface.viewers.Viewer;
@@ -10,8 +8,8 @@ import org.eclipse.swt.events.KeyEvent;
 import org.eclipse.swt.events.KeyListener;
 import org.eclipse.swt.widgets.Text;
 import org.obeonetwork.dsl.cinematic.NamedElement;
+import org.obeonetwork.dsl.cinematic.design.services.flows.WidgetEventTypeAndAbstractViewElement;
 import org.obeonetwork.dsl.cinematic.flow.Flow;
-import org.obeonetwork.dsl.cinematic.toolkits.WidgetEventType;
 import org.obeonetwork.dsl.cinematic.view.AbstractViewElement;
 import org.obeonetwork.utils.common.StringUtils;
 
@@ -52,8 +50,8 @@ public class FlowstateEventViewerFilter extends ViewerFilter implements KeyListe
 				} else {
 					return isNameMatch;
 				}								
-			} else if (element instanceof SimpleEntry) {
-				return matcher.match(((WidgetEventType) ((SimpleEntry<?,?>) element).getValue()).getName());
+			} else if (element instanceof WidgetEventTypeAndAbstractViewElement) {
+				return matcher.match(((WidgetEventTypeAndAbstractViewElement) element).getWidgetEventType()	.getName());
 			} else {
 				return true;
 			}
