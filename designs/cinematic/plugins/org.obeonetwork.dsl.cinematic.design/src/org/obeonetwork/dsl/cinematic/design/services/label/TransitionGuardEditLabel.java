@@ -10,8 +10,14 @@ import org.eclipse.sirius.diagram.ui.tools.api.command.GMFCommandWrapper;
 import org.eclipse.sirius.viewpoint.DSemanticDecorator;
 import org.obeonetwork.dsl.cinematic.flow.Transition;
 
+/**
+ * Direct edit policy for the guard label on transitions.
+ * @author <a href="mailto:thibault.beziers-la-fosse@obeo.fr">Thibault Béziers la Fosse</a> 
+ *
+ */
 public class TransitionGuardEditLabel extends LabelDirectEditPolicy {
 
+	@Override
 	protected org.eclipse.gef.commands.Command getDirectEditCommand(org.eclipse.gef.requests.DirectEditRequest edit) {
 		
 		final EObject element = ((org.eclipse.gmf.runtime.diagram.ui.editparts.GraphicalEditPart)getHost()).resolveSemanticElement();
