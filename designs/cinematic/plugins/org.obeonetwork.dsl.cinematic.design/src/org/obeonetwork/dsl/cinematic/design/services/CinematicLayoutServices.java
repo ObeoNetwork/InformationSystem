@@ -2,7 +2,6 @@ package org.obeonetwork.dsl.cinematic.design.services;
 
 import static java.util.stream.Collectors.toList;
 
-import java.util.ArrayList;
 import java.util.Collection;
 import java.util.HashMap;
 import java.util.HashSet;
@@ -19,7 +18,6 @@ import org.eclipse.gmf.runtime.notation.Bounds;
 import org.eclipse.gmf.runtime.notation.Diagram;
 import org.eclipse.gmf.runtime.notation.Node;
 import org.eclipse.gmf.runtime.notation.NotationFactory;
-import org.eclipse.gmf.runtime.notation.NotationPackage;
 import org.eclipse.sirius.business.api.dialect.DialectManager;
 import org.eclipse.sirius.diagram.DDiagram;
 import org.eclipse.sirius.diagram.DDiagramElement;
@@ -230,62 +228,62 @@ public class CinematicLayoutServices {
 				.map(DNodeContainer.class::cast)
 				.findFirst().orElse(null);
 		
-		int treeDepth = getLayoutTreeDepth(layout, 1);
-		previewLayout(rootDNC, treeDepth);
+		previewLayout(rootDNC);
 		
 		DialectManager.INSTANCE.refresh(layoutDDiagram, new NullProgressMonitor());
 	}
+	
+	private static void previewLayout(DNodeContainer layoutDNC) {
+		Layout layout = (Layout) layoutDNC.getTarget();
+		Bounds adjustedGmfBounds = computePreviewBounds(layout);
+		Bounds gmfBounds = getBounds(layoutDNC);
+		gmfBounds.setX(adjustedGmfBounds.getX());
+		gmfBounds.setY(adjustedGmfBounds.getY());
+		gmfBounds.setWidth(adjustedGmfBounds.getWidth());
+		gmfBounds.setHeight(adjustedGmfBounds.getHeight());
 
-	private static void previewLayout(DNodeContainer layoutDNC, int treeDepth) {
-		computeGmfBounds(layoutDNC, treeDepth);
-		
-		for(DNodeContainer childLayoutDNC : layoutDNC.getOwnedDiagramElements().stream()
-				.filter(de -> de.getTarget() instanceof Layout)
-				.map(DNodeContainer.class::cast).collect(toList())) {
-			previewLayout(childLayoutDNC, treeDepth);
-		}
+		layoutDNC.getOwnedDiagramElements().stream()
+		.filter(de -> de.getTarget() instanceof Layout)
+		.map(DNodeContainer.class::cast)
+		.forEach(childLayoutDNC -> previewLayout(childLayoutDNC));
 	}
 
-	private static Bounds computeGmfBounds(DNodeContainer layoutDNC, int treeDepth) {
-		// FIXME 
-		Layout layout = (Layout) layoutDNC.getTarget();
+	/**
+	 * Compute the GMF Bounds that will allow a non overlaping visualisation of the
+	 * Layout objects, taking into account the fact that space has to be added to
+	 * insert the border of the structural Layouts (not linked to any View Element).
+	 * 
+	 * @param layout
+	 * @return
+	 */
+	private static Bounds computePreviewBounds(Layout layout) {
+		final int margin = 16; // Magic value
 		
-		List<Layout> parentLayouts = getParentLayoutsBottomUp(layoutDNC);
 		int x = layout.getX();
 		int y = layout.getY();
-		
-		if(!parentLayouts.isEmpty() && parentLayouts.get(0).getViewElement() == null) {
-			Layout virtualLayout = parentLayouts.get(0);
+		if(layout.eContainer() instanceof Layout && ((Layout) layout.eContainer()).getViewElement() == null) {
+			Layout virtualLayout = (Layout) layout.eContainer();
 			x -= virtualLayout.getX();
 			y -= virtualLayout.getY();
 		}
 		
-		int bordersMargin = (treeDepth - parentLayouts.size() - 1) * 4;
-		int width = layout.getWidth() + bordersMargin;
-		int height = layout.getHeight() + bordersMargin;
-		x += bordersMargin / 2;
-		y += bordersMargin / 2;
-		
-		Bounds gmfBounds = getBounds(layoutDNC);
-		gmfBounds.setX(x);
-		gmfBounds.setY(y);
-		gmfBounds.setWidth(width);
-		gmfBounds.setHeight(height);
-		
-		return gmfBounds;
-	}
-
-	private static List<Layout> getParentLayoutsBottomUp(DNodeContainer layoutDNC) {
-		Layout layout = (Layout) layoutDNC.getTarget();
-		Layout rootLayout = (Layout) new DDiagramQuery(layoutDNC.getParentDiagram()).getRepresentationDescriptor().getTarget();
-		List<Layout> parentLayouts = new ArrayList<>();
-		while(layout != null && layout != rootLayout) {
-			layout = (layout.eContainer() instanceof Layout)? (Layout) layout.eContainer() : null;
-			if(layout != null) {
-				parentLayouts.add(layout);
-			}
+		Bounds adjustedGmfBounds = NotationFactory.eINSTANCE.createBounds();
+		if(layout.getOwnedLayouts().isEmpty()) {
+			adjustedGmfBounds.setX(x);
+			adjustedGmfBounds.setY(y);
+			adjustedGmfBounds.setWidth(layout.getWidth());
+			adjustedGmfBounds.setHeight(layout.getHeight());
+		} else {
+			Bounds boundingArea = computeContainingBounds(layout.getOwnedLayouts().stream()
+					.map(childLayout -> computePreviewBounds(childLayout))
+					.collect(toList()));
+			
+			adjustedGmfBounds.setX(x);
+			adjustedGmfBounds.setY(y);
+			adjustedGmfBounds.setWidth(Math.max(boundingArea.getWidth() + margin, layout.getWidth()));
+			adjustedGmfBounds.setHeight(Math.max(boundingArea.getHeight() + margin, layout.getHeight()));
 		}
-		return parentLayouts;
+		return adjustedGmfBounds;
 	}
 
 	private static void restoreLayout(Layout layout, DDiagramElement dDiagramElement) {
@@ -308,13 +306,6 @@ public class CinematicLayoutServices {
 		
 	}
 
-	private static int getLayoutTreeDepth(Layout layout, int depth) {
-		return layout.getOwnedLayouts().stream()
-				.map(subLayout -> getLayoutTreeDepth(subLayout, depth + 1))
-				.mapToInt(d -> d).max()
-				.orElse(depth);
-	}
-	
 	private static Layout getViewElementLayout(Layout layout, AbstractViewElement viewElement) {
 		Queue<Layout> queue = new LinkedList<>();
 		queue.add(layout);
