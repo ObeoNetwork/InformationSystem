@@ -59,6 +59,11 @@ public class CinematicLabelServices {
 		return eObject;
 	}
 	
+	/**
+	 * Returns the guard label of a {@link Transition}
+	 * @param transition a {@link Transition}
+	 * @return a {@link String} like "[ the_guard_name ]"
+	 */
 	public static String getGuardLabel(Transition transition) {
 		StringBuilder builder = new StringBuilder();
 		
