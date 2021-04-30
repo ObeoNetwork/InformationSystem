@@ -165,4 +165,13 @@
         </enabledWhen>
      </handler>
   </extension>
+  <extension
+        point="org.eclipse.gmf.runtime.diagram.ui.editpartProviders">
+     <editpartProvider
+           class="org.obeonetwork.dsl.cinematic.design.services.flows.TransitionEditPartProvider">
+        <Priority
+              name="High">
+        </Priority>
+     </editpartProvider>
+  </extension>
 </plugin>

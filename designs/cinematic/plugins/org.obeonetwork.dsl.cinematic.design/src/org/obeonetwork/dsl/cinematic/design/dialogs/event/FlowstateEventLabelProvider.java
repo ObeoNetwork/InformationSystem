@@ -19,7 +19,7 @@ public class FlowstateEventLabelProvider extends LabelProvider {
 	@Override
 	public Image getImage(Object element) {
 		if (element instanceof WidgetEventTypeAndAbstractViewElement) {
-			element = ((WidgetEventTypeAndAbstractViewElement) element).getAbstractViewElement();
+			element = ((WidgetEventTypeAndAbstractViewElement) element).getWidgetEventType();
 		}
 		
 		return labelProvider.getImage(element);
