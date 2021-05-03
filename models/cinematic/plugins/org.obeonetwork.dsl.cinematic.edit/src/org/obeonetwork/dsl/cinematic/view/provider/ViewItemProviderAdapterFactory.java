@@ -27,6 +27,7 @@ import org.eclipse.emf.edit.provider.IItemPropertySource;
 import org.eclipse.emf.edit.provider.INotifyChangedListener;
 import org.eclipse.emf.edit.provider.IStructuredItemContentProvider;
 import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
+import org.obeonetwork.dsl.cinematic.view.provider.spec.LayoutItemProviderSpec;
 import org.obeonetwork.dsl.cinematic.view.util.ViewAdapterFactory;
 
 /**
@@ -209,7 +210,7 @@ public class ViewItemProviderAdapterFactory extends ViewAdapterFactory implement
 	@Override
 	public Adapter createLayoutAdapter() {
 		if (layoutItemProvider == null) {
-			layoutItemProvider = new LayoutItemProvider(this);
+			layoutItemProvider = new LayoutItemProviderSpec(this);
 		}
 
 		return layoutItemProvider;
