@@ -14,6 +14,7 @@ import java.util.Set;
 
 import org.eclipse.core.runtime.NullProgressMonitor;
 import org.eclipse.emf.common.util.EList;
+import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.gmf.runtime.notation.Bounds;
 import org.eclipse.gmf.runtime.notation.Diagram;
 import org.eclipse.gmf.runtime.notation.Node;
@@ -31,6 +32,7 @@ import org.obeonetwork.dsl.cinematic.view.Layout;
 import org.obeonetwork.dsl.cinematic.view.LayoutDirection;
 import org.obeonetwork.dsl.cinematic.view.ViewContainer;
 import org.obeonetwork.dsl.cinematic.view.ViewFactory;
+import org.obeonetwork.utils.common.StreamUtils;
 
 public class CinematicLayoutServices {
 
@@ -45,27 +47,39 @@ public class CinematicLayoutServices {
 				.filter(e -> e.getTarget() == viewContainer)
 				.map(DNodeContainer.class::cast)
 				.findFirst().orElse(null);
+		
+		List<Layout> allLayouts = StreamUtils.asStream(viewContainer.eAllContents())
+				.filter(Layout.class::isInstance).map(Layout.class::cast)
+				.collect(toList());
+		
+		Map<AbstractViewElement, Layout> existingLayouts = new HashMap<>();
+		allLayouts.stream()
+		.filter(l -> l.getViewElement() != null)
+		.forEach(l -> existingLayouts.put(l.getViewElement(), l));
+		
+		allLayouts.forEach(l -> EcoreUtil.remove(l));
+		
 		Bounds viewContainerBounds = getBounds(rootDNC);
 		
-		Layout viewContainerLayout = createLayout(viewContainerBounds, LayoutDirection.VERTICAL, viewContainer);
+		Layout viewContainerLayout = createOrReuseLayout(viewContainerBounds, LayoutDirection.VERTICAL, viewContainer, existingLayouts);
 		
-		buildSubLayouts(viewContainerLayout, rootDNC);
+		buildSubLayouts(viewContainerLayout, rootDNC, existingLayouts);
 		
 		return viewContainerLayout;
 	}
 
-	private static void buildSubLayouts(Layout viewContainerLayout, DNodeContainer viewContainerDNC) {
+	private static void buildSubLayouts(Layout viewContainerLayout, DNodeContainer viewContainerDNC, Map<AbstractViewElement, Layout> existingLayouts) {
 		EList<DDiagramElement> ownedDiagramElements = viewContainerDNC.getOwnedDiagramElements();
-		Map<DDiagramElement, Layout> diagramElementToLayout = createLayoutCompartments(viewContainerLayout, ownedDiagramElements);
+		Map<DDiagramElement, Layout> diagramElementToLayout = createLayoutCompartments(viewContainerLayout, ownedDiagramElements, existingLayouts);
 		
 		for(DDiagramElement ownedDiagramElement : ownedDiagramElements) {
 			if(ownedDiagramElement.getTarget() instanceof ViewContainer) {
-				buildSubLayouts(diagramElementToLayout.get(ownedDiagramElement), (DNodeContainer) ownedDiagramElement);
+				buildSubLayouts(diagramElementToLayout.get(ownedDiagramElement), (DNodeContainer) ownedDiagramElement, existingLayouts);
 			}
 		}
 	}
 
-	private static Map<DDiagramElement, Layout> createLayoutCompartments(Layout viewContainerLayout, List<DDiagramElement> ownedDiagramElements) {
+	private static Map<DDiagramElement, Layout> createLayoutCompartments(Layout viewContainerLayout, List<DDiagramElement> ownedDiagramElements, Map<AbstractViewElement, Layout> existingLayouts) {
 		Map<DDiagramElement, Layout> diagramElementToLayout = new HashMap<>();
 		
 		Map<Bounds, DDiagramElement> boundsToDiagramElements = new HashMap<>();
@@ -79,19 +93,21 @@ public class CinematicLayoutServices {
 			if(containedBounds.size() == 1) {
 				Bounds bounds = containedBounds.get(0);
 				DDiagramElement diagramElement = boundsToDiagramElements.get(bounds);
-				Layout subLayout = createLayout(bounds, 
+				Layout subLayout = createOrReuseLayout(bounds, 
 						switchDirection(viewContainerLayout.getDirection()), 
-						(AbstractViewElement)diagramElement.getTarget());
+						(AbstractViewElement)diagramElement.getTarget(),
+						existingLayouts);
 				viewContainerLayout.getOwnedLayouts().add(subLayout);
 				diagramElementToLayout.put(diagramElement, subLayout);
 			} else if(containedBounds.size() > 1) {
 				Bounds containingBounds = computeContainingBounds(containedBounds);
 				List<DDiagramElement> diagramElements = containedBounds.stream().map(b -> boundsToDiagramElements.get(b)).collect(toList());
-				Layout subLayout = createLayout(containingBounds, 
+				Layout subLayout = createOrReuseLayout(containingBounds, 
 						switchDirection(viewContainerLayout.getDirection()), 
-						null);
+						null,
+						existingLayouts);
 				viewContainerLayout.getOwnedLayouts().add(subLayout);
-				Map<DDiagramElement, Layout> subDiagramElementToLayout = createLayoutCompartments(subLayout, diagramElements);
+				Map<DDiagramElement, Layout> subDiagramElementToLayout = createLayoutCompartments(subLayout, diagramElements, existingLayouts);
 				diagramElementToLayout.putAll(subDiagramElementToLayout);
 			}
 		}
@@ -181,8 +197,14 @@ public class CinematicLayoutServices {
 		return c;
 	}
 
-	private static Layout createLayout(Bounds bounds, LayoutDirection direction, AbstractViewElement viewElement) {
-		Layout layout = ViewFactory.eINSTANCE.createLayout();
+	private static Layout createOrReuseLayout(Bounds bounds, LayoutDirection direction, AbstractViewElement viewElement, Map<AbstractViewElement, Layout> existingLayouts) {
+		Layout layout = null;
+		if(existingLayouts != null) {
+			layout = existingLayouts.get(viewElement);
+		}
+		if(layout == null) {
+			layout = ViewFactory.eINSTANCE.createLayout();
+		}
 		layout.setViewElement(viewElement);
 		layout.setX(bounds.getX());
 		layout.setY(bounds.getY());
