@@ -31,6 +31,7 @@ import org.obeonetwork.dsl.database.reverse.utils.Queries;
 import org.obeonetwork.dsl.typeslibrary.NativeType;
 import org.obeonetwork.dsl.typeslibrary.NativeTypesLibrary;
 import org.obeonetwork.dsl.typeslibrary.TypeInstance;
+import org.osgi.framework.Version;
 
 public class PostGresDataBaseBuilder extends DefaultDataBaseBuilder {
 
@@ -38,11 +39,16 @@ public class PostGresDataBaseBuilder extends DefaultDataBaseBuilder {
 
 	private static final String TYPES_LIBRARY_POSTGRES_FILENAME = "Postgres-9.typeslibrary";
 	
+	private Version version;
+
+	private PostGresStatementBuilder builder;
+	
 	public PostGresDataBaseBuilder(DataSource source,
 			ProgressListener progressListener, Queries queries)
 			throws SQLException {
 		super(source, progressListener, queries);
 		this.setSchemaName(source.getSchemaName());
+		builder = new PostGresStatementBuilder(metaData.getConnection());
 	}
 
 	@Override
@@ -85,22 +91,14 @@ public class PostGresDataBaseBuilder extends DefaultDataBaseBuilder {
 		ResultSet rs = null;
 		PreparedStatement pstmt = null;
 		try {
-			pstmt = metaData
-					.getConnection()
-					.prepareStatement(
-						"SELECT s.SEQUENCE_NAME, s.INCREMENT, s.MINIMUM_VALUE, s.MAXIMUM_VALUE, s.START_VALUE, s.CYCLE_OPTION , pg_catalog.obj_description(c.oid) " +
-						"FROM INFORMATION_SCHEMA.SEQUENCES s " +
-						"LEFT JOIN PG_CATALOG.pg_class c " +
-						"ON c.relname = s.SEQUENCE_NAME " +
-						"AND c.relkind = 'S' " +
-						"WHERE s.SEQUENCE_SCHEMA = '"+ schemaName + "'");
-			
+			pstmt = builder.buildSequenceStatement(schemaName);
+					
 			rs = executeQuery(pstmt);
 			while (rs.next()) {
 				String name = rs.getString(1);
 				BigInteger increment = getBigIntValueForColumn(rs, 2);
 				BigInteger minValue = getBigIntValueForColumn(rs, 3);
-				BigInteger maxValue = getBigIntValueForColumn(rs, 4);
+				BigInteger maxValue = getBigIntValueForColumn(rs, 4); 
 				BigInteger start = getBigIntValueForColumn(rs, 5);
 				String cycleAsString = rs.getString(6);
 				boolean cycle = "YES".equals(cycleAsString);
@@ -109,7 +107,8 @@ public class PostGresDataBaseBuilder extends DefaultDataBaseBuilder {
 				
 				// Retrieve CACHE value
 				BigInteger cacheValue = null;
-				PreparedStatement pstmtCache = metaData.getConnection().prepareStatement("SELECT CACHE_VALUE FROM " + schemaName + "." + name);
+				PreparedStatement pstmtCache = builder.buildSequenceCacheValueStatement(schemaName, name);
+							
 				ResultSet rsCache = executeQuery(pstmtCache);
 				if (rsCache.next()) {
 					cacheValue = getBigIntValueForColumn(rsCache, 1);
@@ -150,16 +149,10 @@ public class PostGresDataBaseBuilder extends DefaultDataBaseBuilder {
 		ResultSet rs = null;
 		PreparedStatement pstmt = null;
 		try {
-			PreparedStatement psmt = metaData.getConnection().prepareStatement(
-					"SELECT tc.constraint_name, pgc.consrc " +
-							"FROM information_schema.table_constraints tc " +
-							"LEFT JOIN pg_catalog.pg_constraint pgc " + 
-							"ON pgc.conname = tc.constraint_name " +
-							"WHERE tc.table_schema = ? and tc.table_name = ? and tc.constraint_type = 'CHECK' and tc.constraint_name not like '%_not_null'");
 			
-			psmt.setString(1, schemaName);
-			psmt.setString(2, table.getName());
-			rs = psmt.executeQuery();
+			pstmt = builder.buildColumnConstraintStatement(schemaName, table.getName());
+			rs = pstmt.executeQuery();
+			
 			while (rs.next()) {					
 				String name = rs.getString(1);
 				String expression = rs.getString(2);
