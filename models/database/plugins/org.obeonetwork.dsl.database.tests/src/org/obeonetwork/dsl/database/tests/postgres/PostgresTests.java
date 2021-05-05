@@ -54,40 +54,19 @@ public class PostgresTests extends AbstractTests {
 	
 	private static final String POSTGRES_DATABASE_MODEL_REFERENCE_PATH = "resources/postgres/";	
 	private static final String JDBC_POSTGRES_URL_PATTERN = "jdbc:postgresql://%1$s:%2$s/%3$s";
-	private static final String POSTGRES_HOST_DEFAULT = "localhost";
+	
+	private static final String POSTGRES_HOST_DEFAULT = "0.0.0.0";
+	
 	private static final String POSTGRES_PORT_DEFAULT = "5432";
 	private static final String POSTGRES_USERNAME_DEFAULT = "postgres";
 	private static final String POSTGRES_PASSWORD_DEFAULT = "password";
 	
-	private final String containerName; 
-	private final String containerImage;
-	
-	/**
-	 * The {@link String} parameter is provided through the {@link Parameterized} JUnit Runner. 
-	 */
-	public PostgresTests(String containerImage) {		
-		this.containerImage = containerImage;
-		this.containerName = containerImage.replace(":", "_"); // container name cannot contain the ':' character, often used in Docker images. 
-	}
-		
-	/**
-	 * {@link https://hub.docker.com/_/postgres}
-	 * @return
-	 */
-	@Parameters( name = "{0}")
-	public static Collection<String> postgreSQLVersions() {
-		return Arrays.asList(	"postgres:9.6-alpine", 
-								"postgres:10.16-alpine",
-								"postgres:11.11-alpine",
-								"postgres:12.6-alpine",
-								"postgres:12.7-alpine",
-								"postgres:13.2-alpine"								
-							);
-	}
-	
-	@Before
-	@Override
-	public void setUpBeforeTest() throws LiquibaseException {
+	private static final String POSTGRES_PASSWORD_DEFAULT = "password";
+
+	@BeforeClass
+	public static void setUpBeforeClass() throws DatabaseException {
+		String url = String.format(JDBC_POSTGRES_URL_PATTERN, POSTGRES_HOST_DEFAULT, POSTGRES_PORT_DEFAULT, DATABASE_NAME_DEFAULT);
+		database = TestUtils.openDatabaseConnection(url, POSTGRES_USERNAME_DEFAULT, POSTGRES_PASSWORD_DEFAULT);
 	}
 	
 	@Test
