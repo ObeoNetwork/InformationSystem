@@ -299,6 +299,13 @@
               <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:self"/>
             </initialOperation>
           </ownedTools>
+          <ownedTools xsi:type="tool:DoubleClickDescription" name="DBL_Nav_To_VVC_Diagram" mappings="//@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='Flow%20Diagram']/@additionalLayers[name='View%20Containers']/@containerMappings[name='FLD_ViewContainer'] //@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='Flow%20Diagram']/@additionalLayers[name='View%20Containers']/@containerMappings[name='FLD_ViewContainer']/@subNodeMappings[name='FLD_ViewContainer']">
+            <element name="element"/>
+            <elementView name="elementView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool:Navigation" createIfNotExistent="true" diagramDescription="//@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='View%20Container%20Diagram']"/>
+            </initialOperation>
+          </ownedTools>
         </toolSections>
       </defaultLayer>
       <additionalLayers name="Flow Events" activeByDefault="true">
@@ -356,8 +363,8 @@
             </centerLabelStyleDescription>
           </style>
         </edgeMappings>
-        <containerMappings name="FLD_ViewContainer" detailDescriptions="//@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='Flow%20Diagram']/@additionalLayers[name='View%20Containers']/@toolSections.1/@ownedTools[name='CRE_UI_Structure']" navigationDescriptions="//@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='Flow%20Diagram']/@additionalLayers[name='View%20Containers']/@toolSections.1/@ownedTools[name='UI%20Structure']" labelDirectEdit="//@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='Reused%20Description']/@toolSection/@ownedTools[name='EDT_Common']" semanticCandidatesExpression="service:getStatesViewContainers" doubleClickDescription="//@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='Flow%20Diagram']/@additionalLayers[name='View%20Containers']/@toolSections.1/@ownedTools[name='DBL_Nav_To_UI_Structure']" domainClass="view.ViewContainer" childrenPresentation="List">
-          <subNodeMappings name="FLD_ViewContainer" semanticCandidatesExpression="feature:ownedElements" domainClass="view.ViewContainer">
+        <containerMappings name="FLD_ViewContainer" detailDescriptions="//@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='Flow%20Diagram']/@additionalLayers[name='View%20Containers']/@toolSections.1/@ownedTools[name='CRE_UI_Structure']" navigationDescriptions="//@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='Flow%20Diagram']/@additionalLayers[name='View%20Containers']/@toolSections.1/@ownedTools[name='UI%20Structure']" labelDirectEdit="//@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='Reused%20Description']/@toolSection/@ownedTools[name='EDT_Common']" semanticCandidatesExpression="service:getStatesViewContainers" doubleClickDescription="//@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='Flow%20Diagram']/@defaultLayer/@toolSections.2/@ownedTools[name='DBL_Nav_To_VVC_Diagram']" domainClass="view.ViewContainer" childrenPresentation="List">
+          <subNodeMappings name="FLD_ViewContainer" semanticCandidatesExpression="feature:ownedElements" doubleClickDescription="//@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='Flow%20Diagram']/@defaultLayer/@toolSections.2/@ownedTools[name='DBL_Nav_To_VVC_Diagram']" domainClass="view.ViewContainer">
             <style xsi:type="style:SquareDescription" labelExpression="service:getCinematicLabel" labelAlignment="LEFT" resizeKind="NSEW">
               <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
               <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
@@ -487,7 +494,7 @@
             <containerVariable/>
             <representationNameVariable/>
           </ownedTools>
-          <ownedTools xsi:type="tool:DoubleClickDescription" name="DBL_Nav_To_UI_Structure" mappings="//@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='Flow%20Diagram']/@additionalLayers[name='View%20Containers']/@containerMappings[name='FLD_ViewContainer']">
+          <ownedTools xsi:type="tool:DoubleClickDescription" name="DBL_Nav_To_UI_Structure">
             <element name="element"/>
             <elementView name="elementView"/>
             <initialOperation>
