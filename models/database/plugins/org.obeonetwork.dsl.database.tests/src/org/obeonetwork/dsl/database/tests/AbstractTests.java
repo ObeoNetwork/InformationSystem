@@ -21,7 +21,7 @@ import liquibase.exception.LiquibaseException;
 
 public abstract class AbstractTests {
 	
-	public static final String DATABASE_NAME_DEFAULT = "northwind";
+	public static final String DATABASE_NAME_DEFAULT = "postgres";
 	protected static Liquibase liquibase;
 	protected static Database database;
 	
