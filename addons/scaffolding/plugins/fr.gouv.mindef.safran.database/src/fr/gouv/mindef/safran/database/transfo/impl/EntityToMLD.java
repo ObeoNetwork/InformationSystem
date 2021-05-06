@@ -22,6 +22,7 @@ import java.util.LinkedHashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
+import java.util.Optional;
 import java.util.Set;
 import java.util.StringTokenizer;
 
@@ -54,6 +55,7 @@ import org.obeonetwork.dsl.environment.DataType;
 import org.obeonetwork.dsl.environment.Enumeration;
 import org.obeonetwork.dsl.environment.EnvironmentPackage;
 import org.obeonetwork.dsl.environment.Literal;
+import org.obeonetwork.dsl.environment.MetaData;
 import org.obeonetwork.dsl.environment.MultiplicityKind;
 import org.obeonetwork.dsl.environment.Namespace;
 import org.obeonetwork.dsl.environment.ObeoDSMObject;
@@ -462,8 +464,22 @@ public class EntityToMLD extends AbstractTransformation {
 		if (joinTable == null) {
 			// The join table does not already exist, we have to create a new one
 			joinTable = DatabaseFactory.eINSTANCE.createTable();
-			sourceTable.getOwner().getTables().add(joinTable);
+			Optional<Annotation> optionalAnnotation = reference.getMetadatas().getMetadatas().stream()
+			.filter(Annotation.class::isInstance)			
+			.map(Annotation.class::cast)
+			.filter(annotation -> "PHYSICAL_NAME".equals(annotation.getTitle()))
+			.findFirst();
 			
+			if (optionalAnnotation.isPresent()) {
+				String targetSchemaName = optionalAnnotation.get().getBody();
+				Schema schema = getSchemaByName(targetSchemaName);
+				if (schema != null) {
+					schema.getTables().add(joinTable);
+					return;
+				}
+			}
+			
+			sourceTable.getOwner().getTables().add(joinTable); //FIXME			
 		}
 		addToOutputTraceability(reference, joinTable);
 		addToOutputTraceability(reference.getOppositeOf(), joinTable);
