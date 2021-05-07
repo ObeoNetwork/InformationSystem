@@ -265,6 +265,42 @@ public class ToolkitsPackageImpl extends EPackageImpl implements ToolkitsPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EAttribute getWidget_MetadataKeys() {
+		return (EAttribute)widgetEClass.getEStructuralFeatures().get(7);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getWidget_MetadataHelp() {
+		return (EAttribute)widgetEClass.getEStructuralFeatures().get(8);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getWidget_Summary() {
+		return (EAttribute)widgetEClass.getEStructuralFeatures().get(9);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getWidget_Documentation() {
+		return (EAttribute)widgetEClass.getEStructuralFeatures().get(10);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getWidgetEventType() {
 		return widgetEventTypeEClass;
 	}
@@ -444,6 +480,10 @@ public class ToolkitsPackageImpl extends EPackageImpl implements ToolkitsPackage
 		createEReference(widgetEClass, WIDGET__POSSIBLE_EVENTS);
 		createEAttribute(widgetEClass, WIDGET__IS_CONTAINER);
 		createEReference(widgetEClass, WIDGET__STYLE);
+		createEAttribute(widgetEClass, WIDGET__METADATA_KEYS);
+		createEAttribute(widgetEClass, WIDGET__METADATA_HELP);
+		createEAttribute(widgetEClass, WIDGET__SUMMARY);
+		createEAttribute(widgetEClass, WIDGET__DOCUMENTATION);
 
 		widgetEventTypeEClass = createEClass(WIDGET_EVENT_TYPE);
 		createEAttribute(widgetEventTypeEClass, WIDGET_EVENT_TYPE__NAME);
@@ -514,6 +554,10 @@ public class ToolkitsPackageImpl extends EPackageImpl implements ToolkitsPackage
 		initEReference(getWidget_PossibleEvents(), this.getWidgetEventType(), null, "possibleEvents", null, 0, -1, Widget.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getWidget_IsContainer(), ecorePackage.getEBoolean(), "isContainer", null, 0, 1, Widget.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getWidget_Style(), this.getStyle(), null, "style", null, 0, 1, Widget.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getWidget_MetadataKeys(), ecorePackage.getEString(), "metadataKeys", null, 0, -1, Widget.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getWidget_MetadataHelp(), ecorePackage.getEString(), "metadataHelp", null, 0, 1, Widget.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getWidget_Summary(), ecorePackage.getEString(), "summary", null, 0, 1, Widget.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getWidget_Documentation(), ecorePackage.getEString(), "documentation", null, 0, 1, Widget.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(widgetEventTypeEClass, WidgetEventType.class, "WidgetEventType", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getWidgetEventType_Name(), ecorePackage.getEString(), "name", null, 1, 1, WidgetEventType.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

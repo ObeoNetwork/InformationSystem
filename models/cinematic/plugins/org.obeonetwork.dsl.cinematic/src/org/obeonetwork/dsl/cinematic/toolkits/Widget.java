@@ -29,6 +29,10 @@ import org.obeonetwork.dsl.technicalid.Identifiable;
  *   <li>{@link org.obeonetwork.dsl.cinematic.toolkits.Widget#getPossibleEvents <em>Possible Events</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.cinematic.toolkits.Widget#isIsContainer <em>Is Container</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.cinematic.toolkits.Widget#getStyle <em>Style</em>}</li>
+ *   <li>{@link org.obeonetwork.dsl.cinematic.toolkits.Widget#getMetadataKeys <em>Metadata Keys</em>}</li>
+ *   <li>{@link org.obeonetwork.dsl.cinematic.toolkits.Widget#getMetadataHelp <em>Metadata Help</em>}</li>
+ *   <li>{@link org.obeonetwork.dsl.cinematic.toolkits.Widget#getSummary <em>Summary</em>}</li>
+ *   <li>{@link org.obeonetwork.dsl.cinematic.toolkits.Widget#getDocumentation <em>Documentation</em>}</li>
  * </ul>
  *
  * @see org.obeonetwork.dsl.cinematic.toolkits.ToolkitsPackage#getWidget()
@@ -223,5 +227,83 @@ public interface Widget extends Identifiable {
 	 * @generated
 	 */
 	void setStyle(Style value);
+
+	/**
+	 * Returns the value of the '<em><b>Metadata Keys</b></em>' attribute list.
+	 * The list contents are of type {@link java.lang.String}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Metadata Keys</em>' attribute list.
+	 * @see org.obeonetwork.dsl.cinematic.toolkits.ToolkitsPackage#getWidget_MetadataKeys()
+	 * @model
+	 * @generated
+	 */
+	EList<String> getMetadataKeys();
+
+	/**
+	 * Returns the value of the '<em><b>Metadata Help</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Metadata Help</em>' attribute.
+	 * @see #setMetadataHelp(String)
+	 * @see org.obeonetwork.dsl.cinematic.toolkits.ToolkitsPackage#getWidget_MetadataHelp()
+	 * @model
+	 * @generated
+	 */
+	String getMetadataHelp();
+
+	/**
+	 * Sets the value of the '{@link org.obeonetwork.dsl.cinematic.toolkits.Widget#getMetadataHelp <em>Metadata Help</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Metadata Help</em>' attribute.
+	 * @see #getMetadataHelp()
+	 * @generated
+	 */
+	void setMetadataHelp(String value);
+
+	/**
+	 * Returns the value of the '<em><b>Summary</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Summary</em>' attribute.
+	 * @see #setSummary(String)
+	 * @see org.obeonetwork.dsl.cinematic.toolkits.ToolkitsPackage#getWidget_Summary()
+	 * @model
+	 * @generated
+	 */
+	String getSummary();
+
+	/**
+	 * Sets the value of the '{@link org.obeonetwork.dsl.cinematic.toolkits.Widget#getSummary <em>Summary</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Summary</em>' attribute.
+	 * @see #getSummary()
+	 * @generated
+	 */
+	void setSummary(String value);
+
+	/**
+	 * Returns the value of the '<em><b>Documentation</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Documentation</em>' attribute.
+	 * @see #setDocumentation(String)
+	 * @see org.obeonetwork.dsl.cinematic.toolkits.ToolkitsPackage#getWidget_Documentation()
+	 * @model
+	 * @generated
+	 */
+	String getDocumentation();
+
+	/**
+	 * Sets the value of the '{@link org.obeonetwork.dsl.cinematic.toolkits.Widget#getDocumentation <em>Documentation</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Documentation</em>' attribute.
+	 * @see #getDocumentation()
+	 * @generated
+	 */
+	void setDocumentation(String value);
 
 } // Widget

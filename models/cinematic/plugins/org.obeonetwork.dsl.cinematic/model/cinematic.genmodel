@@ -147,6 +147,10 @@
         <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference cinematic.ecore#//toolkits/Widget/possibleEvents"/>
         <genFeatures createChild="false" ecoreFeature="ecore:EAttribute cinematic.ecore#//toolkits/Widget/isContainer"/>
         <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference cinematic.ecore#//toolkits/Widget/style"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute cinematic.ecore#//toolkits/Widget/metadataKeys"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute cinematic.ecore#//toolkits/Widget/metadataHelp"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute cinematic.ecore#//toolkits/Widget/summary"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute cinematic.ecore#//toolkits/Widget/documentation"/>
       </genClasses>
       <genClasses ecoreClass="cinematic.ecore#//toolkits/WidgetEventType">
         <genFeatures createChild="false" ecoreFeature="ecore:EAttribute cinematic.ecore#//toolkits/WidgetEventType/name"/>

@@ -210,7 +210,7 @@ public class ViewItemProviderAdapterFactory extends ViewAdapterFactory implement
 	@Override
 	public Adapter createLayoutAdapter() {
 		if (layoutItemProvider == null) {
-			layoutItemProvider = new LayoutItemProviderSpec(this);
+			layoutItemProvider = new LayoutItemProvider(this);
 		}
 
 		return layoutItemProvider;
