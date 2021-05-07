@@ -50,5 +50,5 @@ public class CinematicVCDLabelServices {
 		
 		return getVCDLabel(viewContainerReference.getViewContainer());
 	}
-	
+		
 }

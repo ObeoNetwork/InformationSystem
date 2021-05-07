@@ -498,7 +498,7 @@ public class CinematicWidgetServices extends DebugServices {
 				copier.copyReferences();
 				ContainerCreationDescription anotherCreationTool = (ContainerCreationDescription) copier.get(viewElementCreationToolPrototype);
 				applyStringPattern(anotherCreationTool, "{{widget}}", widget.getName());				
-				anotherCreationTool.setDocumentation(widget.getDocumentation());
+				anotherCreationTool.setDocumentation(widget.getSummary());
 				toolSection.getOwnedTools().add(anotherCreationTool);
 			}
 
@@ -525,7 +525,7 @@ public class CinematicWidgetServices extends DebugServices {
 				copier.copyReferences();
 				ContainerCreationDescription anotherCreationTool = (ContainerCreationDescription) copier.get(viewContainerCreationToolPrototype);
 				applyStringPattern(anotherCreationTool, "{{container}}", widget.getName());
-				anotherCreationTool.setDocumentation(widget.getDocumentation());
+				anotherCreationTool.setDocumentation(widget.getSummary());
 				toolSection.getOwnedTools().add(anotherCreationTool);
 			}
 

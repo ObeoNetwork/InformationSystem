@@ -1503,6 +1503,7 @@
       <pages name="ViewElement Page" labelExpression="ViewElement" domainClass="view::ViewElement" semanticCandidateExpression="var:self" groups="//@extensions.0/@categories.1/@groups.3"/>
       <pages name="ViewContainer Page" labelExpression="ViewContainer" domainClass="view::ViewContainer" semanticCandidateExpression="var:self" groups="//@extensions.0/@categories.1/@groups.4"/>
       <pages name="ViewContainerReference Page" labelExpression="ViewContainerReference" domainClass="view::ViewContainerReference" semanticCandidateExpression="var:self" groups="//@extensions.0/@categories.1/@groups.5"/>
+      <pages name="Help Page" labelExpression="Help" domainClass="view::AbstractViewElement" semanticCandidateExpression="var:self" groups="//@extensions.0/@categories.1/@groups.6"/>
       <groups name="AbstractViewElement Group" documentation="The goal of this group is to hold widget that are meant to be extended by other widget like ViewElement Group, ViewContainer Group and ViewContainerReference Group." domainClass="view::AbstractViewElement">
         <controls xsi:type="properties:TextDescription" name="view::AbstractViewElement name" labelExpression="aql:input.emfEditServices(self).getText(self.eClass().getEStructuralFeature('name')) + ':'" helpExpression="aql:input.emfEditServices(self).getDescription(self.eClass().getEStructuralFeature('name'))" isEnabledExpression="aql:self.eClass().getEStructuralFeature('name').changeable" valueExpression="aql:self.name">
           <initialOperation>
@@ -1685,6 +1686,13 @@
         <controls xsi:type="properties:CustomDescription" name="org.obeonetwork.is.eef.custom.reference" label="view::ViewContainerReference actions" extends="//@extensions.0/@categories.1/@groups.0/@controls.3"/>
         <controls xsi:type="properties:CustomDescription" name="org.obeonetwork.is.eef.custom.reference" label="view::ViewContainerReference events" extends="//@extensions.0/@categories.1/@groups.0/@controls.4"/>
         <controls xsi:type="properties:TextAreaDescription" name="view::ViewContainerReference description" extends="//@extensions.0/@categories.1/@groups.0/@controls.5"/>
+      </groups>
+      <groups name="Documentation group" labelExpression="Help" domainClass="AbstractViewElement" semanticCandidateExpression="var:self">
+        <controls xsi:type="properties:TextAreaDescription" name="MetadataHelp" isEnabledExpression="aql:false" valueExpression="aql:self.widget.documentation">
+          <initialOperation>
+            <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:self"/>
+          </initialOperation>
+        </controls>
       </groups>
     </categories>
     <categories name="Flow">
