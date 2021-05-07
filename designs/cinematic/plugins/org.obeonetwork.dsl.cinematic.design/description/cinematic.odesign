@@ -66,12 +66,14 @@
           </borderedNodeMappings>
           <style xsi:type="style:WorkspaceImageDescription" labelSize="10" sizeComputationExpression="-1" labelPosition="node" resizeKind="NSEW" arcWidth="1" arcHeight="1" workspacePath="/org.obeonetwork.dsl.cinematic.design/icons/viewpoint/state.svg">
             <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            <labelFormat>bold</labelFormat>
             <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
           </style>
         </nodeMappings>
         <nodeMappings name="FLD_ActionState" labelDirectEdit="//@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='Reused%20Description']/@toolSection/@ownedTools[name='EDT_Common']" semanticCandidatesExpression="feature:states" domainClass="flow.ActionState">
           <style xsi:type="style:WorkspaceImageDescription" labelSize="10" showIcon="false" sizeComputationExpression="-1" resizeKind="NSEW" arcWidth="1" arcHeight="1" workspacePath="/org.obeonetwork.dsl.cinematic.design/icons/viewpoint/action.svg">
             <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            <labelFormat>bold</labelFormat>
             <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
           </style>
         </nodeMappings>
@@ -84,6 +86,7 @@
         <nodeMappings name="FLD_SubflowState" detailDescriptions="//@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='Flow%20Diagram']/@defaultLayer/@toolSections.2/@ownedTools[name='CRE_Subflow_Diagram']" navigationDescriptions="//@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='Flow%20Diagram']/@defaultLayer/@toolSections.2/@ownedTools[name='Subflow%20Diagram']" labelDirectEdit="//@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='Reused%20Description']/@toolSection/@ownedTools[name='EDT_Common']" semanticCandidatesExpression="feature:states" doubleClickDescription="//@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='Flow%20Diagram']/@defaultLayer/@toolSections.2/@ownedTools[name='DBL_Nav_To_SubFlow_Diagram']" domainClass="flow.SubflowState">
           <style xsi:type="style:WorkspaceImageDescription" labelSize="10" sizeComputationExpression="-1" labelPosition="node" resizeKind="NSEW" arcWidth="1" arcHeight="1" workspacePath="/org.obeonetwork.dsl.cinematic.design/icons/viewpoint/state.svg">
             <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            <labelFormat>bold</labelFormat>
             <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
           </style>
         </nodeMappings>
@@ -330,6 +333,7 @@
           </subNodeMappings>
           <style xsi:type="style:FlatContainerStyleDescription" arcWidth="1" arcHeight="1" borderSizeComputationExpression="1" labelSize="10" labelExpression="Flow Events">
             <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            <labelFormat>bold</labelFormat>
             <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
             <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_gray']"/>
             <foregroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
@@ -398,6 +402,7 @@
           </subNodeMappings>
           <style xsi:type="style:FlatContainerStyleDescription" arcWidth="1" arcHeight="1" borderSizeComputationExpression="1" labelSize="10" labelExpression="service:getCinematicLabel">
             <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            <labelFormat>bold</labelFormat>
             <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
             <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_orange']"/>
             <foregroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
