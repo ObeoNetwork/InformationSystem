@@ -46,18 +46,25 @@ import org.eclipse.swt.graphics.Image;
 import org.eclipse.swt.graphics.RGB;
 import org.eclipse.swt.widgets.Display;
 import org.obeonetwork.dsl.cinematic.CinematicElement;
+import org.obeonetwork.dsl.cinematic.CinematicFactory;
+import org.obeonetwork.dsl.cinematic.CinematicPackage;
 import org.obeonetwork.dsl.cinematic.CinematicRoot;
 import org.obeonetwork.dsl.cinematic.design.ICinematicViewpoint;
 import org.obeonetwork.dsl.cinematic.design.decorators.SVGImageFigure;
 import org.obeonetwork.dsl.cinematic.toolkits.CardinalPosition;
 import org.obeonetwork.dsl.cinematic.toolkits.Style;
 import org.obeonetwork.dsl.cinematic.toolkits.Toolkit;
+import org.obeonetwork.dsl.cinematic.toolkits.ToolkitsFactory;
 import org.obeonetwork.dsl.cinematic.toolkits.Widget;
 import org.obeonetwork.dsl.cinematic.toolkits.WidgetEventType;
 import org.obeonetwork.dsl.cinematic.view.AbstractViewElement;
 import org.obeonetwork.dsl.cinematic.view.ViewContainer;
 import org.obeonetwork.dsl.cinematic.view.ViewContainerReference;
 import org.obeonetwork.dsl.cinematic.view.ViewElement;
+import org.obeonetwork.dsl.environment.Annotation;
+import org.obeonetwork.dsl.environment.EnvironmentFactory;
+import org.obeonetwork.dsl.environment.MetaData;
+import org.obeonetwork.dsl.environment.MetaDataContainer;
 import org.obeonetwork.dsl.environment.design.ui.RGBSystemColorUtil;
 import org.obeonetwork.utils.common.StreamUtils;
 import org.obeonetwork.utils.common.StringUtils;
@@ -546,6 +553,28 @@ public class CinematicWidgetServices extends DebugServices {
 		}
 		eObject.eContents().forEach(e -> applyStringPattern(e, pattern, replacement));
 		
+	}
+	
+	public MetaDataContainer getWidgetMetadatas(EObject eObject) {
+		MetaDataContainer metaDataContainer = null;
+		if (eObject instanceof AbstractViewElement) {
+			if (((AbstractViewElement) eObject).getMetadatas() == null) {
+				metaDataContainer = EnvironmentFactory.eINSTANCE.createMetaDataContainer();				
+			} else {
+				metaDataContainer = ((AbstractViewElement) eObject).getMetadatas();
+			}
+			
+			Widget widget = ((AbstractViewElement) eObject).getWidget();
+			if (widget != null) {
+				for (String metadataKey : widget.getMetadataKeys()) {
+					Annotation annotation = EnvironmentFactory.eINSTANCE.createAnnotation();
+					annotation.setTitle(metadataKey);
+					metaDataContainer.getMetadatas().add(annotation);
+				}
+			}
+		}
+		
+		return metaDataContainer;
 	}
 
 }

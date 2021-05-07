@@ -747,6 +747,7 @@
               <subModelOperations xsi:type="tool_1:CreateInstance" typeName="view.ViewContainer" referenceName="viewContainers">
                 <subModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="['ViewContainer' + eContainer(cinematic::AbstractPackage).viewContainers->size()/]"/>
                 <subModelOperations xsi:type="tool_1:SetValue" featureName="widget" valueExpression="service:getWidgetHavePropertyIsContainer(selectedType)"/>
+                <subModelOperations xsi:type="tool_1:SetValue" featureName="metadatas" valueExpression="service:getWidgetMetadatas()"/>
               </subModelOperations>
             </firstModelOperation>
             <variables name="root" documentation="The semantic element of the tree."/>
@@ -798,6 +799,7 @@
                 <subModelOperations xsi:type="tool_1:CreateInstance" typeName="view.ViewContainer" referenceName="ownedElements">
                   <subModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="['ViewContainer'+eContainer(cinematic::view::ViewContainer).viewContainers->size()/]"/>
                   <subModelOperations xsi:type="tool_1:SetValue" featureName="widget" valueExpression="service:getWidgetHavePropertyIsContainer(selectedType)"/>
+                  <subModelOperations xsi:type="tool_1:SetValue" featureName="metadatas" valueExpression="service:getWidgetMetadatas()"/>
                 </subModelOperations>
               </firstModelOperation>
               <variables name="root" documentation="The semantic element of the tree."/>
@@ -812,6 +814,7 @@
                 <subModelOperations xsi:type="tool_1:CreateInstance" typeName="view.ViewElement" referenceName="ownedElements">
                   <subModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="['viewElement'+eContainer(cinematic::view::ViewContainer).ownedElements->filter(cinematic::view::ViewElement)->size()/]"/>
                   <subModelOperations xsi:type="tool_1:SetValue" featureName="widget" valueExpression="[getWidgetHavePropertyIsNotContainer(selectedType)/]"/>
+                  <subModelOperations xsi:type="tool_1:SetValue" featureName="metadatas" valueExpression="service:getWidgetMetadatas()"/>
                 </subModelOperations>
               </firstModelOperation>
               <variables name="root" documentation="The semantic element of the tree."/>
@@ -1072,6 +1075,7 @@
               <subModelOperations xsi:type="tool_1:CreateInstance" typeName="view.ViewContainer" referenceName="ownedElements">
                 <subModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="['ViewContainer'+eContainer(cinematic::view::ViewContainer).viewContainers->size()/]"/>
                 <subModelOperations xsi:type="tool_1:SetValue" featureName="widget" valueExpression="service:getWidgetHavePropertyIsContainer(selectedType)"/>
+                <subModelOperations xsi:type="tool_1:SetValue" featureName="metadatas" valueExpression="service:getWidgetMetadatas()"/>
               </subModelOperations>
             </firstModelOperation>
             <variables name="root" documentation="The semantic element of the tree."/>
@@ -1086,6 +1090,7 @@
               <subModelOperations xsi:type="tool_1:CreateInstance" typeName="view.ViewElement" referenceName="ownedElements">
                 <subModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="['viewElement'+eContainer(cinematic::view::ViewContainer).ownedElements->filter(cinematic::view::ViewElement)->size()/]"/>
                 <subModelOperations xsi:type="tool_1:SetValue" featureName="widget" valueExpression="[getWidgetHavePropertyIsNotContainer(selectedType)/]"/>
+                <subModelOperations xsi:type="tool_1:SetValue" featureName="metadatas" valueExpression="service:getWidgetMetadatas()"/>
               </subModelOperations>
             </firstModelOperation>
             <variables name="root" documentation="The semantic element of the tree."/>
@@ -1191,6 +1196,7 @@
             <subModelOperations xsi:type="tool_1:CreateInstance" typeName="view.ViewContainer" referenceName="viewContainers">
               <subModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="['ViewContainer' + eContainer(cinematic::AbstractPackage).viewContainers->size()/]"/>
               <subModelOperations xsi:type="tool_1:SetValue" featureName="widget" valueExpression="service:getWidgetHavePropertyIsContainer(selectedType)"/>
+              <subModelOperations xsi:type="tool_1:SetValue" featureName="metadatas" valueExpression="service:getWidgetMetadatas()"/>
             </subModelOperations>
           </firstModelOperation>
           <variables name="root" documentation="The semantic element of the tree."/>
