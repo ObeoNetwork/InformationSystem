@@ -1249,24 +1249,6 @@
             <labelBorderStyle href="environment:/viewpoint#//@labelBorderStyles/@labelBorderStyleDescriptions.1"/>
           </style>
         </containerMappings>
-        <toolSections name="Widgets">
-          <ownedTools xsi:type="tool:ContainerCreationDescription" name="CRE_ViewElement{{widget}}" label="{{widget}}" containerMappings="//@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='View%20Container%20Diagram']/@defaultLayer/@containerMappings[name='VCD_RootViewContainer']/@subContainerMappings[name='VCD_ViewElement']" iconPath="/org.obeonetwork.dsl.cinematic/icons/{{widget}}.gif">
-            <variable name="container"/>
-            <viewVariable name="containerView"/>
-            <initialOperation>
-              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:container">
-                <subModelOperations xsi:type="tool_1:CreateInstance" typeName="view::ViewElement" referenceName="ownedElements">
-                  <subModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="aql:'viewElement'+self.eContainer(view::ViewContainer).ownedElements->filter(view::ViewElement)->size()"/>
-                  <subModelOperations xsi:type="tool_1:SetValue" featureName="widget" valueExpression="aql:self.getWidgetByName('{{widget}}')"/>
-                  <subModelOperations xsi:type="tool_1:SetValue" featureName="metadatas" valueExpression="service:getWidgetMetadatas()"/>
-                  <subModelOperations xsi:type="tool:CreateView" mapping="//@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='View%20Container%20Diagram']/@defaultLayer/@containerMappings[name='VCD_RootViewContainer']/@subContainerMappings[name='VCD_ViewElement']" containerViewExpression="var:containerView">
-                    <subModelOperations xsi:type="tool_1:ChangeContext" browseExpression="aql:createdView.setDefaultSize()"/>
-                  </subModelOperations>
-                </subModelOperations>
-              </firstModelOperations>
-            </initialOperation>
-          </ownedTools>
-        </toolSections>
         <toolSections name="Containers">
           <ownedTools xsi:type="tool:ContainerCreationDescription" name="CRE_ViewContainer{{container}}" label="{{container}}" containerMappings="//@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='View%20Container%20Diagram']/@defaultLayer/@containerMappings[name='VCD_RootViewContainer']/@subContainerMappings[name='VCD_ViewContainer']" iconPath="/org.obeonetwork.dsl.cinematic/icons/{{container}}.gif">
             <variable name="container"/>
@@ -1278,6 +1260,24 @@
                   <subModelOperations xsi:type="tool_1:SetValue" featureName="widget" valueExpression="aql:self.getWidgetByName('{{container}}')"/>
                   <subModelOperations xsi:type="tool_1:SetValue" featureName="metadatas" valueExpression="service:getWidgetMetadatas()"/>
                   <subModelOperations xsi:type="tool:CreateView" mapping="//@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='View%20Container%20Diagram']/@defaultLayer/@containerMappings[name='VCD_RootViewContainer']/@subContainerMappings[name='VCD_ViewContainer']" containerViewExpression="var:containerView">
+                    <subModelOperations xsi:type="tool_1:ChangeContext" browseExpression="aql:createdView.setDefaultSize()"/>
+                  </subModelOperations>
+                </subModelOperations>
+              </firstModelOperations>
+            </initialOperation>
+          </ownedTools>
+        </toolSections>
+        <toolSections name="Widgets">
+          <ownedTools xsi:type="tool:ContainerCreationDescription" name="CRE_ViewElement{{widget}}" label="{{widget}}" containerMappings="//@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='View%20Container%20Diagram']/@defaultLayer/@containerMappings[name='VCD_RootViewContainer']/@subContainerMappings[name='VCD_ViewElement']" iconPath="/org.obeonetwork.dsl.cinematic/icons/{{widget}}.gif">
+            <variable name="container"/>
+            <viewVariable name="containerView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:container">
+                <subModelOperations xsi:type="tool_1:CreateInstance" typeName="view::ViewElement" referenceName="ownedElements">
+                  <subModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="aql:'viewElement'+self.eContainer(view::ViewContainer).ownedElements->filter(view::ViewElement)->size()"/>
+                  <subModelOperations xsi:type="tool_1:SetValue" featureName="widget" valueExpression="aql:self.getWidgetByName('{{widget}}')"/>
+                  <subModelOperations xsi:type="tool_1:SetValue" featureName="metadatas" valueExpression="service:getWidgetMetadatas()"/>
+                  <subModelOperations xsi:type="tool:CreateView" mapping="//@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='View%20Container%20Diagram']/@defaultLayer/@containerMappings[name='VCD_RootViewContainer']/@subContainerMappings[name='VCD_ViewElement']" containerViewExpression="var:containerView">
                     <subModelOperations xsi:type="tool_1:ChangeContext" browseExpression="aql:createdView.setDefaultSize()"/>
                   </subModelOperations>
                 </subModelOperations>
