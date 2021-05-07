@@ -174,4 +174,10 @@
         </Priority>
      </editpartProvider>
   </extension>
+  <extension
+        point="org.obeonetwork.dsl.environment.properties.metadataHelpProvider">
+     <metadatadescription
+           class="org.obeonetwork.dsl.cinematic.design.extension.AbstractViewElementMetadataProvider">
+     </metadatadescription>
+  </extension>
 </plugin>

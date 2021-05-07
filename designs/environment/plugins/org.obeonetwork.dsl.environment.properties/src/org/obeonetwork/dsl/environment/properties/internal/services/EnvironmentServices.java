@@ -10,12 +10,42 @@
  *******************************************************************************/
 package org.obeonetwork.dsl.environment.properties.internal.services;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+
+import org.eclipse.core.runtime.CoreException;
+import org.eclipse.core.runtime.IConfigurationElement;
+import org.eclipse.core.runtime.Platform;
 import org.eclipse.emf.ecore.EObject;
 import org.obeonetwork.dsl.environment.EnvironmentFactory;
 import org.obeonetwork.dsl.environment.MetaDataContainer;
 import org.obeonetwork.dsl.environment.ObeoDSMObject;
+import org.obeonetwork.dsl.environment.properties.providers.IMetaDataHelpProvider;
 
+/**
+ * Services for environment models
+ * 
+ * @author <a href="mailto:thibault.beziers-la-fosse@obeo.fr">Thibault Béziers la Fosse</a>
+ */
 public class EnvironmentServices {
+	
+	static final List<IMetaDataHelpProvider> METADATA_HELP_PROVIDERS = new ArrayList<>();
+	
+	static {				
+		IConfigurationElement[] config =
+				 Platform.getExtensionRegistry().getConfigurationElementsFor("org.obeonetwork.dsl.environment.properties.metadataHelpProvider");		
+		Arrays.asList(config).forEach(configurationElement -> {
+			try {
+				final Object object = configurationElement.createExecutableExtension("class");
+				if (object instanceof IMetaDataHelpProvider) {
+					METADATA_HELP_PROVIDERS.add((IMetaDataHelpProvider) object);
+				}
+			} catch (CoreException | ClassCastException e) {			
+				e.printStackTrace();
+			}
+		});
+	}
 	
 	public MetaDataContainer getMetadataContainer(EObject self) {
 		MetaDataContainer metadatas = null;
@@ -27,5 +57,19 @@ public class EnvironmentServices {
 			}
 		}
 		return metadatas;
+	}
+	
+	/**
+	 * Return a help label to display in the metadata tooltip, as provided by a {@link MetaDataExtension} 
+	 * @param self an {@link ObeoDSMObject} 
+	 * @return a {@link String} to be displayed as a tooltip, in the 'metadatas' view property. 
+	 */
+	public String getMetadatasHelpExpression(ObeoDSMObject self) {
+		return METADATA_HELP_PROVIDERS
+				.stream()
+				.map(provider -> provider.getHelpMessage(self))
+				.filter(s -> s != null && !s.isEmpty())
+				.findAny()
+				.orElse(null);
 	}
 }

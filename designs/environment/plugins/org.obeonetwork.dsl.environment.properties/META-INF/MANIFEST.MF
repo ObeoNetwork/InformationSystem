@@ -27,4 +27,5 @@ Bundle-ActivationPolicy: lazy
 Bundle-RequiredExecutionEnvironment: JavaSE-1.8
 Bundle-Vendor: Obeo Network
 Automatic-Module-Name: org.obeonetwork.dsl.environment.properties
-Export-Package: org.obeonetwork.dsl.environment.properties
+Export-Package: org.obeonetwork.dsl.environment.properties,
+ org.obeonetwork.dsl.environment.properties.providers

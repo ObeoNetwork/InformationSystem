@@ -1250,7 +1250,7 @@
           </style>
         </containerMappings>
         <toolSections name="Containers">
-          <ownedTools xsi:type="tool:ContainerCreationDescription" name="CRE_ViewContainer{{container}}" label="{{container}}" containerMappings="//@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='View%20Container%20Diagram']/@defaultLayer/@containerMappings[name='VCD_RootViewContainer']/@subContainerMappings[name='VCD_ViewContainer']" iconPath="/org.obeonetwork.dsl.cinematic/icons/{{container}}.gif">
+          <ownedTools xsi:type="tool:ContainerCreationDescription" documentation="container documentation" name="CRE_ViewContainer{{container}}" label="{{container}}" containerMappings="//@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='View%20Container%20Diagram']/@defaultLayer/@containerMappings[name='VCD_RootViewContainer']/@subContainerMappings[name='VCD_ViewContainer']" iconPath="/org.obeonetwork.dsl.cinematic/icons/{{container}}.gif">
             <variable name="container"/>
             <viewVariable name="containerView"/>
             <initialOperation>
