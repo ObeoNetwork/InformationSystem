@@ -205,12 +205,12 @@ public class ViewItemProviderAdapterFactory extends ViewAdapterFactory implement
 	 * This creates an adapter for a {@link org.obeonetwork.dsl.cinematic.view.Layout}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	@Override
 	public Adapter createLayoutAdapter() {
 		if (layoutItemProvider == null) {
-			layoutItemProvider = new LayoutItemProvider(this);
+			layoutItemProvider = new LayoutItemProviderSpec(this);
 		}
 
 		return layoutItemProvider;

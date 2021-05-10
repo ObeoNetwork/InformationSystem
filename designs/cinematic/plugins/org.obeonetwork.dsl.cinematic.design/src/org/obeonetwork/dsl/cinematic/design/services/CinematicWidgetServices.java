@@ -391,7 +391,7 @@ public class CinematicWidgetServices extends DebugServices {
 		String path = getWidgetDecoratorPath(viewElement, cardinalPosition);
 		if(style != null && path != null) {
 			
-			Bounds bounds = CinematicLayoutServices.getBounds(diagramElement);
+			Bounds bounds = (Bounds) SiriusGMFHelper.getGmfNode(diagramElement).getLayoutConstraint();
 //			ContainerStyle containerStyle = (ContainerStyle) diagramElement.getStyle();
 //			int borderThickness = (style.isBorder())? containerStyle.getBorderSize() : 0;
 			int borderThickness = 4; // Seems to be the working value in any case

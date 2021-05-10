@@ -13,12 +13,13 @@ import java.util.Queue;
 import java.util.Set;
 
 import org.eclipse.core.runtime.NullProgressMonitor;
+import org.eclipse.draw2d.geometry.PrecisionRectangle;
+import org.eclipse.draw2d.geometry.Rectangle;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.gmf.runtime.notation.Bounds;
 import org.eclipse.gmf.runtime.notation.Diagram;
 import org.eclipse.gmf.runtime.notation.Node;
-import org.eclipse.gmf.runtime.notation.NotationFactory;
 import org.eclipse.sirius.business.api.dialect.DialectManager;
 import org.eclipse.sirius.diagram.DDiagram;
 import org.eclipse.sirius.diagram.DDiagramElement;
@@ -27,13 +28,16 @@ import org.eclipse.sirius.diagram.business.api.query.DDiagramQuery;
 import org.eclipse.sirius.diagram.business.api.refresh.CanonicalSynchronizer;
 import org.eclipse.sirius.diagram.business.api.refresh.CanonicalSynchronizerFactory;
 import org.eclipse.sirius.diagram.ui.business.api.view.SiriusGMFHelper;
+import org.eclipse.sirius.diagram.ui.internal.refresh.GMFHelper;
 import org.obeonetwork.dsl.cinematic.view.AbstractViewElement;
 import org.obeonetwork.dsl.cinematic.view.Layout;
 import org.obeonetwork.dsl.cinematic.view.LayoutDirection;
 import org.obeonetwork.dsl.cinematic.view.ViewContainer;
 import org.obeonetwork.dsl.cinematic.view.ViewFactory;
 import org.obeonetwork.utils.common.StreamUtils;
+import org.obeonetwork.utils.sirius.services.EObjectUtils;
 
+@SuppressWarnings("restriction")
 public class CinematicLayoutServices {
 
 	public static Layout extractLayout(DDiagram viewContainerDDiagram) {
@@ -59,7 +63,7 @@ public class CinematicLayoutServices {
 		
 		allLayouts.forEach(l -> EcoreUtil.remove(l));
 		
-		Bounds viewContainerBounds = getBounds(rootDNC);
+		Rectangle viewContainerBounds = computeGmfBounds(rootDNC);
 		
 		Layout viewContainerLayout = createOrReuseLayout(viewContainerBounds, LayoutDirection.VERTICAL, viewContainer, existingLayouts);
 		
@@ -82,16 +86,28 @@ public class CinematicLayoutServices {
 	private static Map<DDiagramElement, Layout> createLayoutCompartments(Layout viewContainerLayout, List<DDiagramElement> ownedDiagramElements, Map<AbstractViewElement, Layout> existingLayouts) {
 		Map<DDiagramElement, Layout> diagramElementToLayout = new HashMap<>();
 		
-		Map<Bounds, DDiagramElement> boundsToDiagramElements = new HashMap<>();
-		ownedDiagramElements.forEach(dde -> boundsToDiagramElements.put(getBounds(dde), dde));
+		if(EObjectUtils.getAncestors(viewContainerLayout).stream()
+				.filter(Layout.class::isInstance).map(Layout.class::cast)
+				.anyMatch(l -> 
+					l.getX() == viewContainerLayout.getX() &&
+					l.getY() == viewContainerLayout.getY() &&
+					l.getWidth() == viewContainerLayout.getWidth() &&
+					l.getHeight() == viewContainerLayout.getHeight())) {
+			// TODO Manage this exception case properly
+			System.out.println("Something went wrong extracting the layout");
+			return diagramElementToLayout;
+		}
+		
+		Map<Rectangle, DDiagramElement> boundsToDiagramElements = new HashMap<>();
+		ownedDiagramElements.forEach(dde -> boundsToDiagramElements.put(computeGmfBounds(dde), dde));
 		
 		List<Integer> transversals = getTransversals(viewContainerLayout.getDirection(), boundsToDiagramElements.keySet());
 		for(int i = 0; i < transversals.size() - 1; i++) {
 			int t1 = transversals.get(i);
 			int t2 = transversals.get(i + 1);
-			List<Bounds> containedBounds = getContainedBounds(t1, t2, viewContainerLayout.getDirection(), boundsToDiagramElements.keySet());
+			List<Rectangle> containedBounds = getContainedBounds(t1, t2, viewContainerLayout.getDirection(), boundsToDiagramElements.keySet());
 			if(containedBounds.size() == 1) {
-				Bounds bounds = containedBounds.get(0);
+				Rectangle bounds = containedBounds.get(0);
 				DDiagramElement diagramElement = boundsToDiagramElements.get(bounds);
 				Layout subLayout = createOrReuseLayout(bounds, 
 						switchDirection(viewContainerLayout.getDirection()), 
@@ -100,7 +116,7 @@ public class CinematicLayoutServices {
 				viewContainerLayout.getOwnedLayouts().add(subLayout);
 				diagramElementToLayout.put(diagramElement, subLayout);
 			} else if(containedBounds.size() > 1) {
-				Bounds containingBounds = computeContainingBounds(containedBounds);
+				Rectangle containingBounds = computeContainingBounds(containedBounds);
 				List<DDiagramElement> diagramElements = containedBounds.stream().map(b -> boundsToDiagramElements.get(b)).collect(toList());
 				Layout subLayout = createOrReuseLayout(containingBounds, 
 						switchDirection(viewContainerLayout.getDirection()), 
@@ -114,39 +130,35 @@ public class CinematicLayoutServices {
 		return diagramElementToLayout;
 	}
 
-	private static Bounds computeContainingBounds(List<Bounds> containedBounds) {
+	private static Rectangle computeContainingBounds(List<Rectangle> containedBounds) {
 		int lowX = 0;
 		int lowY = 0;
 		int highX = 0;
 		int highY = 0;
 		if(!containedBounds.isEmpty()) {
-			Bounds any = containedBounds.get(0);
-			lowX = any.getX();
-			highX = lowX + any.getWidth();
-			lowY = any.getY();
-			highY = lowY + any.getHeight();
-			for(Bounds bounds : containedBounds) {
-				lowX = Math.min(lowX, bounds.getX());
-				highX = Math.max(highX, bounds.getX() + bounds.getWidth());
-				lowY = Math.min(lowY, bounds.getY());
-				highY = Math.max(highY, bounds.getY() + bounds.getHeight());
+			Rectangle any = containedBounds.get(0);
+			lowX = any.x();
+			highX = lowX + any.width();
+			lowY = any.y();
+			highY = lowY + any.height();
+			for(Rectangle bounds : containedBounds) {
+				lowX = Math.min(lowX, bounds.x());
+				highX = Math.max(highX, bounds.x() + bounds.width());
+				lowY = Math.min(lowY, bounds.y());
+				highY = Math.max(highY, bounds.y() + bounds.height());
 			}
 		}
-		Bounds bounds = NotationFactory.eINSTANCE.createBounds();
-		bounds.setX(lowX);
-		bounds.setY(lowY);
-		bounds.setWidth(highX - lowX);
-		bounds.setHeight(highY - lowY);
-		return bounds;
+		
+		return new PrecisionRectangle(lowX, lowY, highX - lowX, highY - lowY);
 	}
 
-	private static List<Bounds> getContainedBounds(int t1, int t2, LayoutDirection d, Collection<Bounds> boundsCollection) {
+	private static List<Rectangle> getContainedBounds(int t1, int t2, LayoutDirection d, Collection<Rectangle> boundsCollection) {
 		return boundsCollection.stream().filter(bounds -> getLowCoordinate(bounds, d) >= t1 && getHighCoordinate(bounds, d) <= t2).collect(toList());
 	}
 
-	private static List<Integer> getTransversals(LayoutDirection d, Collection<Bounds> boundsCollection) {
+	private static List<Integer> getTransversals(LayoutDirection d, Collection<Rectangle> boundsCollection) {
 		Set<Integer> transversals = new HashSet<>();
-		for(Bounds bounds : boundsCollection) {
+		for(Rectangle bounds : boundsCollection) {
 			int low = getLowCoordinate(bounds, d);
 			if(isTransversal(low, boundsCollection, d)) {
 				transversals.add(low);
@@ -160,44 +172,44 @@ public class CinematicLayoutServices {
 		return transversals.stream().sorted().collect(toList());
 	}
 
-	private static boolean isTransversal(int c, Collection<Bounds> boundsCollection, LayoutDirection d) {
+	private static boolean isTransversal(int c, Collection<Rectangle> boundsCollection, LayoutDirection d) {
 		boolean isTransversal = true;
-		Iterator<Bounds> boundsIterator = boundsCollection.iterator();
+		Iterator<Rectangle> boundsIterator = boundsCollection.iterator();
 		while(isTransversal && boundsIterator.hasNext()) {
-			Bounds bounds = boundsIterator.next();
+			Rectangle bounds = boundsIterator.next();
 			isTransversal = isTransversal && (c <= getLowCoordinate(bounds, d) || c >= getHighCoordinate(bounds, d));
 		}
 		
 		return isTransversal;
 	}
 
-	private static int getLowCoordinate(Bounds bounds, LayoutDirection d) {
+	private static int getLowCoordinate(Rectangle bounds, LayoutDirection d) {
 		int c = 0;
 		switch (d) {
 		case HORIZONTAL:
-			c = bounds.getX();
+			c = bounds.x();
 			break;
 		case VERTICAL:
-			c = bounds.getY();
+			c = bounds.y();
 			break;
 		}
 		return c;
 	}
 
-	private static int getHighCoordinate(Bounds bounds, LayoutDirection d) {
+	private static int getHighCoordinate(Rectangle bounds, LayoutDirection d) {
 		int c = 0;
 		switch (d) {
 		case HORIZONTAL:
-			c = bounds.getX() + bounds.getWidth();
+			c = bounds.x() + bounds.width();
 			break;
 		case VERTICAL:
-			c = bounds.getY() + bounds.getHeight();
+			c = bounds.y() + bounds.height();
 			break;
 		}
 		return c;
 	}
 
-	private static Layout createOrReuseLayout(Bounds bounds, LayoutDirection direction, AbstractViewElement viewElement, Map<AbstractViewElement, Layout> existingLayouts) {
+	private static Layout createOrReuseLayout(Rectangle bounds, LayoutDirection direction, AbstractViewElement viewElement, Map<AbstractViewElement, Layout> existingLayouts) {
 		Layout layout = null;
 		if(existingLayouts != null && viewElement != null) {
 			layout = existingLayouts.get(viewElement);
@@ -206,10 +218,10 @@ public class CinematicLayoutServices {
 			layout = ViewFactory.eINSTANCE.createLayout();
 		}
 		layout.setViewElement(viewElement);
-		layout.setX(bounds.getX());
-		layout.setY(bounds.getY());
-		layout.setHeight(bounds.getHeight());
-		layout.setWidth(bounds.getWidth());
+		layout.setX(bounds.x());
+		layout.setY(bounds.y());
+		layout.setHeight(bounds.height());
+		layout.setWidth(bounds.width());
 		layout.setDirection(direction);
 		return layout;
 	}
@@ -227,12 +239,23 @@ public class CinematicLayoutServices {
 		return other;
 	}
 
-	public static Bounds getBounds(DDiagramElement dDiagramElement) {
-		Node node = SiriusGMFHelper.getGmfNode(dDiagramElement);
-		Bounds bounds= (Bounds)node.getLayoutConstraint();
-		return bounds;
+	private static Bounds getGmfBounds(DDiagramElement dDiagramElement) {
+		Node gmfNode = SiriusGMFHelper.getGmfNode(dDiagramElement);
+		Bounds gmfBounds = (Bounds)gmfNode.getLayoutConstraint();
+		return gmfBounds;
 	}
 
+	private static Rectangle computeGmfBounds(DDiagramElement dDiagramElement) {
+		Node gmfNode = SiriusGMFHelper.getGmfNode(dDiagramElement);
+		Bounds gmfBounds = (Bounds)gmfNode.getLayoutConstraint();
+		
+		Rectangle draw2dBounds = GMFHelper.getAbsoluteBounds(gmfNode, false);
+		draw2dBounds.setX(gmfBounds.getX());
+		draw2dBounds.setY(gmfBounds.getY());
+		
+		return draw2dBounds;
+	}
+	
 	public static void restoreLayout(ViewContainer viewContainer, DDiagram viewContainerDDiagram) {
 		DNodeContainer rootDNC = viewContainerDDiagram.getOwnedDiagramElements().stream()
 				.filter(e -> e.getTarget() == viewContainer)
@@ -257,12 +280,12 @@ public class CinematicLayoutServices {
 	
 	private static void previewLayout(DNodeContainer layoutDNC) {
 		Layout layout = (Layout) layoutDNC.getTarget();
-		Bounds adjustedGmfBounds = computePreviewBounds(layout);
-		Bounds gmfBounds = getBounds(layoutDNC);
-		gmfBounds.setX(adjustedGmfBounds.getX());
-		gmfBounds.setY(adjustedGmfBounds.getY());
-		gmfBounds.setWidth(adjustedGmfBounds.getWidth());
-		gmfBounds.setHeight(adjustedGmfBounds.getHeight());
+		Rectangle adjustedGmfBounds = computePreviewBounds(layout);
+		Bounds gmfBounds = getGmfBounds(layoutDNC);
+		gmfBounds.setX(adjustedGmfBounds.x());
+		gmfBounds.setY(adjustedGmfBounds.y());
+		gmfBounds.setWidth(adjustedGmfBounds.width());
+		gmfBounds.setHeight(adjustedGmfBounds.height());
 
 		layoutDNC.getOwnedDiagramElements().stream()
 		.filter(de -> de.getTarget() instanceof Layout)
@@ -278,7 +301,7 @@ public class CinematicLayoutServices {
 	 * @param layout
 	 * @return
 	 */
-	private static Bounds computePreviewBounds(Layout layout) {
+	private static Rectangle computePreviewBounds(Layout layout) {
 		final int margin = 16; // Magic value
 		
 		int x = layout.getX();
@@ -289,27 +312,27 @@ public class CinematicLayoutServices {
 			y -= virtualLayout.getY();
 		}
 		
-		Bounds adjustedGmfBounds = NotationFactory.eINSTANCE.createBounds();
+		Rectangle adjustedGmfBounds = new PrecisionRectangle();
 		if(layout.getOwnedLayouts().isEmpty()) {
 			adjustedGmfBounds.setX(x);
 			adjustedGmfBounds.setY(y);
 			adjustedGmfBounds.setWidth(layout.getWidth());
 			adjustedGmfBounds.setHeight(layout.getHeight());
 		} else {
-			Bounds boundingArea = computeContainingBounds(layout.getOwnedLayouts().stream()
+			Rectangle boundingArea = computeContainingBounds(layout.getOwnedLayouts().stream()
 					.map(childLayout -> computePreviewBounds(childLayout))
 					.collect(toList()));
 			
 			adjustedGmfBounds.setX(x);
 			adjustedGmfBounds.setY(y);
-			adjustedGmfBounds.setWidth(Math.max(boundingArea.getWidth() + margin, layout.getWidth()));
-			adjustedGmfBounds.setHeight(Math.max(boundingArea.getHeight() + margin, layout.getHeight()));
+			adjustedGmfBounds.setWidth(Math.max(boundingArea.width() + margin, layout.getWidth()));
+			adjustedGmfBounds.setHeight(Math.max(boundingArea.height() + margin, layout.getHeight()));
 		}
 		return adjustedGmfBounds;
 	}
 
 	private static void restoreLayout(Layout layout, DDiagramElement dDiagramElement) {
-		Bounds bounds = getBounds(dDiagramElement);
+		Bounds bounds = getGmfBounds(dDiagramElement);
 		bounds.setX(layout.getX());
 		bounds.setY(layout.getY());
 		bounds.setWidth(layout.getWidth());

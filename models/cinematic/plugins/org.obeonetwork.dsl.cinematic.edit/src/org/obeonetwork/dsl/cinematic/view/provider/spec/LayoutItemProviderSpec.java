@@ -17,8 +17,8 @@ public class LayoutItemProviderSpec extends LayoutItemProvider {
 		if(layout.getViewElement() != null) {
 			viewElementName = layout.getViewElement().getName();
 		}
-		return getString("_UI_Layout_type") + " " + viewElementName + " (" + layout.getX() + ", " + layout.getY() + ")";
+		return getString("_UI_Layout_type") + " " + viewElementName + " (" + 
+		layout.getX() + ", " + layout.getY() + ", " + layout.getWidth() + ", " + layout.getHeight() + ")";
 	}
 
-	
 }
