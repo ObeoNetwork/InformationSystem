@@ -1372,14 +1372,14 @@
       <defaultLayer name="Default">
         <containerMappings name="LAD_Layout" semanticCandidatesExpression="aql:self" domainClass="view::Layout">
           <subContainerMappings name="LAD_ChildLayout" semanticCandidatesExpression="aql:self.ownedLayouts" domainClass="view::Layout" reusedContainerMappings="//@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='Layout%20Diagram']/@defaultLayer/@containerMappings[name='LAD_Layout']/@subContainerMappings[name='LAD_ChildLayout']">
-            <style xsi:type="style:FlatContainerStyleDescription" borderSizeComputationExpression="2" labelSize="12" showIcon="false" labelExpression="aql:self.viewElement.name">
+            <style xsi:type="style:FlatContainerStyleDescription" borderSizeComputationExpression="2" labelSize="12" showIcon="false" labelExpression="service:getAbstractViewElementLabel">
               <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='red']"/>
               <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
               <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
               <foregroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
             </style>
           </subContainerMappings>
-          <style xsi:type="style:FlatContainerStyleDescription" borderSizeComputationExpression="2" labelSize="12" showIcon="false" labelExpression="aql:self.viewElement.name">
+          <style xsi:type="style:FlatContainerStyleDescription" borderSizeComputationExpression="2" labelSize="12" showIcon="false" labelExpression="service:getAbstractViewElementLabel">
             <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='red']"/>
             <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
             <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>

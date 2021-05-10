@@ -20,6 +20,7 @@ import org.obeonetwork.dsl.cinematic.design.services.label.ViewEditLabelSwitch;
 import org.obeonetwork.dsl.cinematic.design.services.label.ViewLabelSwitch;
 import org.obeonetwork.dsl.cinematic.flow.Transition;
 import org.obeonetwork.dsl.cinematic.view.AbstractViewElement;
+import org.obeonetwork.dsl.cinematic.view.Layout;
 import org.obeonetwork.dsl.cinematic.view.util.ViewAdapterFactory;
 
 /**
@@ -67,7 +68,7 @@ public class CinematicLabelServices {
 	/**
 	 * Returns the guard label of a {@link Transition}
 	 * @param transition a {@link Transition}
-	 * @return a {@link String} like "[ the_guard_name ]"
+	 * @return a {@link String} such as "[ the_guard_name ]"
 	 */
 	public static String getGuardLabel(Transition transition) {
 		StringBuilder builder = new StringBuilder();
@@ -81,8 +82,18 @@ public class CinematicLabelServices {
 		return builder.toString();
 	}
 	
-	public static String getAbstractViewElementLabel(AbstractViewElement abstractViewElement) {
-		return itemProvider.getText(abstractViewElement);
+	/**
+	 * Builds a label such as: "abstractViewElementName : widgetName". 
+	 * If the layout refers to a abstractViewElement with no widget, it simply returns the abstract view element name.
+	 * @param layout a {@link Layout}
+	 * @return a {@link String} 
+	 * @throws NullPointerException if the {@link Layout} refers to a {@link AbstractViewElement} with a null name. (Not possible in standard scenarios)
+	 */
+	public static String getAbstractViewElementLabel(Layout layout) {
+		if (layout.getViewElement().getWidget() != null)
+			return layout.getViewElement().getName()+" : "+layout.getViewElement().getWidget().getName();
+		else 
+			return layout.getViewElement().getName();
 	}
 	
 }
