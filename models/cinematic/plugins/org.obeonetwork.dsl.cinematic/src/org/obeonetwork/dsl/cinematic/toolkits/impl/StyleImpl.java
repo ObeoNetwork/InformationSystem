@@ -38,6 +38,7 @@ import org.obeonetwork.dsl.cinematic.toolkits.ToolkitsPackage;
  *   <li>{@link org.obeonetwork.dsl.cinematic.toolkits.impl.StyleImpl#getLabelHAlignment <em>Label HAlignment</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.cinematic.toolkits.impl.StyleImpl#getDefaultWidth <em>Default Width</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.cinematic.toolkits.impl.StyleImpl#getDefaultHeight <em>Default Height</em>}</li>
+ *   <li>{@link org.obeonetwork.dsl.cinematic.toolkits.impl.StyleImpl#getExampleExpression <em>Example Expression</em>}</li>
  * </ul>
  *
  * @generated
@@ -152,6 +153,16 @@ public class StyleImpl extends CDOObjectImpl implements Style {
 	 * @ordered
 	 */
 	protected static final int DEFAULT_HEIGHT_EDEFAULT = 0;
+
+	/**
+	 * The default value of the '{@link #getExampleExpression() <em>Example Expression</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getExampleExpression()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String EXAMPLE_EXPRESSION_EDEFAULT = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -385,6 +396,24 @@ public class StyleImpl extends CDOObjectImpl implements Style {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public String getExampleExpression() {
+		return (String)eDynamicGet(ToolkitsPackage.STYLE__EXAMPLE_EXPRESSION, ToolkitsPackage.Literals.STYLE__EXAMPLE_EXPRESSION, true, true);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setExampleExpression(String newExampleExpression) {
+		eDynamicSet(ToolkitsPackage.STYLE__EXAMPLE_EXPRESSION, ToolkitsPackage.Literals.STYLE__EXAMPLE_EXPRESSION, newExampleExpression);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
@@ -410,6 +439,8 @@ public class StyleImpl extends CDOObjectImpl implements Style {
 				return getDefaultWidth();
 			case ToolkitsPackage.STYLE__DEFAULT_HEIGHT:
 				return getDefaultHeight();
+			case ToolkitsPackage.STYLE__EXAMPLE_EXPRESSION:
+				return getExampleExpression();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -454,6 +485,9 @@ public class StyleImpl extends CDOObjectImpl implements Style {
 				return;
 			case ToolkitsPackage.STYLE__DEFAULT_HEIGHT:
 				setDefaultHeight((Integer)newValue);
+				return;
+			case ToolkitsPackage.STYLE__EXAMPLE_EXPRESSION:
+				setExampleExpression((String)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -500,6 +534,9 @@ public class StyleImpl extends CDOObjectImpl implements Style {
 			case ToolkitsPackage.STYLE__DEFAULT_HEIGHT:
 				setDefaultHeight(DEFAULT_HEIGHT_EDEFAULT);
 				return;
+			case ToolkitsPackage.STYLE__EXAMPLE_EXPRESSION:
+				setExampleExpression(EXAMPLE_EXPRESSION_EDEFAULT);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -534,6 +571,8 @@ public class StyleImpl extends CDOObjectImpl implements Style {
 				return getDefaultWidth() != DEFAULT_WIDTH_EDEFAULT;
 			case ToolkitsPackage.STYLE__DEFAULT_HEIGHT:
 				return getDefaultHeight() != DEFAULT_HEIGHT_EDEFAULT;
+			case ToolkitsPackage.STYLE__EXAMPLE_EXPRESSION:
+				return EXAMPLE_EXPRESSION_EDEFAULT == null ? getExampleExpression() != null : !EXAMPLE_EXPRESSION_EDEFAULT.equals(getExampleExpression());
 		}
 		return super.eIsSet(featureID);
 	}

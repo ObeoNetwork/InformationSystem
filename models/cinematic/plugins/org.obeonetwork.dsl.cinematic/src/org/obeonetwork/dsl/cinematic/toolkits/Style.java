@@ -32,6 +32,7 @@ import org.eclipse.emf.cdo.CDOObject;
  *   <li>{@link org.obeonetwork.dsl.cinematic.toolkits.Style#getLabelHAlignment <em>Label HAlignment</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.cinematic.toolkits.Style#getDefaultWidth <em>Default Width</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.cinematic.toolkits.Style#getDefaultHeight <em>Default Height</em>}</li>
+ *   <li>{@link org.obeonetwork.dsl.cinematic.toolkits.Style#getExampleExpression <em>Example Expression</em>}</li>
  * </ul>
  *
  * @see org.obeonetwork.dsl.cinematic.toolkits.ToolkitsPackage#getStyle()
@@ -290,5 +291,27 @@ public interface Style extends CDOObject {
 	 * @generated
 	 */
 	void setDefaultHeight(int value);
+
+	/**
+	 * Returns the value of the '<em><b>Example Expression</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Example Expression</em>' attribute.
+	 * @see #setExampleExpression(String)
+	 * @see org.obeonetwork.dsl.cinematic.toolkits.ToolkitsPackage#getStyle_ExampleExpression()
+	 * @model
+	 * @generated
+	 */
+	String getExampleExpression();
+
+	/**
+	 * Sets the value of the '{@link org.obeonetwork.dsl.cinematic.toolkits.Style#getExampleExpression <em>Example Expression</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Example Expression</em>' attribute.
+	 * @see #getExampleExpression()
+	 * @generated
+	 */
+	void setExampleExpression(String value);
 
 } // Style

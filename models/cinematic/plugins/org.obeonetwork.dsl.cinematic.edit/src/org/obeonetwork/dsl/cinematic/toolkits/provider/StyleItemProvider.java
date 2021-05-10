@@ -81,6 +81,7 @@ public class StyleItemProvider
 			addLabelHAlignmentPropertyDescriptor(object);
 			addDefaultWidthPropertyDescriptor(object);
 			addDefaultHeightPropertyDescriptor(object);
+			addExampleExpressionPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -328,6 +329,28 @@ public class StyleItemProvider
 	}
 
 	/**
+	 * This adds a property descriptor for the Example Expression feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addExampleExpressionPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_Style_exampleExpression_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Style_exampleExpression_feature", "_UI_Style_type"),
+				 ToolkitsPackage.Literals.STYLE__EXAMPLE_EXPRESSION,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
 	 * This returns Style.gif.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -386,6 +409,7 @@ public class StyleItemProvider
 			case ToolkitsPackage.STYLE__LABEL_HALIGNMENT:
 			case ToolkitsPackage.STYLE__DEFAULT_WIDTH:
 			case ToolkitsPackage.STYLE__DEFAULT_HEIGHT:
+			case ToolkitsPackage.STYLE__EXAMPLE_EXPRESSION:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 		}

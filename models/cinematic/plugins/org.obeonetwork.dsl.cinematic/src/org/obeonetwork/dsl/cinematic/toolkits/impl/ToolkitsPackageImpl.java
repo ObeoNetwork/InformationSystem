@@ -427,6 +427,15 @@ public class ToolkitsPackageImpl extends EPackageImpl implements ToolkitsPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EAttribute getStyle_ExampleExpression() {
+		return (EAttribute)styleEClass.getEStructuralFeatures().get(11);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EEnum getCardinalPosition() {
 		return cardinalPositionEEnum;
 	}
@@ -500,6 +509,7 @@ public class ToolkitsPackageImpl extends EPackageImpl implements ToolkitsPackage
 		createEAttribute(styleEClass, STYLE__LABEL_HALIGNMENT);
 		createEAttribute(styleEClass, STYLE__DEFAULT_WIDTH);
 		createEAttribute(styleEClass, STYLE__DEFAULT_HEIGHT);
+		createEAttribute(styleEClass, STYLE__EXAMPLE_EXPRESSION);
 
 		// Create enums
 		cardinalPositionEEnum = createEEnum(CARDINAL_POSITION);
@@ -574,6 +584,7 @@ public class ToolkitsPackageImpl extends EPackageImpl implements ToolkitsPackage
 		initEAttribute(getStyle_LabelHAlignment(), this.getHorizontalAlignment(), "labelHAlignment", null, 0, 1, Style.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getStyle_DefaultWidth(), ecorePackage.getEInt(), "defaultWidth", null, 0, 1, Style.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getStyle_DefaultHeight(), ecorePackage.getEInt(), "defaultHeight", null, 0, 1, Style.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getStyle_ExampleExpression(), ecorePackage.getEString(), "exampleExpression", null, 0, 1, Style.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		// Initialize enums and add enum literals
 		initEEnum(cardinalPositionEEnum, CardinalPosition.class, "CardinalPosition");
