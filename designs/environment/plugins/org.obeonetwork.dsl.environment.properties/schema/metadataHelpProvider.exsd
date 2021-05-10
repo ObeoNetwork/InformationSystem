@@ -6,7 +6,11 @@
          <meta.schema plugin="org.obeonetwork.dsl.environment.properties" id="metadatadescription" name="metadatadescription"/>
       </appInfo>
       <documentation>
-         [Enter description of this extension point.]
+         Provides an extension to define how the Help tooltip field in the meta-data view property should be specified.
+The extension must provide a IMetaDataHelpProvider implementation returning a String, 
+if the provided object is an instance of the wanted type, and null otherwise.
+Note that if the IMetaDataHelpProvider implementation always return a non-null String, 
+it may override the Metadata Help provided by other extensions.
       </documentation>
    </annotation>
 
@@ -98,5 +102,20 @@
       </documentation>
    </annotation>
 
+   <annotation>
+      <appInfo>
+         <meta.section type="copyright"/>
+      </appInfo>
+      <documentation>
+         # Copyright (c) 2008, 2021 Obeo.
+# All rights reserved. This program and the accompanying materials
+# are made available under the terms of the Eclipse Public License v1.0
+# which accompanies this distribution, and is available at
+# http://www.eclipse.org/legal/epl-v10.html
+# 
+# Contributors:
+#     Obeo - initial API and implementation
+      </documentation>
+   </annotation>
 
 </schema>
