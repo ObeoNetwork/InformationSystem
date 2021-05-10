@@ -296,6 +296,9 @@ public interface Style extends CDOObject {
 	 * Returns the value of the '<em><b>Example Expression</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * AQL expression evaluated in the context of the AbstractViewElement that uses this Widget, and which provides the label that should be displayed in the diagram when using the "example" layer.
+	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Example Expression</em>' attribute.
 	 * @see #setExampleExpression(String)
 	 * @see org.obeonetwork.dsl.cinematic.toolkits.ToolkitsPackage#getStyle_ExampleExpression()

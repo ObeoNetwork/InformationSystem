@@ -665,6 +665,12 @@ public class ToolkitsPackageImpl extends EPackageImpl implements ToolkitsPackage
 		   new String[] {
 			   "documentation", "The name of this Widget Event Type."
 		   });
+		addAnnotation
+		  (getStyle_ExampleExpression(),
+		   source,
+		   new String[] {
+			   "documentation", "AQL expression evaluated in the context of the AbstractViewElement that uses this Widget, and which provides the label that should be displayed in the diagram when using the \"example\" layer."
+		   });
 	}
 
 } //ToolkitsPackageImpl
