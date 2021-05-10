@@ -46,15 +46,12 @@ import org.eclipse.swt.graphics.Image;
 import org.eclipse.swt.graphics.RGB;
 import org.eclipse.swt.widgets.Display;
 import org.obeonetwork.dsl.cinematic.CinematicElement;
-import org.obeonetwork.dsl.cinematic.CinematicFactory;
-import org.obeonetwork.dsl.cinematic.CinematicPackage;
 import org.obeonetwork.dsl.cinematic.CinematicRoot;
 import org.obeonetwork.dsl.cinematic.design.ICinematicViewpoint;
 import org.obeonetwork.dsl.cinematic.design.decorators.SVGImageFigure;
 import org.obeonetwork.dsl.cinematic.toolkits.CardinalPosition;
 import org.obeonetwork.dsl.cinematic.toolkits.Style;
 import org.obeonetwork.dsl.cinematic.toolkits.Toolkit;
-import org.obeonetwork.dsl.cinematic.toolkits.ToolkitsFactory;
 import org.obeonetwork.dsl.cinematic.toolkits.Widget;
 import org.obeonetwork.dsl.cinematic.toolkits.WidgetEventType;
 import org.obeonetwork.dsl.cinematic.view.AbstractViewElement;
@@ -63,7 +60,6 @@ import org.obeonetwork.dsl.cinematic.view.ViewContainerReference;
 import org.obeonetwork.dsl.cinematic.view.ViewElement;
 import org.obeonetwork.dsl.environment.Annotation;
 import org.obeonetwork.dsl.environment.EnvironmentFactory;
-import org.obeonetwork.dsl.environment.MetaData;
 import org.obeonetwork.dsl.environment.MetaDataContainer;
 import org.obeonetwork.dsl.environment.design.ui.RGBSystemColorUtil;
 import org.obeonetwork.utils.common.StreamUtils;
@@ -461,7 +457,7 @@ public class CinematicWidgetServices extends DebugServices {
 	}
 	
 	/**
-	 * Hook method to be called in the View Container Diagram root mapping semantic
+	 * Hook method to be called in the View Container Mockup root mapping semantic
 	 * expression. It has the side effect of building the palette according to the
 	 * widgets present in the active toolkit.
 	 * 

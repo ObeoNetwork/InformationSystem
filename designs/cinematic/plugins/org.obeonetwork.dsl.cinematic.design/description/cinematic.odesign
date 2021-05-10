@@ -1221,7 +1221,7 @@
         </create>
       </subItemMappings>
     </ownedRepresentations>
-    <ownedRepresentations xsi:type="description_1:DiagramDescription" name="View Container Mockup" titleExpression="aql:self.name+' View Container Diagram'" domainClass="view::ViewContainer" enablePopupBars="true">
+    <ownedRepresentations xsi:type="description_1:DiagramDescription" name="View Container Mockup" titleExpression="aql:self.name+' View Container Mockup'" domainClass="view::ViewContainer" enablePopupBars="true">
       <defaultLayer name="Default">
         <containerMappings name="VCD_RootViewContainer" semanticCandidatesExpression="aql:self.buildWidgetPalette()" domainClass="view::ViewContainer" dropDescriptions="//@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='View%20Container%20Mockup']/@defaultLayer/@toolSections.3/@ownedTools[name='DND_ViewContainer']">
           <subContainerMappings name="VCD_ViewElement" semanticCandidatesExpression="aql:self.ownedElements" domainClass="view::ViewElement">
@@ -1360,6 +1360,13 @@
           </vsmElementCustomizations>
         </customization>
       </defaultLayer>
+      <additionalLayers name="Example">
+        <customization>
+          <vsmElementCustomizations xsi:type="description:VSMElementCustomization">
+            <featureCustomizations xsi:type="description:EAttributeCustomization" appliedOn="//@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='View%20Container%20Mockup']/@defaultLayer/@containerMappings[name='VCD_RootViewContainer']/@style //@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='View%20Container%20Mockup']/@defaultLayer/@containerMappings[name='VCD_RootViewContainer']/@subContainerMappings[name='VCD_ViewContainer']/@style //@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='View%20Container%20Mockup']/@defaultLayer/@containerMappings[name='VCD_RootViewContainer']/@subContainerMappings[name='VCD_ViewContainerReference']/@style //@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='View%20Container%20Mockup']/@defaultLayer/@containerMappings[name='VCD_RootViewContainer']/@subContainerMappings[name='VCD_ViewElement']/@style" attributeName="labelExpression" value="service:evaluateExampleExpression"/>
+          </vsmElementCustomizations>
+        </customization>
+      </additionalLayers>
     </ownedRepresentations>
     <ownedRepresentations xsi:type="description_1:DiagramDescription" name="Layout Diagram" titleExpression="aql:self.eContainer(cinematic::NamedElement).name+' Layout Diagram'" domainClass="view::Layout" enablePopupBars="true">
       <defaultLayer name="Default">

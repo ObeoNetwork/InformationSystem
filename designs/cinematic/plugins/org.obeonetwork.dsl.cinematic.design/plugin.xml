@@ -109,7 +109,7 @@
                     <test
                           forcePluginActivation="true"
                           property="org.eclipse.sirius.diagram.ui.edit.api.part.ISiriusEditPart.diagramName"
-                          value="View Container Diagram">
+                          value="View Container Mockup">
                     </test>
                  </adapt>
               </iterate>
@@ -133,7 +133,7 @@
                     <test
                           forcePluginActivation="true"
                           property="org.eclipse.sirius.diagram.ui.edit.api.part.ISiriusEditPart.diagramName"
-                          value="View Container Diagram">
+                          value="View Container Mockup">
                     </test>
                  </adapt>
               </iterate>

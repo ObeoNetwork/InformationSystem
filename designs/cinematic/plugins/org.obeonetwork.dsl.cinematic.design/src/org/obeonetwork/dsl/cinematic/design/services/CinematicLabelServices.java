@@ -11,6 +11,7 @@
 package org.obeonetwork.dsl.cinematic.design.services;
 
 import org.eclipse.emf.ecore.EObject;
+import org.eclipse.gmf.runtime.notation.provider.ViewItemProvider;
 import org.obeonetwork.dsl.cinematic.design.services.label.CinematicEditLabelSwitch;
 import org.obeonetwork.dsl.cinematic.design.services.label.CinematicLabelSwitch;
 import org.obeonetwork.dsl.cinematic.design.services.label.FlowEditLabelSwitch;
@@ -18,6 +19,8 @@ import org.obeonetwork.dsl.cinematic.design.services.label.FlowLabelSwitch;
 import org.obeonetwork.dsl.cinematic.design.services.label.ViewEditLabelSwitch;
 import org.obeonetwork.dsl.cinematic.design.services.label.ViewLabelSwitch;
 import org.obeonetwork.dsl.cinematic.flow.Transition;
+import org.obeonetwork.dsl.cinematic.view.AbstractViewElement;
+import org.obeonetwork.dsl.cinematic.view.util.ViewAdapterFactory;
 
 /**
  * This class is used to compute the label of a cinematic element
@@ -35,6 +38,8 @@ public class CinematicLabelServices {
 	private static FlowEditLabelSwitch flowEditSwitch = new FlowEditLabelSwitch();
 	private static ViewEditLabelSwitch viewEditSwitch = new ViewEditLabelSwitch();
 
+	private static ViewItemProvider itemProvider = new ViewItemProvider(new ViewAdapterFactory());
+	
 	public String getCinematicLabel(EObject eObject) {
 		String packagePrefix = eObject.eClass().getEPackage().getNsPrefix();
 		if ("cinematic".equals(packagePrefix)) {
@@ -74,6 +79,10 @@ public class CinematicLabelServices {
 		}
 		
 		return builder.toString();
+	}
+	
+	public static String getAbstractViewElementLabel(AbstractViewElement abstractViewElement) {
+		return itemProvider.getText(abstractViewElement);
 	}
 	
 }

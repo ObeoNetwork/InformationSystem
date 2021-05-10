@@ -199,7 +199,7 @@ public class CinematicLayoutServices {
 
 	private static Layout createOrReuseLayout(Bounds bounds, LayoutDirection direction, AbstractViewElement viewElement, Map<AbstractViewElement, Layout> existingLayouts) {
 		Layout layout = null;
-		if(existingLayouts != null) {
+		if(existingLayouts != null && viewElement != null) {
 			layout = existingLayouts.get(viewElement);
 		}
 		if(layout == null) {
@@ -339,6 +339,5 @@ public class CinematicLayoutServices {
 			queue.addAll(l.getOwnedLayouts());
 		}
 		return null;
-	}
-	
+	}	
 }
