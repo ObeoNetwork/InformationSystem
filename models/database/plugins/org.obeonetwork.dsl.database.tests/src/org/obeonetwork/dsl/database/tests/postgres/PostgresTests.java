@@ -10,17 +10,13 @@
  *******************************************************************************/
 package org.obeonetwork.dsl.database.tests.postgres;
 
-import java.io.BufferedReader;
-import java.io.File;
 import java.io.IOException;
-import java.io.InputStreamReader;
-import java.util.Arrays;
-import java.util.Collection;
+import java.math.BigInteger;
+import java.util.Collections;
 
-import org.junit.After;
-import org.junit.AfterClass;
-import org.junit.Assert;
-import org.junit.Before;
+import org.eclipse.emf.ecore.resource.Resource;
+import org.eclipse.emf.ecore.resource.impl.ResourceImpl;
+import org.junit.BeforeClass;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.junit.runners.Parameterized;
@@ -52,7 +48,9 @@ import liquibase.exception.LiquibaseException;
 @RunWith(Parameterized.class)
 public class PostgresTests extends AbstractTests {
 	
-	private static final String POSTGRES_DATABASE_MODEL_REFERENCE_PATH = "resources/postgres/";	
+	private static final String POSTGRES_DATABASE_MODEL_REFERENCE_PATH = "resources/postgres/postgres_outputRef.database";	
+	private static final String POSTGRES_DATABASE_MODEL_REFERENCE_PATH_10 = "resources/postgres/postgres_outputRef_10.database";
+
 	private static final String JDBC_POSTGRES_URL_PATTERN = "jdbc:postgresql://%1$s:%2$s/%3$s";
 	
 	private static final String POSTGRES_HOST_DEFAULT = "0.0.0.0";
@@ -70,7 +68,7 @@ public class PostgresTests extends AbstractTests {
 	}
 	
 	@Test
-	public void testImportPostgres() throws IOException, LiquibaseException {
+	public void testImportPostgres() throws IOException {
 		String url = String.format(JDBC_POSTGRES_URL_PATTERN, POSTGRES_HOST_DEFAULT, POSTGRES_PORT_DEFAULT, DATABASE_NAME_DEFAULT, true);
 		
         database = TestUtils.openDatabaseConnection(url, POSTGRES_USERNAME_DEFAULT, POSTGRES_PASSWORD_DEFAULT);
@@ -85,68 +83,32 @@ public class PostgresTests extends AbstractTests {
 		DataBase database = DatabaseReverser.reverse(dataSource, new MultiDataBaseQueries(), null);			
 		String modelRefURI = String.format("%s%s.database", POSTGRES_DATABASE_MODEL_REFERENCE_PATH, containerName);
 		
-		if (new File(modelRefURI).exists())	{
-			DataBase databaseRef = TestUtils.loadModel(modelRefURI, TypesLibraryUtil.POSTGRES_PATHMAP);	
-			Assert.assertEquals(database.getName(), databaseRef.getName());
-			TestUtils.checkEquality(database, databaseRef);
-		} else {
-			// No reference model have been provided for the testing. 
-			// We instead save the model produced, 
-			// that should be verified by the tester and used as a reference later.
-			TestUtils.saveModel(database, modelRefURI); 
-		}			
-	}
-	
-
-	@Before
-	public void testWithPostgresVersion() {
-		ProcessBuilder builder = new ProcessBuilder();
+		DataBase database = DatabaseReverser.reverse(dataSource, new MultiDataBaseQueries(), null);
 		
-		builder.command("docker", "pull", containerImage); // downloads the docker image if not available
-		// starting the container
-		builder.command("docker", "run", "--name", containerName, "-p", POSTGRES_PORT_DEFAULT+":"+POSTGRES_PORT_DEFAULT, 
-				"-e", "POSTGRES_PASSWORD="+POSTGRES_PASSWORD_DEFAULT, 
-				"-e", "POSTGRES_DB="+DATABASE_NAME_DEFAULT, "-d", containerImage);
+		DataBase databaseRef = TestUtils.loadModel(POSTGRES_DATABASE_MODEL_REFERENCE_PATH, TypesLibraryUtil.POSTGRES_PATHMAP);
 
-		try {
-			Process process = builder.start();
-			StringBuilder output = new StringBuilder();
-
-	        BufferedReader reader = new BufferedReader(
-	                new InputStreamReader(process.getInputStream()));
-
-	        String line;
-	        while ((line = reader.readLine()) != null) {
-	            output.append(line + "\n");
-	        }
-
-	        int exitVal = process.waitFor();
-            System.out.println(output);
-            Thread.sleep(5000); 
-            
-            // wait for container to boot if created at the moment. 
-            // a better implementation would check the output log until the containers tells its ready
-            
-	        if (exitVal != 0) {
-	        	throw new Exception("Could not initialize docker image: exit code: "+exitVal);
-	        }
-
-		} catch (Exception e) {
-			Assert.fail(e.toString());
-		}		
+		TestUtils.checkEquality(database, databaseRef);
 	}
 	
-	@After
-	public void tearDown() throws IOException, InterruptedException {
-		ProcessBuilder builder = new ProcessBuilder();
-		builder.command("docker", "kill", containerName); // shut down the container
-		builder.command("docker", "rm", "-f", containerName); // removes it from docker
-		Process process = builder.start();
-		process.waitFor();
-	}
+	/**
+	 * The main difference with {@link #testImportPostgres()} test is that postgres 10 sequence have a {@link Integer#MAX_VALUE} limit, instead of {@link BigInteger#MAX_VALUE}
+	 * @throws IOException
+	 */
+	@Test
+	public void testImportPostgres_10() throws IOException {
+		String url = String.format(JDBC_POSTGRES_URL_PATTERN, POSTGRES_HOST_DEFAULT, POSTGRES_PORT_DEFAULT, DATABASE_NAME_DEFAULT, true);
+		DataSource dataSource = new DataSource(DATABASE_NAME_DEFAULT, "public");
+		dataSource.setJdbcUrl(url);
+		dataSource.setJdbcUsername(POSTGRES_USERNAME_DEFAULT);
+		dataSource.setJdbcPassword(POSTGRES_PASSWORD_DEFAULT);
+		dataSource.setVendor(DatabaseConstants.DB_POSTGRES_9);
+		
+		DataBase database = DatabaseReverser.reverse(dataSource, new MultiDataBaseQueries(), null);
+		
+		DataBase databaseRef = TestUtils.loadModel(POSTGRES_DATABASE_MODEL_REFERENCE_PATH_10, TypesLibraryUtil.POSTGRES_PATHMAP);
+
+		TestUtils.checkEquality(database, databaseRef);
+	}	
+
 	
-	@AfterClass
-	public static void tearDownAfterClass() throws DatabaseException {
-		// We do not clear the database since we kill the container instead		
-	}
 }
