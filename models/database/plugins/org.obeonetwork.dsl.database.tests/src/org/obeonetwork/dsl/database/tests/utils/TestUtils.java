@@ -134,7 +134,7 @@ public final class TestUtils {
 	}
 
 	public static void checkEquality(DataBase database, DataBase databaseRef) {
-		assertEquals("The number of schemas is different.", databaseRef.getSchemas().size(),
+		assertEquals("The number of schemas is different. Expectd", databaseRef.getSchemas().size(),
 				database.getSchemas().size());
 		assertEquals("The number of tables is different.", databaseRef.getTables().size(), database.getTables().size());
 		assertEquals("The number of sequences is different.", databaseRef.getSequences().size(),
@@ -163,7 +163,7 @@ public final class TestUtils {
 		protected boolean haveEqualFeature(EObject eObject1, EObject eObject2, EStructuralFeature feature) {
 			boolean result = super.haveEqualFeature(eObject1, eObject2, feature);
 			assertTrue("The " + feature.getClass().getInterfaces()[0].getSimpleName() + " '" + feature.getName()
-					+ "' on " + getName(eObject1) + " is different", result);
+					+ "' on " + getName(eObject1) + " is different. Expected "+eObject2.eGet(feature)+" but was: "+eObject1.eGet(feature), result);
 			return result;
 		}
 
