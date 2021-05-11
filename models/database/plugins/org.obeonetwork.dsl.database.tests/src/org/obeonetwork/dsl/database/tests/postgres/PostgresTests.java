@@ -10,6 +10,12 @@
  *******************************************************************************/
 package org.obeonetwork.dsl.database.tests.postgres;
 
+import java.io.IOException;
+import java.math.BigInteger;
+import java.util.Collections;
+
+import org.eclipse.emf.ecore.resource.Resource;
+import org.eclipse.emf.ecore.resource.impl.ResourceImpl;
 import org.junit.BeforeClass;
 import org.junit.Test;
 import org.obeonetwork.dsl.database.DataBase;
@@ -25,8 +31,9 @@ import liquibase.exception.DatabaseException;
 
 public class PostgresTests extends AbstractTests {
 	
-	private static final String POSTGRES_DATABASE_MODEL_REFERENCE_PATH = "resources/postgres_outputRef.database";
-	
+	private static final String POSTGRES_DATABASE_MODEL_REFERENCE_PATH = "resources/postgres/postgres_outputRef.database";	
+	private static final String POSTGRES_DATABASE_MODEL_REFERENCE_PATH_10 = "resources/postgres/postgres_outputRef_10.database";
+
 	private static final String JDBC_POSTGRES_URL_PATTERN = "jdbc:postgresql://%1$s:%2$s/%3$s";
 	
 	private static final String POSTGRES_HOST_DEFAULT = "0.0.0.0";
@@ -44,7 +51,7 @@ public class PostgresTests extends AbstractTests {
 	}
 	
 	@Test
-	public void testImportPostgres() {
+	public void testImportPostgres() throws IOException {
 		String url = String.format(JDBC_POSTGRES_URL_PATTERN, POSTGRES_HOST_DEFAULT, POSTGRES_PORT_DEFAULT, DATABASE_NAME_DEFAULT, true);
 		DataSource dataSource = new DataSource(DATABASE_NAME_DEFAULT, "public");
 		dataSource.setJdbcUrl(url);
@@ -55,8 +62,29 @@ public class PostgresTests extends AbstractTests {
 		DataBase database = DatabaseReverser.reverse(dataSource, new MultiDataBaseQueries(), null);
 		
 		DataBase databaseRef = TestUtils.loadModel(POSTGRES_DATABASE_MODEL_REFERENCE_PATH, TypesLibraryUtil.POSTGRES_PATHMAP);
-		
+
 		TestUtils.checkEquality(database, databaseRef);
 	}
+	
+	/**
+	 * The main difference with {@link #testImportPostgres()} test is that postgres 10 sequence have a {@link Integer#MAX_VALUE} limit, instead of {@link BigInteger#MAX_VALUE}
+	 * @throws IOException
+	 */
+	@Test
+	public void testImportPostgres_10() throws IOException {
+		String url = String.format(JDBC_POSTGRES_URL_PATTERN, POSTGRES_HOST_DEFAULT, POSTGRES_PORT_DEFAULT, DATABASE_NAME_DEFAULT, true);
+		DataSource dataSource = new DataSource(DATABASE_NAME_DEFAULT, "public");
+		dataSource.setJdbcUrl(url);
+		dataSource.setJdbcUsername(POSTGRES_USERNAME_DEFAULT);
+		dataSource.setJdbcPassword(POSTGRES_PASSWORD_DEFAULT);
+		dataSource.setVendor(DatabaseConstants.DB_POSTGRES_9);
+		
+		DataBase database = DatabaseReverser.reverse(dataSource, new MultiDataBaseQueries(), null);
+		
+		DataBase databaseRef = TestUtils.loadModel(POSTGRES_DATABASE_MODEL_REFERENCE_PATH_10, TypesLibraryUtil.POSTGRES_PATHMAP);
 
+		TestUtils.checkEquality(database, databaseRef);
+	}	
+
+	
 }

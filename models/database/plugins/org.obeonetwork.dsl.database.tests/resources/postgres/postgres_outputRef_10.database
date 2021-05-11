@@ -1316,18 +1316,18 @@
         </type>
       </columns>
     </tables>
-    <sequences xmi:id="_XVqiDzqrEemAQdhgjsw9cQ" techID="_XS1PoDqrEemAQdhgjsw9cQ" name="customers_id_seq" start="1" increment="1" minValue="1" maxValue="9223372036854775807" cacheSize="1"/>
-    <sequences xmi:id="_XVqiEDqrEemAQdhgjsw9cQ" techID="_XS2dwDqrEemAQdhgjsw9cQ" name="employees_id_seq" start="1" increment="1" minValue="1" maxValue="9223372036854775807" cacheSize="1"/>
-    <sequences xmi:id="_XVqiETqrEemAQdhgjsw9cQ" techID="_XS3E0DqrEemAQdhgjsw9cQ" name="inventory_transactions_id_seq" start="1" increment="1" minValue="1" maxValue="9223372036854775807" cacheSize="1"/>
-    <sequences xmi:id="_XVqiEjqrEemAQdhgjsw9cQ" techID="_XS3r4DqrEemAQdhgjsw9cQ" name="invoices_id_seq" start="1" increment="1" minValue="1" maxValue="9223372036854775807" cacheSize="1"/>
-    <sequences xmi:id="_XVqiEzqrEemAQdhgjsw9cQ" techID="_XS4S8DqrEemAQdhgjsw9cQ" name="order_details_id_seq" start="1" increment="1" minValue="1" maxValue="9223372036854775807" cacheSize="1"/>
-    <sequences xmi:id="_XVqiFDqrEemAQdhgjsw9cQ" techID="_XS46ADqrEemAQdhgjsw9cQ" name="orders_id_seq" start="1" increment="1" minValue="1" maxValue="9223372036854775807" cacheSize="1"/>
-    <sequences xmi:id="_XVqiFTqrEemAQdhgjsw9cQ" techID="_XS6IIDqrEemAQdhgjsw9cQ" name="privileges_id_seq" start="1" increment="1" minValue="1" maxValue="9223372036854775807" cacheSize="1"/>
-    <sequences xmi:id="_XVqiFjqrEemAQdhgjsw9cQ" techID="_XS6vMDqrEemAQdhgjsw9cQ" name="products_id_seq" start="1" increment="1" minValue="1" maxValue="9223372036854775807" cacheSize="1"/>
-    <sequences xmi:id="_XVqiFzqrEemAQdhgjsw9cQ" techID="_XS6vMTqrEemAQdhgjsw9cQ" name="purchase_order_details_id_seq" start="1" increment="1" minValue="1" maxValue="9223372036854775807" cacheSize="1"/>
-    <sequences xmi:id="_XVqiGDqrEemAQdhgjsw9cQ" techID="_XS7WQDqrEemAQdhgjsw9cQ" name="purchase_orders_id_seq" start="1" increment="1" minValue="1" maxValue="9223372036854775807" cacheSize="1"/>
-    <sequences xmi:id="_XVqiGTqrEemAQdhgjsw9cQ" techID="_XS79UDqrEemAQdhgjsw9cQ" name="shippers_id_seq" start="1" increment="1" minValue="1" maxValue="9223372036854775807" cacheSize="1"/>
-    <sequences xmi:id="_XVqiGjqrEemAQdhgjsw9cQ" techID="_XS8kYDqrEemAQdhgjsw9cQ" name="strings_string_id_seq" start="1" increment="1" minValue="1" maxValue="9223372036854775807" cacheSize="1"/>
-    <sequences xmi:id="_XVqiGzqrEemAQdhgjsw9cQ" techID="_XS9LcDqrEemAQdhgjsw9cQ" name="suppliers_id_seq" start="1" increment="1" minValue="1" maxValue="9223372036854775807" cacheSize="1"/>
+    <sequences xmi:id="_XVqiDzqrEemAQdhgjsw9cQ" techID="_XS1PoDqrEemAQdhgjsw9cQ" name="customers_id_seq" start="1" increment="1" minValue="1" maxValue="2147483647" cacheSize="1"/>
+    <sequences xmi:id="_XVqiEDqrEemAQdhgjsw9cQ" techID="_XS2dwDqrEemAQdhgjsw9cQ" name="employees_id_seq" start="1" increment="1" minValue="1" maxValue="2147483647" cacheSize="1"/>
+    <sequences xmi:id="_XVqiETqrEemAQdhgjsw9cQ" techID="_XS3E0DqrEemAQdhgjsw9cQ" name="inventory_transactions_id_seq" start="1" increment="1" minValue="1" maxValue="2147483647" cacheSize="1"/>
+    <sequences xmi:id="_XVqiEjqrEemAQdhgjsw9cQ" techID="_XS3r4DqrEemAQdhgjsw9cQ" name="invoices_id_seq" start="1" increment="1" minValue="1" maxValue="2147483647" cacheSize="1"/>
+    <sequences xmi:id="_XVqiEzqrEemAQdhgjsw9cQ" techID="_XS4S8DqrEemAQdhgjsw9cQ" name="order_details_id_seq" start="1" increment="1" minValue="1" maxValue="2147483647" cacheSize="1"/>
+    <sequences xmi:id="_XVqiFDqrEemAQdhgjsw9cQ" techID="_XS46ADqrEemAQdhgjsw9cQ" name="orders_id_seq" start="1" increment="1" minValue="1" maxValue="2147483647" cacheSize="1"/>
+    <sequences xmi:id="_XVqiFTqrEemAQdhgjsw9cQ" techID="_XS6IIDqrEemAQdhgjsw9cQ" name="privileges_id_seq" start="1" increment="1" minValue="1" maxValue="2147483647" cacheSize="1"/>
+    <sequences xmi:id="_XVqiFjqrEemAQdhgjsw9cQ" techID="_XS6vMDqrEemAQdhgjsw9cQ" name="products_id_seq" start="1" increment="1" minValue="1" maxValue="2147483647" cacheSize="1"/>
+    <sequences xmi:id="_XVqiFzqrEemAQdhgjsw9cQ" techID="_XS6vMTqrEemAQdhgjsw9cQ" name="purchase_order_details_id_seq" start="1" increment="1" minValue="1" maxValue="2147483647" cacheSize="1"/>
+    <sequences xmi:id="_XVqiGDqrEemAQdhgjsw9cQ" techID="_XS7WQDqrEemAQdhgjsw9cQ" name="purchase_orders_id_seq" start="1" increment="1" minValue="1" maxValue="2147483647" cacheSize="1"/>
+    <sequences xmi:id="_XVqiGTqrEemAQdhgjsw9cQ" techID="_XS79UDqrEemAQdhgjsw9cQ" name="shippers_id_seq" start="1" increment="1" minValue="1" maxValue="2147483647" cacheSize="1"/>
+    <sequences xmi:id="_XVqiGjqrEemAQdhgjsw9cQ" techID="_XS8kYDqrEemAQdhgjsw9cQ" name="strings_string_id_seq" start="1" increment="1" minValue="1" maxValue="2147483647" cacheSize="1"/>
+    <sequences xmi:id="_XVqiGzqrEemAQdhgjsw9cQ" techID="_XS9LcDqrEemAQdhgjsw9cQ" name="suppliers_id_seq" start="1" increment="1" minValue="1" maxValue="2147483647" cacheSize="1"/>
   </schemas>
 </database:DataBase>
