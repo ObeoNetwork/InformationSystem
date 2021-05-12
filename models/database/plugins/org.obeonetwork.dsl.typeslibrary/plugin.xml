@@ -46,8 +46,8 @@
         target="platform:/plugin/org.obeonetwork.dsl.typeslibrary/resources/H2-1.3.typeslibrary">
   </mapping>
   <mapping
-        source="pathmap://NativeDBTypes/Postgres-9"
-        target="platform:/plugin/org.obeonetwork.dsl.typeslibrary/resources/Postgres-9.typeslibrary">
+        source="pathmap://NativeDBTypes/Postgres-9.5-13"
+        target="platform:/plugin/org.obeonetwork.dsl.typeslibrary/resources/Postgres-9.5-13.typeslibrary">
   </mapping>
   <mapping
         source="pathmap://NativeDBTypes/SQLServer-2008"
@@ -56,6 +56,10 @@
   <mapping
         source="pathmap://NativeDBTypes/MariaDB-10.2"
         target="platform:/plugin/org.obeonetwork.dsl.typeslibrary/resources/MariaDB-10.2.typeslibrary">
+  </mapping>
+  <mapping
+        source="pathmap://NativeDBTypes/Postgres-9"
+        target="platform:/plugin/org.obeonetwork.dsl.typeslibrary/resources/Postgres-9.5-13.typeslibrary">
   </mapping>
 	</extension>
  <extension
