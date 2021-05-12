@@ -43,12 +43,27 @@ public class PostGreStatementBuilderTest {
 	}
 	
 	@Test
-	public void checkGetVersionNumbersAtEnd() throws SQLException {
+	public void checkGetVersionNumbersAtMiddle() throws SQLException {
 		
 		when(connection.prepareStatement(Mockito.anyString())).thenReturn(statement);
 		when(statement.executeQuery()).thenReturn(resultSet);
 		when(resultSet.next()).thenReturn(true);
 		when(resultSet.getString(Mockito.anyInt())).thenReturn("(Debian 12.2-1.pgdg100+1)");
+		
+		PostGresStatementBuilder builder = new PostGresStatementBuilder(connection);
+		Version version = builder.getPostgreServerVersion();
+		
+		Assert.assertEquals(12, version.getMajor());
+		Assert.assertEquals(2, version.getMinor());
+	}
+	
+	@Test
+	public void checkGetVersionNumbersAtEnd() throws SQLException {
+		
+		when(connection.prepareStatement(Mockito.anyString())).thenReturn(statement);
+		when(statement.executeQuery()).thenReturn(resultSet);
+		when(resultSet.next()).thenReturn(true);
+		when(resultSet.getString(Mockito.anyInt())).thenReturn("(Debian.pgdg) 12.2");
 		
 		PostGresStatementBuilder builder = new PostGresStatementBuilder(connection);
 		Version version = builder.getPostgreServerVersion();
