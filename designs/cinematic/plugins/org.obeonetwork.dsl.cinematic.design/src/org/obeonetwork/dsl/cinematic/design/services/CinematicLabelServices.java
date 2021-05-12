@@ -90,7 +90,9 @@ public class CinematicLabelServices {
 	 * @throws NullPointerException if the {@link Layout} refers to a {@link AbstractViewElement} with a null name. (Not possible in standard scenarios)
 	 */
 	public static String getAbstractViewElementLabel(Layout layout) {
-		if (layout.getViewElement().getWidget() != null)
+		if (layout.getViewElement() == null) {
+			return null;
+		} else if (layout.getViewElement().getWidget() != null)
 			return layout.getViewElement().getName()+" : "+layout.getViewElement().getWidget().getName();
 		else 
 			return layout.getViewElement().getName();
