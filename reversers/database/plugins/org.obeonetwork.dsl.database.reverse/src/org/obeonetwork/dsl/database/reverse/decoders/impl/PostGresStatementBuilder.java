@@ -4,6 +4,8 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 import org.osgi.framework.Version;
 
@@ -41,12 +43,26 @@ public class PostGresStatementBuilder {
 			
 			rs = pstmt.executeQuery();
 			
-			if (rs.next())
-				return Version.parseVersion(rs.getString(1));
-		} catch (SQLException | NumberFormatException e) {
+			if (rs.next()) {
+				String versionString = rs.getString(1);
+				try {
+					return Version.parseVersion(versionString);	
+				} catch (IllegalArgumentException e) {
+					// The version cannot be parsed: we extract a part of it from the String.
+					
+					Pattern pattern = Pattern.compile("[0-9]+(\\.[0-9]+)*");
+					Matcher matcher = pattern.matcher(versionString);
+					if (matcher.find()) {
+						return Version.parseVersion(matcher.group(0));
+					}
+				}
+			}				
+		} catch (SQLException e) {
 			e.printStackTrace();
-		}
-		return Version.parseVersion("12.2");
+		} 
+		
+		// No version can be found: we return the last one.
+		return Version.parseVersion("13.2");
 	}
 	
 	/**
