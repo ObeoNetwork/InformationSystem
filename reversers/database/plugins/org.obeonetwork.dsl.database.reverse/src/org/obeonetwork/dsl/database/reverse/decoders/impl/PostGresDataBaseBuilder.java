@@ -35,9 +35,9 @@ import org.osgi.framework.Version;
 
 public class PostGresDataBaseBuilder extends DefaultDataBaseBuilder {
 
-	private static final String TYPES_LIBRARY_POSTGRES_PATHMAP = "pathmap://NativeDBTypes/Postgres-9.5-13";
+	private static final String TYPES_LIBRARY_POSTGRES_PATHMAP = "pathmap://NativeDBTypes/Postgres-9";
 
-	private static final String TYPES_LIBRARY_POSTGRES_FILENAME = "Postgres-9.5-13.typeslibrary";
+	private static final String TYPES_LIBRARY_POSTGRES_FILENAME = "Postgres-9.typeslibrary";
 	
 	private Version version;
 
