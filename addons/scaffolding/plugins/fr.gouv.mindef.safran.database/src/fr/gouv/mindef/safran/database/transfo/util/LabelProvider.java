@@ -10,6 +10,9 @@
  *******************************************************************************/
 package fr.gouv.mindef.safran.database.transfo.util;
 
+import java.util.Map;
+
+import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EStructuralFeature;
 import org.obeonetwork.dsl.database.Column;
 import org.obeonetwork.dsl.database.ForeignKey;
@@ -21,7 +24,7 @@ import org.obeonetwork.dsl.environment.Reference;
 
 
 public class LabelProvider {
-
+	
 	public static String getEntityKeyForTable(Table table) {
 		return "Entity_" + getEntityPhysicalNameFromTable(table);
 	}
@@ -88,6 +91,8 @@ public class LabelProvider {
 	}
 
 	public static String getJoinTableName(Table table1, Table table2) {
+		
+		
 		String name1 = table1.getName();
 		String name2 = table2.getName();
 		// Determine common prefix
