@@ -470,11 +470,25 @@ public class EntityToMLD extends AbstractTransformation {
 			container.getTables().add(joinTable);
 	
 		}
-		addToOutputTraceability(reference, joinTable);
-		addToOutputTraceability(reference.getOppositeOf(), joinTable);
 		
 		// The following properties are modified even if they already existed
-		joinTable.setName(LabelProvider.getJoinTableName(sourceTable, targetTable));
+		// joinTable.setName(LabelProvider.getJoinTableName(sourceTable, targetTable));
+		String joinTableName = LabelProvider.getJoinTableName(sourceTable, targetTable);
+		
+		long existingTableNames = getOutputTraceabilityMap().values()
+			.stream()
+			.filter(Table.class::isInstance)
+			.map(Table.class::cast)
+			.map(table -> table.getName())
+			.distinct() // jointables are added twice: we remove the duplicates 
+			.filter(tableName -> tableName.matches("("+joinTableName+")(_[0-9]+)?"))
+			.count();
+		
+		joinTable.setName(joinTableName+"_"+(existingTableNames+1));
+		
+		addToOutputTraceability(reference, joinTable);
+		addToOutputTraceability(reference.getOppositeOf(), joinTable);
+				
 		joinTable.setComments("Table de jointure entre " + sourceTable.getName() + " et " + targetTable.getName());
 		
 		createJoinTableForeignKey(joinTable, sourceTable);

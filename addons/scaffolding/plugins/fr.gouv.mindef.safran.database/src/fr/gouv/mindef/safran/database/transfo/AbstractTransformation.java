@@ -29,7 +29,6 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.resource.ResourceSet;
-import org.eclipse.sirius.business.api.query.EObjectQuery;
 import org.eclipse.sirius.business.api.session.Session;
 import org.eclipse.sirius.business.api.session.SessionManager;
 import org.obeonetwork.dsl.database.Column;
@@ -44,7 +43,6 @@ import org.obeonetwork.dsl.environment.Reference;
 import fr.gouv.mindef.safran.database.Activator;
 import fr.gouv.mindef.safran.database.scaffold.ScaffoldInfo;
 import fr.gouv.mindef.safran.database.scaffold.ScaffoldType;
-import fr.gouv.mindef.safran.database.transfo.collab.CollabTransformationInitializer;
 import fr.gouv.mindef.safran.database.transfo.util.DeleteUtils;
 import fr.gouv.mindef.safran.database.transfo.util.ModelUtils;
 
