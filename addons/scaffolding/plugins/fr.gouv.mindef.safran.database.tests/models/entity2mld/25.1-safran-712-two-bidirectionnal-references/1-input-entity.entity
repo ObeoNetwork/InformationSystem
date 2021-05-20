@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="ASCII"?>
+<oent:Root xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:oent="http://www.obeonetwork.org/dsl/entity/3.0.0" xmi:id="_WTB1wLevEeuUDpDxexrvgQ" technicalid="_WTBOsLevEeuUDpDxexrvgQ" createdOn="2021-05-18T10:02:10.843+0200" modifiedOn="2021-05-20T15:53:48.037+0200">
+  <ownedNamespaces xmi:id="_sBKnCrh8Eeuan4LW7bu7BA" technicalid="_sBKnB7h8Eeuan4LW7bu7BA" createdOn="2021-05-19T10:32:03.440+0200" modifiedOn="2021-05-20T15:47:43.600+0200" name="NAMESPACE_1">
+    <types xsi:type="oent:Entity" xmi:id="_Zl7kcLlxEeudvphqGgk3Vw" technicalid="_ZkrAP7lxEeudvphqGgk3Vw" createdOn="2021-05-19T10:32:03.440+0200" modifiedOn="2021-05-20T15:54:27.249+0200" name="Entity2">
+      <ownedReferences xmi:id="_Zl8LgblxEeudvphqGgk3Vw" technicalid="_ZkrAQLlxEeudvphqGgk3Vw" createdOn="2021-05-20T14:29:19.846+0200" modifiedOn="2021-05-20T14:29:19.846+0200" name="Entitys" multiplicity="0..*" oppositeOf="_Zl8LhblxEeudvphqGgk3Vw" referencedType="_Zl8Lg7lxEeudvphqGgk3Vw"/>
+      <ownedReferences xmi:id="_5EtqEblyEeudvphqGgk3Vw" technicalid="_5EtqELlyEeudvphqGgk3Vw" createdOn="2021-05-20T15:54:27.249+0200" modifiedOn="2021-05-20T15:54:27.268+0200" name="Entitys" multiplicity="0..*" oppositeOf="_5EzwsblyEeudvphqGgk3Vw" referencedType="_Zl8Lg7lxEeudvphqGgk3Vw"/>
+    </types>
+    <types xsi:type="oent:Entity" xmi:id="_Zl8Lg7lxEeudvphqGgk3Vw" technicalid="_ZkrAQ7lxEeudvphqGgk3Vw" createdOn="2021-05-19T10:32:03.440+0200" modifiedOn="2021-05-20T15:54:27.259+0200" name="Entity">
+      <ownedReferences xmi:id="_Zl8LhblxEeudvphqGgk3Vw" technicalid="_ZkrnQblxEeudvphqGgk3Vw" createdOn="2021-05-20T14:29:19.845+0200" modifiedOn="2021-05-20T14:29:19.846+0200" name="Entity2s" multiplicity="0..*" oppositeOf="_Zl8LgblxEeudvphqGgk3Vw" referencedType="_Zl7kcLlxEeudvphqGgk3Vw"/>
+      <ownedReferences xmi:id="_5EzwsblyEeudvphqGgk3Vw" technicalid="_5EzwsLlyEeudvphqGgk3Vw" createdOn="2021-05-20T15:54:27.259+0200" modifiedOn="2021-05-20T15:54:27.268+0200" name="Entity2s" multiplicity="0..*" oppositeOf="_5EtqEblyEeudvphqGgk3Vw" referencedType="_Zl7kcLlxEeudvphqGgk3Vw"/>
+    </types>
+  </ownedNamespaces>
+</oent:Root>

@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="ASCII"?>
+<database:DataBase xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:database="http://www.obeonetwork.org/dsl/database/1.0" xmlns:typeslibrary="http://www.obeonetwork.org/dsl/typeslibrary/1.0" xmi:id="_eNyF2revEeuUDpDxexrvgQ" techID="_eNw3sLevEeuUDpDxexrvgQ" name="My">
+  <usedLibraries xsi:type="typeslibrary:NativeTypesLibrary" href="pathmap://LogicalDBTypes#_WWbGkREnEeGTa_JlZYBw1A"/>
+  <schemas xmi:id="_yo0dUrl1EeudvphqGgk3Vw" techID="_yo0dUbl1EeudvphqGgk3Vw" name="NAMESPACE_1">
+    <tables xsi:type="database:Table" xmi:id="_yo0dU7l1EeudvphqGgk3Vw" techID="_yo0dULl1EeudvphqGgk3Vw" name="ENTITY2">
+      <primaryKey xmi:id="_yo0dWLl1EeudvphqGgk3Vw" comments="Contrainte PK pour la colonne ENTITY2_ID" techID="_yo0dV7l1EeudvphqGgk3Vw" name="ENTITY2_PK" columns="_yo0dVbl1EeudvphqGgk3Vw"/>
+      <constraints xmi:id="_yo1rdbl1EeudvphqGgk3Vw" comments="Liste des valeurs possibles pour NAMESPACE_1_XTOPSUP" techID="_yo1rdLl1EeudvphqGgk3Vw" name="ENTITY2_CK1_1" expression="NAMESPACE_1_XTOPSUP in ('0','1','3','9')"/>
+      <columns xmi:id="_yo0dVbl1EeudvphqGgk3Vw" comments="PK de la table ENTITY2" techID="_yo0dVLl1EeudvphqGgk3Vw" name="ENTITY2_ID" primaryKey="_yo0dWLl1EeudvphqGgk3Vw">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_yo0dWbl1EeudvphqGgk3Vw" length="19">
+          <nativeType href="pathmap://LogicalDBTypes#_WWeJ4hEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+      <columns xmi:id="_yo1rcbl1EeudvphqGgk3Vw" comments="Indicateur pour savoir si l'enregistrement est valide" techID="_yo1rcLl1EeudvphqGgk3Vw" name="NAMESPACE_1_XTOPSUP" defaultValue="'0'">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_yo1rc7l1EeudvphqGgk3Vw" length="1">
+          <nativeType href="pathmap://LogicalDBTypes#_WWew-BEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+      <columns xmi:id="_yo1rd7l1EeudvphqGgk3Vw" comments="Date de mise &#xe0; jour de la ligne" techID="_yo1rdrl1EeudvphqGgk3Vw" name="NAMESPACE_1_XDMAJ">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_yo1rebl1EeudvphqGgk3Vw">
+          <nativeType href="pathmap://LogicalDBTypes#_WWew-xEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+    </tables>
+    <tables xsi:type="database:Table" xmi:id="_yo0dW7l1EeudvphqGgk3Vw" techID="_yo0dWrl1EeudvphqGgk3Vw" name="ENTITY">
+      <primaryKey xmi:id="_yo0dYLl1EeudvphqGgk3Vw" comments="Contrainte PK pour la colonne ENTITY_ID" techID="_yo0dX7l1EeudvphqGgk3Vw" name="ENTITY_PK" columns="_yo0dXbl1EeudvphqGgk3Vw"/>
+      <constraints xmi:id="_yo1rf7l1EeudvphqGgk3Vw" comments="Liste des valeurs possibles pour NAMESPACE_1_XTOPSUP" techID="_yo1rfrl1EeudvphqGgk3Vw" name="ENTITY_CK1_1" expression="NAMESPACE_1_XTOPSUP in ('0','1','3','9')"/>
+      <columns xmi:id="_yo0dXbl1EeudvphqGgk3Vw" comments="PK de la table ENTITY" techID="_yo0dXLl1EeudvphqGgk3Vw" name="ENTITY_ID" primaryKey="_yo0dYLl1EeudvphqGgk3Vw">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_yo0dYbl1EeudvphqGgk3Vw" length="19">
+          <nativeType href="pathmap://LogicalDBTypes#_WWeJ4hEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+      <columns xmi:id="_yo1re7l1EeudvphqGgk3Vw" comments="Indicateur pour savoir si l'enregistrement est valide" techID="_yo1rerl1EeudvphqGgk3Vw" name="NAMESPACE_1_XTOPSUP" defaultValue="'0'">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_yo1rfbl1EeudvphqGgk3Vw" length="1">
+          <nativeType href="pathmap://LogicalDBTypes#_WWew-BEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+      <columns xmi:id="_yo1rgbl1EeudvphqGgk3Vw" comments="Date de mise &#xe0; jour de la ligne" techID="_yo1rgLl1EeudvphqGgk3Vw" name="NAMESPACE_1_XDMAJ">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_yo1rg7l1EeudvphqGgk3Vw">
+          <nativeType href="pathmap://LogicalDBTypes#_WWew-xEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+    </tables>
+    <tables xsi:type="database:Table" xmi:id="_yo0dY7l1EeudvphqGgk3Vw" comments="Table de jointure entre ENTITY et ENTITY2" techID="_yo0dYrl1EeudvphqGgk3Vw" name="ENTITYENTITY2_1">
+      <primaryKey xmi:id="_yo0dbbl1EeudvphqGgk3Vw" comments="Contrainte PK pour les colonnes ENTITY_ID et ENTITY2_ID" techID="_yo0dbLl1EeudvphqGgk3Vw" name="ENTITYENTITY2_1_PK" columns="_yo0dZ7l1EeudvphqGgk3Vw _yo1EYLl1EeudvphqGgk3Vw"/>
+      <foreignKeys xmi:id="_yo0dZbl1EeudvphqGgk3Vw" comments="Contrainte FK avec la table ENTITY" techID="_yo0dZLl1EeudvphqGgk3Vw" name="ENTITYENTITY2_1_FK1_1" target="_yo0dW7l1EeudvphqGgk3Vw">
+        <elements xmi:id="_yo0da7l1EeudvphqGgk3Vw" techID="_yo0darl1EeudvphqGgk3Vw" fkColumn="_yo0dZ7l1EeudvphqGgk3Vw" pkColumn="_yo0dXbl1EeudvphqGgk3Vw"/>
+      </foreignKeys>
+      <foreignKeys xmi:id="_yo0db7l1EeudvphqGgk3Vw" comments="Contrainte FK avec la table ENTITY2" techID="_yo0dbrl1EeudvphqGgk3Vw" name="ENTITYENTITY2_1_FK1_2" target="_yo0dU7l1EeudvphqGgk3Vw">
+        <elements xmi:id="_yo1EZLl1EeudvphqGgk3Vw" techID="_yo1EY7l1EeudvphqGgk3Vw" fkColumn="_yo1EYLl1EeudvphqGgk3Vw" pkColumn="_yo0dVbl1EeudvphqGgk3Vw"/>
+      </foreignKeys>
+      <constraints xmi:id="_yo1Earl1EeudvphqGgk3Vw" comments="Liste des valeurs possibles pour NAMESPACE_1_XTOPSUP" techID="_yo1Eabl1EeudvphqGgk3Vw" name="ENTITYENTITY2_1_CK1_1" expression="NAMESPACE_1_XTOPSUP in ('0','1','3','9')"/>
+      <columns xmi:id="_yo0dZ7l1EeudvphqGgk3Vw" comments="PK,FK de la table ENTITYENTITY2_1" techID="_yo0dZrl1EeudvphqGgk3Vw" name="ENTITY_ID" primaryKey="_yo0dbbl1EeudvphqGgk3Vw" foreignKeyElements="_yo0da7l1EeudvphqGgk3Vw">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_yo0dabl1EeudvphqGgk3Vw" length="19">
+          <nativeType href="pathmap://LogicalDBTypes#_WWeJ4hEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+      <columns xmi:id="_yo1EYLl1EeudvphqGgk3Vw" comments="PK,FK de la table ENTITYENTITY2_1" techID="_yo0dcLl1EeudvphqGgk3Vw" name="ENTITY2_ID" primaryKey="_yo0dbbl1EeudvphqGgk3Vw" foreignKeyElements="_yo1EZLl1EeudvphqGgk3Vw">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_yo1EYrl1EeudvphqGgk3Vw" length="19">
+          <nativeType href="pathmap://LogicalDBTypes#_WWeJ4hEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+      <columns xmi:id="_yo1EZrl1EeudvphqGgk3Vw" comments="Indicateur pour savoir si l'enregistrement est valide" techID="_yo1EZbl1EeudvphqGgk3Vw" name="NAMESPACE_1_XTOPSUP" defaultValue="'0'">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_yo1EaLl1EeudvphqGgk3Vw" length="1">
+          <nativeType href="pathmap://LogicalDBTypes#_WWew-BEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+      <columns xmi:id="_yo1EbLl1EeudvphqGgk3Vw" comments="Date de mise &#xe0; jour de la ligne" techID="_yo1Ea7l1EeudvphqGgk3Vw" name="NAMESPACE_1_XDMAJ">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_yo1Ebrl1EeudvphqGgk3Vw">
+          <nativeType href="pathmap://LogicalDBTypes#_WWew-xEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+    </tables>
+    <tables xsi:type="database:Table" xmi:id="_yo1EcLl1EeudvphqGgk3Vw" comments="Table de jointure entre ENTITY et ENTITY2" techID="_yo1Eb7l1EeudvphqGgk3Vw" name="ENTITYENTITY2_2">
+      <primaryKey xmi:id="_yo1Eerl1EeudvphqGgk3Vw" comments="Contrainte PK pour les colonnes ENTITY_ID et ENTITY2_ID" techID="_yo1Eebl1EeudvphqGgk3Vw" name="ENTITYENTITY2_2_PK" columns="_yo1EdLl1EeudvphqGgk3Vw _yo1Efrl1EeudvphqGgk3Vw"/>
+      <foreignKeys xmi:id="_yo1Ecrl1EeudvphqGgk3Vw" comments="Contrainte FK avec la table ENTITY" techID="_yo1Ecbl1EeudvphqGgk3Vw" name="ENTITYENTITY2_2_FK1_1" target="_yo0dW7l1EeudvphqGgk3Vw">
+        <elements xmi:id="_yo1EeLl1EeudvphqGgk3Vw" techID="_yo1Ed7l1EeudvphqGgk3Vw" fkColumn="_yo1EdLl1EeudvphqGgk3Vw" pkColumn="_yo0dXbl1EeudvphqGgk3Vw"/>
+      </foreignKeys>
+      <foreignKeys xmi:id="_yo1EfLl1EeudvphqGgk3Vw" comments="Contrainte FK avec la table ENTITY2" techID="_yo1Ee7l1EeudvphqGgk3Vw" name="ENTITYENTITY2_2_FK1_2" target="_yo0dU7l1EeudvphqGgk3Vw">
+        <elements xmi:id="_yo1Egrl1EeudvphqGgk3Vw" techID="_yo1Egbl1EeudvphqGgk3Vw" fkColumn="_yo1Efrl1EeudvphqGgk3Vw" pkColumn="_yo0dVbl1EeudvphqGgk3Vw"/>
+      </foreignKeys>
+      <constraints xmi:id="_yo1EiLl1EeudvphqGgk3Vw" comments="Liste des valeurs possibles pour NAMESPACE_1_XTOPSUP" techID="_yo1Eh7l1EeudvphqGgk3Vw" name="ENTITYENTITY2_2_CK1_1" expression="NAMESPACE_1_XTOPSUP in ('0','1','3','9')"/>
+      <columns xmi:id="_yo1EdLl1EeudvphqGgk3Vw" comments="PK,FK de la table ENTITYENTITY2_2" techID="_yo1Ec7l1EeudvphqGgk3Vw" name="ENTITY_ID" primaryKey="_yo1Eerl1EeudvphqGgk3Vw" foreignKeyElements="_yo1EeLl1EeudvphqGgk3Vw">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_yo1Edrl1EeudvphqGgk3Vw" length="19">
+          <nativeType href="pathmap://LogicalDBTypes#_WWeJ4hEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+      <columns xmi:id="_yo1Efrl1EeudvphqGgk3Vw" comments="PK,FK de la table ENTITYENTITY2_2" techID="_yo1Efbl1EeudvphqGgk3Vw" name="ENTITY2_ID" primaryKey="_yo1Eerl1EeudvphqGgk3Vw" foreignKeyElements="_yo1Egrl1EeudvphqGgk3Vw">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_yo1EgLl1EeudvphqGgk3Vw" length="19">
+          <nativeType href="pathmap://LogicalDBTypes#_WWeJ4hEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+      <columns xmi:id="_yo1EhLl1EeudvphqGgk3Vw" comments="Indicateur pour savoir si l'enregistrement est valide" techID="_yo1Eg7l1EeudvphqGgk3Vw" name="NAMESPACE_1_XTOPSUP" defaultValue="'0'">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_yo1Ehrl1EeudvphqGgk3Vw" length="1">
+          <nativeType href="pathmap://LogicalDBTypes#_WWew-BEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+      <columns xmi:id="_yo1Eirl1EeudvphqGgk3Vw" comments="Date de mise &#xe0; jour de la ligne" techID="_yo1Eibl1EeudvphqGgk3Vw" name="NAMESPACE_1_XDMAJ">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_yo1EjLl1EeudvphqGgk3Vw">
+          <nativeType href="pathmap://LogicalDBTypes#_WWew-xEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+    </tables>
+  </schemas>
+</database:DataBase>
