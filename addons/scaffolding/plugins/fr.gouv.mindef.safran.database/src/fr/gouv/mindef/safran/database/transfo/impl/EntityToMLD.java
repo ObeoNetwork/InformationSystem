@@ -464,22 +464,11 @@ public class EntityToMLD extends AbstractTransformation {
 		if (joinTable == null) {
 			// The join table does not already exist, we have to create a new one
 			joinTable = DatabaseFactory.eINSTANCE.createTable();
-			Optional<Annotation> optionalAnnotation = reference.getMetadatas().getMetadatas().stream()
-			.filter(Annotation.class::isInstance)			
-			.map(Annotation.class::cast)
-			.filter(annotation -> "PHYSICAL_NAME".equals(annotation.getTitle()))
-			.findFirst();
-			
-			if (optionalAnnotation.isPresent()) {
-				String targetSchemaName = optionalAnnotation.get().getBody();
-				Schema schema = getSchemaByName(targetSchemaName);
-				if (schema != null) {
-					schema.getTables().add(joinTable);
-					return;
-				}
-			}
-			
-			sourceTable.getOwner().getTables().add(joinTable); //FIXME			
+
+			// SAFRAN-711
+			TableContainer container = getTableContainerFor(reference, sourceTable, targetTable);
+			container.getTables().add(joinTable);
+	
 		}
 		addToOutputTraceability(reference, joinTable);
 		addToOutputTraceability(reference.getOppositeOf(), joinTable);
@@ -498,6 +487,39 @@ public class EntityToMLD extends AbstractTransformation {
 		joinTable.getPrimaryKey().setComments(pkComments);
 		
 		createAdditionalFields(joinTable);
+	}
+
+	/**
+	 * Returns the {@link TableContainer} corresponding to the {@link Namespace} referenced by the {@link Entity} 
+	 * @param reference a (Bi-directional) {@link Reference}
+	 * @param targetTable a {@link Table}
+	 * @param sourceTable  a {@link Table}
+	 * @return a {@link TableContainer}
+	 */
+	private TableContainer getTableContainerFor(Reference reference, Table sourceTable, Table targetTable) {
+		if (isPhysicalTarget(reference)) {
+			return targetTable.getOwner();
+		} else {
+			return sourceTable.getOwner();	
+		}
+	}
+
+	/**
+	 * Checks the metadata of a {@link Reference}. If it contains a PHYSICAL_TARGET metadata with a "checked" body (e.g., x value) , it is a physical target. 
+	 * @param reference the {@link Reference}
+	 * @return <code>true</code> if physical target.
+	 */
+	private boolean isPhysicalTarget(Reference reference) {
+		if (reference.getMetadatas() == null) 
+			return false;
+		
+		Optional<Annotation> optional = reference.getMetadatas().getMetadatas()
+			.stream()
+			.filter(metadata -> metadata instanceof Annotation && "PHYSICAL_TARGET".equalsIgnoreCase(((Annotation) metadata).getTitle()))
+			.map(Annotation.class::cast)
+			.findAny();
+		
+		return (optional.isPresent() && "x".equalsIgnoreCase(optional.get().getBody()));
 	}
 
 	private void createJoinTableForeignKey(Table joinTable, Table targetTable) {
