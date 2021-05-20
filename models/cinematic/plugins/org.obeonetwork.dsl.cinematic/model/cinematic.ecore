@@ -17,12 +17,6 @@
         <details key="documentation" value="List of the Flows contained in this package."/>
       </eAnnotations>
     </eStructuralFeatures>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="viewContainers" upperBound="-1"
-        eType="#//view/ViewContainer" containment="true">
-      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-        <details key="documentation" value="List of the View Containers contained in this package."/>
-      </eAnnotations>
-    </eStructuralFeatures>
     <eStructuralFeatures xsi:type="ecore:EReference" name="subPackages" upperBound="-1"
         eType="#//Package" containment="true">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
@@ -67,67 +61,11 @@
         </eAnnotations>
       </eStructuralFeatures>
     </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="ViewContainer" eSuperTypes="#//view/AbstractViewElement">
-      <eStructuralFeatures xsi:type="ecore:EReference" name="ownedElements" upperBound="-1"
-          eType="#//view/AbstractViewElement" containment="true">
-        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-          <details key="documentation" value="List of the directly contained View Containers, View Elements and View Container References."/>
-        </eAnnotations>
-      </eStructuralFeatures>
-      <eStructuralFeatures xsi:type="ecore:EReference" name="viewContainers" upperBound="-1"
-          eType="#//view/ViewContainer" changeable="false" volatile="true" transient="true"
-          derived="true">
-        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-          <details key="documentation" value="List of the directly contained View Containers."/>
-        </eAnnotations>
-      </eStructuralFeatures>
-      <eStructuralFeatures xsi:type="ecore:EReference" name="viewElements" upperBound="-1"
-          eType="#//view/ViewElement" changeable="false" volatile="true" transient="true"
-          derived="true">
-        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-          <details key="documentation" value="List of the directly contained View Elements."/>
-        </eAnnotations>
-      </eStructuralFeatures>
-      <eStructuralFeatures xsi:type="ecore:EReference" name="viewContainerReferences"
-          upperBound="-1" eType="#//view/ViewContainerReference" changeable="false"
-          volatile="true" transient="true" derived="true">
-        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-          <details key="documentation" value="List of the directly contained View Container References."/>
-        </eAnnotations>
-      </eStructuralFeatures>
-      <eStructuralFeatures xsi:type="ecore:EReference" name="layout" eType="#//view/Layout"
-          containment="true"/>
-    </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="ViewElement" eSuperTypes="#//view/AbstractViewElement">
-      <eStructuralFeatures xsi:type="ecore:EAttribute" name="required" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">
-        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-          <details key="documentation" value="Specifies if this View Element is required."/>
-        </eAnnotations>
-      </eStructuralFeatures>
-      <eStructuralFeatures xsi:type="ecore:EReference" name="type" eType="ecore:EClass ../../org.obeonetwork.dsl.environment/model/environment.ecore#//Type">
-        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-          <details key="documentation" value="The data type this View Element is manipulating."/>
-        </eAnnotations>
-      </eStructuralFeatures>
-      <eStructuralFeatures xsi:type="ecore:EAttribute" name="example" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
-        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-          <details key="documentation" value="Enables the definition of how a widget can be used in the context of this view element."/>
-        </eAnnotations>
-      </eStructuralFeatures>
-    </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="ViewAction" eSuperTypes="#//NamedElement"/>
     <eClassifiers xsi:type="ecore:EClass" name="ViewEvent" eSuperTypes="#//Event">
       <eStructuralFeatures xsi:type="ecore:EReference" name="type" eType="#//toolkits/WidgetEventType">
         <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
           <details key="documentation" value="The type of the View Event."/>
-        </eAnnotations>
-      </eStructuralFeatures>
-    </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="ViewContainerReference" eSuperTypes="#//view/AbstractViewElement">
-      <eStructuralFeatures xsi:type="ecore:EReference" name="viewContainer" lowerBound="1"
-          eType="#//view/ViewContainer">
-        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-          <details key="documentation" value="The referenced View Container."/>
         </eAnnotations>
       </eStructuralFeatures>
     </eClassifiers>
@@ -209,12 +147,6 @@
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="refresh" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">
         <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
           <details key="documentation" value="True if a refresh should be performed on the view."/>
-        </eAnnotations>
-      </eStructuralFeatures>
-      <eStructuralFeatures xsi:type="ecore:EReference" name="viewContainers" upperBound="-1"
-          eType="#//view/ViewContainer">
-        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-          <details key="documentation" value="The view containers this View State is presented by."/>
         </eAnnotations>
       </eStructuralFeatures>
     </eClassifiers>

@@ -16,7 +16,6 @@
     </genClasses>
     <genClasses image="false" ecoreClass="cinematic.ecore#//AbstractPackage">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference cinematic.ecore#//AbstractPackage/flows"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference cinematic.ecore#//AbstractPackage/viewContainers"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference cinematic.ecore#//AbstractPackage/subPackages"/>
     </genClasses>
     <genClasses ecoreClass="cinematic.ecore#//Package"/>
@@ -38,27 +37,10 @@
         <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference cinematic.ecore#//view/AbstractViewElement/events"/>
         <genFeatures createChild="false" ecoreFeature="ecore:EAttribute cinematic.ecore#//view/AbstractViewElement/label"/>
       </genClasses>
-      <genClasses ecoreClass="cinematic.ecore#//view/ViewContainer">
-        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference cinematic.ecore#//view/ViewContainer/ownedElements"/>
-        <genFeatures property="Readonly" notify="false" createChild="false" ecoreFeature="ecore:EReference cinematic.ecore#//view/ViewContainer/viewContainers"/>
-        <genFeatures property="Readonly" notify="false" createChild="false" ecoreFeature="ecore:EReference cinematic.ecore#//view/ViewContainer/viewElements"/>
-        <genFeatures property="Readonly" notify="false" createChild="false" ecoreFeature="ecore:EReference cinematic.ecore#//view/ViewContainer/viewContainerReferences"/>
-        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference cinematic.ecore#//view/ViewContainer/layout"/>
-      </genClasses>
-      <genClasses ecoreClass="cinematic.ecore#//view/ViewElement">
-        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute cinematic.ecore#//view/ViewElement/required"/>
-        <genFeatures notify="false" createChild="false" propertySortChoices="true"
-            ecoreFeature="ecore:EReference cinematic.ecore#//view/ViewElement/type"/>
-        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute cinematic.ecore#//view/ViewElement/example"/>
-      </genClasses>
       <genClasses ecoreClass="cinematic.ecore#//view/ViewAction"/>
       <genClasses ecoreClass="cinematic.ecore#//view/ViewEvent">
         <genFeatures notify="false" createChild="false" propertySortChoices="true"
             ecoreFeature="ecore:EReference cinematic.ecore#//view/ViewEvent/type"/>
-      </genClasses>
-      <genClasses ecoreClass="cinematic.ecore#//view/ViewContainerReference">
-        <genFeatures notify="false" createChild="false" propertySortChoices="true"
-            ecoreFeature="ecore:EReference cinematic.ecore#//view/ViewContainerReference/viewContainer"/>
       </genClasses>
       <genClasses ecoreClass="cinematic.ecore#//view/Layout">
         <genFeatures createChild="false" ecoreFeature="ecore:EAttribute cinematic.ecore#//view/Layout/x"/>
@@ -94,8 +76,6 @@
       <genClasses ecoreClass="cinematic.ecore#//flow/ViewState">
         <genFeatures createChild="false" ecoreFeature="ecore:EAttribute cinematic.ecore#//flow/ViewState/newInstance"/>
         <genFeatures createChild="false" ecoreFeature="ecore:EAttribute cinematic.ecore#//flow/ViewState/refresh"/>
-        <genFeatures notify="false" createChild="false" propertySortChoices="true"
-            ecoreFeature="ecore:EReference cinematic.ecore#//flow/ViewState/viewContainers"/>
       </genClasses>
       <genClasses ecoreClass="cinematic.ecore#//flow/DecisionState"/>
       <genClasses ecoreClass="cinematic.ecore#//flow/SubflowState">

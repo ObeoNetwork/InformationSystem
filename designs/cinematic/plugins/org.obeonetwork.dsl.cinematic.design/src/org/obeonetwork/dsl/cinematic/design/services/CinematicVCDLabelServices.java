@@ -1,10 +1,7 @@
 package org.obeonetwork.dsl.cinematic.design.services;
 
 import org.eclipse.sirius.business.api.query.EObjectQuery;
-import org.eclipse.sirius.business.api.session.Session;
 import org.eclipse.sirius.common.tools.api.interpreter.EvaluationException;
-import org.eclipse.sirius.common.tools.api.interpreter.IInterpreter;
-import org.eclipse.sirius.tools.api.interpreter.InterpreterUtil;
 import org.obeonetwork.dsl.cinematic.toolkits.Style;
 import org.obeonetwork.dsl.cinematic.view.AbstractViewElement;
 import org.obeonetwork.dsl.cinematic.view.ViewContainer;
@@ -15,10 +12,6 @@ import org.obeonetwork.utils.common.StringUtils;
 public class CinematicVCDLabelServices {
 
 	public static String getVCDLabel(ViewElement viewElement) {
-		
-		if(!StringUtils.isNullOrWhite(viewElement.getExample())) {
-			return viewElement.getExample();
-		}
 		
 		if(!StringUtils.isNullOrWhite(viewElement.getLabel())) {
 			return viewElement.getLabel();
