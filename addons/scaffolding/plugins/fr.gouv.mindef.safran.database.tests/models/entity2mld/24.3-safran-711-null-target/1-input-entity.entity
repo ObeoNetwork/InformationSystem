@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="ASCII"?>
+<oent:Root xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:oent="http://www.obeonetwork.org/dsl/entity/3.0.0" xmlns:oenv="http://www.obeonetwork.org/dsl/environment/3.0.0" xmi:id="_WTB1wLevEeuUDpDxexrvgQ" technicalid="_WTBOsLevEeuUDpDxexrvgQ" createdOn="2021-05-18T10:02:10.843+0200" modifiedOn="2021-05-19T10:34:41.105+0200">
+  <ownedNamespaces xmi:id="_sBKnCrh8Eeuan4LW7bu7BA" technicalid="_sBKnB7h8Eeuan4LW7bu7BA" createdOn="2021-05-19T10:32:03.440+0200" modifiedOn="2021-05-19T10:32:03.440+0200" name="NAMESPACE_1">
+    <types xsi:type="oent:Entity" xmi:id="_sBKnDbh8Eeuan4LW7bu7BA" technicalid="_sBKnBrh8Eeuan4LW7bu7BA" createdOn="2021-05-19T10:32:03.440+0200" modifiedOn="2021-05-20T09:24:47.977+0200" name="Entity">
+      <ownedReferences xmi:id="_sBLOF7h8Eeuan4LW7bu7BA" technicalid="_sBLOFrh8Eeuan4LW7bu7BA" description="Contrainte FK avec la table ENTITY2" createdOn="2021-05-19T10:32:03.441+0200" modifiedOn="2021-05-19T10:32:03.441+0200" name="entity2entityFk12" multiplicity="0..*" oppositeOf="_sBLOEbh8Eeuan4LW7bu7BA" referencedType="_sBKnGbh8Eeuan4LW7bu7BA">
+        <metadatas xmi:id="_sBLOGbh8Eeuan4LW7bu7BA" technicalid="_sBLOGLh8Eeuan4LW7bu7BA">
+          <metadatas xsi:type="oenv:Annotation" xmi:id="_sBLOG7h8Eeuan4LW7bu7BA" technicalid="_sBLOGrh8Eeuan4LW7bu7BA" title="PHYSICAL_NAME" body="ENTITY2ENTITY_FK1_2"/>
+          <metadatas xsi:type="oenv:Annotation" xmi:id="_KK9sIbh9Eeuan4LW7bu7BA" technicalid="_KK9sILh9Eeuan4LW7bu7BA" title="PHYSICAL_TARGET" />
+        </metadatas>
+      </ownedReferences>
+    </types>
+  </ownedNamespaces>
+  <ownedNamespaces xmi:id="_sBKnFrh8Eeuan4LW7bu7BA" technicalid="_sBKnE7h8Eeuan4LW7bu7BA" createdOn="2021-05-19T10:32:03.440+0200" modifiedOn="2021-05-20T09:24:49.766+0200" name="NAMESPACE_2">
+    <types xsi:type="oent:Entity" xmi:id="_sBKnGbh8Eeuan4LW7bu7BA" technicalid="_sBKnErh8Eeuan4LW7bu7BA" createdOn="2021-05-19T10:32:03.440+0200" modifiedOn="2021-05-20T09:24:51.709+0200" name="Entity2">
+      <ownedReferences xmi:id="_sBLOEbh8Eeuan4LW7bu7BA" technicalid="_sBLOELh8Eeuan4LW7bu7BA" description="Contrainte FK avec la table ENTITY" createdOn="2021-05-19T10:32:03.441+0200" modifiedOn="2021-05-19T10:32:03.441+0200" name="entity2entityFk11" multiplicity="0..*" oppositeOf="_sBLOF7h8Eeuan4LW7bu7BA" referencedType="_sBKnDbh8Eeuan4LW7bu7BA">
+        <metadatas xmi:id="_sBLOE7h8Eeuan4LW7bu7BA" technicalid="_sBLOErh8Eeuan4LW7bu7BA">
+          <metadatas xsi:type="oenv:Annotation" xmi:id="_sBLOFbh8Eeuan4LW7bu7BA" technicalid="_sBLOFLh8Eeuan4LW7bu7BA" title="PHYSICAL_NAME" body="ENTITY2ENTITY_FK1_1"/>
+        </metadatas>
+      </ownedReferences>
+    </types>
+  </ownedNamespaces>
+</oent:Root>

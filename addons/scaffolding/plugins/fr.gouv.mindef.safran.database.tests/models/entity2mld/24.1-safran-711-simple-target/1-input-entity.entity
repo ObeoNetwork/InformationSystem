@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="ASCII"?>
+<oent:Root xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:oent="http://www.obeonetwork.org/dsl/entity/3.0.0" xmlns:oenv="http://www.obeonetwork.org/dsl/environment/3.0.0" xmi:id="_WTB1wLevEeuUDpDxexrvgQ" technicalid="_WTBOsLevEeuUDpDxexrvgQ" createdOn="2021-05-18T10:02:10.843+0200" modifiedOn="2021-05-19T10:34:41.105+0200">
+  <ownedNamespaces xmi:id="_sBKnCrh8Eeuan4LW7bu7BA" technicalid="_sBKnB7h8Eeuan4LW7bu7BA" createdOn="2021-05-19T10:32:03.440+0200" modifiedOn="2021-05-19T10:32:03.440+0200" name="NAMESPACE_1">
+    <metadatas xmi:id="_sBKnC7h8Eeuan4LW7bu7BA" technicalid="_sBKnCLh8Eeuan4LW7bu7BA">
+      <metadatas xsi:type="oenv:Annotation" xmi:id="_sBKnDLh8Eeuan4LW7bu7BA" technicalid="_sBKnCbh8Eeuan4LW7bu7BA" title="PHYSICAL_NAME" body="NAMESPACE_1"/>
+    </metadatas>
+    <types xsi:type="oent:Entity" xmi:id="_sBKnDbh8Eeuan4LW7bu7BA" technicalid="_sBKnBrh8Eeuan4LW7bu7BA" createdOn="2021-05-19T10:32:03.440+0200" modifiedOn="2021-05-19T10:32:03.441+0200" name="Entity">
+      <metadatas xmi:id="_sBKnD7h8Eeuan4LW7bu7BA" technicalid="_sBKnDrh8Eeuan4LW7bu7BA">
+        <metadatas xsi:type="oenv:Annotation" xmi:id="_sBKnEbh8Eeuan4LW7bu7BA" technicalid="_sBKnELh8Eeuan4LW7bu7BA" title="PHYSICAL_NAME" body="ENTITY"/>
+      </metadatas>
+      <ownedReferences xmi:id="_sBLOF7h8Eeuan4LW7bu7BA" technicalid="_sBLOFrh8Eeuan4LW7bu7BA" description="Contrainte FK avec la table ENTITY2" createdOn="2021-05-19T10:32:03.441+0200" modifiedOn="2021-05-19T10:32:03.441+0200" name="entity2entityFk12" multiplicity="0..*" oppositeOf="_sBLOEbh8Eeuan4LW7bu7BA" referencedType="_sBKnGbh8Eeuan4LW7bu7BA">
+        <metadatas xmi:id="_sBLOGbh8Eeuan4LW7bu7BA" technicalid="_sBLOGLh8Eeuan4LW7bu7BA">
+          <metadatas xsi:type="oenv:Annotation" xmi:id="_sBLOG7h8Eeuan4LW7bu7BA" technicalid="_sBLOGrh8Eeuan4LW7bu7BA" title="PHYSICAL_NAME" body="ENTITY2ENTITY_FK1_2"/>
+          <metadatas xsi:type="oenv:Annotation" xmi:id="_KK9sIbh9Eeuan4LW7bu7BA" technicalid="_KK9sILh9Eeuan4LW7bu7BA" title="PHYSICAL_TARGET" body="NAMESPACE_2"/>
+        </metadatas>
+      </ownedReferences>
+    </types>
+  </ownedNamespaces>
+  <ownedNamespaces xmi:id="_sBKnFrh8Eeuan4LW7bu7BA" technicalid="_sBKnE7h8Eeuan4LW7bu7BA" createdOn="2021-05-19T10:32:03.440+0200" modifiedOn="2021-05-19T10:32:03.440+0200" name="NAMESPACE_2">
+    <metadatas xmi:id="_sBKnF7h8Eeuan4LW7bu7BA" technicalid="_sBKnFLh8Eeuan4LW7bu7BA">
+      <metadatas xsi:type="oenv:Annotation" xmi:id="_sBKnGLh8Eeuan4LW7bu7BA" technicalid="_sBKnFbh8Eeuan4LW7bu7BA" title="PHYSICAL_NAME" body="NAMESPACE_2"/>
+    </metadatas>
+    <types xsi:type="oent:Entity" xmi:id="_sBKnGbh8Eeuan4LW7bu7BA" technicalid="_sBKnErh8Eeuan4LW7bu7BA" createdOn="2021-05-19T10:32:03.440+0200" modifiedOn="2021-05-19T10:32:03.441+0200" name="Entity2">
+      <metadatas xmi:id="_sBKnG7h8Eeuan4LW7bu7BA" technicalid="_sBKnGrh8Eeuan4LW7bu7BA">
+        <metadatas xsi:type="oenv:Annotation" xmi:id="_sBKnHbh8Eeuan4LW7bu7BA" technicalid="_sBKnHLh8Eeuan4LW7bu7BA" title="PHYSICAL_NAME" body="ENTITY2"/>
+      </metadatas>
+      <ownedReferences xmi:id="_sBLOEbh8Eeuan4LW7bu7BA" technicalid="_sBLOELh8Eeuan4LW7bu7BA" description="Contrainte FK avec la table ENTITY" createdOn="2021-05-19T10:32:03.441+0200" modifiedOn="2021-05-19T10:32:03.441+0200" name="entity2entityFk11" multiplicity="0..*" oppositeOf="_sBLOF7h8Eeuan4LW7bu7BA" referencedType="_sBKnDbh8Eeuan4LW7bu7BA">
+        <metadatas xmi:id="_sBLOE7h8Eeuan4LW7bu7BA" technicalid="_sBLOErh8Eeuan4LW7bu7BA">
+          <metadatas xsi:type="oenv:Annotation" xmi:id="_sBLOFbh8Eeuan4LW7bu7BA" technicalid="_sBLOFLh8Eeuan4LW7bu7BA" title="PHYSICAL_NAME" body="ENTITY2ENTITY_FK1_1"/>
+          <metadatas xsi:type="oenv:Annotation" xmi:id="_JZUMwbh9Eeuan4LW7bu7BA" technicalid="_JZUMwLh9Eeuan4LW7bu7BA" title="PHYSICAL_TARGET" body="NAMESPACE_2"/>
+        </metadatas>
+      </ownedReferences>
+    </types>
+  </ownedNamespaces>
+</oent:Root>
