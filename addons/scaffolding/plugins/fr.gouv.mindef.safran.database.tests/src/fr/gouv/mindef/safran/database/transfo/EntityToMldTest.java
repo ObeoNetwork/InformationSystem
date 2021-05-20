@@ -141,4 +141,11 @@ public class EntityToMldTest extends AbstractTransformationTest {
 		testEntityToMld("22.2-safran-496-multiple-indexes-per-entity---create");
 		testEntityToMld("22.3-safran-496-multiple-indexes-per-entity---update");
 	}
+	
+	@Test
+	public void minarmSafran711() {
+		testEntityToMld("24.1-safran-711-simple-target");
+		testEntityToMld("24.2-safran-711-double-target");
+		testEntityToMld("24.3-safran-711-null-target");
+	}
 }
