@@ -148,4 +148,10 @@ public class EntityToMldTest extends AbstractTransformationTest {
 		testEntityToMld("24.2-safran-711-double-target");
 		testEntityToMld("24.3-safran-711-null-target");
 	}
+	
+	@Test
+	public void minarmSafran712() {
+		testEntityToMld("25.1-safran-712-two-bidirectionnal-references");
+		testEntityToMld("25.2-safran-712-two-bidirectionnal-containments");
+	}
 }
