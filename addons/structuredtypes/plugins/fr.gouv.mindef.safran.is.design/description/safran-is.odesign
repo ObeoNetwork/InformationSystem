@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="ASCII"?>
-<description:Group xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:description="http://www.eclipse.org/sirius/description/1.1.0" xmlns:description_1="http://www.eclipse.org/sirius/table/description/1.1.0" xmlns:tool="http://www.eclipse.org/sirius/description/tool/1.1.0" documentation="Copyright (c) 2008, 2021 Obeo.&#xD;&#xA;All rights reserved. This program and the accompanying materials&#xD;&#xA;are made available under the terms of the Eclipse Public License v1.0&#xD;&#xA;which accompanies this distribution, and is available at&#xD;&#xA;http://www.eclipse.org/legal/epl-v10.html&#xD;&#xA;&#xD;&#xA;Contributors:&#xD;&#xA;   Obeo - initial API and implementation" name="safran-is" version="12.0.0.2017041100">
+<description:Group xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:description="http://www.eclipse.org/sirius/description/1.1.0" xmlns:description_1="http://www.eclipse.org/sirius/table/description/1.1.0" xmlns:properties="http://www.eclipse.org/sirius/properties/1.0.0" xmlns:tool="http://www.eclipse.org/sirius/description/tool/1.1.0" documentation="Copyright (c) 2008, 2021 Obeo.&#xD;&#xA;All rights reserved. This program and the accompanying materials&#xD;&#xA;are made available under the terms of the Eclipse Public License v1.0&#xD;&#xA;which accompanies this distribution, and is available at&#xD;&#xA;http://www.eclipse.org/legal/epl-v10.html&#xD;&#xA;&#xD;&#xA;Contributors:&#xD;&#xA;   Obeo - initial API and implementation" name="safran-is" version="12.0.0.2017041100">
   <ownedViewpoints endUserDocumentation="The &lt;b>Entity (Safr@n consolidated view)&lt;/b> viewpoint provides one representation : &#xD;&#xA;&lt;ul>&#xD;&#xA;&lt;li>&lt;b>Entities Physical Names&lt;/b> : a table allowing to view and edit informations related physical storage of entities.&lt;/li>&#xD;&#xA;&lt;/ul>&#xA;" name="Entity (Safr@n consolidated view)" label="Entity (Safr@n consolidated view)" modelFileExtension="entity ois">
     <ownedRepresentations xsi:type="description_1:EditionTableDescription" name="EV_Entities_PhysicalNames" label="Entities Physical Names" domainClass="entity.Root" initialHeaderColumnWidth="80">
       <metamodel href="http://www.obeonetwork.org/dsl/environment/3.0.0#/"/>
@@ -99,8 +99,25 @@
           <mask mask="{0}"/>
         </directEdit>
       </ownedColumnMappings>
+      <ownedColumnMappings name="EPN_TargetSchema" headerLabelExpression="Target Schema" initialWidth="60" canEdit="aql:self.oclIsKindOf(environment::Reference)" featureName="name" labelExpression="service:lineSemantic.getPhysicalTarget()">
+        <directEdit>
+          <variables name="element" documentation="The semantic currently edited element."/>
+          <variables name="table" documentation="The current DTable."/>
+          <variables name="line" documentation="The DLine of the current DCell."/>
+          <variables name="lineSemantic" documentation="The semantic element corresponding to the line."/>
+          <variables name="root" documentation="The semantic root element of the table."/>
+          <firstModelOperation xsi:type="tool:ChangeContext" browseExpression="service:lineSemantic.setPhysicalTarget(arg0)"/>
+          <mask mask="{0}"/>
+        </directEdit>
+        <backgroundConditionalStyle predicateExpression="aql:not self.isValidReference()">
+          <style>
+            <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_red']"/>
+          </style>
+        </backgroundConditionalStyle>
+      </ownedColumnMappings>
     </ownedRepresentations>
     <ownedJavaExtensions qualifiedClassName="fr.gouv.mindef.safran.is.design.services.AnnotationServices"/>
+    <ownedJavaExtensions qualifiedClassName="fr.gouv.mindef.safran.is.design.services.MetadataEntityServices"/>
   </ownedViewpoints>
   <ownedViewpoints endUserDocumentation="The &lt;b>Graal Methodology (Safr@n consolidated view)&lt;/b> viewpoint provides one representation : &#xD;&#xA;&lt;ul>&#xD;&#xA;&lt;li>&lt;b>Domain Classes Annotations&lt;/b> : a table allowing to view and edit informations related physical storage of domain classes.&lt;/li>&#xD;&#xA;&lt;/ul>&#xA;" name="Graal Methodology (Safr@n consolidated view)" label="Graal Methodology (Safr@n consolidated view)" modelFileExtension="graal ois">
     <ownedRepresentations xsi:type="description_1:EditionTableDescription" name="EV_DomainClasses_Annotations" label="Domain Classes Annotations" domainClass="graal.System" initialHeaderColumnWidth="80">
@@ -274,4 +291,41 @@
     </ownedRepresentations>
     <ownedJavaExtensions qualifiedClassName="fr.gouv.mindef.safran.is.design.services.AnnotationServices"/>
   </ownedViewpoints>
+  <extensions xsi:type="properties:ViewExtensionDescription" name="Properties">
+    <categories name="Default Category">
+      <pages name="PhysicalProperties" labelExpression="Physical Properties" domainClass="environment::ObeoDSMObject" semanticCandidateExpression="var:self" groups="//@extensions.0/@categories.0/@groups.0"/>
+      <groups name="Physical Group" labelExpression="Physical Properties" domainClass="environment::ObeoDSMObject" semanticCandidateExpression="var:self">
+        <controls xsi:type="properties:TextAreaDescription" name="Name" labelExpression="Name" lineCount="1">
+          <initialOperation>
+            <firstModelOperations xsi:type="tool:ChangeContext" browseExpression="var:self"/>
+          </initialOperation>
+        </controls>
+        <controls xsi:type="properties:TextAreaDescription" name="Size" labelExpression="Size" lineCount="1">
+          <initialOperation>
+            <firstModelOperations xsi:type="tool:ChangeContext" browseExpression="var:self"/>
+          </initialOperation>
+        </controls>
+        <controls xsi:type="properties:TextAreaDescription" name="Check" labelExpression="Check" lineCount="1">
+          <initialOperation>
+            <firstModelOperations xsi:type="tool:ChangeContext" browseExpression="var:self"/>
+          </initialOperation>
+        </controls>
+        <controls xsi:type="properties:TextAreaDescription" name="Unique" labelExpression="Unique" lineCount="1">
+          <initialOperation>
+            <firstModelOperations xsi:type="tool:ChangeContext" browseExpression="var:self"/>
+          </initialOperation>
+        </controls>
+        <controls xsi:type="properties:TextAreaDescription" name="Default" labelExpression="Default" lineCount="1">
+          <initialOperation>
+            <firstModelOperations xsi:type="tool:ChangeContext" browseExpression="var:self"/>
+          </initialOperation>
+        </controls>
+        <controls xsi:type="properties:SelectDescription" name="Target Schema" labelExpression="Target Schema" isEnabledExpression="aql:self.oclIsKindOf(environment::Reference)" candidatesExpression="aql:Sequence{self.containingType.eContainer(), self.}" candidateDisplayExpression="aql:candidate.name">
+          <initialOperation>
+            <firstModelOperations xsi:type="tool:ChangeContext" browseExpression="var:self"/>
+          </initialOperation>
+        </controls>
+      </groups>
+    </categories>
+  </extensions>
 </description:Group>
