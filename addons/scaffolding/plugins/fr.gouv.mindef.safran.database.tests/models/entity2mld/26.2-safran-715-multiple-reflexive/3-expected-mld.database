@@ -1,44 +1,44 @@
 <?xml version="1.0" encoding="ASCII"?>
 <database:DataBase xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:database="http://www.obeonetwork.org/dsl/database/1.0" xmlns:typeslibrary="http://www.obeonetwork.org/dsl/typeslibrary/1.0" xmi:id="_eNyF2revEeuUDpDxexrvgQ" techID="_eNw3sLevEeuUDpDxexrvgQ" name="My">
   <usedLibraries xsi:type="typeslibrary:NativeTypesLibrary" href="pathmap://LogicalDBTypes#_WWbGkREnEeGTa_JlZYBw1A"/>
-  <schemas xmi:id="_mC3Gcr1nEeuJlLv7xhuMdg" techID="_mC3Gcb1nEeuJlLv7xhuMdg" name="NAMESPACE_1">
-    <tables xsi:type="database:Table" xmi:id="_mC3Gc71nEeuJlLv7xhuMdg" techID="_mC3GcL1nEeuJlLv7xhuMdg" name="ENTITY">
-      <primaryKey xmi:id="_mC3GeL1nEeuJlLv7xhuMdg" comments="Contrainte PK pour la colonne ENTITY_ID" techID="_mC3Gd71nEeuJlLv7xhuMdg" name="ENTITY_PK" columns="_mC3Gdb1nEeuJlLv7xhuMdg"/>
-      <foreignKeys xmi:id="_mC3Ge71nEeuJlLv7xhuMdg" comments="Contrainte FK avec la table ENTITY" techID="_mC3Ger1nEeuJlLv7xhuMdg" name="ENTITY_FK1_1" target="_mC3Gc71nEeuJlLv7xhuMdg">
-        <elements xmi:id="_mC3Ggb1nEeuJlLv7xhuMdg" techID="_mC3GgL1nEeuJlLv7xhuMdg" fkColumn="_mC3Gfb1nEeuJlLv7xhuMdg" pkColumn="_mC3Gdb1nEeuJlLv7xhuMdg"/>
+  <schemas xmi:id="_qh8ecr33EeuXStmUnx2Tnw" techID="_qh8ecb33EeuXStmUnx2Tnw" name="NAMESPACE_1">
+    <tables xsi:type="database:Table" xmi:id="_qh9FgL33EeuXStmUnx2Tnw" techID="_qh8ecL33EeuXStmUnx2Tnw" name="ENTITY">
+      <primaryKey xmi:id="_qh9Fhb33EeuXStmUnx2Tnw" comments="Contrainte PK pour la colonne ENTITY_ID" techID="_qh9FhL33EeuXStmUnx2Tnw" name="ENTITY_PK" columns="_qh9Fgr33EeuXStmUnx2Tnw"/>
+      <foreignKeys xmi:id="_qh9FiL33EeuXStmUnx2Tnw" comments="Contrainte FK avec la table ENTITY" techID="_qh9Fh733EeuXStmUnx2Tnw" name="ENTITY_FK1_1" target="_qh9FgL33EeuXStmUnx2Tnw">
+        <elements xmi:id="_qh9Fjr33EeuXStmUnx2Tnw" techID="_qh9Fjb33EeuXStmUnx2Tnw" fkColumn="_qh9Fir33EeuXStmUnx2Tnw" pkColumn="_qh9Fgr33EeuXStmUnx2Tnw"/>
       </foreignKeys>
-      <foreignKeys xmi:id="_mC3Gg71nEeuJlLv7xhuMdg" comments="Contrainte FK avec la table ENTITY" techID="_mC3Ggr1nEeuJlLv7xhuMdg" name="ENTITY_FK1_2" target="_mC3Gc71nEeuJlLv7xhuMdg">
-        <elements xmi:id="_mC3Gib1nEeuJlLv7xhuMdg" techID="_mC3GiL1nEeuJlLv7xhuMdg" fkColumn="_mC3Ghb1nEeuJlLv7xhuMdg" pkColumn="_mC3Gdb1nEeuJlLv7xhuMdg"/>
+      <foreignKeys xmi:id="_qh9FkL33EeuXStmUnx2Tnw" comments="Contrainte FK avec la table ENTITY" techID="_qh9Fj733EeuXStmUnx2Tnw" name="ENTITY_FK1_2" target="_qh9FgL33EeuXStmUnx2Tnw">
+        <elements xmi:id="_qh9slb33EeuXStmUnx2Tnw" techID="_qh9slL33EeuXStmUnx2Tnw" fkColumn="_qh9skb33EeuXStmUnx2Tnw" pkColumn="_qh9Fgr33EeuXStmUnx2Tnw"/>
       </foreignKeys>
-      <constraints xmi:id="_mC3Gl71nEeuJlLv7xhuMdg" comments="Liste des valeurs possibles pour NAMESPACE_1_XTOPSUP" techID="_mC3Glr1nEeuJlLv7xhuMdg" name="ENTITY_CK1_1" expression="NAMESPACE_1_XTOPSUP in ('0','1','3','9')"/>
-      <indexes xmi:id="_mC3Gi71nEeuJlLv7xhuMdg" comments="Index sur la FK (ENTITY_1_ID) de la table ENTITY" techID="_mC3Gir1nEeuJlLv7xhuMdg" name="ENTITY_FK1_1">
-        <elements xmi:id="_mC3Gjb1nEeuJlLv7xhuMdg" techID="_mC3GjL1nEeuJlLv7xhuMdg" column="_mC3Gfb1nEeuJlLv7xhuMdg" asc="true"/>
+      <constraints xmi:id="_qh-Trb33EeuXStmUnx2Tnw" comments="Liste des valeurs possibles pour NAMESPACE_1_XTOPSUP" techID="_qh-TrL33EeuXStmUnx2Tnw" name="ENTITY_CK1_1" expression="NAMESPACE_1_XTOPSUP in ('0','1','3','9')"/>
+      <indexes xmi:id="_qh-Tob33EeuXStmUnx2Tnw" comments="Index sur la FK (ENTITY_ID_1) de la table ENTITY" techID="_qh-ToL33EeuXStmUnx2Tnw" name="ENTITY_FK1_1">
+        <elements xmi:id="_qh-To733EeuXStmUnx2Tnw" techID="_qh-Tor33EeuXStmUnx2Tnw" column="_qh9Fir33EeuXStmUnx2Tnw" asc="true"/>
       </indexes>
-      <indexes xmi:id="_mC3Gj71nEeuJlLv7xhuMdg" comments="Index sur la FK (ENTITY_2_ID) de la table ENTITY" techID="_mC3Gjr1nEeuJlLv7xhuMdg" name="ENTITY_FK1_2">
-        <elements xmi:id="_mC3Gkb1nEeuJlLv7xhuMdg" techID="_mC3GkL1nEeuJlLv7xhuMdg" column="_mC3Ghb1nEeuJlLv7xhuMdg" asc="true"/>
+      <indexes xmi:id="_qh-Tpb33EeuXStmUnx2Tnw" comments="Index sur la FK (ENTITY_ID_2) de la table ENTITY" techID="_qh-TpL33EeuXStmUnx2Tnw" name="ENTITY_FK1_2">
+        <elements xmi:id="_qh-Tp733EeuXStmUnx2Tnw" techID="_qh-Tpr33EeuXStmUnx2Tnw" column="_qh9skb33EeuXStmUnx2Tnw" asc="true"/>
       </indexes>
-      <columns xmi:id="_mC3Gdb1nEeuJlLv7xhuMdg" comments="PK de la table ENTITY" techID="_mC3GdL1nEeuJlLv7xhuMdg" name="ENTITY_ID" primaryKey="_mC3GeL1nEeuJlLv7xhuMdg">
-        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_mC3Geb1nEeuJlLv7xhuMdg" length="19">
+      <columns xmi:id="_qh9Fgr33EeuXStmUnx2Tnw" comments="PK de la table ENTITY" techID="_qh9Fgb33EeuXStmUnx2Tnw" name="ENTITY_ID" primaryKey="_qh9Fhb33EeuXStmUnx2Tnw">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_qh9Fhr33EeuXStmUnx2Tnw" length="19">
           <nativeType href="pathmap://LogicalDBTypes#_WWeJ4hEnEeGTa_JlZYBw1A"/>
         </type>
       </columns>
-      <columns xmi:id="_mC3Gfb1nEeuJlLv7xhuMdg" techID="_mC3GfL1nEeuJlLv7xhuMdg" name="ENTITY_1_ID" nullable="true" indexElements="_mC3Gjb1nEeuJlLv7xhuMdg" foreignKeyElements="_mC3Ggb1nEeuJlLv7xhuMdg">
-        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_mC3Gf71nEeuJlLv7xhuMdg" length="19">
+      <columns xmi:id="_qh9Fir33EeuXStmUnx2Tnw" techID="_qh9Fib33EeuXStmUnx2Tnw" name="ENTITY_ID_1" nullable="true" indexElements="_qh-To733EeuXStmUnx2Tnw" foreignKeyElements="_qh9Fjr33EeuXStmUnx2Tnw">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_qh9FjL33EeuXStmUnx2Tnw" length="19">
           <nativeType href="pathmap://LogicalDBTypes#_WWeJ4hEnEeGTa_JlZYBw1A"/>
         </type>
       </columns>
-      <columns xmi:id="_mC3Ghb1nEeuJlLv7xhuMdg" techID="_mC3GhL1nEeuJlLv7xhuMdg" name="ENTITY_2_ID" nullable="true" indexElements="_mC3Gkb1nEeuJlLv7xhuMdg" foreignKeyElements="_mC3Gib1nEeuJlLv7xhuMdg">
-        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_mC3Gh71nEeuJlLv7xhuMdg" length="19">
+      <columns xmi:id="_qh9skb33EeuXStmUnx2Tnw" techID="_qh9skL33EeuXStmUnx2Tnw" name="ENTITY_ID_2" nullable="true" indexElements="_qh-Tp733EeuXStmUnx2Tnw" foreignKeyElements="_qh9slb33EeuXStmUnx2Tnw">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_qh9sk733EeuXStmUnx2Tnw" length="19">
           <nativeType href="pathmap://LogicalDBTypes#_WWeJ4hEnEeGTa_JlZYBw1A"/>
         </type>
       </columns>
-      <columns xmi:id="_mC3Gk71nEeuJlLv7xhuMdg" comments="Indicateur pour savoir si l'enregistrement est valide" techID="_mC3Gkr1nEeuJlLv7xhuMdg" name="NAMESPACE_1_XTOPSUP" defaultValue="'0'">
-        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_mC3Glb1nEeuJlLv7xhuMdg" length="1">
+      <columns xmi:id="_qh-Tqb33EeuXStmUnx2Tnw" comments="Indicateur pour savoir si l'enregistrement est valide" techID="_qh-TqL33EeuXStmUnx2Tnw" name="NAMESPACE_1_XTOPSUP" defaultValue="'0'">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_qh-Tq733EeuXStmUnx2Tnw" length="1">
           <nativeType href="pathmap://LogicalDBTypes#_WWew-BEnEeGTa_JlZYBw1A"/>
         </type>
       </columns>
-      <columns xmi:id="_mC3Gmb1nEeuJlLv7xhuMdg" comments="Date de mise &#xe0; jour de la ligne" techID="_mC3GmL1nEeuJlLv7xhuMdg" name="NAMESPACE_1_XDMAJ">
-        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_mC3Gm71nEeuJlLv7xhuMdg">
+      <columns xmi:id="_qh-6sb33EeuXStmUnx2Tnw" comments="Date de mise &#xe0; jour de la ligne" techID="_qh-6sL33EeuXStmUnx2Tnw" name="NAMESPACE_1_XDMAJ">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_qh-6s733EeuXStmUnx2Tnw">
           <nativeType href="pathmap://LogicalDBTypes#_WWew-xEnEeGTa_JlZYBw1A"/>
         </type>
       </columns>

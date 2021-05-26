@@ -160,5 +160,6 @@ public class EntityToMldTest extends AbstractTransformationTest {
 	public void minarmSafran715() {
 		testEntityToMld("26.1-safran-715-simple-reflexive");
 		testEntityToMld("26.2-safran-715-multiple-reflexive");
+		testEntityToMld("26.3-safran-715-reflexive-target-name");
 	}
 }

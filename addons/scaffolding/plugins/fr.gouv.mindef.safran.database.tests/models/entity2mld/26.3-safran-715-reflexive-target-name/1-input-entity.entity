@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="ASCII"?>
+<oent:Root xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:oent="http://www.obeonetwork.org/dsl/entity/3.0.0" xmlns:oenv="http://www.obeonetwork.org/dsl/environment/3.0.0" xmi:id="_WTB1wLevEeuUDpDxexrvgQ" technicalid="_WTBOsLevEeuUDpDxexrvgQ" createdOn="2021-05-18T10:02:10.843+0200" modifiedOn="2021-05-25T11:36:56.373+0200">
+  <ownedNamespaces xmi:id="_sBKnCrh8Eeuan4LW7bu7BA" technicalid="_sBKnB7h8Eeuan4LW7bu7BA" createdOn="2021-05-19T10:32:03.440+0200" modifiedOn="2021-05-26T09:54:42.289+0200" name="NAMESPACE_1">
+    <types xsi:type="oent:Entity" xmi:id="_Zl8Lg7lxEeudvphqGgk3Vw" technicalid="_ZkrAQ7lxEeudvphqGgk3Vw" createdOn="2021-05-19T10:32:03.440+0200" modifiedOn="2021-05-26T10:03:39.823+0200" name="Entity">
+      <ownedReferences xmi:id="_4YeT8b34Eeu_y74HMbhlfA" technicalid="_4YeT8L34Eeu_y74HMbhlfA" createdOn="2021-05-26T10:03:39.823+0200" modifiedOn="2021-05-26T10:03:44.460+0200" name="Entitys" multiplicity="0..*" referencedType="_Zl8Lg7lxEeudvphqGgk3Vw">
+        <metadatas xmi:id="_5Esgwb34Eeu_y74HMbhlfA" technicalid="_5EsgwL34Eeu_y74HMbhlfA">
+          <metadatas xsi:type="oenv:Annotation" xmi:id="_5Esgw734Eeu_y74HMbhlfA" technicalid="_5Esgwr34Eeu_y74HMbhlfA" title="PHYSICAL_NAME" body="FK_1"/>
+        </metadatas>
+      </ownedReferences>
+    </types>
+  </ownedNamespaces>
+</oent:Root>
