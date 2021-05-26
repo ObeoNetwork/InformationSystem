@@ -9,7 +9,8 @@
   <foreignModel>cinematic.ecore</foreignModel>
   <modelPluginVariables>CDO=org.eclipse.emf.cdo</modelPluginVariables>
   <genPackages prefix="Cinematic" basePackage="org.obeonetwork.dsl" resource="XMI"
-      disposableProviderFactory="true" multipleEditorPages="false" ecorePackage="cinematic.ecore#/">
+      disposableProviderFactory="true" multipleEditorPages="false" generateModelWizard="false"
+      ecorePackage="cinematic.ecore#/">
     <genClasses image="false" ecoreClass="cinematic.ecore#//CinematicElement" labelFeature="../../org.obeonetwork.dsl.environment/model/environment.genmodel#//environment/ObeoDSMObject/description"/>
     <genClasses image="false" ecoreClass="cinematic.ecore#//NamedElement">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute cinematic.ecore#//NamedElement/name"/>
@@ -24,8 +25,8 @@
     </genClasses>
     <genClasses image="false" ecoreClass="cinematic.ecore#//Event"/>
     <nestedGenPackages prefix="View" basePackage="org.obeonetwork.dsl.cinematic" resource="XMI"
-        disposableProviderFactory="true" multipleEditorPages="false" fileExtensions="cinematic_view"
-        ecorePackage="cinematic.ecore#//view">
+        disposableProviderFactory="true" multipleEditorPages="false" generateModelWizard="false"
+        fileExtensions="cinematic_view" ecorePackage="cinematic.ecore#//view">
       <genEnums typeSafeEnumCompatible="false" ecoreEnum="cinematic.ecore#//view/LayoutDirection">
         <genEnumLiterals ecoreEnumLiteral="cinematic.ecore#//view/LayoutDirection/VERTICAL"/>
         <genEnumLiterals ecoreEnumLiteral="cinematic.ecore#//view/LayoutDirection/HORIZONTAL"/>
@@ -54,8 +55,8 @@
       </genClasses>
     </nestedGenPackages>
     <nestedGenPackages prefix="Flow" basePackage="org.obeonetwork.dsl.cinematic" resource="XMI"
-        disposableProviderFactory="true" multipleEditorPages="false" fileExtensions="cinematic_flow"
-        ecorePackage="cinematic.ecore#//flow">
+        disposableProviderFactory="true" multipleEditorPages="false" generateModelWizard="false"
+        fileExtensions="cinematic_flow" ecorePackage="cinematic.ecore#//flow">
       <genClasses ecoreClass="cinematic.ecore#//flow/Flow">
         <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference cinematic.ecore#//flow/Flow/states"/>
         <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference cinematic.ecore#//flow/Flow/transitions"/>
@@ -103,7 +104,7 @@
     </nestedGenPackages>
     <nestedGenPackages prefix="Toolkits" basePackage="org.obeonetwork.dsl.cinematic"
         resource="XMI" disposableProviderFactory="true" multipleEditorPages="false"
-        ecorePackage="cinematic.ecore#//toolkits">
+        generateModelWizard="false" ecorePackage="cinematic.ecore#//toolkits">
       <genEnums typeSafeEnumCompatible="false" ecoreEnum="cinematic.ecore#//toolkits/CardinalPosition">
         <genEnumLiterals ecoreEnumLiteral="cinematic.ecore#//toolkits/CardinalPosition/WEST"/>
         <genEnumLiterals ecoreEnumLiteral="cinematic.ecore#//toolkits/CardinalPosition/EAST"/>
