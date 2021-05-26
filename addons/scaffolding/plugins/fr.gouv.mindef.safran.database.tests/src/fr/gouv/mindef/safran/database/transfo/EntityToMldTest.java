@@ -153,5 +153,12 @@ public class EntityToMldTest extends AbstractTransformationTest {
 	public void minarmSafran712() {
 		testEntityToMld("25.1-safran-712-two-bidirectionnal-references");
 		testEntityToMld("25.2-safran-712-two-bidirectionnal-containments");
+		testEntityToMld("25.3-safran-712-two-bidirectionnal-reference-different-namespaces");
+	}
+	
+	@Test
+	public void minarmSafran715() {
+		testEntityToMld("26.1-safran-715-simple-reflexive");
+		testEntityToMld("26.2-safran-715-multiple-reflexive");
 	}
 }
