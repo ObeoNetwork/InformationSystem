@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="ASCII"?>
+<oent:Root xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:oent="http://www.obeonetwork.org/dsl/entity/3.0.0" xmlns:oenv="http://www.obeonetwork.org/dsl/environment/3.0.0" xmi:id="_WTB1wLevEeuUDpDxexrvgQ" technicalid="_WTBOsLevEeuUDpDxexrvgQ" createdOn="2021-05-18T10:02:10.843+0200" modifiedOn="2021-05-25T08:58:40.312+0200">
+  <ownedNamespaces xmi:id="_sBKnCrh8Eeuan4LW7bu7BA" technicalid="_sBKnB7h8Eeuan4LW7bu7BA" createdOn="2021-05-19T10:32:03.440+0200" modifiedOn="2021-05-25T08:59:21.849+0200" name="NAMESPACE_1">
+    <types xsi:type="oent:Entity" xmi:id="_Zl8Lg7lxEeudvphqGgk3Vw" technicalid="_ZkrAQ7lxEeudvphqGgk3Vw" createdOn="2021-05-19T10:32:03.440+0200" modifiedOn="2021-05-25T09:02:39.819+0200" name="Entity">
+      <ownedReferences xmi:id="_L991Qb0nEeudvphqGgk3Vw" technicalid="_L991QL0nEeudvphqGgk3Vw" createdOn="2021-05-25T09:02:36.948+0200" modifiedOn="2021-05-25T09:12:50.397+0200" name="Entity2s" multiplicity="0..*" oppositeOf="_L-G_Mb0nEeudvphqGgk3Vw" referencedType="_Zl7kcLlxEeudvphqGgk3Vw">
+        <metadatas xmi:id="_nYRY0b0oEeujGMeeQdUbyA" technicalid="_nYRY0L0oEeujGMeeQdUbyA">
+          <metadatas xsi:type="oenv:Annotation" xmi:id="_nYRY070oEeujGMeeQdUbyA" technicalid="_nYRY0r0oEeujGMeeQdUbyA" title="PHYSICAL_TARGET" body="X"/>
+        </metadatas>
+      </ownedReferences>
+      <ownedReferences xmi:id="_MZWJsb0nEeudvphqGgk3Vw" technicalid="_MZWJsL0nEeudvphqGgk3Vw" createdOn="2021-05-25T09:02:39.819+0200" modifiedOn="2021-05-25T09:12:18.953+0200" name="Entity2s" multiplicity="0..*" oppositeOf="_MZWJs70nEeudvphqGgk3Vw" referencedType="_Zl7kcLlxEeudvphqGgk3Vw">
+        <metadatas xmi:id="_isZfkb0oEeujGMeeQdUbyA" technicalid="_isZfkL0oEeujGMeeQdUbyA">
+          <metadatas xsi:type="oenv:Annotation" xmi:id="_isZfk70oEeujGMeeQdUbyA" technicalid="_isZfkr0oEeujGMeeQdUbyA" title="PHYSICAL_TARGET" body="X"/>
+        </metadatas>
+      </ownedReferences>
+    </types>
+  </ownedNamespaces>
+  <ownedNamespaces xmi:id="_otOrgb0mEeudvphqGgk3Vw" technicalid="_otOrgL0mEeudvphqGgk3Vw" createdOn="2021-05-25T08:58:40.312+0200" modifiedOn="2021-05-25T08:59:21.849+0200" name="NAMESPACE_2">
+    <types xsi:type="oent:Entity" xmi:id="_Zl7kcLlxEeudvphqGgk3Vw" technicalid="_ZkrAP7lxEeudvphqGgk3Vw" createdOn="2021-05-19T10:32:03.440+0200" modifiedOn="2021-05-25T09:02:39.819+0200" name="Entity2">
+      <ownedReferences xmi:id="_L-G_Mb0nEeudvphqGgk3Vw" technicalid="_L-G_ML0nEeudvphqGgk3Vw" createdOn="2021-05-25T09:02:36.963+0200" modifiedOn="2021-05-25T09:05:45.351+0200" name="Entitys" multiplicity="0..*" oppositeOf="_L991Qb0nEeudvphqGgk3Vw" referencedType="_Zl8Lg7lxEeudvphqGgk3Vw">
+        <metadatas xmi:id="_oCt5cb0nEeudvphqGgk3Vw" technicalid="_oCt5cL0nEeudvphqGgk3Vw">
+          <metadatas xsi:type="oenv:Annotation" xmi:id="_oCt5c70nEeudvphqGgk3Vw" technicalid="_oCt5cr0nEeudvphqGgk3Vw" title="TARGET_SCHEMA" body="X"/>
+          <metadatas xsi:type="oenv:Annotation" xmi:id="_oALGUb0oEeujGMeeQdUbyA" technicalid="_oALGUL0oEeujGMeeQdUbyA" title="PHYSICAL_TARGET"/>
+        </metadatas>
+      </ownedReferences>
+      <ownedReferences xmi:id="_MZWJs70nEeudvphqGgk3Vw" technicalid="_MZWJsr0nEeudvphqGgk3Vw" createdOn="2021-05-25T09:02:39.819+0200" modifiedOn="2021-05-25T09:05:54.432+0200" name="Entitys" multiplicity="0..*" oppositeOf="_MZWJsb0nEeudvphqGgk3Vw" referencedType="_Zl8Lg7lxEeudvphqGgk3Vw">
+        <metadatas xmi:id="_pZUgAb0nEeudvphqGgk3Vw" technicalid="_pZUgAL0nEeudvphqGgk3Vw">
+          <metadatas xsi:type="oenv:Annotation" xmi:id="_pZUgA70nEeudvphqGgk3Vw" technicalid="_pZUgAr0nEeudvphqGgk3Vw" title="TARGET_SCHEMA" body="X"/>
+          <metadatas xsi:type="oenv:Annotation" xmi:id="_jZz_Mb0oEeujGMeeQdUbyA" technicalid="_jZz_ML0oEeujGMeeQdUbyA" title="PHYSICAL_TARGET"/>
+        </metadatas>
+      </ownedReferences>
+    </types>
+  </ownedNamespaces>
+</oent:Root>
