@@ -75,11 +75,11 @@ public class LabelProvider {
 			.stream()
 			.filter(t -> t.getName() != null)
 			.map(Column::getName)
-			.filter(n -> n.matches(String.format("(%s){1}((_[0-9]+)?_ID)?", table.getName())))
+			.filter(n -> n.matches(String.format("(%s){1}(_[0-9]+)?", targetPk.getName())))
 			.count();
 			
 			if (numberOfTableWithPKName > 0)
-				name = String.format("%s_%d_ID", table.getName(), numberOfTableWithPKName);			
+				name = String.format("%s_%d", targetPk.getName(), numberOfTableWithPKName);			
 		}
 		
 		return StringUtils.toSqlNotation(name);
