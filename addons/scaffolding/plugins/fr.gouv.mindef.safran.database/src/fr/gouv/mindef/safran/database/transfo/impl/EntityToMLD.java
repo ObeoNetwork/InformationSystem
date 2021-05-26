@@ -329,12 +329,15 @@ public class EntityToMLD extends AbstractTransformation {
 				
 			});
 			
+
 			for (ForeignKey fk : sortedFks) {
-				counter = counter + 1;
-				for (ForeignKeyElement fkElt : fk.getElements()) {
-					fkElt.getFkColumn().getOwner().getColumns().indexOf(fkElt.getFkColumn());
-					fkElt.getFkColumn().setName(getFKColumnName(fkElt, counter));
-				}
+				if (fk.getSourceTable() != fk.getTargetTable()) { // we do not rename reflexive relationships
+					counter = counter + 1;
+					for (ForeignKeyElement fkElt : fk.getElements()) {						
+						fkElt.getFkColumn().getOwner().getColumns().indexOf(fkElt.getFkColumn());
+						fkElt.getFkColumn().setName(getFKColumnName(fkElt, counter)); //FIXME
+					}	
+				}				
 			}
 		}
 	}
@@ -474,8 +477,12 @@ public class EntityToMLD extends AbstractTransformation {
 		
 		// The following properties are modified even if they already existed 
 		String joinTableName = LabelProvider.getJoinTableName(sourceTable, targetTable);
-			
-		joinTable.setName(joinTableName+"_"+(getNumberOfTablesWithSameName(joinTableName)+1));
+		long numberOfTablesWithSameName = getNumberOfTablesWithSameName(joinTableName);
+		
+		if (numberOfTablesWithSameName > 0)
+			joinTable.setName(joinTableName+"_"+(numberOfTablesWithSameName + 1));
+		else 
+			joinTable.setName(joinTableName);
 		
 		addToOutputTraceability(reference, joinTable);
 		addToOutputTraceability(reference.getOppositeOf(), joinTable);
@@ -606,14 +613,17 @@ public class EntityToMLD extends AbstractTransformation {
 		} else {
 			fk.setComments("Contrainte FK avec la table " + fk.getTarget().getName());
 		}
+
+		
+		fk.setName(LabelProvider.getFKNameFromReference(reference)); 
+		// setting the FK name to the one defined in metadatas.
+		// we use this meta-data to label the FK column too, if it is null, then we generate a column name. 
 		
 		createFkElements(fk, sourceTable, targetTable, nullable, referenceDescription);
 		
-		String fkName = LabelProvider.getFKNameFromReference(reference);
-		if (fkName == null) {
-			fkName = getFKName(fk);
-		}
-		fk.setName(fkName);
+		if (fk.getName() == null) {
+			fk.setName(getFKName(fk));
+		}		
 	}
 
 	private void createFkElements(ForeignKey fk, Table sourceTable, Table targetTable, boolean nullable, String fkComments) {
@@ -626,7 +636,13 @@ public class EntityToMLD extends AbstractTransformation {
 				sourceFkColumn = DatabaseFactory.eINSTANCE.createColumn();
 				sourceTable.getColumns().add(sourceFkColumn);
 			}
-			sourceFkColumn.setName(LabelProvider.getFKNameFromSourceTableAndPK(sourceTable, targetPkColumn)); //FIXME
+
+			// SAFRAN-715
+			if (fk.getName() != null) {
+				sourceFkColumn.setName(fk.getName());	
+			} else {
+				sourceFkColumn.setName(LabelProvider.getFKNameFromSourceTableAndPK(sourceTable, targetPkColumn));	
+			}
 			
 			sourceFkColumn.setType(EcoreUtil.copy(targetPkColumn.getType()));
 			sourceFkColumn.setNullable(nullable);
