@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="ASCII"?>
+<database:DataBase xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:database="http://www.obeonetwork.org/dsl/database/1.0" xmlns:typeslibrary="http://www.obeonetwork.org/dsl/typeslibrary/1.0" xmi:id="_eNyF2revEeuUDpDxexrvgQ" techID="_eNw3sLevEeuUDpDxexrvgQ" name="My">
+  <usedLibraries xsi:type="typeslibrary:NativeTypesLibrary" href="pathmap://LogicalDBTypes#_WWbGkREnEeGTa_JlZYBw1A"/>
+  <schemas xmi:id="_7tV-Ar34Eeu_y74HMbhlfA" techID="_7tV-Ab34Eeu_y74HMbhlfA" name="NAMESPACE_1">
+    <tables xsi:type="database:Table" xmi:id="_7tV-A734Eeu_y74HMbhlfA" techID="_7tV-AL34Eeu_y74HMbhlfA" name="ENTITY">
+      <primaryKey xmi:id="_7tV-CL34Eeu_y74HMbhlfA" comments="Contrainte PK pour la colonne ENTITY_ID" techID="_7tV-B734Eeu_y74HMbhlfA" name="ENTITY_PK" columns="_7tV-Bb34Eeu_y74HMbhlfA"/>
+      <foreignKeys xmi:id="_7tV-C734Eeu_y74HMbhlfA" comments="Contrainte FK avec la table ENTITY" techID="_7tV-Cr34Eeu_y74HMbhlfA" name="FK_1" target="_7tV-A734Eeu_y74HMbhlfA">
+        <elements xmi:id="_7tV-Eb34Eeu_y74HMbhlfA" techID="_7tV-EL34Eeu_y74HMbhlfA" fkColumn="_7tV-Db34Eeu_y74HMbhlfA" pkColumn="_7tV-Bb34Eeu_y74HMbhlfA"/>
+      </foreignKeys>
+      <constraints xmi:id="_7tV-G734Eeu_y74HMbhlfA" comments="Liste des valeurs possibles pour NAMESPACE_1_XTOPSUP" techID="_7tV-Gr34Eeu_y74HMbhlfA" name="ENTITY_CK1_1" expression="NAMESPACE_1_XTOPSUP in ('0','1','3','9')"/>
+      <indexes xmi:id="_7tV-E734Eeu_y74HMbhlfA" comments="Index sur la FK (FK_1) de la table ENTITY" techID="_7tV-Er34Eeu_y74HMbhlfA" name="FK_1">
+        <elements xmi:id="_7tV-Fb34Eeu_y74HMbhlfA" techID="_7tV-FL34Eeu_y74HMbhlfA" column="_7tV-Db34Eeu_y74HMbhlfA" asc="true"/>
+      </indexes>
+      <columns xmi:id="_7tV-Bb34Eeu_y74HMbhlfA" comments="PK de la table ENTITY" techID="_7tV-BL34Eeu_y74HMbhlfA" name="ENTITY_ID" primaryKey="_7tV-CL34Eeu_y74HMbhlfA">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_7tV-Cb34Eeu_y74HMbhlfA" length="19">
+          <nativeType href="pathmap://LogicalDBTypes#_WWeJ4hEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+      <columns xmi:id="_7tV-Db34Eeu_y74HMbhlfA" techID="_7tV-DL34Eeu_y74HMbhlfA" name="FK_1" nullable="true" indexElements="_7tV-Fb34Eeu_y74HMbhlfA" foreignKeyElements="_7tV-Eb34Eeu_y74HMbhlfA">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_7tV-D734Eeu_y74HMbhlfA" length="19">
+          <nativeType href="pathmap://LogicalDBTypes#_WWeJ4hEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+      <columns xmi:id="_7tV-F734Eeu_y74HMbhlfA" comments="Indicateur pour savoir si l'enregistrement est valide" techID="_7tV-Fr34Eeu_y74HMbhlfA" name="NAMESPACE_1_XTOPSUP" defaultValue="'0'">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_7tV-Gb34Eeu_y74HMbhlfA" length="1">
+          <nativeType href="pathmap://LogicalDBTypes#_WWew-BEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+      <columns xmi:id="_7tV-Hb34Eeu_y74HMbhlfA" comments="Date de mise &#xe0; jour de la ligne" techID="_7tV-HL34Eeu_y74HMbhlfA" name="NAMESPACE_1_XDMAJ">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_7tV-H734Eeu_y74HMbhlfA">
+          <nativeType href="pathmap://LogicalDBTypes#_WWew-xEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+    </tables>
+  </schemas>
+</database:DataBase>

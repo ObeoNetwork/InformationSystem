@@ -10,8 +10,7 @@
       </metadatas>
       <ownedReferences xmi:id="_sBLOF7h8Eeuan4LW7bu7BA" technicalid="_sBLOFrh8Eeuan4LW7bu7BA" description="Contrainte FK avec la table ENTITY2" createdOn="2021-05-19T10:32:03.441+0200" modifiedOn="2021-05-19T10:32:03.441+0200" name="entity2entityFk12" multiplicity="0..*" oppositeOf="_sBLOEbh8Eeuan4LW7bu7BA" referencedType="_sBKnGbh8Eeuan4LW7bu7BA">
         <metadatas xmi:id="_sBLOGbh8Eeuan4LW7bu7BA" technicalid="_sBLOGLh8Eeuan4LW7bu7BA">
-          <metadatas xsi:type="oenv:Annotation" xmi:id="_sBLOG7h8Eeuan4LW7bu7BA" technicalid="_sBLOGrh8Eeuan4LW7bu7BA" title="PHYSICAL_NAME" body="ENTITY2ENTITY_FK1_2"/>
-          <metadatas xsi:type="oenv:Annotation" xmi:id="_KK9sIbh9Eeuan4LW7bu7BA" technicalid="_KK9sILh9Eeuan4LW7bu7BA" title="PHYSICAL_TARGET" body="NAMESPACE_2"/>
+          <metadatas xsi:type="oenv:Annotation" xmi:id="_KK9sIbh9Eeuan4LW7bu7BA" technicalid="_KK9sILh9Eeuan4LW7bu7BA" title="PHYSICAL_TARGET" body="X"/>
         </metadatas>
       </ownedReferences>
     </types>
@@ -25,10 +24,7 @@
         <metadatas xsi:type="oenv:Annotation" xmi:id="_sBKnHbh8Eeuan4LW7bu7BA" technicalid="_sBKnHLh8Eeuan4LW7bu7BA" title="PHYSICAL_NAME" body="ENTITY2"/>
       </metadatas>
       <ownedReferences xmi:id="_sBLOEbh8Eeuan4LW7bu7BA" technicalid="_sBLOELh8Eeuan4LW7bu7BA" description="Contrainte FK avec la table ENTITY" createdOn="2021-05-19T10:32:03.441+0200" modifiedOn="2021-05-19T10:32:03.441+0200" name="entity2entityFk11" multiplicity="0..*" oppositeOf="_sBLOF7h8Eeuan4LW7bu7BA" referencedType="_sBKnDbh8Eeuan4LW7bu7BA">
-        <metadatas xmi:id="_sBLOE7h8Eeuan4LW7bu7BA" technicalid="_sBLOErh8Eeuan4LW7bu7BA">
-          <metadatas xsi:type="oenv:Annotation" xmi:id="_sBLOFbh8Eeuan4LW7bu7BA" technicalid="_sBLOFLh8Eeuan4LW7bu7BA" title="PHYSICAL_NAME" body="ENTITY2ENTITY_FK1_1"/>
-          <metadatas xsi:type="oenv:Annotation" xmi:id="_JZUMwbh9Eeuan4LW7bu7BA" technicalid="_JZUMwLh9Eeuan4LW7bu7BA" title="PHYSICAL_TARGET" body="NAMESPACE_2"/>
-        </metadatas>
+        <metadatas xmi:id="_sBLOE7h8Eeuan4LW7bu7BA" technicalid="_sBLOErh8Eeuan4LW7bu7BA"/>
       </ownedReferences>
     </types>
   </ownedNamespaces>
