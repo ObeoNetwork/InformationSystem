@@ -34,6 +34,7 @@ import org.eclipse.emf.ecore.EStructuralFeature.Setting;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.resource.ResourceSet;
 import org.eclipse.emf.ecore.util.EcoreUtil;
+import org.eclipse.jface.viewers.TableLayout;
 import org.obeonetwork.dsl.database.Column;
 import org.obeonetwork.dsl.database.Constraint;
 import org.obeonetwork.dsl.database.DataBase;
@@ -471,20 +472,10 @@ public class EntityToMLD extends AbstractTransformation {
 	
 		}
 		
-		// The following properties are modified even if they already existed
-		// joinTable.setName(LabelProvider.getJoinTableName(sourceTable, targetTable));
+		// The following properties are modified even if they already existed 
 		String joinTableName = LabelProvider.getJoinTableName(sourceTable, targetTable);
-		
-		long existingTableNames = getOutputTraceabilityMap().values()
-			.stream()
-			.filter(Table.class::isInstance)
-			.map(Table.class::cast)
-			.map(table -> table.getName())
-			.distinct() // jointables are added twice: we remove the duplicates 
-			.filter(tableName -> tableName.matches("("+joinTableName+")(_[0-9]+)?"))
-			.count();
-		
-		joinTable.setName(joinTableName+"_"+(existingTableNames+1));
+			
+		joinTable.setName(joinTableName+"_"+(getNumberOfTablesWithSameName(joinTableName)+1));
 		
 		addToOutputTraceability(reference, joinTable);
 		addToOutputTraceability(reference.getOppositeOf(), joinTable);
@@ -502,7 +493,26 @@ public class EntityToMLD extends AbstractTransformation {
 		
 		createAdditionalFields(joinTable);
 	}
-
+	
+	/**
+	 * Return the number of tables with the same name (excluding the counter prefix)
+	 * @param tableName the name of a {@link Table}, as a {@link String}
+	 * @return the number of tables as a {@link Long}
+	 */
+	private long getNumberOfTablesWithSameName(String tableName) {
+		long existingTableNames = getOutputTraceabilityMap()
+				.values() // all the names
+				.stream()
+				.filter(Table.class::isInstance) // we keep the tables 
+				.map(Table.class::cast)
+				.distinct() // jointables are added twice: we remove the duplicates
+				.map(table -> table.getName()) // map to string				
+				.filter(name -> name.matches("("+tableName+")(_[0-9]+)?"))
+				.count();
+		
+		return existingTableNames;
+	}
+	
 	/**
 	 * Returns the {@link TableContainer} corresponding to the {@link Namespace} referenced by the {@link Entity} 
 	 * @param reference a (Bi-directional) {@link Reference}
@@ -616,7 +626,8 @@ public class EntityToMLD extends AbstractTransformation {
 				sourceFkColumn = DatabaseFactory.eINSTANCE.createColumn();
 				sourceTable.getColumns().add(sourceFkColumn);
 			}
-			sourceFkColumn.setName(targetPkColumn.getName());
+			sourceFkColumn.setName(LabelProvider.getFKNameFromSourceTableAndPK(sourceTable, targetPkColumn)); //FIXME
+			
 			sourceFkColumn.setType(EcoreUtil.copy(targetPkColumn.getType()));
 			sourceFkColumn.setNullable(nullable);
 			
