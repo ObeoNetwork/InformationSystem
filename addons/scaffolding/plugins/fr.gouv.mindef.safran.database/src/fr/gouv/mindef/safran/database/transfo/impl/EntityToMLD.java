@@ -293,7 +293,7 @@ public class EntityToMLD extends AbstractTransformation {
 	}
 	
 	private void handleMultipleForeignKeys(Table table) {
-		// multipleFKs contains foreign keys targetting a same table (the table is used as key)
+		// multipleFKs contains foreign keys targeting a same table (the table is used as key)
 		Map<Table, List<ForeignKey>> multipleFKs = new HashMap<Table, List<ForeignKey>>();
 		for (ForeignKey fk : table.getForeignKeys()) {
 			for (ForeignKey otherFK : table.getForeignKeys()) {
@@ -309,8 +309,7 @@ public class EntityToMLD extends AbstractTransformation {
 			}
 		}
 		
-
-		// Rename columns targetted by the FKs
+		// Rename columns targeted by the FKs
 		for (List<ForeignKey> fks : multipleFKs.values()) {
 			int counter = 0;
 			
@@ -328,17 +327,16 @@ public class EntityToMLD extends AbstractTransformation {
 				}
 				
 			});
-			
-
-			for (ForeignKey fk : sortedFks) {
-				if (fk.getSourceTable() != fk.getTargetTable()) { // we do not rename reflexive relationships
-					counter = counter + 1;
-					for (ForeignKeyElement fkElt : fk.getElements()) {						
-						fkElt.getFkColumn().getOwner().getColumns().indexOf(fkElt.getFkColumn());
-						fkElt.getFkColumn().setName(getFKColumnName(fkElt, counter)); //FIXME
-					}	
-				}				
-			}
+//			
+//			for (ForeignKey fk : sortedFks) {
+//				if (fk.getSourceTable() != fk.getTargetTable()) { // we do not rename reflexive relationships
+//					counter = counter + 1;
+//					for (ForeignKeyElement fkElt : fk.getElements()) {						
+//						fkElt.getFkColumn().getOwner().getColumns().indexOf(fkElt.getFkColumn());
+//						fkElt.getFkColumn().setName(getFKColumnName(fkElt, counter)); //FIXME
+//					}	
+//				}				
+//			}
 		}
 	}
 	
@@ -635,14 +633,17 @@ public class EntityToMLD extends AbstractTransformation {
 			if (sourceFkColumn == null) {
 				sourceFkColumn = DatabaseFactory.eINSTANCE.createColumn();
 				sourceTable.getColumns().add(sourceFkColumn);
+				
+				// SAFRAN-715
+				if (fk.getName() != null) {
+					sourceFkColumn.setName(fk.getName());	
+				} else {
+					sourceFkColumn.setName(LabelProvider.getFKNameFromSourceTableAndPK(sourceTable, targetPkColumn));	
+				}
+				
 			}
 
-			// SAFRAN-715
-			if (fk.getName() != null) {
-				sourceFkColumn.setName(fk.getName());	
-			} else {
-				sourceFkColumn.setName(LabelProvider.getFKNameFromSourceTableAndPK(sourceTable, targetPkColumn));	
-			}
+
 			
 			sourceFkColumn.setType(EcoreUtil.copy(targetPkColumn.getType()));
 			sourceFkColumn.setNullable(nullable);

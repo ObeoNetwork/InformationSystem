@@ -67,20 +67,19 @@ public class LabelProvider {
 	
 	public static String getFKNameFromSourceTableAndPK(Table table, Column targetPk) {
 		String name = targetPk.getName();
-		if (table == targetPk.getOwner()) {
-			// reflexive reference: we don't want the FK and PK to have the same name
-			// SAFRAN-715
-			
-			long numberOfTableWithPKName = table.getColumns()
-			.stream()
-			.filter(t -> t.getName() != null)
-			.map(Column::getName)
-			.filter(n -> n.matches(String.format("(%s){1}(_[0-9]+)?", targetPk.getName())))
-			.count();
-			
-			if (numberOfTableWithPKName > 0)
-				name = String.format("%s_%d", targetPk.getName(), numberOfTableWithPKName);			
-		}
+		
+		// reflexive reference: we don't want the FK and PK to have the same name
+		// SAFRAN-715
+		
+		long numberOfTableWithPKName = table.getColumns()
+		.stream()
+		.filter(t -> t.getName() != null)
+		.map(Column::getName)
+		.filter(n -> n.matches(String.format("(%s){1}(_[0-9]+)?", targetPk.getName())))
+		.count();
+		
+		if (numberOfTableWithPKName > 0)
+			name = String.format("%s_%d", targetPk.getName(), numberOfTableWithPKName);		
 		
 		return StringUtils.toSqlNotation(name);
 	}
