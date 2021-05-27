@@ -1,66 +1,66 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <database:DataBase xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:database="http://www.obeonetwork.org/dsl/database/1.0" xmlns:typeslibrary="http://www.obeonetwork.org/dsl/typeslibrary/1.0" xmi:id="_dKA6sUIzEeOs9NDnopjcTw" techID="_dKA6sEIzEeOs9NDnopjcTw" name="test-mld">
   <usedLibraries xsi:type="typeslibrary:NativeTypesLibrary" href="pathmap://LogicalDBTypes#_WWbGkREnEeGTa_JlZYBw1A"/>
-  <schemas xmi:id="_fteV80IzEeOs9NDnopjcTw" techID="_fteV8kIzEeOs9NDnopjcTw" name="TS">
-    <tables xsi:type="database:Table" xmi:id="_fteV9EIzEeOs9NDnopjcTw" comments="Table A" techID="_fteV8UIzEeOs9NDnopjcTw" name="TS_A">
-      <columns xmi:id="_fteV9kIzEeOs9NDnopjcTw" comments="PK de la table TS_A" techID="_fteV9UIzEeOs9NDnopjcTw" name="TS_A_ID" primaryKey="_fteV-UIzEeOs9NDnopjcTw">
-        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_fteV-kIzEeOs9NDnopjcTw" length="19">
+  <schemas xmi:id="_nibiAr73EeuBrZs7bk9pSA" techID="_nibiAb73EeuBrZs7bk9pSA" name="TS">
+    <tables xsi:type="database:Table" xmi:id="_nicJEL73EeuBrZs7bk9pSA" comments="Table A" techID="_nibiAL73EeuBrZs7bk9pSA" name="TS_A">
+      <primaryKey xmi:id="_nicJFb73EeuBrZs7bk9pSA" comments="Contrainte PK pour la colonne TS_A_ID" techID="_nicJFL73EeuBrZs7bk9pSA" name="TS_A_PK" columns="_nicJEr73EeuBrZs7bk9pSA"/>
+      <constraints xmi:id="_nifMZb73EeuBrZs7bk9pSA" comments="Liste des valeurs possibles pour TS_XTOPSUP" techID="_nifMZL73EeuBrZs7bk9pSA" name="TS_A_CK1_1" expression="TS_XTOPSUP in ('0','1','3','9')"/>
+      <columns xmi:id="_nicJEr73EeuBrZs7bk9pSA" comments="PK de la table TS_A" techID="_nicJEb73EeuBrZs7bk9pSA" name="TS_A_ID" primaryKey="_nicJFb73EeuBrZs7bk9pSA">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_nicJFr73EeuBrZs7bk9pSA" length="19">
           <nativeType href="pathmap://LogicalDBTypes#_WWeJ4hEnEeGTa_JlZYBw1A"/>
         </type>
       </columns>
-      <columns xmi:id="_fteWGUIzEeOs9NDnopjcTw" comments="Indicateur pour savoir si l'enregistrement est valide" techID="_fteWGEIzEeOs9NDnopjcTw" name="TS_XTOPSUP" defaultValue="'0'">
-        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_fteWG0IzEeOs9NDnopjcTw" length="1">
+      <columns xmi:id="_nifMYb73EeuBrZs7bk9pSA" comments="Indicateur pour savoir si l'enregistrement est valide" techID="_nifMYL73EeuBrZs7bk9pSA" name="TS_XTOPSUP" defaultValue="'0'">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_nifMY773EeuBrZs7bk9pSA" length="1">
           <nativeType href="pathmap://LogicalDBTypes#_WWew-BEnEeGTa_JlZYBw1A"/>
         </type>
       </columns>
-      <columns xmi:id="_fteWH0IzEeOs9NDnopjcTw" comments="Date de mise à jour de la ligne" techID="_fteWHkIzEeOs9NDnopjcTw" name="TS_XDMAJ">
-        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_fteWIUIzEeOs9NDnopjcTw">
+      <columns xmi:id="_nifMZ773EeuBrZs7bk9pSA" comments="Date de mise à jour de la ligne" techID="_nifMZr73EeuBrZs7bk9pSA" name="TS_XDMAJ">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_nifMab73EeuBrZs7bk9pSA">
           <nativeType href="pathmap://LogicalDBTypes#_WWew-xEnEeGTa_JlZYBw1A"/>
         </type>
       </columns>
-      <primaryKey xmi:id="_fteV-UIzEeOs9NDnopjcTw" comments="Contrainte PK pour la colonne TS_A_ID" techID="_fteV-EIzEeOs9NDnopjcTw" name="TS_A_PK" columns="_fteV9kIzEeOs9NDnopjcTw"/>
-      <constraints xmi:id="_fteWHUIzEeOs9NDnopjcTw" comments="Liste des valeurs possibles pour TS_XTOPSUP" techID="_fteWHEIzEeOs9NDnopjcTw" name="TS_A_CK1_1" expression="TS_XTOPSUP in ('0','1','3','9')"/>
     </tables>
-    <tables xsi:type="database:Table" xmi:id="_fteV_EIzEeOs9NDnopjcTw" comments="Table B" techID="_fteV-0IzEeOs9NDnopjcTw" name="TS_B">
-      <columns xmi:id="_fteV_kIzEeOs9NDnopjcTw" comments="PK de la table TS_B" techID="_fteV_UIzEeOs9NDnopjcTw" name="TS_B_ID" primaryKey="_fteWAUIzEeOs9NDnopjcTw">
-        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_fteWAkIzEeOs9NDnopjcTw" length="19">
+    <tables xsi:type="database:Table" xmi:id="_nicJGL73EeuBrZs7bk9pSA" comments="Table B" techID="_nicJF773EeuBrZs7bk9pSA" name="TS_B">
+      <primaryKey xmi:id="_nicJHb73EeuBrZs7bk9pSA" comments="Contrainte PK pour la colonne TS_B_ID" techID="_nicJHL73EeuBrZs7bk9pSA" name="TS_B_PK" columns="_nicJGr73EeuBrZs7bk9pSA"/>
+      <foreignKeys xmi:id="_nicJIL73EeuBrZs7bk9pSA" comments="A pour Créateur" techID="_nicJH773EeuBrZs7bk9pSA" name="TS_B_FK1_1" target="_nicJEL73EeuBrZs7bk9pSA">
+        <elements xmi:id="_nicJJr73EeuBrZs7bk9pSA" techID="_nicJJb73EeuBrZs7bk9pSA" fkColumn="_nicJIr73EeuBrZs7bk9pSA" pkColumn="_nicJEr73EeuBrZs7bk9pSA"/>
+      </foreignKeys>
+      <foreignKeys xmi:id="_nicJKL73EeuBrZs7bk9pSA" comments="Est modifier par" techID="_nicJJ773EeuBrZs7bk9pSA" name="TS_B_FK1_2" target="_nicJEL73EeuBrZs7bk9pSA">
+        <elements xmi:id="_nicwIr73EeuBrZs7bk9pSA" techID="_nicwIb73EeuBrZs7bk9pSA" fkColumn="_nicJKr73EeuBrZs7bk9pSA" pkColumn="_nicJEr73EeuBrZs7bk9pSA"/>
+      </foreignKeys>
+      <constraints xmi:id="_nifMb773EeuBrZs7bk9pSA" comments="Liste des valeurs possibles pour TS_XTOPSUP" techID="_nifMbr73EeuBrZs7bk9pSA" name="TS_B_CK1_1" expression="TS_XTOPSUP in ('0','1','3','9')"/>
+      <indexes xmi:id="_nielUb73EeuBrZs7bk9pSA" comments="Index sur la FK (TS_A_ID) de la table TS_B" techID="_nielUL73EeuBrZs7bk9pSA" name="TS_B_FK1_1">
+        <elements xmi:id="_nielU773EeuBrZs7bk9pSA" techID="_nielUr73EeuBrZs7bk9pSA" column="_nicJIr73EeuBrZs7bk9pSA" asc="true"/>
+      </indexes>
+      <indexes xmi:id="_nielVb73EeuBrZs7bk9pSA" comments="Index sur la FK (TS_A_ID_1) de la table TS_B" techID="_nielVL73EeuBrZs7bk9pSA" name="TS_B_FK1_2">
+        <elements xmi:id="_nielV773EeuBrZs7bk9pSA" techID="_nielVr73EeuBrZs7bk9pSA" column="_nicJKr73EeuBrZs7bk9pSA" asc="true"/>
+      </indexes>
+      <columns xmi:id="_nicJGr73EeuBrZs7bk9pSA" comments="PK de la table TS_B" techID="_nicJGb73EeuBrZs7bk9pSA" name="TS_B_ID" primaryKey="_nicJHb73EeuBrZs7bk9pSA">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_nicJHr73EeuBrZs7bk9pSA" length="19">
           <nativeType href="pathmap://LogicalDBTypes#_WWeJ4hEnEeGTa_JlZYBw1A"/>
         </type>
       </columns>
-      <columns xmi:id="_8gaV0UIzEeOs9NDnopjcTw" comments="A pour Créateur" techID="_8gaV0EIzEeOs9NDnopjcTw" name="TS_A_1_ID" nullable="true" indexElements="_fteWE0IzEeOs9NDnopjcTw" foreignKeyElements="_fteWCkIzEeOs9NDnopjcTw">
-        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_8gaV0kIzEeOs9NDnopjcTw" length="19">
+      <columns xmi:id="_nicJIr73EeuBrZs7bk9pSA" comments="A pour Créateur" techID="_nicJIb73EeuBrZs7bk9pSA" name="TS_A_ID" nullable="true" indexElements="_nielU773EeuBrZs7bk9pSA" foreignKeyElements="_nicJJr73EeuBrZs7bk9pSA">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_nicJJL73EeuBrZs7bk9pSA" length="19">
           <nativeType href="pathmap://LogicalDBTypes#_WWeJ4hEnEeGTa_JlZYBw1A"/>
         </type>
       </columns>
-      <columns xmi:id="_fteWBkIzEeOs9NDnopjcTw" comments="Est modifier par" techID="_fteWBUIzEeOs9NDnopjcTw" name="TS_A_2_ID" nullable="true" indexElements="_fteWF0IzEeOs9NDnopjcTw" foreignKeyElements="_fteWD0IzEeOs9NDnopjcTw">
-        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_fteWDUIzEeOs9NDnopjcTw" length="19">
+      <columns xmi:id="_nicJKr73EeuBrZs7bk9pSA" comments="Est modifier par" techID="_nicJKb73EeuBrZs7bk9pSA" name="TS_A_ID_1" nullable="true" indexElements="_nielV773EeuBrZs7bk9pSA" foreignKeyElements="_nicwIr73EeuBrZs7bk9pSA">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_nicwIL73EeuBrZs7bk9pSA" length="19">
           <nativeType href="pathmap://LogicalDBTypes#_WWeJ4hEnEeGTa_JlZYBw1A"/>
         </type>
       </columns>
-      <columns xmi:id="_fteWI0IzEeOs9NDnopjcTw" comments="Indicateur pour savoir si l'enregistrement est valide" techID="_fteWIkIzEeOs9NDnopjcTw" name="TS_XTOPSUP" defaultValue="'0'">
-        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_fteWJUIzEeOs9NDnopjcTw" length="1">
+      <columns xmi:id="_nifMa773EeuBrZs7bk9pSA" comments="Indicateur pour savoir si l'enregistrement est valide" techID="_nifMar73EeuBrZs7bk9pSA" name="TS_XTOPSUP" defaultValue="'0'">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_nifMbb73EeuBrZs7bk9pSA" length="1">
           <nativeType href="pathmap://LogicalDBTypes#_WWew-BEnEeGTa_JlZYBw1A"/>
         </type>
       </columns>
-      <columns xmi:id="_fteWKUIzEeOs9NDnopjcTw" comments="Date de mise à jour de la ligne" techID="_fteWKEIzEeOs9NDnopjcTw" name="TS_XDMAJ">
-        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_fteWK0IzEeOs9NDnopjcTw">
+      <columns xmi:id="_nifMcb73EeuBrZs7bk9pSA" comments="Date de mise à jour de la ligne" techID="_nifMcL73EeuBrZs7bk9pSA" name="TS_XDMAJ">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_nifMc773EeuBrZs7bk9pSA">
           <nativeType href="pathmap://LogicalDBTypes#_WWew-xEnEeGTa_JlZYBw1A"/>
         </type>
       </columns>
-      <primaryKey xmi:id="_fteWAUIzEeOs9NDnopjcTw" comments="Contrainte PK pour la colonne TS_B_ID" techID="_fteWAEIzEeOs9NDnopjcTw" name="TS_B_PK" columns="_fteV_kIzEeOs9NDnopjcTw"/>
-      <foreignKeys xmi:id="_fteWBEIzEeOs9NDnopjcTw" comments="A pour Créateur" techID="_fteWA0IzEeOs9NDnopjcTw" name="TS_B_FK1_1" target="_fteV9EIzEeOs9NDnopjcTw">
-        <elements xmi:id="_fteWCkIzEeOs9NDnopjcTw" techID="_fteWCUIzEeOs9NDnopjcTw" fkColumn="_8gaV0UIzEeOs9NDnopjcTw" pkColumn="_fteV9kIzEeOs9NDnopjcTw"/>
-      </foreignKeys>
-      <foreignKeys xmi:id="_fteWDEIzEeOs9NDnopjcTw" comments="Est modifier par" techID="_fteWC0IzEeOs9NDnopjcTw" name="TS_B_FK1_2" target="_fteV9EIzEeOs9NDnopjcTw">
-        <elements xmi:id="_fteWD0IzEeOs9NDnopjcTw" techID="_fteWDkIzEeOs9NDnopjcTw" fkColumn="_fteWBkIzEeOs9NDnopjcTw" pkColumn="_fteV9kIzEeOs9NDnopjcTw"/>
-      </foreignKeys>
-      <constraints xmi:id="_fteWJ0IzEeOs9NDnopjcTw" comments="Liste des valeurs possibles pour TS_XTOPSUP" techID="_fteWJkIzEeOs9NDnopjcTw" name="TS_B_CK1_1" expression="TS_XTOPSUP in ('0','1','3','9')"/>
-      <indexes xmi:id="_fteWEUIzEeOs9NDnopjcTw" comments="Index sur la FK (TS_A_1_ID) de la table TS_B" techID="_fteWEEIzEeOs9NDnopjcTw" name="TS_B_FK1_1">
-        <elements xmi:id="_fteWE0IzEeOs9NDnopjcTw" techID="_fteWEkIzEeOs9NDnopjcTw" column="_8gaV0UIzEeOs9NDnopjcTw" asc="true"/>
-      </indexes>
-      <indexes xmi:id="_fteWFUIzEeOs9NDnopjcTw" comments="Index sur la FK (TS_A_2_ID) de la table TS_B" techID="_fteWFEIzEeOs9NDnopjcTw" name="TS_B_FK1_2">
-        <elements xmi:id="_fteWF0IzEeOs9NDnopjcTw" techID="_fteWFkIzEeOs9NDnopjcTw" column="_fteWBkIzEeOs9NDnopjcTw" asc="true"/>
-      </indexes>
     </tables>
   </schemas>
 </database:DataBase>
