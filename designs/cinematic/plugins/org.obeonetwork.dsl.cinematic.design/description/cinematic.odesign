@@ -1302,7 +1302,7 @@
               <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:container">
                 <subModelOperations xsi:type="tool_1:CreateInstance" typeName="view::ViewContainerReference" referenceName="ownedElements">
                   <subModelOperations xsi:type="tool_1:SetValue" featureName="viewContainer" valueExpression="var:selectedElement"/>
-                  <subModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="aql:viewContainer.oclAsType(view::ViewContainer).name.toLowerFirst()"/>
+                  <subModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="aql:selectedElement.oclAsType(view::ViewContainer).name.toLowerFirst()"/>
                 </subModelOperations>
               </firstModelOperations>
             </initialOperation>
