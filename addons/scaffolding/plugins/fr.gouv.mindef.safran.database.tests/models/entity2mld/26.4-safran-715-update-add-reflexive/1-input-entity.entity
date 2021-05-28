@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="ASCII"?>
+<oent:Root xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:oent="http://www.obeonetwork.org/dsl/entity/3.0.0" xmi:id="_ARuAob-EEeuh9KWC5TfA0Q" technicalid="_ARuAoL-EEeuh9KWC5TfA0Q" createdOn="2021-05-28T09:12:04.010+0200" modifiedOn="2021-05-28T09:12:27.701+0200">
+  <ownedNamespaces xmi:id="_Dzp2UL-EEeuh9KWC5TfA0Q" technicalid="_DzpPQL-EEeuh9KWC5TfA0Q" createdOn="2021-05-28T09:12:27.701+0200" modifiedOn="2021-05-28T09:12:33.459+0200" name="namespace_1">
+    <types xsi:type="oent:Entity" xmi:id="_EqkQMb-EEeuh9KWC5TfA0Q" technicalid="_EqkQML-EEeuh9KWC5TfA0Q" createdOn="2021-05-28T09:12:33.459+0200" modifiedOn="2021-05-28T09:15:36.464+0200" name="Entity1">
+      <ownedReferences xmi:id="_E8Uukb-EEeuh9KWC5TfA0Q" technicalid="_E8UukL-EEeuh9KWC5TfA0Q" createdOn="2021-05-28T09:12:35.321+0200" modifiedOn="2021-05-28T09:12:35.560+0200" name="Entity1s" multiplicity="0..*" referencedType="_EqkQMb-EEeuh9KWC5TfA0Q"/>
+      <ownedReferences xmi:id="_FRlz8L-EEeuh9KWC5TfA0Q" technicalid="_FRlM4L-EEeuh9KWC5TfA0Q" createdOn="2021-05-28T09:12:37.551+0200" modifiedOn="2021-05-28T09:12:37.554+0200" name="Entity1s" multiplicity="0..*" referencedType="_EqkQMb-EEeuh9KWC5TfA0Q"/>
+      <ownedReferences xmi:id="_f71pAb-EEeuh9KWC5TfA0Q" technicalid="_f71pAL-EEeuh9KWC5TfA0Q" createdOn="2021-05-28T09:15:36.464+0200" modifiedOn="2021-05-28T09:15:36.622+0200" name="Entity1s" multiplicity="0..*" referencedType="_EqkQMb-EEeuh9KWC5TfA0Q"/>
+    </types>
+  </ownedNamespaces>
+</oent:Root>
