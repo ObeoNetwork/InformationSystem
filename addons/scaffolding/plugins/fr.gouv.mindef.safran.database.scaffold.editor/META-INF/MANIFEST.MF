@@ -2,7 +2,7 @@ Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: Obeo Network Scaffold Editor
 Bundle-SymbolicName: fr.gouv.mindef.safran.database.scaffold.editor;singleton:=true
-Bundle-Version: 2.0.0.qualifier
+Bundle-Version: 2.1.0.qualifier
 Bundle-ClassPath: .
 Bundle-Activator: fr.gouv.mindef.safran.database.scaffold.presentation.ScaffoldEditorPlugin$Implementation
 Bundle-Vendor: Obeo Network

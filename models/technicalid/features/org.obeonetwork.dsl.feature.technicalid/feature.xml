@@ -12,10 +12,10 @@
 <feature
       id="org.obeonetwork.dsl.feature.technicalid"
       label="Obeo Network - Technical ID"
-      version="2.0.0.qualifier"
+      version="2.1.0.qualifier"
       provider-name="%providerName"
       license-feature="org.obeonetwork.is.license"
-      license-feature-version="2.0.0.qualifier">
+      license-feature-version="2.1.0.qualifier">
 
    <description url="https://www.obeo.fr">
       ObeoNetwork - Technical ID model

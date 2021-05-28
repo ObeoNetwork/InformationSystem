@@ -16,13 +16,13 @@
   <parent>
 		<groupId>org.obeonetwork</groupId>
 		<artifactId>parent</artifactId>
-		<version>2.0.0-SNAPSHOT</version>
+		<version>2.1.0-SNAPSHOT</version>
 		<relativePath>../../../../releng/org.obeonetwork.informationsystem.parent/pom.xml</relativePath>
 	</parent>
 
 	<groupId>org.obeonetwork</groupId>
 	<artifactId>org.obeonetwork.dsl.database.design</artifactId>
-	<version>2.0.0-SNAPSHOT</version>
+	<version>2.1.0-SNAPSHOT</version>
 	<packaging>eclipse-plugin</packaging>
 	<name>Database Designer</name>
 </project>
