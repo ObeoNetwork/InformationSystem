@@ -13,8 +13,6 @@ package fr.gouv.mindef.safran.database.transfo.impl;
 import java.text.MessageFormat;
 import java.util.ArrayList;
 import java.util.Collection;
-import java.util.Collections;
-import java.util.Comparator;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.LinkedHashMap;
@@ -34,7 +32,6 @@ import org.eclipse.emf.ecore.EStructuralFeature.Setting;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.resource.ResourceSet;
 import org.eclipse.emf.ecore.util.EcoreUtil;
-import org.eclipse.jface.viewers.TableLayout;
 import org.obeonetwork.dsl.database.Column;
 import org.obeonetwork.dsl.database.Constraint;
 import org.obeonetwork.dsl.database.DataBase;
@@ -56,7 +53,6 @@ import org.obeonetwork.dsl.environment.DataType;
 import org.obeonetwork.dsl.environment.Enumeration;
 import org.obeonetwork.dsl.environment.EnvironmentPackage;
 import org.obeonetwork.dsl.environment.Literal;
-import org.obeonetwork.dsl.environment.MetaData;
 import org.obeonetwork.dsl.environment.MultiplicityKind;
 import org.obeonetwork.dsl.environment.Namespace;
 import org.obeonetwork.dsl.environment.ObeoDSMObject;
@@ -309,40 +305,9 @@ public class EntityToMLD extends AbstractTransformation {
 			}
 		}
 		
-		// Rename columns targeted by the FKs
-		for (List<ForeignKey> fks : multipleFKs.values()) {
-			int counter = 0;
-			
-			// Sort FKs
-			List<ForeignKey> sortedFks = new ArrayList<ForeignKey>(fks);
-			Collections.sort(sortedFks, new Comparator<ForeignKey>() {
+		
+	}
 
-				@Override
-				public int compare(ForeignKey fk1, ForeignKey fk2) {
-					return columnIndex(fk1.getElements().get(0).getFkColumn()) - columnIndex(fk2.getElements().get(0).getFkColumn());
-				}
-				
-				private int columnIndex(Column column) {
-					return column.getOwner().getColumns().indexOf(column);
-				}
-				
-			});
-//			
-//			for (ForeignKey fk : sortedFks) {
-//				if (fk.getSourceTable() != fk.getTargetTable()) { // we do not rename reflexive relationships
-//					counter = counter + 1;
-//					for (ForeignKeyElement fkElt : fk.getElements()) {						
-//						fkElt.getFkColumn().getOwner().getColumns().indexOf(fkElt.getFkColumn());
-//						fkElt.getFkColumn().setName(getFKColumnName(fkElt, counter)); //FIXME
-//					}	
-//				}				
-//			}
-		}
-	}
-	
-	private String getFKColumnName(ForeignKeyElement fkElement, int counter) {
-		return fkElement.getPkColumn().getOwner().getName() + "_" + counter + "_ID";
-	}
 	
 	private void createForeignKey(Reference reference) {
 		// Add tests on references which should not be treated
@@ -1172,8 +1137,7 @@ public class EntityToMLD extends AbstractTransformation {
 					index.setUnique(true);
 					for (Column targetColumn : columns) {
 						IndexElement indexElement = DatabaseFactory.eINSTANCE.createIndexElement();
-						index.getElements().add(indexElement);
-						String s = targetColumn.getName();
+						index.getElements().add(indexElement);						
 						indexElement.setAsc(indexInfos.get(targetColumn.getName().toUpperCase()));					
 						indexElement.setColumn(targetColumn);
 					}
