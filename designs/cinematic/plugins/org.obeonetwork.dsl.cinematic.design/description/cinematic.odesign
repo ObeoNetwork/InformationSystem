@@ -107,7 +107,7 @@
             </centerLabelStyleDescription>
           </style>
           <conditionnalStyles predicateExpression="aql:self.from.oclIsKindOf(flow::ViewState) and self.to.oclIsKindOf(flow::ViewState)">
-            <style sizeComputationExpression="4">
+            <style sizeComputationExpression="2">
               <strokeColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
               <beginLabelStyleDescription showIcon="false" labelExpression="service:getGuardLabel">
                 <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
