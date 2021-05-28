@@ -10,9 +10,6 @@
  *******************************************************************************/
 package fr.gouv.mindef.safran.database.transfo.util;
 
-import java.util.Map;
-
-import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EStructuralFeature;
 import org.obeonetwork.dsl.database.Column;
 import org.obeonetwork.dsl.database.ForeignKey;
