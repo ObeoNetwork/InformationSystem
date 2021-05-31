@@ -3,7 +3,7 @@
     xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" copyrightText="Copyright (c) 2008, 2021 Obeo.&#xD;&#xA;All rights reserved. This program and the accompanying materials&#xD;&#xA;are made available under the terms of the Eclipse Public License v1.0&#xD;&#xA;which accompanies this distribution, and is available at&#xD;&#xA;http://www.eclipse.org/legal/epl-v10.html&#xD;&#xA;&#xD;&#xA;Contributors:&#xD;&#xA;    Obeo - initial API and implementation"
     modelDirectory="/org.obeonetwork.dsl.cinematic/src" creationIcons="false" modelPluginID="org.obeonetwork.dsl.cinematic"
     modelName="Cinematic" rootExtendsInterface="org.eclipse.emf.cdo.CDOObject" rootExtendsClass="org.eclipse.emf.internal.cdo.CDOObjectImpl"
-    importerID="org.eclipse.emf.importer.ecore" featureDelegation="Dynamic" containmentProxies="true"
+    importerID="org.eclipse.emf.importer.cdo" featureDelegation="Dynamic" containmentProxies="true"
     complianceLevel="5.0" suppressGenModelAnnotations="false" copyrightFields="false"
     runtimeVersion="2.6" language="" usedGenPackages="../../org.obeonetwork.dsl.environment/model/environment.genmodel#//environment ../../org.obeonetwork.dsl.technicalid/model/technicalid.genmodel#//technicalid">
   <foreignModel>cinematic.ecore</foreignModel>
@@ -17,6 +17,7 @@
     </genClasses>
     <genClasses image="false" ecoreClass="cinematic.ecore#//AbstractPackage">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference cinematic.ecore#//AbstractPackage/flows"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference cinematic.ecore#//AbstractPackage/viewContainers"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference cinematic.ecore#//AbstractPackage/subPackages"/>
     </genClasses>
     <genClasses ecoreClass="cinematic.ecore#//Package"/>
@@ -38,10 +39,27 @@
         <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference cinematic.ecore#//view/AbstractViewElement/events"/>
         <genFeatures createChild="false" ecoreFeature="ecore:EAttribute cinematic.ecore#//view/AbstractViewElement/label"/>
       </genClasses>
+      <genClasses ecoreClass="cinematic.ecore#//view/ViewContainer">
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference cinematic.ecore#//view/ViewContainer/ownedElements"/>
+        <genFeatures property="Readonly" notify="false" createChild="false" ecoreFeature="ecore:EReference cinematic.ecore#//view/ViewContainer/viewContainers"/>
+        <genFeatures property="Readonly" notify="false" createChild="false" ecoreFeature="ecore:EReference cinematic.ecore#//view/ViewContainer/viewElements"/>
+        <genFeatures property="Readonly" notify="false" createChild="false" ecoreFeature="ecore:EReference cinematic.ecore#//view/ViewContainer/viewContainerReferences"/>
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference cinematic.ecore#//view/ViewContainer/layout"/>
+      </genClasses>
+      <genClasses ecoreClass="cinematic.ecore#//view/ViewElement">
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute cinematic.ecore#//view/ViewElement/required"/>
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference cinematic.ecore#//view/ViewElement/type"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute cinematic.ecore#//view/ViewElement/example"/>
+      </genClasses>
       <genClasses ecoreClass="cinematic.ecore#//view/ViewAction"/>
       <genClasses ecoreClass="cinematic.ecore#//view/ViewEvent">
         <genFeatures notify="false" createChild="false" propertySortChoices="true"
             ecoreFeature="ecore:EReference cinematic.ecore#//view/ViewEvent/type"/>
+      </genClasses>
+      <genClasses ecoreClass="cinematic.ecore#//view/ViewContainerReference">
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference cinematic.ecore#//view/ViewContainerReference/viewContainer"/>
       </genClasses>
       <genClasses ecoreClass="cinematic.ecore#//view/Layout">
         <genFeatures createChild="false" ecoreFeature="ecore:EAttribute cinematic.ecore#//view/Layout/x"/>
@@ -77,6 +95,8 @@
       <genClasses ecoreClass="cinematic.ecore#//flow/ViewState">
         <genFeatures createChild="false" ecoreFeature="ecore:EAttribute cinematic.ecore#//flow/ViewState/newInstance"/>
         <genFeatures createChild="false" ecoreFeature="ecore:EAttribute cinematic.ecore#//flow/ViewState/refresh"/>
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference cinematic.ecore#//flow/ViewState/viewContainers"/>
       </genClasses>
       <genClasses ecoreClass="cinematic.ecore#//flow/DecisionState"/>
       <genClasses ecoreClass="cinematic.ecore#//flow/SubflowState">
@@ -129,9 +149,9 @@
         <genFeatures createChild="false" ecoreFeature="ecore:EAttribute cinematic.ecore#//toolkits/Widget/isContainer"/>
         <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference cinematic.ecore#//toolkits/Widget/style"/>
         <genFeatures createChild="false" ecoreFeature="ecore:EAttribute cinematic.ecore#//toolkits/Widget/metadataKeys"/>
-        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute cinematic.ecore#//toolkits/Widget/metadataHelp"/>
+        <genFeatures createChild="false" propertyMultiLine="true" ecoreFeature="ecore:EAttribute cinematic.ecore#//toolkits/Widget/metadataHelp"/>
         <genFeatures createChild="false" ecoreFeature="ecore:EAttribute cinematic.ecore#//toolkits/Widget/summary"/>
-        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute cinematic.ecore#//toolkits/Widget/documentation"/>
+        <genFeatures createChild="false" propertyMultiLine="true" ecoreFeature="ecore:EAttribute cinematic.ecore#//toolkits/Widget/documentation"/>
       </genClasses>
       <genClasses ecoreClass="cinematic.ecore#//toolkits/WidgetEventType">
         <genFeatures createChild="false" ecoreFeature="ecore:EAttribute cinematic.ecore#//toolkits/WidgetEventType/name"/>

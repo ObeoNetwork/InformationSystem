@@ -56,10 +56,6 @@ public interface AbstractPackage extends NamedElement {
 	 * Returns the value of the '<em><b>View Containers</b></em>' containment reference list.
 	 * The list contents are of type {@link org.obeonetwork.dsl.cinematic.view.ViewContainer}.
 	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>View Containers</em>' containment reference list isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
 	 * List of the View Containers contained in this package.
