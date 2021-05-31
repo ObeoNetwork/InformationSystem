@@ -208,5 +208,16 @@ Certains champs des éléments du toolkit peuvent être utilisés afin de propos
 !pics/summary.png!
 
 
-h3. Description statique des ViewContainers
+h3. Mockup des ViewContainers
 
+Cette représentation permet de créer et positionner les widgets dans les ViewContainers.
+La palette propose tous les widgets disponibles dans le toolkit utilisé, et peut être utilisée pour ajouter de nouveaux ViewElements dans le mockup.
+
+!pics/vcmockup.png!
+
+Effectuer  _clic droit > IS Designer > Extract Layout_  permet de construire un diagramme de layout à partir du mockup. 
+Ce diagramme de layout permet de montrer comme l'interface sera construite: 
+
+!pics/layout_diagram.png!
+
+Les éléments en pointillés étant les éléments virtuels: non présents dans le modèle, mais nécessaire à la construction de l'IHM.
