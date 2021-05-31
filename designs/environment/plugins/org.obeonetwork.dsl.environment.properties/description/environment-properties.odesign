@@ -349,5 +349,40 @@
         </controls>
       </groups>
     </categories>
+    <categories name="PhysicalProperties">
+      <pages name="PP_Page" labelExpression="Physical Properties" semanticCandidateExpression="var:self" groups="//@extensions.0/@categories.3/@groups.0"/>
+      <groups name="PP_Group" labelExpression="Properties" semanticCandidateExpression="var:self">
+        <controls xsi:type="properties:TextDescription" name="PP_Name" labelExpression="Name">
+          <initialOperation>
+            <firstModelOperations xsi:type="tool:ChangeContext" browseExpression="var:self"/>
+          </initialOperation>
+        </controls>
+        <controls xsi:type="properties:TextDescription" name="PP_Size" labelExpression="Size">
+          <initialOperation>
+            <firstModelOperations xsi:type="tool:ChangeContext" browseExpression="var:self"/>
+          </initialOperation>
+        </controls>
+        <controls xsi:type="properties:TextDescription" name="PP_Check" labelExpression="Check">
+          <initialOperation>
+            <firstModelOperations xsi:type="tool:ChangeContext" browseExpression="var:self"/>
+          </initialOperation>
+        </controls>
+        <controls xsi:type="properties:TextDescription" name="PP_Unique" labelExpression="Unique">
+          <initialOperation>
+            <firstModelOperations xsi:type="tool:ChangeContext" browseExpression="var:self"/>
+          </initialOperation>
+        </controls>
+        <controls xsi:type="properties:TextDescription" name="PP_Default" labelExpression="Default">
+          <initialOperation>
+            <firstModelOperations xsi:type="tool:ChangeContext" browseExpression="var:self"/>
+          </initialOperation>
+        </controls>
+        <controls xsi:type="properties:SelectDescription" name="PP_TargetSchema" labelExpression="Target Schema" candidatesExpression="aql:Sequence{'namespace_1', 'namespace_2'}" candidateDisplayExpression="aql:candidate">
+          <initialOperation>
+            <firstModelOperations xsi:type="tool:ChangeContext" browseExpression="var:self"/>
+          </initialOperation>
+        </controls>
+      </groups>
+    </categories>
   </extensions>
 </description:Group>
