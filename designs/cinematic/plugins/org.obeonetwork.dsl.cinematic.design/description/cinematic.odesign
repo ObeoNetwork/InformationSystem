@@ -1705,7 +1705,7 @@
         <controls xsi:type="properties:TextAreaDescription" name="view::ViewContainerReference description" extends="//@extensions.0/@categories.1/@groups.0/@controls.5"/>
       </groups>
       <groups name="Documentation group" labelExpression="Help" domainClass="AbstractViewElement" semanticCandidateExpression="var:self">
-        <controls xsi:type="properties:TextAreaDescription" name="MetadataHelp" isEnabledExpression="aql:false" valueExpression="aql:self.widget.documentation">
+        <controls xsi:type="properties:TextAreaDescription" name="MetadataHelp" isEnabledExpression="aql:false" lineCount="10" valueExpression="aql:self.widget.documentation">
           <initialOperation>
             <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:self"/>
           </initialOperation>
