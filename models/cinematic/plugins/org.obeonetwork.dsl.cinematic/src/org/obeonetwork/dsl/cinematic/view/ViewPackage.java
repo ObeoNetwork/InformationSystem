@@ -953,7 +953,6 @@ public interface ViewPackage extends EPackage {
 	 */
 	int VIEW_CONTAINER_REFERENCE_FEATURE_COUNT = ABSTRACT_VIEW_ELEMENT_FEATURE_COUNT + 1;
 
-
 	/**
 	 * The meta object id for the '{@link org.obeonetwork.dsl.cinematic.view.impl.LayoutImpl <em>Layout</em>}' class.
 	 * <!-- begin-user-doc -->
