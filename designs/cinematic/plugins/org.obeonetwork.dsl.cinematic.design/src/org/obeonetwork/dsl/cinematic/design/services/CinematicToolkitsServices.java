@@ -12,7 +12,6 @@ package org.obeonetwork.dsl.cinematic.design.services;
 
 import java.util.ArrayList;
 import java.util.Collection;
-import java.util.Collections;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -23,18 +22,14 @@ import org.eclipse.emf.ecore.resource.ResourceSet;
 import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl;
 import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.jface.window.Window;
-import org.eclipse.jface.wizard.Wizard;
 import org.eclipse.jface.wizard.WizardDialog;
 import org.eclipse.sirius.common.ui.tools.api.selection.EObjectSelectionWizard;
 import org.eclipse.swt.widgets.Shell;
 import org.eclipse.ui.PlatformUI;
 import org.obeonetwork.dsl.cinematic.CinematicRoot;
-import org.obeonetwork.dsl.cinematic.provider.CinematicItemProviderAdapterFactory;
 import org.obeonetwork.dsl.cinematic.toolkits.Toolkit;
 import org.obeonetwork.dsl.cinematic.toolkits.provider.ToolkitsItemProviderAdapterFactory;
-import org.obeonetwork.dsl.cinematic.toolkits.util.ToolkitsAdapterFactory;
 import org.obeonetwork.dsl.cinematic.toolkits.util.ToolkitsProvider;
-import org.obeonetwork.dsl.cinematic.util.CinematicAdapterFactory;
 
 
 public class CinematicToolkitsServices {
@@ -133,13 +128,12 @@ public class CinematicToolkitsServices {
 		if (!(cinematicRoot instanceof CinematicRoot)) 
 			return;
 		
-		CinematicRoot root = (CinematicRoot) cinematicRoot;
 		
 		// all the toolkits
-		Collection<Toolkit> toolkits = getToolkitsInResourceSet(cinematicRoot);
+		Collection<Toolkit> toolkits = getCinematicProvidedToolkits((CinematicRoot) cinematicRoot);
 		// we remove all the toolkits already added to the cinematic root
 		toolkits = toolkits.stream()
-				.filter(toolkit -> !root.getToolkits().contains(toolkit))
+				.filter(toolkit -> !((CinematicRoot) cinematicRoot).getToolkits().contains(toolkit))
 				.collect(Collectors.toList());
 				
 		Shell shell = PlatformUI.getWorkbench().getActiveWorkbenchWindow().getShell();
@@ -151,6 +145,6 @@ public class CinematicToolkitsServices {
 		int returnCode = dialog.open();
 		
 		if (returnCode != Window.CANCEL)
-			wizard.getSelectedEObjects().stream().filter(Toolkit.class::isInstance).forEach(toolkit -> root.getToolkits().add((Toolkit) toolkit));		
+			wizard.getSelectedEObjects().stream().filter(Toolkit.class::isInstance).forEach(toolkit -> ((CinematicRoot) cinematicRoot).getToolkits().add((Toolkit) toolkit));		
 	}
 }

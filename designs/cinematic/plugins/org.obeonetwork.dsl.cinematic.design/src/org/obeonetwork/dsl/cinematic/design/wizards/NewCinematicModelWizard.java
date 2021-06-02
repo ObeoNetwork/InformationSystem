@@ -10,6 +10,7 @@
  *******************************************************************************/
 package org.obeonetwork.dsl.cinematic.design.wizards;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collection;
 import java.util.Date;
@@ -26,33 +27,59 @@ import org.obeonetwork.dsl.cinematic.CinematicFactory;
 import org.obeonetwork.dsl.cinematic.CinematicPackage;
 import org.obeonetwork.dsl.cinematic.CinematicRoot;
 import org.obeonetwork.dsl.cinematic.design.Activator;
+import org.obeonetwork.dsl.cinematic.toolkits.Widget;
+import org.obeonetwork.dsl.cinematic.view.ViewContainer;
+import org.obeonetwork.dsl.cinematic.view.ViewFactory;
+import org.obeonetwork.dsl.cinematic.view.ViewPackage;
 import org.obeonetwork.dsl.is.ui.wizards.AbstractISNewModelWizard;
-import org.obeonetwork.dsl.is.ui.wizards.NewModelCreationPage;
+
 
 public class NewCinematicModelWizard extends AbstractISNewModelWizard {
 	
 	private static final String DESC_ID_PACKAGE_DIAGRAM = "Package Diagram";
+	private static final String DESC_ID_MOCKUP_DIAGRAM = "View Container Mockup";
 	private static final String DESC_ID_UI_STRUCTURE_TREE = "UI Structure";
 	private static final String CINEMATIC_RESOURCE_FILE_EXTENSION = ".cinematic";
-
+	
+	private NewModelCreationWithMockupPage mockupPage;
+	
 	public NewCinematicModelWizard() {
 		super("New Cinematic model", Activator.imageDescriptorFromPlugin(Activator.PLUGIN_ID, "icons/full/wizban/NewCinematic.gif"));
 	}
 
 	@Override
 	protected Collection<EObject> createInitialObjects() {
+		Collection<EObject> initialObjects = new ArrayList<EObject>();
+		
 		CinematicRoot cinematicRoot = CinematicFactory.eINSTANCE.createCinematicRoot();
 		cinematicRoot.setCreatedOn(new Date());
 		cinematicRoot.setName(getProjectName());
-		return Arrays.asList(cinematicRoot);
+		initialObjects.add(cinematicRoot);
+		
+		if (modelCreationPage.canFlipToNextPage()) {
+			Widget widget = mockupPage.getWidgetContainer();
+			ViewContainer container = ViewFactory.eINSTANCE.createViewContainer();
+			container.setWidget(widget);
+			container.setName(mockupPage.getViewContainerName());
+			cinematicRoot.getViewContainers().add(container);
+			cinematicRoot.getToolkits().add(mockupPage.getToolkit());
+			
+			initialObjects.add(container);
+		}
+		
+		return initialObjects;
 	}
 	
 	@Override
 	public void addPages() {
-		modelCreationPage = new NewModelCreationPage("ModelCreationPage", selection, CINEMATIC_RESOURCE_FILE_EXTENSION);
+		modelCreationPage = new NewCinematicModelPage("ModelCreationPage", selection, CINEMATIC_RESOURCE_FILE_EXTENSION);
 		modelCreationPage.setTitle("Create a new cinematic model");
 		modelCreationPage.setDescription("Choose the new cinematic model name and path.");
+		
+		mockupPage = new NewModelCreationWithMockupPage("ModelCreationMockup");
+		
 		addPage(modelCreationPage);
+		addPage(mockupPage);
 	}
 
 	@Override
@@ -72,17 +99,23 @@ public class NewCinematicModelWizard extends AbstractISNewModelWizard {
 	protected Map<EClassifier, Collection<String>> getRepresentationDescriptionsIDToBeCreated() {
 		Map<EClassifier, Collection<String>> descs = new HashMap<>();
 		descs.put(CinematicPackage.Literals.CINEMATIC_ROOT, Arrays.asList(DESC_ID_UI_STRUCTURE_TREE, DESC_ID_PACKAGE_DIAGRAM));
+		descs.put(ViewPackage.Literals.VIEW_CONTAINER, Arrays.asList(DESC_ID_MOCKUP_DIAGRAM));
 		return descs;
 	}
 	
 	@Override
 	protected String getRepresentationName(RepresentationDescription representationDescription, EObject object) {
+		String repDescName = representationDescription.getName();
+
 		if (object instanceof CinematicRoot) {
-			String repDescName = representationDescription.getName();
 			if (DESC_ID_PACKAGE_DIAGRAM.equals(repDescName)) {
 				return String.format("%1$s %2$s", this.getProjectName(), DESC_ID_PACKAGE_DIAGRAM);
 			} else if (DESC_ID_UI_STRUCTURE_TREE.equals(repDescName)) {
 				return String.format("%1$s %2$s", this.getProjectName(), DESC_ID_UI_STRUCTURE_TREE);
+			}  
+		} else if (object instanceof ViewContainer) {
+			if (DESC_ID_MOCKUP_DIAGRAM.equals(repDescName)) {
+				return String.format("%1$s %2$s", this.getProjectName(), DESC_ID_MOCKUP_DIAGRAM);
 			}
 		}
 		return null;
@@ -92,9 +125,10 @@ public class NewCinematicModelWizard extends AbstractISNewModelWizard {
 	protected boolean shouldOpenRepresentation(DRepresentation representation) {
 		if (representation instanceof DDiagram) {
 			String repDescName = ((DDiagram) representation).getDescription().getName();
-			return DESC_ID_PACKAGE_DIAGRAM.equals(repDescName);
+			if (modelCreationPage.canFlipToNextPage() && DESC_ID_MOCKUP_DIAGRAM.equals(repDescName)) {
+				return true;
+			} else return DESC_ID_PACKAGE_DIAGRAM.equals(repDescName);
 		}
 		return false;
 	}
-
 }

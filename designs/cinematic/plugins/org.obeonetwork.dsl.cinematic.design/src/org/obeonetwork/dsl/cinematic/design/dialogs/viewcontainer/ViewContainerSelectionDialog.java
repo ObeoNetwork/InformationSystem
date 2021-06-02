@@ -1,6 +1,7 @@
 package org.obeonetwork.dsl.cinematic.design.dialogs.viewcontainer;
 
 import org.eclipse.jface.dialogs.Dialog;
+
 import org.eclipse.jface.dialogs.IDialogConstants;
 import org.eclipse.jface.viewers.CheckboxTreeViewer;
 import org.eclipse.swt.SWT;
@@ -20,6 +21,10 @@ import org.obeonetwork.dsl.cinematic.design.dialogs.Messages;
 import org.obeonetwork.dsl.cinematic.design.services.flows.FlowsUtil;
 import org.obeonetwork.dsl.cinematic.flow.ViewState;
 
+/**
+ * 
+ * @author <a href="mailto:thibault.beziers-la-fosse@obeo.fr">Thibault Béziers la Fosse</a>
+ */
 public class ViewContainerSelectionDialog extends Dialog {
 	private Text txtFilterText;
 	private ViewState viewState;
