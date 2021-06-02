@@ -148,8 +148,13 @@ h3. Description statique de l'IHM
 
 h4. Contenu
 
-Pour visualiser la description statique de l'IHM nous proposons une représentation arborescente. Ce type de représentation permet pour un ViewContainer de visualiser les ViewElement et les ViewContainers dont il est le parent et ceux qu'il référence.
-Cette représentation est basée sur un objet de type Package.
+Pour visualiser la description statique de l'IHM nous proposons une représentation arborescente. Cette représentation fournit une vue d’ensemble de la structure des écrans d’une application. Les écrans sont décris en termes de View Containers pouvant contenir :
+* d’autres View Containers,
+* des View Elements représentant les instances de widgets
+* des View Container Reference représentant la réutilisation de View Container.
+
+Les View Containers peuvent être contenus dans des Package, permettant une structuration de ces différents éléments.
+Cette représentation fournit le moyen d’associer un toolkit au modèle Cinematic. Le toolkit définit les widget saccessibles pour la définition des écrans.
 
 !pics/UIStructure.png!
 
@@ -195,7 +200,7 @@ Certains champs des éléments du toolkit peuvent être utilisés afin de propos
 
 !pics/documentation.png!
 
-* Metadata Keys: permet de définir une liste de clés. Pour chaque clé, une métadata correspondante sera créée dans le ViewElement utilisant le Widget:
+* Metadata Keys: permet de définir une liste de clés. Cette donnée est exploitée à la création d'un View Element pour créer autant de meta-data dans le ViewElement qu'il y a de clés définies dans l'attribut metadataKeys:
 
 !pics/metadatakeys.png!
 
@@ -203,9 +208,23 @@ Certains champs des éléments du toolkit peuvent être utilisés afin de propos
 
 !pics/metadatahelp.png!
 
-* Summary: permet de définir une aide courte, qui s'affiche en tooltip lors de l'utilisation du Widget:
+* Summary: permet de définir une aide courte, qui s'affiche en info bulle dans la palette du diagramme "View Container Mockup".
 
 !pics/summary.png!
+
+Le style d'un widget peut être défini dans le modèle de toolkit. Il permet de définir des options de customisation, par le biais des attributs suivants:
+
+* decorator : Chemin vers l’image svg qui décore le widget (cas de combo box, radio button, etc...)
+* decoratorPosition : position cardinale du décorateur (east pour combo box, west pour radio button, etc...)
+* decoratorVFill : booleen spécifiant si le décorateur doit suivre le redimensionnent vertical (valeur par defaut égale à vrai)
+* decoratorHFill : booleen spécifiant si le décorateur doit suivre le redimensionnent horizontal (valeur par défaut égale à faux)
+* bordered : booleen spécifiant si une bordure est visible (faux pour link ou pour label)
+* roundedCorners : booleen spécifiant si les coins doivent être arrondis (vrai pour button)
+* fontUnderlined : booleen spécifiant si la police de caractère utilisée pour le label est soulignée (vrai pour link)
+* fontColor : couleur de la police de caractère utilisée pour le label. Les couleurs disponibles sont celles définies par la classe @org.eclipse.swt.SWT@ par les champs dont le nom commence par « COLOR_ ». Ainsi, une couleur désignée par la chaîne « BLACK » désigne le champ @org.eclipse.swt.SWT.COLOR_BLACK@.
+* labelHAlignment : alignement du texte à gauche, droite, ou centre
+* defaultWidth : largeur par défaut utilisée à la création d’un View Element
+* defaultHeight : hauteur par défaut utilisée à la création d’un View Element
 
 
 h3. Mockup des ViewContainers
@@ -213,11 +232,29 @@ h3. Mockup des ViewContainers
 Cette représentation permet de créer et positionner les widgets dans les ViewContainers.
 La palette propose tous les widgets disponibles dans le toolkit utilisé, et peut être utilisée pour ajouter de nouveaux ViewElements dans le mockup.
 
+Par défaut, le label des éléments présentés sur le View Container Mockup est déterminé de la manière suivante :
+* Pour un View Element ou un View Container :
+** Si le label est défini, alors il est utilisé,
+** Sinon si le nom est défini alors il est utilisé,
+** Sinon le label est vide.
+* Pour un View Element Container
+** Si le label est défini, alors il est utilisé,
+** Sinon si le nom est défini alors il est utilisé,
+** Sinon le label du View Container référencé est calculé comme ci-dessus et utilisé.
+Un calque « Example » est ajouté au diagramme, permettant de visualiser l’IHM avec des données d’exemple.
+Un attribut « example » de type String est ajouté dans le méta-modèle Cinematic sur la meta-classe @AbstractViewElement@.
+
 !pics/vcmockup.png!
 
-Effectuer  _clic droit > IS Designer > Extract Layout_  permet de construire un diagramme de layout à partir du mockup. 
-Ce diagramme de layout permet de montrer comme l'interface sera construite: 
+Effectuer  _clic droit > IS Designer > Extract Layout_  permet de construire un diagramme de layout à partir du mockup. L’extraction de layout sur un Mockup a pour effet de créer une structure arborescente d’éléments de Layout contenue par le View Container racine du Mockup. Toutes les informations de layout sont donc portées par le
+View Container racine. Lorsqu’un Layout en contient d’autres, il structure alors l’espace. 
+
+L’attribut layoutDirection indique le sens dans lequel l’espace est découpé. L’algorithme d’extraction de layout analyse l’alignement horizontal et vertical des éléments contenus visuellement les uns dans les autres de manière à déterminer des groupements rectangulaires et extraire une structure de type Grid Layout.
+Un élément de Layout peut donc être lié ou non à un View Element suivant qu’il représente le layout d’un View Element ou bien un élément structurant de l’espace.
+
+L’opération inverse de restauration de layout est aussi mise à disposition. Ainsi, l’utilisateur peut sauvegarder une disposition graphique et expérimenter d’autres dispositions sans risque de perdre la disposition initiale.
+Un diagramme Layout Diagram est mis à disposition dans le but de visualiser la structure d’un Layout. 
 
 !pics/layout_diagram.png!
 
-Les éléments en pointillés étant les éléments virtuels: non présents dans le modèle, mais nécessaire à la construction de l'IHM.
+Les Layouts liés à un View Element sont représentés avec une bordure en trait plein, et  ceux ayant pour rôle uniquement de structurer l’espace sont représentés avec une bordure en trait pointillé.
