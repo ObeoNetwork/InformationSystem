@@ -446,6 +446,8 @@ public class CinematicWidgetServices extends DebugServices {
 	        figureImage.setSize(image.getBounds().width, image.getBounds().height);
 	        return figureImage;
 		}
+		
+		// TODO
 		return null;
 	}
 	

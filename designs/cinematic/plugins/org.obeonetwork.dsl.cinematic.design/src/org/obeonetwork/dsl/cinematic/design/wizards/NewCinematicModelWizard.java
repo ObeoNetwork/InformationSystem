@@ -56,11 +56,16 @@ public class NewCinematicModelWizard extends AbstractISNewModelWizard {
 		cinematicRoot.setName(getProjectName());
 		initialObjects.add(cinematicRoot);
 		
-		if (modelCreationPage.canFlipToNextPage()) {
+		if (modelCreationPage.canFlipToNextPage() && mockupPage.getToolkit() != null && mockupPage.getWidgetContainer() != null) {
 			Widget widget = mockupPage.getWidgetContainer();
 			ViewContainer container = ViewFactory.eINSTANCE.createViewContainer();
 			container.setWidget(widget);
-			container.setName(mockupPage.getViewContainerName());
+			
+			if (mockupPage.getViewContainerName() != null)
+				container.setName(mockupPage.getViewContainerName());
+			else 
+				container.setName(String.format("%s_1", widget.getName()));
+				
 			cinematicRoot.getViewContainers().add(container);
 			cinematicRoot.getToolkits().add(mockupPage.getToolkit());
 			
@@ -131,4 +136,6 @@ public class NewCinematicModelWizard extends AbstractISNewModelWizard {
 		}
 		return false;
 	}
+	
+	
 }
