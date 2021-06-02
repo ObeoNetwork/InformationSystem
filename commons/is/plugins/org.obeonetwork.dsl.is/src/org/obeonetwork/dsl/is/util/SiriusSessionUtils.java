@@ -16,6 +16,7 @@ import java.util.Collection;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.stream.Collectors;
 
 import org.eclipse.core.resources.IContainer;
 import org.eclipse.core.resources.IFile;
@@ -185,7 +186,7 @@ public class SiriusSessionUtils {
 		session.getTransactionalEditingDomain().getCommandStack().execute(new RecordingCommand(session.getTransactionalEditingDomain()) {
 			@Override
 			protected void doExecute() {
-				resource.getContents().addAll(rootObjects);
+				resource.getContents().addAll(rootObjects.stream().filter(eObject -> eObject.eContainer() == null).collect(Collectors.toList()));
 				session.addSemanticResource(resource.getURI(), monitor);
 			}
 		});
@@ -201,8 +202,8 @@ public class SiriusSessionUtils {
 			Resource resource = session.getTransactionalEditingDomain().getResourceSet().createResource(uri);
 			session.getTransactionalEditingDomain().getCommandStack().execute(new RecordingCommand(session.getTransactionalEditingDomain()) {
 				@Override
-				protected void doExecute() {
-					resource.getContents().addAll(rootObjects);
+				protected void doExecute() {					
+					resource.getContents().addAll(rootObjects.stream().filter(eObject -> eObject.eContainer() == null).collect(Collectors.toList()));
 					session.addSemanticResource(uri, monitor);
 				}
 			});
@@ -217,7 +218,7 @@ public class SiriusSessionUtils {
 		if (file != null) {
 			URI uri = URI.createPlatformResourceURI(file.getFullPath().toString(), true);
 			Resource resource = new ResourceSetImpl().createResource(uri);
-			resource.getContents().addAll(rootObjects);
+			resource.getContents().addAll(rootObjects.stream().filter(eObject -> eObject.eContainer() == null).collect(Collectors.toList()));
 			Map<Object, Object> options = new HashMap<Object, Object>();
 			options.put(XMLResource.OPTION_ENCODING, "UTF-8");
 			try {
