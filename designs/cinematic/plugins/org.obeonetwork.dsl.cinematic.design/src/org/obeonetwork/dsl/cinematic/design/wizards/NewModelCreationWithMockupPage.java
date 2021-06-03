@@ -1,7 +1,6 @@
 package org.obeonetwork.dsl.cinematic.design.wizards;
 
 import java.util.ArrayList;
-
 import java.util.Collection;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -21,6 +20,7 @@ import org.eclipse.swt.widgets.Combo;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Label;
 import org.eclipse.swt.widgets.Text;
+import org.obeonetwork.dsl.cinematic.toolkits.Style;
 import org.obeonetwork.dsl.cinematic.toolkits.Toolkit;
 import org.obeonetwork.dsl.cinematic.toolkits.Widget;
 import org.obeonetwork.dsl.cinematic.toolkits.util.ToolkitsProvider;
@@ -34,7 +34,7 @@ public class NewModelCreationWithMockupPage extends WizardPage {
 	private Toolkit toolkit;
 	private Widget widgetContainer;
 	
-	private List<Toolkit> toolkits;
+	private List<Toolkit> toolkits = new ArrayList<>();
 	private List<Widget> widgetContainers;
 	private Text text;
 	
@@ -56,49 +56,51 @@ public class NewModelCreationWithMockupPage extends WizardPage {
 		Label toolkitLabel = new Label(compositeMockup, NONE);
 		toolkitLabel.setText("Toolkit:");
 				
-		toolkits = new ArrayList<>();
-		
-		// Get toolkits provided using the extension point
-		Collection<URI> providedToolkitsURI = ToolkitsProvider.getProvidedToolkits();
-		for (URI uri : providedToolkitsURI) {
-			ResourceSet set = new ResourceSetImpl();
-			Resource resource = set.getResource(uri, true);
-			if (resource != null && resource.getContents() != null) {
-				for (EObject root : resource.getContents()) {
-					if (root instanceof Toolkit) {
-						Toolkit toolkit = (Toolkit)root;
-						toolkits.add(toolkit);
-					}
-				}
-			}
-		}
+		toolkits = getToolkits(); // Get toolkits provided using the extension point
+		toolkits.sort((t1, t2) -> t1.getName().compareTo(t2.getName()));
 		
 		Combo toolkitCombo = new Combo(compositeMockup, SWT.READ_ONLY);
 		GridData gd_toolkitCombo = new GridData(SWT.LEFT, SWT.CENTER, false, false, 1, 1);
 		gd_toolkitCombo.widthHint = 220;
 		toolkitCombo.setLayoutData(gd_toolkitCombo);
-		toolkitCombo.setItems(toolkits.stream().map(t -> t.getName()).collect(Collectors.toList()).toArray(new String[toolkits.size()]));
-
+		toolkitCombo.setItems(toolkits.stream().map(t -> t.getName()).collect(Collectors.toList()).toArray(new String[toolkits.size()]));		
+		
+		
 		new Label(compositeMockup, SWT.NONE);
 		new Label(compositeMockup, SWT.NONE);
 		
 		Label vcLabel = new Label(compositeMockup, NONE);
-		vcLabel.setText("Main widget:");
+		vcLabel.setText("Main container:");
 		Combo vcContainerCombo = new Combo(compositeMockup, SWT.READ_ONLY);
 		GridData gd_vcContainerCombo = new GridData(SWT.LEFT, SWT.CENTER, false, false, 1, 1);
 		gd_vcContainerCombo.widthHint = 220;
 		vcContainerCombo.setLayoutData(gd_vcContainerCombo);
-		
+				
 		toolkitCombo.addSelectionListener(new SelectionAdapter() {
 
 			@Override
 			public void widgetSelected(SelectionEvent e) {
 				toolkit = toolkits.get(toolkitCombo.getSelectionIndex());
 				widgetContainers = toolkit.getWidgets().stream().filter(Widget::isIsContainer).collect(Collectors.toList());
+				
+				// sorting the containers from the largest to the smallest.
+				widgetContainers.sort((w1, w2) -> {
+					
+					int areaStyle1 = w1.getStyle() == null ? 0 : w1.getStyle().getDefaultHeight() * w1.getStyle().getDefaultWidth();
+					int areaStyle2 = w2.getStyle() == null ? 0 : w2.getStyle().getDefaultHeight() * w2.getStyle().getDefaultWidth();
+					
+					return areaStyle2 - areaStyle1;	
+				}); 
+				
 				vcContainerCombo.setItems((String[]) widgetContainers.stream().map(Widget::getName).collect(Collectors.toList()).toArray(new String[widgetContainers.size()]));
+				vcContainerCombo.select(0);
+				vcContainerCombo.notifyListeners(SWT.Selection, null);
 			}
 			
 		});
+		
+		toolkitCombo.select(0); 
+		toolkitCombo.notifyListeners(SWT.Selection, null);
 		
 		vcContainerCombo.addSelectionListener(new SelectionAdapter() {
 
@@ -110,18 +112,39 @@ public class NewModelCreationWithMockupPage extends WizardPage {
 			}
 		});
 		
+		
 		new Label(compositeMockup, SWT.NONE);
 		new Label(compositeMockup, SWT.NONE);
 		
 		Label lblWidgetName = new Label(compositeMockup, SWT.NONE);
-		lblWidgetName.setText("Widget name:");
+		lblWidgetName.setText("Container name:");
 		text = new Text(compositeMockup, SWT.BORDER);
 		GridData gd_text = new GridData(SWT.LEFT, SWT.CENTER, false, false, 1, 1);
 		gd_text.heightHint = 20;
 		gd_text.widthHint = 233;
 		text.setLayoutData(gd_text);		
 	}
-
+	
+	public List<Toolkit> getToolkits() {
+		Collection<URI> providedToolkitsURI = ToolkitsProvider.getProvidedToolkits();
+		List<Toolkit> toolkitsCollection = new ArrayList<>();
+		
+		for (URI uri : providedToolkitsURI) {
+			ResourceSet set = new ResourceSetImpl();
+			Resource resource = set.getResource(uri, true);
+			if (resource != null && resource.getContents() != null) {
+				for (EObject root : resource.getContents()) {
+					if (root instanceof Toolkit) {
+						Toolkit toolkit = (Toolkit)root;
+						toolkitsCollection.add(toolkit);
+					}
+				}
+			}
+		}
+		
+		return toolkitsCollection;		
+	}
+	
 	public Toolkit getToolkit() {
 		return toolkit;
 	}

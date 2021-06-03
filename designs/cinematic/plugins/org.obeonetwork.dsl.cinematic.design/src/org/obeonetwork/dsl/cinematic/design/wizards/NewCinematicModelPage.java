@@ -32,7 +32,7 @@ public class NewCinematicModelPage extends NewModelCreationPage {
 		
 		Button initializeWithMockup = new Button(compositeMockup, SWT.CHECK);
 		initializeWithMockup.setText("Initialize cinematic model with mockup");
-
+		initializeWithMockup.setSelection(false);
 		initializeWithMockup.addSelectionListener(new SelectionAdapter() {
 			
 			@Override
