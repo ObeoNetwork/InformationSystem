@@ -32,6 +32,7 @@ import org.obeonetwork.dsl.cinematic.view.ViewContainer;
 import org.obeonetwork.dsl.cinematic.view.ViewFactory;
 import org.obeonetwork.dsl.cinematic.view.ViewPackage;
 import org.obeonetwork.dsl.is.ui.wizards.AbstractISNewModelWizard;
+import org.obeonetwork.dsl.is.ui.wizards.NewModelCreationPage;
 
 
 public class NewCinematicModelWizard extends AbstractISNewModelWizard {
@@ -77,7 +78,7 @@ public class NewCinematicModelWizard extends AbstractISNewModelWizard {
 	
 	@Override
 	public void addPages() {
-		modelCreationPage = new NewCinematicModelPage("ModelCreationPage", selection, CINEMATIC_RESOURCE_FILE_EXTENSION);
+		modelCreationPage = new NewModelCreationPage("ModelCreationPage", selection, CINEMATIC_RESOURCE_FILE_EXTENSION);
 		modelCreationPage.setTitle("Create a new cinematic model");
 		modelCreationPage.setDescription("Choose the new cinematic model name and path.");
 		
