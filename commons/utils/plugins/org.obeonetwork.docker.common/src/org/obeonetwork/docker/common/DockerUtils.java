@@ -41,10 +41,12 @@ public class DockerUtils {
 		// Cas Unix et Mac à faire
 		DockerClientConfig config = DefaultDockerClientConfig.createDefaultConfigBuilder()
 				.withDockerHost(url)
-				.withDockerTlsVerify(true)/*.withDockerTlsVerify("1")*/
+				.withDockerTlsVerify(useTLS)/*.withDockerTlsVerify("1")*/
+				.withDockerCertPath("/")
 				.build();
 
 		dockerClient = DockerClientBuilder.getInstance(config).build();
+		dockerClient.listContainersCmd().exec();
 	}
 	
 	public List<Container> getContainers(boolean showAll) {
