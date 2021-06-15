@@ -40,14 +40,14 @@ import org.obeonetwork.utils.sirius.services.EObjectUtils;
 @SuppressWarnings("restriction")
 public class CinematicLayoutServices {
 
-	public static Layout extractLayout(DDiagram viewContainerDDiagram) {
+	public static Layout extractLayout(DDiagram mockupDiagram) {
 		// Launch refresh so that the GMF views are created and up to date
-		Diagram gmfDiagram = SiriusGMFHelper.getGmfDiagram(viewContainerDDiagram);
+		Diagram gmfDiagram = SiriusGMFHelper.getGmfDiagram(mockupDiagram);
 		CanonicalSynchronizer canonicalSynchronizer = CanonicalSynchronizerFactory.INSTANCE.createCanonicalSynchronizer(gmfDiagram);
 		canonicalSynchronizer.synchronize();
 		
-		ViewContainer viewContainer = (ViewContainer) new DDiagramQuery(viewContainerDDiagram).getRepresentationDescriptor().getTarget();
-		DNodeContainer rootDNC = viewContainerDDiagram.getOwnedDiagramElements().stream()
+		ViewContainer viewContainer = (ViewContainer) new DDiagramQuery(mockupDiagram).getRepresentationDescriptor().getTarget();
+		DNodeContainer rootDNC = mockupDiagram.getOwnedDiagramElements().stream()
 				.filter(e -> e.getTarget() == viewContainer)
 				.map(DNodeContainer.class::cast)
 				.findFirst().orElse(null);
@@ -256,15 +256,15 @@ public class CinematicLayoutServices {
 		return draw2dBounds;
 	}
 	
-	public static void restoreLayout(ViewContainer viewContainer, DDiagram viewContainerDDiagram) {
-		DNodeContainer rootDNC = viewContainerDDiagram.getOwnedDiagramElements().stream()
+	public static void restoreLayout(ViewContainer viewContainer, DDiagram mockupDiagram) {
+		DNodeContainer rootDNC = mockupDiagram.getOwnedDiagramElements().stream()
 				.filter(e -> e.getTarget() == viewContainer)
 				.map(DNodeContainer.class::cast)
 				.findFirst().orElse(null);
 		
 		restoreLayout(viewContainer.getLayout(), rootDNC);
 		
-		DialectManager.INSTANCE.refresh(viewContainerDDiagram, new NullProgressMonitor());
+		DialectManager.INSTANCE.refresh(mockupDiagram, new NullProgressMonitor());
 	}
 	
 	public static void previewLayout(Layout layout, DDiagram layoutDDiagram) {

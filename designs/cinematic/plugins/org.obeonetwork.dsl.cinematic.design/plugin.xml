@@ -46,7 +46,7 @@
      <menuContribution
            allPopups="false"
            locationURI="popup:org.obeonetwork.is.designer.menu?after=additions">
-        <command
+<!--        <command
               commandId="org.obeonetwork.dsl.cinematic.design.command.ExtractLayout"
               icon="icons/tools/layout.png"
               label="Extract Layout"
@@ -54,7 +54,7 @@
            <visibleWhen
                  checkEnabled="true">
            </visibleWhen>
-        </command>
+        </command> -->
         <command
               commandId="org.obeonetwork.dsl.cinematic.design.command.RestoreLayout"
               icon="icons/tools/layout.png"
@@ -77,10 +77,10 @@
   </extension>
   <extension
         point="org.eclipse.ui.commands">
-     <command
+<!--     <command
            id="org.obeonetwork.dsl.cinematic.design.command.ExtractLayout"
            name="Extract Layout">
-     </command>
+     </command> -->
      <command
            id="org.obeonetwork.dsl.cinematic.design.command.RestoreLayout"
            name="Restore Layout">
@@ -92,7 +92,7 @@
   </extension>
   <extension
         point="org.eclipse.ui.handlers">
-     <handler
+<!--     <handler
            class="org.obeonetwork.dsl.cinematic.design.handlers.ExtractLayoutHandler"
            commandId="org.obeonetwork.dsl.cinematic.design.command.ExtractLayout">
         <enabledWhen>
@@ -115,7 +115,7 @@
               </iterate>
            </with>
         </enabledWhen>
-     </handler>
+     </handler> -->
      <handler
            class="org.obeonetwork.dsl.cinematic.design.handlers.RestoreLayoutHandler"
            commandId="org.obeonetwork.dsl.cinematic.design.command.RestoreLayout">
