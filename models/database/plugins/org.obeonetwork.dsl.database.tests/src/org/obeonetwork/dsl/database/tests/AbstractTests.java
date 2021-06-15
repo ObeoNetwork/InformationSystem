@@ -28,7 +28,7 @@ public abstract class AbstractTests {
 	@Before
 	public void setUpBeforeTest() throws LiquibaseException {
 		// Initialize the database with liquibase.
-		liquibase = TestUtils.createAndInitializeLiquibase("resources/northwind-liquibase.xml", database);
+		// liquibase = TestUtils.createAndInitializeLiquibase("resources/northwind-liquibase.xml", database);
 	}
 	
 	@AfterClass
