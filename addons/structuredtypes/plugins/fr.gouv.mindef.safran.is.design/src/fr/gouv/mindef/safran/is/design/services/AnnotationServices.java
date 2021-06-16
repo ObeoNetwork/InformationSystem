@@ -204,18 +204,21 @@ public class AnnotationServices {
 					
 					Reference reference = (Reference) context;
 					
-					// Is the opposed reference defined as the physical target ? 
-					Optional<Annotation> physicalTargetAnnotation = reference.getOppositeOf()
-						.getMetadatas() // metadatacontainer
-						.getMetadatas() // list<metadata>
-						.stream()
-						.filter(Annotation.class::isInstance)
-						.map(Annotation.class::cast)
-						.filter(annotation -> PHYSICAL_TARGET.equals(annotation.getTitle()))
-						.findAny();
+					MetaDataContainer oppositeMetaDataContainer = reference.getOppositeOf().getMetadatas();
 					
-					if (physicalTargetAnnotation.isPresent())
-						physicalTargetAnnotation.get().setBody(null);
+					if (oppositeMetaDataContainer != null) {
+						// Is the opposed reference defined as the physical target ? 
+						Optional<Annotation> physicalTargetAnnotation = oppositeMetaDataContainer // metadatacontainer
+							.getMetadatas() // list<metadata>
+							.stream()
+							.filter(Annotation.class::isInstance)
+							.map(Annotation.class::cast)
+							.filter(annotation -> PHYSICAL_TARGET.equals(annotation.getTitle()))
+							.findAny();
+						
+						if (physicalTargetAnnotation.isPresent())
+							physicalTargetAnnotation.get().setBody(null);
+					}
 					
 				} else {
 					physicalTarget = null;
