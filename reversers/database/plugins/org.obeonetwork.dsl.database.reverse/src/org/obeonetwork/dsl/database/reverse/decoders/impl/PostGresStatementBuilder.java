@@ -80,7 +80,8 @@ public class PostGresStatementBuilder {
 				"LEFT JOIN PG_CATALOG.pg_class c " +
 				"ON c.relname = s.SEQUENCE_NAME " +
 				"AND c.relkind = 'S' " +
-				"WHERE s.SEQUENCE_SCHEMA = ?");
+				"WHERE s.SEQUENCE_SCHEMA = ?"+
+				"ORDER BY s.SEQUENCE_NAME ASC");
 			
 			statement.setString(1, schemaName);
 		} catch (SQLException e) {
