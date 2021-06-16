@@ -1295,7 +1295,7 @@
             <variable name="container">
               <subVariables xsi:type="tool_1:AcceleoVariable" name="allContainers" computationExpression="aql:container.getAllRootsForCinematic()->collect(e | e.eAllContents(view::ViewContainer))"/>
               <subVariables xsi:type="tool_1:AcceleoVariable" name="allCandidates" computationExpression="aql:self.getViewContainersPossible(allContainers)"/>
-              <subVariables xsi:type="tool_1:SelectModelElementVariable" name="selectedElement" candidatesExpression="var:allCandidates" tree="true" rootExpression="aql:allCandidates.trace()->select(e|e.eContainer() = null or (not allCandidates->includes(e.eContainer())))" childrenExpression="feature:eContents" message="Select a view container to reference"/>
+              <subVariables xsi:type="tool_1:SelectModelElementVariable" name="selectedElement" candidatesExpression="var:allCandidates" tree="true" rootExpression="aql:allCandidates->select(e|e.eContainer() = null or (not allCandidates->includes(e.eContainer())))" childrenExpression="feature:eContents" message="Select a view container to reference"/>
             </variable>
             <viewVariable name="containerView"/>
             <initialOperation>
