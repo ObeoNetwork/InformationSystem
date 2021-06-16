@@ -11,13 +11,14 @@
 package org.obeonetwork.dsl.database.tests.postgres;
 
 import java.io.BufferedReader;
+import java.io.File;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.math.BigInteger;
 import java.util.Arrays;
 import java.util.Collection;
 
 import org.junit.After;
+import org.junit.AfterClass;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
@@ -51,8 +52,7 @@ import liquibase.exception.LiquibaseException;
 @RunWith(Parameterized.class)
 public class PostgresTests extends AbstractTests {
 	
-	private static final String POSTGRES_DATABASE_MODEL_REFERENCE_PATH = "resources/postgres/postgres_outputRef.database";	
-	private static final String POSTGRES_DATABASE_MODEL_REFERENCE_PATH_10 = "resources/postgres/postgres_outputRef_10.database";
+	private static final String POSTGRES_DATABASE_MODEL_REFERENCE_PATH = "resources/postgres/";	
 	private static final String JDBC_POSTGRES_URL_PATTERN = "jdbc:postgresql://%1$s:%2$s/%3$s";
 	private static final String POSTGRES_HOST_DEFAULT = "localhost";
 	private static final String POSTGRES_PORT_DEFAULT = "5432";
@@ -64,18 +64,32 @@ public class PostgresTests extends AbstractTests {
 	private final String containerName;
 	private final String containerImage;
 	
+	/**
+	 * The {@link String} parameter is provided through the {@link Parameterized} JUnit Runner. 
+	 */
 	public PostgresTests(String containerImage) {		
 		this.containerImage = containerImage;
-		this.containerName = containerImage.replace(":", "_");
+		this.containerName = containerImage.replace(":", "_"); // container name cannot contain the ':' character, often used in Docker images. 
+	}
+		
+	/**
+	 * {@link https://hub.docker.com/_/postgres}
+	 * @return
+	 */
+	@Parameters( name = "{0}")
+	public static Collection<String> postgreSQLVersions() {
+		return Arrays.asList(	"postgres:9.6-alpine", 
+								"postgres:10.16-alpine",
+								"postgres:11.11-alpine",
+								"postgres:12.6-alpine",
+								"postgres:12.7-alpine",
+								"postgres:13.2-alpine"								
+							);
 	}
 	
-	@Parameters( name = "{0}")
-	public static Collection<String[]> data() {
-		return Arrays.asList(new String[] {"postgres:9.6-alpine"}, 
-							new String[] { "postgres:10.16-alpine"},
-							new String[] { "postgres:11.11-alpine"},
-							new String[] { "postgres:12.6-alpine"},
-							new String[] { "postgres:13.2-alpine"} );
+	@Before
+	@Override
+	public void setUpBeforeTest() throws LiquibaseException {
 	}
 	
 	@Test
@@ -94,46 +108,25 @@ public class PostgresTests extends AbstractTests {
 		DataBase database = DatabaseReverser.reverse(dataSource, new MultiDataBaseQueries(), null);			
 		String modelRefURI = String.format("%s%s.database", POSTGRES_DATABASE_MODEL_REFERENCE_PATH, containerName);
 		
-		DataBase database = DatabaseReverser.reverse(dataSource, new MultiDataBaseQueries(), null);	
-		DataBase databaseRef = TestUtils.loadModel(POSTGRES_DATABASE_MODEL_REFERENCE_PATH, TypesLibraryUtil.POSTGRES_PATHMAP);
-		
-		Assert.assertEquals(database.getName(), databaseRef.getName());
+		if (new File(modelRefURI).exists())	{
+			DataBase databaseRef = TestUtils.loadModel(modelRefURI, TypesLibraryUtil.POSTGRES_PATHMAP);	
+			Assert.assertEquals(database.getName(), databaseRef.getName());
+			TestUtils.checkEquality(database, databaseRef);
+		} else {
+			// No reference model have been provided for the testing. 
+			// We instead save the model produced, 
+			// that should be verified by the tester and used as a reference later.
+			TestUtils.saveModel(database, modelRefURI); 
+		}			
 	}
 	
-	/**
-	 * The main difference with {@link #testImportPostgres()} test is that postgres 10 sequence have a {@link Integer#MAX_VALUE} limit, instead of {@link BigInteger#MAX_VALUE}
-	 * @throws IOException
-	 */
-	public void testImportPostgres_10() throws IOException {
-		String url = String.format(JDBC_POSTGRES_URL_PATTERN, POSTGRES_HOST_DEFAULT, POSTGRES_PORT_DEFAULT, DATABASE_NAME_DEFAULT, true);
-
-		DataSource dataSource = new DataSource(DATABASE_NAME_DEFAULT, "public");
-		dataSource.setJdbcUrl(url);
-		dataSource.setJdbcUsername(POSTGRES_USERNAME_DEFAULT);
-		dataSource.setJdbcPassword(POSTGRES_PASSWORD_DEFAULT);
-		dataSource.setVendor(DatabaseConstants.DB_POSTGRES_9);
-		
-		DataBase database = DatabaseReverser.reverse(dataSource, new MultiDataBaseQueries(), null);
-		
-		DataBase databaseRef = TestUtils.loadModel(POSTGRES_DATABASE_MODEL_REFERENCE_PATH_10, TypesLibraryUtil.POSTGRES_PATHMAP);
-
-		final BigInteger bigInteger = BigInteger.ZERO;
-		final BigInteger bigIntegerRef = BigInteger.ZERO;
-		
-		database.eAllContents().forEachRemaining(o -> bigInteger.add(BigInteger.ONE));
-		databaseRef.eAllContents().forEachRemaining(o -> bigIntegerRef.add(BigInteger.ONE));
-		
-		Assert.assertEquals(bigInteger.byteValue(), bigIntegerRef.byteValue());
-		
-		//TestUtils.checkEquality(database, databaseRef);
-	}	
-
 
 	@Before
 	public void testWithPostgresVersion() {
 		ProcessBuilder builder = new ProcessBuilder();
 		
-		builder.command("docker", "pull", containerImage);			
+		builder.command("docker", "pull", containerImage); // downloads the docker image if not available
+		// starting the container
 		builder.command("docker", "run", "--name", containerName, "-p", POSTGRES_PORT_DEFAULT+":"+POSTGRES_PORT_DEFAULT, 
 				"-e", "POSTGRES_PASSWORD="+POSTGRES_PASSWORD_DEFAULT, 
 				"-e", "POSTGRES_DB="+DATABASE_NAME_DEFAULT, "-d", containerImage);
@@ -152,7 +145,11 @@ public class PostgresTests extends AbstractTests {
 
 	        int exitVal = process.waitFor();
             System.out.println(output);
-            Thread.sleep(5000); // wait for container to boot if created at the moment. 
+            Thread.sleep(5000); 
+            
+            // wait for container to boot if created at the moment. 
+            // a better implementation would check the output log until the containers tells its ready
+            
 	        if (exitVal != 0) {
 	        	throw new Exception("Could not initialize docker image: exit code: "+exitVal);
 	        }
@@ -165,10 +162,14 @@ public class PostgresTests extends AbstractTests {
 	@After
 	public void tearDown() throws IOException, InterruptedException {
 		ProcessBuilder builder = new ProcessBuilder();
-		builder.command("docker", "kill", containerName);
-		builder.command("docker", "rm", "-f", containerName);
+		builder.command("docker", "kill", containerName); // shut down the container
+		builder.command("docker", "rm", "-f", containerName); // removes it from docker
 		Process process = builder.start();
 		process.waitFor();
 	}
 	
+	@AfterClass
+	public static void tearDownAfterClass() throws DatabaseException {
+		// We do not clear the database since we kill the container instead		
+	}
 }
