@@ -132,6 +132,30 @@ public final class TestUtils {
 
 		return (DataBase) resourceDatabase.getContents().get(0);
 	}
+	
+	public static void saveModel(org.obeonetwork.dsl.database.DataBase model, String databaseTestPluginRelativePath) {
+		URI uri = URI.createFileURI(databaseTestPluginRelativePath);
+
+		DatabaseResourceFactoryImpl databaseResourceFactory = new DatabaseResourceFactoryImpl();
+		Resource resourceDatabase = databaseResourceFactory.createResource(uri);
+		resourceDatabase.getContents().add(model);
+		
+		ResourceSet rs = new ResourceSetImpl();
+		
+		rs.getResources().add(resourceDatabase);
+		
+		try {
+			
+			Map<Object, Object> options = rs.getLoadOptions();
+			options.put(DatabasePackage.eINSTANCE.getNsURI(), DatabasePackage.eINSTANCE);
+			options.put(TypesLibraryPackage.eINSTANCE.getNsURI(), TypesLibraryPackage.eINSTANCE);
+			
+			resourceDatabase.save(options);
+		} catch (Exception ex) {
+			ex.printStackTrace();
+		}
+
+	}
 
 	public static void checkEquality(DataBase database, DataBase databaseRef) {
 		assertEquals("The number of schemas is different. Expectd", databaseRef.getSchemas().size(),
