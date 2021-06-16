@@ -12,6 +12,7 @@ package org.obeonetwork.dsl.cinematic.view.impl;
 
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EEnum;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
 import org.eclipse.emf.ecore.impl.EPackageImpl;
@@ -22,6 +23,8 @@ import org.obeonetwork.dsl.cinematic.impl.CinematicPackageImpl;
 import org.obeonetwork.dsl.cinematic.toolkits.ToolkitsPackage;
 import org.obeonetwork.dsl.cinematic.toolkits.impl.ToolkitsPackageImpl;
 import org.obeonetwork.dsl.cinematic.view.AbstractViewElement;
+import org.obeonetwork.dsl.cinematic.view.Layout;
+import org.obeonetwork.dsl.cinematic.view.LayoutDirection;
 import org.obeonetwork.dsl.cinematic.view.ViewAction;
 import org.obeonetwork.dsl.cinematic.view.ViewContainer;
 import org.obeonetwork.dsl.cinematic.view.ViewContainerReference;
@@ -82,6 +85,20 @@ public class ViewPackageImpl extends EPackageImpl implements ViewPackage {
 	private EClass viewContainerReferenceEClass = null;
 
 	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass layoutEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EEnum layoutDirectionEEnum = null;
+
+	/**
 	 * Creates an instance of the model <b>Package</b>, registered with
 	 * {@link org.eclipse.emf.ecore.EPackage.Registry EPackage.Registry} by the package
 	 * package URI value.
@@ -109,7 +126,7 @@ public class ViewPackageImpl extends EPackageImpl implements ViewPackage {
 
 	/**
 	 * Creates, registers, and initializes the <b>Package</b> for this model, and for any others upon which it depends.
-	 * 
+	 *
 	 * <p>This method is used to initialize {@link ViewPackage#eINSTANCE} when that field is accessed.
 	 * Clients should not invoke it directly. Instead, they should simply access that field to obtain the package.
 	 * <!-- begin-user-doc -->
@@ -123,7 +140,8 @@ public class ViewPackageImpl extends EPackageImpl implements ViewPackage {
 		if (isInited) return (ViewPackage)EPackage.Registry.INSTANCE.getEPackage(ViewPackage.eNS_URI);
 
 		// Obtain or create and register package
-		ViewPackageImpl theViewPackage = (ViewPackageImpl)(EPackage.Registry.INSTANCE.get(eNS_URI) instanceof ViewPackageImpl ? EPackage.Registry.INSTANCE.get(eNS_URI) : new ViewPackageImpl());
+		Object registeredViewPackage = EPackage.Registry.INSTANCE.get(eNS_URI);
+		ViewPackageImpl theViewPackage = registeredViewPackage instanceof ViewPackageImpl ? (ViewPackageImpl)registeredViewPackage : new ViewPackageImpl();
 
 		isInited = true;
 
@@ -132,9 +150,12 @@ public class ViewPackageImpl extends EPackageImpl implements ViewPackage {
 		TechnicalIDPackage.eINSTANCE.eClass();
 
 		// Obtain or create and register interdependencies
-		CinematicPackageImpl theCinematicPackage = (CinematicPackageImpl)(EPackage.Registry.INSTANCE.getEPackage(CinematicPackage.eNS_URI) instanceof CinematicPackageImpl ? EPackage.Registry.INSTANCE.getEPackage(CinematicPackage.eNS_URI) : CinematicPackage.eINSTANCE);
-		FlowPackageImpl theFlowPackage = (FlowPackageImpl)(EPackage.Registry.INSTANCE.getEPackage(FlowPackage.eNS_URI) instanceof FlowPackageImpl ? EPackage.Registry.INSTANCE.getEPackage(FlowPackage.eNS_URI) : FlowPackage.eINSTANCE);
-		ToolkitsPackageImpl theToolkitsPackage = (ToolkitsPackageImpl)(EPackage.Registry.INSTANCE.getEPackage(ToolkitsPackage.eNS_URI) instanceof ToolkitsPackageImpl ? EPackage.Registry.INSTANCE.getEPackage(ToolkitsPackage.eNS_URI) : ToolkitsPackage.eINSTANCE);
+		Object registeredPackage = EPackage.Registry.INSTANCE.getEPackage(CinematicPackage.eNS_URI);
+		CinematicPackageImpl theCinematicPackage = (CinematicPackageImpl)(registeredPackage instanceof CinematicPackageImpl ? registeredPackage : CinematicPackage.eINSTANCE);
+		registeredPackage = EPackage.Registry.INSTANCE.getEPackage(FlowPackage.eNS_URI);
+		FlowPackageImpl theFlowPackage = (FlowPackageImpl)(registeredPackage instanceof FlowPackageImpl ? registeredPackage : FlowPackage.eINSTANCE);
+		registeredPackage = EPackage.Registry.INSTANCE.getEPackage(ToolkitsPackage.eNS_URI);
+		ToolkitsPackageImpl theToolkitsPackage = (ToolkitsPackageImpl)(registeredPackage instanceof ToolkitsPackageImpl ? registeredPackage : ToolkitsPackage.eINSTANCE);
 
 		// Create package meta-data objects
 		theViewPackage.createPackageContents();
@@ -151,7 +172,6 @@ public class ViewPackageImpl extends EPackageImpl implements ViewPackage {
 		// Mark meta-data to indicate it can't be changed
 		theViewPackage.freeze();
 
-  
 		// Update the registry and return the package
 		EPackage.Registry.INSTANCE.put(ViewPackage.eNS_URI, theViewPackage);
 		return theViewPackage;
@@ -252,6 +272,15 @@ public class ViewPackageImpl extends EPackageImpl implements ViewPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EReference getViewContainer_Layout() {
+		return (EReference)viewContainerEClass.getEStructuralFeatures().get(4);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getViewElement() {
 		return viewElementEClass;
 	}
@@ -272,6 +301,15 @@ public class ViewPackageImpl extends EPackageImpl implements ViewPackage {
 	 */
 	public EReference getViewElement_Type() {
 		return (EReference)viewElementEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getViewElement_Example() {
+		return (EAttribute)viewElementEClass.getEStructuralFeatures().get(2);
 	}
 
 	/**
@@ -324,6 +362,87 @@ public class ViewPackageImpl extends EPackageImpl implements ViewPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EClass getLayout() {
+		return layoutEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getLayout_X() {
+		return (EAttribute)layoutEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getLayout_Y() {
+		return (EAttribute)layoutEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getLayout_Width() {
+		return (EAttribute)layoutEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getLayout_Height() {
+		return (EAttribute)layoutEClass.getEStructuralFeatures().get(3);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getLayout_Direction() {
+		return (EAttribute)layoutEClass.getEStructuralFeatures().get(4);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getLayout_ViewElement() {
+		return (EReference)layoutEClass.getEStructuralFeatures().get(5);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getLayout_OwnedLayouts() {
+		return (EReference)layoutEClass.getEStructuralFeatures().get(6);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EEnum getLayoutDirection() {
+		return layoutDirectionEEnum;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public ViewFactory getViewFactory() {
 		return (ViewFactory)getEFactoryInstance();
 	}
@@ -358,10 +477,12 @@ public class ViewPackageImpl extends EPackageImpl implements ViewPackage {
 		createEReference(viewContainerEClass, VIEW_CONTAINER__VIEW_CONTAINERS);
 		createEReference(viewContainerEClass, VIEW_CONTAINER__VIEW_ELEMENTS);
 		createEReference(viewContainerEClass, VIEW_CONTAINER__VIEW_CONTAINER_REFERENCES);
+		createEReference(viewContainerEClass, VIEW_CONTAINER__LAYOUT);
 
 		viewElementEClass = createEClass(VIEW_ELEMENT);
 		createEAttribute(viewElementEClass, VIEW_ELEMENT__REQUIRED);
 		createEReference(viewElementEClass, VIEW_ELEMENT__TYPE);
+		createEAttribute(viewElementEClass, VIEW_ELEMENT__EXAMPLE);
 
 		viewActionEClass = createEClass(VIEW_ACTION);
 
@@ -370,6 +491,18 @@ public class ViewPackageImpl extends EPackageImpl implements ViewPackage {
 
 		viewContainerReferenceEClass = createEClass(VIEW_CONTAINER_REFERENCE);
 		createEReference(viewContainerReferenceEClass, VIEW_CONTAINER_REFERENCE__VIEW_CONTAINER);
+
+		layoutEClass = createEClass(LAYOUT);
+		createEAttribute(layoutEClass, LAYOUT__X);
+		createEAttribute(layoutEClass, LAYOUT__Y);
+		createEAttribute(layoutEClass, LAYOUT__WIDTH);
+		createEAttribute(layoutEClass, LAYOUT__HEIGHT);
+		createEAttribute(layoutEClass, LAYOUT__DIRECTION);
+		createEReference(layoutEClass, LAYOUT__VIEW_ELEMENT);
+		createEReference(layoutEClass, LAYOUT__OWNED_LAYOUTS);
+
+		// Create enums
+		layoutDirectionEEnum = createEEnum(LAYOUT_DIRECTION);
 	}
 
 	/**
@@ -425,10 +558,12 @@ public class ViewPackageImpl extends EPackageImpl implements ViewPackage {
 		initEReference(getViewContainer_ViewContainers(), this.getViewContainer(), null, "viewContainers", null, 0, -1, ViewContainer.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
 		initEReference(getViewContainer_ViewElements(), this.getViewElement(), null, "viewElements", null, 0, -1, ViewContainer.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
 		initEReference(getViewContainer_ViewContainerReferences(), this.getViewContainerReference(), null, "viewContainerReferences", null, 0, -1, ViewContainer.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
+		initEReference(getViewContainer_Layout(), this.getLayout(), null, "layout", null, 0, 1, ViewContainer.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(viewElementEClass, ViewElement.class, "ViewElement", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getViewElement_Required(), ecorePackage.getEBoolean(), "required", null, 0, 1, ViewElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getViewElement_Type(), theEnvironmentPackage.getType(), null, "type", null, 0, 1, ViewElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getViewElement_Example(), ecorePackage.getEString(), "example", null, 0, 1, ViewElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(viewActionEClass, ViewAction.class, "ViewAction", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
@@ -437,6 +572,20 @@ public class ViewPackageImpl extends EPackageImpl implements ViewPackage {
 
 		initEClass(viewContainerReferenceEClass, ViewContainerReference.class, "ViewContainerReference", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getViewContainerReference_ViewContainer(), this.getViewContainer(), null, "viewContainer", null, 1, 1, ViewContainerReference.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(layoutEClass, Layout.class, "Layout", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getLayout_X(), ecorePackage.getEInt(), "x", null, 0, 1, Layout.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getLayout_Y(), ecorePackage.getEInt(), "y", null, 0, 1, Layout.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getLayout_Width(), ecorePackage.getEInt(), "width", null, 0, 1, Layout.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getLayout_Height(), ecorePackage.getEInt(), "height", null, 0, 1, Layout.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getLayout_Direction(), this.getLayoutDirection(), "direction", null, 0, 1, Layout.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getLayout_ViewElement(), this.getAbstractViewElement(), null, "viewElement", null, 0, 1, Layout.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getLayout_OwnedLayouts(), this.getLayout(), null, "ownedLayouts", null, 0, -1, Layout.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		// Initialize enums and add enum literals
+		initEEnum(layoutDirectionEEnum, LayoutDirection.class, "LayoutDirection");
+		addEEnumLiteral(layoutDirectionEEnum, LayoutDirection.VERTICAL);
+		addEEnumLiteral(layoutDirectionEEnum, LayoutDirection.HORIZONTAL);
 
 		// Create annotations
 		// http://www.eclipse.org/emf/2002/GenModel
@@ -450,78 +599,90 @@ public class ViewPackageImpl extends EPackageImpl implements ViewPackage {
 	 * @generated
 	 */
 	protected void createGenModelAnnotations() {
-		String source = "http://www.eclipse.org/emf/2002/GenModel";	
+		String source = "http://www.eclipse.org/emf/2002/GenModel";
 		addAnnotation
-		  (getAbstractViewElement_Widget(), 
-		   source, 
+		  (getAbstractViewElement_Widget(),
+		   source,
 		   new String[] {
-			 "documentation", "The Widget defined for this View Element."
-		   });	
+			   "documentation", "The Widget defined for this View Element."
+		   });
 		addAnnotation
-		  (getAbstractViewElement_Actions(), 
-		   source, 
+		  (getAbstractViewElement_Actions(),
+		   source,
 		   new String[] {
-			 "documentation", "List of the Actions available on this View Element."
-		   });	
+			   "documentation", "List of the Actions available on this View Element."
+		   });
 		addAnnotation
-		  (getAbstractViewElement_Events(), 
-		   source, 
+		  (getAbstractViewElement_Events(),
+		   source,
 		   new String[] {
-			 "documentation", "List of the View Events this view can handle."
-		   });	
+			   "documentation", "List of the View Events this view can handle."
+		   });
 		addAnnotation
-		  (getAbstractViewElement_Label(), 
-		   source, 
+		  (getAbstractViewElement_Label(),
+		   source,
 		   new String[] {
-			 "documentation", "The label of this View Element."
-		   });	
+			   "documentation", "The label of this View Element."
+		   });
 		addAnnotation
-		  (getViewContainer_OwnedElements(), 
-		   source, 
+		  (getViewContainer_OwnedElements(),
+		   source,
 		   new String[] {
-			 "documentation", "List of the directly contained View Containers, View Elements and View Container References."
-		   });	
+			   "documentation", "List of the directly contained View Containers, View Elements and View Container References."
+		   });
 		addAnnotation
-		  (getViewContainer_ViewContainers(), 
-		   source, 
+		  (getViewContainer_ViewContainers(),
+		   source,
 		   new String[] {
-			 "documentation", "List of the directly contained View Containers."
-		   });	
+			   "documentation", "List of the directly contained View Containers."
+		   });
 		addAnnotation
-		  (getViewContainer_ViewElements(), 
-		   source, 
+		  (getViewContainer_ViewElements(),
+		   source,
 		   new String[] {
-			 "documentation", "List of the directly contained View Elements."
-		   });	
+			   "documentation", "List of the directly contained View Elements."
+		   });
 		addAnnotation
-		  (getViewContainer_ViewContainerReferences(), 
-		   source, 
+		  (getViewContainer_ViewContainerReferences(),
+		   source,
 		   new String[] {
-			 "documentation", "List of the directly contained View Container References."
-		   });	
+			   "documentation", "List of the directly contained View Container References."
+		   });
 		addAnnotation
-		  (getViewElement_Required(), 
-		   source, 
+		  (getViewElement_Required(),
+		   source,
 		   new String[] {
-			 "documentation", "Specifies if this View Element is required."
-		   });	
+			   "documentation", "Specifies if this View Element is required."
+		   });
 		addAnnotation
-		  (getViewElement_Type(), 
-		   source, 
+		  (getViewElement_Type(),
+		   source,
 		   new String[] {
-			 "documentation", "The data type this View Element is manipulating."
-		   });	
+			   "documentation", "The data type this View Element is manipulating."
+		   });
 		addAnnotation
-		  (getViewEvent_Type(), 
-		   source, 
+		  (getViewElement_Example(),
+		   source,
 		   new String[] {
-			 "documentation", "The type of the View Event."
-		   });	
+			   "documentation", "Enables the definition of how a widget can be used in the context of this view element."
+		   });
 		addAnnotation
-		  (getViewContainerReference_ViewContainer(), 
-		   source, 
+		  (getViewEvent_Type(),
+		   source,
 		   new String[] {
-			 "documentation", "The referenced View Container."
+			   "documentation", "The type of the View Event."
+		   });
+		addAnnotation
+		  (getViewContainerReference_ViewContainer(),
+		   source,
+		   new String[] {
+			   "documentation", "The referenced View Container."
+		   });
+		addAnnotation
+		  (layoutEClass,
+		   source,
+		   new String[] {
+			   "documentation", "A Layout owned by a ViewContainer defines the layout of all the recursively owned ViewElements of the ViewContainer.\nIt does not define the layout of the ViewElements owned by referenced ViewContainers.\nThe viewElement reference defines the element on which the size and position attributes applies.\nTherefore, the viewElement of a Layout directly contained in a ViewContainer is this ViewContainer itself.\nA Layout always defines its x, y, width and height attribute values.\nIf a Layout applies to a ViewConainer, then its owned layouts applies to nothing. In this case, an owned layout only defines a compartment of the horizontal or vertical stack.\nIf a Layout applies to nothing, then its owened layouts applies to an element.\nIf a Layout applies to a ViewElement, the direction is meaningless and it cannot own other layouts.\n"
 		   });
 	}
 

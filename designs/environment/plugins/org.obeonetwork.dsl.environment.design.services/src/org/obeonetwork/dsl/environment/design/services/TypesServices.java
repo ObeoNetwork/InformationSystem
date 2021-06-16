@@ -48,6 +48,7 @@ import org.obeonetwork.dsl.environment.Reference;
 import org.obeonetwork.dsl.environment.StructuredType;
 import org.obeonetwork.dsl.environment.TypesDefinition;
 import org.obeonetwork.dsl.environment.design.ui.CreateStructuredTypesFromOthersWizard;
+import org.obeonetwork.utils.sirius.services.EObjectUtils;
 
 public class TypesServices {
 	
@@ -248,7 +249,7 @@ public class TypesServices {
 		Collection<StructuredType> selectableTypes = getAllSelectableExternalStructuredTypes(namespace, diagram, typeName);
 		result.addAll(selectableTypes);
 		for (StructuredType selectableType : selectableTypes) {
-			result.addAll(ModelServices.getAncestors(selectableType));
+			result.addAll(EObjectUtils.getAncestors(selectableType));
 		}
 		
 		return result;
@@ -356,7 +357,7 @@ public class TypesServices {
 	public Collection<StructuredType> getAllStructuredTypes(EObject context, String typeName) {
 		Collection<StructuredType> types = new ArrayList<StructuredType>();
 		
-		Collection<Resource> resources = ModelServices.getAllResources(context);
+		Collection<Resource> resources = EObjectUtils.getAllResources(context);
 		for (Resource resource : resources) {
 			for (EObject object : resource.getContents()) {
 				if (object instanceof ObeoDSMObject) {
@@ -433,7 +434,7 @@ public class TypesServices {
 	}
 	
 	private PrimitiveType getPrimitiveType(EObject context, String name){		
-		Collection<Resource> resources = ModelServices.getAllResources(context);
+		Collection<Resource> resources = EObjectUtils.getAllResources(context);
 		for (Resource resource : resources) {
 			for (EObject object : resource.getContents()) {
 				if (object instanceof Environment || object instanceof TypesDefinition) {

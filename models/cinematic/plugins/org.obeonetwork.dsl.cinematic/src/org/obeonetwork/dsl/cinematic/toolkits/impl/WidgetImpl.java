@@ -17,6 +17,7 @@ import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.util.InternalEList;
+import org.obeonetwork.dsl.cinematic.toolkits.Style;
 import org.obeonetwork.dsl.cinematic.toolkits.Toolkit;
 import org.obeonetwork.dsl.cinematic.toolkits.ToolkitsPackage;
 import org.obeonetwork.dsl.cinematic.toolkits.Widget;
@@ -37,6 +38,11 @@ import org.obeonetwork.dsl.technicalid.impl.IdentifiableImpl;
  *   <li>{@link org.obeonetwork.dsl.cinematic.toolkits.impl.WidgetImpl#getToolkit <em>Toolkit</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.cinematic.toolkits.impl.WidgetImpl#getPossibleEvents <em>Possible Events</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.cinematic.toolkits.impl.WidgetImpl#isIsContainer <em>Is Container</em>}</li>
+ *   <li>{@link org.obeonetwork.dsl.cinematic.toolkits.impl.WidgetImpl#getStyle <em>Style</em>}</li>
+ *   <li>{@link org.obeonetwork.dsl.cinematic.toolkits.impl.WidgetImpl#getMetadataKeys <em>Metadata Keys</em>}</li>
+ *   <li>{@link org.obeonetwork.dsl.cinematic.toolkits.impl.WidgetImpl#getMetadataHelp <em>Metadata Help</em>}</li>
+ *   <li>{@link org.obeonetwork.dsl.cinematic.toolkits.impl.WidgetImpl#getSummary <em>Summary</em>}</li>
+ *   <li>{@link org.obeonetwork.dsl.cinematic.toolkits.impl.WidgetImpl#getDocumentation <em>Documentation</em>}</li>
  * </ul>
  *
  * @generated
@@ -78,6 +84,34 @@ public class WidgetImpl extends IdentifiableImpl implements Widget {
 	 * @ordered
 	 */
 	protected static final boolean IS_CONTAINER_EDEFAULT = false;
+
+	/**
+	 * The default value of the '{@link #getMetadataHelp() <em>Metadata Help</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getMetadataHelp()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String METADATA_HELP_EDEFAULT = null;
+	/**
+	 * The default value of the '{@link #getSummary() <em>Summary</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getSummary()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String SUMMARY_EDEFAULT = null;
+	/**
+	 * The default value of the '{@link #getDocumentation() <em>Documentation</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getDocumentation()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String DOCUMENTATION_EDEFAULT = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -222,6 +256,107 @@ public class WidgetImpl extends IdentifiableImpl implements Widget {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public Style getStyle() {
+		return (Style)eDynamicGet(ToolkitsPackage.WIDGET__STYLE, ToolkitsPackage.Literals.WIDGET__STYLE, true, true);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Style basicGetStyle() {
+		return (Style)eDynamicGet(ToolkitsPackage.WIDGET__STYLE, ToolkitsPackage.Literals.WIDGET__STYLE, false, true);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetStyle(Style newStyle, NotificationChain msgs) {
+		msgs = eDynamicInverseAdd((InternalEObject)newStyle, ToolkitsPackage.WIDGET__STYLE, msgs);
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setStyle(Style newStyle) {
+		eDynamicSet(ToolkitsPackage.WIDGET__STYLE, ToolkitsPackage.Literals.WIDGET__STYLE, newStyle);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@SuppressWarnings("unchecked")
+	public EList<String> getMetadataKeys() {
+		return (EList<String>)eDynamicGet(ToolkitsPackage.WIDGET__METADATA_KEYS, ToolkitsPackage.Literals.WIDGET__METADATA_KEYS, true, true);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String getMetadataHelp() {
+		return (String)eDynamicGet(ToolkitsPackage.WIDGET__METADATA_HELP, ToolkitsPackage.Literals.WIDGET__METADATA_HELP, true, true);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setMetadataHelp(String newMetadataHelp) {
+		eDynamicSet(ToolkitsPackage.WIDGET__METADATA_HELP, ToolkitsPackage.Literals.WIDGET__METADATA_HELP, newMetadataHelp);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String getSummary() {
+		return (String)eDynamicGet(ToolkitsPackage.WIDGET__SUMMARY, ToolkitsPackage.Literals.WIDGET__SUMMARY, true, true);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setSummary(String newSummary) {
+		eDynamicSet(ToolkitsPackage.WIDGET__SUMMARY, ToolkitsPackage.Literals.WIDGET__SUMMARY, newSummary);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String getDocumentation() {
+		return (String)eDynamicGet(ToolkitsPackage.WIDGET__DOCUMENTATION, ToolkitsPackage.Literals.WIDGET__DOCUMENTATION, true, true);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setDocumentation(String newDocumentation) {
+		eDynamicSet(ToolkitsPackage.WIDGET__DOCUMENTATION, ToolkitsPackage.Literals.WIDGET__DOCUMENTATION, newDocumentation);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
@@ -245,6 +380,8 @@ public class WidgetImpl extends IdentifiableImpl implements Widget {
 				return basicSetToolkit(null, msgs);
 			case ToolkitsPackage.WIDGET__POSSIBLE_EVENTS:
 				return ((InternalEList<?>)getPossibleEvents()).basicRemove(otherEnd, msgs);
+			case ToolkitsPackage.WIDGET__STYLE:
+				return basicSetStyle(null, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -284,6 +421,17 @@ public class WidgetImpl extends IdentifiableImpl implements Widget {
 				return getPossibleEvents();
 			case ToolkitsPackage.WIDGET__IS_CONTAINER:
 				return isIsContainer();
+			case ToolkitsPackage.WIDGET__STYLE:
+				if (resolve) return getStyle();
+				return basicGetStyle();
+			case ToolkitsPackage.WIDGET__METADATA_KEYS:
+				return getMetadataKeys();
+			case ToolkitsPackage.WIDGET__METADATA_HELP:
+				return getMetadataHelp();
+			case ToolkitsPackage.WIDGET__SUMMARY:
+				return getSummary();
+			case ToolkitsPackage.WIDGET__DOCUMENTATION:
+				return getDocumentation();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -316,6 +464,22 @@ public class WidgetImpl extends IdentifiableImpl implements Widget {
 			case ToolkitsPackage.WIDGET__IS_CONTAINER:
 				setIsContainer((Boolean)newValue);
 				return;
+			case ToolkitsPackage.WIDGET__STYLE:
+				setStyle((Style)newValue);
+				return;
+			case ToolkitsPackage.WIDGET__METADATA_KEYS:
+				getMetadataKeys().clear();
+				getMetadataKeys().addAll((Collection<? extends String>)newValue);
+				return;
+			case ToolkitsPackage.WIDGET__METADATA_HELP:
+				setMetadataHelp((String)newValue);
+				return;
+			case ToolkitsPackage.WIDGET__SUMMARY:
+				setSummary((String)newValue);
+				return;
+			case ToolkitsPackage.WIDGET__DOCUMENTATION:
+				setDocumentation((String)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -346,6 +510,21 @@ public class WidgetImpl extends IdentifiableImpl implements Widget {
 			case ToolkitsPackage.WIDGET__IS_CONTAINER:
 				setIsContainer(IS_CONTAINER_EDEFAULT);
 				return;
+			case ToolkitsPackage.WIDGET__STYLE:
+				setStyle((Style)null);
+				return;
+			case ToolkitsPackage.WIDGET__METADATA_KEYS:
+				getMetadataKeys().clear();
+				return;
+			case ToolkitsPackage.WIDGET__METADATA_HELP:
+				setMetadataHelp(METADATA_HELP_EDEFAULT);
+				return;
+			case ToolkitsPackage.WIDGET__SUMMARY:
+				setSummary(SUMMARY_EDEFAULT);
+				return;
+			case ToolkitsPackage.WIDGET__DOCUMENTATION:
+				setDocumentation(DOCUMENTATION_EDEFAULT);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -370,6 +549,16 @@ public class WidgetImpl extends IdentifiableImpl implements Widget {
 				return !getPossibleEvents().isEmpty();
 			case ToolkitsPackage.WIDGET__IS_CONTAINER:
 				return isIsContainer() != IS_CONTAINER_EDEFAULT;
+			case ToolkitsPackage.WIDGET__STYLE:
+				return basicGetStyle() != null;
+			case ToolkitsPackage.WIDGET__METADATA_KEYS:
+				return !getMetadataKeys().isEmpty();
+			case ToolkitsPackage.WIDGET__METADATA_HELP:
+				return METADATA_HELP_EDEFAULT == null ? getMetadataHelp() != null : !METADATA_HELP_EDEFAULT.equals(getMetadataHelp());
+			case ToolkitsPackage.WIDGET__SUMMARY:
+				return SUMMARY_EDEFAULT == null ? getSummary() != null : !SUMMARY_EDEFAULT.equals(getSummary());
+			case ToolkitsPackage.WIDGET__DOCUMENTATION:
+				return DOCUMENTATION_EDEFAULT == null ? getDocumentation() != null : !DOCUMENTATION_EDEFAULT.equals(getDocumentation());
 		}
 		return super.eIsSet(featureID);
 	}

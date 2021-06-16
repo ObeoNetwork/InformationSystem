@@ -299,7 +299,7 @@
     <categories name="Common">
       <pages name="Metadata Page" labelExpression="Metadatas" domainClass="environment::ObeoDSMObject" semanticCandidateExpression="var:self" groups="//@extensions.0/@categories.2/@groups.0"/>
       <groups name="Metadata Group" labelExpression="Properties" domainClass="environment::ObeoDSMObject" semanticCandidateExpression="aql:self">
-        <controls xsi:type="properties:CustomDescription" name="org.obeonetwork.dsl.environment.properties.metadata.table" labelExpression="Metadata:">
+        <controls xsi:type="properties:CustomDescription" name="org.obeonetwork.dsl.environment.properties.metadata.table" labelExpression="Metadata:" helpExpression="aql:self.getMetadatasHelpExpression()">
           <customExpressions name="ColumnsExpression" customExpression="aql:Sequence{'title', 'body'}"/>
           <customExpressions name="referenceOwnerExpression" customExpression="aql:self.metadatas"/>
           <customExpressions name="referenceNameExpression" customExpression="aql:'metadatas'"/>

@@ -41,4 +41,143 @@
         </description>
      </wizard>
   </extension>
+  <extension
+        point="org.eclipse.ui.menus">
+     <menuContribution
+           allPopups="false"
+           locationURI="popup:org.obeonetwork.is.designer.menu?after=additions">
+<!--        <command
+              commandId="org.obeonetwork.dsl.cinematic.design.command.ExtractLayout"
+              icon="icons/tools/layout.png"
+              label="Extract Layout"
+              style="push">
+           <visibleWhen
+                 checkEnabled="true">
+           </visibleWhen>
+        </command> -->
+        <command
+              commandId="org.obeonetwork.dsl.cinematic.design.command.RestoreLayout"
+              icon="icons/tools/layout.png"
+              label="Restore Layout"
+              style="push">
+           <visibleWhen
+                 checkEnabled="true">
+           </visibleWhen>
+        </command>
+        <command
+              commandId="org.obeonetwork.dsl.cinematic.design.command.PreviewLayout"
+              icon="icons/tools/layout.png"
+              label="Preview Layout"
+              style="push">
+           <visibleWhen
+                 checkEnabled="true">
+           </visibleWhen>
+        </command>
+     </menuContribution>
+  </extension>
+  <extension
+        point="org.eclipse.ui.commands">
+<!--     <command
+           id="org.obeonetwork.dsl.cinematic.design.command.ExtractLayout"
+           name="Extract Layout">
+     </command> -->
+     <command
+           id="org.obeonetwork.dsl.cinematic.design.command.RestoreLayout"
+           name="Restore Layout">
+     </command>
+     <command
+           id="org.obeonetwork.dsl.cinematic.design.command.PreviewLayout"
+           name="Preview Layout">
+     </command>
+  </extension>
+  <extension
+        point="org.eclipse.ui.handlers">
+<!--     <handler
+           class="org.obeonetwork.dsl.cinematic.design.handlers.ExtractLayoutHandler"
+           commandId="org.obeonetwork.dsl.cinematic.design.command.ExtractLayout">
+        <enabledWhen>
+           <with
+                 variable="selection">
+              <count
+                    value="1">
+              </count>
+              <iterate
+                    ifEmpty="false"
+                    operator="and">
+                 <adapt
+                       type="org.eclipse.sirius.diagram.ui.edit.api.part.IDDiagramEditPart">
+                    <test
+                          forcePluginActivation="true"
+                          property="org.eclipse.sirius.diagram.ui.edit.api.part.ISiriusEditPart.diagramName"
+                          value="View Container Mockup">
+                    </test>
+                 </adapt>
+              </iterate>
+           </with>
+        </enabledWhen>
+     </handler> -->
+     <handler
+           class="org.obeonetwork.dsl.cinematic.design.handlers.RestoreLayoutHandler"
+           commandId="org.obeonetwork.dsl.cinematic.design.command.RestoreLayout">
+        <enabledWhen>
+           <with
+                 variable="selection">
+              <count
+                    value="1">
+              </count>
+              <iterate
+                    ifEmpty="false"
+                    operator="and">
+                 <adapt
+                       type="org.eclipse.sirius.diagram.ui.edit.api.part.IDDiagramEditPart">
+                    <test
+                          forcePluginActivation="true"
+                          property="org.eclipse.sirius.diagram.ui.edit.api.part.ISiriusEditPart.diagramName"
+                          value="View Container Mockup">
+                    </test>
+                 </adapt>
+              </iterate>
+           </with>
+        </enabledWhen>
+     </handler>
+     <handler
+           class="org.obeonetwork.dsl.cinematic.design.handlers.PreviewLayoutHandler"
+           commandId="org.obeonetwork.dsl.cinematic.design.command.PreviewLayout">
+        <enabledWhen>
+           <with
+                 variable="selection">
+              <count
+                    value="1">
+              </count>
+              <iterate
+                    ifEmpty="false"
+                    operator="and">
+                 <adapt
+                       type="org.eclipse.sirius.diagram.ui.edit.api.part.IDDiagramEditPart">
+                    <test
+                          forcePluginActivation="true"
+                          property="org.eclipse.sirius.diagram.ui.edit.api.part.ISiriusEditPart.diagramName"
+                          value="Layout Diagram">
+                    </test>
+                 </adapt>
+              </iterate>
+           </with>
+        </enabledWhen>
+     </handler>
+  </extension>
+  <extension
+        point="org.eclipse.gmf.runtime.diagram.ui.editpartProviders">
+     <editpartProvider
+           class="org.obeonetwork.dsl.cinematic.design.services.flows.TransitionEditPartProvider">
+        <Priority
+              name="High">
+        </Priority>
+     </editpartProvider>
+  </extension>
+  <extension
+        point="org.obeonetwork.dsl.environment.properties.metadataHelpProvider">
+     <metadatadescription
+           class="org.obeonetwork.dsl.cinematic.design.extension.AbstractViewElementMetadataProvider">
+     </metadatadescription>
+  </extension>
 </plugin>

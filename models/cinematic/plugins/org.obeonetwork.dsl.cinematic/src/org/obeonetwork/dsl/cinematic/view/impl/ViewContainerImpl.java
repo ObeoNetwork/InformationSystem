@@ -18,6 +18,7 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.util.InternalEList;
 import org.obeonetwork.dsl.cinematic.view.AbstractViewElement;
+import org.obeonetwork.dsl.cinematic.view.Layout;
 import org.obeonetwork.dsl.cinematic.view.ViewContainer;
 import org.obeonetwork.dsl.cinematic.view.ViewContainerReference;
 import org.obeonetwork.dsl.cinematic.view.ViewElement;
@@ -35,6 +36,7 @@ import org.obeonetwork.dsl.cinematic.view.ViewPackage;
  *   <li>{@link org.obeonetwork.dsl.cinematic.view.impl.ViewContainerImpl#getViewContainers <em>View Containers</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.cinematic.view.impl.ViewContainerImpl#getViewElements <em>View Elements</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.cinematic.view.impl.ViewContainerImpl#getViewContainerReferences <em>View Container References</em>}</li>
+ *   <li>{@link org.obeonetwork.dsl.cinematic.view.impl.ViewContainerImpl#getLayout <em>Layout</em>}</li>
  * </ul>
  *
  * @generated
@@ -76,7 +78,11 @@ public class ViewContainerImpl extends AbstractViewElementImpl implements ViewCo
 	 */
 	@SuppressWarnings("unchecked")
 	public EList<ViewContainer> getViewContainers() {
-		return (EList<ViewContainer>)eDynamicGet(ViewPackage.VIEW_CONTAINER__VIEW_CONTAINERS, ViewPackage.Literals.VIEW_CONTAINER__VIEW_CONTAINERS, true, true);
+		// TODO: implement this method to return the 'View Containers' reference list
+		// Ensure that you remove @generated or mark it @generated NOT
+		// The list is expected to implement org.eclipse.emf.ecore.util.InternalEList and org.eclipse.emf.ecore.EStructuralFeature.Setting
+		// so it's likely that an appropriate subclass of org.eclipse.emf.ecore.util.EcoreEList should be used.
+		throw new UnsupportedOperationException();
 	}
 
 	/**
@@ -86,7 +92,11 @@ public class ViewContainerImpl extends AbstractViewElementImpl implements ViewCo
 	 */
 	@SuppressWarnings("unchecked")
 	public EList<ViewElement> getViewElements() {
-		return (EList<ViewElement>)eDynamicGet(ViewPackage.VIEW_CONTAINER__VIEW_ELEMENTS, ViewPackage.Literals.VIEW_CONTAINER__VIEW_ELEMENTS, true, true);
+		// TODO: implement this method to return the 'View Elements' reference list
+		// Ensure that you remove @generated or mark it @generated NOT
+		// The list is expected to implement org.eclipse.emf.ecore.util.InternalEList and org.eclipse.emf.ecore.EStructuralFeature.Setting
+		// so it's likely that an appropriate subclass of org.eclipse.emf.ecore.util.EcoreEList should be used.
+		throw new UnsupportedOperationException();
 	}
 
 	/**
@@ -96,7 +106,48 @@ public class ViewContainerImpl extends AbstractViewElementImpl implements ViewCo
 	 */
 	@SuppressWarnings("unchecked")
 	public EList<ViewContainerReference> getViewContainerReferences() {
-		return (EList<ViewContainerReference>)eDynamicGet(ViewPackage.VIEW_CONTAINER__VIEW_CONTAINER_REFERENCES, ViewPackage.Literals.VIEW_CONTAINER__VIEW_CONTAINER_REFERENCES, true, true);
+		// TODO: implement this method to return the 'View Container References' reference list
+		// Ensure that you remove @generated or mark it @generated NOT
+		// The list is expected to implement org.eclipse.emf.ecore.util.InternalEList and org.eclipse.emf.ecore.EStructuralFeature.Setting
+		// so it's likely that an appropriate subclass of org.eclipse.emf.ecore.util.EcoreEList should be used.
+		throw new UnsupportedOperationException();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Layout getLayout() {
+		return (Layout)eDynamicGet(ViewPackage.VIEW_CONTAINER__LAYOUT, ViewPackage.Literals.VIEW_CONTAINER__LAYOUT, true, true);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Layout basicGetLayout() {
+		return (Layout)eDynamicGet(ViewPackage.VIEW_CONTAINER__LAYOUT, ViewPackage.Literals.VIEW_CONTAINER__LAYOUT, false, true);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetLayout(Layout newLayout, NotificationChain msgs) {
+		msgs = eDynamicInverseAdd((InternalEObject)newLayout, ViewPackage.VIEW_CONTAINER__LAYOUT, msgs);
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setLayout(Layout newLayout) {
+		eDynamicSet(ViewPackage.VIEW_CONTAINER__LAYOUT, ViewPackage.Literals.VIEW_CONTAINER__LAYOUT, newLayout);
 	}
 
 	/**
@@ -109,6 +160,8 @@ public class ViewContainerImpl extends AbstractViewElementImpl implements ViewCo
 		switch (featureID) {
 			case ViewPackage.VIEW_CONTAINER__OWNED_ELEMENTS:
 				return ((InternalEList<?>)getOwnedElements()).basicRemove(otherEnd, msgs);
+			case ViewPackage.VIEW_CONTAINER__LAYOUT:
+				return basicSetLayout(null, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -129,6 +182,9 @@ public class ViewContainerImpl extends AbstractViewElementImpl implements ViewCo
 				return getViewElements();
 			case ViewPackage.VIEW_CONTAINER__VIEW_CONTAINER_REFERENCES:
 				return getViewContainerReferences();
+			case ViewPackage.VIEW_CONTAINER__LAYOUT:
+				if (resolve) return getLayout();
+				return basicGetLayout();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -146,6 +202,9 @@ public class ViewContainerImpl extends AbstractViewElementImpl implements ViewCo
 				getOwnedElements().clear();
 				getOwnedElements().addAll((Collection<? extends AbstractViewElement>)newValue);
 				return;
+			case ViewPackage.VIEW_CONTAINER__LAYOUT:
+				setLayout((Layout)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -160,6 +219,9 @@ public class ViewContainerImpl extends AbstractViewElementImpl implements ViewCo
 		switch (featureID) {
 			case ViewPackage.VIEW_CONTAINER__OWNED_ELEMENTS:
 				getOwnedElements().clear();
+				return;
+			case ViewPackage.VIEW_CONTAINER__LAYOUT:
+				setLayout((Layout)null);
 				return;
 		}
 		super.eUnset(featureID);
@@ -181,6 +243,8 @@ public class ViewContainerImpl extends AbstractViewElementImpl implements ViewCo
 				return !getViewElements().isEmpty();
 			case ViewPackage.VIEW_CONTAINER__VIEW_CONTAINER_REFERENCES:
 				return !getViewContainerReferences().isEmpty();
+			case ViewPackage.VIEW_CONTAINER__LAYOUT:
+				return basicGetLayout() != null;
 		}
 		return super.eIsSet(featureID);
 	}

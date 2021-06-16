@@ -67,6 +67,10 @@ public class WidgetItemProvider
 			addIconPropertyDescriptor(object);
 			addImplementationPropertyDescriptor(object);
 			addIsContainerPropertyDescriptor(object);
+			addMetadataKeysPropertyDescriptor(object);
+			addMetadataHelpPropertyDescriptor(object);
+			addSummaryPropertyDescriptor(object);
+			addDocumentationPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -160,6 +164,94 @@ public class WidgetItemProvider
 	}
 
 	/**
+	 * This adds a property descriptor for the Metadata Keys feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addMetadataKeysPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_Widget_metadataKeys_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Widget_metadataKeys_feature", "_UI_Widget_type"),
+				 ToolkitsPackage.Literals.WIDGET__METADATA_KEYS,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Metadata Help feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addMetadataHelpPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_Widget_metadataHelp_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Widget_metadataHelp_feature", "_UI_Widget_type"),
+				 ToolkitsPackage.Literals.WIDGET__METADATA_HELP,
+				 true,
+				 true,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Summary feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addSummaryPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_Widget_summary_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Widget_summary_feature", "_UI_Widget_type"),
+				 ToolkitsPackage.Literals.WIDGET__SUMMARY,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Documentation feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addDocumentationPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_Widget_documentation_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Widget_documentation_feature", "_UI_Widget_type"),
+				 ToolkitsPackage.Literals.WIDGET__DOCUMENTATION,
+				 true,
+				 true,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
 	 * This specifies how to implement {@link #getChildren} and is used to deduce an appropriate feature for an
 	 * {@link org.eclipse.emf.edit.command.AddCommand}, {@link org.eclipse.emf.edit.command.RemoveCommand} or
 	 * {@link org.eclipse.emf.edit.command.MoveCommand} in {@link #createCommand}.
@@ -172,6 +264,7 @@ public class WidgetItemProvider
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
 			childrenFeatures.add(ToolkitsPackage.Literals.WIDGET__POSSIBLE_EVENTS);
+			childrenFeatures.add(ToolkitsPackage.Literals.WIDGET__STYLE);
 		}
 		return childrenFeatures;
 	}
@@ -240,9 +333,14 @@ public class WidgetItemProvider
 			case ToolkitsPackage.WIDGET__ICON:
 			case ToolkitsPackage.WIDGET__IMPLEMENTATION:
 			case ToolkitsPackage.WIDGET__IS_CONTAINER:
+			case ToolkitsPackage.WIDGET__METADATA_KEYS:
+			case ToolkitsPackage.WIDGET__METADATA_HELP:
+			case ToolkitsPackage.WIDGET__SUMMARY:
+			case ToolkitsPackage.WIDGET__DOCUMENTATION:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 			case ToolkitsPackage.WIDGET__POSSIBLE_EVENTS:
+			case ToolkitsPackage.WIDGET__STYLE:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
 		}
@@ -264,6 +362,11 @@ public class WidgetItemProvider
 			(createChildParameter
 				(ToolkitsPackage.Literals.WIDGET__POSSIBLE_EVENTS,
 				 ToolkitsFactory.eINSTANCE.createWidgetEventType()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(ToolkitsPackage.Literals.WIDGET__STYLE,
+				 ToolkitsFactory.eINSTANCE.createStyle()));
 	}
 
 	/**

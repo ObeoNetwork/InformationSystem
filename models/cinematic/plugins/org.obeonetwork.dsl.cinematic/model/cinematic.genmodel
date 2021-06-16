@@ -9,7 +9,8 @@
   <foreignModel>cinematic.ecore</foreignModel>
   <modelPluginVariables>CDO=org.eclipse.emf.cdo</modelPluginVariables>
   <genPackages prefix="Cinematic" basePackage="org.obeonetwork.dsl" resource="XMI"
-      disposableProviderFactory="true" multipleEditorPages="false" ecorePackage="cinematic.ecore#/">
+      disposableProviderFactory="true" multipleEditorPages="false" generateModelWizard="false"
+      ecorePackage="cinematic.ecore#/">
     <genClasses image="false" ecoreClass="cinematic.ecore#//CinematicElement" labelFeature="../../org.obeonetwork.dsl.environment/model/environment.genmodel#//environment/ObeoDSMObject/description"/>
     <genClasses image="false" ecoreClass="cinematic.ecore#//NamedElement">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute cinematic.ecore#//NamedElement/name"/>
@@ -25,8 +26,12 @@
     </genClasses>
     <genClasses image="false" ecoreClass="cinematic.ecore#//Event"/>
     <nestedGenPackages prefix="View" basePackage="org.obeonetwork.dsl.cinematic" resource="XMI"
-        disposableProviderFactory="true" multipleEditorPages="false" fileExtensions="cinematic_view"
-        ecorePackage="cinematic.ecore#//view">
+        disposableProviderFactory="true" multipleEditorPages="false" generateModelWizard="false"
+        fileExtensions="cinematic_view" ecorePackage="cinematic.ecore#//view">
+      <genEnums typeSafeEnumCompatible="false" ecoreEnum="cinematic.ecore#//view/LayoutDirection">
+        <genEnumLiterals ecoreEnumLiteral="cinematic.ecore#//view/LayoutDirection/VERTICAL"/>
+        <genEnumLiterals ecoreEnumLiteral="cinematic.ecore#//view/LayoutDirection/HORIZONTAL"/>
+      </genEnums>
       <genClasses image="false" ecoreClass="cinematic.ecore#//view/AbstractViewElement">
         <genFeatures notify="false" createChild="false" propertySortChoices="true"
             ecoreFeature="ecore:EReference cinematic.ecore#//view/AbstractViewElement/widget"/>
@@ -39,11 +44,13 @@
         <genFeatures property="Readonly" notify="false" createChild="false" ecoreFeature="ecore:EReference cinematic.ecore#//view/ViewContainer/viewContainers"/>
         <genFeatures property="Readonly" notify="false" createChild="false" ecoreFeature="ecore:EReference cinematic.ecore#//view/ViewContainer/viewElements"/>
         <genFeatures property="Readonly" notify="false" createChild="false" ecoreFeature="ecore:EReference cinematic.ecore#//view/ViewContainer/viewContainerReferences"/>
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference cinematic.ecore#//view/ViewContainer/layout"/>
       </genClasses>
       <genClasses ecoreClass="cinematic.ecore#//view/ViewElement">
         <genFeatures createChild="false" ecoreFeature="ecore:EAttribute cinematic.ecore#//view/ViewElement/required"/>
         <genFeatures notify="false" createChild="false" propertySortChoices="true"
             ecoreFeature="ecore:EReference cinematic.ecore#//view/ViewElement/type"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute cinematic.ecore#//view/ViewElement/example"/>
       </genClasses>
       <genClasses ecoreClass="cinematic.ecore#//view/ViewAction"/>
       <genClasses ecoreClass="cinematic.ecore#//view/ViewEvent">
@@ -54,10 +61,20 @@
         <genFeatures notify="false" createChild="false" propertySortChoices="true"
             ecoreFeature="ecore:EReference cinematic.ecore#//view/ViewContainerReference/viewContainer"/>
       </genClasses>
+      <genClasses ecoreClass="cinematic.ecore#//view/Layout">
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute cinematic.ecore#//view/Layout/x"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute cinematic.ecore#//view/Layout/y"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute cinematic.ecore#//view/Layout/width"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute cinematic.ecore#//view/Layout/height"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute cinematic.ecore#//view/Layout/direction"/>
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference cinematic.ecore#//view/Layout/viewElement"/>
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference cinematic.ecore#//view/Layout/ownedLayouts"/>
+      </genClasses>
     </nestedGenPackages>
     <nestedGenPackages prefix="Flow" basePackage="org.obeonetwork.dsl.cinematic" resource="XMI"
-        disposableProviderFactory="true" multipleEditorPages="false" fileExtensions="cinematic_flow"
-        ecorePackage="cinematic.ecore#//flow">
+        disposableProviderFactory="true" multipleEditorPages="false" generateModelWizard="false"
+        fileExtensions="cinematic_flow" ecorePackage="cinematic.ecore#//flow">
       <genClasses ecoreClass="cinematic.ecore#//flow/Flow">
         <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference cinematic.ecore#//flow/Flow/states"/>
         <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference cinematic.ecore#//flow/Flow/transitions"/>
@@ -107,7 +124,18 @@
     </nestedGenPackages>
     <nestedGenPackages prefix="Toolkits" basePackage="org.obeonetwork.dsl.cinematic"
         resource="XMI" disposableProviderFactory="true" multipleEditorPages="false"
-        ecorePackage="cinematic.ecore#//toolkits">
+        generateModelWizard="false" ecorePackage="cinematic.ecore#//toolkits">
+      <genEnums typeSafeEnumCompatible="false" ecoreEnum="cinematic.ecore#//toolkits/CardinalPosition">
+        <genEnumLiterals ecoreEnumLiteral="cinematic.ecore#//toolkits/CardinalPosition/WEST"/>
+        <genEnumLiterals ecoreEnumLiteral="cinematic.ecore#//toolkits/CardinalPosition/EAST"/>
+        <genEnumLiterals ecoreEnumLiteral="cinematic.ecore#//toolkits/CardinalPosition/NORTH_WEST"/>
+        <genEnumLiterals ecoreEnumLiteral="cinematic.ecore#//toolkits/CardinalPosition/NORTH_EAST"/>
+      </genEnums>
+      <genEnums typeSafeEnumCompatible="false" ecoreEnum="cinematic.ecore#//toolkits/HorizontalAlignment">
+        <genEnumLiterals ecoreEnumLiteral="cinematic.ecore#//toolkits/HorizontalAlignment/CENTER"/>
+        <genEnumLiterals ecoreEnumLiteral="cinematic.ecore#//toolkits/HorizontalAlignment/LEFT"/>
+        <genEnumLiterals ecoreEnumLiteral="cinematic.ecore#//toolkits/HorizontalAlignment/RIGHT"/>
+      </genEnums>
       <genClasses ecoreClass="cinematic.ecore#//toolkits/Toolkit">
         <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference cinematic.ecore#//toolkits/Toolkit/widgets"/>
         <genFeatures createChild="false" ecoreFeature="ecore:EAttribute cinematic.ecore#//toolkits/Toolkit/name"/>
@@ -119,9 +147,29 @@
         <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference cinematic.ecore#//toolkits/Widget/toolkit"/>
         <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference cinematic.ecore#//toolkits/Widget/possibleEvents"/>
         <genFeatures createChild="false" ecoreFeature="ecore:EAttribute cinematic.ecore#//toolkits/Widget/isContainer"/>
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference cinematic.ecore#//toolkits/Widget/style"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute cinematic.ecore#//toolkits/Widget/metadataKeys"/>
+        <genFeatures createChild="false" propertyMultiLine="true" ecoreFeature="ecore:EAttribute cinematic.ecore#//toolkits/Widget/metadataHelp"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute cinematic.ecore#//toolkits/Widget/summary"/>
+        <genFeatures createChild="false" propertyMultiLine="true" ecoreFeature="ecore:EAttribute cinematic.ecore#//toolkits/Widget/documentation"/>
       </genClasses>
       <genClasses ecoreClass="cinematic.ecore#//toolkits/WidgetEventType">
         <genFeatures createChild="false" ecoreFeature="ecore:EAttribute cinematic.ecore#//toolkits/WidgetEventType/name"/>
+      </genClasses>
+      <genClasses ecoreClass="cinematic.ecore#//toolkits/Style">
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute cinematic.ecore#//toolkits/Style/decorator"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute cinematic.ecore#//toolkits/Style/decoratorPosition"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute cinematic.ecore#//toolkits/Style/decoratorVFill"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute cinematic.ecore#//toolkits/Style/decoratorHFill"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute cinematic.ecore#//toolkits/Style/bordered"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute cinematic.ecore#//toolkits/Style/roundedCorners"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute cinematic.ecore#//toolkits/Style/fontColor"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute cinematic.ecore#//toolkits/Style/fontUnderlined"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute cinematic.ecore#//toolkits/Style/labelHAlignment"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute cinematic.ecore#//toolkits/Style/defaultWidth"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute cinematic.ecore#//toolkits/Style/defaultHeight"/>
+        <genFeatures documentation="AQL expression evaluated in the context of the AbstractViewElement that uses this Widget, and which provides the label that should be displayed in the diagram when using the &quot;example&quot; layer."
+            createChild="false" ecoreFeature="ecore:EAttribute cinematic.ecore#//toolkits/Style/exampleExpression"/>
       </genClasses>
     </nestedGenPackages>
   </genPackages>

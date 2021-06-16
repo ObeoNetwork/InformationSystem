@@ -13,6 +13,7 @@ package org.obeonetwork.dsl.cinematic.design.services;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
+import java.util.stream.Collectors;
 
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.EObject;
@@ -20,8 +21,14 @@ import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.resource.ResourceSet;
 import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl;
 import org.eclipse.emf.ecore.util.EcoreUtil;
+import org.eclipse.jface.window.Window;
+import org.eclipse.jface.wizard.WizardDialog;
+import org.eclipse.sirius.common.ui.tools.api.selection.EObjectSelectionWizard;
+import org.eclipse.swt.widgets.Shell;
+import org.eclipse.ui.PlatformUI;
 import org.obeonetwork.dsl.cinematic.CinematicRoot;
 import org.obeonetwork.dsl.cinematic.toolkits.Toolkit;
+import org.obeonetwork.dsl.cinematic.toolkits.provider.ToolkitsItemProviderAdapterFactory;
 import org.obeonetwork.dsl.cinematic.toolkits.util.ToolkitsProvider;
 
 
@@ -111,5 +118,33 @@ public class CinematicToolkitsServices {
 	
 	public List<Toolkit> getToolkits(CinematicRoot context){
 		return context.getToolkits();
+	}
+	
+	/**
+	 * Opens a toolkit selection dialog.
+	 * @param cinematicRoot the {@link CinematicRoot}
+	 */
+	public void openToolkitSelectionWizard(EObject cinematicRoot) {
+		if (!(cinematicRoot instanceof CinematicRoot)) 
+			return;
+		
+		
+		// all the toolkits
+		Collection<Toolkit> toolkits = getCinematicProvidedToolkits((CinematicRoot) cinematicRoot);
+		// we remove all the toolkits already added to the cinematic root
+		toolkits = toolkits.stream()
+				.filter(toolkit -> !((CinematicRoot) cinematicRoot).getToolkits().contains(toolkit))
+				.collect(Collectors.toList());
+				
+		Shell shell = PlatformUI.getWorkbench().getActiveWorkbenchWindow().getShell();
+		
+		EObjectSelectionWizard wizard = new EObjectSelectionWizard("Selection Wizard", "Select a toolkit to associate", 
+				null, toolkits, new ToolkitsItemProviderAdapterFactory());
+		WizardDialog dialog = new WizardDialog(shell, wizard);
+		
+		int returnCode = dialog.open();
+		
+		if (returnCode != Window.CANCEL)
+			wizard.getSelectedEObjects().stream().filter(Toolkit.class::isInstance).forEach(toolkit -> ((CinematicRoot) cinematicRoot).getToolkits().add((Toolkit) toolkit));		
 	}
 }

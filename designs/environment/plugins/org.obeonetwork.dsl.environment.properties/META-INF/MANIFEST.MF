@@ -2,7 +2,7 @@ Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: org.obeonetwork.dsl.environment.properties
 Bundle-SymbolicName: org.obeonetwork.dsl.environment.properties;singleton:=true
-Bundle-Version: 2.0.0.qualifier
+Bundle-Version: 2.1.0.qualifier
 Bundle-Activator: org.obeonetwork.dsl.environment.properties.Activator
 Bundle-Localization: plugin
 Require-Bundle: org.eclipse.ui,
@@ -27,4 +27,5 @@ Bundle-ActivationPolicy: lazy
 Bundle-RequiredExecutionEnvironment: JavaSE-1.8
 Bundle-Vendor: Obeo Network
 Automatic-Module-Name: org.obeonetwork.dsl.environment.properties
-Export-Package: org.obeonetwork.dsl.environment.properties
+Export-Package: org.obeonetwork.dsl.environment.properties,
+ org.obeonetwork.dsl.environment.properties.providers

@@ -1,62 +1,75 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<cinematic-toolkits:Toolkit xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:cinematic-toolkits="http://www.obeonetwork.org/dsl/cinematic/toolkits/1.0.0" xmi:id="_1xtPcIjNEeGrHN3Vq969QA" name="SWT">
-  <widgets xmi:id="_1xtPeojNEeGrHN3Vq969QA" name="Button" icon="/org.obeonetwork.dsl.cinematic/icons/Button.gif">
-    <possibleEvents xmi:id="_1xtPe4jNEeGrHN3Vq969QA" name="onClick"/>
-    <possibleEvents xmi:id="_PT-ocIjREeG_dvC9P_PKfA" name="onFocus"/>
-    <possibleEvents xmi:id="_PT-ocYjREeG_dvC9P_PKfA" name="onFocusLost"/>
+<cinematic-toolkits:Toolkit xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:cinematic-toolkits="http://www.obeonetwork.org/dsl/cinematic/toolkits/1.0.0" xmi:id="_1xtPcIjNEeGrHN3Vq969QA" technicalid="_KwWa4KK1Eeuqs9mIRWXCLA" name="SWT">
+  <widgets xmi:id="_1xtPeojNEeGrHN3Vq969QA" technicalid="_KwWa4aK1Eeuqs9mIRWXCLA" name="Button" icon="/org.obeonetwork.dsl.cinematic/icons/Button.gif" metadataHelp="Button's metadata" summary="A button">
+    <possibleEvents xmi:id="_1xtPe4jNEeGrHN3Vq969QA" technicalid="_KwWa4qK1Eeuqs9mIRWXCLA" name="onClick"/>
+    <possibleEvents xmi:id="_PT-ocIjREeG_dvC9P_PKfA" technicalid="_KwWa46K1Eeuqs9mIRWXCLA" name="onFocus"/>
+    <possibleEvents xmi:id="_PT-ocYjREeG_dvC9P_PKfA" technicalid="_KwWa5KK1Eeuqs9mIRWXCLA" name="onFocusLost"/>
+    <style xmi:id="_Ss5asKK1Eeuqs9mIRWXCLA" roundedCorners="true" defaultWidth="99" defaultHeight="41" exampleExpression="aql:self.label"/>
   </widgets>
-  <widgets xmi:id="_1xtPc4jNEeGrHN3Vq969QA" name="Checkbox" icon="/org.obeonetwork.dsl.cinematic/icons/Checkbox.gif">
-    <possibleEvents xmi:id="_G6fN8IjREeG_dvC9P_PKfA" name="onSelection"/>
-    <possibleEvents xmi:id="_PLWQ4IjREeG_dvC9P_PKfA" name="onFocus"/>
-    <possibleEvents xmi:id="_PLWQ4YjREeG_dvC9P_PKfA" name="onFocusLost"/>
+  <widgets xmi:id="_1xtPc4jNEeGrHN3Vq969QA" technicalid="_KwWa5aK1Eeuqs9mIRWXCLA" name="Checkbox" icon="/org.obeonetwork.dsl.cinematic/icons/Checkbox.gif">
+    <possibleEvents xmi:id="_G6fN8IjREeG_dvC9P_PKfA" technicalid="_KwWa5qK1Eeuqs9mIRWXCLA" name="onSelection"/>
+    <possibleEvents xmi:id="_PLWQ4IjREeG_dvC9P_PKfA" technicalid="_KwWa56K1Eeuqs9mIRWXCLA" name="onFocus"/>
+    <possibleEvents xmi:id="_PLWQ4YjREeG_dvC9P_PKfA" technicalid="_KwWa6KK1Eeuqs9mIRWXCLA" name="onFocusLost"/>
+    <style xmi:id="_WtOnIKK2Eeuqs9mIRWXCLA" decorator="/org.obeonetwork.dsl.cinematic/decorators/CheckboxChecked.svg" defaultWidth="187" defaultHeight="41" exampleExpression="aql:self.label"/>
   </widgets>
-  <widgets xmi:id="_1xtPdojNEeGrHN3Vq969QA" name="Combo" icon="/org.obeonetwork.dsl.cinematic/icons/Combo.gif">
-    <possibleEvents xmi:id="_ITwG8IjREeG_dvC9P_PKfA" name="onSelection"/>
-    <possibleEvents xmi:id="_PDwbIIjREeG_dvC9P_PKfA" name="onFocus"/>
-    <possibleEvents xmi:id="_PDwbIYjREeG_dvC9P_PKfA" name="onFocusLost"/>
+  <widgets xmi:id="_1xtPdojNEeGrHN3Vq969QA" technicalid="_KwWa6aK1Eeuqs9mIRWXCLA" name="Combo" icon="/org.obeonetwork.dsl.cinematic/icons/Combo.gif">
+    <possibleEvents xmi:id="_ITwG8IjREeG_dvC9P_PKfA" technicalid="_KwWa6qK1Eeuqs9mIRWXCLA" name="onSelection"/>
+    <possibleEvents xmi:id="_PDwbIIjREeG_dvC9P_PKfA" technicalid="_KwWa66K1Eeuqs9mIRWXCLA" name="onFocus"/>
+    <possibleEvents xmi:id="_PDwbIYjREeG_dvC9P_PKfA" technicalid="_KwWa7KK1Eeuqs9mIRWXCLA" name="onFocusLost"/>
+    <style xmi:id="_8BDC8KK2Eeuqs9mIRWXCLA" decorator="/org.obeonetwork.dsl.cinematic/decorators/DropDownArrow.svg" decoratorPosition="EAST" defaultWidth="187" defaultHeight="41" exampleExpression="aql:self.example"/>
   </widgets>
-  <widgets xmi:id="_kEsycIjeEeGIXsoZxTXHQA" name="Image" icon="/org.obeonetwork.dsl.cinematic/icons/Image.gif" implementation="">
-    <possibleEvents xmi:id="_mAV_wIjeEeGIXsoZxTXHQA" name="onFocus"/>
-    <possibleEvents xmi:id="_mAV_wYjeEeGIXsoZxTXHQA" name="onFocusLost"/>
+  <widgets xmi:id="_kEsycIjeEeGIXsoZxTXHQA" technicalid="_KwWa7aK1Eeuqs9mIRWXCLA" name="Image" icon="/org.obeonetwork.dsl.cinematic/icons/Image.gif" implementation="">
+    <possibleEvents xmi:id="_mAV_wIjeEeGIXsoZxTXHQA" technicalid="_KwXB8KK1Eeuqs9mIRWXCLA" name="onFocus"/>
+    <possibleEvents xmi:id="_mAV_wYjeEeGIXsoZxTXHQA" technicalid="_KwXB8aK1Eeuqs9mIRWXCLA" name="onFocusLost"/>
+    <style xmi:id="_STGvwKK3Eeuqs9mIRWXCLA" decorator="/org.obeonetwork.dsl.cinematic/decorators/ImagePlaceholder.svg" decoratorHFill="true" bordered="false" defaultWidth="219" defaultHeight="139" exampleExpression="aql:''"/>
   </widgets>
-  <widgets xmi:id="_7HoV0IjOEeGrHN3Vq969QA" name="Label" icon="/org.obeonetwork.dsl.cinematic/icons/Label.gif">
-    <possibleEvents xmi:id="_QU_ZgIjREeG_dvC9P_PKfA" name="onFocus"/>
-    <possibleEvents xmi:id="_QU_ZgYjREeG_dvC9P_PKfA" name="onFocusLost"/>
+  <widgets xmi:id="_7HoV0IjOEeGrHN3Vq969QA" technicalid="_KwXB8qK1Eeuqs9mIRWXCLA" name="Label" icon="/org.obeonetwork.dsl.cinematic/icons/Label.gif">
+    <possibleEvents xmi:id="_QU_ZgIjREeG_dvC9P_PKfA" technicalid="_KwXB86K1Eeuqs9mIRWXCLA" name="onFocus"/>
+    <possibleEvents xmi:id="_QU_ZgYjREeG_dvC9P_PKfA" technicalid="_KwXB9KK1Eeuqs9mIRWXCLA" name="onFocusLost"/>
+    <style xmi:id="_i6W14KK3Eeuqs9mIRWXCLA" bordered="false" labelHAlignment="LEFT" defaultWidth="187" defaultHeight="41" exampleExpression="aql:self.label"/>
   </widgets>
-  <widgets xmi:id="_8kxCMIjOEeGrHN3Vq969QA" name="Link" icon="/org.obeonetwork.dsl.cinematic/icons/Link.gif">
-    <possibleEvents xmi:id="_JB3xMIjREeG_dvC9P_PKfA" name="onClick"/>
-    <possibleEvents xmi:id="_QfG-0IjREeG_dvC9P_PKfA" name="onFocus"/>
-    <possibleEvents xmi:id="_QfG-0YjREeG_dvC9P_PKfA" name="onFocusLost"/>
+  <widgets xmi:id="_8kxCMIjOEeGrHN3Vq969QA" technicalid="_KwXB9aK1Eeuqs9mIRWXCLA" name="Link" icon="/org.obeonetwork.dsl.cinematic/icons/Link.gif">
+    <possibleEvents xmi:id="_JB3xMIjREeG_dvC9P_PKfA" technicalid="_KwXB9qK1Eeuqs9mIRWXCLA" name="onClick"/>
+    <possibleEvents xmi:id="_QfG-0IjREeG_dvC9P_PKfA" technicalid="_KwXB96K1Eeuqs9mIRWXCLA" name="onFocus"/>
+    <possibleEvents xmi:id="_QfG-0YjREeG_dvC9P_PKfA" technicalid="_KwXB-KK1Eeuqs9mIRWXCLA" name="onFocusLost"/>
+    <style xmi:id="_OtTXoKLAEeuqs9mIRWXCLA" bordered="false" fontColor="LINK_FOREGROUND" fontUnderlined="true" labelHAlignment="LEFT" defaultWidth="187" defaultHeight="41" exampleExpression="aql:self.label"/>
   </widgets>
-  <widgets xmi:id="_1xtPeIjNEeGrHN3Vq969QA" name="Panel" icon="/org.obeonetwork.dsl.cinematic/icons/Panel.gif" isContainer="true">
-    <possibleEvents xmi:id="_N0KbgIjREeG_dvC9P_PKfA" name="onFocus"/>
-    <possibleEvents xmi:id="_N0KbgYjREeG_dvC9P_PKfA" name="onFocusLost"/>
+  <widgets xmi:id="_1xtPeIjNEeGrHN3Vq969QA" technicalid="_KwXB-aK1Eeuqs9mIRWXCLA" name="Panel" icon="/org.obeonetwork.dsl.cinematic/icons/Panel.gif" isContainer="true">
+    <possibleEvents xmi:id="_N0KbgIjREeG_dvC9P_PKfA" technicalid="_KwXB-qK1Eeuqs9mIRWXCLA" name="onFocus"/>
+    <possibleEvents xmi:id="_N0KbgYjREeG_dvC9P_PKfA" technicalid="_KwXB-6K1Eeuqs9mIRWXCLA" name="onFocusLost"/>
+    <style xmi:id="_YeiBIKLAEeuqs9mIRWXCLA" decorator="/org.obeonetwork.dsl.cinematic/decorators/ArrowRight.svg" decoratorPosition="NORTH_WEST" decoratorVFill="false" defaultWidth="287" defaultHeight="143" exampleExpression="aql:self.label"/>
   </widgets>
-  <widgets xmi:id="_1xtPd4jNEeGrHN3Vq969QA" name="Password" icon="/org.obeonetwork.dsl.cinematic/icons/Password.gif">
-    <possibleEvents xmi:id="_Ex6X4YjREeG_dvC9P_PKfA" name="onKeyPressed"/>
-    <possibleEvents xmi:id="_Npv7QIjREeG_dvC9P_PKfA" name="onFocus"/>
-    <possibleEvents xmi:id="_Npv7QYjREeG_dvC9P_PKfA" name="onFocusLost"/>
+  <widgets xmi:id="_1xtPd4jNEeGrHN3Vq969QA" technicalid="_KwXB_KK1Eeuqs9mIRWXCLA" name="Password" icon="/org.obeonetwork.dsl.cinematic/icons/Password.gif">
+    <possibleEvents xmi:id="_Ex6X4YjREeG_dvC9P_PKfA" technicalid="_KwXB_aK1Eeuqs9mIRWXCLA" name="onKeyPressed"/>
+    <possibleEvents xmi:id="_Npv7QIjREeG_dvC9P_PKfA" technicalid="_KwXB_qK1Eeuqs9mIRWXCLA" name="onFocus"/>
+    <possibleEvents xmi:id="_Npv7QYjREeG_dvC9P_PKfA" technicalid="_KwXB_6K1Eeuqs9mIRWXCLA" name="onFocusLost"/>
+    <style xmi:id="_o0YOMKLAEeuqs9mIRWXCLA" decorator="/org.obeonetwork.dsl.cinematic/decorators/Lock.svg" defaultWidth="187" defaultHeight="41" exampleExpression="aql:self.example"/>
   </widgets>
-  <widgets xmi:id="_1xtPdYjNEeGrHN3Vq969QA" name="Radio" icon="/org.obeonetwork.dsl.cinematic/icons/Radio.gif" implementation="">
-    <possibleEvents xmi:id="_NimxcIjREeG_dvC9P_PKfA" name="onFocus"/>
-    <possibleEvents xmi:id="_NimxcYjREeG_dvC9P_PKfA" name="onFocusLost"/>
+  <widgets xmi:id="_1xtPdYjNEeGrHN3Vq969QA" technicalid="_KwXCAKK1Eeuqs9mIRWXCLA" name="Radio" icon="/org.obeonetwork.dsl.cinematic/icons/Radio.gif" implementation="">
+    <possibleEvents xmi:id="_NimxcIjREeG_dvC9P_PKfA" technicalid="_KwXCAaK1Eeuqs9mIRWXCLA" name="onFocus"/>
+    <possibleEvents xmi:id="_NimxcYjREeG_dvC9P_PKfA" technicalid="_KwXCAqK1Eeuqs9mIRWXCLA" name="onFocusLost"/>
+    <style xmi:id="_y_pIUKLAEeuqs9mIRWXCLA" decorator="/org.obeonetwork.dsl.cinematic/decorators/RadioChecked.svg" defaultWidth="187" defaultHeight="41" exampleExpression="aql:self.label"/>
   </widgets>
-  <widgets xmi:id="_VnC2EIjeEeGIXsoZxTXHQA" name="Table" icon="/org.obeonetwork.dsl.cinematic/icons/Table.png" isContainer="true">
-    <possibleEvents xmi:id="_fBohMIjeEeGIXsoZxTXHQA" name="onFocus"/>
-    <possibleEvents xmi:id="_fBohMYjeEeGIXsoZxTXHQA" name="onFocusLost"/>
+  <widgets xmi:id="_VnC2EIjeEeGIXsoZxTXHQA" technicalid="_KwXCA6K1Eeuqs9mIRWXCLA" name="Table" icon="/org.obeonetwork.dsl.cinematic/icons/Table.gif" isContainer="true">
+    <possibleEvents xmi:id="_fBohMIjeEeGIXsoZxTXHQA" technicalid="_KwXCBKK1Eeuqs9mIRWXCLA" name="onFocus"/>
+    <possibleEvents xmi:id="_fBohMYjeEeGIXsoZxTXHQA" technicalid="_KwXCBaK1Eeuqs9mIRWXCLA" name="onFocusLost"/>
+    <style xmi:id="_BMhdwKLBEeuqs9mIRWXCLA" defaultWidth="191" defaultHeight="163" exampleExpression="aql:self.label"/>
   </widgets>
-  <widgets xmi:id="_1xtPcYjNEeGrHN3Vq969QA" name="Text" icon="/org.obeonetwork.dsl.cinematic/icons/Text.gif">
-    <possibleEvents xmi:id="_1xtPcojNEeGrHN3Vq969QA" name="onKeyPressed"/>
-    <possibleEvents xmi:id="_NQKWkIjREeG_dvC9P_PKfA" name="onFocus"/>
-    <possibleEvents xmi:id="_NQKWkYjREeG_dvC9P_PKfA" name="onFocusLost"/>
+  <widgets xmi:id="_1xtPcYjNEeGrHN3Vq969QA" technicalid="_KwXCBqK1Eeuqs9mIRWXCLA" name="Text" icon="/org.obeonetwork.dsl.cinematic/icons/Text.gif">
+    <possibleEvents xmi:id="_1xtPcojNEeGrHN3Vq969QA" technicalid="_KwXCB6K1Eeuqs9mIRWXCLA" name="onKeyPressed"/>
+    <possibleEvents xmi:id="_NQKWkIjREeG_dvC9P_PKfA" technicalid="_KwXCCKK1Eeuqs9mIRWXCLA" name="onFocus"/>
+    <possibleEvents xmi:id="_NQKWkYjREeG_dvC9P_PKfA" technicalid="_KwXCCaK1Eeuqs9mIRWXCLA" name="onFocusLost"/>
+    <style xmi:id="_VEr7AKLBEeuqs9mIRWXCLA" labelHAlignment="LEFT" defaultWidth="187" defaultHeight="41" exampleExpression="aql:self.example"/>
   </widgets>
-  <widgets xmi:id="_1xtPdIjNEeGrHN3Vq969QA" name="Textarea" icon="/org.obeonetwork.dsl.cinematic/icons/Textarea.gif">
-    <possibleEvents xmi:id="_FgCCIIjREeG_dvC9P_PKfA" name="onKeyPressed"/>
-    <possibleEvents xmi:id="_Kv9qsIjREeG_dvC9P_PKfA" name="onFocus"/>
-    <possibleEvents xmi:id="_L_q_EIjREeG_dvC9P_PKfA" name="onFocusLost"/>
+  <widgets xmi:id="_1xtPdIjNEeGrHN3Vq969QA" technicalid="_KwXCCqK1Eeuqs9mIRWXCLA" name="Textarea" icon="/org.obeonetwork.dsl.cinematic/icons/Textarea.gif">
+    <possibleEvents xmi:id="_FgCCIIjREeG_dvC9P_PKfA" technicalid="_KwXCC6K1Eeuqs9mIRWXCLA" name="onKeyPressed"/>
+    <possibleEvents xmi:id="_Kv9qsIjREeG_dvC9P_PKfA" technicalid="_KwXCDKK1Eeuqs9mIRWXCLA" name="onFocus"/>
+    <possibleEvents xmi:id="_L_q_EIjREeG_dvC9P_PKfA" technicalid="_KwXCDaK1Eeuqs9mIRWXCLA" name="onFocusLost"/>
+    <style xmi:id="_mSnmoKLBEeuqs9mIRWXCLA" labelHAlignment="LEFT" defaultWidth="187" defaultHeight="82" exampleExpression="aql:self.example"/>
   </widgets>
-  <widgets xmi:id="_1xtPeYjNEeGrHN3Vq969QA" name="Window" icon="/org.obeonetwork.dsl.cinematic/icons/Window.gif" isContainer="true">
-    <possibleEvents xmi:id="_OC5bEIjREeG_dvC9P_PKfA" name="onFocus"/>
-    <possibleEvents xmi:id="_OC5bEYjREeG_dvC9P_PKfA" name="onFocusLost"/>
+  <widgets xmi:id="_1xtPeYjNEeGrHN3Vq969QA" technicalid="_KwXCDqK1Eeuqs9mIRWXCLA" name="Window" icon="/org.obeonetwork.dsl.cinematic/icons/Window.gif" isContainer="true">
+    <possibleEvents xmi:id="_OC5bEIjREeG_dvC9P_PKfA" technicalid="_KwXCD6K1Eeuqs9mIRWXCLA" name="onFocus"/>
+    <possibleEvents xmi:id="_OC5bEYjREeG_dvC9P_PKfA" technicalid="_KwXCEKK1Eeuqs9mIRWXCLA" name="onFocusLost"/>
+    <style xmi:id="_sBU14KLBEeuqs9mIRWXCLA" decorator="/org.obeonetwork.dsl.cinematic/decorators/MinimizeClose.svg" decoratorPosition="NORTH_EAST" decoratorVFill="false" defaultWidth="443" defaultHeight="419" exampleExpression="aql:self.label"/>
   </widgets>
 </cinematic-toolkits:Toolkit>

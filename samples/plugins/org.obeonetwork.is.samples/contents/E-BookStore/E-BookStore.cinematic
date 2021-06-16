@@ -35,7 +35,7 @@
       <events xmi:id="_IMGhoIjjEeGllIuu_i41WA" technicalid="_48gaIhVIEeetFdz5pzgWAw" name="createAccount"/>
       <events xmi:id="_QVdjgIjlEeGOp5IdJE0AIw" technicalid="_48gaIxVIEeetFdz5pzgWAw" name="checkout" binds="_VTh80IjhEeGllIuu_i41WA"/>
     </flows>
-    <viewContainers xmi:id="_lSJPQIjZEeGlA5e_Ze9-Rg" technicalid="_48gaJBVIEeetFdz5pzgWAw" name="HomePage">
+    <viewContainers xmi:id="_lSJPQIjZEeGlA5e_Ze9-Rg" technicalid="_48gaJBVIEeetFdz5pzgWAw" createdOn="2021-05-26T17:25:55.766+0200" modifiedOn="2021-05-26T17:25:55.766+0200" name="HomePage">
       <widget href="pathmap://cinematic/toolkits/Web#_tGHvxYjeEeGIXsoZxTXHQA"/>
       <ownedElements xsi:type="cinematic-view:ViewContainer" xmi:id="_wSq9cIjZEeGlA5e_Ze9-Rg" technicalid="_48jdcBVIEeetFdz5pzgWAw" name="SearchForm">
         <widget href="pathmap://cinematic/toolkits/Web#_tGHvsIjeEeGIXsoZxTXHQA"/>
@@ -106,9 +106,6 @@
             <type href="pathmap://cinematic/toolkits/Web#_tGHIkYjeEeGIXsoZxTXHQA"/>
           </events>
         </ownedElements>
-      </ownedElements>
-      <ownedElements xsi:type="cinematic-view:ViewContainer" xmi:id="_hwJe4IrsEeGWvox4N_yxtg" technicalid="_48qLQxVIEeetFdz5pzgWAw" name="viewContainer4">
-        <widget href="pathmap://cinematic/toolkits/Web#_tGHvxYjeEeGIXsoZxTXHQA"/>
       </ownedElements>
     </viewContainers>
     <viewContainers xmi:id="_XBIcMIjjEeGllIuu_i41WA" technicalid="_48qLRRVIEeetFdz5pzgWAw" name="CreateAccount">

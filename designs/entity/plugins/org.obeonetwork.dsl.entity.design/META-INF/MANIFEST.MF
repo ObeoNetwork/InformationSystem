@@ -1,7 +1,7 @@
 Manifest-Version: 1.0
 Bundle-Name: Entity Viewpoint
 Bundle-SymbolicName: org.obeonetwork.dsl.entity.design;singleton:=true
-Bundle-Version: 2.0.0.qualifier
+Bundle-Version: 2.1.0.qualifier
 Bundle-Activator: org.obeonetwork.dsl.entity.design.Activator
 Require-Bundle: org.eclipse.ui,
  org.eclipse.core.runtime,
@@ -13,7 +13,8 @@ Require-Bundle: org.eclipse.ui,
  org.eclipse.sirius,
  org.eclipse.core.resources,
  org.obeonetwork.dsl.is,
- org.eclipse.sirius.diagram
+ org.eclipse.sirius.diagram,
+ org.obeonetwork.utils.sirius
 Bundle-ActivationPolicy: lazy
 Bundle-RequiredExecutionEnvironment: JavaSE-1.6
 Bundle-Vendor: Obeo Network

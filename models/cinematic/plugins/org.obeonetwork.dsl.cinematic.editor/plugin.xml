@@ -13,6 +13,7 @@
  -->
 
 <plugin>
+
    <extension point="org.eclipse.ui.editors">
       <editor
             id="org.obeonetwork.dsl.cinematic.presentation.CinematicEditorID"
@@ -23,6 +24,7 @@
             contributorClass="org.obeonetwork.dsl.cinematic.presentation.CinematicActionBarContributor">
       </editor>
    </extension>
+
 
 
    <extension point="org.eclipse.ui.editors">
@@ -37,6 +39,7 @@
    </extension>
 
 
+
    <extension point="org.eclipse.ui.editors">
       <editor
             id="org.obeonetwork.dsl.cinematic.flow.presentation.FlowEditorID"
@@ -47,6 +50,7 @@
             contributorClass="org.obeonetwork.dsl.cinematic.flow.presentation.FlowActionBarContributor">
       </editor>
    </extension>
+
    
 
    <extension point="org.eclipse.ui.editors">

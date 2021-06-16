@@ -11,6 +11,7 @@
 package org.obeonetwork.dsl.cinematic.design.services.label;
 
 import org.obeonetwork.dsl.cinematic.NamedElement;
+import org.obeonetwork.dsl.cinematic.flow.FlowEvent;
 import org.obeonetwork.dsl.cinematic.flow.Transition;
 import org.obeonetwork.dsl.cinematic.flow.util.FlowSwitch;
 
@@ -28,18 +29,18 @@ public class FlowLabelSwitch extends FlowSwitch<String> {
 				}
 			}
 		}
-		if (transition.getGuard() != null && transition.getGuard().trim().equals("") == false) {
-			if (!label.equals("")) {
-				label += " ";
-			}
-			label += "[" + transition.getGuard() + "]";
-		}
+		
 		return label;
 	}
 	
 	@Override
 	public String caseNamedElement(NamedElement namedElement) {
 		return namedElement.getName();
+	}
+
+	@Override
+	public String caseFlowEvent(FlowEvent object) {		
+		return String.format("%s (%d)", object.getName(), object.getBinds().size());		
 	}
 
 }

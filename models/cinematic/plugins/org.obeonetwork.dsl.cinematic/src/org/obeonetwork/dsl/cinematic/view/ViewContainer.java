@@ -25,6 +25,7 @@ import org.eclipse.emf.common.util.EList;
  *   <li>{@link org.obeonetwork.dsl.cinematic.view.ViewContainer#getViewContainers <em>View Containers</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.cinematic.view.ViewContainer#getViewElements <em>View Elements</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.cinematic.view.ViewContainer#getViewContainerReferences <em>View Container References</em>}</li>
+ *   <li>{@link org.obeonetwork.dsl.cinematic.view.ViewContainer#getLayout <em>Layout</em>}</li>
  * </ul>
  *
  * @see org.obeonetwork.dsl.cinematic.view.ViewPackage#getViewContainer()
@@ -107,5 +108,27 @@ public interface ViewContainer extends AbstractViewElement {
 	 * @generated
 	 */
 	EList<ViewContainerReference> getViewContainerReferences();
+
+	/**
+	 * Returns the value of the '<em><b>Layout</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Layout</em>' containment reference.
+	 * @see #setLayout(Layout)
+	 * @see org.obeonetwork.dsl.cinematic.view.ViewPackage#getViewContainer_Layout()
+	 * @model containment="true" resolveProxies="true"
+	 * @generated
+	 */
+	Layout getLayout();
+
+	/**
+	 * Sets the value of the '{@link org.obeonetwork.dsl.cinematic.view.ViewContainer#getLayout <em>Layout</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Layout</em>' containment reference.
+	 * @see #getLayout()
+	 * @generated
+	 */
+	void setLayout(Layout value);
 
 } // ViewContainer

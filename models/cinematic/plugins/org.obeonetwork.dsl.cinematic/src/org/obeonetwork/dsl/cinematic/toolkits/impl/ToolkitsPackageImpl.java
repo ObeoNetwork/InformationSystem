@@ -12,6 +12,7 @@ package org.obeonetwork.dsl.cinematic.toolkits.impl;
 
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EEnum;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
 import org.eclipse.emf.ecore.impl.EPackageImpl;
@@ -19,6 +20,9 @@ import org.obeonetwork.dsl.cinematic.CinematicPackage;
 import org.obeonetwork.dsl.cinematic.flow.FlowPackage;
 import org.obeonetwork.dsl.cinematic.flow.impl.FlowPackageImpl;
 import org.obeonetwork.dsl.cinematic.impl.CinematicPackageImpl;
+import org.obeonetwork.dsl.cinematic.toolkits.CardinalPosition;
+import org.obeonetwork.dsl.cinematic.toolkits.HorizontalAlignment;
+import org.obeonetwork.dsl.cinematic.toolkits.Style;
 import org.obeonetwork.dsl.cinematic.toolkits.Toolkit;
 import org.obeonetwork.dsl.cinematic.toolkits.ToolkitsFactory;
 import org.obeonetwork.dsl.cinematic.toolkits.ToolkitsPackage;
@@ -58,6 +62,27 @@ public class ToolkitsPackageImpl extends EPackageImpl implements ToolkitsPackage
 	private EClass widgetEventTypeEClass = null;
 
 	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass styleEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EEnum cardinalPositionEEnum = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EEnum horizontalAlignmentEEnum = null;
+
+	/**
 	 * Creates an instance of the model <b>Package</b>, registered with
 	 * {@link org.eclipse.emf.ecore.EPackage.Registry EPackage.Registry} by the package
 	 * package URI value.
@@ -85,7 +110,7 @@ public class ToolkitsPackageImpl extends EPackageImpl implements ToolkitsPackage
 
 	/**
 	 * Creates, registers, and initializes the <b>Package</b> for this model, and for any others upon which it depends.
-	 * 
+	 *
 	 * <p>This method is used to initialize {@link ToolkitsPackage#eINSTANCE} when that field is accessed.
 	 * Clients should not invoke it directly. Instead, they should simply access that field to obtain the package.
 	 * <!-- begin-user-doc -->
@@ -99,7 +124,8 @@ public class ToolkitsPackageImpl extends EPackageImpl implements ToolkitsPackage
 		if (isInited) return (ToolkitsPackage)EPackage.Registry.INSTANCE.getEPackage(ToolkitsPackage.eNS_URI);
 
 		// Obtain or create and register package
-		ToolkitsPackageImpl theToolkitsPackage = (ToolkitsPackageImpl)(EPackage.Registry.INSTANCE.get(eNS_URI) instanceof ToolkitsPackageImpl ? EPackage.Registry.INSTANCE.get(eNS_URI) : new ToolkitsPackageImpl());
+		Object registeredToolkitsPackage = EPackage.Registry.INSTANCE.get(eNS_URI);
+		ToolkitsPackageImpl theToolkitsPackage = registeredToolkitsPackage instanceof ToolkitsPackageImpl ? (ToolkitsPackageImpl)registeredToolkitsPackage : new ToolkitsPackageImpl();
 
 		isInited = true;
 
@@ -108,9 +134,12 @@ public class ToolkitsPackageImpl extends EPackageImpl implements ToolkitsPackage
 		TechnicalIDPackage.eINSTANCE.eClass();
 
 		// Obtain or create and register interdependencies
-		CinematicPackageImpl theCinematicPackage = (CinematicPackageImpl)(EPackage.Registry.INSTANCE.getEPackage(CinematicPackage.eNS_URI) instanceof CinematicPackageImpl ? EPackage.Registry.INSTANCE.getEPackage(CinematicPackage.eNS_URI) : CinematicPackage.eINSTANCE);
-		ViewPackageImpl theViewPackage = (ViewPackageImpl)(EPackage.Registry.INSTANCE.getEPackage(ViewPackage.eNS_URI) instanceof ViewPackageImpl ? EPackage.Registry.INSTANCE.getEPackage(ViewPackage.eNS_URI) : ViewPackage.eINSTANCE);
-		FlowPackageImpl theFlowPackage = (FlowPackageImpl)(EPackage.Registry.INSTANCE.getEPackage(FlowPackage.eNS_URI) instanceof FlowPackageImpl ? EPackage.Registry.INSTANCE.getEPackage(FlowPackage.eNS_URI) : FlowPackage.eINSTANCE);
+		Object registeredPackage = EPackage.Registry.INSTANCE.getEPackage(CinematicPackage.eNS_URI);
+		CinematicPackageImpl theCinematicPackage = (CinematicPackageImpl)(registeredPackage instanceof CinematicPackageImpl ? registeredPackage : CinematicPackage.eINSTANCE);
+		registeredPackage = EPackage.Registry.INSTANCE.getEPackage(ViewPackage.eNS_URI);
+		ViewPackageImpl theViewPackage = (ViewPackageImpl)(registeredPackage instanceof ViewPackageImpl ? registeredPackage : ViewPackage.eINSTANCE);
+		registeredPackage = EPackage.Registry.INSTANCE.getEPackage(FlowPackage.eNS_URI);
+		FlowPackageImpl theFlowPackage = (FlowPackageImpl)(registeredPackage instanceof FlowPackageImpl ? registeredPackage : FlowPackage.eINSTANCE);
 
 		// Create package meta-data objects
 		theToolkitsPackage.createPackageContents();
@@ -127,7 +156,6 @@ public class ToolkitsPackageImpl extends EPackageImpl implements ToolkitsPackage
 		// Mark meta-data to indicate it can't be changed
 		theToolkitsPackage.freeze();
 
-  
 		// Update the registry and return the package
 		EPackage.Registry.INSTANCE.put(ToolkitsPackage.eNS_URI, theToolkitsPackage);
 		return theToolkitsPackage;
@@ -228,6 +256,51 @@ public class ToolkitsPackageImpl extends EPackageImpl implements ToolkitsPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EReference getWidget_Style() {
+		return (EReference)widgetEClass.getEStructuralFeatures().get(6);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getWidget_MetadataKeys() {
+		return (EAttribute)widgetEClass.getEStructuralFeatures().get(7);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getWidget_MetadataHelp() {
+		return (EAttribute)widgetEClass.getEStructuralFeatures().get(8);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getWidget_Summary() {
+		return (EAttribute)widgetEClass.getEStructuralFeatures().get(9);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getWidget_Documentation() {
+		return (EAttribute)widgetEClass.getEStructuralFeatures().get(10);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getWidgetEventType() {
 		return widgetEventTypeEClass;
 	}
@@ -239,6 +312,141 @@ public class ToolkitsPackageImpl extends EPackageImpl implements ToolkitsPackage
 	 */
 	public EAttribute getWidgetEventType_Name() {
 		return (EAttribute)widgetEventTypeEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getStyle() {
+		return styleEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getStyle_Decorator() {
+		return (EAttribute)styleEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getStyle_DecoratorPosition() {
+		return (EAttribute)styleEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getStyle_DecoratorVFill() {
+		return (EAttribute)styleEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getStyle_DecoratorHFill() {
+		return (EAttribute)styleEClass.getEStructuralFeatures().get(3);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getStyle_Bordered() {
+		return (EAttribute)styleEClass.getEStructuralFeatures().get(4);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getStyle_RoundedCorners() {
+		return (EAttribute)styleEClass.getEStructuralFeatures().get(5);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getStyle_FontColor() {
+		return (EAttribute)styleEClass.getEStructuralFeatures().get(6);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getStyle_FontUnderlined() {
+		return (EAttribute)styleEClass.getEStructuralFeatures().get(7);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getStyle_LabelHAlignment() {
+		return (EAttribute)styleEClass.getEStructuralFeatures().get(8);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getStyle_DefaultWidth() {
+		return (EAttribute)styleEClass.getEStructuralFeatures().get(9);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getStyle_DefaultHeight() {
+		return (EAttribute)styleEClass.getEStructuralFeatures().get(10);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getStyle_ExampleExpression() {
+		return (EAttribute)styleEClass.getEStructuralFeatures().get(11);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EEnum getCardinalPosition() {
+		return cardinalPositionEEnum;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EEnum getHorizontalAlignment() {
+		return horizontalAlignmentEEnum;
 	}
 
 	/**
@@ -280,9 +488,32 @@ public class ToolkitsPackageImpl extends EPackageImpl implements ToolkitsPackage
 		createEReference(widgetEClass, WIDGET__TOOLKIT);
 		createEReference(widgetEClass, WIDGET__POSSIBLE_EVENTS);
 		createEAttribute(widgetEClass, WIDGET__IS_CONTAINER);
+		createEReference(widgetEClass, WIDGET__STYLE);
+		createEAttribute(widgetEClass, WIDGET__METADATA_KEYS);
+		createEAttribute(widgetEClass, WIDGET__METADATA_HELP);
+		createEAttribute(widgetEClass, WIDGET__SUMMARY);
+		createEAttribute(widgetEClass, WIDGET__DOCUMENTATION);
 
 		widgetEventTypeEClass = createEClass(WIDGET_EVENT_TYPE);
 		createEAttribute(widgetEventTypeEClass, WIDGET_EVENT_TYPE__NAME);
+
+		styleEClass = createEClass(STYLE);
+		createEAttribute(styleEClass, STYLE__DECORATOR);
+		createEAttribute(styleEClass, STYLE__DECORATOR_POSITION);
+		createEAttribute(styleEClass, STYLE__DECORATOR_VFILL);
+		createEAttribute(styleEClass, STYLE__DECORATOR_HFILL);
+		createEAttribute(styleEClass, STYLE__BORDERED);
+		createEAttribute(styleEClass, STYLE__ROUNDED_CORNERS);
+		createEAttribute(styleEClass, STYLE__FONT_COLOR);
+		createEAttribute(styleEClass, STYLE__FONT_UNDERLINED);
+		createEAttribute(styleEClass, STYLE__LABEL_HALIGNMENT);
+		createEAttribute(styleEClass, STYLE__DEFAULT_WIDTH);
+		createEAttribute(styleEClass, STYLE__DEFAULT_HEIGHT);
+		createEAttribute(styleEClass, STYLE__EXAMPLE_EXPRESSION);
+
+		// Create enums
+		cardinalPositionEEnum = createEEnum(CARDINAL_POSITION);
+		horizontalAlignmentEEnum = createEEnum(HORIZONTAL_ALIGNMENT);
 	}
 
 	/**
@@ -332,9 +563,40 @@ public class ToolkitsPackageImpl extends EPackageImpl implements ToolkitsPackage
 		initEReference(getWidget_Toolkit(), this.getToolkit(), this.getToolkit_Widgets(), "toolkit", null, 0, 1, Widget.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getWidget_PossibleEvents(), this.getWidgetEventType(), null, "possibleEvents", null, 0, -1, Widget.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getWidget_IsContainer(), ecorePackage.getEBoolean(), "isContainer", null, 0, 1, Widget.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getWidget_Style(), this.getStyle(), null, "style", null, 0, 1, Widget.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getWidget_MetadataKeys(), ecorePackage.getEString(), "metadataKeys", null, 0, -1, Widget.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getWidget_MetadataHelp(), ecorePackage.getEString(), "metadataHelp", null, 0, 1, Widget.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getWidget_Summary(), ecorePackage.getEString(), "summary", null, 0, 1, Widget.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getWidget_Documentation(), ecorePackage.getEString(), "documentation", null, 0, 1, Widget.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(widgetEventTypeEClass, WidgetEventType.class, "WidgetEventType", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getWidgetEventType_Name(), ecorePackage.getEString(), "name", null, 1, 1, WidgetEventType.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(styleEClass, Style.class, "Style", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getStyle_Decorator(), ecorePackage.getEString(), "decorator", null, 0, 1, Style.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getStyle_DecoratorPosition(), this.getCardinalPosition(), "decoratorPosition", null, 0, 1, Style.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getStyle_DecoratorVFill(), ecorePackage.getEBoolean(), "decoratorVFill", "true", 0, 1, Style.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getStyle_DecoratorHFill(), ecorePackage.getEBoolean(), "decoratorHFill", null, 0, 1, Style.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getStyle_Bordered(), ecorePackage.getEBoolean(), "bordered", "true", 0, 1, Style.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getStyle_RoundedCorners(), ecorePackage.getEBoolean(), "roundedCorners", null, 0, 1, Style.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getStyle_FontColor(), ecorePackage.getEString(), "fontColor", null, 0, 1, Style.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getStyle_FontUnderlined(), ecorePackage.getEBoolean(), "fontUnderlined", "false", 0, 1, Style.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getStyle_LabelHAlignment(), this.getHorizontalAlignment(), "labelHAlignment", null, 0, 1, Style.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getStyle_DefaultWidth(), ecorePackage.getEInt(), "defaultWidth", null, 0, 1, Style.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getStyle_DefaultHeight(), ecorePackage.getEInt(), "defaultHeight", null, 0, 1, Style.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getStyle_ExampleExpression(), ecorePackage.getEString(), "exampleExpression", null, 0, 1, Style.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		// Initialize enums and add enum literals
+		initEEnum(cardinalPositionEEnum, CardinalPosition.class, "CardinalPosition");
+		addEEnumLiteral(cardinalPositionEEnum, CardinalPosition.WEST);
+		addEEnumLiteral(cardinalPositionEEnum, CardinalPosition.EAST);
+		addEEnumLiteral(cardinalPositionEEnum, CardinalPosition.NORTH_WEST);
+		addEEnumLiteral(cardinalPositionEEnum, CardinalPosition.NORTH_EAST);
+
+		initEEnum(horizontalAlignmentEEnum, HorizontalAlignment.class, "HorizontalAlignment");
+		addEEnumLiteral(horizontalAlignmentEEnum, HorizontalAlignment.CENTER);
+		addEEnumLiteral(horizontalAlignmentEEnum, HorizontalAlignment.LEFT);
+		addEEnumLiteral(horizontalAlignmentEEnum, HorizontalAlignment.RIGHT);
 
 		// Create annotations
 		// http://www.eclipse.org/emf/2002/GenModel
@@ -348,60 +610,66 @@ public class ToolkitsPackageImpl extends EPackageImpl implements ToolkitsPackage
 	 * @generated
 	 */
 	protected void createGenModelAnnotations() {
-		String source = "http://www.eclipse.org/emf/2002/GenModel";	
+		String source = "http://www.eclipse.org/emf/2002/GenModel";
 		addAnnotation
-		  (getToolkit_Widgets(), 
-		   source, 
+		  (getToolkit_Widgets(),
+		   source,
 		   new String[] {
-			 "documentation", "The widgets owned by this Toolkit."
-		   });	
+			   "documentation", "The widgets owned by this Toolkit."
+		   });
 		addAnnotation
-		  (getToolkit_Name(), 
-		   source, 
+		  (getToolkit_Name(),
+		   source,
 		   new String[] {
-			 "documentation", "The name of this Toolkit."
-		   });	
+			   "documentation", "The name of this Toolkit."
+		   });
 		addAnnotation
-		  (getWidget_Name(), 
-		   source, 
+		  (getWidget_Name(),
+		   source,
 		   new String[] {
-			 "documentation", "The name of this Widget."
-		   });	
+			   "documentation", "The name of this Widget."
+		   });
 		addAnnotation
-		  (getWidget_Icon(), 
-		   source, 
+		  (getWidget_Icon(),
+		   source,
 		   new String[] {
-			 "documentation", "The icon path of this widget."
-		   });	
+			   "documentation", "The icon path of this widget."
+		   });
 		addAnnotation
-		  (getWidget_Implementation(), 
-		   source, 
+		  (getWidget_Implementation(),
+		   source,
 		   new String[] {
-			 "documentation", "The target implementation of this Widget."
-		   });	
+			   "documentation", "The target implementation of this Widget."
+		   });
 		addAnnotation
-		  (getWidget_Toolkit(), 
-		   source, 
+		  (getWidget_Toolkit(),
+		   source,
 		   new String[] {
-			 "documentation", "The Toolkit owning this Widget."
-		   });	
+			   "documentation", "The Toolkit owning this Widget."
+		   });
 		addAnnotation
-		  (getWidget_PossibleEvents(), 
-		   source, 
+		  (getWidget_PossibleEvents(),
+		   source,
 		   new String[] {
-			 "documentation", "The list of the events this Widget handles."
-		   });	
+			   "documentation", "The list of the events this Widget handles."
+		   });
 		addAnnotation
-		  (getWidget_IsContainer(), 
-		   source, 
+		  (getWidget_IsContainer(),
+		   source,
 		   new String[] {
-			 "documentation", "True if this Widget is a container."
-		   });	
+			   "documentation", "True if this Widget is a container."
+		   });
 		addAnnotation
-		  (getWidgetEventType_Name(), 
-		   source, 
+		  (getWidgetEventType_Name(),
+		   source,
 		   new String[] {
-			 "documentation", "The name of this Widget Event Type."
+			   "documentation", "The name of this Widget Event Type."
+		   });
+		addAnnotation
+		  (getStyle_ExampleExpression(),
+		   source,
+		   new String[] {
+			   "documentation", "AQL expression evaluated in the context of the AbstractViewElement that uses this Widget, and which provides the label that should be displayed in the diagram when using the \"example\" layer."
 		   });
 	}
 

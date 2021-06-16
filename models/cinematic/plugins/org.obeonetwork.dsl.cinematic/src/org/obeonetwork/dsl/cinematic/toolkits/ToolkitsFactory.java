@@ -57,6 +57,15 @@ public interface ToolkitsFactory extends EFactory {
 	WidgetEventType createWidgetEventType();
 
 	/**
+	 * Returns a new object of class '<em>Style</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Style</em>'.
+	 * @generated
+	 */
+	Style createStyle();
+
+	/**
 	 * Returns the package supported by this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

@@ -27,10 +27,10 @@ public class ViewLabelSwitch extends ViewSwitch<String> {
 		if (label == null) {
 			label = "";
 		}
-		if (viewEvent.getType() != null) {
-			label += " : " + viewEvent.getType().getName();
-		}
-		
+//		if (viewEvent.getType() != null) {
+//			label += " : " + viewEvent.getType().getName();
+//		}
+//		
 		return label;
 	}
 	
@@ -40,12 +40,12 @@ public class ViewLabelSwitch extends ViewSwitch<String> {
 		if (label != null && !label.trim().equals("")) {
 			label += " ";
 		}
-		if (viewContainer.getWidget() != null) {
-			label += ": " + viewContainer.getWidget().getName();
-		} else {
-			// We add the type of ViewContainer i.e. the EClass's name
-			label += ": " + viewContainer.eClass().getName();
-		}
+//		if (viewContainer.getWidget() != null) {
+//			label += ": " + viewContainer.getWidget().getName();
+//		} else {
+//			// We add the type of ViewContainer i.e. the EClass's name
+//			label += ": " + viewContainer.eClass().getName();
+//		}
 		return label;
 	}
 	
@@ -55,9 +55,9 @@ public class ViewLabelSwitch extends ViewSwitch<String> {
 		if (label != null && !label.trim().equals("")) {
 			label += " ";
 		}
-		if (viewElement.getWidget() != null) {
-			label += ": " + viewElement.getWidget().getName();
-		}
+//		if (viewElement.getWidget() != null) {
+//			label += ": " + viewElement.getWidget().getName();
+//		}
 		return label;
 	}
 
@@ -67,9 +67,9 @@ public class ViewLabelSwitch extends ViewSwitch<String> {
 		if (label != null && !label.trim().equals("")) {
 			label += " ";
 		}
-		if (viewContainerReference.getViewContainer() != null) {
-			label += ": " + viewContainerReference.getViewContainer().getName();
-		}
+//		if (viewContainerReference.getViewContainer() != null) {
+//			label += ": " + viewContainerReference.getViewContainer().getName();
+//		}
 		return label;
 	}
 

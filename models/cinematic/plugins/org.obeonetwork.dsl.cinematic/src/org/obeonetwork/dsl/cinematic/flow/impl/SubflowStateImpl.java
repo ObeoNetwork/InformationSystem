@@ -92,7 +92,9 @@ public class SubflowStateImpl extends FlowStateImpl implements SubflowState {
 	 * @generated
 	 */
 	public String getName() {
-		return (String)eDynamicGet(FlowPackage.SUBFLOW_STATE__NAME, FlowPackage.Literals.SUBFLOW_STATE__NAME, true, true);
+		// TODO: implement this method to return the 'Name' attribute
+		// Ensure that you remove @generated or mark it @generated NOT
+		throw new UnsupportedOperationException();
 	}
 
 	/**

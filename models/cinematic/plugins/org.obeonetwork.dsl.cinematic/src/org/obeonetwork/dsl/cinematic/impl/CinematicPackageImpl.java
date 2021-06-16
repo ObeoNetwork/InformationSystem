@@ -108,7 +108,7 @@ public class CinematicPackageImpl extends EPackageImpl implements CinematicPacka
 
 	/**
 	 * Creates, registers, and initializes the <b>Package</b> for this model, and for any others upon which it depends.
-	 * 
+	 *
 	 * <p>This method is used to initialize {@link CinematicPackage#eINSTANCE} when that field is accessed.
 	 * Clients should not invoke it directly. Instead, they should simply access that field to obtain the package.
 	 * <!-- begin-user-doc -->
@@ -122,7 +122,8 @@ public class CinematicPackageImpl extends EPackageImpl implements CinematicPacka
 		if (isInited) return (CinematicPackage)EPackage.Registry.INSTANCE.getEPackage(CinematicPackage.eNS_URI);
 
 		// Obtain or create and register package
-		CinematicPackageImpl theCinematicPackage = (CinematicPackageImpl)(EPackage.Registry.INSTANCE.get(eNS_URI) instanceof CinematicPackageImpl ? EPackage.Registry.INSTANCE.get(eNS_URI) : new CinematicPackageImpl());
+		Object registeredCinematicPackage = EPackage.Registry.INSTANCE.get(eNS_URI);
+		CinematicPackageImpl theCinematicPackage = registeredCinematicPackage instanceof CinematicPackageImpl ? (CinematicPackageImpl)registeredCinematicPackage : new CinematicPackageImpl();
 
 		isInited = true;
 
@@ -131,9 +132,12 @@ public class CinematicPackageImpl extends EPackageImpl implements CinematicPacka
 		TechnicalIDPackage.eINSTANCE.eClass();
 
 		// Obtain or create and register interdependencies
-		ViewPackageImpl theViewPackage = (ViewPackageImpl)(EPackage.Registry.INSTANCE.getEPackage(ViewPackage.eNS_URI) instanceof ViewPackageImpl ? EPackage.Registry.INSTANCE.getEPackage(ViewPackage.eNS_URI) : ViewPackage.eINSTANCE);
-		FlowPackageImpl theFlowPackage = (FlowPackageImpl)(EPackage.Registry.INSTANCE.getEPackage(FlowPackage.eNS_URI) instanceof FlowPackageImpl ? EPackage.Registry.INSTANCE.getEPackage(FlowPackage.eNS_URI) : FlowPackage.eINSTANCE);
-		ToolkitsPackageImpl theToolkitsPackage = (ToolkitsPackageImpl)(EPackage.Registry.INSTANCE.getEPackage(ToolkitsPackage.eNS_URI) instanceof ToolkitsPackageImpl ? EPackage.Registry.INSTANCE.getEPackage(ToolkitsPackage.eNS_URI) : ToolkitsPackage.eINSTANCE);
+		Object registeredPackage = EPackage.Registry.INSTANCE.getEPackage(ViewPackage.eNS_URI);
+		ViewPackageImpl theViewPackage = (ViewPackageImpl)(registeredPackage instanceof ViewPackageImpl ? registeredPackage : ViewPackage.eINSTANCE);
+		registeredPackage = EPackage.Registry.INSTANCE.getEPackage(FlowPackage.eNS_URI);
+		FlowPackageImpl theFlowPackage = (FlowPackageImpl)(registeredPackage instanceof FlowPackageImpl ? registeredPackage : FlowPackage.eINSTANCE);
+		registeredPackage = EPackage.Registry.INSTANCE.getEPackage(ToolkitsPackage.eNS_URI);
+		ToolkitsPackageImpl theToolkitsPackage = (ToolkitsPackageImpl)(registeredPackage instanceof ToolkitsPackageImpl ? registeredPackage : ToolkitsPackage.eINSTANCE);
 
 		// Create package meta-data objects
 		theCinematicPackage.createPackageContents();
@@ -150,7 +154,6 @@ public class CinematicPackageImpl extends EPackageImpl implements CinematicPacka
 		// Mark meta-data to indicate it can't be changed
 		theCinematicPackage.freeze();
 
-  
 		// Update the registry and return the package
 		EPackage.Registry.INSTANCE.put(CinematicPackage.eNS_URI, theCinematicPackage);
 		return theCinematicPackage;
@@ -380,36 +383,36 @@ public class CinematicPackageImpl extends EPackageImpl implements CinematicPacka
 	 * @generated
 	 */
 	protected void createGenModelAnnotations() {
-		String source = "http://www.eclipse.org/emf/2002/GenModel";	
+		String source = "http://www.eclipse.org/emf/2002/GenModel";
 		addAnnotation
-		  (getNamedElement_Name(), 
-		   source, 
+		  (getNamedElement_Name(),
+		   source,
 		   new String[] {
-			 "documentation", "The name of this model element."
-		   });	
+			   "documentation", "The name of this model element."
+		   });
 		addAnnotation
-		  (getAbstractPackage_Flows(), 
-		   source, 
+		  (getAbstractPackage_Flows(),
+		   source,
 		   new String[] {
-			 "documentation", "List of the Flows contained in this package."
-		   });	
+			   "documentation", "List of the Flows contained in this package."
+		   });
 		addAnnotation
-		  (getAbstractPackage_ViewContainers(), 
-		   source, 
+		  (getAbstractPackage_ViewContainers(),
+		   source,
 		   new String[] {
-			 "documentation", "List of the View Containers contained in this package."
-		   });	
+			   "documentation", "List of the View Containers contained in this package."
+		   });
 		addAnnotation
-		  (getAbstractPackage_SubPackages(), 
-		   source, 
+		  (getAbstractPackage_SubPackages(),
+		   source,
 		   new String[] {
-			 "documentation", "List of the Packages contained in this packages (only the directly contained ones)."
-		   });	
+			   "documentation", "List of the Packages contained in this packages (only the directly contained ones)."
+		   });
 		addAnnotation
-		  (getCinematicRoot_Toolkits(), 
-		   source, 
+		  (getCinematicRoot_Toolkits(),
+		   source,
 		   new String[] {
-			 "documentation", "List of the Toolkits defined on this Cinematic Root."
+			   "documentation", "List of the Toolkits defined on this Cinematic Root."
 		   });
 	}
 

@@ -167,6 +167,7 @@ public class FlowActionBarContributor
 	 */
 	@Override
 	public void contributeToToolBar(IToolBarManager toolBarManager) {
+		super.contributeToToolBar(toolBarManager);
 		toolBarManager.add(new Separator("flow-settings"));
 		toolBarManager.add(new Separator("flow-additions"));
 	}

@@ -15,8 +15,13 @@ import java.util.List;
 
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EObject;
+import org.eclipse.swt.widgets.Shell;
+import org.eclipse.ui.PlatformUI;
+import org.obeonetwork.dsl.cinematic.design.dialogs.event.FlowstateEventSelectionDialog;
+import org.obeonetwork.dsl.cinematic.design.dialogs.viewcontainer.ViewContainerSelectionDialog;
 import org.obeonetwork.dsl.cinematic.flow.Flow;
 import org.obeonetwork.dsl.cinematic.flow.FlowState;
+import org.obeonetwork.dsl.cinematic.flow.Transition;
 import org.obeonetwork.dsl.cinematic.flow.ViewState;
 import org.obeonetwork.dsl.cinematic.view.ViewContainer;
 
@@ -84,4 +89,32 @@ public class CinematicFlowServices {
 		}
 		return viewContainersAncestors;
 	}
+	
+	/**
+	 * Checks if the given {@link ViewContainer} is contained in a {@link ViewContainer}
+	 * @param container a {@link ViewContainer}
+	 * @return <code>true</code> if contained in a {@link ViewContainer}
+	 */
+	public void openViewContainerSelectionDialog(EObject viewState) {
+		Shell shell = PlatformUI.getWorkbench().getActiveWorkbenchWindow().getShell();
+		
+		if (viewState instanceof ViewState) {
+			ViewContainerSelectionDialog dialog = new ViewContainerSelectionDialog(shell, (ViewState) viewState);
+			dialog.open();
+		}					
+	}
+	
+	public void openEventSelectionDialog(EObject transition) {
+		Shell shell = PlatformUI.getWorkbench().getActiveWorkbenchWindow().getShell();
+		
+		if (transition instanceof Transition) {
+			FlowstateEventSelectionDialog dialog = new FlowstateEventSelectionDialog(shell, (Transition) transition);
+			dialog.open();
+		}					
+	}
+	
+	public static boolean isSubViewContainer(ViewContainer container) {
+		return container.eContainer() instanceof ViewContainer;
+	}
+	
 }

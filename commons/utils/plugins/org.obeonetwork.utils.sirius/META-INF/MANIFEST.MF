@@ -1,17 +1,23 @@
 Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-SymbolicName: org.obeonetwork.utils.sirius;singleton:=true
-Bundle-Version: 2.0.0.qualifier
+Bundle-Version: 2.1.0.qualifier
 Bundle-Activator: org.obeonetwork.utils.sirius.Activator
 Require-Bundle: org.eclipse.core.runtime,
  org.eclipse.sirius,
  org.eclipse.sirius.ext.base,
- org.eclipse.emf.transaction
+ org.eclipse.emf.transaction,
+ org.eclipse.sirius.common,
+ org.eclipse.core.expressions,
+ org.eclipse.sirius.diagram.ui,
+ org.eclipse.gmf.runtime.diagram.ui,
+ org.eclipse.net4j.util
 Bundle-RequiredExecutionEnvironment: JavaSE-1.8
 Automatic-Module-Name: org.obeonetwork.utils
 Bundle-ActivationPolicy: lazy
 Bundle-Name: Common Sirius Utils
 Bundle-Vendor: Obeo Network
 Export-Package: org.obeonetwork.utils.sirius,
+ org.obeonetwork.utils.sirius.services,
  org.obeonetwork.utils.sirius.session,
  org.obeonetwork.utils.sirius.transaction

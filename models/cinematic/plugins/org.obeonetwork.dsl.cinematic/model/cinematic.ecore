@@ -95,6 +95,8 @@
           <details key="documentation" value="List of the directly contained View Container References."/>
         </eAnnotations>
       </eStructuralFeatures>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="layout" eType="#//view/Layout"
+          containment="true"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="ViewElement" eSuperTypes="#//view/AbstractViewElement">
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="required" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">
@@ -105,6 +107,11 @@
       <eStructuralFeatures xsi:type="ecore:EReference" name="type" eType="ecore:EClass ../../org.obeonetwork.dsl.environment/model/environment.ecore#//Type">
         <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
           <details key="documentation" value="The data type this View Element is manipulating."/>
+        </eAnnotations>
+      </eStructuralFeatures>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="example" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
+        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+          <details key="documentation" value="Enables the definition of how a widget can be used in the context of this view element."/>
         </eAnnotations>
       </eStructuralFeatures>
     </eClassifiers>
@@ -123,6 +130,23 @@
           <details key="documentation" value="The referenced View Container."/>
         </eAnnotations>
       </eStructuralFeatures>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EEnum" name="LayoutDirection">
+      <eLiterals name="VERTICAL"/>
+      <eLiterals name="HORIZONTAL" value="1"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="Layout">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="A Layout owned by a ViewContainer defines the layout of all the recursively owned ViewElements of the ViewContainer.&#xA;It does not define the layout of the ViewElements owned by referenced ViewContainers.&#xA;The viewElement reference defines the element on which the size and position attributes applies.&#xA;Therefore, the viewElement of a Layout directly contained in a ViewContainer is this ViewContainer itself.&#xA;A Layout always defines its x, y, width and height attribute values.&#xA;If a Layout applies to a ViewConainer, then its owned layouts applies to nothing. In this case, an owned layout only defines a compartment of the horizontal or vertical stack.&#xA;If a Layout applies to nothing, then its owened layouts applies to an element.&#xA;If a Layout applies to a ViewElement, the direction is meaningless and it cannot own other layouts.&#xA;"/>
+      </eAnnotations>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="x" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="y" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="width" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="height" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="direction" eType="#//view/LayoutDirection"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="viewElement" eType="#//view/AbstractViewElement"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="ownedLayouts" upperBound="-1"
+          eType="#//view/Layout" containment="true"/>
     </eClassifiers>
   </eSubpackages>
   <eSubpackages name="flow" nsURI="http://www.obeonetwork.org/dsl/cinematic/flow/1.0.0"
@@ -294,6 +318,13 @@
           <details key="documentation" value="True if this Widget is a container."/>
         </eAnnotations>
       </eStructuralFeatures>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="style" eType="#//toolkits/Style"
+          containment="true"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="metadataKeys" upperBound="-1"
+          eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="metadataHelp" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="summary" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="documentation" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="WidgetEventType" eSuperTypes="../../org.obeonetwork.dsl.technicalid/model/technicalid.ecore#//Identifiable">
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" lowerBound="1"
@@ -302,6 +333,38 @@
           <details key="documentation" value="The name of this Widget Event Type."/>
         </eAnnotations>
       </eStructuralFeatures>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="Style">
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="decorator" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="decoratorPosition" eType="#//toolkits/CardinalPosition"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="decoratorVFill" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"
+          defaultValueLiteral="true"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="decoratorHFill" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="bordered" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"
+          defaultValueLiteral="true"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="roundedCorners" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="fontColor" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="fontUnderlined" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"
+          defaultValueLiteral="false"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="labelHAlignment" eType="#//toolkits/HorizontalAlignment"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="defaultWidth" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="defaultHeight" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="exampleExpression" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
+        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+          <details key="documentation" value="AQL expression evaluated in the context of the AbstractViewElement that uses this Widget, and which provides the label that should be displayed in the diagram when using the &quot;example&quot; layer."/>
+        </eAnnotations>
+      </eStructuralFeatures>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EEnum" name="CardinalPosition">
+      <eLiterals name="WEST" value="1"/>
+      <eLiterals name="EAST" value="3"/>
+      <eLiterals name="NORTH_WEST" value="4"/>
+      <eLiterals name="NORTH_EAST" value="5"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EEnum" name="HorizontalAlignment">
+      <eLiterals name="CENTER"/>
+      <eLiterals name="LEFT" value="1"/>
+      <eLiterals name="RIGHT" value="2"/>
     </eClassifiers>
   </eSubpackages>
 </ecore:EPackage>

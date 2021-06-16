@@ -173,7 +173,7 @@ public class FlowPackageImpl extends EPackageImpl implements FlowPackage {
 
 	/**
 	 * Creates, registers, and initializes the <b>Package</b> for this model, and for any others upon which it depends.
-	 * 
+	 *
 	 * <p>This method is used to initialize {@link FlowPackage#eINSTANCE} when that field is accessed.
 	 * Clients should not invoke it directly. Instead, they should simply access that field to obtain the package.
 	 * <!-- begin-user-doc -->
@@ -187,7 +187,8 @@ public class FlowPackageImpl extends EPackageImpl implements FlowPackage {
 		if (isInited) return (FlowPackage)EPackage.Registry.INSTANCE.getEPackage(FlowPackage.eNS_URI);
 
 		// Obtain or create and register package
-		FlowPackageImpl theFlowPackage = (FlowPackageImpl)(EPackage.Registry.INSTANCE.get(eNS_URI) instanceof FlowPackageImpl ? EPackage.Registry.INSTANCE.get(eNS_URI) : new FlowPackageImpl());
+		Object registeredFlowPackage = EPackage.Registry.INSTANCE.get(eNS_URI);
+		FlowPackageImpl theFlowPackage = registeredFlowPackage instanceof FlowPackageImpl ? (FlowPackageImpl)registeredFlowPackage : new FlowPackageImpl();
 
 		isInited = true;
 
@@ -196,9 +197,12 @@ public class FlowPackageImpl extends EPackageImpl implements FlowPackage {
 		TechnicalIDPackage.eINSTANCE.eClass();
 
 		// Obtain or create and register interdependencies
-		CinematicPackageImpl theCinematicPackage = (CinematicPackageImpl)(EPackage.Registry.INSTANCE.getEPackage(CinematicPackage.eNS_URI) instanceof CinematicPackageImpl ? EPackage.Registry.INSTANCE.getEPackage(CinematicPackage.eNS_URI) : CinematicPackage.eINSTANCE);
-		ViewPackageImpl theViewPackage = (ViewPackageImpl)(EPackage.Registry.INSTANCE.getEPackage(ViewPackage.eNS_URI) instanceof ViewPackageImpl ? EPackage.Registry.INSTANCE.getEPackage(ViewPackage.eNS_URI) : ViewPackage.eINSTANCE);
-		ToolkitsPackageImpl theToolkitsPackage = (ToolkitsPackageImpl)(EPackage.Registry.INSTANCE.getEPackage(ToolkitsPackage.eNS_URI) instanceof ToolkitsPackageImpl ? EPackage.Registry.INSTANCE.getEPackage(ToolkitsPackage.eNS_URI) : ToolkitsPackage.eINSTANCE);
+		Object registeredPackage = EPackage.Registry.INSTANCE.getEPackage(CinematicPackage.eNS_URI);
+		CinematicPackageImpl theCinematicPackage = (CinematicPackageImpl)(registeredPackage instanceof CinematicPackageImpl ? registeredPackage : CinematicPackage.eINSTANCE);
+		registeredPackage = EPackage.Registry.INSTANCE.getEPackage(ViewPackage.eNS_URI);
+		ViewPackageImpl theViewPackage = (ViewPackageImpl)(registeredPackage instanceof ViewPackageImpl ? registeredPackage : ViewPackage.eINSTANCE);
+		registeredPackage = EPackage.Registry.INSTANCE.getEPackage(ToolkitsPackage.eNS_URI);
+		ToolkitsPackageImpl theToolkitsPackage = (ToolkitsPackageImpl)(registeredPackage instanceof ToolkitsPackageImpl ? registeredPackage : ToolkitsPackage.eINSTANCE);
 
 		// Create package meta-data objects
 		theFlowPackage.createPackageContents();
@@ -215,7 +219,6 @@ public class FlowPackageImpl extends EPackageImpl implements FlowPackage {
 		// Mark meta-data to indicate it can't be changed
 		theFlowPackage.freeze();
 
-  
 		// Update the registry and return the package
 		EPackage.Registry.INSTANCE.put(FlowPackage.eNS_URI, theFlowPackage);
 		return theFlowPackage;
@@ -681,108 +684,108 @@ public class FlowPackageImpl extends EPackageImpl implements FlowPackage {
 	 * @generated
 	 */
 	protected void createGenModelAnnotations() {
-		String source = "http://www.eclipse.org/emf/2002/GenModel";	
+		String source = "http://www.eclipse.org/emf/2002/GenModel";
 		addAnnotation
-		  (getFlow_States(), 
-		   source, 
+		  (getFlow_States(),
+		   source,
 		   new String[] {
-			 "documentation", "The states of this Flow."
-		   });	
+			   "documentation", "The states of this Flow."
+		   });
 		addAnnotation
-		  (getFlow_Transitions(), 
-		   source, 
+		  (getFlow_Transitions(),
+		   source,
 		   new String[] {
-			 "documentation", "The transitions of this flow."
-		   });	
+			   "documentation", "The transitions of this flow."
+		   });
 		addAnnotation
-		  (getFlow_Events(), 
-		   source, 
+		  (getFlow_Events(),
+		   source,
 		   new String[] {
-			 "documentation", "The events of this flow."
-		   });	
+			   "documentation", "The events of this flow."
+		   });
 		addAnnotation
-		  (getTransition_Guard(), 
-		   source, 
+		  (getTransition_Guard(),
+		   source,
 		   new String[] {
-			 "documentation", "A string defining the guard condition to this Transition."
-		   });	
+			   "documentation", "A string defining the guard condition to this Transition."
+		   });
 		addAnnotation
-		  (getTransition_Modal(), 
-		   source, 
+		  (getTransition_Modal(),
+		   source,
 		   new String[] {
-			 "documentation", "The modality of the transition, expressing transition behaviors that (true) necessarily occur (must modality), (false) possibly occur (may modality)."
-		   });	
+			   "documentation", "The modality of the transition, expressing transition behaviors that (true) necessarily occur (must modality), (false) possibly occur (may modality)."
+		   });
 		addAnnotation
-		  (getTransition_From(), 
-		   source, 
+		  (getTransition_From(),
+		   source,
 		   new String[] {
-			 "documentation", "The state this transision is originating from."
-		   });	
+			   "documentation", "The state this transision is originating from."
+		   });
 		addAnnotation
-		  (getTransition_To(), 
-		   source, 
+		  (getTransition_To(),
+		   source,
 		   new String[] {
-			 "documentation", "The state this transition is going to."
-		   });	
+			   "documentation", "The state this transition is going to."
+		   });
 		addAnnotation
-		  (getTransition_On(), 
-		   source, 
+		  (getTransition_On(),
+		   source,
 		   new String[] {
-			 "documentation", "The event this transition is bounded to."
-		   });	
+			   "documentation", "The event this transition is bounded to."
+		   });
 		addAnnotation
-		  (getViewState_NewInstance(), 
-		   source, 
+		  (getViewState_NewInstance(),
+		   source,
 		   new String[] {
-			 "documentation", "True if this view state instanciates a new view."
-		   });	
+			   "documentation", "True if this view state instanciates a new view."
+		   });
 		addAnnotation
-		  (getViewState_Refresh(), 
-		   source, 
+		  (getViewState_Refresh(),
+		   source,
 		   new String[] {
-			 "documentation", "True if a refresh should be performed on the view."
-		   });	
+			   "documentation", "True if a refresh should be performed on the view."
+		   });
 		addAnnotation
-		  (getViewState_ViewContainers(), 
-		   source, 
+		  (getViewState_ViewContainers(),
+		   source,
 		   new String[] {
-			 "documentation", "The view containers this View State is presented by."
-		   });	
+			   "documentation", "The view containers this View State is presented by."
+		   });
 		addAnnotation
-		  (getSubflowState_Subflow(), 
-		   source, 
+		  (getSubflowState_Subflow(),
+		   source,
 		   new String[] {
-			 "documentation", "The Flow this Subflow State refers to."
-		   });	
+			   "documentation", "The Flow this Subflow State refers to."
+		   });
 		addAnnotation
-		  (getSubflowState_Name(), 
-		   source, 
+		  (getSubflowState_Name(),
+		   source,
 		   new String[] {
-			 "documentation", "The name of this Subflow State."
-		   });	
+			   "documentation", "The name of this Subflow State."
+		   });
 		addAnnotation
-		  (getFlowAction_Calls(), 
-		   source, 
+		  (getFlowAction_Calls(),
+		   source,
 		   new String[] {
-			 "documentation", "The View Actions this Flow Action calls."
-		   });	
+			   "documentation", "The View Actions this Flow Action calls."
+		   });
 		addAnnotation
-		  (getFlowAction_Operations(), 
-		   source, 
+		  (getFlowAction_Operations(),
+		   source,
 		   new String[] {
-			 "documentation", "The operations this Flow Action calls."
-		   });	
+			   "documentation", "The operations this Flow Action calls."
+		   });
 		addAnnotation
-		  (getFlowEvent_Binds(), 
-		   source, 
+		  (getFlowEvent_Binds(),
+		   source,
 		   new String[] {
-			 "documentation", "The View Events this Flow Event is binded to."
-		   });	
+			   "documentation", "The View Events this Flow Event is binded to."
+		   });
 		addAnnotation
-		  (getFlowState_Actions(), 
-		   source, 
+		  (getFlowState_Actions(),
+		   source,
 		   new String[] {
-			 "documentation", "The Flow Actions defined on this Flow State (Flow Actions calling View Actions or Operations)."
+			   "documentation", "The Flow Actions defined on this Flow State (Flow Actions calling View Actions or Operations)."
 		   });
 	}
 

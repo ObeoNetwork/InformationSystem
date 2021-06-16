@@ -12,6 +12,7 @@ package org.obeonetwork.dsl.cinematic.toolkits;
 
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EEnum;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
 import org.obeonetwork.dsl.technicalid.TechnicalIDPackage;
@@ -184,13 +185,58 @@ public interface ToolkitsPackage extends EPackage {
 	int WIDGET__IS_CONTAINER = TechnicalIDPackage.IDENTIFIABLE_FEATURE_COUNT + 5;
 
 	/**
+	 * The feature id for the '<em><b>Style</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int WIDGET__STYLE = TechnicalIDPackage.IDENTIFIABLE_FEATURE_COUNT + 6;
+
+	/**
+	 * The feature id for the '<em><b>Metadata Keys</b></em>' attribute list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int WIDGET__METADATA_KEYS = TechnicalIDPackage.IDENTIFIABLE_FEATURE_COUNT + 7;
+
+	/**
+	 * The feature id for the '<em><b>Metadata Help</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int WIDGET__METADATA_HELP = TechnicalIDPackage.IDENTIFIABLE_FEATURE_COUNT + 8;
+
+	/**
+	 * The feature id for the '<em><b>Summary</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int WIDGET__SUMMARY = TechnicalIDPackage.IDENTIFIABLE_FEATURE_COUNT + 9;
+
+	/**
+	 * The feature id for the '<em><b>Documentation</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int WIDGET__DOCUMENTATION = TechnicalIDPackage.IDENTIFIABLE_FEATURE_COUNT + 10;
+
+	/**
 	 * The number of structural features of the '<em>Widget</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int WIDGET_FEATURE_COUNT = TechnicalIDPackage.IDENTIFIABLE_FEATURE_COUNT + 6;
+	int WIDGET_FEATURE_COUNT = TechnicalIDPackage.IDENTIFIABLE_FEATURE_COUNT + 11;
 
 	/**
 	 * The meta object id for the '{@link org.obeonetwork.dsl.cinematic.toolkits.impl.WidgetEventTypeImpl <em>Widget Event Type</em>}' class.
@@ -228,6 +274,154 @@ public interface ToolkitsPackage extends EPackage {
 	 * @ordered
 	 */
 	int WIDGET_EVENT_TYPE_FEATURE_COUNT = TechnicalIDPackage.IDENTIFIABLE_FEATURE_COUNT + 1;
+
+
+	/**
+	 * The meta object id for the '{@link org.obeonetwork.dsl.cinematic.toolkits.impl.StyleImpl <em>Style</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.obeonetwork.dsl.cinematic.toolkits.impl.StyleImpl
+	 * @see org.obeonetwork.dsl.cinematic.toolkits.impl.ToolkitsPackageImpl#getStyle()
+	 * @generated
+	 */
+	int STYLE = 3;
+
+	/**
+	 * The feature id for the '<em><b>Decorator</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int STYLE__DECORATOR = 0;
+
+	/**
+	 * The feature id for the '<em><b>Decorator Position</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int STYLE__DECORATOR_POSITION = 1;
+
+	/**
+	 * The feature id for the '<em><b>Decorator VFill</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int STYLE__DECORATOR_VFILL = 2;
+
+	/**
+	 * The feature id for the '<em><b>Decorator HFill</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int STYLE__DECORATOR_HFILL = 3;
+
+	/**
+	 * The feature id for the '<em><b>Bordered</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int STYLE__BORDERED = 4;
+
+	/**
+	 * The feature id for the '<em><b>Rounded Corners</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int STYLE__ROUNDED_CORNERS = 5;
+
+	/**
+	 * The feature id for the '<em><b>Font Color</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int STYLE__FONT_COLOR = 6;
+
+	/**
+	 * The feature id for the '<em><b>Font Underlined</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int STYLE__FONT_UNDERLINED = 7;
+
+	/**
+	 * The feature id for the '<em><b>Label HAlignment</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int STYLE__LABEL_HALIGNMENT = 8;
+
+	/**
+	 * The feature id for the '<em><b>Default Width</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int STYLE__DEFAULT_WIDTH = 9;
+
+	/**
+	 * The feature id for the '<em><b>Default Height</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int STYLE__DEFAULT_HEIGHT = 10;
+
+	/**
+	 * The feature id for the '<em><b>Example Expression</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int STYLE__EXAMPLE_EXPRESSION = 11;
+
+	/**
+	 * The number of structural features of the '<em>Style</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int STYLE_FEATURE_COUNT = 12;
+
+	/**
+	 * The meta object id for the '{@link org.obeonetwork.dsl.cinematic.toolkits.CardinalPosition <em>Cardinal Position</em>}' enum.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.obeonetwork.dsl.cinematic.toolkits.CardinalPosition
+	 * @see org.obeonetwork.dsl.cinematic.toolkits.impl.ToolkitsPackageImpl#getCardinalPosition()
+	 * @generated
+	 */
+	int CARDINAL_POSITION = 4;
+
+	/**
+	 * The meta object id for the '{@link org.obeonetwork.dsl.cinematic.toolkits.HorizontalAlignment <em>Horizontal Alignment</em>}' enum.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.obeonetwork.dsl.cinematic.toolkits.HorizontalAlignment
+	 * @see org.obeonetwork.dsl.cinematic.toolkits.impl.ToolkitsPackageImpl#getHorizontalAlignment()
+	 * @generated
+	 */
+	int HORIZONTAL_ALIGNMENT = 5;
 
 
 	/**
@@ -339,6 +533,61 @@ public interface ToolkitsPackage extends EPackage {
 	EAttribute getWidget_IsContainer();
 
 	/**
+	 * Returns the meta object for the containment reference '{@link org.obeonetwork.dsl.cinematic.toolkits.Widget#getStyle <em>Style</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference '<em>Style</em>'.
+	 * @see org.obeonetwork.dsl.cinematic.toolkits.Widget#getStyle()
+	 * @see #getWidget()
+	 * @generated
+	 */
+	EReference getWidget_Style();
+
+	/**
+	 * Returns the meta object for the attribute list '{@link org.obeonetwork.dsl.cinematic.toolkits.Widget#getMetadataKeys <em>Metadata Keys</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute list '<em>Metadata Keys</em>'.
+	 * @see org.obeonetwork.dsl.cinematic.toolkits.Widget#getMetadataKeys()
+	 * @see #getWidget()
+	 * @generated
+	 */
+	EAttribute getWidget_MetadataKeys();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.obeonetwork.dsl.cinematic.toolkits.Widget#getMetadataHelp <em>Metadata Help</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Metadata Help</em>'.
+	 * @see org.obeonetwork.dsl.cinematic.toolkits.Widget#getMetadataHelp()
+	 * @see #getWidget()
+	 * @generated
+	 */
+	EAttribute getWidget_MetadataHelp();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.obeonetwork.dsl.cinematic.toolkits.Widget#getSummary <em>Summary</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Summary</em>'.
+	 * @see org.obeonetwork.dsl.cinematic.toolkits.Widget#getSummary()
+	 * @see #getWidget()
+	 * @generated
+	 */
+	EAttribute getWidget_Summary();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.obeonetwork.dsl.cinematic.toolkits.Widget#getDocumentation <em>Documentation</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Documentation</em>'.
+	 * @see org.obeonetwork.dsl.cinematic.toolkits.Widget#getDocumentation()
+	 * @see #getWidget()
+	 * @generated
+	 */
+	EAttribute getWidget_Documentation();
+
+	/**
 	 * Returns the meta object for class '{@link org.obeonetwork.dsl.cinematic.toolkits.WidgetEventType <em>Widget Event Type</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -358,6 +607,168 @@ public interface ToolkitsPackage extends EPackage {
 	 * @generated
 	 */
 	EAttribute getWidgetEventType_Name();
+
+	/**
+	 * Returns the meta object for class '{@link org.obeonetwork.dsl.cinematic.toolkits.Style <em>Style</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Style</em>'.
+	 * @see org.obeonetwork.dsl.cinematic.toolkits.Style
+	 * @generated
+	 */
+	EClass getStyle();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.obeonetwork.dsl.cinematic.toolkits.Style#getDecorator <em>Decorator</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Decorator</em>'.
+	 * @see org.obeonetwork.dsl.cinematic.toolkits.Style#getDecorator()
+	 * @see #getStyle()
+	 * @generated
+	 */
+	EAttribute getStyle_Decorator();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.obeonetwork.dsl.cinematic.toolkits.Style#getDecoratorPosition <em>Decorator Position</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Decorator Position</em>'.
+	 * @see org.obeonetwork.dsl.cinematic.toolkits.Style#getDecoratorPosition()
+	 * @see #getStyle()
+	 * @generated
+	 */
+	EAttribute getStyle_DecoratorPosition();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.obeonetwork.dsl.cinematic.toolkits.Style#isDecoratorVFill <em>Decorator VFill</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Decorator VFill</em>'.
+	 * @see org.obeonetwork.dsl.cinematic.toolkits.Style#isDecoratorVFill()
+	 * @see #getStyle()
+	 * @generated
+	 */
+	EAttribute getStyle_DecoratorVFill();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.obeonetwork.dsl.cinematic.toolkits.Style#isDecoratorHFill <em>Decorator HFill</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Decorator HFill</em>'.
+	 * @see org.obeonetwork.dsl.cinematic.toolkits.Style#isDecoratorHFill()
+	 * @see #getStyle()
+	 * @generated
+	 */
+	EAttribute getStyle_DecoratorHFill();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.obeonetwork.dsl.cinematic.toolkits.Style#isBordered <em>Bordered</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Bordered</em>'.
+	 * @see org.obeonetwork.dsl.cinematic.toolkits.Style#isBordered()
+	 * @see #getStyle()
+	 * @generated
+	 */
+	EAttribute getStyle_Bordered();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.obeonetwork.dsl.cinematic.toolkits.Style#isRoundedCorners <em>Rounded Corners</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Rounded Corners</em>'.
+	 * @see org.obeonetwork.dsl.cinematic.toolkits.Style#isRoundedCorners()
+	 * @see #getStyle()
+	 * @generated
+	 */
+	EAttribute getStyle_RoundedCorners();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.obeonetwork.dsl.cinematic.toolkits.Style#getFontColor <em>Font Color</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Font Color</em>'.
+	 * @see org.obeonetwork.dsl.cinematic.toolkits.Style#getFontColor()
+	 * @see #getStyle()
+	 * @generated
+	 */
+	EAttribute getStyle_FontColor();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.obeonetwork.dsl.cinematic.toolkits.Style#isFontUnderlined <em>Font Underlined</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Font Underlined</em>'.
+	 * @see org.obeonetwork.dsl.cinematic.toolkits.Style#isFontUnderlined()
+	 * @see #getStyle()
+	 * @generated
+	 */
+	EAttribute getStyle_FontUnderlined();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.obeonetwork.dsl.cinematic.toolkits.Style#getLabelHAlignment <em>Label HAlignment</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Label HAlignment</em>'.
+	 * @see org.obeonetwork.dsl.cinematic.toolkits.Style#getLabelHAlignment()
+	 * @see #getStyle()
+	 * @generated
+	 */
+	EAttribute getStyle_LabelHAlignment();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.obeonetwork.dsl.cinematic.toolkits.Style#getDefaultWidth <em>Default Width</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Default Width</em>'.
+	 * @see org.obeonetwork.dsl.cinematic.toolkits.Style#getDefaultWidth()
+	 * @see #getStyle()
+	 * @generated
+	 */
+	EAttribute getStyle_DefaultWidth();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.obeonetwork.dsl.cinematic.toolkits.Style#getDefaultHeight <em>Default Height</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Default Height</em>'.
+	 * @see org.obeonetwork.dsl.cinematic.toolkits.Style#getDefaultHeight()
+	 * @see #getStyle()
+	 * @generated
+	 */
+	EAttribute getStyle_DefaultHeight();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.obeonetwork.dsl.cinematic.toolkits.Style#getExampleExpression <em>Example Expression</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Example Expression</em>'.
+	 * @see org.obeonetwork.dsl.cinematic.toolkits.Style#getExampleExpression()
+	 * @see #getStyle()
+	 * @generated
+	 */
+	EAttribute getStyle_ExampleExpression();
+
+	/**
+	 * Returns the meta object for enum '{@link org.obeonetwork.dsl.cinematic.toolkits.CardinalPosition <em>Cardinal Position</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for enum '<em>Cardinal Position</em>'.
+	 * @see org.obeonetwork.dsl.cinematic.toolkits.CardinalPosition
+	 * @generated
+	 */
+	EEnum getCardinalPosition();
+
+	/**
+	 * Returns the meta object for enum '{@link org.obeonetwork.dsl.cinematic.toolkits.HorizontalAlignment <em>Horizontal Alignment</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for enum '<em>Horizontal Alignment</em>'.
+	 * @see org.obeonetwork.dsl.cinematic.toolkits.HorizontalAlignment
+	 * @generated
+	 */
+	EEnum getHorizontalAlignment();
 
 	/**
 	 * Returns the factory that creates the instances of the model.
@@ -466,6 +877,46 @@ public interface ToolkitsPackage extends EPackage {
 		EAttribute WIDGET__IS_CONTAINER = eINSTANCE.getWidget_IsContainer();
 
 		/**
+		 * The meta object literal for the '<em><b>Style</b></em>' containment reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference WIDGET__STYLE = eINSTANCE.getWidget_Style();
+
+		/**
+		 * The meta object literal for the '<em><b>Metadata Keys</b></em>' attribute list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute WIDGET__METADATA_KEYS = eINSTANCE.getWidget_MetadataKeys();
+
+		/**
+		 * The meta object literal for the '<em><b>Metadata Help</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute WIDGET__METADATA_HELP = eINSTANCE.getWidget_MetadataHelp();
+
+		/**
+		 * The meta object literal for the '<em><b>Summary</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute WIDGET__SUMMARY = eINSTANCE.getWidget_Summary();
+
+		/**
+		 * The meta object literal for the '<em><b>Documentation</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute WIDGET__DOCUMENTATION = eINSTANCE.getWidget_Documentation();
+
+		/**
 		 * The meta object literal for the '{@link org.obeonetwork.dsl.cinematic.toolkits.impl.WidgetEventTypeImpl <em>Widget Event Type</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -482,6 +933,132 @@ public interface ToolkitsPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute WIDGET_EVENT_TYPE__NAME = eINSTANCE.getWidgetEventType_Name();
+
+		/**
+		 * The meta object literal for the '{@link org.obeonetwork.dsl.cinematic.toolkits.impl.StyleImpl <em>Style</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.obeonetwork.dsl.cinematic.toolkits.impl.StyleImpl
+		 * @see org.obeonetwork.dsl.cinematic.toolkits.impl.ToolkitsPackageImpl#getStyle()
+		 * @generated
+		 */
+		EClass STYLE = eINSTANCE.getStyle();
+
+		/**
+		 * The meta object literal for the '<em><b>Decorator</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute STYLE__DECORATOR = eINSTANCE.getStyle_Decorator();
+
+		/**
+		 * The meta object literal for the '<em><b>Decorator Position</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute STYLE__DECORATOR_POSITION = eINSTANCE.getStyle_DecoratorPosition();
+
+		/**
+		 * The meta object literal for the '<em><b>Decorator VFill</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute STYLE__DECORATOR_VFILL = eINSTANCE.getStyle_DecoratorVFill();
+
+		/**
+		 * The meta object literal for the '<em><b>Decorator HFill</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute STYLE__DECORATOR_HFILL = eINSTANCE.getStyle_DecoratorHFill();
+
+		/**
+		 * The meta object literal for the '<em><b>Bordered</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute STYLE__BORDERED = eINSTANCE.getStyle_Bordered();
+
+		/**
+		 * The meta object literal for the '<em><b>Rounded Corners</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute STYLE__ROUNDED_CORNERS = eINSTANCE.getStyle_RoundedCorners();
+
+		/**
+		 * The meta object literal for the '<em><b>Font Color</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute STYLE__FONT_COLOR = eINSTANCE.getStyle_FontColor();
+
+		/**
+		 * The meta object literal for the '<em><b>Font Underlined</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute STYLE__FONT_UNDERLINED = eINSTANCE.getStyle_FontUnderlined();
+
+		/**
+		 * The meta object literal for the '<em><b>Label HAlignment</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute STYLE__LABEL_HALIGNMENT = eINSTANCE.getStyle_LabelHAlignment();
+
+		/**
+		 * The meta object literal for the '<em><b>Default Width</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute STYLE__DEFAULT_WIDTH = eINSTANCE.getStyle_DefaultWidth();
+
+		/**
+		 * The meta object literal for the '<em><b>Default Height</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute STYLE__DEFAULT_HEIGHT = eINSTANCE.getStyle_DefaultHeight();
+
+		/**
+		 * The meta object literal for the '<em><b>Example Expression</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute STYLE__EXAMPLE_EXPRESSION = eINSTANCE.getStyle_ExampleExpression();
+
+		/**
+		 * The meta object literal for the '{@link org.obeonetwork.dsl.cinematic.toolkits.CardinalPosition <em>Cardinal Position</em>}' enum.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.obeonetwork.dsl.cinematic.toolkits.CardinalPosition
+		 * @see org.obeonetwork.dsl.cinematic.toolkits.impl.ToolkitsPackageImpl#getCardinalPosition()
+		 * @generated
+		 */
+		EEnum CARDINAL_POSITION = eINSTANCE.getCardinalPosition();
+
+		/**
+		 * The meta object literal for the '{@link org.obeonetwork.dsl.cinematic.toolkits.HorizontalAlignment <em>Horizontal Alignment</em>}' enum.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.obeonetwork.dsl.cinematic.toolkits.HorizontalAlignment
+		 * @see org.obeonetwork.dsl.cinematic.toolkits.impl.ToolkitsPackageImpl#getHorizontalAlignment()
+		 * @generated
+		 */
+		EEnum HORIZONTAL_ALIGNMENT = eINSTANCE.getHorizontalAlignment();
 
 	}
 

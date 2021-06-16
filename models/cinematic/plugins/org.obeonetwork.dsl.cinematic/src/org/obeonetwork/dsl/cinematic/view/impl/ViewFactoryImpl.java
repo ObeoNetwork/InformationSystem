@@ -11,6 +11,7 @@
 package org.obeonetwork.dsl.cinematic.view.impl;
 
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EDataType;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.impl.EFactoryImpl;
@@ -74,8 +75,39 @@ public class ViewFactoryImpl extends EFactoryImpl implements ViewFactory {
 			case ViewPackage.VIEW_ACTION: return (EObject)createViewAction();
 			case ViewPackage.VIEW_EVENT: return (EObject)createViewEvent();
 			case ViewPackage.VIEW_CONTAINER_REFERENCE: return (EObject)createViewContainerReference();
+			case ViewPackage.LAYOUT: return (EObject)createLayout();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
+		}
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Object createFromString(EDataType eDataType, String initialValue) {
+		switch (eDataType.getClassifierID()) {
+			case ViewPackage.LAYOUT_DIRECTION:
+				return createLayoutDirectionFromString(eDataType, initialValue);
+			default:
+				throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
+		}
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public String convertToString(EDataType eDataType, Object instanceValue) {
+		switch (eDataType.getClassifierID()) {
+			case ViewPackage.LAYOUT_DIRECTION:
+				return convertLayoutDirectionToString(eDataType, instanceValue);
+			default:
+				throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
 		}
 	}
 
@@ -127,6 +159,36 @@ public class ViewFactoryImpl extends EFactoryImpl implements ViewFactory {
 	public ViewContainerReference createViewContainerReference() {
 		ViewContainerReferenceImpl viewContainerReference = new ViewContainerReferenceImpl();
 		return viewContainerReference;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Layout createLayout() {
+		LayoutImpl layout = new LayoutImpl();
+		return layout;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public LayoutDirection createLayoutDirectionFromString(EDataType eDataType, String initialValue) {
+		LayoutDirection result = LayoutDirection.get(initialValue);
+		if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
+		return result;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String convertLayoutDirectionToString(EDataType eDataType, Object instanceValue) {
+		return instanceValue == null ? null : instanceValue.toString();
 	}
 
 	/**

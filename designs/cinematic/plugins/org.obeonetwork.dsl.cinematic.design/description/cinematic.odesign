@@ -24,7 +24,7 @@
         </ownedTools>
       </toolSection>
     </ownedRepresentations>
-    <ownedRepresentations xsi:type="description_1:DiagramDescription" name="Flow Diagram" titleExpression="[name + ' Flow Diagram'/]" domainClass="flow.Flow">
+    <ownedRepresentations xsi:type="description_1:DiagramDescription" name="Flow Diagram" titleExpression="[name + ' Flow Diagram'/]" domainClass="flow.Flow" enablePopupBars="true">
       <metamodel href="platform:/plugin/org.obeonetwork.dsl.cinematic/model/cinematic.ecore#//flow"/>
       <metamodel href="platform:/plugin/org.obeonetwork.dsl.cinematic/model/cinematic.ecore#/"/>
       <metamodel href="platform:/plugin/org.obeonetwork.dsl.cinematic/model/cinematic.ecore#//view"/>
@@ -39,70 +39,90 @@
       </diagramInitialisation>
       <defaultLayer name="Default">
         <nodeMappings name="FLD_InitialState" semanticCandidatesExpression="feature:states" domainClass="flow.InitialState">
-          <style xsi:type="style:WorkspaceImageDescription" showIcon="false" labelExpression="" sizeComputationExpression="-1" resizeKind="NSEW" arcWidth="1" arcHeight="1" workspacePath="/org.obeonetwork.dsl.cinematic.design/icons/viewpoint/initial_state.png">
+          <style xsi:type="style:WorkspaceImageDescription" labelSize="10" showIcon="false" labelExpression="" sizeComputationExpression="-1" resizeKind="NSEW" arcWidth="1" arcHeight="1" workspacePath="/org.obeonetwork.dsl.cinematic.design/icons/viewpoint/initial_state.png">
             <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
             <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
           </style>
         </nodeMappings>
         <nodeMappings name="FLD_FinalState" semanticCandidatesExpression="feature:states" domainClass="flow.FinalState">
-          <style xsi:type="style:WorkspaceImageDescription" showIcon="false" labelExpression="" sizeComputationExpression="-1" resizeKind="NSEW" arcWidth="1" arcHeight="1" workspacePath="/org.obeonetwork.dsl.cinematic.design/icons/viewpoint/final_state.png">
+          <style xsi:type="style:WorkspaceImageDescription" labelSize="10" showIcon="false" labelExpression="" sizeComputationExpression="-1" resizeKind="NSEW" arcWidth="1" arcHeight="1" workspacePath="/org.obeonetwork.dsl.cinematic.design/icons/viewpoint/final_state.png">
             <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
             <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
           </style>
         </nodeMappings>
         <nodeMappings name="FLD_AbortState" semanticCandidatesExpression="feature:states" domainClass="flow.AbortState">
-          <style xsi:type="style:WorkspaceImageDescription" showIcon="false" labelExpression="" sizeComputationExpression="-1" resizeKind="NSEW" arcWidth="1" arcHeight="1" workspacePath="/org.obeonetwork.dsl.cinematic.design/icons/viewpoint/abort_state.png">
+          <style xsi:type="style:WorkspaceImageDescription" labelSize="10" showIcon="false" labelExpression="" sizeComputationExpression="-1" resizeKind="NSEW" arcWidth="1" arcHeight="1" workspacePath="/org.obeonetwork.dsl.cinematic.design/icons/viewpoint/abort_state.png">
             <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
             <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
           </style>
         </nodeMappings>
-        <nodeMappings name="FLD_ViewState" labelDirectEdit="//@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='Reused%20Description']/@toolSection/@ownedTools[name='EDT_Common']" semanticCandidatesExpression="feature:states" domainClass="flow.ViewState">
+        <nodeMappings name="FLD_ViewState" labelDirectEdit="//@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='Reused%20Description']/@toolSection/@ownedTools[name='EDT_Common']" semanticCandidatesExpression="feature:states" doubleClickDescription="//@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='Flow%20Diagram']/@additionalLayers[name='View%20Containers']/@toolSections.1/@ownedTools[name='EditViewState']" domainClass="flow.ViewState">
           <borderedNodeMappings name="FLD_FakeNodeForViewContainerBinding" preconditionExpression="false" semanticCandidatesExpression="null" documentation="This fake bordered node is used to be able to specify a creation tool on it." domainClass="flow.ViewState">
-            <style xsi:type="style:SquareDescription" resizeKind="NSEW">
+            <style xsi:type="style:SquareDescription" sizeComputationExpression="4" resizeKind="NSEW">
               <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
               <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
               <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='gray']"/>
             </style>
           </borderedNodeMappings>
-          <style xsi:type="style:WorkspaceImageDescription" sizeComputationExpression="-1" labelPosition="node" resizeKind="NSEW" arcWidth="1" arcHeight="1" workspacePath="/org.obeonetwork.dsl.cinematic.design/icons/viewpoint/state.svg">
+          <style xsi:type="style:WorkspaceImageDescription" labelSize="10" sizeComputationExpression="15" labelPosition="node" resizeKind="NSEW" arcWidth="1" arcHeight="1" workspacePath="/org.obeonetwork.dsl.cinematic.design/icons/viewpoint/state.svg">
             <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            <labelFormat>bold</labelFormat>
             <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
           </style>
         </nodeMappings>
         <nodeMappings name="FLD_ActionState" labelDirectEdit="//@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='Reused%20Description']/@toolSection/@ownedTools[name='EDT_Common']" semanticCandidatesExpression="feature:states" domainClass="flow.ActionState">
-          <style xsi:type="style:WorkspaceImageDescription" sizeComputationExpression="-1" labelPosition="node" resizeKind="NSEW" arcWidth="1" arcHeight="1" workspacePath="/org.obeonetwork.dsl.cinematic.design/icons/viewpoint/state.svg">
+          <style xsi:type="style:WorkspaceImageDescription" labelSize="10" showIcon="false" sizeComputationExpression="5" resizeKind="NSEW" arcWidth="1" arcHeight="1" workspacePath="/org.obeonetwork.dsl.cinematic.design/icons/viewpoint/action.svg">
             <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            <labelFormat>bold</labelFormat>
             <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
           </style>
         </nodeMappings>
         <nodeMappings name="FLD_AsyncEventState" labelDirectEdit="//@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='Reused%20Description']/@toolSection/@ownedTools[name='EDT_Common']" semanticCandidatesExpression="feature:states" domainClass="flow.AsyncEventState">
-          <style xsi:type="style:WorkspaceImageDescription" sizeComputationExpression="-1" labelPosition="node" resizeKind="NSEW" arcWidth="1" arcHeight="1" workspacePath="/org.obeonetwork.dsl.cinematic.design/icons/viewpoint/state.svg">
+          <style xsi:type="style:WorkspaceImageDescription" labelSize="10" sizeComputationExpression="-1" labelPosition="node" resizeKind="NSEW" arcWidth="1" arcHeight="1" workspacePath="/org.obeonetwork.dsl.cinematic.design/icons/viewpoint/state.svg">
             <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
             <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
           </style>
         </nodeMappings>
         <nodeMappings name="FLD_SubflowState" detailDescriptions="//@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='Flow%20Diagram']/@defaultLayer/@toolSections.2/@ownedTools[name='CRE_Subflow_Diagram']" navigationDescriptions="//@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='Flow%20Diagram']/@defaultLayer/@toolSections.2/@ownedTools[name='Subflow%20Diagram']" labelDirectEdit="//@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='Reused%20Description']/@toolSection/@ownedTools[name='EDT_Common']" semanticCandidatesExpression="feature:states" doubleClickDescription="//@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='Flow%20Diagram']/@defaultLayer/@toolSections.2/@ownedTools[name='DBL_Nav_To_SubFlow_Diagram']" domainClass="flow.SubflowState">
-          <style xsi:type="style:WorkspaceImageDescription" sizeComputationExpression="-1" labelPosition="node" resizeKind="NSEW" arcWidth="1" arcHeight="1" workspacePath="/org.obeonetwork.dsl.cinematic.design/icons/viewpoint/state.svg">
+          <style xsi:type="style:WorkspaceImageDescription" labelSize="10" sizeComputationExpression="-1" labelPosition="node" resizeKind="NSEW" arcWidth="1" arcHeight="1" workspacePath="/org.obeonetwork.dsl.cinematic.design/icons/viewpoint/state.svg">
             <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            <labelFormat>bold</labelFormat>
             <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
           </style>
         </nodeMappings>
         <nodeMappings name="FLD_DecisionState" semanticCandidatesExpression="feature:states" domainClass="flow.DecisionState">
-          <style xsi:type="style:WorkspaceImageDescription" showIcon="false" labelExpression="" sizeComputationExpression="-1" labelPosition="node" resizeKind="NSEW" arcWidth="1" arcHeight="1" workspacePath="/org.obeonetwork.dsl.cinematic.design/icons/viewpoint/decision_state.svg">
+          <style xsi:type="style:WorkspaceImageDescription" labelSize="10" showIcon="false" labelExpression="" sizeComputationExpression="-1" labelPosition="node" resizeKind="NSEW" arcWidth="1" arcHeight="1" workspacePath="/org.obeonetwork.dsl.cinematic.design/icons/viewpoint/decision_state.svg">
             <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
             <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
           </style>
         </nodeMappings>
-        <edgeMappings name="FLD_Transition" labelDirectEdit="//@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='Reused%20Description']/@toolSection/@ownedTools[name='EDT_Common']" semanticCandidatesExpression="feature:transitions" sourceMapping="//@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='Flow%20Diagram']/@defaultLayer/@nodeMappings[name='FLD_AbortState'] //@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='Flow%20Diagram']/@defaultLayer/@nodeMappings[name='FLD_ActionState'] //@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='Flow%20Diagram']/@defaultLayer/@nodeMappings[name='FLD_AsyncEventState'] //@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='Flow%20Diagram']/@defaultLayer/@nodeMappings[name='FLD_DecisionState'] //@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='Flow%20Diagram']/@defaultLayer/@nodeMappings[name='FLD_FinalState'] //@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='Flow%20Diagram']/@defaultLayer/@nodeMappings[name='FLD_InitialState'] //@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='Flow%20Diagram']/@defaultLayer/@nodeMappings[name='FLD_SubflowState'] //@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='Flow%20Diagram']/@defaultLayer/@nodeMappings[name='FLD_ViewState']" targetMapping="//@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='Flow%20Diagram']/@defaultLayer/@nodeMappings[name='FLD_AbortState'] //@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='Flow%20Diagram']/@defaultLayer/@nodeMappings[name='FLD_ActionState'] //@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='Flow%20Diagram']/@defaultLayer/@nodeMappings[name='FLD_AsyncEventState'] //@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='Flow%20Diagram']/@defaultLayer/@nodeMappings[name='FLD_DecisionState'] //@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='Flow%20Diagram']/@defaultLayer/@nodeMappings[name='FLD_FinalState'] //@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='Flow%20Diagram']/@defaultLayer/@nodeMappings[name='FLD_InitialState'] //@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='Flow%20Diagram']/@defaultLayer/@nodeMappings[name='FLD_SubflowState'] //@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='Flow%20Diagram']/@defaultLayer/@nodeMappings[name='FLD_ViewState']" targetFinderExpression="feature:to" sourceFinderExpression="feature:from" targetExpression="var:self" domainClass="flow.Transition" useDomainElement="true" reconnections="//@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='Flow%20Diagram']/@defaultLayer/@toolSections.2/@ownedTools[name='REC_Transition_Target'] //@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='Flow%20Diagram']/@defaultLayer/@toolSections.2/@ownedTools[name='REC_Transition_Source']">
-          <style>
+        <edgeMappings name="FLD_Transition" labelDirectEdit="//@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='Flow%20Diagram']/@defaultLayer/@toolSections.2/@ownedTools[name='DE_Transition']" semanticCandidatesExpression="feature:transitions" doubleClickDescription="//@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='Flow%20Diagram']/@additionalLayers[name='View%20Containers']/@toolSections.1/@ownedTools[name='EditVewStateEvent']" sourceMapping="//@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='Flow%20Diagram']/@defaultLayer/@nodeMappings[name='FLD_AbortState'] //@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='Flow%20Diagram']/@defaultLayer/@nodeMappings[name='FLD_ActionState'] //@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='Flow%20Diagram']/@defaultLayer/@nodeMappings[name='FLD_AsyncEventState'] //@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='Flow%20Diagram']/@defaultLayer/@nodeMappings[name='FLD_DecisionState'] //@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='Flow%20Diagram']/@defaultLayer/@nodeMappings[name='FLD_FinalState'] //@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='Flow%20Diagram']/@defaultLayer/@nodeMappings[name='FLD_InitialState'] //@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='Flow%20Diagram']/@defaultLayer/@nodeMappings[name='FLD_SubflowState'] //@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='Flow%20Diagram']/@defaultLayer/@nodeMappings[name='FLD_ViewState']" targetMapping="//@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='Flow%20Diagram']/@defaultLayer/@nodeMappings[name='FLD_AbortState'] //@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='Flow%20Diagram']/@defaultLayer/@nodeMappings[name='FLD_ActionState'] //@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='Flow%20Diagram']/@defaultLayer/@nodeMappings[name='FLD_AsyncEventState'] //@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='Flow%20Diagram']/@defaultLayer/@nodeMappings[name='FLD_DecisionState'] //@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='Flow%20Diagram']/@defaultLayer/@nodeMappings[name='FLD_FinalState'] //@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='Flow%20Diagram']/@defaultLayer/@nodeMappings[name='FLD_InitialState'] //@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='Flow%20Diagram']/@defaultLayer/@nodeMappings[name='FLD_SubflowState'] //@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='Flow%20Diagram']/@defaultLayer/@nodeMappings[name='FLD_ViewState']" targetFinderExpression="feature:to" sourceFinderExpression="feature:from" targetExpression="var:self" domainClass="flow.Transition" useDomainElement="true" reconnections="//@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='Flow%20Diagram']/@defaultLayer/@toolSections.2/@ownedTools[name='REC_Transition_Target'] //@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='Flow%20Diagram']/@defaultLayer/@toolSections.2/@ownedTools[name='REC_Transition_Source']">
+          <style lineStyle="dash">
             <strokeColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
-            <centerLabelStyleDescription showIcon="false" labelExpression="service:getCinematicLabel">
+            <beginLabelStyleDescription showIcon="false" labelExpression="service:getGuardLabel">
+              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            </beginLabelStyleDescription>
+            <centerLabelStyleDescription labelExpression="service:getCinematicLabel" iconPath="/org.obeonetwork.dsl.cinematic.design/icons/viewpoint/event.gif">
               <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
             </centerLabelStyleDescription>
           </style>
-          <conditionnalStyles predicateExpression="service:getOnSize">
-            <style>
+          <conditionnalStyles predicateExpression="aql:self.from.oclIsKindOf(flow::ViewState) and self.to.oclIsKindOf(flow::ViewState)">
+            <style sizeComputationExpression="2">
               <strokeColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              <beginLabelStyleDescription showIcon="false" labelExpression="service:getGuardLabel">
+                <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              </beginLabelStyleDescription>
+              <centerLabelStyleDescription labelExpression="service:getCinematicLabel" iconPath="/org.obeonetwork.dsl.cinematic.design/icons/viewpoint/event.gif">
+                <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              </centerLabelStyleDescription>
+            </style>
+          </conditionnalStyles>
+          <conditionnalStyles predicateExpression="aql:self.from.oclIsKindOf(flow::ActionState) or self.to.oclIsKindOf(flow::ActionState)">
+            <style lineStyle="dash">
+              <strokeColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              <beginLabelStyleDescription showIcon="false" labelExpression="service:getGuardLabel">
+                <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              </beginLabelStyleDescription>
               <centerLabelStyleDescription labelExpression="service:getCinematicLabel" iconPath="/org.obeonetwork.dsl.cinematic.design/icons/viewpoint/event.gif">
                 <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
               </centerLabelStyleDescription>
@@ -130,7 +150,9 @@
             <initialOperation>
               <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:container">
                 <subModelOperations xsi:type="tool_1:CreateInstance" typeName="flow.ViewState" referenceName="states">
-                  <subModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="['View' + eContainer(cinematic::flow::Flow).states->filter(cinematic::flow::ViewState)->size()/]"/>
+                  <subModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="['View' + eContainer(cinematic::flow::Flow).states->filter(cinematic::flow::ViewState)->size()/]">
+                    <subModelOperations xsi:type="tool_1:ChangeContext" browseExpression="aql:instance.openViewContainerSelectionDialog()"/>
+                  </subModelOperations>
                 </subModelOperations>
               </firstModelOperations>
             </initialOperation>
@@ -285,19 +307,33 @@
             <containerViewVariable name="containerView"/>
             <representationNameVariable name="diagramName"/>
           </ownedTools>
+          <ownedTools xsi:type="tool:DirectEditLabel" name="DE_Transition" inputLabelExpression="aql:self.guard">
+            <mask mask="{0}"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:self"/>
+            </initialOperation>
+          </ownedTools>
+          <ownedTools xsi:type="tool:DoubleClickDescription" name="DBL_Nav_To_VVC_Diagram" mappings="//@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='Flow%20Diagram']/@additionalLayers[name='View%20Containers']/@containerMappings[name='FLD_ViewContainer'] //@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='Flow%20Diagram']/@additionalLayers[name='View%20Containers']/@containerMappings[name='FLD_ViewContainer']/@subNodeMappings[name='FLD_ViewContainer']">
+            <element name="element"/>
+            <elementView name="elementView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool:Navigation" createIfNotExistent="true" diagramDescription="//@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='View%20Container%20Mockup']"/>
+            </initialOperation>
+          </ownedTools>
         </toolSections>
       </defaultLayer>
       <additionalLayers name="Flow Events" activeByDefault="true">
         <containerMappings name="FLD_FlowEvents" deletionDescription="//@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='Flow%20Diagram']/@additionalLayers[name='Flow%20Events']/@toolSections.0/@ownedTools[name='DEL_PreventFlowDeletion']" semanticCandidatesExpression="var:self" domainClass="flow.Flow" childrenPresentation="List">
-          <subNodeMappings name="FLD_FlowEvent" labelDirectEdit="//@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='Reused%20Description']/@toolSection/@ownedTools[name='EDT_Common']" semanticCandidatesExpression="feature:events" domainClass="flow.FlowEvent">
+          <subNodeMappings name="FLD_FlowEvent" labelDirectEdit="//@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='Flow%20Diagram']/@additionalLayers[name='Flow%20Events']/@toolSections.1/@ownedTools[name='DE_FlowEvent']" semanticCandidatesExpression="feature:events" domainClass="flow.FlowEvent">
             <style xsi:type="style:SquareDescription" labelExpression="service:getCinematicLabel" labelAlignment="LEFT" resizeKind="NSEW">
               <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
               <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
               <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='gray']"/>
             </style>
           </subNodeMappings>
-          <style xsi:type="style:FlatContainerStyleDescription" arcWidth="1" arcHeight="1" borderSizeComputationExpression="1" labelExpression="Flow Events">
+          <style xsi:type="style:FlatContainerStyleDescription" arcWidth="1" arcHeight="1" borderSizeComputationExpression="1" labelSize="10" labelExpression="Flow Events">
             <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            <labelFormat>bold</labelFormat>
             <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
             <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_gray']"/>
             <foregroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
@@ -324,9 +360,17 @@
             </initialOperation>
           </ownedTools>
         </toolSections>
+        <toolSections name="Usability">
+          <ownedTools xsi:type="tool:DirectEditLabel" name="DE_FlowEvent" inputLabelExpression="aql:self.name">
+            <mask mask="{0}"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="var:arg0"/>
+            </initialOperation>
+          </ownedTools>
+        </toolSections>
       </additionalLayers>
       <additionalLayers name="View Containers" activeByDefault="true">
-        <edgeMappings name="FLD_ViewState_To_ViewContainer" deletionDescription="//@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='Flow%20Diagram']/@additionalLayers[name='View%20Containers']/@toolSections.1/@ownedTools[name='DEL_DissociateViewStateAndViewContainer']" sourceMapping="//@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='Flow%20Diagram']/@defaultLayer/@nodeMappings[name='FLD_ViewState']" targetMapping="//@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='Flow%20Diagram']/@additionalLayers[name='View%20Containers']/@containerMappings[name='FLD_ViewContainer']" targetFinderExpression="feature:viewContainers" targetExpression="var:self" reconnections="//@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='Flow%20Diagram']/@additionalLayers[name='View%20Containers']/@toolSections.1/@ownedTools[name='REC_ViewState_To_ViewContainer_Target'] //@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='Flow%20Diagram']/@additionalLayers[name='View%20Containers']/@toolSections.1/@ownedTools[name='REC_ViewState_To_ViewContainer_Source']">
+        <edgeMappings name="FLD_ViewState_To_ViewContainer" deletionDescription="//@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='Flow%20Diagram']/@additionalLayers[name='View%20Containers']/@toolSections.1/@ownedTools[name='DEL_DissociateViewStateAndViewContainer']" doubleClickDescription="//@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='Flow%20Diagram']/@additionalLayers[name='View%20Containers']/@toolSections.1/@ownedTools[name='EditVewStateEvent']" sourceMapping="//@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='Flow%20Diagram']/@defaultLayer/@nodeMappings[name='FLD_ViewState']" targetMapping="//@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='Flow%20Diagram']/@additionalLayers[name='View%20Containers']/@containerMappings[name='FLD_ViewContainer']" targetFinderExpression="feature:viewContainers" targetExpression="var:self" reconnections="//@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='Flow%20Diagram']/@additionalLayers[name='View%20Containers']/@toolSections.1/@ownedTools[name='REC_ViewState_To_ViewContainer_Target'] //@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='Flow%20Diagram']/@additionalLayers[name='View%20Containers']/@toolSections.1/@ownedTools[name='REC_ViewState_To_ViewContainer_Source']">
           <style lineStyle="dash" sizeComputationExpression="[eContents()->size()/]">
             <strokeColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='gray']"/>
             <centerLabelStyleDescription showIcon="false">
@@ -334,8 +378,8 @@
             </centerLabelStyleDescription>
           </style>
         </edgeMappings>
-        <containerMappings name="FLD_ViewContainer" detailDescriptions="//@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='Flow%20Diagram']/@additionalLayers[name='View%20Containers']/@toolSections.1/@ownedTools[name='CRE_UI_Structure']" navigationDescriptions="//@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='Flow%20Diagram']/@additionalLayers[name='View%20Containers']/@toolSections.1/@ownedTools[name='UI%20Structure']" labelDirectEdit="//@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='Reused%20Description']/@toolSection/@ownedTools[name='EDT_Common']" semanticCandidatesExpression="service:getStatesViewContainers" doubleClickDescription="//@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='Flow%20Diagram']/@additionalLayers[name='View%20Containers']/@toolSections.1/@ownedTools[name='DBL_Nav_To_UI_Structure']" domainClass="view.ViewContainer" childrenPresentation="List">
-          <subNodeMappings name="FLD_ViewContainer" semanticCandidatesExpression="feature:ownedElements" domainClass="view.ViewContainer">
+        <containerMappings name="FLD_ViewContainer" detailDescriptions="//@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='Flow%20Diagram']/@additionalLayers[name='View%20Containers']/@toolSections.1/@ownedTools[name='CRE_UI_Structure']" navigationDescriptions="//@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='Flow%20Diagram']/@additionalLayers[name='View%20Containers']/@toolSections.1/@ownedTools[name='UI%20Structure']" labelDirectEdit="//@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='Reused%20Description']/@toolSection/@ownedTools[name='EDT_Common']" semanticCandidatesExpression="service:getStatesViewContainers" doubleClickDescription="//@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='Flow%20Diagram']/@defaultLayer/@toolSections.2/@ownedTools[name='DBL_Nav_To_VVC_Diagram']" domainClass="view.ViewContainer" childrenPresentation="List">
+          <subNodeMappings name="FLD_ViewContainer" semanticCandidatesExpression="feature:ownedElements" doubleClickDescription="//@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='Flow%20Diagram']/@defaultLayer/@toolSections.2/@ownedTools[name='DBL_Nav_To_VVC_Diagram']" domainClass="view.ViewContainer">
             <style xsi:type="style:SquareDescription" labelExpression="service:getCinematicLabel" labelAlignment="LEFT" resizeKind="NSEW">
               <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
               <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
@@ -356,8 +400,9 @@
               <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='gray']"/>
             </style>
           </subNodeMappings>
-          <style xsi:type="style:FlatContainerStyleDescription" arcWidth="1" arcHeight="1" borderSizeComputationExpression="1" labelExpression="service:getCinematicLabel">
+          <style xsi:type="style:FlatContainerStyleDescription" arcWidth="1" arcHeight="1" borderSizeComputationExpression="1" labelSize="10" labelExpression="service:getCinematicLabel">
             <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            <labelFormat>bold</labelFormat>
             <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
             <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_orange']"/>
             <foregroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
@@ -465,13 +510,27 @@
             <containerVariable/>
             <representationNameVariable/>
           </ownedTools>
-          <ownedTools xsi:type="tool:DoubleClickDescription" name="DBL_Nav_To_UI_Structure" mappings="//@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='Flow%20Diagram']/@additionalLayers[name='View%20Containers']/@containerMappings[name='FLD_ViewContainer']">
+          <ownedTools xsi:type="tool:DoubleClickDescription" name="DBL_Nav_To_UI_Structure">
             <element name="element"/>
             <elementView name="elementView"/>
             <initialOperation>
               <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="[element.eContainer(cinematic::AbstractPackage)/]">
                 <subModelOperations xsi:type="tool:Navigation" createIfNotExistent="true" diagramDescription="//@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='Package%20Diagram']"/>
               </firstModelOperations>
+            </initialOperation>
+          </ownedTools>
+          <ownedTools xsi:type="tool:DoubleClickDescription" name="EditViewState" mappings="//@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='Flow%20Diagram']/@defaultLayer/@nodeMappings[name='FLD_ViewState']">
+            <element name="element"/>
+            <elementView name="elementView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="aql:element.openViewContainerSelectionDialog()"/>
+            </initialOperation>
+          </ownedTools>
+          <ownedTools xsi:type="tool:DoubleClickDescription" name="EditVewStateEvent" mappings="//@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='Flow%20Diagram']/@additionalLayers[name='View%20Containers']/@edgeMappings[name='FLD_ViewState_To_ViewContainer'] //@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='Flow%20Diagram']/@defaultLayer/@edgeMappings[name='FLD_Transition']">
+            <element name="element"/>
+            <elementView name="elementView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="aql:self.target.openEventSelectionDialog()"/>
             </initialOperation>
           </ownedTools>
         </toolSections>
@@ -492,7 +551,7 @@
             <labelBorderStyle href="environment:/viewpoint#//@labelBorderStyles/@labelBorderStyleDescriptions.0"/>
           </style>
         </containerMappings>
-        <containerMappings name="PAD_ViewContainer" detailDescriptions="//@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='Package%20Diagram']/@defaultLayer/@toolSections.1/@ownedTools[name='CRE_UI_Structure']" navigationDescriptions="//@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='Package%20Diagram']/@defaultLayer/@toolSections.1/@ownedTools[name='NAV_UI_Structure']" labelDirectEdit="//@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='Reused%20Description']/@toolSection/@ownedTools[name='EDT_Common']" semanticCandidatesExpression="feature:viewContainers" doubleClickDescription="//@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='Package%20Diagram']/@defaultLayer/@toolSections.1/@ownedTools[name='DBL_Nav_To_UI_Structure']" domainClass="view.ViewContainer" reusedNodeMappings="//@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='Flow%20Diagram']/@additionalLayers[name='View%20Containers']/@containerMappings[name='FLD_ViewContainer']/@subNodeMappings[name='FLD_ViewContainer'] //@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='Flow%20Diagram']/@additionalLayers[name='View%20Containers']/@containerMappings[name='FLD_ViewContainer']/@subNodeMappings[name='FLD_ViewElement'] //@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='Flow%20Diagram']/@additionalLayers[name='View%20Containers']/@containerMappings[name='FLD_ViewContainer']/@subNodeMappings[name='FLD_ViewContainerReference']" childrenPresentation="List">
+        <containerMappings name="PAD_ViewContainer" detailDescriptions="//@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='Package%20Diagram']/@defaultLayer/@toolSections.1/@ownedTools[name='CRE_UI_Structure'] //@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='Package%20Diagram']/@defaultLayer/@toolSections.1/@ownedTools[name='ViewContainer%20Diagram']" navigationDescriptions="//@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='Package%20Diagram']/@defaultLayer/@toolSections.1/@ownedTools[name='NAV_UI_Structure']" labelDirectEdit="//@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='Reused%20Description']/@toolSection/@ownedTools[name='EDT_Common']" semanticCandidatesExpression="feature:viewContainers" doubleClickDescription="//@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='Package%20Diagram']/@defaultLayer/@toolSections.1/@ownedTools[name='DBL_Nav_To_ViewContainer_Diagram']" domainClass="view.ViewContainer" reusedNodeMappings="//@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='Flow%20Diagram']/@additionalLayers[name='View%20Containers']/@containerMappings[name='FLD_ViewContainer']/@subNodeMappings[name='FLD_ViewContainer'] //@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='Flow%20Diagram']/@additionalLayers[name='View%20Containers']/@containerMappings[name='FLD_ViewContainer']/@subNodeMappings[name='FLD_ViewElement'] //@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='Flow%20Diagram']/@additionalLayers[name='View%20Containers']/@containerMappings[name='FLD_ViewContainer']/@subNodeMappings[name='FLD_ViewContainerReference']" childrenPresentation="List">
           <style xsi:type="style:FlatContainerStyleDescription" arcWidth="1" arcHeight="1" borderSizeComputationExpression="1" labelExpression="service:getCinematicLabel">
             <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
             <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
@@ -500,7 +559,7 @@
             <foregroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
           </style>
         </containerMappings>
-        <containerMappings name="PAD_Flow" labelDirectEdit="//@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='Reused%20Description']/@toolSection/@ownedTools[name='EDT_Common']" semanticCandidatesExpression="feature:flows" doubleClickDescription="//@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='Package%20Diagram']/@defaultLayer/@toolSections.1/@ownedTools[name='DBL_Nav_To_Flow_Diagram']" domainClass="flow.Flow">
+        <containerMappings name="PAD_Flow" detailDescriptions="//@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='Package%20Diagram']/@defaultLayer/@toolSections.1/@ownedTools[name='CRE_Flow_Diagram']" labelDirectEdit="//@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='Reused%20Description']/@toolSection/@ownedTools[name='EDT_Common']" semanticCandidatesExpression="feature:flows" doubleClickDescription="//@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='Package%20Diagram']/@defaultLayer/@toolSections.1/@ownedTools[name='DBL_Nav_To_Flow_Diagram']" domainClass="flow.Flow">
           <style xsi:type="style:FlatContainerStyleDescription" arcWidth="1" arcHeight="1" borderSizeComputationExpression="1">
             <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
             <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
@@ -584,7 +643,7 @@
             <containerViewVariable/>
             <representationNameVariable/>
           </ownedTools>
-          <ownedTools xsi:type="tool:DoubleClickDescription" name="DBL_Nav_To_UI_Structure" mappings="//@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='Package%20Diagram']/@defaultLayer/@containerMappings[name='PAD_ViewContainer']">
+          <ownedTools xsi:type="tool:DoubleClickDescription" name="DBL_Nav_To_UI_Structure">
             <element name="element"/>
             <elementView name="elementView"/>
             <initialOperation>
@@ -597,6 +656,22 @@
             <containerViewVariable/>
             <containerVariable/>
             <representationNameVariable/>
+          </ownedTools>
+          <ownedTools xsi:type="tool:DiagramCreationDescription" name="ViewContainer Diagram" diagramDescription="//@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='View%20Container%20Mockup']">
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:self"/>
+            </initialOperation>
+            <containerViewVariable name="containerView"/>
+            <representationNameVariable name="diagramName"/>
+          </ownedTools>
+          <ownedTools xsi:type="tool:DoubleClickDescription" name="DBL_Nav_To_ViewContainer_Diagram" mappings="//@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='Package%20Diagram']/@defaultLayer/@containerMappings[name='PAD_ViewContainer']">
+            <element name="element"/>
+            <elementView name="elementView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:element">
+                <subModelOperations xsi:type="tool:Navigation" createIfNotExistent="true" diagramDescription="//@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='View%20Container%20Mockup']"/>
+              </firstModelOperations>
+            </initialOperation>
           </ownedTools>
         </toolSections>
       </defaultLayer>
@@ -677,6 +752,7 @@
               <subModelOperations xsi:type="tool_1:CreateInstance" typeName="view.ViewContainer" referenceName="viewContainers">
                 <subModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="['ViewContainer' + eContainer(cinematic::AbstractPackage).viewContainers->size()/]"/>
                 <subModelOperations xsi:type="tool_1:SetValue" featureName="widget" valueExpression="service:getWidgetHavePropertyIsContainer(selectedType)"/>
+                <subModelOperations xsi:type="tool_1:SetValue" featureName="metadatas" valueExpression="service:getWidgetMetadatas()"/>
               </subModelOperations>
             </firstModelOperation>
             <variables name="root" documentation="The semantic element of the tree."/>
@@ -728,6 +804,7 @@
                 <subModelOperations xsi:type="tool_1:CreateInstance" typeName="view.ViewContainer" referenceName="ownedElements">
                   <subModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="['ViewContainer'+eContainer(cinematic::view::ViewContainer).viewContainers->size()/]"/>
                   <subModelOperations xsi:type="tool_1:SetValue" featureName="widget" valueExpression="service:getWidgetHavePropertyIsContainer(selectedType)"/>
+                  <subModelOperations xsi:type="tool_1:SetValue" featureName="metadatas" valueExpression="service:getWidgetMetadatas()"/>
                 </subModelOperations>
               </firstModelOperation>
               <variables name="root" documentation="The semantic element of the tree."/>
@@ -742,6 +819,7 @@
                 <subModelOperations xsi:type="tool_1:CreateInstance" typeName="view.ViewElement" referenceName="ownedElements">
                   <subModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="['viewElement'+eContainer(cinematic::view::ViewContainer).ownedElements->filter(cinematic::view::ViewElement)->size()/]"/>
                   <subModelOperations xsi:type="tool_1:SetValue" featureName="widget" valueExpression="[getWidgetHavePropertyIsNotContainer(selectedType)/]"/>
+                  <subModelOperations xsi:type="tool_1:SetValue" featureName="metadatas" valueExpression="service:getWidgetMetadatas()"/>
                 </subModelOperations>
               </firstModelOperation>
               <variables name="root" documentation="The semantic element of the tree."/>
@@ -1002,6 +1080,7 @@
               <subModelOperations xsi:type="tool_1:CreateInstance" typeName="view.ViewContainer" referenceName="ownedElements">
                 <subModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="['ViewContainer'+eContainer(cinematic::view::ViewContainer).viewContainers->size()/]"/>
                 <subModelOperations xsi:type="tool_1:SetValue" featureName="widget" valueExpression="service:getWidgetHavePropertyIsContainer(selectedType)"/>
+                <subModelOperations xsi:type="tool_1:SetValue" featureName="metadatas" valueExpression="service:getWidgetMetadatas()"/>
               </subModelOperations>
             </firstModelOperation>
             <variables name="root" documentation="The semantic element of the tree."/>
@@ -1016,6 +1095,7 @@
               <subModelOperations xsi:type="tool_1:CreateInstance" typeName="view.ViewElement" referenceName="ownedElements">
                 <subModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="['viewElement'+eContainer(cinematic::view::ViewContainer).ownedElements->filter(cinematic::view::ViewElement)->size()/]"/>
                 <subModelOperations xsi:type="tool_1:SetValue" featureName="widget" valueExpression="[getWidgetHavePropertyIsNotContainer(selectedType)/]"/>
+                <subModelOperations xsi:type="tool_1:SetValue" featureName="metadatas" valueExpression="service:getWidgetMetadatas()"/>
               </subModelOperations>
             </firstModelOperation>
             <variables name="root" documentation="The semantic element of the tree."/>
@@ -1121,6 +1201,7 @@
             <subModelOperations xsi:type="tool_1:CreateInstance" typeName="view.ViewContainer" referenceName="viewContainers">
               <subModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="['ViewContainer' + eContainer(cinematic::AbstractPackage).viewContainers->size()/]"/>
               <subModelOperations xsi:type="tool_1:SetValue" featureName="widget" valueExpression="service:getWidgetHavePropertyIsContainer(selectedType)"/>
+              <subModelOperations xsi:type="tool_1:SetValue" featureName="metadatas" valueExpression="service:getWidgetMetadatas()"/>
             </subModelOperations>
           </firstModelOperation>
           <variables name="root" documentation="The semantic element of the tree."/>
@@ -1140,6 +1221,183 @@
         </create>
       </subItemMappings>
     </ownedRepresentations>
+    <ownedRepresentations xsi:type="description_1:DiagramDescription" name="View Container Mockup" titleExpression="aql:self.name+' View Container Mockup'" domainClass="view::ViewContainer" enablePopupBars="true">
+      <defaultLayer name="Default">
+        <containerMappings name="VCD_RootViewContainer" semanticCandidatesExpression="aql:self.buildWidgetPalette()" domainClass="view::ViewContainer" dropDescriptions="//@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='View%20Container%20Mockup']/@defaultLayer/@toolSections.3/@ownedTools[name='DND_ViewContainer']">
+          <subContainerMappings name="VCD_ViewElement" semanticCandidatesExpression="aql:self.ownedElements" domainClass="view::ViewElement">
+            <style xsi:type="style:FlatContainerStyleDescription" arcWidth="20" arcHeight="20" borderSizeComputationExpression="aql:self.getBorderSize()" labelSize="12" showIcon="false" labelExpression="aql:self.getVCDLabel()" labelColor="//@userColorsPalettes[name=null]/@entries[name='VCD_ViewElement_LabelColor']">
+              <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
+              <foregroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
+            </style>
+          </subContainerMappings>
+          <subContainerMappings name="VCD_ViewContainer" detailDescriptions="//@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='View%20Container%20Mockup']/@defaultLayer/@toolSections.3/@ownedTools[name='View%20Container']" semanticCandidatesExpression="aql:self.ownedElements" doubleClickDescription="//@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='View%20Container%20Mockup']/@defaultLayer/@toolSections.3/@ownedTools[name='VCD_Nav_to_ViewContainer_Diagram']" domainClass="view::ViewContainer" dropDescriptions="//@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='View%20Container%20Mockup']/@defaultLayer/@toolSections.3/@ownedTools[name='DND_ViewContainer']" reusedContainerMappings="//@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='View%20Container%20Mockup']/@defaultLayer/@containerMappings[name='VCD_RootViewContainer']/@subContainerMappings[name='VCD_ViewContainer'] //@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='View%20Container%20Mockup']/@defaultLayer/@containerMappings[name='VCD_RootViewContainer']/@subContainerMappings[name='VCD_ViewContainerReference'] //@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='View%20Container%20Mockup']/@defaultLayer/@containerMappings[name='VCD_RootViewContainer']/@subContainerMappings[name='VCD_ViewElement']">
+            <style xsi:type="style:FlatContainerStyleDescription" arcWidth="20" arcHeight="20" borderSizeComputationExpression="aql:self.getBorderSize()" labelSize="12" showIcon="false" labelExpression="aql:self.getVCDLabel()" labelColor="//@userColorsPalettes[name=null]/@entries[name='VCD_ViewElement_LabelColor']" backgroundStyle="GradientTopToBottom">
+              <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
+              <foregroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
+              <labelBorderStyle href="environment:/viewpoint#//@labelBorderStyles/@labelBorderStyleDescriptions.1"/>
+            </style>
+          </subContainerMappings>
+          <subContainerMappings name="VCD_ViewContainerReference" semanticCandidatesExpression="aql:self.ownedElements" doubleClickDescription="//@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='View%20Container%20Mockup']/@defaultLayer/@toolSections.3/@ownedTools[name='VCD_Nav_to_Reused_ViewContainer_Diagram']" domainClass="view::ViewContainerReference">
+            <style xsi:type="style:FlatContainerStyleDescription" arcWidth="20" arcHeight="20" borderSizeComputationExpression="1" labelSize="12" showIcon="false" labelExpression="aql:self.getVCDLabel()" backgroundStyle="GradientTopToBottom">
+              <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='gray']"/>
+              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='gray']"/>
+              <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
+              <foregroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
+            </style>
+          </subContainerMappings>
+          <style xsi:type="style:FlatContainerStyleDescription" arcWidth="20" arcHeight="20" borderSizeComputationExpression="aql:self.getBorderSize()" labelSize="12" showIcon="false" labelExpression="aql:self.getVCDLabel()" labelColor="//@userColorsPalettes[name=null]/@entries[name='VCD_ViewElement_LabelColor']" backgroundStyle="GradientTopToBottom">
+            <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
+            <foregroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
+            <labelBorderStyle href="environment:/viewpoint#//@labelBorderStyles/@labelBorderStyleDescriptions.1"/>
+          </style>
+        </containerMappings>
+        <toolSections name="Containers">
+          <ownedTools xsi:type="tool:ContainerCreationDescription" documentation="container documentation" name="CRE_ViewContainer{{container}}" label="{{container}}" containerMappings="//@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='View%20Container%20Mockup']/@defaultLayer/@containerMappings[name='VCD_RootViewContainer']/@subContainerMappings[name='VCD_ViewContainer']" iconPath="/org.obeonetwork.dsl.cinematic/icons/{{container}}.gif">
+            <variable name="container"/>
+            <viewVariable name="containerView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:container">
+                <subModelOperations xsi:type="tool_1:CreateInstance" typeName="view::ViewContainer" referenceName="ownedElements">
+                  <subModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="aql:'viewElement'+self.eContainer(view::ViewContainer).ownedElements->filter(view::ViewContainer)->size()"/>
+                  <subModelOperations xsi:type="tool_1:SetValue" featureName="widget" valueExpression="aql:self.getWidgetByName('{{container}}')"/>
+                  <subModelOperations xsi:type="tool_1:SetValue" featureName="metadatas" valueExpression="service:getWidgetMetadatas()"/>
+                  <subModelOperations xsi:type="tool:CreateView" mapping="//@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='View%20Container%20Mockup']/@defaultLayer/@containerMappings[name='VCD_RootViewContainer']/@subContainerMappings[name='VCD_ViewContainer']" containerViewExpression="var:containerView">
+                    <subModelOperations xsi:type="tool_1:ChangeContext" browseExpression="aql:createdView.setDefaultSize()"/>
+                  </subModelOperations>
+                </subModelOperations>
+              </firstModelOperations>
+            </initialOperation>
+          </ownedTools>
+        </toolSections>
+        <toolSections name="Widgets">
+          <ownedTools xsi:type="tool:ContainerCreationDescription" name="CRE_ViewElement{{widget}}" label="{{widget}}" containerMappings="//@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='View%20Container%20Mockup']/@defaultLayer/@containerMappings[name='VCD_RootViewContainer']/@subContainerMappings[name='VCD_ViewElement']" iconPath="/org.obeonetwork.dsl.cinematic/icons/{{widget}}.gif">
+            <variable name="container"/>
+            <viewVariable name="containerView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:container">
+                <subModelOperations xsi:type="tool_1:CreateInstance" typeName="view::ViewElement" referenceName="ownedElements">
+                  <subModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="aql:'viewElement'+self.eContainer(view::ViewContainer).ownedElements->filter(view::ViewElement)->size()"/>
+                  <subModelOperations xsi:type="tool_1:SetValue" featureName="widget" valueExpression="aql:self.getWidgetByName('{{widget}}')"/>
+                  <subModelOperations xsi:type="tool_1:SetValue" featureName="metadatas" valueExpression="service:getWidgetMetadatas()"/>
+                  <subModelOperations xsi:type="tool:CreateView" mapping="//@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='View%20Container%20Mockup']/@defaultLayer/@containerMappings[name='VCD_RootViewContainer']/@subContainerMappings[name='VCD_ViewElement']" containerViewExpression="var:containerView">
+                    <subModelOperations xsi:type="tool_1:ChangeContext" browseExpression="aql:createdView.setDefaultSize()"/>
+                  </subModelOperations>
+                </subModelOperations>
+              </firstModelOperations>
+            </initialOperation>
+          </ownedTools>
+        </toolSections>
+        <toolSections name="Reuse">
+          <ownedTools xsi:type="tool:ContainerCreationDescription" name="CRE_ViewContainerReference" label="View Container Reference" containerMappings="//@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='View%20Container%20Mockup']/@defaultLayer/@containerMappings[name='VCD_RootViewContainer']/@subContainerMappings[name='VCD_ViewContainerReference']">
+            <variable name="container">
+              <subVariables xsi:type="tool_1:AcceleoVariable" name="allContainers" computationExpression="aql:container.getAllRootsForCinematic()->collect(e | e.eAllContents(view::ViewContainer))"/>
+              <subVariables xsi:type="tool_1:AcceleoVariable" name="allCandidates" computationExpression="aql:self.getViewContainersPossible(allContainers)"/>
+              <subVariables xsi:type="tool_1:SelectModelElementVariable" name="selectedElement" candidatesExpression="var:allCandidates" tree="true" rootExpression="aql:allCandidates->select(e|e.eContainer() = null or (not allCandidates->includes(e.eContainer())))" childrenExpression="feature:eContents" message="Select a view container to reference"/>
+            </variable>
+            <viewVariable name="containerView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:container">
+                <subModelOperations xsi:type="tool_1:CreateInstance" typeName="view::ViewContainerReference" referenceName="ownedElements">
+                  <subModelOperations xsi:type="tool_1:SetValue" featureName="viewContainer" valueExpression="var:selectedElement"/>
+                  <subModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="aql:selectedElement.oclAsType(view::ViewContainer).name.toLowerFirst()"/>
+                </subModelOperations>
+              </firstModelOperations>
+            </initialOperation>
+          </ownedTools>
+        </toolSections>
+        <toolSections name="Usability">
+          <ownedTools xsi:type="tool:DiagramCreationDescription" name="View Container" diagramDescription="//@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='View%20Container%20Mockup']">
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:self"/>
+            </initialOperation>
+            <containerViewVariable name="containerView"/>
+            <representationNameVariable name="diagramName"/>
+          </ownedTools>
+          <ownedTools xsi:type="tool:DoubleClickDescription" name="VCD_Nav_to_ViewContainer_Diagram" mappings="//@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='View%20Container%20Mockup']/@defaultLayer/@containerMappings[name='VCD_RootViewContainer']/@subContainerMappings[name='VCD_ViewContainer']">
+            <element name="element"/>
+            <elementView name="elementView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool:Navigation" createIfNotExistent="true" diagramDescription="//@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='View%20Container%20Mockup']"/>
+            </initialOperation>
+          </ownedTools>
+          <ownedTools xsi:type="tool:DoubleClickDescription" name="VCD_Nav_to_Reused_ViewContainer_Diagram" mappings="//@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='View%20Container%20Mockup']/@defaultLayer/@containerMappings[name='VCD_RootViewContainer']/@subContainerMappings[name='VCD_ViewContainerReference']">
+            <element name="element"/>
+            <elementView name="elementView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="aql:element.viewContainer">
+                <subModelOperations xsi:type="tool:Navigation" createIfNotExistent="true" diagramDescription="//@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='View%20Container%20Mockup']"/>
+              </firstModelOperations>
+            </initialOperation>
+          </ownedTools>
+          <ownedTools xsi:type="tool:ContainerDropDescription" name="DND_ViewContainer" precondition="aql:element.isDropAllowedForCinematicElementOn(newContainer)" mappings="//@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='View%20Container%20Mockup']/@defaultLayer/@containerMappings[name='VCD_RootViewContainer']/@subContainerMappings[name='VCD_ViewContainer'] //@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='View%20Container%20Mockup']/@defaultLayer/@containerMappings[name='VCD_RootViewContainer']/@subContainerMappings[name='VCD_ViewContainerReference'] //@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='View%20Container%20Mockup']/@defaultLayer/@containerMappings[name='VCD_RootViewContainer']/@subContainerMappings[name='VCD_ViewElement']">
+            <oldContainer name="oldSemanticContainer"/>
+            <newContainer name="newSemanticContainer"/>
+            <element name="element"/>
+            <newViewContainer name="newContainerView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="aql:element.dropOnCinematicContainer(newSemanticContainer)"/>
+            </initialOperation>
+          </ownedTools>
+        </toolSections>
+        <decorationDescriptionsSet>
+          <decorationDescriptions xsi:type="description_1:MappingBasedDecoration" name="VCD_WidgetDecorator_West" position="WEST" distributionDirection="HORIZONTAL" preconditionExpression="aql:self.hasWidgetDecoration('WEST')" imageExpression="aql:self.getWidgetDecoratorFigure('WEST', containerView)" mappings="//@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='View%20Container%20Mockup']/@defaultLayer/@containerMappings[name='VCD_RootViewContainer']/@subContainerMappings[name='VCD_ViewElement'] //@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='View%20Container%20Mockup']/@defaultLayer/@containerMappings[name='VCD_RootViewContainer']/@subContainerMappings[name='VCD_ViewContainer'] //@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='View%20Container%20Mockup']/@defaultLayer/@containerMappings[name='VCD_RootViewContainer']"/>
+          <decorationDescriptions xsi:type="description_1:MappingBasedDecoration" name="VCD_WidgetDecorator_East" position="EAST" distributionDirection="HORIZONTAL" preconditionExpression="aql:self.hasWidgetDecoration('EAST')" imageExpression="aql:self.getWidgetDecoratorFigure('EAST', containerView)" mappings="//@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='View%20Container%20Mockup']/@defaultLayer/@containerMappings[name='VCD_RootViewContainer']/@subContainerMappings[name='VCD_ViewElement'] //@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='View%20Container%20Mockup']/@defaultLayer/@containerMappings[name='VCD_RootViewContainer']/@subContainerMappings[name='VCD_ViewContainer'] //@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='View%20Container%20Mockup']/@defaultLayer/@containerMappings[name='VCD_RootViewContainer']"/>
+          <decorationDescriptions xsi:type="description_1:MappingBasedDecoration" name="VCD_WidgetDecorator_NorthWest" position="NORTH_WEST" distributionDirection="HORIZONTAL" preconditionExpression="aql:self.hasWidgetDecoration('NORTH_WEST')" imageExpression="aql:self.getWidgetDecoratorFigure('NORTH_WEST', containerView)" mappings="//@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='View%20Container%20Mockup']/@defaultLayer/@containerMappings[name='VCD_RootViewContainer']/@subContainerMappings[name='VCD_ViewElement'] //@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='View%20Container%20Mockup']/@defaultLayer/@containerMappings[name='VCD_RootViewContainer']/@subContainerMappings[name='VCD_ViewContainer'] //@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='View%20Container%20Mockup']/@defaultLayer/@containerMappings[name='VCD_RootViewContainer']"/>
+          <decorationDescriptions xsi:type="description_1:MappingBasedDecoration" name="VCD_WidgetDecorator_NorthEast" position="NORTH_EAST" distributionDirection="HORIZONTAL" preconditionExpression="aql:self.hasWidgetDecoration('NORTH_EAST')" imageExpression="aql:self.getWidgetDecoratorFigure('NORTH_EAST', containerView)" mappings="//@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='View%20Container%20Mockup']/@defaultLayer/@containerMappings[name='VCD_RootViewContainer']/@subContainerMappings[name='VCD_ViewElement'] //@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='View%20Container%20Mockup']/@defaultLayer/@containerMappings[name='VCD_RootViewContainer']/@subContainerMappings[name='VCD_ViewContainer'] //@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='View%20Container%20Mockup']/@defaultLayer/@containerMappings[name='VCD_RootViewContainer']"/>
+        </decorationDescriptionsSet>
+        <customization>
+          <vsmElementCustomizations xsi:type="description:VSMElementCustomization" predicateExpression="aql:self.hasRoundedCorners()">
+            <featureCustomizations xsi:type="description:EAttributeCustomization" appliedOn="//@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='View%20Container%20Mockup']/@defaultLayer/@containerMappings[name='VCD_RootViewContainer']/@subContainerMappings[name='VCD_ViewElement']/@style //@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='View%20Container%20Mockup']/@defaultLayer/@containerMappings[name='VCD_RootViewContainer']/@subContainerMappings[name='VCD_ViewContainer']/@style //@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='View%20Container%20Mockup']/@defaultLayer/@containerMappings[name='VCD_RootViewContainer']/@style" attributeName="roundedCorner" value="aql:true"/>
+          </vsmElementCustomizations>
+          <vsmElementCustomizations xsi:type="description:VSMElementCustomization" predicateExpression="aql:self.isUnderlined()">
+            <featureCustomizations xsi:type="description:EAttributeCustomization" appliedOn="//@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='View%20Container%20Mockup']/@defaultLayer/@containerMappings[name='VCD_RootViewContainer']/@subContainerMappings[name='VCD_ViewElement']/@style //@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='View%20Container%20Mockup']/@defaultLayer/@containerMappings[name='VCD_RootViewContainer']/@subContainerMappings[name='VCD_ViewContainer']/@style //@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='View%20Container%20Mockup']/@defaultLayer/@containerMappings[name='VCD_RootViewContainer']/@style" attributeName="labelFormat" value="underline"/>
+          </vsmElementCustomizations>
+          <vsmElementCustomizations xsi:type="description:VSMElementCustomization" predicateExpression="aql:true">
+            <featureCustomizations xsi:type="description:EAttributeCustomization" appliedOn="//@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='View%20Container%20Mockup']/@defaultLayer/@containerMappings[name='VCD_RootViewContainer']/@subContainerMappings[name='VCD_ViewElement']/@style //@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='View%20Container%20Mockup']/@defaultLayer/@containerMappings[name='VCD_RootViewContainer']/@subContainerMappings[name='VCD_ViewContainer']/@style //@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='View%20Container%20Mockup']/@defaultLayer/@containerMappings[name='VCD_RootViewContainer']/@style" attributeName="labelAlignment" value="aql:self.getLabelHorizontalAlignment()"/>
+          </vsmElementCustomizations>
+        </customization>
+      </defaultLayer>
+      <additionalLayers name="Example">
+        <customization>
+          <vsmElementCustomizations xsi:type="description:VSMElementCustomization">
+            <featureCustomizations xsi:type="description:EAttributeCustomization" appliedOn="//@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='View%20Container%20Mockup']/@defaultLayer/@containerMappings[name='VCD_RootViewContainer']/@style //@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='View%20Container%20Mockup']/@defaultLayer/@containerMappings[name='VCD_RootViewContainer']/@subContainerMappings[name='VCD_ViewContainer']/@style //@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='View%20Container%20Mockup']/@defaultLayer/@containerMappings[name='VCD_RootViewContainer']/@subContainerMappings[name='VCD_ViewContainerReference']/@style //@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='View%20Container%20Mockup']/@defaultLayer/@containerMappings[name='VCD_RootViewContainer']/@subContainerMappings[name='VCD_ViewElement']/@style" attributeName="labelExpression" value="service:evaluateExampleExpression"/>
+          </vsmElementCustomizations>
+        </customization>
+      </additionalLayers>
+    </ownedRepresentations>
+    <ownedRepresentations xsi:type="description_1:DiagramDescription" name="Layout Diagram" titleExpression="aql:self.eContainer(cinematic::NamedElement).name+' Layout Diagram'" domainClass="view::Layout" enablePopupBars="true">
+      <defaultLayer name="Default">
+        <containerMappings name="LAD_Layout" semanticCandidatesExpression="aql:self" domainClass="view::Layout">
+          <subContainerMappings name="LAD_ChildLayout" semanticCandidatesExpression="aql:self.ownedLayouts" domainClass="view::Layout" reusedContainerMappings="//@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='Layout%20Diagram']/@defaultLayer/@containerMappings[name='LAD_Layout']/@subContainerMappings[name='LAD_ChildLayout']">
+            <style xsi:type="style:FlatContainerStyleDescription" borderSizeComputationExpression="2" labelSize="12" showIcon="false" labelExpression="service:getAbstractViewElementLabel">
+              <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='red']"/>
+              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
+              <foregroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
+            </style>
+          </subContainerMappings>
+          <style xsi:type="style:FlatContainerStyleDescription" borderSizeComputationExpression="2" labelSize="12" showIcon="false" labelExpression="service:getAbstractViewElementLabel">
+            <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='red']"/>
+            <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
+            <foregroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
+          </style>
+        </containerMappings>
+        <customization>
+          <vsmElementCustomizations xsi:type="description:VSMElementCustomization" predicateExpression="aql:self.direction=view::LayoutDirection::HORIZONTAL">
+            <featureCustomizations xsi:type="description:EReferenceCustomization" appliedOn="//@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='Layout%20Diagram']/@defaultLayer/@containerMappings[name='LAD_Layout']/@style //@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='Layout%20Diagram']/@defaultLayer/@containerMappings[name='LAD_Layout']/@subContainerMappings[name='LAD_ChildLayout']/@style" referenceName="borderColor">
+              <value href="environment:/viewpoint#//@systemColors/@entries[name='dark_green']"/>
+            </featureCustomizations>
+          </vsmElementCustomizations>
+          <vsmElementCustomizations xsi:type="description:VSMElementCustomization" predicateExpression="aql:self.viewElement=null">
+            <featureCustomizations xsi:type="description:EAttributeCustomization" appliedOn="//@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='Layout%20Diagram']/@defaultLayer/@containerMappings[name='LAD_Layout']/@style //@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='Layout%20Diagram']/@defaultLayer/@containerMappings[name='LAD_Layout']/@subContainerMappings[name='LAD_ChildLayout']/@style" attributeName="borderLineStyle" value="dash"/>
+          </vsmElementCustomizations>
+        </customization>
+      </defaultLayer>
+    </ownedRepresentations>
     <ownedJavaExtensions qualifiedClassName="org.obeonetwork.dsl.cinematic.design.services.CinematicLabelServices"/>
     <ownedJavaExtensions qualifiedClassName="org.obeonetwork.dsl.cinematic.design.services.CinematicEcoreServices"/>
     <ownedJavaExtensions qualifiedClassName="org.obeonetwork.dsl.cinematic.design.services.flows.FlowsUtil"/>
@@ -1150,7 +1408,12 @@
     <ownedJavaExtensions qualifiedClassName="org.obeonetwork.dsl.cinematic.design.services.CinematicFlowServices"/>
     <ownedJavaExtensions qualifiedClassName="org.obeonetwork.dsl.cinematic.design.services.view.ViewUtil"/>
     <ownedJavaExtensions qualifiedClassName="org.eclipse.sirius.common.tools.api.interpreter.StandardServices"/>
+    <ownedJavaExtensions qualifiedClassName="org.obeonetwork.dsl.cinematic.design.services.CinematicLayoutServices"/>
+    <ownedJavaExtensions qualifiedClassName="org.obeonetwork.dsl.cinematic.design.services.CinematicVCDLabelServices"/>
   </ownedViewpoints>
+  <userColorsPalettes>
+    <entries xsi:type="description:ComputedColor" name="VCD_ViewElement_LabelColor" red="aql:self.getLabelColorRed()" green="aql:self.getLabelColorGreen()" blue="aql:self.getLabelColorBlue()"/>
+  </userColorsPalettes>
   <extensions xsi:type="properties:ViewExtensionDescription" name="Properties">
     <metamodels href="http://www.obeonetwork.org/dsl/cinematic/3.0.0#/"/>
     <metamodels href="http://www.obeonetwork.org/dsl/cinematic/3.0.0#//flow"/>
@@ -1243,6 +1506,11 @@
       <groups name="Toolkits Group" labelExpression="Properties" domainClass="cinematic::CinematicRoot" semanticCandidateExpression="var:self">
         <controls xsi:type="properties:CustomDescription" name="org.obeonetwork.is.eef.custom.reference" label="cinematic::CinematicRoot toolkits" labelExpression="aql:input.emfEditServices(self).getText(self.eClass().getEStructuralFeature('toolkits')) + ':'" helpExpression="aql:input.emfEditServices(self).getDescription(self.eClass().getEStructuralFeature('toolkits'))" isEnabledExpression="aql:self.eClass().getEStructuralFeature('toolkits').changeable">
           <customExpressions name="referenceNameExpression" customExpression="aql:'toolkits'"/>
+          <customOperations name="browseButtonOperation">
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="aql:self.openToolkitSelectionWizard()"/>
+            </initialOperation>
+          </customOperations>
         </controls>
       </groups>
     </categories>
@@ -1252,6 +1520,7 @@
       <pages name="ViewElement Page" labelExpression="ViewElement" domainClass="view::ViewElement" semanticCandidateExpression="var:self" groups="//@extensions.0/@categories.1/@groups.3"/>
       <pages name="ViewContainer Page" labelExpression="ViewContainer" domainClass="view::ViewContainer" semanticCandidateExpression="var:self" groups="//@extensions.0/@categories.1/@groups.4"/>
       <pages name="ViewContainerReference Page" labelExpression="ViewContainerReference" domainClass="view::ViewContainerReference" semanticCandidateExpression="var:self" groups="//@extensions.0/@categories.1/@groups.5"/>
+      <pages name="Help Page" labelExpression="Help" domainClass="view::AbstractViewElement" semanticCandidateExpression="var:self" groups="//@extensions.0/@categories.1/@groups.6"/>
       <groups name="AbstractViewElement Group" documentation="The goal of this group is to hold widget that are meant to be extended by other widget like ViewElement Group, ViewContainer Group and ViewContainerReference Group." domainClass="view::AbstractViewElement">
         <controls xsi:type="properties:TextDescription" name="view::AbstractViewElement name" labelExpression="aql:input.emfEditServices(self).getText(self.eClass().getEStructuralFeature('name')) + ':'" helpExpression="aql:input.emfEditServices(self).getDescription(self.eClass().getEStructuralFeature('name'))" isEnabledExpression="aql:self.eClass().getEStructuralFeature('name').changeable" valueExpression="aql:self.name">
           <initialOperation>
@@ -1371,6 +1640,11 @@
         <controls xsi:type="properties:CustomDescription" name="org.obeonetwork.is.eef.custom.reference" label="view::ViewElement actions" labelExpression="aql:'Actions :'" helpExpression="aql:input.emfEditServices(self).getDescription(self.eClass().getEStructuralFeature('actions'))" isEnabledExpression="aql:self.eClass().getEStructuralFeature('actions').changeable" extends="//@extensions.0/@categories.1/@groups.0/@controls.3"/>
         <controls xsi:type="properties:CustomDescription" name="org.obeonetwork.is.eef.custom.reference" label="view::ViewElement events" labelExpression="aql:'Event :'" helpExpression="aql:input.emfEditServices(self).getDescription(self.eClass().getEStructuralFeature('events'))" isEnabledExpression="aql:self.eClass().getEStructuralFeature('events').changeable" extends="//@extensions.0/@categories.1/@groups.0/@controls.4"/>
         <controls xsi:type="properties:TextAreaDescription" name="view::ViewElement description" labelExpression="aql:input.emfEditServices(self).getText(self.eClass().getEStructuralFeature('description')) + ':'" helpExpression="aql:input.emfEditServices(self).getDescription(self.eClass().getEStructuralFeature('description'))" isEnabledExpression="aql:self.eClass().getEStructuralFeature('description').changeable" valueExpression="aql:self.description" extends="//@extensions.0/@categories.1/@groups.0/@controls.5"/>
+        <controls xsi:type="properties:TextAreaDescription" name="view::viewElement example" labelExpression="Example:" helpExpression="An example of the ViewElement" isEnabledExpression="aql:self.eClass().getEStructuralFeature('example').changeable" valueExpression="aql:self.example">
+          <initialOperation>
+            <firstModelOperations xsi:type="tool_1:SetValue" featureName="example" valueExpression="var:newValue"/>
+          </initialOperation>
+        </controls>
       </groups>
       <groups name="ViewContainer Group" labelExpression="Properties" domainClass="view::ViewContainer" semanticCandidateExpression="var:self">
         <controls xsi:type="properties:TextDescription" name="view::ViewContainer name" extends="//@extensions.0/@categories.1/@groups.0/@controls.0"/>
@@ -1429,6 +1703,13 @@
         <controls xsi:type="properties:CustomDescription" name="org.obeonetwork.is.eef.custom.reference" label="view::ViewContainerReference actions" extends="//@extensions.0/@categories.1/@groups.0/@controls.3"/>
         <controls xsi:type="properties:CustomDescription" name="org.obeonetwork.is.eef.custom.reference" label="view::ViewContainerReference events" extends="//@extensions.0/@categories.1/@groups.0/@controls.4"/>
         <controls xsi:type="properties:TextAreaDescription" name="view::ViewContainerReference description" extends="//@extensions.0/@categories.1/@groups.0/@controls.5"/>
+      </groups>
+      <groups name="Documentation group" labelExpression="Help" domainClass="AbstractViewElement" semanticCandidateExpression="var:self">
+        <controls xsi:type="properties:TextAreaDescription" name="MetadataHelp" isEnabledExpression="aql:false" lineCount="10" valueExpression="aql:self.widget.documentation">
+          <initialOperation>
+            <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:self"/>
+          </initialOperation>
+        </controls>
       </groups>
     </categories>
     <categories name="Flow">
@@ -1528,6 +1809,11 @@
               </firstModelOperations>
             </initialOperation>
           </customOperations>
+          <customOperations name="browseButtonOperation">
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="aql:self.openViewContainerSelectionDialog()"/>
+            </initialOperation>
+          </customOperations>
         </controls>
         <controls xsi:type="properties:TextAreaDescription" name="flow::ViewState description" extends="//@extensions.0/@categories.2/@groups.1/@controls.2"/>
       </groups>
@@ -1587,24 +1873,6 @@
             </style>
           </conditionalStyles>
         </controls>
-        <controls xsi:type="properties:CustomDescription" name="org.obeonetwork.is.eef.custom.reference" label="flow::FlowAction calls" labelExpression="aql:'Calls :'" helpExpression="aql:input.emfEditServices(self).getDescription(self.eClass().getEStructuralFeature('calls'))" isEnabledExpression="aql:self.eClass().getEStructuralFeature('calls').changeable">
-          <customExpressions name="referenceNameExpression" customExpression="aql:'calls'"/>
-          <customOperations name="onDoubleClickOperation">
-            <initialOperation>
-              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="aql:selection->first()">
-                <subModelOperations xsi:type="properties:DialogModelOperation" titleExpression="Edit FlowAction call Dialog">
-                  <buttons labelExpression="Cancel" closeDialogOnClick="true" rollbackChangesOnClose="true">
-                    <initialOperation/>
-                  </buttons>
-                  <buttons labelExpression="OK" default="true" closeDialogOnClick="true">
-                    <initialOperation/>
-                  </buttons>
-                  <page name="Edit View Action Page" labelExpression="ViewAction" domainClass="view::ViewAction" semanticCandidateExpression="var:self" extends="//@extensions.0/@categories.1/@pages.0"/>
-                </subModelOperations>
-              </firstModelOperations>
-            </initialOperation>
-          </customOperations>
-        </controls>
         <controls xsi:type="properties:CustomDescription" name="org.obeonetwork.is.eef.custom.reference" label="flow::FlowAction operations" labelExpression="aql:'Operations :'" helpExpression="aql:input.emfEditServices(self).getDescription(self.eClass().getEStructuralFeature('operations'))" isEnabledExpression="aql:self.eClass().getEStructuralFeature('operations').changeable">
           <customExpressions name="referenceNameExpression" customExpression="aql:'operations'"/>
           <customOperations name="onDoubleClickOperation">
@@ -1620,6 +1888,24 @@
                   <page name="Edit FlowAction operation Page" labelExpression="Operation" domainClass="soa::Operation" semanticCandidateExpression="var:self">
                     <extends href="platform:/plugin/org.obeonetwork.dsl.soa.design/description/soa.odesign#//@extensions.0/@categories.1/@pages.0"/>
                   </page>
+                </subModelOperations>
+              </firstModelOperations>
+            </initialOperation>
+          </customOperations>
+        </controls>
+        <controls xsi:type="properties:CustomDescription" name="org.obeonetwork.is.eef.custom.reference" label="flow::FlowAction calls" labelExpression="aql:'Calls :'" helpExpression="aql:input.emfEditServices(self).getDescription(self.eClass().getEStructuralFeature('calls'))" isEnabledExpression="aql:self.eClass().getEStructuralFeature('calls').changeable">
+          <customExpressions name="referenceNameExpression" customExpression="aql:'calls'"/>
+          <customOperations name="onDoubleClickOperation">
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="aql:selection->first()">
+                <subModelOperations xsi:type="properties:DialogModelOperation" titleExpression="Edit FlowAction call Dialog">
+                  <buttons labelExpression="Cancel" closeDialogOnClick="true" rollbackChangesOnClose="true">
+                    <initialOperation/>
+                  </buttons>
+                  <buttons labelExpression="OK" default="true" closeDialogOnClick="true">
+                    <initialOperation/>
+                  </buttons>
+                  <page name="Edit View Action Page" labelExpression="ViewAction" domainClass="view::ViewAction" semanticCandidateExpression="var:self" extends="//@extensions.0/@categories.1/@pages.0"/>
                 </subModelOperations>
               </firstModelOperations>
             </initialOperation>
@@ -1676,6 +1962,11 @@
                   <page name="Edit Transition on Page" extends="//@extensions.0/@categories.1/@pages.1"/>
                 </subModelOperations>
               </firstModelOperations>
+            </initialOperation>
+          </customOperations>
+          <customOperations name="browseButtonOperation">
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="aql:self.openEventSelectionDialog()"/>
             </initialOperation>
           </customOperations>
         </controls>

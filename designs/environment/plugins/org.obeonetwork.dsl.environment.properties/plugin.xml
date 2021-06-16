@@ -12,6 +12,7 @@
  -->
 
 <plugin>
+   <extension-point id="metadataHelpProvider" name="metadataHelpProvider" schema="schema/metadataHelpProvider.exsd"/>
   <extension point="org.eclipse.sirius.componentization">
     <component class="org.obeonetwork.dsl.environment.properties.Activator"
                id="org.obeonetwork.dsl.environment.properties"

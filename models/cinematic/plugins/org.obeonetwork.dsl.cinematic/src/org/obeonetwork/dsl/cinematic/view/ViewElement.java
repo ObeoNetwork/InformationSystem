@@ -23,6 +23,7 @@ import org.obeonetwork.dsl.environment.Type;
  * <ul>
  *   <li>{@link org.obeonetwork.dsl.cinematic.view.ViewElement#isRequired <em>Required</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.cinematic.view.ViewElement#getType <em>Type</em>}</li>
+ *   <li>{@link org.obeonetwork.dsl.cinematic.view.ViewElement#getExample <em>Example</em>}</li>
  * </ul>
  *
  * @see org.obeonetwork.dsl.cinematic.view.ViewPackage#getViewElement()
@@ -87,5 +88,30 @@ public interface ViewElement extends AbstractViewElement {
 	 * @generated
 	 */
 	void setType(Type value);
+
+	/**
+	 * Returns the value of the '<em><b>Example</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * Enables the definition of how a widget can be used in the context of this view element.
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Example</em>' attribute.
+	 * @see #setExample(String)
+	 * @see org.obeonetwork.dsl.cinematic.view.ViewPackage#getViewElement_Example()
+	 * @model
+	 * @generated
+	 */
+	String getExample();
+
+	/**
+	 * Sets the value of the '{@link org.obeonetwork.dsl.cinematic.view.ViewElement#getExample <em>Example</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Example</em>' attribute.
+	 * @see #getExample()
+	 * @generated
+	 */
+	void setExample(String value);
 
 } // ViewElement

@@ -1,11 +1,12 @@
 Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
-Bundle-Name: Cinematic Edit Support
+Bundle-Name: %pluginName
 Bundle-SymbolicName: org.obeonetwork.dsl.cinematic.edit;singleton:=true
+Automatic-Module-Name: org.obeonetwork.dsl.cinematic.edit
 Bundle-Version: 2.0.0.qualifier
 Bundle-ClassPath: .
 Bundle-Activator: org.obeonetwork.dsl.cinematic.provider.CinematicEditPlugin$Implementation
-Bundle-Vendor: Obeo Network
+Bundle-Vendor: %providerName
 Bundle-Localization: plugin
 Bundle-RequiredExecutionEnvironment: J2SE-1.5
 Export-Package: org.obeonetwork.dsl.cinematic.filters,

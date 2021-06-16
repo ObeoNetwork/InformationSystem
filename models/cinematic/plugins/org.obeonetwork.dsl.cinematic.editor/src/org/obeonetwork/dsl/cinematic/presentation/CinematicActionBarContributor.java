@@ -166,6 +166,7 @@ public class CinematicActionBarContributor
 	 */
 	@Override
 	public void contributeToToolBar(IToolBarManager toolBarManager) {
+		super.contributeToToolBar(toolBarManager);
 		toolBarManager.add(new Separator("cinematic-settings"));
 		toolBarManager.add(new Separator("cinematic-additions"));
 	}

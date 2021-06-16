@@ -144,6 +144,7 @@ public class ViewContainerItemProvider
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
 			childrenFeatures.add(ViewPackage.Literals.VIEW_CONTAINER__OWNED_ELEMENTS);
+			childrenFeatures.add(ViewPackage.Literals.VIEW_CONTAINER__LAYOUT);
 		}
 		return childrenFeatures;
 	}
@@ -220,6 +221,7 @@ public class ViewContainerItemProvider
 
 		switch (notification.getFeatureID(ViewContainer.class)) {
 			case ViewPackage.VIEW_CONTAINER__OWNED_ELEMENTS:
+			case ViewPackage.VIEW_CONTAINER__LAYOUT:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
 		}
@@ -251,6 +253,11 @@ public class ViewContainerItemProvider
 			(createChildParameter
 				(ViewPackage.Literals.VIEW_CONTAINER__OWNED_ELEMENTS,
 				 ViewFactory.eINSTANCE.createViewContainerReference()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(ViewPackage.Literals.VIEW_CONTAINER__LAYOUT,
+				 ViewFactory.eINSTANCE.createLayout()));
 	}
 
 }

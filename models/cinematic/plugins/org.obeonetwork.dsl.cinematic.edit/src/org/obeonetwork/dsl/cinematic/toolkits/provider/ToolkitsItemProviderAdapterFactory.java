@@ -147,6 +147,29 @@ public class ToolkitsItemProviderAdapterFactory extends ToolkitsAdapterFactory i
 	}
 
 	/**
+	 * This keeps track of the one adapter used for all {@link org.obeonetwork.dsl.cinematic.toolkits.Style} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected StyleItemProvider styleItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link org.obeonetwork.dsl.cinematic.toolkits.Style}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createStyleAdapter() {
+		if (styleItemProvider == null) {
+			styleItemProvider = new StyleItemProvider(this);
+		}
+
+		return styleItemProvider;
+	}
+
+	/**
 	 * This returns the root adapter factory that contains this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -248,6 +271,7 @@ public class ToolkitsItemProviderAdapterFactory extends ToolkitsAdapterFactory i
 		if (toolkitItemProvider != null) toolkitItemProvider.dispose();
 		if (widgetItemProvider != null) widgetItemProvider.dispose();
 		if (widgetEventTypeItemProvider != null) widgetEventTypeItemProvider.dispose();
+		if (styleItemProvider != null) styleItemProvider.dispose();
 	}
 
 }
