@@ -117,7 +117,6 @@
       </ownedColumnMappings>
     </ownedRepresentations>
     <ownedJavaExtensions qualifiedClassName="fr.gouv.mindef.safran.is.design.services.AnnotationServices"/>
-    <ownedJavaExtensions qualifiedClassName="fr.gouv.mindef.safran.is.design.services.MetadataEntityServices"/>
   </ownedViewpoints>
   <ownedViewpoints endUserDocumentation="The &lt;b>Graal Methodology (Safr@n consolidated view)&lt;/b> viewpoint provides one representation : &#xD;&#xA;&lt;ul>&#xD;&#xA;&lt;li>&lt;b>Domain Classes Annotations&lt;/b> : a table allowing to view and edit informations related physical storage of domain classes.&lt;/li>&#xD;&#xA;&lt;/ul>&#xA;" name="Graal Methodology (Safr@n consolidated view)" label="Graal Methodology (Safr@n consolidated view)" modelFileExtension="graal ois">
     <ownedRepresentations xsi:type="description_1:EditionTableDescription" name="EV_DomainClasses_Annotations" label="Domain Classes Annotations" domainClass="graal.System" initialHeaderColumnWidth="80">
