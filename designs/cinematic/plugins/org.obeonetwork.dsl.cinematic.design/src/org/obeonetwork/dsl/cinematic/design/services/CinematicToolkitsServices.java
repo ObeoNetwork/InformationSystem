@@ -134,6 +134,7 @@ public class CinematicToolkitsServices {
 		// we remove all the toolkits already added to the cinematic root
 		toolkits = toolkits.stream()
 				.filter(toolkit -> !((CinematicRoot) cinematicRoot).getToolkits().contains(toolkit))
+				.distinct()
 				.collect(Collectors.toList());
 				
 		Shell shell = PlatformUI.getWorkbench().getActiveWorkbenchWindow().getShell();

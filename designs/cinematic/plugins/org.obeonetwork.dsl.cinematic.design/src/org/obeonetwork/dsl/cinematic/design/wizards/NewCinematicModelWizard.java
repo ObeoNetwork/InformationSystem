@@ -57,7 +57,7 @@ public class NewCinematicModelWizard extends AbstractISNewModelWizard {
 		cinematicRoot.setName(getProjectName());
 		initialObjects.add(cinematicRoot);
 		
-		if (modelCreationPage.canFlipToNextPage() && mockupPage.getToolkit() != null && mockupPage.getWidgetContainer() != null) {
+		if (mockupPage.isCreatesMockupRepresentation() && mockupPage.getToolkit() != null && mockupPage.getWidgetContainer() != null) {
 			Widget widget = mockupPage.getWidgetContainer();
 			ViewContainer container = ViewFactory.eINSTANCE.createViewContainer();
 			container.setWidget(widget);
@@ -131,8 +131,10 @@ public class NewCinematicModelWizard extends AbstractISNewModelWizard {
 	protected boolean shouldOpenRepresentation(DRepresentation representation) {
 		if (representation instanceof DDiagram) {
 			String repDescName = ((DDiagram) representation).getDescription().getName();
-			if (modelCreationPage.canFlipToNextPage() && DESC_ID_MOCKUP_DIAGRAM.equals(repDescName)) {
-				return true;
+			if (mockupPage.isCreatesMockupRepresentation()) {
+				if (DESC_ID_MOCKUP_DIAGRAM.equals(repDescName)) {
+					return true;
+				} else return false;								
 			} else return DESC_ID_PACKAGE_DIAGRAM.equals(repDescName);
 		}
 		return false;
