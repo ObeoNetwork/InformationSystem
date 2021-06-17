@@ -189,6 +189,11 @@ public class NewModelCreationWithMockupPage extends WizardPage {
 		return text.getText();
 	}
 
+	
+	public boolean isCreatesMockupRepresentation() {
+		return createsMockupRepresentation;
+	}
+
 	@Override
 	public boolean isPageComplete() {			
 		return !createsMockupRepresentation || 
