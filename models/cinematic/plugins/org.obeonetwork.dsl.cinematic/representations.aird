@@ -29,7 +29,7 @@
         <description xmi:type="description_1:DiagramDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']"/>
         <target xmi:type="ecore:EPackage" href="model/cinematic.ecore#//toolkits"/>
       </ownedRepresentationDescriptors>
-      <ownedRepresentationDescriptors xmi:type="viewpoint:DRepresentationDescriptor" uid="_MxfBgM29Eeucy5I_jW5Irg" name="view class diagram" repPath="#_MxNUsM29Eeucy5I_jW5Irg" changeId="34b9d337-4173-48bf-babc-4390c41451ae">
+      <ownedRepresentationDescriptors xmi:type="viewpoint:DRepresentationDescriptor" uid="_MxfBgM29Eeucy5I_jW5Irg" name="view class diagram" repPath="#_MxNUsM29Eeucy5I_jW5Irg" changeId="fda7ac67-79f9-4893-b24f-53627fe9015c">
         <description xmi:type="description_1:DiagramDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']"/>
         <target xmi:type="ecore:EPackage" href="model/cinematic.ecore#//view"/>
       </ownedRepresentationDescriptors>
@@ -5389,6 +5389,7 @@
       <ownedStyle xmi:type="diagram:EdgeStyle" uid="_Ahco1c6lEeucy5I_jW5Irg" description="_NKXbl829Eeucy5I_jW5Irg" routingStyle="manhattan" strokeColor="0,0,0">
         <centerLabelStyle xmi:type="diagram:CenterLabelStyle" uid="_Ahco186lEeucy5I_jW5Irg" showIcon="false">
           <customFeatures>labelSize</customFeatures>
+          <labelFormat>bold</labelFormat>
         </centerLabelStyle>
         <endLabelStyle xmi:type="diagram:EndLabelStyle" uid="_Ahco1s6lEeucy5I_jW5Irg" showIcon="false" labelColor="39,76,114">
           <customFeatures>labelSize</customFeatures>

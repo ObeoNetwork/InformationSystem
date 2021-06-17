@@ -1,5 +1,8 @@
 package org.obeonetwork.dsl.cinematic.design.services;
 
+import org.eclipse.emf.common.util.EList;
+import org.eclipse.emf.ecore.EStructuralFeature;
+import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.sirius.business.api.query.EObjectQuery;
 import org.eclipse.sirius.common.tools.api.interpreter.EvaluationException;
 import org.obeonetwork.dsl.cinematic.toolkits.Style;
@@ -7,6 +10,7 @@ import org.obeonetwork.dsl.cinematic.view.AbstractViewElement;
 import org.obeonetwork.dsl.cinematic.view.ViewContainer;
 import org.obeonetwork.dsl.cinematic.view.ViewContainerReference;
 import org.obeonetwork.dsl.cinematic.view.ViewElement;
+import org.obeonetwork.dsl.cinematic.view.ViewPackage;
 import org.obeonetwork.utils.common.StringUtils;
 
 public class CinematicVCDLabelServices {
@@ -75,4 +79,18 @@ public class CinematicVCDLabelServices {
 		
 		return abstractViewElement.getName();
 	}
+	
+	public static AbstractViewElement getNextTabElement(AbstractViewElement element) {
+		AbstractViewElement nextTabElement = null;
+		if(element.eContainingFeature() == ViewPackage.eINSTANCE.getViewContainer_OwnedElements()) {
+			ViewContainer parentViewContainer = (ViewContainer) element.eContainer();
+			EList<AbstractViewElement> ownedElements = parentViewContainer.getOwnedElements();
+			int nextIndex = ownedElements.indexOf(element) + 1;
+			if(nextIndex < ownedElements.size()) {
+				nextTabElement = ownedElements.get(nextIndex);
+			}
+		}
+		return nextTabElement;
+	}
+	
 }
