@@ -325,7 +325,7 @@
       <additionalLayers name="Flow Events" activeByDefault="true">
         <containerMappings name="FLD_FlowEvents" deletionDescription="//@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='Flow%20Diagram']/@additionalLayers[name='Flow%20Events']/@toolSections.0/@ownedTools[name='DEL_PreventFlowDeletion']" semanticCandidatesExpression="var:self" domainClass="flow.Flow" childrenPresentation="List">
           <subNodeMappings name="FLD_FlowEvent" labelDirectEdit="//@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='Flow%20Diagram']/@additionalLayers[name='Flow%20Events']/@toolSections.1/@ownedTools[name='DE_FlowEvent']" semanticCandidatesExpression="feature:events" domainClass="flow.FlowEvent">
-            <style xsi:type="style:SquareDescription" labelExpression="service:getCinematicLabel" labelAlignment="LEFT" resizeKind="NSEW">
+            <style xsi:type="style:SquareDescription" labelExpression="aql:self.getCinematicLabel()+' ('+self.binds -> size()+')'" labelAlignment="LEFT" resizeKind="NSEW">
               <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
               <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
               <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='gray']"/>
