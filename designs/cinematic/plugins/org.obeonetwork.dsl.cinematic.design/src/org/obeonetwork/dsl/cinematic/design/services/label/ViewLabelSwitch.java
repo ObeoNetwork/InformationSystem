@@ -38,7 +38,7 @@ public class ViewLabelSwitch extends ViewSwitch<String> {
 	public String caseViewContainer(ViewContainer viewContainer) {
 		String label = caseNamedElement(viewContainer);
 		if (label != null && !label.trim().equals("")) {
-			label += " ";
+			label += "";
 		}
 //		if (viewContainer.getWidget() != null) {
 //			label += ": " + viewContainer.getWidget().getName();
@@ -53,7 +53,7 @@ public class ViewLabelSwitch extends ViewSwitch<String> {
 	public String caseViewElement(ViewElement viewElement) {
 		String label = caseNamedElement(viewElement);
 		if (label != null && !label.trim().equals("")) {
-			label += " ";
+			label += "";
 		}
 //		if (viewElement.getWidget() != null) {
 //			label += ": " + viewElement.getWidget().getName();
@@ -65,7 +65,7 @@ public class ViewLabelSwitch extends ViewSwitch<String> {
 	public String caseViewContainerReference(ViewContainerReference viewContainerReference) {
 		String label = caseNamedElement(viewContainerReference);
 		if (label != null && !label.trim().equals("")) {
-			label += " ";
+			label += "";
 		}
 //		if (viewContainerReference.getViewContainer() != null) {
 //			label += ": " + viewContainerReference.getViewContainer().getName();

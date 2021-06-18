@@ -99,7 +99,7 @@ public class CinematicServiceTest {
 		flowAction.setName(baseName);
 		flowEvent.setName(baseName);
 		
-		assertEquals("basename : ViewContainer", cs.cinematicLabel(container));
+		assertEquals("basename", cs.cinematicLabel(container));
 		assertEquals(baseName, cs.cinematicLabel(flowAction));
 		assertEquals(baseName, cs.cinematicLabel(flowEvent));
 	}

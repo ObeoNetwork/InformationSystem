@@ -40,7 +40,7 @@ public class FlowLabelSwitch extends FlowSwitch<String> {
 
 	@Override
 	public String caseFlowEvent(FlowEvent object) {		
-		return String.format("%s (%d)", object.getName(), object.getBinds().size());		
+		return String.format("%s", object.getName());		
 	}
 
 }
