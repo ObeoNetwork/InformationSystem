@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="ASCII"?>
+<database:DataBase xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:database="http://www.obeonetwork.org/dsl/database/1.0" xmlns:typeslibrary="http://www.obeonetwork.org/dsl/typeslibrary/1.0" xmi:id="_di7d4NAMEeuzirZRI3q3aA" techID="_diQIcNAMEeuzirZRI3q3aA" name="h2">
+  <usedLibraries xsi:type="typeslibrary:NativeTypesLibrary" href="pathmap://NativeDBTypes/H2-1.3#_Zj69UBEnEeGTa_JlZYBw1A"/>
+  <schemas xmi:id="_di7d4dAMEeuzirZRI3q3aA" techID="_diaggNAMEeuzirZRI3q3aA" name="public">
+    <sequences xmi:id="_di7d4tAMEeuzirZRI3q3aA" techID="_di1XQNAMEeuzirZRI3q3aA" name="SYSTEM_SEQUENCE_9D90E355_FA89_4045_8C55_ACECB6F2BDAA" start="0" increment="1" minValue="1" maxValue="9223372036854775807"/>
+    <sequences xmi:id="_di7d49AMEeuzirZRI3q3aA" techID="_di1-UNAMEeuzirZRI3q3aA" name="SYSTEM_SEQUENCE_50B2407D_BCE9_4ACA_8A22_C15183A5C1E1" start="0" increment="1" minValue="1" maxValue="9223372036854775807"/>
+    <sequences xmi:id="_di7d5NAMEeuzirZRI3q3aA" techID="_di1-UdAMEeuzirZRI3q3aA" name="SYSTEM_SEQUENCE_80857D0C_D745_4950_B74F_429F79B1EBBD" start="0" increment="1" minValue="1" maxValue="9223372036854775807"/>
+    <sequences xmi:id="_di7d5dAMEeuzirZRI3q3aA" techID="_di1-UtAMEeuzirZRI3q3aA" name="SYSTEM_SEQUENCE_1DC8035A_D887_4CF2_936C_41A423816FB5" start="0" increment="1" minValue="1" maxValue="9223372036854775807"/>
+    <sequences xmi:id="_di7d5tAMEeuzirZRI3q3aA" techID="_di1-U9AMEeuzirZRI3q3aA" name="SYSTEM_SEQUENCE_90AAE98F_3DB7_4FB7_8C51_7706B5055798" start="0" increment="1" minValue="1" maxValue="9223372036854775807"/>
+    <sequences xmi:id="_di7d59AMEeuzirZRI3q3aA" techID="_di1-VNAMEeuzirZRI3q3aA" name="SYSTEM_SEQUENCE_66D51555_81F2_4ED8_BFF2_85760EB24CA5" start="0" increment="1" minValue="1" maxValue="9223372036854775807"/>
+    <sequences xmi:id="_di7d6NAMEeuzirZRI3q3aA" techID="_di1-VdAMEeuzirZRI3q3aA" name="SYSTEM_SEQUENCE_51D3FAD0_52B5_4443_8749_4F273B30FD56" start="0" increment="1" minValue="1" maxValue="9223372036854775807"/>
+    <sequences xmi:id="_di7d6dAMEeuzirZRI3q3aA" techID="_di1-VtAMEeuzirZRI3q3aA" name="SYSTEM_SEQUENCE_E9035132_F9C3_457B_9D31_DE4A6B2809EB" start="0" increment="1" minValue="1" maxValue="9223372036854775807"/>
+    <sequences xmi:id="_di7d6tAMEeuzirZRI3q3aA" techID="_di1-V9AMEeuzirZRI3q3aA" name="SYSTEM_SEQUENCE_F24490DD_9222_47F9_A7DC_9B2977C1CC71" start="0" increment="1" minValue="1" maxValue="9223372036854775807"/>
+    <sequences xmi:id="_di7d69AMEeuzirZRI3q3aA" techID="_di1-WNAMEeuzirZRI3q3aA" name="SYSTEM_SEQUENCE_E4759E28_04CF_428F_B4BE_515CC60793C5" start="0" increment="1" minValue="1" maxValue="9223372036854775807"/>
+    <sequences xmi:id="_di7d7NAMEeuzirZRI3q3aA" techID="_di1-WdAMEeuzirZRI3q3aA" name="SYSTEM_SEQUENCE_E0188253_5C3E_4BFF_9412_ADFA0C76549D" start="0" increment="1" minValue="1" maxValue="9223372036854775807"/>
+    <sequences xmi:id="_di7d7dAMEeuzirZRI3q3aA" techID="_di1-WtAMEeuzirZRI3q3aA" name="SYSTEM_SEQUENCE_9A7CF839_64D3_4096_927A_335DDDC38B4F" start="0" increment="1" minValue="1" maxValue="9223372036854775807"/>
+    <sequences xmi:id="_di7d7tAMEeuzirZRI3q3aA" techID="_di1-W9AMEeuzirZRI3q3aA" name="SYSTEM_SEQUENCE_0F19564F_CBA1_4776_A3D9_D7745512A72F" start="0" increment="1" minValue="1" maxValue="9223372036854775807"/>
+  </schemas>
+</database:DataBase>
