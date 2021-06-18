@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <classpath>
-	<classpathentry exported="true" kind="lib" path="lib/h2-1.4.199.jar"/>
+	<classpathentry exported="true" kind="lib" path="lib/h2-1.3.176.jar"/>
 	<classpathentry exported="true" kind="lib" path="lib/sqljdbc4.jar"/>
 	<classpathentry kind="lib" path="lib/mariadb-java-client-2.4.0.jar"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
