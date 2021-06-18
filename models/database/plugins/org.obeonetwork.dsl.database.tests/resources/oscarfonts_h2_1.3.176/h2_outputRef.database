@@ -1,19 +1,1333 @@
 <?xml version="1.0" encoding="ASCII"?>
-<database:DataBase xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:database="http://www.obeonetwork.org/dsl/database/1.0" xmlns:typeslibrary="http://www.obeonetwork.org/dsl/typeslibrary/1.0" xmi:id="_FgWZMNANEeufg-7r1CS_mQ" techID="_Ffv8QNANEeufg-7r1CS_mQ" name="h2">
+<database:DataBase xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:database="http://www.obeonetwork.org/dsl/database/1.0" xmlns:typeslibrary="http://www.obeonetwork.org/dsl/typeslibrary/1.0" xmi:id="_duZ1oNAuEeuRpOjDC7SRnQ" techID="_dqF9YNAuEeuRpOjDC7SRnQ" name="h2">
   <usedLibraries xsi:type="typeslibrary:NativeTypesLibrary" href="pathmap://NativeDBTypes/H2-1.3#_Zj69UBEnEeGTa_JlZYBw1A"/>
-  <schemas xmi:id="_FgWZMdANEeufg-7r1CS_mQ" techID="_FfyYgNANEeufg-7r1CS_mQ" name="public">
-    <sequences xmi:id="_FgWZMtANEeufg-7r1CS_mQ" techID="_FgQ5oNANEeufg-7r1CS_mQ" name="SYSTEM_SEQUENCE_8BAA9FE9_DAAE_46AE_A0A0_8A6677C732B6" start="0" increment="1" minValue="1" maxValue="9223372036854775807"/>
-    <sequences xmi:id="_FgWZM9ANEeufg-7r1CS_mQ" techID="_FgQ5odANEeufg-7r1CS_mQ" name="SYSTEM_SEQUENCE_6684F02F_0E61_4D50_A6AD_53D1AC57439C" start="0" increment="1" minValue="1" maxValue="9223372036854775807"/>
-    <sequences xmi:id="_FgWZNNANEeufg-7r1CS_mQ" techID="_FgQ5otANEeufg-7r1CS_mQ" name="SYSTEM_SEQUENCE_C550A69F_A461_48DD_9C75_6D69002BDF93" start="0" increment="1" minValue="1" maxValue="9223372036854775807"/>
-    <sequences xmi:id="_FgWZNdANEeufg-7r1CS_mQ" techID="_FgQ5o9ANEeufg-7r1CS_mQ" name="SYSTEM_SEQUENCE_B0DB69B4_4713_47AF_819E_7A24514AFB76" start="0" increment="1" minValue="1" maxValue="9223372036854775807"/>
-    <sequences xmi:id="_FgWZNtANEeufg-7r1CS_mQ" techID="_FgQ5pNANEeufg-7r1CS_mQ" name="SYSTEM_SEQUENCE_2B3143A3_86EF_4D5B_A58D_81FE6E78DED0" start="0" increment="1" minValue="1" maxValue="9223372036854775807"/>
-    <sequences xmi:id="_FgWZN9ANEeufg-7r1CS_mQ" techID="_FgRgsNANEeufg-7r1CS_mQ" name="SYSTEM_SEQUENCE_5C30E73D_F90E_44BA_80B3_331286AF6FC7" start="0" increment="1" minValue="1" maxValue="9223372036854775807"/>
-    <sequences xmi:id="_FgWZONANEeufg-7r1CS_mQ" techID="_FgRgsdANEeufg-7r1CS_mQ" name="SYSTEM_SEQUENCE_65028B53_3C58_4406_992A_70459BA35129" start="0" increment="1" minValue="1" maxValue="9223372036854775807"/>
-    <sequences xmi:id="_FgWZOdANEeufg-7r1CS_mQ" techID="_FgRgstANEeufg-7r1CS_mQ" name="SYSTEM_SEQUENCE_724AE245_B816_496D_AC25_631226F16CCE" start="0" increment="1" minValue="1" maxValue="9223372036854775807"/>
-    <sequences xmi:id="_FgWZOtANEeufg-7r1CS_mQ" techID="_FgRgs9ANEeufg-7r1CS_mQ" name="SYSTEM_SEQUENCE_B14D6E80_7814_4DD1_88AB_3E25E8CE33FF" start="0" increment="1" minValue="1" maxValue="9223372036854775807"/>
-    <sequences xmi:id="_FgWZO9ANEeufg-7r1CS_mQ" techID="_FgRgtNANEeufg-7r1CS_mQ" name="SYSTEM_SEQUENCE_B4E62FF5_A3B1_4BDD_9E5C_BE2063EAB0E3" start="0" increment="1" minValue="1" maxValue="9223372036854775807"/>
-    <sequences xmi:id="_FgWZPNANEeufg-7r1CS_mQ" techID="_FgRgtdANEeufg-7r1CS_mQ" name="SYSTEM_SEQUENCE_9EBEE246_844A_476A_ADD5_4E43D7BA048D" start="0" increment="1" minValue="1" maxValue="9223372036854775807"/>
-    <sequences xmi:id="_FgXAQNANEeufg-7r1CS_mQ" techID="_FgRgttANEeufg-7r1CS_mQ" name="SYSTEM_SEQUENCE_8D8CA6BB_9C17_4547_B767_6EA92B3415EA" start="0" increment="1" minValue="1" maxValue="9223372036854775807"/>
-    <sequences xmi:id="_FgXAQdANEeufg-7r1CS_mQ" techID="_FgRgt9ANEeufg-7r1CS_mQ" name="SYSTEM_SEQUENCE_C2855FD5_259B_48C7_BF76_D6DAE50D0A38" start="0" increment="1" minValue="1" maxValue="9223372036854775807"/>
+  <schemas xmi:id="_duZ1odAuEeuRpOjDC7SRnQ" techID="_dqIZoNAuEeuRpOjDC7SRnQ" name="PUBLIC">
+    <tables xsi:type="database:Table" xmi:id="_duZ1otAuEeuRpOjDC7SRnQ" techID="_dqp-ENAuEeuRpOjDC7SRnQ" name="CUSTOMERS">
+      <primaryKey xmi:id="_duZ1o9AuEeuRpOjDC7SRnQ" techID="_dq51sNAuEeuRpOjDC7SRnQ" name="PK_CUSTOMERS" columns="_duZ1stAuEeuRpOjDC7SRnQ"/>
+      <indexes xmi:id="_duZ1pNAuEeuRpOjDC7SRnQ" techID="_dq-HINAuEeuRpOjDC7SRnQ" name="PRIMARY_KEY_6" qualifier="TEST" unique="true">
+        <elements xmi:id="_duZ1pdAuEeuRpOjDC7SRnQ" techID="_dq-uMNAuEeuRpOjDC7SRnQ" column="_duZ1stAuEeuRpOjDC7SRnQ" asc="true"/>
+      </indexes>
+      <indexes xmi:id="_duZ1ptAuEeuRpOjDC7SRnQ" techID="_dq_VQNAuEeuRpOjDC7SRnQ" name="CITY_CUSTOMERS" qualifier="TEST">
+        <elements xmi:id="_duZ1p9AuEeuRpOjDC7SRnQ" techID="_dq_VQdAuEeuRpOjDC7SRnQ" column="_duZ1yNAuEeuRpOjDC7SRnQ" asc="true"/>
+      </indexes>
+      <indexes xmi:id="_duZ1qNAuEeuRpOjDC7SRnQ" techID="_dq_VQtAuEeuRpOjDC7SRnQ" name="COMPANY_CUSTOMERS" qualifier="TEST">
+        <elements xmi:id="_duZ1qdAuEeuRpOjDC7SRnQ" techID="_dq_VQ9AuEeuRpOjDC7SRnQ" column="_duZ1tNAuEeuRpOjDC7SRnQ" asc="true"/>
+      </indexes>
+      <indexes xmi:id="_duZ1qtAuEeuRpOjDC7SRnQ" techID="_dq_VRNAuEeuRpOjDC7SRnQ" name="FIRST_NAME_CUSTOMERS" qualifier="TEST">
+        <elements xmi:id="_duZ1q9AuEeuRpOjDC7SRnQ" techID="_dq_VRdAuEeuRpOjDC7SRnQ" column="_duZ1uNAuEeuRpOjDC7SRnQ" asc="true"/>
+      </indexes>
+      <indexes xmi:id="_duZ1rNAuEeuRpOjDC7SRnQ" techID="_dq_VRtAuEeuRpOjDC7SRnQ" name="LAST_NAME_CUSTOMERS" qualifier="TEST">
+        <elements xmi:id="_duZ1rdAuEeuRpOjDC7SRnQ" techID="_dq_VR9AuEeuRpOjDC7SRnQ" column="_duZ1ttAuEeuRpOjDC7SRnQ" asc="true"/>
+      </indexes>
+      <indexes xmi:id="_duZ1rtAuEeuRpOjDC7SRnQ" techID="_dq_VSNAuEeuRpOjDC7SRnQ" name="STATE_PROVINCE_CUSTOMERS" qualifier="TEST">
+        <elements xmi:id="_duZ1r9AuEeuRpOjDC7SRnQ" techID="_dq_VSdAuEeuRpOjDC7SRnQ" column="_duZ1ytAuEeuRpOjDC7SRnQ" asc="true"/>
+      </indexes>
+      <indexes xmi:id="_duZ1sNAuEeuRpOjDC7SRnQ" techID="_dq_VStAuEeuRpOjDC7SRnQ" name="ZIP_POSTAL_CODE_CUSTOMERS" qualifier="TEST">
+        <elements xmi:id="_duZ1sdAuEeuRpOjDC7SRnQ" techID="_dq_VS9AuEeuRpOjDC7SRnQ" column="_duZ1zNAuEeuRpOjDC7SRnQ" asc="true"/>
+      </indexes>
+      <columns xmi:id="_duZ1stAuEeuRpOjDC7SRnQ" techID="_dquPgNAuEeuRpOjDC7SRnQ" name="ID" defaultValue="(NEXT VALUE FOR PUBLIC.SYSTEM_SEQUENCE_1918B51B_4CE0_4CA7_A414_61F0BBDFB276)" indexElements="_duZ1pdAuEeuRpOjDC7SRnQ" primaryKey="_duZ1o9AuEeuRpOjDC7SRnQ" autoincrement="true">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_duZ1s9AuEeuRpOjDC7SRnQ" length="10" precision="0">
+          <nativeType href="pathmap://NativeDBTypes/H2-1.3#_B5QREGBNEeS9uKH-UlSsiQ"/>
+        </type>
+      </columns>
+      <columns xmi:id="_duZ1tNAuEeuRpOjDC7SRnQ" techID="_dqyg8NAuEeuRpOjDC7SRnQ" name="COMPANY" nullable="true" defaultValue="" indexElements="_duZ1qdAuEeuRpOjDC7SRnQ">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_duZ1tdAuEeuRpOjDC7SRnQ" length="50" precision="0">
+          <nativeType href="pathmap://NativeDBTypes/H2-1.3#_bW4aoWBQEeS9uKH-UlSsiQ"/>
+        </type>
+      </columns>
+      <columns xmi:id="_duZ1ttAuEeuRpOjDC7SRnQ" techID="_dqyg8dAuEeuRpOjDC7SRnQ" name="LAST_NAME" nullable="true" defaultValue="" indexElements="_duZ1rdAuEeuRpOjDC7SRnQ">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_duZ1t9AuEeuRpOjDC7SRnQ" length="50" precision="0">
+          <nativeType href="pathmap://NativeDBTypes/H2-1.3#_bW4aoWBQEeS9uKH-UlSsiQ"/>
+        </type>
+      </columns>
+      <columns xmi:id="_duZ1uNAuEeuRpOjDC7SRnQ" techID="_dqzIANAuEeuRpOjDC7SRnQ" name="FIRST_NAME" nullable="true" defaultValue="" indexElements="_duZ1q9AuEeuRpOjDC7SRnQ">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_duZ1udAuEeuRpOjDC7SRnQ" length="50" precision="0">
+          <nativeType href="pathmap://NativeDBTypes/H2-1.3#_bW4aoWBQEeS9uKH-UlSsiQ"/>
+        </type>
+      </columns>
+      <columns xmi:id="_duZ1utAuEeuRpOjDC7SRnQ" techID="_dqzvENAuEeuRpOjDC7SRnQ" name="EMAIL_ADDRESS" nullable="true" defaultValue="">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_duZ1u9AuEeuRpOjDC7SRnQ" length="50" precision="0">
+          <nativeType href="pathmap://NativeDBTypes/H2-1.3#_bW4aoWBQEeS9uKH-UlSsiQ"/>
+        </type>
+      </columns>
+      <columns xmi:id="_duZ1vNAuEeuRpOjDC7SRnQ" techID="_dqzvEdAuEeuRpOjDC7SRnQ" name="JOB_TITLE" nullable="true" defaultValue="">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_duZ1vdAuEeuRpOjDC7SRnQ" length="50" precision="0">
+          <nativeType href="pathmap://NativeDBTypes/H2-1.3#_bW4aoWBQEeS9uKH-UlSsiQ"/>
+        </type>
+      </columns>
+      <columns xmi:id="_duZ1vtAuEeuRpOjDC7SRnQ" techID="_dqzvEtAuEeuRpOjDC7SRnQ" name="BUSINESS_PHONE" nullable="true" defaultValue="">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_duZ1v9AuEeuRpOjDC7SRnQ" length="25" precision="0">
+          <nativeType href="pathmap://NativeDBTypes/H2-1.3#_bW4aoWBQEeS9uKH-UlSsiQ"/>
+        </type>
+      </columns>
+      <columns xmi:id="_duZ1wNAuEeuRpOjDC7SRnQ" techID="_dqzvE9AuEeuRpOjDC7SRnQ" name="HOME_PHONE" nullable="true" defaultValue="">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_duZ1wdAuEeuRpOjDC7SRnQ" length="25" precision="0">
+          <nativeType href="pathmap://NativeDBTypes/H2-1.3#_bW4aoWBQEeS9uKH-UlSsiQ"/>
+        </type>
+      </columns>
+      <columns xmi:id="_duZ1wtAuEeuRpOjDC7SRnQ" techID="_dq0WINAuEeuRpOjDC7SRnQ" name="MOBILE_PHONE" nullable="true" defaultValue="">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_duZ1w9AuEeuRpOjDC7SRnQ" length="25" precision="0">
+          <nativeType href="pathmap://NativeDBTypes/H2-1.3#_bW4aoWBQEeS9uKH-UlSsiQ"/>
+        </type>
+      </columns>
+      <columns xmi:id="_duZ1xNAuEeuRpOjDC7SRnQ" techID="_dq0WIdAuEeuRpOjDC7SRnQ" name="FAX_NUMBER" nullable="true" defaultValue="">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_duZ1xdAuEeuRpOjDC7SRnQ" length="25" precision="0">
+          <nativeType href="pathmap://NativeDBTypes/H2-1.3#_bW4aoWBQEeS9uKH-UlSsiQ"/>
+        </type>
+      </columns>
+      <columns xmi:id="_duZ1xtAuEeuRpOjDC7SRnQ" techID="_dq0WItAuEeuRpOjDC7SRnQ" name="ADDRESS" nullable="true" defaultValue="">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_duZ1x9AuEeuRpOjDC7SRnQ" length="2147483647" precision="0">
+          <nativeType href="pathmap://NativeDBTypes/H2-1.3#_55BR0WBREeS9uKH-UlSsiQ"/>
+        </type>
+      </columns>
+      <columns xmi:id="_duZ1yNAuEeuRpOjDC7SRnQ" techID="_dq0WI9AuEeuRpOjDC7SRnQ" name="CITY" nullable="true" defaultValue="" indexElements="_duZ1p9AuEeuRpOjDC7SRnQ">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_duZ1ydAuEeuRpOjDC7SRnQ" length="50" precision="0">
+          <nativeType href="pathmap://NativeDBTypes/H2-1.3#_bW4aoWBQEeS9uKH-UlSsiQ"/>
+        </type>
+      </columns>
+      <columns xmi:id="_duZ1ytAuEeuRpOjDC7SRnQ" techID="_dq09MNAuEeuRpOjDC7SRnQ" name="STATE_PROVINCE" nullable="true" defaultValue="" indexElements="_duZ1r9AuEeuRpOjDC7SRnQ">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_duZ1y9AuEeuRpOjDC7SRnQ" length="50" precision="0">
+          <nativeType href="pathmap://NativeDBTypes/H2-1.3#_bW4aoWBQEeS9uKH-UlSsiQ"/>
+        </type>
+      </columns>
+      <columns xmi:id="_duZ1zNAuEeuRpOjDC7SRnQ" techID="_dq09MdAuEeuRpOjDC7SRnQ" name="ZIP_POSTAL_CODE" nullable="true" defaultValue="" indexElements="_duZ1sdAuEeuRpOjDC7SRnQ">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_duZ1zdAuEeuRpOjDC7SRnQ" length="15" precision="0">
+          <nativeType href="pathmap://NativeDBTypes/H2-1.3#_bW4aoWBQEeS9uKH-UlSsiQ"/>
+        </type>
+      </columns>
+      <columns xmi:id="_duZ1ztAuEeuRpOjDC7SRnQ" techID="_dq1kQNAuEeuRpOjDC7SRnQ" name="COUNTRY_REGION" nullable="true" defaultValue="">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_duZ1z9AuEeuRpOjDC7SRnQ" length="50" precision="0">
+          <nativeType href="pathmap://NativeDBTypes/H2-1.3#_bW4aoWBQEeS9uKH-UlSsiQ"/>
+        </type>
+      </columns>
+      <columns xmi:id="_duZ10NAuEeuRpOjDC7SRnQ" techID="_dq1kQdAuEeuRpOjDC7SRnQ" name="WEB_PAGE" nullable="true" defaultValue="">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_duZ10dAuEeuRpOjDC7SRnQ" length="2147483647" precision="0">
+          <nativeType href="pathmap://NativeDBTypes/H2-1.3#_55BR0WBREeS9uKH-UlSsiQ"/>
+        </type>
+      </columns>
+      <columns xmi:id="_duZ10tAuEeuRpOjDC7SRnQ" techID="_dq1kQtAuEeuRpOjDC7SRnQ" name="NOTES" nullable="true" defaultValue="">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_duZ109AuEeuRpOjDC7SRnQ" length="2147483647" precision="0">
+          <nativeType href="pathmap://NativeDBTypes/H2-1.3#_55BR0WBREeS9uKH-UlSsiQ"/>
+        </type>
+      </columns>
+      <columns xmi:id="_duZ11NAuEeuRpOjDC7SRnQ" techID="_dq2LUNAuEeuRpOjDC7SRnQ" name="ATTACHMENTS" nullable="true" defaultValue="NULL">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_duZ11dAuEeuRpOjDC7SRnQ" length="2147483647" precision="0">
+          <nativeType href="pathmap://NativeDBTypes/H2-1.3#_VTjw0WBREeS9uKH-UlSsiQ"/>
+        </type>
+      </columns>
+    </tables>
+    <tables xsi:type="database:Table" xmi:id="_duZ11tAuEeuRpOjDC7SRnQ" techID="_dq_VTNAuEeuRpOjDC7SRnQ" name="DATABASECHANGELOG">
+      <columns xmi:id="_duZ119AuEeuRpOjDC7SRnQ" techID="_drBxgNAuEeuRpOjDC7SRnQ" name="ID" defaultValue="">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_duZ12NAuEeuRpOjDC7SRnQ" length="255" precision="0">
+          <nativeType href="pathmap://NativeDBTypes/H2-1.3#_bW4aoWBQEeS9uKH-UlSsiQ"/>
+        </type>
+      </columns>
+      <columns xmi:id="_duZ12dAuEeuRpOjDC7SRnQ" techID="_drCYkNAuEeuRpOjDC7SRnQ" name="AUTHOR" defaultValue="">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_duZ12tAuEeuRpOjDC7SRnQ" length="255" precision="0">
+          <nativeType href="pathmap://NativeDBTypes/H2-1.3#_bW4aoWBQEeS9uKH-UlSsiQ"/>
+        </type>
+      </columns>
+      <columns xmi:id="_duZ129AuEeuRpOjDC7SRnQ" techID="_drCYkdAuEeuRpOjDC7SRnQ" name="FILENAME" defaultValue="">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_duZ13NAuEeuRpOjDC7SRnQ" length="255" precision="0">
+          <nativeType href="pathmap://NativeDBTypes/H2-1.3#_bW4aoWBQEeS9uKH-UlSsiQ"/>
+        </type>
+      </columns>
+      <columns xmi:id="_duZ13dAuEeuRpOjDC7SRnQ" techID="_drC_oNAuEeuRpOjDC7SRnQ" name="DATEEXECUTED" defaultValue="">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_duZ13tAuEeuRpOjDC7SRnQ" length="23" precision="10">
+          <nativeType href="pathmap://NativeDBTypes/H2-1.3#_pVGT4GBOEeS9uKH-UlSsiQ"/>
+        </type>
+      </columns>
+      <columns xmi:id="_duZ139AuEeuRpOjDC7SRnQ" techID="_drC_odAuEeuRpOjDC7SRnQ" name="ORDEREXECUTED" defaultValue="">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_duZ14NAuEeuRpOjDC7SRnQ" length="10" precision="0">
+          <nativeType href="pathmap://NativeDBTypes/H2-1.3#_B5QREGBNEeS9uKH-UlSsiQ"/>
+        </type>
+      </columns>
+      <columns xmi:id="_duZ14dAuEeuRpOjDC7SRnQ" techID="_drC_otAuEeuRpOjDC7SRnQ" name="EXECTYPE" defaultValue="">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_duZ14tAuEeuRpOjDC7SRnQ" length="10" precision="0">
+          <nativeType href="pathmap://NativeDBTypes/H2-1.3#_bW4aoWBQEeS9uKH-UlSsiQ"/>
+        </type>
+      </columns>
+      <columns xmi:id="_duZ149AuEeuRpOjDC7SRnQ" techID="_drC_o9AuEeuRpOjDC7SRnQ" name="MD5SUM" nullable="true" defaultValue="">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_duZ15NAuEeuRpOjDC7SRnQ" length="35" precision="0">
+          <nativeType href="pathmap://NativeDBTypes/H2-1.3#_bW4aoWBQEeS9uKH-UlSsiQ"/>
+        </type>
+      </columns>
+      <columns xmi:id="_duZ15dAuEeuRpOjDC7SRnQ" techID="_drC_pNAuEeuRpOjDC7SRnQ" name="DESCRIPTION" nullable="true" defaultValue="">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_duZ15tAuEeuRpOjDC7SRnQ" length="255" precision="0">
+          <nativeType href="pathmap://NativeDBTypes/H2-1.3#_bW4aoWBQEeS9uKH-UlSsiQ"/>
+        </type>
+      </columns>
+      <columns xmi:id="_duZ159AuEeuRpOjDC7SRnQ" techID="_drC_pdAuEeuRpOjDC7SRnQ" name="COMMENTS" nullable="true" defaultValue="">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_duZ16NAuEeuRpOjDC7SRnQ" length="255" precision="0">
+          <nativeType href="pathmap://NativeDBTypes/H2-1.3#_bW4aoWBQEeS9uKH-UlSsiQ"/>
+        </type>
+      </columns>
+      <columns xmi:id="_duZ16dAuEeuRpOjDC7SRnQ" techID="_drDmsNAuEeuRpOjDC7SRnQ" name="TAG" nullable="true" defaultValue="">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_duZ16tAuEeuRpOjDC7SRnQ" length="255" precision="0">
+          <nativeType href="pathmap://NativeDBTypes/H2-1.3#_bW4aoWBQEeS9uKH-UlSsiQ"/>
+        </type>
+      </columns>
+      <columns xmi:id="_duZ169AuEeuRpOjDC7SRnQ" techID="_drDmsdAuEeuRpOjDC7SRnQ" name="LIQUIBASE" nullable="true" defaultValue="">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_duZ17NAuEeuRpOjDC7SRnQ" length="20" precision="0">
+          <nativeType href="pathmap://NativeDBTypes/H2-1.3#_bW4aoWBQEeS9uKH-UlSsiQ"/>
+        </type>
+      </columns>
+      <columns xmi:id="_duZ17dAuEeuRpOjDC7SRnQ" techID="_drDmstAuEeuRpOjDC7SRnQ" name="CONTEXTS" nullable="true" defaultValue="">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_duZ17tAuEeuRpOjDC7SRnQ" length="255" precision="0">
+          <nativeType href="pathmap://NativeDBTypes/H2-1.3#_bW4aoWBQEeS9uKH-UlSsiQ"/>
+        </type>
+      </columns>
+      <columns xmi:id="_duZ179AuEeuRpOjDC7SRnQ" techID="_drDms9AuEeuRpOjDC7SRnQ" name="LABELS" nullable="true" defaultValue="">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_duZ18NAuEeuRpOjDC7SRnQ" length="255" precision="0">
+          <nativeType href="pathmap://NativeDBTypes/H2-1.3#_bW4aoWBQEeS9uKH-UlSsiQ"/>
+        </type>
+      </columns>
+      <columns xmi:id="_duZ18dAuEeuRpOjDC7SRnQ" techID="_drDmtNAuEeuRpOjDC7SRnQ" name="DEPLOYMENT_ID" nullable="true" defaultValue="">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_duZ18tAuEeuRpOjDC7SRnQ" length="10" precision="0">
+          <nativeType href="pathmap://NativeDBTypes/H2-1.3#_bW4aoWBQEeS9uKH-UlSsiQ"/>
+        </type>
+      </columns>
+    </tables>
+    <tables xsi:type="database:Table" xmi:id="_duZ189AuEeuRpOjDC7SRnQ" techID="_drH4INAuEeuRpOjDC7SRnQ" name="DATABASECHANGELOGLOCK">
+      <primaryKey xmi:id="_duZ19NAuEeuRpOjDC7SRnQ" techID="_drN-wNAuEeuRpOjDC7SRnQ" name="PK_DATABASECHANGELOGLOCK" columns="_duZ199AuEeuRpOjDC7SRnQ"/>
+      <indexes xmi:id="_duZ19dAuEeuRpOjDC7SRnQ" techID="_drQbANAuEeuRpOjDC7SRnQ" name="PRIMARY_KEY_D" qualifier="TEST" unique="true">
+        <elements xmi:id="_duZ19tAuEeuRpOjDC7SRnQ" techID="_drQbAdAuEeuRpOjDC7SRnQ" column="_duZ199AuEeuRpOjDC7SRnQ" asc="true"/>
+      </indexes>
+      <columns xmi:id="_duZ199AuEeuRpOjDC7SRnQ" techID="_drKUYNAuEeuRpOjDC7SRnQ" name="ID" defaultValue="" indexElements="_duZ19tAuEeuRpOjDC7SRnQ" primaryKey="_duZ19NAuEeuRpOjDC7SRnQ">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_duZ1-NAuEeuRpOjDC7SRnQ" length="10" precision="0">
+          <nativeType href="pathmap://NativeDBTypes/H2-1.3#_B5QREGBNEeS9uKH-UlSsiQ"/>
+        </type>
+      </columns>
+      <columns xmi:id="_duZ1-dAuEeuRpOjDC7SRnQ" techID="_drK7cNAuEeuRpOjDC7SRnQ" name="LOCKED" defaultValue="">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_duZ1-tAuEeuRpOjDC7SRnQ" length="1" precision="0">
+          <nativeType href="pathmap://NativeDBTypes/H2-1.3#_Ja9H8GBNEeS9uKH-UlSsiQ"/>
+        </type>
+      </columns>
+      <columns xmi:id="_duZ1-9AuEeuRpOjDC7SRnQ" techID="_drK7cdAuEeuRpOjDC7SRnQ" name="LOCKGRANTED" nullable="true" defaultValue="">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_duZ1_NAuEeuRpOjDC7SRnQ" length="23" precision="10">
+          <nativeType href="pathmap://NativeDBTypes/H2-1.3#_pVGT4GBOEeS9uKH-UlSsiQ"/>
+        </type>
+      </columns>
+      <columns xmi:id="_duZ1_dAuEeuRpOjDC7SRnQ" techID="_drLigNAuEeuRpOjDC7SRnQ" name="LOCKEDBY" nullable="true" defaultValue="">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_duZ1_tAuEeuRpOjDC7SRnQ" length="255" precision="0">
+          <nativeType href="pathmap://NativeDBTypes/H2-1.3#_bW4aoWBQEeS9uKH-UlSsiQ"/>
+        </type>
+      </columns>
+    </tables>
+    <tables xsi:type="database:Table" xmi:id="_duZ1_9AuEeuRpOjDC7SRnQ" techID="_drQbAtAuEeuRpOjDC7SRnQ" name="EMPLOYEES">
+      <primaryKey xmi:id="_duZ2ANAuEeuRpOjDC7SRnQ" techID="_drXvwNAuEeuRpOjDC7SRnQ" name="PK_EMPLOYEES" columns="_duacutAuEeuRpOjDC7SRnQ"/>
+      <indexes xmi:id="_duZ2AdAuEeuRpOjDC7SRnQ" techID="_draMANAuEeuRpOjDC7SRnQ" name="PRIMARY_KEY_4" qualifier="TEST" unique="true">
+        <elements xmi:id="_duZ2AtAuEeuRpOjDC7SRnQ" techID="_draMAdAuEeuRpOjDC7SRnQ" column="_duacutAuEeuRpOjDC7SRnQ" asc="true"/>
+      </indexes>
+      <indexes xmi:id="_duZ2A9AuEeuRpOjDC7SRnQ" techID="_draMAtAuEeuRpOjDC7SRnQ" name="CITY_EMPLOYEES" qualifier="TEST">
+        <elements xmi:id="_duZ2BNAuEeuRpOjDC7SRnQ" techID="_draMA9AuEeuRpOjDC7SRnQ" column="_duac0NAuEeuRpOjDC7SRnQ" asc="true"/>
+      </indexes>
+      <indexes xmi:id="_duacsNAuEeuRpOjDC7SRnQ" techID="_draMBNAuEeuRpOjDC7SRnQ" name="COMPANY_EMPLOYEES" qualifier="TEST">
+        <elements xmi:id="_duacsdAuEeuRpOjDC7SRnQ" techID="_draMBdAuEeuRpOjDC7SRnQ" column="_duacvNAuEeuRpOjDC7SRnQ" asc="true"/>
+      </indexes>
+      <indexes xmi:id="_duacstAuEeuRpOjDC7SRnQ" techID="_draMBtAuEeuRpOjDC7SRnQ" name="FIRST_NAME_EMPLOYEES" qualifier="TEST">
+        <elements xmi:id="_duacs9AuEeuRpOjDC7SRnQ" techID="_draMB9AuEeuRpOjDC7SRnQ" column="_duacwNAuEeuRpOjDC7SRnQ" asc="true"/>
+      </indexes>
+      <indexes xmi:id="_duactNAuEeuRpOjDC7SRnQ" techID="_draMCNAuEeuRpOjDC7SRnQ" name="LAST_NAME_EMPLOYEES" qualifier="TEST">
+        <elements xmi:id="_duactdAuEeuRpOjDC7SRnQ" techID="_draMCdAuEeuRpOjDC7SRnQ" column="_duacvtAuEeuRpOjDC7SRnQ" asc="true"/>
+      </indexes>
+      <indexes xmi:id="_duacttAuEeuRpOjDC7SRnQ" techID="_draMCtAuEeuRpOjDC7SRnQ" name="STATE_PROVINCE_EMPLOYEES" qualifier="TEST">
+        <elements xmi:id="_duact9AuEeuRpOjDC7SRnQ" techID="_drazENAuEeuRpOjDC7SRnQ" column="_duac0tAuEeuRpOjDC7SRnQ" asc="true"/>
+      </indexes>
+      <indexes xmi:id="_duacuNAuEeuRpOjDC7SRnQ" techID="_drazEdAuEeuRpOjDC7SRnQ" name="ZIP_POSTAL_CODE_EMPLOYEES" qualifier="TEST">
+        <elements xmi:id="_duacudAuEeuRpOjDC7SRnQ" techID="_drazEtAuEeuRpOjDC7SRnQ" column="_duac1NAuEeuRpOjDC7SRnQ" asc="true"/>
+      </indexes>
+      <columns xmi:id="_duacutAuEeuRpOjDC7SRnQ" techID="_drS3QNAuEeuRpOjDC7SRnQ" name="ID" defaultValue="(NEXT VALUE FOR PUBLIC.SYSTEM_SEQUENCE_B2563C19_E1F4_410B_9DD8_13520F21DC4F)" indexElements="_duZ2AtAuEeuRpOjDC7SRnQ" primaryKey="_duZ2ANAuEeuRpOjDC7SRnQ" autoincrement="true">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_duacu9AuEeuRpOjDC7SRnQ" length="10" precision="0">
+          <nativeType href="pathmap://NativeDBTypes/H2-1.3#_B5QREGBNEeS9uKH-UlSsiQ"/>
+        </type>
+      </columns>
+      <columns xmi:id="_duacvNAuEeuRpOjDC7SRnQ" techID="_drTeUNAuEeuRpOjDC7SRnQ" name="COMPANY" nullable="true" defaultValue="" indexElements="_duacsdAuEeuRpOjDC7SRnQ">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_duacvdAuEeuRpOjDC7SRnQ" length="50" precision="0">
+          <nativeType href="pathmap://NativeDBTypes/H2-1.3#_bW4aoWBQEeS9uKH-UlSsiQ"/>
+        </type>
+      </columns>
+      <columns xmi:id="_duacvtAuEeuRpOjDC7SRnQ" techID="_drTeUdAuEeuRpOjDC7SRnQ" name="LAST_NAME" nullable="true" defaultValue="" indexElements="_duactdAuEeuRpOjDC7SRnQ">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_duacv9AuEeuRpOjDC7SRnQ" length="50" precision="0">
+          <nativeType href="pathmap://NativeDBTypes/H2-1.3#_bW4aoWBQEeS9uKH-UlSsiQ"/>
+        </type>
+      </columns>
+      <columns xmi:id="_duacwNAuEeuRpOjDC7SRnQ" techID="_drTeUtAuEeuRpOjDC7SRnQ" name="FIRST_NAME" nullable="true" defaultValue="" indexElements="_duacs9AuEeuRpOjDC7SRnQ">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_duacwdAuEeuRpOjDC7SRnQ" length="50" precision="0">
+          <nativeType href="pathmap://NativeDBTypes/H2-1.3#_bW4aoWBQEeS9uKH-UlSsiQ"/>
+        </type>
+      </columns>
+      <columns xmi:id="_duacwtAuEeuRpOjDC7SRnQ" techID="_drTeU9AuEeuRpOjDC7SRnQ" name="EMAIL_ADDRESS" nullable="true" defaultValue="">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_duacw9AuEeuRpOjDC7SRnQ" length="50" precision="0">
+          <nativeType href="pathmap://NativeDBTypes/H2-1.3#_bW4aoWBQEeS9uKH-UlSsiQ"/>
+        </type>
+      </columns>
+      <columns xmi:id="_duacxNAuEeuRpOjDC7SRnQ" techID="_drTeVNAuEeuRpOjDC7SRnQ" name="JOB_TITLE" nullable="true" defaultValue="">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_duacxdAuEeuRpOjDC7SRnQ" length="50" precision="0">
+          <nativeType href="pathmap://NativeDBTypes/H2-1.3#_bW4aoWBQEeS9uKH-UlSsiQ"/>
+        </type>
+      </columns>
+      <columns xmi:id="_duacxtAuEeuRpOjDC7SRnQ" techID="_drTeVdAuEeuRpOjDC7SRnQ" name="BUSINESS_PHONE" nullable="true" defaultValue="">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_duacx9AuEeuRpOjDC7SRnQ" length="25" precision="0">
+          <nativeType href="pathmap://NativeDBTypes/H2-1.3#_bW4aoWBQEeS9uKH-UlSsiQ"/>
+        </type>
+      </columns>
+      <columns xmi:id="_duacyNAuEeuRpOjDC7SRnQ" techID="_drTeVtAuEeuRpOjDC7SRnQ" name="HOME_PHONE" nullable="true" defaultValue="">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_duacydAuEeuRpOjDC7SRnQ" length="25" precision="0">
+          <nativeType href="pathmap://NativeDBTypes/H2-1.3#_bW4aoWBQEeS9uKH-UlSsiQ"/>
+        </type>
+      </columns>
+      <columns xmi:id="_duacytAuEeuRpOjDC7SRnQ" techID="_drTeV9AuEeuRpOjDC7SRnQ" name="MOBILE_PHONE" nullable="true" defaultValue="">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_duacy9AuEeuRpOjDC7SRnQ" length="25" precision="0">
+          <nativeType href="pathmap://NativeDBTypes/H2-1.3#_bW4aoWBQEeS9uKH-UlSsiQ"/>
+        </type>
+      </columns>
+      <columns xmi:id="_duaczNAuEeuRpOjDC7SRnQ" techID="_drTeWNAuEeuRpOjDC7SRnQ" name="FAX_NUMBER" nullable="true" defaultValue="">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_duaczdAuEeuRpOjDC7SRnQ" length="25" precision="0">
+          <nativeType href="pathmap://NativeDBTypes/H2-1.3#_bW4aoWBQEeS9uKH-UlSsiQ"/>
+        </type>
+      </columns>
+      <columns xmi:id="_duacztAuEeuRpOjDC7SRnQ" techID="_drUFYNAuEeuRpOjDC7SRnQ" name="ADDRESS" nullable="true" defaultValue="">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_duacz9AuEeuRpOjDC7SRnQ" length="2147483647" precision="0">
+          <nativeType href="pathmap://NativeDBTypes/H2-1.3#_55BR0WBREeS9uKH-UlSsiQ"/>
+        </type>
+      </columns>
+      <columns xmi:id="_duac0NAuEeuRpOjDC7SRnQ" techID="_drUFYdAuEeuRpOjDC7SRnQ" name="CITY" nullable="true" defaultValue="" indexElements="_duZ2BNAuEeuRpOjDC7SRnQ">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_duac0dAuEeuRpOjDC7SRnQ" length="50" precision="0">
+          <nativeType href="pathmap://NativeDBTypes/H2-1.3#_bW4aoWBQEeS9uKH-UlSsiQ"/>
+        </type>
+      </columns>
+      <columns xmi:id="_duac0tAuEeuRpOjDC7SRnQ" techID="_drUFYtAuEeuRpOjDC7SRnQ" name="STATE_PROVINCE" nullable="true" defaultValue="" indexElements="_duact9AuEeuRpOjDC7SRnQ">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_duac09AuEeuRpOjDC7SRnQ" length="50" precision="0">
+          <nativeType href="pathmap://NativeDBTypes/H2-1.3#_bW4aoWBQEeS9uKH-UlSsiQ"/>
+        </type>
+      </columns>
+      <columns xmi:id="_duac1NAuEeuRpOjDC7SRnQ" techID="_drUFY9AuEeuRpOjDC7SRnQ" name="ZIP_POSTAL_CODE" nullable="true" defaultValue="" indexElements="_duacudAuEeuRpOjDC7SRnQ">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_duac1dAuEeuRpOjDC7SRnQ" length="15" precision="0">
+          <nativeType href="pathmap://NativeDBTypes/H2-1.3#_bW4aoWBQEeS9uKH-UlSsiQ"/>
+        </type>
+      </columns>
+      <columns xmi:id="_duac1tAuEeuRpOjDC7SRnQ" techID="_drUFZNAuEeuRpOjDC7SRnQ" name="COUNTRY_REGION" nullable="true" defaultValue="">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_duac19AuEeuRpOjDC7SRnQ" length="50" precision="0">
+          <nativeType href="pathmap://NativeDBTypes/H2-1.3#_bW4aoWBQEeS9uKH-UlSsiQ"/>
+        </type>
+      </columns>
+      <columns xmi:id="_duac2NAuEeuRpOjDC7SRnQ" techID="_drUFZdAuEeuRpOjDC7SRnQ" name="WEB_PAGE" nullable="true" defaultValue="">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_duac2dAuEeuRpOjDC7SRnQ" length="2147483647" precision="0">
+          <nativeType href="pathmap://NativeDBTypes/H2-1.3#_55BR0WBREeS9uKH-UlSsiQ"/>
+        </type>
+      </columns>
+      <columns xmi:id="_duac2tAuEeuRpOjDC7SRnQ" techID="_drUscNAuEeuRpOjDC7SRnQ" name="NOTES" nullable="true" defaultValue="">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_duac29AuEeuRpOjDC7SRnQ" length="2147483647" precision="0">
+          <nativeType href="pathmap://NativeDBTypes/H2-1.3#_55BR0WBREeS9uKH-UlSsiQ"/>
+        </type>
+      </columns>
+      <columns xmi:id="_duac3NAuEeuRpOjDC7SRnQ" techID="_drUscdAuEeuRpOjDC7SRnQ" name="ATTACHMENTS" nullable="true" defaultValue="NULL">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_duac3dAuEeuRpOjDC7SRnQ" length="2147483647" precision="0">
+          <nativeType href="pathmap://NativeDBTypes/H2-1.3#_VTjw0WBREeS9uKH-UlSsiQ"/>
+        </type>
+      </columns>
+    </tables>
+    <tables xsi:type="database:Table" xmi:id="_duac3tAuEeuRpOjDC7SRnQ" techID="_drazE9AuEeuRpOjDC7SRnQ" name="EMPLOYEE_PRIVILEGES">
+      <primaryKey xmi:id="_duac39AuEeuRpOjDC7SRnQ" techID="_drhgwNAuEeuRpOjDC7SRnQ" name="PK_EMPLOYEE_PRIVILEGES" columns="_duac69AuEeuRpOjDC7SRnQ _duac7dAuEeuRpOjDC7SRnQ"/>
+      <foreignKeys xmi:id="_duac4NAuEeuRpOjDC7SRnQ" techID="_dtw8cNAuEeuRpOjDC7SRnQ" name="FK_EMPLOYEE_PRIVILEGES_EMPLOYEES1" target="_duZ1_9AuEeuRpOjDC7SRnQ">
+        <elements xmi:id="_duac4dAuEeuRpOjDC7SRnQ" techID="_dtxjgNAuEeuRpOjDC7SRnQ" fkColumn="_duac69AuEeuRpOjDC7SRnQ" pkColumn="_duacutAuEeuRpOjDC7SRnQ"/>
+      </foreignKeys>
+      <foreignKeys xmi:id="_duac4tAuEeuRpOjDC7SRnQ" techID="_dtxjgdAuEeuRpOjDC7SRnQ" name="FK_EMPLOYEE_PRIVILEGES_PRIVILEGES1" target="_duadtdAuEeuRpOjDC7SRnQ">
+        <elements xmi:id="_duac49AuEeuRpOjDC7SRnQ" techID="_dtxjgtAuEeuRpOjDC7SRnQ" fkColumn="_duac7dAuEeuRpOjDC7SRnQ" pkColumn="_duadudAuEeuRpOjDC7SRnQ"/>
+      </foreignKeys>
+      <indexes xmi:id="_duac5NAuEeuRpOjDC7SRnQ" techID="_drkkENAuEeuRpOjDC7SRnQ" name="PRIMARY_KEY_5" qualifier="TEST" unique="true">
+        <elements xmi:id="_duac5dAuEeuRpOjDC7SRnQ" techID="_drkkEdAuEeuRpOjDC7SRnQ" column="_duac69AuEeuRpOjDC7SRnQ" asc="true"/>
+        <elements xmi:id="_duac5tAuEeuRpOjDC7SRnQ" techID="_drkkEtAuEeuRpOjDC7SRnQ" column="_duac7dAuEeuRpOjDC7SRnQ" asc="true"/>
+      </indexes>
+      <indexes xmi:id="_duac59AuEeuRpOjDC7SRnQ" techID="_drkkE9AuEeuRpOjDC7SRnQ" name="EMPLOYEE_ID" qualifier="TEST">
+        <elements xmi:id="_duac6NAuEeuRpOjDC7SRnQ" techID="_drkkFNAuEeuRpOjDC7SRnQ" column="_duac69AuEeuRpOjDC7SRnQ" asc="true"/>
+      </indexes>
+      <indexes xmi:id="_duac6dAuEeuRpOjDC7SRnQ" techID="_drkkFdAuEeuRpOjDC7SRnQ" name="PRIVILEGE_ID" qualifier="TEST">
+        <elements xmi:id="_duac6tAuEeuRpOjDC7SRnQ" techID="_drkkFtAuEeuRpOjDC7SRnQ" column="_duac7dAuEeuRpOjDC7SRnQ" asc="true"/>
+      </indexes>
+      <columns xmi:id="_duac69AuEeuRpOjDC7SRnQ" techID="_drd2YNAuEeuRpOjDC7SRnQ" name="EMPLOYEE_ID" defaultValue="" indexElements="_duac5dAuEeuRpOjDC7SRnQ _duac6NAuEeuRpOjDC7SRnQ" primaryKey="_duac39AuEeuRpOjDC7SRnQ" foreignKeyElements="_duac4dAuEeuRpOjDC7SRnQ">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_duac7NAuEeuRpOjDC7SRnQ" length="10" precision="0">
+          <nativeType href="pathmap://NativeDBTypes/H2-1.3#_B5QREGBNEeS9uKH-UlSsiQ"/>
+        </type>
+      </columns>
+      <columns xmi:id="_duac7dAuEeuRpOjDC7SRnQ" techID="_drd2YdAuEeuRpOjDC7SRnQ" name="PRIVILEGE_ID" defaultValue="" indexElements="_duac5tAuEeuRpOjDC7SRnQ _duac6tAuEeuRpOjDC7SRnQ" primaryKey="_duac39AuEeuRpOjDC7SRnQ" foreignKeyElements="_duac49AuEeuRpOjDC7SRnQ">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_duac7tAuEeuRpOjDC7SRnQ" length="10" precision="0">
+          <nativeType href="pathmap://NativeDBTypes/H2-1.3#_B5QREGBNEeS9uKH-UlSsiQ"/>
+        </type>
+      </columns>
+    </tables>
+    <tables xsi:type="database:Table" xmi:id="_duac79AuEeuRpOjDC7SRnQ" techID="_drkkF9AuEeuRpOjDC7SRnQ" name="INVENTORY_TRANSACTIONS">
+      <primaryKey xmi:id="_duac8NAuEeuRpOjDC7SRnQ" techID="_drrRwNAuEeuRpOjDC7SRnQ" name="PK_INVENTORY_TRANSACTIONS" columns="_duadA9AuEeuRpOjDC7SRnQ"/>
+      <foreignKeys xmi:id="_duac8dAuEeuRpOjDC7SRnQ" techID="_dtzYsNAuEeuRpOjDC7SRnQ" name="FK_INVENTORY_TRANSACTIONS_INVENTORY_TRANSACTION_TYPES1" target="_duadFdAuEeuRpOjDC7SRnQ">
+        <elements xmi:id="_duac8tAuEeuRpOjDC7SRnQ" techID="_dtzYsdAuEeuRpOjDC7SRnQ" fkColumn="_duadBdAuEeuRpOjDC7SRnQ" pkColumn="_duadGdAuEeuRpOjDC7SRnQ"/>
+      </foreignKeys>
+      <foreignKeys xmi:id="_duac89AuEeuRpOjDC7SRnQ" techID="_dtzYstAuEeuRpOjDC7SRnQ" name="FK_INVENTORY_TRANSACTIONS_ORDERS1" target="_duadM9AuEeuRpOjDC7SRnQ">
+        <elements xmi:id="_duac9NAuEeuRpOjDC7SRnQ" techID="_dtzYs9AuEeuRpOjDC7SRnQ" fkColumn="_duadEdAuEeuRpOjDC7SRnQ" pkColumn="_duadTdAuEeuRpOjDC7SRnQ"/>
+      </foreignKeys>
+      <foreignKeys xmi:id="_duac9dAuEeuRpOjDC7SRnQ" techID="_dtzYtNAuEeuRpOjDC7SRnQ" name="FK_INVENTORY_TRANSACTIONS_PRODUCTS1" target="_duadvdAuEeuRpOjDC7SRnQ">
+        <elements xmi:id="_duac9tAuEeuRpOjDC7SRnQ" techID="_dtzYtdAuEeuRpOjDC7SRnQ" fkColumn="_duadC9AuEeuRpOjDC7SRnQ" pkColumn="_duadxdAuEeuRpOjDC7SRnQ"/>
+      </foreignKeys>
+      <foreignKeys xmi:id="_duac99AuEeuRpOjDC7SRnQ" techID="_dtzYttAuEeuRpOjDC7SRnQ" name="FK_INVENTORY_TRANSACTIONS_PURCHASE_ORDERS1" target="_duad39AuEeuRpOjDC7SRnQ">
+        <elements xmi:id="_duac-NAuEeuRpOjDC7SRnQ" techID="_dtzYt9AuEeuRpOjDC7SRnQ" fkColumn="_duadD9AuEeuRpOjDC7SRnQ" pkColumn="_duad79AuEeuRpOjDC7SRnQ"/>
+      </foreignKeys>
+      <indexes xmi:id="_duac-dAuEeuRpOjDC7SRnQ" techID="_druVENAuEeuRpOjDC7SRnQ" name="PRIMARY_KEY_3" qualifier="TEST" unique="true">
+        <elements xmi:id="_duac-tAuEeuRpOjDC7SRnQ" techID="_druVEdAuEeuRpOjDC7SRnQ" column="_duadA9AuEeuRpOjDC7SRnQ" asc="true"/>
+      </indexes>
+      <indexes xmi:id="_duac-9AuEeuRpOjDC7SRnQ" techID="_druVEtAuEeuRpOjDC7SRnQ" name="CUSTOMER_ORDER_ID_2" qualifier="TEST">
+        <elements xmi:id="_duac_NAuEeuRpOjDC7SRnQ" techID="_druVE9AuEeuRpOjDC7SRnQ" column="_duadEdAuEeuRpOjDC7SRnQ" asc="true"/>
+      </indexes>
+      <indexes xmi:id="_duac_dAuEeuRpOjDC7SRnQ" techID="_druVFNAuEeuRpOjDC7SRnQ" name="PRODUCT_ID_INVENTORY_TRANSACTIONS" qualifier="TEST">
+        <elements xmi:id="_duac_tAuEeuRpOjDC7SRnQ" techID="_druVFdAuEeuRpOjDC7SRnQ" column="_duadC9AuEeuRpOjDC7SRnQ" asc="true"/>
+      </indexes>
+      <indexes xmi:id="_duac_9AuEeuRpOjDC7SRnQ" techID="_druVFtAuEeuRpOjDC7SRnQ" name="PURCHASE_ORDER_ID_INVENTORY_TRANSACTIONS" qualifier="TEST">
+        <elements xmi:id="_duadANAuEeuRpOjDC7SRnQ" techID="_druVF9AuEeuRpOjDC7SRnQ" column="_duadD9AuEeuRpOjDC7SRnQ" asc="true"/>
+      </indexes>
+      <indexes xmi:id="_duadAdAuEeuRpOjDC7SRnQ" techID="_druVGNAuEeuRpOjDC7SRnQ" name="TRANSACTION_TYPE" qualifier="TEST">
+        <elements xmi:id="_duadAtAuEeuRpOjDC7SRnQ" techID="_druVGdAuEeuRpOjDC7SRnQ" column="_duadBdAuEeuRpOjDC7SRnQ" asc="true"/>
+      </indexes>
+      <columns xmi:id="_duadA9AuEeuRpOjDC7SRnQ" techID="_drnnYNAuEeuRpOjDC7SRnQ" name="ID" defaultValue="(NEXT VALUE FOR PUBLIC.SYSTEM_SEQUENCE_0BD58B8E_D32F_45F0_A9E8_52192C986C8E)" indexElements="_duac-tAuEeuRpOjDC7SRnQ" primaryKey="_duac8NAuEeuRpOjDC7SRnQ" autoincrement="true">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_duadBNAuEeuRpOjDC7SRnQ" length="10" precision="0">
+          <nativeType href="pathmap://NativeDBTypes/H2-1.3#_B5QREGBNEeS9uKH-UlSsiQ"/>
+        </type>
+      </columns>
+      <columns xmi:id="_duadBdAuEeuRpOjDC7SRnQ" techID="_drnnYdAuEeuRpOjDC7SRnQ" name="TRANSACTION_TYPE" defaultValue="" indexElements="_duadAtAuEeuRpOjDC7SRnQ" foreignKeyElements="_duac8tAuEeuRpOjDC7SRnQ">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_duadBtAuEeuRpOjDC7SRnQ" length="3" precision="0">
+          <nativeType href="pathmap://NativeDBTypes/H2-1.3#_NS6Q8GBNEeS9uKH-UlSsiQ"/>
+        </type>
+      </columns>
+      <columns xmi:id="_duadB9AuEeuRpOjDC7SRnQ" techID="_droOcNAuEeuRpOjDC7SRnQ" name="TRANSACTION_CREATED_DATE" nullable="true" defaultValue="NULL">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_duadCNAuEeuRpOjDC7SRnQ" length="23" precision="10">
+          <nativeType href="pathmap://NativeDBTypes/H2-1.3#_pVGT4GBOEeS9uKH-UlSsiQ"/>
+        </type>
+      </columns>
+      <columns xmi:id="_duadCdAuEeuRpOjDC7SRnQ" techID="_droOcdAuEeuRpOjDC7SRnQ" name="TRANSACTION_MODIFIED_DATE" nullable="true" defaultValue="NULL">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_duadCtAuEeuRpOjDC7SRnQ" length="23" precision="10">
+          <nativeType href="pathmap://NativeDBTypes/H2-1.3#_pVGT4GBOEeS9uKH-UlSsiQ"/>
+        </type>
+      </columns>
+      <columns xmi:id="_duadC9AuEeuRpOjDC7SRnQ" techID="_droOctAuEeuRpOjDC7SRnQ" name="PRODUCT_ID" defaultValue="" indexElements="_duac_tAuEeuRpOjDC7SRnQ" foreignKeyElements="_duac9tAuEeuRpOjDC7SRnQ">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_duadDNAuEeuRpOjDC7SRnQ" length="10" precision="0">
+          <nativeType href="pathmap://NativeDBTypes/H2-1.3#_B5QREGBNEeS9uKH-UlSsiQ"/>
+        </type>
+      </columns>
+      <columns xmi:id="_duadDdAuEeuRpOjDC7SRnQ" techID="_droOc9AuEeuRpOjDC7SRnQ" name="QUANTITY" defaultValue="">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_duadDtAuEeuRpOjDC7SRnQ" length="10" precision="0">
+          <nativeType href="pathmap://NativeDBTypes/H2-1.3#_B5QREGBNEeS9uKH-UlSsiQ"/>
+        </type>
+      </columns>
+      <columns xmi:id="_duadD9AuEeuRpOjDC7SRnQ" techID="_droOdNAuEeuRpOjDC7SRnQ" name="PURCHASE_ORDER_ID" nullable="true" defaultValue="NULL" indexElements="_duadANAuEeuRpOjDC7SRnQ" foreignKeyElements="_duac-NAuEeuRpOjDC7SRnQ">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_duadENAuEeuRpOjDC7SRnQ" length="10" precision="0">
+          <nativeType href="pathmap://NativeDBTypes/H2-1.3#_B5QREGBNEeS9uKH-UlSsiQ"/>
+        </type>
+      </columns>
+      <columns xmi:id="_duadEdAuEeuRpOjDC7SRnQ" techID="_droOddAuEeuRpOjDC7SRnQ" name="CUSTOMER_ORDER_ID" nullable="true" defaultValue="NULL" indexElements="_duac_NAuEeuRpOjDC7SRnQ" foreignKeyElements="_duac9NAuEeuRpOjDC7SRnQ">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_duadEtAuEeuRpOjDC7SRnQ" length="10" precision="0">
+          <nativeType href="pathmap://NativeDBTypes/H2-1.3#_B5QREGBNEeS9uKH-UlSsiQ"/>
+        </type>
+      </columns>
+      <columns xmi:id="_duadE9AuEeuRpOjDC7SRnQ" techID="_droOdtAuEeuRpOjDC7SRnQ" name="COMMENTS" nullable="true" defaultValue="">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_duadFNAuEeuRpOjDC7SRnQ" length="255" precision="0">
+          <nativeType href="pathmap://NativeDBTypes/H2-1.3#_bW4aoWBQEeS9uKH-UlSsiQ"/>
+        </type>
+      </columns>
+    </tables>
+    <tables xsi:type="database:Table" xmi:id="_duadFdAuEeuRpOjDC7SRnQ" techID="_druVGtAuEeuRpOjDC7SRnQ" name="INVENTORY_TRANSACTION_TYPES">
+      <primaryKey xmi:id="_duadFtAuEeuRpOjDC7SRnQ" techID="_dr0bsNAuEeuRpOjDC7SRnQ" name="PK_INVENTORY_TRANSACTION_TYPES" columns="_duadGdAuEeuRpOjDC7SRnQ"/>
+      <indexes xmi:id="_duadF9AuEeuRpOjDC7SRnQ" techID="_dr238NAuEeuRpOjDC7SRnQ" name="PRIMARY_KEY_61" qualifier="TEST" unique="true">
+        <elements xmi:id="_duadGNAuEeuRpOjDC7SRnQ" techID="_dr238dAuEeuRpOjDC7SRnQ" column="_duadGdAuEeuRpOjDC7SRnQ" asc="true"/>
+      </indexes>
+      <columns xmi:id="_duadGdAuEeuRpOjDC7SRnQ" techID="_drx_cNAuEeuRpOjDC7SRnQ" name="ID" defaultValue="" indexElements="_duadGNAuEeuRpOjDC7SRnQ" primaryKey="_duadFtAuEeuRpOjDC7SRnQ">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_duadGtAuEeuRpOjDC7SRnQ" length="3" precision="0">
+          <nativeType href="pathmap://NativeDBTypes/H2-1.3#_NS6Q8GBNEeS9uKH-UlSsiQ"/>
+        </type>
+      </columns>
+      <columns xmi:id="_duadG9AuEeuRpOjDC7SRnQ" techID="_drx_cdAuEeuRpOjDC7SRnQ" name="TYPE_NAME" defaultValue="">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_duadHNAuEeuRpOjDC7SRnQ" length="50" precision="0">
+          <nativeType href="pathmap://NativeDBTypes/H2-1.3#_bW4aoWBQEeS9uKH-UlSsiQ"/>
+        </type>
+      </columns>
+    </tables>
+    <tables xsi:type="database:Table" xmi:id="_duadHdAuEeuRpOjDC7SRnQ" techID="_dr238tAuEeuRpOjDC7SRnQ" name="INVOICES">
+      <primaryKey xmi:id="_duadHtAuEeuRpOjDC7SRnQ" techID="_dr7wcNAuEeuRpOjDC7SRnQ" name="PK_INVOICES" columns="_duadJdAuEeuRpOjDC7SRnQ"/>
+      <foreignKeys xmi:id="_duadH9AuEeuRpOjDC7SRnQ" techID="_dt3qINAuEeuRpOjDC7SRnQ" name="FK_INVOICES_ORDERS1" target="_duadM9AuEeuRpOjDC7SRnQ">
+        <elements xmi:id="_duadINAuEeuRpOjDC7SRnQ" techID="_dt4RMNAuEeuRpOjDC7SRnQ" fkColumn="_duadJ9AuEeuRpOjDC7SRnQ" pkColumn="_duadTdAuEeuRpOjDC7SRnQ"/>
+      </foreignKeys>
+      <indexes xmi:id="_duadIdAuEeuRpOjDC7SRnQ" techID="_dr-zwNAuEeuRpOjDC7SRnQ" name="PRIMARY_KEY_54" qualifier="TEST" unique="true">
+        <elements xmi:id="_duadItAuEeuRpOjDC7SRnQ" techID="_dr-zwdAuEeuRpOjDC7SRnQ" column="_duadJdAuEeuRpOjDC7SRnQ" asc="true"/>
+      </indexes>
+      <indexes xmi:id="_duadI9AuEeuRpOjDC7SRnQ" techID="_dr-zwtAuEeuRpOjDC7SRnQ" name="FK_INVOICES_ORDERS1_IDX" qualifier="TEST">
+        <elements xmi:id="_duadJNAuEeuRpOjDC7SRnQ" techID="_dr-zw9AuEeuRpOjDC7SRnQ" column="_duadJ9AuEeuRpOjDC7SRnQ" asc="true"/>
+      </indexes>
+      <columns xmi:id="_duadJdAuEeuRpOjDC7SRnQ" techID="_dr5UMNAuEeuRpOjDC7SRnQ" name="ID" defaultValue="(NEXT VALUE FOR PUBLIC.SYSTEM_SEQUENCE_24823A6A_BCF1_4F84_AB5F_EE9825E6CF70)" indexElements="_duadItAuEeuRpOjDC7SRnQ" primaryKey="_duadHtAuEeuRpOjDC7SRnQ" autoincrement="true">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_duadJtAuEeuRpOjDC7SRnQ" length="10" precision="0">
+          <nativeType href="pathmap://NativeDBTypes/H2-1.3#_B5QREGBNEeS9uKH-UlSsiQ"/>
+        </type>
+      </columns>
+      <columns xmi:id="_duadJ9AuEeuRpOjDC7SRnQ" techID="_dr5UMdAuEeuRpOjDC7SRnQ" name="ORDER_ID" nullable="true" defaultValue="NULL" indexElements="_duadJNAuEeuRpOjDC7SRnQ" foreignKeyElements="_duadINAuEeuRpOjDC7SRnQ">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_duadKNAuEeuRpOjDC7SRnQ" length="10" precision="0">
+          <nativeType href="pathmap://NativeDBTypes/H2-1.3#_B5QREGBNEeS9uKH-UlSsiQ"/>
+        </type>
+      </columns>
+      <columns xmi:id="_duadKdAuEeuRpOjDC7SRnQ" techID="_dr5UMtAuEeuRpOjDC7SRnQ" name="INVOICE_DATE" nullable="true" defaultValue="NULL">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_duadKtAuEeuRpOjDC7SRnQ" length="23" precision="10">
+          <nativeType href="pathmap://NativeDBTypes/H2-1.3#_pVGT4GBOEeS9uKH-UlSsiQ"/>
+        </type>
+      </columns>
+      <columns xmi:id="_duadK9AuEeuRpOjDC7SRnQ" techID="_dr5UM9AuEeuRpOjDC7SRnQ" name="DUE_DATE" nullable="true" defaultValue="NULL">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_duadLNAuEeuRpOjDC7SRnQ" length="23" precision="10">
+          <nativeType href="pathmap://NativeDBTypes/H2-1.3#_pVGT4GBOEeS9uKH-UlSsiQ"/>
+        </type>
+      </columns>
+      <columns xmi:id="_duadLdAuEeuRpOjDC7SRnQ" techID="_dr5UNNAuEeuRpOjDC7SRnQ" name="TAX" nullable="true" defaultValue="0.0000">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_duadLtAuEeuRpOjDC7SRnQ" length="19" precision="4">
+          <nativeType href="pathmap://NativeDBTypes/H2-1.3#_wTzA0GBNEeS9uKH-UlSsiQ"/>
+        </type>
+      </columns>
+      <columns xmi:id="_duadL9AuEeuRpOjDC7SRnQ" techID="_dr5UNdAuEeuRpOjDC7SRnQ" name="SHIPPING" nullable="true" defaultValue="0.0000">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_duadMNAuEeuRpOjDC7SRnQ" length="19" precision="4">
+          <nativeType href="pathmap://NativeDBTypes/H2-1.3#_wTzA0GBNEeS9uKH-UlSsiQ"/>
+        </type>
+      </columns>
+      <columns xmi:id="_duadMdAuEeuRpOjDC7SRnQ" techID="_dr5UNtAuEeuRpOjDC7SRnQ" name="AMOUNT_DUE" nullable="true" defaultValue="0.0000">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_duadMtAuEeuRpOjDC7SRnQ" length="19" precision="4">
+          <nativeType href="pathmap://NativeDBTypes/H2-1.3#_wTzA0GBNEeS9uKH-UlSsiQ"/>
+        </type>
+      </columns>
+    </tables>
+    <tables xsi:type="database:Table" xmi:id="_duadM9AuEeuRpOjDC7SRnQ" techID="_dr-zxNAuEeuRpOjDC7SRnQ" name="ORDERS">
+      <primaryKey xmi:id="_duadNNAuEeuRpOjDC7SRnQ" techID="_dsE6YNAuEeuRpOjDC7SRnQ" name="PK_ORDERS" columns="_duadTdAuEeuRpOjDC7SRnQ"/>
+      <foreignKeys xmi:id="_duadNdAuEeuRpOjDC7SRnQ" techID="_dt6tcNAuEeuRpOjDC7SRnQ" name="FK_ORDERS_CUSTOMERS" target="_duZ1otAuEeuRpOjDC7SRnQ">
+        <elements xmi:id="_duadNtAuEeuRpOjDC7SRnQ" techID="_dt6tcdAuEeuRpOjDC7SRnQ" fkColumn="_duadUdAuEeuRpOjDC7SRnQ" pkColumn="_duZ1stAuEeuRpOjDC7SRnQ"/>
+      </foreignKeys>
+      <foreignKeys xmi:id="_duadN9AuEeuRpOjDC7SRnQ" techID="_dt6tctAuEeuRpOjDC7SRnQ" name="FK_ORDERS_EMPLOYEES1" target="_duZ1_9AuEeuRpOjDC7SRnQ">
+        <elements xmi:id="_duadONAuEeuRpOjDC7SRnQ" techID="_dt6tc9AuEeuRpOjDC7SRnQ" fkColumn="_duadT9AuEeuRpOjDC7SRnQ" pkColumn="_duacutAuEeuRpOjDC7SRnQ"/>
+      </foreignKeys>
+      <foreignKeys xmi:id="_duadOdAuEeuRpOjDC7SRnQ" techID="_dt6tdNAuEeuRpOjDC7SRnQ" name="FK_ORDERS_ORDERS_STATUS1" target="_duadddAuEeuRpOjDC7SRnQ">
+        <elements xmi:id="_duadOtAuEeuRpOjDC7SRnQ" techID="_dt6tddAuEeuRpOjDC7SRnQ" fkColumn="_duadc9AuEeuRpOjDC7SRnQ" pkColumn="_duadedAuEeuRpOjDC7SRnQ"/>
+      </foreignKeys>
+      <foreignKeys xmi:id="_duadO9AuEeuRpOjDC7SRnQ" techID="_dt6tdtAuEeuRpOjDC7SRnQ" name="FK_ORDERS_ORDERS_TAX_STATUS1" target="_duadfdAuEeuRpOjDC7SRnQ">
+        <elements xmi:id="_duadPNAuEeuRpOjDC7SRnQ" techID="_dt6td9AuEeuRpOjDC7SRnQ" fkColumn="_duadcdAuEeuRpOjDC7SRnQ" pkColumn="_duadgdAuEeuRpOjDC7SRnQ"/>
+      </foreignKeys>
+      <foreignKeys xmi:id="_duadPdAuEeuRpOjDC7SRnQ" techID="_dt6teNAuEeuRpOjDC7SRnQ" name="FK_ORDERS_SHIPPERS1" target="_dubEBNAuEeuRpOjDC7SRnQ">
+        <elements xmi:id="_duadPtAuEeuRpOjDC7SRnQ" techID="_dt6tedAuEeuRpOjDC7SRnQ" fkColumn="_duadV9AuEeuRpOjDC7SRnQ" pkColumn="_dubEFNAuEeuRpOjDC7SRnQ"/>
+      </foreignKeys>
+      <indexes xmi:id="_duadP9AuEeuRpOjDC7SRnQ" techID="_dsGvkNAuEeuRpOjDC7SRnQ" name="PRIMARY_KEY_8B" qualifier="TEST" unique="true">
+        <elements xmi:id="_duadQNAuEeuRpOjDC7SRnQ" techID="_dsHWoNAuEeuRpOjDC7SRnQ" column="_duadTdAuEeuRpOjDC7SRnQ" asc="true"/>
+      </indexes>
+      <indexes xmi:id="_duadQdAuEeuRpOjDC7SRnQ" techID="_dsHWodAuEeuRpOjDC7SRnQ" name="CUSTOMER_ID_2" qualifier="TEST">
+        <elements xmi:id="_duadQtAuEeuRpOjDC7SRnQ" techID="_dsHWotAuEeuRpOjDC7SRnQ" column="_duadUdAuEeuRpOjDC7SRnQ" asc="true"/>
+      </indexes>
+      <indexes xmi:id="_duadQ9AuEeuRpOjDC7SRnQ" techID="_dsHWo9AuEeuRpOjDC7SRnQ" name="EMPLOYEE_ID_2" qualifier="TEST">
+        <elements xmi:id="_duadRNAuEeuRpOjDC7SRnQ" techID="_dsHWpNAuEeuRpOjDC7SRnQ" column="_duadT9AuEeuRpOjDC7SRnQ" asc="true"/>
+      </indexes>
+      <indexes xmi:id="_duadRdAuEeuRpOjDC7SRnQ" techID="_dsHWpdAuEeuRpOjDC7SRnQ" name="FK_ORDERS_ORDERS_STATUS1" qualifier="TEST">
+        <elements xmi:id="_duadRtAuEeuRpOjDC7SRnQ" techID="_dsHWptAuEeuRpOjDC7SRnQ" column="_duadc9AuEeuRpOjDC7SRnQ" asc="true"/>
+      </indexes>
+      <indexes xmi:id="_duadR9AuEeuRpOjDC7SRnQ" techID="_dsHWp9AuEeuRpOjDC7SRnQ" name="SHIPPER_ID" qualifier="TEST">
+        <elements xmi:id="_duadSNAuEeuRpOjDC7SRnQ" techID="_dsHWqNAuEeuRpOjDC7SRnQ" column="_duadV9AuEeuRpOjDC7SRnQ" asc="true"/>
+      </indexes>
+      <indexes xmi:id="_duadSdAuEeuRpOjDC7SRnQ" techID="_dsHWqdAuEeuRpOjDC7SRnQ" name="SHIP_ZIP_POSTAL_CODE" qualifier="TEST">
+        <elements xmi:id="_duadStAuEeuRpOjDC7SRnQ" techID="_dsHWqtAuEeuRpOjDC7SRnQ" column="_duadYdAuEeuRpOjDC7SRnQ" asc="true"/>
+      </indexes>
+      <indexes xmi:id="_duadS9AuEeuRpOjDC7SRnQ" techID="_dsHWq9AuEeuRpOjDC7SRnQ" name="TAX_STATUS" qualifier="TEST">
+        <elements xmi:id="_duadTNAuEeuRpOjDC7SRnQ" techID="_dsHWrNAuEeuRpOjDC7SRnQ" column="_duadcdAuEeuRpOjDC7SRnQ" asc="true"/>
+      </indexes>
+      <columns xmi:id="_duadTdAuEeuRpOjDC7SRnQ" techID="_dsBQANAuEeuRpOjDC7SRnQ" name="ID" defaultValue="(NEXT VALUE FOR PUBLIC.SYSTEM_SEQUENCE_0E54DD19_3CDF_4468_9470_28A0C0DD09A8)" indexElements="_duadQNAuEeuRpOjDC7SRnQ" primaryKey="_duadNNAuEeuRpOjDC7SRnQ" autoincrement="true">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_duadTtAuEeuRpOjDC7SRnQ" length="10" precision="0">
+          <nativeType href="pathmap://NativeDBTypes/H2-1.3#_B5QREGBNEeS9uKH-UlSsiQ"/>
+        </type>
+      </columns>
+      <columns xmi:id="_duadT9AuEeuRpOjDC7SRnQ" techID="_dsBQAdAuEeuRpOjDC7SRnQ" name="EMPLOYEE_ID" nullable="true" defaultValue="NULL" indexElements="_duadRNAuEeuRpOjDC7SRnQ" foreignKeyElements="_duadONAuEeuRpOjDC7SRnQ">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_duadUNAuEeuRpOjDC7SRnQ" length="10" precision="0">
+          <nativeType href="pathmap://NativeDBTypes/H2-1.3#_B5QREGBNEeS9uKH-UlSsiQ"/>
+        </type>
+      </columns>
+      <columns xmi:id="_duadUdAuEeuRpOjDC7SRnQ" techID="_dsBQAtAuEeuRpOjDC7SRnQ" name="CUSTOMER_ID" nullable="true" defaultValue="NULL" indexElements="_duadQtAuEeuRpOjDC7SRnQ" foreignKeyElements="_duadNtAuEeuRpOjDC7SRnQ">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_duadUtAuEeuRpOjDC7SRnQ" length="10" precision="0">
+          <nativeType href="pathmap://NativeDBTypes/H2-1.3#_B5QREGBNEeS9uKH-UlSsiQ"/>
+        </type>
+      </columns>
+      <columns xmi:id="_duadU9AuEeuRpOjDC7SRnQ" techID="_dsBQA9AuEeuRpOjDC7SRnQ" name="ORDER_DATE" nullable="true" defaultValue="NULL">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_duadVNAuEeuRpOjDC7SRnQ" length="23" precision="10">
+          <nativeType href="pathmap://NativeDBTypes/H2-1.3#_pVGT4GBOEeS9uKH-UlSsiQ"/>
+        </type>
+      </columns>
+      <columns xmi:id="_duadVdAuEeuRpOjDC7SRnQ" techID="_dsB3ENAuEeuRpOjDC7SRnQ" name="SHIPPED_DATE" nullable="true" defaultValue="NULL">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_duadVtAuEeuRpOjDC7SRnQ" length="23" precision="10">
+          <nativeType href="pathmap://NativeDBTypes/H2-1.3#_pVGT4GBOEeS9uKH-UlSsiQ"/>
+        </type>
+      </columns>
+      <columns xmi:id="_duadV9AuEeuRpOjDC7SRnQ" techID="_dsB3EdAuEeuRpOjDC7SRnQ" name="SHIPPER_ID" nullable="true" defaultValue="NULL" indexElements="_duadSNAuEeuRpOjDC7SRnQ" foreignKeyElements="_duadPtAuEeuRpOjDC7SRnQ">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_duadWNAuEeuRpOjDC7SRnQ" length="10" precision="0">
+          <nativeType href="pathmap://NativeDBTypes/H2-1.3#_B5QREGBNEeS9uKH-UlSsiQ"/>
+        </type>
+      </columns>
+      <columns xmi:id="_duadWdAuEeuRpOjDC7SRnQ" techID="_dsB3EtAuEeuRpOjDC7SRnQ" name="SHIP_NAME" nullable="true" defaultValue="">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_duadWtAuEeuRpOjDC7SRnQ" length="50" precision="0">
+          <nativeType href="pathmap://NativeDBTypes/H2-1.3#_bW4aoWBQEeS9uKH-UlSsiQ"/>
+        </type>
+      </columns>
+      <columns xmi:id="_duadW9AuEeuRpOjDC7SRnQ" techID="_dsB3E9AuEeuRpOjDC7SRnQ" name="SHIP_ADDRESS" nullable="true" defaultValue="">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_duadXNAuEeuRpOjDC7SRnQ" length="2147483647" precision="0">
+          <nativeType href="pathmap://NativeDBTypes/H2-1.3#_55BR0WBREeS9uKH-UlSsiQ"/>
+        </type>
+      </columns>
+      <columns xmi:id="_duadXdAuEeuRpOjDC7SRnQ" techID="_dsB3FNAuEeuRpOjDC7SRnQ" name="SHIP_CITY" nullable="true" defaultValue="">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_duadXtAuEeuRpOjDC7SRnQ" length="50" precision="0">
+          <nativeType href="pathmap://NativeDBTypes/H2-1.3#_bW4aoWBQEeS9uKH-UlSsiQ"/>
+        </type>
+      </columns>
+      <columns xmi:id="_duadX9AuEeuRpOjDC7SRnQ" techID="_dsB3FdAuEeuRpOjDC7SRnQ" name="SHIP_STATE_PROVINCE" nullable="true" defaultValue="">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_duadYNAuEeuRpOjDC7SRnQ" length="50" precision="0">
+          <nativeType href="pathmap://NativeDBTypes/H2-1.3#_bW4aoWBQEeS9uKH-UlSsiQ"/>
+        </type>
+      </columns>
+      <columns xmi:id="_duadYdAuEeuRpOjDC7SRnQ" techID="_dsB3FtAuEeuRpOjDC7SRnQ" name="SHIP_ZIP_POSTAL_CODE" nullable="true" defaultValue="" indexElements="_duadStAuEeuRpOjDC7SRnQ">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_duadYtAuEeuRpOjDC7SRnQ" length="50" precision="0">
+          <nativeType href="pathmap://NativeDBTypes/H2-1.3#_bW4aoWBQEeS9uKH-UlSsiQ"/>
+        </type>
+      </columns>
+      <columns xmi:id="_duadY9AuEeuRpOjDC7SRnQ" techID="_dsB3F9AuEeuRpOjDC7SRnQ" name="SHIP_COUNTRY_REGION" nullable="true" defaultValue="">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_duadZNAuEeuRpOjDC7SRnQ" length="50" precision="0">
+          <nativeType href="pathmap://NativeDBTypes/H2-1.3#_bW4aoWBQEeS9uKH-UlSsiQ"/>
+        </type>
+      </columns>
+      <columns xmi:id="_duadZdAuEeuRpOjDC7SRnQ" techID="_dsB3GNAuEeuRpOjDC7SRnQ" name="SHIPPING_FEE" nullable="true" defaultValue="0.0000">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_duadZtAuEeuRpOjDC7SRnQ" length="19" precision="4">
+          <nativeType href="pathmap://NativeDBTypes/H2-1.3#_wTzA0GBNEeS9uKH-UlSsiQ"/>
+        </type>
+      </columns>
+      <columns xmi:id="_duadZ9AuEeuRpOjDC7SRnQ" techID="_dsB3GdAuEeuRpOjDC7SRnQ" name="TAXES" nullable="true" defaultValue="0.0000">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_duadaNAuEeuRpOjDC7SRnQ" length="19" precision="4">
+          <nativeType href="pathmap://NativeDBTypes/H2-1.3#_wTzA0GBNEeS9uKH-UlSsiQ"/>
+        </type>
+      </columns>
+      <columns xmi:id="_duadadAuEeuRpOjDC7SRnQ" techID="_dsB3GtAuEeuRpOjDC7SRnQ" name="PAYMENT_TYPE" nullable="true" defaultValue="">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_duadatAuEeuRpOjDC7SRnQ" length="50" precision="0">
+          <nativeType href="pathmap://NativeDBTypes/H2-1.3#_bW4aoWBQEeS9uKH-UlSsiQ"/>
+        </type>
+      </columns>
+      <columns xmi:id="_duada9AuEeuRpOjDC7SRnQ" techID="_dsB3G9AuEeuRpOjDC7SRnQ" name="PAID_DATE" nullable="true" defaultValue="NULL">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_duadbNAuEeuRpOjDC7SRnQ" length="23" precision="10">
+          <nativeType href="pathmap://NativeDBTypes/H2-1.3#_pVGT4GBOEeS9uKH-UlSsiQ"/>
+        </type>
+      </columns>
+      <columns xmi:id="_duadbdAuEeuRpOjDC7SRnQ" techID="_dsB3HNAuEeuRpOjDC7SRnQ" name="NOTES" nullable="true" defaultValue="">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_duadbtAuEeuRpOjDC7SRnQ" length="2147483647" precision="0">
+          <nativeType href="pathmap://NativeDBTypes/H2-1.3#_55BR0WBREeS9uKH-UlSsiQ"/>
+        </type>
+      </columns>
+      <columns xmi:id="_duadb9AuEeuRpOjDC7SRnQ" techID="_dsB3HdAuEeuRpOjDC7SRnQ" name="TAX_RATE" nullable="true" defaultValue="0">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_duadcNAuEeuRpOjDC7SRnQ" length="17" precision="0">
+          <nativeType href="pathmap://NativeDBTypes/H2-1.3#_HsWboGBOEeS9uKH-UlSsiQ"/>
+        </type>
+      </columns>
+      <columns xmi:id="_duadcdAuEeuRpOjDC7SRnQ" techID="_dsB3HtAuEeuRpOjDC7SRnQ" name="TAX_STATUS_ID" nullable="true" defaultValue="NULL" indexElements="_duadTNAuEeuRpOjDC7SRnQ" foreignKeyElements="_duadPNAuEeuRpOjDC7SRnQ">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_duadctAuEeuRpOjDC7SRnQ" length="3" precision="0">
+          <nativeType href="pathmap://NativeDBTypes/H2-1.3#_NS6Q8GBNEeS9uKH-UlSsiQ"/>
+        </type>
+      </columns>
+      <columns xmi:id="_duadc9AuEeuRpOjDC7SRnQ" techID="_dsB3H9AuEeuRpOjDC7SRnQ" name="STATUS_ID" nullable="true" defaultValue="0" indexElements="_duadRtAuEeuRpOjDC7SRnQ" foreignKeyElements="_duadOtAuEeuRpOjDC7SRnQ">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_duaddNAuEeuRpOjDC7SRnQ" length="3" precision="0">
+          <nativeType href="pathmap://NativeDBTypes/H2-1.3#_NS6Q8GBNEeS9uKH-UlSsiQ"/>
+        </type>
+      </columns>
+    </tables>
+    <tables xsi:type="database:Table" xmi:id="_duadddAuEeuRpOjDC7SRnQ" techID="_dsHWrdAuEeuRpOjDC7SRnQ" name="ORDERS_STATUS">
+      <primaryKey xmi:id="_duaddtAuEeuRpOjDC7SRnQ" techID="_dsMPINAuEeuRpOjDC7SRnQ" name="PK_ORDERS_STATUS" columns="_duadedAuEeuRpOjDC7SRnQ"/>
+      <indexes xmi:id="_duadd9AuEeuRpOjDC7SRnQ" techID="_dsOEUNAuEeuRpOjDC7SRnQ" name="PRIMARY_KEY_D5" qualifier="TEST" unique="true">
+        <elements xmi:id="_duadeNAuEeuRpOjDC7SRnQ" techID="_dsOEUdAuEeuRpOjDC7SRnQ" column="_duadedAuEeuRpOjDC7SRnQ" asc="true"/>
+      </indexes>
+      <columns xmi:id="_duadedAuEeuRpOjDC7SRnQ" techID="_dsJy4NAuEeuRpOjDC7SRnQ" name="ID" defaultValue="" indexElements="_duadeNAuEeuRpOjDC7SRnQ" primaryKey="_duaddtAuEeuRpOjDC7SRnQ">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_duadetAuEeuRpOjDC7SRnQ" length="3" precision="0">
+          <nativeType href="pathmap://NativeDBTypes/H2-1.3#_NS6Q8GBNEeS9uKH-UlSsiQ"/>
+        </type>
+      </columns>
+      <columns xmi:id="_duade9AuEeuRpOjDC7SRnQ" techID="_dsJy4dAuEeuRpOjDC7SRnQ" name="STATUS_NAME" defaultValue="">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_duadfNAuEeuRpOjDC7SRnQ" length="50" precision="0">
+          <nativeType href="pathmap://NativeDBTypes/H2-1.3#_bW4aoWBQEeS9uKH-UlSsiQ"/>
+        </type>
+      </columns>
+    </tables>
+    <tables xsi:type="database:Table" xmi:id="_duadfdAuEeuRpOjDC7SRnQ" techID="_dsOEUtAuEeuRpOjDC7SRnQ" name="ORDERS_TAX_STATUS">
+      <primaryKey xmi:id="_duadftAuEeuRpOjDC7SRnQ" techID="_dsSVwNAuEeuRpOjDC7SRnQ" name="PK_ORDERS_TAX_STATUS" columns="_duadgdAuEeuRpOjDC7SRnQ"/>
+      <indexes xmi:id="_duadf9AuEeuRpOjDC7SRnQ" techID="_dsUK8NAuEeuRpOjDC7SRnQ" name="PRIMARY_KEY_C" qualifier="TEST" unique="true">
+        <elements xmi:id="_duadgNAuEeuRpOjDC7SRnQ" techID="_dsUK8dAuEeuRpOjDC7SRnQ" column="_duadgdAuEeuRpOjDC7SRnQ" asc="true"/>
+      </indexes>
+      <columns xmi:id="_duadgdAuEeuRpOjDC7SRnQ" techID="_dsQgkNAuEeuRpOjDC7SRnQ" name="ID" defaultValue="" indexElements="_duadgNAuEeuRpOjDC7SRnQ" primaryKey="_duadftAuEeuRpOjDC7SRnQ">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_duadgtAuEeuRpOjDC7SRnQ" length="3" precision="0">
+          <nativeType href="pathmap://NativeDBTypes/H2-1.3#_NS6Q8GBNEeS9uKH-UlSsiQ"/>
+        </type>
+      </columns>
+      <columns xmi:id="_duadg9AuEeuRpOjDC7SRnQ" techID="_dsQgkdAuEeuRpOjDC7SRnQ" name="TAX_STATUS_NAME" defaultValue="">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_duadhNAuEeuRpOjDC7SRnQ" length="50" precision="0">
+          <nativeType href="pathmap://NativeDBTypes/H2-1.3#_bW4aoWBQEeS9uKH-UlSsiQ"/>
+        </type>
+      </columns>
+    </tables>
+    <tables xsi:type="database:Table" xmi:id="_duadhdAuEeuRpOjDC7SRnQ" techID="_dsUK8tAuEeuRpOjDC7SRnQ" name="ORDER_DETAILS">
+      <primaryKey xmi:id="_duadhtAuEeuRpOjDC7SRnQ" techID="_dsZqgNAuEeuRpOjDC7SRnQ" name="PK_ORDER_DETAILS" columns="_duadmdAuEeuRpOjDC7SRnQ"/>
+      <foreignKeys xmi:id="_duadh9AuEeuRpOjDC7SRnQ" techID="_duANANAuEeuRpOjDC7SRnQ" name="FK_ORDER_DETAILS_ORDERS1" target="_duadM9AuEeuRpOjDC7SRnQ">
+        <elements xmi:id="_duadiNAuEeuRpOjDC7SRnQ" techID="_duANAdAuEeuRpOjDC7SRnQ" fkColumn="_duadm9AuEeuRpOjDC7SRnQ" pkColumn="_duadTdAuEeuRpOjDC7SRnQ"/>
+      </foreignKeys>
+      <foreignKeys xmi:id="_duadidAuEeuRpOjDC7SRnQ" techID="_duA0ENAuEeuRpOjDC7SRnQ" name="FK_ORDER_DETAILS_ORDER_DETAILS_STATUS1" target="_duadrdAuEeuRpOjDC7SRnQ">
+        <elements xmi:id="_duaditAuEeuRpOjDC7SRnQ" techID="_duA0EdAuEeuRpOjDC7SRnQ" fkColumn="_duadpdAuEeuRpOjDC7SRnQ" pkColumn="_duadsdAuEeuRpOjDC7SRnQ"/>
+      </foreignKeys>
+      <foreignKeys xmi:id="_duadi9AuEeuRpOjDC7SRnQ" techID="_duA0EtAuEeuRpOjDC7SRnQ" name="FK_ORDER_DETAILS_PRODUCTS1" target="_duadvdAuEeuRpOjDC7SRnQ">
+        <elements xmi:id="_duadjNAuEeuRpOjDC7SRnQ" techID="_duA0E9AuEeuRpOjDC7SRnQ" fkColumn="_duadndAuEeuRpOjDC7SRnQ" pkColumn="_duadxdAuEeuRpOjDC7SRnQ"/>
+      </foreignKeys>
+      <indexes xmi:id="_duadjdAuEeuRpOjDC7SRnQ" techID="_dscGwNAuEeuRpOjDC7SRnQ" name="PRIMARY_KEY_8" qualifier="TEST" unique="true">
+        <elements xmi:id="_duadjtAuEeuRpOjDC7SRnQ" techID="_dscGwdAuEeuRpOjDC7SRnQ" column="_duadmdAuEeuRpOjDC7SRnQ" asc="true"/>
+      </indexes>
+      <indexes xmi:id="_duadj9AuEeuRpOjDC7SRnQ" techID="_dscGwtAuEeuRpOjDC7SRnQ" name="FK_ORDER_DETAILS_ORDERS1_IDX" qualifier="TEST">
+        <elements xmi:id="_duadkNAuEeuRpOjDC7SRnQ" techID="_dscGw9AuEeuRpOjDC7SRnQ" column="_duadm9AuEeuRpOjDC7SRnQ" asc="true"/>
+      </indexes>
+      <indexes xmi:id="_duadkdAuEeuRpOjDC7SRnQ" techID="_dscGxNAuEeuRpOjDC7SRnQ" name="FK_ORDER_DETAILS_ORDER_DETAILS_STATUS1_IDX" qualifier="TEST">
+        <elements xmi:id="_duadktAuEeuRpOjDC7SRnQ" techID="_dscGxdAuEeuRpOjDC7SRnQ" column="_duadpdAuEeuRpOjDC7SRnQ" asc="true"/>
+      </indexes>
+      <indexes xmi:id="_duadk9AuEeuRpOjDC7SRnQ" techID="_dscGxtAuEeuRpOjDC7SRnQ" name="INVENTORY_ID" qualifier="TEST">
+        <elements xmi:id="_duadlNAuEeuRpOjDC7SRnQ" techID="_dscGx9AuEeuRpOjDC7SRnQ" column="_duadq9AuEeuRpOjDC7SRnQ" asc="true"/>
+      </indexes>
+      <indexes xmi:id="_duadldAuEeuRpOjDC7SRnQ" techID="_dscGyNAuEeuRpOjDC7SRnQ" name="PRODUCT_ID_ORDER_DETAILS" qualifier="TEST">
+        <elements xmi:id="_duadltAuEeuRpOjDC7SRnQ" techID="_dscGydAuEeuRpOjDC7SRnQ" column="_duadndAuEeuRpOjDC7SRnQ" asc="true"/>
+      </indexes>
+      <indexes xmi:id="_duadl9AuEeuRpOjDC7SRnQ" techID="_dscGytAuEeuRpOjDC7SRnQ" name="PURCHASE_ORDER_ID_ORDER_DETAILS" qualifier="TEST">
+        <elements xmi:id="_duadmNAuEeuRpOjDC7SRnQ" techID="_dscGy9AuEeuRpOjDC7SRnQ" column="_duadqdAuEeuRpOjDC7SRnQ" asc="true"/>
+      </indexes>
+      <columns xmi:id="_duadmdAuEeuRpOjDC7SRnQ" techID="_dsXOQNAuEeuRpOjDC7SRnQ" name="ID" defaultValue="(NEXT VALUE FOR PUBLIC.SYSTEM_SEQUENCE_710B0BF2_6D7C_4D47_90F9_29CD0A64D3B9)" indexElements="_duadjtAuEeuRpOjDC7SRnQ" primaryKey="_duadhtAuEeuRpOjDC7SRnQ" autoincrement="true">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_duadmtAuEeuRpOjDC7SRnQ" length="10" precision="0">
+          <nativeType href="pathmap://NativeDBTypes/H2-1.3#_B5QREGBNEeS9uKH-UlSsiQ"/>
+        </type>
+      </columns>
+      <columns xmi:id="_duadm9AuEeuRpOjDC7SRnQ" techID="_dsXOQdAuEeuRpOjDC7SRnQ" name="ORDER_ID" defaultValue="" indexElements="_duadkNAuEeuRpOjDC7SRnQ" foreignKeyElements="_duadiNAuEeuRpOjDC7SRnQ">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_duadnNAuEeuRpOjDC7SRnQ" length="10" precision="0">
+          <nativeType href="pathmap://NativeDBTypes/H2-1.3#_B5QREGBNEeS9uKH-UlSsiQ"/>
+        </type>
+      </columns>
+      <columns xmi:id="_duadndAuEeuRpOjDC7SRnQ" techID="_dsXOQtAuEeuRpOjDC7SRnQ" name="PRODUCT_ID" nullable="true" defaultValue="NULL" indexElements="_duadltAuEeuRpOjDC7SRnQ" foreignKeyElements="_duadjNAuEeuRpOjDC7SRnQ">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_duadntAuEeuRpOjDC7SRnQ" length="10" precision="0">
+          <nativeType href="pathmap://NativeDBTypes/H2-1.3#_B5QREGBNEeS9uKH-UlSsiQ"/>
+        </type>
+      </columns>
+      <columns xmi:id="_duadn9AuEeuRpOjDC7SRnQ" techID="_dsXOQ9AuEeuRpOjDC7SRnQ" name="QUANTITY" defaultValue="0.0000">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_duadoNAuEeuRpOjDC7SRnQ" length="18" precision="4">
+          <nativeType href="pathmap://NativeDBTypes/H2-1.3#_wTzA0GBNEeS9uKH-UlSsiQ"/>
+        </type>
+      </columns>
+      <columns xmi:id="_duadodAuEeuRpOjDC7SRnQ" techID="_dsXORNAuEeuRpOjDC7SRnQ" name="UNIT_PRICE" nullable="true" defaultValue="0.0000">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_duadotAuEeuRpOjDC7SRnQ" length="19" precision="4">
+          <nativeType href="pathmap://NativeDBTypes/H2-1.3#_wTzA0GBNEeS9uKH-UlSsiQ"/>
+        </type>
+      </columns>
+      <columns xmi:id="_duado9AuEeuRpOjDC7SRnQ" techID="_dsXORdAuEeuRpOjDC7SRnQ" name="DISCOUNT" defaultValue="0">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_duadpNAuEeuRpOjDC7SRnQ" length="17" precision="0">
+          <nativeType href="pathmap://NativeDBTypes/H2-1.3#_HsWboGBOEeS9uKH-UlSsiQ"/>
+        </type>
+      </columns>
+      <columns xmi:id="_duadpdAuEeuRpOjDC7SRnQ" techID="_dsXORtAuEeuRpOjDC7SRnQ" name="STATUS_ID" nullable="true" defaultValue="NULL" indexElements="_duadktAuEeuRpOjDC7SRnQ" foreignKeyElements="_duaditAuEeuRpOjDC7SRnQ">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_duadptAuEeuRpOjDC7SRnQ" length="10" precision="0">
+          <nativeType href="pathmap://NativeDBTypes/H2-1.3#_B5QREGBNEeS9uKH-UlSsiQ"/>
+        </type>
+      </columns>
+      <columns xmi:id="_duadp9AuEeuRpOjDC7SRnQ" techID="_dsXOR9AuEeuRpOjDC7SRnQ" name="DATE_ALLOCATED" nullable="true" defaultValue="NULL">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_duadqNAuEeuRpOjDC7SRnQ" length="23" precision="10">
+          <nativeType href="pathmap://NativeDBTypes/H2-1.3#_pVGT4GBOEeS9uKH-UlSsiQ"/>
+        </type>
+      </columns>
+      <columns xmi:id="_duadqdAuEeuRpOjDC7SRnQ" techID="_dsXOSNAuEeuRpOjDC7SRnQ" name="PURCHASE_ORDER_ID" nullable="true" defaultValue="NULL" indexElements="_duadmNAuEeuRpOjDC7SRnQ">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_duadqtAuEeuRpOjDC7SRnQ" length="10" precision="0">
+          <nativeType href="pathmap://NativeDBTypes/H2-1.3#_B5QREGBNEeS9uKH-UlSsiQ"/>
+        </type>
+      </columns>
+      <columns xmi:id="_duadq9AuEeuRpOjDC7SRnQ" techID="_dsXOSdAuEeuRpOjDC7SRnQ" name="INVENTORY_ID" nullable="true" defaultValue="NULL" indexElements="_duadlNAuEeuRpOjDC7SRnQ">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_duadrNAuEeuRpOjDC7SRnQ" length="10" precision="0">
+          <nativeType href="pathmap://NativeDBTypes/H2-1.3#_B5QREGBNEeS9uKH-UlSsiQ"/>
+        </type>
+      </columns>
+    </tables>
+    <tables xsi:type="database:Table" xmi:id="_duadrdAuEeuRpOjDC7SRnQ" techID="_dscGzNAuEeuRpOjDC7SRnQ" name="ORDER_DETAILS_STATUS">
+      <primaryKey xmi:id="_duadrtAuEeuRpOjDC7SRnQ" techID="_dsgYMNAuEeuRpOjDC7SRnQ" name="PK_ORDER_DETAILS_STATUS" columns="_duadsdAuEeuRpOjDC7SRnQ"/>
+      <indexes xmi:id="_duadr9AuEeuRpOjDC7SRnQ" techID="_dsiNYNAuEeuRpOjDC7SRnQ" name="PRIMARY_KEY_1" qualifier="TEST" unique="true">
+        <elements xmi:id="_duadsNAuEeuRpOjDC7SRnQ" techID="_dsiNYdAuEeuRpOjDC7SRnQ" column="_duadsdAuEeuRpOjDC7SRnQ" asc="true"/>
+      </indexes>
+      <columns xmi:id="_duadsdAuEeuRpOjDC7SRnQ" techID="_dsejANAuEeuRpOjDC7SRnQ" name="ID" defaultValue="" indexElements="_duadsNAuEeuRpOjDC7SRnQ" primaryKey="_duadrtAuEeuRpOjDC7SRnQ">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_duadstAuEeuRpOjDC7SRnQ" length="10" precision="0">
+          <nativeType href="pathmap://NativeDBTypes/H2-1.3#_B5QREGBNEeS9uKH-UlSsiQ"/>
+        </type>
+      </columns>
+      <columns xmi:id="_duads9AuEeuRpOjDC7SRnQ" techID="_dsejAdAuEeuRpOjDC7SRnQ" name="STATUS_NAME" defaultValue="">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_duadtNAuEeuRpOjDC7SRnQ" length="50" precision="0">
+          <nativeType href="pathmap://NativeDBTypes/H2-1.3#_bW4aoWBQEeS9uKH-UlSsiQ"/>
+        </type>
+      </columns>
+    </tables>
+    <tables xsi:type="database:Table" xmi:id="_duadtdAuEeuRpOjDC7SRnQ" techID="_dsiNYtAuEeuRpOjDC7SRnQ" name="PRIVILEGES">
+      <primaryKey xmi:id="_duadttAuEeuRpOjDC7SRnQ" techID="_dsnF4NAuEeuRpOjDC7SRnQ" name="PK_PRIVILEGES" columns="_duadudAuEeuRpOjDC7SRnQ"/>
+      <indexes xmi:id="_duadt9AuEeuRpOjDC7SRnQ" techID="_dso7ENAuEeuRpOjDC7SRnQ" name="PRIMARY_KEY_B" qualifier="TEST" unique="true">
+        <elements xmi:id="_duaduNAuEeuRpOjDC7SRnQ" techID="_dspiINAuEeuRpOjDC7SRnQ" column="_duadudAuEeuRpOjDC7SRnQ" asc="true"/>
+      </indexes>
+      <columns xmi:id="_duadudAuEeuRpOjDC7SRnQ" techID="_dskpoNAuEeuRpOjDC7SRnQ" name="ID" defaultValue="(NEXT VALUE FOR PUBLIC.SYSTEM_SEQUENCE_9773B85B_4962_4C93_AEC1_603C43806970)" indexElements="_duaduNAuEeuRpOjDC7SRnQ" primaryKey="_duadttAuEeuRpOjDC7SRnQ" autoincrement="true">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_duadutAuEeuRpOjDC7SRnQ" length="10" precision="0">
+          <nativeType href="pathmap://NativeDBTypes/H2-1.3#_B5QREGBNEeS9uKH-UlSsiQ"/>
+        </type>
+      </columns>
+      <columns xmi:id="_duadu9AuEeuRpOjDC7SRnQ" techID="_dskpodAuEeuRpOjDC7SRnQ" name="PRIVILEGE_NAME" nullable="true" defaultValue="">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_duadvNAuEeuRpOjDC7SRnQ" length="50" precision="0">
+          <nativeType href="pathmap://NativeDBTypes/H2-1.3#_bW4aoWBQEeS9uKH-UlSsiQ"/>
+        </type>
+      </columns>
+    </tables>
+    <tables xsi:type="database:Table" xmi:id="_duadvdAuEeuRpOjDC7SRnQ" techID="_dspiIdAuEeuRpOjDC7SRnQ" name="PRODUCTS">
+      <primaryKey xmi:id="_duadvtAuEeuRpOjDC7SRnQ" techID="_dsuaoNAuEeuRpOjDC7SRnQ" name="PK_PRODUCTS" columns="_duadxdAuEeuRpOjDC7SRnQ"/>
+      <indexes xmi:id="_duadv9AuEeuRpOjDC7SRnQ" techID="_dswP0NAuEeuRpOjDC7SRnQ" name="PRIMARY_KEY_F" qualifier="TEST" unique="true">
+        <elements xmi:id="_duadwNAuEeuRpOjDC7SRnQ" techID="_dswP0dAuEeuRpOjDC7SRnQ" column="_duadxdAuEeuRpOjDC7SRnQ" asc="true"/>
+      </indexes>
+      <indexes xmi:id="_duadwdAuEeuRpOjDC7SRnQ" techID="_dswP0tAuEeuRpOjDC7SRnQ" name="PRODUCT_CODE" qualifier="TEST">
+        <elements xmi:id="_duadwtAuEeuRpOjDC7SRnQ" techID="_dswP09AuEeuRpOjDC7SRnQ" column="_duadx9AuEeuRpOjDC7SRnQ" asc="true"/>
+      </indexes>
+      <columns xmi:id="_duadw9AuEeuRpOjDC7SRnQ" techID="_dsr-YNAuEeuRpOjDC7SRnQ" name="SUPPLIER_IDS" nullable="true" defaultValue="">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_duadxNAuEeuRpOjDC7SRnQ" length="2147483647" precision="0">
+          <nativeType href="pathmap://NativeDBTypes/H2-1.3#_55BR0WBREeS9uKH-UlSsiQ"/>
+        </type>
+      </columns>
+      <columns xmi:id="_duadxdAuEeuRpOjDC7SRnQ" techID="_dsr-YdAuEeuRpOjDC7SRnQ" name="ID" defaultValue="(NEXT VALUE FOR PUBLIC.SYSTEM_SEQUENCE_47AC6483_7B6C_43AB_B346_0F497709255D)" indexElements="_duadwNAuEeuRpOjDC7SRnQ" primaryKey="_duadvtAuEeuRpOjDC7SRnQ" autoincrement="true">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_duadxtAuEeuRpOjDC7SRnQ" length="10" precision="0">
+          <nativeType href="pathmap://NativeDBTypes/H2-1.3#_B5QREGBNEeS9uKH-UlSsiQ"/>
+        </type>
+      </columns>
+      <columns xmi:id="_duadx9AuEeuRpOjDC7SRnQ" techID="_dsslcNAuEeuRpOjDC7SRnQ" name="PRODUCT_CODE" nullable="true" defaultValue="" indexElements="_duadwtAuEeuRpOjDC7SRnQ">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_duadyNAuEeuRpOjDC7SRnQ" length="25" precision="0">
+          <nativeType href="pathmap://NativeDBTypes/H2-1.3#_bW4aoWBQEeS9uKH-UlSsiQ"/>
+        </type>
+      </columns>
+      <columns xmi:id="_duadydAuEeuRpOjDC7SRnQ" techID="_dsslcdAuEeuRpOjDC7SRnQ" name="PRODUCT_NAME" nullable="true" defaultValue="">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_duadytAuEeuRpOjDC7SRnQ" length="50" precision="0">
+          <nativeType href="pathmap://NativeDBTypes/H2-1.3#_bW4aoWBQEeS9uKH-UlSsiQ"/>
+        </type>
+      </columns>
+      <columns xmi:id="_duady9AuEeuRpOjDC7SRnQ" techID="_dsslctAuEeuRpOjDC7SRnQ" name="DESCRIPTION" nullable="true" defaultValue="">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_duadzNAuEeuRpOjDC7SRnQ" length="2147483647" precision="0">
+          <nativeType href="pathmap://NativeDBTypes/H2-1.3#_55BR0WBREeS9uKH-UlSsiQ"/>
+        </type>
+      </columns>
+      <columns xmi:id="_duadzdAuEeuRpOjDC7SRnQ" techID="_dsslc9AuEeuRpOjDC7SRnQ" name="STANDARD_COST" nullable="true" defaultValue="0.0000">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_duadztAuEeuRpOjDC7SRnQ" length="19" precision="4">
+          <nativeType href="pathmap://NativeDBTypes/H2-1.3#_wTzA0GBNEeS9uKH-UlSsiQ"/>
+        </type>
+      </columns>
+      <columns xmi:id="_duadz9AuEeuRpOjDC7SRnQ" techID="_dssldNAuEeuRpOjDC7SRnQ" name="LIST_PRICE" defaultValue="0.0000">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_duad0NAuEeuRpOjDC7SRnQ" length="19" precision="4">
+          <nativeType href="pathmap://NativeDBTypes/H2-1.3#_wTzA0GBNEeS9uKH-UlSsiQ"/>
+        </type>
+      </columns>
+      <columns xmi:id="_duad0dAuEeuRpOjDC7SRnQ" techID="_dsslddAuEeuRpOjDC7SRnQ" name="REORDER_LEVEL" nullable="true" defaultValue="NULL">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_duad0tAuEeuRpOjDC7SRnQ" length="10" precision="0">
+          <nativeType href="pathmap://NativeDBTypes/H2-1.3#_B5QREGBNEeS9uKH-UlSsiQ"/>
+        </type>
+      </columns>
+      <columns xmi:id="_duad09AuEeuRpOjDC7SRnQ" techID="_dssldtAuEeuRpOjDC7SRnQ" name="TARGET_LEVEL" nullable="true" defaultValue="NULL">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_duad1NAuEeuRpOjDC7SRnQ" length="10" precision="0">
+          <nativeType href="pathmap://NativeDBTypes/H2-1.3#_B5QREGBNEeS9uKH-UlSsiQ"/>
+        </type>
+      </columns>
+      <columns xmi:id="_duad1dAuEeuRpOjDC7SRnQ" techID="_dssld9AuEeuRpOjDC7SRnQ" name="QUANTITY_PER_UNIT" nullable="true" defaultValue="">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_duad1tAuEeuRpOjDC7SRnQ" length="50" precision="0">
+          <nativeType href="pathmap://NativeDBTypes/H2-1.3#_bW4aoWBQEeS9uKH-UlSsiQ"/>
+        </type>
+      </columns>
+      <columns xmi:id="_duad19AuEeuRpOjDC7SRnQ" techID="_dssleNAuEeuRpOjDC7SRnQ" name="DISCONTINUED" defaultValue="FALSE">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_duad2NAuEeuRpOjDC7SRnQ" length="1" precision="0">
+          <nativeType href="pathmap://NativeDBTypes/H2-1.3#_Ja9H8GBNEeS9uKH-UlSsiQ"/>
+        </type>
+      </columns>
+      <columns xmi:id="_duad2dAuEeuRpOjDC7SRnQ" techID="_dssledAuEeuRpOjDC7SRnQ" name="MINIMUM_REORDER_QUANTITY" nullable="true" defaultValue="NULL">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_duad2tAuEeuRpOjDC7SRnQ" length="10" precision="0">
+          <nativeType href="pathmap://NativeDBTypes/H2-1.3#_B5QREGBNEeS9uKH-UlSsiQ"/>
+        </type>
+      </columns>
+      <columns xmi:id="_duad29AuEeuRpOjDC7SRnQ" techID="_dssletAuEeuRpOjDC7SRnQ" name="CATEGORY" nullable="true" defaultValue="">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_duad3NAuEeuRpOjDC7SRnQ" length="50" precision="0">
+          <nativeType href="pathmap://NativeDBTypes/H2-1.3#_bW4aoWBQEeS9uKH-UlSsiQ"/>
+        </type>
+      </columns>
+      <columns xmi:id="_duad3dAuEeuRpOjDC7SRnQ" techID="_dssle9AuEeuRpOjDC7SRnQ" name="ATTACHMENTS" nullable="true" defaultValue="NULL">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_duad3tAuEeuRpOjDC7SRnQ" length="2147483647" precision="0">
+          <nativeType href="pathmap://NativeDBTypes/H2-1.3#_VTjw0WBREeS9uKH-UlSsiQ"/>
+        </type>
+      </columns>
+    </tables>
+    <tables xsi:type="database:Table" xmi:id="_duad39AuEeuRpOjDC7SRnQ" techID="_dswP1NAuEeuRpOjDC7SRnQ" name="PURCHASE_ORDERS">
+      <primaryKey xmi:id="_duad4NAuEeuRpOjDC7SRnQ" techID="_ds1vYNAuEeuRpOjDC7SRnQ" name="PK_PURCHASE_ORDERS" columns="_duad79AuEeuRpOjDC7SRnQ"/>
+      <foreignKeys xmi:id="_duad4dAuEeuRpOjDC7SRnQ" techID="_duJ-ANAuEeuRpOjDC7SRnQ" name="FK_PURCHASE_ORDERS_EMPLOYEES1" target="_duZ1_9AuEeuRpOjDC7SRnQ">
+        <elements xmi:id="_duad4tAuEeuRpOjDC7SRnQ" techID="_duJ-AdAuEeuRpOjDC7SRnQ" fkColumn="_duad89AuEeuRpOjDC7SRnQ" pkColumn="_duacutAuEeuRpOjDC7SRnQ"/>
+      </foreignKeys>
+      <foreignKeys xmi:id="_duad49AuEeuRpOjDC7SRnQ" techID="_duJ-AtAuEeuRpOjDC7SRnQ" name="FK_PURCHASE_ORDERS_PURCHASE_ORDER_STATUS1" target="_dubD7tAuEeuRpOjDC7SRnQ">
+        <elements xmi:id="_duad5NAuEeuRpOjDC7SRnQ" techID="_duJ-A9AuEeuRpOjDC7SRnQ" fkColumn="_duad-dAuEeuRpOjDC7SRnQ" pkColumn="_dubD8tAuEeuRpOjDC7SRnQ"/>
+      </foreignKeys>
+      <foreignKeys xmi:id="_duad5dAuEeuRpOjDC7SRnQ" techID="_duJ-BNAuEeuRpOjDC7SRnQ" name="FK_PURCHASE_ORDERS_SUPPLIERS1" target="_dubEQNAuEeuRpOjDC7SRnQ">
+        <elements xmi:id="_duad5tAuEeuRpOjDC7SRnQ" techID="_duJ-BdAuEeuRpOjDC7SRnQ" fkColumn="_duad8dAuEeuRpOjDC7SRnQ" pkColumn="_dubEUNAuEeuRpOjDC7SRnQ"/>
+      </foreignKeys>
+      <indexes xmi:id="_duad59AuEeuRpOjDC7SRnQ" techID="_ds3kkNAuEeuRpOjDC7SRnQ" name="PRIMARY_KEY_A" qualifier="TEST" unique="true">
+        <elements xmi:id="_duad6NAuEeuRpOjDC7SRnQ" techID="_ds3kkdAuEeuRpOjDC7SRnQ" column="_duad79AuEeuRpOjDC7SRnQ" asc="true"/>
+      </indexes>
+      <indexes xmi:id="_duad6dAuEeuRpOjDC7SRnQ" techID="_ds3kktAuEeuRpOjDC7SRnQ" name="CREATED_BY" qualifier="TEST">
+        <elements xmi:id="_duad6tAuEeuRpOjDC7SRnQ" techID="_ds3kk9AuEeuRpOjDC7SRnQ" column="_duad89AuEeuRpOjDC7SRnQ" asc="true"/>
+      </indexes>
+      <indexes xmi:id="_duad69AuEeuRpOjDC7SRnQ" techID="_ds3klNAuEeuRpOjDC7SRnQ" name="STATUS_ID" qualifier="TEST">
+        <elements xmi:id="_duad7NAuEeuRpOjDC7SRnQ" techID="_ds3kldAuEeuRpOjDC7SRnQ" column="_duad-dAuEeuRpOjDC7SRnQ" asc="true"/>
+      </indexes>
+      <indexes xmi:id="_duad7dAuEeuRpOjDC7SRnQ" techID="_ds4LoNAuEeuRpOjDC7SRnQ" name="SUPPLIER_ID_2" qualifier="TEST">
+        <elements xmi:id="_duad7tAuEeuRpOjDC7SRnQ" techID="_ds4LodAuEeuRpOjDC7SRnQ" column="_duad8dAuEeuRpOjDC7SRnQ" asc="true"/>
+      </indexes>
+      <columns xmi:id="_duad79AuEeuRpOjDC7SRnQ" techID="_dszTINAuEeuRpOjDC7SRnQ" name="ID" defaultValue="(NEXT VALUE FOR PUBLIC.SYSTEM_SEQUENCE_7FF02D68_E9CE_43D7_AFFD_AA60DE95A9E8)" indexElements="_duad6NAuEeuRpOjDC7SRnQ" primaryKey="_duad4NAuEeuRpOjDC7SRnQ" autoincrement="true">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_duad8NAuEeuRpOjDC7SRnQ" length="10" precision="0">
+          <nativeType href="pathmap://NativeDBTypes/H2-1.3#_B5QREGBNEeS9uKH-UlSsiQ"/>
+        </type>
+      </columns>
+      <columns xmi:id="_duad8dAuEeuRpOjDC7SRnQ" techID="_dszTIdAuEeuRpOjDC7SRnQ" name="SUPPLIER_ID" nullable="true" defaultValue="NULL" indexElements="_duad7tAuEeuRpOjDC7SRnQ" foreignKeyElements="_duad5tAuEeuRpOjDC7SRnQ">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_duad8tAuEeuRpOjDC7SRnQ" length="10" precision="0">
+          <nativeType href="pathmap://NativeDBTypes/H2-1.3#_B5QREGBNEeS9uKH-UlSsiQ"/>
+        </type>
+      </columns>
+      <columns xmi:id="_duad89AuEeuRpOjDC7SRnQ" techID="_dszTItAuEeuRpOjDC7SRnQ" name="CREATED_BY" nullable="true" defaultValue="NULL" indexElements="_duad6tAuEeuRpOjDC7SRnQ" foreignKeyElements="_duad4tAuEeuRpOjDC7SRnQ">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_duad9NAuEeuRpOjDC7SRnQ" length="10" precision="0">
+          <nativeType href="pathmap://NativeDBTypes/H2-1.3#_B5QREGBNEeS9uKH-UlSsiQ"/>
+        </type>
+      </columns>
+      <columns xmi:id="_duad9dAuEeuRpOjDC7SRnQ" techID="_dszTI9AuEeuRpOjDC7SRnQ" name="SUBMITTED_DATE" nullable="true" defaultValue="NULL">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_duad9tAuEeuRpOjDC7SRnQ" length="23" precision="10">
+          <nativeType href="pathmap://NativeDBTypes/H2-1.3#_pVGT4GBOEeS9uKH-UlSsiQ"/>
+        </type>
+      </columns>
+      <columns xmi:id="_duad99AuEeuRpOjDC7SRnQ" techID="_dszTJNAuEeuRpOjDC7SRnQ" name="CREATION_DATE" nullable="true" defaultValue="NULL">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_duad-NAuEeuRpOjDC7SRnQ" length="23" precision="10">
+          <nativeType href="pathmap://NativeDBTypes/H2-1.3#_pVGT4GBOEeS9uKH-UlSsiQ"/>
+        </type>
+      </columns>
+      <columns xmi:id="_duad-dAuEeuRpOjDC7SRnQ" techID="_dszTJdAuEeuRpOjDC7SRnQ" name="STATUS_ID" nullable="true" defaultValue="0" indexElements="_duad7NAuEeuRpOjDC7SRnQ" foreignKeyElements="_duad5NAuEeuRpOjDC7SRnQ">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_duad-tAuEeuRpOjDC7SRnQ" length="10" precision="0">
+          <nativeType href="pathmap://NativeDBTypes/H2-1.3#_B5QREGBNEeS9uKH-UlSsiQ"/>
+        </type>
+      </columns>
+      <columns xmi:id="_duad-9AuEeuRpOjDC7SRnQ" techID="_dszTJtAuEeuRpOjDC7SRnQ" name="EXPECTED_DATE" nullable="true" defaultValue="NULL">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_duad_NAuEeuRpOjDC7SRnQ" length="23" precision="10">
+          <nativeType href="pathmap://NativeDBTypes/H2-1.3#_pVGT4GBOEeS9uKH-UlSsiQ"/>
+        </type>
+      </columns>
+      <columns xmi:id="_duad_dAuEeuRpOjDC7SRnQ" techID="_dszTJ9AuEeuRpOjDC7SRnQ" name="SHIPPING_FEE" defaultValue="0.0000">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_duad_tAuEeuRpOjDC7SRnQ" length="19" precision="4">
+          <nativeType href="pathmap://NativeDBTypes/H2-1.3#_wTzA0GBNEeS9uKH-UlSsiQ"/>
+        </type>
+      </columns>
+      <columns xmi:id="_duad_9AuEeuRpOjDC7SRnQ" techID="_dszTKNAuEeuRpOjDC7SRnQ" name="TAXES" defaultValue="0.0000">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_duaeANAuEeuRpOjDC7SRnQ" length="19" precision="4">
+          <nativeType href="pathmap://NativeDBTypes/H2-1.3#_wTzA0GBNEeS9uKH-UlSsiQ"/>
+        </type>
+      </columns>
+      <columns xmi:id="_dubDwNAuEeuRpOjDC7SRnQ" techID="_dsz6MNAuEeuRpOjDC7SRnQ" name="PAYMENT_DATE" nullable="true" defaultValue="NULL">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_dubDwdAuEeuRpOjDC7SRnQ" length="23" precision="10">
+          <nativeType href="pathmap://NativeDBTypes/H2-1.3#_pVGT4GBOEeS9uKH-UlSsiQ"/>
+        </type>
+      </columns>
+      <columns xmi:id="_dubDwtAuEeuRpOjDC7SRnQ" techID="_dsz6MdAuEeuRpOjDC7SRnQ" name="PAYMENT_AMOUNT" nullable="true" defaultValue="0.0000">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_dubDw9AuEeuRpOjDC7SRnQ" length="19" precision="4">
+          <nativeType href="pathmap://NativeDBTypes/H2-1.3#_wTzA0GBNEeS9uKH-UlSsiQ"/>
+        </type>
+      </columns>
+      <columns xmi:id="_dubDxNAuEeuRpOjDC7SRnQ" techID="_dsz6MtAuEeuRpOjDC7SRnQ" name="PAYMENT_METHOD" nullable="true" defaultValue="">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_dubDxdAuEeuRpOjDC7SRnQ" length="50" precision="0">
+          <nativeType href="pathmap://NativeDBTypes/H2-1.3#_bW4aoWBQEeS9uKH-UlSsiQ"/>
+        </type>
+      </columns>
+      <columns xmi:id="_dubDxtAuEeuRpOjDC7SRnQ" techID="_dsz6M9AuEeuRpOjDC7SRnQ" name="NOTES" nullable="true" defaultValue="">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_dubDx9AuEeuRpOjDC7SRnQ" length="2147483647" precision="0">
+          <nativeType href="pathmap://NativeDBTypes/H2-1.3#_55BR0WBREeS9uKH-UlSsiQ"/>
+        </type>
+      </columns>
+      <columns xmi:id="_dubDyNAuEeuRpOjDC7SRnQ" techID="_dsz6NNAuEeuRpOjDC7SRnQ" name="APPROVED_BY" nullable="true" defaultValue="NULL">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_dubDydAuEeuRpOjDC7SRnQ" length="10" precision="0">
+          <nativeType href="pathmap://NativeDBTypes/H2-1.3#_B5QREGBNEeS9uKH-UlSsiQ"/>
+        </type>
+      </columns>
+      <columns xmi:id="_dubDytAuEeuRpOjDC7SRnQ" techID="_dsz6NdAuEeuRpOjDC7SRnQ" name="APPROVED_DATE" nullable="true" defaultValue="NULL">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_dubDy9AuEeuRpOjDC7SRnQ" length="23" precision="10">
+          <nativeType href="pathmap://NativeDBTypes/H2-1.3#_pVGT4GBOEeS9uKH-UlSsiQ"/>
+        </type>
+      </columns>
+      <columns xmi:id="_dubDzNAuEeuRpOjDC7SRnQ" techID="_dsz6NtAuEeuRpOjDC7SRnQ" name="SUBMITTED_BY" nullable="true" defaultValue="NULL">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_dubDzdAuEeuRpOjDC7SRnQ" length="10" precision="0">
+          <nativeType href="pathmap://NativeDBTypes/H2-1.3#_B5QREGBNEeS9uKH-UlSsiQ"/>
+        </type>
+      </columns>
+    </tables>
+    <tables xsi:type="database:Table" xmi:id="_dubDztAuEeuRpOjDC7SRnQ" techID="_ds4LotAuEeuRpOjDC7SRnQ" name="PURCHASE_ORDER_DETAILS">
+      <primaryKey xmi:id="_dubDz9AuEeuRpOjDC7SRnQ" techID="_ds8dENAuEeuRpOjDC7SRnQ" name="PK_PURCHASE_ORDER_DETAILS" columns="_dubD3tAuEeuRpOjDC7SRnQ"/>
+      <foreignKeys xmi:id="_dubD0NAuEeuRpOjDC7SRnQ" techID="_duMaQNAuEeuRpOjDC7SRnQ" name="FK_PURCHASE_ORDER_DETAILS_INVENTORY_TRANSACTIONS1" target="_duac79AuEeuRpOjDC7SRnQ">
+        <elements xmi:id="_dubD0dAuEeuRpOjDC7SRnQ" techID="_duMaQdAuEeuRpOjDC7SRnQ" fkColumn="_dubD7NAuEeuRpOjDC7SRnQ" pkColumn="_duadA9AuEeuRpOjDC7SRnQ"/>
+      </foreignKeys>
+      <foreignKeys xmi:id="_dubD0tAuEeuRpOjDC7SRnQ" techID="_duMaQtAuEeuRpOjDC7SRnQ" name="FK_PURCHASE_ORDER_DETAILS_PRODUCTS1" target="_duadvdAuEeuRpOjDC7SRnQ">
+        <elements xmi:id="_dubD09AuEeuRpOjDC7SRnQ" techID="_duMaQ9AuEeuRpOjDC7SRnQ" fkColumn="_dubD4tAuEeuRpOjDC7SRnQ" pkColumn="_duadxdAuEeuRpOjDC7SRnQ"/>
+      </foreignKeys>
+      <foreignKeys xmi:id="_dubD1NAuEeuRpOjDC7SRnQ" techID="_duMaRNAuEeuRpOjDC7SRnQ" name="FK_PURCHASE_ORDER_DETAILS_PURCHASE_ORDERS1" target="_duad39AuEeuRpOjDC7SRnQ">
+        <elements xmi:id="_dubD1dAuEeuRpOjDC7SRnQ" techID="_duMaRdAuEeuRpOjDC7SRnQ" fkColumn="_dubD4NAuEeuRpOjDC7SRnQ" pkColumn="_duad79AuEeuRpOjDC7SRnQ"/>
+      </foreignKeys>
+      <indexes xmi:id="_dubD1tAuEeuRpOjDC7SRnQ" techID="_ds-SQNAuEeuRpOjDC7SRnQ" name="PRIMARY_KEY_35" qualifier="TEST" unique="true">
+        <elements xmi:id="_dubD19AuEeuRpOjDC7SRnQ" techID="_ds-SQdAuEeuRpOjDC7SRnQ" column="_dubD3tAuEeuRpOjDC7SRnQ" asc="true"/>
+      </indexes>
+      <indexes xmi:id="_dubD2NAuEeuRpOjDC7SRnQ" techID="_ds-SQtAuEeuRpOjDC7SRnQ" name="INVENTORY_ID_2" qualifier="TEST">
+        <elements xmi:id="_dubD2dAuEeuRpOjDC7SRnQ" techID="_ds-SQ9AuEeuRpOjDC7SRnQ" column="_dubD7NAuEeuRpOjDC7SRnQ" asc="true"/>
+      </indexes>
+      <indexes xmi:id="_dubD2tAuEeuRpOjDC7SRnQ" techID="_ds-SRNAuEeuRpOjDC7SRnQ" name="PRODUCT_ID_PURCHASE_ORDER_DETAILS" qualifier="TEST">
+        <elements xmi:id="_dubD29AuEeuRpOjDC7SRnQ" techID="_ds-SRdAuEeuRpOjDC7SRnQ" column="_dubD4tAuEeuRpOjDC7SRnQ" asc="true"/>
+      </indexes>
+      <indexes xmi:id="_dubD3NAuEeuRpOjDC7SRnQ" techID="_ds-5UNAuEeuRpOjDC7SRnQ" name="PURCHASE_ORDER_ID_PURCHASE_ORDER_DETAILS" qualifier="TEST">
+        <elements xmi:id="_dubD3dAuEeuRpOjDC7SRnQ" techID="_ds-5UdAuEeuRpOjDC7SRnQ" column="_dubD4NAuEeuRpOjDC7SRnQ" asc="true"/>
+      </indexes>
+      <columns xmi:id="_dubD3tAuEeuRpOjDC7SRnQ" techID="_ds6n4NAuEeuRpOjDC7SRnQ" name="ID" defaultValue="(NEXT VALUE FOR PUBLIC.SYSTEM_SEQUENCE_7A0E85F7_8B49_4C4D_A475_AF5B4437F76D)" indexElements="_dubD19AuEeuRpOjDC7SRnQ" primaryKey="_dubDz9AuEeuRpOjDC7SRnQ" autoincrement="true">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_dubD39AuEeuRpOjDC7SRnQ" length="10" precision="0">
+          <nativeType href="pathmap://NativeDBTypes/H2-1.3#_B5QREGBNEeS9uKH-UlSsiQ"/>
+        </type>
+      </columns>
+      <columns xmi:id="_dubD4NAuEeuRpOjDC7SRnQ" techID="_ds6n4dAuEeuRpOjDC7SRnQ" name="PURCHASE_ORDER_ID" defaultValue="" indexElements="_dubD3dAuEeuRpOjDC7SRnQ" foreignKeyElements="_dubD1dAuEeuRpOjDC7SRnQ">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_dubD4dAuEeuRpOjDC7SRnQ" length="10" precision="0">
+          <nativeType href="pathmap://NativeDBTypes/H2-1.3#_B5QREGBNEeS9uKH-UlSsiQ"/>
+        </type>
+      </columns>
+      <columns xmi:id="_dubD4tAuEeuRpOjDC7SRnQ" techID="_ds6n4tAuEeuRpOjDC7SRnQ" name="PRODUCT_ID" nullable="true" defaultValue="NULL" indexElements="_dubD29AuEeuRpOjDC7SRnQ" foreignKeyElements="_dubD09AuEeuRpOjDC7SRnQ">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_dubD49AuEeuRpOjDC7SRnQ" length="10" precision="0">
+          <nativeType href="pathmap://NativeDBTypes/H2-1.3#_B5QREGBNEeS9uKH-UlSsiQ"/>
+        </type>
+      </columns>
+      <columns xmi:id="_dubD5NAuEeuRpOjDC7SRnQ" techID="_ds6n49AuEeuRpOjDC7SRnQ" name="QUANTITY" defaultValue="">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_dubD5dAuEeuRpOjDC7SRnQ" length="18" precision="4">
+          <nativeType href="pathmap://NativeDBTypes/H2-1.3#_wTzA0GBNEeS9uKH-UlSsiQ"/>
+        </type>
+      </columns>
+      <columns xmi:id="_dubD5tAuEeuRpOjDC7SRnQ" techID="_ds6n5NAuEeuRpOjDC7SRnQ" name="UNIT_COST" defaultValue="">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_dubD59AuEeuRpOjDC7SRnQ" length="19" precision="4">
+          <nativeType href="pathmap://NativeDBTypes/H2-1.3#_wTzA0GBNEeS9uKH-UlSsiQ"/>
+        </type>
+      </columns>
+      <columns xmi:id="_dubD6NAuEeuRpOjDC7SRnQ" techID="_ds6n5dAuEeuRpOjDC7SRnQ" name="DATE_RECEIVED" nullable="true" defaultValue="NULL">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_dubD6dAuEeuRpOjDC7SRnQ" length="23" precision="10">
+          <nativeType href="pathmap://NativeDBTypes/H2-1.3#_pVGT4GBOEeS9uKH-UlSsiQ"/>
+        </type>
+      </columns>
+      <columns xmi:id="_dubD6tAuEeuRpOjDC7SRnQ" techID="_ds6n5tAuEeuRpOjDC7SRnQ" name="POSTED_TO_INVENTORY" defaultValue="FALSE">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_dubD69AuEeuRpOjDC7SRnQ" length="1" precision="0">
+          <nativeType href="pathmap://NativeDBTypes/H2-1.3#_Ja9H8GBNEeS9uKH-UlSsiQ"/>
+        </type>
+      </columns>
+      <columns xmi:id="_dubD7NAuEeuRpOjDC7SRnQ" techID="_ds6n59AuEeuRpOjDC7SRnQ" name="INVENTORY_ID" nullable="true" defaultValue="NULL" indexElements="_dubD2dAuEeuRpOjDC7SRnQ" foreignKeyElements="_dubD0dAuEeuRpOjDC7SRnQ">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_dubD7dAuEeuRpOjDC7SRnQ" length="10" precision="0">
+          <nativeType href="pathmap://NativeDBTypes/H2-1.3#_B5QREGBNEeS9uKH-UlSsiQ"/>
+        </type>
+      </columns>
+    </tables>
+    <tables xsi:type="database:Table" xmi:id="_dubD7tAuEeuRpOjDC7SRnQ" techID="_ds-5UtAuEeuRpOjDC7SRnQ" name="PURCHASE_ORDER_STATUS">
+      <primaryKey xmi:id="_dubD79AuEeuRpOjDC7SRnQ" techID="_dtCjsNAuEeuRpOjDC7SRnQ" name="PK_PURCHASE_ORDER_STATUS" columns="_dubD8tAuEeuRpOjDC7SRnQ"/>
+      <indexes xmi:id="_dubD8NAuEeuRpOjDC7SRnQ" techID="_dtEY4NAuEeuRpOjDC7SRnQ" name="PRIMARY_KEY_B9" qualifier="TEST" unique="true">
+        <elements xmi:id="_dubD8dAuEeuRpOjDC7SRnQ" techID="_dtEY4dAuEeuRpOjDC7SRnQ" column="_dubD8tAuEeuRpOjDC7SRnQ" asc="true"/>
+      </indexes>
+      <columns xmi:id="_dubD8tAuEeuRpOjDC7SRnQ" techID="_dtAugNAuEeuRpOjDC7SRnQ" name="ID" defaultValue="" indexElements="_dubD8dAuEeuRpOjDC7SRnQ" primaryKey="_dubD79AuEeuRpOjDC7SRnQ">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_dubD89AuEeuRpOjDC7SRnQ" length="10" precision="0">
+          <nativeType href="pathmap://NativeDBTypes/H2-1.3#_B5QREGBNEeS9uKH-UlSsiQ"/>
+        </type>
+      </columns>
+      <columns xmi:id="_dubD9NAuEeuRpOjDC7SRnQ" techID="_dtAugdAuEeuRpOjDC7SRnQ" name="STATUS" nullable="true" defaultValue="">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_dubD9dAuEeuRpOjDC7SRnQ" length="50" precision="0">
+          <nativeType href="pathmap://NativeDBTypes/H2-1.3#_bW4aoWBQEeS9uKH-UlSsiQ"/>
+        </type>
+      </columns>
+    </tables>
+    <tables xsi:type="database:Table" xmi:id="_dubD9tAuEeuRpOjDC7SRnQ" techID="_dtEY4tAuEeuRpOjDC7SRnQ" name="SALES_REPORTS">
+      <primaryKey xmi:id="_dubD99AuEeuRpOjDC7SRnQ" techID="_dtJRYNAuEeuRpOjDC7SRnQ" name="PK_SALES_REPORTS" columns="_dubD-tAuEeuRpOjDC7SRnQ"/>
+      <indexes xmi:id="_dubD-NAuEeuRpOjDC7SRnQ" techID="_dtLGkNAuEeuRpOjDC7SRnQ" name="PRIMARY_KEY_5F" qualifier="TEST" unique="true">
+        <elements xmi:id="_dubD-dAuEeuRpOjDC7SRnQ" techID="_dtLGkdAuEeuRpOjDC7SRnQ" column="_dubD-tAuEeuRpOjDC7SRnQ" asc="true"/>
+      </indexes>
+      <columns xmi:id="_dubD-tAuEeuRpOjDC7SRnQ" techID="_dtHcMNAuEeuRpOjDC7SRnQ" name="GROUP_BY" defaultValue="" indexElements="_dubD-dAuEeuRpOjDC7SRnQ" primaryKey="_dubD99AuEeuRpOjDC7SRnQ">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_dubD-9AuEeuRpOjDC7SRnQ" length="50" precision="0">
+          <nativeType href="pathmap://NativeDBTypes/H2-1.3#_bW4aoWBQEeS9uKH-UlSsiQ"/>
+        </type>
+      </columns>
+      <columns xmi:id="_dubD_NAuEeuRpOjDC7SRnQ" techID="_dtHcMdAuEeuRpOjDC7SRnQ" name="DISPLAY" nullable="true" defaultValue="">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_dubD_dAuEeuRpOjDC7SRnQ" length="50" precision="0">
+          <nativeType href="pathmap://NativeDBTypes/H2-1.3#_bW4aoWBQEeS9uKH-UlSsiQ"/>
+        </type>
+      </columns>
+      <columns xmi:id="_dubD_tAuEeuRpOjDC7SRnQ" techID="_dtHcMtAuEeuRpOjDC7SRnQ" name="TITLE" nullable="true" defaultValue="">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_dubD_9AuEeuRpOjDC7SRnQ" length="50" precision="0">
+          <nativeType href="pathmap://NativeDBTypes/H2-1.3#_bW4aoWBQEeS9uKH-UlSsiQ"/>
+        </type>
+      </columns>
+      <columns xmi:id="_dubEANAuEeuRpOjDC7SRnQ" techID="_dtHcM9AuEeuRpOjDC7SRnQ" name="FILTER_ROW_SOURCE" nullable="true" defaultValue="">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_dubEAdAuEeuRpOjDC7SRnQ" length="2147483647" precision="0">
+          <nativeType href="pathmap://NativeDBTypes/H2-1.3#_55BR0WBREeS9uKH-UlSsiQ"/>
+        </type>
+      </columns>
+      <columns xmi:id="_dubEAtAuEeuRpOjDC7SRnQ" techID="_dtHcNNAuEeuRpOjDC7SRnQ" name="DEFAULT" defaultValue="FALSE">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_dubEA9AuEeuRpOjDC7SRnQ" length="1" precision="0">
+          <nativeType href="pathmap://NativeDBTypes/H2-1.3#_Ja9H8GBNEeS9uKH-UlSsiQ"/>
+        </type>
+      </columns>
+    </tables>
+    <tables xsi:type="database:Table" xmi:id="_dubEBNAuEeuRpOjDC7SRnQ" techID="_dtLGktAuEeuRpOjDC7SRnQ" name="SHIPPERS">
+      <primaryKey xmi:id="_dubEBdAuEeuRpOjDC7SRnQ" techID="_dtQmINAuEeuRpOjDC7SRnQ" name="PK_SHIPPERS" columns="_dubEFNAuEeuRpOjDC7SRnQ"/>
+      <indexes xmi:id="_dubEBtAuEeuRpOjDC7SRnQ" techID="_dtTCYNAuEeuRpOjDC7SRnQ" name="PRIMARY_KEY_FE" qualifier="TEST" unique="true">
+        <elements xmi:id="_dubEB9AuEeuRpOjDC7SRnQ" techID="_dtTCYdAuEeuRpOjDC7SRnQ" column="_dubEFNAuEeuRpOjDC7SRnQ" asc="true"/>
+      </indexes>
+      <indexes xmi:id="_dubECNAuEeuRpOjDC7SRnQ" techID="_dtTCYtAuEeuRpOjDC7SRnQ" name="CITY_SHIPPERS" qualifier="TEST">
+        <elements xmi:id="_dubECdAuEeuRpOjDC7SRnQ" techID="_dtTCY9AuEeuRpOjDC7SRnQ" column="_dubEKtAuEeuRpOjDC7SRnQ" asc="true"/>
+      </indexes>
+      <indexes xmi:id="_dubECtAuEeuRpOjDC7SRnQ" techID="_dtTCZNAuEeuRpOjDC7SRnQ" name="COMPANY_SHIPPERS" qualifier="TEST">
+        <elements xmi:id="_dubEC9AuEeuRpOjDC7SRnQ" techID="_dtTCZdAuEeuRpOjDC7SRnQ" column="_dubEFtAuEeuRpOjDC7SRnQ" asc="true"/>
+      </indexes>
+      <indexes xmi:id="_dubEDNAuEeuRpOjDC7SRnQ" techID="_dtTCZtAuEeuRpOjDC7SRnQ" name="FIRST_NAME_SHIPPERS" qualifier="TEST">
+        <elements xmi:id="_dubEDdAuEeuRpOjDC7SRnQ" techID="_dtTCZ9AuEeuRpOjDC7SRnQ" column="_dubEGtAuEeuRpOjDC7SRnQ" asc="true"/>
+      </indexes>
+      <indexes xmi:id="_dubEDtAuEeuRpOjDC7SRnQ" techID="_dtTCaNAuEeuRpOjDC7SRnQ" name="LAST_NAME_SHIPPERS" qualifier="TEST">
+        <elements xmi:id="_dubED9AuEeuRpOjDC7SRnQ" techID="_dtTCadAuEeuRpOjDC7SRnQ" column="_dubEGNAuEeuRpOjDC7SRnQ" asc="true"/>
+      </indexes>
+      <indexes xmi:id="_dubEENAuEeuRpOjDC7SRnQ" techID="_dtTCatAuEeuRpOjDC7SRnQ" name="STATE_PROVINCE_SHIPPERS" qualifier="TEST">
+        <elements xmi:id="_dubEEdAuEeuRpOjDC7SRnQ" techID="_dtTCa9AuEeuRpOjDC7SRnQ" column="_dubELNAuEeuRpOjDC7SRnQ" asc="true"/>
+      </indexes>
+      <indexes xmi:id="_dubEEtAuEeuRpOjDC7SRnQ" techID="_dtTCbNAuEeuRpOjDC7SRnQ" name="ZIP_POSTAL_CODE_SHIPPERS" qualifier="TEST">
+        <elements xmi:id="_dubEE9AuEeuRpOjDC7SRnQ" techID="_dtTCbdAuEeuRpOjDC7SRnQ" column="_dubELtAuEeuRpOjDC7SRnQ" asc="true"/>
+      </indexes>
+      <columns xmi:id="_dubEFNAuEeuRpOjDC7SRnQ" techID="_dtNi0NAuEeuRpOjDC7SRnQ" name="ID" defaultValue="(NEXT VALUE FOR PUBLIC.SYSTEM_SEQUENCE_1E22AE10_54E4_407D_A3FA_D2E9F8E6A356)" indexElements="_dubEB9AuEeuRpOjDC7SRnQ" primaryKey="_dubEBdAuEeuRpOjDC7SRnQ" autoincrement="true">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_dubEFdAuEeuRpOjDC7SRnQ" length="10" precision="0">
+          <nativeType href="pathmap://NativeDBTypes/H2-1.3#_B5QREGBNEeS9uKH-UlSsiQ"/>
+        </type>
+      </columns>
+      <columns xmi:id="_dubEFtAuEeuRpOjDC7SRnQ" techID="_dtNi0dAuEeuRpOjDC7SRnQ" name="COMPANY" nullable="true" defaultValue="" indexElements="_dubEC9AuEeuRpOjDC7SRnQ">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_dubEF9AuEeuRpOjDC7SRnQ" length="50" precision="0">
+          <nativeType href="pathmap://NativeDBTypes/H2-1.3#_bW4aoWBQEeS9uKH-UlSsiQ"/>
+        </type>
+      </columns>
+      <columns xmi:id="_dubEGNAuEeuRpOjDC7SRnQ" techID="_dtOJ4NAuEeuRpOjDC7SRnQ" name="LAST_NAME" nullable="true" defaultValue="" indexElements="_dubED9AuEeuRpOjDC7SRnQ">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_dubEGdAuEeuRpOjDC7SRnQ" length="50" precision="0">
+          <nativeType href="pathmap://NativeDBTypes/H2-1.3#_bW4aoWBQEeS9uKH-UlSsiQ"/>
+        </type>
+      </columns>
+      <columns xmi:id="_dubEGtAuEeuRpOjDC7SRnQ" techID="_dtOJ4dAuEeuRpOjDC7SRnQ" name="FIRST_NAME" nullable="true" defaultValue="" indexElements="_dubEDdAuEeuRpOjDC7SRnQ">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_dubEG9AuEeuRpOjDC7SRnQ" length="50" precision="0">
+          <nativeType href="pathmap://NativeDBTypes/H2-1.3#_bW4aoWBQEeS9uKH-UlSsiQ"/>
+        </type>
+      </columns>
+      <columns xmi:id="_dubEHNAuEeuRpOjDC7SRnQ" techID="_dtOJ4tAuEeuRpOjDC7SRnQ" name="EMAIL_ADDRESS" nullable="true" defaultValue="">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_dubEHdAuEeuRpOjDC7SRnQ" length="50" precision="0">
+          <nativeType href="pathmap://NativeDBTypes/H2-1.3#_bW4aoWBQEeS9uKH-UlSsiQ"/>
+        </type>
+      </columns>
+      <columns xmi:id="_dubEHtAuEeuRpOjDC7SRnQ" techID="_dtOJ49AuEeuRpOjDC7SRnQ" name="JOB_TITLE" nullable="true" defaultValue="">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_dubEH9AuEeuRpOjDC7SRnQ" length="50" precision="0">
+          <nativeType href="pathmap://NativeDBTypes/H2-1.3#_bW4aoWBQEeS9uKH-UlSsiQ"/>
+        </type>
+      </columns>
+      <columns xmi:id="_dubEINAuEeuRpOjDC7SRnQ" techID="_dtOJ5NAuEeuRpOjDC7SRnQ" name="BUSINESS_PHONE" nullable="true" defaultValue="">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_dubEIdAuEeuRpOjDC7SRnQ" length="25" precision="0">
+          <nativeType href="pathmap://NativeDBTypes/H2-1.3#_bW4aoWBQEeS9uKH-UlSsiQ"/>
+        </type>
+      </columns>
+      <columns xmi:id="_dubEItAuEeuRpOjDC7SRnQ" techID="_dtOJ5dAuEeuRpOjDC7SRnQ" name="HOME_PHONE" nullable="true" defaultValue="">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_dubEI9AuEeuRpOjDC7SRnQ" length="25" precision="0">
+          <nativeType href="pathmap://NativeDBTypes/H2-1.3#_bW4aoWBQEeS9uKH-UlSsiQ"/>
+        </type>
+      </columns>
+      <columns xmi:id="_dubEJNAuEeuRpOjDC7SRnQ" techID="_dtOJ5tAuEeuRpOjDC7SRnQ" name="MOBILE_PHONE" nullable="true" defaultValue="">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_dubEJdAuEeuRpOjDC7SRnQ" length="25" precision="0">
+          <nativeType href="pathmap://NativeDBTypes/H2-1.3#_bW4aoWBQEeS9uKH-UlSsiQ"/>
+        </type>
+      </columns>
+      <columns xmi:id="_dubEJtAuEeuRpOjDC7SRnQ" techID="_dtOJ59AuEeuRpOjDC7SRnQ" name="FAX_NUMBER" nullable="true" defaultValue="">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_dubEJ9AuEeuRpOjDC7SRnQ" length="25" precision="0">
+          <nativeType href="pathmap://NativeDBTypes/H2-1.3#_bW4aoWBQEeS9uKH-UlSsiQ"/>
+        </type>
+      </columns>
+      <columns xmi:id="_dubEKNAuEeuRpOjDC7SRnQ" techID="_dtOJ6NAuEeuRpOjDC7SRnQ" name="ADDRESS" nullable="true" defaultValue="">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_dubEKdAuEeuRpOjDC7SRnQ" length="2147483647" precision="0">
+          <nativeType href="pathmap://NativeDBTypes/H2-1.3#_55BR0WBREeS9uKH-UlSsiQ"/>
+        </type>
+      </columns>
+      <columns xmi:id="_dubEKtAuEeuRpOjDC7SRnQ" techID="_dtOJ6dAuEeuRpOjDC7SRnQ" name="CITY" nullable="true" defaultValue="" indexElements="_dubECdAuEeuRpOjDC7SRnQ">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_dubEK9AuEeuRpOjDC7SRnQ" length="50" precision="0">
+          <nativeType href="pathmap://NativeDBTypes/H2-1.3#_bW4aoWBQEeS9uKH-UlSsiQ"/>
+        </type>
+      </columns>
+      <columns xmi:id="_dubELNAuEeuRpOjDC7SRnQ" techID="_dtOJ6tAuEeuRpOjDC7SRnQ" name="STATE_PROVINCE" nullable="true" defaultValue="" indexElements="_dubEEdAuEeuRpOjDC7SRnQ">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_dubELdAuEeuRpOjDC7SRnQ" length="50" precision="0">
+          <nativeType href="pathmap://NativeDBTypes/H2-1.3#_bW4aoWBQEeS9uKH-UlSsiQ"/>
+        </type>
+      </columns>
+      <columns xmi:id="_dubELtAuEeuRpOjDC7SRnQ" techID="_dtOJ69AuEeuRpOjDC7SRnQ" name="ZIP_POSTAL_CODE" nullable="true" defaultValue="" indexElements="_dubEE9AuEeuRpOjDC7SRnQ">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_dubEL9AuEeuRpOjDC7SRnQ" length="15" precision="0">
+          <nativeType href="pathmap://NativeDBTypes/H2-1.3#_bW4aoWBQEeS9uKH-UlSsiQ"/>
+        </type>
+      </columns>
+      <columns xmi:id="_dubEMNAuEeuRpOjDC7SRnQ" techID="_dtOJ7NAuEeuRpOjDC7SRnQ" name="COUNTRY_REGION" nullable="true" defaultValue="">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_dubEMdAuEeuRpOjDC7SRnQ" length="50" precision="0">
+          <nativeType href="pathmap://NativeDBTypes/H2-1.3#_bW4aoWBQEeS9uKH-UlSsiQ"/>
+        </type>
+      </columns>
+      <columns xmi:id="_dubEMtAuEeuRpOjDC7SRnQ" techID="_dtOJ7dAuEeuRpOjDC7SRnQ" name="WEB_PAGE" nullable="true" defaultValue="">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_dubEM9AuEeuRpOjDC7SRnQ" length="2147483647" precision="0">
+          <nativeType href="pathmap://NativeDBTypes/H2-1.3#_55BR0WBREeS9uKH-UlSsiQ"/>
+        </type>
+      </columns>
+      <columns xmi:id="_dubENNAuEeuRpOjDC7SRnQ" techID="_dtOJ7tAuEeuRpOjDC7SRnQ" name="NOTES" nullable="true" defaultValue="">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_dubENdAuEeuRpOjDC7SRnQ" length="2147483647" precision="0">
+          <nativeType href="pathmap://NativeDBTypes/H2-1.3#_55BR0WBREeS9uKH-UlSsiQ"/>
+        </type>
+      </columns>
+      <columns xmi:id="_dubENtAuEeuRpOjDC7SRnQ" techID="_dtOw8NAuEeuRpOjDC7SRnQ" name="ATTACHMENTS" nullable="true" defaultValue="NULL">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_dubEN9AuEeuRpOjDC7SRnQ" length="2147483647" precision="0">
+          <nativeType href="pathmap://NativeDBTypes/H2-1.3#_VTjw0WBREeS9uKH-UlSsiQ"/>
+        </type>
+      </columns>
+    </tables>
+    <tables xsi:type="database:Table" xmi:id="_dubEONAuEeuRpOjDC7SRnQ" techID="_dtTCbtAuEeuRpOjDC7SRnQ" name="STRINGS">
+      <primaryKey xmi:id="_dubEOdAuEeuRpOjDC7SRnQ" techID="_dtX64NAuEeuRpOjDC7SRnQ" name="PK_STRINGS" columns="_dubEPNAuEeuRpOjDC7SRnQ"/>
+      <indexes xmi:id="_dubEOtAuEeuRpOjDC7SRnQ" techID="_dtZwENAuEeuRpOjDC7SRnQ" name="PRIMARY_KEY_BA" qualifier="TEST" unique="true">
+        <elements xmi:id="_dubEO9AuEeuRpOjDC7SRnQ" techID="_dtZwEdAuEeuRpOjDC7SRnQ" column="_dubEPNAuEeuRpOjDC7SRnQ" asc="true"/>
+      </indexes>
+      <columns xmi:id="_dubEPNAuEeuRpOjDC7SRnQ" techID="_dtVeoNAuEeuRpOjDC7SRnQ" name="STRING_ID" defaultValue="(NEXT VALUE FOR PUBLIC.SYSTEM_SEQUENCE_980BD035_9485_414D_A9DF_79638A3CDA2F)" indexElements="_dubEO9AuEeuRpOjDC7SRnQ" primaryKey="_dubEOdAuEeuRpOjDC7SRnQ" autoincrement="true">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_dubEPdAuEeuRpOjDC7SRnQ" length="10" precision="0">
+          <nativeType href="pathmap://NativeDBTypes/H2-1.3#_B5QREGBNEeS9uKH-UlSsiQ"/>
+        </type>
+      </columns>
+      <columns xmi:id="_dubEPtAuEeuRpOjDC7SRnQ" techID="_dtVeodAuEeuRpOjDC7SRnQ" name="STRING_DATA" nullable="true" defaultValue="">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_dubEP9AuEeuRpOjDC7SRnQ" length="255" precision="0">
+          <nativeType href="pathmap://NativeDBTypes/H2-1.3#_bW4aoWBQEeS9uKH-UlSsiQ"/>
+        </type>
+      </columns>
+    </tables>
+    <tables xsi:type="database:Table" xmi:id="_dubEQNAuEeuRpOjDC7SRnQ" techID="_dtZwEtAuEeuRpOjDC7SRnQ" name="SUPPLIERS">
+      <primaryKey xmi:id="_dubEQdAuEeuRpOjDC7SRnQ" techID="_dtgdwNAuEeuRpOjDC7SRnQ" name="PK_SUPPLIERS" columns="_dubEUNAuEeuRpOjDC7SRnQ"/>
+      <indexes xmi:id="_dubEQtAuEeuRpOjDC7SRnQ" techID="_dtiS8NAuEeuRpOjDC7SRnQ" name="PRIMARY_KEY_A4" qualifier="TEST" unique="true">
+        <elements xmi:id="_dubEQ9AuEeuRpOjDC7SRnQ" techID="_dtiS8dAuEeuRpOjDC7SRnQ" column="_dubEUNAuEeuRpOjDC7SRnQ" asc="true"/>
+      </indexes>
+      <indexes xmi:id="_dubERNAuEeuRpOjDC7SRnQ" techID="_dtiS8tAuEeuRpOjDC7SRnQ" name="CITY_SUPPLIERS" qualifier="TEST">
+        <elements xmi:id="_dubERdAuEeuRpOjDC7SRnQ" techID="_dtiS89AuEeuRpOjDC7SRnQ" column="_dubEZtAuEeuRpOjDC7SRnQ" asc="true"/>
+      </indexes>
+      <indexes xmi:id="_dubERtAuEeuRpOjDC7SRnQ" techID="_dtiS9NAuEeuRpOjDC7SRnQ" name="COMPANY_SUPPLIERS" qualifier="TEST">
+        <elements xmi:id="_dubER9AuEeuRpOjDC7SRnQ" techID="_dtiS9dAuEeuRpOjDC7SRnQ" column="_dubEUtAuEeuRpOjDC7SRnQ" asc="true"/>
+      </indexes>
+      <indexes xmi:id="_dubESNAuEeuRpOjDC7SRnQ" techID="_dtiS9tAuEeuRpOjDC7SRnQ" name="FIRST_NAME_SUPPLIERS" qualifier="TEST">
+        <elements xmi:id="_dubESdAuEeuRpOjDC7SRnQ" techID="_dtiS99AuEeuRpOjDC7SRnQ" column="_dubEVtAuEeuRpOjDC7SRnQ" asc="true"/>
+      </indexes>
+      <indexes xmi:id="_dubEStAuEeuRpOjDC7SRnQ" techID="_dtiS-NAuEeuRpOjDC7SRnQ" name="LAST_NAME_SUPPLIERS" qualifier="TEST">
+        <elements xmi:id="_dubES9AuEeuRpOjDC7SRnQ" techID="_dtiS-dAuEeuRpOjDC7SRnQ" column="_dubEVNAuEeuRpOjDC7SRnQ" asc="true"/>
+      </indexes>
+      <indexes xmi:id="_dubETNAuEeuRpOjDC7SRnQ" techID="_dtiS-tAuEeuRpOjDC7SRnQ" name="STATE_PROVINCE_SUPPLIERS" qualifier="TEST">
+        <elements xmi:id="_dubETdAuEeuRpOjDC7SRnQ" techID="_dtiS-9AuEeuRpOjDC7SRnQ" column="_dubEaNAuEeuRpOjDC7SRnQ" asc="true"/>
+      </indexes>
+      <indexes xmi:id="_dubETtAuEeuRpOjDC7SRnQ" techID="_dtiS_NAuEeuRpOjDC7SRnQ" name="ZIP_POSTAL_CODE_SUPPLIERS" qualifier="TEST">
+        <elements xmi:id="_dubET9AuEeuRpOjDC7SRnQ" techID="_dtiS_dAuEeuRpOjDC7SRnQ" column="_dubEatAuEeuRpOjDC7SRnQ" asc="true"/>
+      </indexes>
+      <columns xmi:id="_dubEUNAuEeuRpOjDC7SRnQ" techID="_dtdacNAuEeuRpOjDC7SRnQ" name="ID" defaultValue="(NEXT VALUE FOR PUBLIC.SYSTEM_SEQUENCE_7AEC5508_AF2D_4468_8122_DB95675F8135)" indexElements="_dubEQ9AuEeuRpOjDC7SRnQ" primaryKey="_dubEQdAuEeuRpOjDC7SRnQ" autoincrement="true">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_dubEUdAuEeuRpOjDC7SRnQ" length="10" precision="0">
+          <nativeType href="pathmap://NativeDBTypes/H2-1.3#_B5QREGBNEeS9uKH-UlSsiQ"/>
+        </type>
+      </columns>
+      <columns xmi:id="_dubEUtAuEeuRpOjDC7SRnQ" techID="_dtdacdAuEeuRpOjDC7SRnQ" name="COMPANY" nullable="true" defaultValue="" indexElements="_dubER9AuEeuRpOjDC7SRnQ">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_dubEU9AuEeuRpOjDC7SRnQ" length="50" precision="0">
+          <nativeType href="pathmap://NativeDBTypes/H2-1.3#_bW4aoWBQEeS9uKH-UlSsiQ"/>
+        </type>
+      </columns>
+      <columns xmi:id="_dubEVNAuEeuRpOjDC7SRnQ" techID="_dtdactAuEeuRpOjDC7SRnQ" name="LAST_NAME" nullable="true" defaultValue="" indexElements="_dubES9AuEeuRpOjDC7SRnQ">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_dubEVdAuEeuRpOjDC7SRnQ" length="50" precision="0">
+          <nativeType href="pathmap://NativeDBTypes/H2-1.3#_bW4aoWBQEeS9uKH-UlSsiQ"/>
+        </type>
+      </columns>
+      <columns xmi:id="_dubEVtAuEeuRpOjDC7SRnQ" techID="_dtdac9AuEeuRpOjDC7SRnQ" name="FIRST_NAME" nullable="true" defaultValue="" indexElements="_dubESdAuEeuRpOjDC7SRnQ">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_dubEV9AuEeuRpOjDC7SRnQ" length="50" precision="0">
+          <nativeType href="pathmap://NativeDBTypes/H2-1.3#_bW4aoWBQEeS9uKH-UlSsiQ"/>
+        </type>
+      </columns>
+      <columns xmi:id="_dubEWNAuEeuRpOjDC7SRnQ" techID="_dtdadNAuEeuRpOjDC7SRnQ" name="EMAIL_ADDRESS" nullable="true" defaultValue="">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_dubEWdAuEeuRpOjDC7SRnQ" length="50" precision="0">
+          <nativeType href="pathmap://NativeDBTypes/H2-1.3#_bW4aoWBQEeS9uKH-UlSsiQ"/>
+        </type>
+      </columns>
+      <columns xmi:id="_dubEWtAuEeuRpOjDC7SRnQ" techID="_dtdaddAuEeuRpOjDC7SRnQ" name="JOB_TITLE" nullable="true" defaultValue="">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_dubEW9AuEeuRpOjDC7SRnQ" length="50" precision="0">
+          <nativeType href="pathmap://NativeDBTypes/H2-1.3#_bW4aoWBQEeS9uKH-UlSsiQ"/>
+        </type>
+      </columns>
+      <columns xmi:id="_dubEXNAuEeuRpOjDC7SRnQ" techID="_dtdadtAuEeuRpOjDC7SRnQ" name="BUSINESS_PHONE" nullable="true" defaultValue="">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_dubEXdAuEeuRpOjDC7SRnQ" length="25" precision="0">
+          <nativeType href="pathmap://NativeDBTypes/H2-1.3#_bW4aoWBQEeS9uKH-UlSsiQ"/>
+        </type>
+      </columns>
+      <columns xmi:id="_dubEXtAuEeuRpOjDC7SRnQ" techID="_dtdad9AuEeuRpOjDC7SRnQ" name="HOME_PHONE" nullable="true" defaultValue="">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_dubEX9AuEeuRpOjDC7SRnQ" length="25" precision="0">
+          <nativeType href="pathmap://NativeDBTypes/H2-1.3#_bW4aoWBQEeS9uKH-UlSsiQ"/>
+        </type>
+      </columns>
+      <columns xmi:id="_dubEYNAuEeuRpOjDC7SRnQ" techID="_dtdaeNAuEeuRpOjDC7SRnQ" name="MOBILE_PHONE" nullable="true" defaultValue="">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_dubEYdAuEeuRpOjDC7SRnQ" length="25" precision="0">
+          <nativeType href="pathmap://NativeDBTypes/H2-1.3#_bW4aoWBQEeS9uKH-UlSsiQ"/>
+        </type>
+      </columns>
+      <columns xmi:id="_dubEYtAuEeuRpOjDC7SRnQ" techID="_dtdaedAuEeuRpOjDC7SRnQ" name="FAX_NUMBER" nullable="true" defaultValue="">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_dubEY9AuEeuRpOjDC7SRnQ" length="25" precision="0">
+          <nativeType href="pathmap://NativeDBTypes/H2-1.3#_bW4aoWBQEeS9uKH-UlSsiQ"/>
+        </type>
+      </columns>
+      <columns xmi:id="_dubEZNAuEeuRpOjDC7SRnQ" techID="_dtdaetAuEeuRpOjDC7SRnQ" name="ADDRESS" nullable="true" defaultValue="">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_dubEZdAuEeuRpOjDC7SRnQ" length="2147483647" precision="0">
+          <nativeType href="pathmap://NativeDBTypes/H2-1.3#_55BR0WBREeS9uKH-UlSsiQ"/>
+        </type>
+      </columns>
+      <columns xmi:id="_dubEZtAuEeuRpOjDC7SRnQ" techID="_dtdae9AuEeuRpOjDC7SRnQ" name="CITY" nullable="true" defaultValue="" indexElements="_dubERdAuEeuRpOjDC7SRnQ">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_dubEZ9AuEeuRpOjDC7SRnQ" length="50" precision="0">
+          <nativeType href="pathmap://NativeDBTypes/H2-1.3#_bW4aoWBQEeS9uKH-UlSsiQ"/>
+        </type>
+      </columns>
+      <columns xmi:id="_dubEaNAuEeuRpOjDC7SRnQ" techID="_dtdafNAuEeuRpOjDC7SRnQ" name="STATE_PROVINCE" nullable="true" defaultValue="" indexElements="_dubETdAuEeuRpOjDC7SRnQ">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_dubEadAuEeuRpOjDC7SRnQ" length="50" precision="0">
+          <nativeType href="pathmap://NativeDBTypes/H2-1.3#_bW4aoWBQEeS9uKH-UlSsiQ"/>
+        </type>
+      </columns>
+      <columns xmi:id="_dubEatAuEeuRpOjDC7SRnQ" techID="_dtdafdAuEeuRpOjDC7SRnQ" name="ZIP_POSTAL_CODE" nullable="true" defaultValue="" indexElements="_dubET9AuEeuRpOjDC7SRnQ">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_dubEa9AuEeuRpOjDC7SRnQ" length="15" precision="0">
+          <nativeType href="pathmap://NativeDBTypes/H2-1.3#_bW4aoWBQEeS9uKH-UlSsiQ"/>
+        </type>
+      </columns>
+      <columns xmi:id="_dubEbNAuEeuRpOjDC7SRnQ" techID="_dtdaftAuEeuRpOjDC7SRnQ" name="COUNTRY_REGION" nullable="true" defaultValue="">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_dubEbdAuEeuRpOjDC7SRnQ" length="50" precision="0">
+          <nativeType href="pathmap://NativeDBTypes/H2-1.3#_bW4aoWBQEeS9uKH-UlSsiQ"/>
+        </type>
+      </columns>
+      <columns xmi:id="_dubEbtAuEeuRpOjDC7SRnQ" techID="_dtdaf9AuEeuRpOjDC7SRnQ" name="WEB_PAGE" nullable="true" defaultValue="">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_dubEb9AuEeuRpOjDC7SRnQ" length="2147483647" precision="0">
+          <nativeType href="pathmap://NativeDBTypes/H2-1.3#_55BR0WBREeS9uKH-UlSsiQ"/>
+        </type>
+      </columns>
+      <columns xmi:id="_dubEcNAuEeuRpOjDC7SRnQ" techID="_dtdagNAuEeuRpOjDC7SRnQ" name="NOTES" nullable="true" defaultValue="">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_dubEcdAuEeuRpOjDC7SRnQ" length="2147483647" precision="0">
+          <nativeType href="pathmap://NativeDBTypes/H2-1.3#_55BR0WBREeS9uKH-UlSsiQ"/>
+        </type>
+      </columns>
+      <columns xmi:id="_dubEctAuEeuRpOjDC7SRnQ" techID="_dteBgNAuEeuRpOjDC7SRnQ" name="ATTACHMENTS" nullable="true" defaultValue="NULL">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_dubEc9AuEeuRpOjDC7SRnQ" length="2147483647" precision="0">
+          <nativeType href="pathmap://NativeDBTypes/H2-1.3#_VTjw0WBREeS9uKH-UlSsiQ"/>
+        </type>
+      </columns>
+    </tables>
+    <sequences xmi:id="_dubEdNAuEeuRpOjDC7SRnQ" techID="_dtl9UNAuEeuRpOjDC7SRnQ" name="SYSTEM_SEQUENCE_###ID1###" start="0" increment="1" minValue="1" maxValue="9223372036854775807"/>
+    <sequences xmi:id="_dubEddAuEeuRpOjDC7SRnQ" techID="_dtl9UdAuEeuRpOjDC7SRnQ" name="SYSTEM_SEQUENCE_###ID2###" start="0" increment="1" minValue="1" maxValue="9223372036854775807"/>
+    <sequences xmi:id="_dubEdtAuEeuRpOjDC7SRnQ" techID="_dtl9UtAuEeuRpOjDC7SRnQ" name="SYSTEM_SEQUENCE_###ID3###" start="0" increment="1" minValue="1" maxValue="9223372036854775807"/>
+    <sequences xmi:id="_dubEd9AuEeuRpOjDC7SRnQ" techID="_dtl9U9AuEeuRpOjDC7SRnQ" name="SYSTEM_SEQUENCE_###ID4###" start="0" increment="1" minValue="1" maxValue="9223372036854775807"/>
+    <sequences xmi:id="_dubEeNAuEeuRpOjDC7SRnQ" techID="_dtl9VNAuEeuRpOjDC7SRnQ" name="SYSTEM_SEQUENCE_###ID5###" start="0" increment="1" minValue="1" maxValue="9223372036854775807"/>
+    <sequences xmi:id="_dubEedAuEeuRpOjDC7SRnQ" techID="_dtl9VdAuEeuRpOjDC7SRnQ" name="SYSTEM_SEQUENCE_###ID6###" start="0" increment="1" minValue="1" maxValue="9223372036854775807"/>
+    <sequences xmi:id="_dubEetAuEeuRpOjDC7SRnQ" techID="_dtl9VtAuEeuRpOjDC7SRnQ" name="SYSTEM_SEQUENCE_###ID7###" start="0" increment="1" minValue="1" maxValue="9223372036854775807"/>
+    <sequences xmi:id="_dubEe9AuEeuRpOjDC7SRnQ" techID="_dtl9V9AuEeuRpOjDC7SRnQ" name="SYSTEM_SEQUENCE_###ID8###" start="0" increment="1" minValue="1" maxValue="9223372036854775807"/>
+    <sequences xmi:id="_dubEfNAuEeuRpOjDC7SRnQ" techID="_dtl9WNAuEeuRpOjDC7SRnQ" name="SYSTEM_SEQUENCE_###ID9###" start="0" increment="1" minValue="1" maxValue="9223372036854775807"/>
+    <sequences xmi:id="_dubEfdAuEeuRpOjDC7SRnQ" techID="_dtl9WdAuEeuRpOjDC7SRnQ" name="SYSTEM_SEQUENCE_###ID10###" start="0" increment="1" minValue="1" maxValue="9223372036854775807"/>
+    <sequences xmi:id="_dubEftAuEeuRpOjDC7SRnQ" techID="_dtl9WtAuEeuRpOjDC7SRnQ" name="SYSTEM_SEQUENCE_###ID11###" start="0" increment="1" minValue="1" maxValue="9223372036854775807"/>
+    <sequences xmi:id="_dubEf9AuEeuRpOjDC7SRnQ" techID="_dtmkYNAuEeuRpOjDC7SRnQ" name="SYSTEM_SEQUENCE_###ID12###" start="0" increment="1" minValue="1" maxValue="9223372036854775807"/>
+    <sequences xmi:id="_dubEgNAuEeuRpOjDC7SRnQ" techID="_dtmkYdAuEeuRpOjDC7SRnQ" name="SYSTEM_SEQUENCE_###ID13###" start="0" increment="1" minValue="1" maxValue="9223372036854775807"/>
   </schemas>
 </database:DataBase>

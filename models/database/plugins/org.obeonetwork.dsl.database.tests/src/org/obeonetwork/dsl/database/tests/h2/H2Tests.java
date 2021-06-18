@@ -63,12 +63,12 @@ public class H2Tests extends AbstractTests {
 
 		DataBase databaseRef = TestUtils.loadModel(H2_DATABASE_MODEL_REFERENCE_PATH, TypesLibraryUtil.H2_PATHMAP);
 
-		this.prepareH2RefModel(databaseRef, database);
+		prepareH2RefModel(databaseRef, database);
 		
 		TestUtils.checkEquality(database, databaseRef);
 	}
 
-	private void prepareH2RefModel(DataBase ref, DataBase database) {
+	public static void prepareH2RefModel(DataBase ref, DataBase database) {
 		List<Column> allColumns = new ArrayList<>();
 		allColumns.addAll(getColumnsWithDefaultValueFromDirectTableOfDatabase(ref));
 		allColumns.addAll(getColumnsWithDefaultValueFromSchemasOfDatabase(ref));
@@ -85,7 +85,7 @@ public class H2Tests extends AbstractTests {
 			if (eColumn instanceof Column) {
 				// Extracts ###IDx### from the default value of a column from the reference database
 				String refColumnDefaultValue = column.getDefaultValue();
-				String refSeqUUID = refColumnDefaultValue.substring("(NEXT VALUE FOR PUBLIC.SYSTEM_SEQUENCE_".length(), refColumnDefaultValue.length() - 1);
+				String refSeqUUID = refColumnDefaultValue.substring("(NEXT VALUE FOR PUBLIC.SYSTEM_SEQUENCE_".length(), refColumnDefaultValue.length() - 2);
 				
 				// Gets the sequence of the reference database associated with the column.
 				Optional<Sequence> optSeq = allSequences.stream().filter(seq -> seq.getName().contains(refSeqUUID)).findFirst();
@@ -106,18 +106,18 @@ public class H2Tests extends AbstractTests {
 		}
 	}
 	
-	private Collection<? extends Column> getColumnsWithDefaultValueFromDirectTableOfDatabase(DataBase ref) {
+	public static Collection<? extends Column> getColumnsWithDefaultValueFromDirectTableOfDatabase(DataBase ref) {
 		List<Column> columns = ref.getTables().stream()
 				.filter(Table.class::isInstance)
 				.map(Table.class::cast)
 				.map(Table::getColumns)
 				.flatMap(Collection::stream)
-				.filter(this::hasDefaultValue)
+				.filter(H2Tests::hasDefaultValue)
 				.collect(Collectors.toList());
 		return columns;
 	}
 
-	private Collection<? extends Column> getColumnsWithDefaultValueFromSchemasOfDatabase(DataBase ref) {
+	public static Collection<? extends Column> getColumnsWithDefaultValueFromSchemasOfDatabase(DataBase ref) {
 		List<Column> columns = ref.getSchemas().stream()
 				.map(Schema::getTables)
 				.flatMap(Collection::stream)
@@ -125,13 +125,14 @@ public class H2Tests extends AbstractTests {
 				.map(Table.class::cast)
 				.map(Table::getColumns)
 				.flatMap(Collection::stream)
-				.filter(this::hasDefaultValue)
+				.filter(H2Tests::hasDefaultValue)
 				.collect(Collectors.toList());
 		return columns;
 	}
 	
-	private boolean hasDefaultValue(Column col) {
+	public static boolean hasDefaultValue(Column col) {
 		String defaultValue = col.getDefaultValue();
+
 		return defaultValue != null && !defaultValue.isEmpty() && defaultValue.contains("###ID");
 	}
 }
