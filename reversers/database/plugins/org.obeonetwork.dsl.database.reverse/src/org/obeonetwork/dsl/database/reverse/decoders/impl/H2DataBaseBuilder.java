@@ -85,7 +85,8 @@ public class H2DataBaseBuilder extends DefaultDataBaseBuilder {
         	// TODO récupérer Cache
             pstmt = metaData.getConnection().prepareStatement(
                             "SELECT SEQUENCE_NAME, INCREMENT, MIN_VALUE, MAX_VALUE, CURRENT_VALUE " +
-                            "FROM INFORMATION_SCHEMA.SEQUENCES");                
+                            "FROM INFORMATION_SCHEMA.SEQUENCES " +
+                            "ORDER BY SEQUENCE_NAME");                
             rs = executeQuery(pstmt);
             while( rs.next() ) {
             	String name = rs.getString(1);
