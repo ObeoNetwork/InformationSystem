@@ -77,7 +77,7 @@ public class CinematicLayoutServices {
 		Map<DDiagramElement, Layout> diagramElementToLayout = createLayoutCompartments(viewContainerLayout, ownedDiagramElements, existingLayouts);
 		
 		for(DDiagramElement ownedDiagramElement : ownedDiagramElements) {
-			if(ownedDiagramElement.getTarget() instanceof ViewContainer) {
+			if(ownedDiagramElement.getTarget() instanceof ViewContainer && diagramElementToLayout.get(ownedDiagramElement) != null) {
 				buildSubLayouts(diagramElementToLayout.get(ownedDiagramElement), (DNodeContainer) ownedDiagramElement, existingLayouts);
 			}
 		}
@@ -101,7 +101,18 @@ public class CinematicLayoutServices {
 		Map<Rectangle, DDiagramElement> boundsToDiagramElements = new HashMap<>();
 		ownedDiagramElements.forEach(dde -> boundsToDiagramElements.put(computeGmfBounds(dde), dde));
 		
-		List<Integer> transversals = getTransversals(viewContainerLayout.getDirection(), boundsToDiagramElements.keySet());
+		List<Integer> hTransversals = getTransversals(LayoutDirection.HORIZONTAL, boundsToDiagramElements.keySet());
+		List<Integer> vTransversals = getTransversals(LayoutDirection.VERTICAL, boundsToDiagramElements.keySet());
+		
+		List<Integer> transversals = null;
+		if(hTransversals.size() > vTransversals.size()) {
+			transversals = hTransversals;
+			viewContainerLayout.setDirection(LayoutDirection.HORIZONTAL);
+		} else {
+			transversals = vTransversals;
+			// viewContainerLayout.direction defaults to VERTICAL
+		}
+		
 		for(int i = 0; i < transversals.size() - 1; i++) {
 			int t1 = transversals.get(i);
 			int t2 = transversals.get(i + 1);
@@ -110,7 +121,7 @@ public class CinematicLayoutServices {
 				Rectangle bounds = containedBounds.get(0);
 				DDiagramElement diagramElement = boundsToDiagramElements.get(bounds);
 				Layout subLayout = createOrReuseLayout(bounds, 
-						switchDirection(viewContainerLayout.getDirection()), 
+						LayoutDirection.VERTICAL, 
 						(AbstractViewElement)diagramElement.getTarget(),
 						existingLayouts);
 				viewContainerLayout.getOwnedLayouts().add(subLayout);
@@ -119,7 +130,7 @@ public class CinematicLayoutServices {
 				Rectangle containingBounds = computeContainingBounds(containedBounds);
 				List<DDiagramElement> diagramElements = containedBounds.stream().map(b -> boundsToDiagramElements.get(b)).collect(toList());
 				Layout subLayout = createOrReuseLayout(containingBounds, 
-						switchDirection(viewContainerLayout.getDirection()), 
+						LayoutDirection.VERTICAL, 
 						null,
 						existingLayouts);
 				viewContainerLayout.getOwnedLayouts().add(subLayout);
@@ -224,19 +235,6 @@ public class CinematicLayoutServices {
 		layout.setWidth(bounds.width());
 		layout.setDirection(direction);
 		return layout;
-	}
-
-	private static LayoutDirection switchDirection(LayoutDirection direction) {
-		LayoutDirection other = null;
-		switch (direction) {
-		case HORIZONTAL:
-			other = LayoutDirection.VERTICAL;
-			break;
-		case VERTICAL:
-			other = LayoutDirection.HORIZONTAL;
-			break;
-		}
-		return other;
 	}
 
 	private static Bounds getGmfBounds(DDiagramElement dDiagramElement) {

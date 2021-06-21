@@ -1,8 +1,6 @@
 package org.obeonetwork.dsl.cinematic.design.services;
 
 import org.eclipse.emf.common.util.EList;
-import org.eclipse.emf.ecore.EStructuralFeature;
-import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.sirius.business.api.query.EObjectQuery;
 import org.eclipse.sirius.common.tools.api.interpreter.EvaluationException;
 import org.obeonetwork.dsl.cinematic.toolkits.Style;
