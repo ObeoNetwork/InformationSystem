@@ -4,7 +4,6 @@ import java.io.BufferedReader;
 import java.io.File;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collection;
 import java.util.List;
@@ -25,22 +24,35 @@ import org.obeonetwork.dsl.database.reverse.DatabaseReverser;
 import org.obeonetwork.dsl.database.reverse.source.DataSource;
 import org.obeonetwork.dsl.database.reverse.utils.MultiDataBaseQueries;
 import org.obeonetwork.dsl.database.spec.DatabaseConstants;
+import org.obeonetwork.dsl.database.tests.postgres.PostgresTests;
 import org.obeonetwork.dsl.database.tests.utils.TestUtils;
 import org.obeonetwork.dsl.typeslibrary.util.TypesLibraryUtil;
 
 import liquibase.database.Database;
 import liquibase.exception.DatabaseException;
 import liquibase.exception.LiquibaseException;
+import liquibase.util.StringUtils;
 
+/**
+ * Test class for reverse engineering of H2 Databases to models.
+ * It runs docker containers for each version to test.
+ * This test class is parameterized using the method {@link H2DockerTests#h2versions()}.
+ * It requires to have Docker installed on the running machine.
+ * The method annotated with {@link Before} launches the container, then the {@link Test} reverse engineer the H2 Database.
+ * Finally the method annotated with {@link After} stops and remove the H2 Docker container.
+ * Note that these tests have been developed on a Windows-based computer, and unexpected behaviors could happen on other operating systems.
+ * 
+ * @author <a href="mailto:thibault.beziers-la-fosse@obeo.fr">Thibault Béziers la Fosse</a>
+ *
+ */
 @RunWith(Parameterized.class)
 public class H2DockerTests {
 	
 	private static final Object H2_PORT_DEFAULT = "1521";
 	private static final Object H2_WEBPORT_DEFAULT = "81";
 	private static final String H2_HOST_DEFAULT = "localhost";
-	private static final String H2_USERNAME_DEFAULT = "h2";
-	private static final String H2_PASSWORD_DEFAULT = "password";
-	private static final String H2_DATABASE_MODEL_REFERENCE_PATH = "resources/h2_outputRef.database";
+	private static final String H2_USERNAME_DEFAULT = "sa";
+	private static final String H2_DB_NAME = "test";
 	private static final String H2_PATH_TO_LOCAL_DATABASE = "resources/h2-db";
 	private static final String JDBC_H2_URL_PATTERN = "jdbc:h2:tcp://%1$s:%2$s/%3$s";
 	
@@ -59,11 +71,11 @@ public class H2DockerTests {
 	}
 		
 	/**
-	 * {@link https://github.com/oscarfonts/docker-h2}
+	 * {@link https://hub.docker.com/repository/docker/thibaultblf/h2}
 	 * @return
 	 */
 	@Parameters( name = "{0}")
-	public static Collection<String> postgreSQLVersions() {
+	public static Collection<String> h2versions() {
 		return Arrays.asList(   "thibaultblf/h2:1.4.200",
 								"thibaultblf/h2:1.4.199",
 								"thibaultblf/h2:1.4.198",
@@ -74,15 +86,16 @@ public class H2DockerTests {
 	}
 
 	@Test
-	public void testImportPostgres() throws IOException, LiquibaseException {
-		String url = String.format(JDBC_H2_URL_PATTERN, H2_HOST_DEFAULT, H2_PORT_DEFAULT, H2_USERNAME_DEFAULT, true);
+	public void testImportH2() throws IOException, LiquibaseException {
+		String url = String.format(JDBC_H2_URL_PATTERN, H2_HOST_DEFAULT, H2_PORT_DEFAULT, H2_DB_NAME, true);
 		
-        database = TestUtils.openDatabaseConnection("jdbc:h2:tcp://localhost:1521/test", "sa", "");
+        database = TestUtils.openDatabaseConnection(url, H2_USERNAME_DEFAULT, "");
 		TestUtils.createAndInitializeLiquibase("resources/northwind-liquibase.xml", database);
 				
-		DataSource dataSource = new DataSource(H2_USERNAME_DEFAULT, "PUBLIC");
-		dataSource.setJdbcUsername("sa");
-		dataSource.setJdbcUrl("jdbc:h2:tcp://localhost:1521/test");
+		DataSource dataSource = new DataSource("h2", "PUBLIC");
+		dataSource.setJdbcUsername(H2_USERNAME_DEFAULT);
+		//dataSource.setJdbcUrl("jdbc:h2:tcp://localhost:1521/test");
+		dataSource.setJdbcUrl(url);
 		dataSource.setVendor(DatabaseConstants.DB_H2_13);
 
 		DataBase database = DatabaseReverser.reverse(dataSource, new MultiDataBaseQueries(), null);			
@@ -90,7 +103,7 @@ public class H2DockerTests {
 		
 		if (new File(modelRefURI).exists())	{
 			DataBase databaseRef = TestUtils.loadModel(modelRefURI, TypesLibraryUtil.H2_PATHMAP);	
-			H2Tests.prepareH2RefModel(databaseRef, database);
+			H2Tests.prepareH2RefModel(databaseRef, database); // H2 DB have randomly generated UUID parameters. We clean this randomness for performing the comparison.
 			TestUtils.checkEquality(database, databaseRef);
 		} else {
 			// No reference model have been provided for the testing. 
@@ -157,21 +170,4 @@ public class H2DockerTests {
 		Process process = builder.start();
 		process.waitFor();
 	}
-
-	
-	public static List<? extends Column> getColumnsFromDatabase(DataBase ref) {
-		List<Column> columns = ref.getTables().stream()
-				.filter(Table.class::isInstance)
-				.map(Table.class::cast)
-				.map(Table::getColumns)
-				.flatMap(Collection::stream)
-				.collect(Collectors.toList());
-		return columns;
-	}
-	 
-	
-	@AfterClass
-	public static void tearDownAfterClass() throws DatabaseException {
-		// We do not clear the database since we kill the container instead		
-	}	
 }

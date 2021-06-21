@@ -40,7 +40,7 @@ import liquibase.exception.LiquibaseException;
 /**
  * Test class for reverse engineering of PostgreSQL Databases to models.
  * It runs docker containers for each version to test.
- * This test class is parameterized using the method {@link PostgresTests#data()}.
+ * This test class is parameterized using the method {@link PostgresTests#postgreSQLVersions()}.
  * It requires to have Docker installed on the running machine.
  * The method annotated with {@link Before} launches the container, then the {@link Test} reverse engineer the postgreSQL Database.
  * Finally the method annotated with {@link After} stops and remove the PostgreSQL Docker container.
