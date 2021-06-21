@@ -4,6 +4,7 @@ import java.io.BufferedReader;
 import java.io.File;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collection;
 import java.util.List;
@@ -19,7 +20,6 @@ import org.junit.runners.Parameterized;
 import org.junit.runners.Parameterized.Parameters;
 import org.obeonetwork.dsl.database.Column;
 import org.obeonetwork.dsl.database.DataBase;
-import org.obeonetwork.dsl.database.Sequence;
 import org.obeonetwork.dsl.database.Table;
 import org.obeonetwork.dsl.database.reverse.DatabaseReverser;
 import org.obeonetwork.dsl.database.reverse.source.DataSource;
@@ -64,11 +64,12 @@ public class H2DockerTests {
 	 */
 	@Parameters( name = "{0}")
 	public static Collection<String> postgreSQLVersions() {
-		return Arrays.asList(   "oscarfonts/h2:1.4.199",
-								"oscarfonts/h2:1.4.197",
-								"oscarfonts/h2:1.4.196",								
-								"oscarfonts/h2:1.3.176",
-								"oscarfonts/h2:1.1.119"
+		return Arrays.asList(   "thibaultblf/h2:1.4.200",
+								"thibaultblf/h2:1.4.199",
+								"thibaultblf/h2:1.4.198",
+								"thibaultblf/h2:1.4.197",
+								"thibaultblf/h2:1.4.196",								
+								"thibaultblf/h2:1.3.176"								
 							);
 	}
 
@@ -111,12 +112,13 @@ public class H2DockerTests {
 		localRepo.mkdirs();
 				
 		builder.command("docker", "pull", containerImage); // downloads the docker image if not available
+
 		// starting the container
 		builder.command("docker", "run", "--name", containerName, 
 				"-p", H2_PORT_DEFAULT+":"+H2_PORT_DEFAULT,
 				"-p", H2_WEBPORT_DEFAULT+":"+H2_WEBPORT_DEFAULT,
-				"-v", localRepo.getAbsolutePath()+":/opt/h2-data", // mapping a local repo to the container's database repo
-				"-e H2_OPTIONS=-ifNotExists",
+				"-v", localRepo.getAbsolutePath()+":/opt/h2-data", // mapping a local repo to the container's database repo				
+				//"-e", "H2_OPTIONS=\"-ifNotExists\"", 
 				"-d", containerImage);
 		
 		try {
