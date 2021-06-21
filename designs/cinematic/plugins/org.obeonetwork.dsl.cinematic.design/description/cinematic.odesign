@@ -1289,6 +1289,21 @@
               </firstModelOperations>
             </initialOperation>
           </ownedTools>
+          <ownedTools xsi:type="tool_1:OperationAction" name="CRE_ViewEvent" label="Create Event" precondition="aql:self.oclIsKindOf(view::ViewElement)" icon="/org.obeonetwork.dsl.cinematic.edit/icons/full/obj16/ViewEvent.gif">
+            <view name="views">
+              <subVariables xsi:type="tool_1:AcceleoVariable" name="element" computationExpression="aql:views->first().target"/>
+              <subVariables xsi:type="tool_1:AcceleoVariable" name="possibleEvents" computationExpression="aql:element.oclAsType(view::AbstractViewElement).widget.possibleEvents"/>
+              <subVariables xsi:type="tool_1:SelectModelElementVariable" name="selectedEvent" candidatesExpression="var:possibleEvents" message="Select the type of the new view event"/>
+            </view>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:element">
+                <subModelOperations xsi:type="tool_1:CreateInstance" typeName="view::ViewEvent" referenceName="events">
+                  <subModelOperations xsi:type="tool_1:SetValue" featureName="type" valueExpression="aql:selectedEvent.oclAsType(toolkits::WidgetEventType)"/>
+                  <subModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="service:getTypeName"/>
+                </subModelOperations>
+              </firstModelOperations>
+            </initialOperation>
+          </ownedTools>
         </toolSections>
         <toolSections name="Reuse">
           <ownedTools xsi:type="tool:ContainerCreationDescription" name="CRE_ViewContainerReference" label="View Container Reference" containerMappings="//@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='View%20Container%20Mockup']/@defaultLayer/@containerMappings[name='VCD_RootViewContainer']/@subContainerMappings[name='VCD_ViewContainerReference']">
@@ -1376,6 +1391,11 @@
             </centerLabelStyleDescription>
           </style>
         </edgeMappings>
+      </additionalLayers>
+      <additionalLayers name="ViewEvents" label="View Events">
+        <decorationDescriptionsSet>
+          <decorationDescriptions xsi:type="description_1:MappingBasedDecoration" name="VCD_WidgetEventDecorator" position="NORTH_EAST" distributionDirection="HORIZONTAL" preconditionExpression="aql:self.oclAsType(view::AbstractViewElement).events->notEmpty()" imageExpression="/org.obeonetwork.dsl.cinematic.edit/icons/full/obj16/ViewEvent.gif" tooltipExpression="aql:self.target.oclAsType(view::AbstractViewElement).events.name->sep('\n')->toString()" mappings="//@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='View%20Container%20Mockup']/@defaultLayer/@containerMappings[name='VCD_RootViewContainer'] //@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='View%20Container%20Mockup']/@defaultLayer/@containerMappings[name='VCD_RootViewContainer']/@subContainerMappings[name='VCD_ViewContainer'] //@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='View%20Container%20Mockup']/@defaultLayer/@containerMappings[name='VCD_RootViewContainer']/@subContainerMappings[name='VCD_ViewContainerReference'] //@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='View%20Container%20Mockup']/@defaultLayer/@containerMappings[name='VCD_RootViewContainer']/@subContainerMappings[name='VCD_ViewElement']"/>
+        </decorationDescriptionsSet>
       </additionalLayers>
     </ownedRepresentations>
     <ownedRepresentations xsi:type="description_1:DiagramDescription" name="Layout Diagram" titleExpression="aql:self.eContainer(cinematic::NamedElement).name+' Layout Diagram'" domainClass="view::Layout" enablePopupBars="true">
