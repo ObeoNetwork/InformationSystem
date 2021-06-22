@@ -25,6 +25,7 @@ import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Group;
 import org.eclipse.swt.widgets.Label;
 import org.eclipse.swt.widgets.Text;
+import org.obeonetwork.dsl.cinematic.design.Activator;
 import org.obeonetwork.dsl.cinematic.toolkits.Toolkit;
 import org.obeonetwork.dsl.cinematic.toolkits.Widget;
 import org.obeonetwork.dsl.cinematic.toolkits.util.ToolkitsProvider;
@@ -55,7 +56,7 @@ public class NewModelCreationWithMockupPage extends WizardPage {
 
 		setTitle("Create a new Cinematic model");
 		setDescription("Choose Mockup and Flow settings");
-		Bundle bundle = Platform.getBundle("org.obeonetwork.dsl.cinematic.design");
+		Bundle bundle = Platform.getBundle(Activator.PLUGIN_ID);
 		URL fullPathString = bundle.getEntry("icons/full/wizban/NewMockup.gif");
 		setImageDescriptor(ImageDescriptor.createFromURL(fullPathString));
 	};
