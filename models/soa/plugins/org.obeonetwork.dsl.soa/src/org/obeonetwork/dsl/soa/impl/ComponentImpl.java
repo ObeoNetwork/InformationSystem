@@ -22,8 +22,11 @@ import org.obeonetwork.dsl.environment.TypesDefinition;
 import org.obeonetwork.dsl.environment.impl.ObeoDSMObjectImpl;
 import org.obeonetwork.dsl.soa.Binding;
 import org.obeonetwork.dsl.soa.Component;
+import org.obeonetwork.dsl.soa.Contact;
 import org.obeonetwork.dsl.soa.ImplementationComponent;
+import org.obeonetwork.dsl.soa.Information;
 import org.obeonetwork.dsl.soa.InterfaceKind;
+import org.obeonetwork.dsl.soa.License;
 import org.obeonetwork.dsl.soa.SecurityScheme;
 import org.obeonetwork.dsl.soa.Service;
 import org.obeonetwork.dsl.soa.SoaPackage;
@@ -48,6 +51,9 @@ import org.obeonetwork.dsl.soa.SoaPackage;
  *   <li>{@link org.obeonetwork.dsl.soa.impl.ComponentImpl#getApiVersion <em>Api Version</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.soa.impl.ComponentImpl#isDeprecated <em>Deprecated</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.soa.impl.ComponentImpl#getSecuritySchemes <em>Security Schemes</em>}</li>
+ *   <li>{@link org.obeonetwork.dsl.soa.impl.ComponentImpl#getLicense <em>License</em>}</li>
+ *   <li>{@link org.obeonetwork.dsl.soa.impl.ComponentImpl#getInformation <em>Information</em>}</li>
+ *   <li>{@link org.obeonetwork.dsl.soa.impl.ComponentImpl#getContact <em>Contact</em>}</li>
  * </ul>
  *
  * @generated
@@ -304,6 +310,117 @@ public class ComponentImpl extends ObeoDSMObjectImpl implements Component {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public License getLicense() {
+		return (License)eDynamicGet(SoaPackage.COMPONENT__LICENSE, SoaPackage.Literals.COMPONENT__LICENSE, true, true);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public License basicGetLicense() {
+		return (License)eDynamicGet(SoaPackage.COMPONENT__LICENSE, SoaPackage.Literals.COMPONENT__LICENSE, false, true);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetLicense(License newLicense, NotificationChain msgs) {
+		msgs = eDynamicInverseAdd((InternalEObject)newLicense, SoaPackage.COMPONENT__LICENSE, msgs);
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setLicense(License newLicense) {
+		eDynamicSet(SoaPackage.COMPONENT__LICENSE, SoaPackage.Literals.COMPONENT__LICENSE, newLicense);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Information getInformation() {
+		return (Information)eDynamicGet(SoaPackage.COMPONENT__INFORMATION, SoaPackage.Literals.COMPONENT__INFORMATION, true, true);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Information basicGetInformation() {
+		return (Information)eDynamicGet(SoaPackage.COMPONENT__INFORMATION, SoaPackage.Literals.COMPONENT__INFORMATION, false, true);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetInformation(Information newInformation, NotificationChain msgs) {
+		msgs = eDynamicInverseAdd((InternalEObject)newInformation, SoaPackage.COMPONENT__INFORMATION, msgs);
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setInformation(Information newInformation) {
+		eDynamicSet(SoaPackage.COMPONENT__INFORMATION, SoaPackage.Literals.COMPONENT__INFORMATION, newInformation);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Contact getContact() {
+		return (Contact)eDynamicGet(SoaPackage.COMPONENT__CONTACT, SoaPackage.Literals.COMPONENT__CONTACT, true, true);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Contact basicGetContact() {
+		return (Contact)eDynamicGet(SoaPackage.COMPONENT__CONTACT, SoaPackage.Literals.COMPONENT__CONTACT, false, true);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetContact(Contact newContact, NotificationChain msgs) {
+		msgs = eDynamicInverseAdd((InternalEObject)newContact, SoaPackage.COMPONENT__CONTACT, msgs);
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setContact(Contact newContact) {
+		eDynamicSet(SoaPackage.COMPONENT__CONTACT, SoaPackage.Literals.COMPONENT__CONTACT, newContact);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
@@ -315,6 +432,12 @@ public class ComponentImpl extends ObeoDSMObjectImpl implements Component {
 				return ((InternalEList<?>)getOwnedBinding()).basicRemove(otherEnd, msgs);
 			case SoaPackage.COMPONENT__SECURITY_SCHEMES:
 				return ((InternalEList<?>)getSecuritySchemes()).basicRemove(otherEnd, msgs);
+			case SoaPackage.COMPONENT__LICENSE:
+				return basicSetLicense(null, msgs);
+			case SoaPackage.COMPONENT__INFORMATION:
+				return basicSetInformation(null, msgs);
+			case SoaPackage.COMPONENT__CONTACT:
+				return basicSetContact(null, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -351,6 +474,15 @@ public class ComponentImpl extends ObeoDSMObjectImpl implements Component {
 				return isDeprecated();
 			case SoaPackage.COMPONENT__SECURITY_SCHEMES:
 				return getSecuritySchemes();
+			case SoaPackage.COMPONENT__LICENSE:
+				if (resolve) return getLicense();
+				return basicGetLicense();
+			case SoaPackage.COMPONENT__INFORMATION:
+				if (resolve) return getInformation();
+				return basicGetInformation();
+			case SoaPackage.COMPONENT__CONTACT:
+				if (resolve) return getContact();
+				return basicGetContact();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -399,6 +531,15 @@ public class ComponentImpl extends ObeoDSMObjectImpl implements Component {
 				getSecuritySchemes().clear();
 				getSecuritySchemes().addAll((Collection<? extends SecurityScheme>)newValue);
 				return;
+			case SoaPackage.COMPONENT__LICENSE:
+				setLicense((License)newValue);
+				return;
+			case SoaPackage.COMPONENT__INFORMATION:
+				setInformation((Information)newValue);
+				return;
+			case SoaPackage.COMPONENT__CONTACT:
+				setContact((Contact)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -441,6 +582,15 @@ public class ComponentImpl extends ObeoDSMObjectImpl implements Component {
 			case SoaPackage.COMPONENT__SECURITY_SCHEMES:
 				getSecuritySchemes().clear();
 				return;
+			case SoaPackage.COMPONENT__LICENSE:
+				setLicense((License)null);
+				return;
+			case SoaPackage.COMPONENT__INFORMATION:
+				setInformation((Information)null);
+				return;
+			case SoaPackage.COMPONENT__CONTACT:
+				setContact((Contact)null);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -477,6 +627,12 @@ public class ComponentImpl extends ObeoDSMObjectImpl implements Component {
 				return isDeprecated() != DEPRECATED_EDEFAULT;
 			case SoaPackage.COMPONENT__SECURITY_SCHEMES:
 				return !getSecuritySchemes().isEmpty();
+			case SoaPackage.COMPONENT__LICENSE:
+				return basicGetLicense() != null;
+			case SoaPackage.COMPONENT__INFORMATION:
+				return basicGetInformation() != null;
+			case SoaPackage.COMPONENT__CONTACT:
+				return basicGetContact() != null;
 		}
 		return super.eIsSet(featureID);
 	}

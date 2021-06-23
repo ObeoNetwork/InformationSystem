@@ -75,6 +75,12 @@
     </eStructuralFeatures>
     <eStructuralFeatures xsi:type="ecore:EReference" name="securitySchemes" upperBound="-1"
         eType="#//SecurityScheme" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="license" lowerBound="1"
+        eType="#//License" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="information" lowerBound="1"
+        eType="#//Information" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="contact" lowerBound="1"
+        eType="#//Contact" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Service" eSuperTypes="../../org.obeonetwork.dsl.environment/model/environment.ecore#//ObeoDSMObject">
     <eStructuralFeatures xsi:type="ecore:EReference" name="ownedInterface" eType="#//Interface"
