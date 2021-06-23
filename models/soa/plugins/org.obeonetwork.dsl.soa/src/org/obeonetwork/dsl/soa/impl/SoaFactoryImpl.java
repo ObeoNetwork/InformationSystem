@@ -40,6 +40,7 @@ import org.obeonetwork.dsl.soa.SoaPackage;
 import org.obeonetwork.dsl.soa.SynchronizationKind;
 import org.obeonetwork.dsl.soa.Verb;
 import org.obeonetwork.dsl.soa.Wire;
+import org.obeonetwork.dsl.soa.spec.ComponentSpec;
 import org.obeonetwork.dsl.soa.spec.InterfaceSpec;
 import org.obeonetwork.dsl.soa.spec.ServiceSpec;
 
@@ -188,10 +189,10 @@ public class SoaFactoryImpl extends EFactoryImpl implements SoaFactory {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	public Component createComponent() {
-		ComponentImpl component = new ComponentImpl();
+		ComponentImpl component = new ComponentSpec();
 		return component;
 	}
 
