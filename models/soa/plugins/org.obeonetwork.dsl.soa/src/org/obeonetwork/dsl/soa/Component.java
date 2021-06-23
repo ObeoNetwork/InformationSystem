@@ -35,6 +35,9 @@ import org.obeonetwork.dsl.environment.TypesDefinition;
  *   <li>{@link org.obeonetwork.dsl.soa.Component#getApiVersion <em>Api Version</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.soa.Component#isDeprecated <em>Deprecated</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.soa.Component#getSecuritySchemes <em>Security Schemes</em>}</li>
+ *   <li>{@link org.obeonetwork.dsl.soa.Component#getLicense <em>License</em>}</li>
+ *   <li>{@link org.obeonetwork.dsl.soa.Component#getInformation <em>Information</em>}</li>
+ *   <li>{@link org.obeonetwork.dsl.soa.Component#getContact <em>Contact</em>}</li>
  * </ul>
  *
  * @see org.obeonetwork.dsl.soa.SoaPackage#getComponent()
@@ -316,5 +319,71 @@ public interface Component extends ObeoDSMObject {
 	 * @generated
 	 */
 	EList<SecurityScheme> getSecuritySchemes();
+
+	/**
+	 * Returns the value of the '<em><b>License</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>License</em>' containment reference.
+	 * @see #setLicense(License)
+	 * @see org.obeonetwork.dsl.soa.SoaPackage#getComponent_License()
+	 * @model containment="true" resolveProxies="true" required="true"
+	 * @generated
+	 */
+	License getLicense();
+
+	/**
+	 * Sets the value of the '{@link org.obeonetwork.dsl.soa.Component#getLicense <em>License</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>License</em>' containment reference.
+	 * @see #getLicense()
+	 * @generated
+	 */
+	void setLicense(License value);
+
+	/**
+	 * Returns the value of the '<em><b>Information</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Information</em>' containment reference.
+	 * @see #setInformation(Information)
+	 * @see org.obeonetwork.dsl.soa.SoaPackage#getComponent_Information()
+	 * @model containment="true" resolveProxies="true" required="true"
+	 * @generated
+	 */
+	Information getInformation();
+
+	/**
+	 * Sets the value of the '{@link org.obeonetwork.dsl.soa.Component#getInformation <em>Information</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Information</em>' containment reference.
+	 * @see #getInformation()
+	 * @generated
+	 */
+	void setInformation(Information value);
+
+	/**
+	 * Returns the value of the '<em><b>Contact</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Contact</em>' containment reference.
+	 * @see #setContact(Contact)
+	 * @see org.obeonetwork.dsl.soa.SoaPackage#getComponent_Contact()
+	 * @model containment="true" resolveProxies="true" required="true"
+	 * @generated
+	 */
+	Contact getContact();
+
+	/**
+	 * Sets the value of the '{@link org.obeonetwork.dsl.soa.Component#getContact <em>Contact</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Contact</em>' containment reference.
+	 * @see #getContact()
+	 * @generated
+	 */
+	void setContact(Contact value);
 
 } // Component

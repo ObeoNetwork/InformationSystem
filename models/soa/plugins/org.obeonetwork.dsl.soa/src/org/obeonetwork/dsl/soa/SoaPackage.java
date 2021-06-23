@@ -427,13 +427,40 @@ public interface SoaPackage extends EPackage {
 	int COMPONENT__SECURITY_SCHEMES = EnvironmentPackage.OBEO_DSM_OBJECT_FEATURE_COUNT + 11;
 
 	/**
+	 * The feature id for the '<em><b>License</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMPONENT__LICENSE = EnvironmentPackage.OBEO_DSM_OBJECT_FEATURE_COUNT + 12;
+
+	/**
+	 * The feature id for the '<em><b>Information</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMPONENT__INFORMATION = EnvironmentPackage.OBEO_DSM_OBJECT_FEATURE_COUNT + 13;
+
+	/**
+	 * The feature id for the '<em><b>Contact</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMPONENT__CONTACT = EnvironmentPackage.OBEO_DSM_OBJECT_FEATURE_COUNT + 14;
+
+	/**
 	 * The number of structural features of the '<em>Component</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int COMPONENT_FEATURE_COUNT = EnvironmentPackage.OBEO_DSM_OBJECT_FEATURE_COUNT + 12;
+	int COMPONENT_FEATURE_COUNT = EnvironmentPackage.OBEO_DSM_OBJECT_FEATURE_COUNT + 15;
 
 	/**
 	 * The meta object id for the '{@link org.obeonetwork.dsl.soa.impl.ServiceImpl <em>Service</em>}' class.
@@ -2008,6 +2035,39 @@ public interface SoaPackage extends EPackage {
 	EReference getComponent_SecuritySchemes();
 
 	/**
+	 * Returns the meta object for the containment reference '{@link org.obeonetwork.dsl.soa.Component#getLicense <em>License</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference '<em>License</em>'.
+	 * @see org.obeonetwork.dsl.soa.Component#getLicense()
+	 * @see #getComponent()
+	 * @generated
+	 */
+	EReference getComponent_License();
+
+	/**
+	 * Returns the meta object for the containment reference '{@link org.obeonetwork.dsl.soa.Component#getInformation <em>Information</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference '<em>Information</em>'.
+	 * @see org.obeonetwork.dsl.soa.Component#getInformation()
+	 * @see #getComponent()
+	 * @generated
+	 */
+	EReference getComponent_Information();
+
+	/**
+	 * Returns the meta object for the containment reference '{@link org.obeonetwork.dsl.soa.Component#getContact <em>Contact</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference '<em>Contact</em>'.
+	 * @see org.obeonetwork.dsl.soa.Component#getContact()
+	 * @see #getComponent()
+	 * @generated
+	 */
+	EReference getComponent_Contact();
+
+	/**
 	 * Returns the meta object for class '{@link org.obeonetwork.dsl.soa.Service <em>Service</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2876,6 +2936,30 @@ public interface SoaPackage extends EPackage {
 		 * @generated
 		 */
 		EReference COMPONENT__SECURITY_SCHEMES = eINSTANCE.getComponent_SecuritySchemes();
+
+		/**
+		 * The meta object literal for the '<em><b>License</b></em>' containment reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference COMPONENT__LICENSE = eINSTANCE.getComponent_License();
+
+		/**
+		 * The meta object literal for the '<em><b>Information</b></em>' containment reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference COMPONENT__INFORMATION = eINSTANCE.getComponent_Information();
+
+		/**
+		 * The meta object literal for the '<em><b>Contact</b></em>' containment reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference COMPONENT__CONTACT = eINSTANCE.getComponent_Contact();
 
 		/**
 		 * The meta object literal for the '{@link org.obeonetwork.dsl.soa.impl.ServiceImpl <em>Service</em>}' class.
