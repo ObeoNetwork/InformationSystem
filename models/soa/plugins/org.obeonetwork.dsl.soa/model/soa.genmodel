@@ -137,5 +137,18 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute soa.ecore#//SecurityScheme/name"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute soa.ecore#//SecurityScheme/apiKeyLocation"/>
     </genClasses>
+    <genClasses ecoreClass="soa.ecore#//Information">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute soa.ecore#//Information/version"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute soa.ecore#//Information/termsOfService"/>
+    </genClasses>
+    <genClasses ecoreClass="soa.ecore#//Contact">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute soa.ecore#//Contact/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute soa.ecore#//Contact/URL"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute soa.ecore#//Contact/email"/>
+    </genClasses>
+    <genClasses ecoreClass="soa.ecore#//License">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute soa.ecore#//License/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute soa.ecore#//License/URL"/>
+    </genClasses>
   </genPackages>
 </genmodel:GenModel>
