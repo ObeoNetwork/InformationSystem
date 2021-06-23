@@ -339,6 +339,75 @@ public class SoaItemProviderAdapterFactory extends SoaAdapterFactory implements 
 	}
 
 	/**
+	 * This keeps track of the one adapter used for all {@link org.obeonetwork.dsl.soa.Information} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected InformationItemProvider informationItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link org.obeonetwork.dsl.soa.Information}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createInformationAdapter() {
+		if (informationItemProvider == null) {
+			informationItemProvider = new InformationItemProvider(this);
+		}
+
+		return informationItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link org.obeonetwork.dsl.soa.Contact} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected ContactItemProvider contactItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link org.obeonetwork.dsl.soa.Contact}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createContactAdapter() {
+		if (contactItemProvider == null) {
+			contactItemProvider = new ContactItemProvider(this);
+		}
+
+		return contactItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link org.obeonetwork.dsl.soa.License} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected LicenseItemProvider licenseItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link org.obeonetwork.dsl.soa.License}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createLicenseAdapter() {
+		if (licenseItemProvider == null) {
+			licenseItemProvider = new LicenseItemProvider(this);
+		}
+
+		return licenseItemProvider;
+	}
+
+	/**
 	 * This returns the root adapter factory that contains this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -448,6 +517,9 @@ public class SoaItemProviderAdapterFactory extends SoaAdapterFactory implements 
 		if (parameterItemProvider != null) parameterItemProvider.dispose();
 		if (parameterRestDataItemProvider != null) parameterRestDataItemProvider.dispose();
 		if (securitySchemeItemProvider != null) securitySchemeItemProvider.dispose();
+		if (informationItemProvider != null) informationItemProvider.dispose();
+		if (contactItemProvider != null) contactItemProvider.dispose();
+		if (licenseItemProvider != null) licenseItemProvider.dispose();
 	}
 
 }

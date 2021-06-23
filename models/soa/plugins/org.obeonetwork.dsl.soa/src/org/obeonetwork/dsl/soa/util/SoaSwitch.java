@@ -20,8 +20,11 @@ import org.obeonetwork.dsl.environment.ObeoDSMObject;
 import org.obeonetwork.dsl.environment.TypesDefinition;
 import org.obeonetwork.dsl.soa.Binding;
 import org.obeonetwork.dsl.soa.Component;
+import org.obeonetwork.dsl.soa.Contact;
 import org.obeonetwork.dsl.soa.ImplementationComponent;
+import org.obeonetwork.dsl.soa.Information;
 import org.obeonetwork.dsl.soa.Interface;
+import org.obeonetwork.dsl.soa.License;
 import org.obeonetwork.dsl.soa.Operation;
 import org.obeonetwork.dsl.soa.Parameter;
 import org.obeonetwork.dsl.soa.ParameterRestData;
@@ -182,6 +185,24 @@ public class SoaSwitch<T> extends Switch<T> {
 				T result = caseSecurityScheme(securityScheme);
 				if (result == null) result = caseObeoDSMObject(securityScheme);
 				if (result == null) result = caseIdentifiable(securityScheme);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case SoaPackage.INFORMATION: {
+				Information information = (Information)theEObject;
+				T result = caseInformation(information);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case SoaPackage.CONTACT: {
+				Contact contact = (Contact)theEObject;
+				T result = caseContact(contact);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case SoaPackage.LICENSE: {
+				License license = (License)theEObject;
+				T result = caseLicense(license);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -351,6 +372,51 @@ public class SoaSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseSecurityScheme(SecurityScheme object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Information</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Information</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseInformation(Information object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Contact</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Contact</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseContact(Contact object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>License</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>License</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseLicense(License object) {
 		return null;
 	}
 

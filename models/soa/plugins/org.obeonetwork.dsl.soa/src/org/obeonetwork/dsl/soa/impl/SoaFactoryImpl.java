@@ -20,10 +20,13 @@ import org.obeonetwork.dsl.soa.ApiKeyLocation;
 import org.obeonetwork.dsl.soa.Binding;
 import org.obeonetwork.dsl.soa.BindingKind;
 import org.obeonetwork.dsl.soa.Component;
+import org.obeonetwork.dsl.soa.Contact;
 import org.obeonetwork.dsl.soa.ExpositionKind;
 import org.obeonetwork.dsl.soa.ImplementationComponent;
+import org.obeonetwork.dsl.soa.Information;
 import org.obeonetwork.dsl.soa.Interface;
 import org.obeonetwork.dsl.soa.InterfaceKind;
+import org.obeonetwork.dsl.soa.License;
 import org.obeonetwork.dsl.soa.Operation;
 import org.obeonetwork.dsl.soa.OperationKind;
 import org.obeonetwork.dsl.soa.Parameter;
@@ -102,6 +105,9 @@ public class SoaFactoryImpl extends EFactoryImpl implements SoaFactory {
 			case SoaPackage.PARAMETER: return (EObject)createParameter();
 			case SoaPackage.PARAMETER_REST_DATA: return (EObject)createParameterRestData();
 			case SoaPackage.SECURITY_SCHEME: return (EObject)createSecurityScheme();
+			case SoaPackage.INFORMATION: return (EObject)createInformation();
+			case SoaPackage.CONTACT: return (EObject)createContact();
+			case SoaPackage.LICENSE: return (EObject)createLicense();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -277,6 +283,36 @@ public class SoaFactoryImpl extends EFactoryImpl implements SoaFactory {
 	public SecurityScheme createSecurityScheme() {
 		SecuritySchemeImpl securityScheme = new SecuritySchemeImpl();
 		return securityScheme;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Information createInformation() {
+		InformationImpl information = new InformationImpl();
+		return information;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Contact createContact() {
+		ContactImpl contact = new ContactImpl();
+		return contact;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public License createLicense() {
+		LicenseImpl license = new LicenseImpl();
+		return license;
 	}
 
 	/**

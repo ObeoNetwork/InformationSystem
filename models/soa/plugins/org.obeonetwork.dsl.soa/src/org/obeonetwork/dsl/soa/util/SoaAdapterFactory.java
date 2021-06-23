@@ -21,8 +21,11 @@ import org.obeonetwork.dsl.environment.ObeoDSMObject;
 import org.obeonetwork.dsl.environment.TypesDefinition;
 import org.obeonetwork.dsl.soa.Binding;
 import org.obeonetwork.dsl.soa.Component;
+import org.obeonetwork.dsl.soa.Contact;
 import org.obeonetwork.dsl.soa.ImplementationComponent;
+import org.obeonetwork.dsl.soa.Information;
 import org.obeonetwork.dsl.soa.Interface;
+import org.obeonetwork.dsl.soa.License;
 import org.obeonetwork.dsl.soa.Operation;
 import org.obeonetwork.dsl.soa.Parameter;
 import org.obeonetwork.dsl.soa.ParameterRestData;
@@ -137,6 +140,18 @@ public class SoaAdapterFactory extends AdapterFactoryImpl {
 			@Override
 			public Adapter caseSecurityScheme(SecurityScheme object) {
 				return createSecuritySchemeAdapter();
+			}
+			@Override
+			public Adapter caseInformation(Information object) {
+				return createInformationAdapter();
+			}
+			@Override
+			public Adapter caseContact(Contact object) {
+				return createContactAdapter();
+			}
+			@Override
+			public Adapter caseLicense(License object) {
+				return createLicenseAdapter();
 			}
 			@Override
 			public Adapter caseIdentifiable(Identifiable object) {
@@ -333,6 +348,48 @@ public class SoaAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createSecuritySchemeAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.obeonetwork.dsl.soa.Information <em>Information</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.obeonetwork.dsl.soa.Information
+	 * @generated
+	 */
+	public Adapter createInformationAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.obeonetwork.dsl.soa.Contact <em>Contact</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.obeonetwork.dsl.soa.Contact
+	 * @generated
+	 */
+	public Adapter createContactAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.obeonetwork.dsl.soa.License <em>License</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.obeonetwork.dsl.soa.License
+	 * @generated
+	 */
+	public Adapter createLicenseAdapter() {
 		return null;
 	}
 
