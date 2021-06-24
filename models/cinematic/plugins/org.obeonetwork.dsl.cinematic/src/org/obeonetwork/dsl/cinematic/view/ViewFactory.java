@@ -84,6 +84,15 @@ public interface ViewFactory extends EFactory {
 	Layout createLayout();
 
 	/**
+	 * Returns a new object of class '<em>Style</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Style</em>'.
+	 * @generated
+	 */
+	ViewStyle createViewStyle();
+
+	/**
 	 * Returns the package supported by this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

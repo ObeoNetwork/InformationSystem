@@ -550,6 +550,7 @@ public class ToolkitsPackageImpl extends EPackageImpl implements ToolkitsPackage
 		toolkitEClass.getESuperTypes().add(theTechnicalIDPackage.getIdentifiable());
 		widgetEClass.getESuperTypes().add(theTechnicalIDPackage.getIdentifiable());
 		widgetEventTypeEClass.getESuperTypes().add(theTechnicalIDPackage.getIdentifiable());
+		styleEClass.getESuperTypes().add(theTechnicalIDPackage.getIdentifiable());
 
 		// Initialize classes and features; add operations and parameters
 		initEClass(toolkitEClass, Toolkit.class, "Toolkit", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);

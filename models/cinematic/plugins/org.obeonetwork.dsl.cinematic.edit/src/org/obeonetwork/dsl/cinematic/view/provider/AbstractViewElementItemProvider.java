@@ -79,6 +79,7 @@ public class AbstractViewElementItemProvider
 
 			addWidgetPropertyDescriptor(object);
 			addLabelPropertyDescriptor(object);
+			addViewStylePropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -155,6 +156,28 @@ public class AbstractViewElementItemProvider
 	}
 
 	/**
+	 * This adds a property descriptor for the View Style feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addViewStylePropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_AbstractViewElement_viewStyle_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_AbstractViewElement_viewStyle_feature", "_UI_AbstractViewElement_type"),
+				 ViewPackage.Literals.ABSTRACT_VIEW_ELEMENT__VIEW_STYLE,
+				 true,
+				 false,
+				 true,
+				 null,
+				 null,
+				 null));
+	}
+
+	/**
 	 * This specifies how to implement {@link #getChildren} and is used to deduce an appropriate feature for an
 	 * {@link org.eclipse.emf.edit.command.AddCommand}, {@link org.eclipse.emf.edit.command.RemoveCommand} or
 	 * {@link org.eclipse.emf.edit.command.MoveCommand} in {@link #createCommand}.
@@ -168,6 +191,7 @@ public class AbstractViewElementItemProvider
 			super.getChildrenFeatures(object);
 			childrenFeatures.add(ViewPackage.Literals.ABSTRACT_VIEW_ELEMENT__ACTIONS);
 			childrenFeatures.add(ViewPackage.Literals.ABSTRACT_VIEW_ELEMENT__EVENTS);
+			childrenFeatures.add(ViewPackage.Literals.ABSTRACT_VIEW_ELEMENT__VIEW_STYLE);
 		}
 		return childrenFeatures;
 	}
@@ -226,6 +250,7 @@ public class AbstractViewElementItemProvider
 				return;
 			case ViewPackage.ABSTRACT_VIEW_ELEMENT__ACTIONS:
 			case ViewPackage.ABSTRACT_VIEW_ELEMENT__EVENTS:
+			case ViewPackage.ABSTRACT_VIEW_ELEMENT__VIEW_STYLE:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
 		}
@@ -252,6 +277,11 @@ public class AbstractViewElementItemProvider
 			(createChildParameter
 				(ViewPackage.Literals.ABSTRACT_VIEW_ELEMENT__EVENTS,
 				 ViewFactory.eINSTANCE.createViewEvent()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(ViewPackage.Literals.ABSTRACT_VIEW_ELEMENT__VIEW_STYLE,
+				 ViewFactory.eINSTANCE.createViewStyle()));
 	}
 
 	/**

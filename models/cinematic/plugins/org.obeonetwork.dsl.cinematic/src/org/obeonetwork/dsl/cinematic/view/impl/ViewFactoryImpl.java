@@ -17,6 +17,8 @@ import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.impl.EFactoryImpl;
 import org.eclipse.emf.ecore.plugin.EcorePlugin;
 import org.obeonetwork.dsl.cinematic.view.*;
+import org.obeonetwork.dsl.cinematic.view.Layout;
+import org.obeonetwork.dsl.cinematic.view.LayoutDirection;
 import org.obeonetwork.dsl.cinematic.view.ViewAction;
 import org.obeonetwork.dsl.cinematic.view.ViewContainer;
 import org.obeonetwork.dsl.cinematic.view.ViewContainerReference;
@@ -24,7 +26,10 @@ import org.obeonetwork.dsl.cinematic.view.ViewElement;
 import org.obeonetwork.dsl.cinematic.view.ViewEvent;
 import org.obeonetwork.dsl.cinematic.view.ViewFactory;
 import org.obeonetwork.dsl.cinematic.view.ViewPackage;
+import org.obeonetwork.dsl.cinematic.view.ViewStyle;
+import org.obeonetwork.dsl.cinematic.view.spec.ViewContainerReferenceSpec;
 import org.obeonetwork.dsl.cinematic.view.spec.ViewContainerSpec;
+import org.obeonetwork.dsl.cinematic.view.spec.ViewElementSpec;
 
 /**
  * <!-- begin-user-doc -->
@@ -76,6 +81,7 @@ public class ViewFactoryImpl extends EFactoryImpl implements ViewFactory {
 			case ViewPackage.VIEW_EVENT: return (EObject)createViewEvent();
 			case ViewPackage.VIEW_CONTAINER_REFERENCE: return (EObject)createViewContainerReference();
 			case ViewPackage.LAYOUT: return (EObject)createLayout();
+			case ViewPackage.VIEW_STYLE: return (EObject)createViewStyle();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -91,6 +97,8 @@ public class ViewFactoryImpl extends EFactoryImpl implements ViewFactory {
 		switch (eDataType.getClassifierID()) {
 			case ViewPackage.LAYOUT_DIRECTION:
 				return createLayoutDirectionFromString(eDataType, initialValue);
+			case ViewPackage.VIEW_HORIZONTAL_ALIGNMENT:
+				return createViewHorizontalAlignmentFromString(eDataType, initialValue);
 			default:
 				throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
 		}
@@ -106,6 +114,8 @@ public class ViewFactoryImpl extends EFactoryImpl implements ViewFactory {
 		switch (eDataType.getClassifierID()) {
 			case ViewPackage.LAYOUT_DIRECTION:
 				return convertLayoutDirectionToString(eDataType, instanceValue);
+			case ViewPackage.VIEW_HORIZONTAL_ALIGNMENT:
+				return convertViewHorizontalAlignmentToString(eDataType, instanceValue);
 			default:
 				throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
 		}
@@ -114,7 +124,7 @@ public class ViewFactoryImpl extends EFactoryImpl implements ViewFactory {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated Not
+	 * @generated NOT
 	 */
 	public ViewContainer createViewContainer() {
 		ViewContainerImpl viewContainer = new ViewContainerSpec();
@@ -124,10 +134,10 @@ public class ViewFactoryImpl extends EFactoryImpl implements ViewFactory {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	public ViewElement createViewElement() {
-		ViewElementImpl viewElement = new ViewElementImpl();
+		ViewElementImpl viewElement = new ViewElementSpec();
 		return viewElement;
 	}
 
@@ -154,10 +164,10 @@ public class ViewFactoryImpl extends EFactoryImpl implements ViewFactory {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	public ViewContainerReference createViewContainerReference() {
-		ViewContainerReferenceImpl viewContainerReference = new ViewContainerReferenceImpl();
+		ViewContainerReferenceImpl viewContainerReference = new ViewContainerReferenceSpec();
 		return viewContainerReference;
 	}
 
@@ -169,6 +179,16 @@ public class ViewFactoryImpl extends EFactoryImpl implements ViewFactory {
 	public Layout createLayout() {
 		LayoutImpl layout = new LayoutImpl();
 		return layout;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public ViewStyle createViewStyle() {
+		ViewStyleImpl viewStyle = new ViewStyleImpl();
+		return viewStyle;
 	}
 
 	/**
@@ -188,6 +208,26 @@ public class ViewFactoryImpl extends EFactoryImpl implements ViewFactory {
 	 * @generated
 	 */
 	public String convertLayoutDirectionToString(EDataType eDataType, Object instanceValue) {
+		return instanceValue == null ? null : instanceValue.toString();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public ViewHorizontalAlignment createViewHorizontalAlignmentFromString(EDataType eDataType, String initialValue) {
+		ViewHorizontalAlignment result = ViewHorizontalAlignment.get(initialValue);
+		if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
+		return result;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String convertViewHorizontalAlignmentToString(EDataType eDataType, Object instanceValue) {
 		return instanceValue == null ? null : instanceValue.toString();
 	}
 

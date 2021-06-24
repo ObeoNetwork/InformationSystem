@@ -23,6 +23,7 @@ import org.obeonetwork.dsl.cinematic.view.AbstractViewElement;
 import org.obeonetwork.dsl.cinematic.view.ViewAction;
 import org.obeonetwork.dsl.cinematic.view.ViewEvent;
 import org.obeonetwork.dsl.cinematic.view.ViewPackage;
+import org.obeonetwork.dsl.cinematic.view.ViewStyle;
 import org.obeonetwork.dsl.environment.BoundableElement;
 
 /**
@@ -37,6 +38,7 @@ import org.obeonetwork.dsl.environment.BoundableElement;
  *   <li>{@link org.obeonetwork.dsl.cinematic.view.impl.AbstractViewElementImpl#getActions <em>Actions</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.cinematic.view.impl.AbstractViewElementImpl#getEvents <em>Events</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.cinematic.view.impl.AbstractViewElementImpl#getLabel <em>Label</em>}</li>
+ *   <li>{@link org.obeonetwork.dsl.cinematic.view.impl.AbstractViewElementImpl#getViewStyle <em>View Style</em>}</li>
  * </ul>
  *
  * @generated
@@ -141,6 +143,43 @@ public abstract class AbstractViewElementImpl extends NamedElementImpl implement
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public ViewStyle getViewStyle() {
+		return (ViewStyle)eDynamicGet(ViewPackage.ABSTRACT_VIEW_ELEMENT__VIEW_STYLE, ViewPackage.Literals.ABSTRACT_VIEW_ELEMENT__VIEW_STYLE, true, true);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public ViewStyle basicGetViewStyle() {
+		return (ViewStyle)eDynamicGet(ViewPackage.ABSTRACT_VIEW_ELEMENT__VIEW_STYLE, ViewPackage.Literals.ABSTRACT_VIEW_ELEMENT__VIEW_STYLE, false, true);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetViewStyle(ViewStyle newViewStyle, NotificationChain msgs) {
+		msgs = eDynamicInverseAdd((InternalEObject)newViewStyle, ViewPackage.ABSTRACT_VIEW_ELEMENT__VIEW_STYLE, msgs);
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setViewStyle(ViewStyle newViewStyle) {
+		eDynamicSet(ViewPackage.ABSTRACT_VIEW_ELEMENT__VIEW_STYLE, ViewPackage.Literals.ABSTRACT_VIEW_ELEMENT__VIEW_STYLE, newViewStyle);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public boolean isPathValid(BoundableElement root, String path) {
 		// TODO: implement this method
 		// Ensure that you remove @generated or mark it @generated NOT
@@ -159,6 +198,8 @@ public abstract class AbstractViewElementImpl extends NamedElementImpl implement
 				return ((InternalEList<?>)getActions()).basicRemove(otherEnd, msgs);
 			case ViewPackage.ABSTRACT_VIEW_ELEMENT__EVENTS:
 				return ((InternalEList<?>)getEvents()).basicRemove(otherEnd, msgs);
+			case ViewPackage.ABSTRACT_VIEW_ELEMENT__VIEW_STYLE:
+				return basicSetViewStyle(null, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -180,6 +221,9 @@ public abstract class AbstractViewElementImpl extends NamedElementImpl implement
 				return getEvents();
 			case ViewPackage.ABSTRACT_VIEW_ELEMENT__LABEL:
 				return getLabel();
+			case ViewPackage.ABSTRACT_VIEW_ELEMENT__VIEW_STYLE:
+				if (resolve) return getViewStyle();
+				return basicGetViewStyle();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -207,6 +251,9 @@ public abstract class AbstractViewElementImpl extends NamedElementImpl implement
 			case ViewPackage.ABSTRACT_VIEW_ELEMENT__LABEL:
 				setLabel((String)newValue);
 				return;
+			case ViewPackage.ABSTRACT_VIEW_ELEMENT__VIEW_STYLE:
+				setViewStyle((ViewStyle)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -231,6 +278,9 @@ public abstract class AbstractViewElementImpl extends NamedElementImpl implement
 			case ViewPackage.ABSTRACT_VIEW_ELEMENT__LABEL:
 				setLabel(LABEL_EDEFAULT);
 				return;
+			case ViewPackage.ABSTRACT_VIEW_ELEMENT__VIEW_STYLE:
+				setViewStyle((ViewStyle)null);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -251,6 +301,8 @@ public abstract class AbstractViewElementImpl extends NamedElementImpl implement
 				return !getEvents().isEmpty();
 			case ViewPackage.ABSTRACT_VIEW_ELEMENT__LABEL:
 				return LABEL_EDEFAULT == null ? getLabel() != null : !LABEL_EDEFAULT.equals(getLabel());
+			case ViewPackage.ABSTRACT_VIEW_ELEMENT__VIEW_STYLE:
+				return basicGetViewStyle() != null;
 		}
 		return super.eIsSet(featureID);
 	}

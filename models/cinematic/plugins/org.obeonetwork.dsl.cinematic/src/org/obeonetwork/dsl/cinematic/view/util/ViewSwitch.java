@@ -177,6 +177,15 @@ public class ViewSwitch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
+			case ViewPackage.VIEW_STYLE: {
+				ViewStyle viewStyle = (ViewStyle)theEObject;
+				T result = caseViewStyle(viewStyle);
+				if (result == null) result = caseCinematicElement(viewStyle);
+				if (result == null) result = caseObeoDSMObject(viewStyle);
+				if (result == null) result = caseIdentifiable(viewStyle);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
 			default: return defaultCase(theEObject);
 		}
 	}
@@ -283,6 +292,21 @@ public class ViewSwitch<T> {
 	 * @generated
 	 */
 	public T caseLayout(Layout object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Style</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Style</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseViewStyle(ViewStyle object) {
 		return null;
 	}
 

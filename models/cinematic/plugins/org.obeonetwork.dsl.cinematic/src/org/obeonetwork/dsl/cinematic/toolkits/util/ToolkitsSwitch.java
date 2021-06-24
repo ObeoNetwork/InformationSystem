@@ -119,6 +119,7 @@ public class ToolkitsSwitch<T> {
 			case ToolkitsPackage.STYLE: {
 				Style style = (Style)theEObject;
 				T result = caseStyle(style);
+				if (result == null) result = caseIdentifiable(style);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}

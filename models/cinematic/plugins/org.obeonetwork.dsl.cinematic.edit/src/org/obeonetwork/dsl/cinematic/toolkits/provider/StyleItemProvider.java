@@ -34,6 +34,7 @@ import org.obeonetwork.dsl.cinematic.provider.CinematicEditPlugin;
 
 import org.obeonetwork.dsl.cinematic.toolkits.Style;
 import org.obeonetwork.dsl.cinematic.toolkits.ToolkitsPackage;
+import org.obeonetwork.dsl.technicalid.provider.IdentifiableItemProvider;
 
 /**
  * This is the item provider adapter for a {@link org.obeonetwork.dsl.cinematic.toolkits.Style} object.
@@ -42,13 +43,7 @@ import org.obeonetwork.dsl.cinematic.toolkits.ToolkitsPackage;
  * @generated
  */
 public class StyleItemProvider 
-	extends ItemProviderAdapter
-	implements
-		IEditingDomainItemProvider,
-		IStructuredItemContentProvider,
-		ITreeItemContentProvider,
-		IItemLabelProvider,
-		IItemPropertySource {
+	extends IdentifiableItemProvider {
 	/**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc -->
@@ -379,7 +374,7 @@ public class StyleItemProvider
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = ((Style)object).getDecorator();
+		String label = ((Style)object).getTechnicalid();
 		return label == null || label.length() == 0 ?
 			getString("_UI_Style_type") :
 			getString("_UI_Style_type") + " " + label;

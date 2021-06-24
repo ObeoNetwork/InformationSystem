@@ -202,13 +202,22 @@ public interface ViewPackage extends EPackage {
 	int ABSTRACT_VIEW_ELEMENT__LABEL = CinematicPackage.NAMED_ELEMENT_FEATURE_COUNT + 3;
 
 	/**
+	 * The feature id for the '<em><b>View Style</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ABSTRACT_VIEW_ELEMENT__VIEW_STYLE = CinematicPackage.NAMED_ELEMENT_FEATURE_COUNT + 4;
+
+	/**
 	 * The number of structural features of the '<em>Abstract View Element</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ABSTRACT_VIEW_ELEMENT_FEATURE_COUNT = CinematicPackage.NAMED_ELEMENT_FEATURE_COUNT + 4;
+	int ABSTRACT_VIEW_ELEMENT_FEATURE_COUNT = CinematicPackage.NAMED_ELEMENT_FEATURE_COUNT + 5;
 
 	/**
 	 * The meta object id for the '{@link org.obeonetwork.dsl.cinematic.view.impl.ViewContainerImpl <em>Container</em>}' class.
@@ -345,6 +354,15 @@ public interface ViewPackage extends EPackage {
 	 * @ordered
 	 */
 	int VIEW_CONTAINER__LABEL = ABSTRACT_VIEW_ELEMENT__LABEL;
+
+	/**
+	 * The feature id for the '<em><b>View Style</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int VIEW_CONTAINER__VIEW_STYLE = ABSTRACT_VIEW_ELEMENT__VIEW_STYLE;
 
 	/**
 	 * The feature id for the '<em><b>Owned Elements</b></em>' containment reference list.
@@ -535,6 +553,15 @@ public interface ViewPackage extends EPackage {
 	 * @ordered
 	 */
 	int VIEW_ELEMENT__LABEL = ABSTRACT_VIEW_ELEMENT__LABEL;
+
+	/**
+	 * The feature id for the '<em><b>View Style</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int VIEW_ELEMENT__VIEW_STYLE = ABSTRACT_VIEW_ELEMENT__VIEW_STYLE;
 
 	/**
 	 * The feature id for the '<em><b>Required</b></em>' attribute.
@@ -936,6 +963,15 @@ public interface ViewPackage extends EPackage {
 	int VIEW_CONTAINER_REFERENCE__LABEL = ABSTRACT_VIEW_ELEMENT__LABEL;
 
 	/**
+	 * The feature id for the '<em><b>View Style</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int VIEW_CONTAINER_REFERENCE__VIEW_STYLE = ABSTRACT_VIEW_ELEMENT__VIEW_STYLE;
+
+	/**
 	 * The feature id for the '<em><b>View Container</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1036,6 +1072,133 @@ public interface ViewPackage extends EPackage {
 	int LAYOUT_FEATURE_COUNT = 7;
 
 	/**
+	 * The meta object id for the '{@link org.obeonetwork.dsl.cinematic.view.impl.ViewStyleImpl <em>Style</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.obeonetwork.dsl.cinematic.view.impl.ViewStyleImpl
+	 * @see org.obeonetwork.dsl.cinematic.view.impl.ViewPackageImpl#getViewStyle()
+	 * @generated
+	 */
+	int VIEW_STYLE = 7;
+
+	/**
+	 * The feature id for the '<em><b>Technicalid</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int VIEW_STYLE__TECHNICALID = CinematicPackage.CINEMATIC_ELEMENT__TECHNICALID;
+
+	/**
+	 * The feature id for the '<em><b>Metadatas</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int VIEW_STYLE__METADATAS = CinematicPackage.CINEMATIC_ELEMENT__METADATAS;
+
+	/**
+	 * The feature id for the '<em><b>Description</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int VIEW_STYLE__DESCRIPTION = CinematicPackage.CINEMATIC_ELEMENT__DESCRIPTION;
+
+	/**
+	 * The feature id for the '<em><b>Keywords</b></em>' attribute list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int VIEW_STYLE__KEYWORDS = CinematicPackage.CINEMATIC_ELEMENT__KEYWORDS;
+
+	/**
+	 * The feature id for the '<em><b>Behaviours</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int VIEW_STYLE__BEHAVIOURS = CinematicPackage.CINEMATIC_ELEMENT__BEHAVIOURS;
+
+	/**
+	 * The feature id for the '<em><b>Binding Registries</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int VIEW_STYLE__BINDING_REGISTRIES = CinematicPackage.CINEMATIC_ELEMENT__BINDING_REGISTRIES;
+
+	/**
+	 * The feature id for the '<em><b>Version</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int VIEW_STYLE__VERSION = CinematicPackage.CINEMATIC_ELEMENT__VERSION;
+
+	/**
+	 * The feature id for the '<em><b>Created On</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int VIEW_STYLE__CREATED_ON = CinematicPackage.CINEMATIC_ELEMENT__CREATED_ON;
+
+	/**
+	 * The feature id for the '<em><b>Modified On</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int VIEW_STYLE__MODIFIED_ON = CinematicPackage.CINEMATIC_ELEMENT__MODIFIED_ON;
+
+	/**
+	 * The feature id for the '<em><b>Font Size</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int VIEW_STYLE__FONT_SIZE = CinematicPackage.CINEMATIC_ELEMENT_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Font Color</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int VIEW_STYLE__FONT_COLOR = CinematicPackage.CINEMATIC_ELEMENT_FEATURE_COUNT + 1;
+
+	/**
+	 * The feature id for the '<em><b>Label Horizontal Alignment</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int VIEW_STYLE__LABEL_HORIZONTAL_ALIGNMENT = CinematicPackage.CINEMATIC_ELEMENT_FEATURE_COUNT + 2;
+
+	/**
+	 * The number of structural features of the '<em>Style</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int VIEW_STYLE_FEATURE_COUNT = CinematicPackage.CINEMATIC_ELEMENT_FEATURE_COUNT + 3;
+
+	/**
 	 * The meta object id for the '{@link org.obeonetwork.dsl.cinematic.view.LayoutDirection <em>Layout Direction</em>}' enum.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1043,7 +1206,18 @@ public interface ViewPackage extends EPackage {
 	 * @see org.obeonetwork.dsl.cinematic.view.impl.ViewPackageImpl#getLayoutDirection()
 	 * @generated
 	 */
-	int LAYOUT_DIRECTION = 7;
+	int LAYOUT_DIRECTION = 8;
+
+
+	/**
+	 * The meta object id for the '{@link org.obeonetwork.dsl.cinematic.view.ViewHorizontalAlignment <em>Horizontal Alignment</em>}' enum.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.obeonetwork.dsl.cinematic.view.ViewHorizontalAlignment
+	 * @see org.obeonetwork.dsl.cinematic.view.impl.ViewPackageImpl#getViewHorizontalAlignment()
+	 * @generated
+	 */
+	int VIEW_HORIZONTAL_ALIGNMENT = 9;
 
 
 	/**
@@ -1099,6 +1273,17 @@ public interface ViewPackage extends EPackage {
 	 * @generated
 	 */
 	EAttribute getAbstractViewElement_Label();
+
+	/**
+	 * Returns the meta object for the containment reference '{@link org.obeonetwork.dsl.cinematic.view.AbstractViewElement#getViewStyle <em>View Style</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference '<em>View Style</em>'.
+	 * @see org.obeonetwork.dsl.cinematic.view.AbstractViewElement#getViewStyle()
+	 * @see #getAbstractViewElement()
+	 * @generated
+	 */
+	EReference getAbstractViewElement_ViewStyle();
 
 	/**
 	 * Returns the meta object for class '{@link org.obeonetwork.dsl.cinematic.view.ViewContainer <em>Container</em>}'.
@@ -1348,6 +1533,49 @@ public interface ViewPackage extends EPackage {
 	EReference getLayout_OwnedLayouts();
 
 	/**
+	 * Returns the meta object for class '{@link org.obeonetwork.dsl.cinematic.view.ViewStyle <em>Style</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Style</em>'.
+	 * @see org.obeonetwork.dsl.cinematic.view.ViewStyle
+	 * @generated
+	 */
+	EClass getViewStyle();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.obeonetwork.dsl.cinematic.view.ViewStyle#getFontSize <em>Font Size</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Font Size</em>'.
+	 * @see org.obeonetwork.dsl.cinematic.view.ViewStyle#getFontSize()
+	 * @see #getViewStyle()
+	 * @generated
+	 */
+	EAttribute getViewStyle_FontSize();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.obeonetwork.dsl.cinematic.view.ViewStyle#getFontColor <em>Font Color</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Font Color</em>'.
+	 * @see org.obeonetwork.dsl.cinematic.view.ViewStyle#getFontColor()
+	 * @see #getViewStyle()
+	 * @generated
+	 */
+	EAttribute getViewStyle_FontColor();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.obeonetwork.dsl.cinematic.view.ViewStyle#getLabelHorizontalAlignment <em>Label Horizontal Alignment</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Label Horizontal Alignment</em>'.
+	 * @see org.obeonetwork.dsl.cinematic.view.ViewStyle#getLabelHorizontalAlignment()
+	 * @see #getViewStyle()
+	 * @generated
+	 */
+	EAttribute getViewStyle_LabelHorizontalAlignment();
+
+	/**
 	 * Returns the meta object for enum '{@link org.obeonetwork.dsl.cinematic.view.LayoutDirection <em>Layout Direction</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1356,6 +1584,16 @@ public interface ViewPackage extends EPackage {
 	 * @generated
 	 */
 	EEnum getLayoutDirection();
+
+	/**
+	 * Returns the meta object for enum '{@link org.obeonetwork.dsl.cinematic.view.ViewHorizontalAlignment <em>Horizontal Alignment</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for enum '<em>Horizontal Alignment</em>'.
+	 * @see org.obeonetwork.dsl.cinematic.view.ViewHorizontalAlignment
+	 * @generated
+	 */
+	EEnum getViewHorizontalAlignment();
 
 	/**
 	 * Returns the factory that creates the instances of the model.
@@ -1420,6 +1658,14 @@ public interface ViewPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute ABSTRACT_VIEW_ELEMENT__LABEL = eINSTANCE.getAbstractViewElement_Label();
+
+		/**
+		 * The meta object literal for the '<em><b>View Style</b></em>' containment reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference ABSTRACT_VIEW_ELEMENT__VIEW_STYLE = eINSTANCE.getAbstractViewElement_ViewStyle();
 
 		/**
 		 * The meta object literal for the '{@link org.obeonetwork.dsl.cinematic.view.impl.ViewContainerImpl <em>Container</em>}' class.
@@ -1618,6 +1864,40 @@ public interface ViewPackage extends EPackage {
 		EReference LAYOUT__OWNED_LAYOUTS = eINSTANCE.getLayout_OwnedLayouts();
 
 		/**
+		 * The meta object literal for the '{@link org.obeonetwork.dsl.cinematic.view.impl.ViewStyleImpl <em>Style</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.obeonetwork.dsl.cinematic.view.impl.ViewStyleImpl
+		 * @see org.obeonetwork.dsl.cinematic.view.impl.ViewPackageImpl#getViewStyle()
+		 * @generated
+		 */
+		EClass VIEW_STYLE = eINSTANCE.getViewStyle();
+
+		/**
+		 * The meta object literal for the '<em><b>Font Size</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute VIEW_STYLE__FONT_SIZE = eINSTANCE.getViewStyle_FontSize();
+
+		/**
+		 * The meta object literal for the '<em><b>Font Color</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute VIEW_STYLE__FONT_COLOR = eINSTANCE.getViewStyle_FontColor();
+
+		/**
+		 * The meta object literal for the '<em><b>Label Horizontal Alignment</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute VIEW_STYLE__LABEL_HORIZONTAL_ALIGNMENT = eINSTANCE.getViewStyle_LabelHorizontalAlignment();
+
+		/**
 		 * The meta object literal for the '{@link org.obeonetwork.dsl.cinematic.view.LayoutDirection <em>Layout Direction</em>}' enum.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -1626,6 +1906,16 @@ public interface ViewPackage extends EPackage {
 		 * @generated
 		 */
 		EEnum LAYOUT_DIRECTION = eINSTANCE.getLayoutDirection();
+
+		/**
+		 * The meta object literal for the '{@link org.obeonetwork.dsl.cinematic.view.ViewHorizontalAlignment <em>Horizontal Alignment</em>}' enum.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.obeonetwork.dsl.cinematic.view.ViewHorizontalAlignment
+		 * @see org.obeonetwork.dsl.cinematic.view.impl.ViewPackageImpl#getViewHorizontalAlignment()
+		 * @generated
+		 */
+		EEnum VIEW_HORIZONTAL_ALIGNMENT = eINSTANCE.getViewHorizontalAlignment();
 
 	}
 

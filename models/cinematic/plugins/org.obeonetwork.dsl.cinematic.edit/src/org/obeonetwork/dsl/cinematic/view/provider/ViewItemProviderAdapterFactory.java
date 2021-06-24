@@ -217,6 +217,29 @@ public class ViewItemProviderAdapterFactory extends ViewAdapterFactory implement
 	}
 
 	/**
+	 * This keeps track of the one adapter used for all {@link org.obeonetwork.dsl.cinematic.view.ViewStyle} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected ViewStyleItemProvider viewStyleItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link org.obeonetwork.dsl.cinematic.view.ViewStyle}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createViewStyleAdapter() {
+		if (viewStyleItemProvider == null) {
+			viewStyleItemProvider = new ViewStyleItemProvider(this);
+		}
+
+		return viewStyleItemProvider;
+	}
+
+	/**
 	 * This returns the root adapter factory that contains this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -321,6 +344,7 @@ public class ViewItemProviderAdapterFactory extends ViewAdapterFactory implement
 		if (viewEventItemProvider != null) viewEventItemProvider.dispose();
 		if (viewContainerReferenceItemProvider != null) viewContainerReferenceItemProvider.dispose();
 		if (layoutItemProvider != null) layoutItemProvider.dispose();
+		if (viewStyleItemProvider != null) viewStyleItemProvider.dispose();
 	}
 
 }

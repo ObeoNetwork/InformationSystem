@@ -32,12 +32,20 @@
         <genEnumLiterals ecoreEnumLiteral="cinematic.ecore#//view/LayoutDirection/VERTICAL"/>
         <genEnumLiterals ecoreEnumLiteral="cinematic.ecore#//view/LayoutDirection/HORIZONTAL"/>
       </genEnums>
+      <genEnums typeSafeEnumCompatible="false" ecoreEnum="cinematic.ecore#//view/ViewHorizontalAlignment">
+        <genEnumLiterals ecoreEnumLiteral="cinematic.ecore#//view/ViewHorizontalAlignment/DEFAULT"/>
+        <genEnumLiterals ecoreEnumLiteral="cinematic.ecore#//view/ViewHorizontalAlignment/CENTER"/>
+        <genEnumLiterals ecoreEnumLiteral="cinematic.ecore#//view/ViewHorizontalAlignment/LEFT"/>
+        <genEnumLiterals ecoreEnumLiteral="cinematic.ecore#//view/ViewHorizontalAlignment/RIGHT"/>
+      </genEnums>
       <genClasses image="false" ecoreClass="cinematic.ecore#//view/AbstractViewElement">
         <genFeatures notify="false" createChild="false" propertySortChoices="true"
             ecoreFeature="ecore:EReference cinematic.ecore#//view/AbstractViewElement/widget"/>
         <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference cinematic.ecore#//view/AbstractViewElement/actions"/>
         <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference cinematic.ecore#//view/AbstractViewElement/events"/>
         <genFeatures createChild="false" ecoreFeature="ecore:EAttribute cinematic.ecore#//view/AbstractViewElement/label"/>
+        <genFeatures children="true" createChild="true" propertySortChoices="true"
+            ecoreFeature="ecore:EReference cinematic.ecore#//view/AbstractViewElement/viewStyle"/>
       </genClasses>
       <genClasses ecoreClass="cinematic.ecore#//view/ViewContainer">
         <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference cinematic.ecore#//view/ViewContainer/ownedElements"/>
@@ -70,6 +78,11 @@
         <genFeatures notify="false" createChild="false" propertySortChoices="true"
             ecoreFeature="ecore:EReference cinematic.ecore#//view/Layout/viewElement"/>
         <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference cinematic.ecore#//view/Layout/ownedLayouts"/>
+      </genClasses>
+      <genClasses ecoreClass="cinematic.ecore#//view/ViewStyle">
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute cinematic.ecore#//view/ViewStyle/fontSize"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute cinematic.ecore#//view/ViewStyle/fontColor"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute cinematic.ecore#//view/ViewStyle/labelHorizontalAlignment"/>
       </genClasses>
     </nestedGenPackages>
     <nestedGenPackages prefix="Flow" basePackage="org.obeonetwork.dsl.cinematic" resource="XMI"

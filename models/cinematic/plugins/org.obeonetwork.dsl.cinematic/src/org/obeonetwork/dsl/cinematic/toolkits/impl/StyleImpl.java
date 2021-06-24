@@ -18,6 +18,7 @@ import org.obeonetwork.dsl.cinematic.toolkits.CardinalPosition;
 import org.obeonetwork.dsl.cinematic.toolkits.HorizontalAlignment;
 import org.obeonetwork.dsl.cinematic.toolkits.Style;
 import org.obeonetwork.dsl.cinematic.toolkits.ToolkitsPackage;
+import org.obeonetwork.dsl.technicalid.impl.IdentifiableImpl;
 
 /**
  * <!-- begin-user-doc -->
@@ -43,7 +44,7 @@ import org.obeonetwork.dsl.cinematic.toolkits.ToolkitsPackage;
  *
  * @generated
  */
-public class StyleImpl extends CDOObjectImpl implements Style {
+public class StyleImpl extends IdentifiableImpl implements Style {
 	/**
 	 * The default value of the '{@link #getDecorator() <em>Decorator</em>}' attribute.
 	 * <!-- begin-user-doc -->
@@ -181,16 +182,6 @@ public class StyleImpl extends CDOObjectImpl implements Style {
 	@Override
 	protected EClass eStaticClass() {
 		return ToolkitsPackage.Literals.STYLE;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	protected int eStaticFeatureCount() {
-		return 0;
 	}
 
 	/**

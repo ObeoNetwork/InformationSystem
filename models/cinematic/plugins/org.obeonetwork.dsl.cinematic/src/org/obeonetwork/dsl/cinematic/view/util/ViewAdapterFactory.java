@@ -114,6 +114,10 @@ public class ViewAdapterFactory extends AdapterFactoryImpl {
 				return createLayoutAdapter();
 			}
 			@Override
+			public Adapter caseViewStyle(ViewStyle object) {
+				return createViewStyleAdapter();
+			}
+			@Override
 			public Adapter caseIdentifiable(Identifiable object) {
 				return createIdentifiableAdapter();
 			}
@@ -252,6 +256,20 @@ public class ViewAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createLayoutAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.obeonetwork.dsl.cinematic.view.ViewStyle <em>Style</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.obeonetwork.dsl.cinematic.view.ViewStyle
+	 * @generated
+	 */
+	public Adapter createViewStyleAdapter() {
 		return null;
 	}
 

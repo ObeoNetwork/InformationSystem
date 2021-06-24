@@ -11,6 +11,7 @@
 package org.obeonetwork.dsl.cinematic.toolkits;
 
 import org.eclipse.emf.cdo.CDOObject;
+import org.obeonetwork.dsl.technicalid.Identifiable;
 
 /**
  * <!-- begin-user-doc -->
@@ -37,10 +38,9 @@ import org.eclipse.emf.cdo.CDOObject;
  *
  * @see org.obeonetwork.dsl.cinematic.toolkits.ToolkitsPackage#getStyle()
  * @model
- * @extends CDOObject
  * @generated
  */
-public interface Style extends CDOObject {
+public interface Style extends Identifiable {
 	/**
 	 * Returns the value of the '<em><b>Decorator</b></em>' attribute.
 	 * <!-- begin-user-doc -->

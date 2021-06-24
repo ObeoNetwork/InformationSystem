@@ -6,6 +6,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Set;
 
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.graphics.RGB;
@@ -67,4 +68,9 @@ public class RGBSystemColorUtil {
 		}
 		return rgb;
 	}
+	
+	public static Set<String> getAvailableColorNames() {
+		return systemRGBColors.keySet();
+	}
+	
 }

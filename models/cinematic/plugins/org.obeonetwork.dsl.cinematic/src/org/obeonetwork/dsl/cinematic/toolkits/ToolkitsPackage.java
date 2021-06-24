@@ -287,13 +287,22 @@ public interface ToolkitsPackage extends EPackage {
 	int STYLE = 3;
 
 	/**
+	 * The feature id for the '<em><b>Technicalid</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int STYLE__TECHNICALID = TechnicalIDPackage.IDENTIFIABLE__TECHNICALID;
+
+	/**
 	 * The feature id for the '<em><b>Decorator</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int STYLE__DECORATOR = 0;
+	int STYLE__DECORATOR = TechnicalIDPackage.IDENTIFIABLE_FEATURE_COUNT + 0;
 
 	/**
 	 * The feature id for the '<em><b>Decorator Position</b></em>' attribute.
@@ -302,7 +311,7 @@ public interface ToolkitsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int STYLE__DECORATOR_POSITION = 1;
+	int STYLE__DECORATOR_POSITION = TechnicalIDPackage.IDENTIFIABLE_FEATURE_COUNT + 1;
 
 	/**
 	 * The feature id for the '<em><b>Decorator VFill</b></em>' attribute.
@@ -311,7 +320,7 @@ public interface ToolkitsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int STYLE__DECORATOR_VFILL = 2;
+	int STYLE__DECORATOR_VFILL = TechnicalIDPackage.IDENTIFIABLE_FEATURE_COUNT + 2;
 
 	/**
 	 * The feature id for the '<em><b>Decorator HFill</b></em>' attribute.
@@ -320,7 +329,7 @@ public interface ToolkitsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int STYLE__DECORATOR_HFILL = 3;
+	int STYLE__DECORATOR_HFILL = TechnicalIDPackage.IDENTIFIABLE_FEATURE_COUNT + 3;
 
 	/**
 	 * The feature id for the '<em><b>Bordered</b></em>' attribute.
@@ -329,7 +338,7 @@ public interface ToolkitsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int STYLE__BORDERED = 4;
+	int STYLE__BORDERED = TechnicalIDPackage.IDENTIFIABLE_FEATURE_COUNT + 4;
 
 	/**
 	 * The feature id for the '<em><b>Rounded Corners</b></em>' attribute.
@@ -338,7 +347,7 @@ public interface ToolkitsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int STYLE__ROUNDED_CORNERS = 5;
+	int STYLE__ROUNDED_CORNERS = TechnicalIDPackage.IDENTIFIABLE_FEATURE_COUNT + 5;
 
 	/**
 	 * The feature id for the '<em><b>Font Color</b></em>' attribute.
@@ -347,7 +356,7 @@ public interface ToolkitsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int STYLE__FONT_COLOR = 6;
+	int STYLE__FONT_COLOR = TechnicalIDPackage.IDENTIFIABLE_FEATURE_COUNT + 6;
 
 	/**
 	 * The feature id for the '<em><b>Font Underlined</b></em>' attribute.
@@ -356,7 +365,7 @@ public interface ToolkitsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int STYLE__FONT_UNDERLINED = 7;
+	int STYLE__FONT_UNDERLINED = TechnicalIDPackage.IDENTIFIABLE_FEATURE_COUNT + 7;
 
 	/**
 	 * The feature id for the '<em><b>Label HAlignment</b></em>' attribute.
@@ -365,7 +374,7 @@ public interface ToolkitsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int STYLE__LABEL_HALIGNMENT = 8;
+	int STYLE__LABEL_HALIGNMENT = TechnicalIDPackage.IDENTIFIABLE_FEATURE_COUNT + 8;
 
 	/**
 	 * The feature id for the '<em><b>Default Width</b></em>' attribute.
@@ -374,7 +383,7 @@ public interface ToolkitsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int STYLE__DEFAULT_WIDTH = 9;
+	int STYLE__DEFAULT_WIDTH = TechnicalIDPackage.IDENTIFIABLE_FEATURE_COUNT + 9;
 
 	/**
 	 * The feature id for the '<em><b>Default Height</b></em>' attribute.
@@ -383,7 +392,7 @@ public interface ToolkitsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int STYLE__DEFAULT_HEIGHT = 10;
+	int STYLE__DEFAULT_HEIGHT = TechnicalIDPackage.IDENTIFIABLE_FEATURE_COUNT + 10;
 
 	/**
 	 * The feature id for the '<em><b>Example Expression</b></em>' attribute.
@@ -392,7 +401,7 @@ public interface ToolkitsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int STYLE__EXAMPLE_EXPRESSION = 11;
+	int STYLE__EXAMPLE_EXPRESSION = TechnicalIDPackage.IDENTIFIABLE_FEATURE_COUNT + 11;
 
 	/**
 	 * The number of structural features of the '<em>Style</em>' class.
@@ -401,7 +410,7 @@ public interface ToolkitsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int STYLE_FEATURE_COUNT = 12;
+	int STYLE_FEATURE_COUNT = TechnicalIDPackage.IDENTIFIABLE_FEATURE_COUNT + 12;
 
 	/**
 	 * The meta object id for the '{@link org.obeonetwork.dsl.cinematic.toolkits.CardinalPosition <em>Cardinal Position</em>}' enum.

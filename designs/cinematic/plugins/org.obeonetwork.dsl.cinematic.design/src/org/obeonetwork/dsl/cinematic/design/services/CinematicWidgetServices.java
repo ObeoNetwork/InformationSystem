@@ -10,6 +10,8 @@
  *******************************************************************************/
 package org.obeonetwork.dsl.cinematic.design.services;
 
+import static java.util.stream.Collectors.toList;
+
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
@@ -58,6 +60,7 @@ import org.obeonetwork.dsl.cinematic.view.AbstractViewElement;
 import org.obeonetwork.dsl.cinematic.view.ViewContainer;
 import org.obeonetwork.dsl.cinematic.view.ViewContainerReference;
 import org.obeonetwork.dsl.cinematic.view.ViewElement;
+import org.obeonetwork.dsl.cinematic.view.ViewHorizontalAlignment;
 import org.obeonetwork.dsl.environment.Annotation;
 import org.obeonetwork.dsl.environment.EnvironmentFactory;
 import org.obeonetwork.dsl.environment.MetaDataContainer;
@@ -70,13 +73,15 @@ import org.obeonetwork.utils.sirius.services.EObjectUtils;
 /**
  * Services to use the widgets
  * 
- * @author jdupont
+ * @author jdupont, vrichard
  * 
  */
 @SuppressWarnings("restriction")
 public class CinematicWidgetServices extends DebugServices {
 
 	private static final String CREATE_VIEW_CONTAINER_TITLE = "Create View container";
+	private static final String DEFAULT_COLOR = "DEFAULT";
+	private static final int DEFAULT_LABEL_FONT_SIZE = 12;
 
 	/**
 	 * Retrieves widgets that have the property isContainer set to true and
@@ -299,10 +304,23 @@ public class CinematicWidgetServices extends DebugServices {
 	}
 	
 	public LabelAlignment getLabelHorizontalAlignment(AbstractViewElement viewElement) {
-		if(viewElement.getWidget().getStyle() != null) {
+		LabelAlignment labelAlignment = LabelAlignment.CENTER;
+		if(viewElement.getViewStyle() != null && 
+				viewElement.getViewStyle().getLabelHorizontalAlignment() != ViewHorizontalAlignment.DEFAULT) {
+			labelAlignment = LabelAlignment.get(viewElement.getViewStyle().getLabelHorizontalAlignment().getLiteral());
+		} else if(viewElement.getWidget().getStyle() != null) {
 			return LabelAlignment.get(viewElement.getWidget().getStyle().getLabelHAlignment().getLiteral());
 		}
-		return LabelAlignment.CENTER;
+		return labelAlignment;
+	}
+	
+	public int getLabelFontSize(AbstractViewElement viewElement) {
+		int fontSize = DEFAULT_LABEL_FONT_SIZE;
+		if(viewElement.getViewStyle() != null
+				&& viewElement.getViewStyle().getFontSize() > 0) {
+			fontSize = viewElement.getViewStyle().getFontSize();
+		}
+		return fontSize;
 	}
 	
 	public int getBorderSize(AbstractViewElement viewElement) {
@@ -316,10 +334,12 @@ public class CinematicWidgetServices extends DebugServices {
 		
 	private RGB getLabelRGB(AbstractViewElement viewElement) {
 		String colorDef = "BLACK";
-		if(viewElement.getWidget().getStyle() != null) {
-			if(viewElement.getWidget().getStyle().getFontColor() != null) {
-				colorDef = viewElement.getWidget().getStyle().getFontColor();
-			}
+		if(viewElement.getViewStyle() != null && 
+				RGBSystemColorUtil.getAvailableColorNames().contains(viewElement.getViewStyle().getFontColor())) {
+			colorDef = viewElement.getViewStyle().getFontColor();
+		} else if(viewElement.getWidget().getStyle() != null
+				&& RGBSystemColorUtil.getAvailableColorNames().contains(viewElement.getWidget().getStyle().getFontColor())) {
+			colorDef = viewElement.getWidget().getStyle().getFontColor();
 		}
 		return RGBSystemColorUtil.getRGBByName(colorDef);
 	}
@@ -575,4 +595,12 @@ public class CinematicWidgetServices extends DebugServices {
 		return metaDataContainer;
 	}
 
+	public List<String> getAvailableColorIdentifiers(EObject self) {
+		List<String> availableColorIdentifiers = new ArrayList<>();
+		availableColorIdentifiers.add(DEFAULT_COLOR );
+		availableColorIdentifiers.addAll(RGBSystemColorUtil.getAvailableColorNames().stream().filter(c -> !c.contains("_")).sorted().collect(toList()));
+		availableColorIdentifiers.addAll(RGBSystemColorUtil.getAvailableColorNames().stream().filter(c -> c.contains("_")).sorted().collect(toList()));
+		return availableColorIdentifiers;
+	}
+	
 }

@@ -31,7 +31,9 @@ import org.obeonetwork.dsl.cinematic.view.ViewContainerReference;
 import org.obeonetwork.dsl.cinematic.view.ViewElement;
 import org.obeonetwork.dsl.cinematic.view.ViewEvent;
 import org.obeonetwork.dsl.cinematic.view.ViewFactory;
+import org.obeonetwork.dsl.cinematic.view.ViewHorizontalAlignment;
 import org.obeonetwork.dsl.cinematic.view.ViewPackage;
+import org.obeonetwork.dsl.cinematic.view.ViewStyle;
 import org.obeonetwork.dsl.environment.EnvironmentPackage;
 import org.obeonetwork.dsl.technicalid.TechnicalIDPackage;
 
@@ -96,7 +98,21 @@ public class ViewPackageImpl extends EPackageImpl implements ViewPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	private EClass viewStyleEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	private EEnum layoutDirectionEEnum = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EEnum viewHorizontalAlignmentEEnum = null;
 
 	/**
 	 * Creates an instance of the model <b>Package</b>, registered with
@@ -220,6 +236,15 @@ public class ViewPackageImpl extends EPackageImpl implements ViewPackage {
 	 */
 	public EAttribute getAbstractViewElement_Label() {
 		return (EAttribute)abstractViewElementEClass.getEStructuralFeatures().get(3);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getAbstractViewElement_ViewStyle() {
+		return (EReference)abstractViewElementEClass.getEStructuralFeatures().get(4);
 	}
 
 	/**
@@ -434,8 +459,53 @@ public class ViewPackageImpl extends EPackageImpl implements ViewPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EClass getViewStyle() {
+		return viewStyleEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getViewStyle_FontSize() {
+		return (EAttribute)viewStyleEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getViewStyle_FontColor() {
+		return (EAttribute)viewStyleEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getViewStyle_LabelHorizontalAlignment() {
+		return (EAttribute)viewStyleEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EEnum getLayoutDirection() {
 		return layoutDirectionEEnum;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EEnum getViewHorizontalAlignment() {
+		return viewHorizontalAlignmentEEnum;
 	}
 
 	/**
@@ -471,6 +541,7 @@ public class ViewPackageImpl extends EPackageImpl implements ViewPackage {
 		createEReference(abstractViewElementEClass, ABSTRACT_VIEW_ELEMENT__ACTIONS);
 		createEReference(abstractViewElementEClass, ABSTRACT_VIEW_ELEMENT__EVENTS);
 		createEAttribute(abstractViewElementEClass, ABSTRACT_VIEW_ELEMENT__LABEL);
+		createEReference(abstractViewElementEClass, ABSTRACT_VIEW_ELEMENT__VIEW_STYLE);
 
 		viewContainerEClass = createEClass(VIEW_CONTAINER);
 		createEReference(viewContainerEClass, VIEW_CONTAINER__OWNED_ELEMENTS);
@@ -501,8 +572,14 @@ public class ViewPackageImpl extends EPackageImpl implements ViewPackage {
 		createEReference(layoutEClass, LAYOUT__VIEW_ELEMENT);
 		createEReference(layoutEClass, LAYOUT__OWNED_LAYOUTS);
 
+		viewStyleEClass = createEClass(VIEW_STYLE);
+		createEAttribute(viewStyleEClass, VIEW_STYLE__FONT_SIZE);
+		createEAttribute(viewStyleEClass, VIEW_STYLE__FONT_COLOR);
+		createEAttribute(viewStyleEClass, VIEW_STYLE__LABEL_HORIZONTAL_ALIGNMENT);
+
 		// Create enums
 		layoutDirectionEEnum = createEEnum(LAYOUT_DIRECTION);
+		viewHorizontalAlignmentEEnum = createEEnum(VIEW_HORIZONTAL_ALIGNMENT);
 	}
 
 	/**
@@ -545,6 +622,7 @@ public class ViewPackageImpl extends EPackageImpl implements ViewPackage {
 		viewActionEClass.getESuperTypes().add(theCinematicPackage.getNamedElement());
 		viewEventEClass.getESuperTypes().add(theCinematicPackage.getEvent());
 		viewContainerReferenceEClass.getESuperTypes().add(this.getAbstractViewElement());
+		viewStyleEClass.getESuperTypes().add(theCinematicPackage.getCinematicElement());
 
 		// Initialize classes and features; add operations and parameters
 		initEClass(abstractViewElementEClass, AbstractViewElement.class, "AbstractViewElement", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -552,6 +630,7 @@ public class ViewPackageImpl extends EPackageImpl implements ViewPackage {
 		initEReference(getAbstractViewElement_Actions(), this.getViewAction(), null, "actions", null, 0, -1, AbstractViewElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getAbstractViewElement_Events(), this.getViewEvent(), null, "events", null, 0, -1, AbstractViewElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getAbstractViewElement_Label(), ecorePackage.getEString(), "label", null, 0, 1, AbstractViewElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getAbstractViewElement_ViewStyle(), this.getViewStyle(), null, "viewStyle", null, 1, 1, AbstractViewElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(viewContainerEClass, ViewContainer.class, "ViewContainer", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getViewContainer_OwnedElements(), this.getAbstractViewElement(), null, "ownedElements", null, 0, -1, ViewContainer.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -582,10 +661,21 @@ public class ViewPackageImpl extends EPackageImpl implements ViewPackage {
 		initEReference(getLayout_ViewElement(), this.getAbstractViewElement(), null, "viewElement", null, 0, 1, Layout.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getLayout_OwnedLayouts(), this.getLayout(), null, "ownedLayouts", null, 0, -1, Layout.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
+		initEClass(viewStyleEClass, ViewStyle.class, "ViewStyle", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getViewStyle_FontSize(), ecorePackage.getEInt(), "fontSize", "12", 0, 1, ViewStyle.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getViewStyle_FontColor(), ecorePackage.getEString(), "fontColor", "DEFAULT", 0, 1, ViewStyle.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getViewStyle_LabelHorizontalAlignment(), this.getViewHorizontalAlignment(), "labelHorizontalAlignment", null, 0, 1, ViewStyle.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
 		// Initialize enums and add enum literals
 		initEEnum(layoutDirectionEEnum, LayoutDirection.class, "LayoutDirection");
 		addEEnumLiteral(layoutDirectionEEnum, LayoutDirection.VERTICAL);
 		addEEnumLiteral(layoutDirectionEEnum, LayoutDirection.HORIZONTAL);
+
+		initEEnum(viewHorizontalAlignmentEEnum, ViewHorizontalAlignment.class, "ViewHorizontalAlignment");
+		addEEnumLiteral(viewHorizontalAlignmentEEnum, ViewHorizontalAlignment.DEFAULT);
+		addEEnumLiteral(viewHorizontalAlignmentEEnum, ViewHorizontalAlignment.CENTER);
+		addEEnumLiteral(viewHorizontalAlignmentEEnum, ViewHorizontalAlignment.LEFT);
+		addEEnumLiteral(viewHorizontalAlignmentEEnum, ViewHorizontalAlignment.RIGHT);
 
 		// Create annotations
 		// http://www.eclipse.org/emf/2002/GenModel

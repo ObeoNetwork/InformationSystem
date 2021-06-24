@@ -66,6 +66,8 @@
           <details key="documentation" value="The label of this View Element."/>
         </eAnnotations>
       </eStructuralFeatures>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="viewStyle" lowerBound="1"
+          eType="#//view/ViewStyle" containment="true"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="ViewContainer" eSuperTypes="#//view/AbstractViewElement">
       <eStructuralFeatures xsi:type="ecore:EReference" name="ownedElements" upperBound="-1"
@@ -147,6 +149,20 @@
       <eStructuralFeatures xsi:type="ecore:EReference" name="viewElement" eType="#//view/AbstractViewElement"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="ownedLayouts" upperBound="-1"
           eType="#//view/Layout" containment="true"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="ViewStyle" eSuperTypes="#//CinematicElement">
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="fontSize" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"
+          defaultValueLiteral="12"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="fontColor" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+          defaultValueLiteral="DEFAULT"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="labelHorizontalAlignment"
+          eType="#//view/ViewHorizontalAlignment"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EEnum" name="ViewHorizontalAlignment">
+      <eLiterals name="DEFAULT"/>
+      <eLiterals name="CENTER" value="1"/>
+      <eLiterals name="LEFT" value="2"/>
+      <eLiterals name="RIGHT" value="3"/>
     </eClassifiers>
   </eSubpackages>
   <eSubpackages name="flow" nsURI="http://www.obeonetwork.org/dsl/cinematic/flow/1.0.0"
@@ -334,7 +350,7 @@
         </eAnnotations>
       </eStructuralFeatures>
     </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="Style">
+    <eClassifiers xsi:type="ecore:EClass" name="Style" eSuperTypes="../../org.obeonetwork.dsl.technicalid/model/technicalid.ecore#//Identifiable">
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="decorator" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="decoratorPosition" eType="#//toolkits/CardinalPosition"/>
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="decoratorVFill" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"

@@ -28,6 +28,7 @@ import org.obeonetwork.dsl.environment.BoundableElement;
  *   <li>{@link org.obeonetwork.dsl.cinematic.view.AbstractViewElement#getActions <em>Actions</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.cinematic.view.AbstractViewElement#getEvents <em>Events</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.cinematic.view.AbstractViewElement#getLabel <em>Label</em>}</li>
+ *   <li>{@link org.obeonetwork.dsl.cinematic.view.AbstractViewElement#getViewStyle <em>View Style</em>}</li>
  * </ul>
  *
  * @see org.obeonetwork.dsl.cinematic.view.ViewPackage#getAbstractViewElement()
@@ -130,5 +131,27 @@ public interface AbstractViewElement extends NamedElement, BoundableElement {
 	 * @generated
 	 */
 	void setLabel(String value);
+
+	/**
+	 * Returns the value of the '<em><b>View Style</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>View Style</em>' containment reference.
+	 * @see #setViewStyle(ViewStyle)
+	 * @see org.obeonetwork.dsl.cinematic.view.ViewPackage#getAbstractViewElement_ViewStyle()
+	 * @model containment="true" resolveProxies="true" required="true"
+	 * @generated
+	 */
+	ViewStyle getViewStyle();
+
+	/**
+	 * Sets the value of the '{@link org.obeonetwork.dsl.cinematic.view.AbstractViewElement#getViewStyle <em>View Style</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>View Style</em>' containment reference.
+	 * @see #getViewStyle()
+	 * @generated
+	 */
+	void setViewStyle(ViewStyle value);
 
 } // AbstractViewElement

@@ -19,10 +19,17 @@ import org.obeonetwork.dsl.cinematic.view.AbstractViewElement;
 import org.obeonetwork.dsl.cinematic.view.ViewContainer;
 import org.obeonetwork.dsl.cinematic.view.ViewContainerReference;
 import org.obeonetwork.dsl.cinematic.view.ViewElement;
+import org.obeonetwork.dsl.cinematic.view.ViewFactory;
 import org.obeonetwork.dsl.cinematic.view.ViewPackage;
 import org.obeonetwork.dsl.cinematic.view.impl.ViewContainerImpl;
 
 public class ViewContainerSpec extends ViewContainerImpl {
+	
+	public ViewContainerSpec() {
+		super();
+		setViewStyle(ViewFactory.eINSTANCE.createViewStyle());
+	}
+	
 	@Override
 	public EList<ViewContainer> getViewContainers() {
 		List<ViewContainer> viewContainers = new ArrayList<ViewContainer>();
