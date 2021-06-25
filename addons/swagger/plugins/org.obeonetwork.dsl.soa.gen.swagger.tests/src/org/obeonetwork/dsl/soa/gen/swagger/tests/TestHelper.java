@@ -32,6 +32,7 @@ import java.util.Arrays;
 import java.util.Collections;
 import java.util.Enumeration;
 import java.util.List;
+import java.util.stream.Collectors;
 
 import org.eclipse.core.runtime.FileLocator;
 import org.eclipse.core.runtime.Platform;
@@ -220,6 +221,23 @@ public class TestHelper {
 	}
 	
 	public static void assertFileContentEquals(String message, File expectedFile, File actualFile) {
+		
+		if ("\r\n".equals(java.lang.System.lineSeparator())) {
+			// Windows separator used. Switching actualFile to linux EOF
+			try {
+				List<String> lineSeparatorCorrected = new ArrayList<>();
+				Files.lines(actualFile.toPath()).peek(s -> {
+					if (s.contains("\\r\\n")) {
+						s = s.replace("\\r\\n", "\\n");						
+					}
+					lineSeparatorCorrected.add(s);
+				}).collect(Collectors.toList());
+				
+				Files.write(actualFile.toPath(), lineSeparatorCorrected);
+			} catch (IOException e1) {
+				fail();
+			}
+		}
 		if(expectedFile.getName().endsWith(".json")) {
 			JsonNode expectedJsonTree = null;
 			JsonNode actualJsonTree = null;

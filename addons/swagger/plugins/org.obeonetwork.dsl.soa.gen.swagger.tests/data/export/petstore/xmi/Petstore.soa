@@ -303,5 +303,8 @@
     </ownedServices>
     <securitySchemes xmi:id="_2GTtD2xtEeuYi_YuNNGyqg" technicalid="_2GJUkWxtEeuYi_YuNNGyqg" key="petstore_auth" type="oauth2"/>
     <securitySchemes xmi:id="_2GTtEGxtEeuYi_YuNNGyqg" technicalid="_2GJUkmxtEeuYi_YuNNGyqg" key="api_key" name="api_key" apiKeyLocation="HEADER"/>
+    <license xmi:id="_N6N54NS9EeupafSrIRMhUw" name="Apache 2.0" URL="http://www.apache.org/licenses/LICENSE-2.0.html"/>
+    <information xmi:id="_N6N54dS9EeupafSrIRMhUw" version="1.0.5-SNAPSHOT" termsOfService="/tos"/>
+    <contact xmi:id="_N6N54tS9EeupafSrIRMhUw" name="Obeo" URL="https://contact.obeosoft.com/" email="contact@obeosoft.com"/>
   </ownedComponents>
 </soa:System>
