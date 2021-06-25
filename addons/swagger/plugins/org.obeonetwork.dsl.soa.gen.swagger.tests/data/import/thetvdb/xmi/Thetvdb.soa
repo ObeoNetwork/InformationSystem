@@ -1109,5 +1109,8 @@
       </ownedInterface>
     </ownedServices>
     <securitySchemes xmi:id="_msJQPmxuEeuYi_YuNNGyqg" technicalid="_msAsYWxuEeuYi_YuNNGyqg" description="JWT token prefixed with &quot;Bearer &quot;" key="jwtToken" name="Authorization" apiKeyLocation="HEADER"/>
+    <license xmi:id="_Qc_F8NQrEeuHHLbOnMJCsg"/>
+    <information xmi:id="_Qc_F8dQrEeuHHLbOnMJCsg" version="3.0.0"/>
+    <contact xmi:id="_Qc_F8tQrEeuHHLbOnMJCsg"/>
   </ownedComponents>
 </soa:System>

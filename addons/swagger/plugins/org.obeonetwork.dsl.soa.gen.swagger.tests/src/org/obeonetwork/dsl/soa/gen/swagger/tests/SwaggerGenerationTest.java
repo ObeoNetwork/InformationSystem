@@ -1,4 +1,5 @@
 /*******************************************************************************
+ **$
  * Copyright (c) 2008, 2021 Obeo.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
@@ -32,7 +33,7 @@ public class SwaggerGenerationTest {
 	private static final String EXPECTED_FOLDER_PATH_FORMAT = "/data/export/%s/%s";
 	private static final String OUTPUT_FOLDER_NAME_FORMAT = "swagger-gen-%s-%s";
 	
-	private void testExportInDir(String testId, MapperType outputFormat) {
+	private void testExportInDir(String testId, MapperType outputFormat) {		
 		String inputFolderPath = String.format(INPUT_FOLDER_PATH_FORMAT, testId);
 		ResourceSet resourceSet = createSoaResourceSetFromBundleEntryPath(inputFolderPath);
 		Component component = findFirstComponent(resourceSet);

@@ -3,6 +3,12 @@
   "info" : {
     "title" : "Obeo Designer Team Server - Administration Server",
     "description" : "This guide describe the REST API of the administration server for Obeo Designer Team Server. This API will allow you to manage CDO repositories, shared modeling projects and depending on the type of repository you manage, you will be able to manager the repository users. If you already have configured the [administration server](../Obeo_Designer_Team_Administration_Server.html) for Obeo Designer Team Server you can start to use our API.\n\nRemark: The protocol, host and port can be different from your server configuration.\n\nIn this documentation we will use the web service API in the version **v1.0**.\n\n**Disclaimer:** As basic authentication is enabled for the administration server, the _Authorization_ header must be added in all requests with the base64 encoded credentials.\n",
+    "termsOfService" : "/tos",
+    "contact" : {
+      "name" : "Obeo",
+      "url" : "https://contact.obeosoft.com/",
+      "email" : "contact@obeosoft.com"
+    },
     "license" : {
       "name" : "Apache 2.0",
       "url" : "http://www.apache.org/licenses/LICENSE-2.0.html"
@@ -691,10 +697,6 @@
   },
   "components" : {
     "schemas" : {
-      "Type" : {
-        "type" : "string",
-        "enum" : [ "STATIC", "DYNAMIC" ]
-      },
       "Users_ListUsersOutput200" : {
         "type" : "object",
         "properties" : {
@@ -712,47 +714,6 @@
             "items" : {
               "$ref" : "#/components/schemas/User"
             }
-          }
-        }
-      },
-      "NewUser" : {
-        "required" : [ "id", "isAdmin" ],
-        "type" : "object",
-        "properties" : {
-          "password" : {
-            "type" : "string"
-          },
-          "id" : {
-            "type" : "string"
-          },
-          "isAdmin" : {
-            "type" : "boolean"
-          },
-          "permissions" : {
-            "type" : "array",
-            "items" : {
-              "type" : "string"
-            }
-          }
-        }
-      },
-      "Repository" : {
-        "type" : "object",
-        "properties" : {
-          "datasourceType" : {
-            "$ref" : "#/components/schemas/DatasourceType"
-          },
-          "authenticationType" : {
-            "$ref" : "#/components/schemas/AuthenticationType"
-          },
-          "repositorName" : {
-            "type" : "string"
-          },
-          "type" : {
-            "$ref" : "#/components/schemas/Type"
-          },
-          "status" : {
-            "$ref" : "#/components/schemas/Status"
           }
         }
       },
@@ -777,6 +738,47 @@
           }
         }
       },
+      "AuthenticationType" : {
+        "type" : "string",
+        "enum" : [ "", "LDAP_FILE", "LDAP", "USERPROFILE", "LDAP_USERPROFILE", "FILE" ]
+      },
+      "Repositories_GetRepositoriesOutput200" : {
+        "type" : "object",
+        "properties" : {
+          "message" : {
+            "type" : "string"
+          },
+          "status" : {
+            "type" : "string"
+          },
+          "repositories" : {
+            "type" : "array",
+            "items" : {
+              "$ref" : "#/components/schemas/Repository"
+            }
+          }
+        }
+      },
+      "Repository" : {
+        "type" : "object",
+        "properties" : {
+          "datasourceType" : {
+            "$ref" : "#/components/schemas/DatasourceType"
+          },
+          "authenticationType" : {
+            "$ref" : "#/components/schemas/AuthenticationType"
+          },
+          "repositorName" : {
+            "type" : "string"
+          },
+          "type" : {
+            "$ref" : "#/components/schemas/Type"
+          },
+          "status" : {
+            "$ref" : "#/components/schemas/Status"
+          }
+        }
+      },
       "User" : {
         "type" : "object",
         "properties" : {
@@ -791,24 +793,6 @@
             "items" : {
               "type" : "string"
             }
-          }
-        }
-      },
-      "AuthenticationType" : {
-        "type" : "string",
-        "enum" : [ "", "LDAP_FILE", "LDAP", "USERPROFILE", "LDAP_USERPROFILE", "FILE" ]
-      },
-      "Repositories_Output201Output200" : {
-        "type" : "object",
-        "properties" : {
-          "message" : {
-            "type" : "string"
-          },
-          "status" : {
-            "type" : "string"
-          },
-          "repository" : {
-            "$ref" : "#/components/schemas/Repository"
           }
         }
       },
@@ -847,52 +831,12 @@
           }
         }
       },
-      "Repositories_GetRepositoriesOutput200" : {
+      "Repositories_ImportRepositoryBody" : {
         "type" : "object",
         "properties" : {
-          "message" : {
-            "type" : "string"
-          },
-          "status" : {
-            "type" : "string"
-          },
-          "repositories" : {
-            "type" : "array",
-            "items" : {
-              "$ref" : "#/components/schemas/Repository"
-            }
-          }
-        }
-      },
-      "Status" : {
-        "type" : "string",
-        "enum" : [ "ONLINE", "OFFLINE" ]
-      },
-      "Repositories_StopRepositoryOutput200" : {
-        "type" : "object",
-        "properties" : {
-          "message" : {
-            "type" : "string"
-          },
-          "status" : {
-            "type" : "string"
-          },
-          "repository" : {
-            "$ref" : "#/components/schemas/SimpleRepository"
-          }
-        }
-      },
-      "SimpleRepository" : {
-        "type" : "object",
-        "properties" : {
-          "repositorName" : {
-            "type" : "string"
-          },
-          "type" : {
-            "$ref" : "#/components/schemas/Type"
-          },
-          "status" : {
-            "$ref" : "#/components/schemas/Status"
+          "upFile" : {
+            "type" : "string",
+            "format" : "binary"
           }
         }
       },
@@ -905,29 +849,6 @@
           },
           "repositoryName" : {
             "type" : "string"
-          }
-        }
-      },
-      "Output200" : {
-        "type" : "object",
-        "properties" : {
-          "repositoryName" : {
-            "type" : "string"
-          },
-          "message" : {
-            "type" : "string"
-          },
-          "status" : {
-            "type" : "string"
-          }
-        }
-      },
-      "Repositories_ImportRepositoryBody" : {
-        "type" : "object",
-        "properties" : {
-          "upFile" : {
-            "type" : "string",
-            "format" : "binary"
           }
         }
       },
@@ -945,9 +866,94 @@
           }
         }
       },
+      "Status" : {
+        "type" : "string",
+        "enum" : [ "ONLINE", "OFFLINE" ]
+      },
+      "Repositories_Output201Output200" : {
+        "type" : "object",
+        "properties" : {
+          "message" : {
+            "type" : "string"
+          },
+          "status" : {
+            "type" : "string"
+          },
+          "repository" : {
+            "$ref" : "#/components/schemas/Repository"
+          }
+        }
+      },
+      "SimpleRepository" : {
+        "type" : "object",
+        "properties" : {
+          "repositorName" : {
+            "type" : "string"
+          },
+          "type" : {
+            "$ref" : "#/components/schemas/Type"
+          },
+          "status" : {
+            "$ref" : "#/components/schemas/Status"
+          }
+        }
+      },
+      "Output200" : {
+        "type" : "object",
+        "properties" : {
+          "repositoryName" : {
+            "type" : "string"
+          },
+          "message" : {
+            "type" : "string"
+          },
+          "status" : {
+            "type" : "string"
+          }
+        }
+      },
+      "NewUser" : {
+        "required" : [ "id", "isAdmin" ],
+        "type" : "object",
+        "properties" : {
+          "password" : {
+            "type" : "string"
+          },
+          "id" : {
+            "type" : "string"
+          },
+          "isAdmin" : {
+            "type" : "boolean"
+          },
+          "permissions" : {
+            "type" : "array",
+            "items" : {
+              "type" : "string"
+            }
+          }
+        }
+      },
       "DatasourceType" : {
         "type" : "string",
         "enum" : [ "H2_EMBEDDED", "H2_SERVER" ]
+      },
+      "Type" : {
+        "type" : "string",
+        "enum" : [ "STATIC", "DYNAMIC" ]
+      },
+      "Repositories_StopRepositoryOutput200" : {
+        "type" : "object",
+        "properties" : {
+          "message" : {
+            "type" : "string"
+          },
+          "status" : {
+            "type" : "string"
+          },
+          "repository" : {
+            "$ref" : "#/components/schemas/SimpleRepository"
+          }
+        }
       }
     },
     "securitySchemes" : {

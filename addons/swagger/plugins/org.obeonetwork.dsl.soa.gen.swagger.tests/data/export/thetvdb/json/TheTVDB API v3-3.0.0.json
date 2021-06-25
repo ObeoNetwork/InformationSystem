@@ -3,6 +3,12 @@
   "info" : {
     "title" : "TheTVDB API v3",
     "description" : "API v3 targets v2 functionality with a few minor additions. The API is accessible via https://api.thetvdb.com and provides the following REST endpoints in JSON format.\n\n\nHow to use this API documentation\n----------------\n\n\nYou may browse the API routes without authentication, but if you wish to send requests to the API and see response data, then you must authenticate.\n1. Obtain a JWT token by `POST`ing  to the `/login` route in the `Authentication` section with your API key and credentials.\n1. Paste the JWT token from the response into the \"JWT Token\" field at the top of the page and click the 'Add Token' button.\n\n\nYou will now be able to use the remaining routes to send requests to the API and get a response.\n\n\nLanguage Selection\n----------------\n\n\nLanguage selection is done via the `Accept-Language` header. At the moment, you may only pass one language abbreviation in the header at a time. Valid language abbreviations can be found at the `/languages` route..\n\n\nAuthentication\n----------------\n\n\nAuthentication to use the API is similar to the How-to section above. Users must `POST` to the `/login` route with their API key and credentials in the following format in order to obtain a JWT token.\n\n`{\"apikey\":\"APIKEY\",\"username\":\"USERNAME\",\"userkey\":\"USERKEY\"}`\n\nNote that the username and key are ONLY required for the `/user` routes. The user's key is labled `Account Identifier` in the account section of the main site.\nThe token is then used in all subsequent requests by providing it in the `Authorization` header. The header will look like: `Authorization: Bearer <yourJWTtoken>`. Currently, the token expires after 24 hours. You can `GET` the `/refresh_token` route to extend that expiration date.\n\n\nVersioning\n----------------\n\n\nYou may request a different version of the API by including an `Accept` header in your request with the following format: `Accept:application/vnd.thetvdb.v$VERSION`. This documentation automatically uses the version seen at the top and bottom of the page.",
+    "termsOfService" : "/tos",
+    "contact" : {
+      "name" : "obeo",
+      "url" : "https://contact.obeosoft.com/",
+      "email" : "contact@obeosoft.com"
+    },
     "license" : {
       "name" : "Apache 2.0",
       "url" : "http://www.apache.org/licenses/LICENSE-2.0.html"
@@ -10,7 +16,7 @@
     "version" : "3.0.0"
   },
   "servers" : [ {
-    "url" : "/"
+    "url" : "/tvdb"
   } ],
   "tags" : [ {
     "name" : "Series",
@@ -2692,6 +2698,523 @@
   },
   "components" : {
     "schemas" : {
+      "NotFound" : {
+        "type" : "object",
+        "properties" : {
+          "Error" : {
+            "type" : "string"
+          }
+        }
+      },
+      "SeriesSearchResults" : {
+        "type" : "object",
+        "properties" : {
+          "data" : {
+            "type" : "array",
+            "items" : {
+              "$ref" : "#/components/schemas/SeriesSearchResult"
+            }
+          }
+        }
+      },
+      "UpdatedMovies" : {
+        "type" : "object",
+        "properties" : {
+          "movies" : {
+            "type" : "array",
+            "items" : {
+              "type" : "integer",
+              "format" : "int64"
+            }
+          }
+        }
+      },
+      "MovieTranslation" : {
+        "type" : "object",
+        "properties" : {
+          "name" : {
+            "type" : "string"
+          },
+          "language_code" : {
+            "type" : "string"
+          },
+          "overview" : {
+            "type" : "string"
+          },
+          "tagline" : {
+            "type" : "string"
+          },
+          "is_primary" : {
+            "type" : "boolean"
+          }
+        }
+      },
+      "UserFavoritesData" : {
+        "type" : "object",
+        "properties" : {
+          "data" : {
+            "$ref" : "#/components/schemas/UserFavorites"
+          },
+          "errors" : {
+            "$ref" : "#/components/schemas/JSONErrors"
+          }
+        }
+      },
+      "MovieGenre" : {
+        "type" : "object",
+        "properties" : {
+          "name" : {
+            "type" : "string"
+          },
+          "id" : {
+            "type" : "integer",
+            "format" : "int64"
+          },
+          "url" : {
+            "type" : "string"
+          }
+        }
+      },
+      "UserRatingsDataNoLinks" : {
+        "type" : "object",
+        "properties" : {
+          "data" : {
+            "type" : "array",
+            "items" : {
+              "$ref" : "#/components/schemas/UserRatings"
+            }
+          }
+        }
+      },
+      "Update" : {
+        "type" : "object",
+        "properties" : {
+          "lastUpdated" : {
+            "type" : "integer",
+            "format" : "int64"
+          },
+          "id" : {
+            "type" : "integer",
+            "format" : "int64"
+          }
+        }
+      },
+      "MovieRemoteId" : {
+        "type" : "object",
+        "properties" : {
+          "id" : {
+            "type" : "string"
+          },
+          "source_id" : {
+            "type" : "integer",
+            "format" : "int64"
+          },
+          "source_name" : {
+            "type" : "string"
+          },
+          "source_url" : {
+            "type" : "string"
+          },
+          "url" : {
+            "type" : "string"
+          }
+        }
+      },
+      "JSONErrors" : {
+        "type" : "object",
+        "properties" : {
+          "invalidLanguage" : {
+            "type" : "string"
+          },
+          "invalidQueryParams" : {
+            "type" : "array",
+            "items" : {
+              "type" : "string"
+            }
+          },
+          "invalidFilters" : {
+            "type" : "array",
+            "items" : {
+              "type" : "string"
+            }
+          }
+        }
+      },
+      "UserRatingsDataNoLinksEmptyArray" : {
+        "type" : "object",
+        "properties" : {
+          "data" : {
+            "type" : "array",
+            "items" : {
+              "$ref" : "#/components/schemas/UserRatingsDataNoLinksEmptyArrayData"
+            }
+          }
+        }
+      },
+      "MoviePeople_1" : {
+        "type" : "object",
+        "properties" : {
+          "actors" : {
+            "type" : "array",
+            "items" : {
+              "$ref" : "#/components/schemas/MoviePeople"
+            }
+          },
+          "writers" : {
+            "type" : "array",
+            "items" : {
+              "$ref" : "#/components/schemas/MoviePeople"
+            }
+          },
+          "directors" : {
+            "type" : "array",
+            "items" : {
+              "$ref" : "#/components/schemas/MoviePeople"
+            }
+          },
+          "producers" : {
+            "type" : "array",
+            "items" : {
+              "$ref" : "#/components/schemas/MoviePeople"
+            }
+          }
+        }
+      },
+      "SeriesSearchResult" : {
+        "type" : "object",
+        "properties" : {
+          "image" : {
+            "type" : "string"
+          },
+          "overview" : {
+            "type" : "string"
+          },
+          "aliases" : {
+            "type" : "array",
+            "items" : {
+              "type" : "string"
+            }
+          },
+          "seriesName" : {
+            "type" : "string"
+          },
+          "firstAired" : {
+            "type" : "string"
+          },
+          "banner" : {
+            "type" : "string"
+          },
+          "id" : {
+            "type" : "integer",
+            "format" : "int64"
+          },
+          "poster" : {
+            "type" : "string"
+          },
+          "slug" : {
+            "type" : "string"
+          },
+          "network" : {
+            "type" : "string"
+          },
+          "status" : {
+            "type" : "string"
+          }
+        }
+      },
+      "SeriesImagesQueryParam" : {
+        "type" : "object",
+        "properties" : {
+          "languageId" : {
+            "type" : "string"
+          },
+          "keyType" : {
+            "type" : "string"
+          },
+          "subKey" : {
+            "type" : "array",
+            "items" : {
+              "type" : "string"
+            }
+          },
+          "resolution" : {
+            "type" : "array",
+            "items" : {
+              "type" : "string"
+            }
+          }
+        }
+      },
+      "MovieReleaseDate" : {
+        "type" : "object",
+        "properties" : {
+          "date" : {
+            "type" : "string"
+          },
+          "country" : {
+            "type" : "string"
+          },
+          "type" : {
+            "type" : "string"
+          }
+        }
+      },
+      "MovieTrailer" : {
+        "type" : "object",
+        "properties" : {
+          "name" : {
+            "type" : "string"
+          },
+          "url" : {
+            "type" : "string"
+          }
+        }
+      },
+      "MoviePeople" : {
+        "type" : "object",
+        "properties" : {
+          "people_id" : {
+            "type" : "string"
+          },
+          "role" : {
+            "type" : "string"
+          },
+          "imdb_id" : {
+            "type" : "string"
+          },
+          "people_facebook" : {
+            "type" : "string"
+          },
+          "people_instagram" : {
+            "type" : "string"
+          },
+          "name" : {
+            "type" : "string"
+          },
+          "people_twitter" : {
+            "type" : "string"
+          },
+          "role_image" : {
+            "type" : "string"
+          },
+          "id" : {
+            "type" : "string"
+          },
+          "people_image" : {
+            "type" : "string"
+          },
+          "is_featured" : {
+            "type" : "boolean"
+          }
+        }
+      },
+      "SeriesImageQueryResult" : {
+        "type" : "object",
+        "properties" : {
+          "fileName" : {
+            "type" : "string"
+          },
+          "thumbnail" : {
+            "type" : "string"
+          },
+          "subKey" : {
+            "type" : "string"
+          },
+          "languageId" : {
+            "type" : "integer",
+            "format" : "int64"
+          },
+          "id" : {
+            "type" : "integer",
+            "format" : "int64"
+          },
+          "keyType" : {
+            "type" : "string"
+          },
+          "resolution" : {
+            "type" : "string"
+          },
+          "ratingsInfo" : {
+            "$ref" : "#/components/schemas/SeriesImageQueryResultRatingsInfo"
+          }
+        }
+      },
+      "Movie" : {
+        "type" : "object",
+        "properties" : {
+          "runtime" : {
+            "type" : "integer",
+            "format" : "int64"
+          },
+          "id" : {
+            "type" : "integer",
+            "format" : "int64"
+          },
+          "url" : {
+            "type" : "string"
+          },
+          "remoteids" : {
+            "type" : "array",
+            "items" : {
+              "$ref" : "#/components/schemas/MovieRemoteId"
+            }
+          },
+          "artworks" : {
+            "type" : "array",
+            "items" : {
+              "$ref" : "#/components/schemas/MovieArtwork"
+            }
+          },
+          "genres" : {
+            "type" : "array",
+            "items" : {
+              "$ref" : "#/components/schemas/MovieGenre"
+            }
+          },
+          "translations" : {
+            "type" : "array",
+            "items" : {
+              "$ref" : "#/components/schemas/MovieTranslation"
+            }
+          },
+          "release_dates" : {
+            "type" : "array",
+            "items" : {
+              "$ref" : "#/components/schemas/MovieReleaseDate"
+            }
+          },
+          "people" : {
+            "$ref" : "#/components/schemas/MoviePeople_1"
+          },
+          "trailers" : {
+            "type" : "array",
+            "items" : {
+              "$ref" : "#/components/schemas/MovieTrailer"
+            }
+          }
+        }
+      },
+      "UpdateData" : {
+        "type" : "object",
+        "properties" : {
+          "data" : {
+            "type" : "array",
+            "items" : {
+              "$ref" : "#/components/schemas/Update"
+            }
+          },
+          "errors" : {
+            "$ref" : "#/components/schemas/JSONErrors"
+          }
+        }
+      },
+      "SeriesEpisodes" : {
+        "type" : "object",
+        "properties" : {
+          "links" : {
+            "$ref" : "#/components/schemas/Links"
+          },
+          "data" : {
+            "type" : "array",
+            "items" : {
+              "$ref" : "#/components/schemas/Episode"
+            }
+          },
+          "errors" : {
+            "$ref" : "#/components/schemas/JSONErrors"
+          }
+        }
+      },
+      "UserRatingsDataNoLinksEmptyArrayData" : {
+        "type" : "object"
+      },
+      "User" : {
+        "type" : "object",
+        "properties" : {
+          "language" : {
+            "type" : "string"
+          },
+          "favoritesDisplaymode" : {
+            "type" : "string"
+          },
+          "userName" : {
+            "type" : "string"
+          }
+        }
+      },
+      "NotAuthorized" : {
+        "type" : "object",
+        "properties" : {
+          "Error" : {
+            "type" : "string"
+          }
+        }
+      },
+      "Links" : {
+        "type" : "object",
+        "properties" : {
+          "next" : {
+            "type" : "integer",
+            "format" : "int64"
+          },
+          "last" : {
+            "type" : "integer",
+            "format" : "int64"
+          },
+          "previous" : {
+            "type" : "integer",
+            "format" : "int64"
+          },
+          "first" : {
+            "type" : "integer",
+            "format" : "int64"
+          }
+        }
+      },
+      "UserFavorites" : {
+        "type" : "object",
+        "properties" : {
+          "favorites" : {
+            "type" : "array",
+            "items" : {
+              "type" : "string"
+            }
+          }
+        }
+      },
+      "SeriesImageQueryResults" : {
+        "type" : "object",
+        "properties" : {
+          "data" : {
+            "type" : "array",
+            "items" : {
+              "$ref" : "#/components/schemas/SeriesImageQueryResult"
+            }
+          },
+          "errors" : {
+            "$ref" : "#/components/schemas/JSONErrors"
+          }
+        }
+      },
+      "Conflict" : {
+        "type" : "object",
+        "properties" : {
+          "Error" : {
+            "type" : "string"
+          }
+        }
+      },
+      "UpdateDataQueryParams" : {
+        "type" : "object",
+        "properties" : {
+          "data" : {
+            "type" : "array",
+            "items" : {
+              "type" : "string"
+            }
+          }
+        }
+      },
       "MovieArtwork" : {
         "type" : "object",
         "properties" : {
@@ -2719,6 +3242,37 @@
             "format" : "int64"
           },
           "tags" : {
+            "type" : "string"
+          }
+        }
+      },
+      "SeriesImageQueryResultRatingsInfo" : {
+        "type" : "object",
+        "properties" : {
+          "count" : {
+            "type" : "integer",
+            "format" : "int64"
+          },
+          "average" : {
+            "type" : "number",
+            "format" : "double"
+          }
+        }
+      },
+      "Language" : {
+        "type" : "object",
+        "properties" : {
+          "name" : {
+            "type" : "string"
+          },
+          "englishName" : {
+            "type" : "string"
+          },
+          "id" : {
+            "type" : "integer",
+            "format" : "int64"
+          },
+          "abbreviation" : {
             "type" : "string"
           }
         }
@@ -2844,78 +3398,6 @@
           }
         }
       },
-      "Conflict" : {
-        "type" : "object",
-        "properties" : {
-          "Error" : {
-            "type" : "string"
-          }
-        }
-      },
-      "SeriesEpisodesQuery" : {
-        "type" : "object",
-        "properties" : {
-          "links" : {
-            "$ref" : "#/components/schemas/Links"
-          },
-          "data" : {
-            "type" : "array",
-            "items" : {
-              "$ref" : "#/components/schemas/Episode"
-            }
-          },
-          "errors" : {
-            "$ref" : "#/components/schemas/JSONErrors"
-          }
-        }
-      },
-      "MovieGenre" : {
-        "type" : "object",
-        "properties" : {
-          "name" : {
-            "type" : "string"
-          },
-          "id" : {
-            "type" : "integer",
-            "format" : "int64"
-          },
-          "url" : {
-            "type" : "string"
-          }
-        }
-      },
-      "Links" : {
-        "type" : "object",
-        "properties" : {
-          "next" : {
-            "type" : "integer",
-            "format" : "int64"
-          },
-          "last" : {
-            "type" : "integer",
-            "format" : "int64"
-          },
-          "previous" : {
-            "type" : "integer",
-            "format" : "int64"
-          },
-          "first" : {
-            "type" : "integer",
-            "format" : "int64"
-          }
-        }
-      },
-      "EpisodeRecordData" : {
-        "type" : "object",
-        "properties" : {
-          "data" : {
-            "$ref" : "#/components/schemas/Episode"
-          },
-          "errors" : {
-            "$ref" : "#/components/schemas/JSONErrors"
-          }
-        }
-      },
       "Token" : {
         "type" : "object",
         "properties" : {
@@ -2924,123 +3406,11 @@
           }
         }
       },
-      "UserRatingsQueryParams" : {
+      "SeriesImagesCounts" : {
         "type" : "object",
         "properties" : {
           "data" : {
-            "type" : "array",
-            "items" : {
-              "type" : "string"
-            }
-          }
-        }
-      },
-      "SeriesImageQueryResult" : {
-        "type" : "object",
-        "properties" : {
-          "fileName" : {
-            "type" : "string"
-          },
-          "thumbnail" : {
-            "type" : "string"
-          },
-          "subKey" : {
-            "type" : "string"
-          },
-          "languageId" : {
-            "type" : "integer",
-            "format" : "int64"
-          },
-          "id" : {
-            "type" : "integer",
-            "format" : "int64"
-          },
-          "keyType" : {
-            "type" : "string"
-          },
-          "resolution" : {
-            "type" : "string"
-          },
-          "ratingsInfo" : {
-            "$ref" : "#/components/schemas/SeriesImageQueryResultRatingsInfo"
-          }
-        }
-      },
-      "NotAuthorized" : {
-        "type" : "object",
-        "properties" : {
-          "Error" : {
-            "type" : "string"
-          }
-        }
-      },
-      "SeriesImageQueryResults" : {
-        "type" : "object",
-        "properties" : {
-          "data" : {
-            "type" : "array",
-            "items" : {
-              "$ref" : "#/components/schemas/SeriesImageQueryResult"
-            }
-          },
-          "errors" : {
-            "$ref" : "#/components/schemas/JSONErrors"
-          }
-        }
-      },
-      "UserRatingsDataNoLinksEmptyArray" : {
-        "type" : "object",
-        "properties" : {
-          "data" : {
-            "type" : "array",
-            "items" : {
-              "$ref" : "#/components/schemas/UserRatingsDataNoLinksEmptyArrayData"
-            }
-          }
-        }
-      },
-      "SeriesEpisodesSummary" : {
-        "type" : "object",
-        "properties" : {
-          "dvdEpisodes" : {
-            "type" : "string"
-          },
-          "dvdSeasons" : {
-            "type" : "array",
-            "items" : {
-              "type" : "string"
-            }
-          },
-          "airedSeasons" : {
-            "type" : "array",
-            "items" : {
-              "type" : "string"
-            }
-          },
-          "airedEpisodes" : {
-            "type" : "string"
-          }
-        }
-      },
-      "UserFavoritesData" : {
-        "type" : "object",
-        "properties" : {
-          "data" : {
-            "$ref" : "#/components/schemas/UserFavorites"
-          },
-          "errors" : {
-            "$ref" : "#/components/schemas/JSONErrors"
-          }
-        }
-      },
-      "FilterKeys" : {
-        "type" : "object",
-        "properties" : {
-          "data" : {
-            "type" : "array",
-            "items" : {
-              "type" : "string"
-            }
+            "$ref" : "#/components/schemas/SeriesImagesCount"
           }
         }
       },
@@ -3055,16 +3425,73 @@
           }
         }
       },
-      "User" : {
+      "FilterKeys" : {
         "type" : "object",
         "properties" : {
-          "language" : {
-            "type" : "string"
+          "data" : {
+            "type" : "array",
+            "items" : {
+              "type" : "string"
+            }
+          }
+        }
+      },
+      "UserRatingsData" : {
+        "type" : "object",
+        "properties" : {
+          "links" : {
+            "$ref" : "#/components/schemas/Links"
           },
-          "favoritesDisplaymode" : {
-            "type" : "string"
+          "data" : {
+            "type" : "array",
+            "items" : {
+              "$ref" : "#/components/schemas/UserRatings"
+            }
           },
-          "userName" : {
+          "errors" : {
+            "$ref" : "#/components/schemas/JSONErrors"
+          }
+        }
+      },
+      "EpisodeDataQueryParams" : {
+        "type" : "object",
+        "properties" : {
+          "data" : {
+            "type" : "array",
+            "items" : {
+              "type" : "string"
+            }
+          }
+        }
+      },
+      "InvalidQueryParams" : {
+        "type" : "object",
+        "properties" : {
+          "Error" : {
+            "type" : "string"
+          }
+        }
+      },
+      "UserData" : {
+        "type" : "object",
+        "properties" : {
+          "data" : {
+            "$ref" : "#/components/schemas/User"
+          }
+        }
+      },
+      "UserRatings" : {
+        "type" : "object",
+        "properties" : {
+          "rating" : {
+            "type" : "integer",
+            "format" : "int64"
+          },
+          "ratingItemId" : {
+            "type" : "integer",
+            "format" : "int64"
+          },
+          "ratingType" : {
             "type" : "string"
           }
         }
@@ -3105,143 +3532,6 @@
           }
         }
       },
-      "MovieReleaseDate" : {
-        "type" : "object",
-        "properties" : {
-          "date" : {
-            "type" : "string"
-          },
-          "country" : {
-            "type" : "string"
-          },
-          "type" : {
-            "type" : "string"
-          }
-        }
-      },
-      "SeriesImagesQueryParam" : {
-        "type" : "object",
-        "properties" : {
-          "languageId" : {
-            "type" : "string"
-          },
-          "keyType" : {
-            "type" : "string"
-          },
-          "subKey" : {
-            "type" : "array",
-            "items" : {
-              "type" : "string"
-            }
-          },
-          "resolution" : {
-            "type" : "array",
-            "items" : {
-              "type" : "string"
-            }
-          }
-        }
-      },
-      "Movie" : {
-        "type" : "object",
-        "properties" : {
-          "runtime" : {
-            "type" : "integer",
-            "format" : "int64"
-          },
-          "id" : {
-            "type" : "integer",
-            "format" : "int64"
-          },
-          "url" : {
-            "type" : "string"
-          },
-          "remoteids" : {
-            "type" : "array",
-            "items" : {
-              "$ref" : "#/components/schemas/MovieRemoteId"
-            }
-          },
-          "artworks" : {
-            "type" : "array",
-            "items" : {
-              "$ref" : "#/components/schemas/MovieArtwork"
-            }
-          },
-          "genres" : {
-            "type" : "array",
-            "items" : {
-              "$ref" : "#/components/schemas/MovieGenre"
-            }
-          },
-          "translations" : {
-            "type" : "array",
-            "items" : {
-              "$ref" : "#/components/schemas/MovieTranslation"
-            }
-          },
-          "release_dates" : {
-            "type" : "array",
-            "items" : {
-              "$ref" : "#/components/schemas/MovieReleaseDate"
-            }
-          },
-          "people" : {
-            "$ref" : "#/components/schemas/MoviePeople_1"
-          },
-          "trailers" : {
-            "type" : "array",
-            "items" : {
-              "$ref" : "#/components/schemas/MovieTrailer"
-            }
-          }
-        }
-      },
-      "SeriesImagesQueryParams" : {
-        "type" : "object",
-        "properties" : {
-          "data" : {
-            "type" : "array",
-            "items" : {
-              "$ref" : "#/components/schemas/SeriesImagesQueryParam"
-            }
-          }
-        }
-      },
-      "UpdatedMovies" : {
-        "type" : "object",
-        "properties" : {
-          "movies" : {
-            "type" : "array",
-            "items" : {
-              "type" : "integer",
-              "format" : "int64"
-            }
-          }
-        }
-      },
-      "SeriesEpisodesQueryParams" : {
-        "type" : "object",
-        "properties" : {
-          "data" : {
-            "type" : "array",
-            "items" : {
-              "type" : "string"
-            }
-          }
-        }
-      },
-      "UpdateDataQueryParams" : {
-        "type" : "object",
-        "properties" : {
-          "data" : {
-            "type" : "array",
-            "items" : {
-              "type" : "string"
-            }
-          }
-        }
-      },
       "Auth" : {
         "type" : "object",
         "properties" : {
@@ -3256,56 +3546,137 @@
           }
         }
       },
-      "SeriesSearchResults" : {
+      "SeriesActors" : {
         "type" : "object",
         "properties" : {
           "data" : {
             "type" : "array",
             "items" : {
-              "$ref" : "#/components/schemas/SeriesSearchResult"
+              "$ref" : "#/components/schemas/SeriesActorsData"
+            }
+          },
+          "errors" : {
+            "$ref" : "#/components/schemas/JSONErrors"
+          }
+        }
+      },
+      "EpisodeRecordData" : {
+        "type" : "object",
+        "properties" : {
+          "data" : {
+            "$ref" : "#/components/schemas/Episode"
+          },
+          "errors" : {
+            "$ref" : "#/components/schemas/JSONErrors"
+          }
+        }
+      },
+      "SeriesEpisodesQuery" : {
+        "type" : "object",
+        "properties" : {
+          "links" : {
+            "$ref" : "#/components/schemas/Links"
+          },
+          "data" : {
+            "type" : "array",
+            "items" : {
+              "$ref" : "#/components/schemas/Episode"
+            }
+          },
+          "errors" : {
+            "$ref" : "#/components/schemas/JSONErrors"
+          }
+        }
+      },
+      "SeriesEpisodesQueryParams" : {
+        "type" : "object",
+        "properties" : {
+          "data" : {
+            "type" : "array",
+            "items" : {
+              "type" : "string"
             }
           }
         }
       },
-      "SeriesSearchResult" : {
+      "SeriesImagesCount" : {
         "type" : "object",
         "properties" : {
-          "image" : {
+          "fanart" : {
+            "type" : "integer",
+            "format" : "int64"
+          },
+          "season" : {
+            "type" : "integer",
+            "format" : "int64"
+          },
+          "poster" : {
+            "type" : "integer",
+            "format" : "int64"
+          },
+          "seasonwide" : {
+            "type" : "integer",
+            "format" : "int64"
+          },
+          "series" : {
+            "type" : "integer",
+            "format" : "int64"
+          }
+        }
+      },
+      "UserRatingsQueryParams" : {
+        "type" : "object",
+        "properties" : {
+          "data" : {
+            "type" : "array",
+            "items" : {
+              "type" : "string"
+            }
+          }
+        }
+      },
+      "SeriesEpisodesSummary" : {
+        "type" : "object",
+        "properties" : {
+          "dvdEpisodes" : {
             "type" : "string"
           },
-          "overview" : {
-            "type" : "string"
-          },
-          "aliases" : {
+          "dvdSeasons" : {
             "type" : "array",
             "items" : {
               "type" : "string"
             }
           },
-          "seriesName" : {
-            "type" : "string"
+          "airedSeasons" : {
+            "type" : "array",
+            "items" : {
+              "type" : "string"
+            }
           },
-          "firstAired" : {
+          "airedEpisodes" : {
             "type" : "string"
+          }
+        }
+      },
+      "SeriesImagesQueryParams" : {
+        "type" : "object",
+        "properties" : {
+          "data" : {
+            "type" : "array",
+            "items" : {
+              "$ref" : "#/components/schemas/SeriesImagesQueryParam"
+            }
+          }
+        }
+      },
+      "SeriesData" : {
+        "type" : "object",
+        "properties" : {
+          "data" : {
+            "$ref" : "#/components/schemas/Series"
           },
-          "banner" : {
-            "type" : "string"
-          },
-          "id" : {
-            "type" : "integer",
-            "format" : "int64"
-          },
-          "poster" : {
-            "type" : "string"
-          },
-          "slug" : {
-            "type" : "string"
-          },
-          "network" : {
-            "type" : "string"
-          },
-          "status" : {
-            "type" : "string"
+          "errors" : {
+            "$ref" : "#/components/schemas/JSONErrors"
           }
         }
       },
@@ -3387,371 +3758,6 @@
           },
           "status" : {
             "type" : "string"
-          }
-        }
-      },
-      "SeriesImagesCounts" : {
-        "type" : "object",
-        "properties" : {
-          "data" : {
-            "$ref" : "#/components/schemas/SeriesImagesCount"
-          }
-        }
-      },
-      "SeriesActors" : {
-        "type" : "object",
-        "properties" : {
-          "data" : {
-            "type" : "array",
-            "items" : {
-              "$ref" : "#/components/schemas/SeriesActorsData"
-            }
-          },
-          "errors" : {
-            "$ref" : "#/components/schemas/JSONErrors"
-          }
-        }
-      },
-      "Update" : {
-        "type" : "object",
-        "properties" : {
-          "lastUpdated" : {
-            "type" : "integer",
-            "format" : "int64"
-          },
-          "id" : {
-            "type" : "integer",
-            "format" : "int64"
-          }
-        }
-      },
-      "SeriesImageQueryResultRatingsInfo" : {
-        "type" : "object",
-        "properties" : {
-          "count" : {
-            "type" : "integer",
-            "format" : "int64"
-          },
-          "average" : {
-            "type" : "number",
-            "format" : "double"
-          }
-        }
-      },
-      "MoviePeople" : {
-        "type" : "object",
-        "properties" : {
-          "people_id" : {
-            "type" : "string"
-          },
-          "role" : {
-            "type" : "string"
-          },
-          "imdb_id" : {
-            "type" : "string"
-          },
-          "people_facebook" : {
-            "type" : "string"
-          },
-          "people_instagram" : {
-            "type" : "string"
-          },
-          "name" : {
-            "type" : "string"
-          },
-          "people_twitter" : {
-            "type" : "string"
-          },
-          "role_image" : {
-            "type" : "string"
-          },
-          "id" : {
-            "type" : "string"
-          },
-          "people_image" : {
-            "type" : "string"
-          },
-          "is_featured" : {
-            "type" : "boolean"
-          }
-        }
-      },
-      "MovieTrailer" : {
-        "type" : "object",
-        "properties" : {
-          "name" : {
-            "type" : "string"
-          },
-          "url" : {
-            "type" : "string"
-          }
-        }
-      },
-      "UserRatings" : {
-        "type" : "object",
-        "properties" : {
-          "rating" : {
-            "type" : "integer",
-            "format" : "int64"
-          },
-          "ratingItemId" : {
-            "type" : "integer",
-            "format" : "int64"
-          },
-          "ratingType" : {
-            "type" : "string"
-          }
-        }
-      },
-      "UserRatingsDataNoLinks" : {
-        "type" : "object",
-        "properties" : {
-          "data" : {
-            "type" : "array",
-            "items" : {
-              "$ref" : "#/components/schemas/UserRatings"
-            }
-          }
-        }
-      },
-      "JSONErrors" : {
-        "type" : "object",
-        "properties" : {
-          "invalidLanguage" : {
-            "type" : "string"
-          },
-          "invalidQueryParams" : {
-            "type" : "array",
-            "items" : {
-              "type" : "string"
-            }
-          },
-          "invalidFilters" : {
-            "type" : "array",
-            "items" : {
-              "type" : "string"
-            }
-          }
-        }
-      },
-      "UpdateData" : {
-        "type" : "object",
-        "properties" : {
-          "data" : {
-            "type" : "array",
-            "items" : {
-              "$ref" : "#/components/schemas/Update"
-            }
-          },
-          "errors" : {
-            "$ref" : "#/components/schemas/JSONErrors"
-          }
-        }
-      },
-      "UserRatingsData" : {
-        "type" : "object",
-        "properties" : {
-          "links" : {
-            "$ref" : "#/components/schemas/Links"
-          },
-          "data" : {
-            "type" : "array",
-            "items" : {
-              "$ref" : "#/components/schemas/UserRatings"
-            }
-          },
-          "errors" : {
-            "$ref" : "#/components/schemas/JSONErrors"
-          }
-        }
-      },
-      "MoviePeople_1" : {
-        "type" : "object",
-        "properties" : {
-          "actors" : {
-            "type" : "array",
-            "items" : {
-              "$ref" : "#/components/schemas/MoviePeople"
-            }
-          },
-          "writers" : {
-            "type" : "array",
-            "items" : {
-              "$ref" : "#/components/schemas/MoviePeople"
-            }
-          },
-          "directors" : {
-            "type" : "array",
-            "items" : {
-              "$ref" : "#/components/schemas/MoviePeople"
-            }
-          },
-          "producers" : {
-            "type" : "array",
-            "items" : {
-              "$ref" : "#/components/schemas/MoviePeople"
-            }
-          }
-        }
-      },
-      "SeriesEpisodes" : {
-        "type" : "object",
-        "properties" : {
-          "links" : {
-            "$ref" : "#/components/schemas/Links"
-          },
-          "data" : {
-            "type" : "array",
-            "items" : {
-              "$ref" : "#/components/schemas/Episode"
-            }
-          },
-          "errors" : {
-            "$ref" : "#/components/schemas/JSONErrors"
-          }
-        }
-      },
-      "SeriesImagesCount" : {
-        "type" : "object",
-        "properties" : {
-          "fanart" : {
-            "type" : "integer",
-            "format" : "int64"
-          },
-          "season" : {
-            "type" : "integer",
-            "format" : "int64"
-          },
-          "poster" : {
-            "type" : "integer",
-            "format" : "int64"
-          },
-          "seasonwide" : {
-            "type" : "integer",
-            "format" : "int64"
-          },
-          "series" : {
-            "type" : "integer",
-            "format" : "int64"
-          }
-        }
-      },
-      "MovieTranslation" : {
-        "type" : "object",
-        "properties" : {
-          "name" : {
-            "type" : "string"
-          },
-          "language_code" : {
-            "type" : "string"
-          },
-          "overview" : {
-            "type" : "string"
-          },
-          "tagline" : {
-            "type" : "string"
-          },
-          "is_primary" : {
-            "type" : "boolean"
-          }
-        }
-      },
-      "Language" : {
-        "type" : "object",
-        "properties" : {
-          "name" : {
-            "type" : "string"
-          },
-          "englishName" : {
-            "type" : "string"
-          },
-          "id" : {
-            "type" : "integer",
-            "format" : "int64"
-          },
-          "abbreviation" : {
-            "type" : "string"
-          }
-        }
-      },
-      "UserFavorites" : {
-        "type" : "object",
-        "properties" : {
-          "favorites" : {
-            "type" : "array",
-            "items" : {
-              "type" : "string"
-            }
-          }
-        }
-      },
-      "MovieRemoteId" : {
-        "type" : "object",
-        "properties" : {
-          "id" : {
-            "type" : "string"
-          },
-          "source_id" : {
-            "type" : "integer",
-            "format" : "int64"
-          },
-          "source_name" : {
-            "type" : "string"
-          },
-          "source_url" : {
-            "type" : "string"
-          },
-          "url" : {
-            "type" : "string"
-          }
-        }
-      },
-      "UserRatingsDataNoLinksEmptyArrayData" : {
-        "type" : "object"
-      },
-      "SeriesData" : {
-        "type" : "object",
-        "properties" : {
-          "data" : {
-            "$ref" : "#/components/schemas/Series"
-          },
-          "errors" : {
-            "$ref" : "#/components/schemas/JSONErrors"
-          }
-        }
-      },
-      "UserData" : {
-        "type" : "object",
-        "properties" : {
-          "data" : {
-            "$ref" : "#/components/schemas/User"
-          }
-        }
-      },
-      "NotFound" : {
-        "type" : "object",
-        "properties" : {
-          "Error" : {
-            "type" : "string"
-          }
-        }
-      },
-      "InvalidQueryParams" : {
-        "type" : "object",
-        "properties" : {
-          "Error" : {
-            "type" : "string"
-          }
-        }
-      },
-      "EpisodeDataQueryParams" : {
-        "type" : "object",
-        "properties" : {
-          "data" : {
-            "type" : "array",
-            "items" : {
-              "type" : "string"
-            }
           }
         }
       }
