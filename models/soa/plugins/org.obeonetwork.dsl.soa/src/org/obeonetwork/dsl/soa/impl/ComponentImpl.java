@@ -265,7 +265,7 @@ public class ComponentImpl extends ObeoDSMObjectImpl implements Component {
 	 * @generated
 	 */
 	public String getApiVersion() {
-		return (String)eDynamicGet(SoaPackage.COMPONENT__API_VERSION, SoaPackage.Literals.COMPONENT__API_VERSION, true, true);
+		return getInformation().getVersion();
 	}
 
 	/**
@@ -274,7 +274,9 @@ public class ComponentImpl extends ObeoDSMObjectImpl implements Component {
 	 * @generated
 	 */
 	public void setApiVersion(String newApiVersion) {
-		eDynamicSet(SoaPackage.COMPONENT__API_VERSION, SoaPackage.Literals.COMPONENT__API_VERSION, newApiVersion);
+		// TODO: implement this method to set the 'Api Version' attribute
+		// Ensure that you remove @generated or mark it @generated NOT
+		throw new UnsupportedOperationException();
 	}
 
 	/**
