@@ -17,6 +17,10 @@ import org.eclipse.emf.cdo.CDOObject;
  * A representation of the model object '<em><b>License</b></em>'.
  * <!-- end-user-doc -->
  *
+ * <!-- begin-model-doc -->
+ * The license information for the exposed API.
+ * <!-- end-model-doc -->
+ *
  * <p>
  * The following features are supported:
  * </p>
@@ -42,6 +46,9 @@ public interface License extends CDOObject {
 	 * Returns the value of the '<em><b>Name</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * The license name used for the API.
+	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Name</em>' attribute.
 	 * @see #setName(String)
 	 * @see org.obeonetwork.dsl.soa.SoaPackage#getLicense_Name()
@@ -64,6 +71,9 @@ public interface License extends CDOObject {
 	 * Returns the value of the '<em><b>URL</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * A URL to the license used for the API. MUST be in the format of a URL.
+	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>URL</em>' attribute.
 	 * @see #setURL(String)
 	 * @see org.obeonetwork.dsl.soa.SoaPackage#getLicense_URL()

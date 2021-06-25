@@ -8,9 +8,9 @@ public class ComponentSpec extends ComponentImpl {
 
 	public ComponentSpec() {
 		super();
-		eDynamicSet(SoaPackage.COMPONENT__INFORMATION, SoaFactory.eINSTANCE.createInformation());
-		eDynamicSet(SoaPackage.COMPONENT__LICENSE, SoaFactory.eINSTANCE.createLicense());
-		eDynamicSet(SoaPackage.COMPONENT__CONTACT, SoaFactory.eINSTANCE.createContact());
+		setInformation(SoaFactory.eINSTANCE.createInformation());
+		setLicense(SoaFactory.eINSTANCE.createLicense());
+		setContact(SoaFactory.eINSTANCE.createContact());
 	}
 
 }

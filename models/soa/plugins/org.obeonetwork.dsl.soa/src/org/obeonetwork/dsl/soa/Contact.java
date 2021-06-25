@@ -17,6 +17,10 @@ import org.eclipse.emf.cdo.CDOObject;
  * A representation of the model object '<em><b>Contact</b></em>'.
  * <!-- end-user-doc -->
  *
+ * <!-- begin-model-doc -->
+ * The contact information for the exposed API.
+ * <!-- end-model-doc -->
+ *
  * <p>
  * The following features are supported:
  * </p>
@@ -43,6 +47,9 @@ public interface Contact extends CDOObject {
 	 * Returns the value of the '<em><b>Name</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * The identifying name of the contact person/organization.
+	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Name</em>' attribute.
 	 * @see #setName(String)
 	 * @see org.obeonetwork.dsl.soa.SoaPackage#getContact_Name()
@@ -65,6 +72,9 @@ public interface Contact extends CDOObject {
 	 * Returns the value of the '<em><b>URL</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * The URL pointing to the contact information. MUST be in the format of a URL.
+	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>URL</em>' attribute.
 	 * @see #setURL(String)
 	 * @see org.obeonetwork.dsl.soa.SoaPackage#getContact_URL()
@@ -87,6 +97,9 @@ public interface Contact extends CDOObject {
 	 * Returns the value of the '<em><b>Email</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * The email address of the contact person/organization. MUST be in the format of an email address.
+	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Email</em>' attribute.
 	 * @see #setEmail(String)
 	 * @see org.obeonetwork.dsl.soa.SoaPackage#getContact_Email()

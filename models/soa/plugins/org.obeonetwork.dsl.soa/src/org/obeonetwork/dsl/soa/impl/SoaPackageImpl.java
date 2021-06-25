@@ -1247,7 +1247,7 @@ public class SoaPackageImpl extends EPackageImpl implements SoaPackage {
 		initEReference(getComponent_Block(), theEnvironmentPackage.getTypesDefinition(), null, "block", null, 0, -1, Component.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getComponent_URI(), ecorePackage.getEString(), "URI", null, 0, 1, Component.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getComponent_URL(), ecorePackage.getEString(), "URL", null, 0, 1, Component.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getComponent_ApiVersion(), ecorePackage.getEString(), "apiVersion", null, 0, 1, Component.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getComponent_ApiVersion(), ecorePackage.getEString(), "apiVersion", null, 0, 1, Component.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
 		initEAttribute(getComponent_Deprecated(), ecorePackage.getEBoolean(), "deprecated", null, 0, 1, Component.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getComponent_SecuritySchemes(), this.getSecurityScheme(), null, "securitySchemes", null, 0, -1, Component.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getComponent_License(), this.getLicense(), null, "license", null, 1, 1, Component.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -1680,6 +1680,66 @@ public class SoaPackageImpl extends EPackageImpl implements SoaPackage {
 		   source,
 		   new String[] {
 			   "documentation", "The location of the API key. (Named \"in\" in the OpenAPI specification)."
+		   });
+		addAnnotation
+		  (informationEClass,
+		   source,
+		   new String[] {
+			   "documentation", "Provides metadata about the API."
+		   });
+		addAnnotation
+		  (getInformation_Version(),
+		   source,
+		   new String[] {
+			   "documentation", "The version of the API definition (which is distinct from the OpenAPI specification version or the API implementation version)."
+		   });
+		addAnnotation
+		  (getInformation_TermsOfService(),
+		   source,
+		   new String[] {
+			   "documentation", "A URL to the Terms of Service for the API. MUST be in the format of a URL."
+		   });
+		addAnnotation
+		  (contactEClass,
+		   source,
+		   new String[] {
+			   "documentation", "The contact information for the exposed API."
+		   });
+		addAnnotation
+		  (getContact_Name(),
+		   source,
+		   new String[] {
+			   "documentation", "The identifying name of the contact person/organization."
+		   });
+		addAnnotation
+		  (getContact_URL(),
+		   source,
+		   new String[] {
+			   "documentation", "The URL pointing to the contact information. MUST be in the format of a URL."
+		   });
+		addAnnotation
+		  (getContact_Email(),
+		   source,
+		   new String[] {
+			   "documentation", "The email address of the contact person/organization. MUST be in the format of an email address."
+		   });
+		addAnnotation
+		  (licenseEClass,
+		   source,
+		   new String[] {
+			   "documentation", "The license information for the exposed API."
+		   });
+		addAnnotation
+		  (getLicense_Name(),
+		   source,
+		   new String[] {
+			   "documentation", "The license name used for the API."
+		   });
+		addAnnotation
+		  (getLicense_URL(),
+		   source,
+		   new String[] {
+			   "documentation", "A URL to the license used for the API. MUST be in the format of a URL."
 		   });
 	}
 
