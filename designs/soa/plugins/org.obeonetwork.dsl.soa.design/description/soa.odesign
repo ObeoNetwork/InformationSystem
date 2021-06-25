@@ -1140,11 +1140,11 @@
       <pages name="Service Page" labelExpression="Service" domainClass="soa::Service" semanticCandidateExpression="var:self" groups="//@extensions.0/@categories.1/@groups.2"/>
       <pages name="Wire Page" labelExpression="Wire" domainClass="soa::Wire" semanticCandidateExpression="var:self" groups="//@extensions.0/@categories.1/@groups.3"/>
       <pages name="Parameter Page" labelExpression="Parameter" domainClass="soa::Parameter" semanticCandidateExpression="var:self" groups="//@extensions.0/@categories.1/@groups.4"/>
-      <pages name="Component Exposition Page" labelExpression="Exposition" domainClass="soa::Component" semanticCandidateExpression="var:self" groups="//@extensions.0/@categories.1/@groups.5"/>
-      <pages name="Service Exposition Page" labelExpression="Exposition" domainClass="soa::Service" semanticCandidateExpression="var:self" groups="//@extensions.0/@categories.1/@groups.6 //@extensions.0/@categories.1/@groups.9"/>
-      <pages name="Operation Exposition Page" labelExpression="Exposition" domainClass="soa::Operation" semanticCandidateExpression="var:self" preconditionExpression="aql:self.eContainer(soa::Service).kind=soa::InterfaceKind::provided and self.exposition&lt;>soa::ExpositionKind::NONE" groups="//@extensions.0/@categories.1/@groups.7 //@extensions.0/@categories.1/@groups.9 //@extensions.0/@categories.1/@groups.10 //@extensions.0/@categories.1/@groups.12"/>
-      <pages name="Parameter Exposition Page" labelExpression="Exposition" domainClass="soa::Parameter" semanticCandidateExpression="var:self" preconditionExpression="aql:self.eContainer(soa::Service).kind=soa::InterfaceKind::provided and self.exposition&lt;>soa::ExpositionKind::NONE" groups="//@extensions.0/@categories.1/@groups.8 //@extensions.0/@categories.1/@groups.9"/>
-      <pages name="Security Scheme Page" labelExpression="Security Scheme" domainClass="soa::SecurityScheme" semanticCandidateExpression="var:self" groups="//@extensions.0/@categories.1/@groups.11"/>
+      <pages name="Component Exposition Page" labelExpression="Exposition" domainClass="soa::Component" semanticCandidateExpression="var:self" groups="//@extensions.0/@categories.1/@groups.12 //@extensions.0/@categories.1/@groups.14 //@extensions.0/@categories.1/@groups.15 //@extensions.0/@categories.1/@groups.16"/>
+      <pages name="Service Exposition Page" labelExpression="Exposition" domainClass="soa::Service" semanticCandidateExpression="var:self" groups="//@extensions.0/@categories.1/@groups.5 //@extensions.0/@categories.1/@groups.8"/>
+      <pages name="Operation Exposition Page" labelExpression="Exposition" domainClass="soa::Operation" semanticCandidateExpression="var:self" preconditionExpression="aql:self.eContainer(soa::Service).kind=soa::InterfaceKind::provided and self.exposition&lt;>soa::ExpositionKind::NONE" groups="//@extensions.0/@categories.1/@groups.6 //@extensions.0/@categories.1/@groups.8 //@extensions.0/@categories.1/@groups.9 //@extensions.0/@categories.1/@groups.11"/>
+      <pages name="Parameter Exposition Page" labelExpression="Exposition" domainClass="soa::Parameter" semanticCandidateExpression="var:self" preconditionExpression="aql:self.eContainer(soa::Service).kind=soa::InterfaceKind::provided and self.exposition&lt;>soa::ExpositionKind::NONE" groups="//@extensions.0/@categories.1/@groups.7 //@extensions.0/@categories.1/@groups.8"/>
+      <pages name="Security Scheme Page" labelExpression="Security Scheme" domainClass="soa::SecurityScheme" semanticCandidateExpression="var:self" groups="//@extensions.0/@categories.1/@groups.10"/>
       <pages name="Component Security Schemes Page" labelExpression="Security Schemes" domainClass="soa::Component" semanticCandidateExpression="var:self" groups="//@extensions.0/@categories.1/@groups.13"/>
       <groups name="Operation Group" labelExpression="Properties" domainClass="soa::Operation" semanticCandidateExpression="var:self">
         <controls xsi:type="properties:TextDescription" name="soa::Operation name" labelExpression="aql:input.emfEditServices(self).getText(self.eClass().getEStructuralFeature('name')) + ':'" helpExpression="aql:input.emfEditServices(self).getDescription(self.eClass().getEStructuralFeature('name'))" isEnabledExpression="aql:self.eClass().getEStructuralFeature('name').changeable" valueExpression="aql:self.name">
@@ -1275,23 +1275,6 @@
           </initialOperation>
         </controls>
       </groups>
-      <groups name="Component Exposition Group" labelExpression="Exposition" domainClass="soa::Component" semanticCandidateExpression="var:self">
-        <controls xsi:type="properties:TextDescription" name="soa::System URL" labelExpression="aql:input.emfEditServices(self).getText(self.eClass().getEStructuralFeature('URL')) + ':'" helpExpression="aql:input.emfEditServices(self).getDescription(self.eClass().getEStructuralFeature('URL'))" isEnabledExpression="aql:self.eClass().getEStructuralFeature('URL').changeable" valueExpression="aql:self.URL">
-          <initialOperation>
-            <firstModelOperations xsi:type="tool_1:SetValue" featureName="URL" valueExpression="var:newValue"/>
-          </initialOperation>
-        </controls>
-        <controls xsi:type="properties:TextDescription" name="soa::Component URI" labelExpression="aql:input.emfEditServices(self).getText(self.eClass().getEStructuralFeature('URI')) + ':'" helpExpression="aql:input.emfEditServices(self).getDescription(self.eClass().getEStructuralFeature('URI'))" isEnabledExpression="aql:self.eClass().getEStructuralFeature('URI').changeable" valueExpression="aql:self.URI">
-          <initialOperation>
-            <firstModelOperations xsi:type="tool_1:SetValue" featureName="URI" valueExpression="var:newValue"/>
-          </initialOperation>
-        </controls>
-        <controls xsi:type="properties:TextDescription" name="soa::Component apiVersion" labelExpression="aql:input.emfEditServices(self).getText(self.eClass().getEStructuralFeature('apiVersion')) + ':'" helpExpression="aql:input.emfEditServices(self).getDescription(self.eClass().getEStructuralFeature('apiVersion'))" isEnabledExpression="aql:self.eClass().getEStructuralFeature('apiVersion').changeable" valueExpression="aql:self.apiVersion">
-          <initialOperation>
-            <firstModelOperations xsi:type="tool_1:SetValue" featureName="apiVersion" valueExpression="var:newValue"/>
-          </initialOperation>
-        </controls>
-      </groups>
       <groups name="Service Exposition Group" labelExpression="Exposition" domainClass="soa::Service" semanticCandidateExpression="var:self" preconditionExpression="aql:self.kind=soa::InterfaceKind::provided">
         <controls xsi:type="properties:TextDescription" name="soa::Service URI" labelExpression="aql:input.emfEditServices(self).getText(self.eClass().getEStructuralFeature('URI')) + ':'" helpExpression="aql:input.emfEditServices(self).getDescription(self.eClass().getEStructuralFeature('URI'))" isEnabledExpression="aql:self.eClass().getEStructuralFeature('URI').changeable" valueExpression="aql:self.URI">
           <initialOperation>
@@ -1371,7 +1354,7 @@
           <layout xsi:type="properties:GridLayoutDescription" numberOfColumns="2"/>
         </controls>
         <validationSet>
-          <propertyValidationRules name="Invalid rest id" level="ERROR" message="The rest id is not defined in the operation URI." targets="//@extensions.0/@categories.1/@groups.8/@controls.0/@controls.0/@ifs.2/@widget">
+          <propertyValidationRules name="Invalid rest id" level="ERROR" message="The rest id is not defined in the operation URI." targets="//@extensions.0/@categories.1/@groups.7/@controls.0/@controls.0/@ifs.2/@widget">
             <audits auditExpression="aql:self.eContainer(soa::Operation).getParamIdsFromURI()->includes(self.restData.restId)"/>
           </propertyValidationRules>
         </validationSet>
@@ -1421,7 +1404,7 @@
           <layout xsi:type="properties:GridLayoutDescription" numberOfColumns="3"/>
         </controls>
         <validationSet>
-          <propertyValidationRules name="Invalid rest id" level="ERROR" message="The rest id is not defined in the operation URI." targets="//@extensions.0/@categories.1/@groups.10/@controls.0/@controls.0/@ifs.3/@widget">
+          <propertyValidationRules name="Invalid rest id" level="ERROR" message="The rest id is not defined in the operation URI." targets="//@extensions.0/@categories.1/@groups.9/@controls.0/@controls.0/@ifs.3/@widget">
             <audits auditExpression="aql:self.getParamIdsFromURI()->includes(restData.restId)"/>
           </propertyValidationRules>
         </validationSet>
@@ -1475,6 +1458,23 @@
           </customOperations>
         </controls>
       </groups>
+      <groups name="Component Exposition Group" labelExpression="Exposition" domainClass="soa::Component" semanticCandidateExpression="var:self">
+        <controls xsi:type="properties:TextDescription" name="soa::System URL" labelExpression="aql:input.emfEditServices(self).getText(self.eClass().getEStructuralFeature('URL')) + ':'" helpExpression="aql:input.emfEditServices(self).getDescription(self.eClass().getEStructuralFeature('URL'))" isEnabledExpression="aql:self.eClass().getEStructuralFeature('URL').changeable" valueExpression="aql:self.URL">
+          <initialOperation>
+            <firstModelOperations xsi:type="tool_1:SetValue" featureName="URL" valueExpression="var:newValue"/>
+          </initialOperation>
+        </controls>
+        <controls xsi:type="properties:TextDescription" name="soa::Component URI" labelExpression="aql:input.emfEditServices(self).getText(self.eClass().getEStructuralFeature('URI')) + ':'" helpExpression="aql:input.emfEditServices(self).getDescription(self.eClass().getEStructuralFeature('URI'))" isEnabledExpression="aql:self.eClass().getEStructuralFeature('URI').changeable" valueExpression="aql:self.URI">
+          <initialOperation>
+            <firstModelOperations xsi:type="tool_1:SetValue" featureName="URI" valueExpression="var:newValue"/>
+          </initialOperation>
+        </controls>
+        <validationSet>
+          <propertyValidationRules name=" soa::Component Exposition URL Validation" level="WARNING" message="Invalid URL" targets="//@extensions.0/@categories.1/@groups.12/@controls.0">
+            <audits auditExpression="aql:self.URL.isValidURL()"/>
+          </propertyValidationRules>
+        </validationSet>
+      </groups>
       <groups name="Component Security Schemes Group" labelExpression="Security Schemes" domainClass="soa::Component" semanticCandidateExpression="var:self">
         <controls xsi:type="properties:CustomDescription" name="org.obeonetwork.is.eef.custom.reference" label="soa::Component Security Schemes" labelExpression="aql:input.emfEditServices(self).getText(self.eClass().getEStructuralFeature('securitySchemes')) + ':'" helpExpression="aql:input.emfEditServices(self).getDescription(self.eClass().getEStructuralFeature('securitySchemes'))" isEnabledExpression="aql:self.eClass().getEStructuralFeature('securitySchemes').changeable">
           <customExpressions name="referenceNameExpression" customExpression="securitySchemes"/>
@@ -1511,6 +1511,79 @@
             </initialOperation>
           </customOperations>
         </controls>
+      </groups>
+      <groups name="Component Information Group" labelExpression="Information" domainClass="soa::Component" semanticCandidateExpression="var:self">
+        <controls xsi:type="properties:TextDescription" name="soa::Component Information Version" labelExpression="aql:input.emfEditServices(self.information).getText(self.information.eClass().getEStructuralFeature('version')) + ':'" helpExpression="aql:input.emfEditServices(self.information).getDescription(self.information.eClass().getEStructuralFeature('version'))" valueExpression="aql:self.information.version">
+          <initialOperation>
+            <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="aql:self.information">
+              <subModelOperations xsi:type="tool_1:SetValue" featureName="version" valueExpression="var:newValue"/>
+            </firstModelOperations>
+          </initialOperation>
+        </controls>
+        <controls xsi:type="properties:TextDescription" name="soa::Component Information TermsOfService" labelExpression="aql:input.emfEditServices(self.information).getText(self.information.eClass().getEStructuralFeature('termsOfService')) + ':'" helpExpression="aql:input.emfEditServices(self.information).getDescription(self.information.eClass().getEStructuralFeature('termsOfService'))" valueExpression="aql:self.information.termsOfService">
+          <initialOperation>
+            <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="aql:self.information">
+              <subModelOperations xsi:type="tool_1:SetValue" featureName="termsOfService" valueExpression="var:newValue"/>
+            </firstModelOperations>
+          </initialOperation>
+        </controls>
+        <validationSet>
+          <propertyValidationRules name=" soa::Component Information TOS Validation" level="WARNING" message="Invalid URL" targets="//@extensions.0/@categories.1/@groups.14/@controls.1">
+            <audits auditExpression="aql:self.information.termsOfService.isValidURL()"/>
+          </propertyValidationRules>
+        </validationSet>
+      </groups>
+      <groups name="Component Contact Group" labelExpression="Contact" domainClass="soa::Component" semanticCandidateExpression="var:self">
+        <controls xsi:type="properties:TextDescription" name="soa::Component Contact Name" labelExpression="aql:input.emfEditServices(self.contact).getText(self.contact.eClass().getEStructuralFeature('name')) + ':'" helpExpression="aql:input.emfEditServices(self.contact).getDescription(self.contact.eClass().getEStructuralFeature('name')) " valueExpression="aql:self.contact.name">
+          <initialOperation>
+            <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="aql:self.contact">
+              <subModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="var:newValue"/>
+            </firstModelOperations>
+          </initialOperation>
+        </controls>
+        <controls xsi:type="properties:TextDescription" name="soa::Component Contact URL" labelExpression="aql:input.emfEditServices(self.contact).getText(self.contact.eClass().getEStructuralFeature('URL')) + ':'" helpExpression="aql:input.emfEditServices(self.contact).getDescription(self.contact.eClass().getEStructuralFeature('URL')) " valueExpression="aql:self.contact.URL">
+          <initialOperation>
+            <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="aql:self.contact">
+              <subModelOperations xsi:type="tool_1:SetValue" featureName="URL" valueExpression="var:newValue"/>
+            </firstModelOperations>
+          </initialOperation>
+        </controls>
+        <controls xsi:type="properties:TextDescription" name="soa::Component Contact Email" labelExpression="aql:input.emfEditServices(self.contact).getText(self.contact.eClass().getEStructuralFeature('email')) + ':'" helpExpression="aql:input.emfEditServices(self.contact).getDescription(self.contact.eClass().getEStructuralFeature('email'))" valueExpression="aql:self.contact.email">
+          <initialOperation>
+            <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="aql:self.contact">
+              <subModelOperations xsi:type="tool_1:SetValue" featureName="email" valueExpression="var:newValue"/>
+            </firstModelOperations>
+          </initialOperation>
+        </controls>
+        <validationSet>
+          <propertyValidationRules name="soa::Component Contact URL Validation" level="WARNING" message="Invalid URL" targets="//@extensions.0/@categories.1/@groups.15/@controls.1">
+            <audits auditExpression="aql:self.contact.URL.isValidURL()"/>
+          </propertyValidationRules>
+          <propertyValidationRules name="soa::Component Contact Email Validation" level="WARNING" message="Invalid Email" targets="//@extensions.0/@categories.1/@groups.15/@controls.2">
+            <audits auditExpression="aql:self.contact.email.isValidEmail()"/>
+          </propertyValidationRules>
+        </validationSet>
+      </groups>
+      <groups name="Component License Group" labelExpression="License" domainClass="soa::Component" semanticCandidateExpression="var:self">
+        <controls xsi:type="properties:TextDescription" name="soa::Component License Name" labelExpression="aql:input.emfEditServices(self.license).getText(self.license.eClass().getEStructuralFeature('name')) + ':'" helpExpression="aql:input.emfEditServices(self.license).getDescription(self.license.eClass().getEStructuralFeature('name'))" valueExpression="aql:self.license.name">
+          <initialOperation>
+            <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="aql:self.license">
+              <subModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="var:newValue"/>
+            </firstModelOperations>
+          </initialOperation>
+        </controls>
+        <controls xsi:type="properties:TextDescription" name="soa::Component License URL" labelExpression="aql:input.emfEditServices(self.license).getText(self.license.eClass().getEStructuralFeature('URL')) + ':'" helpExpression="aql:input.emfEditServices(self.license).getDescription(self.license.eClass().getEStructuralFeature('URL'))" valueExpression="aql:self.license.URL">
+          <initialOperation>
+            <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="aql:self.license">
+              <subModelOperations xsi:type="tool_1:SetValue" featureName="URL" valueExpression="var:newValue"/>
+            </firstModelOperations>
+          </initialOperation>
+        </controls>
+        <validationSet>
+          <propertyValidationRules name="soa::Component License URL Validation" level="WARNING" message="Invalid URL" targets="//@extensions.0/@categories.1/@groups.16/@controls.1">
+            <audits auditExpression="aql:self.license.URL.isValidURL()"/>
+          </propertyValidationRules>
+        </validationSet>
       </groups>
     </categories>
   </extensions>
