@@ -67,6 +67,7 @@ import org.obeonetwork.dsl.soa.gen.swagger.utils.ParameterGenUtil;
 import org.obeonetwork.dsl.soa.gen.swagger.utils.PropertyGenUtil;
 import org.obeonetwork.dsl.soa.gen.swagger.utils.ServiceGenUtil;
 import org.obeonetwork.dsl.soa.services.HttpStatusService;
+import org.obeonetwork.utils.common.StringUtils;
 
 import io.swagger.v3.oas.models.Components;
 import io.swagger.v3.oas.models.OpenAPI;
@@ -74,6 +75,7 @@ import io.swagger.v3.oas.models.Operation;
 import io.swagger.v3.oas.models.PathItem;
 import io.swagger.v3.oas.models.Paths;
 import io.swagger.v3.oas.models.headers.Header;
+import io.swagger.v3.oas.models.info.Contact;
 import io.swagger.v3.oas.models.info.Info;
 import io.swagger.v3.oas.models.info.License;
 import io.swagger.v3.oas.models.media.ArraySchema;
@@ -259,20 +261,54 @@ public class SwaggerBuilder {
 	private Info createInfo() {
     	Info info = new Info();
     	info.setTitle(ComponentGenUtil.getName(soaComponent));
+    	
     	if(soaComponent.getDescription() != null) {
-    		info.setDescription(soaComponent.getDescription());
+    		info.setDescription(soaComponent.getDescription());    		
     	}
-		info.setVersion(soaComponent.getApiVersion());
+    	
+    	if(soaComponent.getInformation().getTermsOfService() != null) {
+    		info.setTermsOfService(soaComponent.getInformation().getTermsOfService());
+    	}
+    	
+    	if(soaComponent.getInformation().getVersion() != null) {
+    		info.setVersion(soaComponent.getInformation().getVersion());
+    	}
+		// info.setVersion(soaComponent.getApiVersion());
     	info.setLicense(createLicense());
+    	
+    	if (soaComponent.getContact().getEmail() != null && soaComponent.getContact().getName() != null && soaComponent.getContact().getURL() != null) {
+    		info.setContact(createContact());
+    	}
+    	
+    	
     	return info;
     }
     
     private License createLicense() {
     	License license = new License();
-    	license.setName("Apache 2.0");
-        license.setUrl("http://www.apache.org/licenses/LICENSE-2.0.html");
+    	
+    	if (StringUtils.isNullOrWhite(soaComponent.getLicense().getName())) {
+    		license.setName("Apache 2.0");	
+    	} else {
+    		license.setName(soaComponent.getLicense().getName());
+    	}
+    	
+    	if (StringUtils.isNullOrWhite(soaComponent.getLicense().getURL())) {
+    		license.setUrl("http://www.apache.org/licenses/LICENSE-2.0.html");	
+    	} else {
+    		license.setUrl(soaComponent.getLicense().getURL());
+    	}
+    	
         return license;
 	}
+    
+    private Contact createContact() {
+    	Contact contact = new Contact();
+    	contact.setEmail(soaComponent.getContact().getEmail());
+    	contact.setName(soaComponent.getContact().getName());
+    	contact.setUrl(soaComponent.getContact().getURL());
+    	return contact;
+    }
     
     private List<Server> createServers() {
     	if(falseForFutureEvolution()) {

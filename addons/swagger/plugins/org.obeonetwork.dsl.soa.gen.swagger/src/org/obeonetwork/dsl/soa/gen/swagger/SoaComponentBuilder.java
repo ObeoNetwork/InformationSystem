@@ -81,7 +81,9 @@ import org.obeonetwork.dsl.technicalid.TechnicalIDPackage;
 import io.swagger.v3.oas.models.OpenAPI;
 import io.swagger.v3.oas.models.Operation;
 import io.swagger.v3.oas.models.PathItem.HttpMethod;
+import io.swagger.v3.oas.models.info.Contact;
 import io.swagger.v3.oas.models.info.Info;
+import io.swagger.v3.oas.models.info.License;
 import io.swagger.v3.oas.models.media.ArraySchema;
 import io.swagger.v3.oas.models.media.ComposedSchema;
 import io.swagger.v3.oas.models.media.MediaType;
@@ -190,9 +192,15 @@ public class SoaComponentBuilder {
 		Info info = openApi.getInfo();
 		soaComponent.setName(info.getTitle());
 		soaComponent.setDescription(info.getDescription());
-		soaComponent.setApiVersion(info.getVersion());
-		// ? info.getLicense();
-
+		soaComponent.setApiVersion(info.getVersion());		
+		
+		/** SAFRAN-936 **/
+		soaComponent.getInformation().setTermsOfService(info.getTermsOfService());
+		soaComponent.getInformation().setVersion(info.getVersion());		
+		setContactInformation(soaComponent, info.getContact());
+		setLicenseInformation(soaComponent, info.getLicense());
+		/****************/
+		
 		List<Server> servers = openApi.getServers();
 		if(servers != null && !servers.isEmpty()) {
 			Server server = servers.get(0);
@@ -218,6 +226,8 @@ public class SoaComponentBuilder {
 		
 		return soaComponent;
 	}
+
+
 
 	private void buildSoaSecuritySchemes() {
 		if(openApi.getComponents() != null && openApi.getComponents().getSecuritySchemes() != null) {
@@ -1550,4 +1560,30 @@ public class SoaComponentBuilder {
 		return type;
 	}
 	
+	/**
+	 * Sets the value of the {@link org.obeonetwork.dsl.soa.Contact} of a {@link Component}
+	 * According to the {@link OpenAPI} {@link Contact} 
+	 * @param component a {@link Component}
+	 * @param contact a {@link OpenAPI} {@link Contact}
+	 */
+	private void setContactInformation(Component component, Contact contact) {
+		if (contact != null) {
+			component.getContact().setEmail(contact.getEmail());
+			component.getContact().setName(contact.getName());
+			component.getContact().setURL(contact.getUrl());
+		}
+ 	}
+	
+	/**
+	 * Sets the value of the {@link org.obeonetwork.dsl.soa.License} of a {@link Component}
+	 * According to the {@link OpenAPI} {@link License}
+	 * @param component a {@link Component}
+	 * @param license a {@link OpenAPI} {@link License}
+	 */
+	private void setLicenseInformation(Component component, License license) {
+		if (license != null) {
+			component.getLicense().setName(license.getName());
+			component.getLicense().setURL(license.getUrl());
+		}
+	}
 }

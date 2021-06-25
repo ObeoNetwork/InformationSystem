@@ -23,6 +23,7 @@ import org.obeonetwork.dsl.soa.gen.swagger.utils.ComponentGenUtil;
 
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.core.JsonGenerationException;
+import com.fasterxml.jackson.core.util.DefaultPrettyPrinter;
 import com.fasterxml.jackson.databind.JsonMappingException;
 import com.fasterxml.jackson.databind.MapperFeature;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -80,7 +81,7 @@ public class SwaggerExporter {
 		if(status != IStatus.ERROR) {
 	        swagger  = swaggerBuilder.getOpenAPI();
 	        
-	        ObjectMapper mapper = null;
+	        ObjectMapper mapper = null;	        
 	        switch (mapperType) {
 	        case JSON:
 	            mapper = Json.mapper();
@@ -91,8 +92,8 @@ public class SwaggerExporter {
 	        }
 	        mapper.setSerializationInclusion(Include.NON_NULL);
 	        mapper.setSerializationInclusion(Include.NON_EMPTY);
+	        
 	        mapper.enable(MapperFeature.USE_ANNOTATIONS);
-
 	        try {
 				mapper.writerWithDefaultPrettyPrinter().writeValue(outputFile, swagger);
 			} catch (JsonGenerationException e) {
@@ -113,5 +114,6 @@ public class SwaggerExporter {
 		
 		return status;
 	}
+	
 
 }
