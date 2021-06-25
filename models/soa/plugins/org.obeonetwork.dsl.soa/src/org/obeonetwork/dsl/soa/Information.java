@@ -17,6 +17,10 @@ import org.eclipse.emf.cdo.CDOObject;
  * A representation of the model object '<em><b>Information</b></em>'.
  * <!-- end-user-doc -->
  *
+ * <!-- begin-model-doc -->
+ * Provides metadata about the API.
+ * <!-- end-model-doc -->
+ *
  * <p>
  * The following features are supported:
  * </p>
@@ -42,6 +46,9 @@ public interface Information extends CDOObject {
 	 * Returns the value of the '<em><b>Version</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * The version of the API definition (which is distinct from the OpenAPI specification version or the API implementation version).
+	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Version</em>' attribute.
 	 * @see #setVersion(String)
 	 * @see org.obeonetwork.dsl.soa.SoaPackage#getInformation_Version()
@@ -64,6 +71,9 @@ public interface Information extends CDOObject {
 	 * Returns the value of the '<em><b>Terms Of Service</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * A URL to the Terms of Service for the API. MUST be in the format of a URL.
+	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Terms Of Service</em>' attribute.
 	 * @see #setTermsOfService(String)
 	 * @see org.obeonetwork.dsl.soa.SoaPackage#getInformation_TermsOfService()

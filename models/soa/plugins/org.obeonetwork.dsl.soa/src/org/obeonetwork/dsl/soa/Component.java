@@ -264,7 +264,7 @@ public interface Component extends ObeoDSMObject {
 	 * @return the value of the '<em>Api Version</em>' attribute.
 	 * @see #setApiVersion(String)
 	 * @see org.obeonetwork.dsl.soa.SoaPackage#getComponent_ApiVersion()
-	 * @model
+	 * @model derived="true"
 	 * @generated
 	 */
 	String getApiVersion();
