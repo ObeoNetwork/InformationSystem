@@ -13,5 +13,6 @@ Require-Bundle: liquibase,
  org.obeonetwork.dsl.database,
  org.obeonetwork.dsl.database.gen.common.tests,
  org.eclipse.emf.compare,
- com.google.guava
+ com.google.guava,
+ org.eclipse.core.resources
 Bundle-Vendor: Obeo Network
