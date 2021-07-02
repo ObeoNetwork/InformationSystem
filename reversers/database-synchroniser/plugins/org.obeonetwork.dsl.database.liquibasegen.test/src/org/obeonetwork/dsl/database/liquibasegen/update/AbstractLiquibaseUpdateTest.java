@@ -25,7 +25,6 @@ import org.obeonetwork.dsl.database.liquibasegen.LiquibaseUpdater;
 import liquibase.Liquibase;
 import liquibase.database.Database;
 import liquibase.database.DatabaseFactory;
-import liquibase.exception.DatabaseException;
 import liquibase.resource.ClassLoaderResourceAccessor;
 
 /**
@@ -46,6 +45,7 @@ public abstract class AbstractLiquibaseUpdateTest {
 
 	public AbstractLiquibaseUpdateTest(String fileName) {
 		this.fileName = fileName;
+		
 	}
 
 	@Parameters
@@ -58,8 +58,7 @@ public abstract class AbstractLiquibaseUpdateTest {
 	}
 	
 	@Before
-	public void clearDatabase() throws DatabaseException {
-		
+	public void clearDatabase() throws Exception {		
 		database = DatabaseFactory.getInstance().openDatabase(url, username, password, null, new ClassLoaderResourceAccessor());
 		liquibase = new Liquibase(changelog, new ClassLoaderResourceAccessor(), database);
 		try {

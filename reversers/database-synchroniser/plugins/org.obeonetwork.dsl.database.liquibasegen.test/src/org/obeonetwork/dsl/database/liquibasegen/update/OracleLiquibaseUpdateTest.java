@@ -25,7 +25,7 @@ public class OracleLiquibaseUpdateTest extends AbstractLiquibaseUpdateTest {
 		super(fileName);
 		url = "jdbc:oracle:thin:@localhost:1521:ORCLCDB";
 		username = "SYSTEM";
-		password = "Oradoc_db1";
+		password = "Oradoc_db1";		
 	}
 	
 	@Parameters

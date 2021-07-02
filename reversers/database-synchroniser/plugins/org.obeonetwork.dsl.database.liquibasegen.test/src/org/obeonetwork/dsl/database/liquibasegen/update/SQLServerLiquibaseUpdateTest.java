@@ -27,7 +27,7 @@ public class SQLServerLiquibaseUpdateTest extends AbstractLiquibaseUpdateTest{
 		super(fileName);
 		url = "jdbc:sqlserver://localhost:1433;databaseName=test";
 		username = "sa";
-		password = "P4sSw0rd";
+		password = "P4sSw0rd";		
 	}
 
 	@Parameters

@@ -16,12 +16,12 @@ public class PostgresqlLiquibaseUpdateTest extends AbstractLiquibaseUpdateTest {
 	/**
 	 * Requires a Postgresql server to be running. You can check the Docker configuration in org.obeonetwork.dsl.database.test
 	 * @param fileName the {@link Parameters}
+	 * @throws Exception 
 	 */
-	public PostgresqlLiquibaseUpdateTest(String fileName) {
-		super(fileName);
+	public PostgresqlLiquibaseUpdateTest(String fileName) throws Exception {	
+		super(fileName);		
 		url = "jdbc:postgresql://localhost:5432/";
 		username = "postgres";
 		password = "password";
 	}
-
 }
