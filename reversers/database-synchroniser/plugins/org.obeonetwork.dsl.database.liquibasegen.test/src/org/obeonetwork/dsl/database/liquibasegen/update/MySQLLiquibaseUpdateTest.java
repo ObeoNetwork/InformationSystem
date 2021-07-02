@@ -1,9 +1,17 @@
 package org.obeonetwork.dsl.database.liquibasegen.update;
 
 import org.junit.runner.RunWith;
+
 import org.junit.runners.Parameterized;
 import org.junit.runners.Parameterized.Parameters;
 
+
+/**
+ * 
+ * @author <a href="mailto:thibault.beziers-la-fosse@obeo.fr">Thibault Béziers
+ *         la Fosse</a> 
+ *         
+ */
 @RunWith(Parameterized.class)
 public class MySQLLiquibaseUpdateTest extends AbstractLiquibaseUpdateTest {
 	

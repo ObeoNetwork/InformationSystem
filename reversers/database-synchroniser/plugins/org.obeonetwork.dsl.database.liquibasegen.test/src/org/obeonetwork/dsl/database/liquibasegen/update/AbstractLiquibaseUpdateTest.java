@@ -18,6 +18,7 @@ import org.junit.After;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
+import org.junit.runners.Parameterized;
 import org.junit.runners.Parameterized.Parameters;
 import org.obeonetwork.dsl.database.liquibasegen.LiquibaseUpdater;
 
@@ -27,6 +28,12 @@ import liquibase.database.DatabaseFactory;
 import liquibase.exception.DatabaseException;
 import liquibase.resource.ClassLoaderResourceAccessor;
 
+/**
+ * Abstract test class for {@link Parameterized} tests
+ * @author <a href="mailto:thibault.beziers-la-fosse@obeo.fr">Thibault Béziers
+ *         la Fosse</a> 
+ *         
+ */
 public abstract class AbstractLiquibaseUpdateTest {
 	protected String url;
 	protected String username;
@@ -97,7 +104,6 @@ public abstract class AbstractLiquibaseUpdateTest {
 		}
 
 	}
-
 	
 	@After
 	public void tearDown() throws CoreException {
