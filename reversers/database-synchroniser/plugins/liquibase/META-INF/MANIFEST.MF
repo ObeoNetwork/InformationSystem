@@ -7,7 +7,7 @@ Automatic-Module-Name: liquibase
 Bundle-RequiredExecutionEnvironment: JavaSE-1.8
 Bundle-Vendor: Liquibase
 Require-Bundle: org.eclipse.osgi;bundle-version="3.14.0",
- org.obeonetwork.dsl.database.reverse;bundle-version="2.1.0"
+ org.obeonetwork.dsl.database.drivers
 Bundle-ClassPath: jars/jaxb-api-2.3.0.jar,
  jars/jaxb-core-2.3.0.jar,
  jars/jaxb-impl-2.3.0.jar,
