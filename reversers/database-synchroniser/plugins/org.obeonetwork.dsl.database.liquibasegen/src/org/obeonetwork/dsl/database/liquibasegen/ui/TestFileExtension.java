@@ -1,4 +1,4 @@
-package org.obeonetwork.dsl.database.liquibasegen;
+package org.obeonetwork.dsl.database.liquibasegen.ui;
 
 import org.eclipse.core.expressions.PropertyTester;
 import org.eclipse.core.internal.resources.File;

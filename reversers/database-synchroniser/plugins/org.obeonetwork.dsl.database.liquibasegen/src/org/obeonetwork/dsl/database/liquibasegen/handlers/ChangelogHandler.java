@@ -27,7 +27,7 @@ import liquibase.exception.LiquibaseException;
 
 /**
  * This handler is activated when the user right clicks on a file and picks Liquidbase > apply changelog.
- * It opens a dialog for defining a Database connexion, and updates this database with the specified changelogs.
+ * It opens a dialog for defining a Database connection, and updates this database with the specified changelogs.
  * 
  * @author <a href="mailto:thibault.beziers-la-fosse@obeo.fr">Thibault Béziers
  *         la Fosse</a>

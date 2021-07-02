@@ -21,4 +21,3 @@ Export-Package: org.obeonetwork.dsl.database.liquibasegen,
  org.obeonetwork.dsl.database.liquibasegen.ui
 Bundle-Vendor: Obeo Network
 Bundle-ClassPath: .
-Import-Package: org.postgresql
