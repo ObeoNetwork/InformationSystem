@@ -6,7 +6,12 @@ Bundle-Version: 4.0.0.qualifier
 Automatic-Module-Name: liquibase
 Bundle-ClassPath: .,
  jars/jaxb-api-2.3.0.jar,
- jars/liquibase-core-4.0.0.jar
+ jars/liquibase-core-4.4.0.jar,
+ jars/jaxb-core-2.3.0.jar,
+ jars/jaxb-impl-2.3.0.jar,
+ jars/logback-classic-1.2.3.jar,
+ jars/logback-core-1.2.3.jar,
+ jars/snakeyaml-1.27.jar
 Export-Package: com.datical.liquibase.ext,
  com.datical.liquibase.ext.appdba.diff.compare,
  com.datical.liquibase.ext.appdba.diff.output.changelog,
@@ -92,7 +97,6 @@ Export-Package: com.datical.liquibase.ext,
  liquibase.plugin,
  liquibase.precondition,
  liquibase.precondition.core,
- liquibase.pro.license.keymgr,
  liquibase.pro.packaged,
  liquibase.resource,
  liquibase.sdk,
@@ -132,3 +136,5 @@ Export-Package: com.datical.liquibase.ext,
  liquibase.util.xml
 Bundle-RequiredExecutionEnvironment: JavaSE-1.8
 Bundle-Vendor: Liquibase
+Require-Bundle: org.eclipse.osgi;bundle-version="3.14.0",
+ org.obeonetwork.dsl.database.reverse;bundle-version="2.1.0"
