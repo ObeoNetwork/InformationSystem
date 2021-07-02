@@ -2,7 +2,7 @@ Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: Drivers
 Bundle-SymbolicName: org.obeonetwork.dsl.database.drivers
-Bundle-Version: 1.0.0.qualifier
+Bundle-Version: 2.1.0.qualifier
 Automatic-Module-Name: org.obeonetwork.dsl.database.drivers
 Bundle-RequiredExecutionEnvironment: JavaSE-1.8
 Bundle-ClassPath: lib/h2-1.3.176.jar,
@@ -19,3 +19,4 @@ Export-Package: com.microsoft.sqlserver.jdbc,
  org.h2,
  org.mariadb.jdbc,
  org.postgresql
+Bundle-Vendor: Obeo Network

@@ -12,7 +12,7 @@ Require-Bundle: org.eclipse.core.runtime,
  org.eclipse.core.expressions,
  org.eclipse.core.resources;bundle-version="3.13.400",
  org.obeonetwork.dsl.database.drivers,
- liquibase;bundle-version="4.4.0"
+ liquibase
 Bundle-RequiredExecutionEnvironment: JavaSE-1.8
 Automatic-Module-Name: org.obeonetwork.dsl.database.liquibasegen
 Bundle-ActivationPolicy: lazy
