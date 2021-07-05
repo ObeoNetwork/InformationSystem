@@ -261,42 +261,43 @@ public class SwaggerBuilder {
 	private Info createInfo() {
     	Info info = new Info();
     	info.setTitle(ComponentGenUtil.getName(soaComponent));
-    	
+    	    	
     	if(soaComponent.getDescription() != null) {
     		info.setDescription(soaComponent.getDescription());    		
     	}
     	
-    	if(soaComponent.getInformation().getTermsOfService() != null) {
-    		info.setTermsOfService(soaComponent.getInformation().getTermsOfService());
+    	if (soaComponent.getInformation() != null) {
+    		if(soaComponent.getInformation().getTermsOfService() != null) {
+        		info.setTermsOfService(soaComponent.getInformation().getTermsOfService());
+        	}
+        	
+        	if(soaComponent.getInformation().getVersion() != null) {
+        		info.setVersion(soaComponent.getInformation().getVersion());
+        	}
     	}
     	
-    	if(soaComponent.getInformation().getVersion() != null) {
-    		info.setVersion(soaComponent.getInformation().getVersion());
-    	}
 		// info.setVersion(soaComponent.getApiVersion());
     	info.setLicense(createLicense());
-    	
-    	if (soaComponent.getContact().getEmail() != null && soaComponent.getContact().getName() != null && soaComponent.getContact().getURL() != null) {
-    		info.setContact(createContact());
-    	}
-    	
-    	
+    	info.setContact(createContact());
+	
     	return info;
     }
     
     private License createLicense() {
     	License license = new License();
     	
-    	if (StringUtils.isNullOrWhite(soaComponent.getLicense().getName())) {
-    		license.setName("Apache 2.0");	
-    	} else {
-    		license.setName(soaComponent.getLicense().getName());
-    	}
-    	
-    	if (StringUtils.isNullOrWhite(soaComponent.getLicense().getURL())) {
-    		license.setUrl("http://www.apache.org/licenses/LICENSE-2.0.html");	
-    	} else {
-    		license.setUrl(soaComponent.getLicense().getURL());
+    	if (soaComponent.getLicense() != null) {
+    		if (StringUtils.isNullOrWhite(soaComponent.getLicense().getName())) {
+        		license.setName("Apache 2.0");	
+        	} else {
+        		license.setName(soaComponent.getLicense().getName());
+        	}
+        	
+        	if (StringUtils.isNullOrWhite(soaComponent.getLicense().getURL())) {
+        		license.setUrl("http://www.apache.org/licenses/LICENSE-2.0.html");	
+        	} else {
+        		license.setUrl(soaComponent.getLicense().getURL());
+        	}	
     	}
     	
         return license;
@@ -304,9 +305,19 @@ public class SwaggerBuilder {
     
     private Contact createContact() {
     	Contact contact = new Contact();
-    	contact.setEmail(soaComponent.getContact().getEmail());
-    	contact.setName(soaComponent.getContact().getName());
-    	contact.setUrl(soaComponent.getContact().getURL());
+    	if (soaComponent.getContact() != null) {
+    		org.obeonetwork.dsl.soa.Contact soaContact = soaComponent.getContact();
+    		
+    		if (soaContact.getEmail() != null)
+    			contact.setEmail(soaComponent.getContact().getEmail());
+    		
+    		if (soaContact.getName() != null)
+    			contact.setName(soaComponent.getContact().getName());
+    		
+    		if (soaContact.getURL() != null) 
+    			contact.setUrl(soaComponent.getContact().getURL());	
+    	}
+    	
     	return contact;
     }
     
