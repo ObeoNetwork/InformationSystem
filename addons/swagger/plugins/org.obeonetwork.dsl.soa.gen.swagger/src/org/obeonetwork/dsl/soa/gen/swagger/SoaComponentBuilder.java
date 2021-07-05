@@ -66,6 +66,7 @@ import org.obeonetwork.dsl.environment.TypesDefinition;
 import org.obeonetwork.dsl.soa.ApiKeyLocation;
 import org.obeonetwork.dsl.soa.Component;
 import org.obeonetwork.dsl.soa.ExpositionKind;
+import org.obeonetwork.dsl.soa.Information;
 import org.obeonetwork.dsl.soa.Interface;
 import org.obeonetwork.dsl.soa.InterfaceKind;
 import org.obeonetwork.dsl.soa.ParameterPassingMode;
@@ -194,9 +195,8 @@ public class SoaComponentBuilder {
 		soaComponent.setDescription(info.getDescription());
 		soaComponent.setApiVersion(info.getVersion());		
 		
-		/** SAFRAN-936 **/
-		soaComponent.getInformation().setTermsOfService(info.getTermsOfService());
-		soaComponent.getInformation().setVersion(info.getVersion());		
+		/** SAFRAN-936 **/	
+		setInformation(soaComponent, info);
 		setContactInformation(soaComponent, info.getContact());
 		setLicenseInformation(soaComponent, info.getLicense());
 		/****************/
@@ -226,8 +226,6 @@ public class SoaComponentBuilder {
 		
 		return soaComponent;
 	}
-
-
 
 	private void buildSoaSecuritySchemes() {
 		if(openApi.getComponents() != null && openApi.getComponents().getSecuritySchemes() != null) {
@@ -1567,7 +1565,7 @@ public class SoaComponentBuilder {
 	 * @param contact a {@link OpenAPI} {@link Contact}
 	 */
 	private void setContactInformation(Component component, Contact contact) {
-		if (contact != null) {
+		if (contact != null && component.getContact() != null) {
 			component.getContact().setEmail(contact.getEmail());
 			component.getContact().setName(contact.getName());
 			component.getContact().setURL(contact.getUrl());
@@ -1581,9 +1579,22 @@ public class SoaComponentBuilder {
 	 * @param license a {@link OpenAPI} {@link License}
 	 */
 	private void setLicenseInformation(Component component, License license) {
-		if (license != null) {
+		if (license != null && component.getLicense() != null) {
 			component.getLicense().setName(license.getName());
 			component.getLicense().setURL(license.getUrl());
+		}
+	}
+	
+	/**
+	 * Sets the value of the {@link Information} of a {@link Component}
+	 * According to the {@link OpenAPI} {@link Info}.
+	 * @param component a {@link Component}
+	 * @param information a {@link OpenAPI} {@link Info}
+	 */
+	private void setInformation(Component component, Info information) {
+		if (component.getInformation() != null && information != null) {
+			component.getInformation().setTermsOfService(information.getTermsOfService());
+			component.getInformation().setVersion(information.getVersion());	
 		}
 	}
 }
