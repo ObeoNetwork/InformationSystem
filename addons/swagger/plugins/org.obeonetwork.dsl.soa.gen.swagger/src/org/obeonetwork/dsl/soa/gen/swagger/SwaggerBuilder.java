@@ -57,6 +57,7 @@ import org.obeonetwork.dsl.environment.Type;
 import org.obeonetwork.dsl.soa.ApiKeyLocation;
 import org.obeonetwork.dsl.soa.Component;
 import org.obeonetwork.dsl.soa.ExpositionKind;
+import org.obeonetwork.dsl.soa.Information;
 import org.obeonetwork.dsl.soa.ParameterPassingMode;
 import org.obeonetwork.dsl.soa.SecuritySchemeType;
 import org.obeonetwork.dsl.soa.Service;
@@ -258,6 +259,10 @@ public class SwaggerBuilder {
     	openApi.setServers(createServers());
 	}
     
+    /**
+     * Creates a new {@link Info} object that matches the data from SOA {@link Information} 
+     * @return a new {@link Info}
+     */
 	private Info createInfo() {
     	Info info = new Info();
     	info.setTitle(ComponentGenUtil.getName(soaComponent));
@@ -267,12 +272,14 @@ public class SwaggerBuilder {
     	}
     	
     	if (soaComponent.getInformation() != null) {
-    		if(soaComponent.getInformation().getTermsOfService() != null) {
-        		info.setTermsOfService(soaComponent.getInformation().getTermsOfService());
+    		Information soaInformation = soaComponent.getInformation();
+    		
+    		if(soaInformation.getTermsOfService() != null) {
+        		info.setTermsOfService(soaInformation.getTermsOfService());
         	}
         	
-        	if(soaComponent.getInformation().getVersion() != null) {
-        		info.setVersion(soaComponent.getInformation().getVersion());
+        	if(soaInformation.getVersion() != null) {
+        		info.setVersion(soaInformation.getVersion());
         	}
     	}
     	
@@ -283,39 +290,49 @@ public class SwaggerBuilder {
     	return info;
     }
     
+	/**
+	 * Creates a {@link License} matching the {@link org.obeonetwork.dsl.soa.License} of a Soa {@link Information} 
+	 * @return a new {@link License}
+	 */
     private License createLicense() {
     	License license = new License();
     	
     	if (soaComponent.getLicense() != null) {
-    		if (StringUtils.isNullOrWhite(soaComponent.getLicense().getName())) {
+    		org.obeonetwork.dsl.soa.License soaLicense = soaComponent.getLicense();
+    		
+    		if (StringUtils.isNullOrWhite(soaLicense.getName())) {
         		license.setName("Apache 2.0");	
         	} else {
-        		license.setName(soaComponent.getLicense().getName());
+        		license.setName(soaLicense.getName());
         	}
         	
-        	if (StringUtils.isNullOrWhite(soaComponent.getLicense().getURL())) {
+        	if (StringUtils.isNullOrWhite(soaLicense.getURL())) {
         		license.setUrl("http://www.apache.org/licenses/LICENSE-2.0.html");	
         	} else {
-        		license.setUrl(soaComponent.getLicense().getURL());
+        		license.setUrl(soaLicense.getURL());
         	}	
     	}
     	
         return license;
 	}
     
+    /**
+     * Creates a new {@link Contact} that matches the {@link org.obeonetwork.dsl.soa.Contact} of Soa {@link Information}.
+     * @return a new {@link Contact}
+     */
     private Contact createContact() {
     	Contact contact = new Contact();
     	if (soaComponent.getContact() != null) {
     		org.obeonetwork.dsl.soa.Contact soaContact = soaComponent.getContact();
     		
     		if (soaContact.getEmail() != null)
-    			contact.setEmail(soaComponent.getContact().getEmail());
+    			contact.setEmail(soaContact.getEmail());
     		
     		if (soaContact.getName() != null)
-    			contact.setName(soaComponent.getContact().getName());
+    			contact.setName(soaContact.getName());
     		
     		if (soaContact.getURL() != null) 
-    			contact.setUrl(soaComponent.getContact().getURL());	
+    			contact.setUrl(soaContact.getURL());	
     	}
     	
     	return contact;
