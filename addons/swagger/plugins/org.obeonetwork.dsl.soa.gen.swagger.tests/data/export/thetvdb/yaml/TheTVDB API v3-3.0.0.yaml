@@ -1935,233 +1935,6 @@ paths:
       - jwtToken: []
 components:
   schemas:
-    SeriesEpisodesQueryParams:
-      type: object
-      properties:
-        data:
-          type: array
-          items:
-            type: string
-    SeriesImageQueryResultRatingsInfo:
-      type: object
-      properties:
-        count:
-          type: integer
-          format: int64
-        average:
-          type: number
-          format: double
-    LanguageData:
-      type: object
-      properties:
-        data:
-          type: array
-          items:
-            $ref: '#/components/schemas/Language'
-    MovieReleaseDate:
-      type: object
-      properties:
-        date:
-          type: string
-        country:
-          type: string
-        type:
-          type: string
-    MoviePeople:
-      type: object
-      properties:
-        people_id:
-          type: string
-        role:
-          type: string
-        imdb_id:
-          type: string
-        people_facebook:
-          type: string
-        people_instagram:
-          type: string
-        name:
-          type: string
-        people_twitter:
-          type: string
-        role_image:
-          type: string
-        id:
-          type: string
-        people_image:
-          type: string
-        is_featured:
-          type: boolean
-    UserRatingsQueryParams:
-      type: object
-      properties:
-        data:
-          type: array
-          items:
-            type: string
-    MovieArtwork:
-      type: object
-      properties:
-        thumb_url:
-          type: string
-        is_primary:
-          type: boolean
-        width:
-          type: integer
-          format: int64
-        artwork_type:
-          type: string
-        id:
-          type: string
-        url:
-          type: string
-        height:
-          type: integer
-          format: int64
-        tags:
-          type: string
-    UpdatedMovies:
-      type: object
-      properties:
-        movies:
-          type: array
-          items:
-            type: integer
-            format: int64
-    Language:
-      type: object
-      properties:
-        name:
-          type: string
-        englishName:
-          type: string
-        id:
-          type: integer
-          format: int64
-        abbreviation:
-          type: string
-    SeriesSearchResult:
-      type: object
-      properties:
-        image:
-          type: string
-        overview:
-          type: string
-        aliases:
-          type: array
-          items:
-            type: string
-        seriesName:
-          type: string
-        firstAired:
-          type: string
-        banner:
-          type: string
-        id:
-          type: integer
-          format: int64
-        poster:
-          type: string
-        slug:
-          type: string
-        network:
-          type: string
-        status:
-          type: string
-    MovieRemoteId:
-      type: object
-      properties:
-        id:
-          type: string
-        source_id:
-          type: integer
-          format: int64
-        source_name:
-          type: string
-        source_url:
-          type: string
-        url:
-          type: string
-    UserFavorites:
-      type: object
-      properties:
-        favorites:
-          type: array
-          items:
-            type: string
-    SeriesImagesCount:
-      type: object
-      properties:
-        fanart:
-          type: integer
-          format: int64
-        season:
-          type: integer
-          format: int64
-        poster:
-          type: integer
-          format: int64
-        seasonwide:
-          type: integer
-          format: int64
-        series:
-          type: integer
-          format: int64
-    UserRatingsDataNoLinksEmptyArrayData:
-      type: object
-    SeriesImagesCounts:
-      type: object
-      properties:
-        data:
-          $ref: '#/components/schemas/SeriesImagesCount'
-    UpdateDataQueryParams:
-      type: object
-      properties:
-        data:
-          type: array
-          items:
-            type: string
-    UserFavoritesData:
-      type: object
-      properties:
-        data:
-          $ref: '#/components/schemas/UserFavorites'
-        errors:
-          $ref: '#/components/schemas/JSONErrors'
-    SeriesEpisodesQuery:
-      type: object
-      properties:
-        links:
-          $ref: '#/components/schemas/Links'
-        data:
-          type: array
-          items:
-            $ref: '#/components/schemas/Episode'
-        errors:
-          $ref: '#/components/schemas/JSONErrors'
-    MovieTrailer:
-      type: object
-      properties:
-        name:
-          type: string
-        url:
-          type: string
-    UserRatings:
-      type: object
-      properties:
-        rating:
-          type: integer
-          format: int64
-        ratingItemId:
-          type: integer
-          format: int64
-        ratingType:
-          type: string
-    NotFound:
-      type: object
-      properties:
-        Error:
-          type: string
     Auth:
       type: object
       properties:
@@ -2171,147 +1944,11 @@ components:
           type: string
         username:
           type: string
-    EpisodeRecordData:
+    Conflict:
       type: object
       properties:
-        data:
-          $ref: '#/components/schemas/Episode'
-        errors:
-          $ref: '#/components/schemas/JSONErrors'
-    SeriesImageQueryResult:
-      type: object
-      properties:
-        fileName:
+        Error:
           type: string
-        thumbnail:
-          type: string
-        subKey:
-          type: string
-        languageId:
-          type: integer
-          format: int64
-        id:
-          type: integer
-          format: int64
-        keyType:
-          type: string
-        resolution:
-          type: string
-        ratingsInfo:
-          $ref: '#/components/schemas/SeriesImageQueryResultRatingsInfo'
-    User:
-      type: object
-      properties:
-        language:
-          type: string
-        favoritesDisplaymode:
-          type: string
-        userName:
-          type: string
-    Series:
-      type: object
-      properties:
-        airsDayOfWeek:
-          type: string
-        overview:
-          type: string
-        aliases:
-          type: array
-          items:
-            type: string
-        siteRating:
-          type: number
-          format: double
-        added:
-          type: string
-        imdbId:
-          type: string
-        seriesName:
-          type: string
-        firstAired:
-          type: string
-        rating:
-          type: string
-        banner:
-          type: string
-        runtime:
-          type: string
-        seriesId:
-          type: string
-        siteRatingCount:
-          type: integer
-          format: int64
-        network:
-          type: string
-        lastUpdated:
-          type: integer
-          format: int64
-        airsTime:
-          type: string
-        zap2itId:
-          type: string
-        genre:
-          type: array
-          items:
-            type: string
-        networkId:
-          type: string
-        id:
-          type: integer
-          format: int64
-        slug:
-          type: string
-        status:
-          type: string
-    SeriesEpisodesSummary:
-      type: object
-      properties:
-        dvdEpisodes:
-          type: string
-        dvdSeasons:
-          type: array
-          items:
-            type: string
-        airedSeasons:
-          type: array
-          items:
-            type: string
-        airedEpisodes:
-          type: string
-    JSONErrors:
-      type: object
-      properties:
-        invalidLanguage:
-          type: string
-        invalidQueryParams:
-          type: array
-          items:
-            type: string
-        invalidFilters:
-          type: array
-          items:
-            type: string
-    Token:
-      type: object
-      properties:
-        token:
-          type: string
-    SeriesImageQueryResults:
-      type: object
-      properties:
-        data:
-          type: array
-          items:
-            $ref: '#/components/schemas/SeriesImageQueryResult'
-        errors:
-          $ref: '#/components/schemas/JSONErrors'
-    EpisodeDataQueryParams:
-      type: object
-      properties:
-        data:
-          type: array
-          items:
-            type: string
     Episode:
       type: object
       properties:
@@ -2397,59 +2034,64 @@ components:
         dvdEpisodeNumber:
           type: number
           format: double
-    SeriesActorsData:
+    EpisodeDataQueryParams:
       type: object
       properties:
-        image:
+        data:
+          type: array
+          items:
+            type: string
+    EpisodeRecordData:
+      type: object
+      properties:
+        data:
+          $ref: '#/components/schemas/Episode'
+        errors:
+          $ref: '#/components/schemas/JSONErrors'
+    FilterKeys:
+      type: object
+      properties:
+        data:
+          type: array
+          items:
+            type: string
+    InvalidQueryParams:
+      type: object
+      properties:
+        Error:
           type: string
-        lastUpdated:
+    JSONErrors:
+      type: object
+      properties:
+        invalidLanguage:
           type: string
-        role:
-          type: string
-        imageAdded:
-          type: string
-        imageAuthor:
-          type: integer
-          format: int64
-        sortOrder:
-          type: integer
-          format: int64
+        invalidQueryParams:
+          type: array
+          items:
+            type: string
+        invalidFilters:
+          type: array
+          items:
+            type: string
+    Language:
+      type: object
+      properties:
         name:
           type: string
+        englishName:
+          type: string
         id:
           type: integer
           format: int64
-        seriesId:
-          type: integer
-          format: int64
-    MoviePeople_1:
+        abbreviation:
+          type: string
+    LanguageData:
       type: object
       properties:
-        actors:
+        data:
           type: array
           items:
-            $ref: '#/components/schemas/MoviePeople'
-        writers:
-          type: array
-          items:
-            $ref: '#/components/schemas/MoviePeople'
-        directors:
-          type: array
-          items:
-            $ref: '#/components/schemas/MoviePeople'
-        producers:
-          type: array
-          items:
-            $ref: '#/components/schemas/MoviePeople'
-    Update:
-      type: object
-      properties:
-        lastUpdated:
-          type: integer
-          format: int64
-        id:
-          type: integer
-          format: int64
+            $ref: '#/components/schemas/Language'
     Links:
       type: object
       properties:
@@ -2465,55 +2107,6 @@ components:
         first:
           type: integer
           format: int64
-    SeriesData:
-      type: object
-      properties:
-        data:
-          $ref: '#/components/schemas/Series'
-        errors:
-          $ref: '#/components/schemas/JSONErrors'
-    SeriesEpisodes:
-      type: object
-      properties:
-        links:
-          $ref: '#/components/schemas/Links'
-        data:
-          type: array
-          items:
-            $ref: '#/components/schemas/Episode'
-        errors:
-          $ref: '#/components/schemas/JSONErrors'
-    UpdateData:
-      type: object
-      properties:
-        data:
-          type: array
-          items:
-            $ref: '#/components/schemas/Update'
-        errors:
-          $ref: '#/components/schemas/JSONErrors'
-    SeriesImagesQueryParam:
-      type: object
-      properties:
-        languageId:
-          type: string
-        keyType:
-          type: string
-        subKey:
-          type: array
-          items:
-            type: string
-        resolution:
-          type: array
-          items:
-            type: string
-    SeriesSearchResults:
-      type: object
-      properties:
-        data:
-          type: array
-          items:
-            $ref: '#/components/schemas/SeriesSearchResult'
     Movie:
       type: object
       properties:
@@ -2551,13 +2144,27 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/MovieTrailer'
-    SeriesImagesQueryParams:
+    MovieArtwork:
       type: object
       properties:
-        data:
-          type: array
-          items:
-            $ref: '#/components/schemas/SeriesImagesQueryParam'
+        thumb_url:
+          type: string
+        is_primary:
+          type: boolean
+        width:
+          type: integer
+          format: int64
+        artwork_type:
+          type: string
+        id:
+          type: string
+        url:
+          type: string
+        height:
+          type: integer
+          format: int64
+        tags:
+          type: string
     MovieGenre:
       type: object
       properties:
@@ -2568,59 +2175,79 @@ components:
           format: int64
         url:
           type: string
-    UserRatingsDataNoLinks:
+    MoviePeople:
       type: object
       properties:
-        data:
-          type: array
-          items:
-            $ref: '#/components/schemas/UserRatings'
-    FilterKeys:
-      type: object
-      properties:
-        data:
-          type: array
-          items:
-            type: string
-    InvalidQueryParams:
-      type: object
-      properties:
-        Error:
+        people_id:
           type: string
-    NotAuthorized:
-      type: object
-      properties:
-        Error:
+        role:
           type: string
-    UserRatingsData:
+        imdb_id:
+          type: string
+        people_facebook:
+          type: string
+        people_instagram:
+          type: string
+        name:
+          type: string
+        people_twitter:
+          type: string
+        role_image:
+          type: string
+        id:
+          type: string
+        people_image:
+          type: string
+        is_featured:
+          type: boolean
+    MoviePeople_1:
       type: object
       properties:
-        links:
-          $ref: '#/components/schemas/Links'
-        data:
+        actors:
           type: array
           items:
-            $ref: '#/components/schemas/UserRatings'
-        errors:
-          $ref: '#/components/schemas/JSONErrors'
-    SeriesActors:
-      type: object
-      properties:
-        data:
+            $ref: '#/components/schemas/MoviePeople'
+        writers:
           type: array
           items:
-            $ref: '#/components/schemas/SeriesActorsData'
-        errors:
-          $ref: '#/components/schemas/JSONErrors'
-    UserData:
+            $ref: '#/components/schemas/MoviePeople'
+        directors:
+          type: array
+          items:
+            $ref: '#/components/schemas/MoviePeople'
+        producers:
+          type: array
+          items:
+            $ref: '#/components/schemas/MoviePeople'
+    MovieReleaseDate:
       type: object
       properties:
-        data:
-          $ref: '#/components/schemas/User'
-    Conflict:
+        date:
+          type: string
+        country:
+          type: string
+        type:
+          type: string
+    MovieRemoteId:
       type: object
       properties:
-        Error:
+        id:
+          type: string
+        source_id:
+          type: integer
+          format: int64
+        source_name:
+          type: string
+        source_url:
+          type: string
+        url:
+          type: string
+    MovieTrailer:
+      type: object
+      properties:
+        name:
+          type: string
+        url:
           type: string
     MovieTranslation:
       type: object
@@ -2635,6 +2262,370 @@ components:
           type: string
         is_primary:
           type: boolean
+    NotAuthorized:
+      type: object
+      properties:
+        Error:
+          type: string
+    NotFound:
+      type: object
+      properties:
+        Error:
+          type: string
+    Series:
+      type: object
+      properties:
+        airsDayOfWeek:
+          type: string
+        overview:
+          type: string
+        aliases:
+          type: array
+          items:
+            type: string
+        siteRating:
+          type: number
+          format: double
+        added:
+          type: string
+        imdbId:
+          type: string
+        seriesName:
+          type: string
+        firstAired:
+          type: string
+        rating:
+          type: string
+        banner:
+          type: string
+        runtime:
+          type: string
+        seriesId:
+          type: string
+        siteRatingCount:
+          type: integer
+          format: int64
+        network:
+          type: string
+        lastUpdated:
+          type: integer
+          format: int64
+        airsTime:
+          type: string
+        zap2itId:
+          type: string
+        genre:
+          type: array
+          items:
+            type: string
+        networkId:
+          type: string
+        id:
+          type: integer
+          format: int64
+        slug:
+          type: string
+        status:
+          type: string
+    SeriesActors:
+      type: object
+      properties:
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/SeriesActorsData'
+        errors:
+          $ref: '#/components/schemas/JSONErrors'
+    SeriesActorsData:
+      type: object
+      properties:
+        image:
+          type: string
+        lastUpdated:
+          type: string
+        role:
+          type: string
+        imageAdded:
+          type: string
+        imageAuthor:
+          type: integer
+          format: int64
+        sortOrder:
+          type: integer
+          format: int64
+        name:
+          type: string
+        id:
+          type: integer
+          format: int64
+        seriesId:
+          type: integer
+          format: int64
+    SeriesData:
+      type: object
+      properties:
+        data:
+          $ref: '#/components/schemas/Series'
+        errors:
+          $ref: '#/components/schemas/JSONErrors'
+    SeriesEpisodes:
+      type: object
+      properties:
+        links:
+          $ref: '#/components/schemas/Links'
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/Episode'
+        errors:
+          $ref: '#/components/schemas/JSONErrors'
+    SeriesEpisodesQuery:
+      type: object
+      properties:
+        links:
+          $ref: '#/components/schemas/Links'
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/Episode'
+        errors:
+          $ref: '#/components/schemas/JSONErrors'
+    SeriesEpisodesQueryParams:
+      type: object
+      properties:
+        data:
+          type: array
+          items:
+            type: string
+    SeriesEpisodesSummary:
+      type: object
+      properties:
+        dvdEpisodes:
+          type: string
+        dvdSeasons:
+          type: array
+          items:
+            type: string
+        airedSeasons:
+          type: array
+          items:
+            type: string
+        airedEpisodes:
+          type: string
+    SeriesImageQueryResult:
+      type: object
+      properties:
+        fileName:
+          type: string
+        thumbnail:
+          type: string
+        subKey:
+          type: string
+        languageId:
+          type: integer
+          format: int64
+        id:
+          type: integer
+          format: int64
+        keyType:
+          type: string
+        resolution:
+          type: string
+        ratingsInfo:
+          $ref: '#/components/schemas/SeriesImageQueryResultRatingsInfo'
+    SeriesImageQueryResultRatingsInfo:
+      type: object
+      properties:
+        count:
+          type: integer
+          format: int64
+        average:
+          type: number
+          format: double
+    SeriesImageQueryResults:
+      type: object
+      properties:
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/SeriesImageQueryResult'
+        errors:
+          $ref: '#/components/schemas/JSONErrors'
+    SeriesImagesCount:
+      type: object
+      properties:
+        fanart:
+          type: integer
+          format: int64
+        season:
+          type: integer
+          format: int64
+        poster:
+          type: integer
+          format: int64
+        seasonwide:
+          type: integer
+          format: int64
+        series:
+          type: integer
+          format: int64
+    SeriesImagesCounts:
+      type: object
+      properties:
+        data:
+          $ref: '#/components/schemas/SeriesImagesCount'
+    SeriesImagesQueryParam:
+      type: object
+      properties:
+        languageId:
+          type: string
+        keyType:
+          type: string
+        subKey:
+          type: array
+          items:
+            type: string
+        resolution:
+          type: array
+          items:
+            type: string
+    SeriesImagesQueryParams:
+      type: object
+      properties:
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/SeriesImagesQueryParam'
+    SeriesSearchResult:
+      type: object
+      properties:
+        image:
+          type: string
+        overview:
+          type: string
+        aliases:
+          type: array
+          items:
+            type: string
+        seriesName:
+          type: string
+        firstAired:
+          type: string
+        banner:
+          type: string
+        id:
+          type: integer
+          format: int64
+        poster:
+          type: string
+        slug:
+          type: string
+        network:
+          type: string
+        status:
+          type: string
+    SeriesSearchResults:
+      type: object
+      properties:
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/SeriesSearchResult'
+    Token:
+      type: object
+      properties:
+        token:
+          type: string
+    Update:
+      type: object
+      properties:
+        lastUpdated:
+          type: integer
+          format: int64
+        id:
+          type: integer
+          format: int64
+    UpdateData:
+      type: object
+      properties:
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/Update'
+        errors:
+          $ref: '#/components/schemas/JSONErrors'
+    UpdateDataQueryParams:
+      type: object
+      properties:
+        data:
+          type: array
+          items:
+            type: string
+    UpdatedMovies:
+      type: object
+      properties:
+        movies:
+          type: array
+          items:
+            type: integer
+            format: int64
+    User:
+      type: object
+      properties:
+        language:
+          type: string
+        favoritesDisplaymode:
+          type: string
+        userName:
+          type: string
+    UserData:
+      type: object
+      properties:
+        data:
+          $ref: '#/components/schemas/User'
+    UserFavorites:
+      type: object
+      properties:
+        favorites:
+          type: array
+          items:
+            type: string
+    UserFavoritesData:
+      type: object
+      properties:
+        data:
+          $ref: '#/components/schemas/UserFavorites'
+        errors:
+          $ref: '#/components/schemas/JSONErrors'
+    UserRatings:
+      type: object
+      properties:
+        rating:
+          type: integer
+          format: int64
+        ratingItemId:
+          type: integer
+          format: int64
+        ratingType:
+          type: string
+    UserRatingsData:
+      type: object
+      properties:
+        links:
+          $ref: '#/components/schemas/Links'
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/UserRatings'
+        errors:
+          $ref: '#/components/schemas/JSONErrors'
+    UserRatingsDataNoLinks:
+      type: object
+      properties:
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/UserRatings'
     UserRatingsDataNoLinksEmptyArray:
       type: object
       properties:
@@ -2642,6 +2633,15 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/UserRatingsDataNoLinksEmptyArrayData'
+    UserRatingsDataNoLinksEmptyArrayData:
+      type: object
+    UserRatingsQueryParams:
+      type: object
+      properties:
+        data:
+          type: array
+          items:
+            type: string
   securitySchemes:
     jwtToken:
       type: apiKey

@@ -37,7 +37,7 @@ import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.DirectoryDialog;
 import org.eclipse.swt.widgets.Label;
 import org.eclipse.swt.widgets.Text;
-import org.obeonetwork.dsl.soa.gen.swagger.SwaggerExporter.MapperType;
+import org.obeonetwork.dsl.soa.gen.swagger.utils.SwaggerExportUtil.MapperType;
 import org.obeonetwork.utils.common.StringUtils;
 
 public class GenerateComponentsSwaggerWizardOptionsPage extends WizardPage {

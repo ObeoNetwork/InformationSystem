@@ -11,6 +11,7 @@
 package org.obeonetwork.dsl.soa;
 
 import org.eclipse.emf.cdo.CDOObject;
+import org.obeonetwork.dsl.environment.ObeoDSMObject;
 
 /**
  * <!-- begin-user-doc -->
@@ -31,10 +32,9 @@ import org.eclipse.emf.cdo.CDOObject;
  *
  * @see org.obeonetwork.dsl.soa.SoaPackage#getLicense()
  * @model
- * @extends CDOObject
  * @generated
  */
-public interface License extends CDOObject {
+public interface License extends ObeoDSMObject {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

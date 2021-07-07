@@ -25,7 +25,7 @@ import org.eclipse.emf.ecore.resource.ResourceSet;
 import org.junit.Test;
 import org.obeonetwork.dsl.soa.Component;
 import org.obeonetwork.dsl.soa.gen.swagger.SwaggerExporter;
-import org.obeonetwork.dsl.soa.gen.swagger.SwaggerExporter.MapperType;
+import org.obeonetwork.dsl.soa.gen.swagger.utils.SwaggerExportUtil.MapperType;
 
 public class SwaggerGenerationTest {
 	
@@ -70,6 +70,16 @@ public class SwaggerGenerationTest {
 	@Test
 	public void testYamlExportInDirThetvdb() {
 		testExportInDir("thetvdb", MapperType.YAML);
+	}
+	
+	@Test
+	public void testJsonExportInDirThetvdbExtensions() {
+		testExportInDir("thetvdb-extensions", MapperType.JSON);
+	}
+
+	@Test
+	public void testYamlExportInDirThetvdbExtensions() {
+		testExportInDir("thetvdb-extensions", MapperType.YAML);
 	}
 	
 	@Test

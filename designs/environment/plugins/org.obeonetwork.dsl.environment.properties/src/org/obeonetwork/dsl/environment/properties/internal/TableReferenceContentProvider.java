@@ -11,11 +11,11 @@
 package org.obeonetwork.dsl.environment.properties.internal;
 
 import java.util.Collection;
+import java.util.function.Predicate;
 
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.jface.viewers.IStructuredContentProvider;
 import org.eclipse.jface.viewers.Viewer;
-import org.obeonetwork.dsl.environment.Annotation;
 import org.obeonetwork.dsl.environment.properties.ui.eef.widget.TableController;
 
 /**
@@ -59,11 +59,16 @@ public class TableReferenceContentProvider implements IStructuredContentProvider
 	@Override
 	public Object[] getElements(Object inputElement) {
 		if (inputElement instanceof EObject && ((EObject) inputElement).eClass().getEAllStructuralFeatures().contains(this.tableController.getReference())) {
+			Predicate<Object> preconditionPredicate = this.tableController.getPreconditionPredicate();
 			EObject eObject = (EObject) inputElement;
 			Object values = eObject.eGet(tableController.getReference());
 			if (values instanceof Collection<?>) {
 				Collection<?> collections = (Collection<?>) values;
-				return collections.stream().filter(Annotation.class::isInstance).toArray();
+				if (preconditionPredicate != null) {
+					return collections.stream().filter(preconditionPredicate).toArray();	
+				} else {
+					return collections.stream().toArray();					
+				}
 			}
 		}
 		return new Object[] {};

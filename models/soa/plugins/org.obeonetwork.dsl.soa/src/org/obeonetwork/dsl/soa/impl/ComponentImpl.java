@@ -265,7 +265,7 @@ public class ComponentImpl extends ObeoDSMObjectImpl implements Component {
 	 * @generated
 	 */
 	public String getApiVersion() {
-		return getInformation().getVersion();
+		return getInformation().getApiVersion();
 	}
 
 	/**

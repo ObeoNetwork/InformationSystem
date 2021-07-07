@@ -35,6 +35,7 @@ import org.obeonetwork.dsl.soa.OperationKind;
 import org.obeonetwork.dsl.soa.Parameter;
 import org.obeonetwork.dsl.soa.ParameterPassingMode;
 import org.obeonetwork.dsl.soa.ParameterRestData;
+import org.obeonetwork.dsl.soa.PropertiesExtension;
 import org.obeonetwork.dsl.soa.SecurityScheme;
 import org.obeonetwork.dsl.soa.SecuritySchemeType;
 import org.obeonetwork.dsl.soa.Service;
@@ -170,6 +171,13 @@ public class SoaPackageImpl extends EPackageImpl implements SoaPackage {
 	 * @generated
 	 */
 	private EClass exampleEClass = null;
+	
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass propertiesExtensionEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -925,7 +933,7 @@ public class SoaPackageImpl extends EPackageImpl implements SoaPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getInformation_Version() {
+	public EAttribute getInformation_ApiVersion() {
 		return (EAttribute)informationEClass.getEStructuralFeatures().get(0);
 	}
 
@@ -1062,6 +1070,18 @@ public class SoaPackageImpl extends EPackageImpl implements SoaPackage {
 	 */
 	public EAttribute getExample_Name() {
 		return (EAttribute)exampleEClass.getEStructuralFeatures().get(2);
+	}
+	public EClass getPropertiesExtension() {
+		return propertiesExtensionEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getPropertiesExtension_Context() {
+		return (EAttribute)propertiesExtensionEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -1253,7 +1273,7 @@ public class SoaPackageImpl extends EPackageImpl implements SoaPackage {
 		createEAttribute(securitySchemeEClass, SECURITY_SCHEME__API_KEY_LOCATION);
 
 		informationEClass = createEClass(INFORMATION);
-		createEAttribute(informationEClass, INFORMATION__VERSION);
+		createEAttribute(informationEClass, INFORMATION__API_VERSION);
 		createEAttribute(informationEClass, INFORMATION__TERMS_OF_SERVICE);
 
 		contactEClass = createEClass(CONTACT);
@@ -1273,6 +1293,9 @@ public class SoaPackageImpl extends EPackageImpl implements SoaPackage {
 		createEAttribute(exampleEClass, EXAMPLE__SUMMARY);
 		createEAttribute(exampleEClass, EXAMPLE__VALUE);
 		createEAttribute(exampleEClass, EXAMPLE__NAME);
+
+		propertiesExtensionEClass = createEClass(PROPERTIES_EXTENSION);
+		createEAttribute(propertiesExtensionEClass, PROPERTIES_EXTENSION__CONTEXT);
 
 		// Create enums
 		interfaceKindEEnum = createEEnum(INTERFACE_KIND);
@@ -1329,8 +1352,12 @@ public class SoaPackageImpl extends EPackageImpl implements SoaPackage {
 		parameterEClass.getESuperTypes().add(theEnvironmentPackage.getObeoDSMObject());
 		parameterRestDataEClass.getESuperTypes().add(theTechnicalIDPackage.getIdentifiable());
 		securitySchemeEClass.getESuperTypes().add(theEnvironmentPackage.getObeoDSMObject());
+		informationEClass.getESuperTypes().add(theEnvironmentPackage.getObeoDSMObject());
+		contactEClass.getESuperTypes().add(theEnvironmentPackage.getObeoDSMObject());
+		licenseEClass.getESuperTypes().add(theEnvironmentPackage.getObeoDSMObject());
 		mediaTypeEClass.getESuperTypes().add(theEnvironmentPackage.getObeoDSMObject());
 		exampleEClass.getESuperTypes().add(theEnvironmentPackage.getObeoDSMObject());
+		propertiesExtensionEClass.getESuperTypes().add(theEnvironmentPackage.getAnnotation());
 
 		// Initialize classes and features; add operations and parameters
 		initEClass(systemEClass, org.obeonetwork.dsl.soa.System.class, "System", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -1413,7 +1440,7 @@ public class SoaPackageImpl extends EPackageImpl implements SoaPackage {
 		initEAttribute(getSecurityScheme_ApiKeyLocation(), this.getApiKeyLocation(), "apiKeyLocation", null, 0, 1, SecurityScheme.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(informationEClass, Information.class, "Information", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getInformation_Version(), ecorePackage.getEString(), "version", null, 0, 1, Information.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getInformation_ApiVersion(), ecorePackage.getEString(), "apiVersion", null, 0, 1, Information.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getInformation_TermsOfService(), ecorePackage.getEString(), "termsOfService", null, 0, 1, Information.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(contactEClass, Contact.class, "Contact", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -1433,6 +1460,9 @@ public class SoaPackageImpl extends EPackageImpl implements SoaPackage {
 		initEAttribute(getExample_Summary(), ecorePackage.getEString(), "summary", null, 0, 1, Example.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getExample_Value(), ecorePackage.getEString(), "value", null, 0, 1, Example.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getExample_Name(), ecorePackage.getEString(), "name", null, 0, 1, Example.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(propertiesExtensionEClass, PropertiesExtension.class, "PropertiesExtension", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getPropertiesExtension_Context(), ecorePackage.getEString(), "context", null, 0, 1, PropertiesExtension.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		// Initialize enums and add enum literals
 		initEEnum(interfaceKindEEnum, InterfaceKind.class, "InterfaceKind");
@@ -1573,7 +1603,7 @@ public class SoaPackageImpl extends EPackageImpl implements SoaPackage {
 		  (getComponent_ApiVersion(),
 		   source,
 		   new String[] {
-			   "get", "return getInformation().getVersion();"
+			   "get", "return getInformation().getApiVersion();"
 		   });
 		addAnnotation
 		  (getComponent_Deprecated(),
@@ -1810,7 +1840,7 @@ public class SoaPackageImpl extends EPackageImpl implements SoaPackage {
 			   "documentation", "Provides metadata about the API."
 		   });
 		addAnnotation
-		  (getInformation_Version(),
+		  (getInformation_ApiVersion(),
 		   source,
 		   new String[] {
 			   "documentation", "The version of the API definition (which is distinct from the OpenAPI specification version or the API implementation version)."

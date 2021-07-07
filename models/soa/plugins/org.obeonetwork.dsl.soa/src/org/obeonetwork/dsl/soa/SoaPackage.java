@@ -1670,13 +1670,94 @@ public interface SoaPackage extends EPackage {
 	int INFORMATION = 11;
 
 	/**
+	 * The feature id for the '<em><b>Technicalid</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int INFORMATION__TECHNICALID = EnvironmentPackage.OBEO_DSM_OBJECT__TECHNICALID;
+
+	/**
+	 * The feature id for the '<em><b>Metadatas</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int INFORMATION__METADATAS = EnvironmentPackage.OBEO_DSM_OBJECT__METADATAS;
+
+	/**
+	 * The feature id for the '<em><b>Description</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int INFORMATION__DESCRIPTION = EnvironmentPackage.OBEO_DSM_OBJECT__DESCRIPTION;
+
+	/**
+	 * The feature id for the '<em><b>Keywords</b></em>' attribute list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int INFORMATION__KEYWORDS = EnvironmentPackage.OBEO_DSM_OBJECT__KEYWORDS;
+
+	/**
+	 * The feature id for the '<em><b>Behaviours</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int INFORMATION__BEHAVIOURS = EnvironmentPackage.OBEO_DSM_OBJECT__BEHAVIOURS;
+
+	/**
+	 * The feature id for the '<em><b>Binding Registries</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int INFORMATION__BINDING_REGISTRIES = EnvironmentPackage.OBEO_DSM_OBJECT__BINDING_REGISTRIES;
+
+	/**
 	 * The feature id for the '<em><b>Version</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int INFORMATION__VERSION = 0;
+	int INFORMATION__VERSION = EnvironmentPackage.OBEO_DSM_OBJECT__VERSION;
+
+	/**
+	 * The feature id for the '<em><b>Created On</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int INFORMATION__CREATED_ON = EnvironmentPackage.OBEO_DSM_OBJECT__CREATED_ON;
+
+	/**
+	 * The feature id for the '<em><b>Modified On</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int INFORMATION__MODIFIED_ON = EnvironmentPackage.OBEO_DSM_OBJECT__MODIFIED_ON;
+
+	/**
+	 * The feature id for the '<em><b>Api Version</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int INFORMATION__API_VERSION = EnvironmentPackage.OBEO_DSM_OBJECT_FEATURE_COUNT + 0;
 
 	/**
 	 * The feature id for the '<em><b>Terms Of Service</b></em>' attribute.
@@ -1685,7 +1766,7 @@ public interface SoaPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int INFORMATION__TERMS_OF_SERVICE = 1;
+	int INFORMATION__TERMS_OF_SERVICE = EnvironmentPackage.OBEO_DSM_OBJECT_FEATURE_COUNT + 1;
 
 	/**
 	 * The number of structural features of the '<em>Information</em>' class.
@@ -1694,7 +1775,7 @@ public interface SoaPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int INFORMATION_FEATURE_COUNT = 2;
+	int INFORMATION_FEATURE_COUNT = EnvironmentPackage.OBEO_DSM_OBJECT_FEATURE_COUNT + 2;
 
 	/**
 	 * The meta object id for the '{@link org.obeonetwork.dsl.soa.impl.ContactImpl <em>Contact</em>}' class.
@@ -1707,13 +1788,94 @@ public interface SoaPackage extends EPackage {
 	int CONTACT = 12;
 
 	/**
+	 * The feature id for the '<em><b>Technicalid</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONTACT__TECHNICALID = EnvironmentPackage.OBEO_DSM_OBJECT__TECHNICALID;
+
+	/**
+	 * The feature id for the '<em><b>Metadatas</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONTACT__METADATAS = EnvironmentPackage.OBEO_DSM_OBJECT__METADATAS;
+
+	/**
+	 * The feature id for the '<em><b>Description</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONTACT__DESCRIPTION = EnvironmentPackage.OBEO_DSM_OBJECT__DESCRIPTION;
+
+	/**
+	 * The feature id for the '<em><b>Keywords</b></em>' attribute list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONTACT__KEYWORDS = EnvironmentPackage.OBEO_DSM_OBJECT__KEYWORDS;
+
+	/**
+	 * The feature id for the '<em><b>Behaviours</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONTACT__BEHAVIOURS = EnvironmentPackage.OBEO_DSM_OBJECT__BEHAVIOURS;
+
+	/**
+	 * The feature id for the '<em><b>Binding Registries</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONTACT__BINDING_REGISTRIES = EnvironmentPackage.OBEO_DSM_OBJECT__BINDING_REGISTRIES;
+
+	/**
+	 * The feature id for the '<em><b>Version</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONTACT__VERSION = EnvironmentPackage.OBEO_DSM_OBJECT__VERSION;
+
+	/**
+	 * The feature id for the '<em><b>Created On</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONTACT__CREATED_ON = EnvironmentPackage.OBEO_DSM_OBJECT__CREATED_ON;
+
+	/**
+	 * The feature id for the '<em><b>Modified On</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONTACT__MODIFIED_ON = EnvironmentPackage.OBEO_DSM_OBJECT__MODIFIED_ON;
+
+	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int CONTACT__NAME = 0;
+	int CONTACT__NAME = EnvironmentPackage.OBEO_DSM_OBJECT_FEATURE_COUNT + 0;
 
 	/**
 	 * The feature id for the '<em><b>URL</b></em>' attribute.
@@ -1722,7 +1884,7 @@ public interface SoaPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int CONTACT__URL = 1;
+	int CONTACT__URL = EnvironmentPackage.OBEO_DSM_OBJECT_FEATURE_COUNT + 1;
 
 	/**
 	 * The feature id for the '<em><b>Email</b></em>' attribute.
@@ -1731,7 +1893,7 @@ public interface SoaPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int CONTACT__EMAIL = 2;
+	int CONTACT__EMAIL = EnvironmentPackage.OBEO_DSM_OBJECT_FEATURE_COUNT + 2;
 
 	/**
 	 * The number of structural features of the '<em>Contact</em>' class.
@@ -1740,7 +1902,7 @@ public interface SoaPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int CONTACT_FEATURE_COUNT = 3;
+	int CONTACT_FEATURE_COUNT = EnvironmentPackage.OBEO_DSM_OBJECT_FEATURE_COUNT + 3;
 
 	/**
 	 * The meta object id for the '{@link org.obeonetwork.dsl.soa.impl.LicenseImpl <em>License</em>}' class.
@@ -1753,13 +1915,94 @@ public interface SoaPackage extends EPackage {
 	int LICENSE = 13;
 
 	/**
+	 * The feature id for the '<em><b>Technicalid</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LICENSE__TECHNICALID = EnvironmentPackage.OBEO_DSM_OBJECT__TECHNICALID;
+
+	/**
+	 * The feature id for the '<em><b>Metadatas</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LICENSE__METADATAS = EnvironmentPackage.OBEO_DSM_OBJECT__METADATAS;
+
+	/**
+	 * The feature id for the '<em><b>Description</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LICENSE__DESCRIPTION = EnvironmentPackage.OBEO_DSM_OBJECT__DESCRIPTION;
+
+	/**
+	 * The feature id for the '<em><b>Keywords</b></em>' attribute list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LICENSE__KEYWORDS = EnvironmentPackage.OBEO_DSM_OBJECT__KEYWORDS;
+
+	/**
+	 * The feature id for the '<em><b>Behaviours</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LICENSE__BEHAVIOURS = EnvironmentPackage.OBEO_DSM_OBJECT__BEHAVIOURS;
+
+	/**
+	 * The feature id for the '<em><b>Binding Registries</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LICENSE__BINDING_REGISTRIES = EnvironmentPackage.OBEO_DSM_OBJECT__BINDING_REGISTRIES;
+
+	/**
+	 * The feature id for the '<em><b>Version</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LICENSE__VERSION = EnvironmentPackage.OBEO_DSM_OBJECT__VERSION;
+
+	/**
+	 * The feature id for the '<em><b>Created On</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LICENSE__CREATED_ON = EnvironmentPackage.OBEO_DSM_OBJECT__CREATED_ON;
+
+	/**
+	 * The feature id for the '<em><b>Modified On</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LICENSE__MODIFIED_ON = EnvironmentPackage.OBEO_DSM_OBJECT__MODIFIED_ON;
+
+	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int LICENSE__NAME = 0;
+	int LICENSE__NAME = EnvironmentPackage.OBEO_DSM_OBJECT_FEATURE_COUNT + 0;
 
 	/**
 	 * The feature id for the '<em><b>URL</b></em>' attribute.
@@ -1768,7 +2011,7 @@ public interface SoaPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int LICENSE__URL = 1;
+	int LICENSE__URL = EnvironmentPackage.OBEO_DSM_OBJECT_FEATURE_COUNT + 1;
 
 	/**
 	 * The number of structural features of the '<em>License</em>' class.
@@ -1777,7 +2020,7 @@ public interface SoaPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int LICENSE_FEATURE_COUNT = 2;
+	int LICENSE_FEATURE_COUNT = EnvironmentPackage.OBEO_DSM_OBJECT_FEATURE_COUNT + 2;
 
 	/**
 	 * The meta object id for the '{@link org.obeonetwork.dsl.soa.impl.MediaTypeImpl <em>Media Type</em>}' class.
@@ -1788,6 +2031,16 @@ public interface SoaPackage extends EPackage {
 	 * @generated
 	 */
 	int MEDIA_TYPE = 14;
+
+	/**
+	 * The meta object id for the '{@link org.obeonetwork.dsl.soa.impl.ExampleImpl <em>Example</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.obeonetwork.dsl.soa.impl.ExampleImpl
+	 * @see org.obeonetwork.dsl.soa.impl.SoaPackageImpl#getExample()
+	 * @generated
+	 */
+	int EXAMPLE = 15;
 
 	/**
 	 * The feature id for the '<em><b>Technicalid</b></em>' attribute.
@@ -1896,16 +2149,6 @@ public interface SoaPackage extends EPackage {
 	 * @ordered
 	 */
 	int MEDIA_TYPE_FEATURE_COUNT = EnvironmentPackage.OBEO_DSM_OBJECT_FEATURE_COUNT + 2;
-
-	/**
-	 * The meta object id for the '{@link org.obeonetwork.dsl.soa.impl.ExampleImpl <em>Example</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see org.obeonetwork.dsl.soa.impl.ExampleImpl
-	 * @see org.obeonetwork.dsl.soa.impl.SoaPackageImpl#getExample()
-	 * @generated
-	 */
-	int EXAMPLE = 15;
 
 	/**
 	 * The feature id for the '<em><b>Technicalid</b></em>' attribute.
@@ -2025,6 +2268,61 @@ public interface SoaPackage extends EPackage {
 	int EXAMPLE_FEATURE_COUNT = EnvironmentPackage.OBEO_DSM_OBJECT_FEATURE_COUNT + 3;
 
 	/**
+	 * The meta object id for the '{@link org.obeonetwork.dsl.soa.impl.PropertiesExtensionImpl <em>Properties Extension</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.obeonetwork.dsl.soa.impl.PropertiesExtensionImpl
+	 * @see org.obeonetwork.dsl.soa.impl.SoaPackageImpl#getPropertiesExtension()
+	 * @generated
+	 */
+	int PROPERTIES_EXTENSION = 16;
+
+	/**
+	 * The feature id for the '<em><b>Technicalid</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROPERTIES_EXTENSION__TECHNICALID = EnvironmentPackage.ANNOTATION__TECHNICALID;
+
+	/**
+	 * The feature id for the '<em><b>Title</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROPERTIES_EXTENSION__TITLE = EnvironmentPackage.ANNOTATION__TITLE;
+
+	/**
+	 * The feature id for the '<em><b>Body</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROPERTIES_EXTENSION__BODY = EnvironmentPackage.ANNOTATION__BODY;
+
+	/**
+	 * The feature id for the '<em><b>Context</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROPERTIES_EXTENSION__CONTEXT = EnvironmentPackage.ANNOTATION_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of structural features of the '<em>Properties Extension</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROPERTIES_EXTENSION_FEATURE_COUNT = EnvironmentPackage.ANNOTATION_FEATURE_COUNT + 1;
+
+	/**
 	 * The meta object id for the '{@link org.obeonetwork.dsl.soa.InterfaceKind <em>Interface Kind</em>}' enum.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2032,7 +2330,7 @@ public interface SoaPackage extends EPackage {
 	 * @see org.obeonetwork.dsl.soa.impl.SoaPackageImpl#getInterfaceKind()
 	 * @generated
 	 */
-	int INTERFACE_KIND = 16;
+	int INTERFACE_KIND = 17;
 
 	/**
 	 * The meta object id for the '{@link org.obeonetwork.dsl.soa.SynchronizationKind <em>Synchronization Kind</em>}' enum.
@@ -2042,7 +2340,7 @@ public interface SoaPackage extends EPackage {
 	 * @see org.obeonetwork.dsl.soa.impl.SoaPackageImpl#getSynchronizationKind()
 	 * @generated
 	 */
-	int SYNCHRONIZATION_KIND = 17;
+	int SYNCHRONIZATION_KIND = 18;
 
 	/**
 	 * The meta object id for the '{@link org.obeonetwork.dsl.soa.BindingKind <em>Binding Kind</em>}' enum.
@@ -2052,7 +2350,7 @@ public interface SoaPackage extends EPackage {
 	 * @see org.obeonetwork.dsl.soa.impl.SoaPackageImpl#getBindingKind()
 	 * @generated
 	 */
-	int BINDING_KIND = 18;
+	int BINDING_KIND = 19;
 
 	/**
 	 * The meta object id for the '{@link org.obeonetwork.dsl.soa.OperationKind <em>Operation Kind</em>}' enum.
@@ -2062,7 +2360,7 @@ public interface SoaPackage extends EPackage {
 	 * @see org.obeonetwork.dsl.soa.impl.SoaPackageImpl#getOperationKind()
 	 * @generated
 	 */
-	int OPERATION_KIND = 19;
+	int OPERATION_KIND = 20;
 
 	/**
 	 * The meta object id for the '{@link org.obeonetwork.dsl.soa.Verb <em>Verb</em>}' enum.
@@ -2072,7 +2370,7 @@ public interface SoaPackage extends EPackage {
 	 * @see org.obeonetwork.dsl.soa.impl.SoaPackageImpl#getVerb()
 	 * @generated
 	 */
-	int VERB = 20;
+	int VERB = 21;
 
 	/**
 	 * The meta object id for the '{@link org.obeonetwork.dsl.soa.ParameterPassingMode <em>Parameter Passing Mode</em>}' enum.
@@ -2082,7 +2380,7 @@ public interface SoaPackage extends EPackage {
 	 * @see org.obeonetwork.dsl.soa.impl.SoaPackageImpl#getParameterPassingMode()
 	 * @generated
 	 */
-	int PARAMETER_PASSING_MODE = 21;
+	int PARAMETER_PASSING_MODE = 22;
 
 	/**
 	 * The meta object id for the '{@link org.obeonetwork.dsl.soa.ExpositionKind <em>Exposition Kind</em>}' enum.
@@ -2092,7 +2390,7 @@ public interface SoaPackage extends EPackage {
 	 * @see org.obeonetwork.dsl.soa.impl.SoaPackageImpl#getExpositionKind()
 	 * @generated
 	 */
-	int EXPOSITION_KIND = 22;
+	int EXPOSITION_KIND = 23;
 
 	/**
 	 * The meta object id for the '{@link org.obeonetwork.dsl.soa.SecuritySchemeType <em>Security Scheme Type</em>}' enum.
@@ -2102,7 +2400,7 @@ public interface SoaPackage extends EPackage {
 	 * @see org.obeonetwork.dsl.soa.impl.SoaPackageImpl#getSecuritySchemeType()
 	 * @generated
 	 */
-	int SECURITY_SCHEME_TYPE = 23;
+	int SECURITY_SCHEME_TYPE = 24;
 
 	/**
 	 * The meta object id for the '{@link org.obeonetwork.dsl.soa.ApiKeyLocation <em>Api Key Location</em>}' enum.
@@ -2112,7 +2410,7 @@ public interface SoaPackage extends EPackage {
 	 * @see org.obeonetwork.dsl.soa.impl.SoaPackageImpl#getApiKeyLocation()
 	 * @generated
 	 */
-	int API_KEY_LOCATION = 24;
+	int API_KEY_LOCATION = 25;
 
 	/**
 	 * Returns the meta object for class '{@link org.obeonetwork.dsl.soa.System <em>System</em>}'.
@@ -2862,15 +3160,15 @@ public interface SoaPackage extends EPackage {
 	EClass getInformation();
 
 	/**
-	 * Returns the meta object for the attribute '{@link org.obeonetwork.dsl.soa.Information#getVersion <em>Version</em>}'.
+	 * Returns the meta object for the attribute '{@link org.obeonetwork.dsl.soa.Information#getApiVersion <em>Api Version</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Version</em>'.
-	 * @see org.obeonetwork.dsl.soa.Information#getVersion()
+	 * @return the meta object for the attribute '<em>Api Version</em>'.
+	 * @see org.obeonetwork.dsl.soa.Information#getApiVersion()
 	 * @see #getInformation()
 	 * @generated
 	 */
-	EAttribute getInformation_Version();
+	EAttribute getInformation_ApiVersion();
 
 	/**
 	 * Returns the meta object for the attribute '{@link org.obeonetwork.dsl.soa.Information#getTermsOfService <em>Terms Of Service</em>}'.
@@ -3032,6 +3330,27 @@ public interface SoaPackage extends EPackage {
 	 * @generated
 	 */
 	EAttribute getExample_Name();
+
+	/**
+	 * Returns the meta object for class '{@link org.obeonetwork.dsl.soa.PropertiesExtension <em>Properties Extension</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Properties Extension</em>'.
+	 * @see org.obeonetwork.dsl.soa.PropertiesExtension
+	 * @generated
+	 */
+	EClass getPropertiesExtension();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.obeonetwork.dsl.soa.PropertiesExtension#getContext <em>Context</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Context</em>'.
+	 * @see org.obeonetwork.dsl.soa.PropertiesExtension#getContext()
+	 * @see #getPropertiesExtension()
+	 * @generated
+	 */
+	EAttribute getPropertiesExtension_Context();
 
 	/**
 	 * Returns the meta object for enum '{@link org.obeonetwork.dsl.soa.InterfaceKind <em>Interface Kind</em>}'.
@@ -3722,12 +4041,12 @@ public interface SoaPackage extends EPackage {
 		EClass INFORMATION = eINSTANCE.getInformation();
 
 		/**
-		 * The meta object literal for the '<em><b>Version</b></em>' attribute feature.
+		 * The meta object literal for the '<em><b>Api Version</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute INFORMATION__VERSION = eINSTANCE.getInformation_Version();
+		EAttribute INFORMATION__API_VERSION = eINSTANCE.getInformation_ApiVersion();
 
 		/**
 		 * The meta object literal for the '<em><b>Terms Of Service</b></em>' attribute feature.
@@ -3856,6 +4175,24 @@ public interface SoaPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute EXAMPLE__NAME = eINSTANCE.getExample_Name();
+
+		/**
+		 * The meta object literal for the '{@link org.obeonetwork.dsl.soa.impl.PropertiesExtensionImpl <em>Properties Extension</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.obeonetwork.dsl.soa.impl.PropertiesExtensionImpl
+		 * @see org.obeonetwork.dsl.soa.impl.SoaPackageImpl#getPropertiesExtension()
+		 * @generated
+		 */
+		EClass PROPERTIES_EXTENSION = eINSTANCE.getPropertiesExtension();
+
+		/**
+		 * The meta object literal for the '<em><b>Context</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute PROPERTIES_EXTENSION__CONTEXT = eINSTANCE.getPropertiesExtension_Context();
 
 		/**
 		 * The meta object literal for the '{@link org.obeonetwork.dsl.soa.InterfaceKind <em>Interface Kind</em>}' enum.

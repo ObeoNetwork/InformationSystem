@@ -452,6 +452,28 @@ public class SoaItemProviderAdapterFactory extends SoaAdapterFactory implements 
 
 		return exampleItemProvider;
 	}
+		/**
+	 * This keeps track of the one adapter used for all {@link org.obeonetwork.dsl.soa.PropertiesExtension} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected PropertiesExtensionItemProvider propertiesExtensionItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link org.obeonetwork.dsl.soa.PropertiesExtension}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createPropertiesExtensionAdapter() {
+		if (propertiesExtensionItemProvider == null) {
+			propertiesExtensionItemProvider = new PropertiesExtensionItemProvider(this);
+		}
+
+		return propertiesExtensionItemProvider;
+	}
 
 	/**
 	 * This returns the root adapter factory that contains this factory.
@@ -568,6 +590,7 @@ public class SoaItemProviderAdapterFactory extends SoaAdapterFactory implements 
 		if (licenseItemProvider != null) licenseItemProvider.dispose();
 		if (mediaTypeItemProvider != null) mediaTypeItemProvider.dispose();
 		if (exampleItemProvider != null) exampleItemProvider.dispose();
+		if (propertiesExtensionItemProvider != null) propertiesExtensionItemProvider.dispose();
 	}
 
 }

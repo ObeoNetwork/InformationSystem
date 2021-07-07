@@ -14,6 +14,8 @@ import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.util.Switch;
 import org.obeonetwork.dsl.environment.Action;
+import org.obeonetwork.dsl.environment.Annotation;
+import org.obeonetwork.dsl.environment.MetaData;
 import org.obeonetwork.dsl.environment.Namespace;
 import org.obeonetwork.dsl.environment.NamespacesContainer;
 import org.obeonetwork.dsl.environment.ObeoDSMObject;
@@ -30,6 +32,7 @@ import org.obeonetwork.dsl.soa.MediaType;
 import org.obeonetwork.dsl.soa.Operation;
 import org.obeonetwork.dsl.soa.Parameter;
 import org.obeonetwork.dsl.soa.ParameterRestData;
+import org.obeonetwork.dsl.soa.PropertiesExtension;
 import org.obeonetwork.dsl.soa.SecurityScheme;
 import org.obeonetwork.dsl.soa.Service;
 import org.obeonetwork.dsl.soa.SoaPackage;
@@ -193,18 +196,24 @@ public class SoaSwitch<T> extends Switch<T> {
 			case SoaPackage.INFORMATION: {
 				Information information = (Information)theEObject;
 				T result = caseInformation(information);
+				if (result == null) result = caseObeoDSMObject(information);
+				if (result == null) result = caseIdentifiable(information);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
 			case SoaPackage.CONTACT: {
 				Contact contact = (Contact)theEObject;
 				T result = caseContact(contact);
+				if (result == null) result = caseObeoDSMObject(contact);
+				if (result == null) result = caseIdentifiable(contact);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
 			case SoaPackage.LICENSE: {
 				License license = (License)theEObject;
 				T result = caseLicense(license);
+				if (result == null) result = caseObeoDSMObject(license);
+				if (result == null) result = caseIdentifiable(license);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -221,6 +230,15 @@ public class SoaSwitch<T> extends Switch<T> {
 				T result = caseExample(example);
 				if (result == null) result = caseObeoDSMObject(example);
 				if (result == null) result = caseIdentifiable(example);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case SoaPackage.PROPERTIES_EXTENSION: {
+				PropertiesExtension propertiesExtension = (PropertiesExtension)theEObject;
+				T result = casePropertiesExtension(propertiesExtension);
+				if (result == null) result = caseAnnotation(propertiesExtension);
+				if (result == null) result = caseMetaData(propertiesExtension);
+				if (result == null) result = caseIdentifiable(propertiesExtension);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -467,6 +485,20 @@ public class SoaSwitch<T> extends Switch<T> {
 	public T caseExample(Example object) {
 		return null;
 	}
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Properties Extension</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Properties Extension</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T casePropertiesExtension(PropertiesExtension object) {
+		return null;
+	}
 
 	/**
 	 * Returns the result of interpreting the object as an instance of '<em>Identifiable</em>'.
@@ -510,6 +542,36 @@ public class SoaSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseAction(Action object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Meta Data</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Meta Data</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseMetaData(MetaData object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Annotation</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Annotation</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseAnnotation(Annotation object) {
 		return null;
 	}
 

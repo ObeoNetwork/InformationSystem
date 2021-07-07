@@ -21,9 +21,15 @@
     <ownedServices xmi:id="_1dHhgGBBEeSjza5bRaI8SA" createdOn="2014-10-30T15:34:22.100+0100" modifiedOn="2014-10-30T15:34:26.431+0100" synchronization="asynchrone" name="provided2"/>
     <ownedServices xmi:id="_20Y2cGBBEeSjza5bRaI8SA" createdOn="2014-10-30T15:34:32.342+0100" modifiedOn="2014-10-30T15:34:34.782+0100" kind="required" name="required1"/>
     <ownedServices xmi:id="_4FRPgGBBEeSjza5bRaI8SA" createdOn="2014-10-30T15:34:39.772+0100" modifiedOn="2014-10-30T15:34:43.912+0100" synchronization="asynchrone" kind="required" name="required2"/>
+    <license xmi:id="_JxA9UOO6EeudZZy0f7SE1g"/>
+    <information xmi:id="_JxA9UeO6EeudZZy0f7SE1g"/>
+    <contact xmi:id="_JxA9UuO6EeudZZy0f7SE1g"/>
   </ownedComponents>
   <ownedComponents xmi:id="_yJPV8GBBEeSjza5bRaI8SA" createdOn="2014-10-30T15:34:00.503+0100" modifiedOn="2014-10-30T15:34:48.448+0100" name="Cpt2">
     <ownedServices xmi:id="_5oOQAGBBEeSjza5bRaI8SA" createdOn="2014-10-30T15:34:53.518+0100" modifiedOn="2014-10-30T15:34:53.528+0100" name="provided21"/>
+    <license xmi:id="_JxA9U-O6EeudZZy0f7SE1g"/>
+    <information xmi:id="_JxA9VOO6EeudZZy0f7SE1g"/>
+    <contact xmi:id="_JxA9VeO6EeudZZy0f7SE1g"/>
   </ownedComponents>
   <ownedWires xmi:id="_Pk6mQGBBEeSjza5bRaI8SA" createdOn="2014-10-30T15:35:02.279+0100" modifiedOn="2014-10-30T15:35:06.773+0100" source="_zGMGYGBBEeSjza5bRaI8SA" dest="_5oOQAGBBEeSjza5bRaI8SA"/>
   <ownedWires xmi:id="_9Y66cGBBEeSjza5bRaI8SA" createdOn="2014-10-30T15:35:18.317+0100" modifiedOn="2014-10-30T15:35:23.117+0100" source="_20Y2cGBBEeSjza5bRaI8SA" dest="_5oOQAGBBEeSjza5bRaI8SA"/>

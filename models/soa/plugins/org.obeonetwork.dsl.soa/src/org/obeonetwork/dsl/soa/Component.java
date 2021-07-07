@@ -265,7 +265,7 @@ public interface Component extends ObeoDSMObject {
 	 * @see #setApiVersion(String)
 	 * @see org.obeonetwork.dsl.soa.SoaPackage#getComponent_ApiVersion()
 	 * @model volatile="true" derived="true"
-	 *        annotation="http://www.eclipse.org/emf/2002/GenModel get='return getInformation().getVersion();'"
+	 *        annotation="http://www.eclipse.org/emf/2002/GenModel get='return getInformation().getApiVersion();'"
 	 * @generated
 	 */
 	String getApiVersion();

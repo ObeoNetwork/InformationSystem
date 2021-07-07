@@ -322,7 +322,7 @@
     </ownedServices>
     <securitySchemes xmi:id="_nnBOWGxsEeuYi_YuNNGyqg" technicalid="_ZP07cGxrEeuYi_YuNNGyqg" key="basicAuth" type="http"/>
     <license xmi:id="_7aZroNToEeuCgeVTfXBG7g" name="Apache 2.0" URL="http://www.apache.org/licenses/LICENSE-2.0.html"/>
-    <information xmi:id="_7aZrodToEeuCgeVTfXBG7g" version="1.0.0" termsOfService="/tos"/>
+    <information xmi:id="_7aZrodToEeuCgeVTfXBG7g" apiVersion="1.0.0" termsOfService="/tos"/>
     <contact xmi:id="_7aZrotToEeuCgeVTfXBG7g" name="Obeo" URL="https://contact.obeosoft.com/" email="contact@obeosoft.com"/>
   </ownedComponents>
 </soa:System>

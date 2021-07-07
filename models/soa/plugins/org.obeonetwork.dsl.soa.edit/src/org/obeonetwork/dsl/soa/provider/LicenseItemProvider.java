@@ -30,6 +30,7 @@ import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ItemProviderAdapter;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 
+import org.obeonetwork.dsl.environment.provider.ObeoDSMObjectItemProvider;
 import org.obeonetwork.dsl.soa.License;
 import org.obeonetwork.dsl.soa.SoaPackage;
 
@@ -40,13 +41,7 @@ import org.obeonetwork.dsl.soa.SoaPackage;
  * @generated
  */
 public class LicenseItemProvider 
-	extends ItemProviderAdapter
-	implements
-		IEditingDomainItemProvider,
-		IStructuredItemContentProvider,
-		ITreeItemContentProvider,
-		IItemLabelProvider,
-		IItemPropertySource {
+	extends ObeoDSMObjectItemProvider {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -129,11 +124,11 @@ public class LicenseItemProvider
 	 * This returns License.gif.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/License"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/License.png"));
 	}
 
 	/**

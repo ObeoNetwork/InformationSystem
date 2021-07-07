@@ -14,6 +14,7 @@ import org.eclipse.emf.ecore.EClass;
 
 import org.eclipse.emf.internal.cdo.CDOObjectImpl;
 
+import org.obeonetwork.dsl.environment.impl.ObeoDSMObjectImpl;
 import org.obeonetwork.dsl.soa.License;
 import org.obeonetwork.dsl.soa.SoaPackage;
 
@@ -31,7 +32,7 @@ import org.obeonetwork.dsl.soa.SoaPackage;
  *
  * @generated
  */
-public class LicenseImpl extends CDOObjectImpl implements License {
+public class LicenseImpl extends ObeoDSMObjectImpl implements License {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -76,16 +77,6 @@ public class LicenseImpl extends CDOObjectImpl implements License {
 	@Override
 	protected EClass eStaticClass() {
 		return SoaPackage.Literals.LICENSE;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	protected int eStaticFeatureCount() {
-		return 0;
 	}
 
 	/**

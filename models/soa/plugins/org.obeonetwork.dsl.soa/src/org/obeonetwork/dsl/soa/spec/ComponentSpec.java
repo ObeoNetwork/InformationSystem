@@ -29,7 +29,7 @@ public class ComponentSpec extends ComponentImpl {
 	 */
 	@Override
 	public void setApiVersion(String newApiVersion) {
-		getInformation().setVersion(newApiVersion);
+		getInformation().setApiVersion(newApiVersion);
 	}
 
 }

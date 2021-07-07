@@ -706,29 +706,13 @@
   },
   "components" : {
     "schemas" : {
-      "Repository" : {
-        "type" : "object",
-        "properties" : {
-          "datasourceType" : {
-            "$ref" : "#/components/schemas/DatasourceType"
-          },
-          "authenticationType" : {
-            "$ref" : "#/components/schemas/AuthenticationType"
-          },
-          "repositorName" : {
-            "type" : "string"
-          },
-          "type" : {
-            "$ref" : "#/components/schemas/Type"
-          },
-          "status" : {
-            "$ref" : "#/components/schemas/Status"
-          }
-        }
-      },
       "AuthenticationType" : {
         "type" : "string",
         "enum" : [ "", "LDAP_FILE", "LDAP", "USERPROFILE", "LDAP_USERPROFILE", "FILE" ]
+      },
+      "DatasourceType" : {
+        "type" : "string",
+        "enum" : [ "H2_EMBEDDED", "H2_SERVER" ]
       },
       "NewRepository" : {
         "required" : [ "authenticationType", "datasourceType" ],
@@ -751,23 +735,6 @@
           }
         }
       },
-      "Repositories_GetRepositoriesOutput200" : {
-        "type" : "object",
-        "properties" : {
-          "message" : {
-            "type" : "string"
-          },
-          "status" : {
-            "type" : "string"
-          },
-          "repositories" : {
-            "type" : "array",
-            "items" : {
-              "$ref" : "#/components/schemas/Repository"
-            }
-          }
-        }
-      },
       "NewUser" : {
         "required" : [ "id", "isAdmin" ],
         "type" : "object",
@@ -785,147 +752,6 @@
             "type" : "array",
             "items" : {
               "type" : "string"
-            }
-          }
-        }
-      },
-      "Repositories_ImportRepositoryBody" : {
-        "type" : "object",
-        "properties" : {
-          "upFile" : {
-            "type" : "string",
-            "format" : "binary"
-          }
-        }
-      },
-      "Projects_CreateSharedProjectOutput201" : {
-        "type" : "object",
-        "properties" : {
-          "projectName" : {
-            "type" : "string"
-          },
-          "message" : {
-            "type" : "string"
-          },
-          "status" : {
-            "type" : "string"
-          }
-        }
-      },
-      "Repositories_ExportRepositoryBody" : {
-        "required" : [ "needsEncryption" ],
-        "type" : "object",
-        "properties" : {
-          "password" : {
-            "type" : "string"
-          },
-          "needsEncryption" : {
-            "type" : "boolean"
-          }
-        }
-      },
-      "User" : {
-        "type" : "object",
-        "properties" : {
-          "id" : {
-            "type" : "string"
-          },
-          "isAdmin" : {
-            "type" : "boolean"
-          },
-          "permissions" : {
-            "type" : "array",
-            "items" : {
-              "type" : "string"
-            }
-          }
-        }
-      },
-      "Repositories_StopRepositoryOutput200" : {
-        "type" : "object",
-        "properties" : {
-          "message" : {
-            "type" : "string"
-          },
-          "status" : {
-            "type" : "string"
-          },
-          "repository" : {
-            "$ref" : "#/components/schemas/SimpleRepository"
-          }
-        }
-      },
-      "SimpleRepository" : {
-        "type" : "object",
-        "properties" : {
-          "repositorName" : {
-            "type" : "string"
-          },
-          "type" : {
-            "$ref" : "#/components/schemas/Type"
-          },
-          "status" : {
-            "$ref" : "#/components/schemas/Status"
-          }
-        }
-      },
-      "Repositories_Output201Output200" : {
-        "type" : "object",
-        "properties" : {
-          "message" : {
-            "type" : "string"
-          },
-          "status" : {
-            "type" : "string"
-          },
-          "repository" : {
-            "$ref" : "#/components/schemas/Repository"
-          }
-        }
-      },
-      "Type" : {
-        "type" : "string",
-        "enum" : [ "STATIC", "DYNAMIC" ]
-      },
-      "Users_Output200" : {
-        "type" : "object",
-        "properties" : {
-          "repositoryName" : {
-            "type" : "string"
-          },
-          "message" : {
-            "type" : "string"
-          },
-          "projectNames" : {
-            "type" : "array",
-            "items" : {
-              "type" : "string"
-            }
-          },
-          "status" : {
-            "type" : "string"
-          },
-          "user" : {
-            "$ref" : "#/components/schemas/User"
-          }
-        }
-      },
-      "Users_ListUsersOutput200" : {
-        "type" : "object",
-        "properties" : {
-          "repositoryName" : {
-            "type" : "string"
-          },
-          "message" : {
-            "type" : "string"
-          },
-          "status" : {
-            "type" : "string"
-          },
-          "users" : {
-            "type" : "array",
-            "items" : {
-              "$ref" : "#/components/schemas/User"
             }
           }
         }
@@ -956,13 +782,187 @@
           }
         }
       },
-      "DatasourceType" : {
-        "type" : "string",
-        "enum" : [ "H2_EMBEDDED", "H2_SERVER" ]
+      "Projects_CreateSharedProjectOutput201" : {
+        "type" : "object",
+        "properties" : {
+          "projectName" : {
+            "type" : "string"
+          },
+          "message" : {
+            "type" : "string"
+          },
+          "status" : {
+            "type" : "string"
+          }
+        }
+      },
+      "Repositories_ExportRepositoryBody" : {
+        "required" : [ "needsEncryption" ],
+        "type" : "object",
+        "properties" : {
+          "password" : {
+            "type" : "string"
+          },
+          "needsEncryption" : {
+            "type" : "boolean"
+          }
+        }
+      },
+      "Repositories_GetRepositoriesOutput200" : {
+        "type" : "object",
+        "properties" : {
+          "message" : {
+            "type" : "string"
+          },
+          "status" : {
+            "type" : "string"
+          },
+          "repositories" : {
+            "type" : "array",
+            "items" : {
+              "$ref" : "#/components/schemas/Repository"
+            }
+          }
+        }
+      },
+      "Repositories_ImportRepositoryBody" : {
+        "type" : "object",
+        "properties" : {
+          "upFile" : {
+            "type" : "string",
+            "format" : "binary"
+          }
+        }
+      },
+      "Repositories_Output201Output200" : {
+        "type" : "object",
+        "properties" : {
+          "message" : {
+            "type" : "string"
+          },
+          "status" : {
+            "type" : "string"
+          },
+          "repository" : {
+            "$ref" : "#/components/schemas/Repository"
+          }
+        }
+      },
+      "Repositories_StopRepositoryOutput200" : {
+        "type" : "object",
+        "properties" : {
+          "message" : {
+            "type" : "string"
+          },
+          "status" : {
+            "type" : "string"
+          },
+          "repository" : {
+            "$ref" : "#/components/schemas/SimpleRepository"
+          }
+        }
+      },
+      "Repository" : {
+        "type" : "object",
+        "properties" : {
+          "datasourceType" : {
+            "$ref" : "#/components/schemas/DatasourceType"
+          },
+          "authenticationType" : {
+            "$ref" : "#/components/schemas/AuthenticationType"
+          },
+          "repositorName" : {
+            "type" : "string"
+          },
+          "type" : {
+            "$ref" : "#/components/schemas/Type"
+          },
+          "status" : {
+            "$ref" : "#/components/schemas/Status"
+          }
+        }
+      },
+      "SimpleRepository" : {
+        "type" : "object",
+        "properties" : {
+          "repositorName" : {
+            "type" : "string"
+          },
+          "type" : {
+            "$ref" : "#/components/schemas/Type"
+          },
+          "status" : {
+            "$ref" : "#/components/schemas/Status"
+          }
+        }
       },
       "Status" : {
         "type" : "string",
         "enum" : [ "ONLINE", "OFFLINE" ]
+      },
+      "Type" : {
+        "type" : "string",
+        "enum" : [ "STATIC", "DYNAMIC" ]
+      },
+      "User" : {
+        "type" : "object",
+        "properties" : {
+          "id" : {
+            "type" : "string"
+          },
+          "isAdmin" : {
+            "type" : "boolean"
+          },
+          "permissions" : {
+            "type" : "array",
+            "items" : {
+              "type" : "string"
+            }
+          }
+        }
+      },
+      "Users_ListUsersOutput200" : {
+        "type" : "object",
+        "properties" : {
+          "repositoryName" : {
+            "type" : "string"
+          },
+          "message" : {
+            "type" : "string"
+          },
+          "status" : {
+            "type" : "string"
+          },
+          "users" : {
+            "type" : "array",
+            "items" : {
+              "$ref" : "#/components/schemas/User"
+            }
+          }
+        }
+      },
+      "Users_Output200" : {
+        "type" : "object",
+        "properties" : {
+          "repositoryName" : {
+            "type" : "string"
+          },
+          "message" : {
+            "type" : "string"
+          },
+          "projectNames" : {
+            "type" : "array",
+            "items" : {
+              "type" : "string"
+            }
+          },
+          "status" : {
+            "type" : "string"
+          },
+          "user" : {
+            "$ref" : "#/components/schemas/User"
+          }
+        }
       }
     },
     "securitySchemes" : {

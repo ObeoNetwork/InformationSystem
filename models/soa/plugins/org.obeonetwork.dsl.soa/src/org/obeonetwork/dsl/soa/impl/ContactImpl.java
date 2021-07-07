@@ -14,6 +14,7 @@ import org.eclipse.emf.ecore.EClass;
 
 import org.eclipse.emf.internal.cdo.CDOObjectImpl;
 
+import org.obeonetwork.dsl.environment.impl.ObeoDSMObjectImpl;
 import org.obeonetwork.dsl.soa.Contact;
 import org.obeonetwork.dsl.soa.SoaPackage;
 
@@ -32,7 +33,7 @@ import org.obeonetwork.dsl.soa.SoaPackage;
  *
  * @generated
  */
-public class ContactImpl extends CDOObjectImpl implements Contact {
+public class ContactImpl extends ObeoDSMObjectImpl implements Contact {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -87,16 +88,6 @@ public class ContactImpl extends CDOObjectImpl implements Contact {
 	@Override
 	protected EClass eStaticClass() {
 		return SoaPackage.Literals.CONTACT;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	protected int eStaticFeatureCount() {
-		return 0;
 	}
 
 	/**

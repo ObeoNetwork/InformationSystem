@@ -15,20 +15,16 @@ import static org.obeonetwork.dsl.soa.gen.swagger.Activator.logInfo;
 import static org.obeonetwork.utils.common.StringUtils.isNullOrWhite;
 
 import java.io.File;
-import java.io.IOException;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
 
 import org.eclipse.core.runtime.IStatus;
 import org.obeonetwork.dsl.soa.Component;
 import org.obeonetwork.dsl.soa.gen.swagger.utils.ComponentGenUtil;
+import org.obeonetwork.dsl.soa.gen.swagger.utils.SwaggerExportUtil;
+import org.obeonetwork.dsl.soa.gen.swagger.utils.SwaggerExportUtil.MapperType;
+import org.obeonetwork.dsl.soa.gen.swagger.utils.SwaggerExportUtil.SwaggerExportResult;
 
-import com.fasterxml.jackson.annotation.JsonInclude.Include;
-import com.fasterxml.jackson.core.JsonGenerationException;
-import com.fasterxml.jackson.databind.JsonMappingException;
-import com.fasterxml.jackson.databind.MapperFeature;
-import com.fasterxml.jackson.databind.ObjectMapper;
-
-import io.swagger.v3.core.util.Json;
-import io.swagger.v3.core.util.Yaml;
 import io.swagger.v3.oas.models.OpenAPI;
 
 public class SwaggerExporter {
@@ -36,10 +32,6 @@ public class SwaggerExporter {
 	private Component component;
 	private MapperType mapperType = MapperType.YAML;
 	private OpenAPI swagger = null;
-	
-    public enum MapperType {
-        YAML, JSON;
-    }
     
     public SwaggerExporter(Component component) {
     	this.component = component;
@@ -73,38 +65,21 @@ public class SwaggerExporter {
 	}
 
 	public int exportInFile(File outputFile) {
-		SwaggerBuilder swaggerBuilder = new SwaggerBuilder(component);
+
+		int status = IStatus.OK;
 		
-		int status = swaggerBuilder.build();
+		FileOutputStream outputStream = null;
+		try {
+			outputStream = new FileOutputStream(outputFile);
+		} catch (FileNotFoundException e) {
+			logError("File not found exception.", e);
+			status = IStatus.ERROR;
+		}
 		
-		if(status != IStatus.ERROR) {
-	        swagger  = swaggerBuilder.getOpenAPI();
-	        
-	        ObjectMapper mapper = null;	        
-	        switch (mapperType) {
-	        case JSON:
-	            mapper = Json.mapper();
-	            break;
-	        case YAML:
-	            mapper = Yaml.mapper();
-	            break;
-	        }
-	        mapper.setSerializationInclusion(Include.NON_NULL);
-	        mapper.setSerializationInclusion(Include.NON_EMPTY);
-	        
-	        mapper.enable(MapperFeature.USE_ANNOTATIONS);
-	        try {
-				mapper.writerWithDefaultPrettyPrinter().writeValue(outputFile, swagger);
-			} catch (JsonGenerationException e) {
-				logError("Json generation exception.", e);
-				status = IStatus.ERROR;
-			} catch (JsonMappingException e) {
-				logError("Json mapping exception.", e);
-				status = IStatus.ERROR;
-			} catch (IOException e) {
-				logError("I/O exception.", e);
-				status = IStatus.ERROR;
-			}
+		if (outputStream != null) {
+			SwaggerExportResult result = SwaggerExportUtil.export(component, mapperType, outputStream);
+			swagger = result.getSwagger();
+			status = result.getStatus();
 		}
 		
 		if(status != IStatus.ERROR) {
@@ -112,5 +87,6 @@ public class SwaggerExporter {
 		}
 		
 		return status;
-	}	
+	}
+	
 }

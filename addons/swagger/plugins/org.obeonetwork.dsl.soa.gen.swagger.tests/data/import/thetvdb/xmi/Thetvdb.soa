@@ -1011,6 +1011,9 @@
           <fault xmi:id="_K9lPt-CwEeu1HpfCwj7Iww" technicalid="_K9FgY-CwEeu1HpfCwj7Iww" description="Invalid credentials and/or API token" type="_K9nFDeCwEeu1HpfCwj7Iww" name="fault401" multiplicity="0..1" statusCode="401" statusMessage="Unauthorized">
             <mediaType xmi:id="_K9lPuOCwEeu1HpfCwj7Iww" technicalid="_K9GHcOCwEeu1HpfCwj7Iww" identifier="application/json"/>
           </fault>
+                    <metadatas>
+            <metadatas xsi:type="soa:PropertiesExtension" title="x-codegen-request-body-name" body="Authentication string" context="Operation"/>
+          </metadatas>
         </ownedOperations>
         <ownedOperations xmi:id="_K9lPueCwEeu1HpfCwj7Iww" technicalid="_K9HVleCwEeu1HpfCwj7Iww" description="Refreshes your current, valid JWT token and returns a new token. Hit this route so that you do not have to post to `/login` with your API key and credentials once you have already been authenticated." name="getRefresh_token" public="true" URI="/refresh_token" exposition="REST" securitySchemes="_K9l3A-CwEeu1HpfCwj7Iww">
           <output xmi:id="_K9lPuuCwEeu1HpfCwj7Iww" technicalid="_K9HVluCwEeu1HpfCwj7Iww" description="Returns a new token to use in your subsequent requests" type="_K9nFcOCwEeu1HpfCwj7Iww" name="output200" multiplicity="0..1" statusCode="200" statusMessage="OK">
@@ -1299,7 +1302,7 @@
     </ownedServices>
     <securitySchemes xmi:id="_K9l3A-CwEeu1HpfCwj7Iww" technicalid="_K8AiUOCwEeu1HpfCwj7Iww" description="JWT token prefixed with &quot;Bearer &quot;" key="jwtToken" name="Authorization" apiKeyLocation="HEADER"/>
     <license xmi:id="_K9l3BOCwEeu1HpfCwj7Iww"/>
-    <information xmi:id="_K9l3BeCwEeu1HpfCwj7Iww" version="3.0.0"/>
+    <information xmi:id="_K9l3BeCwEeu1HpfCwj7Iww" apiVersion="3.0.0"/>
     <contact xmi:id="_K9l3BuCwEeu1HpfCwj7Iww"/>
   </ownedComponents>
 </soa:System>

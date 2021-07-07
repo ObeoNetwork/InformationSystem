@@ -30,6 +30,7 @@ import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ItemProviderAdapter;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 
+import org.obeonetwork.dsl.environment.provider.ObeoDSMObjectItemProvider;
 import org.obeonetwork.dsl.soa.Information;
 import org.obeonetwork.dsl.soa.SoaPackage;
 
@@ -40,13 +41,7 @@ import org.obeonetwork.dsl.soa.SoaPackage;
  * @generated
  */
 public class InformationItemProvider 
-	extends ItemProviderAdapter
-	implements
-		IEditingDomainItemProvider,
-		IStructuredItemContentProvider,
-		ITreeItemContentProvider,
-		IItemLabelProvider,
-		IItemPropertySource {
+	extends ObeoDSMObjectItemProvider {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -75,26 +70,26 @@ public class InformationItemProvider
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
-			addVersionPropertyDescriptor(object);
+			addApiVersionPropertyDescriptor(object);
 			addTermsOfServicePropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
 
 	/**
-	 * This adds a property descriptor for the Version feature.
+	 * This adds a property descriptor for the Api Version feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void addVersionPropertyDescriptor(Object object) {
+	protected void addApiVersionPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_Information_version_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_Information_version_feature", "_UI_Information_type"),
-				 SoaPackage.Literals.INFORMATION__VERSION,
+				 getString("_UI_Information_apiVersion_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Information_apiVersion_feature", "_UI_Information_type"),
+				 SoaPackage.Literals.INFORMATION__API_VERSION,
 				 true,
 				 false,
 				 false,
@@ -129,11 +124,11 @@ public class InformationItemProvider
 	 * This returns Information.gif.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/Information"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/Information.png"));
 	}
 
 	/**
@@ -154,7 +149,7 @@ public class InformationItemProvider
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = ((Information)object).getVersion();
+		String label = ((Information)object).getApiVersion();
 		return label == null || label.length() == 0 ?
 			getString("_UI_Information_type") :
 			getString("_UI_Information_type") + " " + label;
@@ -173,7 +168,7 @@ public class InformationItemProvider
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(Information.class)) {
-			case SoaPackage.INFORMATION__VERSION:
+			case SoaPackage.INFORMATION__API_VERSION:
 			case SoaPackage.INFORMATION__TERMS_OF_SERVICE:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;

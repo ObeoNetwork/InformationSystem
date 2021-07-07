@@ -32,7 +32,9 @@ public class ComponentGenUtil {
 		Set<Type> exposedTypes = new HashSet<>();
 		
 		component.getProvidedServices().stream()
-		.flatMap(service -> service.getOwnedInterface().getOwnedOperations().stream())
+		.map(service -> service.getOwnedInterface())
+		.filter(itf -> itf != null)
+		.flatMap(itf -> itf.getOwnedOperations().stream())
 		.filter(o -> o.getExposition() == ExpositionKind.REST)
 		.flatMap(operation -> OperationGenUtil.getOwnedParameters(operation).stream())
 		.forEach(parameter -> collectExposedTypes(exposedTypes, parameter.getType()));

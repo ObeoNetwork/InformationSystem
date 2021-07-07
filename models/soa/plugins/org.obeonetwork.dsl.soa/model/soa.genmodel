@@ -77,7 +77,7 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute soa.ecore#//Component/URI"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute soa.ecore#//Component/URL"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute soa.ecore#//Component/apiVersion"
-          get="return getInformation().getVersion();"/>
+          get="return getInformation().getApiVersion();"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute soa.ecore#//Component/deprecated"/>
       <genFeatures children="true" createChild="true" propertyDescription="" ecoreFeature="ecore:EReference soa.ecore#//Component/securitySchemes"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference soa.ecore#//Component/license"/>
@@ -142,8 +142,8 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute soa.ecore#//SecurityScheme/name"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute soa.ecore#//SecurityScheme/apiKeyLocation"/>
     </genClasses>
-    <genClasses ecoreClass="soa.ecore#//Information">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute soa.ecore#//Information/version"/>
+    <genClasses ecoreClass="soa.ecore#//Information" labelFeature="#//soa/Information/apiVersion">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute soa.ecore#//Information/apiVersion"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute soa.ecore#//Information/termsOfService"/>
     </genClasses>
     <genClasses ecoreClass="soa.ecore#//Contact">
@@ -155,7 +155,7 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute soa.ecore#//License/name"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute soa.ecore#//License/URL"/>
     </genClasses>
-    <genClasses ecoreClass="soa.ecore#//MediaType">
+    <genClasses ecoreClass="soa.ecore#//MediaType" labelFeature="#//soa/MediaType/identifier">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute soa.ecore#//MediaType/identifier"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference soa.ecore#//MediaType/examples"/>
     </genClasses>
@@ -163,6 +163,10 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute soa.ecore#//Example/summary"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute soa.ecore#//Example/value"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute soa.ecore#//Example/name"/>
+    </genClasses>
+    <genClasses documentation="Properties Extension is used to add custom properties to the model. It is based on OpenAPI properties extensions"
+        ecoreClass="soa.ecore#//PropertiesExtension" labelFeature="../../org.obeonetwork.dsl.environment/model/environment.genmodel#//environment/Annotation/title">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute soa.ecore#//PropertiesExtension/context"/>
     </genClasses>
   </genPackages>
 </genmodel:GenModel>

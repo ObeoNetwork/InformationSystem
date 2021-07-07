@@ -11,6 +11,7 @@
 package org.obeonetwork.dsl.soa;
 
 import org.eclipse.emf.cdo.CDOObject;
+import org.obeonetwork.dsl.environment.ObeoDSMObject;
 
 /**
  * <!-- begin-user-doc -->
@@ -32,10 +33,9 @@ import org.eclipse.emf.cdo.CDOObject;
  *
  * @see org.obeonetwork.dsl.soa.SoaPackage#getContact()
  * @model
- * @extends CDOObject
  * @generated
  */
-public interface Contact extends CDOObject {
+public interface Contact extends ObeoDSMObject {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

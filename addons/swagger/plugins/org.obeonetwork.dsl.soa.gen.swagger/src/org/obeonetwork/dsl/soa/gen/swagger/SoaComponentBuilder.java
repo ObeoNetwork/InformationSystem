@@ -13,7 +13,6 @@ package org.obeonetwork.dsl.soa.gen.swagger;
 import static java.util.stream.Collectors.joining;
 import static java.util.stream.Collectors.toList;
 import static java.util.stream.Collectors.toSet;
-import static org.obeonetwork.utils.sirius.services.EObjectUtils.getAncestors;
 import static org.obeonetwork.dsl.soa.gen.swagger.HTTPResponseHeaders.X_PAGE_ELEMENT_COUNT;
 import static org.obeonetwork.dsl.soa.gen.swagger.HTTPResponseHeaders.X_TOTAL_ELEMENT;
 import static org.obeonetwork.dsl.soa.gen.swagger.HTTPStatusCodes.HTTP_206;
@@ -27,6 +26,7 @@ import static org.obeonetwork.dsl.soa.gen.swagger.SwaggerBuilder.SOA_PAGE_PARAME
 import static org.obeonetwork.dsl.soa.gen.swagger.SwaggerBuilder.SOA_SIZE_PARAMETER_NAME;
 import static org.obeonetwork.utils.common.StringUtils.emptyIfNull;
 import static org.obeonetwork.utils.common.StringUtils.upperFirst;
+import static org.obeonetwork.utils.sirius.services.EObjectUtils.getAncestors;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -84,6 +84,7 @@ import org.obeonetwork.dsl.technicalid.TechnicalIDPackage;
 
 import io.swagger.v3.oas.models.OpenAPI;
 import io.swagger.v3.oas.models.Operation;
+import io.swagger.v3.oas.models.PathItem;
 import io.swagger.v3.oas.models.PathItem.HttpMethod;
 import io.swagger.v3.oas.models.info.Contact;
 import io.swagger.v3.oas.models.info.Info;
@@ -182,6 +183,7 @@ public class SoaComponentBuilder {
 
 	private Component createSoaComponent() {
 
+		
 		String soaComponentName = getSoaComponentName();
 		if (soaComponentName == null) {
 			logError("Component name could not be computed.");
@@ -190,8 +192,11 @@ public class SoaComponentBuilder {
 
 		soaComponent = SoaFactory.eINSTANCE.createComponent();
 		soaComponent.setName(soaComponentName);
+		extractPropertiesExtensions(openApi, soaComponent);
 
 		Info info = openApi.getInfo();
+		
+		
 		soaComponent.setName(info.getTitle());
 		soaComponent.setDescription(info.getDescription());
 		soaComponent.setApiVersion(info.getVersion());
@@ -200,6 +205,10 @@ public class SoaComponentBuilder {
 		setInformation(soaComponent, info);
 		setContactInformation(soaComponent, info.getContact());
 		setLicenseInformation(soaComponent, info.getLicense());
+		
+		extractPropertiesExtensions(info, soaComponent.getInformation());
+		extractPropertiesExtensions(info.getContact(), soaComponent.getContact());
+		extractPropertiesExtensions(info.getLicense(), soaComponent.getLicense());
 		/****************/
 
 		List<Server> servers = openApi.getServers();
@@ -211,6 +220,8 @@ public class SoaComponentBuilder {
 				logWarning(String.format("Multiple servers not supported. Found URLs : %s.",
 						servers.stream().map(s -> s.getUrl()).collect(joining(", "))));
 			}
+			
+			extractPropertiesExtensions(server, soaComponent);
 		}
 
 		inlineTypes = new HashMap<>();
@@ -260,6 +271,8 @@ public class SoaComponentBuilder {
 			soaSecurityScheme.setDescription(swgSecurityScheme.getDescription());
 		}
 
+		extractPropertiesExtensions(swgSecurityScheme, soaSecurityScheme);
+		
 		return soaSecurityScheme;
 	}
 
@@ -305,7 +318,7 @@ public class SoaComponentBuilder {
 	private void processInlineTypes() {
 		// Start by processing the types originating from schemas.
 		// To be processed, a type has to be used by a type already in the model.
-		// Therefore, the process is reapeted over all the schema inline types
+		// Therefore, the process is repeated over all the schema inline types
 		// until all the types are processed.
 		List<Type> unprocessedSchemaInlineTypes = getUnprocessedSchemaInlineTypes();
 
@@ -660,6 +673,8 @@ public class SoaComponentBuilder {
 		org.obeonetwork.dsl.soa.Operation soaOperation = SoaFactory.eINSTANCE.createOperation();
 		soaInterface.getOwnedOperations().add(soaOperation);
 
+		extractPropertiesExtensions(swgOperation, soaOperation);
+		
 		soaOperation.setPublic(true);
 		soaOperation.setExposition(ExpositionKind.REST);
 
@@ -703,6 +718,7 @@ public class SoaComponentBuilder {
 		soaOperation.setPaged(isPaged(swgOperation));
 
 		ApiResponses responses = swgOperation.getResponses();
+		extractPropertiesExtensions(responses, soaOperation);
 		if (responses != null) {
 			for (String responseKey : responses.keySet()) {
 				createSoaResponseParameter(soaOperation, responseKey, responses.get(responseKey));
@@ -725,6 +741,8 @@ public class SoaComponentBuilder {
 			}
 		}
 
+		extractPropertiesExtensions(getPathItemFromPath(path), soaOperation);
+		
 		return soaOperation;
 	}
 
@@ -739,7 +757,7 @@ public class SoaComponentBuilder {
 	private boolean looksLikePaginationParameter(Parameter parameter) {
 		if (SOA_PAGE_PARAMETER_NAME.equals(parameter.getName())
 				|| SOA_SIZE_PARAMETER_NAME.equals(parameter.getName())) {
-			Schema schema = unwrapArraySchema(parameter.getSchema());
+			Schema schema = unwrapArrayOrComposedSchema(parameter.getSchema());
 			if (schema != null && OPEN_API_TYPE_INTEGER.equals(schema.getType())) {
 				return true;
 			}
@@ -828,18 +846,25 @@ public class SoaComponentBuilder {
 			logError(String.format("Unsupported parameter type : %s.", swgParameter.getClass().getName()));
 		}
 
-		Schema schema = unwrapArraySchema(swgParameter.getSchema());
+		Schema schema = unwrapArrayOrComposedSchema(swgParameter.getSchema());
 		if (schema != null) {
 			Type soaParameterType = getOrCreateSoaParameterType(soaOperation, schema, soaParameter);
 			soaParameter.setType(soaParameterType);
 		}
 
+		extractPropertiesExtensions(swgParameter, soaParameter);
+		
 		return soaParameter;
 	}
 
-	private Schema unwrapArraySchema(Schema schema) {
+	private Schema unwrapArrayOrComposedSchema(Schema schema) {
 		if (schema instanceof ArraySchema) {
 			return ((ArraySchema) schema).getItems();
+		} else if (schema instanceof ComposedSchema) {
+			List<Schema> allOf = ((ComposedSchema) schema).getAllOf();
+			if (allOf.size() == 1) {
+				return allOf.get(0);
+			}
 		}
 		return schema;
 	}
@@ -847,6 +872,8 @@ public class SoaComponentBuilder {
 	private org.obeonetwork.dsl.soa.Parameter createSoaBodyParameter(org.obeonetwork.dsl.soa.Operation soaOperation,
 			RequestBody requestBody) {
 		org.obeonetwork.dsl.soa.Parameter soaParameter = SoaFactory.eINSTANCE.createParameter();
+		extractPropertiesExtensions(requestBody, soaParameter);
+		
 		soaOperation.getInput().add(soaParameter);
 
 		soaParameter.setRestData(SoaFactory.eINSTANCE.createParameterRestData());
@@ -866,7 +893,7 @@ public class SoaComponentBuilder {
 				soaParameter.setMultiplicity(
 						computeMultiplicity(requestBody.getRequired() != null && requestBody.getRequired(), schema));
 
-				Schema unwrappedSchema = unwrapArraySchema(schema);
+				Schema unwrappedSchema = unwrapArrayOrComposedSchema(schema);
 				Type soaParameterType = getOrCreateSoaParameterType(soaOperation, unwrappedSchema, soaParameter);
 				soaParameter.setType(soaParameterType);
 			}
@@ -875,6 +902,8 @@ public class SoaComponentBuilder {
 				String identifier = entry.getKey();
 				MediaType mediaType = entry.getValue();
 				org.obeonetwork.dsl.soa.MediaType soaMediaType = SoaFactory.eINSTANCE.createMediaType();
+				extractPropertiesExtensions(mediaType, soaMediaType);
+				
 				soaMediaType.setIdentifier(identifier);
 				soaMediaType.getExamples().addAll(createSoaExamples(mediaType));
 				soaParameter.getMediaType().add(soaMediaType);
@@ -910,6 +939,8 @@ public class SoaComponentBuilder {
 		soaExample.setDescription(example.getDescription());
 		soaExample.setValue(ExampleGenUtil.getExampleValueFromObject(soaExample.getValue()));
 
+		extractPropertiesExtensions(example, soaExample);
+		
 		return soaExample;
 	}
 
@@ -934,6 +965,8 @@ public class SoaComponentBuilder {
 				soaParameterType = registerInlineType(soaParameter, soaDto);
 			}
 		}
+		
+		extractPropertiesExtensions(schema, soaParameter);
 
 		return soaParameterType;
 	}
@@ -941,6 +974,7 @@ public class SoaComponentBuilder {
 	private org.obeonetwork.dsl.soa.Parameter createSoaResponseParameter(org.obeonetwork.dsl.soa.Operation soaOperation,
 			String responseKey, ApiResponse apiResponse) {
 		org.obeonetwork.dsl.soa.Parameter soaParameter = SoaFactory.eINSTANCE.createParameter();
+		extractPropertiesExtensions(apiResponse, soaParameter);
 		String parameterName = null;
 		if (responseKey.matches("[123]..") || responseKey.equals("default")) {
 			soaOperation.getOutput().add(soaParameter);
@@ -968,7 +1002,7 @@ public class SoaComponentBuilder {
 			if (schema != null) {
 				soaParameter.setMultiplicity(computeMultiplicity(false, schema));
 
-				Schema unwrappedSchema = unwrapArraySchema(schema);
+				Schema unwrappedSchema = unwrapArrayOrComposedSchema(schema);
 
 				Type soaParameterType = getOrCreateSoaParameterType(soaOperation, unwrappedSchema, soaParameter);
 				soaParameter.setType(soaParameterType);
@@ -981,6 +1015,8 @@ public class SoaComponentBuilder {
 				soaMediaType.setIdentifier(identifier);
 				soaMediaType.getExamples().addAll(createSoaExamples(mediaType));
 				soaParameter.getMediaType().add(soaMediaType);
+				
+				extractPropertiesExtensions(mediaType, soaMediaType);
 			});
 		}
 
@@ -1008,6 +1044,8 @@ public class SoaComponentBuilder {
 			}
 			servicePaths.add(path);
 		}
+		
+		extractPropertiesExtensions(openApi.getPaths(), soaComponent);
 
 //		for(String soaServiceName : soaServicesPaths.keySet()) {
 //			List<String> servicePaths = soaServicesPaths.get(soaServiceName);
@@ -1045,6 +1083,7 @@ public class SoaComponentBuilder {
 				}
 				if (tagElement != null) {
 					soaServiceDescription.append(tagElement.getDescription());
+					extractPropertiesExtensions(tagElement, soaService);
 				}
 
 				if (tagIndex < soaServiceTags.size() - 1) {
@@ -1075,6 +1114,10 @@ public class SoaComponentBuilder {
 		return commonPathBeforePathParam.stream().collect(joining(QUALIFIED_PATH_SEPARATOR));
 	}
 
+	private PathItem getPathItemFromPath(String path) {
+		return openApi.getPaths().get(path);
+	}
+	
 	private String getSoaServiceNameFromPath(String path) {
 		String soaServiceName = openApi.getPaths().get(path).readOperations().stream()
 				.filter(op -> op.getTags() != null).flatMap(op -> op.getTags().stream()).collect(toSet()).stream()
@@ -1110,6 +1153,8 @@ public class SoaComponentBuilder {
 			exposedType = touchEnumeration(key);
 			break;
 		}
+		
+		extractPropertiesExtensions(schema, exposedType);
 		return exposedType;
 	}
 
@@ -1223,12 +1268,12 @@ public class SoaComponentBuilder {
 		}
 	}
 
-	private Enumeration updateEnumeration(Enumeration enumaration, Schema schema) {
+	private Enumeration updateEnumeration(Enumeration enumeration, Schema schema) {
 		Set<String> literalNames = new HashSet<>();
 		collectLiterals(literalNames, schema);
-		updateEnumeration(enumaration, literalNames);
+		updateEnumeration(enumeration, literalNames);
 
-		return enumaration;
+		return enumeration;
 
 	}
 
@@ -1367,7 +1412,7 @@ public class SoaComponentBuilder {
 			Schema propertySchema) {
 		Property soaProperty = null;
 
-		Schema unwrappedSchema = unwrapArraySchema(propertySchema);
+		Schema unwrappedSchema = unwrapArrayOrComposedSchema(propertySchema);
 		if (isPrimitiveType(unwrappedSchema)) {
 			soaProperty = createPrimitiveTypeAttribute(type, unwrappedSchema);
 		} else if (unwrappedSchema.get$ref() != null) {
@@ -1384,6 +1429,8 @@ public class SoaComponentBuilder {
 					propertySchema));
 		}
 
+		extractPropertiesExtensions(propertySchema, soaProperty);
+		
 		return soaProperty;
 	}
 
@@ -1610,7 +1657,11 @@ public class SoaComponentBuilder {
 	private void setInformation(Component component, Info information) {
 		if (component.getInformation() != null && information != null) {
 			component.getInformation().setTermsOfService(information.getTermsOfService());
-			component.getInformation().setVersion(information.getVersion());
+			component.getInformation().setApiVersion(information.getVersion());	
 		}
+	}
+	
+	private void extractPropertiesExtensions(Object swaggerElement, ObeoDSMObject soaElement) {
+		PropertiesExtensionsHelper.addPropertiesExtensionsFromSwgToSoa(swaggerElement, soaElement);
 	}
 }

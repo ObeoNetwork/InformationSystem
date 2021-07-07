@@ -702,6 +702,24 @@ paths:
       - petstore_auth: []
 components:
   schemas:
+    ApiResponse:
+      type: object
+      properties:
+        code:
+          type: integer
+          format: int32
+        type:
+          type: string
+        message:
+          type: string
+    Category:
+      type: object
+      properties:
+        name:
+          type: string
+        id:
+          type: integer
+          format: int64
     Order:
       type: object
       properties:
@@ -721,47 +739,12 @@ components:
           type: boolean
         status:
           $ref: '#/components/schemas/OrderStatus'
-    PetStatus:
-      type: string
-      enum:
-      - sold
-      - pending
-      - available
-    Category:
-      type: object
-      properties:
-        name:
-          type: string
-        id:
-          type: integer
-          format: int64
     OrderStatus:
       type: string
       enum:
       - approved
       - placed
       - delivered
-    User:
-      type: object
-      properties:
-        firstName:
-          type: string
-        lastName:
-          type: string
-        password:
-          type: string
-        userStatus:
-          type: integer
-          format: int32
-        phone:
-          type: string
-        id:
-          type: integer
-          format: int64
-        email:
-          type: string
-        username:
-          type: string
     Pet:
       required:
       - name
@@ -786,16 +769,12 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/Tag'
-    ApiResponse:
-      type: object
-      properties:
-        code:
-          type: integer
-          format: int32
-        type:
-          type: string
-        message:
-          type: string
+    PetStatus:
+      type: string
+      enum:
+      - sold
+      - pending
+      - available
     Store_GetInventoryOutput200:
       type: object
     Tag:
@@ -806,6 +785,27 @@ components:
         id:
           type: integer
           format: int64
+    User:
+      type: object
+      properties:
+        firstName:
+          type: string
+        lastName:
+          type: string
+        password:
+          type: string
+        userStatus:
+          type: integer
+          format: int32
+        phone:
+          type: string
+        id:
+          type: integer
+          format: int64
+        email:
+          type: string
+        username:
+          type: string
   securitySchemes:
     petstore_auth:
       type: oauth2

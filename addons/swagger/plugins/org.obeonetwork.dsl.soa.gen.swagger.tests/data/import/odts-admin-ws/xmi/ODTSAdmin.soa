@@ -425,7 +425,7 @@
     </ownedServices>
     <securitySchemes xmi:id="_gSoP1eCyEeuHZ_8gfzXs4A" technicalid="_YKUEwOCyEeuHZ_8gfzXs4A" key="basicAuth" type="http"/>
     <license xmi:id="_gSoP1uCyEeuHZ_8gfzXs4A" name="Copyright (c) 2008, 2021 Obeo." URL="/doc/license.html"/>
-    <information xmi:id="_gSoP1-CyEeuHZ_8gfzXs4A" version="1.0.0"/>
+    <information xmi:id="_gSoP1-CyEeuHZ_8gfzXs4A" apiVersion="1.0.0"/>
     <contact xmi:id="_gSoP2OCyEeuHZ_8gfzXs4A" email="support@obeo.fr"/>
   </ownedComponents>
 </soa:System>

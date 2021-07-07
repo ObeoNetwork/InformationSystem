@@ -24,9 +24,9 @@ import org.eclipse.sirius.business.api.query.EObjectQuery;
 import org.eclipse.sirius.business.api.session.Session;
 import org.obeonetwork.dsl.soa.Component;
 import org.obeonetwork.dsl.soa.gen.swagger.SwaggerExporter;
-import org.obeonetwork.dsl.soa.gen.swagger.SwaggerExporter.MapperType;
 import org.obeonetwork.dsl.soa.gen.swagger.ui.handlers.Messages;
 import org.obeonetwork.dsl.soa.gen.swagger.utils.ComponentGenUtil;
+import org.obeonetwork.dsl.soa.gen.swagger.utils.SwaggerExportUtil.MapperType;
 import org.obeonetwork.utils.sirius.session.SessionUtils;
 
 public class GenerateComponentsSwaggerWizard extends Wizard {

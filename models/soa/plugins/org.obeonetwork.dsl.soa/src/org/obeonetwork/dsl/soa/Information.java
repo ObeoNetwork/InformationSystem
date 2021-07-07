@@ -11,6 +11,7 @@
 package org.obeonetwork.dsl.soa;
 
 import org.eclipse.emf.cdo.CDOObject;
+import org.obeonetwork.dsl.environment.ObeoDSMObject;
 
 /**
  * <!-- begin-user-doc -->
@@ -25,16 +26,15 @@ import org.eclipse.emf.cdo.CDOObject;
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link org.obeonetwork.dsl.soa.Information#getVersion <em>Version</em>}</li>
+ *   <li>{@link org.obeonetwork.dsl.soa.Information#getApiVersion <em>Api Version</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.soa.Information#getTermsOfService <em>Terms Of Service</em>}</li>
  * </ul>
  *
  * @see org.obeonetwork.dsl.soa.SoaPackage#getInformation()
  * @model
- * @extends CDOObject
  * @generated
  */
-public interface Information extends CDOObject {
+public interface Information extends ObeoDSMObject {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -43,29 +43,29 @@ public interface Information extends CDOObject {
 	String copyright = "Copyright (c) 2008, 2021 Obeo.\nAll rights reserved. This program and the accompanying materials\nare made available under the terms of the Eclipse Public License v1.0\nwhich accompanies this distribution, and is available at\nhttp://www.eclipse.org/legal/epl-v10.html\n\nContributors:\n    Obeo - initial API and implementation";
 
 	/**
-	 * Returns the value of the '<em><b>Version</b></em>' attribute.
+	 * Returns the value of the '<em><b>Api Version</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
 	 * The version of the API definition (which is distinct from the OpenAPI specification version or the API implementation version).
 	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Version</em>' attribute.
-	 * @see #setVersion(String)
-	 * @see org.obeonetwork.dsl.soa.SoaPackage#getInformation_Version()
+	 * @return the value of the '<em>Api Version</em>' attribute.
+	 * @see #setApiVersion(String)
+	 * @see org.obeonetwork.dsl.soa.SoaPackage#getInformation_ApiVersion()
 	 * @model
 	 * @generated
 	 */
-	String getVersion();
+	String getApiVersion();
 
 	/**
-	 * Sets the value of the '{@link org.obeonetwork.dsl.soa.Information#getVersion <em>Version</em>}' attribute.
+	 * Sets the value of the '{@link org.obeonetwork.dsl.soa.Information#getApiVersion <em>Api Version</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Version</em>' attribute.
-	 * @see #getVersion()
+	 * @param value the new value of the '<em>Api Version</em>' attribute.
+	 * @see #getApiVersion()
 	 * @generated
 	 */
-	void setVersion(String value);
+	void setApiVersion(String value);
 
 	/**
 	 * Returns the value of the '<em><b>Terms Of Service</b></em>' attribute.

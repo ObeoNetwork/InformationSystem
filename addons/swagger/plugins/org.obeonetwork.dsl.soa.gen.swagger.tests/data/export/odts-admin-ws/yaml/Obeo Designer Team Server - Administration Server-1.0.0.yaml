@@ -562,57 +562,20 @@ paths:
           description: Bad Request
 components:
   schemas:
-    Users_Output200:
-      type: object
-      properties:
-        repositoryName:
-          type: string
-        message:
-          type: string
-        projectNames:
-          type: array
-          items:
-            type: string
-        status:
-          type: string
-        user:
-          $ref: '#/components/schemas/User'
-    Repositories_ExportRepositoryBody:
-      required:
-      - needsEncryption
-      type: object
-      properties:
-        password:
-          type: string
-        needsEncryption:
-          type: boolean
-    User:
-      type: object
-      properties:
-        id:
-          type: string
-        isAdmin:
-          type: boolean
-        permissions:
-          type: array
-          items:
-            type: string
-    NewUser:
-      required:
-      - id
-      - isAdmin
-      type: object
-      properties:
-        password:
-          type: string
-        id:
-          type: string
-        isAdmin:
-          type: boolean
-        permissions:
-          type: array
-          items:
-            type: string
+    AuthenticationType:
+      type: string
+      enum:
+      - ""
+      - LDAP_FILE
+      - LDAP
+      - USERPROFILE
+      - LDAP_USERPROFILE
+      - FILE
+    DatasourceType:
+      type: string
+      enum:
+      - H2_EMBEDDED
+      - H2_SERVER
     NewRepository:
       required:
       - authenticationType
@@ -629,6 +592,22 @@ components:
           type: string
         datasourceData:
           type: string
+    NewUser:
+      required:
+      - id
+      - isAdmin
+      type: object
+      properties:
+        password:
+          type: string
+        id:
+          type: string
+        isAdmin:
+          type: boolean
+        permissions:
+          type: array
+          items:
+            type: string
     Output200:
       type: object
       properties:
@@ -638,47 +617,6 @@ components:
           type: string
         status:
           type: string
-    Repository:
-      type: object
-      properties:
-        datasourceType:
-          $ref: '#/components/schemas/DatasourceType'
-        authenticationType:
-          $ref: '#/components/schemas/AuthenticationType'
-        repositorName:
-          type: string
-        type:
-          $ref: '#/components/schemas/Type'
-        status:
-          $ref: '#/components/schemas/Status'
-    Type:
-      type: string
-      enum:
-      - STATIC
-      - DYNAMIC
-    AuthenticationType:
-      type: string
-      enum:
-      - ""
-      - LDAP_FILE
-      - LDAP
-      - USERPROFILE
-      - LDAP_USERPROFILE
-      - FILE
-    SimpleRepository:
-      type: object
-      properties:
-        repositorName:
-          type: string
-        type:
-          $ref: '#/components/schemas/Type'
-        status:
-          $ref: '#/components/schemas/Status'
-    DatasourceType:
-      type: string
-      enum:
-      - H2_EMBEDDED
-      - H2_SERVER
     Projects_CreateSharedProjectBody:
       required:
       - projectName
@@ -689,12 +627,6 @@ components:
           type: string
         repositoryName:
           type: string
-    Repositories_ImportRepositoryBody:
-      type: object
-      properties:
-        upFile:
-          type: string
-          format: binary
     Projects_CreateSharedProjectOutput201:
       type: object
       properties:
@@ -704,19 +636,15 @@ components:
           type: string
         status:
           type: string
-    Users_ListUsersOutput200:
+    Repositories_ExportRepositoryBody:
+      required:
+      - needsEncryption
       type: object
       properties:
-        repositoryName:
+        password:
           type: string
-        message:
-          type: string
-        status:
-          type: string
-        users:
-          type: array
-          items:
-            $ref: '#/components/schemas/User'
+        needsEncryption:
+          type: boolean
     Repositories_GetRepositoriesOutput200:
       type: object
       properties:
@@ -728,11 +656,12 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/Repository'
-    Status:
-      type: string
-      enum:
-      - ONLINE
-      - OFFLINE
+    Repositories_ImportRepositoryBody:
+      type: object
+      properties:
+        upFile:
+          type: string
+          format: binary
     Repositories_Output201Output200:
       type: object
       properties:
@@ -751,6 +680,72 @@ components:
           type: string
         repository:
           $ref: '#/components/schemas/SimpleRepository'
+    Repository:
+      type: object
+      properties:
+        datasourceType: {$ref: '#/components/schemas/DatasourceType'}
+        authenticationType: {$ref: '#/components/schemas/AuthenticationType'}
+        repositorName: {type: string}
+        type: {$ref: '#/components/schemas/Type'}
+        status: {$ref: '#/components/schemas/Status'}
+    SimpleRepository:
+      type: object
+      properties:
+        repositorName:
+          type: string
+        type:
+          $ref: '#/components/schemas/Type'
+        status:
+          $ref: '#/components/schemas/Status'
+    Status:
+      type: string
+      enum:
+      - ONLINE
+      - OFFLINE
+    Type:
+      type: string
+      enum:
+      - STATIC
+      - DYNAMIC
+    User:
+      type: object
+      properties:
+        id:
+          type: string
+        isAdmin:
+          type: boolean
+        permissions:
+          type: array
+          items:
+            type: string
+    Users_ListUsersOutput200:
+      type: object
+      properties:
+        repositoryName:
+          type: string
+        message:
+          type: string
+        status:
+          type: string
+        users:
+          type: array
+          items:
+            $ref: '#/components/schemas/User'
+    Users_Output200:
+      type: object
+      properties:
+        repositoryName:
+          type: string
+        message:
+          type: string
+        projectNames:
+          type: array
+          items:
+            type: string
+        status:
+          type: string
+        user:
+          $ref: '#/components/schemas/User'
   securitySchemes:
     basicAuth:
       type: http

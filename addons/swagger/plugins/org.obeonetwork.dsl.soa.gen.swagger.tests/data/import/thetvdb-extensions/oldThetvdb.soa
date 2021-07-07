@@ -1,0 +1,1134 @@
+<?xml version="1.0" encoding="ASCII"?>
+<soa:System xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:oenv="http://www.obeonetwork.org/dsl/environment/3.0.0" xmlns:soa="http://www.obeonetwork.org/dsl/soa/3.0.0" xmi:id="_cMhOsGxuEeuYi_YuNNGyqg" technicalid="_cMgAkGxuEeuYi_YuNNGyqg" createdOn="2021-02-11T14:38:35.929+0100" modifiedOn="2021-07-19T12:21:20.098+0200" name="Thetvdb">
+  <ownedNamespaces xmi:id="_msJ2UGxuEeuYi_YuNNGyqg" technicalid="_msAsYmxuEeuYi_YuNNGyqg" createdOn="2021-02-11T14:39:46.357+0100" modifiedOn="2021-07-19T17:16:29.368+0200" name="TheTVDB API v3">
+    <types xsi:type="oenv:DTO" xmi:id="_msJ2UWxuEeuYi_YuNNGyqg" technicalid="_msAsY2xuEeuYi_YuNNGyqg" name="Auth">
+      <ownedAttributes xmi:id="_msJ2UmxuEeuYi_YuNNGyqg" technicalid="_msBTk2xuEeuYi_YuNNGyqg" name="apikey">
+        <type xsi:type="oenv:PrimitiveType" href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5F-EKwKEd2XLNOhkJIazw"/>
+      </ownedAttributes>
+      <ownedAttributes xmi:id="_msJ2U2xuEeuYi_YuNNGyqg" technicalid="_msBTlGxuEeuYi_YuNNGyqg" name="userkey">
+        <type xsi:type="oenv:PrimitiveType" href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5F-EKwKEd2XLNOhkJIazw"/>
+      </ownedAttributes>
+      <ownedAttributes xmi:id="_msJ2VGxuEeuYi_YuNNGyqg" technicalid="_msBTlWxuEeuYi_YuNNGyqg" name="username">
+        <type xsi:type="oenv:PrimitiveType" href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5F-EKwKEd2XLNOhkJIazw"/>
+      </ownedAttributes>
+    </types>
+    <types xsi:type="oenv:DTO" xmi:id="_msJ2YWxuEeuYi_YuNNGyqg" technicalid="_msAsZWxuEeuYi_YuNNGyqg" name="Conflict">
+      <ownedAttributes xmi:id="_msJ2YmxuEeuYi_YuNNGyqg" technicalid="_msB6hWxuEeuYi_YuNNGyqg" name="Error">
+        <type xsi:type="oenv:PrimitiveType" href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5F-EKwKEd2XLNOhkJIazw"/>
+      </ownedAttributes>
+    </types>
+    <types xsi:type="oenv:DTO" xmi:id="_msJ2Y2xuEeuYi_YuNNGyqg" technicalid="_msAsZmxuEeuYi_YuNNGyqg" name="Episode">
+      <ownedAttributes xmi:id="_msJ2ZGxuEeuYi_YuNNGyqg" technicalid="_msB6hmxuEeuYi_YuNNGyqg" name="thumbHeight">
+        <type xsi:type="oenv:PrimitiveType" href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5F-EKwKEd2XLNOhkJIazw"/>
+      </ownedAttributes>
+      <ownedAttributes xmi:id="_msJ2ZWxuEeuYi_YuNNGyqg" technicalid="_msB6h2xuEeuYi_YuNNGyqg" name="dvdSeason">
+        <type xsi:type="oenv:PrimitiveType" href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_9dnH8bGqEd2SRpTkL4GntA"/>
+      </ownedAttributes>
+      <ownedAttributes xmi:id="_msJ2ZmxuEeuYi_YuNNGyqg" technicalid="_msB6iGxuEeuYi_YuNNGyqg" name="airsBeforeEpisode">
+        <type xsi:type="oenv:PrimitiveType" href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_9dnH8bGqEd2SRpTkL4GntA"/>
+      </ownedAttributes>
+      <ownedAttributes xmi:id="_msJ2Z2xuEeuYi_YuNNGyqg" technicalid="_msB6iWxuEeuYi_YuNNGyqg" name="imdbId">
+        <type xsi:type="oenv:PrimitiveType" href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5F-EKwKEd2XLNOhkJIazw"/>
+      </ownedAttributes>
+      <ownedAttributes xmi:id="_msJ2aGxuEeuYi_YuNNGyqg" technicalid="_msB6imxuEeuYi_YuNNGyqg" name="directors" multiplicity="0..*">
+        <type xsi:type="oenv:PrimitiveType" href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5F-EKwKEd2XLNOhkJIazw"/>
+      </ownedAttributes>
+      <ownedAttributes xmi:id="_msJ2aWxuEeuYi_YuNNGyqg" technicalid="_msB6i2xuEeuYi_YuNNGyqg" name="thumbAdded">
+        <type xsi:type="oenv:PrimitiveType" href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5F-EKwKEd2XLNOhkJIazw"/>
+      </ownedAttributes>
+      <ownedAttributes xmi:id="_msJ2amxuEeuYi_YuNNGyqg" technicalid="_msB6jGxuEeuYi_YuNNGyqg" name="airedSeason">
+        <type xsi:type="oenv:PrimitiveType" href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_9dnH8bGqEd2SRpTkL4GntA"/>
+      </ownedAttributes>
+      <ownedAttributes xmi:id="_msJ2a2xuEeuYi_YuNNGyqg" technicalid="_msB6jWxuEeuYi_YuNNGyqg" name="showUrl">
+        <type xsi:type="oenv:PrimitiveType" href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5F-EKwKEd2XLNOhkJIazw"/>
+      </ownedAttributes>
+      <ownedAttributes xmi:id="_msJ2bGxuEeuYi_YuNNGyqg" technicalid="_msB6jmxuEeuYi_YuNNGyqg" name="seriesId">
+        <type xsi:type="oenv:PrimitiveType" href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5F-EKwKEd2XLNOhkJIazw"/>
+      </ownedAttributes>
+      <ownedAttributes xmi:id="_msJ2bWxuEeuYi_YuNNGyqg" technicalid="_msB6j2xuEeuYi_YuNNGyqg" name="lastUpdated">
+        <type xsi:type="oenv:PrimitiveType" href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_9dnH8bGqEd2SRpTkL4GntA"/>
+      </ownedAttributes>
+      <ownedAttributes xmi:id="_msJ2bmxuEeuYi_YuNNGyqg" technicalid="_msB6kGxuEeuYi_YuNNGyqg" name="productionCode">
+        <type xsi:type="oenv:PrimitiveType" href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5F-EKwKEd2XLNOhkJIazw"/>
+      </ownedAttributes>
+      <ownedAttributes xmi:id="_msJ2b2xuEeuYi_YuNNGyqg" technicalid="_msB6kWxuEeuYi_YuNNGyqg" name="thumbAuthor">
+        <type xsi:type="oenv:PrimitiveType" href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_9dnH8bGqEd2SRpTkL4GntA"/>
+      </ownedAttributes>
+      <ownedAttributes xmi:id="_msJ2cGxuEeuYi_YuNNGyqg" technicalid="_msB6kmxuEeuYi_YuNNGyqg" name="id">
+        <type xsi:type="oenv:PrimitiveType" href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_9dnH8bGqEd2SRpTkL4GntA"/>
+      </ownedAttributes>
+      <ownedAttributes xmi:id="_msJ2cWxuEeuYi_YuNNGyqg" technicalid="_msB6k2xuEeuYi_YuNNGyqg" name="dvdDiscid">
+        <type xsi:type="oenv:PrimitiveType" href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5F-EKwKEd2XLNOhkJIazw"/>
+      </ownedAttributes>
+      <ownedAttributes xmi:id="_msJ2cmxuEeuYi_YuNNGyqg" technicalid="_msB6lGxuEeuYi_YuNNGyqg" name="airedEpisodeNumber">
+        <type xsi:type="oenv:PrimitiveType" href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_9dnH8bGqEd2SRpTkL4GntA"/>
+      </ownedAttributes>
+      <ownedAttributes xmi:id="_msJ2c2xuEeuYi_YuNNGyqg" technicalid="_msB6lWxuEeuYi_YuNNGyqg" name="airsBeforeSeason">
+        <type xsi:type="oenv:PrimitiveType" href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_9dnH8bGqEd2SRpTkL4GntA"/>
+      </ownedAttributes>
+      <ownedAttributes xmi:id="_msJ2dGxuEeuYi_YuNNGyqg" technicalid="_msB6lmxuEeuYi_YuNNGyqg" name="lastUpdatedBy">
+        <type xsi:type="oenv:PrimitiveType" href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5F-EKwKEd2XLNOhkJIazw"/>
+      </ownedAttributes>
+      <ownedAttributes xmi:id="_msJ2dWxuEeuYi_YuNNGyqg" technicalid="_msB6l2xuEeuYi_YuNNGyqg" name="overview">
+        <type xsi:type="oenv:PrimitiveType" href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5F-EKwKEd2XLNOhkJIazw"/>
+      </ownedAttributes>
+      <ownedAttributes xmi:id="_msJ2dmxuEeuYi_YuNNGyqg" technicalid="_msB6mGxuEeuYi_YuNNGyqg" name="airsAfterSeason">
+        <type xsi:type="oenv:PrimitiveType" href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_9dnH8bGqEd2SRpTkL4GntA"/>
+      </ownedAttributes>
+      <ownedAttributes xmi:id="_msJ2d2xuEeuYi_YuNNGyqg" technicalid="_msB6mWxuEeuYi_YuNNGyqg" name="siteRating">
+        <type xsi:type="oenv:PrimitiveType" href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5F-EawKEd2XLNOhkJIazw"/>
+      </ownedAttributes>
+      <ownedAttributes xmi:id="_msJ2eGxuEeuYi_YuNNGyqg" technicalid="_msB6mmxuEeuYi_YuNNGyqg" name="absoluteNumber">
+        <type xsi:type="oenv:PrimitiveType" href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_9dnH8bGqEd2SRpTkL4GntA"/>
+      </ownedAttributes>
+      <ownedAttributes xmi:id="_msJ2eWxuEeuYi_YuNNGyqg" technicalid="_msB6m2xuEeuYi_YuNNGyqg" name="director">
+        <type xsi:type="oenv:PrimitiveType" href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5F-EKwKEd2XLNOhkJIazw"/>
+      </ownedAttributes>
+      <ownedAttributes xmi:id="_msJ2emxuEeuYi_YuNNGyqg" technicalid="_msB6nGxuEeuYi_YuNNGyqg" name="episodeName">
+        <type xsi:type="oenv:PrimitiveType" href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5F-EKwKEd2XLNOhkJIazw"/>
+      </ownedAttributes>
+      <ownedAttributes xmi:id="_msJ2e2xuEeuYi_YuNNGyqg" technicalid="_msB6nWxuEeuYi_YuNNGyqg" name="firstAired">
+        <type xsi:type="oenv:PrimitiveType" href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5F-EKwKEd2XLNOhkJIazw"/>
+      </ownedAttributes>
+      <ownedAttributes xmi:id="_msJ2fGxuEeuYi_YuNNGyqg" technicalid="_msB6nmxuEeuYi_YuNNGyqg" name="thumbWidth">
+        <type xsi:type="oenv:PrimitiveType" href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5F-EKwKEd2XLNOhkJIazw"/>
+      </ownedAttributes>
+      <ownedAttributes xmi:id="_msJ2fWxuEeuYi_YuNNGyqg" technicalid="_msB6n2xuEeuYi_YuNNGyqg" name="writers" multiplicity="0..*">
+        <type xsi:type="oenv:PrimitiveType" href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5F-EKwKEd2XLNOhkJIazw"/>
+      </ownedAttributes>
+      <ownedAttributes xmi:id="_msJ2fmxuEeuYi_YuNNGyqg" technicalid="_msB6oGxuEeuYi_YuNNGyqg" name="dvdChapter">
+        <type xsi:type="oenv:PrimitiveType" href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5F-EawKEd2XLNOhkJIazw"/>
+      </ownedAttributes>
+      <ownedAttributes xmi:id="_msJ2f2xuEeuYi_YuNNGyqg" technicalid="_msB6oWxuEeuYi_YuNNGyqg" name="siteRatingCount">
+        <type xsi:type="oenv:PrimitiveType" href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_9dnH8bGqEd2SRpTkL4GntA"/>
+      </ownedAttributes>
+      <ownedAttributes xmi:id="_msJ2gGxuEeuYi_YuNNGyqg" technicalid="_msB6omxuEeuYi_YuNNGyqg" name="filename">
+        <type xsi:type="oenv:PrimitiveType" href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5F-EKwKEd2XLNOhkJIazw"/>
+      </ownedAttributes>
+      <ownedAttributes xmi:id="_msJ2gWxuEeuYi_YuNNGyqg" technicalid="_msB6o2xuEeuYi_YuNNGyqg" name="guestStars" multiplicity="0..*">
+        <type xsi:type="oenv:PrimitiveType" href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5F-EKwKEd2XLNOhkJIazw"/>
+      </ownedAttributes>
+      <ownedAttributes xmi:id="_msJ2gmxuEeuYi_YuNNGyqg" technicalid="_msB6pGxuEeuYi_YuNNGyqg" name="dvdEpisodeNumber">
+        <type xsi:type="oenv:PrimitiveType" href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5F-EawKEd2XLNOhkJIazw"/>
+      </ownedAttributes>
+    </types>
+    <types xsi:type="oenv:DTO" xmi:id="_msJ2g2xuEeuYi_YuNNGyqg" technicalid="_msAsZ2xuEeuYi_YuNNGyqg" name="EpisodeDataQueryParams">
+      <ownedAttributes xmi:id="_msJ2hGxuEeuYi_YuNNGyqg" technicalid="_msB6pWxuEeuYi_YuNNGyqg" name="data" multiplicity="0..*">
+        <type xsi:type="oenv:PrimitiveType" href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5F-EKwKEd2XLNOhkJIazw"/>
+      </ownedAttributes>
+    </types>
+    <types xsi:type="oenv:DTO" xmi:id="_msJ2iGxuEeuYi_YuNNGyqg" technicalid="_msAsaWxuEeuYi_YuNNGyqg" createdOn="2021-07-19T17:16:26.101+0200" modifiedOn="2021-07-19T17:16:26.101+0200" name="EpisodeRecordData">
+      <ownedReferences xmi:id="_msJ2iWxuEeuYi_YuNNGyqg" technicalid="_msB6qGxuEeuYi_YuNNGyqg" createdOn="2021-07-19T14:27:01.073+0200" modifiedOn="2021-07-19T17:24:41.573+0200" name="data" referencedType="_msJ2Y2xuEeuYi_YuNNGyqg"/>
+      <ownedReferences xmi:id="_msJ2imxuEeuYi_YuNNGyqg" technicalid="_msB6qWxuEeuYi_YuNNGyqg" name="errors" referencedType="_msJ2j2xuEeuYi_YuNNGyqg"/>
+    </types>
+    <types xsi:type="oenv:DTO" xmi:id="_msJ2i2xuEeuYi_YuNNGyqg" technicalid="_msAsamxuEeuYi_YuNNGyqg" name="FilterKeys">
+      <ownedAttributes xmi:id="_msJ2jGxuEeuYi_YuNNGyqg" technicalid="_msB6qmxuEeuYi_YuNNGyqg" name="data" multiplicity="0..*">
+        <type xsi:type="oenv:PrimitiveType" href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5F-EKwKEd2XLNOhkJIazw"/>
+      </ownedAttributes>
+    </types>
+    <types xsi:type="oenv:DTO" xmi:id="_msJ2jWxuEeuYi_YuNNGyqg" technicalid="_msAsa2xuEeuYi_YuNNGyqg" name="InvalidQueryParams">
+      <ownedAttributes xmi:id="_msJ2jmxuEeuYi_YuNNGyqg" technicalid="_msB6q2xuEeuYi_YuNNGyqg" name="Error">
+        <type xsi:type="oenv:PrimitiveType" href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5F-EKwKEd2XLNOhkJIazw"/>
+      </ownedAttributes>
+    </types>
+    <types xsi:type="oenv:DTO" xmi:id="_msJ2j2xuEeuYi_YuNNGyqg" technicalid="_msAsbGxuEeuYi_YuNNGyqg" name="JSONErrors">
+      <ownedAttributes xmi:id="_msJ2kGxuEeuYi_YuNNGyqg" technicalid="_msB6rGxuEeuYi_YuNNGyqg" name="invalidLanguage">
+        <type xsi:type="oenv:PrimitiveType" href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5F-EKwKEd2XLNOhkJIazw"/>
+      </ownedAttributes>
+      <ownedAttributes xmi:id="_msJ2kWxuEeuYi_YuNNGyqg" technicalid="_msB6rWxuEeuYi_YuNNGyqg" name="invalidQueryParams" multiplicity="0..*">
+        <type xsi:type="oenv:PrimitiveType" href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5F-EKwKEd2XLNOhkJIazw"/>
+      </ownedAttributes>
+      <ownedAttributes xmi:id="_msJ2kmxuEeuYi_YuNNGyqg" technicalid="_msB6rmxuEeuYi_YuNNGyqg" name="invalidFilters" multiplicity="0..*">
+        <type xsi:type="oenv:PrimitiveType" href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5F-EKwKEd2XLNOhkJIazw"/>
+      </ownedAttributes>
+    </types>
+    <types xsi:type="oenv:DTO" xmi:id="_msJ2k2xuEeuYi_YuNNGyqg" technicalid="_msAsbWxuEeuYi_YuNNGyqg" name="Language">
+      <ownedAttributes xmi:id="_msJ2lGxuEeuYi_YuNNGyqg" technicalid="_msB6r2xuEeuYi_YuNNGyqg" name="name">
+        <type xsi:type="oenv:PrimitiveType" href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5F-EKwKEd2XLNOhkJIazw"/>
+      </ownedAttributes>
+      <ownedAttributes xmi:id="_msJ2lWxuEeuYi_YuNNGyqg" technicalid="_msB6sGxuEeuYi_YuNNGyqg" name="englishName">
+        <type xsi:type="oenv:PrimitiveType" href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5F-EKwKEd2XLNOhkJIazw"/>
+      </ownedAttributes>
+      <ownedAttributes xmi:id="_msJ2lmxuEeuYi_YuNNGyqg" technicalid="_msB6sWxuEeuYi_YuNNGyqg" name="id">
+        <type xsi:type="oenv:PrimitiveType" href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_9dnH8bGqEd2SRpTkL4GntA"/>
+      </ownedAttributes>
+      <ownedAttributes xmi:id="_msJ2l2xuEeuYi_YuNNGyqg" technicalid="_msB6smxuEeuYi_YuNNGyqg" name="abbreviation">
+        <type xsi:type="oenv:PrimitiveType" href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5F-EKwKEd2XLNOhkJIazw"/>
+      </ownedAttributes>
+    </types>
+    <types xsi:type="oenv:DTO" xmi:id="_msJ2mGxuEeuYi_YuNNGyqg" technicalid="_msAsbmxuEeuYi_YuNNGyqg" name="LanguageData">
+      <ownedReferences xmi:id="_msJ2mWxuEeuYi_YuNNGyqg" technicalid="_msB6s2xuEeuYi_YuNNGyqg" name="data" multiplicity="0..*" referencedType="_msJ2k2xuEeuYi_YuNNGyqg"/>
+    </types>
+    <types xsi:type="oenv:DTO" xmi:id="_msJ2mmxuEeuYi_YuNNGyqg" technicalid="_msAsb2xuEeuYi_YuNNGyqg" name="Links">
+      <ownedAttributes xmi:id="_msJ2m2xuEeuYi_YuNNGyqg" technicalid="_msB6tGxuEeuYi_YuNNGyqg" name="next">
+        <type xsi:type="oenv:PrimitiveType" href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_9dnH8bGqEd2SRpTkL4GntA"/>
+      </ownedAttributes>
+      <ownedAttributes xmi:id="_msJ2nGxuEeuYi_YuNNGyqg" technicalid="_msB6tWxuEeuYi_YuNNGyqg" name="last">
+        <type xsi:type="oenv:PrimitiveType" href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_9dnH8bGqEd2SRpTkL4GntA"/>
+      </ownedAttributes>
+      <ownedAttributes xmi:id="_msJ2nWxuEeuYi_YuNNGyqg" technicalid="_msB6tmxuEeuYi_YuNNGyqg" name="previous">
+        <type xsi:type="oenv:PrimitiveType" href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_9dnH8bGqEd2SRpTkL4GntA"/>
+      </ownedAttributes>
+      <ownedAttributes xmi:id="_msJ2nmxuEeuYi_YuNNGyqg" technicalid="_msB6t2xuEeuYi_YuNNGyqg" name="first">
+        <type xsi:type="oenv:PrimitiveType" href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_9dnH8bGqEd2SRpTkL4GntA"/>
+      </ownedAttributes>
+    </types>
+    <types xsi:type="oenv:DTO" xmi:id="_msJ2n2xuEeuYi_YuNNGyqg" technicalid="_msAscGxuEeuYi_YuNNGyqg" createdOn="2021-07-15T20:09:45.199+0200" modifiedOn="2021-07-15T20:09:45.199+0200" name="Movie">
+      <metadatas xmi:id="_1aMX8eWXEeupV6pJeRbWfg" technicalid="_1aMX8OWXEeupV6pJeRbWfg">
+        <metadatas xsi:type="soa:PropertiesExtension" xmi:id="_1aM_AeWXEeupV6pJeRbWfg" technicalid="_1aM_AOWXEeupV6pJeRbWfg" title="x-DTOSurSchema" body="DTO-Schema" context="Schema"/>
+      </metadatas>
+      <ownedAttributes xmi:id="_msJ2oGxuEeuYi_YuNNGyqg" technicalid="_msB6vWxuEeuYi_YuNNGyqg" createdOn="2021-07-15T20:07:24.717+0200" modifiedOn="2021-07-15T20:07:24.717+0200" name="runtime">
+        <metadatas xmi:id="_gec90eWXEeupV6pJeRbWfg" technicalid="_gec90OWXEeupV6pJeRbWfg">
+          <metadatas xsi:type="soa:PropertiesExtension" xmi:id="_gedk4eWXEeupV6pJeRbWfg" technicalid="_gedk4OWXEeupV6pJeRbWfg" title="x-AttributeSurSchema" body="Attribute-Schema" context="Schema"/>
+        </metadatas>
+        <type xsi:type="oenv:PrimitiveType" href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_9dnH8bGqEd2SRpTkL4GntA"/>
+      </ownedAttributes>
+      <ownedAttributes xmi:id="_msJ2oWxuEeuYi_YuNNGyqg" technicalid="_msB6vmxuEeuYi_YuNNGyqg" name="id">
+        <type xsi:type="oenv:PrimitiveType" href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_9dnH8bGqEd2SRpTkL4GntA"/>
+      </ownedAttributes>
+      <ownedAttributes xmi:id="_msJ2omxuEeuYi_YuNNGyqg" technicalid="_msChlWxuEeuYi_YuNNGyqg" name="url">
+        <type xsi:type="oenv:PrimitiveType" href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5F-EKwKEd2XLNOhkJIazw"/>
+      </ownedAttributes>
+      <ownedReferences xmi:id="_msJ2o2xuEeuYi_YuNNGyqg" technicalid="_msB6uGxuEeuYi_YuNNGyqg" createdOn="2021-07-15T20:07:49.087+0200" modifiedOn="2021-07-19T17:53:16.820+0200" name="remoteids" multiplicity="0..*" referencedType="_msJ2x2xuEeuYi_YuNNGyqg"/>
+      <ownedReferences xmi:id="_msJ2pGxuEeuYi_YuNNGyqg" technicalid="_msB6uWxuEeuYi_YuNNGyqg" name="artworks" multiplicity="0..*" referencedType="_msJ2qmxuEeuYi_YuNNGyqg"/>
+      <ownedReferences xmi:id="_msJ2pWxuEeuYi_YuNNGyqg" technicalid="_msB6umxuEeuYi_YuNNGyqg" name="genres" multiplicity="0..*" referencedType="_msJ2s2xuEeuYi_YuNNGyqg"/>
+      <ownedReferences xmi:id="_msJ2pmxuEeuYi_YuNNGyqg" technicalid="_msB6u2xuEeuYi_YuNNGyqg" name="translations" multiplicity="0..*" referencedType="_msJ20GxuEeuYi_YuNNGyqg"/>
+      <ownedReferences xmi:id="_msJ2p2xuEeuYi_YuNNGyqg" technicalid="_msB6vGxuEeuYi_YuNNGyqg" name="release_dates" multiplicity="0..*" referencedType="_msJ2w2xuEeuYi_YuNNGyqg"/>
+      <ownedReferences xmi:id="_msJ2qGxuEeuYi_YuNNGyqg" technicalid="_msChlGxuEeuYi_YuNNGyqg" name="people" referencedType="_msJ3YWxuEeuYi_YuNNGyqg"/>
+      <ownedReferences xmi:id="_msJ2qWxuEeuYi_YuNNGyqg" technicalid="_msChlmxuEeuYi_YuNNGyqg" name="trailers" multiplicity="0..*" referencedType="_msJ2zWxuEeuYi_YuNNGyqg"/>
+    </types>
+    <types xsi:type="oenv:DTO" xmi:id="_msJ2qmxuEeuYi_YuNNGyqg" technicalid="_msAscWxuEeuYi_YuNNGyqg" name="MovieArtwork">
+      <ownedAttributes xmi:id="_msJ2q2xuEeuYi_YuNNGyqg" technicalid="_msChl2xuEeuYi_YuNNGyqg" name="thumb_url">
+        <type xsi:type="oenv:PrimitiveType" href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5F-EKwKEd2XLNOhkJIazw"/>
+      </ownedAttributes>
+      <ownedAttributes xmi:id="_msJ2rGxuEeuYi_YuNNGyqg" technicalid="_msChmGxuEeuYi_YuNNGyqg" name="is_primary">
+        <type xsi:type="oenv:PrimitiveType" href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5FXAqwKEd2XLNOhkJIazw"/>
+      </ownedAttributes>
+      <ownedAttributes xmi:id="_msJ2rWxuEeuYi_YuNNGyqg" technicalid="_msChmWxuEeuYi_YuNNGyqg" name="width">
+        <type xsi:type="oenv:PrimitiveType" href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_9dnH8bGqEd2SRpTkL4GntA"/>
+      </ownedAttributes>
+      <ownedAttributes xmi:id="_msJ2rmxuEeuYi_YuNNGyqg" technicalid="_msChmmxuEeuYi_YuNNGyqg" name="artwork_type">
+        <type xsi:type="oenv:PrimitiveType" href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5F-EKwKEd2XLNOhkJIazw"/>
+      </ownedAttributes>
+      <ownedAttributes xmi:id="_msJ2r2xuEeuYi_YuNNGyqg" technicalid="_msChm2xuEeuYi_YuNNGyqg" name="id">
+        <type xsi:type="oenv:PrimitiveType" href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5F-EKwKEd2XLNOhkJIazw"/>
+      </ownedAttributes>
+      <ownedAttributes xmi:id="_msJ2sGxuEeuYi_YuNNGyqg" technicalid="_msChnGxuEeuYi_YuNNGyqg" name="url">
+        <type xsi:type="oenv:PrimitiveType" href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5F-EKwKEd2XLNOhkJIazw"/>
+      </ownedAttributes>
+      <ownedAttributes xmi:id="_msJ2sWxuEeuYi_YuNNGyqg" technicalid="_msChnWxuEeuYi_YuNNGyqg" name="height">
+        <type xsi:type="oenv:PrimitiveType" href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_9dnH8bGqEd2SRpTkL4GntA"/>
+      </ownedAttributes>
+      <ownedAttributes xmi:id="_msJ2smxuEeuYi_YuNNGyqg" technicalid="_msChnmxuEeuYi_YuNNGyqg" name="tags">
+        <type xsi:type="oenv:PrimitiveType" href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5F-EKwKEd2XLNOhkJIazw"/>
+      </ownedAttributes>
+    </types>
+    <types xsi:type="oenv:DTO" xmi:id="_msJ2s2xuEeuYi_YuNNGyqg" technicalid="_msAscmxuEeuYi_YuNNGyqg" name="MovieGenre">
+      <ownedAttributes xmi:id="_msJ2tGxuEeuYi_YuNNGyqg" technicalid="_msChn2xuEeuYi_YuNNGyqg" name="name">
+        <type xsi:type="oenv:PrimitiveType" href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5F-EKwKEd2XLNOhkJIazw"/>
+      </ownedAttributes>
+      <ownedAttributes xmi:id="_msJ2tWxuEeuYi_YuNNGyqg" technicalid="_msChoGxuEeuYi_YuNNGyqg" name="id">
+        <type xsi:type="oenv:PrimitiveType" href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_9dnH8bGqEd2SRpTkL4GntA"/>
+      </ownedAttributes>
+      <ownedAttributes xmi:id="_msJ2tmxuEeuYi_YuNNGyqg" technicalid="_msChoWxuEeuYi_YuNNGyqg" name="url">
+        <type xsi:type="oenv:PrimitiveType" href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5F-EKwKEd2XLNOhkJIazw"/>
+      </ownedAttributes>
+    </types>
+    <types xsi:type="oenv:DTO" xmi:id="_msJ2t2xuEeuYi_YuNNGyqg" technicalid="_msAsc2xuEeuYi_YuNNGyqg" name="MoviePeople">
+      <ownedAttributes xmi:id="_msJ2uGxuEeuYi_YuNNGyqg" technicalid="_msChomxuEeuYi_YuNNGyqg" name="people_id">
+        <type xsi:type="oenv:PrimitiveType" href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5F-EKwKEd2XLNOhkJIazw"/>
+      </ownedAttributes>
+      <ownedAttributes xmi:id="_msJ2uWxuEeuYi_YuNNGyqg" technicalid="_msCho2xuEeuYi_YuNNGyqg" name="role">
+        <type xsi:type="oenv:PrimitiveType" href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5F-EKwKEd2XLNOhkJIazw"/>
+      </ownedAttributes>
+      <ownedAttributes xmi:id="_msJ2umxuEeuYi_YuNNGyqg" technicalid="_msChpGxuEeuYi_YuNNGyqg" name="imdb_id">
+        <type xsi:type="oenv:PrimitiveType" href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5F-EKwKEd2XLNOhkJIazw"/>
+      </ownedAttributes>
+      <ownedAttributes xmi:id="_msJ2u2xuEeuYi_YuNNGyqg" technicalid="_msChpWxuEeuYi_YuNNGyqg" name="people_facebook">
+        <type xsi:type="oenv:PrimitiveType" href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5F-EKwKEd2XLNOhkJIazw"/>
+      </ownedAttributes>
+      <ownedAttributes xmi:id="_msJ2vGxuEeuYi_YuNNGyqg" technicalid="_msChpmxuEeuYi_YuNNGyqg" name="people_instagram">
+        <type xsi:type="oenv:PrimitiveType" href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5F-EKwKEd2XLNOhkJIazw"/>
+      </ownedAttributes>
+      <ownedAttributes xmi:id="_msJ2vWxuEeuYi_YuNNGyqg" technicalid="_msChp2xuEeuYi_YuNNGyqg" name="name">
+        <type xsi:type="oenv:PrimitiveType" href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5F-EKwKEd2XLNOhkJIazw"/>
+      </ownedAttributes>
+      <ownedAttributes xmi:id="_msJ2vmxuEeuYi_YuNNGyqg" technicalid="_msChqGxuEeuYi_YuNNGyqg" name="people_twitter">
+        <type xsi:type="oenv:PrimitiveType" href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5F-EKwKEd2XLNOhkJIazw"/>
+      </ownedAttributes>
+      <ownedAttributes xmi:id="_msJ2v2xuEeuYi_YuNNGyqg" technicalid="_msChqWxuEeuYi_YuNNGyqg" name="role_image">
+        <type xsi:type="oenv:PrimitiveType" href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5F-EKwKEd2XLNOhkJIazw"/>
+      </ownedAttributes>
+      <ownedAttributes xmi:id="_msJ2wGxuEeuYi_YuNNGyqg" technicalid="_msChqmxuEeuYi_YuNNGyqg" name="id">
+        <type xsi:type="oenv:PrimitiveType" href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5F-EKwKEd2XLNOhkJIazw"/>
+      </ownedAttributes>
+      <ownedAttributes xmi:id="_msJ2wWxuEeuYi_YuNNGyqg" technicalid="_msChq2xuEeuYi_YuNNGyqg" name="people_image">
+        <type xsi:type="oenv:PrimitiveType" href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5F-EKwKEd2XLNOhkJIazw"/>
+      </ownedAttributes>
+      <ownedAttributes xmi:id="_msJ2wmxuEeuYi_YuNNGyqg" technicalid="_msChrGxuEeuYi_YuNNGyqg" name="is_featured">
+        <type xsi:type="oenv:PrimitiveType" href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5FXAqwKEd2XLNOhkJIazw"/>
+      </ownedAttributes>
+    </types>
+    <types xsi:type="oenv:DTO" xmi:id="_msJ2w2xuEeuYi_YuNNGyqg" technicalid="_msAsdGxuEeuYi_YuNNGyqg" name="MovieReleaseDate">
+      <ownedAttributes xmi:id="_msJ2xGxuEeuYi_YuNNGyqg" technicalid="_msChrWxuEeuYi_YuNNGyqg" name="date">
+        <type xsi:type="oenv:PrimitiveType" href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5F-EKwKEd2XLNOhkJIazw"/>
+      </ownedAttributes>
+      <ownedAttributes xmi:id="_msJ2xWxuEeuYi_YuNNGyqg" technicalid="_msChrmxuEeuYi_YuNNGyqg" name="country">
+        <type xsi:type="oenv:PrimitiveType" href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5F-EKwKEd2XLNOhkJIazw"/>
+      </ownedAttributes>
+      <ownedAttributes xmi:id="_msJ2xmxuEeuYi_YuNNGyqg" technicalid="_msChr2xuEeuYi_YuNNGyqg" name="type">
+        <type xsi:type="oenv:PrimitiveType" href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5F-EKwKEd2XLNOhkJIazw"/>
+      </ownedAttributes>
+    </types>
+    <types xsi:type="oenv:DTO" xmi:id="_msJ2x2xuEeuYi_YuNNGyqg" technicalid="_msBTcGxuEeuYi_YuNNGyqg" name="MovieRemoteId">
+      <ownedAttributes xmi:id="_msJ2yGxuEeuYi_YuNNGyqg" technicalid="_msChsGxuEeuYi_YuNNGyqg" name="id">
+        <type xsi:type="oenv:PrimitiveType" href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5F-EKwKEd2XLNOhkJIazw"/>
+      </ownedAttributes>
+      <ownedAttributes xmi:id="_msJ2yWxuEeuYi_YuNNGyqg" technicalid="_msChsWxuEeuYi_YuNNGyqg" name="source_id">
+        <type xsi:type="oenv:PrimitiveType" href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_9dnH8bGqEd2SRpTkL4GntA"/>
+      </ownedAttributes>
+      <ownedAttributes xmi:id="_msJ2ymxuEeuYi_YuNNGyqg" technicalid="_msChsmxuEeuYi_YuNNGyqg" name="source_name">
+        <type xsi:type="oenv:PrimitiveType" href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5F-EKwKEd2XLNOhkJIazw"/>
+      </ownedAttributes>
+      <ownedAttributes xmi:id="_msJ2y2xuEeuYi_YuNNGyqg" technicalid="_msChs2xuEeuYi_YuNNGyqg" name="source_url">
+        <type xsi:type="oenv:PrimitiveType" href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5F-EKwKEd2XLNOhkJIazw"/>
+      </ownedAttributes>
+      <ownedAttributes xmi:id="_msJ2zGxuEeuYi_YuNNGyqg" technicalid="_msChtGxuEeuYi_YuNNGyqg" name="url">
+        <type xsi:type="oenv:PrimitiveType" href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5F-EKwKEd2XLNOhkJIazw"/>
+      </ownedAttributes>
+    </types>
+    <types xsi:type="oenv:DTO" xmi:id="_msJ2zWxuEeuYi_YuNNGyqg" technicalid="_msBTcWxuEeuYi_YuNNGyqg" name="MovieTrailer">
+      <ownedAttributes xmi:id="_msJ2zmxuEeuYi_YuNNGyqg" technicalid="_msChtWxuEeuYi_YuNNGyqg" name="name">
+        <type xsi:type="oenv:PrimitiveType" href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5F-EKwKEd2XLNOhkJIazw"/>
+      </ownedAttributes>
+      <ownedAttributes xmi:id="_msJ2z2xuEeuYi_YuNNGyqg" technicalid="_msChtmxuEeuYi_YuNNGyqg" name="url">
+        <type xsi:type="oenv:PrimitiveType" href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5F-EKwKEd2XLNOhkJIazw"/>
+      </ownedAttributes>
+    </types>
+    <types xsi:type="oenv:DTO" xmi:id="_msJ20GxuEeuYi_YuNNGyqg" technicalid="_msBTcmxuEeuYi_YuNNGyqg" name="MovieTranslation">
+      <ownedAttributes xmi:id="_msJ20WxuEeuYi_YuNNGyqg" technicalid="_msCht2xuEeuYi_YuNNGyqg" name="name">
+        <type xsi:type="oenv:PrimitiveType" href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5F-EKwKEd2XLNOhkJIazw"/>
+      </ownedAttributes>
+      <ownedAttributes xmi:id="_msJ20mxuEeuYi_YuNNGyqg" technicalid="_msChuGxuEeuYi_YuNNGyqg" name="language_code">
+        <type xsi:type="oenv:PrimitiveType" href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5F-EKwKEd2XLNOhkJIazw"/>
+      </ownedAttributes>
+      <ownedAttributes xmi:id="_msJ202xuEeuYi_YuNNGyqg" technicalid="_msChuWxuEeuYi_YuNNGyqg" name="overview">
+        <type xsi:type="oenv:PrimitiveType" href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5F-EKwKEd2XLNOhkJIazw"/>
+      </ownedAttributes>
+      <ownedAttributes xmi:id="_msJ21GxuEeuYi_YuNNGyqg" technicalid="_msChumxuEeuYi_YuNNGyqg" name="tagline">
+        <type xsi:type="oenv:PrimitiveType" href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5F-EKwKEd2XLNOhkJIazw"/>
+      </ownedAttributes>
+      <ownedAttributes xmi:id="_msJ21WxuEeuYi_YuNNGyqg" technicalid="_msChu2xuEeuYi_YuNNGyqg" name="is_primary">
+        <type xsi:type="oenv:PrimitiveType" href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5FXAqwKEd2XLNOhkJIazw"/>
+      </ownedAttributes>
+    </types>
+    <types xsi:type="oenv:DTO" xmi:id="_msJ21mxuEeuYi_YuNNGyqg" technicalid="_msBTc2xuEeuYi_YuNNGyqg" name="NotAuthorized">
+      <ownedAttributes xmi:id="_msJ212xuEeuYi_YuNNGyqg" technicalid="_msChvGxuEeuYi_YuNNGyqg" name="Error">
+        <type xsi:type="oenv:PrimitiveType" href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5F-EKwKEd2XLNOhkJIazw"/>
+      </ownedAttributes>
+    </types>
+    <types xsi:type="oenv:DTO" xmi:id="_msJ22GxuEeuYi_YuNNGyqg" technicalid="_msBTdGxuEeuYi_YuNNGyqg" name="NotFound">
+      <ownedAttributes xmi:id="_msJ22WxuEeuYi_YuNNGyqg" technicalid="_msChvWxuEeuYi_YuNNGyqg" name="Error">
+        <type xsi:type="oenv:PrimitiveType" href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5F-EKwKEd2XLNOhkJIazw"/>
+      </ownedAttributes>
+    </types>
+    <types xsi:type="oenv:DTO" xmi:id="_msJ22mxuEeuYi_YuNNGyqg" technicalid="_msBTdWxuEeuYi_YuNNGyqg" name="Series">
+      <ownedAttributes xmi:id="_msJ222xuEeuYi_YuNNGyqg" technicalid="_msChvmxuEeuYi_YuNNGyqg" name="airsDayOfWeek">
+        <type xsi:type="oenv:PrimitiveType" href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5F-EKwKEd2XLNOhkJIazw"/>
+      </ownedAttributes>
+      <ownedAttributes xmi:id="_msJ23GxuEeuYi_YuNNGyqg" technicalid="_msChv2xuEeuYi_YuNNGyqg" name="overview">
+        <type xsi:type="oenv:PrimitiveType" href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5F-EKwKEd2XLNOhkJIazw"/>
+      </ownedAttributes>
+      <ownedAttributes xmi:id="_msJ23WxuEeuYi_YuNNGyqg" technicalid="_msChwGxuEeuYi_YuNNGyqg" name="aliases" multiplicity="0..*">
+        <type xsi:type="oenv:PrimitiveType" href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5F-EKwKEd2XLNOhkJIazw"/>
+      </ownedAttributes>
+      <ownedAttributes xmi:id="_msJ23mxuEeuYi_YuNNGyqg" technicalid="_msChwWxuEeuYi_YuNNGyqg" name="siteRating">
+        <type xsi:type="oenv:PrimitiveType" href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5F-EawKEd2XLNOhkJIazw"/>
+      </ownedAttributes>
+      <ownedAttributes xmi:id="_msJ232xuEeuYi_YuNNGyqg" technicalid="_msChwmxuEeuYi_YuNNGyqg" name="added">
+        <type xsi:type="oenv:PrimitiveType" href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5F-EKwKEd2XLNOhkJIazw"/>
+      </ownedAttributes>
+      <ownedAttributes xmi:id="_msJ24GxuEeuYi_YuNNGyqg" technicalid="_msChw2xuEeuYi_YuNNGyqg" name="imdbId">
+        <type xsi:type="oenv:PrimitiveType" href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5F-EKwKEd2XLNOhkJIazw"/>
+      </ownedAttributes>
+      <ownedAttributes xmi:id="_msJ24WxuEeuYi_YuNNGyqg" technicalid="_msChxGxuEeuYi_YuNNGyqg" name="seriesName">
+        <type xsi:type="oenv:PrimitiveType" href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5F-EKwKEd2XLNOhkJIazw"/>
+      </ownedAttributes>
+      <ownedAttributes xmi:id="_msJ24mxuEeuYi_YuNNGyqg" technicalid="_msChxWxuEeuYi_YuNNGyqg" name="firstAired">
+        <type xsi:type="oenv:PrimitiveType" href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5F-EKwKEd2XLNOhkJIazw"/>
+      </ownedAttributes>
+      <ownedAttributes xmi:id="_msJ242xuEeuYi_YuNNGyqg" technicalid="_msChxmxuEeuYi_YuNNGyqg" name="rating">
+        <type xsi:type="oenv:PrimitiveType" href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5F-EKwKEd2XLNOhkJIazw"/>
+      </ownedAttributes>
+      <ownedAttributes xmi:id="_msJ25GxuEeuYi_YuNNGyqg" technicalid="_msChx2xuEeuYi_YuNNGyqg" name="banner">
+        <type xsi:type="oenv:PrimitiveType" href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5F-EKwKEd2XLNOhkJIazw"/>
+      </ownedAttributes>
+      <ownedAttributes xmi:id="_msJ25WxuEeuYi_YuNNGyqg" technicalid="_msChyGxuEeuYi_YuNNGyqg" name="runtime">
+        <type xsi:type="oenv:PrimitiveType" href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5F-EKwKEd2XLNOhkJIazw"/>
+      </ownedAttributes>
+      <ownedAttributes xmi:id="_msJ25mxuEeuYi_YuNNGyqg" technicalid="_msChyWxuEeuYi_YuNNGyqg" name="seriesId">
+        <type xsi:type="oenv:PrimitiveType" href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5F-EKwKEd2XLNOhkJIazw"/>
+      </ownedAttributes>
+      <ownedAttributes xmi:id="_msJ252xuEeuYi_YuNNGyqg" technicalid="_msChymxuEeuYi_YuNNGyqg" name="siteRatingCount">
+        <type xsi:type="oenv:PrimitiveType" href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_9dnH8bGqEd2SRpTkL4GntA"/>
+      </ownedAttributes>
+      <ownedAttributes xmi:id="_msJ26GxuEeuYi_YuNNGyqg" technicalid="_msChy2xuEeuYi_YuNNGyqg" name="network">
+        <type xsi:type="oenv:PrimitiveType" href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5F-EKwKEd2XLNOhkJIazw"/>
+      </ownedAttributes>
+      <ownedAttributes xmi:id="_msJ26WxuEeuYi_YuNNGyqg" technicalid="_msChzGxuEeuYi_YuNNGyqg" name="lastUpdated">
+        <type xsi:type="oenv:PrimitiveType" href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_9dnH8bGqEd2SRpTkL4GntA"/>
+      </ownedAttributes>
+      <ownedAttributes xmi:id="_msJ26mxuEeuYi_YuNNGyqg" technicalid="_msChzWxuEeuYi_YuNNGyqg" name="airsTime">
+        <type xsi:type="oenv:PrimitiveType" href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5F-EKwKEd2XLNOhkJIazw"/>
+      </ownedAttributes>
+      <ownedAttributes xmi:id="_msJ262xuEeuYi_YuNNGyqg" technicalid="_msChzmxuEeuYi_YuNNGyqg" name="zap2itId">
+        <type xsi:type="oenv:PrimitiveType" href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5F-EKwKEd2XLNOhkJIazw"/>
+      </ownedAttributes>
+      <ownedAttributes xmi:id="_msJ27GxuEeuYi_YuNNGyqg" technicalid="_msChz2xuEeuYi_YuNNGyqg" name="genre" multiplicity="0..*">
+        <type xsi:type="oenv:PrimitiveType" href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5F-EKwKEd2XLNOhkJIazw"/>
+      </ownedAttributes>
+      <ownedAttributes xmi:id="_msJ27WxuEeuYi_YuNNGyqg" technicalid="_msDIoGxuEeuYi_YuNNGyqg" name="networkId">
+        <type xsi:type="oenv:PrimitiveType" href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5F-EKwKEd2XLNOhkJIazw"/>
+      </ownedAttributes>
+      <ownedAttributes xmi:id="_msJ27mxuEeuYi_YuNNGyqg" technicalid="_msDIoWxuEeuYi_YuNNGyqg" name="id">
+        <type xsi:type="oenv:PrimitiveType" href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_9dnH8bGqEd2SRpTkL4GntA"/>
+      </ownedAttributes>
+      <ownedAttributes xmi:id="_msJ272xuEeuYi_YuNNGyqg" technicalid="_msDIomxuEeuYi_YuNNGyqg" name="slug">
+        <type xsi:type="oenv:PrimitiveType" href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5F-EKwKEd2XLNOhkJIazw"/>
+      </ownedAttributes>
+      <ownedAttributes xmi:id="_msJ28GxuEeuYi_YuNNGyqg" technicalid="_msDIo2xuEeuYi_YuNNGyqg" name="status">
+        <type xsi:type="oenv:PrimitiveType" href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5F-EKwKEd2XLNOhkJIazw"/>
+      </ownedAttributes>
+    </types>
+    <types xsi:type="oenv:DTO" xmi:id="_msJ28WxuEeuYi_YuNNGyqg" technicalid="_msBTdmxuEeuYi_YuNNGyqg" name="SeriesActors">
+      <ownedReferences xmi:id="_msJ28mxuEeuYi_YuNNGyqg" technicalid="_msDIpGxuEeuYi_YuNNGyqg" name="data" multiplicity="0..*" referencedType="_msJ29GxuEeuYi_YuNNGyqg"/>
+      <ownedReferences xmi:id="_msJ282xuEeuYi_YuNNGyqg" technicalid="_msDIpWxuEeuYi_YuNNGyqg" name="errors" referencedType="_msJ2j2xuEeuYi_YuNNGyqg"/>
+    </types>
+    <types xsi:type="oenv:DTO" xmi:id="_msJ29GxuEeuYi_YuNNGyqg" technicalid="_msBTd2xuEeuYi_YuNNGyqg" name="SeriesActorsData">
+      <ownedAttributes xmi:id="_msJ29WxuEeuYi_YuNNGyqg" technicalid="_msDIpmxuEeuYi_YuNNGyqg" name="image">
+        <type xsi:type="oenv:PrimitiveType" href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5F-EKwKEd2XLNOhkJIazw"/>
+      </ownedAttributes>
+      <ownedAttributes xmi:id="_msJ29mxuEeuYi_YuNNGyqg" technicalid="_msDIp2xuEeuYi_YuNNGyqg" name="lastUpdated">
+        <type xsi:type="oenv:PrimitiveType" href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5F-EKwKEd2XLNOhkJIazw"/>
+      </ownedAttributes>
+      <ownedAttributes xmi:id="_msJ292xuEeuYi_YuNNGyqg" technicalid="_msDIqGxuEeuYi_YuNNGyqg" name="role">
+        <type xsi:type="oenv:PrimitiveType" href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5F-EKwKEd2XLNOhkJIazw"/>
+      </ownedAttributes>
+      <ownedAttributes xmi:id="_msJ2-GxuEeuYi_YuNNGyqg" technicalid="_msDIqWxuEeuYi_YuNNGyqg" name="imageAdded">
+        <type xsi:type="oenv:PrimitiveType" href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5F-EKwKEd2XLNOhkJIazw"/>
+      </ownedAttributes>
+      <ownedAttributes xmi:id="_msJ2-WxuEeuYi_YuNNGyqg" technicalid="_msDIqmxuEeuYi_YuNNGyqg" name="imageAuthor">
+        <type xsi:type="oenv:PrimitiveType" href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_9dnH8bGqEd2SRpTkL4GntA"/>
+      </ownedAttributes>
+      <ownedAttributes xmi:id="_msJ2-mxuEeuYi_YuNNGyqg" technicalid="_msDIq2xuEeuYi_YuNNGyqg" name="sortOrder">
+        <type xsi:type="oenv:PrimitiveType" href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_9dnH8bGqEd2SRpTkL4GntA"/>
+      </ownedAttributes>
+      <ownedAttributes xmi:id="_msJ2-2xuEeuYi_YuNNGyqg" technicalid="_msDIrGxuEeuYi_YuNNGyqg" name="name">
+        <type xsi:type="oenv:PrimitiveType" href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5F-EKwKEd2XLNOhkJIazw"/>
+      </ownedAttributes>
+      <ownedAttributes xmi:id="_msJ2_GxuEeuYi_YuNNGyqg" technicalid="_msDIrWxuEeuYi_YuNNGyqg" name="id">
+        <type xsi:type="oenv:PrimitiveType" href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_9dnH8bGqEd2SRpTkL4GntA"/>
+      </ownedAttributes>
+      <ownedAttributes xmi:id="_msJ2_WxuEeuYi_YuNNGyqg" technicalid="_msDIrmxuEeuYi_YuNNGyqg" name="seriesId">
+        <type xsi:type="oenv:PrimitiveType" href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_9dnH8bGqEd2SRpTkL4GntA"/>
+      </ownedAttributes>
+    </types>
+    <types xsi:type="oenv:DTO" xmi:id="_msJ2_mxuEeuYi_YuNNGyqg" technicalid="_msBTeGxuEeuYi_YuNNGyqg" name="SeriesData">
+      <ownedReferences xmi:id="_msJ2_2xuEeuYi_YuNNGyqg" technicalid="_msDIr2xuEeuYi_YuNNGyqg" name="data" referencedType="_msJ22mxuEeuYi_YuNNGyqg"/>
+      <ownedReferences xmi:id="_msJ3AGxuEeuYi_YuNNGyqg" technicalid="_msDIsGxuEeuYi_YuNNGyqg" name="errors" referencedType="_msJ2j2xuEeuYi_YuNNGyqg"/>
+    </types>
+    <types xsi:type="oenv:DTO" xmi:id="_msJ3AWxuEeuYi_YuNNGyqg" technicalid="_msBTeWxuEeuYi_YuNNGyqg" name="SeriesEpisodes">
+      <ownedReferences xmi:id="_msJ3AmxuEeuYi_YuNNGyqg" technicalid="_msDIsWxuEeuYi_YuNNGyqg" name="links" referencedType="_msJ2mmxuEeuYi_YuNNGyqg"/>
+      <ownedReferences xmi:id="_msJ3A2xuEeuYi_YuNNGyqg" technicalid="_msDIsmxuEeuYi_YuNNGyqg" name="data" multiplicity="0..*" referencedType="_msJ2Y2xuEeuYi_YuNNGyqg"/>
+      <ownedReferences xmi:id="_msJ3BGxuEeuYi_YuNNGyqg" technicalid="_msDIs2xuEeuYi_YuNNGyqg" name="errors" referencedType="_msJ2j2xuEeuYi_YuNNGyqg"/>
+    </types>
+    <types xsi:type="oenv:DTO" xmi:id="_msJ3BWxuEeuYi_YuNNGyqg" technicalid="_msBTemxuEeuYi_YuNNGyqg" name="SeriesEpisodesQuery">
+      <ownedReferences xmi:id="_msJ3BmxuEeuYi_YuNNGyqg" technicalid="_msDItGxuEeuYi_YuNNGyqg" name="links" referencedType="_msJ2mmxuEeuYi_YuNNGyqg"/>
+      <ownedReferences xmi:id="_msJ3B2xuEeuYi_YuNNGyqg" technicalid="_msDItWxuEeuYi_YuNNGyqg" name="data" multiplicity="0..*" referencedType="_msJ2Y2xuEeuYi_YuNNGyqg"/>
+      <ownedReferences xmi:id="_msJ3CGxuEeuYi_YuNNGyqg" technicalid="_msDItmxuEeuYi_YuNNGyqg" name="errors" referencedType="_msJ2j2xuEeuYi_YuNNGyqg"/>
+    </types>
+    <types xsi:type="oenv:DTO" xmi:id="_msJ3CWxuEeuYi_YuNNGyqg" technicalid="_msBTe2xuEeuYi_YuNNGyqg" name="SeriesEpisodesQueryParams">
+      <ownedAttributes xmi:id="_msJ3CmxuEeuYi_YuNNGyqg" technicalid="_msDIt2xuEeuYi_YuNNGyqg" name="data" multiplicity="0..*">
+        <type xsi:type="oenv:PrimitiveType" href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5F-EKwKEd2XLNOhkJIazw"/>
+      </ownedAttributes>
+    </types>
+    <types xsi:type="oenv:DTO" xmi:id="_msJ3C2xuEeuYi_YuNNGyqg" technicalid="_msBTfGxuEeuYi_YuNNGyqg" name="SeriesEpisodesSummary">
+      <ownedAttributes xmi:id="_msJ3DGxuEeuYi_YuNNGyqg" technicalid="_msDIuGxuEeuYi_YuNNGyqg" name="dvdEpisodes">
+        <type xsi:type="oenv:PrimitiveType" href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5F-EKwKEd2XLNOhkJIazw"/>
+      </ownedAttributes>
+      <ownedAttributes xmi:id="_msJ3DWxuEeuYi_YuNNGyqg" technicalid="_msDIuWxuEeuYi_YuNNGyqg" name="dvdSeasons" multiplicity="0..*">
+        <type xsi:type="oenv:PrimitiveType" href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5F-EKwKEd2XLNOhkJIazw"/>
+      </ownedAttributes>
+      <ownedAttributes xmi:id="_msJ3DmxuEeuYi_YuNNGyqg" technicalid="_msDIumxuEeuYi_YuNNGyqg" name="airedSeasons" multiplicity="0..*">
+        <type xsi:type="oenv:PrimitiveType" href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5F-EKwKEd2XLNOhkJIazw"/>
+      </ownedAttributes>
+      <ownedAttributes xmi:id="_msJ3D2xuEeuYi_YuNNGyqg" technicalid="_msDIu2xuEeuYi_YuNNGyqg" name="airedEpisodes">
+        <type xsi:type="oenv:PrimitiveType" href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5F-EKwKEd2XLNOhkJIazw"/>
+      </ownedAttributes>
+    </types>
+    <types xsi:type="oenv:DTO" xmi:id="_msJ3EGxuEeuYi_YuNNGyqg" technicalid="_msBTfWxuEeuYi_YuNNGyqg" name="SeriesImageQueryResult">
+      <ownedAttributes xmi:id="_msJ3EWxuEeuYi_YuNNGyqg" technicalid="_msDIvGxuEeuYi_YuNNGyqg" name="fileName">
+        <type xsi:type="oenv:PrimitiveType" href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5F-EKwKEd2XLNOhkJIazw"/>
+      </ownedAttributes>
+      <ownedAttributes xmi:id="_msJ3EmxuEeuYi_YuNNGyqg" technicalid="_msDIvWxuEeuYi_YuNNGyqg" name="thumbnail">
+        <type xsi:type="oenv:PrimitiveType" href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5F-EKwKEd2XLNOhkJIazw"/>
+      </ownedAttributes>
+      <ownedAttributes xmi:id="_msJ3E2xuEeuYi_YuNNGyqg" technicalid="_msDIvmxuEeuYi_YuNNGyqg" name="subKey">
+        <type xsi:type="oenv:PrimitiveType" href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5F-EKwKEd2XLNOhkJIazw"/>
+      </ownedAttributes>
+      <ownedAttributes xmi:id="_msJ3FGxuEeuYi_YuNNGyqg" technicalid="_msDIw2xuEeuYi_YuNNGyqg" name="languageId">
+        <type xsi:type="oenv:PrimitiveType" href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_9dnH8bGqEd2SRpTkL4GntA"/>
+      </ownedAttributes>
+      <ownedAttributes xmi:id="_msJ3FWxuEeuYi_YuNNGyqg" technicalid="_msDIxGxuEeuYi_YuNNGyqg" name="id">
+        <type xsi:type="oenv:PrimitiveType" href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_9dnH8bGqEd2SRpTkL4GntA"/>
+      </ownedAttributes>
+      <ownedAttributes xmi:id="_msJ3FmxuEeuYi_YuNNGyqg" technicalid="_msDIxWxuEeuYi_YuNNGyqg" name="keyType">
+        <type xsi:type="oenv:PrimitiveType" href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5F-EKwKEd2XLNOhkJIazw"/>
+      </ownedAttributes>
+      <ownedAttributes xmi:id="_msJ3F2xuEeuYi_YuNNGyqg" technicalid="_msDIxmxuEeuYi_YuNNGyqg" name="resolution">
+        <type xsi:type="oenv:PrimitiveType" href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5F-EKwKEd2XLNOhkJIazw"/>
+      </ownedAttributes>
+      <ownedReferences xmi:id="_msJ3GGxuEeuYi_YuNNGyqg" technicalid="_msDIwmxuEeuYi_YuNNGyqg" name="ratingsInfo" referencedType="_msJ3XmxuEeuYi_YuNNGyqg"/>
+    </types>
+    <types xsi:type="oenv:DTO" xmi:id="_msJ3GWxuEeuYi_YuNNGyqg" technicalid="_msBTfmxuEeuYi_YuNNGyqg" name="SeriesImageQueryResults">
+      <ownedReferences xmi:id="_msJ3GmxuEeuYi_YuNNGyqg" technicalid="_msDIx2xuEeuYi_YuNNGyqg" name="data" multiplicity="0..*" referencedType="_msJ3EGxuEeuYi_YuNNGyqg"/>
+      <ownedReferences xmi:id="_msJ3G2xuEeuYi_YuNNGyqg" technicalid="_msDIyGxuEeuYi_YuNNGyqg" name="errors" referencedType="_msJ2j2xuEeuYi_YuNNGyqg"/>
+    </types>
+    <types xsi:type="oenv:DTO" xmi:id="_msJ3HGxuEeuYi_YuNNGyqg" technicalid="_msBTf2xuEeuYi_YuNNGyqg" name="SeriesImagesCount">
+      <ownedAttributes xmi:id="_msJ3HWxuEeuYi_YuNNGyqg" technicalid="_msDIyWxuEeuYi_YuNNGyqg" name="fanart">
+        <type xsi:type="oenv:PrimitiveType" href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_9dnH8bGqEd2SRpTkL4GntA"/>
+      </ownedAttributes>
+      <ownedAttributes xmi:id="_msJ3HmxuEeuYi_YuNNGyqg" technicalid="_msDIymxuEeuYi_YuNNGyqg" name="season">
+        <type xsi:type="oenv:PrimitiveType" href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_9dnH8bGqEd2SRpTkL4GntA"/>
+      </ownedAttributes>
+      <ownedAttributes xmi:id="_msJ3H2xuEeuYi_YuNNGyqg" technicalid="_msDIy2xuEeuYi_YuNNGyqg" name="poster">
+        <type xsi:type="oenv:PrimitiveType" href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_9dnH8bGqEd2SRpTkL4GntA"/>
+      </ownedAttributes>
+      <ownedAttributes xmi:id="_msJ3IGxuEeuYi_YuNNGyqg" technicalid="_msDIzGxuEeuYi_YuNNGyqg" name="seasonwide">
+        <type xsi:type="oenv:PrimitiveType" href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_9dnH8bGqEd2SRpTkL4GntA"/>
+      </ownedAttributes>
+      <ownedAttributes xmi:id="_msJ3IWxuEeuYi_YuNNGyqg" technicalid="_msDIzWxuEeuYi_YuNNGyqg" name="series">
+        <type xsi:type="oenv:PrimitiveType" href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_9dnH8bGqEd2SRpTkL4GntA"/>
+      </ownedAttributes>
+    </types>
+    <types xsi:type="oenv:DTO" xmi:id="_msJ3ImxuEeuYi_YuNNGyqg" technicalid="_msBTgGxuEeuYi_YuNNGyqg" name="SeriesImagesCounts">
+      <ownedReferences xmi:id="_msJ3I2xuEeuYi_YuNNGyqg" technicalid="_msDIzmxuEeuYi_YuNNGyqg" name="data" referencedType="_msJ3HGxuEeuYi_YuNNGyqg"/>
+    </types>
+    <types xsi:type="oenv:DTO" xmi:id="_msJ3JGxuEeuYi_YuNNGyqg" technicalid="_msBTgWxuEeuYi_YuNNGyqg" name="SeriesImagesQueryParam">
+      <ownedAttributes xmi:id="_msJ3JWxuEeuYi_YuNNGyqg" technicalid="_msDIz2xuEeuYi_YuNNGyqg" name="languageId">
+        <type xsi:type="oenv:PrimitiveType" href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5F-EKwKEd2XLNOhkJIazw"/>
+      </ownedAttributes>
+      <ownedAttributes xmi:id="_msJ3JmxuEeuYi_YuNNGyqg" technicalid="_msDI0GxuEeuYi_YuNNGyqg" name="keyType">
+        <type xsi:type="oenv:PrimitiveType" href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5F-EKwKEd2XLNOhkJIazw"/>
+      </ownedAttributes>
+      <ownedAttributes xmi:id="_msJ3J2xuEeuYi_YuNNGyqg" technicalid="_msDI0WxuEeuYi_YuNNGyqg" name="subKey" multiplicity="0..*">
+        <type xsi:type="oenv:PrimitiveType" href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5F-EKwKEd2XLNOhkJIazw"/>
+      </ownedAttributes>
+      <ownedAttributes xmi:id="_msJ3KGxuEeuYi_YuNNGyqg" technicalid="_msDI0mxuEeuYi_YuNNGyqg" name="resolution" multiplicity="0..*">
+        <type xsi:type="oenv:PrimitiveType" href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5F-EKwKEd2XLNOhkJIazw"/>
+      </ownedAttributes>
+    </types>
+    <types xsi:type="oenv:DTO" xmi:id="_msJ3KWxuEeuYi_YuNNGyqg" technicalid="_msBTgmxuEeuYi_YuNNGyqg" name="SeriesImagesQueryParams">
+      <ownedReferences xmi:id="_msJ3KmxuEeuYi_YuNNGyqg" technicalid="_msDI02xuEeuYi_YuNNGyqg" name="data" multiplicity="0..*" referencedType="_msJ3JGxuEeuYi_YuNNGyqg"/>
+    </types>
+    <types xsi:type="oenv:DTO" xmi:id="_msJ3K2xuEeuYi_YuNNGyqg" technicalid="_msBTg2xuEeuYi_YuNNGyqg" name="SeriesSearchResult">
+      <ownedAttributes xmi:id="_msJ3LGxuEeuYi_YuNNGyqg" technicalid="_msDI1GxuEeuYi_YuNNGyqg" name="image">
+        <type xsi:type="oenv:PrimitiveType" href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5F-EKwKEd2XLNOhkJIazw"/>
+      </ownedAttributes>
+      <ownedAttributes xmi:id="_msJ3LWxuEeuYi_YuNNGyqg" technicalid="_msDvsGxuEeuYi_YuNNGyqg" name="overview">
+        <type xsi:type="oenv:PrimitiveType" href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5F-EKwKEd2XLNOhkJIazw"/>
+      </ownedAttributes>
+      <ownedAttributes xmi:id="_msJ3LmxuEeuYi_YuNNGyqg" technicalid="_msDvsWxuEeuYi_YuNNGyqg" name="aliases" multiplicity="0..*">
+        <type xsi:type="oenv:PrimitiveType" href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5F-EKwKEd2XLNOhkJIazw"/>
+      </ownedAttributes>
+      <ownedAttributes xmi:id="_msJ3L2xuEeuYi_YuNNGyqg" technicalid="_msDvsmxuEeuYi_YuNNGyqg" name="seriesName">
+        <type xsi:type="oenv:PrimitiveType" href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5F-EKwKEd2XLNOhkJIazw"/>
+      </ownedAttributes>
+      <ownedAttributes xmi:id="_msJ3MGxuEeuYi_YuNNGyqg" technicalid="_msDvs2xuEeuYi_YuNNGyqg" name="firstAired">
+        <type xsi:type="oenv:PrimitiveType" href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5F-EKwKEd2XLNOhkJIazw"/>
+      </ownedAttributes>
+      <ownedAttributes xmi:id="_msJ3MWxuEeuYi_YuNNGyqg" technicalid="_msDvtGxuEeuYi_YuNNGyqg" name="banner">
+        <type xsi:type="oenv:PrimitiveType" href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5F-EKwKEd2XLNOhkJIazw"/>
+      </ownedAttributes>
+      <ownedAttributes xmi:id="_msJ3MmxuEeuYi_YuNNGyqg" technicalid="_msDvtWxuEeuYi_YuNNGyqg" name="id">
+        <type xsi:type="oenv:PrimitiveType" href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_9dnH8bGqEd2SRpTkL4GntA"/>
+      </ownedAttributes>
+      <ownedAttributes xmi:id="_msJ3M2xuEeuYi_YuNNGyqg" technicalid="_msDvtmxuEeuYi_YuNNGyqg" name="poster">
+        <type xsi:type="oenv:PrimitiveType" href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5F-EKwKEd2XLNOhkJIazw"/>
+      </ownedAttributes>
+      <ownedAttributes xmi:id="_msJ3NGxuEeuYi_YuNNGyqg" technicalid="_msDvt2xuEeuYi_YuNNGyqg" name="slug">
+        <type xsi:type="oenv:PrimitiveType" href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5F-EKwKEd2XLNOhkJIazw"/>
+      </ownedAttributes>
+      <ownedAttributes xmi:id="_msJ3NWxuEeuYi_YuNNGyqg" technicalid="_msDvuGxuEeuYi_YuNNGyqg" name="network">
+        <type xsi:type="oenv:PrimitiveType" href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5F-EKwKEd2XLNOhkJIazw"/>
+      </ownedAttributes>
+      <ownedAttributes xmi:id="_msJ3NmxuEeuYi_YuNNGyqg" technicalid="_msDvuWxuEeuYi_YuNNGyqg" name="status">
+        <type xsi:type="oenv:PrimitiveType" href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5F-EKwKEd2XLNOhkJIazw"/>
+      </ownedAttributes>
+    </types>
+    <types xsi:type="oenv:DTO" xmi:id="_msJ3N2xuEeuYi_YuNNGyqg" technicalid="_msBThGxuEeuYi_YuNNGyqg" name="SeriesSearchResults">
+      <ownedReferences xmi:id="_msJ3OGxuEeuYi_YuNNGyqg" technicalid="_msDvumxuEeuYi_YuNNGyqg" name="data" multiplicity="0..*" referencedType="_msJ3K2xuEeuYi_YuNNGyqg"/>
+    </types>
+    <types xsi:type="oenv:DTO" xmi:id="_msJ3OWxuEeuYi_YuNNGyqg" technicalid="_msBThWxuEeuYi_YuNNGyqg" name="Token">
+      <ownedAttributes xmi:id="_msJ3OmxuEeuYi_YuNNGyqg" technicalid="_msDvu2xuEeuYi_YuNNGyqg" name="token">
+        <type xsi:type="oenv:PrimitiveType" href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5F-EKwKEd2XLNOhkJIazw"/>
+      </ownedAttributes>
+    </types>
+    <types xsi:type="oenv:DTO" xmi:id="_msJ3O2xuEeuYi_YuNNGyqg" technicalid="_msBThmxuEeuYi_YuNNGyqg" name="Update">
+      <ownedAttributes xmi:id="_msJ3PGxuEeuYi_YuNNGyqg" technicalid="_msDvvGxuEeuYi_YuNNGyqg" name="lastUpdated">
+        <type xsi:type="oenv:PrimitiveType" href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_9dnH8bGqEd2SRpTkL4GntA"/>
+      </ownedAttributes>
+      <ownedAttributes xmi:id="_msJ3PWxuEeuYi_YuNNGyqg" technicalid="_msDvvWxuEeuYi_YuNNGyqg" name="id">
+        <type xsi:type="oenv:PrimitiveType" href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_9dnH8bGqEd2SRpTkL4GntA"/>
+      </ownedAttributes>
+    </types>
+    <types xsi:type="oenv:DTO" xmi:id="_msJ3PmxuEeuYi_YuNNGyqg" technicalid="_msBTh2xuEeuYi_YuNNGyqg" name="UpdateData">
+      <ownedReferences xmi:id="_msJ3P2xuEeuYi_YuNNGyqg" technicalid="_msDvvmxuEeuYi_YuNNGyqg" name="data" multiplicity="0..*" referencedType="_msJ3O2xuEeuYi_YuNNGyqg"/>
+      <ownedReferences xmi:id="_msJ3QGxuEeuYi_YuNNGyqg" technicalid="_msDvv2xuEeuYi_YuNNGyqg" name="errors" referencedType="_msJ2j2xuEeuYi_YuNNGyqg"/>
+    </types>
+    <types xsi:type="oenv:DTO" xmi:id="_msJ3QWxuEeuYi_YuNNGyqg" technicalid="_msBTiGxuEeuYi_YuNNGyqg" name="UpdateDataQueryParams">
+      <ownedAttributes xmi:id="_msJ3QmxuEeuYi_YuNNGyqg" technicalid="_msDvwGxuEeuYi_YuNNGyqg" name="data" multiplicity="0..*">
+        <type xsi:type="oenv:PrimitiveType" href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5F-EKwKEd2XLNOhkJIazw"/>
+      </ownedAttributes>
+    </types>
+    <types xsi:type="oenv:DTO" xmi:id="_msJ3Q2xuEeuYi_YuNNGyqg" technicalid="_msBTiWxuEeuYi_YuNNGyqg" name="UpdatedMovies">
+      <ownedAttributes xmi:id="_msJ3RGxuEeuYi_YuNNGyqg" technicalid="_msDvwWxuEeuYi_YuNNGyqg" name="movies" multiplicity="0..*">
+        <type xsi:type="oenv:PrimitiveType" href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_9dnH8bGqEd2SRpTkL4GntA"/>
+      </ownedAttributes>
+    </types>
+    <types xsi:type="oenv:DTO" xmi:id="_msJ3RWxuEeuYi_YuNNGyqg" technicalid="_msBTimxuEeuYi_YuNNGyqg" name="User">
+      <ownedAttributes xmi:id="_msJ3RmxuEeuYi_YuNNGyqg" technicalid="_msDvwmxuEeuYi_YuNNGyqg" name="language">
+        <type xsi:type="oenv:PrimitiveType" href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5F-EKwKEd2XLNOhkJIazw"/>
+      </ownedAttributes>
+      <ownedAttributes xmi:id="_msJ3R2xuEeuYi_YuNNGyqg" technicalid="_msDvw2xuEeuYi_YuNNGyqg" name="favoritesDisplaymode">
+        <type xsi:type="oenv:PrimitiveType" href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5F-EKwKEd2XLNOhkJIazw"/>
+      </ownedAttributes>
+      <ownedAttributes xmi:id="_msJ3SGxuEeuYi_YuNNGyqg" technicalid="_msDvxGxuEeuYi_YuNNGyqg" name="userName">
+        <type xsi:type="oenv:PrimitiveType" href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5F-EKwKEd2XLNOhkJIazw"/>
+      </ownedAttributes>
+    </types>
+    <types xsi:type="oenv:DTO" xmi:id="_msJ3SWxuEeuYi_YuNNGyqg" technicalid="_msBTi2xuEeuYi_YuNNGyqg" name="UserData">
+      <ownedReferences xmi:id="_msJ3SmxuEeuYi_YuNNGyqg" technicalid="_msDvxWxuEeuYi_YuNNGyqg" name="data" referencedType="_msJ3RWxuEeuYi_YuNNGyqg"/>
+    </types>
+    <types xsi:type="oenv:DTO" xmi:id="_msJ3S2xuEeuYi_YuNNGyqg" technicalid="_msBTjGxuEeuYi_YuNNGyqg" name="UserFavorites">
+      <ownedAttributes xmi:id="_msJ3TGxuEeuYi_YuNNGyqg" technicalid="_msDvxmxuEeuYi_YuNNGyqg" name="favorites" multiplicity="0..*">
+        <type xsi:type="oenv:PrimitiveType" href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5F-EKwKEd2XLNOhkJIazw"/>
+      </ownedAttributes>
+    </types>
+    <types xsi:type="oenv:DTO" xmi:id="_msJ3TWxuEeuYi_YuNNGyqg" technicalid="_msBTjWxuEeuYi_YuNNGyqg" name="UserFavoritesData">
+      <ownedReferences xmi:id="_msJ3TmxuEeuYi_YuNNGyqg" technicalid="_msDvx2xuEeuYi_YuNNGyqg" name="data" referencedType="_msJ3S2xuEeuYi_YuNNGyqg"/>
+      <ownedReferences xmi:id="_msJ3T2xuEeuYi_YuNNGyqg" technicalid="_msDvyGxuEeuYi_YuNNGyqg" name="errors" referencedType="_msJ2j2xuEeuYi_YuNNGyqg"/>
+    </types>
+    <types xsi:type="oenv:DTO" xmi:id="_msJ3UGxuEeuYi_YuNNGyqg" technicalid="_msBTjmxuEeuYi_YuNNGyqg" name="UserRatings">
+      <ownedAttributes xmi:id="_msJ3UWxuEeuYi_YuNNGyqg" technicalid="_msDvyWxuEeuYi_YuNNGyqg" name="rating">
+        <type xsi:type="oenv:PrimitiveType" href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_9dnH8bGqEd2SRpTkL4GntA"/>
+      </ownedAttributes>
+      <ownedAttributes xmi:id="_msJ3UmxuEeuYi_YuNNGyqg" technicalid="_msDvymxuEeuYi_YuNNGyqg" name="ratingItemId">
+        <type xsi:type="oenv:PrimitiveType" href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_9dnH8bGqEd2SRpTkL4GntA"/>
+      </ownedAttributes>
+      <ownedAttributes xmi:id="_msJ3U2xuEeuYi_YuNNGyqg" technicalid="_msDvy2xuEeuYi_YuNNGyqg" name="ratingType">
+        <type xsi:type="oenv:PrimitiveType" href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5F-EKwKEd2XLNOhkJIazw"/>
+      </ownedAttributes>
+    </types>
+    <types xsi:type="oenv:DTO" xmi:id="_msJ3VGxuEeuYi_YuNNGyqg" technicalid="_msBTj2xuEeuYi_YuNNGyqg" name="UserRatingsData">
+      <ownedReferences xmi:id="_msJ3VWxuEeuYi_YuNNGyqg" technicalid="_msDvzGxuEeuYi_YuNNGyqg" name="links" referencedType="_msJ2mmxuEeuYi_YuNNGyqg"/>
+      <ownedReferences xmi:id="_msJ3VmxuEeuYi_YuNNGyqg" technicalid="_msDvzWxuEeuYi_YuNNGyqg" name="data" multiplicity="0..*" referencedType="_msJ3UGxuEeuYi_YuNNGyqg"/>
+      <ownedReferences xmi:id="_msJ3V2xuEeuYi_YuNNGyqg" technicalid="_msDvzmxuEeuYi_YuNNGyqg" name="errors" referencedType="_msJ2j2xuEeuYi_YuNNGyqg"/>
+    </types>
+    <types xsi:type="oenv:DTO" xmi:id="_msJ3WGxuEeuYi_YuNNGyqg" technicalid="_msBTkGxuEeuYi_YuNNGyqg" name="UserRatingsDataNoLinks">
+      <ownedReferences xmi:id="_msJ3WWxuEeuYi_YuNNGyqg" technicalid="_msDvz2xuEeuYi_YuNNGyqg" name="data" multiplicity="0..*" referencedType="_msJ3UGxuEeuYi_YuNNGyqg"/>
+    </types>
+    <types xsi:type="oenv:DTO" xmi:id="_msJ3WmxuEeuYi_YuNNGyqg" technicalid="_msBTkWxuEeuYi_YuNNGyqg" name="UserRatingsDataNoLinksEmptyArray">
+      <ownedReferences xmi:id="_msJ3W2xuEeuYi_YuNNGyqg" technicalid="_msDv0WxuEeuYi_YuNNGyqg" name="data" multiplicity="0..*" referencedType="_msJ3ZmxuEeuYi_YuNNGyqg"/>
+    </types>
+    <types xsi:type="oenv:DTO" xmi:id="_msJ3XGxuEeuYi_YuNNGyqg" technicalid="_msBTkmxuEeuYi_YuNNGyqg" name="UserRatingsQueryParams">
+      <ownedAttributes xmi:id="_msJ3XWxuEeuYi_YuNNGyqg" technicalid="_msDv0mxuEeuYi_YuNNGyqg" name="data" multiplicity="0..*">
+        <type xsi:type="oenv:PrimitiveType" href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5F-EKwKEd2XLNOhkJIazw"/>
+      </ownedAttributes>
+    </types>
+    <types xsi:type="oenv:DTO" xmi:id="_msJ3XmxuEeuYi_YuNNGyqg" technicalid="_msDIv2xuEeuYi_YuNNGyqg" name="SeriesImageQueryResultRatingsInfo">
+      <ownedAttributes xmi:id="_msJ3X2xuEeuYi_YuNNGyqg" technicalid="_msDIwGxuEeuYi_YuNNGyqg" name="count">
+        <type xsi:type="oenv:PrimitiveType" href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_9dnH8bGqEd2SRpTkL4GntA"/>
+      </ownedAttributes>
+      <ownedAttributes xmi:id="_msJ3YGxuEeuYi_YuNNGyqg" technicalid="_msDIwWxuEeuYi_YuNNGyqg" name="average">
+        <type xsi:type="oenv:PrimitiveType" href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5F-EawKEd2XLNOhkJIazw"/>
+      </ownedAttributes>
+    </types>
+    <types xsi:type="oenv:DTO" xmi:id="_msJ3YWxuEeuYi_YuNNGyqg" technicalid="_msB6v2xuEeuYi_YuNNGyqg" name="MoviePeople_1">
+      <ownedReferences xmi:id="_msJ3YmxuEeuYi_YuNNGyqg" technicalid="_msChkGxuEeuYi_YuNNGyqg" name="actors" multiplicity="0..*" referencedType="_msJ2t2xuEeuYi_YuNNGyqg"/>
+      <ownedReferences xmi:id="_msJ3Y2xuEeuYi_YuNNGyqg" technicalid="_msChkWxuEeuYi_YuNNGyqg" name="writers" multiplicity="0..*" referencedType="_msJ2t2xuEeuYi_YuNNGyqg"/>
+      <ownedReferences xmi:id="_msJ3ZGxuEeuYi_YuNNGyqg" technicalid="_msChkmxuEeuYi_YuNNGyqg" name="directors" multiplicity="0..*" referencedType="_msJ2t2xuEeuYi_YuNNGyqg"/>
+      <ownedReferences xmi:id="_msJ3ZWxuEeuYi_YuNNGyqg" technicalid="_msChk2xuEeuYi_YuNNGyqg" name="producers" multiplicity="0..*" referencedType="_msJ2t2xuEeuYi_YuNNGyqg"/>
+    </types>
+    <types xsi:type="oenv:DTO" xmi:id="_msJ3ZmxuEeuYi_YuNNGyqg" technicalid="_msDv0GxuEeuYi_YuNNGyqg" name="UserRatingsDataNoLinksEmptyArrayData"/>
+  </ownedNamespaces>
+  <ownedComponents xmi:id="_msJPQGxuEeuYi_YuNNGyqg" technicalid="_msAsYGxuEeuYi_YuNNGyqg" description="API v3 targets v2 functionality with a few minor additions. The API is accessible via https://api.thetvdb.com and provides the following REST endpoints in JSON format.&#xA;&#xA;&#xA;How to use this API documentation&#xA;----------------&#xA;&#xA;&#xA;You may browse the API routes without authentication, but if you wish to send requests to the API and see response data, then you must authenticate.&#xA;1. Obtain a JWT token by `POST`ing  to the `/login` route in the `Authentication` section with your API key and credentials.&#xA;1. Paste the JWT token from the response into the &quot;JWT Token&quot; field at the top of the page and click the 'Add Token' button.&#xA;&#xA;&#xA;You will now be able to use the remaining routes to send requests to the API and get a response.&#xA;&#xA;&#xA;Language Selection&#xA;----------------&#xA;&#xA;&#xA;Language selection is done via the `Accept-Language` header. At the moment, you may only pass one language abbreviation in the header at a time. Valid language abbreviations can be found at the `/languages` route..&#xA;&#xA;&#xA;Authentication&#xA;----------------&#xA;&#xA;&#xA;Authentication to use the API is similar to the How-to section above. Users must `POST` to the `/login` route with their API key and credentials in the following format in order to obtain a JWT token.&#xA;&#xA;`{&quot;apikey&quot;:&quot;APIKEY&quot;,&quot;username&quot;:&quot;USERNAME&quot;,&quot;userkey&quot;:&quot;USERKEY&quot;}`&#xA;&#xA;Note that the username and key are ONLY required for the `/user` routes. The user's key is labled `Account Identifier` in the account section of the main site.&#xA;The token is then used in all subsequent requests by providing it in the `Authorization` header. The header will look like: `Authorization: Bearer &lt;yourJWTtoken>`. Currently, the token expires after 24 hours. You can `GET` the `/refresh_token` route to extend that expiration date.&#xA;&#xA;&#xA;Versioning&#xA;----------------&#xA;&#xA;&#xA;You may request a different version of the API by including an `Accept` header in your request with the following format: `Accept:application/vnd.thetvdb.v$VERSION`. This documentation automatically uses the version seen at the top and bottom of the page." createdOn="2021-06-24T15:33:23.627+0200" modifiedOn="2021-07-15T19:34:48.579+0200" name="TheTVDB API v3" URI="" URL="/tvdb" apiVersion="3.0.0">
+    <metadatas xmi:id="_8_RFMeWSEeuxesbg3uLVWg" technicalid="_8_RFMOWSEeuxesbg3uLVWg">
+      <metadatas xsi:type="soa:PropertiesExtension" xmi:id="_8_RsQeWSEeuxesbg3uLVWg" technicalid="_8_RsQOWSEeuxesbg3uLVWg" title="x-CptSurOpenApi" body="Component-OpenApi" context="OpenAPI"/>
+      <metadatas xsi:type="soa:PropertiesExtension" xmi:id="_NpGTUOWVEeu6q-l7SQtLvA" technicalid="_NpFsQOWVEeu6q-l7SQtLvA" title="x-CptSurPaths" body="Component-Paths" context="Paths"/>
+      <metadatas xsi:type="soa:PropertiesExtension" xmi:id="_EHkdQeWWEeupV6pJeRbWfg" technicalid="_EHkdQOWWEeupV6pJeRbWfg" title="x-CptSurServer" body="Component-Server" context="Server"/>
+    </metadatas>
+    <ownedServices xmi:id="_msJPQWxuEeuYi_YuNNGyqg" technicalid="_msEWwGxuEeuYi_YuNNGyqg" description="Information about a specific series" createdOn="2021-07-15T20:08:56.275+0200" modifiedOn="2021-07-15T20:08:56.275+0200" name="Series" URI="/series">
+      <metadatas xmi:id="_uHniMeWXEeupV6pJeRbWfg" technicalid="_uHniMOWXEeupV6pJeRbWfg">
+        <metadatas xsi:type="soa:PropertiesExtension" xmi:id="_uHniM-WXEeupV6pJeRbWfg" technicalid="_uHniMuWXEeupV6pJeRbWfg" title="x-ServiceSurTag" body="Service-Tag" context="Tag"/>
+      </metadatas>
+      <ownedInterface xmi:id="_msJPQmxuEeuYi_YuNNGyqg" technicalid="_msGMBmxuEeuYi_YuNNGyqg" name="Series">
+        <ownedOperations xmi:id="_msJPQ2xuEeuYi_YuNNGyqg" technicalid="_msGMB2xuEeuYi_YuNNGyqg" description="Returns a series records that contains all information known about a particular series id." createdOn="2021-07-15T20:02:15.006+0200" modifiedOn="2021-07-15T20:02:15.006+0200" name="getFromId2" public="true" URI="/{id}" exposition="REST" securitySchemes="_msJQPmxuEeuYi_YuNNGyqg">
+          <metadatas xmi:id="_yU0X4eWWEeupV6pJeRbWfg" technicalid="_yU0X4OWWEeupV6pJeRbWfg">
+            <metadatas xsi:type="soa:PropertiesExtension" xmi:id="_yU0-8eWWEeupV6pJeRbWfg" technicalid="_yU0-8OWWEeupV6pJeRbWfg" title="x-OperationSurPathItem" body="Operation-PathItem" context="PathItem"/>
+            <metadatas xsi:type="soa:PropertiesExtension" xmi:id="_5FIOEeWWEeupV6pJeRbWfg" technicalid="_5FIOEOWWEeupV6pJeRbWfg" title="x-OperationSurApiResponses" body="Operation-ApiResponses" context="ApiResponses"/>
+            <metadatas xsi:type="soa:PropertiesExtension" xmi:id="_7jr7MeWWEeupV6pJeRbWfg" technicalid="_7jr7MOWWEeupV6pJeRbWfg" title="x-OperationSurOperation" body="Operation-Operation" context="Operation"/>
+          </metadatas>
+          <input xmi:id="_msJPRGxuEeuYi_YuNNGyqg" technicalid="_msGMCGxuEeuYi_YuNNGyqg" description="ID of the series" createdOn="2021-07-15T14:14:53.671+0200" modifiedOn="2021-07-16T16:35:17.570+0200" name="id">
+            <metadatas xmi:id="_OyzbcOWXEeupV6pJeRbWfg" technicalid="_Oyy0YOWXEeupV6pJeRbWfg">
+              <metadatas xsi:type="soa:PropertiesExtension" xmi:id="_Oy0CgeWXEeupV6pJeRbWfg" technicalid="_Oy0CgOWXEeupV6pJeRbWfg" title="x-ParameterSurParameter" body="Parameter-Parameter" context="Parameter"/>
+              <metadatas xsi:type="soa:PropertiesExtension" xmi:id="_bDbfkeWXEeupV6pJeRbWfg" technicalid="_bDbfkOWXEeupV6pJeRbWfg" title="x-ParameterSurSchema" body="Parameter-Schema" context="Schema"/>
+            </metadatas>
+            <type xsi:type="oenv:PrimitiveType" href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_9dnH8bGqEd2SRpTkL4GntA"/>
+            <restData xmi:id="_msJPRWxuEeuYi_YuNNGyqg" technicalid="_msGMCWxuEeuYi_YuNNGyqg" passingMode="PATH" restId="id"/>
+          </input>
+          <input xmi:id="_msJPRmxuEeuYi_YuNNGyqg" technicalid="_msGMCmxuEeuYi_YuNNGyqg" description="Records are returned with the some fields in the desired language, if it exists. If there is no translation for the given language, then the record is still returned but with empty values for the translated fields." name="Accept-Language" multiplicity="0..1">
+            <type xsi:type="oenv:PrimitiveType" href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5F-EKwKEd2XLNOhkJIazw"/>
+            <restData xmi:id="_msJPR2xuEeuYi_YuNNGyqg" technicalid="_msGMC2xuEeuYi_YuNNGyqg" passingMode="HEADER" restId="Accept-Language"/>
+          </input>
+          <output xmi:id="_msJPSGxuEeuYi_YuNNGyqg" technicalid="_msGMDGxuEeuYi_YuNNGyqg" description="A series record." createdOn="2021-07-16T16:33:37.190+0200" modifiedOn="2021-07-16T16:34:29.160+0200" type="_msJ2_mxuEeuYi_YuNNGyqg" name="output200" multiplicity="0..1" statusCode="200" statusMessage="OK">
+            <metadatas xmi:id="_7X2ygeZCEeuYFtBACJz90A" technicalid="_7X2ygOZCEeuYFtBACJz90A">
+              <metadatas xsi:type="soa:PropertiesExtension" xmi:id="_7X3ZkeZCEeuYFtBACJz90A" technicalid="_7X3ZkOZCEeuYFtBACJz90A" title="x-ParameterMediaType" body="Parameter-MediaType" context="MediaType"/>
+              <metadatas xsi:type="soa:PropertiesExtension" xmi:id="_yMzZAOiDEeuDtqUiFtoQHw" technicalid="_yMyx8OiDEeuDtqUiFtoQHw" title="x-ParameterSurParameter2" body="Parameter-Parameter2" context="Parameter"/>
+              <metadatas xsi:type="soa:PropertiesExtension" xmi:id="_4pOp4eiDEeuDtqUiFtoQHw" technicalid="_4pOp4OiDEeuDtqUiFtoQHw" title="x-ParameterSurApiResponse" body="Parameter-ApiResponse" context="ApiResponse"/>
+              <metadatas xsi:type="soa:PropertiesExtension" xmi:id="__BE8weiDEeuDtqUiFtoQHw" technicalid="__BE8wOiDEeuDtqUiFtoQHw" title="x-ParameterSurSchema2" body="Parameter-Schema2" context="Schema"/>
+            </metadatas>
+            <mediaType xmi:id="_0rxVAeZCEeuYFtBACJz90A" technicalid="_0rxVAOZCEeuYFtBACJz90A" createdOn="2021-07-16T16:33:47.829+0200" modifiedOn="2021-07-16T16:34:46.909+0200" identifier="application/pdf">
+              <metadatas xmi:id="_-BH60eZCEeuYFtBACJz90A" technicalid="_-BH60OZCEeuYFtBACJz90A">
+                <metadatas xsi:type="soa:PropertiesExtension" xmi:id="_-BIh4eZCEeuYFtBACJz90A" technicalid="_-BIh4OZCEeuYFtBACJz90A" title="x-MediaTypeMediaType" body="MediaType-MediaType" context="MediaType"/>
+              </metadatas>
+              <examples xmi:id="_1eP60eZCEeuYFtBACJz90A" technicalid="_1eP60OZCEeuYFtBACJz90A" description="description example for output200" createdOn="2021-07-16T16:33:56.758+0200" modifiedOn="2021-07-16T16:35:01.305+0200" summary="summary example for output200" value="value example for output200" name="example for output200">
+                <metadatas xmi:id="_AKaikeZDEeuYFtBACJz90A" technicalid="_AKaikOZDEeuYFtBACJz90A">
+                  <metadatas xsi:type="soa:PropertiesExtension" xmi:id="_AKaik-ZDEeuYFtBACJz90A" technicalid="_AKaikuZDEeuYFtBACJz90A" title="x-ExampleExample" body="Example-Example" context="Example"/>
+                </metadatas>
+              </examples>
+            </mediaType>
+          </output>
+          <fault xmi:id="_msJPSWxuEeuYi_YuNNGyqg" technicalid="_msGMDWxuEeuYi_YuNNGyqg" description="Returned if your JWT token is missing or expired" type="_msJ21mxuEeuYi_YuNNGyqg" name="fault401" multiplicity="0..1" statusCode="401" statusMessage="Unauthorized"/>
+          <fault xmi:id="_msJPSmxuEeuYi_YuNNGyqg" technicalid="_msGMDmxuEeuYi_YuNNGyqg" description="Returned if the given series ID does not exist" type="_msJ22GxuEeuYi_YuNNGyqg" name="fault404" multiplicity="0..1" statusCode="404" statusMessage="Not Found"/>
+        </ownedOperations>
+        <ownedOperations xmi:id="_msJPS2xuEeuYi_YuNNGyqg" technicalid="_msGMD2xuEeuYi_YuNNGyqg" description="Returns header information only about the given series ID." name="headFromId" public="true" URI="/{id}" verb="HEAD" exposition="REST" securitySchemes="_msJQPmxuEeuYi_YuNNGyqg">
+          <input xmi:id="_msJPTGxuEeuYi_YuNNGyqg" technicalid="_msGMEGxuEeuYi_YuNNGyqg" description="ID of the series" name="id">
+            <type xsi:type="oenv:PrimitiveType" href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_9dnH8bGqEd2SRpTkL4GntA"/>
+            <restData xmi:id="_msJPTWxuEeuYi_YuNNGyqg" technicalid="_msGMEWxuEeuYi_YuNNGyqg" passingMode="PATH" restId="id"/>
+          </input>
+          <input xmi:id="_msJPTmxuEeuYi_YuNNGyqg" technicalid="_msGMEmxuEeuYi_YuNNGyqg" description="Records are returned with the some fields in the desired language, if it exists. If there is no translation for the given language, then the record is still returned but with empty values for the translated fields." name="Accept-Language" multiplicity="0..1">
+            <type xsi:type="oenv:PrimitiveType" href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5F-EKwKEd2XLNOhkJIazw"/>
+            <restData xmi:id="_msJPT2xuEeuYi_YuNNGyqg" technicalid="_msGME2xuEeuYi_YuNNGyqg" passingMode="HEADER" restId="Accept-Language"/>
+          </input>
+          <output xmi:id="_msJPUGxuEeuYi_YuNNGyqg" technicalid="_msGMFGxuEeuYi_YuNNGyqg" description="Series header information. Good for getting the Last-Updated header to find out when the series was last modified." name="output200" statusCode="200" statusMessage="OK"/>
+          <fault xmi:id="_msJPUWxuEeuYi_YuNNGyqg" technicalid="_msGMFWxuEeuYi_YuNNGyqg" description="Returned if your JWT token is missing or expired" type="_msJ21mxuEeuYi_YuNNGyqg" name="fault401" multiplicity="0..1" statusCode="401" statusMessage="Unauthorized"/>
+          <fault xmi:id="_msJPUmxuEeuYi_YuNNGyqg" technicalid="_msGMFmxuEeuYi_YuNNGyqg" description="Returned if the given series ID does not exist" type="_msJ22GxuEeuYi_YuNNGyqg" name="fault404" multiplicity="0..1" statusCode="404" statusMessage="Not Found"/>
+        </ownedOperations>
+        <ownedOperations xmi:id="_msJPU2xuEeuYi_YuNNGyqg" technicalid="_msGMF2xuEeuYi_YuNNGyqg" description="Returns actors for the given series id" name="getActorsFromId" public="true" URI="/{id}/actors" exposition="REST" securitySchemes="_msJQPmxuEeuYi_YuNNGyqg">
+          <input xmi:id="_msJPVGxuEeuYi_YuNNGyqg" technicalid="_msGMGGxuEeuYi_YuNNGyqg" description="ID of the series" name="id">
+            <type xsi:type="oenv:PrimitiveType" href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_9dnH8bGqEd2SRpTkL4GntA"/>
+            <restData xmi:id="_msJPVWxuEeuYi_YuNNGyqg" technicalid="_msGMGWxuEeuYi_YuNNGyqg" passingMode="PATH" restId="id"/>
+          </input>
+          <output xmi:id="_msJPVmxuEeuYi_YuNNGyqg" technicalid="_msGMGmxuEeuYi_YuNNGyqg" description="An array of actor objects for the given series id." type="_msJ28WxuEeuYi_YuNNGyqg" name="output200" multiplicity="0..1" statusCode="200" statusMessage="OK"/>
+          <fault xmi:id="_msJPV2xuEeuYi_YuNNGyqg" technicalid="_msGMG2xuEeuYi_YuNNGyqg" description="Returned if your JWT token is missing or expired" type="_msJ21mxuEeuYi_YuNNGyqg" name="fault401" multiplicity="0..1" statusCode="401" statusMessage="Unauthorized"/>
+          <fault xmi:id="_msJPWGxuEeuYi_YuNNGyqg" technicalid="_msGMHGxuEeuYi_YuNNGyqg" description="Returned if the given series ID does not exist" type="_msJ22GxuEeuYi_YuNNGyqg" name="fault404" multiplicity="0..1" statusCode="404" statusMessage="Not Found"/>
+        </ownedOperations>
+        <ownedOperations xmi:id="_msJPWWxuEeuYi_YuNNGyqg" technicalid="_msGzAGxuEeuYi_YuNNGyqg" description="All episodes for a given series. Paginated with 100 results per page." name="getEpisodesFromId" public="true" URI="/{id}/episodes" exposition="REST" securitySchemes="_msJQPmxuEeuYi_YuNNGyqg">
+          <input xmi:id="_msJPWmxuEeuYi_YuNNGyqg" technicalid="_msGzAWxuEeuYi_YuNNGyqg" description="ID of the series" name="id">
+            <type xsi:type="oenv:PrimitiveType" href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_9dnH8bGqEd2SRpTkL4GntA"/>
+            <restData xmi:id="_msJPW2xuEeuYi_YuNNGyqg" technicalid="_msGzAmxuEeuYi_YuNNGyqg" passingMode="PATH" restId="id"/>
+          </input>
+          <input xmi:id="_msJPXGxuEeuYi_YuNNGyqg" technicalid="_msGzA2xuEeuYi_YuNNGyqg" description="Page of results to fetch. Defaults to page 1 if not provided." name="page" multiplicity="0..1">
+            <type xsi:type="oenv:PrimitiveType" href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5F-EKwKEd2XLNOhkJIazw"/>
+            <restData xmi:id="_msJPXWxuEeuYi_YuNNGyqg" technicalid="_msGzBGxuEeuYi_YuNNGyqg" passingMode="QUERY" restId="page"/>
+          </input>
+          <output xmi:id="_msJPXmxuEeuYi_YuNNGyqg" technicalid="_msGzBWxuEeuYi_YuNNGyqg" description="An array of episode objects for the given series id." type="_msJ3AWxuEeuYi_YuNNGyqg" name="output200" multiplicity="0..1" statusCode="200" statusMessage="OK"/>
+          <fault xmi:id="_msJPX2xuEeuYi_YuNNGyqg" technicalid="_msGzBmxuEeuYi_YuNNGyqg" description="Returned if your JWT token is missing or expired" type="_msJ21mxuEeuYi_YuNNGyqg" name="fault401" multiplicity="0..1" statusCode="401" statusMessage="Unauthorized"/>
+          <fault xmi:id="_msJPYGxuEeuYi_YuNNGyqg" technicalid="_msGzB2xuEeuYi_YuNNGyqg" description="Returned if the given series ID does not exist" type="_msJ22GxuEeuYi_YuNNGyqg" name="fault404" multiplicity="0..1" statusCode="404" statusMessage="Not Found"/>
+        </ownedOperations>
+        <ownedOperations xmi:id="_msJPYWxuEeuYi_YuNNGyqg" technicalid="_msGzCGxuEeuYi_YuNNGyqg" description="This route allows the user to query against episodes for the given series. The response is a paginated array of episode records." name="getEpisodesQueryFromId" public="true" URI="/{id}/episodes/query" exposition="REST" securitySchemes="_msJQPmxuEeuYi_YuNNGyqg">
+          <input xmi:id="_msJPYmxuEeuYi_YuNNGyqg" technicalid="_msGzCWxuEeuYi_YuNNGyqg" description="ID of the series" name="id">
+            <type xsi:type="oenv:PrimitiveType" href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_9dnH8bGqEd2SRpTkL4GntA"/>
+            <restData xmi:id="_msJPY2xuEeuYi_YuNNGyqg" technicalid="_msGzCmxuEeuYi_YuNNGyqg" passingMode="PATH" restId="id"/>
+          </input>
+          <input xmi:id="_msJPZGxuEeuYi_YuNNGyqg" technicalid="_msGzC2xuEeuYi_YuNNGyqg" description="Absolute number of the episode" name="absoluteNumber" multiplicity="0..1">
+            <type xsi:type="oenv:PrimitiveType" href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5F-EKwKEd2XLNOhkJIazw"/>
+            <restData xmi:id="_msJPZWxuEeuYi_YuNNGyqg" technicalid="_msGzDGxuEeuYi_YuNNGyqg" passingMode="QUERY" restId="absoluteNumber"/>
+          </input>
+          <input xmi:id="_msJPZmxuEeuYi_YuNNGyqg" technicalid="_msGzDWxuEeuYi_YuNNGyqg" description="Aired season number" name="airedSeason" multiplicity="0..1">
+            <type xsi:type="oenv:PrimitiveType" href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5F-EKwKEd2XLNOhkJIazw"/>
+            <restData xmi:id="_msJPZ2xuEeuYi_YuNNGyqg" technicalid="_msGzDmxuEeuYi_YuNNGyqg" passingMode="QUERY" restId="airedSeason"/>
+          </input>
+          <input xmi:id="_msJPaGxuEeuYi_YuNNGyqg" technicalid="_msGzD2xuEeuYi_YuNNGyqg" description="Aired episode number" name="airedEpisode" multiplicity="0..1">
+            <type xsi:type="oenv:PrimitiveType" href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5F-EKwKEd2XLNOhkJIazw"/>
+            <restData xmi:id="_msJPaWxuEeuYi_YuNNGyqg" technicalid="_msGzEGxuEeuYi_YuNNGyqg" passingMode="QUERY" restId="airedEpisode"/>
+          </input>
+          <input xmi:id="_msJPamxuEeuYi_YuNNGyqg" technicalid="_msGzEWxuEeuYi_YuNNGyqg" description="DVD season number" name="dvdSeason" multiplicity="0..1">
+            <type xsi:type="oenv:PrimitiveType" href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5F-EKwKEd2XLNOhkJIazw"/>
+            <restData xmi:id="_msJPa2xuEeuYi_YuNNGyqg" technicalid="_msGzEmxuEeuYi_YuNNGyqg" passingMode="QUERY" restId="dvdSeason"/>
+          </input>
+          <input xmi:id="_msJPbGxuEeuYi_YuNNGyqg" technicalid="_msGzE2xuEeuYi_YuNNGyqg" description="DVD episode number" name="dvdEpisode" multiplicity="0..1">
+            <type xsi:type="oenv:PrimitiveType" href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5F-EKwKEd2XLNOhkJIazw"/>
+            <restData xmi:id="_msJPbWxuEeuYi_YuNNGyqg" technicalid="_msGzFGxuEeuYi_YuNNGyqg" passingMode="QUERY" restId="dvdEpisode"/>
+          </input>
+          <input xmi:id="_msJPbmxuEeuYi_YuNNGyqg" technicalid="_msGzFWxuEeuYi_YuNNGyqg" description="IMDB id of the series" name="imdbId" multiplicity="0..1">
+            <type xsi:type="oenv:PrimitiveType" href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5F-EKwKEd2XLNOhkJIazw"/>
+            <restData xmi:id="_msJPb2xuEeuYi_YuNNGyqg" technicalid="_msGzFmxuEeuYi_YuNNGyqg" passingMode="QUERY" restId="imdbId"/>
+          </input>
+          <input xmi:id="_msJPcGxuEeuYi_YuNNGyqg" technicalid="_msGzF2xuEeuYi_YuNNGyqg" description="Page of results to fetch. Defaults to page 1 if not provided." name="page" multiplicity="0..1">
+            <type xsi:type="oenv:PrimitiveType" href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5F-EKwKEd2XLNOhkJIazw"/>
+            <restData xmi:id="_msJPcWxuEeuYi_YuNNGyqg" technicalid="_msGzGGxuEeuYi_YuNNGyqg" passingMode="QUERY" restId="page"/>
+          </input>
+          <input xmi:id="_msJPcmxuEeuYi_YuNNGyqg" technicalid="_msGzGWxuEeuYi_YuNNGyqg" description="Records are returned with the some fields in the desired language, if it exists. If there is no translation for the given language, then the record is still returned but with empty values for the translated fields." name="Accept-Language" multiplicity="0..1">
+            <type xsi:type="oenv:PrimitiveType" href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5F-EKwKEd2XLNOhkJIazw"/>
+            <restData xmi:id="_msJPc2xuEeuYi_YuNNGyqg" technicalid="_msGzGmxuEeuYi_YuNNGyqg" passingMode="HEADER" restId="Accept-Language"/>
+          </input>
+          <output xmi:id="_msJPdGxuEeuYi_YuNNGyqg" technicalid="_msGzG2xuEeuYi_YuNNGyqg" description="An array of basic Episode results that matched the query" type="_msJ3BWxuEeuYi_YuNNGyqg" name="output200" multiplicity="0..1" statusCode="200" statusMessage="OK"/>
+          <fault xmi:id="_msJPdWxuEeuYi_YuNNGyqg" technicalid="_msGzHGxuEeuYi_YuNNGyqg" description="Returned if your JWT token is missing or expired" type="_msJ21mxuEeuYi_YuNNGyqg" name="fault401" multiplicity="0..1" statusCode="401" statusMessage="Unauthorized"/>
+          <fault xmi:id="_msJPdmxuEeuYi_YuNNGyqg" technicalid="_msGzHWxuEeuYi_YuNNGyqg" description="Returned if the given series ID does not exist or the query returns no results." type="_msJ22GxuEeuYi_YuNNGyqg" name="fault404" multiplicity="0..1" statusCode="404" statusMessage="Not Found"/>
+        </ownedOperations>
+        <ownedOperations xmi:id="_msJPd2xuEeuYi_YuNNGyqg" technicalid="_msGzHmxuEeuYi_YuNNGyqg" description="Returns the allowed query keys for the `/series/{id}/episodes/query` route" name="getEpisodesQueryParamsFromId" public="true" URI="/{id}/episodes/query/params" exposition="REST" securitySchemes="_msJQPmxuEeuYi_YuNNGyqg">
+          <input xmi:id="_msJPeGxuEeuYi_YuNNGyqg" technicalid="_msGzH2xuEeuYi_YuNNGyqg" description="ID of the series" name="id">
+            <type xsi:type="oenv:PrimitiveType" href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_9dnH8bGqEd2SRpTkL4GntA"/>
+            <restData xmi:id="_msJPeWxuEeuYi_YuNNGyqg" technicalid="_msGzIGxuEeuYi_YuNNGyqg" passingMode="PATH" restId="id"/>
+          </input>
+          <output xmi:id="_msJPemxuEeuYi_YuNNGyqg" technicalid="_msGzIWxuEeuYi_YuNNGyqg" description="An array of query keys as strings" type="_msJ3CWxuEeuYi_YuNNGyqg" name="output200" multiplicity="0..1" statusCode="200" statusMessage="OK"/>
+          <fault xmi:id="_msJPe2xuEeuYi_YuNNGyqg" technicalid="_msGzImxuEeuYi_YuNNGyqg" description="Returned if your JWT token is missing or expired" type="_msJ21mxuEeuYi_YuNNGyqg" name="fault401" multiplicity="0..1" statusCode="401" statusMessage="Unauthorized"/>
+          <fault xmi:id="_msJPfGxuEeuYi_YuNNGyqg" technicalid="_msGzI2xuEeuYi_YuNNGyqg" description="Returned if the given series ID does not exist or the query returns no results." type="_msJ22GxuEeuYi_YuNNGyqg" name="fault404" multiplicity="0..1" statusCode="404" statusMessage="Not Found"/>
+        </ownedOperations>
+        <ownedOperations xmi:id="_msJPfWxuEeuYi_YuNNGyqg" technicalid="_msGzJGxuEeuYi_YuNNGyqg" description="Returns a summary of the episodes and seasons available for the series.&#xA;&#xA;__Note__: Season &quot;0&quot; is for all episodes that are considered to be specials." name="getEpisodesSummaryFromId" public="true" URI="/{id}/episodes/summary" exposition="REST" securitySchemes="_msJQPmxuEeuYi_YuNNGyqg">
+          <input xmi:id="_msJPfmxuEeuYi_YuNNGyqg" technicalid="_msGzJWxuEeuYi_YuNNGyqg" description="ID of the series" name="id">
+            <type xsi:type="oenv:PrimitiveType" href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_9dnH8bGqEd2SRpTkL4GntA"/>
+            <restData xmi:id="_msJPf2xuEeuYi_YuNNGyqg" technicalid="_msGzJmxuEeuYi_YuNNGyqg" passingMode="PATH" restId="id"/>
+          </input>
+          <output xmi:id="_msJPgGxuEeuYi_YuNNGyqg" technicalid="_msGzJ2xuEeuYi_YuNNGyqg" description="A summary of the episodes and seasons avaialable for the given series." type="_msJ3C2xuEeuYi_YuNNGyqg" name="output200" multiplicity="0..1" statusCode="200" statusMessage="OK"/>
+          <fault xmi:id="_msJPgWxuEeuYi_YuNNGyqg" technicalid="_msGzKGxuEeuYi_YuNNGyqg" description="Returned if your JWT token is missing or expired" type="_msJ21mxuEeuYi_YuNNGyqg" name="fault401" multiplicity="0..1" statusCode="401" statusMessage="Unauthorized"/>
+          <fault xmi:id="_msJPgmxuEeuYi_YuNNGyqg" technicalid="_msGzKWxuEeuYi_YuNNGyqg" description="Returned if the given series ID does not exist" type="_msJ22GxuEeuYi_YuNNGyqg" name="fault404" multiplicity="0..1" statusCode="404" statusMessage="Not Found"/>
+        </ownedOperations>
+        <ownedOperations xmi:id="_msJPg2xuEeuYi_YuNNGyqg" technicalid="_msGzKmxuEeuYi_YuNNGyqg" description="Returns a series records, filtered by the supplied comma-separated list of keys. Query keys can be found at the `/series/{id}/filter/params` route." name="getFilterFromId" public="true" URI="/{id}/filter" exposition="REST" securitySchemes="_msJQPmxuEeuYi_YuNNGyqg">
+          <input xmi:id="_msJPhGxuEeuYi_YuNNGyqg" technicalid="_msGzK2xuEeuYi_YuNNGyqg" description="ID of the series" name="id">
+            <type xsi:type="oenv:PrimitiveType" href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_9dnH8bGqEd2SRpTkL4GntA"/>
+            <restData xmi:id="_msJPhWxuEeuYi_YuNNGyqg" technicalid="_msGzLGxuEeuYi_YuNNGyqg" passingMode="PATH" restId="id"/>
+          </input>
+          <input xmi:id="_msJPhmxuEeuYi_YuNNGyqg" technicalid="_msGzLWxuEeuYi_YuNNGyqg" description="Comma-separated list of keys to filter by" name="keys">
+            <type xsi:type="oenv:PrimitiveType" href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5F-EKwKEd2XLNOhkJIazw"/>
+            <restData xmi:id="_msJPh2xuEeuYi_YuNNGyqg" technicalid="_msGzLmxuEeuYi_YuNNGyqg" passingMode="QUERY" restId="keys"/>
+          </input>
+          <input xmi:id="_msJPiGxuEeuYi_YuNNGyqg" technicalid="_msGzL2xuEeuYi_YuNNGyqg" description="Records are returned with the some fields in the desired language, if it exists. If there is no translation for the given language, then the record is still returned but with empty values for the translated fields." name="Accept-Language" multiplicity="0..1">
+            <type xsi:type="oenv:PrimitiveType" href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5F-EKwKEd2XLNOhkJIazw"/>
+            <restData xmi:id="_msJPiWxuEeuYi_YuNNGyqg" technicalid="_msGzMGxuEeuYi_YuNNGyqg" passingMode="HEADER" restId="Accept-Language"/>
+          </input>
+          <output xmi:id="_msJPimxuEeuYi_YuNNGyqg" technicalid="_msHaEGxuEeuYi_YuNNGyqg" description="A filtered series record" type="_msJ2_mxuEeuYi_YuNNGyqg" name="output200" multiplicity="0..1" statusCode="200" statusMessage="OK"/>
+          <fault xmi:id="_msJPi2xuEeuYi_YuNNGyqg" technicalid="_msHaEWxuEeuYi_YuNNGyqg" description="Returned if your JWT token is missing or expired" type="_msJ21mxuEeuYi_YuNNGyqg" name="fault401" multiplicity="0..1" statusCode="401" statusMessage="Unauthorized"/>
+          <fault xmi:id="_msJPjGxuEeuYi_YuNNGyqg" technicalid="_msHaEmxuEeuYi_YuNNGyqg" description="Returned if the given series ID does not exist" type="_msJ22GxuEeuYi_YuNNGyqg" name="fault404" multiplicity="0..1" statusCode="404" statusMessage="Not Found"/>
+        </ownedOperations>
+        <ownedOperations xmi:id="_msJPjWxuEeuYi_YuNNGyqg" technicalid="_msHaE2xuEeuYi_YuNNGyqg" description="Returns the list of keys available for the `/series/{id}/filter` route" name="getFilterParamsFromId" public="true" URI="/{id}/filter/params" exposition="REST" securitySchemes="_msJQPmxuEeuYi_YuNNGyqg">
+          <input xmi:id="_msJPjmxuEeuYi_YuNNGyqg" technicalid="_msHaFGxuEeuYi_YuNNGyqg" description="ID of the series" name="id">
+            <type xsi:type="oenv:PrimitiveType" href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_9dnH8bGqEd2SRpTkL4GntA"/>
+            <restData xmi:id="_msJPj2xuEeuYi_YuNNGyqg" technicalid="_msHaFWxuEeuYi_YuNNGyqg" passingMode="PATH" restId="id"/>
+          </input>
+          <input xmi:id="_msJPkGxuEeuYi_YuNNGyqg" technicalid="_msHaFmxuEeuYi_YuNNGyqg" description="Records are returned with the some fields in the desired language, if it exists. If there is no translation for the given language, then the record is still returned but with empty values for the translated fields." name="Accept-Language" multiplicity="0..1">
+            <type xsi:type="oenv:PrimitiveType" href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5F-EKwKEd2XLNOhkJIazw"/>
+            <restData xmi:id="_msJPkWxuEeuYi_YuNNGyqg" technicalid="_msHaF2xuEeuYi_YuNNGyqg" passingMode="HEADER" restId="Accept-Language"/>
+          </input>
+          <output xmi:id="_msJPkmxuEeuYi_YuNNGyqg" technicalid="_msHaGGxuEeuYi_YuNNGyqg" description="A list of keys to filter by" type="_msJ2i2xuEeuYi_YuNNGyqg" name="output200" multiplicity="0..1" statusCode="200" statusMessage="OK"/>
+          <fault xmi:id="_msJPk2xuEeuYi_YuNNGyqg" technicalid="_msHaGWxuEeuYi_YuNNGyqg" description="Returned if your JWT token is missing or expired" type="_msJ21mxuEeuYi_YuNNGyqg" name="fault401" multiplicity="0..1" statusCode="401" statusMessage="Unauthorized"/>
+          <fault xmi:id="_msJPlGxuEeuYi_YuNNGyqg" technicalid="_msHaGmxuEeuYi_YuNNGyqg" description="Returned if the given series ID does not exist" type="_msJ22GxuEeuYi_YuNNGyqg" name="fault404" multiplicity="0..1" statusCode="404" statusMessage="Not Found"/>
+        </ownedOperations>
+        <ownedOperations xmi:id="_msJPlWxuEeuYi_YuNNGyqg" technicalid="_msHaG2xuEeuYi_YuNNGyqg" description="Returns a summary of the images for a particular series" name="getImagesFromId" public="true" URI="/{id}/images" exposition="REST" securitySchemes="_msJQPmxuEeuYi_YuNNGyqg">
+          <input xmi:id="_msJPlmxuEeuYi_YuNNGyqg" technicalid="_msHaHGxuEeuYi_YuNNGyqg" description="ID of the series" name="id">
+            <type xsi:type="oenv:PrimitiveType" href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_9dnH8bGqEd2SRpTkL4GntA"/>
+            <restData xmi:id="_msJPl2xuEeuYi_YuNNGyqg" technicalid="_msHaHWxuEeuYi_YuNNGyqg" passingMode="PATH" restId="id"/>
+          </input>
+          <input xmi:id="_msJPmGxuEeuYi_YuNNGyqg" technicalid="_msHaHmxuEeuYi_YuNNGyqg" description="Records are returned with the some fields in the desired language, if it exists. If there is no translation for the given language, then the record is still returned but with empty values for the translated fields." name="Accept-Language" multiplicity="0..1">
+            <type xsi:type="oenv:PrimitiveType" href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5F-EKwKEd2XLNOhkJIazw"/>
+            <restData xmi:id="_msJPmWxuEeuYi_YuNNGyqg" technicalid="_msHaH2xuEeuYi_YuNNGyqg" passingMode="HEADER" restId="Accept-Language"/>
+          </input>
+          <output xmi:id="_msJPmmxuEeuYi_YuNNGyqg" technicalid="_msHaIGxuEeuYi_YuNNGyqg" description="A summary of the image types and counts available for the given series." type="_msJ3ImxuEeuYi_YuNNGyqg" name="output200" multiplicity="0..1" statusCode="200" statusMessage="OK"/>
+          <fault xmi:id="_msJPm2xuEeuYi_YuNNGyqg" technicalid="_msHaIWxuEeuYi_YuNNGyqg" description="Returned if your JWT token is missing or expired" type="_msJ21mxuEeuYi_YuNNGyqg" name="fault401" multiplicity="0..1" statusCode="401" statusMessage="Unauthorized"/>
+          <fault xmi:id="_msJPnGxuEeuYi_YuNNGyqg" technicalid="_msHaImxuEeuYi_YuNNGyqg" description="Returned if the given series ID does not exist" type="_msJ22GxuEeuYi_YuNNGyqg" name="fault404" multiplicity="0..1" statusCode="404" statusMessage="Not Found"/>
+        </ownedOperations>
+        <ownedOperations xmi:id="_msJPnWxuEeuYi_YuNNGyqg" technicalid="_msHaI2xuEeuYi_YuNNGyqg" description="Query images for the given series ID." name="getImagesQueryFromId" public="true" URI="/{id}/images/query" exposition="REST" securitySchemes="_msJQPmxuEeuYi_YuNNGyqg">
+          <input xmi:id="_msJPnmxuEeuYi_YuNNGyqg" technicalid="_msHaJGxuEeuYi_YuNNGyqg" description="ID of the series" name="id">
+            <type xsi:type="oenv:PrimitiveType" href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_9dnH8bGqEd2SRpTkL4GntA"/>
+            <restData xmi:id="_msJPn2xuEeuYi_YuNNGyqg" technicalid="_msHaJWxuEeuYi_YuNNGyqg" passingMode="PATH" restId="id"/>
+          </input>
+          <input xmi:id="_msJPoGxuEeuYi_YuNNGyqg" technicalid="_msHaJmxuEeuYi_YuNNGyqg" description="Type of image you're querying for (fanart, poster, etc. See ../images/query/params for more details)." name="keyType" multiplicity="0..1">
+            <type xsi:type="oenv:PrimitiveType" href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5F-EKwKEd2XLNOhkJIazw"/>
+            <restData xmi:id="_msJPoWxuEeuYi_YuNNGyqg" technicalid="_msHaJ2xuEeuYi_YuNNGyqg" passingMode="QUERY" restId="keyType"/>
+          </input>
+          <input xmi:id="_msJPomxuEeuYi_YuNNGyqg" technicalid="_msHaKGxuEeuYi_YuNNGyqg" description="Resolution to filter by (1280x1024, for example)" name="resolution" multiplicity="0..1">
+            <type xsi:type="oenv:PrimitiveType" href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5F-EKwKEd2XLNOhkJIazw"/>
+            <restData xmi:id="_msJPo2xuEeuYi_YuNNGyqg" technicalid="_msHaKWxuEeuYi_YuNNGyqg" passingMode="QUERY" restId="resolution"/>
+          </input>
+          <input xmi:id="_msJPpGxuEeuYi_YuNNGyqg" technicalid="_msHaKmxuEeuYi_YuNNGyqg" description="Subkey for the above query keys. See /series/{id}/images/query/params for more information" name="subKey" multiplicity="0..1">
+            <type xsi:type="oenv:PrimitiveType" href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5F-EKwKEd2XLNOhkJIazw"/>
+            <restData xmi:id="_msJPpWxuEeuYi_YuNNGyqg" technicalid="_msHaK2xuEeuYi_YuNNGyqg" passingMode="QUERY" restId="subKey"/>
+          </input>
+          <input xmi:id="_msJPpmxuEeuYi_YuNNGyqg" technicalid="_msHaLGxuEeuYi_YuNNGyqg" description="Records are returned with the some fields in the desired language, if it exists. If there is no translation for the given language, then the record is still returned but with empty values for the translated fields." name="Accept-Language" multiplicity="0..1">
+            <type xsi:type="oenv:PrimitiveType" href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5F-EKwKEd2XLNOhkJIazw"/>
+            <restData xmi:id="_msJPp2xuEeuYi_YuNNGyqg" technicalid="_msHaLWxuEeuYi_YuNNGyqg" passingMode="HEADER" restId="Accept-Language"/>
+          </input>
+          <output xmi:id="_msJPqGxuEeuYi_YuNNGyqg" technicalid="_msHaLmxuEeuYi_YuNNGyqg" description="An array of basic Episode results that matched the query" type="_msJ3GWxuEeuYi_YuNNGyqg" name="output200" multiplicity="0..1" statusCode="200" statusMessage="OK"/>
+          <fault xmi:id="_msJPqWxuEeuYi_YuNNGyqg" technicalid="_msHaL2xuEeuYi_YuNNGyqg" description="Returned if your JWT token is missing or expired" type="_msJ21mxuEeuYi_YuNNGyqg" name="fault401" multiplicity="0..1" statusCode="401" statusMessage="Unauthorized"/>
+          <fault xmi:id="_msJPqmxuEeuYi_YuNNGyqg" technicalid="_msHaMGxuEeuYi_YuNNGyqg" description="Returned if the given series ID does not exist or the query returns no results." type="_msJ22GxuEeuYi_YuNNGyqg" name="fault404" multiplicity="0..1" statusCode="404" statusMessage="Not Found"/>
+        </ownedOperations>
+        <ownedOperations xmi:id="_msJPq2xuEeuYi_YuNNGyqg" technicalid="_msHaMWxuEeuYi_YuNNGyqg" description="Returns the allowed query keys for the `/series/{id}/images/query` route. Contains a parameter record for each unique `keyType`, listing values that will return results." name="getImagesQueryParamsFromId" public="true" URI="/{id}/images/query/params" exposition="REST" securitySchemes="_msJQPmxuEeuYi_YuNNGyqg">
+          <input xmi:id="_msJPrGxuEeuYi_YuNNGyqg" technicalid="_msHaMmxuEeuYi_YuNNGyqg" description="ID of the series" name="id">
+            <type xsi:type="oenv:PrimitiveType" href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_9dnH8bGqEd2SRpTkL4GntA"/>
+            <restData xmi:id="_msJPrWxuEeuYi_YuNNGyqg" technicalid="_msHaM2xuEeuYi_YuNNGyqg" passingMode="PATH" restId="id"/>
+          </input>
+          <input xmi:id="_msJPrmxuEeuYi_YuNNGyqg" technicalid="_msHaNGxuEeuYi_YuNNGyqg" description="Records are returned with the some fields in the desired language, if it exists. If there is no translation for the given language, then the record is still returned but with empty values for the translated fields." name="Accept-Language" multiplicity="0..1">
+            <type xsi:type="oenv:PrimitiveType" href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5F-EKwKEd2XLNOhkJIazw"/>
+            <restData xmi:id="_msJPr2xuEeuYi_YuNNGyqg" technicalid="_msHaNWxuEeuYi_YuNNGyqg" passingMode="HEADER" restId="Accept-Language"/>
+          </input>
+          <output xmi:id="_msJPsGxuEeuYi_YuNNGyqg" technicalid="_msHaNmxuEeuYi_YuNNGyqg" description="An array of query keys as strings" type="_msJ3KWxuEeuYi_YuNNGyqg" name="output200" multiplicity="0..1" statusCode="200" statusMessage="OK"/>
+          <fault xmi:id="_msJPsWxuEeuYi_YuNNGyqg" technicalid="_msHaN2xuEeuYi_YuNNGyqg" description="Returned if your JWT token is missing or expired" type="_msJ21mxuEeuYi_YuNNGyqg" name="fault401" multiplicity="0..1" statusCode="401" statusMessage="Unauthorized"/>
+          <fault xmi:id="_msJPsmxuEeuYi_YuNNGyqg" technicalid="_msHaOGxuEeuYi_YuNNGyqg" description="Returned if the given series ID does not exist or the query returns no results." type="_msJ22GxuEeuYi_YuNNGyqg" name="fault404" multiplicity="0..1" statusCode="404" statusMessage="Not Found"/>
+        </ownedOperations>
+      </ownedInterface>
+    </ownedServices>
+    <ownedServices xmi:id="_msJPs2xuEeuYi_YuNNGyqg" technicalid="_msEWwWxuEeuYi_YuNNGyqg" description="Series that have been recently updated." name="Updates" URI="/updated/query">
+      <ownedInterface xmi:id="_msJPtGxuEeuYi_YuNNGyqg" technicalid="_msHaOWxuEeuYi_YuNNGyqg" name="Updates">
+        <ownedOperations xmi:id="_msJPtWxuEeuYi_YuNNGyqg" technicalid="_msHaOmxuEeuYi_YuNNGyqg" description="Returns an array of series that have changed in a maximum of one week blocks since the provided `fromTime`.&#xA;&#xA;&#xA;The user may specify a `toTime` to grab results for less than a week. Any timespan larger than a week will be reduced down to one week automatically." name="get2" public="true" URI="" exposition="REST" securitySchemes="_msJQPmxuEeuYi_YuNNGyqg">
+          <input xmi:id="_msJPtmxuEeuYi_YuNNGyqg" technicalid="_msHaO2xuEeuYi_YuNNGyqg" description="Epoch time to start your date range." name="fromTime">
+            <type xsi:type="oenv:PrimitiveType" href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5F-EKwKEd2XLNOhkJIazw"/>
+            <restData xmi:id="_msJPt2xuEeuYi_YuNNGyqg" technicalid="_msHaPGxuEeuYi_YuNNGyqg" passingMode="QUERY" restId="fromTime"/>
+          </input>
+          <input xmi:id="_msJPuGxuEeuYi_YuNNGyqg" technicalid="_msHaPWxuEeuYi_YuNNGyqg" description="Epoch time to end your date range. Must be one week from `fromTime`." name="toTime" multiplicity="0..1">
+            <type xsi:type="oenv:PrimitiveType" href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5F-EKwKEd2XLNOhkJIazw"/>
+            <restData xmi:id="_msJPuWxuEeuYi_YuNNGyqg" technicalid="_msHaPmxuEeuYi_YuNNGyqg" passingMode="QUERY" restId="toTime"/>
+          </input>
+          <input xmi:id="_msJPumxuEeuYi_YuNNGyqg" technicalid="_msHaP2xuEeuYi_YuNNGyqg" description="Records are returned with the some fields in the desired language, if it exists. If there is no translation for the given language, then the record is still returned but with empty values for the translated fields." name="Accept-Language" multiplicity="0..1">
+            <type xsi:type="oenv:PrimitiveType" href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5F-EKwKEd2XLNOhkJIazw"/>
+            <restData xmi:id="_msJPu2xuEeuYi_YuNNGyqg" technicalid="_msHaQGxuEeuYi_YuNNGyqg" passingMode="HEADER" restId="Accept-Language"/>
+          </input>
+          <output xmi:id="_msJPvGxuEeuYi_YuNNGyqg" technicalid="_msIBIGxuEeuYi_YuNNGyqg" description="An array of Update objects that match the given timeframe." type="_msJ3PmxuEeuYi_YuNNGyqg" name="output200" multiplicity="0..1" statusCode="200" statusMessage="OK"/>
+          <fault xmi:id="_msJPvWxuEeuYi_YuNNGyqg" technicalid="_msIBIWxuEeuYi_YuNNGyqg" description="Returned if your JWT token is missing or expired" type="_msJ21mxuEeuYi_YuNNGyqg" name="fault401" multiplicity="0..1" statusCode="401" statusMessage="Unauthorized"/>
+          <fault xmi:id="_msJPvmxuEeuYi_YuNNGyqg" technicalid="_msIBImxuEeuYi_YuNNGyqg" description="Returned if no records exist for the given timespan" type="_msJ22GxuEeuYi_YuNNGyqg" name="fault404" multiplicity="0..1" statusCode="404" statusMessage="Not Found"/>
+        </ownedOperations>
+        <ownedOperations xmi:id="_msJPv2xuEeuYi_YuNNGyqg" technicalid="_msIBI2xuEeuYi_YuNNGyqg" description="Returns an array of valid query keys for the `/updated/query/params` route." name="getParams1" public="true" URI="/params" exposition="REST" securitySchemes="_msJQPmxuEeuYi_YuNNGyqg">
+          <output xmi:id="_msJPwGxuEeuYi_YuNNGyqg" technicalid="_msIBJGxuEeuYi_YuNNGyqg" description="An array of Update objects that match the given timeframe." type="_msJ3QWxuEeuYi_YuNNGyqg" name="output200" multiplicity="0..1" statusCode="200" statusMessage="OK"/>
+          <fault xmi:id="_msJPwWxuEeuYi_YuNNGyqg" technicalid="_msIBJWxuEeuYi_YuNNGyqg" description="Returned if your JWT token is missing or expired" type="_msJ21mxuEeuYi_YuNNGyqg" name="fault401" multiplicity="0..1" statusCode="401" statusMessage="Unauthorized"/>
+          <fault xmi:id="_msJPwmxuEeuYi_YuNNGyqg" technicalid="_msIBJmxuEeuYi_YuNNGyqg" description="Returned if no records exist for the given timespan" type="_msJ22GxuEeuYi_YuNNGyqg" name="fault404" multiplicity="0..1" statusCode="404" statusMessage="Not Found"/>
+        </ownedOperations>
+      </ownedInterface>
+    </ownedServices>
+    <ownedServices xmi:id="_msJPw2xuEeuYi_YuNNGyqg" technicalid="_msEWwmxuEeuYi_YuNNGyqg" description="Obtaining and refreshing your JWT token" name="Authentication" URI="">
+      <ownedInterface xmi:id="_msJPxGxuEeuYi_YuNNGyqg" technicalid="_msFk72xuEeuYi_YuNNGyqg" name="Authentication">
+        <ownedOperations xmi:id="_msJPxWxuEeuYi_YuNNGyqg" technicalid="_msFk8GxuEeuYi_YuNNGyqg" description="Returns a session token to be included in the rest of the requests. Note that API key authentication is required for all subsequent requests and user auth is required for routes in the `User` section" name="postLogin" public="true" URI="/login" verb="POST" exposition="REST">
+          <input xmi:id="_msJPxmxuEeuYi_YuNNGyqg" technicalid="_msFk8WxuEeuYi_YuNNGyqg" description="JSON string containing your authentication details." createdOn="2021-07-19T14:13:48.057+0200" modifiedOn="2021-07-19T14:13:48.057+0200" type="_msJ2UWxuEeuYi_YuNNGyqg" name="body">
+            <metadatas xmi:id="_xXDYkeiKEeuDtqUiFtoQHw" technicalid="_xXDYkOiKEeuDtqUiFtoQHw">
+              <metadatas xsi:type="soa:PropertiesExtension" xmi:id="_xXD_oeiKEeuDtqUiFtoQHw" technicalid="_xXD_oOiKEeuDtqUiFtoQHw" title="x-ParameterSurRequestBody" body="Parameter-RequestBody" context="RequestBody"/>
+            </metadatas>
+            <restData xmi:id="_msJPx2xuEeuYi_YuNNGyqg" technicalid="_msFk8mxuEeuYi_YuNNGyqg"/>
+          </input>
+          <output xmi:id="_msJPyGxuEeuYi_YuNNGyqg" technicalid="_msFk82xuEeuYi_YuNNGyqg" description="Returns a JWT token for use with the rest of the API routes" type="_msJ3OWxuEeuYi_YuNNGyqg" name="output200" multiplicity="0..1" statusCode="200" statusMessage="OK"/>
+          <fault xmi:id="_msJPyWxuEeuYi_YuNNGyqg" technicalid="_msFk9GxuEeuYi_YuNNGyqg" description="Invalid credentials and/or API token" type="_msJ21mxuEeuYi_YuNNGyqg" name="fault401" multiplicity="0..1" statusCode="401" statusMessage="Unauthorized"/>
+        </ownedOperations>
+        <ownedOperations xmi:id="_msJPymxuEeuYi_YuNNGyqg" technicalid="_msGL8WxuEeuYi_YuNNGyqg" description="Refreshes your current, valid JWT token and returns a new token. Hit this route so that you do not have to post to `/login` with your API key and credentials once you have already been authenticated." name="getRefresh_token" public="true" URI="/refresh_token" exposition="REST" securitySchemes="_msJQPmxuEeuYi_YuNNGyqg">
+          <output xmi:id="_msJPy2xuEeuYi_YuNNGyqg" technicalid="_msGL8mxuEeuYi_YuNNGyqg" description="Returns a new token to use in your subsequent requests" type="_msJ3OWxuEeuYi_YuNNGyqg" name="output200" multiplicity="0..1" statusCode="200" statusMessage="OK"/>
+          <fault xmi:id="_msJPzGxuEeuYi_YuNNGyqg" technicalid="_msGL82xuEeuYi_YuNNGyqg" description="Returned if your JWT token is missing or expired" type="_msJ21mxuEeuYi_YuNNGyqg" name="fault401" multiplicity="0..1" statusCode="401" statusMessage="Unauthorized"/>
+        </ownedOperations>
+      </ownedInterface>
+    </ownedServices>
+    <ownedServices xmi:id="_msJPzWxuEeuYi_YuNNGyqg" technicalid="_msEWw2xuEeuYi_YuNNGyqg" description="Search for a particular series" name="Search" URI="/search/series">
+      <ownedInterface xmi:id="_msJPzmxuEeuYi_YuNNGyqg" technicalid="_msGL9GxuEeuYi_YuNNGyqg" name="Search">
+        <ownedOperations xmi:id="_msJPz2xuEeuYi_YuNNGyqg" technicalid="_msGL9WxuEeuYi_YuNNGyqg" description="Allows the user to search for a series based on the following parameters." name="get1" public="true" URI="" exposition="REST" securitySchemes="_msJQPmxuEeuYi_YuNNGyqg">
+          <input xmi:id="_msJP0GxuEeuYi_YuNNGyqg" technicalid="_msGL9mxuEeuYi_YuNNGyqg" description="Name of the series to search for." name="name" multiplicity="0..1">
+            <type xsi:type="oenv:PrimitiveType" href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5F-EKwKEd2XLNOhkJIazw"/>
+            <restData xmi:id="_msJP0WxuEeuYi_YuNNGyqg" technicalid="_msGL92xuEeuYi_YuNNGyqg" passingMode="QUERY" restId="name"/>
+          </input>
+          <input xmi:id="_msJP0mxuEeuYi_YuNNGyqg" technicalid="_msGL-GxuEeuYi_YuNNGyqg" description="IMDB id of the series" name="imdbId" multiplicity="0..1">
+            <type xsi:type="oenv:PrimitiveType" href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5F-EKwKEd2XLNOhkJIazw"/>
+            <restData xmi:id="_msJP02xuEeuYi_YuNNGyqg" technicalid="_msGL-WxuEeuYi_YuNNGyqg" passingMode="QUERY" restId="imdbId"/>
+          </input>
+          <input xmi:id="_msJP1GxuEeuYi_YuNNGyqg" technicalid="_msGL-mxuEeuYi_YuNNGyqg" description="Zap2it ID of the series to search for." name="zap2itId" multiplicity="0..1">
+            <type xsi:type="oenv:PrimitiveType" href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5F-EKwKEd2XLNOhkJIazw"/>
+            <restData xmi:id="_msJP1WxuEeuYi_YuNNGyqg" technicalid="_msGL-2xuEeuYi_YuNNGyqg" passingMode="QUERY" restId="zap2itId"/>
+          </input>
+          <input xmi:id="_msJP1mxuEeuYi_YuNNGyqg" technicalid="_msGL_GxuEeuYi_YuNNGyqg" description="Slug from site URL of series (https://www.thetvdb.com/series/$SLUG)" name="slug" multiplicity="0..1">
+            <type xsi:type="oenv:PrimitiveType" href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5F-EKwKEd2XLNOhkJIazw"/>
+            <restData xmi:id="_msJP12xuEeuYi_YuNNGyqg" technicalid="_msGL_WxuEeuYi_YuNNGyqg" passingMode="QUERY" restId="slug"/>
+          </input>
+          <input xmi:id="_msJP2GxuEeuYi_YuNNGyqg" technicalid="_msGL_mxuEeuYi_YuNNGyqg" description="Records are returned with the some fields in the desired language, if it exists. If there is no translation for the given language, then the record is still returned but with empty values for the translated fields." name="Accept-Language" multiplicity="0..1">
+            <type xsi:type="oenv:PrimitiveType" href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5F-EKwKEd2XLNOhkJIazw"/>
+            <restData xmi:id="_msJP2WxuEeuYi_YuNNGyqg" technicalid="_msGL_2xuEeuYi_YuNNGyqg" passingMode="HEADER" restId="Accept-Language"/>
+          </input>
+          <output xmi:id="_msJP2mxuEeuYi_YuNNGyqg" technicalid="_msGMAGxuEeuYi_YuNNGyqg" description="An array of results that match the provided query." type="_msJ3N2xuEeuYi_YuNNGyqg" name="output200" multiplicity="0..1" statusCode="200" statusMessage="OK"/>
+          <fault xmi:id="_msJP22xuEeuYi_YuNNGyqg" technicalid="_msGMAWxuEeuYi_YuNNGyqg" description="Returned if your JWT token is missing or expired" type="_msJ21mxuEeuYi_YuNNGyqg" name="fault401" multiplicity="0..1" statusCode="401" statusMessage="Unauthorized"/>
+          <fault xmi:id="_msJP3GxuEeuYi_YuNNGyqg" technicalid="_msGMAmxuEeuYi_YuNNGyqg" description="Returned if no records are found that match your query." type="_msJ22GxuEeuYi_YuNNGyqg" name="fault404" multiplicity="0..1" statusCode="404" statusMessage="Not Found"/>
+        </ownedOperations>
+        <ownedOperations xmi:id="_msJP3WxuEeuYi_YuNNGyqg" technicalid="_msGMA2xuEeuYi_YuNNGyqg" description="Returns an array of parameters to query by in the `/search/series` route." name="getParams" public="true" URI="/params" exposition="REST" securitySchemes="_msJQPmxuEeuYi_YuNNGyqg">
+          <output xmi:id="_msJP3mxuEeuYi_YuNNGyqg" technicalid="_msGMBGxuEeuYi_YuNNGyqg" description="An array of query keys as strings" type="_msJ2g2xuEeuYi_YuNNGyqg" name="output200" multiplicity="0..1" statusCode="200" statusMessage="OK"/>
+          <fault xmi:id="_msJP32xuEeuYi_YuNNGyqg" technicalid="_msGMBWxuEeuYi_YuNNGyqg" description="Returned if your JWT token is missing or expired" type="_msJ21mxuEeuYi_YuNNGyqg" name="fault401" multiplicity="0..1" statusCode="401" statusMessage="Unauthorized"/>
+        </ownedOperations>
+      </ownedInterface>
+    </ownedServices>
+    <ownedServices xmi:id="_msJP4GxuEeuYi_YuNNGyqg" technicalid="_msEWxGxuEeuYi_YuNNGyqg" description="Information about a specific episode" name="Episodes" URI="/episodes">
+      <ownedInterface xmi:id="_msJP4WxuEeuYi_YuNNGyqg" technicalid="_msEWyGxuEeuYi_YuNNGyqg" name="Episodes">
+        <ownedOperations xmi:id="_msJP4mxuEeuYi_YuNNGyqg" technicalid="_msEWyWxuEeuYi_YuNNGyqg" description="Returns the full information for a given episode id. __Deprecation Warning:__ The _director_ key will be deprecated in favor of the new _directors_ key in a future release." name="getFromId" public="true" URI="/{id}" exposition="REST" securitySchemes="_msJQPmxuEeuYi_YuNNGyqg">
+          <input xmi:id="_msJP42xuEeuYi_YuNNGyqg" technicalid="_msE90GxuEeuYi_YuNNGyqg" description="ID of the episode" name="id">
+            <type xsi:type="oenv:PrimitiveType" href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_9dnH8bGqEd2SRpTkL4GntA"/>
+            <restData xmi:id="_msJP5GxuEeuYi_YuNNGyqg" technicalid="_msE90WxuEeuYi_YuNNGyqg" passingMode="PATH" restId="id"/>
+          </input>
+          <input xmi:id="_msJP5WxuEeuYi_YuNNGyqg" technicalid="_msFk4GxuEeuYi_YuNNGyqg" description="Records are returned with the some fields in the desired language, if it exists. If there is no translation for the given language, then the record is still returned but with empty values for the translated fields." name="Accept-Language" multiplicity="0..1">
+            <type xsi:type="oenv:PrimitiveType" href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5F-EKwKEd2XLNOhkJIazw"/>
+            <restData xmi:id="_msJP5mxuEeuYi_YuNNGyqg" technicalid="_msFk4WxuEeuYi_YuNNGyqg" passingMode="HEADER" restId="Accept-Language"/>
+          </input>
+          <output xmi:id="_msJP52xuEeuYi_YuNNGyqg" technicalid="_msFk4mxuEeuYi_YuNNGyqg" description="An array of query keys as strings" createdOn="2021-07-19T17:13:35.628+0200" modifiedOn="2021-07-19T17:16:26.101+0200" type="_msJ2iGxuEeuYi_YuNNGyqg" name="output200" multiplicity="0..1" statusCode="200" statusMessage="OK"/>
+          <fault xmi:id="_msJP6GxuEeuYi_YuNNGyqg" technicalid="_msFk42xuEeuYi_YuNNGyqg" description="Returned if your JWT token is missing or expired" type="_msJ21mxuEeuYi_YuNNGyqg" name="fault401" multiplicity="0..1" statusCode="401" statusMessage="Unauthorized"/>
+          <fault xmi:id="_msJP6WxuEeuYi_YuNNGyqg" technicalid="_msFk5GxuEeuYi_YuNNGyqg" description="Returned if the given episode ID does not exist." type="_msJ22GxuEeuYi_YuNNGyqg" name="fault404" multiplicity="0..1" statusCode="404" statusMessage="Not Found"/>
+        </ownedOperations>
+      </ownedInterface>
+    </ownedServices>
+    <ownedServices xmi:id="_msJP6mxuEeuYi_YuNNGyqg" technicalid="_msEWxWxuEeuYi_YuNNGyqg" description="Available languages and information" name="Languages" URI="/languages">
+      <ownedInterface xmi:id="_msJP62xuEeuYi_YuNNGyqg" technicalid="_msFk5WxuEeuYi_YuNNGyqg" name="Languages">
+        <ownedOperations xmi:id="_msJP7GxuEeuYi_YuNNGyqg" technicalid="_msFk5mxuEeuYi_YuNNGyqg" description="All available languages. These language abbreviations can be used in the `Accept-Language` header for routes that return translation records." name="get" public="true" URI="" exposition="REST" securitySchemes="_msJQPmxuEeuYi_YuNNGyqg">
+          <output xmi:id="_msJP7WxuEeuYi_YuNNGyqg" technicalid="_msFk52xuEeuYi_YuNNGyqg" description="An array of language objects." type="_msJ2mGxuEeuYi_YuNNGyqg" name="output200" multiplicity="0..1" statusCode="200" statusMessage="OK"/>
+          <fault xmi:id="_msJP7mxuEeuYi_YuNNGyqg" technicalid="_msFk6GxuEeuYi_YuNNGyqg" description="Returned if your JWT token is missing or expired" type="_msJ21mxuEeuYi_YuNNGyqg" name="fault401" multiplicity="0..1" statusCode="401" statusMessage="Unauthorized"/>
+        </ownedOperations>
+        <ownedOperations xmi:id="_msJP72xuEeuYi_YuNNGyqg" technicalid="_msFk6WxuEeuYi_YuNNGyqg" description="Information about a particular language, given the language ID." name="getFromId1" public="true" URI="/{id}" exposition="REST" securitySchemes="_msJQPmxuEeuYi_YuNNGyqg">
+          <input xmi:id="_msJP8GxuEeuYi_YuNNGyqg" technicalid="_msFk6mxuEeuYi_YuNNGyqg" description="ID of the language" name="id">
+            <type xsi:type="oenv:PrimitiveType" href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5F-EKwKEd2XLNOhkJIazw"/>
+            <restData xmi:id="_msJP8WxuEeuYi_YuNNGyqg" technicalid="_msFk62xuEeuYi_YuNNGyqg" passingMode="PATH" restId="id"/>
+          </input>
+          <output xmi:id="_msJP8mxuEeuYi_YuNNGyqg" technicalid="_msFk7GxuEeuYi_YuNNGyqg" description="An array of language objects." type="_msJ2k2xuEeuYi_YuNNGyqg" name="output200" multiplicity="0..1" statusCode="200" statusMessage="OK"/>
+          <fault xmi:id="_msJP82xuEeuYi_YuNNGyqg" technicalid="_msFk7WxuEeuYi_YuNNGyqg" description="Returned if your JWT token is missing or expired" type="_msJ21mxuEeuYi_YuNNGyqg" name="fault401" multiplicity="0..1" statusCode="401" statusMessage="Unauthorized"/>
+          <fault xmi:id="_msJP9GxuEeuYi_YuNNGyqg" technicalid="_msFk7mxuEeuYi_YuNNGyqg" description="Returned if the given language ID does not exist." type="_msJ22GxuEeuYi_YuNNGyqg" name="fault404" multiplicity="0..1" statusCode="404" statusMessage="Not Found"/>
+        </ownedOperations>
+      </ownedInterface>
+    </ownedServices>
+    <ownedServices xmi:id="_msJP9WxuEeuYi_YuNNGyqg" technicalid="_msEWxmxuEeuYi_YuNNGyqg" description="Information about a specific movie" name="Movies" URI="">
+      <ownedInterface xmi:id="_msJP9mxuEeuYi_YuNNGyqg" technicalid="_msFk9WxuEeuYi_YuNNGyqg" name="Movies">
+        <ownedOperations xmi:id="_msJP92xuEeuYi_YuNNGyqg" technicalid="_msFk9mxuEeuYi_YuNNGyqg" description="Returns a movies records that contains all information known about a particular movies id." name="getMoviesFromId" public="true" URI="/movies/{id}" exposition="REST" securitySchemes="_msJQPmxuEeuYi_YuNNGyqg">
+          <input xmi:id="_msJP-GxuEeuYi_YuNNGyqg" technicalid="_msFk92xuEeuYi_YuNNGyqg" description="ID of the movie" name="id">
+            <type xsi:type="oenv:PrimitiveType" href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_9dnH8bGqEd2SRpTkL4GntA"/>
+            <restData xmi:id="_msJP-WxuEeuYi_YuNNGyqg" technicalid="_msFk-GxuEeuYi_YuNNGyqg" passingMode="PATH" restId="id"/>
+          </input>
+          <input xmi:id="_msJP-mxuEeuYi_YuNNGyqg" technicalid="_msFk-WxuEeuYi_YuNNGyqg" description="Records are returned with the some fields in the desired language, if it exists. If there is no translation for the given language, then the record is still returned but with empty values for the translated fields." name="Accept-Language" multiplicity="0..1">
+            <type xsi:type="oenv:PrimitiveType" href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5F-EKwKEd2XLNOhkJIazw"/>
+            <restData xmi:id="_msJP-2xuEeuYi_YuNNGyqg" technicalid="_msFk-mxuEeuYi_YuNNGyqg" passingMode="HEADER" restId="Accept-Language"/>
+          </input>
+          <output xmi:id="_msJP_GxuEeuYi_YuNNGyqg" technicalid="_msFk-2xuEeuYi_YuNNGyqg" description="A movie record." type="_msJ2n2xuEeuYi_YuNNGyqg" name="output200" multiplicity="0..1" statusCode="200" statusMessage="OK"/>
+          <fault xmi:id="_msJP_WxuEeuYi_YuNNGyqg" technicalid="_msFk_GxuEeuYi_YuNNGyqg" description="Returned if your JWT token is missing or expired" type="_msJ21mxuEeuYi_YuNNGyqg" name="fault401" multiplicity="0..1" statusCode="401" statusMessage="Unauthorized"/>
+          <fault xmi:id="_msJP_mxuEeuYi_YuNNGyqg" technicalid="_msFk_WxuEeuYi_YuNNGyqg" description="Returned if the given series ID does not exist" type="_msJ22GxuEeuYi_YuNNGyqg" name="fault404" multiplicity="0..1" statusCode="404" statusMessage="Not Found"/>
+        </ownedOperations>
+        <ownedOperations xmi:id="_msJP_2xuEeuYi_YuNNGyqg" technicalid="_msFk_mxuEeuYi_YuNNGyqg" description="Returns all movies ids updated since a given timestamp." name="getMovieupdates" public="true" URI="/movieupdates" exposition="REST" securitySchemes="_msJQPmxuEeuYi_YuNNGyqg">
+          <input xmi:id="_msJQAGxuEeuYi_YuNNGyqg" technicalid="_msFk_2xuEeuYi_YuNNGyqg" description="Epoch time to start your date range." name="since">
+            <type xsi:type="oenv:PrimitiveType" href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5F-EKwKEd2XLNOhkJIazw"/>
+            <restData xmi:id="_msJQAWxuEeuYi_YuNNGyqg" technicalid="_msFlAGxuEeuYi_YuNNGyqg" passingMode="QUERY" restId="since"/>
+          </input>
+          <output xmi:id="_msJQAmxuEeuYi_YuNNGyqg" technicalid="_msFlAWxuEeuYi_YuNNGyqg" description="All movies ids updated since a given date" type="_msJ3Q2xuEeuYi_YuNNGyqg" name="output200" multiplicity="0..1" statusCode="200" statusMessage="OK"/>
+          <fault xmi:id="_msJQA2xuEeuYi_YuNNGyqg" technicalid="_msFlAmxuEeuYi_YuNNGyqg" description="Returned if your JWT token is missing or expired" type="_msJ21mxuEeuYi_YuNNGyqg" name="fault401" multiplicity="0..1" statusCode="401" statusMessage="Unauthorized"/>
+          <fault xmi:id="_msJQBGxuEeuYi_YuNNGyqg" technicalid="_msFlA2xuEeuYi_YuNNGyqg" description="Missing query params are given" type="_msJ2jWxuEeuYi_YuNNGyqg" name="fault405" multiplicity="0..1" statusCode="405" statusMessage="Method Not Allowed"/>
+          <fault xmi:id="_msJQBWxuEeuYi_YuNNGyqg" technicalid="_msGL8GxuEeuYi_YuNNGyqg" description="Invalid query params provided" type="_msJ2jWxuEeuYi_YuNNGyqg" name="fault422" multiplicity="0..1" statusCode="422" statusMessage="Unprocessable Entity"/>
+        </ownedOperations>
+      </ownedInterface>
+    </ownedServices>
+    <ownedServices xmi:id="_msJQBmxuEeuYi_YuNNGyqg" technicalid="_msEWx2xuEeuYi_YuNNGyqg" description="Routes for handling user data." name="Users" URI="/user">
+      <ownedInterface xmi:id="_msJQB2xuEeuYi_YuNNGyqg" technicalid="_msIBJ2xuEeuYi_YuNNGyqg" name="Users">
+        <ownedOperations xmi:id="_msJQCGxuEeuYi_YuNNGyqg" technicalid="_msIBKGxuEeuYi_YuNNGyqg" description="Returns basic information about the currently authenticated user." name="get3" public="true" URI="" exposition="REST" securitySchemes="_msJQPmxuEeuYi_YuNNGyqg">
+          <output xmi:id="_msJQCWxuEeuYi_YuNNGyqg" technicalid="_msIBKWxuEeuYi_YuNNGyqg" description="User information." type="_msJ3SWxuEeuYi_YuNNGyqg" name="output200" multiplicity="0..1" statusCode="200" statusMessage="OK"/>
+          <fault xmi:id="_msJQCmxuEeuYi_YuNNGyqg" technicalid="_msIBKmxuEeuYi_YuNNGyqg" description="Returned if your JWT token is missing or expired" type="_msJ21mxuEeuYi_YuNNGyqg" name="fault401" multiplicity="0..1" statusCode="401" statusMessage="Unauthorized"/>
+          <fault xmi:id="_msJQC2xuEeuYi_YuNNGyqg" technicalid="_msIBK2xuEeuYi_YuNNGyqg" description="Returned if no information exists for the current user" type="_msJ22GxuEeuYi_YuNNGyqg" name="fault404" multiplicity="0..1" statusCode="404" statusMessage="Not Found"/>
+        </ownedOperations>
+        <ownedOperations xmi:id="_msJQDGxuEeuYi_YuNNGyqg" technicalid="_msIBLGxuEeuYi_YuNNGyqg" description="Returns an array of favorite series for a given user, will be a blank array if no favorites exist." name="getFavorites" public="true" URI="/favorites" exposition="REST" securitySchemes="_msJQPmxuEeuYi_YuNNGyqg">
+          <output xmi:id="_msJQDWxuEeuYi_YuNNGyqg" technicalid="_msIBLWxuEeuYi_YuNNGyqg" description="User favorites." type="_msJ3TWxuEeuYi_YuNNGyqg" name="output200" multiplicity="0..1" statusCode="200" statusMessage="OK"/>
+          <fault xmi:id="_msJQDmxuEeuYi_YuNNGyqg" technicalid="_msIBLmxuEeuYi_YuNNGyqg" description="Returned if your JWT token is missing or expired" type="_msJ21mxuEeuYi_YuNNGyqg" name="fault401" multiplicity="0..1" statusCode="401" statusMessage="Unauthorized"/>
+          <fault xmi:id="_msJQD2xuEeuYi_YuNNGyqg" technicalid="_msIBL2xuEeuYi_YuNNGyqg" description="Returned if no information exists for the current user" type="_msJ22GxuEeuYi_YuNNGyqg" name="fault404" multiplicity="0..1" statusCode="404" statusMessage="Not Found"/>
+        </ownedOperations>
+        <ownedOperations xmi:id="_msJQEGxuEeuYi_YuNNGyqg" technicalid="_msIBMGxuEeuYi_YuNNGyqg" description="Adds the supplied series ID to the user&#x2019;s favorite&#x2019;s list and returns the updated list." name="putFavoritesFromId" public="true" URI="/favorites/{id}" verb="PUT" exposition="REST" securitySchemes="_msJQPmxuEeuYi_YuNNGyqg">
+          <input xmi:id="_msJQEWxuEeuYi_YuNNGyqg" technicalid="_msIBMWxuEeuYi_YuNNGyqg" description="ID of the series" name="id">
+            <type xsi:type="oenv:PrimitiveType" href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_9dnH8bGqEd2SRpTkL4GntA"/>
+            <restData xmi:id="_msJQEmxuEeuYi_YuNNGyqg" technicalid="_msIBMmxuEeuYi_YuNNGyqg" passingMode="PATH" restId="id"/>
+          </input>
+          <output xmi:id="_msJQE2xuEeuYi_YuNNGyqg" technicalid="_msIBM2xuEeuYi_YuNNGyqg" description="List of user favorites." type="_msJ3TWxuEeuYi_YuNNGyqg" name="output200" multiplicity="0..1" statusCode="200" statusMessage="OK"/>
+          <fault xmi:id="_msJQFGxuEeuYi_YuNNGyqg" technicalid="_msIBNGxuEeuYi_YuNNGyqg" description="Returned if your JWT token is missing or expired" type="_msJ21mxuEeuYi_YuNNGyqg" name="fault401" multiplicity="0..1" statusCode="401" statusMessage="Unauthorized"/>
+          <fault xmi:id="_msJQFWxuEeuYi_YuNNGyqg" technicalid="_msIBNWxuEeuYi_YuNNGyqg" description="Returned if no information exists for the current user" type="_msJ22GxuEeuYi_YuNNGyqg" name="fault404" multiplicity="0..1" statusCode="404" statusMessage="Not Found"/>
+          <fault xmi:id="_msJQFmxuEeuYi_YuNNGyqg" technicalid="_msIBNmxuEeuYi_YuNNGyqg" description="Returned if requested record could not be updated" type="_msJ2YWxuEeuYi_YuNNGyqg" name="fault409" multiplicity="0..1" statusCode="409" statusMessage="Conflict"/>
+        </ownedOperations>
+        <ownedOperations xmi:id="_msJQF2xuEeuYi_YuNNGyqg" technicalid="_msIBN2xuEeuYi_YuNNGyqg" description="Deletes the given series ID from the user&#x2019;s favorite&#x2019;s list and returns the updated list." name="deleteFavoritesFromId" public="true" URI="/favorites/{id}" verb="DELETE" exposition="REST" securitySchemes="_msJQPmxuEeuYi_YuNNGyqg">
+          <input xmi:id="_msJQGGxuEeuYi_YuNNGyqg" technicalid="_msIBOGxuEeuYi_YuNNGyqg" description="ID of the series" name="id">
+            <type xsi:type="oenv:PrimitiveType" href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_9dnH8bGqEd2SRpTkL4GntA"/>
+            <restData xmi:id="_msJQGWxuEeuYi_YuNNGyqg" technicalid="_msIBOWxuEeuYi_YuNNGyqg" passingMode="PATH" restId="id"/>
+          </input>
+          <output xmi:id="_msJQGmxuEeuYi_YuNNGyqg" technicalid="_msIBOmxuEeuYi_YuNNGyqg" description="List of user favorites." type="_msJ3TWxuEeuYi_YuNNGyqg" name="output200" multiplicity="0..1" statusCode="200" statusMessage="OK"/>
+          <fault xmi:id="_msJQG2xuEeuYi_YuNNGyqg" technicalid="_msIBO2xuEeuYi_YuNNGyqg" description="Returned if your JWT token is missing or expired" type="_msJ21mxuEeuYi_YuNNGyqg" name="fault401" multiplicity="0..1" statusCode="401" statusMessage="Unauthorized"/>
+          <fault xmi:id="_msJQHGxuEeuYi_YuNNGyqg" technicalid="_msIBPGxuEeuYi_YuNNGyqg" description="Returned if no information exists for the current user" type="_msJ22GxuEeuYi_YuNNGyqg" name="fault404" multiplicity="0..1" statusCode="404" statusMessage="Not Found"/>
+          <fault xmi:id="_msJQHWxuEeuYi_YuNNGyqg" technicalid="_msIBPWxuEeuYi_YuNNGyqg" description="Returned if requested record could not be deleted" type="_msJ2YWxuEeuYi_YuNNGyqg" name="fault409" multiplicity="0..1" statusCode="409" statusMessage="Conflict"/>
+        </ownedOperations>
+        <ownedOperations xmi:id="_msJQHmxuEeuYi_YuNNGyqg" technicalid="_msIBPmxuEeuYi_YuNNGyqg" description="Returns an array of ratings for the given user." name="getRatings" public="true" URI="/ratings" exposition="REST" securitySchemes="_msJQPmxuEeuYi_YuNNGyqg">
+          <output xmi:id="_msJQH2xuEeuYi_YuNNGyqg" technicalid="_msIBP2xuEeuYi_YuNNGyqg" description="Array of user ratings." type="_msJ3VGxuEeuYi_YuNNGyqg" name="output200" multiplicity="0..1" statusCode="200" statusMessage="OK"/>
+          <fault xmi:id="_msJQIGxuEeuYi_YuNNGyqg" technicalid="_msIoMGxuEeuYi_YuNNGyqg" description="Returned if your JWT token is missing or expired" type="_msJ21mxuEeuYi_YuNNGyqg" name="fault401" multiplicity="0..1" statusCode="401" statusMessage="Unauthorized"/>
+          <fault xmi:id="_msJQIWxuEeuYi_YuNNGyqg" technicalid="_msIoMWxuEeuYi_YuNNGyqg" description="Returned if no information exists for the current user" type="_msJ22GxuEeuYi_YuNNGyqg" name="fault404" multiplicity="0..1" statusCode="404" statusMessage="Not Found"/>
+        </ownedOperations>
+        <ownedOperations xmi:id="_msJQImxuEeuYi_YuNNGyqg" technicalid="_msIoMmxuEeuYi_YuNNGyqg" description="Returns an array of ratings for a given user that match the query." name="getRatingsQuery" public="true" URI="/ratings/query" exposition="REST" securitySchemes="_msJQPmxuEeuYi_YuNNGyqg">
+          <input xmi:id="_msJQI2xuEeuYi_YuNNGyqg" technicalid="_msIoM2xuEeuYi_YuNNGyqg" description="Item to query. Can be either 'series', 'episode', or 'banner'" name="itemType" multiplicity="0..1">
+            <type xsi:type="oenv:PrimitiveType" href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5F-EKwKEd2XLNOhkJIazw"/>
+            <restData xmi:id="_msJQJGxuEeuYi_YuNNGyqg" technicalid="_msIoNGxuEeuYi_YuNNGyqg" passingMode="QUERY" restId="itemType"/>
+          </input>
+          <output xmi:id="_msJQJWxuEeuYi_YuNNGyqg" technicalid="_msIoNWxuEeuYi_YuNNGyqg" description="List of user ratings that match the given query." type="_msJ3VGxuEeuYi_YuNNGyqg" name="output200" multiplicity="0..1" statusCode="200" statusMessage="OK"/>
+          <fault xmi:id="_msJQJmxuEeuYi_YuNNGyqg" technicalid="_msIoNmxuEeuYi_YuNNGyqg" description="Returned if your JWT token is missing or expired" type="_msJ21mxuEeuYi_YuNNGyqg" name="fault401" multiplicity="0..1" statusCode="401" statusMessage="Unauthorized"/>
+          <fault xmi:id="_msJQJ2xuEeuYi_YuNNGyqg" technicalid="_msIoN2xuEeuYi_YuNNGyqg" description="Returned if no information exists for the current user" type="_msJ22GxuEeuYi_YuNNGyqg" name="fault404" multiplicity="0..1" statusCode="404" statusMessage="Not Found"/>
+        </ownedOperations>
+        <ownedOperations xmi:id="_msJQKGxuEeuYi_YuNNGyqg" technicalid="_msIoOGxuEeuYi_YuNNGyqg" description="Returns a list of query params for use in the `/user/ratings/query` route." name="getRatingsQueryParams" public="true" URI="/ratings/query/params" exposition="REST" securitySchemes="_msJQPmxuEeuYi_YuNNGyqg">
+          <output xmi:id="_msJQKWxuEeuYi_YuNNGyqg" technicalid="_msIoOWxuEeuYi_YuNNGyqg" description="Parameters to use for querying." type="_msJ3XGxuEeuYi_YuNNGyqg" name="output200" multiplicity="0..1" statusCode="200" statusMessage="OK"/>
+          <fault xmi:id="_msJQKmxuEeuYi_YuNNGyqg" technicalid="_msIoOmxuEeuYi_YuNNGyqg" description="Returned if your JWT token is missing or expired" type="_msJ21mxuEeuYi_YuNNGyqg" name="fault401" multiplicity="0..1" statusCode="401" statusMessage="Unauthorized"/>
+          <fault xmi:id="_msJQK2xuEeuYi_YuNNGyqg" technicalid="_msIoO2xuEeuYi_YuNNGyqg" description="Returned if no information exists for the current user" type="_msJ22GxuEeuYi_YuNNGyqg" name="fault404" multiplicity="0..1" statusCode="404" statusMessage="Not Found"/>
+        </ownedOperations>
+        <ownedOperations xmi:id="_msJQLGxuEeuYi_YuNNGyqg" technicalid="_msIoPGxuEeuYi_YuNNGyqg" description="This route deletes a given rating of a given type." name="deleteRatingsFromItemTypeAndItemId" public="true" URI="/ratings/{itemType}/{itemId}" verb="DELETE" exposition="REST" securitySchemes="_msJQPmxuEeuYi_YuNNGyqg">
+          <input xmi:id="_msJQLWxuEeuYi_YuNNGyqg" technicalid="_msIoPWxuEeuYi_YuNNGyqg" description="Item to update. Can be either 'series', 'episode', or 'image'" name="itemType">
+            <type xsi:type="oenv:PrimitiveType" href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5F-EKwKEd2XLNOhkJIazw"/>
+            <restData xmi:id="_msJQLmxuEeuYi_YuNNGyqg" technicalid="_msIoPmxuEeuYi_YuNNGyqg" passingMode="PATH" restId="itemType"/>
+          </input>
+          <input xmi:id="_msJQL2xuEeuYi_YuNNGyqg" technicalid="_msIoP2xuEeuYi_YuNNGyqg" description="ID of the ratings record that you wish to modify" name="itemId">
+            <type xsi:type="oenv:PrimitiveType" href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_9dnH8bGqEd2SRpTkL4GntA"/>
+            <restData xmi:id="_msJQMGxuEeuYi_YuNNGyqg" technicalid="_msIoQGxuEeuYi_YuNNGyqg" passingMode="PATH" restId="itemId"/>
+          </input>
+          <output xmi:id="_msJQMWxuEeuYi_YuNNGyqg" technicalid="_msIoQWxuEeuYi_YuNNGyqg" description="Returns OK if the delete was successful" type="_msJ3WmxuEeuYi_YuNNGyqg" name="output200" multiplicity="0..1" statusCode="200" statusMessage="OK"/>
+          <fault xmi:id="_msJQMmxuEeuYi_YuNNGyqg" technicalid="_msIoQmxuEeuYi_YuNNGyqg" description="Returned if your JWT token is missing or expired" type="_msJ21mxuEeuYi_YuNNGyqg" name="fault401" multiplicity="0..1" statusCode="401" statusMessage="Unauthorized"/>
+          <fault xmi:id="_msJQM2xuEeuYi_YuNNGyqg" technicalid="_msIoQ2xuEeuYi_YuNNGyqg" description="Returned if no rating is found that matches your given parameters" type="_msJ22GxuEeuYi_YuNNGyqg" name="fault404" multiplicity="0..1" statusCode="404" statusMessage="Not Found"/>
+        </ownedOperations>
+        <ownedOperations xmi:id="_msJQNGxuEeuYi_YuNNGyqg" technicalid="_msIoRGxuEeuYi_YuNNGyqg" description="This route updates a given rating of a given type." name="putRatingsFromItemTypeAndItemIdAndItemRating" public="true" URI="/ratings/{itemType}/{itemId}/{itemRating}" verb="PUT" exposition="REST" securitySchemes="_msJQPmxuEeuYi_YuNNGyqg">
+          <input xmi:id="_msJQNWxuEeuYi_YuNNGyqg" technicalid="_msIoRWxuEeuYi_YuNNGyqg" description="Item to update. Can be either 'series', 'episode', or 'image'" name="itemType">
+            <type xsi:type="oenv:PrimitiveType" href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5F-EKwKEd2XLNOhkJIazw"/>
+            <restData xmi:id="_msJQNmxuEeuYi_YuNNGyqg" technicalid="_msIoRmxuEeuYi_YuNNGyqg" passingMode="PATH" restId="itemType"/>
+          </input>
+          <input xmi:id="_msJQN2xuEeuYi_YuNNGyqg" technicalid="_msIoR2xuEeuYi_YuNNGyqg" description="ID of the ratings record that you wish to modify" name="itemId">
+            <type xsi:type="oenv:PrimitiveType" href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_9dnH8bGqEd2SRpTkL4GntA"/>
+            <restData xmi:id="_msJQOGxuEeuYi_YuNNGyqg" technicalid="_msIoSGxuEeuYi_YuNNGyqg" passingMode="PATH" restId="itemId"/>
+          </input>
+          <input xmi:id="_msJQOWxuEeuYi_YuNNGyqg" technicalid="_msIoSWxuEeuYi_YuNNGyqg" description="The updated rating number" name="itemRating">
+            <type xsi:type="oenv:PrimitiveType" href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_9dnH8bGqEd2SRpTkL4GntA"/>
+            <restData xmi:id="_msJQOmxuEeuYi_YuNNGyqg" technicalid="_msIoSmxuEeuYi_YuNNGyqg" passingMode="PATH" restId="itemRating"/>
+          </input>
+          <output xmi:id="_msJQO2xuEeuYi_YuNNGyqg" technicalid="_msIoS2xuEeuYi_YuNNGyqg" description="Update OK if the update was successful" type="_msJ3WGxuEeuYi_YuNNGyqg" name="output200" multiplicity="0..1" statusCode="200" statusMessage="OK"/>
+          <fault xmi:id="_msJQPGxuEeuYi_YuNNGyqg" technicalid="_msIoTGxuEeuYi_YuNNGyqg" description="Returned if your JWT token is missing or expired" type="_msJ21mxuEeuYi_YuNNGyqg" name="fault401" multiplicity="0..1" statusCode="401" statusMessage="Unauthorized"/>
+          <fault xmi:id="_msJQPWxuEeuYi_YuNNGyqg" technicalid="_msIoTWxuEeuYi_YuNNGyqg" description="Returned if no rating is found that matches your given parameters" type="_msJ22GxuEeuYi_YuNNGyqg" name="fault404" multiplicity="0..1" statusCode="404" statusMessage="Not Found"/>
+        </ownedOperations>
+      </ownedInterface>
+    </ownedServices>
+    <securitySchemes xmi:id="_msJQPmxuEeuYi_YuNNGyqg" technicalid="_msAsYWxuEeuYi_YuNNGyqg" description="JWT token prefixed with &quot;Bearer &quot;" createdOn="2021-07-15T20:08:30.268+0200" modifiedOn="2021-07-15T20:08:30.268+0200" key="jwtToken" name="Authorization" apiKeyLocation="HEADER">
+      <metadatas xmi:id="_qPmHweWXEeupV6pJeRbWfg" technicalid="_qPmHwOWXEeupV6pJeRbWfg">
+        <metadatas xsi:type="soa:PropertiesExtension" xmi:id="_qPmHw-WXEeupV6pJeRbWfg" technicalid="_qPmHwuWXEeupV6pJeRbWfg" title="x-SecuritySchemeSurSecurityScheme" body="SecurityScheme-SecurityScheme" context="SecurityScheme"/>
+      </metadatas>
+    </securitySchemes>
+    <license xmi:id="_7SVmsNTmEeuCgeVTfXBG7g" technicalid="_gXQ-EOVSEeusCcFJrhHk1g" description="" createdOn="2021-07-15T11:53:44.864+0200" modifiedOn="2021-07-15T20:01:20.627+0200" name="Apache 2.0" URL="http://www.apache.org/licenses/LICENSE-2.0.html">
+      <metadatas xmi:id="_qOOEMeWWEeupV6pJeRbWfg" technicalid="_qOOEMOWWEeupV6pJeRbWfg">
+        <metadatas xsi:type="soa:PropertiesExtension" xmi:id="_qOOrQeWWEeupV6pJeRbWfg" technicalid="_qOOrQOWWEeupV6pJeRbWfg" title="x-LicenseSurLicense" body="License-License" context="License"/>
+      </metadatas>
+    </license>
+    <information xmi:id="_7SVmsdTmEeuCgeVTfXBG7g" technicalid="_gXQ-EeVSEeusCcFJrhHk1g" description="" createdOn="2021-07-15T11:54:02.978+0200" modifiedOn="2021-07-15T20:01:00.631+0200" apiVersion="3.0.0" termsOfService="/tos">
+      <metadatas xmi:id="_nPheceWWEeupV6pJeRbWfg" technicalid="_nPhecOWWEeupV6pJeRbWfg">
+        <metadatas xsi:type="soa:PropertiesExtension" xmi:id="_nPhec-WWEeupV6pJeRbWfg" technicalid="_nPhecuWWEeupV6pJeRbWfg" title="x-InformationSurInfo" body="Information-Info" context="Info"/>
+      </metadatas>
+    </information>
+    <contact xmi:id="_7SVmstTmEeuCgeVTfXBG7g" technicalid="_gXQ-EuVSEeusCcFJrhHk1g" description="" createdOn="2021-07-15T11:54:12.918+0200" modifiedOn="2021-07-15T19:57:37.888+0200" name="obeo" URL="https://contact.obeosoft.com/" email="contact@obeosoft.com">
+      <metadatas xmi:id="_JCA-AeWWEeupV6pJeRbWfg" technicalid="_JCA-AOWWEeupV6pJeRbWfg">
+        <metadatas xsi:type="soa:PropertiesExtension" xmi:id="_JCBlEeWWEeupV6pJeRbWfg" technicalid="_JCBlEOWWEeupV6pJeRbWfg" title="x-ContactSurContact" body="Contact-Contact" context="Contact"/>
+      </metadatas>
+    </contact>
+  </ownedComponents>
+</soa:System>

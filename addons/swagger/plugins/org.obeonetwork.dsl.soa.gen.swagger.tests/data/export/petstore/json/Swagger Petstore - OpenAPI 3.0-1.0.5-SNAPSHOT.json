@@ -1026,7 +1026,22 @@
   },
   "components" : {
     "schemas" : {
-      "Tag" : {
+      "ApiResponse" : {
+        "type" : "object",
+        "properties" : {
+          "code" : {
+            "type" : "integer",
+            "format" : "int32"
+          },
+          "type" : {
+            "type" : "string"
+          },
+          "message" : {
+            "type" : "string"
+          }
+        }
+      },
+      "Category" : {
         "type" : "object",
         "properties" : {
           "name" : {
@@ -1038,7 +1053,77 @@
           }
         }
       },
-      "Category" : {
+      "Order" : {
+        "type" : "object",
+        "properties" : {
+          "petId" : {
+            "type" : "integer",
+            "format" : "int64"
+          },
+          "quantity" : {
+            "type" : "integer",
+            "format" : "int32"
+          },
+          "id" : {
+            "type" : "integer",
+            "format" : "int64"
+          },
+          "shipDate" : {
+            "type" : "string",
+            "format" : "date-time"
+          },
+          "complete" : {
+            "type" : "boolean"
+          },
+          "status" : {
+            "$ref" : "#/components/schemas/OrderStatus"
+          }
+        }
+      },
+      "OrderStatus" : {
+        "type" : "string",
+        "enum" : [ "approved", "placed", "delivered" ]
+      },
+      "Pet" : {
+        "required" : [ "name", "photoUrls" ],
+        "type" : "object",
+        "properties" : {
+          "photoUrls" : {
+            "minItems" : 1,
+            "type" : "array",
+            "items" : {
+              "type" : "string"
+            }
+          },
+          "name" : {
+            "type" : "string"
+          },
+          "id" : {
+            "type" : "integer",
+            "format" : "int64"
+          },
+          "status" : {
+            "$ref" : "#/components/schemas/PetStatus"
+          },
+          "category" : {
+            "$ref" : "#/components/schemas/Category"
+          },
+          "tags" : {
+            "type" : "array",
+            "items" : {
+              "$ref" : "#/components/schemas/Tag"
+            }
+          }
+        }
+      },
+      "PetStatus" : {
+        "type" : "string",
+        "enum" : [ "sold", "pending", "available" ]
+      },
+      "Store_GetInventoryOutput200" : {
+        "type" : "object"
+      },
+      "Tag" : {
         "type" : "object",
         "properties" : {
           "name" : {
@@ -1077,91 +1162,6 @@
             "type" : "string"
           },
           "username" : {
-            "type" : "string"
-          }
-        }
-      },
-      "PetStatus" : {
-        "type" : "string",
-        "enum" : [ "sold", "pending", "available" ]
-      },
-      "Order" : {
-        "type" : "object",
-        "properties" : {
-          "petId" : {
-            "type" : "integer",
-            "format" : "int64"
-          },
-          "quantity" : {
-            "type" : "integer",
-            "format" : "int32"
-          },
-          "id" : {
-            "type" : "integer",
-            "format" : "int64"
-          },
-          "shipDate" : {
-            "type" : "string",
-            "format" : "date-time"
-          },
-          "complete" : {
-            "type" : "boolean"
-          },
-          "status" : {
-            "$ref" : "#/components/schemas/OrderStatus"
-          }
-        }
-      },
-      "Pet" : {
-        "required" : [ "name", "photoUrls" ],
-        "type" : "object",
-        "properties" : {
-          "photoUrls" : {
-            "minItems" : 1,
-            "type" : "array",
-            "items" : {
-              "type" : "string"
-            }
-          },
-          "name" : {
-            "type" : "string"
-          },
-          "id" : {
-            "type" : "integer",
-            "format" : "int64"
-          },
-          "status" : {
-            "$ref" : "#/components/schemas/PetStatus"
-          },
-          "category" : {
-            "$ref" : "#/components/schemas/Category"
-          },
-          "tags" : {
-            "type" : "array",
-            "items" : {
-              "$ref" : "#/components/schemas/Tag"
-            }
-          }
-        }
-      },
-      "OrderStatus" : {
-        "type" : "string",
-        "enum" : [ "approved", "placed", "delivered" ]
-      },
-      "Store_GetInventoryOutput200" : {
-        "type" : "object"
-      },
-      "ApiResponse" : {
-        "type" : "object",
-        "properties" : {
-          "code" : {
-            "type" : "integer",
-            "format" : "int32"
-          },
-          "type" : {
-            "type" : "string"
-          },
-          "message" : {
             "type" : "string"
           }
         }
