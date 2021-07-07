@@ -37,9 +37,11 @@ import org.eclipse.ui.dialogs.ListDialog;
 import org.obeonetwork.dsl.soa.Component;
 import org.obeonetwork.dsl.soa.ExpositionKind;
 import org.obeonetwork.dsl.soa.InterfaceKind;
+import org.obeonetwork.dsl.soa.MediaType;
 import org.obeonetwork.dsl.soa.Operation;
 import org.obeonetwork.dsl.soa.Parameter;
 import org.obeonetwork.dsl.soa.Service;
+import org.obeonetwork.dsl.soa.SoaFactory;
 import org.obeonetwork.dsl.soa.SoaPackage;
 import org.obeonetwork.dsl.soa.System;
 import org.obeonetwork.dsl.soa.Verb;
@@ -48,14 +50,7 @@ import org.obeonetwork.dsl.soa.services.HttpStatusService;
 
 public class SOAService {
 
-	// https://stackoverflow.com/questions/163360/regular-expression-to-match-urls-in-java
-	private static final Pattern URL_PARAM_PATTERN = Pattern.compile(
-			"^((https?|ftp|file)://)[-a-zA-Z0-9+&@#/%?=~_|!:,.;]*[-a-zA-Z0-9+&@#/%=~_|]", Pattern.CASE_INSENSITIVE);
-	// https://stackoverflow.com/questions/8204680/java-regex-email 
-	// compliant with RFC822 and accepts IP address and server names for intranet purposes.
-	private static final Pattern EMAIL_PARAM_PATTERN = Pattern.compile(
-			"[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?",
-			Pattern.CASE_INSENSITIVE);
+
 	private static final Pattern PATH_PARAM_PATTERN = Pattern.compile("\\{[^\\{\\}]*\\}");
 
 	public EObject trace(EObject receiver) {
@@ -271,33 +266,22 @@ public class SOAService {
 	}
 
 	/**
-	 * Checks if a URL is valid.
 	 * 
-	 * @param URL a {@link String}
-	 * @return <code>true</code> if the URL is valid
+	 * @param parameter a {@link Parameter}
+	 * @return a {@link String} or <code>null</code>
 	 */
-	public static boolean isValidURL(String URL) {
-		if (URL != null) {
-			Matcher matcher = URL_PARAM_PATTERN.matcher(URL);
-			return matcher.matches();
-		} else {
-			return false;
-		}
-
+	public String getIdentifierOrNull(Parameter parameter) {
+		if (parameter.getMediaType() == null)
+			return "";
+		else 
+			return parameter.getMediaType().getIdentifier();
 	}
-
-	/**
-	 * Checks if an email is valid.
-	 * 
-	 * @param email a {@link String}
-	 * @return <code>true</code> if the email is valid
-	 */
-	public static boolean isValidEmail(String email) {
-		if (email != null) {
-			Matcher matcher = EMAIL_PARAM_PATTERN.matcher(email);
-			return matcher.matches();
+	
+	public MediaType getMediaTypeOrNull(Parameter parameter) {
+		if (parameter.getMediaType() != null) {
+			return parameter.getMediaType();
 		} else {
-			return false;
+			return SoaFactory.eINSTANCE.createMediaType();
 		}
 	}
 }

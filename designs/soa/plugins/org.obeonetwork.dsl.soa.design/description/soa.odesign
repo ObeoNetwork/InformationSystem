@@ -1147,9 +1147,7 @@
       <pages name="Parameter Exposition Page" labelExpression="Exposition" domainClass="soa::Parameter" semanticCandidateExpression="var:self" preconditionExpression="aql:self.eContainer(soa::Service).kind=soa::InterfaceKind::provided and self.exposition&lt;>soa::ExpositionKind::NONE" groups="//@extensions.0/@categories.1/@groups.7 //@extensions.0/@categories.1/@groups.8"/>
       <pages name="Security Scheme Page" labelExpression="Security Scheme" domainClass="soa::SecurityScheme" semanticCandidateExpression="var:self" groups="//@extensions.0/@categories.1/@groups.10"/>
       <pages name="Component Security Schemes Page" labelExpression="Security Schemes" domainClass="soa::Component" semanticCandidateExpression="var:self" groups="//@extensions.0/@categories.1/@groups.13"/>
-      <pages name="Media Type Page" labelExpression="Media Type" domainClass="soa::Parameter" semanticCandidateExpression="var:self">
-        <groups href="soa2.odesign#//@extensions.0/@categories.1/@groups.14"/>
-      </pages>
+      <pages name="Media Type Page" labelExpression="Media Type" domainClass="soa::Parameter" semanticCandidateExpression="var:self" groups="//@extensions.0/@categories.1/@groups.17"/>
       <groups name="Operation Group" labelExpression="Properties" domainClass="soa::Operation" semanticCandidateExpression="var:self">
         <controls xsi:type="properties:TextDescription" name="soa::Operation name" labelExpression="aql:input.emfEditServices(self).getText(self.eClass().getEStructuralFeature('name')) + ':'" helpExpression="aql:input.emfEditServices(self).getDescription(self.eClass().getEStructuralFeature('name'))" isEnabledExpression="aql:self.eClass().getEStructuralFeature('name').changeable" valueExpression="aql:self.name">
           <initialOperation>
@@ -1589,7 +1587,7 @@
           </propertyValidationRules>
         </validationSet>
       </groups>
-      <groups name="MediaType Properties Group" labelExpression="Properties" domainClass="soa::Parameter" semanticCandidateExpression="var:self">
+      <groups name="selectMediaType Properties Group" labelExpression="Properties" domainClass="soa::Parameter" semanticCandidateExpression="var:self">
         <controls xsi:type="properties:TextDescription" name="Media Type Identifier" labelExpression="Identifier:" valueExpression="aql:self.getIdentifierOrNull()">
           <initialOperation>
             <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="aql:self">
@@ -1663,9 +1661,8 @@
           </customOperations>
         </controls>
         <validationSet>
-          <propertyValidationRules name="Media Type Identifier Validator" level="WARNING" message="Invalid media type identifier. ">
+          <propertyValidationRules name="Media Type Identifier Validation" level="WARNING" message="Invalid media type identifier. " targets="//@extensions.0/@categories.1/@groups.17/@controls.0">
             <audits auditExpression="aql:self.isValidIdentifier()"/>
-            <targets xsi:type="properties:TextDescription" href="soa2.odesign#//@extensions.0/@categories.1/@groups.14/@controls.0"/>
           </propertyValidationRules>
         </validationSet>
       </groups>

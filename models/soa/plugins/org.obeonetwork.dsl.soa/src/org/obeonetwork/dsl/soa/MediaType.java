@@ -55,7 +55,7 @@ public interface MediaType extends ObeoDSMObject {
 	 * @return the value of the '<em>Identifier</em>' attribute.
 	 * @see #setIdentifier(String)
 	 * @see org.obeonetwork.dsl.soa.SoaPackage#getMediaType_Identifier()
-	 * @model required="true"
+	 * @model
 	 * @generated
 	 */
 	String getIdentifier();
