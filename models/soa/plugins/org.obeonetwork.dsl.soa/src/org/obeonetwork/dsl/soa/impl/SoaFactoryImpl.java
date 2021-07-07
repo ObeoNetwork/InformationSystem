@@ -21,12 +21,14 @@ import org.obeonetwork.dsl.soa.Binding;
 import org.obeonetwork.dsl.soa.BindingKind;
 import org.obeonetwork.dsl.soa.Component;
 import org.obeonetwork.dsl.soa.Contact;
+import org.obeonetwork.dsl.soa.Example;
 import org.obeonetwork.dsl.soa.ExpositionKind;
 import org.obeonetwork.dsl.soa.ImplementationComponent;
 import org.obeonetwork.dsl.soa.Information;
 import org.obeonetwork.dsl.soa.Interface;
 import org.obeonetwork.dsl.soa.InterfaceKind;
 import org.obeonetwork.dsl.soa.License;
+import org.obeonetwork.dsl.soa.MediaType;
 import org.obeonetwork.dsl.soa.Operation;
 import org.obeonetwork.dsl.soa.OperationKind;
 import org.obeonetwork.dsl.soa.Parameter;
@@ -109,6 +111,8 @@ public class SoaFactoryImpl extends EFactoryImpl implements SoaFactory {
 			case SoaPackage.INFORMATION: return (EObject)createInformation();
 			case SoaPackage.CONTACT: return (EObject)createContact();
 			case SoaPackage.LICENSE: return (EObject)createLicense();
+			case SoaPackage.MEDIA_TYPE: return (EObject)createMediaType();
+			case SoaPackage.EXAMPLE: return (EObject)createExample();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -314,6 +318,26 @@ public class SoaFactoryImpl extends EFactoryImpl implements SoaFactory {
 	public License createLicense() {
 		LicenseImpl license = new LicenseImpl();
 		return license;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public MediaType createMediaType() {
+		MediaTypeImpl mediaType = new MediaTypeImpl();
+		return mediaType;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Example createExample() {
+		ExampleImpl example = new ExampleImpl();
+		return example;
 	}
 
 	/**

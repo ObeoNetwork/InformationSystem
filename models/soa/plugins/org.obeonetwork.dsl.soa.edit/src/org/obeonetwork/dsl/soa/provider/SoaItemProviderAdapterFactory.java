@@ -408,6 +408,52 @@ public class SoaItemProviderAdapterFactory extends SoaAdapterFactory implements 
 	}
 
 	/**
+	 * This keeps track of the one adapter used for all {@link org.obeonetwork.dsl.soa.MediaType} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected MediaTypeItemProvider mediaTypeItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link org.obeonetwork.dsl.soa.MediaType}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createMediaTypeAdapter() {
+		if (mediaTypeItemProvider == null) {
+			mediaTypeItemProvider = new MediaTypeItemProvider(this);
+		}
+
+		return mediaTypeItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link org.obeonetwork.dsl.soa.Example} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected ExampleItemProvider exampleItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link org.obeonetwork.dsl.soa.Example}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createExampleAdapter() {
+		if (exampleItemProvider == null) {
+			exampleItemProvider = new ExampleItemProvider(this);
+		}
+
+		return exampleItemProvider;
+	}
+
+	/**
 	 * This returns the root adapter factory that contains this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -520,6 +566,8 @@ public class SoaItemProviderAdapterFactory extends SoaAdapterFactory implements 
 		if (informationItemProvider != null) informationItemProvider.dispose();
 		if (contactItemProvider != null) contactItemProvider.dispose();
 		if (licenseItemProvider != null) licenseItemProvider.dispose();
+		if (mediaTypeItemProvider != null) mediaTypeItemProvider.dispose();
+		if (exampleItemProvider != null) exampleItemProvider.dispose();
 	}
 
 }

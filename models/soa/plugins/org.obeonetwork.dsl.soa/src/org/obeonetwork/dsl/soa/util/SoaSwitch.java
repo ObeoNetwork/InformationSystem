@@ -21,10 +21,12 @@ import org.obeonetwork.dsl.environment.TypesDefinition;
 import org.obeonetwork.dsl.soa.Binding;
 import org.obeonetwork.dsl.soa.Component;
 import org.obeonetwork.dsl.soa.Contact;
+import org.obeonetwork.dsl.soa.Example;
 import org.obeonetwork.dsl.soa.ImplementationComponent;
 import org.obeonetwork.dsl.soa.Information;
 import org.obeonetwork.dsl.soa.Interface;
 import org.obeonetwork.dsl.soa.License;
+import org.obeonetwork.dsl.soa.MediaType;
 import org.obeonetwork.dsl.soa.Operation;
 import org.obeonetwork.dsl.soa.Parameter;
 import org.obeonetwork.dsl.soa.ParameterRestData;
@@ -203,6 +205,22 @@ public class SoaSwitch<T> extends Switch<T> {
 			case SoaPackage.LICENSE: {
 				License license = (License)theEObject;
 				T result = caseLicense(license);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case SoaPackage.MEDIA_TYPE: {
+				MediaType mediaType = (MediaType)theEObject;
+				T result = caseMediaType(mediaType);
+				if (result == null) result = caseObeoDSMObject(mediaType);
+				if (result == null) result = caseIdentifiable(mediaType);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case SoaPackage.EXAMPLE: {
+				Example example = (Example)theEObject;
+				T result = caseExample(example);
+				if (result == null) result = caseObeoDSMObject(example);
+				if (result == null) result = caseIdentifiable(example);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -417,6 +435,36 @@ public class SoaSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseLicense(License object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Media Type</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Media Type</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseMediaType(MediaType object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Example</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Example</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseExample(Example object) {
 		return null;
 	}
 

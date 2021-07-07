@@ -24,6 +24,7 @@ import org.obeonetwork.dsl.environment.Type;
  * </p>
  * <ul>
  *   <li>{@link org.obeonetwork.dsl.soa.Parameter#getType <em>Type</em>}</li>
+ *   <li>{@link org.obeonetwork.dsl.soa.Parameter#getMediaType <em>Media Type</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.soa.Parameter#getName <em>Name</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.soa.Parameter#getMultiplicity <em>Multiplicity</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.soa.Parameter#isIsUnique <em>Is Unique</em>}</li>
@@ -73,6 +74,31 @@ public interface Parameter extends ObeoDSMObject {
 	 * @generated
 	 */
 	void setType(Type value);
+
+	/**
+	 * Returns the value of the '<em><b>Media Type</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * 
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Media Type</em>' containment reference.
+	 * @see #setMediaType(MediaType)
+	 * @see org.obeonetwork.dsl.soa.SoaPackage#getParameter_MediaType()
+	 * @model containment="true" resolveProxies="true"
+	 * @generated
+	 */
+	MediaType getMediaType();
+
+	/**
+	 * Sets the value of the '{@link org.obeonetwork.dsl.soa.Parameter#getMediaType <em>Media Type</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Media Type</em>' containment reference.
+	 * @see #getMediaType()
+	 * @generated
+	 */
+	void setMediaType(MediaType value);
 
 	/**
 	 * Returns the value of the '<em><b>Name</b></em>' attribute.

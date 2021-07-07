@@ -162,6 +162,24 @@ public interface SoaFactory extends EFactory {
 	License createLicense();
 
 	/**
+	 * Returns a new object of class '<em>Media Type</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Media Type</em>'.
+	 * @generated
+	 */
+	MediaType createMediaType();
+
+	/**
+	 * Returns a new object of class '<em>Example</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Example</em>'.
+	 * @generated
+	 */
+	Example createExample();
+
+	/**
 	 * Returns the package supported by this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

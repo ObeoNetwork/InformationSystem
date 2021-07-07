@@ -247,6 +247,7 @@ public class ParameterItemProvider
 	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
+			childrenFeatures.add(SoaPackage.Literals.PARAMETER__MEDIA_TYPE);
 			childrenFeatures.add(SoaPackage.Literals.PARAMETER__REST_DATA);
 		}
 		return childrenFeatures;
@@ -335,6 +336,7 @@ public class ParameterItemProvider
 			case SoaPackage.PARAMETER__STATUS_MESSAGE:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
+			case SoaPackage.PARAMETER__MEDIA_TYPE:
 			case SoaPackage.PARAMETER__REST_DATA:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
@@ -352,6 +354,11 @@ public class ParameterItemProvider
 	@Override
 	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
 		super.collectNewChildDescriptors(newChildDescriptors, object);
+
+		newChildDescriptors.add
+			(createChildParameter
+				(SoaPackage.Literals.PARAMETER__MEDIA_TYPE,
+				 SoaFactory.eINSTANCE.createMediaType()));
 
 		newChildDescriptors.add
 			(createChildParameter
