@@ -274,6 +274,8 @@ public class ComponentImpl extends ObeoDSMObjectImpl implements Component {
 	 * @generated
 	 */
 	public void setApiVersion(String newApiVersion) {
+		// TODO: implement this method to set the 'Api Version' attribute
+		// Ensure that you remove @generated or mark it @generated NOT
 		throw new UnsupportedOperationException();
 	}
 

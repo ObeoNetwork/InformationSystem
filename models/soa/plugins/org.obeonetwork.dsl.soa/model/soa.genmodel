@@ -123,6 +123,7 @@
     </genClasses>
     <genClasses ecoreClass="soa.ecore#//Parameter">
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference soa.ecore#//Parameter/type"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference soa.ecore#//Parameter/mediaType"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute soa.ecore#//Parameter/name"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute soa.ecore#//Parameter/multiplicity"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute soa.ecore#//Parameter/isUnique"/>
@@ -153,6 +154,14 @@
     <genClasses ecoreClass="soa.ecore#//License">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute soa.ecore#//License/name"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute soa.ecore#//License/URL"/>
+    </genClasses>
+    <genClasses ecoreClass="soa.ecore#//MediaType">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute soa.ecore#//MediaType/identifier"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference soa.ecore#//MediaType/examples"/>
+    </genClasses>
+    <genClasses ecoreClass="soa.ecore#//Example">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute soa.ecore#//Example/summary"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute soa.ecore#//Example/value"/>
     </genClasses>
   </genPackages>
 </genmodel:GenModel>

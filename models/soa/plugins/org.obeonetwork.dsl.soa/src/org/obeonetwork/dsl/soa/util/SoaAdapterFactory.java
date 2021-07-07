@@ -22,10 +22,12 @@ import org.obeonetwork.dsl.environment.TypesDefinition;
 import org.obeonetwork.dsl.soa.Binding;
 import org.obeonetwork.dsl.soa.Component;
 import org.obeonetwork.dsl.soa.Contact;
+import org.obeonetwork.dsl.soa.Example;
 import org.obeonetwork.dsl.soa.ImplementationComponent;
 import org.obeonetwork.dsl.soa.Information;
 import org.obeonetwork.dsl.soa.Interface;
 import org.obeonetwork.dsl.soa.License;
+import org.obeonetwork.dsl.soa.MediaType;
 import org.obeonetwork.dsl.soa.Operation;
 import org.obeonetwork.dsl.soa.Parameter;
 import org.obeonetwork.dsl.soa.ParameterRestData;
@@ -152,6 +154,14 @@ public class SoaAdapterFactory extends AdapterFactoryImpl {
 			@Override
 			public Adapter caseLicense(License object) {
 				return createLicenseAdapter();
+			}
+			@Override
+			public Adapter caseMediaType(MediaType object) {
+				return createMediaTypeAdapter();
+			}
+			@Override
+			public Adapter caseExample(Example object) {
+				return createExampleAdapter();
 			}
 			@Override
 			public Adapter caseIdentifiable(Identifiable object) {
@@ -390,6 +400,34 @@ public class SoaAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createLicenseAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.obeonetwork.dsl.soa.MediaType <em>Media Type</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.obeonetwork.dsl.soa.MediaType
+	 * @generated
+	 */
+	public Adapter createMediaTypeAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.obeonetwork.dsl.soa.Example <em>Example</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.obeonetwork.dsl.soa.Example
+	 * @generated
+	 */
+	public Adapter createExampleAdapter() {
 		return null;
 	}
 
