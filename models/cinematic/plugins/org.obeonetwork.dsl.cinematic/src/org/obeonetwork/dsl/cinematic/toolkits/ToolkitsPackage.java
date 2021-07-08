@@ -194,22 +194,13 @@ public interface ToolkitsPackage extends EPackage {
 	int WIDGET__STYLE = TechnicalIDPackage.IDENTIFIABLE_FEATURE_COUNT + 6;
 
 	/**
-	 * The feature id for the '<em><b>Metadata Keys</b></em>' attribute list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int WIDGET__METADATA_KEYS = TechnicalIDPackage.IDENTIFIABLE_FEATURE_COUNT + 7;
-
-	/**
 	 * The feature id for the '<em><b>Metadata Help</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int WIDGET__METADATA_HELP = TechnicalIDPackage.IDENTIFIABLE_FEATURE_COUNT + 8;
+	int WIDGET__METADATA_HELP = TechnicalIDPackage.IDENTIFIABLE_FEATURE_COUNT + 7;
 
 	/**
 	 * The feature id for the '<em><b>Summary</b></em>' attribute.
@@ -218,7 +209,7 @@ public interface ToolkitsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int WIDGET__SUMMARY = TechnicalIDPackage.IDENTIFIABLE_FEATURE_COUNT + 9;
+	int WIDGET__SUMMARY = TechnicalIDPackage.IDENTIFIABLE_FEATURE_COUNT + 8;
 
 	/**
 	 * The feature id for the '<em><b>Documentation</b></em>' attribute.
@@ -227,7 +218,16 @@ public interface ToolkitsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int WIDGET__DOCUMENTATION = TechnicalIDPackage.IDENTIFIABLE_FEATURE_COUNT + 10;
+	int WIDGET__DOCUMENTATION = TechnicalIDPackage.IDENTIFIABLE_FEATURE_COUNT + 9;
+
+	/**
+	 * The feature id for the '<em><b>Metadata Definitions</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int WIDGET__METADATA_DEFINITIONS = TechnicalIDPackage.IDENTIFIABLE_FEATURE_COUNT + 10;
 
 	/**
 	 * The number of structural features of the '<em>Widget</em>' class.
@@ -553,17 +553,6 @@ public interface ToolkitsPackage extends EPackage {
 	EReference getWidget_Style();
 
 	/**
-	 * Returns the meta object for the attribute list '{@link org.obeonetwork.dsl.cinematic.toolkits.Widget#getMetadataKeys <em>Metadata Keys</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute list '<em>Metadata Keys</em>'.
-	 * @see org.obeonetwork.dsl.cinematic.toolkits.Widget#getMetadataKeys()
-	 * @see #getWidget()
-	 * @generated
-	 */
-	EAttribute getWidget_MetadataKeys();
-
-	/**
 	 * Returns the meta object for the attribute '{@link org.obeonetwork.dsl.cinematic.toolkits.Widget#getMetadataHelp <em>Metadata Help</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -595,6 +584,17 @@ public interface ToolkitsPackage extends EPackage {
 	 * @generated
 	 */
 	EAttribute getWidget_Documentation();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link org.obeonetwork.dsl.cinematic.toolkits.Widget#getMetadataDefinitions <em>Metadata Definitions</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Metadata Definitions</em>'.
+	 * @see org.obeonetwork.dsl.cinematic.toolkits.Widget#getMetadataDefinitions()
+	 * @see #getWidget()
+	 * @generated
+	 */
+	EReference getWidget_MetadataDefinitions();
 
 	/**
 	 * Returns the meta object for class '{@link org.obeonetwork.dsl.cinematic.toolkits.WidgetEventType <em>Widget Event Type</em>}'.
@@ -894,14 +894,6 @@ public interface ToolkitsPackage extends EPackage {
 		EReference WIDGET__STYLE = eINSTANCE.getWidget_Style();
 
 		/**
-		 * The meta object literal for the '<em><b>Metadata Keys</b></em>' attribute list feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute WIDGET__METADATA_KEYS = eINSTANCE.getWidget_MetadataKeys();
-
-		/**
 		 * The meta object literal for the '<em><b>Metadata Help</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -924,6 +916,14 @@ public interface ToolkitsPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute WIDGET__DOCUMENTATION = eINSTANCE.getWidget_Documentation();
+
+		/**
+		 * The meta object literal for the '<em><b>Metadata Definitions</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference WIDGET__METADATA_DEFINITIONS = eINSTANCE.getWidget_MetadataDefinitions();
 
 		/**
 		 * The meta object literal for the '{@link org.obeonetwork.dsl.cinematic.toolkits.impl.WidgetEventTypeImpl <em>Widget Event Type</em>}' class.

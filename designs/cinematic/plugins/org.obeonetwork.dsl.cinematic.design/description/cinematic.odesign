@@ -757,7 +757,7 @@
               <subModelOperations xsi:type="tool_1:CreateInstance" typeName="view.ViewContainer" referenceName="viewContainers">
                 <subModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="['ViewContainer' + eContainer(cinematic::AbstractPackage).viewContainers->size()/]"/>
                 <subModelOperations xsi:type="tool_1:SetValue" featureName="widget" valueExpression="service:getWidgetHavePropertyIsContainer(selectedType)"/>
-                <subModelOperations xsi:type="tool_1:SetValue" featureName="metadatas" valueExpression="service:getWidgetMetadatas()"/>
+                <subModelOperations xsi:type="tool_1:SetValue" featureName="metadatas" valueExpression="service:createWidgetMetadatas()"/>
               </subModelOperations>
             </firstModelOperation>
             <variables name="root" documentation="The semantic element of the tree."/>
@@ -809,7 +809,7 @@
                 <subModelOperations xsi:type="tool_1:CreateInstance" typeName="view.ViewContainer" referenceName="ownedElements">
                   <subModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="['ViewContainer'+eContainer(cinematic::view::ViewContainer).viewContainers->size()/]"/>
                   <subModelOperations xsi:type="tool_1:SetValue" featureName="widget" valueExpression="service:getWidgetHavePropertyIsContainer(selectedType)"/>
-                  <subModelOperations xsi:type="tool_1:SetValue" featureName="metadatas" valueExpression="service:getWidgetMetadatas()"/>
+                  <subModelOperations xsi:type="tool_1:SetValue" featureName="metadatas" valueExpression="service:createWidgetMetadatas()"/>
                 </subModelOperations>
               </firstModelOperation>
               <variables name="root" documentation="The semantic element of the tree."/>
@@ -824,7 +824,7 @@
                 <subModelOperations xsi:type="tool_1:CreateInstance" typeName="view.ViewElement" referenceName="ownedElements">
                   <subModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="['viewElement'+eContainer(cinematic::view::ViewContainer).ownedElements->filter(cinematic::view::ViewElement)->size()/]"/>
                   <subModelOperations xsi:type="tool_1:SetValue" featureName="widget" valueExpression="[getWidgetHavePropertyIsNotContainer(selectedType)/]"/>
-                  <subModelOperations xsi:type="tool_1:SetValue" featureName="metadatas" valueExpression="service:getWidgetMetadatas()"/>
+                  <subModelOperations xsi:type="tool_1:SetValue" featureName="metadatas" valueExpression="service:createWidgetMetadatas()"/>
                 </subModelOperations>
               </firstModelOperation>
               <variables name="root" documentation="The semantic element of the tree."/>
@@ -1085,7 +1085,7 @@
               <subModelOperations xsi:type="tool_1:CreateInstance" typeName="view.ViewContainer" referenceName="ownedElements">
                 <subModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="['ViewContainer'+eContainer(cinematic::view::ViewContainer).viewContainers->size()/]"/>
                 <subModelOperations xsi:type="tool_1:SetValue" featureName="widget" valueExpression="service:getWidgetHavePropertyIsContainer(selectedType)"/>
-                <subModelOperations xsi:type="tool_1:SetValue" featureName="metadatas" valueExpression="service:getWidgetMetadatas()"/>
+                <subModelOperations xsi:type="tool_1:SetValue" featureName="metadatas" valueExpression="service:createWidgetMetadatas()"/>
               </subModelOperations>
             </firstModelOperation>
             <variables name="root" documentation="The semantic element of the tree."/>
@@ -1100,7 +1100,7 @@
               <subModelOperations xsi:type="tool_1:CreateInstance" typeName="view.ViewElement" referenceName="ownedElements">
                 <subModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="['viewElement'+eContainer(cinematic::view::ViewContainer).ownedElements->filter(cinematic::view::ViewElement)->size()/]"/>
                 <subModelOperations xsi:type="tool_1:SetValue" featureName="widget" valueExpression="[getWidgetHavePropertyIsNotContainer(selectedType)/]"/>
-                <subModelOperations xsi:type="tool_1:SetValue" featureName="metadatas" valueExpression="service:getWidgetMetadatas()"/>
+                <subModelOperations xsi:type="tool_1:SetValue" featureName="metadatas" valueExpression="service:createWidgetMetadatas()"/>
               </subModelOperations>
             </firstModelOperation>
             <variables name="root" documentation="The semantic element of the tree."/>
@@ -1206,7 +1206,7 @@
             <subModelOperations xsi:type="tool_1:CreateInstance" typeName="view.ViewContainer" referenceName="viewContainers">
               <subModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="['ViewContainer' + eContainer(cinematic::AbstractPackage).viewContainers->size()/]"/>
               <subModelOperations xsi:type="tool_1:SetValue" featureName="widget" valueExpression="service:getWidgetHavePropertyIsContainer(selectedType)"/>
-              <subModelOperations xsi:type="tool_1:SetValue" featureName="metadatas" valueExpression="service:getWidgetMetadatas()"/>
+              <subModelOperations xsi:type="tool_1:SetValue" featureName="metadatas" valueExpression="service:createWidgetMetadatas()"/>
             </subModelOperations>
           </firstModelOperation>
           <variables name="root" documentation="The semantic element of the tree."/>
@@ -1268,7 +1268,7 @@
                 <subModelOperations xsi:type="tool_1:CreateInstance" typeName="view::ViewContainer" referenceName="ownedElements">
                   <subModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="aql:'viewElement'+self.eContainer(view::ViewContainer).ownedElements->filter(view::ViewContainer)->size()"/>
                   <subModelOperations xsi:type="tool_1:SetValue" featureName="widget" valueExpression="aql:self.getWidgetByName('{{container}}')"/>
-                  <subModelOperations xsi:type="tool_1:SetValue" featureName="metadatas" valueExpression="service:getWidgetMetadatas()"/>
+                  <subModelOperations xsi:type="tool_1:SetValue" featureName="metadatas" valueExpression="service:createWidgetMetadatas()"/>
                   <subModelOperations xsi:type="tool:CreateView" mapping="//@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='View%20Container%20Mockup']/@defaultLayer/@containerMappings[name='VCD_RootViewContainer']/@subContainerMappings[name='VCD_ViewContainer']" containerViewExpression="var:containerView">
                     <subModelOperations xsi:type="tool_1:ChangeContext" browseExpression="aql:createdView.setDefaultSize()"/>
                   </subModelOperations>
@@ -1286,7 +1286,7 @@
                 <subModelOperations xsi:type="tool_1:CreateInstance" typeName="view::ViewElement" referenceName="ownedElements">
                   <subModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="aql:'viewElement'+self.eContainer(view::ViewContainer).ownedElements->filter(view::ViewElement)->size()"/>
                   <subModelOperations xsi:type="tool_1:SetValue" featureName="widget" valueExpression="aql:self.getWidgetByName('{{widget}}')"/>
-                  <subModelOperations xsi:type="tool_1:SetValue" featureName="metadatas" valueExpression="service:getWidgetMetadatas()"/>
+                  <subModelOperations xsi:type="tool_1:SetValue" featureName="metadatas" valueExpression="service:createWidgetMetadatas()"/>
                   <subModelOperations xsi:type="tool:CreateView" mapping="//@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='View%20Container%20Mockup']/@defaultLayer/@containerMappings[name='VCD_RootViewContainer']/@subContainerMappings[name='VCD_ViewElement']" containerViewExpression="var:containerView">
                     <subModelOperations xsi:type="tool_1:ChangeContext" browseExpression="aql:createdView.setDefaultSize()"/>
                   </subModelOperations>

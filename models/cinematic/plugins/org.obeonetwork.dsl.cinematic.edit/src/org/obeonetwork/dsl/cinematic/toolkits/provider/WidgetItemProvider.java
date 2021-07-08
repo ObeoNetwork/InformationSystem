@@ -32,6 +32,7 @@ import org.obeonetwork.dsl.cinematic.provider.CinematicEditPlugin;
 import org.obeonetwork.dsl.cinematic.toolkits.ToolkitsFactory;
 import org.obeonetwork.dsl.cinematic.toolkits.ToolkitsPackage;
 import org.obeonetwork.dsl.cinematic.toolkits.Widget;
+import org.obeonetwork.dsl.environment.EnvironmentFactory;
 import org.obeonetwork.dsl.technicalid.provider.IdentifiableItemProvider;
 
 /**
@@ -67,7 +68,6 @@ public class WidgetItemProvider
 			addIconPropertyDescriptor(object);
 			addImplementationPropertyDescriptor(object);
 			addIsContainerPropertyDescriptor(object);
-			addMetadataKeysPropertyDescriptor(object);
 			addMetadataHelpPropertyDescriptor(object);
 			addSummaryPropertyDescriptor(object);
 			addDocumentationPropertyDescriptor(object);
@@ -164,28 +164,6 @@ public class WidgetItemProvider
 	}
 
 	/**
-	 * This adds a property descriptor for the Metadata Keys feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addMetadataKeysPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_Widget_metadataKeys_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_Widget_metadataKeys_feature", "_UI_Widget_type"),
-				 ToolkitsPackage.Literals.WIDGET__METADATA_KEYS,
-				 true,
-				 false,
-				 false,
-				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-				 null,
-				 null));
-	}
-
-	/**
 	 * This adds a property descriptor for the Metadata Help feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -265,6 +243,7 @@ public class WidgetItemProvider
 			super.getChildrenFeatures(object);
 			childrenFeatures.add(ToolkitsPackage.Literals.WIDGET__POSSIBLE_EVENTS);
 			childrenFeatures.add(ToolkitsPackage.Literals.WIDGET__STYLE);
+			childrenFeatures.add(ToolkitsPackage.Literals.WIDGET__METADATA_DEFINITIONS);
 		}
 		return childrenFeatures;
 	}
@@ -333,7 +312,6 @@ public class WidgetItemProvider
 			case ToolkitsPackage.WIDGET__ICON:
 			case ToolkitsPackage.WIDGET__IMPLEMENTATION:
 			case ToolkitsPackage.WIDGET__IS_CONTAINER:
-			case ToolkitsPackage.WIDGET__METADATA_KEYS:
 			case ToolkitsPackage.WIDGET__METADATA_HELP:
 			case ToolkitsPackage.WIDGET__SUMMARY:
 			case ToolkitsPackage.WIDGET__DOCUMENTATION:
@@ -341,6 +319,7 @@ public class WidgetItemProvider
 				return;
 			case ToolkitsPackage.WIDGET__POSSIBLE_EVENTS:
 			case ToolkitsPackage.WIDGET__STYLE:
+			case ToolkitsPackage.WIDGET__METADATA_DEFINITIONS:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
 		}
@@ -367,6 +346,11 @@ public class WidgetItemProvider
 			(createChildParameter
 				(ToolkitsPackage.Literals.WIDGET__STYLE,
 				 ToolkitsFactory.eINSTANCE.createStyle()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(ToolkitsPackage.Literals.WIDGET__METADATA_DEFINITIONS,
+				 EnvironmentFactory.eINSTANCE.createAnnotation()));
 	}
 
 	/**

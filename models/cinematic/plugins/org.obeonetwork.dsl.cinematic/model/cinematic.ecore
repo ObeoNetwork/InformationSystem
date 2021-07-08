@@ -336,11 +336,12 @@
       </eStructuralFeatures>
       <eStructuralFeatures xsi:type="ecore:EReference" name="style" eType="#//toolkits/Style"
           containment="true"/>
-      <eStructuralFeatures xsi:type="ecore:EAttribute" name="metadataKeys" upperBound="-1"
-          eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="metadataHelp" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="summary" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="documentation" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="metadataDefinitions"
+          upperBound="-1" eType="ecore:EClass ../../org.obeonetwork.dsl.environment/model/environment.ecore#//Annotation"
+          containment="true"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="WidgetEventType" eSuperTypes="../../org.obeonetwork.dsl.technicalid/model/technicalid.ecore#//Identifiable">
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" lowerBound="1"
