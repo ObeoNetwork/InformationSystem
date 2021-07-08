@@ -15,6 +15,7 @@ public class SiriusEditPartPropertyTester extends PropertyTester {
 
 	private final static String PROP_VIEWPOINT_ID = "viewpointId";
 	private final static String PROP_DIAGRAM_NAME = "diagramName";
+	private final static String PROP_MAPPING_NAME = "mappingName";
 	
 	public SiriusEditPartPropertyTester() {
 	}
@@ -27,6 +28,8 @@ public class SiriusEditPartPropertyTester extends PropertyTester {
 			return testViewpointId(siriusEditPart, (String)expectedValue);
 		} else if(PROP_DIAGRAM_NAME.equals(property)) {
 			return testDiagramName(siriusEditPart, (String)expectedValue);
+		}else if(PROP_MAPPING_NAME.equals(property)) {
+			return testMappingName(siriusEditPart, (String)expectedValue);
 		}
 		
 		return false;
@@ -50,6 +53,17 @@ public class SiriusEditPartPropertyTester extends PropertyTester {
 			return viewpoint.getName().equals(expectedViewpointId);
 		}
 		
+		return false;
+	}
+
+	private boolean testMappingName(ISiriusEditPart siriusEditPart, String expectedMappingName) {
+		if(siriusEditPart instanceof IDDiagramEditPart) {
+			return testDiagramName(siriusEditPart, expectedMappingName);
+		} else if(siriusEditPart instanceof IDiagramElementEditPart) {
+			IDiagramElementEditPart diagramElementEditPart = (IDiagramElementEditPart) siriusEditPart;
+			DDiagramElement diagramElement = diagramElementEditPart.resolveDiagramElement();
+			return expectedMappingName.equals(diagramElement.getMapping().getName());
+		}
 		return false;
 	}
 

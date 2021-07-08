@@ -73,6 +73,24 @@
                  checkEnabled="true">
            </visibleWhen>
         </command>
+        <command
+              commandId="org.obeonetwork.dsl.cinematic.design.command.SetMockupAsWorkspaceImage"
+              icon="icons/tools/layout_top_right_corner_apply.png"
+              label="Apply Mockup Image"
+              style="push">
+           <visibleWhen
+                 checkEnabled="true">
+           </visibleWhen>
+        </command>
+        <command
+              commandId="org.obeonetwork.dsl.cinematic.design.command.ResetWorkspaceImage"
+              icon="icons/tools/layout_top_right_corner_remove.png"
+              label="Reset Mockup Image"
+              style="push">
+           <visibleWhen
+                 checkEnabled="true">
+           </visibleWhen>
+        </command>
      </menuContribution>
   </extension>
   <extension
@@ -88,6 +106,14 @@
      <command
            id="org.obeonetwork.dsl.cinematic.design.command.PreviewLayout"
            name="Preview Layout">
+     </command>
+     <command
+           id="org.obeonetwork.dsl.cinematic.design.command.SetMockupAsWorkspaceImage"
+           name="Apply Mockup Image">
+     </command>
+     <command
+           id="org.obeonetwork.dsl.cinematic.design.command.ResetWorkspaceImage"
+           name="Reset Mockup Image">
      </command>
   </extension>
   <extension
@@ -159,6 +185,68 @@
                           property="org.eclipse.sirius.diagram.ui.edit.api.part.ISiriusEditPart.diagramName"
                           value="Layout Diagram">
                     </test>
+                 </adapt>
+              </iterate>
+           </with>
+        </enabledWhen>
+     </handler>
+     <handler
+           class="org.obeonetwork.dsl.cinematic.design.handlers.SetMockupAsWorkspaceImageHandler"
+           commandId="org.obeonetwork.dsl.cinematic.design.command.SetMockupAsWorkspaceImage">
+        <enabledWhen>
+           <with
+                 variable="selection">
+              <count
+                    value="1">
+              </count>
+              <iterate
+                    ifEmpty="false"
+                    operator="and">
+                 <adapt
+                       type="org.eclipse.sirius.diagram.ui.edit.api.part.ISiriusEditPart">
+                    <and>
+                       <test
+                             forcePluginActivation="true"
+                             property="org.eclipse.sirius.diagram.ui.edit.api.part.ISiriusEditPart.diagramName"
+                             value="Flow Diagram">
+                       </test>
+                       <test
+                             forcePluginActivation="true"
+                             property="org.eclipse.sirius.diagram.ui.edit.api.part.ISiriusEditPart.mappingName"
+                             value="FLD_ViewState">
+                       </test>
+                    </and>
+                 </adapt>
+              </iterate>
+           </with>
+        </enabledWhen>
+     </handler>
+     <handler
+           class="org.obeonetwork.dsl.cinematic.design.handlers.ResetWorkspaceImageHandler"
+           commandId="org.obeonetwork.dsl.cinematic.design.command.ResetWorkspaceImage">
+        <enabledWhen>
+           <with
+                 variable="selection">
+              <count
+                    value="1">
+              </count>
+              <iterate
+                    ifEmpty="false"
+                    operator="and">
+                 <adapt
+                       type="org.eclipse.sirius.diagram.ui.edit.api.part.ISiriusEditPart">
+                    <and>
+                       <test
+                             forcePluginActivation="true"
+                             property="org.eclipse.sirius.diagram.ui.edit.api.part.ISiriusEditPart.diagramName"
+                             value="Flow Diagram">
+                       </test>
+                       <test
+                             forcePluginActivation="true"
+                             property="org.eclipse.sirius.diagram.ui.edit.api.part.ISiriusEditPart.mappingName"
+                             value="FLD_ViewState">
+                       </test>
+                    </and>
                  </adapt>
               </iterate>
            </with>
