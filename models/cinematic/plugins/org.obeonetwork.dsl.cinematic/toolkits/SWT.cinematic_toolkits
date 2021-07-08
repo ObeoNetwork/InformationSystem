@@ -37,7 +37,7 @@
   <widgets xmi:id="_1xtPeIjNEeGrHN3Vq969QA" technicalid="_KwXB-aK1Eeuqs9mIRWXCLA" name="Panel" icon="/org.obeonetwork.dsl.cinematic/icons/Panel.gif" isContainer="true">
     <possibleEvents xmi:id="_N0KbgIjREeG_dvC9P_PKfA" technicalid="_KwXB-qK1Eeuqs9mIRWXCLA" name="onFocus"/>
     <possibleEvents xmi:id="_N0KbgYjREeG_dvC9P_PKfA" technicalid="_KwXB-6K1Eeuqs9mIRWXCLA" name="onFocusLost"/>
-    <style xmi:id="_YeiBIKLAEeuqs9mIRWXCLA" decorator="/org.obeonetwork.dsl.cinematic/decorators/ArrowRight.svg" decoratorPosition="NORTH_WEST" decoratorVFill="false" defaultWidth="287" defaultHeight="143" exampleExpression="aql:self.label"/>
+    <style xmi:id="_YeiBIKLAEeuqs9mIRWXCLA" decorator="/org.obeonetwork.dsl.cinematic/decorators/ArrowRight.svg" decoratorPosition="NORTH_WEST" decoratorVFill="false" defaultWidth="287" defaultHeight="143" exampleExpression="aql:self.label" labelHidden="true"/>
   </widgets>
   <widgets xmi:id="_1xtPd4jNEeGrHN3Vq969QA" technicalid="_KwXB_KK1Eeuqs9mIRWXCLA" name="Password" icon="/org.obeonetwork.dsl.cinematic/icons/Password.gif">
     <possibleEvents xmi:id="_Ex6X4YjREeG_dvC9P_PKfA" technicalid="_KwXB_aK1Eeuqs9mIRWXCLA" name="onKeyPressed"/>
@@ -70,6 +70,6 @@
   <widgets xmi:id="_1xtPeYjNEeGrHN3Vq969QA" technicalid="_KwXCDqK1Eeuqs9mIRWXCLA" name="Window" icon="/org.obeonetwork.dsl.cinematic/icons/Window.gif" isContainer="true">
     <possibleEvents xmi:id="_OC5bEIjREeG_dvC9P_PKfA" technicalid="_KwXCD6K1Eeuqs9mIRWXCLA" name="onFocus"/>
     <possibleEvents xmi:id="_OC5bEYjREeG_dvC9P_PKfA" technicalid="_KwXCEKK1Eeuqs9mIRWXCLA" name="onFocusLost"/>
-    <style xmi:id="_sBU14KLBEeuqs9mIRWXCLA" decorator="/org.obeonetwork.dsl.cinematic/decorators/MinimizeClose.svg" decoratorPosition="NORTH_EAST" decoratorVFill="false" defaultWidth="443" defaultHeight="419" exampleExpression="aql:self.label"/>
+    <style xmi:id="_sBU14KLBEeuqs9mIRWXCLA" decorator="/org.obeonetwork.dsl.cinematic/decorators/MinimizeClose.svg" decoratorPosition="NORTH_EAST" decoratorVFill="false" defaultWidth="443" defaultHeight="419" exampleExpression="aql:self.label" labelHidden="true"/>
   </widgets>
 </cinematic-toolkits:Toolkit>

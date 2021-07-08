@@ -183,6 +183,7 @@
         <genFeatures createChild="false" ecoreFeature="ecore:EAttribute cinematic.ecore#//toolkits/Style/defaultHeight"/>
         <genFeatures documentation="AQL expression evaluated in the context of the AbstractViewElement that uses this Widget, and which provides the label that should be displayed in the diagram when using the &quot;example&quot; layer."
             createChild="false" ecoreFeature="ecore:EAttribute cinematic.ecore#//toolkits/Style/exampleExpression"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute cinematic.ecore#//toolkits/Style/labelHidden"/>
       </genClasses>
     </nestedGenPackages>
   </genPackages>

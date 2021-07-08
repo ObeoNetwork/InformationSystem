@@ -404,13 +404,22 @@ public interface ToolkitsPackage extends EPackage {
 	int STYLE__EXAMPLE_EXPRESSION = TechnicalIDPackage.IDENTIFIABLE_FEATURE_COUNT + 11;
 
 	/**
+	 * The feature id for the '<em><b>Label Hidden</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int STYLE__LABEL_HIDDEN = TechnicalIDPackage.IDENTIFIABLE_FEATURE_COUNT + 12;
+
+	/**
 	 * The number of structural features of the '<em>Style</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int STYLE_FEATURE_COUNT = TechnicalIDPackage.IDENTIFIABLE_FEATURE_COUNT + 12;
+	int STYLE_FEATURE_COUNT = TechnicalIDPackage.IDENTIFIABLE_FEATURE_COUNT + 13;
 
 	/**
 	 * The meta object id for the '{@link org.obeonetwork.dsl.cinematic.toolkits.CardinalPosition <em>Cardinal Position</em>}' enum.
@@ -760,6 +769,17 @@ public interface ToolkitsPackage extends EPackage {
 	EAttribute getStyle_ExampleExpression();
 
 	/**
+	 * Returns the meta object for the attribute '{@link org.obeonetwork.dsl.cinematic.toolkits.Style#isLabelHidden <em>Label Hidden</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Label Hidden</em>'.
+	 * @see org.obeonetwork.dsl.cinematic.toolkits.Style#isLabelHidden()
+	 * @see #getStyle()
+	 * @generated
+	 */
+	EAttribute getStyle_LabelHidden();
+
+	/**
 	 * Returns the meta object for enum '{@link org.obeonetwork.dsl.cinematic.toolkits.CardinalPosition <em>Cardinal Position</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1048,6 +1068,14 @@ public interface ToolkitsPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute STYLE__EXAMPLE_EXPRESSION = eINSTANCE.getStyle_ExampleExpression();
+
+		/**
+		 * The meta object literal for the '<em><b>Label Hidden</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute STYLE__LABEL_HIDDEN = eINSTANCE.getStyle_LabelHidden();
 
 		/**
 		 * The meta object literal for the '{@link org.obeonetwork.dsl.cinematic.toolkits.CardinalPosition <em>Cardinal Position</em>}' enum.

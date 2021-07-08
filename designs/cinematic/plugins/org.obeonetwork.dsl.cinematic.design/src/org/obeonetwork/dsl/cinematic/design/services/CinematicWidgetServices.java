@@ -278,6 +278,10 @@ public class CinematicWidgetServices extends DebugServices {
 		return Optional.ofNullable(viewElement.getWidget().getStyle()).map(s -> s.isFontUnderlined()).orElse(false);
 	}
 	
+	public boolean isLabelHidden(AbstractViewElement viewElement) {
+		return Optional.ofNullable(viewElement.getWidget().getStyle()).map(s -> s.isLabelHidden()).orElse(false);
+	}
+	
 	public DNodeContainer setDefaultSize(DNodeContainer viewElementDNodeContainer) {
 		AbstractViewElement viewElement = (AbstractViewElement) viewElementDNodeContainer.getTarget();
 		

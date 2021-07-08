@@ -37,7 +37,7 @@
   <widgets xmi:id="_tGHvsIjeEeGIXsoZxTXHQA" technicalid="_IxeAiqLCEeuqs9mIRWXCLA" name="Panel" icon="/org.obeonetwork.dsl.cinematic/icons/Panel.gif" isContainer="true">
     <possibleEvents xmi:id="_tGHvsYjeEeGIXsoZxTXHQA" technicalid="_IxeAi6LCEeuqs9mIRWXCLA" name="onFocus"/>
     <possibleEvents xmi:id="_tGHvsojeEeGIXsoZxTXHQA" technicalid="_IxeAjKLCEeuqs9mIRWXCLA" name="onFocusLost"/>
-    <style xmi:id="_MyWb8KLCEeuqs9mIRWXCLA" decorator="/org.obeonetwork.dsl.cinematic/decorators/ArrowRight.svg" decoratorPosition="NORTH_WEST" decoratorVFill="false" defaultWidth="287" defaultHeight="143" exampleExpression="aql:self.label"/>
+    <style xmi:id="_MyWb8KLCEeuqs9mIRWXCLA" decorator="/org.obeonetwork.dsl.cinematic/decorators/ArrowRight.svg" decoratorPosition="NORTH_WEST" decoratorVFill="false" defaultWidth="287" defaultHeight="143" exampleExpression="aql:self.label" labelHidden="true"/>
   </widgets>
   <widgets xmi:id="_tGHvs4jeEeGIXsoZxTXHQA" technicalid="_IxeAjaLCEeuqs9mIRWXCLA" name="Password" icon="/org.obeonetwork.dsl.cinematic/icons/Password.gif">
     <possibleEvents xmi:id="_tGHvtIjeEeGIXsoZxTXHQA" technicalid="_IxeAjqLCEeuqs9mIRWXCLA" name="onKeyPressed"/>
@@ -70,6 +70,6 @@
   <widgets xmi:id="_tGHvxYjeEeGIXsoZxTXHQA" technicalid="_IxeAh6LCEeuqs9mIRWXCLA" name="Page" icon="/org.obeonetwork.dsl.cinematic/icons/Page.gif" isContainer="true">
     <possibleEvents xmi:id="_tGHvxojeEeGIXsoZxTXHQA" technicalid="_IxeAiKLCEeuqs9mIRWXCLA" name="onFocus"/>
     <possibleEvents xmi:id="_tGHvx4jeEeGIXsoZxTXHQA" technicalid="_IxeAiaLCEeuqs9mIRWXCLA" name="onFocusLost"/>
-    <style xmi:id="_MQxY4KLCEeuqs9mIRWXCLA" decorator="" defaultWidth="443" defaultHeight="419" exampleExpression="aql:self.label"/>
+    <style xmi:id="_MQxY4KLCEeuqs9mIRWXCLA" decorator="" defaultWidth="443" defaultHeight="419" exampleExpression="aql:self.label" labelHidden="true"/>
   </widgets>
 </cinematic-toolkits:Toolkit>

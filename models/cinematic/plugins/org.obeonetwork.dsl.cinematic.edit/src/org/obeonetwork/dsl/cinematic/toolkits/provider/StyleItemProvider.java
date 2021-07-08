@@ -77,6 +77,7 @@ public class StyleItemProvider
 			addDefaultWidthPropertyDescriptor(object);
 			addDefaultHeightPropertyDescriptor(object);
 			addExampleExpressionPropertyDescriptor(object);
+			addLabelHiddenPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -346,6 +347,28 @@ public class StyleItemProvider
 	}
 
 	/**
+	 * This adds a property descriptor for the Label Hidden feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addLabelHiddenPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_Style_labelHidden_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Style_labelHidden_feature", "_UI_Style_type"),
+				 ToolkitsPackage.Literals.STYLE__LABEL_HIDDEN,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
 	 * This returns Style.gif.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -405,6 +428,7 @@ public class StyleItemProvider
 			case ToolkitsPackage.STYLE__DEFAULT_WIDTH:
 			case ToolkitsPackage.STYLE__DEFAULT_HEIGHT:
 			case ToolkitsPackage.STYLE__EXAMPLE_EXPRESSION:
+			case ToolkitsPackage.STYLE__LABEL_HIDDEN:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 		}
