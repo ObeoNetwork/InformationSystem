@@ -27,6 +27,7 @@ import org.obeonetwork.dsl.soa.SoaPackage;
  * <ul>
  *   <li>{@link org.obeonetwork.dsl.soa.impl.ExampleImpl#getSummary <em>Summary</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.soa.impl.ExampleImpl#getValue <em>Value</em>}</li>
+ *   <li>{@link org.obeonetwork.dsl.soa.impl.ExampleImpl#getName <em>Name</em>}</li>
  * </ul>
  *
  * @generated
@@ -58,6 +59,16 @@ public class ExampleImpl extends ObeoDSMObjectImpl implements Example {
 	 * @ordered
 	 */
 	protected static final String VALUE_EDEFAULT = null;
+
+	/**
+	 * The default value of the '{@link #getName() <em>Name</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getName()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String NAME_EDEFAULT = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -119,6 +130,24 @@ public class ExampleImpl extends ObeoDSMObjectImpl implements Example {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public String getName() {
+		return (String)eDynamicGet(SoaPackage.EXAMPLE__NAME, SoaPackage.Literals.EXAMPLE__NAME, true, true);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setName(String newName) {
+		eDynamicSet(SoaPackage.EXAMPLE__NAME, SoaPackage.Literals.EXAMPLE__NAME, newName);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
@@ -126,6 +155,8 @@ public class ExampleImpl extends ObeoDSMObjectImpl implements Example {
 				return getSummary();
 			case SoaPackage.EXAMPLE__VALUE:
 				return getValue();
+			case SoaPackage.EXAMPLE__NAME:
+				return getName();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -143,6 +174,9 @@ public class ExampleImpl extends ObeoDSMObjectImpl implements Example {
 				return;
 			case SoaPackage.EXAMPLE__VALUE:
 				setValue((String)newValue);
+				return;
+			case SoaPackage.EXAMPLE__NAME:
+				setName((String)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -162,6 +196,9 @@ public class ExampleImpl extends ObeoDSMObjectImpl implements Example {
 			case SoaPackage.EXAMPLE__VALUE:
 				setValue(VALUE_EDEFAULT);
 				return;
+			case SoaPackage.EXAMPLE__NAME:
+				setName(NAME_EDEFAULT);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -178,6 +215,8 @@ public class ExampleImpl extends ObeoDSMObjectImpl implements Example {
 				return SUMMARY_EDEFAULT == null ? getSummary() != null : !SUMMARY_EDEFAULT.equals(getSummary());
 			case SoaPackage.EXAMPLE__VALUE:
 				return VALUE_EDEFAULT == null ? getValue() != null : !VALUE_EDEFAULT.equals(getValue());
+			case SoaPackage.EXAMPLE__NAME:
+				return NAME_EDEFAULT == null ? getName() != null : !NAME_EDEFAULT.equals(getName());
 		}
 		return super.eIsSet(featureID);
 	}

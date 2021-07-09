@@ -1397,7 +1397,7 @@ public interface SoaPackage extends EPackage {
 	int PARAMETER__TYPE = EnvironmentPackage.OBEO_DSM_OBJECT_FEATURE_COUNT + 0;
 
 	/**
-	 * The feature id for the '<em><b>Media Type</b></em>' containment reference.
+	 * The feature id for the '<em><b>Media Type</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -2007,13 +2007,22 @@ public interface SoaPackage extends EPackage {
 	int EXAMPLE__VALUE = EnvironmentPackage.OBEO_DSM_OBJECT_FEATURE_COUNT + 1;
 
 	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EXAMPLE__NAME = EnvironmentPackage.OBEO_DSM_OBJECT_FEATURE_COUNT + 2;
+
+	/**
 	 * The number of structural features of the '<em>Example</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int EXAMPLE_FEATURE_COUNT = EnvironmentPackage.OBEO_DSM_OBJECT_FEATURE_COUNT + 2;
+	int EXAMPLE_FEATURE_COUNT = EnvironmentPackage.OBEO_DSM_OBJECT_FEATURE_COUNT + 3;
 
 	/**
 	 * The meta object id for the '{@link org.obeonetwork.dsl.soa.InterfaceKind <em>Interface Kind</em>}' enum.
@@ -2669,10 +2678,10 @@ public interface SoaPackage extends EPackage {
 	EReference getParameter_Type();
 
 	/**
-	 * Returns the meta object for the containment reference '{@link org.obeonetwork.dsl.soa.Parameter#getMediaType <em>Media Type</em>}'.
+	 * Returns the meta object for the containment reference list '{@link org.obeonetwork.dsl.soa.Parameter#getMediaType <em>Media Type</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference '<em>Media Type</em>'.
+	 * @return the meta object for the containment reference list '<em>Media Type</em>'.
 	 * @see org.obeonetwork.dsl.soa.Parameter#getMediaType()
 	 * @see #getParameter()
 	 * @generated
@@ -3012,6 +3021,17 @@ public interface SoaPackage extends EPackage {
 	 * @generated
 	 */
 	EAttribute getExample_Value();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.obeonetwork.dsl.soa.Example#getName <em>Name</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Name</em>'.
+	 * @see org.obeonetwork.dsl.soa.Example#getName()
+	 * @see #getExample()
+	 * @generated
+	 */
+	EAttribute getExample_Name();
 
 	/**
 	 * Returns the meta object for enum '{@link org.obeonetwork.dsl.soa.InterfaceKind <em>Interface Kind</em>}'.
@@ -3560,7 +3580,7 @@ public interface SoaPackage extends EPackage {
 		EReference PARAMETER__TYPE = eINSTANCE.getParameter_Type();
 
 		/**
-		 * The meta object literal for the '<em><b>Media Type</b></em>' containment reference feature.
+		 * The meta object literal for the '<em><b>Media Type</b></em>' containment reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
@@ -3828,6 +3848,14 @@ public interface SoaPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute EXAMPLE__VALUE = eINSTANCE.getExample_Value();
+
+		/**
+		 * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute EXAMPLE__NAME = eINSTANCE.getExample_Name();
 
 		/**
 		 * The meta object literal for the '{@link org.obeonetwork.dsl.soa.InterfaceKind <em>Interface Kind</em>}' enum.

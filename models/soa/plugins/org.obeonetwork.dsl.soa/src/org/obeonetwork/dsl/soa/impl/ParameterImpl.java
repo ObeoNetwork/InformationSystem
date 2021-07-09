@@ -10,9 +10,12 @@
  *******************************************************************************/
 package org.obeonetwork.dsl.soa.impl;
 
+import java.util.Collection;
 import org.eclipse.emf.common.notify.NotificationChain;
+import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
+import org.eclipse.emf.ecore.util.InternalEList;
 import org.obeonetwork.dsl.environment.MultiplicityKind;
 import org.obeonetwork.dsl.environment.Type;
 import org.obeonetwork.dsl.environment.impl.ObeoDSMObjectImpl;
@@ -160,36 +163,9 @@ public class ParameterImpl extends ObeoDSMObjectImpl implements Parameter {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public MediaType getMediaType() {
-		return (MediaType)eDynamicGet(SoaPackage.PARAMETER__MEDIA_TYPE, SoaPackage.Literals.PARAMETER__MEDIA_TYPE, true, true);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public MediaType basicGetMediaType() {
-		return (MediaType)eDynamicGet(SoaPackage.PARAMETER__MEDIA_TYPE, SoaPackage.Literals.PARAMETER__MEDIA_TYPE, false, true);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public NotificationChain basicSetMediaType(MediaType newMediaType, NotificationChain msgs) {
-		msgs = eDynamicInverseAdd((InternalEObject)newMediaType, SoaPackage.PARAMETER__MEDIA_TYPE, msgs);
-		return msgs;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setMediaType(MediaType newMediaType) {
-		eDynamicSet(SoaPackage.PARAMETER__MEDIA_TYPE, SoaPackage.Literals.PARAMETER__MEDIA_TYPE, newMediaType);
+	@SuppressWarnings("unchecked")
+	public EList<MediaType> getMediaType() {
+		return (EList<MediaType>)eDynamicGet(SoaPackage.PARAMETER__MEDIA_TYPE, SoaPackage.Literals.PARAMETER__MEDIA_TYPE, true, true);
 	}
 
 	/**
@@ -346,7 +322,7 @@ public class ParameterImpl extends ObeoDSMObjectImpl implements Parameter {
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
 			case SoaPackage.PARAMETER__MEDIA_TYPE:
-				return basicSetMediaType(null, msgs);
+				return ((InternalEList<?>)getMediaType()).basicRemove(otherEnd, msgs);
 			case SoaPackage.PARAMETER__REST_DATA:
 				return basicSetRestData(null, msgs);
 		}
@@ -365,8 +341,7 @@ public class ParameterImpl extends ObeoDSMObjectImpl implements Parameter {
 				if (resolve) return getType();
 				return basicGetType();
 			case SoaPackage.PARAMETER__MEDIA_TYPE:
-				if (resolve) return getMediaType();
-				return basicGetMediaType();
+				return getMediaType();
 			case SoaPackage.PARAMETER__NAME:
 				return getName();
 			case SoaPackage.PARAMETER__MULTIPLICITY:
@@ -391,6 +366,7 @@ public class ParameterImpl extends ObeoDSMObjectImpl implements Parameter {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@SuppressWarnings("unchecked")
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
@@ -398,7 +374,8 @@ public class ParameterImpl extends ObeoDSMObjectImpl implements Parameter {
 				setType((Type)newValue);
 				return;
 			case SoaPackage.PARAMETER__MEDIA_TYPE:
-				setMediaType((MediaType)newValue);
+				getMediaType().clear();
+				getMediaType().addAll((Collection<? extends MediaType>)newValue);
 				return;
 			case SoaPackage.PARAMETER__NAME:
 				setName((String)newValue);
@@ -437,7 +414,7 @@ public class ParameterImpl extends ObeoDSMObjectImpl implements Parameter {
 				setType((Type)null);
 				return;
 			case SoaPackage.PARAMETER__MEDIA_TYPE:
-				setMediaType((MediaType)null);
+				getMediaType().clear();
 				return;
 			case SoaPackage.PARAMETER__NAME:
 				setName(NAME_EDEFAULT);
@@ -475,7 +452,7 @@ public class ParameterImpl extends ObeoDSMObjectImpl implements Parameter {
 			case SoaPackage.PARAMETER__TYPE:
 				return basicGetType() != null;
 			case SoaPackage.PARAMETER__MEDIA_TYPE:
-				return basicGetMediaType() != null;
+				return !getMediaType().isEmpty();
 			case SoaPackage.PARAMETER__NAME:
 				return NAME_EDEFAULT == null ? getName() != null : !NAME_EDEFAULT.equals(getName());
 			case SoaPackage.PARAMETER__MULTIPLICITY:
