@@ -82,7 +82,7 @@ public interface Parameter extends ObeoDSMObject {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * 
+	 * The mediatypes used by this parameter
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Media Type</em>' containment reference list.
 	 * @see org.obeonetwork.dsl.soa.SoaPackage#getParameter_MediaType()

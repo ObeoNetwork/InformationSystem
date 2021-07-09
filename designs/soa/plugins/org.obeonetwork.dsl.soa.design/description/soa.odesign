@@ -1589,7 +1589,7 @@
         </validationSet>
       </groups>
       <groups name="Parameter MediaType Properties Group" labelExpression="Media Type" domainClass="soa::Parameter" semanticCandidateExpression="var:self">
-        <controls xsi:type="properties:CustomDescription" name="org.obeonetwork.is.eef.custom.reference" labelExpression="Media Types:">
+        <controls xsi:type="properties:CustomDescription" name="org.obeonetwork.is.eef.custom.reference" labelExpression="Media Types:" helpExpression="The media types this parameter relies on.">
           <customExpressions name="referenceNameExpression" customExpression="aql:'mediaType'"/>
           <customExpressions name="referenceDisplayExpression" customExpression="aql:candidate.identifier"/>
           <customOperations name="addButtonOperation">
@@ -1633,47 +1633,47 @@
               <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="aql:self.setNewMediaTypeIdentifier(newValue)"/>
             </initialOperation>
           </controls>
-          <controls xsi:type="properties:ButtonDescription" name="soa::MediaType commonIdentifiers button" buttonLabelExpression="...">
+          <controls xsi:type="properties:ButtonDescription" name="soa::MediaType commonIdentifiers button" helpExpression="Displays a list of common mediatypes." buttonLabelExpression="...">
             <initialOperation>
               <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="aql:self.openCommonIdentifiersSelectionDialog()"/>
             </initialOperation>
           </controls>
-          <controls xsi:type="properties:CustomDescription" name="org.obeonetwork.is.eef.custom.reference" labelExpression="aql:'Examples:'" helpExpression="aql:input.emfEditServices(self).getDescription(self.eClass().getEStructuralFeature('examples'))">
-            <customExpressions name="referenceNameExpression" customExpression="aql:'examples'"/>
-            <customOperations name="addButtonOperation">
-              <initialOperation>
-                <firstModelOperations xsi:type="tool_1:CreateInstance" typeName="soa::Example" referenceName="examples" variableName="newExample">
-                  <subModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:newExample">
-                    <subModelOperations xsi:type="properties:DialogModelOperation" titleExpression="New Example Dialog">
-                      <buttons labelExpression="Cancel" closeDialogOnClick="true" rollbackChangesOnClose="true">
-                        <initialOperation/>
-                      </buttons>
-                      <buttons labelExpression="OK" default="true" closeDialogOnClick="true">
-                        <initialOperation/>
-                      </buttons>
-                      <page name="New Example Page" labelExpression="Example" semanticCandidateExpression="var:self" extends="//@extensions.0/@categories.1/@pages.12"/>
-                    </subModelOperations>
-                  </subModelOperations>
-                </firstModelOperations>
-              </initialOperation>
-            </customOperations>
-            <customOperations name="onDoubleClickOperation">
-              <initialOperation>
-                <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="aql:selection->first()">
-                  <subModelOperations xsi:type="properties:DialogModelOperation" titleExpression="Edit Example Dialog">
+          <layout xsi:type="properties:FillLayoutDescription" orientation="HORIZONTAL"/>
+        </controls>
+        <controls xsi:type="properties:CustomDescription" name="org.obeonetwork.is.eef.custom.reference" labelExpression="aql:'Examples:'" helpExpression="aql:input.emfEditServices(self).getDescription(self.eClass().getEStructuralFeature('examples'))">
+          <customExpressions name="referenceNameExpression" customExpression="aql:'examples'"/>
+          <customOperations name="addButtonOperation">
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:CreateInstance" typeName="soa::Example" referenceName="examples" variableName="newExample">
+                <subModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:newExample">
+                  <subModelOperations xsi:type="properties:DialogModelOperation" titleExpression="New Example Dialog">
                     <buttons labelExpression="Cancel" closeDialogOnClick="true" rollbackChangesOnClose="true">
                       <initialOperation/>
                     </buttons>
                     <buttons labelExpression="OK" default="true" closeDialogOnClick="true">
                       <initialOperation/>
                     </buttons>
-                    <page name="Default Page" labelExpression="Example" semanticCandidateExpression="var:self" extends="//@extensions.0/@categories.1/@pages.12"/>
+                    <page name="New Example Page" labelExpression="Example" semanticCandidateExpression="var:self" extends="//@extensions.0/@categories.1/@pages.12"/>
                   </subModelOperations>
-                </firstModelOperations>
-              </initialOperation>
-            </customOperations>
-          </controls>
-          <layout xsi:type="properties:GridLayoutDescription" numberOfColumns="2"/>
+                </subModelOperations>
+              </firstModelOperations>
+            </initialOperation>
+          </customOperations>
+          <customOperations name="onDoubleClickOperation">
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="aql:selection->first()">
+                <subModelOperations xsi:type="properties:DialogModelOperation" titleExpression="Edit Example Dialog">
+                  <buttons labelExpression="Cancel" closeDialogOnClick="true" rollbackChangesOnClose="true">
+                    <initialOperation/>
+                  </buttons>
+                  <buttons labelExpression="OK" default="true" closeDialogOnClick="true">
+                    <initialOperation/>
+                  </buttons>
+                  <page name="Default Page" labelExpression="Example" semanticCandidateExpression="var:self" extends="//@extensions.0/@categories.1/@pages.12"/>
+                </subModelOperations>
+              </firstModelOperations>
+            </initialOperation>
+          </customOperations>
         </controls>
         <validationSet>
           <propertyValidationRules name="mediaTypeIdentifier prefix validator" level="WARNING" message="Invalid identifier type " targets="//@extensions.0/@categories.1/@groups.18/@controls.0/@controls.0">
