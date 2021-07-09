@@ -46,6 +46,7 @@ import java.util.Map;
 import java.util.Set;
 
 import org.eclipse.core.runtime.IStatus;
+import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.emf.ecore.resource.Resource;
@@ -63,6 +64,7 @@ import org.obeonetwork.dsl.soa.SecuritySchemeType;
 import org.obeonetwork.dsl.soa.Service;
 import org.obeonetwork.dsl.soa.Verb;
 import org.obeonetwork.dsl.soa.gen.swagger.utils.ComponentGenUtil;
+import org.obeonetwork.dsl.soa.gen.swagger.utils.ExampleGenUtil;
 import org.obeonetwork.dsl.soa.gen.swagger.utils.OperationGenUtil;
 import org.obeonetwork.dsl.soa.gen.swagger.utils.ParameterGenUtil;
 import org.obeonetwork.dsl.soa.gen.swagger.utils.PropertyGenUtil;
@@ -75,6 +77,7 @@ import io.swagger.v3.oas.models.OpenAPI;
 import io.swagger.v3.oas.models.Operation;
 import io.swagger.v3.oas.models.PathItem;
 import io.swagger.v3.oas.models.Paths;
+import io.swagger.v3.oas.models.examples.Example;
 import io.swagger.v3.oas.models.headers.Header;
 import io.swagger.v3.oas.models.info.Contact;
 import io.swagger.v3.oas.models.info.Info;
@@ -958,16 +961,57 @@ public class SwaggerBuilder {
     
     private Content createContent(org.obeonetwork.dsl.soa.Parameter soaParameter) {
     	Content content = new Content();
-    	content.addMediaType("application/json", createMediaType(soaParameter));
+    	
+    	if (soaParameter.getMediaType().isEmpty()) {
+    		content.addMediaType("application/json", createMediaType(soaParameter));
+    	} else {
+    		soaParameter.getMediaType().forEach(mediaType -> {
+        		if (StringUtils.isNullOrWhite(mediaType.getIdentifier())) {
+            		content.addMediaType("application/json", createMediaType(soaParameter));
+        		} else {
+            		content.addMediaType(mediaType.getIdentifier(), createMediaType(soaParameter, mediaType));
+        		}
+        	});	
+    	}
+    	
+    	
+    	
+
     	return content;
     }
     
     private MediaType createMediaType(org.obeonetwork.dsl.soa.Parameter soaParameter) {
     	MediaType mediaType = new MediaType();
-    	mediaType.schema(createParameterSchema(soaParameter));
+    	mediaType.schema(createParameterSchema(soaParameter));    	
     	return mediaType;
     }
     
+    private MediaType createMediaType(org.obeonetwork.dsl.soa.Parameter soaParameter, org.obeonetwork.dsl.soa.MediaType soaMediaType) {
+    	MediaType mediaType = createMediaType(soaParameter);
+    	mediaType.schema(createParameterSchema(soaParameter));    	
+    	if (soaMediaType.getExamples().size() > 0)
+    		mediaType.setExamples(createExamples(soaMediaType.getExamples()));
+    	
+    	return mediaType;
+    }
+    
+	private Map<String, Example> createExamples(EList<org.obeonetwork.dsl.soa.Example> examples) {
+		Map<String, Example> map = new HashMap<>();
+		examples.forEach(example -> {
+			map.put(example.getName(), createExamples(example));
+		});
+		return map;
+	}
+
+	private Example createExamples(org.obeonetwork.dsl.soa.Example soaExample) {
+		Example example = new Example();
+		example.setDescription(soaExample.getDescription());
+		example.setSummary(soaExample.getSummary());
+		example.setValue(ExampleGenUtil.getExampleObjectFromValue(soaExample.getValue()));
+		
+		return example;
+	}
+	
 	private void buildSortParameter(Operation operation) {
     	Parameter param = createParameter("sort", false, OPEN_API_IN_QUERY);
     	param.schema(createSchema(OPEN_API_TYPE_STRING, null));
