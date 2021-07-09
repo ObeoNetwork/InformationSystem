@@ -13,6 +13,7 @@ package org.obeonetwork.dsl.soa.design.services;
 import static org.obeonetwork.utils.common.StringUtils.isNullOrWhite;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Collection;
 import java.util.HashSet;
 import java.util.List;
@@ -22,7 +23,10 @@ import java.util.Optional;
 import java.util.Set;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
+import java.util.stream.Collectors;
 
+import org.eclipse.core.runtime.IExtension;
+import org.eclipse.core.runtime.Platform;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.jface.dialogs.Dialog;
 import org.eclipse.jface.viewers.ArrayContentProvider;
@@ -51,6 +55,9 @@ import org.obeonetwork.dsl.soa.services.HttpStatusService;
 public class SOAService {
 
 
+	private static final String COMMON_IDENTIFIERS_EXTENSION_ID = "org.obeonetwork.dsl.soa.design.identifiers";
+	private static final String COMMON_IDENTIFIERS_NAME_ATTRIBUTE = "name";
+	private static Collection<String> commonIdentifiers;
 	private static final Pattern PATH_PARAM_PATTERN = Pattern.compile("\\{[^\\{\\}]*\\}");
 
 	public EObject trace(EObject receiver) {
@@ -252,6 +259,45 @@ public class SOAService {
 
 	}
 
+	public void openCommonIdentifiersSelectionDialog(MediaType mediaType) {
+
+		Shell shell = PlatformUI.getWorkbench().getActiveWorkbenchWindow().getShell();
+
+		ListDialog dialog = new ListDialog(shell);
+		dialog.setTitle(Messages.SOAService_StatusSelectionDiaglogTitle);
+		dialog.setMessage("Pick an identifier amongst the most common ones:");
+		dialog.setContentProvider(ArrayContentProvider.getInstance());
+		dialog.setInput(getCommonIdentifiers());
+		dialog.setLabelProvider(new LabelProvider());
+		if (dialog.open() == Dialog.OK && dialog.getResult().length == 1) {
+			String selectedIdentifier = (String) dialog.getResult()[0];
+			setNewMediaTypeIdentifier(mediaType, selectedIdentifier);
+		}
+	}
+	
+	public synchronized void setNewMediaTypeIdentifier(MediaType mediaType, String newValue) {		
+		mediaType.setIdentifier(newValue);	
+	}
+
+	public static Collection<String> getCommonIdentifiers() {
+		if (commonIdentifiers == null) {
+			IExtension[] extensions = Platform.getExtensionRegistry().getExtensionPoint(COMMON_IDENTIFIERS_EXTENSION_ID)
+					.getExtensions();
+
+			commonIdentifiers = Arrays.stream(extensions).map(IExtension::getConfigurationElements)
+					.flatMap(Arrays::stream)
+					.map(configurationElement -> configurationElement.getAttribute(COMMON_IDENTIFIERS_NAME_ATTRIBUTE))
+					.sorted()
+					.collect(Collectors.toList());
+			
+			if (!commonIdentifiers.contains("")) {
+				commonIdentifiers.add("");
+			}
+
+		}
+
+		return commonIdentifiers;
+	}
 	public List<String> getParamIdsFromURI(Operation operation) {
 		List<String> paramIds = new ArrayList<>();
 		if (operation.getURI() != null) {
@@ -263,25 +309,5 @@ public class SOAService {
 		}
 
 		return paramIds;
-	}
-
-	/**
-	 * 
-	 * @param parameter a {@link Parameter}
-	 * @return a {@link String} or <code>null</code>
-	 */
-	public String getIdentifierOrNull(Parameter parameter) {
-		if (parameter.getMediaType() == null)
-			return "";
-		else 
-			return parameter.getMediaType().getIdentifier();
-	}
-	
-	public MediaType getMediaTypeOrNull(Parameter parameter) {
-		if (parameter.getMediaType() != null) {
-			return parameter.getMediaType();
-		} else {
-			return SoaFactory.eINSTANCE.createMediaType();
-		}
 	}
 }

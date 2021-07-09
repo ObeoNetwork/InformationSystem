@@ -12,6 +12,7 @@
  -->
 
 <plugin>
+   <extension-point id="identifiers" name="identifiers" schema="schema/identifiers.exsd"/>
   <extension point="org.eclipse.sirius.componentization">
     <component class="org.obeonetwork.dsl.soa.design.Activator"
                id="org.obeonetwork.dsl.soa.design"
@@ -30,5 +31,47 @@
            New soa model wizard
         </description>
      </wizard>
+  </extension>
+  <extension
+        point="org.obeonetwork.dsl.soa.design.identifiers">
+		<identifier name="application/x-executable"></identifier>
+		<identifier name="application/graphql"></identifier>
+		<identifier name="application/javascript"></identifier>
+		<identifier name="application/json"></identifier>
+		<identifier name="application/ld+json"></identifier>
+		<identifier name="application/msword (.doc)"></identifier>
+		<identifier name="application/pdf"></identifier>
+		<identifier name="application/sql"></identifier>
+		<identifier name="application/vnd.api+json"></identifier>
+		<identifier name="application/vnd.ms-excel"></identifier>
+		<identifier name="application/vnd.ms-powerpoint (.ppt)"></identifier>
+		<identifier name="application/vnd.oasis.opendocument.text (.odt)"></identifier>
+		<identifier name="application/vnd.openxmlformats-officedocument.presentationml.presentation (.pptx)"></identifier>
+		<identifier name="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet (.xlsx)"></identifier>
+		<identifier name="application/vnd.openxmlformats-officedocument.wordprocessingml.document (.docx)"></identifier>
+		<identifier name="application/x-www-form-urlencoded"></identifier>
+		<identifier name="application/xml"></identifier>
+		<identifier name="application/zip"></identifier>
+		<identifier name="application/zstd (.zst)"></identifier>
+		<identifier name="application/macbinary (.bin)"></identifier>
+		<identifier name="audio/mpeg"></identifier>
+		<identifier name="audio/ogg"></identifier>
+		<identifier name="image/apng"></identifier>
+		<identifier name="image/avif"></identifier>
+		<identifier name="image/flif"></identifier>
+		<identifier name="image/gif"></identifier>
+		<identifier name="image/jpeg (.jpg, .jpeg, .jfif, .pjpeg, .pjp)"></identifier>
+		<identifier name="image/jxl"></identifier>
+		<identifier name="image/png"></identifier>
+		<identifier name="image/svg+xml (.svg)"></identifier>
+		<identifier name="image/webp"></identifier>
+		<identifier name="image/x-mng"></identifier>
+		<identifier name="multipart/form-data"></identifier>
+		<identifier name="text/css"></identifier>
+		<identifier name="text/csv"></identifier>
+		<identifier name="text/html"></identifier>
+		<identifier name="text/php"></identifier>
+		<identifier name="text/plain"></identifier>
+		<identifier name="text/xml"></identifier>
   </extension>
 </plugin>
