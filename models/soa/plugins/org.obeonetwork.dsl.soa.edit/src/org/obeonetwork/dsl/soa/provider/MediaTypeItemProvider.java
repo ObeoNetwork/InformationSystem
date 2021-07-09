@@ -149,11 +149,11 @@ public class MediaTypeItemProvider extends ObeoDSMObjectItemProvider {
 	 * This returns the label text for the adapted class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = ((MediaType)object).getTechnicalid();
+		String label = ((MediaType)object).getIdentifier();
 		return label == null || label.length() == 0 ?
 			getString("_UI_MediaType_type") :
 			getString("_UI_MediaType_type") + " " + label;
