@@ -36,6 +36,31 @@
         "operationId" : "createUser",
         "requestBody" : {
           "content" : {
+            "application/xml" : {
+              "schema" : {
+                "$ref" : "#/components/schemas/User"
+              },
+              "examples" : {
+                "cat" : {
+                  "summary" : "a cat",
+                  "description" : "kitty kitty ",
+                  "value" : {
+                    "name" : "edwardo",
+                    "weight" : 2,
+                    "age" : 8
+                  }
+                },
+                "dog" : {
+                  "summary" : "a dog",
+                  "description" : "he is a good boy",
+                  "value" : {
+                    "name" : "bobby",
+                    "age" : 6,
+                    "weight" : 34
+                  }
+                }
+              }
+            },
             "application/json" : {
               "schema" : {
                 "$ref" : "#/components/schemas/User"
@@ -47,9 +72,20 @@
           "default" : {
             "description" : "successful operation",
             "content" : {
-              "application/json" : {
+              "application/yaml" : {
                 "schema" : {
                   "$ref" : "#/components/schemas/User"
+                },
+                "examples" : {
+                  "dog" : {
+                    "summary" : "a dog",
+                    "description" : "he is a very good boy",
+                    "value" : {
+                      "name" : "bobby",
+                      "age" : 6,
+                      "weight" : 34
+                    }
+                  }
                 }
               }
             }
@@ -990,6 +1026,30 @@
   },
   "components" : {
     "schemas" : {
+      "Tag" : {
+        "type" : "object",
+        "properties" : {
+          "name" : {
+            "type" : "string"
+          },
+          "id" : {
+            "type" : "integer",
+            "format" : "int64"
+          }
+        }
+      },
+      "Category" : {
+        "type" : "object",
+        "properties" : {
+          "name" : {
+            "type" : "string"
+          },
+          "id" : {
+            "type" : "integer",
+            "format" : "int64"
+          }
+        }
+      },
       "User" : {
         "type" : "object",
         "properties" : {
@@ -1021,43 +1081,36 @@
           }
         }
       },
-      "Store_GetInventoryOutput200" : {
-        "type" : "object"
-      },
-      "Tag" : {
-        "type" : "object",
-        "properties" : {
-          "name" : {
-            "type" : "string"
-          },
-          "id" : {
-            "type" : "integer",
-            "format" : "int64"
-          }
-        }
-      },
-      "ApiResponse" : {
-        "type" : "object",
-        "properties" : {
-          "code" : {
-            "type" : "integer",
-            "format" : "int32"
-          },
-          "type" : {
-            "type" : "string"
-          },
-          "message" : {
-            "type" : "string"
-          }
-        }
-      },
       "PetStatus" : {
         "type" : "string",
         "enum" : [ "sold", "pending", "available" ]
       },
-      "OrderStatus" : {
-        "type" : "string",
-        "enum" : [ "approved", "placed", "delivered" ]
+      "Order" : {
+        "type" : "object",
+        "properties" : {
+          "petId" : {
+            "type" : "integer",
+            "format" : "int64"
+          },
+          "quantity" : {
+            "type" : "integer",
+            "format" : "int32"
+          },
+          "id" : {
+            "type" : "integer",
+            "format" : "int64"
+          },
+          "shipDate" : {
+            "type" : "string",
+            "format" : "date-time"
+          },
+          "complete" : {
+            "type" : "boolean"
+          },
+          "status" : {
+            "$ref" : "#/components/schemas/OrderStatus"
+          }
+        }
       },
       "Pet" : {
         "required" : [ "name", "photoUrls" ],
@@ -1091,42 +1144,25 @@
           }
         }
       },
-      "Order" : {
+      "OrderStatus" : {
+        "type" : "string",
+        "enum" : [ "approved", "placed", "delivered" ]
+      },
+      "Store_GetInventoryOutput200" : {
+        "type" : "object"
+      },
+      "ApiResponse" : {
         "type" : "object",
         "properties" : {
-          "petId" : {
-            "type" : "integer",
-            "format" : "int64"
-          },
-          "quantity" : {
+          "code" : {
             "type" : "integer",
             "format" : "int32"
           },
-          "id" : {
-            "type" : "integer",
-            "format" : "int64"
-          },
-          "shipDate" : {
-            "type" : "string",
-            "format" : "date-time"
-          },
-          "complete" : {
-            "type" : "boolean"
-          },
-          "status" : {
-            "$ref" : "#/components/schemas/OrderStatus"
-          }
-        }
-      },
-      "Category" : {
-        "type" : "object",
-        "properties" : {
-          "name" : {
+          "type" : {
             "type" : "string"
           },
-          "id" : {
-            "type" : "integer",
-            "format" : "int64"
+          "message" : {
+            "type" : "string"
           }
         }
       }

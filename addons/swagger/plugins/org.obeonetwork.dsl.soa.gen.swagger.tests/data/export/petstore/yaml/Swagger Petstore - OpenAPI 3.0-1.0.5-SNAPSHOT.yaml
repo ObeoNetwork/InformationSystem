@@ -36,6 +36,24 @@ paths:
       operationId: createUser
       requestBody:
         content:
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/User'
+            examples:
+              cat:
+                summary: a cat
+                description: 'kitty kitty '
+                value:
+                  name: edwardo
+                  weight: 2
+                  age: 8
+              dog:
+                summary: a dog
+                description: he is a good boy
+                value:
+                  name: bobby
+                  age: 6
+                  weight: 34
           application/json:
             schema:
               $ref: '#/components/schemas/User'
@@ -43,9 +61,17 @@ paths:
         default:
           description: successful operation
           content:
-            application/json:
+            application/yaml:
               schema:
                 $ref: '#/components/schemas/User'
+              examples:
+                dog:
+                  summary: a dog
+                  description: he is a very good boy
+                  value:
+                    name: bobby
+                    age: 6
+                    weight: 34
   /user/createWithList:
     post:
       tags:
@@ -676,7 +702,32 @@ paths:
       - petstore_auth: []
 components:
   schemas:
-    Tag:
+    Order:
+      type: object
+      properties:
+        petId:
+          type: integer
+          format: int64
+        quantity:
+          type: integer
+          format: int32
+        id:
+          type: integer
+          format: int64
+        shipDate:
+          type: string
+          format: date-time
+        complete:
+          type: boolean
+        status:
+          $ref: '#/components/schemas/OrderStatus'
+    PetStatus:
+      type: string
+      enum:
+      - sold
+      - pending
+      - available
+    Category:
       type: object
       properties:
         name:
@@ -684,6 +735,33 @@ components:
         id:
           type: integer
           format: int64
+    OrderStatus:
+      type: string
+      enum:
+      - approved
+      - placed
+      - delivered
+    User:
+      type: object
+      properties:
+        firstName:
+          type: string
+        lastName:
+          type: string
+        password:
+          type: string
+        userStatus:
+          type: integer
+          format: int32
+        phone:
+          type: string
+        id:
+          type: integer
+          format: int64
+        email:
+          type: string
+        username:
+          type: string
     Pet:
       required:
       - name
@@ -708,54 +786,6 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/Tag'
-    User:
-      type: object
-      properties:
-        firstName:
-          type: string
-        lastName:
-          type: string
-        password:
-          type: string
-        userStatus:
-          type: integer
-          format: int32
-        phone:
-          type: string
-        id:
-          type: integer
-          format: int64
-        email:
-          type: string
-        username:
-          type: string
-    Order:
-      type: object
-      properties:
-        petId:
-          type: integer
-          format: int64
-        quantity:
-          type: integer
-          format: int32
-        id:
-          type: integer
-          format: int64
-        shipDate:
-          type: string
-          format: date-time
-        complete:
-          type: boolean
-        status:
-          $ref: '#/components/schemas/OrderStatus'
-    Category:
-      type: object
-      properties:
-        name:
-          type: string
-        id:
-          type: integer
-          format: int64
     ApiResponse:
       type: object
       properties:
@@ -766,20 +796,16 @@ components:
           type: string
         message:
           type: string
-    OrderStatus:
-      type: string
-      enum:
-      - approved
-      - placed
-      - delivered
-    PetStatus:
-      type: string
-      enum:
-      - sold
-      - pending
-      - available
     Store_GetInventoryOutput200:
       type: object
+    Tag:
+      type: object
+      properties:
+        name:
+          type: string
+        id:
+          type: integer
+          format: int64
   securitySchemes:
     petstore_auth:
       type: oauth2

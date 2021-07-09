@@ -80,6 +80,5 @@ public class SwaggerGenerationTest {
 	@Test
 	public void testYamlExportInDirOdtsAdminWs() {
 		testExportInDir("odts-admin-ws", MapperType.YAML);
-	}
-	
+	}	
 }
