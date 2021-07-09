@@ -1735,7 +1735,7 @@ public class SoaPackageImpl extends EPackageImpl implements SoaPackage {
 		  (getParameter_MediaType(),
 		   source,
 		   new String[] {
-			   "documentation", ""
+			   "documentation", "The mediatypes used by this parameter"
 		   });
 		addAnnotation
 		  (getParameter_Name(),
