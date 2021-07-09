@@ -66,6 +66,7 @@ public class ExampleItemProvider extends ObeoDSMObjectItemProvider {
 
 			addSummaryPropertyDescriptor(object);
 			addValuePropertyDescriptor(object);
+			addNamePropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -115,6 +116,28 @@ public class ExampleItemProvider extends ObeoDSMObjectItemProvider {
 	}
 
 	/**
+	 * This adds a property descriptor for the Name feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addNamePropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_Example_name_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Example_name_feature", "_UI_Example_type"),
+				 SoaPackage.Literals.EXAMPLE__NAME,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
 	 * This returns Example.gif.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -143,7 +166,7 @@ public class ExampleItemProvider extends ObeoDSMObjectItemProvider {
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = ((Example)object).getTechnicalid();
+		String label = ((Example)object).getName();
 		return label == null || label.length() == 0 ?
 			getString("_UI_Example_type") :
 			getString("_UI_Example_type") + " " + label;
@@ -164,6 +187,7 @@ public class ExampleItemProvider extends ObeoDSMObjectItemProvider {
 		switch (notification.getFeatureID(Example.class)) {
 			case SoaPackage.EXAMPLE__SUMMARY:
 			case SoaPackage.EXAMPLE__VALUE:
+			case SoaPackage.EXAMPLE__NAME:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 		}
