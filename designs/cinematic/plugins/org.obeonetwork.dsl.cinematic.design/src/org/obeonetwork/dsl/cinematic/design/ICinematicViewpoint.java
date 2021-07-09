@@ -21,6 +21,7 @@ public interface ICinematicViewpoint {
 
 	public final static String ID = "Cinematic Views";
 	public final static String VIEW_CONTAINER_DIAGRAM_ID = "View Container Mockup";
+	public final static String FLOW_DIAGRAM_ID = "Flow Diagram";
 	public final static int VIEW_CONTAINER_DIAGRAM_DEFAULT_BORDER_SIZE = 4;
 	
 }

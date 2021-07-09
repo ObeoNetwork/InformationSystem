@@ -1,7 +1,10 @@
 package org.obeonetwork.dsl.cinematic.design.handlers;
 
+import static java.util.stream.Collectors.toList;
+
 import java.util.Arrays;
 import java.util.Comparator;
+import java.util.List;
 
 import org.eclipse.core.commands.AbstractHandler;
 import org.eclipse.core.commands.ExecutionEvent;
@@ -17,22 +20,28 @@ import org.eclipse.sirius.business.api.modelingproject.ModelingProject;
 import org.eclipse.sirius.business.api.query.EObjectQuery;
 import org.eclipse.sirius.business.api.session.Session;
 import org.eclipse.sirius.common.tools.api.resource.ImageFileFormat;
+import org.eclipse.sirius.diagram.DDiagram;
 import org.eclipse.sirius.diagram.DDiagramElement;
+import org.eclipse.sirius.diagram.WorkspaceImage;
+import org.eclipse.sirius.diagram.business.api.query.DDiagramQuery;
 import org.eclipse.sirius.diagram.ui.business.api.image.ImageSelectorService;
 import org.eclipse.sirius.diagram.ui.edit.api.part.IDiagramElementEditPart;
 import org.eclipse.sirius.ui.business.api.dialect.DialectUIManager;
 import org.eclipse.sirius.ui.business.api.dialect.ExportFormat;
 import org.eclipse.sirius.ui.tools.api.actions.export.SizeTooLargeException;
-import org.eclipse.sirius.viewpoint.BasicLabelStyle;
 import org.eclipse.sirius.viewpoint.DRepresentation;
+import org.eclipse.sirius.viewpoint.DRepresentationDescriptor;
+import org.eclipse.sirius.viewpoint.DView;
 import org.obeonetwork.dsl.cinematic.design.Activator;
 import org.obeonetwork.dsl.cinematic.design.ICinematicViewpoint;
 import org.obeonetwork.dsl.cinematic.flow.ViewState;
 import org.obeonetwork.dsl.cinematic.view.ViewContainer;
+import org.obeonetwork.utils.common.StreamUtils;
 import org.obeonetwork.utils.common.handlers.EventHelper;
+import org.obeonetwork.utils.sirius.services.EObjectUtils;
 import org.obeonetwork.utils.sirius.session.SessionUtils;
 
-public class SetMockupAsWorkspaceImageHandler extends AbstractHandler {
+public class ApplyMockupImageHandler extends AbstractHandler {
 	
 	private final static String MOCKUPS_FOLDER_NAME = "mockups";
 
@@ -41,7 +50,14 @@ public class SetMockupAsWorkspaceImageHandler extends AbstractHandler {
 	@Override
 	public Object execute(ExecutionEvent event) throws ExecutionException {
 
-		IDiagramElementEditPart selectedDiagramElementEditPart = EventHelper.uwrapSingleSelection(event, IDiagramElementEditPart.class);
+		for(IDiagramElementEditPart selectedDiagramElementEditPart : EventHelper.uwrapMultipleSelection(event, IDiagramElementEditPart.class)) {
+			applyMockupImage(selectedDiagramElementEditPart);
+		}
+		
+		return null;
+	}
+
+	private void applyMockupImage(IDiagramElementEditPart selectedDiagramElementEditPart) {
 		DDiagramElement diagramElement = selectedDiagramElementEditPart.resolveDiagramElement();
 		
 		ViewState viewState = (ViewState) diagramElement.getTarget();
@@ -87,16 +103,6 @@ public class SetMockupAsWorkspaceImageHandler extends AbstractHandler {
 					.orElse(-1) + 1;
 		}
 		
-//		Arrays.stream(mockupMembers)
-//		.filter(r -> r.getName().matches(baseFileName + "-[0-9]+\\.jpg"))
-//		.forEach(r -> {
-//			try {
-//				r.delete(true, null);
-//			} catch (CoreException e1) {
-//			}
-//		});
-		
-		
 		String fileName = baseFileName + "-" + suffix + ".jpg";
 		IFile imageFile = mockupsFolder.getFile(fileName);
 		
@@ -109,10 +115,39 @@ public class SetMockupAsWorkspaceImageHandler extends AbstractHandler {
 					"Diagram is too large to be exported as image", e));
 		}
 		
-		ImageSelectorService.INSTANCE.updateStyle((BasicLabelStyle) diagramElement.getStyle(), 
-				imageFile.getFullPath().toPortableString());
+		WorkspaceImage workspaceImageStyle = (WorkspaceImage) diagramElement.getStyle();
+		String oldWorkspacePath = workspaceImageStyle.getWorkspacePath();
+		String newWorkspacePath = imageFile.getFullPath().toPortableString();
 		
-		return null;
+		if(oldWorkspacePath.startsWith(mockupsFolder.getFullPath().toPortableString())) {
+			DDiagram currentDiagram = EObjectUtils.getContainerOrSelf(workspaceImageStyle, DDiagram.class);
+			DRepresentationDescriptor currentRepresentationDescriptor = new DDiagramQuery(currentDiagram).getRepresentationDescriptor();
+			DView dView = EObjectUtils.getContainerOrSelf(currentRepresentationDescriptor, DView.class);
+			
+			List<DRepresentation> flowDiagrams = dView.getOwnedRepresentationDescriptors().stream()
+			.filter(rd -> ICinematicViewpoint.FLOW_DIAGRAM_ID.equals(rd.getDescription().getName()))
+			.map(rd -> rd.getRepresentation())
+			.collect(toList());
+			
+			for(DRepresentation flowDiagram : flowDiagrams) {
+				List<WorkspaceImage> workspaceImageStylesToUpdate = StreamUtils.asStream(flowDiagram.eAllContents())
+				.filter(WorkspaceImage.class::isInstance).map(WorkspaceImage.class::cast)
+				.filter(wi -> oldWorkspacePath.equals(wi.getWorkspacePath()))
+				.collect(toList());
+				for(WorkspaceImage workspaceImageStyleToUpdate : workspaceImageStylesToUpdate) {
+					ImageSelectorService.INSTANCE.updateStyle(workspaceImageStyleToUpdate, newWorkspacePath);
+				}
+			}
+			IFile oldFile = mockupsFolder.getFile(oldWorkspacePath.substring(mockupsFolder.getFullPath().toPortableString().length()));
+			try {
+				oldFile.delete(true, null);
+			} catch (CoreException e) {
+				// Never mind
+			}
+		} else {
+			ImageSelectorService.INSTANCE.updateStyle(workspaceImageStyle, newWorkspacePath);
+		}
+		
 	}
 
     private String sanitize(String name) {

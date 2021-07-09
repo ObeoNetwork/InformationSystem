@@ -74,7 +74,7 @@
            </visibleWhen>
         </command>
         <command
-              commandId="org.obeonetwork.dsl.cinematic.design.command.SetMockupAsWorkspaceImage"
+              commandId="org.obeonetwork.dsl.cinematic.design.command.ApplyMockupImage"
               icon="icons/tools/layout_top_right_corner_apply.png"
               label="Apply Mockup Image"
               style="push">
@@ -83,9 +83,9 @@
            </visibleWhen>
         </command>
         <command
-              commandId="org.obeonetwork.dsl.cinematic.design.command.ResetWorkspaceImage"
+              commandId="org.obeonetwork.dsl.cinematic.design.command.RemoveMockupImage"
               icon="icons/tools/layout_top_right_corner_remove.png"
-              label="Reset Mockup Image"
+              label="Remove Mockup Image"
               style="push">
            <visibleWhen
                  checkEnabled="true">
@@ -108,12 +108,12 @@
            name="Preview Layout">
      </command>
      <command
-           id="org.obeonetwork.dsl.cinematic.design.command.SetMockupAsWorkspaceImage"
+           id="org.obeonetwork.dsl.cinematic.design.command.ApplyMockupImage"
            name="Apply Mockup Image">
      </command>
      <command
-           id="org.obeonetwork.dsl.cinematic.design.command.ResetWorkspaceImage"
-           name="Reset Mockup Image">
+           id="org.obeonetwork.dsl.cinematic.design.command.RemoveMockupImage"
+           name="Remove Mockup Image">
      </command>
   </extension>
   <extension
@@ -191,14 +191,11 @@
         </enabledWhen>
      </handler>
      <handler
-           class="org.obeonetwork.dsl.cinematic.design.handlers.SetMockupAsWorkspaceImageHandler"
-           commandId="org.obeonetwork.dsl.cinematic.design.command.SetMockupAsWorkspaceImage">
+           class="org.obeonetwork.dsl.cinematic.design.handlers.ApplyMockupImageHandler"
+           commandId="org.obeonetwork.dsl.cinematic.design.command.ApplyMockupImage">
         <enabledWhen>
            <with
                  variable="selection">
-              <count
-                    value="1">
-              </count>
               <iterate
                     ifEmpty="false"
                     operator="and">
@@ -222,14 +219,11 @@
         </enabledWhen>
      </handler>
      <handler
-           class="org.obeonetwork.dsl.cinematic.design.handlers.ResetWorkspaceImageHandler"
-           commandId="org.obeonetwork.dsl.cinematic.design.command.ResetWorkspaceImage">
+           class="org.obeonetwork.dsl.cinematic.design.handlers.RemoveMockupImageHandler"
+           commandId="org.obeonetwork.dsl.cinematic.design.command.RemoveMockupImage">
         <enabledWhen>
            <with
                  variable="selection">
-              <count
-                    value="1">
-              </count>
               <iterate
                     ifEmpty="false"
                     operator="and">
@@ -271,7 +265,7 @@
   <extension
         point="org.eclipse.ui.bindings">
      <key
-           commandId="org.obeonetwork.dsl.cinematic.design.command.SetMockupAsWorkspaceImage"
+           commandId="org.obeonetwork.dsl.cinematic.design.command.ApplyMockupImage"
            contextId="org.eclipse.sirius.diagram.ui.diagramContext"
            schemeId="org.eclipse.ui.defaultAcceleratorConfiguration"
            sequence="SHIFT+F5">

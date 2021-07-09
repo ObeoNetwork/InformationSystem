@@ -31,7 +31,7 @@ public class ViewContainerTreeContentProvider implements ITreeContentProvider {
 	public Object[] getElements(Object inputElement) {
 		Collection<ViewContainer> viewContainerCollection;
 		
-		if (inputElement instanceof AbstractPackage) {		
+		if (inputElement instanceof AbstractPackage) {
 				
 			// we fetch all the viewContainers from the model
 			viewContainerCollection = FlowsUtil.getAllPackagesFromRoot((AbstractPackage) inputElement)
@@ -52,7 +52,6 @@ public class ViewContainerTreeContentProvider implements ITreeContentProvider {
 		} else {
 			viewContainerCollection = Collections.emptyList();
 		}
-		
 		
 		return viewContainerCollection.toArray(); 
 	}

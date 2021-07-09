@@ -13,12 +13,19 @@ import org.eclipse.sirius.diagram.ui.edit.api.part.IDiagramElementEditPart;
 import org.eclipse.sirius.viewpoint.BasicLabelStyle;
 import org.obeonetwork.utils.common.handlers.EventHelper;
 
-public class ResetWorkspaceImageHandler  extends AbstractHandler {
+public class RemoveMockupImageHandler  extends AbstractHandler {
 	
 	@Override
 	public Object execute(ExecutionEvent event) throws ExecutionException {
 
-		IDiagramElementEditPart selectedDiagramElementEditPart = EventHelper.uwrapSingleSelection(event, IDiagramElementEditPart.class);
+		for(IDiagramElementEditPart selectedDiagramElementEditPart : EventHelper.uwrapMultipleSelection(event, IDiagramElementEditPart.class)) {
+			removeMockupImage(selectedDiagramElementEditPart);
+		}
+		
+		return null;
+	}
+
+	private void removeMockupImage(IDiagramElementEditPart selectedDiagramElementEditPart) {
 		DDiagramElement diagramElement = selectedDiagramElementEditPart.resolveDiagramElement();
 		
 		String workspacePath = null;
@@ -33,8 +40,9 @@ public class ResetWorkspaceImageHandler  extends AbstractHandler {
 		if(!isNullOrWhite(workspacePath)) {
 			ImageSelectorService.INSTANCE.updateStyle((BasicLabelStyle) diagramElement.getStyle(), workspacePath);
 		}
-		
-		return null;
+		// TODO Note for future devs. We can't supress the unset image here because we would loose track of the last index.
+		// We probably need a cache of the created filenames, keeping in mind that it should manage multiple Sirius
+		// sessions.
 	}
 
 }
