@@ -1144,10 +1144,11 @@
       <pages name="Component Exposition Page" labelExpression="Exposition" domainClass="soa::Component" semanticCandidateExpression="var:self" groups="//@extensions.0/@categories.1/@groups.12 //@extensions.0/@categories.1/@groups.14 //@extensions.0/@categories.1/@groups.15 //@extensions.0/@categories.1/@groups.16"/>
       <pages name="Service Exposition Page" labelExpression="Exposition" domainClass="soa::Service" semanticCandidateExpression="var:self" groups="//@extensions.0/@categories.1/@groups.5 //@extensions.0/@categories.1/@groups.8"/>
       <pages name="Operation Exposition Page" labelExpression="Exposition" domainClass="soa::Operation" semanticCandidateExpression="var:self" preconditionExpression="aql:self.eContainer(soa::Service).kind=soa::InterfaceKind::provided and self.exposition&lt;>soa::ExpositionKind::NONE" groups="//@extensions.0/@categories.1/@groups.6 //@extensions.0/@categories.1/@groups.8 //@extensions.0/@categories.1/@groups.9 //@extensions.0/@categories.1/@groups.11"/>
-      <pages name="Parameter Exposition Page" labelExpression="Exposition" domainClass="soa::Parameter" semanticCandidateExpression="var:self" preconditionExpression="aql:self.eContainer(soa::Service).kind=soa::InterfaceKind::provided and self.exposition&lt;>soa::ExpositionKind::NONE" groups="//@extensions.0/@categories.1/@groups.7 //@extensions.0/@categories.1/@groups.8"/>
+      <pages name="Parameter Exposition Page" labelExpression="Exposition" domainClass="soa::Parameter" semanticCandidateExpression="var:self" preconditionExpression="aql:self.eContainer(soa::Service).kind=soa::InterfaceKind::provided and self.exposition&lt;>soa::ExpositionKind::NONE" groups="//@extensions.0/@categories.1/@groups.7 //@extensions.0/@categories.1/@groups.8 //@extensions.0/@categories.1/@groups.17"/>
       <pages name="Security Scheme Page" labelExpression="Security Scheme" domainClass="soa::SecurityScheme" semanticCandidateExpression="var:self" groups="//@extensions.0/@categories.1/@groups.10"/>
       <pages name="Component Security Schemes Page" labelExpression="Security Schemes" domainClass="soa::Component" semanticCandidateExpression="var:self" groups="//@extensions.0/@categories.1/@groups.13"/>
-      <pages name="Media Type Page" labelExpression="Media Type" domainClass="soa::Parameter" semanticCandidateExpression="var:self" groups="//@extensions.0/@categories.1/@groups.17"/>
+      <pages name="MediaType Page" labelExpression="Media type" domainClass="soa::MediaType" semanticCandidateExpression="var:self" groups="//@extensions.0/@categories.1/@groups.18"/>
+      <pages name="Example Page" labelExpression="Example" domainClass="soa::Example" semanticCandidateExpression="var:self" groups="//@extensions.0/@categories.1/@groups.19"/>
       <groups name="Operation Group" labelExpression="Properties" domainClass="soa::Operation" semanticCandidateExpression="var:self">
         <controls xsi:type="properties:TextDescription" name="soa::Operation name" labelExpression="aql:input.emfEditServices(self).getText(self.eClass().getEStructuralFeature('name')) + ':'" helpExpression="aql:input.emfEditServices(self).getDescription(self.eClass().getEStructuralFeature('name'))" isEnabledExpression="aql:self.eClass().getEStructuralFeature('name').changeable" valueExpression="aql:self.name">
           <initialOperation>
@@ -1587,58 +1588,22 @@
           </propertyValidationRules>
         </validationSet>
       </groups>
-      <groups name="selectMediaType Properties Group" labelExpression="Properties" domainClass="soa::Parameter" semanticCandidateExpression="var:self">
-        <controls xsi:type="properties:TextDescription" name="Media Type Identifier" labelExpression="Identifier:" valueExpression="aql:self.getIdentifierOrNull()">
-          <initialOperation>
-            <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="aql:self">
-              <subModelOperations xsi:type="tool_1:If" conditionExpression="aql:self.mediaType = null">
-                <subModelOperations xsi:type="tool_1:CreateInstance" typeName="soa::MediaType" referenceName="mediaType"/>
-              </subModelOperations>
-              <subModelOperations xsi:type="tool_1:ChangeContext" browseExpression="aql:self.mediaType">
-                <subModelOperations xsi:type="tool_1:SetValue" featureName="identifier" valueExpression="var:newValue"/>
-              </subModelOperations>
-            </firstModelOperations>
-          </initialOperation>
-        </controls>
-        <controls xsi:type="properties:CustomDescription" name="org.obeonetwork.is.eef.custom.reference" label="Media Type Examples" labelExpression="Examples:">
-          <customExpressions name="referenceOwnerExpression" customExpression="aql:self.getMediaTypeOrNull()"/>
-          <customExpressions name="referenceNameExpression" customExpression="aql:'examples'"/>
+      <groups name="Parameter MediaType Properties Group" labelExpression="Media Type" domainClass="soa::Parameter" semanticCandidateExpression="var:self">
+        <controls xsi:type="properties:CustomDescription" name="org.obeonetwork.is.eef.custom.reference" labelExpression="Media Types:">
+          <customExpressions name="referenceNameExpression" customExpression="aql:'mediaType'"/>
+          <customExpressions name="referenceDisplayExpression" customExpression="aql:candidate.identifier"/>
           <customOperations name="addButtonOperation">
             <initialOperation>
-              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="aql:self">
-                <subModelOperations xsi:type="tool_1:If" conditionExpression="aql:self.mediaType = null">
-                  <subModelOperations xsi:type="tool_1:CreateInstance" typeName="soa::MediaType" referenceName="mediaType" variableName="newMediaType"/>
-                </subModelOperations>
-                <subModelOperations xsi:type="tool_1:ChangeContext" browseExpression="aql:self.mediaType">
-                  <subModelOperations xsi:type="tool_1:CreateInstance" typeName="soa::Example" referenceName="examples">
-                    <subModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:instance">
-                      <subModelOperations xsi:type="properties:DialogModelOperation" titleExpression="New example">
-                        <buttons labelExpression="Cancel" closeDialogOnClick="true" rollbackChangesOnClose="true">
-                          <initialOperation/>
-                        </buttons>
-                        <buttons labelExpression="OK" default="true" closeDialogOnClick="true">
-                          <initialOperation/>
-                        </buttons>
-                        <page name="New Example Page" labelExpression="Example" domainClass="soa::Example" semanticCandidateExpression="var:self" groups="//@extensions.0/@categories.1/@groups.17/@controls.1/@customOperations.0/@initialOperation/@firstModelOperations/@subModelOperations.1/@subModelOperations.0/@subModelOperations.0/@subModelOperations.0/@groups.0"/>
-                        <groups name="New Example Group" labelExpression="Properties" domainClass="soa::Example" semanticCandidateExpression="var:self">
-                          <controls xsi:type="properties:TextDescription" name="Example Summary" labelExpression="aql:input.emfEditServices(self).getText(self.eClass().getEStructuralFeature('summary')) + ':'" helpExpression="aql:input.emfEditServices(self).getDescription(self.eClass().getEStructuralFeature('summary')) " valueExpression="aql:self.summary">
-                            <initialOperation>
-                              <firstModelOperations xsi:type="tool_1:SetValue" featureName="summary" valueExpression="var:newValue"/>
-                            </initialOperation>
-                          </controls>
-                          <controls xsi:type="properties:TextDescription" name="Example Description" labelExpression="aql:input.emfEditServices(self).getText(self.eClass().getEStructuralFeature('description')) + ':'" helpExpression="aql:input.emfEditServices(self).getDescription(self.eClass().getEStructuralFeature('description')) " valueExpression="aql:self.description">
-                            <initialOperation>
-                              <firstModelOperations xsi:type="tool_1:SetValue" featureName="description" valueExpression="var:newValue"/>
-                            </initialOperation>
-                          </controls>
-                          <controls xsi:type="properties:TextAreaDescription" name="Example Value" labelExpression="aql:input.emfEditServices(self).getText(self.eClass().getEStructuralFeature('value')) + ':'" helpExpression="aql:input.emfEditServices(self).getDescription(self.eClass().getEStructuralFeature('value')) " valueExpression="aql:self.value">
-                            <initialOperation>
-                              <firstModelOperations xsi:type="tool_1:SetValue" featureName="value" valueExpression="var:newValue"/>
-                            </initialOperation>
-                          </controls>
-                        </groups>
-                      </subModelOperations>
-                    </subModelOperations>
+              <firstModelOperations xsi:type="tool_1:CreateInstance" typeName="soa::MediaType" referenceName="mediaType">
+                <subModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:instance">
+                  <subModelOperations xsi:type="properties:DialogModelOperation" titleExpression="New Media Type">
+                    <buttons labelExpression="Cancel" closeDialogOnClick="true" rollbackChangesOnClose="true">
+                      <initialOperation/>
+                    </buttons>
+                    <buttons labelExpression="OK" default="true" closeDialogOnClick="true">
+                      <initialOperation/>
+                    </buttons>
+                    <page name="New Media Type Page" labelExpression="Media type" domainClass="soa::MediaType" semanticCandidateExpression="var:self" extends="//@extensions.0/@categories.1/@pages.11"/>
                   </subModelOperations>
                 </subModelOperations>
               </firstModelOperations>
@@ -1646,25 +1611,100 @@
           </customOperations>
           <customOperations name="onDoubleClickOperation">
             <initialOperation>
-              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="aql:selection -> first()">
-                <subModelOperations xsi:type="properties:DialogModelOperation" titleExpression="Example Properties">
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="aql:selection->first()">
+                <subModelOperations xsi:type="properties:DialogModelOperation" titleExpression="Edit MediaType Dialog">
                   <buttons labelExpression="Cancel" closeDialogOnClick="true" rollbackChangesOnClose="true">
                     <initialOperation/>
                   </buttons>
                   <buttons labelExpression="OK" default="true" closeDialogOnClick="true">
                     <initialOperation/>
                   </buttons>
-                  <page name="Edit Example Page" labelExpression="Edit Example" domainClass="soa::Example" semanticCandidateExpression="aql:self" extends="//@extensions.0/@categories.1/@groups.17/@controls.1/@customOperations.0/@initialOperation/@firstModelOperations/@subModelOperations.1/@subModelOperations.0/@subModelOperations.0/@subModelOperations.0/@page"/>
+                  <page name="Edit MediaType Page" labelExpression="Media Type" semanticCandidateExpression="var:self" extends="//@extensions.0/@categories.1/@pages.11"/>
                 </subModelOperations>
               </firstModelOperations>
             </initialOperation>
           </customOperations>
         </controls>
+      </groups>
+      <groups name="MediaType Group" labelExpression="Properties" domainClass="soa::MediaType" semanticCandidateExpression="var:self">
+        <controls xsi:type="properties:ContainerDescription" name="MediaType Container">
+          <controls xsi:type="properties:TextDescription" name="media type identifier" labelExpression="aql:input.emfEditServices(self).getText(self.eClass().getEStructuralFeature('identifier'))+':'" helpExpression="aql:input.emfEditServices(self).getDescription(self.eClass().getEStructuralFeature('identifier'))" valueExpression="aql:self.identifier">
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="aql:self.setNewMediaTypeIdentifier(newValue)"/>
+            </initialOperation>
+          </controls>
+          <controls xsi:type="properties:ButtonDescription" name="soa::MediaType commonIdentifiers button" buttonLabelExpression="...">
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="aql:self.openCommonIdentifiersSelectionDialog()"/>
+            </initialOperation>
+          </controls>
+          <controls xsi:type="properties:CustomDescription" name="org.obeonetwork.is.eef.custom.reference" labelExpression="aql:'Examples:'" helpExpression="aql:input.emfEditServices(self).getDescription(self.eClass().getEStructuralFeature('examples'))">
+            <customExpressions name="referenceNameExpression" customExpression="aql:'examples'"/>
+            <customOperations name="addButtonOperation">
+              <initialOperation>
+                <firstModelOperations xsi:type="tool_1:CreateInstance" typeName="soa::Example" referenceName="examples" variableName="newExample">
+                  <subModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:newExample">
+                    <subModelOperations xsi:type="properties:DialogModelOperation" titleExpression="New Example Dialog">
+                      <buttons labelExpression="Cancel" closeDialogOnClick="true" rollbackChangesOnClose="true">
+                        <initialOperation/>
+                      </buttons>
+                      <buttons labelExpression="OK" default="true" closeDialogOnClick="true">
+                        <initialOperation/>
+                      </buttons>
+                      <page name="New Example Page" labelExpression="Example" semanticCandidateExpression="var:self" extends="//@extensions.0/@categories.1/@pages.12"/>
+                    </subModelOperations>
+                  </subModelOperations>
+                </firstModelOperations>
+              </initialOperation>
+            </customOperations>
+            <customOperations name="onDoubleClickOperation">
+              <initialOperation>
+                <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="aql:selection->first()">
+                  <subModelOperations xsi:type="properties:DialogModelOperation" titleExpression="Edit Example Dialog">
+                    <buttons labelExpression="Cancel" closeDialogOnClick="true" rollbackChangesOnClose="true">
+                      <initialOperation/>
+                    </buttons>
+                    <buttons labelExpression="OK" default="true" closeDialogOnClick="true">
+                      <initialOperation/>
+                    </buttons>
+                    <page name="Default Page" labelExpression="Example" semanticCandidateExpression="var:self" extends="//@extensions.0/@categories.1/@pages.12"/>
+                  </subModelOperations>
+                </firstModelOperations>
+              </initialOperation>
+            </customOperations>
+          </controls>
+          <layout xsi:type="properties:GridLayoutDescription" numberOfColumns="2"/>
+        </controls>
         <validationSet>
-          <propertyValidationRules name="Media Type Identifier Validation" level="WARNING" message="Invalid media type identifier. " targets="//@extensions.0/@categories.1/@groups.17/@controls.0">
-            <audits auditExpression="aql:self.isValidIdentifier()"/>
+          <propertyValidationRules name="mediaTypeIdentifier prefix validator" level="WARNING" message="Invalid identifier type " targets="//@extensions.0/@categories.1/@groups.18/@controls.0/@controls.0">
+            <audits auditExpression="aql:self.isValidPrefix()"/>
+          </propertyValidationRules>
+          <propertyValidationRules name="mediaTypeIdentifier suffix validator" level="WARNING" message="Invalid identifier suffix" targets="//@extensions.0/@categories.1/@groups.18/@controls.0/@controls.0">
+            <audits auditExpression="aql:self.isValidSuffix()"/>
           </propertyValidationRules>
         </validationSet>
+      </groups>
+      <groups name="Example Group" labelExpression="Properties" domainClass="soa::Example" semanticCandidateExpression="var:self">
+        <controls xsi:type="properties:TextDescription" name="soa::Example name text" labelExpression="aql:input.emfEditServices(self).getText(self.eClass().getEStructuralFeature('name'))+':'" helpExpression="aql:input.emfEditServices(self).getDescription(self.eClass().getEStructuralFeature('name'))" valueExpression="aql:self.name">
+          <initialOperation>
+            <firstModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="var:newValue"/>
+          </initialOperation>
+        </controls>
+        <controls xsi:type="properties:TextDescription" name="soa::Example summary text" labelExpression="aql:input.emfEditServices(self).getText(self.eClass().getEStructuralFeature('summary'))+':'" helpExpression="aql:input.emfEditServices(self).getDescription(self.eClass().getEStructuralFeature('summary'))" valueExpression="aql:self.summary">
+          <initialOperation>
+            <firstModelOperations xsi:type="tool_1:SetValue" featureName="summary" valueExpression="var:newValue"/>
+          </initialOperation>
+        </controls>
+        <controls xsi:type="properties:TextDescription" name="soa::Example description text " labelExpression="aql:input.emfEditServices(self).getText(self.eClass().getEStructuralFeature('description'))+':'" helpExpression="aql:input.emfEditServices(self).getDescription(self.eClass().getEStructuralFeature('description'))" valueExpression="aql:self.description">
+          <initialOperation>
+            <firstModelOperations xsi:type="tool_1:SetValue" featureName="description" valueExpression="var:newValue"/>
+          </initialOperation>
+        </controls>
+        <controls xsi:type="properties:TextAreaDescription" name="soa::Example value textarea" labelExpression="aql:input.emfEditServices(self).getText(self.eClass().getEStructuralFeature('value'))+':'" helpExpression="aql:input.emfEditServices(self).getDescription(self.eClass().getEStructuralFeature('value'))+':'" valueExpression="aql:self.value">
+          <initialOperation>
+            <firstModelOperations xsi:type="tool_1:SetValue" featureName="value" valueExpression="aql:newValue"/>
+          </initialOperation>
+        </controls>
       </groups>
     </categories>
   </extensions>
