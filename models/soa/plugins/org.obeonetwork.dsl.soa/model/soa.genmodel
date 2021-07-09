@@ -162,6 +162,7 @@
     <genClasses ecoreClass="soa.ecore#//Example">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute soa.ecore#//Example/summary"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute soa.ecore#//Example/value"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute soa.ecore#//Example/name"/>
     </genClasses>
   </genPackages>
 </genmodel:GenModel>

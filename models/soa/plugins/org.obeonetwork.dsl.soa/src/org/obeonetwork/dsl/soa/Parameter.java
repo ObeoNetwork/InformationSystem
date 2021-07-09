@@ -10,6 +10,7 @@
  *******************************************************************************/
 package org.obeonetwork.dsl.soa;
 
+import org.eclipse.emf.common.util.EList;
 import org.obeonetwork.dsl.environment.MultiplicityKind;
 import org.obeonetwork.dsl.environment.ObeoDSMObject;
 import org.obeonetwork.dsl.environment.Type;
@@ -76,29 +77,19 @@ public interface Parameter extends ObeoDSMObject {
 	void setType(Type value);
 
 	/**
-	 * Returns the value of the '<em><b>Media Type</b></em>' containment reference.
+	 * Returns the value of the '<em><b>Media Type</b></em>' containment reference list.
+	 * The list contents are of type {@link org.obeonetwork.dsl.soa.MediaType}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
 	 * 
 	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Media Type</em>' containment reference.
-	 * @see #setMediaType(MediaType)
+	 * @return the value of the '<em>Media Type</em>' containment reference list.
 	 * @see org.obeonetwork.dsl.soa.SoaPackage#getParameter_MediaType()
 	 * @model containment="true" resolveProxies="true"
 	 * @generated
 	 */
-	MediaType getMediaType();
-
-	/**
-	 * Sets the value of the '{@link org.obeonetwork.dsl.soa.Parameter#getMediaType <em>Media Type</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Media Type</em>' containment reference.
-	 * @see #getMediaType()
-	 * @generated
-	 */
-	void setMediaType(MediaType value);
+	EList<MediaType> getMediaType();
 
 	/**
 	 * Returns the value of the '<em><b>Name</b></em>' attribute.

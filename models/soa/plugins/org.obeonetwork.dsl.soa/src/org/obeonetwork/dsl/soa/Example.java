@@ -27,6 +27,7 @@ import org.obeonetwork.dsl.environment.ObeoDSMObject;
  * <ul>
  *   <li>{@link org.obeonetwork.dsl.soa.Example#getSummary <em>Summary</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.soa.Example#getValue <em>Value</em>}</li>
+ *   <li>{@link org.obeonetwork.dsl.soa.Example#getName <em>Name</em>}</li>
  * </ul>
  *
  * @see org.obeonetwork.dsl.soa.SoaPackage#getExample()
@@ -90,5 +91,27 @@ public interface Example extends ObeoDSMObject {
 	 * @generated
 	 */
 	void setValue(String value);
+
+	/**
+	 * Returns the value of the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Name</em>' attribute.
+	 * @see #setName(String)
+	 * @see org.obeonetwork.dsl.soa.SoaPackage#getExample_Name()
+	 * @model
+	 * @generated
+	 */
+	String getName();
+
+	/**
+	 * Sets the value of the '{@link org.obeonetwork.dsl.soa.Example#getName <em>Name</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Name</em>' attribute.
+	 * @see #getName()
+	 * @generated
+	 */
+	void setName(String value);
 
 } // Example
