@@ -23,7 +23,6 @@ import org.obeonetwork.dsl.soa.gen.swagger.utils.ComponentGenUtil;
 
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.core.JsonGenerationException;
-import com.fasterxml.jackson.core.util.DefaultPrettyPrinter;
 import com.fasterxml.jackson.databind.JsonMappingException;
 import com.fasterxml.jackson.databind.MapperFeature;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -113,7 +112,5 @@ public class SwaggerExporter {
 		}
 		
 		return status;
-	}
-	
-
+	}	
 }
