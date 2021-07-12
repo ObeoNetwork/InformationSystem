@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="ASCII"?>
+<genconf:Generation xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:genconf="http://www.obeonetwork.org/m2doc/genconf/1.0" templateFileName="E-BookStore_Cinematic_template.docx" resultFileName="E-BookStore_Cinematic_template.generated.docx" validationFileName="E-BookStore_Cinematic_template.validation.docx">
+  <definitions xsi:type="genconf:ModelDefinition" key="cinematicRoot">
+    <value href="../../E-BookStore.cinematic#_N-7IwIjLEeGrHN3Vq969QA"/>
+  </definitions>
+  <definitions xsi:type="genconf:StringDefinition" key="projectName" value="E-BookStore"/>
+  <options name="SiriusSession" value="../../representations.aird"/>
+</genconf:Generation>
