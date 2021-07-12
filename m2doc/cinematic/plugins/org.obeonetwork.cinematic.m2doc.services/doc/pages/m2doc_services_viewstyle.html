@@ -24,14 +24,14 @@
     <!endif-->
     <link href="../assets/css/bootstrap.css" rel="stylesheet"/>
     <link href="../assets/css/docs.css" rel="stylesheet"/>
-    <title>M2Doc Services and attributes for Flow</title>
+    <title>M2Doc Services and attributes for ViewStyle</title>
   </head>
 
   <body>
    <header class="jumbotron subhead" id="overview">
   </header>
 
-    <h1 id="Flow">Services and attributes for the Flow concept</h1>
+    <h1 id="ViewStyle">Services and attributes for the ViewStyle concept</h1>
     <div class="page-header">
       <h2 id="Attributes">Attributes</h2>
     </div>
@@ -49,93 +49,86 @@
     <tr>
       <td colspan="1" rowspan="1"><strong>behaviours</strong></td>
       <td colspan="1" rowspan="1">List of Behaviour</td>
-      <td colspan="1" rowspan="1">{m:flow.behaviours}</td>
+      <td colspan="1" rowspan="1">{m:viewStyle.behaviours}</td>
       <td colspan="1" rowspan="1">The Behaviours owned by this object.</td>
-      <td colspan="1" rowspan="1">{m:for behaviour | flow.behaviours} behaviour {m:behaviour.name}, {m:endfor}</td>
+      <td colspan="1" rowspan="1">{m:for behaviour | viewStyle.behaviours} behaviour {m:behaviour.name}, {m:endfor}</td>
     </tr>
     <tr>
       <td colspan="1" rowspan="1"><strong>bindingRegistries</strong></td>
       <td colspan="1" rowspan="1">List of <a href="/help/topic/org.obeonetwork.dsl.environment.m2doc.services/doc/pages/m2doc_services_bindingregistry.html">BindingRegistry</a></td>
-      <td colspan="1" rowspan="1">{m:flow.bindingRegistries}</td>
+      <td colspan="1" rowspan="1">{m:viewStyle.bindingRegistries}</td>
       <td colspan="1" rowspan="1">The binding registries of this object.</td>
-      <td colspan="1" rowspan="1">{m:for bindingRegistry | flow.bindingRegistries} bindingRegistry {m:bindingRegistry.name}, {m:endfor}</td>
+      <td colspan="1" rowspan="1">{m:for bindingRegistry | viewStyle.bindingRegistries} bindingRegistry {m:bindingRegistry.name}, {m:endfor}</td>
     </tr>
     <tr>
       <td colspan="1" rowspan="1"><strong>createdOn</strong></td>
       <td colspan="1" rowspan="1">EDate</td>
-      <td colspan="1" rowspan="1">{m:flow.createdOn}</td>
+      <td colspan="1" rowspan="1">{m:viewStyle.createdOn}</td>
       <td colspan="1" rowspan="1">The creation date of this object.</td>
-      <td colspan="1" rowspan="1">{m:flow.createdOn}</td>
+      <td colspan="1" rowspan="1">{m:viewStyle.createdOn}</td>
     </tr>
     <tr>
       <td colspan="1" rowspan="1"><strong>description</strong></td>
       <td colspan="1" rowspan="1">EString</td>
-      <td colspan="1" rowspan="1">{m:flow.description}</td>
+      <td colspan="1" rowspan="1">{m:viewStyle.description}</td>
       <td colspan="1" rowspan="1">The description of this object.</td>
-      <td colspan="1" rowspan="1">{m:flow.description}</td>
+      <td colspan="1" rowspan="1">{m:viewStyle.description}</td>
     </tr>
     <tr>
-      <td colspan="1" rowspan="1"><strong>events</strong></td>
-      <td colspan="1" rowspan="1">List of <a href="/help/topic/org.obeonetwork.cinematic.m2doc.services/doc/pages/m2doc_services_flowevent.html">FlowEvent</a></td>
-      <td colspan="1" rowspan="1">{m:flow.events}</td>
-      <td colspan="1" rowspan="1">The events of this flow.</td>
-      <td colspan="1" rowspan="1">{m:for flowEvent | flow.events} flowEvent {m:flowEvent.name}, {m:endfor}</td>
+      <td colspan="1" rowspan="1"><strong>fontColor</strong></td>
+      <td colspan="1" rowspan="1">EString</td>
+      <td colspan="1" rowspan="1">{m:viewStyle.fontColor}</td>
+      <td colspan="1" rowspan="1"></td>
+      <td colspan="1" rowspan="1">{m:viewStyle.fontColor}</td>
+    </tr>
+    <tr>
+      <td colspan="1" rowspan="1"><strong>fontSize</strong></td>
+      <td colspan="1" rowspan="1">EInt</td>
+      <td colspan="1" rowspan="1">{m:viewStyle.fontSize}</td>
+      <td colspan="1" rowspan="1"></td>
+      <td colspan="1" rowspan="1">{m:viewStyle.fontSize}</td>
     </tr>
     <tr>
       <td colspan="1" rowspan="1"><strong>keywords</strong></td>
       <td colspan="1" rowspan="1">List of EString</td>
-      <td colspan="1" rowspan="1">{m:flow.keywords}</td>
+      <td colspan="1" rowspan="1">{m:viewStyle.keywords}</td>
       <td colspan="1" rowspan="1">The list of keywords applied to this object.</td>
-      <td colspan="1" rowspan="1">{m:for eString | flow.keywords} eString {m:eString.name}, {m:endfor}</td>
+      <td colspan="1" rowspan="1">{m:for eString | viewStyle.keywords} eString {m:eString.name}, {m:endfor}</td>
+    </tr>
+    <tr>
+      <td colspan="1" rowspan="1"><strong>labelHorizontalAlignment</strong></td>
+      <td colspan="1" rowspan="1">ViewHorizontalAlignment</td>
+      <td colspan="1" rowspan="1">{m:viewStyle.labelHorizontalAlignment}</td>
+      <td colspan="1" rowspan="1"></td>
+      <td colspan="1" rowspan="1">{m:viewStyle.labelHorizontalAlignment}</td>
     </tr>
     <tr>
       <td colspan="1" rowspan="1"><strong>metadatas</strong></td>
       <td colspan="1" rowspan="1"><a href="/help/topic/org.obeonetwork.dsl.environment.m2doc.services/doc/pages/m2doc_services_metadatacontainer.html">MetaDataContainer</a></td>
-      <td colspan="1" rowspan="1">{m:flow.metadatas}</td>
+      <td colspan="1" rowspan="1">{m:viewStyle.metadatas}</td>
       <td colspan="1" rowspan="1">The metadatas defined on this object.</td>
-      <td colspan="1" rowspan="1">{m:flow.metadatas}</td>
+      <td colspan="1" rowspan="1">{m:viewStyle.metadatas}</td>
     </tr>
     <tr>
       <td colspan="1" rowspan="1"><strong>modifiedOn</strong></td>
       <td colspan="1" rowspan="1">EDate</td>
-      <td colspan="1" rowspan="1">{m:flow.modifiedOn}</td>
+      <td colspan="1" rowspan="1">{m:viewStyle.modifiedOn}</td>
       <td colspan="1" rowspan="1">The modification date of this obect.</td>
-      <td colspan="1" rowspan="1">{m:flow.modifiedOn}</td>
-    </tr>
-    <tr>
-      <td colspan="1" rowspan="1"><strong>name</strong></td>
-      <td colspan="1" rowspan="1">EString</td>
-      <td colspan="1" rowspan="1">{m:flow.name}</td>
-      <td colspan="1" rowspan="1">The name of this model element.</td>
-      <td colspan="1" rowspan="1">{m:flow.name}</td>
-    </tr>
-    <tr>
-      <td colspan="1" rowspan="1"><strong>states</strong></td>
-      <td colspan="1" rowspan="1">List of FlowState</td>
-      <td colspan="1" rowspan="1">{m:flow.states}</td>
-      <td colspan="1" rowspan="1">The states of this Flow.</td>
-      <td colspan="1" rowspan="1">{m:for flowState | flow.states} flowState {m:flowState.name}, {m:endfor}</td>
+      <td colspan="1" rowspan="1">{m:viewStyle.modifiedOn}</td>
     </tr>
     <tr>
       <td colspan="1" rowspan="1"><strong>technicalid</strong></td>
       <td colspan="1" rowspan="1">EString</td>
-      <td colspan="1" rowspan="1">{m:flow.technicalid}</td>
+      <td colspan="1" rowspan="1">{m:viewStyle.technicalid}</td>
       <td colspan="1" rowspan="1">Technical identifier of the element.</td>
-      <td colspan="1" rowspan="1">{m:flow.technicalid}</td>
-    </tr>
-    <tr>
-      <td colspan="1" rowspan="1"><strong>transitions</strong></td>
-      <td colspan="1" rowspan="1">List of <a href="/help/topic/org.obeonetwork.cinematic.m2doc.services/doc/pages/m2doc_services_transition.html">Transition</a></td>
-      <td colspan="1" rowspan="1">{m:flow.transitions}</td>
-      <td colspan="1" rowspan="1">The transitions of this flow.</td>
-      <td colspan="1" rowspan="1">{m:for transition | flow.transitions} transition {m:transition.name}, {m:endfor}</td>
+      <td colspan="1" rowspan="1">{m:viewStyle.technicalid}</td>
     </tr>
     <tr>
       <td colspan="1" rowspan="1"><strong>version</strong></td>
       <td colspan="1" rowspan="1">EInt</td>
-      <td colspan="1" rowspan="1">{m:flow.version}</td>
+      <td colspan="1" rowspan="1">{m:viewStyle.version}</td>
       <td colspan="1" rowspan="1">The version of this object.</td>
-      <td colspan="1" rowspan="1">{m:flow.version}</td>
+      <td colspan="1" rowspan="1">{m:viewStyle.version}</td>
     </tr>
     </tbody>
     </table>
@@ -166,27 +159,6 @@
       <td colspan="1" rowspan="1">{m:myObeoDSMObject.annotation(String)}</td>
       <td colspan="1" rowspan="1">Return first annotation with the specified title.</td>
       <td colspan="1" rowspan="1">{m:myObeoDSMObject.annotation('some title')} returns: The string of the annotation.</td>
-    </tr>
-    <tr>
-      <td colspan="1" rowspan="1"><strong>asFlowImage</strong></td>
-      <td colspan="1" rowspan="1">List of org.obeonetwork.m2doc.element.MImage</td>
-      <td colspan="1" rowspan="1">{m:flow.asFlowImage()}</td>
-      <td colspan="1" rowspan="1">Returns a collection of images representing the target Flow Flow Diagrams.</td>
-      <td colspan="1" rowspan="1">{m:flow.asFlowImage()} returns: A sequence of images.</td>
-    </tr>
-    <tr>
-      <td colspan="1" rowspan="1"><strong>asFlowImage</strong></td>
-      <td colspan="1" rowspan="1">List of org.obeonetwork.m2doc.element.MImage</td>
-      <td colspan="1" rowspan="1">{m:flow.asFlowImage(width)}</td>
-      <td colspan="1" rowspan="1">Returns a collection of images representing the target Flow Flow Diagrams scaled to the given width keeping the initial image ratio.</td>
-      <td colspan="1" rowspan="1">{m:flow.asFlowImage(400)} returns: A sequence of images.</td>
-    </tr>
-    <tr>
-      <td colspan="1" rowspan="1"><strong>asFlowImage</strong></td>
-      <td colspan="1" rowspan="1">List of org.obeonetwork.m2doc.element.MImage</td>
-      <td colspan="1" rowspan="1">{m:flow.asFlowImage(width, height)}</td>
-      <td colspan="1" rowspan="1">Returns a collection of images representing the target Flow Flow Diagrams scaled to the given width and heigth.</td>
-      <td colspan="1" rowspan="1">{m:flow.asFlowImage(400, 300)} returns: A sequence of images.</td>
     </tr>
     <tr>
       <td colspan="1" rowspan="1"><strong>cinematicIcon</strong></td>
