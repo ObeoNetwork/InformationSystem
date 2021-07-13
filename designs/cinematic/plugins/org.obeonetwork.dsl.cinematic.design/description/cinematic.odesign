@@ -225,7 +225,7 @@
               </firstModelOperations>
             </initialOperation>
           </ownedTools>
-          <ownedTools xsi:type="tool:NodeCreationDescription" name="CRE_CreateFinalState" label="Final State" nodeMappings="//@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='Flow%20Diagram']/@defaultLayer/@nodeMappings[name='FLD_FinalState']">
+          <ownedTools xsi:type="tool:NodeCreationDescription" name="CRE_CreateFinalState" label="Final" nodeMappings="//@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='Flow%20Diagram']/@defaultLayer/@nodeMappings[name='FLD_FinalState']">
             <variable name="container"/>
             <viewVariable name="containerView"/>
             <initialOperation>
