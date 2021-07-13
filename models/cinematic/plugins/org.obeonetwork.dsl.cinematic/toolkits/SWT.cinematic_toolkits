@@ -26,7 +26,7 @@
   <widgets xmi:id="_7HoV0IjOEeGrHN3Vq969QA" technicalid="_KwXB8qK1Eeuqs9mIRWXCLA" name="Label" icon="/org.obeonetwork.dsl.cinematic/icons/Label.gif">
     <possibleEvents xmi:id="_QU_ZgIjREeG_dvC9P_PKfA" technicalid="_KwXB86K1Eeuqs9mIRWXCLA" name="onFocus"/>
     <possibleEvents xmi:id="_QU_ZgYjREeG_dvC9P_PKfA" technicalid="_KwXB9KK1Eeuqs9mIRWXCLA" name="onFocusLost"/>
-    <style xmi:id="_i6W14KK3Eeuqs9mIRWXCLA" technicalid="_T4UGJeMNEeuKVbHufiH1-Q" bordered="false" labelHAlignment="LEFT" defaultWidth="187" defaultHeight="41" exampleExpression="aql:self.label"/>
+    <style xmi:id="_i6W14KK3Eeuqs9mIRWXCLA" technicalid="_T4UGJeMNEeuKVbHufiH1-Q" bordered="false" labelHAlignment="LEFT" defaultWidth="187" defaultHeight="41" exampleExpression="aql:self.example"/>
   </widgets>
   <widgets xmi:id="_8kxCMIjOEeGrHN3Vq969QA" technicalid="_KwXB9aK1Eeuqs9mIRWXCLA" name="Link" icon="/org.obeonetwork.dsl.cinematic/icons/Link.gif">
     <possibleEvents xmi:id="_JB3xMIjREeG_dvC9P_PKfA" technicalid="_KwXB9qK1Eeuqs9mIRWXCLA" name="onClick"/>
