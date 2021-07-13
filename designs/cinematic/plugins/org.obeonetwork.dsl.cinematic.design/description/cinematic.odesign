@@ -140,6 +140,9 @@
                 <subModelOperations xsi:type="tool_1:CreateInstance" typeName="flow.Transition" referenceName="transitions">
                   <subModelOperations xsi:type="tool_1:SetValue" featureName="from" valueExpression="var:source"/>
                   <subModelOperations xsi:type="tool_1:SetValue" featureName="to" valueExpression="var:target"/>
+                  <subModelOperations xsi:type="tool_1:If" conditionExpression="aql:source.oclIsKindOf(flow::ViewState)">
+                    <subModelOperations xsi:type="tool_1:ChangeContext" browseExpression="aql:self.openEventSelectionDialog()"/>
+                  </subModelOperations>
                 </subModelOperations>
               </firstModelOperations>
             </initialOperation>
