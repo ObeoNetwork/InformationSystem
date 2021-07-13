@@ -31,15 +31,15 @@
         <description xmi:type="description_2:TreeDescription" href="platform:/plugin/org.obeonetwork.dsl.cinematic.design/description/cinematic.odesign#//@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='UI%20Structure']"/>
         <target xmi:type="cinematic:CinematicRoot" href="E-BookStore.cinematic#_N-7IwIjLEeGrHN3Vq969QA"/>
       </ownedRepresentationDescriptors>
-      <ownedRepresentationDescriptors xmi:type="viewpoint:DRepresentationDescriptor" uid="_AiYAG8LbEeaKX_JUX0UT5w" name="Main Flow Diagram" repPath="#__AcjIB_GEeW_TuSj9xLcNQ" changeId="a466ebb1-bc05-4100-9726-c55697be56e1">
+      <ownedRepresentationDescriptors xmi:type="viewpoint:DRepresentationDescriptor" uid="_AiYAG8LbEeaKX_JUX0UT5w" name="Main Flow Diagram" repPath="#__AcjIB_GEeW_TuSj9xLcNQ" changeId="60bce1c8-784c-4053-b95d-a46e1d692234">
         <description xmi:type="description_1:DiagramDescription" href="platform:/plugin/org.obeonetwork.dsl.cinematic.design/description/cinematic.odesign#//@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='Flow%20Diagram']"/>
         <target xmi:type="cinematic-flow:Flow" href="E-BookStore.cinematic#_aIPqAIjWEeGStfxeQK0zeA"/>
       </ownedRepresentationDescriptors>
-      <ownedRepresentationDescriptors xmi:type="viewpoint:DRepresentationDescriptor" uid="_5vhSsb41EeuEY4x5nvvi9w" name="HomePage View Container Mockup" repPath="#_5vdBQL41EeuEY4x5nvvi9w" changeId="ffe571b5-918b-4432-9a57-ba8e9845b7b6">
+      <ownedRepresentationDescriptors xmi:type="viewpoint:DRepresentationDescriptor" uid="_5vhSsb41EeuEY4x5nvvi9w" name="HomePage View Container Mockup" repPath="#_5vdBQL41EeuEY4x5nvvi9w" changeId="2f635a46-7b86-4afa-b135-e312ceb03e1c">
         <description xmi:type="description_1:DiagramDescription" href="platform:/plugin/org.obeonetwork.dsl.cinematic.design/description/cinematic.odesign#//@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='View%20Container%20Mockup']"/>
         <target xmi:type="cinematic-view:ViewContainer" href="E-BookStore.cinematic#_lSJPQIjZEeGlA5e_Ze9-Rg"/>
       </ownedRepresentationDescriptors>
-      <ownedRepresentationDescriptors xmi:type="viewpoint:DRepresentationDescriptor" uid="_MLsBIL44EeuEY4x5nvvi9w" name="CreateAccount View Container Mockup" repPath="#_MLqL8L44EeuEY4x5nvvi9w" changeId="4fdca6f1-576c-4370-b0f1-347eb4f69633">
+      <ownedRepresentationDescriptors xmi:type="viewpoint:DRepresentationDescriptor" uid="_MLsBIL44EeuEY4x5nvvi9w" name="CreateAccount View Container Mockup" repPath="#_MLqL8L44EeuEY4x5nvvi9w" changeId="4a43e0aa-b4a8-4d3c-8426-f544acf024ee">
         <description xmi:type="description_1:DiagramDescription" href="platform:/plugin/org.obeonetwork.dsl.cinematic.design/description/cinematic.odesign#//@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='View%20Container%20Mockup']"/>
         <target xmi:type="cinematic-view:ViewContainer" href="E-BookStore.cinematic#_XBIcMIjjEeGllIuu_i41WA"/>
       </ownedRepresentationDescriptors>
@@ -47,7 +47,7 @@
         <description xmi:type="description_1:DiagramDescription" href="platform:/plugin/org.obeonetwork.dsl.cinematic.design/description/cinematic.odesign#//@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='View%20Container%20Mockup']"/>
         <target xmi:type="cinematic-view:ViewContainer" href="E-BookStore.cinematic#_kKmsgIjmEeGOp5IdJE0AIw"/>
       </ownedRepresentationDescriptors>
-      <ownedRepresentationDescriptors xmi:type="viewpoint:DRepresentationDescriptor" uid="_hjo2Ib44EeuEY4x5nvvi9w" name="PaymentForm View Container Mockup" repPath="#_hjnA8L44EeuEY4x5nvvi9w" changeId="4991ef12-67f1-42b0-bca5-f4b54cf44886">
+      <ownedRepresentationDescriptors xmi:type="viewpoint:DRepresentationDescriptor" uid="_hjo2Ib44EeuEY4x5nvvi9w" name="PaymentForm View Container Mockup" repPath="#_hjnA8L44EeuEY4x5nvvi9w" changeId="cfa26fc9-3128-46ec-ac60-45248143b141">
         <description xmi:type="description_1:DiagramDescription" href="platform:/plugin/org.obeonetwork.dsl.cinematic.design/description/cinematic.odesign#//@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='View%20Container%20Mockup']"/>
         <target xmi:type="cinematic-view:ViewContainer" href="E-BookStore.cinematic#_mcNiwIjmEeGOp5IdJE0AIw"/>
       </ownedRepresentationDescriptors>
@@ -4000,7 +4000,7 @@
             <layoutConstraint xmi:type="notation:Bounds" xmi:id="__Fc-8h_GEeW_TuSj9xLcNQ"/>
           </children>
           <styles xmi:type="notation:ShapeStyle" xmi:id="__AhboR_GEeW_TuSj9xLcNQ" fontName="Segoe UI" fontHeight="8"/>
-          <layoutConstraint xmi:type="notation:Bounds" xmi:id="__Ahboh_GEeW_TuSj9xLcNQ" x="56" y="505" width="24" height="24"/>
+          <layoutConstraint xmi:type="notation:Bounds" xmi:id="__Ahboh_GEeW_TuSj9xLcNQ" x="20" y="388" width="24" height="24"/>
         </children>
         <children xmi:type="notation:Node" xmi:id="__AzvgB_GEeW_TuSj9xLcNQ" type="2001" element="_qb7PwRWxEemPcZQonXs-Bw">
           <children xmi:type="notation:Node" xmi:id="__A2LwB_GEeW_TuSj9xLcNQ" type="5002">
@@ -4011,7 +4011,7 @@
             <layoutConstraint xmi:type="notation:Bounds" xmi:id="__Fc-9R_GEeW_TuSj9xLcNQ"/>
           </children>
           <styles xmi:type="notation:ShapeStyle" xmi:id="__AzvgR_GEeW_TuSj9xLcNQ" fontName="Segoe UI" fontHeight="8"/>
-          <layoutConstraint xmi:type="notation:Bounds" xmi:id="__Azvgh_GEeW_TuSj9xLcNQ" x="312" y="329" width="520" height="357"/>
+          <layoutConstraint xmi:type="notation:Bounds" xmi:id="__Azvgh_GEeW_TuSj9xLcNQ" x="276" y="212" width="520" height="357"/>
         </children>
         <children xmi:type="notation:Node" xmi:id="__FSm4B_GEeW_TuSj9xLcNQ" type="2001" element="_qb720RWxEemPcZQonXs-Bw">
           <children xmi:type="notation:Node" xmi:id="__FSm4x_GEeW_TuSj9xLcNQ" type="5002">
@@ -4022,7 +4022,7 @@
             <layoutConstraint xmi:type="notation:Bounds" xmi:id="__Fc--B_GEeW_TuSj9xLcNQ"/>
           </children>
           <styles xmi:type="notation:ShapeStyle" xmi:id="__FSm4R_GEeW_TuSj9xLcNQ" fontName="Segoe UI" fontHeight="8"/>
-          <layoutConstraint xmi:type="notation:Bounds" xmi:id="__FSm4h_GEeW_TuSj9xLcNQ" x="967" y="472" width="189" height="130"/>
+          <layoutConstraint xmi:type="notation:Bounds" xmi:id="__FSm4h_GEeW_TuSj9xLcNQ" x="931" y="355" width="189" height="130"/>
         </children>
         <children xmi:type="notation:Node" xmi:id="__FT1AB_GEeW_TuSj9xLcNQ" type="2001" element="_qb8d4BWxEemPcZQonXs-Bw">
           <children xmi:type="notation:Node" xmi:id="__FUcEB_GEeW_TuSj9xLcNQ" type="5002">
@@ -4033,7 +4033,7 @@
             <layoutConstraint xmi:type="notation:Bounds" xmi:id="__FdmAh_GEeW_TuSj9xLcNQ"/>
           </children>
           <styles xmi:type="notation:ShapeStyle" xmi:id="__FT1AR_GEeW_TuSj9xLcNQ" fontName="Segoe UI" fontHeight="8"/>
-          <layoutConstraint xmi:type="notation:Bounds" xmi:id="__FT1Ah_GEeW_TuSj9xLcNQ" x="160" y="481" width="72" height="72"/>
+          <layoutConstraint xmi:type="notation:Bounds" xmi:id="__FT1Ah_GEeW_TuSj9xLcNQ" x="124" y="364" width="72" height="72"/>
         </children>
         <children xmi:type="notation:Node" xmi:id="__FVDIB_GEeW_TuSj9xLcNQ" type="2001" element="_qb9E8RWxEemPcZQonXs-Bw">
           <children xmi:type="notation:Node" xmi:id="__FVqMB_GEeW_TuSj9xLcNQ" type="5002">
@@ -4044,7 +4044,7 @@
             <layoutConstraint xmi:type="notation:Bounds" xmi:id="__FdmBR_GEeW_TuSj9xLcNQ"/>
           </children>
           <styles xmi:type="notation:ShapeStyle" xmi:id="__FVDIR_GEeW_TuSj9xLcNQ" fontName="Segoe UI" fontHeight="8"/>
-          <layoutConstraint xmi:type="notation:Bounds" xmi:id="__FVDIh_GEeW_TuSj9xLcNQ" x="356" y="156" width="72" height="72"/>
+          <layoutConstraint xmi:type="notation:Bounds" xmi:id="__FVDIh_GEeW_TuSj9xLcNQ" x="320" y="39" width="72" height="72"/>
         </children>
         <children xmi:type="notation:Node" xmi:id="__FW4UB_GEeW_TuSj9xLcNQ" type="2001" element="_qb9E9BWxEemPcZQonXs-Bw">
           <children xmi:type="notation:Node" xmi:id="__FW4Ux_GEeW_TuSj9xLcNQ" type="5002">
@@ -4055,7 +4055,7 @@
             <layoutConstraint xmi:type="notation:Bounds" xmi:id="__FeNEh_GEeW_TuSj9xLcNQ"/>
           </children>
           <styles xmi:type="notation:ShapeStyle" xmi:id="__FW4UR_GEeW_TuSj9xLcNQ" fontName="Segoe UI" fontHeight="8"/>
-          <layoutConstraint xmi:type="notation:Bounds" xmi:id="__FW4Uh_GEeW_TuSj9xLcNQ" x="544" y="156" width="72" height="72"/>
+          <layoutConstraint xmi:type="notation:Bounds" xmi:id="__FW4Uh_GEeW_TuSj9xLcNQ" x="508" y="39" width="72" height="72"/>
         </children>
         <children xmi:type="notation:Node" xmi:id="__FYGcB_GEeW_TuSj9xLcNQ" type="2001" element="_qb9sARWxEemPcZQonXs-Bw">
           <children xmi:type="notation:Node" xmi:id="__FYGcx_GEeW_TuSj9xLcNQ" type="5002">
@@ -4066,7 +4066,7 @@
             <layoutConstraint xmi:type="notation:Bounds" xmi:id="__FeNFR_GEeW_TuSj9xLcNQ"/>
           </children>
           <styles xmi:type="notation:ShapeStyle" xmi:id="__FYGcR_GEeW_TuSj9xLcNQ" fontName="Segoe UI" fontHeight="8"/>
-          <layoutConstraint xmi:type="notation:Bounds" xmi:id="__FYGch_GEeW_TuSj9xLcNQ" x="712" y="156" width="72" height="72"/>
+          <layoutConstraint xmi:type="notation:Bounds" xmi:id="__FYGch_GEeW_TuSj9xLcNQ" x="676" y="39" width="72" height="72"/>
         </children>
         <children xmi:type="notation:Node" xmi:id="__FYtgB_GEeW_TuSj9xLcNQ" type="2001" element="_qb9sBBWxEemPcZQonXs-Bw">
           <children xmi:type="notation:Node" xmi:id="__FZUkB_GEeW_TuSj9xLcNQ" type="5002">
@@ -4077,7 +4077,7 @@
             <layoutConstraint xmi:type="notation:Bounds" xmi:id="__Fe0Ih_GEeW_TuSj9xLcNQ"/>
           </children>
           <styles xmi:type="notation:ShapeStyle" xmi:id="__FYtgR_GEeW_TuSj9xLcNQ" fontName="Segoe UI" fontHeight="8"/>
-          <layoutConstraint xmi:type="notation:Bounds" xmi:id="__FYtgh_GEeW_TuSj9xLcNQ" x="1268" y="516" width="72" height="72"/>
+          <layoutConstraint xmi:type="notation:Bounds" xmi:id="__FYtgh_GEeW_TuSj9xLcNQ" x="1232" y="399" width="72" height="72"/>
         </children>
         <children xmi:type="notation:Node" xmi:id="__FZ7oB_GEeW_TuSj9xLcNQ" type="2001" element="_qb-TEBWxEemPcZQonXs-Bw">
           <children xmi:type="notation:Node" xmi:id="__FaisB_GEeW_TuSj9xLcNQ" type="5002">
@@ -4088,7 +4088,7 @@
             <layoutConstraint xmi:type="notation:Bounds" xmi:id="__Fe0JR_GEeW_TuSj9xLcNQ"/>
           </children>
           <styles xmi:type="notation:ShapeStyle" xmi:id="__FZ7oR_GEeW_TuSj9xLcNQ" fontName="Segoe UI" fontHeight="8"/>
-          <layoutConstraint xmi:type="notation:Bounds" xmi:id="__FZ7oh_GEeW_TuSj9xLcNQ" x="976" y="329" width="123" height="63"/>
+          <layoutConstraint xmi:type="notation:Bounds" xmi:id="__FZ7oh_GEeW_TuSj9xLcNQ" x="940" y="212" width="123" height="63"/>
         </children>
         <children xmi:type="notation:Node" xmi:id="__FbJwB_GEeW_TuSj9xLcNQ" type="2003" element="_qb-6IBWxEemPcZQonXs-Bw">
           <children xmi:type="notation:Node" xmi:id="__Fbw0B_GEeW_TuSj9xLcNQ" type="5007"/>
@@ -4113,11 +4113,15 @@
               <styles xmi:type="notation:FontStyle" xmi:id="_AkccosLbEeaKX_JUX0UT5w"/>
               <layoutConstraint xmi:type="notation:Location" xmi:id="__FgCRR_GEeW_TuSj9xLcNQ"/>
             </children>
+            <children xmi:type="notation:Node" xmi:id="_9YVesOPgEeuvZ5sdreLKyg" type="3010" element="_9Xr-cOPgEeuvZ5sdreLKyg">
+              <styles xmi:type="notation:FontStyle" xmi:id="_9YVesePgEeuvZ5sdreLKyg" fontName="Noto Sans" fontHeight="8"/>
+              <layoutConstraint xmi:type="notation:Location" xmi:id="_9YVesuPgEeuvZ5sdreLKyg"/>
+            </children>
             <styles xmi:type="notation:SortingStyle" xmi:id="__Fbw0h_GEeW_TuSj9xLcNQ"/>
             <styles xmi:type="notation:FilteringStyle" xmi:id="__Fbw0x_GEeW_TuSj9xLcNQ"/>
           </children>
           <styles xmi:type="notation:ShapeStyle" xmi:id="__FbJwR_GEeW_TuSj9xLcNQ" fontName="Segoe UI" fontHeight="8"/>
-          <layoutConstraint xmi:type="notation:Bounds" xmi:id="__FbJwh_GEeW_TuSj9xLcNQ" x="20" y="20"/>
+          <layoutConstraint xmi:type="notation:Bounds" xmi:id="__FbJwh_GEeW_TuSj9xLcNQ" x="20" y="39"/>
         </children>
         <children xmi:type="notation:Node" xmi:id="__Fbw1B_GEeW_TuSj9xLcNQ" type="2003" element="_qcAIQRWxEemPcZQonXs-Bw">
           <children xmi:type="notation:Node" xmi:id="__Fbw1x_GEeW_TuSj9xLcNQ" type="5007"/>
@@ -4142,7 +4146,7 @@
             <styles xmi:type="notation:FilteringStyle" xmi:id="__Fbw2h_GEeW_TuSj9xLcNQ"/>
           </children>
           <styles xmi:type="notation:ShapeStyle" xmi:id="__Fbw1R_GEeW_TuSj9xLcNQ" fontName="Segoe UI" fontHeight="8"/>
-          <layoutConstraint xmi:type="notation:Bounds" xmi:id="__Fbw1h_GEeW_TuSj9xLcNQ" x="341" y="728"/>
+          <layoutConstraint xmi:type="notation:Bounds" xmi:id="__Fbw1h_GEeW_TuSj9xLcNQ" x="305" y="611"/>
         </children>
         <children xmi:type="notation:Node" xmi:id="__FcX4B_GEeW_TuSj9xLcNQ" type="2003" element="_qcAvUBWxEemPcZQonXs-Bw">
           <children xmi:type="notation:Node" xmi:id="__FcX4x_GEeW_TuSj9xLcNQ" type="5007"/>
@@ -4171,7 +4175,7 @@
             <styles xmi:type="notation:FilteringStyle" xmi:id="__FcX5h_GEeW_TuSj9xLcNQ"/>
           </children>
           <styles xmi:type="notation:ShapeStyle" xmi:id="__FcX4R_GEeW_TuSj9xLcNQ" fontName="Segoe UI" fontHeight="8"/>
-          <layoutConstraint xmi:type="notation:Bounds" xmi:id="__FcX4h_GEeW_TuSj9xLcNQ" x="1002" y="640"/>
+          <layoutConstraint xmi:type="notation:Bounds" xmi:id="__FcX4h_GEeW_TuSj9xLcNQ" x="966" y="523"/>
         </children>
         <styles xmi:type="notation:DiagramStyle" xmi:id="__Ag0kh_GEeW_TuSj9xLcNQ"/>
         <edges xmi:type="notation:Edge" xmi:id="__FjFkB_GEeW_TuSj9xLcNQ" type="4001" element="_qcEZsBWxEemPcZQonXs-Bw" source="__AzvgB_GEeW_TuSj9xLcNQ" target="__Fbw1B_GEeW_TuSj9xLcNQ">
@@ -4211,14 +4215,14 @@
             <layoutConstraint xmi:type="notation:Bounds" xmi:id="__FmI5R_GEeW_TuSj9xLcNQ" x="26" y="10"/>
           </children>
           <children xmi:type="notation:Node" xmi:id="__FmI5h_GEeW_TuSj9xLcNQ" type="6002">
-            <layoutConstraint xmi:type="notation:Bounds" xmi:id="__FmI5x_GEeW_TuSj9xLcNQ" x="1" y="10"/>
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="__FmI5x_GEeW_TuSj9xLcNQ" y="10"/>
           </children>
           <children xmi:type="notation:Node" xmi:id="__FmI6B_GEeW_TuSj9xLcNQ" type="6003">
             <layoutConstraint xmi:type="notation:Bounds" xmi:id="__FmI6R_GEeW_TuSj9xLcNQ" y="10"/>
           </children>
           <styles xmi:type="notation:ConnectorStyle" xmi:id="__FmI4R_GEeW_TuSj9xLcNQ" routing="Rectilinear"/>
           <styles xmi:type="notation:FontStyle" xmi:id="__FmI4h_GEeW_TuSj9xLcNQ" fontName="Segoe UI" fontHeight="8"/>
-          <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="__FmI4x_GEeW_TuSj9xLcNQ" points="[-2, 3, -82, -15]$[80, 3, 0, -15]"/>
+          <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="__FmI4x_GEeW_TuSj9xLcNQ" points="[-1, 0, -81, -18]$[80, 0, 0, -18]"/>
           <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="__Fmv8B_GEeW_TuSj9xLcNQ" id="(1.0,0.5)"/>
           <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="__Fmv8R_GEeW_TuSj9xLcNQ" id="(0.0,0.7565476190476189)"/>
         </edges>
@@ -4227,14 +4231,14 @@
             <layoutConstraint xmi:type="notation:Bounds" xmi:id="__FnXAR_GEeW_TuSj9xLcNQ" y="-10"/>
           </children>
           <children xmi:type="notation:Node" xmi:id="__FnXAh_GEeW_TuSj9xLcNQ" type="6002">
-            <layoutConstraint xmi:type="notation:Bounds" xmi:id="__FnXAx_GEeW_TuSj9xLcNQ" x="8" y="10"/>
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="__FnXAx_GEeW_TuSj9xLcNQ" x="40" y="10"/>
           </children>
           <children xmi:type="notation:Node" xmi:id="__FnXBB_GEeW_TuSj9xLcNQ" type="6003">
-            <layoutConstraint xmi:type="notation:Bounds" xmi:id="__FnXBR_GEeW_TuSj9xLcNQ" x="-15" y="10"/>
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="__FnXBR_GEeW_TuSj9xLcNQ" x="-16" y="10"/>
           </children>
           <styles xmi:type="notation:ConnectorStyle" xmi:id="__Fmv8x_GEeW_TuSj9xLcNQ" routing="Rectilinear"/>
           <styles xmi:type="notation:FontStyle" xmi:id="__Fmv9B_GEeW_TuSj9xLcNQ" fontName="Segoe UI" fontHeight="8"/>
-          <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="__Fmv9R_GEeW_TuSj9xLcNQ" points="[-38, -15, -81, 120]$[43, -15, 0, 120]"/>
+          <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="__Fmv9R_GEeW_TuSj9xLcNQ" points="[-38, -18, -81, 117]$[43, -18, 0, 117]"/>
           <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="__Fn-EB_GEeW_TuSj9xLcNQ" id="(1.5185185185185186,0.7565476190476189)"/>
           <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="__Fn-ER_GEeW_TuSj9xLcNQ" id="(0.0,0.20676497984265382)"/>
         </edges>
@@ -4252,7 +4256,7 @@
           <styles xmi:type="notation:FontStyle" xmi:id="__Fn-FB_GEeW_TuSj9xLcNQ" fontName="Segoe UI" fontHeight="8"/>
           <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="__Fn-FR_GEeW_TuSj9xLcNQ" points="[64, -75, -41, 138]$[64, -185, -41, 28]"/>
           <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="__FolJB_GEeW_TuSj9xLcNQ" id="(0.0,0.20676497984265382)"/>
-          <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_RSl-oL46EeuEY4x5nvvi9w" id="(0.8580246913580247,0.4876543209876543)"/>
+          <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_RSl-oL46EeuEY4x5nvvi9w" id="(0.8580246913580247,0.4876543209876544)"/>
         </edges>
         <edges xmi:type="notation:Edge" xmi:id="__FpMMB_GEeW_TuSj9xLcNQ" type="4001" element="_qjyyVRWxEemPcZQonXs-Bw" source="__AzvgB_GEeW_TuSj9xLcNQ" target="__FW4UB_GEeW_TuSj9xLcNQ">
           <children xmi:type="notation:Node" xmi:id="__FpMNB_GEeW_TuSj9xLcNQ" type="6001">
@@ -4272,7 +4276,7 @@
         </edges>
         <edges xmi:type="notation:Edge" xmi:id="__FqaUB_GEeW_TuSj9xLcNQ" type="4001" element="_qjzZYhWxEemPcZQonXs-Bw" source="__AzvgB_GEeW_TuSj9xLcNQ" target="__FYGcB_GEeW_TuSj9xLcNQ">
           <children xmi:type="notation:Node" xmi:id="__FqaVB_GEeW_TuSj9xLcNQ" type="6001">
-            <layoutConstraint xmi:type="notation:Bounds" xmi:id="__FqaVR_GEeW_TuSj9xLcNQ" x="12" y="-13"/>
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="__FqaVR_GEeW_TuSj9xLcNQ" x="15" y="-17"/>
           </children>
           <children xmi:type="notation:Node" xmi:id="__FqaVh_GEeW_TuSj9xLcNQ" type="6002">
             <layoutConstraint xmi:type="notation:Bounds" xmi:id="__FqaVx_GEeW_TuSj9xLcNQ" x="4" y="1"/>
@@ -4288,49 +4292,49 @@
         </edges>
         <edges xmi:type="notation:Edge" xmi:id="__FrBZB_GEeW_TuSj9xLcNQ" type="4001" element="_qjzZZxWxEemPcZQonXs-Bw" source="__AzvgB_GEeW_TuSj9xLcNQ" target="__FSm4B_GEeW_TuSj9xLcNQ">
           <children xmi:type="notation:Node" xmi:id="__FrocB_GEeW_TuSj9xLcNQ" type="6001">
-            <layoutConstraint xmi:type="notation:Bounds" xmi:id="__FrocR_GEeW_TuSj9xLcNQ" x="-12" y="-16"/>
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="__FrocR_GEeW_TuSj9xLcNQ" y="-10"/>
           </children>
           <children xmi:type="notation:Node" xmi:id="__Froch_GEeW_TuSj9xLcNQ" type="6002">
-            <layoutConstraint xmi:type="notation:Bounds" xmi:id="__Frocx_GEeW_TuSj9xLcNQ" x="24" y="10"/>
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="__Frocx_GEeW_TuSj9xLcNQ" x="32" y="10"/>
           </children>
           <children xmi:type="notation:Node" xmi:id="__FrodB_GEeW_TuSj9xLcNQ" type="6003">
-            <layoutConstraint xmi:type="notation:Bounds" xmi:id="__FrodR_GEeW_TuSj9xLcNQ" x="-40" y="53"/>
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="__FrodR_GEeW_TuSj9xLcNQ" y="10"/>
           </children>
           <styles xmi:type="notation:ConnectorStyle" xmi:id="__FrBZR_GEeW_TuSj9xLcNQ" routing="Rectilinear"/>
           <styles xmi:type="notation:FontStyle" xmi:id="__FrBZh_GEeW_TuSj9xLcNQ" fontName="Segoe UI" fontHeight="8"/>
-          <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="__FrBZx_GEeW_TuSj9xLcNQ" points="[519, 172, -214, 13]$[655, 172, -78, 13]"/>
+          <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="__FrBZx_GEeW_TuSj9xLcNQ" points="[519, 101, -214, -58]$[655, 101, -78, -58]"/>
           <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="__FsPgB_GEeW_TuSj9xLcNQ" id="(0.0,0.20676497984265382)"/>
           <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="__FsPgR_GEeW_TuSj9xLcNQ" id="(0.4147545028374044,0.7072838665759019)"/>
         </edges>
         <edges xmi:type="notation:Edge" xmi:id="__FsPgh_GEeW_TuSj9xLcNQ" type="4001" element="_qj0AchWxEemPcZQonXs-Bw" source="__FSm4B_GEeW_TuSj9xLcNQ" target="__AzvgB_GEeW_TuSj9xLcNQ">
           <children xmi:type="notation:Node" xmi:id="__FsPhh_GEeW_TuSj9xLcNQ" type="6001">
-            <layoutConstraint xmi:type="notation:Bounds" xmi:id="__FsPhx_GEeW_TuSj9xLcNQ" x="12" y="14"/>
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="__FsPhx_GEeW_TuSj9xLcNQ" x="-6" y="12"/>
           </children>
           <children xmi:type="notation:Node" xmi:id="__Fs2kB_GEeW_TuSj9xLcNQ" type="6002">
-            <layoutConstraint xmi:type="notation:Bounds" xmi:id="__Fs2kR_GEeW_TuSj9xLcNQ" x="30" y="-10"/>
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="__Fs2kR_GEeW_TuSj9xLcNQ" x="38" y="-10"/>
           </children>
           <children xmi:type="notation:Node" xmi:id="__Fs2kh_GEeW_TuSj9xLcNQ" type="6003">
-            <layoutConstraint xmi:type="notation:Bounds" xmi:id="__Fs2kx_GEeW_TuSj9xLcNQ" x="-26" y="-10"/>
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="__Fs2kx_GEeW_TuSj9xLcNQ" x="-34" y="-10"/>
           </children>
           <styles xmi:type="notation:ConnectorStyle" xmi:id="__FsPgx_GEeW_TuSj9xLcNQ" routing="Rectilinear"/>
           <styles xmi:type="notation:FontStyle" xmi:id="__FsPhB_GEeW_TuSj9xLcNQ" fontName="Segoe UI" fontHeight="8"/>
-          <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="__FsPhR_GEeW_TuSj9xLcNQ" points="[-78, -51, 655, 108]$[-214, -51, 519, 108]"/>
+          <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="__FsPhR_GEeW_TuSj9xLcNQ" points="[-78, -2, 655, 157]$[-214, -2, 519, 157]"/>
           <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="__Fs2lB_GEeW_TuSj9xLcNQ" id="(0.4147545028374044,0.7072838665759019)"/>
           <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="__Fs2lR_GEeW_TuSj9xLcNQ" id="(0.0,0.20676497984265382)"/>
         </edges>
         <edges xmi:type="notation:Edge" xmi:id="__FuEsB_GEeW_TuSj9xLcNQ" type="4001" element="_qj0AdxWxEemPcZQonXs-Bw" source="__FSm4B_GEeW_TuSj9xLcNQ" target="__FYtgB_GEeW_TuSj9xLcNQ">
           <children xmi:type="notation:Node" xmi:id="__FurwB_GEeW_TuSj9xLcNQ" type="6001">
-            <layoutConstraint xmi:type="notation:Bounds" xmi:id="__FurwR_GEeW_TuSj9xLcNQ" x="1" y="-16"/>
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="__FurwR_GEeW_TuSj9xLcNQ" x="-12" y="-13"/>
           </children>
           <children xmi:type="notation:Node" xmi:id="__FvS0B_GEeW_TuSj9xLcNQ" type="6002">
-            <layoutConstraint xmi:type="notation:Bounds" xmi:id="__FvS0R_GEeW_TuSj9xLcNQ" x="6" y="10"/>
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="__FvS0R_GEeW_TuSj9xLcNQ" x="7" y="10"/>
           </children>
           <children xmi:type="notation:Node" xmi:id="__Fv54B_GEeW_TuSj9xLcNQ" type="6003">
-            <layoutConstraint xmi:type="notation:Bounds" xmi:id="__Fv54R_GEeW_TuSj9xLcNQ" x="-3" y="10"/>
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="__Fv54R_GEeW_TuSj9xLcNQ" x="2" y="10"/>
           </children>
           <styles xmi:type="notation:ConnectorStyle" xmi:id="__FuEsR_GEeW_TuSj9xLcNQ" routing="Rectilinear"/>
           <styles xmi:type="notation:FontStyle" xmi:id="__FuEsh_GEeW_TuSj9xLcNQ" fontName="Segoe UI" fontHeight="8"/>
-          <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="__FuEsx_GEeW_TuSj9xLcNQ" points="[110, -7, -113, -19]$[223, -7, 0, -19]"/>
+          <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="__FuEsx_GEeW_TuSj9xLcNQ" points="[110, -14, -113, -22]$[223, -14, 0, -22]"/>
           <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="__Fv54h_GEeW_TuSj9xLcNQ" id="(0.4147545028374044,0.7072838665759019)"/>
           <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="__Fv54x_GEeW_TuSj9xLcNQ" id="(0.0,0.7759462759462759)"/>
         </edges>
@@ -4400,17 +4404,17 @@
         </edges>
         <edges xmi:type="notation:Edge" xmi:id="__F1Zch_GEeW_TuSj9xLcNQ" type="4001" element="_qj11oBWxEemPcZQonXs-Bw" source="__AzvgB_GEeW_TuSj9xLcNQ" target="__FZ7oB_GEeW_TuSj9xLcNQ">
           <children xmi:type="notation:Node" xmi:id="__F2AgB_GEeW_TuSj9xLcNQ" type="6001">
-            <layoutConstraint xmi:type="notation:Bounds" xmi:id="__F2AgR_GEeW_TuSj9xLcNQ" y="-13"/>
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="__F2AgR_GEeW_TuSj9xLcNQ" x="-3" y="-8"/>
           </children>
           <children xmi:type="notation:Node" xmi:id="__F2Agh_GEeW_TuSj9xLcNQ" type="6002">
-            <layoutConstraint xmi:type="notation:Bounds" xmi:id="__F2Agx_GEeW_TuSj9xLcNQ" x="18" y="10"/>
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="__F2Agx_GEeW_TuSj9xLcNQ" x="20" y="10"/>
           </children>
           <children xmi:type="notation:Node" xmi:id="__F2AhB_GEeW_TuSj9xLcNQ" type="6003">
-            <layoutConstraint xmi:type="notation:Bounds" xmi:id="__F2AhR_GEeW_TuSj9xLcNQ" x="-61" y="2"/>
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="__F2AhR_GEeW_TuSj9xLcNQ" y="10"/>
           </children>
           <styles xmi:type="notation:ConnectorStyle" xmi:id="__F1Zcx_GEeW_TuSj9xLcNQ" routing="Rectilinear"/>
           <styles xmi:type="notation:FontStyle" xmi:id="__F1ZdB_GEeW_TuSj9xLcNQ" fontName="Segoe UI" fontHeight="8"/>
-          <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="__F1ZdR_GEeW_TuSj9xLcNQ" points="[519, -35, -268, 5]$[666, -35, -121, 5]"/>
+          <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="__F1ZdR_GEeW_TuSj9xLcNQ" points="[519, -35, -268, 5]$[664, -35, -123, 5]"/>
           <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="__F2nkB_GEeW_TuSj9xLcNQ" id="(0.0,0.20676497984265382)"/>
           <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="__F2nkR_GEeW_TuSj9xLcNQ" id="(1.0,0.49206349206349204)"/>
         </edges>
@@ -4593,6 +4597,14 @@
         <target xmi:type="cinematic-flow:FlowEvent" href="E-BookStore.cinematic#_QVdjgIjlEeGOp5IdJE0AIw"/>
         <semanticElements xmi:type="cinematic-flow:FlowEvent" href="E-BookStore.cinematic#_QVdjgIjlEeGOp5IdJE0AIw"/>
         <ownedStyle xmi:type="diagram:Square" uid="_qcAIQBWxEemPcZQonXs-Bw" labelAlignment="LEFT">
+          <description xmi:type="style:SquareDescription" href="platform:/plugin/org.obeonetwork.dsl.cinematic.design/description/cinematic.odesign#//@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='Flow%20Diagram']/@additionalLayers[name='Flow%20Events']/@containerMappings[name='FLD_FlowEvents']/@subNodeMappings[name='FLD_FlowEvent']/@style"/>
+        </ownedStyle>
+        <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.obeonetwork.dsl.cinematic.design/description/cinematic.odesign#//@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='Flow%20Diagram']/@additionalLayers[name='Flow%20Events']/@containerMappings[name='FLD_FlowEvents']/@subNodeMappings[name='FLD_FlowEvent']"/>
+      </ownedElements>
+      <ownedElements xmi:type="diagram:DNodeListElement" uid="_9Xr-cOPgEeuvZ5sdreLKyg" name="event6 (0)">
+        <target xmi:type="cinematic-flow:FlowEvent" href="E-BookStore.cinematic#_9QDscOPgEeuvZ5sdreLKyg"/>
+        <semanticElements xmi:type="cinematic-flow:FlowEvent" href="E-BookStore.cinematic#_9QDscOPgEeuvZ5sdreLKyg"/>
+        <ownedStyle xmi:type="diagram:Square" uid="_9XtMkOPgEeuvZ5sdreLKyg" labelAlignment="LEFT">
           <description xmi:type="style:SquareDescription" href="platform:/plugin/org.obeonetwork.dsl.cinematic.design/description/cinematic.odesign#//@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='Flow%20Diagram']/@additionalLayers[name='Flow%20Events']/@containerMappings[name='FLD_FlowEvents']/@subNodeMappings[name='FLD_FlowEvent']/@style"/>
         </ownedStyle>
         <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.obeonetwork.dsl.cinematic.design/description/cinematic.odesign#//@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='Flow%20Diagram']/@additionalLayers[name='Flow%20Events']/@containerMappings[name='FLD_FlowEvents']/@subNodeMappings[name='FLD_FlowEvent']"/>
@@ -10185,122 +10197,33 @@
     </ownedAnnotationEntries>
     <ownedAnnotationEntries xmi:type="description:AnnotationEntry" uid="_5vxxYL41EeuEY4x5nvvi9w" source="DANNOTATION_CUSTOMIZATION_KEY">
       <data xmi:type="diagram:ComputedStyleDescriptionRegistry" uid="_5vxxYb41EeuEY4x5nvvi9w">
-        <computedStyleDescriptions xmi:type="style:FlatContainerStyleDescription" xmi:id="_usQ5QL44EeuEY4x5nvvi9w" arcWidth="20" arcHeight="20" borderSizeComputationExpression="aql:self.getBorderSize()" labelSize="12" showIcon="false" labelExpression="HomePage" backgroundStyle="GradientTopToBottom">
+        <computedStyleDescriptions xmi:type="style:FlatContainerStyleDescription" xmi:id="_2A9ssOPZEeuQ0Zx4ARVcxA" arcWidth="20" arcHeight="20" borderSizeComputationExpression="aql:self.getBorderSize()" labelSize="12" showIcon="false" labelExpression="aql:self.getVCDLabel()" backgroundStyle="GradientTopToBottom">
           <borderColor xmi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
           <labelColor xmi:type="description:ComputedColor" href="platform:/plugin/org.obeonetwork.dsl.cinematic.design/description/cinematic.odesign#//@userColorsPalettes[name=null]/@entries[name='VCD_ViewElement_LabelColor']"/>
           <backgroundColor xmi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
           <foregroundColor xmi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
           <labelBorderStyle xmi:type="style_1:LabelBorderStyleDescription" href="environment:/viewpoint#//@labelBorderStyles/@labelBorderStyleDescriptions.1"/>
         </computedStyleDescriptions>
-        <computedStyleDescriptions xmi:type="style:FlatContainerStyleDescription" xmi:id="_usT8kL44EeuEY4x5nvvi9w" arcWidth="20" arcHeight="20" borderSizeComputationExpression="aql:self.getBorderSize()" labelSize="12" showIcon="false" labelExpression="createAccount" labelAlignment="LEFT">
+        <computedStyleDescriptions xmi:type="style:FlatContainerStyleDescription" xmi:id="_2A-TwePZEeuQ0Zx4ARVcxA" arcWidth="20" arcHeight="20" borderSizeComputationExpression="aql:self.getBorderSize()" labelSize="12" showIcon="false" labelExpression="aql:self.getVCDLabel()" labelAlignment="LEFT">
           <borderColor xmi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
           <labelFormat>underline</labelFormat>
           <labelColor xmi:type="description:ComputedColor" href="platform:/plugin/org.obeonetwork.dsl.cinematic.design/description/cinematic.odesign#//@userColorsPalettes[name=null]/@entries[name='VCD_ViewElement_LabelColor']"/>
           <backgroundColor xmi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
           <foregroundColor xmi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
         </computedStyleDescriptions>
-        <computedStyleDescriptions xmi:type="style:FlatContainerStyleDescription" xmi:id="_usW_4L44EeuEY4x5nvvi9w" arcWidth="20" arcHeight="20" borderSizeComputationExpression="aql:self.getBorderSize()" labelSize="12" showIcon="false" labelExpression="SearchForm" backgroundStyle="GradientTopToBottom">
-          <borderColor xmi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
-          <labelColor xmi:type="description:ComputedColor" href="platform:/plugin/org.obeonetwork.dsl.cinematic.design/description/cinematic.odesign#//@userColorsPalettes[name=null]/@entries[name='VCD_ViewElement_LabelColor']"/>
-          <backgroundColor xmi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
-          <foregroundColor xmi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
-          <labelBorderStyle xmi:type="style_1:LabelBorderStyleDescription" href="environment:/viewpoint#//@labelBorderStyles/@labelBorderStyleDescriptions.1"/>
-        </computedStyleDescriptions>
-        <computedStyleDescriptions xmi:type="style:FlatContainerStyleDescription" xmi:id="_usY1EL44EeuEY4x5nvvi9w" arcWidth="20" arcHeight="20" borderSizeComputationExpression="aql:self.getBorderSize()" labelSize="12" showIcon="false" labelExpression="Books" backgroundStyle="GradientTopToBottom">
-          <borderColor xmi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
-          <labelColor xmi:type="description:ComputedColor" href="platform:/plugin/org.obeonetwork.dsl.cinematic.design/description/cinematic.odesign#//@userColorsPalettes[name=null]/@entries[name='VCD_ViewElement_LabelColor']"/>
-          <backgroundColor xmi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
-          <foregroundColor xmi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
-          <labelBorderStyle xmi:type="style_1:LabelBorderStyleDescription" href="environment:/viewpoint#//@labelBorderStyles/@labelBorderStyleDescriptions.1"/>
-        </computedStyleDescriptions>
-        <computedStyleDescriptions xmi:type="style:FlatContainerStyleDescription" xmi:id="_usbRUL44EeuEY4x5nvvi9w" arcWidth="20" arcHeight="20" borderSizeComputationExpression="aql:self.getBorderSize()" labelSize="12" showIcon="false" labelExpression="ShoppingCart" backgroundStyle="GradientTopToBottom">
-          <borderColor xmi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
-          <labelColor xmi:type="description:ComputedColor" href="platform:/plugin/org.obeonetwork.dsl.cinematic.design/description/cinematic.odesign#//@userColorsPalettes[name=null]/@entries[name='VCD_ViewElement_LabelColor']"/>
-          <backgroundColor xmi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
-          <foregroundColor xmi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
-          <labelBorderStyle xmi:type="style_1:LabelBorderStyleDescription" href="environment:/viewpoint#//@labelBorderStyles/@labelBorderStyleDescriptions.1"/>
-        </computedStyleDescriptions>
-        <computedStyleDescriptions xmi:type="style:FlatContainerStyleDescription" xmi:id="_usdGgL44EeuEY4x5nvvi9w" arcWidth="20" arcHeight="20" borderSizeComputationExpression="aql:self.getBorderSize()" labelSize="12" showIcon="false" labelExpression="author">
+        <computedStyleDescriptions xmi:type="style:FlatContainerStyleDescription" xmi:id="_2A_h5OPZEeuQ0Zx4ARVcxA" arcWidth="20" arcHeight="20" borderSizeComputationExpression="aql:self.getBorderSize()" labelSize="12" showIcon="false" labelExpression="aql:self.getVCDLabel()">
           <borderColor xmi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
           <labelColor xmi:type="description:ComputedColor" href="platform:/plugin/org.obeonetwork.dsl.cinematic.design/description/cinematic.odesign#//@userColorsPalettes[name=null]/@entries[name='VCD_ViewElement_LabelColor']"/>
           <backgroundColor xmi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
           <foregroundColor xmi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
         </computedStyleDescriptions>
-        <computedStyleDescriptions xmi:type="style:FlatContainerStyleDescription" xmi:id="_usfiwL44EeuEY4x5nvvi9w" arcWidth="20" arcHeight="20" borderSizeComputationExpression="aql:self.getBorderSize()" labelSize="12" showIcon="false" labelExpression="type">
+        <computedStyleDescriptions xmi:type="style:FlatContainerStyleDescription" xmi:id="_2BAI9uPZEeuQ0Zx4ARVcxA" arcWidth="20" arcHeight="20" borderSizeComputationExpression="aql:self.getBorderSize()" labelSize="12" showIcon="false" labelExpression="aql:self.getVCDLabel()" labelAlignment="LEFT">
           <borderColor xmi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
           <labelColor xmi:type="description:ComputedColor" href="platform:/plugin/org.obeonetwork.dsl.cinematic.design/description/cinematic.odesign#//@userColorsPalettes[name=null]/@entries[name='VCD_ViewElement_LabelColor']"/>
           <backgroundColor xmi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
           <foregroundColor xmi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
         </computedStyleDescriptions>
-        <computedStyleDescriptions xmi:type="style:FlatContainerStyleDescription" xmi:id="_ushX8L44EeuEY4x5nvvi9w" arcWidth="20" arcHeight="20" borderSizeComputationExpression="aql:self.getBorderSize()" labelSize="12" showIcon="false" labelExpression="keywords" labelAlignment="LEFT">
-          <borderColor xmi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
-          <labelColor xmi:type="description:ComputedColor" href="platform:/plugin/org.obeonetwork.dsl.cinematic.design/description/cinematic.odesign#//@userColorsPalettes[name=null]/@entries[name='VCD_ViewElement_LabelColor']"/>
-          <backgroundColor xmi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
-          <foregroundColor xmi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
-        </computedStyleDescriptions>
-        <computedStyleDescriptions xmi:type="style:FlatContainerStyleDescription" xmi:id="_usjNIL44EeuEY4x5nvvi9w" arcWidth="20" arcHeight="20" borderSizeComputationExpression="aql:self.getBorderSize()" labelSize="12" showIcon="false" labelExpression="search" roundedCorner="true">
-          <borderColor xmi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
-          <labelColor xmi:type="description:ComputedColor" href="platform:/plugin/org.obeonetwork.dsl.cinematic.design/description/cinematic.odesign#//@userColorsPalettes[name=null]/@entries[name='VCD_ViewElement_LabelColor']"/>
-          <backgroundColor xmi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
-          <foregroundColor xmi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
-        </computedStyleDescriptions>
-        <computedStyleDescriptions xmi:type="style:FlatContainerStyleDescription" xmi:id="_uslpYL44EeuEY4x5nvvi9w" arcWidth="20" arcHeight="20" borderSizeComputationExpression="aql:self.getBorderSize()" labelSize="12" showIcon="false" labelExpression="">
-          <borderColor xmi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
-          <labelColor xmi:type="description:ComputedColor" href="platform:/plugin/org.obeonetwork.dsl.cinematic.design/description/cinematic.odesign#//@userColorsPalettes[name=null]/@entries[name='VCD_ViewElement_LabelColor']"/>
-          <backgroundColor xmi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
-          <foregroundColor xmi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
-        </computedStyleDescriptions>
-        <computedStyleDescriptions xmi:type="style:FlatContainerStyleDescription" xmi:id="_usoFoL44EeuEY4x5nvvi9w" arcWidth="20" arcHeight="20" borderSizeComputationExpression="aql:self.getBorderSize()" labelSize="12" showIcon="false" labelExpression="bookTitle" labelAlignment="LEFT">
-          <borderColor xmi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
-          <labelColor xmi:type="description:ComputedColor" href="platform:/plugin/org.obeonetwork.dsl.cinematic.design/description/cinematic.odesign#//@userColorsPalettes[name=null]/@entries[name='VCD_ViewElement_LabelColor']"/>
-          <backgroundColor xmi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
-          <foregroundColor xmi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
-        </computedStyleDescriptions>
-        <computedStyleDescriptions xmi:type="style:FlatContainerStyleDescription" xmi:id="_usqh4L44EeuEY4x5nvvi9w" arcWidth="20" arcHeight="20" borderSizeComputationExpression="aql:self.getBorderSize()" labelSize="12" showIcon="false" labelExpression="author" labelAlignment="LEFT">
-          <borderColor xmi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
-          <labelColor xmi:type="description:ComputedColor" href="platform:/plugin/org.obeonetwork.dsl.cinematic.design/description/cinematic.odesign#//@userColorsPalettes[name=null]/@entries[name='VCD_ViewElement_LabelColor']"/>
-          <backgroundColor xmi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
-          <foregroundColor xmi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
-        </computedStyleDescriptions>
-        <computedStyleDescriptions xmi:type="style:FlatContainerStyleDescription" xmi:id="_ussXEL44EeuEY4x5nvvi9w" arcWidth="20" arcHeight="20" borderSizeComputationExpression="aql:self.getBorderSize()" labelSize="12" showIcon="false" labelExpression="addToCart" labelAlignment="LEFT">
-          <borderColor xmi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
-          <labelFormat>underline</labelFormat>
-          <labelColor xmi:type="description:ComputedColor" href="platform:/plugin/org.obeonetwork.dsl.cinematic.design/description/cinematic.odesign#//@userColorsPalettes[name=null]/@entries[name='VCD_ViewElement_LabelColor']"/>
-          <backgroundColor xmi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
-          <foregroundColor xmi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
-        </computedStyleDescriptions>
-        <computedStyleDescriptions xmi:type="style:FlatContainerStyleDescription" xmi:id="_usuzUL44EeuEY4x5nvvi9w" arcWidth="20" arcHeight="20" borderSizeComputationExpression="aql:self.getBorderSize()" labelSize="12" showIcon="false" labelExpression="CartLines" backgroundStyle="GradientTopToBottom">
-          <borderColor xmi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
-          <labelColor xmi:type="description:ComputedColor" href="platform:/plugin/org.obeonetwork.dsl.cinematic.design/description/cinematic.odesign#//@userColorsPalettes[name=null]/@entries[name='VCD_ViewElement_LabelColor']"/>
-          <backgroundColor xmi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
-          <foregroundColor xmi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
-          <labelBorderStyle xmi:type="style_1:LabelBorderStyleDescription" href="environment:/viewpoint#//@labelBorderStyles/@labelBorderStyleDescriptions.1"/>
-        </computedStyleDescriptions>
-        <computedStyleDescriptions xmi:type="style:FlatContainerStyleDescription" xmi:id="_uswogL44EeuEY4x5nvvi9w" arcWidth="20" arcHeight="20" borderSizeComputationExpression="aql:self.getBorderSize()" labelSize="12" showIcon="false" labelExpression="title" labelAlignment="LEFT">
-          <borderColor xmi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
-          <labelColor xmi:type="description:ComputedColor" href="platform:/plugin/org.obeonetwork.dsl.cinematic.design/description/cinematic.odesign#//@userColorsPalettes[name=null]/@entries[name='VCD_ViewElement_LabelColor']"/>
-          <backgroundColor xmi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
-          <foregroundColor xmi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
-        </computedStyleDescriptions>
-        <computedStyleDescriptions xmi:type="style:FlatContainerStyleDescription" xmi:id="_us0S4L44EeuEY4x5nvvi9w" arcWidth="20" arcHeight="20" borderSizeComputationExpression="aql:self.getBorderSize()" labelSize="12" showIcon="false" labelExpression="price" labelAlignment="LEFT">
-          <borderColor xmi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
-          <labelColor xmi:type="description:ComputedColor" href="platform:/plugin/org.obeonetwork.dsl.cinematic.design/description/cinematic.odesign#//@userColorsPalettes[name=null]/@entries[name='VCD_ViewElement_LabelColor']"/>
-          <backgroundColor xmi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
-          <foregroundColor xmi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
-        </computedStyleDescriptions>
-        <computedStyleDescriptions xmi:type="style:FlatContainerStyleDescription" xmi:id="_us2vIL44EeuEY4x5nvvi9w" arcWidth="20" arcHeight="20" borderSizeComputationExpression="aql:self.getBorderSize()" labelSize="12" showIcon="false" labelExpression="quantity" labelAlignment="LEFT">
-          <borderColor xmi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
-          <labelColor xmi:type="description:ComputedColor" href="platform:/plugin/org.obeonetwork.dsl.cinematic.design/description/cinematic.odesign#//@userColorsPalettes[name=null]/@entries[name='VCD_ViewElement_LabelColor']"/>
-          <backgroundColor xmi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
-          <foregroundColor xmi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
-        </computedStyleDescriptions>
-        <computedStyleDescriptions xmi:type="style:FlatContainerStyleDescription" xmi:id="_us39QL44EeuEY4x5nvvi9w" arcWidth="20" arcHeight="20" borderSizeComputationExpression="aql:self.getBorderSize()" labelSize="12" showIcon="false" labelExpression="removeFromCart" roundedCorner="true">
-          <borderColor xmi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
-          <labelColor xmi:type="description:ComputedColor" href="platform:/plugin/org.obeonetwork.dsl.cinematic.design/description/cinematic.odesign#//@userColorsPalettes[name=null]/@entries[name='VCD_ViewElement_LabelColor']"/>
-          <backgroundColor xmi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
-          <foregroundColor xmi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
-        </computedStyleDescriptions>
-        <computedStyleDescriptions xmi:type="style:FlatContainerStyleDescription" xmi:id="_us5ycL44EeuEY4x5nvvi9w" arcWidth="20" arcHeight="20" borderSizeComputationExpression="aql:self.getBorderSize()" labelSize="12" showIcon="false" labelExpression="checkout" roundedCorner="true">
+        <computedStyleDescriptions xmi:type="style:FlatContainerStyleDescription" xmi:id="_2BAwAOPZEeuQ0Zx4ARVcxA" arcWidth="20" arcHeight="20" borderSizeComputationExpression="aql:self.getBorderSize()" labelSize="12" showIcon="false" labelExpression="aql:self.getVCDLabel()" roundedCorner="true">
           <borderColor xmi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
           <labelColor xmi:type="description:ComputedColor" href="platform:/plugin/org.obeonetwork.dsl.cinematic.design/description/cinematic.odesign#//@userColorsPalettes[name=null]/@entries[name='VCD_ViewElement_LabelColor']"/>
           <backgroundColor xmi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
@@ -10314,7 +10237,7 @@
       <arrangeConstraints>KEEP_LOCATION</arrangeConstraints>
       <arrangeConstraints>KEEP_SIZE</arrangeConstraints>
       <arrangeConstraints>KEEP_RATIO</arrangeConstraints>
-      <ownedStyle xmi:type="diagram:FlatContainerStyle" uid="_usQ5Qr44EeuEY4x5nvvi9w" labelSize="12" showIcon="false" description="_usQ5QL44EeuEY4x5nvvi9w" borderSize="4" borderSizeComputationExpression="aql:self.getBorderSize()" backgroundStyle="GradientTopToBottom" foregroundColor="255,255,255"/>
+      <ownedStyle xmi:type="diagram:FlatContainerStyle" uid="_2A9ssuPZEeuQ0Zx4ARVcxA" labelSize="12" showIcon="false" description="_2A9ssOPZEeuQ0Zx4ARVcxA" borderSize="4" borderSizeComputationExpression="aql:self.getBorderSize()" backgroundStyle="GradientTopToBottom" foregroundColor="255,255,255"/>
       <actualMapping xmi:type="description_1:ContainerMapping" href="platform:/plugin/org.obeonetwork.dsl.cinematic.design/description/cinematic.odesign#//@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='View%20Container%20Mockup']/@defaultLayer/@containerMappings[name='VCD_RootViewContainer']"/>
       <ownedDiagramElements xmi:type="diagram:DNodeContainer" uid="_5v5tML41EeuEY4x5nvvi9w" name="createAccount">
         <target xmi:type="cinematic-view:ViewElement" href="E-BookStore.cinematic#_c6KwUIjcEeGD_4FfK_oDsg"/>
@@ -10322,7 +10245,7 @@
         <arrangeConstraints>KEEP_LOCATION</arrangeConstraints>
         <arrangeConstraints>KEEP_SIZE</arrangeConstraints>
         <arrangeConstraints>KEEP_RATIO</arrangeConstraints>
-        <ownedStyle xmi:type="diagram:FlatContainerStyle" uid="_usUjob44EeuEY4x5nvvi9w" labelSize="12" showIcon="false" labelColor="61,174,233" labelAlignment="LEFT" description="_usT8kL44EeuEY4x5nvvi9w" borderSizeComputationExpression="aql:self.getBorderSize()" foregroundColor="255,255,255">
+        <ownedStyle xmi:type="diagram:FlatContainerStyle" uid="_2A-Tw-PZEeuQ0Zx4ARVcxA" labelSize="12" showIcon="false" labelColor="61,174,233" labelAlignment="LEFT" description="_2A-TwePZEeuQ0Zx4ARVcxA" borderSizeComputationExpression="aql:self.getBorderSize()" foregroundColor="255,255,255">
           <labelFormat>underline</labelFormat>
         </ownedStyle>
         <actualMapping xmi:type="description_1:ContainerMapping" href="platform:/plugin/org.obeonetwork.dsl.cinematic.design/description/cinematic.odesign#//@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='View%20Container%20Mockup']/@defaultLayer/@containerMappings[name='VCD_RootViewContainer']/@subContainerMappings[name='VCD_ViewElement']"/>
@@ -10336,7 +10259,7 @@
         <arrangeConstraints>KEEP_LOCATION</arrangeConstraints>
         <arrangeConstraints>KEEP_SIZE</arrangeConstraints>
         <arrangeConstraints>KEEP_RATIO</arrangeConstraints>
-        <ownedStyle xmi:type="diagram:FlatContainerStyle" uid="_usW_4r44EeuEY4x5nvvi9w" labelSize="12" showIcon="false" description="_usW_4L44EeuEY4x5nvvi9w" borderSize="4" borderSizeComputationExpression="aql:self.getBorderSize()" backgroundStyle="GradientTopToBottom" foregroundColor="255,255,255"/>
+        <ownedStyle xmi:type="diagram:FlatContainerStyle" uid="_2A-60uPZEeuQ0Zx4ARVcxA" labelSize="12" showIcon="false" description="_2A9ssOPZEeuQ0Zx4ARVcxA" borderSize="4" borderSizeComputationExpression="aql:self.getBorderSize()" backgroundStyle="GradientTopToBottom" foregroundColor="255,255,255"/>
         <actualMapping xmi:type="description_1:ContainerMapping" href="platform:/plugin/org.obeonetwork.dsl.cinematic.design/description/cinematic.odesign#//@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='View%20Container%20Mockup']/@defaultLayer/@containerMappings[name='VCD_RootViewContainer']/@subContainerMappings[name='VCD_ViewContainer']"/>
         <ownedDiagramElements xmi:type="diagram:DNodeContainer" uid="_5wHvoL41EeuEY4x5nvvi9w" name="author">
           <target xmi:type="cinematic-view:ViewElement" href="E-BookStore.cinematic#_EmqbEIjaEeGlA5e_Ze9-Rg"/>
@@ -10347,7 +10270,7 @@
           <arrangeConstraints>KEEP_LOCATION</arrangeConstraints>
           <arrangeConstraints>KEEP_SIZE</arrangeConstraints>
           <arrangeConstraints>KEEP_RATIO</arrangeConstraints>
-          <ownedStyle xmi:type="diagram:FlatContainerStyle" uid="_usdtkb44EeuEY4x5nvvi9w" labelSize="12" showIcon="false" description="_usdGgL44EeuEY4x5nvvi9w" borderSize="4" borderSizeComputationExpression="aql:self.getBorderSize()" foregroundColor="255,255,255"/>
+          <ownedStyle xmi:type="diagram:FlatContainerStyle" uid="_2BAI8ePZEeuQ0Zx4ARVcxA" labelSize="12" showIcon="false" description="_2A_h5OPZEeuQ0Zx4ARVcxA" borderSize="4" borderSizeComputationExpression="aql:self.getBorderSize()" foregroundColor="255,255,255"/>
           <actualMapping xmi:type="description_1:ContainerMapping" href="platform:/plugin/org.obeonetwork.dsl.cinematic.design/description/cinematic.odesign#//@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='View%20Container%20Mockup']/@defaultLayer/@containerMappings[name='VCD_RootViewContainer']/@subContainerMappings[name='VCD_ViewElement']"/>
         </ownedDiagramElements>
         <ownedDiagramElements xmi:type="diagram:DNodeContainer" uid="_5wKL4r41EeuEY4x5nvvi9w" name="type">
@@ -10359,7 +10282,7 @@
           <arrangeConstraints>KEEP_LOCATION</arrangeConstraints>
           <arrangeConstraints>KEEP_SIZE</arrangeConstraints>
           <arrangeConstraints>KEEP_RATIO</arrangeConstraints>
-          <ownedStyle xmi:type="diagram:FlatContainerStyle" uid="_usfiwr44EeuEY4x5nvvi9w" labelSize="12" showIcon="false" description="_usfiwL44EeuEY4x5nvvi9w" borderSize="4" borderSizeComputationExpression="aql:self.getBorderSize()" foregroundColor="255,255,255"/>
+          <ownedStyle xmi:type="diagram:FlatContainerStyle" uid="_2BAI9OPZEeuQ0Zx4ARVcxA" labelSize="12" showIcon="false" description="_2A_h5OPZEeuQ0Zx4ARVcxA" borderSize="4" borderSizeComputationExpression="aql:self.getBorderSize()" foregroundColor="255,255,255"/>
           <actualMapping xmi:type="description_1:ContainerMapping" href="platform:/plugin/org.obeonetwork.dsl.cinematic.design/description/cinematic.odesign#//@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='View%20Container%20Mockup']/@defaultLayer/@containerMappings[name='VCD_RootViewContainer']/@subContainerMappings[name='VCD_ViewElement']"/>
         </ownedDiagramElements>
         <ownedDiagramElements xmi:type="diagram:DNodeContainer" uid="_5wMoIr41EeuEY4x5nvvi9w" name="keywords">
@@ -10368,7 +10291,7 @@
           <arrangeConstraints>KEEP_LOCATION</arrangeConstraints>
           <arrangeConstraints>KEEP_SIZE</arrangeConstraints>
           <arrangeConstraints>KEEP_RATIO</arrangeConstraints>
-          <ownedStyle xmi:type="diagram:FlatContainerStyle" uid="_ushX8r44EeuEY4x5nvvi9w" labelSize="12" showIcon="false" labelAlignment="LEFT" description="_ushX8L44EeuEY4x5nvvi9w" borderSize="4" borderSizeComputationExpression="aql:self.getBorderSize()" foregroundColor="255,255,255"/>
+          <ownedStyle xmi:type="diagram:FlatContainerStyle" uid="_2BAI-OPZEeuQ0Zx4ARVcxA" labelSize="12" showIcon="false" labelAlignment="LEFT" description="_2BAI9uPZEeuQ0Zx4ARVcxA" borderSize="4" borderSizeComputationExpression="aql:self.getBorderSize()" foregroundColor="255,255,255"/>
           <actualMapping xmi:type="description_1:ContainerMapping" href="platform:/plugin/org.obeonetwork.dsl.cinematic.design/description/cinematic.odesign#//@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='View%20Container%20Mockup']/@defaultLayer/@containerMappings[name='VCD_RootViewContainer']/@subContainerMappings[name='VCD_ViewElement']"/>
         </ownedDiagramElements>
         <ownedDiagramElements xmi:type="diagram:DNodeContainer" uid="_5wPEYb41EeuEY4x5nvvi9w" name="search">
@@ -10377,7 +10300,7 @@
           <arrangeConstraints>KEEP_LOCATION</arrangeConstraints>
           <arrangeConstraints>KEEP_SIZE</arrangeConstraints>
           <arrangeConstraints>KEEP_RATIO</arrangeConstraints>
-          <ownedStyle xmi:type="diagram:FlatContainerStyle" uid="_usjNIr44EeuEY4x5nvvi9w" labelSize="12" showIcon="false" description="_usjNIL44EeuEY4x5nvvi9w" borderSize="4" borderSizeComputationExpression="aql:self.getBorderSize()" foregroundColor="255,255,255"/>
+          <ownedStyle xmi:type="diagram:FlatContainerStyle" uid="_2BAwAuPZEeuQ0Zx4ARVcxA" labelSize="12" showIcon="false" description="_2BAwAOPZEeuQ0Zx4ARVcxA" borderSize="4" borderSizeComputationExpression="aql:self.getBorderSize()" foregroundColor="255,255,255"/>
           <actualMapping xmi:type="description_1:ContainerMapping" href="platform:/plugin/org.obeonetwork.dsl.cinematic.design/description/cinematic.odesign#//@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='View%20Container%20Mockup']/@defaultLayer/@containerMappings[name='VCD_RootViewContainer']/@subContainerMappings[name='VCD_ViewElement']"/>
         </ownedDiagramElements>
       </ownedDiagramElements>
@@ -10387,7 +10310,7 @@
         <arrangeConstraints>KEEP_LOCATION</arrangeConstraints>
         <arrangeConstraints>KEEP_SIZE</arrangeConstraints>
         <arrangeConstraints>KEEP_RATIO</arrangeConstraints>
-        <ownedStyle xmi:type="diagram:FlatContainerStyle" uid="_usZcIb44EeuEY4x5nvvi9w" labelSize="12" showIcon="false" description="_usY1EL44EeuEY4x5nvvi9w" borderSize="4" borderSizeComputationExpression="aql:self.getBorderSize()" backgroundStyle="GradientTopToBottom" foregroundColor="255,255,255"/>
+        <ownedStyle xmi:type="diagram:FlatContainerStyle" uid="_2A-61ePZEeuQ0Zx4ARVcxA" labelSize="12" showIcon="false" description="_2A9ssOPZEeuQ0Zx4ARVcxA" borderSize="4" borderSizeComputationExpression="aql:self.getBorderSize()" backgroundStyle="GradientTopToBottom" foregroundColor="255,255,255"/>
         <actualMapping xmi:type="description_1:ContainerMapping" href="platform:/plugin/org.obeonetwork.dsl.cinematic.design/description/cinematic.odesign#//@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='View%20Container%20Mockup']/@defaultLayer/@containerMappings[name='VCD_RootViewContainer']/@subContainerMappings[name='VCD_ViewContainer']"/>
         <ownedDiagramElements xmi:type="diagram:DNodeContainer" uid="_5wSuwL41EeuEY4x5nvvi9w" name="bookImage">
           <target xmi:type="cinematic-view:ViewElement" href="E-BookStore.cinematic#_BiTnUIjcEeGD_4FfK_oDsg"/>
@@ -10398,7 +10321,7 @@
           <arrangeConstraints>KEEP_LOCATION</arrangeConstraints>
           <arrangeConstraints>KEEP_SIZE</arrangeConstraints>
           <arrangeConstraints>KEEP_RATIO</arrangeConstraints>
-          <ownedStyle xmi:type="diagram:FlatContainerStyle" uid="_uslpYr44EeuEY4x5nvvi9w" labelSize="12" showIcon="false" description="_uslpYL44EeuEY4x5nvvi9w" borderSizeComputationExpression="aql:self.getBorderSize()" foregroundColor="255,255,255"/>
+          <ownedStyle xmi:type="diagram:FlatContainerStyle" uid="_2BAwBePZEeuQ0Zx4ARVcxA" labelSize="12" showIcon="false" description="_2A_h5OPZEeuQ0Zx4ARVcxA" borderSizeComputationExpression="aql:self.getBorderSize()" foregroundColor="255,255,255"/>
           <actualMapping xmi:type="description_1:ContainerMapping" href="platform:/plugin/org.obeonetwork.dsl.cinematic.design/description/cinematic.odesign#//@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='View%20Container%20Mockup']/@defaultLayer/@containerMappings[name='VCD_RootViewContainer']/@subContainerMappings[name='VCD_ViewElement']"/>
         </ownedDiagramElements>
         <ownedDiagramElements xmi:type="diagram:DNodeContainer" uid="_5wVLAr41EeuEY4x5nvvi9w" name="bookTitle">
@@ -10407,7 +10330,7 @@
           <arrangeConstraints>KEEP_LOCATION</arrangeConstraints>
           <arrangeConstraints>KEEP_SIZE</arrangeConstraints>
           <arrangeConstraints>KEEP_RATIO</arrangeConstraints>
-          <ownedStyle xmi:type="diagram:FlatContainerStyle" uid="_usossb44EeuEY4x5nvvi9w" labelSize="12" showIcon="false" labelAlignment="LEFT" description="_usoFoL44EeuEY4x5nvvi9w" borderSizeComputationExpression="aql:self.getBorderSize()" foregroundColor="255,255,255"/>
+          <ownedStyle xmi:type="diagram:FlatContainerStyle" uid="_2BAwCOPZEeuQ0Zx4ARVcxA" labelSize="12" showIcon="false" labelAlignment="LEFT" description="_2BAI9uPZEeuQ0Zx4ARVcxA" borderSizeComputationExpression="aql:self.getBorderSize()" foregroundColor="255,255,255"/>
           <actualMapping xmi:type="description_1:ContainerMapping" href="platform:/plugin/org.obeonetwork.dsl.cinematic.design/description/cinematic.odesign#//@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='View%20Container%20Mockup']/@defaultLayer/@containerMappings[name='VCD_RootViewContainer']/@subContainerMappings[name='VCD_ViewElement']"/>
         </ownedDiagramElements>
         <ownedDiagramElements xmi:type="diagram:DNodeContainer" uid="_5wXAMb41EeuEY4x5nvvi9w" name="author">
@@ -10416,7 +10339,7 @@
           <arrangeConstraints>KEEP_LOCATION</arrangeConstraints>
           <arrangeConstraints>KEEP_SIZE</arrangeConstraints>
           <arrangeConstraints>KEEP_RATIO</arrangeConstraints>
-          <ownedStyle xmi:type="diagram:FlatContainerStyle" uid="_usqh4r44EeuEY4x5nvvi9w" labelSize="12" showIcon="false" labelAlignment="LEFT" description="_usqh4L44EeuEY4x5nvvi9w" borderSizeComputationExpression="aql:self.getBorderSize()" foregroundColor="255,255,255"/>
+          <ownedStyle xmi:type="diagram:FlatContainerStyle" uid="_2BBXEuPZEeuQ0Zx4ARVcxA" labelSize="12" showIcon="false" labelAlignment="LEFT" description="_2BAI9uPZEeuQ0Zx4ARVcxA" borderSizeComputationExpression="aql:self.getBorderSize()" foregroundColor="255,255,255"/>
           <actualMapping xmi:type="description_1:ContainerMapping" href="platform:/plugin/org.obeonetwork.dsl.cinematic.design/description/cinematic.odesign#//@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='View%20Container%20Mockup']/@defaultLayer/@containerMappings[name='VCD_RootViewContainer']/@subContainerMappings[name='VCD_ViewElement']"/>
         </ownedDiagramElements>
         <ownedDiagramElements xmi:type="diagram:DNodeContainer" uid="_5wY1Yb41EeuEY4x5nvvi9w" name="addToCart">
@@ -10425,7 +10348,7 @@
           <arrangeConstraints>KEEP_LOCATION</arrangeConstraints>
           <arrangeConstraints>KEEP_SIZE</arrangeConstraints>
           <arrangeConstraints>KEEP_RATIO</arrangeConstraints>
-          <ownedStyle xmi:type="diagram:FlatContainerStyle" uid="_ussXEr44EeuEY4x5nvvi9w" labelSize="12" showIcon="false" labelColor="61,174,233" labelAlignment="LEFT" description="_ussXEL44EeuEY4x5nvvi9w" borderSizeComputationExpression="aql:self.getBorderSize()" foregroundColor="255,255,255">
+          <ownedStyle xmi:type="diagram:FlatContainerStyle" uid="_2BBXFePZEeuQ0Zx4ARVcxA" labelSize="12" showIcon="false" labelColor="61,174,233" labelAlignment="LEFT" description="_2A-TwePZEeuQ0Zx4ARVcxA" borderSizeComputationExpression="aql:self.getBorderSize()" foregroundColor="255,255,255">
             <labelFormat>underline</labelFormat>
           </ownedStyle>
           <actualMapping xmi:type="description_1:ContainerMapping" href="platform:/plugin/org.obeonetwork.dsl.cinematic.design/description/cinematic.odesign#//@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='View%20Container%20Mockup']/@defaultLayer/@containerMappings[name='VCD_RootViewContainer']/@subContainerMappings[name='VCD_ViewElement']"/>
@@ -10440,7 +10363,7 @@
         <arrangeConstraints>KEEP_LOCATION</arrangeConstraints>
         <arrangeConstraints>KEEP_SIZE</arrangeConstraints>
         <arrangeConstraints>KEEP_RATIO</arrangeConstraints>
-        <ownedStyle xmi:type="diagram:FlatContainerStyle" uid="_usbRUr44EeuEY4x5nvvi9w" labelSize="12" showIcon="false" description="_usbRUL44EeuEY4x5nvvi9w" borderSize="4" borderSizeComputationExpression="aql:self.getBorderSize()" backgroundStyle="GradientTopToBottom" foregroundColor="255,255,255"/>
+        <ownedStyle xmi:type="diagram:FlatContainerStyle" uid="_2A_h4uPZEeuQ0Zx4ARVcxA" labelSize="12" showIcon="false" description="_2A9ssOPZEeuQ0Zx4ARVcxA" borderSize="4" borderSizeComputationExpression="aql:self.getBorderSize()" backgroundStyle="GradientTopToBottom" foregroundColor="255,255,255"/>
         <actualMapping xmi:type="description_1:ContainerMapping" href="platform:/plugin/org.obeonetwork.dsl.cinematic.design/description/cinematic.odesign#//@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='View%20Container%20Mockup']/@defaultLayer/@containerMappings[name='VCD_RootViewContainer']/@subContainerMappings[name='VCD_ViewContainer']"/>
         <ownedDiagramElements xmi:type="diagram:DNodeContainer" uid="_5wbRob41EeuEY4x5nvvi9w" name="CartLines">
           <target xmi:type="cinematic-view:ViewContainer" href="E-BookStore.cinematic#__aksgIjgEeGllIuu_i41WA"/>
@@ -10448,7 +10371,7 @@
           <arrangeConstraints>KEEP_LOCATION</arrangeConstraints>
           <arrangeConstraints>KEEP_SIZE</arrangeConstraints>
           <arrangeConstraints>KEEP_RATIO</arrangeConstraints>
-          <ownedStyle xmi:type="diagram:FlatContainerStyle" uid="_usuzUr44EeuEY4x5nvvi9w" labelSize="12" showIcon="false" description="_usuzUL44EeuEY4x5nvvi9w" borderSize="4" borderSizeComputationExpression="aql:self.getBorderSize()" backgroundStyle="GradientTopToBottom" foregroundColor="255,255,255"/>
+          <ownedStyle xmi:type="diagram:FlatContainerStyle" uid="_2BB-IuPZEeuQ0Zx4ARVcxA" labelSize="12" showIcon="false" description="_2A9ssOPZEeuQ0Zx4ARVcxA" borderSize="4" borderSizeComputationExpression="aql:self.getBorderSize()" backgroundStyle="GradientTopToBottom" foregroundColor="255,255,255"/>
           <actualMapping xmi:type="description_1:ContainerMapping" href="platform:/plugin/org.obeonetwork.dsl.cinematic.design/description/cinematic.odesign#//@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='View%20Container%20Mockup']/@defaultLayer/@containerMappings[name='VCD_RootViewContainer']/@subContainerMappings[name='VCD_ViewContainer']"/>
           <ownedDiagramElements xmi:type="diagram:DNodeContainer" uid="_5weU8L41EeuEY4x5nvvi9w" name="title">
             <target xmi:type="cinematic-view:ViewElement" href="E-BookStore.cinematic#_D0ZzgIjhEeGllIuu_i41WA"/>
@@ -10456,7 +10379,7 @@
             <arrangeConstraints>KEEP_LOCATION</arrangeConstraints>
             <arrangeConstraints>KEEP_SIZE</arrangeConstraints>
             <arrangeConstraints>KEEP_RATIO</arrangeConstraints>
-            <ownedStyle xmi:type="diagram:FlatContainerStyle" uid="_uswogr44EeuEY4x5nvvi9w" labelSize="12" showIcon="false" labelAlignment="LEFT" description="_uswogL44EeuEY4x5nvvi9w" borderSizeComputationExpression="aql:self.getBorderSize()" foregroundColor="255,255,255"/>
+            <ownedStyle xmi:type="diagram:FlatContainerStyle" uid="_2BB-JePZEeuQ0Zx4ARVcxA" labelSize="12" showIcon="false" labelAlignment="LEFT" description="_2BAI9uPZEeuQ0Zx4ARVcxA" borderSizeComputationExpression="aql:self.getBorderSize()" foregroundColor="255,255,255"/>
             <actualMapping xmi:type="description_1:ContainerMapping" href="platform:/plugin/org.obeonetwork.dsl.cinematic.design/description/cinematic.odesign#//@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='View%20Container%20Mockup']/@defaultLayer/@containerMappings[name='VCD_RootViewContainer']/@subContainerMappings[name='VCD_ViewElement']"/>
           </ownedDiagramElements>
           <ownedDiagramElements xmi:type="diagram:DNodeContainer" uid="_5wgxMb41EeuEY4x5nvvi9w" name="author">
@@ -10465,7 +10388,7 @@
             <arrangeConstraints>KEEP_LOCATION</arrangeConstraints>
             <arrangeConstraints>KEEP_SIZE</arrangeConstraints>
             <arrangeConstraints>KEEP_RATIO</arrangeConstraints>
-            <ownedStyle xmi:type="diagram:FlatContainerStyle" uid="_usydsb44EeuEY4x5nvvi9w" labelSize="12" showIcon="false" labelAlignment="LEFT" description="_usqh4L44EeuEY4x5nvvi9w" borderSizeComputationExpression="aql:self.getBorderSize()" foregroundColor="255,255,255"/>
+            <ownedStyle xmi:type="diagram:FlatContainerStyle" uid="_2BB-KOPZEeuQ0Zx4ARVcxA" labelSize="12" showIcon="false" labelAlignment="LEFT" description="_2BAI9uPZEeuQ0Zx4ARVcxA" borderSizeComputationExpression="aql:self.getBorderSize()" foregroundColor="255,255,255"/>
             <actualMapping xmi:type="description_1:ContainerMapping" href="platform:/plugin/org.obeonetwork.dsl.cinematic.design/description/cinematic.odesign#//@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='View%20Container%20Mockup']/@defaultLayer/@containerMappings[name='VCD_RootViewContainer']/@subContainerMappings[name='VCD_ViewElement']"/>
           </ownedDiagramElements>
           <ownedDiagramElements xmi:type="diagram:DNodeContainer" uid="_5wimYL41EeuEY4x5nvvi9w" name="price">
@@ -10474,7 +10397,7 @@
             <arrangeConstraints>KEEP_LOCATION</arrangeConstraints>
             <arrangeConstraints>KEEP_SIZE</arrangeConstraints>
             <arrangeConstraints>KEEP_RATIO</arrangeConstraints>
-            <ownedStyle xmi:type="diagram:FlatContainerStyle" uid="_us0S4r44EeuEY4x5nvvi9w" labelSize="12" showIcon="false" labelAlignment="LEFT" description="_us0S4L44EeuEY4x5nvvi9w" borderSizeComputationExpression="aql:self.getBorderSize()" foregroundColor="255,255,255"/>
+            <ownedStyle xmi:type="diagram:FlatContainerStyle" uid="_2BClMuPZEeuQ0Zx4ARVcxA" labelSize="12" showIcon="false" labelAlignment="LEFT" description="_2BAI9uPZEeuQ0Zx4ARVcxA" borderSizeComputationExpression="aql:self.getBorderSize()" foregroundColor="255,255,255"/>
             <actualMapping xmi:type="description_1:ContainerMapping" href="platform:/plugin/org.obeonetwork.dsl.cinematic.design/description/cinematic.odesign#//@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='View%20Container%20Mockup']/@defaultLayer/@containerMappings[name='VCD_RootViewContainer']/@subContainerMappings[name='VCD_ViewElement']"/>
           </ownedDiagramElements>
           <ownedDiagramElements xmi:type="diagram:DNodeContainer" uid="_5wj0gb41EeuEY4x5nvvi9w" name="quantity">
@@ -10483,7 +10406,7 @@
             <arrangeConstraints>KEEP_LOCATION</arrangeConstraints>
             <arrangeConstraints>KEEP_SIZE</arrangeConstraints>
             <arrangeConstraints>KEEP_RATIO</arrangeConstraints>
-            <ownedStyle xmi:type="diagram:FlatContainerStyle" uid="_us2vIr44EeuEY4x5nvvi9w" labelSize="12" showIcon="false" labelAlignment="LEFT" description="_us2vIL44EeuEY4x5nvvi9w" borderSize="4" borderSizeComputationExpression="aql:self.getBorderSize()" foregroundColor="255,255,255"/>
+            <ownedStyle xmi:type="diagram:FlatContainerStyle" uid="_2BClNePZEeuQ0Zx4ARVcxA" labelSize="12" showIcon="false" labelAlignment="LEFT" description="_2BAI9uPZEeuQ0Zx4ARVcxA" borderSize="4" borderSizeComputationExpression="aql:self.getBorderSize()" foregroundColor="255,255,255"/>
             <actualMapping xmi:type="description_1:ContainerMapping" href="platform:/plugin/org.obeonetwork.dsl.cinematic.design/description/cinematic.odesign#//@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='View%20Container%20Mockup']/@defaultLayer/@containerMappings[name='VCD_RootViewContainer']/@subContainerMappings[name='VCD_ViewElement']"/>
           </ownedDiagramElements>
           <ownedDiagramElements xmi:type="diagram:DNodeContainer" uid="_5wlpsb41EeuEY4x5nvvi9w" name="removeFromCart">
@@ -10492,7 +10415,7 @@
             <arrangeConstraints>KEEP_LOCATION</arrangeConstraints>
             <arrangeConstraints>KEEP_SIZE</arrangeConstraints>
             <arrangeConstraints>KEEP_RATIO</arrangeConstraints>
-            <ownedStyle xmi:type="diagram:FlatContainerStyle" uid="_us39Qr44EeuEY4x5nvvi9w" labelSize="12" showIcon="false" description="_us39QL44EeuEY4x5nvvi9w" borderSize="4" borderSizeComputationExpression="aql:self.getBorderSize()" foregroundColor="255,255,255"/>
+            <ownedStyle xmi:type="diagram:FlatContainerStyle" uid="_2BClOOPZEeuQ0Zx4ARVcxA" labelSize="12" showIcon="false" description="_2BAwAOPZEeuQ0Zx4ARVcxA" borderSize="4" borderSizeComputationExpression="aql:self.getBorderSize()" foregroundColor="255,255,255"/>
             <actualMapping xmi:type="description_1:ContainerMapping" href="platform:/plugin/org.obeonetwork.dsl.cinematic.design/description/cinematic.odesign#//@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='View%20Container%20Mockup']/@defaultLayer/@containerMappings[name='VCD_RootViewContainer']/@subContainerMappings[name='VCD_ViewElement']"/>
           </ownedDiagramElements>
         </ownedDiagramElements>
@@ -10502,7 +10425,7 @@
           <arrangeConstraints>KEEP_LOCATION</arrangeConstraints>
           <arrangeConstraints>KEEP_SIZE</arrangeConstraints>
           <arrangeConstraints>KEEP_RATIO</arrangeConstraints>
-          <ownedStyle xmi:type="diagram:FlatContainerStyle" uid="_us5ycr44EeuEY4x5nvvi9w" labelSize="12" showIcon="false" description="_us5ycL44EeuEY4x5nvvi9w" borderSize="4" borderSizeComputationExpression="aql:self.getBorderSize()" foregroundColor="255,255,255"/>
+          <ownedStyle xmi:type="diagram:FlatContainerStyle" uid="_2BDMQePZEeuQ0Zx4ARVcxA" labelSize="12" showIcon="false" description="_2BAwAOPZEeuQ0Zx4ARVcxA" borderSize="4" borderSizeComputationExpression="aql:self.getBorderSize()" foregroundColor="255,255,255"/>
           <actualMapping xmi:type="description_1:ContainerMapping" href="platform:/plugin/org.obeonetwork.dsl.cinematic.design/description/cinematic.odesign#//@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='View%20Container%20Mockup']/@defaultLayer/@containerMappings[name='VCD_RootViewContainer']/@subContainerMappings[name='VCD_ViewElement']"/>
         </ownedDiagramElements>
       </ownedDiagramElements>
@@ -10510,7 +10433,6 @@
     <description xmi:type="description_1:DiagramDescription" href="platform:/plugin/org.obeonetwork.dsl.cinematic.design/description/cinematic.odesign#//@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='View%20Container%20Mockup']"/>
     <filterVariableHistory xmi:type="diagram:FilterVariableHistory" uid="_5vdoUL41EeuEY4x5nvvi9w"/>
     <activatedLayers xmi:type="description_1:Layer" href="platform:/plugin/org.obeonetwork.dsl.cinematic.design/description/cinematic.odesign#//@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='View%20Container%20Mockup']/@defaultLayer"/>
-    <activatedLayers xmi:type="description_1:AdditionalLayer" href="platform:/plugin/org.obeonetwork.dsl.cinematic.design/description/cinematic.odesign#//@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='View%20Container%20Mockup']/@additionalLayers[name='Example']"/>
     <target xmi:type="cinematic-view:ViewContainer" href="E-BookStore.cinematic#_lSJPQIjZEeGlA5e_Ze9-Rg"/>
   </diagram:DSemanticDiagram>
   <diagram:DSemanticDiagram uid="_MLqL8L44EeuEY4x5nvvi9w">
@@ -10575,26 +10497,26 @@
     </ownedAnnotationEntries>
     <ownedAnnotationEntries xmi:type="description:AnnotationEntry" uid="_MLwSkL44EeuEY4x5nvvi9w" source="DANNOTATION_CUSTOMIZATION_KEY">
       <data xmi:type="diagram:ComputedStyleDescriptionRegistry" uid="_MLwSkb44EeuEY4x5nvvi9w">
-        <computedStyleDescriptions xmi:type="style:FlatContainerStyleDescription" xmi:id="_MLwSkr44EeuEY4x5nvvi9w" arcWidth="20" arcHeight="20" borderSizeComputationExpression="aql:self.getBorderSize()" labelSize="12" showIcon="false" labelExpression="aql:self.getVCDLabel()" backgroundStyle="GradientTopToBottom">
+        <computedStyleDescriptions xmi:type="style:FlatContainerStyleDescription" xmi:id="_Z7JjcOPXEeuQ0Zx4ARVcxA" arcWidth="20" arcHeight="20" borderSizeComputationExpression="aql:self.getBorderSize()" labelSize="12" showIcon="false" labelExpression="aql:self.getVCDLabel()" backgroundStyle="GradientTopToBottom">
           <borderColor xmi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
           <labelColor xmi:type="description:ComputedColor" href="platform:/plugin/org.obeonetwork.dsl.cinematic.design/description/cinematic.odesign#//@userColorsPalettes[name=null]/@entries[name='VCD_ViewElement_LabelColor']"/>
           <backgroundColor xmi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
           <foregroundColor xmi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
           <labelBorderStyle xmi:type="style_1:LabelBorderStyleDescription" href="environment:/viewpoint#//@labelBorderStyles/@labelBorderStyleDescriptions.1"/>
         </computedStyleDescriptions>
-        <computedStyleDescriptions xmi:type="style:FlatContainerStyleDescription" xmi:id="_ML41cL44EeuEY4x5nvvi9w" arcWidth="20" arcHeight="20" borderSizeComputationExpression="aql:self.getBorderSize()" labelSize="12" showIcon="false" labelExpression="aql:self.getVCDLabel()" labelAlignment="LEFT">
+        <computedStyleDescriptions xmi:type="style:FlatContainerStyleDescription" xmi:id="_Z7KKgePXEeuQ0Zx4ARVcxA" arcWidth="20" arcHeight="20" borderSizeComputationExpression="aql:self.getBorderSize()" labelSize="12" showIcon="false" labelExpression="aql:self.getVCDLabel()" labelAlignment="LEFT">
           <borderColor xmi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
           <labelColor xmi:type="description:ComputedColor" href="platform:/plugin/org.obeonetwork.dsl.cinematic.design/description/cinematic.odesign#//@userColorsPalettes[name=null]/@entries[name='VCD_ViewElement_LabelColor']"/>
           <backgroundColor xmi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
           <foregroundColor xmi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
         </computedStyleDescriptions>
-        <computedStyleDescriptions xmi:type="style:FlatContainerStyleDescription" xmi:id="_ML9G4L44EeuEY4x5nvvi9w" arcWidth="20" arcHeight="20" borderSizeComputationExpression="aql:self.getBorderSize()" labelSize="12" showIcon="false" labelExpression="aql:self.getVCDLabel()">
+        <computedStyleDescriptions xmi:type="style:FlatContainerStyleDescription" xmi:id="_Z7Kxk-PXEeuQ0Zx4ARVcxA" arcWidth="20" arcHeight="20" borderSizeComputationExpression="aql:self.getBorderSize()" labelSize="12" showIcon="false" labelExpression="aql:self.getVCDLabel()">
           <borderColor xmi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
           <labelColor xmi:type="description:ComputedColor" href="platform:/plugin/org.obeonetwork.dsl.cinematic.design/description/cinematic.odesign#//@userColorsPalettes[name=null]/@entries[name='VCD_ViewElement_LabelColor']"/>
           <backgroundColor xmi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
           <foregroundColor xmi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
         </computedStyleDescriptions>
-        <computedStyleDescriptions xmi:type="style:FlatContainerStyleDescription" xmi:id="_MMB_Yr44EeuEY4x5nvvi9w" arcWidth="20" arcHeight="20" borderSizeComputationExpression="aql:self.getBorderSize()" labelSize="12" showIcon="false" labelExpression="aql:self.getVCDLabel()" roundedCorner="true">
+        <computedStyleDescriptions xmi:type="style:FlatContainerStyleDescription" xmi:id="_Z7LYoePXEeuQ0Zx4ARVcxA" arcWidth="20" arcHeight="20" borderSizeComputationExpression="aql:self.getBorderSize()" labelSize="12" showIcon="false" labelExpression="aql:self.getVCDLabel()" roundedCorner="true">
           <borderColor xmi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
           <labelColor xmi:type="description:ComputedColor" href="platform:/plugin/org.obeonetwork.dsl.cinematic.design/description/cinematic.odesign#//@userColorsPalettes[name=null]/@entries[name='VCD_ViewElement_LabelColor']"/>
           <backgroundColor xmi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
@@ -10608,7 +10530,7 @@
       <arrangeConstraints>KEEP_LOCATION</arrangeConstraints>
       <arrangeConstraints>KEEP_SIZE</arrangeConstraints>
       <arrangeConstraints>KEEP_RATIO</arrangeConstraints>
-      <ownedStyle xmi:type="diagram:FlatContainerStyle" uid="_MLw5oL44EeuEY4x5nvvi9w" labelSize="12" showIcon="false" description="_MLwSkr44EeuEY4x5nvvi9w" borderSize="4" borderSizeComputationExpression="aql:self.getBorderSize()" backgroundStyle="GradientTopToBottom" foregroundColor="255,255,255"/>
+      <ownedStyle xmi:type="diagram:FlatContainerStyle" uid="_Z7JjcuPXEeuQ0Zx4ARVcxA" labelSize="12" showIcon="false" description="_Z7JjcOPXEeuQ0Zx4ARVcxA" borderSize="4" borderSizeComputationExpression="aql:self.getBorderSize()" backgroundStyle="GradientTopToBottom" foregroundColor="255,255,255"/>
       <actualMapping xmi:type="description_1:ContainerMapping" href="platform:/plugin/org.obeonetwork.dsl.cinematic.design/description/cinematic.odesign#//@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='View%20Container%20Mockup']/@defaultLayer/@containerMappings[name='VCD_RootViewContainer']"/>
       <ownedDiagramElements xmi:type="diagram:DNodeContainer" uid="_ML4OYL44EeuEY4x5nvvi9w" name="email">
         <target xmi:type="cinematic-view:ViewElement" href="E-BookStore.cinematic#_Af6ckYjkEeGOp5IdJE0AIw"/>
@@ -10616,7 +10538,7 @@
         <arrangeConstraints>KEEP_LOCATION</arrangeConstraints>
         <arrangeConstraints>KEEP_SIZE</arrangeConstraints>
         <arrangeConstraints>KEEP_RATIO</arrangeConstraints>
-        <ownedStyle xmi:type="diagram:FlatContainerStyle" uid="_ML5cgL44EeuEY4x5nvvi9w" labelSize="12" showIcon="false" labelAlignment="LEFT" description="_ML41cL44EeuEY4x5nvvi9w" borderSize="4" borderSizeComputationExpression="aql:self.getBorderSize()" foregroundColor="255,255,255"/>
+        <ownedStyle xmi:type="diagram:FlatContainerStyle" uid="_Z7KxkePXEeuQ0Zx4ARVcxA" labelSize="12" showIcon="false" labelAlignment="LEFT" description="_Z7KKgePXEeuQ0Zx4ARVcxA" borderSize="4" borderSizeComputationExpression="aql:self.getBorderSize()" foregroundColor="255,255,255"/>
         <actualMapping xmi:type="description_1:ContainerMapping" href="platform:/plugin/org.obeonetwork.dsl.cinematic.design/description/cinematic.odesign#//@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='View%20Container%20Mockup']/@defaultLayer/@containerMappings[name='VCD_RootViewContainer']/@subContainerMappings[name='VCD_ViewElement']"/>
       </ownedDiagramElements>
       <ownedDiagramElements xmi:type="diagram:DNodeContainer" uid="_ML8f0b44EeuEY4x5nvvi9w" name="password">
@@ -10628,7 +10550,7 @@
         <arrangeConstraints>KEEP_LOCATION</arrangeConstraints>
         <arrangeConstraints>KEEP_SIZE</arrangeConstraints>
         <arrangeConstraints>KEEP_RATIO</arrangeConstraints>
-        <ownedStyle xmi:type="diagram:FlatContainerStyle" uid="_ML9G4b44EeuEY4x5nvvi9w" labelSize="12" showIcon="false" description="_ML9G4L44EeuEY4x5nvvi9w" borderSize="4" borderSizeComputationExpression="aql:self.getBorderSize()" foregroundColor="255,255,255"/>
+        <ownedStyle xmi:type="diagram:FlatContainerStyle" uid="_Z7KxlePXEeuQ0Zx4ARVcxA" labelSize="12" showIcon="false" description="_Z7Kxk-PXEeuQ0Zx4ARVcxA" borderSize="4" borderSizeComputationExpression="aql:self.getBorderSize()" foregroundColor="255,255,255"/>
         <actualMapping xmi:type="description_1:ContainerMapping" href="platform:/plugin/org.obeonetwork.dsl.cinematic.design/description/cinematic.odesign#//@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='View%20Container%20Mockup']/@defaultLayer/@containerMappings[name='VCD_RootViewContainer']/@subContainerMappings[name='VCD_ViewElement']"/>
       </ownedDiagramElements>
       <ownedDiagramElements xmi:type="diagram:DNodeContainer" uid="_ML_jIL44EeuEY4x5nvvi9w" name="name">
@@ -10637,7 +10559,7 @@
         <arrangeConstraints>KEEP_LOCATION</arrangeConstraints>
         <arrangeConstraints>KEEP_SIZE</arrangeConstraints>
         <arrangeConstraints>KEEP_RATIO</arrangeConstraints>
-        <ownedStyle xmi:type="diagram:FlatContainerStyle" uid="_ML_jIb44EeuEY4x5nvvi9w" labelSize="12" showIcon="false" labelAlignment="LEFT" description="_ML41cL44EeuEY4x5nvvi9w" borderSize="4" borderSizeComputationExpression="aql:self.getBorderSize()" foregroundColor="255,255,255"/>
+        <ownedStyle xmi:type="diagram:FlatContainerStyle" uid="_Z7KxmOPXEeuQ0Zx4ARVcxA" labelSize="12" showIcon="false" labelAlignment="LEFT" description="_Z7KKgePXEeuQ0Zx4ARVcxA" borderSize="4" borderSizeComputationExpression="aql:self.getBorderSize()" foregroundColor="255,255,255"/>
         <actualMapping xmi:type="description_1:ContainerMapping" href="platform:/plugin/org.obeonetwork.dsl.cinematic.design/description/cinematic.odesign#//@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='View%20Container%20Mockup']/@defaultLayer/@containerMappings[name='VCD_RootViewContainer']/@subContainerMappings[name='VCD_ViewElement']"/>
       </ownedDiagramElements>
       <ownedDiagramElements xmi:type="diagram:DNodeContainer" uid="_MMB_Yb44EeuEY4x5nvvi9w" name="validate">
@@ -10646,7 +10568,7 @@
         <arrangeConstraints>KEEP_LOCATION</arrangeConstraints>
         <arrangeConstraints>KEEP_SIZE</arrangeConstraints>
         <arrangeConstraints>KEEP_RATIO</arrangeConstraints>
-        <ownedStyle xmi:type="diagram:FlatContainerStyle" uid="_MMCmcL44EeuEY4x5nvvi9w" labelSize="12" showIcon="false" description="_MMB_Yr44EeuEY4x5nvvi9w" borderSize="4" borderSizeComputationExpression="aql:self.getBorderSize()" foregroundColor="255,255,255"/>
+        <ownedStyle xmi:type="diagram:FlatContainerStyle" uid="_Z7LYo-PXEeuQ0Zx4ARVcxA" labelSize="12" showIcon="false" description="_Z7LYoePXEeuQ0Zx4ARVcxA" borderSize="4" borderSizeComputationExpression="aql:self.getBorderSize()" foregroundColor="255,255,255"/>
         <actualMapping xmi:type="description_1:ContainerMapping" href="platform:/plugin/org.obeonetwork.dsl.cinematic.design/description/cinematic.odesign#//@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='View%20Container%20Mockup']/@defaultLayer/@containerMappings[name='VCD_RootViewContainer']/@subContainerMappings[name='VCD_ViewElement']"/>
       </ownedDiagramElements>
       <ownedDiagramElements xmi:type="diagram:DNodeContainer" uid="_MMEbob44EeuEY4x5nvvi9w" name="cancel">
@@ -10655,7 +10577,7 @@
         <arrangeConstraints>KEEP_LOCATION</arrangeConstraints>
         <arrangeConstraints>KEEP_SIZE</arrangeConstraints>
         <arrangeConstraints>KEEP_RATIO</arrangeConstraints>
-        <ownedStyle xmi:type="diagram:FlatContainerStyle" uid="_MMFCsL44EeuEY4x5nvvi9w" labelSize="12" showIcon="false" description="_MMB_Yr44EeuEY4x5nvvi9w" borderSize="4" borderSizeComputationExpression="aql:self.getBorderSize()" foregroundColor="255,255,255"/>
+        <ownedStyle xmi:type="diagram:FlatContainerStyle" uid="_Z7LYpuPXEeuQ0Zx4ARVcxA" labelSize="12" showIcon="false" description="_Z7LYoePXEeuQ0Zx4ARVcxA" borderSize="4" borderSizeComputationExpression="aql:self.getBorderSize()" foregroundColor="255,255,255"/>
         <actualMapping xmi:type="description_1:ContainerMapping" href="platform:/plugin/org.obeonetwork.dsl.cinematic.design/description/cinematic.odesign#//@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='View%20Container%20Mockup']/@defaultLayer/@containerMappings[name='VCD_RootViewContainer']/@subContainerMappings[name='VCD_ViewElement']"/>
       </ownedDiagramElements>
     </ownedDiagramElements>
@@ -10883,20 +10805,20 @@
     </ownedAnnotationEntries>
     <ownedAnnotationEntries xmi:type="description:AnnotationEntry" uid="_hjtHkL44EeuEY4x5nvvi9w" source="DANNOTATION_CUSTOMIZATION_KEY">
       <data xmi:type="diagram:ComputedStyleDescriptionRegistry" uid="_hjtHkb44EeuEY4x5nvvi9w">
-        <computedStyleDescriptions xmi:type="style:FlatContainerStyleDescription" xmi:id="_ZbTtMOMQEeuQk8DSQ2l-0A" arcWidth="20" arcHeight="20" borderSizeComputationExpression="aql:self.getBorderSize()" labelSize="12" showIcon="false" labelExpression="aql:self.getVCDLabel()" backgroundStyle="GradientTopToBottom">
+        <computedStyleDescriptions xmi:type="style:FlatContainerStyleDescription" xmi:id="_KxiYoOPaEeuQ0Zx4ARVcxA" arcWidth="20" arcHeight="20" borderSizeComputationExpression="aql:self.getBorderSize()" labelSize="12" showIcon="false" labelExpression="aql:self.getVCDLabel()" backgroundStyle="GradientTopToBottom">
           <borderColor xmi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
           <labelColor xmi:type="description:ComputedColor" href="platform:/plugin/org.obeonetwork.dsl.cinematic.design/description/cinematic.odesign#//@userColorsPalettes[name=null]/@entries[name='VCD_ViewElement_LabelColor']"/>
           <backgroundColor xmi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
           <foregroundColor xmi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
           <labelBorderStyle xmi:type="style_1:LabelBorderStyleDescription" href="environment:/viewpoint#//@labelBorderStyles/@labelBorderStyleDescriptions.1"/>
         </computedStyleDescriptions>
-        <computedStyleDescriptions xmi:type="style:FlatContainerStyleDescription" xmi:id="_ZbU7UOMQEeuQk8DSQ2l-0A" arcWidth="20" arcHeight="20" borderSizeComputationExpression="aql:self.getBorderSize()" labelSize="12" showIcon="false" labelExpression="aql:self.getVCDLabel()" labelAlignment="LEFT">
+        <computedStyleDescriptions xmi:type="style:FlatContainerStyleDescription" xmi:id="_KxjmwOPaEeuQ0Zx4ARVcxA" arcWidth="20" arcHeight="20" borderSizeComputationExpression="aql:self.getBorderSize()" labelSize="12" showIcon="false" labelExpression="aql:self.getVCDLabel()" labelAlignment="LEFT">
           <borderColor xmi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
           <labelColor xmi:type="description:ComputedColor" href="platform:/plugin/org.obeonetwork.dsl.cinematic.design/description/cinematic.odesign#//@userColorsPalettes[name=null]/@entries[name='VCD_ViewElement_LabelColor']"/>
           <backgroundColor xmi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
           <foregroundColor xmi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
         </computedStyleDescriptions>
-        <computedStyleDescriptions xmi:type="style:FlatContainerStyleDescription" xmi:id="_ZbViY-MQEeuQk8DSQ2l-0A" arcWidth="20" arcHeight="20" borderSizeComputationExpression="aql:self.getBorderSize()" labelSize="12" showIcon="false" labelExpression="aql:self.getVCDLabel()" roundedCorner="true">
+        <computedStyleDescriptions xmi:type="style:FlatContainerStyleDescription" xmi:id="_KxkN1OPaEeuQ0Zx4ARVcxA" arcWidth="20" arcHeight="20" borderSizeComputationExpression="aql:self.getBorderSize()" labelSize="12" showIcon="false" labelExpression="aql:self.getVCDLabel()" roundedCorner="true">
           <borderColor xmi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
           <labelColor xmi:type="description:ComputedColor" href="platform:/plugin/org.obeonetwork.dsl.cinematic.design/description/cinematic.odesign#//@userColorsPalettes[name=null]/@entries[name='VCD_ViewElement_LabelColor']"/>
           <backgroundColor xmi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
@@ -10907,7 +10829,7 @@
     <ownedDiagramElements xmi:type="diagram:DNodeContainer" uid="_hjsggL44EeuEY4x5nvvi9w" name="PaymentForm">
       <target xmi:type="cinematic-view:ViewContainer" href="E-BookStore.cinematic#_mcNiwIjmEeGOp5IdJE0AIw"/>
       <semanticElements xmi:type="cinematic-view:ViewContainer" href="E-BookStore.cinematic#_mcNiwIjmEeGOp5IdJE0AIw"/>
-      <ownedStyle xmi:type="diagram:FlatContainerStyle" uid="_ZbTtMuMQEeuQk8DSQ2l-0A" labelSize="12" showIcon="false" description="_ZbTtMOMQEeuQk8DSQ2l-0A" borderSize="4" borderSizeComputationExpression="aql:self.getBorderSize()" backgroundStyle="GradientTopToBottom" foregroundColor="255,255,255"/>
+      <ownedStyle xmi:type="diagram:FlatContainerStyle" uid="_KxiYouPaEeuQ0Zx4ARVcxA" labelSize="12" showIcon="false" description="_KxiYoOPaEeuQ0Zx4ARVcxA" borderSize="4" borderSizeComputationExpression="aql:self.getBorderSize()" backgroundStyle="GradientTopToBottom" foregroundColor="255,255,255"/>
       <actualMapping xmi:type="description_1:ContainerMapping" href="platform:/plugin/org.obeonetwork.dsl.cinematic.design/description/cinematic.odesign#//@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='View%20Container%20Mockup']/@defaultLayer/@containerMappings[name='VCD_RootViewContainer']"/>
       <ownedDiagramElements xmi:type="diagram:DNodeContainer" uid="_hjz1Qb44EeuEY4x5nvvi9w" name="cardNumber">
         <target xmi:type="cinematic-view:ViewElement" href="E-BookStore.cinematic#_CuKDgIjpEeGJh95Ab8olLw"/>
@@ -10915,7 +10837,7 @@
         <arrangeConstraints>KEEP_LOCATION</arrangeConstraints>
         <arrangeConstraints>KEEP_SIZE</arrangeConstraints>
         <arrangeConstraints>KEEP_RATIO</arrangeConstraints>
-        <ownedStyle xmi:type="diagram:FlatContainerStyle" uid="_ZbU7UuMQEeuQk8DSQ2l-0A" labelSize="12" showIcon="false" labelAlignment="LEFT" description="_ZbU7UOMQEeuQk8DSQ2l-0A" borderSize="4" borderSizeComputationExpression="aql:self.getBorderSize()" foregroundColor="255,255,255"/>
+        <ownedStyle xmi:type="diagram:FlatContainerStyle" uid="_KxjmwuPaEeuQ0Zx4ARVcxA" labelSize="12" showIcon="false" labelAlignment="LEFT" description="_KxjmwOPaEeuQ0Zx4ARVcxA" borderSize="4" borderSizeComputationExpression="aql:self.getBorderSize()" foregroundColor="255,255,255"/>
         <actualMapping xmi:type="description_1:ContainerMapping" href="platform:/plugin/org.obeonetwork.dsl.cinematic.design/description/cinematic.odesign#//@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='View%20Container%20Mockup']/@defaultLayer/@containerMappings[name='VCD_RootViewContainer']/@subContainerMappings[name='VCD_ViewElement']"/>
       </ownedDiagramElements>
       <ownedDiagramElements xmi:type="diagram:DNodeContainer" uid="_hj5U0L44EeuEY4x5nvvi9w" name="endDate">
@@ -10924,7 +10846,7 @@
         <arrangeConstraints>KEEP_LOCATION</arrangeConstraints>
         <arrangeConstraints>KEEP_SIZE</arrangeConstraints>
         <arrangeConstraints>KEEP_RATIO</arrangeConstraints>
-        <ownedStyle xmi:type="diagram:FlatContainerStyle" uid="_ZbU7VeMQEeuQk8DSQ2l-0A" labelSize="12" showIcon="false" labelAlignment="LEFT" description="_ZbU7UOMQEeuQk8DSQ2l-0A" borderSize="4" borderSizeComputationExpression="aql:self.getBorderSize()" foregroundColor="255,255,255"/>
+        <ownedStyle xmi:type="diagram:FlatContainerStyle" uid="_KxjmxePaEeuQ0Zx4ARVcxA" labelSize="12" showIcon="false" labelAlignment="LEFT" description="_KxjmwOPaEeuQ0Zx4ARVcxA" borderSize="4" borderSizeComputationExpression="aql:self.getBorderSize()" foregroundColor="255,255,255"/>
         <actualMapping xmi:type="description_1:ContainerMapping" href="platform:/plugin/org.obeonetwork.dsl.cinematic.design/description/cinematic.odesign#//@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='View%20Container%20Mockup']/@defaultLayer/@containerMappings[name='VCD_RootViewContainer']/@subContainerMappings[name='VCD_ViewElement']"/>
       </ownedDiagramElements>
       <ownedDiagramElements xmi:type="diagram:DNodeContainer" uid="_hj7xEb44EeuEY4x5nvvi9w" name="validationDate">
@@ -10933,7 +10855,7 @@
         <arrangeConstraints>KEEP_LOCATION</arrangeConstraints>
         <arrangeConstraints>KEEP_SIZE</arrangeConstraints>
         <arrangeConstraints>KEEP_RATIO</arrangeConstraints>
-        <ownedStyle xmi:type="diagram:FlatContainerStyle" uid="_ZbViYeMQEeuQk8DSQ2l-0A" labelSize="12" showIcon="false" labelAlignment="LEFT" description="_ZbU7UOMQEeuQk8DSQ2l-0A" borderSize="4" borderSizeComputationExpression="aql:self.getBorderSize()" foregroundColor="255,255,255"/>
+        <ownedStyle xmi:type="diagram:FlatContainerStyle" uid="_KxkN0uPaEeuQ0Zx4ARVcxA" labelSize="12" showIcon="false" labelAlignment="LEFT" description="_KxjmwOPaEeuQ0Zx4ARVcxA" borderSize="4" borderSizeComputationExpression="aql:self.getBorderSize()" foregroundColor="255,255,255"/>
         <actualMapping xmi:type="description_1:ContainerMapping" href="platform:/plugin/org.obeonetwork.dsl.cinematic.design/description/cinematic.odesign#//@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='View%20Container%20Mockup']/@defaultLayer/@containerMappings[name='VCD_RootViewContainer']/@subContainerMappings[name='VCD_ViewElement']"/>
       </ownedDiagramElements>
       <ownedDiagramElements xmi:type="diagram:DNodeContainer" uid="_hj9mQb44EeuEY4x5nvvi9w" name="validate">
@@ -10942,7 +10864,7 @@
         <arrangeConstraints>KEEP_LOCATION</arrangeConstraints>
         <arrangeConstraints>KEEP_SIZE</arrangeConstraints>
         <arrangeConstraints>KEEP_RATIO</arrangeConstraints>
-        <ownedStyle xmi:type="diagram:FlatContainerStyle" uid="_ZbViZeMQEeuQk8DSQ2l-0A" labelSize="12" showIcon="false" description="_ZbViY-MQEeuQk8DSQ2l-0A" borderSize="4" borderSizeComputationExpression="aql:self.getBorderSize()" foregroundColor="255,255,255"/>
+        <ownedStyle xmi:type="diagram:FlatContainerStyle" uid="_KxkN1uPaEeuQ0Zx4ARVcxA" labelSize="12" showIcon="false" description="_KxkN1OPaEeuQ0Zx4ARVcxA" borderSize="4" borderSizeComputationExpression="aql:self.getBorderSize()" foregroundColor="255,255,255"/>
         <actualMapping xmi:type="description_1:ContainerMapping" href="platform:/plugin/org.obeonetwork.dsl.cinematic.design/description/cinematic.odesign#//@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='View%20Container%20Mockup']/@defaultLayer/@containerMappings[name='VCD_RootViewContainer']/@subContainerMappings[name='VCD_ViewElement']"/>
       </ownedDiagramElements>
       <ownedDiagramElements xmi:type="diagram:DNodeContainer" uid="_hkACgb44EeuEY4x5nvvi9w" name="cancel">
@@ -10951,7 +10873,7 @@
         <arrangeConstraints>KEEP_LOCATION</arrangeConstraints>
         <arrangeConstraints>KEEP_SIZE</arrangeConstraints>
         <arrangeConstraints>KEEP_RATIO</arrangeConstraints>
-        <ownedStyle xmi:type="diagram:FlatContainerStyle" uid="_ZbWJcOMQEeuQk8DSQ2l-0A" labelSize="12" showIcon="false" description="_ZbViY-MQEeuQk8DSQ2l-0A" borderSize="4" borderSizeComputationExpression="aql:self.getBorderSize()" foregroundColor="255,255,255"/>
+        <ownedStyle xmi:type="diagram:FlatContainerStyle" uid="_KxkN2ePaEeuQ0Zx4ARVcxA" labelSize="12" showIcon="false" description="_KxkN1OPaEeuQ0Zx4ARVcxA" borderSize="4" borderSizeComputationExpression="aql:self.getBorderSize()" foregroundColor="255,255,255"/>
         <actualMapping xmi:type="description_1:ContainerMapping" href="platform:/plugin/org.obeonetwork.dsl.cinematic.design/description/cinematic.odesign#//@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='View%20Container%20Mockup']/@defaultLayer/@containerMappings[name='VCD_RootViewContainer']/@subContainerMappings[name='VCD_ViewElement']"/>
       </ownedDiagramElements>
     </ownedDiagramElements>
