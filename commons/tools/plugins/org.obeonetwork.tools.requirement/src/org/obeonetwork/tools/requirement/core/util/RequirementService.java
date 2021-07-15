@@ -99,7 +99,7 @@ public class RequirementService {
 		ECrossReferenceAdapter crossReferenceAdapter = session.getSemanticCrossReferencer();
 		HashSet<Requirement> linkedRequirements = new HashSet<Requirement>();
 		for (Setting setting : crossReferenceAdapter.getInverseReferences(eObject)) {
-			if (setting.getEObject() instanceof Requirement) {
+			if (setting != null && setting.getEObject() instanceof Requirement) {
 				Requirement requirement = (Requirement) setting.getEObject();
 
 				// Check if requirement really references the object
