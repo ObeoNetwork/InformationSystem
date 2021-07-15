@@ -132,7 +132,7 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute soa.ecore#//Parameter/statusMessage"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference soa.ecore#//Parameter/restData"/>
     </genClasses>
-    <genClasses ecoreClass="soa.ecore#//ParameterRestData">
+    <genClasses ecoreClass="soa.ecore#//ParameterRestData" labelFeature="#//soa/ParameterRestData/restId">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute soa.ecore#//ParameterRestData/passingMode"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute soa.ecore#//ParameterRestData/restId"/>
     </genClasses>
