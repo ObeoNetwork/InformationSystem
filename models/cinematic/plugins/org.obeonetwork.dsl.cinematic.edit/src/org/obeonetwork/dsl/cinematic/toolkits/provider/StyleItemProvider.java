@@ -397,7 +397,7 @@ public class StyleItemProvider
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = ((Style)object).getTechnicalid();
+		String label = ((Style)object).getDecorator();
 		return label == null || label.length() == 0 ?
 			getString("_UI_Style_type") :
 			getString("_UI_Style_type") + " " + label;

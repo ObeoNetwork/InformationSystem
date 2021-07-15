@@ -15,6 +15,7 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EEnum;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
+import org.obeonetwork.dsl.environment.EnvironmentPackage;
 import org.obeonetwork.dsl.technicalid.TechnicalIDPackage;
 
 /**
@@ -422,6 +423,61 @@ public interface ToolkitsPackage extends EPackage {
 	int STYLE_FEATURE_COUNT = TechnicalIDPackage.IDENTIFIABLE_FEATURE_COUNT + 13;
 
 	/**
+	 * The meta object id for the '{@link org.obeonetwork.dsl.cinematic.toolkits.impl.MetaDataDefinitionImpl <em>Meta Data Definition</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.obeonetwork.dsl.cinematic.toolkits.impl.MetaDataDefinitionImpl
+	 * @see org.obeonetwork.dsl.cinematic.toolkits.impl.ToolkitsPackageImpl#getMetaDataDefinition()
+	 * @generated
+	 */
+	int META_DATA_DEFINITION = 4;
+
+	/**
+	 * The feature id for the '<em><b>Technicalid</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int META_DATA_DEFINITION__TECHNICALID = EnvironmentPackage.ANNOTATION__TECHNICALID;
+
+	/**
+	 * The feature id for the '<em><b>Title</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int META_DATA_DEFINITION__TITLE = EnvironmentPackage.ANNOTATION__TITLE;
+
+	/**
+	 * The feature id for the '<em><b>Body</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int META_DATA_DEFINITION__BODY = EnvironmentPackage.ANNOTATION__BODY;
+
+	/**
+	 * The feature id for the '<em><b>Help</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int META_DATA_DEFINITION__HELP = EnvironmentPackage.ANNOTATION_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of structural features of the '<em>Meta Data Definition</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int META_DATA_DEFINITION_FEATURE_COUNT = EnvironmentPackage.ANNOTATION_FEATURE_COUNT + 1;
+
+	/**
 	 * The meta object id for the '{@link org.obeonetwork.dsl.cinematic.toolkits.CardinalPosition <em>Cardinal Position</em>}' enum.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -429,7 +485,7 @@ public interface ToolkitsPackage extends EPackage {
 	 * @see org.obeonetwork.dsl.cinematic.toolkits.impl.ToolkitsPackageImpl#getCardinalPosition()
 	 * @generated
 	 */
-	int CARDINAL_POSITION = 4;
+	int CARDINAL_POSITION = 5;
 
 	/**
 	 * The meta object id for the '{@link org.obeonetwork.dsl.cinematic.toolkits.HorizontalAlignment <em>Horizontal Alignment</em>}' enum.
@@ -439,7 +495,7 @@ public interface ToolkitsPackage extends EPackage {
 	 * @see org.obeonetwork.dsl.cinematic.toolkits.impl.ToolkitsPackageImpl#getHorizontalAlignment()
 	 * @generated
 	 */
-	int HORIZONTAL_ALIGNMENT = 5;
+	int HORIZONTAL_ALIGNMENT = 6;
 
 
 	/**
@@ -780,6 +836,27 @@ public interface ToolkitsPackage extends EPackage {
 	EAttribute getStyle_LabelHidden();
 
 	/**
+	 * Returns the meta object for class '{@link org.obeonetwork.dsl.cinematic.toolkits.MetaDataDefinition <em>Meta Data Definition</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Meta Data Definition</em>'.
+	 * @see org.obeonetwork.dsl.cinematic.toolkits.MetaDataDefinition
+	 * @generated
+	 */
+	EClass getMetaDataDefinition();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.obeonetwork.dsl.cinematic.toolkits.MetaDataDefinition#getHelp <em>Help</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Help</em>'.
+	 * @see org.obeonetwork.dsl.cinematic.toolkits.MetaDataDefinition#getHelp()
+	 * @see #getMetaDataDefinition()
+	 * @generated
+	 */
+	EAttribute getMetaDataDefinition_Help();
+
+	/**
 	 * Returns the meta object for enum '{@link org.obeonetwork.dsl.cinematic.toolkits.CardinalPosition <em>Cardinal Position</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1076,6 +1153,24 @@ public interface ToolkitsPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute STYLE__LABEL_HIDDEN = eINSTANCE.getStyle_LabelHidden();
+
+		/**
+		 * The meta object literal for the '{@link org.obeonetwork.dsl.cinematic.toolkits.impl.MetaDataDefinitionImpl <em>Meta Data Definition</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.obeonetwork.dsl.cinematic.toolkits.impl.MetaDataDefinitionImpl
+		 * @see org.obeonetwork.dsl.cinematic.toolkits.impl.ToolkitsPackageImpl#getMetaDataDefinition()
+		 * @generated
+		 */
+		EClass META_DATA_DEFINITION = eINSTANCE.getMetaDataDefinition();
+
+		/**
+		 * The meta object literal for the '<em><b>Help</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute META_DATA_DEFINITION__HELP = eINSTANCE.getMetaDataDefinition_Help();
 
 		/**
 		 * The meta object literal for the '{@link org.obeonetwork.dsl.cinematic.toolkits.CardinalPosition <em>Cardinal Position</em>}' enum.

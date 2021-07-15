@@ -350,7 +350,7 @@ public class WidgetItemProvider
 		newChildDescriptors.add
 			(createChildParameter
 				(ToolkitsPackage.Literals.WIDGET__METADATA_DEFINITIONS,
-				 EnvironmentFactory.eINSTANCE.createAnnotation()));
+				 ToolkitsFactory.eINSTANCE.createMetaDataDefinition()));
 	}
 
 	/**
