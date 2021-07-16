@@ -278,6 +278,10 @@ public class CinematicWidgetServices extends DebugServices {
 		return Optional.ofNullable(viewElement.getWidget().getStyle()).map(s -> s.isFontUnderlined()).orElse(false);
 	}
 	
+	public boolean isLabelHidden(AbstractViewElement viewElement) {
+		return Optional.ofNullable(viewElement.getWidget().getStyle()).map(s -> s.isLabelHidden()).orElse(false);
+	}
+	
 	public DNodeContainer setDefaultSize(DNodeContainer viewElementDNodeContainer) {
 		AbstractViewElement viewElement = (AbstractViewElement) viewElementDNodeContainer.getTarget();
 		
@@ -560,22 +564,21 @@ public class CinematicWidgetServices extends DebugServices {
 		
 	}
 	
-	public MetaDataContainer getWidgetMetadatas(EObject eObject) {
+	public MetaDataContainer createWidgetMetadatas(AbstractViewElement viewElement) {
 		MetaDataContainer metaDataContainer = null;
-		if (eObject instanceof AbstractViewElement) {
-			if (((AbstractViewElement) eObject).getMetadatas() == null) {
-				metaDataContainer = EnvironmentFactory.eINSTANCE.createMetaDataContainer();				
-			} else {
-				metaDataContainer = ((AbstractViewElement) eObject).getMetadatas();
-			}
-			
-			Widget widget = ((AbstractViewElement) eObject).getWidget();
-			if (widget != null) {
-				for (String metadataKey : widget.getMetadataKeys()) {
-					Annotation annotation = EnvironmentFactory.eINSTANCE.createAnnotation();
-					annotation.setTitle(metadataKey);
-					metaDataContainer.getMetadatas().add(annotation);
-				}
+		if (viewElement.getMetadatas() == null) {
+			metaDataContainer = EnvironmentFactory.eINSTANCE.createMetaDataContainer();				
+		} else {
+			metaDataContainer = viewElement.getMetadatas();
+		}
+		
+		Widget widget = viewElement.getWidget();
+		if (widget != null) {
+			for (Annotation metadataDefinition : widget.getMetadataDefinitions()) {
+				Annotation metadata = EnvironmentFactory.eINSTANCE.createAnnotation();
+				metadata.setTitle(metadataDefinition.getTitle());
+				metadata.setBody(metadataDefinition.getBody());
+				metaDataContainer.getMetadatas().add(metadata);
 			}
 		}
 		

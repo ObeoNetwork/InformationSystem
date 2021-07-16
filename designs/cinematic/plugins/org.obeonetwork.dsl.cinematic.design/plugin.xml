@@ -73,6 +73,24 @@
                  checkEnabled="true">
            </visibleWhen>
         </command>
+        <command
+              commandId="org.obeonetwork.dsl.cinematic.design.command.ApplyMockupImage"
+              icon="icons/tools/layout_top_right_corner_apply.png"
+              label="Apply Mockup Image"
+              style="push">
+           <visibleWhen
+                 checkEnabled="true">
+           </visibleWhen>
+        </command>
+        <command
+              commandId="org.obeonetwork.dsl.cinematic.design.command.RemoveMockupImage"
+              icon="icons/tools/layout_top_right_corner_remove.png"
+              label="Remove Mockup Image"
+              style="push">
+           <visibleWhen
+                 checkEnabled="true">
+           </visibleWhen>
+        </command>
      </menuContribution>
   </extension>
   <extension
@@ -88,6 +106,14 @@
      <command
            id="org.obeonetwork.dsl.cinematic.design.command.PreviewLayout"
            name="Preview Layout">
+     </command>
+     <command
+           id="org.obeonetwork.dsl.cinematic.design.command.ApplyMockupImage"
+           name="Apply Mockup Image">
+     </command>
+     <command
+           id="org.obeonetwork.dsl.cinematic.design.command.RemoveMockupImage"
+           name="Remove Mockup Image">
      </command>
   </extension>
   <extension
@@ -164,6 +190,62 @@
            </with>
         </enabledWhen>
      </handler>
+     <handler
+           class="org.obeonetwork.dsl.cinematic.design.handlers.ApplyMockupImageHandler"
+           commandId="org.obeonetwork.dsl.cinematic.design.command.ApplyMockupImage">
+        <enabledWhen>
+           <with
+                 variable="selection">
+              <iterate
+                    ifEmpty="false"
+                    operator="and">
+                 <adapt
+                       type="org.eclipse.sirius.diagram.ui.edit.api.part.ISiriusEditPart">
+                    <and>
+                       <test
+                             forcePluginActivation="true"
+                             property="org.eclipse.sirius.diagram.ui.edit.api.part.ISiriusEditPart.diagramName"
+                             value="Flow Diagram">
+                       </test>
+                       <test
+                             forcePluginActivation="true"
+                             property="org.eclipse.sirius.diagram.ui.edit.api.part.ISiriusEditPart.mappingName"
+                             value="FLD_ViewState">
+                       </test>
+                    </and>
+                 </adapt>
+              </iterate>
+           </with>
+        </enabledWhen>
+     </handler>
+     <handler
+           class="org.obeonetwork.dsl.cinematic.design.handlers.RemoveMockupImageHandler"
+           commandId="org.obeonetwork.dsl.cinematic.design.command.RemoveMockupImage">
+        <enabledWhen>
+           <with
+                 variable="selection">
+              <iterate
+                    ifEmpty="false"
+                    operator="and">
+                 <adapt
+                       type="org.eclipse.sirius.diagram.ui.edit.api.part.ISiriusEditPart">
+                    <and>
+                       <test
+                             forcePluginActivation="true"
+                             property="org.eclipse.sirius.diagram.ui.edit.api.part.ISiriusEditPart.diagramName"
+                             value="Flow Diagram">
+                       </test>
+                       <test
+                             forcePluginActivation="true"
+                             property="org.eclipse.sirius.diagram.ui.edit.api.part.ISiriusEditPart.mappingName"
+                             value="FLD_ViewState">
+                       </test>
+                    </and>
+                 </adapt>
+              </iterate>
+           </with>
+        </enabledWhen>
+     </handler>
   </extension>
   <extension
         point="org.eclipse.gmf.runtime.diagram.ui.editpartProviders">
@@ -179,5 +261,20 @@
      <metadatadescription
            class="org.obeonetwork.dsl.cinematic.design.extension.AbstractViewElementMetadataProvider">
      </metadatadescription>
+  </extension>
+  <extension
+        point="org.eclipse.ui.bindings">
+     <key
+           commandId="org.obeonetwork.dsl.cinematic.design.command.ApplyMockupImage"
+           contextId="org.eclipse.sirius.diagram.ui.diagramContext"
+           schemeId="org.eclipse.ui.defaultAcceleratorConfiguration"
+           sequence="SHIFT+F5">
+     </key>
+     <key
+           commandId="org.obeonetwork.dsl.cinematic.design.command.PreviewLayout"
+           contextId="org.eclipse.sirius.diagram.ui.diagramContext"
+           schemeId="org.eclipse.ui.defaultAcceleratorConfiguration"
+           sequence="CTRL+P">
+     </key>
   </extension>
 </plugin>

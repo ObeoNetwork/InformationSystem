@@ -66,6 +66,15 @@ public interface ToolkitsFactory extends EFactory {
 	Style createStyle();
 
 	/**
+	 * Returns a new object of class '<em>Meta Data Definition</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Meta Data Definition</em>'.
+	 * @generated
+	 */
+	MetaDataDefinition createMetaDataDefinition();
+
+	/**
 	 * Returns the package supported by this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

@@ -17,11 +17,13 @@ import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.util.InternalEList;
+import org.obeonetwork.dsl.cinematic.toolkits.MetaDataDefinition;
 import org.obeonetwork.dsl.cinematic.toolkits.Style;
 import org.obeonetwork.dsl.cinematic.toolkits.Toolkit;
 import org.obeonetwork.dsl.cinematic.toolkits.ToolkitsPackage;
 import org.obeonetwork.dsl.cinematic.toolkits.Widget;
 import org.obeonetwork.dsl.cinematic.toolkits.WidgetEventType;
+import org.obeonetwork.dsl.environment.Annotation;
 import org.obeonetwork.dsl.technicalid.impl.IdentifiableImpl;
 
 /**
@@ -39,10 +41,10 @@ import org.obeonetwork.dsl.technicalid.impl.IdentifiableImpl;
  *   <li>{@link org.obeonetwork.dsl.cinematic.toolkits.impl.WidgetImpl#getPossibleEvents <em>Possible Events</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.cinematic.toolkits.impl.WidgetImpl#isIsContainer <em>Is Container</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.cinematic.toolkits.impl.WidgetImpl#getStyle <em>Style</em>}</li>
- *   <li>{@link org.obeonetwork.dsl.cinematic.toolkits.impl.WidgetImpl#getMetadataKeys <em>Metadata Keys</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.cinematic.toolkits.impl.WidgetImpl#getMetadataHelp <em>Metadata Help</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.cinematic.toolkits.impl.WidgetImpl#getSummary <em>Summary</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.cinematic.toolkits.impl.WidgetImpl#getDocumentation <em>Documentation</em>}</li>
+ *   <li>{@link org.obeonetwork.dsl.cinematic.toolkits.impl.WidgetImpl#getMetadataDefinitions <em>Metadata Definitions</em>}</li>
  * </ul>
  *
  * @generated
@@ -293,27 +295,8 @@ public class WidgetImpl extends IdentifiableImpl implements Widget {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@SuppressWarnings("unchecked")
-	public EList<String> getMetadataKeys() {
-		return (EList<String>)eDynamicGet(ToolkitsPackage.WIDGET__METADATA_KEYS, ToolkitsPackage.Literals.WIDGET__METADATA_KEYS, true, true);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public String getMetadataHelp() {
 		return (String)eDynamicGet(ToolkitsPackage.WIDGET__METADATA_HELP, ToolkitsPackage.Literals.WIDGET__METADATA_HELP, true, true);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setMetadataHelp(String newMetadataHelp) {
-		eDynamicSet(ToolkitsPackage.WIDGET__METADATA_HELP, ToolkitsPackage.Literals.WIDGET__METADATA_HELP, newMetadataHelp);
 	}
 
 	/**
@@ -357,6 +340,16 @@ public class WidgetImpl extends IdentifiableImpl implements Widget {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@SuppressWarnings("unchecked")
+	public EList<MetaDataDefinition> getMetadataDefinitions() {
+		return (EList<MetaDataDefinition>)eDynamicGet(ToolkitsPackage.WIDGET__METADATA_DEFINITIONS, ToolkitsPackage.Literals.WIDGET__METADATA_DEFINITIONS, true, true);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
@@ -382,6 +375,8 @@ public class WidgetImpl extends IdentifiableImpl implements Widget {
 				return ((InternalEList<?>)getPossibleEvents()).basicRemove(otherEnd, msgs);
 			case ToolkitsPackage.WIDGET__STYLE:
 				return basicSetStyle(null, msgs);
+			case ToolkitsPackage.WIDGET__METADATA_DEFINITIONS:
+				return ((InternalEList<?>)getMetadataDefinitions()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -424,14 +419,14 @@ public class WidgetImpl extends IdentifiableImpl implements Widget {
 			case ToolkitsPackage.WIDGET__STYLE:
 				if (resolve) return getStyle();
 				return basicGetStyle();
-			case ToolkitsPackage.WIDGET__METADATA_KEYS:
-				return getMetadataKeys();
 			case ToolkitsPackage.WIDGET__METADATA_HELP:
 				return getMetadataHelp();
 			case ToolkitsPackage.WIDGET__SUMMARY:
 				return getSummary();
 			case ToolkitsPackage.WIDGET__DOCUMENTATION:
 				return getDocumentation();
+			case ToolkitsPackage.WIDGET__METADATA_DEFINITIONS:
+				return getMetadataDefinitions();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -467,18 +462,15 @@ public class WidgetImpl extends IdentifiableImpl implements Widget {
 			case ToolkitsPackage.WIDGET__STYLE:
 				setStyle((Style)newValue);
 				return;
-			case ToolkitsPackage.WIDGET__METADATA_KEYS:
-				getMetadataKeys().clear();
-				getMetadataKeys().addAll((Collection<? extends String>)newValue);
-				return;
-			case ToolkitsPackage.WIDGET__METADATA_HELP:
-				setMetadataHelp((String)newValue);
-				return;
 			case ToolkitsPackage.WIDGET__SUMMARY:
 				setSummary((String)newValue);
 				return;
 			case ToolkitsPackage.WIDGET__DOCUMENTATION:
 				setDocumentation((String)newValue);
+				return;
+			case ToolkitsPackage.WIDGET__METADATA_DEFINITIONS:
+				getMetadataDefinitions().clear();
+				getMetadataDefinitions().addAll((Collection<? extends MetaDataDefinition>)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -513,17 +505,14 @@ public class WidgetImpl extends IdentifiableImpl implements Widget {
 			case ToolkitsPackage.WIDGET__STYLE:
 				setStyle((Style)null);
 				return;
-			case ToolkitsPackage.WIDGET__METADATA_KEYS:
-				getMetadataKeys().clear();
-				return;
-			case ToolkitsPackage.WIDGET__METADATA_HELP:
-				setMetadataHelp(METADATA_HELP_EDEFAULT);
-				return;
 			case ToolkitsPackage.WIDGET__SUMMARY:
 				setSummary(SUMMARY_EDEFAULT);
 				return;
 			case ToolkitsPackage.WIDGET__DOCUMENTATION:
 				setDocumentation(DOCUMENTATION_EDEFAULT);
+				return;
+			case ToolkitsPackage.WIDGET__METADATA_DEFINITIONS:
+				getMetadataDefinitions().clear();
 				return;
 		}
 		super.eUnset(featureID);
@@ -551,14 +540,14 @@ public class WidgetImpl extends IdentifiableImpl implements Widget {
 				return isIsContainer() != IS_CONTAINER_EDEFAULT;
 			case ToolkitsPackage.WIDGET__STYLE:
 				return basicGetStyle() != null;
-			case ToolkitsPackage.WIDGET__METADATA_KEYS:
-				return !getMetadataKeys().isEmpty();
 			case ToolkitsPackage.WIDGET__METADATA_HELP:
 				return METADATA_HELP_EDEFAULT == null ? getMetadataHelp() != null : !METADATA_HELP_EDEFAULT.equals(getMetadataHelp());
 			case ToolkitsPackage.WIDGET__SUMMARY:
 				return SUMMARY_EDEFAULT == null ? getSummary() != null : !SUMMARY_EDEFAULT.equals(getSummary());
 			case ToolkitsPackage.WIDGET__DOCUMENTATION:
 				return DOCUMENTATION_EDEFAULT == null ? getDocumentation() != null : !DOCUMENTATION_EDEFAULT.equals(getDocumentation());
+			case ToolkitsPackage.WIDGET__METADATA_DEFINITIONS:
+				return !getMetadataDefinitions().isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}

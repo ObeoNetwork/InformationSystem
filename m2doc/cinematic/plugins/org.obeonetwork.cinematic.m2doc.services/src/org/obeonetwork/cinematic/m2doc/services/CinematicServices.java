@@ -31,6 +31,9 @@ import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.emf.ecore.resource.URIConverter;
 import org.eclipse.emf.edit.provider.ComposedAdapterFactory;
 import org.eclipse.emf.edit.ui.provider.AdapterFactoryLabelProvider;
+import org.eclipse.sirius.business.api.query.EObjectQuery;
+import org.eclipse.sirius.business.api.session.Session;
+import org.eclipse.sirius.ui.tools.api.actions.export.SizeTooLargeException;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.graphics.Image;
 import org.eclipse.swt.graphics.ImageData;
@@ -40,6 +43,7 @@ import org.obeonetwork.cinematic.m2doc.extension.MListImpl;
 import org.obeonetwork.dsl.cinematic.AbstractPackage;
 import org.obeonetwork.dsl.cinematic.CinematicRoot;
 import org.obeonetwork.dsl.cinematic.Package;
+import org.obeonetwork.dsl.cinematic.design.ICinematicViewpoint;
 import org.obeonetwork.dsl.cinematic.design.services.CinematicBindingServices;
 import org.obeonetwork.dsl.cinematic.design.services.CinematicLabelServices;
 import org.obeonetwork.dsl.cinematic.flow.ActionState;
@@ -49,6 +53,7 @@ import org.obeonetwork.dsl.cinematic.flow.FlowState;
 import org.obeonetwork.dsl.cinematic.flow.Transition;
 import org.obeonetwork.dsl.cinematic.flow.ViewState;
 import org.obeonetwork.dsl.cinematic.view.AbstractViewElement;
+import org.obeonetwork.dsl.cinematic.view.Layout;
 import org.obeonetwork.dsl.cinematic.view.ViewContainer;
 import org.obeonetwork.dsl.cinematic.view.ViewElement;
 import org.obeonetwork.dsl.cinematic.view.ViewEvent;
@@ -71,6 +76,7 @@ import org.obeonetwork.m2doc.element.impl.MTableImpl;
 import org.obeonetwork.m2doc.element.impl.MTableImpl.MCellImpl;
 import org.obeonetwork.m2doc.element.impl.MTableImpl.MRowImpl;
 import org.obeonetwork.m2doc.element.impl.MTextImpl;
+import org.obeonetwork.m2doc.sirius.services.M2DocSiriusServices;
 import org.obeonetwork.tools.doc.core.DocumentationLink;
 
 public class CinematicServices {
@@ -761,8 +767,248 @@ public class CinematicServices {
 		sortedOwnedElements.addAll(viewContainer.getViewElements());
 		sortedOwnedElements.addAll(viewContainer.getViewContainerReferences());
 		
-		
 		return sortedOwnedElements;
+	}
+
+	// asMockupImage
+	
+	// @formatter:off
+	@Documentation(
+			comment = "{m:viewContainer.asMockupImage()}",
+		    value = "Returns a collection of images representing the target ViewContainer Mockup Diagrams.",
+		    examples = {
+		    		@Example(
+		    				expression = "{m:viewContainer.asMockupImage()}", 
+		    				result = "A sequence of images.")
+		    }
+		)
+	// @formatter:on	
+	public List<MImage> asMockupImage(ViewContainer viewContainer) throws SizeTooLargeException, IOException {
+		Session session = new EObjectQuery(viewContainer).getSession();
+		List<MImage> images = new M2DocSiriusServices(session, true).asImageByRepresentationDescriptionName(viewContainer, ICinematicViewpoint.VIEW_CONTAINER_DIAGRAM_ID);
+		
+		return images;
+	}
+	
+	// @formatter:off
+	@Documentation(
+			comment = "{m:viewContainer.asMockupImage(width)}",
+		    value = "Returns a collection of images representing the target ViewContainer Mockup Diagrams scaled to the given width keeping the initial image ratio.",
+		    examples = {
+		    		@Example(
+		    				expression = "{m:viewContainer.asMockupImage(400)}", 
+		    				result = "A sequence of images.")
+		    }
+		)
+	// @formatter:on	
+	public List<MImage> asMockupImage(ViewContainer viewContainer, int width) throws SizeTooLargeException, IOException {
+		Session session = new EObjectQuery(viewContainer).getSession();
+		List<MImage> images = new M2DocSiriusServices(session, true).asImageByRepresentationDescriptionName(viewContainer, ICinematicViewpoint.VIEW_CONTAINER_DIAGRAM_ID);
+		images.forEach(i -> i.conserveRatio());
+		images.forEach(i -> i.setWidth(width));
+		
+		return images;
+	}
+	
+	// @formatter:off
+	@Documentation(
+			comment = "{m:viewContainer.asMockupImage(width, height)}",
+		    value = "Returns a collection of images representing the target ViewContainer Mockup Diagrams scaled to the given width and heigth.",
+		    examples = {
+		    		@Example(
+		    				expression = "{m:viewContainer.asMockupImage(400, 300)}", 
+		    				result = "A sequence of images.")
+		    }
+		)
+	// @formatter:on	
+	public List<MImage> asMockupImage(ViewContainer viewContainer, int width, int height) throws SizeTooLargeException, IOException {
+		Session session = new EObjectQuery(viewContainer).getSession();
+		List<MImage> images = new M2DocSiriusServices(session, true).asImageByRepresentationDescriptionName(viewContainer, ICinematicViewpoint.VIEW_CONTAINER_DIAGRAM_ID);
+		images.forEach(i -> i.setHeight(height));
+		images.forEach(i -> i.setWidth(width));
+		
+		return images;
+	}
+	
+	// asFlowImage
+	
+	// @formatter:off
+	@Documentation(
+			comment = "{m:flow.asFlowImage()}",
+		    value = "Returns a collection of images representing the target Flow Flow Diagrams.",
+		    examples = {
+		    		@Example(
+		    				expression = "{m:flow.asFlowImage()}", 
+		    				result = "A sequence of images.")
+		    }
+		)
+	// @formatter:on	
+	public List<MImage> asFlowImage(Flow flow) throws SizeTooLargeException, IOException {
+		Session session = new EObjectQuery(flow).getSession();
+		List<MImage> images = new M2DocSiriusServices(session, true).asImageByRepresentationDescriptionName(flow, ICinematicViewpoint.FLOW_DIAGRAM_ID);
+		
+		return images;
+	}
+	
+	// @formatter:off
+	@Documentation(
+			comment = "{m:flow.asFlowImage(width)}",
+		    value = "Returns a collection of images representing the target Flow Flow Diagrams scaled to the given width keeping the initial image ratio.",
+		    examples = {
+		    		@Example(
+		    				expression = "{m:flow.asFlowImage(400)}", 
+		    				result = "A sequence of images.")
+		    }
+		)
+	// @formatter:on	
+	public List<MImage> asFlowImage(Flow flow, int width) throws SizeTooLargeException, IOException {
+		Session session = new EObjectQuery(flow).getSession();
+		List<MImage> images = new M2DocSiriusServices(session, true).asImageByRepresentationDescriptionName(flow, ICinematicViewpoint.FLOW_DIAGRAM_ID);
+		images.forEach(i -> i.conserveRatio());
+		images.forEach(i -> i.setWidth(width));
+		
+		return images;
+	}
+	
+	// @formatter:off
+	@Documentation(
+			comment = "{m:flow.asFlowImage(width, height)}",
+		    value = "Returns a collection of images representing the target Flow Flow Diagrams scaled to the given width and heigth.",
+		    examples = {
+		    		@Example(
+		    				expression = "{m:flow.asFlowImage(400, 300)}", 
+		    				result = "A sequence of images.")
+		    }
+		)
+	// @formatter:on	
+	public List<MImage> asFlowImage(Flow flow, int width, int height) throws SizeTooLargeException, IOException {
+		Session session = new EObjectQuery(flow).getSession();
+		List<MImage> images = new M2DocSiriusServices(session, true).asImageByRepresentationDescriptionName(flow, ICinematicViewpoint.FLOW_DIAGRAM_ID);
+		images.forEach(i -> i.setHeight(height));
+		images.forEach(i -> i.setWidth(width));
+		
+		return images;
+	}
+	
+    // asPackageImage
+	
+	// @formatter:off
+	@Documentation(
+			comment = "{m:abstractPackage.asPackageImage()}",
+		    value = "Returns a collection of images representing the target Package Package Diagrams.",
+		    examples = {
+		    		@Example(
+		    				expression = "{m:abstractPackage.asPackageImage()}", 
+		    				result = "A sequence of images.")
+		    }
+		)
+	// @formatter:on	
+	public List<MImage> asPackageImage(Package abstractPackage) throws SizeTooLargeException, IOException {
+		Session session = new EObjectQuery(abstractPackage).getSession();
+		List<MImage> images = new M2DocSiriusServices(session, true).asImageByRepresentationDescriptionName(abstractPackage, ICinematicViewpoint.PACKAGE_DIAGRAM_ID);
+		
+		return images;
+	}
+	
+	// @formatter:off
+	@Documentation(
+			comment = "{m:abstractPackage.asPackageImage(width)}",
+		    value = "Returns a collection of images representing the target Package Package Diagrams scaled to the given width keeping the initial image ratio.",
+		    examples = {
+		    		@Example(
+		    				expression = "{m:abstractPackage.asPackageImage(400)}", 
+		    				result = "A sequence of images.")
+		    }
+		)
+	// @formatter:on	
+	public List<MImage> asPackageImage(Package abstractPackage, int width) throws SizeTooLargeException, IOException {
+		Session session = new EObjectQuery(abstractPackage).getSession();
+		List<MImage> images = new M2DocSiriusServices(session, true).asImageByRepresentationDescriptionName(abstractPackage, ICinematicViewpoint.PACKAGE_DIAGRAM_ID);
+		images.forEach(i -> i.conserveRatio());
+		images.forEach(i -> i.setWidth(width));
+		
+		return images;
+	}
+	
+	// @formatter:off
+	@Documentation(
+			comment = "{m:abstractPackage.asPackageImage(width, height)}",
+		    value = "Returns a collection of images representing the target Package Package Diagrams scaled to the given width and heigth.",
+		    examples = {
+		    		@Example(
+		    				expression = "{m:abstractPackage.asPackageImage(400, 300)}", 
+		    				result = "A sequence of images.")
+		    }
+		)
+	// @formatter:on	
+	public List<MImage> asPackageImage(Package abstractPackage, int width, int height) throws SizeTooLargeException, IOException {
+		Session session = new EObjectQuery(abstractPackage).getSession();
+		List<MImage> images = new M2DocSiriusServices(session, true).asImageByRepresentationDescriptionName(abstractPackage, ICinematicViewpoint.PACKAGE_DIAGRAM_ID);
+		images.forEach(i -> i.setHeight(height));
+		images.forEach(i -> i.setWidth(width));
+		
+		return images;
+	}
+	
+	// @formatter:off
+	@Documentation(
+			comment = "{m:layout.asLayoutImage()}",
+		    value = "Returns a collection of images representing the target Layout Layout Diagrams.",
+		    examples = {
+		    		@Example(
+		    				expression = "{m:layout.asLayoutImage()}", 
+		    				result = "A sequence of images.")
+		    }
+		)
+	
+	// asLayoutImage
+	
+	// @formatter:on	
+	public List<MImage> asLayoutImage(Layout layout) throws SizeTooLargeException, IOException {
+		Session session = new EObjectQuery(layout).getSession();
+		List<MImage> images = new M2DocSiriusServices(session, true).asImageByRepresentationDescriptionName(layout, ICinematicViewpoint.LAYOUT_DIAGRAM_ID);
+		
+		return images;
+	}
+	
+	// @formatter:off
+	@Documentation(
+			comment = "{m:layout.asLayoutImage(width)}",
+		    value = "Returns a collection of images representing the target Layout Layout Diagrams scaled to the given width keeping the initial image ratio.",
+		    examples = {
+		    		@Example(
+		    				expression = "{m:layout.asLayoutImage(400)}", 
+		    				result = "A sequence of images.")
+		    }
+		)
+	// @formatter:on	
+	public List<MImage> asLayoutImage(Layout layout, int width) throws SizeTooLargeException, IOException {
+		Session session = new EObjectQuery(layout).getSession();
+		List<MImage> images = new M2DocSiriusServices(session, true).asImageByRepresentationDescriptionName(layout, ICinematicViewpoint.LAYOUT_DIAGRAM_ID);
+		images.forEach(i -> i.conserveRatio());
+		images.forEach(i -> i.setWidth(width));
+		
+		return images;
+	}
+	
+	// @formatter:off
+	@Documentation(
+			comment = "{m:layout.asLayoutImage(width, height)}",
+		    value = "Returns a collection of images representing the target Layout Layout Diagrams scaled to the given width and heigth.",
+		    examples = {
+		    		@Example(
+		    				expression = "{m:layout.asLayoutImage(400, 300)}", 
+		    				result = "A sequence of images.")
+		    }
+		)
+	// @formatter:on	
+	public List<MImage> asLayoutImage(Layout layout, int width, int height) throws SizeTooLargeException, IOException {
+		Session session = new EObjectQuery(layout).getSession();
+		List<MImage> images = new M2DocSiriusServices(session, true).asImageByRepresentationDescriptionName(layout, ICinematicViewpoint.LAYOUT_DIAGRAM_ID);
+		images.forEach(i -> i.setHeight(height));
+		images.forEach(i -> i.setWidth(width));
+		
+		return images;
 	}
 	
 }

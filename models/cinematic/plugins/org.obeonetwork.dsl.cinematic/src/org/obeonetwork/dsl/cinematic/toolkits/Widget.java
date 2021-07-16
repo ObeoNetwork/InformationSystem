@@ -11,6 +11,7 @@
 package org.obeonetwork.dsl.cinematic.toolkits;
 
 import org.eclipse.emf.common.util.EList;
+import org.obeonetwork.dsl.environment.Annotation;
 import org.obeonetwork.dsl.technicalid.Identifiable;
 
 /**
@@ -29,10 +30,10 @@ import org.obeonetwork.dsl.technicalid.Identifiable;
  *   <li>{@link org.obeonetwork.dsl.cinematic.toolkits.Widget#getPossibleEvents <em>Possible Events</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.cinematic.toolkits.Widget#isIsContainer <em>Is Container</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.cinematic.toolkits.Widget#getStyle <em>Style</em>}</li>
- *   <li>{@link org.obeonetwork.dsl.cinematic.toolkits.Widget#getMetadataKeys <em>Metadata Keys</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.cinematic.toolkits.Widget#getMetadataHelp <em>Metadata Help</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.cinematic.toolkits.Widget#getSummary <em>Summary</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.cinematic.toolkits.Widget#getDocumentation <em>Documentation</em>}</li>
+ *   <li>{@link org.obeonetwork.dsl.cinematic.toolkits.Widget#getMetadataDefinitions <em>Metadata Definitions</em>}</li>
  * </ul>
  *
  * @see org.obeonetwork.dsl.cinematic.toolkits.ToolkitsPackage#getWidget()
@@ -229,38 +230,18 @@ public interface Widget extends Identifiable {
 	void setStyle(Style value);
 
 	/**
-	 * Returns the value of the '<em><b>Metadata Keys</b></em>' attribute list.
-	 * The list contents are of type {@link java.lang.String}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Metadata Keys</em>' attribute list.
-	 * @see org.obeonetwork.dsl.cinematic.toolkits.ToolkitsPackage#getWidget_MetadataKeys()
-	 * @model
-	 * @generated
-	 */
-	EList<String> getMetadataKeys();
-
-	/**
 	 * Returns the value of the '<em><b>Metadata Help</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * Concatenated values of metadataDefinitions.help.
+	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Metadata Help</em>' attribute.
-	 * @see #setMetadataHelp(String)
 	 * @see org.obeonetwork.dsl.cinematic.toolkits.ToolkitsPackage#getWidget_MetadataHelp()
-	 * @model
+	 * @model unique="false" changeable="false" derived="true"
 	 * @generated
 	 */
 	String getMetadataHelp();
-
-	/**
-	 * Sets the value of the '{@link org.obeonetwork.dsl.cinematic.toolkits.Widget#getMetadataHelp <em>Metadata Help</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Metadata Help</em>' attribute.
-	 * @see #getMetadataHelp()
-	 * @generated
-	 */
-	void setMetadataHelp(String value);
 
 	/**
 	 * Returns the value of the '<em><b>Summary</b></em>' attribute.
@@ -305,5 +286,17 @@ public interface Widget extends Identifiable {
 	 * @generated
 	 */
 	void setDocumentation(String value);
+
+	/**
+	 * Returns the value of the '<em><b>Metadata Definitions</b></em>' containment reference list.
+	 * The list contents are of type {@link org.obeonetwork.dsl.cinematic.toolkits.MetaDataDefinition}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Metadata Definitions</em>' containment reference list.
+	 * @see org.obeonetwork.dsl.cinematic.toolkits.ToolkitsPackage#getWidget_MetadataDefinitions()
+	 * @model containment="true" resolveProxies="true"
+	 * @generated
+	 */
+	EList<MetaDataDefinition> getMetadataDefinitions();
 
 } // Widget

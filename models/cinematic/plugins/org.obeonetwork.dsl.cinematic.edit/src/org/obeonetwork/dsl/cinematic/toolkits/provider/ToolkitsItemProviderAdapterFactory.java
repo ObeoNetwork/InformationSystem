@@ -170,6 +170,29 @@ public class ToolkitsItemProviderAdapterFactory extends ToolkitsAdapterFactory i
 	}
 
 	/**
+	 * This keeps track of the one adapter used for all {@link org.obeonetwork.dsl.cinematic.toolkits.MetaDataDefinition} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected MetaDataDefinitionItemProvider metaDataDefinitionItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link org.obeonetwork.dsl.cinematic.toolkits.MetaDataDefinition}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createMetaDataDefinitionAdapter() {
+		if (metaDataDefinitionItemProvider == null) {
+			metaDataDefinitionItemProvider = new MetaDataDefinitionItemProvider(this);
+		}
+
+		return metaDataDefinitionItemProvider;
+	}
+
+	/**
 	 * This returns the root adapter factory that contains this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -272,6 +295,7 @@ public class ToolkitsItemProviderAdapterFactory extends ToolkitsAdapterFactory i
 		if (widgetItemProvider != null) widgetItemProvider.dispose();
 		if (widgetEventTypeItemProvider != null) widgetEventTypeItemProvider.dispose();
 		if (styleItemProvider != null) styleItemProvider.dispose();
+		if (metaDataDefinitionItemProvider != null) metaDataDefinitionItemProvider.dispose();
 	}
 
 }

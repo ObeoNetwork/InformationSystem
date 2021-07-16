@@ -22,6 +22,7 @@ import org.obeonetwork.dsl.cinematic.toolkits.ToolkitsFactory;
 import org.obeonetwork.dsl.cinematic.toolkits.ToolkitsPackage;
 import org.obeonetwork.dsl.cinematic.toolkits.Widget;
 import org.obeonetwork.dsl.cinematic.toolkits.WidgetEventType;
+import org.obeonetwork.dsl.cinematic.toolkits.spec.WidgetSpec;
 
 /**
  * <!-- begin-user-doc -->
@@ -71,6 +72,7 @@ public class ToolkitsFactoryImpl extends EFactoryImpl implements ToolkitsFactory
 			case ToolkitsPackage.WIDGET: return (EObject)createWidget();
 			case ToolkitsPackage.WIDGET_EVENT_TYPE: return (EObject)createWidgetEventType();
 			case ToolkitsPackage.STYLE: return (EObject)createStyle();
+			case ToolkitsPackage.META_DATA_DEFINITION: return (EObject)createMetaDataDefinition();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -123,10 +125,10 @@ public class ToolkitsFactoryImpl extends EFactoryImpl implements ToolkitsFactory
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	public Widget createWidget() {
-		WidgetImpl widget = new WidgetImpl();
+		WidgetImpl widget = new WidgetSpec();
 		return widget;
 	}
 
@@ -148,6 +150,16 @@ public class ToolkitsFactoryImpl extends EFactoryImpl implements ToolkitsFactory
 	public Style createStyle() {
 		StyleImpl style = new StyleImpl();
 		return style;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public MetaDataDefinition createMetaDataDefinition() {
+		MetaDataDefinitionImpl metaDataDefinition = new MetaDataDefinitionImpl();
+		return metaDataDefinition;
 	}
 
 	/**
