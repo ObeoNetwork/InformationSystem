@@ -1,0 +1,30 @@
+<?xml version="1.1" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog" xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext" xmlns:pro="http://www.liquibase.org/xml/ns/pro" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd http://www.liquibase.org/xml/ns/pro http://www.liquibase.org/xml/ns/pro/liquibase-pro-4.1.xsd http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.1.xsd">
+    <changeSet author="IS Designer" id="2021-07-01-10-43-48--0">
+        <comment>Create table Table1</comment>
+        <createTable schemaName="SYSTEM" tableName="Table1">
+            <column name="column1" type="BOOL">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="Table1_PK"/>
+            </column>
+            <column name="column2" type="DECIMAL">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="IS Designer" id="2021-07-01-10-43-48--1">
+        <comment>Create table Table2</comment>
+        <createTable schemaName="SYSTEM" tableName="Table2">
+            <column name="column1" type="DECIMAL">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="Table2_PK"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="IS Designer" id="2021-07-01-10-43-48--2">
+        <comment>Foreign Key : FK_1</comment>
+        <addForeignKeyConstraint baseColumnNames="column2" baseTableName="Table1" baseTableSchemaName="public" constraintName="FK_1" referencedColumnNames="column1" referencedTableName="Table2" referencedTableSchemaName="public"/>
+    </changeSet>
+    <changeSet author="IS Designer" id="2021-07-01-10-43-48--3">
+        <comment>Sequence Sequence1 : null</comment>
+        <createSequence cacheSize="512" cycle="true" incrementBy="1" maxValue="100" minValue="0" schemaName="public" sequenceName="Sequence1" startValue="0"/>
+    </changeSet>
+</databaseChangeLog>

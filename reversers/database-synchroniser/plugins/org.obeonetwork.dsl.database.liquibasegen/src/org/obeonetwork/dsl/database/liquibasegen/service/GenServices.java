@@ -72,7 +72,7 @@ public class GenServices {
 	 * @param table a table
 	 * @return the name of the table or "" (never <code>null</code>)
 	 */
-	public String safeName(Table table) {
+	public String safeName(Table table) {	
 		return Optional.ofNullable(table.getName()).map(String::trim).orElse(EMPTY);
 	}
 

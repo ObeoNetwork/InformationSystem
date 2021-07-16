@@ -34,7 +34,7 @@ public class DefaultValueConfigDelegate {
 	public DefaultValueConfigDelegate(ColumnConfig colmunConfig) {
 		super();
 		this.change = null;
-		this.colmunConfig = colmunConfig;
+		this.colmunConfig = colmunConfig;		
 	}
 
 	public void setDefaultValueBoolean(String value) {
