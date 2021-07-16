@@ -606,7 +606,7 @@ public class ToolkitsPackageImpl extends EPackageImpl implements ToolkitsPackage
 		initEReference(getWidget_PossibleEvents(), this.getWidgetEventType(), null, "possibleEvents", null, 0, -1, Widget.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getWidget_IsContainer(), ecorePackage.getEBoolean(), "isContainer", null, 0, 1, Widget.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getWidget_Style(), this.getStyle(), null, "style", null, 0, 1, Widget.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getWidget_MetadataHelp(), ecorePackage.getEString(), "metadataHelp", null, 0, 1, Widget.class, !IS_TRANSIENT, !IS_VOLATILE, !IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
+		initEAttribute(getWidget_MetadataHelp(), ecorePackage.getEString(), "metadataHelp", null, 0, 1, Widget.class, !IS_TRANSIENT, !IS_VOLATILE, !IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, IS_DERIVED, IS_ORDERED);
 		initEAttribute(getWidget_Summary(), ecorePackage.getEString(), "summary", null, 0, 1, Widget.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getWidget_Documentation(), ecorePackage.getEString(), "documentation", null, 0, 1, Widget.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getWidget_MetadataDefinitions(), this.getMetaDataDefinition(), null, "metadataDefinitions", null, 0, -1, Widget.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -704,6 +704,12 @@ public class ToolkitsPackageImpl extends EPackageImpl implements ToolkitsPackage
 		   source,
 		   new String[] {
 			   "documentation", "True if this Widget is a container."
+		   });
+		addAnnotation
+		  (getWidget_MetadataHelp(),
+		   source,
+		   new String[] {
+			   "documentation", "Concatenated values of metadataDefinitions.help."
 		   });
 		addAnnotation
 		  (getWidgetEventType_Name(),

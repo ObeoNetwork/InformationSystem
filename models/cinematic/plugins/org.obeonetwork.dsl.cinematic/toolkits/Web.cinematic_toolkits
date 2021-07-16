@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <cinematic-toolkits:Toolkit xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:cinematic-toolkits="http://www.obeonetwork.org/dsl/cinematic/toolkits/1.0.0" xmi:id="_prv6gIjeEeGIXsoZxTXHQA" technicalid="_IxeAcKLCEeuqs9mIRWXCLA" name="Web">
-  <widgets xmi:id="_tGHIkIjeEeGIXsoZxTXHQA" technicalid="_IxeAcaLCEeuqs9mIRWXCLA" name="Button" icon="/org.obeonetwork.dsl.cinematic/icons/Button.gif" metadataHelp="Button's metadata" summary="A button">
+  <widgets xmi:id="_tGHIkIjeEeGIXsoZxTXHQA" technicalid="_IxeAcaLCEeuqs9mIRWXCLA" name="Button" icon="/org.obeonetwork.dsl.cinematic/icons/Button.gif" summary="A button">
     <possibleEvents xmi:id="_tGHIkYjeEeGIXsoZxTXHQA" technicalid="_IxeAcqLCEeuqs9mIRWXCLA" name="onClick"/>
     <possibleEvents xmi:id="_tGHIkojeEeGIXsoZxTXHQA" technicalid="_IxeAc6LCEeuqs9mIRWXCLA" name="onFocus"/>
     <possibleEvents xmi:id="_tGHIk4jeEeGIXsoZxTXHQA" technicalid="_IxeAdKLCEeuqs9mIRWXCLA" name="onFocusLost"/>

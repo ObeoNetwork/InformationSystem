@@ -177,7 +177,7 @@ public class WidgetItemProvider
 				 getString("_UI_Widget_metadataHelp_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_Widget_metadataHelp_feature", "_UI_Widget_type"),
 				 ToolkitsPackage.Literals.WIDGET__METADATA_HELP,
-				 true,
+				 false,
 				 true,
 				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
