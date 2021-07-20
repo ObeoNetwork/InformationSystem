@@ -24,14 +24,14 @@
     <!endif-->
     <link href="../assets/css/bootstrap.css" rel="stylesheet"/>
     <link href="../assets/css/docs.css" rel="stylesheet"/>
-    <title>M2Doc Services and attributes for Widget</title>
+    <title>M2Doc Services and attributes for MetaDataDefinition</title>
   </head>
 
   <body>
    <header class="jumbotron subhead" id="overview">
   </header>
 
-    <h1 id="Widget">Services and attributes for the Widget concept</h1>
+    <h1 id="MetaDataDefinition">Services and attributes for the MetaDataDefinition concept</h1>
     <div class="page-header">
       <h2 id="Attributes">Attributes</h2>
     </div>
@@ -47,88 +47,32 @@
     </thead>
   <tbody>
     <tr>
-      <td colspan="1" rowspan="1"><strong>documentation</strong></td>
+      <td colspan="1" rowspan="1"><strong>body</strong></td>
       <td colspan="1" rowspan="1">EString</td>
-      <td colspan="1" rowspan="1">{m:widget.documentation}</td>
+      <td colspan="1" rowspan="1">{m:metaDataDefinition.body}</td>
+      <td colspan="1" rowspan="1">The body of the annotation.</td>
+      <td colspan="1" rowspan="1">{m:metaDataDefinition.body}</td>
+    </tr>
+    <tr>
+      <td colspan="1" rowspan="1"><strong>help</strong></td>
+      <td colspan="1" rowspan="1">EString</td>
+      <td colspan="1" rowspan="1">{m:metaDataDefinition.help}</td>
       <td colspan="1" rowspan="1"></td>
-      <td colspan="1" rowspan="1">{m:widget.documentation}</td>
-    </tr>
-    <tr>
-      <td colspan="1" rowspan="1"><strong>icon</strong></td>
-      <td colspan="1" rowspan="1">EString</td>
-      <td colspan="1" rowspan="1">{m:widget.icon}</td>
-      <td colspan="1" rowspan="1">The icon path of this widget.</td>
-      <td colspan="1" rowspan="1">{m:widget.icon}</td>
-    </tr>
-    <tr>
-      <td colspan="1" rowspan="1"><strong>implementation</strong></td>
-      <td colspan="1" rowspan="1">EString</td>
-      <td colspan="1" rowspan="1">{m:widget.implementation}</td>
-      <td colspan="1" rowspan="1">The target implementation of this Widget.</td>
-      <td colspan="1" rowspan="1">{m:widget.implementation}</td>
-    </tr>
-    <tr>
-      <td colspan="1" rowspan="1"><strong>isContainer</strong></td>
-      <td colspan="1" rowspan="1">EBoolean</td>
-      <td colspan="1" rowspan="1">{m:widget.isContainer}</td>
-      <td colspan="1" rowspan="1">True if this Widget is a container.</td>
-      <td colspan="1" rowspan="1">{m:widget.isContainer}</td>
-    </tr>
-    <tr>
-      <td colspan="1" rowspan="1"><strong>metadataDefinitions</strong></td>
-      <td colspan="1" rowspan="1">List of <a href="/help/topic/org.obeonetwork.cinematic.m2doc.services/doc/pages/m2doc_services_metadatadefinition.html">MetaDataDefinition</a></td>
-      <td colspan="1" rowspan="1">{m:widget.metadataDefinitions}</td>
-      <td colspan="1" rowspan="1"></td>
-      <td colspan="1" rowspan="1">{m:for metaDataDefinition | widget.metadataDefinitions} metaDataDefinition {m:metaDataDefinition.name}, {m:endfor}</td>
-    </tr>
-    <tr>
-      <td colspan="1" rowspan="1"><strong>metadataHelp</strong></td>
-      <td colspan="1" rowspan="1">EString</td>
-      <td colspan="1" rowspan="1">{m:widget.metadataHelp}</td>
-      <td colspan="1" rowspan="1">Concatenated values of metadataDefinitions.help.</td>
-      <td colspan="1" rowspan="1">{m:widget.metadataHelp}</td>
-    </tr>
-    <tr>
-      <td colspan="1" rowspan="1"><strong>name</strong></td>
-      <td colspan="1" rowspan="1">EString</td>
-      <td colspan="1" rowspan="1">{m:widget.name}</td>
-      <td colspan="1" rowspan="1">The name of this Widget.</td>
-      <td colspan="1" rowspan="1">{m:widget.name}</td>
-    </tr>
-    <tr>
-      <td colspan="1" rowspan="1"><strong>possibleEvents</strong></td>
-      <td colspan="1" rowspan="1">List of <a href="/help/topic/org.obeonetwork.cinematic.m2doc.services/doc/pages/m2doc_services_widgeteventtype.html">WidgetEventType</a></td>
-      <td colspan="1" rowspan="1">{m:widget.possibleEvents}</td>
-      <td colspan="1" rowspan="1">The list of the events this Widget handles.</td>
-      <td colspan="1" rowspan="1">{m:for widgetEventType | widget.possibleEvents} widgetEventType {m:widgetEventType.name}, {m:endfor}</td>
-    </tr>
-    <tr>
-      <td colspan="1" rowspan="1"><strong>style</strong></td>
-      <td colspan="1" rowspan="1"><a href="/help/topic/org.obeonetwork.cinematic.m2doc.services/doc/pages/m2doc_services_style.html">Style</a></td>
-      <td colspan="1" rowspan="1">{m:widget.style}</td>
-      <td colspan="1" rowspan="1"></td>
-      <td colspan="1" rowspan="1">{m:widget.style}</td>
-    </tr>
-    <tr>
-      <td colspan="1" rowspan="1"><strong>summary</strong></td>
-      <td colspan="1" rowspan="1">EString</td>
-      <td colspan="1" rowspan="1">{m:widget.summary}</td>
-      <td colspan="1" rowspan="1"></td>
-      <td colspan="1" rowspan="1">{m:widget.summary}</td>
+      <td colspan="1" rowspan="1">{m:metaDataDefinition.help}</td>
     </tr>
     <tr>
       <td colspan="1" rowspan="1"><strong>technicalid</strong></td>
       <td colspan="1" rowspan="1">EString</td>
-      <td colspan="1" rowspan="1">{m:widget.technicalid}</td>
+      <td colspan="1" rowspan="1">{m:metaDataDefinition.technicalid}</td>
       <td colspan="1" rowspan="1">Technical identifier of the element.</td>
-      <td colspan="1" rowspan="1">{m:widget.technicalid}</td>
+      <td colspan="1" rowspan="1">{m:metaDataDefinition.technicalid}</td>
     </tr>
     <tr>
-      <td colspan="1" rowspan="1"><strong>toolkit</strong></td>
-      <td colspan="1" rowspan="1"><a href="/help/topic/org.obeonetwork.cinematic.m2doc.services/doc/pages/m2doc_services_toolkit.html">Toolkit</a></td>
-      <td colspan="1" rowspan="1">{m:widget.toolkit}</td>
-      <td colspan="1" rowspan="1">The Toolkit owning this Widget.</td>
-      <td colspan="1" rowspan="1">{m:widget.toolkit}</td>
+      <td colspan="1" rowspan="1"><strong>title</strong></td>
+      <td colspan="1" rowspan="1">EString</td>
+      <td colspan="1" rowspan="1">{m:metaDataDefinition.title}</td>
+      <td colspan="1" rowspan="1">The title of the annotation.</td>
+      <td colspan="1" rowspan="1">{m:metaDataDefinition.title}</td>
     </tr>
     </tbody>
     </table>
@@ -166,6 +110,27 @@
       <td colspan="1" rowspan="1">{m:obj.cinematicLabel()}</td>
       <td colspan="1" rowspan="1">Returns the presentation label of the target Cinematic element.</td>
       <td colspan="1" rowspan="1">{m:obj.getCinematicLabel()} returns: The label of the element.</td>
+    </tr>
+    <tr>
+      <td colspan="1" rowspan="1"><strong>getDocumentTitle</strong></td>
+      <td colspan="1" rowspan="1">String</td>
+      <td colspan="1" rowspan="1">{m:doc.getDocumentTitle()}</td>
+      <td colspan="1" rowspan="1">Returns the title of the document.</td>
+      <td colspan="1" rowspan="1">{m:doc.getDocumentTitle()} returns: The title of the document.</td>
+    </tr>
+    <tr>
+      <td colspan="1" rowspan="1"><strong>getDocumentTitle</strong></td>
+      <td colspan="1" rowspan="1">String</td>
+      <td colspan="1" rowspan="1">{m:myAnnotation.getDocumentTitle()}</td>
+      <td colspan="1" rowspan="1">Returns the title of the document if the given Annotation is a document link.</td>
+      <td colspan="1" rowspan="1">{m:myAnnotation.getDocumentTitle()} returns: The title of the document.</td>
+    </tr>
+    <tr>
+      <td colspan="1" rowspan="1"><strong>getDocumentedObject</strong></td>
+      <td colspan="1" rowspan="1">EObject</td>
+      <td colspan="1" rowspan="1">{m:doc.getDocumentedObject()}</td>
+      <td colspan="1" rowspan="1">Returns the object this document is attached to.</td>
+      <td colspan="1" rowspan="1">{m:doc.getDocumentedObject()} returns: The documented object.</td>
     </tr>
     <tr>
       <td colspan="1" rowspan="1"><strong>getName</strong></td>

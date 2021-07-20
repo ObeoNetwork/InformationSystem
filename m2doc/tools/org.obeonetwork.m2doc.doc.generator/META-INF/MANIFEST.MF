@@ -8,7 +8,6 @@ Bundle-Vendor: Obeo Network
 Require-Bundle: org.eclipse.core.runtime,
  org.eclipse.emf.cdo,
  org.eclipse.acceleo.annotations,
- org.apache.commons.lang,
  org.eclipse.sirius,
  org.eclipse.emf.ecore,
  org.eclipse.sirius.table,
