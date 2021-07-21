@@ -2,7 +2,7 @@ Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: StateMachine Edit Support
 Bundle-SymbolicName: org.obeonetwork.dsl.statemachine.edit;singleton:=true
-Bundle-Version: 2.1.0.qualifier
+Bundle-Version: 2.2.0.qualifier
 Bundle-ClassPath: .
 Bundle-Activator: org.obeonetwork.dsl.statemachine.provider.StateMachineEditPlugin$Implementation
 Bundle-Vendor: Obeo Network

@@ -57,7 +57,7 @@
       <unit id="org.obeonetwork.utils.feature.feature.group" version="0.0.0"/>
       <unit id="org.obeonetwork.tools.contextual.explorer.feature.feature.group" version="0.0.0"/>
       <unit id="org.obeonetwork.dsl.feature.environment.feature.group" version="0.0.0"/>
-      <repository location="http://update.obeo.fr/integration/informationsystem/2.1.0/design/repository/"/>
+      <repository location="http://update.obeo.fr/integration/informationsystem/2.2.0/design/repository/"/>
     </location>
     <location includeMode="planner" includeAllPlatforms="false" includeSource="true" includeConfigurePhase="false" type="InstallableUnit">
       <unit id="org.eclipse.emf.eef.runtime-feature.feature.group" version="0.0.0"/>
