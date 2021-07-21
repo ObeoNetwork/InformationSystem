@@ -57,3 +57,4 @@ Export-Package: com.github.dockerjava.api,
  com.github.dockerjava.api.command,
  com.github.dockerjava.api.model,
  org.obeonetwork.docker.common;uses:="com.github.dockerjava.api,com.github.dockerjava.api.command"
+Bundle-Vendor: Obeo Network
