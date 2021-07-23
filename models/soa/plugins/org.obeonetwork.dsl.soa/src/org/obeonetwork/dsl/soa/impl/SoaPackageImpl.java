@@ -38,6 +38,7 @@ import org.obeonetwork.dsl.soa.ParameterRestData;
 import org.obeonetwork.dsl.soa.PropertiesExtension;
 import org.obeonetwork.dsl.soa.SecurityScheme;
 import org.obeonetwork.dsl.soa.SecuritySchemeType;
+import org.obeonetwork.dsl.soa.Server;
 import org.obeonetwork.dsl.soa.Service;
 import org.obeonetwork.dsl.soa.SoaFactory;
 import org.obeonetwork.dsl.soa.SoaPackage;
@@ -178,6 +179,13 @@ public class SoaPackageImpl extends EPackageImpl implements SoaPackage {
 	 * @generated
 	 */
 	private EClass propertiesExtensionEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass serverEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -420,7 +428,7 @@ public class SoaPackageImpl extends EPackageImpl implements SoaPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getComponent_URL() {
+	public EAttribute getComponent_ApiVersion() {
 		return (EAttribute)componentEClass.getEStructuralFeatures().get(8);
 	}
 
@@ -429,7 +437,7 @@ public class SoaPackageImpl extends EPackageImpl implements SoaPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getComponent_ApiVersion() {
+	public EAttribute getComponent_Deprecated() {
 		return (EAttribute)componentEClass.getEStructuralFeatures().get(9);
 	}
 
@@ -438,17 +446,8 @@ public class SoaPackageImpl extends EPackageImpl implements SoaPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getComponent_Deprecated() {
-		return (EAttribute)componentEClass.getEStructuralFeatures().get(10);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EReference getComponent_SecuritySchemes() {
-		return (EReference)componentEClass.getEStructuralFeatures().get(11);
+		return (EReference)componentEClass.getEStructuralFeatures().get(10);
 	}
 
 	/**
@@ -457,7 +456,7 @@ public class SoaPackageImpl extends EPackageImpl implements SoaPackage {
 	 * @generated
 	 */
 	public EReference getComponent_License() {
-		return (EReference)componentEClass.getEStructuralFeatures().get(12);
+		return (EReference)componentEClass.getEStructuralFeatures().get(11);
 	}
 
 	/**
@@ -466,7 +465,7 @@ public class SoaPackageImpl extends EPackageImpl implements SoaPackage {
 	 * @generated
 	 */
 	public EReference getComponent_Information() {
-		return (EReference)componentEClass.getEStructuralFeatures().get(13);
+		return (EReference)componentEClass.getEStructuralFeatures().get(12);
 	}
 
 	/**
@@ -475,6 +474,15 @@ public class SoaPackageImpl extends EPackageImpl implements SoaPackage {
 	 * @generated
 	 */
 	public EReference getComponent_Contact() {
+		return (EReference)componentEClass.getEStructuralFeatures().get(13);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getComponent_Servers() {
 		return (EReference)componentEClass.getEStructuralFeatures().get(14);
 	}
 
@@ -728,6 +736,15 @@ public class SoaPackageImpl extends EPackageImpl implements SoaPackage {
 	 */
 	public EReference getOperation_SecuritySchemes() {
 		return (EReference)operationEClass.getEStructuralFeatures().get(9);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getOperation_Servers() {
+		return (EReference)operationEClass.getEStructuralFeatures().get(10);
 	}
 
 	/**
@@ -1089,6 +1106,24 @@ public class SoaPackageImpl extends EPackageImpl implements SoaPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EClass getServer() {
+		return serverEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getServer_URL() {
+		return (EAttribute)serverEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EEnum getInterfaceKind() {
 		return interfaceKindEEnum;
 	}
@@ -1206,13 +1241,13 @@ public class SoaPackageImpl extends EPackageImpl implements SoaPackage {
 		createEReference(componentEClass, COMPONENT__OWNED_BINDING);
 		createEReference(componentEClass, COMPONENT__BLOCK);
 		createEAttribute(componentEClass, COMPONENT__URI);
-		createEAttribute(componentEClass, COMPONENT__URL);
 		createEAttribute(componentEClass, COMPONENT__API_VERSION);
 		createEAttribute(componentEClass, COMPONENT__DEPRECATED);
 		createEReference(componentEClass, COMPONENT__SECURITY_SCHEMES);
 		createEReference(componentEClass, COMPONENT__LICENSE);
 		createEReference(componentEClass, COMPONENT__INFORMATION);
 		createEReference(componentEClass, COMPONENT__CONTACT);
+		createEReference(componentEClass, COMPONENT__SERVERS);
 
 		serviceEClass = createEClass(SERVICE);
 		createEReference(serviceEClass, SERVICE__OWNED_INTERFACE);
@@ -1246,6 +1281,7 @@ public class SoaPackageImpl extends EPackageImpl implements SoaPackage {
 		createEAttribute(operationEClass, OPERATION__EXPOSITION);
 		createEAttribute(operationEClass, OPERATION__PAGED);
 		createEReference(operationEClass, OPERATION__SECURITY_SCHEMES);
+		createEReference(operationEClass, OPERATION__SERVERS);
 
 		implementationComponentEClass = createEClass(IMPLEMENTATION_COMPONENT);
 		createEReference(implementationComponentEClass, IMPLEMENTATION_COMPONENT__IMPLEMENT);
@@ -1296,6 +1332,9 @@ public class SoaPackageImpl extends EPackageImpl implements SoaPackage {
 
 		propertiesExtensionEClass = createEClass(PROPERTIES_EXTENSION);
 		createEAttribute(propertiesExtensionEClass, PROPERTIES_EXTENSION__CONTEXT);
+
+		serverEClass = createEClass(SERVER);
+		createEAttribute(serverEClass, SERVER__URL);
 
 		// Create enums
 		interfaceKindEEnum = createEEnum(INTERFACE_KIND);
@@ -1358,6 +1397,7 @@ public class SoaPackageImpl extends EPackageImpl implements SoaPackage {
 		mediaTypeEClass.getESuperTypes().add(theEnvironmentPackage.getObeoDSMObject());
 		exampleEClass.getESuperTypes().add(theEnvironmentPackage.getObeoDSMObject());
 		propertiesExtensionEClass.getESuperTypes().add(theEnvironmentPackage.getAnnotation());
+		serverEClass.getESuperTypes().add(theEnvironmentPackage.getObeoDSMObject());
 
 		// Initialize classes and features; add operations and parameters
 		initEClass(systemEClass, org.obeonetwork.dsl.soa.System.class, "System", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -1373,13 +1413,13 @@ public class SoaPackageImpl extends EPackageImpl implements SoaPackage {
 		initEReference(getComponent_OwnedBinding(), this.getBinding(), null, "ownedBinding", null, 0, -1, Component.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getComponent_Block(), theEnvironmentPackage.getTypesDefinition(), null, "block", null, 0, -1, Component.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getComponent_URI(), ecorePackage.getEString(), "URI", null, 0, 1, Component.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getComponent_URL(), ecorePackage.getEString(), "URL", null, 0, 1, Component.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getComponent_ApiVersion(), ecorePackage.getEString(), "apiVersion", null, 0, 1, Component.class, !IS_TRANSIENT, IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
 		initEAttribute(getComponent_Deprecated(), ecorePackage.getEBoolean(), "deprecated", null, 0, 1, Component.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getComponent_SecuritySchemes(), this.getSecurityScheme(), null, "securitySchemes", null, 0, -1, Component.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getComponent_License(), this.getLicense(), null, "license", null, 1, 1, Component.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getComponent_Information(), this.getInformation(), null, "information", null, 1, 1, Component.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getComponent_Contact(), this.getContact(), null, "contact", null, 1, 1, Component.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getComponent_Servers(), this.getServer(), null, "servers", null, 0, -1, Component.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(serviceEClass, Service.class, "Service", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getService_OwnedInterface(), this.getInterface(), null, "ownedInterface", null, 0, 1, Service.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -1413,6 +1453,7 @@ public class SoaPackageImpl extends EPackageImpl implements SoaPackage {
 		initEAttribute(getOperation_Exposition(), this.getExpositionKind(), "exposition", null, 0, 1, Operation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getOperation_Paged(), ecorePackage.getEBoolean(), "paged", "false", 0, 1, Operation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getOperation_SecuritySchemes(), this.getSecurityScheme(), null, "securitySchemes", null, 0, -1, Operation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getOperation_Servers(), this.getServer(), null, "servers", null, 0, -1, Operation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(implementationComponentEClass, ImplementationComponent.class, "ImplementationComponent", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getImplementationComponent_Implement(), this.getInterface(), null, "implement", null, 0, 1, ImplementationComponent.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -1463,6 +1504,9 @@ public class SoaPackageImpl extends EPackageImpl implements SoaPackage {
 
 		initEClass(propertiesExtensionEClass, PropertiesExtension.class, "PropertiesExtension", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getPropertiesExtension_Context(), ecorePackage.getEString(), "context", null, 0, 1, PropertiesExtension.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(serverEClass, Server.class, "Server", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getServer_URL(), ecorePackage.getEString(), "URL", null, 0, 1, Server.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		// Initialize enums and add enum literals
 		initEEnum(interfaceKindEEnum, InterfaceKind.class, "InterfaceKind");
@@ -1594,12 +1638,6 @@ public class SoaPackageImpl extends EPackageImpl implements SoaPackage {
 			   "documentation", "The exposition URI of this component."
 		   });
 		addAnnotation
-		  (getComponent_URL(),
-		   source,
-		   new String[] {
-			   "documentation", "The exposition URL of this component."
-		   });
-		addAnnotation
 		  (getComponent_ApiVersion(),
 		   source,
 		   new String[] {
@@ -1610,6 +1648,12 @@ public class SoaPackageImpl extends EPackageImpl implements SoaPackage {
 		   source,
 		   new String[] {
 			   "documentation", "Tells if this Component is deprecated."
+		   });
+		addAnnotation
+		  (getComponent_Servers(),
+		   source,
+		   new String[] {
+			   "documentation", "The list of servers."
 		   });
 		addAnnotation
 		  (getService_OwnedInterface(),
@@ -1742,6 +1786,18 @@ public class SoaPackageImpl extends EPackageImpl implements SoaPackage {
 		   source,
 		   new String[] {
 			   "documentation", "Tells if this operation is paged."
+		   });
+		addAnnotation
+		  (getOperation_SecuritySchemes(),
+		   source,
+		   new String[] {
+			   "documentation", "The list of security schemes."
+		   });
+		addAnnotation
+		  (getOperation_Servers(),
+		   source,
+		   new String[] {
+			   "documentation", "The list of servers."
 		   });
 		addAnnotation
 		  (getImplementationComponent_Implement(),
@@ -1928,6 +1984,12 @@ public class SoaPackageImpl extends EPackageImpl implements SoaPackage {
 		   source,
 		   new String[] {
 			   "documentation", "Embedded literal example. To represent examples of media types that cannot naturally represented in JSON or YAML, use a string value to contain the example, escaping where necessary."
+		   });
+		addAnnotation
+		  (getServer_URL(),
+		   source,
+		   new String[] {
+			   "documentation", "The URL of this server."
 		   });
 	}
 

@@ -476,6 +476,29 @@ public class SoaItemProviderAdapterFactory extends SoaAdapterFactory implements 
 	}
 
 	/**
+	 * This keeps track of the one adapter used for all {@link org.obeonetwork.dsl.soa.Server} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected ServerItemProvider serverItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link org.obeonetwork.dsl.soa.Server}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createServerAdapter() {
+		if (serverItemProvider == null) {
+			serverItemProvider = new ServerItemProvider(this);
+		}
+
+		return serverItemProvider;
+	}
+
+	/**
 	 * This returns the root adapter factory that contains this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -591,6 +614,7 @@ public class SoaItemProviderAdapterFactory extends SoaAdapterFactory implements 
 		if (mediaTypeItemProvider != null) mediaTypeItemProvider.dispose();
 		if (exampleItemProvider != null) exampleItemProvider.dispose();
 		if (propertiesExtensionItemProvider != null) propertiesExtensionItemProvider.dispose();
+		if (serverItemProvider != null) serverItemProvider.dispose();
 	}
 
 }

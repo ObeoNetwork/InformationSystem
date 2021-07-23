@@ -15,9 +15,6 @@
     },
     "version" : "1.0.0"
   },
-  "servers" : [ {
-    "url" : "/api/v1.0"
-  } ],
   "tags" : [ {
     "name" : "Repositories",
     "description" : "null"

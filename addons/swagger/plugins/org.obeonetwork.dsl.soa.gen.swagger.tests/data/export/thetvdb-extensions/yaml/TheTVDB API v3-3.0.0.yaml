@@ -53,9 +53,6 @@ info:
     x-LicenseSurLicense: License-License
   version: 3.0.0
   x-InformationSurInfo: Information-Info
-servers:
-- url: /tvdb
-  x-CptSurServer: Component-Server
 tags:
 - name: Series
   description: Information about a specific series

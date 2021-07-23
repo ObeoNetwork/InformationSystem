@@ -366,11 +366,14 @@ public class SwaggerBuilder {
 
 	private Server createDefaultServer() {
     	Server server = null;
+    	
+    	// TODO Refactor to handle server part SAFRAN-940
+/* SAFRAN-940
     	if(!isNullOrWhite(soaComponent.getURL())) {
     		server = new Server();
         	server.setUrl(soaComponent.getURL().trim());
     	}
-    	
+*/
     	addPropertiesExtensionsFromSoaToSwg(soaComponent, server);
     	
     	return server;

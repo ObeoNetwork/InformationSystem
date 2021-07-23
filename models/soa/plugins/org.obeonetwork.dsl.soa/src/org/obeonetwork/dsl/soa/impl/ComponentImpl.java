@@ -28,6 +28,7 @@ import org.obeonetwork.dsl.soa.Information;
 import org.obeonetwork.dsl.soa.InterfaceKind;
 import org.obeonetwork.dsl.soa.License;
 import org.obeonetwork.dsl.soa.SecurityScheme;
+import org.obeonetwork.dsl.soa.Server;
 import org.obeonetwork.dsl.soa.Service;
 import org.obeonetwork.dsl.soa.SoaPackage;
 
@@ -47,13 +48,13 @@ import org.obeonetwork.dsl.soa.SoaPackage;
  *   <li>{@link org.obeonetwork.dsl.soa.impl.ComponentImpl#getOwnedBinding <em>Owned Binding</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.soa.impl.ComponentImpl#getBlock <em>Block</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.soa.impl.ComponentImpl#getURI <em>URI</em>}</li>
- *   <li>{@link org.obeonetwork.dsl.soa.impl.ComponentImpl#getURL <em>URL</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.soa.impl.ComponentImpl#getApiVersion <em>Api Version</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.soa.impl.ComponentImpl#isDeprecated <em>Deprecated</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.soa.impl.ComponentImpl#getSecuritySchemes <em>Security Schemes</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.soa.impl.ComponentImpl#getLicense <em>License</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.soa.impl.ComponentImpl#getInformation <em>Information</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.soa.impl.ComponentImpl#getContact <em>Contact</em>}</li>
+ *   <li>{@link org.obeonetwork.dsl.soa.impl.ComponentImpl#getServers <em>Servers</em>}</li>
  * </ul>
  *
  * @generated
@@ -85,16 +86,6 @@ public class ComponentImpl extends ObeoDSMObjectImpl implements Component {
 	 * @ordered
 	 */
 	protected static final String URI_EDEFAULT = null;
-
-	/**
-	 * The default value of the '{@link #getURL() <em>URL</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getURL()
-	 * @generated
-	 * @ordered
-	 */
-	protected static final String URL_EDEFAULT = null;
 
 	/**
 	 * The default value of the '{@link #getApiVersion() <em>Api Version</em>}' attribute.
@@ -239,24 +230,6 @@ public class ComponentImpl extends ObeoDSMObjectImpl implements Component {
 	 */
 	public void setURI(String newURI) {
 		eDynamicSet(SoaPackage.COMPONENT__URI, SoaPackage.Literals.COMPONENT__URI, newURI);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public String getURL() {
-		return (String)eDynamicGet(SoaPackage.COMPONENT__URL, SoaPackage.Literals.COMPONENT__URL, true, true);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setURL(String newURL) {
-		eDynamicSet(SoaPackage.COMPONENT__URL, SoaPackage.Literals.COMPONENT__URL, newURL);
 	}
 
 	/**
@@ -423,6 +396,16 @@ public class ComponentImpl extends ObeoDSMObjectImpl implements Component {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@SuppressWarnings("unchecked")
+	public EList<Server> getServers() {
+		return (EList<Server>)eDynamicGet(SoaPackage.COMPONENT__SERVERS, SoaPackage.Literals.COMPONENT__SERVERS, true, true);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
@@ -440,6 +423,8 @@ public class ComponentImpl extends ObeoDSMObjectImpl implements Component {
 				return basicSetInformation(null, msgs);
 			case SoaPackage.COMPONENT__CONTACT:
 				return basicSetContact(null, msgs);
+			case SoaPackage.COMPONENT__SERVERS:
+				return ((InternalEList<?>)getServers()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -468,8 +453,6 @@ public class ComponentImpl extends ObeoDSMObjectImpl implements Component {
 				return getBlock();
 			case SoaPackage.COMPONENT__URI:
 				return getURI();
-			case SoaPackage.COMPONENT__URL:
-				return getURL();
 			case SoaPackage.COMPONENT__API_VERSION:
 				return getApiVersion();
 			case SoaPackage.COMPONENT__DEPRECATED:
@@ -485,6 +468,8 @@ public class ComponentImpl extends ObeoDSMObjectImpl implements Component {
 			case SoaPackage.COMPONENT__CONTACT:
 				if (resolve) return getContact();
 				return basicGetContact();
+			case SoaPackage.COMPONENT__SERVERS:
+				return getServers();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -520,9 +505,6 @@ public class ComponentImpl extends ObeoDSMObjectImpl implements Component {
 			case SoaPackage.COMPONENT__URI:
 				setURI((String)newValue);
 				return;
-			case SoaPackage.COMPONENT__URL:
-				setURL((String)newValue);
-				return;
 			case SoaPackage.COMPONENT__API_VERSION:
 				setApiVersion((String)newValue);
 				return;
@@ -541,6 +523,10 @@ public class ComponentImpl extends ObeoDSMObjectImpl implements Component {
 				return;
 			case SoaPackage.COMPONENT__CONTACT:
 				setContact((Contact)newValue);
+				return;
+			case SoaPackage.COMPONENT__SERVERS:
+				getServers().clear();
+				getServers().addAll((Collection<? extends Server>)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -572,9 +558,6 @@ public class ComponentImpl extends ObeoDSMObjectImpl implements Component {
 			case SoaPackage.COMPONENT__URI:
 				setURI(URI_EDEFAULT);
 				return;
-			case SoaPackage.COMPONENT__URL:
-				setURL(URL_EDEFAULT);
-				return;
 			case SoaPackage.COMPONENT__API_VERSION:
 				setApiVersion(API_VERSION_EDEFAULT);
 				return;
@@ -592,6 +575,9 @@ public class ComponentImpl extends ObeoDSMObjectImpl implements Component {
 				return;
 			case SoaPackage.COMPONENT__CONTACT:
 				setContact((Contact)null);
+				return;
+			case SoaPackage.COMPONENT__SERVERS:
+				getServers().clear();
 				return;
 		}
 		super.eUnset(featureID);
@@ -621,8 +607,6 @@ public class ComponentImpl extends ObeoDSMObjectImpl implements Component {
 				return !getBlock().isEmpty();
 			case SoaPackage.COMPONENT__URI:
 				return URI_EDEFAULT == null ? getURI() != null : !URI_EDEFAULT.equals(getURI());
-			case SoaPackage.COMPONENT__URL:
-				return URL_EDEFAULT == null ? getURL() != null : !URL_EDEFAULT.equals(getURL());
 			case SoaPackage.COMPONENT__API_VERSION:
 				return API_VERSION_EDEFAULT == null ? getApiVersion() != null : !API_VERSION_EDEFAULT.equals(getApiVersion());
 			case SoaPackage.COMPONENT__DEPRECATED:
@@ -635,6 +619,8 @@ public class ComponentImpl extends ObeoDSMObjectImpl implements Component {
 				return basicGetInformation() != null;
 			case SoaPackage.COMPONENT__CONTACT:
 				return basicGetContact() != null;
+			case SoaPackage.COMPONENT__SERVERS:
+				return !getServers().isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}

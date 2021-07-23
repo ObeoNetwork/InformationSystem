@@ -15,9 +15,6 @@
     },
     "version" : "3.0.0"
   },
-  "servers" : [ {
-    "url" : "/tvdb"
-  } ],
   "tags" : [ {
     "name" : "Series",
     "description" : "Information about a specific series"

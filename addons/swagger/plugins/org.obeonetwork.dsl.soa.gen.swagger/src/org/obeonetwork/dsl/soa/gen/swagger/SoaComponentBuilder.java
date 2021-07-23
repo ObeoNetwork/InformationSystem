@@ -214,7 +214,10 @@ public class SoaComponentBuilder {
 		List<Server> servers = openApi.getServers();
 		if (servers != null && !servers.isEmpty()) {
 			Server server = servers.get(0);
+	    	// TODO Refactor to handle server part SAFRAN-940
+/* SAFRAN-940
 			soaComponent.setURL(server.getUrl());
+*/
 
 			if (servers.size() > 1) {
 				logWarning(String.format("Multiple servers not supported. Found URLs : %s.",

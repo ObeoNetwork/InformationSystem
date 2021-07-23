@@ -243,6 +243,7 @@ public class OperationItemProvider
 			childrenFeatures.add(SoaPackage.Literals.OPERATION__INPUT);
 			childrenFeatures.add(SoaPackage.Literals.OPERATION__OUTPUT);
 			childrenFeatures.add(SoaPackage.Literals.OPERATION__FAULT);
+			childrenFeatures.add(SoaPackage.Literals.OPERATION__SERVERS);
 		}
 		return childrenFeatures;
 	}
@@ -333,6 +334,7 @@ public class OperationItemProvider
 			case SoaPackage.OPERATION__INPUT:
 			case SoaPackage.OPERATION__OUTPUT:
 			case SoaPackage.OPERATION__FAULT:
+			case SoaPackage.OPERATION__SERVERS:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
 		}
@@ -364,6 +366,11 @@ public class OperationItemProvider
 			(createChildParameter
 				(SoaPackage.Literals.OPERATION__FAULT,
 				 SoaFactory.eINSTANCE.createParameter()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(SoaPackage.Literals.OPERATION__SERVERS,
+				 SoaFactory.eINSTANCE.createServer()));
 	}
 
 	/**
