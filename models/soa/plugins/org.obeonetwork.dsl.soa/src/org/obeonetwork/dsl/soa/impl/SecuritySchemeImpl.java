@@ -32,6 +32,7 @@ import org.obeonetwork.dsl.soa.SoaPackage;
  *   <li>{@link org.obeonetwork.dsl.soa.impl.SecuritySchemeImpl#getType <em>Type</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.soa.impl.SecuritySchemeImpl#getName <em>Name</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.soa.impl.SecuritySchemeImpl#getApiKeyLocation <em>Api Key Location</em>}</li>
+ *   <li>{@link org.obeonetwork.dsl.soa.impl.SecuritySchemeImpl#getConnectURL <em>Connect URL</em>}</li>
  * </ul>
  *
  * @generated
@@ -83,6 +84,16 @@ public class SecuritySchemeImpl extends ObeoDSMObjectImpl implements SecuritySch
 	 * @ordered
 	 */
 	protected static final ApiKeyLocation API_KEY_LOCATION_EDEFAULT = ApiKeyLocation.QUERY;
+
+	/**
+	 * The default value of the '{@link #getConnectURL() <em>Connect URL</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getConnectURL()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String CONNECT_URL_EDEFAULT = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -180,6 +191,24 @@ public class SecuritySchemeImpl extends ObeoDSMObjectImpl implements SecuritySch
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public String getConnectURL() {
+		return (String)eDynamicGet(SoaPackage.SECURITY_SCHEME__CONNECT_URL, SoaPackage.Literals.SECURITY_SCHEME__CONNECT_URL, true, true);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setConnectURL(String newConnectURL) {
+		eDynamicSet(SoaPackage.SECURITY_SCHEME__CONNECT_URL, SoaPackage.Literals.SECURITY_SCHEME__CONNECT_URL, newConnectURL);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
@@ -191,6 +220,8 @@ public class SecuritySchemeImpl extends ObeoDSMObjectImpl implements SecuritySch
 				return getName();
 			case SoaPackage.SECURITY_SCHEME__API_KEY_LOCATION:
 				return getApiKeyLocation();
+			case SoaPackage.SECURITY_SCHEME__CONNECT_URL:
+				return getConnectURL();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -214,6 +245,9 @@ public class SecuritySchemeImpl extends ObeoDSMObjectImpl implements SecuritySch
 				return;
 			case SoaPackage.SECURITY_SCHEME__API_KEY_LOCATION:
 				setApiKeyLocation((ApiKeyLocation)newValue);
+				return;
+			case SoaPackage.SECURITY_SCHEME__CONNECT_URL:
+				setConnectURL((String)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -239,6 +273,9 @@ public class SecuritySchemeImpl extends ObeoDSMObjectImpl implements SecuritySch
 			case SoaPackage.SECURITY_SCHEME__API_KEY_LOCATION:
 				setApiKeyLocation(API_KEY_LOCATION_EDEFAULT);
 				return;
+			case SoaPackage.SECURITY_SCHEME__CONNECT_URL:
+				setConnectURL(CONNECT_URL_EDEFAULT);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -259,6 +296,8 @@ public class SecuritySchemeImpl extends ObeoDSMObjectImpl implements SecuritySch
 				return NAME_EDEFAULT == null ? getName() != null : !NAME_EDEFAULT.equals(getName());
 			case SoaPackage.SECURITY_SCHEME__API_KEY_LOCATION:
 				return getApiKeyLocation() != API_KEY_LOCATION_EDEFAULT;
+			case SoaPackage.SECURITY_SCHEME__CONNECT_URL:
+				return CONNECT_URL_EDEFAULT == null ? getConnectURL() != null : !CONNECT_URL_EDEFAULT.equals(getConnectURL());
 		}
 		return super.eIsSet(featureID);
 	}

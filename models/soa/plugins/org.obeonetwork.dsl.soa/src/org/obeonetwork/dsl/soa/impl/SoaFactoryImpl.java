@@ -23,6 +23,9 @@ import org.obeonetwork.dsl.soa.Component;
 import org.obeonetwork.dsl.soa.Contact;
 import org.obeonetwork.dsl.soa.Example;
 import org.obeonetwork.dsl.soa.ExpositionKind;
+import org.obeonetwork.dsl.soa.Flow;
+import org.obeonetwork.dsl.soa.FlowType;
+import org.obeonetwork.dsl.soa.HttpScheme;
 import org.obeonetwork.dsl.soa.ImplementationComponent;
 import org.obeonetwork.dsl.soa.Information;
 import org.obeonetwork.dsl.soa.Interface;
@@ -110,6 +113,7 @@ public class SoaFactoryImpl extends EFactoryImpl implements SoaFactory {
 			case SoaPackage.PARAMETER: return (EObject)createParameter();
 			case SoaPackage.PARAMETER_REST_DATA: return (EObject)createParameterRestData();
 			case SoaPackage.SECURITY_SCHEME: return (EObject)createSecurityScheme();
+			case SoaPackage.FLOW: return (EObject)createFlow();
 			case SoaPackage.INFORMATION: return (EObject)createInformation();
 			case SoaPackage.CONTACT: return (EObject)createContact();
 			case SoaPackage.LICENSE: return (EObject)createLicense();
@@ -148,6 +152,10 @@ public class SoaFactoryImpl extends EFactoryImpl implements SoaFactory {
 				return createSecuritySchemeTypeFromString(eDataType, initialValue);
 			case SoaPackage.API_KEY_LOCATION:
 				return createApiKeyLocationFromString(eDataType, initialValue);
+			case SoaPackage.HTTP_SCHEME:
+				return createHttpSchemeFromString(eDataType, initialValue);
+			case SoaPackage.FLOW_TYPE:
+				return createFlowTypeFromString(eDataType, initialValue);
 			default:
 				throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
 		}
@@ -179,6 +187,10 @@ public class SoaFactoryImpl extends EFactoryImpl implements SoaFactory {
 				return convertSecuritySchemeTypeToString(eDataType, instanceValue);
 			case SoaPackage.API_KEY_LOCATION:
 				return convertApiKeyLocationToString(eDataType, instanceValue);
+			case SoaPackage.HTTP_SCHEME:
+				return convertHttpSchemeToString(eDataType, instanceValue);
+			case SoaPackage.FLOW_TYPE:
+				return convertFlowTypeToString(eDataType, instanceValue);
 			default:
 				throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
 		}
@@ -292,6 +304,16 @@ public class SoaFactoryImpl extends EFactoryImpl implements SoaFactory {
 	public SecurityScheme createSecurityScheme() {
 		SecuritySchemeImpl securityScheme = new SecuritySchemeImpl();
 		return securityScheme;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Flow createFlow() {
+		FlowImpl flow = new FlowImpl();
+		return flow;
 	}
 
 	/**
@@ -543,6 +565,46 @@ public class SoaFactoryImpl extends EFactoryImpl implements SoaFactory {
 	 * @generated
 	 */
 	public String convertApiKeyLocationToString(EDataType eDataType, Object instanceValue) {
+		return instanceValue == null ? null : instanceValue.toString();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public HttpScheme createHttpSchemeFromString(EDataType eDataType, String initialValue) {
+		HttpScheme result = HttpScheme.get(initialValue);
+		if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
+		return result;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String convertHttpSchemeToString(EDataType eDataType, Object instanceValue) {
+		return instanceValue == null ? null : instanceValue.toString();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public FlowType createFlowTypeFromString(EDataType eDataType, String initialValue) {
+		FlowType result = FlowType.get(initialValue);
+		if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
+		return result;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String convertFlowTypeToString(EDataType eDataType, Object instanceValue) {
 		return instanceValue == null ? null : instanceValue.toString();
 	}
 

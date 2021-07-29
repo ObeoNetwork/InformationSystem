@@ -20,28 +20,22 @@ import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.util.ResourceLocator;
 
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
-import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
-import org.eclipse.emf.edit.provider.IItemLabelProvider;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
-import org.eclipse.emf.edit.provider.IItemPropertySource;
-import org.eclipse.emf.edit.provider.IStructuredItemContentProvider;
-import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
 import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
-import org.eclipse.emf.edit.provider.ItemProviderAdapter;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 
 import org.obeonetwork.dsl.environment.provider.ObeoDSMObjectItemProvider;
-import org.obeonetwork.dsl.soa.SecurityScheme;
+
+import org.obeonetwork.dsl.soa.Flow;
 import org.obeonetwork.dsl.soa.SoaPackage;
 
 /**
- * This is the item provider adapter for a {@link org.obeonetwork.dsl.soa.SecurityScheme} object.
+ * This is the item provider adapter for a {@link org.obeonetwork.dsl.soa.Flow} object.
  * <!-- begin-user-doc -->
  * <!-- end-user-doc -->
  * @generated
  */
-public class SecuritySchemeItemProvider 
-	extends ObeoDSMObjectItemProvider {
+public class FlowItemProvider extends ObeoDSMObjectItemProvider {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -55,7 +49,7 @@ public class SecuritySchemeItemProvider
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public SecuritySchemeItemProvider(AdapterFactory adapterFactory) {
+	public FlowItemProvider(AdapterFactory adapterFactory) {
 		super(adapterFactory);
 	}
 
@@ -70,29 +64,29 @@ public class SecuritySchemeItemProvider
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
-			addKeyPropertyDescriptor(object);
-			addTypePropertyDescriptor(object);
-			addNamePropertyDescriptor(object);
-			addApiKeyLocationPropertyDescriptor(object);
-			addConnectURLPropertyDescriptor(object);
+			addFlowTypePropertyDescriptor(object);
+			addAuthorizationURLPropertyDescriptor(object);
+			addTokenURLPropertyDescriptor(object);
+			addRefreshURLPropertyDescriptor(object);
+			addScopesPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
 
 	/**
-	 * This adds a property descriptor for the Key feature.
+	 * This adds a property descriptor for the Flow Type feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void addKeyPropertyDescriptor(Object object) {
+	protected void addFlowTypePropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_SecurityScheme_key_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_SecurityScheme_key_feature", "_UI_SecurityScheme_type"),
-				 SoaPackage.Literals.SECURITY_SCHEME__KEY,
+				 getString("_UI_Flow_FlowType_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Flow_FlowType_feature", "_UI_Flow_type"),
+				 SoaPackage.Literals.FLOW__FLOW_TYPE,
 				 true,
 				 false,
 				 false,
@@ -102,19 +96,19 @@ public class SecuritySchemeItemProvider
 	}
 
 	/**
-	 * This adds a property descriptor for the Type feature.
+	 * This adds a property descriptor for the Authorization URL feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void addTypePropertyDescriptor(Object object) {
+	protected void addAuthorizationURLPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_SecurityScheme_type_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_SecurityScheme_type_feature", "_UI_SecurityScheme_type"),
-				 SoaPackage.Literals.SECURITY_SCHEME__TYPE,
+				 getString("_UI_Flow_authorizationURL_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Flow_authorizationURL_feature", "_UI_Flow_type"),
+				 SoaPackage.Literals.FLOW__AUTHORIZATION_URL,
 				 true,
 				 false,
 				 false,
@@ -124,19 +118,19 @@ public class SecuritySchemeItemProvider
 	}
 
 	/**
-	 * This adds a property descriptor for the Name feature.
+	 * This adds a property descriptor for the Token URL feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void addNamePropertyDescriptor(Object object) {
+	protected void addTokenURLPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_SecurityScheme_name_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_SecurityScheme_name_feature", "_UI_SecurityScheme_type"),
-				 SoaPackage.Literals.SECURITY_SCHEME__NAME,
+				 getString("_UI_Flow_tokenURL_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Flow_tokenURL_feature", "_UI_Flow_type"),
+				 SoaPackage.Literals.FLOW__TOKEN_URL,
 				 true,
 				 false,
 				 false,
@@ -146,19 +140,19 @@ public class SecuritySchemeItemProvider
 	}
 
 	/**
-	 * This adds a property descriptor for the Api Key Location feature.
+	 * This adds a property descriptor for the Refresh URL feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void addApiKeyLocationPropertyDescriptor(Object object) {
+	protected void addRefreshURLPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_SecurityScheme_apiKeyLocation_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_SecurityScheme_apiKeyLocation_feature", "_UI_SecurityScheme_type"),
-				 SoaPackage.Literals.SECURITY_SCHEME__API_KEY_LOCATION,
+				 getString("_UI_Flow_refreshURL_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Flow_refreshURL_feature", "_UI_Flow_type"),
+				 SoaPackage.Literals.FLOW__REFRESH_URL,
 				 true,
 				 false,
 				 false,
@@ -168,36 +162,36 @@ public class SecuritySchemeItemProvider
 	}
 
 	/**
-	 * This adds a property descriptor for the Connect URL feature.
+	 * This adds a property descriptor for the Scopes feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void addConnectURLPropertyDescriptor(Object object) {
+	protected void addScopesPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_SecurityScheme_connectURL_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_SecurityScheme_connectURL_feature", "_UI_SecurityScheme_type"),
-				 SoaPackage.Literals.SECURITY_SCHEME__CONNECT_URL,
+				 getString("_UI_Flow_scopes_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Flow_scopes_feature", "_UI_Flow_type"),
+				 SoaPackage.Literals.FLOW__SCOPES,
 				 true,
 				 false,
-				 false,
-				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 true,
+				 null,
 				 null,
 				 null));
 	}
 
 	/**
-	 * This returns SecurityScheme.gif.
+	 * This returns Flow.gif.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/SecurityScheme"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/Flow"));
 	}
 
 	/**
@@ -218,10 +212,10 @@ public class SecuritySchemeItemProvider
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = ((SecurityScheme)object).getName();
+		String label = ((Flow)object).getTechnicalid();
 		return label == null || label.length() == 0 ?
-			getString("_UI_SecurityScheme_type") :
-			getString("_UI_SecurityScheme_type") + " " + label;
+			getString("_UI_Flow_type") :
+			getString("_UI_Flow_type") + " " + label;
 	}
 
 
@@ -236,12 +230,11 @@ public class SecuritySchemeItemProvider
 	public void notifyChanged(Notification notification) {
 		updateChildren(notification);
 
-		switch (notification.getFeatureID(SecurityScheme.class)) {
-			case SoaPackage.SECURITY_SCHEME__KEY:
-			case SoaPackage.SECURITY_SCHEME__TYPE:
-			case SoaPackage.SECURITY_SCHEME__NAME:
-			case SoaPackage.SECURITY_SCHEME__API_KEY_LOCATION:
-			case SoaPackage.SECURITY_SCHEME__CONNECT_URL:
+		switch (notification.getFeatureID(Flow.class)) {
+			case SoaPackage.FLOW__FLOW_TYPE:
+			case SoaPackage.FLOW__AUTHORIZATION_URL:
+			case SoaPackage.FLOW__TOKEN_URL:
+			case SoaPackage.FLOW__REFRESH_URL:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 		}

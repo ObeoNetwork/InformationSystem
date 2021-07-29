@@ -26,6 +26,7 @@ import org.obeonetwork.dsl.environment.ObeoDSMObject;
  *   <li>{@link org.obeonetwork.dsl.soa.SecurityScheme#getType <em>Type</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.soa.SecurityScheme#getName <em>Name</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.soa.SecurityScheme#getApiKeyLocation <em>Api Key Location</em>}</li>
+ *   <li>{@link org.obeonetwork.dsl.soa.SecurityScheme#getConnectURL <em>Connect URL</em>}</li>
  * </ul>
  *
  * @see org.obeonetwork.dsl.soa.SoaPackage#getSecurityScheme()
@@ -145,5 +146,30 @@ public interface SecurityScheme extends ObeoDSMObject {
 	 * @generated
 	 */
 	void setApiKeyLocation(ApiKeyLocation value);
+
+	/**
+	 * Returns the value of the '<em><b>Connect URL</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * REQUIRED. OpenId Connect URL to discover OAuth2 configuration values. This MUST be in the form of a URL.
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Connect URL</em>' attribute.
+	 * @see #setConnectURL(String)
+	 * @see org.obeonetwork.dsl.soa.SoaPackage#getSecurityScheme_ConnectURL()
+	 * @model
+	 * @generated
+	 */
+	String getConnectURL();
+
+	/**
+	 * Sets the value of the '{@link org.obeonetwork.dsl.soa.SecurityScheme#getConnectURL <em>Connect URL</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Connect URL</em>' attribute.
+	 * @see #getConnectURL()
+	 * @generated
+	 */
+	void setConnectURL(String value);
 
 } // SecurityScheme

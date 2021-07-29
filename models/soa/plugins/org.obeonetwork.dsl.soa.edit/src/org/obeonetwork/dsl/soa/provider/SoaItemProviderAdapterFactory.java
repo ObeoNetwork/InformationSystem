@@ -339,6 +339,29 @@ public class SoaItemProviderAdapterFactory extends SoaAdapterFactory implements 
 	}
 
 	/**
+	 * This keeps track of the one adapter used for all {@link org.obeonetwork.dsl.soa.Flow} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected FlowItemProvider flowItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link org.obeonetwork.dsl.soa.Flow}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createFlowAdapter() {
+		if (flowItemProvider == null) {
+			flowItemProvider = new FlowItemProvider(this);
+		}
+
+		return flowItemProvider;
+	}
+
+	/**
 	 * This keeps track of the one adapter used for all {@link org.obeonetwork.dsl.soa.Information} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -608,6 +631,7 @@ public class SoaItemProviderAdapterFactory extends SoaAdapterFactory implements 
 		if (parameterItemProvider != null) parameterItemProvider.dispose();
 		if (parameterRestDataItemProvider != null) parameterRestDataItemProvider.dispose();
 		if (securitySchemeItemProvider != null) securitySchemeItemProvider.dispose();
+		if (flowItemProvider != null) flowItemProvider.dispose();
 		if (informationItemProvider != null) informationItemProvider.dispose();
 		if (contactItemProvider != null) contactItemProvider.dispose();
 		if (licenseItemProvider != null) licenseItemProvider.dispose();

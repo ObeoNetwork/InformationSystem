@@ -24,6 +24,9 @@ import org.obeonetwork.dsl.soa.Component;
 import org.obeonetwork.dsl.soa.Contact;
 import org.obeonetwork.dsl.soa.Example;
 import org.obeonetwork.dsl.soa.ExpositionKind;
+import org.obeonetwork.dsl.soa.Flow;
+import org.obeonetwork.dsl.soa.FlowType;
+import org.obeonetwork.dsl.soa.HttpScheme;
 import org.obeonetwork.dsl.soa.ImplementationComponent;
 import org.obeonetwork.dsl.soa.Information;
 import org.obeonetwork.dsl.soa.Interface;
@@ -143,6 +146,13 @@ public class SoaPackageImpl extends EPackageImpl implements SoaPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	private EClass flowEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	private EClass informationEClass = null;
 
 	/**
@@ -249,6 +259,20 @@ public class SoaPackageImpl extends EPackageImpl implements SoaPackage {
 	 * @generated
 	 */
 	private EEnum apiKeyLocationEEnum = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EEnum httpSchemeEEnum = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EEnum flowTypeEEnum = null;
 
 	/**
 	 * Creates an instance of the model <b>Package</b>, registered with
@@ -941,6 +965,69 @@ public class SoaPackageImpl extends EPackageImpl implements SoaPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EAttribute getSecurityScheme_ConnectURL() {
+		return (EAttribute)securitySchemeEClass.getEStructuralFeatures().get(4);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getFlow() {
+		return flowEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getFlow_FlowType() {
+		return (EAttribute)flowEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getFlow_AuthorizationURL() {
+		return (EAttribute)flowEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getFlow_TokenURL() {
+		return (EAttribute)flowEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getFlow_RefreshURL() {
+		return (EAttribute)flowEClass.getEStructuralFeatures().get(3);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getFlow_Scopes() {
+		return (EReference)flowEClass.getEStructuralFeatures().get(4);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getInformation() {
 		return informationEClass;
 	}
@@ -1205,6 +1292,24 @@ public class SoaPackageImpl extends EPackageImpl implements SoaPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EEnum getHttpScheme() {
+		return httpSchemeEEnum;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EEnum getFlowType() {
+		return flowTypeEEnum;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public SoaFactory getSoaFactory() {
 		return (SoaFactory)getEFactoryInstance();
 	}
@@ -1307,6 +1412,14 @@ public class SoaPackageImpl extends EPackageImpl implements SoaPackage {
 		createEAttribute(securitySchemeEClass, SECURITY_SCHEME__TYPE);
 		createEAttribute(securitySchemeEClass, SECURITY_SCHEME__NAME);
 		createEAttribute(securitySchemeEClass, SECURITY_SCHEME__API_KEY_LOCATION);
+		createEAttribute(securitySchemeEClass, SECURITY_SCHEME__CONNECT_URL);
+
+		flowEClass = createEClass(FLOW);
+		createEAttribute(flowEClass, FLOW__FLOW_TYPE);
+		createEAttribute(flowEClass, FLOW__AUTHORIZATION_URL);
+		createEAttribute(flowEClass, FLOW__TOKEN_URL);
+		createEAttribute(flowEClass, FLOW__REFRESH_URL);
+		createEReference(flowEClass, FLOW__SCOPES);
 
 		informationEClass = createEClass(INFORMATION);
 		createEAttribute(informationEClass, INFORMATION__API_VERSION);
@@ -1346,6 +1459,8 @@ public class SoaPackageImpl extends EPackageImpl implements SoaPackage {
 		expositionKindEEnum = createEEnum(EXPOSITION_KIND);
 		securitySchemeTypeEEnum = createEEnum(SECURITY_SCHEME_TYPE);
 		apiKeyLocationEEnum = createEEnum(API_KEY_LOCATION);
+		httpSchemeEEnum = createEEnum(HTTP_SCHEME);
+		flowTypeEEnum = createEEnum(FLOW_TYPE);
 	}
 
 	/**
@@ -1391,6 +1506,7 @@ public class SoaPackageImpl extends EPackageImpl implements SoaPackage {
 		parameterEClass.getESuperTypes().add(theEnvironmentPackage.getObeoDSMObject());
 		parameterRestDataEClass.getESuperTypes().add(theTechnicalIDPackage.getIdentifiable());
 		securitySchemeEClass.getESuperTypes().add(theEnvironmentPackage.getObeoDSMObject());
+		flowEClass.getESuperTypes().add(theEnvironmentPackage.getObeoDSMObject());
 		informationEClass.getESuperTypes().add(theEnvironmentPackage.getObeoDSMObject());
 		contactEClass.getESuperTypes().add(theEnvironmentPackage.getObeoDSMObject());
 		licenseEClass.getESuperTypes().add(theEnvironmentPackage.getObeoDSMObject());
@@ -1479,6 +1595,14 @@ public class SoaPackageImpl extends EPackageImpl implements SoaPackage {
 		initEAttribute(getSecurityScheme_Type(), this.getSecuritySchemeType(), "type", null, 0, 1, SecurityScheme.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getSecurityScheme_Name(), ecorePackage.getEString(), "name", null, 0, 1, SecurityScheme.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getSecurityScheme_ApiKeyLocation(), this.getApiKeyLocation(), "apiKeyLocation", null, 0, 1, SecurityScheme.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getSecurityScheme_ConnectURL(), ecorePackage.getEString(), "connectURL", null, 0, 1, SecurityScheme.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(flowEClass, Flow.class, "Flow", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getFlow_FlowType(), this.getFlowType(), "FlowType", null, 1, 1, Flow.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getFlow_AuthorizationURL(), ecorePackage.getEString(), "authorizationURL", null, 0, 1, Flow.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getFlow_TokenURL(), ecorePackage.getEString(), "tokenURL", null, 0, 1, Flow.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getFlow_RefreshURL(), ecorePackage.getEString(), "refreshURL", null, 0, 1, Flow.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getFlow_Scopes(), this.getParameter(), null, "scopes", null, 0, -1, Flow.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(informationEClass, Information.class, "Information", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getInformation_ApiVersion(), ecorePackage.getEString(), "apiVersion", null, 0, 1, Information.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -1560,6 +1684,16 @@ public class SoaPackageImpl extends EPackageImpl implements SoaPackage {
 		addEEnumLiteral(apiKeyLocationEEnum, ApiKeyLocation.QUERY);
 		addEEnumLiteral(apiKeyLocationEEnum, ApiKeyLocation.HEADER);
 		addEEnumLiteral(apiKeyLocationEEnum, ApiKeyLocation.COOKIE);
+
+		initEEnum(httpSchemeEEnum, HttpScheme.class, "HttpScheme");
+		addEEnumLiteral(httpSchemeEEnum, HttpScheme.BASIC);
+		addEEnumLiteral(httpSchemeEEnum, HttpScheme.BEARER);
+
+		initEEnum(flowTypeEEnum, FlowType.class, "FlowType");
+		addEEnumLiteral(flowTypeEEnum, FlowType.IMPLICIT);
+		addEEnumLiteral(flowTypeEEnum, FlowType.PASSWORD);
+		addEEnumLiteral(flowTypeEEnum, FlowType.CREDENTIALS);
+		addEEnumLiteral(flowTypeEEnum, FlowType.AUTHORIZATIONCODE);
 
 		// Create resource
 		createResource(eNS_URI);
@@ -1888,6 +2022,48 @@ public class SoaPackageImpl extends EPackageImpl implements SoaPackage {
 		   source,
 		   new String[] {
 			   "documentation", "The location of the API key. (Named \"in\" in the OpenAPI specification)."
+		   });
+		addAnnotation
+		  (getSecurityScheme_ConnectURL(),
+		   source,
+		   new String[] {
+			   "documentation", "REQUIRED. OpenId Connect URL to discover OAuth2 configuration values. This MUST be in the form of a URL."
+		   });
+		addAnnotation
+		  (flowEClass,
+		   source,
+		   new String[] {
+			   "documentation", "REQUIRED FOR OAUTH2. An object containing configuration information for the flow types supported."
+		   });
+		addAnnotation
+		  (getFlow_FlowType(),
+		   source,
+		   new String[] {
+			   "documentation", "REQUIRED. Type of Flow."
+		   });
+		addAnnotation
+		  (getFlow_AuthorizationURL(),
+		   source,
+		   new String[] {
+			   "documentation", "REQUIRED. The authorization URL to be used for this flow. This MUST be in the form of a URL."
+		   });
+		addAnnotation
+		  (getFlow_TokenURL(),
+		   source,
+		   new String[] {
+			   "documentation", "REQUIRED. The token URL to be used for this flow. This MUST be in the form of a URL."
+		   });
+		addAnnotation
+		  (getFlow_RefreshURL(),
+		   source,
+		   new String[] {
+			   "documentation", "The refresh URL to be used for this flow. This MUST be in the form of a URL."
+		   });
+		addAnnotation
+		  (getFlow_Scopes(),
+		   source,
+		   new String[] {
+			   "documentation", "The available scopes for the OAuth2 security scheme. References to SOA Parameters."
 		   });
 		addAnnotation
 		  (informationEClass,

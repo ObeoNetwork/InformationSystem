@@ -366,7 +366,7 @@
       </eAnnotations>
     </eStructuralFeatures>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Flow">
+  <eClassifiers xsi:type="ecore:EClass" name="Flow" eSuperTypes="../../org.obeonetwork.dsl.environment/model/environment.ecore#//ObeoDSMObject">
     <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
       <details key="documentation" value="REQUIRED FOR OAUTH2. An object containing configuration information for the flow types supported."/>
     </eAnnotations>

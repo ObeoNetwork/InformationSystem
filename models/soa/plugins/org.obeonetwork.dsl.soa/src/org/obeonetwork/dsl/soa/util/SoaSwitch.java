@@ -24,6 +24,7 @@ import org.obeonetwork.dsl.soa.Binding;
 import org.obeonetwork.dsl.soa.Component;
 import org.obeonetwork.dsl.soa.Contact;
 import org.obeonetwork.dsl.soa.Example;
+import org.obeonetwork.dsl.soa.Flow;
 import org.obeonetwork.dsl.soa.ImplementationComponent;
 import org.obeonetwork.dsl.soa.Information;
 import org.obeonetwork.dsl.soa.Interface;
@@ -191,6 +192,14 @@ public class SoaSwitch<T> extends Switch<T> {
 				T result = caseSecurityScheme(securityScheme);
 				if (result == null) result = caseObeoDSMObject(securityScheme);
 				if (result == null) result = caseIdentifiable(securityScheme);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case SoaPackage.FLOW: {
+				Flow flow = (Flow)theEObject;
+				T result = caseFlow(flow);
+				if (result == null) result = caseObeoDSMObject(flow);
+				if (result == null) result = caseIdentifiable(flow);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -417,6 +426,21 @@ public class SoaSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseSecurityScheme(SecurityScheme object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Flow</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Flow</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseFlow(Flow object) {
 		return null;
 	}
 
