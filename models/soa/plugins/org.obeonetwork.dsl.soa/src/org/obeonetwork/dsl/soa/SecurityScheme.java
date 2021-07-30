@@ -11,6 +11,7 @@
 package org.obeonetwork.dsl.soa;
 
 import org.eclipse.emf.cdo.CDOObject;
+import org.eclipse.emf.common.util.EList;
 import org.obeonetwork.dsl.environment.ObeoDSMObject;
 
 /**
@@ -27,6 +28,8 @@ import org.obeonetwork.dsl.environment.ObeoDSMObject;
  *   <li>{@link org.obeonetwork.dsl.soa.SecurityScheme#getName <em>Name</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.soa.SecurityScheme#getApiKeyLocation <em>Api Key Location</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.soa.SecurityScheme#getConnectURL <em>Connect URL</em>}</li>
+ *   <li>{@link org.obeonetwork.dsl.soa.SecurityScheme#getFlows <em>Flows</em>}</li>
+ *   <li>{@link org.obeonetwork.dsl.soa.SecurityScheme#getHttpScheme <em>Http Scheme</em>}</li>
  * </ul>
  *
  * @see org.obeonetwork.dsl.soa.SoaPackage#getSecurityScheme()
@@ -171,5 +174,48 @@ public interface SecurityScheme extends ObeoDSMObject {
 	 * @generated
 	 */
 	void setConnectURL(String value);
+
+	/**
+	 * Returns the value of the '<em><b>Flows</b></em>' reference list.
+	 * The list contents are of type {@link org.obeonetwork.dsl.soa.Flow}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * REQUIRED for OAuth2 Security Schemes. An object containing configuration information for the flow types supported.
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Flows</em>' reference list.
+	 * @see org.obeonetwork.dsl.soa.SoaPackage#getSecurityScheme_Flows()
+	 * @model
+	 * @generated
+	 */
+	EList<Flow> getFlows();
+
+	/**
+	 * Returns the value of the '<em><b>Http Scheme</b></em>' attribute.
+	 * The literals are from the enumeration {@link org.obeonetwork.dsl.soa.HttpScheme}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * REQUIRED. The name of the HTTP Authorization scheme to be used in the Authorization header as defined in RFC7235.
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Http Scheme</em>' attribute.
+	 * @see org.obeonetwork.dsl.soa.HttpScheme
+	 * @see #setHttpScheme(HttpScheme)
+	 * @see org.obeonetwork.dsl.soa.SoaPackage#getSecurityScheme_HttpScheme()
+	 * @model
+	 * @generated
+	 */
+	HttpScheme getHttpScheme();
+
+	/**
+	 * Sets the value of the '{@link org.obeonetwork.dsl.soa.SecurityScheme#getHttpScheme <em>Http Scheme</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Http Scheme</em>' attribute.
+	 * @see org.obeonetwork.dsl.soa.HttpScheme
+	 * @see #getHttpScheme()
+	 * @generated
+	 */
+	void setHttpScheme(HttpScheme value);
 
 } // SecurityScheme

@@ -974,6 +974,24 @@ public class SoaPackageImpl extends EPackageImpl implements SoaPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EReference getSecurityScheme_Flows() {
+		return (EReference)securitySchemeEClass.getEStructuralFeatures().get(5);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getSecurityScheme_HttpScheme() {
+		return (EAttribute)securitySchemeEClass.getEStructuralFeatures().get(6);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getFlow() {
 		return flowEClass;
 	}
@@ -1413,6 +1431,8 @@ public class SoaPackageImpl extends EPackageImpl implements SoaPackage {
 		createEAttribute(securitySchemeEClass, SECURITY_SCHEME__NAME);
 		createEAttribute(securitySchemeEClass, SECURITY_SCHEME__API_KEY_LOCATION);
 		createEAttribute(securitySchemeEClass, SECURITY_SCHEME__CONNECT_URL);
+		createEReference(securitySchemeEClass, SECURITY_SCHEME__FLOWS);
+		createEAttribute(securitySchemeEClass, SECURITY_SCHEME__HTTP_SCHEME);
 
 		flowEClass = createEClass(FLOW);
 		createEAttribute(flowEClass, FLOW__FLOW_TYPE);
@@ -1596,6 +1616,8 @@ public class SoaPackageImpl extends EPackageImpl implements SoaPackage {
 		initEAttribute(getSecurityScheme_Name(), ecorePackage.getEString(), "name", null, 0, 1, SecurityScheme.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getSecurityScheme_ApiKeyLocation(), this.getApiKeyLocation(), "apiKeyLocation", null, 0, 1, SecurityScheme.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getSecurityScheme_ConnectURL(), ecorePackage.getEString(), "connectURL", null, 0, 1, SecurityScheme.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getSecurityScheme_Flows(), this.getFlow(), null, "flows", null, 0, -1, SecurityScheme.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getSecurityScheme_HttpScheme(), this.getHttpScheme(), "httpScheme", null, 0, 1, SecurityScheme.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(flowEClass, Flow.class, "Flow", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getFlow_FlowType(), this.getFlowType(), "FlowType", null, 1, 1, Flow.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -2028,6 +2050,18 @@ public class SoaPackageImpl extends EPackageImpl implements SoaPackage {
 		   source,
 		   new String[] {
 			   "documentation", "REQUIRED. OpenId Connect URL to discover OAuth2 configuration values. This MUST be in the form of a URL."
+		   });
+		addAnnotation
+		  (getSecurityScheme_Flows(),
+		   source,
+		   new String[] {
+			   "documentation", "REQUIRED for OAuth2 Security Schemes. An object containing configuration information for the flow types supported."
+		   });
+		addAnnotation
+		  (getSecurityScheme_HttpScheme(),
+		   source,
+		   new String[] {
+			   "documentation", "REQUIRED. The name of the HTTP Authorization scheme to be used in the Authorization header as defined in RFC7235."
 		   });
 		addAnnotation
 		  (flowEClass,

@@ -10,12 +10,16 @@
  */
 package org.obeonetwork.dsl.soa.impl;
 
+import java.util.Collection;
+import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 
 import org.eclipse.emf.internal.cdo.CDOObjectImpl;
 
 import org.obeonetwork.dsl.environment.impl.ObeoDSMObjectImpl;
 import org.obeonetwork.dsl.soa.ApiKeyLocation;
+import org.obeonetwork.dsl.soa.Flow;
+import org.obeonetwork.dsl.soa.HttpScheme;
 import org.obeonetwork.dsl.soa.SecurityScheme;
 import org.obeonetwork.dsl.soa.SecuritySchemeType;
 import org.obeonetwork.dsl.soa.SoaPackage;
@@ -33,6 +37,8 @@ import org.obeonetwork.dsl.soa.SoaPackage;
  *   <li>{@link org.obeonetwork.dsl.soa.impl.SecuritySchemeImpl#getName <em>Name</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.soa.impl.SecuritySchemeImpl#getApiKeyLocation <em>Api Key Location</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.soa.impl.SecuritySchemeImpl#getConnectURL <em>Connect URL</em>}</li>
+ *   <li>{@link org.obeonetwork.dsl.soa.impl.SecuritySchemeImpl#getFlows <em>Flows</em>}</li>
+ *   <li>{@link org.obeonetwork.dsl.soa.impl.SecuritySchemeImpl#getHttpScheme <em>Http Scheme</em>}</li>
  * </ul>
  *
  * @generated
@@ -94,6 +100,16 @@ public class SecuritySchemeImpl extends ObeoDSMObjectImpl implements SecuritySch
 	 * @ordered
 	 */
 	protected static final String CONNECT_URL_EDEFAULT = null;
+
+	/**
+	 * The default value of the '{@link #getHttpScheme() <em>Http Scheme</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getHttpScheme()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final HttpScheme HTTP_SCHEME_EDEFAULT = HttpScheme.BASIC;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -209,6 +225,34 @@ public class SecuritySchemeImpl extends ObeoDSMObjectImpl implements SecuritySch
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@SuppressWarnings("unchecked")
+	public EList<Flow> getFlows() {
+		return (EList<Flow>)eDynamicGet(SoaPackage.SECURITY_SCHEME__FLOWS, SoaPackage.Literals.SECURITY_SCHEME__FLOWS, true, true);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public HttpScheme getHttpScheme() {
+		return (HttpScheme)eDynamicGet(SoaPackage.SECURITY_SCHEME__HTTP_SCHEME, SoaPackage.Literals.SECURITY_SCHEME__HTTP_SCHEME, true, true);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setHttpScheme(HttpScheme newHttpScheme) {
+		eDynamicSet(SoaPackage.SECURITY_SCHEME__HTTP_SCHEME, SoaPackage.Literals.SECURITY_SCHEME__HTTP_SCHEME, newHttpScheme);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
@@ -222,6 +266,10 @@ public class SecuritySchemeImpl extends ObeoDSMObjectImpl implements SecuritySch
 				return getApiKeyLocation();
 			case SoaPackage.SECURITY_SCHEME__CONNECT_URL:
 				return getConnectURL();
+			case SoaPackage.SECURITY_SCHEME__FLOWS:
+				return getFlows();
+			case SoaPackage.SECURITY_SCHEME__HTTP_SCHEME:
+				return getHttpScheme();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -231,6 +279,7 @@ public class SecuritySchemeImpl extends ObeoDSMObjectImpl implements SecuritySch
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@SuppressWarnings("unchecked")
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
@@ -248,6 +297,13 @@ public class SecuritySchemeImpl extends ObeoDSMObjectImpl implements SecuritySch
 				return;
 			case SoaPackage.SECURITY_SCHEME__CONNECT_URL:
 				setConnectURL((String)newValue);
+				return;
+			case SoaPackage.SECURITY_SCHEME__FLOWS:
+				getFlows().clear();
+				getFlows().addAll((Collection<? extends Flow>)newValue);
+				return;
+			case SoaPackage.SECURITY_SCHEME__HTTP_SCHEME:
+				setHttpScheme((HttpScheme)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -276,6 +332,12 @@ public class SecuritySchemeImpl extends ObeoDSMObjectImpl implements SecuritySch
 			case SoaPackage.SECURITY_SCHEME__CONNECT_URL:
 				setConnectURL(CONNECT_URL_EDEFAULT);
 				return;
+			case SoaPackage.SECURITY_SCHEME__FLOWS:
+				getFlows().clear();
+				return;
+			case SoaPackage.SECURITY_SCHEME__HTTP_SCHEME:
+				setHttpScheme(HTTP_SCHEME_EDEFAULT);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -298,6 +360,10 @@ public class SecuritySchemeImpl extends ObeoDSMObjectImpl implements SecuritySch
 				return getApiKeyLocation() != API_KEY_LOCATION_EDEFAULT;
 			case SoaPackage.SECURITY_SCHEME__CONNECT_URL:
 				return CONNECT_URL_EDEFAULT == null ? getConnectURL() != null : !CONNECT_URL_EDEFAULT.equals(getConnectURL());
+			case SoaPackage.SECURITY_SCHEME__FLOWS:
+				return !getFlows().isEmpty();
+			case SoaPackage.SECURITY_SCHEME__HTTP_SCHEME:
+				return getHttpScheme() != HTTP_SCHEME_EDEFAULT;
 		}
 		return super.eIsSet(featureID);
 	}

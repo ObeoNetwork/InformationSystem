@@ -75,6 +75,8 @@ public class SecuritySchemeItemProvider
 			addNamePropertyDescriptor(object);
 			addApiKeyLocationPropertyDescriptor(object);
 			addConnectURLPropertyDescriptor(object);
+			addFlowsPropertyDescriptor(object);
+			addHttpSchemePropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -190,6 +192,50 @@ public class SecuritySchemeItemProvider
 	}
 
 	/**
+	 * This adds a property descriptor for the Flows feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addFlowsPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_SecurityScheme_flows_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_SecurityScheme_flows_feature", "_UI_SecurityScheme_type"),
+				 SoaPackage.Literals.SECURITY_SCHEME__FLOWS,
+				 true,
+				 false,
+				 true,
+				 null,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Http Scheme feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addHttpSchemePropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_SecurityScheme_httpScheme_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_SecurityScheme_httpScheme_feature", "_UI_SecurityScheme_type"),
+				 SoaPackage.Literals.SECURITY_SCHEME__HTTP_SCHEME,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
 	 * This returns SecurityScheme.gif.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -242,6 +288,7 @@ public class SecuritySchemeItemProvider
 			case SoaPackage.SECURITY_SCHEME__NAME:
 			case SoaPackage.SECURITY_SCHEME__API_KEY_LOCATION:
 			case SoaPackage.SECURITY_SCHEME__CONNECT_URL:
+			case SoaPackage.SECURITY_SCHEME__HTTP_SCHEME:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 		}

@@ -1669,13 +1669,31 @@ public interface SoaPackage extends EPackage {
 	int SECURITY_SCHEME__CONNECT_URL = EnvironmentPackage.OBEO_DSM_OBJECT_FEATURE_COUNT + 4;
 
 	/**
+	 * The feature id for the '<em><b>Flows</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SECURITY_SCHEME__FLOWS = EnvironmentPackage.OBEO_DSM_OBJECT_FEATURE_COUNT + 5;
+
+	/**
+	 * The feature id for the '<em><b>Http Scheme</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SECURITY_SCHEME__HTTP_SCHEME = EnvironmentPackage.OBEO_DSM_OBJECT_FEATURE_COUNT + 6;
+
+	/**
 	 * The number of structural features of the '<em>Security Scheme</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SECURITY_SCHEME_FEATURE_COUNT = EnvironmentPackage.OBEO_DSM_OBJECT_FEATURE_COUNT + 5;
+	int SECURITY_SCHEME_FEATURE_COUNT = EnvironmentPackage.OBEO_DSM_OBJECT_FEATURE_COUNT + 7;
 
 	/**
 	 * The meta object id for the '{@link org.obeonetwork.dsl.soa.impl.FlowImpl <em>Flow</em>}' class.
@@ -3464,6 +3482,28 @@ public interface SoaPackage extends EPackage {
 	EAttribute getSecurityScheme_ConnectURL();
 
 	/**
+	 * Returns the meta object for the reference list '{@link org.obeonetwork.dsl.soa.SecurityScheme#getFlows <em>Flows</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference list '<em>Flows</em>'.
+	 * @see org.obeonetwork.dsl.soa.SecurityScheme#getFlows()
+	 * @see #getSecurityScheme()
+	 * @generated
+	 */
+	EReference getSecurityScheme_Flows();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.obeonetwork.dsl.soa.SecurityScheme#getHttpScheme <em>Http Scheme</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Http Scheme</em>'.
+	 * @see org.obeonetwork.dsl.soa.SecurityScheme#getHttpScheme()
+	 * @see #getSecurityScheme()
+	 * @generated
+	 */
+	EAttribute getSecurityScheme_HttpScheme();
+
+	/**
 	 * Returns the meta object for class '{@link org.obeonetwork.dsl.soa.Flow <em>Flow</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -4465,6 +4505,22 @@ public interface SoaPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute SECURITY_SCHEME__CONNECT_URL = eINSTANCE.getSecurityScheme_ConnectURL();
+
+		/**
+		 * The meta object literal for the '<em><b>Flows</b></em>' reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference SECURITY_SCHEME__FLOWS = eINSTANCE.getSecurityScheme_Flows();
+
+		/**
+		 * The meta object literal for the '<em><b>Http Scheme</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute SECURITY_SCHEME__HTTP_SCHEME = eINSTANCE.getSecurityScheme_HttpScheme();
 
 		/**
 		 * The meta object literal for the '{@link org.obeonetwork.dsl.soa.impl.FlowImpl <em>Flow</em>}' class.
