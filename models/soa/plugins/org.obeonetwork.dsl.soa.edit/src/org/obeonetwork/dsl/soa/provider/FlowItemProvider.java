@@ -208,11 +208,11 @@ public class FlowItemProvider extends ObeoDSMObjectItemProvider {
 	 * This returns the label text for the adapted class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = ((Flow)object).getTechnicalid();
+		String label = ((Flow)object).getFlowType().getName()+" : "+ ((Flow)object).getAuthorizationURL();
 		return label == null || label.length() == 0 ?
 			getString("_UI_Flow_type") :
 			getString("_UI_Flow_type") + " " + label;

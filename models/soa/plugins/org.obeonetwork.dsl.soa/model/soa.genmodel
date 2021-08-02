@@ -153,6 +153,8 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute soa.ecore#//SecurityScheme/name"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute soa.ecore#//SecurityScheme/apiKeyLocation"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute soa.ecore#//SecurityScheme/connectURL"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference soa.ecore#//SecurityScheme/flows"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute soa.ecore#//SecurityScheme/httpScheme"/>
     </genClasses>
     <genClasses ecoreClass="soa.ecore#//Flow">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute soa.ecore#//Flow/FlowType"/>

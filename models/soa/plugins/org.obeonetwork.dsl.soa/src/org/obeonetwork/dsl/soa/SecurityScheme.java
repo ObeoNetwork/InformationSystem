@@ -176,16 +176,16 @@ public interface SecurityScheme extends ObeoDSMObject {
 	void setConnectURL(String value);
 
 	/**
-	 * Returns the value of the '<em><b>Flows</b></em>' reference list.
+	 * Returns the value of the '<em><b>Flows</b></em>' containment reference list.
 	 * The list contents are of type {@link org.obeonetwork.dsl.soa.Flow}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
 	 * REQUIRED for OAuth2 Security Schemes. An object containing configuration information for the flow types supported.
 	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Flows</em>' reference list.
+	 * @return the value of the '<em>Flows</em>' containment reference list.
 	 * @see org.obeonetwork.dsl.soa.SoaPackage#getSecurityScheme_Flows()
-	 * @model
+	 * @model containment="true" resolveProxies="true"
 	 * @generated
 	 */
 	EList<Flow> getFlows();

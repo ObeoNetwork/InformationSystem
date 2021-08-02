@@ -11,9 +11,12 @@
 package org.obeonetwork.dsl.soa.impl;
 
 import java.util.Collection;
+import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 
+import org.eclipse.emf.ecore.InternalEObject;
+import org.eclipse.emf.ecore.util.InternalEList;
 import org.eclipse.emf.internal.cdo.CDOObjectImpl;
 
 import org.obeonetwork.dsl.environment.impl.ObeoDSMObjectImpl;
@@ -246,6 +249,20 @@ public class SecuritySchemeImpl extends ObeoDSMObjectImpl implements SecuritySch
 	 */
 	public void setHttpScheme(HttpScheme newHttpScheme) {
 		eDynamicSet(SoaPackage.SECURITY_SCHEME__HTTP_SCHEME, SoaPackage.Literals.SECURITY_SCHEME__HTTP_SCHEME, newHttpScheme);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
+		switch (featureID) {
+			case SoaPackage.SECURITY_SCHEME__FLOWS:
+				return ((InternalEList<?>)getFlows()).basicRemove(otherEnd, msgs);
+		}
+		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
 
 	/**

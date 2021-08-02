@@ -1669,7 +1669,7 @@ public interface SoaPackage extends EPackage {
 	int SECURITY_SCHEME__CONNECT_URL = EnvironmentPackage.OBEO_DSM_OBJECT_FEATURE_COUNT + 4;
 
 	/**
-	 * The feature id for the '<em><b>Flows</b></em>' reference list.
+	 * The feature id for the '<em><b>Flows</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -3482,10 +3482,10 @@ public interface SoaPackage extends EPackage {
 	EAttribute getSecurityScheme_ConnectURL();
 
 	/**
-	 * Returns the meta object for the reference list '{@link org.obeonetwork.dsl.soa.SecurityScheme#getFlows <em>Flows</em>}'.
+	 * Returns the meta object for the containment reference list '{@link org.obeonetwork.dsl.soa.SecurityScheme#getFlows <em>Flows</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference list '<em>Flows</em>'.
+	 * @return the meta object for the containment reference list '<em>Flows</em>'.
 	 * @see org.obeonetwork.dsl.soa.SecurityScheme#getFlows()
 	 * @see #getSecurityScheme()
 	 * @generated
@@ -4507,7 +4507,7 @@ public interface SoaPackage extends EPackage {
 		EAttribute SECURITY_SCHEME__CONNECT_URL = eINSTANCE.getSecurityScheme_ConnectURL();
 
 		/**
-		 * The meta object literal for the '<em><b>Flows</b></em>' reference list feature.
+		 * The meta object literal for the '<em><b>Flows</b></em>' containment reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
