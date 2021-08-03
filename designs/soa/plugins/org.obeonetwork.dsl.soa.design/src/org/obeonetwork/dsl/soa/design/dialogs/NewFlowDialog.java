@@ -7,6 +7,7 @@ import java.util.stream.Collectors;
 
 import org.eclipse.emf.edit.provider.ComposedAdapterFactory;
 import org.eclipse.emf.edit.ui.provider.AdapterFactoryLabelProvider;
+import org.eclipse.jface.dialogs.InputDialog;
 import org.eclipse.jface.viewers.IStructuredContentProvider;
 import org.eclipse.jface.viewers.TableViewer;
 import org.eclipse.swt.SWT;
@@ -40,8 +41,8 @@ public class NewFlowDialog extends Dialog {
 	private Text refreshText;
 	private Flow flow;
 	private FlowType flowType;
-	private Collection<Operation> operationToAdd = new ArrayList<>();
-	private Collection<Operation> operationToRemove = new ArrayList<>();
+	private Collection<String> operationToAdd = new ArrayList<>();
+	private Collection<String> operationToRemove = new ArrayList<>();
 
 	/**
 	 * Create the dialog.
@@ -77,7 +78,7 @@ public class NewFlowDialog extends Dialog {
 	 */
 	private void createContents() {
 		shell = new Shell(getParent(), SWT.SHELL_TRIM | SWT.BORDER | SWT.PRIMARY_MODAL);
-		shell.setSize(450, 297);
+		shell.setSize(450, 301);
 		shell.setText(getText());
 		GridLayout gl_shell = new GridLayout(1, false);
 		gl_shell.marginHeight = 0;
@@ -180,7 +181,7 @@ public class NewFlowDialog extends Dialog {
 		operationTableViewer.setContentProvider(new IStructuredContentProvider() {
 			@Override
 			public Object[] getElements(Object inputElement) {
-				return flow.getScopes().stream().toArray(Operation[]::new);
+				return flow.getScopes().stream().toArray(String[]::new);
 			}
 		});
 		ComposedAdapterFactory adapterFactory = new ComposedAdapterFactory(
@@ -194,14 +195,11 @@ public class NewFlowDialog extends Dialog {
 		addScope.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, true, false, 1, 1));
 		addScope.setImage(new Image(null, this.getClass().getClassLoader().getResourceAsStream("/icons/full/others/add.gif")));
 		addScope.addListener(SWT.Selection, (e) -> {
-			ListDialog dialog = new OperationSelectionDialog(shell);
-			dialog.setInput(flow);
+			InputDialog dialog = new InputDialog(shell, "New scope", "Enter a security scope:", "", null);
 			dialog.open();
-			operationToAdd = Arrays.asList(dialog.getResult()) // Object[]
-					.stream()
-					.map(Operation.class::cast) // Stream<Parameter>
-					.collect(Collectors.toList()); // List<Parameter>
-			flow.getScopes().addAll(operationToAdd);
+			String toAdd = dialog.getValue();
+			operationToAdd.add(toAdd);
+			flow.getScopes().add(toAdd);
 			operationTableViewer.setInput(flow);
 		});
 		
@@ -209,20 +207,11 @@ public class NewFlowDialog extends Dialog {
 		deleteScope.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, true, false, 1, 1));
 		deleteScope.setImage(new Image(null, this.getClass().getClassLoader().getResourceAsStream("/icons/full/others/delete.gif")));
 		deleteScope.addListener(SWT.Selection, (e) -> {
-			operationToRemove.add((Operation) operationTableViewer.getStructuredSelection().getFirstElement());
-			flow.getScopes().removeAll(operationToRemove);
+			String toRemove = (String) operationTableViewer.getStructuredSelection().getFirstElement();
+			operationToRemove.add(toRemove);
+			flow.getScopes().remove(toRemove);
 			operationTableViewer.setInput(flow);
 		});
-		
-		/*
-		Button moveScopeUp = new Button(buttonComposite, SWT.NONE);
-		moveScopeUp.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, true, false, 1, 1));
-		moveScopeUp.setImage(new Image(null, this.getClass().getClassLoader().getResourceAsStream("/icons/full/others/up.gif")));
-		
-		Button moveScopeDown = new Button(buttonComposite, SWT.NONE);
-		moveScopeDown.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, false, false, 1, 1));
-		moveScopeDown.setImage(new Image(null, this.getClass().getClassLoader().getResourceAsStream("/icons/full/others/down.gif")));
-		 */
 		
 		Composite okCancelButtonsComposite = new Composite(mainComposite, SWT.NONE);
 		okCancelButtonsComposite.setLayoutData(new GridData(SWT.RIGHT, SWT.FILL, true, false, 1, 1));

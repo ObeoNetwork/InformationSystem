@@ -76,10 +76,9 @@ public class NewSecuritySchemeDialog {
 	 */
 	public NewSecuritySchemeDialog(SecurityScheme schemeToEdit) {
 		scheme = schemeToEdit;
-		name = scheme.getName();
+		name = scheme.getKey();
 		securitySchemeType = scheme.getType();
 		description = scheme.getDescription();
-		apiKey = scheme.getKey();
 		apiKeyLocation = scheme.getApiKeyLocation();
 		httpScheme = scheme.getHttpScheme();
 		openIdConnectURL = scheme.getConnectURL();
@@ -308,7 +307,7 @@ public class NewSecuritySchemeDialog {
 
 		Combo httpSchemeCombo = new Combo(httpCompositeScheme, SWT.READ_ONLY);
 		httpSchemeCombo.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, true, false, 1, 1));
-		httpSchemeCombo.setItems(HttpScheme.VALUES.stream().map(HttpScheme::getLiteral).toArray(String[]::new));
+		httpSchemeCombo.setItems(HttpScheme.VALUES.stream().map(HttpScheme::getName).toArray(String[]::new));
 		httpSchemeCombo.addListener(SWT.Selection,
 				(e) -> setHttpScheme(HttpScheme.getByName(((Combo) e.widget).getText())));
 		if (httpSchemeCombo != null)
@@ -453,9 +452,8 @@ public class NewSecuritySchemeDialog {
 	 * applied to the current {@link SecurityScheme}
 	 */
 	private void validateCreation() {
-		scheme.setType(securitySchemeType);
-		scheme.setName(name);
-		scheme.setKey(apiKey);
+		scheme.setType(securitySchemeType);		
+		scheme.setKey(name);
 		scheme.setDescription(description);
 		scheme.setApiKeyLocation(apiKeyLocation);
 		scheme.setHttpScheme(httpScheme);
