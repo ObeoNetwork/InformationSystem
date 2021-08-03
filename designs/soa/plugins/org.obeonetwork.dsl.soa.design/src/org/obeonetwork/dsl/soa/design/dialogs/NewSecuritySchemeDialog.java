@@ -42,16 +42,16 @@ public class NewSecuritySchemeDialog {
 	private Shell shell;
 	private Composite currentComposite;
 	private Composite mainComposite;
-	
+
 	// The scheme
 	private SecurityScheme scheme;
 
 	// Builder parameters
 	private String name;
 	private SecuritySchemeType securitySchemeType;
+	private String description;
 
 	// API KEY
-	private String apiKeyDescription;
 	private String apiKey;
 	private ApiKeyLocation apiKeyLocation;
 
@@ -75,7 +75,7 @@ public class NewSecuritySchemeDialog {
 		scheme = schemeToEdit;
 		name = scheme.getName();
 		securitySchemeType = scheme.getType();
-		apiKeyDescription = scheme.getDescription();
+		description = scheme.getDescription();
 		apiKey = scheme.getKey();
 		apiKeyLocation = scheme.getApiKeyLocation();
 		httpScheme = scheme.getHttpScheme();
@@ -161,6 +161,26 @@ public class NewSecuritySchemeDialog {
 		if (name != null)
 			apiKeyNameText.setText(name);
 
+		Composite apiKeyDescriptionComposite = new Composite(shell, SWT.NONE);
+		apiKeyDescriptionComposite.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, true, false, 1, 1));
+		apiKeyDescriptionComposite.setLayout(new GridLayout(2, false));
+
+		Label apiKeyDescriptionLabel = new Label(apiKeyDescriptionComposite, SWT.NONE);
+		GridData gd_apiKeyDescriptionLabel = new GridData(SWT.RIGHT, SWT.TOP, false, false, 1, 1);
+		gd_apiKeyDescriptionLabel.widthHint = 92;
+		apiKeyDescriptionLabel.setLayoutData(gd_apiKeyDescriptionLabel);
+		apiKeyDescriptionLabel.setBounds(0, 0, 55, 15);
+		apiKeyDescriptionLabel.setText("Description:");
+
+		Text descriptionText = new Text(apiKeyDescriptionComposite, SWT.BORDER | SWT.MULTI);
+		GridData gd_apiKeyDescriptionText = new GridData(SWT.FILL, SWT.CENTER, true, false, 1, 1);
+		gd_apiKeyDescriptionText.heightHint = 81;
+		descriptionText.setLayoutData(gd_apiKeyDescriptionText);
+		descriptionText.addListener(SWT.KeyUp, (e) -> setDescription(((Text) e.widget).getText()));
+
+		if (description != null)
+			descriptionText.setText(description);
+
 		Label separator = new Label(shell, SWT.SEPARATOR | SWT.HORIZONTAL);
 		separator.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, true, false, 1, 1));
 
@@ -191,6 +211,7 @@ public class NewSecuritySchemeDialog {
 		okButton.setLayoutData(gd_okButton);
 		okButton.setText("Ok");
 
+		setOpenIdComposite();
 		displayComposite();
 	}
 
@@ -205,25 +226,6 @@ public class NewSecuritySchemeDialog {
 		gd_apiKeyComposite.widthHint = 237;
 		apiKeyComposite.setLayoutData(gd_apiKeyComposite);
 		apiKeyComposite.setLayout(new GridLayout(1, false));
-
-		Composite apiKeyDescriptionComposite = new Composite(apiKeyComposite, SWT.NONE);
-		apiKeyDescriptionComposite.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, true, false, 1, 1));
-		apiKeyDescriptionComposite.setLayout(new GridLayout(2, false));
-
-		Label apiKeyDescriptionLabel = new Label(apiKeyDescriptionComposite, SWT.NONE);
-		GridData gd_apiKeyDescriptionLabel = new GridData(SWT.RIGHT, SWT.TOP, false, false, 1, 1);
-		gd_apiKeyDescriptionLabel.widthHint = 92;
-		apiKeyDescriptionLabel.setLayoutData(gd_apiKeyDescriptionLabel);
-		apiKeyDescriptionLabel.setBounds(0, 0, 55, 15);
-		apiKeyDescriptionLabel.setText("Description:");
-
-		Text apiKeyDescriptionText = new Text(apiKeyDescriptionComposite, SWT.BORDER | SWT.MULTI);
-		GridData gd_apiKeyDescriptionText = new GridData(SWT.FILL, SWT.CENTER, true, false, 1, 1);
-		gd_apiKeyDescriptionText.heightHint = 81;
-		apiKeyDescriptionText.setLayoutData(gd_apiKeyDescriptionText);
-		apiKeyDescriptionText.addListener(SWT.KeyUp, (e) -> setApiKeyDescription(((Text) e.widget).getText()));
-		if (apiKeyDescription != null)
-			apiKeyDescriptionText.setText(apiKeyDescription);
 
 		Composite apiKeyLocationComboComposite = new Composite(apiKeyComposite, SWT.NONE);
 		apiKeyLocationComboComposite.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, true, false, 1, 1));
@@ -249,30 +251,30 @@ public class NewSecuritySchemeDialog {
 	}
 
 	/**
-	 * Dislpays the fields relatd to OpenID on the Dialog
+	 * Dislpays the fields related to OpenID on the Dialog
 	 */
 	public void setOpenIdComposite() {
 		removeCurrentComposite();
-		Composite openIdComposite = new Composite(mainComposite, SWT.NONE);
-		openIdComposite.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, true, false, 1, 1));
-		openIdComposite.setLayout(new GridLayout(1, false));
 
-		Composite openIdConnectUrlComposite = new Composite(openIdComposite, SWT.NONE);
+		Composite openIdConnectUrlComposite = new Composite(mainComposite, SWT.NONE);
 		openIdConnectUrlComposite.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, true, false, 1, 1));
 		openIdConnectUrlComposite.setLayout(new GridLayout(2, false));
 
 		Label openIdConnectUrlLabel = new Label(openIdConnectUrlComposite, SWT.NONE);
-		openIdConnectUrlLabel.setLayoutData(new GridData(SWT.LEFT, SWT.CENTER, false, true, 1, 1));
+		GridData gd_openIdConnectUrlLabel = new GridData(SWT.LEFT, SWT.CENTER, false, true, 1, 1);
+		gd_openIdConnectUrlLabel.widthHint = 92;
+		openIdConnectUrlLabel.setLayoutData(gd_openIdConnectUrlLabel);
 		openIdConnectUrlLabel.setBounds(0, 0, 55, 15);
-		openIdConnectUrlLabel.setText("OpenId connect URL:");
+		openIdConnectUrlLabel.setText("Connect URL:");
 
 		Text openIdConnectUrlText = new Text(openIdConnectUrlComposite, SWT.BORDER);
 		openIdConnectUrlText.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, true, false, 1, 1));
 		openIdConnectUrlText.addListener(SWT.KeyUp, (e) -> setOpenIdConnectURL(((Text) e.widget).getText()));
+		
 		if (openIdConnectURL != null)
 			openIdConnectUrlText.setText(openIdConnectURL);
 
-		setCurrentComposite(openIdComposite);
+		setCurrentComposite(openIdConnectUrlComposite);
 		shell.layout(true);
 	}
 
@@ -317,7 +319,7 @@ public class NewSecuritySchemeDialog {
 
 		Label lblFlows = new Label(oauth2Composite, SWT.NONE);
 		GridData gd_lblFlows = new GridData(SWT.LEFT, SWT.TOP, false, false, 1, 1);
-		gd_lblFlows.widthHint = 66;
+		gd_lblFlows.widthHint = 92;
 		lblFlows.setLayoutData(gd_lblFlows);
 		lblFlows.setText("Flows:");
 
@@ -326,7 +328,7 @@ public class NewSecuritySchemeDialog {
 
 		GridData gd_compositeList = new GridData(SWT.FILL, SWT.CENTER, true, false, 1, 1);
 		gd_compositeList.widthHint = 294;
-		gd_compositeList.heightHint = 124;
+		gd_compositeList.heightHint = 81;
 		compositeTable.setLayoutData(gd_compositeList);
 		ComposedAdapterFactory adapterFactory = new ComposedAdapterFactory(
 				ComposedAdapterFactory.Descriptor.Registry.INSTANCE);
@@ -344,7 +346,7 @@ public class NewSecuritySchemeDialog {
 		});
 
 		Composite auth2buttonComposite = new Composite(oauth2Composite, SWT.NONE);
-		GridData gd_auth2buttonComposite = new GridData(SWT.FILL, SWT.TOP, true, false, 1, 1);
+		GridData gd_auth2buttonComposite = new GridData(SWT.FILL, SWT.CENTER, true, false, 1, 1);
 		gd_auth2buttonComposite.widthHint = 51;
 		auth2buttonComposite.setLayoutData(gd_auth2buttonComposite);
 		auth2buttonComposite.setLayout(new GridLayout(1, false));
@@ -389,7 +391,8 @@ public class NewSecuritySchemeDialog {
 	}
 
 	/**
-	 * The cancel button has been pressed: cancel all the changes made to the current {@link SecurityScheme}
+	 * The cancel button has been pressed: cancel all the changes made to the
+	 * current {@link SecurityScheme}
 	 */
 	private void cancelCreation() {
 		if (isEdit == false) {
@@ -404,22 +407,24 @@ public class NewSecuritySchemeDialog {
 	}
 
 	/**
-	 * The OK button has been pressed: all the changes defined by the widgets are applied to the current {@link SecurityScheme}
+	 * The OK button has been pressed: all the changes defined by the widgets are
+	 * applied to the current {@link SecurityScheme}
 	 */
 	private void validateCreation() {
 		scheme.setType(securitySchemeType);
 		scheme.setName(name);
 		scheme.setKey(apiKey);
-		scheme.setDescription(apiKeyDescription);
+		scheme.setDescription(description);
 		scheme.setApiKeyLocation(apiKeyLocation);
 		scheme.setHttpScheme(httpScheme);
 		scheme.setConnectURL(openIdConnectURL);
 		scheme.getFlows().addAll(flowsAdded);
 		shell.close();
 	}
-	
+
 	/**
-	 * Display a composite with the entry fields as defined by the {@link SecuritySchemeType} of the {@link SecurityScheme}
+	 * Display a composite with the entry fields as defined by the
+	 * {@link SecuritySchemeType} of the {@link SecurityScheme}
 	 */
 	public void displayComposite() {
 		switch (securitySchemeType) {
@@ -462,8 +467,8 @@ public class NewSecuritySchemeDialog {
 		this.name = name;
 	}
 
-	public void setApiKeyDescription(String apiKeyDescription) {
-		this.apiKeyDescription = apiKeyDescription;
+	public void setDescription(String apiKeyDescription) {
+		this.description = apiKeyDescription;
 	}
 
 	public void setApiKey(String apiKey) {

@@ -10,6 +10,7 @@ import org.eclipse.swt.widgets.Shell;
 import org.eclipse.ui.dialogs.ListDialog;
 import org.obeonetwork.dsl.soa.Component;
 import org.obeonetwork.dsl.soa.Flow;
+import org.obeonetwork.dsl.soa.Operation;
 import org.obeonetwork.dsl.soa.Parameter;
 
 /**
@@ -17,26 +18,26 @@ import org.obeonetwork.dsl.soa.Parameter;
  * @author <a href="mailto:thibault.beziers-la-fosse@obeo.fr">Thibault Béziers
  *         la Fosse</a> 
  */
-public class ParameterSelectionDialog extends ListDialog {
+public class OperationSelectionDialog extends ListDialog {
 
-	public ParameterSelectionDialog(Shell parent) {
+	public OperationSelectionDialog(Shell parent) {
 		super(parent);
 		setAddCancelButton(true);
 		setBlockOnOpen(true);
-		setTitle("Parameter selection");
+		setTitle("Operation selection");
 		setContentProvider(new IStructuredContentProvider() {
 			
 			@Override
 			public Object[] getElements(Object inputElement) {
 				Flow flow  = (Flow) inputElement;
 				Component component = (Component) flow.eContainer().eContainer();
-				Collection<Parameter> parameters = new ArrayList<>();					
+				Collection<Operation> parameters = new ArrayList<>();					
 				component.eAllContents().forEachRemaining(eObject -> {
-					if (eObject instanceof Parameter) {
-						parameters.add((Parameter) eObject);
+					if (eObject instanceof Operation) {
+						parameters.add((Operation) eObject);
 					}
 				});
-				return parameters.stream().toArray(Parameter[]::new);
+				return parameters.stream().toArray(Operation[]::new);
 			}
 		});
 		

@@ -25,7 +25,7 @@ import org.eclipse.swt.widgets.Text;
 import org.eclipse.ui.dialogs.ListDialog;
 import org.obeonetwork.dsl.soa.Flow;
 import org.obeonetwork.dsl.soa.FlowType;
-import org.obeonetwork.dsl.soa.Parameter;
+import org.obeonetwork.dsl.soa.Operation;
 
 /**
  * {@link Dialog} for creating and editing {@link Flow} objects
@@ -40,8 +40,8 @@ public class NewFlowDialog extends Dialog {
 	private Text refreshText;
 	private Flow flow;
 	private FlowType flowType;
-	private Collection<Parameter> parametersToAdd = new ArrayList<>();
-	private Collection<Parameter> parametersToRemove = new ArrayList<>();
+	private Collection<Operation> operationToAdd = new ArrayList<>();
+	private Collection<Operation> operationToRemove = new ArrayList<>();
 
 	/**
 	 * Create the dialog.
@@ -77,7 +77,7 @@ public class NewFlowDialog extends Dialog {
 	 */
 	private void createContents() {
 		shell = new Shell(getParent(), SWT.SHELL_TRIM | SWT.BORDER | SWT.PRIMARY_MODAL);
-		shell.setSize(450, 280);
+		shell.setSize(450, 297);
 		shell.setText(getText());
 		GridLayout gl_shell = new GridLayout(1, false);
 		gl_shell.marginHeight = 0;
@@ -174,19 +174,19 @@ public class NewFlowDialog extends Dialog {
 		scopeLabel.setLayoutData(gd_scopeLabel);
 		scopeLabel.setText("Scopes:");
 		
-		TableViewer parametersTableViewer = new TableViewer(parametersComposite, SWT.BORDER | SWT.V_SCROLL);
-		Table table = parametersTableViewer.getTable();
+		TableViewer operationTableViewer = new TableViewer(parametersComposite, SWT.BORDER | SWT.V_SCROLL);
+		Table table = operationTableViewer.getTable();
 		table.setLayoutData(new GridData(SWT.FILL, SWT.FILL, true, true, 1, 1));
-		parametersTableViewer.setContentProvider(new IStructuredContentProvider() {
+		operationTableViewer.setContentProvider(new IStructuredContentProvider() {
 			@Override
 			public Object[] getElements(Object inputElement) {
-				return flow.getScopes().stream().toArray(Parameter[]::new);
+				return flow.getScopes().stream().toArray(Operation[]::new);
 			}
 		});
 		ComposedAdapterFactory adapterFactory = new ComposedAdapterFactory(
 				ComposedAdapterFactory.Descriptor.Registry.INSTANCE);
-		parametersTableViewer.setLabelProvider(new AdapterFactoryLabelProvider(adapterFactory));
-		parametersTableViewer.setInput(flow);		
+		operationTableViewer.setLabelProvider(new AdapterFactoryLabelProvider(adapterFactory));
+		operationTableViewer.setInput(flow);		
 		Composite buttonComposite = new Composite(parametersComposite, SWT.NONE);
 		buttonComposite.setLayout(new GridLayout(1, false));
 		
@@ -194,24 +194,24 @@ public class NewFlowDialog extends Dialog {
 		addScope.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, true, false, 1, 1));
 		addScope.setImage(new Image(null, this.getClass().getClassLoader().getResourceAsStream("/icons/full/others/add.gif")));
 		addScope.addListener(SWT.Selection, (e) -> {
-			ListDialog dialog = new ParameterSelectionDialog(shell);
+			ListDialog dialog = new OperationSelectionDialog(shell);
 			dialog.setInput(flow);
 			dialog.open();
-			parametersToAdd = Arrays.asList(dialog.getResult()) // Object[]
+			operationToAdd = Arrays.asList(dialog.getResult()) // Object[]
 					.stream()
-					.map(Parameter.class::cast) // Stream<Parameter>
+					.map(Operation.class::cast) // Stream<Parameter>
 					.collect(Collectors.toList()); // List<Parameter>
-			flow.getScopes().addAll(parametersToAdd);
-			parametersTableViewer.setInput(flow);
+			flow.getScopes().addAll(operationToAdd);
+			operationTableViewer.setInput(flow);
 		});
 		
 		Button deleteScope = new Button(buttonComposite, SWT.NONE);
 		deleteScope.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, true, false, 1, 1));
 		deleteScope.setImage(new Image(null, this.getClass().getClassLoader().getResourceAsStream("/icons/full/others/delete.gif")));
 		deleteScope.addListener(SWT.Selection, (e) -> {
-			parametersToRemove.add((Parameter) parametersTableViewer.getStructuredSelection().getFirstElement());
-			flow.getScopes().removeAll(parametersToRemove);
-			parametersTableViewer.setInput(flow);
+			operationToRemove.add((Operation) operationTableViewer.getStructuredSelection().getFirstElement());
+			flow.getScopes().removeAll(operationToRemove);
+			operationTableViewer.setInput(flow);
 		});
 		
 		/*
@@ -241,15 +241,16 @@ public class NewFlowDialog extends Dialog {
 		okButton.setLayoutData(gd_okButton);
 		okButton.setText("OK");
 		okButton.addListener(SWT.Selection, (e) -> validateCreation());
+		
 	}
 
 	/**
 	 * The cancel button is pressed.
-	 * Cancels the creation of the {@link Flow}: all the scope {@link Parameter} added are removed, all the scope {@link Parameter} removed are added back.
+	 * Cancels the creation of the {@link Flow}: all the scope {@link Operation} added are removed, all the scope {@link Operation} removed are added back.
 	 */
 	private void cancelCreation() {
-		flow.getScopes().removeAll(parametersToAdd);
-		flow.getScopes().addAll(parametersToRemove);
+		flow.getScopes().removeAll(operationToAdd);
+		flow.getScopes().addAll(operationToRemove);
 		
 		shell.close();
 	}
