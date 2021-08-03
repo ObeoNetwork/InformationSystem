@@ -1687,13 +1687,22 @@ public interface SoaPackage extends EPackage {
 	int SECURITY_SCHEME__HTTP_SCHEME = EnvironmentPackage.OBEO_DSM_OBJECT_FEATURE_COUNT + 6;
 
 	/**
+	 * The feature id for the '<em><b>Format</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SECURITY_SCHEME__FORMAT = EnvironmentPackage.OBEO_DSM_OBJECT_FEATURE_COUNT + 7;
+
+	/**
 	 * The number of structural features of the '<em>Security Scheme</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SECURITY_SCHEME_FEATURE_COUNT = EnvironmentPackage.OBEO_DSM_OBJECT_FEATURE_COUNT + 7;
+	int SECURITY_SCHEME_FEATURE_COUNT = EnvironmentPackage.OBEO_DSM_OBJECT_FEATURE_COUNT + 8;
 
 	/**
 	 * The meta object id for the '{@link org.obeonetwork.dsl.soa.impl.FlowImpl <em>Flow</em>}' class.
@@ -3504,6 +3513,17 @@ public interface SoaPackage extends EPackage {
 	EAttribute getSecurityScheme_HttpScheme();
 
 	/**
+	 * Returns the meta object for the attribute '{@link org.obeonetwork.dsl.soa.SecurityScheme#getFormat <em>Format</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Format</em>'.
+	 * @see org.obeonetwork.dsl.soa.SecurityScheme#getFormat()
+	 * @see #getSecurityScheme()
+	 * @generated
+	 */
+	EAttribute getSecurityScheme_Format();
+
+	/**
 	 * Returns the meta object for class '{@link org.obeonetwork.dsl.soa.Flow <em>Flow</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -4521,6 +4541,14 @@ public interface SoaPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute SECURITY_SCHEME__HTTP_SCHEME = eINSTANCE.getSecurityScheme_HttpScheme();
+
+		/**
+		 * The meta object literal for the '<em><b>Format</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute SECURITY_SCHEME__FORMAT = eINSTANCE.getSecurityScheme_Format();
 
 		/**
 		 * The meta object literal for the '{@link org.obeonetwork.dsl.soa.impl.FlowImpl <em>Flow</em>}' class.

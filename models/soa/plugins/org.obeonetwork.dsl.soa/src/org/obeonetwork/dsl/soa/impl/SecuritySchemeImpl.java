@@ -42,6 +42,7 @@ import org.obeonetwork.dsl.soa.SoaPackage;
  *   <li>{@link org.obeonetwork.dsl.soa.impl.SecuritySchemeImpl#getConnectURL <em>Connect URL</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.soa.impl.SecuritySchemeImpl#getFlows <em>Flows</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.soa.impl.SecuritySchemeImpl#getHttpScheme <em>Http Scheme</em>}</li>
+ *   <li>{@link org.obeonetwork.dsl.soa.impl.SecuritySchemeImpl#getFormat <em>Format</em>}</li>
  * </ul>
  *
  * @generated
@@ -113,6 +114,16 @@ public class SecuritySchemeImpl extends ObeoDSMObjectImpl implements SecuritySch
 	 * @ordered
 	 */
 	protected static final HttpScheme HTTP_SCHEME_EDEFAULT = HttpScheme.BASIC;
+
+	/**
+	 * The default value of the '{@link #getFormat() <em>Format</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getFormat()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String FORMAT_EDEFAULT = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -256,6 +267,24 @@ public class SecuritySchemeImpl extends ObeoDSMObjectImpl implements SecuritySch
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public String getFormat() {
+		return (String)eDynamicGet(SoaPackage.SECURITY_SCHEME__FORMAT, SoaPackage.Literals.SECURITY_SCHEME__FORMAT, true, true);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setFormat(String newFormat) {
+		eDynamicSet(SoaPackage.SECURITY_SCHEME__FORMAT, SoaPackage.Literals.SECURITY_SCHEME__FORMAT, newFormat);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
@@ -287,6 +316,8 @@ public class SecuritySchemeImpl extends ObeoDSMObjectImpl implements SecuritySch
 				return getFlows();
 			case SoaPackage.SECURITY_SCHEME__HTTP_SCHEME:
 				return getHttpScheme();
+			case SoaPackage.SECURITY_SCHEME__FORMAT:
+				return getFormat();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -322,6 +353,9 @@ public class SecuritySchemeImpl extends ObeoDSMObjectImpl implements SecuritySch
 			case SoaPackage.SECURITY_SCHEME__HTTP_SCHEME:
 				setHttpScheme((HttpScheme)newValue);
 				return;
+			case SoaPackage.SECURITY_SCHEME__FORMAT:
+				setFormat((String)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -355,6 +389,9 @@ public class SecuritySchemeImpl extends ObeoDSMObjectImpl implements SecuritySch
 			case SoaPackage.SECURITY_SCHEME__HTTP_SCHEME:
 				setHttpScheme(HTTP_SCHEME_EDEFAULT);
 				return;
+			case SoaPackage.SECURITY_SCHEME__FORMAT:
+				setFormat(FORMAT_EDEFAULT);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -381,6 +418,8 @@ public class SecuritySchemeImpl extends ObeoDSMObjectImpl implements SecuritySch
 				return !getFlows().isEmpty();
 			case SoaPackage.SECURITY_SCHEME__HTTP_SCHEME:
 				return getHttpScheme() != HTTP_SCHEME_EDEFAULT;
+			case SoaPackage.SECURITY_SCHEME__FORMAT:
+				return FORMAT_EDEFAULT == null ? getFormat() != null : !FORMAT_EDEFAULT.equals(getFormat());
 		}
 		return super.eIsSet(featureID);
 	}

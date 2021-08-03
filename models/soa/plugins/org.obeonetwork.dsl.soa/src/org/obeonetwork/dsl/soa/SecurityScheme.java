@@ -30,6 +30,7 @@ import org.obeonetwork.dsl.environment.ObeoDSMObject;
  *   <li>{@link org.obeonetwork.dsl.soa.SecurityScheme#getConnectURL <em>Connect URL</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.soa.SecurityScheme#getFlows <em>Flows</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.soa.SecurityScheme#getHttpScheme <em>Http Scheme</em>}</li>
+ *   <li>{@link org.obeonetwork.dsl.soa.SecurityScheme#getFormat <em>Format</em>}</li>
  * </ul>
  *
  * @see org.obeonetwork.dsl.soa.SoaPackage#getSecurityScheme()
@@ -217,5 +218,27 @@ public interface SecurityScheme extends ObeoDSMObject {
 	 * @generated
 	 */
 	void setHttpScheme(HttpScheme value);
+
+	/**
+	 * Returns the value of the '<em><b>Format</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Format</em>' attribute.
+	 * @see #setFormat(String)
+	 * @see org.obeonetwork.dsl.soa.SoaPackage#getSecurityScheme_Format()
+	 * @model
+	 * @generated
+	 */
+	String getFormat();
+
+	/**
+	 * Sets the value of the '{@link org.obeonetwork.dsl.soa.SecurityScheme#getFormat <em>Format</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Format</em>' attribute.
+	 * @see #getFormat()
+	 * @generated
+	 */
+	void setFormat(String value);
 
 } // SecurityScheme

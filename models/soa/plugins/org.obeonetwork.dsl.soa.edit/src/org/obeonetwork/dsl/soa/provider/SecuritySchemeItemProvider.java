@@ -77,6 +77,7 @@ public class SecuritySchemeItemProvider
 			addConnectURLPropertyDescriptor(object);
 			addFlowsPropertyDescriptor(object);
 			addHttpSchemePropertyDescriptor(object);
+			addFormatPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -236,6 +237,28 @@ public class SecuritySchemeItemProvider
 	}
 
 	/**
+	 * This adds a property descriptor for the Format feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addFormatPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_SecurityScheme_format_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_SecurityScheme_format_feature", "_UI_SecurityScheme_type"),
+				 SoaPackage.Literals.SECURITY_SCHEME__FORMAT,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
 	 * This returns SecurityScheme.gif.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -289,6 +312,7 @@ public class SecuritySchemeItemProvider
 			case SoaPackage.SECURITY_SCHEME__API_KEY_LOCATION:
 			case SoaPackage.SECURITY_SCHEME__CONNECT_URL:
 			case SoaPackage.SECURITY_SCHEME__HTTP_SCHEME:
+			case SoaPackage.SECURITY_SCHEME__FORMAT:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 		}

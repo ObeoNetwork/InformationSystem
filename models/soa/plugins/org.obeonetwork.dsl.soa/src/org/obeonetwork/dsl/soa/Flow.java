@@ -151,7 +151,7 @@ public interface Flow extends ObeoDSMObject {
 
 	/**
 	 * Returns the value of the '<em><b>Scopes</b></em>' reference list.
-	 * The list contents are of type {@link org.obeonetwork.dsl.soa.Parameter}.
+	 * The list contents are of type {@link org.obeonetwork.dsl.soa.Operation}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
@@ -162,6 +162,6 @@ public interface Flow extends ObeoDSMObject {
 	 * @model
 	 * @generated
 	 */
-	EList<Parameter> getScopes();
+	EList<Operation> getScopes();
 
 } // Flow

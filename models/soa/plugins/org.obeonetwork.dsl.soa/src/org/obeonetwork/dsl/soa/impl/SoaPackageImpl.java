@@ -992,6 +992,15 @@ public class SoaPackageImpl extends EPackageImpl implements SoaPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EAttribute getSecurityScheme_Format() {
+		return (EAttribute)securitySchemeEClass.getEStructuralFeatures().get(7);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getFlow() {
 		return flowEClass;
 	}
@@ -1433,6 +1442,7 @@ public class SoaPackageImpl extends EPackageImpl implements SoaPackage {
 		createEAttribute(securitySchemeEClass, SECURITY_SCHEME__CONNECT_URL);
 		createEReference(securitySchemeEClass, SECURITY_SCHEME__FLOWS);
 		createEAttribute(securitySchemeEClass, SECURITY_SCHEME__HTTP_SCHEME);
+		createEAttribute(securitySchemeEClass, SECURITY_SCHEME__FORMAT);
 
 		flowEClass = createEClass(FLOW);
 		createEAttribute(flowEClass, FLOW__FLOW_TYPE);
@@ -1618,13 +1628,14 @@ public class SoaPackageImpl extends EPackageImpl implements SoaPackage {
 		initEAttribute(getSecurityScheme_ConnectURL(), ecorePackage.getEString(), "connectURL", null, 0, 1, SecurityScheme.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getSecurityScheme_Flows(), this.getFlow(), null, "flows", null, 0, -1, SecurityScheme.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getSecurityScheme_HttpScheme(), this.getHttpScheme(), "httpScheme", null, 0, 1, SecurityScheme.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getSecurityScheme_Format(), ecorePackage.getEString(), "format", null, 0, 1, SecurityScheme.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(flowEClass, Flow.class, "Flow", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getFlow_FlowType(), this.getFlowType(), "FlowType", null, 1, 1, Flow.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getFlow_AuthorizationURL(), ecorePackage.getEString(), "authorizationURL", null, 0, 1, Flow.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getFlow_TokenURL(), ecorePackage.getEString(), "tokenURL", null, 0, 1, Flow.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getFlow_RefreshURL(), ecorePackage.getEString(), "refreshURL", null, 0, 1, Flow.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getFlow_Scopes(), this.getParameter(), null, "scopes", null, 0, -1, Flow.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getFlow_Scopes(), this.getOperation(), null, "scopes", null, 0, -1, Flow.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(informationEClass, Information.class, "Information", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getInformation_ApiVersion(), ecorePackage.getEString(), "apiVersion", null, 0, 1, Information.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
