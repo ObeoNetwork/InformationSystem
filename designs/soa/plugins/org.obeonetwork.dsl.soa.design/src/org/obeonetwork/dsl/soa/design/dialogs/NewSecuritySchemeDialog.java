@@ -57,13 +57,16 @@ public class NewSecuritySchemeDialog {
 
 	// HTTP
 	private HttpScheme httpScheme;
-
+	private String format;
+	
 	// OPENID
 	private String openIdConnectURL;
-
+	
+	
 	// OAUTH2
 	private Collection<Flow> flowsAdded = new ArrayList<>();
 	private Collection<Flow> flowsDeleted = new ArrayList<>();
+	
 
 	/**
 	 * If the dialog is used to edit an existing {@link SecurityScheme}, all the
@@ -80,6 +83,7 @@ public class NewSecuritySchemeDialog {
 		apiKeyLocation = scheme.getApiKeyLocation();
 		httpScheme = scheme.getHttpScheme();
 		openIdConnectURL = scheme.getConnectURL();
+		format = scheme.getFormat();
 	}
 
 	/**
@@ -185,7 +189,7 @@ public class NewSecuritySchemeDialog {
 		separator.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, true, false, 1, 1));
 
 		mainComposite = new Composite(shell, SWT.NONE);
-		mainComposite.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, true, true, 1, 1));
+		mainComposite.setLayoutData(new GridData(SWT.FILL, SWT.TOP, true, true, 1, 1));
 		GridLayout gl_mainComposite = new GridLayout(1, false);
 		gl_mainComposite.marginWidth = 0;
 		gl_mainComposite.marginHeight = 0;
@@ -211,7 +215,7 @@ public class NewSecuritySchemeDialog {
 		okButton.setLayoutData(gd_okButton);
 		okButton.setText("Ok");
 
-		setOpenIdComposite();
+		setHttpComposite();
 		displayComposite();
 	}
 
@@ -284,15 +288,21 @@ public class NewSecuritySchemeDialog {
 	public void setHttpComposite() {
 		removeCurrentComposite();
 		Composite httpComposite = new Composite(mainComposite, SWT.NONE);
-		httpComposite.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, true, false, 1, 1));
-		httpComposite.setLayout(new GridLayout(1, false));
+		httpComposite.setLayoutData(new GridData(SWT.FILL, SWT.TOP, true, false, 1, 1));
+		GridLayout gl_httpComposite = new GridLayout(1, false);
+		gl_httpComposite.marginWidth = 0;
+		httpComposite.setLayout(gl_httpComposite);
 
 		Composite httpCompositeScheme = new Composite(httpComposite, SWT.NONE);
 		httpCompositeScheme.setLayout(new GridLayout(2, false));
-		httpCompositeScheme.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, true, false, 1, 1));
+		GridData gd_httpCompositeScheme = new GridData(SWT.FILL, SWT.CENTER, true, false, 1, 1);
+		gd_httpCompositeScheme.widthHint = 92;
+		httpCompositeScheme.setLayoutData(gd_httpCompositeScheme);
 
 		Label lblHttpScheme = new Label(httpCompositeScheme, SWT.NONE);
-		lblHttpScheme.setLayoutData(new GridData(SWT.RIGHT, SWT.CENTER, false, false, 1, 1));
+		GridData gd_lblHttpScheme = new GridData(SWT.RIGHT, SWT.CENTER, false, false, 1, 1);
+		gd_lblHttpScheme.widthHint = 92;
+		lblHttpScheme.setLayoutData(gd_lblHttpScheme);
 		lblHttpScheme.setBounds(0, 0, 55, 15);
 		lblHttpScheme.setText("Http scheme:");
 
@@ -304,9 +314,41 @@ public class NewSecuritySchemeDialog {
 		if (httpSchemeCombo != null)
 			httpSchemeCombo.setText(httpScheme.getName());
 
+		
+		Composite bearerComposite = new Composite(httpComposite, SWT.NONE);
+		bearerComposite.setLayoutData(new GridData(SWT.FILL, SWT.FILL, true, false, 1, 1));
+		bearerComposite.setLayout(new GridLayout(2, false));
+		
+		Label lblNewLabel = new Label(bearerComposite, SWT.NONE);
+		GridData gd_lblNewLabel = new GridData(SWT.RIGHT, SWT.CENTER, false, false, 1, 1);
+		gd_lblNewLabel.widthHint = 92;
+		lblNewLabel.setLayoutData(gd_lblNewLabel);
+		lblNewLabel.setText("Format:");
+		
+		Text formatText = new Text(bearerComposite, SWT.BORDER);
+		formatText.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, true, false, 1, 1));
+		formatText.addListener(SWT.KeyUp, (e) -> setFormat(((Text) e.widget).getText()));
+		if (format != null)
+			formatText.setText(format);
+		
+		if (httpScheme == null || !httpScheme.equals(HttpScheme.BEARER))
+			formatText.setEnabled(false);
+		
+		httpSchemeCombo.addListener(SWT.Selection, (e) -> {
+			if (HttpScheme.getByName(((Combo) e.widget).getText()).equals(HttpScheme.BEARER)) {
+				formatText.setEnabled(true);
+			} else {
+				formatText.setEnabled(false);
+				formatText.setText("");
+				format = null;
+			}
+		});
+		
 		setCurrentComposite(httpComposite);
 		shell.layout(true);
 	}
+
+
 
 	/**
 	 * Displays the fields related to OAuth2 on the Dialog
@@ -419,6 +461,7 @@ public class NewSecuritySchemeDialog {
 		scheme.setHttpScheme(httpScheme);
 		scheme.setConnectURL(openIdConnectURL);
 		scheme.getFlows().addAll(flowsAdded);
+		scheme.setFormat(format);
 		shell.close();
 	}
 
@@ -487,4 +530,7 @@ public class NewSecuritySchemeDialog {
 		this.openIdConnectURL = openIdConnectURL;
 	}
 
+	private void setFormat(String format) {
+		this.format = format;
+	}
 }
