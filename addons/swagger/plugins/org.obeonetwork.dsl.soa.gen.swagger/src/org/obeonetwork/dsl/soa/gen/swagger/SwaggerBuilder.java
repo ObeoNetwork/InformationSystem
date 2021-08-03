@@ -43,6 +43,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 import java.util.Set;
+import java.util.stream.Collectors;
 
 import org.eclipse.core.runtime.IStatus;
 import org.eclipse.emf.common.util.EList;
@@ -58,6 +59,7 @@ import org.obeonetwork.dsl.soa.ApiKeyLocation;
 import org.obeonetwork.dsl.soa.Component;
 import org.obeonetwork.dsl.soa.ExpositionKind;
 import org.obeonetwork.dsl.soa.Flow;
+import org.obeonetwork.dsl.soa.FlowType;
 import org.obeonetwork.dsl.soa.Information;
 import org.obeonetwork.dsl.soa.ParameterPassingMode;
 import org.obeonetwork.dsl.soa.SecuritySchemeType;
@@ -203,12 +205,12 @@ public class SwaggerBuilder {
 
 	private void buildSecuritySchemes() {
 		soaComponent.getSecuritySchemes().forEach(soaSecurityScheme -> openApi.getComponents()
-				.addSecuritySchemes(soaSecurityScheme.getName(), createSecurityScheme(soaSecurityScheme)));
+				.addSecuritySchemes(soaSecurityScheme.getKey(), createSecurityScheme(soaSecurityScheme)));
 	}
 
 	private SecurityScheme createSecurityScheme(org.obeonetwork.dsl.soa.SecurityScheme soaSecurityScheme) {
 		SecurityScheme securityScheme = new SecurityScheme();
-		securityScheme.setName(soaSecurityScheme.getName());
+		securityScheme.setName(soaSecurityScheme.getKey());		
 		
 		if (soaSecurityScheme.getDescription() != null) {
 			securityScheme.setDescription(soaSecurityScheme.getDescription());
@@ -271,9 +273,9 @@ public class SwaggerBuilder {
 		authFlow.setTokenUrl(flow.getTokenURL());
 		
 		Scopes scopes = new Scopes();
-		
-		flow.getScopes().forEach(operation -> {
-			scopes.addString(operation.getName(), operation.getDescription());
+		 
+		flow.getScopes().forEach(scope -> {
+			scopes.addString(scope, "");
 		});
 		
 		authFlow.setScopes(scopes);
@@ -811,8 +813,13 @@ public class SwaggerBuilder {
 		buildApiResponses(swgOperation, soaOperation);
 
 		for (org.obeonetwork.dsl.soa.SecurityScheme soaSecurityScheme : soaOperation.getSecuritySchemes()) {
+			// iterate over schemes 
+			// iterate over the flows of each scheme
+			//
 			SecurityRequirement swgSecurityRequirement = new SecurityRequirement();
-			swgSecurityRequirement.addList(soaSecurityScheme.getKey());
+			if (soaSecurityScheme.getType().equals(SecuritySchemeType.OAUTH2)) {
+				swgSecurityRequirement.addList(soaSecurityScheme.getKey(), soaSecurityScheme.getFlows().stream().map(f -> f.getScopes()).flatMap(List::stream).collect(Collectors.toList()));
+			}
 			swgOperation.addSecurityItem(swgSecurityRequirement);
 		}
 
