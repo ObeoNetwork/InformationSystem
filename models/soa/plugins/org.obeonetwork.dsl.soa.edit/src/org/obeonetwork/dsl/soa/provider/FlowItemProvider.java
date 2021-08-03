@@ -178,7 +178,7 @@ public class FlowItemProvider extends ObeoDSMObjectItemProvider {
 				 true,
 				 false,
 				 true,
-				 null,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
 				 null,
 				 null));
 	}

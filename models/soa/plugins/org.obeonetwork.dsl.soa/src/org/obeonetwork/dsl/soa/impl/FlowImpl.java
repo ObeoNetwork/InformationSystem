@@ -186,8 +186,8 @@ public class FlowImpl extends ObeoDSMObjectImpl implements Flow {
 	 * @generated
 	 */
 	@SuppressWarnings("unchecked")
-	public EList<Operation> getScopes() {
-		return (EList<Operation>)eDynamicGet(SoaPackage.FLOW__SCOPES, SoaPackage.Literals.FLOW__SCOPES, true, true);
+	public EList<String> getScopes() {
+		return (EList<String>)eDynamicGet(SoaPackage.FLOW__SCOPES, SoaPackage.Literals.FLOW__SCOPES, true, true);
 	}
 
 	/**
@@ -235,7 +235,7 @@ public class FlowImpl extends ObeoDSMObjectImpl implements Flow {
 				return;
 			case SoaPackage.FLOW__SCOPES:
 				getScopes().clear();
-				getScopes().addAll((Collection<? extends Operation>)newValue);
+				getScopes().addAll((Collection<? extends String>)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);

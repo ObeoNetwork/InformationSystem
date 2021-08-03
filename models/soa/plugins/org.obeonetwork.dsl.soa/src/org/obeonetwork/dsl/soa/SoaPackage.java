@@ -1832,7 +1832,7 @@ public interface SoaPackage extends EPackage {
 	int FLOW__REFRESH_URL = EnvironmentPackage.OBEO_DSM_OBJECT_FEATURE_COUNT + 3;
 
 	/**
-	 * The feature id for the '<em><b>Scopes</b></em>' reference list.
+	 * The feature id for the '<em><b>Scopes</b></em>' attribute list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -3578,15 +3578,15 @@ public interface SoaPackage extends EPackage {
 	EAttribute getFlow_RefreshURL();
 
 	/**
-	 * Returns the meta object for the reference list '{@link org.obeonetwork.dsl.soa.Flow#getScopes <em>Scopes</em>}'.
+	 * Returns the meta object for the attribute list '{@link org.obeonetwork.dsl.soa.Flow#getScopes <em>Scopes</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference list '<em>Scopes</em>'.
+	 * @return the meta object for the attribute list '<em>Scopes</em>'.
 	 * @see org.obeonetwork.dsl.soa.Flow#getScopes()
 	 * @see #getFlow()
 	 * @generated
 	 */
-	EReference getFlow_Scopes();
+	EAttribute getFlow_Scopes();
 
 	/**
 	 * Returns the meta object for class '{@link org.obeonetwork.dsl.soa.Information <em>Information</em>}'.
@@ -4593,12 +4593,12 @@ public interface SoaPackage extends EPackage {
 		EAttribute FLOW__REFRESH_URL = eINSTANCE.getFlow_RefreshURL();
 
 		/**
-		 * The meta object literal for the '<em><b>Scopes</b></em>' reference list feature.
+		 * The meta object literal for the '<em><b>Scopes</b></em>' attribute list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference FLOW__SCOPES = eINSTANCE.getFlow_Scopes();
+		EAttribute FLOW__SCOPES = eINSTANCE.getFlow_Scopes();
 
 		/**
 		 * The meta object literal for the '{@link org.obeonetwork.dsl.soa.impl.InformationImpl <em>Information</em>}' class.

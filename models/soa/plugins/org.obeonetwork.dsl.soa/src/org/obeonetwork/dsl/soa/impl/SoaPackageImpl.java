@@ -1046,8 +1046,8 @@ public class SoaPackageImpl extends EPackageImpl implements SoaPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getFlow_Scopes() {
-		return (EReference)flowEClass.getEStructuralFeatures().get(4);
+	public EAttribute getFlow_Scopes() {
+		return (EAttribute)flowEClass.getEStructuralFeatures().get(4);
 	}
 
 	/**
@@ -1449,7 +1449,7 @@ public class SoaPackageImpl extends EPackageImpl implements SoaPackage {
 		createEAttribute(flowEClass, FLOW__AUTHORIZATION_URL);
 		createEAttribute(flowEClass, FLOW__TOKEN_URL);
 		createEAttribute(flowEClass, FLOW__REFRESH_URL);
-		createEReference(flowEClass, FLOW__SCOPES);
+		createEAttribute(flowEClass, FLOW__SCOPES);
 
 		informationEClass = createEClass(INFORMATION);
 		createEAttribute(informationEClass, INFORMATION__API_VERSION);
@@ -1635,7 +1635,7 @@ public class SoaPackageImpl extends EPackageImpl implements SoaPackage {
 		initEAttribute(getFlow_AuthorizationURL(), ecorePackage.getEString(), "authorizationURL", null, 0, 1, Flow.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getFlow_TokenURL(), ecorePackage.getEString(), "tokenURL", null, 0, 1, Flow.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getFlow_RefreshURL(), ecorePackage.getEString(), "refreshURL", null, 0, 1, Flow.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getFlow_Scopes(), this.getOperation(), null, "scopes", null, 0, -1, Flow.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getFlow_Scopes(), ecorePackage.getEString(), "scopes", null, 0, -1, Flow.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(informationEClass, Information.class, "Information", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getInformation_ApiVersion(), ecorePackage.getEString(), "apiVersion", null, 0, 1, Information.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -2103,12 +2103,6 @@ public class SoaPackageImpl extends EPackageImpl implements SoaPackage {
 		   source,
 		   new String[] {
 			   "documentation", "The refresh URL to be used for this flow. This MUST be in the form of a URL."
-		   });
-		addAnnotation
-		  (getFlow_Scopes(),
-		   source,
-		   new String[] {
-			   "documentation", "The available scopes for the OAuth2 security scheme. References to SOA Parameters."
 		   });
 		addAnnotation
 		  (informationEClass,

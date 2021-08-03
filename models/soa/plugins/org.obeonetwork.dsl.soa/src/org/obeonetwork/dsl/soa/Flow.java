@@ -150,18 +150,15 @@ public interface Flow extends ObeoDSMObject {
 	void setRefreshURL(String value);
 
 	/**
-	 * Returns the value of the '<em><b>Scopes</b></em>' reference list.
-	 * The list contents are of type {@link org.obeonetwork.dsl.soa.Operation}.
+	 * Returns the value of the '<em><b>Scopes</b></em>' attribute list.
+	 * The list contents are of type {@link java.lang.String}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * <!-- begin-model-doc -->
-	 * The available scopes for the OAuth2 security scheme. References to SOA Parameters.
-	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Scopes</em>' reference list.
+	 * @return the value of the '<em>Scopes</em>' attribute list.
 	 * @see org.obeonetwork.dsl.soa.SoaPackage#getFlow_Scopes()
 	 * @model
 	 * @generated
 	 */
-	EList<Operation> getScopes();
+	EList<String> getScopes();
 
 } // Flow
