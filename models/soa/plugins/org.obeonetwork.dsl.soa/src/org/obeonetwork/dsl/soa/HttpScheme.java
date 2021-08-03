@@ -34,7 +34,7 @@ public enum HttpScheme implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	BASIC(0, "BASIC", "BASIC"),
+	BASIC(0, "BASIC", "basic"),
 
 	/**
 	 * The '<em><b>BEARER</b></em>' literal object.
@@ -44,7 +44,7 @@ public enum HttpScheme implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	BEARER(1, "BEARER", "BEARER");
+	BEARER(1, "BEARER", "bearer");
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -58,7 +58,7 @@ public enum HttpScheme implements Enumerator {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see #BASIC
-	 * @model
+	 * @model literal="basic"
 	 * @generated
 	 * @ordered
 	 */
@@ -69,7 +69,7 @@ public enum HttpScheme implements Enumerator {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see #BEARER
-	 * @model
+	 * @model literal="bearer"
 	 * @generated
 	 * @ordered
 	 */

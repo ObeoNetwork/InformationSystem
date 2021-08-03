@@ -422,8 +422,8 @@
     <eLiterals name="COOKIE" value="2" literal="COOKIE"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EEnum" name="HttpScheme">
-    <eLiterals name="BASIC"/>
-    <eLiterals name="BEARER" value="1"/>
+    <eLiterals name="BASIC" literal="basic"/>
+    <eLiterals name="BEARER" value="1" literal="bearer"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EEnum" name="FlowType">
     <eLiterals name="IMPLICIT"/>
