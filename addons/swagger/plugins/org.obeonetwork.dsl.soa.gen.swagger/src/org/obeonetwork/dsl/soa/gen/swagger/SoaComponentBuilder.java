@@ -76,6 +76,7 @@ import org.obeonetwork.dsl.soa.Interface;
 import org.obeonetwork.dsl.soa.InterfaceKind;
 import org.obeonetwork.dsl.soa.ParameterPassingMode;
 import org.obeonetwork.dsl.soa.ParameterRestData;
+import org.obeonetwork.dsl.soa.Scope;
 import org.obeonetwork.dsl.soa.SecuritySchemeType;
 import org.obeonetwork.dsl.soa.Service;
 import org.obeonetwork.dsl.soa.SoaFactory;
@@ -344,7 +345,12 @@ public class SoaComponentBuilder {
 		flow.setTokenURL(authFlow.getTokenUrl());
 		flow.setRefreshURL(authFlow.getRefreshUrl());
 		if (authFlow.getScopes() != null) {
-			flow.getScopes().addAll(authFlow.getScopes().entrySet().stream().map(entry -> entry.getKey()).collect(Collectors.toList()));	
+			authFlow.getScopes().forEach((name, description) -> {
+				Scope scope = SoaFactory.eINSTANCE.createScope();
+				scope.setName(name);
+				scope.setSummary(description);
+				flow.getScopes().add(scope);
+			});
 		}
 		
 		return flow;

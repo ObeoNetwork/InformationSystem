@@ -62,6 +62,7 @@ import org.obeonetwork.dsl.soa.Flow;
 import org.obeonetwork.dsl.soa.FlowType;
 import org.obeonetwork.dsl.soa.Information;
 import org.obeonetwork.dsl.soa.ParameterPassingMode;
+import org.obeonetwork.dsl.soa.Scope;
 import org.obeonetwork.dsl.soa.SecuritySchemeType;
 import org.obeonetwork.dsl.soa.Service;
 import org.obeonetwork.dsl.soa.Verb;
@@ -275,7 +276,7 @@ public class SwaggerBuilder {
 		Scopes scopes = new Scopes();
 		 
 		flow.getScopes().forEach(scope -> {
-			scopes.addString(scope, "");
+			scopes.addString(scope.getName(), scope.getSummary());
 		});
 		
 		authFlow.setScopes(scopes);
@@ -818,7 +819,7 @@ public class SwaggerBuilder {
 			//
 			SecurityRequirement swgSecurityRequirement = new SecurityRequirement();
 			if (soaSecurityScheme.getType().equals(SecuritySchemeType.OAUTH2)) {
-				swgSecurityRequirement.addList(soaSecurityScheme.getKey(), soaSecurityScheme.getFlows().stream().map(f -> f.getScopes()).flatMap(List::stream).collect(Collectors.toList()));
+				swgSecurityRequirement.addList(soaSecurityScheme.getKey(), soaSecurityScheme.getFlows().stream().map(f -> f.getScopes()).flatMap(List::stream).map(Scope::getName).collect(Collectors.toList()));
 			}
 			swgOperation.addSecurityItem(swgSecurityRequirement);
 		}
