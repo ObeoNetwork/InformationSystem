@@ -1,15 +1,16 @@
 package org.obeonetwork.dsl.soa.design.dialogs;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Collection;
-import java.util.stream.Collectors;
 
-import org.eclipse.emf.edit.provider.ComposedAdapterFactory;
-import org.eclipse.emf.edit.ui.provider.AdapterFactoryLabelProvider;
-import org.eclipse.jface.dialogs.InputDialog;
+import org.eclipse.jface.viewers.CellEditor;
+import org.eclipse.jface.viewers.EditingSupport;
 import org.eclipse.jface.viewers.IStructuredContentProvider;
+import org.eclipse.jface.viewers.ITableLabelProvider;
+import org.eclipse.jface.viewers.LabelProvider;
 import org.eclipse.jface.viewers.TableViewer;
+import org.eclipse.jface.viewers.TableViewerColumn;
+import org.eclipse.jface.viewers.TextCellEditor;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.graphics.Image;
 import org.eclipse.swt.layout.GridData;
@@ -22,11 +23,15 @@ import org.eclipse.swt.widgets.Display;
 import org.eclipse.swt.widgets.Label;
 import org.eclipse.swt.widgets.Shell;
 import org.eclipse.swt.widgets.Table;
+import org.eclipse.swt.widgets.TableColumn;
 import org.eclipse.swt.widgets.Text;
-import org.eclipse.ui.dialogs.ListDialog;
 import org.obeonetwork.dsl.soa.Flow;
 import org.obeonetwork.dsl.soa.FlowType;
 import org.obeonetwork.dsl.soa.Operation;
+import org.obeonetwork.dsl.soa.Scope;
+import org.obeonetwork.dsl.soa.SoaFactory;
+import org.obeonetwork.dsl.soa.design.dialogs.supports.ScopeDescriptionEditingSupport;
+import org.obeonetwork.dsl.soa.design.dialogs.supports.ScopeNameEditingSupport;
 
 /**
  * {@link Dialog} for creating and editing {@link Flow} objects
@@ -41,8 +46,10 @@ public class NewFlowDialog extends Dialog {
 	private Text refreshText;
 	private Flow flow;
 	private FlowType flowType;
-	private Collection<String> operationToAdd = new ArrayList<>();
-	private Collection<String> operationToRemove = new ArrayList<>();
+	private Collection<Scope> operationToAdd = new ArrayList<>();
+	private Collection<Scope> operationToRemove = new ArrayList<>();
+	private Table scopeTable;
+	private TableViewer scopeTableViewer;
 
 	/**
 	 * Create the dialog.
@@ -78,7 +85,7 @@ public class NewFlowDialog extends Dialog {
 	 */
 	private void createContents() {
 		shell = new Shell(getParent(), SWT.SHELL_TRIM | SWT.BORDER | SWT.PRIMARY_MODAL);
-		shell.setSize(450, 301);
+		shell.setSize(450, 332);
 		shell.setText(getText());
 		GridLayout gl_shell = new GridLayout(1, false);
 		gl_shell.marginHeight = 0;
@@ -164,53 +171,79 @@ public class NewFlowDialog extends Dialog {
 		
 		if (flow.getRefreshURL() != null) 
 			refreshText.setText(flow.getRefreshURL());
+			
+		Composite scopeTableComposite = new Composite(mainComposite, SWT.NONE);
+		GridData gd_scopeTableComposite = new GridData(SWT.FILL, SWT.FILL, true, true, 1, 1);
+		gd_scopeTableComposite.heightHint = 159;
+		scopeTableComposite.setLayoutData(gd_scopeTableComposite);
+		scopeTableComposite.setLayout(new GridLayout(3, false));
 		
-		Composite parametersComposite = new Composite(mainComposite, SWT.NONE);
-		parametersComposite.setLayout(new GridLayout(3, false));
-		parametersComposite.setLayoutData(new GridData(SWT.FILL, SWT.FILL, true, false, 1, 1));
-		
-		Label scopeLabel = new Label(parametersComposite, SWT.NONE);
-		GridData gd_scopeLabel = new GridData(SWT.LEFT, SWT.TOP, false, false, 1, 1);
-		gd_scopeLabel.widthHint = 102;
-		scopeLabel.setLayoutData(gd_scopeLabel);
+		Label scopeLabel = new Label(scopeTableComposite, SWT.NONE);
+		GridData gd_lblNewLabel = new GridData(SWT.LEFT, SWT.TOP, false, false, 1, 1);
+		gd_lblNewLabel.widthHint = 102;
+		scopeLabel.setLayoutData(gd_lblNewLabel);
 		scopeLabel.setText("Scopes:");
 		
-		TableViewer operationTableViewer = new TableViewer(parametersComposite, SWT.BORDER | SWT.V_SCROLL);
-		Table table = operationTableViewer.getTable();
-		table.setLayoutData(new GridData(SWT.FILL, SWT.FILL, true, true, 1, 1));
-		operationTableViewer.setContentProvider(new IStructuredContentProvider() {
+		scopeTableViewer = new TableViewer(scopeTableComposite, SWT.BORDER | SWT.FULL_SELECTION);
+		scopeTable = scopeTableViewer.getTable();
+		scopeTable.setLinesVisible(true);
+		scopeTable.setHeaderVisible(true);
+		GridData gd_scopeTable = new GridData(SWT.FILL, SWT.FILL, true, true, 1, 1);
+		gd_scopeTable.heightHint = 184;
+		scopeTable.setLayoutData(gd_scopeTable);
+		
+		TableViewerColumn nameTableViewerColumn = new TableViewerColumn(scopeTableViewer, SWT.LEFT);		
+		TableColumn nameColumn = nameTableViewerColumn.getColumn();
+		nameColumn.setText("Name");		
+		nameColumn.setWidth(100);
+		nameTableViewerColumn.setEditingSupport(new ScopeNameEditingSupport(scopeTableViewer));
+		
+		TableViewerColumn descriptionTableViewerColumn = new TableViewerColumn(scopeTableViewer, SWT.LEFT);		
+		TableColumn descriptionColumn = descriptionTableViewerColumn.getColumn();
+		descriptionColumn.setText("Description");
+		descriptionColumn.setWidth(170);
+		descriptionTableViewerColumn.setEditingSupport(new ScopeDescriptionEditingSupport(scopeTableViewer));
+
+		scopeTableViewer.setContentProvider(new IStructuredContentProvider() {
 			@Override
 			public Object[] getElements(Object inputElement) {
-				return flow.getScopes().stream().toArray(String[]::new);
+				return flow.getScopes().stream().toArray(Scope[]::new);
 			}
 		});
-		ComposedAdapterFactory adapterFactory = new ComposedAdapterFactory(
-				ComposedAdapterFactory.Descriptor.Registry.INSTANCE);
-		operationTableViewer.setLabelProvider(new AdapterFactoryLabelProvider(adapterFactory));
-		operationTableViewer.setInput(flow);		
-		Composite buttonComposite = new Composite(parametersComposite, SWT.NONE);
+		scopeTableViewer.setLabelProvider(new ColumnLabelProvider());
+		
+		Composite buttonComposite = new Composite(scopeTableComposite, SWT.NONE);
 		buttonComposite.setLayout(new GridLayout(1, false));
 		
 		Button addScope = new Button(buttonComposite, SWT.NONE);
 		addScope.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, true, false, 1, 1));
 		addScope.setImage(new Image(null, this.getClass().getClassLoader().getResourceAsStream("/icons/full/others/add.gif")));
 		addScope.addListener(SWT.Selection, (e) -> {
-			InputDialog dialog = new InputDialog(shell, "New scope", "Enter a security scope:", "", null);
-			dialog.open();
-			String toAdd = dialog.getValue();
+			Scope toAdd = SoaFactory.eINSTANCE.createScope();
+			toAdd.setName("new scope");
+			toAdd.setSummary("description");
 			operationToAdd.add(toAdd);
 			flow.getScopes().add(toAdd);
-			operationTableViewer.setInput(flow);
+			scopeTableViewer.refresh();
 		});
 		
 		Button deleteScope = new Button(buttonComposite, SWT.NONE);
 		deleteScope.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, true, false, 1, 1));
 		deleteScope.setImage(new Image(null, this.getClass().getClassLoader().getResourceAsStream("/icons/full/others/delete.gif")));
 		deleteScope.addListener(SWT.Selection, (e) -> {
-			String toRemove = (String) operationTableViewer.getStructuredSelection().getFirstElement();
-			operationToRemove.add(toRemove);
-			flow.getScopes().remove(toRemove);
-			operationTableViewer.setInput(flow);
+			Scope toRemove;
+			if (scopeTableViewer.getStructuredSelection().getFirstElement()!= null) {
+				toRemove = (Scope) scopeTableViewer.getStructuredSelection().getFirstElement();	
+			} else {
+				toRemove = flow.getScopes().stream().reduce((first, second) -> second).orElse(null); // last element
+			}
+			
+			if (toRemove != null) {
+				operationToRemove.add(toRemove);
+				flow.getScopes().remove(toRemove);				
+			}
+
+			scopeTableViewer.refresh();
 		});
 		
 		Composite okCancelButtonsComposite = new Composite(mainComposite, SWT.NONE);
@@ -231,6 +264,8 @@ public class NewFlowDialog extends Dialog {
 		okButton.setText("OK");
 		okButton.addListener(SWT.Selection, (e) -> validateCreation());
 		
+		scopeTableViewer.setInput(flow);
+
 	}
 
 	/**
@@ -260,6 +295,23 @@ public class NewFlowDialog extends Dialog {
 	private void setFlowType(FlowType byName) {
 		flowType = byName;
 	}
+	
+	private class ColumnLabelProvider extends LabelProvider implements ITableLabelProvider {
 
+		@Override
+		public Image getColumnImage(Object element, int columnIndex) {
+			return null;
+		}
 
+		@Override
+		public String getColumnText(Object element, int columnIndex) {			
+			if (columnIndex == 0) 
+				return ((Scope) element).getName();
+			if (columnIndex == 1)
+				return ((Scope) element).getSummary();
+			
+			return null;
+		}
+		
+	}
 }
