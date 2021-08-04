@@ -150,13 +150,16 @@ public interface Flow extends ObeoDSMObject {
 	void setRefreshURL(String value);
 
 	/**
-	 * Returns the value of the '<em><b>Scopes</b></em>' reference list.
+	 * Returns the value of the '<em><b>Scopes</b></em>' containment reference list.
 	 * The list contents are of type {@link org.obeonetwork.dsl.soa.Scope}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Scopes</em>' reference list.
+	 * <!-- begin-model-doc -->
+	 *  The available scopes for the OAuth2 security scheme. It may be empty.
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Scopes</em>' containment reference list.
 	 * @see org.obeonetwork.dsl.soa.SoaPackage#getFlow_Scopes()
-	 * @model
+	 * @model containment="true" resolveProxies="true"
 	 * @generated
 	 */
 	EList<Scope> getScopes();

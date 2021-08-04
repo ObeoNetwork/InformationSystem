@@ -17,6 +17,10 @@ import org.obeonetwork.dsl.environment.ObeoDSMObject;
  * A representation of the model object '<em><b>Scope</b></em>'.
  * <!-- end-user-doc -->
  *
+ * <!-- begin-model-doc -->
+ * The available scopes for the OAuth2 security scheme.
+ * <!-- end-model-doc -->
+ *
  * <p>
  * The following features are supported:
  * </p>
@@ -41,6 +45,9 @@ public interface Scope extends ObeoDSMObject {
 	 * Returns the value of the '<em><b>Name</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * The name of the scope.
+	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Name</em>' attribute.
 	 * @see #setName(String)
 	 * @see org.obeonetwork.dsl.soa.SoaPackage#getScope_Name()
@@ -63,6 +70,9 @@ public interface Scope extends ObeoDSMObject {
 	 * Returns the value of the '<em><b>Summary</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * A short description of the scope.
+	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Summary</em>' attribute.
 	 * @see #setSummary(String)
 	 * @see org.obeonetwork.dsl.soa.SoaPackage#getScope_Summary()

@@ -12,10 +12,13 @@ package org.obeonetwork.dsl.soa.impl;
 
 import java.util.Collection;
 
+import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EClass;
 
+import org.eclipse.emf.ecore.InternalEObject;
+import org.eclipse.emf.ecore.util.InternalEList;
 import org.obeonetwork.dsl.environment.impl.ObeoDSMObjectImpl;
 
 import org.obeonetwork.dsl.soa.Flow;
@@ -189,6 +192,20 @@ public class FlowImpl extends ObeoDSMObjectImpl implements Flow {
 	@SuppressWarnings("unchecked")
 	public EList<Scope> getScopes() {
 		return (EList<Scope>)eDynamicGet(SoaPackage.FLOW__SCOPES, SoaPackage.Literals.FLOW__SCOPES, true, true);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
+		switch (featureID) {
+			case SoaPackage.FLOW__SCOPES:
+				return ((InternalEList<?>)getScopes()).basicRemove(otherEnd, msgs);
+		}
+		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
 
 	/**

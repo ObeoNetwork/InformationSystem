@@ -1675,7 +1675,7 @@ public class SoaPackageImpl extends EPackageImpl implements SoaPackage {
 		initEAttribute(getFlow_AuthorizationURL(), ecorePackage.getEString(), "authorizationURL", null, 0, 1, Flow.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getFlow_TokenURL(), ecorePackage.getEString(), "tokenURL", null, 0, 1, Flow.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getFlow_RefreshURL(), ecorePackage.getEString(), "refreshURL", null, 0, 1, Flow.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getFlow_Scopes(), this.getScope(), null, "scopes", null, 0, -1, Flow.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getFlow_Scopes(), this.getScope(), null, "scopes", null, 0, -1, Flow.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(informationEClass, Information.class, "Information", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getInformation_ApiVersion(), ecorePackage.getEString(), "apiVersion", null, 0, 1, Information.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -2149,6 +2149,12 @@ public class SoaPackageImpl extends EPackageImpl implements SoaPackage {
 			   "documentation", "The refresh URL to be used for this flow. This MUST be in the form of a URL."
 		   });
 		addAnnotation
+		  (getFlow_Scopes(),
+		   source,
+		   new String[] {
+			   "documentation", " The available scopes for the OAuth2 security scheme. It may be empty."
+		   });
+		addAnnotation
 		  (informationEClass,
 		   source,
 		   new String[] {
@@ -2249,6 +2255,24 @@ public class SoaPackageImpl extends EPackageImpl implements SoaPackage {
 		   source,
 		   new String[] {
 			   "documentation", "The URL of this server."
+		   });
+		addAnnotation
+		  (scopeEClass,
+		   source,
+		   new String[] {
+			   "documentation", "The available scopes for the OAuth2 security scheme."
+		   });
+		addAnnotation
+		  (getScope_Name(),
+		   source,
+		   new String[] {
+			   "documentation", "The name of the scope."
+		   });
+		addAnnotation
+		  (getScope_Summary(),
+		   source,
+		   new String[] {
+			   "documentation", "A short description of the scope."
 		   });
 	}
 
