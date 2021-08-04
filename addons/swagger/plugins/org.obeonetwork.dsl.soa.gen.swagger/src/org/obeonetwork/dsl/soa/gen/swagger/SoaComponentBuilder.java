@@ -335,13 +335,18 @@ public class SoaComponentBuilder {
 			flow.setFlowType(FlowType.PASSWORD);
 			soaFlows.add(flow);
 		}		
-		return null;
+		return soaFlows;
 	}
 	
 	private Flow toSoa(OAuthFlow authFlow) {
 		Flow flow = SoaFactory.eINSTANCE.createFlow();
 		flow.setAuthorizationURL(authFlow.getAuthorizationUrl());
 		flow.setTokenURL(authFlow.getTokenUrl());
+		flow.setRefreshURL(authFlow.getRefreshUrl());
+		if (authFlow.getScopes() != null) {
+			flow.getScopes().addAll(authFlow.getScopes().entrySet().stream().map(entry -> entry.getKey()).collect(Collectors.toList()));	
+		}
+		
 		return flow;
 	}
 
