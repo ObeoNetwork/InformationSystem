@@ -314,11 +314,13 @@ public class SOAService {
 	}
 	
 	public void newSecurityScheme(SecurityScheme scheme) {
-		new NewSecuritySchemeDialog(scheme).open();
+		Shell shell = PlatformUI.getWorkbench().getActiveWorkbenchWindow().getShell();
+		new NewSecuritySchemeDialog(shell, scheme).open();
 	}
 	
 	public void editSecurityScheme(SecurityScheme scheme) {
-		new NewSecuritySchemeDialog(scheme).edit();
+		Shell shell = PlatformUI.getWorkbench().getActiveWorkbenchWindow().getShell();
+		new NewSecuritySchemeDialog(shell, scheme).edit();
 	}
 	
 }

@@ -3,14 +3,11 @@ package org.obeonetwork.dsl.soa.design.dialogs;
 import java.util.ArrayList;
 import java.util.Collection;
 
-import org.eclipse.jface.viewers.CellEditor;
-import org.eclipse.jface.viewers.EditingSupport;
 import org.eclipse.jface.viewers.IStructuredContentProvider;
 import org.eclipse.jface.viewers.ITableLabelProvider;
 import org.eclipse.jface.viewers.LabelProvider;
 import org.eclipse.jface.viewers.TableViewer;
 import org.eclipse.jface.viewers.TableViewerColumn;
-import org.eclipse.jface.viewers.TextCellEditor;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.graphics.Image;
 import org.eclipse.swt.layout.GridData;
@@ -46,8 +43,8 @@ public class NewFlowDialog extends Dialog {
 	private Text refreshText;
 	private Flow flow;
 	private FlowType flowType;
-	private Collection<Scope> operationToAdd = new ArrayList<>();
-	private Collection<Scope> operationToRemove = new ArrayList<>();
+	private Collection<Scope> scopeToAdd = new ArrayList<>();
+	private Collection<Scope> scopeToRemove = new ArrayList<>();
 	private Table scopeTable;
 	private TableViewer scopeTableViewer;
 
@@ -84,9 +81,10 @@ public class NewFlowDialog extends Dialog {
 	 * Create contents of the dialog.
 	 */
 	private void createContents() {
-		shell = new Shell(getParent(), SWT.SHELL_TRIM | SWT.BORDER | SWT.PRIMARY_MODAL);
+		shell = new Shell(getParent(), SWT.BORDER | SWT.MIN | SWT.MAX | SWT.RESIZE | SWT.TITLE | SWT.PRIMARY_MODAL);
 		shell.setSize(450, 332);
 		shell.setText(getText());
+
 		GridLayout gl_shell = new GridLayout(1, false);
 		gl_shell.marginHeight = 0;
 		gl_shell.verticalSpacing = 0;
@@ -118,8 +116,10 @@ public class NewFlowDialog extends Dialog {
 		flowTypeCombo.setItems(FlowType.VALUES.stream().map(type -> type.getName()).toArray(String[]::new));
 		flowTypeCombo.addListener(SWT.Selection, (e) -> setFlowType(FlowType.getByName(((Combo) e.widget).getText())));
 		
-		if (flow.getFlowType() != null)
+		if (flow.getFlowType() != null) {
+			flowType = flow.getFlowType();
 			flowTypeCombo.setText(flow.getFlowType().getName());
+		}
 		
 		Composite authComposite = new Composite(mainComposite, SWT.NONE);
 		authComposite.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, true, false, 1, 1));
@@ -207,23 +207,32 @@ public class NewFlowDialog extends Dialog {
 		scopeTableViewer.setContentProvider(new IStructuredContentProvider() {
 			@Override
 			public Object[] getElements(Object inputElement) {
-				return flow.getScopes().stream().toArray(Scope[]::new);
+				Collection<Scope> scopesToDisplayInTheTable = new ArrayList<>();
+				scopesToDisplayInTheTable.addAll(flow.getScopes());
+				scopesToDisplayInTheTable.addAll(scopeToAdd);
+				scopesToDisplayInTheTable.removeAll(scopeToRemove);
+				return scopesToDisplayInTheTable.toArray(new Scope[] {});
 			}
 		});
 		scopeTableViewer.setLabelProvider(new ColumnLabelProvider());
 		
 		Composite buttonComposite = new Composite(scopeTableComposite, SWT.NONE);
-		buttonComposite.setLayout(new GridLayout(1, false));
+		buttonComposite.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, true, false, 1, 1));
+		GridLayout gl_buttonComposite = new GridLayout(1, false);
+		gl_buttonComposite.marginHeight = 0;
+		gl_buttonComposite.marginWidth = 0;
+		buttonComposite.setLayout(gl_buttonComposite);
 		
 		Button addScope = new Button(buttonComposite, SWT.NONE);
-		addScope.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, true, false, 1, 1));
+		GridData gd_addScope = new GridData(SWT.FILL, SWT.CENTER, true, false, 1, 1);
+		gd_addScope.widthHint = 45;
+		addScope.setLayoutData(gd_addScope);
 		addScope.setImage(new Image(null, this.getClass().getClassLoader().getResourceAsStream("/icons/full/others/add.gif")));
 		addScope.addListener(SWT.Selection, (e) -> {
 			Scope toAdd = SoaFactory.eINSTANCE.createScope();
 			toAdd.setName("new scope");
 			toAdd.setSummary("description");
-			operationToAdd.add(toAdd);
-			flow.getScopes().add(toAdd);
+			scopeToAdd.add(toAdd);
 			scopeTableViewer.refresh();
 		});
 		
@@ -233,16 +242,9 @@ public class NewFlowDialog extends Dialog {
 		deleteScope.addListener(SWT.Selection, (e) -> {
 			Scope toRemove;
 			if (scopeTableViewer.getStructuredSelection().getFirstElement()!= null) {
-				toRemove = (Scope) scopeTableViewer.getStructuredSelection().getFirstElement();	
-			} else {
-				toRemove = flow.getScopes().stream().reduce((first, second) -> second).orElse(null); // last element
-			}
-			
-			if (toRemove != null) {
-				operationToRemove.add(toRemove);
-				flow.getScopes().remove(toRemove);				
-			}
-
+				toRemove = (Scope) scopeTableViewer.getStructuredSelection().getFirstElement();
+				scopeToRemove.add(toRemove);
+			} 
 			scopeTableViewer.refresh();
 		});
 		
@@ -255,7 +257,7 @@ public class NewFlowDialog extends Dialog {
 		gd_cancelButton.widthHint = 83;
 		cancelButton.setLayoutData(gd_cancelButton);
 		cancelButton.setText("Cancel");
-		cancelButton.addListener(SWT.Selection, (e) -> cancelCreation());
+		cancelButton.addListener(SWT.Selection, (e) -> cancel());
 		
 		Button okButton = new Button(okCancelButtonsComposite, SWT.NONE);
 		GridData gd_okButton = new GridData(SWT.LEFT, SWT.CENTER, false, false, 1, 1);
@@ -265,20 +267,22 @@ public class NewFlowDialog extends Dialog {
 		okButton.addListener(SWT.Selection, (e) -> validateCreation());
 		
 		scopeTableViewer.setInput(flow);
-
 	}
 
 	/**
 	 * The cancel button is pressed.
 	 * Cancels the creation of the {@link Flow}: all the scope {@link Operation} added are removed, all the scope {@link Operation} removed are added back.
 	 */
-	private void cancelCreation() {
-		flow.getScopes().removeAll(operationToAdd);
-		flow.getScopes().addAll(operationToRemove);
-		
+	private void cancel() {
+		revertChanges();
 		shell.close();
 	}
 
+	private void revertChanges() {
+//		flow.getScopes().removeAll(operationToAdd);
+//		flow.getScopes().addAll(operationToRemove);	
+	}
+	
 	/**
 	 * The OK button is pressed.
 	 * Validates all the changes entered by the user and pushes them to the {@link Flow} object.
@@ -288,14 +292,17 @@ public class NewFlowDialog extends Dialog {
 		flow.setTokenURL(tokenText.getText());
 		flow.setRefreshURL(refreshText.getText());
 		flow.setFlowType(flowType);
-		
-		shell.close();
+		flow.getScopes().addAll(scopeToAdd);
+		flow.getScopes().removeAll(scopeToRemove);
+
+		shell.close();		
 	}
+	
 	
 	private void setFlowType(FlowType byName) {
 		flowType = byName;
 	}
-	
+		
 	private class ColumnLabelProvider extends LabelProvider implements ITableLabelProvider {
 
 		@Override

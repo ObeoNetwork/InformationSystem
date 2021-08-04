@@ -5,6 +5,7 @@ import java.util.Collection;
 
 import org.eclipse.emf.edit.provider.ComposedAdapterFactory;
 import org.eclipse.emf.edit.ui.provider.AdapterFactoryLabelProvider;
+import org.eclipse.jface.viewers.IStructuredContentProvider;
 import org.eclipse.jface.viewers.TableViewer;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.graphics.Image;
@@ -14,6 +15,7 @@ import org.eclipse.swt.layout.GridLayout;
 import org.eclipse.swt.widgets.Button;
 import org.eclipse.swt.widgets.Combo;
 import org.eclipse.swt.widgets.Composite;
+import org.eclipse.swt.widgets.Dialog;
 import org.eclipse.swt.widgets.Display;
 import org.eclipse.swt.widgets.Label;
 import org.eclipse.swt.widgets.Shell;
@@ -27,7 +29,6 @@ import org.obeonetwork.dsl.soa.SecurityScheme;
 import org.obeonetwork.dsl.soa.SecuritySchemeType;
 import org.obeonetwork.dsl.soa.SoaFactory;
 import org.obeonetwork.dsl.soa.design.adapters.SecuritySchemeTypeAdapter;
-import org.obeonetwork.dsl.soa.design.providers.FlowContentProvider;
 
 /**
  * Opens a dialog for defining a {@link SecurityScheme}.
@@ -35,7 +36,7 @@ import org.obeonetwork.dsl.soa.design.providers.FlowContentProvider;
  * @author <a href="mailto:thibault.beziers-la-fosse@obeo.fr">Thibault Béziers
  *         la Fosse</a>
  */
-public class NewSecuritySchemeDialog {
+public class NewSecuritySchemeDialog extends Dialog {
 	private boolean isEdit = false;
 
 	// UI
@@ -74,7 +75,8 @@ public class NewSecuritySchemeDialog {
 	 * 
 	 * @param schemeToEdit a {@link SecurityScheme}
 	 */
-	public NewSecuritySchemeDialog(SecurityScheme schemeToEdit) {
+	public NewSecuritySchemeDialog(Shell parent, SecurityScheme schemeToEdit) {
+		super(parent);
 		scheme = schemeToEdit;
 		name = scheme.getKey();
 		securitySchemeType = scheme.getType();
@@ -111,6 +113,7 @@ public class NewSecuritySchemeDialog {
 		shell = new Shell();
 		shell.setSize(450, 365);
 		shell.setText("New Security Scheme");
+		
 		GridLayout gl_shell = new GridLayout(1, false);
 		gl_shell.verticalSpacing = 0;
 		gl_shell.horizontalSpacing = 0;
@@ -214,7 +217,7 @@ public class NewSecuritySchemeDialog {
 		okButton.setLayoutData(gd_okButton);
 		okButton.setText("Ok");
 
-		setHttpComposite();
+		setOAuth2Composite();
 		displayComposite();
 	}
 
@@ -374,7 +377,17 @@ public class NewSecuritySchemeDialog {
 		ComposedAdapterFactory adapterFactory = new ComposedAdapterFactory(
 				ComposedAdapterFactory.Descriptor.Registry.INSTANCE);
 		tableViewer.setLabelProvider(new AdapterFactoryLabelProvider(adapterFactory));
-		tableViewer.setContentProvider(new FlowContentProvider(scheme));
+		tableViewer.setContentProvider(new IStructuredContentProvider() {
+			
+			@Override
+			public Object[] getElements(Object inputElement) {
+				Collection<Flow> flowsToDisplayInTheTable = new ArrayList<>();
+				flowsToDisplayInTheTable.addAll(scheme.getFlows());
+				flowsToDisplayInTheTable.addAll(flowsAdded);
+				flowsToDisplayInTheTable.removeAll(flowsDeleted);
+				return flowsToDisplayInTheTable.toArray(new Flow[] {});
+			}
+		});
 		tableViewer.setInput(scheme);
 		tableViewer.addDoubleClickListener((e) -> {
 			if (e.getSource() instanceof TableViewer && ((TableViewer) e.getSource()).getStructuredSelection() != null
@@ -387,21 +400,23 @@ public class NewSecuritySchemeDialog {
 		});
 
 		Composite auth2buttonComposite = new Composite(oauth2Composite, SWT.NONE);
-		GridData gd_auth2buttonComposite = new GridData(SWT.FILL, SWT.CENTER, true, false, 1, 1);
-		gd_auth2buttonComposite.widthHint = 51;
-		auth2buttonComposite.setLayoutData(gd_auth2buttonComposite);
-		auth2buttonComposite.setLayout(new GridLayout(1, false));
+		auth2buttonComposite.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, true, false, 1, 1));
+		GridLayout gl_auth2buttonComposite = new GridLayout(1, false);
+		gl_auth2buttonComposite.marginWidth = 0;
+		gl_auth2buttonComposite.marginHeight = 0;
+		auth2buttonComposite.setLayout(gl_auth2buttonComposite);
 
 		Button addFlow = new Button(auth2buttonComposite, SWT.NONE);
-		addFlow.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, true, false, 1, 1));
+		GridData gd_addFlow = new GridData(SWT.FILL, SWT.CENTER, true, false, 1, 1);
+		gd_addFlow.widthHint = 50;
+		addFlow.setLayoutData(gd_addFlow);
 		addFlow.setImage(
 				new Image(null, this.getClass().getClassLoader().getResourceAsStream("/icons/full/others/add.gif")));
 		addFlow.addListener(SWT.Selection, (e) -> {
 			Flow flow = SoaFactory.eINSTANCE.createFlow();
 			flowsAdded.add(flow);
-			scheme.getFlows().add(flow);
 			new NewFlowDialog(shell, flow).open();
-			tableViewer.setInput(scheme);
+			tableViewer.refresh();
 		});
 
 		Button deleteFlow = new Button(auth2buttonComposite, SWT.NONE);
@@ -410,9 +425,8 @@ public class NewSecuritySchemeDialog {
 				new Image(null, this.getClass().getClassLoader().getResourceAsStream("/icons/full/others/delete.gif")));
 		deleteFlow.addListener(SWT.Selection, (e) -> {
 			Flow toDelete = (Flow) tableViewer.getStructuredSelection().getFirstElement();
-			scheme.getFlows().remove(toDelete);
 			flowsDeleted.add(toDelete);
-			tableViewer.setInput(scheme);
+			tableViewer.refresh();
 		});
 
 		shell.layout(true);
@@ -431,19 +445,20 @@ public class NewSecuritySchemeDialog {
 		shell.layout(true);
 	}
 
+
+	private void revertChanges() {
+		if (isEdit == false) {
+			Component component = (Component) scheme.eContainer();
+			component.getSecuritySchemes().remove(scheme);
+		}
+	}
+	
 	/**
 	 * The cancel button has been pressed: cancel all the changes made to the
 	 * current {@link SecurityScheme}
 	 */
 	private void cancelCreation() {
-		if (isEdit == false) {
-			Component component = (Component) scheme.eContainer();
-			component.getSecuritySchemes().remove(scheme);
-		}
-
-		scheme.getFlows().removeAll(flowsAdded);
-		scheme.getFlows().addAll(flowsDeleted);
-
+		revertChanges();
 		shell.close();
 	}
 
@@ -460,6 +475,8 @@ public class NewSecuritySchemeDialog {
 		scheme.setConnectURL(openIdConnectURL);
 		scheme.getFlows().addAll(flowsAdded);
 		scheme.setFormat(format);
+		scheme.getFlows().addAll(flowsAdded);
+		scheme.getFlows().removeAll(flowsDeleted);
 		shell.close();
 	}
 
