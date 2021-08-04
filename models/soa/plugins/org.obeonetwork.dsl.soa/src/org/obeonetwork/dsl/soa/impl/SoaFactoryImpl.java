@@ -38,6 +38,7 @@ import org.obeonetwork.dsl.soa.Parameter;
 import org.obeonetwork.dsl.soa.ParameterPassingMode;
 import org.obeonetwork.dsl.soa.ParameterRestData;
 import org.obeonetwork.dsl.soa.PropertiesExtension;
+import org.obeonetwork.dsl.soa.Scope;
 import org.obeonetwork.dsl.soa.SecurityScheme;
 import org.obeonetwork.dsl.soa.SecuritySchemeType;
 import org.obeonetwork.dsl.soa.Server;
@@ -121,6 +122,7 @@ public class SoaFactoryImpl extends EFactoryImpl implements SoaFactory {
 			case SoaPackage.EXAMPLE: return (EObject)createExample();
 			case SoaPackage.PROPERTIES_EXTENSION: return (EObject)createPropertiesExtension();
 			case SoaPackage.SERVER: return (EObject)createServer();
+			case SoaPackage.SCOPE: return (EObject)createScope();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -384,6 +386,16 @@ public class SoaFactoryImpl extends EFactoryImpl implements SoaFactory {
 	public Server createServer() {
 		ServerImpl server = new ServerImpl();
 		return server;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Scope createScope() {
+		ScopeImpl scope = new ScopeImpl();
+		return scope;
 	}
 
 	/**

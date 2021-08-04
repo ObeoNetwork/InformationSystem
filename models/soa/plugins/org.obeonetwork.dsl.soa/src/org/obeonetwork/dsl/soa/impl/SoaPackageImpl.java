@@ -39,6 +39,7 @@ import org.obeonetwork.dsl.soa.Parameter;
 import org.obeonetwork.dsl.soa.ParameterPassingMode;
 import org.obeonetwork.dsl.soa.ParameterRestData;
 import org.obeonetwork.dsl.soa.PropertiesExtension;
+import org.obeonetwork.dsl.soa.Scope;
 import org.obeonetwork.dsl.soa.SecurityScheme;
 import org.obeonetwork.dsl.soa.SecuritySchemeType;
 import org.obeonetwork.dsl.soa.Server;
@@ -196,6 +197,13 @@ public class SoaPackageImpl extends EPackageImpl implements SoaPackage {
 	 * @generated
 	 */
 	private EClass serverEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass scopeEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -1046,8 +1054,8 @@ public class SoaPackageImpl extends EPackageImpl implements SoaPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getFlow_Scopes() {
-		return (EAttribute)flowEClass.getEStructuralFeatures().get(4);
+	public EReference getFlow_Scopes() {
+		return (EReference)flowEClass.getEStructuralFeatures().get(4);
 	}
 
 	/**
@@ -1231,6 +1239,33 @@ public class SoaPackageImpl extends EPackageImpl implements SoaPackage {
 	 */
 	public EAttribute getServer_URL() {
 		return (EAttribute)serverEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getScope() {
+		return scopeEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getScope_Name() {
+		return (EAttribute)scopeEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getScope_Summary() {
+		return (EAttribute)scopeEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -1449,7 +1484,7 @@ public class SoaPackageImpl extends EPackageImpl implements SoaPackage {
 		createEAttribute(flowEClass, FLOW__AUTHORIZATION_URL);
 		createEAttribute(flowEClass, FLOW__TOKEN_URL);
 		createEAttribute(flowEClass, FLOW__REFRESH_URL);
-		createEAttribute(flowEClass, FLOW__SCOPES);
+		createEReference(flowEClass, FLOW__SCOPES);
 
 		informationEClass = createEClass(INFORMATION);
 		createEAttribute(informationEClass, INFORMATION__API_VERSION);
@@ -1478,6 +1513,10 @@ public class SoaPackageImpl extends EPackageImpl implements SoaPackage {
 
 		serverEClass = createEClass(SERVER);
 		createEAttribute(serverEClass, SERVER__URL);
+
+		scopeEClass = createEClass(SCOPE);
+		createEAttribute(scopeEClass, SCOPE__NAME);
+		createEAttribute(scopeEClass, SCOPE__SUMMARY);
 
 		// Create enums
 		interfaceKindEEnum = createEEnum(INTERFACE_KIND);
@@ -1544,6 +1583,7 @@ public class SoaPackageImpl extends EPackageImpl implements SoaPackage {
 		exampleEClass.getESuperTypes().add(theEnvironmentPackage.getObeoDSMObject());
 		propertiesExtensionEClass.getESuperTypes().add(theEnvironmentPackage.getAnnotation());
 		serverEClass.getESuperTypes().add(theEnvironmentPackage.getObeoDSMObject());
+		scopeEClass.getESuperTypes().add(theEnvironmentPackage.getObeoDSMObject());
 
 		// Initialize classes and features; add operations and parameters
 		initEClass(systemEClass, org.obeonetwork.dsl.soa.System.class, "System", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -1635,7 +1675,7 @@ public class SoaPackageImpl extends EPackageImpl implements SoaPackage {
 		initEAttribute(getFlow_AuthorizationURL(), ecorePackage.getEString(), "authorizationURL", null, 0, 1, Flow.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getFlow_TokenURL(), ecorePackage.getEString(), "tokenURL", null, 0, 1, Flow.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getFlow_RefreshURL(), ecorePackage.getEString(), "refreshURL", null, 0, 1, Flow.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getFlow_Scopes(), ecorePackage.getEString(), "scopes", null, 0, -1, Flow.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getFlow_Scopes(), this.getScope(), null, "scopes", null, 0, -1, Flow.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(informationEClass, Information.class, "Information", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getInformation_ApiVersion(), ecorePackage.getEString(), "apiVersion", null, 0, 1, Information.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -1664,6 +1704,10 @@ public class SoaPackageImpl extends EPackageImpl implements SoaPackage {
 
 		initEClass(serverEClass, Server.class, "Server", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getServer_URL(), ecorePackage.getEString(), "URL", null, 0, 1, Server.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(scopeEClass, Scope.class, "Scope", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getScope_Name(), ecorePackage.getEString(), "name", null, 0, 1, Scope.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getScope_Summary(), ecorePackage.getEString(), "summary", null, 0, 1, Scope.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		// Initialize enums and add enum literals
 		initEEnum(interfaceKindEEnum, InterfaceKind.class, "InterfaceKind");

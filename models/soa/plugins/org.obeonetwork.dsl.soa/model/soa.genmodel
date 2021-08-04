@@ -193,5 +193,9 @@
     <genClasses ecoreClass="soa.ecore#//Server" labelFeature="#//soa/Server/URL">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute soa.ecore#//Server/URL"/>
     </genClasses>
+    <genClasses ecoreClass="soa.ecore#//Scope">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute soa.ecore#//Scope/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute soa.ecore#//Scope/summary"/>
+    </genClasses>
   </genPackages>
 </genmodel:GenModel>

@@ -34,6 +34,7 @@ import org.obeonetwork.dsl.soa.Operation;
 import org.obeonetwork.dsl.soa.Parameter;
 import org.obeonetwork.dsl.soa.ParameterRestData;
 import org.obeonetwork.dsl.soa.PropertiesExtension;
+import org.obeonetwork.dsl.soa.Scope;
 import org.obeonetwork.dsl.soa.SecurityScheme;
 import org.obeonetwork.dsl.soa.Server;
 import org.obeonetwork.dsl.soa.Service;
@@ -257,6 +258,14 @@ public class SoaSwitch<T> extends Switch<T> {
 				T result = caseServer(server);
 				if (result == null) result = caseObeoDSMObject(server);
 				if (result == null) result = caseIdentifiable(server);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case SoaPackage.SCOPE: {
+				Scope scope = (Scope)theEObject;
+				T result = caseScope(scope);
+				if (result == null) result = caseObeoDSMObject(scope);
+				if (result == null) result = caseIdentifiable(scope);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -545,6 +554,21 @@ public class SoaSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseServer(Server object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Scope</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Scope</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseScope(Scope object) {
 		return null;
 	}
 

@@ -26,16 +26,16 @@ import org.eclipse.emf.edit.provider.ViewerNotification;
 
 import org.obeonetwork.dsl.environment.provider.ObeoDSMObjectItemProvider;
 
-import org.obeonetwork.dsl.soa.Flow;
+import org.obeonetwork.dsl.soa.Scope;
 import org.obeonetwork.dsl.soa.SoaPackage;
 
 /**
- * This is the item provider adapter for a {@link org.obeonetwork.dsl.soa.Flow} object.
+ * This is the item provider adapter for a {@link org.obeonetwork.dsl.soa.Scope} object.
  * <!-- begin-user-doc -->
  * <!-- end-user-doc -->
  * @generated
  */
-public class FlowItemProvider extends ObeoDSMObjectItemProvider {
+public class ScopeItemProvider extends ObeoDSMObjectItemProvider {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -49,7 +49,7 @@ public class FlowItemProvider extends ObeoDSMObjectItemProvider {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public FlowItemProvider(AdapterFactory adapterFactory) {
+	public ScopeItemProvider(AdapterFactory adapterFactory) {
 		super(adapterFactory);
 	}
 
@@ -64,29 +64,26 @@ public class FlowItemProvider extends ObeoDSMObjectItemProvider {
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
-			addFlowTypePropertyDescriptor(object);
-			addAuthorizationURLPropertyDescriptor(object);
-			addTokenURLPropertyDescriptor(object);
-			addRefreshURLPropertyDescriptor(object);
-			addScopesPropertyDescriptor(object);
+			addNamePropertyDescriptor(object);
+			addSummaryPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
 
 	/**
-	 * This adds a property descriptor for the Flow Type feature.
+	 * This adds a property descriptor for the Name feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void addFlowTypePropertyDescriptor(Object object) {
+	protected void addNamePropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_Flow_FlowType_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_Flow_FlowType_feature", "_UI_Flow_type"),
-				 SoaPackage.Literals.FLOW__FLOW_TYPE,
+				 getString("_UI_Scope_name_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Scope_name_feature", "_UI_Scope_type"),
+				 SoaPackage.Literals.SCOPE__NAME,
 				 true,
 				 false,
 				 false,
@@ -96,19 +93,19 @@ public class FlowItemProvider extends ObeoDSMObjectItemProvider {
 	}
 
 	/**
-	 * This adds a property descriptor for the Authorization URL feature.
+	 * This adds a property descriptor for the Summary feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void addAuthorizationURLPropertyDescriptor(Object object) {
+	protected void addSummaryPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_Flow_authorizationURL_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_Flow_authorizationURL_feature", "_UI_Flow_type"),
-				 SoaPackage.Literals.FLOW__AUTHORIZATION_URL,
+				 getString("_UI_Scope_summary_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Scope_summary_feature", "_UI_Scope_type"),
+				 SoaPackage.Literals.SCOPE__SUMMARY,
 				 true,
 				 false,
 				 false,
@@ -118,80 +115,14 @@ public class FlowItemProvider extends ObeoDSMObjectItemProvider {
 	}
 
 	/**
-	 * This adds a property descriptor for the Token URL feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addTokenURLPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_Flow_tokenURL_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_Flow_tokenURL_feature", "_UI_Flow_type"),
-				 SoaPackage.Literals.FLOW__TOKEN_URL,
-				 true,
-				 false,
-				 false,
-				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-				 null,
-				 null));
-	}
-
-	/**
-	 * This adds a property descriptor for the Refresh URL feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addRefreshURLPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_Flow_refreshURL_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_Flow_refreshURL_feature", "_UI_Flow_type"),
-				 SoaPackage.Literals.FLOW__REFRESH_URL,
-				 true,
-				 false,
-				 false,
-				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-				 null,
-				 null));
-	}
-
-	/**
-	 * This adds a property descriptor for the Scopes feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addScopesPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_Flow_scopes_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_Flow_scopes_feature", "_UI_Flow_type"),
-				 SoaPackage.Literals.FLOW__SCOPES,
-				 true,
-				 false,
-				 true,
-				 null,
-				 null,
-				 null));
-	}
-
-	/**
-	 * This returns Flow.gif.
+	 * This returns Scope.gif.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/Flow"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/Scope"));
 	}
 
 	/**
@@ -208,14 +139,14 @@ public class FlowItemProvider extends ObeoDSMObjectItemProvider {
 	 * This returns the label text for the adapted class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated NOT
+	 * @generated
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = ((Flow)object).getFlowType().getName()+" : "+ ((Flow)object).getAuthorizationURL();
+		String label = ((Scope)object).getName();
 		return label == null || label.length() == 0 ?
-			getString("_UI_Flow_type") :
-			getString("_UI_Flow_type") + " " + label;
+			getString("_UI_Scope_type") :
+			getString("_UI_Scope_type") + " " + label;
 	}
 
 
@@ -230,11 +161,9 @@ public class FlowItemProvider extends ObeoDSMObjectItemProvider {
 	public void notifyChanged(Notification notification) {
 		updateChildren(notification);
 
-		switch (notification.getFeatureID(Flow.class)) {
-			case SoaPackage.FLOW__FLOW_TYPE:
-			case SoaPackage.FLOW__AUTHORIZATION_URL:
-			case SoaPackage.FLOW__TOKEN_URL:
-			case SoaPackage.FLOW__REFRESH_URL:
+		switch (notification.getFeatureID(Scope.class)) {
+			case SoaPackage.SCOPE__NAME:
+			case SoaPackage.SCOPE__SUMMARY:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 		}

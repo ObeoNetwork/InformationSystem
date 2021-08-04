@@ -150,15 +150,15 @@ public interface Flow extends ObeoDSMObject {
 	void setRefreshURL(String value);
 
 	/**
-	 * Returns the value of the '<em><b>Scopes</b></em>' attribute list.
-	 * The list contents are of type {@link java.lang.String}.
+	 * Returns the value of the '<em><b>Scopes</b></em>' reference list.
+	 * The list contents are of type {@link org.obeonetwork.dsl.soa.Scope}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Scopes</em>' attribute list.
+	 * @return the value of the '<em>Scopes</em>' reference list.
 	 * @see org.obeonetwork.dsl.soa.SoaPackage#getFlow_Scopes()
 	 * @model
 	 * @generated
 	 */
-	EList<String> getScopes();
+	EList<Scope> getScopes();
 
 } // Flow

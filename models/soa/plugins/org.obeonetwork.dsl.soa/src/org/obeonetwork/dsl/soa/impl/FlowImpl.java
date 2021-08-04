@@ -22,6 +22,7 @@ import org.obeonetwork.dsl.soa.Flow;
 import org.obeonetwork.dsl.soa.FlowType;
 import org.obeonetwork.dsl.soa.Operation;
 import org.obeonetwork.dsl.soa.Parameter;
+import org.obeonetwork.dsl.soa.Scope;
 import org.obeonetwork.dsl.soa.SoaPackage;
 
 /**
@@ -186,8 +187,8 @@ public class FlowImpl extends ObeoDSMObjectImpl implements Flow {
 	 * @generated
 	 */
 	@SuppressWarnings("unchecked")
-	public EList<String> getScopes() {
-		return (EList<String>)eDynamicGet(SoaPackage.FLOW__SCOPES, SoaPackage.Literals.FLOW__SCOPES, true, true);
+	public EList<Scope> getScopes() {
+		return (EList<Scope>)eDynamicGet(SoaPackage.FLOW__SCOPES, SoaPackage.Literals.FLOW__SCOPES, true, true);
 	}
 
 	/**
@@ -235,7 +236,7 @@ public class FlowImpl extends ObeoDSMObjectImpl implements Flow {
 				return;
 			case SoaPackage.FLOW__SCOPES:
 				getScopes().clear();
-				getScopes().addAll((Collection<? extends String>)newValue);
+				getScopes().addAll((Collection<? extends Scope>)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
