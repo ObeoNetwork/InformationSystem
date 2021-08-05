@@ -112,7 +112,7 @@ public class NewSecuritySchemeDialog extends Dialog {
 	protected void createContents() {
 		shell = new Shell();
 		shell.setSize(450, 365);
-		shell.setText("New Security Scheme");
+		shell.setText(Messages.NewSecuritySchemeDialog_0);
 		
 		GridLayout gl_shell = new GridLayout(1, false);
 		gl_shell.verticalSpacing = 0;
@@ -139,7 +139,7 @@ public class NewSecuritySchemeDialog extends Dialog {
 		GridData gd_typeLabel = new GridData(SWT.LEFT, SWT.CENTER, false, false, 1, 1);
 		gd_typeLabel.widthHint = 92;
 		typeLabel.setLayoutData(gd_typeLabel);
-		typeLabel.setText("Type:");
+		typeLabel.setText(Messages.NewSecuritySchemeDialog_1);
 
 		Combo typeCombo = new Combo(composite, SWT.READ_ONLY);
 		typeCombo.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, true, false, 1, 1));
@@ -159,7 +159,7 @@ public class NewSecuritySchemeDialog extends Dialog {
 		GridData gd_apiKeyNameLabel = new GridData(SWT.LEFT, SWT.CENTER, false, false, 1, 1);
 		gd_apiKeyNameLabel.widthHint = 92;
 		apiKeyNameLabel.setLayoutData(gd_apiKeyNameLabel);
-		apiKeyNameLabel.setText("Name:");
+		apiKeyNameLabel.setText(Messages.NewSecuritySchemeDialog_2);
 
 		Text apiKeyNameText = new Text(apiKeyNameComposite, SWT.BORDER);
 		apiKeyNameText.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, true, false, 1, 1));
@@ -176,7 +176,7 @@ public class NewSecuritySchemeDialog extends Dialog {
 		gd_apiKeyDescriptionLabel.widthHint = 92;
 		apiKeyDescriptionLabel.setLayoutData(gd_apiKeyDescriptionLabel);
 		apiKeyDescriptionLabel.setBounds(0, 0, 55, 15);
-		apiKeyDescriptionLabel.setText("Description:");
+		apiKeyDescriptionLabel.setText(Messages.NewSecuritySchemeDialog_3);
 
 		Text descriptionText = new Text(apiKeyDescriptionComposite, SWT.BORDER | SWT.MULTI);
 		GridData gd_apiKeyDescriptionText = new GridData(SWT.FILL, SWT.CENTER, true, false, 1, 1);
@@ -205,7 +205,7 @@ public class NewSecuritySchemeDialog extends Dialog {
 		GridData gd_cancelButton = new GridData(SWT.LEFT, SWT.CENTER, false, false, 1, 1);
 		gd_cancelButton.widthHint = 83;
 		cancelButton.setLayoutData(gd_cancelButton);
-		cancelButton.setText("Cancel");
+		cancelButton.setText(Messages.NewSecuritySchemeDialog_4);
 		cancelButton.addListener(SWT.Selection, (e) -> cancelCreation());
 
 		Button okButton = new Button(okCancelComposite, SWT.NONE);
@@ -215,7 +215,7 @@ public class NewSecuritySchemeDialog extends Dialog {
 		GridData gd_okButton = new GridData(SWT.RIGHT, SWT.CENTER, false, false, 1, 1);
 		gd_okButton.widthHint = 83;
 		okButton.setLayoutData(gd_okButton);
-		okButton.setText("Ok");
+		okButton.setText(Messages.NewSecuritySchemeDialog_5);
 
 		setOAuth2Composite();
 		displayComposite();
@@ -240,7 +240,7 @@ public class NewSecuritySchemeDialog extends Dialog {
 		Label apiKeyLocationLabel = new Label(apiKeyLocationComboComposite, SWT.NONE);
 		apiKeyLocationLabel.setLayoutData(new GridData(SWT.RIGHT, SWT.CENTER, false, false, 1, 1));
 		apiKeyLocationLabel.setBounds(0, 0, 55, 15);
-		apiKeyLocationLabel.setText("Api Key Location:");
+		apiKeyLocationLabel.setText(Messages.NewSecuritySchemeDialog_6);
 
 		Combo apiKeyLocationCombo = new Combo(apiKeyLocationComboComposite, SWT.READ_ONLY);
 		apiKeyLocationCombo.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, true, false, 1, 1));
@@ -271,7 +271,7 @@ public class NewSecuritySchemeDialog extends Dialog {
 		gd_openIdConnectUrlLabel.widthHint = 92;
 		openIdConnectUrlLabel.setLayoutData(gd_openIdConnectUrlLabel);
 		openIdConnectUrlLabel.setBounds(0, 0, 55, 15);
-		openIdConnectUrlLabel.setText("Connect URL:");
+		openIdConnectUrlLabel.setText(Messages.NewSecuritySchemeDialog_7);
 
 		Text openIdConnectUrlText = new Text(openIdConnectUrlComposite, SWT.BORDER);
 		openIdConnectUrlText.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, true, false, 1, 1));
@@ -306,7 +306,7 @@ public class NewSecuritySchemeDialog extends Dialog {
 		gd_lblHttpScheme.widthHint = 92;
 		lblHttpScheme.setLayoutData(gd_lblHttpScheme);
 		lblHttpScheme.setBounds(0, 0, 55, 15);
-		lblHttpScheme.setText("Http scheme:");
+		lblHttpScheme.setText(Messages.NewSecuritySchemeDialog_8);
 
 		Combo httpSchemeCombo = new Combo(httpCompositeScheme, SWT.READ_ONLY);
 		httpSchemeCombo.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, true, false, 1, 1));
@@ -325,7 +325,7 @@ public class NewSecuritySchemeDialog extends Dialog {
 		GridData gd_lblNewLabel = new GridData(SWT.RIGHT, SWT.CENTER, false, false, 1, 1);
 		gd_lblNewLabel.widthHint = 92;
 		lblNewLabel.setLayoutData(gd_lblNewLabel);
-		lblNewLabel.setText("Format:");
+		lblNewLabel.setText(Messages.NewSecuritySchemeDialog_9);
 		
 		Text formatText = new Text(bearerComposite, SWT.BORDER);
 		formatText.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, true, false, 1, 1));
@@ -341,7 +341,7 @@ public class NewSecuritySchemeDialog extends Dialog {
 				formatText.setEnabled(true);
 			} else {
 				formatText.setEnabled(false);
-				formatText.setText("");
+				formatText.setText(Messages.NewSecuritySchemeDialog_10);
 				format = null;
 			}
 		});
@@ -365,7 +365,7 @@ public class NewSecuritySchemeDialog extends Dialog {
 		GridData gd_lblFlows = new GridData(SWT.LEFT, SWT.TOP, false, false, 1, 1);
 		gd_lblFlows.widthHint = 92;
 		lblFlows.setLayoutData(gd_lblFlows);
-		lblFlows.setText("Flows:");
+		lblFlows.setText(Messages.NewSecuritySchemeDialog_11);
 
 		TableViewer tableViewer = new TableViewer(oauth2Composite, SWT.BORDER);
 		Table compositeTable = tableViewer.getTable();
@@ -411,7 +411,7 @@ public class NewSecuritySchemeDialog extends Dialog {
 		gd_addFlow.widthHint = 50;
 		addFlow.setLayoutData(gd_addFlow);
 		addFlow.setImage(
-				new Image(null, this.getClass().getClassLoader().getResourceAsStream("/icons/full/others/add.gif")));
+				new Image(null, this.getClass().getClassLoader().getResourceAsStream(Messages.NewSecuritySchemeDialog_12))); 
 		addFlow.addListener(SWT.Selection, (e) -> {
 			Flow flow = SoaFactory.eINSTANCE.createFlow();
 			flowsAdded.add(flow);
@@ -422,7 +422,7 @@ public class NewSecuritySchemeDialog extends Dialog {
 		Button deleteFlow = new Button(auth2buttonComposite, SWT.NONE);
 		deleteFlow.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, true, false, 1, 1));
 		deleteFlow.setImage(
-				new Image(null, this.getClass().getClassLoader().getResourceAsStream("/icons/full/others/delete.gif")));
+				new Image(null, this.getClass().getClassLoader().getResourceAsStream(Messages.NewSecuritySchemeDialog_13))); 
 		deleteFlow.addListener(SWT.Selection, (e) -> {
 			Flow toDelete = (Flow) tableViewer.getStructuredSelection().getFirstElement();
 			flowsDeleted.add(toDelete);
