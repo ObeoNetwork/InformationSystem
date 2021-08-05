@@ -681,11 +681,16 @@ components:
     Repository:
       type: object
       properties:
-        datasourceType: {$ref: '#/components/schemas/DatasourceType'}
-        authenticationType: {$ref: '#/components/schemas/AuthenticationType'}
-        repositorName: {type: string}
-        type: {$ref: '#/components/schemas/Type'}
-        status: {$ref: '#/components/schemas/Status'}
+        datasourceType:
+          $ref: '#/components/schemas/DatasourceType'
+        authenticationType:
+          $ref: '#/components/schemas/AuthenticationType'
+        repositorName:
+          type: string
+        type:
+          $ref: '#/components/schemas/Type'
+        status:
+          $ref: '#/components/schemas/Status'
     SimpleRepository:
       type: object
       properties:
@@ -747,4 +752,5 @@ components:
   securitySchemes:
     basicAuth:
       type: http
-      in: query
+      name: basicAuth
+      scheme: basic

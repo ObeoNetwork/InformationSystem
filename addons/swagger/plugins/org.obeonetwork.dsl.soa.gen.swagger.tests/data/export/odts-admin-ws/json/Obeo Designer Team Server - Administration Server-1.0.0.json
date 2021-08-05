@@ -965,7 +965,8 @@
     "securitySchemes" : {
       "basicAuth" : {
         "type" : "http",
-        "in" : "query"
+        "name" : "basicAuth",
+        "scheme" : "basic"
       }
     }
   }

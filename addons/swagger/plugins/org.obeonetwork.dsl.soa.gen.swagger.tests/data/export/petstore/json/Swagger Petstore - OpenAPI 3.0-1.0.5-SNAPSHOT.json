@@ -1167,7 +1167,8 @@
     "securitySchemes" : {
       "petstore_auth" : {
         "type" : "oauth2",
-        "in" : "query"
+        "name" : "petstore_auth",
+        "flows" : { }
       },
       "api_key" : {
         "type" : "apiKey",
