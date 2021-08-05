@@ -289,7 +289,7 @@ public class SecuritySchemeItemProvider
 	public String getText(Object object) {
 		String label = ((SecurityScheme)object).getKey();
 		return label == null || label.length() == 0 ?
-			getString("_UI_SecurityScheme_type") :
+			((SecurityScheme)object).getType().getName()+" "+getString("_UI_SecurityScheme_type") :
 			((SecurityScheme)object).getType().getName()+" "+getString("_UI_SecurityScheme_type") + " " + label;
 	}
 
