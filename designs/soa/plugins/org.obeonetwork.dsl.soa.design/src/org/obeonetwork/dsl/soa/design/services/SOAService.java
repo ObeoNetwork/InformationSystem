@@ -35,6 +35,7 @@ import org.eclipse.sirius.business.api.query.EObjectQuery;
 import org.eclipse.sirius.business.api.session.Session;
 import org.eclipse.sirius.diagram.DNodeContainer;
 import org.eclipse.sirius.diagram.DSemanticDiagram;
+import org.eclipse.swt.widgets.Display;
 import org.eclipse.swt.widgets.Shell;
 import org.eclipse.ui.PlatformUI;
 import org.eclipse.ui.dialogs.ListDialog;
@@ -45,8 +46,8 @@ import org.obeonetwork.dsl.soa.MediaType;
 import org.obeonetwork.dsl.soa.Operation;
 import org.obeonetwork.dsl.soa.Parameter;
 import org.obeonetwork.dsl.soa.SecurityScheme;
+import org.obeonetwork.dsl.soa.SecuritySchemeType;
 import org.obeonetwork.dsl.soa.Service;
-import org.obeonetwork.dsl.soa.SoaFactory;
 import org.obeonetwork.dsl.soa.SoaPackage;
 import org.obeonetwork.dsl.soa.System;
 import org.obeonetwork.dsl.soa.Verb;
@@ -323,4 +324,14 @@ public class SOAService {
 		new NewSecuritySchemeDialog(shell, scheme).edit();
 	}
 	
+	public void setSecuritySchemeType(SecurityScheme scheme, SecuritySchemeType type) {
+		scheme.setType(type);
+		Display display = Display.getCurrent();
+		Shell shell = display.getActiveShell(); 
+		shell.dispose();
+	}
+
+	public String getName(SecuritySchemeType schemeType) {
+		return schemeType.getName();
+	}
 }

@@ -40,4 +40,5 @@ public class SOALabelService extends SoaSwitch<String> {
 		
 		return label.toString();
 	}
+		
 }

@@ -382,7 +382,7 @@
     <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
       <details key="documentation" value="REQUIRED FOR OAUTH2. An object containing configuration information for the flow types supported."/>
     </eAnnotations>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="FlowType" lowerBound="1"
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="flowType" lowerBound="1"
         eType="#//FlowType">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
         <details key="documentation" value="REQUIRED. Type of Flow."/>

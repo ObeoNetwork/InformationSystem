@@ -19,6 +19,7 @@ import org.eclipse.emf.common.notify.Notification;
 
 import org.eclipse.emf.common.util.ResourceLocator;
 
+import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
@@ -27,6 +28,7 @@ import org.eclipse.emf.edit.provider.ViewerNotification;
 import org.obeonetwork.dsl.environment.provider.ObeoDSMObjectItemProvider;
 
 import org.obeonetwork.dsl.soa.Flow;
+import org.obeonetwork.dsl.soa.SoaFactory;
 import org.obeonetwork.dsl.soa.SoaPackage;
 
 /**
@@ -84,8 +86,8 @@ public class FlowItemProvider extends ObeoDSMObjectItemProvider {
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_Flow_FlowType_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_Flow_FlowType_feature", "_UI_Flow_type"),
+				 getString("_UI_Flow_flowType_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Flow_flowType_feature", "_UI_Flow_type"),
 				 SoaPackage.Literals.FLOW__FLOW_TYPE,
 				 true,
 				 false,
@@ -177,10 +179,40 @@ public class FlowItemProvider extends ObeoDSMObjectItemProvider {
 				 SoaPackage.Literals.FLOW__SCOPES,
 				 true,
 				 false,
-				 true,
+				 false,
 				 null,
 				 null,
 				 null));
+	}
+
+	/**
+	 * This specifies how to implement {@link #getChildren} and is used to deduce an appropriate feature for an
+	 * {@link org.eclipse.emf.edit.command.AddCommand}, {@link org.eclipse.emf.edit.command.RemoveCommand} or
+	 * {@link org.eclipse.emf.edit.command.MoveCommand} in {@link #createCommand}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
+		if (childrenFeatures == null) {
+			super.getChildrenFeatures(object);
+			childrenFeatures.add(SoaPackage.Literals.FLOW__SCOPES);
+		}
+		return childrenFeatures;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	protected EStructuralFeature getChildFeature(Object object, Object child) {
+		// Check the type of the specified child object and return the proper feature to use for
+		// adding (see {@link AddCommand}) it as a child.
+
+		return super.getChildFeature(object, child);
 	}
 
 	/**
@@ -238,6 +270,9 @@ public class FlowItemProvider extends ObeoDSMObjectItemProvider {
 			case SoaPackage.FLOW__REFRESH_URL:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
+			case SoaPackage.FLOW__SCOPES:
+				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
+				return;
 		}
 		super.notifyChanged(notification);
 	}
@@ -252,6 +287,11 @@ public class FlowItemProvider extends ObeoDSMObjectItemProvider {
 	@Override
 	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
 		super.collectNewChildDescriptors(newChildDescriptors, object);
+
+		newChildDescriptors.add
+			(createChildParameter
+				(SoaPackage.Literals.FLOW__SCOPES,
+				 SoaFactory.eINSTANCE.createScope()));
 	}
 
 	/**

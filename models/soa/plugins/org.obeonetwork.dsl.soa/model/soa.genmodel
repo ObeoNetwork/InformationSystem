@@ -153,16 +153,16 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute soa.ecore#//SecurityScheme/name"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute soa.ecore#//SecurityScheme/apiKeyLocation"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute soa.ecore#//SecurityScheme/connectURL"/>
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference soa.ecore#//SecurityScheme/flows"/>
+      <genFeatures children="true" createChild="true" ecoreFeature="ecore:EReference soa.ecore#//SecurityScheme/flows"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute soa.ecore#//SecurityScheme/httpScheme"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute soa.ecore#//SecurityScheme/format"/>
     </genClasses>
     <genClasses ecoreClass="soa.ecore#//Flow">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute soa.ecore#//Flow/FlowType"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute soa.ecore#//Flow/flowType"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute soa.ecore#//Flow/authorizationURL"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute soa.ecore#//Flow/tokenURL"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute soa.ecore#//Flow/refreshURL"/>
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference soa.ecore#//Flow/scopes"/>
+      <genFeatures children="true" createChild="true" ecoreFeature="ecore:EReference soa.ecore#//Flow/scopes"/>
     </genClasses>
     <genClasses ecoreClass="soa.ecore#//Information" labelFeature="#//soa/Information/apiVersion">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute soa.ecore#//Information/apiVersion"/>
