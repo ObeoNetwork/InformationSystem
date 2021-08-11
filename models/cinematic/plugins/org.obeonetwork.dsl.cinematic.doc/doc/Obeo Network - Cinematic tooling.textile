@@ -64,6 +64,7 @@ L'activation d'un point de vue se fait en choisissant _Viewpoints Selection_ dan
 h2. Fonctionnalités du modeleur
 
 Le modeleur Cinematic apporte les représentations suivantes :
+
 | **Package Diagram**        | : diagramme permettant de modéliser les Packages, Flows et ViewContainers. |
 | **UI Structure**           | : représentation aborescente permettant de modélise la description statique de l'IHM (écrans, panels, widgets, ...). |
 | **View Container Mockup**  | : diagramme permettant de modéliser la structure et l'apparence des IHM. |
@@ -93,6 +94,7 @@ Pour un _ViewContainer_, sont affichés :
 h4. Palette et outils
 
 Les outils fournis par la palette sont :
+
 | !pics/PackageDiagram/Palette-CreatePackage.png! | Création d'un _Package_. |
 | !pics/PackageDiagram/Palette-CreateFlow.png! | Création d'un _Flow_. |
 | !pics/PackageDiagram/Palette-CreateViewContainer.png! | Création d'un _View Container_. |
@@ -221,6 +223,7 @@ Sont affichés sur ce diagramme :
 h4. Palette et outils 
 
 Les outils proposés par la palette sont :
+
 | **States** |  |
 | !pics/FlowDiagram/Palette-CreateTransition.png! | Tracée entre deux états, permet de créer une transition. Si la transition est issue d'un _View State_, déclenche l'ouverture de l'assistant de sélection d'événements déclencheurs. |
 | !pics/FlowDiagram/Palette-CreateView.png! | Crée un _View State_. Déclenche l'ouverture de l'assistant de sélection de _View Container_. |
@@ -241,6 +244,7 @@ Les outils proposés par la palette sont :
 | !pics/FlowDiagram/Palette-BindNewViewContainer.png! | Crée un lien d'association entre un _View State_ et un _View Container_ créé dans la même action. Déclenche l'affichage d'un dialogue de sélection du _Widget_ dont le _View Container_ représentera une instance. |
 
 Autres outils :
+
 | Double clic sur une _Transition_ | : Ouvre le dialogue de sélection et de création d'évènements déclencheurs |
 | Double clic sur un _View State_  | : Ouvre le dialogue de sélection de _View Containers_ |
 | Edition directe des libellés     | : Sur les états, les conditions de garde, les Flow Events et les View Containers |
