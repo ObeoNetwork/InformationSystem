@@ -27,19 +27,19 @@ Ou encore le raccourci clavier
 
 bq. Ctrl+N
 
-!pics/Cinematic_ModelCreationWizard_01.jpg!
+!pics/Cinematic-ModelCreationWizard-01.jpg!
 
 Cet assistant permet de définir le dossier destination du modèle Cinematic :
 
-!pics/Cinematic_ModelCreationWizard_02.jpg!
+!pics/Cinematic-ModelCreationWizard-02.jpg!
 
 La dernière page de l'assistant permet de définir le toolkit a utiliser, et d'initialiser le modèle avec un diagramme de Mockup et un diagramme de flow :
 
-!pics/Cinematic_ModelCreationWizard_03.jpg!
+!pics/Cinematic-ModelCreationWizard-03.jpg!
 
 Une fois l'assistant validé, le modèle est créé, ainsi que les représentations _Package Diagram_ et _UI Structure_. Les représentations demandées en création sont ouvertes pour commencer à modéliser.
 
-!pics/Cinematic_ModelCreationWizard_04.jpg!
+!pics/Cinematic-ModelCreationWizard-04.jpg!
 
 Lorsqu'un modèle cinematic est créé à l'aide de ce wizard, les points de vues _Cinematic Views_ et _Environment View_ sont activés.
 
@@ -51,7 +51,7 @@ h3. Utilisation d'un modeling project
 
 Si le fichier a été créé dans un modeling project, la seule étape nécessaire est l'activation du point de vue _Cinematic Views_. Pour ceci choisir _Viewpoints Selection_ dans le menu contextuel du _modeling project_.
 
-!pics/Cinematic_ViewpointSelection.jpg!
+!pics/Cinematic-ViewpointSelection.jpg!
 
 h3. Utilisation d'un autre type de projet
 
@@ -76,7 +76,7 @@ h4. Contenu
 
 Le _Package Diagram_ est défini sur un objet de type Package, que nous appellerons par la suite package courant.
 
-!pics/PackageDiagram/PackageDiagram_01.png!
+!pics/PackageDiagram/PackageDiagram-01.png!
 
 Sont affichés sur ce diagramme :
 * les _ViewContainer_ directement contenus par le package courant,
@@ -93,9 +93,9 @@ Pour un _ViewContainer_, sont affichés :
 h4. Palette et outils
 
 Les outils fournis par la palette sont :
-| !pics/PackageDiagram/Palette_CreatePackage.png! | Création d'un _Package_. |
-| !pics/PackageDiagram/Palette_CreateFlow.png! | Création d'un _Flow_. |
-| !pics/PackageDiagram/Palette_CreateViewContainer.png! | Création d'un _View Container_. |
+| !pics/PackageDiagram/Palette-CreatePackage.png! | Création d'un _Package_. |
+| !pics/PackageDiagram/Palette-CreateFlow.png! | Création d'un _Flow_. |
+| !pics/PackageDiagram/Palette-CreateViewContainer.png! | Création d'un _View Container_. |
 
 Les autres outils disponibles sont
 * L'édition directe du label sur tous les éléments (sauf widgets et containers contenus ou référencés par un ViewContainer),
@@ -155,7 +155,7 @@ La palette propose un outil de création de _View Element_ ou _View Container_ p
 Voici les deux palettes dans le contexte des deux _Toolkits_ fournis avec le studio _IS-Designer_ :
 
 | **Toolkit Web**                             |   | **Toolkit Swt** |
-| !pics/MockupDiagram/Palette_WebToolkit.png! |   | !pics/MockupDiagram/Palette_SwtToolkit.png! |
+| !pics/MockupDiagram/Palette-WebToolkit.png! |   | !pics/MockupDiagram/Palette-SwtToolkit.png! |
 
 Par défaut, le label des éléments présentés sur le View Container Mockup est déterminé de la manière suivante :
 * Pour un _View Element_ ou un _View Container_ :
@@ -170,11 +170,11 @@ Par défaut, le label des éléments présentés sur le View Container Mockup es
 Le calque _Example_ modifie le label des _View Elements_, permettant de visualiser l’IHM avec des données d’exemple. Le label est alors calculé tel que défini dans le toolkit, par l'expression AQL 'example' du widget.
 
 | **Calque Example désactivé**                 |   | **Calque Example activé** |
-| !pics/MockupDiagram/Mockup_DefaultLayer.png! |   | !pics/MockupDiagram/Mockup_ExampleLayer.png! |
+| !pics/MockupDiagram/Mockup-DefaultLayer.png! |   | !pics/MockupDiagram/Mockup-ExampleLayer.png! |
 
 Chaque repositionnement ou redimentionnement de _View Element_ sur ce diagramme déclenche la mise à jour de la structure de _Layout_ du _View Container_ représenté sur le diagramme :
 
-!pics/MockupDiagram/Layout_ModelStructure.png!
+!pics/MockupDiagram/Layout-ModelStructure.png!
 
 La structure de _Layout_ porte les positionnements graphiques des éléments du Mockup, organisés en structure de type 'Grid Layout'. Un élément de Layout est défini par une position (coordonnées x, y), une taille (largeur, hauteur), une direction (horizontale ou verticale) et une liste de Layout fils.
 L'algorithme de mise à jour de la structure de Layout procède à une analyse de l'espace en passes successivement verticales et horizontales. Dans l'exemple ci-dessus, l'espace est découpé vericalement en quatre compartiments, dont le dernier est découpé horizontalement en deux compartiments lors d'une deuxième passe.
@@ -193,7 +193,7 @@ L'action Preview Layout du menu contextuel sur le fond du diagramme permet d'app
 
 bq. IS Designer > Preview Layout
  
-!pics/LayoutDiagram/LayoutDiagram_01.png!
+!pics/LayoutDiagram/LayoutDiagram-01.png!
 
 Les Layouts liés à un View Element sont représentés avec une bordure en trait plein, ceux ayant pour rôle de structurer un compartiment de l’espace sont représentés avec une bordure en trait pointillé.
 
@@ -205,7 +205,7 @@ h4. Contenu
 
 Le _Flow Diagram_ est défini sur un élément de type Flow.
 
-!pics/FlowDiagram/FlowDiagram_01.png!
+!pics/FlowDiagram/FlowDiagram-01.png!
 
 Sont affichés sur ce diagramme :
 * Les états du Flow (InitialState, FinalState, ViewState, ActionState, DecisionState, AsyncEventState, SubflowState).
@@ -222,23 +222,23 @@ h4. Palette et outils
 
 Les outils proposés par la palette sont :
 | **States** |  |
-| !pics/FlowDiagram/Palette_CreateTransition.png! | Tracée entre deux états, permet de créer une transition. Si la transition est issue d'un _View State_, déclenche l'ouverture de l'assistant de sélection d'événements déclencheurs. |
-| !pics/FlowDiagram/Palette_CreateView.png! | Crée un _View State_. Déclenche l'ouverture de l'assistant de sélection de _View Container_. |
-| !pics/FlowDiagram/Palette_CreateAction.png! | Crée un _Action State_. |
-| !pics/FlowDiagram/Palette_CreateAsyncEvent.png! | Crée un _Async Event_. |
-| !pics/FlowDiagram/Palette_CreateExistingFlow.png! | Crée un _Sub Flow State_ et affiche l'assistant de sélection de _Flow_ existant. |
-| !pics/FlowDiagram/Palette_CreateNewFlow.png! | Crée un _Sub Flow State_ et l'associe à un nouveau _Flow_ créé  dans la même action. |
+| !pics/FlowDiagram/Palette-CreateTransition.png! | Tracée entre deux états, permet de créer une transition. Si la transition est issue d'un _View State_, déclenche l'ouverture de l'assistant de sélection d'événements déclencheurs. |
+| !pics/FlowDiagram/Palette-CreateView.png! | Crée un _View State_. Déclenche l'ouverture de l'assistant de sélection de _View Container_. |
+| !pics/FlowDiagram/Palette-CreateAction.png! | Crée un _Action State_. |
+| !pics/FlowDiagram/Palette-CreateAsyncEvent.png! | Crée un _Async Event_. |
+| !pics/FlowDiagram/Palette-CreateExistingFlow.png! | Crée un _Sub Flow State_ et affiche l'assistant de sélection de _Flow_ existant. |
+| !pics/FlowDiagram/Palette-CreateNewFlow.png! | Crée un _Sub Flow State_ et l'associe à un nouveau _Flow_ créé  dans la même action. |
 | **Ports** |  |
-| !pics/FlowDiagram/Palette_CreateInitial.png! | Crée un _Initial State_. |
-| !pics/FlowDiagram/Palette_CreateFinal.png! | Crée un _Final State_. |
-| !pics/FlowDiagram/Palette_CreateAbort.png! | Crée un _Abort State_. |
-| !pics/FlowDiagram/Palette_CreateDecision.png! | Crée un _Decision Node_. |
+| !pics/FlowDiagram/Palette-CreateInitial.png! | Crée un _Initial State_. |
+| !pics/FlowDiagram/Palette-CreateFinal.png! | Crée un _Final State_. |
+| !pics/FlowDiagram/Palette-CreateAbort.png! | Crée un _Abort State_. |
+| !pics/FlowDiagram/Palette-CreateDecision.png! | Crée un _Decision Node_. |
 | **Events** |  |
-| !pics/FlowDiagram/Palette_CreateFlowEvent.png! | Présent seulement si le calque _Flow Events_ est activé. Crée un _Flow Event_ dans le conteneur _Flow Events_. |
+| !pics/FlowDiagram/Palette-CreateFlowEvent.png! | Présent seulement si le calque _Flow Events_ est activé. Crée un _Flow Event_ dans le conteneur _Flow Events_. |
 | **View Containers** |  |
-| !pics/FlowDiagram/Palette_BindViewStateAndViewContainer.png! | Crée un lien d'association entre un _View State_ et un _View Container_ déjà présent sur le diagramme. |
-| !pics/FlowDiagram/Palette_BindExistingViewContainer.png! | Crée un lien d'association entre un _View State_ et un _View Container_ existant. Déclenche l'affichage d'un dialogue de sélection de _View Container_. |
-| !pics/FlowDiagram/Palette_BindNewViewContainer.png! | Crée un lien d'association entre un _View State_ et un _View Container_ créé dans la même action. Déclenche l'affichage d'un dialogue de sélection du _Widget_ dont le _View Container_ représentera une instance. |
+| !pics/FlowDiagram/Palette-BindViewStateAndViewContainer.png! | Crée un lien d'association entre un _View State_ et un _View Container_ déjà présent sur le diagramme. |
+| !pics/FlowDiagram/Palette-BindExistingViewContainer.png! | Crée un lien d'association entre un _View State_ et un _View Container_ existant. Déclenche l'affichage d'un dialogue de sélection de _View Container_. |
+| !pics/FlowDiagram/Palette-BindNewViewContainer.png! | Crée un lien d'association entre un _View State_ et un _View Container_ créé dans la même action. Déclenche l'affichage d'un dialogue de sélection du _Widget_ dont le _View Container_ représentera une instance. |
 
 Autres outils :
 | Double clic sur une _Transition_ | : Ouvre le dialogue de sélection et de création d'évènements déclencheurs |
@@ -253,7 +253,7 @@ Outils de navigation :
 
 Menu contextuel :
 L'apparence d'un ViewState peut prendre celle du diagramme de Mockup du View Container qui lui est associé par l'action _Apply Mockup Image_ du menu contextuel, permettant d'obtenir ce genre de rendu visuel :
-!{width:100%}pics/FlowDiagram/FlowDiagram_02.png!
+!{width:100%}pics/FlowDiagram/FlowDiagram-02.png!
 L'action _Remove Mockup Image_ a pour effet de réinitialiser l'apparence du _View State_ à son apparence initiale.
 
 **Dialogue de selection d'évènements déclencheurs:**
@@ -297,13 +297,13 @@ h3. Création de toolkits
 
 Un des objectifs du méta-modèle Cinematic est de permettre de créer facilement de nouveaux toolkits.
 
-!pics/Toolkits/Toolkits_ClassDiagram.png!
+!pics/Toolkits/Toolkits-ClassDiagram.png!
 
 De manière succincte, la création d'un toolkit consiste en la création de widgets, et sous chaque widget la création des types d'événements qu'il peut déclencher.
 
 Par exemple, un toolkit peut contenir un widget _button_ avec un événement _buttonPressed_.
 
-!pics/Toolkits/Toolkit_Example_Button_TreeView.png!
+!pics/Toolkits/Toolkit-Example-Button-TreeView.png!
 
 La création de toolkits est une tâche réalisée par l'équipe réalisant l'outillage de l'équipe d'analyse / conception / développement.
 A ce titre, la définition de toolkits se fait par l'éditeur EMF arborescent classique.
@@ -311,23 +311,23 @@ A ce titre, la définition de toolkits se fait par l'éditeur EMF arborescent cl
 Pour une meilleure expérience utilisateur il est possible d'associer une icône à chaque widget. Cette icône est affichée devant le nom des ViewElement utilisant le widget, et dans la palette du diagramme de Mockup.
 
 Certains attributs du toolkit sont utilisés pour restituer des informations aux utilisateurs finaux
-!pics/Toolkits/Toolkit_Example_Button_Properties.png!
+!pics/Toolkits/Toolkit-Example-Button-Properties.png!
 
 Ainsi :
 
 * **Summary** : est exploité en infobulle dans la palette du diagramme Mockup :
-!pics/Toolkits/Toolkit_Example_Button_Summary.png!
+!pics/Toolkits/Toolkit-Example-Button-Summary.png!
 
 * **Documentation** : Est affiché dans une aide sur les _ViewElements_ et _ViewContainers_ utilisant le Widget :
-!pics/Toolkits/Toolkit_Example_Button_Documentation.png!
+!pics/Toolkits/Toolkit-Example-Button-Documentation.png!
 
 * **Metadata Definitions** : Défini une liste de clés et de valeurs par défaut pour des méta-données. Ces données sont exploitées à la création d'un _View Element_ pour initialiser autant de meta-data dans le _ViewElement_ qu'il y a de valeurs définies dans l'attribut metadataDefinitions :
 
-!pics/Toolkits/Toolkit_Example_Button_MetaDatas.png!
+!pics/Toolkits/Toolkit-Example-Button-MetaDatas.png!
 
 * **Metadata Help** : Défini une aide à l'usage des métadatas pour les _ViewElements_ et _ViewContainers_ utilisant le Widget :
 
-!pics/Toolkits/Toolkit_Example_Button_MetadataHelp.png!
+!pics/Toolkits/Toolkit-Example-Button-MetadataHelp.png!
 
 Un _Widget_ peut définir un style. Le style porte les attributs suivants :
 
