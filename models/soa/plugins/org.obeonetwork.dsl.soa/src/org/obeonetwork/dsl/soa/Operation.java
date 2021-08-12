@@ -33,6 +33,9 @@ import org.obeonetwork.dsl.environment.Action;
  *   <li>{@link org.obeonetwork.dsl.soa.Operation#isPaged <em>Paged</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.soa.Operation#getSecuritySchemes <em>Security Schemes</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.soa.Operation#getServers <em>Servers</em>}</li>
+ *   <li>{@link org.obeonetwork.dsl.soa.Operation#getSize <em>Size</em>}</li>
+ *   <li>{@link org.obeonetwork.dsl.soa.Operation#getPage <em>Page</em>}</li>
+ *   <li>{@link org.obeonetwork.dsl.soa.Operation#getPaginationExtension <em>Pagination Extension</em>}</li>
  * </ul>
  *
  * @see org.obeonetwork.dsl.soa.SoaPackage#getOperation()
@@ -314,5 +317,80 @@ public interface Operation extends Action {
 	 * @generated
 	 */
 	EList<Server> getServers();
+
+	/**
+	 * Returns the value of the '<em><b>Size</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * Size input parameter that indicates the number of instances to return.
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Size</em>' reference.
+	 * @see #setSize(Parameter)
+	 * @see org.obeonetwork.dsl.soa.SoaPackage#getOperation_Size()
+	 * @model
+	 * @generated
+	 */
+	Parameter getSize();
+
+	/**
+	 * Sets the value of the '{@link org.obeonetwork.dsl.soa.Operation#getSize <em>Size</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Size</em>' reference.
+	 * @see #getSize()
+	 * @generated
+	 */
+	void setSize(Parameter value);
+
+	/**
+	 * Returns the value of the '<em><b>Page</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * Page input parameter that indicates the index of the page requested.
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Page</em>' reference.
+	 * @see #setPage(Parameter)
+	 * @see org.obeonetwork.dsl.soa.SoaPackage#getOperation_Page()
+	 * @model
+	 * @generated
+	 */
+	Parameter getPage();
+
+	/**
+	 * Sets the value of the '{@link org.obeonetwork.dsl.soa.Operation#getPage <em>Page</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Page</em>' reference.
+	 * @see #getPage()
+	 * @generated
+	 */
+	void setPage(Parameter value);
+
+	/**
+	 * Returns the value of the '<em><b>Pagination Extension</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * Reference towards the property extension that defines the operation's pagination.
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Pagination Extension</em>' reference.
+	 * @see #setPaginationExtension(PropertiesExtension)
+	 * @see org.obeonetwork.dsl.soa.SoaPackage#getOperation_PaginationExtension()
+	 * @model
+	 * @generated
+	 */
+	PropertiesExtension getPaginationExtension();
+
+	/**
+	 * Sets the value of the '{@link org.obeonetwork.dsl.soa.Operation#getPaginationExtension <em>Pagination Extension</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Pagination Extension</em>' reference.
+	 * @see #getPaginationExtension()
+	 * @generated
+	 */
+	void setPaginationExtension(PropertiesExtension value);
 
 } // Operation

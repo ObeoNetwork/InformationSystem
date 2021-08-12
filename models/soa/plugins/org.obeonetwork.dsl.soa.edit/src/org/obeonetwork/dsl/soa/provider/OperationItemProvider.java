@@ -70,6 +70,9 @@ public class OperationItemProvider
 			addExpositionPropertyDescriptor(object);
 			addPagedPropertyDescriptor(object);
 			addSecuritySchemesPropertyDescriptor(object);
+			addSizePropertyDescriptor(object);
+			addPagePropertyDescriptor(object);
+			addPaginationExtensionPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -220,6 +223,72 @@ public class OperationItemProvider
 				 getString("_UI_Operation_securitySchemes_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_Operation_securitySchemes_feature", "_UI_Operation_type"),
 				 SoaPackage.Literals.OPERATION__SECURITY_SCHEMES,
+				 true,
+				 false,
+				 true,
+				 null,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Size feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addSizePropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_Operation_size_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Operation_size_feature", "_UI_Operation_type"),
+				 SoaPackage.Literals.OPERATION__SIZE,
+				 true,
+				 false,
+				 true,
+				 null,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Page feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addPagePropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_Operation_page_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Operation_page_feature", "_UI_Operation_type"),
+				 SoaPackage.Literals.OPERATION__PAGE,
+				 true,
+				 false,
+				 true,
+				 null,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Pagination Extension feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addPaginationExtensionPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_Operation_paginationExtension_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Operation_paginationExtension_feature", "_UI_Operation_type"),
+				 SoaPackage.Literals.OPERATION__PAGINATION_EXTENSION,
 				 true,
 				 false,
 				 true,

@@ -22,6 +22,7 @@ import org.obeonetwork.dsl.soa.ExpositionKind;
 import org.obeonetwork.dsl.soa.Operation;
 import org.obeonetwork.dsl.soa.OperationKind;
 import org.obeonetwork.dsl.soa.Parameter;
+import org.obeonetwork.dsl.soa.PropertiesExtension;
 import org.obeonetwork.dsl.soa.SecurityScheme;
 import org.obeonetwork.dsl.soa.Server;
 import org.obeonetwork.dsl.soa.SoaPackage;
@@ -46,6 +47,9 @@ import org.obeonetwork.dsl.soa.Verb;
  *   <li>{@link org.obeonetwork.dsl.soa.impl.OperationImpl#isPaged <em>Paged</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.soa.impl.OperationImpl#getSecuritySchemes <em>Security Schemes</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.soa.impl.OperationImpl#getServers <em>Servers</em>}</li>
+ *   <li>{@link org.obeonetwork.dsl.soa.impl.OperationImpl#getSize <em>Size</em>}</li>
+ *   <li>{@link org.obeonetwork.dsl.soa.impl.OperationImpl#getPage <em>Page</em>}</li>
+ *   <li>{@link org.obeonetwork.dsl.soa.impl.OperationImpl#getPaginationExtension <em>Pagination Extension</em>}</li>
  * </ul>
  *
  * @generated
@@ -299,6 +303,87 @@ public class OperationImpl extends ActionImpl implements Operation {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public Parameter getSize() {
+		return (Parameter)eDynamicGet(SoaPackage.OPERATION__SIZE, SoaPackage.Literals.OPERATION__SIZE, true, true);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Parameter basicGetSize() {
+		return (Parameter)eDynamicGet(SoaPackage.OPERATION__SIZE, SoaPackage.Literals.OPERATION__SIZE, false, true);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setSize(Parameter newSize) {
+		eDynamicSet(SoaPackage.OPERATION__SIZE, SoaPackage.Literals.OPERATION__SIZE, newSize);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Parameter getPage() {
+		return (Parameter)eDynamicGet(SoaPackage.OPERATION__PAGE, SoaPackage.Literals.OPERATION__PAGE, true, true);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Parameter basicGetPage() {
+		return (Parameter)eDynamicGet(SoaPackage.OPERATION__PAGE, SoaPackage.Literals.OPERATION__PAGE, false, true);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setPage(Parameter newPage) {
+		eDynamicSet(SoaPackage.OPERATION__PAGE, SoaPackage.Literals.OPERATION__PAGE, newPage);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public PropertiesExtension getPaginationExtension() {
+		return (PropertiesExtension)eDynamicGet(SoaPackage.OPERATION__PAGINATION_EXTENSION, SoaPackage.Literals.OPERATION__PAGINATION_EXTENSION, true, true);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public PropertiesExtension basicGetPaginationExtension() {
+		return (PropertiesExtension)eDynamicGet(SoaPackage.OPERATION__PAGINATION_EXTENSION, SoaPackage.Literals.OPERATION__PAGINATION_EXTENSION, false, true);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setPaginationExtension(PropertiesExtension newPaginationExtension) {
+		eDynamicSet(SoaPackage.OPERATION__PAGINATION_EXTENSION, SoaPackage.Literals.OPERATION__PAGINATION_EXTENSION, newPaginationExtension);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
@@ -344,6 +429,15 @@ public class OperationImpl extends ActionImpl implements Operation {
 				return getSecuritySchemes();
 			case SoaPackage.OPERATION__SERVERS:
 				return getServers();
+			case SoaPackage.OPERATION__SIZE:
+				if (resolve) return getSize();
+				return basicGetSize();
+			case SoaPackage.OPERATION__PAGE:
+				if (resolve) return getPage();
+				return basicGetPage();
+			case SoaPackage.OPERATION__PAGINATION_EXTENSION:
+				if (resolve) return getPaginationExtension();
+				return basicGetPaginationExtension();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -395,6 +489,15 @@ public class OperationImpl extends ActionImpl implements Operation {
 				getServers().clear();
 				getServers().addAll((Collection<? extends Server>)newValue);
 				return;
+			case SoaPackage.OPERATION__SIZE:
+				setSize((Parameter)newValue);
+				return;
+			case SoaPackage.OPERATION__PAGE:
+				setPage((Parameter)newValue);
+				return;
+			case SoaPackage.OPERATION__PAGINATION_EXTENSION:
+				setPaginationExtension((PropertiesExtension)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -440,6 +543,15 @@ public class OperationImpl extends ActionImpl implements Operation {
 			case SoaPackage.OPERATION__SERVERS:
 				getServers().clear();
 				return;
+			case SoaPackage.OPERATION__SIZE:
+				setSize((Parameter)null);
+				return;
+			case SoaPackage.OPERATION__PAGE:
+				setPage((Parameter)null);
+				return;
+			case SoaPackage.OPERATION__PAGINATION_EXTENSION:
+				setPaginationExtension((PropertiesExtension)null);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -474,6 +586,12 @@ public class OperationImpl extends ActionImpl implements Operation {
 				return !getSecuritySchemes().isEmpty();
 			case SoaPackage.OPERATION__SERVERS:
 				return !getServers().isEmpty();
+			case SoaPackage.OPERATION__SIZE:
+				return basicGetSize() != null;
+			case SoaPackage.OPERATION__PAGE:
+				return basicGetPage() != null;
+			case SoaPackage.OPERATION__PAGINATION_EXTENSION:
+				return basicGetPaginationExtension() != null;
 		}
 		return super.eIsSet(featureID);
 	}

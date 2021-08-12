@@ -1179,13 +1179,40 @@ public interface SoaPackage extends EPackage {
 	int OPERATION__SERVERS = EnvironmentPackage.ACTION_FEATURE_COUNT + 10;
 
 	/**
+	 * The feature id for the '<em><b>Size</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int OPERATION__SIZE = EnvironmentPackage.ACTION_FEATURE_COUNT + 11;
+
+	/**
+	 * The feature id for the '<em><b>Page</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int OPERATION__PAGE = EnvironmentPackage.ACTION_FEATURE_COUNT + 12;
+
+	/**
+	 * The feature id for the '<em><b>Pagination Extension</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int OPERATION__PAGINATION_EXTENSION = EnvironmentPackage.ACTION_FEATURE_COUNT + 13;
+
+	/**
 	 * The number of structural features of the '<em>Operation</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int OPERATION_FEATURE_COUNT = EnvironmentPackage.ACTION_FEATURE_COUNT + 11;
+	int OPERATION_FEATURE_COUNT = EnvironmentPackage.ACTION_FEATURE_COUNT + 14;
 
 	/**
 	 * The meta object id for the '{@link org.obeonetwork.dsl.soa.impl.ParameterImpl <em>Parameter</em>}' class.
@@ -3371,6 +3398,39 @@ public interface SoaPackage extends EPackage {
 	EReference getOperation_Servers();
 
 	/**
+	 * Returns the meta object for the reference '{@link org.obeonetwork.dsl.soa.Operation#getSize <em>Size</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Size</em>'.
+	 * @see org.obeonetwork.dsl.soa.Operation#getSize()
+	 * @see #getOperation()
+	 * @generated
+	 */
+	EReference getOperation_Size();
+
+	/**
+	 * Returns the meta object for the reference '{@link org.obeonetwork.dsl.soa.Operation#getPage <em>Page</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Page</em>'.
+	 * @see org.obeonetwork.dsl.soa.Operation#getPage()
+	 * @see #getOperation()
+	 * @generated
+	 */
+	EReference getOperation_Page();
+
+	/**
+	 * Returns the meta object for the reference '{@link org.obeonetwork.dsl.soa.Operation#getPaginationExtension <em>Pagination Extension</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Pagination Extension</em>'.
+	 * @see org.obeonetwork.dsl.soa.Operation#getPaginationExtension()
+	 * @see #getOperation()
+	 * @generated
+	 */
+	EReference getOperation_PaginationExtension();
+
+	/**
 	 * Returns the meta object for class '{@link org.obeonetwork.dsl.soa.ImplementationComponent <em>Implementation Component</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -4491,6 +4551,30 @@ public interface SoaPackage extends EPackage {
 		 * @generated
 		 */
 		EReference OPERATION__SERVERS = eINSTANCE.getOperation_Servers();
+
+		/**
+		 * The meta object literal for the '<em><b>Size</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference OPERATION__SIZE = eINSTANCE.getOperation_Size();
+
+		/**
+		 * The meta object literal for the '<em><b>Page</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference OPERATION__PAGE = eINSTANCE.getOperation_Page();
+
+		/**
+		 * The meta object literal for the '<em><b>Pagination Extension</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference OPERATION__PAGINATION_EXTENSION = eINSTANCE.getOperation_PaginationExtension();
 
 		/**
 		 * The meta object literal for the '{@link org.obeonetwork.dsl.soa.impl.ImplementationComponentImpl <em>Implementation Component</em>}' class.
