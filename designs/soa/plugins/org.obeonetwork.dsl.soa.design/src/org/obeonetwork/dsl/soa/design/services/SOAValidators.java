@@ -49,17 +49,16 @@ public class SOAValidators {
 	/**
 	 * Checks if a URL is valid.
 	 * 
-	 * @param URL a {@link String}
+	 * @param url a {@link String}
 	 * @return <code>true</code> if the URL is valid
 	 */
-	public static boolean isValidURL(String URL) {
-		if (URL != null) {
-			Matcher matcher = URL_PARAM_PATTERN.matcher(URL);
+	public static boolean isValidURL(String url) {
+		if (!StringUtils.isNullOrWhite(url)) {
+			Matcher matcher = URL_PARAM_PATTERN.matcher(url);
 			return matcher.matches();
 		} else {
-			return false;
+			return true;
 		}
-
 	}
 
 	/**
@@ -69,11 +68,11 @@ public class SOAValidators {
 	 * @return <code>true</code> if the email is valid
 	 */
 	public static boolean isValidEmail(String email) {
-		if (email != null) {
+		if (!StringUtils.isNullOrWhite(email)) {
 			Matcher matcher = EMAIL_PARAM_PATTERN.matcher(email);
 			return matcher.matches();
 		} else {
-			return false;
+			return true;
 		}
 	}
 
