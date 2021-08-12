@@ -128,6 +128,21 @@ paths:
               - pending
               - sold
             default: available
+        - name: page
+          in: query
+          description: The index of the page queried
+          required: false
+          schema:
+            type: integer
+            format: int64
+        - name: size
+          in: query
+          description: The number of elements per page
+          required: false
+          schema:
+            type: integer
+            format: int64            
+      x-pagination: this is a pagination-related property extension
       responses:
         '200':
           description: successful operation

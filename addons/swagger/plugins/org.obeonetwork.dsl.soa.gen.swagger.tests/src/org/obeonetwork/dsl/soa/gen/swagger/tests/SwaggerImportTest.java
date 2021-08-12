@@ -50,7 +50,7 @@ public class SwaggerImportTest {
 		System destinationSystem = createSystem(destinationResourceSet);
 		
 		SwaggerImporter swaggerImporter = new SwaggerImporter(destinationSystem, environment);
-		int status = swaggerImporter.importFromFile(inputFile.getAbsolutePath());
+		int status = swaggerImporter.importFromFile(inputFile.getAbsolutePath(), "x-pagination");
 		
 		String expectedBundleEntryFolderPath = String.format(EXPECTED_FOLDER_PATH_FORMAT, testId);
 		ResourceSet expectedResourceSet = createSoaResourceSetFromBundleEntryPath(expectedBundleEntryFolderPath);
@@ -62,7 +62,10 @@ public class SwaggerImportTest {
 		
 		destinationSystem.setName(expectedSystem.getName());
 		
-		assertTrue("Swagger import returned with error status code", status != IStatus.ERROR);
+		
+		
+		// save the model to file to ease understanding in case of error:
+		
 		Resource.Factory.Registry reg = Resource.Factory.Registry.INSTANCE;
         Map<String, Object> m = reg.getExtensionToFactoryMap();
         m.put("soa", new SoaResourceFactoryImpl());
@@ -74,6 +77,8 @@ public class SwaggerImportTest {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+        
+        assertTrue("Swagger import returned with error status code", status != IStatus.ERROR);
 		assertECoreEquals("Imported model is different for file " + inputFile.getAbsolutePath(), expectedSystem, destinationSystem); 
 	}
 
