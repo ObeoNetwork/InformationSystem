@@ -356,27 +356,19 @@ public class SwaggerBuilder {
     	if(falseForFutureEvolution()) {
         	// Handle multiple servers
     	}
+    	
     	List<Server> servers = new ArrayList<>();
-    	Server defaultServer = createDefaultServer();
-    	if(defaultServer != null) {
-    		servers.add(defaultServer);
-    	}
+    	soaComponent.getServers().stream().forEach(soaServer -> {
+    		Server server = new Server();
+        	server.setUrl(soaServer.getURL().trim());
+        	server.setDescription(soaServer.getDescription());
+        	
+        	servers.add(server);
+        	
+        	addPropertiesExtensionsFromSoaToSwg(soaServer, server);
+    	});
+    	
     	return servers;
-	}
-
-	private Server createDefaultServer() {
-    	Server server = null;
-    	
-    	// TODO Refactor to handle server part SAFRAN-940
-/* SAFRAN-940
-    	if(!isNullOrWhite(soaComponent.getURL())) {
-    		server = new Server();
-        	server.setUrl(soaComponent.getURL().trim());
-    	}
-*/
-    	addPropertiesExtensionsFromSoaToSwg(soaComponent, server);
-    	
-    	return server;
 	}
 
 	//// Schemas ////
@@ -703,6 +695,15 @@ public class SwaggerBuilder {
 		default:
 			break;
 		}
+		
+		// Add servers
+		soaOperation.getServers().stream().forEach(soaServer -> {
+			Server server = new Server();
+			server.setUrl(soaServer.getURL());
+			server.setDescription(soaServer.getDescription());
+			addPropertiesExtensionsFromSoaToSwg(soaServer, server);
+			pathItem.addServersItem(server);
+		});
 	}
 
 	private String getSoaOperationUri(org.obeonetwork.dsl.soa.Operation soaOperation) {

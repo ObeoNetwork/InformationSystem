@@ -34,7 +34,7 @@ public class PropertiesExtensionsService {
 	
 	private static final Map<EClass, Collection<String>> POSSIBLE_CONTEXTS = new HashMap<>();
 	static {
-		POSSIBLE_CONTEXTS.put(Literals.COMPONENT, Arrays.asList("OpenAPI", "Server", "Paths"));
+		POSSIBLE_CONTEXTS.put(Literals.COMPONENT, Arrays.asList("OpenAPI", "Paths"));
 		POSSIBLE_CONTEXTS.put(Literals.CONTACT, Arrays.asList("Contact"));
 		POSSIBLE_CONTEXTS.put(Literals.INFORMATION, Arrays.asList("Info"));
 		POSSIBLE_CONTEXTS.put(Literals.LICENSE, Arrays.asList("License"));
@@ -46,6 +46,7 @@ public class PropertiesExtensionsService {
 		POSSIBLE_CONTEXTS.put(Literals.PARAMETER, Arrays.asList("Parameter", "RequestBody", "ApiResponse", "Schema"));
 		POSSIBLE_CONTEXTS.put(Literals.MEDIA_TYPE, Arrays.asList("MediaType"));
 		POSSIBLE_CONTEXTS.put(Literals.EXAMPLE, Arrays.asList("Example"));
+		POSSIBLE_CONTEXTS.put(Literals.SERVER, Arrays.asList("Server"));
 	}
 
 	/**

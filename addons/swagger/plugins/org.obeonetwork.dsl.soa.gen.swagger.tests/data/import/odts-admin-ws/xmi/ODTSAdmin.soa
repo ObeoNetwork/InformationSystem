@@ -179,7 +179,7 @@
       </types>
     </ownedNamespaces>
   </ownedNamespaces>
-  <ownedComponents xmi:id="_gSnBkOCyEeuHZ_8gfzXs4A" technicalid="_YKNXEOCyEeuHZ_8gfzXs4A" description="This guide describe the REST API of the administration server for Obeo Designer Team Server. This API will allow you to manage CDO repositories, shared modeling projects and depending on the type of repository you manage, you will be able to manager the repository users. If you already have configured the [administration server](../Obeo_Designer_Team_Administration_Server.html) for Obeo Designer Team Server you can start to use our API.&#xA;&#xA;Remark: The protocol, host and port can be different from your server configuration.&#xA;&#xA;In this documentation we will use the web service API in the version **v1.0**.&#xA;&#xA;**Disclaimer:** As basic authentication is enabled for the administration server, the _Authorization_ header must be added in all requests with the base64 encoded credentials.&#xA;" name="Obeo Designer Team Server - Administration Server" URI="" URL="/api/v1.0" apiVersion="1.0.0">
+  <ownedComponents xmi:id="_gSnBkOCyEeuHZ_8gfzXs4A" technicalid="_YKNXEOCyEeuHZ_8gfzXs4A" description="This guide describe the REST API of the administration server for Obeo Designer Team Server. This API will allow you to manage CDO repositories, shared modeling projects and depending on the type of repository you manage, you will be able to manager the repository users. If you already have configured the [administration server](../Obeo_Designer_Team_Administration_Server.html) for Obeo Designer Team Server you can start to use our API.&#xA;&#xA;Remark: The protocol, host and port can be different from your server configuration.&#xA;&#xA;In this documentation we will use the web service API in the version **v1.0**.&#xA;&#xA;**Disclaimer:** As basic authentication is enabled for the administration server, the _Authorization_ header must be added in all requests with the base64 encoded credentials.&#xA;" createdOn="2021-08-12T11:11:12.218+0200" modifiedOn="2021-08-12T11:12:01.748+0200" name="Obeo Designer Team Server - Administration Server" URI="" apiVersion="1.0.0" URL="/api/v1.0">
     <ownedServices xmi:id="_gSnooOCyEeuHZ_8gfzXs4A" technicalid="_YKuUcOCyEeuHZ_8gfzXs4A" description="null" name="Repositories" URI="/repositories">
       <ownedInterface xmi:id="_gSnooeCyEeuHZ_8gfzXs4A" technicalid="_YKyl4OCyEeuHZ_8gfzXs4A" name="Repositories">
         <ownedOperations xmi:id="_gSnoouCyEeuHZ_8gfzXs4A" technicalid="_YK0bEOCyEeuHZ_8gfzXs4A" description="Retrieve all repositories on the current server.&#xA;" name="getRepositories" public="true" URI="" exposition="REST">
@@ -424,8 +424,10 @@
       </ownedInterface>
     </ownedServices>
     <securitySchemes xmi:id="_gSoP1eCyEeuHZ_8gfzXs4A" technicalid="_YKUEwOCyEeuHZ_8gfzXs4A" key="basicAuth" type="http"/>
-    <license xmi:id="_gSoP1uCyEeuHZ_8gfzXs4A" name="Copyright (c) 2008, 2021 Obeo." URL="/doc/license.html"/>
-    <information xmi:id="_gSoP1-CyEeuHZ_8gfzXs4A" apiVersion="1.0.0"/>
-    <contact xmi:id="_gSoP2OCyEeuHZ_8gfzXs4A" email="support@obeo.fr"/>
+    <license xmi:id="_gSoP1uCyEeuHZ_8gfzXs4A" technicalid="_NseoAftNEeu474VqMQ4nuA" name="Copyright (c) 2008, 2021 Obeo." URL="/doc/license.html"/>
+    <information xmi:id="_gSoP1-CyEeuHZ_8gfzXs4A" technicalid="_NseoAvtNEeu474VqMQ4nuA" apiVersion="1.0.0"/>
+    <contact xmi:id="_gSoP2OCyEeuHZ_8gfzXs4A" technicalid="_NseoA_tNEeu474VqMQ4nuA" email="support@obeo.fr"/>
+    <servers xmi:id="_PSp7oPtNEeu474VqMQ4nuA" technicalid="_PSpUkPtNEeu474VqMQ4nuA" description="Production server (use live data)" createdOn="2021-08-12T11:11:12.226+0200" modifiedOn="2021-08-12T11:11:59.773+0200" URL="/api/v1.0"/>
+    <servers xmi:id="_WrApQftNEeu474VqMQ4nuA" technicalid="_WrApQPtNEeu474VqMQ4nuA" description="Server on the current host" createdOn="2021-08-12T11:12:01.748+0200" modifiedOn="2021-08-12T11:12:22.186+0200" URL="{protocol}://localhost:8080/api/v1.0"/>
   </ownedComponents>
 </soa:System>

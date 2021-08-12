@@ -2,6 +2,9 @@
 <soa:System xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:oenv="http://www.obeonetwork.org/dsl/environment/3.0.0" xmlns:soa="http://www.obeonetwork.org/dsl/soa/3.0.0" xmi:id="_rlG5QOChEeuPcNmcDkpQJQ" technicalid="_rlGSMOChEeuPcNmcDkpQJQ" createdOn="2021-07-09T12:41:18.913+0200" modifiedOn="2021-07-09T12:41:18.941+0200" name="Petstore">
   <ownedNamespaces xmi:id="_McMrQOCiEeuPcNmcDkpQJQ" technicalid="_ro50IOChEeuPcNmcDkpQJQ" createdOn="2021-07-09T12:41:18.914+0200" modifiedOn="2021-07-09T12:41:18.914+0200" name="Swagger Petstore - OpenAPI 3.0">
     <types xsi:type="oenv:DTO" xmi:id="_McMrQeCiEeuPcNmcDkpQJQ" technicalid="_ro8QYOChEeuPcNmcDkpQJQ" name="Order">
+      <metadatas xmi:id="_ltwPsPtNEeu474VqMQ4nuA" technicalid="_ltr-TPtNEeu474VqMQ4nuA">
+        <metadatas xsi:type="soa:PropertiesExtension" xmi:id="_ltwPsftNEeu474VqMQ4nuA" technicalid="_ltr-TftNEeu474VqMQ4nuA" title="x-swagger-router-model" body="io.swagger.petstore.model.Order" context="Schema"/>
+      </metadatas>
       <ownedAttributes xmi:id="_McMrQuCiEeuPcNmcDkpQJQ" technicalid="_ro-soOChEeuPcNmcDkpQJQ" name="petId">
         <type xsi:type="oenv:PrimitiveType" href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_9dnH8bGqEd2SRpTkL4GntA"/>
       </ownedAttributes>
@@ -18,9 +21,6 @@
         <type xsi:type="oenv:PrimitiveType" href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5FXAqwKEd2XLNOhkJIazw"/>
       </ownedAttributes>
       <ownedAttributes xmi:id="_McMrR-CiEeuPcNmcDkpQJQ" technicalid="_rpC-EuChEeuPcNmcDkpQJQ" name="status" type="_McNSNOCiEeuPcNmcDkpQJQ"/>
-      <metadatas>
-        <metadatas xsi:type="soa:PropertiesExtension" title="x-swagger-router-model" body="io.swagger.petstore.model.Order" context="Schema"/>
-      </metadatas>
     </types>
     <types xsi:type="oenv:DTO" xmi:id="_McMrSOCiEeuPcNmcDkpQJQ" technicalid="_ro8QYeChEeuPcNmcDkpQJQ" name="Customer">
       <ownedAttributes xmi:id="_McMrSeCiEeuPcNmcDkpQJQ" technicalid="_rpDlIOChEeuPcNmcDkpQJQ" name="id">
@@ -46,17 +46,20 @@
       </ownedAttributes>
     </types>
     <types xsi:type="oenv:DTO" xmi:id="_McMrUeCiEeuPcNmcDkpQJQ" technicalid="_ro8QY-ChEeuPcNmcDkpQJQ" name="Category">
+      <metadatas xmi:id="_ltwPsvtNEeu474VqMQ4nuA" technicalid="_ltr-YvtNEeu474VqMQ4nuA">
+        <metadatas xsi:type="soa:PropertiesExtension" xmi:id="_ltwPs_tNEeu474VqMQ4nuA" technicalid="_ltr-Y_tNEeu474VqMQ4nuA" title="x-swagger-router-model" body="io.swagger.petstore.model.Category" context="Schema"/>
+      </metadatas>
       <ownedAttributes xmi:id="_McMrUuCiEeuPcNmcDkpQJQ" technicalid="_rpFaVeChEeuPcNmcDkpQJQ" name="name">
         <type xsi:type="oenv:PrimitiveType" href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5F-EKwKEd2XLNOhkJIazw"/>
       </ownedAttributes>
       <ownedAttributes xmi:id="_McMrU-CiEeuPcNmcDkpQJQ" technicalid="_rpFaVuChEeuPcNmcDkpQJQ" name="id">
         <type xsi:type="oenv:PrimitiveType" href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_9dnH8bGqEd2SRpTkL4GntA"/>
       </ownedAttributes>
-      <metadatas>
-        <metadatas xsi:type="soa:PropertiesExtension" title="x-swagger-router-model" body="io.swagger.petstore.model.Category" context="Schema"/>
-      </metadatas>
     </types>
     <types xsi:type="oenv:DTO" xmi:id="_McMrVOCiEeuPcNmcDkpQJQ" technicalid="_ro8QZOChEeuPcNmcDkpQJQ" name="User">
+      <metadatas xmi:id="_ltwPtPtNEeu474VqMQ4nuA" technicalid="_ltslYPtNEeu474VqMQ4nuA">
+        <metadatas xsi:type="soa:PropertiesExtension" xmi:id="_ltwPtftNEeu474VqMQ4nuA" technicalid="_ltslYftNEeu474VqMQ4nuA" title="x-swagger-router-model" body="io.swagger.petstore.model.User" context="Schema"/>
+      </metadatas>
       <ownedAttributes xmi:id="_McMrVeCiEeuPcNmcDkpQJQ" technicalid="_rpFaV-ChEeuPcNmcDkpQJQ" name="firstName">
         <type xsi:type="oenv:PrimitiveType" href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5F-EKwKEd2XLNOhkJIazw"/>
       </ownedAttributes>
@@ -81,22 +84,22 @@
       <ownedAttributes xmi:id="_McNSJeCiEeuPcNmcDkpQJQ" technicalid="_rpGBZOChEeuPcNmcDkpQJQ" name="username">
         <type xsi:type="oenv:PrimitiveType" href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5F-EKwKEd2XLNOhkJIazw"/>
       </ownedAttributes>
-      <metadatas>
-        <metadatas xsi:type="soa:PropertiesExtension" title="x-swagger-router-model" body="io.swagger.petstore.model.User" context="Schema"/>
-      </metadatas>
     </types>
     <types xsi:type="oenv:DTO" xmi:id="_McNSJuCiEeuPcNmcDkpQJQ" technicalid="_ro83cOChEeuPcNmcDkpQJQ" name="Tag">
+      <metadatas xmi:id="_ltwPtvtNEeu474VqMQ4nuA" technicalid="_ltslZ_tNEeu474VqMQ4nuA">
+        <metadatas xsi:type="soa:PropertiesExtension" xmi:id="_ltwPt_tNEeu474VqMQ4nuA" technicalid="_ltslaPtNEeu474VqMQ4nuA" title="x-swagger-router-model" body="io.swagger.petstore.model.Tag" context="Schema"/>
+      </metadatas>
       <ownedAttributes xmi:id="_McNSJ-CiEeuPcNmcDkpQJQ" technicalid="_rpGBZeChEeuPcNmcDkpQJQ" name="name">
         <type xsi:type="oenv:PrimitiveType" href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5F-EKwKEd2XLNOhkJIazw"/>
       </ownedAttributes>
       <ownedAttributes xmi:id="_McNSKOCiEeuPcNmcDkpQJQ" technicalid="_rpGBZuChEeuPcNmcDkpQJQ" name="id">
         <type xsi:type="oenv:PrimitiveType" href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_9dnH8bGqEd2SRpTkL4GntA"/>
       </ownedAttributes>
-      <metadatas>
-        <metadatas xsi:type="soa:PropertiesExtension" title="x-swagger-router-model" body="io.swagger.petstore.model.Tag" context="Schema"/>
-      </metadatas>
     </types>
     <types xsi:type="oenv:DTO" xmi:id="_McNSKeCiEeuPcNmcDkpQJQ" technicalid="_ro83ceChEeuPcNmcDkpQJQ" name="Pet">
+      <metadatas xmi:id="_ltwPuPtNEeu474VqMQ4nuA" technicalid="_lttMYPtNEeu474VqMQ4nuA">
+        <metadatas xsi:type="soa:PropertiesExtension" xmi:id="_ltwPuftNEeu474VqMQ4nuA" technicalid="_lttMYftNEeu474VqMQ4nuA" title="x-swagger-router-model" body="io.swagger.petstore.model.Pet" context="Schema"/>
+      </metadatas>
       <ownedAttributes xmi:id="_McNSKuCiEeuPcNmcDkpQJQ" technicalid="_rpGBZ-ChEeuPcNmcDkpQJQ" name="photoUrls" multiplicity="1..*">
         <type xsi:type="oenv:PrimitiveType" href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5F-EKwKEd2XLNOhkJIazw"/>
       </ownedAttributes>
@@ -109,9 +112,6 @@
       <ownedAttributes xmi:id="_McNSLeCiEeuPcNmcDkpQJQ" technicalid="_rpGoduChEeuPcNmcDkpQJQ" name="status" type="_McNSOOCiEeuPcNmcDkpQJQ"/>
       <ownedReferences xmi:id="_McNSLuCiEeuPcNmcDkpQJQ" technicalid="_rpGocOChEeuPcNmcDkpQJQ" name="category" referencedType="_McMrUeCiEeuPcNmcDkpQJQ"/>
       <ownedReferences xmi:id="_McNSL-CiEeuPcNmcDkpQJQ" technicalid="_rpGoceChEeuPcNmcDkpQJQ" name="tags" multiplicity="0..*" referencedType="_McNSJuCiEeuPcNmcDkpQJQ"/>
-      <metadatas>
-        <metadatas xsi:type="soa:PropertiesExtension" title="x-swagger-router-model" body="io.swagger.petstore.model.Pet" context="Schema"/>
-      </metadatas>
     </types>
     <types xsi:type="oenv:DTO" xmi:id="_McNSMOCiEeuPcNmcDkpQJQ" technicalid="_ro83cuChEeuPcNmcDkpQJQ" name="ApiResponse">
       <ownedAttributes xmi:id="_McNSMeCiEeuPcNmcDkpQJQ" technicalid="_rpXuMOChEeuPcNmcDkpQJQ" name="code">
@@ -138,7 +138,7 @@
       <types xsi:type="oenv:DTO" xmi:id="_McNSPeCiEeuPcNmcDkpQJQ" technicalid="_McC6EeCiEeuPcNmcDkpQJQ" name="GetInventoryOutput200"/>
     </ownedNamespaces>
   </ownedNamespaces>
-  <ownedComponents xmi:id="_McLc8OCiEeuPcNmcDkpQJQ" technicalid="_ro2JwOChEeuPcNmcDkpQJQ" description="This is a sample Pet Store Server based on the OpenAPI 3.0 specification.  You can find out more about&#xA;Swagger at [http://swagger.io](http://swagger.io). In the third iteration of the pet store, we've switched to the design first approach!&#xA;You can now help us improve the API whether it's by making changes to the definition itself or to the code.&#xA;That way, with time, we can improve the API in general, and expose some of the new features in OAS3.&#xA;&#xA;Some useful links:&#xA;- [The Pet Store repository](https://github.com/swagger-api/swagger-petstore)&#xA;- [The source API definition for the Pet Store](https://github.com/swagger-api/swagger-petstore/blob/master/src/main/resources/openapi.yaml) " name="Swagger Petstore - OpenAPI 3.0" URI="" URL="/v3" apiVersion="1.0.5-SNAPSHOT">
+  <ownedComponents xmi:id="_McLc8OCiEeuPcNmcDkpQJQ" technicalid="_ro2JwOChEeuPcNmcDkpQJQ" description="This is a sample Pet Store Server based on the OpenAPI 3.0 specification.  You can find out more about&#xA;Swagger at [http://swagger.io](http://swagger.io). In the third iteration of the pet store, we've switched to the design first approach!&#xA;You can now help us improve the API whether it's by making changes to the definition itself or to the code.&#xA;That way, with time, we can improve the API in general, and expose some of the new features in OAS3.&#xA;&#xA;Some useful links:&#xA;- [The Pet Store repository](https://github.com/swagger-api/swagger-petstore)&#xA;- [The source API definition for the Pet Store](https://github.com/swagger-api/swagger-petstore/blob/master/src/main/resources/openapi.yaml) " createdOn="2021-08-12T11:13:59.095+0200" modifiedOn="2021-08-12T11:13:59.095+0200" name="Swagger Petstore - OpenAPI 3.0" URI="" apiVersion="1.0.5-SNAPSHOT" URL="/v3">
     <ownedServices xmi:id="_McLc8eCiEeuPcNmcDkpQJQ" technicalid="_rpiGQOChEeuPcNmcDkpQJQ" description="Access to Petstore orders" name="User" URI="/user">
       <ownedInterface xmi:id="_McLc8uCiEeuPcNmcDkpQJQ" technicalid="_McDhKeCiEeuPcNmcDkpQJQ" name="User">
         <ownedOperations xmi:id="_McLc8-CiEeuPcNmcDkpQJQ" technicalid="_McDhKuCiEeuPcNmcDkpQJQ" description="This can only be done by the logged in user." name="createUser" public="true" URI="" verb="POST" exposition="REST">
@@ -154,6 +154,9 @@
           </output>
         </ownedOperations>
         <ownedOperations xmi:id="_McMEAuCiEeuPcNmcDkpQJQ" technicalid="_McEINuCiEeuPcNmcDkpQJQ" description="Creates list of users with given input array" name="createUsersWithListInput" public="true" URI="/createWithList" verb="POST" exposition="REST">
+          <metadatas xmi:id="_ltwPuvtNEeu474VqMQ4nuA" technicalid="_lttzdPtNEeu474VqMQ4nuA">
+            <metadatas xsi:type="soa:PropertiesExtension" xmi:id="_ltwPu_tNEeu474VqMQ4nuA" technicalid="_lttzdftNEeu474VqMQ4nuA" title="x-swagger-router-controller" body="UserController" context="Operation"/>
+          </metadatas>
           <input xmi:id="_McMEA-CiEeuPcNmcDkpQJQ" technicalid="_McEIN-CiEeuPcNmcDkpQJQ" type="_McMrVOCiEeuPcNmcDkpQJQ" name="body" multiplicity="0..*">
             <mediaType xmi:id="_McMEBOCiEeuPcNmcDkpQJQ" technicalid="_McEIOeCiEeuPcNmcDkpQJQ" identifier="application/json"/>
             <restData xmi:id="_McMEBeCiEeuPcNmcDkpQJQ" technicalid="_McEIOOCiEeuPcNmcDkpQJQ"/>
@@ -163,9 +166,6 @@
             <mediaType xmi:id="_McMECOCiEeuPcNmcDkpQJQ" technicalid="_McEIPOCiEeuPcNmcDkpQJQ" identifier="application/json"/>
           </output>
           <output xmi:id="_McMECeCiEeuPcNmcDkpQJQ" technicalid="_McEIPeCiEeuPcNmcDkpQJQ" description="successful operation" name="outputdefault" statusCode="default" statusMessage=""/>
-          <metadatas>
-            <metadatas xsi:type="soa:PropertiesExtension" title="x-swagger-router-controller" body="UserController" context="Operation"/>
-          </metadatas>
         </ownedOperations>
         <ownedOperations xmi:id="_McMECuCiEeuPcNmcDkpQJQ" technicalid="_McEIPuCiEeuPcNmcDkpQJQ" description="" name="loginUser" public="true" URI="/login" exposition="REST">
           <input xmi:id="_McMEC-CiEeuPcNmcDkpQJQ" technicalid="_McEvQOCiEeuPcNmcDkpQJQ" description="The user name for login" name="username" multiplicity="0..1">
@@ -199,6 +199,9 @@
           <fault xmi:id="_McMEHOCiEeuPcNmcDkpQJQ" technicalid="_McFWUeCiEeuPcNmcDkpQJQ" description="User not found" name="fault404" statusCode="404" statusMessage="Not Found"/>
         </ownedOperations>
         <ownedOperations xmi:id="_McMEHeCiEeuPcNmcDkpQJQ" technicalid="_McFWUuCiEeuPcNmcDkpQJQ" description="This can only be done by the logged in user." name="updateUser" public="true" URI="/{username}" verb="PUT" exposition="REST">
+          <metadatas xmi:id="_ltwPvPtNEeu474VqMQ4nuA" technicalid="_ltuaj_tNEeu474VqMQ4nuA">
+            <metadatas xsi:type="soa:PropertiesExtension" xmi:id="_ltwPvftNEeu474VqMQ4nuA" technicalid="_ltuakPtNEeu474VqMQ4nuA" title="x-swagger-router-controller" body="UserController" context="Operation"/>
+          </metadatas>
           <input xmi:id="_McMEHuCiEeuPcNmcDkpQJQ" technicalid="_McFWU-CiEeuPcNmcDkpQJQ" description="name that need to be deleted" name="username">
             <type xsi:type="oenv:PrimitiveType" href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5F-EKwKEd2XLNOhkJIazw"/>
             <restData xmi:id="_McMEH-CiEeuPcNmcDkpQJQ" technicalid="_McFWVOCiEeuPcNmcDkpQJQ" passingMode="PATH" restId="username"/>
@@ -210,9 +213,6 @@
             <restData xmi:id="_McMEJOCiEeuPcNmcDkpQJQ" technicalid="_McFWVuCiEeuPcNmcDkpQJQ"/>
           </input>
           <output xmi:id="_McMEJeCiEeuPcNmcDkpQJQ" technicalid="_McFWWuCiEeuPcNmcDkpQJQ" description="successful operation" name="outputdefault" statusCode="default" statusMessage=""/>
-          <metadatas>
-            <metadatas xsi:type="soa:PropertiesExtension" title="x-swagger-router-controller" body="UserController" context="Operation"/>
-          </metadatas>
         </ownedOperations>
         <ownedOperations xmi:id="_McMEJuCiEeuPcNmcDkpQJQ" technicalid="_McFWW-CiEeuPcNmcDkpQJQ" description="This can only be done by the logged in user." name="deleteUser" public="true" URI="/{username}" verb="DELETE" exposition="REST">
           <input xmi:id="_McMEJ-CiEeuPcNmcDkpQJQ" technicalid="_McF9YOCiEeuPcNmcDkpQJQ" description="The name that needs to be deleted" name="username">
@@ -227,14 +227,17 @@
     <ownedServices xmi:id="_McMEK-CiEeuPcNmcDkpQJQ" technicalid="_rplwoOChEeuPcNmcDkpQJQ" description="Operations about user" name="Store" URI="/store">
       <ownedInterface xmi:id="_McMELOCiEeuPcNmcDkpQJQ" technicalid="_McCTDeCiEeuPcNmcDkpQJQ" name="Store">
         <ownedOperations xmi:id="_McMELeCiEeuPcNmcDkpQJQ" technicalid="_McCTDuCiEeuPcNmcDkpQJQ" description="Returns a map of status codes to quantities" name="getInventory" public="true" URI="/inventory" exposition="REST" securitySchemes="_McMrPOCiEeuPcNmcDkpQJQ">
+          <metadatas xmi:id="_ltwPvvtNEeu474VqMQ4nuA" technicalid="_ltuanPtNEeu474VqMQ4nuA">
+            <metadatas xsi:type="soa:PropertiesExtension" xmi:id="_ltwPv_tNEeu474VqMQ4nuA" technicalid="_ltuanftNEeu474VqMQ4nuA" title="x-swagger-router-controller" body="OrderController" context="Operation"/>
+          </metadatas>
           <output xmi:id="_McMELuCiEeuPcNmcDkpQJQ" technicalid="_McC6EOCiEeuPcNmcDkpQJQ" description="successful operation" type="_McNSPeCiEeuPcNmcDkpQJQ" name="output200" multiplicity="0..1" statusCode="200" statusMessage="OK">
             <mediaType xmi:id="_McMEL-CiEeuPcNmcDkpQJQ" technicalid="_McC6EuCiEeuPcNmcDkpQJQ" identifier="application/json"/>
           </output>
-          <metadatas>
-            <metadatas xsi:type="soa:PropertiesExtension" title="x-swagger-router-controller" body="OrderController" context="Operation"/>
-          </metadatas>
         </ownedOperations>
         <ownedOperations xmi:id="_McMEMOCiEeuPcNmcDkpQJQ" technicalid="_McC6E-CiEeuPcNmcDkpQJQ" description="Place a new order in the store" name="placeOrder" public="true" URI="/order" verb="POST" exposition="REST">
+          <metadatas xmi:id="_ltwPwPtNEeu474VqMQ4nuA" technicalid="_ltuap_tNEeu474VqMQ4nuA">
+            <metadatas xsi:type="soa:PropertiesExtension" xmi:id="_ltwPwftNEeu474VqMQ4nuA" technicalid="_ltuaqPtNEeu474VqMQ4nuA" title="x-swagger-router-controller" body="OrderController" context="Operation"/>
+          </metadatas>
           <input xmi:id="_McMEMeCiEeuPcNmcDkpQJQ" technicalid="_McC6FOCiEeuPcNmcDkpQJQ" type="_McMrQeCiEeuPcNmcDkpQJQ" name="body" multiplicity="0..1">
             <mediaType xmi:id="_McMEMuCiEeuPcNmcDkpQJQ" technicalid="_McC6FuCiEeuPcNmcDkpQJQ" identifier="application/json"/>
             <mediaType xmi:id="_McMEM-CiEeuPcNmcDkpQJQ" technicalid="_McC6F-CiEeuPcNmcDkpQJQ" identifier="application/xml"/>
@@ -245,11 +248,11 @@
             <mediaType xmi:id="_McMEN-CiEeuPcNmcDkpQJQ" technicalid="_McC6GuCiEeuPcNmcDkpQJQ" identifier="application/json"/>
           </output>
           <fault xmi:id="_McMEOOCiEeuPcNmcDkpQJQ" technicalid="_McC6G-CiEeuPcNmcDkpQJQ" description="Invalid input" name="fault405" statusCode="405" statusMessage="Method Not Allowed"/>
-          <metadatas>
-            <metadatas xsi:type="soa:PropertiesExtension" title="x-swagger-router-controller" body="OrderController" context="Operation"/>
-          </metadatas>
         </ownedOperations>
         <ownedOperations xmi:id="_McMEOeCiEeuPcNmcDkpQJQ" technicalid="_McC6HOCiEeuPcNmcDkpQJQ" description="For valid response try integer IDs with value &lt;= 5 or > 10. Other values will generated exceptions" name="getOrderById" public="true" URI="/order/{orderId}" exposition="REST">
+          <metadatas xmi:id="_ltwPwvtNEeu474VqMQ4nuA" technicalid="_ltvBlvtNEeu474VqMQ4nuA">
+            <metadatas xsi:type="soa:PropertiesExtension" xmi:id="_ltwPw_tNEeu474VqMQ4nuA" technicalid="_ltvBl_tNEeu474VqMQ4nuA" title="x-swagger-router-controller" body="OrderController" context="Operation"/>
+          </metadatas>
           <input xmi:id="_McMEOuCiEeuPcNmcDkpQJQ" technicalid="_McC6HeCiEeuPcNmcDkpQJQ" description="ID of order that needs to be fetched" name="orderId">
             <type xsi:type="oenv:PrimitiveType" href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_9dnH8bGqEd2SRpTkL4GntA"/>
             <restData xmi:id="_McMEO-CiEeuPcNmcDkpQJQ" technicalid="_McC6HuCiEeuPcNmcDkpQJQ" passingMode="PATH" restId="orderId"/>
@@ -260,20 +263,17 @@
           </output>
           <fault xmi:id="_McMEP-CiEeuPcNmcDkpQJQ" technicalid="_McDhIuCiEeuPcNmcDkpQJQ" description="Invalid ID supplied" name="fault400" statusCode="400" statusMessage="Bad Request"/>
           <fault xmi:id="_McMEQOCiEeuPcNmcDkpQJQ" technicalid="_McDhI-CiEeuPcNmcDkpQJQ" description="Order not found" name="fault404" statusCode="404" statusMessage="Not Found"/>
-          <metadatas>
-            <metadatas xsi:type="soa:PropertiesExtension" title="x-swagger-router-controller" body="OrderController" context="Operation"/>
-          </metadatas>
         </ownedOperations>
         <ownedOperations xmi:id="_McMEQeCiEeuPcNmcDkpQJQ" technicalid="_McDhJOCiEeuPcNmcDkpQJQ" description="For valid response try integer IDs with value &lt; 1000. Anything above 1000 or nonintegers will generate API errors" name="deleteOrder" public="true" URI="/order/{orderId}" verb="DELETE" exposition="REST">
+          <metadatas xmi:id="_ltwPxPtNEeu474VqMQ4nuA" technicalid="_ltvBnvtNEeu474VqMQ4nuA">
+            <metadatas xsi:type="soa:PropertiesExtension" xmi:id="_ltwPxftNEeu474VqMQ4nuA" technicalid="_ltvBn_tNEeu474VqMQ4nuA" title="x-swagger-router-controller" body="OrderController" context="Operation"/>
+          </metadatas>
           <input xmi:id="_McMEQuCiEeuPcNmcDkpQJQ" technicalid="_McDhJeCiEeuPcNmcDkpQJQ" description="ID of the order that needs to be deleted" name="orderId">
             <type xsi:type="oenv:PrimitiveType" href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_9dnH8bGqEd2SRpTkL4GntA"/>
             <restData xmi:id="_McMEQ-CiEeuPcNmcDkpQJQ" technicalid="_McDhJuCiEeuPcNmcDkpQJQ" passingMode="PATH" restId="orderId"/>
           </input>
           <fault xmi:id="_McMEROCiEeuPcNmcDkpQJQ" technicalid="_McDhJ-CiEeuPcNmcDkpQJQ" description="Invalid ID supplied" name="fault400" statusCode="400" statusMessage="Bad Request"/>
           <fault xmi:id="_McMEReCiEeuPcNmcDkpQJQ" technicalid="_McDhKOCiEeuPcNmcDkpQJQ" description="Order not found" name="fault404" statusCode="404" statusMessage="Not Found"/>
-          <metadatas>
-            <metadatas xsi:type="soa:PropertiesExtension" title="x-swagger-router-controller" body="OrderController" context="Operation"/>
-          </metadatas>
         </ownedOperations>
       </ownedInterface>
     </ownedServices>
@@ -388,8 +388,9 @@
     </ownedServices>
     <securitySchemes xmi:id="_McMrO-CiEeuPcNmcDkpQJQ" technicalid="_ro4mAOChEeuPcNmcDkpQJQ" key="petstore_auth" type="oauth2"/>
     <securitySchemes xmi:id="_McMrPOCiEeuPcNmcDkpQJQ" technicalid="_ro4mAeChEeuPcNmcDkpQJQ" key="api_key" name="api_key" apiKeyLocation="HEADER"/>
-    <license xmi:id="_McMrPeCiEeuPcNmcDkpQJQ" name="Apache 2.0" URL="http://www.apache.org/licenses/LICENSE-2.0.html"/>
-    <information xmi:id="_McMrPuCiEeuPcNmcDkpQJQ" apiVersion="1.0.5-SNAPSHOT" termsOfService="http://swagger.io/terms/"/>
-    <contact xmi:id="_McMrP-CiEeuPcNmcDkpQJQ" email="apiteam@swagger.io"/>
+    <license xmi:id="_McMrPeCiEeuPcNmcDkpQJQ" technicalid="_ltvoyvtNEeu474VqMQ4nuA" name="Apache 2.0" URL="http://www.apache.org/licenses/LICENSE-2.0.html"/>
+    <information xmi:id="_McMrPuCiEeuPcNmcDkpQJQ" technicalid="_ltvoy_tNEeu474VqMQ4nuA" apiVersion="1.0.5-SNAPSHOT" termsOfService="http://swagger.io/terms/"/>
+    <contact xmi:id="_McMrP-CiEeuPcNmcDkpQJQ" technicalid="_ltvozPtNEeu474VqMQ4nuA" email="apiteam@swagger.io"/>
+    <servers xmi:id="_oKHkcPtNEeu474VqMQ4nuA" technicalid="_oKG9YPtNEeu474VqMQ4nuA" createdOn="2021-08-12T11:13:59.095+0200" modifiedOn="2021-08-12T11:14:04.140+0200" URL="/v3"/>
   </ownedComponents>
 </soa:System>
