@@ -396,7 +396,7 @@
         </toolSections>
         <decorationDescriptionsSet>
           <decorationDescriptions xsi:type="description_1:MappingBasedDecoration" name="DEC_Operation_has_security_requirements" position="NORTH_EAST" preconditionExpression="aql:self.securitySchemes->notEmpty()" imageExpression="/org.obeonetwork.dsl.soa.edit/icons/full/obj16/SecurityScheme.gif" mappings="//@ownedViewpoints[name='SOA%20Views']/@ownedRepresentations[name='Component%20Contract%20Diagram']/@defaultLayer/@containerMappings[name='Cc_ServiceInterface_CM']/@subContainerMappings[name='Cc_Operation_CM']"/>
-          <decorationDescriptions xsi:type="description_1:MappingBasedDecoration" name="DEC_Operation_is_paged" position="SOUTH_EAST" preconditionExpression="aql:self.paged" imageExpression="/org.obeonetwork.dsl.soa.edit/icons/full/obj16/Pagination.gif" mappings="//@ownedViewpoints[name='SOA%20Views']/@ownedRepresentations[name='Component%20Contract%20Diagram']/@defaultLayer/@containerMappings[name='Cc_ServiceInterface_CM']/@subContainerMappings[name='Cc_Operation_CM']"/>
+          <decorationDescriptions xsi:type="description_1:MappingBasedDecoration" name="DEC_Operation_is_paged" position="SOUTH_EAST" preconditionExpression="aql:self.paged" imageExpression="/org.obeonetwork.dsl.soa.design/icons/full/obj16/SoaModelFile.gif" mappings="//@ownedViewpoints[name='SOA%20Views']/@ownedRepresentations[name='Component%20Contract%20Diagram']/@defaultLayer/@containerMappings[name='Cc_ServiceInterface_CM']/@subContainerMappings[name='Cc_Operation_CM']"/>
         </decorationDescriptionsSet>
       </defaultLayer>
     </ownedRepresentations>
