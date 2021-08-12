@@ -396,6 +396,7 @@
         </toolSections>
         <decorationDescriptionsSet>
           <decorationDescriptions xsi:type="description_1:MappingBasedDecoration" name="DEC_Operation_has_security_requirements" position="NORTH_EAST" preconditionExpression="aql:self.securitySchemes->notEmpty()" imageExpression="/org.obeonetwork.dsl.soa.edit/icons/full/obj16/SecurityScheme.gif" mappings="//@ownedViewpoints[name='SOA%20Views']/@ownedRepresentations[name='Component%20Contract%20Diagram']/@defaultLayer/@containerMappings[name='Cc_ServiceInterface_CM']/@subContainerMappings[name='Cc_Operation_CM']"/>
+          <decorationDescriptions xsi:type="description_1:MappingBasedDecoration" name="DEC_Operation_is_paged" position="SOUTH_EAST" preconditionExpression="aql:self.paged" imageExpression="/org.obeonetwork.dsl.soa.edit/icons/full/obj16/Pagination.gif" mappings="//@ownedViewpoints[name='SOA%20Views']/@ownedRepresentations[name='Component%20Contract%20Diagram']/@defaultLayer/@containerMappings[name='Cc_ServiceInterface_CM']/@subContainerMappings[name='Cc_Operation_CM']"/>
         </decorationDescriptionsSet>
       </defaultLayer>
     </ownedRepresentations>
@@ -1138,27 +1139,27 @@
       </pages>
     </categories>
     <categories name="Component">
-      <pages name="Operation Page" labelExpression="Operation" domainClass="soa::Operation" semanticCandidateExpression="var:self" groups="//@extensions.0/@categories.1/@groups.0"/>
+      <pages name="Operation Page" labelExpression="Operation" domainClass="soa::Operation" semanticCandidateExpression="var:self" groups="//@extensions.0/@categories.1/@groups.0 //@extensions.0/@categories.1/@groups.7"/>
       <pages name="Component Page" labelExpression="Component" domainClass="soa::Component" semanticCandidateExpression="var:self" groups="//@extensions.0/@categories.1/@groups.1"/>
       <pages name="Service Page" labelExpression="Service" domainClass="soa::Service" semanticCandidateExpression="var:self" groups="//@extensions.0/@categories.1/@groups.2"/>
       <pages name="Wire Page" labelExpression="Wire" domainClass="soa::Wire" semanticCandidateExpression="var:self" groups="//@extensions.0/@categories.1/@groups.3"/>
       <pages name="Parameter Page" labelExpression="Parameter" domainClass="soa::Parameter" semanticCandidateExpression="var:self" groups="//@extensions.0/@categories.1/@groups.4"/>
-      <pages name="Component Exposition Page" labelExpression="Exposition" domainClass="soa::Component" semanticCandidateExpression="var:self" groups="//@extensions.0/@categories.1/@groups.20 //@extensions.0/@categories.1/@groups.21 //@extensions.0/@categories.1/@groups.22 //@extensions.0/@categories.1/@groups.18"/>
-      <pages name="Service Exposition Page" labelExpression="Exposition" domainClass="soa::Service" semanticCandidateExpression="var:self" groups="//@extensions.0/@categories.1/@groups.5 //@extensions.0/@categories.1/@groups.8"/>
-      <pages name="Operation Exposition Page" labelExpression="Exposition" domainClass="soa::Operation" semanticCandidateExpression="var:self" preconditionExpression="aql:self.eContainer(soa::Service).kind=soa::InterfaceKind::provided and self.exposition&lt;>soa::ExpositionKind::NONE" groups="//@extensions.0/@categories.1/@groups.6 //@extensions.0/@categories.1/@groups.8 //@extensions.0/@categories.1/@groups.9 //@extensions.0/@categories.1/@groups.17"/>
-      <pages name="Parameter Exposition Page" labelExpression="Exposition" domainClass="soa::Parameter" semanticCandidateExpression="var:self" preconditionExpression="aql:self.eContainer(soa::Service).kind=soa::InterfaceKind::provided and self.exposition&lt;>soa::ExpositionKind::NONE" groups="//@extensions.0/@categories.1/@groups.7 //@extensions.0/@categories.1/@groups.8 //@extensions.0/@categories.1/@groups.23"/>
-      <pages name="Security Scheme Page" labelExpression="Security Scheme" domainClass="soa::SecurityScheme" semanticCandidateExpression="var:self" groups="//@extensions.0/@categories.1/@groups.10 //@extensions.0/@categories.1/@groups.11 //@extensions.0/@categories.1/@groups.12 //@extensions.0/@categories.1/@groups.13 //@extensions.0/@categories.1/@groups.14"/>
-      <pages name="Component Security Schemes Page" labelExpression="Security Schemes" domainClass="soa::Component" semanticCandidateExpression="var:self" groups="//@extensions.0/@categories.1/@groups.19"/>
-      <pages name="MediaType Page" labelExpression="Media type" domainClass="soa::MediaType" semanticCandidateExpression="var:self" groups="//@extensions.0/@categories.1/@groups.24"/>
-      <pages name="Example Page" labelExpression="Example" domainClass="soa::Example" semanticCandidateExpression="var:self" groups="//@extensions.0/@categories.1/@groups.25"/>
-      <pages name="Information Page" labelExpression="Information" domainClass="soa::Information" semanticCandidateExpression="var:self" groups="//@extensions.0/@categories.1/@groups.26"/>
-      <pages name="Contact Page" labelExpression="Contact" domainClass="soa::Contact" semanticCandidateExpression="var:self" groups="//@extensions.0/@categories.1/@groups.27"/>
-      <pages name="License Page" labelExpression="License" domainClass="soa::License" semanticCandidateExpression="var:self" groups="//@extensions.0/@categories.1/@groups.28"/>
-      <pages name="Properties Extension Page" labelExpression="Properties Extension" domainClass="soa::PropertiesExtension" semanticCandidateExpression="var:self" groups="//@extensions.0/@categories.1/@groups.29"/>
-      <pages name="Properties Extension List Page" labelExpression="Properties Extension" domainClass="environment::ObeoDSMObject" semanticCandidateExpression="var:self" preconditionExpression="aql:self.isPropertiesExtensionPossible()" groups="//@extensions.0/@categories.1/@groups.30"/>
-      <pages name="Server Page" labelExpression="Server" domainClass="soa::Server" semanticCandidateExpression="var:self" groups="//@extensions.0/@categories.1/@groups.31"/>
-      <pages name="Flow Page" labelExpression="Flow" domainClass="soa::Flow" semanticCandidateExpression="var:self" groups="//@extensions.0/@categories.1/@groups.15"/>
-      <pages name="Scope page" labelExpression="Scope" domainClass="soa::Scope" semanticCandidateExpression="var:self" groups="//@extensions.0/@categories.1/@groups.16"/>
+      <pages name="Component Exposition Page" labelExpression="Exposition" domainClass="soa::Component" semanticCandidateExpression="var:self" groups="//@extensions.0/@categories.1/@groups.22 //@extensions.0/@categories.1/@groups.23 //@extensions.0/@categories.1/@groups.24 //@extensions.0/@categories.1/@groups.20"/>
+      <pages name="Service Exposition Page" labelExpression="Exposition" domainClass="soa::Service" semanticCandidateExpression="var:self" groups="//@extensions.0/@categories.1/@groups.5 //@extensions.0/@categories.1/@groups.10"/>
+      <pages name="Operation Exposition Page" labelExpression="Exposition" domainClass="soa::Operation" semanticCandidateExpression="var:self" preconditionExpression="aql:self.eContainer(soa::Service).kind=soa::InterfaceKind::provided and self.exposition&lt;>soa::ExpositionKind::NONE" groups="//@extensions.0/@categories.1/@groups.6 //@extensions.0/@categories.1/@groups.10 //@extensions.0/@categories.1/@groups.11 //@extensions.0/@categories.1/@groups.19 //@extensions.0/@categories.1/@groups.8"/>
+      <pages name="Parameter Exposition Page" labelExpression="Exposition" domainClass="soa::Parameter" semanticCandidateExpression="var:self" preconditionExpression="aql:self.eContainer(soa::Service).kind=soa::InterfaceKind::provided and self.exposition&lt;>soa::ExpositionKind::NONE" groups="//@extensions.0/@categories.1/@groups.9 //@extensions.0/@categories.1/@groups.10 //@extensions.0/@categories.1/@groups.25"/>
+      <pages name="Security Scheme Page" labelExpression="Security Scheme" domainClass="soa::SecurityScheme" semanticCandidateExpression="var:self" groups="//@extensions.0/@categories.1/@groups.12 //@extensions.0/@categories.1/@groups.13 //@extensions.0/@categories.1/@groups.14 //@extensions.0/@categories.1/@groups.15 //@extensions.0/@categories.1/@groups.16"/>
+      <pages name="Component Security Schemes Page" labelExpression="Security Schemes" domainClass="soa::Component" semanticCandidateExpression="var:self" groups="//@extensions.0/@categories.1/@groups.21"/>
+      <pages name="MediaType Page" labelExpression="Media type" domainClass="soa::MediaType" semanticCandidateExpression="var:self" groups="//@extensions.0/@categories.1/@groups.26"/>
+      <pages name="Example Page" labelExpression="Example" domainClass="soa::Example" semanticCandidateExpression="var:self" groups="//@extensions.0/@categories.1/@groups.27"/>
+      <pages name="Information Page" labelExpression="Information" domainClass="soa::Information" semanticCandidateExpression="var:self" groups="//@extensions.0/@categories.1/@groups.28"/>
+      <pages name="Contact Page" labelExpression="Contact" domainClass="soa::Contact" semanticCandidateExpression="var:self" groups="//@extensions.0/@categories.1/@groups.29"/>
+      <pages name="License Page" labelExpression="License" domainClass="soa::License" semanticCandidateExpression="var:self" groups="//@extensions.0/@categories.1/@groups.30"/>
+      <pages name="Properties Extension Page" labelExpression="Properties Extension" domainClass="soa::PropertiesExtension" semanticCandidateExpression="var:self" groups="//@extensions.0/@categories.1/@groups.31"/>
+      <pages name="Properties Extension List Page" labelExpression="Properties Extension" domainClass="environment::ObeoDSMObject" semanticCandidateExpression="var:self" preconditionExpression="aql:self.isPropertiesExtensionPossible()" groups="//@extensions.0/@categories.1/@groups.32"/>
+      <pages name="Server Page" labelExpression="Server" domainClass="soa::Server" semanticCandidateExpression="var:self" groups="//@extensions.0/@categories.1/@groups.33"/>
+      <pages name="Flow Page" labelExpression="Flow" domainClass="soa::Flow" semanticCandidateExpression="var:self" groups="//@extensions.0/@categories.1/@groups.17"/>
+      <pages name="Scope page" labelExpression="Scope" domainClass="soa::Scope" semanticCandidateExpression="var:self" groups="//@extensions.0/@categories.1/@groups.18"/>
       <groups name="Operation Group" labelExpression="Properties" domainClass="soa::Operation" semanticCandidateExpression="var:self">
         <controls xsi:type="properties:TextDescription" name="soa::Operation name" labelExpression="aql:input.emfEditServices(self).getText(self.eClass().getEStructuralFeature('name')) + ':'" helpExpression="aql:input.emfEditServices(self).getDescription(self.eClass().getEStructuralFeature('name'))" isEnabledExpression="aql:self.eClass().getEStructuralFeature('name').changeable" valueExpression="aql:self.name">
           <initialOperation>
@@ -1351,6 +1352,30 @@
           </customOperations>
         </controls>
       </groups>
+      <groups name="Operation Pagination Group" labelExpression="Pagination" domainClass="soa::Operation" semanticCandidateExpression="var:self" preconditionExpression="aql:self.paged">
+        <controls xsi:type="properties:SelectDescription" name="soa::Operation page" labelExpression="aql:input.emfEditServices(self).getText(self.eClass().getEStructuralFeature('page')) + ':'" helpExpression="aql:input.emfEditServices(self).getDescription(self.eClass().getEStructuralFeature('page'))" isEnabledExpression="aql:self.eClass().getEStructuralFeature('page').changeable" valueExpression="aql:self.page" candidatesExpression="aql:self.input+Sequence{ null }" candidateDisplayExpression="aql:candidate.name">
+          <initialOperation>
+            <firstModelOperations xsi:type="tool_1:SetValue" featureName="page" valueExpression="aql:newValue"/>
+          </initialOperation>
+        </controls>
+        <controls xsi:type="properties:SelectDescription" name="soa::Operation size" labelExpression="aql:input.emfEditServices(self).getText(self.eClass().getEStructuralFeature('size')) + ':'" helpExpression="aql:input.emfEditServices(self).getDescription(self.eClass().getEStructuralFeature('size'))" isEnabledExpression="aql:self.eClass().getEStructuralFeature('size').changeable" valueExpression="aql:self.size" candidatesExpression="aql:self.input+Sequence{ null }" candidateDisplayExpression="aql:candidate.name">
+          <initialOperation>
+            <firstModelOperations xsi:type="tool_1:SetValue" featureName="size" valueExpression="aql:newValue"/>
+          </initialOperation>
+        </controls>
+      </groups>
+      <groups name="Operation Exposition Pagination Group" labelExpression="Pagination" domainClass="soa::Operation" semanticCandidateExpression="var:self" preconditionExpression="aql:self.paged">
+        <controls xsi:type="properties:TextDescription" name="soa::Operation pagination extension name" labelExpression="Pagination extension name:" helpExpression="aql:input.emfEditServices(self).getDescription(self.eClass().getEStructuralFeature('paginationExtension'))" isEnabledExpression="aql:self.eClass().getEStructuralFeature('paginationExtension').changeable" valueExpression="aql:self.paginationExtension.title">
+          <initialOperation>
+            <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="aql:self.setPaginationExtensionName(newValue)"/>
+          </initialOperation>
+        </controls>
+        <controls xsi:type="properties:TextDescription" name="soa::Operation pagination extension description" labelExpression="Pagination extension description:" helpExpression="aql:input.emfEditServices(self).getDescription(self.eClass().getEStructuralFeature('paginationExtension'))" isEnabledExpression="aql:self.eClass().getEStructuralFeature('paginationExtension').changeable" valueExpression="aql:self.paginationExtension.body">
+          <initialOperation>
+            <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="aql:self.setPaginationExtensionValue(newValue)"/>
+          </initialOperation>
+        </controls>
+      </groups>
       <groups name="Parameter Exposition Group" labelExpression="Exposition" domainClass="soa::Parameter" semanticCandidateExpression="var:self" preconditionExpression="aql:self.eContainer(soa::Service).kind=soa::InterfaceKind::provided">
         <controls xsi:type="properties:ContainerDescription">
           <controls xsi:type="properties:DynamicMappingForDescription" iterator="single" iterableExpression="aql:Sequence{self}" forceRefresh="true">
@@ -1411,7 +1436,7 @@
           <layout xsi:type="properties:GridLayoutDescription" numberOfColumns="2"/>
         </controls>
         <validationSet>
-          <propertyValidationRules name="Invalid rest id" level="ERROR" message="The rest id is not defined in the operation URI." targets="//@extensions.0/@categories.1/@groups.7/@controls.0/@controls.0/@ifs.2/@widget">
+          <propertyValidationRules name="Invalid rest id" level="ERROR" message="The rest id is not defined in the operation URI." targets="//@extensions.0/@categories.1/@groups.9/@controls.0/@controls.0/@ifs.2/@widget">
             <audits auditExpression="aql:self.eContainer(soa::Operation).getParamIdsFromURI()->includes(self.restData.restId)"/>
           </propertyValidationRules>
         </validationSet>
@@ -1461,7 +1486,7 @@
           <layout xsi:type="properties:GridLayoutDescription" numberOfColumns="3"/>
         </controls>
         <validationSet>
-          <propertyValidationRules name="Invalid rest id" level="ERROR" message="The rest id is not defined in the operation URI." targets="//@extensions.0/@categories.1/@groups.9/@controls.0/@controls.0/@ifs.3/@widget">
+          <propertyValidationRules name="Invalid rest id" level="ERROR" message="The rest id is not defined in the operation URI." targets="//@extensions.0/@categories.1/@groups.11/@controls.0/@controls.0/@ifs.3/@widget">
             <audits auditExpression="aql:self.getParamIdsFromURI()->includes(restData.restId)"/>
           </propertyValidationRules>
         </validationSet>
@@ -1768,7 +1793,7 @@
           </initialOperation>
         </controls>
         <validationSet>
-          <propertyValidationRules name=" soa::Component Information TOS Validation" level="WARNING" message="Invalid URL" targets="//@extensions.0/@categories.1/@groups.20/@controls.1">
+          <propertyValidationRules name=" soa::Component Information TOS Validation" level="WARNING" message="Invalid URL" targets="//@extensions.0/@categories.1/@groups.22/@controls.1">
             <audits auditExpression="aql:self.information.termsOfService.isValidURL()"/>
           </propertyValidationRules>
         </validationSet>
@@ -1796,10 +1821,10 @@
           </initialOperation>
         </controls>
         <validationSet>
-          <propertyValidationRules name="soa::Component Contact URL Validation" level="WARNING" message="Invalid URL" targets="//@extensions.0/@categories.1/@groups.21/@controls.1">
+          <propertyValidationRules name="soa::Component Contact URL Validation" level="WARNING" message="Invalid URL" targets="//@extensions.0/@categories.1/@groups.23/@controls.1">
             <audits auditExpression="aql:self.contact.URL.isValidURL()"/>
           </propertyValidationRules>
-          <propertyValidationRules name="soa::Component Contact Email Validation" level="WARNING" message="Invalid Email" targets="//@extensions.0/@categories.1/@groups.21/@controls.2">
+          <propertyValidationRules name="soa::Component Contact Email Validation" level="WARNING" message="Invalid Email" targets="//@extensions.0/@categories.1/@groups.23/@controls.2">
             <audits auditExpression="aql:self.contact.email.isValidEmail()"/>
           </propertyValidationRules>
         </validationSet>
@@ -1820,7 +1845,7 @@
           </initialOperation>
         </controls>
         <validationSet>
-          <propertyValidationRules name="soa::Component License URL Validation" level="WARNING" message="Invalid URL" targets="//@extensions.0/@categories.1/@groups.22/@controls.1">
+          <propertyValidationRules name="soa::Component License URL Validation" level="WARNING" message="Invalid URL" targets="//@extensions.0/@categories.1/@groups.24/@controls.1">
             <audits auditExpression="aql:self.license.URL.isValidURL()"/>
           </propertyValidationRules>
         </validationSet>
@@ -1913,10 +1938,10 @@
           </customOperations>
         </controls>
         <validationSet>
-          <propertyValidationRules name="mediaTypeIdentifier prefix validator" level="WARNING" message="Invalid identifier type " targets="//@extensions.0/@categories.1/@groups.24/@controls.0/@controls.0">
+          <propertyValidationRules name="mediaTypeIdentifier prefix validator" level="WARNING" message="Invalid identifier type " targets="//@extensions.0/@categories.1/@groups.26/@controls.0/@controls.0">
             <audits auditExpression="aql:self.isValidPrefix()"/>
           </propertyValidationRules>
-          <propertyValidationRules name="mediaTypeIdentifier suffix validator" level="WARNING" message="Invalid identifier suffix" targets="//@extensions.0/@categories.1/@groups.24/@controls.0/@controls.0">
+          <propertyValidationRules name="mediaTypeIdentifier suffix validator" level="WARNING" message="Invalid identifier suffix" targets="//@extensions.0/@categories.1/@groups.26/@controls.0/@controls.0">
             <audits auditExpression="aql:self.isValidSuffix()"/>
           </propertyValidationRules>
         </validationSet>
@@ -1955,7 +1980,7 @@
           </initialOperation>
         </controls>
         <validationSet>
-          <propertyValidationRules name=" soa::Information TOS Validation" level="WARNING" message="Invalid URL" targets="//@extensions.0/@categories.1/@groups.26/@controls.1">
+          <propertyValidationRules name=" soa::Information TOS Validation" level="WARNING" message="Invalid URL" targets="//@extensions.0/@categories.1/@groups.28/@controls.1">
             <audits auditExpression="aql:self.termsOfService.isValidURL()"/>
           </propertyValidationRules>
         </validationSet>
@@ -1977,10 +2002,10 @@
           </initialOperation>
         </controls>
         <validationSet>
-          <propertyValidationRules name="soa::Contact URL Validation" level="WARNING" message="Invalid URL" targets="//@extensions.0/@categories.1/@groups.27/@controls.1">
+          <propertyValidationRules name="soa::Contact URL Validation" level="WARNING" message="Invalid URL" targets="//@extensions.0/@categories.1/@groups.29/@controls.1">
             <audits auditExpression="aql:self.URL.isValidURL()"/>
           </propertyValidationRules>
-          <propertyValidationRules name="soa::Contact Email Validation" level="WARNING" message="Invalid Email" targets="//@extensions.0/@categories.1/@groups.27/@controls.2">
+          <propertyValidationRules name="soa::Contact Email Validation" level="WARNING" message="Invalid Email" targets="//@extensions.0/@categories.1/@groups.29/@controls.2">
             <audits auditExpression="aql:self.email.isValidEmail()"/>
           </propertyValidationRules>
         </validationSet>
@@ -1997,7 +2022,7 @@
           </initialOperation>
         </controls>
         <validationSet>
-          <propertyValidationRules name="soa::License URL Validation" level="WARNING" message="Invalid URL" targets="//@extensions.0/@categories.1/@groups.28/@controls.1">
+          <propertyValidationRules name="soa::License URL Validation" level="WARNING" message="Invalid URL" targets="//@extensions.0/@categories.1/@groups.30/@controls.1">
             <audits auditExpression="aql:self.URL.isValidURL()"/>
           </propertyValidationRules>
         </validationSet>
@@ -2029,7 +2054,7 @@
           <customExpressions name="ColumnsExpression" customExpression="aql:Sequence{'title', 'body', 'context'}"/>
           <customExpressions name="referenceOwnerExpression" customExpression="aql:self.metadatas"/>
           <customExpressions name="referenceNameExpression" customExpression="aql:'metadatas'"/>
-          <customExpressions name="preconditionExpression" customExpression="aql:self.oclIsKindOf(soa::PropertiesExtension)"/>
+          <customExpressions name="preconditionExpression" customExpression="aql:self.isValidPropertyExtension()"/>
           <customOperations name="CreateElementOperation">
             <initialOperation>
               <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:self">
@@ -2088,7 +2113,7 @@
           </initialOperation>
         </controls>
         <validationSet>
-          <propertyValidationRules name="soa::Server URL Validation" level="WARNING" message="Invalid URL" targets="//@extensions.0/@categories.1/@groups.31/@controls.0">
+          <propertyValidationRules name="soa::Server URL Validation" level="WARNING" message="Invalid URL" targets="//@extensions.0/@categories.1/@groups.33/@controls.0">
             <audits auditExpression="aql:self.URL.isValidURL()"/>
           </propertyValidationRules>
         </validationSet>
