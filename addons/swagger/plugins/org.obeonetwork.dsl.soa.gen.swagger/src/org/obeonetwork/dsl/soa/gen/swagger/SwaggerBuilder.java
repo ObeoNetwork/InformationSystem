@@ -930,11 +930,6 @@ public class SwaggerBuilder {
 			buildSortParameter(operation);
 		}
 
-		if (soaOperation.isPaged() && soaOperation.getVerb() == Verb.GET) {
-			buildPaginableSizeParameter(operation, soaOperation);
-			buildPaginablePageParameter(operation);
-		}
-
 		return operation;
 	}
 

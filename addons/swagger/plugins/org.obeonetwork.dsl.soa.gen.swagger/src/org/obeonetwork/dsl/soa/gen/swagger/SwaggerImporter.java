@@ -45,7 +45,7 @@ public class SwaggerImporter {
 		this.environment = environment;
 	}
 
-	public int importFromFile(String inputFilePath) {
+	public int importFromFile(String inputFilePath, String paginationExtension) {
 		int status = IStatus.OK;
 		
 		File inputFile = new File(inputFilePath);
@@ -92,7 +92,7 @@ public class SwaggerImporter {
 		}
 		
 		if(status != IStatus.ERROR) {
-			SoaComponentBuilder soaComponentBuilder = new SoaComponentBuilder(swagger, environment);
+			SoaComponentBuilder soaComponentBuilder = new SoaComponentBuilder(swagger, environment, paginationExtension);
 			status = soaComponentBuilder.build();
 			
 			if(status != IStatus.ERROR) {
