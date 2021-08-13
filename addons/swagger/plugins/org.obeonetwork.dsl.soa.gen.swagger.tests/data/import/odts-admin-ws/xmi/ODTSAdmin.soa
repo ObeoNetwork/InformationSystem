@@ -427,5 +427,7 @@
     <license xmi:id="_ayN3ZfXJEeuFQNICNCagmQ" technicalid="_axeP8PXJEeuFQNICNCagmQ" name="Copyright (c) 2008, 2021 Obeo." URL="/doc/license.html"/>
     <information xmi:id="_ayN3ZvXJEeuFQNICNCagmQ" technicalid="_axdo4PXJEeuFQNICNCagmQ" apiVersion="1.0.0"/>
     <contact xmi:id="_ayN3Z_XJEeuFQNICNCagmQ" technicalid="_axeP8fXJEeuFQNICNCagmQ" email="support@obeo.fr"/>
+    <servers xmi:id="_PSp7oPtNEeu474VqMQ4nuA" technicalid="_PSpUkPtNEeu474VqMQ4nuA" description="Production server (use live data)" createdOn="2021-08-12T11:11:12.226+0200" modifiedOn="2021-08-12T11:11:59.773+0200" URL="/api/v1.0"/>
+    <servers xmi:id="_WrApQftNEeu474VqMQ4nuA" technicalid="_WrApQPtNEeu474VqMQ4nuA" description="Server on the current host" createdOn="2021-08-12T11:12:01.748+0200" modifiedOn="2021-08-12T11:12:22.186+0200" URL="{protocol}://localhost:8080/api/v1.0"/>
   </ownedComponents>
 </soa:System>

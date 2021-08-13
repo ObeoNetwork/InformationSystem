@@ -670,10 +670,9 @@
       </ownedAttributes>
     </types>
   </ownedNamespaces>
-  <ownedComponents xmi:id="_sy9wjukuEeucSsoZ8vlqGw" technicalid="_syqN0OkuEeucSsoZ8vlqGw" description="API v3 targets v2 functionality with a few minor additions. The API is accessible via https://api.thetvdb.com and provides the following REST endpoints in JSON format.&#xA;&#xA;&#xA;How to use this API documentation&#xA;----------------&#xA;&#xA;&#xA;You may browse the API routes without authentication, but if you wish to send requests to the API and see response data, then you must authenticate.&#xA;1. Obtain a JWT token by `POST`ing  to the `/login` route in the `Authentication` section with your API key and credentials.&#xA;1. Paste the JWT token from the response into the &quot;JWT Token&quot; field at the top of the page and click the 'Add Token' button.&#xA;&#xA;&#xA;You will now be able to use the remaining routes to send requests to the API and get a response.&#xA;&#xA;&#xA;Language Selection&#xA;----------------&#xA;&#xA;&#xA;Language selection is done via the `Accept-Language` header. At the moment, you may only pass one language abbreviation in the header at a time. Valid language abbreviations can be found at the `/languages` route..&#xA;&#xA;&#xA;Authentication&#xA;----------------&#xA;&#xA;&#xA;Authentication to use the API is similar to the How-to section above. Users must `POST` to the `/login` route with their API key and credentials in the following format in order to obtain a JWT token.&#xA;&#xA;`{&quot;apikey&quot;:&quot;APIKEY&quot;,&quot;username&quot;:&quot;USERNAME&quot;,&quot;userkey&quot;:&quot;USERKEY&quot;}`&#xA;&#xA;Note that the username and key are ONLY required for the `/user` routes. The user's key is labled `Account Identifier` in the account section of the main site.&#xA;The token is then used in all subsequent requests by providing it in the `Authorization` header. The header will look like: `Authorization: Bearer &lt;yourJWTtoken>`. Currently, the token expires after 24 hours. You can `GET` the `/refresh_token` route to extend that expiration date.&#xA;&#xA;&#xA;Versioning&#xA;----------------&#xA;&#xA;&#xA;You may request a different version of the API by including an `Accept` header in your request with the following format: `Accept:application/vnd.thetvdb.v$VERSION`. This documentation automatically uses the version seen at the top and bottom of the page." name="TheTVDB API v3" URI="" URL="/tvdb" apiVersion="3.0.0">
+  <ownedComponents xmi:id="_sy9wjukuEeucSsoZ8vlqGw" technicalid="_syqN0OkuEeucSsoZ8vlqGw" description="API v3 targets v2 functionality with a few minor additions. The API is accessible via https://api.thetvdb.com and provides the following REST endpoints in JSON format.&#xA;&#xA;&#xA;How to use this API documentation&#xA;----------------&#xA;&#xA;&#xA;You may browse the API routes without authentication, but if you wish to send requests to the API and see response data, then you must authenticate.&#xA;1. Obtain a JWT token by `POST`ing  to the `/login` route in the `Authentication` section with your API key and credentials.&#xA;1. Paste the JWT token from the response into the &quot;JWT Token&quot; field at the top of the page and click the 'Add Token' button.&#xA;&#xA;&#xA;You will now be able to use the remaining routes to send requests to the API and get a response.&#xA;&#xA;&#xA;Language Selection&#xA;----------------&#xA;&#xA;&#xA;Language selection is done via the `Accept-Language` header. At the moment, you may only pass one language abbreviation in the header at a time. Valid language abbreviations can be found at the `/languages` route..&#xA;&#xA;&#xA;Authentication&#xA;----------------&#xA;&#xA;&#xA;Authentication to use the API is similar to the How-to section above. Users must `POST` to the `/login` route with their API key and credentials in the following format in order to obtain a JWT token.&#xA;&#xA;`{&quot;apikey&quot;:&quot;APIKEY&quot;,&quot;username&quot;:&quot;USERNAME&quot;,&quot;userkey&quot;:&quot;USERKEY&quot;}`&#xA;&#xA;Note that the username and key are ONLY required for the `/user` routes. The user's key is labled `Account Identifier` in the account section of the main site.&#xA;The token is then used in all subsequent requests by providing it in the `Authorization` header. The header will look like: `Authorization: Bearer &lt;yourJWTtoken>`. Currently, the token expires after 24 hours. You can `GET` the `/refresh_token` route to extend that expiration date.&#xA;&#xA;&#xA;Versioning&#xA;----------------&#xA;&#xA;&#xA;You may request a different version of the API by including an `Accept` header in your request with the following format: `Accept:application/vnd.thetvdb.v$VERSION`. This documentation automatically uses the version seen at the top and bottom of the page." createdOn="2021-08-12T10:59:32.369+0200" modifiedOn="2021-08-12T11:03:41.561+0200" name="TheTVDB API v3" URI="testuri" apiVersion="3.0.0" URL="/tvdb">
     <metadatas xmi:id="_sy9wj-kuEeucSsoZ8vlqGw" technicalid="_syqN1ekuEeucSsoZ8vlqGw">
       <metadatas xsi:type="soa:PropertiesExtension" xmi:id="_sy9wkOkuEeucSsoZ8vlqGw" technicalid="_syqN1OkuEeucSsoZ8vlqGw" title="x-CptSurOpenApi" body="Component-OpenApi" context="OpenAPI"/>
-      <metadatas xsi:type="soa:PropertiesExtension" xmi:id="_sy9wkekuEeucSsoZ8vlqGw" technicalid="_syqN3OkuEeucSsoZ8vlqGw" title="x-CptSurServer" body="Component-Server" context="Server"/>
       <metadatas xsi:type="soa:PropertiesExtension" xmi:id="_sy9wkukuEeucSsoZ8vlqGw" technicalid="_syz_oukuEeucSsoZ8vlqGw" title="x-CptSurPaths" body="Component-Paths" context="Paths"/>
     </metadatas>
     <ownedServices xmi:id="_sy9wk-kuEeucSsoZ8vlqGw" technicalid="_syz_o-kuEeucSsoZ8vlqGw" description="Information about a specific series" name="Series" URI="/series">
@@ -681,11 +680,11 @@
         <metadatas xsi:type="soa:PropertiesExtension" xmi:id="_89smB-rDEeuD459lulj5VA" technicalid="_89kqMOrDEeuD459lulj5VA" title="x-ServiceSurTag" body="Service-Tag" context="Tag"/>
       </metadatas>
       <ownedInterface xmi:id="_sy9wlOkuEeucSsoZ8vlqGw" technicalid="_syz_q-kuEeucSsoZ8vlqGw" name="Series">
-        <ownedOperations xmi:id="_sy9wlekuEeucSsoZ8vlqGw" technicalid="_syz_rOkuEeucSsoZ8vlqGw" description="Returns a series records that contains all information known about a particular series id." name="getFromId2" public="true" URI="/{id}" exposition="REST" paged="true" securitySchemes="_sy9x8ukuEeucSsoZ8vlqGw">
+        <ownedOperations xmi:id="_sy9wlekuEeucSsoZ8vlqGw" technicalid="_syz_rOkuEeucSsoZ8vlqGw" description="Returns a series records that contains all information known about a particular series id." createdOn="2021-08-12T11:04:16.468+0200" modifiedOn="2021-08-12T11:05:19.742+0200" name="getFromId2" public="true" URI="/{id}" exposition="REST" paged="true" securitySchemes="_sy9x8ukuEeucSsoZ8vlqGw">
           <metadatas xmi:id="_sy9wlukuEeucSsoZ8vlqGw" technicalid="_syz_rukuEeucSsoZ8vlqGw">
             <metadatas xsi:type="soa:PropertiesExtension" xmi:id="_sy9wl-kuEeucSsoZ8vlqGw" technicalid="_syz_rekuEeucSsoZ8vlqGw" title="x-OperationSurOperation" body="Operation-Operation" context="Operation"/>
             <metadatas xsi:type="soa:PropertiesExtension" xmi:id="_sy9wmOkuEeucSsoZ8vlqGw" technicalid="_syz_tekuEeucSsoZ8vlqGw" title="x-OperationSurApiResponses" body="Operation-ApiResponses" context="ApiResponses"/>
-			<metadatas xsi:type="soa:PropertiesExtension" xmi:id="_sy9wl-kvEeucSsoZ8vlqGw" technicalid="_syz_sekuEeucSsoZ8vlqGw" title="x-OperationSurPathItem" body="Operation-PathItem" context="PathItem"/>
+            <metadatas xsi:type="soa:PropertiesExtension" xmi:id="_sy9wl-kvEeucSsoZ8vlqGw" technicalid="_syz_sekuEeucSsoZ8vlqGw" title="x-OperationSurPathItem" body="Operation-PathItem" context="PathItem"/>
           </metadatas>
           <input xmi:id="_sy9wmukuEeucSsoZ8vlqGw" technicalid="_syz_r-kuEeucSsoZ8vlqGw" description="ID of the series" name="id">
             <metadatas xmi:id="_sy9wm-kuEeucSsoZ8vlqGw" technicalid="_syz_sukuEeucSsoZ8vlqGw">
@@ -704,8 +703,8 @@
               <metadatas xsi:type="soa:PropertiesExtension" xmi:id="_sy9woukuEeucSsoZ8vlqGw" technicalid="_syz_uOkuEeucSsoZ8vlqGw" title="x-ParameterSurApiResponse" body="Parameter-ApiResponse" context="ApiResponse"/>
             </metadatas>
             <mediaType xmi:id="_sy9wo-kuEeucSsoZ8vlqGw" technicalid="_syz_uukuEeucSsoZ8vlqGw" identifier="application/pdf">
-              <metadatas>
-                <metadatas xsi:type="soa:PropertiesExtension" title="x-MediaTypeMediaType" body="MediaType-MediaType" context="MediaType"/>
+              <metadatas xmi:id="_hWHL8PtLEeuIRLTjk6WcPA" technicalid="_hWCTgftLEeuIRLTjk6WcPA">
+                <metadatas xsi:type="soa:PropertiesExtension" xmi:id="_hWHL8ftLEeuIRLTjk6WcPA" technicalid="_hWCTgvtLEeuIRLTjk6WcPA" title="x-MediaTypeMediaType" body="MediaType-MediaType" context="MediaType"/>
               </metadatas>
               <examples xmi:id="_sy9wpOkuEeucSsoZ8vlqGw" technicalid="_syz_u-kuEeucSsoZ8vlqGw" description="description example for output200" summary="summary example for output200" value="null" name="example for output200">
                 <metadatas xmi:id="_sy9wpekuEeucSsoZ8vlqGw" technicalid="_syz_vekuEeucSsoZ8vlqGw">
@@ -720,6 +719,13 @@
           <fault xmi:id="_sy9wqekuEeucSsoZ8vlqGw" technicalid="_syz_wOkuEeucSsoZ8vlqGw" description="Not Found&#xA;&#xA;Returned if the given series ID does not exist" type="_sy9yfukuEeucSsoZ8vlqGw" name="fault404" multiplicity="0..1" statusCode="404" statusMessage="Not Found">
             <mediaType xmi:id="_sy9wqukuEeucSsoZ8vlqGw" technicalid="_syz_wekuEeucSsoZ8vlqGw" identifier="application/json"/>
           </fault>
+          <servers xmi:id="_RVwRQftMEeuIRLTjk6WcPA" technicalid="_RVwRQPtMEeuIRLTjk6WcPA" description="descriptionserver3" createdOn="2021-08-12T11:04:16.469+0200" modifiedOn="2021-08-12T11:05:40.566+0200" URL="urlserver3">
+            <metadatas xmi:id="_d3xnYftMEeuIRLTjk6WcPA" technicalid="_d3xnYPtMEeuIRLTjk6WcPA">
+              <metadatas xsi:type="soa:PropertiesExtension" xmi:id="_d3xnY_tMEeuIRLTjk6WcPA" technicalid="_d3xnYvtMEeuIRLTjk6WcPA" title="x-ServerSurServer" body="Server-Server" context="Server"/>
+              <metadatas xsi:type="soa:PropertiesExtension" xmi:id="_e2Qo4PtMEeuIRLTjk6WcPA" technicalid="_e2QB0PtMEeuIRLTjk6WcPA" title="x-ServerSurServer2" body="Server-Server2" context="Server"/>
+            </metadatas>
+          </servers>
+          <servers xmi:id="_axLp4ftMEeuIRLTjk6WcPA" technicalid="_axLp4PtMEeuIRLTjk6WcPA" description="descriptionserver4" createdOn="2021-08-12T11:05:19.742+0200" modifiedOn="2021-08-12T11:05:30.975+0200" URL="urlserver4"/>
         </ownedOperations>
         <ownedOperations xmi:id="_sy9wq-kuEeucSsoZ8vlqGw" technicalid="_syz_wukuEeucSsoZ8vlqGw" description="Returns actors for the given series id" name="getActorsFromId" public="true" URI="/{id}/actors" exposition="REST" paged="true" securitySchemes="_sy9x8ukuEeucSsoZ8vlqGw">
           <input xmi:id="_sy9wrOkuEeucSsoZ8vlqGw" technicalid="_syz_w-kuEeucSsoZ8vlqGw" description="ID of the series" name="id">
@@ -1301,5 +1307,11 @@
         <metadatas xsi:type="soa:PropertiesExtension" xmi:id="_sy9x--kuEeucSsoZ8vlqGw" technicalid="_syqN2OkuEeucSsoZ8vlqGw" title="x-ContactSurContact" body="Contact-Contact" context="Contact"/>
       </metadatas>
     </contact>
+    <servers xmi:id="_Dw6MMftMEeuIRLTjk6WcPA" technicalid="_Dw6MMPtMEeuIRLTjk6WcPA" description="descriptionurl1" createdOn="2021-08-12T11:02:45.363+0200" modifiedOn="2021-08-12T11:03:59.108+0200" URL="testurl1">
+      <metadatas xmi:id="_OwMkQftMEeuIRLTjk6WcPA" technicalid="_OwMkQPtMEeuIRLTjk6WcPA">
+        <metadatas xsi:type="soa:PropertiesExtension" xmi:id="_OwMkQ_tMEeuIRLTjk6WcPA" technicalid="_OwMkQvtMEeuIRLTjk6WcPA" title="x-ServerSurServer" body="Server-Server" context="Server"/>
+      </metadatas>
+    </servers>
+    <servers xmi:id="_GWHT4ftMEeuIRLTjk6WcPA" technicalid="_GWHT4PtMEeuIRLTjk6WcPA" description="descriptionurl2" createdOn="2021-08-12T11:03:02.687+0200" modifiedOn="2021-08-12T11:03:13.600+0200" URL="testurl2"/>
   </ownedComponents>
 </soa:System>

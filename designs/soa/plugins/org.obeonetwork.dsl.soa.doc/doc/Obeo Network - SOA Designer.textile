@@ -282,13 +282,13 @@ Les données d'exposition sont accessibles via l'onglet _Exposition_ de la vue d
 
 !pics/exposition/Properties_Component_Exposition_Tab.png!
 
-L'_URL_ est l'URL de base du serveur destiné à héberger l'API.
-
 Une _URI_ peut être définie à chaque niveau de profondeur dans le modèle sur les concepts _Component_, _Service_ et _Operation_ :
 
 !pics/exposition/ModelExplorer_SOA_Hierarchy.png!
 
 L'URL d'une _Operation_ peut donc être calculée par la concaténation de l'URL du _Component_ et de chacune des URI sur les trois niveaux _Component_, _Service_ et _Operation_.
+
+Des serveurs peuvent être définis au niveau du _Component_. Pour chaque serveur, l'URL correspondante doit être indiquée, et une description peut éventuellement être précisée. 
 
 h4. Modélisation d'un Tag OpenAPI
 
@@ -305,6 +305,8 @@ Le concept en correspondance avec le _Service OpenAPI_ est le concept _Operation
 !pics/exposition/Properties_Operation_Exposition_Tab.png!
 
 Le verbe correspond au verbe HTTP et peut prendre l'une des valeurs : _GET_, _POST_, _PUT_, _DELETE_, _HEAD_, _OPTIONS_, _PATCH_, _TRACE_.
+
+Comme au niveau _Component_, il est possible de définir l'URI d'une _Operation_ ainsi qu'une liste de serveurs.
 
 Dans le cas où l'opération définit des paramètres d'entrée, ceux-ci sont listés dans la section _Input Parameters_, qui offre la possibilité de définir le mode de passage et les identifiants REST de chacun d'eux. Ceci est expliqué plus en détail ci-dessous dans la section "Modélisation d'un paramètre d'entrée":#input_parameter .
 

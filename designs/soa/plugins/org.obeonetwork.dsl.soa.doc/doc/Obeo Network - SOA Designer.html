@@ -682,9 +682,6 @@
 		<p>
 			<img border="0" src="pics/exposition/Properties_Component_Exposition_Tab.png"/>
 		</p>
-		<p>L'
-			<em>URL</em> est l&#8217;URL de base du serveur destiné à héberger l&#8217;API.
-		</p>
 		<p>Une 
 			<em>URI</em> peut être définie à chaque niveau de profondeur dans le modèle sur les concepts 
 			<em>Component</em>, 
@@ -700,6 +697,9 @@
 			<em>Component</em>, 
 			<em>Service</em> et 
 			<em>Operation</em>.
+		</p>
+		<p>Des serveurs peuvent être définis au niveau du 
+			<em>Component</em>. Pour chaque serveur, l&#8217;URL correspondante doit être indiquée, et une description peut éventuellement être précisée. 
 		</p>
 		<h4 id="ModlisationdunTagOpenAPI">Modélisation d&#8217;un Tag OpenAPI</h4>
 		<p>Le concept en correspondance avec le 
@@ -732,6 +732,10 @@
 			<em>OPTIONS</em>, 
 			<em>PATCH</em>, 
 			<em>TRACE</em>.
+		</p>
+		<p>Comme au niveau 
+			<em>Component</em>, il est possible de définir l&#8217;URI d&#8217;une 
+			<em>Operation</em> ainsi qu&#8217;une liste de serveurs.
 		</p>
 		<p>Dans le cas où l&#8217;opération définit des paramètres d&#8217;entrée, ceux-ci sont listés dans la section 
 			<em>Input Parameters</em>, qui offre la possibilité de définir le mode de passage et les identifiants REST de chacun d&#8217;eux. Ceci est expliqué plus en détail ci-dessous dans la section 

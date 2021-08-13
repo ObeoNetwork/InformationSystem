@@ -54,8 +54,8 @@ info:
   version: 3.0.0
   x-InformationSurInfo: Information-Info
 servers:
-- url: /tvdb
-  x-CptSurServer: Component-Server
+- {url: testurl1, description: descriptionurl1, x-ServerSurServer: Server-Server}
+- {url: testurl2, description: descriptionurl2}
 tags:
 - name: Series
   description: Information about a specific series
@@ -75,7 +75,7 @@ tags:
 - name: Users
   description: Routes for handling user data.
 paths:
-  /series/{id}:
+  testuri/series/{id}:
     get:
       tags:
       - Series
@@ -151,8 +151,12 @@ paths:
       security:
       - jwtToken: []
       x-OperationSurOperation: Operation-Operation
+    servers:
+    - {url: urlserver3, description: descriptionserver3, x-ServerSurServer: Server-Server,
+      x-ServerSurServer2: Server-Server2}
+    - {url: urlserver4, description: descriptionserver4}
     x-OperationSurPathItem: Operation-PathItem
-  /series/{id}/actors:
+  testuri/series/{id}/actors:
     get:
       tags:
       - Series
@@ -207,7 +211,7 @@ paths:
                 $ref: '#/components/schemas/NotFound'
       security:
       - jwtToken: []
-  /series/{id}/episodes:
+  testuri/series/{id}/episodes:
     get:
       tags:
       - Series
@@ -270,7 +274,7 @@ paths:
                 $ref: '#/components/schemas/NotFound'
       security:
       - jwtToken: []
-  /series/{id}/episodes/query:
+  testuri/series/{id}/episodes/query:
     get:
       tags:
       - Series
@@ -377,7 +381,7 @@ paths:
                 $ref: '#/components/schemas/NotFound'
       security:
       - jwtToken: []
-  /series/{id}/episodes/query/params:
+  testuri/series/{id}/episodes/query/params:
     get:
       tags:
       - Series
@@ -433,7 +437,7 @@ paths:
                 $ref: '#/components/schemas/NotFound'
       security:
       - jwtToken: []
-  /series/{id}/episodes/summary:
+  testuri/series/{id}/episodes/summary:
     get:
       tags:
       - Series
@@ -492,7 +496,7 @@ paths:
                 $ref: '#/components/schemas/NotFound'
       security:
       - jwtToken: []
-  /series/{id}/filter:
+  testuri/series/{id}/filter:
     get:
       tags:
       - Series
@@ -563,7 +567,7 @@ paths:
                 $ref: '#/components/schemas/NotFound'
       security:
       - jwtToken: []
-  /series/{id}/filter/params:
+  testuri/series/{id}/filter/params:
     get:
       tags:
       - Series
@@ -627,7 +631,7 @@ paths:
                 $ref: '#/components/schemas/NotFound'
       security:
       - jwtToken: []
-  /series/{id}/images:
+  testuri/series/{id}/images:
     get:
       tags:
       - Series
@@ -691,7 +695,7 @@ paths:
                 $ref: '#/components/schemas/NotFound'
       security:
       - jwtToken: []
-  /series/{id}/images/query:
+  testuri/series/{id}/images/query:
     get:
       tags:
       - Series
@@ -775,7 +779,7 @@ paths:
                 $ref: '#/components/schemas/NotFound'
       security:
       - jwtToken: []
-  /series/{id}/images/query/params:
+  testuri/series/{id}/images/query/params:
     get:
       tags:
       - Series
@@ -840,7 +844,7 @@ paths:
                 $ref: '#/components/schemas/NotFound'
       security:
       - jwtToken: []
-  /updated/query:
+  testuri/updated/query:
     get:
       tags:
       - Updates
@@ -913,7 +917,7 @@ paths:
                 $ref: '#/components/schemas/NotFound'
       security:
       - jwtToken: []
-  /updated/query/params:
+  testuri/updated/query/params:
     get:
       tags:
       - Updates
@@ -962,7 +966,7 @@ paths:
                 $ref: '#/components/schemas/NotFound'
       security:
       - jwtToken: []
-  /login:
+  testuri/login:
     post:
       tags:
       - Authentication
@@ -1008,7 +1012,7 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/NotAuthorized'
-  /refresh_token:
+  testuri/refresh_token:
     get:
       tags:
       - Authentication
@@ -1050,7 +1054,7 @@ paths:
                 $ref: '#/components/schemas/NotAuthorized'
       security:
       - jwtToken: []
-  /search/series:
+  testuri/search/series:
     get:
       tags:
       - Search
@@ -1130,7 +1134,7 @@ paths:
                 $ref: '#/components/schemas/NotFound'
       security:
       - jwtToken: []
-  /search/series/params:
+  testuri/search/series/params:
     get:
       tags:
       - Search
@@ -1171,7 +1175,7 @@ paths:
                 $ref: '#/components/schemas/NotAuthorized'
       security:
       - jwtToken: []
-  /episodes/{id}:
+  testuri/episodes/{id}:
     get:
       tags:
       - Episodes
@@ -1236,7 +1240,7 @@ paths:
                 $ref: '#/components/schemas/NotFound'
       security:
       - jwtToken: []
-  /languages:
+  testuri/languages:
     get:
       tags:
       - Languages
@@ -1277,7 +1281,7 @@ paths:
                 $ref: '#/components/schemas/NotAuthorized'
       security:
       - jwtToken: []
-  /languages/{id}:
+  testuri/languages/{id}:
     get:
       tags:
       - Languages
@@ -1331,7 +1335,7 @@ paths:
                 $ref: '#/components/schemas/NotFound'
       security:
       - jwtToken: []
-  /movies/{id}:
+  testuri/movies/{id}:
     get:
       tags:
       - Movies
@@ -1395,7 +1399,7 @@ paths:
                 $ref: '#/components/schemas/NotFound'
       security:
       - jwtToken: []
-  /movieupdates:
+  testuri/movieupdates:
     get:
       tags:
       - Movies
@@ -1454,7 +1458,7 @@ paths:
                 $ref: '#/components/schemas/InvalidQueryParams'
       security:
       - jwtToken: []
-  /user:
+  testuri/user:
     get:
       tags:
       - Users
@@ -1501,7 +1505,7 @@ paths:
                 $ref: '#/components/schemas/NotFound'
       security:
       - jwtToken: []
-  /user/favorites:
+  testuri/user/favorites:
     get:
       tags:
       - Users
@@ -1549,7 +1553,7 @@ paths:
                 $ref: '#/components/schemas/NotFound'
       security:
       - jwtToken: []
-  /user/favorites/{id}:
+  testuri/user/favorites/{id}:
     put:
       tags:
       - Users
@@ -1674,7 +1678,7 @@ paths:
                 $ref: '#/components/schemas/Conflict'
       security:
       - jwtToken: []
-  /user/ratings:
+  testuri/user/ratings:
     get:
       tags:
       - Users
@@ -1721,7 +1725,7 @@ paths:
                 $ref: '#/components/schemas/NotFound'
       security:
       - jwtToken: []
-  /user/ratings/query:
+  testuri/user/ratings/query:
     get:
       tags:
       - Users
@@ -1775,7 +1779,7 @@ paths:
                 $ref: '#/components/schemas/NotFound'
       security:
       - jwtToken: []
-  /user/ratings/query/params:
+  testuri/user/ratings/query/params:
     get:
       tags:
       - Users
@@ -1823,7 +1827,7 @@ paths:
                 $ref: '#/components/schemas/NotFound'
       security:
       - jwtToken: []
-  /user/ratings/{itemType}/{itemId}:
+  testuri/user/ratings/{itemType}/{itemId}:
     delete:
       tags:
       - Users
@@ -1884,7 +1888,7 @@ paths:
                 $ref: '#/components/schemas/NotFound'
       security:
       - jwtToken: []
-  /user/ratings/{itemType}/{itemId}/{itemRating}:
+  testuri/user/ratings/{itemType}/{itemId}/{itemRating}:
     put:
       tags:
       - Users
