@@ -518,6 +518,18 @@ paths:
           type: array
           items:
             type: string
+      - name: size
+        in: query
+        required: false
+        schema:
+          type: integer
+          format: int32
+      - name: page
+        in: query
+        required: false
+        schema:
+          type: integer
+          format: int32
       responses:
         200:
           description: "OK\n\nsuccessful operation"
