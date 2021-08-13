@@ -288,7 +288,7 @@ Une _URI_ peut être définie à chaque niveau de profondeur dans le modèle sur
 
 L'URL d'une _Operation_ peut donc être calculée par la concaténation de l'URL du _Component_ et de chacune des URI sur les trois niveaux _Component_, _Service_ et _Operation_.
 
-Des serveurs peuvent être définis au niveau du _Component_. Pour chaque serveur, l'URL correspondant doit être indiquée, et une description peut éventuellement être précisée. 
+Des serveurs peuvent être définis au niveau du _Component_. Pour chaque serveur, l'URL correspondante doit être indiquée, et une description peut éventuellement être précisée. 
 
 h4. Modélisation d'un Tag OpenAPI
 
