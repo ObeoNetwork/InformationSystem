@@ -58,6 +58,7 @@ import org.obeonetwork.dsl.soa.Verb;
 import org.obeonetwork.dsl.soa.Wire;
 import org.obeonetwork.dsl.soa.design.dialogs.NewSecuritySchemeDialog;
 import org.obeonetwork.dsl.soa.services.HttpStatusService;
+import org.obeonetwork.dsl.soa.services.PropertiesExtensionsService;
 
 public class SOAService {
 
@@ -342,6 +343,7 @@ public class SOAService {
 	public void setPaginationExtensionName(Operation operation, String name) {
 		if (operation.getPaginationExtension() == null) {
 			PropertiesExtension extension = SoaFactory.eINSTANCE.createPropertiesExtension();
+			extension.setContext("Operation");			
 			if (operation.getMetadatas() == null)
 				operation.setMetadatas(EnvironmentFactory.eINSTANCE.createMetaDataContainer());
 
@@ -349,12 +351,16 @@ public class SOAService {
 			operation.setPaginationExtension(extension);
 		}
 
+		if (!name.startsWith("x-"))
+			name = "x-".concat(name);
+		
 		operation.getPaginationExtension().setTitle(name);
 	}
 
 	public void setPaginationExtensionValue(Operation operation, String value) {
 		if (operation.getPaginationExtension() == null) {
 			PropertiesExtension extension = SoaFactory.eINSTANCE.createPropertiesExtension();
+			extension.setContext("Operation");			
 			if (operation.getMetadatas() == null)
 				operation.setMetadatas(EnvironmentFactory.eINSTANCE.createMetaDataContainer());
 

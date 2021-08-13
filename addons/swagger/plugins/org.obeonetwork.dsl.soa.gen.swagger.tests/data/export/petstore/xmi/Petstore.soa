@@ -250,7 +250,10 @@
           <output xmi:id="_2GTs7GxtEeuYi_YuNNGyqg" technicalid="_2GO0J2xtEeuYi_YuNNGyqg" description="successful operation" type="_2GUT0GxtEeuYi_YuNNGyqg" name="output200" multiplicity="0..*" statusCode="200" statusMessage="OK"/>
           <fault xmi:id="_2GTs7WxtEeuYi_YuNNGyqg" technicalid="_2GO0KGxtEeuYi_YuNNGyqg" description="Invalid status value" name="fault400" statusCode="400" statusMessage="Bad Request"/>
         </ownedOperations>
-        <ownedOperations xmi:id="_2GTs7mxtEeuYi_YuNNGyqg" technicalid="_2GPbMGxtEeuYi_YuNNGyqg" description="Multiple tags can be provided with comma separated strings. Use tag1, tag2, tag3 for testing." createdOn="2021-08-13T09:58:10.674+0200" modifiedOn="2021-08-13T09:59:29.852+0200" name="findPetsByTags" public="true" URI="/findByTags" exposition="REST" paged="true" securitySchemes="_2GTtD2xtEeuYi_YuNNGyqg" size="_M_mtIfwMEeub2ruSJkz2zg" page="_VasDEfwMEeub2ruSJkz2zg">
+        <ownedOperations xmi:id="_2GTs7mxtEeuYi_YuNNGyqg" technicalid="_2GPbMGxtEeuYi_YuNNGyqg" description="Multiple tags can be provided with comma separated strings. Use tag1, tag2, tag3 for testing." createdOn="2021-08-13T09:58:10.674+0200" modifiedOn="2021-08-13T11:39:47.186+0200" name="findPetsByTags" public="true" URI="/findByTags" exposition="REST" paged="true" securitySchemes="_2GTtD2xtEeuYi_YuNNGyqg" size="_M_mtIfwMEeub2ruSJkz2zg" page="_VasDEfwMEeub2ruSJkz2zg" paginationExtension="_ZceVIPwaEeuQdqn4Ol0_lw">
+          <metadatas xmi:id="_ZcduEvwaEeuQdqn4Ol0_lw" technicalid="_ZcduEfwaEeuQdqn4Ol0_lw">
+            <metadatas xsi:type="soa:PropertiesExtension" xmi:id="_ZceVIPwaEeuQdqn4Ol0_lw" technicalid="_ZcduEPwaEeuQdqn4Ol0_lw" title="x-pagination" body="description" context="Operation"/>
+          </metadatas>
           <input xmi:id="_2GTs72xtEeuYi_YuNNGyqg" technicalid="_2GPbMWxtEeuYi_YuNNGyqg" description="Tags to filter by" name="tags" multiplicity="0..*">
             <type xsi:type="oenv:PrimitiveType" href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5F-EKwKEd2XLNOhkJIazw"/>
             <restData xmi:id="_2GTs8GxtEeuYi_YuNNGyqg" technicalid="_2GPbMmxtEeuYi_YuNNGyqg" passingMode="QUERY" restId="tags"/>

@@ -561,6 +561,7 @@ paths:
           description: "Bad Request\n\nInvalid tag value"
       security:
       - petstore_auth: []
+      x-pagination: description
   /pet/{petId}:
     get:
       tags:

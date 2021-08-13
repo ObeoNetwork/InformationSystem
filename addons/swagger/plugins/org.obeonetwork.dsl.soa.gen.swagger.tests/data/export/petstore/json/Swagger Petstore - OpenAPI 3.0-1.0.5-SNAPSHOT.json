@@ -819,7 +819,8 @@
         },
         "security" : [ {
           "petstore_auth" : [ ]
-        } ]
+        } ],
+        "x-pagination" : "description"  
       }
     },
     "/pet/{petId}" : {
