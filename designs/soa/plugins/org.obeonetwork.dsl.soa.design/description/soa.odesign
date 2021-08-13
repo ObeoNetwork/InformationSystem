@@ -1154,9 +1154,9 @@
       <pages name="Information Page" labelExpression="Information" domainClass="soa::Information" semanticCandidateExpression="var:self" groups="//@extensions.0/@categories.1/@groups.20"/>
       <pages name="Contact Page" labelExpression="Contact" domainClass="soa::Contact" semanticCandidateExpression="var:self" groups="//@extensions.0/@categories.1/@groups.21"/>
       <pages name="License Page" labelExpression="License" domainClass="soa::License" semanticCandidateExpression="var:self" groups="//@extensions.0/@categories.1/@groups.22"/>
+      <pages name="Server Page" labelExpression="Server" domainClass="soa::Server" semanticCandidateExpression="var:self" groups="//@extensions.0/@categories.1/@groups.25"/>
       <pages name="Properties Extension Page" labelExpression="Properties Extension" domainClass="soa::PropertiesExtension" semanticCandidateExpression="var:self" groups="//@extensions.0/@categories.1/@groups.23"/>
       <pages name="Properties Extension List Page" labelExpression="Properties Extension" domainClass="environment::ObeoDSMObject" semanticCandidateExpression="var:self" preconditionExpression="aql:self.isPropertiesExtensionPossible()" groups="//@extensions.0/@categories.1/@groups.24"/>
-      <pages name="Server Page" labelExpression="Server" domainClass="soa::Server" semanticCandidateExpression="var:self" groups="//@extensions.0/@categories.1/@groups.25"/>
       <groups name="Operation Group" labelExpression="Properties" domainClass="soa::Operation" semanticCandidateExpression="var:self">
         <controls xsi:type="properties:TextDescription" name="soa::Operation name" labelExpression="aql:input.emfEditServices(self).getText(self.eClass().getEStructuralFeature('name')) + ':'" helpExpression="aql:input.emfEditServices(self).getDescription(self.eClass().getEStructuralFeature('name'))" isEnabledExpression="aql:self.eClass().getEStructuralFeature('name').changeable" valueExpression="aql:self.name">
           <initialOperation>
@@ -1324,7 +1324,7 @@
                     <buttons labelExpression="OK" default="true" closeDialogOnClick="true">
                       <initialOperation/>
                     </buttons>
-                    <page name="Create Server Wizard Page" labelExpression="Server" domainClass="soa::Server" semanticCandidateExpression="var:self" extends="//@extensions.0/@categories.1/@pages.18"/>
+                    <page name="Create Server Wizard Page" labelExpression="Server" domainClass="soa::Server" semanticCandidateExpression="var:self" extends="//@extensions.0/@categories.1/@pages.16"/>
                     <groups name="Create Server Wizard Group" labelExpression="Server" domainClass="soa::Server" semanticCandidateExpression="var:self"/>
                   </subModelOperations>
                 </subModelOperations>
@@ -1341,7 +1341,7 @@
                   <buttons labelExpression="OK" default="true" closeDialogOnClick="true">
                     <initialOperation/>
                   </buttons>
-                  <page name="Edit Server Wizard Page" labelExpression="Server" domainClass="soa::Server" semanticCandidateExpression="var:self" extends="//@extensions.0/@categories.1/@pages.18"/>
+                  <page name="Edit Server Wizard Page" labelExpression="Server" domainClass="soa::Server" semanticCandidateExpression="var:self" extends="//@extensions.0/@categories.1/@pages.16"/>
                   <groups name="Edit Server Wizard Group" labelExpression="Properties" domainClass="soa::Server" semanticCandidateExpression="var:self"/>
                 </subModelOperations>
               </firstModelOperations>
@@ -1539,7 +1539,7 @@
                     <buttons labelExpression="OK" default="true" closeDialogOnClick="true">
                       <initialOperation/>
                     </buttons>
-                    <page name="Create Server Wizard Page" labelExpression="Server" domainClass="soa::Server" semanticCandidateExpression="var:self" extends="//@extensions.0/@categories.1/@pages.18"/>
+                    <page name="Create Server Wizard Page" labelExpression="Server" domainClass="soa::Server" semanticCandidateExpression="var:self" extends="//@extensions.0/@categories.1/@pages.16"/>
                     <groups name="Create Server Wizard Group" labelExpression="Server" domainClass="soa::Server" semanticCandidateExpression="var:self"/>
                   </subModelOperations>
                 </subModelOperations>
@@ -1556,7 +1556,7 @@
                   <buttons labelExpression="OK" default="true" closeDialogOnClick="true">
                     <initialOperation/>
                   </buttons>
-                  <page name="Edit Server Wizard Page" labelExpression="Server" domainClass="soa::Server" semanticCandidateExpression="var:self" extends="//@extensions.0/@categories.1/@pages.18"/>
+                  <page name="Edit Server Wizard Page" labelExpression="Server" domainClass="soa::Server" semanticCandidateExpression="var:self" extends="//@extensions.0/@categories.1/@pages.16"/>
                   <groups name="Edit Server Wizard Group" labelExpression="Properties" domainClass="soa::Server" semanticCandidateExpression="var:self"/>
                 </subModelOperations>
               </firstModelOperations>
@@ -1899,7 +1899,7 @@
                       <buttons labelExpression="OK" default="true" closeDialogOnClick="true">
                         <initialOperation/>
                       </buttons>
-                      <page name="Create Properties Extension Wizard Page" labelExpression="Properties Extension" domainClass="soa::PropertiesExtension" semanticCandidateExpression="var:self" extends="//@extensions.0/@categories.1/@pages.16"/>
+                      <page name="Create Properties Extension Wizard Page" labelExpression="Properties Extension" domainClass="soa::PropertiesExtension" semanticCandidateExpression="var:self" extends="//@extensions.0/@categories.1/@pages.17"/>
                       <groups name="Create Annotation Wizard Group" labelExpression="Properties" domainClass="soa::PropertiesExtension" semanticCandidateExpression="var:self"/>
                     </subModelOperations>
                   </subModelOperations>
@@ -1917,7 +1917,7 @@
                   <buttons labelExpression="OK" default="true" closeDialogOnClick="true">
                     <initialOperation/>
                   </buttons>
-                  <page name="Edit Properties Extension Wizard Page" labelExpression="Properties Extension" domainClass="soa::PropertiesExtension" semanticCandidateExpression="var:self" extends="//@extensions.0/@categories.1/@pages.16"/>
+                  <page name="Edit Properties Extension Wizard Page" labelExpression="Properties Extension" domainClass="soa::PropertiesExtension" semanticCandidateExpression="var:self" extends="//@extensions.0/@categories.1/@pages.17"/>
                   <groups name="Edit Properties Extension Wizard Group" labelExpression="Properties" domainClass="soa::PropertiesExtension" semanticCandidateExpression="var:self"/>
                 </subModelOperations>
               </firstModelOperations>
