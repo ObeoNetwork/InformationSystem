@@ -3,15 +3,18 @@
   "info" : {
     "title" : "Swagger Petstore - OpenAPI 3.0",
     "description" : "This is a sample Pet Store Server based on the OpenAPI 3.0 specification.  You can find out more about\nSwagger at [http://swagger.io](http://swagger.io). In the third iteration of the pet store, we've switched to the design first approach!\nYou can now help us improve the API whether it's by making changes to the definition itself or to the code.\nThat way, with time, we can improve the API in general, and expose some of the new features in OAS3.\n\nSome useful links:\n- [The Pet Store repository](https://github.com/swagger-api/swagger-petstore)\n- [The source API definition for the Pet Store](https://github.com/swagger-api/swagger-petstore/blob/master/src/main/resources/openapi.yaml) ",
+    "termsOfService" : "/tos",
+    "contact" : {
+      "name" : "Obeo",
+      "url" : "https://contact.obeosoft.com/",
+      "email" : "contact@obeosoft.com"
+    },
     "license" : {
       "name" : "Apache 2.0",
       "url" : "http://www.apache.org/licenses/LICENSE-2.0.html"
     },
     "version" : "1.0.5-SNAPSHOT"
   },
-  "servers" : [ {
-    "url" : "/v3"
-  } ],
   "tags" : [ {
     "name" : "User",
     "description" : "Access to Petstore orders"
@@ -30,6 +33,31 @@
         "operationId" : "createUser",
         "requestBody" : {
           "content" : {
+            "application/xml" : {
+              "schema" : {
+                "$ref" : "#/components/schemas/User"
+              },
+              "examples" : {
+                "cat" : {
+                  "summary" : "a cat",
+                  "description" : "kitty kitty ",
+                  "value" : {
+                    "name" : "edwardo",
+                    "weight" : 2,
+                    "age" : 8
+                  }
+                },
+                "dog" : {
+                  "summary" : "a dog",
+                  "description" : "he is a good boy",
+                  "value" : {
+                    "name" : "bobby",
+                    "age" : 6,
+                    "weight" : 34
+                  }
+                }
+              }
+            },
             "application/json" : {
               "schema" : {
                 "$ref" : "#/components/schemas/User"
@@ -41,9 +69,20 @@
           "default" : {
             "description" : "successful operation",
             "content" : {
-              "application/json" : {
+              "application/yaml" : {
                 "schema" : {
                   "$ref" : "#/components/schemas/User"
+                },
+                "examples" : {
+                  "dog" : {
+                    "summary" : "a dog",
+                    "description" : "he is a very good boy",
+                    "value" : {
+                      "name" : "bobby",
+                      "age" : 6,
+                      "weight" : 34
+                    }
+                  }
                 }
               }
             }
@@ -984,61 +1023,22 @@
   },
   "components" : {
     "schemas" : {
-      "Category" : {
+      "ApiResponse" : {
         "type" : "object",
         "properties" : {
-          "name" : {
-            "type" : "string"
-          },
-          "id" : {
-            "type" : "integer",
-            "format" : "int64"
-          }
-        }
-      },
-      "OrderStatus" : {
-        "type" : "string",
-        "enum" : [ "approved", "placed", "delivered" ]
-      },
-      "Store_GetInventoryOutput200" : {
-        "type" : "object"
-      },
-      "PetStatus" : {
-        "type" : "string",
-        "enum" : [ "sold", "pending", "available" ]
-      },
-      "User" : {
-        "type" : "object",
-        "properties" : {
-          "firstName" : {
-            "type" : "string"
-          },
-          "lastName" : {
-            "type" : "string"
-          },
-          "password" : {
-            "type" : "string"
-          },
-          "userStatus" : {
+          "code" : {
             "type" : "integer",
             "format" : "int32"
           },
-          "phone" : {
+          "type" : {
             "type" : "string"
           },
-          "id" : {
-            "type" : "integer",
-            "format" : "int64"
-          },
-          "email" : {
-            "type" : "string"
-          },
-          "username" : {
+          "message" : {
             "type" : "string"
           }
         }
       },
-      "Tag" : {
+      "Category" : {
         "type" : "object",
         "properties" : {
           "name" : {
@@ -1077,6 +1077,10 @@
           }
         }
       },
+      "OrderStatus" : {
+        "type" : "string",
+        "enum" : [ "approved", "placed", "delivered" ]
+      },
       "Pet" : {
         "required" : [ "name", "photoUrls" ],
         "type" : "object",
@@ -1109,17 +1113,52 @@
           }
         }
       },
-      "ApiResponse" : {
+      "PetStatus" : {
+        "type" : "string",
+        "enum" : [ "sold", "pending", "available" ]
+      },
+      "Store_GetInventoryOutput200" : {
+        "type" : "object"
+      },
+      "Tag" : {
         "type" : "object",
         "properties" : {
-          "code" : {
+          "name" : {
+            "type" : "string"
+          },
+          "id" : {
+            "type" : "integer",
+            "format" : "int64"
+          }
+        }
+      },
+      "User" : {
+        "type" : "object",
+        "properties" : {
+          "firstName" : {
+            "type" : "string"
+          },
+          "lastName" : {
+            "type" : "string"
+          },
+          "password" : {
+            "type" : "string"
+          },
+          "userStatus" : {
             "type" : "integer",
             "format" : "int32"
           },
-          "type" : {
+          "phone" : {
             "type" : "string"
           },
-          "message" : {
+          "id" : {
+            "type" : "integer",
+            "format" : "int64"
+          },
+          "email" : {
+            "type" : "string"
+          },
+          "username" : {
             "type" : "string"
           }
         }

@@ -282,13 +282,13 @@ Les données d'exposition sont accessibles via l'onglet _Exposition_ de la vue d
 
 !pics/exposition/Properties_Component_Exposition_Tab.png!
 
-L'_URL_ est l'URL de base du serveur destiné à héberger l'API.
-
 Une _URI_ peut être définie à chaque niveau de profondeur dans le modèle sur les concepts _Component_, _Service_ et _Operation_ :
 
 !pics/exposition/ModelExplorer_SOA_Hierarchy.png!
 
 L'URL d'une _Operation_ peut donc être calculée par la concaténation de l'URL du _Component_ et de chacune des URI sur les trois niveaux _Component_, _Service_ et _Operation_.
+
+Des serveurs peuvent être définis au niveau du _Component_. Pour chaque serveur, l'URL correspondante doit être indiquée, et une description peut éventuellement être précisée. 
 
 h4. Modélisation d'un Tag OpenAPI
 
@@ -305,6 +305,8 @@ Le concept en correspondance avec le _Service OpenAPI_ est le concept _Operation
 !pics/exposition/Properties_Operation_Exposition_Tab.png!
 
 Le verbe correspond au verbe HTTP et peut prendre l'une des valeurs : _GET_, _POST_, _PUT_, _DELETE_, _HEAD_, _OPTIONS_, _PATCH_, _TRACE_.
+
+Comme au niveau _Component_, il est possible de définir l'URI d'une _Operation_ ainsi qu'une liste de serveurs.
 
 Dans le cas où l'opération définit des paramètres d'entrée, ceux-ci sont listés dans la section _Input Parameters_, qui offre la possibilité de définir le mode de passage et les identifiants REST de chacun d'eux. Ceci est expliqué plus en détail ci-dessous dans la section "Modélisation d'un paramètre d'entrée":#input_parameter .
 
@@ -386,6 +388,43 @@ Les _Security Schemes_ accessibles pour une affectation à une _Operation_ sont 
 Quand au moins un _Security Scheme_ est appliqué à une _Operation_, celle-ci est décorée avec l'icone !pics/exposition/Icon_SecurityScheme.gif! :
 
 !pics/exposition/Diagram_Operation_Decorated_SecurityScheme.png!
+
+h4. Modélisation des extensions de propriétés
+
+Bien que la spécification OpenAPI tente de tenir compte de la plupart des cas d’utilisation, des données supplémentaires peuvent être ajoutées pour étendre la spécification à certains moments.
+
+Les propriétés des extensions sont implémentées sous forme de champs à motifs qui sont toujours préfixés par « x- », par exemple, x-internal-id.
+
+Les éléments sur lequels il est possible d'ajouter des extensions de propriétés disposent d'un onglet supplémentaire "Properties Extensions" dans la vue Properties.
+
+!pics/propertiesextension/properties_extensions_list.png!
+
+Cet onglet permet de lister les extensions de propriétés, d' ajouter, de modifier et de supprimer une extension de propriétés.
+
+!pics/propertiesextension/properties_extension_edit.png!
+
+Ce dialogue est utilisé pour créer ou modifier une extension de propriété :
+- le champ de saisie "Key" permet de saisir l'identifiant de l'extension de propriété. Le préfixe "x-" peut être omis il est alors automatiquement ajouté.
+- le champ de saisie multilignes "Value" permet de renseigner la valeur de l'extension de propriétés sous forme d'une chaîne de caractères.
+- la liste déroulante "Context" permet de choisir l'élément OpenApi/Swagger sur lequel sera attaché l'extension de propriétés lors de la génération.
+
+Les contextes possibles pour chaque type d'élément SOA sont présentés dans le tableau ci-dessous.
+
+|_. Elément SOA|_. Contextes possibles |
+|Composant|OpenAPI, Server, Paths|
+|Contact|Contact|
+|Information|Info|
+|Licencee|License|
+|Service|Tag|
+|Type|Schema|
+|Attribut|Schema|
+|Référence|Schema|
+|Opération|Operation, PathItem, ApiResponses|
+|Paramètre|Parameter, RequestBody, ApiResponse, Schema|
+|Type de média|MediaType|
+|Exemple|Example|
+
+Les extensions de propriétés sont générées lors d'un export Swagger et insérées dans le modèle lors d'un import Swagger.
 
 h3. Export / Import au format Swagger OpenAPI
 

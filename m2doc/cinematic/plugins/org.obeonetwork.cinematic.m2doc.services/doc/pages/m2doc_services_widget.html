@@ -75,18 +75,18 @@
       <td colspan="1" rowspan="1">{m:widget.isContainer}</td>
     </tr>
     <tr>
+      <td colspan="1" rowspan="1"><strong>metadataDefinitions</strong></td>
+      <td colspan="1" rowspan="1">List of <a href="/help/topic/org.obeonetwork.cinematic.m2doc.services/doc/pages/m2doc_services_metadatadefinition.html">MetaDataDefinition</a></td>
+      <td colspan="1" rowspan="1">{m:widget.metadataDefinitions}</td>
+      <td colspan="1" rowspan="1"></td>
+      <td colspan="1" rowspan="1">{m:for metaDataDefinition | widget.metadataDefinitions} metaDataDefinition {m:metaDataDefinition.name}, {m:endfor}</td>
+    </tr>
+    <tr>
       <td colspan="1" rowspan="1"><strong>metadataHelp</strong></td>
       <td colspan="1" rowspan="1">EString</td>
       <td colspan="1" rowspan="1">{m:widget.metadataHelp}</td>
-      <td colspan="1" rowspan="1"></td>
+      <td colspan="1" rowspan="1">Concatenated values of metadataDefinitions.help.</td>
       <td colspan="1" rowspan="1">{m:widget.metadataHelp}</td>
-    </tr>
-    <tr>
-      <td colspan="1" rowspan="1"><strong>metadataKeys</strong></td>
-      <td colspan="1" rowspan="1">List of EString</td>
-      <td colspan="1" rowspan="1">{m:widget.metadataKeys}</td>
-      <td colspan="1" rowspan="1"></td>
-      <td colspan="1" rowspan="1">{m:for eString | widget.metadataKeys} eString {m:eString.name}, {m:endfor}</td>
     </tr>
     <tr>
       <td colspan="1" rowspan="1"><strong>name</strong></td>

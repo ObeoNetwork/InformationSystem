@@ -1,12 +1,12 @@
 Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
-Bundle-Name: SOA Editor
+Bundle-Name: %pluginName
 Bundle-SymbolicName: org.obeonetwork.dsl.soa.editor;singleton:=true
 Automatic-Module-Name: org.obeonetwork.dsl.soa.editor
-Bundle-Version: 2.1.0.qualifier
+Bundle-Version: 2.2.0.qualifier
 Bundle-ClassPath: .
 Bundle-Activator: org.obeonetwork.dsl.soa.presentation.SoaEditorPlugin$Implementation
-Bundle-Vendor: Obeo Network
+Bundle-Vendor: %providerName
 Bundle-Localization: plugin
 Export-Package: org.obeonetwork.dsl.soa.presentation
 Require-Bundle: org.eclipse.core.runtime,

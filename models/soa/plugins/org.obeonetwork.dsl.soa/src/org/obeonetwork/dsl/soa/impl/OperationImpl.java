@@ -23,6 +23,7 @@ import org.obeonetwork.dsl.soa.Operation;
 import org.obeonetwork.dsl.soa.OperationKind;
 import org.obeonetwork.dsl.soa.Parameter;
 import org.obeonetwork.dsl.soa.SecurityScheme;
+import org.obeonetwork.dsl.soa.Server;
 import org.obeonetwork.dsl.soa.SoaPackage;
 import org.obeonetwork.dsl.soa.Verb;
 
@@ -44,6 +45,7 @@ import org.obeonetwork.dsl.soa.Verb;
  *   <li>{@link org.obeonetwork.dsl.soa.impl.OperationImpl#getExposition <em>Exposition</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.soa.impl.OperationImpl#isPaged <em>Paged</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.soa.impl.OperationImpl#getSecuritySchemes <em>Security Schemes</em>}</li>
+ *   <li>{@link org.obeonetwork.dsl.soa.impl.OperationImpl#getServers <em>Servers</em>}</li>
  * </ul>
  *
  * @generated
@@ -287,6 +289,16 @@ public class OperationImpl extends ActionImpl implements Operation {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@SuppressWarnings("unchecked")
+	public EList<Server> getServers() {
+		return (EList<Server>)eDynamicGet(SoaPackage.OPERATION__SERVERS, SoaPackage.Literals.OPERATION__SERVERS, true, true);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
@@ -296,6 +308,8 @@ public class OperationImpl extends ActionImpl implements Operation {
 				return ((InternalEList<?>)getOutput()).basicRemove(otherEnd, msgs);
 			case SoaPackage.OPERATION__FAULT:
 				return ((InternalEList<?>)getFault()).basicRemove(otherEnd, msgs);
+			case SoaPackage.OPERATION__SERVERS:
+				return ((InternalEList<?>)getServers()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -328,6 +342,8 @@ public class OperationImpl extends ActionImpl implements Operation {
 				return isPaged();
 			case SoaPackage.OPERATION__SECURITY_SCHEMES:
 				return getSecuritySchemes();
+			case SoaPackage.OPERATION__SERVERS:
+				return getServers();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -375,6 +391,10 @@ public class OperationImpl extends ActionImpl implements Operation {
 				getSecuritySchemes().clear();
 				getSecuritySchemes().addAll((Collection<? extends SecurityScheme>)newValue);
 				return;
+			case SoaPackage.OPERATION__SERVERS:
+				getServers().clear();
+				getServers().addAll((Collection<? extends Server>)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -417,6 +437,9 @@ public class OperationImpl extends ActionImpl implements Operation {
 			case SoaPackage.OPERATION__SECURITY_SCHEMES:
 				getSecuritySchemes().clear();
 				return;
+			case SoaPackage.OPERATION__SERVERS:
+				getServers().clear();
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -449,6 +472,8 @@ public class OperationImpl extends ActionImpl implements Operation {
 				return isPaged() != PAGED_EDEFAULT;
 			case SoaPackage.OPERATION__SECURITY_SCHEMES:
 				return !getSecuritySchemes().isEmpty();
+			case SoaPackage.OPERATION__SERVERS:
+				return !getServers().isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}

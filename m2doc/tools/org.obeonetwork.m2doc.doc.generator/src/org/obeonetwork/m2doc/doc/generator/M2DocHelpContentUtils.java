@@ -20,7 +20,6 @@ import java.util.Map;
 import java.util.function.Function;
 import java.util.stream.Collectors;
 
-import org.apache.commons.lang.StringUtils;
 import org.eclipse.acceleo.annotations.api.documentation.Documentation;
 import org.eclipse.acceleo.annotations.api.documentation.Example;
 import org.eclipse.emf.ecore.EClass;
@@ -229,7 +228,7 @@ public final class M2DocHelpContentUtils {
         StringBuffer buffer = new StringBuffer();
 
         buffer.append("{m:");
-        buffer.append(StringUtils.uncapitalize(eClass.getName()));
+        buffer.append(uncapitalize(eClass.getName()));
         buffer.append(".");
         buffer.append(feature.getName());
         buffer.append("}");
@@ -251,15 +250,15 @@ public final class M2DocHelpContentUtils {
         if (feature.isMany()) {
             // {m:for table | db.tables()} table {m:table.name}, {m:endfor}
             buffer.append("{m:for ");
-            buffer.append(StringUtils.uncapitalize(feature.getEType().getName()));
+            buffer.append(uncapitalize(feature.getEType().getName()));
             buffer.append(" | ");
-            buffer.append(StringUtils.uncapitalize(eClass.getName()));
+            buffer.append(uncapitalize(eClass.getName()));
             buffer.append(".");
             buffer.append(feature.getName());
             buffer.append("} ");
-            buffer.append(StringUtils.uncapitalize(feature.getEType().getName()));
+            buffer.append(uncapitalize(feature.getEType().getName()));
             buffer.append(" {m:");
-            buffer.append(StringUtils.uncapitalize(feature.getEType().getName()));
+            buffer.append(uncapitalize(feature.getEType().getName()));
             buffer.append(".name}, {m:endfor}");
         } else {
             buffer.append(computeAttributeM2DocSyntax(eClass, feature));
@@ -268,7 +267,17 @@ public final class M2DocHelpContentUtils {
         return buffer;
     }
 
-    private static StringBuffer computeAttributeTableRow(Map<EClass, String> eClassToHTMLPages, EClass eClass, EStructuralFeature feature) {
+    private static Object uncapitalize(String name) {
+    	if(name == null || name.isEmpty()) {
+    		return name;
+    	}
+		StringBuffer uncapitalized = new StringBuffer();
+		uncapitalized.append(Character.toLowerCase(name.charAt(0)));
+		uncapitalized.append(name.substring(1));
+		return uncapitalized.toString();
+	}
+
+	private static StringBuffer computeAttributeTableRow(Map<EClass, String> eClassToHTMLPages, EClass eClass, EStructuralFeature feature) {
         StringBuffer tableRowBuffer = new StringBuffer();
         tableRowBuffer.append("    <tr>").append(LS);
         tableRowBuffer.append("      <td colspan=\"1\" rowspan=\"1\"><strong>" + feature.getName() + "</strong></td>").append(LS); // Name

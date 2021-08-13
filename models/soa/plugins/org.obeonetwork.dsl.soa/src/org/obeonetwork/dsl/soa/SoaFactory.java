@@ -135,6 +135,69 @@ public interface SoaFactory extends EFactory {
 	SecurityScheme createSecurityScheme();
 
 	/**
+	 * Returns a new object of class '<em>Information</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Information</em>'.
+	 * @generated
+	 */
+	Information createInformation();
+
+	/**
+	 * Returns a new object of class '<em>Contact</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Contact</em>'.
+	 * @generated
+	 */
+	Contact createContact();
+
+	/**
+	 * Returns a new object of class '<em>License</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>License</em>'.
+	 * @generated
+	 */
+	License createLicense();
+
+	/**
+	 * Returns a new object of class '<em>Media Type</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Media Type</em>'.
+	 * @generated
+	 */
+	MediaType createMediaType();
+
+	/**
+	 * Returns a new object of class '<em>Example</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Example</em>'.
+	 * @generated
+	 */
+	Example createExample();
+
+	/**
+	 * Returns a new object of class '<em>Properties Extension</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Properties Extension</em>'.
+	 * @generated
+	 */
+	PropertiesExtension createPropertiesExtension();
+
+	/**
+	 * Returns a new object of class '<em>Server</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Server</em>'.
+	 * @generated
+	 */
+	Server createServer();
+
+	/**
 	 * Returns the package supported by this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

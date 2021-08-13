@@ -339,6 +339,166 @@ public class SoaItemProviderAdapterFactory extends SoaAdapterFactory implements 
 	}
 
 	/**
+	 * This keeps track of the one adapter used for all {@link org.obeonetwork.dsl.soa.Information} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected InformationItemProvider informationItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link org.obeonetwork.dsl.soa.Information}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createInformationAdapter() {
+		if (informationItemProvider == null) {
+			informationItemProvider = new InformationItemProvider(this);
+		}
+
+		return informationItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link org.obeonetwork.dsl.soa.Contact} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected ContactItemProvider contactItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link org.obeonetwork.dsl.soa.Contact}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createContactAdapter() {
+		if (contactItemProvider == null) {
+			contactItemProvider = new ContactItemProvider(this);
+		}
+
+		return contactItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link org.obeonetwork.dsl.soa.License} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected LicenseItemProvider licenseItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link org.obeonetwork.dsl.soa.License}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createLicenseAdapter() {
+		if (licenseItemProvider == null) {
+			licenseItemProvider = new LicenseItemProvider(this);
+		}
+
+		return licenseItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link org.obeonetwork.dsl.soa.MediaType} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected MediaTypeItemProvider mediaTypeItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link org.obeonetwork.dsl.soa.MediaType}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createMediaTypeAdapter() {
+		if (mediaTypeItemProvider == null) {
+			mediaTypeItemProvider = new MediaTypeItemProvider(this);
+		}
+
+		return mediaTypeItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link org.obeonetwork.dsl.soa.Example} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected ExampleItemProvider exampleItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link org.obeonetwork.dsl.soa.Example}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createExampleAdapter() {
+		if (exampleItemProvider == null) {
+			exampleItemProvider = new ExampleItemProvider(this);
+		}
+
+		return exampleItemProvider;
+	}
+		/**
+	 * This keeps track of the one adapter used for all {@link org.obeonetwork.dsl.soa.PropertiesExtension} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected PropertiesExtensionItemProvider propertiesExtensionItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link org.obeonetwork.dsl.soa.PropertiesExtension}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createPropertiesExtensionAdapter() {
+		if (propertiesExtensionItemProvider == null) {
+			propertiesExtensionItemProvider = new PropertiesExtensionItemProvider(this);
+		}
+
+		return propertiesExtensionItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link org.obeonetwork.dsl.soa.Server} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected ServerItemProvider serverItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link org.obeonetwork.dsl.soa.Server}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createServerAdapter() {
+		if (serverItemProvider == null) {
+			serverItemProvider = new ServerItemProvider(this);
+		}
+
+		return serverItemProvider;
+	}
+
+	/**
 	 * This returns the root adapter factory that contains this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -448,6 +608,13 @@ public class SoaItemProviderAdapterFactory extends SoaAdapterFactory implements 
 		if (parameterItemProvider != null) parameterItemProvider.dispose();
 		if (parameterRestDataItemProvider != null) parameterRestDataItemProvider.dispose();
 		if (securitySchemeItemProvider != null) securitySchemeItemProvider.dispose();
+		if (informationItemProvider != null) informationItemProvider.dispose();
+		if (contactItemProvider != null) contactItemProvider.dispose();
+		if (licenseItemProvider != null) licenseItemProvider.dispose();
+		if (mediaTypeItemProvider != null) mediaTypeItemProvider.dispose();
+		if (exampleItemProvider != null) exampleItemProvider.dispose();
+		if (propertiesExtensionItemProvider != null) propertiesExtensionItemProvider.dispose();
+		if (serverItemProvider != null) serverItemProvider.dispose();
 	}
 
 }

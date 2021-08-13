@@ -40,6 +40,7 @@ import org.obeonetwork.dsl.technicalid.impl.IdentifiableImpl;
  *   <li>{@link org.obeonetwork.dsl.cinematic.toolkits.impl.StyleImpl#getDefaultWidth <em>Default Width</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.cinematic.toolkits.impl.StyleImpl#getDefaultHeight <em>Default Height</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.cinematic.toolkits.impl.StyleImpl#getExampleExpression <em>Example Expression</em>}</li>
+ *   <li>{@link org.obeonetwork.dsl.cinematic.toolkits.impl.StyleImpl#isLabelHidden <em>Label Hidden</em>}</li>
  * </ul>
  *
  * @generated
@@ -164,6 +165,16 @@ public class StyleImpl extends IdentifiableImpl implements Style {
 	 * @ordered
 	 */
 	protected static final String EXAMPLE_EXPRESSION_EDEFAULT = null;
+
+	/**
+	 * The default value of the '{@link #isLabelHidden() <em>Label Hidden</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isLabelHidden()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final boolean LABEL_HIDDEN_EDEFAULT = false;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -405,6 +416,24 @@ public class StyleImpl extends IdentifiableImpl implements Style {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public boolean isLabelHidden() {
+		return (Boolean)eDynamicGet(ToolkitsPackage.STYLE__LABEL_HIDDEN, ToolkitsPackage.Literals.STYLE__LABEL_HIDDEN, true, true);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setLabelHidden(boolean newLabelHidden) {
+		eDynamicSet(ToolkitsPackage.STYLE__LABEL_HIDDEN, ToolkitsPackage.Literals.STYLE__LABEL_HIDDEN, newLabelHidden);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
@@ -432,6 +461,8 @@ public class StyleImpl extends IdentifiableImpl implements Style {
 				return getDefaultHeight();
 			case ToolkitsPackage.STYLE__EXAMPLE_EXPRESSION:
 				return getExampleExpression();
+			case ToolkitsPackage.STYLE__LABEL_HIDDEN:
+				return isLabelHidden();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -479,6 +510,9 @@ public class StyleImpl extends IdentifiableImpl implements Style {
 				return;
 			case ToolkitsPackage.STYLE__EXAMPLE_EXPRESSION:
 				setExampleExpression((String)newValue);
+				return;
+			case ToolkitsPackage.STYLE__LABEL_HIDDEN:
+				setLabelHidden((Boolean)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -528,6 +562,9 @@ public class StyleImpl extends IdentifiableImpl implements Style {
 			case ToolkitsPackage.STYLE__EXAMPLE_EXPRESSION:
 				setExampleExpression(EXAMPLE_EXPRESSION_EDEFAULT);
 				return;
+			case ToolkitsPackage.STYLE__LABEL_HIDDEN:
+				setLabelHidden(LABEL_HIDDEN_EDEFAULT);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -564,6 +601,8 @@ public class StyleImpl extends IdentifiableImpl implements Style {
 				return getDefaultHeight() != DEFAULT_HEIGHT_EDEFAULT;
 			case ToolkitsPackage.STYLE__EXAMPLE_EXPRESSION:
 				return EXAMPLE_EXPRESSION_EDEFAULT == null ? getExampleExpression() != null : !EXAMPLE_EXPRESSION_EDEFAULT.equals(getExampleExpression());
+			case ToolkitsPackage.STYLE__LABEL_HIDDEN:
+				return isLabelHidden() != LABEL_HIDDEN_EDEFAULT;
 		}
 		return super.eIsSet(featureID);
 	}

@@ -34,6 +34,7 @@ import org.obeonetwork.dsl.technicalid.Identifiable;
  *   <li>{@link org.obeonetwork.dsl.cinematic.toolkits.Style#getDefaultWidth <em>Default Width</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.cinematic.toolkits.Style#getDefaultHeight <em>Default Height</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.cinematic.toolkits.Style#getExampleExpression <em>Example Expression</em>}</li>
+ *   <li>{@link org.obeonetwork.dsl.cinematic.toolkits.Style#isLabelHidden <em>Label Hidden</em>}</li>
  * </ul>
  *
  * @see org.obeonetwork.dsl.cinematic.toolkits.ToolkitsPackage#getStyle()
@@ -316,5 +317,28 @@ public interface Style extends Identifiable {
 	 * @generated
 	 */
 	void setExampleExpression(String value);
+
+	/**
+	 * Returns the value of the '<em><b>Label Hidden</b></em>' attribute.
+	 * The default value is <code>"false"</code>.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Label Hidden</em>' attribute.
+	 * @see #setLabelHidden(boolean)
+	 * @see org.obeonetwork.dsl.cinematic.toolkits.ToolkitsPackage#getStyle_LabelHidden()
+	 * @model default="false"
+	 * @generated
+	 */
+	boolean isLabelHidden();
+
+	/**
+	 * Sets the value of the '{@link org.obeonetwork.dsl.cinematic.toolkits.Style#isLabelHidden <em>Label Hidden</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Label Hidden</em>' attribute.
+	 * @see #isLabelHidden()
+	 * @generated
+	 */
+	void setLabelHidden(boolean value);
 
 } // Style

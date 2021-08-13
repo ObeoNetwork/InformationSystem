@@ -12,10 +12,10 @@
 <feature
       id="org.obeonetwork.dsl.requirement.m2doc.feature"
       label="Obeo Network - M2Doc Requirement Services"
-      version="2.1.0.qualifier"
+      version="2.2.0.qualifier"
       provider-name="%providerName"
       license-feature="org.obeonetwork.is.license"
-      license-feature-version="2.1.0.qualifier">
+      license-feature-version="2.2.0.qualifier">
 
    <description url="https://www.obeo.fr">
       Obeo - Requirement Model Service implementations and documentation

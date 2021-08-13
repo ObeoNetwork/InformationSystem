@@ -1103,6 +1103,9 @@
     <ownedJavaExtensions qualifiedClassName="org.obeonetwork.dsl.soa.design.services.EcoreService"/>
     <ownedJavaExtensions qualifiedClassName="org.obeonetwork.dsl.soa.design.services.SOALabelService"/>
     <ownedJavaExtensions qualifiedClassName="org.obeonetwork.dsl.soa.design.services.SOAService"/>
+    <ownedJavaExtensions qualifiedClassName="org.obeonetwork.dsl.soa.design.services.SOAValidators"/>
+    <ownedJavaExtensions qualifiedClassName="org.obeonetwork.dsl.soa.services.PropertiesExtensionsService"/>
+    <ownedJavaExtensions qualifiedClassName="org.obeonetwork.dsl.soa.design.services.OpenApiService"/>
   </ownedViewpoints>
   <userColorsPalettes name="Palette">
     <entries xsi:type="description:UserFixedColor" red="209" green="209" blue="209" name="Namespace_background"/>
@@ -1140,12 +1143,20 @@
       <pages name="Service Page" labelExpression="Service" domainClass="soa::Service" semanticCandidateExpression="var:self" groups="//@extensions.0/@categories.1/@groups.2"/>
       <pages name="Wire Page" labelExpression="Wire" domainClass="soa::Wire" semanticCandidateExpression="var:self" groups="//@extensions.0/@categories.1/@groups.3"/>
       <pages name="Parameter Page" labelExpression="Parameter" domainClass="soa::Parameter" semanticCandidateExpression="var:self" groups="//@extensions.0/@categories.1/@groups.4"/>
-      <pages name="Component Exposition Page" labelExpression="Exposition" domainClass="soa::Component" semanticCandidateExpression="var:self" groups="//@extensions.0/@categories.1/@groups.5"/>
-      <pages name="Service Exposition Page" labelExpression="Exposition" domainClass="soa::Service" semanticCandidateExpression="var:self" groups="//@extensions.0/@categories.1/@groups.6 //@extensions.0/@categories.1/@groups.9"/>
-      <pages name="Operation Exposition Page" labelExpression="Exposition" domainClass="soa::Operation" semanticCandidateExpression="var:self" preconditionExpression="aql:self.eContainer(soa::Service).kind=soa::InterfaceKind::provided and self.exposition&lt;>soa::ExpositionKind::NONE" groups="//@extensions.0/@categories.1/@groups.7 //@extensions.0/@categories.1/@groups.9 //@extensions.0/@categories.1/@groups.10 //@extensions.0/@categories.1/@groups.12"/>
-      <pages name="Parameter Exposition Page" labelExpression="Exposition" domainClass="soa::Parameter" semanticCandidateExpression="var:self" preconditionExpression="aql:self.eContainer(soa::Service).kind=soa::InterfaceKind::provided and self.exposition&lt;>soa::ExpositionKind::NONE" groups="//@extensions.0/@categories.1/@groups.8 //@extensions.0/@categories.1/@groups.9"/>
-      <pages name="Security Scheme Page" labelExpression="Security Scheme" domainClass="soa::SecurityScheme" semanticCandidateExpression="var:self" groups="//@extensions.0/@categories.1/@groups.11"/>
+      <pages name="Component Exposition Page" labelExpression="Exposition" domainClass="soa::Component" semanticCandidateExpression="var:self" groups="//@extensions.0/@categories.1/@groups.14 //@extensions.0/@categories.1/@groups.15 //@extensions.0/@categories.1/@groups.16 //@extensions.0/@categories.1/@groups.12"/>
+      <pages name="Service Exposition Page" labelExpression="Exposition" domainClass="soa::Service" semanticCandidateExpression="var:self" groups="//@extensions.0/@categories.1/@groups.5 //@extensions.0/@categories.1/@groups.8"/>
+      <pages name="Operation Exposition Page" labelExpression="Exposition" domainClass="soa::Operation" semanticCandidateExpression="var:self" preconditionExpression="aql:self.eContainer(soa::Service).kind=soa::InterfaceKind::provided and self.exposition&lt;>soa::ExpositionKind::NONE" groups="//@extensions.0/@categories.1/@groups.6 //@extensions.0/@categories.1/@groups.8 //@extensions.0/@categories.1/@groups.9 //@extensions.0/@categories.1/@groups.11"/>
+      <pages name="Parameter Exposition Page" labelExpression="Exposition" domainClass="soa::Parameter" semanticCandidateExpression="var:self" preconditionExpression="aql:self.eContainer(soa::Service).kind=soa::InterfaceKind::provided and self.exposition&lt;>soa::ExpositionKind::NONE" groups="//@extensions.0/@categories.1/@groups.7 //@extensions.0/@categories.1/@groups.8 //@extensions.0/@categories.1/@groups.17"/>
+      <pages name="Security Scheme Page" labelExpression="Security Scheme" domainClass="soa::SecurityScheme" semanticCandidateExpression="var:self" groups="//@extensions.0/@categories.1/@groups.10"/>
       <pages name="Component Security Schemes Page" labelExpression="Security Schemes" domainClass="soa::Component" semanticCandidateExpression="var:self" groups="//@extensions.0/@categories.1/@groups.13"/>
+      <pages name="MediaType Page" labelExpression="Media type" domainClass="soa::MediaType" semanticCandidateExpression="var:self" groups="//@extensions.0/@categories.1/@groups.18"/>
+      <pages name="Example Page" labelExpression="Example" domainClass="soa::Example" semanticCandidateExpression="var:self" groups="//@extensions.0/@categories.1/@groups.19"/>
+      <pages name="Information Page" labelExpression="Information" domainClass="soa::Information" semanticCandidateExpression="var:self" groups="//@extensions.0/@categories.1/@groups.20"/>
+      <pages name="Contact Page" labelExpression="Contact" domainClass="soa::Contact" semanticCandidateExpression="var:self" groups="//@extensions.0/@categories.1/@groups.21"/>
+      <pages name="License Page" labelExpression="License" domainClass="soa::License" semanticCandidateExpression="var:self" groups="//@extensions.0/@categories.1/@groups.22"/>
+      <pages name="Server Page" labelExpression="Server" domainClass="soa::Server" semanticCandidateExpression="var:self" groups="//@extensions.0/@categories.1/@groups.25"/>
+      <pages name="Properties Extension Page" labelExpression="Properties Extension" domainClass="soa::PropertiesExtension" semanticCandidateExpression="var:self" groups="//@extensions.0/@categories.1/@groups.23"/>
+      <pages name="Properties Extension List Page" labelExpression="Properties Extension" domainClass="environment::ObeoDSMObject" semanticCandidateExpression="var:self" preconditionExpression="aql:self.isPropertiesExtensionPossible()" groups="//@extensions.0/@categories.1/@groups.24"/>
       <groups name="Operation Group" labelExpression="Properties" domainClass="soa::Operation" semanticCandidateExpression="var:self">
         <controls xsi:type="properties:TextDescription" name="soa::Operation name" labelExpression="aql:input.emfEditServices(self).getText(self.eClass().getEStructuralFeature('name')) + ':'" helpExpression="aql:input.emfEditServices(self).getDescription(self.eClass().getEStructuralFeature('name'))" isEnabledExpression="aql:self.eClass().getEStructuralFeature('name').changeable" valueExpression="aql:self.name">
           <initialOperation>
@@ -1275,23 +1286,6 @@
           </initialOperation>
         </controls>
       </groups>
-      <groups name="Component Exposition Group" labelExpression="Exposition" domainClass="soa::Component" semanticCandidateExpression="var:self">
-        <controls xsi:type="properties:TextDescription" name="soa::System URL" labelExpression="aql:input.emfEditServices(self).getText(self.eClass().getEStructuralFeature('URL')) + ':'" helpExpression="aql:input.emfEditServices(self).getDescription(self.eClass().getEStructuralFeature('URL'))" isEnabledExpression="aql:self.eClass().getEStructuralFeature('URL').changeable" valueExpression="aql:self.URL">
-          <initialOperation>
-            <firstModelOperations xsi:type="tool_1:SetValue" featureName="URL" valueExpression="var:newValue"/>
-          </initialOperation>
-        </controls>
-        <controls xsi:type="properties:TextDescription" name="soa::Component URI" labelExpression="aql:input.emfEditServices(self).getText(self.eClass().getEStructuralFeature('URI')) + ':'" helpExpression="aql:input.emfEditServices(self).getDescription(self.eClass().getEStructuralFeature('URI'))" isEnabledExpression="aql:self.eClass().getEStructuralFeature('URI').changeable" valueExpression="aql:self.URI">
-          <initialOperation>
-            <firstModelOperations xsi:type="tool_1:SetValue" featureName="URI" valueExpression="var:newValue"/>
-          </initialOperation>
-        </controls>
-        <controls xsi:type="properties:TextDescription" name="soa::Component apiVersion" labelExpression="aql:input.emfEditServices(self).getText(self.eClass().getEStructuralFeature('apiVersion')) + ':'" helpExpression="aql:input.emfEditServices(self).getDescription(self.eClass().getEStructuralFeature('apiVersion'))" isEnabledExpression="aql:self.eClass().getEStructuralFeature('apiVersion').changeable" valueExpression="aql:self.apiVersion">
-          <initialOperation>
-            <firstModelOperations xsi:type="tool_1:SetValue" featureName="apiVersion" valueExpression="var:newValue"/>
-          </initialOperation>
-        </controls>
-      </groups>
       <groups name="Service Exposition Group" labelExpression="Exposition" domainClass="soa::Service" semanticCandidateExpression="var:self" preconditionExpression="aql:self.kind=soa::InterfaceKind::provided">
         <controls xsi:type="properties:TextDescription" name="soa::Service URI" labelExpression="aql:input.emfEditServices(self).getText(self.eClass().getEStructuralFeature('URI')) + ':'" helpExpression="aql:input.emfEditServices(self).getDescription(self.eClass().getEStructuralFeature('URI'))" isEnabledExpression="aql:self.eClass().getEStructuralFeature('URI').changeable" valueExpression="aql:self.URI">
           <initialOperation>
@@ -1309,6 +1303,50 @@
           <initialOperation>
             <firstModelOperations xsi:type="tool_1:SetValue" featureName="verb" valueExpression="aql:newValue.instance"/>
           </initialOperation>
+        </controls>
+        <controls xsi:type="properties:CustomDescription" name="org.obeonetwork.dsl.environment.properties.metadata.table" labelExpression="Servers:" helpExpression="aql:input.emfEditServices(self).getDescription(self.eClass().getEStructuralFeature('servers'))">
+          <customExpressions name="ColumnsExpression" customExpression="aql:Sequence{'URL', 'description'}"/>
+          <customExpressions name="referenceOwnerExpression" customExpression="aql:self"/>
+          <customExpressions name="referenceNameExpression" customExpression="aql:'servers'"/>
+          <customExpressions name="preconditionExpression" customExpression="aql:true"/>
+          <customOperations name="CreateElementOperation">
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:self">
+                <subModelOperations xsi:type="tool_1:CreateInstance" typeName="soa::Server" referenceName="servers" variableName="server">
+                  <subModelOperations xsi:type="tool_1:SetValue" featureName="URL" valueExpression="aql:''"/>
+                  <subModelOperations xsi:type="tool_1:SetValue" featureName="description" valueExpression="aql:''"/>
+                  <subModelOperations xsi:type="properties:DialogModelOperation" titleExpression="Create Server Dialog">
+                    <buttons labelExpression="Cancel" closeDialogOnClick="true" rollbackChangesOnClose="true">
+                      <initialOperation>
+                        <firstModelOperations xsi:type="tool_1:RemoveElement"/>
+                      </initialOperation>
+                    </buttons>
+                    <buttons labelExpression="OK" default="true" closeDialogOnClick="true">
+                      <initialOperation/>
+                    </buttons>
+                    <page name="Create Server Wizard Page" labelExpression="Server" domainClass="soa::Server" semanticCandidateExpression="var:self" extends="//@extensions.0/@categories.1/@pages.16"/>
+                    <groups name="Create Server Wizard Group" labelExpression="Server" domainClass="soa::Server" semanticCandidateExpression="var:self"/>
+                  </subModelOperations>
+                </subModelOperations>
+              </firstModelOperations>
+            </initialOperation>
+          </customOperations>
+          <customOperations name="EditElementOperation">
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:selection">
+                <subModelOperations xsi:type="properties:DialogModelOperation" titleExpression="Edit Server Dialog">
+                  <buttons labelExpression="Cancel" closeDialogOnClick="true" rollbackChangesOnClose="true">
+                    <initialOperation/>
+                  </buttons>
+                  <buttons labelExpression="OK" default="true" closeDialogOnClick="true">
+                    <initialOperation/>
+                  </buttons>
+                  <page name="Edit Server Wizard Page" labelExpression="Server" domainClass="soa::Server" semanticCandidateExpression="var:self" extends="//@extensions.0/@categories.1/@pages.16"/>
+                  <groups name="Edit Server Wizard Group" labelExpression="Properties" domainClass="soa::Server" semanticCandidateExpression="var:self"/>
+                </subModelOperations>
+              </firstModelOperations>
+            </initialOperation>
+          </customOperations>
         </controls>
       </groups>
       <groups name="Parameter Exposition Group" labelExpression="Exposition" domainClass="soa::Parameter" semanticCandidateExpression="var:self" preconditionExpression="aql:self.eContainer(soa::Service).kind=soa::InterfaceKind::provided">
@@ -1371,7 +1409,7 @@
           <layout xsi:type="properties:GridLayoutDescription" numberOfColumns="2"/>
         </controls>
         <validationSet>
-          <propertyValidationRules name="Invalid rest id" level="ERROR" message="The rest id is not defined in the operation URI." targets="//@extensions.0/@categories.1/@groups.8/@controls.0/@controls.0/@ifs.2/@widget">
+          <propertyValidationRules name="Invalid rest id" level="ERROR" message="The rest id is not defined in the operation URI." targets="//@extensions.0/@categories.1/@groups.7/@controls.0/@controls.0/@ifs.2/@widget">
             <audits auditExpression="aql:self.eContainer(soa::Operation).getParamIdsFromURI()->includes(self.restData.restId)"/>
           </propertyValidationRules>
         </validationSet>
@@ -1421,7 +1459,7 @@
           <layout xsi:type="properties:GridLayoutDescription" numberOfColumns="3"/>
         </controls>
         <validationSet>
-          <propertyValidationRules name="Invalid rest id" level="ERROR" message="The rest id is not defined in the operation URI." targets="//@extensions.0/@categories.1/@groups.10/@controls.0/@controls.0/@ifs.3/@widget">
+          <propertyValidationRules name="Invalid rest id" level="ERROR" message="The rest id is not defined in the operation URI." targets="//@extensions.0/@categories.1/@groups.9/@controls.0/@controls.0/@ifs.3/@widget">
             <audits auditExpression="aql:self.getParamIdsFromURI()->includes(restData.restId)"/>
           </propertyValidationRules>
         </validationSet>
@@ -1475,6 +1513,57 @@
           </customOperations>
         </controls>
       </groups>
+      <groups name="Component Exposition Group" labelExpression="Exposition" domainClass="soa::Component" semanticCandidateExpression="var:self">
+        <controls xsi:type="properties:TextDescription" name="soa::Component URI" labelExpression="aql:input.emfEditServices(self).getText(self.eClass().getEStructuralFeature('URI')) + ':'" helpExpression="aql:input.emfEditServices(self).getDescription(self.eClass().getEStructuralFeature('URI'))" isEnabledExpression="aql:self.eClass().getEStructuralFeature('URI').changeable" valueExpression="aql:self.URI">
+          <initialOperation>
+            <firstModelOperations xsi:type="tool_1:SetValue" featureName="URI" valueExpression="var:newValue"/>
+          </initialOperation>
+        </controls>
+        <controls xsi:type="properties:CustomDescription" name="org.obeonetwork.dsl.environment.properties.metadata.table" labelExpression="Servers:" helpExpression="aql:input.emfEditServices(self).getDescription(self.eClass().getEStructuralFeature('servers'))">
+          <customExpressions name="ColumnsExpression" customExpression="aql:Sequence{'URL', 'description'}"/>
+          <customExpressions name="referenceOwnerExpression" customExpression="aql:self"/>
+          <customExpressions name="referenceNameExpression" customExpression="aql:'servers'"/>
+          <customExpressions name="preconditionExpression" customExpression="aql:true"/>
+          <customOperations name="CreateElementOperation">
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:self">
+                <subModelOperations xsi:type="tool_1:CreateInstance" typeName="soa::Server" referenceName="servers" variableName="server">
+                  <subModelOperations xsi:type="tool_1:SetValue" featureName="URL" valueExpression="aql:''"/>
+                  <subModelOperations xsi:type="tool_1:SetValue" featureName="description" valueExpression="aql:''"/>
+                  <subModelOperations xsi:type="properties:DialogModelOperation" titleExpression="Create Server Dialog">
+                    <buttons labelExpression="Cancel" closeDialogOnClick="true" rollbackChangesOnClose="true">
+                      <initialOperation>
+                        <firstModelOperations xsi:type="tool_1:RemoveElement"/>
+                      </initialOperation>
+                    </buttons>
+                    <buttons labelExpression="OK" default="true" closeDialogOnClick="true">
+                      <initialOperation/>
+                    </buttons>
+                    <page name="Create Server Wizard Page" labelExpression="Server" domainClass="soa::Server" semanticCandidateExpression="var:self" extends="//@extensions.0/@categories.1/@pages.16"/>
+                    <groups name="Create Server Wizard Group" labelExpression="Server" domainClass="soa::Server" semanticCandidateExpression="var:self"/>
+                  </subModelOperations>
+                </subModelOperations>
+              </firstModelOperations>
+            </initialOperation>
+          </customOperations>
+          <customOperations name="EditElementOperation">
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:selection">
+                <subModelOperations xsi:type="properties:DialogModelOperation" titleExpression="Edit Server Dialog">
+                  <buttons labelExpression="Cancel" closeDialogOnClick="true" rollbackChangesOnClose="true">
+                    <initialOperation/>
+                  </buttons>
+                  <buttons labelExpression="OK" default="true" closeDialogOnClick="true">
+                    <initialOperation/>
+                  </buttons>
+                  <page name="Edit Server Wizard Page" labelExpression="Server" domainClass="soa::Server" semanticCandidateExpression="var:self" extends="//@extensions.0/@categories.1/@pages.16"/>
+                  <groups name="Edit Server Wizard Group" labelExpression="Properties" domainClass="soa::Server" semanticCandidateExpression="var:self"/>
+                </subModelOperations>
+              </firstModelOperations>
+            </initialOperation>
+          </customOperations>
+        </controls>
+      </groups>
       <groups name="Component Security Schemes Group" labelExpression="Security Schemes" domainClass="soa::Component" semanticCandidateExpression="var:self">
         <controls xsi:type="properties:CustomDescription" name="org.obeonetwork.is.eef.custom.reference" label="soa::Component Security Schemes" labelExpression="aql:input.emfEditServices(self).getText(self.eClass().getEStructuralFeature('securitySchemes')) + ':'" helpExpression="aql:input.emfEditServices(self).getDescription(self.eClass().getEStructuralFeature('securitySchemes'))" isEnabledExpression="aql:self.eClass().getEStructuralFeature('securitySchemes').changeable">
           <customExpressions name="referenceNameExpression" customExpression="securitySchemes"/>
@@ -1511,6 +1600,347 @@
             </initialOperation>
           </customOperations>
         </controls>
+      </groups>
+      <groups name="Component Information Group" labelExpression="Information" domainClass="soa::Component" semanticCandidateExpression="var:self">
+        <controls xsi:type="properties:TextDescription" name="soa::Component Information ApiVersion" labelExpression="aql:input.emfEditServices(self.information).getText(self.information.eClass().getEStructuralFeature('apiVersion')) + ':'" helpExpression="aql:input.emfEditServices(self.information).getDescription(self.information.eClass().getEStructuralFeature('apiVersion'))" valueExpression="aql:self.information.apiVersion">
+          <initialOperation>
+            <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="aql:self.information">
+              <subModelOperations xsi:type="tool_1:SetValue" featureName="apiVersion" valueExpression="var:newValue"/>
+            </firstModelOperations>
+          </initialOperation>
+        </controls>
+        <controls xsi:type="properties:TextDescription" name="soa::Component Information TermsOfService" labelExpression="aql:input.emfEditServices(self.information).getText(self.information.eClass().getEStructuralFeature('termsOfService')) + ':'" helpExpression="aql:input.emfEditServices(self.information).getDescription(self.information.eClass().getEStructuralFeature('termsOfService'))" valueExpression="aql:self.information.termsOfService">
+          <initialOperation>
+            <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="aql:self.information">
+              <subModelOperations xsi:type="tool_1:SetValue" featureName="termsOfService" valueExpression="var:newValue"/>
+            </firstModelOperations>
+          </initialOperation>
+        </controls>
+        <validationSet>
+          <propertyValidationRules name=" soa::Component Information TOS Validation" level="WARNING" message="Invalid URL" targets="//@extensions.0/@categories.1/@groups.14/@controls.1">
+            <audits auditExpression="aql:self.information.termsOfService.isValidURL()"/>
+          </propertyValidationRules>
+        </validationSet>
+      </groups>
+      <groups name="Component Contact Group" labelExpression="Contact" domainClass="soa::Component" semanticCandidateExpression="var:self">
+        <controls xsi:type="properties:TextDescription" name="soa::Component Contact Name" labelExpression="aql:input.emfEditServices(self.contact).getText(self.contact.eClass().getEStructuralFeature('name')) + ':'" helpExpression="aql:input.emfEditServices(self.contact).getDescription(self.contact.eClass().getEStructuralFeature('name')) " valueExpression="aql:self.contact.name">
+          <initialOperation>
+            <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="aql:self.contact">
+              <subModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="var:newValue"/>
+            </firstModelOperations>
+          </initialOperation>
+        </controls>
+        <controls xsi:type="properties:TextDescription" name="soa::Component Contact URL" labelExpression="aql:input.emfEditServices(self.contact).getText(self.contact.eClass().getEStructuralFeature('URL')) + ':'" helpExpression="aql:input.emfEditServices(self.contact).getDescription(self.contact.eClass().getEStructuralFeature('URL')) " valueExpression="aql:self.contact.URL">
+          <initialOperation>
+            <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="aql:self.contact">
+              <subModelOperations xsi:type="tool_1:SetValue" featureName="URL" valueExpression="var:newValue"/>
+            </firstModelOperations>
+          </initialOperation>
+        </controls>
+        <controls xsi:type="properties:TextDescription" name="soa::Component Contact Email" labelExpression="aql:input.emfEditServices(self.contact).getText(self.contact.eClass().getEStructuralFeature('email')) + ':'" helpExpression="aql:input.emfEditServices(self.contact).getDescription(self.contact.eClass().getEStructuralFeature('email'))" valueExpression="aql:self.contact.email">
+          <initialOperation>
+            <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="aql:self.contact">
+              <subModelOperations xsi:type="tool_1:SetValue" featureName="email" valueExpression="var:newValue"/>
+            </firstModelOperations>
+          </initialOperation>
+        </controls>
+        <validationSet>
+          <propertyValidationRules name="soa::Component Contact URL Validation" level="WARNING" message="Invalid URL" targets="//@extensions.0/@categories.1/@groups.15/@controls.1">
+            <audits auditExpression="aql:self.contact.URL.isValidURL()"/>
+          </propertyValidationRules>
+          <propertyValidationRules name="soa::Component Contact Email Validation" level="WARNING" message="Invalid Email" targets="//@extensions.0/@categories.1/@groups.15/@controls.2">
+            <audits auditExpression="aql:self.contact.email.isValidEmail()"/>
+          </propertyValidationRules>
+        </validationSet>
+      </groups>
+      <groups name="Component License Group" labelExpression="License" domainClass="soa::Component" semanticCandidateExpression="var:self">
+        <controls xsi:type="properties:TextDescription" name="soa::Component License Name" labelExpression="aql:input.emfEditServices(self.license).getText(self.license.eClass().getEStructuralFeature('name')) + ':'" helpExpression="aql:input.emfEditServices(self.license).getDescription(self.license.eClass().getEStructuralFeature('name'))" valueExpression="aql:self.license.name">
+          <initialOperation>
+            <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="aql:self.license">
+              <subModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="var:newValue"/>
+            </firstModelOperations>
+          </initialOperation>
+        </controls>
+        <controls xsi:type="properties:TextDescription" name="soa::Component License URL" labelExpression="aql:input.emfEditServices(self.license).getText(self.license.eClass().getEStructuralFeature('URL')) + ':'" helpExpression="aql:input.emfEditServices(self.license).getDescription(self.license.eClass().getEStructuralFeature('URL'))" valueExpression="aql:self.license.URL">
+          <initialOperation>
+            <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="aql:self.license">
+              <subModelOperations xsi:type="tool_1:SetValue" featureName="URL" valueExpression="var:newValue"/>
+            </firstModelOperations>
+          </initialOperation>
+        </controls>
+        <validationSet>
+          <propertyValidationRules name="soa::Component License URL Validation" level="WARNING" message="Invalid URL" targets="//@extensions.0/@categories.1/@groups.16/@controls.1">
+            <audits auditExpression="aql:self.license.URL.isValidURL()"/>
+          </propertyValidationRules>
+        </validationSet>
+      </groups>
+      <groups name="Parameter MediaType Properties Group" labelExpression="Media Type" domainClass="soa::Parameter" semanticCandidateExpression="var:self">
+        <controls xsi:type="properties:CustomDescription" name="org.obeonetwork.is.eef.custom.reference" labelExpression="Media Types:" helpExpression="The media types this parameter relies on.">
+          <customExpressions name="referenceNameExpression" customExpression="aql:'mediaType'"/>
+          <customExpressions name="referenceDisplayExpression" customExpression="aql:candidate.identifier"/>
+          <customOperations name="addButtonOperation">
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:CreateInstance" typeName="soa::MediaType" referenceName="mediaType">
+                <subModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:instance">
+                  <subModelOperations xsi:type="properties:DialogModelOperation" titleExpression="New Media Type">
+                    <buttons labelExpression="Cancel" closeDialogOnClick="true" rollbackChangesOnClose="true">
+                      <initialOperation/>
+                    </buttons>
+                    <buttons labelExpression="OK" default="true" closeDialogOnClick="true">
+                      <initialOperation/>
+                    </buttons>
+                    <page name="New Media Type Page" labelExpression="Media type" domainClass="soa::MediaType" semanticCandidateExpression="var:self" extends="//@extensions.0/@categories.1/@pages.11"/>
+                  </subModelOperations>
+                </subModelOperations>
+              </firstModelOperations>
+            </initialOperation>
+          </customOperations>
+          <customOperations name="onDoubleClickOperation">
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="aql:selection->first()">
+                <subModelOperations xsi:type="properties:DialogModelOperation" titleExpression="Edit MediaType Dialog">
+                  <buttons labelExpression="Cancel" closeDialogOnClick="true" rollbackChangesOnClose="true">
+                    <initialOperation/>
+                  </buttons>
+                  <buttons labelExpression="OK" default="true" closeDialogOnClick="true">
+                    <initialOperation/>
+                  </buttons>
+                  <page name="Edit MediaType Page" labelExpression="Media Type" semanticCandidateExpression="var:self" extends="//@extensions.0/@categories.1/@pages.11"/>
+                </subModelOperations>
+              </firstModelOperations>
+            </initialOperation>
+          </customOperations>
+        </controls>
+      </groups>
+      <groups name="MediaType Group" labelExpression="Properties" domainClass="soa::MediaType" semanticCandidateExpression="var:self">
+        <controls xsi:type="properties:ContainerDescription" name="MediaType Container">
+          <controls xsi:type="properties:TextDescription" name="media type identifier" labelExpression="aql:input.emfEditServices(self).getText(self.eClass().getEStructuralFeature('identifier'))+':'" helpExpression="aql:input.emfEditServices(self).getDescription(self.eClass().getEStructuralFeature('identifier'))" valueExpression="aql:self.identifier">
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="aql:self.setNewMediaTypeIdentifier(newValue)"/>
+            </initialOperation>
+          </controls>
+          <controls xsi:type="properties:ButtonDescription" name="soa::MediaType commonIdentifiers button" helpExpression="Displays a list of common mediatypes." buttonLabelExpression="...">
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="aql:self.openCommonIdentifiersSelectionDialog()"/>
+            </initialOperation>
+          </controls>
+          <layout xsi:type="properties:FillLayoutDescription" orientation="HORIZONTAL"/>
+        </controls>
+        <controls xsi:type="properties:CustomDescription" name="org.obeonetwork.is.eef.custom.reference" labelExpression="aql:'Examples:'" helpExpression="aql:input.emfEditServices(self).getDescription(self.eClass().getEStructuralFeature('examples'))">
+          <customExpressions name="referenceNameExpression" customExpression="aql:'examples'"/>
+          <customOperations name="addButtonOperation">
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:CreateInstance" typeName="soa::Example" referenceName="examples" variableName="newExample">
+                <subModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:newExample">
+                  <subModelOperations xsi:type="properties:DialogModelOperation" titleExpression="New Example Dialog">
+                    <buttons labelExpression="Cancel" closeDialogOnClick="true" rollbackChangesOnClose="true">
+                      <initialOperation/>
+                    </buttons>
+                    <buttons labelExpression="OK" default="true" closeDialogOnClick="true">
+                      <initialOperation/>
+                    </buttons>
+                    <page name="New Example Page" labelExpression="Example" semanticCandidateExpression="var:self" extends="//@extensions.0/@categories.1/@pages.12"/>
+                  </subModelOperations>
+                </subModelOperations>
+              </firstModelOperations>
+            </initialOperation>
+          </customOperations>
+          <customOperations name="onDoubleClickOperation">
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="aql:selection->first()">
+                <subModelOperations xsi:type="properties:DialogModelOperation" titleExpression="Edit Example Dialog">
+                  <buttons labelExpression="Cancel" closeDialogOnClick="true" rollbackChangesOnClose="true">
+                    <initialOperation/>
+                  </buttons>
+                  <buttons labelExpression="OK" default="true" closeDialogOnClick="true">
+                    <initialOperation/>
+                  </buttons>
+                  <page name="Default Page" labelExpression="Example" semanticCandidateExpression="var:self" extends="//@extensions.0/@categories.1/@pages.12"/>
+                </subModelOperations>
+              </firstModelOperations>
+            </initialOperation>
+          </customOperations>
+        </controls>
+        <validationSet>
+          <propertyValidationRules name="mediaTypeIdentifier prefix validator" level="WARNING" message="Invalid identifier type " targets="//@extensions.0/@categories.1/@groups.18/@controls.0/@controls.0">
+            <audits auditExpression="aql:self.isValidPrefix()"/>
+          </propertyValidationRules>
+          <propertyValidationRules name="mediaTypeIdentifier suffix validator" level="WARNING" message="Invalid identifier suffix" targets="//@extensions.0/@categories.1/@groups.18/@controls.0/@controls.0">
+            <audits auditExpression="aql:self.isValidSuffix()"/>
+          </propertyValidationRules>
+        </validationSet>
+      </groups>
+      <groups name="Example Group" labelExpression="Properties" domainClass="soa::Example" semanticCandidateExpression="var:self">
+        <controls xsi:type="properties:TextDescription" name="soa::Example name text" labelExpression="aql:input.emfEditServices(self).getText(self.eClass().getEStructuralFeature('name'))+':'" helpExpression="aql:input.emfEditServices(self).getDescription(self.eClass().getEStructuralFeature('name'))" valueExpression="aql:self.name">
+          <initialOperation>
+            <firstModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="var:newValue"/>
+          </initialOperation>
+        </controls>
+        <controls xsi:type="properties:TextDescription" name="soa::Example summary text" labelExpression="aql:input.emfEditServices(self).getText(self.eClass().getEStructuralFeature('summary'))+':'" helpExpression="aql:input.emfEditServices(self).getDescription(self.eClass().getEStructuralFeature('summary'))" valueExpression="aql:self.summary">
+          <initialOperation>
+            <firstModelOperations xsi:type="tool_1:SetValue" featureName="summary" valueExpression="var:newValue"/>
+          </initialOperation>
+        </controls>
+        <controls xsi:type="properties:TextDescription" name="soa::Example description text " labelExpression="aql:input.emfEditServices(self).getText(self.eClass().getEStructuralFeature('description'))+':'" helpExpression="aql:input.emfEditServices(self).getDescription(self.eClass().getEStructuralFeature('description'))" valueExpression="aql:self.description">
+          <initialOperation>
+            <firstModelOperations xsi:type="tool_1:SetValue" featureName="description" valueExpression="var:newValue"/>
+          </initialOperation>
+        </controls>
+        <controls xsi:type="properties:TextAreaDescription" name="soa::Example value textarea" labelExpression="aql:input.emfEditServices(self).getText(self.eClass().getEStructuralFeature('value'))+':'" helpExpression="aql:input.emfEditServices(self).getDescription(self.eClass().getEStructuralFeature('value'))+':'" valueExpression="aql:self.value">
+          <initialOperation>
+            <firstModelOperations xsi:type="tool_1:SetValue" featureName="value" valueExpression="aql:newValue"/>
+          </initialOperation>
+        </controls>
+      </groups>
+      <groups name="Information Group" labelExpression="Information" domainClass="soa::Information" semanticCandidateExpression="var:self">
+        <controls xsi:type="properties:TextDescription" name="soa::Information ApiVersion" labelExpression="aql:input.emfEditServices(self).getText(self.eClass().getEStructuralFeature('apiVersion')) + ':'" helpExpression="aql:input.emfEditServices(self).getDescription(self.eClass().getEStructuralFeature('apiVersion'))" valueExpression="aql:self.apiVersion">
+          <initialOperation>
+            <firstModelOperations xsi:type="tool_1:SetValue" featureName="apiVersion" valueExpression="var:newValue"/>
+          </initialOperation>
+        </controls>
+        <controls xsi:type="properties:TextDescription" name="soa::Information TermsOfService" labelExpression="aql:input.emfEditServices(self).getText(self.eClass().getEStructuralFeature('termsOfService')) + ':'" helpExpression="aql:input.emfEditServices(self).getDescription(self.eClass().getEStructuralFeature('termsOfService'))" valueExpression="aql:self.termsOfService">
+          <initialOperation>
+            <firstModelOperations xsi:type="tool_1:SetValue" featureName="termsOfService" valueExpression="var:newValue"/>
+          </initialOperation>
+        </controls>
+        <validationSet>
+          <propertyValidationRules name=" soa::Information TOS Validation" level="WARNING" message="Invalid URL" targets="//@extensions.0/@categories.1/@groups.20/@controls.1">
+            <audits auditExpression="aql:self.termsOfService.isValidURL()"/>
+          </propertyValidationRules>
+        </validationSet>
+      </groups>
+      <groups name="Contact Group" labelExpression="Contact" domainClass="soa::Contact" semanticCandidateExpression="var:self">
+        <controls xsi:type="properties:TextDescription" name="soa::Contact Name" labelExpression="aql:input.emfEditServices(self).getText(self.eClass().getEStructuralFeature('name')) + ':'" helpExpression="aql:input.emfEditServices(self).getDescription(self.eClass().getEStructuralFeature('name')) " valueExpression="aql:self.name">
+          <initialOperation>
+            <firstModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="var:newValue"/>
+          </initialOperation>
+        </controls>
+        <controls xsi:type="properties:TextDescription" name="soa::Contact URL" labelExpression="aql:input.emfEditServices(self).getText(self.eClass().getEStructuralFeature('URL')) + ':'" helpExpression="aql:input.emfEditServices(self).getDescription(self.eClass().getEStructuralFeature('URL')) " valueExpression="aql:self.URL">
+          <initialOperation>
+            <firstModelOperations xsi:type="tool_1:SetValue" featureName="URL" valueExpression="var:newValue"/>
+          </initialOperation>
+        </controls>
+        <controls xsi:type="properties:TextDescription" name="soa::Contact Email" labelExpression="aql:input.emfEditServices(self).getText(self.eClass().getEStructuralFeature('email')) + ':'" helpExpression="aql:input.emfEditServices(self).getDescription(self.eClass().getEStructuralFeature('email'))" valueExpression="aql:self.email">
+          <initialOperation>
+            <firstModelOperations xsi:type="tool_1:SetValue" featureName="email" valueExpression="var:newValue"/>
+          </initialOperation>
+        </controls>
+        <validationSet>
+          <propertyValidationRules name="soa::Contact URL Validation" level="WARNING" message="Invalid URL" targets="//@extensions.0/@categories.1/@groups.21/@controls.1">
+            <audits auditExpression="aql:self.URL.isValidURL()"/>
+          </propertyValidationRules>
+          <propertyValidationRules name="soa::Contact Email Validation" level="WARNING" message="Invalid Email" targets="//@extensions.0/@categories.1/@groups.21/@controls.2">
+            <audits auditExpression="aql:self.email.isValidEmail()"/>
+          </propertyValidationRules>
+        </validationSet>
+      </groups>
+      <groups name="License Group" labelExpression="License" domainClass="soa::License" semanticCandidateExpression="var:self">
+        <controls xsi:type="properties:TextDescription" name="soa::License Name" labelExpression="aql:input.emfEditServices(self).getText(self.eClass().getEStructuralFeature('name')) + ':'" helpExpression="aql:input.emfEditServices(self).getDescription(self.eClass().getEStructuralFeature('name'))" valueExpression="aql:self.name">
+          <initialOperation>
+            <firstModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="var:newValue"/>
+          </initialOperation>
+        </controls>
+        <controls xsi:type="properties:TextDescription" name="soa::License URL" labelExpression="aql:input.emfEditServices(self).getText(self.eClass().getEStructuralFeature('URL')) + ':'" helpExpression="aql:input.emfEditServices(self).getDescription(self.eClass().getEStructuralFeature('URL'))" valueExpression="aql:self.URL">
+          <initialOperation>
+            <firstModelOperations xsi:type="tool_1:SetValue" featureName="URL" valueExpression="var:newValue"/>
+          </initialOperation>
+        </controls>
+        <validationSet>
+          <propertyValidationRules name="soa::License URL Validation" level="WARNING" message="Invalid URL" targets="//@extensions.0/@categories.1/@groups.22/@controls.1">
+            <audits auditExpression="aql:self.URL.isValidURL()"/>
+          </propertyValidationRules>
+        </validationSet>
+      </groups>
+      <groups name="Properties Extension Group" labelExpression="Properties" domainClass="soa::PropertiesExtension" semanticCandidateExpression="var:self">
+        <controls xsi:type="properties:TextDescription" name="environment::Annotation key" labelExpression="Key:    x-" helpExpression="If omitted the &quot;x-&quot; prefix will be automatically added" isEnabledExpression="aql:self.eClass().getEStructuralFeature('title').changeable" valueExpression="aql:self.getPropertiesExtensionKeyToDisplay()">
+          <initialOperation>
+            <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="aql:self.setPropertiesExtensionKey(newValue)"/>
+          </initialOperation>
+          <conditionalStyles preconditionExpression="aql:self.eClass().getEStructuralFeature('title').lowerBound = 1">
+            <style>
+              <labelFontFormat>bold</labelFontFormat>
+            </style>
+          </conditionalStyles>
+        </controls>
+        <controls xsi:type="properties:TextAreaDescription" name="environment::Annotation value" labelExpression="Value:" helpExpression="aql:input.emfEditServices(self).getDescription(self.eClass().getEStructuralFeature('body'))" isEnabledExpression="aql:self.eClass().getEStructuralFeature('body').changeable" valueExpression="aql:self.body">
+          <initialOperation>
+            <firstModelOperations xsi:type="tool_1:SetValue" featureName="body" valueExpression="var:newValue"/>
+          </initialOperation>
+        </controls>
+        <controls xsi:type="properties:SelectDescription" name="soa::PropertiesExtension context" labelExpression="aql:input.emfEditServices(self).getText(self.eClass().getEStructuralFeature('context')) + ':'" helpExpression="aql:input.emfEditServices(self).getDescription(self.eClass().getEStructuralFeature('context'))" isEnabledExpression="aql:self.eClass().getEStructuralFeature('context').changeable" valueExpression="aql:self.context" candidatesExpression="aql:self.getMainObjectForPropertiesExtension().getPossibleContexts()->sortedBy(it | it.toString())" candidateDisplayExpression="aql:candidate.toString()">
+          <initialOperation>
+            <firstModelOperations xsi:type="tool_1:SetValue" featureName="context" valueExpression="var:newValue"/>
+          </initialOperation>
+        </controls>
+      </groups>
+      <groups name="Properties Extension List Group" labelExpression="Properties" domainClass="environment::ObeoDSMObject" semanticCandidateExpression="aql:self" preconditionExpression="aql:self.isPropertiesExtensionPossible()">
+        <controls xsi:type="properties:CustomDescription" name="org.obeonetwork.dsl.environment.properties.metadata.table" labelExpression="Metadata:" helpExpression="aql:self.getMetadatasHelpExpression()">
+          <customExpressions name="ColumnsExpression" customExpression="aql:Sequence{'title', 'body', 'context'}"/>
+          <customExpressions name="referenceOwnerExpression" customExpression="aql:self.metadatas"/>
+          <customExpressions name="referenceNameExpression" customExpression="aql:'metadatas'"/>
+          <customExpressions name="preconditionExpression" customExpression="aql:self.oclIsKindOf(soa::PropertiesExtension)"/>
+          <customOperations name="CreateElementOperation">
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:self">
+                <subModelOperations xsi:type="tool_1:If" conditionExpression="aql:self.metadatas = null">
+                  <subModelOperations xsi:type="tool_1:CreateInstance" typeName="environment::MetaDataContainer" referenceName="metadatas"/>
+                </subModelOperations>
+                <subModelOperations xsi:type="tool_1:ChangeContext" browseExpression="feature:metadatas">
+                  <subModelOperations xsi:type="tool_1:CreateInstance" typeName="soa::PropertiesExtension" referenceName="metadatas" variableName="annotation">
+                    <subModelOperations xsi:type="tool_1:SetValue" featureName="title" valueExpression="aql:''"/>
+                    <subModelOperations xsi:type="tool_1:SetValue" featureName="body" valueExpression="aql:''"/>
+                    <subModelOperations xsi:type="tool_1:SetValue" featureName="context" valueExpression="aql:self.getDefaultContext()"/>
+                    <subModelOperations xsi:type="properties:DialogModelOperation" titleExpression="Create Properties Extension Dialog">
+                      <buttons labelExpression="Cancel" closeDialogOnClick="true" rollbackChangesOnClose="true">
+                        <initialOperation>
+                          <firstModelOperations xsi:type="tool_1:RemoveElement"/>
+                        </initialOperation>
+                      </buttons>
+                      <buttons labelExpression="OK" default="true" closeDialogOnClick="true">
+                        <initialOperation/>
+                      </buttons>
+                      <page name="Create Properties Extension Wizard Page" labelExpression="Properties Extension" domainClass="soa::PropertiesExtension" semanticCandidateExpression="var:self" extends="//@extensions.0/@categories.1/@pages.17"/>
+                      <groups name="Create Annotation Wizard Group" labelExpression="Properties" domainClass="soa::PropertiesExtension" semanticCandidateExpression="var:self"/>
+                    </subModelOperations>
+                  </subModelOperations>
+                </subModelOperations>
+              </firstModelOperations>
+            </initialOperation>
+          </customOperations>
+          <customOperations name="EditElementOperation">
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:selection">
+                <subModelOperations xsi:type="properties:DialogModelOperation" titleExpression="Edit Properties Extension Dialog">
+                  <buttons labelExpression="Cancel" closeDialogOnClick="true" rollbackChangesOnClose="true">
+                    <initialOperation/>
+                  </buttons>
+                  <buttons labelExpression="OK" default="true" closeDialogOnClick="true">
+                    <initialOperation/>
+                  </buttons>
+                  <page name="Edit Properties Extension Wizard Page" labelExpression="Properties Extension" domainClass="soa::PropertiesExtension" semanticCandidateExpression="var:self" extends="//@extensions.0/@categories.1/@pages.17"/>
+                  <groups name="Edit Properties Extension Wizard Group" labelExpression="Properties" domainClass="soa::PropertiesExtension" semanticCandidateExpression="var:self"/>
+                </subModelOperations>
+              </firstModelOperations>
+            </initialOperation>
+          </customOperations>
+        </controls>
+      </groups>
+      <groups name="Server Group" labelExpression="Server" domainClass="soa::Server" semanticCandidateExpression="var:self">
+        <controls xsi:type="properties:TextDescription" name="soa::Server URL" labelExpression="aql:input.emfEditServices(self).getText(self.eClass().getEStructuralFeature('URL')) + ':'" helpExpression="aql:input.emfEditServices(self).getDescription(self.eClass().getEStructuralFeature('URL'))" valueExpression="aql:self.URL">
+          <initialOperation>
+            <firstModelOperations xsi:type="tool_1:SetValue" featureName="URL" valueExpression="var:newValue"/>
+          </initialOperation>
+        </controls>
+        <controls xsi:type="properties:TextDescription" name="soa::Server Description" labelExpression="aql:input.emfEditServices(self).getText(self.eClass().getEStructuralFeature('description')) + ':'" helpExpression="aql:input.emfEditServices(self).getDescription(self.eClass().getEStructuralFeature('description'))" valueExpression="aql:self.description">
+          <initialOperation>
+            <firstModelOperations xsi:type="tool_1:SetValue" featureName="description" valueExpression="var:newValue"/>
+          </initialOperation>
+        </controls>
+        <validationSet>
+          <propertyValidationRules name="soa::Server URL Validation" level="WARNING" message="Invalid URL" targets="//@extensions.0/@categories.1/@groups.25/@controls.0">
+            <audits auditExpression="aql:self.URL.isValidURL()"/>
+          </propertyValidationRules>
+        </validationSet>
       </groups>
     </categories>
   </extensions>

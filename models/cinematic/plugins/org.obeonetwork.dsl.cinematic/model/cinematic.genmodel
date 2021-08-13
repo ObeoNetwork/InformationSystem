@@ -161,15 +161,16 @@
         <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference cinematic.ecore#//toolkits/Widget/possibleEvents"/>
         <genFeatures createChild="false" ecoreFeature="ecore:EAttribute cinematic.ecore#//toolkits/Widget/isContainer"/>
         <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference cinematic.ecore#//toolkits/Widget/style"/>
-        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute cinematic.ecore#//toolkits/Widget/metadataKeys"/>
-        <genFeatures createChild="false" propertyMultiLine="true" ecoreFeature="ecore:EAttribute cinematic.ecore#//toolkits/Widget/metadataHelp"/>
+        <genFeatures property="Readonly" createChild="false" propertyMultiLine="true"
+            ecoreFeature="ecore:EAttribute cinematic.ecore#//toolkits/Widget/metadataHelp"/>
         <genFeatures createChild="false" ecoreFeature="ecore:EAttribute cinematic.ecore#//toolkits/Widget/summary"/>
         <genFeatures createChild="false" propertyMultiLine="true" ecoreFeature="ecore:EAttribute cinematic.ecore#//toolkits/Widget/documentation"/>
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference cinematic.ecore#//toolkits/Widget/metadataDefinitions"/>
       </genClasses>
       <genClasses ecoreClass="cinematic.ecore#//toolkits/WidgetEventType">
         <genFeatures createChild="false" ecoreFeature="ecore:EAttribute cinematic.ecore#//toolkits/WidgetEventType/name"/>
       </genClasses>
-      <genClasses ecoreClass="cinematic.ecore#//toolkits/Style">
+      <genClasses ecoreClass="cinematic.ecore#//toolkits/Style" labelFeature="#//cinematic/toolkits/Style/decorator">
         <genFeatures createChild="false" ecoreFeature="ecore:EAttribute cinematic.ecore#//toolkits/Style/decorator"/>
         <genFeatures createChild="false" ecoreFeature="ecore:EAttribute cinematic.ecore#//toolkits/Style/decoratorPosition"/>
         <genFeatures createChild="false" ecoreFeature="ecore:EAttribute cinematic.ecore#//toolkits/Style/decoratorVFill"/>
@@ -183,6 +184,10 @@
         <genFeatures createChild="false" ecoreFeature="ecore:EAttribute cinematic.ecore#//toolkits/Style/defaultHeight"/>
         <genFeatures documentation="AQL expression evaluated in the context of the AbstractViewElement that uses this Widget, and which provides the label that should be displayed in the diagram when using the &quot;example&quot; layer."
             createChild="false" ecoreFeature="ecore:EAttribute cinematic.ecore#//toolkits/Style/exampleExpression"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute cinematic.ecore#//toolkits/Style/labelHidden"/>
+      </genClasses>
+      <genClasses ecoreClass="cinematic.ecore#//toolkits/MetaDataDefinition" labelFeature="../../org.obeonetwork.dsl.environment/model/environment.genmodel#//environment/Annotation/title">
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute cinematic.ecore#//toolkits/MetaDataDefinition/help"/>
       </genClasses>
     </nestedGenPackages>
   </genPackages>

@@ -17,11 +17,7 @@ import static org.obeonetwork.dsl.soa.gen.swagger.HTTPResponseHeaders.LINK;
 import static org.obeonetwork.dsl.soa.gen.swagger.HTTPResponseHeaders.X_PAGE_ELEMENT_COUNT;
 import static org.obeonetwork.dsl.soa.gen.swagger.HTTPResponseHeaders.X_TOTAL_ELEMENT;
 import static org.obeonetwork.dsl.soa.gen.swagger.HTTPStatusCodes.HTTP_200;
-import static org.obeonetwork.dsl.soa.gen.swagger.HTTPStatusCodes.HTTP_201;
-import static org.obeonetwork.dsl.soa.gen.swagger.HTTPStatusCodes.HTTP_204;
 import static org.obeonetwork.dsl.soa.gen.swagger.HTTPStatusCodes.HTTP_206;
-import static org.obeonetwork.dsl.soa.gen.swagger.HTTPStatusCodes.HTTP_400;
-import static org.obeonetwork.dsl.soa.gen.swagger.HTTPStatusCodes.HTTP_404;
 import static org.obeonetwork.dsl.soa.gen.swagger.OpenApiParserHelper.COMPONENT_SCHEMA_$REF;
 import static org.obeonetwork.dsl.soa.gen.swagger.OpenApiParserHelper.OPEN_API_FORMAT_INT64;
 import static org.obeonetwork.dsl.soa.gen.swagger.OpenApiParserHelper.OPEN_API_IN_BODY;
@@ -33,19 +29,23 @@ import static org.obeonetwork.dsl.soa.gen.swagger.OpenApiParserHelper.OPEN_API_T
 import static org.obeonetwork.dsl.soa.gen.swagger.OpenApiParserHelper.OPEN_API_TYPE_OBJECT;
 import static org.obeonetwork.dsl.soa.gen.swagger.OpenApiParserHelper.OPEN_API_TYPE_STRING;
 import static org.obeonetwork.dsl.soa.gen.swagger.OpenApiParserHelper.createPrimitiveTypeSchema;
+import static org.obeonetwork.dsl.soa.gen.swagger.PropertiesExtensionsHelper.addPropertiesExtensionsFromSoaToSwg;
+import static org.obeonetwork.utils.common.StringUtils.EMPTY_STRING;
 import static org.obeonetwork.utils.common.StringUtils.emptyIfNull;
 import static org.obeonetwork.utils.common.StringUtils.isNullOrWhite;
-import static org.obeonetwork.utils.common.StringUtils.EMPTY_STRING;
 
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.Comparator;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
+import java.util.Objects;
 import java.util.Set;
 
 import org.eclipse.core.runtime.IStatus;
+import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.emf.ecore.resource.Resource;
@@ -57,23 +57,27 @@ import org.obeonetwork.dsl.environment.Type;
 import org.obeonetwork.dsl.soa.ApiKeyLocation;
 import org.obeonetwork.dsl.soa.Component;
 import org.obeonetwork.dsl.soa.ExpositionKind;
+import org.obeonetwork.dsl.soa.Information;
 import org.obeonetwork.dsl.soa.ParameterPassingMode;
 import org.obeonetwork.dsl.soa.SecuritySchemeType;
 import org.obeonetwork.dsl.soa.Service;
 import org.obeonetwork.dsl.soa.Verb;
 import org.obeonetwork.dsl.soa.gen.swagger.utils.ComponentGenUtil;
+import org.obeonetwork.dsl.soa.gen.swagger.utils.ExampleGenUtil;
 import org.obeonetwork.dsl.soa.gen.swagger.utils.OperationGenUtil;
 import org.obeonetwork.dsl.soa.gen.swagger.utils.ParameterGenUtil;
 import org.obeonetwork.dsl.soa.gen.swagger.utils.PropertyGenUtil;
 import org.obeonetwork.dsl.soa.gen.swagger.utils.ServiceGenUtil;
-import org.obeonetwork.dsl.soa.services.HttpStatusService;
+import org.obeonetwork.utils.common.StringUtils;
 
 import io.swagger.v3.oas.models.Components;
 import io.swagger.v3.oas.models.OpenAPI;
 import io.swagger.v3.oas.models.Operation;
 import io.swagger.v3.oas.models.PathItem;
 import io.swagger.v3.oas.models.Paths;
+import io.swagger.v3.oas.models.examples.Example;
 import io.swagger.v3.oas.models.headers.Header;
+import io.swagger.v3.oas.models.info.Contact;
 import io.swagger.v3.oas.models.info.Info;
 import io.swagger.v3.oas.models.info.License;
 import io.swagger.v3.oas.models.media.ArraySchema;
@@ -106,7 +110,6 @@ public class SwaggerBuilder {
 	private Map<Type, String> exposedSoaTypeKeys = null;
 
 	private boolean computeShortestKey = false;
-	private boolean completeOutputWithDefaults = false;
 
 	private int status;
 
@@ -142,6 +145,8 @@ public class SwaggerBuilder {
     	openApi = new OpenAPI();
     	openApi.setComponents(new Components());
     	
+    	addPropertiesExtensionsFromSoaToSwg(soaComponent, openApi);
+    	
     	if(!validatePreConditions()) {
     		return openApi;
     	}
@@ -161,7 +166,9 @@ public class SwaggerBuilder {
 		Set<String> operationNames = new HashSet<>();
 		
 		for(org.obeonetwork.dsl.soa.Operation soaOperation : soaComponent.getOwnedServices().stream()
-				.flatMap(s -> s.getOwnedInterface().getOwnedOperations().stream())
+				.map(s -> s.getOwnedInterface())
+				.filter(Objects::nonNull)
+				.flatMap(i ->i.getOwnedOperations().stream())
 				.collect(toList())) {
 			if(operationNames.contains(soaOperation.getName())) {
 				logError(String.format("Multiple operations with the same name : \"%s\". Can't generate OpenAPI compliant specification file.", soaOperation.getName()));
@@ -185,6 +192,8 @@ public class SwaggerBuilder {
 			tag.setDescription(soaService.getDescription());
 		}
 		
+		addPropertiesExtensionsFromSoaToSwg(soaService, tag);
+		
 		return tag;
 	}
 
@@ -207,6 +216,8 @@ public class SwaggerBuilder {
 		if(soaSecurityScheme.getDescription() != null) {
 			securityScheme.setDescription(soaSecurityScheme.getDescription());
 		}
+		
+		addPropertiesExtensionsFromSoaToSwg(soaSecurityScheme, securityScheme);
 		
 		return securityScheme;
 	}
@@ -256,43 +267,108 @@ public class SwaggerBuilder {
     	openApi.setServers(createServers());
 	}
     
+    /**
+     * Creates a new {@link Info} object that matches the data from SOA {@link Information} 
+     * @return a new {@link Info}
+     */
 	private Info createInfo() {
     	Info info = new Info();
     	info.setTitle(ComponentGenUtil.getName(soaComponent));
+    	    	
     	if(soaComponent.getDescription() != null) {
-    		info.setDescription(soaComponent.getDescription());
+    		info.setDescription(soaComponent.getDescription());    		
     	}
-		info.setVersion(soaComponent.getApiVersion());
+    	
+    	if (soaComponent.getInformation() != null) {
+    		Information soaInformation = soaComponent.getInformation();
+    		
+    		if(soaInformation.getTermsOfService() != null) {
+        		info.setTermsOfService(soaInformation.getTermsOfService());
+        	}
+        	
+        	if(soaInformation.getApiVersion() != null) {
+        		info.setVersion(soaInformation.getApiVersion());
+        	}
+        	
+        	addPropertiesExtensionsFromSoaToSwg(soaComponent.getInformation(), info);
+    	}
+    	
+		// info.setVersion(soaComponent.getApiVersion());
     	info.setLicense(createLicense());
+    	info.setContact(createContact());
+    	
     	return info;
     }
     
+	/**
+	 * Creates a {@link License} matching the {@link org.obeonetwork.dsl.soa.License} of a Soa {@link Information} 
+	 * @return a new {@link License}
+	 */
     private License createLicense() {
     	License license = new License();
-    	license.setName("Apache 2.0");
-        license.setUrl("http://www.apache.org/licenses/LICENSE-2.0.html");
+    	
+    	if (soaComponent.getLicense() != null) {
+    		org.obeonetwork.dsl.soa.License soaLicense = soaComponent.getLicense();
+    		
+    		if (StringUtils.isNullOrWhite(soaLicense.getName())) {
+        		license.setName("Apache 2.0");	
+        	} else {
+        		license.setName(soaLicense.getName());
+        	}
+        	
+        	if (StringUtils.isNullOrWhite(soaLicense.getURL())) {
+        		license.setUrl("http://www.apache.org/licenses/LICENSE-2.0.html");	
+        	} else {
+        		license.setUrl(soaLicense.getURL());
+        	}
+        	
+        	addPropertiesExtensionsFromSoaToSwg(soaComponent.getLicense(), license);
+    	}
+    	
         return license;
 	}
+    
+    /**
+     * Creates a new {@link Contact} that matches the {@link org.obeonetwork.dsl.soa.Contact} of Soa {@link Information}.
+     * @return a new {@link Contact}
+     */
+    private Contact createContact() {
+    	Contact contact = new Contact();
+    	if (soaComponent.getContact() != null) {
+    		org.obeonetwork.dsl.soa.Contact soaContact = soaComponent.getContact();
+    		
+    		if (soaContact.getEmail() != null)
+    			contact.setEmail(soaContact.getEmail());
+    		
+    		if (soaContact.getName() != null)
+    			contact.setName(soaContact.getName());
+    		
+    		if (soaContact.getURL() != null) 
+    			contact.setUrl(soaContact.getURL());
+    		
+    		addPropertiesExtensionsFromSoaToSwg(soaComponent.getContact(), contact);
+    	}
+    	
+    	return contact;
+    }
     
     private List<Server> createServers() {
     	if(falseForFutureEvolution()) {
         	// Handle multiple servers
     	}
+    	
     	List<Server> servers = new ArrayList<>();
-    	Server defaultServer = createDefaultServer();
-    	if(defaultServer != null) {
-    		servers.add(defaultServer);
-    	}
+    	soaComponent.getServers().stream().forEach(soaServer -> {
+    		Server server = new Server();
+        	server.setUrl(soaServer.getURL().trim());
+        	server.setDescription(soaServer.getDescription());
+        	
+        	servers.add(server);
+        	
+        	addPropertiesExtensionsFromSoaToSwg(soaServer, server);
+    	});
+    	
     	return servers;
-	}
-
-	private Server createDefaultServer() {
-    	Server server = null;
-    	if(!isNullOrWhite(soaComponent.getURL())) {
-    		server = new Server();
-        	server.setUrl(soaComponent.getURL().trim());
-    	}
-    	return server;
 	}
 
 	//// Schemas ////
@@ -360,7 +436,9 @@ public class SwaggerBuilder {
     	}
     	
     	// Build the schemas
-    	exposedSoaTypes.forEach(exposedSoaType -> buildSchema(exposedSoaType));
+    	exposedSoaTypes.stream()
+    	.sorted(Comparator.comparing(o -> getSoaTypeKey(o))) // sort types so the generation is always in the same order
+    		.forEach(exposedSoaType -> buildSchema(exposedSoaType));
     	
     }
 	
@@ -440,7 +518,8 @@ public class SwaggerBuilder {
 	}
 	
 	private void buildSchema(Type soaType) {
-    	openApi.getComponents().addSchemas(getSoaTypeKey(soaType), createSchema(soaType));
+		String soaTypeKey = getSoaTypeKey(soaType);
+    	openApi.getComponents().addSchemas(soaTypeKey, createSchema(soaType));
     }
     
 	private <T> Schema<T> createSchema(String type, String format) {
@@ -457,6 +536,9 @@ public class SwaggerBuilder {
 		} else if(soaType instanceof StructuredType) {
 			schema = createSoaStructuredTypeSchema((StructuredType) soaType);
 		}
+		
+		addPropertiesExtensionsFromSoaToSwg(soaType, schema);
+		
 		return schema;
 	}
 	
@@ -497,7 +579,6 @@ public class SwaggerBuilder {
 
 	private void buildProperty(Schema<Object> schema, Property soaProperty) {
 		schema.addProperties(soaProperty.getName(), createSoaPropertySchema(soaProperty));
-		
 		if(PropertyGenUtil.isRequired(soaProperty)) {
 			schema.addRequiredItem(soaProperty.getName());
 		}
@@ -518,9 +599,23 @@ public class SwaggerBuilder {
 		
 		if(PropertyGenUtil.isMany(soaProperty)) {
 			schema = createArraySchema(schema, soaProperty);
+		} else if (shouldCreateAllOfSchema(schema, soaProperty)) {
+			schema = createAllOfSchema(schema);
 		}
+		addPropertiesExtensionsFromSoaToSwg(soaProperty, schema);
 		
 		return schema;
+	}
+	
+	private boolean shouldCreateAllOfSchema(Schema<Object> schema, Property soaProperty) {
+		return schema.get$ref() != null
+				&& !PropertiesExtensionsHelper.getPropertiesExtensionForSwaggerContext(soaProperty, schema).isEmpty();
+	}
+	
+	private ComposedSchema createAllOfSchema(Schema<Object> schema) {
+		ComposedSchema composedSchema = new ComposedSchema();
+		composedSchema.addAllOfItem(schema);
+		return composedSchema;
 	}
 	
 	private Schema<Object> createArraySchema(Schema<Object> schema, Property soaProperty) {
@@ -564,10 +659,14 @@ public class SwaggerBuilder {
 	//// Paths ////
 	
 	private void buildPaths() {
-		openApi.setPaths(new Paths());
+		Paths paths = new Paths();
+		addPropertiesExtensionsFromSoaToSwg(soaComponent, paths);
+		openApi.setPaths(paths);
 		
 		soaComponent.getProvidedServices().stream()
-		.flatMap(soaService -> soaService.getOwnedInterface().getOwnedOperations().stream())
+		.map(soaService -> soaService.getOwnedInterface())
+		.filter(itf -> itf != null)
+		.flatMap(itf -> itf.getOwnedOperations().stream())
 		.filter(o -> o.getExposition() == ExpositionKind.REST)
 		.forEach(soaOperation -> buildPathItem(soaOperation));
 	}
@@ -577,23 +676,34 @@ public class SwaggerBuilder {
 		String operationUri = getSoaOperationUri(soaOperation);
 		
 		PathItem pathItem = getOrCreatePathItem(operationUri);
+		addPropertiesExtensionsFromSoaToSwg(soaOperation, pathItem);
 		
+		Operation operation = createOperation(soaOperation);
 		switch (soaOperation.getVerb()) {
 		case GET:
-			pathItem.setGet(createOperation(soaOperation));
+			pathItem.setGet(operation);
 			break;
 		case PUT:
-			pathItem.setPut(createOperation(soaOperation));
+			pathItem.setPut(operation);
 			break;
 		case POST:
-			pathItem.setPost(createOperation(soaOperation));
+			pathItem.setPost(operation);
 			break;
 		case DELETE:
-			pathItem.setDelete(createOperation(soaOperation));
+			pathItem.setDelete(operation);
 			break;
 		default:
 			break;
 		}
+		
+		// Add servers
+		soaOperation.getServers().stream().forEach(soaServer -> {
+			Server server = new Server();
+			server.setUrl(soaServer.getURL());
+			server.setDescription(soaServer.getDescription());
+			addPropertiesExtensionsFromSoaToSwg(soaServer, server);
+			pathItem.addServersItem(server);
+		});
 	}
 
 	private String getSoaOperationUri(org.obeonetwork.dsl.soa.Operation soaOperation) {
@@ -642,6 +752,8 @@ public class SwaggerBuilder {
         	swgOperation.addSecurityItem(swgSecurityRequirement);
     	}
     	
+    	addPropertiesExtensionsFromSoaToSwg(soaOperation, swgOperation);
+    	
     	return swgOperation;
 	}
 	
@@ -651,69 +763,26 @@ public class SwaggerBuilder {
     
 	private ApiResponses createApiResponses(org.obeonetwork.dsl.soa.Operation soaOperation) {
 		ApiResponses apiResponses = new ApiResponses();
-		
-		if(completeOutputWithDefaults) {
-			buildDefaultApiResponses(apiResponses, soaOperation);
-		}
-		
+
 		OperationGenUtil.getOutput(soaOperation).forEach(soaOutputParameter -> buildApiResponse(apiResponses, soaOutputParameter));
     	
 		OperationGenUtil.getFault(soaOperation).forEach(soaFaultParameter -> buildApiResponse(apiResponses, soaFaultParameter));
     	
+		addPropertiesExtensionsFromSoaToSwg(soaOperation, apiResponses);
+		
 		return apiResponses;
 	}
 
-	private void buildDefaultApiResponses(ApiResponses apiResponses, org.obeonetwork.dsl.soa.Operation soaOperation) {
-		if(OperationGenUtil.getOutput(soaOperation).isEmpty() && soaOperation.getVerb() == Verb.DELETE) {
-			ApiResponse apiResponse = new ApiResponse();
-			String statusCode = getDefaultOutputStatusCode(soaOperation);
-			String description = getDefaultDescriptionFromStatusCode(statusCode);
-			apiResponse.description(description);
-			apiResponses.addApiResponse(statusCode, apiResponse);
-		}
-		
-		if(OperationGenUtil.getFault(soaOperation).isEmpty()) {
-			ApiResponse apiResponse = new ApiResponse();
-			String statusCode = getDefaultFaultStatusCode(soaOperation);
-			String description = getDefaultDescriptionFromStatusCode(statusCode);
-			apiResponse.description(description);
-			apiResponse.content(createContentErrorResponse());
-			apiResponses.addApiResponse(statusCode, apiResponse);
-		}
-		
-	}
-    
-    private Content createContentErrorResponse() {
-		Content content = new Content();
-		content.addMediaType("application/json", createErrorMediaType());
-		return content;
-	}
-    
-    private MediaType createErrorMediaType() {
-		MediaType mediaType = new MediaType();
-		ArraySchema arraySchema = new ArraySchema();
-		arraySchema.name("errors");
-		arraySchema.items(createErrorSchema());
-		mediaType.schema(arraySchema);
-		return mediaType;
-	}
-    
-    private <T> Schema<T> createErrorSchema() {
-		Schema<T> error = createSchema(OPEN_API_TYPE_OBJECT, null);
-		error.addProperties("code", createSchema(OPEN_API_TYPE_STRING, null));
-		error.addProperties("message", createSchema(OPEN_API_TYPE_STRING, null));
-		error.addProperties("internalReferenceId", createSchema(OPEN_API_TYPE_STRING, null));
-		return error;
-	}
-    
 	private void buildApiResponse(ApiResponses apiResponses, org.obeonetwork.dsl.soa.Parameter soaOutputParameter) {
-		String statusCode = getStatusCode(soaOutputParameter);
+		String statusCode = soaOutputParameter.getStatusCode();
 		if(isNullOrWhite(statusCode)) {
 			logError(String.format("Output parameter %s of operation %s doesn't define a status code.", 
 					soaOutputParameter.getName(), 
 					ParameterGenUtil.getOperation(soaOutputParameter).getName()));
 		} else {
-			apiResponses.addApiResponse(statusCode, createApiResponse(soaOutputParameter));
+			ApiResponse apiResponse = createApiResponse(soaOutputParameter);
+			addPropertiesExtensionsFromSoaToSwg(soaOutputParameter, apiResponse);
+			apiResponses.addApiResponse(statusCode, apiResponse);
 		}
 	}
 
@@ -771,56 +840,8 @@ public class SwaggerBuilder {
     		description.append(soaParameter.getDescription());
     	}
 		
-		if(isNullOrWhite(description.toString()) && completeOutputWithDefaults) {
-			description.append(getDefaultDescriptionFromStatusCode(getStatusCode(soaParameter)));
-		}
-		
 		return description.toString();
 	}
-
-	private String getStatusCode(org.obeonetwork.dsl.soa.Parameter soaParameter) {
-		String statusCode = soaParameter.getStatusCode();
-		if(isNullOrWhite(statusCode) && completeOutputWithDefaults) {
-			if(ParameterGenUtil.isOutput(soaParameter)) {
-				statusCode = getDefaultOutputStatusCode(ParameterGenUtil.getOperation(soaParameter));
-			}
-			if((ParameterGenUtil.isFault(soaParameter))) {
-				statusCode = getDefaultFaultStatusCode(ParameterGenUtil.getOperation(soaParameter));
-			}
-		}
-		return statusCode;
-	}
-
-	private String getDefaultFaultStatusCode(org.obeonetwork.dsl.soa.Operation soaOperation) {
-		String statusCode = HTTP_404;
-		if(soaOperation.getVerb() == Verb.POST) {
-			statusCode = HTTP_400;
-		}
-		return statusCode;
-	}
-
-	private String getDefaultOutputStatusCode(org.obeonetwork.dsl.soa.Operation soaOperation) {
-		String statusCode = HTTP_200;
-		if(soaOperation.getVerb() == Verb.GET) {
-			if(soaOperation.isPaged()){
-				statusCode = HTTP_206;
-			}
-		} else if(soaOperation.getVerb() == Verb.DELETE) {
-			statusCode = HTTP_204;
-		} else if (soaOperation.getVerb() == Verb.PUT || soaOperation.getVerb() == Verb.POST) {
-			statusCode = HTTP_201;
-		}
-		return statusCode;
-	}
-
-    private String getDefaultDescriptionFromStatusCode(String statusCode) {
-    	String description = HttpStatusService.getHttpMessage(statusCode);
-    	if(description == null) {
-    		description = "<Unknown Status Code>";
-    	}
-    	
-    	return description;
-    }
 
 	private Operation buildParameters(Operation operation, org.obeonetwork.dsl.soa.Operation soaOperation) {
     	OperationGenUtil.getInput(soaOperation).stream()
@@ -854,6 +875,8 @@ public class SwaggerBuilder {
     	
     	swgParameter.setDescription(getDescription(soaParameter));
     	
+    	addPropertiesExtensionsFromSoaToSwg(soaParameter, swgParameter);
+    	
     	return swgParameter;
     }
     
@@ -865,6 +888,7 @@ public class SwaggerBuilder {
 			schema = createArraySchema(schema, soaParameter);
 		}
 		
+		addPropertiesExtensionsFromSoaToSwg(soaParameter, schema);
 		return schema;
 	}
 	
@@ -889,21 +913,69 @@ public class SwaggerBuilder {
     private RequestBody createRequestBody(org.obeonetwork.dsl.soa.Parameter soaParameter) {
 		RequestBody requestBody = new RequestBody();
 		requestBody.setContent(createContent(soaParameter));
+		
+		addPropertiesExtensionsFromSoaToSwg(soaParameter, requestBody);
+		
 		return requestBody;
 	}
     
     private Content createContent(org.obeonetwork.dsl.soa.Parameter soaParameter) {
     	Content content = new Content();
-    	content.addMediaType("application/json", createMediaType(soaParameter));
+    	
+    	if (soaParameter.getMediaType().isEmpty()) {
+    		content.addMediaType("application/json", createMediaType(soaParameter));
+    	} else {
+    		soaParameter.getMediaType().forEach(mediaType -> {
+        		if (StringUtils.isNullOrWhite(mediaType.getIdentifier())) {
+            		content.addMediaType("application/json", createMediaType(soaParameter));
+        		} else {
+            		content.addMediaType(mediaType.getIdentifier(), createMediaType(soaParameter, mediaType));
+        		}
+        	});	
+    	}
+    	
     	return content;
     }
     
     private MediaType createMediaType(org.obeonetwork.dsl.soa.Parameter soaParameter) {
     	MediaType mediaType = new MediaType();
     	mediaType.schema(createParameterSchema(soaParameter));
+    	
+    	addPropertiesExtensionsFromSoaToSwg(soaParameter, mediaType);
+    	
     	return mediaType;
     }
     
+    private MediaType createMediaType(org.obeonetwork.dsl.soa.Parameter soaParameter, org.obeonetwork.dsl.soa.MediaType soaMediaType) {
+    	MediaType mediaType = createMediaType(soaParameter);
+    	
+    	addPropertiesExtensionsFromSoaToSwg(soaMediaType, mediaType);
+    	mediaType.schema(createParameterSchema(soaParameter));    	
+    	if (soaMediaType.getExamples().size() > 0)
+    		mediaType.setExamples(createExamples(soaMediaType.getExamples()));
+    	
+    	return mediaType;
+    }
+    
+	private Map<String, Example> createExamples(EList<org.obeonetwork.dsl.soa.Example> examples) {
+		Map<String, Example> map = new HashMap<>();
+		examples.forEach(example -> {
+			map.put(example.getName(), createExamples(example));
+		});
+		return map;
+	}
+
+	private Example createExamples(org.obeonetwork.dsl.soa.Example soaExample) {
+		Example example = new Example();
+		example.setDescription(soaExample.getDescription());
+		example.setSummary(soaExample.getSummary());
+		example.setValue(ExampleGenUtil.getExampleObjectFromValue(soaExample.getValue()));
+		
+		addPropertiesExtensionsFromSoaToSwg(soaExample, example);
+		
+		return example;
+	}
+	
 	private void buildSortParameter(Operation operation) {
     	Parameter param = createParameter("sort", false, OPEN_API_IN_QUERY);
     	param.schema(createSchema(OPEN_API_TYPE_STRING, null));
@@ -930,6 +1002,8 @@ public class SwaggerBuilder {
     	parameter = parameter.in(in);
     	return parameter;
 	}
+    
+
     
     private String getIn(org.obeonetwork.dsl.soa.Parameter soaParameter) {
     	String in = null;

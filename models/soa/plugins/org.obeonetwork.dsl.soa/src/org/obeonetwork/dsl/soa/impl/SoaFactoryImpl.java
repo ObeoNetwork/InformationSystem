@@ -20,23 +20,31 @@ import org.obeonetwork.dsl.soa.ApiKeyLocation;
 import org.obeonetwork.dsl.soa.Binding;
 import org.obeonetwork.dsl.soa.BindingKind;
 import org.obeonetwork.dsl.soa.Component;
+import org.obeonetwork.dsl.soa.Contact;
+import org.obeonetwork.dsl.soa.Example;
 import org.obeonetwork.dsl.soa.ExpositionKind;
 import org.obeonetwork.dsl.soa.ImplementationComponent;
+import org.obeonetwork.dsl.soa.Information;
 import org.obeonetwork.dsl.soa.Interface;
 import org.obeonetwork.dsl.soa.InterfaceKind;
+import org.obeonetwork.dsl.soa.License;
+import org.obeonetwork.dsl.soa.MediaType;
 import org.obeonetwork.dsl.soa.Operation;
 import org.obeonetwork.dsl.soa.OperationKind;
 import org.obeonetwork.dsl.soa.Parameter;
 import org.obeonetwork.dsl.soa.ParameterPassingMode;
 import org.obeonetwork.dsl.soa.ParameterRestData;
+import org.obeonetwork.dsl.soa.PropertiesExtension;
 import org.obeonetwork.dsl.soa.SecurityScheme;
 import org.obeonetwork.dsl.soa.SecuritySchemeType;
+import org.obeonetwork.dsl.soa.Server;
 import org.obeonetwork.dsl.soa.Service;
 import org.obeonetwork.dsl.soa.SoaFactory;
 import org.obeonetwork.dsl.soa.SoaPackage;
 import org.obeonetwork.dsl.soa.SynchronizationKind;
 import org.obeonetwork.dsl.soa.Verb;
 import org.obeonetwork.dsl.soa.Wire;
+import org.obeonetwork.dsl.soa.spec.ComponentSpec;
 import org.obeonetwork.dsl.soa.spec.InterfaceSpec;
 import org.obeonetwork.dsl.soa.spec.ServiceSpec;
 
@@ -102,6 +110,13 @@ public class SoaFactoryImpl extends EFactoryImpl implements SoaFactory {
 			case SoaPackage.PARAMETER: return (EObject)createParameter();
 			case SoaPackage.PARAMETER_REST_DATA: return (EObject)createParameterRestData();
 			case SoaPackage.SECURITY_SCHEME: return (EObject)createSecurityScheme();
+			case SoaPackage.INFORMATION: return (EObject)createInformation();
+			case SoaPackage.CONTACT: return (EObject)createContact();
+			case SoaPackage.LICENSE: return (EObject)createLicense();
+			case SoaPackage.MEDIA_TYPE: return (EObject)createMediaType();
+			case SoaPackage.EXAMPLE: return (EObject)createExample();
+			case SoaPackage.PROPERTIES_EXTENSION: return (EObject)createPropertiesExtension();
+			case SoaPackage.SERVER: return (EObject)createServer();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -182,10 +197,10 @@ public class SoaFactoryImpl extends EFactoryImpl implements SoaFactory {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	public Component createComponent() {
-		ComponentImpl component = new ComponentImpl();
+		ComponentImpl component = new ComponentSpec();
 		return component;
 	}
 
@@ -277,6 +292,76 @@ public class SoaFactoryImpl extends EFactoryImpl implements SoaFactory {
 	public SecurityScheme createSecurityScheme() {
 		SecuritySchemeImpl securityScheme = new SecuritySchemeImpl();
 		return securityScheme;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Information createInformation() {
+		InformationImpl information = new InformationImpl();
+		return information;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Contact createContact() {
+		ContactImpl contact = new ContactImpl();
+		return contact;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public License createLicense() {
+		LicenseImpl license = new LicenseImpl();
+		return license;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public MediaType createMediaType() {
+		MediaTypeImpl mediaType = new MediaTypeImpl();
+		return mediaType;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Example createExample() {
+		ExampleImpl example = new ExampleImpl();
+		return example;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public PropertiesExtension createPropertiesExtension() {
+		PropertiesExtensionImpl propertiesExtension = new PropertiesExtensionImpl();
+		return propertiesExtension;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Server createServer() {
+		ServerImpl server = new ServerImpl();
+		return server;
 	}
 
 	/**

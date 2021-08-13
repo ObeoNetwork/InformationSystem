@@ -9,12 +9,15 @@ info:
     \ the API in general, and expose some of the new features in OAS3.\n\nSome useful\
     \ links:\n- [The Pet Store repository](https://github.com/swagger-api/swagger-petstore)\n\
     - [The source API definition for the Pet Store](https://github.com/swagger-api/swagger-petstore/blob/master/src/main/resources/openapi.yaml) "
+  termsOfService: /tos
+  contact:
+    name: Obeo
+    url: https://contact.obeosoft.com/
+    email: contact@obeosoft.com
   license:
     name: Apache 2.0
     url: http://www.apache.org/licenses/LICENSE-2.0.html
   version: 1.0.5-SNAPSHOT
-servers:
-- url: /v3
 tags:
 - name: User
   description: Access to Petstore orders
@@ -31,6 +34,24 @@ paths:
       operationId: createUser
       requestBody:
         content:
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/User'
+            examples:
+              cat:
+                summary: a cat
+                description: 'kitty kitty '
+                value:
+                  name: edwardo
+                  weight: 2
+                  age: 8
+              dog:
+                summary: a dog
+                description: he is a good boy
+                value:
+                  name: bobby
+                  age: 6
+                  weight: 34
           application/json:
             schema:
               $ref: '#/components/schemas/User'
@@ -38,9 +59,17 @@ paths:
         default:
           description: successful operation
           content:
-            application/json:
+            application/yaml:
               schema:
                 $ref: '#/components/schemas/User'
+              examples:
+                dog:
+                  summary: a dog
+                  description: he is a very good boy
+                  value:
+                    name: bobby
+                    age: 6
+                    weight: 34
   /user/createWithList:
     post:
       tags:
@@ -56,10 +85,7 @@ paths:
                 $ref: '#/components/schemas/User'
       responses:
         200:
-          description: |-
-            OK
-
-            Successful operation
+          description: "OK\n\nSuccessful operation"
           headers:
             X-Total-Element:
               schema:
@@ -104,10 +130,7 @@ paths:
           type: string
       responses:
         200:
-          description: |-
-            OK
-
-            successful operation
+          description: "OK\n\nsuccessful operation"
           headers:
             X-Total-Element:
               schema:
@@ -131,10 +154,7 @@ paths:
               schema:
                 type: string
         400:
-          description: |-
-            Bad Request
-
-            Invalid username/password supplied
+          description: "Bad Request\n\nInvalid username/password supplied"
   /user/logout:
     get:
       tags:
@@ -157,10 +177,7 @@ paths:
           type: string
       responses:
         200:
-          description: |-
-            OK
-
-            successful operation
+          description: "OK\n\nsuccessful operation"
           headers:
             X-Total-Element:
               schema:
@@ -184,15 +201,9 @@ paths:
               schema:
                 $ref: '#/components/schemas/User'
         400:
-          description: |-
-            Bad Request
-
-            Invalid username supplied
+          description: "Bad Request\n\nInvalid username supplied"
         404:
-          description: |-
-            Not Found
-
-            User not found
+          description: "Not Found\n\nUser not found"
     put:
       tags:
       - User
@@ -227,15 +238,9 @@ paths:
           type: string
       responses:
         400:
-          description: |-
-            Bad Request
-
-            Invalid username supplied
+          description: "Bad Request\n\nInvalid username supplied"
         404:
-          description: |-
-            Not Found
-
-            User not found
+          description: "Not Found\n\nUser not found"
   /store/inventory:
     get:
       tags:
@@ -244,10 +249,7 @@ paths:
       operationId: getInventory
       responses:
         200:
-          description: |-
-            OK
-
-            successful operation
+          description: "OK\n\nsuccessful operation"
           headers:
             X-Total-Element:
               schema:
@@ -285,10 +287,7 @@ paths:
               $ref: '#/components/schemas/Order'
       responses:
         200:
-          description: |-
-            OK
-
-            successful operation
+          description: "OK\n\nsuccessful operation"
           headers:
             X-Total-Element:
               schema:
@@ -312,10 +311,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Order'
         405:
-          description: |-
-            Method Not Allowed
-
-            Invalid input
+          description: "Method Not Allowed\n\nInvalid input"
   /store/order/{orderId}:
     get:
       tags:
@@ -333,10 +329,7 @@ paths:
           format: int64
       responses:
         200:
-          description: |-
-            OK
-
-            successful operation
+          description: "OK\n\nsuccessful operation"
           headers:
             X-Total-Element:
               schema:
@@ -360,15 +353,9 @@ paths:
               schema:
                 $ref: '#/components/schemas/Order'
         400:
-          description: |-
-            Bad Request
-
-            Invalid ID supplied
+          description: "Bad Request\n\nInvalid ID supplied"
         404:
-          description: |-
-            Not Found
-
-            Order not found
+          description: "Not Found\n\nOrder not found"
     delete:
       tags:
       - Store
@@ -385,15 +372,9 @@ paths:
           format: int64
       responses:
         400:
-          description: |-
-            Bad Request
-
-            Invalid ID supplied
+          description: "Bad Request\n\nInvalid ID supplied"
         404:
-          description: |-
-            Not Found
-
-            Order not found
+          description: "Not Found\n\nOrder not found"
   /pet:
     put:
       tags:
@@ -407,10 +388,7 @@ paths:
               $ref: '#/components/schemas/Pet'
       responses:
         200:
-          description: |-
-            OK
-
-            Successful operation
+          description: "OK\n\nSuccessful operation"
           headers:
             X-Total-Element:
               schema:
@@ -434,20 +412,11 @@ paths:
               schema:
                 $ref: '#/components/schemas/Pet'
         400:
-          description: |-
-            Bad Request
-
-            Invalid ID supplied
+          description: "Bad Request\n\nInvalid ID supplied"
         404:
-          description: |-
-            Not Found
-
-            Pet not found
+          description: "Not Found\n\nPet not found"
         405:
-          description: |-
-            Method Not Allowed
-
-            Validation exception
+          description: "Method Not Allowed\n\nValidation exception"
       security:
       - petstore_auth: []
     post:
@@ -462,10 +431,7 @@ paths:
               $ref: '#/components/schemas/Pet'
       responses:
         200:
-          description: |-
-            OK
-
-            Successful operation
+          description: "OK\n\nSuccessful operation"
           headers:
             X-Total-Element:
               schema:
@@ -489,10 +455,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Pet'
         405:
-          description: |-
-            Method Not Allowed
-
-            Invalid input
+          description: "Method Not Allowed\n\nInvalid input"
       security:
       - petstore_auth: []
   /pet/findByStatus:
@@ -510,10 +473,7 @@ paths:
           $ref: '#/components/schemas/PetStatus'
       responses:
         200:
-          description: |-
-            OK
-
-            successful operation
+          description: "OK\n\nsuccessful operation"
           headers:
             X-Total-Element:
               schema:
@@ -539,10 +499,7 @@ paths:
                 items:
                   $ref: '#/components/schemas/Pet'
         400:
-          description: |-
-            Bad Request
-
-            Invalid status value
+          description: "Bad Request\n\nInvalid status value"
       security:
       - petstore_auth: []
   /pet/findByTags:
@@ -563,10 +520,7 @@ paths:
             type: string
       responses:
         200:
-          description: |-
-            OK
-
-            successful operation
+          description: "OK\n\nsuccessful operation"
           headers:
             X-Total-Element:
               schema:
@@ -592,10 +546,7 @@ paths:
                 items:
                   $ref: '#/components/schemas/Pet'
         400:
-          description: |-
-            Bad Request
-
-            Invalid tag value
+          description: "Bad Request\n\nInvalid tag value"
       security:
       - petstore_auth: []
   /pet/{petId}:
@@ -614,10 +565,7 @@ paths:
           format: int64
       responses:
         200:
-          description: |-
-            OK
-
-            successful operation
+          description: "OK\n\nsuccessful operation"
           headers:
             X-Total-Element:
               schema:
@@ -641,15 +589,9 @@ paths:
               schema:
                 $ref: '#/components/schemas/Pet'
         400:
-          description: |-
-            Bad Request
-
-            Invalid ID supplied
+          description: "Bad Request\n\nInvalid ID supplied"
         404:
-          description: |-
-            Not Found
-
-            Pet not found
+          description: "Not Found\n\nPet not found"
       security:
       - api_key: []
       - petstore_auth: []
@@ -679,10 +621,7 @@ paths:
           type: string
       responses:
         405:
-          description: |-
-            Method Not Allowed
-
-            Invalid input
+          description: "Method Not Allowed\n\nInvalid input"
       security:
       - petstore_auth: []
     delete:
@@ -704,10 +643,7 @@ paths:
           format: int64
       responses:
         400:
-          description: |-
-            Bad Request
-
-            Invalid pet value
+          description: "Bad Request\n\nInvalid pet value"
       security:
       - petstore_auth: []
   /pet/{petId}/uploadImage:
@@ -737,10 +673,7 @@ paths:
               format: binary
       responses:
         200:
-          description: |-
-            OK
-
-            successful operation
+          description: "OK\n\nsuccessful operation"
           headers:
             X-Total-Element:
               schema:
@@ -767,50 +700,17 @@ paths:
       - petstore_auth: []
 components:
   schemas:
-    Category:
+    ApiResponse:
       type: object
       properties:
-        name:
-          type: string
-        id:
-          type: integer
-          format: int64
-    OrderStatus:
-      type: string
-      enum:
-      - approved
-      - placed
-      - delivered
-    Store_GetInventoryOutput200:
-      type: object
-    PetStatus:
-      type: string
-      enum:
-      - sold
-      - pending
-      - available
-    User:
-      type: object
-      properties:
-        firstName:
-          type: string
-        lastName:
-          type: string
-        password:
-          type: string
-        userStatus:
+        code:
           type: integer
           format: int32
-        phone:
+        type:
           type: string
-        id:
-          type: integer
-          format: int64
-        email:
+        message:
           type: string
-        username:
-          type: string
-    Tag:
+    Category:
       type: object
       properties:
         name:
@@ -837,6 +737,12 @@ components:
           type: boolean
         status:
           $ref: '#/components/schemas/OrderStatus'
+    OrderStatus:
+      type: string
+      enum:
+      - approved
+      - placed
+      - delivered
     Pet:
       required:
       - name
@@ -861,15 +767,42 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/Tag'
-    ApiResponse:
+    PetStatus:
+      type: string
+      enum:
+      - sold
+      - pending
+      - available
+    Store_GetInventoryOutput200:
+      type: object
+    Tag:
       type: object
       properties:
-        code:
+        name:
+          type: string
+        id:
+          type: integer
+          format: int64
+    User:
+      type: object
+      properties:
+        firstName:
+          type: string
+        lastName:
+          type: string
+        password:
+          type: string
+        userStatus:
           type: integer
           format: int32
-        type:
+        phone:
           type: string
-        message:
+        id:
+          type: integer
+          format: int64
+        email:
+          type: string
+        username:
           type: string
   securitySchemes:
     petstore_auth:

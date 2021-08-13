@@ -173,6 +173,13 @@
       <td colspan="1" rowspan="1">{m:for viewElement | viewContainer.viewElements} viewElement {m:viewElement.name}, {m:endfor}</td>
     </tr>
     <tr>
+      <td colspan="1" rowspan="1"><strong>viewStyle</strong></td>
+      <td colspan="1" rowspan="1"><a href="/help/topic/org.obeonetwork.cinematic.m2doc.services/doc/pages/m2doc_services_viewstyle.html">ViewStyle</a></td>
+      <td colspan="1" rowspan="1">{m:viewContainer.viewStyle}</td>
+      <td colspan="1" rowspan="1"></td>
+      <td colspan="1" rowspan="1">{m:viewContainer.viewStyle}</td>
+    </tr>
+    <tr>
       <td colspan="1" rowspan="1"><strong>widget</strong></td>
       <td colspan="1" rowspan="1"><a href="/help/topic/org.obeonetwork.cinematic.m2doc.services/doc/pages/m2doc_services_widget.html">Widget</a></td>
       <td colspan="1" rowspan="1">{m:viewContainer.widget}</td>
@@ -208,6 +215,27 @@
       <td colspan="1" rowspan="1">{m:myObeoDSMObject.annotation(String)}</td>
       <td colspan="1" rowspan="1">Return first annotation with the specified title.</td>
       <td colspan="1" rowspan="1">{m:myObeoDSMObject.annotation('some title')} returns: The string of the annotation.</td>
+    </tr>
+    <tr>
+      <td colspan="1" rowspan="1"><strong>asMockupImage</strong></td>
+      <td colspan="1" rowspan="1">List of org.obeonetwork.m2doc.element.MImage</td>
+      <td colspan="1" rowspan="1">{m:viewContainer.asMockupImage(width, height)}</td>
+      <td colspan="1" rowspan="1">Returns a collection of images representing the target ViewContainer Mockup Diagrams scaled to the given width and heigth.</td>
+      <td colspan="1" rowspan="1">{m:viewContainer.asMockupImage(400, 300)} returns: A sequence of images.</td>
+    </tr>
+    <tr>
+      <td colspan="1" rowspan="1"><strong>asMockupImage</strong></td>
+      <td colspan="1" rowspan="1">List of org.obeonetwork.m2doc.element.MImage</td>
+      <td colspan="1" rowspan="1">{m:viewContainer.asMockupImage(width)}</td>
+      <td colspan="1" rowspan="1">Returns a collection of images representing the target ViewContainer Mockup Diagrams scaled to the given width keeping the initial image ratio.</td>
+      <td colspan="1" rowspan="1">{m:viewContainer.asMockupImage(400)} returns: A sequence of images.</td>
+    </tr>
+    <tr>
+      <td colspan="1" rowspan="1"><strong>asMockupImage</strong></td>
+      <td colspan="1" rowspan="1">List of org.obeonetwork.m2doc.element.MImage</td>
+      <td colspan="1" rowspan="1">{m:viewContainer.asMockupImage()}</td>
+      <td colspan="1" rowspan="1">Returns a collection of images representing the target ViewContainer Mockup Diagrams.</td>
+      <td colspan="1" rowspan="1">{m:viewContainer.asMockupImage()} returns: A sequence of images.</td>
     </tr>
     <tr>
       <td colspan="1" rowspan="1"><strong>cinematicIcon</strong></td>

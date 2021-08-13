@@ -7,7 +7,7 @@
             class="org.obeonetwork.utils.sirius.propertyTesters.SiriusEditPartPropertyTester"
             id="org.obeonetwork.utils.sirius.propertyTesters.SiriusEditPartPropertyTester"
             namespace="org.eclipse.sirius.diagram.ui.edit.api.part.ISiriusEditPart"
-            properties="diagramName,viewpointId"
+            properties="diagramName,viewpointId,mappingName"
             type="org.eclipse.sirius.diagram.ui.edit.api.part.ISiriusEditPart">
       </propertyTester>
    </extension>

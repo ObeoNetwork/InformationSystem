@@ -28,6 +28,7 @@ import org.eclipse.emf.edit.provider.INotifyChangedListener;
 import org.eclipse.emf.edit.provider.IStructuredItemContentProvider;
 import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
 import org.obeonetwork.dsl.cinematic.view.provider.spec.LayoutItemProviderSpec;
+import org.obeonetwork.dsl.cinematic.view.provider.spec.ViewStyleItemProviderSpec;
 import org.obeonetwork.dsl.cinematic.view.util.ViewAdapterFactory;
 
 /**
@@ -228,12 +229,12 @@ public class ViewItemProviderAdapterFactory extends ViewAdapterFactory implement
 	 * This creates an adapter for a {@link org.obeonetwork.dsl.cinematic.view.ViewStyle}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	@Override
 	public Adapter createViewStyleAdapter() {
 		if (viewStyleItemProvider == null) {
-			viewStyleItemProvider = new ViewStyleItemProvider(this);
+			viewStyleItemProvider = new ViewStyleItemProviderSpec(this);
 		}
 
 		return viewStyleItemProvider;

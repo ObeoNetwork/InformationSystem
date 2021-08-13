@@ -150,7 +150,7 @@ public class ParameterRestDataItemProvider
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = ((ParameterRestData)object).getTechnicalid();
+		String label = ((ParameterRestData)object).getRestId();
 		return label == null || label.length() == 0 ?
 			getString("_UI_ParameterRestData_type") :
 			getString("_UI_ParameterRestData_type") + " " + label;

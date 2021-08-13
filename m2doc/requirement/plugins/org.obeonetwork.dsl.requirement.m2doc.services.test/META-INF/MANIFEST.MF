@@ -2,7 +2,7 @@ Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: M2Doc Requirement Services Test
 Bundle-SymbolicName: org.obeonetwork.dsl.requirement.m2doc.services.test
-Bundle-Version: 2.1.0.qualifier
+Bundle-Version: 2.2.0.qualifier
 Bundle-Activator: org.obeonetwork.dsl.requirement.service.test.Activator
 Require-Bundle: org.eclipse.core.runtime,
  org.obeonetwork.dsl.requirement,

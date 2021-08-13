@@ -1,4 +1,5 @@
 /*******************************************************************************
+ **$
  * Copyright (c) 2008, 2021 Obeo.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
@@ -24,7 +25,7 @@ import org.eclipse.emf.ecore.resource.ResourceSet;
 import org.junit.Test;
 import org.obeonetwork.dsl.soa.Component;
 import org.obeonetwork.dsl.soa.gen.swagger.SwaggerExporter;
-import org.obeonetwork.dsl.soa.gen.swagger.SwaggerExporter.MapperType;
+import org.obeonetwork.dsl.soa.gen.swagger.utils.SwaggerExportUtil.MapperType;
 
 public class SwaggerGenerationTest {
 	
@@ -32,7 +33,7 @@ public class SwaggerGenerationTest {
 	private static final String EXPECTED_FOLDER_PATH_FORMAT = "/data/export/%s/%s";
 	private static final String OUTPUT_FOLDER_NAME_FORMAT = "swagger-gen-%s-%s";
 	
-	private void testExportInDir(String testId, MapperType outputFormat) {
+	private void testExportInDir(String testId, MapperType outputFormat) {		
 		String inputFolderPath = String.format(INPUT_FOLDER_PATH_FORMAT, testId);
 		ResourceSet resourceSet = createSoaResourceSetFromBundleEntryPath(inputFolderPath);
 		Component component = findFirstComponent(resourceSet);
@@ -72,6 +73,16 @@ public class SwaggerGenerationTest {
 	}
 	
 	@Test
+	public void testJsonExportInDirThetvdbExtensions() {
+		testExportInDir("thetvdb-extensions", MapperType.JSON);
+	}
+
+	@Test
+	public void testYamlExportInDirThetvdbExtensions() {
+		testExportInDir("thetvdb-extensions", MapperType.YAML);
+	}
+	
+	@Test
 	public void testJsonExportInDirOdtsAdminWs() {
 		testExportInDir("odts-admin-ws", MapperType.JSON);
 	}
@@ -79,6 +90,5 @@ public class SwaggerGenerationTest {
 	@Test
 	public void testYamlExportInDirOdtsAdminWs() {
 		testExportInDir("odts-admin-ws", MapperType.YAML);
-	}
-	
+	}	
 }

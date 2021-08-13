@@ -1,3 +1,13 @@
+/*******************************************************************************
+ * Copyright (c) 2008, 2021 Obeo.
+ * All rights reserved. This program and the accompanying materials
+ * are made available under the terms of the Eclipse Public License v1.0
+ * which accompanies this distribution, and is available at
+ * http://www.eclipse.org/legal/epl-v10.html
+ *
+ * Contributors:
+ *     Obeo - initial API and implementation
+ *******************************************************************************/
 package org.obeonetwork.dsl.cinematic.design.dialogs.viewcontainer;
 
 import java.util.Collection;
@@ -31,7 +41,7 @@ public class ViewContainerTreeContentProvider implements ITreeContentProvider {
 	public Object[] getElements(Object inputElement) {
 		Collection<ViewContainer> viewContainerCollection;
 		
-		if (inputElement instanceof AbstractPackage) {		
+		if (inputElement instanceof AbstractPackage) {
 				
 			// we fetch all the viewContainers from the model
 			viewContainerCollection = FlowsUtil.getAllPackagesFromRoot((AbstractPackage) inputElement)
@@ -52,7 +62,6 @@ public class ViewContainerTreeContentProvider implements ITreeContentProvider {
 		} else {
 			viewContainerCollection = Collections.emptyList();
 		}
-		
 		
 		return viewContainerCollection.toArray(); 
 	}

@@ -278,6 +278,10 @@ public class CinematicWidgetServices extends DebugServices {
 		return Optional.ofNullable(viewElement.getWidget().getStyle()).map(s -> s.isFontUnderlined()).orElse(false);
 	}
 	
+	public boolean isLabelHidden(AbstractViewElement viewElement) {
+		return Optional.ofNullable(viewElement.getWidget().getStyle()).map(s -> s.isLabelHidden()).orElse(false);
+	}
+	
 	public DNodeContainer setDefaultSize(DNodeContainer viewElementDNodeContainer) {
 		AbstractViewElement viewElement = (AbstractViewElement) viewElementDNodeContainer.getTarget();
 		
@@ -496,62 +500,20 @@ public class CinematicWidgetServices extends DebugServices {
 		.filter(r -> ICinematicViewpoint.VIEW_CONTAINER_DIAGRAM_ID.equals(r.getName()))
 		.findFirst().orElse(null); // Can't be null
 		
-		Optional<ContainerCreationDescription> viewElementCreationToolPrototypeOption = StreamUtils.asStream(viewContainerDiagramDescription.getDefaultLayer().eAllContents())
-		.filter(ContainerCreationDescription.class::isInstance)
-		.map(ContainerCreationDescription.class::cast)
-		.filter(d -> "CRE_ViewElement{{widget}}".equals(d.getName()))
-		.findFirst();
+		List<Widget> allWidgets = EObjectUtils.getContainerOrSelf(context, CinematicRoot.class).getToolkits().stream()
+				.flatMap(tk -> tk.getWidgets().stream())
+				.collect(Collectors.toList());
+
+		boolean needsUIRefresh = false;
 		
-		if(viewElementCreationToolPrototypeOption.isPresent()) {
-			ContainerCreationDescription viewElementCreationToolPrototype = viewElementCreationToolPrototypeOption.get();
-			ToolSection toolSection = (ToolSection) viewElementCreationToolPrototype.eContainer();
-			List<Widget> widgets = EObjectUtils.getContainerOrSelf(context, CinematicRoot.class).getToolkits().stream()
-					.flatMap(tk -> tk.getWidgets().stream())
-					.filter(w -> !w.isIsContainer())
-					.collect(Collectors.toList());
-
-			for(Widget widget : widgets) {
-				Copier copier = new Copier();
-				copier.copy(viewElementCreationToolPrototype);
-				copier.copyReferences();
-				ContainerCreationDescription anotherCreationTool = (ContainerCreationDescription) copier.get(viewElementCreationToolPrototype);
-				applyStringPattern(anotherCreationTool, "{{widget}}", widget.getName());				
-				anotherCreationTool.setDocumentation(widget.getSummary());
-				toolSection.getOwnedTools().add(anotherCreationTool);
-			}
-
-			toolSection.getOwnedTools().remove(viewElementCreationToolPrototype);
-		}
-	    
-		Optional<ContainerCreationDescription> viewContainerCreationToolPrototypeOption = StreamUtils.asStream(viewContainerDiagramDescription.getDefaultLayer().eAllContents())
-		.filter(ContainerCreationDescription.class::isInstance)
-		.map(ContainerCreationDescription.class::cast)
-		.filter(d -> "CRE_ViewContainer{{container}}".equals(d.getName()))
-		.findFirst();
+		List<Widget> elementWidgets = allWidgets.stream().filter(w -> !w.isIsContainer()).collect(Collectors.toList());
+		needsUIRefresh |= cloneContainerCreationToolPrototype(viewContainerDiagramDescription, elementWidgets, "CRE_ViewElement{{widget}}", "{{widget}}");
 		
-		if(viewContainerCreationToolPrototypeOption.isPresent()) {
-			ContainerCreationDescription viewContainerCreationToolPrototype = viewContainerCreationToolPrototypeOption.get();
-			ToolSection toolSection = (ToolSection) viewContainerCreationToolPrototype.eContainer();
-			List<Widget> widgets = EObjectUtils.getContainerOrSelf(context, CinematicRoot.class).getToolkits().stream()
-					.flatMap(tk -> tk.getWidgets().stream())
-					.filter(w -> w.isIsContainer())
-					.collect(Collectors.toList());
-
-			for(Widget widget : widgets) {
-				Copier copier = new Copier();
-				copier.copy(viewContainerCreationToolPrototype);
-				copier.copyReferences();
-				ContainerCreationDescription anotherCreationTool = (ContainerCreationDescription) copier.get(viewContainerCreationToolPrototype);
-				applyStringPattern(anotherCreationTool, "{{container}}", widget.getName());
-				anotherCreationTool.setDocumentation(widget.getSummary());
-				toolSection.getOwnedTools().add(anotherCreationTool);
-			}
-
-			toolSection.getOwnedTools().remove(viewContainerCreationToolPrototype);
-		}
-	    
+		List<Widget> containerWidgets = allWidgets.stream().filter(w -> w.isIsContainer()).collect(Collectors.toList());
+		needsUIRefresh |= cloneContainerCreationToolPrototype(viewContainerDiagramDescription, containerWidgets, "CRE_ViewContainer{{container}}", "{{container}}");
+		
 		// Refresh UI
-		if(viewElementCreationToolPrototypeOption.isPresent() || viewContainerCreationToolPrototypeOption.isPresent()) {
+		if(needsUIRefresh) {
 			Session session = new EObjectQuery(context).getSession();
 			if(session instanceof DAnalysisSessionImpl) {
 			    ((DAnalysisSessionImpl)session).notifyListeners(SessionListener.VSM_UPDATED);
@@ -559,6 +521,35 @@ public class CinematicWidgetServices extends DebugServices {
 		}
 		
 		return context;
+	}
+	
+	private boolean cloneContainerCreationToolPrototype(DiagramDescription viewContainerDiagramDescription, List<Widget> widgets, String toolPrototypeName, String variablePattern) {
+		Optional<ContainerCreationDescription> containerCreationToolPrototypeOption = 
+				StreamUtils.asStream(viewContainerDiagramDescription.getDefaultLayer().eAllContents())
+				.filter(ContainerCreationDescription.class::isInstance)
+				.map(ContainerCreationDescription.class::cast)
+				.filter(d -> toolPrototypeName.equals(d.getName()))
+				.findFirst();
+		
+		if(containerCreationToolPrototypeOption.isPresent()) {
+			ContainerCreationDescription containerCreationToolPrototype = containerCreationToolPrototypeOption.get();
+			ToolSection toolSection = (ToolSection) containerCreationToolPrototype.eContainer();
+
+			for(Widget widget : widgets) {
+				Copier copier = new Copier();
+				copier.copy(containerCreationToolPrototype);
+				copier.copyReferences();
+				ContainerCreationDescription anotherCreationTool = (ContainerCreationDescription) copier.get(containerCreationToolPrototype);
+				applyStringPattern(anotherCreationTool, variablePattern, widget.getName());
+				anotherCreationTool.setIconPath(widget.getIcon());
+				anotherCreationTool.setDocumentation(widget.getSummary());
+				toolSection.getOwnedTools().add(anotherCreationTool);
+			}
+
+			toolSection.getOwnedTools().remove(containerCreationToolPrototype);
+		}
+		
+		return containerCreationToolPrototypeOption.isPresent();
 	}
 	
 	private void applyStringPattern(EObject eObject, String pattern, String replacement) {
@@ -573,22 +564,21 @@ public class CinematicWidgetServices extends DebugServices {
 		
 	}
 	
-	public MetaDataContainer getWidgetMetadatas(EObject eObject) {
+	public MetaDataContainer createWidgetMetadatas(AbstractViewElement viewElement) {
 		MetaDataContainer metaDataContainer = null;
-		if (eObject instanceof AbstractViewElement) {
-			if (((AbstractViewElement) eObject).getMetadatas() == null) {
-				metaDataContainer = EnvironmentFactory.eINSTANCE.createMetaDataContainer();				
-			} else {
-				metaDataContainer = ((AbstractViewElement) eObject).getMetadatas();
-			}
-			
-			Widget widget = ((AbstractViewElement) eObject).getWidget();
-			if (widget != null) {
-				for (String metadataKey : widget.getMetadataKeys()) {
-					Annotation annotation = EnvironmentFactory.eINSTANCE.createAnnotation();
-					annotation.setTitle(metadataKey);
-					metaDataContainer.getMetadatas().add(annotation);
-				}
+		if (viewElement.getMetadatas() == null) {
+			metaDataContainer = EnvironmentFactory.eINSTANCE.createMetaDataContainer();				
+		} else {
+			metaDataContainer = viewElement.getMetadatas();
+		}
+		
+		Widget widget = viewElement.getWidget();
+		if (widget != null) {
+			for (Annotation metadataDefinition : widget.getMetadataDefinitions()) {
+				Annotation metadata = EnvironmentFactory.eINSTANCE.createAnnotation();
+				metadata.setTitle(metadataDefinition.getTitle());
+				metadata.setBody(metadataDefinition.getBody());
+				metaDataContainer.getMetadatas().add(metadata);
 			}
 		}
 		

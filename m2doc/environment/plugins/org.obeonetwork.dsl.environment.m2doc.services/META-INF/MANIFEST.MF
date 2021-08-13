@@ -2,7 +2,7 @@ Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: M2Doc Environment Services
 Bundle-SymbolicName: org.obeonetwork.dsl.environment.m2doc.services;singleton:=true
-Bundle-Version: 2.1.0.qualifier
+Bundle-Version: 2.2.0.qualifier
 Bundle-RequiredExecutionEnvironment: JavaSE-1.8
 Require-Bundle: org.obeonetwork.m2doc.ide;bundle-version="2.0.0",
  org.obeonetwork.dsl.environment,

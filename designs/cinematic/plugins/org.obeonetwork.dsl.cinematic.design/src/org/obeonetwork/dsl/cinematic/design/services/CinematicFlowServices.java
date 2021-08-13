@@ -95,22 +95,18 @@ public class CinematicFlowServices {
 	 * @param container a {@link ViewContainer}
 	 * @return <code>true</code> if contained in a {@link ViewContainer}
 	 */
-	public void openViewContainerSelectionDialog(EObject viewState) {
+	public void openViewContainerSelectionDialog(ViewState viewState) {
 		Shell shell = PlatformUI.getWorkbench().getActiveWorkbenchWindow().getShell();
 		
-		if (viewState instanceof ViewState) {
-			ViewContainerSelectionDialog dialog = new ViewContainerSelectionDialog(shell, (ViewState) viewState);
-			dialog.open();
-		}					
+		ViewContainerSelectionDialog dialog = new ViewContainerSelectionDialog(shell, viewState);
+		dialog.open();
 	}
 	
-	public void openEventSelectionDialog(EObject transition) {
+	public void openEventSelectionDialog(Transition transition) {
 		Shell shell = PlatformUI.getWorkbench().getActiveWorkbenchWindow().getShell();
 		
-		if (transition instanceof Transition) {
-			FlowstateEventSelectionDialog dialog = new FlowstateEventSelectionDialog(shell, (Transition) transition);
-			dialog.open();
-		}					
+		FlowstateEventSelectionDialog dialog = new FlowstateEventSelectionDialog(shell, transition);
+		dialog.open();
 	}
 	
 	public static boolean isSubViewContainer(ViewContainer container) {

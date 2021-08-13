@@ -13,7 +13,6 @@ package org.obeonetwork.dsl.soa.gen.swagger.tests;
 import static java.util.stream.Collectors.joining;
 import static java.util.stream.Collectors.toList;
 import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertTrue;
 import static org.junit.Assert.fail;
 import static org.obeonetwork.utils.common.StreamUtils.asStream;
 
@@ -32,6 +31,7 @@ import java.util.Arrays;
 import java.util.Collections;
 import java.util.Enumeration;
 import java.util.List;
+import java.util.stream.Collectors;
 
 import org.eclipse.core.runtime.FileLocator;
 import org.eclipse.core.runtime.Platform;
@@ -220,38 +220,64 @@ public class TestHelper {
 	}
 	
 	public static void assertFileContentEquals(String message, File expectedFile, File actualFile) {
+		
+		if ("\r\n".equals(java.lang.System.lineSeparator())) {
+			// Windows separator used. Switching actualFile to linux EOF
+			try {
+				List<String> lineSeparatorCorrected = new ArrayList<>();
+				Files.lines(actualFile.toPath()).peek(s -> {
+					if (s.contains("\\r\\n")) {
+						s = s.replace("\\r\\n", "\\n");						
+					}
+					lineSeparatorCorrected.add(s);
+				}).collect(Collectors.toList());
+				
+				Files.write(actualFile.toPath(), lineSeparatorCorrected);
+			} catch (IOException e1) {
+				fail();
+			}
+		}
 		if(expectedFile.getName().endsWith(".json")) {
-			JsonNode expectedJsonTree = null;
-			JsonNode actualJsonTree = null;
+			String expectedJsonContents = null;
+			String actualJsonContents = null;
 			ObjectMapper objectMapper = new ObjectMapper();
 			try {
-				expectedJsonTree = objectMapper.readTree(expectedFile);
-				actualJsonTree = objectMapper.readTree(actualFile);
+				JsonNode expectedJsonTree = objectMapper.readTree(expectedFile);
+				JsonNode actualJsonTree = objectMapper.readTree(actualFile);
+				
+				expectedJsonContents = objectMapper.writerWithDefaultPrettyPrinter().writeValueAsString(expectedJsonTree);
+				actualJsonContents = objectMapper.writerWithDefaultPrettyPrinter().writeValueAsString(actualJsonTree);
 			} catch (IOException e) {
 				// Fail case
 			}
 			
-			if(expectedJsonTree == null || actualJsonTree == null) {
+			if(expectedJsonContents == null || actualJsonContents == null) {
 				fail("Unable to read json from file " + expectedFile.getName());
 			}
 			
-			assertTrue(message, expectedJsonTree.equals(actualJsonTree));
+			assertEquals(message, expectedJsonContents, actualJsonContents);
 		} else if(expectedFile.getName().endsWith(".yaml")) {
-			Object expectedYaml = null;
-			Object actualYaml = null;
+			String expectedYamlContents = null;
+			String actualYamlContents = null;
+			
 			try {
 				Yaml yamlMapper = new Yaml();
-				expectedYaml = yamlMapper.load(new FileInputStream(expectedFile));
-				actualYaml = yamlMapper.load(new FileInputStream(actualFile));
+				Object expectedYaml = yamlMapper.load(new FileInputStream(expectedFile));
+				Object actualYaml = yamlMapper.load(new FileInputStream(actualFile));
+				
+				expectedYamlContents = yamlMapper.dump(expectedYaml);
+				actualYamlContents = yamlMapper.dump(actualYaml);
+				
 			} catch (FileNotFoundException e) {
 				// Fail case
 			}
 			
-			if(expectedYaml == null || actualYaml == null) {
+			if(expectedYamlContents == null || actualYamlContents == null) {
 				fail("Unable to read yaml from file " + expectedFile.getName());
 			}
 			
-			assertTrue(message, expectedYaml.equals(actualYaml));
+			
+			assertEquals(message, expectedYamlContents, actualYamlContents);
 		} else {
 			String expectedContent = readFile(expectedFile);
 			String actualContent = readFile(actualFile);

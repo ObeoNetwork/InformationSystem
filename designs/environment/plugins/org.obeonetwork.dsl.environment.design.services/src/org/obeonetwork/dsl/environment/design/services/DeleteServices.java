@@ -10,12 +10,14 @@
  *******************************************************************************/
 package org.obeonetwork.dsl.environment.design.services;
 
+import java.util.ArrayList;
 import java.util.Collection;
 
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EReference;
 import org.eclipse.emf.ecore.EStructuralFeature.Setting;
 import org.eclipse.emf.ecore.util.ECrossReferenceAdapter;
+import org.eclipse.sirius.business.api.helper.SiriusUtil;
 import org.eclipse.sirius.business.api.query.EObjectQuery;
 import org.eclipse.sirius.business.api.session.Session;
 import org.eclipse.sirius.ecore.extender.business.api.accessor.ModelAccessor;
@@ -31,16 +33,17 @@ import org.obeonetwork.dsl.environment.Type;
 public class DeleteServices {
 	
 	public void deleteObeoDSMObject(NamespacesContainer namespacesContainer) {
-		for (Namespace namespace : namespacesContainer.getOwnedNamespaces()) {
+		for (Namespace namespace : new ArrayList<Namespace>(namespacesContainer.getOwnedNamespaces())) {
 			deleteObeoDSMObject((NamespacesContainer)namespace);
 		}
 		if (namespacesContainer instanceof Namespace) {
 			Namespace namespace = (Namespace)namespacesContainer;
-			for (Type type : namespace.getTypes()) {
+			for (Type type : new ArrayList<Type>(namespace.getTypes())) {
 				deleteObeoDSMObject(type);
 			}
 		}
 		delete(namespacesContainer);
+		SiriusUtil.delete(namespacesContainer);
 	}
 	
 	public void deleteObeoDSMObject(StructuredType type) {

@@ -31,10 +31,13 @@ import org.obeonetwork.dsl.environment.TypesDefinition;
  *   <li>{@link org.obeonetwork.dsl.soa.Component#getOwnedBinding <em>Owned Binding</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.soa.Component#getBlock <em>Block</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.soa.Component#getURI <em>URI</em>}</li>
- *   <li>{@link org.obeonetwork.dsl.soa.Component#getURL <em>URL</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.soa.Component#getApiVersion <em>Api Version</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.soa.Component#isDeprecated <em>Deprecated</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.soa.Component#getSecuritySchemes <em>Security Schemes</em>}</li>
+ *   <li>{@link org.obeonetwork.dsl.soa.Component#getLicense <em>License</em>}</li>
+ *   <li>{@link org.obeonetwork.dsl.soa.Component#getInformation <em>Information</em>}</li>
+ *   <li>{@link org.obeonetwork.dsl.soa.Component#getContact <em>Contact</em>}</li>
+ *   <li>{@link org.obeonetwork.dsl.soa.Component#getServers <em>Servers</em>}</li>
  * </ul>
  *
  * @see org.obeonetwork.dsl.soa.SoaPackage#getComponent()
@@ -195,10 +198,6 @@ public interface Component extends ObeoDSMObject {
 	/**
 	 * Returns the value of the '<em><b>URI</b></em>' attribute.
 	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>URI</em>' attribute isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
 	 * The exposition URI of this component.
@@ -222,35 +221,6 @@ public interface Component extends ObeoDSMObject {
 	void setURI(String value);
 
 	/**
-	 * Returns the value of the '<em><b>URL</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>URL</em>' attribute isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * <!-- begin-model-doc -->
-	 * The exposition URL of this component.
-	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>URL</em>' attribute.
-	 * @see #setURL(String)
-	 * @see org.obeonetwork.dsl.soa.SoaPackage#getComponent_URL()
-	 * @model
-	 * @generated
-	 */
-	String getURL();
-
-	/**
-	 * Sets the value of the '{@link org.obeonetwork.dsl.soa.Component#getURL <em>URL</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>URL</em>' attribute.
-	 * @see #getURL()
-	 * @generated
-	 */
-	void setURL(String value);
-
-	/**
 	 * Returns the value of the '<em><b>Api Version</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <p>
@@ -261,7 +231,8 @@ public interface Component extends ObeoDSMObject {
 	 * @return the value of the '<em>Api Version</em>' attribute.
 	 * @see #setApiVersion(String)
 	 * @see org.obeonetwork.dsl.soa.SoaPackage#getComponent_ApiVersion()
-	 * @model
+	 * @model volatile="true" derived="true"
+	 *        annotation="http://www.eclipse.org/emf/2002/GenModel get='return getInformation().getApiVersion();'"
 	 * @generated
 	 */
 	String getApiVersion();
@@ -316,5 +287,86 @@ public interface Component extends ObeoDSMObject {
 	 * @generated
 	 */
 	EList<SecurityScheme> getSecuritySchemes();
+
+	/**
+	 * Returns the value of the '<em><b>License</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>License</em>' containment reference.
+	 * @see #setLicense(License)
+	 * @see org.obeonetwork.dsl.soa.SoaPackage#getComponent_License()
+	 * @model containment="true" resolveProxies="true" required="true"
+	 * @generated
+	 */
+	License getLicense();
+
+	/**
+	 * Sets the value of the '{@link org.obeonetwork.dsl.soa.Component#getLicense <em>License</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>License</em>' containment reference.
+	 * @see #getLicense()
+	 * @generated
+	 */
+	void setLicense(License value);
+
+	/**
+	 * Returns the value of the '<em><b>Information</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Information</em>' containment reference.
+	 * @see #setInformation(Information)
+	 * @see org.obeonetwork.dsl.soa.SoaPackage#getComponent_Information()
+	 * @model containment="true" resolveProxies="true" required="true"
+	 * @generated
+	 */
+	Information getInformation();
+
+	/**
+	 * Sets the value of the '{@link org.obeonetwork.dsl.soa.Component#getInformation <em>Information</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Information</em>' containment reference.
+	 * @see #getInformation()
+	 * @generated
+	 */
+	void setInformation(Information value);
+
+	/**
+	 * Returns the value of the '<em><b>Contact</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Contact</em>' containment reference.
+	 * @see #setContact(Contact)
+	 * @see org.obeonetwork.dsl.soa.SoaPackage#getComponent_Contact()
+	 * @model containment="true" resolveProxies="true" required="true"
+	 * @generated
+	 */
+	Contact getContact();
+
+	/**
+	 * Sets the value of the '{@link org.obeonetwork.dsl.soa.Component#getContact <em>Contact</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Contact</em>' containment reference.
+	 * @see #getContact()
+	 * @generated
+	 */
+	void setContact(Contact value);
+
+	/**
+	 * Returns the value of the '<em><b>Servers</b></em>' containment reference list.
+	 * The list contents are of type {@link org.obeonetwork.dsl.soa.Server}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * The list of servers.
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Servers</em>' containment reference list.
+	 * @see org.obeonetwork.dsl.soa.SoaPackage#getComponent_Servers()
+	 * @model containment="true" resolveProxies="true"
+	 * @generated
+	 */
+	EList<Server> getServers();
 
 } // Component

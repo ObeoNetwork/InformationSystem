@@ -15,6 +15,8 @@ import java.util.Collection;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Optional;
+import java.util.function.Predicate;
 import java.util.stream.Collectors;
 
 import org.eclipse.eef.EEFCustomWidgetDescription;
@@ -55,6 +57,11 @@ public class TableController extends AbstractEEFCustomWidgetController implement
     private static final String REFERENCE_NAME_EXPRESSION_ID = "referenceNameExpression";
     
     /**
+     * The ID of the precondition expression.
+     */
+    private static final String PRECONDITION_EXPRESSION_ID = "preconditionExpression";
+    
+    /**
 	 * The ID of the create element custom operation.
 	 */
     private static final String CREATE_ELEMENT_OPERATION_ID = "CreateElementOperation";
@@ -78,6 +85,11 @@ public class TableController extends AbstractEEFCustomWidgetController implement
      * The list of columns name resulting from the {@link #COLUMNS_EXPRESSION_ID} expression evaluation
      */
     private List<String> columnsLabels;
+    
+    /**
+     * The predicate to check the precondition resulting from the {@link #PRECONDITION_EXPRESSION_ID} expression evaluation
+     */
+    private Predicate<Object> preconditionPredicate;
 
     /**
      * The current selection, <code>null</code> if no selection has been done.
@@ -183,6 +195,31 @@ public class TableController extends AbstractEEFCustomWidgetController implement
 			});
 		}
 		return this.target;
+	}
+	
+	/**
+	 * Returns the precondition predicate.
+	 * 
+	 * @return the precondition predicate
+	 */
+	public Predicate<Object> getPreconditionPredicate() {
+		if (this.preconditionPredicate == null) {
+			Optional<String> customExpression = this.getCustomExpression(PRECONDITION_EXPRESSION_ID);
+			customExpression.ifPresent((preconditionExpr) -> {
+				this.preconditionPredicate = (context) -> {
+					Map<String, Object> variables = new HashMap<>();
+					variables.put("self", context);
+					Object evaluated = EvalFactory.of(this.interpreter, variables).evaluate(preconditionExpr);
+					if (evaluated instanceof Boolean) {
+						return ((Boolean) evaluated).booleanValue();
+					} else {
+						return false;
+					}
+				};
+			});
+			
+		}
+		return this.preconditionPredicate;
 	}
 
 	/**

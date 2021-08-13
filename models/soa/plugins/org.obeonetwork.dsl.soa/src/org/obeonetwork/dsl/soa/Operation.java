@@ -32,6 +32,7 @@ import org.obeonetwork.dsl.environment.Action;
  *   <li>{@link org.obeonetwork.dsl.soa.Operation#getExposition <em>Exposition</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.soa.Operation#isPaged <em>Paged</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.soa.Operation#getSecuritySchemes <em>Security Schemes</em>}</li>
+ *   <li>{@link org.obeonetwork.dsl.soa.Operation#getServers <em>Servers</em>}</li>
  * </ul>
  *
  * @see org.obeonetwork.dsl.soa.SoaPackage#getOperation()
@@ -289,11 +290,29 @@ public interface Operation extends Action {
 	 * The list contents are of type {@link org.obeonetwork.dsl.soa.SecurityScheme}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * The list of security schemes.
+	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Security Schemes</em>' reference list.
 	 * @see org.obeonetwork.dsl.soa.SoaPackage#getOperation_SecuritySchemes()
 	 * @model
 	 * @generated
 	 */
 	EList<SecurityScheme> getSecuritySchemes();
+
+	/**
+	 * Returns the value of the '<em><b>Servers</b></em>' containment reference list.
+	 * The list contents are of type {@link org.obeonetwork.dsl.soa.Server}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * The list of servers.
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Servers</em>' containment reference list.
+	 * @see org.obeonetwork.dsl.soa.SoaPackage#getOperation_Servers()
+	 * @model containment="true" resolveProxies="true"
+	 * @generated
+	 */
+	EList<Server> getServers();
 
 } // Operation

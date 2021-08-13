@@ -21,17 +21,24 @@ import org.obeonetwork.dsl.soa.ApiKeyLocation;
 import org.obeonetwork.dsl.soa.Binding;
 import org.obeonetwork.dsl.soa.BindingKind;
 import org.obeonetwork.dsl.soa.Component;
+import org.obeonetwork.dsl.soa.Contact;
+import org.obeonetwork.dsl.soa.Example;
 import org.obeonetwork.dsl.soa.ExpositionKind;
 import org.obeonetwork.dsl.soa.ImplementationComponent;
+import org.obeonetwork.dsl.soa.Information;
 import org.obeonetwork.dsl.soa.Interface;
 import org.obeonetwork.dsl.soa.InterfaceKind;
+import org.obeonetwork.dsl.soa.License;
+import org.obeonetwork.dsl.soa.MediaType;
 import org.obeonetwork.dsl.soa.Operation;
 import org.obeonetwork.dsl.soa.OperationKind;
 import org.obeonetwork.dsl.soa.Parameter;
 import org.obeonetwork.dsl.soa.ParameterPassingMode;
 import org.obeonetwork.dsl.soa.ParameterRestData;
+import org.obeonetwork.dsl.soa.PropertiesExtension;
 import org.obeonetwork.dsl.soa.SecurityScheme;
 import org.obeonetwork.dsl.soa.SecuritySchemeType;
+import org.obeonetwork.dsl.soa.Server;
 import org.obeonetwork.dsl.soa.Service;
 import org.obeonetwork.dsl.soa.SoaFactory;
 import org.obeonetwork.dsl.soa.SoaPackage;
@@ -130,6 +137,55 @@ public class SoaPackageImpl extends EPackageImpl implements SoaPackage {
 	 * @generated
 	 */
 	private EClass securitySchemeEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass informationEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass contactEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass licenseEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass mediaTypeEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass exampleEClass = null;
+	
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass propertiesExtensionEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass serverEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -372,7 +428,7 @@ public class SoaPackageImpl extends EPackageImpl implements SoaPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getComponent_URL() {
+	public EAttribute getComponent_ApiVersion() {
 		return (EAttribute)componentEClass.getEStructuralFeatures().get(8);
 	}
 
@@ -381,7 +437,7 @@ public class SoaPackageImpl extends EPackageImpl implements SoaPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getComponent_ApiVersion() {
+	public EAttribute getComponent_Deprecated() {
 		return (EAttribute)componentEClass.getEStructuralFeatures().get(9);
 	}
 
@@ -390,8 +446,8 @@ public class SoaPackageImpl extends EPackageImpl implements SoaPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getComponent_Deprecated() {
-		return (EAttribute)componentEClass.getEStructuralFeatures().get(10);
+	public EReference getComponent_SecuritySchemes() {
+		return (EReference)componentEClass.getEStructuralFeatures().get(10);
 	}
 
 	/**
@@ -399,8 +455,35 @@ public class SoaPackageImpl extends EPackageImpl implements SoaPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getComponent_SecuritySchemes() {
+	public EReference getComponent_License() {
 		return (EReference)componentEClass.getEStructuralFeatures().get(11);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getComponent_Information() {
+		return (EReference)componentEClass.getEStructuralFeatures().get(12);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getComponent_Contact() {
+		return (EReference)componentEClass.getEStructuralFeatures().get(13);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getComponent_Servers() {
+		return (EReference)componentEClass.getEStructuralFeatures().get(14);
 	}
 
 	/**
@@ -660,6 +743,15 @@ public class SoaPackageImpl extends EPackageImpl implements SoaPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EReference getOperation_Servers() {
+		return (EReference)operationEClass.getEStructuralFeatures().get(10);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getImplementationComponent() {
 		return implementationComponentEClass;
 	}
@@ -705,8 +797,8 @@ public class SoaPackageImpl extends EPackageImpl implements SoaPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getParameter_Name() {
-		return (EAttribute)parameterEClass.getEStructuralFeatures().get(1);
+	public EReference getParameter_MediaType() {
+		return (EReference)parameterEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -714,7 +806,7 @@ public class SoaPackageImpl extends EPackageImpl implements SoaPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getParameter_Multiplicity() {
+	public EAttribute getParameter_Name() {
 		return (EAttribute)parameterEClass.getEStructuralFeatures().get(2);
 	}
 
@@ -723,7 +815,7 @@ public class SoaPackageImpl extends EPackageImpl implements SoaPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getParameter_IsUnique() {
+	public EAttribute getParameter_Multiplicity() {
 		return (EAttribute)parameterEClass.getEStructuralFeatures().get(3);
 	}
 
@@ -732,7 +824,7 @@ public class SoaPackageImpl extends EPackageImpl implements SoaPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getParameter_IsOrdered() {
+	public EAttribute getParameter_IsUnique() {
 		return (EAttribute)parameterEClass.getEStructuralFeatures().get(4);
 	}
 
@@ -741,7 +833,7 @@ public class SoaPackageImpl extends EPackageImpl implements SoaPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getParameter_StatusCode() {
+	public EAttribute getParameter_IsOrdered() {
 		return (EAttribute)parameterEClass.getEStructuralFeatures().get(5);
 	}
 
@@ -750,7 +842,7 @@ public class SoaPackageImpl extends EPackageImpl implements SoaPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getParameter_StatusMessage() {
+	public EAttribute getParameter_StatusCode() {
 		return (EAttribute)parameterEClass.getEStructuralFeatures().get(6);
 	}
 
@@ -759,8 +851,17 @@ public class SoaPackageImpl extends EPackageImpl implements SoaPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EAttribute getParameter_StatusMessage() {
+		return (EAttribute)parameterEClass.getEStructuralFeatures().get(7);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EReference getParameter_RestData() {
-		return (EReference)parameterEClass.getEStructuralFeatures().get(7);
+		return (EReference)parameterEClass.getEStructuralFeatures().get(8);
 	}
 
 	/**
@@ -833,6 +934,189 @@ public class SoaPackageImpl extends EPackageImpl implements SoaPackage {
 	 */
 	public EAttribute getSecurityScheme_ApiKeyLocation() {
 		return (EAttribute)securitySchemeEClass.getEStructuralFeatures().get(3);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getInformation() {
+		return informationEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getInformation_ApiVersion() {
+		return (EAttribute)informationEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getInformation_TermsOfService() {
+		return (EAttribute)informationEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getContact() {
+		return contactEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getContact_Name() {
+		return (EAttribute)contactEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getContact_URL() {
+		return (EAttribute)contactEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getContact_Email() {
+		return (EAttribute)contactEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getLicense() {
+		return licenseEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getLicense_Name() {
+		return (EAttribute)licenseEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getLicense_URL() {
+		return (EAttribute)licenseEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getMediaType() {
+		return mediaTypeEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getMediaType_Identifier() {
+		return (EAttribute)mediaTypeEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getMediaType_Examples() {
+		return (EReference)mediaTypeEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getExample() {
+		return exampleEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getExample_Summary() {
+		return (EAttribute)exampleEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getExample_Value() {
+		return (EAttribute)exampleEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getExample_Name() {
+		return (EAttribute)exampleEClass.getEStructuralFeatures().get(2);
+	}
+	public EClass getPropertiesExtension() {
+		return propertiesExtensionEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getPropertiesExtension_Context() {
+		return (EAttribute)propertiesExtensionEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getServer() {
+		return serverEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getServer_URL() {
+		return (EAttribute)serverEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -957,10 +1241,13 @@ public class SoaPackageImpl extends EPackageImpl implements SoaPackage {
 		createEReference(componentEClass, COMPONENT__OWNED_BINDING);
 		createEReference(componentEClass, COMPONENT__BLOCK);
 		createEAttribute(componentEClass, COMPONENT__URI);
-		createEAttribute(componentEClass, COMPONENT__URL);
 		createEAttribute(componentEClass, COMPONENT__API_VERSION);
 		createEAttribute(componentEClass, COMPONENT__DEPRECATED);
 		createEReference(componentEClass, COMPONENT__SECURITY_SCHEMES);
+		createEReference(componentEClass, COMPONENT__LICENSE);
+		createEReference(componentEClass, COMPONENT__INFORMATION);
+		createEReference(componentEClass, COMPONENT__CONTACT);
+		createEReference(componentEClass, COMPONENT__SERVERS);
 
 		serviceEClass = createEClass(SERVICE);
 		createEReference(serviceEClass, SERVICE__OWNED_INTERFACE);
@@ -994,6 +1281,7 @@ public class SoaPackageImpl extends EPackageImpl implements SoaPackage {
 		createEAttribute(operationEClass, OPERATION__EXPOSITION);
 		createEAttribute(operationEClass, OPERATION__PAGED);
 		createEReference(operationEClass, OPERATION__SECURITY_SCHEMES);
+		createEReference(operationEClass, OPERATION__SERVERS);
 
 		implementationComponentEClass = createEClass(IMPLEMENTATION_COMPONENT);
 		createEReference(implementationComponentEClass, IMPLEMENTATION_COMPONENT__IMPLEMENT);
@@ -1001,6 +1289,7 @@ public class SoaPackageImpl extends EPackageImpl implements SoaPackage {
 
 		parameterEClass = createEClass(PARAMETER);
 		createEReference(parameterEClass, PARAMETER__TYPE);
+		createEReference(parameterEClass, PARAMETER__MEDIA_TYPE);
 		createEAttribute(parameterEClass, PARAMETER__NAME);
 		createEAttribute(parameterEClass, PARAMETER__MULTIPLICITY);
 		createEAttribute(parameterEClass, PARAMETER__IS_UNIQUE);
@@ -1018,6 +1307,34 @@ public class SoaPackageImpl extends EPackageImpl implements SoaPackage {
 		createEAttribute(securitySchemeEClass, SECURITY_SCHEME__TYPE);
 		createEAttribute(securitySchemeEClass, SECURITY_SCHEME__NAME);
 		createEAttribute(securitySchemeEClass, SECURITY_SCHEME__API_KEY_LOCATION);
+
+		informationEClass = createEClass(INFORMATION);
+		createEAttribute(informationEClass, INFORMATION__API_VERSION);
+		createEAttribute(informationEClass, INFORMATION__TERMS_OF_SERVICE);
+
+		contactEClass = createEClass(CONTACT);
+		createEAttribute(contactEClass, CONTACT__NAME);
+		createEAttribute(contactEClass, CONTACT__URL);
+		createEAttribute(contactEClass, CONTACT__EMAIL);
+
+		licenseEClass = createEClass(LICENSE);
+		createEAttribute(licenseEClass, LICENSE__NAME);
+		createEAttribute(licenseEClass, LICENSE__URL);
+
+		mediaTypeEClass = createEClass(MEDIA_TYPE);
+		createEAttribute(mediaTypeEClass, MEDIA_TYPE__IDENTIFIER);
+		createEReference(mediaTypeEClass, MEDIA_TYPE__EXAMPLES);
+
+		exampleEClass = createEClass(EXAMPLE);
+		createEAttribute(exampleEClass, EXAMPLE__SUMMARY);
+		createEAttribute(exampleEClass, EXAMPLE__VALUE);
+		createEAttribute(exampleEClass, EXAMPLE__NAME);
+
+		propertiesExtensionEClass = createEClass(PROPERTIES_EXTENSION);
+		createEAttribute(propertiesExtensionEClass, PROPERTIES_EXTENSION__CONTEXT);
+
+		serverEClass = createEClass(SERVER);
+		createEAttribute(serverEClass, SERVER__URL);
 
 		// Create enums
 		interfaceKindEEnum = createEEnum(INTERFACE_KIND);
@@ -1074,6 +1391,13 @@ public class SoaPackageImpl extends EPackageImpl implements SoaPackage {
 		parameterEClass.getESuperTypes().add(theEnvironmentPackage.getObeoDSMObject());
 		parameterRestDataEClass.getESuperTypes().add(theTechnicalIDPackage.getIdentifiable());
 		securitySchemeEClass.getESuperTypes().add(theEnvironmentPackage.getObeoDSMObject());
+		informationEClass.getESuperTypes().add(theEnvironmentPackage.getObeoDSMObject());
+		contactEClass.getESuperTypes().add(theEnvironmentPackage.getObeoDSMObject());
+		licenseEClass.getESuperTypes().add(theEnvironmentPackage.getObeoDSMObject());
+		mediaTypeEClass.getESuperTypes().add(theEnvironmentPackage.getObeoDSMObject());
+		exampleEClass.getESuperTypes().add(theEnvironmentPackage.getObeoDSMObject());
+		propertiesExtensionEClass.getESuperTypes().add(theEnvironmentPackage.getAnnotation());
+		serverEClass.getESuperTypes().add(theEnvironmentPackage.getObeoDSMObject());
 
 		// Initialize classes and features; add operations and parameters
 		initEClass(systemEClass, org.obeonetwork.dsl.soa.System.class, "System", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -1089,10 +1413,13 @@ public class SoaPackageImpl extends EPackageImpl implements SoaPackage {
 		initEReference(getComponent_OwnedBinding(), this.getBinding(), null, "ownedBinding", null, 0, -1, Component.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getComponent_Block(), theEnvironmentPackage.getTypesDefinition(), null, "block", null, 0, -1, Component.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getComponent_URI(), ecorePackage.getEString(), "URI", null, 0, 1, Component.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getComponent_URL(), ecorePackage.getEString(), "URL", null, 0, 1, Component.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getComponent_ApiVersion(), ecorePackage.getEString(), "apiVersion", null, 0, 1, Component.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getComponent_ApiVersion(), ecorePackage.getEString(), "apiVersion", null, 0, 1, Component.class, !IS_TRANSIENT, IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
 		initEAttribute(getComponent_Deprecated(), ecorePackage.getEBoolean(), "deprecated", null, 0, 1, Component.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getComponent_SecuritySchemes(), this.getSecurityScheme(), null, "securitySchemes", null, 0, -1, Component.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getComponent_License(), this.getLicense(), null, "license", null, 1, 1, Component.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getComponent_Information(), this.getInformation(), null, "information", null, 1, 1, Component.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getComponent_Contact(), this.getContact(), null, "contact", null, 1, 1, Component.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getComponent_Servers(), this.getServer(), null, "servers", null, 0, -1, Component.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(serviceEClass, Service.class, "Service", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getService_OwnedInterface(), this.getInterface(), null, "ownedInterface", null, 0, 1, Service.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -1126,6 +1453,7 @@ public class SoaPackageImpl extends EPackageImpl implements SoaPackage {
 		initEAttribute(getOperation_Exposition(), this.getExpositionKind(), "exposition", null, 0, 1, Operation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getOperation_Paged(), ecorePackage.getEBoolean(), "paged", "false", 0, 1, Operation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getOperation_SecuritySchemes(), this.getSecurityScheme(), null, "securitySchemes", null, 0, -1, Operation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getOperation_Servers(), this.getServer(), null, "servers", null, 0, -1, Operation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(implementationComponentEClass, ImplementationComponent.class, "ImplementationComponent", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getImplementationComponent_Implement(), this.getInterface(), null, "implement", null, 0, 1, ImplementationComponent.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -1133,6 +1461,7 @@ public class SoaPackageImpl extends EPackageImpl implements SoaPackage {
 
 		initEClass(parameterEClass, Parameter.class, "Parameter", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getParameter_Type(), theEnvironmentPackage.getType(), null, "type", null, 0, 1, Parameter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getParameter_MediaType(), this.getMediaType(), null, "mediaType", null, 0, -1, Parameter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getParameter_Name(), ecorePackage.getEString(), "name", null, 0, 1, Parameter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getParameter_Multiplicity(), theEnvironmentPackage.getMultiplicityKind(), "multiplicity", "1", 1, 1, Parameter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getParameter_IsUnique(), ecorePackage.getEBoolean(), "isUnique", "false", 0, 1, Parameter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -1150,6 +1479,34 @@ public class SoaPackageImpl extends EPackageImpl implements SoaPackage {
 		initEAttribute(getSecurityScheme_Type(), this.getSecuritySchemeType(), "type", null, 0, 1, SecurityScheme.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getSecurityScheme_Name(), ecorePackage.getEString(), "name", null, 0, 1, SecurityScheme.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getSecurityScheme_ApiKeyLocation(), this.getApiKeyLocation(), "apiKeyLocation", null, 0, 1, SecurityScheme.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(informationEClass, Information.class, "Information", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getInformation_ApiVersion(), ecorePackage.getEString(), "apiVersion", null, 0, 1, Information.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getInformation_TermsOfService(), ecorePackage.getEString(), "termsOfService", null, 0, 1, Information.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(contactEClass, Contact.class, "Contact", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getContact_Name(), ecorePackage.getEString(), "name", null, 0, 1, Contact.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getContact_URL(), ecorePackage.getEString(), "URL", null, 0, 1, Contact.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getContact_Email(), ecorePackage.getEString(), "email", null, 0, 1, Contact.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(licenseEClass, License.class, "License", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getLicense_Name(), ecorePackage.getEString(), "name", null, 0, 1, License.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getLicense_URL(), ecorePackage.getEString(), "URL", null, 0, 1, License.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(mediaTypeEClass, MediaType.class, "MediaType", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getMediaType_Identifier(), ecorePackage.getEString(), "identifier", null, 0, 1, MediaType.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getMediaType_Examples(), this.getExample(), null, "examples", null, 0, -1, MediaType.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(exampleEClass, Example.class, "Example", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getExample_Summary(), ecorePackage.getEString(), "summary", null, 0, 1, Example.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getExample_Value(), ecorePackage.getEString(), "value", null, 0, 1, Example.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getExample_Name(), ecorePackage.getEString(), "name", null, 0, 1, Example.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(propertiesExtensionEClass, PropertiesExtension.class, "PropertiesExtension", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getPropertiesExtension_Context(), ecorePackage.getEString(), "context", null, 0, 1, PropertiesExtension.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(serverEClass, Server.class, "Server", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getServer_URL(), ecorePackage.getEString(), "URL", null, 0, 1, Server.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		// Initialize enums and add enum literals
 		initEEnum(interfaceKindEEnum, InterfaceKind.class, "InterfaceKind");
@@ -1281,16 +1638,22 @@ public class SoaPackageImpl extends EPackageImpl implements SoaPackage {
 			   "documentation", "The exposition URI of this component."
 		   });
 		addAnnotation
-		  (getComponent_URL(),
+		  (getComponent_ApiVersion(),
 		   source,
 		   new String[] {
-			   "documentation", "The exposition URL of this component."
+			   "get", "return getInformation().getApiVersion();"
 		   });
 		addAnnotation
 		  (getComponent_Deprecated(),
 		   source,
 		   new String[] {
 			   "documentation", "Tells if this Component is deprecated."
+		   });
+		addAnnotation
+		  (getComponent_Servers(),
+		   source,
+		   new String[] {
+			   "documentation", "The list of servers."
 		   });
 		addAnnotation
 		  (getService_OwnedInterface(),
@@ -1425,6 +1788,18 @@ public class SoaPackageImpl extends EPackageImpl implements SoaPackage {
 			   "documentation", "Tells if this operation is paged."
 		   });
 		addAnnotation
+		  (getOperation_SecuritySchemes(),
+		   source,
+		   new String[] {
+			   "documentation", "The list of security schemes."
+		   });
+		addAnnotation
+		  (getOperation_Servers(),
+		   source,
+		   new String[] {
+			   "documentation", "The list of servers."
+		   });
+		addAnnotation
 		  (getImplementationComponent_Implement(),
 		   source,
 		   new String[] {
@@ -1441,6 +1816,12 @@ public class SoaPackageImpl extends EPackageImpl implements SoaPackage {
 		   source,
 		   new String[] {
 			   "documentation", "The type of the parameter."
+		   });
+		addAnnotation
+		  (getParameter_MediaType(),
+		   source,
+		   new String[] {
+			   "documentation", "The mediatypes used by this parameter"
 		   });
 		addAnnotation
 		  (getParameter_Name(),
@@ -1507,6 +1888,108 @@ public class SoaPackageImpl extends EPackageImpl implements SoaPackage {
 		   source,
 		   new String[] {
 			   "documentation", "The location of the API key. (Named \"in\" in the OpenAPI specification)."
+		   });
+		addAnnotation
+		  (informationEClass,
+		   source,
+		   new String[] {
+			   "documentation", "Provides metadata about the API."
+		   });
+		addAnnotation
+		  (getInformation_ApiVersion(),
+		   source,
+		   new String[] {
+			   "documentation", "The version of the API definition (which is distinct from the OpenAPI specification version or the API implementation version)."
+		   });
+		addAnnotation
+		  (getInformation_TermsOfService(),
+		   source,
+		   new String[] {
+			   "documentation", "A URL to the Terms of Service for the API. MUST be in the format of a URL."
+		   });
+		addAnnotation
+		  (contactEClass,
+		   source,
+		   new String[] {
+			   "documentation", "The contact information for the exposed API."
+		   });
+		addAnnotation
+		  (getContact_Name(),
+		   source,
+		   new String[] {
+			   "documentation", "The identifying name of the contact person/organization."
+		   });
+		addAnnotation
+		  (getContact_URL(),
+		   source,
+		   new String[] {
+			   "documentation", "The URL pointing to the contact information. MUST be in the format of a URL."
+		   });
+		addAnnotation
+		  (getContact_Email(),
+		   source,
+		   new String[] {
+			   "documentation", "The email address of the contact person/organization. MUST be in the format of an email address."
+		   });
+		addAnnotation
+		  (licenseEClass,
+		   source,
+		   new String[] {
+			   "documentation", "The license information for the exposed API."
+		   });
+		addAnnotation
+		  (getLicense_Name(),
+		   source,
+		   new String[] {
+			   "documentation", "The license name used for the API."
+		   });
+		addAnnotation
+		  (getLicense_URL(),
+		   source,
+		   new String[] {
+			   "documentation", "A URL to the license used for the API. MUST be in the format of a URL."
+		   });
+		addAnnotation
+		  (mediaTypeEClass,
+		   source,
+		   new String[] {
+			   "documentation", "Media type is a format of a request or response body data. Web service operations can accept and return data in different formats, the most common being JSON, XML and images. You specify the media type in request and response definitions."
+		   });
+		addAnnotation
+		  (getMediaType_Identifier(),
+		   source,
+		   new String[] {
+			   "documentation", "Two-part identifier for file formats and format contents transmitted on the Internet. It consists of a type and a subtype and should be compliant with RFC 6838.\nAs of November 1996, the registered types were: application, audio, image, message, multipart, text and video. By December 2020, the registered types included the foregoing, plus font, example, and model.\nA subtype typically consists of a media format, but it may or must also contain other content, such as a tree prefix, producer, product or suffix, according to the different rules in registration trees."
+		   });
+		addAnnotation
+		  (getMediaType_Examples(),
+		   source,
+		   new String[] {
+			   "documentation", "Example of the media type. \nThe example object SHOULD be an instance of the DTO specified by the media type. "
+		   });
+		addAnnotation
+		  (exampleEClass,
+		   source,
+		   new String[] {
+			   "documentation", "Example of a media type. "
+		   });
+		addAnnotation
+		  (getExample_Summary(),
+		   source,
+		   new String[] {
+			   "documentation", "Short description for the example."
+		   });
+		addAnnotation
+		  (getExample_Value(),
+		   source,
+		   new String[] {
+			   "documentation", "Embedded literal example. To represent examples of media types that cannot naturally represented in JSON or YAML, use a string value to contain the example, escaping where necessary."
+		   });
+		addAnnotation
+		  (getServer_URL(),
+		   source,
+		   new String[] {
+			   "documentation", "The URL of this server."
 		   });
 	}
 

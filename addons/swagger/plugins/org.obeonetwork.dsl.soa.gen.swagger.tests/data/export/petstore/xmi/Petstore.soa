@@ -127,10 +127,19 @@
     <ownedServices xmi:id="_2GTsomxtEeuYi_YuNNGyqg" technicalid="_2GLw0GxtEeuYi_YuNNGyqg" description="Access to Petstore orders" name="User" URI="/user">
       <ownedInterface xmi:id="_2GTso2xtEeuYi_YuNNGyqg" technicalid="_2GRQZ2xtEeuYi_YuNNGyqg" name="User">
         <ownedOperations xmi:id="_2GTspGxtEeuYi_YuNNGyqg" technicalid="_2GRQaGxtEeuYi_YuNNGyqg" description="This can only be done by the logged in user." name="createUser" public="true" URI="" verb="POST" exposition="REST">
-          <input xmi:id="_2GTspWxtEeuYi_YuNNGyqg" technicalid="_2GRQaWxtEeuYi_YuNNGyqg" description="Created user object" type="_2GUTxGxtEeuYi_YuNNGyqg" name="body" multiplicity="0..1">
+          <input xmi:id="_2GTspWxtEeuYi_YuNNGyqg" technicalid="_2GRQaWxtEeuYi_YuNNGyqg" description="Created user object" createdOn="2021-07-08T11:07:08.276+0200" modifiedOn="2021-07-09T11:09:57.029+0200" type="_2GUTxGxtEeuYi_YuNNGyqg" name="body" multiplicity="0..1">
+            <mediaType xmi:id="_306jQd_LEeuYfdGFmRRM9w" technicalid="_306jQN_LEeuYfdGFmRRM9w" createdOn="2021-07-08T11:07:08.276+0200" modifiedOn="2021-07-08T12:11:00.451+0200" identifier="application/xml">
+              <examples xmi:id="_4T7agd_LEeuYfdGFmRRM9w" technicalid="_4T7agN_LEeuYfdGFmRRM9w" description="he is a good boy" createdOn="2021-07-08T11:07:15.325+0200" modifiedOn="2021-07-08T11:08:09.882+0200" summary="a dog" value="{&#xD;&#xA;&#x9;&quot;name&quot; : &quot;bobby&quot;,&#xD;&#xA;&#x9;&quot;age&quot; : 6,&#xD;&#xA;&#x9;&quot;weight&quot; : 34&#xD;&#xA;}" name="dog"/>
+              <examples xmi:id="_y3YjMd_UEeuYfdGFmRRM9w" technicalid="_y3YjMN_UEeuYfdGFmRRM9w" description="kitty kitty " createdOn="2021-07-08T12:11:03.731+0200" modifiedOn="2021-07-08T12:11:29.452+0200" summary="a cat" value="name: edwardo&#xD;&#xA;weight: 2&#xD;&#xA;age: 8" name="cat"/>
+            </mediaType>
+            <mediaType xmi:id="_bk4NUeCVEeu1qqisEyVoJg" technicalid="_bk4NUOCVEeu1qqisEyVoJg" createdOn="2021-07-09T11:10:01.203+0200" modifiedOn="2021-07-09T11:10:01.203+0200" identifier="application/json"/>
             <restData xmi:id="_2GTspmxtEeuYi_YuNNGyqg" technicalid="_2GRQamxtEeuYi_YuNNGyqg"/>
           </input>
-          <output xmi:id="_2GTsp2xtEeuYi_YuNNGyqg" technicalid="_2GRQa2xtEeuYi_YuNNGyqg" description="successful operation" type="_2GUTxGxtEeuYi_YuNNGyqg" name="outputdefault" multiplicity="0..1" statusCode="default" statusMessage=""/>
+          <output xmi:id="_2GTsp2xtEeuYi_YuNNGyqg" technicalid="_2GRQa2xtEeuYi_YuNNGyqg" description="successful operation" createdOn="2021-07-08T12:07:31.957+0200" modifiedOn="2021-07-08T12:07:31.957+0200" type="_2GUTxGxtEeuYi_YuNNGyqg" name="outputdefault" multiplicity="0..1" statusCode="default" statusMessage="">
+            <mediaType xmi:id="_TzB6UN_UEeuYfdGFmRRM9w" technicalid="_Ty4wYN_UEeuYfdGFmRRM9w" createdOn="2021-07-08T12:07:31.957+0200" modifiedOn="2021-07-08T12:07:35.123+0200" identifier="application/yaml">
+              <examples xmi:id="_UROSMd_UEeuYfdGFmRRM9w" technicalid="_UROSMN_UEeuYfdGFmRRM9w" description="he is a very good boy" createdOn="2021-07-08T12:07:37.334+0200" modifiedOn="2021-07-08T12:08:01.706+0200" summary="a dog" value="name: bobby&#xD;&#xA;age: 6&#xD;&#xA;weight: 34" name="dog"/>
+            </mediaType>
+          </output>
         </ownedOperations>
         <ownedOperations xmi:id="_2GTsqGxtEeuYi_YuNNGyqg" technicalid="_2GR3cGxtEeuYi_YuNNGyqg" description="Creates list of users with given input array" name="createUsersWithListInput" public="true" URI="/createWithList" verb="POST" exposition="REST">
           <input xmi:id="_2GTsqWxtEeuYi_YuNNGyqg" technicalid="_2GR3cWxtEeuYi_YuNNGyqg" type="_2GUTxGxtEeuYi_YuNNGyqg" name="body" multiplicity="0..*">
@@ -303,5 +312,8 @@
     </ownedServices>
     <securitySchemes xmi:id="_2GTtD2xtEeuYi_YuNNGyqg" technicalid="_2GJUkWxtEeuYi_YuNNGyqg" key="petstore_auth" type="oauth2"/>
     <securitySchemes xmi:id="_2GTtEGxtEeuYi_YuNNGyqg" technicalid="_2GJUkmxtEeuYi_YuNNGyqg" key="api_key" name="api_key" apiKeyLocation="HEADER"/>
+    <license xmi:id="_N6N54NS9EeupafSrIRMhUw" name="Apache 2.0" URL="http://www.apache.org/licenses/LICENSE-2.0.html"/>
+    <information xmi:id="_N6N54dS9EeupafSrIRMhUw" apiVersion="1.0.5-SNAPSHOT" termsOfService="/tos"/>
+    <contact xmi:id="_N6N54tS9EeupafSrIRMhUw" name="Obeo" URL="https://contact.obeosoft.com/" email="contact@obeosoft.com"/>
   </ownedComponents>
 </soa:System>

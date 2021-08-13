@@ -41,12 +41,15 @@ info:
 
 
     You may request a different version of the API by including an `Accept` header in your request with the following format: `Accept:application/vnd.thetvdb.v$VERSION`. This documentation automatically uses the version seen at the top and bottom of the page.
+  termsOfService: /tos
+  contact:
+    name: obeo
+    url: https://contact.obeosoft.com/
+    email: contact@obeosoft.com
   license:
     name: Apache 2.0
     url: http://www.apache.org/licenses/LICENSE-2.0.html
   version: 3.0.0
-servers:
-- url: /
 tags:
 - name: Series
   description: Information about a specific series
@@ -90,10 +93,7 @@ paths:
           type: string
       responses:
         200:
-          description: |-
-            OK
-
-            A series record.
+          description: "OK\n\nA series record."
           headers:
             X-Total-Element:
               schema:
@@ -117,19 +117,15 @@ paths:
               schema:
                 $ref: '#/components/schemas/SeriesData'
         401:
-          description: |-
-            Unauthorized
-
-            Returned if your JWT token is missing or expired
+          description: "Unauthorized\n\nReturned if your JWT token is missing\
+            \ or expired"
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/NotAuthorized'
         404:
-          description: |-
-            Not Found
-
-            Returned if the given series ID does not exist
+          description: "Not Found\n\nReturned if the given series ID does not\
+            \ exist"
           content:
             application/json:
               schema:
@@ -152,10 +148,7 @@ paths:
           format: int64
       responses:
         200:
-          description: |-
-            OK
-
-            An array of actor objects for the given series id.
+          description: "OK\n\nAn array of actor objects for the given series id."
           headers:
             X-Total-Element:
               schema:
@@ -179,19 +172,15 @@ paths:
               schema:
                 $ref: '#/components/schemas/SeriesActors'
         401:
-          description: |-
-            Unauthorized
-
-            Returned if your JWT token is missing or expired
+          description: "Unauthorized\n\nReturned if your JWT token is missing\
+            \ or expired"
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/NotAuthorized'
         404:
-          description: |-
-            Not Found
-
-            Returned if the given series ID does not exist
+          description: "Not Found\n\nReturned if the given series ID does not\
+            \ exist"
           content:
             application/json:
               schema:
@@ -221,10 +210,8 @@ paths:
           type: string
       responses:
         200:
-          description: |-
-            OK
-
-            An array of episode objects for the given series id.
+          description: "OK\n\nAn array of episode objects for the given series\
+            \ id."
           headers:
             X-Total-Element:
               schema:
@@ -248,19 +235,15 @@ paths:
               schema:
                 $ref: '#/components/schemas/SeriesEpisodes'
         401:
-          description: |-
-            Unauthorized
-
-            Returned if your JWT token is missing or expired
+          description: "Unauthorized\n\nReturned if your JWT token is missing\
+            \ or expired"
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/NotAuthorized'
         404:
-          description: |-
-            Not Found
-
-            Returned if the given series ID does not exist
+          description: "Not Found\n\nReturned if the given series ID does not\
+            \ exist"
           content:
             application/json:
               schema:
@@ -334,10 +317,8 @@ paths:
           type: string
       responses:
         200:
-          description: |-
-            OK
-
-            An array of basic Episode results that matched the query
+          description: "OK\n\nAn array of basic Episode results that matched the\
+            \ query"
           headers:
             X-Total-Element:
               schema:
@@ -361,19 +342,15 @@ paths:
               schema:
                 $ref: '#/components/schemas/SeriesEpisodesQuery'
         401:
-          description: |-
-            Unauthorized
-
-            Returned if your JWT token is missing or expired
+          description: "Unauthorized\n\nReturned if your JWT token is missing\
+            \ or expired"
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/NotAuthorized'
         404:
-          description: |-
-            Not Found
-
-            Returned if the given series ID does not exist or the query returns no results.
+          description: "Not Found\n\nReturned if the given series ID does not\
+            \ exist or the query returns no results."
           content:
             application/json:
               schema:
@@ -397,10 +374,7 @@ paths:
           format: int64
       responses:
         200:
-          description: |-
-            OK
-
-            An array of query keys as strings
+          description: "OK\n\nAn array of query keys as strings"
           headers:
             X-Total-Element:
               schema:
@@ -424,19 +398,15 @@ paths:
               schema:
                 $ref: '#/components/schemas/SeriesEpisodesQueryParams'
         401:
-          description: |-
-            Unauthorized
-
-            Returned if your JWT token is missing or expired
+          description: "Unauthorized\n\nReturned if your JWT token is missing\
+            \ or expired"
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/NotAuthorized'
         404:
-          description: |-
-            Not Found
-
-            Returned if the given series ID does not exist or the query returns no results.
+          description: "Not Found\n\nReturned if the given series ID does not\
+            \ exist or the query returns no results."
           content:
             application/json:
               schema:
@@ -462,10 +432,8 @@ paths:
           format: int64
       responses:
         200:
-          description: |-
-            OK
-
-            A summary of the episodes and seasons avaialable for the given series.
+          description: "OK\n\nA summary of the episodes and seasons avaialable\
+            \ for the given series."
           headers:
             X-Total-Element:
               schema:
@@ -489,19 +457,15 @@ paths:
               schema:
                 $ref: '#/components/schemas/SeriesEpisodesSummary'
         401:
-          description: |-
-            Unauthorized
-
-            Returned if your JWT token is missing or expired
+          description: "Unauthorized\n\nReturned if your JWT token is missing\
+            \ or expired"
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/NotAuthorized'
         404:
-          description: |-
-            Not Found
-
-            Returned if the given series ID does not exist
+          description: "Not Found\n\nReturned if the given series ID does not\
+            \ exist"
           content:
             application/json:
               schema:
@@ -540,10 +504,7 @@ paths:
           type: string
       responses:
         200:
-          description: |-
-            OK
-
-            A filtered series record
+          description: "OK\n\nA filtered series record"
           headers:
             X-Total-Element:
               schema:
@@ -567,19 +528,15 @@ paths:
               schema:
                 $ref: '#/components/schemas/SeriesData'
         401:
-          description: |-
-            Unauthorized
-
-            Returned if your JWT token is missing or expired
+          description: "Unauthorized\n\nReturned if your JWT token is missing\
+            \ or expired"
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/NotAuthorized'
         404:
-          description: |-
-            Not Found
-
-            Returned if the given series ID does not exist
+          description: "Not Found\n\nReturned if the given series ID does not\
+            \ exist"
           content:
             application/json:
               schema:
@@ -611,10 +568,7 @@ paths:
           type: string
       responses:
         200:
-          description: |-
-            OK
-
-            A list of keys to filter by
+          description: "OK\n\nA list of keys to filter by"
           headers:
             X-Total-Element:
               schema:
@@ -638,19 +592,15 @@ paths:
               schema:
                 $ref: '#/components/schemas/FilterKeys'
         401:
-          description: |-
-            Unauthorized
-
-            Returned if your JWT token is missing or expired
+          description: "Unauthorized\n\nReturned if your JWT token is missing\
+            \ or expired"
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/NotAuthorized'
         404:
-          description: |-
-            Not Found
-
-            Returned if the given series ID does not exist
+          description: "Not Found\n\nReturned if the given series ID does not\
+            \ exist"
           content:
             application/json:
               schema:
@@ -681,10 +631,8 @@ paths:
           type: string
       responses:
         200:
-          description: |-
-            OK
-
-            A summary of the image types and counts available for the given series.
+          description: "OK\n\nA summary of the image types and counts available\
+            \ for the given series."
           headers:
             X-Total-Element:
               schema:
@@ -708,19 +656,15 @@ paths:
               schema:
                 $ref: '#/components/schemas/SeriesImagesCounts'
         401:
-          description: |-
-            Unauthorized
-
-            Returned if your JWT token is missing or expired
+          description: "Unauthorized\n\nReturned if your JWT token is missing\
+            \ or expired"
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/NotAuthorized'
         404:
-          description: |-
-            Not Found
-
-            Returned if the given series ID does not exist
+          description: "Not Found\n\nReturned if the given series ID does not\
+            \ exist"
           content:
             application/json:
               schema:
@@ -771,10 +715,8 @@ paths:
           type: string
       responses:
         200:
-          description: |-
-            OK
-
-            An array of basic Episode results that matched the query
+          description: "OK\n\nAn array of basic Episode results that matched the\
+            \ query"
           headers:
             X-Total-Element:
               schema:
@@ -798,19 +740,15 @@ paths:
               schema:
                 $ref: '#/components/schemas/SeriesImageQueryResults'
         401:
-          description: |-
-            Unauthorized
-
-            Returned if your JWT token is missing or expired
+          description: "Unauthorized\n\nReturned if your JWT token is missing\
+            \ or expired"
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/NotAuthorized'
         404:
-          description: |-
-            Not Found
-
-            Returned if the given series ID does not exist or the query returns no results.
+          description: "Not Found\n\nReturned if the given series ID does not\
+            \ exist or the query returns no results."
           content:
             application/json:
               schema:
@@ -843,10 +781,7 @@ paths:
           type: string
       responses:
         200:
-          description: |-
-            OK
-
-            An array of query keys as strings
+          description: "OK\n\nAn array of query keys as strings"
           headers:
             X-Total-Element:
               schema:
@@ -870,19 +805,15 @@ paths:
               schema:
                 $ref: '#/components/schemas/SeriesImagesQueryParams'
         401:
-          description: |-
-            Unauthorized
-
-            Returned if your JWT token is missing or expired
+          description: "Unauthorized\n\nReturned if your JWT token is missing\
+            \ or expired"
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/NotAuthorized'
         404:
-          description: |-
-            Not Found
-
-            Returned if the given series ID does not exist or the query returns no results.
+          description: "Not Found\n\nReturned if the given series ID does not\
+            \ exist or the query returns no results."
           content:
             application/json:
               schema:
@@ -922,10 +853,8 @@ paths:
           type: string
       responses:
         200:
-          description: |-
-            OK
-
-            An array of Update objects that match the given timeframe.
+          description: "OK\n\nAn array of Update objects that match the given\
+            \ timeframe."
           headers:
             X-Total-Element:
               schema:
@@ -949,19 +878,15 @@ paths:
               schema:
                 $ref: '#/components/schemas/UpdateData'
         401:
-          description: |-
-            Unauthorized
-
-            Returned if your JWT token is missing or expired
+          description: "Unauthorized\n\nReturned if your JWT token is missing\
+            \ or expired"
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/NotAuthorized'
         404:
-          description: |-
-            Not Found
-
-            Returned if no records exist for the given timespan
+          description: "Not Found\n\nReturned if no records exist for the given\
+            \ timespan"
           content:
             application/json:
               schema:
@@ -977,10 +902,8 @@ paths:
       operationId: getParams1
       responses:
         200:
-          description: |-
-            OK
-
-            An array of Update objects that match the given timeframe.
+          description: "OK\n\nAn array of Update objects that match the given\
+            \ timeframe."
           headers:
             X-Total-Element:
               schema:
@@ -1004,19 +927,15 @@ paths:
               schema:
                 $ref: '#/components/schemas/UpdateDataQueryParams'
         401:
-          description: |-
-            Unauthorized
-
-            Returned if your JWT token is missing or expired
+          description: "Unauthorized\n\nReturned if your JWT token is missing\
+            \ or expired"
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/NotAuthorized'
         404:
-          description: |-
-            Not Found
-
-            Returned if no records exist for the given timespan
+          description: "Not Found\n\nReturned if no records exist for the given\
+            \ timespan"
           content:
             application/json:
               schema:
@@ -1038,10 +957,8 @@ paths:
               $ref: '#/components/schemas/Auth'
       responses:
         200:
-          description: |-
-            OK
-
-            Returns a JWT token for use with the rest of the API routes
+          description: "OK\n\nReturns a JWT token for use with the rest of the\
+            \ API routes"
           headers:
             X-Total-Element:
               schema:
@@ -1065,10 +982,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Token'
         401:
-          description: |-
-            Unauthorized
-
-            Invalid credentials and/or API token
+          description: "Unauthorized\n\nInvalid credentials and/or API token"
           content:
             application/json:
               schema:
@@ -1083,10 +997,7 @@ paths:
       operationId: getRefresh_token
       responses:
         200:
-          description: |-
-            OK
-
-            Returns a new token to use in your subsequent requests
+          description: "OK\n\nReturns a new token to use in your subsequent requests"
           headers:
             X-Total-Element:
               schema:
@@ -1110,10 +1021,8 @@ paths:
               schema:
                 $ref: '#/components/schemas/Token'
         401:
-          description: |-
-            Unauthorized
-
-            Returned if your JWT token is missing or expired
+          description: "Unauthorized\n\nReturned if your JWT token is missing\
+            \ or expired"
           content:
             application/json:
               schema:
@@ -1161,10 +1070,7 @@ paths:
           type: string
       responses:
         200:
-          description: |-
-            OK
-
-            An array of results that match the provided query.
+          description: "OK\n\nAn array of results that match the provided query."
           headers:
             X-Total-Element:
               schema:
@@ -1188,19 +1094,15 @@ paths:
               schema:
                 $ref: '#/components/schemas/SeriesSearchResults'
         401:
-          description: |-
-            Unauthorized
-
-            Returned if your JWT token is missing or expired
+          description: "Unauthorized\n\nReturned if your JWT token is missing\
+            \ or expired"
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/NotAuthorized'
         404:
-          description: |-
-            Not Found
-
-            Returned if no records are found that match your query.
+          description: "Not Found\n\nReturned if no records are found that match\
+            \ your query."
           content:
             application/json:
               schema:
@@ -1216,10 +1118,7 @@ paths:
       operationId: getParams
       responses:
         200:
-          description: |-
-            OK
-
-            An array of query keys as strings
+          description: "OK\n\nAn array of query keys as strings"
           headers:
             X-Total-Element:
               schema:
@@ -1243,10 +1142,8 @@ paths:
               schema:
                 $ref: '#/components/schemas/EpisodeDataQueryParams'
         401:
-          description: |-
-            Unauthorized
-
-            Returned if your JWT token is missing or expired
+          description: "Unauthorized\n\nReturned if your JWT token is missing\
+            \ or expired"
           content:
             application/json:
               schema:
@@ -1279,10 +1176,7 @@ paths:
           type: string
       responses:
         200:
-          description: |-
-            OK
-
-            An array of query keys as strings
+          description: "OK\n\nAn array of query keys as strings"
           headers:
             X-Total-Element:
               schema:
@@ -1306,19 +1200,15 @@ paths:
               schema:
                 $ref: '#/components/schemas/EpisodeRecordData'
         401:
-          description: |-
-            Unauthorized
-
-            Returned if your JWT token is missing or expired
+          description: "Unauthorized\n\nReturned if your JWT token is missing\
+            \ or expired"
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/NotAuthorized'
         404:
-          description: |-
-            Not Found
-
-            Returned if the given episode ID does not exist.
+          description: "Not Found\n\nReturned if the given episode ID does not\
+            \ exist."
           content:
             application/json:
               schema:
@@ -1334,10 +1224,7 @@ paths:
       operationId: get
       responses:
         200:
-          description: |-
-            OK
-
-            An array of language objects.
+          description: "OK\n\nAn array of language objects."
           headers:
             X-Total-Element:
               schema:
@@ -1361,10 +1248,8 @@ paths:
               schema:
                 $ref: '#/components/schemas/LanguageData'
         401:
-          description: |-
-            Unauthorized
-
-            Returned if your JWT token is missing or expired
+          description: "Unauthorized\n\nReturned if your JWT token is missing\
+            \ or expired"
           content:
             application/json:
               schema:
@@ -1386,10 +1271,7 @@ paths:
           type: string
       responses:
         200:
-          description: |-
-            OK
-
-            An array of language objects.
+          description: "OK\n\nAn array of language objects."
           headers:
             X-Total-Element:
               schema:
@@ -1413,19 +1295,15 @@ paths:
               schema:
                 $ref: '#/components/schemas/Language'
         401:
-          description: |-
-            Unauthorized
-
-            Returned if your JWT token is missing or expired
+          description: "Unauthorized\n\nReturned if your JWT token is missing\
+            \ or expired"
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/NotAuthorized'
         404:
-          description: |-
-            Not Found
-
-            Returned if the given language ID does not exist.
+          description: "Not Found\n\nReturned if the given language ID does not\
+            \ exist."
           content:
             application/json:
               schema:
@@ -1457,10 +1335,7 @@ paths:
           type: string
       responses:
         200:
-          description: |-
-            OK
-
-            A movie record.
+          description: "OK\n\nA movie record."
           headers:
             X-Total-Element:
               schema:
@@ -1484,19 +1359,15 @@ paths:
               schema:
                 $ref: '#/components/schemas/Movie'
         401:
-          description: |-
-            Unauthorized
-
-            Returned if your JWT token is missing or expired
+          description: "Unauthorized\n\nReturned if your JWT token is missing\
+            \ or expired"
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/NotAuthorized'
         404:
-          description: |-
-            Not Found
-
-            Returned if the given series ID does not exist
+          description: "Not Found\n\nReturned if the given series ID does not\
+            \ exist"
           content:
             application/json:
               schema:
@@ -1518,10 +1389,7 @@ paths:
           type: string
       responses:
         200:
-          description: |-
-            OK
-
-            All movies ids updated since a given date
+          description: "OK\n\nAll movies ids updated since a given date"
           headers:
             X-Total-Element:
               schema:
@@ -1545,28 +1413,20 @@ paths:
               schema:
                 $ref: '#/components/schemas/UpdatedMovies'
         401:
-          description: |-
-            Unauthorized
-
-            Returned if your JWT token is missing or expired
+          description: "Unauthorized\n\nReturned if your JWT token is missing\
+            \ or expired"
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/NotAuthorized'
         405:
-          description: |-
-            Method Not Allowed
-
-            Missing query params are given
+          description: "Method Not Allowed\n\nMissing query params are given"
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/InvalidQueryParams'
         422:
-          description: |-
-            Unprocessable Entity
-
-            Invalid query params provided
+          description: "Unprocessable Entity\n\nInvalid query params provided"
           content:
             application/json:
               schema:
@@ -1581,10 +1441,7 @@ paths:
       operationId: get3
       responses:
         200:
-          description: |-
-            OK
-
-            User information.
+          description: "OK\n\nUser information."
           headers:
             X-Total-Element:
               schema:
@@ -1608,19 +1465,15 @@ paths:
               schema:
                 $ref: '#/components/schemas/UserData'
         401:
-          description: |-
-            Unauthorized
-
-            Returned if your JWT token is missing or expired
+          description: "Unauthorized\n\nReturned if your JWT token is missing\
+            \ or expired"
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/NotAuthorized'
         404:
-          description: |-
-            Not Found
-
-            Returned if no information exists for the current user
+          description: "Not Found\n\nReturned if no information exists for the\
+            \ current user"
           content:
             application/json:
               schema:
@@ -1636,10 +1489,7 @@ paths:
       operationId: getFavorites
       responses:
         200:
-          description: |-
-            OK
-
-            User favorites.
+          description: "OK\n\nUser favorites."
           headers:
             X-Total-Element:
               schema:
@@ -1663,19 +1513,15 @@ paths:
               schema:
                 $ref: '#/components/schemas/UserFavoritesData'
         401:
-          description: |-
-            Unauthorized
-
-            Returned if your JWT token is missing or expired
+          description: "Unauthorized\n\nReturned if your JWT token is missing\
+            \ or expired"
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/NotAuthorized'
         404:
-          description: |-
-            Not Found
-
-            Returned if no information exists for the current user
+          description: "Not Found\n\nReturned if no information exists for the\
+            \ current user"
           content:
             application/json:
               schema:
@@ -1699,10 +1545,7 @@ paths:
           format: int64
       responses:
         200:
-          description: |-
-            OK
-
-            List of user favorites.
+          description: "OK\n\nList of user favorites."
           headers:
             X-Total-Element:
               schema:
@@ -1726,28 +1569,22 @@ paths:
               schema:
                 $ref: '#/components/schemas/UserFavoritesData'
         401:
-          description: |-
-            Unauthorized
-
-            Returned if your JWT token is missing or expired
+          description: "Unauthorized\n\nReturned if your JWT token is missing\
+            \ or expired"
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/NotAuthorized'
         404:
-          description: |-
-            Not Found
-
-            Returned if no information exists for the current user
+          description: "Not Found\n\nReturned if no information exists for the\
+            \ current user"
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/NotFound'
         409:
-          description: |-
-            Conflict
-
-            Returned if requested record could not be updated
+          description: "Conflict\n\nReturned if requested record could not be\
+            \ updated"
           content:
             application/json:
               schema:
@@ -1770,10 +1607,7 @@ paths:
           format: int64
       responses:
         200:
-          description: |-
-            OK
-
-            List of user favorites.
+          description: "OK\n\nList of user favorites."
           headers:
             X-Total-Element:
               schema:
@@ -1797,28 +1631,22 @@ paths:
               schema:
                 $ref: '#/components/schemas/UserFavoritesData'
         401:
-          description: |-
-            Unauthorized
-
-            Returned if your JWT token is missing or expired
+          description: "Unauthorized\n\nReturned if your JWT token is missing\
+            \ or expired"
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/NotAuthorized'
         404:
-          description: |-
-            Not Found
-
-            Returned if no information exists for the current user
+          description: "Not Found\n\nReturned if no information exists for the\
+            \ current user"
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/NotFound'
         409:
-          description: |-
-            Conflict
-
-            Returned if requested record could not be deleted
+          description: "Conflict\n\nReturned if requested record could not be\
+            \ deleted"
           content:
             application/json:
               schema:
@@ -1833,10 +1661,7 @@ paths:
       operationId: getRatings
       responses:
         200:
-          description: |-
-            OK
-
-            Array of user ratings.
+          description: "OK\n\nArray of user ratings."
           headers:
             X-Total-Element:
               schema:
@@ -1860,19 +1685,15 @@ paths:
               schema:
                 $ref: '#/components/schemas/UserRatingsData'
         401:
-          description: |-
-            Unauthorized
-
-            Returned if your JWT token is missing or expired
+          description: "Unauthorized\n\nReturned if your JWT token is missing\
+            \ or expired"
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/NotAuthorized'
         404:
-          description: |-
-            Not Found
-
-            Returned if no information exists for the current user
+          description: "Not Found\n\nReturned if no information exists for the\
+            \ current user"
           content:
             application/json:
               schema:
@@ -1894,10 +1715,7 @@ paths:
           type: string
       responses:
         200:
-          description: |-
-            OK
-
-            List of user ratings that match the given query.
+          description: "OK\n\nList of user ratings that match the given query."
           headers:
             X-Total-Element:
               schema:
@@ -1921,19 +1739,15 @@ paths:
               schema:
                 $ref: '#/components/schemas/UserRatingsData'
         401:
-          description: |-
-            Unauthorized
-
-            Returned if your JWT token is missing or expired
+          description: "Unauthorized\n\nReturned if your JWT token is missing\
+            \ or expired"
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/NotAuthorized'
         404:
-          description: |-
-            Not Found
-
-            Returned if no information exists for the current user
+          description: "Not Found\n\nReturned if no information exists for the\
+            \ current user"
           content:
             application/json:
               schema:
@@ -1949,10 +1763,7 @@ paths:
       operationId: getRatingsQueryParams
       responses:
         200:
-          description: |-
-            OK
-
-            Parameters to use for querying.
+          description: "OK\n\nParameters to use for querying."
           headers:
             X-Total-Element:
               schema:
@@ -1976,19 +1787,15 @@ paths:
               schema:
                 $ref: '#/components/schemas/UserRatingsQueryParams'
         401:
-          description: |-
-            Unauthorized
-
-            Returned if your JWT token is missing or expired
+          description: "Unauthorized\n\nReturned if your JWT token is missing\
+            \ or expired"
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/NotAuthorized'
         404:
-          description: |-
-            Not Found
-
-            Returned if no information exists for the current user
+          description: "Not Found\n\nReturned if no information exists for the\
+            \ current user"
           content:
             application/json:
               schema:
@@ -2017,10 +1824,7 @@ paths:
           format: int64
       responses:
         200:
-          description: |-
-            OK
-
-            Returns OK if the delete was successful
+          description: "OK\n\nReturns OK if the delete was successful"
           headers:
             X-Total-Element:
               schema:
@@ -2044,19 +1848,15 @@ paths:
               schema:
                 $ref: '#/components/schemas/UserRatingsDataNoLinksEmptyArray'
         401:
-          description: |-
-            Unauthorized
-
-            Returned if your JWT token is missing or expired
+          description: "Unauthorized\n\nReturned if your JWT token is missing\
+            \ or expired"
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/NotAuthorized'
         404:
-          description: |-
-            Not Found
-
-            Returned if no rating is found that matches your given parameters
+          description: "Not Found\n\nReturned if no rating is found that matches\
+            \ your given parameters"
           content:
             application/json:
               schema:
@@ -2092,10 +1892,7 @@ paths:
           format: int64
       responses:
         200:
-          description: |-
-            OK
-
-            Update OK if the update was successful
+          description: "OK\n\nUpdate OK if the update was successful"
           headers:
             X-Total-Element:
               schema:
@@ -2119,19 +1916,15 @@ paths:
               schema:
                 $ref: '#/components/schemas/UserRatingsDataNoLinks'
         401:
-          description: |-
-            Unauthorized
-
-            Returned if your JWT token is missing or expired
+          description: "Unauthorized\n\nReturned if your JWT token is missing\
+            \ or expired"
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/NotAuthorized'
         404:
-          description: |-
-            Not Found
-
-            Returned if no rating is found that matches your given parameters
+          description: "Not Found\n\nReturned if no rating is found that matches\
+            \ your given parameters"
           content:
             application/json:
               schema:
@@ -2140,26 +1933,19 @@ paths:
       - jwtToken: []
 components:
   schemas:
-    MovieArtwork:
+    Auth:
       type: object
       properties:
-        thumb_url:
+        apikey:
           type: string
-        is_primary:
-          type: boolean
-        width:
-          type: integer
-          format: int64
-        artwork_type:
+        userkey:
           type: string
-        id:
+        username:
           type: string
-        url:
-          type: string
-        height:
-          type: integer
-          format: int64
-        tags:
+    Conflict:
+      type: object
+      properties:
+        Error:
           type: string
     Episode:
       type: object
@@ -2246,32 +2032,64 @@ components:
         dvdEpisodeNumber:
           type: number
           format: double
-    Conflict:
+    EpisodeDataQueryParams:
+      type: object
+      properties:
+        data:
+          type: array
+          items:
+            type: string
+    EpisodeRecordData:
+      type: object
+      properties:
+        data:
+          $ref: '#/components/schemas/Episode'
+        errors:
+          $ref: '#/components/schemas/JSONErrors'
+    FilterKeys:
+      type: object
+      properties:
+        data:
+          type: array
+          items:
+            type: string
+    InvalidQueryParams:
       type: object
       properties:
         Error:
           type: string
-    SeriesEpisodesQuery:
+    JSONErrors:
       type: object
       properties:
-        links:
-          $ref: '#/components/schemas/Links'
-        data:
+        invalidLanguage:
+          type: string
+        invalidQueryParams:
           type: array
           items:
-            $ref: '#/components/schemas/Episode'
-        errors:
-          $ref: '#/components/schemas/JSONErrors'
-    MovieGenre:
+            type: string
+        invalidFilters:
+          type: array
+          items:
+            type: string
+    Language:
       type: object
       properties:
         name:
           type: string
+        englishName:
+          type: string
         id:
           type: integer
           format: int64
-        url:
+        abbreviation:
           type: string
+    LanguageData:
+      type: object
+      properties:
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/Language'
     Links:
       type: object
       properties:
@@ -2287,161 +2105,6 @@ components:
         first:
           type: integer
           format: int64
-    EpisodeRecordData:
-      type: object
-      properties:
-        data:
-          $ref: '#/components/schemas/Episode'
-        errors:
-          $ref: '#/components/schemas/JSONErrors'
-    Token:
-      type: object
-      properties:
-        token:
-          type: string
-    UserRatingsQueryParams:
-      type: object
-      properties:
-        data:
-          type: array
-          items:
-            type: string
-    SeriesImageQueryResult:
-      type: object
-      properties:
-        fileName:
-          type: string
-        thumbnail:
-          type: string
-        subKey:
-          type: string
-        languageId:
-          type: integer
-          format: int64
-        id:
-          type: integer
-          format: int64
-        keyType:
-          type: string
-        resolution:
-          type: string
-        ratingsInfo:
-          $ref: '#/components/schemas/SeriesImageQueryResultRatingsInfo'
-    NotAuthorized:
-      type: object
-      properties:
-        Error:
-          type: string
-    SeriesImageQueryResults:
-      type: object
-      properties:
-        data:
-          type: array
-          items:
-            $ref: '#/components/schemas/SeriesImageQueryResult'
-        errors:
-          $ref: '#/components/schemas/JSONErrors'
-    UserRatingsDataNoLinksEmptyArray:
-      type: object
-      properties:
-        data:
-          type: array
-          items:
-            $ref: '#/components/schemas/UserRatingsDataNoLinksEmptyArrayData'
-    SeriesEpisodesSummary:
-      type: object
-      properties:
-        dvdEpisodes:
-          type: string
-        dvdSeasons:
-          type: array
-          items:
-            type: string
-        airedSeasons:
-          type: array
-          items:
-            type: string
-        airedEpisodes:
-          type: string
-    UserFavoritesData:
-      type: object
-      properties:
-        data:
-          $ref: '#/components/schemas/UserFavorites'
-        errors:
-          $ref: '#/components/schemas/JSONErrors'
-    FilterKeys:
-      type: object
-      properties:
-        data:
-          type: array
-          items:
-            type: string
-    LanguageData:
-      type: object
-      properties:
-        data:
-          type: array
-          items:
-            $ref: '#/components/schemas/Language'
-    User:
-      type: object
-      properties:
-        language:
-          type: string
-        favoritesDisplaymode:
-          type: string
-        userName:
-          type: string
-    SeriesActorsData:
-      type: object
-      properties:
-        image:
-          type: string
-        lastUpdated:
-          type: string
-        role:
-          type: string
-        imageAdded:
-          type: string
-        imageAuthor:
-          type: integer
-          format: int64
-        sortOrder:
-          type: integer
-          format: int64
-        name:
-          type: string
-        id:
-          type: integer
-          format: int64
-        seriesId:
-          type: integer
-          format: int64
-    MovieReleaseDate:
-      type: object
-      properties:
-        date:
-          type: string
-        country:
-          type: string
-        type:
-          type: string
-    SeriesImagesQueryParam:
-      type: object
-      properties:
-        languageId:
-          type: string
-        keyType:
-          type: string
-        subKey:
-          type: array
-          items:
-            type: string
-        resolution:
-          type: array
-          items:
-            type: string
     Movie:
       type: object
       properties:
@@ -2479,78 +2142,133 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/MovieTrailer'
-    SeriesImagesQueryParams:
+    MovieArtwork:
       type: object
       properties:
-        data:
-          type: array
-          items:
-            $ref: '#/components/schemas/SeriesImagesQueryParam'
-    UpdatedMovies:
+        thumb_url:
+          type: string
+        is_primary:
+          type: boolean
+        width:
+          type: integer
+          format: int64
+        artwork_type:
+          type: string
+        id:
+          type: string
+        url:
+          type: string
+        height:
+          type: integer
+          format: int64
+        tags:
+          type: string
+    MovieGenre:
       type: object
       properties:
-        movies:
-          type: array
-          items:
-            type: integer
-            format: int64
-    SeriesEpisodesQueryParams:
-      type: object
-      properties:
-        data:
-          type: array
-          items:
-            type: string
-    UpdateDataQueryParams:
-      type: object
-      properties:
-        data:
-          type: array
-          items:
-            type: string
-    Auth:
-      type: object
-      properties:
-        apikey:
-          type: string
-        userkey:
-          type: string
-        username:
-          type: string
-    SeriesSearchResults:
-      type: object
-      properties:
-        data:
-          type: array
-          items:
-            $ref: '#/components/schemas/SeriesSearchResult'
-    SeriesSearchResult:
-      type: object
-      properties:
-        image:
-          type: string
-        overview:
-          type: string
-        aliases:
-          type: array
-          items:
-            type: string
-        seriesName:
-          type: string
-        firstAired:
-          type: string
-        banner:
+        name:
           type: string
         id:
           type: integer
           format: int64
-        poster:
+        url:
           type: string
-        slug:
+    MoviePeople:
+      type: object
+      properties:
+        people_id:
           type: string
-        network:
+        role:
           type: string
-        status:
+        imdb_id:
+          type: string
+        people_facebook:
+          type: string
+        people_instagram:
+          type: string
+        name:
+          type: string
+        people_twitter:
+          type: string
+        role_image:
+          type: string
+        id:
+          type: string
+        people_image:
+          type: string
+        is_featured:
+          type: boolean
+    MoviePeople_1:
+      type: object
+      properties:
+        actors:
+          type: array
+          items:
+            $ref: '#/components/schemas/MoviePeople'
+        writers:
+          type: array
+          items:
+            $ref: '#/components/schemas/MoviePeople'
+        directors:
+          type: array
+          items:
+            $ref: '#/components/schemas/MoviePeople'
+        producers:
+          type: array
+          items:
+            $ref: '#/components/schemas/MoviePeople'
+    MovieReleaseDate:
+      type: object
+      properties:
+        date:
+          type: string
+        country:
+          type: string
+        type:
+          type: string
+    MovieRemoteId:
+      type: object
+      properties:
+        id:
+          type: string
+        source_id:
+          type: integer
+          format: int64
+        source_name:
+          type: string
+        source_url:
+          type: string
+        url:
+          type: string
+    MovieTrailer:
+      type: object
+      properties:
+        name:
+          type: string
+        url:
+          type: string
+    MovieTranslation:
+      type: object
+      properties:
+        name:
+          type: string
+        language_code:
+          type: string
+        overview:
+          type: string
+        tagline:
+          type: string
+        is_primary:
+          type: boolean
+    NotAuthorized:
+      type: object
+      properties:
+        Error:
+          type: string
+    NotFound:
+      type: object
+      properties:
+        Error:
           type: string
     Series:
       type: object
@@ -2607,11 +2325,6 @@ components:
           type: string
         status:
           type: string
-    SeriesImagesCounts:
-      type: object
-      properties:
-        data:
-          $ref: '#/components/schemas/SeriesImagesCount'
     SeriesActors:
       type: object
       properties:
@@ -2621,126 +2334,38 @@ components:
             $ref: '#/components/schemas/SeriesActorsData'
         errors:
           $ref: '#/components/schemas/JSONErrors'
-    Update:
+    SeriesActorsData:
       type: object
       properties:
+        image:
+          type: string
         lastUpdated:
-          type: integer
-          format: int64
-        id:
-          type: integer
-          format: int64
-    SeriesImageQueryResultRatingsInfo:
-      type: object
-      properties:
-        count:
-          type: integer
-          format: int64
-        average:
-          type: number
-          format: double
-    MoviePeople:
-      type: object
-      properties:
-        people_id:
           type: string
         role:
           type: string
-        imdb_id:
+        imageAdded:
           type: string
-        people_facebook:
-          type: string
-        people_instagram:
-          type: string
+        imageAuthor:
+          type: integer
+          format: int64
+        sortOrder:
+          type: integer
+          format: int64
         name:
-          type: string
-        people_twitter:
-          type: string
-        role_image:
           type: string
         id:
-          type: string
-        people_image:
-          type: string
-        is_featured:
-          type: boolean
-    MovieTrailer:
-      type: object
-      properties:
-        name:
-          type: string
-        url:
-          type: string
-    UserRatings:
-      type: object
-      properties:
-        rating:
           type: integer
           format: int64
-        ratingItemId:
+        seriesId:
           type: integer
           format: int64
-        ratingType:
-          type: string
-    UserRatingsDataNoLinks:
+    SeriesData:
       type: object
       properties:
         data:
-          type: array
-          items:
-            $ref: '#/components/schemas/UserRatings'
-    JSONErrors:
-      type: object
-      properties:
-        invalidLanguage:
-          type: string
-        invalidQueryParams:
-          type: array
-          items:
-            type: string
-        invalidFilters:
-          type: array
-          items:
-            type: string
-    UpdateData:
-      type: object
-      properties:
-        data:
-          type: array
-          items:
-            $ref: '#/components/schemas/Update'
+          $ref: '#/components/schemas/Series'
         errors:
           $ref: '#/components/schemas/JSONErrors'
-    UserRatingsData:
-      type: object
-      properties:
-        links:
-          $ref: '#/components/schemas/Links'
-        data:
-          type: array
-          items:
-            $ref: '#/components/schemas/UserRatings'
-        errors:
-          $ref: '#/components/schemas/JSONErrors'
-    MoviePeople_1:
-      type: object
-      properties:
-        actors:
-          type: array
-          items:
-            $ref: '#/components/schemas/MoviePeople'
-        writers:
-          type: array
-          items:
-            $ref: '#/components/schemas/MoviePeople'
-        directors:
-          type: array
-          items:
-            $ref: '#/components/schemas/MoviePeople'
-        producers:
-          type: array
-          items:
-            $ref: '#/components/schemas/MoviePeople'
     SeriesEpisodes:
       type: object
       properties:
@@ -2750,6 +2375,78 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/Episode'
+        errors:
+          $ref: '#/components/schemas/JSONErrors'
+    SeriesEpisodesQuery:
+      type: object
+      properties:
+        links:
+          $ref: '#/components/schemas/Links'
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/Episode'
+        errors:
+          $ref: '#/components/schemas/JSONErrors'
+    SeriesEpisodesQueryParams:
+      type: object
+      properties:
+        data:
+          type: array
+          items:
+            type: string
+    SeriesEpisodesSummary:
+      type: object
+      properties:
+        dvdEpisodes:
+          type: string
+        dvdSeasons:
+          type: array
+          items:
+            type: string
+        airedSeasons:
+          type: array
+          items:
+            type: string
+        airedEpisodes:
+          type: string
+    SeriesImageQueryResult:
+      type: object
+      properties:
+        fileName:
+          type: string
+        thumbnail:
+          type: string
+        subKey:
+          type: string
+        languageId:
+          type: integer
+          format: int64
+        id:
+          type: integer
+          format: int64
+        keyType:
+          type: string
+        resolution:
+          type: string
+        ratingsInfo:
+          $ref: '#/components/schemas/SeriesImageQueryResultRatingsInfo'
+    SeriesImageQueryResultRatingsInfo:
+      type: object
+      properties:
+        count:
+          type: integer
+          format: int64
+        average:
+          type: number
+          format: double
+    SeriesImageQueryResults:
+      type: object
+      properties:
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/SeriesImageQueryResult'
         errors:
           $ref: '#/components/schemas/JSONErrors'
     SeriesImagesCount:
@@ -2770,31 +2467,120 @@ components:
         series:
           type: integer
           format: int64
-    MovieTranslation:
+    SeriesImagesCounts:
       type: object
       properties:
-        name:
+        data:
+          $ref: '#/components/schemas/SeriesImagesCount'
+    SeriesImagesQueryParam:
+      type: object
+      properties:
+        languageId:
           type: string
-        language_code:
+        keyType:
+          type: string
+        subKey:
+          type: array
+          items:
+            type: string
+        resolution:
+          type: array
+          items:
+            type: string
+    SeriesImagesQueryParams:
+      type: object
+      properties:
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/SeriesImagesQueryParam'
+    SeriesSearchResult:
+      type: object
+      properties:
+        image:
           type: string
         overview:
           type: string
-        tagline:
+        aliases:
+          type: array
+          items:
+            type: string
+        seriesName:
           type: string
-        is_primary:
-          type: boolean
-    Language:
-      type: object
-      properties:
-        name:
+        firstAired:
           type: string
-        englishName:
+        banner:
           type: string
         id:
           type: integer
           format: int64
-        abbreviation:
+        poster:
           type: string
+        slug:
+          type: string
+        network:
+          type: string
+        status:
+          type: string
+    SeriesSearchResults:
+      type: object
+      properties:
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/SeriesSearchResult'
+    Token:
+      type: object
+      properties:
+        token:
+          type: string
+    Update:
+      type: object
+      properties:
+        lastUpdated:
+          type: integer
+          format: int64
+        id:
+          type: integer
+          format: int64
+    UpdateData:
+      type: object
+      properties:
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/Update'
+        errors:
+          $ref: '#/components/schemas/JSONErrors'
+    UpdateDataQueryParams:
+      type: object
+      properties:
+        data:
+          type: array
+          items:
+            type: string
+    UpdatedMovies:
+      type: object
+      properties:
+        movies:
+          type: array
+          items:
+            type: integer
+            format: int64
+    User:
+      type: object
+      properties:
+        language:
+          type: string
+        favoritesDisplaymode:
+          type: string
+        userName:
+          type: string
+    UserData:
+      type: object
+      properties:
+        data:
+          $ref: '#/components/schemas/User'
     UserFavorites:
       type: object
       properties:
@@ -2802,45 +2588,52 @@ components:
           type: array
           items:
             type: string
-    MovieRemoteId:
-      type: object
-      properties:
-        id:
-          type: string
-        source_id:
-          type: integer
-          format: int64
-        source_name:
-          type: string
-        source_url:
-          type: string
-        url:
-          type: string
-    UserRatingsDataNoLinksEmptyArrayData:
-      type: object
-    SeriesData:
+    UserFavoritesData:
       type: object
       properties:
         data:
-          $ref: '#/components/schemas/Series'
+          $ref: '#/components/schemas/UserFavorites'
         errors:
           $ref: '#/components/schemas/JSONErrors'
-    UserData:
+    UserRatings:
+      type: object
+      properties:
+        rating:
+          type: integer
+          format: int64
+        ratingItemId:
+          type: integer
+          format: int64
+        ratingType:
+          type: string
+    UserRatingsData:
+      type: object
+      properties:
+        links:
+          $ref: '#/components/schemas/Links'
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/UserRatings'
+        errors:
+          $ref: '#/components/schemas/JSONErrors'
+    UserRatingsDataNoLinks:
       type: object
       properties:
         data:
-          $ref: '#/components/schemas/User'
-    NotFound:
+          type: array
+          items:
+            $ref: '#/components/schemas/UserRatings'
+    UserRatingsDataNoLinksEmptyArray:
       type: object
       properties:
-        Error:
-          type: string
-    InvalidQueryParams:
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/UserRatingsDataNoLinksEmptyArrayData'
+    UserRatingsDataNoLinksEmptyArrayData:
       type: object
-      properties:
-        Error:
-          type: string
-    EpisodeDataQueryParams:
+    UserRatingsQueryParams:
       type: object
       properties:
         data:

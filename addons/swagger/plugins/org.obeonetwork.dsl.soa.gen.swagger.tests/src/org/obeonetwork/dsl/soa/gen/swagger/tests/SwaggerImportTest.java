@@ -26,8 +26,8 @@ import org.eclipse.emf.ecore.resource.ResourceSet;
 import org.junit.Test;
 import org.obeonetwork.dsl.environment.Environment;
 import org.obeonetwork.dsl.soa.System;
-import org.obeonetwork.dsl.soa.gen.swagger.SwaggerExporter.MapperType;
 import org.obeonetwork.dsl.soa.gen.swagger.SwaggerImporter;
+import org.obeonetwork.dsl.soa.gen.swagger.utils.SwaggerExportUtil.MapperType;
 
 public class SwaggerImportTest {
 	
@@ -79,6 +79,17 @@ public class SwaggerImportTest {
 	@Test
 	public void testYamlImportThetvdb() {
 		testImportFromFile("thetvdb", MapperType.YAML);
+	}
+	
+
+	@Test
+	public void testJsonImportThetvdbExtensions() {
+		testImportFromFile("thetvdb-extensions", MapperType.JSON);
+	}
+
+	@Test
+	public void testYamlImportThetvdbExtensions() {
+		testImportFromFile("thetvdb-extensions", MapperType.YAML);
 	}
 
 	@Test

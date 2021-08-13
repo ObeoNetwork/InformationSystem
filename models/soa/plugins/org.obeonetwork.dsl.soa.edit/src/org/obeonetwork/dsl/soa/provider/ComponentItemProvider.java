@@ -73,7 +73,6 @@ public class ComponentItemProvider
 			addNamePropertyDescriptor(object);
 			addBlockPropertyDescriptor(object);
 			addURIPropertyDescriptor(object);
-			addURLPropertyDescriptor(object);
 			addApiVersionPropertyDescriptor(object);
 			addDeprecatedPropertyDescriptor(object);
 			addSecuritySchemesPropertyDescriptor(object);
@@ -192,28 +191,6 @@ public class ComponentItemProvider
 	}
 
 	/**
-	 * This adds a property descriptor for the URL feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addURLPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_Component_URL_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_Component_URL_feature", "_UI_Component_type"),
-				 SoaPackage.Literals.COMPONENT__URL,
-				 true,
-				 false,
-				 false,
-				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-				 null,
-				 null));
-	}
-
-	/**
 	 * This adds a property descriptor for the Api Version feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -295,6 +272,10 @@ public class ComponentItemProvider
 			childrenFeatures.add(SoaPackage.Literals.COMPONENT__IMPLEMENTATIONS);
 			childrenFeatures.add(SoaPackage.Literals.COMPONENT__OWNED_BINDING);
 			childrenFeatures.add(SoaPackage.Literals.COMPONENT__SECURITY_SCHEMES);
+			childrenFeatures.add(SoaPackage.Literals.COMPONENT__LICENSE);
+			childrenFeatures.add(SoaPackage.Literals.COMPONENT__INFORMATION);
+			childrenFeatures.add(SoaPackage.Literals.COMPONENT__CONTACT);
+			childrenFeatures.add(SoaPackage.Literals.COMPONENT__SERVERS);
 		}
 		return childrenFeatures;
 	}
@@ -361,7 +342,6 @@ public class ComponentItemProvider
 		switch (notification.getFeatureID(Component.class)) {
 			case SoaPackage.COMPONENT__NAME:
 			case SoaPackage.COMPONENT__URI:
-			case SoaPackage.COMPONENT__URL:
 			case SoaPackage.COMPONENT__API_VERSION:
 			case SoaPackage.COMPONENT__DEPRECATED:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
@@ -370,6 +350,10 @@ public class ComponentItemProvider
 			case SoaPackage.COMPONENT__IMPLEMENTATIONS:
 			case SoaPackage.COMPONENT__OWNED_BINDING:
 			case SoaPackage.COMPONENT__SECURITY_SCHEMES:
+			case SoaPackage.COMPONENT__LICENSE:
+			case SoaPackage.COMPONENT__INFORMATION:
+			case SoaPackage.COMPONENT__CONTACT:
+			case SoaPackage.COMPONENT__SERVERS:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
 		}
@@ -406,6 +390,26 @@ public class ComponentItemProvider
 			(createChildParameter
 				(SoaPackage.Literals.COMPONENT__SECURITY_SCHEMES,
 				 SoaFactory.eINSTANCE.createSecurityScheme()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(SoaPackage.Literals.COMPONENT__LICENSE,
+				 SoaFactory.eINSTANCE.createLicense()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(SoaPackage.Literals.COMPONENT__INFORMATION,
+				 SoaFactory.eINSTANCE.createInformation()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(SoaPackage.Literals.COMPONENT__CONTACT,
+				 SoaFactory.eINSTANCE.createContact()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(SoaPackage.Literals.COMPONENT__SERVERS,
+				 SoaFactory.eINSTANCE.createServer()));
 	}
 
 	/**
