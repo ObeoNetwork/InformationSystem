@@ -1648,6 +1648,17 @@
             </initialOperation>
           </customOperations>
         </controls>
+        <validationSet>
+          <propertyValidationRules name="soa::Flow Token URL Validation" level="WARNING" message="Invalid URL" targets="//@extensions.0/@categories.1/@groups.17/@controls.2">
+            <audits auditExpression="aql:self.tokenURL.isValidURL()"/>
+          </propertyValidationRules>
+          <propertyValidationRules name="soa::Flow Refresh URL Validation" level="WARNING" message="Invalid URL" targets="//@extensions.0/@categories.1/@groups.17/@controls.3">
+            <audits auditExpression="aql:self.refreshURL.isValidURL()"/>
+          </propertyValidationRules>
+          <propertyValidationRules name="soa::Flow Auth URL Validation" level="WARNING" message="Invalid URL" targets="//@extensions.0/@categories.1/@groups.17/@controls.1">
+            <audits auditExpression="aql:self.authorizationURL.isValidURL()"/>
+          </propertyValidationRules>
+        </validationSet>
       </groups>
       <groups name="Scope Group" labelExpression="Properties" domainClass="soa::Scope" semanticCandidateExpression="var:self">
         <controls xsi:type="properties:TextDescription" name="soa::Scope name" labelExpression="Name:" valueExpression="aql:self.name">
