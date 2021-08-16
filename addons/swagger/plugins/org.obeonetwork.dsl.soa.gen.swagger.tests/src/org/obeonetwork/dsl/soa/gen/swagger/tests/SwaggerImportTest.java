@@ -52,10 +52,24 @@ public class SwaggerImportTest {
 		SwaggerImporter swaggerImporter = new SwaggerImporter(destinationSystem, environment);
 		int status = swaggerImporter.importFromFile(inputFile.getAbsolutePath(), "x-pagination");
 		
+		// save the model to file to ease understanding in case of error:
+//		
+//		Resource.Factory.Registry reg = Resource.Factory.Registry.INSTANCE;
+//        Map<String, Object> m = reg.getExtensionToFactoryMap();
+//        m.put("soa", new SoaResourceFactoryImpl());
+//        Resource resource = destinationResourceSet.createResource(URI.createURI("model.soa"));
+//        resource.getContents().add(destinationSystem);
+//        try {
+//			resource.save(Collections.EMPTY_MAP);
+//		} catch (IOException e) {
+//			// TODO Auto-generated catch block
+//			e.printStackTrace();
+//		}
+//        
 		String expectedBundleEntryFolderPath = String.format(EXPECTED_FOLDER_PATH_FORMAT, testId);
 		ResourceSet expectedResourceSet = createSoaResourceSetFromBundleEntryPath(expectedBundleEntryFolderPath);
 		System expectedSystem = expectedResourceSet.getResources().stream()
-		.flatMap(resource -> resource.getContents().stream())
+		.flatMap(res -> res.getContents().stream())
 		.filter(root -> root instanceof org.obeonetwork.dsl.soa.System)
 		.map(root -> (org.obeonetwork.dsl.soa.System)root)
 		.findFirst().orElse(null);
@@ -64,19 +78,7 @@ public class SwaggerImportTest {
 		
 		
 		
-		// save the model to file to ease understanding in case of error:
-		
-		Resource.Factory.Registry reg = Resource.Factory.Registry.INSTANCE;
-        Map<String, Object> m = reg.getExtensionToFactoryMap();
-        m.put("soa", new SoaResourceFactoryImpl());
-        Resource resource = destinationResourceSet.createResource(URI.createURI("model.soa"));
-        resource.getContents().add(destinationSystem);
-        try {
-			resource.save(Collections.EMPTY_MAP);
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+
         
         assertTrue("Swagger import returned with error status code", status != IStatus.ERROR);
 		assertECoreEquals("Imported model is different for file " + inputFile.getAbsolutePath(), expectedSystem, destinationSystem); 

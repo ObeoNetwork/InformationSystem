@@ -24,7 +24,6 @@ import java.text.SimpleDateFormat;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.List;
-import java.util.Optional;
 import java.util.function.Supplier;
 
 import org.eclipse.core.runtime.IStatus;
@@ -82,8 +81,7 @@ public class LiquibaseGenerator {
 			Path liquibasePropertyFile = lastFileFolder.resolve("liquibase.properties");
 			if (!liquibasePropertyFile.toFile().exists()) {
 				writePropertyFile(liquibasePropertyFile, comparisonModel);
-			}
-
+			}						
 		}
 		List<IStatus> statuses = changeLogBuilder.getStatuses();
 		if (statuses.isEmpty()) {

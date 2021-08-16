@@ -1,17 +1,24 @@
 Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: Liquibasegen
-Bundle-SymbolicName: org.obeonetwork.dsl.database.liquibasegen
+Bundle-SymbolicName: org.obeonetwork.dsl.database.liquibasegen;singleton:=true
 Bundle-Version: 2.2.0.qualifier
 Bundle-Activator: org.obeonetwork.dsl.database.liquibasegen.Activator
 Require-Bundle: org.eclipse.core.runtime,
- liquibase,
  org.obeonetwork.dsl.database.compare,
  org.obeonetwork.dsl.database.gen.common;bundle-version="1.0.0",
- org.eclipse.emf.edit.ui
+ org.eclipse.emf.edit.ui,
+ org.eclipse.ui,
+ org.eclipse.core.expressions,
+ org.eclipse.core.resources;bundle-version="3.13.400",
+ org.obeonetwork.dsl.database.drivers,
+ liquibase
 Bundle-RequiredExecutionEnvironment: JavaSE-1.8
 Automatic-Module-Name: org.obeonetwork.dsl.database.liquibasegen
 Bundle-ActivationPolicy: lazy
 Export-Package: org.obeonetwork.dsl.database.liquibasegen,
- org.obeonetwork.dsl.database.liquibasegen.service
+ org.obeonetwork.dsl.database.liquibasegen.handlers,
+ org.obeonetwork.dsl.database.liquibasegen.service,
+ org.obeonetwork.dsl.database.liquibasegen.ui
 Bundle-Vendor: Obeo Network
+Bundle-ClassPath: .

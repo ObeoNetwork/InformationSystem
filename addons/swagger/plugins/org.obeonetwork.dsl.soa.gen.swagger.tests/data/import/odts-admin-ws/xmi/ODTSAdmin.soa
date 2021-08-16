@@ -1,431 +1,433 @@
 <?xml version="1.0" encoding="ASCII"?>
-<soa:System xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:oenv="http://www.obeonetwork.org/dsl/environment/3.0.0" xmlns:soa="http://www.obeonetwork.org/dsl/soa/3.0.0" xmi:id="_at4JYfXJEeuFQNICNCagmQ" technicalid="_at4JYPXJEeuFQNICNCagmQ" createdOn="2021-08-05T10:44:59.965+0200" modifiedOn="2021-08-05T10:44:59.993+0200" name="ODTSAdmin">
-  <ownedNamespaces xmi:id="_ayOd4PXJEeuFQNICNCagmQ" technicalid="_axihYPXJEeuFQNICNCagmQ" createdOn="2021-08-05T10:44:59.966+0200" modifiedOn="2021-08-05T10:44:59.966+0200" name="Obeo Designer Team Server - Administration Server">
-    <types xsi:type="oenv:DTO" xmi:id="_ayOd4fXJEeuFQNICNCagmQ" technicalid="_axkWkPXJEeuFQNICNCagmQ" name="SimpleRepository">
-      <ownedAttributes xmi:id="_ayOd4vXJEeuFQNICNCagmQ" technicalid="_axlksPXJEeuFQNICNCagmQ" name="repositorName">
+<soa:System xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:oenv="http://www.obeonetwork.org/dsl/environment/3.0.0" xmlns:soa="http://www.obeonetwork.org/dsl/soa/3.0.0" xmi:id="_Ws_qkP6gEeuek5eXUmOjkg" technicalid="_Ws_DgP6gEeuek5eXUmOjkg" createdOn="2021-08-16T16:43:44.482+0200" modifiedOn="2021-08-16T16:43:44.483+0200" name="in-memory system">
+  <ownedNamespaces xmi:id="_W0tcJv6gEeuek5eXUmOjkg" technicalid="_Wy3CAP6gEeuek5eXUmOjkg" createdOn="2021-08-16T16:43:44.483+0200" modifiedOn="2021-08-16T16:43:44.483+0200" name="Obeo Designer Team Server - Administration Server">
+    <types xsi:type="oenv:DTO" xmi:id="_W0tcJ_6gEeuek5eXUmOjkg" technicalid="_Wy76gP6gEeuek5eXUmOjkg" name="SimpleRepository">
+      <ownedAttributes xmi:id="_W0tcKP6gEeuek5eXUmOjkg" technicalid="_Wy-WwP6gEeuek5eXUmOjkg" name="repositorName">
         <type xsi:type="oenv:PrimitiveType" href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5F-EKwKEd2XLNOhkJIazw"/>
       </ownedAttributes>
-      <ownedAttributes xmi:id="_ayOd4_XJEeuFQNICNCagmQ" technicalid="_axnZ4vXJEeuFQNICNCagmQ" name="type" type="_ayOd-vXJEeuFQNICNCagmQ"/>
-      <ownedAttributes xmi:id="_ayOd5PXJEeuFQNICNCagmQ" technicalid="_axoA8_XJEeuFQNICNCagmQ" name="status" type="_ayOeAPXJEeuFQNICNCagmQ"/>
+      <ownedAttributes xmi:id="_W0tcKf6gEeuek5eXUmOjkg" technicalid="_WzCoMf6gEeuek5eXUmOjkg" name="type" type="_W0tcQP6gEeuek5eXUmOjkg"/>
+      <ownedAttributes xmi:id="_W0tcKv6gEeuek5eXUmOjkg" technicalid="_WzD2UP6gEeuek5eXUmOjkg" name="status" type="_W0uDMv6gEeuek5eXUmOjkg"/>
     </types>
-    <types xsi:type="oenv:DTO" xmi:id="_ayOd5fXJEeuFQNICNCagmQ" technicalid="_axk9oPXJEeuFQNICNCagmQ" name="Repository">
-      <ownedAttributes xmi:id="_ayOd5vXJEeuFQNICNCagmQ" technicalid="_axrEQ_XJEeuFQNICNCagmQ" name="datasourceType" type="_ayOd_fXJEeuFQNICNCagmQ"/>
-      <ownedAttributes xmi:id="_ayOd5_XJEeuFQNICNCagmQ" technicalid="_axrrV_XJEeuFQNICNCagmQ" name="authenticationType" type="_ayOeA_XJEeuFQNICNCagmQ"/>
-      <ownedAttributes xmi:id="_ayOd6PXJEeuFQNICNCagmQ" technicalid="_axrrWPXJEeuFQNICNCagmQ" name="repositorName">
+    <types xsi:type="oenv:DTO" xmi:id="_W0tcK_6gEeuek5eXUmOjkg" technicalid="_Wy76gf6gEeuek5eXUmOjkg" name="Repository">
+      <ownedAttributes xmi:id="_W0tcLP6gEeuek5eXUmOjkg" technicalid="_WzKkA_6gEeuek5eXUmOjkg" name="datasourceType" type="_W0uDNf6gEeuek5eXUmOjkg"/>
+      <ownedAttributes xmi:id="_W0tcLf6gEeuek5eXUmOjkg" technicalid="_WzLyIP6gEeuek5eXUmOjkg" name="authenticationType" type="_W0uDOP6gEeuek5eXUmOjkg"/>
+      <ownedAttributes xmi:id="_W0tcLv6gEeuek5eXUmOjkg" technicalid="_WzLyIf6gEeuek5eXUmOjkg" name="repositorName">
         <type xsi:type="oenv:PrimitiveType" href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5F-EKwKEd2XLNOhkJIazw"/>
       </ownedAttributes>
-      <ownedAttributes xmi:id="_ayOd6fXJEeuFQNICNCagmQ" technicalid="_axrrXPXJEeuFQNICNCagmQ" name="type" type="_ayOd-vXJEeuFQNICNCagmQ"/>
-      <ownedAttributes xmi:id="_ayOd6vXJEeuFQNICNCagmQ" technicalid="_axsSY_XJEeuFQNICNCagmQ" name="status" type="_ayOeAPXJEeuFQNICNCagmQ"/>
+      <ownedAttributes xmi:id="_W0tcL_6gEeuek5eXUmOjkg" technicalid="_WzMZMf6gEeuek5eXUmOjkg" name="type" type="_W0tcQP6gEeuek5eXUmOjkg"/>
+      <ownedAttributes xmi:id="_W0tcMP6gEeuek5eXUmOjkg" technicalid="_WzNAQP6gEeuek5eXUmOjkg" name="status" type="_W0uDMv6gEeuek5eXUmOjkg"/>
     </types>
-    <types xsi:type="oenv:DTO" xmi:id="_ayOd6_XJEeuFQNICNCagmQ" technicalid="_axk9ofXJEeuFQNICNCagmQ" name="NewRepository">
-      <ownedAttributes xmi:id="_ayOd7PXJEeuFQNICNCagmQ" technicalid="_axsSZPXJEeuFQNICNCagmQ" name="authenticationData">
+    <types xsi:type="oenv:DTO" xmi:id="_W0tcMf6gEeuek5eXUmOjkg" technicalid="_Wy8hkP6gEeuek5eXUmOjkg" name="NewRepository">
+      <ownedAttributes xmi:id="_W0tcMv6gEeuek5eXUmOjkg" technicalid="_WzNnUP6gEeuek5eXUmOjkg" name="authenticationData">
         <type xsi:type="oenv:PrimitiveType" href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5F-EKwKEd2XLNOhkJIazw"/>
       </ownedAttributes>
-      <ownedAttributes xmi:id="_ayOd7fXJEeuFQNICNCagmQ" technicalid="_axs5cfXJEeuFQNICNCagmQ" name="datasourceType" multiplicity="1" type="_ayOd_fXJEeuFQNICNCagmQ"/>
-      <ownedAttributes xmi:id="_ayOd7vXJEeuFQNICNCagmQ" technicalid="_axs5efXJEeuFQNICNCagmQ" name="authenticationType" multiplicity="1" type="_ayOeA_XJEeuFQNICNCagmQ"/>
-      <ownedAttributes xmi:id="_ayOd7_XJEeuFQNICNCagmQ" technicalid="_axtggPXJEeuFQNICNCagmQ" name="repositorName">
+      <ownedAttributes xmi:id="_W0tcM_6gEeuek5eXUmOjkg" technicalid="_WzNnVP6gEeuek5eXUmOjkg" name="datasourceType" multiplicity="1" type="_W0uDNf6gEeuek5eXUmOjkg"/>
+      <ownedAttributes xmi:id="_W0tcNP6gEeuek5eXUmOjkg" technicalid="_WzOOZ_6gEeuek5eXUmOjkg" name="authenticationType" multiplicity="1" type="_W0uDOP6gEeuek5eXUmOjkg"/>
+      <ownedAttributes xmi:id="_W0tcNf6gEeuek5eXUmOjkg" technicalid="_WzPcgP6gEeuek5eXUmOjkg" name="repositorName">
         <type xsi:type="oenv:PrimitiveType" href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5F-EKwKEd2XLNOhkJIazw"/>
       </ownedAttributes>
-      <ownedAttributes xmi:id="_ayOd8PXJEeuFQNICNCagmQ" technicalid="_axtggfXJEeuFQNICNCagmQ" name="datasourceData">
+      <ownedAttributes xmi:id="_W0tcNv6gEeuek5eXUmOjkg" technicalid="_WzPcgf6gEeuek5eXUmOjkg" name="datasourceData">
         <type xsi:type="oenv:PrimitiveType" href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5F-EKwKEd2XLNOhkJIazw"/>
       </ownedAttributes>
     </types>
-    <types xsi:type="oenv:DTO" xmi:id="_ayOd8fXJEeuFQNICNCagmQ" technicalid="_axk9ovXJEeuFQNICNCagmQ" name="User">
-      <ownedAttributes xmi:id="_ayOd8vXJEeuFQNICNCagmQ" technicalid="_axuHkPXJEeuFQNICNCagmQ" name="id">
+    <types xsi:type="oenv:DTO" xmi:id="_W0tcN_6gEeuek5eXUmOjkg" technicalid="_Wy8hkf6gEeuek5eXUmOjkg" name="User">
+      <ownedAttributes xmi:id="_W0tcOP6gEeuek5eXUmOjkg" technicalid="_WzQDkP6gEeuek5eXUmOjkg" name="id">
         <type xsi:type="oenv:PrimitiveType" href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5F-EKwKEd2XLNOhkJIazw"/>
       </ownedAttributes>
-      <ownedAttributes xmi:id="_ayOd8_XJEeuFQNICNCagmQ" technicalid="_axuHkfXJEeuFQNICNCagmQ" name="isAdmin">
+      <ownedAttributes xmi:id="_W0tcOf6gEeuek5eXUmOjkg" technicalid="_WzQqoP6gEeuek5eXUmOjkg" name="isAdmin">
         <type xsi:type="oenv:PrimitiveType" href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5FXAqwKEd2XLNOhkJIazw"/>
       </ownedAttributes>
-      <ownedAttributes xmi:id="_ayOd9PXJEeuFQNICNCagmQ" technicalid="_axuHkvXJEeuFQNICNCagmQ" name="permissions" multiplicity="0..*">
+      <ownedAttributes xmi:id="_W0tcOv6gEeuek5eXUmOjkg" technicalid="_WzQqof6gEeuek5eXUmOjkg" name="permissions" multiplicity="0..*">
         <type xsi:type="oenv:PrimitiveType" href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5F-EKwKEd2XLNOhkJIazw"/>
       </ownedAttributes>
     </types>
-    <types xsi:type="oenv:DTO" xmi:id="_ayOd9fXJEeuFQNICNCagmQ" technicalid="_axk9o_XJEeuFQNICNCagmQ" name="NewUser">
-      <ownedAttributes xmi:id="_ayOd9vXJEeuFQNICNCagmQ" technicalid="_axuHk_XJEeuFQNICNCagmQ" name="password">
+    <types xsi:type="oenv:DTO" xmi:id="_W0tcO_6gEeuek5eXUmOjkg" technicalid="_Wy8hkv6gEeuek5eXUmOjkg" name="NewUser">
+      <ownedAttributes xmi:id="_W0tcPP6gEeuek5eXUmOjkg" technicalid="_WzQqov6gEeuek5eXUmOjkg" name="password">
         <type xsi:type="oenv:PrimitiveType" href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5F-EKwKEd2XLNOhkJIazw"/>
       </ownedAttributes>
-      <ownedAttributes xmi:id="_ayOd9_XJEeuFQNICNCagmQ" technicalid="_axuHlPXJEeuFQNICNCagmQ" name="id" multiplicity="1">
+      <ownedAttributes xmi:id="_W0tcPf6gEeuek5eXUmOjkg" technicalid="_WzRRsP6gEeuek5eXUmOjkg" name="id" multiplicity="1">
         <type xsi:type="oenv:PrimitiveType" href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5F-EKwKEd2XLNOhkJIazw"/>
       </ownedAttributes>
-      <ownedAttributes xmi:id="_ayOd-PXJEeuFQNICNCagmQ" technicalid="_axuHlfXJEeuFQNICNCagmQ" name="isAdmin" multiplicity="1">
+      <ownedAttributes xmi:id="_W0tcPv6gEeuek5eXUmOjkg" technicalid="_WzRRsf6gEeuek5eXUmOjkg" name="isAdmin" multiplicity="1">
         <type xsi:type="oenv:PrimitiveType" href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5FXAqwKEd2XLNOhkJIazw"/>
       </ownedAttributes>
-      <ownedAttributes xmi:id="_ayOd-fXJEeuFQNICNCagmQ" technicalid="_axuuoPXJEeuFQNICNCagmQ" name="permissions" multiplicity="0..*">
+      <ownedAttributes xmi:id="_W0tcP_6gEeuek5eXUmOjkg" technicalid="_WzRRsv6gEeuek5eXUmOjkg" name="permissions" multiplicity="0..*">
         <type xsi:type="oenv:PrimitiveType" href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5F-EKwKEd2XLNOhkJIazw"/>
       </ownedAttributes>
     </types>
-    <types xsi:type="oenv:Enumeration" xmi:id="_ayOd-vXJEeuFQNICNCagmQ" technicalid="_axmy0PXJEeuFQNICNCagmQ" name="Type">
-      <literals xmi:id="_ayOd-_XJEeuFQNICNCagmQ" technicalid="_axnZ4PXJEeuFQNICNCagmQ" name="STATIC"/>
-      <literals xmi:id="_ayOd_PXJEeuFQNICNCagmQ" technicalid="_axnZ4fXJEeuFQNICNCagmQ" name="DYNAMIC"/>
+    <types xsi:type="oenv:Enumeration" xmi:id="_W0tcQP6gEeuek5eXUmOjkg" technicalid="_WzAzAP6gEeuek5eXUmOjkg" name="Type">
+      <literals xmi:id="_W0uDMP6gEeuek5eXUmOjkg" technicalid="_WzCBIP6gEeuek5eXUmOjkg" name="STATIC"/>
+      <literals xmi:id="_W0uDMf6gEeuek5eXUmOjkg" technicalid="_WzCoMP6gEeuek5eXUmOjkg" name="DYNAMIC"/>
     </types>
-    <types xsi:type="oenv:Enumeration" xmi:id="_ayOd_fXJEeuFQNICNCagmQ" technicalid="_axrEQPXJEeuFQNICNCagmQ" name="DatasourceType">
-      <literals xmi:id="_ayOd_vXJEeuFQNICNCagmQ" technicalid="_axrEQfXJEeuFQNICNCagmQ" name="H2_EMBEDDED"/>
-      <literals xmi:id="_ayOd__XJEeuFQNICNCagmQ" technicalid="_axrEQvXJEeuFQNICNCagmQ" name="H2_SERVER"/>
+    <types xsi:type="oenv:Enumeration" xmi:id="_W0uDMv6gEeuek5eXUmOjkg" technicalid="_WzDPQP6gEeuek5eXUmOjkg" name="Status">
+      <literals xmi:id="_W0uDM_6gEeuek5eXUmOjkg" technicalid="_WzDPQf6gEeuek5eXUmOjkg" name="ONLINE"/>
+      <literals xmi:id="_W0uDNP6gEeuek5eXUmOjkg" technicalid="_WzDPQv6gEeuek5eXUmOjkg" name="OFFLINE"/>
     </types>
-    <types xsi:type="oenv:Enumeration" xmi:id="_ayOeAPXJEeuFQNICNCagmQ" technicalid="_axoA8PXJEeuFQNICNCagmQ" name="Status">
-      <literals xmi:id="_ayOeAfXJEeuFQNICNCagmQ" technicalid="_axoA8fXJEeuFQNICNCagmQ" name="ONLINE"/>
-      <literals xmi:id="_ayOeAvXJEeuFQNICNCagmQ" technicalid="_axoA8vXJEeuFQNICNCagmQ" name="OFFLINE"/>
+    <types xsi:type="oenv:Enumeration" xmi:id="_W0uDNf6gEeuek5eXUmOjkg" technicalid="_WzKkAP6gEeuek5eXUmOjkg" name="DatasourceType">
+      <literals xmi:id="_W0uDNv6gEeuek5eXUmOjkg" technicalid="_WzKkAf6gEeuek5eXUmOjkg" name="H2_EMBEDDED"/>
+      <literals xmi:id="_W0uDN_6gEeuek5eXUmOjkg" technicalid="_WzKkAv6gEeuek5eXUmOjkg" name="H2_SERVER"/>
     </types>
-    <types xsi:type="oenv:Enumeration" xmi:id="_ayOeA_XJEeuFQNICNCagmQ" technicalid="_axrrUPXJEeuFQNICNCagmQ" name="AuthenticationType">
-      <literals xmi:id="_ayOeBPXJEeuFQNICNCagmQ" technicalid="_axrrUfXJEeuFQNICNCagmQ" name=""/>
-      <literals xmi:id="_ayOeBfXJEeuFQNICNCagmQ" technicalid="_axrrUvXJEeuFQNICNCagmQ" name="LDAP_FILE"/>
-      <literals xmi:id="_ayOeBvXJEeuFQNICNCagmQ" technicalid="_axrrU_XJEeuFQNICNCagmQ" name="LDAP"/>
-      <literals xmi:id="_ayOeB_XJEeuFQNICNCagmQ" technicalid="_axrrVPXJEeuFQNICNCagmQ" name="USERPROFILE"/>
-      <literals xmi:id="_ayOeCPXJEeuFQNICNCagmQ" technicalid="_axrrVfXJEeuFQNICNCagmQ" name="LDAP_USERPROFILE"/>
-      <literals xmi:id="_ayOeCfXJEeuFQNICNCagmQ" technicalid="_axrrVvXJEeuFQNICNCagmQ" name="FILE"/>
+    <types xsi:type="oenv:Enumeration" xmi:id="_W0uDOP6gEeuek5eXUmOjkg" technicalid="_WzLLEP6gEeuek5eXUmOjkg" name="AuthenticationType">
+      <literals xmi:id="_W0uDOf6gEeuek5eXUmOjkg" technicalid="_WzLLEf6gEeuek5eXUmOjkg" name=""/>
+      <literals xmi:id="_W0uDOv6gEeuek5eXUmOjkg" technicalid="_WzLLEv6gEeuek5eXUmOjkg" name="LDAP_FILE"/>
+      <literals xmi:id="_W0uDO_6gEeuek5eXUmOjkg" technicalid="_WzLLE_6gEeuek5eXUmOjkg" name="LDAP"/>
+      <literals xmi:id="_W0uDPP6gEeuek5eXUmOjkg" technicalid="_WzLLFP6gEeuek5eXUmOjkg" name="USERPROFILE"/>
+      <literals xmi:id="_W0uDPf6gEeuek5eXUmOjkg" technicalid="_WzLLFf6gEeuek5eXUmOjkg" name="LDAP_USERPROFILE"/>
+      <literals xmi:id="_W0uDPv6gEeuek5eXUmOjkg" technicalid="_WzLLFv6gEeuek5eXUmOjkg" name="FILE"/>
     </types>
-    <types xsi:type="oenv:DTO" xmi:id="_ayOeCvXJEeuFQNICNCagmQ" technicalid="_ayAbcfXJEeuFQNICNCagmQ" name="Output200">
-      <ownedAttributes xmi:id="_ayOeC_XJEeuFQNICNCagmQ" technicalid="_ayAbcvXJEeuFQNICNCagmQ" name="repositoryName">
+    <types xsi:type="oenv:DTO" xmi:id="_W0uDP_6gEeuek5eXUmOjkg" technicalid="_W0ARgf6gEeuek5eXUmOjkg" name="Output200">
+      <ownedAttributes xmi:id="_W0uDQP6gEeuek5eXUmOjkg" technicalid="_W0ARgv6gEeuek5eXUmOjkg" name="repositoryName">
         <type xsi:type="oenv:PrimitiveType" href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5F-EKwKEd2XLNOhkJIazw"/>
       </ownedAttributes>
-      <ownedAttributes xmi:id="_ayOeDPXJEeuFQNICNCagmQ" technicalid="_ayAbc_XJEeuFQNICNCagmQ" name="message">
+      <ownedAttributes xmi:id="_W0uDQf6gEeuek5eXUmOjkg" technicalid="_W0A4kP6gEeuek5eXUmOjkg" name="message">
         <type xsi:type="oenv:PrimitiveType" href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5F-EKwKEd2XLNOhkJIazw"/>
       </ownedAttributes>
-      <ownedAttributes xmi:id="_ayOeDfXJEeuFQNICNCagmQ" technicalid="_ayAbdPXJEeuFQNICNCagmQ" name="status">
+      <ownedAttributes xmi:id="_W0uDQv6gEeuek5eXUmOjkg" technicalid="_W0A4kf6gEeuek5eXUmOjkg" name="status">
         <type xsi:type="oenv:PrimitiveType" href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5F-EKwKEd2XLNOhkJIazw"/>
       </ownedAttributes>
     </types>
-    <ownedNamespaces xmi:id="_ayOeDvXJEeuFQNICNCagmQ" technicalid="_ayMBoPXJEeuFQNICNCagmQ" name="Repositories">
-      <types xsi:type="oenv:DTO" xmi:id="_ayOeD_XJEeuFQNICNCagmQ" technicalid="_ayEF3PXJEeuFQNICNCagmQ" name="ImportRepositoryBody">
-        <ownedAttributes xmi:id="_ayOeEPXJEeuFQNICNCagmQ" technicalid="_ayEF3fXJEeuFQNICNCagmQ" name="upFile">
+    <ownedNamespaces xmi:id="_W0uDQ_6gEeuek5eXUmOjkg" technicalid="_W0n8kP6gEeuek5eXUmOjkg" name="Projects">
+      <types xsi:type="oenv:DTO" xmi:id="_W0uDRP6gEeuek5eXUmOjkg" technicalid="_W0Mewf6gEeuek5eXUmOjkg" name="CreateSharedProjectOutput201">
+        <ownedAttributes xmi:id="_W0uDRf6gEeuek5eXUmOjkg" technicalid="_W0Mewv6gEeuek5eXUmOjkg" name="projectName">
+          <type xsi:type="oenv:PrimitiveType" href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5F-EKwKEd2XLNOhkJIazw"/>
+        </ownedAttributes>
+        <ownedAttributes xmi:id="_W0uDRv6gEeuek5eXUmOjkg" technicalid="_W0Mew_6gEeuek5eXUmOjkg" name="message">
+          <type xsi:type="oenv:PrimitiveType" href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5F-EKwKEd2XLNOhkJIazw"/>
+        </ownedAttributes>
+        <ownedAttributes xmi:id="_W0uDR_6gEeuek5eXUmOjkg" technicalid="_W0MexP6gEeuek5eXUmOjkg" name="status">
+          <type xsi:type="oenv:PrimitiveType" href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5F-EKwKEd2XLNOhkJIazw"/>
+        </ownedAttributes>
+      </types>
+      <types xsi:type="oenv:DTO" xmi:id="_W0uDSP6gEeuek5eXUmOjkg" technicalid="_W0LQov6gEeuek5eXUmOjkg" name="CreateSharedProjectBody">
+        <ownedAttributes xmi:id="_W0uDSf6gEeuek5eXUmOjkg" technicalid="_W0LQo_6gEeuek5eXUmOjkg" name="projectName" multiplicity="1">
+          <type xsi:type="oenv:PrimitiveType" href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5F-EKwKEd2XLNOhkJIazw"/>
+        </ownedAttributes>
+        <ownedAttributes xmi:id="_W0uDSv6gEeuek5eXUmOjkg" technicalid="_W0LQpP6gEeuek5eXUmOjkg" name="repositoryName" multiplicity="1">
+          <type xsi:type="oenv:PrimitiveType" href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5F-EKwKEd2XLNOhkJIazw"/>
+        </ownedAttributes>
+      </types>
+    </ownedNamespaces>
+    <ownedNamespaces xmi:id="_W0uDS_6gEeuek5eXUmOjkg" technicalid="_W0ojoP6gEeuek5eXUmOjkg" name="Users">
+      <types xsi:type="oenv:DTO" xmi:id="_W0uDTP6gEeuek5eXUmOjkg" technicalid="_W0OT9f6gEeuek5eXUmOjkg" name="ListUsersOutput200">
+        <ownedAttributes xmi:id="_W0uDTf6gEeuek5eXUmOjkg" technicalid="_W0OT9v6gEeuek5eXUmOjkg" name="repositoryName">
+          <type xsi:type="oenv:PrimitiveType" href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5F-EKwKEd2XLNOhkJIazw"/>
+        </ownedAttributes>
+        <ownedAttributes xmi:id="_W0uDTv6gEeuek5eXUmOjkg" technicalid="_W0O7AP6gEeuek5eXUmOjkg" name="message">
+          <type xsi:type="oenv:PrimitiveType" href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5F-EKwKEd2XLNOhkJIazw"/>
+        </ownedAttributes>
+        <ownedAttributes xmi:id="_W0uDT_6gEeuek5eXUmOjkg" technicalid="_W0QJIf6gEeuek5eXUmOjkg" name="status">
+          <type xsi:type="oenv:PrimitiveType" href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5F-EKwKEd2XLNOhkJIazw"/>
+        </ownedAttributes>
+        <ownedReferences xmi:id="_W0uDUP6gEeuek5eXUmOjkg" technicalid="_W0QJIP6gEeuek5eXUmOjkg" name="users" multiplicity="0..*" referencedType="_W0tcN_6gEeuek5eXUmOjkg"/>
+      </types>
+      <types xsi:type="oenv:DTO" xmi:id="_W0uDUf6gEeuek5eXUmOjkg" technicalid="_W0SlY_6gEeuek5eXUmOjkg" name="Output200">
+        <ownedAttributes xmi:id="_W0uDUv6gEeuek5eXUmOjkg" technicalid="_W0SlZP6gEeuek5eXUmOjkg" name="repositoryName">
+          <type xsi:type="oenv:PrimitiveType" href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5F-EKwKEd2XLNOhkJIazw"/>
+        </ownedAttributes>
+        <ownedAttributes xmi:id="_W0uDU_6gEeuek5eXUmOjkg" technicalid="_W0SlZf6gEeuek5eXUmOjkg" name="message">
+          <type xsi:type="oenv:PrimitiveType" href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5F-EKwKEd2XLNOhkJIazw"/>
+        </ownedAttributes>
+        <ownedAttributes xmi:id="_W0uDVP6gEeuek5eXUmOjkg" technicalid="_W0TMcP6gEeuek5eXUmOjkg" name="projectNames" multiplicity="0..*">
+          <type xsi:type="oenv:PrimitiveType" href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5F-EKwKEd2XLNOhkJIazw"/>
+        </ownedAttributes>
+        <ownedAttributes xmi:id="_W0uDVf6gEeuek5eXUmOjkg" technicalid="_W0TMcf6gEeuek5eXUmOjkg" name="status">
+          <type xsi:type="oenv:PrimitiveType" href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5F-EKwKEd2XLNOhkJIazw"/>
+        </ownedAttributes>
+        <ownedReferences xmi:id="_W0uDVv6gEeuek5eXUmOjkg" technicalid="_W0SlZv6gEeuek5eXUmOjkg" name="user" referencedType="_W0tcN_6gEeuek5eXUmOjkg"/>
+      </types>
+    </ownedNamespaces>
+    <ownedNamespaces xmi:id="_W0uDV_6gEeuek5eXUmOjkg" technicalid="_W0pKsP6gEeuek5eXUmOjkg" name="Repositories">
+      <types xsi:type="oenv:DTO" xmi:id="_W0uDWP6gEeuek5eXUmOjkg" technicalid="_W0Jbdv6gEeuek5eXUmOjkg" name="ImportRepositoryBody">
+        <ownedAttributes xmi:id="_W0uDWf6gEeuek5eXUmOjkg" technicalid="_W0Jbd_6gEeuek5eXUmOjkg" name="upFile">
           <type xsi:type="oenv:PrimitiveType" href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_SKJz0PsREeWC2u5kehASiQ"/>
         </ownedAttributes>
       </types>
-      <types xsi:type="oenv:DTO" xmi:id="_ayOeEfXJEeuFQNICNCagmQ" technicalid="_ax-mRfXJEeuFQNICNCagmQ" name="Output201Output200">
-        <ownedAttributes xmi:id="_ayOeEvXJEeuFQNICNCagmQ" technicalid="_ax-mR_XJEeuFQNICNCagmQ" name="message">
+      <types xsi:type="oenv:DTO" xmi:id="_W0uDWv6gEeuek5eXUmOjkg" technicalid="_W0DU1_6gEeuek5eXUmOjkg" name="StopRepositoryOutput200">
+        <ownedAttributes xmi:id="_W0uDW_6gEeuek5eXUmOjkg" technicalid="_W0D74P6gEeuek5eXUmOjkg" name="message">
           <type xsi:type="oenv:PrimitiveType" href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5F-EKwKEd2XLNOhkJIazw"/>
         </ownedAttributes>
-        <ownedAttributes xmi:id="_ayOeE_XJEeuFQNICNCagmQ" technicalid="_ax-mSPXJEeuFQNICNCagmQ" name="status">
+        <ownedAttributes xmi:id="_W0uDXP6gEeuek5eXUmOjkg" technicalid="_W0D74f6gEeuek5eXUmOjkg" name="status">
           <type xsi:type="oenv:PrimitiveType" href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5F-EKwKEd2XLNOhkJIazw"/>
         </ownedAttributes>
-        <ownedReferences xmi:id="_ayOeFPXJEeuFQNICNCagmQ" technicalid="_ax-mRvXJEeuFQNICNCagmQ" name="repository" referencedType="_ayOd5fXJEeuFQNICNCagmQ"/>
+        <ownedReferences xmi:id="_W0uDXf6gEeuek5eXUmOjkg" technicalid="_W0DU2P6gEeuek5eXUmOjkg" name="repository" referencedType="_W0tcJ_6gEeuek5eXUmOjkg"/>
       </types>
-      <types xsi:type="oenv:DTO" xmi:id="_ayOeFfXJEeuFQNICNCagmQ" technicalid="_ax5GsPXJEeuFQNICNCagmQ" name="GetRepositoriesOutput200">
-        <ownedAttributes xmi:id="_ayOeFvXJEeuFQNICNCagmQ" technicalid="_ax5GsfXJEeuFQNICNCagmQ" name="message">
+      <types xsi:type="oenv:DTO" xmi:id="_W0uDXv6gEeuek5eXUmOjkg" technicalid="_WzqTQP6gEeuek5eXUmOjkg" name="GetRepositoriesOutput200">
+        <ownedAttributes xmi:id="_W0uDX_6gEeuek5eXUmOjkg" technicalid="_WzqTQf6gEeuek5eXUmOjkg" name="message">
           <type xsi:type="oenv:PrimitiveType" href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5F-EKwKEd2XLNOhkJIazw"/>
         </ownedAttributes>
-        <ownedAttributes xmi:id="_ayOeF_XJEeuFQNICNCagmQ" technicalid="_ax6U0PXJEeuFQNICNCagmQ" name="status">
+        <ownedAttributes xmi:id="_W0uDYP6gEeuek5eXUmOjkg" technicalid="_WzsIcP6gEeuek5eXUmOjkg" name="status">
           <type xsi:type="oenv:PrimitiveType" href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5F-EKwKEd2XLNOhkJIazw"/>
         </ownedAttributes>
-        <ownedReferences xmi:id="_ayOeGPXJEeuFQNICNCagmQ" technicalid="_ax5twPXJEeuFQNICNCagmQ" name="repositories" multiplicity="0..*" referencedType="_ayOd5fXJEeuFQNICNCagmQ"/>
+        <ownedReferences xmi:id="_W0uDYf6gEeuek5eXUmOjkg" technicalid="_WzrhYP6gEeuek5eXUmOjkg" name="repositories" multiplicity="0..*" referencedType="_W0tcK_6gEeuek5eXUmOjkg"/>
       </types>
-      <types xsi:type="oenv:DTO" xmi:id="_ayOeGfXJEeuFQNICNCagmQ" technicalid="_ayBpkPXJEeuFQNICNCagmQ" name="StopRepositoryOutput200">
-        <ownedAttributes xmi:id="_ayOeGvXJEeuFQNICNCagmQ" technicalid="_ayBpkvXJEeuFQNICNCagmQ" name="message">
+      <types xsi:type="oenv:DTO" xmi:id="_W0uDYv6gEeuek5eXUmOjkg" technicalid="_Wz7ZA_6gEeuek5eXUmOjkg" name="Output201Output200">
+        <ownedAttributes xmi:id="_W0uDY_6gEeuek5eXUmOjkg" technicalid="_Wz7ZBf6gEeuek5eXUmOjkg" name="message">
           <type xsi:type="oenv:PrimitiveType" href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5F-EKwKEd2XLNOhkJIazw"/>
         </ownedAttributes>
-        <ownedAttributes xmi:id="_ayOeG_XJEeuFQNICNCagmQ" technicalid="_ayBpk_XJEeuFQNICNCagmQ" name="status">
+        <ownedAttributes xmi:id="_W0uDZP6gEeuek5eXUmOjkg" technicalid="_Wz8AEP6gEeuek5eXUmOjkg" name="status">
           <type xsi:type="oenv:PrimitiveType" href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5F-EKwKEd2XLNOhkJIazw"/>
         </ownedAttributes>
-        <ownedReferences xmi:id="_ayOeHPXJEeuFQNICNCagmQ" technicalid="_ayBpkfXJEeuFQNICNCagmQ" name="repository" referencedType="_ayOd4fXJEeuFQNICNCagmQ"/>
+        <ownedReferences xmi:id="_W0uDZf6gEeuek5eXUmOjkg" technicalid="_Wz7ZBP6gEeuek5eXUmOjkg" name="repository" referencedType="_W0tcK_6gEeuek5eXUmOjkg"/>
       </types>
-      <types xsi:type="oenv:DTO" xmi:id="_ayOeHfXJEeuFQNICNCagmQ" technicalid="_ayC3svXJEeuFQNICNCagmQ" name="ExportRepositoryBody">
-        <ownedAttributes xmi:id="_ayOeHvXJEeuFQNICNCagmQ" technicalid="_ayC3s_XJEeuFQNICNCagmQ" name="password">
+      <types xsi:type="oenv:DTO" xmi:id="_W0uDZv6gEeuek5eXUmOjkg" technicalid="_W0G_M_6gEeuek5eXUmOjkg" name="ExportRepositoryBody">
+        <ownedAttributes xmi:id="_W0uDZ_6gEeuek5eXUmOjkg" technicalid="_W0G_NP6gEeuek5eXUmOjkg" name="password">
           <type xsi:type="oenv:PrimitiveType" href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5F-EKwKEd2XLNOhkJIazw"/>
         </ownedAttributes>
-        <ownedAttributes xmi:id="_ayOeH_XJEeuFQNICNCagmQ" technicalid="_ayC3tPXJEeuFQNICNCagmQ" name="needsEncryption" multiplicity="1">
+        <ownedAttributes xmi:id="_W0uDaP6gEeuek5eXUmOjkg" technicalid="_W0G_Nf6gEeuek5eXUmOjkg" name="needsEncryption" multiplicity="1">
           <type xsi:type="oenv:PrimitiveType" href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5FXAqwKEd2XLNOhkJIazw"/>
         </ownedAttributes>
       </types>
     </ownedNamespaces>
-    <ownedNamespaces xmi:id="_ayOeIPXJEeuFQNICNCagmQ" technicalid="_ayMosPXJEeuFQNICNCagmQ" name="Users">
-      <types xsi:type="oenv:DTO" xmi:id="_ayOeIfXJEeuFQNICNCagmQ" technicalid="_ayGiE_XJEeuFQNICNCagmQ" name="ListUsersOutput200">
-        <ownedAttributes xmi:id="_ayOeIvXJEeuFQNICNCagmQ" technicalid="_ayGiFPXJEeuFQNICNCagmQ" name="repositoryName">
-          <type xsi:type="oenv:PrimitiveType" href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5F-EKwKEd2XLNOhkJIazw"/>
-        </ownedAttributes>
-        <ownedAttributes xmi:id="_ayOeI_XJEeuFQNICNCagmQ" technicalid="_ayGiFfXJEeuFQNICNCagmQ" name="message">
-          <type xsi:type="oenv:PrimitiveType" href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5F-EKwKEd2XLNOhkJIazw"/>
-        </ownedAttributes>
-        <ownedAttributes xmi:id="_ayOeJPXJEeuFQNICNCagmQ" technicalid="_ayGiF_XJEeuFQNICNCagmQ" name="status">
-          <type xsi:type="oenv:PrimitiveType" href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5F-EKwKEd2XLNOhkJIazw"/>
-        </ownedAttributes>
-        <ownedReferences xmi:id="_ayOeJfXJEeuFQNICNCagmQ" technicalid="_ayGiFvXJEeuFQNICNCagmQ" name="users" multiplicity="0..*" referencedType="_ayOd8fXJEeuFQNICNCagmQ"/>
-      </types>
-      <types xsi:type="oenv:DTO" xmi:id="_ayOeJvXJEeuFQNICNCagmQ" technicalid="_ayHJKvXJEeuFQNICNCagmQ" name="Output200">
-        <ownedAttributes xmi:id="_ayOeJ_XJEeuFQNICNCagmQ" technicalid="_ayHJK_XJEeuFQNICNCagmQ" name="repositoryName">
-          <type xsi:type="oenv:PrimitiveType" href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5F-EKwKEd2XLNOhkJIazw"/>
-        </ownedAttributes>
-        <ownedAttributes xmi:id="_ayOeKPXJEeuFQNICNCagmQ" technicalid="_ayHJLPXJEeuFQNICNCagmQ" name="message">
-          <type xsi:type="oenv:PrimitiveType" href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5F-EKwKEd2XLNOhkJIazw"/>
-        </ownedAttributes>
-        <ownedAttributes xmi:id="_ayOeKfXJEeuFQNICNCagmQ" technicalid="_ayHJLvXJEeuFQNICNCagmQ" name="projectNames" multiplicity="0..*">
-          <type xsi:type="oenv:PrimitiveType" href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5F-EKwKEd2XLNOhkJIazw"/>
-        </ownedAttributes>
-        <ownedAttributes xmi:id="_ayOeKvXJEeuFQNICNCagmQ" technicalid="_ayHJL_XJEeuFQNICNCagmQ" name="status">
-          <type xsi:type="oenv:PrimitiveType" href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5F-EKwKEd2XLNOhkJIazw"/>
-        </ownedAttributes>
-        <ownedReferences xmi:id="_ayOeK_XJEeuFQNICNCagmQ" technicalid="_ayHJLfXJEeuFQNICNCagmQ" name="user" referencedType="_ayOd8fXJEeuFQNICNCagmQ"/>
-      </types>
-    </ownedNamespaces>
-    <ownedNamespaces xmi:id="_ayOeLPXJEeuFQNICNCagmQ" technicalid="_ayMosfXJEeuFQNICNCagmQ" name="Projects">
-      <types xsi:type="oenv:DTO" xmi:id="_ayOeLfXJEeuFQNICNCagmQ" technicalid="_ayFT8fXJEeuFQNICNCagmQ" name="CreateSharedProjectBody">
-        <ownedAttributes xmi:id="_ayOeLvXJEeuFQNICNCagmQ" technicalid="_ayFT8vXJEeuFQNICNCagmQ" name="projectName" multiplicity="1">
-          <type xsi:type="oenv:PrimitiveType" href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5F-EKwKEd2XLNOhkJIazw"/>
-        </ownedAttributes>
-        <ownedAttributes xmi:id="_ayOeL_XJEeuFQNICNCagmQ" technicalid="_ayFT8_XJEeuFQNICNCagmQ" name="repositoryName" multiplicity="1">
-          <type xsi:type="oenv:PrimitiveType" href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5F-EKwKEd2XLNOhkJIazw"/>
-        </ownedAttributes>
-      </types>
-      <types xsi:type="oenv:DTO" xmi:id="_ayOeMPXJEeuFQNICNCagmQ" technicalid="_ayF7AfXJEeuFQNICNCagmQ" name="CreateSharedProjectOutput201">
-        <ownedAttributes xmi:id="_ayOeMfXJEeuFQNICNCagmQ" technicalid="_ayF7AvXJEeuFQNICNCagmQ" name="projectName">
-          <type xsi:type="oenv:PrimitiveType" href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5F-EKwKEd2XLNOhkJIazw"/>
-        </ownedAttributes>
-        <ownedAttributes xmi:id="_ayOeMvXJEeuFQNICNCagmQ" technicalid="_ayF7A_XJEeuFQNICNCagmQ" name="message">
-          <type xsi:type="oenv:PrimitiveType" href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5F-EKwKEd2XLNOhkJIazw"/>
-        </ownedAttributes>
-        <ownedAttributes xmi:id="_ayOeM_XJEeuFQNICNCagmQ" technicalid="_ayF7BPXJEeuFQNICNCagmQ" name="status">
-          <type xsi:type="oenv:PrimitiveType" href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5F-EKwKEd2XLNOhkJIazw"/>
-        </ownedAttributes>
-      </types>
-    </ownedNamespaces>
   </ownedNamespaces>
-  <ownedComponents xmi:id="_ayNPwPXJEeuFQNICNCagmQ" technicalid="_axdB0PXJEeuFQNICNCagmQ" description="This guide describe the REST API of the administration server for Obeo Designer Team Server. This API will allow you to manage CDO repositories, shared modeling projects and depending on the type of repository you manage, you will be able to manager the repository users. If you already have configured the [administration server](../Obeo_Designer_Team_Administration_Server.html) for Obeo Designer Team Server you can start to use our API.&#xA;&#xA;Remark: The protocol, host and port can be different from your server configuration.&#xA;&#xA;In this documentation we will use the web service API in the version **v1.0**.&#xA;&#xA;**Disclaimer:** As basic authentication is enabled for the administration server, the _Authorization_ header must be added in all requests with the base64 encoded credentials.&#xA;" name="Obeo Designer Team Server - Administration Server" URI="" apiVersion="1.0.0">
-    <ownedServices xmi:id="_ayNPwfXJEeuFQNICNCagmQ" technicalid="_axyZAPXJEeuFQNICNCagmQ" description="null" name="Repositories" URI="/repositories">
-      <ownedInterface xmi:id="_ayNPwvXJEeuFQNICNCagmQ" technicalid="_ax01QPXJEeuFQNICNCagmQ" name="Repositories">
-        <ownedOperations xmi:id="_ayNPw_XJEeuFQNICNCagmQ" technicalid="_ax1cUPXJEeuFQNICNCagmQ" description="Retrieve all repositories on the current server.&#xA;" name="getRepositories" public="true" URI="" exposition="REST">
-          <output xmi:id="_ayNPxPXJEeuFQNICNCagmQ" technicalid="_ax2qcPXJEeuFQNICNCagmQ" description="Ok" type="_ayOeFfXJEeuFQNICNCagmQ" name="output200" multiplicity="0..1" statusCode="200" statusMessage="OK">
-            <mediaType xmi:id="_ayNPxfXJEeuFQNICNCagmQ" technicalid="_ax674PXJEeuFQNICNCagmQ" identifier="application/json"/>
+  <ownedComponents xmi:id="_W0rm8P6gEeuek5eXUmOjkg" technicalid="_WytRAP6gEeuek5eXUmOjkg" description="This guide describe the REST API of the administration server for Obeo Designer Team Server. This API will allow you to manage CDO repositories, shared modeling projects and depending on the type of repository you manage, you will be able to manager the repository users. If you already have configured the [administration server](../Obeo_Designer_Team_Administration_Server.html) for Obeo Designer Team Server you can start to use our API.&#xA;&#xA;Remark: The protocol, host and port can be different from your server configuration.&#xA;&#xA;In this documentation we will use the web service API in the version **v1.0**.&#xA;&#xA;**Disclaimer:** As basic authentication is enabled for the administration server, the _Authorization_ header must be added in all requests with the base64 encoded credentials.&#xA;" name="Obeo Designer Team Server - Administration Server" URI="" apiVersion="1.0.0">
+    <ownedServices xmi:id="_W0rm8f6gEeuek5eXUmOjkg" technicalid="_WzbpwP6gEeuek5eXUmOjkg" description="null" name="Repositories" URI="/repositories">
+      <ownedInterface xmi:id="_W0rm8v6gEeuek5eXUmOjkg" technicalid="_WzhJUP6gEeuek5eXUmOjkg" name="Repositories">
+        <ownedOperations xmi:id="_W0rm8_6gEeuek5eXUmOjkg" technicalid="_Wzi-gP6gEeuek5eXUmOjkg" description="Retrieve all repositories on the current server.&#xA;" name="getRepositories" public="true" URI="" exposition="REST">
+          <output xmi:id="_W0rm9P6gEeuek5eXUmOjkg" technicalid="_WzkzsP6gEeuek5eXUmOjkg" description="Ok" type="_W0uDXv6gEeuek5eXUmOjkg" name="output200" multiplicity="0..1" statusCode="200" statusMessage="OK">
+            <mediaType xmi:id="_W0rm9f6gEeuek5eXUmOjkg" technicalid="_WztWkP6gEeuek5eXUmOjkg" identifier="application/json"/>
           </output>
-          <fault xmi:id="_ayNPxvXJEeuFQNICNCagmQ" technicalid="_ax674fXJEeuFQNICNCagmQ" description="Not Found" name="fault404" statusCode="404" statusMessage="Not Found"/>
+          <fault xmi:id="_W0sOAP6gEeuek5eXUmOjkg" technicalid="_Wzt9oP6gEeuek5eXUmOjkg" description="Not Found" name="fault404" statusCode="404" statusMessage="Not Found"/>
         </ownedOperations>
-        <ownedOperations xmi:id="_ayN20PXJEeuFQNICNCagmQ" technicalid="_ax674vXJEeuFQNICNCagmQ" description="This request will allow you to creates a repository.&#xA;The body of the request take a JSON object with the following parameters: *repositoryName*, *authenticationType* and *datasourceType* which are mandatory and also *authenticationData* and *datasourceData* which are optional.&#xA;&#xA;While the *authenticationType* value can be empty, the *repositoryName* and the *datasourceType* values cannot.&#xA;&#xA;By default you can use the following values to manage your repositories:&#xA;  * *authenticationType* can take:&#xA;    * an empty value&#xA;    * LDAP&#xA;    * FILE&#xA;    * LDAP_FILE&#xA;    * USERPROFILE&#xA;    * LDAP_USERPROFILE&#xA;  * *datasourceType* can take:&#xA;    * H2_EMBEDDED&#xA;    * H2_SERVER&#xA;&#xA;You can also contribute your own extensions and use the key value of your extension as described in the Administration Server [documentation](../Obeo_Designer_Team_Administration_Server.html#Contribute_administration_server).&#xA;&#xA;Those values describe how your repository will manage authentication and database.&#xA;&#xA;As the optional parameters (*authenticationData* and *datasourceDat*) depends on the mandatory parameters, we will use examples to describe how to use them.&#xA;&#xA;The repository is started after its creation and lifecycle hooks are called before and after its start.&#xA;" name="addRepository" public="true" URI="" verb="POST" exposition="REST">
-          <input xmi:id="_ayN20fXJEeuFQNICNCagmQ" technicalid="_ax674_XJEeuFQNICNCagmQ" description="See example descriptions." type="_ayOd6_XJEeuFQNICNCagmQ" name="body">
-            <mediaType xmi:id="_ayN20vXJEeuFQNICNCagmQ" technicalid="_ax8KAPXJEeuFQNICNCagmQ" identifier="application/json">
-              <examples xmi:id="_ayN20_XJEeuFQNICNCagmQ" technicalid="_ax8xEPXJEeuFQNICNCagmQ" description="Create a repository without authentication with an H2 embedded database.&#xA;&#xA;With an empty value set to _authenticationType_ your repository will not have authentication. With _H2_EMBEDDED_ value set to _datasourceType_ your repository database will be an h2 embedded database.&#xA;" value="null" name="No authentication, H2 Embedded"/>
-              <examples xmi:id="_ayN21PXJEeuFQNICNCagmQ" technicalid="_ax9_MPXJEeuFQNICNCagmQ" description="Create a repository without authentication on H2 server database.&#xA;&#xA;With an empty value set to _authenticationType_ your repository will not have authentication. With _H2_SERVER_ value set to _datasourceType_ your repository database will be an h2 server database and you will need to provide additional data like the _h2ServerPort_ within the _datasourceData_ map.&#xA;&#xA;The _h2ServerPort_ is used in the connection between the repository and the h2 database. The _h2ServerPort_ value must be a string.&#xA;&#xA;***Disclaimer***&#xA;&#xA;If your repository is configured with an h2 server database, we use the IP address of the current machine to set up the h2 server before it starts.&#xA;&#xA;The attribute &quot;port&quot; of datasourceData has been deprecated in favor of &quot;h2ServerPort&quot;. This changes has been made to avoid confusion with the port used to connect to the repository.&#xA;" value="null" name="No authentication, H2 Server"/>
-              <examples xmi:id="_ayN21fXJEeuFQNICNCagmQ" technicalid="_ax9_MfXJEeuFQNICNCagmQ" description="Create a repository with LDAP authentication on H2 embedded database.&#xA;&#xA;With _LDAP_ value set to _authenticationType_, your repository will use LDAP to authenticate users who have the right to modify the repository. You will need to provide within the _authenticationData_ map the same data described in the *Configure LDAP* section of the Administrator manual available in the integrated help of Obeo Designer Team Edition, namely:&#xA;- the url (url)&#xA;- the distinguished names (dnPattern)&#xA;- If TLS is enabled [Optional] (isTlsEnabled)&#xA;- the trust store path [Optional] (trustStorePath): needed only if TLS is enabled&#xA;- the trust store passphrase [Optional] (trustStorePassphrase): needed only if TLS is enabled&#xA;&#xA;***Note:*** An H2 server database can be used instead of an H2 embedded database. Select a sample with _H2 Server_ see how to create a repository with this kind of database.&#xA;" value="null" name="LDAP authentication, H2 Embedded"/>
-              <examples xmi:id="_ayN21vXJEeuFQNICNCagmQ" technicalid="_ax-mQPXJEeuFQNICNCagmQ" description="Create a repository with User manager authentication on H2 embedded database.&#xA;&#xA;With _FILE_ value set to the _authenticationType_, your repository will use the user manager to authorize registered user to modify the repository. You will need to provide within the _authenticationData_ map a list of users used to populate the _users.properties_ file as described in the _Authenticated Configuration_ section of the Administrator manual available in the integrated help of Obeo Designer Team Edition. The list of users is an array of map containing at least the _login_ and _password_ keys.&#xA;&#xA;  ***Note:*** An H2 server database can be used instead of an H2 embedded database. Select a sample with _H2 Server_ see how to create a repository with this kind of database.&#xA;" value="null" name="UserManager authentication, H2 Embedded"/>
-              <examples xmi:id="_ayN21_XJEeuFQNICNCagmQ" technicalid="_ax-mQfXJEeuFQNICNCagmQ" description="Create a repository with user manager and LDAP authentication on H2 embedded database.&#xA;&#xA;With _LDAP_FILE_ value set to _authenticationType_, your repository will use the user manager to register to authorize registered user to modify the repository and use LDAP to authenticate them. You will need to provide within the _authenticationData_ map a list of users used to populate the _users.properties_ file and also additional data to handle LDAP as as described in the _Configure LDAP_ section of the Administrator manual available in the integrated help of Obeo Designer Team Edition.&#xA;&#xA;The list of users is an array of map containing at least the _login_ keys. The additional data needed to handle LDAP are :&#xA;- the url (url)&#xA;- the distinguished names (dnPattern)&#xA;- if TLS is enable [Optional] (isTlsEnabled)&#xA;- the trust store path [Optional] (trustStorePath): needed only if TLS is enabled&#xA;- the trust store passphrase [Optional] (trustStorePassphrase): needed only if TLS is enabled&#xA;&#xA; ***Note:*** An H2 server database can be used instead of an H2 embedded database. Select a sample with _H2 Server_ see how to create a repository with this kind of database.&#xA;" value="null" name="UserManager + LDAP authentication, H2 Embedded"/>
-              <examples xmi:id="_ayN22PXJEeuFQNICNCagmQ" technicalid="_ax-mQvXJEeuFQNICNCagmQ" description="Create a repository with user profile authentication on H2 embedded database.&#xA;&#xA;With _USERPROFILE_ value set to the _authenticationType_, your repository will use the user profile to manage authorization on your repository. You will need to provide within the _authenticationData_ map a list of administrators used to populate the user profile model with users who have the write right on the repository as as described in the_User Profile Configuration_ section of the Administrator manual available in the integrated help of Obeo Designer Team Edition. The list of administrators is an array of map containing at least the _login_ and _password_ keys.&#xA;&#xA;***Note:*** An H2 server database can be used instead of an H2 embedded database. Select a sample with _H2 Server_ see how to create a repository with this kind of database.&#xA;" value="null" name="UserProfile authentication, H2 Embedded"/>
-              <examples xmi:id="_ayN22fXJEeuFQNICNCagmQ" technicalid="_ax-mQ_XJEeuFQNICNCagmQ" description="Create a repository with user profile and LDAP authentication on H2 embedded database.&#xA;&#xA;With _LDAP_USERPROFILE_ value set to the _authenticationType_, your repository will use the user profile to manage authorization on your repository. You will need to provide within the _authenticationData_ map a list of administrators used to populate the user profile model with users who have the write right on the repository and also additional data to handle LDAP as described in the _Configure LDAP_ section of the Administrator manual available in the integrated help of Obeo Designer Team Edition.&#xA;&#xA;The list of administrators is an array of map containing at least the _login_ key. The additional data needed to handle LDAP are :&#xA;- the url (url)&#xA;- the distinguished names (dnPattern)&#xA;- if TLS is enabled [Optional] (isTlsEnabled)&#xA;- the trust store path [Optional] (trustStorePath): needed only if TS is enabled&#xA;- the trust store passphrase [Optional] (trustStorePassphrase): needed only if TLS is enabled&#xA;&#xA;***Note:*** An H2 server database can be used instead of an H2 embedded database. Select a sample with _H2 Server_ see how to create a repository with this kind of database.&#xA;" value="null" name="UserProfile + LDAP authentication, H2 Embedded"/>
+        <ownedOperations xmi:id="_W0sOAf6gEeuek5eXUmOjkg" technicalid="_Wzt9of6gEeuek5eXUmOjkg" description="This request will allow you to creates a repository.&#xA;The body of the request take a JSON object with the following parameters: *repositoryName*, *authenticationType* and *datasourceType* which are mandatory and also *authenticationData* and *datasourceData* which are optional.&#xA;&#xA;While the *authenticationType* value can be empty, the *repositoryName* and the *datasourceType* values cannot.&#xA;&#xA;By default you can use the following values to manage your repositories:&#xA;  * *authenticationType* can take:&#xA;    * an empty value&#xA;    * LDAP&#xA;    * FILE&#xA;    * LDAP_FILE&#xA;    * USERPROFILE&#xA;    * LDAP_USERPROFILE&#xA;  * *datasourceType* can take:&#xA;    * H2_EMBEDDED&#xA;    * H2_SERVER&#xA;&#xA;You can also contribute your own extensions and use the key value of your extension as described in the Administration Server [documentation](../Obeo_Designer_Team_Administration_Server.html#Contribute_administration_server).&#xA;&#xA;Those values describe how your repository will manage authentication and database.&#xA;&#xA;As the optional parameters (*authenticationData* and *datasourceDat*) depends on the mandatory parameters, we will use examples to describe how to use them.&#xA;&#xA;The repository is started after its creation and lifecycle hooks are called before and after its start.&#xA;" name="addRepository" public="true" URI="" verb="POST" exposition="REST">
+          <input xmi:id="_W0sOAv6gEeuek5eXUmOjkg" technicalid="_WzuksP6gEeuek5eXUmOjkg" description="See example descriptions." type="_W0tcMf6gEeuek5eXUmOjkg" name="body">
+            <mediaType xmi:id="_W0sOA_6gEeuek5eXUmOjkg" technicalid="_WzwZ4P6gEeuek5eXUmOjkg" identifier="application/json">
+              <examples xmi:id="_W0sOBP6gEeuek5eXUmOjkg" technicalid="_WzyPEP6gEeuek5eXUmOjkg" description="Create a repository without authentication with an H2 embedded database.&#xA;&#xA;With an empty value set to _authenticationType_ your repository will not have authentication. With _H2_EMBEDDED_ value set to _datasourceType_ your repository database will be an h2 embedded database.&#xA;" value="null" name="No authentication, H2 Embedded"/>
+              <examples xmi:id="_W0sOBf6gEeuek5eXUmOjkg" technicalid="_Wz6x8P6gEeuek5eXUmOjkg" description="Create a repository without authentication on H2 server database.&#xA;&#xA;With an empty value set to _authenticationType_ your repository will not have authentication. With _H2_SERVER_ value set to _datasourceType_ your repository database will be an h2 server database and you will need to provide additional data like the _h2ServerPort_ within the _datasourceData_ map.&#xA;&#xA;The _h2ServerPort_ is used in the connection between the repository and the h2 database. The _h2ServerPort_ value must be a string.&#xA;&#xA;***Disclaimer***&#xA;&#xA;If your repository is configured with an h2 server database, we use the IP address of the current machine to set up the h2 server before it starts.&#xA;&#xA;The attribute &quot;port&quot; of datasourceData has been deprecated in favor of &quot;h2ServerPort&quot;. This changes has been made to avoid confusion with the port used to connect to the repository.&#xA;" value="null" name="No authentication, H2 Server"/>
+              <examples xmi:id="_W0sOBv6gEeuek5eXUmOjkg" technicalid="_Wz6x8f6gEeuek5eXUmOjkg" description="Create a repository with LDAP authentication on H2 embedded database.&#xA;&#xA;With _LDAP_ value set to _authenticationType_, your repository will use LDAP to authenticate users who have the right to modify the repository. You will need to provide within the _authenticationData_ map the same data described in the *Configure LDAP* section of the Administrator manual available in the integrated help of Obeo Designer Team Edition, namely:&#xA;- the url (url)&#xA;- the distinguished names (dnPattern)&#xA;- If TLS is enabled [Optional] (isTlsEnabled)&#xA;- the trust store path [Optional] (trustStorePath): needed only if TLS is enabled&#xA;- the trust store passphrase [Optional] (trustStorePassphrase): needed only if TLS is enabled&#xA;&#xA;***Note:*** An H2 server database can be used instead of an H2 embedded database. Select a sample with _H2 Server_ see how to create a repository with this kind of database.&#xA;" value="null" name="LDAP authentication, H2 Embedded"/>
+              <examples xmi:id="_W0sOB_6gEeuek5eXUmOjkg" technicalid="_Wz6x8v6gEeuek5eXUmOjkg" description="Create a repository with User manager authentication on H2 embedded database.&#xA;&#xA;With _FILE_ value set to the _authenticationType_, your repository will use the user manager to authorize registered user to modify the repository. You will need to provide within the _authenticationData_ map a list of users used to populate the _users.properties_ file as described in the _Authenticated Configuration_ section of the Administrator manual available in the integrated help of Obeo Designer Team Edition. The list of users is an array of map containing at least the _login_ and _password_ keys.&#xA;&#xA;  ***Note:*** An H2 server database can be used instead of an H2 embedded database. Select a sample with _H2 Server_ see how to create a repository with this kind of database.&#xA;" value="null" name="UserManager authentication, H2 Embedded"/>
+              <examples xmi:id="_W0sOCP6gEeuek5eXUmOjkg" technicalid="_Wz6x8_6gEeuek5eXUmOjkg" description="Create a repository with user manager and LDAP authentication on H2 embedded database.&#xA;&#xA;With _LDAP_FILE_ value set to _authenticationType_, your repository will use the user manager to register to authorize registered user to modify the repository and use LDAP to authenticate them. You will need to provide within the _authenticationData_ map a list of users used to populate the _users.properties_ file and also additional data to handle LDAP as as described in the _Configure LDAP_ section of the Administrator manual available in the integrated help of Obeo Designer Team Edition.&#xA;&#xA;The list of users is an array of map containing at least the _login_ keys. The additional data needed to handle LDAP are :&#xA;- the url (url)&#xA;- the distinguished names (dnPattern)&#xA;- if TLS is enable [Optional] (isTlsEnabled)&#xA;- the trust store path [Optional] (trustStorePath): needed only if TLS is enabled&#xA;- the trust store passphrase [Optional] (trustStorePassphrase): needed only if TLS is enabled&#xA;&#xA; ***Note:*** An H2 server database can be used instead of an H2 embedded database. Select a sample with _H2 Server_ see how to create a repository with this kind of database.&#xA;" value="null" name="UserManager + LDAP authentication, H2 Embedded"/>
+              <examples xmi:id="_W0sOCf6gEeuek5eXUmOjkg" technicalid="_Wz7ZAP6gEeuek5eXUmOjkg" description="Create a repository with user profile authentication on H2 embedded database.&#xA;&#xA;With _USERPROFILE_ value set to the _authenticationType_, your repository will use the user profile to manage authorization on your repository. You will need to provide within the _authenticationData_ map a list of administrators used to populate the user profile model with users who have the write right on the repository as as described in the_User Profile Configuration_ section of the Administrator manual available in the integrated help of Obeo Designer Team Edition. The list of administrators is an array of map containing at least the _login_ and _password_ keys.&#xA;&#xA;***Note:*** An H2 server database can be used instead of an H2 embedded database. Select a sample with _H2 Server_ see how to create a repository with this kind of database.&#xA;" value="null" name="UserProfile authentication, H2 Embedded"/>
+              <examples xmi:id="_W0sOCv6gEeuek5eXUmOjkg" technicalid="_Wz7ZAf6gEeuek5eXUmOjkg" description="Create a repository with user profile and LDAP authentication on H2 embedded database.&#xA;&#xA;With _LDAP_USERPROFILE_ value set to the _authenticationType_, your repository will use the user profile to manage authorization on your repository. You will need to provide within the _authenticationData_ map a list of administrators used to populate the user profile model with users who have the write right on the repository and also additional data to handle LDAP as described in the _Configure LDAP_ section of the Administrator manual available in the integrated help of Obeo Designer Team Edition.&#xA;&#xA;The list of administrators is an array of map containing at least the _login_ key. The additional data needed to handle LDAP are :&#xA;- the url (url)&#xA;- the distinguished names (dnPattern)&#xA;- if TLS is enabled [Optional] (isTlsEnabled)&#xA;- the trust store path [Optional] (trustStorePath): needed only if TS is enabled&#xA;- the trust store passphrase [Optional] (trustStorePassphrase): needed only if TLS is enabled&#xA;&#xA;***Note:*** An H2 server database can be used instead of an H2 embedded database. Select a sample with _H2 Server_ see how to create a repository with this kind of database.&#xA;" value="null" name="UserProfile + LDAP authentication, H2 Embedded"/>
             </mediaType>
-            <restData xmi:id="_ayN22vXJEeuFQNICNCagmQ" technicalid="_ax7i8PXJEeuFQNICNCagmQ"/>
+            <restData xmi:id="_W0sOC_6gEeuek5eXUmOjkg" technicalid="_WzvLwP6gEeuek5eXUmOjkg"/>
           </input>
-          <output xmi:id="_ayN22_XJEeuFQNICNCagmQ" technicalid="_ax-mRPXJEeuFQNICNCagmQ" description="Repository response" type="_ayOeEfXJEeuFQNICNCagmQ" name="output201" multiplicity="0..1" statusCode="201" statusMessage="Created">
-            <mediaType xmi:id="_ayN23PXJEeuFQNICNCagmQ" technicalid="_ax_NUPXJEeuFQNICNCagmQ" identifier="application/json">
-              <examples xmi:id="_ayN23fXJEeuFQNICNCagmQ" technicalid="_ax_NUfXJEeuFQNICNCagmQ" value="null" name="No authentication, H2 Embedded"/>
-              <examples xmi:id="_ayN23vXJEeuFQNICNCagmQ" technicalid="_ax_NUvXJEeuFQNICNCagmQ" value="null" name="No authentication, H2 Server"/>
-              <examples xmi:id="_ayN23_XJEeuFQNICNCagmQ" technicalid="_ax_NU_XJEeuFQNICNCagmQ" value="null" name="LDAP authenticationn, H2 Embedded"/>
-              <examples xmi:id="_ayN24PXJEeuFQNICNCagmQ" technicalid="_ax_NVPXJEeuFQNICNCagmQ" value="null" name="UserManager authentication, H2 Embedded"/>
-              <examples xmi:id="_ayN24fXJEeuFQNICNCagmQ" technicalid="_ax_NVfXJEeuFQNICNCagmQ" value="null" name="UserManager + LDAP authentication, H2 Embedded"/>
-              <examples xmi:id="_ayN24vXJEeuFQNICNCagmQ" technicalid="_ax_NVvXJEeuFQNICNCagmQ" value="null" name="UseUserProfilerManager authentication, H2 Embedded"/>
-              <examples xmi:id="_ayN24_XJEeuFQNICNCagmQ" technicalid="_ax_NV_XJEeuFQNICNCagmQ" value="null" name="UserProfile + LDAP authentication, H2 Embedded"/>
+          <output xmi:id="_W0sODP6gEeuek5eXUmOjkg" technicalid="_Wz7ZAv6gEeuek5eXUmOjkg" description="Repository response" type="_W0uDYv6gEeuek5eXUmOjkg" name="output201" multiplicity="0..1" statusCode="201" statusMessage="Created">
+            <mediaType xmi:id="_W0sODf6gEeuek5eXUmOjkg" technicalid="_Wz9OMP6gEeuek5eXUmOjkg" identifier="application/json">
+              <examples xmi:id="_W0sODv6gEeuek5eXUmOjkg" technicalid="_Wz9OMf6gEeuek5eXUmOjkg" value="null" name="No authentication, H2 Embedded"/>
+              <examples xmi:id="_W0sOD_6gEeuek5eXUmOjkg" technicalid="_Wz9OMv6gEeuek5eXUmOjkg" value="null" name="No authentication, H2 Server"/>
+              <examples xmi:id="_W0sOEP6gEeuek5eXUmOjkg" technicalid="_Wz9OM_6gEeuek5eXUmOjkg" value="null" name="LDAP authenticationn, H2 Embedded"/>
+              <examples xmi:id="_W0sOEf6gEeuek5eXUmOjkg" technicalid="_Wz9ONP6gEeuek5eXUmOjkg" value="null" name="UserManager authentication, H2 Embedded"/>
+              <examples xmi:id="_W0sOEv6gEeuek5eXUmOjkg" technicalid="_Wz9ONf6gEeuek5eXUmOjkg" value="null" name="UserManager + LDAP authentication, H2 Embedded"/>
+              <examples xmi:id="_W0sOE_6gEeuek5eXUmOjkg" technicalid="_Wz91QP6gEeuek5eXUmOjkg" value="null" name="UseUserProfilerManager authentication, H2 Embedded"/>
+              <examples xmi:id="_W0sOFP6gEeuek5eXUmOjkg" technicalid="_Wz91Qf6gEeuek5eXUmOjkg" value="null" name="UserProfile + LDAP authentication, H2 Embedded"/>
             </mediaType>
           </output>
-          <fault xmi:id="_ayN25PXJEeuFQNICNCagmQ" technicalid="_ax_NWPXJEeuFQNICNCagmQ" description="Bad Request&#xA;&#xA;Some parameters depend on the repository type (authentication and database), their validation is done by the corresponding extensions. &#xA;" name="fault400" statusCode="400" statusMessage="Bad Request">
-            <mediaType xmi:id="_ayN25fXJEeuFQNICNCagmQ" technicalid="_ax_NWfXJEeuFQNICNCagmQ" identifier="application/json"/>
+          <fault xmi:id="_W0sOFf6gEeuek5eXUmOjkg" technicalid="_Wz91Qv6gEeuek5eXUmOjkg" description="Bad Request&#xA;&#xA;Some parameters depend on the repository type (authentication and database), their validation is done by the corresponding extensions. &#xA;" name="fault400" statusCode="400" statusMessage="Bad Request">
+            <mediaType xmi:id="_W0sOFv6gEeuek5eXUmOjkg" technicalid="_Wz91Q_6gEeuek5eXUmOjkg" identifier="application/json"/>
           </fault>
-          <fault xmi:id="_ayN25vXJEeuFQNICNCagmQ" technicalid="_ax_NWvXJEeuFQNICNCagmQ" description="Internal error&#xA;&#xA;Something unexpected occurred during the repository creation.&#xA;" name="fault500" statusCode="500" statusMessage="Internal Server Error">
-            <mediaType xmi:id="_ayN25_XJEeuFQNICNCagmQ" technicalid="_ax_NW_XJEeuFQNICNCagmQ" identifier="application/json"/>
+          <fault xmi:id="_W0sOF_6gEeuek5eXUmOjkg" technicalid="_Wz91RP6gEeuek5eXUmOjkg" description="Internal error&#xA;&#xA;Something unexpected occurred during the repository creation.&#xA;" name="fault500" statusCode="500" statusMessage="Internal Server Error">
+            <mediaType xmi:id="_W0sOGP6gEeuek5eXUmOjkg" technicalid="_Wz-cUP6gEeuek5eXUmOjkg" identifier="application/json"/>
           </fault>
         </ownedOperations>
-        <ownedOperations xmi:id="_ayN26PXJEeuFQNICNCagmQ" technicalid="_ax_NXPXJEeuFQNICNCagmQ" description="Delete a repository that was created using the *create repository* web service.&#xA;&#xA;The deletetion of repository removes the folder and all of its content in the directory that contains the repositories. This directory can be configured in the properties files of the administration server as described in [Administration Server configuration](../Obeo_Designer_Team_Administration_Server.html#Webservice_configuration).&#xA;&#xA;No effect on static repositories.&#xA;" name="deleteRepository" public="true" URI="/{repositoryId}" verb="DELETE" exposition="REST">
-          <input xmi:id="_ayN26fXJEeuFQNICNCagmQ" technicalid="_ax_NXfXJEeuFQNICNCagmQ" description="id of a repository" name="repositoryId">
+        <ownedOperations xmi:id="_W0sOGf6gEeuek5eXUmOjkg" technicalid="_Wz-cUf6gEeuek5eXUmOjkg" description="Delete a repository that was created using the *create repository* web service.&#xA;&#xA;The deletetion of repository removes the folder and all of its content in the directory that contains the repositories. This directory can be configured in the properties files of the administration server as described in [Administration Server configuration](../Obeo_Designer_Team_Administration_Server.html#Webservice_configuration).&#xA;&#xA;No effect on static repositories.&#xA;" name="deleteRepository" public="true" URI="/{repositoryId}" verb="DELETE" exposition="REST">
+          <input xmi:id="_W0sOGv6gEeuek5eXUmOjkg" technicalid="_Wz-cUv6gEeuek5eXUmOjkg" description="id of a repository" name="repositoryId">
             <type xsi:type="oenv:PrimitiveType" href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5F-EKwKEd2XLNOhkJIazw"/>
-            <restData xmi:id="_ayN26vXJEeuFQNICNCagmQ" technicalid="_ax_0YPXJEeuFQNICNCagmQ" passingMode="PATH" restId="repositoryId"/>
+            <restData xmi:id="_W0sOG_6gEeuek5eXUmOjkg" technicalid="_Wz-cU_6gEeuek5eXUmOjkg" passingMode="PATH" restId="repositoryId"/>
           </input>
-          <input xmi:id="_ayN26_XJEeuFQNICNCagmQ" technicalid="_ax_0YfXJEeuFQNICNCagmQ" description="Parameter to indicate if the databse must be deleted or kep. true by default. No effect for the moment" name="deleteDatabase" multiplicity="0..1">
+          <input xmi:id="_W0sOHP6gEeuek5eXUmOjkg" technicalid="_Wz_qcP6gEeuek5eXUmOjkg" description="Parameter to indicate if the databse must be deleted or kep. true by default. No effect for the moment" name="deleteDatabase" multiplicity="0..1">
             <type xsi:type="oenv:PrimitiveType" href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5FXAqwKEd2XLNOhkJIazw"/>
-            <restData xmi:id="_ayN27PXJEeuFQNICNCagmQ" technicalid="_ax_0YvXJEeuFQNICNCagmQ" passingMode="QUERY" restId="deleteDatabase"/>
+            <restData xmi:id="_W0sOHf6gEeuek5eXUmOjkg" technicalid="_Wz_qcf6gEeuek5eXUmOjkg" passingMode="QUERY" restId="deleteDatabase"/>
           </input>
-          <output xmi:id="_ayN27fXJEeuFQNICNCagmQ" technicalid="_ayAbcPXJEeuFQNICNCagmQ" description="Ok" type="_ayOeCvXJEeuFQNICNCagmQ" name="output200" multiplicity="0..1" statusCode="200" statusMessage="OK">
-            <mediaType xmi:id="_ayN27vXJEeuFQNICNCagmQ" technicalid="_ayAbdfXJEeuFQNICNCagmQ" identifier="application/json"/>
+          <output xmi:id="_W0sOHv6gEeuek5eXUmOjkg" technicalid="_W0ARgP6gEeuek5eXUmOjkg" description="Ok" type="_W0uDP_6gEeuek5eXUmOjkg" name="output200" multiplicity="0..1" statusCode="200" statusMessage="OK">
+            <mediaType xmi:id="_W0sOH_6gEeuek5eXUmOjkg" technicalid="_W0A4kv6gEeuek5eXUmOjkg" identifier="application/json"/>
           </output>
-          <output xmi:id="_ayN27_XJEeuFQNICNCagmQ" technicalid="_ayAbdvXJEeuFQNICNCagmQ" description="No Content" name="output204" statusCode="204" statusMessage="No Content"/>
-          <fault xmi:id="_ayN28PXJEeuFQNICNCagmQ" technicalid="_ayAbd_XJEeuFQNICNCagmQ" description="Not Found" name="fault404" statusCode="404" statusMessage="Not Found">
-            <mediaType xmi:id="_ayN28fXJEeuFQNICNCagmQ" technicalid="_ayAbePXJEeuFQNICNCagmQ" identifier="application/json"/>
+          <output xmi:id="_W0sOIP6gEeuek5eXUmOjkg" technicalid="_W0A4k_6gEeuek5eXUmOjkg" description="No Content" name="output204" statusCode="204" statusMessage="No Content"/>
+          <fault xmi:id="_W0sOIf6gEeuek5eXUmOjkg" technicalid="_W0A4lP6gEeuek5eXUmOjkg" description="Not Found" name="fault404" statusCode="404" statusMessage="Not Found">
+            <mediaType xmi:id="_W0sOIv6gEeuek5eXUmOjkg" technicalid="_W0BfoP6gEeuek5eXUmOjkg" identifier="application/json"/>
           </fault>
-          <fault xmi:id="_ayN28vXJEeuFQNICNCagmQ" technicalid="_ayAbefXJEeuFQNICNCagmQ" description="Server error for static repository" name="fault500" statusCode="500" statusMessage="Internal Server Error">
-            <mediaType xmi:id="_ayN28_XJEeuFQNICNCagmQ" technicalid="_ayAbevXJEeuFQNICNCagmQ" identifier="application/json"/>
+          <fault xmi:id="_W0sOI_6gEeuek5eXUmOjkg" technicalid="_W0Bfof6gEeuek5eXUmOjkg" description="Server error for static repository" name="fault500" statusCode="500" statusMessage="Internal Server Error">
+            <mediaType xmi:id="_W0sOJP6gEeuek5eXUmOjkg" technicalid="_W0Bfov6gEeuek5eXUmOjkg" identifier="application/json"/>
           </fault>
         </ownedOperations>
-        <ownedOperations xmi:id="_ayN29PXJEeuFQNICNCagmQ" technicalid="_ayBCgPXJEeuFQNICNCagmQ" description="Start a repository that was created using the web service to create a repository.&#xA;&#xA;The lifecycle hooks will be called before and after its start.&#xA;&#xA;No effect on static repositories.&#xA;" name="startRepository" public="true" URI="/start/{repositoryId}" exposition="REST">
-          <input xmi:id="_ayN29fXJEeuFQNICNCagmQ" technicalid="_ayBCgfXJEeuFQNICNCagmQ" description="id of a repository" name="repositoryId">
+        <ownedOperations xmi:id="_W0sOJf6gEeuek5eXUmOjkg" technicalid="_W0Bfo_6gEeuek5eXUmOjkg" description="Start a repository that was created using the web service to create a repository.&#xA;&#xA;The lifecycle hooks will be called before and after its start.&#xA;&#xA;No effect on static repositories.&#xA;" name="startRepository" public="true" URI="/start/{repositoryId}" exposition="REST">
+          <input xmi:id="_W0sOJv6gEeuek5eXUmOjkg" technicalid="_W0BfpP6gEeuek5eXUmOjkg" description="id of a repository" name="repositoryId">
             <type xsi:type="oenv:PrimitiveType" href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5F-EKwKEd2XLNOhkJIazw"/>
-            <restData xmi:id="_ayN29vXJEeuFQNICNCagmQ" technicalid="_ayBCgvXJEeuFQNICNCagmQ" passingMode="PATH" restId="repositoryId"/>
+            <restData xmi:id="_W0sOJ_6gEeuek5eXUmOjkg" technicalid="_W0Bfpf6gEeuek5eXUmOjkg" passingMode="PATH" restId="repositoryId"/>
           </input>
-          <output xmi:id="_ayN29_XJEeuFQNICNCagmQ" technicalid="_ayBCg_XJEeuFQNICNCagmQ" description="Ok" type="_ayOeEfXJEeuFQNICNCagmQ" name="output200" multiplicity="0..1" statusCode="200" statusMessage="OK">
-            <mediaType xmi:id="_ayN2-PXJEeuFQNICNCagmQ" technicalid="_ayBCiPXJEeuFQNICNCagmQ" identifier="application/json"/>
+          <output xmi:id="_W0sOKP6gEeuek5eXUmOjkg" technicalid="_W0Bfpv6gEeuek5eXUmOjkg" description="Ok" type="_W0uDYv6gEeuek5eXUmOjkg" name="output200" multiplicity="0..1" statusCode="200" statusMessage="OK">
+            <mediaType xmi:id="_W0sOKf6gEeuek5eXUmOjkg" technicalid="_W0CtwP6gEeuek5eXUmOjkg" identifier="application/json"/>
           </output>
-          <fault xmi:id="_ayN2-fXJEeuFQNICNCagmQ" technicalid="_ayBCifXJEeuFQNICNCagmQ" description="Ko" name="fault400" statusCode="400" statusMessage="Bad Request">
-            <mediaType xmi:id="_ayN2-vXJEeuFQNICNCagmQ" technicalid="_ayBCivXJEeuFQNICNCagmQ" identifier="application/json"/>
+          <fault xmi:id="_W0sOKv6gEeuek5eXUmOjkg" technicalid="_W0Ctwf6gEeuek5eXUmOjkg" description="Ko" name="fault400" statusCode="400" statusMessage="Bad Request">
+            <mediaType xmi:id="_W0sOK_6gEeuek5eXUmOjkg" technicalid="_W0DU0P6gEeuek5eXUmOjkg" identifier="application/json"/>
           </fault>
-          <fault xmi:id="_ayN2-_XJEeuFQNICNCagmQ" technicalid="_ayBCi_XJEeuFQNICNCagmQ" description="Not Found" name="fault404" statusCode="404" statusMessage="Not Found">
-            <mediaType xmi:id="_ayN2_PXJEeuFQNICNCagmQ" technicalid="_ayBCjPXJEeuFQNICNCagmQ" identifier="application/json"/>
+          <fault xmi:id="_W0sOLP6gEeuek5eXUmOjkg" technicalid="_W0DU0f6gEeuek5eXUmOjkg" description="Not Found" name="fault404" statusCode="404" statusMessage="Not Found">
+            <mediaType xmi:id="_W0sOLf6gEeuek5eXUmOjkg" technicalid="_W0DU0v6gEeuek5eXUmOjkg" identifier="application/json"/>
           </fault>
         </ownedOperations>
-        <ownedOperations xmi:id="_ayN2_fXJEeuFQNICNCagmQ" technicalid="_ayBCjfXJEeuFQNICNCagmQ" description="Stop a repository that was created using the web service to create a repository.&#xA;&#xA;The lifecycle hooks will be called before and after its stop.&#xA;&#xA;No effect on static repositories.&#xA;" name="stopRepository" public="true" URI="/stop/{repositoryId}" exposition="REST">
-          <input xmi:id="_ayN2_vXJEeuFQNICNCagmQ" technicalid="_ayBCjvXJEeuFQNICNCagmQ" description="id of a repository" name="repositoryId">
+        <ownedOperations xmi:id="_W0sOLv6gEeuek5eXUmOjkg" technicalid="_W0DU0_6gEeuek5eXUmOjkg" description="Stop a repository that was created using the web service to create a repository.&#xA;&#xA;The lifecycle hooks will be called before and after its stop.&#xA;&#xA;No effect on static repositories.&#xA;" name="stopRepository" public="true" URI="/stop/{repositoryId}" exposition="REST">
+          <input xmi:id="_W0sOL_6gEeuek5eXUmOjkg" technicalid="_W0DU1P6gEeuek5eXUmOjkg" description="id of a repository" name="repositoryId">
             <type xsi:type="oenv:PrimitiveType" href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5F-EKwKEd2XLNOhkJIazw"/>
-            <restData xmi:id="_ayN2__XJEeuFQNICNCagmQ" technicalid="_ayBCj_XJEeuFQNICNCagmQ" passingMode="PATH" restId="repositoryId"/>
+            <restData xmi:id="_W0sOMP6gEeuek5eXUmOjkg" technicalid="_W0DU1f6gEeuek5eXUmOjkg" passingMode="PATH" restId="repositoryId"/>
           </input>
-          <output xmi:id="_ayN3APXJEeuFQNICNCagmQ" technicalid="_ayBCkPXJEeuFQNICNCagmQ" description="Ok" type="_ayOeGfXJEeuFQNICNCagmQ" name="output200" multiplicity="0..1" statusCode="200" statusMessage="OK">
-            <mediaType xmi:id="_ayN3AfXJEeuFQNICNCagmQ" technicalid="_ayBplPXJEeuFQNICNCagmQ" identifier="application/json"/>
+          <output xmi:id="_W0sOMf6gEeuek5eXUmOjkg" technicalid="_W0DU1v6gEeuek5eXUmOjkg" description="Ok" type="_W0uDWv6gEeuek5eXUmOjkg" name="output200" multiplicity="0..1" statusCode="200" statusMessage="OK">
+            <mediaType xmi:id="_W0sOMv6gEeuek5eXUmOjkg" technicalid="_W0Ei8P6gEeuek5eXUmOjkg" identifier="application/json"/>
           </output>
-          <fault xmi:id="_ayN3AvXJEeuFQNICNCagmQ" technicalid="_ayBplfXJEeuFQNICNCagmQ" description="Not Found" name="fault400" statusCode="400" statusMessage="Bad Request">
-            <mediaType xmi:id="_ayN3A_XJEeuFQNICNCagmQ" technicalid="_ayCQoPXJEeuFQNICNCagmQ" identifier="application/json"/>
+          <fault xmi:id="_W0sOM_6gEeuek5eXUmOjkg" technicalid="_W0Ei8f6gEeuek5eXUmOjkg" description="Not Found" name="fault400" statusCode="400" statusMessage="Bad Request">
+            <mediaType xmi:id="_W0sONP6gEeuek5eXUmOjkg" technicalid="_W0Ei8v6gEeuek5eXUmOjkg" identifier="application/json"/>
           </fault>
-          <fault xmi:id="_ayN3BPXJEeuFQNICNCagmQ" technicalid="_ayCQofXJEeuFQNICNCagmQ" description="Not Found" name="fault404" statusCode="404" statusMessage="Not Found">
-            <mediaType xmi:id="_ayN3BfXJEeuFQNICNCagmQ" technicalid="_ayCQovXJEeuFQNICNCagmQ" identifier="application/json"/>
+          <fault xmi:id="_W0sONf6gEeuek5eXUmOjkg" technicalid="_W0FKAP6gEeuek5eXUmOjkg" description="Not Found" name="fault404" statusCode="404" statusMessage="Not Found">
+            <mediaType xmi:id="_W0sONv6gEeuek5eXUmOjkg" technicalid="_W0FKAf6gEeuek5eXUmOjkg" identifier="application/json"/>
           </fault>
-          <fault xmi:id="_ayN3BvXJEeuFQNICNCagmQ" technicalid="_ayCQo_XJEeuFQNICNCagmQ" description="Server error for static repository" name="fault500" statusCode="500" statusMessage="Internal Server Error">
-            <mediaType xmi:id="_ayN3B_XJEeuFQNICNCagmQ" technicalid="_ayCQpPXJEeuFQNICNCagmQ" identifier="application/json"/>
+          <fault xmi:id="_W0sON_6gEeuek5eXUmOjkg" technicalid="_W0FxEP6gEeuek5eXUmOjkg" description="Server error for static repository" name="fault500" statusCode="500" statusMessage="Internal Server Error">
+            <mediaType xmi:id="_W0sOOP6gEeuek5eXUmOjkg" technicalid="_W0FxEf6gEeuek5eXUmOjkg" identifier="application/json"/>
           </fault>
         </ownedOperations>
-        <ownedOperations xmi:id="_ayN3CPXJEeuFQNICNCagmQ" technicalid="_ayCQpfXJEeuFQNICNCagmQ" description="Export the database of the repository into an xml file.&#xA;&#xA;The body of the request take two parameters: *needsEncryption* which is mandatory and *password* which is optional but needed if *needsEncryption* is set to true.&#xA;&#xA;As the export of the database can take time, the web service will schedule an asynchronous job and return the link where you will be able to download the file in the response under the *url* attribute.&#xA;&#xA;If *needsEncryption* is set to false the export of the database will create an xml file representing the CDO database in the *export* folder which can be configured in the properties files of the Administration Server as described in [Administration Server configuration](../Obeo_Designer_Team_Administration_Server.html#Webservice_configuration). If *needsEncryption* is set to true then an encrypted zip file containing the xml file will be created instead.&#xA;" name="exportRepository" public="true" URI="/export/{repositoryId}" verb="POST" exposition="REST">
-          <input xmi:id="_ayN3CfXJEeuFQNICNCagmQ" technicalid="_ayCQpvXJEeuFQNICNCagmQ" description="id of a repository" name="repositoryId">
+        <ownedOperations xmi:id="_W0sOOf6gEeuek5eXUmOjkg" technicalid="_W0FxEv6gEeuek5eXUmOjkg" description="Export the database of the repository into an xml file.&#xA;&#xA;The body of the request take two parameters: *needsEncryption* which is mandatory and *password* which is optional but needed if *needsEncryption* is set to true.&#xA;&#xA;As the export of the database can take time, the web service will schedule an asynchronous job and return the link where you will be able to download the file in the response under the *url* attribute.&#xA;&#xA;If *needsEncryption* is set to false the export of the database will create an xml file representing the CDO database in the *export* folder which can be configured in the properties files of the Administration Server as described in [Administration Server configuration](../Obeo_Designer_Team_Administration_Server.html#Webservice_configuration). If *needsEncryption* is set to true then an encrypted zip file containing the xml file will be created instead.&#xA;" name="exportRepository" public="true" URI="/export/{repositoryId}" verb="POST" exposition="REST">
+          <input xmi:id="_W0sOOv6gEeuek5eXUmOjkg" technicalid="_W0GYIP6gEeuek5eXUmOjkg" description="id of a repository" name="repositoryId">
             <type xsi:type="oenv:PrimitiveType" href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5F-EKwKEd2XLNOhkJIazw"/>
-            <restData xmi:id="_ayN3CvXJEeuFQNICNCagmQ" technicalid="_ayCQp_XJEeuFQNICNCagmQ" passingMode="PATH" restId="repositoryId"/>
+            <restData xmi:id="_W0sOO_6gEeuek5eXUmOjkg" technicalid="_W0G_MP6gEeuek5eXUmOjkg" passingMode="PATH" restId="repositoryId"/>
           </input>
-          <input xmi:id="_ayN3C_XJEeuFQNICNCagmQ" technicalid="_ayC3sPXJEeuFQNICNCagmQ" description="Export parameters" type="_ayOeHfXJEeuFQNICNCagmQ" name="body">
-            <mediaType xmi:id="_ayN3DPXJEeuFQNICNCagmQ" technicalid="_ayDewPXJEeuFQNICNCagmQ" identifier="application/json">
-              <examples xmi:id="_ayN3DfXJEeuFQNICNCagmQ" technicalid="_ayDewfXJEeuFQNICNCagmQ" value="null" name="encryptedExport"/>
-              <examples xmi:id="_ayN3DvXJEeuFQNICNCagmQ" technicalid="_ayDewvXJEeuFQNICNCagmQ" value="null" name="clearExport"/>
+          <input xmi:id="_W0sOPP6gEeuek5eXUmOjkg" technicalid="_W0G_Mf6gEeuek5eXUmOjkg" description="Export parameters" type="_W0uDZv6gEeuek5eXUmOjkg" name="body">
+            <mediaType xmi:id="_W0sOPf6gEeuek5eXUmOjkg" technicalid="_W0HmQP6gEeuek5eXUmOjkg" identifier="application/json">
+              <examples xmi:id="_W0sOPv6gEeuek5eXUmOjkg" technicalid="_W0INUP6gEeuek5eXUmOjkg" value="null" name="encryptedExport"/>
+              <examples xmi:id="_W0sOP_6gEeuek5eXUmOjkg" technicalid="_W0INUf6gEeuek5eXUmOjkg" value="null" name="clearExport"/>
             </mediaType>
-            <restData xmi:id="_ayN3D_XJEeuFQNICNCagmQ" technicalid="_ayC3sfXJEeuFQNICNCagmQ"/>
+            <restData xmi:id="_W0sOQP6gEeuek5eXUmOjkg" technicalid="_W0G_Mv6gEeuek5eXUmOjkg"/>
           </input>
-          <output xmi:id="_ayN3EPXJEeuFQNICNCagmQ" technicalid="_ayDew_XJEeuFQNICNCagmQ" description="Ok" name="output202" statusCode="202" statusMessage="Accepted">
-            <mediaType xmi:id="_ayN3EfXJEeuFQNICNCagmQ" technicalid="_ayEF0PXJEeuFQNICNCagmQ" identifier="application/json">
-              <examples xmi:id="_ayN3EvXJEeuFQNICNCagmQ" technicalid="_ayEF0fXJEeuFQNICNCagmQ" value="null" name="encryptedExport"/>
-              <examples xmi:id="_ayN3E_XJEeuFQNICNCagmQ" technicalid="_ayEF0vXJEeuFQNICNCagmQ" value="null" name="clearExport"/>
+          <output xmi:id="_W0sOQf6gEeuek5eXUmOjkg" technicalid="_W0I0YP6gEeuek5eXUmOjkg" description="Ok" name="output202" statusCode="202" statusMessage="Accepted">
+            <mediaType xmi:id="_W0sOQv6gEeuek5eXUmOjkg" technicalid="_W0I0Yf6gEeuek5eXUmOjkg" identifier="application/json">
+              <examples xmi:id="_W0sOQ_6gEeuek5eXUmOjkg" technicalid="_W0I0Yv6gEeuek5eXUmOjkg" value="null" name="encryptedExport"/>
+              <examples xmi:id="_W0sORP6gEeuek5eXUmOjkg" technicalid="_W0I0Y_6gEeuek5eXUmOjkg" value="null" name="clearExport"/>
             </mediaType>
           </output>
-          <fault xmi:id="_ayN3FPXJEeuFQNICNCagmQ" technicalid="_ayEF0_XJEeuFQNICNCagmQ" description="Bad request" name="fault400" statusCode="400" statusMessage="Bad Request">
-            <mediaType xmi:id="_ayN3FfXJEeuFQNICNCagmQ" technicalid="_ayEF1PXJEeuFQNICNCagmQ" identifier="application/json"/>
+          <fault xmi:id="_W0sORf6gEeuek5eXUmOjkg" technicalid="_W0I0ZP6gEeuek5eXUmOjkg" description="Bad request" name="fault400" statusCode="400" statusMessage="Bad Request">
+            <mediaType xmi:id="_W0sORv6gEeuek5eXUmOjkg" technicalid="_W0I0Zf6gEeuek5eXUmOjkg" identifier="application/json"/>
           </fault>
-          <fault xmi:id="_ayN3FvXJEeuFQNICNCagmQ" technicalid="_ayEF1fXJEeuFQNICNCagmQ" description="Not Found" name="fault404" statusCode="404" statusMessage="Not Found">
-            <mediaType xmi:id="_ayN3F_XJEeuFQNICNCagmQ" technicalid="_ayEF1vXJEeuFQNICNCagmQ" identifier="application/json"/>
+          <fault xmi:id="_W0sOR_6gEeuek5eXUmOjkg" technicalid="_W0I0Zv6gEeuek5eXUmOjkg" description="Not Found" name="fault404" statusCode="404" statusMessage="Not Found">
+            <mediaType xmi:id="_W0sOSP6gEeuek5eXUmOjkg" technicalid="_W0JbcP6gEeuek5eXUmOjkg" identifier="application/json"/>
           </fault>
         </ownedOperations>
-        <ownedOperations xmi:id="_ayN3GPXJEeuFQNICNCagmQ" technicalid="_ayEF1_XJEeuFQNICNCagmQ" description="Restore a repository from the uploaded xml file.&#xA;&#xA;This file must be a backup of the database.&#xA;&#xA;As this API needs a file, we suggest you to use the input file of your favorite browser in order to let it set the correct headers for the upload of the file.&#xA;As the import of the database can take time, the web service will schedule an asynchronous job.&#xA;&#xA;The state (ONLINE | OFFLINE) of the repository will be the same after the import as before the import.&#xA;&#xA;Static repositories are not managed.&#xA;" name="importRepository" public="true" URI="/import/{repositoryId}" verb="POST" exposition="REST">
-          <input xmi:id="_ayN3GfXJEeuFQNICNCagmQ" technicalid="_ayEF2PXJEeuFQNICNCagmQ" description="id of a repository" name="repositoryId">
+        <ownedOperations xmi:id="_W0sOSf6gEeuek5eXUmOjkg" technicalid="_W0Jbcf6gEeuek5eXUmOjkg" description="Restore a repository from the uploaded xml file.&#xA;&#xA;This file must be a backup of the database.&#xA;&#xA;As this API needs a file, we suggest you to use the input file of your favorite browser in order to let it set the correct headers for the upload of the file.&#xA;As the import of the database can take time, the web service will schedule an asynchronous job.&#xA;&#xA;The state (ONLINE | OFFLINE) of the repository will be the same after the import as before the import.&#xA;&#xA;Static repositories are not managed.&#xA;" name="importRepository" public="true" URI="/import/{repositoryId}" verb="POST" exposition="REST">
+          <input xmi:id="_W0sOSv6gEeuek5eXUmOjkg" technicalid="_W0Jbcv6gEeuek5eXUmOjkg" description="id of a repository" name="repositoryId">
             <type xsi:type="oenv:PrimitiveType" href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5F-EKwKEd2XLNOhkJIazw"/>
-            <restData xmi:id="_ayN3GvXJEeuFQNICNCagmQ" technicalid="_ayEF2fXJEeuFQNICNCagmQ" passingMode="PATH" restId="repositoryId"/>
+            <restData xmi:id="_W0sOS_6gEeuek5eXUmOjkg" technicalid="_W0Jbc_6gEeuek5eXUmOjkg" passingMode="PATH" restId="repositoryId"/>
           </input>
-          <input xmi:id="_ayN3G_XJEeuFQNICNCagmQ" technicalid="_ayEF2vXJEeuFQNICNCagmQ" description="content to upload" type="_ayOeD_XJEeuFQNICNCagmQ" name="body">
-            <mediaType xmi:id="_ayN3HPXJEeuFQNICNCagmQ" technicalid="_ayEs4PXJEeuFQNICNCagmQ" identifier="multipart/form-data"/>
-            <restData xmi:id="_ayN3HfXJEeuFQNICNCagmQ" technicalid="_ayEF2_XJEeuFQNICNCagmQ"/>
+          <input xmi:id="_W0sOTP6gEeuek5eXUmOjkg" technicalid="_W0JbdP6gEeuek5eXUmOjkg" description="content to upload" type="_W0uDWP6gEeuek5eXUmOjkg" name="body">
+            <mediaType xmi:id="_W0sOTf6gEeuek5eXUmOjkg" technicalid="_W0KCgP6gEeuek5eXUmOjkg" identifier="multipart/form-data"/>
+            <restData xmi:id="_W0sOTv6gEeuek5eXUmOjkg" technicalid="_W0Jbdf6gEeuek5eXUmOjkg"/>
           </input>
-          <output xmi:id="_ayN3HvXJEeuFQNICNCagmQ" technicalid="_ayEs4fXJEeuFQNICNCagmQ" description="Request accepted" name="output202" statusCode="202" statusMessage="Accepted">
-            <mediaType xmi:id="_ayN3H_XJEeuFQNICNCagmQ" technicalid="_ayEs4vXJEeuFQNICNCagmQ" identifier="appication/json"/>
+          <output xmi:id="_W0sOT_6gEeuek5eXUmOjkg" technicalid="_W0KCgf6gEeuek5eXUmOjkg" description="Request accepted" name="output202" statusCode="202" statusMessage="Accepted">
+            <mediaType xmi:id="_W0sOUP6gEeuek5eXUmOjkg" technicalid="_W0KCgv6gEeuek5eXUmOjkg" identifier="appication/json"/>
           </output>
-          <fault xmi:id="_ayN3IPXJEeuFQNICNCagmQ" technicalid="_ayEs4_XJEeuFQNICNCagmQ" description="Bad Request" name="fault400" statusCode="400" statusMessage="Bad Request">
-            <mediaType xmi:id="_ayN3IfXJEeuFQNICNCagmQ" technicalid="_ayEs5PXJEeuFQNICNCagmQ" identifier="appication/json">
-              <examples xmi:id="_ayN3IvXJEeuFQNICNCagmQ" technicalid="_ayEs5fXJEeuFQNICNCagmQ" value="null" name="Wrong kind of request"/>
-              <examples xmi:id="_ayN3I_XJEeuFQNICNCagmQ" technicalid="_ayEs5vXJEeuFQNICNCagmQ" value="null" name="Connected users"/>
+          <fault xmi:id="_W0s1EP6gEeuek5eXUmOjkg" technicalid="_W0KCg_6gEeuek5eXUmOjkg" description="Bad Request" name="fault400" statusCode="400" statusMessage="Bad Request">
+            <mediaType xmi:id="_W0s1Ef6gEeuek5eXUmOjkg" technicalid="_W0KChP6gEeuek5eXUmOjkg" identifier="appication/json">
+              <examples xmi:id="_W0s1Ev6gEeuek5eXUmOjkg" technicalid="_W0KChf6gEeuek5eXUmOjkg" value="null" name="Wrong kind of request"/>
+              <examples xmi:id="_W0s1E_6gEeuek5eXUmOjkg" technicalid="_W0KpkP6gEeuek5eXUmOjkg" value="null" name="Connected users"/>
             </mediaType>
           </fault>
-          <fault xmi:id="_ayN3JPXJEeuFQNICNCagmQ" technicalid="_ayEs5_XJEeuFQNICNCagmQ" description="Not Found" name="fault404" statusCode="404" statusMessage="Not Found">
-            <mediaType xmi:id="_ayN3JfXJEeuFQNICNCagmQ" technicalid="_ayEs6PXJEeuFQNICNCagmQ" identifier="application/json"/>
+          <fault xmi:id="_W0s1FP6gEeuek5eXUmOjkg" technicalid="_W0Kpkf6gEeuek5eXUmOjkg" description="Not Found" name="fault404" statusCode="404" statusMessage="Not Found">
+            <mediaType xmi:id="_W0s1Ff6gEeuek5eXUmOjkg" technicalid="_W0Kpkv6gEeuek5eXUmOjkg" identifier="application/json"/>
           </fault>
         </ownedOperations>
       </ownedInterface>
     </ownedServices>
-    <ownedServices xmi:id="_ayN3JvXJEeuFQNICNCagmQ" technicalid="_axzAEPXJEeuFQNICNCagmQ" description="null" name="Projects" URI="/projects">
-      <ownedInterface xmi:id="_ayN3J_XJEeuFQNICNCagmQ" technicalid="_ayEs6fXJEeuFQNICNCagmQ" name="Projects">
-        <ownedOperations xmi:id="_ayN3KPXJEeuFQNICNCagmQ" technicalid="_ayEs6vXJEeuFQNICNCagmQ" description="Create an empty shared modeling project.&#xA;&#xA;The repository where you want to create the shared modeling project should be started.&#xA;&#xA;The project post creation lifcycle hook will be called after the project creation.&#xA;For example, the user profile extension lifecycle hook will create roles for users. The name of the created role will have the project name and will authorize a user to create, read, update and delete resources inside the project.&#xA;" name="createSharedProject" public="true" URI="" verb="POST" exposition="REST">
-          <input xmi:id="_ayN3KfXJEeuFQNICNCagmQ" technicalid="_ayEs6_XJEeuFQNICNCagmQ" description="If the repository uses the user profiles to manage its users, the post created project lifecycle hook will create roles that will allow to give write access to users for the project.&#xA;" type="_ayOeLfXJEeuFQNICNCagmQ" name="body" multiplicity="0..1">
-            <mediaType xmi:id="_ayN3KvXJEeuFQNICNCagmQ" technicalid="_ayFT9PXJEeuFQNICNCagmQ" identifier="application/json"/>
-            <restData xmi:id="_ayN3K_XJEeuFQNICNCagmQ" technicalid="_ayFT8PXJEeuFQNICNCagmQ"/>
+    <ownedServices xmi:id="_W0s1Fv6gEeuek5eXUmOjkg" technicalid="_Wzc34P6gEeuek5eXUmOjkg" description="null" name="Projects" URI="/projects">
+      <ownedInterface xmi:id="_W0s1F_6gEeuek5eXUmOjkg" technicalid="_W0Kpk_6gEeuek5eXUmOjkg" name="Projects">
+        <ownedOperations xmi:id="_W0s1GP6gEeuek5eXUmOjkg" technicalid="_W0KplP6gEeuek5eXUmOjkg" description="Create an empty shared modeling project.&#xA;&#xA;The repository where you want to create the shared modeling project should be started.&#xA;&#xA;The project post creation lifcycle hook will be called after the project creation.&#xA;For example, the user profile extension lifecycle hook will create roles for users. The name of the created role will have the project name and will authorize a user to create, read, update and delete resources inside the project.&#xA;" name="createSharedProject" public="true" URI="" verb="POST" exposition="REST">
+          <input xmi:id="_W0s1Gf6gEeuek5eXUmOjkg" technicalid="_W0LQoP6gEeuek5eXUmOjkg" description="If the repository uses the user profiles to manage its users, the post created project lifecycle hook will create roles that will allow to give write access to users for the project.&#xA;" type="_W0uDSP6gEeuek5eXUmOjkg" name="body" multiplicity="0..1">
+            <mediaType xmi:id="_W0s1Gv6gEeuek5eXUmOjkg" technicalid="_W0L3sP6gEeuek5eXUmOjkg" identifier="application/json"/>
+            <restData xmi:id="_W0s1G_6gEeuek5eXUmOjkg" technicalid="_W0LQof6gEeuek5eXUmOjkg"/>
           </input>
-          <output xmi:id="_ayN3LPXJEeuFQNICNCagmQ" technicalid="_ayF7APXJEeuFQNICNCagmQ" description="Ok" type="_ayOeMPXJEeuFQNICNCagmQ" name="output201" multiplicity="0..1" statusCode="201" statusMessage="Created">
-            <mediaType xmi:id="_ayN3LfXJEeuFQNICNCagmQ" technicalid="_ayF7BfXJEeuFQNICNCagmQ" identifier="application/json"/>
+          <output xmi:id="_W0s1HP6gEeuek5eXUmOjkg" technicalid="_W0MewP6gEeuek5eXUmOjkg" description="Ok" type="_W0uDRP6gEeuek5eXUmOjkg" name="output201" multiplicity="0..1" statusCode="201" statusMessage="Created">
+            <mediaType xmi:id="_W0s1Hf6gEeuek5eXUmOjkg" technicalid="_W0Ns4P6gEeuek5eXUmOjkg" identifier="application/json"/>
           </output>
-          <fault xmi:id="_ayN3LvXJEeuFQNICNCagmQ" technicalid="_ayF7BvXJEeuFQNICNCagmQ" description="Not Found" name="fault404" statusCode="404" statusMessage="Not Found">
-            <mediaType xmi:id="_ayN3L_XJEeuFQNICNCagmQ" technicalid="_ayF7B_XJEeuFQNICNCagmQ" identifier="application/json"/>
+          <fault xmi:id="_W0s1Hv6gEeuek5eXUmOjkg" technicalid="_W0Ns4f6gEeuek5eXUmOjkg" description="Not Found" name="fault404" statusCode="404" statusMessage="Not Found">
+            <mediaType xmi:id="_W0s1H_6gEeuek5eXUmOjkg" technicalid="_W0Ns4v6gEeuek5eXUmOjkg" identifier="application/json"/>
           </fault>
         </ownedOperations>
       </ownedInterface>
     </ownedServices>
-    <ownedServices xmi:id="_ayN3MPXJEeuFQNICNCagmQ" technicalid="_axzAEfXJEeuFQNICNCagmQ" description="null" name="Users" URI="/users">
-      <ownedInterface xmi:id="_ayN3MfXJEeuFQNICNCagmQ" technicalid="_ayF7CPXJEeuFQNICNCagmQ" name="Users">
-        <ownedOperations xmi:id="_ayN3MvXJEeuFQNICNCagmQ" technicalid="_ayF7CfXJEeuFQNICNCagmQ" description="List all users the given repository.&#xA;" name="listUsers" public="true" URI="" exposition="REST">
-          <input xmi:id="_ayN3M_XJEeuFQNICNCagmQ" technicalid="_ayGiEPXJEeuFQNICNCagmQ" description="id of a repository" name="repositoryName">
+    <ownedServices xmi:id="_W0s1IP6gEeuek5eXUmOjkg" technicalid="_Wzde8P6gEeuek5eXUmOjkg" description="null" name="Users" URI="/users">
+      <ownedInterface xmi:id="_W0s1If6gEeuek5eXUmOjkg" technicalid="_W0OT8P6gEeuek5eXUmOjkg" name="Users">
+        <ownedOperations xmi:id="_W0s1Iv6gEeuek5eXUmOjkg" technicalid="_W0OT8f6gEeuek5eXUmOjkg" description="List all users the given repository.&#xA;" name="listUsers" public="true" URI="" exposition="REST">
+          <input xmi:id="_W0s1I_6gEeuek5eXUmOjkg" technicalid="_W0OT8v6gEeuek5eXUmOjkg" description="id of a repository" name="repositoryName">
             <type xsi:type="oenv:PrimitiveType" href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5F-EKwKEd2XLNOhkJIazw"/>
-            <restData xmi:id="_ayN3NPXJEeuFQNICNCagmQ" technicalid="_ayGiEfXJEeuFQNICNCagmQ" passingMode="QUERY" restId="repositoryName"/>
+            <restData xmi:id="_W0s1JP6gEeuek5eXUmOjkg" technicalid="_W0OT8_6gEeuek5eXUmOjkg" passingMode="QUERY" restId="repositoryName"/>
           </input>
-          <output xmi:id="_ayN3NfXJEeuFQNICNCagmQ" technicalid="_ayGiEvXJEeuFQNICNCagmQ" description="Ok" type="_ayOeIfXJEeuFQNICNCagmQ" name="output200" multiplicity="0..1" statusCode="200" statusMessage="OK">
-            <mediaType xmi:id="_ayN3NvXJEeuFQNICNCagmQ" technicalid="_ayGiGPXJEeuFQNICNCagmQ" identifier="application/json"/>
+          <output xmi:id="_W0s1Jf6gEeuek5eXUmOjkg" technicalid="_W0OT9P6gEeuek5eXUmOjkg" description="Ok" type="_W0uDTP6gEeuek5eXUmOjkg" name="output200" multiplicity="0..1" statusCode="200" statusMessage="OK">
+            <mediaType xmi:id="_W0s1Jv6gEeuek5eXUmOjkg" technicalid="_W0RXQP6gEeuek5eXUmOjkg" identifier="application/json"/>
           </output>
-          <fault xmi:id="_ayN3N_XJEeuFQNICNCagmQ" technicalid="_ayGiGfXJEeuFQNICNCagmQ" description="Not Found" name="fault400" statusCode="400" statusMessage="Bad Request">
-            <mediaType xmi:id="_ayN3OPXJEeuFQNICNCagmQ" technicalid="_ayHJIPXJEeuFQNICNCagmQ" identifier="application/json"/>
+          <fault xmi:id="_W0s1J_6gEeuek5eXUmOjkg" technicalid="_W0RXQf6gEeuek5eXUmOjkg" description="Not Found" name="fault400" statusCode="400" statusMessage="Bad Request">
+            <mediaType xmi:id="_W0s1KP6gEeuek5eXUmOjkg" technicalid="_W0R-UP6gEeuek5eXUmOjkg" identifier="application/json"/>
           </fault>
         </ownedOperations>
-        <ownedOperations xmi:id="_ayN3OfXJEeuFQNICNCagmQ" technicalid="_ayHJIfXJEeuFQNICNCagmQ" description="Create a user in the repository.&#xA;&#xA;The body of the request take a JSON object with the following parameters: *id*, *isAdministrator*, *password* and *permissions*.&#xA;The *id* and *isAdministrator* are mandatory.&#xA;&#xA;The *password* is required if the repository authentication is not managed with LDAP.&#xA;&#xA;The *permissions* parameter is used for repositories with authorization managed with user profiles. This parameter is an array of project name which will be used to grant writing rights to the user for those projects.&#xA;" name="addUser" public="true" URI="" verb="POST" exposition="REST">
-          <input xmi:id="_ayN3OvXJEeuFQNICNCagmQ" technicalid="_ayHJIvXJEeuFQNICNCagmQ" description="id of a repository" name="repositoryName">
+        <ownedOperations xmi:id="_W0s1Kf6gEeuek5eXUmOjkg" technicalid="_W0R-Uf6gEeuek5eXUmOjkg" description="Create a user in the repository.&#xA;&#xA;The body of the request take a JSON object with the following parameters: *id*, *isAdministrator*, *password* and *permissions*.&#xA;The *id* and *isAdministrator* are mandatory.&#xA;&#xA;The *password* is required if the repository authentication is not managed with LDAP.&#xA;&#xA;The *permissions* parameter is used for repositories with authorization managed with user profiles. This parameter is an array of project name which will be used to grant writing rights to the user for those projects.&#xA;" name="addUser" public="true" URI="" verb="POST" exposition="REST">
+          <input xmi:id="_W0s1Kv6gEeuek5eXUmOjkg" technicalid="_W0R-Uv6gEeuek5eXUmOjkg" description="id of a repository" name="repositoryName">
             <type xsi:type="oenv:PrimitiveType" href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5F-EKwKEd2XLNOhkJIazw"/>
-            <restData xmi:id="_ayN3O_XJEeuFQNICNCagmQ" technicalid="_ayHJI_XJEeuFQNICNCagmQ" passingMode="QUERY" restId="repositoryName"/>
+            <restData xmi:id="_W0s1K_6gEeuek5eXUmOjkg" technicalid="_W0R-U_6gEeuek5eXUmOjkg" passingMode="QUERY" restId="repositoryName"/>
           </input>
-          <input xmi:id="_ayN3PPXJEeuFQNICNCagmQ" technicalid="_ayHJJPXJEeuFQNICNCagmQ" description="User to create." type="_ayOd9fXJEeuFQNICNCagmQ" name="body" multiplicity="0..1">
-            <mediaType xmi:id="_ayN3PfXJEeuFQNICNCagmQ" technicalid="_ayHJJvXJEeuFQNICNCagmQ" identifier="application/json">
-              <examples xmi:id="_ayN3PvXJEeuFQNICNCagmQ" technicalid="_ayHJJ_XJEeuFQNICNCagmQ" value="null" name="Admin"/>
-              <examples xmi:id="_ayN3P_XJEeuFQNICNCagmQ" technicalid="_ayHJKPXJEeuFQNICNCagmQ" description="This example will create the user &quot;John Fryer&quot;. It can be used in USERPROFILE repository. A password is provided as the repository is not a LDAP_USERPROFILE repository. &#xA; &#xA;We do not want &quot;John Fryer&quot; to be an administrator but we want give him the writing rights on the &quot;Awesome-project&quot; project.&#xA;" value="null" name="User with permissions"/>
+          <input xmi:id="_W0s1LP6gEeuek5eXUmOjkg" technicalid="_W0R-VP6gEeuek5eXUmOjkg" description="User to create." type="_W0tcO_6gEeuek5eXUmOjkg" name="body" multiplicity="0..1">
+            <mediaType xmi:id="_W0s1Lf6gEeuek5eXUmOjkg" technicalid="_W0R-Vv6gEeuek5eXUmOjkg" identifier="application/json">
+              <examples xmi:id="_W0s1Lv6gEeuek5eXUmOjkg" technicalid="_W0SlYP6gEeuek5eXUmOjkg" value="null" name="Admin"/>
+              <examples xmi:id="_W0s1L_6gEeuek5eXUmOjkg" technicalid="_W0SlYf6gEeuek5eXUmOjkg" description="This example will create the user &quot;John Fryer&quot;. It can be used in USERPROFILE repository. A password is provided as the repository is not a LDAP_USERPROFILE repository. &#xA; &#xA;We do not want &quot;John Fryer&quot; to be an administrator but we want give him the writing rights on the &quot;Awesome-project&quot; project.&#xA;" value="null" name="User with permissions"/>
             </mediaType>
-            <restData xmi:id="_ayN3QPXJEeuFQNICNCagmQ" technicalid="_ayHJJfXJEeuFQNICNCagmQ"/>
+            <restData xmi:id="_W0s1MP6gEeuek5eXUmOjkg" technicalid="_W0R-Vf6gEeuek5eXUmOjkg"/>
           </input>
-          <output xmi:id="_ayN3QfXJEeuFQNICNCagmQ" technicalid="_ayHJKfXJEeuFQNICNCagmQ" description="Ok" type="_ayOeJvXJEeuFQNICNCagmQ" name="output200" multiplicity="0..1" statusCode="200" statusMessage="OK">
-            <mediaType xmi:id="_ayN3QvXJEeuFQNICNCagmQ" technicalid="_ayHwMPXJEeuFQNICNCagmQ" identifier="application/json">
-              <examples xmi:id="_ayN3Q_XJEeuFQNICNCagmQ" technicalid="_ayHwMfXJEeuFQNICNCagmQ" value="null" name="Admin"/>
-              <examples xmi:id="_ayN3RPXJEeuFQNICNCagmQ" technicalid="_ayHwMvXJEeuFQNICNCagmQ" value="null" name="User with permissions"/>
+          <output xmi:id="_W0s1Mf6gEeuek5eXUmOjkg" technicalid="_W0SlYv6gEeuek5eXUmOjkg" description="Ok" type="_W0uDUf6gEeuek5eXUmOjkg" name="output200" multiplicity="0..1" statusCode="200" statusMessage="OK">
+            <mediaType xmi:id="_W0s1Mv6gEeuek5eXUmOjkg" technicalid="_W0TzgP6gEeuek5eXUmOjkg" identifier="application/json">
+              <examples xmi:id="_W0s1M_6gEeuek5eXUmOjkg" technicalid="_W0Tzgf6gEeuek5eXUmOjkg" value="null" name="Admin"/>
+              <examples xmi:id="_W0s1NP6gEeuek5eXUmOjkg" technicalid="_W0Tzgv6gEeuek5eXUmOjkg" value="null" name="User with permissions"/>
             </mediaType>
           </output>
-          <fault xmi:id="_ayN3RfXJEeuFQNICNCagmQ" technicalid="_ayHwM_XJEeuFQNICNCagmQ" description="Bad Request" name="fault400" statusCode="400" statusMessage="Bad Request">
-            <mediaType xmi:id="_ayN3RvXJEeuFQNICNCagmQ" technicalid="_ayHwNPXJEeuFQNICNCagmQ" identifier="application/json">
-              <examples xmi:id="_ayN3R_XJEeuFQNICNCagmQ" technicalid="_ayHwNfXJEeuFQNICNCagmQ" value="null" name="Respository not found"/>
-              <examples xmi:id="_ayN3SPXJEeuFQNICNCagmQ" technicalid="_ayHwNvXJEeuFQNICNCagmQ" value="null" name="Existing user"/>
+          <fault xmi:id="_W0s1Nf6gEeuek5eXUmOjkg" technicalid="_W0UakP6gEeuek5eXUmOjkg" description="Bad Request" name="fault400" statusCode="400" statusMessage="Bad Request">
+            <mediaType xmi:id="_W0s1Nv6gEeuek5eXUmOjkg" technicalid="_W0Uakf6gEeuek5eXUmOjkg" identifier="application/json">
+              <examples xmi:id="_W0s1N_6gEeuek5eXUmOjkg" technicalid="_W0Uakv6gEeuek5eXUmOjkg" value="null" name="Respository not found"/>
+              <examples xmi:id="_W0s1OP6gEeuek5eXUmOjkg" technicalid="_W0Uak_6gEeuek5eXUmOjkg" value="null" name="Existing user"/>
             </mediaType>
           </fault>
         </ownedOperations>
-        <ownedOperations xmi:id="_ayN3SfXJEeuFQNICNCagmQ" technicalid="_ayHwN_XJEeuFQNICNCagmQ" description="Update user data.&#xA;&#xA;The behavior of this service is to delete and recreate the user with the new data.&#xA;&#xA;The body of the request takes the same data than the creation request.&#xA;" name="updateUser" public="true" URI="/{userName}" verb="PUT" exposition="REST">
-          <input xmi:id="_ayN3SvXJEeuFQNICNCagmQ" technicalid="_ayHwOPXJEeuFQNICNCagmQ" description="id of a user" name="userName">
+        <ownedOperations xmi:id="_W0s1Of6gEeuek5eXUmOjkg" technicalid="_W0UalP6gEeuek5eXUmOjkg" description="Update user data.&#xA;&#xA;The behavior of this service is to delete and recreate the user with the new data.&#xA;&#xA;The body of the request takes the same data than the creation request.&#xA;" name="updateUser" public="true" URI="/{userName}" verb="PUT" exposition="REST">
+          <input xmi:id="_W0s1Ov6gEeuek5eXUmOjkg" technicalid="_W0Ualf6gEeuek5eXUmOjkg" description="id of a user" name="userName">
             <type xsi:type="oenv:PrimitiveType" href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5F-EKwKEd2XLNOhkJIazw"/>
-            <restData xmi:id="_ayN3S_XJEeuFQNICNCagmQ" technicalid="_ayHwOfXJEeuFQNICNCagmQ" passingMode="PATH" restId="userName"/>
+            <restData xmi:id="_W0s1O_6gEeuek5eXUmOjkg" technicalid="_W0Ualv6gEeuek5eXUmOjkg" passingMode="PATH" restId="userName"/>
           </input>
-          <input xmi:id="_ayN3TPXJEeuFQNICNCagmQ" technicalid="_ayHwOvXJEeuFQNICNCagmQ" description="id of a repository" name="repositoryName">
+          <input xmi:id="_W0s1PP6gEeuek5eXUmOjkg" technicalid="_W0VBoP6gEeuek5eXUmOjkg" description="id of a repository" name="repositoryName">
             <type xsi:type="oenv:PrimitiveType" href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5F-EKwKEd2XLNOhkJIazw"/>
-            <restData xmi:id="_ayN3TfXJEeuFQNICNCagmQ" technicalid="_ayHwO_XJEeuFQNICNCagmQ" passingMode="QUERY" restId="repositoryName"/>
+            <restData xmi:id="_W0s1Pf6gEeuek5eXUmOjkg" technicalid="_W0VBof6gEeuek5eXUmOjkg" passingMode="QUERY" restId="repositoryName"/>
           </input>
-          <input xmi:id="_ayN3TvXJEeuFQNICNCagmQ" technicalid="_ayHwPPXJEeuFQNICNCagmQ" description="New user data." type="_ayOd9fXJEeuFQNICNCagmQ" name="body" multiplicity="0..1">
-            <mediaType xmi:id="_ayN3T_XJEeuFQNICNCagmQ" technicalid="_ayHwPvXJEeuFQNICNCagmQ" identifier="application/json"/>
-            <restData xmi:id="_ayN3UPXJEeuFQNICNCagmQ" technicalid="_ayHwPfXJEeuFQNICNCagmQ"/>
+          <input xmi:id="_W0s1Pv6gEeuek5eXUmOjkg" technicalid="_W0VBov6gEeuek5eXUmOjkg" description="New user data." type="_W0tcO_6gEeuek5eXUmOjkg" name="body" multiplicity="0..1">
+            <mediaType xmi:id="_W0s1P_6gEeuek5eXUmOjkg" technicalid="_W0VBpP6gEeuek5eXUmOjkg" identifier="application/json"/>
+            <restData xmi:id="_W0s1QP6gEeuek5eXUmOjkg" technicalid="_W0VBo_6gEeuek5eXUmOjkg"/>
           </input>
-          <output xmi:id="_ayN3UfXJEeuFQNICNCagmQ" technicalid="_ayHwP_XJEeuFQNICNCagmQ" description="Ok" type="_ayOeJvXJEeuFQNICNCagmQ" name="output200" multiplicity="0..1" statusCode="200" statusMessage="OK">
-            <mediaType xmi:id="_ayN3UvXJEeuFQNICNCagmQ" technicalid="_ayIXQfXJEeuFQNICNCagmQ" identifier="application/json"/>
+          <output xmi:id="_W0s1Qf6gEeuek5eXUmOjkg" technicalid="_W0VBpf6gEeuek5eXUmOjkg" description="Ok" type="_W0uDUf6gEeuek5eXUmOjkg" name="output200" multiplicity="0..1" statusCode="200" statusMessage="OK">
+            <mediaType xmi:id="_W0s1Qv6gEeuek5eXUmOjkg" technicalid="_W0WPwP6gEeuek5eXUmOjkg" identifier="application/json"/>
           </output>
-          <fault xmi:id="_ayN3U_XJEeuFQNICNCagmQ" technicalid="_ayIXQvXJEeuFQNICNCagmQ" description="Bad Request" name="fault400" statusCode="400" statusMessage="Bad Request">
-            <mediaType xmi:id="_ayN3VPXJEeuFQNICNCagmQ" technicalid="_ayIXQ_XJEeuFQNICNCagmQ" identifier="application/json">
-              <examples xmi:id="_ayN3VfXJEeuFQNICNCagmQ" technicalid="_ayIXRPXJEeuFQNICNCagmQ" value="null" name="Respository not found"/>
-              <examples xmi:id="_ayN3VvXJEeuFQNICNCagmQ" technicalid="_ayIXRfXJEeuFQNICNCagmQ" value="null" name="Different user name in data"/>
+          <fault xmi:id="_W0s1Q_6gEeuek5eXUmOjkg" technicalid="_W0WPwf6gEeuek5eXUmOjkg" description="Bad Request" name="fault400" statusCode="400" statusMessage="Bad Request">
+            <mediaType xmi:id="_W0s1RP6gEeuek5eXUmOjkg" technicalid="_W0WPwv6gEeuek5eXUmOjkg" identifier="application/json">
+              <examples xmi:id="_W0s1Rf6gEeuek5eXUmOjkg" technicalid="_W0WPw_6gEeuek5eXUmOjkg" value="null" name="Respository not found"/>
+              <examples xmi:id="_W0s1Rv6gEeuek5eXUmOjkg" technicalid="_W0W20P6gEeuek5eXUmOjkg" value="null" name="Different user name in data"/>
             </mediaType>
           </fault>
-          <fault xmi:id="_ayN3V_XJEeuFQNICNCagmQ" technicalid="_ayIXRvXJEeuFQNICNCagmQ" description="Not Found" name="fault404" statusCode="404" statusMessage="Not Found">
-            <mediaType xmi:id="_ayN3WPXJEeuFQNICNCagmQ" technicalid="_ayIXR_XJEeuFQNICNCagmQ" identifier="application/json"/>
+          <fault xmi:id="_W0s1R_6gEeuek5eXUmOjkg" technicalid="_W0W20f6gEeuek5eXUmOjkg" description="Not Found" name="fault404" statusCode="404" statusMessage="Not Found">
+            <mediaType xmi:id="_W0s1SP6gEeuek5eXUmOjkg" technicalid="_W0W20v6gEeuek5eXUmOjkg" identifier="application/json"/>
           </fault>
         </ownedOperations>
-        <ownedOperations xmi:id="_ayN3WfXJEeuFQNICNCagmQ" technicalid="_ayIXSPXJEeuFQNICNCagmQ" description="Deletes the user from the repository.&#xA;" name="delteUser" public="true" URI="/{userName}" verb="DELETE" exposition="REST">
-          <input xmi:id="_ayN3WvXJEeuFQNICNCagmQ" technicalid="_ayI-UPXJEeuFQNICNCagmQ" description="id of a user" name="userName">
+        <ownedOperations xmi:id="_W0s1Sf6gEeuek5eXUmOjkg" technicalid="_W0W20_6gEeuek5eXUmOjkg" description="Deletes the user from the repository.&#xA;" name="delteUser" public="true" URI="/{userName}" verb="DELETE" exposition="REST">
+          <input xmi:id="_W0s1Sv6gEeuek5eXUmOjkg" technicalid="_W0W21P6gEeuek5eXUmOjkg" description="id of a user" name="userName">
             <type xsi:type="oenv:PrimitiveType" href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5F-EKwKEd2XLNOhkJIazw"/>
-            <restData xmi:id="_ayN3W_XJEeuFQNICNCagmQ" technicalid="_ayI-UfXJEeuFQNICNCagmQ" passingMode="PATH" restId="userName"/>
+            <restData xmi:id="_W0s1S_6gEeuek5eXUmOjkg" technicalid="_W0W21f6gEeuek5eXUmOjkg" passingMode="PATH" restId="userName"/>
           </input>
-          <input xmi:id="_ayN3XPXJEeuFQNICNCagmQ" technicalid="_ayI-UvXJEeuFQNICNCagmQ" description="id of a repository" name="repositoryName">
+          <input xmi:id="_W0s1TP6gEeuek5eXUmOjkg" technicalid="_W0W21v6gEeuek5eXUmOjkg" description="id of a repository" name="repositoryName">
             <type xsi:type="oenv:PrimitiveType" href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5F-EKwKEd2XLNOhkJIazw"/>
-            <restData xmi:id="_ayN3XfXJEeuFQNICNCagmQ" technicalid="_ayI-U_XJEeuFQNICNCagmQ" passingMode="QUERY" restId="repositoryName"/>
+            <restData xmi:id="_W0s1Tf6gEeuek5eXUmOjkg" technicalid="_W0W21_6gEeuek5eXUmOjkg" passingMode="QUERY" restId="repositoryName"/>
           </input>
-          <output xmi:id="_ayN3XvXJEeuFQNICNCagmQ" technicalid="_ayI-VPXJEeuFQNICNCagmQ" description="Ok" type="_ayOeCvXJEeuFQNICNCagmQ" name="output200" multiplicity="0..1" statusCode="200" statusMessage="OK">
-            <mediaType xmi:id="_ayN3X_XJEeuFQNICNCagmQ" technicalid="_ayI-WfXJEeuFQNICNCagmQ" identifier="application/json"/>
+          <output xmi:id="_W0s1Tv6gEeuek5eXUmOjkg" technicalid="_W0Xd4P6gEeuek5eXUmOjkg" description="Ok" type="_W0uDP_6gEeuek5eXUmOjkg" name="output200" multiplicity="0..1" statusCode="200" statusMessage="OK">
+            <mediaType xmi:id="_W0s1T_6gEeuek5eXUmOjkg" technicalid="_W0ZTEP6gEeuek5eXUmOjkg" identifier="application/json"/>
           </output>
-          <fault xmi:id="_ayN3YPXJEeuFQNICNCagmQ" technicalid="_ayI-WvXJEeuFQNICNCagmQ" description="Not Found" name="fault404" statusCode="404" statusMessage="Not Found">
-            <mediaType xmi:id="_ayN3YfXJEeuFQNICNCagmQ" technicalid="_ayI-W_XJEeuFQNICNCagmQ" identifier="application/json"/>
+          <fault xmi:id="_W0s1UP6gEeuek5eXUmOjkg" technicalid="_W0ZTEf6gEeuek5eXUmOjkg" description="Bad Request" name="fault400" statusCode="400" statusMessage="Bad Request">
+            <mediaType xmi:id="_W0s1Uf6gEeuek5eXUmOjkg" technicalid="_W0ZTEv6gEeuek5eXUmOjkg" identifier="application/json"/>
           </fault>
-          <fault xmi:id="_ayN3YvXJEeuFQNICNCagmQ" technicalid="_ayI-XPXJEeuFQNICNCagmQ" description="Bad Request" name="fault400" statusCode="400" statusMessage="Bad Request">
-            <mediaType xmi:id="_ayN3Y_XJEeuFQNICNCagmQ" technicalid="_ayI-XfXJEeuFQNICNCagmQ" identifier="application/json"/>
+          <fault xmi:id="_W0s1Uv6gEeuek5eXUmOjkg" technicalid="_W0ZTE_6gEeuek5eXUmOjkg" description="Not Found" name="fault404" statusCode="404" statusMessage="Not Found">
+            <mediaType xmi:id="_W0s1U_6gEeuek5eXUmOjkg" technicalid="_W0Z6IP6gEeuek5eXUmOjkg" identifier="application/json"/>
           </fault>
         </ownedOperations>
       </ownedInterface>
     </ownedServices>
-    <securitySchemes xmi:id="_ayN3ZPXJEeuFQNICNCagmQ" technicalid="_axh6UPXJEeuFQNICNCagmQ" key="basicAuth" type="http" name="basicAuth"/>
-    <license xmi:id="_ayN3ZfXJEeuFQNICNCagmQ" technicalid="_axeP8PXJEeuFQNICNCagmQ" name="Copyright (c) 2008, 2021 Obeo." URL="/doc/license.html"/>
-    <information xmi:id="_ayN3ZvXJEeuFQNICNCagmQ" technicalid="_axdo4PXJEeuFQNICNCagmQ" apiVersion="1.0.0"/>
-    <contact xmi:id="_ayN3Z_XJEeuFQNICNCagmQ" technicalid="_axeP8fXJEeuFQNICNCagmQ" email="support@obeo.fr"/>
+    <securitySchemes xmi:id="_W0tcIP6gEeuek5eXUmOjkg" technicalid="_Wy0lwP6gEeuek5eXUmOjkg" key="basicAuth" type="http" name="basicAuth"/>
+    <license xmi:id="_W0tcIf6gEeuek5eXUmOjkg" technicalid="_WyvtQP6gEeuek5eXUmOjkg" name="Copyright (c) 2008, 2021 Obeo." URL="/doc/license.html"/>
+    <information xmi:id="_W0tcIv6gEeuek5eXUmOjkg" technicalid="_WyufIP6gEeuek5eXUmOjkg" apiVersion="1.0.0"/>
+    <contact xmi:id="_W0tcI_6gEeuek5eXUmOjkg" technicalid="_WywUUP6gEeuek5eXUmOjkg" email="support@obeo.fr"/>
+    <servers xmi:id="_W0tcJP6gEeuek5eXUmOjkg" technicalid="_WyywkP6gEeuek5eXUmOjkg" description="Production server (use live data)" URL="/api/v1.0"/>
+    <servers xmi:id="_W0tcJf6gEeuek5eXUmOjkg" technicalid="_WyzXoP6gEeuek5eXUmOjkg" description="Server on the current host" URL="{protocol}://localhost:8080/api/v1.0"/>
   </ownedComponents>
 </soa:System>

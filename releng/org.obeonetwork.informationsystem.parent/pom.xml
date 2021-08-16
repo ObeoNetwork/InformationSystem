@@ -1,4 +1,3 @@
-<?xml version="1.0" encoding="UTF-8"?>
 <!-- Copyright (c) 2008, 2021 Obeo. All rights reserved. This program and 
 	the accompanying materials are made available under the terms of the Eclipse 
 	Public License v1.0 which accompanies this distribution, and is available 
@@ -264,6 +263,7 @@
 		<!-- reversers/database/ -->
 		<module>../../reversers/database/features/org.obeonetwork.dsl.database.reverse.feature</module>
 		<module>../../reversers/database/plugins/org.obeonetwork.dsl.database.reverse</module>
+		<module>../../reversers/database/plugins/org.obeonetwork.dsl.database.drivers</module>
 
 		<!-- reversers/database-synchroniser/ -->
 		<module>../../reversers/database-synchroniser/features/org.obeonetwork.dsl.database.synchronizer</module>

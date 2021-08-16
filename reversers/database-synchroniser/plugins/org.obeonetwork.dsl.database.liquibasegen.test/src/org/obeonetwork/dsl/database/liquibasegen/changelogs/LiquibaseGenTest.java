@@ -8,7 +8,7 @@
  * Contributors:
  *     Obeo - initial API and implementation
  *******************************************************************************/
-package org.obeonetwork.dsl.database.liquibasegen;
+package org.obeonetwork.dsl.database.liquibasegen.changelogs;
 
 import org.junit.Test;
 

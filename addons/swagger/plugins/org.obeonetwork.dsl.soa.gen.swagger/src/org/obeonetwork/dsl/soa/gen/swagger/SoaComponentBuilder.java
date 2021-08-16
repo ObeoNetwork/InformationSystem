@@ -222,18 +222,9 @@ public class SoaComponentBuilder {
 
 		List<Server> servers = openApi.getServers();
 		if (servers != null && !servers.isEmpty()) {
-			Server server = servers.get(0);
-			// TODO Refactor to handle server part SAFRAN-940
-			/*
-			 * SAFRAN-940 soaComponent.setURL(server.getUrl());
-			 */
-
-			if (servers.size() > 1) {
-				logWarning(String.format("Multiple servers not supported. Found URLs : %s.",
-						servers.stream().map(s -> s.getUrl()).collect(joining(", "))));
-			}
-
-			extractPropertiesExtensions(server, soaComponent);
+			for (Server server : servers) {
+				soaComponent.getServers().add(createSoaServer(server));
+			}			
 		}
 
 		inlineTypes = new HashMap<>();
@@ -249,6 +240,14 @@ public class SoaComponentBuilder {
 		processInlineTypes();
 
 		return soaComponent;
+	}
+	
+	private org.obeonetwork.dsl.soa.Server createSoaServer(Server server) {
+		org.obeonetwork.dsl.soa.Server soaServer = SoaFactory.eINSTANCE.createServer();
+		soaServer.setURL(server.getUrl());
+		soaServer.setDescription(server.getDescription());
+		extractPropertiesExtensions(server, soaServer);
+		return soaServer;
 	}
 
 	private void buildSoaSecuritySchemes() {
@@ -824,6 +823,15 @@ public class SoaComponentBuilder {
 			}
 		}
 
+		PathItem swgPathItem = getPathItemFromPath(path);
+		extractPropertiesExtensions(swgPathItem, soaOperation);
+		
+		// Servers
+		if (swgPathItem.getServers() != null) {
+			for (Server swgServer : swgPathItem.getServers()) {
+				soaOperation.getServers().add(createSoaServer(swgServer));
+			}
+		}
 		
 		extractPropertiesExtensions(getPathItemFromPath(path), soaOperation);
 

@@ -369,79 +369,71 @@ public class SwaggerBuilder {
 	 * 
 	 * @return a new {@link License}
 	 */
-	private License createLicense() {
-		License license = new License();
-
-		if (soaComponent.getLicense() != null) {
-			org.obeonetwork.dsl.soa.License soaLicense = soaComponent.getLicense();
-
-			if (StringUtils.isNullOrWhite(soaLicense.getName())) {
-				license.setName("Apache 2.0");
-			} else {
-				license.setName(soaLicense.getName());
-			}
-
-			if (StringUtils.isNullOrWhite(soaLicense.getURL())) {
-				license.setUrl("http://www.apache.org/licenses/LICENSE-2.0.html");
-			} else {
-				license.setUrl(soaLicense.getURL());
-			}
-
-			addPropertiesExtensionsFromSoaToSwg(soaComponent.getLicense(), license);
-		}
-
-		return license;
+    private License createLicense() {
+    	License license = new License();
+    	
+    	if (soaComponent.getLicense() != null) {
+    		org.obeonetwork.dsl.soa.License soaLicense = soaComponent.getLicense();
+    		
+    		if (StringUtils.isNullOrWhite(soaLicense.getName())) {
+        		license.setName("Apache 2.0");	
+        	} else {
+        		license.setName(soaLicense.getName());
+        	}
+        	
+        	if (StringUtils.isNullOrWhite(soaLicense.getURL())) {
+        		license.setUrl("http://www.apache.org/licenses/LICENSE-2.0.html");	
+        	} else {
+        		license.setUrl(soaLicense.getURL());
+        	}
+        	
+        	addPropertiesExtensionsFromSoaToSwg(soaComponent.getLicense(), license);
+    	}
+    	
+        return license;
 	}
-
-	/**
-	 * Creates a new {@link Contact} that matches the
-	 * {@link org.obeonetwork.dsl.soa.Contact} of Soa {@link Information}.
-	 * 
-	 * @return a new {@link Contact}
-	 */
-	private Contact createContact() {
-		Contact contact = new Contact();
-		if (soaComponent.getContact() != null) {
-			org.obeonetwork.dsl.soa.Contact soaContact = soaComponent.getContact();
-
-			if (soaContact.getEmail() != null)
-				contact.setEmail(soaContact.getEmail());
-
-			if (soaContact.getName() != null)
-				contact.setName(soaContact.getName());
-
-			if (soaContact.getURL() != null)
-				contact.setUrl(soaContact.getURL());
-
-			addPropertiesExtensionsFromSoaToSwg(soaComponent.getContact(), contact);
-		}
-
-		return contact;
-	}
-
-	private List<Server> createServers() {
-		if (falseForFutureEvolution()) {
-			// Handle multiple servers
-		}
-		List<Server> servers = new ArrayList<>();
-		Server defaultServer = createDefaultServer();
-		if (defaultServer != null) {
-			servers.add(defaultServer);
-		}
-		return servers;
-	}
-
-	private Server createDefaultServer() {
-		Server server = null;
-
-		// TODO Refactor to handle server part SAFRAN-940
-		/*
-		 * SAFRAN-940 if(!isNullOrWhite(soaComponent.getURL())) { server = new Server();
-		 * server.setUrl(soaComponent.getURL().trim()); }
-		 */
-		addPropertiesExtensionsFromSoaToSwg(soaComponent, server);
-
-		return server;
+    
+    /**
+     * Creates a new {@link Contact} that matches the {@link org.obeonetwork.dsl.soa.Contact} of Soa {@link Information}.
+     * @return a new {@link Contact}
+     */
+    private Contact createContact() {
+    	Contact contact = new Contact();
+    	if (soaComponent.getContact() != null) {
+    		org.obeonetwork.dsl.soa.Contact soaContact = soaComponent.getContact();
+    		
+    		if (soaContact.getEmail() != null)
+    			contact.setEmail(soaContact.getEmail());
+    		
+    		if (soaContact.getName() != null)
+    			contact.setName(soaContact.getName());
+    		
+    		if (soaContact.getURL() != null) 
+    			contact.setUrl(soaContact.getURL());
+    		
+    		addPropertiesExtensionsFromSoaToSwg(soaComponent.getContact(), contact);
+    	}
+    	
+    	return contact;
+    }
+    
+    private List<Server> createServers() {
+    	if(falseForFutureEvolution()) {
+        	// Handle multiple servers
+    	}
+    	
+    	List<Server> servers = new ArrayList<>();
+    	soaComponent.getServers().stream().forEach(soaServer -> {
+    		Server server = new Server();
+        	server.setUrl(soaServer.getURL().trim());
+        	server.setDescription(soaServer.getDescription());
+        	
+        	servers.add(server);
+        	
+        	addPropertiesExtensionsFromSoaToSwg(soaServer, server);
+    	});
+    	
+    	return servers;
 	}
 
 	//// Schemas ////
@@ -770,6 +762,15 @@ public class SwaggerBuilder {
 		default:
 			break;
 		}
+		
+		// Add servers
+		soaOperation.getServers().stream().forEach(soaServer -> {
+			Server server = new Server();
+			server.setUrl(soaServer.getURL());
+			server.setDescription(soaServer.getDescription());
+			addPropertiesExtensionsFromSoaToSwg(soaServer, server);
+			pathItem.addServersItem(server);
+		});
 	}
 
 	private String getSoaOperationUri(org.obeonetwork.dsl.soa.Operation soaOperation) {
