@@ -324,6 +324,18 @@ public class SOAService {
 		new NewSecuritySchemeDialog(shell, scheme).edit();
 	}
 	
+	public boolean isSecuritySchemeDialog(SecurityScheme scheme) {
+		Display display = Display.getCurrent();
+		Shell shell = display.getActiveShell();
+		return shell.getText().equals("Security scheme edition");
+	}
+	
+	public void closeSecuritySchemeDialog(SecurityScheme scheme) {
+		Display display = Display.getCurrent();
+		Shell shell = display.getActiveShell();
+		shell.dispose();
+	}
+	
 	public void setSecuritySchemeType(SecurityScheme scheme, SecuritySchemeType type) {
 		scheme.setType(type);
 		Display display = Display.getCurrent();

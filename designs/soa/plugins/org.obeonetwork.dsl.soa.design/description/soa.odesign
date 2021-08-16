@@ -1147,16 +1147,16 @@
       <pages name="Service Exposition Page" labelExpression="Exposition" domainClass="soa::Service" semanticCandidateExpression="var:self" groups="//@extensions.0/@categories.1/@groups.5 //@extensions.0/@categories.1/@groups.8"/>
       <pages name="Operation Exposition Page" labelExpression="Exposition" domainClass="soa::Operation" semanticCandidateExpression="var:self" preconditionExpression="aql:self.eContainer(soa::Service).kind=soa::InterfaceKind::provided and self.exposition&lt;>soa::ExpositionKind::NONE" groups="//@extensions.0/@categories.1/@groups.6 //@extensions.0/@categories.1/@groups.8 //@extensions.0/@categories.1/@groups.9 //@extensions.0/@categories.1/@groups.11"/>
       <pages name="Parameter Exposition Page" labelExpression="Exposition" domainClass="soa::Parameter" semanticCandidateExpression="var:self" preconditionExpression="aql:self.eContainer(soa::Service).kind=soa::InterfaceKind::provided and self.exposition&lt;>soa::ExpositionKind::NONE" groups="//@extensions.0/@categories.1/@groups.7 //@extensions.0/@categories.1/@groups.8 //@extensions.0/@categories.1/@groups.17"/>
-      <pages name="Security Scheme Page" labelExpression="Security Scheme" domainClass="soa::SecurityScheme" semanticCandidateExpression="var:self" groups="//@extensions.0/@categories.1/@groups.10"/>
-      <pages name="Component Security Schemes Page" labelExpression="Security Schemes" domainClass="soa::Component" semanticCandidateExpression="var:self" groups="//@extensions.0/@categories.1/@groups.13"/>
+      <pages name="Security Scheme Page" labelExpression="Security Scheme" domainClass="soa::SecurityScheme" semanticCandidateExpression="var:self" groups="//@extensions.0/@categories.1/@groups.10 //@extensions.0/@categories.1/@groups.14 //@extensions.0/@categories.1/@groups.13 //@extensions.0/@categories.1/@groups.12 //@extensions.0/@categories.1/@groups.11"/>
+      <pages name="Component Security Schemes Page" labelExpression="Security Schemes" domainClass="soa::Component" semanticCandidateExpression="var:self" groups="//@extensions.0/@categories.1/@groups.19"/>
       <pages name="MediaType Page" labelExpression="Media type" domainClass="soa::MediaType" semanticCandidateExpression="var:self" groups="//@extensions.0/@categories.1/@groups.18"/>
       <pages name="Example Page" labelExpression="Example" domainClass="soa::Example" semanticCandidateExpression="var:self" groups="//@extensions.0/@categories.1/@groups.19"/>
       <pages name="Information Page" labelExpression="Information" domainClass="soa::Information" semanticCandidateExpression="var:self" groups="//@extensions.0/@categories.1/@groups.20"/>
       <pages name="Contact Page" labelExpression="Contact" domainClass="soa::Contact" semanticCandidateExpression="var:self" groups="//@extensions.0/@categories.1/@groups.21"/>
       <pages name="License Page" labelExpression="License" domainClass="soa::License" semanticCandidateExpression="var:self" groups="//@extensions.0/@categories.1/@groups.22"/>
       <pages name="Server Page" labelExpression="Server" domainClass="soa::Server" semanticCandidateExpression="var:self" groups="//@extensions.0/@categories.1/@groups.25"/>
-      <pages name="Properties Extension Page" labelExpression="Properties Extension" domainClass="soa::PropertiesExtension" semanticCandidateExpression="var:self" groups="//@extensions.0/@categories.1/@groups.23"/>
-      <pages name="Properties Extension List Page" labelExpression="Properties Extension" domainClass="environment::ObeoDSMObject" semanticCandidateExpression="var:self" preconditionExpression="aql:self.isPropertiesExtensionPossible()" groups="//@extensions.0/@categories.1/@groups.24"/>
+      <pages name="Properties Extension Page" labelExpression="Properties Extension" domainClass="soa::PropertiesExtension" semanticCandidateExpression="var:self" groups="//@extensions.0/@categories.1/@groups.29"/>
+      <pages name="Properties Extension List Page" labelExpression="Properties Extension" domainClass="environment::ObeoDSMObject" semanticCandidateExpression="var:self" preconditionExpression="aql:self.isPropertiesExtensionPossible()" groups="//@extensions.0/@categories.1/@groups.30"/>
       <pages name="Flow Page" labelExpression="Flow" domainClass="soa::Flow" semanticCandidateExpression="var:self" groups="//@extensions.0/@categories.1/@groups.15"/>
       <pages name="Scope page" labelExpression="Scope" domainClass="soa::Scope" semanticCandidateExpression="var:self" groups="//@extensions.0/@categories.1/@groups.16"/>
       <groups name="Operation Group" labelExpression="Properties" domainClass="soa::Operation" semanticCandidateExpression="var:self">
@@ -1469,15 +1469,19 @@
       <groups name="SecurityScheme Group" labelExpression="Properties" domainClass="soa::SecurityScheme" semanticCandidateExpression="var:self">
         <controls xsi:type="properties:SelectDescription" name="soa::SecurityScheme type" labelExpression="aql:input.emfEditServices(self).getText(self.eClass().getEStructuralFeature('type')) + ':'" helpExpression="aql:input.emfEditServices(self).getDescription(self.eClass().getEStructuralFeature('type'))" isEnabledExpression="aql:self.eClass().getEStructuralFeature('type').changeable" valueExpression="aql:self.eClass().getEStructuralFeature('type').eType.getEEnumLiteralByLiteral(self.type.toString())" candidatesExpression="aql:self.eClass().getEStructuralFeature('type').eType.eLiterals" candidateDisplayExpression="aql:candidate.name">
           <initialOperation>
-            <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="aql:self.setSecuritySchemeType(newValue.instance)">
-              <subModelOperations xsi:type="properties:DialogModelOperation" titleExpression="Security scheme edition">
-                <buttons labelExpression="Cancel" closeDialogOnClick="true" rollbackChangesOnClose="true">
-                  <initialOperation/>
-                </buttons>
-                <buttons labelExpression="OK" default="true" closeDialogOnClick="true">
-                  <initialOperation/>
-                </buttons>
-                <page name="Default Page" labelExpression="Security scheme edition" semanticCandidateExpression="var:self" extends="//@extensions.0/@categories.1/@pages.9"/>
+            <firstModelOperations xsi:type="tool_1:SetValue" featureName="type" valueExpression="aql:newValue.instance">
+              <subModelOperations xsi:type="tool_1:If" conditionExpression="aql:self.isSecuritySchemeDialog()">
+                <subModelOperations xsi:type="tool_1:ChangeContext" browseExpression="aql:self.closeSecuritySchemeDialog()">
+                  <subModelOperations xsi:type="properties:DialogModelOperation" titleExpression="Security scheme edition">
+                    <buttons labelExpression="Cancel" closeDialogOnClick="true" rollbackChangesOnClose="true">
+                      <initialOperation/>
+                    </buttons>
+                    <buttons labelExpression="OK" default="true" closeDialogOnClick="true">
+                      <initialOperation/>
+                    </buttons>
+                    <page name="Default Page" labelExpression="Security scheme edition" semanticCandidateExpression="var:self" extends="//@extensions.0/@categories.1/@pages.9"/>
+                  </subModelOperations>
+                </subModelOperations>
               </subModelOperations>
             </firstModelOperations>
           </initialOperation>
