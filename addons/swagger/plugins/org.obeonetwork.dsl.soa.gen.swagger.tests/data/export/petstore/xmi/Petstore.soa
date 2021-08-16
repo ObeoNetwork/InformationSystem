@@ -123,7 +123,7 @@
       <types xsi:type="oenv:DTO" xmi:id="_2GUT5GxtEeuYi_YuNNGyqg" technicalid="_2GQCW2xtEeuYi_YuNNGyqg" name="GetInventoryOutput200"/>
     </ownedNamespaces>
   </ownedNamespaces>
-  <ownedComponents xmi:id="_2GTsoWxtEeuYi_YuNNGyqg" technicalid="_2GJUkGxtEeuYi_YuNNGyqg" description="This is a sample Pet Store Server based on the OpenAPI 3.0 specification.  You can find out more about&#xA;Swagger at [http://swagger.io](http://swagger.io). In the third iteration of the pet store, we've switched to the design first approach!&#xA;You can now help us improve the API whether it's by making changes to the definition itself or to the code.&#xA;That way, with time, we can improve the API in general, and expose some of the new features in OAS3.&#xA;&#xA;Some useful links:&#xA;- [The Pet Store repository](https://github.com/swagger-api/swagger-petstore)&#xA;- [The source API definition for the Pet Store](https://github.com/swagger-api/swagger-petstore/blob/master/src/main/resources/openapi.yaml) " name="Swagger Petstore - OpenAPI 3.0" URI="" URL="/v3" apiVersion="1.0.5-SNAPSHOT">
+  <ownedComponents xmi:id="_2GTsoWxtEeuYi_YuNNGyqg" technicalid="_2GJUkGxtEeuYi_YuNNGyqg" description="This is a sample Pet Store Server based on the OpenAPI 3.0 specification.  You can find out more about&#xA;Swagger at [http://swagger.io](http://swagger.io). In the third iteration of the pet store, we've switched to the design first approach!&#xA;You can now help us improve the API whether it's by making changes to the definition itself or to the code.&#xA;That way, with time, we can improve the API in general, and expose some of the new features in OAS3.&#xA;&#xA;Some useful links:&#xA;- [The Pet Store repository](https://github.com/swagger-api/swagger-petstore)&#xA;- [The source API definition for the Pet Store](https://github.com/swagger-api/swagger-petstore/blob/master/src/main/resources/openapi.yaml) " name="Swagger Petstore - OpenAPI 3.0" URI="" apiVersion="1.0.5-SNAPSHOT" URL="/v3">
     <ownedServices xmi:id="_2GTsomxtEeuYi_YuNNGyqg" technicalid="_2GLw0GxtEeuYi_YuNNGyqg" description="Access to Petstore orders" name="User" URI="/user">
       <ownedInterface xmi:id="_2GTso2xtEeuYi_YuNNGyqg" technicalid="_2GRQZ2xtEeuYi_YuNNGyqg" name="User">
         <ownedOperations xmi:id="_2GTspGxtEeuYi_YuNNGyqg" technicalid="_2GRQaGxtEeuYi_YuNNGyqg" description="This can only be done by the logged in user." name="createUser" public="true" URI="" verb="POST" exposition="REST">
@@ -141,7 +141,7 @@
             </mediaType>
           </output>
         </ownedOperations>
-        <ownedOperations xmi:id="_2GTsqGxtEeuYi_YuNNGyqg" technicalid="_2GR3cGxtEeuYi_YuNNGyqg" description="Creates list of users with given input array" name="createUsersWithListInput" public="true" URI="/createWithList" verb="POST" exposition="REST">
+        <ownedOperations xmi:id="_2GTsqGxtEeuYi_YuNNGyqg" technicalid="_2GR3cGxtEeuYi_YuNNGyqg" description="Creates list of users with given input array" createdOn="2021-08-13T09:56:50.149+0200" modifiedOn="2021-08-13T09:56:52.435+0200" name="createUsersWithListInput" public="true" URI="/createWithList" verb="POST" exposition="REST">
           <input xmi:id="_2GTsqWxtEeuYi_YuNNGyqg" technicalid="_2GR3cWxtEeuYi_YuNNGyqg" type="_2GUTxGxtEeuYi_YuNNGyqg" name="body" multiplicity="0..*">
             <restData xmi:id="_2GTsqmxtEeuYi_YuNNGyqg" technicalid="_2GR3cmxtEeuYi_YuNNGyqg"/>
           </input>
@@ -250,10 +250,21 @@
           <output xmi:id="_2GTs7GxtEeuYi_YuNNGyqg" technicalid="_2GO0J2xtEeuYi_YuNNGyqg" description="successful operation" type="_2GUT0GxtEeuYi_YuNNGyqg" name="output200" multiplicity="0..*" statusCode="200" statusMessage="OK"/>
           <fault xmi:id="_2GTs7WxtEeuYi_YuNNGyqg" technicalid="_2GO0KGxtEeuYi_YuNNGyqg" description="Invalid status value" name="fault400" statusCode="400" statusMessage="Bad Request"/>
         </ownedOperations>
-        <ownedOperations xmi:id="_2GTs7mxtEeuYi_YuNNGyqg" technicalid="_2GPbMGxtEeuYi_YuNNGyqg" description="Multiple tags can be provided with comma separated strings. Use tag1, tag2, tag3 for testing." name="findPetsByTags" public="true" URI="/findByTags" exposition="REST" securitySchemes="_2GTtD2xtEeuYi_YuNNGyqg">
+        <ownedOperations xmi:id="_2GTs7mxtEeuYi_YuNNGyqg" technicalid="_2GPbMGxtEeuYi_YuNNGyqg" description="Multiple tags can be provided with comma separated strings. Use tag1, tag2, tag3 for testing." createdOn="2021-08-13T09:58:10.674+0200" modifiedOn="2021-08-13T11:39:47.186+0200" name="findPetsByTags" public="true" URI="/findByTags" exposition="REST" paged="true" securitySchemes="_2GTtD2xtEeuYi_YuNNGyqg" size="_M_mtIfwMEeub2ruSJkz2zg" page="_VasDEfwMEeub2ruSJkz2zg" paginationExtension="_ZceVIPwaEeuQdqn4Ol0_lw">
+          <metadatas xmi:id="_ZcduEvwaEeuQdqn4Ol0_lw" technicalid="_ZcduEfwaEeuQdqn4Ol0_lw">
+            <metadatas xsi:type="soa:PropertiesExtension" xmi:id="_ZceVIPwaEeuQdqn4Ol0_lw" technicalid="_ZcduEPwaEeuQdqn4Ol0_lw" title="x-pagination" body="description" context="Operation"/>
+          </metadatas>
           <input xmi:id="_2GTs72xtEeuYi_YuNNGyqg" technicalid="_2GPbMWxtEeuYi_YuNNGyqg" description="Tags to filter by" name="tags" multiplicity="0..*">
             <type xsi:type="oenv:PrimitiveType" href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5F-EKwKEd2XLNOhkJIazw"/>
             <restData xmi:id="_2GTs8GxtEeuYi_YuNNGyqg" technicalid="_2GPbMmxtEeuYi_YuNNGyqg" passingMode="QUERY" restId="tags"/>
+          </input>
+          <input xmi:id="_M_mtIfwMEeub2ruSJkz2zg" technicalid="_M_mtIPwMEeub2ruSJkz2zg" createdOn="2021-08-13T09:58:10.713+0200" modifiedOn="2021-08-13T09:59:18.525+0200" name="size" multiplicity="0..1">
+            <type xsi:type="oenv:PrimitiveType" href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5FXAawKEd2XLNOhkJIazw"/>
+            <restData xmi:id="_NAJfsPwMEeub2ruSJkz2zg" technicalid="_NAI4oPwMEeub2ruSJkz2zg" passingMode="QUERY"/>
+          </input>
+          <input xmi:id="_VasDEfwMEeub2ruSJkz2zg" technicalid="_VasDEPwMEeub2ruSJkz2zg" createdOn="2021-08-13T09:59:07.203+0200" modifiedOn="2021-08-13T09:59:21.281+0200" name="page" multiplicity="0..1">
+            <type xsi:type="oenv:PrimitiveType" href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5FXAawKEd2XLNOhkJIazw"/>
+            <restData xmi:id="_VaufUfwMEeub2ruSJkz2zg" technicalid="_VaufUPwMEeub2ruSJkz2zg" passingMode="QUERY"/>
           </input>
           <output xmi:id="_2GTs8WxtEeuYi_YuNNGyqg" technicalid="_2GPbM2xtEeuYi_YuNNGyqg" description="successful operation" type="_2GUT0GxtEeuYi_YuNNGyqg" name="output200" multiplicity="0..*" statusCode="200" statusMessage="OK"/>
           <fault xmi:id="_2GTs8mxtEeuYi_YuNNGyqg" technicalid="_2GPbNGxtEeuYi_YuNNGyqg" description="Invalid tag value" name="fault400" statusCode="400" statusMessage="Bad Request"/>
@@ -312,8 +323,8 @@
     </ownedServices>
     <securitySchemes xmi:id="_2GTtD2xtEeuYi_YuNNGyqg" technicalid="_2GJUkWxtEeuYi_YuNNGyqg" key="petstore_auth" type="oauth2"/>
     <securitySchemes xmi:id="_2GTtEGxtEeuYi_YuNNGyqg" technicalid="_2GJUkmxtEeuYi_YuNNGyqg" key="api_key" name="api_key" apiKeyLocation="HEADER"/>
-    <license xmi:id="_N6N54NS9EeupafSrIRMhUw" name="Apache 2.0" URL="http://www.apache.org/licenses/LICENSE-2.0.html"/>
-    <information xmi:id="_N6N54dS9EeupafSrIRMhUw" apiVersion="1.0.5-SNAPSHOT" termsOfService="/tos"/>
-    <contact xmi:id="_N6N54tS9EeupafSrIRMhUw" name="Obeo" URL="https://contact.obeosoft.com/" email="contact@obeosoft.com"/>
+    <license xmi:id="_N6N54NS9EeupafSrIRMhUw" technicalid="_jH4ob_wLEeub2ruSJkz2zg" name="Apache 2.0" URL="http://www.apache.org/licenses/LICENSE-2.0.html"/>
+    <information xmi:id="_N6N54dS9EeupafSrIRMhUw" technicalid="_jH4ocPwLEeub2ruSJkz2zg" apiVersion="1.0.5-SNAPSHOT" termsOfService="/tos"/>
+    <contact xmi:id="_N6N54tS9EeupafSrIRMhUw" technicalid="_jH5PYPwLEeub2ruSJkz2zg" name="Obeo" URL="https://contact.obeosoft.com/" email="contact@obeosoft.com"/>
   </ownedComponents>
 </soa:System>

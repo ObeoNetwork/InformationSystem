@@ -26,7 +26,6 @@ import org.eclipse.sirius.business.api.modelingproject.ModelingProject;
 import org.eclipse.sirius.business.api.query.EObjectQuery;
 import org.eclipse.sirius.business.api.session.Session;
 import org.eclipse.swt.SWT;
-import org.eclipse.swt.widgets.FileDialog;
 import org.eclipse.swt.widgets.Shell;
 import org.eclipse.ui.ISelectionService;
 import org.eclipse.ui.IWorkbenchWindow;
@@ -34,24 +33,25 @@ import org.eclipse.ui.handlers.HandlerUtil;
 import org.obeonetwork.dsl.environment.Environment;
 import org.obeonetwork.dsl.soa.System;
 import org.obeonetwork.dsl.soa.gen.swagger.SwaggerImporter;
+import org.obeonetwork.dsl.soa.gen.swagger.ui.wizards.SwaggerImportDialog;
 import org.obeonetwork.utils.sirius.services.EObjectUtils;
 import org.obeonetwork.utils.sirius.session.SessionUtils;
 import org.obeonetwork.utils.sirius.transaction.RecordingCommandWithResult;
 
 public class ImportSwaggerHandler extends AbstractHandler implements IHandler {
-
+	
 	@Override
 	public Object execute(ExecutionEvent event) throws ExecutionException {
 		
 		System system = unwrapSelection(event);
-		
 		Shell shell = HandlerUtil.getActiveShell(event);
-		FileDialog dialog = new FileDialog(shell, SWT.OPEN);
-		dialog.setFilterExtensions(new String [] { "*.yaml;*.json", "*.yaml", "*.json" }); //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
-		dialog.setFilterPath(getDefaultInputDirPath(system));
-		String swaggerFilePath = dialog.open();	
+		SwaggerImportDialog dialog = new SwaggerImportDialog(shell, SWT.OPEN, system);
+		int returnValue = dialog.open(); 
 		
-		if(swaggerFilePath != null) {
+		if(returnValue == SWT.OK && dialog.getSwaggerFilePath() != null) {
+			String swaggerFilePath = dialog.getSwaggerFilePath();
+			String paginationExtension = dialog.getPaginationExtension();
+			
 			Environment environment = EObjectUtils.getAllResources(system).stream()
 			.flatMap(resource -> resource.getContents().stream())
 			.filter(eObject -> eObject instanceof Environment)
@@ -65,7 +65,7 @@ public class ImportSwaggerHandler extends AbstractHandler implements IHandler {
 				@Override
 				protected Integer doExecuteWithResult() {
 					SwaggerImporter swaggerImporter = new SwaggerImporter(system, environment);
-					return swaggerImporter.importFromFile(swaggerFilePath);
+					return swaggerImporter.importFromFile(swaggerFilePath, paginationExtension);
 				}
 				
 			};
@@ -97,18 +97,7 @@ public class ImportSwaggerHandler extends AbstractHandler implements IHandler {
 		
 	}
 	
-	public String getDefaultInputDirPath(System system) {
-		String defaultInputDirPath = null;
-		if(system != null) {
-			Session session = new EObjectQuery(system).getSession();
-			ModelingProject modelingProject = SessionUtils.getModelingProjectFromSession(session);
-			defaultInputDirPath = modelingProject.getProject().getLocation().toOSString();
-		} else {
-			defaultInputDirPath = ResourcesPlugin.getWorkspace().getRoot().getLocation().toOSString();
-		}
-
-		return defaultInputDirPath;
-	}
+	
 	
 	private System unwrapSelection(ExecutionEvent event) throws ExecutionException {
 		IWorkbenchWindow window = HandlerUtil.getActiveWorkbenchWindowChecked(event);

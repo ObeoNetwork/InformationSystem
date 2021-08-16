@@ -518,6 +518,18 @@ paths:
           type: array
           items:
             type: string
+      - name: size
+        in: query
+        required: false
+        schema:
+          type: integer
+          format: int32
+      - name: page
+        in: query
+        required: false
+        schema:
+          type: integer
+          format: int32
       responses:
         200:
           description: "OK\n\nsuccessful operation"
@@ -549,6 +561,7 @@ paths:
           description: "Bad Request\n\nInvalid tag value"
       security:
       - petstore_auth: []
+      x-pagination: description
   /pet/{petId}:
     get:
       tags:

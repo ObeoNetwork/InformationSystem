@@ -39,6 +39,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Objects;
+import java.util.Optional;
 import java.util.Set;
 import java.util.function.Predicate;
 import java.util.regex.Pattern;
@@ -76,6 +77,7 @@ import org.obeonetwork.dsl.soa.Interface;
 import org.obeonetwork.dsl.soa.InterfaceKind;
 import org.obeonetwork.dsl.soa.ParameterPassingMode;
 import org.obeonetwork.dsl.soa.ParameterRestData;
+import org.obeonetwork.dsl.soa.PropertiesExtension;
 import org.obeonetwork.dsl.soa.Scope;
 import org.obeonetwork.dsl.soa.SecuritySchemeType;
 import org.obeonetwork.dsl.soa.Service;
@@ -120,9 +122,9 @@ public class SoaComponentBuilder {
 	private static final String BODY_PARAMETER_NAME = "body";
 	private static final String DEFAULT_SERVICE_NAME = "Default";
 	private static final String TOO_WILD_TO_BE_NAMED_DTO = "Data";
-
-	private static final String QUALIFIED_PATH_SEPARATOR = "/";
-
+	private static final String QUALIFIED_PATH_SEPARATOR = "/";	
+	private static final Set<String> PAGINATION_SIZE_PARAMETER_NAMES = new HashSet<>(Arrays.asList("size", "taille"));
+	private static final Set<String> PAGINATION_PAGE_PARAMETER_NAMES = new HashSet<>(Arrays.asList("page"));
 	private static final Predicate<String> PATH_PARAM_PATTERN_PREDICATE = Pattern.compile("\\{[^}]+\\}").asPredicate();
 
 	private int status;
@@ -139,10 +141,12 @@ public class SoaComponentBuilder {
 	 * Enumeration) as their type.
 	 */
 	private Map<Type, List<ObeoDSMObject>> inlineTypes;
+	private String paginationExtension;
 
-	public SoaComponentBuilder(OpenAPI swagger, Environment environment) {
+	public SoaComponentBuilder(OpenAPI swagger, Environment environment, String paginationExtension) {
 		this.openApi = swagger;
 		this.environment = environment;
+		this.paginationExtension = paginationExtension;
 	}
 
 	public int build() {
@@ -783,7 +787,7 @@ public class SoaComponentBuilder {
 
 		if (swgOperation.getParameters() != null) {
 			for (Parameter parameter : swgOperation.getParameters()) {
-				if (parameter != null && !(isPaged(swgOperation) && looksLikePaginationParameter(parameter))) {
+				if (parameter != null) {
 					createSoaInputParameter(soaOperation, parameter);
 				}
 			}
@@ -794,10 +798,11 @@ public class SoaComponentBuilder {
 			createSoaBodyParameter(soaOperation, requestBody);
 		}
 
-		soaOperation.setPaged(isPaged(swgOperation));
-
+		createPaginationProperties(swgOperation, soaOperation);
+		
 		ApiResponses responses = swgOperation.getResponses();
 		extractPropertiesExtensions(responses, soaOperation);
+
 		if (responses != null) {
 			for (String responseKey : responses.keySet()) {
 				createSoaResponseParameter(soaOperation, responseKey, responses.get(responseKey));
@@ -827,33 +832,75 @@ public class SoaComponentBuilder {
 				soaOperation.getServers().add(createSoaServer(swgServer));
 			}
 		}
-
 		
 		extractPropertiesExtensions(getPathItemFromPath(path), soaOperation);
 
 		return soaOperation;
 	}
 
-	private boolean isPaged(Operation swgOperation) {
-
-		return swgOperation.getResponses() != null && (swgOperation.getResponses().containsKey(HTTP_206)
-				|| swgOperation.getResponses().values().stream().anyMatch(
-						resp -> resp.getHeaders() != null && (resp.getHeaders().keySet().contains(X_PAGE_ELEMENT_COUNT)
-								|| resp.getHeaders().keySet().contains(X_TOTAL_ELEMENT))));
-	}
-
-	private boolean looksLikePaginationParameter(Parameter parameter) {
-		if (SOA_PAGE_PARAMETER_NAME.equals(parameter.getName())
-				|| SOA_SIZE_PARAMETER_NAME.equals(parameter.getName())) {
-			Schema schema = unwrapArrayOrComposedSchema(parameter.getSchema());
-			if (schema != null && OPEN_API_TYPE_INTEGER.equals(schema.getType())) {
-				return true;
+	private void createPaginationProperties(Operation swgOperation, org.obeonetwork.dsl.soa.Operation soaOperation) {
+		boolean hasPaginationParameter = (swgOperation.getParameters() != null) && swgOperation.getParameters()
+				.stream()
+				.anyMatch(parameter -> PAGINATION_SIZE_PARAMETER_NAMES.contains(parameter.getName()) ||
+						PAGINATION_PAGE_PARAMETER_NAMES.contains(parameter.getName()));
+		
+		boolean hasPaginationPropertyExtension = (swgOperation.getExtensions() != null) && swgOperation.getExtensions().keySet().contains(paginationExtension);
+				
+		if (hasPaginationPropertyExtension || hasPaginationParameter) {
+			soaOperation.setPaged(true);
+			
+			if (hasPaginationPropertyExtension) {
+				setPaginationPropertyExtension(soaOperation);	
 			}
+			
+			if (hasPaginationParameter) {
+				setPaginationParameters(soaOperation);
+			}
+		} else {
+			soaOperation.setPaged(false);
 		}
-
-		return false;
+		
 	}
 
+	/**
+	 * Set the size and page {@link org.obeonetwork.dsl.soa.Parameter} references for a Soa {@link org.obeonetwork.dsl.soa.Operation}.
+	 * @param soaOperation an {@link org.obeonetwork.dsl.soa.Operation}
+	 */
+	private void setPaginationParameters(org.obeonetwork.dsl.soa.Operation soaOperation) {
+		// if the input swg operation has a pagination extension, 
+		// since it has already been mapped to the current soa operation,
+		// we can associate it with the pagination extension property of the operation.
+		
+		Optional<org.obeonetwork.dsl.soa.Parameter> inputPageParameter = soaOperation.getInput().stream()
+			.filter(parameter -> PAGINATION_PAGE_PARAMETER_NAMES.contains(parameter.getName()))
+			.findFirst();				
+		if (inputPageParameter.isPresent())
+			soaOperation.setPage(inputPageParameter.get());
+		
+		Optional<org.obeonetwork.dsl.soa.Parameter> inputSizeParameter = soaOperation.getInput().stream()
+				.filter(parameter -> PAGINATION_SIZE_PARAMETER_NAMES.contains(parameter.getName()))
+				.findFirst();				
+		if (inputSizeParameter.isPresent())
+				soaOperation.setSize(inputSizeParameter.get());
+	}
+	
+	/**
+	 * Set the {@link PropertiesExtension} reference for the {@link org.obeonetwork.dsl.soa.Operation}.
+	 * @param soaOperation an {@link org.obeonetwork.dsl.soa.Operation}
+	 */
+	private void setPaginationPropertyExtension(org.obeonetwork.dsl.soa.Operation soaOperation) {
+		if (soaOperation.getMetadatas() != null) {
+			soaOperation.setPaginationExtension(soaOperation
+				.getMetadatas()
+				.getMetadatas()
+				.stream()
+				.filter(PropertiesExtension.class::isInstance)
+				.map(PropertiesExtension.class::cast)
+				.filter(property -> ((PropertiesExtension) property).getTitle().equals(paginationExtension))
+				.findFirst().orElse(null));					
+		}
+	}
+	
 	private String computeSoaOperationName(HttpMethod verb, String uri) {
 		List<String> segments = Arrays.asList(uri.split(QUALIFIED_PATH_SEPARATOR));
 
@@ -1215,7 +1262,7 @@ public class SoaComponentBuilder {
 	}
 
 	private void buildSoaExposedTypes() {
-		if (openApi.getComponents() != null) {
+		if (openApi.getComponents() != null && openApi.getComponents().getSchemas() != null ) {
 			openApi.getComponents().getSchemas().forEach((key, schema) -> touchExposedType(key, schema));
 			openApi.getComponents().getSchemas()
 					.forEach((key, schema) -> updateExposedType(getExposedTypeFromKey(key), schema));

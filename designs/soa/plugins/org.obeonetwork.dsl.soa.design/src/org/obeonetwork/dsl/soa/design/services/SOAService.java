@@ -39,21 +39,26 @@ import org.eclipse.swt.widgets.Display;
 import org.eclipse.swt.widgets.Shell;
 import org.eclipse.ui.PlatformUI;
 import org.eclipse.ui.dialogs.ListDialog;
+import org.obeonetwork.dsl.environment.Annotation;
+import org.obeonetwork.dsl.environment.EnvironmentFactory;
 import org.obeonetwork.dsl.soa.Component;
 import org.obeonetwork.dsl.soa.ExpositionKind;
 import org.obeonetwork.dsl.soa.InterfaceKind;
 import org.obeonetwork.dsl.soa.MediaType;
 import org.obeonetwork.dsl.soa.Operation;
 import org.obeonetwork.dsl.soa.Parameter;
+import org.obeonetwork.dsl.soa.PropertiesExtension;
 import org.obeonetwork.dsl.soa.SecurityScheme;
 import org.obeonetwork.dsl.soa.SecuritySchemeType;
 import org.obeonetwork.dsl.soa.Service;
+import org.obeonetwork.dsl.soa.SoaFactory;
 import org.obeonetwork.dsl.soa.SoaPackage;
 import org.obeonetwork.dsl.soa.System;
 import org.obeonetwork.dsl.soa.Verb;
 import org.obeonetwork.dsl.soa.Wire;
 import org.obeonetwork.dsl.soa.design.dialogs.NewSecuritySchemeDialog;
 import org.obeonetwork.dsl.soa.services.HttpStatusService;
+import org.obeonetwork.dsl.soa.services.PropertiesExtensionsService;
 
 public class SOAService {
 
@@ -345,5 +350,53 @@ public class SOAService {
 
 	public String getName(SecuritySchemeType schemeType) {
 		return schemeType.getName();
+	}
+	
+	public void setPaginationExtensionName(Operation operation, String name) {
+		if (operation.getPaginationExtension() == null) {
+			PropertiesExtension extension = SoaFactory.eINSTANCE.createPropertiesExtension();
+			extension.setContext("Operation");			
+			if (operation.getMetadatas() == null)
+				operation.setMetadatas(EnvironmentFactory.eINSTANCE.createMetaDataContainer());
+
+			operation.getMetadatas().getMetadatas().add(extension);
+			operation.setPaginationExtension(extension);
+		}
+
+		if (!name.startsWith("x-"))
+			name = "x-".concat(name);
+		
+		operation.getPaginationExtension().setTitle(name);
+	}
+
+	public void setPaginationExtensionValue(Operation operation, String value) {
+		if (operation.getPaginationExtension() == null) {
+			PropertiesExtension extension = SoaFactory.eINSTANCE.createPropertiesExtension();
+			extension.setContext("Operation");			
+			if (operation.getMetadatas() == null)
+				operation.setMetadatas(EnvironmentFactory.eINSTANCE.createMetaDataContainer());
+
+			operation.getMetadatas().getMetadatas().add(extension);
+			operation.setPaginationExtension(extension);
+		}
+
+		operation.getPaginationExtension().setBody(value);
+	}
+	
+	public boolean isValidPropertyExtension(Annotation theObject) {
+		boolean isValidPropertyExtension = false;
+		if (theObject instanceof PropertiesExtension) {		
+			if (!isPaginationPropertyExtension(theObject)) {
+				isValidPropertyExtension = true;	
+			}
+		}
+		return isValidPropertyExtension;
+	}
+	
+	public boolean isPaginationPropertyExtension(Annotation theObject) {
+		return (theObject.eContainer() != null 
+				&& theObject.eContainer().eContainer() != null 
+				&& theObject.eContainer().eContainer() instanceof Operation 
+				&& theObject.equals(((Operation) theObject.eContainer().eContainer()).getPaginationExtension()));
 	}
 }

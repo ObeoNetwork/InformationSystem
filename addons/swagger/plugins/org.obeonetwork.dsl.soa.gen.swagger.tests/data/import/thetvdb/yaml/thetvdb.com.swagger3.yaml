@@ -101,6 +101,7 @@ paths:
                 $ref: '#/components/schemas/NotFound'
       security:
         - jwtToken: []
+      x-pagination: pagination extension with informative stuff.
   /languages:
     get:
       tags:
@@ -476,6 +477,12 @@ paths:
           description: Page of results to fetch. Defaults to page 1 if not provided.
           schema:
             type: string
+        - name: size
+          in: query
+          description: number of results per page to provide
+          schema:
+            type: integer
+            format: int64
       responses:
         '200':
           description: An array of episode objects for the given series id.

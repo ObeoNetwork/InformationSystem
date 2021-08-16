@@ -319,10 +319,10 @@ public class SecuritySchemeItemProvider
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = ((SecurityScheme)object).getKey();
+		String label = ((SecurityScheme)object).getName();
 		return label == null || label.length() == 0 ?
-			((SecurityScheme)object).getType().getName()+" "+getString("_UI_SecurityScheme_type") :
-			((SecurityScheme)object).getType().getName()+" "+getString("_UI_SecurityScheme_type") + " " + label;
+			((SecurityScheme)object).getType().getName() :
+			((SecurityScheme)object).getType().getName()+ " " + label;
 	}
 
 
