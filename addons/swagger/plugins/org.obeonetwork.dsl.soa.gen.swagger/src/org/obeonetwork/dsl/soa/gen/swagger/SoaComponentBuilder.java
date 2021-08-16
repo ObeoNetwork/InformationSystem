@@ -68,11 +68,15 @@ import org.obeonetwork.dsl.soa.ApiKeyLocation;
 import org.obeonetwork.dsl.soa.Component;
 import org.obeonetwork.dsl.soa.Example;
 import org.obeonetwork.dsl.soa.ExpositionKind;
+import org.obeonetwork.dsl.soa.Flow;
+import org.obeonetwork.dsl.soa.FlowType;
+import org.obeonetwork.dsl.soa.HttpScheme;
 import org.obeonetwork.dsl.soa.Information;
 import org.obeonetwork.dsl.soa.Interface;
 import org.obeonetwork.dsl.soa.InterfaceKind;
 import org.obeonetwork.dsl.soa.ParameterPassingMode;
 import org.obeonetwork.dsl.soa.ParameterRestData;
+import org.obeonetwork.dsl.soa.Scope;
 import org.obeonetwork.dsl.soa.SecuritySchemeType;
 import org.obeonetwork.dsl.soa.Service;
 import org.obeonetwork.dsl.soa.SoaFactory;
@@ -81,6 +85,7 @@ import org.obeonetwork.dsl.soa.gen.swagger.utils.ExampleGenUtil;
 import org.obeonetwork.dsl.soa.gen.swagger.utils.NamespaceGenUtil;
 import org.obeonetwork.dsl.soa.services.HttpStatusService;
 import org.obeonetwork.dsl.technicalid.TechnicalIDPackage;
+import org.obeonetwork.utils.common.StringUtils;
 
 import io.swagger.v3.oas.models.OpenAPI;
 import io.swagger.v3.oas.models.Operation;
@@ -101,6 +106,8 @@ import io.swagger.v3.oas.models.parameters.QueryParameter;
 import io.swagger.v3.oas.models.parameters.RequestBody;
 import io.swagger.v3.oas.models.responses.ApiResponse;
 import io.swagger.v3.oas.models.responses.ApiResponses;
+import io.swagger.v3.oas.models.security.OAuthFlow;
+import io.swagger.v3.oas.models.security.OAuthFlows;
 import io.swagger.v3.oas.models.security.SecurityRequirement;
 import io.swagger.v3.oas.models.security.SecurityScheme;
 import io.swagger.v3.oas.models.servers.Server;
@@ -183,7 +190,6 @@ public class SoaComponentBuilder {
 
 	private Component createSoaComponent() {
 
-		
 		String soaComponentName = getSoaComponentName();
 		if (soaComponentName == null) {
 			logError("Component name could not be computed.");
@@ -195,8 +201,7 @@ public class SoaComponentBuilder {
 		extractPropertiesExtensions(openApi, soaComponent);
 
 		Info info = openApi.getInfo();
-		
-		
+
 		soaComponent.setName(info.getTitle());
 		soaComponent.setDescription(info.getDescription());
 		soaComponent.setApiVersion(info.getVersion());
@@ -205,7 +210,7 @@ public class SoaComponentBuilder {
 		setInformation(soaComponent, info);
 		setContactInformation(soaComponent, info.getContact());
 		setLicenseInformation(soaComponent, info.getLicense());
-		
+
 		extractPropertiesExtensions(info, soaComponent.getInformation());
 		extractPropertiesExtensions(info.getContact(), soaComponent.getContact());
 		extractPropertiesExtensions(info.getLicense(), soaComponent.getLicense());
@@ -263,19 +268,91 @@ public class SoaComponentBuilder {
 
 		if (swgSecurityScheme.getName() != null) {
 			soaSecurityScheme.setName(swgSecurityScheme.getName());
+		} else {
+			soaSecurityScheme.setName(key);
 		}
 
-		if (swgSecurityScheme.getIn() != null) {
-			soaSecurityScheme.setApiKeyLocation(toSoa(swgSecurityScheme.getIn()));
-		}
 
 		if (swgSecurityScheme.getDescription() != null) {
 			soaSecurityScheme.setDescription(swgSecurityScheme.getDescription());
 		}
+		
+		switch(soaSecurityScheme.getType()) {
+		case API_KEY:
+			
+			if (swgSecurityScheme.getIn() != null) {
+				soaSecurityScheme.setApiKeyLocation(toSoa(swgSecurityScheme.getIn()));
+			}
+			
+			break;
+		case HTTP:
+			if (StringUtils.isNullOrWhite(swgSecurityScheme.getBearerFormat())) {
+				soaSecurityScheme.setHttpScheme(HttpScheme.BASIC);
+			} else {
+				soaSecurityScheme.setHttpScheme(HttpScheme.BEARER);
+				soaSecurityScheme.setFormat(swgSecurityScheme.getBearerFormat());
+			}
+			break;
+		case OAUTH2:
+			if (swgSecurityScheme.getFlows() != null) {
+				soaSecurityScheme.getFlows().addAll(toSoa(swgSecurityScheme.getFlows()));
+			}
+			break;
+		case OPEN_ID_CONNECT:
+			if (swgSecurityScheme.getOpenIdConnectUrl() != null) {
+				soaSecurityScheme.setConnectURL(swgSecurityScheme.getOpenIdConnectUrl());
+			}
+			break;
+		default:
+			break;
+		
+		}
 
 		extractPropertiesExtensions(swgSecurityScheme, soaSecurityScheme);
-		
+
 		return soaSecurityScheme;
+	}
+
+	private Collection<? extends Flow> toSoa(OAuthFlows flows) {
+		ArrayList<Flow> soaFlows = new ArrayList<>();
+		if (flows.getAuthorizationCode() != null) {
+			Flow flow = toSoa(flows.getAuthorizationCode());
+			flow.setFlowType(FlowType.AUTHORIZATIONCODE);
+			soaFlows.add(flow);
+		}
+		if (flows.getClientCredentials() != null) {
+			Flow flow = toSoa(flows.getClientCredentials());
+			flow.setFlowType(FlowType.CREDENTIALS);
+			soaFlows.add(flow);
+		}
+		if (flows.getImplicit() != null) {
+			Flow flow = toSoa(flows.getImplicit());
+			flow.setFlowType(FlowType.IMPLICIT);
+			soaFlows.add(flow);
+		}
+		if (flows.getPassword() != null) {
+			Flow flow = toSoa(flows.getPassword());
+			flow.setFlowType(FlowType.PASSWORD);
+			soaFlows.add(flow);
+		}		
+		return soaFlows;
+	}
+	
+	private Flow toSoa(OAuthFlow authFlow) {
+		Flow flow = SoaFactory.eINSTANCE.createFlow();
+		flow.setAuthorizationURL(authFlow.getAuthorizationUrl());
+		flow.setTokenURL(authFlow.getTokenUrl());
+		flow.setRefreshURL(authFlow.getRefreshUrl());
+		if (authFlow.getScopes() != null) {
+			authFlow.getScopes().forEach((name, description) -> {
+				Scope scope = SoaFactory.eINSTANCE.createScope();
+				scope.setName(name);
+				scope.setSummary(description);
+				flow.getScopes().add(scope);
+			});
+		}
+		
+		return flow;
 	}
 
 	private SecuritySchemeType toSoa(SecurityScheme.Type swgSecuritySchemeType) {
@@ -671,12 +748,12 @@ public class SoaComponentBuilder {
 			Operation swgOperation) {
 		Service soaService = getSoaServiceFromPath(path);
 		Interface soaInterface = getOrCreateInterface(soaService);
-
+		
 		org.obeonetwork.dsl.soa.Operation soaOperation = SoaFactory.eINSTANCE.createOperation();
 		soaInterface.getOwnedOperations().add(soaOperation);
 
 		extractPropertiesExtensions(swgOperation, soaOperation);
-		
+
 		soaOperation.setPublic(true);
 		soaOperation.setExposition(ExpositionKind.REST);
 
@@ -733,12 +810,10 @@ public class SoaComponentBuilder {
 				if (!swgSecurityRequirement.keySet().isEmpty()) {
 					String key = swgSecurityRequirement.keySet().iterator().next();
 
-					org.obeonetwork.dsl.soa.SecurityScheme soaSecurityScheme = soaComponent.getSecuritySchemes()
-							.stream().filter(ss -> key.equals(ss.getKey())).findFirst().orElse(null);
-
-					if (soaSecurityScheme != null) {
-						soaOperation.getSecuritySchemes().add(soaSecurityScheme);
-					}
+					soaComponent.getSecuritySchemes()
+							.stream().filter(ss -> key.equals(ss.getKey())).forEach(soaSecurityScheme -> {
+								soaOperation.getSecuritySchemes().add(soaSecurityScheme);
+							});
 				}
 			}
 		}
@@ -752,7 +827,10 @@ public class SoaComponentBuilder {
 				soaOperation.getServers().add(createSoaServer(swgServer));
 			}
 		}
+
 		
+		extractPropertiesExtensions(getPathItemFromPath(path), soaOperation);
+
 		return soaOperation;
 	}
 
@@ -863,7 +941,7 @@ public class SoaComponentBuilder {
 		}
 
 		extractPropertiesExtensions(swgParameter, soaParameter);
-		
+
 		return soaParameter;
 	}
 
@@ -883,7 +961,7 @@ public class SoaComponentBuilder {
 			RequestBody requestBody) {
 		org.obeonetwork.dsl.soa.Parameter soaParameter = SoaFactory.eINSTANCE.createParameter();
 		extractPropertiesExtensions(requestBody, soaParameter);
-		
+
 		soaOperation.getInput().add(soaParameter);
 
 		soaParameter.setRestData(SoaFactory.eINSTANCE.createParameterRestData());
@@ -913,7 +991,7 @@ public class SoaComponentBuilder {
 				MediaType mediaType = entry.getValue();
 				org.obeonetwork.dsl.soa.MediaType soaMediaType = SoaFactory.eINSTANCE.createMediaType();
 				extractPropertiesExtensions(mediaType, soaMediaType);
-				
+
 				soaMediaType.setIdentifier(identifier);
 				soaMediaType.getExamples().addAll(createSoaExamples(mediaType));
 				soaParameter.getMediaType().add(soaMediaType);
@@ -925,18 +1003,14 @@ public class SoaComponentBuilder {
 
 	private Collection<? extends Example> createSoaExamples(MediaType mediaType) {
 		List<Example> examples = new ArrayList<>();
-		
+
 		if (mediaType.getExamples() != null) {
-			List<Example> collect = mediaType	.getExamples()
-						.entrySet()
-						.stream()
-						.map(entrySet -> {
-							String name = entrySet.getKey();
-							io.swagger.v3.oas.models.examples.Example example = entrySet.getValue();
-							return createSoaExample(name, example);
-						})
-						.collect(Collectors.toList());
-			examples.addAll(collect);			
+			List<Example> collect = mediaType.getExamples().entrySet().stream().map(entrySet -> {
+				String name = entrySet.getKey();
+				io.swagger.v3.oas.models.examples.Example example = entrySet.getValue();
+				return createSoaExample(name, example);
+			}).collect(Collectors.toList());
+			examples.addAll(collect);
 		}
 
 		return examples;
@@ -950,7 +1024,7 @@ public class SoaComponentBuilder {
 		soaExample.setValue(ExampleGenUtil.getExampleValueFromObject(soaExample.getValue()));
 
 		extractPropertiesExtensions(example, soaExample);
-		
+
 		return soaExample;
 	}
 
@@ -975,7 +1049,7 @@ public class SoaComponentBuilder {
 				soaParameterType = registerInlineType(soaParameter, soaDto);
 			}
 		}
-		
+
 		extractPropertiesExtensions(schema, soaParameter);
 
 		return soaParameterType;
@@ -1005,7 +1079,7 @@ public class SoaComponentBuilder {
 
 		if (apiResponse.getContent() != null && !apiResponse.getContent().isEmpty()) {
 			Set<Entry<String, MediaType>> contents = apiResponse.getContent().entrySet();
-			
+
 			Schema schema = contents.stream().map(c -> c.getValue()).filter(m -> m.getSchema() != null)
 					.map(m -> m.getSchema()).findFirst().orElse(null);
 
@@ -1017,15 +1091,15 @@ public class SoaComponentBuilder {
 				Type soaParameterType = getOrCreateSoaParameterType(soaOperation, unwrappedSchema, soaParameter);
 				soaParameter.setType(soaParameterType);
 			}
-			
+
 			contents.forEach(entry -> {
 				String identifier = entry.getKey();
-				MediaType mediaType = entry.getValue();				
+				MediaType mediaType = entry.getValue();
 				org.obeonetwork.dsl.soa.MediaType soaMediaType = SoaFactory.eINSTANCE.createMediaType();
 				soaMediaType.setIdentifier(identifier);
 				soaMediaType.getExamples().addAll(createSoaExamples(mediaType));
 				soaParameter.getMediaType().add(soaMediaType);
-				
+
 				extractPropertiesExtensions(mediaType, soaMediaType);
 			});
 		}
@@ -1054,7 +1128,7 @@ public class SoaComponentBuilder {
 			}
 			servicePaths.add(path);
 		}
-		
+
 		extractPropertiesExtensions(openApi.getPaths(), soaComponent);
 
 //		for(String soaServiceName : soaServicesPaths.keySet()) {
@@ -1127,7 +1201,7 @@ public class SoaComponentBuilder {
 	private PathItem getPathItemFromPath(String path) {
 		return openApi.getPaths().get(path);
 	}
-	
+
 	private String getSoaServiceNameFromPath(String path) {
 		String soaServiceName = openApi.getPaths().get(path).readOperations().stream()
 				.filter(op -> op.getTags() != null).flatMap(op -> op.getTags().stream()).collect(toSet()).stream()
@@ -1163,7 +1237,7 @@ public class SoaComponentBuilder {
 			exposedType = touchEnumeration(key);
 			break;
 		}
-		
+
 		extractPropertiesExtensions(schema, exposedType);
 		return exposedType;
 	}
@@ -1440,7 +1514,7 @@ public class SoaComponentBuilder {
 		}
 
 		extractPropertiesExtensions(propertySchema, soaProperty);
-		
+
 		return soaProperty;
 	}
 
@@ -1667,10 +1741,10 @@ public class SoaComponentBuilder {
 	private void setInformation(Component component, Info information) {
 		if (component.getInformation() != null && information != null) {
 			component.getInformation().setTermsOfService(information.getTermsOfService());
-			component.getInformation().setApiVersion(information.getVersion());	
+			component.getInformation().setApiVersion(information.getVersion());
 		}
 	}
-	
+
 	private void extractPropertiesExtensions(Object swaggerElement, ObeoDSMObject soaElement) {
 		PropertiesExtensionsHelper.addPropertiesExtensionsFromSwgToSoa(swaggerElement, soaElement);
 	}

@@ -1660,13 +1660,194 @@ public interface SoaPackage extends EPackage {
 	int SECURITY_SCHEME__API_KEY_LOCATION = EnvironmentPackage.OBEO_DSM_OBJECT_FEATURE_COUNT + 3;
 
 	/**
+	 * The feature id for the '<em><b>Connect URL</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SECURITY_SCHEME__CONNECT_URL = EnvironmentPackage.OBEO_DSM_OBJECT_FEATURE_COUNT + 4;
+
+	/**
+	 * The feature id for the '<em><b>Flows</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SECURITY_SCHEME__FLOWS = EnvironmentPackage.OBEO_DSM_OBJECT_FEATURE_COUNT + 5;
+
+	/**
+	 * The feature id for the '<em><b>Http Scheme</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SECURITY_SCHEME__HTTP_SCHEME = EnvironmentPackage.OBEO_DSM_OBJECT_FEATURE_COUNT + 6;
+
+	/**
+	 * The feature id for the '<em><b>Format</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SECURITY_SCHEME__FORMAT = EnvironmentPackage.OBEO_DSM_OBJECT_FEATURE_COUNT + 7;
+
+	/**
 	 * The number of structural features of the '<em>Security Scheme</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SECURITY_SCHEME_FEATURE_COUNT = EnvironmentPackage.OBEO_DSM_OBJECT_FEATURE_COUNT + 4;
+	int SECURITY_SCHEME_FEATURE_COUNT = EnvironmentPackage.OBEO_DSM_OBJECT_FEATURE_COUNT + 8;
+
+	/**
+	 * The meta object id for the '{@link org.obeonetwork.dsl.soa.impl.FlowImpl <em>Flow</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.obeonetwork.dsl.soa.impl.FlowImpl
+	 * @see org.obeonetwork.dsl.soa.impl.SoaPackageImpl#getFlow()
+	 * @generated
+	 */
+	int FLOW = 11;
+
+	/**
+	 * The feature id for the '<em><b>Technicalid</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FLOW__TECHNICALID = EnvironmentPackage.OBEO_DSM_OBJECT__TECHNICALID;
+
+	/**
+	 * The feature id for the '<em><b>Metadatas</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FLOW__METADATAS = EnvironmentPackage.OBEO_DSM_OBJECT__METADATAS;
+
+	/**
+	 * The feature id for the '<em><b>Description</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FLOW__DESCRIPTION = EnvironmentPackage.OBEO_DSM_OBJECT__DESCRIPTION;
+
+	/**
+	 * The feature id for the '<em><b>Keywords</b></em>' attribute list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FLOW__KEYWORDS = EnvironmentPackage.OBEO_DSM_OBJECT__KEYWORDS;
+
+	/**
+	 * The feature id for the '<em><b>Behaviours</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FLOW__BEHAVIOURS = EnvironmentPackage.OBEO_DSM_OBJECT__BEHAVIOURS;
+
+	/**
+	 * The feature id for the '<em><b>Binding Registries</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FLOW__BINDING_REGISTRIES = EnvironmentPackage.OBEO_DSM_OBJECT__BINDING_REGISTRIES;
+
+	/**
+	 * The feature id for the '<em><b>Version</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FLOW__VERSION = EnvironmentPackage.OBEO_DSM_OBJECT__VERSION;
+
+	/**
+	 * The feature id for the '<em><b>Created On</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FLOW__CREATED_ON = EnvironmentPackage.OBEO_DSM_OBJECT__CREATED_ON;
+
+	/**
+	 * The feature id for the '<em><b>Modified On</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FLOW__MODIFIED_ON = EnvironmentPackage.OBEO_DSM_OBJECT__MODIFIED_ON;
+
+	/**
+	 * The feature id for the '<em><b>Flow Type</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FLOW__FLOW_TYPE = EnvironmentPackage.OBEO_DSM_OBJECT_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Authorization URL</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FLOW__AUTHORIZATION_URL = EnvironmentPackage.OBEO_DSM_OBJECT_FEATURE_COUNT + 1;
+
+	/**
+	 * The feature id for the '<em><b>Token URL</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FLOW__TOKEN_URL = EnvironmentPackage.OBEO_DSM_OBJECT_FEATURE_COUNT + 2;
+
+	/**
+	 * The feature id for the '<em><b>Refresh URL</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FLOW__REFRESH_URL = EnvironmentPackage.OBEO_DSM_OBJECT_FEATURE_COUNT + 3;
+
+	/**
+	 * The feature id for the '<em><b>Scopes</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FLOW__SCOPES = EnvironmentPackage.OBEO_DSM_OBJECT_FEATURE_COUNT + 4;
+
+	/**
+	 * The number of structural features of the '<em>Flow</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FLOW_FEATURE_COUNT = EnvironmentPackage.OBEO_DSM_OBJECT_FEATURE_COUNT + 5;
 
 	/**
 	 * The meta object id for the '{@link org.obeonetwork.dsl.soa.impl.InformationImpl <em>Information</em>}' class.
@@ -1676,7 +1857,7 @@ public interface SoaPackage extends EPackage {
 	 * @see org.obeonetwork.dsl.soa.impl.SoaPackageImpl#getInformation()
 	 * @generated
 	 */
-	int INFORMATION = 11;
+	int INFORMATION = 12;
 
 	/**
 	 * The feature id for the '<em><b>Technicalid</b></em>' attribute.
@@ -1794,7 +1975,7 @@ public interface SoaPackage extends EPackage {
 	 * @see org.obeonetwork.dsl.soa.impl.SoaPackageImpl#getContact()
 	 * @generated
 	 */
-	int CONTACT = 12;
+	int CONTACT = 13;
 
 	/**
 	 * The feature id for the '<em><b>Technicalid</b></em>' attribute.
@@ -1921,7 +2102,7 @@ public interface SoaPackage extends EPackage {
 	 * @see org.obeonetwork.dsl.soa.impl.SoaPackageImpl#getLicense()
 	 * @generated
 	 */
-	int LICENSE = 13;
+	int LICENSE = 14;
 
 	/**
 	 * The feature id for the '<em><b>Technicalid</b></em>' attribute.
@@ -2039,7 +2220,7 @@ public interface SoaPackage extends EPackage {
 	 * @see org.obeonetwork.dsl.soa.impl.SoaPackageImpl#getMediaType()
 	 * @generated
 	 */
-	int MEDIA_TYPE = 14;
+	int MEDIA_TYPE = 15;
 
 	/**
 	 * The meta object id for the '{@link org.obeonetwork.dsl.soa.impl.ExampleImpl <em>Example</em>}' class.
@@ -2049,7 +2230,7 @@ public interface SoaPackage extends EPackage {
 	 * @see org.obeonetwork.dsl.soa.impl.SoaPackageImpl#getExample()
 	 * @generated
 	 */
-	int EXAMPLE = 15;
+	int EXAMPLE = 16;
 
 	/**
 	 * The feature id for the '<em><b>Technicalid</b></em>' attribute.
@@ -2284,7 +2465,7 @@ public interface SoaPackage extends EPackage {
 	 * @see org.obeonetwork.dsl.soa.impl.SoaPackageImpl#getPropertiesExtension()
 	 * @generated
 	 */
-	int PROPERTIES_EXTENSION = 16;
+	int PROPERTIES_EXTENSION = 17;
 
 	/**
 	 * The feature id for the '<em><b>Technicalid</b></em>' attribute.
@@ -2339,7 +2520,7 @@ public interface SoaPackage extends EPackage {
 	 * @see org.obeonetwork.dsl.soa.impl.SoaPackageImpl#getServer()
 	 * @generated
 	 */
-	int SERVER = 17;
+	int SERVER = 18;
 
 	/**
 	 * The feature id for the '<em><b>Technicalid</b></em>' attribute.
@@ -2441,6 +2622,124 @@ public interface SoaPackage extends EPackage {
 	int SERVER_FEATURE_COUNT = EnvironmentPackage.OBEO_DSM_OBJECT_FEATURE_COUNT + 1;
 
 	/**
+	 * The meta object id for the '{@link org.obeonetwork.dsl.soa.impl.ScopeImpl <em>Scope</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.obeonetwork.dsl.soa.impl.ScopeImpl
+	 * @see org.obeonetwork.dsl.soa.impl.SoaPackageImpl#getScope()
+	 * @generated
+	 */
+	int SCOPE = 19;
+
+	/**
+	 * The feature id for the '<em><b>Technicalid</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SCOPE__TECHNICALID = EnvironmentPackage.OBEO_DSM_OBJECT__TECHNICALID;
+
+	/**
+	 * The feature id for the '<em><b>Metadatas</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SCOPE__METADATAS = EnvironmentPackage.OBEO_DSM_OBJECT__METADATAS;
+
+	/**
+	 * The feature id for the '<em><b>Description</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SCOPE__DESCRIPTION = EnvironmentPackage.OBEO_DSM_OBJECT__DESCRIPTION;
+
+	/**
+	 * The feature id for the '<em><b>Keywords</b></em>' attribute list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SCOPE__KEYWORDS = EnvironmentPackage.OBEO_DSM_OBJECT__KEYWORDS;
+
+	/**
+	 * The feature id for the '<em><b>Behaviours</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SCOPE__BEHAVIOURS = EnvironmentPackage.OBEO_DSM_OBJECT__BEHAVIOURS;
+
+	/**
+	 * The feature id for the '<em><b>Binding Registries</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SCOPE__BINDING_REGISTRIES = EnvironmentPackage.OBEO_DSM_OBJECT__BINDING_REGISTRIES;
+
+	/**
+	 * The feature id for the '<em><b>Version</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SCOPE__VERSION = EnvironmentPackage.OBEO_DSM_OBJECT__VERSION;
+
+	/**
+	 * The feature id for the '<em><b>Created On</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SCOPE__CREATED_ON = EnvironmentPackage.OBEO_DSM_OBJECT__CREATED_ON;
+
+	/**
+	 * The feature id for the '<em><b>Modified On</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SCOPE__MODIFIED_ON = EnvironmentPackage.OBEO_DSM_OBJECT__MODIFIED_ON;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SCOPE__NAME = EnvironmentPackage.OBEO_DSM_OBJECT_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Summary</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SCOPE__SUMMARY = EnvironmentPackage.OBEO_DSM_OBJECT_FEATURE_COUNT + 1;
+
+	/**
+	 * The number of structural features of the '<em>Scope</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SCOPE_FEATURE_COUNT = EnvironmentPackage.OBEO_DSM_OBJECT_FEATURE_COUNT + 2;
+
+	/**
 	 * The meta object id for the '{@link org.obeonetwork.dsl.soa.InterfaceKind <em>Interface Kind</em>}' enum.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2448,7 +2747,7 @@ public interface SoaPackage extends EPackage {
 	 * @see org.obeonetwork.dsl.soa.impl.SoaPackageImpl#getInterfaceKind()
 	 * @generated
 	 */
-	int INTERFACE_KIND = 18;
+	int INTERFACE_KIND = 20;
 
 	/**
 	 * The meta object id for the '{@link org.obeonetwork.dsl.soa.SynchronizationKind <em>Synchronization Kind</em>}' enum.
@@ -2458,7 +2757,7 @@ public interface SoaPackage extends EPackage {
 	 * @see org.obeonetwork.dsl.soa.impl.SoaPackageImpl#getSynchronizationKind()
 	 * @generated
 	 */
-	int SYNCHRONIZATION_KIND = 19;
+	int SYNCHRONIZATION_KIND = 21;
 
 	/**
 	 * The meta object id for the '{@link org.obeonetwork.dsl.soa.BindingKind <em>Binding Kind</em>}' enum.
@@ -2468,7 +2767,7 @@ public interface SoaPackage extends EPackage {
 	 * @see org.obeonetwork.dsl.soa.impl.SoaPackageImpl#getBindingKind()
 	 * @generated
 	 */
-	int BINDING_KIND = 20;
+	int BINDING_KIND = 22;
 
 	/**
 	 * The meta object id for the '{@link org.obeonetwork.dsl.soa.OperationKind <em>Operation Kind</em>}' enum.
@@ -2478,7 +2777,7 @@ public interface SoaPackage extends EPackage {
 	 * @see org.obeonetwork.dsl.soa.impl.SoaPackageImpl#getOperationKind()
 	 * @generated
 	 */
-	int OPERATION_KIND = 21;
+	int OPERATION_KIND = 23;
 
 	/**
 	 * The meta object id for the '{@link org.obeonetwork.dsl.soa.Verb <em>Verb</em>}' enum.
@@ -2488,7 +2787,7 @@ public interface SoaPackage extends EPackage {
 	 * @see org.obeonetwork.dsl.soa.impl.SoaPackageImpl#getVerb()
 	 * @generated
 	 */
-	int VERB = 22;
+	int VERB = 24;
 
 	/**
 	 * The meta object id for the '{@link org.obeonetwork.dsl.soa.ParameterPassingMode <em>Parameter Passing Mode</em>}' enum.
@@ -2498,7 +2797,7 @@ public interface SoaPackage extends EPackage {
 	 * @see org.obeonetwork.dsl.soa.impl.SoaPackageImpl#getParameterPassingMode()
 	 * @generated
 	 */
-	int PARAMETER_PASSING_MODE = 23;
+	int PARAMETER_PASSING_MODE = 25;
 
 	/**
 	 * The meta object id for the '{@link org.obeonetwork.dsl.soa.ExpositionKind <em>Exposition Kind</em>}' enum.
@@ -2508,7 +2807,7 @@ public interface SoaPackage extends EPackage {
 	 * @see org.obeonetwork.dsl.soa.impl.SoaPackageImpl#getExpositionKind()
 	 * @generated
 	 */
-	int EXPOSITION_KIND = 24;
+	int EXPOSITION_KIND = 26;
 
 	/**
 	 * The meta object id for the '{@link org.obeonetwork.dsl.soa.SecuritySchemeType <em>Security Scheme Type</em>}' enum.
@@ -2518,7 +2817,7 @@ public interface SoaPackage extends EPackage {
 	 * @see org.obeonetwork.dsl.soa.impl.SoaPackageImpl#getSecuritySchemeType()
 	 * @generated
 	 */
-	int SECURITY_SCHEME_TYPE = 25;
+	int SECURITY_SCHEME_TYPE = 27;
 
 	/**
 	 * The meta object id for the '{@link org.obeonetwork.dsl.soa.ApiKeyLocation <em>Api Key Location</em>}' enum.
@@ -2528,7 +2827,27 @@ public interface SoaPackage extends EPackage {
 	 * @see org.obeonetwork.dsl.soa.impl.SoaPackageImpl#getApiKeyLocation()
 	 * @generated
 	 */
-	int API_KEY_LOCATION = 26;
+	int API_KEY_LOCATION = 28;
+
+	/**
+	 * The meta object id for the '{@link org.obeonetwork.dsl.soa.HttpScheme <em>Http Scheme</em>}' enum.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.obeonetwork.dsl.soa.HttpScheme
+	 * @see org.obeonetwork.dsl.soa.impl.SoaPackageImpl#getHttpScheme()
+	 * @generated
+	 */
+	int HTTP_SCHEME = 29;
+
+	/**
+	 * The meta object id for the '{@link org.obeonetwork.dsl.soa.FlowType <em>Flow Type</em>}' enum.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.obeonetwork.dsl.soa.FlowType
+	 * @see org.obeonetwork.dsl.soa.impl.SoaPackageImpl#getFlowType()
+	 * @generated
+	 */
+	int FLOW_TYPE = 30;
 
 	/**
 	 * Returns the meta object for class '{@link org.obeonetwork.dsl.soa.System <em>System</em>}'.
@@ -3279,6 +3598,115 @@ public interface SoaPackage extends EPackage {
 	EAttribute getSecurityScheme_ApiKeyLocation();
 
 	/**
+	 * Returns the meta object for the attribute '{@link org.obeonetwork.dsl.soa.SecurityScheme#getConnectURL <em>Connect URL</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Connect URL</em>'.
+	 * @see org.obeonetwork.dsl.soa.SecurityScheme#getConnectURL()
+	 * @see #getSecurityScheme()
+	 * @generated
+	 */
+	EAttribute getSecurityScheme_ConnectURL();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link org.obeonetwork.dsl.soa.SecurityScheme#getFlows <em>Flows</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Flows</em>'.
+	 * @see org.obeonetwork.dsl.soa.SecurityScheme#getFlows()
+	 * @see #getSecurityScheme()
+	 * @generated
+	 */
+	EReference getSecurityScheme_Flows();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.obeonetwork.dsl.soa.SecurityScheme#getHttpScheme <em>Http Scheme</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Http Scheme</em>'.
+	 * @see org.obeonetwork.dsl.soa.SecurityScheme#getHttpScheme()
+	 * @see #getSecurityScheme()
+	 * @generated
+	 */
+	EAttribute getSecurityScheme_HttpScheme();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.obeonetwork.dsl.soa.SecurityScheme#getFormat <em>Format</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Format</em>'.
+	 * @see org.obeonetwork.dsl.soa.SecurityScheme#getFormat()
+	 * @see #getSecurityScheme()
+	 * @generated
+	 */
+	EAttribute getSecurityScheme_Format();
+
+	/**
+	 * Returns the meta object for class '{@link org.obeonetwork.dsl.soa.Flow <em>Flow</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Flow</em>'.
+	 * @see org.obeonetwork.dsl.soa.Flow
+	 * @generated
+	 */
+	EClass getFlow();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.obeonetwork.dsl.soa.Flow#getFlowType <em>Flow Type</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Flow Type</em>'.
+	 * @see org.obeonetwork.dsl.soa.Flow#getFlowType()
+	 * @see #getFlow()
+	 * @generated
+	 */
+	EAttribute getFlow_FlowType();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.obeonetwork.dsl.soa.Flow#getAuthorizationURL <em>Authorization URL</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Authorization URL</em>'.
+	 * @see org.obeonetwork.dsl.soa.Flow#getAuthorizationURL()
+	 * @see #getFlow()
+	 * @generated
+	 */
+	EAttribute getFlow_AuthorizationURL();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.obeonetwork.dsl.soa.Flow#getTokenURL <em>Token URL</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Token URL</em>'.
+	 * @see org.obeonetwork.dsl.soa.Flow#getTokenURL()
+	 * @see #getFlow()
+	 * @generated
+	 */
+	EAttribute getFlow_TokenURL();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.obeonetwork.dsl.soa.Flow#getRefreshURL <em>Refresh URL</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Refresh URL</em>'.
+	 * @see org.obeonetwork.dsl.soa.Flow#getRefreshURL()
+	 * @see #getFlow()
+	 * @generated
+	 */
+	EAttribute getFlow_RefreshURL();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link org.obeonetwork.dsl.soa.Flow#getScopes <em>Scopes</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Scopes</em>'.
+	 * @see org.obeonetwork.dsl.soa.Flow#getScopes()
+	 * @see #getFlow()
+	 * @generated
+	 */
+	EReference getFlow_Scopes();
+
+	/**
 	 * Returns the meta object for class '{@link org.obeonetwork.dsl.soa.Information <em>Information</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -3503,6 +3931,38 @@ public interface SoaPackage extends EPackage {
 	EAttribute getServer_URL();
 
 	/**
+	 * Returns the meta object for class '{@link org.obeonetwork.dsl.soa.Scope <em>Scope</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Scope</em>'.
+	 * @see org.obeonetwork.dsl.soa.Scope
+	 * @generated
+	 */
+	EClass getScope();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.obeonetwork.dsl.soa.Scope#getName <em>Name</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Name</em>'.
+	 * @see org.obeonetwork.dsl.soa.Scope#getName()
+	 * @see #getScope()
+	 * @generated
+	 */
+	EAttribute getScope_Name();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.obeonetwork.dsl.soa.Scope#getSummary <em>Summary</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Summary</em>'.
+	 * @see org.obeonetwork.dsl.soa.Scope#getSummary()
+	 * @see #getScope()
+	 * @generated
+	 */
+	EAttribute getScope_Summary();
+
+	/**
 	 * Returns the meta object for enum '{@link org.obeonetwork.dsl.soa.InterfaceKind <em>Interface Kind</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -3591,6 +4051,26 @@ public interface SoaPackage extends EPackage {
 	 * @generated
 	 */
 	EEnum getApiKeyLocation();
+
+	/**
+	 * Returns the meta object for enum '{@link org.obeonetwork.dsl.soa.HttpScheme <em>Http Scheme</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for enum '<em>Http Scheme</em>'.
+	 * @see org.obeonetwork.dsl.soa.HttpScheme
+	 * @generated
+	 */
+	EEnum getHttpScheme();
+
+	/**
+	 * Returns the meta object for enum '{@link org.obeonetwork.dsl.soa.FlowType <em>Flow Type</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for enum '<em>Flow Type</em>'.
+	 * @see org.obeonetwork.dsl.soa.FlowType
+	 * @generated
+	 */
+	EEnum getFlowType();
 
 	/**
 	 * Returns the factory that creates the instances of the model.
@@ -4189,6 +4669,88 @@ public interface SoaPackage extends EPackage {
 		EAttribute SECURITY_SCHEME__API_KEY_LOCATION = eINSTANCE.getSecurityScheme_ApiKeyLocation();
 
 		/**
+		 * The meta object literal for the '<em><b>Connect URL</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute SECURITY_SCHEME__CONNECT_URL = eINSTANCE.getSecurityScheme_ConnectURL();
+
+		/**
+		 * The meta object literal for the '<em><b>Flows</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference SECURITY_SCHEME__FLOWS = eINSTANCE.getSecurityScheme_Flows();
+
+		/**
+		 * The meta object literal for the '<em><b>Http Scheme</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute SECURITY_SCHEME__HTTP_SCHEME = eINSTANCE.getSecurityScheme_HttpScheme();
+
+		/**
+		 * The meta object literal for the '<em><b>Format</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute SECURITY_SCHEME__FORMAT = eINSTANCE.getSecurityScheme_Format();
+
+		/**
+		 * The meta object literal for the '{@link org.obeonetwork.dsl.soa.impl.FlowImpl <em>Flow</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.obeonetwork.dsl.soa.impl.FlowImpl
+		 * @see org.obeonetwork.dsl.soa.impl.SoaPackageImpl#getFlow()
+		 * @generated
+		 */
+		EClass FLOW = eINSTANCE.getFlow();
+
+		/**
+		 * The meta object literal for the '<em><b>Flow Type</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute FLOW__FLOW_TYPE = eINSTANCE.getFlow_FlowType();
+
+		/**
+		 * The meta object literal for the '<em><b>Authorization URL</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute FLOW__AUTHORIZATION_URL = eINSTANCE.getFlow_AuthorizationURL();
+
+		/**
+		 * The meta object literal for the '<em><b>Token URL</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute FLOW__TOKEN_URL = eINSTANCE.getFlow_TokenURL();
+
+		/**
+		 * The meta object literal for the '<em><b>Refresh URL</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute FLOW__REFRESH_URL = eINSTANCE.getFlow_RefreshURL();
+
+		/**
+		 * The meta object literal for the '<em><b>Scopes</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference FLOW__SCOPES = eINSTANCE.getFlow_Scopes();
+
+		/**
 		 * The meta object literal for the '{@link org.obeonetwork.dsl.soa.impl.InformationImpl <em>Information</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -4371,6 +4933,32 @@ public interface SoaPackage extends EPackage {
 		EAttribute SERVER__URL = eINSTANCE.getServer_URL();
 
 		/**
+		 * The meta object literal for the '{@link org.obeonetwork.dsl.soa.impl.ScopeImpl <em>Scope</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.obeonetwork.dsl.soa.impl.ScopeImpl
+		 * @see org.obeonetwork.dsl.soa.impl.SoaPackageImpl#getScope()
+		 * @generated
+		 */
+		EClass SCOPE = eINSTANCE.getScope();
+
+		/**
+		 * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute SCOPE__NAME = eINSTANCE.getScope_Name();
+
+		/**
+		 * The meta object literal for the '<em><b>Summary</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute SCOPE__SUMMARY = eINSTANCE.getScope_Summary();
+
+		/**
 		 * The meta object literal for the '{@link org.obeonetwork.dsl.soa.InterfaceKind <em>Interface Kind</em>}' enum.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -4459,6 +5047,26 @@ public interface SoaPackage extends EPackage {
 		 * @generated
 		 */
 		EEnum API_KEY_LOCATION = eINSTANCE.getApiKeyLocation();
+
+		/**
+		 * The meta object literal for the '{@link org.obeonetwork.dsl.soa.HttpScheme <em>Http Scheme</em>}' enum.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.obeonetwork.dsl.soa.HttpScheme
+		 * @see org.obeonetwork.dsl.soa.impl.SoaPackageImpl#getHttpScheme()
+		 * @generated
+		 */
+		EEnum HTTP_SCHEME = eINSTANCE.getHttpScheme();
+
+		/**
+		 * The meta object literal for the '{@link org.obeonetwork.dsl.soa.FlowType <em>Flow Type</em>}' enum.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.obeonetwork.dsl.soa.FlowType
+		 * @see org.obeonetwork.dsl.soa.impl.SoaPackageImpl#getFlowType()
+		 * @generated
+		 */
+		EEnum FLOW_TYPE = eINSTANCE.getFlowType();
 
 }
 

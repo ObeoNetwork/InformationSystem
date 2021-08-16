@@ -2644,5 +2644,5 @@ components:
     jwtToken:
       type: apiKey
       description: JWT token prefixed with "Bearer "
-      name: Authorization
+      name: jwtToken
       in: header

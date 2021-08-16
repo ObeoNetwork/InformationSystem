@@ -25,6 +25,7 @@ import org.obeonetwork.dsl.soa.Binding;
 import org.obeonetwork.dsl.soa.Component;
 import org.obeonetwork.dsl.soa.Contact;
 import org.obeonetwork.dsl.soa.Example;
+import org.obeonetwork.dsl.soa.Flow;
 import org.obeonetwork.dsl.soa.ImplementationComponent;
 import org.obeonetwork.dsl.soa.Information;
 import org.obeonetwork.dsl.soa.Interface;
@@ -34,6 +35,7 @@ import org.obeonetwork.dsl.soa.Operation;
 import org.obeonetwork.dsl.soa.Parameter;
 import org.obeonetwork.dsl.soa.ParameterRestData;
 import org.obeonetwork.dsl.soa.PropertiesExtension;
+import org.obeonetwork.dsl.soa.Scope;
 import org.obeonetwork.dsl.soa.SecurityScheme;
 import org.obeonetwork.dsl.soa.Server;
 import org.obeonetwork.dsl.soa.Service;
@@ -148,6 +150,10 @@ public class SoaAdapterFactory extends AdapterFactoryImpl {
 				return createSecuritySchemeAdapter();
 			}
 			@Override
+			public Adapter caseFlow(Flow object) {
+				return createFlowAdapter();
+			}
+			@Override
 			public Adapter caseInformation(Information object) {
 				return createInformationAdapter();
 			}
@@ -174,6 +180,10 @@ public class SoaAdapterFactory extends AdapterFactoryImpl {
 			@Override
 			public Adapter caseServer(Server object) {
 				return createServerAdapter();
+			}
+			@Override
+			public Adapter caseScope(Scope object) {
+				return createScopeAdapter();
 			}
 			@Override
 			public Adapter caseIdentifiable(Identifiable object) {
@@ -382,6 +392,20 @@ public class SoaAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
+	 * Creates a new adapter for an object of class '{@link org.obeonetwork.dsl.soa.Flow <em>Flow</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.obeonetwork.dsl.soa.Flow
+	 * @generated
+	 */
+	public Adapter createFlowAdapter() {
+		return null;
+	}
+
+	/**
 	 * Creates a new adapter for an object of class '{@link org.obeonetwork.dsl.soa.Information <em>Information</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
@@ -476,6 +500,20 @@ public class SoaAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createServerAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.obeonetwork.dsl.soa.Scope <em>Scope</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.obeonetwork.dsl.soa.Scope
+	 * @generated
+	 */
+	public Adapter createScopeAdapter() {
 		return null;
 	}
 

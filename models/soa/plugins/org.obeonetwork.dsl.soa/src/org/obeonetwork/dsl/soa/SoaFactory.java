@@ -135,6 +135,15 @@ public interface SoaFactory extends EFactory {
 	SecurityScheme createSecurityScheme();
 
 	/**
+	 * Returns a new object of class '<em>Flow</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Flow</em>'.
+	 * @generated
+	 */
+	Flow createFlow();
+
+	/**
 	 * Returns a new object of class '<em>Information</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -196,6 +205,15 @@ public interface SoaFactory extends EFactory {
 	 * @generated
 	 */
 	Server createServer();
+
+	/**
+	 * Returns a new object of class '<em>Scope</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Scope</em>'.
+	 * @generated
+	 */
+	Scope createScope();
 
 	/**
 	 * Returns the package supported by this factory.

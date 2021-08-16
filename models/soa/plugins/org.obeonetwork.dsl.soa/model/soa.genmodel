@@ -62,6 +62,16 @@
       <genEnumLiterals ecoreEnumLiteral="soa.ecore#//ApiKeyLocation/HEADER"/>
       <genEnumLiterals ecoreEnumLiteral="soa.ecore#//ApiKeyLocation/COOKIE"/>
     </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="soa.ecore#//HttpScheme">
+      <genEnumLiterals ecoreEnumLiteral="soa.ecore#//HttpScheme/BASIC"/>
+      <genEnumLiterals ecoreEnumLiteral="soa.ecore#//HttpScheme/BEARER"/>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="soa.ecore#//FlowType">
+      <genEnumLiterals ecoreEnumLiteral="soa.ecore#//FlowType/IMPLICIT"/>
+      <genEnumLiterals ecoreEnumLiteral="soa.ecore#//FlowType/PASSWORD"/>
+      <genEnumLiterals ecoreEnumLiteral="soa.ecore#//FlowType/CREDENTIALS"/>
+      <genEnumLiterals ecoreEnumLiteral="soa.ecore#//FlowType/AUTHORIZATIONCODE"/>
+    </genEnums>
     <genClasses ecoreClass="soa.ecore#//System">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference soa.ecore#//System/ownedComponents"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference soa.ecore#//System/ownedWires"/>
@@ -142,6 +152,17 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute soa.ecore#//SecurityScheme/type"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute soa.ecore#//SecurityScheme/name"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute soa.ecore#//SecurityScheme/apiKeyLocation"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute soa.ecore#//SecurityScheme/connectURL"/>
+      <genFeatures children="true" createChild="true" ecoreFeature="ecore:EReference soa.ecore#//SecurityScheme/flows"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute soa.ecore#//SecurityScheme/httpScheme"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute soa.ecore#//SecurityScheme/format"/>
+    </genClasses>
+    <genClasses ecoreClass="soa.ecore#//Flow">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute soa.ecore#//Flow/flowType"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute soa.ecore#//Flow/authorizationURL"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute soa.ecore#//Flow/tokenURL"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute soa.ecore#//Flow/refreshURL"/>
+      <genFeatures children="true" createChild="true" ecoreFeature="ecore:EReference soa.ecore#//Flow/scopes"/>
     </genClasses>
     <genClasses ecoreClass="soa.ecore#//Information" labelFeature="#//soa/Information/apiVersion">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute soa.ecore#//Information/apiVersion"/>
@@ -171,6 +192,10 @@
     </genClasses>
     <genClasses ecoreClass="soa.ecore#//Server" labelFeature="#//soa/Server/URL">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute soa.ecore#//Server/URL"/>
+    </genClasses>
+    <genClasses ecoreClass="soa.ecore#//Scope">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute soa.ecore#//Scope/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute soa.ecore#//Scope/summary"/>
     </genClasses>
   </genPackages>
 </genmodel:GenModel>

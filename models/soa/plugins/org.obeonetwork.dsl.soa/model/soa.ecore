@@ -360,6 +360,55 @@
         <details key="documentation" value="The location of the API key. (Named &quot;in&quot; in the OpenAPI specification)."/>
       </eAnnotations>
     </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="connectURL" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="REQUIRED. OpenId Connect URL to discover OAuth2 configuration values. This MUST be in the form of a URL."/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="flows" upperBound="-1"
+        eType="#//Flow" containment="true">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="REQUIRED for OAuth2 Security Schemes. An object containing configuration information for the flow types supported."/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="httpScheme" eType="#//HttpScheme">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="REQUIRED. The name of the HTTP Authorization scheme to be used in the Authorization header as defined in RFC7235."/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="format" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Flow" eSuperTypes="../../org.obeonetwork.dsl.environment/model/environment.ecore#//ObeoDSMObject">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+      <details key="documentation" value="REQUIRED FOR OAUTH2. An object containing configuration information for the flow types supported."/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="flowType" lowerBound="1"
+        eType="#//FlowType">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="REQUIRED. Type of Flow."/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="authorizationURL" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="REQUIRED. The authorization URL to be used for this flow. This MUST be in the form of a URL."/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="tokenURL" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="REQUIRED. The token URL to be used for this flow. This MUST be in the form of a URL."/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="refreshURL" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="The refresh URL to be used for this flow. This MUST be in the form of a URL."/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="scopes" upperBound="-1"
+        eType="#//Scope" containment="true">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value=" The available scopes for the OAuth2 security scheme. It may be empty."/>
+      </eAnnotations>
+    </eStructuralFeatures>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EEnum" name="SecuritySchemeType">
     <eLiterals name="API_KEY" literal="apiKey"/>
@@ -371,6 +420,16 @@
     <eLiterals name="QUERY" literal="QUERY"/>
     <eLiterals name="HEADER" value="1" literal="HEADER"/>
     <eLiterals name="COOKIE" value="2" literal="COOKIE"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="HttpScheme">
+    <eLiterals name="BASIC" literal="basic"/>
+    <eLiterals name="BEARER" value="1" literal="bearer"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="FlowType">
+    <eLiterals name="IMPLICIT"/>
+    <eLiterals name="PASSWORD" value="1"/>
+    <eLiterals name="CREDENTIALS" value="2"/>
+    <eLiterals name="AUTHORIZATIONCODE" value="3"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Information" eSuperTypes="../../org.obeonetwork.dsl.environment/model/environment.ecore#//ObeoDSMObject">
     <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
@@ -461,6 +520,21 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="URL" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
         <details key="documentation" value="The URL of this server."/>
+      </eAnnotations>
+    </eStructuralFeatures>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Scope" eSuperTypes="../../org.obeonetwork.dsl.environment/model/environment.ecore#//ObeoDSMObject">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+      <details key="documentation" value="The available scopes for the OAuth2 security scheme."/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="The name of the scope."/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="summary" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="A short description of the scope."/>
       </eAnnotations>
     </eStructuralFeatures>
   </eClassifiers>

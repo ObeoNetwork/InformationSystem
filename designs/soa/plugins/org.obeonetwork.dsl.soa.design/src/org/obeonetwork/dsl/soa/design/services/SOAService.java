@@ -35,6 +35,7 @@ import org.eclipse.sirius.business.api.query.EObjectQuery;
 import org.eclipse.sirius.business.api.session.Session;
 import org.eclipse.sirius.diagram.DNodeContainer;
 import org.eclipse.sirius.diagram.DSemanticDiagram;
+import org.eclipse.swt.widgets.Display;
 import org.eclipse.swt.widgets.Shell;
 import org.eclipse.ui.PlatformUI;
 import org.eclipse.ui.dialogs.ListDialog;
@@ -44,12 +45,14 @@ import org.obeonetwork.dsl.soa.InterfaceKind;
 import org.obeonetwork.dsl.soa.MediaType;
 import org.obeonetwork.dsl.soa.Operation;
 import org.obeonetwork.dsl.soa.Parameter;
+import org.obeonetwork.dsl.soa.SecurityScheme;
+import org.obeonetwork.dsl.soa.SecuritySchemeType;
 import org.obeonetwork.dsl.soa.Service;
-import org.obeonetwork.dsl.soa.SoaFactory;
 import org.obeonetwork.dsl.soa.SoaPackage;
 import org.obeonetwork.dsl.soa.System;
 import org.obeonetwork.dsl.soa.Verb;
 import org.obeonetwork.dsl.soa.Wire;
+import org.obeonetwork.dsl.soa.design.dialogs.NewSecuritySchemeDialog;
 import org.obeonetwork.dsl.soa.services.HttpStatusService;
 
 public class SOAService {
@@ -309,5 +312,38 @@ public class SOAService {
 		}
 
 		return paramIds;
+	}
+	
+	public void newSecurityScheme(SecurityScheme scheme) {
+		Shell shell = PlatformUI.getWorkbench().getActiveWorkbenchWindow().getShell();
+		new NewSecuritySchemeDialog(shell, scheme).open();
+	}
+	
+	public void editSecurityScheme(SecurityScheme scheme) {
+		Shell shell = PlatformUI.getWorkbench().getActiveWorkbenchWindow().getShell();
+		new NewSecuritySchemeDialog(shell, scheme).edit();
+	}
+	
+	public boolean isSecuritySchemeDialog(SecurityScheme scheme) {
+		Display display = Display.getCurrent();
+		Shell shell = display.getActiveShell();
+		return shell.getText().equals("Security scheme edition");
+	}
+	
+	public void closeSecuritySchemeDialog(SecurityScheme scheme) {
+		Display display = Display.getCurrent();
+		Shell shell = display.getActiveShell();
+		shell.dispose();
+	}
+	
+	public void setSecuritySchemeType(SecurityScheme scheme, SecuritySchemeType type) {
+		scheme.setType(type);
+		Display display = Display.getCurrent();
+		Shell shell = display.getActiveShell(); 
+		shell.dispose();
+	}
+
+	public String getName(SecuritySchemeType schemeType) {
+		return schemeType.getName();
 	}
 }
