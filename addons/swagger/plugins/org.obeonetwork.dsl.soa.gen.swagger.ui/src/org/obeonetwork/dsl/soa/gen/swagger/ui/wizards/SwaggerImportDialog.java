@@ -6,10 +6,16 @@ import org.eclipse.swt.widgets.FileDialog;
 import org.eclipse.swt.widgets.Shell;
 import org.eclipse.swt.layout.GridLayout;
 import org.eclipse.swt.widgets.Composite;
+import org.eclipse.core.resources.ResourcesPlugin;
+import org.eclipse.sirius.business.api.modelingproject.ModelingProject;
+import org.eclipse.sirius.business.api.query.EObjectQuery;
+import org.eclipse.sirius.business.api.session.Session;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.widgets.Label;
 import org.eclipse.swt.layout.GridData;
 import org.eclipse.swt.widgets.Text;
+import org.obeonetwork.dsl.soa.System;
+import org.obeonetwork.utils.sirius.session.SessionUtils;
 import org.eclipse.swt.widgets.Button;
 
 public class SwaggerImportDialog extends Dialog {
@@ -18,14 +24,16 @@ public class SwaggerImportDialog extends Dialog {
 	private String fileText;
 	private String paginationExtensionText;
 	private int returnType = SWT.CANCEL;
+	private System system;
 	
 	/**
 	 * Create the dialog.
 	 * @param parent
 	 * @param style
 	 */
-	public SwaggerImportDialog(Shell parent, int style) {
+	public SwaggerImportDialog(Shell parent, int style, System system) {
 		super(parent, style);
+		this.system = system;
 		setText("SWT Dialog");
 		fileText = null;
 		paginationExtensionText = null;
@@ -82,7 +90,7 @@ public class SwaggerImportDialog extends Dialog {
 		browseButton.addListener(SWT.Selection, (e) -> {
 			FileDialog dialog = new FileDialog(getParent(), SWT.OPEN);
 			dialog.setFilterExtensions(new String [] { "*.yaml;*.json", "*.yaml", "*.json" }); //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
-//			dialog.setFilterPath(getDefaultInputDirPath(system));
+			dialog.setFilterPath(getDefaultInputDirPath(system));
 			fileText = dialog.open();
 			fileTextWidget.setText(fileText);	
 		});
@@ -135,4 +143,16 @@ public class SwaggerImportDialog extends Dialog {
 		return paginationExtensionText;
 	}
 
+	public String getDefaultInputDirPath(System system) {
+		String defaultInputDirPath = null;
+		if(system != null) {
+			Session session = new EObjectQuery(system).getSession();
+			ModelingProject modelingProject = SessionUtils.getModelingProjectFromSession(session);
+			defaultInputDirPath = modelingProject.getProject().getLocation().toOSString();
+		} else {
+			defaultInputDirPath = ResourcesPlugin.getWorkspace().getRoot().getLocation().toOSString();
+		}
+
+		return defaultInputDirPath;
+	}
 }

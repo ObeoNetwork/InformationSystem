@@ -45,7 +45,7 @@ public class ImportSwaggerHandler extends AbstractHandler implements IHandler {
 		
 		System system = unwrapSelection(event);
 		Shell shell = HandlerUtil.getActiveShell(event);
-		SwaggerImportDialog dialog = new SwaggerImportDialog(shell, SWT.OPEN);
+		SwaggerImportDialog dialog = new SwaggerImportDialog(shell, SWT.OPEN, system);
 		int returnValue = dialog.open(); 
 		
 		if(returnValue == SWT.OK && dialog.getSwaggerFilePath() != null) {
@@ -97,18 +97,7 @@ public class ImportSwaggerHandler extends AbstractHandler implements IHandler {
 		
 	}
 	
-	public String getDefaultInputDirPath(System system) {
-		String defaultInputDirPath = null;
-		if(system != null) {
-			Session session = new EObjectQuery(system).getSession();
-			ModelingProject modelingProject = SessionUtils.getModelingProjectFromSession(session);
-			defaultInputDirPath = modelingProject.getProject().getLocation().toOSString();
-		} else {
-			defaultInputDirPath = ResourcesPlugin.getWorkspace().getRoot().getLocation().toOSString();
-		}
-
-		return defaultInputDirPath;
-	}
+	
 	
 	private System unwrapSelection(ExecutionEvent event) throws ExecutionException {
 		IWorkbenchWindow window = HandlerUtil.getActiveWorkbenchWindowChecked(event);
