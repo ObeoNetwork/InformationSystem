@@ -62,7 +62,7 @@ public class NewFlowDialog extends Dialog {
 	public NewFlowDialog(Shell parent, Flow flow) {
 		super(parent);		
 		this.flow = flow;
-		setText(Messages.NewFlowDialog_0);
+		setText(Messages.FlowCreation);
 	}
 
 	/**
@@ -115,7 +115,7 @@ public class NewFlowDialog extends Dialog {
 		gd_lblType.widthHint = 102;
 		lblType.setLayoutData(gd_lblType);
 		lblType.setBounds(0, 0, 55, 15);
-		lblType.setText(Messages.NewFlowDialog_1);
+		lblType.setText(Messages.Type);
 		
 		Combo flowTypeCombo = new Combo(flowTypeComposite, SWT.READ_ONLY);
 		flowTypeCombo.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, true, false, 1, 1));
@@ -136,7 +136,7 @@ public class NewFlowDialog extends Dialog {
 		gd_lblAuthorizationUrl.widthHint = 102;
 		lblAuthorizationUrl.setLayoutData(gd_lblAuthorizationUrl);
 		lblAuthorizationUrl.setBounds(0, 0, 55, 15);
-		lblAuthorizationUrl.setText(Messages.NewFlowDialog_2);
+		lblAuthorizationUrl.setText(Messages.AuthorizationURL);
 		
 		authText = new Text(authComposite, SWT.BORDER);
 		authText.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, true, false, 1, 1));
@@ -153,7 +153,7 @@ public class NewFlowDialog extends Dialog {
 		gd_lblTokenUrl.widthHint = 102;
 		lblTokenUrl.setLayoutData(gd_lblTokenUrl);
 		lblTokenUrl.setBounds(0, 0, 55, 15);
-		lblTokenUrl.setText(Messages.NewFlowDialog_3);
+		lblTokenUrl.setText(Messages.TokenURL);
 		
 		tokenText = new Text(tokenComposite, SWT.BORDER);
 		tokenText.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, true, false, 1, 1));
@@ -170,7 +170,7 @@ public class NewFlowDialog extends Dialog {
 		gd_lblRefreshUrl.widthHint = 102;
 		lblRefreshUrl.setLayoutData(gd_lblRefreshUrl);
 		lblRefreshUrl.setBounds(0, 0, 55, 15);
-		lblRefreshUrl.setText(Messages.NewFlowDialog_4);
+		lblRefreshUrl.setText(Messages.RefreshURL);
 		
 		refreshText = new Text(refreshComposite, SWT.BORDER);
 		refreshText.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, true, false, 1, 1));
@@ -188,7 +188,7 @@ public class NewFlowDialog extends Dialog {
 		GridData gd_lblNewLabel = new GridData(SWT.LEFT, SWT.TOP, false, false, 1, 1);
 		gd_lblNewLabel.widthHint = 102;
 		scopeLabel.setLayoutData(gd_lblNewLabel);
-		scopeLabel.setText(Messages.NewFlowDialog_5);
+		scopeLabel.setText(Messages.FlowScopes);
 		
 		scopeTableViewer = new TableViewer(scopeTableComposite, SWT.BORDER | SWT.FULL_SELECTION);
 		scopeTable = scopeTableViewer.getTable();
@@ -200,13 +200,13 @@ public class NewFlowDialog extends Dialog {
 		
 		TableViewerColumn nameTableViewerColumn = new TableViewerColumn(scopeTableViewer, SWT.LEFT);		
 		TableColumn nameColumn = nameTableViewerColumn.getColumn();
-		nameColumn.setText(Messages.NewFlowDialog_6);		
+		nameColumn.setText(Messages.FlowName);		
 		nameColumn.setWidth(100);
 		nameTableViewerColumn.setEditingSupport(new ScopeNameEditingSupport(scopeTableViewer));
 		
 		TableViewerColumn descriptionTableViewerColumn = new TableViewerColumn(scopeTableViewer, SWT.LEFT);		
 		TableColumn descriptionColumn = descriptionTableViewerColumn.getColumn();
-		descriptionColumn.setText(Messages.NewFlowDialog_7);
+		descriptionColumn.setText(Messages.FlowDescriptionLabel);
 		descriptionColumn.setWidth(170);
 		descriptionTableViewerColumn.setEditingSupport(new ScopeDescriptionEditingSupport(scopeTableViewer));
 
@@ -233,18 +233,18 @@ public class NewFlowDialog extends Dialog {
 		GridData gd_addScope = new GridData(SWT.FILL, SWT.CENTER, true, false, 1, 1);
 		gd_addScope.widthHint = 45;
 		addScope.setLayoutData(gd_addScope);
-		addScope.setImage(new Image(null, this.getClass().getClassLoader().getResourceAsStream(Messages.NewFlowDialog_8)));
+		addScope.setImage(new Image(null, this.getClass().getClassLoader().getResourceAsStream(Messages.AddIcon)));
 		addScope.addListener(SWT.Selection, (e) -> {
 			Scope toAdd = SoaFactory.eINSTANCE.createScope();
-			toAdd.setName(Messages.NewFlowDialog_9);
-			toAdd.setSummary(Messages.NewFlowDialog_10);
+			toAdd.setName(Messages.NewFlowScope);
+			toAdd.setSummary(Messages.FlowDescription);
 			scopeToAdd.add(toAdd);
 			scopeTableViewer.refresh();
 		});
 		
 		Button deleteScope = new Button(buttonComposite, SWT.NONE);
 		deleteScope.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, true, false, 1, 1));
-		deleteScope.setImage(new Image(null, this.getClass().getClassLoader().getResourceAsStream(Messages.NewFlowDialog_11)));
+		deleteScope.setImage(new Image(null, this.getClass().getClassLoader().getResourceAsStream(Messages.DeleteIcon)));
 		deleteScope.addListener(SWT.Selection, (e) -> {
 			Scope toRemove;
 			if (scopeTableViewer.getStructuredSelection().getFirstElement()!= null) {
@@ -262,14 +262,14 @@ public class NewFlowDialog extends Dialog {
 		GridData gd_cancelButton = new GridData(SWT.LEFT, SWT.CENTER, false, false, 1, 1);
 		gd_cancelButton.widthHint = 83;
 		cancelButton.setLayoutData(gd_cancelButton);
-		cancelButton.setText(Messages.NewFlowDialog_12);
+		cancelButton.setText(Messages.CancelButtonLabel);
 		cancelButton.addListener(SWT.Selection, (e) -> cancel());
 		
 		Button okButton = new Button(okCancelButtonsComposite, SWT.NONE);
 		GridData gd_okButton = new GridData(SWT.LEFT, SWT.CENTER, false, false, 1, 1);
 		gd_okButton.widthHint = 83;
 		okButton.setLayoutData(gd_okButton);
-		okButton.setText(Messages.NewFlowDialog_13);
+		okButton.setText(Messages.OKButtonLabel);
 		okButton.addListener(SWT.Selection, (e) -> validateCreation());
 		
 		scopeTableViewer.setInput(flow);
