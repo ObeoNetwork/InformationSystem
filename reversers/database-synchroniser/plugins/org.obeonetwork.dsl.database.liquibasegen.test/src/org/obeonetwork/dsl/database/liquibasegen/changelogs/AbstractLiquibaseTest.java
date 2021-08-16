@@ -8,7 +8,7 @@
  * Contributors:
  *     Obeo - initial API and implementation
  *******************************************************************************/
-package org.obeonetwork.dsl.database.liquibasegen;
+package org.obeonetwork.dsl.database.liquibasegen.changelogs;
 
 import static org.junit.Assert.fail;
 
@@ -25,6 +25,8 @@ import javax.xml.parsers.DocumentBuilderFactory;
 import org.eclipse.emf.common.util.BasicMonitor;
 import org.eclipse.emf.compare.Comparison;
 import org.obeonetwork.dsl.database.gen.common.tests.AbstractGenerationTest;
+import org.obeonetwork.dsl.database.liquibasegen.ChangeLogBuilder;
+import org.obeonetwork.dsl.database.liquibasegen.LiquibaseGenerator;
 import org.w3c.dom.Document;
 
 import com.google.common.base.Charsets;

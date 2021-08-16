@@ -17,6 +17,3 @@ Require-Bundle: liquibase,
  org.obeonetwork.dsl.database.gen.common.tests;bundle-version="2.1.0"
 Bundle-Vendor: Obeo Network
 Bundle-ActivationPolicy: lazy
-Export-Package: org.obeonetwork.dsl.database.liquibasegen,
- org.obeonetwork.dsl.database.liquibasegen.service,
- org.obeonetwork.dsl.database.liquibasegen.update
