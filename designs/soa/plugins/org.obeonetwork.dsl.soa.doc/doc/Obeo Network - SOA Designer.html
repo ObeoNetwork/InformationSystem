@@ -559,6 +559,11 @@
 			<em>Operations</em> du 
 			<em>Composant</em> ou bien depuis un autre composant destiné à être déployé dans la même application, mais il ne sera pas accessible depuis un autre système.
 		</p>
+		<p>La notion de pagination (
+			<em>Paged</em>) indique lorsque les résultats retournés par l&#8217;opération sont paginés. Lorsque l&#8217;operation est paginée, il est possible d&#8217;indiquer quels paramètres définissent l&#8217;index de la page (
+			<em>Page</em>), et le nombre de résultats par page (
+			<em>Size</em>). 
+		</p>
 		<p>La notion d&#8217;exposition fait référence à la publication par une technologie permettant de la rendre accessible depuis un autre système, et çe typiquement au travers d&#8217;un réseau. C&#8217;est ce qu&#8217;adresse par exemple de manière non exaustive les technologies REST, SOAP ou gRPC. Ainsi, pour être exposée, une opération doit avoir une visibilité 
 			<em>Publique</em>.
 		</p>
@@ -737,6 +742,7 @@
 			<em>Input Parameters</em>, qui offre la possibilité de définir le mode de passage et les identifiants REST de chacun d&#8217;eux. Ceci est expliqué plus en détail ci-dessous dans la section 
 			<a href="#input_parameter">Modélisation d&#8217;un paramètre d&#8217;entrée</a> .
 		</p>
+		<p>Enfin, dans le cas où l&#8217;operation est paginée, une extension de propriété peut-être définie afin d&#8217;indiquer lors de l&#8217;export OpenAPI si l&#8217;opération est paginée.</p>
 		<h4 id="parameter">Modélisation d&#8217;un paramètre</h4>
 		<p>Le contenu de l&#8217;onglet 
 			<em>Exposition</em> d&#8217;un paramètre n&#8217;est pas le même pour un paramètre d&#8217;entrée, de retour ou d&#8217;erreur.

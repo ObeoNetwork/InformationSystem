@@ -235,6 +235,8 @@ Dans _SOA Designer_, le type d'exposition est paramétrable au niveau d'une _Ope
 
 La notion de visibilité (_Public/Privé_) fait référence à la notion du même nom définie par les langages orientés objet et concernant les méthodes de classes. Ainsi, une _Operation_ publique sera accessible depuis les implémentations des autres _Operations_ du _Composant_ ou bien depuis un autre composant destiné à être déployé dans la même application, mais il ne sera pas accessible depuis un autre système.
 
+La notion de pagination (_Paged_) indique lorsque les résultats retournés par l'opération sont paginés. Lorsque l'operation est paginée, il est possible d'indiquer quels paramètres définissent l'index de la page (_Page_), et le nombre de résultats par page (_Size_). 
+
 La notion d'exposition fait référence à la publication par une technologie permettant de la rendre accessible depuis un autre système, et çe typiquement au travers d'un réseau. C'est ce qu'adresse par exemple de manière non exaustive les technologies REST, SOAP ou gRPC. Ainsi, pour être exposée, une opération doit avoir une visibilité _Publique_.
  
 _SOA Designer_ propose les types d'exposition suivants :
@@ -307,6 +309,8 @@ Le concept en correspondance avec le _Service OpenAPI_ est le concept _Operation
 Le verbe correspond au verbe HTTP et peut prendre l'une des valeurs : _GET_, _POST_, _PUT_, _DELETE_, _HEAD_, _OPTIONS_, _PATCH_, _TRACE_.
 
 Dans le cas où l'opération définit des paramètres d'entrée, ceux-ci sont listés dans la section _Input Parameters_, qui offre la possibilité de définir le mode de passage et les identifiants REST de chacun d'eux. Ceci est expliqué plus en détail ci-dessous dans la section "Modélisation d'un paramètre d'entrée":#input_parameter .
+
+Enfin, dans le cas où l'operation est paginée, une extension de propriété peut-être définie afin d'indiquer lors de l'export OpenAPI si l'opération est paginée.
 
 h4(#parameter). Modélisation d'un paramètre
 
