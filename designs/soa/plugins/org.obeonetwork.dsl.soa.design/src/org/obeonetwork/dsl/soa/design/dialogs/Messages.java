@@ -4,28 +4,28 @@ import org.eclipse.osgi.util.NLS;
 
 public class Messages extends NLS {
 	private static final String BUNDLE_NAME = "org.obeonetwork.dsl.soa.design.dialogs.messages"; //$NON-NLS-1$
-	public static String FlowCreation;
-	public static String Type;
-	public static String FlowDescription;
-	public static String DeleteIcon;
-	public static String CancelButtonLabel;
-	public static String OKButtonLabel;
-	public static String AuthorizationURL;
-	public static String TokenURL;
-	public static String RefreshURL;
-	public static String FlowScopes;
-	public static String FlowName;
-	public static String FlowDescriptionLabel;
-	public static String AddIcon;
-	public static String NewFlowScope;
-	public static String NewSecurityScheme;
-	public static String Flows;
-	public static String SecuritySchemeName;
-	public static String SecuritySchemeDescription;
-	public static String ApiKeyLocation;
-	public static String ConnectURL;
-	public static String HttpScheme;
-	public static String Format;
+	public static String Flow_Description_Value;
+	public static String Flow_Name_Value;
+	public static String FlowDialog_AuthorizationURL_Label;
+	public static String FlowDialog_Description_Label;
+	public static String FlowDialog_Name_Label;
+	public static String FlowDialog_RefreshURL_Label;
+	public static String FlowDialog_Scopes_Label;
+	public static String FlowDialog_Title_Label;
+	public static String FlowDialog_TokenURL_Label;
+	public static String SecuritySchemeDialog_AddButton_Icon;
+	public static String SecuritySchemeDialog_ApiKeyLocation_Label;
+	public static String SecuritySchemeDialog_CancelButton_Label;
+	public static String SecuritySchemeDialog_ConnectURL_Label;
+	public static String SecuritySchemeDialog_DeleteButton_Icon;
+	public static String SecuritySchemeDialog_Description_Label;
+	public static String SecuritySchemeDialog_Flows_Label;
+	public static String SecuritySchemeDialog_Format_Label;
+	public static String SecuritySchemeDialog_HttpScheme_Label;
+	public static String SecuritySchemeDialog_Name_Label;
+	public static String SecuritySchemeDialog_OKButton_Label;
+	public static String SecuritySchemeDialog_Title_Label;
+	public static String SecuritySchemeDialog_Type_Label;
 	static {
 		// initialize resource bundle
 		NLS.initializeMessages(BUNDLE_NAME, Messages.class);
