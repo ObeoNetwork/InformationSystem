@@ -95,7 +95,7 @@ public class SOAService {
 		if (expositionKind == ExpositionKind.NONE) {
 			operation.setURI(null);
 			operation.setVerb(Verb.GET);
-			operation.setPaged(true);
+			// operation.setPaged(true);
 		}
 
 		return operation;
