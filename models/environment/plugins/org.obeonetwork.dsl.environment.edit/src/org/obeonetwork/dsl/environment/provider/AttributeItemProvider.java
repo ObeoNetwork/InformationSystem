@@ -13,6 +13,7 @@ package org.obeonetwork.dsl.environment.provider;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
+import java.util.stream.Collectors;
 
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
@@ -108,7 +109,7 @@ public class AttributeItemProvider extends PropertyItemProvider {
 								}
 							}
 						}
-						return result;
+						return result.stream().distinct().collect(Collectors.toList());
 					};
 				});
 	}
