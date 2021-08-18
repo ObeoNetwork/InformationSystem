@@ -44,70 +44,54 @@
       <metamodel href="platform:/plugin/org.obeonetwork.dsl.typeslibrary/model/typeslibrary.ecore#/"/>
       <defaultLayer name="Default">
         <edgeMappings name="DB_ForeignKey" labelDirectEdit="//@ownedViewpoints[name='Database']/@ownedRepresentations[name='Reused%20Description']/@defaultLayer/@toolSections.0/@ownedTools[name='EDT_DatabaseElement']" semanticCandidatesExpression="service:getForeignKeys(diagram)" semanticElements="var:self" sourceMapping="//@ownedViewpoints[name='Database']/@ownedRepresentations[name='Database%20Diagram']/@defaultLayer/@containerMappings[name='DB_Table'] //@ownedViewpoints[name='Database']/@ownedRepresentations[name='Database%20Diagram']/@additionalLayers[name='External%20Tables']/@containerMappings[name='DB_Referenced_External_Table'] //@ownedViewpoints[name='Database']/@ownedRepresentations[name='Database%20Diagram']/@additionalLayers[name='External%20Tables']/@containerMappings[name='DB_Non_Referenced_External_Table']" targetMapping="//@ownedViewpoints[name='Database']/@ownedRepresentations[name='Database%20Diagram']/@defaultLayer/@containerMappings[name='DB_Table'] //@ownedViewpoints[name='Database']/@ownedRepresentations[name='Database%20Diagram']/@additionalLayers[name='External%20Tables']/@containerMappings[name='DB_Referenced_External_Table'] //@ownedViewpoints[name='Database']/@ownedRepresentations[name='Database%20Diagram']/@additionalLayers[name='External%20Tables']/@containerMappings[name='DB_Non_Referenced_External_Table']" targetFinderExpression="[getTargetTable()/]" sourceFinderExpression="[getSourceTable()/]" domainClass="database.ForeignKey" useDomainElement="true">
-          <style>
-            <strokeColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='gray']"/>
-            <centerLabelStyleDescription showIcon="false" labelExpression="feature:name">
-              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
-            </centerLabelStyleDescription>
+          <style strokeColor="//@userColorsPalettes[name='DomainColors']/@entries[name='DatabaseStroke']">
+            <centerLabelStyleDescription showIcon="false" labelExpression="feature:name" labelColor="//@userColorsPalettes[name='DomainColors']/@entries[name='DatabaseStroke']"/>
           </style>
         </edgeMappings>
         <containerMappings name="DB_Table" labelDirectEdit="//@ownedViewpoints[name='Database']/@ownedRepresentations[name='Reused%20Description']/@defaultLayer/@toolSections.0/@ownedTools[name='EDT_DatabaseElement']" semanticCandidatesExpression="feature:tables" domainClass="database.Table" childrenPresentation="List">
           <subNodeMappings name="DB_Column" labelDirectEdit="//@ownedViewpoints[name='Database']/@ownedRepresentations[name='Reused%20Description']/@defaultLayer/@toolSections.0/@ownedTools[name='EDT_DatabaseElement']" semanticCandidatesExpression="feature:columns" semanticElements="[self->including(sequence)/]" domainClass="database.Column">
-            <style xsi:type="style:SquareDescription" labelExpression="service:getDatabaseElementLabel(diagram)" labelAlignment="LEFT">
+            <style xsi:type="style:SquareDescription" labelExpression="service:getDatabaseElementLabel(diagram)" labelColor="//@userColorsPalettes[name='DomainColors']/@entries[name='DatabaseStroke']" labelAlignment="LEFT">
               <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
-              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
               <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='gray']"/>
             </style>
           </subNodeMappings>
           <subNodeMappings name="DB_PrimaryKey" labelDirectEdit="//@ownedViewpoints[name='Database']/@ownedRepresentations[name='Reused%20Description']/@defaultLayer/@toolSections.0/@ownedTools[name='EDT_DatabaseElement']" semanticCandidatesExpression="feature:primaryKey" domainClass="database.PrimaryKey">
-            <style xsi:type="style:SquareDescription" labelAlignment="LEFT">
+            <style xsi:type="style:SquareDescription" labelColor="//@userColorsPalettes[name='DomainColors']/@entries[name='DatabaseStroke']" labelAlignment="LEFT">
               <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
-              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
               <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='gray']"/>
             </style>
           </subNodeMappings>
-          <style xsi:type="style:FlatContainerStyleDescription" arcWidth="1" arcHeight="1" borderSizeComputationExpression="1">
-            <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='dark_blue']"/>
-            <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
-            <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
-            <foregroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='blue']"/>
+          <style xsi:type="style:FlatContainerStyleDescription" arcWidth="1" arcHeight="1" borderSizeComputationExpression="2" borderColor="//@userColorsPalettes[name='DomainColors']/@entries[name='DatabaseStroke']" labelSize="10" labelColor="//@userColorsPalettes[name='DomainColors']/@entries[name='DatabaseStroke']" backgroundColor="//@userColorsPalettes[name='DomainColors']/@entries[name='DatabaseFillDark']" foregroundColor="//@userColorsPalettes[name='DomainColors']/@entries[name='DatabaseFillDark']">
+            <labelFormat>bold</labelFormat>
           </style>
         </containerMappings>
         <containerMappings name="DB_View" labelDirectEdit="//@ownedViewpoints[name='Database']/@ownedRepresentations[name='Reused%20Description']/@defaultLayer/@toolSections.0/@ownedTools[name='EDT_DatabaseElement']" semanticCandidatesExpression="service:getViews" domainClass="database.View" childrenPresentation="List">
           <subNodeMappings name="DB_viewColumn" semanticCandidatesExpression="feature:columns" domainClass="database.ViewElement">
-            <style xsi:type="style:SquareDescription" labelExpression="service:getViewElementLabel" iconPath="/org.obeonetwork.dsl.database.edit/icons/full/obj16/Column.gif" labelAlignment="LEFT" resizeKind="NSEW">
+            <style xsi:type="style:SquareDescription" labelExpression="service:getViewElementLabel" labelColor="//@userColorsPalettes[name='DomainColors']/@entries[name='DatabaseStroke']" iconPath="/org.obeonetwork.dsl.database.edit/icons/full/obj16/Column.gif" labelAlignment="LEFT" resizeKind="NSEW">
               <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
-              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
               <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='gray']"/>
             </style>
           </subNodeMappings>
           <subNodeMappings name="DB_viewTable" semanticCandidatesExpression="feature:tables" domainClass="database.ViewElement">
-            <style xsi:type="style:SquareDescription" iconPath="/org.obeonetwork.dsl.database.edit/icons/full/obj16/Table.gif" labelAlignment="LEFT" resizeKind="NSEW">
+            <style xsi:type="style:SquareDescription" labelColor="//@userColorsPalettes[name='DomainColors']/@entries[name='DatabaseStroke']" iconPath="/org.obeonetwork.dsl.database.edit/icons/full/obj16/Table.gif" labelAlignment="LEFT" resizeKind="NSEW">
               <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
-              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
               <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='gray']"/>
             </style>
           </subNodeMappings>
-          <style xsi:type="style:FlatContainerStyleDescription" arcWidth="1" arcHeight="1" borderSizeComputationExpression="1" showIcon="false" tooltipExpression="feature:query">
-            <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='dark_purple']"/>
-            <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
-            <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
-            <foregroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='purple']"/>
+          <style xsi:type="style:FlatContainerStyleDescription" arcWidth="30" arcHeight="30" borderSizeComputationExpression="2" borderColor="//@userColorsPalettes[name='DomainColors']/@entries[name='DatabaseStroke']" labelSize="10" showIcon="false" labelColor="//@userColorsPalettes[name='DomainColors']/@entries[name='DatabaseStroke']" tooltipExpression="feature:query" roundedCorner="true" backgroundColor="//@userColorsPalettes[name='DomainColors']/@entries[name='DatabaseFillDark']" foregroundColor="//@userColorsPalettes[name='DomainColors']/@entries[name='DatabaseFillDark']">
+            <labelFormat>bold</labelFormat>
           </style>
         </containerMappings>
         <containerMappings name="DB_Sequence" deletionDescription="//@ownedViewpoints[name='Database']/@ownedRepresentations[name='Reused%20Description']/@defaultLayer/@toolSections.0/@ownedTools[name='DB_SequencePreventDelete']" semanticCandidatesExpression="service:tableContainerWithSequences()" domainClass="database.TableContainer" childrenPresentation="List">
           <subNodeMappings name="DB_SequenceNode" labelDirectEdit="//@ownedViewpoints[name='Database']/@ownedRepresentations[name='Reused%20Description']/@defaultLayer/@toolSections.0/@ownedTools[name='EDT_DatabaseElement']" semanticCandidatesExpression="service:allSequencesList()" domainClass="database.Sequence">
-            <style xsi:type="style:SquareDescription" labelAlignment="LEFT" resizeKind="NSEW">
+            <style xsi:type="style:SquareDescription" labelColor="//@userColorsPalettes[name='DomainColors']/@entries[name='DatabaseStroke']" labelAlignment="LEFT" resizeKind="NSEW">
               <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
-              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
               <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='gray']"/>
             </style>
           </subNodeMappings>
-          <style xsi:type="style:FlatContainerStyleDescription" arcWidth="1" arcHeight="1" borderSizeComputationExpression="1" labelExpression="Sequences" iconPath="/org.obeonetwork.dsl.database.edit/icons/full/obj16/Sequence.gif">
-            <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
-            <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+          <style xsi:type="style:FlatContainerStyleDescription" arcWidth="5" arcHeight="5" borderSizeComputationExpression="1" borderColor="//@userColorsPalettes[name='DomainColors']/@entries[name='DatabaseStroke']" borderLineStyle="dash" labelSize="10" labelExpression="Sequences" labelColor="//@userColorsPalettes[name='DomainColors']/@entries[name='DatabaseStroke']" iconPath="/org.obeonetwork.dsl.database.edit/icons/full/obj16/Sequence.gif" roundedCorner="true">
             <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
-            <foregroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_blue']"/>
+            <foregroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
           </style>
         </containerMappings>
         <toolSections name="Database">
@@ -189,11 +173,9 @@
       </defaultLayer>
       <additionalLayers name="Schemas" activeByDefault="true">
         <containerMappings name="DB_Schema" labelDirectEdit="//@ownedViewpoints[name='Database']/@ownedRepresentations[name='Reused%20Description']/@defaultLayer/@toolSections.0/@ownedTools[name='EDT_DatabaseElement']" semanticCandidatesExpression="feature:schemas" semanticElements="var:self" doubleClickDescription="//@ownedViewpoints[name='Database']/@ownedRepresentations[name='Database%20Diagram']/@additionalLayers[name='Schemas']/@toolSections.0/@subSections[name='Usability%20tools']/@ownedTools[name='DBL_NavigateToSchemaDiagram']" domainClass="database.Schema">
-          <style xsi:type="style:FlatContainerStyleDescription" arcWidth="1" arcHeight="1" borderSizeComputationExpression="1">
-            <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
-            <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+          <style xsi:type="style:FlatContainerStyleDescription" arcWidth="1" arcHeight="1" borderSizeComputationExpression="1" borderColor="//@userColorsPalettes[name='DomainColors']/@entries[name='DatabaseStroke']" labelColor="//@userColorsPalettes[name='DomainColors']/@entries[name='DatabaseStroke']">
             <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
-            <foregroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_gray']"/>
+            <foregroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
           </style>
         </containerMappings>
         <toolSections name="Schemas">
@@ -222,32 +204,22 @@
       <additionalLayers name="External Tables" activeByDefault="true">
         <containerMappings name="DB_Non_Referenced_External_Table" deletionDescription="//@ownedViewpoints[name='Database']/@ownedRepresentations[name='Database%20Diagram']/@additionalLayers[name='External%20Tables']/@toolSections.0/@ownedTools[name='DEL_Prevent_Deletion_Ext_Tables']" semanticCandidatesExpression="service:allNonReferencedExternalTables" createElements="false" semanticElements="var:self" domainClass="database.Table" childrenPresentation="List">
           <subNodeMappings name="DB_Ext_Column" deletionDescription="//@ownedViewpoints[name='Database']/@ownedRepresentations[name='Database%20Diagram']/@additionalLayers[name='External%20Tables']/@toolSections.0/@ownedTools[name='DEL_Prevent_Deletion_Ext_Tables']" semanticCandidatesExpression="feature:columns" semanticElements="[self->including(sequence)/]" domainClass="database.Column">
-            <style xsi:type="style:SquareDescription" labelExpression="service:getDatabaseElementLabel" labelAlignment="LEFT">
+            <style xsi:type="style:SquareDescription" labelExpression="service:getDatabaseElementLabel" labelColor="//@userColorsPalettes[name='DomainColors']/@entries[name='DatabaseStroke']" labelAlignment="LEFT">
               <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
-              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
               <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='gray']"/>
             </style>
           </subNodeMappings>
           <subNodeMappings name="DB_Ext_PrimaryKey" deletionDescription="//@ownedViewpoints[name='Database']/@ownedRepresentations[name='Database%20Diagram']/@additionalLayers[name='External%20Tables']/@toolSections.0/@ownedTools[name='DEL_Prevent_Deletion_Ext_Tables']" semanticCandidatesExpression="feature:primaryKey" domainClass="database.PrimaryKey">
-            <style xsi:type="style:SquareDescription" labelAlignment="LEFT">
+            <style xsi:type="style:SquareDescription" labelColor="//@userColorsPalettes[name='DomainColors']/@entries[name='DatabaseStroke']" labelAlignment="LEFT">
               <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
-              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
               <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='gray']"/>
             </style>
           </subNodeMappings>
-          <style xsi:type="style:FlatContainerStyleDescription" arcWidth="1" arcHeight="1" borderSizeComputationExpression="1" labelExpression="[ancestors()->filter(database::TableContainer)->reverse().name->sep('::') + '::'+name/]">
-            <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='dark_green']"/>
-            <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
-            <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
-            <foregroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='green']"/>
-          </style>
+          <style xsi:type="style:FlatContainerStyleDescription" arcWidth="1" arcHeight="1" borderSizeComputationExpression="2" borderColor="//@userColorsPalettes[name='DomainColors']/@entries[name='DatabaseStroke']" labelSize="10" labelExpression="[ancestors()->filter(database::TableContainer)->reverse().name->sep('::') + '::'+name/]" labelColor="//@userColorsPalettes[name='DomainColors']/@entries[name='DatabaseStroke']" backgroundColor="//@userColorsPalettes[name='DomainColors']/@entries[name='DatabaseFillLight']" foregroundColor="//@userColorsPalettes[name='DomainColors']/@entries[name='DatabaseFillLight']"/>
         </containerMappings>
         <containerMappings name="DB_Referenced_External_Table" deletionDescription="//@ownedViewpoints[name='Database']/@ownedRepresentations[name='Database%20Diagram']/@additionalLayers[name='External%20Tables']/@toolSections.0/@ownedTools[name='DEL_Prevent_Deletion_Ext_Tables']" semanticCandidatesExpression="service:allReferencedExternalTables" semanticElements="var:self" domainClass="database.Table" reusedNodeMappings="//@ownedViewpoints[name='Database']/@ownedRepresentations[name='Database%20Diagram']/@additionalLayers[name='External%20Tables']/@containerMappings[name='DB_Non_Referenced_External_Table']/@subNodeMappings[name='DB_Ext_Column'] //@ownedViewpoints[name='Database']/@ownedRepresentations[name='Database%20Diagram']/@additionalLayers[name='External%20Tables']/@containerMappings[name='DB_Non_Referenced_External_Table']/@subNodeMappings[name='DB_Ext_PrimaryKey']" childrenPresentation="List">
-          <style xsi:type="style:FlatContainerStyleDescription" arcWidth="1" arcHeight="1" borderSizeComputationExpression="1" labelExpression="[ancestors()->filter(database::TableContainer)->reverse().name->sep('::') + '::'+name/]">
-            <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='dark_green']"/>
-            <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
-            <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
-            <foregroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='green']"/>
+          <style xsi:type="style:FlatContainerStyleDescription" arcWidth="1" arcHeight="1" borderSizeComputationExpression="2" borderColor="//@userColorsPalettes[name='DomainColors']/@entries[name='DatabaseStroke']" labelSize="10" labelExpression="[ancestors()->filter(database::TableContainer)->reverse().name->sep('::') + '::'+name/]" labelColor="//@userColorsPalettes[name='DomainColors']/@entries[name='DatabaseStroke']" backgroundColor="//@userColorsPalettes[name='DomainColors']/@entries[name='DatabaseFillLight']" foregroundColor="//@userColorsPalettes[name='DomainColors']/@entries[name='DatabaseFillLight']">
+            <labelFormat>bold</labelFormat>
           </style>
         </containerMappings>
         <toolSections name="External Tables">
@@ -277,23 +249,20 @@
       <additionalLayers name="Index" activeByDefault="true">
         <containerMappings xsi:type="description_1:ContainerMappingImport" name="DB_TableWithIndex" semanticCandidatesExpression="feature:tables" childrenPresentation="List" importedMapping="//@ownedViewpoints[name='Database']/@ownedRepresentations[name='Database%20Diagram']/@defaultLayer/@containerMappings[name='DB_Table']">
           <subNodeMappings name="DB_Column" labelDirectEdit="//@ownedViewpoints[name='Database']/@ownedRepresentations[name='Reused%20Description']/@defaultLayer/@toolSections.0/@ownedTools[name='EDT_DatabaseElement']" semanticCandidatesExpression="feature:columns" semanticElements="[self->including(sequence)/]" domainClass="database.Column">
-            <style xsi:type="style:SquareDescription" labelExpression="service:getDatabaseElementLabel(diagram)" labelAlignment="LEFT">
+            <style xsi:type="style:SquareDescription" labelExpression="service:getDatabaseElementLabel(diagram)" labelColor="//@userColorsPalettes[name='DomainColors']/@entries[name='DatabaseStroke']" labelAlignment="LEFT">
               <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
-              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
               <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='gray']"/>
             </style>
           </subNodeMappings>
           <subNodeMappings name="DB_PrimaryKey" labelDirectEdit="//@ownedViewpoints[name='Database']/@ownedRepresentations[name='Reused%20Description']/@defaultLayer/@toolSections.0/@ownedTools[name='EDT_DatabaseElement']" semanticCandidatesExpression="feature:primaryKey" domainClass="database.PrimaryKey">
-            <style xsi:type="style:SquareDescription" labelAlignment="LEFT">
+            <style xsi:type="style:SquareDescription" labelColor="//@userColorsPalettes[name='DomainColors']/@entries[name='DatabaseStroke']" labelAlignment="LEFT">
               <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
-              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
               <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='gray']"/>
             </style>
           </subNodeMappings>
           <subNodeMappings name="DB_Index" labelDirectEdit="//@ownedViewpoints[name='Database']/@ownedRepresentations[name='Reused%20Description']/@defaultLayer/@toolSections.0/@ownedTools[name='EDT_DatabaseElement']" semanticCandidatesExpression="feature:indexes" semanticElements="var:self" domainClass="database.Index">
-            <style xsi:type="style:SquareDescription" labelExpression="service:getDatabaseElementLabel(diagram)" labelAlignment="LEFT">
+            <style xsi:type="style:SquareDescription" labelExpression="service:getDatabaseElementLabel(diagram)" labelColor="//@userColorsPalettes[name='DomainColors']/@entries[name='DatabaseStroke']" labelAlignment="LEFT">
               <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
-              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
               <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='gray']"/>
             </style>
           </subNodeMappings>
@@ -349,6 +318,12 @@
     <ownedJavaExtensions qualifiedClassName="org.obeonetwork.dsl.database.design.services.DatabaseEEFPropertiesServices"/>
     <ownedJavaExtensions qualifiedClassName="org.obeonetwork.utils.sirius.services.EObjectUtils"/>
   </ownedViewpoints>
+  <userColorsPalettes name="DomainColors">
+    <entries xsi:type="description:UserFixedColor" red="242" green="255" blue="233" name="DatabaseFillLight"/>
+    <entries xsi:type="description:UserFixedColor" red="220" green="255" blue="197" name="DatabaseFillDark"/>
+    <entries xsi:type="description:UserFixedColor" red="26" green="45" blue="15" name="DatabaseStroke"/>
+    <entries xsi:type="description:UserFixedColor" red="88" green="204" blue="185" name="DatabaseFillAlt"/>
+  </userColorsPalettes>
   <extensions xsi:type="properties:ViewExtensionDescription" name="Properties">
     <metamodels href="http://www.obeonetwork.org/dsl/database/1.0#/"/>
     <metamodels href="http://www.obeonetwork.org/dsl/typeslibrary/1.0#/"/>
