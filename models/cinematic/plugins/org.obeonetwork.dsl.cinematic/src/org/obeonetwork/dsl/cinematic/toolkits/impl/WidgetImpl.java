@@ -304,6 +304,15 @@ public class WidgetImpl extends IdentifiableImpl implements Widget {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public void setMetadataHelp(String newMetadataHelp) {
+		eDynamicSet(ToolkitsPackage.WIDGET__METADATA_HELP, ToolkitsPackage.Literals.WIDGET__METADATA_HELP, newMetadataHelp);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public String getSummary() {
 		return (String)eDynamicGet(ToolkitsPackage.WIDGET__SUMMARY, ToolkitsPackage.Literals.WIDGET__SUMMARY, true, true);
 	}
@@ -462,6 +471,9 @@ public class WidgetImpl extends IdentifiableImpl implements Widget {
 			case ToolkitsPackage.WIDGET__STYLE:
 				setStyle((Style)newValue);
 				return;
+			case ToolkitsPackage.WIDGET__METADATA_HELP:
+				setMetadataHelp((String)newValue);
+				return;
 			case ToolkitsPackage.WIDGET__SUMMARY:
 				setSummary((String)newValue);
 				return;
@@ -504,6 +516,9 @@ public class WidgetImpl extends IdentifiableImpl implements Widget {
 				return;
 			case ToolkitsPackage.WIDGET__STYLE:
 				setStyle((Style)null);
+				return;
+			case ToolkitsPackage.WIDGET__METADATA_HELP:
+				setMetadataHelp(METADATA_HELP_EDEFAULT);
 				return;
 			case ToolkitsPackage.WIDGET__SUMMARY:
 				setSummary(SUMMARY_EDEFAULT);

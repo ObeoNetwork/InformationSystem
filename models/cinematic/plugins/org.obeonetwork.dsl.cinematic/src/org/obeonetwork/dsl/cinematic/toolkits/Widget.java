@@ -237,11 +237,22 @@ public interface Widget extends Identifiable {
 	 * Concatenated values of metadataDefinitions.help.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Metadata Help</em>' attribute.
+	 * @see #setMetadataHelp(String)
 	 * @see org.obeonetwork.dsl.cinematic.toolkits.ToolkitsPackage#getWidget_MetadataHelp()
-	 * @model unique="false" changeable="false" derived="true"
+	 * @model unique="false" derived="true"
 	 * @generated
 	 */
 	String getMetadataHelp();
+
+	/**
+	 * Sets the value of the '{@link org.obeonetwork.dsl.cinematic.toolkits.Widget#getMetadataHelp <em>Metadata Help</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Metadata Help</em>' attribute.
+	 * @see #getMetadataHelp()
+	 * @generated
+	 */
+	void setMetadataHelp(String value);
 
 	/**
 	 * Returns the value of the '<em><b>Summary</b></em>' attribute.
