@@ -47,21 +47,31 @@ public class FlowstateEventViewerFilter extends ViewerFilter implements KeyListe
 				boolean isNameMatch = matcher.match(((NamedElement) element).getName());
 				
 				if (element instanceof AbstractViewElement) {
-					// we check if the abstractviewelement contain any widgetEventType that match
+					// we check if the abstractviewelement contain any widgetEventType that matches
 					boolean isWidgetMatch = ((AbstractViewElement) element)
 							.getWidget()
 							.getPossibleEvents()
 							.stream()
 							.anyMatch(type -> matcher.match(type.getName()));
 					
-					return isNameMatch || isWidgetMatch;
+					// we check if the abstract viewelement has a child that matches
+					boolean isChildrenMatch = ((AbstractViewElement) element)
+							.eContents()
+							.stream()
+							.filter(AbstractViewElement.class::isInstance)
+							.map(AbstractViewElement.class::cast)
+							.anyMatch(ave -> select(viewer, element, ave));
+							
+					return isNameMatch || isWidgetMatch || isChildrenMatch;
 				} else if (element instanceof Flow) {
 					return ((Flow) element).getEvents().stream().anyMatch(event -> matcher.match(event.getName()));					
 				} else {
 					return isNameMatch;
 				}								
 			} else if (element instanceof WidgetEventTypeAndAbstractViewElement) {
-				return matcher.match(((WidgetEventTypeAndAbstractViewElement) element).getWidgetEventType()	.getName());
+				// the name of the widget event type matches, or the abstractViewElement names
+				return matcher.match(((WidgetEventTypeAndAbstractViewElement) element).getWidgetEventType().getName()) 
+						|| matcher.match(((WidgetEventTypeAndAbstractViewElement) element).getAbstractViewElement().getName());
 			} else {
 				return true;
 			}
@@ -80,5 +90,4 @@ public class FlowstateEventViewerFilter extends ViewerFilter implements KeyListe
 		matcher = new StringMatcher (query);
 		checkboxTreeViewer.refresh();		
 	}	
-
 }
