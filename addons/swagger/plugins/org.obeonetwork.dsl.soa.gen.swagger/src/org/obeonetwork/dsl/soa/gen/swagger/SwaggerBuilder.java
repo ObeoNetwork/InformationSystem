@@ -42,6 +42,7 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.Objects;
+import java.util.Optional;
 import java.util.Set;
 import java.util.stream.Collectors;
 
@@ -50,6 +51,7 @@ import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.emf.ecore.resource.Resource;
+import org.obeonetwork.dsl.entity.Entity;
 import org.obeonetwork.dsl.entity.EntityPackage;
 import org.obeonetwork.dsl.environment.Enumeration;
 import org.obeonetwork.dsl.environment.Property;
@@ -619,8 +621,9 @@ public class SwaggerBuilder {
 
 	private Schema<Object> createSoaStructuredTypeSchema(StructuredType soaStructuredType) {
 		Schema<Object> structuredTypeSchema = null;
+		Schema<Object> schema = createSchema(OPEN_API_TYPE_OBJECT, null);	
 
-		Schema<Object> schema = createSchema(OPEN_API_TYPE_OBJECT, null);
+		
 		if (soaStructuredType.getDescription() != null) {
 			schema.setDescription(soaStructuredType.getDescription());
 		}
@@ -634,7 +637,17 @@ public class SwaggerBuilder {
 		} else {
 			structuredTypeSchema = schema;
 		}
-
+		
+		Optional<StructuredType> optionalEntity = soaStructuredType.getAssociatedTypes().stream().filter(Entity.class::isInstance).findFirst();
+		if (optionalEntity.isPresent()) {
+			if (structuredTypeSchema instanceof ComposedSchema) {
+				Schema<Object> createSoaStructuredTypeSchema = createSchema(optionalEntity.get());
+				((ComposedSchema) structuredTypeSchema).addAllOfItem(createSoaStructuredTypeSchema);
+			} else {
+				structuredTypeSchema = createComposedSchema(schema, optionalEntity.get());
+			}
+		}
+		
 		return structuredTypeSchema;
 
 	}
