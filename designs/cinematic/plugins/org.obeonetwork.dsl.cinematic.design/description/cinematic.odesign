@@ -1497,7 +1497,8 @@
       <groups name="Toolkits Group" labelExpression="Properties" domainClass="cinematic::CinematicRoot" semanticCandidateExpression="var:self">
         <controls xsi:type="properties:CustomDescription" name="org.obeonetwork.is.eef.custom.reference" label="cinematic::CinematicRoot toolkits" labelExpression="aql:input.emfEditServices(self).getText(self.eClass().getEStructuralFeature('toolkits')) + ':'" helpExpression="aql:input.emfEditServices(self).getDescription(self.eClass().getEStructuralFeature('toolkits'))" isEnabledExpression="aql:self.eClass().getEStructuralFeature('toolkits').changeable">
           <customExpressions name="referenceNameExpression" customExpression="aql:'toolkits'"/>
-          <customOperations name="browseButtonOperation">
+          <customExpressions name="enableBrowseButtonExpression" customExpression="aql:false"/>
+          <customOperations name="addButtonOperation">
             <initialOperation>
               <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="aql:self.openToolkitSelectionWizard()"/>
             </initialOperation>
