@@ -238,7 +238,7 @@ public interface Widget extends Identifiable {
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Metadata Help</em>' attribute.
 	 * @see org.obeonetwork.dsl.cinematic.toolkits.ToolkitsPackage#getWidget_MetadataHelp()
-	 * @model unique="false" changeable="false" derived="true"
+	 * @model unique="false" transient="true" changeable="false" derived="true"
 	 * @generated
 	 */
 	String getMetadataHelp();
