@@ -53,8 +53,10 @@ import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.obeonetwork.dsl.entity.Entity;
 import org.obeonetwork.dsl.entity.EntityPackage;
+import org.obeonetwork.dsl.environment.Attribute;
 import org.obeonetwork.dsl.environment.Enumeration;
 import org.obeonetwork.dsl.environment.Property;
+import org.obeonetwork.dsl.environment.Reference;
 import org.obeonetwork.dsl.environment.StructuredType;
 import org.obeonetwork.dsl.environment.Type;
 import org.obeonetwork.dsl.soa.ApiKeyLocation;
@@ -620,42 +622,43 @@ public class SwaggerBuilder {
 	}
 
 	private Schema<Object> createSoaStructuredTypeSchema(StructuredType soaStructuredType) {
-		Schema<Object> structuredTypeSchema = null;
 		Schema<Object> schema = createSchema(OPEN_API_TYPE_OBJECT, null);	
 
-		
 		if (soaStructuredType.getDescription() != null) {
 			schema.setDescription(soaStructuredType.getDescription());
 		}
+		
+		for (Attribute attribute : soaStructuredType.getOwnedAttributes()) {
+			buildProperty(schema, attribute);
+		}
 
-		soaStructuredType.getAttributes().forEach(a -> buildProperty(schema, a));
-
-		soaStructuredType.getReferences().forEach(r -> buildProperty(schema, r));
+		for (Reference reference: soaStructuredType.getOwnedReferences()) {
+			buildProperty(schema, reference);
+		}
 
 		if (soaStructuredType.getSupertype() != null) {
-			structuredTypeSchema = createComposedSchema(schema, soaStructuredType.getSupertype());
-		} else {
-			structuredTypeSchema = schema;
-		}
+			schema = createComposedSchema(schema, soaStructuredType.getSupertype());
+		} 
 		
 		Optional<StructuredType> optionalEntity = soaStructuredType.getAssociatedTypes().stream().filter(Entity.class::isInstance).findFirst();
 		if (optionalEntity.isPresent()) {
-			if (structuredTypeSchema instanceof ComposedSchema) {
-				Schema<Object> createSoaStructuredTypeSchema = createSchema(optionalEntity.get());
-				((ComposedSchema) structuredTypeSchema).addAllOfItem(createSoaStructuredTypeSchema);
-			} else {
-				structuredTypeSchema = createComposedSchema(schema, optionalEntity.get());
-			}
+			schema = createComposedSchema(schema, optionalEntity.get());
 		}
 		
-		return structuredTypeSchema;
-
+		return schema;
 	}
-
+	
 	private Schema<Object> createComposedSchema(Schema<Object> schema, StructuredType superType) {
-		ComposedSchema composedSchema = new ComposedSchema();
+		ComposedSchema composedSchema = null;
+		
+		if (schema instanceof ComposedSchema) {
+			composedSchema = (ComposedSchema) schema;
+		} else {
+			composedSchema = new ComposedSchema();
+			composedSchema.addAllOfItem(schema);
+		}
+
 		composedSchema.addAllOfItem(createTypeUseSchema(superType));
-		composedSchema.addAllOfItem(schema);
 		return composedSchema;
 	}
 
