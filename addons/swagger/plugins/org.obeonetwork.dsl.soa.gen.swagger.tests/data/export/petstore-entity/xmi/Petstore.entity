@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="ASCII"?>
+<oent:Root xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:oent="http://www.obeonetwork.org/dsl/entity/3.0.0" xmlns:oenv="http://www.obeonetwork.org/dsl/environment/3.0.0" xmi:id="_zjf7kAQhEeyY4ZfNAGlIvg" technicalid="_zjetcAQhEeyY4ZfNAGlIvg" createdOn="2021-08-23T16:52:58.183+0200" modifiedOn="2021-08-23T16:53:06.833+0200">
+  <ownedNamespaces xmi:id="_01-QEQQhEeyY4ZfNAGlIvg" technicalid="_01-QEAQhEeyY4ZfNAGlIvg" createdOn="2021-08-23T16:53:06.833+0200" modifiedOn="2021-08-23T16:53:49.801+0200" name="Swagger Petstore - OpenAPI 3.0">
+    <types xsi:type="oent:Entity" xmi:id="_7Pv1kQQhEeyY4ZfNAGlIvg" technicalid="_7Pv1kAQhEeyY4ZfNAGlIvg" createdOn="2021-08-23T16:53:49.801+0200" modifiedOn="2021-08-23T16:54:07.035+0200" name="Category">
+      <ownedAttributes xmi:id="_8ERCwQQhEeyY4ZfNAGlIvg" technicalid="_8ERCwAQhEeyY4ZfNAGlIvg" createdOn="2021-08-23T16:53:55.308+0200" modifiedOn="2021-08-23T16:53:57.083+0200" name="name">
+        <type xsi:type="oenv:PrimitiveType" href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5F-EKwKEd2XLNOhkJIazw"/>
+      </ownedAttributes>
+      <ownedAttributes xmi:id="_90GosQQhEeyY4ZfNAGlIvg" technicalid="_90GosAQhEeyY4ZfNAGlIvg" createdOn="2021-08-23T16:54:07.035+0200" modifiedOn="2021-08-23T16:54:12.374+0200" name="id">
+        <type xsi:type="oenv:PrimitiveType" href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_9dnH8bGqEd2SRpTkL4GntA"/>
+      </ownedAttributes>
+    </types>
+  </ownedNamespaces>
+</oent:Root>
