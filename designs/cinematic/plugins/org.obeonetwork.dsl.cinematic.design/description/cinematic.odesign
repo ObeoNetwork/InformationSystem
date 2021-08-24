@@ -39,69 +39,69 @@
       </diagramInitialisation>
       <defaultLayer name="Default">
         <nodeMappings name="FLD_InitialState" semanticCandidatesExpression="feature:states" domainClass="flow.InitialState">
-          <style xsi:type="style:WorkspaceImageDescription" labelSize="10" showIcon="false" labelExpression="" labelColor="//@userColorsPalettes[name='DomainColors']/@entries[name='CinematicStroke']" sizeComputationExpression="-1" resizeKind="NSEW" arcWidth="1" arcHeight="1" workspacePath="/org.obeonetwork.dsl.cinematic.design/icons/viewpoint/initial_state.png">
+          <style xsi:type="style:WorkspaceImageDescription" labelSize="10" showIcon="false" labelExpression="" labelColor="//@userColorsPalettes[name='DomainColors']/@entries[name='ISDStroke']" sizeComputationExpression="-1" resizeKind="NSEW" arcWidth="1" arcHeight="1" workspacePath="/org.obeonetwork.dsl.cinematic.design/icons/viewpoint/initial_state.png">
             <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
           </style>
         </nodeMappings>
         <nodeMappings name="FLD_FinalState" semanticCandidatesExpression="feature:states" domainClass="flow.FinalState">
-          <style xsi:type="style:WorkspaceImageDescription" labelSize="10" showIcon="false" labelExpression="" labelColor="//@userColorsPalettes[name='DomainColors']/@entries[name='CinematicStroke']" sizeComputationExpression="-1" resizeKind="NSEW" arcWidth="1" arcHeight="1" workspacePath="/org.obeonetwork.dsl.cinematic.design/icons/viewpoint/final_state.png">
+          <style xsi:type="style:WorkspaceImageDescription" labelSize="10" showIcon="false" labelExpression="" labelColor="//@userColorsPalettes[name='DomainColors']/@entries[name='ISDStroke']" sizeComputationExpression="-1" resizeKind="NSEW" arcWidth="1" arcHeight="1" workspacePath="/org.obeonetwork.dsl.cinematic.design/icons/viewpoint/final_state.png">
             <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
           </style>
         </nodeMappings>
         <nodeMappings name="FLD_AbortState" semanticCandidatesExpression="feature:states" domainClass="flow.AbortState">
-          <style xsi:type="style:WorkspaceImageDescription" labelSize="10" showIcon="false" labelExpression="" labelColor="//@userColorsPalettes[name='DomainColors']/@entries[name='CinematicStroke']" sizeComputationExpression="-1" resizeKind="NSEW" arcWidth="1" arcHeight="1" workspacePath="/org.obeonetwork.dsl.cinematic.design/icons/viewpoint/abort_state.png">
+          <style xsi:type="style:WorkspaceImageDescription" labelSize="10" showIcon="false" labelExpression="" labelColor="//@userColorsPalettes[name='DomainColors']/@entries[name='ISDStroke']" sizeComputationExpression="-1" resizeKind="NSEW" arcWidth="1" arcHeight="1" workspacePath="/org.obeonetwork.dsl.cinematic.design/icons/viewpoint/abort_state.png">
             <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
           </style>
         </nodeMappings>
         <nodeMappings name="FLD_ViewState" navigationDescriptions="//@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='Flow%20Diagram']/@defaultLayer/@toolSections.2/@ownedTools[name='Mockup%20Diagram']" labelDirectEdit="//@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='Reused%20Description']/@toolSection/@ownedTools[name='EDT_Common']" semanticCandidatesExpression="feature:states" doubleClickDescription="//@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='Flow%20Diagram']/@additionalLayers[name='View%20Containers']/@toolSections.1/@ownedTools[name='EditViewState']" domainClass="flow.ViewState">
           <borderedNodeMappings name="FLD_FakeNodeForViewContainerBinding" preconditionExpression="false" semanticCandidatesExpression="null" documentation="This fake bordered node is used to be able to specify a creation tool on it." domainClass="flow.ViewState">
-            <style xsi:type="style:SquareDescription" labelColor="//@userColorsPalettes[name='DomainColors']/@entries[name='CinematicStroke']" sizeComputationExpression="4" resizeKind="NSEW">
+            <style xsi:type="style:SquareDescription" labelColor="//@userColorsPalettes[name='DomainColors']/@entries[name='ISDStroke']" sizeComputationExpression="4" resizeKind="NSEW">
               <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
               <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='gray']"/>
             </style>
           </borderedNodeMappings>
-          <style xsi:type="style:WorkspaceImageDescription" labelSize="10" labelColor="//@userColorsPalettes[name='DomainColors']/@entries[name='CinematicStroke']" sizeComputationExpression="15" resizeKind="NSEW" arcWidth="1" arcHeight="1" workspacePath="/org.obeonetwork.dsl.cinematic.design/icons/viewpoint/state.svg">
+          <style xsi:type="style:WorkspaceImageDescription" labelSize="10" labelColor="//@userColorsPalettes[name='DomainColors']/@entries[name='ISDStroke']" sizeComputationExpression="15" resizeKind="NSEW" arcWidth="1" arcHeight="1" workspacePath="/org.obeonetwork.dsl.cinematic.design/icons/viewpoint/state.svg">
             <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
             <labelFormat>bold</labelFormat>
           </style>
         </nodeMappings>
         <nodeMappings name="FLD_ActionState" labelDirectEdit="//@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='Reused%20Description']/@toolSection/@ownedTools[name='EDT_Common']" semanticCandidatesExpression="feature:states" domainClass="flow.ActionState">
-          <style xsi:type="style:WorkspaceImageDescription" labelSize="10" showIcon="false" labelColor="//@userColorsPalettes[name='DomainColors']/@entries[name='CinematicStroke']" sizeComputationExpression="5" resizeKind="NSEW" arcWidth="1" arcHeight="1" workspacePath="/org.obeonetwork.dsl.cinematic.design/icons/viewpoint/action.svg">
+          <style xsi:type="style:WorkspaceImageDescription" labelSize="10" showIcon="false" labelColor="//@userColorsPalettes[name='DomainColors']/@entries[name='ISDStroke']" sizeComputationExpression="5" resizeKind="NSEW" arcWidth="1" arcHeight="1" workspacePath="/org.obeonetwork.dsl.cinematic.design/icons/viewpoint/action.svg">
             <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
             <labelFormat>bold</labelFormat>
           </style>
         </nodeMappings>
         <nodeMappings name="FLD_AsyncEventState" labelDirectEdit="//@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='Reused%20Description']/@toolSection/@ownedTools[name='EDT_Common']" semanticCandidatesExpression="feature:states" domainClass="flow.AsyncEventState">
-          <style xsi:type="style:WorkspaceImageDescription" labelSize="10" labelColor="//@userColorsPalettes[name='DomainColors']/@entries[name='CinematicStroke']" sizeComputationExpression="-1" labelPosition="node" resizeKind="NSEW" arcWidth="1" arcHeight="1" workspacePath="/org.obeonetwork.dsl.cinematic.design/icons/viewpoint/state.svg">
+          <style xsi:type="style:WorkspaceImageDescription" labelSize="10" labelColor="//@userColorsPalettes[name='DomainColors']/@entries[name='ISDStroke']" sizeComputationExpression="-1" labelPosition="node" resizeKind="NSEW" arcWidth="1" arcHeight="1" workspacePath="/org.obeonetwork.dsl.cinematic.design/icons/viewpoint/state.svg">
             <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
           </style>
         </nodeMappings>
         <nodeMappings name="FLD_SubflowState" detailDescriptions="//@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='Flow%20Diagram']/@defaultLayer/@toolSections.2/@ownedTools[name='CRE_Subflow_Diagram']" navigationDescriptions="//@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='Flow%20Diagram']/@defaultLayer/@toolSections.2/@ownedTools[name='Subflow%20Diagram']" labelDirectEdit="//@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='Reused%20Description']/@toolSection/@ownedTools[name='EDT_Common']" semanticCandidatesExpression="feature:states" doubleClickDescription="//@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='Flow%20Diagram']/@defaultLayer/@toolSections.2/@ownedTools[name='DBL_Nav_To_SubFlow_Diagram']" domainClass="flow.SubflowState">
-          <style xsi:type="style:WorkspaceImageDescription" labelSize="10" labelColor="//@userColorsPalettes[name='DomainColors']/@entries[name='CinematicStroke']" sizeComputationExpression="-1" labelPosition="node" resizeKind="NSEW" arcWidth="1" arcHeight="1" workspacePath="/org.obeonetwork.dsl.cinematic.design/icons/viewpoint/state.svg">
+          <style xsi:type="style:WorkspaceImageDescription" labelSize="10" labelColor="//@userColorsPalettes[name='DomainColors']/@entries[name='ISDStroke']" sizeComputationExpression="-1" labelPosition="node" resizeKind="NSEW" arcWidth="1" arcHeight="1" workspacePath="/org.obeonetwork.dsl.cinematic.design/icons/viewpoint/state.svg">
             <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
             <labelFormat>bold</labelFormat>
           </style>
         </nodeMappings>
         <nodeMappings name="FLD_DecisionState" semanticCandidatesExpression="feature:states" domainClass="flow.DecisionState">
-          <style xsi:type="style:WorkspaceImageDescription" labelSize="10" showIcon="false" labelExpression="" labelColor="//@userColorsPalettes[name='DomainColors']/@entries[name='CinematicStroke']" sizeComputationExpression="-1" labelPosition="node" resizeKind="NSEW" arcWidth="1" arcHeight="1" workspacePath="/org.obeonetwork.dsl.cinematic.design/icons/viewpoint/decision_state.svg">
+          <style xsi:type="style:WorkspaceImageDescription" labelSize="10" showIcon="false" labelExpression="" labelColor="//@userColorsPalettes[name='DomainColors']/@entries[name='ISDStroke']" sizeComputationExpression="-1" labelPosition="node" resizeKind="NSEW" arcWidth="1" arcHeight="1" workspacePath="/org.obeonetwork.dsl.cinematic.design/icons/viewpoint/decision_state.svg">
             <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
           </style>
         </nodeMappings>
         <edgeMappings name="FLD_Transition" labelDirectEdit="//@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='Flow%20Diagram']/@defaultLayer/@toolSections.2/@ownedTools[name='DE_Transition']" semanticCandidatesExpression="feature:transitions" doubleClickDescription="//@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='Flow%20Diagram']/@additionalLayers[name='View%20Containers']/@toolSections.1/@ownedTools[name='EditVewStateEvent']" sourceMapping="//@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='Flow%20Diagram']/@defaultLayer/@nodeMappings[name='FLD_AbortState'] //@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='Flow%20Diagram']/@defaultLayer/@nodeMappings[name='FLD_ActionState'] //@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='Flow%20Diagram']/@defaultLayer/@nodeMappings[name='FLD_AsyncEventState'] //@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='Flow%20Diagram']/@defaultLayer/@nodeMappings[name='FLD_DecisionState'] //@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='Flow%20Diagram']/@defaultLayer/@nodeMappings[name='FLD_FinalState'] //@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='Flow%20Diagram']/@defaultLayer/@nodeMappings[name='FLD_InitialState'] //@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='Flow%20Diagram']/@defaultLayer/@nodeMappings[name='FLD_SubflowState'] //@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='Flow%20Diagram']/@defaultLayer/@nodeMappings[name='FLD_ViewState']" targetMapping="//@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='Flow%20Diagram']/@defaultLayer/@nodeMappings[name='FLD_AbortState'] //@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='Flow%20Diagram']/@defaultLayer/@nodeMappings[name='FLD_ActionState'] //@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='Flow%20Diagram']/@defaultLayer/@nodeMappings[name='FLD_AsyncEventState'] //@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='Flow%20Diagram']/@defaultLayer/@nodeMappings[name='FLD_DecisionState'] //@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='Flow%20Diagram']/@defaultLayer/@nodeMappings[name='FLD_FinalState'] //@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='Flow%20Diagram']/@defaultLayer/@nodeMappings[name='FLD_InitialState'] //@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='Flow%20Diagram']/@defaultLayer/@nodeMappings[name='FLD_SubflowState'] //@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='Flow%20Diagram']/@defaultLayer/@nodeMappings[name='FLD_ViewState']" targetFinderExpression="feature:to" sourceFinderExpression="feature:from" targetExpression="var:self" domainClass="flow.Transition" useDomainElement="true" reconnections="//@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='Flow%20Diagram']/@defaultLayer/@toolSections.2/@ownedTools[name='REC_Transition_Target'] //@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='Flow%20Diagram']/@defaultLayer/@toolSections.2/@ownedTools[name='REC_Transition_Source']">
-          <style strokeColor="//@userColorsPalettes[name='DomainColors']/@entries[name='CinematicStroke']" lineStyle="dash">
-            <beginLabelStyleDescription showIcon="false" labelExpression="service:getGuardLabel" labelColor="//@userColorsPalettes[name='DomainColors']/@entries[name='CinematicStroke']"/>
-            <centerLabelStyleDescription labelExpression="service:getCinematicLabel" labelColor="//@userColorsPalettes[name='DomainColors']/@entries[name='CinematicStroke']" iconPath="/org.obeonetwork.dsl.cinematic.design/icons/viewpoint/event.gif"/>
+          <style strokeColor="//@userColorsPalettes[name='DomainColors']/@entries[name='ISDStroke']" lineStyle="dash">
+            <beginLabelStyleDescription showIcon="false" labelExpression="service:getGuardLabel" labelColor="//@userColorsPalettes[name='DomainColors']/@entries[name='ISDStroke']"/>
+            <centerLabelStyleDescription labelExpression="service:getCinematicLabel" labelColor="//@userColorsPalettes[name='DomainColors']/@entries[name='ISDStroke']" iconPath="/org.obeonetwork.dsl.cinematic.design/icons/viewpoint/event.gif"/>
           </style>
           <conditionnalStyles predicateExpression="aql:self.from.oclIsKindOf(flow::ViewState) and self.to.oclIsKindOf(flow::ViewState)">
-            <style strokeColor="//@userColorsPalettes[name='DomainColors']/@entries[name='CinematicStroke']" sizeComputationExpression="2">
-              <beginLabelStyleDescription showIcon="false" labelExpression="service:getGuardLabel" labelColor="//@userColorsPalettes[name='DomainColors']/@entries[name='CinematicStroke']"/>
-              <centerLabelStyleDescription labelExpression="service:getCinematicLabel" labelColor="//@userColorsPalettes[name='DomainColors']/@entries[name='CinematicStroke']" iconPath="/org.obeonetwork.dsl.cinematic.design/icons/viewpoint/event.gif"/>
+            <style strokeColor="//@userColorsPalettes[name='DomainColors']/@entries[name='ISDStroke']" sizeComputationExpression="2">
+              <beginLabelStyleDescription showIcon="false" labelExpression="service:getGuardLabel" labelColor="//@userColorsPalettes[name='DomainColors']/@entries[name='ISDStroke']"/>
+              <centerLabelStyleDescription labelExpression="service:getCinematicLabel" labelColor="//@userColorsPalettes[name='DomainColors']/@entries[name='ISDStroke']" iconPath="/org.obeonetwork.dsl.cinematic.design/icons/viewpoint/event.gif"/>
             </style>
           </conditionnalStyles>
           <conditionnalStyles predicateExpression="aql:self.from.oclIsKindOf(flow::ActionState) or self.to.oclIsKindOf(flow::ActionState)">
-            <style strokeColor="//@userColorsPalettes[name='DomainColors']/@entries[name='CinematicStroke']" lineStyle="dash">
-              <beginLabelStyleDescription showIcon="false" labelExpression="service:getGuardLabel" labelColor="//@userColorsPalettes[name='DomainColors']/@entries[name='CinematicStroke']"/>
-              <centerLabelStyleDescription labelExpression="service:getCinematicLabel" labelColor="//@userColorsPalettes[name='DomainColors']/@entries[name='CinematicStroke']" iconPath="/org.obeonetwork.dsl.cinematic.design/icons/viewpoint/event.gif"/>
+            <style strokeColor="//@userColorsPalettes[name='DomainColors']/@entries[name='ISDStroke']" lineStyle="dash">
+              <beginLabelStyleDescription showIcon="false" labelExpression="service:getGuardLabel" labelColor="//@userColorsPalettes[name='DomainColors']/@entries[name='ISDStroke']"/>
+              <centerLabelStyleDescription labelExpression="service:getCinematicLabel" labelColor="//@userColorsPalettes[name='DomainColors']/@entries[name='ISDStroke']" iconPath="/org.obeonetwork.dsl.cinematic.design/icons/viewpoint/event.gif"/>
             </style>
           </conditionnalStyles>
         </edgeMappings>
@@ -309,12 +309,12 @@
       <additionalLayers name="Flow Events" activeByDefault="true">
         <containerMappings name="FLD_FlowEvents" deletionDescription="//@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='Flow%20Diagram']/@additionalLayers[name='Flow%20Events']/@toolSections.0/@ownedTools[name='DEL_PreventFlowDeletion']" semanticCandidatesExpression="var:self" domainClass="flow.Flow" childrenPresentation="List">
           <subNodeMappings name="FLD_FlowEvent" labelDirectEdit="//@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='Flow%20Diagram']/@additionalLayers[name='Flow%20Events']/@toolSections.1/@ownedTools[name='DE_FlowEvent']" semanticCandidatesExpression="feature:events" domainClass="flow.FlowEvent">
-            <style xsi:type="style:SquareDescription" labelExpression="aql:self.getCinematicLabel()+' ('+self.binds -> size()+')'" labelColor="//@userColorsPalettes[name='DomainColors']/@entries[name='CinematicStroke']" labelAlignment="LEFT" resizeKind="NSEW">
+            <style xsi:type="style:SquareDescription" labelExpression="aql:self.getCinematicLabel()+' ('+self.binds -> size()+')'" labelColor="//@userColorsPalettes[name='DomainColors']/@entries[name='ISDStroke']" labelAlignment="LEFT" resizeKind="NSEW">
               <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
               <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='gray']"/>
             </style>
           </subNodeMappings>
-          <style xsi:type="style:FlatContainerStyleDescription" arcWidth="5" arcHeight="5" borderSizeComputationExpression="1" borderColor="//@userColorsPalettes[name='DomainColors']/@entries[name='CinematicStroke']" borderLineStyle="dash" labelSize="10" labelExpression="Flow Events" labelColor="//@userColorsPalettes[name='DomainColors']/@entries[name='CinematicStroke']" roundedCorner="true">
+          <style xsi:type="style:FlatContainerStyleDescription" arcWidth="5" arcHeight="5" borderSizeComputationExpression="1" borderColor="//@userColorsPalettes[name='DomainColors']/@entries[name='ISDStroke']" borderLineStyle="dash" labelSize="10" labelExpression="Flow Events" labelColor="//@userColorsPalettes[name='DomainColors']/@entries[name='ISDStroke']" roundedCorner="true">
             <labelFormat>bold</labelFormat>
             <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
             <foregroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
@@ -352,30 +352,30 @@
       </additionalLayers>
       <additionalLayers name="View Containers" activeByDefault="true">
         <edgeMappings name="FLD_ViewState_To_ViewContainer" deletionDescription="//@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='Flow%20Diagram']/@additionalLayers[name='View%20Containers']/@toolSections.1/@ownedTools[name='DEL_DissociateViewStateAndViewContainer']" doubleClickDescription="//@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='Flow%20Diagram']/@additionalLayers[name='View%20Containers']/@toolSections.1/@ownedTools[name='EditVewStateEvent']" sourceMapping="//@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='Flow%20Diagram']/@defaultLayer/@nodeMappings[name='FLD_ViewState']" targetMapping="//@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='Flow%20Diagram']/@additionalLayers[name='View%20Containers']/@containerMappings[name='FLD_ViewContainer']" targetFinderExpression="feature:viewContainers" targetExpression="var:self" reconnections="//@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='Flow%20Diagram']/@additionalLayers[name='View%20Containers']/@toolSections.1/@ownedTools[name='REC_ViewState_To_ViewContainer_Target'] //@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='Flow%20Diagram']/@additionalLayers[name='View%20Containers']/@toolSections.1/@ownedTools[name='REC_ViewState_To_ViewContainer_Source']">
-          <style strokeColor="//@userColorsPalettes[name='DomainColors']/@entries[name='CinematicStroke']" lineStyle="dash" sizeComputationExpression="[eContents()->size()/]">
-            <centerLabelStyleDescription showIcon="false" labelColor="//@userColorsPalettes[name='DomainColors']/@entries[name='CinematicStroke']"/>
+          <style strokeColor="//@userColorsPalettes[name='DomainColors']/@entries[name='ISDStroke']" lineStyle="dash" sizeComputationExpression="[eContents()->size()/]">
+            <centerLabelStyleDescription showIcon="false" labelColor="//@userColorsPalettes[name='DomainColors']/@entries[name='ISDStroke']"/>
           </style>
         </edgeMappings>
         <containerMappings name="FLD_ViewContainer" detailDescriptions="//@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='Flow%20Diagram']/@additionalLayers[name='View%20Containers']/@toolSections.1/@ownedTools[name='CRE_UI_Structure']" navigationDescriptions="//@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='Flow%20Diagram']/@additionalLayers[name='View%20Containers']/@toolSections.1/@ownedTools[name='UI%20Structure']" labelDirectEdit="//@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='Reused%20Description']/@toolSection/@ownedTools[name='EDT_Common']" semanticCandidatesExpression="service:getStatesViewContainers" doubleClickDescription="//@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='Flow%20Diagram']/@defaultLayer/@toolSections.2/@ownedTools[name='DBL_Nav_To_VVC_Diagram']" domainClass="view.ViewContainer" childrenPresentation="List">
           <subNodeMappings name="FLD_ViewContainer" semanticCandidatesExpression="feature:ownedElements" doubleClickDescription="//@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='Flow%20Diagram']/@defaultLayer/@toolSections.2/@ownedTools[name='DBL_Nav_To_VVC_Diagram']" domainClass="view.ViewContainer">
-            <style xsi:type="style:SquareDescription" labelExpression="service:getCinematicLabel" labelColor="//@userColorsPalettes[name='DomainColors']/@entries[name='CinematicStroke']" labelAlignment="LEFT" resizeKind="NSEW">
+            <style xsi:type="style:SquareDescription" labelExpression="service:getCinematicLabel" labelColor="//@userColorsPalettes[name='DomainColors']/@entries[name='ISDStroke']" labelAlignment="LEFT" resizeKind="NSEW">
               <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
               <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='gray']"/>
             </style>
           </subNodeMappings>
           <subNodeMappings name="FLD_ViewElement" semanticCandidatesExpression="feature:ownedElements" domainClass="view.ViewElement">
-            <style xsi:type="style:SquareDescription" labelExpression="service:getCinematicLabel" labelColor="//@userColorsPalettes[name='DomainColors']/@entries[name='CinematicStroke']" labelAlignment="LEFT" resizeKind="NSEW">
+            <style xsi:type="style:SquareDescription" labelExpression="service:getCinematicLabel" labelColor="//@userColorsPalettes[name='DomainColors']/@entries[name='ISDStroke']" labelAlignment="LEFT" resizeKind="NSEW">
               <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
               <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='gray']"/>
             </style>
           </subNodeMappings>
           <subNodeMappings name="FLD_ViewContainerReference" semanticCandidatesExpression="feature:ownedElements" semanticElements="feature:viewContainer" domainClass="view.ViewContainerReference">
-            <style xsi:type="style:SquareDescription" labelExpression="service:getCinematicLabel" labelColor="//@userColorsPalettes[name='DomainColors']/@entries[name='CinematicStroke']" labelAlignment="LEFT" resizeKind="NSEW">
+            <style xsi:type="style:SquareDescription" labelExpression="service:getCinematicLabel" labelColor="//@userColorsPalettes[name='DomainColors']/@entries[name='ISDStroke']" labelAlignment="LEFT" resizeKind="NSEW">
               <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
               <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='gray']"/>
             </style>
           </subNodeMappings>
-          <style xsi:type="style:FlatContainerStyleDescription" arcWidth="1" arcHeight="1" borderSizeComputationExpression="1" borderColor="//@userColorsPalettes[name='DomainColors']/@entries[name='CinematicStroke']" labelSize="10" labelExpression="service:getCinematicLabel" labelColor="//@userColorsPalettes[name='DomainColors']/@entries[name='CinematicStroke']" backgroundColor="//@userColorsPalettes[name='DomainColors']/@entries[name='CinematicFillDark']" foregroundColor="//@userColorsPalettes[name='DomainColors']/@entries[name='CinematicFillDark']">
+          <style xsi:type="style:FlatContainerStyleDescription" arcWidth="1" arcHeight="1" borderSizeComputationExpression="1" borderColor="//@userColorsPalettes[name='DomainColors']/@entries[name='ISDStroke']" labelSize="10" labelExpression="service:getCinematicLabel" labelColor="//@userColorsPalettes[name='DomainColors']/@entries[name='ISDStroke']" backgroundColor="//@userColorsPalettes[name='DomainColors']/@entries[name='CinematicFillDark']" foregroundColor="//@userColorsPalettes[name='DomainColors']/@entries[name='CinematicFillDark']">
             <labelFormat>bold</labelFormat>
           </style>
         </containerMappings>
@@ -514,18 +514,16 @@
       <metamodel href="platform:/plugin/org.obeonetwork.dsl.cinematic/model/cinematic.ecore#//toolkits"/>
       <defaultLayer name="Default">
         <containerMappings name="PAD_Package" detailDescriptions="//@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='Package%20Diagram']/@defaultLayer/@toolSections.1/@ownedTools[name='CRE_Package_Diagram'] //@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='Package%20Diagram']/@defaultLayer/@toolSections.1/@ownedTools[name='CRE_UI_Structure']" labelDirectEdit="//@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='Reused%20Description']/@toolSection/@ownedTools[name='EDT_Common']" semanticCandidatesExpression="feature:subPackages" doubleClickDescription="//@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='Package%20Diagram']/@defaultLayer/@toolSections.1/@ownedTools[name='DBL_Nav_To_Package_Diagram']" domainClass="cinematic.AbstractPackage" reusedContainerMappings="//@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='Package%20Diagram']/@defaultLayer/@containerMappings[name='PAD_Package'] //@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='Package%20Diagram']/@defaultLayer/@containerMappings[name='PAD_ViewContainer'] //@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='Package%20Diagram']/@defaultLayer/@containerMappings[name='PAD_Flow']">
-          <style xsi:type="style:FlatContainerStyleDescription" arcWidth="1" arcHeight="1" borderSizeComputationExpression="1" borderColor="//@userColorsPalettes[name='DomainColors']/@entries[name='CinematicStroke']" labelColor="//@userColorsPalettes[name='DomainColors']/@entries[name='CinematicStroke']" labelAlignment="LEFT" backgroundColor="//@userColorsPalettes[name='DomainColors']/@entries[name='CinematicFillLight']" foregroundColor="//@userColorsPalettes[name='DomainColors']/@entries[name='CinematicFillLight']">
+          <style xsi:type="style:FlatContainerStyleDescription" arcWidth="1" arcHeight="1" borderSizeComputationExpression="1" borderColor="//@userColorsPalettes[name='DomainColors']/@entries[name='ISDStroke']" labelColor="//@userColorsPalettes[name='DomainColors']/@entries[name='ISDStroke']" labelAlignment="LEFT" backgroundColor="//@userColorsPalettes[name='DomainColors']/@entries[name='CinematicFillLight']" foregroundColor="//@userColorsPalettes[name='DomainColors']/@entries[name='CinematicFillLight']">
             <labelBorderStyle href="environment:/viewpoint#//@labelBorderStyles/@labelBorderStyleDescriptions.0"/>
           </style>
         </containerMappings>
         <containerMappings name="PAD_ViewContainer" detailDescriptions="//@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='Package%20Diagram']/@defaultLayer/@toolSections.1/@ownedTools[name='CRE_UI_Structure'] //@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='Package%20Diagram']/@defaultLayer/@toolSections.1/@ownedTools[name='ViewContainer%20Diagram']" navigationDescriptions="//@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='Package%20Diagram']/@defaultLayer/@toolSections.1/@ownedTools[name='NAV_UI_Structure']" labelDirectEdit="//@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='Reused%20Description']/@toolSection/@ownedTools[name='EDT_Common']" semanticCandidatesExpression="feature:viewContainers" doubleClickDescription="//@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='Package%20Diagram']/@defaultLayer/@toolSections.1/@ownedTools[name='DBL_Nav_To_ViewContainer_Diagram']" domainClass="view.ViewContainer" reusedNodeMappings="//@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='Flow%20Diagram']/@additionalLayers[name='View%20Containers']/@containerMappings[name='FLD_ViewContainer']/@subNodeMappings[name='FLD_ViewContainer'] //@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='Flow%20Diagram']/@additionalLayers[name='View%20Containers']/@containerMappings[name='FLD_ViewContainer']/@subNodeMappings[name='FLD_ViewElement'] //@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='Flow%20Diagram']/@additionalLayers[name='View%20Containers']/@containerMappings[name='FLD_ViewContainer']/@subNodeMappings[name='FLD_ViewContainerReference']" childrenPresentation="List">
-          <style xsi:type="style:FlatContainerStyleDescription" arcWidth="1" arcHeight="1" borderSizeComputationExpression="1" borderColor="//@userColorsPalettes[name='DomainColors']/@entries[name='CinematicStroke']" labelExpression="service:getCinematicLabel" labelColor="//@userColorsPalettes[name='DomainColors']/@entries[name='CinematicStroke']" backgroundColor="//@userColorsPalettes[name='DomainColors']/@entries[name='CinematicFillDark']" foregroundColor="//@userColorsPalettes[name='DomainColors']/@entries[name='CinematicFillDark']"/>
+          <style xsi:type="style:FlatContainerStyleDescription" arcWidth="1" arcHeight="1" borderSizeComputationExpression="1" borderColor="//@userColorsPalettes[name='DomainColors']/@entries[name='ISDStroke']" labelExpression="service:getCinematicLabel" labelColor="//@userColorsPalettes[name='DomainColors']/@entries[name='ISDStroke']" backgroundColor="//@userColorsPalettes[name='DomainColors']/@entries[name='CinematicFillDark']" foregroundColor="//@userColorsPalettes[name='DomainColors']/@entries[name='CinematicFillDark']"/>
         </containerMappings>
         <containerMappings name="PAD_Flow" detailDescriptions="//@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='Package%20Diagram']/@defaultLayer/@toolSections.1/@ownedTools[name='CRE_Flow_Diagram']" labelDirectEdit="//@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='Reused%20Description']/@toolSection/@ownedTools[name='EDT_Common']" semanticCandidatesExpression="feature:flows" doubleClickDescription="//@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='Package%20Diagram']/@defaultLayer/@toolSections.1/@ownedTools[name='DBL_Nav_To_Flow_Diagram']" domainClass="flow.Flow">
-          <style xsi:type="style:FlatContainerStyleDescription" arcWidth="30" arcHeight="30" borderSizeComputationExpression="2" borderColor="//@userColorsPalettes[name='DomainColors']/@entries[name='CinematicStroke']" labelSize="10" labelColor="//@userColorsPalettes[name='DomainColors']/@entries[name='CinematicStroke']" roundedCorner="true">
+          <style xsi:type="style:FlatContainerStyleDescription" arcWidth="30" arcHeight="30" borderSizeComputationExpression="2" borderColor="//@userColorsPalettes[name='DomainColors']/@entries[name='ISDStroke']" labelSize="10" labelColor="//@userColorsPalettes[name='DomainColors']/@entries[name='ISDStroke']" roundedCorner="true" backgroundColor="//@userColorsPalettes[name='DomainColors']/@entries[name='CinematicFillDark']" foregroundColor="//@userColorsPalettes[name='DomainColors']/@entries[name='CinematicFillDark']">
             <labelFormat>bold</labelFormat>
-            <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
-            <foregroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
           </style>
         </containerMappings>
         <toolSections name="Tools">
@@ -638,18 +636,18 @@
       </defaultLayer>
       <additionalLayers name="Dependencies" activeByDefault="true">
         <edgeMappings name="PAD_Flow_To_ViewContainer" sourceMapping="//@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='Package%20Diagram']/@defaultLayer/@containerMappings[name='PAD_Flow']" targetMapping="//@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='Package%20Diagram']/@defaultLayer/@containerMappings[name='PAD_ViewContainer']" targetFinderExpression="service:getViewContainerAssociateAndAncestors">
-          <style strokeColor="//@userColorsPalettes[name='DomainColors']/@entries[name='CinematicStroke']" lineStyle="dash">
-            <centerLabelStyleDescription showIcon="false" labelColor="//@userColorsPalettes[name='DomainColors']/@entries[name='CinematicStroke']"/>
+          <style strokeColor="//@userColorsPalettes[name='DomainColors']/@entries[name='ISDStroke']" lineStyle="dash">
+            <centerLabelStyleDescription showIcon="false" labelColor="//@userColorsPalettes[name='DomainColors']/@entries[name='ISDStroke']"/>
           </style>
         </edgeMappings>
         <edgeMappings name="PAD_ViewContainer_To_ViewContainer" semanticCandidatesExpression="&lt;%" sourceMapping="//@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='Package%20Diagram']/@defaultLayer/@containerMappings[name='PAD_ViewContainer']" targetMapping="//@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='Package%20Diagram']/@defaultLayer/@containerMappings[name='PAD_ViewContainer']" targetFinderExpression="service:getViewContainers" sourceFinderExpression="feature:eContainer" domainClass="view.ViewContainerReference">
-          <style strokeColor="//@userColorsPalettes[name='DomainColors']/@entries[name='CinematicStroke']">
-            <centerLabelStyleDescription showIcon="false" labelExpression="references" labelColor="//@userColorsPalettes[name='DomainColors']/@entries[name='CinematicStroke']"/>
+          <style strokeColor="//@userColorsPalettes[name='DomainColors']/@entries[name='ISDStroke']">
+            <centerLabelStyleDescription showIcon="false" labelExpression="references" labelColor="//@userColorsPalettes[name='DomainColors']/@entries[name='ISDStroke']"/>
           </style>
         </edgeMappings>
         <edgeMappings name="PAD_Flow_To_Subflow" semanticCandidatesExpression="&lt;%" sourceMapping="//@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='Package%20Diagram']/@defaultLayer/@containerMappings[name='PAD_Flow']" targetMapping="//@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='Package%20Diagram']/@defaultLayer/@containerMappings[name='PAD_Flow']" targetFinderExpression="service:getSubFlowInSubflowStates" sourceFinderExpression="feature:eContainer" domainClass="view.ViewContainerReference">
-          <style strokeColor="//@userColorsPalettes[name='DomainColors']/@entries[name='CinematicStroke']">
-            <centerLabelStyleDescription showIcon="false" labelColor="//@userColorsPalettes[name='DomainColors']/@entries[name='CinematicStroke']"/>
+          <style strokeColor="//@userColorsPalettes[name='DomainColors']/@entries[name='ISDStroke']">
+            <centerLabelStyleDescription showIcon="false" labelColor="//@userColorsPalettes[name='DomainColors']/@entries[name='ISDStroke']"/>
           </style>
         </edgeMappings>
       </additionalLayers>
@@ -1401,9 +1399,9 @@
     <entries xsi:type="description:ComputedColor" name="VCD_ViewElement_LabelColor" red="aql:self.getLabelColorRed()" green="aql:self.getLabelColorGreen()" blue="aql:self.getLabelColorBlue()"/>
   </userColorsPalettes>
   <userColorsPalettes name="DomainColors">
-    <entries xsi:type="description:UserFixedColor" red="235" green="246" blue="255" name="CinematicFillLight"/>
-    <entries xsi:type="description:UserFixedColor" red="165" green="215" blue="255" name="CinematicFillDark"/>
-    <entries xsi:type="description:UserFixedColor" red="47" green="96" blue="171" name="CinematicStroke"/>
+    <entries xsi:type="description:UserFixedColor" red="255" green="255" blue="255" name="CinematicFillLight"/>
+    <entries xsi:type="description:UserFixedColor" red="238" green="248" blue="255" name="CinematicFillDark"/>
+    <entries xsi:type="description:UserFixedColor" red="0" green="43" blue="60" name="ISDStroke"/>
   </userColorsPalettes>
   <extensions xsi:type="properties:ViewExtensionDescription" name="Properties">
     <metamodels href="http://www.obeonetwork.org/dsl/cinematic/3.0.0#/"/>
