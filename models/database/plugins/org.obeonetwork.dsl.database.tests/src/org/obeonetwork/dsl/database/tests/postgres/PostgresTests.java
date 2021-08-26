@@ -57,10 +57,7 @@ public class PostgresTests extends AbstractTests {
 	private static final String POSTGRES_HOST_DEFAULT = "localhost";
 	private static final String POSTGRES_PORT_DEFAULT = "5432";
 	private static final String POSTGRES_USERNAME_DEFAULT = "postgres";
-	private static final String POSTGRES_PASSWORD_DEFAULT = "password";
-	
-	private static final String POSTGRES_PASSWORD_DEFAULT = "password";
-	
+	private static final String POSTGRES_PASSWORD_DEFAULT = "password";	
 	private final String containerName;
 	private final String containerImage;
 	
