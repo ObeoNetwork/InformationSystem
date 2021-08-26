@@ -91,4 +91,14 @@ public class SwaggerGenerationTest {
 	public void testYamlExportInDirOdtsAdminWs() {
 		testExportInDir("odts-admin-ws", MapperType.YAML);
 	}	
+	
+	@Test
+	public void testYamlExportInDirPetstoreEntity() {
+		testExportInDir("petstore-entity", MapperType.YAML);
+	}
+	
+	@Test
+	public void testJsonExportInDirPetstoreEntity() {
+		testExportInDir("petstore-entity", MapperType.JSON);
+	}
 }
