@@ -101,7 +101,10 @@ CREATE SEQUENCE [sequence.fullname()/][sequence.genIncrementBy()/][sequence.genM
 [/template]
 
 [template private genCycle(sequence : Sequence)]
-[if (sequence.cycle.oclIsInvalid() or sequence.cycle = false)] NO CYCLE[else] CYCLE[/if]
+[if (sequence.cycle.oclIsInvalid() or sequence.cycle = false)]
+[if (sequence.isTargetOracle())] NOCYCLE[else] NO CYCLE[/if]
+[else] CYCLE
+[/if]
 [/template]
 
 [template private genCache(sequence : Sequence) ? (sequence.cacheSize.isValidValue())]
