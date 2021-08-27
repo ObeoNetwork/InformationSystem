@@ -24,6 +24,6 @@ public interface ICinematicViewpoint {
 	public final static String FLOW_DIAGRAM_ID = "Flow Diagram";
 	public final static String LAYOUT_DIAGRAM_ID = "Layout Diagram";
 	public final static String PACKAGE_DIAGRAM_ID = "Package Diagram";
-	public final static int VIEW_CONTAINER_DIAGRAM_DEFAULT_BORDER_SIZE = 4;
+	public final static int VIEW_CONTAINER_DIAGRAM_DEFAULT_BORDER_SIZE = 2;
 	
 }
