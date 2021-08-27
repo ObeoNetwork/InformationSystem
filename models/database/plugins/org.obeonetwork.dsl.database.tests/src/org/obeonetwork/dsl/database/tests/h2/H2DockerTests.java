@@ -6,32 +6,24 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.Arrays;
 import java.util.Collection;
-import java.util.List;
-import java.util.stream.Collectors;
 
 import org.junit.After;
-import org.junit.AfterClass;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.junit.runners.Parameterized;
 import org.junit.runners.Parameterized.Parameters;
-import org.obeonetwork.dsl.database.Column;
 import org.obeonetwork.dsl.database.DataBase;
-import org.obeonetwork.dsl.database.Table;
 import org.obeonetwork.dsl.database.reverse.DatabaseReverser;
 import org.obeonetwork.dsl.database.reverse.source.DataSource;
 import org.obeonetwork.dsl.database.reverse.utils.MultiDataBaseQueries;
 import org.obeonetwork.dsl.database.spec.DatabaseConstants;
-import org.obeonetwork.dsl.database.tests.postgres.PostgresTests;
 import org.obeonetwork.dsl.database.tests.utils.TestUtils;
 import org.obeonetwork.dsl.typeslibrary.util.TypesLibraryUtil;
 
 import liquibase.database.Database;
-import liquibase.exception.DatabaseException;
 import liquibase.exception.LiquibaseException;
-import liquibase.util.StringUtils;
 
 /**
  * Test class for reverse engineering of H2 Databases to models.
