@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="ASCII"?>
-<database:DataBase xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:database="http://www.obeonetwork.org/dsl/database/1.0" xmlns:typeslibrary="http://www.obeonetwork.org/dsl/typeslibrary/1.0" xmi:id="_XVpTEDqrEemAQdhgjsw9cQ" techID="_XOneADqrEemAQdhgjsw9cQ" name="northwind">
+<database:DataBase xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:database="http://www.obeonetwork.org/dsl/database/1.0" xmlns:typeslibrary="http://www.obeonetwork.org/dsl/typeslibrary/1.0" xmi:id="_XVpTEDqrEemAQdhgjsw9cQ" techID="_XOneADqrEemAQdhgjsw9cQ" name="postgres">
   <usedLibraries xsi:type="typeslibrary:NativeTypesLibrary" href="pathmap://NativeDBTypes/Postgres-9#_Zj69UBEnEeGTa_JlZYBw1A"/>
   <schemas xmi:id="_XVpTETqrEemAQdhgjsw9cQ" techID="_XOoFEDqrEemAQdhgjsw9cQ" name="public">
     <tables xsi:type="database:Table" xmi:id="_XVpTEjqrEemAQdhgjsw9cQ" techID="_XO05YDqrEemAQdhgjsw9cQ" name="customers">

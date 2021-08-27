@@ -132,9 +132,33 @@ public final class TestUtils {
 
 		return (DataBase) resourceDatabase.getContents().get(0);
 	}
+	
+	public static void saveModel(org.obeonetwork.dsl.database.DataBase model, String databaseTestPluginRelativePath) {
+		URI uri = URI.createFileURI(databaseTestPluginRelativePath);
+
+		DatabaseResourceFactoryImpl databaseResourceFactory = new DatabaseResourceFactoryImpl();
+		Resource resourceDatabase = databaseResourceFactory.createResource(uri);
+		resourceDatabase.getContents().add(model);
+		
+		ResourceSet rs = new ResourceSetImpl();
+		
+		rs.getResources().add(resourceDatabase);
+		
+		try {
+			
+			Map<Object, Object> options = rs.getLoadOptions();
+			options.put(DatabasePackage.eINSTANCE.getNsURI(), DatabasePackage.eINSTANCE);
+			options.put(TypesLibraryPackage.eINSTANCE.getNsURI(), TypesLibraryPackage.eINSTANCE);
+			
+			resourceDatabase.save(options);
+		} catch (Exception ex) {
+			ex.printStackTrace();
+		}
+
+	}
 
 	public static void checkEquality(DataBase database, DataBase databaseRef) {
-		assertEquals("The number of schemas is different.", databaseRef.getSchemas().size(),
+		assertEquals("The number of schemas is different. Expectd", databaseRef.getSchemas().size(),
 				database.getSchemas().size());
 		assertEquals("The number of tables is different.", databaseRef.getTables().size(), database.getTables().size());
 		assertEquals("The number of sequences is different.", databaseRef.getSequences().size(),
@@ -163,7 +187,7 @@ public final class TestUtils {
 		protected boolean haveEqualFeature(EObject eObject1, EObject eObject2, EStructuralFeature feature) {
 			boolean result = super.haveEqualFeature(eObject1, eObject2, feature);
 			assertTrue("The " + feature.getClass().getInterfaces()[0].getSimpleName() + " '" + feature.getName()
-					+ "' on " + getName(eObject1) + " is different", result);
+					+ "' on " + getName(eObject1) + " is different. Expected "+eObject2.eGet(feature)+" but was: "+eObject1.eGet(feature), result);
 			return result;
 		}
 

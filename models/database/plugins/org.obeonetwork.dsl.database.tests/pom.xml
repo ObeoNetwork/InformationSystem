@@ -22,12 +22,6 @@
 	<packaging>jar</packaging>
 	<name>Database Model Reverse</name>
 	
-	<!-- https://mvnrepository.com/artifact/com.github.docker-java/docker-java -->
-<dependencies>
-<dependency>
-    <groupId>com.github.docker-java</groupId>
-    <artifactId>docker-java</artifactId>
-    <version>3.1.2</version>
-</dependency>
+
 </dependencies>
 </project>
