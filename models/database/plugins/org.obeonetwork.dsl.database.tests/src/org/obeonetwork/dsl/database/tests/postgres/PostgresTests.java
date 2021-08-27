@@ -62,6 +62,7 @@ public class PostgresTests extends AbstractTests {
 	private final String containerName; 
 	private final String containerImage;
 	
+
 	/**
 	 * The {@link String} parameter is provided through the {@link Parameterized} JUnit Runner. 
 	 */
