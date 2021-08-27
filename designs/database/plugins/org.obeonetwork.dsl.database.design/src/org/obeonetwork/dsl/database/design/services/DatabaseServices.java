@@ -10,6 +10,8 @@
  *******************************************************************************/
 package org.obeonetwork.dsl.database.design.services;
 
+import static org.obeonetwork.dsl.typeslibrary.util.TypesLibraryUtil.LOGICAL_PATHMAP;
+
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Collections;
@@ -19,7 +21,6 @@ import java.util.List;
 import java.util.Set;
 
 import org.eclipse.emf.ecore.EObject;
-import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.sirius.diagram.AbstractDNode;
 import org.eclipse.sirius.diagram.DDiagram;
 import org.eclipse.sirius.diagram.DDiagramElement;
@@ -27,18 +28,20 @@ import org.eclipse.sirius.diagram.DSemanticDiagram;
 import org.eclipse.sirius.viewpoint.DSemanticDecorator;
 import org.obeonetwork.dsl.database.AbstractTable;
 import org.obeonetwork.dsl.database.Column;
+import org.obeonetwork.dsl.database.DataBase;
 import org.obeonetwork.dsl.database.DatabaseFactory;
 import org.obeonetwork.dsl.database.ForeignKey;
 import org.obeonetwork.dsl.database.ForeignKeyElement;
 import org.obeonetwork.dsl.database.Sequence;
 import org.obeonetwork.dsl.database.Table;
 import org.obeonetwork.dsl.database.TableContainer;
-import org.obeonetwork.dsl.technicalid.util.CopierUtils;
 import org.obeonetwork.dsl.database.View;
 import org.obeonetwork.dsl.database.ViewElement;
 import org.obeonetwork.dsl.database.spec.ViewSpec;
 import org.obeonetwork.dsl.database.view.parser.ColObject;
 import org.obeonetwork.dsl.database.view.parser.ViewContentProvider;
+import org.obeonetwork.dsl.technicalid.util.CopierUtils;
+import org.obeonetwork.utils.sirius.services.EObjectUtils;
 
 import com.google.common.base.Strings;
 
@@ -360,4 +363,13 @@ public class DatabaseServices {
 			viewSpec.initialized=true;
 		}
 	}
+	
+	public boolean isMldElement(AbstractTable element) {
+		DataBase dataBase = EObjectUtils.getContainerOrSelf(element, DataBase.class);
+		boolean isMldElement = dataBase.getUsedLibraries().stream()
+				.map(lib -> lib.eResource().getURI())
+				.anyMatch(uri -> LOGICAL_PATHMAP.equals(uri.toString()));
+		return isMldElement;
+	}
+	
 }
