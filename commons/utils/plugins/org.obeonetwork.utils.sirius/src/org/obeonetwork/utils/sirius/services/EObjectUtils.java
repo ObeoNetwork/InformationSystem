@@ -90,20 +90,40 @@ public class EObjectUtils {
 		return values;
 	}
 	
-	public static EObject moveUp(EObject eReferencer, EObject eObject, String featureName) {
+	public static Object moveUp(EObject eReferencer, Object object, String featureName) {
 		EList<?> values = getMultiFeatureValues(eReferencer, featureName);
 		if(values != null) {
-			values.move(Math.max(0, values.indexOf(eObject) - 1), values.indexOf(eObject));
+			values.move(Math.max(0, values.indexOf(object) - 1), values.indexOf(object));
 		}
-		return eObject;
+		return object;
 	}
 	
-	public static EObject moveDown(EObject eReferencer, EObject eObject, String featureName) {
+	public static Object moveDown(EObject eReferencer, Object object, String featureName) {
 		EList<?> values = getMultiFeatureValues(eReferencer, featureName);
 		if(values != null) {
-			values.move(Math.min(values.size() - 1, values.indexOf(eObject) + 1), values.indexOf(eObject));
+			values.move(Math.min(values.size() - 1, values.indexOf(object) + 1), values.indexOf(object));
 		}
-		return eObject;
+		return object;
 	}
 	
+	public static Object replaceObjectValue(EObject eReferencer, Object oldValue, Object newValue, String featureName) {
+		EList<?> values = getMultiFeatureValues(eReferencer, featureName);
+		if (values != null) {
+			int indexOfOldValue = values.indexOf(oldValue);
+			if (indexOfOldValue != -1) {
+				((EList<Object>) values).set(indexOfOldValue, newValue);
+			}
+		}
+		
+		return newValue;
+	}
+	
+	public static EList<?> removeObject(EObject eReferencer, Object toRemove, String featureName) {
+		EList<?> values = getMultiFeatureValues(eReferencer, featureName);
+		if (values != null) {
+			values.remove(toRemove);
+		}
+		
+		return values;
+	}
 }
