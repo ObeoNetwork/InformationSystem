@@ -1,5 +1,5 @@
 -- ==============================================================
 --  Sequence : S1                                    
 -- ==============================================================
-ALTER SEQUENCE S1 INCREMENT BY 1 START WITH 10 NO CYCLE;
+ALTER SEQUENCE S1 INCREMENT BY 1 START WITH 10 NOCYCLE;
 
