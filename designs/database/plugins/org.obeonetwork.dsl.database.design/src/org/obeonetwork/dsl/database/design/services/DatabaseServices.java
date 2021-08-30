@@ -20,12 +20,15 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
+import org.eclipse.emf.common.util.ECollections;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.sirius.diagram.AbstractDNode;
 import org.eclipse.sirius.diagram.DDiagram;
 import org.eclipse.sirius.diagram.DDiagramElement;
 import org.eclipse.sirius.diagram.DSemanticDiagram;
 import org.eclipse.sirius.viewpoint.DSemanticDecorator;
+import org.eclipse.swt.widgets.Shell;
+import org.eclipse.ui.PlatformUI;
 import org.obeonetwork.dsl.database.AbstractTable;
 import org.obeonetwork.dsl.database.Column;
 import org.obeonetwork.dsl.database.DataBase;
@@ -41,6 +44,7 @@ import org.obeonetwork.dsl.database.spec.ViewSpec;
 import org.obeonetwork.dsl.database.view.parser.ColObject;
 import org.obeonetwork.dsl.database.view.parser.ViewContentProvider;
 import org.obeonetwork.dsl.technicalid.util.CopierUtils;
+import org.obeonetwork.dsl.typeslibrary.TypeInstance;
 import org.obeonetwork.utils.sirius.services.EObjectUtils;
 
 import com.google.common.base.Strings;
@@ -370,6 +374,5 @@ public class DatabaseServices {
 				.map(lib -> lib.eResource().getURI())
 				.anyMatch(uri -> LOGICAL_PATHMAP.equals(uri.toString()));
 		return isMldElement;
-	}
-	
+	}	
 }
