@@ -63,6 +63,10 @@ public class EEFCustomReferenceDescription extends EEFExtReferenceDescriptionImp
 	public boolean addButtonIsHidden() {
 		return this.controller.addButtonIsHidden();
 	}
+	
+	public boolean browseButtonIsHidden() {
+		return this.controller.browseButtonIsHidden();
+	}
 
 	@Override
 	public String getReferenceOwnerExpression() {
@@ -93,5 +97,4 @@ public class EEFCustomReferenceDescription extends EEFExtReferenceDescriptionImp
 	public EObject eContainer() {
 		return this.customDescription.eContainer();
 	}
-
 }

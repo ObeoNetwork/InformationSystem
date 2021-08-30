@@ -48,12 +48,14 @@ public class CustomReferenceController extends EEFExtReferenceController {
 
 	private static final String ENABLE_BROWSE_BUTTON_EXPRESSION_ID = "enableBrowseButtonExpression";
 
+	private static final String HIDE_BROWSE_BUTTON_EXPRESSION_ID = "hideBrowseButtonExpression";
+
 	private static final String ENABLE_REMOVE_BUTTON_EXPRESSION_ID = "enableRemoveButtonExpression";
 	
 	private static final String ON_CLICK_EXPRESSION = "onClickOperation";
 	
 	private static final String ON_DOUBLE_CLICK_EXPRESSION = "onDoubleClickOperation";
-	
+
 	private EEFCustomWidgetDescription description;
 
 	public CustomReferenceController(EEFCustomWidgetDescription description, IVariableManager variableManager,
@@ -194,6 +196,18 @@ public class CustomReferenceController extends EEFExtReferenceController {
 
 	public boolean addButtonIsHidden() {
 		Optional<String> hideAddButtonExpression = this.getCustomExpression(HIDE_ADD_BUTTON_EXPRESSION_ID);
+		if(hideAddButtonExpression.isPresent()) {
+			Object evaluated = this.newEval().evaluate(hideAddButtonExpression.get());
+			if (evaluated instanceof Boolean) {
+				return (Boolean) evaluated;
+			}
+		}
+		
+		return false;
+	}
+	
+	public boolean browseButtonIsHidden() {
+		Optional<String> hideAddButtonExpression = this.getCustomExpression(HIDE_BROWSE_BUTTON_EXPRESSION_ID);
 		if(hideAddButtonExpression.isPresent()) {
 			Object evaluated = this.newEval().evaluate(hideAddButtonExpression.get());
 			if (evaluated instanceof Boolean) {
