@@ -331,6 +331,7 @@
     <ownedJavaExtensions qualifiedClassName="org.obeonetwork.dsl.database.design.services.label.DatabaseEditLabelServices"/>
     <ownedJavaExtensions qualifiedClassName="org.obeonetwork.dsl.database.design.services.DatabaseEEFPropertiesServices"/>
     <ownedJavaExtensions qualifiedClassName="org.obeonetwork.utils.sirius.services.EObjectUtils"/>
+    <ownedJavaExtensions qualifiedClassName="org.obeonetwork.utils.sirius.services.DebugServices"/>
   </ownedViewpoints>
   <userColorsPalettes name="DomainColors">
     <entries xsi:type="description:UserFixedColor" red="0" green="43" blue="60" name="ISDLabelAndEdge"/>
@@ -591,7 +592,75 @@
               </widget>
             </ifs>
             <ifs name="typeslibrary::TypeInstance literals Condition" predicateExpression="aql:self.type.typeInstanceLiteralsFeatureIsVisible(feature)">
-              <widget xsi:type="properties:ListDescription" name="typeslibrary::TypeInstance literals" labelExpression="aql:input.emfEditServices(self.type).getText(self.type.eClass().getEStructuralFeature('literals')) + ':'" helpExpression="aql:input.emfEditServices(self.type).getDescription(self.type.eClass().getEStructuralFeature('literals'))" isEnabledExpression="aql:self.type.eClass().getEStructuralFeature('literals').changeable" valueExpression="aql:self.literals" displayExpression="var:value"/>
+              <widget xsi:type="properties:ListDescription" name="typeslibrary::TypeInstance literals" labelExpression="aql:input.emfEditServices(self.type).getText(self.type.eClass().getEStructuralFeature('literals')) + ':'" helpExpression="aql:input.emfEditServices(self.type).getDescription(self.type.eClass().getEStructuralFeature('literals'))" isEnabledExpression="aql:self.type.eClass().getEStructuralFeature('literals').changeable" valueExpression="aql:self.type.literals" displayExpression="var:value">
+                <onClickOperation>
+                  <firstModelOperations xsi:type="tool_1:If" conditionExpression="aql:onClickEventKind='DOUBLE_CLICK'">
+                    <subModelOperations xsi:type="properties:DialogModelOperation" titleExpression="New Literal Dialog">
+                      <buttons labelExpression="Cancel" closeDialogOnClick="true" rollbackChangesOnClose="true">
+                        <initialOperation/>
+                      </buttons>
+                      <buttons labelExpression="OK" default="true" closeDialogOnClick="true">
+                        <initialOperation>
+                          <firstModelOperations xsi:type="tool_1:If" conditionExpression="aql:newLiteral&lt;>''">
+                            <subModelOperations xsi:type="tool_1:ChangeContext" browseExpression="aql:self.type.replaceObjectValue(oldLiteral, newLiteral, 'literals')"/>
+                          </firstModelOperations>
+                        </initialOperation>
+                      </buttons>
+                      <page name="New Literal Dialog" labelExpression="New Literal" semanticCandidateExpression="var:self" groups="//@extensions.0/@categories.1/@groups.1/@controls.2/@controls.0/@ifs.2/@widget/@onClickOperation/@firstModelOperations/@subModelOperations.0/@groups.0"/>
+                      <groups name="New Literal Group" labelExpression="Properties" semanticCandidateExpression="var:self">
+                        <controls xsi:type="properties:TextDescription" name="literal definition text" labelExpression="Literal:" valueExpression="aql:selection->first()">
+                          <initialOperation>
+                            <firstModelOperations xsi:type="tool_1:Let" variableName="oldLiteral" valueExpression="aql:selection->first()">
+                              <subModelOperations xsi:type="tool_1:Let" variableName="newLiteral" valueExpression="var:newValue"/>
+                            </firstModelOperations>
+                          </initialOperation>
+                        </controls>
+                      </groups>
+                    </subModelOperations>
+                  </firstModelOperations>
+                </onClickOperation>
+                <actions imageExpression="/org.obeonetwork.dsl.database.design/icons/full/obj16/add.gif">
+                  <initialOperation>
+                    <firstModelOperations xsi:type="properties:DialogModelOperation" titleExpression="New Literal Dialog">
+                      <buttons labelExpression="Cancel" closeDialogOnClick="true" rollbackChangesOnClose="true">
+                        <initialOperation/>
+                      </buttons>
+                      <buttons labelExpression="OK" default="true" closeDialogOnClick="true">
+                        <initialOperation>
+                          <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="aql:self.type">
+                            <subModelOperations xsi:type="tool_1:If" conditionExpression="aql:literal&lt;>''">
+                              <subModelOperations xsi:type="tool_1:SetValue" featureName="literals" valueExpression="var:literal"/>
+                            </subModelOperations>
+                          </firstModelOperations>
+                        </initialOperation>
+                      </buttons>
+                      <page name="New Literal Dialog" labelExpression="New Literal" semanticCandidateExpression="var:self" groups="//@extensions.0/@categories.1/@groups.1/@controls.2/@controls.0/@ifs.2/@widget/@actions.0/@initialOperation/@firstModelOperations/@groups.0"/>
+                      <groups name="New Literal Group" labelExpression="Properties" semanticCandidateExpression="var:self">
+                        <controls xsi:type="properties:TextDescription" name="literal definition text" labelExpression="Literal:">
+                          <initialOperation>
+                            <firstModelOperations xsi:type="tool_1:Let" variableName="literal" valueExpression="var:newValue"/>
+                          </initialOperation>
+                        </controls>
+                      </groups>
+                    </firstModelOperations>
+                  </initialOperation>
+                </actions>
+                <actions imageExpression="/org.obeonetwork.dsl.database.design/icons/full/obj16/delete.gif">
+                  <initialOperation>
+                    <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="aql:self.type.removeObject(selection -> first(), 'literals')"/>
+                  </initialOperation>
+                </actions>
+                <actions imageExpression="/org.obeonetwork.dsl.database.design/icons/full/obj16/up.gif">
+                  <initialOperation>
+                    <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="aql:self.type.moveUp(selection->first(), 'literals')"/>
+                  </initialOperation>
+                </actions>
+                <actions imageExpression="/org.obeonetwork.dsl.database.design/icons/full/obj16/down.gif">
+                  <initialOperation>
+                    <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="aql:self.type.moveDown(selection->first(), 'literals')"/>
+                  </initialOperation>
+                </actions>
+              </widget>
             </ifs>
           </controls>
           <layout xsi:type="properties:FillLayoutDescription" orientation="HORIZONTAL"/>
