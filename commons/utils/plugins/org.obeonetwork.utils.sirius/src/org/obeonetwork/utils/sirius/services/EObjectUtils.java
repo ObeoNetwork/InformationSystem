@@ -106,7 +106,7 @@ public class EObjectUtils {
 		return object;
 	}
 	
-	public static Object replaceObjectValue(EObject eReferencer, Object oldValue, Object newValue, String featureName) {
+	public static Object replaceValue(EObject eReferencer, Object oldValue, Object newValue, String featureName) {
 		EList<?> values = getMultiFeatureValues(eReferencer, featureName);
 		if (values != null) {
 			int indexOfOldValue = values.indexOf(oldValue);
@@ -114,16 +114,15 @@ public class EObjectUtils {
 				((EList<Object>) values).set(indexOfOldValue, newValue);
 			}
 		}
-		
 		return newValue;
 	}
 	
-	public static EList<?> removeObject(EObject eReferencer, Object toRemove, String featureName) {
+	public static EList<?> removeValue(EObject eReferencer, Object value, String featureName) {
 		EList<?> values = getMultiFeatureValues(eReferencer, featureName);
 		if (values != null) {
-			values.remove(toRemove);
+			values.remove(value);
 		}
-		
 		return values;
 	}
+
 }

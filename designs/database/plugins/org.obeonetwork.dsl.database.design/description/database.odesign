@@ -602,7 +602,7 @@
                       <buttons labelExpression="OK" default="true" closeDialogOnClick="true">
                         <initialOperation>
                           <firstModelOperations xsi:type="tool_1:If" conditionExpression="aql:newLiteral&lt;>''">
-                            <subModelOperations xsi:type="tool_1:ChangeContext" browseExpression="aql:self.type.replaceObjectValue(oldLiteral, newLiteral, 'literals')"/>
+                            <subModelOperations xsi:type="tool_1:ChangeContext" browseExpression="aql:self.type.replaceValue(oldLiteral, newLiteral, 'literals')"/>
                           </firstModelOperations>
                         </initialOperation>
                       </buttons>
@@ -647,7 +647,7 @@
                 </actions>
                 <actions imageExpression="/org.obeonetwork.dsl.database.design/icons/full/obj16/delete.gif">
                   <initialOperation>
-                    <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="aql:self.type.removeObject(selection -> first(), 'literals')"/>
+                    <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="aql:self.type.removeValue(selection -> first(), 'literals')"/>
                   </initialOperation>
                 </actions>
                 <actions imageExpression="/org.obeonetwork.dsl.database.design/icons/full/obj16/up.gif">
