@@ -606,7 +606,7 @@
           }
         },
         "security" : [ {
-          "petstore_auth" : [ "name" ]
+          "key" : [ "name" ]
         } ]
       },
       "post" : {
@@ -667,7 +667,7 @@
           }
         },
         "security" : [ {
-          "petstore_auth" : [ "name" ]
+          "key" : [ "name" ]
         } ]
       }
     },
@@ -733,7 +733,7 @@
           }
         },
         "security" : [ {
-          "petstore_auth" : [ "name" ]
+          "key" : [ "name" ]
         } ]
       }
     },
@@ -818,7 +818,7 @@
           }
         },
         "security" : [ {
-          "petstore_auth" : [ "name" ]
+          "key" : [ "name" ]
         } ],
         "x-pagination" : "description"
       }
@@ -888,7 +888,7 @@
         "security" : [ {
           "api_key" : [ ]
         }, {
-          "petstore_auth" : [ "name" ]
+          "key" : [ "name" ]
         } ]
       },
       "post" : {
@@ -926,7 +926,7 @@
           }
         },
         "security" : [ {
-          "petstore_auth" : [ "name" ]
+          "key" : [ "name" ]
         } ]
       },
       "delete" : {
@@ -955,7 +955,7 @@
           }
         },
         "security" : [ {
-          "petstore_auth" : [ "name" ]
+          "key" : [ "name" ]
         } ]
       }
     },
@@ -1033,7 +1033,7 @@
           }
         },
         "security" : [ {
-          "petstore_auth" : [ "name" ]
+          "key" : [ "name" ]
         } ]
       }
     }

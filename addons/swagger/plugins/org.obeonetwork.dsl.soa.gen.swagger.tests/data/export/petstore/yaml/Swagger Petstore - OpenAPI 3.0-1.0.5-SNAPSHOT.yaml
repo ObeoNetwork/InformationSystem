@@ -418,7 +418,7 @@ paths:
         405:
           description: "Method Not Allowed\n\nValidation exception"
       security:
-      - petstore_auth:
+      - key:
         - name
     post:
       tags:
@@ -458,7 +458,7 @@ paths:
         405:
           description: "Method Not Allowed\n\nInvalid input"
       security:
-      - petstore_auth:
+      - key:
         - name
   /pet/findByStatus:
     get:
@@ -503,7 +503,7 @@ paths:
         400:
           description: "Bad Request\n\nInvalid status value"
       security:
-      - petstore_auth:
+      - key:
         - name
   /pet/findByTags:
     get:
@@ -563,7 +563,7 @@ paths:
         400:
           description: "Bad Request\n\nInvalid tag value"
       security:
-      - petstore_auth:
+      - key:
         - name
       x-pagination: description
   /pet/{petId}:
@@ -611,7 +611,7 @@ paths:
           description: "Not Found\n\nPet not found"
       security:
       - api_key: []
-      - petstore_auth:
+      - key:
         - name
     post:
       tags:
@@ -641,7 +641,7 @@ paths:
         405:
           description: "Method Not Allowed\n\nInvalid input"
       security:
-      - petstore_auth:
+      - key:
         - name
     delete:
       tags:
@@ -664,7 +664,7 @@ paths:
         400:
           description: "Bad Request\n\nInvalid pet value"
       security:
-      - petstore_auth:
+      - key:
         - name
   /pet/{petId}/uploadImage:
     post:
@@ -717,7 +717,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/ApiResponse'
       security:
-      - petstore_auth:
+      - key:
         - name
 components:
   schemas:

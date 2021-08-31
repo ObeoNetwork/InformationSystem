@@ -839,7 +839,7 @@ public class SwaggerBuilder {
 			//
 			SecurityRequirement swgSecurityRequirement = new SecurityRequirement();
 			//if (soaSecurityScheme.getType().equals(SecuritySchemeType.OAUTH2)) {
-				swgSecurityRequirement.addList(soaSecurityScheme.getKey(), soaSecurityScheme.getFlows().stream().map(f -> f.getScopes()).flatMap(List::stream).map(Scope::getName).collect(Collectors.toList()));
+				swgSecurityRequirement.addList(soaSecurityScheme.getName(), soaSecurityScheme.getFlows().stream().map(f -> f.getScopes()).flatMap(List::stream).map(Scope::getName).collect(Collectors.toList()));
 			//}
 			swgOperation.addSecurityItem(swgSecurityRequirement);
 		}
