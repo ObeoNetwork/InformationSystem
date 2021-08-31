@@ -213,7 +213,11 @@ public class SwaggerBuilder {
 
 	private SecurityScheme createSecurityScheme(org.obeonetwork.dsl.soa.SecurityScheme soaSecurityScheme) {
 		SecurityScheme securityScheme = new SecurityScheme();
-		securityScheme.setName(soaSecurityScheme.getName());		
+		
+		if (!StringUtils.isNullOrWhite(soaSecurityScheme.getName()))
+			securityScheme.setName(soaSecurityScheme.getName());
+		else
+			securityScheme.setName(soaSecurityScheme.getKey());
 		
 		if (soaSecurityScheme.getDescription() != null) {
 			securityScheme.setDescription(soaSecurityScheme.getDescription());
