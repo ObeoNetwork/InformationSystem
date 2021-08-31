@@ -63,13 +63,11 @@ import org.obeonetwork.dsl.soa.ApiKeyLocation;
 import org.obeonetwork.dsl.soa.Component;
 import org.obeonetwork.dsl.soa.ExpositionKind;
 import org.obeonetwork.dsl.soa.Flow;
-import org.obeonetwork.dsl.soa.FlowType;
 import org.obeonetwork.dsl.soa.Information;
 import org.obeonetwork.dsl.soa.ParameterPassingMode;
 import org.obeonetwork.dsl.soa.Scope;
 import org.obeonetwork.dsl.soa.SecuritySchemeType;
 import org.obeonetwork.dsl.soa.Service;
-import org.obeonetwork.dsl.soa.Verb;
 import org.obeonetwork.dsl.soa.gen.swagger.utils.ComponentGenUtil;
 import org.obeonetwork.dsl.soa.gen.swagger.utils.ExampleGenUtil;
 import org.obeonetwork.dsl.soa.gen.swagger.utils.OperationGenUtil;
@@ -210,12 +208,12 @@ public class SwaggerBuilder {
 
 	private void buildSecuritySchemes() {
 		soaComponent.getSecuritySchemes().forEach(soaSecurityScheme -> openApi.getComponents()
-				.addSecuritySchemes(soaSecurityScheme.getKey(), createSecurityScheme(soaSecurityScheme)));
+				.addSecuritySchemes(soaSecurityScheme.getName(), createSecurityScheme(soaSecurityScheme)));
 	}
 
 	private SecurityScheme createSecurityScheme(org.obeonetwork.dsl.soa.SecurityScheme soaSecurityScheme) {
 		SecurityScheme securityScheme = new SecurityScheme();
-		securityScheme.setName(soaSecurityScheme.getKey());		
+		securityScheme.setName(soaSecurityScheme.getName());		
 		
 		if (soaSecurityScheme.getDescription() != null) {
 			securityScheme.setDescription(soaSecurityScheme.getDescription());
@@ -227,7 +225,8 @@ public class SwaggerBuilder {
 		switch (type) {
 		case APIKEY:
 			SecurityScheme.In in = toSwg(soaSecurityScheme.getApiKeyLocation());
-			securityScheme.setIn(in);
+			securityScheme.setIn(in);		
+			securityScheme.setName(soaSecurityScheme.getKey());
 			break;
 		case HTTP:
 			if (soaSecurityScheme.getFormat() != null)
