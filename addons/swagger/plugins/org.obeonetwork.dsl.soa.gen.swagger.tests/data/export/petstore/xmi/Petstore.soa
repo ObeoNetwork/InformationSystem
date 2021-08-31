@@ -321,7 +321,11 @@
         </ownedOperations>
       </ownedInterface>
     </ownedServices>
-    <securitySchemes xmi:id="_2GTtD2xtEeuYi_YuNNGyqg" technicalid="_2GJUkWxtEeuYi_YuNNGyqg" key="petstore_auth" type="oauth2"/>
+    <securitySchemes xmi:id="_2GTtD2xtEeuYi_YuNNGyqg" technicalid="_2GJUkWxtEeuYi_YuNNGyqg" createdOn="2021-08-31T11:43:08.565+0200" modifiedOn="2021-08-31T11:43:13.146+0200" key="petstore_auth" type="oauth2" name="key">
+      <flows xmi:id="_2_oVoQo_Eeybrod5kgJykA" technicalid="_2_oVoAo_Eeybrod5kgJykA" createdOn="2021-08-31T11:43:16.071+0200" modifiedOn="2021-08-31T11:43:19.904+0200" authorizationURL="url" tokenURL="url" refreshURL="url">
+        <scopes xmi:id="_4AFGAQo_Eeybrod5kgJykA" technicalid="_4AFGAAo_Eeybrod5kgJykA" createdOn="2021-08-31T11:43:19.904+0200" modifiedOn="2021-08-31T11:43:19.904+0200" name="name" summary="description"/>
+      </flows>
+    </securitySchemes>
     <securitySchemes xmi:id="_2GTtEGxtEeuYi_YuNNGyqg" technicalid="_2GJUkmxtEeuYi_YuNNGyqg" key="api_key" name="api_key" apiKeyLocation="HEADER"/>
     <license xmi:id="_N6N54NS9EeupafSrIRMhUw" technicalid="_jH4ob_wLEeub2ruSJkz2zg" name="Apache 2.0" URL="http://www.apache.org/licenses/LICENSE-2.0.html"/>
     <information xmi:id="_N6N54dS9EeupafSrIRMhUw" technicalid="_jH4ocPwLEeub2ruSJkz2zg" apiVersion="1.0.5-SNAPSHOT" termsOfService="/tos"/>

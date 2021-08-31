@@ -388,10 +388,7 @@
               }
             }
           }
-        },
-        "security" : [ {
-          "api_key" : [ ]
-        } ]
+        }
       }
     },
     "/store/order" : {
@@ -604,10 +601,7 @@
           "405" : {
             "description" : "Method Not Allowed\n\nValidation exception"
           }
-        },
-        "security" : [ {
-          "petstore_auth" : [ ]
-        } ]
+        }
       },
       "post" : {
         "tags" : [ "Pet" ],
@@ -665,10 +659,7 @@
           "405" : {
             "description" : "Method Not Allowed\n\nInvalid input"
           }
-        },
-        "security" : [ {
-          "petstore_auth" : [ ]
-        } ]
+        }
       }
     },
     "/pet/findByStatus" : {
@@ -731,10 +722,7 @@
           "400" : {
             "description" : "Bad Request\n\nInvalid status value"
           }
-        },
-        "security" : [ {
-          "petstore_auth" : [ ]
-        } ]
+        }
       }
     },
     "/pet/findByTags" : {
@@ -817,9 +805,6 @@
             "description" : "Bad Request\n\nInvalid tag value"
           }
         },
-        "security" : [ {
-          "petstore_auth" : [ ]
-        } ],
         "x-pagination" : "description"
       }
     },
@@ -884,12 +869,7 @@
           "404" : {
             "description" : "Not Found\n\nPet not found"
           }
-        },
-        "security" : [ {
-          "api_key" : [ ]
-        }, {
-          "petstore_auth" : [ ]
-        } ]
+        }
       },
       "post" : {
         "tags" : [ "Pet" ],
@@ -924,10 +904,7 @@
           "405" : {
             "description" : "Method Not Allowed\n\nInvalid input"
           }
-        },
-        "security" : [ {
-          "petstore_auth" : [ ]
-        } ]
+        }
       },
       "delete" : {
         "tags" : [ "Pet" ],
@@ -953,10 +930,7 @@
           "400" : {
             "description" : "Bad Request\n\nInvalid pet value"
           }
-        },
-        "security" : [ {
-          "petstore_auth" : [ ]
-        } ]
+        }
       }
     },
     "/pet/{petId}/uploadImage" : {
@@ -1031,10 +1005,7 @@
               }
             }
           }
-        },
-        "security" : [ {
-          "petstore_auth" : [ ]
-        } ]
+        }
       }
     }
   },
@@ -1186,18 +1157,6 @@
             "type" : "string"
           }
         }
-      }
-    },
-    "securitySchemes" : {
-      "petstore_auth" : {
-        "type" : "oauth2",
-        "name" : "petstore_auth",
-        "flows" : { }
-      },
-      "api_key" : {
-        "type" : "apiKey",
-        "name" : "api_key",
-        "in" : "header"
       }
     }
   }

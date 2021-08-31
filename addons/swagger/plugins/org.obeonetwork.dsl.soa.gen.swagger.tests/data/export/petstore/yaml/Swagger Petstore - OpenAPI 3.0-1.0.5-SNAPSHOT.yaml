@@ -418,7 +418,8 @@ paths:
         405:
           description: "Method Not Allowed\n\nValidation exception"
       security:
-      - petstore_auth: []
+      - petstore_auth:
+        - name
     post:
       tags:
       - Pet
@@ -457,7 +458,8 @@ paths:
         405:
           description: "Method Not Allowed\n\nInvalid input"
       security:
-      - petstore_auth: []
+      - petstore_auth:
+        - name
   /pet/findByStatus:
     get:
       tags:
@@ -501,7 +503,8 @@ paths:
         400:
           description: "Bad Request\n\nInvalid status value"
       security:
-      - petstore_auth: []
+      - petstore_auth:
+        - name
   /pet/findByTags:
     get:
       tags:
@@ -560,7 +563,8 @@ paths:
         400:
           description: "Bad Request\n\nInvalid tag value"
       security:
-      - petstore_auth: []
+      - petstore_auth:
+        - name
       x-pagination: description
   /pet/{petId}:
     get:
@@ -607,7 +611,8 @@ paths:
           description: "Not Found\n\nPet not found"
       security:
       - api_key: []
-      - petstore_auth: []
+      - petstore_auth:
+        - name
     post:
       tags:
       - Pet
@@ -636,7 +641,8 @@ paths:
         405:
           description: "Method Not Allowed\n\nInvalid input"
       security:
-      - petstore_auth: []
+      - petstore_auth:
+        - name
     delete:
       tags:
       - Pet
@@ -658,7 +664,8 @@ paths:
         400:
           description: "Bad Request\n\nInvalid pet value"
       security:
-      - petstore_auth: []
+      - petstore_auth:
+        - name
   /pet/{petId}/uploadImage:
     post:
       tags:
@@ -710,7 +717,8 @@ paths:
               schema:
                 $ref: '#/components/schemas/ApiResponse'
       security:
-      - petstore_auth: []
+      - petstore_auth:
+        - name
 components:
   schemas:
     ApiResponse:
@@ -818,10 +826,16 @@ components:
         username:
           type: string
   securitySchemes:
-    petstore_auth:
+    key:
       type: oauth2
-      name: petstore_auth
-      flows: {}
+      name: key
+      flows:
+        implicit:
+          authorizationUrl: url
+          tokenUrl: url
+          refreshUrl: url
+          scopes:
+            name: description
     api_key:
       type: apiKey
       name: api_key

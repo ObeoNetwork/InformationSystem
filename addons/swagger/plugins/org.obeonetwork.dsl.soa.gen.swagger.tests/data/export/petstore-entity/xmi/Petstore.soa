@@ -118,7 +118,7 @@
       <types xsi:type="oenv:DTO" xmi:id="_2GUT5GxtEeuYi_YuNNGyqg" technicalid="_2GQCW2xtEeuYi_YuNNGyqg" name="GetInventoryOutput200"/>
     </ownedNamespaces>
   </ownedNamespaces>
-  <ownedComponents xmi:id="_2GTsoWxtEeuYi_YuNNGyqg" technicalid="_2GJUkGxtEeuYi_YuNNGyqg" description="This is a sample Pet Store Server based on the OpenAPI 3.0 specification.  You can find out more about&#xA;Swagger at [http://swagger.io](http://swagger.io). In the third iteration of the pet store, we've switched to the design first approach!&#xA;You can now help us improve the API whether it's by making changes to the definition itself or to the code.&#xA;That way, with time, we can improve the API in general, and expose some of the new features in OAS3.&#xA;&#xA;Some useful links:&#xA;- [The Pet Store repository](https://github.com/swagger-api/swagger-petstore)&#xA;- [The source API definition for the Pet Store](https://github.com/swagger-api/swagger-petstore/blob/master/src/main/resources/openapi.yaml) " name="Swagger Petstore - OpenAPI 3.0" URI="" apiVersion="1.0.5-SNAPSHOT" URL="/v3">
+  <ownedComponents xmi:id="_2GTsoWxtEeuYi_YuNNGyqg" technicalid="_2GJUkGxtEeuYi_YuNNGyqg" description="This is a sample Pet Store Server based on the OpenAPI 3.0 specification.  You can find out more about&#xA;Swagger at [http://swagger.io](http://swagger.io). In the third iteration of the pet store, we've switched to the design first approach!&#xA;You can now help us improve the API whether it's by making changes to the definition itself or to the code.&#xA;That way, with time, we can improve the API in general, and expose some of the new features in OAS3.&#xA;&#xA;Some useful links:&#xA;- [The Pet Store repository](https://github.com/swagger-api/swagger-petstore)&#xA;- [The source API definition for the Pet Store](https://github.com/swagger-api/swagger-petstore/blob/master/src/main/resources/openapi.yaml) " createdOn="2021-08-31T11:52:47.661+0200" modifiedOn="2021-08-31T11:52:49.132+0200" name="Swagger Petstore - OpenAPI 3.0" URI="" apiVersion="1.0.5-SNAPSHOT" URL="/v3">
     <ownedServices xmi:id="_2GTsomxtEeuYi_YuNNGyqg" technicalid="_2GLw0GxtEeuYi_YuNNGyqg" description="Access to Petstore orders" name="User" URI="/user">
       <ownedInterface xmi:id="_2GTso2xtEeuYi_YuNNGyqg" technicalid="_2GRQZ2xtEeuYi_YuNNGyqg" name="User">
         <ownedOperations xmi:id="_2GTspGxtEeuYi_YuNNGyqg" technicalid="_2GRQaGxtEeuYi_YuNNGyqg" description="This can only be done by the logged in user." name="createUser" public="true" URI="" verb="POST" exposition="REST">
@@ -191,7 +191,7 @@
     </ownedServices>
     <ownedServices xmi:id="_2GTsx2xtEeuYi_YuNNGyqg" technicalid="_2GMX4GxtEeuYi_YuNNGyqg" description="Operations about user" name="Store" URI="/store">
       <ownedInterface xmi:id="_2GTsyGxtEeuYi_YuNNGyqg" technicalid="_2GQCWGxtEeuYi_YuNNGyqg" name="Store">
-        <ownedOperations xmi:id="_2GTsyWxtEeuYi_YuNNGyqg" technicalid="_2GQCWWxtEeuYi_YuNNGyqg" description="Returns a map of status codes to quantities" name="getInventory" public="true" URI="/inventory" exposition="REST" securitySchemes="_2GTtEGxtEeuYi_YuNNGyqg">
+        <ownedOperations xmi:id="_2GTsyWxtEeuYi_YuNNGyqg" technicalid="_2GQCWWxtEeuYi_YuNNGyqg" description="Returns a map of status codes to quantities" createdOn="2021-08-31T11:52:49.148+0200" modifiedOn="2021-08-31T11:52:49.148+0200" name="getInventory" public="true" URI="/inventory" exposition="REST">
           <output xmi:id="_2GTsymxtEeuYi_YuNNGyqg" technicalid="_2GQCWmxtEeuYi_YuNNGyqg" description="successful operation" type="_2GUT5GxtEeuYi_YuNNGyqg" name="output200" multiplicity="0..1" statusCode="200" statusMessage="OK"/>
         </ownedOperations>
         <ownedOperations xmi:id="_2GTsy2xtEeuYi_YuNNGyqg" technicalid="_2GQCXGxtEeuYi_YuNNGyqg" description="Place a new order in the store" name="placeOrder" public="true" URI="/order" verb="POST" exposition="REST">
@@ -222,7 +222,7 @@
     </ownedServices>
     <ownedServices xmi:id="_2GTs22xtEeuYi_YuNNGyqg" technicalid="_2GMX4WxtEeuYi_YuNNGyqg" description="Everything about your Pets" name="Pet" URI="/pet">
       <ownedInterface xmi:id="_2GTs3GxtEeuYi_YuNNGyqg" technicalid="_2GMX4mxtEeuYi_YuNNGyqg" name="Pet">
-        <ownedOperations xmi:id="_2GTs3WxtEeuYi_YuNNGyqg" technicalid="_2GMX42xtEeuYi_YuNNGyqg" description="Update an existing pet by Id" name="updatePet" public="true" URI="" verb="PUT" exposition="REST" securitySchemes="_2GTtD2xtEeuYi_YuNNGyqg">
+        <ownedOperations xmi:id="_2GTs3WxtEeuYi_YuNNGyqg" technicalid="_2GMX42xtEeuYi_YuNNGyqg" description="Update an existing pet by Id" createdOn="2021-08-31T11:52:47.682+0200" modifiedOn="2021-08-31T11:52:47.682+0200" name="updatePet" public="true" URI="" verb="PUT" exposition="REST">
           <input xmi:id="_2GTs3mxtEeuYi_YuNNGyqg" technicalid="_2GMX5GxtEeuYi_YuNNGyqg" description="Update an existent pet in the store" type="_2GUT0GxtEeuYi_YuNNGyqg" name="body">
             <restData xmi:id="_2GTs32xtEeuYi_YuNNGyqg" technicalid="_2GMX5WxtEeuYi_YuNNGyqg"/>
           </input>
@@ -231,21 +231,21 @@
           <fault xmi:id="_2GTs4mxtEeuYi_YuNNGyqg" technicalid="_2GNmAWxtEeuYi_YuNNGyqg" description="Pet not found" name="fault404" statusCode="404" statusMessage="Not Found"/>
           <fault xmi:id="_2GTs42xtEeuYi_YuNNGyqg" technicalid="_2GNmAmxtEeuYi_YuNNGyqg" description="Validation exception" name="fault405" statusCode="405" statusMessage="Method Not Allowed"/>
         </ownedOperations>
-        <ownedOperations xmi:id="_2GTs5GxtEeuYi_YuNNGyqg" technicalid="_2GNmA2xtEeuYi_YuNNGyqg" description="Add a new pet to the store" name="addPet" public="true" URI="" verb="POST" exposition="REST" securitySchemes="_2GTtD2xtEeuYi_YuNNGyqg">
+        <ownedOperations xmi:id="_2GTs5GxtEeuYi_YuNNGyqg" technicalid="_2GNmA2xtEeuYi_YuNNGyqg" description="Add a new pet to the store" createdOn="2021-08-31T11:52:47.682+0200" modifiedOn="2021-08-31T11:52:47.682+0200" name="addPet" public="true" URI="" verb="POST" exposition="REST">
           <input xmi:id="_2GTs5WxtEeuYi_YuNNGyqg" technicalid="_2GNmBGxtEeuYi_YuNNGyqg" description="Create a new pet in the store" type="_2GUT0GxtEeuYi_YuNNGyqg" name="body">
             <restData xmi:id="_2GTs5mxtEeuYi_YuNNGyqg" technicalid="_2GNmBWxtEeuYi_YuNNGyqg"/>
           </input>
           <output xmi:id="_2GTs52xtEeuYi_YuNNGyqg" technicalid="_2GONEGxtEeuYi_YuNNGyqg" description="Successful operation" type="_2GUT0GxtEeuYi_YuNNGyqg" name="output200" multiplicity="0..1" statusCode="200" statusMessage="OK"/>
           <fault xmi:id="_2GTs6GxtEeuYi_YuNNGyqg" technicalid="_2GONEWxtEeuYi_YuNNGyqg" description="Invalid input" name="fault405" statusCode="405" statusMessage="Method Not Allowed"/>
         </ownedOperations>
-        <ownedOperations xmi:id="_2GTs6WxtEeuYi_YuNNGyqg" technicalid="_2GO0IGxtEeuYi_YuNNGyqg" description="Multiple status values can be provided with comma separated strings" name="findPetsByStatus" public="true" URI="/findByStatus" exposition="REST" securitySchemes="_2GTtD2xtEeuYi_YuNNGyqg">
+        <ownedOperations xmi:id="_2GTs6WxtEeuYi_YuNNGyqg" technicalid="_2GO0IGxtEeuYi_YuNNGyqg" description="Multiple status values can be provided with comma separated strings" createdOn="2021-08-31T11:52:47.682+0200" modifiedOn="2021-08-31T11:52:47.682+0200" name="findPetsByStatus" public="true" URI="/findByStatus" exposition="REST">
           <input xmi:id="_2GTs6mxtEeuYi_YuNNGyqg" technicalid="_2GO0IWxtEeuYi_YuNNGyqg" description="Status values that need to be considered for filter" type="_2GUT32xtEeuYi_YuNNGyqg" name="status" multiplicity="0..1">
             <restData xmi:id="_2GTs62xtEeuYi_YuNNGyqg" technicalid="_2GO0ImxtEeuYi_YuNNGyqg" passingMode="QUERY" restId="status"/>
           </input>
           <output xmi:id="_2GTs7GxtEeuYi_YuNNGyqg" technicalid="_2GO0J2xtEeuYi_YuNNGyqg" description="successful operation" type="_2GUT0GxtEeuYi_YuNNGyqg" name="output200" multiplicity="0..*" statusCode="200" statusMessage="OK"/>
           <fault xmi:id="_2GTs7WxtEeuYi_YuNNGyqg" technicalid="_2GO0KGxtEeuYi_YuNNGyqg" description="Invalid status value" name="fault400" statusCode="400" statusMessage="Bad Request"/>
         </ownedOperations>
-        <ownedOperations xmi:id="_2GTs7mxtEeuYi_YuNNGyqg" technicalid="_2GPbMGxtEeuYi_YuNNGyqg" description="Multiple tags can be provided with comma separated strings. Use tag1, tag2, tag3 for testing." createdOn="2021-08-13T09:58:10.674+0200" modifiedOn="2021-08-13T11:39:47.186+0200" name="findPetsByTags" public="true" URI="/findByTags" exposition="REST" paged="true" securitySchemes="_2GTtD2xtEeuYi_YuNNGyqg" size="_M_mtIfwMEeub2ruSJkz2zg" page="_VasDEfwMEeub2ruSJkz2zg" paginationExtension="_ZceVIPwaEeuQdqn4Ol0_lw">
+        <ownedOperations xmi:id="_2GTs7mxtEeuYi_YuNNGyqg" technicalid="_2GPbMGxtEeuYi_YuNNGyqg" description="Multiple tags can be provided with comma separated strings. Use tag1, tag2, tag3 for testing." createdOn="2021-08-13T09:58:10.674+0200" modifiedOn="2021-08-31T11:52:47.682+0200" name="findPetsByTags" public="true" URI="/findByTags" exposition="REST" paged="true" size="_M_mtIfwMEeub2ruSJkz2zg" page="_VasDEfwMEeub2ruSJkz2zg" paginationExtension="_ZceVIPwaEeuQdqn4Ol0_lw">
           <metadatas xmi:id="_ZcduEvwaEeuQdqn4Ol0_lw" technicalid="_ZcduEfwaEeuQdqn4Ol0_lw">
             <metadatas xsi:type="soa:PropertiesExtension" xmi:id="_ZceVIPwaEeuQdqn4Ol0_lw" technicalid="_ZcduEPwaEeuQdqn4Ol0_lw" title="x-pagination" body="description" context="Operation"/>
           </metadatas>
@@ -264,7 +264,7 @@
           <output xmi:id="_2GTs8WxtEeuYi_YuNNGyqg" technicalid="_2GPbM2xtEeuYi_YuNNGyqg" description="successful operation" type="_2GUT0GxtEeuYi_YuNNGyqg" name="output200" multiplicity="0..*" statusCode="200" statusMessage="OK"/>
           <fault xmi:id="_2GTs8mxtEeuYi_YuNNGyqg" technicalid="_2GPbNGxtEeuYi_YuNNGyqg" description="Invalid tag value" name="fault400" statusCode="400" statusMessage="Bad Request"/>
         </ownedOperations>
-        <ownedOperations xmi:id="_2GTs82xtEeuYi_YuNNGyqg" technicalid="_2GPbNWxtEeuYi_YuNNGyqg" description="Returns a single pet" name="getPetById" public="true" URI="/{petId}" exposition="REST" securitySchemes="_2GTtEGxtEeuYi_YuNNGyqg _2GTtD2xtEeuYi_YuNNGyqg">
+        <ownedOperations xmi:id="_2GTs82xtEeuYi_YuNNGyqg" technicalid="_2GPbNWxtEeuYi_YuNNGyqg" description="Returns a single pet" createdOn="2021-08-31T11:52:47.682+0200" modifiedOn="2021-08-31T11:52:49.148+0200" name="getPetById" public="true" URI="/{petId}" exposition="REST">
           <input xmi:id="_2GTs9GxtEeuYi_YuNNGyqg" technicalid="_2GPbNmxtEeuYi_YuNNGyqg" description="ID of pet to return" name="petId">
             <type xsi:type="oenv:PrimitiveType" href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_9dnH8bGqEd2SRpTkL4GntA"/>
             <restData xmi:id="_2GTs9WxtEeuYi_YuNNGyqg" technicalid="_2GPbN2xtEeuYi_YuNNGyqg" passingMode="PATH" restId="petId"/>
@@ -273,7 +273,7 @@
           <fault xmi:id="_2GTs92xtEeuYi_YuNNGyqg" technicalid="_2GQCQGxtEeuYi_YuNNGyqg" description="Invalid ID supplied" name="fault400" statusCode="400" statusMessage="Bad Request"/>
           <fault xmi:id="_2GTs-GxtEeuYi_YuNNGyqg" technicalid="_2GQCQWxtEeuYi_YuNNGyqg" description="Pet not found" name="fault404" statusCode="404" statusMessage="Not Found"/>
         </ownedOperations>
-        <ownedOperations xmi:id="_2GTs-WxtEeuYi_YuNNGyqg" technicalid="_2GQCQmxtEeuYi_YuNNGyqg" description="" name="updatePetWithForm" public="true" URI="/{petId}" verb="POST" exposition="REST" securitySchemes="_2GTtD2xtEeuYi_YuNNGyqg">
+        <ownedOperations xmi:id="_2GTs-WxtEeuYi_YuNNGyqg" technicalid="_2GQCQmxtEeuYi_YuNNGyqg" description="" createdOn="2021-08-31T11:52:47.682+0200" modifiedOn="2021-08-31T11:52:47.682+0200" name="updatePetWithForm" public="true" URI="/{petId}" verb="POST" exposition="REST">
           <input xmi:id="_2GTs-mxtEeuYi_YuNNGyqg" technicalid="_2GQCQ2xtEeuYi_YuNNGyqg" description="ID of pet that needs to be updated" name="petId">
             <type xsi:type="oenv:PrimitiveType" href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_9dnH8bGqEd2SRpTkL4GntA"/>
             <restData xmi:id="_2GTs-2xtEeuYi_YuNNGyqg" technicalid="_2GQCRGxtEeuYi_YuNNGyqg" passingMode="PATH" restId="petId"/>
@@ -288,7 +288,7 @@
           </input>
           <fault xmi:id="_2GTtAGxtEeuYi_YuNNGyqg" technicalid="_2GQCSWxtEeuYi_YuNNGyqg" description="Invalid input" name="fault405" statusCode="405" statusMessage="Method Not Allowed"/>
         </ownedOperations>
-        <ownedOperations xmi:id="_2GTtAWxtEeuYi_YuNNGyqg" technicalid="_2GQCSmxtEeuYi_YuNNGyqg" description="" name="deletePet" public="true" URI="/{petId}" verb="DELETE" exposition="REST" securitySchemes="_2GTtD2xtEeuYi_YuNNGyqg">
+        <ownedOperations xmi:id="_2GTtAWxtEeuYi_YuNNGyqg" technicalid="_2GQCSmxtEeuYi_YuNNGyqg" description="" createdOn="2021-08-31T11:52:47.683+0200" modifiedOn="2021-08-31T11:52:47.683+0200" name="deletePet" public="true" URI="/{petId}" verb="DELETE" exposition="REST">
           <input xmi:id="_2GTtAmxtEeuYi_YuNNGyqg" technicalid="_2GQCS2xtEeuYi_YuNNGyqg" description="" name="api_key" multiplicity="0..1">
             <type xsi:type="oenv:PrimitiveType" href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5F-EKwKEd2XLNOhkJIazw"/>
             <restData xmi:id="_2GTtA2xtEeuYi_YuNNGyqg" technicalid="_2GQCTGxtEeuYi_YuNNGyqg" passingMode="HEADER" restId="api_key"/>
@@ -299,7 +299,7 @@
           </input>
           <fault xmi:id="_2GTtBmxtEeuYi_YuNNGyqg" technicalid="_2GQCT2xtEeuYi_YuNNGyqg" description="Invalid pet value" name="fault400" statusCode="400" statusMessage="Bad Request"/>
         </ownedOperations>
-        <ownedOperations xmi:id="_2GTtB2xtEeuYi_YuNNGyqg" technicalid="_2GQCUGxtEeuYi_YuNNGyqg" description="" name="uploadFile" public="true" URI="/{petId}/uploadImage" verb="POST" exposition="REST" securitySchemes="_2GTtD2xtEeuYi_YuNNGyqg">
+        <ownedOperations xmi:id="_2GTtB2xtEeuYi_YuNNGyqg" technicalid="_2GQCUGxtEeuYi_YuNNGyqg" description="" createdOn="2021-08-31T11:52:47.683+0200" modifiedOn="2021-08-31T11:52:47.683+0200" name="uploadFile" public="true" URI="/{petId}/uploadImage" verb="POST" exposition="REST">
           <input xmi:id="_2GTtCGxtEeuYi_YuNNGyqg" technicalid="_2GQCUWxtEeuYi_YuNNGyqg" description="ID of pet to update" name="petId">
             <type xsi:type="oenv:PrimitiveType" href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_9dnH8bGqEd2SRpTkL4GntA"/>
             <restData xmi:id="_2GTtCWxtEeuYi_YuNNGyqg" technicalid="_2GQCUmxtEeuYi_YuNNGyqg" passingMode="PATH" restId="petId"/>
@@ -316,8 +316,6 @@
         </ownedOperations>
       </ownedInterface>
     </ownedServices>
-    <securitySchemes xmi:id="_2GTtD2xtEeuYi_YuNNGyqg" technicalid="_2GJUkWxtEeuYi_YuNNGyqg" key="petstore_auth" type="oauth2"/>
-    <securitySchemes xmi:id="_2GTtEGxtEeuYi_YuNNGyqg" technicalid="_2GJUkmxtEeuYi_YuNNGyqg" key="api_key" name="api_key" apiKeyLocation="HEADER"/>
     <license xmi:id="_N6N54NS9EeupafSrIRMhUw" technicalid="_jH4ob_wLEeub2ruSJkz2zg" name="Apache 2.0" URL="http://www.apache.org/licenses/LICENSE-2.0.html"/>
     <information xmi:id="_N6N54dS9EeupafSrIRMhUw" technicalid="_jH4ocPwLEeub2ruSJkz2zg" apiVersion="1.0.5-SNAPSHOT" termsOfService="/tos"/>
     <contact xmi:id="_N6N54tS9EeupafSrIRMhUw" technicalid="_jH5PYPwLEeub2ruSJkz2zg" name="Obeo" URL="https://contact.obeosoft.com/" email="contact@obeosoft.com"/>

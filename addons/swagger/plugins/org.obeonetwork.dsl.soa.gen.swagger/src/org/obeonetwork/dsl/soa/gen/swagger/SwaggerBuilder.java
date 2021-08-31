@@ -226,7 +226,7 @@ public class SwaggerBuilder {
 		case APIKEY:
 			SecurityScheme.In in = toSwg(soaSecurityScheme.getApiKeyLocation());
 			securityScheme.setIn(in);		
-			securityScheme.setName(soaSecurityScheme.getKey());
+			//securityScheme.setName(soaSecurityScheme.getKey());
 			break;
 		case HTTP:
 			if (soaSecurityScheme.getFormat() != null)

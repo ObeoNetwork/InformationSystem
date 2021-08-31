@@ -1164,7 +1164,7 @@
         </ownedOperations>
       </ownedInterface>
     </ownedServices>
-    <securitySchemes xmi:id="_msJQPmxuEeuYi_YuNNGyqg" technicalid="_msAsYWxuEeuYi_YuNNGyqg" description="JWT token prefixed with &quot;Bearer &quot;" createdOn="2021-07-15T20:08:30.268+0200" modifiedOn="2021-07-15T20:08:30.268+0200" key="jwtToken" name="Authorization" apiKeyLocation="HEADER"/>
+    <securitySchemes xmi:id="_msJQPmxuEeuYi_YuNNGyqg" technicalid="_msAsYWxuEeuYi_YuNNGyqg" description="JWT token prefixed with &quot;Bearer &quot;" createdOn="2021-07-15T20:08:30.268+0200" modifiedOn="2021-08-31T11:56:06.520+0200" key="jwtToken" name="jwtToken" apiKeyLocation="HEADER"/>
     <license xmi:id="_7SVmsNTmEeuCgeVTfXBG7g" technicalid="_gXQ-EOVSEeusCcFJrhHk1g" description="" createdOn="2021-07-15T11:53:44.864+0200" modifiedOn="2021-07-15T20:01:20.627+0200" name="Apache 2.0" URL="http://www.apache.org/licenses/LICENSE-2.0.html">
       <metadatas xmi:id="_qOOEMeWWEeupV6pJeRbWfg" technicalid="_qOOEMOWWEeupV6pJeRbWfg">
         <metadatas xsi:type="soa:PropertiesExtension" xmi:id="_qOOrQeWWEeupV6pJeRbWfg" technicalid="_qOOrQOWWEeupV6pJeRbWfg" title="x-LicenseSurLicense" body="License-License" context="License"/>

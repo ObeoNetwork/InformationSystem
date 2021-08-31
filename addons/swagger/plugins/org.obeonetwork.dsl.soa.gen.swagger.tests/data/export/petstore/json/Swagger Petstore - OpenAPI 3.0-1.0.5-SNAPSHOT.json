@@ -606,7 +606,7 @@
           }
         },
         "security" : [ {
-          "petstore_auth" : [ ]
+          "petstore_auth" : [ "name" ]
         } ]
       },
       "post" : {
@@ -667,7 +667,7 @@
           }
         },
         "security" : [ {
-          "petstore_auth" : [ ]
+          "petstore_auth" : [ "name" ]
         } ]
       }
     },
@@ -733,7 +733,7 @@
           }
         },
         "security" : [ {
-          "petstore_auth" : [ ]
+          "petstore_auth" : [ "name" ]
         } ]
       }
     },
@@ -818,9 +818,9 @@
           }
         },
         "security" : [ {
-          "petstore_auth" : [ ]
+          "petstore_auth" : [ "name" ]
         } ],
-        "x-pagination" : "description"  
+        "x-pagination" : "description"
       }
     },
     "/pet/{petId}" : {
@@ -888,7 +888,7 @@
         "security" : [ {
           "api_key" : [ ]
         }, {
-          "petstore_auth" : [ ]
+          "petstore_auth" : [ "name" ]
         } ]
       },
       "post" : {
@@ -926,7 +926,7 @@
           }
         },
         "security" : [ {
-          "petstore_auth" : [ ]
+          "petstore_auth" : [ "name" ]
         } ]
       },
       "delete" : {
@@ -955,7 +955,7 @@
           }
         },
         "security" : [ {
-          "petstore_auth" : [ ]
+          "petstore_auth" : [ "name" ]
         } ]
       }
     },
@@ -1033,7 +1033,7 @@
           }
         },
         "security" : [ {
-          "petstore_auth" : [ ]
+          "petstore_auth" : [ "name" ]
         } ]
       }
     }
@@ -1182,10 +1182,19 @@
       }
     },
     "securitySchemes" : {
-      "petstore_auth" : {
+      "key" : {
         "type" : "oauth2",
-        "name" : "petstore_auth",
-        "flows" : { }
+        "name" : "key",
+        "flows" : {
+          "implicit" : {
+            "authorizationUrl" : "url",
+            "tokenUrl" : "url",
+            "refreshUrl" : "url",
+            "scopes" : {
+              "name" : "description"
+            }
+          }
+        }
       },
       "api_key" : {
         "type" : "apiKey",
