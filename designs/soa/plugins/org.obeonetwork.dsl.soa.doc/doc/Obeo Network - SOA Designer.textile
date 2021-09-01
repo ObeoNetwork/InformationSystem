@@ -292,6 +292,17 @@ L'URL d'une _Operation_ peut donc être calculée par la concaténation de l'URL
 
 Des serveurs peuvent être définis au niveau du _Component_. Pour chaque serveur, l'URL correspondante doit être indiquée, et une description peut éventuellement être précisée. 
 
+Enfin, des informations générales sur l'API peuvent être définies dans la vue des propriétés:
+
+!pics/exposition/Properties_Component_UserInfo.PNG!
+
+Les champs _Terms of Service_ et _URL_ attendent une entrée au format URL:
+
+Le champs _Email_ requiert une adresse e-mail valide: lettres, chiffres et/ou charactères spéciaux, suivis d'un '@', et terminant par un serveur eventuellement séparé avec des points. 
+E.g., nom.prenom@intradef.gouv.fr ou contact@obeo.fr
+
+Les champs attendant une URL sont eux aussi vérifiés, et attendent une URL valide: commençant par http://, https://, ftp://, ou file://, et suivi de charactères (lettres, chiffres, symboles) terminant par une extension précédée d'un point '.'.
+
 h4. Modélisation d'un Tag OpenAPI
 
 Le concept en correspondance avec le _Tag OpenAPI_ est le concept _Service_.
@@ -311,8 +322,6 @@ Le verbe correspond au verbe HTTP et peut prendre l'une des valeurs : _GET_, _PO
 Comme au niveau _Component_, il est possible de définir l'URI d'une _Operation_ ainsi qu'une liste de serveurs.
 
 Dans le cas où l'opération définit des paramètres d'entrée, ceux-ci sont listés dans la section _Input Parameters_, qui offre la possibilité de définir le mode de passage et les identifiants REST de chacun d'eux. Ceci est expliqué plus en détail ci-dessous dans la section "Modélisation d'un paramètre d'entrée":#input_parameter .
-
-Enfin, dans le cas où l'operation est paginée, une extension de propriété peut-être définie afin d'indiquer lors de l'export OpenAPI si l'opération est paginée.
 
 h4(#parameter). Modélisation d'un paramètre
 
@@ -341,6 +350,20 @@ Lorsque l'un de ces modes de passage est sélectionné dans la liste déroulante
 
 !pics/exposition/Properties_InputParameter_Exposition_Tab_PassingMode_QUERY.png!
 
+h5(#paginated_parameter). Modélisation d'un paramètre de pagination
+
+Lorsqu'une opération est définie comme étant paginée, des listes déroulantes apparaissent dans la vue des propriété de l'opération afin de spécifier les paramètres entrant pouvant être utilisés pour définir l'index de la page, ainsi que le nombre d'éléments par page.
+  
+!pics/exposition/Properties_Operation_Pagination.PNG!
+
+Dès lors qu'une opération est paginée, sa représentation dans le diagramme est décorée d'une icone supplémentaire:
+
+!pics/exposition/Diagram_Operation_Decorated_Pagination.PNG!
+
+Enfin, dans le cas où l'operation est paginée, une extension de propriété peut-être définie afin d'indiquer lors de l'export OpenAPI si l'opération est paginée.
+
+!pics/exposition/Properties_Operation_Pagination_Extension.PNG!
+
 h5(#output_fault_parameter). Modélisation d'un paramètre de retour ou d'erreur
 
 L'onglet _Exposition_ des vues de propriétés pour un paramètre de retour ou d'erreur présente la même IHM permettant de saisir un code de status et une description :
@@ -363,9 +386,31 @@ Les schemas de sécurité sont définis sur l'onglet _Security Schemes_ de la vu
 
 Cette vue permet de créer (!pics/etool16/add.gif!), supprimer (!pics/etool16/delete.gif!) et réordonner (!pics/etool16/up.gif!, !pics/etool16/down.gif!) les _Security Schemes_ du _Component_.
 
-La création d'un _Security Scheme_ déclenche l'affichage d'une boîte de dialogue permettant de le spécifier :
+La création d'un _Security Scheme_ déclenche l'affichage d'une boîte de dialogue permettant de le spécifier.
+Les données disponibles dans la boite du dialogue sont adaptées au type de  _Security Scheme_:
 
-!pics/exposition/Dialog_SecurityScheme_Creation.png!
+- *Api Key:*
+!pics/securityschemes/Dialog_SecurityScheme_ApiKey.PNG!
+Un _Security Scheme_ de type Api key permet la définition d'une clé, ainsi que la spécification de sa localisation: dans le header, la requête, ou le cookie.
+
+- *HTTP:*
+!pics/securityschemes/Dialog_SecurityScheme_HTTP.PNG!
+Un _Security Scheme_ de type HTTP défini un schéma d'authentification de type Basic, ou Bearer. 
+Dans le cas d'un schéma d'authentification de type Basic, le server attendra un mot de passe de type username:password, encodé en base-64.
+Dans le cas d'un schéma d'authentification de type Bearer, le bearer-format définit la manière dont le token est stocké.
+
+- *OAuth2:*
+!pics/securityschemes/Dialog_SecurityScheme_OAuth2.PNG!
+
+- *Open ID:*
+!pics/securityschemes/Dialog_SecurityScheme_OpenID.PNG!
+
+Les _Security Scheme_ de type OAuth2 et Open ID requièrent la spécification de _Flows_, ainsi que leurs _Scopes_ respectifs:
+!pics/securityschemes/Dialog_Flow.PNG!
+
+Les _Flows_ représentent des scénarios que le client effectue afin d'obtenir l'accès à un token d'authentification. 
+Chaque flow propose des _Scopes_. Ces scopes définissent un droit d'accès (restreint) a une fonctionnalité prodiguée par le serveur. 
+ 
 
 L'édition des valeurs saisies est modifiable par la suite en double-cliquant sur un _SecurityScheme_ dans cette même vue de propriétés, ou bien dans la vue de propriétés d'un _SecurityScheme_ lorsque celui-ci est séléctionné dans la vue _Model Explorer_ :
 

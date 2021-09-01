@@ -706,6 +706,19 @@
 		<p>Des serveurs peuvent être définis au niveau du 
 			<em>Component</em>. Pour chaque serveur, l&#8217;URL correspondante doit être indiquée, et une description peut éventuellement être précisée. 
 		</p>
+		<p>Enfin, des informations générales sur l&#8217;API peuvent être définies dans la vue des propriétés:</p>
+		<p>
+			<img border="0" src="pics/exposition/Properties_Component_UserInfo.PNG"/>
+		</p>
+		<p>Les champs 
+			<em>Terms of Service</em> et 
+			<em>URL</em> attendent une entrée au format URL:
+		</p>
+		<p>Le champs 
+			<em>Email</em> requiert une adresse e-mail valide: lettres, chiffres et/ou charactères spéciaux, suivis d&#8217;un &#8249;@&#8250;, et terminant par un serveur eventuellement séparé avec des points. 
+			<br/>E.g., nom.prenom@intradef.gouv.fr ou contact@obeo.fr
+		</p>
+		<p>Les champs attendant une URL sont eux aussi vérifiés, et attendent une URL valide: commençant par http://, https://, ftp://, ou file://, et suivi de charactères (lettres, chiffres, symboles) terminant par une extension précédée d&#8217;un point &#8249;.&#8250;.</p>
 		<h4 id="ModlisationdunTagOpenAPI">Modélisation d&#8217;un Tag OpenAPI</h4>
 		<p>Le concept en correspondance avec le 
 			<em>Tag OpenAPI</em> est le concept 
@@ -746,7 +759,6 @@
 			<em>Input Parameters</em>, qui offre la possibilité de définir le mode de passage et les identifiants REST de chacun d&#8217;eux. Ceci est expliqué plus en détail ci-dessous dans la section 
 			<a href="#input_parameter">Modélisation d&#8217;un paramètre d&#8217;entrée</a> .
 		</p>
-		<p>Enfin, dans le cas où l&#8217;operation est paginée, une extension de propriété peut-être définie afin d&#8217;indiquer lors de l&#8217;export OpenAPI si l&#8217;opération est paginée.</p>
 		<h4 id="parameter">Modélisation d&#8217;un paramètre</h4>
 		<p>Le contenu de l&#8217;onglet 
 			<em>Exposition</em> d&#8217;un paramètre n&#8217;est pas le même pour un paramètre d&#8217;entrée, de retour ou d&#8217;erreur.
@@ -787,6 +799,19 @@
 		<p>
 			<img border="0" src="pics/exposition/Properties_InputParameter_Exposition_Tab_PassingMode_QUERY.png"/>
 		</p>
+		<h5 id="paginated_parameter">Modélisation d&#8217;un paramètre de pagination</h5>
+		<p>Lorsqu&#8217;une opération est définie comme étant paginée, des listes déroulantes apparaissent dans la vue des propriété de l&#8217;opération afin de spécifier les paramètres entrant pouvant être utilisés pour définir l&#8217;index de la page, ainsi que le nombre d'éléments par page.</p>
+		<p>
+			<img border="0" src="pics/exposition/Properties_Operation_Pagination.PNG"/>
+		</p>
+		<p>Dès lors qu&#8217;une opération est paginée, sa représentation dans le diagramme est décorée d&#8217;une icone supplémentaire:</p>
+		<p>
+			<img border="0" src="pics/exposition/Diagram_Operation_Decorated_Pagination.PNG"/>
+		</p>
+		<p>Enfin, dans le cas où l&#8217;operation est paginée, une extension de propriété peut-être définie afin d&#8217;indiquer lors de l&#8217;export OpenAPI si l&#8217;opération est paginée.</p>
+		<p>
+			<img border="0" src="pics/exposition/Properties_Operation_Pagination_Extension.PNG"/>
+		</p>
 		<h5 id="output_fault_parameter">Modélisation d&#8217;un paramètre de retour ou d&#8217;erreur</h5>
 		<p>L&#8217;onglet 
 			<em>Exposition</em> des vues de propriétés pour un paramètre de retour ou d&#8217;erreur présente la même IHM permettant de saisir un code de status et une description :
@@ -820,10 +845,47 @@
 			<em>Component</em>.
 		</p>
 		<p>La création d&#8217;un 
-			<em>Security Scheme</em> déclenche l&#8217;affichage d&#8217;une boîte de dialogue permettant de le spécifier :
+			<em>Security Scheme</em> déclenche l&#8217;affichage d&#8217;une boîte de dialogue permettant de le spécifier.
+			<br/>Les données disponibles dans la boite du dialogue sont adaptées au type de  
+			<em>Security Scheme</em>:
 		</p>
-		<p>
-			<img border="0" src="pics/exposition/Dialog_SecurityScheme_Creation.png"/>
+		<p>- 
+			<strong>Api Key:</strong>
+			<br/>
+			<img border="0" src="pics/securityschemes/Dialog_SecurityScheme_ApiKey.PNG"/>
+			<br/>Un 
+			<em>Security Scheme</em> de type Api key permet la définition d&#8217;une clé, ainsi que la spécification de sa localisation: dans le header, la requête, ou le cookie.
+		</p>
+		<p>- 
+			<strong>HTTP:</strong>
+			<br/>
+			<img border="0" src="pics/securityschemes/Dialog_SecurityScheme_HTTP.PNG"/>
+			<br/>Un 
+			<em>Security Scheme</em> de type HTTP défini un schéma d&#8217;authentification de type Basic, ou Bearer. 
+			<br/>Dans le cas d&#8217;un schéma d&#8217;authentification de type Basic, le server attendra un mot de passe de type username:password, encodé en base-64.
+			<br/>Dans le cas d&#8217;un schéma d&#8217;authentification de type Bearer, le bearer-format définit la manière dont le token est stocké.
+		</p>
+		<p>- 
+			<strong>OAuth2:</strong>
+			<br/>
+			<img border="0" src="pics/securityschemes/Dialog_SecurityScheme_OAuth2.PNG"/>
+		</p>
+		<p>- 
+			<strong>Open ID:</strong>
+			<br/>
+			<img border="0" src="pics/securityschemes/Dialog_SecurityScheme_OpenID.PNG"/>
+		</p>
+		<p>Les 
+			<em>Security Scheme</em> de type OAuth2 et Open ID requièrent la spécification de 
+			<em>Flows</em>, ainsi que leurs 
+			<em>Scopes</em> respectifs:
+			<br/>
+			<img border="0" src="pics/securityschemes/Dialog_Flow.PNG"/>
+		</p>
+		<p>Les 
+			<em>Flows</em> représentent des scénarios que le client effectue afin d&#8217;obtenir l&#8217;accès à un token d&#8217;authentification. 
+			<br/>Chaque flow propose des 
+			<em>Scopes</em>. Ces scopes définissent un droit d&#8217;accès (restreint) a une fonctionnalité prodiguée par le serveur. 
 		</p>
 		<p>L'édition des valeurs saisies est modifiable par la suite en double-cliquant sur un 
 			<em>SecurityScheme</em> dans cette même vue de propriétés, ou bien dans la vue de propriétés d&#8217;un 
