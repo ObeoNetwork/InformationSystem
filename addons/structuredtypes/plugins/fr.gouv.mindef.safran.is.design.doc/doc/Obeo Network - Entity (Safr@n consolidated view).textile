@@ -24,7 +24,7 @@ h2. Eléments affichés et outils
 
 Chaque package, entité, attribut et référence est affiché dans la colonne de gauche sous une forme arborescente.
 
-Cinq colonnes _Name_, _Size_, _Check_, _Unique_ et _Default_ :
+Cinq colonnes _Name_, _Size_, _Check_, _Unique_, _Default_ et _Target Schema_:
 
 * _Name_ : spécifie le nom physique du package, de l'entité, de l'attribut ou de la référence
 * _Size_ : spécifie une contrainte de taille. Utilisée pour un attribut généralement en donnant une valeur numérique.
@@ -33,5 +33,6 @@ Cinq colonnes _Name_, _Size_, _Check_, _Unique_ et _Default_ :
 <pre><code><nom de colonne1>:<asc ou desc>, <nom de colonne2>:<asc ou desc>, ... | ...</code></pre>
 où le nom d'une colonne est son nom _physique_ (dans la base de données) ; _asc_ indique que l'index a un ordre ascendant ; _desc_ que l'index a un ordre descendant ; une virgule (',') sépare les colonnes utilisées pour un même index ; et un pipe ('|') est utilisé pour séparer les différents index à générer.
 * _Default_ : spécifie une valeur par défaut. Texte libre.
+* _Target Schema_: permet de définir le schéma de destination dans le cadre d'une relation NN. Un "x" dans la ligne d'une référence (issue de relation NN) indique que la table de jointure sera créée dans le même schéma que la référence.
 
 La modification des valeur se fait par édition directe des cellules du tableau.
