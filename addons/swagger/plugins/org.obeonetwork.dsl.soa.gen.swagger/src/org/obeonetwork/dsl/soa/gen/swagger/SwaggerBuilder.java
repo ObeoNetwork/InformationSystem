@@ -217,7 +217,7 @@ public class SwaggerBuilder {
 		if (!StringUtils.isNullOrWhite(soaSecurityScheme.getName()))
 			securityScheme.setName(soaSecurityScheme.getName());
 		else
-			securityScheme.setName(soaSecurityScheme.getKey());
+			securityScheme.setName("null");
 		
 		if (soaSecurityScheme.getDescription() != null) {
 			securityScheme.setDescription(soaSecurityScheme.getDescription());
@@ -229,7 +229,7 @@ public class SwaggerBuilder {
 		switch (type) {
 		case APIKEY:
 			SecurityScheme.In in = toSwg(soaSecurityScheme.getApiKeyLocation());
-			securityScheme.setIn(in);		
+			securityScheme.setIn(in);					
 			//securityScheme.setName(soaSecurityScheme.getKey());
 			break;
 		case HTTP:
@@ -242,6 +242,7 @@ public class SwaggerBuilder {
 			break;
 		case OPENIDCONNECT:
 			securityScheme.setOpenIdConnectUrl(soaSecurityScheme.getConnectURL());
+			securityScheme.setFlows(toSwg(soaSecurityScheme.getFlows()));
 			break;
 		}
 

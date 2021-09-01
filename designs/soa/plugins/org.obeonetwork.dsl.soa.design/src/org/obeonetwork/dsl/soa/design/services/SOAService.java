@@ -363,8 +363,8 @@ public class SOAService {
 			operation.setPaginationExtension(extension);
 		}
 
-		if (!name.startsWith("x-"))
-			name = "x-".concat(name);
+		if (name.startsWith("x-"))
+			name = name.replaceFirst("x-", "");
 		
 		operation.getPaginationExtension().setTitle(name);
 	}
