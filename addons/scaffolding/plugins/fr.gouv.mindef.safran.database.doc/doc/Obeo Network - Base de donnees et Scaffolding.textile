@@ -132,6 +132,15 @@ Un _ChangeLog_ de création permet de générer la structure complète d’une b
 
 !{width:480px}pics/BDD_Liquibase_Gen_02.png!
 
+Il est possible de déployer un changelog liquibase sur une base de données directement à partir du changelog.
+
+!{width:480px}pics/BDD_ApplyChangelog.png!
+
+Les données de connection sont définies par défaut avec le fichier _changelog.properties_, normalement créé par liquibase. 
+Modifier ce fichier permet de remplir définir les url et identifiants de connection, afin de déployer les changements sur une base distante.
+
+!{width:480px}pics/BDD_ApplyChangelog_Connection.png!
+
 h2. Transformations
 
 Les transformations suivantes sont proposées afin d'initialiser un modèle à partir d'un autre :
