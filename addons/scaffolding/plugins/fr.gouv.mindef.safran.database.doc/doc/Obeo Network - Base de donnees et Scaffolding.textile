@@ -57,6 +57,14 @@ L'édition de Modèle Physique de Données se fait à l'aide du modeleur présen
 
 !pics/BDD_ModelePhysique_01.png!
 
+Les types de données proposées pour les colonnes des modèles physiques de données dépendent de la librairie utilisées.
+Un type "ENUM" de MariaDB permet donc la définition de littéraux, et un type "VARCHAR" de PostgreSQL propose la définition de la longueur de la variable.
+
+!pics/BDD_Column_Enum.PNG!
+!pics/BDD_Column_Varchar.PNG!
+ 
+
+ 
 h4. Modèle Logique de Données
 
 L'édition de Modèle Logique de Données se fait à l'aide du modeleur présenté ci-dessus. Un MLD est caractérisé par l'utilisation d'une librairie de types logiques indépendante de tout moteur de base de données. Les librairies utilisées sont consultables par la propriété _Used Libraries_ disponible sur l'élément _Database_  :
