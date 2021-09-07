@@ -81,35 +81,6 @@
         "responses" : {
           "200" : {
             "description" : "OK\n\nA series record.",
-            "headers" : {
-              "X-Total-Element" : {
-                "schema" : {
-                  "type" : "integer",
-                  "format" : "int64"
-                }
-              },
-              "X-Page-Element-Count" : {
-                "schema" : {
-                  "type" : "integer",
-                  "format" : "int64"
-                }
-              },
-              "Accept-Range" : {
-                "schema" : {
-                  "type" : "string"
-                }
-              },
-              "Content-Range" : {
-                "schema" : {
-                  "type" : "string"
-                }
-              },
-              "Link" : {
-                "schema" : {
-                  "type" : "string"
-                }
-              }
-            },
             "content" : {
               "application/pdf" : {
                 "schema" : {
@@ -184,35 +155,6 @@
         "responses" : {
           "200" : {
             "description" : "OK\n\nAn array of actor objects for the given series id.",
-            "headers" : {
-              "X-Total-Element" : {
-                "schema" : {
-                  "type" : "integer",
-                  "format" : "int64"
-                }
-              },
-              "X-Page-Element-Count" : {
-                "schema" : {
-                  "type" : "integer",
-                  "format" : "int64"
-                }
-              },
-              "Accept-Range" : {
-                "schema" : {
-                  "type" : "string"
-                }
-              },
-              "Content-Range" : {
-                "schema" : {
-                  "type" : "string"
-                }
-              },
-              "Link" : {
-                "schema" : {
-                  "type" : "string"
-                }
-              }
-            },
             "content" : {
               "application/json" : {
                 "schema" : {
@@ -273,35 +215,6 @@
         "responses" : {
           "200" : {
             "description" : "OK\n\nAn array of episode objects for the given series id.",
-            "headers" : {
-              "X-Total-Element" : {
-                "schema" : {
-                  "type" : "integer",
-                  "format" : "int64"
-                }
-              },
-              "X-Page-Element-Count" : {
-                "schema" : {
-                  "type" : "integer",
-                  "format" : "int64"
-                }
-              },
-              "Accept-Range" : {
-                "schema" : {
-                  "type" : "string"
-                }
-              },
-              "Content-Range" : {
-                "schema" : {
-                  "type" : "string"
-                }
-              },
-              "Link" : {
-                "schema" : {
-                  "type" : "string"
-                }
-              }
-            },
             "content" : {
               "application/json" : {
                 "schema" : {
@@ -418,35 +331,6 @@
         "responses" : {
           "200" : {
             "description" : "OK\n\nAn array of basic Episode results that matched the query",
-            "headers" : {
-              "X-Total-Element" : {
-                "schema" : {
-                  "type" : "integer",
-                  "format" : "int64"
-                }
-              },
-              "X-Page-Element-Count" : {
-                "schema" : {
-                  "type" : "integer",
-                  "format" : "int64"
-                }
-              },
-              "Accept-Range" : {
-                "schema" : {
-                  "type" : "string"
-                }
-              },
-              "Content-Range" : {
-                "schema" : {
-                  "type" : "string"
-                }
-              },
-              "Link" : {
-                "schema" : {
-                  "type" : "string"
-                }
-              }
-            },
             "content" : {
               "application/json" : {
                 "schema" : {
@@ -499,35 +383,6 @@
         "responses" : {
           "200" : {
             "description" : "OK\n\nAn array of query keys as strings",
-            "headers" : {
-              "X-Total-Element" : {
-                "schema" : {
-                  "type" : "integer",
-                  "format" : "int64"
-                }
-              },
-              "X-Page-Element-Count" : {
-                "schema" : {
-                  "type" : "integer",
-                  "format" : "int64"
-                }
-              },
-              "Accept-Range" : {
-                "schema" : {
-                  "type" : "string"
-                }
-              },
-              "Content-Range" : {
-                "schema" : {
-                  "type" : "string"
-                }
-              },
-              "Link" : {
-                "schema" : {
-                  "type" : "string"
-                }
-              }
-            },
             "content" : {
               "application/json" : {
                 "schema" : {
@@ -580,35 +435,6 @@
         "responses" : {
           "200" : {
             "description" : "OK\n\nA summary of the episodes and seasons avaialable for the given series.",
-            "headers" : {
-              "X-Total-Element" : {
-                "schema" : {
-                  "type" : "integer",
-                  "format" : "int64"
-                }
-              },
-              "X-Page-Element-Count" : {
-                "schema" : {
-                  "type" : "integer",
-                  "format" : "int64"
-                }
-              },
-              "Accept-Range" : {
-                "schema" : {
-                  "type" : "string"
-                }
-              },
-              "Content-Range" : {
-                "schema" : {
-                  "type" : "string"
-                }
-              },
-              "Link" : {
-                "schema" : {
-                  "type" : "string"
-                }
-              }
-            },
             "content" : {
               "application/json" : {
                 "schema" : {
@@ -677,35 +503,6 @@
         "responses" : {
           "200" : {
             "description" : "OK\n\nA filtered series record",
-            "headers" : {
-              "X-Total-Element" : {
-                "schema" : {
-                  "type" : "integer",
-                  "format" : "int64"
-                }
-              },
-              "X-Page-Element-Count" : {
-                "schema" : {
-                  "type" : "integer",
-                  "format" : "int64"
-                }
-              },
-              "Accept-Range" : {
-                "schema" : {
-                  "type" : "string"
-                }
-              },
-              "Content-Range" : {
-                "schema" : {
-                  "type" : "string"
-                }
-              },
-              "Link" : {
-                "schema" : {
-                  "type" : "string"
-                }
-              }
-            },
             "content" : {
               "application/json" : {
                 "schema" : {
@@ -766,35 +563,6 @@
         "responses" : {
           "200" : {
             "description" : "OK\n\nA list of keys to filter by",
-            "headers" : {
-              "X-Total-Element" : {
-                "schema" : {
-                  "type" : "integer",
-                  "format" : "int64"
-                }
-              },
-              "X-Page-Element-Count" : {
-                "schema" : {
-                  "type" : "integer",
-                  "format" : "int64"
-                }
-              },
-              "Accept-Range" : {
-                "schema" : {
-                  "type" : "string"
-                }
-              },
-              "Content-Range" : {
-                "schema" : {
-                  "type" : "string"
-                }
-              },
-              "Link" : {
-                "schema" : {
-                  "type" : "string"
-                }
-              }
-            },
             "content" : {
               "application/json" : {
                 "schema" : {
@@ -855,35 +623,6 @@
         "responses" : {
           "200" : {
             "description" : "OK\n\nA summary of the image types and counts available for the given series.",
-            "headers" : {
-              "X-Total-Element" : {
-                "schema" : {
-                  "type" : "integer",
-                  "format" : "int64"
-                }
-              },
-              "X-Page-Element-Count" : {
-                "schema" : {
-                  "type" : "integer",
-                  "format" : "int64"
-                }
-              },
-              "Accept-Range" : {
-                "schema" : {
-                  "type" : "string"
-                }
-              },
-              "Content-Range" : {
-                "schema" : {
-                  "type" : "string"
-                }
-              },
-              "Link" : {
-                "schema" : {
-                  "type" : "string"
-                }
-              }
-            },
             "content" : {
               "application/json" : {
                 "schema" : {
@@ -968,35 +707,6 @@
         "responses" : {
           "200" : {
             "description" : "OK\n\nAn array of basic Episode results that matched the query",
-            "headers" : {
-              "X-Total-Element" : {
-                "schema" : {
-                  "type" : "integer",
-                  "format" : "int64"
-                }
-              },
-              "X-Page-Element-Count" : {
-                "schema" : {
-                  "type" : "integer",
-                  "format" : "int64"
-                }
-              },
-              "Accept-Range" : {
-                "schema" : {
-                  "type" : "string"
-                }
-              },
-              "Content-Range" : {
-                "schema" : {
-                  "type" : "string"
-                }
-              },
-              "Link" : {
-                "schema" : {
-                  "type" : "string"
-                }
-              }
-            },
             "content" : {
               "application/json" : {
                 "schema" : {
@@ -1057,35 +767,6 @@
         "responses" : {
           "200" : {
             "description" : "OK\n\nAn array of query keys as strings",
-            "headers" : {
-              "X-Total-Element" : {
-                "schema" : {
-                  "type" : "integer",
-                  "format" : "int64"
-                }
-              },
-              "X-Page-Element-Count" : {
-                "schema" : {
-                  "type" : "integer",
-                  "format" : "int64"
-                }
-              },
-              "Accept-Range" : {
-                "schema" : {
-                  "type" : "string"
-                }
-              },
-              "Content-Range" : {
-                "schema" : {
-                  "type" : "string"
-                }
-              },
-              "Link" : {
-                "schema" : {
-                  "type" : "string"
-                }
-              }
-            },
             "content" : {
               "application/json" : {
                 "schema" : {
@@ -1153,35 +834,6 @@
         "responses" : {
           "200" : {
             "description" : "OK\n\nAn array of Update objects that match the given timeframe.",
-            "headers" : {
-              "X-Total-Element" : {
-                "schema" : {
-                  "type" : "integer",
-                  "format" : "int64"
-                }
-              },
-              "X-Page-Element-Count" : {
-                "schema" : {
-                  "type" : "integer",
-                  "format" : "int64"
-                }
-              },
-              "Accept-Range" : {
-                "schema" : {
-                  "type" : "string"
-                }
-              },
-              "Content-Range" : {
-                "schema" : {
-                  "type" : "string"
-                }
-              },
-              "Link" : {
-                "schema" : {
-                  "type" : "string"
-                }
-              }
-            },
             "content" : {
               "application/json" : {
                 "schema" : {
@@ -1224,35 +876,6 @@
         "responses" : {
           "200" : {
             "description" : "OK\n\nAn array of Update objects that match the given timeframe.",
-            "headers" : {
-              "X-Total-Element" : {
-                "schema" : {
-                  "type" : "integer",
-                  "format" : "int64"
-                }
-              },
-              "X-Page-Element-Count" : {
-                "schema" : {
-                  "type" : "integer",
-                  "format" : "int64"
-                }
-              },
-              "Accept-Range" : {
-                "schema" : {
-                  "type" : "string"
-                }
-              },
-              "Content-Range" : {
-                "schema" : {
-                  "type" : "string"
-                }
-              },
-              "Link" : {
-                "schema" : {
-                  "type" : "string"
-                }
-              }
-            },
             "content" : {
               "application/json" : {
                 "schema" : {
@@ -1305,35 +928,6 @@
         "responses" : {
           "200" : {
             "description" : "OK\n\nReturns a JWT token for use with the rest of the API routes",
-            "headers" : {
-              "X-Total-Element" : {
-                "schema" : {
-                  "type" : "integer",
-                  "format" : "int64"
-                }
-              },
-              "X-Page-Element-Count" : {
-                "schema" : {
-                  "type" : "integer",
-                  "format" : "int64"
-                }
-              },
-              "Accept-Range" : {
-                "schema" : {
-                  "type" : "string"
-                }
-              },
-              "Content-Range" : {
-                "schema" : {
-                  "type" : "string"
-                }
-              },
-              "Link" : {
-                "schema" : {
-                  "type" : "string"
-                }
-              }
-            },
             "content" : {
               "application/json" : {
                 "schema" : {
@@ -1363,35 +957,6 @@
         "responses" : {
           "200" : {
             "description" : "OK\n\nReturns a new token to use in your subsequent requests",
-            "headers" : {
-              "X-Total-Element" : {
-                "schema" : {
-                  "type" : "integer",
-                  "format" : "int64"
-                }
-              },
-              "X-Page-Element-Count" : {
-                "schema" : {
-                  "type" : "integer",
-                  "format" : "int64"
-                }
-              },
-              "Accept-Range" : {
-                "schema" : {
-                  "type" : "string"
-                }
-              },
-              "Content-Range" : {
-                "schema" : {
-                  "type" : "string"
-                }
-              },
-              "Link" : {
-                "schema" : {
-                  "type" : "string"
-                }
-              }
-            },
             "content" : {
               "application/json" : {
                 "schema" : {
@@ -1465,35 +1030,6 @@
         "responses" : {
           "200" : {
             "description" : "OK\n\nAn array of results that match the provided query.",
-            "headers" : {
-              "X-Total-Element" : {
-                "schema" : {
-                  "type" : "integer",
-                  "format" : "int64"
-                }
-              },
-              "X-Page-Element-Count" : {
-                "schema" : {
-                  "type" : "integer",
-                  "format" : "int64"
-                }
-              },
-              "Accept-Range" : {
-                "schema" : {
-                  "type" : "string"
-                }
-              },
-              "Content-Range" : {
-                "schema" : {
-                  "type" : "string"
-                }
-              },
-              "Link" : {
-                "schema" : {
-                  "type" : "string"
-                }
-              }
-            },
             "content" : {
               "application/json" : {
                 "schema" : {
@@ -1536,35 +1072,6 @@
         "responses" : {
           "200" : {
             "description" : "OK\n\nAn array of query keys as strings",
-            "headers" : {
-              "X-Total-Element" : {
-                "schema" : {
-                  "type" : "integer",
-                  "format" : "int64"
-                }
-              },
-              "X-Page-Element-Count" : {
-                "schema" : {
-                  "type" : "integer",
-                  "format" : "int64"
-                }
-              },
-              "Accept-Range" : {
-                "schema" : {
-                  "type" : "string"
-                }
-              },
-              "Content-Range" : {
-                "schema" : {
-                  "type" : "string"
-                }
-              },
-              "Link" : {
-                "schema" : {
-                  "type" : "string"
-                }
-              }
-            },
             "content" : {
               "application/json" : {
                 "schema" : {
@@ -1615,35 +1122,6 @@
         "responses" : {
           "200" : {
             "description" : "OK\n\nAn array of query keys as strings",
-            "headers" : {
-              "X-Total-Element" : {
-                "schema" : {
-                  "type" : "integer",
-                  "format" : "int64"
-                }
-              },
-              "X-Page-Element-Count" : {
-                "schema" : {
-                  "type" : "integer",
-                  "format" : "int64"
-                }
-              },
-              "Accept-Range" : {
-                "schema" : {
-                  "type" : "string"
-                }
-              },
-              "Content-Range" : {
-                "schema" : {
-                  "type" : "string"
-                }
-              },
-              "Link" : {
-                "schema" : {
-                  "type" : "string"
-                }
-              }
-            },
             "content" : {
               "application/json" : {
                 "schema" : {
@@ -1686,35 +1164,6 @@
         "responses" : {
           "200" : {
             "description" : "OK\n\nAn array of language objects.",
-            "headers" : {
-              "X-Total-Element" : {
-                "schema" : {
-                  "type" : "integer",
-                  "format" : "int64"
-                }
-              },
-              "X-Page-Element-Count" : {
-                "schema" : {
-                  "type" : "integer",
-                  "format" : "int64"
-                }
-              },
-              "Accept-Range" : {
-                "schema" : {
-                  "type" : "string"
-                }
-              },
-              "Content-Range" : {
-                "schema" : {
-                  "type" : "string"
-                }
-              },
-              "Link" : {
-                "schema" : {
-                  "type" : "string"
-                }
-              }
-            },
             "content" : {
               "application/json" : {
                 "schema" : {
@@ -1756,35 +1205,6 @@
         "responses" : {
           "200" : {
             "description" : "OK\n\nAn array of language objects.",
-            "headers" : {
-              "X-Total-Element" : {
-                "schema" : {
-                  "type" : "integer",
-                  "format" : "int64"
-                }
-              },
-              "X-Page-Element-Count" : {
-                "schema" : {
-                  "type" : "integer",
-                  "format" : "int64"
-                }
-              },
-              "Accept-Range" : {
-                "schema" : {
-                  "type" : "string"
-                }
-              },
-              "Content-Range" : {
-                "schema" : {
-                  "type" : "string"
-                }
-              },
-              "Link" : {
-                "schema" : {
-                  "type" : "string"
-                }
-              }
-            },
             "content" : {
               "application/json" : {
                 "schema" : {
@@ -1845,35 +1265,6 @@
         "responses" : {
           "200" : {
             "description" : "OK\n\nA movie record.",
-            "headers" : {
-              "X-Total-Element" : {
-                "schema" : {
-                  "type" : "integer",
-                  "format" : "int64"
-                }
-              },
-              "X-Page-Element-Count" : {
-                "schema" : {
-                  "type" : "integer",
-                  "format" : "int64"
-                }
-              },
-              "Accept-Range" : {
-                "schema" : {
-                  "type" : "string"
-                }
-              },
-              "Content-Range" : {
-                "schema" : {
-                  "type" : "string"
-                }
-              },
-              "Link" : {
-                "schema" : {
-                  "type" : "string"
-                }
-              }
-            },
             "content" : {
               "application/json" : {
                 "schema" : {
@@ -1925,35 +1316,6 @@
         "responses" : {
           "200" : {
             "description" : "OK\n\nAll movies ids updated since a given date",
-            "headers" : {
-              "X-Total-Element" : {
-                "schema" : {
-                  "type" : "integer",
-                  "format" : "int64"
-                }
-              },
-              "X-Page-Element-Count" : {
-                "schema" : {
-                  "type" : "integer",
-                  "format" : "int64"
-                }
-              },
-              "Accept-Range" : {
-                "schema" : {
-                  "type" : "string"
-                }
-              },
-              "Content-Range" : {
-                "schema" : {
-                  "type" : "string"
-                }
-              },
-              "Link" : {
-                "schema" : {
-                  "type" : "string"
-                }
-              }
-            },
             "content" : {
               "application/json" : {
                 "schema" : {
@@ -2006,35 +1368,6 @@
         "responses" : {
           "200" : {
             "description" : "OK\n\nUser information.",
-            "headers" : {
-              "X-Total-Element" : {
-                "schema" : {
-                  "type" : "integer",
-                  "format" : "int64"
-                }
-              },
-              "X-Page-Element-Count" : {
-                "schema" : {
-                  "type" : "integer",
-                  "format" : "int64"
-                }
-              },
-              "Accept-Range" : {
-                "schema" : {
-                  "type" : "string"
-                }
-              },
-              "Content-Range" : {
-                "schema" : {
-                  "type" : "string"
-                }
-              },
-              "Link" : {
-                "schema" : {
-                  "type" : "string"
-                }
-              }
-            },
             "content" : {
               "application/json" : {
                 "schema" : {
@@ -2077,35 +1410,6 @@
         "responses" : {
           "200" : {
             "description" : "OK\n\nUser favorites.",
-            "headers" : {
-              "X-Total-Element" : {
-                "schema" : {
-                  "type" : "integer",
-                  "format" : "int64"
-                }
-              },
-              "X-Page-Element-Count" : {
-                "schema" : {
-                  "type" : "integer",
-                  "format" : "int64"
-                }
-              },
-              "Accept-Range" : {
-                "schema" : {
-                  "type" : "string"
-                }
-              },
-              "Content-Range" : {
-                "schema" : {
-                  "type" : "string"
-                }
-              },
-              "Link" : {
-                "schema" : {
-                  "type" : "string"
-                }
-              }
-            },
             "content" : {
               "application/json" : {
                 "schema" : {
@@ -2158,35 +1462,6 @@
         "responses" : {
           "200" : {
             "description" : "OK\n\nList of user favorites.",
-            "headers" : {
-              "X-Total-Element" : {
-                "schema" : {
-                  "type" : "integer",
-                  "format" : "int64"
-                }
-              },
-              "X-Page-Element-Count" : {
-                "schema" : {
-                  "type" : "integer",
-                  "format" : "int64"
-                }
-              },
-              "Accept-Range" : {
-                "schema" : {
-                  "type" : "string"
-                }
-              },
-              "Content-Range" : {
-                "schema" : {
-                  "type" : "string"
-                }
-              },
-              "Link" : {
-                "schema" : {
-                  "type" : "string"
-                }
-              }
-            },
             "content" : {
               "application/json" : {
                 "schema" : {
@@ -2247,35 +1522,6 @@
         "responses" : {
           "200" : {
             "description" : "OK\n\nList of user favorites.",
-            "headers" : {
-              "X-Total-Element" : {
-                "schema" : {
-                  "type" : "integer",
-                  "format" : "int64"
-                }
-              },
-              "X-Page-Element-Count" : {
-                "schema" : {
-                  "type" : "integer",
-                  "format" : "int64"
-                }
-              },
-              "Accept-Range" : {
-                "schema" : {
-                  "type" : "string"
-                }
-              },
-              "Content-Range" : {
-                "schema" : {
-                  "type" : "string"
-                }
-              },
-              "Link" : {
-                "schema" : {
-                  "type" : "string"
-                }
-              }
-            },
             "content" : {
               "application/json" : {
                 "schema" : {
@@ -2328,35 +1574,6 @@
         "responses" : {
           "200" : {
             "description" : "OK\n\nArray of user ratings.",
-            "headers" : {
-              "X-Total-Element" : {
-                "schema" : {
-                  "type" : "integer",
-                  "format" : "int64"
-                }
-              },
-              "X-Page-Element-Count" : {
-                "schema" : {
-                  "type" : "integer",
-                  "format" : "int64"
-                }
-              },
-              "Accept-Range" : {
-                "schema" : {
-                  "type" : "string"
-                }
-              },
-              "Content-Range" : {
-                "schema" : {
-                  "type" : "string"
-                }
-              },
-              "Link" : {
-                "schema" : {
-                  "type" : "string"
-                }
-              }
-            },
             "content" : {
               "application/json" : {
                 "schema" : {
@@ -2408,35 +1625,6 @@
         "responses" : {
           "200" : {
             "description" : "OK\n\nList of user ratings that match the given query.",
-            "headers" : {
-              "X-Total-Element" : {
-                "schema" : {
-                  "type" : "integer",
-                  "format" : "int64"
-                }
-              },
-              "X-Page-Element-Count" : {
-                "schema" : {
-                  "type" : "integer",
-                  "format" : "int64"
-                }
-              },
-              "Accept-Range" : {
-                "schema" : {
-                  "type" : "string"
-                }
-              },
-              "Content-Range" : {
-                "schema" : {
-                  "type" : "string"
-                }
-              },
-              "Link" : {
-                "schema" : {
-                  "type" : "string"
-                }
-              }
-            },
             "content" : {
               "application/json" : {
                 "schema" : {
@@ -2479,35 +1667,6 @@
         "responses" : {
           "200" : {
             "description" : "OK\n\nParameters to use for querying.",
-            "headers" : {
-              "X-Total-Element" : {
-                "schema" : {
-                  "type" : "integer",
-                  "format" : "int64"
-                }
-              },
-              "X-Page-Element-Count" : {
-                "schema" : {
-                  "type" : "integer",
-                  "format" : "int64"
-                }
-              },
-              "Accept-Range" : {
-                "schema" : {
-                  "type" : "string"
-                }
-              },
-              "Content-Range" : {
-                "schema" : {
-                  "type" : "string"
-                }
-              },
-              "Link" : {
-                "schema" : {
-                  "type" : "string"
-                }
-              }
-            },
             "content" : {
               "application/json" : {
                 "schema" : {
@@ -2568,35 +1727,6 @@
         "responses" : {
           "200" : {
             "description" : "OK\n\nReturns OK if the delete was successful",
-            "headers" : {
-              "X-Total-Element" : {
-                "schema" : {
-                  "type" : "integer",
-                  "format" : "int64"
-                }
-              },
-              "X-Page-Element-Count" : {
-                "schema" : {
-                  "type" : "integer",
-                  "format" : "int64"
-                }
-              },
-              "Accept-Range" : {
-                "schema" : {
-                  "type" : "string"
-                }
-              },
-              "Content-Range" : {
-                "schema" : {
-                  "type" : "string"
-                }
-              },
-              "Link" : {
-                "schema" : {
-                  "type" : "string"
-                }
-              }
-            },
             "content" : {
               "application/json" : {
                 "schema" : {
@@ -2666,35 +1796,6 @@
         "responses" : {
           "200" : {
             "description" : "OK\n\nUpdate OK if the update was successful",
-            "headers" : {
-              "X-Total-Element" : {
-                "schema" : {
-                  "type" : "integer",
-                  "format" : "int64"
-                }
-              },
-              "X-Page-Element-Count" : {
-                "schema" : {
-                  "type" : "integer",
-                  "format" : "int64"
-                }
-              },
-              "Accept-Range" : {
-                "schema" : {
-                  "type" : "string"
-                }
-              },
-              "Content-Range" : {
-                "schema" : {
-                  "type" : "string"
-                }
-              },
-              "Link" : {
-                "schema" : {
-                  "type" : "string"
-                }
-              }
-            },
             "content" : {
               "application/json" : {
                 "schema" : {
