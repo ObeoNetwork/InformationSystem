@@ -646,7 +646,10 @@ public class SwaggerBuilder {
 		
 		Optional<StructuredType> optionalEntity = soaStructuredType.getAssociatedTypes().stream().filter(Entity.class::isInstance).findFirst();
 		if (optionalEntity.isPresent()) {
-			schema = createComposedSchema(schema, optionalEntity.get());
+//			schema = createComposedSchema(schema, optionalEntity.get());
+			for (Attribute attribute : optionalEntity.get().getAttributes()) {
+				buildProperty(schema, attribute);
+			}
 		}
 		
 		return schema;
@@ -909,10 +912,10 @@ public class SwaggerBuilder {
 		pagedOutputParameters.addAll(soaOperation.getOutput().stream()
 				.filter(prm -> HTTP_206.equals(prm.getStatusCode())).collect(toList()));
 
-		if (pagedOutputParameters.isEmpty()) {
-			pagedOutputParameters.addAll(soaOperation.getOutput().stream()
-					.filter(prm -> HTTP_200.equals(prm.getStatusCode())).collect(toList()));
-		}
+//		if (pagedOutputParameters.isEmpty()) {
+//			pagedOutputParameters.addAll(soaOperation.getOutput().stream()
+//					.filter(prm -> HTTP_200.equals(prm.getStatusCode())).collect(toList()));
+//		}
 
 		return pagedOutputParameters;
 	}
