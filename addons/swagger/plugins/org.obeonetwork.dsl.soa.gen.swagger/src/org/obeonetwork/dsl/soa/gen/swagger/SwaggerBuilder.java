@@ -818,14 +818,14 @@ public class SwaggerBuilder {
 	private Operation createOperation(org.obeonetwork.dsl.soa.Operation soaOperation) {
 		Operation swgOperation = new Operation();
 		swgOperation.operationId(soaOperation.getName());
-
+		
 		swgOperation.addTagsItem(OperationGenUtil.getService(soaOperation).getName());
 //		swgOperation.summary(soaOperation.getDescription());
 		if (soaOperation.getDescription() != null) {
 			swgOperation.description(soaOperation.getDescription());
 		}
 //		swgOperation.deprecated(soaOperation.isDeprecated());
-
+				
 		if (soaOperation.isPaged() && getPagedOutputParameters(soaOperation).isEmpty()) {
 			logWarning(
 					String.format("Paged operation %s defines no paginable output parameter.", soaOperation.getName()));
@@ -883,8 +883,9 @@ public class SwaggerBuilder {
 	private ApiResponse createApiResponse(org.obeonetwork.dsl.soa.Parameter soaOutputParameter) {
 		ApiResponse apiResponse = new ApiResponse();
 		apiResponse.setDescription(getDescription(soaOutputParameter));
-
-		if (getPagedOutputParameters(ParameterGenUtil.getOperation(soaOutputParameter)).contains(soaOutputParameter)) {
+		org.obeonetwork.dsl.soa.Operation soaOperation = ParameterGenUtil.getOperation(soaOutputParameter);
+		
+		if (soaOperation.isPaged() && getPagedOutputParameters(soaOperation).contains(soaOutputParameter)) {
 			apiResponse.addHeaderObject(X_TOTAL_ELEMENT,
 					createResponseHeader(OPEN_API_TYPE_INTEGER, OPEN_API_FORMAT_INT64));
 			apiResponse.addHeaderObject(X_PAGE_ELEMENT_COUNT,
