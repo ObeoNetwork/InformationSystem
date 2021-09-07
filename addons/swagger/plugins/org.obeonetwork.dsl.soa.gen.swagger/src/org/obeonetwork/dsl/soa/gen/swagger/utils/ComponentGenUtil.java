@@ -63,9 +63,8 @@ public class ComponentGenUtil {
 		if(type instanceof StructuredType) {
 			StructuredType structuredType = (StructuredType) type;
 			structuredType.getAttributes().forEach(attribute -> collectExposedTypes(exposedTypes, attribute.getType()));
-			structuredType.getReferences().forEach(reference -> collectExposedTypes(exposedTypes, reference.getReferencedType()));
-			
-			structuredType.getAssociatedTypes().forEach(associatedType -> collectExposedTypes(exposedTypes, associatedType));
+			structuredType.getReferences().forEach(reference -> collectExposedTypes(exposedTypes, reference.getReferencedType()));			
+			//structuredType.getAssociatedTypes().forEach(associatedType -> collectExposedTypes(exposedTypes, associatedType));
 			collectExposedTypes(exposedTypes, structuredType.getSupertype());
 		}
 		
