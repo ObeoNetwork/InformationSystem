@@ -35,7 +35,7 @@
           "content" : {
             "application/xml" : {
               "schema" : {
-                "$ref" : "#/components/schemas/soa_Swagger Petstore - OpenAPI 3_0_User"
+                "$ref" : "#/components/schemas/User"
               },
               "examples" : {
                 "cat" : {
@@ -60,7 +60,7 @@
             },
             "application/json" : {
               "schema" : {
-                "$ref" : "#/components/schemas/soa_Swagger Petstore - OpenAPI 3_0_User"
+                "$ref" : "#/components/schemas/User"
               }
             }
           }
@@ -71,7 +71,7 @@
             "content" : {
               "application/yaml" : {
                 "schema" : {
-                  "$ref" : "#/components/schemas/soa_Swagger Petstore - OpenAPI 3_0_User"
+                  "$ref" : "#/components/schemas/User"
                 },
                 "examples" : {
                   "dog" : {
@@ -101,7 +101,7 @@
               "schema" : {
                 "type" : "array",
                 "items" : {
-                  "$ref" : "#/components/schemas/soa_Swagger Petstore - OpenAPI 3_0_User"
+                  "$ref" : "#/components/schemas/User"
                 }
               }
             }
@@ -113,7 +113,7 @@
             "content" : {
               "application/json" : {
                 "schema" : {
-                  "$ref" : "#/components/schemas/soa_Swagger Petstore - OpenAPI 3_0_User"
+                  "$ref" : "#/components/schemas/User"
                 }
               }
             }
@@ -192,7 +192,7 @@
             "content" : {
               "application/json" : {
                 "schema" : {
-                  "$ref" : "#/components/schemas/soa_Swagger Petstore - OpenAPI 3_0_User"
+                  "$ref" : "#/components/schemas/User"
                 }
               }
             }
@@ -222,7 +222,7 @@
           "content" : {
             "application/json" : {
               "schema" : {
-                "$ref" : "#/components/schemas/soa_Swagger Petstore - OpenAPI 3_0_User"
+                "$ref" : "#/components/schemas/User"
               }
             }
           }
@@ -267,7 +267,7 @@
             "content" : {
               "application/json" : {
                 "schema" : {
-                  "$ref" : "#/components/schemas/soa_Swagger Petstore - OpenAPI 3_0_Store_GetInventoryOutput200"
+                  "$ref" : "#/components/schemas/Store_GetInventoryOutput200"
                 }
               }
             }
@@ -284,7 +284,7 @@
           "content" : {
             "application/json" : {
               "schema" : {
-                "$ref" : "#/components/schemas/soa_Swagger Petstore - OpenAPI 3_0_Order"
+                "$ref" : "#/components/schemas/Order"
               }
             }
           }
@@ -295,7 +295,7 @@
             "content" : {
               "application/json" : {
                 "schema" : {
-                  "$ref" : "#/components/schemas/soa_Swagger Petstore - OpenAPI 3_0_Order"
+                  "$ref" : "#/components/schemas/Order"
                 }
               }
             }
@@ -327,7 +327,7 @@
             "content" : {
               "application/json" : {
                 "schema" : {
-                  "$ref" : "#/components/schemas/soa_Swagger Petstore - OpenAPI 3_0_Order"
+                  "$ref" : "#/components/schemas/Order"
                 }
               }
             }
@@ -373,7 +373,7 @@
           "content" : {
             "application/json" : {
               "schema" : {
-                "$ref" : "#/components/schemas/soa_Swagger Petstore - OpenAPI 3_0_Pet"
+                "$ref" : "#/components/schemas/Pet"
               }
             }
           }
@@ -384,7 +384,7 @@
             "content" : {
               "application/json" : {
                 "schema" : {
-                  "$ref" : "#/components/schemas/soa_Swagger Petstore - OpenAPI 3_0_Pet"
+                  "$ref" : "#/components/schemas/Pet"
                 }
               }
             }
@@ -408,7 +408,7 @@
           "content" : {
             "application/json" : {
               "schema" : {
-                "$ref" : "#/components/schemas/soa_Swagger Petstore - OpenAPI 3_0_Pet"
+                "$ref" : "#/components/schemas/Pet"
               }
             }
           }
@@ -419,7 +419,7 @@
             "content" : {
               "application/json" : {
                 "schema" : {
-                  "$ref" : "#/components/schemas/soa_Swagger Petstore - OpenAPI 3_0_Pet"
+                  "$ref" : "#/components/schemas/Pet"
                 }
               }
             }
@@ -441,7 +441,7 @@
           "description" : "Status values that need to be considered for filter",
           "required" : false,
           "schema" : {
-            "$ref" : "#/components/schemas/soa_Swagger Petstore - OpenAPI 3_0_PetStatus"
+            "$ref" : "#/components/schemas/PetStatus"
           }
         } ],
         "responses" : {
@@ -452,7 +452,7 @@
                 "schema" : {
                   "type" : "array",
                   "items" : {
-                    "$ref" : "#/components/schemas/soa_Swagger Petstore - OpenAPI 3_0_Pet"
+                    "$ref" : "#/components/schemas/Pet"
                   }
                 }
               }
@@ -500,41 +500,12 @@
         "responses" : {
           "200" : {
             "description" : "OK\n\nsuccessful operation",
-            "headers" : {
-              "X-Total-Element" : {
-                "schema" : {
-                  "type" : "integer",
-                  "format" : "int64"
-                }
-              },
-              "X-Page-Element-Count" : {
-                "schema" : {
-                  "type" : "integer",
-                  "format" : "int64"
-                }
-              },
-              "Accept-Range" : {
-                "schema" : {
-                  "type" : "string"
-                }
-              },
-              "Content-Range" : {
-                "schema" : {
-                  "type" : "string"
-                }
-              },
-              "Link" : {
-                "schema" : {
-                  "type" : "string"
-                }
-              }
-            },
             "content" : {
               "application/json" : {
                 "schema" : {
                   "type" : "array",
                   "items" : {
-                    "$ref" : "#/components/schemas/soa_Swagger Petstore - OpenAPI 3_0_Pet"
+                    "$ref" : "#/components/schemas/Pet"
                   }
                 }
               }
@@ -568,7 +539,7 @@
             "content" : {
               "application/json" : {
                 "schema" : {
-                  "$ref" : "#/components/schemas/soa_Swagger Petstore - OpenAPI 3_0_Pet"
+                  "$ref" : "#/components/schemas/Pet"
                 }
               }
             }
@@ -681,7 +652,7 @@
             "content" : {
               "application/json" : {
                 "schema" : {
-                  "$ref" : "#/components/schemas/soa_Swagger Petstore - OpenAPI 3_0_ApiResponse"
+                  "$ref" : "#/components/schemas/ApiResponse"
                 }
               }
             }
@@ -692,19 +663,7 @@
   },
   "components" : {
     "schemas" : {
-      "entity_Swagger Petstore - OpenAPI 3_0_Category" : {
-        "type" : "object",
-        "properties" : {
-          "name" : {
-            "type" : "string"
-          },
-          "id" : {
-            "type" : "integer",
-            "format" : "int64"
-          }
-        }
-      },
-      "soa_Swagger Petstore - OpenAPI 3_0_ApiResponse" : {
+      "ApiResponse" : {
         "type" : "object",
         "properties" : {
           "code" : {
@@ -719,14 +678,19 @@
           }
         }
       },
-      "soa_Swagger Petstore - OpenAPI 3_0_Category" : {
-        "allOf" : [ {
-          "type" : "object"
-        }, {
-          "$ref" : "#/components/schemas/entity_Swagger Petstore - OpenAPI 3_0_Category"
-        } ]
+      "Category" : {
+        "type" : "object",
+        "properties" : {
+          "name" : {
+            "type" : "string"
+          },
+          "id" : {
+            "type" : "integer",
+            "format" : "int64"
+          }
+        }
       },
-      "soa_Swagger Petstore - OpenAPI 3_0_Order" : {
+      "Order" : {
         "type" : "object",
         "properties" : {
           "petId" : {
@@ -749,15 +713,15 @@
             "type" : "boolean"
           },
           "status" : {
-            "$ref" : "#/components/schemas/soa_Swagger Petstore - OpenAPI 3_0_OrderStatus"
+            "$ref" : "#/components/schemas/OrderStatus"
           }
         }
       },
-      "soa_Swagger Petstore - OpenAPI 3_0_OrderStatus" : {
+      "OrderStatus" : {
         "type" : "string",
         "enum" : [ "approved", "placed", "delivered" ]
       },
-      "soa_Swagger Petstore - OpenAPI 3_0_Pet" : {
+      "Pet" : {
         "required" : [ "name", "photoUrls" ],
         "type" : "object",
         "properties" : {
@@ -776,27 +740,27 @@
             "format" : "int64"
           },
           "status" : {
-            "$ref" : "#/components/schemas/soa_Swagger Petstore - OpenAPI 3_0_PetStatus"
+            "$ref" : "#/components/schemas/PetStatus"
           },
           "category" : {
-            "$ref" : "#/components/schemas/soa_Swagger Petstore - OpenAPI 3_0_Category"
+            "$ref" : "#/components/schemas/Category"
           },
           "tags" : {
             "type" : "array",
             "items" : {
-              "$ref" : "#/components/schemas/soa_Swagger Petstore - OpenAPI 3_0_Tag"
+              "$ref" : "#/components/schemas/Tag"
             }
           }
         }
       },
-      "soa_Swagger Petstore - OpenAPI 3_0_PetStatus" : {
+      "PetStatus" : {
         "type" : "string",
         "enum" : [ "sold", "pending", "available" ]
       },
-      "soa_Swagger Petstore - OpenAPI 3_0_Store_GetInventoryOutput200" : {
+      "Store_GetInventoryOutput200" : {
         "type" : "object"
       },
-      "soa_Swagger Petstore - OpenAPI 3_0_Tag" : {
+      "Tag" : {
         "type" : "object",
         "properties" : {
           "name" : {
@@ -808,7 +772,7 @@
           }
         }
       },
-      "soa_Swagger Petstore - OpenAPI 3_0_User" : {
+      "User" : {
         "type" : "object",
         "properties" : {
           "firstName" : {

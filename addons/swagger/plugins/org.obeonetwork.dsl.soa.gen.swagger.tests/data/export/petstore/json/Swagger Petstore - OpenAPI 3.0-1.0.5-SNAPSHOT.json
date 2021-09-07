@@ -512,35 +512,6 @@
         "responses" : {
           "200" : {
             "description" : "OK\n\nsuccessful operation",
-            "headers" : {
-              "X-Total-Element" : {
-                "schema" : {
-                  "type" : "integer",
-                  "format" : "int64"
-                }
-              },
-              "X-Page-Element-Count" : {
-                "schema" : {
-                  "type" : "integer",
-                  "format" : "int64"
-                }
-              },
-              "Accept-Range" : {
-                "schema" : {
-                  "type" : "string"
-                }
-              },
-              "Content-Range" : {
-                "schema" : {
-                  "type" : "string"
-                }
-              },
-              "Link" : {
-                "schema" : {
-                  "type" : "string"
-                }
-              }
-            },
             "content" : {
               "application/json" : {
                 "schema" : {
