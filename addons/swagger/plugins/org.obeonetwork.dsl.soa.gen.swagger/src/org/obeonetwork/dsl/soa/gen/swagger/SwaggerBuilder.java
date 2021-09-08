@@ -16,7 +16,6 @@ import static org.obeonetwork.dsl.soa.gen.swagger.HTTPResponseHeaders.CONTENT_RA
 import static org.obeonetwork.dsl.soa.gen.swagger.HTTPResponseHeaders.LINK;
 import static org.obeonetwork.dsl.soa.gen.swagger.HTTPResponseHeaders.X_PAGE_ELEMENT_COUNT;
 import static org.obeonetwork.dsl.soa.gen.swagger.HTTPResponseHeaders.X_TOTAL_ELEMENT;
-import static org.obeonetwork.dsl.soa.gen.swagger.HTTPStatusCodes.HTTP_200;
 import static org.obeonetwork.dsl.soa.gen.swagger.HTTPStatusCodes.HTTP_206;
 import static org.obeonetwork.dsl.soa.gen.swagger.OpenApiParserHelper.COMPONENT_SCHEMA_$REF;
 import static org.obeonetwork.dsl.soa.gen.swagger.OpenApiParserHelper.OPEN_API_FORMAT_INT64;
@@ -42,7 +41,6 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.Objects;
-import java.util.Optional;
 import java.util.Set;
 import java.util.stream.Collectors;
 
@@ -51,7 +49,6 @@ import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.emf.ecore.resource.Resource;
-import org.obeonetwork.dsl.entity.Entity;
 import org.obeonetwork.dsl.entity.EntityPackage;
 import org.obeonetwork.dsl.environment.Attribute;
 import org.obeonetwork.dsl.environment.Enumeration;
@@ -59,6 +56,7 @@ import org.obeonetwork.dsl.environment.Property;
 import org.obeonetwork.dsl.environment.Reference;
 import org.obeonetwork.dsl.environment.StructuredType;
 import org.obeonetwork.dsl.environment.Type;
+import org.obeonetwork.dsl.environment.design.services.TypesServices;
 import org.obeonetwork.dsl.soa.ApiKeyLocation;
 import org.obeonetwork.dsl.soa.Component;
 import org.obeonetwork.dsl.soa.ExpositionKind;
@@ -644,12 +642,8 @@ public class SwaggerBuilder {
 			schema = createComposedSchema(schema, soaStructuredType.getSupertype());
 		} 
 		
-		Optional<StructuredType> optionalEntity = soaStructuredType.getAssociatedTypes().stream().filter(Entity.class::isInstance).findFirst();
-		if (optionalEntity.isPresent()) {
-//			schema = createComposedSchema(schema, optionalEntity.get());
-			for (Attribute attribute : optionalEntity.get().getAttributes()) {
-				buildProperty(schema, attribute);
-			}
+		for (Attribute attribute : TypesServices.getAssociatedTypesAttributes(soaStructuredType)) {
+			buildProperty(schema, attribute);
 		}
 		
 		return schema;
