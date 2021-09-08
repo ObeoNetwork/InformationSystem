@@ -10,23 +10,12 @@
  *******************************************************************************/
 package fr.gouv.mindef.safran.is.design.services;
 
-import java.util.Arrays;
-import java.util.Optional;
-
 import org.eclipse.emf.ecore.EObject;
-import org.eclipse.jface.viewers.ArrayContentProvider;
-import org.eclipse.jface.viewers.LabelProvider;
-import org.eclipse.net4j.util.StringUtil;
-import org.eclipse.swt.widgets.Shell;
-import org.eclipse.ui.PlatformUI;
-import org.eclipse.ui.dialogs.ListDialog;
-import org.obeonetwork.dsl.entity.Entity;
 import org.obeonetwork.dsl.environment.Annotation;
 import org.obeonetwork.dsl.environment.Attribute;
 import org.obeonetwork.dsl.environment.EnvironmentFactory;
 import org.obeonetwork.dsl.environment.MetaData;
 import org.obeonetwork.dsl.environment.MetaDataContainer;
-import org.obeonetwork.dsl.environment.Namespace;
 import org.obeonetwork.dsl.environment.ObeoDSMObject;
 import org.obeonetwork.dsl.environment.Reference;
 
@@ -194,82 +183,29 @@ public class AnnotationServices {
 	 * @param physicalTarget New value for the physical target
 	 */
 	public void setPhysicalTarget(ObeoDSMObject context, String physicalTarget) {
-		
 		if (context instanceof Reference) {
-			
-			// put a X in the cell
-			if (physicalTarget != null && !physicalTarget.isEmpty()) {
-				if (physicalTarget.toLowerCase().trim().contains("x")) {
-					physicalTarget = "X";
-					
-					Reference reference = (Reference) context;
-					
-					MetaDataContainer oppositeMetaDataContainer = reference.getOppositeOf().getMetadatas();
-					
-					if (oppositeMetaDataContainer != null) {
-						// Is the opposed reference defined as the physical target ? 
-						Optional<Annotation> physicalTargetAnnotation = oppositeMetaDataContainer // metadatacontainer
-							.getMetadatas() // list<metadata>
-							.stream()
-							.filter(Annotation.class::isInstance)
-							.map(Annotation.class::cast)
-							.filter(annotation -> PHYSICAL_TARGET.equals(annotation.getTitle()))
-							.findAny();
-						
-						if (physicalTargetAnnotation.isPresent())
-							physicalTargetAnnotation.get().setBody(null);
-					}
-					
-				} else {
-					physicalTarget = null;
-					switchReferenceTarget((Reference) context);
-				}							
-			} else {
-				// removed the cell's content: we check the opposite Reference instead				
-				switchReferenceTarget((Reference) context);				
+			if (physicalTarget != null) {
+				setAnnotation(context, PHYSICAL_TARGET, physicalTarget);
+				Reference reference = (Reference) context;
+				Reference opposite = reference.getOppositeOf();
+				setAnnotation(opposite, PHYSICAL_TARGET, physicalTarget);
 			}
 		}		
-		setAnnotation(context, PHYSICAL_TARGET, physicalTarget);
 	}	
-	
-	private void switchReferenceTarget(Reference reference) {
-		Optional<Annotation> physicalTargetAnnotation = reference.getOppositeOf()
-			.getMetadatas() // metadatacontainer
-			.getMetadatas() // list<metadata>
-			.stream()
-			.filter(Annotation.class::isInstance)
-			.map(Annotation.class::cast)
-			.filter(annotation -> PHYSICAL_TARGET.equals(annotation.getTitle()))
-			.findAny();
-		
-		if (physicalTargetAnnotation.isPresent())
-			physicalTargetAnnotation.get().setBody("X");
-		else {
-			Reference opposite = reference.getOppositeOf();
-			Annotation annotation = EnvironmentFactory.eINSTANCE.createAnnotation();
-			annotation.setTitle(PHYSICAL_TARGET);
-			annotation.setBody("X");
-			opposite.getMetadatas().getMetadatas().add(annotation);
-		}					
-	}
 	
 	public boolean isValidReference(Reference reference) {
 		String physicalTarget = getPhysicalTarget(reference);
 		String physicalTargetOpposite = getPhysicalTarget(reference.getOppositeOf());
 		
-		if (physicalTarget != null) {
-			if (! physicalTarget.isEmpty()) {
+		if (physicalTarget != null && !physicalTarget.isEmpty()) {
 				if (physicalTargetOpposite != null && ! physicalTargetOpposite.isEmpty()) {
 					return false;
 				}
 				
 				if (! "x".equalsIgnoreCase(physicalTarget)) {
 					return false;
-				}
 			}
-			
 		}
-		
 		return true;
 	}
 	

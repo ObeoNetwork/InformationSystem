@@ -9,7 +9,9 @@ Require-Bundle: org.eclipse.ui,
  org.obeonetwork.dsl.environment,
  org.eclipse.sirius,
  org.obeonetwork.dsl.entity,
- org.obeonetwork.graal
+ org.obeonetwork.graal,
+ org.obeonetwork.utils.sirius,
+ org.eclipse.core.expressions
 Bundle-ActivationPolicy: lazy
 Bundle-RequiredExecutionEnvironment: JavaSE-1.6
 Bundle-Vendor: Obeo Network

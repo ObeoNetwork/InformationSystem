@@ -18,4 +18,71 @@
 	       name="safran-is">
     </component>
   </extension>
+  <extension
+        point="org.eclipse.ui.commands">
+     <command
+           id="fr.gouv.mindef.safran.is.design.command.setTargetSchema"
+           name="Set Swap Target Schema">
+     </command>
+  </extension>
+  <extension
+        point="org.eclipse.ui.menus">
+     <menuContribution
+           allPopups="false"
+           locationURI="popup:org.obeonetwork.is.designer.menu?after=additions">
+        <command
+              commandId="fr.gouv.mindef.safran.is.design.command.setTargetSchema"
+              label="Set / Swap Target Schema"
+              style="push">
+        </command>
+     </menuContribution>
+  </extension>
+  <extension
+        point="org.eclipse.ui.handlers">
+     <handler
+           class="fr.gouv.mindef.safran.is.handlers.SetTargetSchemaHandler"
+           commandId="fr.gouv.mindef.safran.is.design.command.setTargetSchema">
+        <enabledWhen>
+           <with
+                 variable="selection">
+              <count
+                    value="1">
+              </count>
+              <iterate
+                    ifEmpty="false"
+                    operator="and">
+                 <adapt
+                       type="org.eclipse.sirius.viewpoint.DRepresentationElement">
+                    <and>
+                       <test
+                             args="selection"
+                             forcePluginActivation="true"
+                             property="org.eclipse.sirius.table.tableName"
+                             value="Entities Physical Names">
+                       </test>
+                       <or>
+                          <adapt
+                                type="org.eclipse.sirius.table.metamodel.table.DLine">
+                             <test
+                                   args="selection"
+                                   forcePluginActivation="true"
+                                   property="org.eclipse.sirius.semanticDecorator.targetType"
+                                   value="org.obeonetwork.dsl.environment.impl.ReferenceImpl">
+                             </test>
+                          </adapt>
+                          <adapt
+                                type="org.eclipse.sirius.table.metamodel.table.DCell">
+                             <test
+                                   args="selection"
+                                   forcePluginActivation="true"
+                                   property="org.eclipse.sirius.semanticDecorator.targetType"
+                                   value="org.obeonetwork.dsl.environment.impl.ReferenceImpl">
+                             </test>
+                          </adapt>
+                       </or></and>
+                 </adapt>
+              </iterate>
+           </with></enabledWhen>
+     </handler>
+  </extension>
 </plugin>
