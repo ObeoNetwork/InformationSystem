@@ -74,8 +74,13 @@ public class SetTargetSchemaHandler extends AbstractHandler {
 	 * @return The qualified name as a {@link String} 
 	 */
 	private String getNamespaceQualifiedName(Reference reference) {
-		StructuredType structuredType = (StructuredType) reference.eContainer();
-		return TypesServices.getNamespaceQualifiedName(structuredType);
+		String namespaceQualifiedName = null;
+		if (reference.eContainer() != null && reference.eContainer() instanceof StructuredType) {
+			StructuredType structuredType = (StructuredType) reference.eContainer();
+			namespaceQualifiedName = TypesServices.getNamespaceQualifiedName(structuredType);	
+		}
+		return namespaceQualifiedName;
+		
 	}
 	
 

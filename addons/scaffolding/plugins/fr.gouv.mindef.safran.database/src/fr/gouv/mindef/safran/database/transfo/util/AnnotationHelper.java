@@ -31,6 +31,8 @@ public class AnnotationHelper {
 	private static final String PHYSICAL_DEFAULT_KEY = "PHYSICAL_DEFAULT";
 	private static final String PHYSICAL_NAME_KEY = "PHYSICAL_NAME";
 	private static final String PHYSICAL_UNIQUE_KEY = "PHYSICAL_UNIQUE";
+	private static final String PHYSICAL_TARGET_KEY = "PHYSICAL_TARGET";
+	
 	private static final String CONSTRAINT_DELIMITER = "|";
 	private static final String CONSTRAINT_DELIMITER_REGEX = "\\|"; // REGEX used to delimit constraints within a single PHYSICAL_CHECK annotation
 	
@@ -160,6 +162,10 @@ public class AnnotationHelper {
 	
 	public static Annotation getPhysicalNameAnnotation(ObeoDSMObject dsmObject) {
 		return getAnnotation(dsmObject, PHYSICAL_NAME_KEY);
+	}
+	
+	public static Annotation getPhysicalTarget(ObeoDSMObject dsmObject) {
+		return getAnnotation(dsmObject, PHYSICAL_TARGET_KEY);
 	}
 	
 	public static String getNonEmptyAnnotationBody(ObeoDSMObject dsmObject, String name) {

@@ -20,7 +20,6 @@ import java.util.LinkedHashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
-import java.util.Optional;
 import java.util.Set;
 import java.util.StringTokenizer;
 
@@ -59,6 +58,7 @@ import org.obeonetwork.dsl.environment.ObeoDSMObject;
 import org.obeonetwork.dsl.environment.Property;
 import org.obeonetwork.dsl.environment.Reference;
 import org.obeonetwork.dsl.environment.StructuredType;
+import org.obeonetwork.dsl.environment.design.services.PropertiesServices;
 import org.obeonetwork.dsl.typeslibrary.NativeType;
 import org.obeonetwork.dsl.typeslibrary.TypeInstance;
 import org.obeonetwork.dsl.typeslibrary.TypesLibrary;
@@ -499,21 +499,18 @@ public class EntityToMLD extends AbstractTransformation {
 	}
 
 	/**
-	 * Checks the metadata of a {@link Reference}. If it contains a PHYSICAL_TARGET metadata with a "checked" body (e.g., x value) , it is a physical target. 
+	 * Checks if the metadata of a {@link Reference} contains a PHYSICAL_TARGET that refers to the {@link Reference} {@link Namespace}. 
 	 * @param reference the {@link Reference}
 	 * @return <code>true</code> if physical target.
 	 */
 	private boolean isPhysicalTarget(Reference reference) {
-		if (reference.getMetadatas() == null) 
-			return false;
 		
-		Optional<Annotation> optional = reference.getMetadatas().getMetadatas()
-			.stream()
-			.filter(metadata -> metadata instanceof Annotation && "PHYSICAL_TARGET".equalsIgnoreCase(((Annotation) metadata).getTitle()))
-			.map(Annotation.class::cast)
-			.findAny();
+		Annotation physicalTarget = AnnotationHelper.getPhysicalTarget(reference);
+		String qualifiedNamespace = PropertiesServices.getPropertyNamespaceQualifiedName(reference);
 		
-		return (optional.isPresent() && "x".equalsIgnoreCase(optional.get().getBody()));
+		return physicalTarget == null || 
+				org.obeonetwork.utils.common.StringUtils.isNullOrWhite(physicalTarget.getBody()) || 
+				physicalTarget.getBody().equals(qualifiedNamespace);		
 	}
 
 	private void createJoinTableForeignKey(Table joinTable, Table targetTable) {
@@ -608,8 +605,6 @@ public class EntityToMLD extends AbstractTransformation {
 				
 			}
 
-
-			
 			sourceFkColumn.setType(EcoreUtil.copy(targetPkColumn.getType()));
 			sourceFkColumn.setNullable(nullable);
 			

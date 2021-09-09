@@ -120,7 +120,7 @@
           <firstModelOperation xsi:type="tool:ChangeContext" browseExpression="service:lineSemantic.setPhysicalTarget(arg0)"/>
           <mask mask="{0}"/>
         </directEdit>
-        <backgroundConditionalStyle predicateExpression="aql:not self.isValidReference()">
+        <backgroundConditionalStyle predicateExpression="aql:not self.isValidPhysicalTarget()">
           <style>
             <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_red']"/>
           </style>
