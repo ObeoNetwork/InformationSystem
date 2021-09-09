@@ -34,6 +34,9 @@
               commandId="fr.gouv.mindef.safran.is.design.command.setTargetSchema"
               label="Set / Swap Target Schema"
               style="push">
+           <visibleWhen
+                 checkEnabled="true">
+           </visibleWhen>
         </command>
      </menuContribution>
   </extension>
@@ -57,32 +60,40 @@
                        <test
                              args="selection"
                              forcePluginActivation="true"
-                             property="org.eclipse.sirius.table.tableName"
+                             property="org.eclipse.sirius.viewpoint.dRepresentationElement.definitionName"
                              value="Entities Physical Names">
                        </test>
-                       <or>
-                          <adapt
-                                type="org.eclipse.sirius.table.metamodel.table.DLine">
+                       <adapt
+                             type="org.eclipse.sirius.table.metamodel.table.DTableElement">
+                          <and>
                              <test
                                    args="selection"
                                    forcePluginActivation="true"
-                                   property="org.eclipse.sirius.semanticDecorator.targetType"
+                                   property="org.eclipse.sirius.viewpoint.dSemanticDecorator.targetType"
                                    value="org.obeonetwork.dsl.environment.impl.ReferenceImpl">
                              </test>
-                          </adapt>
-                          <adapt
-                                type="org.eclipse.sirius.table.metamodel.table.DCell">
                              <test
                                    args="selection"
                                    forcePluginActivation="true"
-                                   property="org.eclipse.sirius.semanticDecorator.targetType"
-                                   value="org.obeonetwork.dsl.environment.impl.ReferenceImpl">
+                                   property="fr.gouv.mindef.safran.is.propertyTesters.referencePropertyTester.isNN"
+                                   value="true">
                              </test>
-                          </adapt>
-                       </or></and>
+                          </and>
+                       </adapt></and>
                  </adapt>
               </iterate>
            </with></enabledWhen>
      </handler>
+  </extension>
+  <extension
+        point="org.eclipse.core.expressions.propertyTesters">
+     <propertyTester
+           class="fr.gouv.mindef.safran.is.propertyTesters.ReferencePropertyTester"
+           id="fr.gouv.mindef.safran.is.propertyTesters.ReferencePropertyTester"
+           namespace="fr.gouv.mindef.safran.is.propertyTesters.referencePropertyTester"
+           properties="isNN"
+           pype="fr.gouv.mindef.safran.is.design.PropertyTester6"
+           type="org.eclipse.sirius.viewpoint.DSemanticDecorator">
+     </propertyTester>
   </extension>
 </plugin>

@@ -183,16 +183,9 @@ public class AnnotationServices {
 	 * @param physicalTarget New value for the physical target
 	 */
 	public void setPhysicalTarget(ObeoDSMObject context, String physicalTarget) {
-		if (context instanceof Reference) {
-			if (physicalTarget != null) {
-				setAnnotation(context, PHYSICAL_TARGET, physicalTarget);
-				Reference reference = (Reference) context;
-				Reference opposite = reference.getOppositeOf();
-				setAnnotation(opposite, PHYSICAL_TARGET, physicalTarget);
-			}
-		}		
+			setAnnotation(context, PHYSICAL_TARGET, physicalTarget);
 	}	
-	
+		
 	public boolean isValidReference(Reference reference) {
 		String physicalTarget = getPhysicalTarget(reference);
 		String physicalTargetOpposite = getPhysicalTarget(reference.getOppositeOf());
