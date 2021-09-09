@@ -96,4 +96,13 @@
            type="org.eclipse.sirius.viewpoint.DSemanticDecorator">
      </propertyTester>
   </extension>
+  <extension
+        point="org.eclipse.ui.bindings">
+     <key
+           commandId="fr.gouv.mindef.safran.is.design.command.setTargetSchema"
+           contextId="org.eclipse.sirius.table.ui.EditorID.tableContext"
+           schemeId="org.eclipse.ui.defaultAcceleratorConfiguration"
+           sequence="CTRL+T">
+     </key>
+  </extension>
 </plugin>
