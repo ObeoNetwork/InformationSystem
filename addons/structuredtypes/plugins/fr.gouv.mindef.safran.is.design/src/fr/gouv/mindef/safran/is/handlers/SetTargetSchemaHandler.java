@@ -15,6 +15,7 @@ import org.eclipse.ui.handlers.HandlerUtil;
 import org.obeonetwork.dsl.environment.Namespace;
 import org.obeonetwork.dsl.environment.Reference;
 import org.obeonetwork.dsl.environment.StructuredType;
+import org.obeonetwork.dsl.environment.design.services.ReferencesService;
 import org.obeonetwork.dsl.environment.design.services.TypesServices;
 
 import fr.gouv.mindef.safran.is.design.services.AnnotationServices;
@@ -39,12 +40,11 @@ public class SetTargetSchemaHandler extends AbstractHandler {
 		DSemanticDecorator decorator = (DSemanticDecorator) ((StructuredSelection) selection).getFirstElement();
 		
 		Reference reference = (Reference) decorator.getTarget();		
-		String qualifiedName = getNamespaceQualifiedName(reference);
+		String qualifiedName = ReferencesService.getNamespaceQualifiedName(reference); 
 		
 		if (qualifiedName.equals(ANNOTATION_SERVICES.getPhysicalTarget(reference))) {
 			// Physical Target is already defined: we swap with the OpposedReference namespace			
-			qualifiedName = getNamespaceQualifiedName(reference.getOppositeOf());
-
+			qualifiedName = ReferencesService.getNamespaceQualifiedName(reference.getOppositeOf());
 		}
 		
 		setPhysicalTarget(reference, qualifiedName);
@@ -67,21 +67,4 @@ public class SetTargetSchemaHandler extends AbstractHandler {
 	        }
 	    });
 	}
-	
-	/**
-	 * Returns the {@link Namespace} qualified name of a {@link Reference}  
-	 * @param reference a {@link Reference}
-	 * @return The qualified name as a {@link String} 
-	 */
-	private String getNamespaceQualifiedName(Reference reference) {
-		String namespaceQualifiedName = null;
-		if (reference.eContainer() != null && reference.eContainer() instanceof StructuredType) {
-			StructuredType structuredType = (StructuredType) reference.eContainer();
-			namespaceQualifiedName = TypesServices.getNamespaceQualifiedName(structuredType);	
-		}
-		return namespaceQualifiedName;
-		
-	}
-	
-
 }

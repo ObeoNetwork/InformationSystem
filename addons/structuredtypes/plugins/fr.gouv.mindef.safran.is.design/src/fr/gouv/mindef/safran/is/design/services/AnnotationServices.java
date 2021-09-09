@@ -18,6 +18,7 @@ import org.obeonetwork.dsl.environment.MetaData;
 import org.obeonetwork.dsl.environment.MetaDataContainer;
 import org.obeonetwork.dsl.environment.ObeoDSMObject;
 import org.obeonetwork.dsl.environment.Reference;
+import org.obeonetwork.dsl.environment.design.services.ReferencesService;
 import org.obeonetwork.utils.common.StringUtils;
 
 /**
@@ -188,7 +189,7 @@ public class AnnotationServices {
 	}	
 		
 	/**
-	 * A physical target is valid when it's undefined and equals to the physical target of the opposite {@link Reference} 
+	 * A physical target is valid when it's undefined or equals to the physical target of the opposite {@link Reference} 
 	 * @param reference the {@link Reference}
 	 * @return <code>true</code> or <code>false</code>
 	 * 
@@ -198,10 +199,14 @@ public class AnnotationServices {
 		String physicalTargetOpposite = getPhysicalTarget(reference.getOppositeOf());
 		
 		if (!StringUtils.isNullOrWhite(physicalTarget)) {
-			if (StringUtils.isNullOrWhite(physicalTargetOpposite)) {
+			if (!(physicalTarget.equals(ReferencesService.getNamespaceQualifiedName(reference)) 
+					|| physicalTarget.equals(ReferencesService.getNamespaceQualifiedName(reference.getOppositeOf())))) {
+				return false;				
+			}
+			
+			if (!physicalTarget.equals(physicalTargetOpposite)) {
 				return false;
 			}
-			return physicalTarget.equals(physicalTargetOpposite);
 		}
 		
 		return true;
