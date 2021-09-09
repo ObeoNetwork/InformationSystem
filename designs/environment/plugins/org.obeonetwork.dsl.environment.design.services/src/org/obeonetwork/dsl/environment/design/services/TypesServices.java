@@ -16,6 +16,7 @@ import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Map;
 import java.util.Set;
+import java.util.stream.Collectors;
 
 import org.eclipse.emf.common.util.TreeIterator;
 import org.eclipse.emf.ecore.EClass;
@@ -455,4 +456,13 @@ public class TypesServices {
 		return null;
 	}
 
+	public static String getNamespaceQualifiedName(StructuredType structuredType) {
+		return EObjectUtils
+					.getAncestors(structuredType)
+					.stream()
+					.filter(Namespace.class::isInstance)
+					.map(Namespace.class::cast)
+					.map(Namespace::getName)
+					.collect(Collectors.joining("/"));
+	}
 }
