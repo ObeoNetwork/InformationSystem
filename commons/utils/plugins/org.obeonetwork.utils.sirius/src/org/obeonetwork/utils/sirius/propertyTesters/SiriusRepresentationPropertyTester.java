@@ -43,9 +43,9 @@ public class SiriusRepresentationPropertyTester extends PropertyTester {
 			
 			if (dRepresentationQuery.getRepresentationDescriptor() != null 
 					&& dRepresentationQuery.getRepresentationDescriptor().getDescription() != null
-					&& dRepresentationQuery.getRepresentationDescriptor().getDescription().getLabel() != null) {
+					&& dRepresentationQuery.getRepresentationDescriptor().getDescription().getName() != null) {
 				
-				return dRepresentationQuery.getRepresentationDescriptor().getDescription().getLabel().equals(expectedValue);
+				return dRepresentationQuery.getRepresentationDescriptor().getDescription().getName().equals(expectedValue);
 			}
 		}
 		
