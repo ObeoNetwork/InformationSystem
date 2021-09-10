@@ -7,16 +7,15 @@ import org.eclipse.core.commands.ExecutionEvent;
 import org.eclipse.core.commands.ExecutionException;
 import org.eclipse.emf.transaction.RecordingCommand;
 import org.eclipse.emf.transaction.TransactionalEditingDomain;
-import org.eclipse.emf.transaction.util.TransactionUtil;
 import org.eclipse.jface.viewers.ISelection;
 import org.eclipse.jface.viewers.StructuredSelection;
+import org.eclipse.sirius.business.api.query.EObjectQuery;
 import org.eclipse.sirius.viewpoint.DSemanticDecorator;
 import org.eclipse.ui.handlers.HandlerUtil;
 import org.obeonetwork.dsl.environment.Namespace;
 import org.obeonetwork.dsl.environment.Reference;
 import org.obeonetwork.dsl.environment.StructuredType;
 import org.obeonetwork.dsl.environment.design.services.ReferencesService;
-import org.obeonetwork.dsl.environment.design.services.TypesServices;
 
 import fr.gouv.mindef.safran.is.design.services.AnnotationServices;
 import fr.gouv.mindef.safran.is.propertyTesters.ReferencePropertyTester;
@@ -61,7 +60,8 @@ public class SetTargetSchemaHandler extends AbstractHandler {
 	 * @param physicalTarget a {@link String}
 	 */
 	private void setPhysicalTarget(Reference reference, String physicalTarget) {
-		TransactionalEditingDomain domain = TransactionUtil.getEditingDomain(reference);
+		TransactionalEditingDomain domain = new EObjectQuery(reference).getSession().getTransactionalEditingDomain();
+
 	    domain.getCommandStack().execute(new RecordingCommand(domain) {
 	        @Override
 	        protected void doExecute() {
