@@ -16,7 +16,9 @@ import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Map;
 import java.util.Set;
+import java.util.stream.Collectors;
 
+import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.common.util.TreeIterator;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EFactory;
@@ -37,6 +39,7 @@ import org.eclipse.sirius.diagram.EdgeTarget;
 import org.eclipse.sirius.viewpoint.DSemanticDecorator;
 import org.eclipse.swt.widgets.Display;
 import org.eclipse.swt.widgets.Shell;
+import org.obeonetwork.dsl.environment.Attribute;
 import org.obeonetwork.dsl.environment.Environment;
 import org.obeonetwork.dsl.environment.EnvironmentFactory;
 import org.obeonetwork.dsl.environment.EnvironmentPackage;
@@ -454,5 +457,12 @@ public class TypesServices {
 		}
 		return null;
 	}
-
+	
+	public static Collection<Attribute> getAssociatedTypesAttributes(StructuredType type) {
+		return type .getAssociatedTypes()
+					.stream()
+					.map(StructuredType::getAttributes)
+					.flatMap(EList::stream)
+					.collect(Collectors.toList());
+	}
 }

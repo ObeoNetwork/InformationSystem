@@ -36,7 +36,7 @@ paths:
         content:
           application/xml:
             schema:
-              $ref: '#/components/schemas/soa_Swagger Petstore - OpenAPI 3_0_User'
+              $ref: '#/components/schemas/User'
             examples:
               cat:
                 summary: a cat
@@ -54,14 +54,14 @@ paths:
                   weight: 34
           application/json:
             schema:
-              $ref: '#/components/schemas/soa_Swagger Petstore - OpenAPI 3_0_User'
+              $ref: '#/components/schemas/User'
       responses:
         default:
           description: successful operation
           content:
             application/yaml:
               schema:
-                $ref: '#/components/schemas/soa_Swagger Petstore - OpenAPI 3_0_User'
+                $ref: '#/components/schemas/User'
               examples:
                 dog:
                   summary: a dog
@@ -82,14 +82,14 @@ paths:
             schema:
               type: array
               items:
-                $ref: '#/components/schemas/soa_Swagger Petstore - OpenAPI 3_0_User'
+                $ref: '#/components/schemas/User'
       responses:
         200:
           description: "OK\n\nSuccessful operation"
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/soa_Swagger Petstore - OpenAPI 3_0_User'
+                $ref: '#/components/schemas/User'
         default:
           description: successful operation
   /user/login:
@@ -145,7 +145,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/soa_Swagger Petstore - OpenAPI 3_0_User'
+                $ref: '#/components/schemas/User'
         400:
           description: "Bad Request\n\nInvalid username supplied"
         404:
@@ -166,7 +166,7 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/soa_Swagger Petstore - OpenAPI 3_0_User'
+              $ref: '#/components/schemas/User'
       responses:
         default:
           description: successful operation
@@ -199,7 +199,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/soa_Swagger Petstore - OpenAPI 3_0_Store_GetInventoryOutput200'
+                $ref: '#/components/schemas/Store_GetInventoryOutput200'
   /store/order:
     post:
       tags:
@@ -210,14 +210,14 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/soa_Swagger Petstore - OpenAPI 3_0_Order'
+              $ref: '#/components/schemas/Order'
       responses:
         200:
           description: "OK\n\nsuccessful operation"
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/soa_Swagger Petstore - OpenAPI 3_0_Order'
+                $ref: '#/components/schemas/Order'
         405:
           description: "Method Not Allowed\n\nInvalid input"
   /store/order/{orderId}:
@@ -241,7 +241,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/soa_Swagger Petstore - OpenAPI 3_0_Order'
+                $ref: '#/components/schemas/Order'
         400:
           description: "Bad Request\n\nInvalid ID supplied"
         404:
@@ -275,14 +275,14 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/soa_Swagger Petstore - OpenAPI 3_0_Pet'
+              $ref: '#/components/schemas/Pet'
       responses:
         200:
           description: "OK\n\nSuccessful operation"
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/soa_Swagger Petstore - OpenAPI 3_0_Pet'
+                $ref: '#/components/schemas/Pet'
         400:
           description: "Bad Request\n\nInvalid ID supplied"
         404:
@@ -298,14 +298,14 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/soa_Swagger Petstore - OpenAPI 3_0_Pet'
+              $ref: '#/components/schemas/Pet'
       responses:
         200:
           description: "OK\n\nSuccessful operation"
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/soa_Swagger Petstore - OpenAPI 3_0_Pet'
+                $ref: '#/components/schemas/Pet'
         405:
           description: "Method Not Allowed\n\nInvalid input"
   /pet/findByStatus:
@@ -320,7 +320,7 @@ paths:
         description: Status values that need to be considered for filter
         required: false
         schema:
-          $ref: '#/components/schemas/soa_Swagger Petstore - OpenAPI 3_0_PetStatus'
+          $ref: '#/components/schemas/PetStatus'
       responses:
         200:
           description: "OK\n\nsuccessful operation"
@@ -329,7 +329,7 @@ paths:
               schema:
                 type: array
                 items:
-                  $ref: '#/components/schemas/soa_Swagger Petstore - OpenAPI 3_0_Pet'
+                  $ref: '#/components/schemas/Pet'
         400:
           description: "Bad Request\n\nInvalid status value"
   /pet/findByTags:
@@ -363,30 +363,12 @@ paths:
       responses:
         200:
           description: "OK\n\nsuccessful operation"
-          headers:
-            X-Total-Element:
-              schema:
-                type: integer
-                format: int64
-            X-Page-Element-Count:
-              schema:
-                type: integer
-                format: int64
-            Accept-Range:
-              schema:
-                type: string
-            Content-Range:
-              schema:
-                type: string
-            Link:
-              schema:
-                type: string
           content:
             application/json:
               schema:
                 type: array
                 items:
-                  $ref: '#/components/schemas/soa_Swagger Petstore - OpenAPI 3_0_Pet'
+                  $ref: '#/components/schemas/Pet'
         400:
           description: "Bad Request\n\nInvalid tag value"
       x-pagination: description
@@ -410,7 +392,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/soa_Swagger Petstore - OpenAPI 3_0_Pet'
+                $ref: '#/components/schemas/Pet'
         400:
           description: "Bad Request\n\nInvalid ID supplied"
         404:
@@ -493,18 +475,10 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/soa_Swagger Petstore - OpenAPI 3_0_ApiResponse'
+                $ref: '#/components/schemas/ApiResponse'
 components:
   schemas:
-    entity_Swagger Petstore - OpenAPI 3_0_Category:
-      type: object
-      properties:
-        name:
-          type: string
-        id:
-          type: integer
-          format: int64
-    soa_Swagger Petstore - OpenAPI 3_0_ApiResponse:
+    ApiResponse:
       type: object
       properties:
         code:
@@ -514,11 +488,15 @@ components:
           type: string
         message:
           type: string
-    soa_Swagger Petstore - OpenAPI 3_0_Category:
-      allOf:
-      - type: object
-      - $ref: '#/components/schemas/entity_Swagger Petstore - OpenAPI 3_0_Category'
-    soa_Swagger Petstore - OpenAPI 3_0_Order:
+    Category:
+      type: object
+      properties:
+        name:
+          type: string
+        id:
+          type: integer
+          format: int64
+    Order:
       type: object
       properties:
         petId:
@@ -536,14 +514,14 @@ components:
         complete:
           type: boolean
         status:
-          $ref: '#/components/schemas/soa_Swagger Petstore - OpenAPI 3_0_OrderStatus'
-    soa_Swagger Petstore - OpenAPI 3_0_OrderStatus:
+          $ref: '#/components/schemas/OrderStatus'
+    OrderStatus:
       type: string
       enum:
       - approved
       - placed
       - delivered
-    soa_Swagger Petstore - OpenAPI 3_0_Pet:
+    Pet:
       required:
       - name
       - photoUrls
@@ -560,22 +538,22 @@ components:
           type: integer
           format: int64
         status:
-          $ref: '#/components/schemas/soa_Swagger Petstore - OpenAPI 3_0_PetStatus'
+          $ref: '#/components/schemas/PetStatus'
         category:
-          $ref: '#/components/schemas/soa_Swagger Petstore - OpenAPI 3_0_Category'
+          $ref: '#/components/schemas/Category'
         tags:
           type: array
           items:
-            $ref: '#/components/schemas/soa_Swagger Petstore - OpenAPI 3_0_Tag'
-    soa_Swagger Petstore - OpenAPI 3_0_PetStatus:
+            $ref: '#/components/schemas/Tag'
+    PetStatus:
       type: string
       enum:
       - sold
       - pending
       - available
-    soa_Swagger Petstore - OpenAPI 3_0_Store_GetInventoryOutput200:
+    Store_GetInventoryOutput200:
       type: object
-    soa_Swagger Petstore - OpenAPI 3_0_Tag:
+    Tag:
       type: object
       properties:
         name:
@@ -583,7 +561,7 @@ components:
         id:
           type: integer
           format: int64
-    soa_Swagger Petstore - OpenAPI 3_0_User:
+    User:
       type: object
       properties:
         firstName:

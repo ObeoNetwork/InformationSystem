@@ -58,7 +58,6 @@ import org.obeonetwork.dsl.soa.Verb;
 import org.obeonetwork.dsl.soa.Wire;
 import org.obeonetwork.dsl.soa.design.dialogs.NewSecuritySchemeDialog;
 import org.obeonetwork.dsl.soa.services.HttpStatusService;
-import org.obeonetwork.dsl.soa.services.PropertiesExtensionsService;
 
 public class SOAService {
 
@@ -398,5 +397,5 @@ public class SOAService {
 				&& theObject.eContainer().eContainer() != null 
 				&& theObject.eContainer().eContainer() instanceof Operation 
 				&& theObject.equals(((Operation) theObject.eContainer().eContainer()).getPaginationExtension()));
-	}
+	}	
 }
