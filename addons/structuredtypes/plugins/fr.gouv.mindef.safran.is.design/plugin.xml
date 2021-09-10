@@ -61,7 +61,7 @@
                              args="selection"
                              forcePluginActivation="true"
                              property="org.eclipse.sirius.viewpoint.dRepresentationElement.definitionName"
-                             value="Entities Physical Names">
+                             value="EV_Entities_PhysicalNames">
                        </test>
                        <adapt
                              type="org.eclipse.sirius.table.metamodel.table.DTableElement">
@@ -75,7 +75,7 @@
                              <test
                                    args="selection"
                                    forcePluginActivation="true"
-                                   property="fr.gouv.mindef.safran.is.propertyTesters.referencePropertyTester.isNN"
+                                   property="fr.gouv.mindef.safran.is.propertyTesters.referencePropertyTester.isMultiple"
                                    value="true">
                              </test>
                           </and>
@@ -91,7 +91,7 @@
            class="fr.gouv.mindef.safran.is.propertyTesters.ReferencePropertyTester"
            id="fr.gouv.mindef.safran.is.propertyTesters.ReferencePropertyTester"
            namespace="fr.gouv.mindef.safran.is.propertyTesters.referencePropertyTester"
-           properties="isNN"
+           properties="isMultiple"
            pype="fr.gouv.mindef.safran.is.design.PropertyTester6"
            type="org.eclipse.sirius.viewpoint.DSemanticDecorator">
      </propertyTester>

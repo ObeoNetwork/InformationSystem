@@ -13,7 +13,7 @@ import org.obeonetwork.dsl.environment.Reference;
  */
 public class ReferencePropertyTester extends PropertyTester {
 
-	private static final String IS_NN = "isNN";
+	private static final String IS_MULTIPLE = "isMultiple";
 	
 	/**
 	 * Checks that a {@link Reference} and its opposite have both a multiplicity 0..* or 1..* 
@@ -21,7 +21,7 @@ public class ReferencePropertyTester extends PropertyTester {
 	 */
 	@Override
 	public boolean test(Object receiver, String property, Object[] args, Object expectedValue) {
-		if (IS_NN.equals(property)) {
+		if (IS_MULTIPLE.equals(property)) {
 			Reference reference = (Reference) ((DSemanticDecorator) receiver).getTarget();
 			if (reference.getOppositeOf() != null) {
 				return isMultiple(reference) && isMultiple(reference.getOppositeOf());
