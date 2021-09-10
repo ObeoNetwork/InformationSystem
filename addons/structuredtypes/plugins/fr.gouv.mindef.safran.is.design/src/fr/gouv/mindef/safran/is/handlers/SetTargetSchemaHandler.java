@@ -39,15 +39,18 @@ public class SetTargetSchemaHandler extends AbstractHandler {
 		ISelection selection = HandlerUtil.getActiveWorkbenchWindow(event).getActivePage().getSelection();
 		DSemanticDecorator decorator = (DSemanticDecorator) ((StructuredSelection) selection).getFirstElement();
 		
-		Reference reference = (Reference) decorator.getTarget();		
-		String qualifiedName = ReferencesService.getNamespaceQualifiedName(reference); 
-		
-		if (qualifiedName.equals(ANNOTATION_SERVICES.getPhysicalTarget(reference))) {
-			// Physical Target is already defined: we swap with the OpposedReference namespace			
-			qualifiedName = ReferencesService.getNamespaceQualifiedName(reference.getOppositeOf());
+		if (decorator.getTarget() instanceof Reference) {
+			Reference reference = (Reference) decorator.getTarget();		
+			String qualifiedName = ReferencesService.getNamespaceQualifiedName(reference); 
+			
+			if (qualifiedName.equals(ANNOTATION_SERVICES.getPhysicalTarget(reference))) {
+				// Physical Target is already defined: we swap with the OpposedReference namespace			
+				qualifiedName = ReferencesService.getNamespaceQualifiedName(reference.getOppositeOf());
+			}
+			
+			setPhysicalTarget(reference, qualifiedName);	
 		}
 		
-		setPhysicalTarget(reference, qualifiedName);
 		return null;
 	}
 
