@@ -18,6 +18,7 @@ import java.util.Map;
 import java.util.Set;
 
 import org.eclipse.sirius.diagram.DSemanticDiagram;
+import org.obeonetwork.dsl.environment.Namespace;
 import org.obeonetwork.dsl.environment.Reference;
 import org.obeonetwork.dsl.environment.StructuredType;
 
@@ -64,6 +65,20 @@ public class ReferencesService {
 			}
 		}
 		return new ArrayList<Reference>(map.values());
+	}
+	
+	/**
+	 * Returns the {@link Namespace} qualified name of a {@link Reference}  
+	 * @param reference a {@link Reference}
+	 * @return The qualified name as a {@link String} 
+	 */
+	public static String getNamespaceQualifiedName(Reference reference) {
+		String namespaceQualifiedName = null;
+		if (reference.eContainer() != null && reference.eContainer() instanceof StructuredType) {
+			StructuredType structuredType = (StructuredType) reference.eContainer();
+			namespaceQualifiedName = TypesServices.getNamespaceQualifiedName(structuredType);	
+		}
+		return namespaceQualifiedName;
 	}
 	
 	public Reference reconnectBidiReferenceTarget(Reference reference, StructuredType source, StructuredType target) {

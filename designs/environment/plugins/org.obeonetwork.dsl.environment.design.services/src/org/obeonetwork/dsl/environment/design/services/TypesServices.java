@@ -457,6 +457,16 @@ public class TypesServices {
 		}
 		return null;
 	}
+
+	public static String getNamespaceQualifiedName(StructuredType structuredType) {
+		return EObjectUtils
+					.getAncestors(structuredType)
+					.stream()
+					.filter(Namespace.class::isInstance)
+					.map(Namespace.class::cast)
+					.map(Namespace::getName)
+					.collect(Collectors.joining("/"));
+  }
 	
 	public static Collection<Attribute> getAssociatedTypesAttributes(StructuredType type) {
 		return type .getAssociatedTypes()

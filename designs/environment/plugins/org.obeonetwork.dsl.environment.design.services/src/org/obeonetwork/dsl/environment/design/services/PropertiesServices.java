@@ -20,6 +20,7 @@ import org.obeonetwork.dsl.environment.DataType;
 import org.obeonetwork.dsl.environment.MultiplicityKind;
 import org.obeonetwork.dsl.environment.Property;
 import org.obeonetwork.dsl.environment.Reference;
+import org.obeonetwork.dsl.environment.StructuredType;
 import org.obeonetwork.utils.sirius.services.EObjectUtils;
 
 public class PropertiesServices {
@@ -101,5 +102,15 @@ public class PropertiesServices {
 			}
 		}
 		return null;
+	}
+	
+	public static String getPropertyNamespaceQualifiedName(Property property) {
+		String propertyNamespaceQualifiedName = null;
+		
+		if (property.eContainer() instanceof StructuredType) {
+			propertyNamespaceQualifiedName = TypesServices.getNamespaceQualifiedName((StructuredType) property.eContainer());
+		}
+		
+		return propertyNamespaceQualifiedName;
 	}
 }

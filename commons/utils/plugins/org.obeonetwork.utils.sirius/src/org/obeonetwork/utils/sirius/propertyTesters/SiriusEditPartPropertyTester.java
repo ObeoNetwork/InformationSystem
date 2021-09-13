@@ -38,12 +38,13 @@ public class SiriusEditPartPropertyTester extends PropertyTester {
 			return testViewpointId(siriusEditPart, (String)expectedValue);
 		} else if(PROP_DIAGRAM_NAME.equals(property)) {
 			return testDiagramName(siriusEditPart, (String)expectedValue);
-		}else if(PROP_MAPPING_NAME.equals(property)) {
+		} else if(PROP_MAPPING_NAME.equals(property)) {
 			return testMappingName(siriusEditPart, (String)expectedValue);
-		}
+		} 
 		
 		return false;
 	}
+
 
 	private boolean testDiagramName(ISiriusEditPart siriusEditPart, String expectedDiagramName) {
 		DDiagram dDiagram = getDDiagram(siriusEditPart);
@@ -94,5 +95,4 @@ public class SiriusEditPartPropertyTester extends PropertyTester {
 		
 		return dDiagram;
 	}
-
 }

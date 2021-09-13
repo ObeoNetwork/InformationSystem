@@ -10,6 +10,20 @@
             properties="diagramName,viewpointId,mappingName"
             type="org.eclipse.sirius.diagram.ui.edit.api.part.ISiriusEditPart">
       </propertyTester>
+      <propertyTester
+            class="org.obeonetwork.utils.sirius.propertyTesters.SiriusRepresentationPropertyTester"
+            id="org.obeonetwork.utils.sirius.propertyTesters.SiriusRepresentationPropertyTester"
+            namespace="org.eclipse.sirius.viewpoint.dRepresentationElement"
+            properties="definitionName"
+            type="org.eclipse.sirius.viewpoint.DRepresentationElement">
+      </propertyTester>
+      <propertyTester
+            class="org.obeonetwork.utils.sirius.propertyTesters.DSemanticDecoratorPropertyTester"
+            id="org.obeonetwork.utils.sirius.propertyTesters.DSemanticDecoratorPropertyTester"
+            namespace="org.eclipse.sirius.viewpoint.dSemanticDecorator"
+            properties="targetType"
+            type="org.eclipse.sirius.viewpoint.DSemanticDecorator">
+      </propertyTester>
    </extension>
 
 </plugin>

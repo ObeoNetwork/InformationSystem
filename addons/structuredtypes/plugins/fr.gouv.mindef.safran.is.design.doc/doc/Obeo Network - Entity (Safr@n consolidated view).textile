@@ -33,6 +33,6 @@ Cinq colonnes _Name_, _Size_, _Check_, _Unique_, _Default_ et _Target Schema_:
 <pre><code><nom de colonne1>:<asc ou desc>, <nom de colonne2>:<asc ou desc>, ... | ...</code></pre>
 où le nom d'une colonne est son nom _physique_ (dans la base de données) ; _asc_ indique que l'index a un ordre ascendant ; _desc_ que l'index a un ordre descendant ; une virgule (',') sépare les colonnes utilisées pour un même index ; et un pipe ('|') est utilisé pour séparer les différents index à générer.
 * _Default_ : spécifie une valeur par défaut. Texte libre.
-* _Target Schema_: permet de définir le schéma de destination dans le cadre d'une relation NN. Un "x" dans la ligne d'une référence (issue de relation NN) indique que la table de jointure sera créée dans le même schéma que la référence.
+* _Target Schema_: permet de définir le schéma de destination dans le cadre d'une relation NN. Une action en menu contextuel est disponible sur les références. Cette action "Set/swap Target Schema" permet de définir le namespace de la relation comme namespace destination pour la table de jointure. Il est aussi possible d'utiliser le raccourci clavier CTRL+T en selectionnant une référence pour faciliter cette définition. 
 
 La modification des valeur se fait par édition directe des cellules du tableau.

@@ -16,7 +16,9 @@ Require-Bundle: org.eclipse.ui,
  org.obeonetwork.dsl.environment,
  org.obeonetwork.dsl.entity,
  org.obeonetwork.dsl.database,
- fr.obeo.dsl.viewpoint.collab;resolution:=optional
+ fr.obeo.dsl.viewpoint.collab;resolution:=optional,
+ org.obeonetwork.dsl.environment.design.services,
+ org.obeonetwork.utils.common
 Bundle-ActivationPolicy: lazy
 Bundle-RequiredExecutionEnvironment: JavaSE-1.6
 Export-Package: fr.gouv.mindef.safran.database.transfo,
