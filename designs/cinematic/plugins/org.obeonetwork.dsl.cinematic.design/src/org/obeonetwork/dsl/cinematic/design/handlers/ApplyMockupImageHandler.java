@@ -71,6 +71,10 @@ public class ApplyMockupImageHandler extends AbstractHandler {
 		DDiagramElement diagramElement = selectedDiagramElementEditPart.resolveDiagramElement();
 		
 		ViewState viewState = (ViewState) diagramElement.getTarget();
+		
+		if (viewState.getViewContainers().isEmpty()) 
+			return;
+		
 		ViewContainer viewContainer = viewState.getViewContainers().get(0);
 		
 		Session session = new EObjectQuery(viewState).getSession();
