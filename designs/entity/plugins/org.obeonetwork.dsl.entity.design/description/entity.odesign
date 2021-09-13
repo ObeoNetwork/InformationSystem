@@ -153,7 +153,7 @@
               <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='gray']"/>
             </style>
           </subNodeMappings>
-          <subNodeMappings name="ED_AssociatedAttribute" deletionDescription="//@ownedViewpoints[name='Entity%20Views']/@ownedRepresentations[name='Entities%20Diagram']/@defaultLayer/@toolSections.5/@ownedTools[name='DEL_PreventDeletion']" semanticCandidatesExpression="[associatedTypes.attributes/]" domainClass="environment.Attribute">
+          <subNodeMappings name="ED_AssociatedAttribute" deletionDescription="//@ownedViewpoints[name='Entity%20Views']/@ownedRepresentations[name='Entities%20Diagram']/@defaultLayer/@toolSections.5/@ownedTools[name='DEL_PreventDeletion']" semanticCandidatesExpression="service:getAssociatedTypesAttributes()" domainClass="environment.Attribute">
             <style xsi:type="style:SquareDescription" labelExpression="service:self.getEnvironmentLabel()" labelColor="//@userColorsPalettes[name='Palette']/@entries[name='StructuredType_color']" labelAlignment="LEFT">
               <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
               <labelFormat>italic</labelFormat>
