@@ -17,6 +17,7 @@ import java.util.List;
 
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EAttribute;
+import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EDataType;
 import org.eclipse.emf.ecore.EFactory;
 import org.eclipse.emf.ecore.EObject;
@@ -24,6 +25,7 @@ import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.emf.ecore.EcorePackage;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.resource.ResourceSet;
+import org.eclipse.emf.ecore.util.EcoreUtil;
 
 public class EObjectUtils {
 
@@ -124,5 +126,16 @@ public class EObjectUtils {
 		}
 		return values;
 	}
-
+	
+	/**
+	 * Returns the name of the root package of a model element
+	 * @param eObject an {@link EObject}
+	 * @return the name as a {@link String}
+	 */
+	public static String getMetamodelRootPackageName(EObject eObject) {
+		EObject rootContainer = EcoreUtil.getRootContainer(eObject, true);
+		EClass clazz = rootContainer.eClass();
+		return clazz.getEPackage().getName();
+	}
 }
+ 
