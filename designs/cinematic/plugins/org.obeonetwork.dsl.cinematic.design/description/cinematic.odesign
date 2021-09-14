@@ -97,14 +97,8 @@
             <beginLabelStyleDescription showIcon="false" labelExpression="service:getGuardLabel" labelColor="//@userColorsPalettes[name='DomainColors']/@entries[name='ISDLabelAndEdge']"/>
             <centerLabelStyleDescription labelExpression="service:getCinematicLabel" labelColor="//@userColorsPalettes[name='DomainColors']/@entries[name='ISDLabelAndEdge']" iconPath="/org.obeonetwork.dsl.cinematic.design/icons/viewpoint/event.gif"/>
           </style>
-          <conditionnalStyles predicateExpression="aql:self.from.oclIsKindOf(flow::ViewState) and self.to.oclIsKindOf(flow::ViewState)">
+          <conditionnalStyles predicateExpression="aql:self.isFlowTransition()">
             <style strokeColor="//@userColorsPalettes[name='DomainColors']/@entries[name='ISDLabelAndEdge']" sizeComputationExpression="2">
-              <beginLabelStyleDescription showIcon="false" labelExpression="service:getGuardLabel" labelColor="//@userColorsPalettes[name='DomainColors']/@entries[name='ISDLabelAndEdge']"/>
-              <centerLabelStyleDescription labelExpression="service:getCinematicLabel" labelColor="//@userColorsPalettes[name='DomainColors']/@entries[name='ISDLabelAndEdge']" iconPath="/org.obeonetwork.dsl.cinematic.design/icons/viewpoint/event.gif"/>
-            </style>
-          </conditionnalStyles>
-          <conditionnalStyles predicateExpression="aql:self.from.oclIsKindOf(flow::ActionState) or self.to.oclIsKindOf(flow::ActionState)">
-            <style strokeColor="//@userColorsPalettes[name='DomainColors']/@entries[name='ISDLabelAndEdge']" lineStyle="dash">
               <beginLabelStyleDescription showIcon="false" labelExpression="service:getGuardLabel" labelColor="//@userColorsPalettes[name='DomainColors']/@entries[name='ISDLabelAndEdge']"/>
               <centerLabelStyleDescription labelExpression="service:getCinematicLabel" labelColor="//@userColorsPalettes[name='DomainColors']/@entries[name='ISDLabelAndEdge']" iconPath="/org.obeonetwork.dsl.cinematic.design/icons/viewpoint/event.gif"/>
             </style>
@@ -357,7 +351,7 @@
       </additionalLayers>
       <additionalLayers name="View Containers" activeByDefault="true">
         <edgeMappings name="FLD_ViewState_To_ViewContainer" deletionDescription="//@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='Flow%20Diagram']/@additionalLayers[name='View%20Containers']/@toolSections.1/@ownedTools[name='DEL_DissociateViewStateAndViewContainer']" doubleClickDescription="//@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='Flow%20Diagram']/@additionalLayers[name='View%20Containers']/@toolSections.1/@ownedTools[name='EditVewStateEvent']" sourceMapping="//@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='Flow%20Diagram']/@defaultLayer/@nodeMappings[name='FLD_ViewState']" targetMapping="//@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='Flow%20Diagram']/@additionalLayers[name='View%20Containers']/@containerMappings[name='FLD_ViewContainer']" targetFinderExpression="feature:viewContainers" targetExpression="var:self" reconnections="//@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='Flow%20Diagram']/@additionalLayers[name='View%20Containers']/@toolSections.1/@ownedTools[name='REC_ViewState_To_ViewContainer_Target'] //@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='Flow%20Diagram']/@additionalLayers[name='View%20Containers']/@toolSections.1/@ownedTools[name='REC_ViewState_To_ViewContainer_Source']">
-          <style strokeColor="//@userColorsPalettes[name='DomainColors']/@entries[name='ISDLabelAndEdge']" lineStyle="dash" sizeComputationExpression="[eContents()->size()/]">
+          <style strokeColor="//@userColorsPalettes[name='DomainColors']/@entries[name='ISDLabelAndEdge']" lineStyle="dot" targetArrow="NoDecoration" sizeComputationExpression="[eContents()->size()/]">
             <centerLabelStyleDescription showIcon="false" labelColor="//@userColorsPalettes[name='DomainColors']/@entries[name='ISDLabelAndEdge']"/>
           </style>
         </edgeMappings>
