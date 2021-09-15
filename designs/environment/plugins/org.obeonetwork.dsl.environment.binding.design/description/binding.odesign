@@ -86,10 +86,10 @@
         </toolSections>
         <customization>
           <vsmElementCustomizations xsi:type="description:VSMElementCustomization" predicateExpression="aql:self.getMetamodelRootPackageName()='soa'">
-            <featureCustomizations xsi:type="description:EReferenceCustomization" appliedOn="//@ownedViewpoints[name='IS%20Databinding']/@ownedRepresentations[name='Databinding%20diagram']/@defaultLayer/@containerMappings[name='DBI_StructuredType']/@style" referenceName="backgroundColor" value="//@userColorsPalettes[name='Palette']/@entries[name='SoaFillDark']"/>
+            <featureCustomizations xsi:type="description:EReferenceCustomization" appliedOn="//@ownedViewpoints[name='IS%20Databinding']/@ownedRepresentations[name='Databinding%20diagram']/@defaultLayer/@containerMappings[name='DBI_StructuredType']/@style" referenceName="backgroundColor" value="//@userColorsPalettes[name='Palette']/@entries[name='SoaFillLight']"/>
           </vsmElementCustomizations>
           <vsmElementCustomizations xsi:type="description:VSMElementCustomization" predicateExpression="aql:self.getMetamodelRootPackageName()='soa'">
-            <featureCustomizations xsi:type="description:EReferenceCustomization" appliedOn="//@ownedViewpoints[name='IS%20Databinding']/@ownedRepresentations[name='Databinding%20diagram']/@defaultLayer/@containerMappings[name='DBI_StructuredType']/@style" referenceName="foregroundColor" value="//@userColorsPalettes[name='Palette']/@entries[name='SoaFillDark']"/>
+            <featureCustomizations xsi:type="description:EReferenceCustomization" appliedOn="//@ownedViewpoints[name='IS%20Databinding']/@ownedRepresentations[name='Databinding%20diagram']/@defaultLayer/@containerMappings[name='DBI_StructuredType']/@style" referenceName="foregroundColor" value="//@userColorsPalettes[name='Palette']/@entries[name='SoaFillLight']"/>
           </vsmElementCustomizations>
           <vsmElementCustomizations xsi:type="description:VSMElementCustomization" predicateExpression="aql:self.getMetamodelRootPackageName()='entity'">
             <featureCustomizations xsi:type="description:EReferenceCustomization" appliedOn="//@ownedViewpoints[name='IS%20Databinding']/@ownedRepresentations[name='Databinding%20diagram']/@defaultLayer/@containerMappings[name='DBI_StructuredType']/@style" referenceName="backgroundColor" value="//@userColorsPalettes[name='Palette']/@entries[name='EntityFillLight']"/>
@@ -109,5 +109,6 @@
     <entries xsi:type="description:UserFixedColor" red="136" green="136" blue="136" name="ISDBorder"/>
     <entries xsi:type="description:UserFixedColor" red="202" green="231" blue="255" name="SoaFillDark"/>
     <entries xsi:type="description:UserFixedColor" red="179" green="222" blue="255" name="EntityFillLight"/>
+    <entries xsi:type="description:UserFixedColor" red="238" green="248" blue="255" name="SoaFillLight"/>
   </userColorsPalettes>
 </description:Group>
