@@ -133,9 +133,15 @@ public class EObjectUtils {
 	 * @return the name as a {@link String}
 	 */
 	public static String getMetamodelRootPackageName(EObject eObject) {
-		EObject rootContainer = EcoreUtil.getRootContainer(eObject, true);
-		EClass clazz = rootContainer.eClass();
-		return clazz.getEPackage().getName();
+		String packageName = null;
+		EObject rootContainer = EcoreUtil.getRootContainer(eObject, true);		
+		
+		if (rootContainer != null) {
+			EClass clazz = rootContainer.eClass();	
+			packageName = clazz.getEPackage().getName();
+		}
+		
+		return packageName;
 	}
 }
  
