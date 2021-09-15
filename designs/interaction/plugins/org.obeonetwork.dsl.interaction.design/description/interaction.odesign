@@ -1023,6 +1023,7 @@
       </defaultLayer>
     </ownedRepresentations>
     <ownedJavaExtensions qualifiedClassName="org.obeonetwork.dsl.interaction.design.services.InteractionServices"/>
+    <ownedJavaExtensions qualifiedClassName="org.obeonetwork.utils.sirius.services.EObjectUtils"/>
     <ownedJavaExtensions qualifiedClassName="org.obeonetwork.dsl.interaction.design.services.DeleteServices"/>
   </ownedViewpoints>
   <userColorsPalettes name="Dutch Seas">
