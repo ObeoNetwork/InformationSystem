@@ -696,8 +696,8 @@
     <entries xsi:type="description:UserFixedColor" red="136" green="136" blue="136" name="Namespace_border"/>
     <entries xsi:type="description:UserFixedColor" red="215" green="237" blue="255" name="StructuredType_background"/>
     <entries xsi:type="description:UserFixedColor" red="215" green="237" blue="255" name="StructuredType_foreground"/>
-    <entries xsi:type="description:UserFixedColor" red="0" green="43" blue="60" name="StructuredType_color"/>
     <entries xsi:type="description:UserFixedColor" red="136" green="136" blue="136" name="StructuredType_border"/>
+    <entries xsi:type="description:UserFixedColor" red="0" green="43" blue="60" name="StructuredType_color"/>
     <entries xsi:type="description:UserFixedColor" red="238" green="238" blue="255" name="Enumeration_background"/>
     <entries xsi:type="description:UserFixedColor" red="238" green="238" blue="255" name="Enumeration_foreground"/>
     <entries xsi:type="description:UserFixedColor" red="0" green="43" blue="60" name="Enumeration_color"/>

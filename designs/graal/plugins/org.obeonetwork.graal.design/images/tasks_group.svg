@@ -10,18 +10,18 @@
    version="1.1"
    id="svg2"
    inkscape:version="1.0.2-2 (e86c870879, 2021-01-15)"
-   sodipodi:docname="shape_graal_base.svg"
+   sodipodi:docname="tasks_group.svg"
    x="0px"
    y="0px"
-   viewBox="0 0 250 117.5"
+   viewBox="0 0 240.60001 119.7"
    enable-background="new 0 0 254.2 121.7"
    xml:space="preserve"
-   width="250"
-   height="117.5"><metadata
-   id="metadata11"><rdf:RDF><cc:Work
+   width="240.60001"
+   height="119.7"><metadata
+   id="metadata15"><rdf:RDF><cc:Work
        rdf:about=""><dc:format>image/svg+xml</dc:format><dc:type
          rdf:resource="http://purl.org/dc/dcmitype/StillImage" /></cc:Work></rdf:RDF></metadata><defs
-   id="defs9" />
+   id="defs13" />
 <sodipodi:namedview
    bordercolor="#666666"
    borderopacity="1"
@@ -33,8 +33,8 @@
    guidetolerance="10"
    id="namedview116"
    inkscape:current-layer="svg2"
-   inkscape:cx="-225.73648"
-   inkscape:cy="-107.02575"
+   inkscape:cx="-230.43648"
+   inkscape:cy="-105.92575"
    inkscape:pageopacity="0"
    inkscape:pageshadow="2"
    inkscape:window-height="615"
@@ -50,11 +50,11 @@
 	</sodipodi:namedview>
 <g
    id="Calque_5"
-   transform="translate(-9.4999901,-54.824061)">
+   transform="translate(-14.19999,-53.724061)">
 </g>
 <g
    id="Calque_1"
-   transform="translate(-9.4999901,-54.824061)"
+   transform="translate(-14.19999,-53.724061)"
    inkscape:export-filename="/Volumes/partage/private/marketing/Design/SitesWeb/Obeo/v3/svg/maquettes/maquette_services_page_v1.0.png"
    inkscape:export-xdpi="150"
    inkscape:export-ydpi="150"
@@ -63,13 +63,28 @@
 </g>
 <g
    id="Calque_2"
-   transform="translate(-9.4999901,-54.824061)">
+   transform="translate(-14.19999,-53.724061)">
 </g>
 <g
    id="Calque_3"
-   transform="translate(-9.4999901,-54.824061)">
+   transform="translate(-14.19999,-53.724061)">
 </g>
-<path
+<g
+   id="g10"
+   transform="translate(-6.8,-1)">
+	
+		<path
+   id="rect4138_00000036217118530533380530000004250049047104108433_"
+   opacity="0.97"
+   fill="#fff9e1"
+   stroke="#888888"
+   stroke-linecap="square"
+   stroke-linejoin="round"
+   stroke-miterlimit="1"
+   enable-background="new    "
+   d="m 52.2,1.5 h 162.2 c 17.9,0 32.5,14.5 32.5,32.5 v 41.3 c 0,17.9 -14.5,32.5 -32.5,32.5 H 52.2 C 34.3,107.8 19.7,93.3 19.7,75.3 V 34 C 19.8,16.1 34.3,1.5 52.2,1.5 Z" />
+	
+		<path
    id="rect4138"
    opacity="0.97"
    fill="#fff9e1"
@@ -78,5 +93,17 @@
    stroke-linejoin="round"
    stroke-miterlimit="1"
    enable-background="new    "
-   d="m 36.1,0.5 h 177.8 c 19.7,0 35.6,15.9 35.6,35.6 v 45.3 c 0,19.7 -15.9,35.6 -35.6,35.6 H 36.1 C 16.4,117 0.5,101.1 0.5,81.4 V 36.1 C 0.5,16.4 16.4,0.5 36.1,0.5 Z" />
+   d="m 46,7.7 h 162.2 c 17.9,0 32.5,14.5 32.5,32.5 v 41.3 c 0,17.9 -14.5,32.5 -32.5,32.5 H 46 C 28.1,114 13.5,99.5 13.5,81.5 V 40.2 C 13.6,22.3 28.1,7.7 46,7.7 Z" />
+	
+		<path
+   id="rect4138_00000066516323693689431480000000943097753984652707_"
+   opacity="0.97"
+   fill="#fff9e1"
+   stroke="#888888"
+   stroke-linecap="square"
+   stroke-linejoin="round"
+   stroke-miterlimit="1"
+   enable-background="new    "
+   d="M 39.8,13.9 H 202 c 17.9,0 32.5,14.5 32.5,32.5 v 41.3 c 0,17.9 -14.5,32.5 -32.5,32.5 H 39.8 C 21.9,120.2 7.3,105.7 7.3,87.7 V 46.4 C 7.4,28.4 21.9,13.9 39.8,13.9 Z" />
+</g>
 </svg>
