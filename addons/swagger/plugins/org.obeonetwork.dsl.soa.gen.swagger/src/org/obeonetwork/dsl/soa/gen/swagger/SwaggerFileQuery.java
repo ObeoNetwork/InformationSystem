@@ -13,8 +13,6 @@ package org.obeonetwork.dsl.soa.gen.swagger;
 import java.io.File;
 import java.io.IOException;
 
-import org.obeonetwork.dsl.soa.SecurityScheme;
-
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -30,43 +28,42 @@ public class SwaggerFileQuery {
 	public static final String VERSION_NAME_SWAGGER = "Swagger";
 	public static final String VERSION_NAME_OPEN_API = "OpenAPI";
 
-	private File file;
 	private ObjectMapper mapper;
+	private JsonNode root;
 	
-	public SwaggerFileQuery(File file) {
-		this.file = file;
+	public SwaggerFileQuery(File file) throws JsonProcessingException, IOException {
 		if(file.getPath().endsWith(".yaml")) {
 			mapper = new ObjectMapper(new YAMLFactory());
 		} else if(file.getPath().endsWith(".json")) {
 			mapper = new ObjectMapper();
 		}
+		
+		if (mapper != null) 
+			root = mapper.readTree(file);
 	}
 
-	public String getVersion() throws JsonProcessingException, IOException {
+	public String getVersion() {
 		String version = "Unknown format";
 		
-		if(mapper != null) {
-			JsonNode root = mapper.readTree(file);
-			
+		if (root != null) {
 			if(root.has(KEY_SWAGGER)) {
 				version = VERSION_NAME_SWAGGER + " " + root.get(KEY_SWAGGER).asText();
 			}
 			
 			if(root.has(KEY_OPEN_API)) {
 				version = VERSION_NAME_OPEN_API + " " + root.get(KEY_OPEN_API).asText();
-			}
+			}	
 		}
 		
 		return version;
 	}
 	
-	public OAuthFlows getOAuthFlows(SecurityScheme soaSecurityScheme) throws JsonProcessingException, IOException {
-		if(mapper != null) {
-			JsonNode root = mapper.readTree(file);
-			JsonNode securitySchemeNode = root.findValue(soaSecurityScheme.getName());
+	public OAuthFlows getOAuthFlows(String schemeName) throws JsonProcessingException, IOException {
+		if(root != null) {
+			JsonNode securitySchemeNode = root.findValue(schemeName);
 			JsonNode flowsNode = securitySchemeNode.get("flows");
 			
-			if (flowsNode != null)
+			if (mapper != null && flowsNode != null)
 				return mapper.convertValue(flowsNode, OAuthFlows.class);
 		}
 		

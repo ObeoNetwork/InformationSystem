@@ -22,7 +22,6 @@ import static org.obeonetwork.utils.common.StringUtils.emptyIfNull;
 import static org.obeonetwork.utils.common.StringUtils.upperFirst;
 import static org.obeonetwork.utils.sirius.services.EObjectUtils.getAncestors;
 
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collection;
@@ -137,13 +136,11 @@ public class SoaComponentBuilder {
 	 */
 	private Map<Type, List<ObeoDSMObject>> inlineTypes;
 	private String paginationExtension;
-	private SwaggerFileQuery fileQuery;
 
-	public SoaComponentBuilder(OpenAPI swagger, Environment environment, String paginationExtension, SwaggerFileQuery fileQuery) {
+	public SoaComponentBuilder(OpenAPI swagger, Environment environment, String paginationExtension) {
 		this.openApi = swagger;
 		this.environment = environment;
 		this.paginationExtension = paginationExtension;
-		this.fileQuery = fileQuery;
 	}
 
 	public int build() {
@@ -304,12 +301,8 @@ public class SoaComponentBuilder {
 				soaSecurityScheme.setConnectURL(swgSecurityScheme.getOpenIdConnectUrl());
 			}
 			
-			try {
-				OAuthFlows swgOAuthFlows = fileQuery.getOAuthFlows(soaSecurityScheme);
-				if (swgOAuthFlows != null)
-					soaSecurityScheme.getFlows().addAll(toSoa(swgOAuthFlows));
-			} catch (IOException e) {
-				e.printStackTrace();
+			if (swgSecurityScheme.getFlows() != null) {
+				soaSecurityScheme.getFlows().addAll(toSoa(swgSecurityScheme.getFlows()));
 			}
 			break;
 		default:

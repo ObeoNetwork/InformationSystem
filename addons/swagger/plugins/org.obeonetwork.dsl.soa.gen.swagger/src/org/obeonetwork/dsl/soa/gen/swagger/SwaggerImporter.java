@@ -30,7 +30,11 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 
 import io.swagger.v3.core.util.Json;
 import io.swagger.v3.core.util.Yaml;
+import io.swagger.v3.oas.models.Components;
 import io.swagger.v3.oas.models.OpenAPI;
+import io.swagger.v3.oas.models.security.OAuthFlow;
+import io.swagger.v3.oas.models.security.SecurityScheme;
+import io.swagger.v3.oas.models.security.SecurityScheme.Type;
 
 public class SwaggerImporter {
 	
@@ -80,6 +84,8 @@ public class SwaggerImporter {
 
 			try {
 				swagger = objectMapper.readValue(inputFile, OpenAPI.class);
+				// SAFRAN-961
+				addFlowsToOpenIdConnectSchemes(swagger);
 			} catch (JsonParseException e) {
 				logError("Json parsing exception.", e);
 				status = IStatus.ERROR;
@@ -94,7 +100,7 @@ public class SwaggerImporter {
 		
 		if(status != IStatus.ERROR) {
 			
-			SoaComponentBuilder soaComponentBuilder = new SoaComponentBuilder(swagger, environment, paginationExtension, fileQuery);
+			SoaComponentBuilder soaComponentBuilder = new SoaComponentBuilder(swagger, environment, paginationExtension);
 			status = soaComponentBuilder.build();
 			
 			if(status != IStatus.ERROR) {
@@ -110,7 +116,6 @@ public class SwaggerImporter {
 					logError(String.format("Namespace with name %s already exist.", soaComponentNamespace.getName()));
 					status = IStatus.ERROR;
 				}
-								
 				
 				if(status != IStatus.ERROR) {
 					if(soaComponent != null) {
@@ -123,9 +128,26 @@ public class SwaggerImporter {
 			}
 		}
 		
-		return status;
-		
+		return status;		
 	}
 	
+	/**
+	 * Checks the {@link SecurityScheme} of the {@link Components}. 
+	 * If a scheme has the OpenIDConnect {@link Type}, it gathers the {@link OAuthFlow} it may contain.  
+	 * @param api the {@link OpenAPI}
+	 */
+	private void addFlowsToOpenIdConnectSchemes(OpenAPI api) {
+		api.getComponents().getSecuritySchemes().entrySet().stream()
+		.filter(entry -> {
+			return entry.getValue().getType().equals(SecurityScheme.Type.OPENIDCONNECT); 
+		})
+		.forEach(entry -> {
+			try {
+				entry.getValue().setFlows(fileQuery.getOAuthFlows(entry.getKey()));
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+		});
+	}
 	
 }
