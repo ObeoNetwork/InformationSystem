@@ -13,21 +13,16 @@ package org.obeonetwork.dsl.soa.gen.swagger;
 import static java.util.stream.Collectors.joining;
 import static java.util.stream.Collectors.toList;
 import static java.util.stream.Collectors.toSet;
-import static org.obeonetwork.dsl.soa.gen.swagger.HTTPResponseHeaders.X_PAGE_ELEMENT_COUNT;
-import static org.obeonetwork.dsl.soa.gen.swagger.HTTPResponseHeaders.X_TOTAL_ELEMENT;
-import static org.obeonetwork.dsl.soa.gen.swagger.HTTPStatusCodes.HTTP_206;
 import static org.obeonetwork.dsl.soa.gen.swagger.OpenApiParserHelper.COMPONENT_SCHEMA_$REF;
-import static org.obeonetwork.dsl.soa.gen.swagger.OpenApiParserHelper.OPEN_API_TYPE_INTEGER;
 import static org.obeonetwork.dsl.soa.gen.swagger.OpenApiParserHelper.getPrimitiveTypeName;
 import static org.obeonetwork.dsl.soa.gen.swagger.OpenApiParserHelper.isEnum;
 import static org.obeonetwork.dsl.soa.gen.swagger.OpenApiParserHelper.isObject;
 import static org.obeonetwork.dsl.soa.gen.swagger.OpenApiParserHelper.isPrimitiveType;
-import static org.obeonetwork.dsl.soa.gen.swagger.SwaggerBuilder.SOA_PAGE_PARAMETER_NAME;
-import static org.obeonetwork.dsl.soa.gen.swagger.SwaggerBuilder.SOA_SIZE_PARAMETER_NAME;
 import static org.obeonetwork.utils.common.StringUtils.emptyIfNull;
 import static org.obeonetwork.utils.common.StringUtils.upperFirst;
 import static org.obeonetwork.utils.sirius.services.EObjectUtils.getAncestors;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collection;
@@ -142,11 +137,13 @@ public class SoaComponentBuilder {
 	 */
 	private Map<Type, List<ObeoDSMObject>> inlineTypes;
 	private String paginationExtension;
+	private SwaggerFileQuery fileQuery;
 
-	public SoaComponentBuilder(OpenAPI swagger, Environment environment, String paginationExtension) {
+	public SoaComponentBuilder(OpenAPI swagger, Environment environment, String paginationExtension, SwaggerFileQuery fileQuery) {
 		this.openApi = swagger;
 		this.environment = environment;
 		this.paginationExtension = paginationExtension;
+		this.fileQuery = fileQuery;
 	}
 
 	public int build() {
@@ -306,10 +303,17 @@ public class SoaComponentBuilder {
 			if (swgSecurityScheme.getOpenIdConnectUrl() != null) {
 				soaSecurityScheme.setConnectURL(swgSecurityScheme.getOpenIdConnectUrl());
 			}
+			
+			try {
+				OAuthFlows swgOAuthFlows = fileQuery.getOAuthFlows(soaSecurityScheme);
+				if (swgOAuthFlows != null)
+					soaSecurityScheme.getFlows().addAll(toSoa(swgOAuthFlows));
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
 			break;
 		default:
 			break;
-		
 		}
 
 		extractPropertiesExtensions(swgSecurityScheme, soaSecurityScheme);

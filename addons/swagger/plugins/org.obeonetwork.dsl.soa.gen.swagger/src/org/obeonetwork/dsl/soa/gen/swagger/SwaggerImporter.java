@@ -39,6 +39,7 @@ public class SwaggerImporter {
 	
 	private System soaSystem;
 	private Environment environment;
+	private SwaggerFileQuery fileQuery;
 	
 	public SwaggerImporter(System system, Environment environment) {
 		this.soaSystem = system;
@@ -52,7 +53,8 @@ public class SwaggerImporter {
 
 		String swaggerVersion = null;
 		try {
-			swaggerVersion = new SwaggerFileQuery(inputFile).getVersion();
+			fileQuery = new SwaggerFileQuery(inputFile);
+			swaggerVersion = fileQuery.getVersion();
 		} catch (JsonProcessingException e) {
 			logError(String.format("Invalid file content : %s.", inputFilePath), e);
 			status = IStatus.ERROR;
@@ -60,7 +62,6 @@ public class SwaggerImporter {
 			logError("I/O exception.", e);
 			status = IStatus.ERROR;
 		}
-		
 		
 		if(status != IStatus.ERROR && !swaggerVersion.matches(OPEN_API_SUPPORTED_VERSION_PATTERN)) {
 			logError(String.format("Unsupported format : %s. Supported version are %s.", swaggerVersion, OPEN_API_SUPPORTED_VERSIONS));
@@ -92,7 +93,8 @@ public class SwaggerImporter {
 		}
 		
 		if(status != IStatus.ERROR) {
-			SoaComponentBuilder soaComponentBuilder = new SoaComponentBuilder(swagger, environment, paginationExtension);
+			
+			SoaComponentBuilder soaComponentBuilder = new SoaComponentBuilder(swagger, environment, paginationExtension, fileQuery);
 			status = soaComponentBuilder.build();
 			
 			if(status != IStatus.ERROR) {
@@ -108,6 +110,7 @@ public class SwaggerImporter {
 					logError(String.format("Namespace with name %s already exist.", soaComponentNamespace.getName()));
 					status = IStatus.ERROR;
 				}
+								
 				
 				if(status != IStatus.ERROR) {
 					if(soaComponent != null) {
@@ -117,12 +120,12 @@ public class SwaggerImporter {
 						soaSystem.getOwnedNamespaces().add(soaComponentNamespace);
 					}
 				}
-				
 			}
 		}
 		
 		return status;
 		
 	}
-
+	
+	
 }
