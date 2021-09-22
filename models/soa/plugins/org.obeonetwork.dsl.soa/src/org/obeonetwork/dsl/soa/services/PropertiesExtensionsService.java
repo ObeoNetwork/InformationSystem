@@ -19,7 +19,6 @@ import java.util.stream.Collectors;
 
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
-import org.obeonetwork.dsl.environment.EnvironmentPackage;
 import org.obeonetwork.dsl.environment.MetaDataContainer;
 import org.obeonetwork.dsl.environment.ObeoDSMObject;
 import org.obeonetwork.dsl.soa.PropertiesExtension;
@@ -39,9 +38,9 @@ public class PropertiesExtensionsService {
 		POSSIBLE_CONTEXTS.put(Literals.INFORMATION, Arrays.asList("Info"));
 		POSSIBLE_CONTEXTS.put(Literals.LICENSE, Arrays.asList("License"));
 		POSSIBLE_CONTEXTS.put(Literals.SERVICE, Arrays.asList("Tag"));
-		POSSIBLE_CONTEXTS.put(EnvironmentPackage.Literals.TYPE, Arrays.asList("Schema"));
-		POSSIBLE_CONTEXTS.put(EnvironmentPackage.Literals.ATTRIBUTE, Arrays.asList("Schema"));
-		POSSIBLE_CONTEXTS.put(EnvironmentPackage.Literals.REFERENCE, Arrays.asList("Schema"));
+//		POSSIBLE_CONTEXTS.put(EnvironmentPackage.Literals.TYPE, Arrays.asList("Schema"));
+//		POSSIBLE_CONTEXTS.put(EnvironmentPackage.Literals.ATTRIBUTE, Arrays.asList("Schema"));
+//		POSSIBLE_CONTEXTS.put(EnvironmentPackage.Literals.REFERENCE, Arrays.asList("Schema"));
 		POSSIBLE_CONTEXTS.put(Literals.OPERATION, Arrays.asList("Operation", "PathItem", "ApiResponses"));
 		POSSIBLE_CONTEXTS.put(Literals.PARAMETER, Arrays.asList("Parameter", "RequestBody", "ApiResponse", "Schema"));
 		POSSIBLE_CONTEXTS.put(Literals.MEDIA_TYPE, Arrays.asList("MediaType"));
