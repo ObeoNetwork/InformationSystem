@@ -49,6 +49,9 @@
 		<identifier name="application/vnd.openxmlformats-officedocument.presentationml.presentation (.pptx)"></identifier>
 		<identifier name="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet (.xlsx)"></identifier>
 		<identifier name="application/vnd.openxmlformats-officedocument.wordprocessingml.document (.docx)"></identifier>
+  <identifier
+        name="application/yaml">
+  </identifier>
 		<identifier name="application/x-www-form-urlencoded"></identifier>
 		<identifier name="application/xml"></identifier>
 		<identifier name="application/zip"></identifier>
