@@ -733,7 +733,6 @@
     "securitySchemes" : {
       "basicAuth" : {
         "type" : "http",
-        "name" : "basicAuth",
         "scheme" : "basic"
       }
     }
