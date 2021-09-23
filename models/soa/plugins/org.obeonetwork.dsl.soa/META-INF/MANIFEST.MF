@@ -19,6 +19,7 @@ Require-Bundle: org.eclipse.core.runtime,
  org.obeonetwork.dsl.environment;visibility:=reexport,
  org.obeonetwork.dsl.technicalid;visibility:=reexport,
  org.eclipse.emf.ecore.xmi;visibility:=reexport,
- org.obeonetwork.tools.migration
+ org.obeonetwork.tools.migration,
+ org.eclipse.sirius
 Bundle-ActivationPolicy: lazy
 Bundle-RequiredExecutionEnvironment: JavaSE-1.8
