@@ -20,20 +20,14 @@ import static org.obeonetwork.dsl.soa.gen.swagger.tests.TestHelper.findFirstFile
 import static org.obeonetwork.dsl.soa.gen.swagger.tests.TestHelper.loadEnvironment;
 
 import java.io.File;
-import java.io.IOException;
-import java.util.Collections;
-import java.util.Map;
 
 import org.eclipse.core.runtime.IStatus;
-import org.eclipse.emf.common.util.URI;
-import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.resource.ResourceSet;
 import org.junit.Test;
 import org.obeonetwork.dsl.environment.Environment;
 import org.obeonetwork.dsl.soa.System;
 import org.obeonetwork.dsl.soa.gen.swagger.SwaggerImporter;
 import org.obeonetwork.dsl.soa.gen.swagger.utils.SwaggerExportUtil.MapperType;
-import org.obeonetwork.dsl.soa.util.SoaResourceFactoryImpl;
 
 public class SwaggerImportTest {
 	
@@ -76,10 +70,6 @@ public class SwaggerImportTest {
 		
 		destinationSystem.setName(expectedSystem.getName());
 		
-		
-		
-
-        
         assertTrue("Swagger import returned with error status code", status != IStatus.ERROR);
 		assertECoreEquals("Imported model is different for file " + inputFile.getAbsolutePath(), expectedSystem, destinationSystem); 
 	}
