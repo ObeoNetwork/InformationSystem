@@ -74,7 +74,7 @@ h3. Graphe de tâches (pour un _System_)
 Un graphe de tâches (ou _Tasks Graph_) peut être associé à un _System_.
 Pour chaque _System_ un seul graphe de tâches peut être créé au maximum.
 
-!pics/diagrams/tasksgraph/Tasks%20Graph.png!
+!pics/diagrams/tasksgraph/Tasks_Graph.png!
 
 h4. Eléments affichés et palette d'outils
 
@@ -85,7 +85,7 @@ Les éléments suivants sont affichés sur le diagramme :
 * lien _Use_ : les liens d'utilisation entre tâches sont affichés. Des liens sont affichés également entre tâches, groupes et systèmes en fonction des liens d'utilisation entre tâches contenues dans les groupes et systèmes.
 * _Actor_ : chaque acteur associé à une tâche ou à un groupe de tâches du système est affiché. Les acteurs et les outils associés sont affichés uniquement quand le calque _Actors_ est activé.
 
-!pics/diagrams/tasksgraph/Tasks%20Graph%20Actors%20layer.png!
+!pics/diagrams/tasksgraph/Tasks_Graph_Actors_layer.png!
 
 Les outils fournis par la palette sont :
 
@@ -116,8 +116,6 @@ h3. Graphe de tâches (pour un _TasksGroup_)
 
 Un graphe de tâches (ou _Tasks Graph_) peut être associé à un _TasksGroup_.
 Pour chaque _TasksGroup_ un seul graphe de tâches peut être créé au maximum.
-
-!pics/diagrams/grouptasksgraph/Group%20Tasks%20Graph.png!
 
 h4. Eléments affichés et palette d'outils
 
@@ -155,7 +153,7 @@ h3. Plan d'action
 Un plan d'action (ou _Actions Plan_) est associé à une _Task_.
 Pour chaque _Task_ un seul plan d'action peut être créé au maximum.
 
-!pics/diagrams/actionsplan/Actions%20Plan.png!
+!pics/diagrams/actionsplan/ActionsPlan.png!
 
 h4. Eléments affichés et palette d'outils
 
@@ -201,7 +199,7 @@ h3. Graphe des acteurs (pour un _System_)
 Un graphe des acteurs (ou _Actors Graph_) peut être associé à un _System_. Ce graphe permet de créer/modifier les acteurs du système.
 Pour chaque _System_ un seul graphe des acteurs peut être créé au maximum.
 
-!pics/diagrams/actorsgraph/Actors%20Graph.png!
+!pics/diagrams/actorsgraph/ActorsGraph.png!
 
 h4. Eléments affichés et palette d'outils
 
@@ -219,7 +217,7 @@ h3. Graphe global des Use Cases (pour un _System_)
 Un graphe global des Use Cases (ou _Use Cases Main View_) peut être associé à un _System_. Ce graphe permet de visualiser, créer, modifier les _Use Cases_ du système.
 Pour chaque _System_ un seul graphe global des Use Cases peut être créé au maximum.
 
-!pics/diagrams/usecasesmainview/Use%20Cases%20Main%20View.png!
+!pics/diagrams/usecasesmainview/UseCasesMainView.png!
 
 h4. Eléments affichés et palette d'outils
 
@@ -246,7 +244,7 @@ Un diagramme de Use Case (ou _Use Case Diagram_) peut être associé à un _Use 
 Le graphe global des Use Cases d'un _System_ est normalement créé automatiquement à la création d'une session.
 Pour chaque _System_ un seul graphe global des Use Cases peut être créé au maximum.
 
-!pics/diagrams/usecasediagram/Use%20Case%20Diagram.png!
+!pics/diagrams/usecasediagram/UseCaseDiagram.png!
 
 h4. Eléments affichés et palette d'outils
 
@@ -284,7 +282,7 @@ Ce diagramme peut être créé sur l'objet principal _System_.
 
 Ce diagramme permet de créer, modifier ou supprimer des packages ainsi que d'accéder facilement au diagramme de gestion des classes participantes d'un package.
 
-!pics/diagrams/domainclasses/namespaces_hierarchy.png!
+!pics/diagrams/domainclasses/namespacesHierarchy.png!
 
 h4. Eléments affichés et palette d'outils
 
@@ -293,7 +291,7 @@ Les éléments suivants sont affichés sur le diagramme :
 * _Namespace_ : chaque package contenu dans le System est affiché. Si un package est contenu par un autre package il apparaît à l'intérieur de son package parent. L'icône d'un package apparaît blanche ou grisée selon si le package est respectivement vide ou non.
 * _Dépendance_ : l'affichage des dépendances peut être activé ou désactivé via le layer _Dependencies_. Les dépendances entre _Namespaces_ sont représentées par des liens pouvant être fléchés à une ou deux extrémités. Les dépendances sont calculées à partir du contenu de chacun des _Namespace_. Une dépendance est identifiée entre deux _Namespaces_ si il existe un lien d'héritage, une référence ou l'utilisation d'une _Enumeration_ pour typer un attribut entre une _Domain Class_ d'un _Namespace_ et un autre. Si il est non nul, le nombre de dépendances identifiées est indiqué sur l'extrémité du lien correspondant, et cette extrémité est décoré d'une flèche. Les dépendances entre les packages d'une même lignée de contenance ne sont pas affichées. L'affichage des dépendances peut être activé ou désactivé via le layer _Dependencies_. Les namespaces dits "externes" sont également affichés dans ce layer. Un namespace externe est un namespace contenant une entité externe liée à une entité présente dans un namespace affiché par le diagramme (voir _External Domain Class_ dans la section _Diagramme de classes participantes_ ci-après).
 
-!pics/diagrams/domainclasses/namespaces_hierarchy_dependencies.png!
+!pics/diagrams/domainclasses/namespacesHierarchyDependencies.png!
 
 Les outils fournis par la palette sont :
 
@@ -309,7 +307,7 @@ h3. Diagramme de classes participantes
 
 Un diagramme de classes participantes est associé à un package (_Namespace_). Il permet de gérer les classes participantes du package.
 
-!pics/diagrams/domainclasses/Domain%20classes%20diagram.png!
+!pics/diagrams/domainclasses/DomainClassesDiagram.png!
 
 Les éléments suivants sont affichés sur le diagramme :
 
