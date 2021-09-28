@@ -7,9 +7,9 @@ h1. Obeo Network - Diagrammes de machine à états
 
 Les diagrammes StateMachine permettent de définir des machines à état sur quasiment la totalité des éléments définis dans Information System, à l'exception notable du métamodèle Database.
 
-Les diagrammes de mmachines à états manipulent des concepts très proches des diagrammes StateMachine définis par UML.
+Les diagrammes de machines à états manipulent des concepts très proches des diagrammes StateMachine définis par UML.
 
-!pics/statemachine.png!
+!{width:100%}pics/statemachine.png!
 
 h2. Création d'un diagramme de machine à état
  
