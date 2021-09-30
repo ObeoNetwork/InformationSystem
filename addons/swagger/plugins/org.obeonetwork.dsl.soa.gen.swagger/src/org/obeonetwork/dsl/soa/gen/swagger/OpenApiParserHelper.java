@@ -11,7 +11,6 @@
 package org.obeonetwork.dsl.soa.gen.swagger;
 
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 
 import io.swagger.v3.oas.models.media.Schema;
@@ -119,15 +118,6 @@ public class OpenApiParserHelper {
     	return schema;
     }
 	
-	public static boolean isPrimitiveType(Schema schema) {
-		String type = schema.getType();
-		List _enum = schema.getEnum();
-		return OPEN_API_TYPE_INTEGER.equals(type) 
-				|| OPEN_API_TYPE_NUMBER.equals(type) 
-				|| (OPEN_API_TYPE_STRING.equals(type) && (_enum == null || _enum.isEmpty())) 
-				|| OPEN_API_TYPE_BOOLEAN.equals(type);
-	}
-
 	public static boolean isEnum(Schema schema) {
 		return OPEN_API_TYPE_STRING.equals(schema.getType()) 
 				&& schema.getEnum() != null 
