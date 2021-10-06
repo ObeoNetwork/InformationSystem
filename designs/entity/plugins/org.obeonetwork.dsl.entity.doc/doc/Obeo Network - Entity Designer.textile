@@ -17,15 +17,15 @@ Un assistant permet la création de modèles Entity. Cet assistant est accessibl
 
 bq. File > New > Other ... > Entity Model (Catégorie IS Designer)
 
-!pics/Safran - entity - wizard01.png!
+!pics/SafranEntityWizard01.png!
 
 Cet assistant vous permet de définir le nom du modèle que vous souhaitez créer ainsi que de définir son répertoire destination. 
 
-!pics/Safran - entity - wizard02.png!
+!pics/SafranEntityWizard02.png!
 
 Une fois l'assistant validé, le modèle est créé, la représentation _Entity Namespace Hierarchy_ est créée et ouverte afin de commencer l'édition.
 
-!pics/Safran - entity - model created.png!
+!pics/SafranEntityModelCreated.png!
 
 Lorsqu'un modèle entity est créé à l'aide de ce wizard, les points de vues _Entity Views_, _Entity (Safr@n Consolidated view)_ et _Environment View_ sont activés.
 Le point de vue _Entity Views_ est décrit dans la section suivante. Le point de vue _Entity (Safr@n Consolidated view)_ est décrit dans la section de documentation "Safr@n - Entity (Safr@n consolidated view)":../../fr.gouv.mindef.safran.is.design.doc/doc/Safr@n%20-%20Entity%20(Safr@n%20consolidated%20view).html. Le point de vue _Environment View_ permet d'activer les vues propriétés EEF.
@@ -48,7 +48,7 @@ bq. Viewpoint Selection
 
 Choisir le point de vue _Entity Views_ :
 
-!pics/Entity%20Views%20Viewpoint%20Selection.png!
+!pics/EntityViewsViewpointSelection.png!
 
 Une fois le point de vue activé, il devient possible de créer ou visualiser les diagrammes Entity Views.
 
@@ -64,7 +64,7 @@ puis renseigner le nom du diagramme et, enfin, valider.
 
 Par exemple sur un objet racine _Entities_, deux types de représentation peuvent être créés comme présenté sur la capture d'écran suivante :
  
-!pics/Entity%20representations%20on%20Entities.png!
+!pics/EntityRepresentationsOnEntities.png!
 
 Pour ouvrir un diagramme il suffit de double-cliquer sur le diagramme dans la vue _Model Explorer_. Attention seuls les diagrammes correspondants aux points de vue sélectionnés sur la session sont affichés dans la vue _Model Explorer_. 
 

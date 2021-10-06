@@ -15,15 +15,15 @@ Un assistant permet de créer un modèle d'exigences. Il est accessible via le m
 
 bq. File > New > Other ... > Requirement Model (Catégorie IS Designer)
 
-!pics/Safran - requirement - wizard01.png!
+!pics/SafranRequirementWizard01.png!
 
 Cet assistant vous permet de définir le nom du modèle que vous souhaitez créer ainsi que de définir son répertoire destination.
 
-!pics/Safran - requirement - wizard02.png!
+!pics/SafranRequirementWizard02.png!
 
 Une fois l'assistant validé, le modèle est créé, la représentation _Requirements table_ est créée et ouverte afin de commencer l'édition.
 
-!pics/Safran - requirement - model created.png!
+!{width:100%}pics/SafranRequirementModelCreated.png!
 
 Lorsqu'un modèle requirement est créé à l'aide de ce wizard, le point de vue _Requirement_ est activé. Dans le cas ou un modèle graal existe déjà dans le projet le point de vue _Requirement (Graal Consolidated view)_ est activé. Le point de vue _Requirement_ est décrit dans la section "Point de vue Requirement":#requirement_viewpoint. Le point de vue _Requirement (Graal Consolidated view)_ est décrit dans la section de documentation "Safr@n - Graal Methodology (Safr@n consolidated view)":../../fr.gouv.mindef.safran.is.design.doc/doc/Safr@n%20-%20Graal%20Methodology%20(Safr@n%20consolidated%20view).html.
 
@@ -171,10 +171,10 @@ Des décorateurs permettent de visualiser rapidement les éléments ayant au moi
 
 Ces décorateurs sont affichés dans la vue Model Explorer et sur les diagrammes.
 
-!pics/Decorators model explorer.png!
+!pics/DecoratorsModelExplorer.png!
 Vue Model Explorer
 
-!pics/Decorators diagram.png!
+!pics/DecoratorsDiagram.png!
 Diagramme
 
 Les décorateurs peuvent être de 3 couleurs différentes :
@@ -184,7 +184,7 @@ Les décorateurs peuvent être de 3 couleurs différentes :
 
 Les décorateurs peuvent être globalement activés ou désactivés via le menu _Window > Preferences_ puis dans la rubrique _General > Appearance > Label decorations_ il faut cocher ou décocher _Object with requirements_
 
-!pics/Decorators preferences.png!
+!pics/DecoratorsPreferences.png!
 
 
 

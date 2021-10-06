@@ -17,12 +17,12 @@ Pour pouvoir créer un diagramme de machine à état il faut activer le point de
 
 Une fois le point de vue activé, une entrée _New state machine_ est ajoutée au menu contextuel des éléments pour lesquels un diagramme de machine à états peut être créé.
 
-!pics/Creation menu.png!
+!pics/CreationMenu.png!
 
 Un object _State Machine_ et un diagramme de machine à états sont alors créés et visibles sous l'objet sélectionné.
 Il est possible de créer autant de diagrammes de machines à états que voulu pour un même objet.
 
-!pics/Diagram in explorer.png!
+!pics/DiagramInExplorer.png!
 
 h2. Eléments affichés et palette d'outils
 

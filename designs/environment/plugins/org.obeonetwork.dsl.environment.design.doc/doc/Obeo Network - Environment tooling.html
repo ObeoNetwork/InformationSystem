@@ -29,19 +29,19 @@
 		<h2 id="manage_env_resource">Gestion des ressources environnement</h2>
 		<p>La boîte de dialogue &#171;Manage Environment&#187; permet de gérer les ressources environnement pour un projet de modélisation donné. Elle est mise à disposition par l&#8217;action &#171;Manage environment resources&#187; du menu contextuel d&#8217;un projet modeling, d&#8217;une ressource aird, ou de l'élément &#171;Project Dependencies&#187; :</p>
 		<p>
-			<img style="width:1200px" border="0" src="./pics/Manage environment resources - actions.png"/>
+			<img style="width:100%" border="0" src="./pics/ManageEnvironmentResourcesActions.png"/>
 		</p>
 		<p>La boîte de dialogue est composée d&#8217;un tableau listant toutes les ressources environnements accessibles pour le projet modeling concerné.
 			<br/>Les ressources environnment se trouvant dans le projet sont automatiquement actives et ne peuvent pas être désactivées. Elles sont présentées en gris.
 			<br/>Les ressources environnement apportées par point d&#8217;extension sont désactivables en décochant la case à cocher en début de ligne. Elles sont présentées en noir.
 		</p>
 		<p>
-			<img style="width:800px" border="0" src="./pics/Manage environment resources - dialog.png"/>
+			<img style="width:100%" border="0" src="./pics/ManageEnvironmentResourcesDialog.png"/>
 		</p>
 		<p>Le résultat de la sélection est appliqué lors de la validation de la boîte de dialogue.</p>
 		<p>Dans le cas du décochage d&#8217;une ressource, une vérification est faite pour s&#8217;assurer que les éléments contenus dans la ressource ne sont pas utilisés dans le projet modeling. Si certains éléments d&#8217;une ressource retirée du projet sont utilisés, un dialogue d&#8217;avertissement s&#8217;affiche demandant confirmation à l&#8217;utilisateur :</p>
 		<p>
-			<img style="width:500px" border="0" src="./pics/Manage environment resources - warning dialog.png"/>
+			<img style="width:500px" border="0" src="./pics/ManageEnvironmentResourcesWarningDialog.png"/>
 		</p>
 		<p>Ce dialogue présente sous forme d&#8217;arbre les objets qui référencent des éléments de la ressource environnement sur le point d'être retirée des dépendances du projet (ici obeo.environment). Si ce dialogue est validé, les références listées sont supprimées. Si le message d&#8217;avertissement est annulé la ressource environnement n&#8217;est pas retirée des dépendances du projet.
 			<br/>Il est possible que plusieurs messages d&#8217;avertissements se succèdent dans le cas où plusieurs ressources environnement sont retirées des dépendances du projet.

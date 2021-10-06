@@ -269,7 +269,7 @@ Le concept de _Service SOA_ quand à lui, est mis en correspondance avec le conc
 Enfin, le concept de _Component SOA_ est mis en correspondance avec le concept d'API, ce qui est appelé de manière générique Composant d'Exposition.
 
 De manière synthétique, voici les correspondances clé entre les deux terminologies :
-|_. _SOA Designer_ |_. _OpenAPI_ |
+| *_SOA Designer_* | *_OpenAPI_* |
 | Component | OpenAPI |
 | Service | Tag |
 | Operation | Service |

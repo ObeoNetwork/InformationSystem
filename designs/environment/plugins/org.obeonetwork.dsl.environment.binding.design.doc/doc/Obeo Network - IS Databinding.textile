@@ -20,18 +20,18 @@ bq. Viewpoint Selection
 
 Choisir le point de vue _IS Databinding_.
 
-!pics/IS Databinding Viewpoint Selection.png!
+!pics/ISDatabindingViewpointSelection.png!
 
 h3. Databinding diagram
 
 Le _Databinding Diagram_ permet de créer un _Binding_ entre deux types structurés (_Entity_, _DTO_ ou _Domain class_). Cet objet peut ensuite être édité en détail en lançant l'éditeur spécifique _Binding editor_ par un double-clic sur l'élément.
 Ce diagramme peut être créé sur un package (_Namespace_).
 
-!pics/diagram/Create diagram.png!
+!pics/diagram/CreateDiagram.png!
 
 h4. Eléments affichés et palette d'outils
 
-!pics/diagram/BindingDiagram.png!
+!{width:100%}pics/diagram/BindingDiagram.png!
 
 Les éléments suivants sont affichés sur le diagramme :
 
@@ -42,8 +42,8 @@ Les éléments suivants sont affichés sur le diagramme :
 
 Les outils fournis par la palette sont :
 
-| !pics/diagram/New binding.png! | Création d'un _Binding_ entre deux éléments. Un assistant permet de sélectionner un premier type structuré parmi ceux contenus par le package, puis de sélectionner un deuxième type structuré dans toute la session de travail. |
-| !pics/diagram/Bind existing element.png! | Création d'un _Binding_ entre un type structuré déjà affiché sur le diagramme et un deuxième type structuré. Un assistant permet de sélectionner ce deuxième type structuré dans toute la session de travail. |
+| !pics/diagram/NewBinding.png! | Création d'un _Binding_ entre deux éléments. Un assistant permet de sélectionner un premier type structuré parmi ceux contenus par le package, puis de sélectionner un deuxième type structuré dans toute la session de travail. |
+| !pics/diagram/BindExistingElement.png! | Création d'un _Binding_ entre un type structuré déjà affiché sur le diagramme et un deuxième type structuré. Un assistant permet de sélectionner ce deuxième type structuré dans toute la session de travail. |
 
 h4. Navigation vers l'éditeur de binding
 
@@ -55,7 +55,7 @@ h3. Binding editor
 
 Le _Binding editor_ est un éditeur spécifique permettant décrire en détail le databinding entre deux types structurés. Le moyen le plus simple pour l'ouvrir est de double-cliquer sur le _Binding_ voulu sur le diagramme décrit au chapitre précédent.
 
-!pics/editor/Binding editor.png!
+!{width:100%}pics/editor/BindingEditor.png!
 
 h4. Structure générale de l'éditeur
 
@@ -69,7 +69,7 @@ L'éditeur est divisé en différentes parties :
 
 h4. Vue arborescente d'un type structuré
 
-!pics/editor/Vue arborescente.png!
+!pics/editor/VueArborescente.png!
 
 Cette vue présente les attributs et les références du type structuré.
 Dans le cas des références, il est possible de déplier la référence pour avoir accès aux attributs et références du type référencé.
@@ -80,7 +80,7 @@ Lorsqu'un ou des éléments sont sélectionnés, les liens les concernant sont a
 
 h4. Zone centrale
 
-!pics/editor/Zone centrale.png!
+!pics/editor/ZoneCentrale.png!
 
 La zone centrale permet de visualiser les liens entre éléments.
 
@@ -91,7 +91,7 @@ Quand des liens sont sélectionnées, un appui sur la touche Del permet de les s
 
 h4. Zone inférieure
 
-!pics/editor/Zone inferieure.png!
+!{width:100%}pics/editor/ZoneInferieure.png!
 
 La zone inférieure affiche des champs de saisie en fonction des liens sélectionnés :
 * un premier groupe affiche un champ texte pour chaque attribut ou référence concerné dans la vue arborescente de gauche.
