@@ -18,15 +18,15 @@ Un assistant permet la création de modèles Graal. Cet assistant est accessible
 
 bq. File > New > Other ... > Graal Model (Catégorie IS Designer)
 
-!pics/Safran - graal - wizard01.png!
+!pics/SafranGraalWizard01.png!
 
 Cet assistant vous permet de définir le nom du modèle que vous souhaitez créer ainsi que de définir son répertoire destination.
 
-!pics/Safran - graal - wizard02.png!
+!pics/SafranGraalWizard02.png!
 
 Une fois l'assistant validé, le modèle est créé, les représentations _Task Graph_, _Actors Graph_, _Use Cases Main view_ et _Domain Namespaces Hierarchy_ sont créées. La représentation _Task Graph_ est ouverte afin de commencer l'édition.
 
-!{width:100%}pics/Safran - graal - model created.png!
+!{width:100%}pics/SafranGraalModelCreated.png!
 
 Lorsqu'un modèle graal est créé à l'aide de ce wizard, les points de vues _Graal Methodology_, _Graal Methodology (Safr@n Consolidated view)_, _Interaction_, _State Machine_ et _Environment View_ sont activés.
 Le point de vue _Graal Methodology_ est décrit dans la section suivante. Le point de vue _Graal Methodology (Safr@n Consolidated view)_ est décrit dans la section de documentation "Safr@n - Graal Methodology (Safr@n consolidated view)":../../fr.gouv.mindef.safran.is.design.doc/doc/Safr@n%20-%20Graal%20Methodology%20(Safr@n%20consolidated%20view).html. Le point de vue _Interaction_ est décrit dans la section de documentation "Obeo Network - Interaction tooling":../../org.obeonetwork.dsl.interaction.doc/doc/Obeo%20Network%20-%20Interaction%20tooling.html. Le point de vue _State Machine_ est décrit dans la section de documentation "Obeo Network - State Machine tooling":../../org.obeonetwork.dsl.statemachine.doc/doc/Obeo%20Network%20-%20State%20Machine%20tooling.html. Le point de vue _Environment View_ permet d'activer les vues propriétés EEF.
