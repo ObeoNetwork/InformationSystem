@@ -18,6 +18,8 @@ import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.dataformat.yaml.YAMLFactory;
 
+import io.swagger.v3.oas.models.security.OAuthFlows;
+
 public class SwaggerFileQuery {
 	
 	private static final String KEY_SWAGGER = "swagger";
@@ -26,36 +28,46 @@ public class SwaggerFileQuery {
 	public static final String VERSION_NAME_SWAGGER = "Swagger";
 	public static final String VERSION_NAME_OPEN_API = "OpenAPI";
 
-	private File file;
-
-	public SwaggerFileQuery(File file) {
-		this.file = file;
-	}
-
-	public String getVersion() throws JsonProcessingException, IOException {
-		String version = "Unknown format";
-		
-		ObjectMapper mapper = null;
+	private ObjectMapper mapper;
+	private JsonNode root;
+	
+	public SwaggerFileQuery(File file) throws JsonProcessingException, IOException {
 		if(file.getPath().endsWith(".yaml")) {
 			mapper = new ObjectMapper(new YAMLFactory());
 		} else if(file.getPath().endsWith(".json")) {
 			mapper = new ObjectMapper();
 		}
 		
-		if(mapper != null) {
-			JsonNode root = mapper.readTree(file);
-			
+		if (mapper != null) 
+			root = mapper.readTree(file);
+	}
+
+	public String getVersion() {
+		String version = "Unknown format";
+		
+		if (root != null) {
 			if(root.has(KEY_SWAGGER)) {
 				version = VERSION_NAME_SWAGGER + " " + root.get(KEY_SWAGGER).asText();
 			}
 			
 			if(root.has(KEY_OPEN_API)) {
 				version = VERSION_NAME_OPEN_API + " " + root.get(KEY_OPEN_API).asText();
-			}
-			
+			}	
 		}
 		
 		return version;
+	}
+	
+	public OAuthFlows getOAuthFlows(String schemeName) throws JsonProcessingException, IOException {
+		if(root != null) {
+			JsonNode securitySchemeNode = root.findValue(schemeName);
+			JsonNode flowsNode = securitySchemeNode.get("flows");
+			
+			if (mapper != null && flowsNode != null)
+				return mapper.convertValue(flowsNode, OAuthFlows.class);
+		}
+		
+		return null;
 	}
 
 }
