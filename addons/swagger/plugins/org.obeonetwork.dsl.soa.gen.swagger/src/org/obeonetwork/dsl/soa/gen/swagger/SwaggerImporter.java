@@ -84,7 +84,7 @@ public class SwaggerImporter {
 
 			try {
 				swagger = objectMapper.readValue(inputFile, OpenAPI.class);
-				// SAFRAN-961
+				// SAFRAN-961 - io.swagger.v3 doesn't support OpenId Connect security schemes
 				addFlowsToOpenIdConnectSchemes(swagger);
 			} catch (JsonParseException e) {
 				logError("Json parsing exception.", e);
@@ -133,14 +133,15 @@ public class SwaggerImporter {
 	
 	/**
 	 * Checks the {@link SecurityScheme} of the {@link Components}. 
-	 * If a scheme has the OpenIDConnect {@link Type}, it gathers the {@link OAuthFlow} it may contain.  
+	 * If a scheme has the OpenIDConnect {@link Type}, it gathers the {@link OAuthFlow} it may contain.
+	 * 
+	 * This is a workaround the fact that io.swagger.v3 doesn't read OpenId Connect security schemes.
+	 * 
 	 * @param api the {@link OpenAPI}
 	 */
 	private void addFlowsToOpenIdConnectSchemes(OpenAPI api) {
 		api.getComponents().getSecuritySchemes().entrySet().stream()
-		.filter(entry -> {
-			return entry.getValue().getType().equals(SecurityScheme.Type.OPENIDCONNECT); 
-		})
+		.filter(entry -> entry.getValue().getType().equals(SecurityScheme.Type.OPENIDCONNECT))
 		.forEach(entry -> {
 			try {
 				entry.getValue().setFlows(fileQuery.getOAuthFlows(entry.getKey()));

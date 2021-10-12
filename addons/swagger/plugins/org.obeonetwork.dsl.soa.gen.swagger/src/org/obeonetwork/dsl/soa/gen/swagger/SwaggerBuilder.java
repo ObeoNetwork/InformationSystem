@@ -1072,19 +1072,6 @@ public class SwaggerBuilder {
 		operation.addParametersItem(param);
 	}
 
-//	private void buildPaginableSizeParameter(Operation operation, org.obeonetwork.dsl.soa.Operation soaOperation) {
-//		Parameter sizeParameter = createParameter(SOA_SIZE_PARAMETER_NAME, false, OPEN_API_IN_QUERY);
-//		sizeParameter.schema(createSchema(OPEN_API_TYPE_INTEGER, OPEN_API_FORMAT_INT64));
-////    	sizeParameter.description("Default size : " + soaOperation.getDefautPageSize());
-//		operation.addParametersItem(sizeParameter);
-//	}
-//
-//	private void buildPaginablePageParameter(Operation operation) {
-//		Parameter pageParameter = createParameter(SOA_PAGE_PARAMETER_NAME, false, OPEN_API_IN_QUERY);
-//		pageParameter.schema(createSchema(OPEN_API_TYPE_INTEGER, OPEN_API_FORMAT_INT64));
-//		operation.addParametersItem(pageParameter);
-//	}
-
 	private Parameter createParameter(String name, Boolean required, String in) {
 		Parameter parameter = new Parameter();
 		parameter = parameter.name(name);
