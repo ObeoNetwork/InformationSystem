@@ -18,6 +18,10 @@ import static org.obeonetwork.dsl.soa.gen.swagger.OpenApiParserHelper.getPrimiti
 import static org.obeonetwork.dsl.soa.gen.swagger.OpenApiParserHelper.isEnum;
 import static org.obeonetwork.dsl.soa.gen.swagger.OpenApiParserHelper.isObject;
 import static org.obeonetwork.dsl.soa.gen.swagger.OpenApiParserHelper.isPrimitiveType;
+import static org.obeonetwork.dsl.soa.gen.swagger.OpenApiParserHelper.OPEN_API_TYPE_BOOLEAN;
+import static org.obeonetwork.dsl.soa.gen.swagger.OpenApiParserHelper.OPEN_API_TYPE_INTEGER;
+import static org.obeonetwork.dsl.soa.gen.swagger.OpenApiParserHelper.OPEN_API_TYPE_NUMBER;
+import static org.obeonetwork.dsl.soa.gen.swagger.OpenApiParserHelper.OPEN_API_TYPE_STRING;
 import static org.obeonetwork.utils.common.StringUtils.emptyIfNull;
 import static org.obeonetwork.utils.common.StringUtils.upperFirst;
 import static org.obeonetwork.utils.sirius.services.EObjectUtils.getAncestors;
@@ -1260,9 +1264,13 @@ public class SoaComponentBuilder {
 
 	private void buildSoaExposedTypes() {
 		if (openApi.getComponents() != null && openApi.getComponents().getSchemas() != null ) {
-			openApi.getComponents().getSchemas().forEach((key, schema) -> touchExposedType(key, schema));
-			openApi.getComponents().getSchemas()
-					.forEach((key, schema) -> updateExposedType(getExposedTypeFromKey(key), schema));
+			openApi.getComponents().getSchemas().entrySet().stream()
+			.filter(entry -> !isPrimitiveType(entry.getValue()))
+			.forEach(entry -> touchExposedType(entry.getKey(), entry.getValue()));
+			
+			openApi.getComponents().getSchemas().entrySet().stream()
+			.filter(entry -> !isPrimitiveType(entry.getValue()))
+			.forEach(entry -> updateExposedType(getExposedTypeFromKey(entry.getKey()), entry.getValue()));
 		}
 	}
 
@@ -1367,6 +1375,19 @@ public class SoaComponentBuilder {
 		}
 
 		return typeId;
+	}
+
+	private boolean isPrimitiveType(Schema schema) {
+		if(schema.get$ref() != null) {
+			return isPrimitiveType(getReferencedSchema(schema.get$ref()));
+		}
+		
+		String type = schema.getType();
+		List _enum = schema.getEnum();
+		return OPEN_API_TYPE_INTEGER.equals(type) 
+				|| OPEN_API_TYPE_NUMBER.equals(type) 
+				|| (OPEN_API_TYPE_STRING.equals(type) && (_enum == null || _enum.isEmpty())) 
+				|| OPEN_API_TYPE_BOOLEAN.equals(type);
 	}
 
 	private Schema getReferencedSchema(String $ref) {
@@ -1676,6 +1697,10 @@ public class SoaComponentBuilder {
 	}
 
 	private DataType getPrimitiveType(Schema schema) {
+		if(schema.get$ref() != null) {
+			return getPrimitiveType(getReferencedSchema(schema.get$ref()));
+		}
+		
 		String primitiveTypeName = getPrimitiveTypeName(schema);
 		if (primitiveTypeName != null) {
 			return environment.getTypesDefinition().getTypes().stream().filter(t -> t instanceof DataType)

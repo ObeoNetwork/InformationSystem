@@ -94,6 +94,7 @@ public class FlowstateEventContentProvider implements ITreeContentProvider {
 			
 			if (parentElement instanceof ViewContainer) {
 				objects.addAll(((ViewContainer) parentElement).getViewElements());
+				objects.addAll(((ViewContainer) parentElement).getViewContainers());
 			}
 			
 			return objects.toArray();
