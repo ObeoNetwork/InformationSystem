@@ -14,15 +14,26 @@ import java.util.Arrays;
 import java.util.Collection;
 import java.util.Collections;
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.Map;
+import java.util.Set;
 import java.util.stream.Collectors;
 
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
+import org.eclipse.sirius.business.api.query.EObjectQuery;
+import org.obeonetwork.dsl.environment.Attribute;
 import org.obeonetwork.dsl.environment.EnvironmentPackage;
 import org.obeonetwork.dsl.environment.MetaDataContainer;
 import org.obeonetwork.dsl.environment.ObeoDSMObject;
+import org.obeonetwork.dsl.environment.Property;
+import org.obeonetwork.dsl.environment.Reference;
+import org.obeonetwork.dsl.environment.Type;
+import org.obeonetwork.dsl.soa.ExpositionKind;
+import org.obeonetwork.dsl.soa.Operation;
+import org.obeonetwork.dsl.soa.Parameter;
 import org.obeonetwork.dsl.soa.PropertiesExtension;
+import org.obeonetwork.dsl.soa.SoaPackage;
 import org.obeonetwork.dsl.soa.SoaPackage.Literals;
 
 /**
@@ -33,6 +44,7 @@ public class PropertiesExtensionsService {
 	public static final String PROPERTIES_EXTENSION_PREFIX = "x-";
 	
 	private static final Map<EClass, Collection<String>> POSSIBLE_CONTEXTS = new HashMap<>();
+	
 	static {
 		POSSIBLE_CONTEXTS.put(Literals.COMPONENT, Arrays.asList("OpenAPI", "Paths"));
 		POSSIBLE_CONTEXTS.put(Literals.CONTACT, Arrays.asList("Contact"));
@@ -74,8 +86,60 @@ public class PropertiesExtensionsService {
 	 * @return true if element can have properties extensions
 	 */
 	public static boolean isPropertiesExtensionPossible(EObject object) {
-		if (object != null) {
-			return POSSIBLE_CONTEXTS.keySet().stream().anyMatch(eClass -> eClass.isInstance(object));
+		if (object != null && POSSIBLE_CONTEXTS.keySet().stream().anyMatch(eClass -> eClass.isInstance(object))) {
+			if (EnvironmentPackage.Literals.TYPE.isInstance(object)) {
+				return isReferencedByRESTService((Type) object);
+			} else if (EnvironmentPackage.Literals.ATTRIBUTE.isInstance(object)) {
+				return isReferencedByRESTService((Attribute) object);
+			} else if (EnvironmentPackage.Literals.REFERENCE.isInstance(object)) {
+				return isReferencedByRESTService((Reference) object);				
+			} else {
+				return true;
+			}
+		}
+		return false;
+	}
+	
+	/**
+	 * Checks if a {@link Type} is referenced directly or indirectly by a REST {@link Operation}
+	 * 
+	 * @param type a {@link Type}
+	 * @return <code>true</code> or <code>false</code>
+	 */
+	private static boolean isReferencedByRESTService(Type type) {
+		return isReferencedByRESTService(type, new HashSet<>());
+	}
+	
+	private static boolean isReferencedByRESTService(Type type, Set<Type> visitedTypes) {
+		if(visitedTypes.contains(type)) {
+			return false;
+		}
+		
+		if(new EObjectQuery(type).getInverseReferences(SoaPackage.eINSTANCE.getParameter_Type())
+			.stream()
+			.map(Parameter.class::cast)
+			.anyMatch(p -> p.eContainer() != null && p.eContainer() instanceof Operation && 
+				ExpositionKind.REST.equals(((Operation) p.eContainer()).getExposition()))) {
+			return true;
+		}
+		
+		visitedTypes.add(type);
+		
+		return new EObjectQuery(type).getInverseReferences(EnvironmentPackage.eINSTANCE.getReference_ReferencedType()).stream()
+			.map(Reference.class::cast).filter(ref -> ref.getContainingType() != null).map(ref -> ref.getContainingType())
+			.anyMatch(referencingType -> isReferencedByRESTService(referencingType, visitedTypes));
+		
+	}
+	
+	/**
+	 * Checks if a {@link Property} is owned by a {@link Type} involved in a REST {@link Operation}
+	 * 
+	 * @param property a {@link Property}
+	 * @return <code>true</code> or <code>false</code>
+	 */
+	private static boolean isReferencedByRESTService(Property property) {
+		if (property.eContainer() instanceof Type) { 
+			return isReferencedByRESTService((Type)property.eContainer());					
 		}
 		return false;
 	}
