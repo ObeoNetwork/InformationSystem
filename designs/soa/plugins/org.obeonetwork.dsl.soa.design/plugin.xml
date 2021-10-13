@@ -12,7 +12,7 @@
  -->
 
 <plugin>
-   <extension-point id="identifiers" name="identifiers" schema="schema/identifiers.exsd"/>
+   <extension-point id="mediaTypes" name="mediaTypes" schema="schema/mediaTypes.exsd"/>
   <extension point="org.eclipse.sirius.componentization">
     <component class="org.obeonetwork.dsl.soa.design.Activator"
                id="org.obeonetwork.dsl.soa.design"
@@ -33,7 +33,7 @@
      </wizard>
   </extension>
   <extension
-        point="org.obeonetwork.dsl.soa.design.identifiers">
+        point="org.obeonetwork.dsl.soa.design.mediaTypes">
 		<identifier name="application/x-executable"></identifier>
 		<identifier name="application/graphql"></identifier>
 		<identifier name="application/javascript"></identifier>
