@@ -836,7 +836,6 @@
     "securitySchemes" : {
       "key" : {
         "type" : "oauth2",
-        "name" : "key",
         "flows" : {
           "implicit" : {
             "authorizationUrl" : "url",

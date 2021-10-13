@@ -211,12 +211,7 @@ public class SwaggerBuilder {
 
 	private SecurityScheme createSecurityScheme(org.obeonetwork.dsl.soa.SecurityScheme soaSecurityScheme) {
 		SecurityScheme securityScheme = new SecurityScheme();
-		
-		if (!StringUtils.isNullOrWhite(soaSecurityScheme.getName()))
-			securityScheme.setName(soaSecurityScheme.getName());
-		else
-			securityScheme.setName("null");
-		
+				
 		if (soaSecurityScheme.getDescription() != null) {
 			securityScheme.setDescription(soaSecurityScheme.getDescription());
 		}
@@ -227,8 +222,8 @@ public class SwaggerBuilder {
 		switch (type) {
 		case APIKEY:
 			SecurityScheme.In in = toSwg(soaSecurityScheme.getApiKeyLocation());
-			securityScheme.setIn(in);					
-			//securityScheme.setName(soaSecurityScheme.getKey());
+			securityScheme.setIn(in);		
+			securityScheme.setName(soaSecurityScheme.getKey());
 			break;
 		case HTTP:
 			if (soaSecurityScheme.getFormat() != null)

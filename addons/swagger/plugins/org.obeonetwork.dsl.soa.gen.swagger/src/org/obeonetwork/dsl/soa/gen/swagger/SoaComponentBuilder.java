@@ -261,18 +261,11 @@ public class SoaComponentBuilder {
 	private org.obeonetwork.dsl.soa.SecurityScheme createSecurityScheme(String key, SecurityScheme swgSecurityScheme) {
 		org.obeonetwork.dsl.soa.SecurityScheme soaSecurityScheme = SoaFactory.eINSTANCE.createSecurityScheme();
 
-		soaSecurityScheme.setKey(key);
+		soaSecurityScheme.setName(key);
 
 		if (swgSecurityScheme.getType() != null) {
 			soaSecurityScheme.setType(toSoa(swgSecurityScheme.getType()));
 		}
-
-		if (swgSecurityScheme.getName() != null) {
-			soaSecurityScheme.setName(swgSecurityScheme.getName());
-		} else {
-			soaSecurityScheme.setName(key);
-		}
-
 
 		if (swgSecurityScheme.getDescription() != null) {
 			soaSecurityScheme.setDescription(swgSecurityScheme.getDescription());
@@ -284,7 +277,8 @@ public class SoaComponentBuilder {
 			if (swgSecurityScheme.getIn() != null) {
 				soaSecurityScheme.setApiKeyLocation(toSoa(swgSecurityScheme.getIn()));
 			}
-			
+			soaSecurityScheme.setKey(swgSecurityScheme.getName());
+
 			break;
 		case HTTP:
 			if (StringUtils.isNullOrWhite(swgSecurityScheme.getBearerFormat())) {

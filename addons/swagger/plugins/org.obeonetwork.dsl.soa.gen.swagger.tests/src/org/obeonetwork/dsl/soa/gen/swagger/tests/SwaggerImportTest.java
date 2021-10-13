@@ -47,7 +47,7 @@ public class SwaggerImportTest {
 		int status = swaggerImporter.importFromFile(inputFile.getAbsolutePath(), "x-pagination");
 		
 		// save the model to file to ease understanding in case of error:
-//		
+		
 //		Resource.Factory.Registry reg = Resource.Factory.Registry.INSTANCE;
 //        Map<String, Object> m = reg.getExtensionToFactoryMap();
 //        m.put("soa", new SoaResourceFactoryImpl());
