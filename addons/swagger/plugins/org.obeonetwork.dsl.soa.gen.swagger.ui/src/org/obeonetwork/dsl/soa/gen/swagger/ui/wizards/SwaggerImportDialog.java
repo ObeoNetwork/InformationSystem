@@ -92,7 +92,8 @@ public class SwaggerImportDialog extends Dialog {
 			dialog.setFilterExtensions(new String [] { "*.yaml;*.json", "*.yaml", "*.json" }); //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 			dialog.setFilterPath(getDefaultInputDirPath(system));
 			fileText = dialog.open();
-			fileTextWidget.setText(fileText);	
+			if (fileText != null)
+				fileTextWidget.setText(fileText);	
 		});
 		
 		Composite paginationExtensionComposite = new Composite(mainComposite, SWT.NONE);
@@ -148,7 +149,10 @@ public class SwaggerImportDialog extends Dialog {
 		if(system != null) {
 			Session session = new EObjectQuery(system).getSession();
 			ModelingProject modelingProject = SessionUtils.getModelingProjectFromSession(session);
-			defaultInputDirPath = modelingProject.getProject().getLocation().toOSString();
+			if (modelingProject != null)
+				defaultInputDirPath = modelingProject.getProject().getLocation().toOSString();
+			else 
+				defaultInputDirPath = ResourcesPlugin.getWorkspace().getRoot().getLocation().toOSString();
 		} else {
 			defaultInputDirPath = ResourcesPlugin.getWorkspace().getRoot().getLocation().toOSString();
 		}

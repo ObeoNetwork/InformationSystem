@@ -30,7 +30,11 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 
 import io.swagger.v3.core.util.Json;
 import io.swagger.v3.core.util.Yaml;
+import io.swagger.v3.oas.models.Components;
 import io.swagger.v3.oas.models.OpenAPI;
+import io.swagger.v3.oas.models.security.OAuthFlow;
+import io.swagger.v3.oas.models.security.SecurityScheme;
+import io.swagger.v3.oas.models.security.SecurityScheme.Type;
 
 public class SwaggerImporter {
 	
@@ -39,6 +43,7 @@ public class SwaggerImporter {
 	
 	private System soaSystem;
 	private Environment environment;
+	private SwaggerFileQuery fileQuery;
 	
 	public SwaggerImporter(System system, Environment environment) {
 		this.soaSystem = system;
@@ -52,7 +57,8 @@ public class SwaggerImporter {
 
 		String swaggerVersion = null;
 		try {
-			swaggerVersion = new SwaggerFileQuery(inputFile).getVersion();
+			fileQuery = new SwaggerFileQuery(inputFile);
+			swaggerVersion = fileQuery.getVersion();
 		} catch (JsonProcessingException e) {
 			logError(String.format("Invalid file content : %s.", inputFilePath), e);
 			status = IStatus.ERROR;
@@ -60,7 +66,6 @@ public class SwaggerImporter {
 			logError("I/O exception.", e);
 			status = IStatus.ERROR;
 		}
-		
 		
 		if(status != IStatus.ERROR && !swaggerVersion.matches(OPEN_API_SUPPORTED_VERSION_PATTERN)) {
 			logError(String.format("Unsupported format : %s. Supported version are %s.", swaggerVersion, OPEN_API_SUPPORTED_VERSIONS));
@@ -79,6 +84,8 @@ public class SwaggerImporter {
 
 			try {
 				swagger = objectMapper.readValue(inputFile, OpenAPI.class);
+				// SAFRAN-961 - io.swagger.v3 doesn't support OpenId Connect security schemes
+				addFlowsToOpenIdConnectSchemes(swagger);
 			} catch (JsonParseException e) {
 				logError("Json parsing exception.", e);
 				status = IStatus.ERROR;
@@ -92,6 +99,7 @@ public class SwaggerImporter {
 		}
 		
 		if(status != IStatus.ERROR) {
+			
 			SoaComponentBuilder soaComponentBuilder = new SoaComponentBuilder(swagger, environment, paginationExtension);
 			status = soaComponentBuilder.build();
 			
@@ -117,12 +125,30 @@ public class SwaggerImporter {
 						soaSystem.getOwnedNamespaces().add(soaComponentNamespace);
 					}
 				}
-				
 			}
 		}
 		
-		return status;
-		
+		return status;		
 	}
-
+	
+	/**
+	 * Checks the {@link SecurityScheme} of the {@link Components}. 
+	 * If a scheme has the OpenIDConnect {@link Type}, it gathers the {@link OAuthFlow} it may contain.
+	 * 
+	 * This is a workaround the fact that io.swagger.v3 doesn't read OpenId Connect security schemes.
+	 * 
+	 * @param api the {@link OpenAPI}
+	 */
+	private void addFlowsToOpenIdConnectSchemes(OpenAPI api) {
+		api.getComponents().getSecuritySchemes().entrySet().stream()
+		.filter(entry -> entry.getValue().getType().equals(SecurityScheme.Type.OPENIDCONNECT))
+		.forEach(entry -> {
+			try {
+				entry.getValue().setFlows(fileQuery.getOAuthFlows(entry.getKey()));
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+		});
+	}
+	
 }
