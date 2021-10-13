@@ -14,7 +14,9 @@ import java.util.Arrays;
 import java.util.Collection;
 import java.util.Collections;
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.Map;
+import java.util.Set;
 import java.util.stream.Collectors;
 
 import org.eclipse.emf.ecore.EClass;
@@ -24,6 +26,7 @@ import org.obeonetwork.dsl.environment.Attribute;
 import org.obeonetwork.dsl.environment.EnvironmentPackage;
 import org.obeonetwork.dsl.environment.MetaDataContainer;
 import org.obeonetwork.dsl.environment.ObeoDSMObject;
+import org.obeonetwork.dsl.environment.Property;
 import org.obeonetwork.dsl.environment.Reference;
 import org.obeonetwork.dsl.environment.Type;
 import org.obeonetwork.dsl.soa.ExpositionKind;
@@ -98,46 +101,47 @@ public class PropertiesExtensionsService {
 	}
 	
 	/**
-	 * Checks if a {@link Type} is referenced by a Soa {@link Operation}
+	 * Checks if a {@link Type} is referenced directly or indirectly by a REST {@link Operation}
+	 * 
 	 * @param type a {@link Type}
 	 * @return <code>true</code> or <code>false</code>
 	 */
 	private static boolean isReferencedByRESTService(Type type) {
-		return new EObjectQuery(type).getInverseReferences(SoaPackage.eINSTANCE.getParameter_Type())
-			.stream()
-			.filter(Parameter.class::isInstance)
-			.map(Parameter.class::cast)
-			.anyMatch(p -> p.eContainer() != null && p.eContainer() instanceof Operation && ExpositionKind.REST.equals(((Operation) p.eContainer()).getExposition()));
+		return isReferencedByRESTService(type, new HashSet<>());
 	}
 	
-	/**
-	 * Checks if a {@link Reference} starts from, or targets, a {@link Type} that is referenced by a Soa {@link Operation}
-	 * @param reference a {@link Reference}
-	 * @return <code>true</code> or <code>false</code>
-	 */
-	private static boolean isReferencedByRESTService(Reference reference) {
-		boolean isTargetRestService = false;
-		boolean isSourceRestService = false;
-		if (reference.getContainingType() != null) { 
-			isSourceRestService = isReferencedByRESTService(reference.getContainingType());					
-		}
-		if (reference.getReferencedType() != null) {
-			isTargetRestService = isReferencedByRESTService(reference.getReferencedType());
-		}
-		return isTargetRestService || isSourceRestService;
-	}
-	
-	/**
-	 * Checks if the {@link Attribute} is contained in a {@link Type} that is referenced by a Soa {@link Operation}
-	 * @param attribute an {@link Attribute}
-	 * @return <code>true</code> or <code>false</code>
-	 */
-	private static boolean isReferencedByRESTService(Attribute attribute) {
-		if (attribute.getContainingType() != null) {
-			return isReferencedByRESTService(attribute.getContainingType());
-		} else {
+	private static boolean isReferencedByRESTService(Type type, Set<Type> visitedTypes) {
+		if(visitedTypes.contains(type)) {
 			return false;
 		}
+		
+		if(new EObjectQuery(type).getInverseReferences(SoaPackage.eINSTANCE.getParameter_Type())
+			.stream()
+			.map(Parameter.class::cast)
+			.anyMatch(p -> p.eContainer() != null && p.eContainer() instanceof Operation && 
+				ExpositionKind.REST.equals(((Operation) p.eContainer()).getExposition()))) {
+			return true;
+		}
+		
+		visitedTypes.add(type);
+		
+		return new EObjectQuery(type).getInverseReferences(EnvironmentPackage.eINSTANCE.getReference_ReferencedType()).stream()
+			.map(Reference.class::cast).filter(ref -> ref.getContainingType() != null).map(ref -> ref.getContainingType())
+			.anyMatch(referencingType -> isReferencedByRESTService(referencingType, visitedTypes));
+		
+	}
+	
+	/**
+	 * Checks if a {@link Property} is owned by a {@link Type} involved in a REST {@link Operation}
+	 * 
+	 * @param property a {@link Property}
+	 * @return <code>true</code> or <code>false</code>
+	 */
+	private static boolean isReferencedByRESTService(Property property) {
+		if (property.eContainer() instanceof Type) { 
+			return isReferencedByRESTService((Type)property.eContainer());					
+		}
+		return false;
 	}
 	
 	/**
