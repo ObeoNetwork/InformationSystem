@@ -20,8 +20,13 @@
 		<version>2.2.0-SNAPSHOT</version>
 		<relativePath>../../../../releng/org.obeonetwork.informationsystem.parent/pom.xml</relativePath>
 	</parent>
+	
+	<properties>
+		<liquibase-version>4.4.0</tycho-version>
+	</properties>
+	
 	<artifactId>liquibase</artifactId>
-	<version>4.0.0-SNAPSHOT</version>
+	<version>${liquibase-version}-SNAPSHOT</version>
 	<groupId>org.obeonetwork</groupId>
 	<packaging>eclipse-plugin</packaging>
 
@@ -51,7 +56,7 @@
 		<dependency>
 			<groupId>org.liquibase</groupId>
 			<artifactId>liquibase-core</artifactId>
-			<version>4.4.0</version>
+			<version>${liquibase-version}</version>
 		</dependency>
 		<dependency>
 		    <groupId>javax.xml.bind</groupId>
@@ -63,10 +68,5 @@
 		    <artifactId>snakeyaml</artifactId>
 		    <version>1.27</version>
 		</dependency>
-<!-- 		<dependency> -->
-<!-- 			<groupId>org.liquibase</groupId> -->
-<!-- 			<artifactId>liquibase-OSGI</artifactId> -->
-<!-- 			<version>4.0.0</version> -->
-<!-- 		</dependency> -->
 	</dependencies>
 </project>
