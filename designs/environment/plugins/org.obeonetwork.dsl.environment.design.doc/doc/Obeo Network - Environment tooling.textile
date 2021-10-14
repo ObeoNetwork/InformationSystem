@@ -25,19 +25,19 @@ h2(#manage_env_resource). Gestion des ressources environnement
 
 La boîte de dialogue "Manage Environment" permet de gérer les ressources environnement pour un projet de modélisation donné. Elle est mise à disposition par l'action "Manage environment resources" du menu contextuel d'un projet modeling, d'une ressource aird, ou de l'élément "Project Dependencies" :
 
-!{width:1200px}./pics/Manage environment resources - actions.png!
+!{width:100%}./pics/ManageEnvironmentResourcesActions.png!
 
 La boîte de dialogue est composée d'un tableau listant toutes les ressources environnements accessibles pour le projet modeling concerné.
 Les ressources environnment se trouvant dans le projet sont automatiquement actives et ne peuvent pas être désactivées. Elles sont présentées en gris.
 Les ressources environnement apportées par point d'extension sont désactivables en décochant la case à cocher en début de ligne. Elles sont présentées en noir.
 
-!{width:800px}./pics/Manage environment resources - dialog.png!
+!{width:100%}./pics/ManageEnvironmentResourcesDialog.png!
 
 Le résultat de la sélection est appliqué lors de la validation de la boîte de dialogue.
 
 Dans le cas du décochage d'une ressource, une vérification est faite pour s'assurer que les éléments contenus dans la ressource ne sont pas utilisés dans le projet modeling. Si certains éléments d'une ressource retirée du projet sont utilisés, un dialogue d'avertissement s'affiche demandant confirmation à l'utilisateur :
 
-!{width:500px}./pics/Manage environment resources - warning dialog.png!
+!{width:500px}./pics/ManageEnvironmentResourcesWarningDialog.png!
 
 Ce dialogue présente sous forme d'arbre les objets qui référencent des éléments de la ressource environnement sur le point d'être retirée des dépendances du projet (ici obeo.environment). Si ce dialogue est validé, les références listées sont supprimées. Si le message d'avertissement est annulé la ressource environnement n'est pas retirée des dépendances du projet.
 Il est possible que plusieurs messages d'avertissements se succèdent dans le cas où plusieurs ressources environnement sont retirées des dépendances du projet.

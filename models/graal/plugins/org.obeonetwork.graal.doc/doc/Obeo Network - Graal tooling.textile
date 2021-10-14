@@ -18,15 +18,15 @@ Un assistant permet la création de modèles Graal. Cet assistant est accessible
 
 bq. File > New > Other ... > Graal Model (Catégorie IS Designer)
 
-!pics/Safran - graal - wizard01.png!
+!pics/SafranGraalWizard01.png!
 
 Cet assistant vous permet de définir le nom du modèle que vous souhaitez créer ainsi que de définir son répertoire destination.
 
-!pics/Safran - graal - wizard02.png!
+!pics/SafranGraalWizard02.png!
 
 Une fois l'assistant validé, le modèle est créé, les représentations _Task Graph_, _Actors Graph_, _Use Cases Main view_ et _Domain Namespaces Hierarchy_ sont créées. La représentation _Task Graph_ est ouverte afin de commencer l'édition.
 
-!pics/Safran - graal - model created.png!
+!{width:100%}pics/SafranGraalModelCreated.png!
 
 Lorsqu'un modèle graal est créé à l'aide de ce wizard, les points de vues _Graal Methodology_, _Graal Methodology (Safr@n Consolidated view)_, _Interaction_, _State Machine_ et _Environment View_ sont activés.
 Le point de vue _Graal Methodology_ est décrit dans la section suivante. Le point de vue _Graal Methodology (Safr@n Consolidated view)_ est décrit dans la section de documentation "Safr@n - Graal Methodology (Safr@n consolidated view)":../../fr.gouv.mindef.safran.is.design.doc/doc/Safr@n%20-%20Graal%20Methodology%20(Safr@n%20consolidated%20view).html. Le point de vue _Interaction_ est décrit dans la section de documentation "Obeo Network - Interaction tooling":../../org.obeonetwork.dsl.interaction.doc/doc/Obeo%20Network%20-%20Interaction%20tooling.html. Le point de vue _State Machine_ est décrit dans la section de documentation "Obeo Network - State Machine tooling":../../org.obeonetwork.dsl.statemachine.doc/doc/Obeo%20Network%20-%20State%20Machine%20tooling.html. Le point de vue _Environment View_ permet d'activer les vues propriétés EEF.
@@ -49,7 +49,7 @@ bq. Viewpoint Selection
 
 Choisir le point de vue _Graal Methodology_ :
 
-!pics/Graal%20Viewpoint%20Selection.png!
+!pics/GraalViewpointSelection.png!
 
 Une fois le point de vue activé, il devient possible de créer ou visualiser les diagrammes Graal.
 
@@ -65,7 +65,7 @@ puis renseigner le nom du diagramme et, enfin, valider.
 
 Par exemple sur un _System_, trois types de diagrammes peuvent être créés comme présenté sur la capture d'écran suivante :
  
-!pics/Graal%20Graphs%20on%20System.png!
+!pics/GraalGraphsOnSystem.png!
 
 Pour ouvrir un diagramme il suffit de double-cliquer sur le diagramme dans la vue _Model Explorer_. Attention seuls les diagrammes correspondants aux points de vue sélectionnés sur la session sont affichés dans la vue _Model Explorer_. 
 
@@ -74,7 +74,7 @@ h3. Graphe de tâches (pour un _System_)
 Un graphe de tâches (ou _Tasks Graph_) peut être associé à un _System_.
 Pour chaque _System_ un seul graphe de tâches peut être créé au maximum.
 
-!pics/diagrams/tasksgraph/Tasks%20Graph.png!
+!{width:100%}pics/diagrams/tasksgraph/Tasks_Graph.png!
 
 h4. Eléments affichés et palette d'outils
 
@@ -85,7 +85,7 @@ Les éléments suivants sont affichés sur le diagramme :
 * lien _Use_ : les liens d'utilisation entre tâches sont affichés. Des liens sont affichés également entre tâches, groupes et systèmes en fonction des liens d'utilisation entre tâches contenues dans les groupes et systèmes.
 * _Actor_ : chaque acteur associé à une tâche ou à un groupe de tâches du système est affiché. Les acteurs et les outils associés sont affichés uniquement quand le calque _Actors_ est activé.
 
-!pics/diagrams/tasksgraph/Tasks%20Graph%20Actors%20layer.png!
+!{width:25%}pics/diagrams/tasksgraph/Tasks_Graph_Actors_layer.png!
 
 Les outils fournis par la palette sont :
 
@@ -116,8 +116,6 @@ h3. Graphe de tâches (pour un _TasksGroup_)
 
 Un graphe de tâches (ou _Tasks Graph_) peut être associé à un _TasksGroup_.
 Pour chaque _TasksGroup_ un seul graphe de tâches peut être créé au maximum.
-
-!pics/diagrams/grouptasksgraph/Group%20Tasks%20Graph.png!
 
 h4. Eléments affichés et palette d'outils
 
@@ -155,7 +153,7 @@ h3. Plan d'action
 Un plan d'action (ou _Actions Plan_) est associé à une _Task_.
 Pour chaque _Task_ un seul plan d'action peut être créé au maximum.
 
-!pics/diagrams/actionsplan/Actions%20Plan.png!
+!{width:100%}pics/diagrams/actionsplan/ActionsPlan.png!
 
 h4. Eléments affichés et palette d'outils
 
@@ -201,7 +199,7 @@ h3. Graphe des acteurs (pour un _System_)
 Un graphe des acteurs (ou _Actors Graph_) peut être associé à un _System_. Ce graphe permet de créer/modifier les acteurs du système.
 Pour chaque _System_ un seul graphe des acteurs peut être créé au maximum.
 
-!pics/diagrams/actorsgraph/Actors%20Graph.png!
+!{width:100%}pics/diagrams/actorsgraph/ActorsGraph.png!
 
 h4. Eléments affichés et palette d'outils
 
@@ -219,7 +217,7 @@ h3. Graphe global des Use Cases (pour un _System_)
 Un graphe global des Use Cases (ou _Use Cases Main View_) peut être associé à un _System_. Ce graphe permet de visualiser, créer, modifier les _Use Cases_ du système.
 Pour chaque _System_ un seul graphe global des Use Cases peut être créé au maximum.
 
-!pics/diagrams/usecasesmainview/Use%20Cases%20Main%20View.png!
+!{width:100%}pics/diagrams/usecasesmainview/UseCasesMainView.png!
 
 h4. Eléments affichés et palette d'outils
 
@@ -246,7 +244,7 @@ Un diagramme de Use Case (ou _Use Case Diagram_) peut être associé à un _Use 
 Le graphe global des Use Cases d'un _System_ est normalement créé automatiquement à la création d'une session.
 Pour chaque _System_ un seul graphe global des Use Cases peut être créé au maximum.
 
-!pics/diagrams/usecasediagram/Use%20Case%20Diagram.png!
+!{width:100%}pics/diagrams/usecasediagram/UseCaseDiagram.png!
 
 h4. Eléments affichés et palette d'outils
 
@@ -284,7 +282,7 @@ Ce diagramme peut être créé sur l'objet principal _System_.
 
 Ce diagramme permet de créer, modifier ou supprimer des packages ainsi que d'accéder facilement au diagramme de gestion des classes participantes d'un package.
 
-!pics/diagrams/domainclasses/namespaces_hierarchy.png!
+!{width:100%}pics/diagrams/domainclasses/namespacesHierarchy.png!
 
 h4. Eléments affichés et palette d'outils
 
@@ -293,7 +291,7 @@ Les éléments suivants sont affichés sur le diagramme :
 * _Namespace_ : chaque package contenu dans le System est affiché. Si un package est contenu par un autre package il apparaît à l'intérieur de son package parent. L'icône d'un package apparaît blanche ou grisée selon si le package est respectivement vide ou non.
 * _Dépendance_ : l'affichage des dépendances peut être activé ou désactivé via le layer _Dependencies_. Les dépendances entre _Namespaces_ sont représentées par des liens pouvant être fléchés à une ou deux extrémités. Les dépendances sont calculées à partir du contenu de chacun des _Namespace_. Une dépendance est identifiée entre deux _Namespaces_ si il existe un lien d'héritage, une référence ou l'utilisation d'une _Enumeration_ pour typer un attribut entre une _Domain Class_ d'un _Namespace_ et un autre. Si il est non nul, le nombre de dépendances identifiées est indiqué sur l'extrémité du lien correspondant, et cette extrémité est décoré d'une flèche. Les dépendances entre les packages d'une même lignée de contenance ne sont pas affichées. L'affichage des dépendances peut être activé ou désactivé via le layer _Dependencies_. Les namespaces dits "externes" sont également affichés dans ce layer. Un namespace externe est un namespace contenant une entité externe liée à une entité présente dans un namespace affiché par le diagramme (voir _External Domain Class_ dans la section _Diagramme de classes participantes_ ci-après).
 
-!pics/diagrams/domainclasses/namespaces_hierarchy_dependencies.png!
+!{width:100%}pics/diagrams/domainclasses/namespacesHierarchyDependencies.png!
 
 Les outils fournis par la palette sont :
 
@@ -309,7 +307,7 @@ h3. Diagramme de classes participantes
 
 Un diagramme de classes participantes est associé à un package (_Namespace_). Il permet de gérer les classes participantes du package.
 
-!pics/diagrams/domainclasses/Domain%20classes%20diagram.png!
+!{width:100%}pics/diagrams/domainclasses/DomainClassesDiagram.png!
 
 Les éléments suivants sont affichés sur le diagramme :
 
@@ -387,7 +385,7 @@ h5. Visualisation d'une User Story
 
 Un double-clic sur une _User Story_ ou un clic sur le bouton !pics/userstories/display.png! provoque l'affichage de la user story sur les différents diagrammes : 
 
-!pics/userstories/displayuserstory.png!
+!{width:100%}pics/userstories/displayuserstory.png!
 
 h2. Gestion des exigences
 

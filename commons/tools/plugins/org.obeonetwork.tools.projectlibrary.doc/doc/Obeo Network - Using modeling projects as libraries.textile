@@ -15,12 +15,12 @@ h2. Export a modeling project as a library
 
 To export a modeling project as a library, use the _File > Export..._ menu and choose _Export modeling project as library_ in _IS Designer_ category.
 
-!pics/export menu.png!
+!pics/ExportMenu.png!
 
 On the wizard's first page, the user can select the project to be exported and the destination for the generated MAR file.
 The destinatin file can be located inside or outside an eclipse project. The recommended way is to use an external location.
 
-!pics/export wizard page 1.png!
+!pics/exportWizardPage1.png!
 
 On the wizard's next page, the user can define the following information :
 * *Project ID* The default value is the name of the exported project. (required)
@@ -28,7 +28,7 @@ On the wizard's next page, the user can define the following information :
 * *Previous version* This table is not editable. It presents the previous versions that were exported from the same modeling project.
 * *Comment*
 
-!pics/export wizard page 2.png!
+!pics/exportWizardPage2.png!
 
 Once this last step is completed, a MAR file is generated at the specified location .This file can then be imported into another modeling project.
 
@@ -36,13 +36,13 @@ h2. Import a library into a modeling project
 
 To import a library file into a modeling project, use the _File > Import..._ menu and choose _Export library into modeling project_ in _IS Designer_ category.
 
-!pics/import menu.png!
+!pics/importMenu.png!
 
 On the wizard's page, the user can define :
 * the target project. The project is already selected if the user launched the import from a selected project.
 * the MAR file to import
 
-!pics/import wizard.png!
+!pics/importWizard.png!
 
 Once the MAR file has been selected, informations are extracted from the file and displayed to the user :
 * *Project ID*
@@ -54,7 +54,7 @@ Once the MAR file has been selected, informations are extracted from the file an
 If all dependencies are valid, the user can finish the wizard. The file is then imported into the _libraries_ folder in the target project.
 A folder with the name and ID of the imported project is created. All semantic and graphical data are copied into this folder.
 
-!pics/imported library.png!
+!pics/importedLibrary.png!
 
 h2. Notes about dependencies
 
@@ -66,25 +66,25 @@ Let's illustrate this with an example.
 
 h3. Initial <Core project> before export
 
-!pics/core project.png!
+!pics/coreProject.png!
 
 h3. Initial target project <Project 1>
 
-!pics/initial project1.png!
+!pics/initialProject1.png!
 
 h3. <Project 1> after importing <Core project>
 
-!pics/imported library.png!
+!pics/importedLibrary.png!
 
 A _libraries_ folder has been created and a folder for _Core project_ V1.0.0 has been created too.
 
 h3. Initial target project <Project 2>
 
-!pics/initial project2.png!
+!pics/initialProject2.png!
 
 h3. <Project 2> after importing <Project 1>
 
-!pics/project2 after import.png!
+!pics/project2AfterImport.png!
 
 A _libraries_ folder has been created and a folder for _Project 1_ V1.0.0 has been created too.
 Inside the _Project 1-1.0.0_ we can see a _libraries_ folder for the previously imported _Core project_.

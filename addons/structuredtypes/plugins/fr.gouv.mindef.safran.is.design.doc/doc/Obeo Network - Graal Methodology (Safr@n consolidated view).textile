@@ -16,7 +16,7 @@ Pour pouvoir créer une table _Domain Classes Annotations_ il faut activer le po
 Une fois le point de vue activé, il est possible de créer une nouvelle table sur un objet Graal de type _System_.
 A noter qu'à la première activation du point de vue, une table est créée automatiquement pour chaque objet Graal de type _System_ dans le projet. 
 
-!pics/graal/New table.png!
+!pics/graal/NewTable.png!
 
 h2. Eléments affichés et outils
 

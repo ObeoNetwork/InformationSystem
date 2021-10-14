@@ -77,7 +77,7 @@ h4. Contenu
 
 Le _Package Diagram_ est défini sur un objet de type Package, que nous appellerons par la suite package courant.
 
-!pics/PackageDiagram/PackageDiagram-01.png!
+!{width:100%}pics/PackageDiagram/PackageDiagram-01.png!
 
 Sont affichés sur ce diagramme :
 * les _ViewContainer_ directement contenus par le package courant,
@@ -207,7 +207,7 @@ h4. Contenu
 
 Le _Flow Diagram_ est défini sur un élément de type Flow.
 
-!pics/FlowDiagram/FlowDiagram-01.png!
+!{width:100%}pics/FlowDiagram/FlowDiagram-01.png!
 
 Sont affichés sur ce diagramme :
 * Les états du Flow (InitialState, FinalState, ViewState, ActionState, DecisionState, AsyncEventState, SubflowState).
@@ -261,7 +261,7 @@ L'apparence d'un ViewState peut prendre celle du diagramme de Mockup du View Con
 L'action _Remove Mockup Image_ a pour effet de réinitialiser l'apparence du _View State_ à son apparence initiale.
 
 **Dialogue de selection d'évènements déclencheurs:**
-!pics/FlowDiagram/EventSelectionDialog.png!
+!{width:50%}pics/FlowDiagram/EventSelectionDialog.png!
 
 Elle présente l’ensemble des types d’événements supportés par les widgets utilisés dans le modèle Cinematic, ainsi que l’ensemble des événements logiques définis dans le Flow.
 Note : L’existence ou non d’un événement en correspondance d’un type d’événement n’est pas pris en considération.
@@ -284,7 +284,7 @@ A la validation du dialogue,
 Lors de leur création, les événements sont nommés avec la concaténation : « <nom du widget> + '_' + <type d'événement> ».
 
 **Dialogue de selection de ViewContainer:**
-!pics/FlowDiagram/ViewContainerSelectionDialog.png!
+!{width:50%}pics/FlowDiagram/ViewContainerSelectionDialog.png!
 
 Elle présente l’ensemble des View Containers du modèle Cinematic présentés sous la forme d’un arbre de contenance.
 
