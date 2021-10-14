@@ -69,8 +69,8 @@ public class SwaggerImportTest {
 		.findFirst().orElse(null);
 		
 		destinationSystem.setName(expectedSystem.getName());
-        
-        assertTrue("Swagger import returned with error status code", status != IStatus.ERROR);
+    
+    assertTrue("Swagger import returned with error status code", status != IStatus.ERROR);
 		assertECoreEquals("Imported model is different for file " + inputFile.getAbsolutePath(), expectedSystem, destinationSystem); 
 	}
 

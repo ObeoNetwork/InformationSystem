@@ -4,7 +4,6 @@
    <extension
          point="org.eclipse.ui.commands">
       <command
-            defaultHandler="org.obeonetwork.dsl.database.liquibasegen.handlers.ChangelogHandler"
             id="org.obeonetwork.dsl.database.liquibasegen.command"
             name="applyChangelog">
          <commandParameter

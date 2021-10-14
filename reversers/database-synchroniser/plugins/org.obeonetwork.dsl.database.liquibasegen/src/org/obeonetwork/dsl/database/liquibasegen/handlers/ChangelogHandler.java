@@ -9,10 +9,15 @@ import org.eclipse.core.commands.AbstractHandler;
 import org.eclipse.core.commands.ExecutionEvent;
 import org.eclipse.core.commands.ExecutionException;
 import org.eclipse.core.internal.resources.File;
+import org.eclipse.core.internal.resources.Folder;
+import org.eclipse.core.internal.resources.WorkspaceRoot;
+import org.eclipse.core.resources.IContainer;
 import org.eclipse.core.resources.IProject;
 import org.eclipse.core.resources.IResource;
 import org.eclipse.core.resources.IResourceVisitor;
 import org.eclipse.core.runtime.CoreException;
+import org.eclipse.core.runtime.IPath;
+import org.eclipse.core.runtime.Path;
 import org.eclipse.jface.dialogs.MessageDialog;
 import org.eclipse.jface.viewers.ISelection;
 import org.eclipse.jface.viewers.StructuredSelection;
@@ -43,7 +48,7 @@ public class ChangelogHandler extends AbstractHandler {
 	
 	@Override
 	public Object execute(ExecutionEvent event) throws ExecutionException {
-	
+		liquibaseProperties = null;
 		ISelection selection = HandlerUtil.getActiveWorkbenchWindow(event).getActivePage().getSelection();
 		shell = HandlerUtil.getActiveShell(event);
 		if (selection instanceof StructuredSelection) {
@@ -51,9 +56,8 @@ public class ChangelogHandler extends AbstractHandler {
 			if (structuredSelection.size() == 1 && structuredSelection.getFirstElement() instanceof File) {
 				// Getting the changelog file.
 				File changelogFile = (File) structuredSelection.getFirstElement();
-				IProject changelogProject = changelogFile.getProject();
 				
-				if (askConnectionInformation(changelogProject)) {
+				if (askConnectionInformation(changelogFile)) {
 					LiquibaseUpdater liquibaseUpdater = new LiquibaseUpdater(changelogFile);
 					try {
 						liquibaseUpdater.update(URL, username, password);
@@ -71,8 +75,8 @@ public class ChangelogHandler extends AbstractHandler {
 	 * @param changelogProject 
 	 * @return true if the user specified information, false otherwise.
 	 */
-	private boolean askConnectionInformation(IProject changelogProject) {
-		Properties liquibaseProperties = getLiquibaseProperties(changelogProject);				
+	private boolean askConnectionInformation(File changelogFile) {
+		Properties liquibaseProperties = getLiquibaseProperties(changelogFile);				
 
 		ConnectionInformationDialog connectionInformationDialog = new ConnectionInformationDialog((shell), 
 				liquibaseProperties.getProperty("url", ""),
@@ -93,40 +97,64 @@ public class ChangelogHandler extends AbstractHandler {
 	}
 	
 	/**
-	 * Visits the {@link IProject} that contains the changelog {@link File} and tries to find a <code>liquibase.properties</code> file.
+	 * Try to find a <code>liquibase.properties</code> file in the same folder than
+	 * the given change log {@link File}.<br>
+	 * If not found there, try to find it in the parent folders recursively until
+	 * reaching the project root.<br>
+	 * If still not found, visits the {@link IProject} that contains the changelog
+	 * {@link File} and tries to find a <code>liquibase.properties</code> file
+	 * anywhere in the project folder hierarchy.<br>
 	 * 
-	 * @implNote It returns the first <code>liquibase.properties</code> found. A better implementation could gather all <code>liquibase.properties</code> 
-	 * files, and return only the closest one from the changelog file selected by the user.
-	 * 
-	 * @param changelogProject a {@link IProject}.
-	 * @return a {@link File} if <code>liquibase.properties</code> is found, or <code>null</code>.
+	 * @param changelogFile a {@link File}.
+	 * @return a {@link Properties} initialized with the
+	 *         <code>liquibase.properties</code> file contents if found.
 	 */
-	private Properties getLiquibaseProperties(IProject changelogProject) {
-		try {
-			changelogProject.accept(new IResourceVisitor() {
-				
-				@Override
-				public boolean visit(IResource resource) throws CoreException {					
-					if (liquibaseProperties != null) {
-						return false;
-					}
-					if ("liquibase.properties".equals(resource.getName())) {
-						liquibaseProperties = (File) resource;
-						return false;
-					}
-					return true;
-				}
-			});
-		} catch (CoreException e) {
-			e.printStackTrace();
+	private Properties getLiquibaseProperties(File changelogFile) {
+		IPath propertiesPath = new Path("liquibase.properties");		
+		IContainer container = changelogFile.getParent();		
+		
+		while (container != null && !(container instanceof WorkspaceRoot) && !container.getFile(propertiesPath).exists()) {
+			container = container.getParent();
 		}
 		
+		if (container != null && container instanceof Folder) {
+			liquibaseProperties = (File) container.getFile(propertiesPath);
+		} else {
+			try {
+				changelogFile.getProject().accept(new IResourceVisitor() {
+					
+					@Override
+					public boolean visit(IResource resource) throws CoreException {					
+						if (liquibaseProperties != null) {
+							return false;
+						}
+						if ("liquibase.properties".equals(resource.getName())) {
+							liquibaseProperties = (File) resource;
+							return false;
+						}
+						return true;
+					}
+				});
+			} catch (CoreException e) {
+				e.printStackTrace();
+			}
+		}
+		
+		Properties properties = buildPropertiesFile(liquibaseProperties);
+		return properties;
+	}
+	
+	/**
+	 * Build a {@link Properties} out of a {@link File}.
+	 * @param propertiesFile a {@link File}
+	 * @return the {@link Properties}
+	 */
+	private Properties buildPropertiesFile(File propertiesFile) {
 		Properties properties = new Properties();
 		
-		if (liquibaseProperties != null) {
+		if (propertiesFile != null && propertiesFile.exists()) {
 			try {
-				InputStream inputStream = new FileInputStream(liquibaseProperties.getLocation().toOSString());
-		
+				InputStream inputStream = new FileInputStream(propertiesFile.getLocation().toOSString());
 				properties.load(inputStream);
 			} catch (IOException e) {
 				e.printStackTrace();
