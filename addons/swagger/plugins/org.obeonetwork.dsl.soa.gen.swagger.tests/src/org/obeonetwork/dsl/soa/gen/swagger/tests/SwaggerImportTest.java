@@ -47,7 +47,7 @@ public class SwaggerImportTest {
 		int status = swaggerImporter.importFromFile(inputFile.getAbsolutePath(), "x-pagination");
 		
 		// save the model to file to ease understanding in case of error:
-//		
+		
 //		Resource.Factory.Registry reg = Resource.Factory.Registry.INSTANCE;
 //        Map<String, Object> m = reg.getExtensionToFactoryMap();
 //        m.put("soa", new SoaResourceFactoryImpl());
@@ -69,8 +69,8 @@ public class SwaggerImportTest {
 		.findFirst().orElse(null);
 		
 		destinationSystem.setName(expectedSystem.getName());
-		
-        assertTrue("Swagger import returned with error status code", status != IStatus.ERROR);
+    
+    assertTrue("Swagger import returned with error status code", status != IStatus.ERROR);
 		assertECoreEquals("Imported model is different for file " + inputFile.getAbsolutePath(), expectedSystem, destinationSystem); 
 	}
 

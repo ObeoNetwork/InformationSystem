@@ -1912,9 +1912,9 @@
               <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="aql:self.setNewMediaTypeIdentifier(newValue)"/>
             </initialOperation>
           </controls>
-          <controls xsi:type="properties:ButtonDescription" name="soa::MediaType commonIdentifiers button" helpExpression="Displays a list of common mediatypes." buttonLabelExpression="...">
+          <controls xsi:type="properties:ButtonDescription" name="soa::MediaType commonMediaTypes button" helpExpression="Displays a list of common media types." buttonLabelExpression="...">
             <initialOperation>
-              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="aql:self.openCommonIdentifiersSelectionDialog()"/>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="aql:self.openCommonMediaTypesSelectionDialog()"/>
             </initialOperation>
           </controls>
           <layout xsi:type="properties:FillLayoutDescription" orientation="HORIZONTAL"/>

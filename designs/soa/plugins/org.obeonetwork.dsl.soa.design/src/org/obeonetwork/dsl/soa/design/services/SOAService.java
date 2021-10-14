@@ -62,9 +62,9 @@ import org.obeonetwork.dsl.soa.services.HttpStatusService;
 public class SOAService {
 
 
-	private static final String COMMON_IDENTIFIERS_EXTENSION_ID = "org.obeonetwork.dsl.soa.design.identifiers";
-	private static final String COMMON_IDENTIFIERS_NAME_ATTRIBUTE = "name";
-	private static Collection<String> commonIdentifiers;
+	private static final String COMMON_MEDIA_TYPES_EXTENSION_ID = "org.obeonetwork.dsl.soa.design.mediaTypes";
+	private static final String COMMON_MEDIA_TYPES_NAME_ATTRIBUTE = "name";
+	private static Collection<String> commonMediaTypes;
 	private static final Pattern PATH_PARAM_PATTERN = Pattern.compile("\\{[^\\{\\}]*\\}");
 
 	public EObject trace(EObject receiver) {
@@ -266,7 +266,7 @@ public class SOAService {
 
 	}
 
-	public void openCommonIdentifiersSelectionDialog(MediaType mediaType) {
+	public void openCommonMediaTypesSelectionDialog(MediaType mediaType) {
 
 		Shell shell = PlatformUI.getWorkbench().getActiveWorkbenchWindow().getShell();
 
@@ -274,7 +274,7 @@ public class SOAService {
 		dialog.setTitle(Messages.SOAService_StatusSelectionDiaglogTitle);
 		dialog.setMessage("Pick an identifier amongst the most common ones:");
 		dialog.setContentProvider(ArrayContentProvider.getInstance());
-		dialog.setInput(getCommonIdentifiers());
+		dialog.setInput(getCommonMediaTypes());
 		dialog.setLabelProvider(new LabelProvider());
 		if (dialog.open() == Dialog.OK && dialog.getResult().length == 1) {
 			String selectedIdentifier = (String) dialog.getResult()[0];
@@ -286,24 +286,24 @@ public class SOAService {
 		mediaType.setIdentifier(newValue);	
 	}
 
-	public static Collection<String> getCommonIdentifiers() {
-		if (commonIdentifiers == null) {
-			IExtension[] extensions = Platform.getExtensionRegistry().getExtensionPoint(COMMON_IDENTIFIERS_EXTENSION_ID)
+	public static Collection<String> getCommonMediaTypes() {
+		if (commonMediaTypes == null) {
+			IExtension[] extensions = Platform.getExtensionRegistry().getExtensionPoint(COMMON_MEDIA_TYPES_EXTENSION_ID)
 					.getExtensions();
 
-			commonIdentifiers = Arrays.stream(extensions).map(IExtension::getConfigurationElements)
+			commonMediaTypes = Arrays.stream(extensions).map(IExtension::getConfigurationElements)
 					.flatMap(Arrays::stream)
-					.map(configurationElement -> configurationElement.getAttribute(COMMON_IDENTIFIERS_NAME_ATTRIBUTE))
+					.map(configurationElement -> configurationElement.getAttribute(COMMON_MEDIA_TYPES_NAME_ATTRIBUTE))
 					.sorted()
 					.collect(Collectors.toList());
 			
-			if (!commonIdentifiers.contains("")) {
-				commonIdentifiers.add("");
+			if (!commonMediaTypes.contains("")) {
+				commonMediaTypes.add("");
 			}
 
 		}
 
-		return commonIdentifiers;
+		return commonMediaTypes;
 	}
 	public List<String> getParamIdsFromURI(Operation operation) {
 		List<String> paramIds = new ArrayList<>();

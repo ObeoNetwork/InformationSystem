@@ -3,7 +3,7 @@
 <schema targetNamespace="org.obeonetwork.dsl.soa.design" xmlns="http://www.w3.org/2001/XMLSchema">
 <annotation>
       <appInfo>
-         <meta.schema plugin="org.obeonetwork.dsl.soa.design" id="commonIdentifiers" name="commonIdentifiers"/>
+         <meta.schema plugin="org.obeonetwork.dsl.soa.design" id="commonMediaTypes" name="commonMediaTypes"/>
       </appInfo>
       <documentation>
          [Enter description of this extension point.]

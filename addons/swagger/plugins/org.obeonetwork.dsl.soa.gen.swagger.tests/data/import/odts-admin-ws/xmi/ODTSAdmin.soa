@@ -423,7 +423,7 @@
         </ownedOperations>
       </ownedInterface>
     </ownedServices>
-    <securitySchemes xmi:id="_W0tcIP6gEeuek5eXUmOjkg" technicalid="_Wy0lwP6gEeuek5eXUmOjkg" key="basicAuth" type="http" name="basicAuth"/>
+    <securitySchemes xmi:id="_W0tcIP6gEeuek5eXUmOjkg" technicalid="_Wy0lwP6gEeuek5eXUmOjkg" type="http" name="basicAuth"/>
     <license xmi:id="_W0tcIf6gEeuek5eXUmOjkg" technicalid="_WyvtQP6gEeuek5eXUmOjkg" name="Copyright (c) 2008, 2021 Obeo." URL="/doc/license.html"/>
     <information xmi:id="_W0tcIv6gEeuek5eXUmOjkg" technicalid="_WyufIP6gEeuek5eXUmOjkg" apiVersion="1.0.0"/>
     <contact xmi:id="_W0tcI_6gEeuek5eXUmOjkg" technicalid="_WywUUP6gEeuek5eXUmOjkg" email="support@obeo.fr"/>

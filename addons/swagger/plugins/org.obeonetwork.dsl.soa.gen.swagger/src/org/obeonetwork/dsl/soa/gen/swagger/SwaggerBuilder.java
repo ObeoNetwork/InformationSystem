@@ -211,12 +211,7 @@ public class SwaggerBuilder {
 
 	private SecurityScheme createSecurityScheme(org.obeonetwork.dsl.soa.SecurityScheme soaSecurityScheme) {
 		SecurityScheme securityScheme = new SecurityScheme();
-		
-		if (!StringUtils.isNullOrWhite(soaSecurityScheme.getName()))
-			securityScheme.setName(soaSecurityScheme.getName());
-		else
-			securityScheme.setName("null");
-		
+				
 		if (soaSecurityScheme.getDescription() != null) {
 			securityScheme.setDescription(soaSecurityScheme.getDescription());
 		}
@@ -227,8 +222,8 @@ public class SwaggerBuilder {
 		switch (type) {
 		case APIKEY:
 			SecurityScheme.In in = toSwg(soaSecurityScheme.getApiKeyLocation());
-			securityScheme.setIn(in);					
-			//securityScheme.setName(soaSecurityScheme.getKey());
+			securityScheme.setIn(in);		
+			securityScheme.setName(soaSecurityScheme.getKey());
 			break;
 		case HTTP:
 			if (soaSecurityScheme.getFormat() != null)
@@ -1070,19 +1065,6 @@ public class SwaggerBuilder {
 		Parameter param = createParameter("sort", false, OPEN_API_IN_QUERY);
 		param.schema(createSchema(OPEN_API_TYPE_STRING, null));
 		operation.addParametersItem(param);
-	}
-
-	private void buildPaginableSizeParameter(Operation operation, org.obeonetwork.dsl.soa.Operation soaOperation) {
-		Parameter sizeParameter = createParameter(SOA_SIZE_PARAMETER_NAME, false, OPEN_API_IN_QUERY);
-		sizeParameter.schema(createSchema(OPEN_API_TYPE_INTEGER, OPEN_API_FORMAT_INT64));
-//    	sizeParameter.description("Default size : " + soaOperation.getDefautPageSize());
-		operation.addParametersItem(sizeParameter);
-	}
-
-	private void buildPaginablePageParameter(Operation operation) {
-		Parameter pageParameter = createParameter(SOA_PAGE_PARAMETER_NAME, false, OPEN_API_IN_QUERY);
-		pageParameter.schema(createSchema(OPEN_API_TYPE_INTEGER, OPEN_API_FORMAT_INT64));
-		operation.addParametersItem(pageParameter);
 	}
 
 	private Parameter createParameter(String name, Boolean required, String in) {
