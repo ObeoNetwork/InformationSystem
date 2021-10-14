@@ -97,13 +97,17 @@ public class ChangelogHandler extends AbstractHandler {
 	}
 	
 	/**
-	 * Visits the {@link IProject} that contains the changelog {@link File} and tries to find a <code>liquibase.properties</code> file.
+	 * Try to find a <code>liquibase.properties</code> file in the same folder than
+	 * the given change log {@link File}.<br>
+	 * If not found there, try to find it in the parent folders recursively until
+	 * reaching the project root.<br>
+	 * If still not found, visits the {@link IProject} that contains the changelog
+	 * {@link File} and tries to find a <code>liquibase.properties</code> file
+	 * anywhere in the project folder hierarchy.<br>
 	 * 
-	 * @implNote It returns the first <code>liquibase.properties</code> found. A better implementation could gather all <code>liquibase.properties</code> 
-	 * files, and return only the closest one from the changelog file selected by the user.
-	 * 
-	 * @param changelogProject a {@link IProject}.
-	 * @return a {@link File} if <code>liquibase.properties</code> is found, or <code>null</code>.
+	 * @param changelogFile a {@link File}.
+	 * @return a {@link Properties} initialized with the
+	 *         <code>liquibase.properties</code> file contents if found.
 	 */
 	private Properties getLiquibaseProperties(File changelogFile) {
 		IPath propertiesPath = new Path("liquibase.properties");		
@@ -116,36 +120,28 @@ public class ChangelogHandler extends AbstractHandler {
 		if (container != null && container instanceof Folder) {
 			liquibaseProperties = (File) container.getFile(propertiesPath);
 		} else {
-			setLiquibasePropertiesInProject(changelogFile.getProject());
+			try {
+				changelogFile.getProject().accept(new IResourceVisitor() {
+					
+					@Override
+					public boolean visit(IResource resource) throws CoreException {					
+						if (liquibaseProperties != null) {
+							return false;
+						}
+						if ("liquibase.properties".equals(resource.getName())) {
+							liquibaseProperties = (File) resource;
+							return false;
+						}
+						return true;
+					}
+				});
+			} catch (CoreException e) {
+				e.printStackTrace();
+			}
 		}
 		
 		Properties properties = buildPropertiesFile(liquibaseProperties);
 		return properties;
-	}
-	
-	/**
-	 * Visits an {@link IProject} to find a Liquibase properties {@link File}.
-	 * @param changelogProject a {@link IProject}
-	 */
-	private void setLiquibasePropertiesInProject(IProject changelogProject) {
-		try {
-			changelogProject.accept(new IResourceVisitor() {
-				
-				@Override
-				public boolean visit(IResource resource) throws CoreException {					
-					if (liquibaseProperties != null) {
-						return false;
-					}
-					if ("liquibase.properties".equals(resource.getName())) {
-						liquibaseProperties = (File) resource;
-						return false;
-					}
-					return true;
-				}
-			});
-		} catch (CoreException e) {
-			e.printStackTrace();
-		}
 	}
 	
 	/**
