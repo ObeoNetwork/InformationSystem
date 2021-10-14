@@ -3,10 +3,12 @@ Bundle-ManifestVersion: 2
 Bundle-Name: M2Doc Database Services Tests
 Bundle-SymbolicName: org.obeonetwork.database.m2doc.services.test
 Bundle-Version: 2.2.0.qualifier
-Bundle-RequiredExecutionEnvironment: JavaSE-1.7
+Bundle-RequiredExecutionEnvironment: JavaSE-1.8
 Require-Bundle: org.obeonetwork.dsl.database,
  org.obeonetwork.database.m2doc.services,
  org.eclipse.emf.ecore,
  org.eclipse.emf.common,
  org.junit;bundle-version="4.12.0"
 Bundle-Vendor: Obeo Network
+Export-Package: org.obeonetwork.database.m2doc.services,
+ org.obeonetwork.database.m2doc.services.common
