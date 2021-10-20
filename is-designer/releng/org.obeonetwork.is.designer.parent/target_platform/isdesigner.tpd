@@ -92,6 +92,15 @@ location "http://download.eclipse.org/releases/2019-06/" {
 // Team SVN is not part of eclipse 2019-06, so we use oxygen to get it
 location "http://download.eclipse.org/releases/oxygen/" {
 	org.eclipse.team.svn.feature.group lazy
+	org.eclipse.team.svn.revision.graph.feature.group lazy
+	org.eclipse.team.svn.m2e.feature.group lazy
+	org.eclipse.team.svn.mylyn.feature.group lazy
+	org.eclipse.team.svn.nl1.feature.group lazy
+}
+
+location "http://community.polarion.com/projects/subversive/download/eclipse/6.0/neon-site/" {
+	org.polarion.eclipse.team.svn.connector.feature.group lazy
+	org.polarion.eclipse.team.svn.connector.svnkit18.feature.group lazy
 }
 
 location "https://download.eclipse.org/tools/orbit/downloads/drops/R20190602212107/repository/" {
