@@ -6,13 +6,14 @@ Bundle-Version: 2.2.0.qualifier
 Bundle-Activator: org.obeonetwork.dsl.database.liquibasegen.Activator
 Require-Bundle: org.eclipse.core.runtime,
  org.obeonetwork.dsl.database.compare,
- org.obeonetwork.dsl.database.gen.common;bundle-version="1.0.0",
+ org.obeonetwork.dsl.database.gen.common,
  org.eclipse.emf.edit.ui,
  org.eclipse.ui,
  org.eclipse.core.expressions,
- org.eclipse.core.resources;bundle-version="3.13.400",
+ org.eclipse.core.resources,
  org.obeonetwork.dsl.database.drivers,
- liquibase
+ liquibase,
+ org.obeonetwork.utils.common
 Bundle-RequiredExecutionEnvironment: JavaSE-1.8
 Automatic-Module-Name: org.obeonetwork.dsl.database.liquibasegen
 Bundle-ActivationPolicy: lazy

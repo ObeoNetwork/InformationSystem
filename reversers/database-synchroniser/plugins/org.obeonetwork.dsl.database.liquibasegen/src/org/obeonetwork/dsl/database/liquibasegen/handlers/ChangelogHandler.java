@@ -9,79 +9,81 @@ import org.eclipse.core.commands.AbstractHandler;
 import org.eclipse.core.commands.ExecutionEvent;
 import org.eclipse.core.commands.ExecutionException;
 import org.eclipse.core.internal.resources.File;
-import org.eclipse.core.internal.resources.Folder;
-import org.eclipse.core.internal.resources.WorkspaceRoot;
 import org.eclipse.core.resources.IContainer;
-import org.eclipse.core.resources.IProject;
-import org.eclipse.core.resources.IResource;
-import org.eclipse.core.resources.IResourceVisitor;
-import org.eclipse.core.runtime.CoreException;
 import org.eclipse.core.runtime.IPath;
 import org.eclipse.core.runtime.Path;
 import org.eclipse.jface.dialogs.MessageDialog;
-import org.eclipse.jface.viewers.ISelection;
-import org.eclipse.jface.viewers.StructuredSelection;
 import org.eclipse.jface.window.Window;
 import org.eclipse.swt.widgets.Shell;
 import org.eclipse.ui.handlers.HandlerUtil;
 import org.obeonetwork.dsl.database.liquibasegen.LiquibaseUpdater;
 import org.obeonetwork.dsl.database.liquibasegen.ui.ConnectionInformationDialog;
+import org.obeonetwork.utils.common.handlers.EventHelper;
 
 import liquibase.exception.LiquibaseException;
 
 
 /**
- * This handler is activated when the user right clicks on a file and picks Liquidbase > apply changelog.
- * It opens a dialog for defining a Database connection, and updates this database with the specified changelogs.
+ * Apply a changelog to a database.
  * 
- * @author <a href="mailto:thibault.beziers-la-fosse@obeo.fr">Thibault Béziers
- *         la Fosse</a>
+ * Assuming a changelog file is selected, opens a dialog prompting database connection informations and apply the changelog.
+ * 
  */
 @SuppressWarnings("restriction")
 public class ChangelogHandler extends AbstractHandler {
-	private Shell shell = null;
+	private final static String LIQUIBASE_PROPERTIES_FILE_NAME = "liquibase.properties";
+	
+	private Shell shell;
+	
 	private String URL;
 	private String username;
 	private String password;
 
-	private File liquibaseProperties;
-	
 	@Override
 	public Object execute(ExecutionEvent event) throws ExecutionException {
-		liquibaseProperties = null;
-		ISelection selection = HandlerUtil.getActiveWorkbenchWindow(event).getActivePage().getSelection();
 		shell = HandlerUtil.getActiveShell(event);
-		if (selection instanceof StructuredSelection) {
-			StructuredSelection structuredSelection = (StructuredSelection)selection;
-			if (structuredSelection.size() == 1 && structuredSelection.getFirstElement() instanceof File) {
-				// Getting the changelog file.
-				File changelogFile = (File) structuredSelection.getFirstElement();
-				
-				if (askConnectionInformation(changelogFile)) {
-					LiquibaseUpdater liquibaseUpdater = new LiquibaseUpdater(changelogFile);
-					try {
-						liquibaseUpdater.update(URL, username, password);
-					} catch (LiquibaseException e) {
-						MessageDialog.openError(shell, "Liquibase Update", e.getMessage());
-					}	 
-				}
-			} 
-		}		
+		
+		File changelogFile = EventHelper.uwrapSingleSelection(event, File.class);
+		
+		if(changelogFile == null) {
+			return null;
+		}
+		
+		File liquibasePropertiesFile = getLiquibasePropertiesFile(changelogFile);
+		if(liquibasePropertiesFile == null) {
+			MessageDialog.openError(shell, Messages.ChangelogHandler_Error_dialog_title, Messages.ChangelogHandler_Error_message_properties_file_not_found);
+			return null;
+		}
+		
+		try {
+			if (openConnectionInformationDialog(liquibasePropertiesFile)) {
+				LiquibaseUpdater liquibaseUpdater = new LiquibaseUpdater(changelogFile);
+				liquibaseUpdater.update(URL, username, password);
+			}
+		} catch (IOException | LiquibaseException e) {
+			MessageDialog.openError(shell, Messages.ChangelogHandler_Error_dialog_title, e.getMessage());
+		}
+		
 		return null;
 	}
 	
 	/**
-	 * Opens a dialog that lets the user define the database parameters.
-	 * @param changelogProject 
-	 * @return true if the user specified information, false otherwise.
+	 * Opens a dialog prompting for the database parameters.
+	 * 
+	 * @param liquibasePropertiesFile 
+	 * @return true if the user validated the dialog, false if the user canceled.
+	 * @throws IOException 
 	 */
-	private boolean askConnectionInformation(File changelogFile) {
-		Properties liquibaseProperties = getLiquibaseProperties(changelogFile);				
-
-		ConnectionInformationDialog connectionInformationDialog = new ConnectionInformationDialog((shell), 
-				liquibaseProperties.getProperty("url", ""),
-				liquibaseProperties.getProperty("username", ""),
-				liquibaseProperties.getProperty("password", "")); 
+	private boolean openConnectionInformationDialog(File liquibasePropertiesFile) throws IOException {
+		Properties liquibaseProperties = new Properties();
+		InputStream inputStream = new FileInputStream(liquibasePropertiesFile.getLocation().toOSString());
+		liquibaseProperties.load(inputStream);
+		
+		ConnectionInformationDialog connectionInformationDialog = new ConnectionInformationDialog(
+				shell, 
+				liquibaseProperties.getProperty("url", ""), //$NON-NLS-1$ //$NON-NLS-2$
+				liquibaseProperties.getProperty("username", ""), //$NON-NLS-1$ //$NON-NLS-2$
+				liquibaseProperties.getProperty("password", ""));  //$NON-NLS-1$ //$NON-NLS-2$
 		
 		connectionInformationDialog.open();
 		
@@ -99,68 +101,27 @@ public class ChangelogHandler extends AbstractHandler {
 	/**
 	 * Try to find a <code>liquibase.properties</code> file in the same folder than
 	 * the given change log {@link File}.<br>
-	 * If not found there, try to find it in the parent folders recursively until
-	 * reaching the project root.<br>
-	 * If still not found, visits the {@link IProject} that contains the changelog
-	 * {@link File} and tries to find a <code>liquibase.properties</code> file
-	 * anywhere in the project folder hierarchy.<br>
+	 * If not found there, try to find it in the parent folder.<br>
+	 * If still not found returns null.<br>
 	 * 
 	 * @param changelogFile a {@link File}.
-	 * @return a {@link Properties} initialized with the
-	 *         <code>liquibase.properties</code> file contents if found.
+	 * 
+	 * @return a {@link File} or null.
 	 */
-	private Properties getLiquibaseProperties(File changelogFile) {
-		IPath propertiesPath = new Path("liquibase.properties");		
-		IContainer container = changelogFile.getParent();		
+	private File getLiquibasePropertiesFile(File changelogFile) {
+		IPath propertiesPath = new Path(LIQUIBASE_PROPERTIES_FILE_NAME);
+		IContainer container = changelogFile.getParent();
+		File liquibasePropertiesFile = null;
 		
-		while (container != null && !(container instanceof WorkspaceRoot) && !container.getFile(propertiesPath).exists()) {
+		if(!container.getFile(propertiesPath).exists()) {
 			container = container.getParent();
 		}
 		
-		if (container != null && container instanceof Folder) {
-			liquibaseProperties = (File) container.getFile(propertiesPath);
-		} else {
-			try {
-				changelogFile.getProject().accept(new IResourceVisitor() {
-					
-					@Override
-					public boolean visit(IResource resource) throws CoreException {					
-						if (liquibaseProperties != null) {
-							return false;
-						}
-						if ("liquibase.properties".equals(resource.getName())) {
-							liquibaseProperties = (File) resource;
-							return false;
-						}
-						return true;
-					}
-				});
-			} catch (CoreException e) {
-				e.printStackTrace();
-			}
+		if(container.getFile(propertiesPath).exists()) {
+			liquibasePropertiesFile = (File) container.getFile(propertiesPath);
 		}
 		
-		Properties properties = buildPropertiesFile(liquibaseProperties);
-		return properties;
+		return liquibasePropertiesFile;
 	}
 	
-	/**
-	 * Build a {@link Properties} out of a {@link File}.
-	 * @param propertiesFile a {@link File}
-	 * @return the {@link Properties}
-	 */
-	private Properties buildPropertiesFile(File propertiesFile) {
-		Properties properties = new Properties();
-		
-		if (propertiesFile != null && propertiesFile.exists()) {
-			try {
-				InputStream inputStream = new FileInputStream(propertiesFile.getLocation().toOSString());
-				properties.load(inputStream);
-			} catch (IOException e) {
-				e.printStackTrace();
-			}
-		}
-		
-		return properties;
-	}
 }
