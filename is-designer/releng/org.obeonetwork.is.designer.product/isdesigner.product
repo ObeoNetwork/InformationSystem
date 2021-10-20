@@ -198,6 +198,13 @@ This Agreement is governed by the laws of the State of New York and the intellec
       <feature id="org.eclipse.amalgam.explorer.contextual.core"/>
       <feature id="org.eclipse.amalgam.explorer.contextual.sirius"/>
       <feature id="org.eclipse.amalgam.discovery"/>
+      <feature id="org.eclipse.team.svn"/>
+      <feature id="org.eclipse.team.svn.revision.graph"/>
+      <feature id="org.eclipse.team.svn.m2e"/>
+      <feature id="org.eclipse.team.svn.mylyn"/>
+      <feature id="org.eclipse.team.svn.nl1"/>
+      <feature id="org.polarion.eclipse.team.svn.connector"/>
+      <feature id="org.polarion.eclipse.team.svn.connector.svnkit18"/>
    </features>
 
    <configurations>
