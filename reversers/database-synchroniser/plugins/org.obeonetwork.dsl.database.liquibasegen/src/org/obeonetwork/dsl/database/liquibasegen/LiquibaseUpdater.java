@@ -19,7 +19,6 @@ import liquibase.resource.ResourceAccessor;
 public class LiquibaseUpdater {
 	
 	private IFile changelog;
-	private Liquibase liquibase;
 	
 	/**
 	 * 
@@ -33,23 +32,19 @@ public class LiquibaseUpdater {
 	 * Performs the update of the database with the provided information.
 	 * Liquibase automatically determines which Database Driver is required.
 	 * 
-	 * @param URL a {@link StringIndexOutOfBoundsException}
-	 * @param username a {@link StringIndexOutOfBoundsException}
+	 * @param URL a {@link String}
+	 * @param username a {@link String}
 	 * @param password a {@link String}
 	 * @throws LiquibaseException if an error happened during the connexion or the update. 
 	 */
 	public void update(String URL, String username, String password) throws LiquibaseException {
 		ResourceAccessor accessor = new ProjectResourceAccessor(changelog.getProject());
 		
-		Database database;
-		database = DatabaseFactory.getInstance().openDatabase(URL, username, password, null, accessor);
-		liquibase = new Liquibase(changelog.getLocation().toOSString(), accessor, database);
-		try {
+		Database database = DatabaseFactory.getInstance().openDatabase(URL, username, password, null, accessor);
+		
+		try (Liquibase liquibase = new Liquibase(changelog.getLocation().toOSString(), accessor, database)) {
 			liquibase.update("");
-		} catch (LiquibaseException exception) {
-			// liquibase needs to be closed in case of error.
-			liquibase.close();
-			throw exception;
 		}
+		
 	}
 }
