@@ -100,7 +100,9 @@ public class ZipUtils {
 	private static void processFolder(final File folder, final ZipOutputStream zipOutputStream, final int prefixLength, FileFilter filter)	throws IOException {
 		for (final File file : folder.listFiles(filter)) {
 			if (file.isFile()) {
-				final ZipEntry zipEntry = new ZipEntry(file.getPath().substring(prefixLength));
+				String path = file.getPath().substring(prefixLength);
+				path = path.replaceAll("\\\\", "/");
+				final ZipEntry zipEntry = new ZipEntry(path);
 				zipOutputStream.putNextEntry(zipEntry);
 				try (FileInputStream inputStream = new FileInputStream(file)) {
 					copy(inputStream, zipOutputStream);
