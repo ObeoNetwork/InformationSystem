@@ -147,17 +147,17 @@ abstract public class AbstractISNewModelWizard extends Wizard implements INewWiz
 		if (session != null) {
 			Map<EClassifier, Collection<String>> mapDescIDs = getRepresentationDescriptionsIDToBeCreated();
 			if (!mapDescIDs.isEmpty()) {
-				// Ensure that there is no save in progress.
-				// Otherwise, when the representation will be added to the resource (createRepresentation-->CreateRepresentationCommand) can be problematic.
-				// Indeed, during the save, at a specific time (ResourceSaveDiagnose.hasDifferentSerialization), the eSetDeliver is disabled. So in this condition, no adapter is added to the added representation.
-				try {
-					Job.getJobManager().join(SaveSessionJob.FAMILY, new NullProgressMonitor());
-				} catch (OperationCanceledException | InterruptedException e) {
-					// Ignore these exceptions. The join is just here to avoid to have a save in progress.
-				}				
 				for (EObject object : initialObjects) {
 					Collection<String> descIDs = mapDescIDs.get(object.eClass());
 					for (String descID : descIDs) {
+						// Ensure that there is no save in progress.
+						// Otherwise, when the representation will be added to the resource (createRepresentation-->CreateRepresentationCommand) can be problematic.
+						// Indeed, during the save, at a specific time (ResourceSaveDiagnose.hasDifferentSerialization), the eSetDeliver is disabled. So in this condition, no adapter is added to the added representation.
+						try {
+							Job.getJobManager().join(SaveSessionJob.FAMILY, new NullProgressMonitor());
+						} catch (OperationCanceledException | InterruptedException e) {
+							// Ignore these exceptions. The join is just here to avoid to have a save in progress.
+						}				
 						RepresentationDescription desc = getRepresentationDescription(session, object, descID);
 						if (desc != null) {
 							// Get name for the representation
