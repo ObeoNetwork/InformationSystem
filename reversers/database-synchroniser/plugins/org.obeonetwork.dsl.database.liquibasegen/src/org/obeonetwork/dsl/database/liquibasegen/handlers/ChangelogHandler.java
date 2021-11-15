@@ -3,6 +3,7 @@ package org.obeonetwork.dsl.database.liquibasegen.handlers;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
+import java.util.Arrays;
 import java.util.Properties;
 
 import org.eclipse.core.commands.AbstractHandler;
@@ -16,6 +17,7 @@ import org.eclipse.jface.dialogs.MessageDialog;
 import org.eclipse.jface.window.Window;
 import org.eclipse.swt.widgets.Shell;
 import org.eclipse.ui.handlers.HandlerUtil;
+import org.obeonetwork.dsl.database.liquibasegen.Activator;
 import org.obeonetwork.dsl.database.liquibasegen.LiquibaseUpdater;
 import org.obeonetwork.dsl.database.liquibasegen.ui.ConnectionInformationDialog;
 import org.obeonetwork.utils.common.handlers.EventHelper;
@@ -31,7 +33,7 @@ import liquibase.exception.LiquibaseException;
  */
 @SuppressWarnings("restriction")
 public class ChangelogHandler extends AbstractHandler {
-	private final static String LIQUIBASE_PROPERTIES_FILE_NAME = "liquibase.properties";
+	private final static String LIQUIBASE_PROPERTIES_FILE_NAME = "liquibase.properties"; //$NON-NLS-1$
 	
 	private Shell shell;
 	
@@ -51,7 +53,7 @@ public class ChangelogHandler extends AbstractHandler {
 		
 		File liquibasePropertiesFile = getLiquibasePropertiesFile(changelogFile);
 		if(liquibasePropertiesFile == null) {
-			MessageDialog.openError(shell, Messages.ChangelogHandler_Error_dialog_title, Messages.ChangelogHandler_Error_message_properties_file_not_found);
+			MessageDialog.openError(shell, Messages.ChangelogHandler_dialog_title, Messages.ChangelogHandler_Error_message_properties_file_not_found);
 			return null;
 		}
 		
@@ -59,12 +61,25 @@ public class ChangelogHandler extends AbstractHandler {
 			if (openConnectionInformationDialog(liquibasePropertiesFile)) {
 				LiquibaseUpdater liquibaseUpdater = new LiquibaseUpdater(changelogFile);
 				liquibaseUpdater.update(URL, username, password);
+				MessageDialog.openInformation(shell, 
+						Messages.ChangelogHandler_dialog_title, 
+						String.format(Messages.ChangelogHandler_success_message, getLiquibaseVersion()));
 			}
 		} catch (IOException | LiquibaseException e) {
-			MessageDialog.openError(shell, Messages.ChangelogHandler_Error_dialog_title, e.getMessage());
+			MessageDialog.openError(shell, Messages.ChangelogHandler_dialog_title, e.getMessage());
 		}
 		
 		return null;
+	}
+	
+	private String getLiquibaseVersion() {
+		String liquibaseVersion = Arrays.stream(Activator.getContext().getBundles())
+		.filter(bndl -> "liquibase".equals(bndl.getSymbolicName())) //$NON-NLS-1$
+		.map(bndl -> bndl.getVersion())
+		.map(v -> v.getMajor() + "." + v.getMinor() + "." + v.getMicro()) //$NON-NLS-1$ //$NON-NLS-2$
+		.findFirst().orElse(Messages.ChangelogHandler_Unknown_version);
+		
+		return liquibaseVersion;
 	}
 	
 	/**
