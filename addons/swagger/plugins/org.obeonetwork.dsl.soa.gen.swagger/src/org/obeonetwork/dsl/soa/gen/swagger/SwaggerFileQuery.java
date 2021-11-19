@@ -24,6 +24,9 @@ public class SwaggerFileQuery {
 	
 	private static final String KEY_SWAGGER = "swagger";
 	private static final String KEY_OPEN_API = "openapi";
+	private static final String KEY_COMPONENTS = "components";
+	private static final String KEY_SECURITY_SCHEMES = "securitySchemes";
+	private static final String KEY_FLOWS = "flows";
 	
 	public static final String VERSION_NAME_SWAGGER = "Swagger";
 	public static final String VERSION_NAME_OPEN_API = "OpenAPI";
@@ -59,12 +62,15 @@ public class SwaggerFileQuery {
 	}
 	
 	public OAuthFlows getOAuthFlows(String schemeName) throws JsonProcessingException, IOException {
-		if(root != null) {
-			JsonNode securitySchemeNode = root.findValue(schemeName);
-			JsonNode flowsNode = securitySchemeNode.get("flows");
+		if(root != null && mapper != null && 
+				root.get(KEY_COMPONENTS) != null && 
+				root.get(KEY_COMPONENTS).get(KEY_SECURITY_SCHEMES) != null &&
+				root.get(KEY_COMPONENTS).get(KEY_SECURITY_SCHEMES).get(schemeName) != null) {
 			
-			if (mapper != null && flowsNode != null)
+			JsonNode flowsNode = root.get(KEY_COMPONENTS).get(KEY_SECURITY_SCHEMES).get(schemeName).get(KEY_FLOWS);
+			if (flowsNode != null) {
 				return mapper.convertValue(flowsNode, OAuthFlows.class);
+			}
 		}
 		
 		return null;
