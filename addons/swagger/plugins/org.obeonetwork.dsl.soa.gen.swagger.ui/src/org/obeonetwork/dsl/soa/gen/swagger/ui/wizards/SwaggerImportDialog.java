@@ -61,7 +61,7 @@ public class SwaggerImportDialog extends Dialog {
 	 */
 	private void createContents() {
 		shlImportSwaggerFile = new Shell(getParent(), SWT.SHELL_TRIM | SWT.BORDER);
-		shlImportSwaggerFile.setSize(450, 165);
+		shlImportSwaggerFile.setSize(800, 165);
 		shlImportSwaggerFile.setText("Import swagger file");
 		shlImportSwaggerFile.setLayout(new GridLayout(1, false));
 		
