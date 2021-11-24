@@ -59,38 +59,16 @@
       <ownedReferences xmi:id="_5sZiYIjYEeGlA5e_Ze9-Rg" technicalid="_4Za5CxLIEeesAc7mKQrh4A" name="wrote" multiplicity="0..*" referencedType="_OwomoIjYEeGlA5e_Ze9-Rg"/>
     </types>
   </ownedNamespaces>
-  <ownedComponents xmi:id="_jok7UIjXEeGlA5e_Ze9-Rg" technicalid="_4ZbgGRLIEeesAc7mKQrh4A" createdOn="2020-03-30T11:52:37.856+0200" modifiedOn="2020-11-25T18:05:26.558+0100" name="BookStore" URI="/ebookstore" apiVersion="1.0.1" URL="http://cmazone.fr">
+  <ownedComponents xmi:id="_jok7UIjXEeGlA5e_Ze9-Rg" technicalid="_4ZbgGRLIEeesAc7mKQrh4A" createdOn="2020-03-30T11:52:37.856+0200" modifiedOn="2020-11-25T18:05:26.558+0100" name="BookStore" URI="/ebookstore" URL="http://cmazone.fr" apiVersion="1.0.1">
     <ownedServices xmi:id="_9t2bEIjXEeGlA5e_Ze9-Rg" technicalid="_4ZbgGhLIEeesAc7mKQrh4A" createdOn="2020-03-30T11:55:07.996+0200" modifiedOn="2020-03-30T11:55:07.996+0200" name="BookService" URI="/book">
       <ownedInterface xmi:id="_D1a2QIjYEeGlA5e_Ze9-Rg" technicalid="_4ZbgGxLIEeesAc7mKQrh4A" createdOn="2020-04-06T12:11:48.966+0200" modifiedOn="2020-12-17T11:24:04.640+0100" name="BookService">
-        <ownedOperations xmi:id="_D1bdUIjYEeGlA5e_Ze9-Rg" technicalid="_4ZbgHBLIEeesAc7mKQrh4A" description="Get the books of interest to be shown on the homepage of the user." createdOn="2020-03-30T11:56:08.489+0200" modifiedOn="2021-08-16T15:20:58.492+0200" name="getHomePageBooks" public="true" URI="/homepage" exposition="REST" paged="true" size="_mJedIf6UEeuxbPh3_Z7CVw" page="_mfWmgf6UEeuxbPh3_Z7CVw" paginationExtension="_y1VrwP6UEeuxbPh3_Z7CVw">
-          <metadatas xmi:id="_y1VEsv6UEeuxbPh3_Z7CVw" technicalid="_y1VEsf6UEeuxbPh3_Z7CVw">
-            <metadatas xsi:type="soa:PropertiesExtension" xmi:id="_y1VrwP6UEeuxbPh3_Z7CVw" technicalid="_y1VEsP6UEeuxbPh3_Z7CVw" title="x-pagination" body="pagination description" context="Operation"/>
-          </metadatas>
-          <input xmi:id="_mJedIf6UEeuxbPh3_Z7CVw" technicalid="_mJedIP6UEeuxbPh3_Z7CVw" createdOn="2021-08-16T15:19:33.395+0200" modifiedOn="2021-08-16T15:20:11.696+0200" name="size">
-            <type xsi:type="oenv:PrimitiveType" href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5FXAawKEd2XLNOhkJIazw"/>
-            <restData xmi:id="_mJ23of6UEeuxbPh3_Z7CVw" technicalid="_mJ23oP6UEeuxbPh3_Z7CVw" passingMode="QUERY"/>
-          </input>
-          <input xmi:id="_mfWmgf6UEeuxbPh3_Z7CVw" technicalid="_mfWmgP6UEeuxbPh3_Z7CVw" createdOn="2021-08-16T15:19:35.657+0200" modifiedOn="2021-08-16T15:20:04.553+0200" name="page">
-            <type xsi:type="oenv:PrimitiveType" href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5FXAawKEd2XLNOhkJIazw"/>
-            <restData xmi:id="_mfYbsf6UEeuxbPh3_Z7CVw" technicalid="_mfYbsP6UEeuxbPh3_Z7CVw" passingMode="QUERY"/>
-          </input>
+        <ownedOperations xmi:id="_D1bdUIjYEeGlA5e_Ze9-Rg" technicalid="_4ZbgHBLIEeesAc7mKQrh4A" description="Get the books of interest to be shown on the homepage of the user." createdOn="2020-03-30T11:56:08.489+0200" modifiedOn="2020-12-17T11:31:05.381+0100" name="getHomePageBooks" public="true" URI="/homepage" exposition="REST" paged="true">
           <output xmi:id="_HsVdcIjYEeGlA5e_Ze9-Rg" technicalid="_4ZbgHRLIEeesAc7mKQrh4A" description="The books to be showned on the homepage of the user." createdOn="2020-12-17T10:32:16.437+0100" modifiedOn="2020-12-17T10:35:44.876+0100" type="_OwomoIjYEeGlA5e_Ze9-Rg" name="books" multiplicity="0..*" statusCode="206" statusMessage="Partial Content"/>
           <fault xmi:id="_98ydUUBSEeuJCsQ9JYmMWQ" technicalid="_98ydUEBSEeuJCsQ9JYmMWQ" createdOn="2020-12-17T11:31:05.441+0100" modifiedOn="2020-12-17T11:32:50.898+0100" name="forbidden" statusCode="403" statusMessage="Forbidden">
             <type xsi:type="oenv:PrimitiveType" href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5F-EKwKEd2XLNOhkJIazw"/>
           </fault>
         </ownedOperations>
-        <ownedOperations xmi:id="_hhig4IjYEeGlA5e_Ze9-Rg" technicalid="_4ZbgHhLIEeesAc7mKQrh4A" description="Gel all authors." createdOn="2020-03-30T11:57:02.376+0200" modifiedOn="2021-08-16T15:22:49.803+0200" name="getAllAuthors" public="true" URI="/allauthors" exposition="REST" paged="true" size="_A4lkFP6VEeuxbPh3_Z7CVw" page="_A4lkFv6VEeuxbPh3_Z7CVw" paginationExtension="_B_1gA_6VEeuxbPh3_Z7CVw">
-          <metadatas xmi:id="_B_1gAv6VEeuxbPh3_Z7CVw" technicalid="_B_1gAf6VEeuxbPh3_Z7CVw">
-            <metadatas xsi:type="soa:PropertiesExtension" xmi:id="_B_1gA_6VEeuxbPh3_Z7CVw" technicalid="_B_1gAP6VEeuxbPh3_Z7CVw" title="x-pagination" body="description" context="Operation"/>
-          </metadatas>
-          <input xmi:id="_A4lkFP6VEeuxbPh3_Z7CVw" technicalid="_AzIcVP6VEeuxbPh3_Z7CVw" createdOn="2021-08-16T15:19:33.395+0200" modifiedOn="2021-08-16T15:20:11.696+0200" name="size">
-            <type xsi:type="oenv:PrimitiveType" href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5FXAawKEd2XLNOhkJIazw"/>
-            <restData xmi:id="_A4lkFf6VEeuxbPh3_Z7CVw" technicalid="_AzIcVf6VEeuxbPh3_Z7CVw" passingMode="QUERY"/>
-          </input>
-          <input xmi:id="_A4lkFv6VEeuxbPh3_Z7CVw" technicalid="_AzIcVv6VEeuxbPh3_Z7CVw" createdOn="2021-08-16T15:19:35.657+0200" modifiedOn="2021-08-16T15:20:04.553+0200" name="page">
-            <type xsi:type="oenv:PrimitiveType" href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5FXAawKEd2XLNOhkJIazw"/>
-            <restData xmi:id="_A4lkF_6VEeuxbPh3_Z7CVw" technicalid="_AzIcV_6VEeuxbPh3_Z7CVw" passingMode="QUERY"/>
-          </input>
+        <ownedOperations xmi:id="_hhig4IjYEeGlA5e_Ze9-Rg" technicalid="_4ZbgHhLIEeesAc7mKQrh4A" description="Gel all authors." createdOn="2020-03-30T11:57:02.376+0200" modifiedOn="2020-12-17T10:42:14.862+0100" name="getAllAuthors" public="true" URI="/allauthors" exposition="REST" paged="true">
           <output xmi:id="_izXVIIjYEeGlA5e_Ze9-Rg" technicalid="_4ZbgHxLIEeesAc7mKQrh4A" createdOn="2020-12-17T10:33:06.967+0100" modifiedOn="2020-12-17T10:33:06.967+0100" type="_yFpMYIjYEeGlA5e_Ze9-Rg" name="authors" multiplicity="0..*" statusCode="206" statusMessage="Partial Content"/>
         </ownedOperations>
         <ownedOperations xmi:id="_jWX7kIjYEeGlA5e_Ze9-Rg" technicalid="_4ZbgIBLIEeesAc7mKQrh4A" createdOn="2020-03-30T11:57:20.576+0200" modifiedOn="2020-10-02T11:54:24.213+0200" name="getAllBookTypes" public="true" URI="/booktypes" exposition="REST">
@@ -98,10 +76,7 @@
             <type xsi:type="oenv:PrimitiveType" href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5F-EKwKEd2XLNOhkJIazw"/>
           </output>
         </ownedOperations>
-        <ownedOperations xmi:id="_wYy58IjhEeGllIuu_i41WA" technicalid="_4ZbgIxLIEeesAc7mKQrh4A" description="Get books from search criterias." createdOn="2020-10-02T11:48:43.289+0200" modifiedOn="2021-08-16T15:22:22.009+0200" name="searchBooks" public="true" exposition="REST" paged="true" size="_49LzwP6UEeuxbPh3_Z7CVw" page="_5fkvIv6UEeuxbPh3_Z7CVw" paginationExtension="__R0ak_6UEeuxbPh3_Z7CVw">
-          <metadatas xmi:id="__R0akv6UEeuxbPh3_Z7CVw" technicalid="__R0akf6UEeuxbPh3_Z7CVw">
-            <metadatas xsi:type="soa:PropertiesExtension" xmi:id="__R0ak_6UEeuxbPh3_Z7CVw" technicalid="__R0akP6UEeuxbPh3_Z7CVw" title="x-pagination" body="description" context="Operation"/>
-          </metadatas>
+        <ownedOperations xmi:id="_wYy58IjhEeGllIuu_i41WA" technicalid="_4ZbgIxLIEeesAc7mKQrh4A" description="Get books from search criterias." createdOn="2020-10-02T11:48:43.289+0200" modifiedOn="2020-12-17T11:33:50.713+0100" name="searchBooks" public="true" exposition="REST" paged="true">
           <input xmi:id="_xuKxcIjhEeGllIuu_i41WA" technicalid="_4ZbgJBLIEeesAc7mKQrh4A" createdOn="2020-03-30T11:58:06.398+0200" modifiedOn="2020-12-17T11:05:46.468+0100" name="authorId" multiplicity="0..1" passingMode="QUERY">
             <type xsi:type="oenv:PrimitiveType" href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5F-EKwKEd2XLNOhkJIazw"/>
             <restData xmi:id="_WNtoYUBEEeuJCsQ9JYmMWQ" technicalid="_WNtoYEBEEeuJCsQ9JYmMWQ" passingMode="QUERY" restId="author"/>
@@ -113,14 +88,6 @@
           <input xmi:id="_x60GUIjhEeGllIuu_i41WA" technicalid="_4ZbgJxLIEeesAc7mKQrh4A" createdOn="2020-03-30T11:58:26.395+0200" modifiedOn="2020-12-17T09:46:25.766+0100" name="keywords" multiplicity="0..*" passingMode="QUERY">
             <type xsi:type="oenv:PrimitiveType" href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5F-EKwKEd2XLNOhkJIazw"/>
             <restData xmi:id="_WNtoZUBEEeuJCsQ9JYmMWQ" technicalid="_WNtoZEBEEeuJCsQ9JYmMWQ" passingMode="QUERY" restId="keywords"/>
-          </input>
-          <input xmi:id="_49LzwP6UEeuxbPh3_Z7CVw" technicalid="_42XaEP6UEeuxbPh3_Z7CVw" createdOn="2021-08-16T15:19:33.395+0200" modifiedOn="2021-08-16T15:20:11.696+0200" name="size">
-            <type xsi:type="oenv:PrimitiveType" href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5FXAawKEd2XLNOhkJIazw"/>
-            <restData xmi:id="_49Lzwf6UEeuxbPh3_Z7CVw" technicalid="_42XaEf6UEeuxbPh3_Z7CVw" passingMode="QUERY"/>
-          </input>
-          <input xmi:id="_5fkvIv6UEeuxbPh3_Z7CVw" technicalid="_5VY4Yv6UEeuxbPh3_Z7CVw" createdOn="2021-08-16T15:19:35.657+0200" modifiedOn="2021-08-16T15:20:04.553+0200" name="page">
-            <type xsi:type="oenv:PrimitiveType" href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5FXAawKEd2XLNOhkJIazw"/>
-            <restData xmi:id="_5fkvI_6UEeuxbPh3_Z7CVw" technicalid="_5VY4Y_6UEeuxbPh3_Z7CVw" passingMode="QUERY"/>
           </input>
           <output xmi:id="_yOAIEIjhEeGllIuu_i41WA" technicalid="_4ZbgKRLIEeesAc7mKQrh4A" description="The books maching the search criterias." createdOn="2020-12-17T09:48:04.618+0100" modifiedOn="2020-12-17T11:07:09.857+0100" type="_OwomoIjYEeGlA5e_Ze9-Rg" name="books" multiplicity="0..*" statusCode="206" statusMessage="Partial Content"/>
           <fault xmi:id="_WlhGkEBTEeuJCsQ9JYmMWQ" technicalid="_WlgfgEBTEeuJCsQ9JYmMWQ" createdOn="2020-12-17T11:33:50.714+0100" modifiedOn="2020-12-17T11:34:11.353+0100" name="badRequest" statusCode="400" statusMessage="Bad Request">
@@ -192,8 +159,5 @@
         </ownedOperations>
       </ownedInterface>
     </ownedServices>
-    <license xmi:id="_NO_ncP6SEeuxbPh3_Z7CVw" technicalid="_NO0oX_6SEeuxbPh3_Z7CVw"/>
-    <information xmi:id="_NO_ncf6SEeuxbPh3_Z7CVw" technicalid="_NO0oXv6SEeuxbPh3_Z7CVw" apiVersion="1.0.1"/>
-    <contact xmi:id="_NO_ncv6SEeuxbPh3_Z7CVw" technicalid="_NO0oYP6SEeuxbPh3_Z7CVw"/>
   </ownedComponents>
 </soa:System>

@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="ASCII"?>
 <xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:cinematic="http://www.obeonetwork.org/dsl/cinematic/3.0.0" xmlns:cinematic-flow="http://www.obeonetwork.org/dsl/cinematic/flow/1.0.0" xmlns:cinematic-view="http://www.obeonetwork.org/dsl/cinematic/view/1.0.0" xmlns:oenv="http://www.obeonetwork.org/dsl/environment/3.0.0">
   <cinematic:CinematicRoot xmi:id="_N-7IwIjLEeGrHN3Vq969QA" technicalid="_47-1sBVIEeetFdz5pzgWAw" bindingRegistries="_y0quQBWvEemPcZQonXs-Bw" createdOn="2015-07-01T09:56:09.209+0200" modifiedOn="2019-01-11T15:47:18.563+0100" name="E-BookStore">
-    <flows xmi:id="_aIPqAIjWEeGStfxeQK0zeA" technicalid="_48OGQBVIEeetFdz5pzgWAw" createdOn="2021-07-13T15:48:08.759+0200" modifiedOn="2021-07-13T15:48:08.759+0200" name="Main">
+    <flows xmi:id="_aIPqAIjWEeGStfxeQK0zeA" technicalid="_48OGQBVIEeetFdz5pzgWAw" createdOn="2021-07-13T15:48:08.759+0200" modifiedOn="2021-11-23T12:10:06.952+0100" name="Main">
       <states xsi:type="cinematic-flow:InitialState" xmi:id="_lBedYIjWEeGStfxeQK0zeA" technicalid="_48PUYBVIEeetFdz5pzgWAw" name="Initial"/>
       <states xsi:type="cinematic-flow:ViewState" xmi:id="_xP47AIjWEeGStfxeQK0zeA" technicalid="_48PUYRVIEeetFdz5pzgWAw" name="Display Homepage" viewContainers="_lSJPQIjZEeGlA5e_Ze9-Rg"/>
       <states xsi:type="cinematic-flow:ActionState" xmi:id="_0UvMEIjWEeGStfxeQK0zeA" technicalid="_48PUYhVIEeetFdz5pzgWAw" name="Load Data">
         <actions xmi:id="_EZ6f4IjXEeGStfxeQK0zeA" technicalid="_48fzEBVIEeetFdz5pzgWAw" name="getHomepageData"/>
       </states>
       <states xsi:type="cinematic-flow:ActionState" xmi:id="_w1YzgIjaEeGlA5e_Ze9-Rg" technicalid="_48fzERVIEeetFdz5pzgWAw" name="Search Books">
-        <actions xmi:id="_KRTJAIjiEeGllIuu_i41WA" technicalid="_48fzEhVIEeetFdz5pzgWAw" name="searchBooks"/>
+        <actions xmi:id="_KRTJAIjiEeGllIuu_i41WA" technicalid="_48fzEhVIEeetFdz5pzgWAw" createdOn="2021-11-23T11:16:45.868+0100" modifiedOn="2021-11-23T12:12:29.386+0100" name="searchBooks"/>
       </states>
       <states xsi:type="cinematic-flow:ActionState" xmi:id="_mPTE8IjiEeGllIuu_i41WA" technicalid="_48fzExVIEeetFdz5pzgWAw" name="Add to cart"/>
       <states xsi:type="cinematic-flow:ActionState" xmi:id="_yB2tAIjiEeGllIuu_i41WA" technicalid="_48fzFBVIEeetFdz5pzgWAw" name="Remove from cart"/>
@@ -36,7 +36,7 @@
       <events xmi:id="_QVdjgIjlEeGOp5IdJE0AIw" technicalid="_48gaIxVIEeetFdz5pzgWAw" name="checkout" binds="_VTh80IjhEeGllIuu_i41WA"/>
       <events xmi:id="_9QDscOPgEeuvZ5sdreLKyg" technicalid="_9QCeUOPgEeuvZ5sdreLKyg" createdOn="2021-07-13T15:48:09.558+0200" modifiedOn="2021-07-13T15:48:09.558+0200" name="event6"/>
     </flows>
-    <viewContainers xmi:id="_lSJPQIjZEeGlA5e_Ze9-Rg" technicalid="_48gaJBVIEeetFdz5pzgWAw" createdOn="2021-05-26T17:25:55.766+0200" modifiedOn="2021-07-12T14:53:17.873+0200" name="HomePage">
+    <viewContainers xmi:id="_lSJPQIjZEeGlA5e_Ze9-Rg" technicalid="_48gaJBVIEeetFdz5pzgWAw" createdOn="2021-05-26T17:25:55.766+0200" modifiedOn="2021-11-23T11:13:14.760+0100" name="HomePage">
       <widget href="pathmap://cinematic/toolkits/Web#_tGHvxYjeEeGIXsoZxTXHQA"/>
       <viewStyle xmi:id="_-opjBOMPEeuQk8DSQ2l-0A" technicalid="_-ont8eMPEeuQk8DSQ2l-0A"/>
       <ownedElements xsi:type="cinematic-view:ViewContainer" xmi:id="_wSq9cIjZEeGlA5e_Ze9-Rg" technicalid="_48jdcBVIEeetFdz5pzgWAw" name="SearchForm">
@@ -90,7 +90,7 @@
         <events xmi:id="_fujjgIjcEeGD_4FfK_oDsg" technicalid="_48qLLhVIEeetFdz5pzgWAw" name="createAccount.onClick"/>
         <viewStyle xmi:id="_-opjD-MPEeuQk8DSQ2l-0A" technicalid="_-ooVBOMPEeuQk8DSQ2l-0A"/>
       </ownedElements>
-      <ownedElements xsi:type="cinematic-view:ViewContainer" xmi:id="_jir8cIjcEeGD_4FfK_oDsg" technicalid="_48qLLxVIEeetFdz5pzgWAw" name="ShoppingCart">
+      <ownedElements xsi:type="cinematic-view:ViewContainer" xmi:id="_jir8cIjcEeGD_4FfK_oDsg" technicalid="_48qLLxVIEeetFdz5pzgWAw" createdOn="2021-11-23T11:13:14.730+0100" modifiedOn="2021-11-23T12:10:17.690+0100" name="ShoppingCart">
         <widget href="pathmap://cinematic/toolkits/Web#_tGHvsIjeEeGIXsoZxTXHQA"/>
         <viewStyle xmi:id="_-opjEOMPEeuQk8DSQ2l-0A" technicalid="_-ooVCOMPEeuQk8DSQ2l-0A"/>
         <ownedElements xsi:type="cinematic-view:ViewContainer" xmi:id="__aksgIjgEeGllIuu_i41WA" technicalid="_48qLMRVIEeetFdz5pzgWAw" name="CartLines">
@@ -130,18 +130,18 @@
       </ownedElements>
       <layout xmi:id="_IHxv4OMQEeuQk8DSQ2l-0A" x="20" y="20" width="967" height="635" viewElement="_lSJPQIjZEeGlA5e_Ze9-Rg">
         <ownedLayouts xmi:id="_IHxv4eMQEeuQk8DSQ2l-0A" x="772" y="12" width="155" height="35" viewElement="_c6KwUIjcEeGD_4FfK_oDsg"/>
-        <ownedLayouts xmi:id="_IRHSEOMQEeuQk8DSQ2l-0A" x="20" y="60" width="907" height="235" direction="HORIZONTAL">
+        <ownedLayouts xmi:id="_-IWQgExFEeygjYyGPnd9aw" x="20" y="60" width="907" height="235" direction="HORIZONTAL">
           <ownedLayouts xmi:id="_IHxv4-MQEeuQk8DSQ2l-0A" x="20" y="60" width="435" height="235" viewElement="_wSq9cIjZEeGlA5e_Ze9-Rg">
             <ownedLayouts xmi:id="_IHxv5OMQEeuQk8DSQ2l-0A" x="20" y="14" width="263" height="39" viewElement="_EmqbEIjaEeGlA5e_Ze9-Rg"/>
             <ownedLayouts xmi:id="_IHxv5eMQEeuQk8DSQ2l-0A" x="20" y="72" width="263" height="39" viewElement="_fYqd8IjaEeGlA5e_Ze9-Rg"/>
-            <ownedLayouts xmi:id="_IRHSEeMQEeuQk8DSQ2l-0A" x="20" y="128" width="391" height="39" direction="HORIZONTAL">
+            <ownedLayouts xmi:id="_-IWQgUxFEeygjYyGPnd9aw" x="20" y="128" width="391" height="39" direction="HORIZONTAL">
               <ownedLayouts xmi:id="_IHxv5-MQEeuQk8DSQ2l-0A" x="20" y="128" width="263" height="39" viewElement="_mhBAsIjaEeGlA5e_Ze9-Rg"/>
               <ownedLayouts xmi:id="_IHxv6OMQEeuQk8DSQ2l-0A" x="304" y="128" width="107" height="39" viewElement="_pvknYIjaEeGlA5e_Ze9-Rg"/>
             </ownedLayouts>
           </ownedLayouts>
           <ownedLayouts xmi:id="_IHxv6eMQEeuQk8DSQ2l-0A" x="476" y="60" width="451" height="235" direction="HORIZONTAL" viewElement="_Se8ZgIjaEeGlA5e_Ze9-Rg">
             <ownedLayouts xmi:id="_IHxv6uMQEeuQk8DSQ2l-0A" x="16" y="24" width="179" height="143" viewElement="_BiTnUIjcEeGD_4FfK_oDsg"/>
-            <ownedLayouts xmi:id="_IRHSEuMQEeuQk8DSQ2l-0A" x="208" y="24" width="203" height="143">
+            <ownedLayouts xmi:id="_-IWQgkxFEeygjYyGPnd9aw" x="208" y="24" width="203" height="143">
               <ownedLayouts xmi:id="_IHxv7OMQEeuQk8DSQ2l-0A" x="208" y="24" width="203" height="31" viewElement="_Eu44EIjcEeGD_4FfK_oDsg"/>
               <ownedLayouts xmi:id="_IHxv7eMQEeuQk8DSQ2l-0A" x="208" y="76" width="203" height="31" viewElement="_czj8kIjdEeGRPcmmS6YpZw"/>
               <ownedLayouts xmi:id="_IHxv7uMQEeuQk8DSQ2l-0A" x="208" y="136" width="99" height="31" viewElement="_He2eQIjcEeGD_4FfK_oDsg"/>
@@ -149,18 +149,17 @@
           </ownedLayouts>
         </ownedLayouts>
         <ownedLayouts xmi:id="_IHxv7-MQEeuQk8DSQ2l-0A" x="20" y="316" width="907" height="249" viewElement="_jir8cIjcEeGD_4FfK_oDsg">
-          <ownedLayouts xmi:id="_IHxv8OMQEeuQk8DSQ2l-0A" x="12" y="16" width="867" height="113" direction="HORIZONTAL" viewElement="__aksgIjgEeGllIuu_i41WA">
-            <ownedLayouts xmi:id="_IHxv8eMQEeuQk8DSQ2l-0A" x="16" y="14" width="150" height="39" viewElement="_D0ZzgIjhEeGllIuu_i41WA"/>
-            <ownedLayouts xmi:id="_IHxv8uMQEeuQk8DSQ2l-0A" x="180" y="14" width="150" height="39" viewElement="_FtWSIIjhEeGllIuu_i41WA"/>
-            <ownedLayouts xmi:id="_IHxv8-MQEeuQk8DSQ2l-0A" x="348" y="14" width="150" height="39" viewElement="_HkGYYIjhEeGllIuu_i41WA"/>
-            <ownedLayouts xmi:id="_IHxv9OMQEeuQk8DSQ2l-0A" x="516" y="14" width="150" height="39" viewElement="_KO1gUIjhEeGllIuu_i41WA"/>
-            <ownedLayouts xmi:id="_IHxv9eMQEeuQk8DSQ2l-0A" x="684" y="14" width="150" height="39" viewElement="_OdPacIjhEeGllIuu_i41WA"/>
+          <ownedLayouts xmi:id="_-IWQg0xFEeygjYyGPnd9aw" width="879" height="129">
+            <ownedLayouts xmi:id="_-IWQhExFEeygjYyGPnd9aw" width="879" height="129"/>
           </ownedLayouts>
-          <ownedLayouts xmi:id="_IHxv9uMQEeuQk8DSQ2l-0A" x="12" y="144" width="139" height="43" viewElement="_THKy8IjhEeGllIuu_i41WA"/>
+          <ownedLayouts xmi:id="_-IWQhUxFEeygjYyGPnd9aw" x="12" y="144" width="765" height="43" direction="HORIZONTAL">
+            <ownedLayouts xmi:id="_IHxv9uMQEeuQk8DSQ2l-0A" x="12" y="144" width="139" height="43" viewElement="_THKy8IjhEeGllIuu_i41WA"/>
+            <ownedLayouts xmi:id="_-IWQhkxFEeygjYyGPnd9aw" x="678" y="144" width="99" height="41"/>
+          </ownedLayouts>
         </ownedLayouts>
       </layout>
     </viewContainers>
-    <viewContainers xmi:id="_XBIcMIjjEeGllIuu_i41WA" technicalid="_48qLRRVIEeetFdz5pzgWAw" createdOn="2021-07-12T14:53:36.282+0200" modifiedOn="2021-07-12T14:57:23.067+0200" name="CreateAccount">
+    <viewContainers xmi:id="_XBIcMIjjEeGllIuu_i41WA" technicalid="_48qLRRVIEeetFdz5pzgWAw" createdOn="2021-07-12T14:53:36.282+0200" modifiedOn="2021-09-08T11:18:03.751+0200" name="CreateAccount">
       <widget href="pathmap://cinematic/toolkits/Web#_tGHvxYjeEeGIXsoZxTXHQA"/>
       <viewStyle xmi:id="_-opjGOMPEeuQk8DSQ2l-0A" technicalid="_-ooVJOMPEeuQk8DSQ2l-0A"/>
       <ownedElements xsi:type="cinematic-view:ViewElement" xmi:id="_Af6ckYjkEeGOp5IdJE0AIw" technicalid="_48qLRxVIEeetFdz5pzgWAw" createdOn="2021-07-13T14:26:26.149+0200" modifiedOn="2021-07-13T14:26:26.149+0200" name="email" required="true" example="john@obeo.fr">
@@ -193,9 +192,9 @@
         <ownedLayouts xmi:id="_LArPoeMQEeuQk8DSQ2l-0A" x="16" y="8" width="331" height="33" viewElement="_HUXL4IjkEeGOp5IdJE0AIw"/>
         <ownedLayouts xmi:id="_LArPouMQEeuQk8DSQ2l-0A" x="16" y="56" width="331" height="33" viewElement="_Af6ckYjkEeGOp5IdJE0AIw"/>
         <ownedLayouts xmi:id="_LArPo-MQEeuQk8DSQ2l-0A" x="16" y="100" width="331" height="33" viewElement="_FAJGgIjkEeGOp5IdJE0AIw"/>
-        <ownedLayouts xmi:id="_szd0sOMQEeuQk8DSQ2l-0A" x="172" y="176" width="243" height="41" direction="HORIZONTAL">
+        <ownedLayouts xmi:id="_q5yvcBCFEeyEgqe3DFJNZw" x="172" y="176" width="241" height="41" direction="HORIZONTAL">
           <ownedLayouts xmi:id="_LArPpeMQEeuQk8DSQ2l-0A" x="172" y="176" width="111" height="41" viewElement="_MCDqEIjkEeGOp5IdJE0AIw"/>
-          <ownedLayouts xmi:id="_LArPpuMQEeuQk8DSQ2l-0A" x="304" y="176" width="111" height="41" viewElement="_Nuc6cIjkEeGOp5IdJE0AIw"/>
+          <ownedLayouts xmi:id="_LArPpuMQEeuQk8DSQ2l-0A" x="302" y="176" width="111" height="41" viewElement="_Nuc6cIjkEeGOp5IdJE0AIw"/>
         </ownedLayouts>
       </layout>
     </viewContainers>
@@ -226,7 +225,7 @@
         <events xmi:id="_HKrnQIjrEeG7p-MOgK2yMQ" technicalid="_48vDrBVIEeetFdz5pzgWAw" name="cancelPayment" binds="___ek0IjqEeG7p-MOgK2yMQ"/>
       </flows>
       <flows xmi:id="_R5JR4IjnEeGOp5IdJE0AIw" technicalid="_48vDrRVIEeetFdz5pzgWAw" name="Payment on partner site"/>
-      <viewContainers xmi:id="_kKmsgIjmEeGOp5IdJE0AIw" technicalid="_48vDrhVIEeetFdz5pzgWAw" createdOn="2021-07-12T14:54:35.490+0200" modifiedOn="2021-07-12T14:54:55.742+0200" name="Login">
+      <viewContainers xmi:id="_kKmsgIjmEeGOp5IdJE0AIw" technicalid="_48vDrhVIEeetFdz5pzgWAw" createdOn="2021-07-12T14:54:35.490+0200" modifiedOn="2021-09-08T11:18:16.266+0200" name="Login">
         <widget href="pathmap://cinematic/toolkits/Web#_tGHvxYjeEeGIXsoZxTXHQA"/>
         <viewStyle xmi:id="_-opjHuMPEeuQk8DSQ2l-0A" technicalid="_-oo8DeMPEeuQk8DSQ2l-0A"/>
         <ownedElements xsi:type="cinematic-view:ViewElement" xmi:id="_5_h78IjnEeGrE9Ykd6PeHg" technicalid="_48vDsBVIEeetFdz5pzgWAw" createdOn="2021-07-13T14:59:51.239+0200" modifiedOn="2021-07-13T14:59:51.239+0200" name="email" required="true" example="john@obeo.fr">
@@ -262,13 +261,13 @@
           <ownedLayouts xmi:id="_T1U8IeMQEeuQk8DSQ2l-0A" x="28" y="20" width="295" height="33" viewElement="_5_h78IjnEeGrE9Ykd6PeHg"/>
           <ownedLayouts xmi:id="_T1U8IuMQEeuQk8DSQ2l-0A" x="28" y="68" width="295" height="33" viewElement="_8MAakIjnEeGrE9Ykd6PeHg"/>
           <ownedLayouts xmi:id="_T1U8I-MQEeuQk8DSQ2l-0A" x="28" y="116" width="150" height="36" viewElement="_ZJvVMIjoEeGJh95Ab8olLw"/>
-          <ownedLayouts xmi:id="_W2dx4OMQEeuQk8DSQ2l-0A" x="160" y="176" width="247" height="41" direction="HORIZONTAL">
+          <ownedLayouts xmi:id="_sxJSoBCFEeyEgqe3DFJNZw" x="160" y="176" width="245" height="41" direction="HORIZONTAL">
             <ownedLayouts xmi:id="_T1U8JeMQEeuQk8DSQ2l-0A" x="160" y="176" width="111" height="41" viewElement="_Lwh4YYjoEeGJh95Ab8olLw"/>
-            <ownedLayouts xmi:id="_T1U8JuMQEeuQk8DSQ2l-0A" x="296" y="176" width="111" height="41" viewElement="_Oln2MIjoEeGJh95Ab8olLw"/>
+            <ownedLayouts xmi:id="_T1U8JuMQEeuQk8DSQ2l-0A" x="294" y="176" width="111" height="41" viewElement="_Oln2MIjoEeGJh95Ab8olLw"/>
           </ownedLayouts>
         </layout>
       </viewContainers>
-      <viewContainers xmi:id="_mcNiwIjmEeGOp5IdJE0AIw" technicalid="_48vDwBVIEeetFdz5pzgWAw" createdOn="2021-07-12T14:55:50.105+0200" modifiedOn="2021-07-12T14:58:38.853+0200" name="PaymentForm">
+      <viewContainers xmi:id="_mcNiwIjmEeGOp5IdJE0AIw" technicalid="_48vDwBVIEeetFdz5pzgWAw" createdOn="2021-07-12T14:55:50.105+0200" modifiedOn="2021-09-08T11:18:28.280+0200" name="PaymentForm">
         <widget href="pathmap://cinematic/toolkits/Web#_tGHvxYjeEeGIXsoZxTXHQA"/>
         <viewStyle xmi:id="_-opjJOMPEeuQk8DSQ2l-0A" technicalid="_-oo8JeMPEeuQk8DSQ2l-0A"/>
         <ownedElements xsi:type="cinematic-view:ViewElement" xmi:id="_CuKDgIjpEeGJh95Ab8olLw" technicalid="_48vDwhVIEeetFdz5pzgWAw" createdOn="2021-07-13T14:58:14.227+0200" modifiedOn="2021-07-13T14:58:14.227+0200" name="cardNumber" required="true" example="1234 5678 1234 5678 1234">
@@ -301,9 +300,9 @@
           <ownedLayouts xmi:id="_e86UkeMQEeuQk8DSQ2l-0A" x="28" y="28" width="375" height="33" viewElement="_CuKDgIjpEeGJh95Ab8olLw"/>
           <ownedLayouts xmi:id="_e86UkuMQEeuQk8DSQ2l-0A" x="28" y="76" width="151" height="33" viewElement="_gS9vwIjqEeGWea74mgZL3g"/>
           <ownedLayouts xmi:id="_e86Uk-MQEeuQk8DSQ2l-0A" x="28" y="124" width="151" height="33" viewElement="_jkCe8IjqEeGWea74mgZL3g"/>
-          <ownedLayouts xmi:id="_4GN7UOMQEeuQk8DSQ2l-0A" x="196" y="192" width="243" height="41" direction="HORIZONTAL">
+          <ownedLayouts xmi:id="_ujuDgBCFEeyEgqe3DFJNZw" x="196" y="192" width="241" height="41" direction="HORIZONTAL">
             <ownedLayouts xmi:id="_e86UleMQEeuQk8DSQ2l-0A" x="196" y="192" width="111" height="41" viewElement="_mpXRIIjqEeGWea74mgZL3g"/>
-            <ownedLayouts xmi:id="_e86UluMQEeuQk8DSQ2l-0A" x="328" y="192" width="111" height="41" viewElement="_97xAoYjqEeG7p-MOgK2yMQ"/>
+            <ownedLayouts xmi:id="_e86UluMQEeuQk8DSQ2l-0A" x="326" y="192" width="111" height="41" viewElement="_97xAoYjqEeG7p-MOgK2yMQ"/>
           </ownedLayouts>
         </layout>
       </viewContainers>
