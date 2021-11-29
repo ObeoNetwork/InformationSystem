@@ -921,10 +921,12 @@ public class SwaggerBuilder {
 				&& !isNullOrWhite(soaParameter.getStatusMessage())
 				&& !soaParameter.getStatusMessage().equals(soaParameter.getDescription())) {
 			description.append(soaParameter.getStatusMessage());
-			description.append(System.lineSeparator());
-			description.append(System.lineSeparator());
 		}
-		if (soaParameter.getDescription() != null) {
+		if (!isNullOrWhite(soaParameter.getDescription())) {
+			if(description.length() > 0) {
+				description.append(System.lineSeparator());
+				description.append(System.lineSeparator());
+			}
 			description.append(soaParameter.getDescription());
 		}
 
