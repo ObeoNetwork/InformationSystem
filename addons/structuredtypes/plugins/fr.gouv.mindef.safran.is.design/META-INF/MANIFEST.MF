@@ -2,7 +2,7 @@ Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: Obeo Network Extensions
 Bundle-SymbolicName: fr.gouv.mindef.safran.is.design;singleton:=true
-Bundle-Version: 2.2.0.qualifier
+Bundle-Version: 2.2.1.qualifier
 Bundle-Activator: fr.gouv.mindef.safran.is.design.Activator
 Require-Bundle: org.eclipse.ui,
  org.eclipse.core.runtime,
@@ -12,7 +12,7 @@ Require-Bundle: org.eclipse.ui,
  org.obeonetwork.graal,
  org.obeonetwork.utils.sirius,
  org.eclipse.core.expressions,
- org.obeonetwork.dsl.environment.design.services;bundle-version="2.2.0",
+ org.obeonetwork.dsl.environment.design.services,
  org.eclipse.emf.transaction,
  org.obeonetwork.utils.common
 Bundle-ActivationPolicy: lazy

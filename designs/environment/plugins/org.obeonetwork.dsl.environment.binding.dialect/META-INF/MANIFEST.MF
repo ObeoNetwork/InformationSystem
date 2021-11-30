@@ -3,7 +3,7 @@ Bundle-ManifestVersion: 2
 Bundle-Name: Bindingdialect Model
 Bundle-SymbolicName: org.obeonetwork.dsl.environment.binding.dialect;singleton:=true
 Automatic-Module-Name: org.obeonetwork.dsl.environment.binding.dialect
-Bundle-Version: 2.2.0.qualifier
+Bundle-Version: 2.2.1.qualifier
 Bundle-ClassPath: .
 Bundle-Vendor: Obeo Network
 Bundle-RequiredExecutionEnvironment: J2SE-1.5

@@ -2,7 +2,7 @@ Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: IS-Designer Graal Extensions Edit Support
 Bundle-SymbolicName: fr.gouv.mindef.safran.graal.extensions.edit;singleton:=true
-Bundle-Version: 2.2.0.qualifier
+Bundle-Version: 2.2.1.qualifier
 Bundle-ClassPath: .
 Bundle-Activator: fr.gouv.mindef.safran.graalextensions.provider.SafrangraalextensionsEditPlugin$Implementation
 Bundle-Vendor: Obeo Network

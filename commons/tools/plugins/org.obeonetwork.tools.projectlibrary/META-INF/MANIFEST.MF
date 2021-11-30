@@ -2,7 +2,7 @@ Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: Obeo Network - Project as library importer
 Bundle-SymbolicName: org.obeonetwork.tools.projectlibrary;singleton:=true
-Bundle-Version: 2.2.0.qualifier
+Bundle-Version: 2.2.1.qualifier
 Bundle-ClassPath: .
 Bundle-Activator: org.obeonetwork.tools.projectlibrary.Activator
 Bundle-Vendor: Obeo Network

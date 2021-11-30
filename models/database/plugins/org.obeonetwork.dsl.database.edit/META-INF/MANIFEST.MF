@@ -3,7 +3,7 @@ Bundle-ManifestVersion: 2
 Bundle-Name: Database Edit Support
 Bundle-SymbolicName: org.obeonetwork.dsl.database.edit;singleton:=true
 Automatic-Module-Name: org.obeonetwork.dsl.database.edit
-Bundle-Version: 2.2.0.qualifier
+Bundle-Version: 2.2.1.qualifier
 Bundle-ClassPath: .
 Bundle-Activator: org.obeonetwork.dsl.database.provider.DatabaseEditPlugin$Implementation
 Bundle-Vendor: Obeo Network
