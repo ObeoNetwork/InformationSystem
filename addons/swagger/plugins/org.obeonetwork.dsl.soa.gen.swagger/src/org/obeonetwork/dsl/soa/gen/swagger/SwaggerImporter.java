@@ -140,15 +140,17 @@ public class SwaggerImporter {
 	 * @param api the {@link OpenAPI}
 	 */
 	private void addFlowsToOpenIdConnectSchemes(OpenAPI api) {
-		api.getComponents().getSecuritySchemes().entrySet().stream()
-		.filter(entry -> entry.getValue().getType().equals(SecurityScheme.Type.OPENIDCONNECT))
-		.forEach(entry -> {
-			try {
-				entry.getValue().setFlows(fileQuery.getOAuthFlows(entry.getKey()));
-			} catch (IOException e) {
-				e.printStackTrace();
-			}
-		});
+		if(api.getComponents().getSecuritySchemes() != null) {
+			api.getComponents().getSecuritySchemes().entrySet().stream()
+			.filter(entry -> entry.getValue().getType().equals(SecurityScheme.Type.OPENIDCONNECT))
+			.forEach(entry -> {
+				try {
+					entry.getValue().setFlows(fileQuery.getOAuthFlows(entry.getKey()));
+				} catch (IOException e) {
+					e.printStackTrace();
+				}
+			});
+		}
 	}
 	
 }
