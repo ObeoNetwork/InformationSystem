@@ -1161,22 +1161,13 @@ public interface SoaPackage extends EPackage {
 	int OPERATION__PAGED = EnvironmentPackage.ACTION_FEATURE_COUNT + 8;
 
 	/**
-	 * The feature id for the '<em><b>Security Schemes</b></em>' reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int OPERATION__SECURITY_SCHEMES = EnvironmentPackage.ACTION_FEATURE_COUNT + 9;
-
-	/**
 	 * The feature id for the '<em><b>Servers</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int OPERATION__SERVERS = EnvironmentPackage.ACTION_FEATURE_COUNT + 10;
+	int OPERATION__SERVERS = EnvironmentPackage.ACTION_FEATURE_COUNT + 9;
 
 	/**
 	 * The feature id for the '<em><b>Size</b></em>' reference.
@@ -1185,7 +1176,7 @@ public interface SoaPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int OPERATION__SIZE = EnvironmentPackage.ACTION_FEATURE_COUNT + 11;
+	int OPERATION__SIZE = EnvironmentPackage.ACTION_FEATURE_COUNT + 10;
 
 	/**
 	 * The feature id for the '<em><b>Page</b></em>' reference.
@@ -1194,7 +1185,7 @@ public interface SoaPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int OPERATION__PAGE = EnvironmentPackage.ACTION_FEATURE_COUNT + 12;
+	int OPERATION__PAGE = EnvironmentPackage.ACTION_FEATURE_COUNT + 11;
 
 	/**
 	 * The feature id for the '<em><b>Pagination Extension</b></em>' reference.
@@ -1203,7 +1194,16 @@ public interface SoaPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int OPERATION__PAGINATION_EXTENSION = EnvironmentPackage.ACTION_FEATURE_COUNT + 13;
+	int OPERATION__PAGINATION_EXTENSION = EnvironmentPackage.ACTION_FEATURE_COUNT + 12;
+
+	/**
+	 * The feature id for the '<em><b>Security Applications</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int OPERATION__SECURITY_APPLICATIONS = EnvironmentPackage.ACTION_FEATURE_COUNT + 13;
 
 	/**
 	 * The number of structural features of the '<em>Operation</em>' class.
@@ -2767,6 +2767,52 @@ public interface SoaPackage extends EPackage {
 	int SCOPE_FEATURE_COUNT = EnvironmentPackage.OBEO_DSM_OBJECT_FEATURE_COUNT + 2;
 
 	/**
+	 * The meta object id for the '{@link org.obeonetwork.dsl.soa.impl.SecurityApplicationImpl <em>Security Application</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.obeonetwork.dsl.soa.impl.SecurityApplicationImpl
+	 * @see org.obeonetwork.dsl.soa.impl.SoaPackageImpl#getSecurityApplication()
+	 * @generated
+	 */
+	int SECURITY_APPLICATION = 20;
+
+	/**
+	 * The feature id for the '<em><b>Technicalid</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SECURITY_APPLICATION__TECHNICALID = TechnicalIDPackage.IDENTIFIABLE__TECHNICALID;
+
+	/**
+	 * The feature id for the '<em><b>Security Scheme</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SECURITY_APPLICATION__SECURITY_SCHEME = TechnicalIDPackage.IDENTIFIABLE_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Scopes</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SECURITY_APPLICATION__SCOPES = TechnicalIDPackage.IDENTIFIABLE_FEATURE_COUNT + 1;
+
+	/**
+	 * The number of structural features of the '<em>Security Application</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SECURITY_APPLICATION_FEATURE_COUNT = TechnicalIDPackage.IDENTIFIABLE_FEATURE_COUNT + 2;
+
+	/**
 	 * The meta object id for the '{@link org.obeonetwork.dsl.soa.InterfaceKind <em>Interface Kind</em>}' enum.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2774,7 +2820,7 @@ public interface SoaPackage extends EPackage {
 	 * @see org.obeonetwork.dsl.soa.impl.SoaPackageImpl#getInterfaceKind()
 	 * @generated
 	 */
-	int INTERFACE_KIND = 20;
+	int INTERFACE_KIND = 21;
 
 	/**
 	 * The meta object id for the '{@link org.obeonetwork.dsl.soa.SynchronizationKind <em>Synchronization Kind</em>}' enum.
@@ -2784,7 +2830,7 @@ public interface SoaPackage extends EPackage {
 	 * @see org.obeonetwork.dsl.soa.impl.SoaPackageImpl#getSynchronizationKind()
 	 * @generated
 	 */
-	int SYNCHRONIZATION_KIND = 21;
+	int SYNCHRONIZATION_KIND = 22;
 
 	/**
 	 * The meta object id for the '{@link org.obeonetwork.dsl.soa.BindingKind <em>Binding Kind</em>}' enum.
@@ -2794,7 +2840,7 @@ public interface SoaPackage extends EPackage {
 	 * @see org.obeonetwork.dsl.soa.impl.SoaPackageImpl#getBindingKind()
 	 * @generated
 	 */
-	int BINDING_KIND = 22;
+	int BINDING_KIND = 23;
 
 	/**
 	 * The meta object id for the '{@link org.obeonetwork.dsl.soa.OperationKind <em>Operation Kind</em>}' enum.
@@ -2804,7 +2850,7 @@ public interface SoaPackage extends EPackage {
 	 * @see org.obeonetwork.dsl.soa.impl.SoaPackageImpl#getOperationKind()
 	 * @generated
 	 */
-	int OPERATION_KIND = 23;
+	int OPERATION_KIND = 24;
 
 	/**
 	 * The meta object id for the '{@link org.obeonetwork.dsl.soa.Verb <em>Verb</em>}' enum.
@@ -2814,7 +2860,7 @@ public interface SoaPackage extends EPackage {
 	 * @see org.obeonetwork.dsl.soa.impl.SoaPackageImpl#getVerb()
 	 * @generated
 	 */
-	int VERB = 24;
+	int VERB = 25;
 
 	/**
 	 * The meta object id for the '{@link org.obeonetwork.dsl.soa.ParameterPassingMode <em>Parameter Passing Mode</em>}' enum.
@@ -2824,7 +2870,7 @@ public interface SoaPackage extends EPackage {
 	 * @see org.obeonetwork.dsl.soa.impl.SoaPackageImpl#getParameterPassingMode()
 	 * @generated
 	 */
-	int PARAMETER_PASSING_MODE = 25;
+	int PARAMETER_PASSING_MODE = 26;
 
 	/**
 	 * The meta object id for the '{@link org.obeonetwork.dsl.soa.ExpositionKind <em>Exposition Kind</em>}' enum.
@@ -2834,7 +2880,7 @@ public interface SoaPackage extends EPackage {
 	 * @see org.obeonetwork.dsl.soa.impl.SoaPackageImpl#getExpositionKind()
 	 * @generated
 	 */
-	int EXPOSITION_KIND = 26;
+	int EXPOSITION_KIND = 27;
 
 	/**
 	 * The meta object id for the '{@link org.obeonetwork.dsl.soa.SecuritySchemeType <em>Security Scheme Type</em>}' enum.
@@ -2844,7 +2890,7 @@ public interface SoaPackage extends EPackage {
 	 * @see org.obeonetwork.dsl.soa.impl.SoaPackageImpl#getSecuritySchemeType()
 	 * @generated
 	 */
-	int SECURITY_SCHEME_TYPE = 27;
+	int SECURITY_SCHEME_TYPE = 28;
 
 	/**
 	 * The meta object id for the '{@link org.obeonetwork.dsl.soa.ApiKeyLocation <em>Api Key Location</em>}' enum.
@@ -2854,7 +2900,7 @@ public interface SoaPackage extends EPackage {
 	 * @see org.obeonetwork.dsl.soa.impl.SoaPackageImpl#getApiKeyLocation()
 	 * @generated
 	 */
-	int API_KEY_LOCATION = 28;
+	int API_KEY_LOCATION = 29;
 
 	/**
 	 * The meta object id for the '{@link org.obeonetwork.dsl.soa.HttpScheme <em>Http Scheme</em>}' enum.
@@ -2864,7 +2910,7 @@ public interface SoaPackage extends EPackage {
 	 * @see org.obeonetwork.dsl.soa.impl.SoaPackageImpl#getHttpScheme()
 	 * @generated
 	 */
-	int HTTP_SCHEME = 29;
+	int HTTP_SCHEME = 30;
 
 	/**
 	 * The meta object id for the '{@link org.obeonetwork.dsl.soa.FlowType <em>Flow Type</em>}' enum.
@@ -2874,7 +2920,7 @@ public interface SoaPackage extends EPackage {
 	 * @see org.obeonetwork.dsl.soa.impl.SoaPackageImpl#getFlowType()
 	 * @generated
 	 */
-	int FLOW_TYPE = 30;
+	int FLOW_TYPE = 31;
 
 	/**
 	 * Returns the meta object for class '{@link org.obeonetwork.dsl.soa.System <em>System</em>}'.
@@ -3376,17 +3422,6 @@ public interface SoaPackage extends EPackage {
 	EAttribute getOperation_Paged();
 
 	/**
-	 * Returns the meta object for the reference list '{@link org.obeonetwork.dsl.soa.Operation#getSecuritySchemes <em>Security Schemes</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference list '<em>Security Schemes</em>'.
-	 * @see org.obeonetwork.dsl.soa.Operation#getSecuritySchemes()
-	 * @see #getOperation()
-	 * @generated
-	 */
-	EReference getOperation_SecuritySchemes();
-
-	/**
 	 * Returns the meta object for the containment reference list '{@link org.obeonetwork.dsl.soa.Operation#getServers <em>Servers</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -3429,6 +3464,17 @@ public interface SoaPackage extends EPackage {
 	 * @generated
 	 */
 	EReference getOperation_PaginationExtension();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link org.obeonetwork.dsl.soa.Operation#getSecurityApplications <em>Security Applications</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Security Applications</em>'.
+	 * @see org.obeonetwork.dsl.soa.Operation#getSecurityApplications()
+	 * @see #getOperation()
+	 * @generated
+	 */
+	EReference getOperation_SecurityApplications();
 
 	/**
 	 * Returns the meta object for class '{@link org.obeonetwork.dsl.soa.ImplementationComponent <em>Implementation Component</em>}'.
@@ -4023,6 +4069,38 @@ public interface SoaPackage extends EPackage {
 	EAttribute getScope_Summary();
 
 	/**
+	 * Returns the meta object for class '{@link org.obeonetwork.dsl.soa.SecurityApplication <em>Security Application</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Security Application</em>'.
+	 * @see org.obeonetwork.dsl.soa.SecurityApplication
+	 * @generated
+	 */
+	EClass getSecurityApplication();
+
+	/**
+	 * Returns the meta object for the reference '{@link org.obeonetwork.dsl.soa.SecurityApplication#getSecurityScheme <em>Security Scheme</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Security Scheme</em>'.
+	 * @see org.obeonetwork.dsl.soa.SecurityApplication#getSecurityScheme()
+	 * @see #getSecurityApplication()
+	 * @generated
+	 */
+	EReference getSecurityApplication_SecurityScheme();
+
+	/**
+	 * Returns the meta object for the reference list '{@link org.obeonetwork.dsl.soa.SecurityApplication#getScopes <em>Scopes</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference list '<em>Scopes</em>'.
+	 * @see org.obeonetwork.dsl.soa.SecurityApplication#getScopes()
+	 * @see #getSecurityApplication()
+	 * @generated
+	 */
+	EReference getSecurityApplication_Scopes();
+
+	/**
 	 * Returns the meta object for enum '{@link org.obeonetwork.dsl.soa.InterfaceKind <em>Interface Kind</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -4537,14 +4615,6 @@ public interface SoaPackage extends EPackage {
 		EAttribute OPERATION__PAGED = eINSTANCE.getOperation_Paged();
 
 		/**
-		 * The meta object literal for the '<em><b>Security Schemes</b></em>' reference list feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference OPERATION__SECURITY_SCHEMES = eINSTANCE.getOperation_SecuritySchemes();
-
-		/**
 		 * The meta object literal for the '<em><b>Servers</b></em>' containment reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -4575,6 +4645,14 @@ public interface SoaPackage extends EPackage {
 		 * @generated
 		 */
 		EReference OPERATION__PAGINATION_EXTENSION = eINSTANCE.getOperation_PaginationExtension();
+
+		/**
+		 * The meta object literal for the '<em><b>Security Applications</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference OPERATION__SECURITY_APPLICATIONS = eINSTANCE.getOperation_SecurityApplications();
 
 		/**
 		 * The meta object literal for the '{@link org.obeonetwork.dsl.soa.impl.ImplementationComponentImpl <em>Implementation Component</em>}' class.
@@ -5041,6 +5119,32 @@ public interface SoaPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute SCOPE__SUMMARY = eINSTANCE.getScope_Summary();
+
+		/**
+		 * The meta object literal for the '{@link org.obeonetwork.dsl.soa.impl.SecurityApplicationImpl <em>Security Application</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.obeonetwork.dsl.soa.impl.SecurityApplicationImpl
+		 * @see org.obeonetwork.dsl.soa.impl.SoaPackageImpl#getSecurityApplication()
+		 * @generated
+		 */
+		EClass SECURITY_APPLICATION = eINSTANCE.getSecurityApplication();
+
+		/**
+		 * The meta object literal for the '<em><b>Security Scheme</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference SECURITY_APPLICATION__SECURITY_SCHEME = eINSTANCE.getSecurityApplication_SecurityScheme();
+
+		/**
+		 * The meta object literal for the '<em><b>Scopes</b></em>' reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference SECURITY_APPLICATION__SCOPES = eINSTANCE.getSecurityApplication_Scopes();
 
 		/**
 		 * The meta object literal for the '{@link org.obeonetwork.dsl.soa.InterfaceKind <em>Interface Kind</em>}' enum.

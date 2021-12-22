@@ -545,6 +545,29 @@ public class SoaItemProviderAdapterFactory extends SoaAdapterFactory implements 
 	}
 
 	/**
+	 * This keeps track of the one adapter used for all {@link org.obeonetwork.dsl.soa.SecurityApplication} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected SecurityApplicationItemProvider securityApplicationItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link org.obeonetwork.dsl.soa.SecurityApplication}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createSecurityApplicationAdapter() {
+		if (securityApplicationItemProvider == null) {
+			securityApplicationItemProvider = new SecurityApplicationItemProvider(this);
+		}
+
+		return securityApplicationItemProvider;
+	}
+
+	/**
 	 * This returns the root adapter factory that contains this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -663,6 +686,7 @@ public class SoaItemProviderAdapterFactory extends SoaAdapterFactory implements 
 		if (propertiesExtensionItemProvider != null) propertiesExtensionItemProvider.dispose();
 		if (serverItemProvider != null) serverItemProvider.dispose();
 		if (scopeItemProvider != null) scopeItemProvider.dispose();
+		if (securityApplicationItemProvider != null) securityApplicationItemProvider.dispose();
 	}
 
 }

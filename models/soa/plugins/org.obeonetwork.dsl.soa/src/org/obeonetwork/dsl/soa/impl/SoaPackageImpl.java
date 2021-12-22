@@ -40,6 +40,7 @@ import org.obeonetwork.dsl.soa.ParameterPassingMode;
 import org.obeonetwork.dsl.soa.ParameterRestData;
 import org.obeonetwork.dsl.soa.PropertiesExtension;
 import org.obeonetwork.dsl.soa.Scope;
+import org.obeonetwork.dsl.soa.SecurityApplication;
 import org.obeonetwork.dsl.soa.SecurityScheme;
 import org.obeonetwork.dsl.soa.SecuritySchemeType;
 import org.obeonetwork.dsl.soa.Server;
@@ -204,6 +205,13 @@ public class SoaPackageImpl extends EPackageImpl implements SoaPackage {
 	 * @generated
 	 */
 	private EClass scopeEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass securityApplicationEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -766,7 +774,7 @@ public class SoaPackageImpl extends EPackageImpl implements SoaPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getOperation_SecuritySchemes() {
+	public EReference getOperation_Servers() {
 		return (EReference)operationEClass.getEStructuralFeatures().get(9);
 	}
 
@@ -775,7 +783,7 @@ public class SoaPackageImpl extends EPackageImpl implements SoaPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getOperation_Servers() {
+	public EReference getOperation_Size() {
 		return (EReference)operationEClass.getEStructuralFeatures().get(10);
 	}
 
@@ -784,7 +792,7 @@ public class SoaPackageImpl extends EPackageImpl implements SoaPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getOperation_Size() {
+	public EReference getOperation_Page() {
 		return (EReference)operationEClass.getEStructuralFeatures().get(11);
 	}
 
@@ -793,7 +801,7 @@ public class SoaPackageImpl extends EPackageImpl implements SoaPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getOperation_Page() {
+	public EReference getOperation_PaginationExtension() {
 		return (EReference)operationEClass.getEStructuralFeatures().get(12);
 	}
 
@@ -802,7 +810,7 @@ public class SoaPackageImpl extends EPackageImpl implements SoaPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getOperation_PaginationExtension() {
+	public EReference getOperation_SecurityApplications() {
 		return (EReference)operationEClass.getEStructuralFeatures().get(13);
 	}
 
@@ -1300,6 +1308,33 @@ public class SoaPackageImpl extends EPackageImpl implements SoaPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EClass getSecurityApplication() {
+		return securityApplicationEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getSecurityApplication_SecurityScheme() {
+		return (EReference)securityApplicationEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getSecurityApplication_Scopes() {
+		return (EReference)securityApplicationEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EEnum getInterfaceKind() {
 		return interfaceKindEEnum;
 	}
@@ -1474,11 +1509,11 @@ public class SoaPackageImpl extends EPackageImpl implements SoaPackage {
 		createEAttribute(operationEClass, OPERATION__VERB);
 		createEAttribute(operationEClass, OPERATION__EXPOSITION);
 		createEAttribute(operationEClass, OPERATION__PAGED);
-		createEReference(operationEClass, OPERATION__SECURITY_SCHEMES);
 		createEReference(operationEClass, OPERATION__SERVERS);
 		createEReference(operationEClass, OPERATION__SIZE);
 		createEReference(operationEClass, OPERATION__PAGE);
 		createEReference(operationEClass, OPERATION__PAGINATION_EXTENSION);
+		createEReference(operationEClass, OPERATION__SECURITY_APPLICATIONS);
 
 		implementationComponentEClass = createEClass(IMPLEMENTATION_COMPONENT);
 		createEReference(implementationComponentEClass, IMPLEMENTATION_COMPONENT__IMPLEMENT);
@@ -1548,6 +1583,10 @@ public class SoaPackageImpl extends EPackageImpl implements SoaPackage {
 		createEAttribute(scopeEClass, SCOPE__NAME);
 		createEAttribute(scopeEClass, SCOPE__SUMMARY);
 
+		securityApplicationEClass = createEClass(SECURITY_APPLICATION);
+		createEReference(securityApplicationEClass, SECURITY_APPLICATION__SECURITY_SCHEME);
+		createEReference(securityApplicationEClass, SECURITY_APPLICATION__SCOPES);
+
 		// Create enums
 		interfaceKindEEnum = createEEnum(INTERFACE_KIND);
 		synchronizationKindEEnum = createEEnum(SYNCHRONIZATION_KIND);
@@ -1614,6 +1653,7 @@ public class SoaPackageImpl extends EPackageImpl implements SoaPackage {
 		propertiesExtensionEClass.getESuperTypes().add(theEnvironmentPackage.getAnnotation());
 		serverEClass.getESuperTypes().add(theEnvironmentPackage.getObeoDSMObject());
 		scopeEClass.getESuperTypes().add(theEnvironmentPackage.getObeoDSMObject());
+		securityApplicationEClass.getESuperTypes().add(theTechnicalIDPackage.getIdentifiable());
 
 		// Initialize classes and features; add operations and parameters
 		initEClass(systemEClass, org.obeonetwork.dsl.soa.System.class, "System", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -1668,11 +1708,11 @@ public class SoaPackageImpl extends EPackageImpl implements SoaPackage {
 		initEAttribute(getOperation_Verb(), this.getVerb(), "verb", "GET", 0, 1, Operation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getOperation_Exposition(), this.getExpositionKind(), "exposition", null, 0, 1, Operation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getOperation_Paged(), ecorePackage.getEBoolean(), "paged", "false", 0, 1, Operation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getOperation_SecuritySchemes(), this.getSecurityScheme(), null, "securitySchemes", null, 0, -1, Operation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getOperation_Servers(), this.getServer(), null, "servers", null, 0, -1, Operation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getOperation_Size(), this.getParameter(), null, "size", null, 0, 1, Operation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getOperation_Page(), this.getParameter(), null, "page", null, 0, 1, Operation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getOperation_PaginationExtension(), this.getPropertiesExtension(), null, "paginationExtension", null, 0, 1, Operation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getOperation_SecurityApplications(), this.getSecurityApplication(), null, "securityApplications", null, 0, -1, Operation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(implementationComponentEClass, ImplementationComponent.class, "ImplementationComponent", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getImplementationComponent_Implement(), this.getInterface(), null, "implement", null, 0, 1, ImplementationComponent.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -1741,6 +1781,10 @@ public class SoaPackageImpl extends EPackageImpl implements SoaPackage {
 		initEClass(scopeEClass, Scope.class, "Scope", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getScope_Name(), ecorePackage.getEString(), "name", null, 0, 1, Scope.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getScope_Summary(), ecorePackage.getEString(), "summary", null, 0, 1, Scope.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(securityApplicationEClass, SecurityApplication.class, "SecurityApplication", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getSecurityApplication_SecurityScheme(), this.getSecurityScheme(), null, "securityScheme", null, 0, 1, SecurityApplication.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getSecurityApplication_Scopes(), this.getScope(), null, "scopes", null, 0, -1, SecurityApplication.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		// Initialize enums and add enum literals
 		initEEnum(interfaceKindEEnum, InterfaceKind.class, "InterfaceKind");
@@ -2030,12 +2074,6 @@ public class SoaPackageImpl extends EPackageImpl implements SoaPackage {
 		   source,
 		   new String[] {
 			   "documentation", "Tells if this operation is paged."
-		   });
-		addAnnotation
-		  (getOperation_SecuritySchemes(),
-		   source,
-		   new String[] {
-			   "documentation", "The list of security schemes."
 		   });
 		addAnnotation
 		  (getOperation_Servers(),

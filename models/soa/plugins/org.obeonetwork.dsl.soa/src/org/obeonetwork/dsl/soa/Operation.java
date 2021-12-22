@@ -31,11 +31,11 @@ import org.obeonetwork.dsl.environment.Action;
  *   <li>{@link org.obeonetwork.dsl.soa.Operation#getVerb <em>Verb</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.soa.Operation#getExposition <em>Exposition</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.soa.Operation#isPaged <em>Paged</em>}</li>
- *   <li>{@link org.obeonetwork.dsl.soa.Operation#getSecuritySchemes <em>Security Schemes</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.soa.Operation#getServers <em>Servers</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.soa.Operation#getSize <em>Size</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.soa.Operation#getPage <em>Page</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.soa.Operation#getPaginationExtension <em>Pagination Extension</em>}</li>
+ *   <li>{@link org.obeonetwork.dsl.soa.Operation#getSecurityApplications <em>Security Applications</em>}</li>
  * </ul>
  *
  * @see org.obeonetwork.dsl.soa.SoaPackage#getOperation()
@@ -289,21 +289,6 @@ public interface Operation extends Action {
 	void setPaged(boolean value);
 
 	/**
-	 * Returns the value of the '<em><b>Security Schemes</b></em>' reference list.
-	 * The list contents are of type {@link org.obeonetwork.dsl.soa.SecurityScheme}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * <!-- begin-model-doc -->
-	 * The list of security schemes.
-	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Security Schemes</em>' reference list.
-	 * @see org.obeonetwork.dsl.soa.SoaPackage#getOperation_SecuritySchemes()
-	 * @model
-	 * @generated
-	 */
-	EList<SecurityScheme> getSecuritySchemes();
-
-	/**
 	 * Returns the value of the '<em><b>Servers</b></em>' containment reference list.
 	 * The list contents are of type {@link org.obeonetwork.dsl.soa.Server}.
 	 * <!-- begin-user-doc -->
@@ -392,5 +377,17 @@ public interface Operation extends Action {
 	 * @generated
 	 */
 	void setPaginationExtension(PropertiesExtension value);
+
+	/**
+	 * Returns the value of the '<em><b>Security Applications</b></em>' containment reference list.
+	 * The list contents are of type {@link org.obeonetwork.dsl.soa.SecurityApplication}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Security Applications</em>' containment reference list.
+	 * @see org.obeonetwork.dsl.soa.SoaPackage#getOperation_SecurityApplications()
+	 * @model containment="true" resolveProxies="true"
+	 * @generated
+	 */
+	EList<SecurityApplication> getSecurityApplications();
 
 } // Operation

@@ -216,6 +216,15 @@ public interface SoaFactory extends EFactory {
 	Scope createScope();
 
 	/**
+	 * Returns a new object of class '<em>Security Application</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Security Application</em>'.
+	 * @generated
+	 */
+	SecurityApplication createSecurityApplication();
+
+	/**
 	 * Returns the package supported by this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

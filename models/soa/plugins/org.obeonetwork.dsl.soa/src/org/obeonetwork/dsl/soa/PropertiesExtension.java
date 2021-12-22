@@ -17,10 +17,6 @@ import org.obeonetwork.dsl.environment.Annotation;
  * A representation of the model object '<em><b>Properties Extension</b></em>'.
  * <!-- end-user-doc -->
  *
- * <!-- begin-model-doc -->
- * Properties Extension is used to add custom properties to the model. It is based on OpenAPI properties extensions
- * <!-- end-model-doc -->
- *
  * <p>
  * The following features are supported:
  * </p>

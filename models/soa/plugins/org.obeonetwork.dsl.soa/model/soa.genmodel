@@ -125,11 +125,11 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute soa.ecore#//Operation/verb"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute soa.ecore#//Operation/exposition"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute soa.ecore#//Operation/paged"/>
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference soa.ecore#//Operation/securitySchemes"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference soa.ecore#//Operation/servers"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference soa.ecore#//Operation/size"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference soa.ecore#//Operation/page"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference soa.ecore#//Operation/paginationExtension"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference soa.ecore#//Operation/securityApplications"/>
     </genClasses>
     <genClasses ecoreClass="soa.ecore#//ImplementationComponent" labelFeature="../../org.obeonetwork.dsl.environment/model/environment.genmodel#//environment/ObeoDSMObject/description">
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference soa.ecore#//ImplementationComponent/implement"/>
@@ -189,8 +189,7 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute soa.ecore#//Example/value"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute soa.ecore#//Example/name"/>
     </genClasses>
-    <genClasses documentation="Properties Extension is used to add custom properties to the model. It is based on OpenAPI properties extensions"
-        ecoreClass="soa.ecore#//PropertiesExtension" labelFeature="../../org.obeonetwork.dsl.environment/model/environment.genmodel#//environment/Annotation/title">
+    <genClasses ecoreClass="soa.ecore#//PropertiesExtension" labelFeature="../../org.obeonetwork.dsl.environment/model/environment.genmodel#//environment/Annotation/title">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute soa.ecore#//PropertiesExtension/context"/>
     </genClasses>
     <genClasses ecoreClass="soa.ecore#//Server" labelFeature="#//soa/Server/URL">
@@ -199,6 +198,10 @@
     <genClasses ecoreClass="soa.ecore#//Scope">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute soa.ecore#//Scope/name"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute soa.ecore#//Scope/summary"/>
+    </genClasses>
+    <genClasses ecoreClass="soa.ecore#//SecurityApplication">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference soa.ecore#//SecurityApplication/securityScheme"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference soa.ecore#//SecurityApplication/scopes"/>
     </genClasses>
   </genPackages>
 </genmodel:GenModel>

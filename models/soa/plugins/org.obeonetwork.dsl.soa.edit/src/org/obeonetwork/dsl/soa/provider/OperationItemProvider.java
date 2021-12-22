@@ -69,7 +69,6 @@ public class OperationItemProvider
 			addVerbPropertyDescriptor(object);
 			addExpositionPropertyDescriptor(object);
 			addPagedPropertyDescriptor(object);
-			addSecuritySchemesPropertyDescriptor(object);
 			addSizePropertyDescriptor(object);
 			addPagePropertyDescriptor(object);
 			addPaginationExtensionPropertyDescriptor(object);
@@ -210,28 +209,6 @@ public class OperationItemProvider
 	}
 
 	/**
-	 * This adds a property descriptor for the Security Schemes feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addSecuritySchemesPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_Operation_securitySchemes_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_Operation_securitySchemes_feature", "_UI_Operation_type"),
-				 SoaPackage.Literals.OPERATION__SECURITY_SCHEMES,
-				 true,
-				 false,
-				 true,
-				 null,
-				 null,
-				 null));
-	}
-
-	/**
 	 * This adds a property descriptor for the Size feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -313,6 +290,7 @@ public class OperationItemProvider
 			childrenFeatures.add(SoaPackage.Literals.OPERATION__OUTPUT);
 			childrenFeatures.add(SoaPackage.Literals.OPERATION__FAULT);
 			childrenFeatures.add(SoaPackage.Literals.OPERATION__SERVERS);
+			childrenFeatures.add(SoaPackage.Literals.OPERATION__SECURITY_APPLICATIONS);
 		}
 		return childrenFeatures;
 	}
@@ -404,6 +382,7 @@ public class OperationItemProvider
 			case SoaPackage.OPERATION__OUTPUT:
 			case SoaPackage.OPERATION__FAULT:
 			case SoaPackage.OPERATION__SERVERS:
+			case SoaPackage.OPERATION__SECURITY_APPLICATIONS:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
 		}
@@ -440,6 +419,11 @@ public class OperationItemProvider
 			(createChildParameter
 				(SoaPackage.Literals.OPERATION__SERVERS,
 				 SoaFactory.eINSTANCE.createServer()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(SoaPackage.Literals.OPERATION__SECURITY_APPLICATIONS,
+				 SoaFactory.eINSTANCE.createSecurityApplication()));
 	}
 
 	/**

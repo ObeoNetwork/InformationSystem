@@ -23,6 +23,7 @@ import org.obeonetwork.dsl.soa.Operation;
 import org.obeonetwork.dsl.soa.OperationKind;
 import org.obeonetwork.dsl.soa.Parameter;
 import org.obeonetwork.dsl.soa.PropertiesExtension;
+import org.obeonetwork.dsl.soa.SecurityApplication;
 import org.obeonetwork.dsl.soa.SecurityScheme;
 import org.obeonetwork.dsl.soa.Server;
 import org.obeonetwork.dsl.soa.SoaPackage;
@@ -45,11 +46,11 @@ import org.obeonetwork.dsl.soa.Verb;
  *   <li>{@link org.obeonetwork.dsl.soa.impl.OperationImpl#getVerb <em>Verb</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.soa.impl.OperationImpl#getExposition <em>Exposition</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.soa.impl.OperationImpl#isPaged <em>Paged</em>}</li>
- *   <li>{@link org.obeonetwork.dsl.soa.impl.OperationImpl#getSecuritySchemes <em>Security Schemes</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.soa.impl.OperationImpl#getServers <em>Servers</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.soa.impl.OperationImpl#getSize <em>Size</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.soa.impl.OperationImpl#getPage <em>Page</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.soa.impl.OperationImpl#getPaginationExtension <em>Pagination Extension</em>}</li>
+ *   <li>{@link org.obeonetwork.dsl.soa.impl.OperationImpl#getSecurityApplications <em>Security Applications</em>}</li>
  * </ul>
  *
  * @generated
@@ -284,16 +285,6 @@ public class OperationImpl extends ActionImpl implements Operation {
 	 * @generated
 	 */
 	@SuppressWarnings("unchecked")
-	public EList<SecurityScheme> getSecuritySchemes() {
-		return (EList<SecurityScheme>)eDynamicGet(SoaPackage.OPERATION__SECURITY_SCHEMES, SoaPackage.Literals.OPERATION__SECURITY_SCHEMES, true, true);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@SuppressWarnings("unchecked")
 	public EList<Server> getServers() {
 		return (EList<Server>)eDynamicGet(SoaPackage.OPERATION__SERVERS, SoaPackage.Literals.OPERATION__SERVERS, true, true);
 	}
@@ -384,6 +375,16 @@ public class OperationImpl extends ActionImpl implements Operation {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@SuppressWarnings("unchecked")
+	public EList<SecurityApplication> getSecurityApplications() {
+		return (EList<SecurityApplication>)eDynamicGet(SoaPackage.OPERATION__SECURITY_APPLICATIONS, SoaPackage.Literals.OPERATION__SECURITY_APPLICATIONS, true, true);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
@@ -395,6 +396,8 @@ public class OperationImpl extends ActionImpl implements Operation {
 				return ((InternalEList<?>)getFault()).basicRemove(otherEnd, msgs);
 			case SoaPackage.OPERATION__SERVERS:
 				return ((InternalEList<?>)getServers()).basicRemove(otherEnd, msgs);
+			case SoaPackage.OPERATION__SECURITY_APPLICATIONS:
+				return ((InternalEList<?>)getSecurityApplications()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -425,8 +428,6 @@ public class OperationImpl extends ActionImpl implements Operation {
 				return getExposition();
 			case SoaPackage.OPERATION__PAGED:
 				return isPaged();
-			case SoaPackage.OPERATION__SECURITY_SCHEMES:
-				return getSecuritySchemes();
 			case SoaPackage.OPERATION__SERVERS:
 				return getServers();
 			case SoaPackage.OPERATION__SIZE:
@@ -438,6 +439,8 @@ public class OperationImpl extends ActionImpl implements Operation {
 			case SoaPackage.OPERATION__PAGINATION_EXTENSION:
 				if (resolve) return getPaginationExtension();
 				return basicGetPaginationExtension();
+			case SoaPackage.OPERATION__SECURITY_APPLICATIONS:
+				return getSecurityApplications();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -481,10 +484,6 @@ public class OperationImpl extends ActionImpl implements Operation {
 			case SoaPackage.OPERATION__PAGED:
 				setPaged((Boolean)newValue);
 				return;
-			case SoaPackage.OPERATION__SECURITY_SCHEMES:
-				getSecuritySchemes().clear();
-				getSecuritySchemes().addAll((Collection<? extends SecurityScheme>)newValue);
-				return;
 			case SoaPackage.OPERATION__SERVERS:
 				getServers().clear();
 				getServers().addAll((Collection<? extends Server>)newValue);
@@ -497,6 +496,10 @@ public class OperationImpl extends ActionImpl implements Operation {
 				return;
 			case SoaPackage.OPERATION__PAGINATION_EXTENSION:
 				setPaginationExtension((PropertiesExtension)newValue);
+				return;
+			case SoaPackage.OPERATION__SECURITY_APPLICATIONS:
+				getSecurityApplications().clear();
+				getSecurityApplications().addAll((Collection<? extends SecurityApplication>)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -537,9 +540,6 @@ public class OperationImpl extends ActionImpl implements Operation {
 			case SoaPackage.OPERATION__PAGED:
 				setPaged(PAGED_EDEFAULT);
 				return;
-			case SoaPackage.OPERATION__SECURITY_SCHEMES:
-				getSecuritySchemes().clear();
-				return;
 			case SoaPackage.OPERATION__SERVERS:
 				getServers().clear();
 				return;
@@ -551,6 +551,9 @@ public class OperationImpl extends ActionImpl implements Operation {
 				return;
 			case SoaPackage.OPERATION__PAGINATION_EXTENSION:
 				setPaginationExtension((PropertiesExtension)null);
+				return;
+			case SoaPackage.OPERATION__SECURITY_APPLICATIONS:
+				getSecurityApplications().clear();
 				return;
 		}
 		super.eUnset(featureID);
@@ -582,8 +585,6 @@ public class OperationImpl extends ActionImpl implements Operation {
 				return getExposition() != EXPOSITION_EDEFAULT;
 			case SoaPackage.OPERATION__PAGED:
 				return isPaged() != PAGED_EDEFAULT;
-			case SoaPackage.OPERATION__SECURITY_SCHEMES:
-				return !getSecuritySchemes().isEmpty();
 			case SoaPackage.OPERATION__SERVERS:
 				return !getServers().isEmpty();
 			case SoaPackage.OPERATION__SIZE:
@@ -592,6 +593,8 @@ public class OperationImpl extends ActionImpl implements Operation {
 				return basicGetPage() != null;
 			case SoaPackage.OPERATION__PAGINATION_EXTENSION:
 				return basicGetPaginationExtension() != null;
+			case SoaPackage.OPERATION__SECURITY_APPLICATIONS:
+				return !getSecurityApplications().isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}

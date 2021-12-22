@@ -224,12 +224,6 @@
         <details key="documentation" value="Tells if this operation is paged."/>
       </eAnnotations>
     </eStructuralFeatures>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="securitySchemes" upperBound="-1"
-        eType="#//SecurityScheme">
-      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-        <details key="documentation" value="The list of security schemes."/>
-      </eAnnotations>
-    </eStructuralFeatures>
     <eStructuralFeatures xsi:type="ecore:EReference" name="servers" upperBound="-1"
         eType="#//Server" containment="true">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
@@ -251,6 +245,8 @@
         <details key="documentation" value="Reference towards the property extension that defines the operation's pagination."/>
       </eAnnotations>
     </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="securityApplications" upperBound="-1"
+        eType="#//SecurityApplication" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ImplementationComponent" eSuperTypes="../../org.obeonetwork.dsl.environment/model/environment.ecore#//ObeoDSMObject">
     <eStructuralFeatures xsi:type="ecore:EReference" name="implement" eType="#//Interface">
@@ -552,5 +548,10 @@
         <details key="documentation" value="A short description of the scope."/>
       </eAnnotations>
     </eStructuralFeatures>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="SecurityApplication" eSuperTypes="../../org.obeonetwork.dsl.technicalid/model/technicalid.ecore#//Identifiable">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="securityScheme" eType="#//SecurityScheme"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="scopes" upperBound="-1"
+        eType="#//Scope"/>
   </eClassifiers>
 </ecore:EPackage>
