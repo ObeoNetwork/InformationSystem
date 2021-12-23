@@ -1709,7 +1709,7 @@
                     <subModelOperations xsi:type="tool_1:ChangeContext" browseExpression="aql:self.updateScopes(selectedElements)"/>
                   </subModelOperations>
                   <parameters name="windowTitle" value="Security Schemes Selection"/>
-                  <parameters name="message" value="Select the Security Schemes to apply to this operation."/>
+                  <parameters name="message" value="Select the Scopes appying to this Security Scheme."/>
                   <parameters name="multiple" value="aql:true"/>
                   <parameters name="roots" value="aql:self.securityScheme"/>
                   <parameters name="childrenExpression" value="self.eContents()"/>
