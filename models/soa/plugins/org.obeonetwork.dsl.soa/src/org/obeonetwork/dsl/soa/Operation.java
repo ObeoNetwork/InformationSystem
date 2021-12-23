@@ -36,6 +36,7 @@ import org.obeonetwork.dsl.environment.Action;
  *   <li>{@link org.obeonetwork.dsl.soa.Operation#getPage <em>Page</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.soa.Operation#getPaginationExtension <em>Pagination Extension</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.soa.Operation#getSecurityApplications <em>Security Applications</em>}</li>
+ *   <li>{@link org.obeonetwork.dsl.soa.Operation#getSecuritySchemes <em>Security Schemes</em>}</li>
  * </ul>
  *
  * @see org.obeonetwork.dsl.soa.SoaPackage#getOperation()
@@ -389,5 +390,17 @@ public interface Operation extends Action {
 	 * @generated
 	 */
 	EList<SecurityApplication> getSecurityApplications();
+
+	/**
+	 * Returns the value of the '<em><b>Security Schemes</b></em>' reference list.
+	 * The list contents are of type {@link org.obeonetwork.dsl.soa.SecurityScheme}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Security Schemes</em>' reference list.
+	 * @see org.obeonetwork.dsl.soa.SoaPackage#getOperation_SecuritySchemes()
+	 * @model transient="true" changeable="false" volatile="true" derived="true"
+	 * @generated
+	 */
+	EList<SecurityScheme> getSecuritySchemes();
 
 } // Operation

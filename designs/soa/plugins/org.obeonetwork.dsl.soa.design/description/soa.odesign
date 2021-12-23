@@ -1122,6 +1122,7 @@
       <pages name="Properties Extension List Page" labelExpression="Properties Extension" domainClass="environment::ObeoDSMObject" semanticCandidateExpression="var:self" preconditionExpression="aql:self.isPropertiesExtensionPossible()" groups="//@extensions.0/@categories.1/@groups.32"/>
       <pages name="Flow Page" labelExpression="Flow" domainClass="soa::Flow" semanticCandidateExpression="var:self" groups="//@extensions.0/@categories.1/@groups.17"/>
       <pages name="Scope page" labelExpression="Scope" domainClass="soa::Scope" semanticCandidateExpression="var:self" groups="//@extensions.0/@categories.1/@groups.18"/>
+      <pages name="SecurityApplication Page" labelExpression="Security Application" domainClass="soa::SecurityApplication" semanticCandidateExpression="var:self"/>
       <groups name="Operation Group" labelExpression="Properties" domainClass="soa::Operation" semanticCandidateExpression="var:self">
         <controls xsi:type="properties:TextDescription" name="soa::Operation name" labelExpression="aql:input.emfEditServices(self).getText(self.eClass().getEStructuralFeature('name')) + ':'" helpExpression="aql:input.emfEditServices(self).getDescription(self.eClass().getEStructuralFeature('name'))" isEnabledExpression="aql:self.eClass().getEStructuralFeature('name').changeable" valueExpression="aql:self.name">
           <initialOperation>
@@ -1683,22 +1684,36 @@
         </controls>
       </groups>
       <groups name="Operation Security Group" labelExpression="Security" domainClass="soa::Operation" semanticCandidateExpression="var:self" preconditionExpression="aql:self.eContainer(soa::Component).securitySchemes->notEmpty()">
-        <controls xsi:type="properties:CustomDescription" name="org.obeonetwork.is.eef.custom.reference" label="soa::Operation securitySchemes" labelExpression="aql:input.emfEditServices(self).getText(self.eClass().getEStructuralFeature('securitySchemes')) + ':'" helpExpression="aql:input.emfEditServices(self).getDescription(self.eClass().getEStructuralFeature('securitySchemes'))" isEnabledExpression="aql:self.eClass().getEStructuralFeature('securitySchemes').changeable">
-          <customExpressions name="referenceNameExpression" customExpression="securitySchemes"/>
-          <customExpressions name="hideAddButtonExpression" customExpression="aql:true"/>
-          <customOperations name="browseButtonOperation">
+        <controls xsi:type="properties:CustomDescription" name="org.obeonetwork.is.eef.custom.reference" label="soa::Operation securityApplications" labelExpression="aql:input.emfEditServices(self).getText(self.eClass().getEStructuralFeature('securityApplications')) + ':'" helpExpression="aql:input.emfEditServices(self).getDescription(self.eClass().getEStructuralFeature('securityApplications'))" isEnabledExpression="aql:self.eClass().getEStructuralFeature('securityApplications').changeable">
+          <customExpressions name="referenceNameExpression" customExpression="securityApplications"/>
+          <customOperations name="addButtonOperation">
             <initialOperation>
-              <firstModelOperations xsi:type="tool_1:ExternalJavaAction" name="soa::Operation securitySchemes ReferenceEdition" id="org.obeonetwork.dsl.environment.design.actions.PaneBasedReferenceEditionWizard">
+              <firstModelOperations xsi:type="tool_1:ExternalJavaAction" name="soa::Operation securityApplications ReferenceEdition" id="org.obeonetwork.dsl.environment.design.actions.PaneBasedReferenceEditionWizard">
                 <subModelOperations xsi:type="tool_1:If" conditionExpression="aql:returnCode='OK'">
-                  <subModelOperations xsi:type="tool_1:Unset" featureName="securitySchemes" elementExpression="feature:securitySchemes"/>
-                  <subModelOperations xsi:type="tool_1:SetValue" featureName="securitySchemes" valueExpression="var:selectedElements"/>
+                  <subModelOperations xsi:type="tool_1:ChangeContext" browseExpression="aql:self.updateSecurityApplications(selectedElements)"/>
                 </subModelOperations>
                 <parameters name="windowTitle" value="Security Schemes Selection"/>
-                <parameters name="message" value="Select the Security Schemes requirements for this operation."/>
+                <parameters name="message" value="Select the Security Schemes to apply to this operation."/>
                 <parameters name="candidates" value="aql:self.eContainer(soa::Component).securitySchemes"/>
-                <parameters name="referenceName" value="aql:'securitySchemes'"/>
+                <parameters name="preSelection" value="aql:self.securityApplications.securityScheme"/>
                 <parameters name="choiceOfValuesMessage" value="Available Security Schemes"/>
                 <parameters name="selectedValuesMessage" value="Selected Security Schemes"/>
+              </firstModelOperations>
+            </initialOperation>
+          </customOperations>
+          <customOperations name="onDoubleClickOperation">
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="aql:selection->first()">
+                <subModelOperations xsi:type="tool_1:ExternalJavaAction" name="soa::SecurityApplication scopes ReferenceEdition" id="org.obeonetwork.dsl.environment.design.actions.EObjectSelectionWizard">
+                  <subModelOperations xsi:type="tool_1:If" conditionExpression="aql:returnCode='OK'">
+                    <subModelOperations xsi:type="tool_1:ChangeContext" browseExpression="aql:self.updateScopes(selectedElements)"/>
+                  </subModelOperations>
+                  <parameters name="windowTitle" value="Security Schemes Selection"/>
+                  <parameters name="message" value="Select the Security Schemes to apply to this operation."/>
+                  <parameters name="multiple" value="aql:true"/>
+                  <parameters name="roots" value="aql:self.securityScheme"/>
+                  <parameters name="childrenExpression" value="self.eContents()"/>
+                </subModelOperations>
               </firstModelOperations>
             </initialOperation>
           </customOperations>
@@ -2134,6 +2149,27 @@
             <audits auditExpression="aql:self.URL.isValidURL()"/>
           </propertyValidationRules>
         </validationSet>
+      </groups>
+      <groups name="SecurityApplication Group" labelExpression="Properties" domainClass="soa::SecurityApplication" semanticCandidateExpression="var:self">
+        <controls xsi:type="properties:CustomDescription" name="org.obeonetwork.is.eef.custom.reference" label="soa::SecurityApplication scopes" labelExpression="aql:input.emfEditServices(self).getText(self.eClass().getEStructuralFeature('scopes')) + ':'" helpExpression="aql:input.emfEditServices(self).getDescription(self.eClass().getEStructuralFeature('scopes'))" isEnabledExpression="aql:self.eClass().getEStructuralFeature('scopes').changeable">
+          <customExpressions name="referenceNameExpression" customExpression="scopes"/>
+          <customExpressions name="hideAddButtonExpression" customExpression="aql:true"/>
+          <customOperations name="browseButtonOperation">
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:ExternalJavaAction" name="soa::SecurityApplication scopes ReferenceEdition" id="org.obeonetwork.dsl.environment.design.actions.PaneBasedReferenceEditionWizard">
+                <subModelOperations xsi:type="tool_1:If" conditionExpression="aql:returnCode='OK'">
+                  <subModelOperations xsi:type="tool_1:ChangeContext" browseExpression="aql:self.updateScopes(selectedElements)"/>
+                </subModelOperations>
+                <parameters name="windowTitle" value="Security Application Scopes Selection"/>
+                <parameters name="message" value="Select the Security Scopes to apply."/>
+                <parameters name="candidates" value="aql:self.securityScheme.flows.scopes"/>
+                <parameters name="referenceName" value="aql:'flows'"/>
+                <parameters name="choiceOfValuesMessage" value="Available Flows"/>
+                <parameters name="selectedValuesMessage" value="Selected Flows"/>
+              </firstModelOperations>
+            </initialOperation>
+          </customOperations>
+        </controls>
       </groups>
     </categories>
   </extensions>

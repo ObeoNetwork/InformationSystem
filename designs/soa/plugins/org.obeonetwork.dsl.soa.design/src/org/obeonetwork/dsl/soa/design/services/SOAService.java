@@ -23,7 +23,7 @@ import java.util.Optional;
 import java.util.Set;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
-import java.util.stream.Collectors;
+import static java.util.stream.Collectors.*;
 
 import org.eclipse.core.runtime.IExtension;
 import org.eclipse.core.runtime.Platform;
@@ -48,6 +48,8 @@ import org.obeonetwork.dsl.soa.MediaType;
 import org.obeonetwork.dsl.soa.Operation;
 import org.obeonetwork.dsl.soa.Parameter;
 import org.obeonetwork.dsl.soa.PropertiesExtension;
+import org.obeonetwork.dsl.soa.Scope;
+import org.obeonetwork.dsl.soa.SecurityApplication;
 import org.obeonetwork.dsl.soa.SecurityScheme;
 import org.obeonetwork.dsl.soa.SecuritySchemeType;
 import org.obeonetwork.dsl.soa.Service;
@@ -100,6 +102,29 @@ public class SOAService {
 		return operation;
 	}
 
+	public Operation updateSecurityApplications(Operation operation, List<SecurityScheme> securitySchemes) {
+		List<SecurityApplication> oldSecurityApplications = new ArrayList<>(operation.getSecurityApplications());
+		operation.getSecurityApplications().removeAll(oldSecurityApplications);
+		
+		for(SecurityScheme securityScheme : securitySchemes) {
+			SecurityApplication securityApplication = oldSecurityApplications.stream().filter(sa -> sa.getSecurityScheme() == securityScheme).findAny().orElse(null);
+			if(securityApplication == null) {
+				securityApplication = SoaFactory.eINSTANCE.createSecurityApplication();
+				securityApplication.setSecurityScheme(securityScheme);
+				securityApplication.getScopes().addAll(securityScheme.getFlows().stream().flatMap(f -> f.getScopes().stream()).collect(toList()));
+			}
+			operation.getSecurityApplications().add(securityApplication);
+		}
+		return operation;
+	}
+	
+	public SecurityApplication updateScopes(SecurityApplication securityApplication, List<Scope> scopes) {
+		List<Scope> oldScopes = new ArrayList<Scope>(securityApplication.getScopes());
+		securityApplication.getScopes().removeAll(oldScopes);
+		securityApplication.getScopes().addAll(scopes);
+		return securityApplication;
+	}
+	
 	public Parameter setStatusCode(Parameter parameter, String statusCode) {
 		if (!Objects.equals(parameter.getStatusCode(), statusCode)) {
 			if (isNullOrWhite(parameter.getStatusMessage()) || parameter.getStatusMessage().trim()
@@ -295,7 +320,7 @@ public class SOAService {
 					.flatMap(Arrays::stream)
 					.map(configurationElement -> configurationElement.getAttribute(COMMON_MEDIA_TYPES_NAME_ATTRIBUTE))
 					.sorted()
-					.collect(Collectors.toList());
+					.collect(toList());
 			
 			if (!commonMediaTypes.contains("")) {
 				commonMediaTypes.add("");
@@ -331,7 +356,7 @@ public class SOAService {
 	public boolean isSecuritySchemeDialog(SecurityScheme scheme) {
 		Display display = Display.getCurrent();
 		Shell shell = display.getActiveShell();
-		return shell.getText().equals("Security scheme edition");
+		return shell != null && shell.getText().equals("Security scheme edition");
 	}
 	
 	public void closeSecuritySchemeDialog(SecurityScheme scheme) {

@@ -72,6 +72,8 @@ public class OperationItemProvider
 			addSizePropertyDescriptor(object);
 			addPagePropertyDescriptor(object);
 			addPaginationExtensionPropertyDescriptor(object);
+			addSecurityApplicationsPropertyDescriptor(object);
+			addSecuritySchemesPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -266,6 +268,50 @@ public class OperationItemProvider
 				 getString("_UI_Operation_paginationExtension_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_Operation_paginationExtension_feature", "_UI_Operation_type"),
 				 SoaPackage.Literals.OPERATION__PAGINATION_EXTENSION,
+				 true,
+				 false,
+				 true,
+				 null,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Security Applications feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addSecurityApplicationsPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_Operation_securityApplications_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Operation_securityApplications_feature", "_UI_Operation_type"),
+				 SoaPackage.Literals.OPERATION__SECURITY_APPLICATIONS,
+				 true,
+				 false,
+				 false,
+				 null,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Security Schemes feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addSecuritySchemesPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_Operation_securitySchemes_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Operation_securitySchemes_feature", "_UI_Operation_type"),
+				 SoaPackage.Literals.OPERATION__SECURITY_SCHEMES,
 				 true,
 				 false,
 				 true,

@@ -11,10 +11,9 @@
 package org.obeonetwork.dsl.environment.design.actions;
 
 import static java.util.stream.Collectors.toList;
+import static org.obeonetwork.utils.common.IntrospectionUtils.getFieldValue;
+import static org.obeonetwork.utils.common.IntrospectionUtils.invokeMethod;
 
-import java.lang.reflect.Field;
-import java.lang.reflect.InvocationTargetException;
-import java.lang.reflect.Method;
 import java.util.Collection;
 import java.util.Collections;
 import java.util.List;
@@ -54,6 +53,7 @@ public class PaneBasedReferenceEditionWizardAction implements IExternalJavaActio
     private static final String PARAMETER_MESSAGE = "message";
     private static final String PARAMETER_CANDIDATES = "candidates";
     private static final String PARAMETER_REFERENCE_NAME = "referenceName";
+    private static final String PARAMETER_PRE_SELECTION = "preSelection";
     private static final String PARAMETER_CHOICE_OF_VALUES_MESSAGE = "choiceOfValuesMessage";
     private static final String PARAMETER_SELECTED_VALUES_MESSAGE = "selectedValuesMessage";
 	
@@ -73,16 +73,19 @@ public class PaneBasedReferenceEditionWizardAction implements IExternalJavaActio
         
         String message = Optional.ofNullable((String) parameters.get(PARAMETER_MESSAGE)).orElse("");
         
-		List<EObject> allCandidates = ((EList<?>)parameters.get(PARAMETER_CANDIDATES)).stream().filter(EObject.class::isInstance).map(EObject.class::cast).collect(toList());
+		List<EObject> allCandidates = ((List<?>)parameters.get(PARAMETER_CANDIDATES)).stream().filter(EObject.class::isInstance).map(EObject.class::cast).collect(toList());
         
+		Collection<EObject> preSelection = ((List<?>)parameters.get(PARAMETER_PRE_SELECTION)).stream().filter(EObject.class::isInstance).map(EObject.class::cast).collect(toList());
+		
         String referenceName = Optional.ofNullable((String) parameters.get(PARAMETER_REFERENCE_NAME)).orElse("");
         
         String choiceOfValuesMessageLocalized = Optional.ofNullable((String) parameters.get(PARAMETER_CHOICE_OF_VALUES_MESSAGE)).orElse("");
         
         String selectedValuesMessageLocalized = Optional.ofNullable((String) parameters.get(PARAMETER_SELECTED_VALUES_MESSAGE)).orElse("");
         
-        
-        Collection<EObject> preSelection = computePreSelection(context, referenceName);
+        if(!referenceName.isEmpty()) {
+            preSelection = computePreSelection(context, referenceName);
+        }
         
         final EObjectPaneBasedSelectionWizard wizard = new EObjectPaneBasedSelectionWizard(
         		windowTitle, 
@@ -168,71 +171,4 @@ public class PaneBasedReferenceEditionWizardAction implements IExternalJavaActio
 		return true;
 	}
 
-	private <T> T getFieldValue(Object object, String fieldName, Class<T> clazz) {
-		T fieldValue = null;
-		Field field = getField(object.getClass(), fieldName);
-		field.setAccessible(true);
-		try {
-			Object value = field.get(object);
-			if (clazz.isAssignableFrom(value.getClass())) {
-				fieldValue = clazz.cast(value);
-			}
-		} catch (IllegalArgumentException | IllegalAccessException e) {
-			// Silent catch
-		} finally {
-			field.setAccessible(false);
-		}
-		return fieldValue;
-	}
-
-	private Field getField(Class<? extends Object> clazz, String fieldName) {
-		Field field = getDeclaredFieldSafe(clazz,fieldName);
-		while(field == null && clazz != null) {
-			clazz = clazz.getSuperclass();
-			field = getDeclaredFieldSafe(clazz, fieldName);
-		}
-		return field;
-	}
-
-	private Field getDeclaredFieldSafe(Class<? extends Object> clazz, String fieldName) {
-		Field field = null;
-		try {
-			field = clazz.getDeclaredField(fieldName);
-		} catch (NoSuchFieldException | SecurityException e) {
-			// Silent catch
-		}
-		return field;
-	}
-
-	private void invokeMethod(Object object, String methodName) {
-		Method method = getMethod(object.getClass(), methodName);
-		method.setAccessible(true);
-		try {
-			method.invoke(object);
-		} catch (IllegalAccessException | IllegalArgumentException | InvocationTargetException e) {
-			// Silent catch
-		} finally {
-			method.setAccessible(false);
-		}
-	}
-	
-	private Method getMethod(Class<? extends Object> clazz, String methodName) {
-		Method method = getDeclaredMethodSafe(clazz, methodName);
-		while(method == null && clazz != null) {
-			clazz = clazz.getSuperclass();
-			method = getDeclaredMethodSafe(clazz, methodName);
-		}
-		return method;
-	}
-	
-	private Method getDeclaredMethodSafe(Class<? extends Object> clazz, String methodName) {
-		Method method = null;
-		try {
-			method = clazz.getDeclaredMethod(methodName);
-		} catch (NoSuchMethodException | SecurityException e) {
-			// Silent catch
-		}
-		return method;
-	}
-	
 }

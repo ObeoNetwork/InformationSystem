@@ -1206,13 +1206,22 @@ public interface SoaPackage extends EPackage {
 	int OPERATION__SECURITY_APPLICATIONS = EnvironmentPackage.ACTION_FEATURE_COUNT + 13;
 
 	/**
+	 * The feature id for the '<em><b>Security Schemes</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int OPERATION__SECURITY_SCHEMES = EnvironmentPackage.ACTION_FEATURE_COUNT + 14;
+
+	/**
 	 * The number of structural features of the '<em>Operation</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int OPERATION_FEATURE_COUNT = EnvironmentPackage.ACTION_FEATURE_COUNT + 14;
+	int OPERATION_FEATURE_COUNT = EnvironmentPackage.ACTION_FEATURE_COUNT + 15;
 
 	/**
 	 * The meta object id for the '{@link org.obeonetwork.dsl.soa.impl.ParameterImpl <em>Parameter</em>}' class.
@@ -3477,6 +3486,17 @@ public interface SoaPackage extends EPackage {
 	EReference getOperation_SecurityApplications();
 
 	/**
+	 * Returns the meta object for the reference list '{@link org.obeonetwork.dsl.soa.Operation#getSecuritySchemes <em>Security Schemes</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference list '<em>Security Schemes</em>'.
+	 * @see org.obeonetwork.dsl.soa.Operation#getSecuritySchemes()
+	 * @see #getOperation()
+	 * @generated
+	 */
+	EReference getOperation_SecuritySchemes();
+
+	/**
 	 * Returns the meta object for class '{@link org.obeonetwork.dsl.soa.ImplementationComponent <em>Implementation Component</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -4653,6 +4673,14 @@ public interface SoaPackage extends EPackage {
 		 * @generated
 		 */
 		EReference OPERATION__SECURITY_APPLICATIONS = eINSTANCE.getOperation_SecurityApplications();
+
+		/**
+		 * The meta object literal for the '<em><b>Security Schemes</b></em>' reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference OPERATION__SECURITY_SCHEMES = eINSTANCE.getOperation_SecuritySchemes();
 
 		/**
 		 * The meta object literal for the '{@link org.obeonetwork.dsl.soa.impl.ImplementationComponentImpl <em>Implementation Component</em>}' class.

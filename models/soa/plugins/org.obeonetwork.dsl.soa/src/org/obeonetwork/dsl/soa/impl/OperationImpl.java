@@ -51,6 +51,7 @@ import org.obeonetwork.dsl.soa.Verb;
  *   <li>{@link org.obeonetwork.dsl.soa.impl.OperationImpl#getPage <em>Page</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.soa.impl.OperationImpl#getPaginationExtension <em>Pagination Extension</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.soa.impl.OperationImpl#getSecurityApplications <em>Security Applications</em>}</li>
+ *   <li>{@link org.obeonetwork.dsl.soa.impl.OperationImpl#getSecuritySchemes <em>Security Schemes</em>}</li>
  * </ul>
  *
  * @generated
@@ -385,6 +386,20 @@ public class OperationImpl extends ActionImpl implements Operation {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@SuppressWarnings("unchecked")
+	public EList<SecurityScheme> getSecuritySchemes() {
+		// TODO: implement this method to return the 'Security Schemes' reference list
+		// Ensure that you remove @generated or mark it @generated NOT
+		// The list is expected to implement org.eclipse.emf.ecore.util.InternalEList and org.eclipse.emf.ecore.EStructuralFeature.Setting
+		// so it's likely that an appropriate subclass of org.eclipse.emf.ecore.util.EcoreEList should be used.
+		throw new UnsupportedOperationException();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
@@ -441,6 +456,8 @@ public class OperationImpl extends ActionImpl implements Operation {
 				return basicGetPaginationExtension();
 			case SoaPackage.OPERATION__SECURITY_APPLICATIONS:
 				return getSecurityApplications();
+			case SoaPackage.OPERATION__SECURITY_SCHEMES:
+				return getSecuritySchemes();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -595,6 +612,8 @@ public class OperationImpl extends ActionImpl implements Operation {
 				return basicGetPaginationExtension() != null;
 			case SoaPackage.OPERATION__SECURITY_APPLICATIONS:
 				return !getSecurityApplications().isEmpty();
+			case SoaPackage.OPERATION__SECURITY_SCHEMES:
+				return !getSecuritySchemes().isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}

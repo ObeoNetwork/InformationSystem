@@ -82,6 +82,10 @@
            actionClass="org.obeonetwork.dsl.environment.design.actions.PaneBasedReferenceEditionWizardAction"
            id="org.obeonetwork.dsl.environment.design.actions.PaneBasedReferenceEditionWizard">
      </javaActions>
+     <javaActions
+           actionClass="org.obeonetwork.dsl.environment.design.actions.EObjectSelectionWizardAction"
+           id="org.obeonetwork.dsl.environment.design.actions.EObjectSelectionWizard">
+     </javaActions>
   </extension>
   
 </plugin>
