@@ -42,7 +42,6 @@ import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 import java.util.Set;
-import java.util.stream.Collectors;
 
 import org.eclipse.core.runtime.IStatus;
 import org.eclipse.emf.common.util.EList;
@@ -231,11 +230,11 @@ public class SwaggerBuilder {
 			securityScheme.setScheme(soaSecurityScheme.getHttpScheme().getLiteral());
 			break;
 		case OAUTH2:
-			securityScheme.setFlows(toSwg(soaSecurityScheme.getFlows()));
+			securityScheme.setFlows(createOAuthFlows(soaSecurityScheme.getFlows()));
 			break;
 		case OPENIDCONNECT:
 			securityScheme.setOpenIdConnectUrl(soaSecurityScheme.getConnectURL());
-			securityScheme.setFlows(toSwg(soaSecurityScheme.getFlows()));
+			securityScheme.setFlows(createOAuthFlows(soaSecurityScheme.getFlows()));
 			break;
 		}
 
@@ -244,12 +243,12 @@ public class SwaggerBuilder {
 		return securityScheme;
 	}
 
-	private OAuthFlows toSwg(Collection<Flow> flows) {
+	private OAuthFlows createOAuthFlows(Collection<Flow> soaFlows) {
 		OAuthFlows authFlows = new OAuthFlows();
 
-		flows.forEach(flow -> {
-			OAuthFlow authFlow = toSwg(flow);
-			switch (flow.getFlowType()) {
+		for(Flow soaFlow : soaFlows) {
+			OAuthFlow authFlow = createOAuthFlow(soaFlow);
+			switch (soaFlow.getFlowType()) {
 			case AUTHORIZATIONCODE:
 				authFlows.setAuthorizationCode(authFlow);
 				break;
@@ -263,12 +262,13 @@ public class SwaggerBuilder {
 				authFlows.password(authFlow);
 				break;
 			}
-		});
+			soaFlow.getScopes();
+		}
 		
 		return authFlows;
 	}
 
-	private OAuthFlow toSwg(Flow flow) {
+	private OAuthFlow createOAuthFlow(Flow flow) {
 		OAuthFlow authFlow = new OAuthFlow();
 		authFlow.setAuthorizationUrl(flow.getAuthorizationURL());
 		authFlow.setRefreshUrl(flow.getRefreshURL());
@@ -826,17 +826,14 @@ public class SwaggerBuilder {
 		buildParameters(swgOperation, soaOperation);
 		buildApiResponses(swgOperation, soaOperation);
 
-		for (org.obeonetwork.dsl.soa.SecurityScheme soaSecurityScheme : soaOperation.getSecuritySchemes()) {
-			// iterate over schemes 
-			// iterate over the flows of each scheme
-			//
+		for (org.obeonetwork.dsl.soa.SecurityApplication soaSecurityApplication : soaOperation.getSecurityApplications()) {
+			org.obeonetwork.dsl.soa.SecurityScheme soaSecurityScheme = soaSecurityApplication.getSecurityScheme();
 			SecurityRequirement swgSecurityRequirement = new SecurityRequirement();
-			//if (soaSecurityScheme.getType().equals(SecuritySchemeType.OAUTH2)) {
-				swgSecurityRequirement.addList(soaSecurityScheme.getName(), soaSecurityScheme.getFlows().stream().map(f -> f.getScopes()).flatMap(List::stream).map(Scope::getName).collect(Collectors.toList()));
-			//}
+			swgSecurityRequirement.addList(soaSecurityScheme.getName(), 
+					soaSecurityApplication.getScopes().stream().map(Scope::getName).collect(toList()));
 			swgOperation.addSecurityItem(swgSecurityRequirement);
 		}
-
+		
 		addPropertiesExtensionsFromSoaToSwg(soaOperation, swgOperation);
 
 		return swgOperation;

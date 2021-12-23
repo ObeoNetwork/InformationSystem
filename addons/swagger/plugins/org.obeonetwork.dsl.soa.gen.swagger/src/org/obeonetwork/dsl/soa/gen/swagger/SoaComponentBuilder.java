@@ -76,6 +76,7 @@ import org.obeonetwork.dsl.soa.ParameterPassingMode;
 import org.obeonetwork.dsl.soa.ParameterRestData;
 import org.obeonetwork.dsl.soa.PropertiesExtension;
 import org.obeonetwork.dsl.soa.Scope;
+import org.obeonetwork.dsl.soa.SecurityApplication;
 import org.obeonetwork.dsl.soa.SecuritySchemeType;
 import org.obeonetwork.dsl.soa.Service;
 import org.obeonetwork.dsl.soa.SoaFactory;
@@ -809,11 +810,23 @@ public class SoaComponentBuilder {
 				if (!swgSecurityRequirement.keySet().isEmpty()) {
 					String ssKey = swgSecurityRequirement.keySet().iterator().next();
 
-					List<org.obeonetwork.dsl.soa.SecurityScheme> soaSecuritySchemes = 
-							soaComponent.getSecuritySchemes().stream()
-							.filter(ss -> ssKey.equals(ss.getName()))
-							.collect(toList());
-					soaOperation.getSecuritySchemes().addAll(soaSecuritySchemes);
+					for(org.obeonetwork.dsl.soa.SecurityScheme securityScheme : soaComponent.getSecuritySchemes().stream()
+							.filter(ss -> ssKey.equals(ss.getName())).collect(toList())) {
+						SecurityApplication soaSecurityApplication = SoaFactory.eINSTANCE.createSecurityApplication();
+						soaSecurityApplication.setSecurityScheme(securityScheme);
+						soaOperation.getSecurityApplications().add(soaSecurityApplication);
+						
+						List<String> scopeNames = swgSecurityRequirement.get(ssKey);
+						if(scopeNames != null) {
+							for(String scopeName : scopeNames) {
+								List<Scope> soaScopes = securityScheme.getFlows().stream()
+										.flatMap(f -> f.getScopes().stream())
+										.filter(s -> s.getName().equals(scopeName))
+										.collect(toList());
+								soaSecurityApplication.getScopes().addAll(soaScopes);
+							}
+						}
+					}
 				}
 			}
 		}

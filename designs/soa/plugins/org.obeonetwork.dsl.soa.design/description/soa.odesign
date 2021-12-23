@@ -1122,7 +1122,7 @@
       <pages name="Properties Extension List Page" labelExpression="Properties Extension" domainClass="environment::ObeoDSMObject" semanticCandidateExpression="var:self" preconditionExpression="aql:self.isPropertiesExtensionPossible()" groups="//@extensions.0/@categories.1/@groups.32"/>
       <pages name="Flow Page" labelExpression="Flow" domainClass="soa::Flow" semanticCandidateExpression="var:self" groups="//@extensions.0/@categories.1/@groups.17"/>
       <pages name="Scope page" labelExpression="Scope" domainClass="soa::Scope" semanticCandidateExpression="var:self" groups="//@extensions.0/@categories.1/@groups.18"/>
-      <pages name="SecurityApplication Page" labelExpression="Security Application" domainClass="soa::SecurityApplication" semanticCandidateExpression="var:self"/>
+      <pages name="SecurityApplication Page" labelExpression="Security Application" domainClass="soa::SecurityApplication" semanticCandidateExpression="var:self" groups="//@extensions.0/@categories.1/@groups.34"/>
       <groups name="Operation Group" labelExpression="Properties" domainClass="soa::Operation" semanticCandidateExpression="var:self">
         <controls xsi:type="properties:TextDescription" name="soa::Operation name" labelExpression="aql:input.emfEditServices(self).getText(self.eClass().getEStructuralFeature('name')) + ':'" helpExpression="aql:input.emfEditServices(self).getDescription(self.eClass().getEStructuralFeature('name'))" isEnabledExpression="aql:self.eClass().getEStructuralFeature('name').changeable" valueExpression="aql:self.name">
           <initialOperation>
@@ -2163,7 +2163,7 @@
                 <parameters name="windowTitle" value="Security Application Scopes Selection"/>
                 <parameters name="message" value="Select the Security Scopes to apply."/>
                 <parameters name="candidates" value="aql:self.securityScheme.flows.scopes"/>
-                <parameters name="referenceName" value="aql:'flows'"/>
+                <parameters name="referenceName" value="aql:'scopes'"/>
                 <parameters name="choiceOfValuesMessage" value="Available Flows"/>
                 <parameters name="selectedValuesMessage" value="Selected Flows"/>
               </firstModelOperations>

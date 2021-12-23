@@ -73,9 +73,15 @@ public class PaneBasedReferenceEditionWizardAction implements IExternalJavaActio
         
         String message = Optional.ofNullable((String) parameters.get(PARAMETER_MESSAGE)).orElse("");
         
-		List<EObject> allCandidates = ((List<?>)parameters.get(PARAMETER_CANDIDATES)).stream().filter(EObject.class::isInstance).map(EObject.class::cast).collect(toList());
+		List<EObject> allCandidates = null;
+		if(parameters.get(PARAMETER_CANDIDATES) != null) {
+			allCandidates = toEObjectList(parameters.get(PARAMETER_CANDIDATES));
+		}
         
-		Collection<EObject> preSelection = ((List<?>)parameters.get(PARAMETER_PRE_SELECTION)).stream().filter(EObject.class::isInstance).map(EObject.class::cast).collect(toList());
+		Collection<EObject> preSelection = null;
+		if(parameters.get(PARAMETER_PRE_SELECTION) != null) {
+			preSelection = toEObjectList(parameters.get(PARAMETER_PRE_SELECTION));
+		}
 		
         String referenceName = Optional.ofNullable((String) parameters.get(PARAMETER_REFERENCE_NAME)).orElse("");
         
@@ -152,6 +158,18 @@ public class PaneBasedReferenceEditionWizardAction implements IExternalJavaActio
         }
 	}
 	
+	private List<EObject> toEObjectList(Object object) {
+		
+		List<EObject> list = null;
+		if(object instanceof List) {
+			list = ((List<?>)object).stream().filter(EObject.class::isInstance).map(EObject.class::cast).collect(toList());
+		} else if(object instanceof EObject) {
+			list = Collections.singletonList((EObject)object);
+		}
+		
+		return list;
+	}
+
 	private Collection<EObject> computePreSelection(EObject context, String referenceName) {
 		
         Collection<EObject> preSelection = Collections.emptyList();
