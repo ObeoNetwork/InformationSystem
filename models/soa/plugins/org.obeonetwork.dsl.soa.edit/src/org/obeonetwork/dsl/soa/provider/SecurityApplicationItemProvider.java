@@ -13,6 +13,7 @@ package org.obeonetwork.dsl.soa.provider;
 
 import java.util.Collection;
 import java.util.List;
+import java.util.stream.Collectors;
 
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
@@ -137,11 +138,17 @@ public class SecurityApplicationItemProvider extends IdentifiableItemProvider {
 	 * This returns the label text for the adapted class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = ((SecurityApplication)object).getTechnicalid();
+		SecurityApplication securityApplication = ((SecurityApplication)object);
+		
+		String label = "";
+		if(securityApplication.getSecurityScheme() != null) {
+			label = securityApplication.getSecurityScheme().getName() + " ";
+		}
+		label += "[" + securityApplication.getScopes().stream().map(scope -> scope.getName()).collect(Collectors.joining(", ")) + "]";
 		return label == null || label.length() == 0 ?
 			getString("_UI_SecurityApplication_type") :
 			getString("_UI_SecurityApplication_type") + " " + label;
