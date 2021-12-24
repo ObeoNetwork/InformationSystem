@@ -161,7 +161,7 @@ Il est possible de déployer un changelog liquibase sur une base de données dir
 Les données de connection sont définies par défaut avec le fichier _changelog.properties_, normalement créé par liquibase. 
 Modifier ce fichier permet de remplir définir les url et identifiants de connection, afin de déployer les changements sur une base distante.
 
-!{width:480px}pics/BDD_ApplyChangelog_Connection.png!
+!{width:480px}pics/BDD_ApplyChangelog_Connection.PNG!
 
 h2. Transformations
 
