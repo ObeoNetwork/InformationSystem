@@ -29,10 +29,14 @@ import org.obeonetwork.dsl.environment.ObeoDSMObject;
 import org.obeonetwork.dsl.environment.Property;
 import org.obeonetwork.dsl.environment.Reference;
 import org.obeonetwork.dsl.environment.Type;
+import org.obeonetwork.dsl.soa.Component;
 import org.obeonetwork.dsl.soa.ExpositionKind;
+import org.obeonetwork.dsl.soa.Interface;
+import org.obeonetwork.dsl.soa.InterfaceKind;
 import org.obeonetwork.dsl.soa.Operation;
 import org.obeonetwork.dsl.soa.Parameter;
 import org.obeonetwork.dsl.soa.PropertiesExtension;
+import org.obeonetwork.dsl.soa.Service;
 import org.obeonetwork.dsl.soa.SoaPackage;
 import org.obeonetwork.dsl.soa.SoaPackage.Literals;
 
@@ -77,6 +81,67 @@ public class PropertiesExtensionsService {
 			}
 		}
 		return Collections.emptyList();
+	}
+
+	/**
+	 * Check if a Component is at least partially exposed i.e. one of its provided service is exposed 
+	 * @param component Component
+	 * @return true if one of the contained provided services is exposed
+	 */
+	public static boolean isConcernedByExposition(Component component) {
+		if (component != null) {
+			return component.getProvidedServices().stream().anyMatch(service -> isConcernedByExposition(service));
+		}
+		return false;
+	}
+	
+	/**
+	 * Check if a Service is at least partially exposed i.e. one of its operations is exposed
+	 * @param service Service
+	 * @return true if one of the contained operations is exposed
+	 */
+	public static boolean isConcernedByExposition(Service service) {
+		if (service != null) {
+			Interface ownedInterface = service.getOwnedInterface();
+			if (ownedInterface != null) {
+				return ownedInterface.getOwnedOperations().stream().anyMatch(operation -> isConcernedByExposition(operation));
+			}
+		}
+		return false;
+	}
+	
+	/**
+	 * Check if an Operation is exposed
+	 * @param operation Operation
+	 * @return true if containing service is a provided service and operation exposition is different from NONE
+	 */
+	public static boolean isConcernedByExposition(Operation operation) {
+		if (operation != null) {
+			if (ExpositionKind.NONE.equals(operation.getExposition())) {
+				return false;
+			} else {
+				if (operation.eContainer() instanceof Interface) {
+					Interface itf = (Interface)operation.eContainer();
+					if (itf.eContainer() instanceof Service) {
+						Service service = (Service)itf.eContainer();
+						return InterfaceKind.PROVIDED_LITERAL.equals(service.getKind()); 					
+					}
+				}				
+			}
+		}
+		return false;
+	}
+	
+	/**
+	 * Check if a parameter is concerned by exposition, i.e. its containing Operation is exposed
+	 * @param parameter Parameter
+	 * @return true if containing operation is concerned by exposition
+	 */
+	public static boolean isConcernedByExposition(Parameter parameter) {
+		if (parameter != null && parameter.eContainer() instanceof Operation) {
+			return isConcernedByExposition((Operation)parameter.eContainer());
+		}
+		return false;
 	}
 	
 	/**
