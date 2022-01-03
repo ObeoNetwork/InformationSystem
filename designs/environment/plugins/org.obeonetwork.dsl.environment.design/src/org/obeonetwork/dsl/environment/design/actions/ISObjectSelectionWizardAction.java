@@ -13,16 +13,16 @@ import org.eclipse.jface.resource.ImageDescriptor;
 import org.eclipse.jface.window.Window;
 import org.eclipse.sirius.common.tools.api.interpreter.EvaluationException;
 import org.eclipse.sirius.common.tools.api.interpreter.IInterpreter;
-import org.eclipse.sirius.common.tools.api.util.TreeItemWrapper;
-import org.eclipse.sirius.common.ui.tools.api.selection.EObjectSelectionWizard;
 import org.eclipse.sirius.common.ui.tools.api.selection.WizardDialogClosableByWizard;
 import org.eclipse.sirius.diagram.ui.provider.DiagramUIPlugin;
 import org.eclipse.sirius.tools.api.ui.IExternalJavaAction;
 import org.eclipse.sirius.viewpoint.SiriusPlugin;
 import org.eclipse.swt.widgets.Shell;
 import org.eclipse.ui.PlatformUI;
+import org.obeonetwork.dsl.environment.design.wizards.ISObjectSelectionWizard;
+import org.obeonetwork.dsl.environment.design.wizards.TreeItemWrapper;
 
-public class EObjectSelectionWizardAction implements IExternalJavaAction {
+public class ISObjectSelectionWizardAction implements IExternalJavaAction {
 
 	// Input variables
     private static final String PARAMETER_WINDOW_TITLE = "windowTitle";
@@ -31,6 +31,8 @@ public class EObjectSelectionWizardAction implements IExternalJavaAction {
     private static final String PARAMETER_MULTIPLE = "multiple";
     private static final String PARAMETER_ROOTS = "roots";
     private static final String PARAMETER_CHILDREN_EXPRESSION = "childrenExpression";
+    private static final String PARAMETER_PRE_SELECTION = "preSelection";
+    private static final String PARAMETER_SELECTABLE_CONDITION = "selectableCondition";
     
     // Output variables
     private static final String OUTPUT_RETURN_CODE = "returnCode";
@@ -54,31 +56,45 @@ public class EObjectSelectionWizardAction implements IExternalJavaAction {
         
         List<EObject> roots = toEObjectList(parameters.get(PARAMETER_ROOTS));
         
-        String childrenExpression = "";
+        String childrenExpression = null;
         if(parameters.get(PARAMETER_CHILDREN_EXPRESSION) instanceof String) {
         	childrenExpression = "aql:" + parameters.get(PARAMETER_CHILDREN_EXPRESSION);
         }
         
-        TreeItemWrapper input = new TreeItemWrapper(null, null);
-        for(EObject root : roots) {
-            TreeItemWrapper rootItem = new TreeItemWrapper(root, input);
-            input.getChildren().add(rootItem);
+        List<EObject> preSelection = toEObjectList(parameters.get(PARAMETER_PRE_SELECTION));
+        
+        String selectableCondition = null;
+        if(parameters.get(PARAMETER_SELECTABLE_CONDITION) instanceof String) {
+        	selectableCondition = "aql:" + parameters.get(PARAMETER_SELECTABLE_CONDITION);
         }
         
-        if(!childrenExpression.isEmpty()) {
+        TreeItemWrapper input = new TreeItemWrapper(null, null);
+        for(EObject root : roots) {
+            TreeItemWrapper treeRoot = new TreeItemWrapper(root, input);
+            if(selectableCondition != null) {
+                try {
+                	treeRoot.setSelectable(interpreter.evaluateBoolean(root, selectableCondition));
+    			} catch (EvaluationException e) {
+    				e.printStackTrace();
+    				// Bad luck
+    			}
+            }
+        }
+        
+        if(childrenExpression != null) {
             for(TreeItemWrapper rootItem : input.getChildren()) {
-            	computeInputChildren(rootItem, childrenExpression, interpreter);
+            	computeInputChildren(rootItem, childrenExpression, selectableCondition, interpreter);
             }
         }
         	
-        final EObjectSelectionWizard wizard = new EObjectSelectionWizard(
+        final ISObjectSelectionWizard wizard = new ISObjectSelectionWizard(
         		windowTitle, 
         		message, 
         		image, 
         		input,
+        		multiple,
+        		preSelection,
         		DiagramUIPlugin.getPlugin().getItemProvidersAdapterFactory());
-        
-        wizard.setMany(multiple);
         
         Shell shell = PlatformUI.getWorkbench().getActiveWorkbenchWindow().getShell();
         final WizardDialogClosableByWizard dlg = new WizardDialogClosableByWizard(shell, wizard);
@@ -94,7 +110,7 @@ public class EObjectSelectionWizardAction implements IExternalJavaAction {
         }
 	}
 	
-	private void computeInputChildren(TreeItemWrapper treeItem, String childrenExpression, IInterpreter interpreter) {
+	private void computeInputChildren(TreeItemWrapper treeItem, String childrenExpression, String selectableCondition, IInterpreter interpreter) {
 		
 		EObject wrappedEObject = null;
 		if(treeItem.getWrappedObject() instanceof EObject) {
@@ -102,19 +118,28 @@ public class EObjectSelectionWizardAction implements IExternalJavaAction {
 		}
 		
 		if(wrappedEObject != null) {
-			Object evaluation = null;
+			List<EObject> children = null;
 			try {
-				evaluation = interpreter.evaluate(wrappedEObject, childrenExpression);
+				children = toEObjectList(interpreter.evaluate(wrappedEObject, childrenExpression));
 			} catch (EvaluationException e) {
 				e.printStackTrace();
-				// Too bad
+				// Bad luck
 			}
-			List<EObject> children = toEObjectList(evaluation);
-			for(EObject child : children) {
-				if(!treeItem.knownThisAsAncestor(child)) {
-		            TreeItemWrapper childItem = new TreeItemWrapper(child, treeItem);
-		            treeItem.getChildren().add(childItem);
-		            computeInputChildren(childItem, childrenExpression, interpreter);
+			if(children != null) {
+				for(EObject child : children) {
+					if(!treeItem.knownAsAncestor(child)) {
+			            TreeItemWrapper childItem = new TreeItemWrapper(child, treeItem);
+			            if(selectableCondition != null) {
+				            try {
+				            	childItem.setSelectable(interpreter.evaluateBoolean(child, selectableCondition));
+							} catch (EvaluationException e) {
+								e.printStackTrace();
+								// Bad luck
+							}
+			            }
+
+			            computeInputChildren(childItem, childrenExpression, selectableCondition, interpreter);
+					}
 				}
 			}
 		}

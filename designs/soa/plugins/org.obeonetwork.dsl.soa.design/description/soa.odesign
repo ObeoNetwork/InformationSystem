@@ -1704,15 +1704,17 @@
           <customOperations name="onDoubleClickOperation">
             <initialOperation>
               <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="aql:selection->first()">
-                <subModelOperations xsi:type="tool_1:ExternalJavaAction" name="soa::SecurityApplication scopes ReferenceEdition" id="org.obeonetwork.dsl.environment.design.actions.EObjectSelectionWizard">
+                <subModelOperations xsi:type="tool_1:ExternalJavaAction" name="soa::SecurityApplication scopes ReferenceEdition" id="org.obeonetwork.dsl.environment.design.actions.ISObjectSelectionWizard">
                   <subModelOperations xsi:type="tool_1:If" conditionExpression="aql:returnCode='OK'">
                     <subModelOperations xsi:type="tool_1:ChangeContext" browseExpression="aql:self.updateScopes(selectedElements)"/>
                   </subModelOperations>
                   <parameters name="windowTitle" value="Security Schemes Selection"/>
-                  <parameters name="message" value="Select the Scopes appying to this Security Scheme."/>
+                  <parameters name="message" value="Select the Security Scopes to apply."/>
                   <parameters name="multiple" value="aql:true"/>
                   <parameters name="roots" value="aql:self.securityScheme"/>
                   <parameters name="childrenExpression" value="self.eContents()"/>
+                  <parameters name="preSelection" value="aql:self.scopes"/>
+                  <parameters name="selectableCondition" value="self.oclIsKindOf(soa::Scope)"/>
                 </subModelOperations>
               </firstModelOperations>
             </initialOperation>

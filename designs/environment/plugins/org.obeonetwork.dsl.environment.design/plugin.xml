@@ -86,6 +86,10 @@
            actionClass="org.obeonetwork.dsl.environment.design.actions.EObjectSelectionWizardAction"
            id="org.obeonetwork.dsl.environment.design.actions.EObjectSelectionWizard">
      </javaActions>
+     <javaActions
+           actionClass="org.obeonetwork.dsl.environment.design.actions.ISObjectSelectionWizardAction"
+           id="org.obeonetwork.dsl.environment.design.actions.ISObjectSelectionWizard">
+     </javaActions>
   </extension>
   
 </plugin>
