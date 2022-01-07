@@ -10,6 +10,8 @@
  *******************************************************************************/
 package org.obeonetwork.dsl.soa.spec;
 
+import org.obeonetwork.dsl.soa.License;
+import org.obeonetwork.dsl.soa.Messages;
 import org.obeonetwork.dsl.soa.SoaFactory;
 import org.obeonetwork.dsl.soa.impl.ComponentImpl;
 
@@ -18,7 +20,11 @@ public class ComponentSpec extends ComponentImpl {
 	public ComponentSpec() {
 		super();
 		setInformation(SoaFactory.eINSTANCE.createInformation());
-		setLicense(SoaFactory.eINSTANCE.createLicense());
+		
+		License license = SoaFactory.eINSTANCE.createLicense();
+		license.setName(Messages.License_DefaultName);
+		license.setURL(Messages.License_DefaultURL);
+		setLicense(license);
 		setContact(SoaFactory.eINSTANCE.createContact());
 	}
 	

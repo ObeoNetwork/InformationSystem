@@ -376,18 +376,9 @@ public class SwaggerBuilder {
     	if (soaComponent.getLicense() != null) {
     		org.obeonetwork.dsl.soa.License soaLicense = soaComponent.getLicense();
     		
-    		if (StringUtils.isNullOrWhite(soaLicense.getName())) {
-        		license.setName("Apache 2.0");	
-        	} else {
-        		license.setName(soaLicense.getName());
-        	}
-        	
-        	if (StringUtils.isNullOrWhite(soaLicense.getURL())) {
-        		license.setUrl("http://www.apache.org/licenses/LICENSE-2.0.html");	
-        	} else {
-        		license.setUrl(soaLicense.getURL());
-        	}
-        	
+    		license.setName(emptyIfNull(soaLicense.getName()));
+    		license.setUrl(emptyIfNull(soaLicense.getURL()));
+    		
         	addPropertiesExtensionsFromSoaToSwg(soaComponent.getLicense(), license);
     	}
     	
