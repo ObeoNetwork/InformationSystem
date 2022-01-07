@@ -721,7 +721,7 @@
         <metadatas xsi:type="soa:PropertiesExtension" xmi:id="_uHniM-WXEeupV6pJeRbWfg" technicalid="_uHniMuWXEeupV6pJeRbWfg" title="x-ServiceSurTag" body="Service-Tag" context="Tag"/>
       </metadatas>
       <ownedInterface xmi:id="_msJPQmxuEeuYi_YuNNGyqg" technicalid="_msGMBmxuEeuYi_YuNNGyqg" name="Series">
-        <ownedOperations xmi:id="_msJPQ2xuEeuYi_YuNNGyqg" technicalid="_msGMB2xuEeuYi_YuNNGyqg" description="Returns a series records that contains all information known about a particular series id." createdOn="2021-07-15T20:02:15.006+0200" modifiedOn="2021-08-11T21:25:09.109+0200" name="getFromId2" public="true" URI="/{id}" exposition="REST" securitySchemes="_msJQPmxuEeuYi_YuNNGyqg">
+        <ownedOperations xmi:id="_msJPQ2xuEeuYi_YuNNGyqg" technicalid="_msGMB2xuEeuYi_YuNNGyqg" description="Returns a series records that contains all information known about a particular series id." createdOn="2021-07-15T20:02:15.006+0200" modifiedOn="2022-01-04T11:12:56.348+0100" name="getFromId2" public="true" URI="/{id}" exposition="REST">
           <metadatas xmi:id="_yU0X4eWWEeupV6pJeRbWfg" technicalid="_yU0X4OWWEeupV6pJeRbWfg">
             <metadatas xsi:type="soa:PropertiesExtension" xmi:id="_yU0-8eWWEeupV6pJeRbWfg" technicalid="_yU0-8OWWEeupV6pJeRbWfg" title="x-OperationSurPathItem" body="Operation-PathItem" context="PathItem"/>
             <metadatas xsi:type="soa:PropertiesExtension" xmi:id="_5FIOEeWWEeupV6pJeRbWfg" technicalid="_5FIOEOWWEeupV6pJeRbWfg" title="x-OperationSurApiResponses" body="Operation-ApiResponses" context="ApiResponses"/>
@@ -765,8 +765,9 @@
             </metadatas>
           </servers>
           <servers xmi:id="_10A6UfrZEeuIRLTjk6WcPA" technicalid="_10A6UPrZEeuIRLTjk6WcPA" description="descriptionserver4" createdOn="2021-08-11T21:25:09.110+0200" modifiedOn="2021-08-11T21:25:22.065+0200" URL="urlserver4"/>
+          <securityApplications xmi:id="_4uWdwW1GEeykZo0xTv5joQ" technicalid="_4uWdwG1GEeykZo0xTv5joQ" securityScheme="_msJQPmxuEeuYi_YuNNGyqg"/>
         </ownedOperations>
-        <ownedOperations xmi:id="_msJPS2xuEeuYi_YuNNGyqg" technicalid="_msGMD2xuEeuYi_YuNNGyqg" description="Returns header information only about the given series ID." name="headFromId" public="true" URI="/{id}" verb="HEAD" exposition="REST" securitySchemes="_msJQPmxuEeuYi_YuNNGyqg">
+        <ownedOperations xmi:id="_msJPS2xuEeuYi_YuNNGyqg" technicalid="_msGMD2xuEeuYi_YuNNGyqg" description="Returns header information only about the given series ID." createdOn="2022-01-04T11:13:03.193+0100" modifiedOn="2022-01-04T11:13:03.193+0100" name="headFromId" public="true" URI="/{id}" verb="HEAD" exposition="REST">
           <input xmi:id="_msJPTGxuEeuYi_YuNNGyqg" technicalid="_msGMEGxuEeuYi_YuNNGyqg" description="ID of the series" name="id">
             <type xsi:type="oenv:PrimitiveType" href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_9dnH8bGqEd2SRpTkL4GntA"/>
             <restData xmi:id="_msJPTWxuEeuYi_YuNNGyqg" technicalid="_msGMEWxuEeuYi_YuNNGyqg" passingMode="PATH" restId="id"/>
@@ -778,8 +779,9 @@
           <output xmi:id="_msJPUGxuEeuYi_YuNNGyqg" technicalid="_msGMFGxuEeuYi_YuNNGyqg" description="Series header information. Good for getting the Last-Updated header to find out when the series was last modified." name="output200" statusCode="200" statusMessage="OK"/>
           <fault xmi:id="_msJPUWxuEeuYi_YuNNGyqg" technicalid="_msGMFWxuEeuYi_YuNNGyqg" description="Returned if your JWT token is missing or expired" type="_msJ21mxuEeuYi_YuNNGyqg" name="fault401" multiplicity="0..1" statusCode="401" statusMessage="Unauthorized"/>
           <fault xmi:id="_msJPUmxuEeuYi_YuNNGyqg" technicalid="_msGMFmxuEeuYi_YuNNGyqg" description="Returned if the given series ID does not exist" type="_msJ22GxuEeuYi_YuNNGyqg" name="fault404" multiplicity="0..1" statusCode="404" statusMessage="Not Found"/>
+          <securityApplications xmi:id="_5voUkW1GEeykZo0xTv5joQ" technicalid="_5voUkG1GEeykZo0xTv5joQ" securityScheme="_msJQPmxuEeuYi_YuNNGyqg"/>
         </ownedOperations>
-        <ownedOperations xmi:id="_msJPU2xuEeuYi_YuNNGyqg" technicalid="_msGMF2xuEeuYi_YuNNGyqg" description="Returns actors for the given series id" name="getActorsFromId" public="true" URI="/{id}/actors" exposition="REST" securitySchemes="_msJQPmxuEeuYi_YuNNGyqg">
+        <ownedOperations xmi:id="_msJPU2xuEeuYi_YuNNGyqg" technicalid="_msGMF2xuEeuYi_YuNNGyqg" description="Returns actors for the given series id" createdOn="2022-01-04T11:15:07.253+0100" modifiedOn="2022-01-04T11:15:07.253+0100" name="getActorsFromId" public="true" URI="/{id}/actors" exposition="REST">
           <input xmi:id="_msJPVGxuEeuYi_YuNNGyqg" technicalid="_msGMGGxuEeuYi_YuNNGyqg" description="ID of the series" name="id">
             <type xsi:type="oenv:PrimitiveType" href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_9dnH8bGqEd2SRpTkL4GntA"/>
             <restData xmi:id="_msJPVWxuEeuYi_YuNNGyqg" technicalid="_msGMGWxuEeuYi_YuNNGyqg" passingMode="PATH" restId="id"/>
@@ -787,8 +789,9 @@
           <output xmi:id="_msJPVmxuEeuYi_YuNNGyqg" technicalid="_msGMGmxuEeuYi_YuNNGyqg" description="An array of actor objects for the given series id." type="_msJ28WxuEeuYi_YuNNGyqg" name="output200" multiplicity="0..1" statusCode="200" statusMessage="OK"/>
           <fault xmi:id="_msJPV2xuEeuYi_YuNNGyqg" technicalid="_msGMG2xuEeuYi_YuNNGyqg" description="Returned if your JWT token is missing or expired" type="_msJ21mxuEeuYi_YuNNGyqg" name="fault401" multiplicity="0..1" statusCode="401" statusMessage="Unauthorized"/>
           <fault xmi:id="_msJPWGxuEeuYi_YuNNGyqg" technicalid="_msGMHGxuEeuYi_YuNNGyqg" description="Returned if the given series ID does not exist" type="_msJ22GxuEeuYi_YuNNGyqg" name="fault404" multiplicity="0..1" statusCode="404" statusMessage="Not Found"/>
+          <securityApplications xmi:id="_MOwiUW1HEeykZo0xTv5joQ" technicalid="_MOwiUG1HEeykZo0xTv5joQ" securityScheme="_msJQPmxuEeuYi_YuNNGyqg"/>
         </ownedOperations>
-        <ownedOperations xmi:id="_msJPWWxuEeuYi_YuNNGyqg" technicalid="_msGzAGxuEeuYi_YuNNGyqg" description="All episodes for a given series. Paginated with 100 results per page." name="getEpisodesFromId" public="true" URI="/{id}/episodes" exposition="REST" securitySchemes="_msJQPmxuEeuYi_YuNNGyqg">
+        <ownedOperations xmi:id="_msJPWWxuEeuYi_YuNNGyqg" technicalid="_msGzAGxuEeuYi_YuNNGyqg" description="All episodes for a given series. Paginated with 100 results per page." createdOn="2022-01-04T11:15:16.946+0100" modifiedOn="2022-01-04T11:15:16.946+0100" name="getEpisodesFromId" public="true" URI="/{id}/episodes" exposition="REST">
           <input xmi:id="_msJPWmxuEeuYi_YuNNGyqg" technicalid="_msGzAWxuEeuYi_YuNNGyqg" description="ID of the series" name="id">
             <type xsi:type="oenv:PrimitiveType" href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_9dnH8bGqEd2SRpTkL4GntA"/>
             <restData xmi:id="_msJPW2xuEeuYi_YuNNGyqg" technicalid="_msGzAmxuEeuYi_YuNNGyqg" passingMode="PATH" restId="id"/>
@@ -800,8 +803,9 @@
           <output xmi:id="_msJPXmxuEeuYi_YuNNGyqg" technicalid="_msGzBWxuEeuYi_YuNNGyqg" description="An array of episode objects for the given series id." type="_msJ3AWxuEeuYi_YuNNGyqg" name="output200" multiplicity="0..1" statusCode="200" statusMessage="OK"/>
           <fault xmi:id="_msJPX2xuEeuYi_YuNNGyqg" technicalid="_msGzBmxuEeuYi_YuNNGyqg" description="Returned if your JWT token is missing or expired" type="_msJ21mxuEeuYi_YuNNGyqg" name="fault401" multiplicity="0..1" statusCode="401" statusMessage="Unauthorized"/>
           <fault xmi:id="_msJPYGxuEeuYi_YuNNGyqg" technicalid="_msGzB2xuEeuYi_YuNNGyqg" description="Returned if the given series ID does not exist" type="_msJ22GxuEeuYi_YuNNGyqg" name="fault404" multiplicity="0..1" statusCode="404" statusMessage="Not Found"/>
+          <securityApplications xmi:id="_NrMrIW1HEeykZo0xTv5joQ" technicalid="_NrMrIG1HEeykZo0xTv5joQ" securityScheme="_msJQPmxuEeuYi_YuNNGyqg"/>
         </ownedOperations>
-        <ownedOperations xmi:id="_msJPYWxuEeuYi_YuNNGyqg" technicalid="_msGzCGxuEeuYi_YuNNGyqg" description="This route allows the user to query against episodes for the given series. The response is a paginated array of episode records." name="getEpisodesQueryFromId" public="true" URI="/{id}/episodes/query" exposition="REST" securitySchemes="_msJQPmxuEeuYi_YuNNGyqg">
+        <ownedOperations xmi:id="_msJPYWxuEeuYi_YuNNGyqg" technicalid="_msGzCGxuEeuYi_YuNNGyqg" description="This route allows the user to query against episodes for the given series. The response is a paginated array of episode records." createdOn="2022-01-04T11:15:23.488+0100" modifiedOn="2022-01-04T11:15:23.488+0100" name="getEpisodesQueryFromId" public="true" URI="/{id}/episodes/query" exposition="REST">
           <input xmi:id="_msJPYmxuEeuYi_YuNNGyqg" technicalid="_msGzCWxuEeuYi_YuNNGyqg" description="ID of the series" name="id">
             <type xsi:type="oenv:PrimitiveType" href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_9dnH8bGqEd2SRpTkL4GntA"/>
             <restData xmi:id="_msJPY2xuEeuYi_YuNNGyqg" technicalid="_msGzCmxuEeuYi_YuNNGyqg" passingMode="PATH" restId="id"/>
@@ -841,8 +845,9 @@
           <output xmi:id="_msJPdGxuEeuYi_YuNNGyqg" technicalid="_msGzG2xuEeuYi_YuNNGyqg" description="An array of basic Episode results that matched the query" type="_msJ3BWxuEeuYi_YuNNGyqg" name="output200" multiplicity="0..1" statusCode="200" statusMessage="OK"/>
           <fault xmi:id="_msJPdWxuEeuYi_YuNNGyqg" technicalid="_msGzHGxuEeuYi_YuNNGyqg" description="Returned if your JWT token is missing or expired" type="_msJ21mxuEeuYi_YuNNGyqg" name="fault401" multiplicity="0..1" statusCode="401" statusMessage="Unauthorized"/>
           <fault xmi:id="_msJPdmxuEeuYi_YuNNGyqg" technicalid="_msGzHWxuEeuYi_YuNNGyqg" description="Returned if the given series ID does not exist or the query returns no results." type="_msJ22GxuEeuYi_YuNNGyqg" name="fault404" multiplicity="0..1" statusCode="404" statusMessage="Not Found"/>
+          <securityApplications xmi:id="_OplmAW1HEeykZo0xTv5joQ" technicalid="_OplmAG1HEeykZo0xTv5joQ" securityScheme="_msJQPmxuEeuYi_YuNNGyqg"/>
         </ownedOperations>
-        <ownedOperations xmi:id="_msJPd2xuEeuYi_YuNNGyqg" technicalid="_msGzHmxuEeuYi_YuNNGyqg" description="Returns the allowed query keys for the `/series/{id}/episodes/query` route" name="getEpisodesQueryParamsFromId" public="true" URI="/{id}/episodes/query/params" exposition="REST" securitySchemes="_msJQPmxuEeuYi_YuNNGyqg">
+        <ownedOperations xmi:id="_msJPd2xuEeuYi_YuNNGyqg" technicalid="_msGzHmxuEeuYi_YuNNGyqg" description="Returns the allowed query keys for the `/series/{id}/episodes/query` route" createdOn="2022-01-04T11:15:27.601+0100" modifiedOn="2022-01-04T11:15:32.992+0100" name="getEpisodesQueryParamsFromId" public="true" URI="/{id}/episodes/query/params" exposition="REST">
           <input xmi:id="_msJPeGxuEeuYi_YuNNGyqg" technicalid="_msGzH2xuEeuYi_YuNNGyqg" description="ID of the series" name="id">
             <type xsi:type="oenv:PrimitiveType" href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_9dnH8bGqEd2SRpTkL4GntA"/>
             <restData xmi:id="_msJPeWxuEeuYi_YuNNGyqg" technicalid="_msGzIGxuEeuYi_YuNNGyqg" passingMode="PATH" restId="id"/>
@@ -850,8 +855,9 @@
           <output xmi:id="_msJPemxuEeuYi_YuNNGyqg" technicalid="_msGzIWxuEeuYi_YuNNGyqg" description="An array of query keys as strings" type="_msJ3CWxuEeuYi_YuNNGyqg" name="output200" multiplicity="0..1" statusCode="200" statusMessage="OK"/>
           <fault xmi:id="_msJPe2xuEeuYi_YuNNGyqg" technicalid="_msGzImxuEeuYi_YuNNGyqg" description="Returned if your JWT token is missing or expired" type="_msJ21mxuEeuYi_YuNNGyqg" name="fault401" multiplicity="0..1" statusCode="401" statusMessage="Unauthorized"/>
           <fault xmi:id="_msJPfGxuEeuYi_YuNNGyqg" technicalid="_msGzI2xuEeuYi_YuNNGyqg" description="Returned if the given series ID does not exist or the query returns no results." type="_msJ22GxuEeuYi_YuNNGyqg" name="fault404" multiplicity="0..1" statusCode="404" statusMessage="Not Found"/>
+          <securityApplications xmi:id="_QEOYAW1HEeykZo0xTv5joQ" technicalid="_QEOYAG1HEeykZo0xTv5joQ" securityScheme="_msJQPmxuEeuYi_YuNNGyqg"/>
         </ownedOperations>
-        <ownedOperations xmi:id="_msJPfWxuEeuYi_YuNNGyqg" technicalid="_msGzJGxuEeuYi_YuNNGyqg" description="Returns a summary of the episodes and seasons available for the series.&#xA;&#xA;__Note__: Season &quot;0&quot; is for all episodes that are considered to be specials." name="getEpisodesSummaryFromId" public="true" URI="/{id}/episodes/summary" exposition="REST" securitySchemes="_msJQPmxuEeuYi_YuNNGyqg">
+        <ownedOperations xmi:id="_msJPfWxuEeuYi_YuNNGyqg" technicalid="_msGzJGxuEeuYi_YuNNGyqg" description="Returns a summary of the episodes and seasons available for the series.&#xA;&#xA;__Note__: Season &quot;0&quot; is for all episodes that are considered to be specials." createdOn="2022-01-04T11:15:37.808+0100" modifiedOn="2022-01-04T11:15:37.808+0100" name="getEpisodesSummaryFromId" public="true" URI="/{id}/episodes/summary" exposition="REST">
           <input xmi:id="_msJPfmxuEeuYi_YuNNGyqg" technicalid="_msGzJWxuEeuYi_YuNNGyqg" description="ID of the series" name="id">
             <type xsi:type="oenv:PrimitiveType" href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_9dnH8bGqEd2SRpTkL4GntA"/>
             <restData xmi:id="_msJPf2xuEeuYi_YuNNGyqg" technicalid="_msGzJmxuEeuYi_YuNNGyqg" passingMode="PATH" restId="id"/>
@@ -859,8 +865,9 @@
           <output xmi:id="_msJPgGxuEeuYi_YuNNGyqg" technicalid="_msGzJ2xuEeuYi_YuNNGyqg" description="A summary of the episodes and seasons avaialable for the given series." type="_msJ3C2xuEeuYi_YuNNGyqg" name="output200" multiplicity="0..1" statusCode="200" statusMessage="OK"/>
           <fault xmi:id="_msJPgWxuEeuYi_YuNNGyqg" technicalid="_msGzKGxuEeuYi_YuNNGyqg" description="Returned if your JWT token is missing or expired" type="_msJ21mxuEeuYi_YuNNGyqg" name="fault401" multiplicity="0..1" statusCode="401" statusMessage="Unauthorized"/>
           <fault xmi:id="_msJPgmxuEeuYi_YuNNGyqg" technicalid="_msGzKWxuEeuYi_YuNNGyqg" description="Returned if the given series ID does not exist" type="_msJ22GxuEeuYi_YuNNGyqg" name="fault404" multiplicity="0..1" statusCode="404" statusMessage="Not Found"/>
+          <securityApplications xmi:id="_QyJ1AW1HEeykZo0xTv5joQ" technicalid="_QyJ1AG1HEeykZo0xTv5joQ" securityScheme="_msJQPmxuEeuYi_YuNNGyqg"/>
         </ownedOperations>
-        <ownedOperations xmi:id="_msJPg2xuEeuYi_YuNNGyqg" technicalid="_msGzKmxuEeuYi_YuNNGyqg" description="Returns a series records, filtered by the supplied comma-separated list of keys. Query keys can be found at the `/series/{id}/filter/params` route." name="getFilterFromId" public="true" URI="/{id}/filter" exposition="REST" securitySchemes="_msJQPmxuEeuYi_YuNNGyqg">
+        <ownedOperations xmi:id="_msJPg2xuEeuYi_YuNNGyqg" technicalid="_msGzKmxuEeuYi_YuNNGyqg" description="Returns a series records, filtered by the supplied comma-separated list of keys. Query keys can be found at the `/series/{id}/filter/params` route." createdOn="2022-01-04T11:15:43.025+0100" modifiedOn="2022-01-04T11:15:43.025+0100" name="getFilterFromId" public="true" URI="/{id}/filter" exposition="REST">
           <input xmi:id="_msJPhGxuEeuYi_YuNNGyqg" technicalid="_msGzK2xuEeuYi_YuNNGyqg" description="ID of the series" name="id">
             <type xsi:type="oenv:PrimitiveType" href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_9dnH8bGqEd2SRpTkL4GntA"/>
             <restData xmi:id="_msJPhWxuEeuYi_YuNNGyqg" technicalid="_msGzLGxuEeuYi_YuNNGyqg" passingMode="PATH" restId="id"/>
@@ -876,8 +883,9 @@
           <output xmi:id="_msJPimxuEeuYi_YuNNGyqg" technicalid="_msHaEGxuEeuYi_YuNNGyqg" description="A filtered series record" type="_msJ2_mxuEeuYi_YuNNGyqg" name="output200" multiplicity="0..1" statusCode="200" statusMessage="OK"/>
           <fault xmi:id="_msJPi2xuEeuYi_YuNNGyqg" technicalid="_msHaEWxuEeuYi_YuNNGyqg" description="Returned if your JWT token is missing or expired" type="_msJ21mxuEeuYi_YuNNGyqg" name="fault401" multiplicity="0..1" statusCode="401" statusMessage="Unauthorized"/>
           <fault xmi:id="_msJPjGxuEeuYi_YuNNGyqg" technicalid="_msHaEmxuEeuYi_YuNNGyqg" description="Returned if the given series ID does not exist" type="_msJ22GxuEeuYi_YuNNGyqg" name="fault404" multiplicity="0..1" statusCode="404" statusMessage="Not Found"/>
+          <securityApplications xmi:id="_Rj6CEW1HEeykZo0xTv5joQ" technicalid="_Rj6CEG1HEeykZo0xTv5joQ" securityScheme="_msJQPmxuEeuYi_YuNNGyqg"/>
         </ownedOperations>
-        <ownedOperations xmi:id="_msJPjWxuEeuYi_YuNNGyqg" technicalid="_msHaE2xuEeuYi_YuNNGyqg" description="Returns the list of keys available for the `/series/{id}/filter` route" name="getFilterParamsFromId" public="true" URI="/{id}/filter/params" exposition="REST" securitySchemes="_msJQPmxuEeuYi_YuNNGyqg">
+        <ownedOperations xmi:id="_msJPjWxuEeuYi_YuNNGyqg" technicalid="_msHaE2xuEeuYi_YuNNGyqg" description="Returns the list of keys available for the `/series/{id}/filter` route" createdOn="2022-01-04T11:15:46.995+0100" modifiedOn="2022-01-04T11:15:46.995+0100" name="getFilterParamsFromId" public="true" URI="/{id}/filter/params" exposition="REST">
           <input xmi:id="_msJPjmxuEeuYi_YuNNGyqg" technicalid="_msHaFGxuEeuYi_YuNNGyqg" description="ID of the series" name="id">
             <type xsi:type="oenv:PrimitiveType" href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_9dnH8bGqEd2SRpTkL4GntA"/>
             <restData xmi:id="_msJPj2xuEeuYi_YuNNGyqg" technicalid="_msHaFWxuEeuYi_YuNNGyqg" passingMode="PATH" restId="id"/>
@@ -889,8 +897,9 @@
           <output xmi:id="_msJPkmxuEeuYi_YuNNGyqg" technicalid="_msHaGGxuEeuYi_YuNNGyqg" description="A list of keys to filter by" type="_msJ2i2xuEeuYi_YuNNGyqg" name="output200" multiplicity="0..1" statusCode="200" statusMessage="OK"/>
           <fault xmi:id="_msJPk2xuEeuYi_YuNNGyqg" technicalid="_msHaGWxuEeuYi_YuNNGyqg" description="Returned if your JWT token is missing or expired" type="_msJ21mxuEeuYi_YuNNGyqg" name="fault401" multiplicity="0..1" statusCode="401" statusMessage="Unauthorized"/>
           <fault xmi:id="_msJPlGxuEeuYi_YuNNGyqg" technicalid="_msHaGmxuEeuYi_YuNNGyqg" description="Returned if the given series ID does not exist" type="_msJ22GxuEeuYi_YuNNGyqg" name="fault404" multiplicity="0..1" statusCode="404" statusMessage="Not Found"/>
+          <securityApplications xmi:id="_SJxIMW1HEeykZo0xTv5joQ" technicalid="_SJxIMG1HEeykZo0xTv5joQ" securityScheme="_msJQPmxuEeuYi_YuNNGyqg"/>
         </ownedOperations>
-        <ownedOperations xmi:id="_msJPlWxuEeuYi_YuNNGyqg" technicalid="_msHaG2xuEeuYi_YuNNGyqg" description="Returns a summary of the images for a particular series" name="getImagesFromId" public="true" URI="/{id}/images" exposition="REST" securitySchemes="_msJQPmxuEeuYi_YuNNGyqg">
+        <ownedOperations xmi:id="_msJPlWxuEeuYi_YuNNGyqg" technicalid="_msHaG2xuEeuYi_YuNNGyqg" description="Returns a summary of the images for a particular series" createdOn="2022-01-04T11:15:50.402+0100" modifiedOn="2022-01-04T11:15:50.402+0100" name="getImagesFromId" public="true" URI="/{id}/images" exposition="REST">
           <input xmi:id="_msJPlmxuEeuYi_YuNNGyqg" technicalid="_msHaHGxuEeuYi_YuNNGyqg" description="ID of the series" name="id">
             <type xsi:type="oenv:PrimitiveType" href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_9dnH8bGqEd2SRpTkL4GntA"/>
             <restData xmi:id="_msJPl2xuEeuYi_YuNNGyqg" technicalid="_msHaHWxuEeuYi_YuNNGyqg" passingMode="PATH" restId="id"/>
@@ -902,8 +911,9 @@
           <output xmi:id="_msJPmmxuEeuYi_YuNNGyqg" technicalid="_msHaIGxuEeuYi_YuNNGyqg" description="A summary of the image types and counts available for the given series." type="_msJ3ImxuEeuYi_YuNNGyqg" name="output200" multiplicity="0..1" statusCode="200" statusMessage="OK"/>
           <fault xmi:id="_msJPm2xuEeuYi_YuNNGyqg" technicalid="_msHaIWxuEeuYi_YuNNGyqg" description="Returned if your JWT token is missing or expired" type="_msJ21mxuEeuYi_YuNNGyqg" name="fault401" multiplicity="0..1" statusCode="401" statusMessage="Unauthorized"/>
           <fault xmi:id="_msJPnGxuEeuYi_YuNNGyqg" technicalid="_msHaImxuEeuYi_YuNNGyqg" description="Returned if the given series ID does not exist" type="_msJ22GxuEeuYi_YuNNGyqg" name="fault404" multiplicity="0..1" statusCode="404" statusMessage="Not Found"/>
+          <securityApplications xmi:id="_SqQmIW1HEeykZo0xTv5joQ" technicalid="_SqQmIG1HEeykZo0xTv5joQ" securityScheme="_msJQPmxuEeuYi_YuNNGyqg"/>
         </ownedOperations>
-        <ownedOperations xmi:id="_msJPnWxuEeuYi_YuNNGyqg" technicalid="_msHaI2xuEeuYi_YuNNGyqg" description="Query images for the given series ID." name="getImagesQueryFromId" public="true" URI="/{id}/images/query" exposition="REST" securitySchemes="_msJQPmxuEeuYi_YuNNGyqg">
+        <ownedOperations xmi:id="_msJPnWxuEeuYi_YuNNGyqg" technicalid="_msHaI2xuEeuYi_YuNNGyqg" description="Query images for the given series ID." createdOn="2022-01-04T11:15:54.940+0100" modifiedOn="2022-01-04T11:15:54.940+0100" name="getImagesQueryFromId" public="true" URI="/{id}/images/query" exposition="REST">
           <input xmi:id="_msJPnmxuEeuYi_YuNNGyqg" technicalid="_msHaJGxuEeuYi_YuNNGyqg" description="ID of the series" name="id">
             <type xsi:type="oenv:PrimitiveType" href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_9dnH8bGqEd2SRpTkL4GntA"/>
             <restData xmi:id="_msJPn2xuEeuYi_YuNNGyqg" technicalid="_msHaJWxuEeuYi_YuNNGyqg" passingMode="PATH" restId="id"/>
@@ -927,8 +937,9 @@
           <output xmi:id="_msJPqGxuEeuYi_YuNNGyqg" technicalid="_msHaLmxuEeuYi_YuNNGyqg" description="An array of basic Episode results that matched the query" type="_msJ3GWxuEeuYi_YuNNGyqg" name="output200" multiplicity="0..1" statusCode="200" statusMessage="OK"/>
           <fault xmi:id="_msJPqWxuEeuYi_YuNNGyqg" technicalid="_msHaL2xuEeuYi_YuNNGyqg" description="Returned if your JWT token is missing or expired" type="_msJ21mxuEeuYi_YuNNGyqg" name="fault401" multiplicity="0..1" statusCode="401" statusMessage="Unauthorized"/>
           <fault xmi:id="_msJPqmxuEeuYi_YuNNGyqg" technicalid="_msHaMGxuEeuYi_YuNNGyqg" description="Returned if the given series ID does not exist or the query returns no results." type="_msJ22GxuEeuYi_YuNNGyqg" name="fault404" multiplicity="0..1" statusCode="404" statusMessage="Not Found"/>
+          <securityApplications xmi:id="_TViXwW1HEeykZo0xTv5joQ" technicalid="_TViXwG1HEeykZo0xTv5joQ" securityScheme="_msJQPmxuEeuYi_YuNNGyqg"/>
         </ownedOperations>
-        <ownedOperations xmi:id="_msJPq2xuEeuYi_YuNNGyqg" technicalid="_msHaMWxuEeuYi_YuNNGyqg" description="Returns the allowed query keys for the `/series/{id}/images/query` route. Contains a parameter record for each unique `keyType`, listing values that will return results." name="getImagesQueryParamsFromId" public="true" URI="/{id}/images/query/params" exposition="REST" securitySchemes="_msJQPmxuEeuYi_YuNNGyqg">
+        <ownedOperations xmi:id="_msJPq2xuEeuYi_YuNNGyqg" technicalid="_msHaMWxuEeuYi_YuNNGyqg" description="Returns the allowed query keys for the `/series/{id}/images/query` route. Contains a parameter record for each unique `keyType`, listing values that will return results." createdOn="2022-01-04T11:15:59.871+0100" modifiedOn="2022-01-04T11:15:59.871+0100" name="getImagesQueryParamsFromId" public="true" URI="/{id}/images/query/params" exposition="REST">
           <input xmi:id="_msJPrGxuEeuYi_YuNNGyqg" technicalid="_msHaMmxuEeuYi_YuNNGyqg" description="ID of the series" name="id">
             <type xsi:type="oenv:PrimitiveType" href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_9dnH8bGqEd2SRpTkL4GntA"/>
             <restData xmi:id="_msJPrWxuEeuYi_YuNNGyqg" technicalid="_msHaM2xuEeuYi_YuNNGyqg" passingMode="PATH" restId="id"/>
@@ -940,12 +951,13 @@
           <output xmi:id="_msJPsGxuEeuYi_YuNNGyqg" technicalid="_msHaNmxuEeuYi_YuNNGyqg" description="An array of query keys as strings" type="_msJ3KWxuEeuYi_YuNNGyqg" name="output200" multiplicity="0..1" statusCode="200" statusMessage="OK"/>
           <fault xmi:id="_msJPsWxuEeuYi_YuNNGyqg" technicalid="_msHaN2xuEeuYi_YuNNGyqg" description="Returned if your JWT token is missing or expired" type="_msJ21mxuEeuYi_YuNNGyqg" name="fault401" multiplicity="0..1" statusCode="401" statusMessage="Unauthorized"/>
           <fault xmi:id="_msJPsmxuEeuYi_YuNNGyqg" technicalid="_msHaOGxuEeuYi_YuNNGyqg" description="Returned if the given series ID does not exist or the query returns no results." type="_msJ22GxuEeuYi_YuNNGyqg" name="fault404" multiplicity="0..1" statusCode="404" statusMessage="Not Found"/>
+          <securityApplications xmi:id="_UEkA8W1HEeykZo0xTv5joQ" technicalid="_UEkA8G1HEeykZo0xTv5joQ" securityScheme="_msJQPmxuEeuYi_YuNNGyqg"/>
         </ownedOperations>
       </ownedInterface>
     </ownedServices>
     <ownedServices xmi:id="_msJPs2xuEeuYi_YuNNGyqg" technicalid="_msEWwWxuEeuYi_YuNNGyqg" description="Series that have been recently updated." name="Updates" URI="/updated/query">
       <ownedInterface xmi:id="_msJPtGxuEeuYi_YuNNGyqg" technicalid="_msHaOWxuEeuYi_YuNNGyqg" name="Updates">
-        <ownedOperations xmi:id="_msJPtWxuEeuYi_YuNNGyqg" technicalid="_msHaOmxuEeuYi_YuNNGyqg" description="Returns an array of series that have changed in a maximum of one week blocks since the provided `fromTime`.&#xA;&#xA;&#xA;The user may specify a `toTime` to grab results for less than a week. Any timespan larger than a week will be reduced down to one week automatically." name="get2" public="true" URI="" exposition="REST" securitySchemes="_msJQPmxuEeuYi_YuNNGyqg">
+        <ownedOperations xmi:id="_msJPtWxuEeuYi_YuNNGyqg" technicalid="_msHaOmxuEeuYi_YuNNGyqg" description="Returns an array of series that have changed in a maximum of one week blocks since the provided `fromTime`.&#xA;&#xA;&#xA;The user may specify a `toTime` to grab results for less than a week. Any timespan larger than a week will be reduced down to one week automatically." createdOn="2022-01-04T11:16:05.218+0100" modifiedOn="2022-01-04T11:16:05.218+0100" name="get2" public="true" URI="" exposition="REST">
           <input xmi:id="_msJPtmxuEeuYi_YuNNGyqg" technicalid="_msHaO2xuEeuYi_YuNNGyqg" description="Epoch time to start your date range." name="fromTime">
             <type xsi:type="oenv:PrimitiveType" href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5F-EKwKEd2XLNOhkJIazw"/>
             <restData xmi:id="_msJPt2xuEeuYi_YuNNGyqg" technicalid="_msHaPGxuEeuYi_YuNNGyqg" passingMode="QUERY" restId="fromTime"/>
@@ -961,17 +973,19 @@
           <output xmi:id="_msJPvGxuEeuYi_YuNNGyqg" technicalid="_msIBIGxuEeuYi_YuNNGyqg" description="An array of Update objects that match the given timeframe." type="_msJ3PmxuEeuYi_YuNNGyqg" name="output200" multiplicity="0..1" statusCode="200" statusMessage="OK"/>
           <fault xmi:id="_msJPvWxuEeuYi_YuNNGyqg" technicalid="_msIBIWxuEeuYi_YuNNGyqg" description="Returned if your JWT token is missing or expired" type="_msJ21mxuEeuYi_YuNNGyqg" name="fault401" multiplicity="0..1" statusCode="401" statusMessage="Unauthorized"/>
           <fault xmi:id="_msJPvmxuEeuYi_YuNNGyqg" technicalid="_msIBImxuEeuYi_YuNNGyqg" description="Returned if no records exist for the given timespan" type="_msJ22GxuEeuYi_YuNNGyqg" name="fault404" multiplicity="0..1" statusCode="404" statusMessage="Not Found"/>
+          <securityApplications xmi:id="_U3jkIG1HEeykZo0xTv5joQ" technicalid="_U3i9EG1HEeykZo0xTv5joQ" securityScheme="_msJQPmxuEeuYi_YuNNGyqg"/>
         </ownedOperations>
-        <ownedOperations xmi:id="_msJPv2xuEeuYi_YuNNGyqg" technicalid="_msIBI2xuEeuYi_YuNNGyqg" description="Returns an array of valid query keys for the `/updated/query/params` route." name="getParams1" public="true" URI="/params" exposition="REST" securitySchemes="_msJQPmxuEeuYi_YuNNGyqg">
+        <ownedOperations xmi:id="_msJPv2xuEeuYi_YuNNGyqg" technicalid="_msIBI2xuEeuYi_YuNNGyqg" description="Returns an array of valid query keys for the `/updated/query/params` route." createdOn="2022-01-04T11:16:09.940+0100" modifiedOn="2022-01-04T11:16:09.940+0100" name="getParams1" public="true" URI="/params" exposition="REST">
           <output xmi:id="_msJPwGxuEeuYi_YuNNGyqg" technicalid="_msIBJGxuEeuYi_YuNNGyqg" description="An array of Update objects that match the given timeframe." type="_msJ3QWxuEeuYi_YuNNGyqg" name="output200" multiplicity="0..1" statusCode="200" statusMessage="OK"/>
           <fault xmi:id="_msJPwWxuEeuYi_YuNNGyqg" technicalid="_msIBJWxuEeuYi_YuNNGyqg" description="Returned if your JWT token is missing or expired" type="_msJ21mxuEeuYi_YuNNGyqg" name="fault401" multiplicity="0..1" statusCode="401" statusMessage="Unauthorized"/>
           <fault xmi:id="_msJPwmxuEeuYi_YuNNGyqg" technicalid="_msIBJmxuEeuYi_YuNNGyqg" description="Returned if no records exist for the given timespan" type="_msJ22GxuEeuYi_YuNNGyqg" name="fault404" multiplicity="0..1" statusCode="404" statusMessage="Not Found"/>
+          <securityApplications xmi:id="_VklpQW1HEeykZo0xTv5joQ" technicalid="_VklpQG1HEeykZo0xTv5joQ" securityScheme="_msJQPmxuEeuYi_YuNNGyqg"/>
         </ownedOperations>
       </ownedInterface>
     </ownedServices>
     <ownedServices xmi:id="_msJPw2xuEeuYi_YuNNGyqg" technicalid="_msEWwmxuEeuYi_YuNNGyqg" description="Obtaining and refreshing your JWT token" name="Authentication" URI="">
       <ownedInterface xmi:id="_msJPxGxuEeuYi_YuNNGyqg" technicalid="_msFk72xuEeuYi_YuNNGyqg" name="Authentication">
-        <ownedOperations xmi:id="_msJPxWxuEeuYi_YuNNGyqg" technicalid="_msFk8GxuEeuYi_YuNNGyqg" description="Returns a session token to be included in the rest of the requests. Note that API key authentication is required for all subsequent requests and user auth is required for routes in the `User` section" name="postLogin" public="true" URI="/login" verb="POST" exposition="REST">
+        <ownedOperations xmi:id="_msJPxWxuEeuYi_YuNNGyqg" technicalid="_msFk8GxuEeuYi_YuNNGyqg" description="Returns a session token to be included in the rest of the requests. Note that API key authentication is required for all subsequent requests and user auth is required for routes in the `User` section" createdOn="2022-01-04T11:16:13.830+0100" modifiedOn="2022-01-04T11:16:13.830+0100" name="postLogin" public="true" URI="/login" verb="POST" exposition="REST">
           <input xmi:id="_msJPxmxuEeuYi_YuNNGyqg" technicalid="_msFk8WxuEeuYi_YuNNGyqg" description="JSON string containing your authentication details." createdOn="2021-07-19T14:13:48.057+0200" modifiedOn="2021-07-19T14:13:48.057+0200" type="_msJ2UWxuEeuYi_YuNNGyqg" name="body">
             <metadatas xmi:id="_xXDYkeiKEeuDtqUiFtoQHw" technicalid="_xXDYkOiKEeuDtqUiFtoQHw">
               <metadatas xsi:type="soa:PropertiesExtension" xmi:id="_xXD_oeiKEeuDtqUiFtoQHw" technicalid="_xXD_oOiKEeuDtqUiFtoQHw" title="x-ParameterSurRequestBody" body="Parameter-RequestBody" context="RequestBody"/>
@@ -980,16 +994,18 @@
           </input>
           <output xmi:id="_msJPyGxuEeuYi_YuNNGyqg" technicalid="_msFk82xuEeuYi_YuNNGyqg" description="Returns a JWT token for use with the rest of the API routes" type="_msJ3OWxuEeuYi_YuNNGyqg" name="output200" multiplicity="0..1" statusCode="200" statusMessage="OK"/>
           <fault xmi:id="_msJPyWxuEeuYi_YuNNGyqg" technicalid="_msFk9GxuEeuYi_YuNNGyqg" description="Invalid credentials and/or API token" type="_msJ21mxuEeuYi_YuNNGyqg" name="fault401" multiplicity="0..1" statusCode="401" statusMessage="Unauthorized"/>
+          <securityApplications xmi:id="_WJr6YW1HEeykZo0xTv5joQ" technicalid="_WJr6YG1HEeykZo0xTv5joQ" securityScheme="_msJQPmxuEeuYi_YuNNGyqg"/>
         </ownedOperations>
-        <ownedOperations xmi:id="_msJPymxuEeuYi_YuNNGyqg" technicalid="_msGL8WxuEeuYi_YuNNGyqg" description="Refreshes your current, valid JWT token and returns a new token. Hit this route so that you do not have to post to `/login` with your API key and credentials once you have already been authenticated." name="getRefresh_token" public="true" URI="/refresh_token" exposition="REST" securitySchemes="_msJQPmxuEeuYi_YuNNGyqg">
+        <ownedOperations xmi:id="_msJPymxuEeuYi_YuNNGyqg" technicalid="_msGL8WxuEeuYi_YuNNGyqg" description="Refreshes your current, valid JWT token and returns a new token. Hit this route so that you do not have to post to `/login` with your API key and credentials once you have already been authenticated." createdOn="2022-01-04T11:16:19.556+0100" modifiedOn="2022-01-04T11:16:19.556+0100" name="getRefresh_token" public="true" URI="/refresh_token" exposition="REST">
           <output xmi:id="_msJPy2xuEeuYi_YuNNGyqg" technicalid="_msGL8mxuEeuYi_YuNNGyqg" description="Returns a new token to use in your subsequent requests" type="_msJ3OWxuEeuYi_YuNNGyqg" name="output200" multiplicity="0..1" statusCode="200" statusMessage="OK"/>
           <fault xmi:id="_msJPzGxuEeuYi_YuNNGyqg" technicalid="_msGL82xuEeuYi_YuNNGyqg" description="Returned if your JWT token is missing or expired" type="_msJ21mxuEeuYi_YuNNGyqg" name="fault401" multiplicity="0..1" statusCode="401" statusMessage="Unauthorized"/>
+          <securityApplications xmi:id="_XASyQW1HEeykZo0xTv5joQ" technicalid="_XASyQG1HEeykZo0xTv5joQ" securityScheme="_msJQPmxuEeuYi_YuNNGyqg"/>
         </ownedOperations>
       </ownedInterface>
     </ownedServices>
     <ownedServices xmi:id="_msJPzWxuEeuYi_YuNNGyqg" technicalid="_msEWw2xuEeuYi_YuNNGyqg" description="Search for a particular series" name="Search" URI="/search/series">
       <ownedInterface xmi:id="_msJPzmxuEeuYi_YuNNGyqg" technicalid="_msGL9GxuEeuYi_YuNNGyqg" name="Search">
-        <ownedOperations xmi:id="_msJPz2xuEeuYi_YuNNGyqg" technicalid="_msGL9WxuEeuYi_YuNNGyqg" description="Allows the user to search for a series based on the following parameters." name="get1" public="true" URI="" exposition="REST" securitySchemes="_msJQPmxuEeuYi_YuNNGyqg">
+        <ownedOperations xmi:id="_msJPz2xuEeuYi_YuNNGyqg" technicalid="_msGL9WxuEeuYi_YuNNGyqg" description="Allows the user to search for a series based on the following parameters." createdOn="2022-01-04T11:16:27.522+0100" modifiedOn="2022-01-04T11:16:27.522+0100" name="get1" public="true" URI="" exposition="REST">
           <input xmi:id="_msJP0GxuEeuYi_YuNNGyqg" technicalid="_msGL9mxuEeuYi_YuNNGyqg" description="Name of the series to search for." name="name" multiplicity="0..1">
             <type xsi:type="oenv:PrimitiveType" href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5F-EKwKEd2XLNOhkJIazw"/>
             <restData xmi:id="_msJP0WxuEeuYi_YuNNGyqg" technicalid="_msGL92xuEeuYi_YuNNGyqg" passingMode="QUERY" restId="name"/>
@@ -1013,16 +1029,18 @@
           <output xmi:id="_msJP2mxuEeuYi_YuNNGyqg" technicalid="_msGMAGxuEeuYi_YuNNGyqg" description="An array of results that match the provided query." type="_msJ3N2xuEeuYi_YuNNGyqg" name="output200" multiplicity="0..1" statusCode="200" statusMessage="OK"/>
           <fault xmi:id="_msJP22xuEeuYi_YuNNGyqg" technicalid="_msGMAWxuEeuYi_YuNNGyqg" description="Returned if your JWT token is missing or expired" type="_msJ21mxuEeuYi_YuNNGyqg" name="fault401" multiplicity="0..1" statusCode="401" statusMessage="Unauthorized"/>
           <fault xmi:id="_msJP3GxuEeuYi_YuNNGyqg" technicalid="_msGMAmxuEeuYi_YuNNGyqg" description="Returned if no records are found that match your query." type="_msJ22GxuEeuYi_YuNNGyqg" name="fault404" multiplicity="0..1" statusCode="404" statusMessage="Not Found"/>
+          <securityApplications xmi:id="_YMQ2IW1HEeykZo0xTv5joQ" technicalid="_YMQ2IG1HEeykZo0xTv5joQ" securityScheme="_msJQPmxuEeuYi_YuNNGyqg"/>
         </ownedOperations>
-        <ownedOperations xmi:id="_msJP3WxuEeuYi_YuNNGyqg" technicalid="_msGMA2xuEeuYi_YuNNGyqg" description="Returns an array of parameters to query by in the `/search/series` route." name="getParams" public="true" URI="/params" exposition="REST" securitySchemes="_msJQPmxuEeuYi_YuNNGyqg">
+        <ownedOperations xmi:id="_msJP3WxuEeuYi_YuNNGyqg" technicalid="_msGMA2xuEeuYi_YuNNGyqg" description="Returns an array of parameters to query by in the `/search/series` route." createdOn="2022-01-04T11:16:34.250+0100" modifiedOn="2022-01-04T11:16:34.250+0100" name="getParams" public="true" URI="/params" exposition="REST">
           <output xmi:id="_msJP3mxuEeuYi_YuNNGyqg" technicalid="_msGMBGxuEeuYi_YuNNGyqg" description="An array of query keys as strings" type="_msJ2g2xuEeuYi_YuNNGyqg" name="output200" multiplicity="0..1" statusCode="200" statusMessage="OK"/>
           <fault xmi:id="_msJP32xuEeuYi_YuNNGyqg" technicalid="_msGMBWxuEeuYi_YuNNGyqg" description="Returned if your JWT token is missing or expired" type="_msJ21mxuEeuYi_YuNNGyqg" name="fault401" multiplicity="0..1" statusCode="401" statusMessage="Unauthorized"/>
+          <securityApplications xmi:id="_ZMbSoW1HEeykZo0xTv5joQ" technicalid="_ZMbSoG1HEeykZo0xTv5joQ" securityScheme="_msJQPmxuEeuYi_YuNNGyqg"/>
         </ownedOperations>
       </ownedInterface>
     </ownedServices>
     <ownedServices xmi:id="_msJP4GxuEeuYi_YuNNGyqg" technicalid="_msEWxGxuEeuYi_YuNNGyqg" description="Information about a specific episode" name="Episodes" URI="/episodes">
       <ownedInterface xmi:id="_msJP4WxuEeuYi_YuNNGyqg" technicalid="_msEWyGxuEeuYi_YuNNGyqg" name="Episodes">
-        <ownedOperations xmi:id="_msJP4mxuEeuYi_YuNNGyqg" technicalid="_msEWyWxuEeuYi_YuNNGyqg" description="Returns the full information for a given episode id. __Deprecation Warning:__ The _director_ key will be deprecated in favor of the new _directors_ key in a future release." name="getFromId" public="true" URI="/{id}" exposition="REST" securitySchemes="_msJQPmxuEeuYi_YuNNGyqg">
+        <ownedOperations xmi:id="_msJP4mxuEeuYi_YuNNGyqg" technicalid="_msEWyWxuEeuYi_YuNNGyqg" description="Returns the full information for a given episode id. __Deprecation Warning:__ The _director_ key will be deprecated in favor of the new _directors_ key in a future release." name="getFromId" public="true" URI="/{id}" exposition="REST">
           <input xmi:id="_msJP42xuEeuYi_YuNNGyqg" technicalid="_msE90GxuEeuYi_YuNNGyqg" description="ID of the episode" name="id">
             <type xsi:type="oenv:PrimitiveType" href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_9dnH8bGqEd2SRpTkL4GntA"/>
             <restData xmi:id="_msJP5GxuEeuYi_YuNNGyqg" technicalid="_msE90WxuEeuYi_YuNNGyqg" passingMode="PATH" restId="id"/>
@@ -1039,11 +1057,12 @@
     </ownedServices>
     <ownedServices xmi:id="_msJP6mxuEeuYi_YuNNGyqg" technicalid="_msEWxWxuEeuYi_YuNNGyqg" description="Available languages and information" name="Languages" URI="/languages">
       <ownedInterface xmi:id="_msJP62xuEeuYi_YuNNGyqg" technicalid="_msFk5WxuEeuYi_YuNNGyqg" name="Languages">
-        <ownedOperations xmi:id="_msJP7GxuEeuYi_YuNNGyqg" technicalid="_msFk5mxuEeuYi_YuNNGyqg" description="All available languages. These language abbreviations can be used in the `Accept-Language` header for routes that return translation records." name="get" public="true" URI="" exposition="REST" securitySchemes="_msJQPmxuEeuYi_YuNNGyqg">
+        <ownedOperations xmi:id="_msJP7GxuEeuYi_YuNNGyqg" technicalid="_msFk5mxuEeuYi_YuNNGyqg" description="All available languages. These language abbreviations can be used in the `Accept-Language` header for routes that return translation records." createdOn="2022-01-04T11:17:06.210+0100" modifiedOn="2022-01-04T11:17:06.210+0100" name="get" public="true" URI="" exposition="REST">
           <output xmi:id="_msJP7WxuEeuYi_YuNNGyqg" technicalid="_msFk52xuEeuYi_YuNNGyqg" description="An array of language objects." type="_msJ2mGxuEeuYi_YuNNGyqg" name="output200" multiplicity="0..1" statusCode="200" statusMessage="OK"/>
           <fault xmi:id="_msJP7mxuEeuYi_YuNNGyqg" technicalid="_msFk6GxuEeuYi_YuNNGyqg" description="Returned if your JWT token is missing or expired" type="_msJ21mxuEeuYi_YuNNGyqg" name="fault401" multiplicity="0..1" statusCode="401" statusMessage="Unauthorized"/>
+          <securityApplications xmi:id="_d9OIIW1HEeykZo0xTv5joQ" technicalid="_d9OIIG1HEeykZo0xTv5joQ" securityScheme="_msJQPmxuEeuYi_YuNNGyqg"/>
         </ownedOperations>
-        <ownedOperations xmi:id="_msJP72xuEeuYi_YuNNGyqg" technicalid="_msFk6WxuEeuYi_YuNNGyqg" description="Information about a particular language, given the language ID." name="getFromId1" public="true" URI="/{id}" exposition="REST" securitySchemes="_msJQPmxuEeuYi_YuNNGyqg">
+        <ownedOperations xmi:id="_msJP72xuEeuYi_YuNNGyqg" technicalid="_msFk6WxuEeuYi_YuNNGyqg" description="Information about a particular language, given the language ID." createdOn="2022-01-04T11:17:09.935+0100" modifiedOn="2022-01-04T11:17:09.935+0100" name="getFromId1" public="true" URI="/{id}" exposition="REST">
           <input xmi:id="_msJP8GxuEeuYi_YuNNGyqg" technicalid="_msFk6mxuEeuYi_YuNNGyqg" description="ID of the language" name="id">
             <type xsi:type="oenv:PrimitiveType" href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5F-EKwKEd2XLNOhkJIazw"/>
             <restData xmi:id="_msJP8WxuEeuYi_YuNNGyqg" technicalid="_msFk62xuEeuYi_YuNNGyqg" passingMode="PATH" restId="id"/>
@@ -1051,12 +1070,13 @@
           <output xmi:id="_msJP8mxuEeuYi_YuNNGyqg" technicalid="_msFk7GxuEeuYi_YuNNGyqg" description="An array of language objects." type="_msJ2k2xuEeuYi_YuNNGyqg" name="output200" multiplicity="0..1" statusCode="200" statusMessage="OK"/>
           <fault xmi:id="_msJP82xuEeuYi_YuNNGyqg" technicalid="_msFk7WxuEeuYi_YuNNGyqg" description="Returned if your JWT token is missing or expired" type="_msJ21mxuEeuYi_YuNNGyqg" name="fault401" multiplicity="0..1" statusCode="401" statusMessage="Unauthorized"/>
           <fault xmi:id="_msJP9GxuEeuYi_YuNNGyqg" technicalid="_msFk7mxuEeuYi_YuNNGyqg" description="Returned if the given language ID does not exist." type="_msJ22GxuEeuYi_YuNNGyqg" name="fault404" multiplicity="0..1" statusCode="404" statusMessage="Not Found"/>
+          <securityApplications xmi:id="_egvr8W1HEeykZo0xTv5joQ" technicalid="_egvr8G1HEeykZo0xTv5joQ" securityScheme="_msJQPmxuEeuYi_YuNNGyqg"/>
         </ownedOperations>
       </ownedInterface>
     </ownedServices>
     <ownedServices xmi:id="_msJP9WxuEeuYi_YuNNGyqg" technicalid="_msEWxmxuEeuYi_YuNNGyqg" description="Information about a specific movie" name="Movies" URI="">
       <ownedInterface xmi:id="_msJP9mxuEeuYi_YuNNGyqg" technicalid="_msFk9WxuEeuYi_YuNNGyqg" name="Movies">
-        <ownedOperations xmi:id="_msJP92xuEeuYi_YuNNGyqg" technicalid="_msFk9mxuEeuYi_YuNNGyqg" description="Returns a movies records that contains all information known about a particular movies id." name="getMoviesFromId" public="true" URI="/movies/{id}" exposition="REST" securitySchemes="_msJQPmxuEeuYi_YuNNGyqg">
+        <ownedOperations xmi:id="_msJP92xuEeuYi_YuNNGyqg" technicalid="_msFk9mxuEeuYi_YuNNGyqg" description="Returns a movies records that contains all information known about a particular movies id." createdOn="2022-01-04T11:17:14.334+0100" modifiedOn="2022-01-04T11:17:14.334+0100" name="getMoviesFromId" public="true" URI="/movies/{id}" exposition="REST">
           <input xmi:id="_msJP-GxuEeuYi_YuNNGyqg" technicalid="_msFk92xuEeuYi_YuNNGyqg" description="ID of the movie" name="id">
             <type xsi:type="oenv:PrimitiveType" href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_9dnH8bGqEd2SRpTkL4GntA"/>
             <restData xmi:id="_msJP-WxuEeuYi_YuNNGyqg" technicalid="_msFk-GxuEeuYi_YuNNGyqg" passingMode="PATH" restId="id"/>
@@ -1068,8 +1088,9 @@
           <output xmi:id="_msJP_GxuEeuYi_YuNNGyqg" technicalid="_msFk-2xuEeuYi_YuNNGyqg" description="A movie record." type="_msJ2n2xuEeuYi_YuNNGyqg" name="output200" multiplicity="0..1" statusCode="200" statusMessage="OK"/>
           <fault xmi:id="_msJP_WxuEeuYi_YuNNGyqg" technicalid="_msFk_GxuEeuYi_YuNNGyqg" description="Returned if your JWT token is missing or expired" type="_msJ21mxuEeuYi_YuNNGyqg" name="fault401" multiplicity="0..1" statusCode="401" statusMessage="Unauthorized"/>
           <fault xmi:id="_msJP_mxuEeuYi_YuNNGyqg" technicalid="_msFk_WxuEeuYi_YuNNGyqg" description="Returned if the given series ID does not exist" type="_msJ22GxuEeuYi_YuNNGyqg" name="fault404" multiplicity="0..1" statusCode="404" statusMessage="Not Found"/>
+          <securityApplications xmi:id="_fKsn4W1HEeykZo0xTv5joQ" technicalid="_fKsn4G1HEeykZo0xTv5joQ" securityScheme="_msJQPmxuEeuYi_YuNNGyqg"/>
         </ownedOperations>
-        <ownedOperations xmi:id="_msJP_2xuEeuYi_YuNNGyqg" technicalid="_msFk_mxuEeuYi_YuNNGyqg" description="Returns all movies ids updated since a given timestamp." name="getMovieupdates" public="true" URI="/movieupdates" exposition="REST" securitySchemes="_msJQPmxuEeuYi_YuNNGyqg">
+        <ownedOperations xmi:id="_msJP_2xuEeuYi_YuNNGyqg" technicalid="_msFk_mxuEeuYi_YuNNGyqg" description="Returns all movies ids updated since a given timestamp." createdOn="2022-01-04T11:17:17.594+0100" modifiedOn="2022-01-04T11:17:17.594+0100" name="getMovieupdates" public="true" URI="/movieupdates" exposition="REST">
           <input xmi:id="_msJQAGxuEeuYi_YuNNGyqg" technicalid="_msFk_2xuEeuYi_YuNNGyqg" description="Epoch time to start your date range." name="since">
             <type xsi:type="oenv:PrimitiveType" href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5F-EKwKEd2XLNOhkJIazw"/>
             <restData xmi:id="_msJQAWxuEeuYi_YuNNGyqg" technicalid="_msFlAGxuEeuYi_YuNNGyqg" passingMode="QUERY" restId="since"/>
@@ -1078,22 +1099,25 @@
           <fault xmi:id="_msJQA2xuEeuYi_YuNNGyqg" technicalid="_msFlAmxuEeuYi_YuNNGyqg" description="Returned if your JWT token is missing or expired" type="_msJ21mxuEeuYi_YuNNGyqg" name="fault401" multiplicity="0..1" statusCode="401" statusMessage="Unauthorized"/>
           <fault xmi:id="_msJQBGxuEeuYi_YuNNGyqg" technicalid="_msFlA2xuEeuYi_YuNNGyqg" description="Missing query params are given" type="_msJ2jWxuEeuYi_YuNNGyqg" name="fault405" multiplicity="0..1" statusCode="405" statusMessage="Method Not Allowed"/>
           <fault xmi:id="_msJQBWxuEeuYi_YuNNGyqg" technicalid="_msGL8GxuEeuYi_YuNNGyqg" description="Invalid query params provided" type="_msJ2jWxuEeuYi_YuNNGyqg" name="fault422" multiplicity="0..1" statusCode="422" statusMessage="Unprocessable Entity"/>
+          <securityApplications xmi:id="_fpyXoW1HEeykZo0xTv5joQ" technicalid="_fpyXoG1HEeykZo0xTv5joQ" securityScheme="_msJQPmxuEeuYi_YuNNGyqg"/>
         </ownedOperations>
       </ownedInterface>
     </ownedServices>
     <ownedServices xmi:id="_msJQBmxuEeuYi_YuNNGyqg" technicalid="_msEWx2xuEeuYi_YuNNGyqg" description="Routes for handling user data." name="Users" URI="/user">
       <ownedInterface xmi:id="_msJQB2xuEeuYi_YuNNGyqg" technicalid="_msIBJ2xuEeuYi_YuNNGyqg" name="Users">
-        <ownedOperations xmi:id="_msJQCGxuEeuYi_YuNNGyqg" technicalid="_msIBKGxuEeuYi_YuNNGyqg" description="Returns basic information about the currently authenticated user." name="get3" public="true" URI="" exposition="REST" securitySchemes="_msJQPmxuEeuYi_YuNNGyqg">
+        <ownedOperations xmi:id="_msJQCGxuEeuYi_YuNNGyqg" technicalid="_msIBKGxuEeuYi_YuNNGyqg" description="Returns basic information about the currently authenticated user." createdOn="2022-01-04T11:17:24.670+0100" modifiedOn="2022-01-04T11:17:24.670+0100" name="get3" public="true" URI="" exposition="REST">
           <output xmi:id="_msJQCWxuEeuYi_YuNNGyqg" technicalid="_msIBKWxuEeuYi_YuNNGyqg" description="User information." type="_msJ3SWxuEeuYi_YuNNGyqg" name="output200" multiplicity="0..1" statusCode="200" statusMessage="OK"/>
           <fault xmi:id="_msJQCmxuEeuYi_YuNNGyqg" technicalid="_msIBKmxuEeuYi_YuNNGyqg" description="Returned if your JWT token is missing or expired" type="_msJ21mxuEeuYi_YuNNGyqg" name="fault401" multiplicity="0..1" statusCode="401" statusMessage="Unauthorized"/>
           <fault xmi:id="_msJQC2xuEeuYi_YuNNGyqg" technicalid="_msIBK2xuEeuYi_YuNNGyqg" description="Returned if no information exists for the current user" type="_msJ22GxuEeuYi_YuNNGyqg" name="fault404" multiplicity="0..1" statusCode="404" statusMessage="Not Found"/>
+          <securityApplications xmi:id="_gtRN4W1HEeykZo0xTv5joQ" technicalid="_gtRN4G1HEeykZo0xTv5joQ" securityScheme="_msJQPmxuEeuYi_YuNNGyqg"/>
         </ownedOperations>
-        <ownedOperations xmi:id="_msJQDGxuEeuYi_YuNNGyqg" technicalid="_msIBLGxuEeuYi_YuNNGyqg" description="Returns an array of favorite series for a given user, will be a blank array if no favorites exist." name="getFavorites" public="true" URI="/favorites" exposition="REST" securitySchemes="_msJQPmxuEeuYi_YuNNGyqg">
+        <ownedOperations xmi:id="_msJQDGxuEeuYi_YuNNGyqg" technicalid="_msIBLGxuEeuYi_YuNNGyqg" description="Returns an array of favorite series for a given user, will be a blank array if no favorites exist." createdOn="2022-01-04T11:17:28.674+0100" modifiedOn="2022-01-04T11:17:28.674+0100" name="getFavorites" public="true" URI="/favorites" exposition="REST">
           <output xmi:id="_msJQDWxuEeuYi_YuNNGyqg" technicalid="_msIBLWxuEeuYi_YuNNGyqg" description="User favorites." type="_msJ3TWxuEeuYi_YuNNGyqg" name="output200" multiplicity="0..1" statusCode="200" statusMessage="OK"/>
           <fault xmi:id="_msJQDmxuEeuYi_YuNNGyqg" technicalid="_msIBLmxuEeuYi_YuNNGyqg" description="Returned if your JWT token is missing or expired" type="_msJ21mxuEeuYi_YuNNGyqg" name="fault401" multiplicity="0..1" statusCode="401" statusMessage="Unauthorized"/>
           <fault xmi:id="_msJQD2xuEeuYi_YuNNGyqg" technicalid="_msIBL2xuEeuYi_YuNNGyqg" description="Returned if no information exists for the current user" type="_msJ22GxuEeuYi_YuNNGyqg" name="fault404" multiplicity="0..1" statusCode="404" statusMessage="Not Found"/>
+          <securityApplications xmi:id="_hTdEIW1HEeykZo0xTv5joQ" technicalid="_hTdEIG1HEeykZo0xTv5joQ" securityScheme="_msJQPmxuEeuYi_YuNNGyqg"/>
         </ownedOperations>
-        <ownedOperations xmi:id="_msJQEGxuEeuYi_YuNNGyqg" technicalid="_msIBMGxuEeuYi_YuNNGyqg" description="Adds the supplied series ID to the user&#x2019;s favorite&#x2019;s list and returns the updated list." name="putFavoritesFromId" public="true" URI="/favorites/{id}" verb="PUT" exposition="REST" securitySchemes="_msJQPmxuEeuYi_YuNNGyqg">
+        <ownedOperations xmi:id="_msJQEGxuEeuYi_YuNNGyqg" technicalid="_msIBMGxuEeuYi_YuNNGyqg" description="Adds the supplied series ID to the user&#x2019;s favorite&#x2019;s list and returns the updated list." createdOn="2022-01-04T11:17:32.997+0100" modifiedOn="2022-01-04T11:17:32.997+0100" name="putFavoritesFromId" public="true" URI="/favorites/{id}" verb="PUT" exposition="REST">
           <input xmi:id="_msJQEWxuEeuYi_YuNNGyqg" technicalid="_msIBMWxuEeuYi_YuNNGyqg" description="ID of the series" name="id">
             <type xsi:type="oenv:PrimitiveType" href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_9dnH8bGqEd2SRpTkL4GntA"/>
             <restData xmi:id="_msJQEmxuEeuYi_YuNNGyqg" technicalid="_msIBMmxuEeuYi_YuNNGyqg" passingMode="PATH" restId="id"/>
@@ -1102,8 +1126,9 @@
           <fault xmi:id="_msJQFGxuEeuYi_YuNNGyqg" technicalid="_msIBNGxuEeuYi_YuNNGyqg" description="Returned if your JWT token is missing or expired" type="_msJ21mxuEeuYi_YuNNGyqg" name="fault401" multiplicity="0..1" statusCode="401" statusMessage="Unauthorized"/>
           <fault xmi:id="_msJQFWxuEeuYi_YuNNGyqg" technicalid="_msIBNWxuEeuYi_YuNNGyqg" description="Returned if no information exists for the current user" type="_msJ22GxuEeuYi_YuNNGyqg" name="fault404" multiplicity="0..1" statusCode="404" statusMessage="Not Found"/>
           <fault xmi:id="_msJQFmxuEeuYi_YuNNGyqg" technicalid="_msIBNmxuEeuYi_YuNNGyqg" description="Returned if requested record could not be updated" type="_msJ2YWxuEeuYi_YuNNGyqg" name="fault409" multiplicity="0..1" statusCode="409" statusMessage="Conflict"/>
+          <securityApplications xmi:id="_h8rnUW1HEeykZo0xTv5joQ" technicalid="_h8rnUG1HEeykZo0xTv5joQ" securityScheme="_msJQPmxuEeuYi_YuNNGyqg"/>
         </ownedOperations>
-        <ownedOperations xmi:id="_msJQF2xuEeuYi_YuNNGyqg" technicalid="_msIBN2xuEeuYi_YuNNGyqg" description="Deletes the given series ID from the user&#x2019;s favorite&#x2019;s list and returns the updated list." name="deleteFavoritesFromId" public="true" URI="/favorites/{id}" verb="DELETE" exposition="REST" securitySchemes="_msJQPmxuEeuYi_YuNNGyqg">
+        <ownedOperations xmi:id="_msJQF2xuEeuYi_YuNNGyqg" technicalid="_msIBN2xuEeuYi_YuNNGyqg" description="Deletes the given series ID from the user&#x2019;s favorite&#x2019;s list and returns the updated list." createdOn="2022-01-04T11:17:37.160+0100" modifiedOn="2022-01-04T11:17:37.160+0100" name="deleteFavoritesFromId" public="true" URI="/favorites/{id}" verb="DELETE" exposition="REST">
           <input xmi:id="_msJQGGxuEeuYi_YuNNGyqg" technicalid="_msIBOGxuEeuYi_YuNNGyqg" description="ID of the series" name="id">
             <type xsi:type="oenv:PrimitiveType" href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_9dnH8bGqEd2SRpTkL4GntA"/>
             <restData xmi:id="_msJQGWxuEeuYi_YuNNGyqg" technicalid="_msIBOWxuEeuYi_YuNNGyqg" passingMode="PATH" restId="id"/>
@@ -1112,13 +1137,15 @@
           <fault xmi:id="_msJQG2xuEeuYi_YuNNGyqg" technicalid="_msIBO2xuEeuYi_YuNNGyqg" description="Returned if your JWT token is missing or expired" type="_msJ21mxuEeuYi_YuNNGyqg" name="fault401" multiplicity="0..1" statusCode="401" statusMessage="Unauthorized"/>
           <fault xmi:id="_msJQHGxuEeuYi_YuNNGyqg" technicalid="_msIBPGxuEeuYi_YuNNGyqg" description="Returned if no information exists for the current user" type="_msJ22GxuEeuYi_YuNNGyqg" name="fault404" multiplicity="0..1" statusCode="404" statusMessage="Not Found"/>
           <fault xmi:id="_msJQHWxuEeuYi_YuNNGyqg" technicalid="_msIBPWxuEeuYi_YuNNGyqg" description="Returned if requested record could not be deleted" type="_msJ2YWxuEeuYi_YuNNGyqg" name="fault409" multiplicity="0..1" statusCode="409" statusMessage="Conflict"/>
+          <securityApplications xmi:id="_ikYggW1HEeykZo0xTv5joQ" technicalid="_ikYggG1HEeykZo0xTv5joQ" securityScheme="_msJQPmxuEeuYi_YuNNGyqg"/>
         </ownedOperations>
-        <ownedOperations xmi:id="_msJQHmxuEeuYi_YuNNGyqg" technicalid="_msIBPmxuEeuYi_YuNNGyqg" description="Returns an array of ratings for the given user." name="getRatings" public="true" URI="/ratings" exposition="REST" securitySchemes="_msJQPmxuEeuYi_YuNNGyqg">
+        <ownedOperations xmi:id="_msJQHmxuEeuYi_YuNNGyqg" technicalid="_msIBPmxuEeuYi_YuNNGyqg" description="Returns an array of ratings for the given user." createdOn="2022-01-04T11:17:41.207+0100" modifiedOn="2022-01-04T11:17:41.207+0100" name="getRatings" public="true" URI="/ratings" exposition="REST">
           <output xmi:id="_msJQH2xuEeuYi_YuNNGyqg" technicalid="_msIBP2xuEeuYi_YuNNGyqg" description="Array of user ratings." type="_msJ3VGxuEeuYi_YuNNGyqg" name="output200" multiplicity="0..1" statusCode="200" statusMessage="OK"/>
           <fault xmi:id="_msJQIGxuEeuYi_YuNNGyqg" technicalid="_msIoMGxuEeuYi_YuNNGyqg" description="Returned if your JWT token is missing or expired" type="_msJ21mxuEeuYi_YuNNGyqg" name="fault401" multiplicity="0..1" statusCode="401" statusMessage="Unauthorized"/>
           <fault xmi:id="_msJQIWxuEeuYi_YuNNGyqg" technicalid="_msIoMWxuEeuYi_YuNNGyqg" description="Returned if no information exists for the current user" type="_msJ22GxuEeuYi_YuNNGyqg" name="fault404" multiplicity="0..1" statusCode="404" statusMessage="Not Found"/>
+          <securityApplications xmi:id="_jK-mcG1HEeykZo0xTv5joQ" technicalid="_jK9_YG1HEeykZo0xTv5joQ" securityScheme="_msJQPmxuEeuYi_YuNNGyqg"/>
         </ownedOperations>
-        <ownedOperations xmi:id="_msJQImxuEeuYi_YuNNGyqg" technicalid="_msIoMmxuEeuYi_YuNNGyqg" description="Returns an array of ratings for a given user that match the query." name="getRatingsQuery" public="true" URI="/ratings/query" exposition="REST" securitySchemes="_msJQPmxuEeuYi_YuNNGyqg">
+        <ownedOperations xmi:id="_msJQImxuEeuYi_YuNNGyqg" technicalid="_msIoMmxuEeuYi_YuNNGyqg" description="Returns an array of ratings for a given user that match the query." createdOn="2022-01-04T11:17:45.465+0100" modifiedOn="2022-01-04T11:17:45.465+0100" name="getRatingsQuery" public="true" URI="/ratings/query" exposition="REST">
           <input xmi:id="_msJQI2xuEeuYi_YuNNGyqg" technicalid="_msIoM2xuEeuYi_YuNNGyqg" description="Item to query. Can be either 'series', 'episode', or 'banner'" name="itemType" multiplicity="0..1">
             <type xsi:type="oenv:PrimitiveType" href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5F-EKwKEd2XLNOhkJIazw"/>
             <restData xmi:id="_msJQJGxuEeuYi_YuNNGyqg" technicalid="_msIoNGxuEeuYi_YuNNGyqg" passingMode="QUERY" restId="itemType"/>
@@ -1126,13 +1153,15 @@
           <output xmi:id="_msJQJWxuEeuYi_YuNNGyqg" technicalid="_msIoNWxuEeuYi_YuNNGyqg" description="List of user ratings that match the given query." type="_msJ3VGxuEeuYi_YuNNGyqg" name="output200" multiplicity="0..1" statusCode="200" statusMessage="OK"/>
           <fault xmi:id="_msJQJmxuEeuYi_YuNNGyqg" technicalid="_msIoNmxuEeuYi_YuNNGyqg" description="Returned if your JWT token is missing or expired" type="_msJ21mxuEeuYi_YuNNGyqg" name="fault401" multiplicity="0..1" statusCode="401" statusMessage="Unauthorized"/>
           <fault xmi:id="_msJQJ2xuEeuYi_YuNNGyqg" technicalid="_msIoN2xuEeuYi_YuNNGyqg" description="Returned if no information exists for the current user" type="_msJ22GxuEeuYi_YuNNGyqg" name="fault404" multiplicity="0..1" statusCode="404" statusMessage="Not Found"/>
+          <securityApplications xmi:id="_jzlekW1HEeykZo0xTv5joQ" technicalid="_jzlekG1HEeykZo0xTv5joQ" securityScheme="_msJQPmxuEeuYi_YuNNGyqg"/>
         </ownedOperations>
-        <ownedOperations xmi:id="_msJQKGxuEeuYi_YuNNGyqg" technicalid="_msIoOGxuEeuYi_YuNNGyqg" description="Returns a list of query params for use in the `/user/ratings/query` route." name="getRatingsQueryParams" public="true" URI="/ratings/query/params" exposition="REST" securitySchemes="_msJQPmxuEeuYi_YuNNGyqg">
+        <ownedOperations xmi:id="_msJQKGxuEeuYi_YuNNGyqg" technicalid="_msIoOGxuEeuYi_YuNNGyqg" description="Returns a list of query params for use in the `/user/ratings/query` route." createdOn="2022-01-04T11:17:49.288+0100" modifiedOn="2022-01-04T11:17:49.288+0100" name="getRatingsQueryParams" public="true" URI="/ratings/query/params" exposition="REST">
           <output xmi:id="_msJQKWxuEeuYi_YuNNGyqg" technicalid="_msIoOWxuEeuYi_YuNNGyqg" description="Parameters to use for querying." type="_msJ3XGxuEeuYi_YuNNGyqg" name="output200" multiplicity="0..1" statusCode="200" statusMessage="OK"/>
           <fault xmi:id="_msJQKmxuEeuYi_YuNNGyqg" technicalid="_msIoOmxuEeuYi_YuNNGyqg" description="Returned if your JWT token is missing or expired" type="_msJ21mxuEeuYi_YuNNGyqg" name="fault401" multiplicity="0..1" statusCode="401" statusMessage="Unauthorized"/>
           <fault xmi:id="_msJQK2xuEeuYi_YuNNGyqg" technicalid="_msIoO2xuEeuYi_YuNNGyqg" description="Returned if no information exists for the current user" type="_msJ22GxuEeuYi_YuNNGyqg" name="fault404" multiplicity="0..1" statusCode="404" statusMessage="Not Found"/>
+          <securityApplications xmi:id="_kYC2gW1HEeykZo0xTv5joQ" technicalid="_kYC2gG1HEeykZo0xTv5joQ" securityScheme="_msJQPmxuEeuYi_YuNNGyqg"/>
         </ownedOperations>
-        <ownedOperations xmi:id="_msJQLGxuEeuYi_YuNNGyqg" technicalid="_msIoPGxuEeuYi_YuNNGyqg" description="This route deletes a given rating of a given type." name="deleteRatingsFromItemTypeAndItemId" public="true" URI="/ratings/{itemType}/{itemId}" verb="DELETE" exposition="REST" securitySchemes="_msJQPmxuEeuYi_YuNNGyqg">
+        <ownedOperations xmi:id="_msJQLGxuEeuYi_YuNNGyqg" technicalid="_msIoPGxuEeuYi_YuNNGyqg" description="This route deletes a given rating of a given type." createdOn="2022-01-04T11:17:53.710+0100" modifiedOn="2022-01-04T11:17:53.710+0100" name="deleteRatingsFromItemTypeAndItemId" public="true" URI="/ratings/{itemType}/{itemId}" verb="DELETE" exposition="REST">
           <input xmi:id="_msJQLWxuEeuYi_YuNNGyqg" technicalid="_msIoPWxuEeuYi_YuNNGyqg" description="Item to update. Can be either 'series', 'episode', or 'image'" name="itemType">
             <type xsi:type="oenv:PrimitiveType" href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5F-EKwKEd2XLNOhkJIazw"/>
             <restData xmi:id="_msJQLmxuEeuYi_YuNNGyqg" technicalid="_msIoPmxuEeuYi_YuNNGyqg" passingMode="PATH" restId="itemType"/>
@@ -1144,8 +1173,9 @@
           <output xmi:id="_msJQMWxuEeuYi_YuNNGyqg" technicalid="_msIoQWxuEeuYi_YuNNGyqg" description="Returns OK if the delete was successful" type="_msJ3WmxuEeuYi_YuNNGyqg" name="output200" multiplicity="0..1" statusCode="200" statusMessage="OK"/>
           <fault xmi:id="_msJQMmxuEeuYi_YuNNGyqg" technicalid="_msIoQmxuEeuYi_YuNNGyqg" description="Returned if your JWT token is missing or expired" type="_msJ21mxuEeuYi_YuNNGyqg" name="fault401" multiplicity="0..1" statusCode="401" statusMessage="Unauthorized"/>
           <fault xmi:id="_msJQM2xuEeuYi_YuNNGyqg" technicalid="_msIoQ2xuEeuYi_YuNNGyqg" description="Returned if no rating is found that matches your given parameters" type="_msJ22GxuEeuYi_YuNNGyqg" name="fault404" multiplicity="0..1" statusCode="404" statusMessage="Not Found"/>
+          <securityApplications xmi:id="_lCN04W1HEeykZo0xTv5joQ" technicalid="_lCN04G1HEeykZo0xTv5joQ" securityScheme="_msJQPmxuEeuYi_YuNNGyqg"/>
         </ownedOperations>
-        <ownedOperations xmi:id="_msJQNGxuEeuYi_YuNNGyqg" technicalid="_msIoRGxuEeuYi_YuNNGyqg" description="This route updates a given rating of a given type." name="putRatingsFromItemTypeAndItemIdAndItemRating" public="true" URI="/ratings/{itemType}/{itemId}/{itemRating}" verb="PUT" exposition="REST" securitySchemes="_msJQPmxuEeuYi_YuNNGyqg">
+        <ownedOperations xmi:id="_msJQNGxuEeuYi_YuNNGyqg" technicalid="_msIoRGxuEeuYi_YuNNGyqg" description="This route updates a given rating of a given type." createdOn="2022-01-04T11:17:58.441+0100" modifiedOn="2022-01-04T11:17:58.441+0100" name="putRatingsFromItemTypeAndItemIdAndItemRating" public="true" URI="/ratings/{itemType}/{itemId}/{itemRating}" verb="PUT" exposition="REST">
           <input xmi:id="_msJQNWxuEeuYi_YuNNGyqg" technicalid="_msIoRWxuEeuYi_YuNNGyqg" description="Item to update. Can be either 'series', 'episode', or 'image'" name="itemType">
             <type xsi:type="oenv:PrimitiveType" href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5F-EKwKEd2XLNOhkJIazw"/>
             <restData xmi:id="_msJQNmxuEeuYi_YuNNGyqg" technicalid="_msIoRmxuEeuYi_YuNNGyqg" passingMode="PATH" restId="itemType"/>
@@ -1161,10 +1191,11 @@
           <output xmi:id="_msJQO2xuEeuYi_YuNNGyqg" technicalid="_msIoS2xuEeuYi_YuNNGyqg" description="Update OK if the update was successful" type="_msJ3WGxuEeuYi_YuNNGyqg" name="output200" multiplicity="0..1" statusCode="200" statusMessage="OK"/>
           <fault xmi:id="_msJQPGxuEeuYi_YuNNGyqg" technicalid="_msIoTGxuEeuYi_YuNNGyqg" description="Returned if your JWT token is missing or expired" type="_msJ21mxuEeuYi_YuNNGyqg" name="fault401" multiplicity="0..1" statusCode="401" statusMessage="Unauthorized"/>
           <fault xmi:id="_msJQPWxuEeuYi_YuNNGyqg" technicalid="_msIoTWxuEeuYi_YuNNGyqg" description="Returned if no rating is found that matches your given parameters" type="_msJ22GxuEeuYi_YuNNGyqg" name="fault404" multiplicity="0..1" statusCode="404" statusMessage="Not Found"/>
+          <securityApplications xmi:id="_lvVZkW1HEeykZo0xTv5joQ" technicalid="_lvVZkG1HEeykZo0xTv5joQ" securityScheme="_msJQPmxuEeuYi_YuNNGyqg"/>
         </ownedOperations>
       </ownedInterface>
     </ownedServices>
-    <securitySchemes xmi:id="_msJQPmxuEeuYi_YuNNGyqg" technicalid="_msAsYWxuEeuYi_YuNNGyqg" description="JWT token prefixed with &quot;Bearer &quot;" createdOn="2021-07-15T20:08:30.268+0200" modifiedOn="2021-08-31T11:56:06.520+0200" key="jwtToken" name="jwtToken" apiKeyLocation="HEADER"/>
+    <securitySchemes xmi:id="_msJQPmxuEeuYi_YuNNGyqg" technicalid="_msAsYWxuEeuYi_YuNNGyqg" description="JWT token prefixed with &quot;Bearer &quot;" createdOn="2021-07-15T20:08:30.268+0200" modifiedOn="2022-01-04T11:14:44.885+0100" key="jwtToken" name="jwtToken" apiKeyLocation="HEADER"/>
     <license xmi:id="_7SVmsNTmEeuCgeVTfXBG7g" technicalid="_gXQ-EOVSEeusCcFJrhHk1g" description="" createdOn="2021-07-15T11:53:44.864+0200" modifiedOn="2021-07-15T20:01:20.627+0200" name="Apache 2.0" URL="http://www.apache.org/licenses/LICENSE-2.0.html">
       <metadatas xmi:id="_qOOEMeWWEeupV6pJeRbWfg" technicalid="_qOOEMOWWEeupV6pJeRbWfg">
         <metadatas xsi:type="soa:PropertiesExtension" xmi:id="_qOOrQeWWEeupV6pJeRbWfg" technicalid="_qOOrQOWWEeupV6pJeRbWfg" title="x-LicenseSurLicense" body="License-License" context="License"/>
