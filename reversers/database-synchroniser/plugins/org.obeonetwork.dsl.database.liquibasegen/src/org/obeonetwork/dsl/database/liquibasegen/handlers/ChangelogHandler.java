@@ -1,9 +1,10 @@
 package org.obeonetwork.dsl.database.liquibasegen.handlers;
 
+import static org.obeonetwork.dsl.database.liquibasegen.Activator.getLiquibaseVersion;
+
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
-import java.util.Arrays;
 import java.util.Properties;
 
 import org.eclipse.core.commands.AbstractHandler;
@@ -17,13 +18,11 @@ import org.eclipse.jface.dialogs.MessageDialog;
 import org.eclipse.jface.window.Window;
 import org.eclipse.swt.widgets.Shell;
 import org.eclipse.ui.handlers.HandlerUtil;
-import org.obeonetwork.dsl.database.liquibasegen.Activator;
 import org.obeonetwork.dsl.database.liquibasegen.LiquibaseUpdater;
 import org.obeonetwork.dsl.database.liquibasegen.ui.ConnectionInformationDialog;
 import org.obeonetwork.utils.common.handlers.EventHelper;
 
 import liquibase.exception.LiquibaseException;
-
 
 /**
  * Apply a changelog to a database.
@@ -70,16 +69,6 @@ public class ChangelogHandler extends AbstractHandler {
 		}
 		
 		return null;
-	}
-	
-	private String getLiquibaseVersion() {
-		String liquibaseVersion = Arrays.stream(Activator.getContext().getBundles())
-		.filter(bndl -> "liquibase".equals(bndl.getSymbolicName())) //$NON-NLS-1$
-		.map(bndl -> bndl.getVersion())
-		.map(v -> v.getMajor() + "." + v.getMinor() + "." + v.getMicro()) //$NON-NLS-1$ //$NON-NLS-2$
-		.findFirst().orElse(Messages.ChangelogHandler_Unknown_version);
-		
-		return liquibaseVersion;
 	}
 	
 	/**

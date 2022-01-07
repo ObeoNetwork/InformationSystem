@@ -65,4 +65,9 @@ public class ExportAsSQLScriptsAction extends AbstractExportAsAction {
 				.createFromImage(Activator.getDefault().getImageRegistry().get(Activator.SQL_FILE_DISABLED_IMAGE));
 	}
 
+	@Override
+	protected String getSuccessInformationAddendum() {
+		return "";
+	}
+
 }

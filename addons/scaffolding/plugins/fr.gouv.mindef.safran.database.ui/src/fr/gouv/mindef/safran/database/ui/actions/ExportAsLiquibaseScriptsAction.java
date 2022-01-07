@@ -10,6 +10,8 @@
  *******************************************************************************/
 package fr.gouv.mindef.safran.database.ui.actions;
 
+import static org.obeonetwork.dsl.database.liquibasegen.Activator.getLiquibaseVersion;
+
 import java.io.File;
 import java.io.IOException;
 
@@ -63,6 +65,9 @@ public class ExportAsLiquibaseScriptsAction extends AbstractExportAsAction{
 				Activator.getDefault().getImageRegistry().get(Activator.LIQUIBASE_FILE_DISABLED_IMAGE));
 	}
 
-
+	@Override
+	protected String getSuccessInformationAddendum() {
+		return String.format("Liquibase version: %s.", getLiquibaseVersion());
+	}
 
 }

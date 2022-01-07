@@ -10,6 +10,8 @@
  *******************************************************************************/
 package org.obeonetwork.dsl.database.liquibasegen;
 
+import java.util.Arrays;
+
 import org.osgi.framework.BundleActivator;
 import org.osgi.framework.BundleContext;
 
@@ -30,4 +32,12 @@ public class Activator implements BundleActivator {
 		Activator.context = null;
 	}
 
+	public static String getLiquibaseVersion() {
+		return Arrays.stream(getContext().getBundles())
+		.filter(bndl -> "liquibase".equals(bndl.getSymbolicName()))
+		.map(bndl -> bndl.getVersion())
+		.map(v -> v.getMajor() + "." + v.getMinor() + "." + v.getMicro())
+		.findFirst().orElse("Unknown version");
+	}
+	
 }

@@ -112,12 +112,20 @@ public abstract class AbstractExportAsAction extends Action implements IEditorAc
 							ErrorDialog.openError(PlatformUI.getWorkbench().getActiveWorkbenchWindow().getShell(),
 									"Generation result", "Some errors/warnings occured during generation", status);
 						});
+					} else {
+						Display.getDefault().asyncExec(() -> {
+							MessageDialog.openInformation(PlatformUI.getWorkbench().getActiveWorkbenchWindow().getShell(), 
+									"Database Generation", 
+									"Generation success. Generated files are in \n" + 
+									targetFolder.toString() + "\n" +
+									getSuccessInformationAddendum());
+						});
 					}
 				} catch (IOException e) {
 					
 					Activator.getDefault().getLog().log(new Status(IStatus.ERROR, Activator.PLUGIN_ID, e.getMessage(), e));
 					Display.getDefault().asyncExec(() -> {
-						MessageDialog.openError(PlatformUI.getWorkbench().getActiveWorkbenchWindow().getShell(), "SQL Generation", "A problem occured during the generation. See Error Log view for more details.");
+						MessageDialog.openError(PlatformUI.getWorkbench().getActiveWorkbenchWindow().getShell(), "Database Generation", "A problem occured during the generation. See Error Log view for more details.");
 					});
 				}
 				
@@ -144,6 +152,8 @@ public abstract class AbstractExportAsAction extends Action implements IEditorAc
 	}
 	
 	protected abstract IStatus doGenerateScripts(final Comparison comparison, final File targetFolder) throws IOException;
+	
+	protected abstract String getSuccessInformationAddendum();
 	
 	private IResource getContainingFolder(Comparison comparison) {
 		if (comparison.getMatches() != null && comparison.getMatches().isEmpty() == false) {
