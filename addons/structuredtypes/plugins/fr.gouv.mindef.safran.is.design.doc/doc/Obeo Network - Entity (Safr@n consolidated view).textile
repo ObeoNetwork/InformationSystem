@@ -22,16 +22,16 @@ h2. Eléments affichés et outils
 
 !pics/entities/Table.png!
 
-Chaque package, entité, attribut et référence est affiché dans la colonne de gauche sous une forme arborescente.
+Chaque namespace, entité, attribut et référence est affiché dans la colonne de gauche sous une forme arborescente.
 
-Cinq colonnes _Name_, _Size_, _Check_, _Unique_, _Default_ et _Target Schema_:
+Colonnes suivantes :
 
 * _Name_ : spécifie le nom physique du package, de l'entité, de l'attribut ou de la référence
 * _Size_ : spécifie une contrainte de taille. Utilisée pour un attribut généralement en donnant une valeur numérique.
 * _Check_ : spécifie une contrainte. Texte libre.
-* _Unique_ : spécifie si un attribut fait partie d'un index d'unicité. Une valeur vide signifie que l'attribut ne fait pas partie d'un index. Une valeur non vide doit avoir la syntaxe suivante :
-<pre><code><nom de colonne1>:<asc ou desc>, <nom de colonne2>:<asc ou desc>, ... | ...</code></pre>
-où le nom d'une colonne est son nom _physique_ (dans la base de données) ; _asc_ indique que l'index a un ordre ascendant ; _desc_ que l'index a un ordre descendant ; une virgule (',') sépare les colonnes utilisées pour un même index ; et un pipe ('|') est utilisé pour séparer les différents index à générer.
+* _Unique_ : spécifie les index d'unicité. 
+** Pour un attribut : Une valeur vide signifie que l'attribut ne fait pas partie d'un index, 'ASC' signifie que l'attribut fait partie d'un index ascendant, 'DESC' signifie que l'attribut fait partie d'un index descendant.
+** Pour une entité : Une valeur non vide doit avoir la syntaxe suivante : <code><nom de colonne1>:<asc ou desc>, <nom de colonne2>:<asc ou desc>, ... | ...</code><br/>où le nom d'une colonne est son nom _physique_ (dans la base de données) ; <code>asc</code> indique que l'index a un ordre ascendant ; <code>desc</code> que l'index a un ordre descendant ; une virgule '<code>,</code>' sépare les colonnes utilisées pour un même index, et un pipe '<code>|</code>' est utilisé pour séparer les différents index à générer.
 * _Default_ : spécifie une valeur par défaut. Texte libre.
 * _Target Schema_: permet de définir le schéma de destination dans le cadre d'une relation NN. Une action en menu contextuel est disponible sur les références. Cette action "Set/swap Target Schema" permet de définir le namespace de la relation comme namespace destination pour la table de jointure. Il est aussi possible d'utiliser le raccourci clavier CTRL+T en selectionnant une référence pour faciliter cette définition. 
 
