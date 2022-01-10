@@ -131,7 +131,7 @@
 			<em>Package Diagram</em> est défini sur un objet de type Package, que nous appellerons par la suite package courant.
 		</p>
 		<p>
-			<img border="0" src="pics/PackageDiagram/PackageDiagram-01.png"/>
+			<img style="width:100%" border="0" src="pics/PackageDiagram/PackageDiagram-01.png"/>
 		</p>
 		<p>Sont affichés sur ce diagramme :</p>
 		<ul>
@@ -204,11 +204,13 @@
 		<p>La création d&#8217;un diagramme sur un 
 			<em>Package</em>, un 
 			<em>Flow</em> ou un 
-			<em>View Container</em> se fait par le menu contextuel _New &gt; #Nom du diagramme#.
+			<em>View Container</em> se fait par le menu contextuel 
+			<em>New &gt; #Nom du diagramme#</em>.
 			<br/>La navigation vers un diagramme existant lié à un 
 			<em>Package</em>, un 
 			<em>Flow</em> ou un 
-			<em>View Container</em> se fait par le menu contextuel _Open &gt; #Nom du diagramme#.
+			<em>View Container</em> se fait par le menu contextuel 
+			<em>Open &gt; #Nom du diagramme#</em>.
 			<br/>Un double clic sur un 
 			<em>Package</em>, un 
 			<em>Flow</em> ou un 
@@ -380,6 +382,23 @@
 		<p>Le diagram 
 			<em>Layout Diagram</em> permet de visualiser cette structure de Layout (décrit dans le chapitre suivant). 
 		</p>
+		<h4 id="Navigationversdautresdiagrammes2">Navigation vers d&#8217;autres diagrammes</h4>
+		<p>Le double clic sur les éléments du diagramme de mockup permet de naviguer vers d&#8217;autres diagrammes en les créant à la volée si ils n&#8217;existent pas :</p>
+		<ul>
+			<li>depuis le 
+				<em>View Container</em> racine vers le diagramme de Layout
+			</li>
+			<li>depuis un 
+				<em>View Container</em> vers un sous diagramme de mockup
+			</li>
+			<li>depuis un 
+				<em>View Container Reference</em> vers le diagramme de mockup du 
+				<em>View Container</em> référencé
+			</li>
+		</ul>
+		<p>Lorsque des diagrammes sont créés pour un élément donné, ceux-ci sont navigables via le menu contextuel, dans le sous-menu 
+			<em>Open</em>.
+		</p>
 		<h3 id="LayoutDiagram">Layout Diagram</h3>
 		<p>Ce diagramme a pour simple but de visualiser une structure de 
 			<em>Layout</em>. Il n&#8217;a pas vocation à éditer cette structure, et sa palette est vide.
@@ -401,7 +420,7 @@
 			<em>Flow Diagram</em> est défini sur un élément de type Flow.
 		</p>
 		<p>
-			<img border="0" src="pics/FlowDiagram/FlowDiagram-01.png"/>
+			<img style="width:100%" border="0" src="pics/FlowDiagram/FlowDiagram-01.png"/>
 		</p>
 		<p>Sont affichés sur ce diagramme :</p>
 		<ul>
@@ -637,7 +656,7 @@
 		<p>
 			<b>Dialogue de selection d'évènements déclencheurs:</b>
 			<br/>
-			<img border="0" src="pics/FlowDiagram/EventSelectionDialog.png"/>
+			<img style="width:50%" border="0" src="pics/FlowDiagram/EventSelectionDialog.png"/>
 		</p>
 		<p>Elle présente l’ensemble des types d’événements supportés par les widgets utilisés dans le modèle Cinematic, ainsi que l’ensemble des événements logiques définis dans le Flow.
 			<br/>Note : L’existence ou non d’un événement en correspondance d’un type d’événement n’est pas pris en considération.
@@ -665,7 +684,7 @@
 		<p>
 			<b>Dialogue de selection de ViewContainer:</b>
 			<br/>
-			<img border="0" src="pics/FlowDiagram/ViewContainerSelectionDialog.png"/>
+			<img style="width:50%" border="0" src="pics/FlowDiagram/ViewContainerSelectionDialog.png"/>
 		</p>
 		<p>Elle présente l’ensemble des View Containers du modèle Cinematic présentés sous la forme d’un arbre de contenance.</p>
 		<p>Les View Containers associés au View State concerné sont cochés.</p>

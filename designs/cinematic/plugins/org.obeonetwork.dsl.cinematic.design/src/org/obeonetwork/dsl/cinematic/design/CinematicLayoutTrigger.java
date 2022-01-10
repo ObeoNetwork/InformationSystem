@@ -45,7 +45,8 @@ public class CinematicLayoutTrigger implements ModelChangeTrigger {
 			
 			if(!notification.isTouch() && notification.getNotifier() instanceof Bounds) {
 				DDiagram parentDiagram = getParentDiagram((Bounds) notification.getNotifier());
-				return ICinematicViewpoint.VIEW_CONTAINER_DIAGRAM_ID.equals(parentDiagram.getDescription().getName());
+				return parentDiagram != null && 
+						ICinematicViewpoint.VIEW_CONTAINER_DIAGRAM_ID.equals(parentDiagram.getDescription().getName());
 			}
 			
 			return false;

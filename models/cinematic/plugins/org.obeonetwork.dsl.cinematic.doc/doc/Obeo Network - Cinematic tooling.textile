@@ -106,8 +106,8 @@ Les autres outils disponibles sont
 
 h4. Navigation vers d'autres diagrammes
 
-La création d'un diagramme sur un _Package_, un _Flow_ ou un _View Container_ se fait par le menu contextuel _New > #Nom du diagramme#.
-La navigation vers un diagramme existant lié à un _Package_, un _Flow_ ou un _View Container_ se fait par le menu contextuel _Open > #Nom du diagramme#.
+La création d'un diagramme sur un _Package_, un _Flow_ ou un _View Container_ se fait par le menu contextuel _New > #Nom du diagramme#_.
+La navigation vers un diagramme existant lié à un _Package_, un _Flow_ ou un _View Container_ se fait par le menu contextuel _Open > #Nom du diagramme#_.
 Un double clic sur un _Package_, un _Flow_ ou un _View Container_ déclenche la création d'un diagramme si il n'existe pas, ou bien son ouverture si il existe.
 
 h3. UI Structure
@@ -186,6 +186,15 @@ Le choix de direction est déterminé par la direction dans laquelle l'espace se
 Un élément de _Layout_ peut être lié ou non à un _View Element_ suivant qu’il représente le layout d’un _View Element_ ou bien le Layout d'un espace structurant (tel que le Layout qui englobe les deux boutons de l'exemple ci-dessus).
 
 Le diagram _Layout Diagram_ permet de visualiser cette structure de Layout (décrit dans le chapitre suivant). 
+
+h4. Navigation vers d'autres diagrammes
+
+Le double clic sur les éléments du diagramme de mockup permet de naviguer vers d'autres diagrammes en les créant à la volée si ils n'existent pas :
+* depuis le _View Container_ racine vers le diagramme de Layout
+* depuis un _View Container_ vers un sous diagramme de mockup
+* depuis un _View Container Reference_ vers le diagramme de mockup du _View Container_ référencé
+
+Lorsque des diagrammes sont créés pour un élément donné, ceux-ci sont navigables via le menu contextuel, dans le sous-menu _Open_.
 
 h3. Layout Diagram
 
