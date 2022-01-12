@@ -20,8 +20,8 @@
     <stringValues id="label" value="Entities Namespaces Hierarchy"/>
     <stringValues id="titleExpression" value="Entities Namespaces Hierarchy"/>
     <stringValues id="domainClass" value="entity.Root"/>
-    <metamodels>http://www.obeonetwork.org/dsl/entity/3.0.0</metamodels>
     <metamodels>http://www.obeonetwork.org/dsl/environment/3.0.0</metamodels>
+    <metamodels>http://www.obeonetwork.org/dsl/entity/3.0.0</metamodels>
   </diagrams>
   <diagrams id="ClassDiagram" descriptionId="Entities Diagram">
     <children id="StructuredTypeMapping">
@@ -88,28 +88,29 @@
     <stringValues id="label" value="Entities Diagram"/>
     <stringValues id="titleExpression" value="[name + ' - Entities diagram'/]"/>
     <stringValues id="precondition" value="[ancestors()->filter(entity::Root)->notEmpty()/]"/>
-    <metamodels>http://www.obeonetwork.org/dsl/entity/3.0.0</metamodels>
     <metamodels>http://www.obeonetwork.org/dsl/environment/3.0.0</metamodels>
+    <metamodels>http://www.obeonetwork.org/dsl/entity/3.0.0</metamodels>
   </diagrams>
-  <colors name="Namespace_background" red="209" green="209" blue="209"/>
-  <colors name="Namespace_foreground" red="255" green="255" blue="255"/>
-  <colors name="Namespace_color"/>
+  <colors name="Namespace_background" red="238" green="248" blue="255"/>
+  <colors name="Namespace_foreground" red="238" green="248" blue="255"/>
+  <colors name="Namespace_color" green="43" blue="60"/>
   <colors name="Namespace_border" red="136" green="136" blue="136"/>
-  <colors name="StructuredType_background" red="204" green="242" blue="166"/>
-  <colors name="StructuredType_foreground" red="255" green="255" blue="255"/>
-  <colors name="StructuredType_color"/>
-  <colors name="StructuredType_border" red="138" green="226" blue="52"/>
-  <colors name="Enumeration_background" red="255" green="245" blue="181"/>
-  <colors name="Enumeration_foreground" red="255" green="255" blue="255"/>
-  <colors name="Enumeration_color"/>
-  <colors name="Enumeration_border" red="214" green="197" blue="66"/>
-  <colors name="ExternalType_background" red="253" green="206" blue="137"/>
-  <colors name="ExternalType_foreground" red="255" green="255" blue="255"/>
-  <colors name="ExternalType_color"/>
-  <colors name="ExternalType_border" red="252" green="175" blue="62"/>
-  <colors name="ExternalNamespace_background" red="253" green="206" blue="137"/>
+  <colors name="StructuredType_background" red="215" green="237" blue="255"/>
+  <colors name="StructuredType_foreground" red="215" green="237" blue="255"/>
+  <colors name="StructuredType_border" red="136" green="136" blue="136"/>
+  <colors name="StructuredType_color" green="43" blue="60"/>
+  <colors name="Enumeration_background" red="238" green="238" blue="255"/>
+  <colors name="Enumeration_foreground" red="238" green="238" blue="255"/>
+  <colors name="Enumeration_color" green="43" blue="60"/>
+  <colors name="Enumeration_border" red="136" green="136" blue="136"/>
+  <colors name="ExternalType_background" red="238" green="238" blue="236"/>
+  <colors name="ExternalType_foreground" red="238" green="238" blue="236"/>
+  <colors name="ExternalType_color" green="43" blue="60"/>
+  <colors name="ExternalType_border" red="136" green="136" blue="136"/>
+  <colors name="ExternalNamespace_background" red="255" green="255" blue="255"/>
   <colors name="ExternalNamespace_foreground" red="255" green="255" blue="255"/>
-  <colors name="ExternalNamespace_color"/>
-  <colors name="ExternalNamespace_border" red="252" green="175" blue="62"/>
+  <colors name="ExternalNamespace_color" green="43" blue="60"/>
+  <colors name="ExternalNamespace_border" red="136" green="136" blue="136"/>
+  <colors name="ISDLabelAndEdge" green="43" blue="60"/>
   <javaExtensions>org.obeonetwork.dsl.environment.design.services.EnvironmentLabelServices</javaExtensions>
 </classdiagramconf:Configuration>

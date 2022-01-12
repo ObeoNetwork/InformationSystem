@@ -6,7 +6,9 @@
       <metamodel href="http://www.eclipse.org/sirius/diagram/1.1.0#/"/>
       <defaultLayer name="Default">
         <containerMappings name="ND_Namespace" detailDescriptions="//@ownedViewpoints[name='StructuredTypesDiagramTemplate']/@ownedRepresentations[name='{Hierarchy.id}']/@defaultLayer/@toolSections.1/@ownedTools[name='New%20Class%20Diagram']" deletionDescription="//@ownedViewpoints[name='StructuredTypesDiagramTemplate']/@ownedRepresentations[name='{ClassDiagram.id}']/@defaultLayer/@toolSections.5/@ownedTools[name='DEL_Generic']" labelDirectEdit="//@ownedViewpoints[name='StructuredTypesDiagramTemplate']/@ownedRepresentations[name='{Hierarchy.id}']/@defaultLayer/@toolSections.1/@ownedTools[name='Namespace%20Name%20Direct%20Edit']" semanticCandidatesExpression="{Hierarchy.namespaceContainer.semanticCandidates}" doubleClickDescription="//@ownedViewpoints[name='StructuredTypesDiagramTemplate']/@ownedRepresentations[name='{Hierarchy.id}']/@defaultLayer/@toolSections.1/@ownedTools[name='Go%20to%20Class%20Diagram']" domainClass="environment.Namespace" dropDescriptions="//@ownedViewpoints[name='StructuredTypesDiagramTemplate']/@ownedRepresentations[name='{Hierarchy.id}']/@defaultLayer/@toolSections.1/@ownedTools[name='DAD_Namespace']" reusedContainerMappings="//@ownedViewpoints[name='StructuredTypesDiagramTemplate']/@ownedRepresentations[name='{Hierarchy.id}']/@defaultLayer/@containerMappings[name='ND_Namespace']">
-          <style xsi:type="style:FlatContainerStyleDescription" borderSizeComputationExpression="1" borderColor="//@userColorsPalettes[name='Class%20Diagram']/@entries[name='Namespace_border']" labelColor="//@userColorsPalettes[name='Class%20Diagram']/@entries[name='Namespace_color']" backgroundStyle="GradientTopToBottom" backgroundColor="//@userColorsPalettes[name='Class%20Diagram']/@entries[name='Namespace_background']" foregroundColor="//@userColorsPalettes[name='Class%20Diagram']/@entries[name='Namespace_foreground']"/>
+          <style xsi:type="style:FlatContainerStyleDescription" borderSizeComputationExpression="1" borderColor="//@userColorsPalettes[name='Class%20Diagram']/@entries[name='Namespace_border']" labelSize="10" labelColor="//@userColorsPalettes[name='Class%20Diagram']/@entries[name='Namespace_color']" backgroundStyle="GradientTopToBottom" backgroundColor="//@userColorsPalettes[name='Class%20Diagram']/@entries[name='Namespace_background']" foregroundColor="//@userColorsPalettes[name='Class%20Diagram']/@entries[name='Namespace_foreground']">
+            <labelFormat>bold</labelFormat>
+          </style>
         </containerMappings>
         <toolSections name="Namespace" label="{Hierarchy.section.namespace.label}">
           <ownedTools xsi:type="tool:ContainerCreationDescription" name="Namespace" label="{Hierarchy.section.namespace.creation.label}" forceRefresh="true" containerMappings="//@ownedViewpoints[name='StructuredTypesDiagramTemplate']/@ownedRepresentations[name='{Hierarchy.id}']/@defaultLayer/@containerMappings[name='ND_Namespace']">
@@ -15,7 +17,7 @@
             <initialOperation>
               <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:container">
                 <subModelOperations xsi:type="tool_1:CreateInstance" typeName="environment.Namespace" referenceName="{Hierarchy.section.namespace.creation.containmentFeature}">
-                  <subModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="['namespace_' + eContainer().oclAsType(environment::NamespacesContainer).ownedNamespaces->size()/]"/>
+                  <subModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="aql:'namespace_' + self.eContainer(environment::NamespacesContainer).ownedNamespaces->size()/]"/>
                 </subModelOperations>
               </firstModelOperations>
             </initialOperation>
@@ -44,7 +46,7 @@
               </firstModelOperations>
             </initialOperation>
           </ownedTools>
-          <ownedTools xsi:type="tool:ContainerDropDescription" name="DAD_Namespace" precondition="[oclIsKindOf(environment::Namespace)/]" forceRefresh="true" mappings="//@ownedViewpoints[name='StructuredTypesDiagramTemplate']/@ownedRepresentations[name='{Hierarchy.id}']/@defaultLayer/@containerMappings[name='ND_Namespace']" dragSource="BOTH">
+          <ownedTools xsi:type="tool:ContainerDropDescription" name="DAD_Namespace" precondition="aql:self.oclIsKindOf(environment::Namespace)" forceRefresh="true" mappings="//@ownedViewpoints[name='StructuredTypesDiagramTemplate']/@ownedRepresentations[name='{Hierarchy.id}']/@defaultLayer/@containerMappings[name='ND_Namespace']" dragSource="BOTH">
             <oldContainer name="oldSemanticContainer"/>
             <newContainer name="newSemanticContainer"/>
             <element name="element"/>
@@ -52,7 +54,7 @@
             <initialOperation>
               <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:element">
                 <subModelOperations xsi:type="tool_1:Switch">
-                  <cases conditionExpression="[newSemanticContainer.ancestors()->includes(element)/]">
+                  <cases conditionExpression="aql:newSemanticContainer.ancestors()->includes(element)">
                     <subModelOperations xsi:type="tool_1:ChangeContext" browseExpression="service:displayWarningDropNamespaceOnChild()"/>
                   </cases>
                   <default>
@@ -79,29 +81,21 @@
       </defaultLayer>
       <additionalLayers name="Dependencies" activeByDefault="true">
         <edgeMappings name="ND_Dependency" sourceMapping="//@ownedViewpoints[name='StructuredTypesDiagramTemplate']/@ownedRepresentations[name='{Hierarchy.id}']/@defaultLayer/@containerMappings[name='ND_Namespace']" targetMapping="//@ownedViewpoints[name='StructuredTypesDiagramTemplate']/@ownedRepresentations[name='{Hierarchy.id}']/@defaultLayer/@containerMappings[name='ND_Namespace']" targetFinderExpression="aql:self.getDependenciesToNamespaces(diagram)">
-          <style targetArrow="NoDecoration">
-            <strokeColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='gray']"/>
-            <beginLabelStyleDescription showIcon="false">
-              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
-            </beginLabelStyleDescription>
-            <endLabelStyleDescription showIcon="false">
-              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
-            </endLabelStyleDescription>
+          <style strokeColor="//@userColorsPalettes[name='Class%20Diagram']/@entries[name='ISDLabelAndEdge']" targetArrow="NoDecoration">
+            <beginLabelStyleDescription showIcon="false" labelColor="//@userColorsPalettes[name='Class%20Diagram']/@entries[name='ISDLabelAndEdge']"/>
+            <endLabelStyleDescription showIcon="false" labelColor="//@userColorsPalettes[name='Class%20Diagram']/@entries[name='ISDLabelAndEdge']"/>
           </style>
         </edgeMappings>
         <edgeMappings name="ND_Dependency_External" deletionDescription="//@ownedViewpoints[name='StructuredTypesDiagramTemplate']/@ownedRepresentations[name='{Hierarchy.id}']/@defaultLayer/@toolSections.1/@ownedTools[name='DEL_ND_External']" sourceMapping="//@ownedViewpoints[name='StructuredTypesDiagramTemplate']/@ownedRepresentations[name='{Hierarchy.id}']/@defaultLayer/@containerMappings[name='ND_Namespace']" targetMapping="//@ownedViewpoints[name='StructuredTypesDiagramTemplate']/@ownedRepresentations[name='{Hierarchy.id}']/@additionalLayers[name='Dependencies']/@containerMappings[name='ND_Namespace_External']" targetFinderExpression="service:self.getExternalNamespaces()">
-          <style targetArrow="NoDecoration">
-            <strokeColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='gray']"/>
-            <beginLabelStyleDescription showIcon="false">
-              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
-            </beginLabelStyleDescription>
-            <endLabelStyleDescription showIcon="false">
-              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
-            </endLabelStyleDescription>
+          <style strokeColor="//@userColorsPalettes[name='Class%20Diagram']/@entries[name='ISDLabelAndEdge']" targetArrow="NoDecoration">
+            <beginLabelStyleDescription showIcon="false" labelColor="//@userColorsPalettes[name='Class%20Diagram']/@entries[name='ISDLabelAndEdge']"/>
+            <endLabelStyleDescription showIcon="false" labelColor="//@userColorsPalettes[name='Class%20Diagram']/@entries[name='ISDLabelAndEdge']"/>
           </style>
         </edgeMappings>
         <containerMappings name="ND_Namespace_External" deletionDescription="//@ownedViewpoints[name='StructuredTypesDiagramTemplate']/@ownedRepresentations[name='{Hierarchy.id}']/@defaultLayer/@toolSections.1/@ownedTools[name='DEL_ND_External']" semanticCandidatesExpression="service:self.getExternalNamespacesRecursive()" domainClass="environment.Namespace">
-          <style xsi:type="style:FlatContainerStyleDescription" borderSizeComputationExpression="1" borderColor="//@userColorsPalettes[name='Class%20Diagram']/@entries[name='ExternalNamespace_border']" labelExpression="service:self.getEnvironmentQualifiedName()" labelColor="//@userColorsPalettes[name='Class%20Diagram']/@entries[name='ExternalNamespace_color']" backgroundStyle="GradientTopToBottom" backgroundColor="//@userColorsPalettes[name='Class%20Diagram']/@entries[name='ExternalNamespace_background']" foregroundColor="//@userColorsPalettes[name='Class%20Diagram']/@entries[name='ExternalNamespace_foreground']"/>
+          <style xsi:type="style:FlatContainerStyleDescription" borderSizeComputationExpression="1" borderColor="//@userColorsPalettes[name='Class%20Diagram']/@entries[name='ExternalNamespace_border']" labelSize="10" labelExpression="service:self.getEnvironmentQualifiedName()" labelColor="//@userColorsPalettes[name='Class%20Diagram']/@entries[name='ExternalNamespace_color']" backgroundStyle="GradientTopToBottom" backgroundColor="//@userColorsPalettes[name='Class%20Diagram']/@entries[name='ExternalNamespace_background']" foregroundColor="//@userColorsPalettes[name='Class%20Diagram']/@entries[name='ExternalNamespace_foreground']">
+            <labelFormat>bold</labelFormat>
+          </style>
         </containerMappings>
         <customization>
           <vsmElementCustomizations xsi:type="description:VSMElementCustomization" predicateExpression="aql:view.isDependencyBeginDecorated()">
@@ -117,84 +111,67 @@
     </ownedRepresentations>
     <ownedRepresentations xsi:type="description_1:DiagramDescription" dropDescriptions="//@ownedViewpoints[name='StructuredTypesDiagramTemplate']/@ownedRepresentations[name='{ClassDiagram.id}']/@defaultLayer/@toolSections.5/@ownedTools[name='{ClassDiagram.section.usability.dragdrop.structuredtype.id}'] //@ownedViewpoints[name='StructuredTypesDiagramTemplate']/@ownedRepresentations[name='{ClassDiagram.id}']/@defaultLayer/@toolSections.5/@ownedTools[name='DAD_ED_Enumeration'] //@ownedViewpoints[name='StructuredTypesDiagramTemplate']/@ownedRepresentations[name='{ClassDiagram.id}']/@defaultLayer/@toolSections.0/@ownedTools[name='ED_Namespace']" name="{ClassDiagram.id}" label="{ClassDiagram.label}" titleExpression="{ClassDiagram.titleExpression}" domainClass="environment.Namespace" preconditionExpression="{ClassDiagram.precondition}">
       <metamodel href="http://www.obeonetwork.org/dsl/environment/3.0.0#/"/>
-      <metamodel href="http://www.obeonetwork.org/dsl/entity/3.0.0#/"/>
       <defaultLayer name="Default">
         <edgeMappings name="ED_Reference_Type_Type" preconditionExpression="[oppositeOf.oclIsUndefined()/]" labelDirectEdit="//@ownedViewpoints[name='StructuredTypesDiagramTemplate']/@ownedRepresentations[name='{ClassDiagram.id}']/@defaultLayer/@toolSections.5/@ownedTools[name='EDT_ED_Reference']" semanticCandidatesExpression="service:diagram.getReferences()" sourceMapping="//@ownedViewpoints[name='StructuredTypesDiagramTemplate']/@ownedRepresentations[name='{ClassDiagram.id}']/@defaultLayer/@containerMappings[name='{ClassDiagram.StructuredTypeMapping.id}'] //@ownedViewpoints[name='StructuredTypesDiagramTemplate']/@ownedRepresentations[name='{ClassDiagram.id}']/@additionalLayers[name='{ClassDiagram.ExternalTypesLayer.label}']/@containerMappings[name='ED_ExternalStructuredType_Referenced'] //@ownedViewpoints[name='StructuredTypesDiagramTemplate']/@ownedRepresentations[name='{ClassDiagram.id}']/@additionalLayers[name='{ClassDiagram.ExternalTypesLayer.label}']/@containerMappings[name='ED_ExternalStructuredType_NotReferenced']" targetMapping="//@ownedViewpoints[name='StructuredTypesDiagramTemplate']/@ownedRepresentations[name='{ClassDiagram.id}']/@defaultLayer/@containerMappings[name='{ClassDiagram.StructuredTypeMapping.id}'] //@ownedViewpoints[name='StructuredTypesDiagramTemplate']/@ownedRepresentations[name='{ClassDiagram.id}']/@additionalLayers[name='{ClassDiagram.ExternalTypesLayer.label}']/@containerMappings[name='ED_ExternalStructuredType_Referenced'] //@ownedViewpoints[name='StructuredTypesDiagramTemplate']/@ownedRepresentations[name='{ClassDiagram.id}']/@additionalLayers[name='{ClassDiagram.ExternalTypesLayer.label}']/@containerMappings[name='ED_ExternalStructuredType_NotReferenced']" targetFinderExpression="feature:referencedType" sourceFinderExpression="feature:containingType" domainClass="environment.Reference" useDomainElement="true" reconnections="//@ownedViewpoints[name='StructuredTypesDiagramTemplate']/@ownedRepresentations[name='{ClassDiagram.id}']/@defaultLayer/@toolSections.5/@ownedTools[name='REC_ED_Reference_Target'] //@ownedViewpoints[name='StructuredTypesDiagramTemplate']/@ownedRepresentations[name='{ClassDiagram.id}']/@defaultLayer/@toolSections.5/@ownedTools[name='REC_ED_Reference_Source']">
-          <style targetArrow="NoDecoration">
-            <strokeColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='gray']"/>
-            <centerLabelStyleDescription showIcon="false" labelExpression="[name + ' [' + multiplicity.toString() + ']'/]">
-              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
-            </centerLabelStyleDescription>
+          <style strokeColor="//@userColorsPalettes[name='Class%20Diagram']/@entries[name='ISDLabelAndEdge']" targetArrow="NoDecoration">
+            <centerLabelStyleDescription showIcon="false" labelExpression="[name + ' [' + multiplicity.toString() + ']'/]" labelColor="//@userColorsPalettes[name='Class%20Diagram']/@entries[name='ISDLabelAndEdge']"/>
           </style>
           <conditionnalStyles predicateExpression="feature:isComposite">
-            <style sourceArrow="Diamond">
-              <strokeColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='gray']"/>
-              <centerLabelStyleDescription showIcon="false" labelExpression="[name + ' [' + multiplicity.toString() + ']'/]">
-                <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
-              </centerLabelStyleDescription>
+            <style strokeColor="//@userColorsPalettes[name='Class%20Diagram']/@entries[name='ISDLabelAndEdge']" sourceArrow="Diamond">
+              <centerLabelStyleDescription showIcon="false" labelExpression="[name + ' [' + multiplicity.toString() + ']'/]" labelColor="//@userColorsPalettes[name='Class%20Diagram']/@entries[name='ISDLabelAndEdge']"/>
             </style>
           </conditionnalStyles>
           <conditionnalStyles predicateExpression="feature:navigable">
-            <style>
-              <strokeColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='gray']"/>
-              <centerLabelStyleDescription showIcon="false" labelExpression="[name + ' [' + multiplicity.toString() + ']'/]">
-                <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
-              </centerLabelStyleDescription>
+            <style strokeColor="//@userColorsPalettes[name='Class%20Diagram']/@entries[name='ISDLabelAndEdge']">
+              <centerLabelStyleDescription showIcon="false" labelExpression="[name + ' [' + multiplicity.toString() + ']'/]" labelColor="//@userColorsPalettes[name='Class%20Diagram']/@entries[name='ISDLabelAndEdge']"/>
             </style>
           </conditionnalStyles>
         </edgeMappings>
         <edgeMappings name="ED_Inheritance_Type_Type" deletionDescription="//@ownedViewpoints[name='StructuredTypesDiagramTemplate']/@ownedRepresentations[name='{ClassDiagram.id}']/@defaultLayer/@toolSections.5/@ownedTools[name='DEL_ED_Inheritance']" sourceMapping="//@ownedViewpoints[name='StructuredTypesDiagramTemplate']/@ownedRepresentations[name='{ClassDiagram.id}']/@defaultLayer/@containerMappings[name='{ClassDiagram.StructuredTypeMapping.id}'] //@ownedViewpoints[name='StructuredTypesDiagramTemplate']/@ownedRepresentations[name='{ClassDiagram.id}']/@additionalLayers[name='{ClassDiagram.ExternalTypesLayer.label}']/@containerMappings[name='ED_ExternalStructuredType_NotReferenced'] //@ownedViewpoints[name='StructuredTypesDiagramTemplate']/@ownedRepresentations[name='{ClassDiagram.id}']/@additionalLayers[name='{ClassDiagram.ExternalTypesLayer.label}']/@containerMappings[name='ED_ExternalStructuredType_Referenced']" targetMapping="//@ownedViewpoints[name='StructuredTypesDiagramTemplate']/@ownedRepresentations[name='{ClassDiagram.id}']/@defaultLayer/@containerMappings[name='{ClassDiagram.StructuredTypeMapping.id}'] //@ownedViewpoints[name='StructuredTypesDiagramTemplate']/@ownedRepresentations[name='{ClassDiagram.id}']/@additionalLayers[name='{ClassDiagram.ExternalTypesLayer.label}']/@containerMappings[name='ED_ExternalStructuredType_NotReferenced'] //@ownedViewpoints[name='StructuredTypesDiagramTemplate']/@ownedRepresentations[name='{ClassDiagram.id}']/@additionalLayers[name='{ClassDiagram.ExternalTypesLayer.label}']/@containerMappings[name='ED_ExternalStructuredType_Referenced']" targetFinderExpression="feature:supertype" reconnections="//@ownedViewpoints[name='StructuredTypesDiagramTemplate']/@ownedRepresentations[name='{ClassDiagram.id}']/@defaultLayer/@toolSections.5/@ownedTools[name='REC_ED_Inheritance_Target'] //@ownedViewpoints[name='StructuredTypesDiagramTemplate']/@ownedRepresentations[name='{ClassDiagram.id}']/@defaultLayer/@toolSections.5/@ownedTools[name='REC_ED_Inheritance_Source']">
-          <style targetArrow="InputClosedArrow">
-            <strokeColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='gray']"/>
-            <centerLabelStyleDescription showIcon="false">
-              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
-            </centerLabelStyleDescription>
+          <style strokeColor="//@userColorsPalettes[name='Class%20Diagram']/@entries[name='ISDLabelAndEdge']" targetArrow="InputClosedArrow">
+            <centerLabelStyleDescription showIcon="false" labelColor="//@userColorsPalettes[name='Class%20Diagram']/@entries[name='ISDLabelAndEdge']"/>
           </style>
         </edgeMappings>
         <edgeMappings name="ED_BidiReference_Type_Type" deletionDescription="//@ownedViewpoints[name='StructuredTypesDiagramTemplate']/@ownedRepresentations[name='{ClassDiagram.id}']/@defaultLayer/@toolSections.5/@ownedTools[name='DEL_ED_BidiReference']" labelDirectEdit="//@ownedViewpoints[name='StructuredTypesDiagramTemplate']/@ownedRepresentations[name='{ClassDiagram.id}']/@defaultLayer/@toolSections.5/@ownedTools[name='EDT_ED_BidiReference']" semanticCandidatesExpression="service:diagram.getOppositeReferences()" semanticElements="[self->asSequence()->including(oppositeOf)/]" sourceMapping="//@ownedViewpoints[name='StructuredTypesDiagramTemplate']/@ownedRepresentations[name='{ClassDiagram.id}']/@defaultLayer/@containerMappings[name='{ClassDiagram.StructuredTypeMapping.id}'] //@ownedViewpoints[name='StructuredTypesDiagramTemplate']/@ownedRepresentations[name='{ClassDiagram.id}']/@additionalLayers[name='{ClassDiagram.ExternalTypesLayer.label}']/@containerMappings[name='ED_ExternalStructuredType_Referenced'] //@ownedViewpoints[name='StructuredTypesDiagramTemplate']/@ownedRepresentations[name='{ClassDiagram.id}']/@additionalLayers[name='{ClassDiagram.ExternalTypesLayer.label}']/@containerMappings[name='ED_ExternalStructuredType_NotReferenced']" targetMapping="//@ownedViewpoints[name='StructuredTypesDiagramTemplate']/@ownedRepresentations[name='{ClassDiagram.id}']/@defaultLayer/@containerMappings[name='{ClassDiagram.StructuredTypeMapping.id}'] //@ownedViewpoints[name='StructuredTypesDiagramTemplate']/@ownedRepresentations[name='{ClassDiagram.id}']/@additionalLayers[name='{ClassDiagram.ExternalTypesLayer.label}']/@containerMappings[name='ED_ExternalStructuredType_Referenced'] //@ownedViewpoints[name='StructuredTypesDiagramTemplate']/@ownedRepresentations[name='{ClassDiagram.id}']/@additionalLayers[name='{ClassDiagram.ExternalTypesLayer.label}']/@containerMappings[name='ED_ExternalStructuredType_NotReferenced']" targetFinderExpression="feature:referencedType" sourceFinderExpression="feature:containingType" domainClass="environment.Reference" useDomainElement="true" reconnections="//@ownedViewpoints[name='StructuredTypesDiagramTemplate']/@ownedRepresentations[name='{ClassDiagram.id}']/@defaultLayer/@toolSections.5/@ownedTools[name='REC_ED_BidiReference_Target'] //@ownedViewpoints[name='StructuredTypesDiagramTemplate']/@ownedRepresentations[name='{ClassDiagram.id}']/@defaultLayer/@toolSections.5/@ownedTools[name='REC_ED_BidiReference_Source']">
-          <style targetArrow="NoDecoration">
-            <strokeColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='gray']"/>
-            <beginLabelStyleDescription showIcon="false" labelExpression="[oppositeOf.name + ' [' + oppositeOf.multiplicity.toString() + ']'/]">
-              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
-            </beginLabelStyleDescription>
-            <centerLabelStyleDescription showIcon="false">
-              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
-            </centerLabelStyleDescription>
-            <endLabelStyleDescription showIcon="false" labelExpression="[name + ' [' + multiplicity.toString() + ']'/]">
-              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
-            </endLabelStyleDescription>
+          <style strokeColor="//@userColorsPalettes[name='Class%20Diagram']/@entries[name='ISDLabelAndEdge']" targetArrow="NoDecoration">
+            <beginLabelStyleDescription showIcon="false" labelExpression="[oppositeOf.name + ' [' + oppositeOf.multiplicity.toString() + ']'/]" labelColor="//@userColorsPalettes[name='Class%20Diagram']/@entries[name='ISDLabelAndEdge']"/>
+            <centerLabelStyleDescription showIcon="false" labelColor="//@userColorsPalettes[name='Class%20Diagram']/@entries[name='ISDLabelAndEdge']"/>
+            <endLabelStyleDescription showIcon="false" labelExpression="[name + ' [' + multiplicity.toString() + ']'/]" labelColor="//@userColorsPalettes[name='Class%20Diagram']/@entries[name='ISDLabelAndEdge']"/>
           </style>
         </edgeMappings>
         <containerMappings name="ED_Namespace" detailDescriptions="//@ownedViewpoints[name='StructuredTypesDiagramTemplate']/@ownedRepresentations[name='{ClassDiagram.id}']/@defaultLayer/@toolSections.0/@ownedTools[name='New%20Class%20Diagram']" deletionDescription="//@ownedViewpoints[name='StructuredTypesDiagramTemplate']/@ownedRepresentations[name='{ClassDiagram.id}']/@defaultLayer/@toolSections.5/@ownedTools[name='DEL_Generic']" labelDirectEdit="//@ownedViewpoints[name='StructuredTypesDiagramTemplate']/@ownedRepresentations[name='{ClassDiagram.id}']/@defaultLayer/@toolSections.5/@ownedTools[name='EDT_Generic']" semanticCandidatesExpression="feature:ownedNamespaces" doubleClickDescription="//@ownedViewpoints[name='StructuredTypesDiagramTemplate']/@ownedRepresentations[name='{ClassDiagram.id}']/@defaultLayer/@toolSections.0/@ownedTools[name='Go%20to%20Class%20Diagram']" domainClass="environment.Namespace">
-          <style xsi:type="style:FlatContainerStyleDescription" borderSizeComputationExpression="1" borderColor="//@userColorsPalettes[name='Class%20Diagram']/@entries[name='Namespace_border']" labelColor="//@userColorsPalettes[name='Class%20Diagram']/@entries[name='Namespace_color']" backgroundStyle="GradientTopToBottom" backgroundColor="//@userColorsPalettes[name='Class%20Diagram']/@entries[name='Namespace_background']" foregroundColor="//@userColorsPalettes[name='Class%20Diagram']/@entries[name='Namespace_foreground']"/>
+          <style xsi:type="style:FlatContainerStyleDescription" borderSizeComputationExpression="1" borderColor="//@userColorsPalettes[name='Class%20Diagram']/@entries[name='Namespace_border']" labelSize="10" labelColor="//@userColorsPalettes[name='Class%20Diagram']/@entries[name='Namespace_color']" backgroundStyle="GradientTopToBottom" backgroundColor="//@userColorsPalettes[name='Class%20Diagram']/@entries[name='Namespace_background']" foregroundColor="//@userColorsPalettes[name='Class%20Diagram']/@entries[name='Namespace_foreground']">
+            <labelFormat>bold</labelFormat>
+          </style>
         </containerMappings>
         <containerMappings name="{ClassDiagram.StructuredTypeMapping.id}" label="{ClassDiagram.StructuredTypeMapping.label}" deletionDescription="//@ownedViewpoints[name='StructuredTypesDiagramTemplate']/@ownedRepresentations[name='{ClassDiagram.id}']/@defaultLayer/@toolSections.5/@ownedTools[name='DEL_Generic']" labelDirectEdit="//@ownedViewpoints[name='StructuredTypesDiagramTemplate']/@ownedRepresentations[name='{ClassDiagram.id}']/@defaultLayer/@toolSections.5/@ownedTools[name='EDT_Generic']" semanticCandidatesExpression="feature:types" domainClass="{ClassDiagram.StructuredTypeMapping.domainClass}" dropDescriptions="//@ownedViewpoints[name='StructuredTypesDiagramTemplate']/@ownedRepresentations[name='{ClassDiagram.id}']/@defaultLayer/@toolSections.5/@ownedTools[name='DAD_ED_Attribute']" childrenPresentation="List">
           <subNodeMappings name="ED_Attribute" labelDirectEdit="//@ownedViewpoints[name='StructuredTypesDiagramTemplate']/@ownedRepresentations[name='{ClassDiagram.id}']/@defaultLayer/@toolSections.5/@ownedTools[name='EDT_ED_Attribute']" semanticCandidatesExpression="feature:ownedAttributes" domainClass="environment.Attribute">
-            <style xsi:type="style:SquareDescription" labelExpression="service:self.getEnvironmentLabel()" labelAlignment="LEFT">
+            <style xsi:type="style:SquareDescription" labelExpression="service:self.getEnvironmentLabel()" labelColor="//@userColorsPalettes[name='Class%20Diagram']/@entries[name='StructuredType_color']" labelAlignment="LEFT">
               <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
-              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
               <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='gray']"/>
             </style>
           </subNodeMappings>
           <subNodeMappings name="ED_AssociatedAttribute" deletionDescription="//@ownedViewpoints[name='StructuredTypesDiagramTemplate']/@ownedRepresentations[name='{ClassDiagram.id}']/@defaultLayer/@toolSections.5/@ownedTools[name='DEL_PreventDeletion']" semanticCandidatesExpression="service:getAssociatedTypesAttributes()" domainClass="environment.Attribute">
-            <style xsi:type="style:SquareDescription" labelExpression="service:self.getEnvironmentLabel()" labelAlignment="LEFT">
+            <style xsi:type="style:SquareDescription" labelExpression="service:self.getEnvironmentLabel()" labelColor="//@userColorsPalettes[name='Class%20Diagram']/@entries[name='StructuredType_color']" labelAlignment="LEFT">
               <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
               <labelFormat>italic</labelFormat>
-              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
               <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='gray']"/>
             </style>
           </subNodeMappings>
-          <style xsi:type="style:FlatContainerStyleDescription" borderSizeComputationExpression="1" borderColor="//@userColorsPalettes[name='Class%20Diagram']/@entries[name='StructuredType_border']" labelSize="10" labelExpression="service:self.getEnvironmentLabel()" labelColor="//@userColorsPalettes[name='Class%20Diagram']/@entries[name='StructuredType_color']" backgroundStyle="GradientTopToBottom" backgroundColor="//@userColorsPalettes[name='Class%20Diagram']/@entries[name='StructuredType_background']" foregroundColor="//@userColorsPalettes[name='Class%20Diagram']/@entries[name='StructuredType_foreground']"/>
+          <style xsi:type="style:FlatContainerStyleDescription" borderSizeComputationExpression="1" borderColor="//@userColorsPalettes[name='Class%20Diagram']/@entries[name='StructuredType_border']" labelSize="10" labelExpression="service:self.getEnvironmentLabel()" labelColor="//@userColorsPalettes[name='Class%20Diagram']/@entries[name='StructuredType_color']" backgroundStyle="GradientTopToBottom" backgroundColor="//@userColorsPalettes[name='Class%20Diagram']/@entries[name='StructuredType_background']" foregroundColor="//@userColorsPalettes[name='Class%20Diagram']/@entries[name='StructuredType_foreground']">
+            <labelFormat>bold</labelFormat>
+          </style>
         </containerMappings>
         <containerMappings name="ED_Enumeration" deletionDescription="//@ownedViewpoints[name='StructuredTypesDiagramTemplate']/@ownedRepresentations[name='{ClassDiagram.id}']/@defaultLayer/@toolSections.5/@ownedTools[name='DEL_Generic']" labelDirectEdit="//@ownedViewpoints[name='StructuredTypesDiagramTemplate']/@ownedRepresentations[name='{ClassDiagram.id}']/@defaultLayer/@toolSections.5/@ownedTools[name='EDT_Generic']" semanticCandidatesExpression="feature:types" domainClass="environment.Enumeration" dropDescriptions="//@ownedViewpoints[name='StructuredTypesDiagramTemplate']/@ownedRepresentations[name='{ClassDiagram.id}']/@defaultLayer/@toolSections.5/@ownedTools[name='DAD_ED_Literal']" childrenPresentation="List">
           <subNodeMappings name="ED_Literal" labelDirectEdit="//@ownedViewpoints[name='StructuredTypesDiagramTemplate']/@ownedRepresentations[name='{ClassDiagram.id}']/@defaultLayer/@toolSections.5/@ownedTools[name='EDT_Generic']" semanticCandidatesExpression="feature:literals" domainClass="environment.Literal">
-            <style xsi:type="style:SquareDescription" labelAlignment="LEFT">
+            <style xsi:type="style:SquareDescription" labelColor="//@userColorsPalettes[name='Class%20Diagram']/@entries[name='Enumeration_color']" labelAlignment="LEFT">
               <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
-              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
               <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='gray']"/>
             </style>
           </subNodeMappings>
-          <style xsi:type="style:FlatContainerStyleDescription" borderSizeComputationExpression="1" borderColor="//@userColorsPalettes[name='Class%20Diagram']/@entries[name='Enumeration_border']" labelSize="10" labelColor="//@userColorsPalettes[name='Class%20Diagram']/@entries[name='Enumeration_color']" backgroundStyle="GradientTopToBottom" backgroundColor="//@userColorsPalettes[name='Class%20Diagram']/@entries[name='Enumeration_background']" foregroundColor="//@userColorsPalettes[name='Class%20Diagram']/@entries[name='Enumeration_foreground']"/>
+          <style xsi:type="style:FlatContainerStyleDescription" borderSizeComputationExpression="1" borderColor="//@userColorsPalettes[name='Class%20Diagram']/@entries[name='Enumeration_border']" labelSize="10" labelColor="//@userColorsPalettes[name='Class%20Diagram']/@entries[name='Enumeration_color']" backgroundStyle="GradientTopToBottom" backgroundColor="//@userColorsPalettes[name='Class%20Diagram']/@entries[name='Enumeration_background']" foregroundColor="//@userColorsPalettes[name='Class%20Diagram']/@entries[name='Enumeration_foreground']">
+            <labelFormat>bold</labelFormat>
+          </style>
         </containerMappings>
         <toolSections name="Namespace" label="{ClassDiagram.section.namespace.label}">
           <ownedTools xsi:type="tool:ContainerCreationDescription" name="Namespace" label="{ClassDiagram.section.namespace.creation.label}" forceRefresh="true" containerMappings="//@ownedViewpoints[name='StructuredTypesDiagramTemplate']/@ownedRepresentations[name='{ClassDiagram.id}']/@defaultLayer/@containerMappings[name='ED_Namespace']">
@@ -282,7 +259,7 @@
             </initialOperation>
           </ownedTools>
         </toolSections>
-        <toolSections name=" {ClassDiagram.section.enumeration.label}">
+        <toolSections name="{ClassDiagram.section.enumeration.label}">
           <ownedTools xsi:type="tool:ContainerCreationDescription" name="Enumeration" forceRefresh="true" containerMappings="//@ownedViewpoints[name='StructuredTypesDiagramTemplate']/@ownedRepresentations[name='{ClassDiagram.id}']/@defaultLayer/@containerMappings[name='ED_Enumeration']">
             <variable name="container"/>
             <viewVariable name="containerView"/>
@@ -300,13 +277,13 @@
             <initialOperation>
               <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:container">
                 <subModelOperations xsi:type="tool_1:CreateInstance" typeName="environment.Literal" referenceName="literals">
-                  <subModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="['literal' + eContainer().oclAsType(environment::Enumeration).literals->size()/]"/>
+                  <subModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="aql:'literal' + self.eContainer().literals->size()"/>
                 </subModelOperations>
               </firstModelOperations>
             </initialOperation>
           </ownedTools>
         </toolSections>
-        <toolSections name=" {ClassDiagram.section.relation.label}">
+        <toolSections name="{ClassDiagram.section.relation.label}">
           <ownedTools xsi:type="tool:EdgeCreationDescription" name="Relation" forceRefresh="true" edgeMappings="//@ownedViewpoints[name='StructuredTypesDiagramTemplate']/@ownedRepresentations[name='{ClassDiagram.id}']/@defaultLayer/@edgeMappings[name='ED_Reference_Type_Type']" generatorOptionalNode="{ClassDiagram.section.relation.enableRelation}">
             <sourceVariable name="source"/>
             <targetVariable name="target"/>
@@ -612,24 +589,27 @@
       <additionalLayers name="{ClassDiagram.ExternalTypesLayer.label}" activeByDefault="true">
         <containerMappings name="ED_ExternalStructuredType_Referenced" detailDescriptions="//@ownedViewpoints[name='StructuredTypesDiagramTemplate']/@ownedRepresentations[name='{ClassDiagram.id}']/@additionalLayers[name='{ClassDiagram.ExternalTypesLayer.label}']/@toolSections.1/@ownedTools[name='New%20external%20Entities%20diagram']" navigationDescriptions="//@ownedViewpoints[name='StructuredTypesDiagramTemplate']/@ownedRepresentations[name='{ClassDiagram.id}']/@additionalLayers[name='{ClassDiagram.ExternalTypesLayer.label}']/@toolSections.1/@ownedTools[name='Go%20to%20external%20Entities%20diagram']" deletionDescription="//@ownedViewpoints[name='StructuredTypesDiagramTemplate']/@ownedRepresentations[name='{ClassDiagram.id}']/@defaultLayer/@toolSections.5/@ownedTools[name='DEL_PreventDeletion']" semanticCandidatesExpression="service:self.getAllReferencedStructuredTypes(diagram)" doubleClickDescription="//@ownedViewpoints[name='StructuredTypesDiagramTemplate']/@ownedRepresentations[name='{ClassDiagram.id}']/@additionalLayers[name='{ClassDiagram.ExternalTypesLayer.label}']/@toolSections.1/@ownedTools[name='DBL_Go%20to%20external%20class%20diagram']" domainClass="{ClassDiagram.StructuredTypeMapping.domainClass}" childrenPresentation="List">
           <subNodeMappings name="ED_ExternalAttribute" detailDescriptions="//@ownedViewpoints[name='StructuredTypesDiagramTemplate']/@ownedRepresentations[name='{ClassDiagram.id}']/@additionalLayers[name='{ClassDiagram.ExternalTypesLayer.label}']/@toolSections.1/@ownedTools[name='New%20external%20Entities%20diagram']" navigationDescriptions="//@ownedViewpoints[name='StructuredTypesDiagramTemplate']/@ownedRepresentations[name='{ClassDiagram.id}']/@additionalLayers[name='{ClassDiagram.ExternalTypesLayer.label}']/@toolSections.1/@ownedTools[name='Go%20to%20external%20Entities%20diagram']" deletionDescription="//@ownedViewpoints[name='StructuredTypesDiagramTemplate']/@ownedRepresentations[name='{ClassDiagram.id}']/@defaultLayer/@toolSections.5/@ownedTools[name='DEL_PreventDeletion']" semanticCandidatesExpression="feature:ownedAttributes" doubleClickDescription="//@ownedViewpoints[name='StructuredTypesDiagramTemplate']/@ownedRepresentations[name='{ClassDiagram.id}']/@additionalLayers[name='{ClassDiagram.ExternalTypesLayer.label}']/@toolSections.1/@ownedTools[name='DBL_Go%20to%20external%20class%20diagram']" domainClass="environment.Attribute">
-            <style xsi:type="style:SquareDescription" labelExpression="service:self.getEnvironmentLabel()" labelAlignment="LEFT">
+            <style xsi:type="style:SquareDescription" labelExpression="service:self.getEnvironmentLabel()" labelColor="//@userColorsPalettes[name='Class%20Diagram']/@entries[name='ExternalType_color']" labelAlignment="LEFT">
               <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
-              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
               <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='gray']"/>
             </style>
           </subNodeMappings>
-          <subNodeMappings name="ED_ExternalAssociatedAttribute" detailDescriptions="//@ownedViewpoints[name='StructuredTypesDiagramTemplate']/@ownedRepresentations[name='{ClassDiagram.id}']/@additionalLayers[name='{ClassDiagram.ExternalTypesLayer.label}']/@toolSections.1/@ownedTools[name='New%20external%20Entities%20diagram']" navigationDescriptions="//@ownedViewpoints[name='StructuredTypesDiagramTemplate']/@ownedRepresentations[name='{ClassDiagram.id}']/@additionalLayers[name='{ClassDiagram.ExternalTypesLayer.label}']/@toolSections.1/@ownedTools[name='Go%20to%20external%20Entities%20diagram']" deletionDescription="//@ownedViewpoints[name='StructuredTypesDiagramTemplate']/@ownedRepresentations[name='{ClassDiagram.id}']/@defaultLayer/@toolSections.5/@ownedTools[name='DEL_PreventDeletion']" semanticCandidatesExpression="[associatedTypes.attributes/]" doubleClickDescription="//@ownedViewpoints[name='StructuredTypesDiagramTemplate']/@ownedRepresentations[name='{ClassDiagram.id}']/@additionalLayers[name='{ClassDiagram.ExternalTypesLayer.label}']/@toolSections.1/@ownedTools[name='DBL_Go%20to%20external%20class%20diagram']" domainClass="environment.Attribute">
-            <style xsi:type="style:SquareDescription" labelExpression="service:self.getEnvironmentLabel()" labelAlignment="LEFT">
+          <subNodeMappings name="ED_ExternalAssociatedAttribute" detailDescriptions="//@ownedViewpoints[name='StructuredTypesDiagramTemplate']/@ownedRepresentations[name='{ClassDiagram.id}']/@additionalLayers[name='{ClassDiagram.ExternalTypesLayer.label}']/@toolSections.1/@ownedTools[name='New%20external%20Entities%20diagram']" navigationDescriptions="//@ownedViewpoints[name='StructuredTypesDiagramTemplate']/@ownedRepresentations[name='{ClassDiagram.id}']/@additionalLayers[name='{ClassDiagram.ExternalTypesLayer.label}']/@toolSections.1/@ownedTools[name='Go%20to%20external%20Entities%20diagram']" deletionDescription="//@ownedViewpoints[name='StructuredTypesDiagramTemplate']/@ownedRepresentations[name='{ClassDiagram.id}']/@defaultLayer/@toolSections.5/@ownedTools[name='DEL_PreventDeletion']" semanticCandidatesExpression="service:getAssociatedTypesAttributes()" doubleClickDescription="//@ownedViewpoints[name='StructuredTypesDiagramTemplate']/@ownedRepresentations[name='{ClassDiagram.id}']/@additionalLayers[name='{ClassDiagram.ExternalTypesLayer.label}']/@toolSections.1/@ownedTools[name='DBL_Go%20to%20external%20class%20diagram']" domainClass="environment.Attribute">
+            <style xsi:type="style:SquareDescription" labelExpression="service:self.getEnvironmentLabel()" labelColor="//@userColorsPalettes[name='Class%20Diagram']/@entries[name='ExternalType_color']" labelAlignment="LEFT">
               <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
               <labelFormat>italic</labelFormat>
-              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
               <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='gray']"/>
             </style>
           </subNodeMappings>
-          <style xsi:type="style:FlatContainerStyleDescription" borderSizeComputationExpression="1" borderColor="//@userColorsPalettes[name='Class%20Diagram']/@entries[name='ExternalType_border']" showIcon="false" labelExpression="service:getEnvironmentQualifiedName()" labelColor="//@userColorsPalettes[name='Class%20Diagram']/@entries[name='ExternalType_color']" backgroundColor="//@userColorsPalettes[name='Class%20Diagram']/@entries[name='ExternalType_background']" foregroundColor="//@userColorsPalettes[name='Class%20Diagram']/@entries[name='ExternalType_foreground']"/>
+          <style xsi:type="style:FlatContainerStyleDescription" borderSizeComputationExpression="1" borderColor="//@userColorsPalettes[name='Class%20Diagram']/@entries[name='ExternalType_border']" labelSize="10" labelExpression="service:getEnvironmentQualifiedName()" labelColor="//@userColorsPalettes[name='Class%20Diagram']/@entries[name='ExternalType_color']" backgroundColor="//@userColorsPalettes[name='Class%20Diagram']/@entries[name='ExternalType_background']" foregroundColor="//@userColorsPalettes[name='Class%20Diagram']/@entries[name='ExternalType_foreground']">
+            <labelFormat>bold</labelFormat>
+          </style>
         </containerMappings>
         <containerMappings name="ED_ExternalStructuredType_NotReferenced" detailDescriptions="//@ownedViewpoints[name='StructuredTypesDiagramTemplate']/@ownedRepresentations[name='{ClassDiagram.id}']/@additionalLayers[name='{ClassDiagram.ExternalTypesLayer.label}']/@toolSections.1/@ownedTools[name='New%20external%20Entities%20diagram']" navigationDescriptions="//@ownedViewpoints[name='StructuredTypesDiagramTemplate']/@ownedRepresentations[name='{ClassDiagram.id}']/@additionalLayers[name='{ClassDiagram.ExternalTypesLayer.label}']/@toolSections.1/@ownedTools[name='Go%20to%20external%20Entities%20diagram']" deletionDescription="//@ownedViewpoints[name='StructuredTypesDiagramTemplate']/@ownedRepresentations[name='{ClassDiagram.id}']/@additionalLayers[name='{ClassDiagram.ExternalTypesLayer.label}']/@toolSections.1/@ownedTools[name='DEL_ED_ExternalStructuredType_NotReferenced']" semanticCandidatesExpression="service:self.getAllNotReferencedStructuredTypes(diagram)" createElements="false" doubleClickDescription="//@ownedViewpoints[name='StructuredTypesDiagramTemplate']/@ownedRepresentations[name='{ClassDiagram.id}']/@additionalLayers[name='{ClassDiagram.ExternalTypesLayer.label}']/@toolSections.1/@ownedTools[name='DBL_Go%20to%20external%20class%20diagram']" domainClass="{ClassDiagram.StructuredTypeMapping.domainClass}" reusedNodeMappings="//@ownedViewpoints[name='StructuredTypesDiagramTemplate']/@ownedRepresentations[name='{ClassDiagram.id}']/@defaultLayer/@containerMappings[name='{ClassDiagram.StructuredTypeMapping.id}']/@subNodeMappings[name='ED_Attribute'] //@ownedViewpoints[name='StructuredTypesDiagramTemplate']/@ownedRepresentations[name='{ClassDiagram.id}']/@defaultLayer/@containerMappings[name='{ClassDiagram.StructuredTypeMapping.id}']/@subNodeMappings[name='ED_AssociatedAttribute']" childrenPresentation="List">
-          <style xsi:type="style:FlatContainerStyleDescription" borderSizeComputationExpression="1" borderColor="//@userColorsPalettes[name='Class%20Diagram']/@entries[name='ExternalType_border']" showIcon="false" labelExpression="service:getEnvironmentQualifiedName()" labelColor="//@userColorsPalettes[name='Class%20Diagram']/@entries[name='ExternalType_color']" backgroundColor="//@userColorsPalettes[name='Class%20Diagram']/@entries[name='ExternalType_background']" foregroundColor="//@userColorsPalettes[name='Class%20Diagram']/@entries[name='ExternalType_foreground']"/>
+          <style xsi:type="style:FlatContainerStyleDescription" borderSizeComputationExpression="1" labelSize="10" labelExpression="service:getEnvironmentQualifiedName()" labelColor="//@userColorsPalettes[name='Class%20Diagram']/@entries[name='ExternalType_color']" backgroundColor="//@userColorsPalettes[name='Class%20Diagram']/@entries[name='ExternalType_background']" foregroundColor="//@userColorsPalettes[name='Class%20Diagram']/@entries[name='ExternalType_foreground']">
+            <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_orange']"/>
+            <labelFormat>bold</labelFormat>
+          </style>
         </containerMappings>
         <toolSections name="{ClassDiagram.ExternalTypesLayer.label}">
           <ownedTools xsi:type="tool_1:SelectionWizardDescription" name="{ClassDiagram.ExternalTypesLayer.section.creation.externalType.id}" label="{ClassDiagram.ExternalTypesLayer.section.creation.externalType.label}" precondition="[oclIsKindOf(environment::Namespace)/]" forceRefresh="true" candidatesExpression="{ClassDiagram.ExternalTypesLayer.section.creation.externalType.candidatesExpression}" multiple="true" tree="true" rootExpression="{ClassDiagram.ExternalTypesLayer.section.creation.externalType.rootExpression}" childrenExpression="feature:eContents" message="{ClassDiagram.ExternalTypesLayer.section.creation.externalType.message}" iconPath="/org.obeonetwork.dsl.entity.edit/icons/full/obj16/Entity.gif">
@@ -680,33 +660,36 @@
         </toolSections>
       </additionalLayers>
     </ownedRepresentations>
-    <ownedJavaExtensions qualifiedClassName="org.obeonetwork.dsl.environment.design.services.TypesServices"/>
-    <ownedJavaExtensions qualifiedClassName="org.obeonetwork.dsl.environment.design.services.ReferencesService"/>
-    <ownedJavaExtensions qualifiedClassName="org.obeonetwork.dsl.environment.design.services.PropertiesServices"/>
     <ownedJavaExtensions qualifiedClassName="org.obeonetwork.dsl.environment.design.services.DeleteServices"/>
-    <ownedJavaExtensions qualifiedClassName="org.obeonetwork.dsl.environment.design.services.UIServices"/>
     <ownedJavaExtensions qualifiedClassName="org.obeonetwork.dsl.environment.design.services.DesignServices"/>
+    <ownedJavaExtensions qualifiedClassName="org.obeonetwork.dsl.environment.design.services.EnvironmentLabelServices"/>
+    <ownedJavaExtensions qualifiedClassName="org.obeonetwork.utils.sirius.services.EObjectUtils"/>
+    <ownedJavaExtensions qualifiedClassName="org.obeonetwork.dsl.environment.design.services.PropertiesServices"/>
+    <ownedJavaExtensions qualifiedClassName="org.obeonetwork.dsl.environment.design.services.ReferencesService"/>
+    <ownedJavaExtensions qualifiedClassName="org.obeonetwork.dsl.environment.design.services.TypesServices"/>
+    <ownedJavaExtensions qualifiedClassName="org.obeonetwork.dsl.environment.design.services.UIServices"/>
   </ownedViewpoints>
   <userColorsPalettes name="Class Diagram">
-    <entries xsi:type="description:UserFixedColor" red="209" green="209" blue="209" name="Namespace_background"/>
-    <entries xsi:type="description:UserFixedColor" red="255" green="255" blue="255" name="Namespace_foreground"/>
-    <entries xsi:type="description:UserFixedColor" red="0" green="0" blue="0" name="Namespace_color"/>
+    <entries xsi:type="description:UserFixedColor" red="238" green="248" blue="255" name="Namespace_background"/>
+    <entries xsi:type="description:UserFixedColor" red="238" green="248" blue="255" name="Namespace_foreground"/>
+    <entries xsi:type="description:UserFixedColor" red="0" green="43" blue="60" name="Namespace_color"/>
     <entries xsi:type="description:UserFixedColor" red="136" green="136" blue="136" name="Namespace_border"/>
-    <entries xsi:type="description:UserFixedColor" red="204" green="242" blue="166" name="StructuredType_background"/>
-    <entries xsi:type="description:UserFixedColor" red="255" green="255" blue="255" name="StructuredType_foreground"/>
-    <entries xsi:type="description:UserFixedColor" red="0" green="0" blue="0" name="StructuredType_color"/>
-    <entries xsi:type="description:UserFixedColor" red="138" green="226" blue="52" name="StructuredType_border"/>
-    <entries xsi:type="description:UserFixedColor" red="255" green="245" blue="181" name="Enumeration_background"/>
-    <entries xsi:type="description:UserFixedColor" red="255" green="255" blue="255" name="Enumeration_foreground"/>
-    <entries xsi:type="description:UserFixedColor" red="0" green="0" blue="0" name="Enumeration_color"/>
-    <entries xsi:type="description:UserFixedColor" red="214" green="197" blue="66" name="Enumeration_border"/>
-    <entries xsi:type="description:UserFixedColor" red="253" green="206" blue="137" name="ExternalType_background"/>
-    <entries xsi:type="description:UserFixedColor" red="255" green="255" blue="255" name="ExternalType_foreground"/>
-    <entries xsi:type="description:UserFixedColor" red="0" green="0" blue="0" name="ExternalType_color"/>
-    <entries xsi:type="description:UserFixedColor" red="252" green="175" blue="62" name="ExternalType_border"/>
-    <entries xsi:type="description:UserFixedColor" red="253" green="206" blue="137" name="ExternalNamespace_background"/>
+    <entries xsi:type="description:UserFixedColor" red="215" green="237" blue="255" name="StructuredType_background"/>
+    <entries xsi:type="description:UserFixedColor" red="215" green="237" blue="255" name="StructuredType_foreground"/>
+    <entries xsi:type="description:UserFixedColor" red="136" green="136" blue="136" name="StructuredType_border"/>
+    <entries xsi:type="description:UserFixedColor" red="0" green="43" blue="60" name="StructuredType_color"/>
+    <entries xsi:type="description:UserFixedColor" red="238" green="238" blue="255" name="Enumeration_background"/>
+    <entries xsi:type="description:UserFixedColor" red="238" green="238" blue="255" name="Enumeration_foreground"/>
+    <entries xsi:type="description:UserFixedColor" red="0" green="43" blue="60" name="Enumeration_color"/>
+    <entries xsi:type="description:UserFixedColor" red="136" green="136" blue="136" name="Enumeration_border"/>
+    <entries xsi:type="description:UserFixedColor" red="238" green="238" blue="236" name="ExternalType_background"/>
+    <entries xsi:type="description:UserFixedColor" red="238" green="238" blue="236" name="ExternalType_foreground"/>
+    <entries xsi:type="description:UserFixedColor" red="0" green="43" blue="60" name="ExternalType_color"/>
+    <entries xsi:type="description:UserFixedColor" red="136" green="136" blue="136" name="ExternalType_border"/>
+    <entries xsi:type="description:UserFixedColor" red="255" green="255" blue="255" name="ExternalNamespace_background"/>
     <entries xsi:type="description:UserFixedColor" red="255" green="255" blue="255" name="ExternalNamespace_foreground"/>
-    <entries xsi:type="description:UserFixedColor" red="0" green="0" blue="0" name="ExternalNamespace_color"/>
-    <entries xsi:type="description:UserFixedColor" red="252" green="175" blue="62" name="ExternalNamespace_border"/>
+    <entries xsi:type="description:UserFixedColor" red="0" green="43" blue="60" name="ExternalNamespace_color"/>
+    <entries xsi:type="description:UserFixedColor" red="136" green="136" blue="136" name="ExternalNamespace_border"/>
+    <entries xsi:type="description:UserFixedColor" red="0" green="43" blue="60" name="ISDLabelAndEdge"/>
   </userColorsPalettes>
 </description:Group>
