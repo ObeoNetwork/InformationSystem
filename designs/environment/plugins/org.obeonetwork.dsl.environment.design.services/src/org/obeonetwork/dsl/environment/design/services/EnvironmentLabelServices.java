@@ -10,6 +10,8 @@
  *******************************************************************************/
 package org.obeonetwork.dsl.environment.design.services;
 
+import static java.util.stream.Collectors.joining;
+
 import org.eclipse.emf.ecore.EObject;
 import org.obeonetwork.dsl.environment.Attribute;
 import org.obeonetwork.dsl.environment.EnvironmentPackage;
@@ -44,20 +46,20 @@ public class EnvironmentLabelServices extends EnvironmentSwitch<String> {
 
 	@Override
 	public String caseAttribute(Attribute attribute) {
+		StringBuilder label = new StringBuilder();
+		
 		// Name
-		String name = attribute.getName();
-		if (name == null) {
-			name = "";
+		if (attribute.getName() != null) {
+			label.append(attribute.getName());
 		}
-		StringBuilder label = new StringBuilder(name).append(" : ");
+		
+		label.append(" : ");
+		
 		// Type
-		if (attribute.getType() != null) {
-			String typeName = attribute.getType().getName();
-			if (typeName == null) {
-				typeName = "";
-			}
-			label.append(typeName);
+		if (attribute.getType() != null && attribute.getType().getName() != null) {
+			label.append(attribute.getType().getName());
 		}
+		
 		// Multiplicity
 		label.append("[").append(attribute.getMultiplicity()).append("]");
 		
@@ -69,14 +71,13 @@ public class EnvironmentLabelServices extends EnvironmentSwitch<String> {
 		String label = object.getName();
 		if (!object.getAssociatedTypes().isEmpty()) {
 			label += " > ";
-			for (StructuredType associatedType : object.getAssociatedTypes()) {
-				label += associatedType.getName() + ",";
-			}
-			// Remove last ','
-			if (label.endsWith(",")) {
-				label = label.replaceFirst(",$", "");
-			}
+			
+			label += object.getAssociatedTypes().stream()
+			.map(StructuredType::getName)
+			.collect(joining(","));
 		}
 		return label;
 	}
+
 }
+
