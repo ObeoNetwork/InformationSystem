@@ -37,7 +37,7 @@
           <stringValues id="candidatesExpression" value="service:self.getAllSelectableExternalStructuredTypesWithAncestorsDomainClasses(diagram)"/>
           <stringValues id="rootExpression" value="service:self.getAllSelectableExternalStructuredTypesWithAncestorsDomainClassesRoots(diagram)"/>
           <stringValues id="message" value="Select an external Domain Class"/>
-          <stringValues id="filterExpression" value="[oclIsKindOf(graal::DomainClass)/]"/>
+          <stringValues id="filterExpression" value="aql:self.oclIsKindOf(graal::DomainClass)"/>
         </children>
         <stringValues id="id" value="External Domain Classes"/>
       </children>
@@ -53,7 +53,7 @@
       <children id="structuredType">
         <children id="creation">
           <stringValues id="label" value="Domain Class"/>
-          <stringValues id="defaultName" value="['DomainClass' + eContainer().oclAsType(environment::Namespace).types->size()/]"/>
+          <stringValues id="defaultName" value="aql:'DomainClass' + self.eContainer().oclAsType(environment::Namespace).types->size()"/>
         </children>
         <children id="fromOtherType">
           <booleanValues id="enable"/>
@@ -80,13 +80,13 @@
         </children>
         <children id="dragdrop.structuredtype">
           <stringValues id="id" value="DAD_ED_DomainClass"/>
-          <stringValues id="precondition" value="[oclIsKindOf(graal::DomainClass)/]"/>
+          <stringValues id="precondition" value="aql:self.oclIsKindOf(graal::DomainClass)"/>
         </children>
       </children>
     </children>
     <stringValues id="label" value="Domain Classes Diagram"/>
-    <stringValues id="titleExpression" value="[name + ' - Domain Classes diagram'/]"/>
-    <stringValues id="precondition" value="[ancestors()->filter(graal::System)->notEmpty()/]"/>
+    <stringValues id="titleExpression" value="aql:self.name + ' - Domain Classes diagram'"/>
+    <stringValues id="precondition" value="aql:self.ancestors()->filter(graal::System)->notEmpty()"/>
     <metamodels>http://www.obeonetwork.org/dsl/environment/3.0.0</metamodels>
     <metamodels>http://www.obeonetwork.org/dsl/graal/2.0.0</metamodels>
   </diagrams>

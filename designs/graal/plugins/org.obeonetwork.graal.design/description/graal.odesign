@@ -1099,7 +1099,7 @@
             <initialOperation>
               <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:container">
                 <subModelOperations xsi:type="tool_1:CreateInstance" typeName="environment.Namespace" referenceName="ownedNamespaces">
-                  <subModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="aql:'namespace_' + self.eContainer(environment::NamespacesContainer).ownedNamespaces->size()/]"/>
+                  <subModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="aql:'namespace_' + self.eContainer(environment::NamespacesContainer).ownedNamespaces->size()"/>
                 </subModelOperations>
               </firstModelOperations>
             </initialOperation>
@@ -1141,7 +1141,7 @@
                   </cases>
                   <default>
                     <subModelOperations xsi:type="tool_1:Switch">
-                      <cases conditionExpression="[oclIsKindOf(environment::Namespace)/]">
+                      <cases conditionExpression="aql:self.oclIsKindOf(environment::Namespace)">
                         <subModelOperations xsi:type="tool_1:MoveElement" newContainerExpression="var:newSemanticContainer" featureName="ownedNamespaces"/>
                       </cases>
                       <default>
@@ -1191,22 +1191,22 @@
         </customization>
       </additionalLayers>
     </ownedRepresentations>
-    <ownedRepresentations xsi:type="description_1:DiagramDescription" name="Domain Classes Diagram" label="Domain Classes Diagram" titleExpression="[name + ' - Domain Classes diagram'/]" domainClass="environment.Namespace" preconditionExpression="[ancestors()->filter(graal::System)->notEmpty()/]">
+    <ownedRepresentations xsi:type="description_1:DiagramDescription" name="Domain Classes Diagram" label="Domain Classes Diagram" titleExpression="aql:self.name + ' - Domain Classes diagram'" domainClass="environment.Namespace" preconditionExpression="aql:self.ancestors()->filter(graal::System)->notEmpty()">
       <metamodel href="http://www.obeonetwork.org/dsl/environment/3.0.0#/"/>
       <metamodel href="http://www.obeonetwork.org/dsl/graal/2.0.0#/"/>
       <defaultLayer name="Default">
-        <edgeMappings name="ED_Reference_Type_Type" preconditionExpression="[oppositeOf.oclIsUndefined()/]" semanticCandidatesExpression="service:diagram.getReferences()" targetFinderExpression="feature:referencedType" sourceFinderExpression="feature:containingType" domainClass="environment.Reference" useDomainElement="true">
+        <edgeMappings name="ED_Reference_Type_Type" preconditionExpression="aql:self.oppositeOf = null" semanticCandidatesExpression="service:diagram.getReferences()" targetFinderExpression="feature:referencedType" sourceFinderExpression="feature:containingType" domainClass="environment.Reference" useDomainElement="true">
           <style strokeColor="//@userColorsPalettes[name='Palette']/@entries[name='ISDLabelAndEdge']" targetArrow="NoDecoration">
-            <centerLabelStyleDescription showIcon="false" labelExpression="[name + ' [' + multiplicity.toString() + ']'/]" labelColor="//@userColorsPalettes[name='Palette']/@entries[name='ISDLabelAndEdge']"/>
+            <centerLabelStyleDescription showIcon="false" labelExpression="aql:self.name + ' [' + self.multiplicity.toString() + ']'" labelColor="//@userColorsPalettes[name='Palette']/@entries[name='ISDLabelAndEdge']"/>
           </style>
           <conditionnalStyles predicateExpression="feature:isComposite">
             <style strokeColor="//@userColorsPalettes[name='Palette']/@entries[name='ISDLabelAndEdge']" sourceArrow="Diamond">
-              <centerLabelStyleDescription showIcon="false" labelExpression="[name + ' [' + multiplicity.toString() + ']'/]" labelColor="//@userColorsPalettes[name='Palette']/@entries[name='ISDLabelAndEdge']"/>
+              <centerLabelStyleDescription showIcon="false" labelExpression="aql:self.name + ' [' + self.multiplicity.toString() + ']'" labelColor="//@userColorsPalettes[name='Palette']/@entries[name='ISDLabelAndEdge']"/>
             </style>
           </conditionnalStyles>
           <conditionnalStyles predicateExpression="feature:navigable">
             <style strokeColor="//@userColorsPalettes[name='Palette']/@entries[name='ISDLabelAndEdge']">
-              <centerLabelStyleDescription showIcon="false" labelExpression="[name + ' [' + multiplicity.toString() + ']'/]" labelColor="//@userColorsPalettes[name='Palette']/@entries[name='ISDLabelAndEdge']"/>
+              <centerLabelStyleDescription showIcon="false" labelExpression="aql:self.name + ' [' + self.multiplicity.toString() + ']'" labelColor="//@userColorsPalettes[name='Palette']/@entries[name='ISDLabelAndEdge']"/>
             </style>
           </conditionnalStyles>
         </edgeMappings>
@@ -1215,11 +1215,11 @@
             <centerLabelStyleDescription showIcon="false" labelColor="//@userColorsPalettes[name='Palette']/@entries[name='ISDLabelAndEdge']"/>
           </style>
         </edgeMappings>
-        <edgeMappings name="ED_BidiReference_Type_Type" semanticCandidatesExpression="service:diagram.getOppositeReferences()" semanticElements="[self->asSequence()->including(oppositeOf)/]" targetFinderExpression="feature:referencedType" sourceFinderExpression="feature:containingType" domainClass="environment.Reference" useDomainElement="true">
+        <edgeMappings name="ED_BidiReference_Type_Type" semanticCandidatesExpression="service:diagram.getOppositeReferences()" semanticElements="aql:self->asSequence()->including(self.oppositeOf)" targetFinderExpression="feature:referencedType" sourceFinderExpression="feature:containingType" domainClass="environment.Reference" useDomainElement="true">
           <style strokeColor="//@userColorsPalettes[name='Palette']/@entries[name='ISDLabelAndEdge']" targetArrow="NoDecoration">
-            <beginLabelStyleDescription showIcon="false" labelExpression="[oppositeOf.name + ' [' + oppositeOf.multiplicity.toString() + ']'/]" labelColor="//@userColorsPalettes[name='Palette']/@entries[name='ISDLabelAndEdge']"/>
+            <beginLabelStyleDescription showIcon="false" labelExpression="aql:self.oppositeOf.name + ' [' + self.oppositeOf.multiplicity.toString() + ']'" labelColor="//@userColorsPalettes[name='Palette']/@entries[name='ISDLabelAndEdge']"/>
             <centerLabelStyleDescription showIcon="false" labelColor="//@userColorsPalettes[name='Palette']/@entries[name='ISDLabelAndEdge']"/>
-            <endLabelStyleDescription showIcon="false" labelExpression="[name + ' [' + multiplicity.toString() + ']'/]" labelColor="//@userColorsPalettes[name='Palette']/@entries[name='ISDLabelAndEdge']"/>
+            <endLabelStyleDescription showIcon="false" labelExpression="aql:self.name + ' [' + self.multiplicity.toString() + ']'" labelColor="//@userColorsPalettes[name='Palette']/@entries[name='ISDLabelAndEdge']"/>
           </style>
         </edgeMappings>
         <containerMappings name="ED_Namespace" semanticCandidatesExpression="feature:ownedNamespaces" domainClass="environment.Namespace">
@@ -1263,7 +1263,7 @@
             <initialOperation>
               <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:container">
                 <subModelOperations xsi:type="tool_1:CreateInstance" typeName="environment.Namespace" referenceName="ownedNamespaces">
-                  <subModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="['namespace_' + eContainer().oclAsType(environment::NamespacesContainer).ownedNamespaces->size()/]"/>
+                  <subModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="aql:'namespace_' + self.eContainer(environment::NamespacesContainer).ownedNamespaces->size()"/>
                 </subModelOperations>
               </firstModelOperations>
             </initialOperation>
@@ -1284,7 +1284,7 @@
               </firstModelOperations>
             </initialOperation>
           </ownedTools>
-          <ownedTools xsi:type="tool:ContainerDropDescription" name="ED_Namespace" precondition="[oclIsKindOf(environment::Namespace)/]" forceRefresh="true" dragSource="PROJECT_EXPLORER">
+          <ownedTools xsi:type="tool:ContainerDropDescription" name="ED_Namespace" precondition="aql:self.oclIsKindOf(environment::Namespace)" forceRefresh="true" dragSource="PROJECT_EXPLORER">
             <oldContainer name="oldSemanticContainer"/>
             <newContainer name="newSemanticContainer"/>
             <element name="element"/>
@@ -1292,12 +1292,12 @@
             <initialOperation>
               <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:element">
                 <subModelOperations xsi:type="tool_1:Switch">
-                  <cases conditionExpression="[newSemanticContainer.ancestors()->includes(element)/]">
+                  <cases conditionExpression="aql:newSemanticContainer.ancestors()->includes(element)">
                     <subModelOperations xsi:type="tool_1:ChangeContext" browseExpression="service:displayWarningDropNamespaceOnChild()"/>
                   </cases>
                   <default>
                     <subModelOperations xsi:type="tool_1:Switch">
-                      <cases conditionExpression="[oclIsKindOf(environment::Namespace)/]">
+                      <cases conditionExpression="aql:self.oclIsKindOf(environment::Namespace)">
                         <subModelOperations xsi:type="tool_1:MoveElement" newContainerExpression="var:newSemanticContainer" featureName="ownedNamespaces"/>
                       </cases>
                       <default>
@@ -1317,7 +1317,7 @@
             <initialOperation>
               <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:container">
                 <subModelOperations xsi:type="tool_1:CreateInstance" typeName="graal.DomainClass" referenceName="types">
-                  <subModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="['DomainClass' + eContainer().oclAsType(environment::Namespace).types->size()/]"/>
+                  <subModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="aql:'DomainClass' + self.eContainer().oclAsType(environment::Namespace).types->size()"/>
                 </subModelOperations>
               </firstModelOperations>
             </initialOperation>
@@ -1328,7 +1328,7 @@
             <initialOperation>
               <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:container">
                 <subModelOperations xsi:type="tool_1:CreateInstance" typeName="environment.Attribute" referenceName="ownedAttributes">
-                  <subModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="['attribute' + eContainer().oclAsType(environment::StructuredType).ownedAttributes->size()/]"/>
+                  <subModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="aql:'attribute' + self.eContainer(environment::StructuredType).ownedAttributes->size()"/>
                   <subModelOperations xsi:type="tool_1:SetValue" featureName="type" valueExpression="service:getStringPrimitiveType()"/>
                 </subModelOperations>
               </firstModelOperations>
@@ -1342,7 +1342,7 @@
             <initialOperation>
               <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:container">
                 <subModelOperations xsi:type="tool_1:CreateInstance" typeName="environment.Enumeration" referenceName="types">
-                  <subModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="['Enum' + eContainer().oclAsType(environment::Namespace).types->size()/]"/>
+                  <subModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="aql:'Enum' + self.eContainer(environment::Namespace).types->size()"/>
                 </subModelOperations>
               </firstModelOperations>
             </initialOperation>
@@ -1369,7 +1369,7 @@
               <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:source">
                 <subModelOperations xsi:type="tool_1:CreateInstance" typeName="environment.Reference" referenceName="ownedReferences">
                   <subModelOperations xsi:type="tool_1:SetValue" featureName="referencedType" valueExpression="var:target"/>
-                  <subModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="[target.oclAsType(environment::StructuredType).name.trim() + 's'/]"/>
+                  <subModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="aql:target.oclAsType(environment::StructuredType).name.trim() + 's'"/>
                   <subModelOperations xsi:type="tool_1:SetValue" featureName="multiplicity" valueExpression="ZERO_STAR"/>
                   <subModelOperations xsi:type="tool_1:SetValue" featureName="navigable" valueExpression="true"/>
                 </subModelOperations>
@@ -1385,7 +1385,7 @@
               <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:source">
                 <subModelOperations xsi:type="tool_1:CreateInstance" typeName="environment.Reference" referenceName="ownedReferences">
                   <subModelOperations xsi:type="tool_1:SetValue" featureName="referencedType" valueExpression="var:target"/>
-                  <subModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="[target.oclAsType(environment::StructuredType).name.trim() + 's'/]"/>
+                  <subModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="aql:target.oclAsType(environment::StructuredType).name.trim() + 's'"/>
                   <subModelOperations xsi:type="tool_1:SetValue" featureName="multiplicity" valueExpression="ZERO_STAR"/>
                   <subModelOperations xsi:type="tool_1:SetValue" featureName="navigable" valueExpression="true"/>
                   <subModelOperations xsi:type="tool_1:SetValue" featureName="isComposite" valueExpression="true"/>
@@ -1414,14 +1414,14 @@
                 <subModelOperations xsi:type="tool_1:CreateInstance" typeName="environment.Reference" referenceName="ownedReferences" variableName="firstReference">
                   <subModelOperations xsi:type="tool_1:SetValue" featureName="referencedType" valueExpression="var:target"/>
                   <subModelOperations xsi:type="tool_1:SetValue" featureName="isComposite" valueExpression="false"/>
-                  <subModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="[target.oclAsType(environment::StructuredType).name.trim() + 's'/]"/>
+                  <subModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="aql:target.oclAsType(environment::StructuredType).name.trim() + 's'"/>
                   <subModelOperations xsi:type="tool_1:SetValue" featureName="multiplicity" valueExpression="ZERO_STAR"/>
                   <subModelOperations xsi:type="tool_1:SetValue" featureName="navigable" valueExpression="true"/>
                   <subModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:target">
                     <subModelOperations xsi:type="tool_1:CreateInstance" typeName="environment.Reference" referenceName="ownedReferences" variableName="secondReference">
                       <subModelOperations xsi:type="tool_1:SetValue" featureName="referencedType" valueExpression="var:source"/>
                       <subModelOperations xsi:type="tool_1:SetValue" featureName="isComposite" valueExpression="false"/>
-                      <subModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="[source.oclAsType(environment::StructuredType).name.trim() + 's'/]"/>
+                      <subModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="aql:source.oclAsType(environment::StructuredType).name.trim() + 's'"/>
                       <subModelOperations xsi:type="tool_1:SetValue" featureName="multiplicity" valueExpression="ZERO_STAR"/>
                       <subModelOperations xsi:type="tool_1:SetValue" featureName="navigable" valueExpression="true"/>
                       <subModelOperations xsi:type="tool_1:SetValue" featureName="oppositeOf" valueExpression="var:firstReference"/>
@@ -1441,14 +1441,14 @@
                 <subModelOperations xsi:type="tool_1:CreateInstance" typeName="environment.Reference" referenceName="ownedReferences" variableName="firstReference">
                   <subModelOperations xsi:type="tool_1:SetValue" featureName="referencedType" valueExpression="var:target"/>
                   <subModelOperations xsi:type="tool_1:SetValue" featureName="isComposite" valueExpression="true"/>
-                  <subModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="[target.oclAsType(environment::StructuredType).name.trim() + 's'/]"/>
+                  <subModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="aql:target.oclAsType(environment::StructuredType).name.trim() + 's'"/>
                   <subModelOperations xsi:type="tool_1:SetValue" featureName="multiplicity" valueExpression="ZERO_STAR"/>
                   <subModelOperations xsi:type="tool_1:SetValue" featureName="navigable" valueExpression="true"/>
                   <subModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:target">
                     <subModelOperations xsi:type="tool_1:CreateInstance" typeName="environment.Reference" referenceName="ownedReferences" variableName="secondReference">
                       <subModelOperations xsi:type="tool_1:SetValue" featureName="referencedType" valueExpression="var:source"/>
                       <subModelOperations xsi:type="tool_1:SetValue" featureName="isComposite" valueExpression="false"/>
-                      <subModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="[source.oclAsType(environment::StructuredType).name.trim() + 's'/]"/>
+                      <subModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="aql:source.oclAsType(environment::StructuredType).name.trim() + 's'"/>
                       <subModelOperations xsi:type="tool_1:SetValue" featureName="multiplicity" valueExpression="ZERO_STAR"/>
                       <subModelOperations xsi:type="tool_1:SetValue" featureName="navigable" valueExpression="true"/>
                       <subModelOperations xsi:type="tool_1:SetValue" featureName="oppositeOf" valueExpression="var:firstReference"/>
@@ -1491,7 +1491,7 @@
               <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:self"/>
             </initialOperation>
           </ownedTools>
-          <ownedTools xsi:type="tool:ContainerDropDescription" name="DAD_ED_DomainClass" precondition="[oclIsKindOf(graal::DomainClass)/]" forceRefresh="true" dragSource="BOTH">
+          <ownedTools xsi:type="tool:ContainerDropDescription" name="DAD_ED_DomainClass" precondition="aql:self.oclIsKindOf(graal::DomainClass)" forceRefresh="true" dragSource="BOTH">
             <oldContainer name="oldSemanticContainer"/>
             <newContainer name="newSemanticContainer"/>
             <element name="element"/>
@@ -1502,7 +1502,7 @@
               </firstModelOperations>
             </initialOperation>
           </ownedTools>
-          <ownedTools xsi:type="tool:ContainerDropDescription" name="DAD_ED_Enumeration" precondition="[oclIsKindOf(environment::Enumeration)/]" forceRefresh="true" dragSource="BOTH">
+          <ownedTools xsi:type="tool:ContainerDropDescription" name="DAD_ED_Enumeration" precondition="aql:self.oclIsKindOf(environment::Enumeration)" forceRefresh="true" dragSource="BOTH">
             <oldContainer name="oldSemanticContainer"/>
             <newContainer name="newSemanticContainer"/>
             <element name="element"/>
@@ -1513,7 +1513,7 @@
               </firstModelOperations>
             </initialOperation>
           </ownedTools>
-          <ownedTools xsi:type="tool:ContainerDropDescription" name="DAD_ED_Attribute" precondition="[oclIsKindOf(environment::Attribute)/]" forceRefresh="true" dragSource="BOTH">
+          <ownedTools xsi:type="tool:ContainerDropDescription" name="DAD_ED_Attribute" precondition="aql:self.oclIsKindOf(environment::Attribute)" forceRefresh="true" dragSource="BOTH">
             <oldContainer name="oldSemanticContainer"/>
             <newContainer name="newSemanticContainer"/>
             <element name="element"/>
@@ -1524,7 +1524,7 @@
               </firstModelOperations>
             </initialOperation>
           </ownedTools>
-          <ownedTools xsi:type="tool:ContainerDropDescription" name="DAD_ED_Literal" precondition="[oclIsKindOf(environment::Literal)/]" forceRefresh="true" dragSource="BOTH">
+          <ownedTools xsi:type="tool:ContainerDropDescription" name="DAD_ED_Literal" precondition="aql:self.oclIsKindOf(environment::Literal)" forceRefresh="true" dragSource="BOTH">
             <oldContainer name="oldSemanticContainer"/>
             <newContainer name="newSemanticContainer"/>
             <element name="element"/>
@@ -1555,7 +1555,7 @@
           </ownedTools>
           <ownedTools xsi:type="tool:DeleteElementDescription" name="DEL_ED_BidiReference" forceRefresh="true">
             <element name="element">
-              <subVariables xsi:type="tool_1:SelectModelElementVariable" name="selectedElements" candidatesExpression="[self->asSequence()->including(oppositeOf)/]" multiple="true" message="Select references to be deleted"/>
+              <subVariables xsi:type="tool_1:SelectModelElementVariable" name="selectedElements" candidatesExpression="aql:self->asSequence()->including(self.oppositeOf)" multiple="true" message="Select references to be deleted"/>
             </element>
             <elementView name="elementView"/>
             <containerView name="containerView"/>
@@ -1648,16 +1648,16 @@
           <vsmElementCustomizations xsi:type="description:VSMElementCustomization" predicateExpression="feature:isComposite">
             <featureCustomizations xsi:type="description:EAttributeCustomization" attributeName="sourceArrow" value="Diamond"/>
           </vsmElementCustomizations>
-          <vsmElementCustomizations xsi:type="description:VSMElementCustomization" predicateExpression="[oppositeOf.isComposite/]">
+          <vsmElementCustomizations xsi:type="description:VSMElementCustomization" predicateExpression="aql:self.oppositeOf.isComposite">
             <featureCustomizations xsi:type="description:EAttributeCustomization" attributeName="targetArrow" value="Diamond"/>
           </vsmElementCustomizations>
-          <vsmElementCustomizations xsi:type="description:VSMElementCustomization" predicateExpression="[not isComposite and oppositeOf.navigable/]">
+          <vsmElementCustomizations xsi:type="description:VSMElementCustomization" predicateExpression="aql:not self.isComposite and self.oppositeOf.navigable">
             <featureCustomizations xsi:type="description:EAttributeCustomization" attributeName="sourceArrow" value="InputArrow"/>
           </vsmElementCustomizations>
-          <vsmElementCustomizations xsi:type="description:VSMElementCustomization" predicateExpression="[not oppositeOf.isComposite and navigable/]">
+          <vsmElementCustomizations xsi:type="description:VSMElementCustomization" predicateExpression="aql:not self.oppositeOf.isComposite and self.navigable">
             <featureCustomizations xsi:type="description:EAttributeCustomization" attributeName="targetArrow" value="InputArrow"/>
           </vsmElementCustomizations>
-          <vsmElementCustomizations xsi:type="description:VSMElementCustomization" predicateExpression="[oclAsType(environment::StructuredType).associatedTypes->notEmpty()/]">
+          <vsmElementCustomizations xsi:type="description:VSMElementCustomization" predicateExpression="aql:self.oclAsType(environment::StructuredType).associatedTypes->notEmpty()">
             <featureCustomizations xsi:type="description:EAttributeCustomization" attributeName="labelFormat" value="italic"/>
           </vsmElementCustomizations>
         </customization>
@@ -1688,13 +1688,13 @@
           </style>
         </containerMappings>
         <toolSections name="External Domain Classes">
-          <ownedTools xsi:type="tool_1:SelectionWizardDescription" name="External Domain Class" label="External Domain Class" precondition="[oclIsKindOf(environment::Namespace)/]" forceRefresh="true" candidatesExpression="service:self.getAllSelectableExternalStructuredTypesWithAncestorsDomainClasses(diagram)" multiple="true" tree="true" rootExpression="service:self.getAllSelectableExternalStructuredTypesWithAncestorsDomainClassesRoots(diagram)" childrenExpression="feature:eContents" message="Select an external Domain Class" iconPath="/org.obeonetwork.dsl.entity.edit/icons/full/obj16/Entity.gif">
+          <ownedTools xsi:type="tool_1:SelectionWizardDescription" name="External Domain Class" label="External Domain Class" precondition="aql:self.oclIsKindOf(environment::Namespace)" forceRefresh="true" candidatesExpression="service:self.getAllSelectableExternalStructuredTypesWithAncestorsDomainClasses(diagram)" multiple="true" tree="true" rootExpression="service:self.getAllSelectableExternalStructuredTypesWithAncestorsDomainClassesRoots(diagram)" childrenExpression="feature:eContents" message="Select an external Domain Class" iconPath="/org.obeonetwork.dsl.entity.edit/icons/full/obj16/Entity.gif">
             <element name="element"/>
             <containerView name="containerView"/>
             <container name="container"/>
             <initialOperation>
               <firstModelOperations xsi:type="tool_1:For" expression="var:element" iteratorName="selectedElement">
-                <subModelOperations xsi:type="tool_1:If" conditionExpression="[oclIsKindOf(graal::DomainClass)/]">
+                <subModelOperations xsi:type="tool_1:If" conditionExpression="aql:self.oclIsKindOf(graal::DomainClass)">
                   <subModelOperations xsi:type="tool:CreateView" containerViewExpression="var:containerView"/>
                 </subModelOperations>
               </firstModelOperations>
@@ -1712,14 +1712,14 @@
               </firstModelOperations>
             </initialOperation>
           </ownedTools>
-          <ownedTools xsi:type="tool:DiagramCreationDescription" name="New external Entities diagram" label="New Domain Classes Diagram" forceRefresh="true" browseExpression="[eContainer(environment::Namespace)/]">
+          <ownedTools xsi:type="tool:DiagramCreationDescription" name="New external Entities diagram" label="New Domain Classes Diagram" forceRefresh="true" browseExpression="aql:self.eContainer(environment::Namespace)">
             <initialOperation>
               <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:self"/>
             </initialOperation>
             <containerViewVariable name="containerView"/>
             <representationNameVariable name="diagramName"/>
           </ownedTools>
-          <ownedTools xsi:type="tool:DiagramNavigationDescription" name="Go to external Entities diagram" label="New Domain Classes Diagram" forceRefresh="true" browseExpression="[eContainer(environment::Namespace)/]">
+          <ownedTools xsi:type="tool:DiagramNavigationDescription" name="Go to external Entities diagram" label="New Domain Classes Diagram" forceRefresh="true" browseExpression="aql:self.eContainer(environment::Namespace)">
             <containerViewVariable name="containerView"/>
             <containerVariable name="container"/>
             <representationNameVariable name="diagramName"/>
@@ -1728,7 +1728,7 @@
             <element name="element"/>
             <elementView name="elementView"/>
             <initialOperation>
-              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="[element.eContainer(environment::Namespace)/]">
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="aql:element.eContainer(environment::Namespace)">
                 <subModelOperations xsi:type="tool:Navigation" createIfNotExistent="true"/>
               </firstModelOperations>
             </initialOperation>

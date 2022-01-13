@@ -37,7 +37,7 @@
           <stringValues id="candidatesExpression" value="service:self.getAllSelectableExternalStructuredTypesWithAncestorsDTOs(diagram)"/>
           <stringValues id="rootExpression" value="service:self.getAllSelectableExternalStructuredTypesWithAncestorsDTOsRoots(diagram)"/>
           <stringValues id="message" value="Select an external DTO"/>
-          <stringValues id="filterExpression" value="[oclIsKindOf(environment::DTO)/]"/>
+          <stringValues id="filterExpression" value="aql:self.oclIsKindOf(environment::DTO)"/>
         </children>
         <stringValues id="id" value="External DTOs"/>
       </children>
@@ -53,7 +53,7 @@
       <children id="structuredType">
         <children id="creation">
           <stringValues id="label" value="DTO"/>
-          <stringValues id="defaultName" value="['DTO' + eContainer().oclAsType(environment::Namespace).types->size()/]"/>
+          <stringValues id="defaultName" value="aql:'DTO' + self.eContainer().oclAsType(environment::Namespace).types->size()"/>
         </children>
         <children id="fromOtherType">
           <stringValues id="label" value="DTO from Entity"/>
@@ -81,13 +81,13 @@
         </children>
         <children id="dragdrop.structuredtype">
           <stringValues id="id" value="DAD_DD_DTO"/>
-          <stringValues id="precondition" value="[oclIsKindOf(environment::DTO)/]"/>
+          <stringValues id="precondition" value="aql:self.oclIsKindOf(environment::DTO)"/>
         </children>
       </children>
     </children>
     <stringValues id="label" value="DTO Diagram"/>
-    <stringValues id="titleExpression" value="[name + ' - DTO diagram'/]"/>
-    <stringValues id="precondition" value="[ancestors()->filter(soa::System)->notEmpty()/]"/>
+    <stringValues id="titleExpression" value="aql:self.name + ' - DTO diagram'"/>
+    <stringValues id="precondition" value="aql:self.ancestors()->filter(soa::System)->notEmpty()"/>
     <metamodels>http://www.obeonetwork.org/dsl/environment/3.0.0</metamodels>
     <metamodels>http://www.obeonetwork.org/dsl/soa/3.0.0</metamodels>
   </diagrams>

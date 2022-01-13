@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <description:Group xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:description="http://www.eclipse.org/sirius/description/1.1.0" xmlns:description_1="http://www.eclipse.org/sirius/diagram/description/1.1.0" xmlns:properties="http://www.eclipse.org/sirius/properties/1.0.0" xmlns:style="http://www.eclipse.org/sirius/diagram/description/style/1.1.0" xmlns:tool="http://www.eclipse.org/sirius/diagram/description/tool/1.1.0" xmlns:tool_1="http://www.eclipse.org/sirius/description/tool/1.1.0" xmlns:validation="http://www.eclipse.org/sirius/description/validation/1.1.0" documentation="Copyright (c) 2008, 2021 Obeo.&#xD;&#xA;All rights reserved. This program and the accompanying materials&#xD;&#xA;are made available under the terms of the Eclipse Public License v1.0&#xD;&#xA;which accompanies this distribution, and is available at&#xD;&#xA;http://www.eclipse.org/legal/epl-v10.html&#xD;&#xA;&#xD;&#xA;Contributors:&#xD;&#xA;   Obeo - initial API and implementation" name="Soa" version="12.0.0.2017041100">
   <ownedViewpoints endUserDocumentation="The &lt;b>SOA Views&lt;/b> viewpoint provides four representations : &#xD;&#xA;&lt;ul>&#xD;&#xA;&lt;li>&lt;b>Component Contract Diagram&lt;/b> : a diagram allowing to represent and edit the required and provided Services of a Component,&lt;/li>&#xD;&#xA;&lt;li>&lt;b>DTO Diagram&lt;/b> : a diagram allowing to represent and edit the DTOs of a Namespace,&lt;/li>&#xD;&#xA;&lt;li>&lt;b>DTO Namespaces Hierarchy&lt;/b> : a diagram allowing to represent and edit the Namespace hierarchy of a System,&lt;/li>&#xD;&#xA;&lt;li>&lt;b>SOA Diagram&lt;/b> : a diagram allowing to represent and edit the Components of a System.&lt;/li>&#xD;&#xA;&lt;/ul>&#xA;" name="SOA Views" modelFileExtension="soa ois">
-    <ownedRepresentations xsi:type="description_1:DiagramDescription" dropDescriptions="//@ownedViewpoints[name='SOA%20Views']/@ownedRepresentations[name='SOA%20Diagram']/@defaultLayer/@toolSections.0/@subSections[name='Relation']/@subSections[name='Usability%20Tools']/@ownedTools[name='DAD_Component']" name="SOA Diagram" titleExpression="[name + ' SOA Diagram'/]" domainClass="soa.System">
+    <ownedRepresentations xsi:type="description_1:DiagramDescription" dropDescriptions="//@ownedViewpoints[name='SOA%20Views']/@ownedRepresentations[name='SOA%20Diagram']/@defaultLayer/@toolSections.0/@subSections[name='Relation']/@subSections[name='Usability%20Tools']/@ownedTools[name='DAD_Component']" name="SOA Diagram" titleExpression="aql:self.name + ' SOA Diagram'" domainClass="soa.System">
       <metamodel href="platform:/plugin/org.obeonetwork.dsl.environment/model/environment.ecore#/"/>
       <metamodel href="platform:/plugin/org.obeonetwork.dsl.entity/model/entity.ecore#/"/>
       <metamodel href="platform:/plugin/org.obeonetwork.dsl.soa/model/soa.ecore#/"/>
@@ -34,7 +34,7 @@
               <initialOperation>
                 <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:container">
                   <subModelOperations xsi:type="tool_1:CreateInstance" typeName="soa.Component" referenceName="ownedComponents">
-                    <subModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="['Component ' + eContainer().oclAsType(soa::System).ownedComponents->size()/]"/>
+                    <subModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="aql:'Component ' + self.eContainer(soa::System).ownedComponents->size()"/>
                   </subModelOperations>
                 </firstModelOperations>
               </initialOperation>
@@ -48,7 +48,7 @@
                 <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:container">
                   <subModelOperations xsi:type="tool_1:CreateInstance" typeName="soa.Service" referenceName="ownedServices">
                     <subModelOperations xsi:type="tool_1:SetValue" featureName="kind" valueExpression="service:getProvidedLiteral()"/>
-                    <subModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="['ProvidedService'+container.oclAsType(soa::Component).providedServices->size()/]"/>
+                    <subModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="aql:'ProvidedService' + container.oclAsType(soa::Component).providedServices->size()"/>
                   </subModelOperations>
                 </firstModelOperations>
               </initialOperation>
@@ -60,7 +60,7 @@
                 <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:container">
                   <subModelOperations xsi:type="tool_1:CreateInstance" typeName="soa.Service" referenceName="ownedServices">
                     <subModelOperations xsi:type="tool_1:SetValue" featureName="kind" valueExpression="service:getRequiredLiteral()"/>
-                    <subModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="['RequiredService' + container.oclAsType(soa::Component).requiredServices->size()/]"/>
+                    <subModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="aql:'RequiredService' + container.oclAsType(soa::Component).requiredServices->size()"/>
                   </subModelOperations>
                 </firstModelOperations>
               </initialOperation>
@@ -73,7 +73,7 @@
               <sourceViewVariable name="sourceView"/>
               <targetViewVariable name="targetView"/>
               <initialOperation>
-                <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="[source.eContainer(soa::System)/]">
+                <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="aql:source.eContainer(soa::System)">
                   <subModelOperations xsi:type="tool_1:CreateInstance" typeName="soa.Wire" referenceName="ownedWires">
                     <subModelOperations xsi:type="tool_1:SetValue" featureName="source" valueExpression="var:source"/>
                     <subModelOperations xsi:type="tool_1:SetValue" featureName="dest" valueExpression="var:target"/>
@@ -82,7 +82,7 @@
               </initialOperation>
             </ownedTools>
             <subSections name="Usability Tools">
-              <ownedTools xsi:type="tool:DiagramCreationDescription" name="Component Contract" forceRefresh="true" titleExpression="[name + ' Component Contract'/]" diagramDescription="//@ownedViewpoints[name='SOA%20Views']/@ownedRepresentations[name='Component%20Contract%20Diagram']">
+              <ownedTools xsi:type="tool:DiagramCreationDescription" name="Component Contract" forceRefresh="true" titleExpression="aql:self.name + ' Component Contract'" diagramDescription="//@ownedViewpoints[name='SOA%20Views']/@ownedRepresentations[name='Component%20Contract%20Diagram']">
                 <initialOperation>
                   <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:self"/>
                 </initialOperation>
@@ -95,7 +95,7 @@
                   <firstModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="var:arg0"/>
                 </initialOperation>
               </ownedTools>
-              <ownedTools xsi:type="tool:ContainerDropDescription" name="DAD_Component" precondition="[oclIsKindOf(soa::Component)/]" dragSource="PROJECT_EXPLORER">
+              <ownedTools xsi:type="tool:ContainerDropDescription" name="DAD_Component" precondition="aql:self.oclIsKindOf(soa::Component)" dragSource="PROJECT_EXPLORER">
                 <oldContainer name="oldSemanticContainer"/>
                 <newContainer name="newSemanticContainer"/>
                 <element name="element"/>
@@ -106,7 +106,7 @@
                   </firstModelOperations>
                 </initialOperation>
               </ownedTools>
-              <ownedTools xsi:type="tool:ContainerDropDescription" name="DAD_Service" precondition="[oclIsKindOf(soa::Service)/]" mappings="//@ownedViewpoints[name='SOA%20Views']/@ownedRepresentations[name='SOA%20Diagram']/@defaultLayer/@containerMappings[name='SOAD_Component']/@borderedNodeMappings[name='SOAD_Service_Provided'] //@ownedViewpoints[name='SOA%20Views']/@ownedRepresentations[name='SOA%20Diagram']/@defaultLayer/@containerMappings[name='SOAD_Component']/@borderedNodeMappings[name='SOAD_Service_Required']" dragSource="BOTH">
+              <ownedTools xsi:type="tool:ContainerDropDescription" name="DAD_Service" precondition="aql:self.oclIsKindOf(soa::Service)" mappings="//@ownedViewpoints[name='SOA%20Views']/@ownedRepresentations[name='SOA%20Diagram']/@defaultLayer/@containerMappings[name='SOAD_Component']/@borderedNodeMappings[name='SOAD_Service_Provided'] //@ownedViewpoints[name='SOA%20Views']/@ownedRepresentations[name='SOA%20Diagram']/@defaultLayer/@containerMappings[name='SOAD_Component']/@borderedNodeMappings[name='SOAD_Service_Required']" dragSource="BOTH">
                 <oldContainer name="oldSemanticContainer"/>
                 <newContainer name="newSemanticContainer"/>
                 <element name="element"/>
@@ -121,7 +121,7 @@
                 <element name="element"/>
                 <elementView name="elementView"/>
                 <initialOperation>
-                  <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="[element.eContainer(soa::Component)/]">
+                  <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="aql:element.eContainer(soa::Component)">
                     <subModelOperations xsi:type="tool:Navigation" createIfNotExistent="true" diagramDescription="//@ownedViewpoints[name='SOA%20Views']/@ownedRepresentations[name='Component%20Contract%20Diagram']"/>
                   </firstModelOperations>
                 </initialOperation>
@@ -172,7 +172,7 @@
           </style>
         </containerMappings>
         <toolSections name="External Components">
-          <ownedTools xsi:type="tool_1:SelectionWizardDescription" name="Ext. Component" precondition="[oclIsKindOf(soa::System)/]" forceRefresh="true" candidatesExpression="service:containerView.allSelectableExternalComponentsAndAncestors()" tree="true" rootExpression="service:allRoots()" childrenExpression="feature:eContents" iconPath="/org.obeonetwork.dsl.soa.edit/icons/full/obj16/Component.gif" windowTitle="Import external Component" windowImagePath="/org.obeonetwork.dsl.soa.edit/icons/full/obj16/Component.gif">
+          <ownedTools xsi:type="tool_1:SelectionWizardDescription" name="Ext. Component" precondition="aql:self.oclIsKindOf(soa::System)" forceRefresh="true" candidatesExpression="service:containerView.allSelectableExternalComponentsAndAncestors()" tree="true" rootExpression="service:allRoots()" childrenExpression="feature:eContents" iconPath="/org.obeonetwork.dsl.soa.edit/icons/full/obj16/Component.gif" windowTitle="Import external Component" windowImagePath="/org.obeonetwork.dsl.soa.edit/icons/full/obj16/Component.gif">
             <element name="element"/>
             <containerView name="containerView"/>
             <container name="container"/>
@@ -203,21 +203,21 @@
         </toolSections>
       </additionalLayers>
     </ownedRepresentations>
-    <ownedRepresentations xsi:type="description_1:DiagramDescription" dropDescriptions="//@ownedViewpoints[name='SOA%20Views']/@ownedRepresentations[name='Component%20Contract%20Diagram']/@defaultLayer/@toolSections.0/@subSections[name='Usability%20tools']/@ownedTools[name='DAD_Service']" name="Component Contract Diagram" titleExpression="[name + ' Component Contract'/]" domainClass="soa.Component">
+    <ownedRepresentations xsi:type="description_1:DiagramDescription" dropDescriptions="//@ownedViewpoints[name='SOA%20Views']/@ownedRepresentations[name='Component%20Contract%20Diagram']/@defaultLayer/@toolSections.0/@subSections[name='Usability%20tools']/@ownedTools[name='DAD_Service']" name="Component Contract Diagram" titleExpression="aql:self.name + ' Component Contract'" domainClass="soa.Component">
       <metamodel href="platform:/plugin/org.obeonetwork.dsl.environment/model/environment.ecore#/"/>
       <metamodel href="platform:/plugin/org.obeonetwork.dsl.entity/model/entity.ecore#/"/>
       <metamodel href="platform:/plugin/org.obeonetwork.dsl.soa/model/soa.ecore#/"/>
       <validationSet>
         <ownedRules xsi:type="validation:SemanticValidationRule" level="ERROR" message="The parameter name cannot use reserved words." targetClass="soa.Parameter">
-          <audits auditExpression="[name&lt;>'return' and name&lt;>'public' and name&lt;>'private' and name&lt;>'protected' and name&lt;>'class' and name&lt;>'interface' and name&lt;>'package' and name&lt;>'extends' and name&lt;>'implements' and name&lt;>'int' and name&lt;>'double' and name&lt;>'float'/]"/>
+          <audits auditExpression="aql:OrderedSet{'return', 'public', 'private', 'protected', 'class', 'interface', 'package', 'extends', 'implements', 'int', 'double', 'float'}->excludes(self.name)"/>
         </ownedRules>
         <ownedRules xsi:type="validation:SemanticValidationRule" level="ERROR" message="The operation name cannot use reserved words." targetClass="soa.Operation">
-          <audits auditExpression="[name&lt;>'return' and name&lt;>'public' and name&lt;>'private' and name&lt;>'protected' and name&lt;>'class' and name&lt;>'interface' and name&lt;>'package' and name&lt;>'extends' and name&lt;>'implements' and name&lt;>'int' and name&lt;>'double' and name&lt;>'float'/]"/>
+          <audits auditExpression="aql:OrderedSet{'return', 'public', 'private', 'protected', 'class', 'interface', 'package', 'extends', 'implements', 'int', 'double', 'float'}->excludes(self.name)"/>
         </ownedRules>
       </validationSet>
       <defaultLayer name="Default Layer">
         <containerMappings name="Cc_ServiceInterface_CM" labelDirectEdit="//@ownedViewpoints[name='SOA%20Views']/@ownedRepresentations[name='Reused%20Tools']/@defaultLayer/@toolSections.0/@ownedTools[name='Reused%20Name%20Direct%20Edit']" semanticCandidatesExpression="feature:ownedServices" domainClass="soa.Service" dropDescriptions="//@ownedViewpoints[name='SOA%20Views']/@ownedRepresentations[name='Component%20Contract%20Diagram']/@defaultLayer/@toolSections.1/@subSections[name='Usability%20tools']/@ownedTools[name='DAD_Operation']">
-          <subContainerMappings name="Cc_Operation_CM" labelDirectEdit="//@ownedViewpoints[name='SOA%20Views']/@ownedRepresentations[name='Reused%20Tools']/@defaultLayer/@toolSections.0/@ownedTools[name='Reused%20Name%20Direct%20Edit']" semanticCandidatesExpression="[ownedInterface.ownedOperations/]" domainClass="soa.Operation" childrenPresentation="List">
+          <subContainerMappings name="Cc_Operation_CM" labelDirectEdit="//@ownedViewpoints[name='SOA%20Views']/@ownedRepresentations[name='Reused%20Tools']/@defaultLayer/@toolSections.0/@ownedTools[name='Reused%20Name%20Direct%20Edit']" semanticCandidatesExpression="self.ownedInterface.ownedOperations" domainClass="soa.Operation" childrenPresentation="List">
             <subNodeMappings name="Cc_In_Param" labelDirectEdit="//@ownedViewpoints[name='SOA%20Views']/@ownedRepresentations[name='Reused%20Tools']/@defaultLayer/@toolSections.0/@ownedTools[name='Reused%20Name%20Direct%20Edit']" semanticCandidatesExpression="feature:input" domainClass="soa.Parameter">
               <style xsi:type="style:SquareDescription" labelExpression="service:computeSoaLabel()" labelColor="//@userColorsPalettes[name='Palette']/@entries[name='ISDLabelAndEdge']" labelAlignment="LEFT">
                 <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
@@ -260,7 +260,7 @@
               <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:container">
                 <subModelOperations xsi:type="tool_1:CreateInstance" typeName="soa.Service" referenceName="ownedServices">
                   <subModelOperations xsi:type="tool_1:SetValue" featureName="kind" valueExpression="service:getProvidedLiteral()"/>
-                  <subModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="['ProvidedService'+container.oclAsType(soa::Component).providedServices->size()/]"/>
+                  <subModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="aql:'ProvidedService'+container.oclAsType(soa::Component).providedServices->size()"/>
                 </subModelOperations>
               </firstModelOperations>
             </initialOperation>
@@ -272,13 +272,13 @@
               <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:container">
                 <subModelOperations xsi:type="tool_1:CreateInstance" typeName="soa.Service" referenceName="ownedServices">
                   <subModelOperations xsi:type="tool_1:SetValue" featureName="kind" valueExpression="service:getRequiredLiteral()"/>
-                  <subModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="['RequiredService' + container.oclAsType(soa::Component).requiredServices->size()/]"/>
+                  <subModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="aql:'RequiredService' + container.oclAsType(soa::Component).requiredServices->size()"/>
                 </subModelOperations>
               </firstModelOperations>
             </initialOperation>
           </ownedTools>
           <subSections name="Usability tools">
-            <ownedTools xsi:type="tool:ContainerDropDescription" name="DAD_Service" precondition="[oclIsKindOf(soa::Service)/]" dragSource="PROJECT_EXPLORER">
+            <ownedTools xsi:type="tool:ContainerDropDescription" name="DAD_Service" precondition="aql:self.oclIsKindOf(soa::Service)" dragSource="PROJECT_EXPLORER">
               <oldContainer name="oldSemanticContainer"/>
               <newContainer name="newSemanticContainer"/>
               <element name="element"/>
@@ -298,14 +298,14 @@
               <viewVariable name="containerView"/>
               <initialOperation>
                 <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:container">
-                  <subModelOperations xsi:type="tool_1:If" conditionExpression="[oclAsType(soa::Service).ownedInterface.oclIsUndefined()/]">
+                  <subModelOperations xsi:type="tool_1:If" conditionExpression="aql:self.oclAsType(soa::Service).ownedInterface.oclIsUndefined()">
                     <subModelOperations xsi:type="tool_1:CreateInstance" typeName="soa.Interface" referenceName="ownedInterface">
-                      <subModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="[container.oclAsType(soa::Service).name/]"/>
+                      <subModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="aql:container.oclAsType(soa::Service).name"/>
                     </subModelOperations>
                   </subModelOperations>
                   <subModelOperations xsi:type="tool_1:ChangeContext" browseExpression="feature:ownedInterface">
                     <subModelOperations xsi:type="tool_1:CreateInstance" typeName="soa.Operation" referenceName="ownedOperations">
-                      <subModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="['Operation' + eContainer().oclAsType(soa::Interface).ownedOperations->size()/]"/>
+                      <subModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="aql:'Operation' + self.eContainer().oclAsType(soa::Interface).ownedOperations->size()"/>
                     </subModelOperations>
                   </subModelOperations>
                 </firstModelOperations>
@@ -319,7 +319,7 @@
               <initialOperation>
                 <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:container">
                   <subModelOperations xsi:type="tool_1:CreateInstance" typeName="soa.Parameter" referenceName="input">
-                    <subModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="['input' + eContainer(soa::Operation).input->size()/]"/>
+                    <subModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="aql:'input' + self.eContainer(soa::Operation).input->size()"/>
                     <subModelOperations xsi:type="tool_1:SetValue" featureName="type" valueExpression="service:getStringPrimitiveType()"/>
                   </subModelOperations>
                 </firstModelOperations>
@@ -331,7 +331,7 @@
               <initialOperation>
                 <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:container">
                   <subModelOperations xsi:type="tool_1:CreateInstance" typeName="soa.Parameter" referenceName="output">
-                    <subModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="['output' + eContainer(soa::Operation).input->size()/]"/>
+                    <subModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="aql:'output' + self.eContainer(soa::Operation).input->size()"/>
                     <subModelOperations xsi:type="tool_1:SetValue" featureName="type" valueExpression="service:getStringPrimitiveType()"/>
                   </subModelOperations>
                 </firstModelOperations>
@@ -343,7 +343,7 @@
               <initialOperation>
                 <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:container">
                   <subModelOperations xsi:type="tool_1:CreateInstance" typeName="soa.Parameter" referenceName="fault">
-                    <subModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="['fault' + eContainer(soa::Operation).fault->size()/]"/>
+                    <subModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="aql:'fault' + self.eContainer(soa::Operation).fault->size()"/>
                     <subModelOperations xsi:type="tool_1:SetValue" featureName="type" valueExpression="service:getStringPrimitiveType()"/>
                   </subModelOperations>
                 </firstModelOperations>
@@ -351,20 +351,20 @@
             </ownedTools>
           </subSections>
           <subSections name="Usability tools">
-            <ownedTools xsi:type="tool:ContainerDropDescription" name="DAD_Operation" precondition="[oclIsKindOf(soa::Operation)/]" mappings="//@ownedViewpoints[name='SOA%20Views']/@ownedRepresentations[name='Component%20Contract%20Diagram']/@defaultLayer/@containerMappings[name='Cc_ServiceInterface_CM']/@subContainerMappings[name='Cc_Operation_CM']" dragSource="BOTH">
+            <ownedTools xsi:type="tool:ContainerDropDescription" name="DAD_Operation" precondition="aql:self.oclIsKindOf(soa::Operation)" mappings="//@ownedViewpoints[name='SOA%20Views']/@ownedRepresentations[name='Component%20Contract%20Diagram']/@defaultLayer/@containerMappings[name='Cc_ServiceInterface_CM']/@subContainerMappings[name='Cc_Operation_CM']" dragSource="BOTH">
               <oldContainer name="oldSemanticContainer"/>
               <newContainer name="newSemanticContainer"/>
               <element name="element"/>
               <newViewContainer name="newContainerView"/>
               <initialOperation>
                 <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:newSemanticContainer">
-                  <subModelOperations xsi:type="tool_1:If" conditionExpression="[oclAsType(soa::Service).ownedInterface.oclIsUndefined()/]">
+                  <subModelOperations xsi:type="tool_1:If" conditionExpression="aql:self.oclAsType(soa::Service).ownedInterface=null">
                     <subModelOperations xsi:type="tool_1:CreateInstance" typeName="soa.Interface" referenceName="ownedInterface">
-                      <subModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="[newSemanticContainer.oclAsType(soa::Service).name/]"/>
+                      <subModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="aql:newSemanticContainer.oclAsType(soa::Service).name"/>
                     </subModelOperations>
                   </subModelOperations>
                   <subModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:element">
-                    <subModelOperations xsi:type="tool_1:MoveElement" newContainerExpression="[newSemanticContainer.oclAsType(soa::Service).ownedInterface/]" featureName="ownedOperations"/>
+                    <subModelOperations xsi:type="tool_1:MoveElement" newContainerExpression="aql:newSemanticContainer.oclAsType(soa::Service).ownedInterface" featureName="ownedOperations"/>
                   </subModelOperations>
                 </firstModelOperations>
               </initialOperation>
@@ -394,7 +394,7 @@
             <initialOperation>
               <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:container">
                 <subModelOperations xsi:type="tool_1:CreateInstance" typeName="environment.Namespace" referenceName="ownedNamespaces">
-                  <subModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="aql:'namespace_' + self.eContainer(environment::NamespacesContainer).ownedNamespaces->size()/]"/>
+                  <subModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="aql:'namespace_' + self.eContainer(environment::NamespacesContainer).ownedNamespaces->size()"/>
                 </subModelOperations>
               </firstModelOperations>
             </initialOperation>
@@ -436,7 +436,7 @@
                   </cases>
                   <default>
                     <subModelOperations xsi:type="tool_1:Switch">
-                      <cases conditionExpression="[oclIsKindOf(environment::Namespace)/]">
+                      <cases conditionExpression="aql:self.oclIsKindOf(environment::Namespace)">
                         <subModelOperations xsi:type="tool_1:MoveElement" newContainerExpression="var:newSemanticContainer" featureName="ownedNamespaces"/>
                       </cases>
                       <default>
@@ -486,22 +486,22 @@
         </customization>
       </additionalLayers>
     </ownedRepresentations>
-    <ownedRepresentations xsi:type="description_1:DiagramDescription" name="DTO Diagram" label="DTO Diagram" titleExpression="[name + ' - DTO diagram'/]" domainClass="environment.Namespace" preconditionExpression="[ancestors()->filter(soa::System)->notEmpty()/]">
+    <ownedRepresentations xsi:type="description_1:DiagramDescription" name="DTO Diagram" label="DTO Diagram" titleExpression="aql:self.name + ' - DTO diagram'" domainClass="environment.Namespace" preconditionExpression="aql:self.ancestors()->filter(soa::System)->notEmpty()">
       <metamodel href="http://www.obeonetwork.org/dsl/environment/3.0.0#/"/>
       <metamodel href="http://www.obeonetwork.org/dsl/soa/3.0.0#/"/>
       <defaultLayer name="Default">
-        <edgeMappings name="ED_Reference_Type_Type" preconditionExpression="[oppositeOf.oclIsUndefined()/]" semanticCandidatesExpression="service:diagram.getReferences()" targetFinderExpression="feature:referencedType" sourceFinderExpression="feature:containingType" domainClass="environment.Reference" useDomainElement="true">
+        <edgeMappings name="ED_Reference_Type_Type" preconditionExpression="aql:self.oppositeOf = null" semanticCandidatesExpression="service:diagram.getReferences()" targetFinderExpression="feature:referencedType" sourceFinderExpression="feature:containingType" domainClass="environment.Reference" useDomainElement="true">
           <style strokeColor="//@userColorsPalettes[name='Palette']/@entries[name='ISDLabelAndEdge']" targetArrow="NoDecoration">
-            <centerLabelStyleDescription showIcon="false" labelExpression="[name + ' [' + multiplicity.toString() + ']'/]" labelColor="//@userColorsPalettes[name='Palette']/@entries[name='ISDLabelAndEdge']"/>
+            <centerLabelStyleDescription showIcon="false" labelExpression="aql:self.name + ' [' + self.multiplicity.toString() + ']'" labelColor="//@userColorsPalettes[name='Palette']/@entries[name='ISDLabelAndEdge']"/>
           </style>
           <conditionnalStyles predicateExpression="feature:isComposite">
             <style strokeColor="//@userColorsPalettes[name='Palette']/@entries[name='ISDLabelAndEdge']" sourceArrow="Diamond">
-              <centerLabelStyleDescription showIcon="false" labelExpression="[name + ' [' + multiplicity.toString() + ']'/]" labelColor="//@userColorsPalettes[name='Palette']/@entries[name='ISDLabelAndEdge']"/>
+              <centerLabelStyleDescription showIcon="false" labelExpression="aql:self.name + ' [' + self.multiplicity.toString() + ']'" labelColor="//@userColorsPalettes[name='Palette']/@entries[name='ISDLabelAndEdge']"/>
             </style>
           </conditionnalStyles>
           <conditionnalStyles predicateExpression="feature:navigable">
             <style strokeColor="//@userColorsPalettes[name='Palette']/@entries[name='ISDLabelAndEdge']">
-              <centerLabelStyleDescription showIcon="false" labelExpression="[name + ' [' + multiplicity.toString() + ']'/]" labelColor="//@userColorsPalettes[name='Palette']/@entries[name='ISDLabelAndEdge']"/>
+              <centerLabelStyleDescription showIcon="false" labelExpression="aql:self.name + ' [' + self.multiplicity.toString() + ']'" labelColor="//@userColorsPalettes[name='Palette']/@entries[name='ISDLabelAndEdge']"/>
             </style>
           </conditionnalStyles>
         </edgeMappings>
@@ -510,11 +510,11 @@
             <centerLabelStyleDescription showIcon="false" labelColor="//@userColorsPalettes[name='Palette']/@entries[name='ISDLabelAndEdge']"/>
           </style>
         </edgeMappings>
-        <edgeMappings name="ED_BidiReference_Type_Type" semanticCandidatesExpression="service:diagram.getOppositeReferences()" semanticElements="[self->asSequence()->including(oppositeOf)/]" targetFinderExpression="feature:referencedType" sourceFinderExpression="feature:containingType" domainClass="environment.Reference" useDomainElement="true">
+        <edgeMappings name="ED_BidiReference_Type_Type" semanticCandidatesExpression="service:diagram.getOppositeReferences()" semanticElements="aql:self->asSequence()->including(self.oppositeOf)" targetFinderExpression="feature:referencedType" sourceFinderExpression="feature:containingType" domainClass="environment.Reference" useDomainElement="true">
           <style strokeColor="//@userColorsPalettes[name='Palette']/@entries[name='ISDLabelAndEdge']" targetArrow="NoDecoration">
-            <beginLabelStyleDescription showIcon="false" labelExpression="[oppositeOf.name + ' [' + oppositeOf.multiplicity.toString() + ']'/]" labelColor="//@userColorsPalettes[name='Palette']/@entries[name='ISDLabelAndEdge']"/>
+            <beginLabelStyleDescription showIcon="false" labelExpression="aql:self.oppositeOf.name + ' [' + self.oppositeOf.multiplicity.toString() + ']'" labelColor="//@userColorsPalettes[name='Palette']/@entries[name='ISDLabelAndEdge']"/>
             <centerLabelStyleDescription showIcon="false" labelColor="//@userColorsPalettes[name='Palette']/@entries[name='ISDLabelAndEdge']"/>
-            <endLabelStyleDescription showIcon="false" labelExpression="[name + ' [' + multiplicity.toString() + ']'/]" labelColor="//@userColorsPalettes[name='Palette']/@entries[name='ISDLabelAndEdge']"/>
+            <endLabelStyleDescription showIcon="false" labelExpression="aql:self.name + ' [' + self.multiplicity.toString() + ']'" labelColor="//@userColorsPalettes[name='Palette']/@entries[name='ISDLabelAndEdge']"/>
           </style>
         </edgeMappings>
         <containerMappings name="ED_Namespace" semanticCandidatesExpression="feature:ownedNamespaces" domainClass="environment.Namespace">
@@ -558,7 +558,7 @@
             <initialOperation>
               <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:container">
                 <subModelOperations xsi:type="tool_1:CreateInstance" typeName="environment.Namespace" referenceName="ownedNamespaces">
-                  <subModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="['namespace_' + eContainer().oclAsType(environment::NamespacesContainer).ownedNamespaces->size()/]"/>
+                  <subModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="aql:'namespace_' + self.eContainer(environment::NamespacesContainer).ownedNamespaces->size()"/>
                 </subModelOperations>
               </firstModelOperations>
             </initialOperation>
@@ -579,7 +579,7 @@
               </firstModelOperations>
             </initialOperation>
           </ownedTools>
-          <ownedTools xsi:type="tool:ContainerDropDescription" name="ED_Namespace" precondition="[oclIsKindOf(environment::Namespace)/]" forceRefresh="true" dragSource="PROJECT_EXPLORER">
+          <ownedTools xsi:type="tool:ContainerDropDescription" name="ED_Namespace" precondition="aql:self.oclIsKindOf(environment::Namespace)" forceRefresh="true" dragSource="PROJECT_EXPLORER">
             <oldContainer name="oldSemanticContainer"/>
             <newContainer name="newSemanticContainer"/>
             <element name="element"/>
@@ -587,12 +587,12 @@
             <initialOperation>
               <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:element">
                 <subModelOperations xsi:type="tool_1:Switch">
-                  <cases conditionExpression="[newSemanticContainer.ancestors()->includes(element)/]">
+                  <cases conditionExpression="aql:newSemanticContainer.ancestors()->includes(element)">
                     <subModelOperations xsi:type="tool_1:ChangeContext" browseExpression="service:displayWarningDropNamespaceOnChild()"/>
                   </cases>
                   <default>
                     <subModelOperations xsi:type="tool_1:Switch">
-                      <cases conditionExpression="[oclIsKindOf(environment::Namespace)/]">
+                      <cases conditionExpression="aql:self.oclIsKindOf(environment::Namespace)">
                         <subModelOperations xsi:type="tool_1:MoveElement" newContainerExpression="var:newSemanticContainer" featureName="ownedNamespaces"/>
                       </cases>
                       <default>
@@ -612,7 +612,7 @@
             <initialOperation>
               <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:container">
                 <subModelOperations xsi:type="tool_1:CreateInstance" typeName="environment.DTO" referenceName="types">
-                  <subModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="['DTO' + eContainer().oclAsType(environment::Namespace).types->size()/]"/>
+                  <subModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="aql:'DTO' + self.eContainer().oclAsType(environment::Namespace).types->size()"/>
                 </subModelOperations>
               </firstModelOperations>
             </initialOperation>
@@ -630,7 +630,7 @@
             <initialOperation>
               <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:container">
                 <subModelOperations xsi:type="tool_1:CreateInstance" typeName="environment.Attribute" referenceName="ownedAttributes">
-                  <subModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="['attribute' + eContainer().oclAsType(environment::StructuredType).ownedAttributes->size()/]"/>
+                  <subModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="aql:'attribute' + self.eContainer(environment::StructuredType).ownedAttributes->size()"/>
                   <subModelOperations xsi:type="tool_1:SetValue" featureName="type" valueExpression="service:getStringPrimitiveType()"/>
                 </subModelOperations>
               </firstModelOperations>
@@ -644,7 +644,7 @@
             <initialOperation>
               <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:container">
                 <subModelOperations xsi:type="tool_1:CreateInstance" typeName="environment.Enumeration" referenceName="types">
-                  <subModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="['Enum' + eContainer().oclAsType(environment::Namespace).types->size()/]"/>
+                  <subModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="aql:'Enum' + self.eContainer(environment::Namespace).types->size()"/>
                 </subModelOperations>
               </firstModelOperations>
             </initialOperation>
@@ -671,7 +671,7 @@
               <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:source">
                 <subModelOperations xsi:type="tool_1:CreateInstance" typeName="environment.Reference" referenceName="ownedReferences">
                   <subModelOperations xsi:type="tool_1:SetValue" featureName="referencedType" valueExpression="var:target"/>
-                  <subModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="[target.oclAsType(environment::StructuredType).name.trim() + 's'/]"/>
+                  <subModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="aql:target.oclAsType(environment::StructuredType).name.trim() + 's'"/>
                   <subModelOperations xsi:type="tool_1:SetValue" featureName="multiplicity" valueExpression="ZERO_STAR"/>
                   <subModelOperations xsi:type="tool_1:SetValue" featureName="navigable" valueExpression="true"/>
                 </subModelOperations>
@@ -687,7 +687,7 @@
               <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:source">
                 <subModelOperations xsi:type="tool_1:CreateInstance" typeName="environment.Reference" referenceName="ownedReferences">
                   <subModelOperations xsi:type="tool_1:SetValue" featureName="referencedType" valueExpression="var:target"/>
-                  <subModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="[target.oclAsType(environment::StructuredType).name.trim() + 's'/]"/>
+                  <subModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="aql:target.oclAsType(environment::StructuredType).name.trim() + 's'"/>
                   <subModelOperations xsi:type="tool_1:SetValue" featureName="multiplicity" valueExpression="ZERO_STAR"/>
                   <subModelOperations xsi:type="tool_1:SetValue" featureName="navigable" valueExpression="true"/>
                   <subModelOperations xsi:type="tool_1:SetValue" featureName="isComposite" valueExpression="true"/>
@@ -716,14 +716,14 @@
                 <subModelOperations xsi:type="tool_1:CreateInstance" typeName="environment.Reference" referenceName="ownedReferences" variableName="firstReference">
                   <subModelOperations xsi:type="tool_1:SetValue" featureName="referencedType" valueExpression="var:target"/>
                   <subModelOperations xsi:type="tool_1:SetValue" featureName="isComposite" valueExpression="false"/>
-                  <subModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="[target.oclAsType(environment::StructuredType).name.trim() + 's'/]"/>
+                  <subModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="aql:target.oclAsType(environment::StructuredType).name.trim() + 's'"/>
                   <subModelOperations xsi:type="tool_1:SetValue" featureName="multiplicity" valueExpression="ZERO_STAR"/>
                   <subModelOperations xsi:type="tool_1:SetValue" featureName="navigable" valueExpression="true"/>
                   <subModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:target">
                     <subModelOperations xsi:type="tool_1:CreateInstance" typeName="environment.Reference" referenceName="ownedReferences" variableName="secondReference">
                       <subModelOperations xsi:type="tool_1:SetValue" featureName="referencedType" valueExpression="var:source"/>
                       <subModelOperations xsi:type="tool_1:SetValue" featureName="isComposite" valueExpression="false"/>
-                      <subModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="[source.oclAsType(environment::StructuredType).name.trim() + 's'/]"/>
+                      <subModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="aql:source.oclAsType(environment::StructuredType).name.trim() + 's'"/>
                       <subModelOperations xsi:type="tool_1:SetValue" featureName="multiplicity" valueExpression="ZERO_STAR"/>
                       <subModelOperations xsi:type="tool_1:SetValue" featureName="navigable" valueExpression="true"/>
                       <subModelOperations xsi:type="tool_1:SetValue" featureName="oppositeOf" valueExpression="var:firstReference"/>
@@ -743,14 +743,14 @@
                 <subModelOperations xsi:type="tool_1:CreateInstance" typeName="environment.Reference" referenceName="ownedReferences" variableName="firstReference">
                   <subModelOperations xsi:type="tool_1:SetValue" featureName="referencedType" valueExpression="var:target"/>
                   <subModelOperations xsi:type="tool_1:SetValue" featureName="isComposite" valueExpression="true"/>
-                  <subModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="[target.oclAsType(environment::StructuredType).name.trim() + 's'/]"/>
+                  <subModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="aql:target.oclAsType(environment::StructuredType).name.trim() + 's'"/>
                   <subModelOperations xsi:type="tool_1:SetValue" featureName="multiplicity" valueExpression="ZERO_STAR"/>
                   <subModelOperations xsi:type="tool_1:SetValue" featureName="navigable" valueExpression="true"/>
                   <subModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:target">
                     <subModelOperations xsi:type="tool_1:CreateInstance" typeName="environment.Reference" referenceName="ownedReferences" variableName="secondReference">
                       <subModelOperations xsi:type="tool_1:SetValue" featureName="referencedType" valueExpression="var:source"/>
                       <subModelOperations xsi:type="tool_1:SetValue" featureName="isComposite" valueExpression="false"/>
-                      <subModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="[source.oclAsType(environment::StructuredType).name.trim() + 's'/]"/>
+                      <subModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="aql:source.oclAsType(environment::StructuredType).name.trim() + 's'"/>
                       <subModelOperations xsi:type="tool_1:SetValue" featureName="multiplicity" valueExpression="ZERO_STAR"/>
                       <subModelOperations xsi:type="tool_1:SetValue" featureName="navigable" valueExpression="true"/>
                       <subModelOperations xsi:type="tool_1:SetValue" featureName="oppositeOf" valueExpression="var:firstReference"/>
@@ -793,7 +793,7 @@
               <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:self"/>
             </initialOperation>
           </ownedTools>
-          <ownedTools xsi:type="tool:ContainerDropDescription" name="DAD_DD_DTO" precondition="[oclIsKindOf(environment::DTO)/]" forceRefresh="true" dragSource="BOTH">
+          <ownedTools xsi:type="tool:ContainerDropDescription" name="DAD_DD_DTO" precondition="aql:self.oclIsKindOf(environment::DTO)" forceRefresh="true" dragSource="BOTH">
             <oldContainer name="oldSemanticContainer"/>
             <newContainer name="newSemanticContainer"/>
             <element name="element"/>
@@ -804,7 +804,7 @@
               </firstModelOperations>
             </initialOperation>
           </ownedTools>
-          <ownedTools xsi:type="tool:ContainerDropDescription" name="DAD_ED_Enumeration" precondition="[oclIsKindOf(environment::Enumeration)/]" forceRefresh="true" dragSource="BOTH">
+          <ownedTools xsi:type="tool:ContainerDropDescription" name="DAD_ED_Enumeration" precondition="aql:self.oclIsKindOf(environment::Enumeration)" forceRefresh="true" dragSource="BOTH">
             <oldContainer name="oldSemanticContainer"/>
             <newContainer name="newSemanticContainer"/>
             <element name="element"/>
@@ -815,7 +815,7 @@
               </firstModelOperations>
             </initialOperation>
           </ownedTools>
-          <ownedTools xsi:type="tool:ContainerDropDescription" name="DAD_ED_Attribute" precondition="[oclIsKindOf(environment::Attribute)/]" forceRefresh="true" dragSource="BOTH">
+          <ownedTools xsi:type="tool:ContainerDropDescription" name="DAD_ED_Attribute" precondition="aql:self.oclIsKindOf(environment::Attribute)" forceRefresh="true" dragSource="BOTH">
             <oldContainer name="oldSemanticContainer"/>
             <newContainer name="newSemanticContainer"/>
             <element name="element"/>
@@ -826,7 +826,7 @@
               </firstModelOperations>
             </initialOperation>
           </ownedTools>
-          <ownedTools xsi:type="tool:ContainerDropDescription" name="DAD_ED_Literal" precondition="[oclIsKindOf(environment::Literal)/]" forceRefresh="true" dragSource="BOTH">
+          <ownedTools xsi:type="tool:ContainerDropDescription" name="DAD_ED_Literal" precondition="aql:self.oclIsKindOf(environment::Literal)" forceRefresh="true" dragSource="BOTH">
             <oldContainer name="oldSemanticContainer"/>
             <newContainer name="newSemanticContainer"/>
             <element name="element"/>
@@ -857,7 +857,7 @@
           </ownedTools>
           <ownedTools xsi:type="tool:DeleteElementDescription" name="DEL_ED_BidiReference" forceRefresh="true">
             <element name="element">
-              <subVariables xsi:type="tool_1:SelectModelElementVariable" name="selectedElements" candidatesExpression="[self->asSequence()->including(oppositeOf)/]" multiple="true" message="Select references to be deleted"/>
+              <subVariables xsi:type="tool_1:SelectModelElementVariable" name="selectedElements" candidatesExpression="aql:self->asSequence()->including(self.oppositeOf)" multiple="true" message="Select references to be deleted"/>
             </element>
             <elementView name="elementView"/>
             <containerView name="containerView"/>
@@ -950,16 +950,16 @@
           <vsmElementCustomizations xsi:type="description:VSMElementCustomization" predicateExpression="feature:isComposite">
             <featureCustomizations xsi:type="description:EAttributeCustomization" attributeName="sourceArrow" value="Diamond"/>
           </vsmElementCustomizations>
-          <vsmElementCustomizations xsi:type="description:VSMElementCustomization" predicateExpression="[oppositeOf.isComposite/]">
+          <vsmElementCustomizations xsi:type="description:VSMElementCustomization" predicateExpression="aql:self.oppositeOf.isComposite">
             <featureCustomizations xsi:type="description:EAttributeCustomization" attributeName="targetArrow" value="Diamond"/>
           </vsmElementCustomizations>
-          <vsmElementCustomizations xsi:type="description:VSMElementCustomization" predicateExpression="[not isComposite and oppositeOf.navigable/]">
+          <vsmElementCustomizations xsi:type="description:VSMElementCustomization" predicateExpression="aql:not self.isComposite and self.oppositeOf.navigable">
             <featureCustomizations xsi:type="description:EAttributeCustomization" attributeName="sourceArrow" value="InputArrow"/>
           </vsmElementCustomizations>
-          <vsmElementCustomizations xsi:type="description:VSMElementCustomization" predicateExpression="[not oppositeOf.isComposite and navigable/]">
+          <vsmElementCustomizations xsi:type="description:VSMElementCustomization" predicateExpression="aql:not self.oppositeOf.isComposite and self.navigable">
             <featureCustomizations xsi:type="description:EAttributeCustomization" attributeName="targetArrow" value="InputArrow"/>
           </vsmElementCustomizations>
-          <vsmElementCustomizations xsi:type="description:VSMElementCustomization" predicateExpression="[oclAsType(environment::StructuredType).associatedTypes->notEmpty()/]">
+          <vsmElementCustomizations xsi:type="description:VSMElementCustomization" predicateExpression="aql:self.oclAsType(environment::StructuredType).associatedTypes->notEmpty()">
             <featureCustomizations xsi:type="description:EAttributeCustomization" attributeName="labelFormat" value="italic"/>
           </vsmElementCustomizations>
         </customization>
@@ -990,13 +990,13 @@
           </style>
         </containerMappings>
         <toolSections name="External DTOs">
-          <ownedTools xsi:type="tool_1:SelectionWizardDescription" name="External DTO" label="External DTO" precondition="[oclIsKindOf(environment::Namespace)/]" forceRefresh="true" candidatesExpression="service:self.getAllSelectableExternalStructuredTypesWithAncestorsDTOs(diagram)" multiple="true" tree="true" rootExpression="service:self.getAllSelectableExternalStructuredTypesWithAncestorsDTOsRoots(diagram)" childrenExpression="feature:eContents" message="Select an external DTO" iconPath="/org.obeonetwork.dsl.entity.edit/icons/full/obj16/Entity.gif">
+          <ownedTools xsi:type="tool_1:SelectionWizardDescription" name="External DTO" label="External DTO" precondition="aql:self.oclIsKindOf(environment::Namespace)" forceRefresh="true" candidatesExpression="service:self.getAllSelectableExternalStructuredTypesWithAncestorsDTOs(diagram)" multiple="true" tree="true" rootExpression="service:self.getAllSelectableExternalStructuredTypesWithAncestorsDTOsRoots(diagram)" childrenExpression="feature:eContents" message="Select an external DTO" iconPath="/org.obeonetwork.dsl.entity.edit/icons/full/obj16/Entity.gif">
             <element name="element"/>
             <containerView name="containerView"/>
             <container name="container"/>
             <initialOperation>
               <firstModelOperations xsi:type="tool_1:For" expression="var:element" iteratorName="selectedElement">
-                <subModelOperations xsi:type="tool_1:If" conditionExpression="[oclIsKindOf(environment::DTO)/]">
+                <subModelOperations xsi:type="tool_1:If" conditionExpression="aql:self.oclIsKindOf(environment::DTO)">
                   <subModelOperations xsi:type="tool:CreateView" containerViewExpression="var:containerView"/>
                 </subModelOperations>
               </firstModelOperations>
@@ -1014,14 +1014,14 @@
               </firstModelOperations>
             </initialOperation>
           </ownedTools>
-          <ownedTools xsi:type="tool:DiagramCreationDescription" name="New external Entities diagram" label="New DTO Diagram" forceRefresh="true" browseExpression="[eContainer(environment::Namespace)/]">
+          <ownedTools xsi:type="tool:DiagramCreationDescription" name="New external Entities diagram" label="New DTO Diagram" forceRefresh="true" browseExpression="aql:self.eContainer(environment::Namespace)">
             <initialOperation>
               <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:self"/>
             </initialOperation>
             <containerViewVariable name="containerView"/>
             <representationNameVariable name="diagramName"/>
           </ownedTools>
-          <ownedTools xsi:type="tool:DiagramNavigationDescription" name="Go to external Entities diagram" label="New DTO Diagram" forceRefresh="true" browseExpression="[eContainer(environment::Namespace)/]">
+          <ownedTools xsi:type="tool:DiagramNavigationDescription" name="Go to external Entities diagram" label="New DTO Diagram" forceRefresh="true" browseExpression="aql:self.eContainer(environment::Namespace)">
             <containerViewVariable name="containerView"/>
             <containerVariable name="container"/>
             <representationNameVariable name="diagramName"/>
@@ -1030,7 +1030,7 @@
             <element name="element"/>
             <elementView name="elementView"/>
             <initialOperation>
-              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="[element.eContainer(environment::Namespace)/]">
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="aql:element.eContainer(environment::Namespace)">
                 <subModelOperations xsi:type="tool:Navigation" createIfNotExistent="true"/>
               </firstModelOperations>
             </initialOperation>

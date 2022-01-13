@@ -17,7 +17,7 @@
             <initialOperation>
               <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:container">
                 <subModelOperations xsi:type="tool_1:CreateInstance" typeName="environment.Namespace" referenceName="{Hierarchy.section.namespace.creation.containmentFeature}">
-                  <subModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="aql:'namespace_' + self.eContainer(environment::NamespacesContainer).ownedNamespaces->size()/]"/>
+                  <subModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="aql:'namespace_' + self.eContainer(environment::NamespacesContainer).ownedNamespaces->size()"/>
                 </subModelOperations>
               </firstModelOperations>
             </initialOperation>
@@ -59,7 +59,7 @@
                   </cases>
                   <default>
                     <subModelOperations xsi:type="tool_1:Switch">
-                      <cases conditionExpression="[oclIsKindOf(environment::Namespace)/]">
+                      <cases conditionExpression="aql:self.oclIsKindOf(environment::Namespace)">
                         <subModelOperations xsi:type="tool_1:MoveElement" newContainerExpression="var:newSemanticContainer" featureName="ownedNamespaces"/>
                       </cases>
                       <default>
@@ -112,18 +112,18 @@
     <ownedRepresentations xsi:type="description_1:DiagramDescription" dropDescriptions="//@ownedViewpoints[name='StructuredTypesDiagramTemplate']/@ownedRepresentations[name='{ClassDiagram.id}']/@defaultLayer/@toolSections.5/@ownedTools[name='{ClassDiagram.section.usability.dragdrop.structuredtype.id}'] //@ownedViewpoints[name='StructuredTypesDiagramTemplate']/@ownedRepresentations[name='{ClassDiagram.id}']/@defaultLayer/@toolSections.5/@ownedTools[name='DAD_ED_Enumeration'] //@ownedViewpoints[name='StructuredTypesDiagramTemplate']/@ownedRepresentations[name='{ClassDiagram.id}']/@defaultLayer/@toolSections.0/@ownedTools[name='ED_Namespace']" name="{ClassDiagram.id}" label="{ClassDiagram.label}" titleExpression="{ClassDiagram.titleExpression}" domainClass="environment.Namespace" preconditionExpression="{ClassDiagram.precondition}">
       <metamodel href="http://www.obeonetwork.org/dsl/environment/3.0.0#/"/>
       <defaultLayer name="Default">
-        <edgeMappings name="ED_Reference_Type_Type" preconditionExpression="[oppositeOf.oclIsUndefined()/]" labelDirectEdit="//@ownedViewpoints[name='StructuredTypesDiagramTemplate']/@ownedRepresentations[name='{ClassDiagram.id}']/@defaultLayer/@toolSections.5/@ownedTools[name='EDT_ED_Reference']" semanticCandidatesExpression="service:diagram.getReferences()" sourceMapping="//@ownedViewpoints[name='StructuredTypesDiagramTemplate']/@ownedRepresentations[name='{ClassDiagram.id}']/@defaultLayer/@containerMappings[name='{ClassDiagram.StructuredTypeMapping.id}'] //@ownedViewpoints[name='StructuredTypesDiagramTemplate']/@ownedRepresentations[name='{ClassDiagram.id}']/@additionalLayers[name='{ClassDiagram.ExternalTypesLayer.label}']/@containerMappings[name='ED_ExternalStructuredType_Referenced'] //@ownedViewpoints[name='StructuredTypesDiagramTemplate']/@ownedRepresentations[name='{ClassDiagram.id}']/@additionalLayers[name='{ClassDiagram.ExternalTypesLayer.label}']/@containerMappings[name='ED_ExternalStructuredType_NotReferenced']" targetMapping="//@ownedViewpoints[name='StructuredTypesDiagramTemplate']/@ownedRepresentations[name='{ClassDiagram.id}']/@defaultLayer/@containerMappings[name='{ClassDiagram.StructuredTypeMapping.id}'] //@ownedViewpoints[name='StructuredTypesDiagramTemplate']/@ownedRepresentations[name='{ClassDiagram.id}']/@additionalLayers[name='{ClassDiagram.ExternalTypesLayer.label}']/@containerMappings[name='ED_ExternalStructuredType_Referenced'] //@ownedViewpoints[name='StructuredTypesDiagramTemplate']/@ownedRepresentations[name='{ClassDiagram.id}']/@additionalLayers[name='{ClassDiagram.ExternalTypesLayer.label}']/@containerMappings[name='ED_ExternalStructuredType_NotReferenced']" targetFinderExpression="feature:referencedType" sourceFinderExpression="feature:containingType" domainClass="environment.Reference" useDomainElement="true" reconnections="//@ownedViewpoints[name='StructuredTypesDiagramTemplate']/@ownedRepresentations[name='{ClassDiagram.id}']/@defaultLayer/@toolSections.5/@ownedTools[name='REC_ED_Reference_Target'] //@ownedViewpoints[name='StructuredTypesDiagramTemplate']/@ownedRepresentations[name='{ClassDiagram.id}']/@defaultLayer/@toolSections.5/@ownedTools[name='REC_ED_Reference_Source']">
+        <edgeMappings name="ED_Reference_Type_Type" preconditionExpression="aql:self.oppositeOf = null" labelDirectEdit="//@ownedViewpoints[name='StructuredTypesDiagramTemplate']/@ownedRepresentations[name='{ClassDiagram.id}']/@defaultLayer/@toolSections.5/@ownedTools[name='EDT_ED_Reference']" semanticCandidatesExpression="service:diagram.getReferences()" sourceMapping="//@ownedViewpoints[name='StructuredTypesDiagramTemplate']/@ownedRepresentations[name='{ClassDiagram.id}']/@defaultLayer/@containerMappings[name='{ClassDiagram.StructuredTypeMapping.id}'] //@ownedViewpoints[name='StructuredTypesDiagramTemplate']/@ownedRepresentations[name='{ClassDiagram.id}']/@additionalLayers[name='{ClassDiagram.ExternalTypesLayer.label}']/@containerMappings[name='ED_ExternalStructuredType_Referenced'] //@ownedViewpoints[name='StructuredTypesDiagramTemplate']/@ownedRepresentations[name='{ClassDiagram.id}']/@additionalLayers[name='{ClassDiagram.ExternalTypesLayer.label}']/@containerMappings[name='ED_ExternalStructuredType_NotReferenced']" targetMapping="//@ownedViewpoints[name='StructuredTypesDiagramTemplate']/@ownedRepresentations[name='{ClassDiagram.id}']/@defaultLayer/@containerMappings[name='{ClassDiagram.StructuredTypeMapping.id}'] //@ownedViewpoints[name='StructuredTypesDiagramTemplate']/@ownedRepresentations[name='{ClassDiagram.id}']/@additionalLayers[name='{ClassDiagram.ExternalTypesLayer.label}']/@containerMappings[name='ED_ExternalStructuredType_Referenced'] //@ownedViewpoints[name='StructuredTypesDiagramTemplate']/@ownedRepresentations[name='{ClassDiagram.id}']/@additionalLayers[name='{ClassDiagram.ExternalTypesLayer.label}']/@containerMappings[name='ED_ExternalStructuredType_NotReferenced']" targetFinderExpression="feature:referencedType" sourceFinderExpression="feature:containingType" domainClass="environment.Reference" useDomainElement="true" reconnections="//@ownedViewpoints[name='StructuredTypesDiagramTemplate']/@ownedRepresentations[name='{ClassDiagram.id}']/@defaultLayer/@toolSections.5/@ownedTools[name='REC_ED_Reference_Target'] //@ownedViewpoints[name='StructuredTypesDiagramTemplate']/@ownedRepresentations[name='{ClassDiagram.id}']/@defaultLayer/@toolSections.5/@ownedTools[name='REC_ED_Reference_Source']">
           <style strokeColor="//@userColorsPalettes[name='Class%20Diagram']/@entries[name='ISDLabelAndEdge']" targetArrow="NoDecoration">
-            <centerLabelStyleDescription showIcon="false" labelExpression="[name + ' [' + multiplicity.toString() + ']'/]" labelColor="//@userColorsPalettes[name='Class%20Diagram']/@entries[name='ISDLabelAndEdge']"/>
+            <centerLabelStyleDescription showIcon="false" labelExpression="aql:self.name + ' [' + self.multiplicity.toString() + ']'" labelColor="//@userColorsPalettes[name='Class%20Diagram']/@entries[name='ISDLabelAndEdge']"/>
           </style>
           <conditionnalStyles predicateExpression="feature:isComposite">
             <style strokeColor="//@userColorsPalettes[name='Class%20Diagram']/@entries[name='ISDLabelAndEdge']" sourceArrow="Diamond">
-              <centerLabelStyleDescription showIcon="false" labelExpression="[name + ' [' + multiplicity.toString() + ']'/]" labelColor="//@userColorsPalettes[name='Class%20Diagram']/@entries[name='ISDLabelAndEdge']"/>
+              <centerLabelStyleDescription showIcon="false" labelExpression="aql:self.name + ' [' + self.multiplicity.toString() + ']'" labelColor="//@userColorsPalettes[name='Class%20Diagram']/@entries[name='ISDLabelAndEdge']"/>
             </style>
           </conditionnalStyles>
           <conditionnalStyles predicateExpression="feature:navigable">
             <style strokeColor="//@userColorsPalettes[name='Class%20Diagram']/@entries[name='ISDLabelAndEdge']">
-              <centerLabelStyleDescription showIcon="false" labelExpression="[name + ' [' + multiplicity.toString() + ']'/]" labelColor="//@userColorsPalettes[name='Class%20Diagram']/@entries[name='ISDLabelAndEdge']"/>
+              <centerLabelStyleDescription showIcon="false" labelExpression="aql:self.name + ' [' + self.multiplicity.toString() + ']'" labelColor="//@userColorsPalettes[name='Class%20Diagram']/@entries[name='ISDLabelAndEdge']"/>
             </style>
           </conditionnalStyles>
         </edgeMappings>
@@ -132,11 +132,11 @@
             <centerLabelStyleDescription showIcon="false" labelColor="//@userColorsPalettes[name='Class%20Diagram']/@entries[name='ISDLabelAndEdge']"/>
           </style>
         </edgeMappings>
-        <edgeMappings name="ED_BidiReference_Type_Type" deletionDescription="//@ownedViewpoints[name='StructuredTypesDiagramTemplate']/@ownedRepresentations[name='{ClassDiagram.id}']/@defaultLayer/@toolSections.5/@ownedTools[name='DEL_ED_BidiReference']" labelDirectEdit="//@ownedViewpoints[name='StructuredTypesDiagramTemplate']/@ownedRepresentations[name='{ClassDiagram.id}']/@defaultLayer/@toolSections.5/@ownedTools[name='EDT_ED_BidiReference']" semanticCandidatesExpression="service:diagram.getOppositeReferences()" semanticElements="[self->asSequence()->including(oppositeOf)/]" sourceMapping="//@ownedViewpoints[name='StructuredTypesDiagramTemplate']/@ownedRepresentations[name='{ClassDiagram.id}']/@defaultLayer/@containerMappings[name='{ClassDiagram.StructuredTypeMapping.id}'] //@ownedViewpoints[name='StructuredTypesDiagramTemplate']/@ownedRepresentations[name='{ClassDiagram.id}']/@additionalLayers[name='{ClassDiagram.ExternalTypesLayer.label}']/@containerMappings[name='ED_ExternalStructuredType_Referenced'] //@ownedViewpoints[name='StructuredTypesDiagramTemplate']/@ownedRepresentations[name='{ClassDiagram.id}']/@additionalLayers[name='{ClassDiagram.ExternalTypesLayer.label}']/@containerMappings[name='ED_ExternalStructuredType_NotReferenced']" targetMapping="//@ownedViewpoints[name='StructuredTypesDiagramTemplate']/@ownedRepresentations[name='{ClassDiagram.id}']/@defaultLayer/@containerMappings[name='{ClassDiagram.StructuredTypeMapping.id}'] //@ownedViewpoints[name='StructuredTypesDiagramTemplate']/@ownedRepresentations[name='{ClassDiagram.id}']/@additionalLayers[name='{ClassDiagram.ExternalTypesLayer.label}']/@containerMappings[name='ED_ExternalStructuredType_Referenced'] //@ownedViewpoints[name='StructuredTypesDiagramTemplate']/@ownedRepresentations[name='{ClassDiagram.id}']/@additionalLayers[name='{ClassDiagram.ExternalTypesLayer.label}']/@containerMappings[name='ED_ExternalStructuredType_NotReferenced']" targetFinderExpression="feature:referencedType" sourceFinderExpression="feature:containingType" domainClass="environment.Reference" useDomainElement="true" reconnections="//@ownedViewpoints[name='StructuredTypesDiagramTemplate']/@ownedRepresentations[name='{ClassDiagram.id}']/@defaultLayer/@toolSections.5/@ownedTools[name='REC_ED_BidiReference_Target'] //@ownedViewpoints[name='StructuredTypesDiagramTemplate']/@ownedRepresentations[name='{ClassDiagram.id}']/@defaultLayer/@toolSections.5/@ownedTools[name='REC_ED_BidiReference_Source']">
+        <edgeMappings name="ED_BidiReference_Type_Type" deletionDescription="//@ownedViewpoints[name='StructuredTypesDiagramTemplate']/@ownedRepresentations[name='{ClassDiagram.id}']/@defaultLayer/@toolSections.5/@ownedTools[name='DEL_ED_BidiReference']" labelDirectEdit="//@ownedViewpoints[name='StructuredTypesDiagramTemplate']/@ownedRepresentations[name='{ClassDiagram.id}']/@defaultLayer/@toolSections.5/@ownedTools[name='EDT_ED_BidiReference']" semanticCandidatesExpression="service:diagram.getOppositeReferences()" semanticElements="aql:self->asSequence()->including(self.oppositeOf)" sourceMapping="//@ownedViewpoints[name='StructuredTypesDiagramTemplate']/@ownedRepresentations[name='{ClassDiagram.id}']/@defaultLayer/@containerMappings[name='{ClassDiagram.StructuredTypeMapping.id}'] //@ownedViewpoints[name='StructuredTypesDiagramTemplate']/@ownedRepresentations[name='{ClassDiagram.id}']/@additionalLayers[name='{ClassDiagram.ExternalTypesLayer.label}']/@containerMappings[name='ED_ExternalStructuredType_Referenced'] //@ownedViewpoints[name='StructuredTypesDiagramTemplate']/@ownedRepresentations[name='{ClassDiagram.id}']/@additionalLayers[name='{ClassDiagram.ExternalTypesLayer.label}']/@containerMappings[name='ED_ExternalStructuredType_NotReferenced']" targetMapping="//@ownedViewpoints[name='StructuredTypesDiagramTemplate']/@ownedRepresentations[name='{ClassDiagram.id}']/@defaultLayer/@containerMappings[name='{ClassDiagram.StructuredTypeMapping.id}'] //@ownedViewpoints[name='StructuredTypesDiagramTemplate']/@ownedRepresentations[name='{ClassDiagram.id}']/@additionalLayers[name='{ClassDiagram.ExternalTypesLayer.label}']/@containerMappings[name='ED_ExternalStructuredType_Referenced'] //@ownedViewpoints[name='StructuredTypesDiagramTemplate']/@ownedRepresentations[name='{ClassDiagram.id}']/@additionalLayers[name='{ClassDiagram.ExternalTypesLayer.label}']/@containerMappings[name='ED_ExternalStructuredType_NotReferenced']" targetFinderExpression="feature:referencedType" sourceFinderExpression="feature:containingType" domainClass="environment.Reference" useDomainElement="true" reconnections="//@ownedViewpoints[name='StructuredTypesDiagramTemplate']/@ownedRepresentations[name='{ClassDiagram.id}']/@defaultLayer/@toolSections.5/@ownedTools[name='REC_ED_BidiReference_Target'] //@ownedViewpoints[name='StructuredTypesDiagramTemplate']/@ownedRepresentations[name='{ClassDiagram.id}']/@defaultLayer/@toolSections.5/@ownedTools[name='REC_ED_BidiReference_Source']">
           <style strokeColor="//@userColorsPalettes[name='Class%20Diagram']/@entries[name='ISDLabelAndEdge']" targetArrow="NoDecoration">
-            <beginLabelStyleDescription showIcon="false" labelExpression="[oppositeOf.name + ' [' + oppositeOf.multiplicity.toString() + ']'/]" labelColor="//@userColorsPalettes[name='Class%20Diagram']/@entries[name='ISDLabelAndEdge']"/>
+            <beginLabelStyleDescription showIcon="false" labelExpression="aql:self.oppositeOf.name + ' [' + self.oppositeOf.multiplicity.toString() + ']'" labelColor="//@userColorsPalettes[name='Class%20Diagram']/@entries[name='ISDLabelAndEdge']"/>
             <centerLabelStyleDescription showIcon="false" labelColor="//@userColorsPalettes[name='Class%20Diagram']/@entries[name='ISDLabelAndEdge']"/>
-            <endLabelStyleDescription showIcon="false" labelExpression="[name + ' [' + multiplicity.toString() + ']'/]" labelColor="//@userColorsPalettes[name='Class%20Diagram']/@entries[name='ISDLabelAndEdge']"/>
+            <endLabelStyleDescription showIcon="false" labelExpression="aql:self.name + ' [' + self.multiplicity.toString() + ']'" labelColor="//@userColorsPalettes[name='Class%20Diagram']/@entries[name='ISDLabelAndEdge']"/>
           </style>
         </edgeMappings>
         <containerMappings name="ED_Namespace" detailDescriptions="//@ownedViewpoints[name='StructuredTypesDiagramTemplate']/@ownedRepresentations[name='{ClassDiagram.id}']/@defaultLayer/@toolSections.0/@ownedTools[name='New%20Class%20Diagram']" deletionDescription="//@ownedViewpoints[name='StructuredTypesDiagramTemplate']/@ownedRepresentations[name='{ClassDiagram.id}']/@defaultLayer/@toolSections.5/@ownedTools[name='DEL_Generic']" labelDirectEdit="//@ownedViewpoints[name='StructuredTypesDiagramTemplate']/@ownedRepresentations[name='{ClassDiagram.id}']/@defaultLayer/@toolSections.5/@ownedTools[name='EDT_Generic']" semanticCandidatesExpression="feature:ownedNamespaces" doubleClickDescription="//@ownedViewpoints[name='StructuredTypesDiagramTemplate']/@ownedRepresentations[name='{ClassDiagram.id}']/@defaultLayer/@toolSections.0/@ownedTools[name='Go%20to%20Class%20Diagram']" domainClass="environment.Namespace">
@@ -180,7 +180,7 @@
             <initialOperation>
               <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:container">
                 <subModelOperations xsi:type="tool_1:CreateInstance" typeName="environment.Namespace" referenceName="ownedNamespaces">
-                  <subModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="['namespace_' + eContainer().oclAsType(environment::NamespacesContainer).ownedNamespaces->size()/]"/>
+                  <subModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="aql:'namespace_' + self.eContainer(environment::NamespacesContainer).ownedNamespaces->size()"/>
                 </subModelOperations>
               </firstModelOperations>
             </initialOperation>
@@ -201,7 +201,7 @@
               </firstModelOperations>
             </initialOperation>
           </ownedTools>
-          <ownedTools xsi:type="tool:ContainerDropDescription" name="ED_Namespace" precondition="[oclIsKindOf(environment::Namespace)/]" forceRefresh="true" dragSource="PROJECT_EXPLORER">
+          <ownedTools xsi:type="tool:ContainerDropDescription" name="ED_Namespace" precondition="aql:self.oclIsKindOf(environment::Namespace)" forceRefresh="true" dragSource="PROJECT_EXPLORER">
             <oldContainer name="oldSemanticContainer"/>
             <newContainer name="newSemanticContainer"/>
             <element name="element"/>
@@ -209,12 +209,12 @@
             <initialOperation>
               <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:element">
                 <subModelOperations xsi:type="tool_1:Switch">
-                  <cases conditionExpression="[newSemanticContainer.ancestors()->includes(element)/]">
+                  <cases conditionExpression="aql:newSemanticContainer.ancestors()->includes(element)">
                     <subModelOperations xsi:type="tool_1:ChangeContext" browseExpression="service:displayWarningDropNamespaceOnChild()"/>
                   </cases>
                   <default>
                     <subModelOperations xsi:type="tool_1:Switch">
-                      <cases conditionExpression="[oclIsKindOf(environment::Namespace)/]">
+                      <cases conditionExpression="aql:self.oclIsKindOf(environment::Namespace)">
                         <subModelOperations xsi:type="tool_1:MoveElement" newContainerExpression="var:newSemanticContainer" featureName="ownedNamespaces"/>
                       </cases>
                       <default>
@@ -252,7 +252,7 @@
             <initialOperation>
               <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:container">
                 <subModelOperations xsi:type="tool_1:CreateInstance" typeName="environment.Attribute" referenceName="ownedAttributes">
-                  <subModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="['attribute' + eContainer().oclAsType(environment::StructuredType).ownedAttributes->size()/]"/>
+                  <subModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="aql:'attribute' + self.eContainer(environment::StructuredType).ownedAttributes->size()"/>
                   <subModelOperations xsi:type="tool_1:SetValue" featureName="type" valueExpression="service:getStringPrimitiveType()"/>
                 </subModelOperations>
               </firstModelOperations>
@@ -266,7 +266,7 @@
             <initialOperation>
               <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:container">
                 <subModelOperations xsi:type="tool_1:CreateInstance" typeName="environment.Enumeration" referenceName="types">
-                  <subModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="['Enum' + eContainer().oclAsType(environment::Namespace).types->size()/]"/>
+                  <subModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="aql:'Enum' + self.eContainer(environment::Namespace).types->size()"/>
                 </subModelOperations>
               </firstModelOperations>
             </initialOperation>
@@ -293,7 +293,7 @@
               <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:source">
                 <subModelOperations xsi:type="tool_1:CreateInstance" typeName="environment.Reference" referenceName="ownedReferences">
                   <subModelOperations xsi:type="tool_1:SetValue" featureName="referencedType" valueExpression="var:target"/>
-                  <subModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="[target.oclAsType(environment::StructuredType).name.trim() + 's'/]"/>
+                  <subModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="aql:target.oclAsType(environment::StructuredType).name.trim() + 's'"/>
                   <subModelOperations xsi:type="tool_1:SetValue" featureName="multiplicity" valueExpression="ZERO_STAR"/>
                   <subModelOperations xsi:type="tool_1:SetValue" featureName="navigable" valueExpression="true"/>
                 </subModelOperations>
@@ -309,7 +309,7 @@
               <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:source">
                 <subModelOperations xsi:type="tool_1:CreateInstance" typeName="environment.Reference" referenceName="ownedReferences">
                   <subModelOperations xsi:type="tool_1:SetValue" featureName="referencedType" valueExpression="var:target"/>
-                  <subModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="[target.oclAsType(environment::StructuredType).name.trim() + 's'/]"/>
+                  <subModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="aql:target.oclAsType(environment::StructuredType).name.trim() + 's'"/>
                   <subModelOperations xsi:type="tool_1:SetValue" featureName="multiplicity" valueExpression="ZERO_STAR"/>
                   <subModelOperations xsi:type="tool_1:SetValue" featureName="navigable" valueExpression="true"/>
                   <subModelOperations xsi:type="tool_1:SetValue" featureName="isComposite" valueExpression="true"/>
@@ -338,14 +338,14 @@
                 <subModelOperations xsi:type="tool_1:CreateInstance" typeName="environment.Reference" referenceName="ownedReferences" variableName="firstReference">
                   <subModelOperations xsi:type="tool_1:SetValue" featureName="referencedType" valueExpression="var:target"/>
                   <subModelOperations xsi:type="tool_1:SetValue" featureName="isComposite" valueExpression="false"/>
-                  <subModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="[target.oclAsType(environment::StructuredType).name.trim() + 's'/]"/>
+                  <subModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="aql:target.oclAsType(environment::StructuredType).name.trim() + 's'"/>
                   <subModelOperations xsi:type="tool_1:SetValue" featureName="multiplicity" valueExpression="ZERO_STAR"/>
                   <subModelOperations xsi:type="tool_1:SetValue" featureName="navigable" valueExpression="true"/>
                   <subModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:target">
                     <subModelOperations xsi:type="tool_1:CreateInstance" typeName="environment.Reference" referenceName="ownedReferences" variableName="secondReference">
                       <subModelOperations xsi:type="tool_1:SetValue" featureName="referencedType" valueExpression="var:source"/>
                       <subModelOperations xsi:type="tool_1:SetValue" featureName="isComposite" valueExpression="false"/>
-                      <subModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="[source.oclAsType(environment::StructuredType).name.trim() + 's'/]"/>
+                      <subModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="aql:source.oclAsType(environment::StructuredType).name.trim() + 's'"/>
                       <subModelOperations xsi:type="tool_1:SetValue" featureName="multiplicity" valueExpression="ZERO_STAR"/>
                       <subModelOperations xsi:type="tool_1:SetValue" featureName="navigable" valueExpression="true"/>
                       <subModelOperations xsi:type="tool_1:SetValue" featureName="oppositeOf" valueExpression="var:firstReference"/>
@@ -365,14 +365,14 @@
                 <subModelOperations xsi:type="tool_1:CreateInstance" typeName="environment.Reference" referenceName="ownedReferences" variableName="firstReference">
                   <subModelOperations xsi:type="tool_1:SetValue" featureName="referencedType" valueExpression="var:target"/>
                   <subModelOperations xsi:type="tool_1:SetValue" featureName="isComposite" valueExpression="true"/>
-                  <subModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="[target.oclAsType(environment::StructuredType).name.trim() + 's'/]"/>
+                  <subModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="aql:target.oclAsType(environment::StructuredType).name.trim() + 's'"/>
                   <subModelOperations xsi:type="tool_1:SetValue" featureName="multiplicity" valueExpression="ZERO_STAR"/>
                   <subModelOperations xsi:type="tool_1:SetValue" featureName="navigable" valueExpression="true"/>
                   <subModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:target">
                     <subModelOperations xsi:type="tool_1:CreateInstance" typeName="environment.Reference" referenceName="ownedReferences" variableName="secondReference">
                       <subModelOperations xsi:type="tool_1:SetValue" featureName="referencedType" valueExpression="var:source"/>
                       <subModelOperations xsi:type="tool_1:SetValue" featureName="isComposite" valueExpression="false"/>
-                      <subModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="[source.oclAsType(environment::StructuredType).name.trim() + 's'/]"/>
+                      <subModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="aql:source.oclAsType(environment::StructuredType).name.trim() + 's'"/>
                       <subModelOperations xsi:type="tool_1:SetValue" featureName="multiplicity" valueExpression="ZERO_STAR"/>
                       <subModelOperations xsi:type="tool_1:SetValue" featureName="navigable" valueExpression="true"/>
                       <subModelOperations xsi:type="tool_1:SetValue" featureName="oppositeOf" valueExpression="var:firstReference"/>
@@ -426,7 +426,7 @@
               </firstModelOperations>
             </initialOperation>
           </ownedTools>
-          <ownedTools xsi:type="tool:ContainerDropDescription" name="DAD_ED_Enumeration" precondition="[oclIsKindOf(environment::Enumeration)/]" forceRefresh="true" mappings="//@ownedViewpoints[name='StructuredTypesDiagramTemplate']/@ownedRepresentations[name='{ClassDiagram.id}']/@defaultLayer/@containerMappings[name='ED_Enumeration']" dragSource="BOTH">
+          <ownedTools xsi:type="tool:ContainerDropDescription" name="DAD_ED_Enumeration" precondition="aql:self.oclIsKindOf(environment::Enumeration)" forceRefresh="true" mappings="//@ownedViewpoints[name='StructuredTypesDiagramTemplate']/@ownedRepresentations[name='{ClassDiagram.id}']/@defaultLayer/@containerMappings[name='ED_Enumeration']" dragSource="BOTH">
             <oldContainer name="oldSemanticContainer"/>
             <newContainer name="newSemanticContainer"/>
             <element name="element"/>
@@ -437,7 +437,7 @@
               </firstModelOperations>
             </initialOperation>
           </ownedTools>
-          <ownedTools xsi:type="tool:ContainerDropDescription" name="DAD_ED_Attribute" precondition="[oclIsKindOf(environment::Attribute)/]" forceRefresh="true" mappings="//@ownedViewpoints[name='StructuredTypesDiagramTemplate']/@ownedRepresentations[name='{ClassDiagram.id}']/@defaultLayer/@containerMappings[name='{ClassDiagram.StructuredTypeMapping.id}']/@subNodeMappings[name='ED_Attribute']" dragSource="BOTH">
+          <ownedTools xsi:type="tool:ContainerDropDescription" name="DAD_ED_Attribute" precondition="aql:self.oclIsKindOf(environment::Attribute)" forceRefresh="true" mappings="//@ownedViewpoints[name='StructuredTypesDiagramTemplate']/@ownedRepresentations[name='{ClassDiagram.id}']/@defaultLayer/@containerMappings[name='{ClassDiagram.StructuredTypeMapping.id}']/@subNodeMappings[name='ED_Attribute']" dragSource="BOTH">
             <oldContainer name="oldSemanticContainer"/>
             <newContainer name="newSemanticContainer"/>
             <element name="element"/>
@@ -448,7 +448,7 @@
               </firstModelOperations>
             </initialOperation>
           </ownedTools>
-          <ownedTools xsi:type="tool:ContainerDropDescription" name="DAD_ED_Literal" precondition="[oclIsKindOf(environment::Literal)/]" forceRefresh="true" mappings="//@ownedViewpoints[name='StructuredTypesDiagramTemplate']/@ownedRepresentations[name='{ClassDiagram.id}']/@defaultLayer/@containerMappings[name='ED_Enumeration']/@subNodeMappings[name='ED_Literal']" dragSource="BOTH">
+          <ownedTools xsi:type="tool:ContainerDropDescription" name="DAD_ED_Literal" precondition="aql:self.oclIsKindOf(environment::Literal)" forceRefresh="true" mappings="//@ownedViewpoints[name='StructuredTypesDiagramTemplate']/@ownedRepresentations[name='{ClassDiagram.id}']/@defaultLayer/@containerMappings[name='ED_Enumeration']/@subNodeMappings[name='ED_Literal']" dragSource="BOTH">
             <oldContainer name="oldSemanticContainer"/>
             <newContainer name="newSemanticContainer"/>
             <element name="element"/>
@@ -479,7 +479,7 @@
           </ownedTools>
           <ownedTools xsi:type="tool:DeleteElementDescription" name="DEL_ED_BidiReference" forceRefresh="true">
             <element name="element">
-              <subVariables xsi:type="tool_1:SelectModelElementVariable" name="selectedElements" candidatesExpression="[self->asSequence()->including(oppositeOf)/]" multiple="true" message="Select references to be deleted"/>
+              <subVariables xsi:type="tool_1:SelectModelElementVariable" name="selectedElements" candidatesExpression="aql:self->asSequence()->including(self.oppositeOf)" multiple="true" message="Select references to be deleted"/>
             </element>
             <elementView name="elementView"/>
             <containerView name="containerView"/>
@@ -572,16 +572,16 @@
           <vsmElementCustomizations xsi:type="description:VSMElementCustomization" predicateExpression="feature:isComposite">
             <featureCustomizations xsi:type="description:EAttributeCustomization" appliedOn="//@ownedViewpoints[name='StructuredTypesDiagramTemplate']/@ownedRepresentations[name='{ClassDiagram.id}']/@defaultLayer/@edgeMappings[name='ED_BidiReference_Type_Type']/@style" attributeName="sourceArrow" value="Diamond"/>
           </vsmElementCustomizations>
-          <vsmElementCustomizations xsi:type="description:VSMElementCustomization" predicateExpression="[oppositeOf.isComposite/]">
+          <vsmElementCustomizations xsi:type="description:VSMElementCustomization" predicateExpression="aql:self.oppositeOf.isComposite">
             <featureCustomizations xsi:type="description:EAttributeCustomization" appliedOn="//@ownedViewpoints[name='StructuredTypesDiagramTemplate']/@ownedRepresentations[name='{ClassDiagram.id}']/@defaultLayer/@edgeMappings[name='ED_BidiReference_Type_Type']/@style" attributeName="targetArrow" value="Diamond"/>
           </vsmElementCustomizations>
-          <vsmElementCustomizations xsi:type="description:VSMElementCustomization" predicateExpression="[not isComposite and oppositeOf.navigable/]">
+          <vsmElementCustomizations xsi:type="description:VSMElementCustomization" predicateExpression="aql:not self.isComposite and self.oppositeOf.navigable">
             <featureCustomizations xsi:type="description:EAttributeCustomization" appliedOn="//@ownedViewpoints[name='StructuredTypesDiagramTemplate']/@ownedRepresentations[name='{ClassDiagram.id}']/@defaultLayer/@edgeMappings[name='ED_BidiReference_Type_Type']/@style" attributeName="sourceArrow" value="InputArrow"/>
           </vsmElementCustomizations>
-          <vsmElementCustomizations xsi:type="description:VSMElementCustomization" predicateExpression="[not oppositeOf.isComposite and navigable/]">
+          <vsmElementCustomizations xsi:type="description:VSMElementCustomization" predicateExpression="aql:not self.oppositeOf.isComposite and self.navigable">
             <featureCustomizations xsi:type="description:EAttributeCustomization" appliedOn="//@ownedViewpoints[name='StructuredTypesDiagramTemplate']/@ownedRepresentations[name='{ClassDiagram.id}']/@defaultLayer/@edgeMappings[name='ED_BidiReference_Type_Type']/@style" attributeName="targetArrow" value="InputArrow"/>
           </vsmElementCustomizations>
-          <vsmElementCustomizations xsi:type="description:VSMElementCustomization" predicateExpression="[oclAsType(environment::StructuredType).associatedTypes->notEmpty()/]">
+          <vsmElementCustomizations xsi:type="description:VSMElementCustomization" predicateExpression="aql:self.oclAsType(environment::StructuredType).associatedTypes->notEmpty()">
             <featureCustomizations xsi:type="description:EAttributeCustomization" appliedOn="//@ownedViewpoints[name='StructuredTypesDiagramTemplate']/@ownedRepresentations[name='{ClassDiagram.id}']/@defaultLayer/@containerMappings[name='{ClassDiagram.StructuredTypeMapping.id}']/@style" attributeName="labelFormat" value="italic"/>
           </vsmElementCustomizations>
         </customization>
@@ -612,7 +612,7 @@
           </style>
         </containerMappings>
         <toolSections name="{ClassDiagram.ExternalTypesLayer.label}">
-          <ownedTools xsi:type="tool_1:SelectionWizardDescription" name="{ClassDiagram.ExternalTypesLayer.section.creation.externalType.id}" label="{ClassDiagram.ExternalTypesLayer.section.creation.externalType.label}" precondition="[oclIsKindOf(environment::Namespace)/]" forceRefresh="true" candidatesExpression="{ClassDiagram.ExternalTypesLayer.section.creation.externalType.candidatesExpression}" multiple="true" tree="true" rootExpression="{ClassDiagram.ExternalTypesLayer.section.creation.externalType.rootExpression}" childrenExpression="feature:eContents" message="{ClassDiagram.ExternalTypesLayer.section.creation.externalType.message}" iconPath="/org.obeonetwork.dsl.entity.edit/icons/full/obj16/Entity.gif">
+          <ownedTools xsi:type="tool_1:SelectionWizardDescription" name="{ClassDiagram.ExternalTypesLayer.section.creation.externalType.id}" label="{ClassDiagram.ExternalTypesLayer.section.creation.externalType.label}" precondition="aql:self.oclIsKindOf(environment::Namespace)" forceRefresh="true" candidatesExpression="{ClassDiagram.ExternalTypesLayer.section.creation.externalType.candidatesExpression}" multiple="true" tree="true" rootExpression="{ClassDiagram.ExternalTypesLayer.section.creation.externalType.rootExpression}" childrenExpression="feature:eContents" message="{ClassDiagram.ExternalTypesLayer.section.creation.externalType.message}" iconPath="/org.obeonetwork.dsl.entity.edit/icons/full/obj16/Entity.gif">
             <element name="element"/>
             <containerView name="containerView"/>
             <container name="container"/>
@@ -636,14 +636,14 @@
               </firstModelOperations>
             </initialOperation>
           </ownedTools>
-          <ownedTools xsi:type="tool:DiagramCreationDescription" name="New external Entities diagram" label="{Hierarchy.section.usability.diagramCreation.label}" forceRefresh="true" browseExpression="[eContainer(environment::Namespace)/]" diagramDescription="//@ownedViewpoints[name='StructuredTypesDiagramTemplate']/@ownedRepresentations[name='{ClassDiagram.id}']">
+          <ownedTools xsi:type="tool:DiagramCreationDescription" name="New external Entities diagram" label="{Hierarchy.section.usability.diagramCreation.label}" forceRefresh="true" browseExpression="aql:self.eContainer(environment::Namespace)" diagramDescription="//@ownedViewpoints[name='StructuredTypesDiagramTemplate']/@ownedRepresentations[name='{ClassDiagram.id}']">
             <initialOperation>
               <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:self"/>
             </initialOperation>
             <containerViewVariable name="containerView"/>
             <representationNameVariable name="diagramName"/>
           </ownedTools>
-          <ownedTools xsi:type="tool:DiagramNavigationDescription" name="Go to external Entities diagram" label="{Hierarchy.section.usability.diagramCreation.label}" forceRefresh="true" browseExpression="[eContainer(environment::Namespace)/]" diagramDescription="//@ownedViewpoints[name='StructuredTypesDiagramTemplate']/@ownedRepresentations[name='{ClassDiagram.id}']">
+          <ownedTools xsi:type="tool:DiagramNavigationDescription" name="Go to external Entities diagram" label="{Hierarchy.section.usability.diagramCreation.label}" forceRefresh="true" browseExpression="aql:self.eContainer(environment::Namespace)" diagramDescription="//@ownedViewpoints[name='StructuredTypesDiagramTemplate']/@ownedRepresentations[name='{ClassDiagram.id}']">
             <containerViewVariable name="containerView"/>
             <containerVariable name="container"/>
             <representationNameVariable name="diagramName"/>
@@ -652,7 +652,7 @@
             <element name="element"/>
             <elementView name="elementView"/>
             <initialOperation>
-              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="[element.eContainer(environment::Namespace)/]">
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="aql:element.eContainer(environment::Namespace)">
                 <subModelOperations xsi:type="tool:Navigation" createIfNotExistent="true" diagramDescription="//@ownedViewpoints[name='StructuredTypesDiagramTemplate']/@ownedRepresentations[name='{ClassDiagram.id}']"/>
               </firstModelOperations>
             </initialOperation>

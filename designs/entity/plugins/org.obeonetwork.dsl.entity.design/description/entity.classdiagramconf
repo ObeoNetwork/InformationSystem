@@ -37,7 +37,7 @@
           <stringValues id="candidatesExpression" value="service:self.getAllSelectableExternalStructuredTypesWithAncestorsEntities(diagram)"/>
           <stringValues id="rootExpression" value="service:self.getAllSelectableExternalStructuredTypesWithAncestorsEntitiesRoots(diagram)"/>
           <stringValues id="message" value="Select an external entity"/>
-          <stringValues id="filterExpression" value="[oclIsKindOf(entity::Entity)/]"/>
+          <stringValues id="filterExpression" value="aql:self.oclIsKindOf(entity::Entity)"/>
         </children>
         <stringValues id="id" value="External entities"/>
       </children>
@@ -53,7 +53,7 @@
       <children id="structuredType">
         <children id="creation">
           <stringValues id="label" value="Entity"/>
-          <stringValues id="defaultName" value="['Entity' + eContainer().oclAsType(environment::Namespace).types->size()/]"/>
+          <stringValues id="defaultName" value="aql:'Entity' + self.eContainer(environment::Namespace).types->size()"/>
         </children>
         <children id="fromOtherType">
           <stringValues id="label" value="Entity from DTO"/>
@@ -81,13 +81,13 @@
         </children>
         <children id="dragdrop.structuredtype">
           <stringValues id="id" value="DAD_ED_Entity"/>
-          <stringValues id="precondition" value="[oclIsKindOf(entity::Entity)/]"/>
+          <stringValues id="precondition" value="aql:self.oclIsKindOf(entity::Entity)"/>
         </children>
       </children>
     </children>
     <stringValues id="label" value="Entities Diagram"/>
-    <stringValues id="titleExpression" value="[name + ' - Entities diagram'/]"/>
-    <stringValues id="precondition" value="[ancestors()->filter(entity::Root)->notEmpty()/]"/>
+    <stringValues id="titleExpression" value="aql:self.name + ' - Entities diagram'"/>
+    <stringValues id="precondition" value="aql:self.ancestors()->filter(entity::Root)->notEmpty()"/>
     <metamodels>http://www.obeonetwork.org/dsl/environment/3.0.0</metamodels>
     <metamodels>http://www.obeonetwork.org/dsl/entity/3.0.0</metamodels>
   </diagrams>

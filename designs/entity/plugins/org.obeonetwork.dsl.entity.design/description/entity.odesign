@@ -1,24 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <description:Group xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:description="http://www.eclipse.org/sirius/description/1.1.0" xmlns:description_1="http://www.eclipse.org/sirius/diagram/description/1.1.0" xmlns:description_2="http://www.eclipse.org/sirius/table/description/1.1.0" xmlns:properties="http://www.eclipse.org/sirius/properties/1.0.0" xmlns:style="http://www.eclipse.org/sirius/diagram/description/style/1.1.0" xmlns:tool="http://www.eclipse.org/sirius/diagram/description/tool/1.1.0" xmlns:tool_1="http://www.eclipse.org/sirius/description/tool/1.1.0" documentation="Copyright (c) 2008, 2021 Obeo.&#xD;&#xA;All rights reserved. This program and the accompanying materials&#xD;&#xA;are made available under the terms of the Eclipse Public License v1.0&#xD;&#xA;which accompanies this distribution, and is available at&#xD;&#xA;http://www.eclipse.org/legal/epl-v10.html&#xD;&#xA;&#xD;&#xA;Contributors:&#xD;&#xA;   Obeo - initial API and implementation" name="Entity" version="12.0.0.2017041100">
   <ownedViewpoints endUserDocumentation="The &lt;b>Entity Views&lt;/b> viewpoint provides three representations : &#xD;&#xA;&lt;ul>&#xD;&#xA;&lt;li>&lt;b>Entities Diagram&lt;/b> : a diagram allowing to represent and edit the Entities of a Namespace,&lt;/li>&#xD;&#xA;&lt;li>&lt;b>Entities Namespaces Hierarchy&lt;/b> : a diagram allowing to represent and edit the Namespace hierarchy of an Entity model,&lt;/li>&#xD;&#xA;&lt;li>&lt;b>Entity Table&lt;/b> : a table showing the Entities of an Entity model with their number of attributes, estimated volumetry and historized setting.&lt;/li>&#xD;&#xA;&lt;/ul>&#xA;" name="Entity Views" modelFileExtension="entity ois">
-    <ownedRepresentations xsi:type="description_1:DiagramDescription" name="Entities Namespaces Hierarchy" label="Entities Namespaces Hierarchy" titleExpression="Entities Namespaces Hierarchy" domainClass="entity.Root">
+    <ownedRepresentations xsi:type="description_1:DiagramDescription" dropDescriptions="//@ownedViewpoints[name='Entity%20Views']/@ownedRepresentations[name='Entities%20Namespaces%20Hierarchy']/@defaultLayer/@toolSections.1/@ownedTools[name='DAD_Namespace']" name="Entities Namespaces Hierarchy" label="Entities Namespaces Hierarchy" titleExpression="Entities Namespaces Hierarchy" domainClass="entity.Root">
       <metamodel href="http://www.obeonetwork.org/dsl/environment/3.0.0#/"/>
       <metamodel href="http://www.eclipse.org/sirius/diagram/1.1.0#/"/>
       <metamodel href="http://www.obeonetwork.org/dsl/entity/3.0.0#/"/>
       <defaultLayer name="Default">
-        <containerMappings name="ND_Namespace" semanticCandidatesExpression="feature:ownedNamespaces" domainClass="environment.Namespace">
+        <containerMappings name="ND_Namespace" detailDescriptions="//@ownedViewpoints[name='Entity%20Views']/@ownedRepresentations[name='Entities%20Namespaces%20Hierarchy']/@defaultLayer/@toolSections.1/@ownedTools[name='New%20Class%20Diagram']" deletionDescription="//@ownedViewpoints[name='Entity%20Views']/@ownedRepresentations[name='Entities%20Diagram']/@defaultLayer/@toolSections.5/@ownedTools[name='DEL_Generic']" labelDirectEdit="//@ownedViewpoints[name='Entity%20Views']/@ownedRepresentations[name='Entities%20Namespaces%20Hierarchy']/@defaultLayer/@toolSections.1/@ownedTools[name='Namespace%20Name%20Direct%20Edit']" semanticCandidatesExpression="feature:ownedNamespaces" doubleClickDescription="//@ownedViewpoints[name='Entity%20Views']/@ownedRepresentations[name='Entities%20Namespaces%20Hierarchy']/@defaultLayer/@toolSections.1/@ownedTools[name='Go%20to%20Class%20Diagram']" domainClass="environment.Namespace" dropDescriptions="//@ownedViewpoints[name='Entity%20Views']/@ownedRepresentations[name='Entities%20Namespaces%20Hierarchy']/@defaultLayer/@toolSections.1/@ownedTools[name='DAD_Namespace']" reusedContainerMappings="//@ownedViewpoints[name='Entity%20Views']/@ownedRepresentations[name='Entities%20Namespaces%20Hierarchy']/@defaultLayer/@containerMappings[name='ND_Namespace']">
           <style xsi:type="style:FlatContainerStyleDescription" borderSizeComputationExpression="1" borderColor="//@userColorsPalettes[name='Palette']/@entries[name='Namespace_border']" labelSize="10" labelColor="//@userColorsPalettes[name='Palette']/@entries[name='Namespace_color']" backgroundStyle="GradientTopToBottom" backgroundColor="//@userColorsPalettes[name='Palette']/@entries[name='Namespace_background']" foregroundColor="//@userColorsPalettes[name='Palette']/@entries[name='Namespace_foreground']">
             <labelFormat>bold</labelFormat>
           </style>
         </containerMappings>
         <toolSections name="Namespace" label="Namespace">
-          <ownedTools xsi:type="tool:ContainerCreationDescription" name="Namespace" label="Namespace" forceRefresh="true">
+          <ownedTools xsi:type="tool:ContainerCreationDescription" name="Namespace" label="Namespace" forceRefresh="true" containerMappings="//@ownedViewpoints[name='Entity%20Views']/@ownedRepresentations[name='Entities%20Namespaces%20Hierarchy']/@defaultLayer/@containerMappings[name='ND_Namespace']">
             <variable name="container"/>
             <viewVariable name="containerView"/>
             <initialOperation>
               <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:container">
                 <subModelOperations xsi:type="tool_1:CreateInstance" typeName="environment.Namespace" referenceName="ownedNamespaces">
-                  <subModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="aql:'namespace_' + self.eContainer(environment::NamespacesContainer).ownedNamespaces->size()/]"/>
+                  <subModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="aql:'namespace_' + self.eContainer(environment::NamespacesContainer).ownedNamespaces->size()"/>
                 </subModelOperations>
               </firstModelOperations>
             </initialOperation>
@@ -31,23 +31,23 @@
               <firstModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="var:arg0"/>
             </initialOperation>
           </ownedTools>
-          <ownedTools xsi:type="tool:DiagramCreationDescription" name="New Class Diagram" label="New Entities Diagram" forceRefresh="true">
+          <ownedTools xsi:type="tool:DiagramCreationDescription" name="New Class Diagram" label="New Entities Diagram" forceRefresh="true" diagramDescription="//@ownedViewpoints[name='Entity%20Views']/@ownedRepresentations[name='Entities%20Diagram']">
             <initialOperation>
               <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:self"/>
             </initialOperation>
             <containerViewVariable name="containerView"/>
             <representationNameVariable name="diagramName"/>
           </ownedTools>
-          <ownedTools xsi:type="tool:DoubleClickDescription" name="Go to Class Diagram">
+          <ownedTools xsi:type="tool:DoubleClickDescription" name="Go to Class Diagram" mappings="//@ownedViewpoints[name='Entity%20Views']/@ownedRepresentations[name='Entities%20Namespaces%20Hierarchy']/@defaultLayer/@containerMappings[name='ND_Namespace']">
             <element name="element"/>
             <elementView name="elementView"/>
             <initialOperation>
               <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:element">
-                <subModelOperations xsi:type="tool:Navigation" createIfNotExistent="true"/>
+                <subModelOperations xsi:type="tool:Navigation" createIfNotExistent="true" diagramDescription="//@ownedViewpoints[name='Entity%20Views']/@ownedRepresentations[name='Entities%20Diagram']"/>
               </firstModelOperations>
             </initialOperation>
           </ownedTools>
-          <ownedTools xsi:type="tool:ContainerDropDescription" name="DAD_Namespace" precondition="aql:self.oclIsKindOf(environment::Namespace)" forceRefresh="true" dragSource="BOTH">
+          <ownedTools xsi:type="tool:ContainerDropDescription" name="DAD_Namespace" precondition="aql:self.oclIsKindOf(environment::Namespace)" forceRefresh="true" mappings="//@ownedViewpoints[name='Entity%20Views']/@ownedRepresentations[name='Entities%20Namespaces%20Hierarchy']/@defaultLayer/@containerMappings[name='ND_Namespace']" dragSource="BOTH">
             <oldContainer name="oldSemanticContainer"/>
             <newContainer name="newSemanticContainer"/>
             <element name="element"/>
@@ -60,7 +60,7 @@
                   </cases>
                   <default>
                     <subModelOperations xsi:type="tool_1:Switch">
-                      <cases conditionExpression="[oclIsKindOf(environment::Namespace)/]">
+                      <cases conditionExpression="aql:self.oclIsKindOf(environment::Namespace)">
                         <subModelOperations xsi:type="tool_1:MoveElement" newContainerExpression="var:newSemanticContainer" featureName="ownedNamespaces"/>
                       </cases>
                       <default>
@@ -81,79 +81,79 @@
         </toolSections>
       </defaultLayer>
       <additionalLayers name="Dependencies" activeByDefault="true">
-        <edgeMappings name="ND_Dependency" targetFinderExpression="aql:self.getDependenciesToNamespaces(diagram)">
+        <edgeMappings name="ND_Dependency" sourceMapping="//@ownedViewpoints[name='Entity%20Views']/@ownedRepresentations[name='Entities%20Namespaces%20Hierarchy']/@defaultLayer/@containerMappings[name='ND_Namespace']" targetMapping="//@ownedViewpoints[name='Entity%20Views']/@ownedRepresentations[name='Entities%20Namespaces%20Hierarchy']/@defaultLayer/@containerMappings[name='ND_Namespace']" targetFinderExpression="aql:self.getDependenciesToNamespaces(diagram)">
           <style strokeColor="//@userColorsPalettes[name='Palette']/@entries[name='ISDLabelAndEdge']" targetArrow="NoDecoration">
             <beginLabelStyleDescription showIcon="false" labelColor="//@userColorsPalettes[name='Palette']/@entries[name='ISDLabelAndEdge']"/>
             <endLabelStyleDescription showIcon="false" labelColor="//@userColorsPalettes[name='Palette']/@entries[name='ISDLabelAndEdge']"/>
           </style>
         </edgeMappings>
-        <edgeMappings name="ND_Dependency_External" targetFinderExpression="service:self.getExternalNamespaces()">
+        <edgeMappings name="ND_Dependency_External" deletionDescription="//@ownedViewpoints[name='Entity%20Views']/@ownedRepresentations[name='Entities%20Namespaces%20Hierarchy']/@defaultLayer/@toolSections.1/@ownedTools[name='DEL_ND_External']" sourceMapping="//@ownedViewpoints[name='Entity%20Views']/@ownedRepresentations[name='Entities%20Namespaces%20Hierarchy']/@defaultLayer/@containerMappings[name='ND_Namespace']" targetMapping="//@ownedViewpoints[name='Entity%20Views']/@ownedRepresentations[name='Entities%20Namespaces%20Hierarchy']/@additionalLayers[name='Dependencies']/@containerMappings[name='ND_Namespace_External']" targetFinderExpression="service:self.getExternalNamespaces()">
           <style strokeColor="//@userColorsPalettes[name='Palette']/@entries[name='ISDLabelAndEdge']" targetArrow="NoDecoration">
             <beginLabelStyleDescription showIcon="false" labelColor="//@userColorsPalettes[name='Palette']/@entries[name='ISDLabelAndEdge']"/>
             <endLabelStyleDescription showIcon="false" labelColor="//@userColorsPalettes[name='Palette']/@entries[name='ISDLabelAndEdge']"/>
           </style>
         </edgeMappings>
-        <containerMappings name="ND_Namespace_External" semanticCandidatesExpression="service:self.getExternalNamespacesRecursive()" domainClass="environment.Namespace">
+        <containerMappings name="ND_Namespace_External" deletionDescription="//@ownedViewpoints[name='Entity%20Views']/@ownedRepresentations[name='Entities%20Namespaces%20Hierarchy']/@defaultLayer/@toolSections.1/@ownedTools[name='DEL_ND_External']" semanticCandidatesExpression="service:self.getExternalNamespacesRecursive()" domainClass="environment.Namespace">
           <style xsi:type="style:FlatContainerStyleDescription" borderSizeComputationExpression="1" borderColor="//@userColorsPalettes[name='Palette']/@entries[name='ExternalNamespace_border']" labelSize="10" labelExpression="service:self.getEnvironmentQualifiedName()" labelColor="//@userColorsPalettes[name='Palette']/@entries[name='ExternalNamespace_color']" backgroundStyle="GradientTopToBottom" backgroundColor="//@userColorsPalettes[name='Palette']/@entries[name='ExternalNamespace_background']" foregroundColor="//@userColorsPalettes[name='Palette']/@entries[name='ExternalNamespace_foreground']">
             <labelFormat>bold</labelFormat>
           </style>
         </containerMappings>
         <customization>
           <vsmElementCustomizations xsi:type="description:VSMElementCustomization" predicateExpression="aql:view.isDependencyBeginDecorated()">
-            <featureCustomizations xsi:type="description:EAttributeCustomization" attributeName="labelExpression" value="aql:view.getDependencyBeginLabel()"/>
-            <featureCustomizations xsi:type="description:EAttributeCustomization" attributeName="sourceArrow" value="InputArrow"/>
+            <featureCustomizations xsi:type="description:EAttributeCustomization" appliedOn="//@ownedViewpoints[name='Entity%20Views']/@ownedRepresentations[name='Entities%20Namespaces%20Hierarchy']/@additionalLayers[name='Dependencies']/@edgeMappings[name='ND_Dependency']/@style/@beginLabelStyleDescription //@ownedViewpoints[name='Entity%20Views']/@ownedRepresentations[name='Entities%20Namespaces%20Hierarchy']/@additionalLayers[name='Dependencies']/@edgeMappings[name='ND_Dependency_External']/@style/@beginLabelStyleDescription" attributeName="labelExpression" value="aql:view.getDependencyBeginLabel()"/>
+            <featureCustomizations xsi:type="description:EAttributeCustomization" appliedOn="//@ownedViewpoints[name='Entity%20Views']/@ownedRepresentations[name='Entities%20Namespaces%20Hierarchy']/@additionalLayers[name='Dependencies']/@edgeMappings[name='ND_Dependency']/@style //@ownedViewpoints[name='Entity%20Views']/@ownedRepresentations[name='Entities%20Namespaces%20Hierarchy']/@additionalLayers[name='Dependencies']/@edgeMappings[name='ND_Dependency_External']/@style" attributeName="sourceArrow" value="InputArrow"/>
           </vsmElementCustomizations>
           <vsmElementCustomizations xsi:type="description:VSMElementCustomization" predicateExpression="aql:view.isDependencyEndDecorated()">
-            <featureCustomizations xsi:type="description:EAttributeCustomization" attributeName="labelExpression" value="aql:view.getDependencyEndLabel()"/>
-            <featureCustomizations xsi:type="description:EAttributeCustomization" attributeName="targetArrow" value="InputArrow"/>
+            <featureCustomizations xsi:type="description:EAttributeCustomization" appliedOn="//@ownedViewpoints[name='Entity%20Views']/@ownedRepresentations[name='Entities%20Namespaces%20Hierarchy']/@additionalLayers[name='Dependencies']/@edgeMappings[name='ND_Dependency']/@style/@endLabelStyleDescription //@ownedViewpoints[name='Entity%20Views']/@ownedRepresentations[name='Entities%20Namespaces%20Hierarchy']/@additionalLayers[name='Dependencies']/@edgeMappings[name='ND_Dependency_External']/@style/@endLabelStyleDescription" attributeName="labelExpression" value="aql:view.getDependencyEndLabel()"/>
+            <featureCustomizations xsi:type="description:EAttributeCustomization" appliedOn="//@ownedViewpoints[name='Entity%20Views']/@ownedRepresentations[name='Entities%20Namespaces%20Hierarchy']/@additionalLayers[name='Dependencies']/@edgeMappings[name='ND_Dependency']/@style //@ownedViewpoints[name='Entity%20Views']/@ownedRepresentations[name='Entities%20Namespaces%20Hierarchy']/@additionalLayers[name='Dependencies']/@edgeMappings[name='ND_Dependency_External']/@style" attributeName="targetArrow" value="InputArrow"/>
           </vsmElementCustomizations>
         </customization>
       </additionalLayers>
     </ownedRepresentations>
-    <ownedRepresentations xsi:type="description_1:DiagramDescription" name="Entities Diagram" label="Entities Diagram" titleExpression="[name + ' - Entities diagram'/]" domainClass="environment.Namespace" preconditionExpression="[ancestors()->filter(entity::Root)->notEmpty()/]">
+    <ownedRepresentations xsi:type="description_1:DiagramDescription" dropDescriptions="//@ownedViewpoints[name='Entity%20Views']/@ownedRepresentations[name='Entities%20Diagram']/@defaultLayer/@toolSections.5/@ownedTools[name='DAD_ED_Entity'] //@ownedViewpoints[name='Entity%20Views']/@ownedRepresentations[name='Entities%20Diagram']/@defaultLayer/@toolSections.5/@ownedTools[name='DAD_ED_Enumeration'] //@ownedViewpoints[name='Entity%20Views']/@ownedRepresentations[name='Entities%20Diagram']/@defaultLayer/@toolSections.0/@ownedTools[name='ED_Namespace']" name="Entities Diagram" label="Entities Diagram" titleExpression="aql:self.name + ' - Entities diagram'" domainClass="environment.Namespace" preconditionExpression="aql:self.ancestors()->filter(entity::Root)->notEmpty()">
       <metamodel href="http://www.obeonetwork.org/dsl/environment/3.0.0#/"/>
       <metamodel href="http://www.obeonetwork.org/dsl/entity/3.0.0#/"/>
       <defaultLayer name="Default">
-        <edgeMappings name="ED_Reference_Type_Type" preconditionExpression="[oppositeOf.oclIsUndefined()/]" semanticCandidatesExpression="service:diagram.getReferences()" targetFinderExpression="feature:referencedType" sourceFinderExpression="feature:containingType" domainClass="environment.Reference" useDomainElement="true">
+        <edgeMappings name="ED_Reference_Type_Type" preconditionExpression="aql:self.oppositeOf = null" labelDirectEdit="//@ownedViewpoints[name='Entity%20Views']/@ownedRepresentations[name='Entities%20Diagram']/@defaultLayer/@toolSections.5/@ownedTools[name='EDT_ED_Reference']" semanticCandidatesExpression="service:diagram.getReferences()" sourceMapping="//@ownedViewpoints[name='Entity%20Views']/@ownedRepresentations[name='Entities%20Diagram']/@defaultLayer/@containerMappings[name='ED_Entity'] //@ownedViewpoints[name='Entity%20Views']/@ownedRepresentations[name='Entities%20Diagram']/@additionalLayers[name='External%20Entities']/@containerMappings[name='ED_ExternalStructuredType_Referenced'] //@ownedViewpoints[name='Entity%20Views']/@ownedRepresentations[name='Entities%20Diagram']/@additionalLayers[name='External%20Entities']/@containerMappings[name='ED_ExternalStructuredType_NotReferenced']" targetMapping="//@ownedViewpoints[name='Entity%20Views']/@ownedRepresentations[name='Entities%20Diagram']/@defaultLayer/@containerMappings[name='ED_Entity'] //@ownedViewpoints[name='Entity%20Views']/@ownedRepresentations[name='Entities%20Diagram']/@additionalLayers[name='External%20Entities']/@containerMappings[name='ED_ExternalStructuredType_Referenced'] //@ownedViewpoints[name='Entity%20Views']/@ownedRepresentations[name='Entities%20Diagram']/@additionalLayers[name='External%20Entities']/@containerMappings[name='ED_ExternalStructuredType_NotReferenced']" targetFinderExpression="feature:referencedType" sourceFinderExpression="feature:containingType" domainClass="environment.Reference" useDomainElement="true" reconnections="//@ownedViewpoints[name='Entity%20Views']/@ownedRepresentations[name='Entities%20Diagram']/@defaultLayer/@toolSections.5/@ownedTools[name='REC_ED_Reference_Target'] //@ownedViewpoints[name='Entity%20Views']/@ownedRepresentations[name='Entities%20Diagram']/@defaultLayer/@toolSections.5/@ownedTools[name='REC_ED_Reference_Source']">
           <style strokeColor="//@userColorsPalettes[name='Palette']/@entries[name='ISDLabelAndEdge']" targetArrow="NoDecoration">
-            <centerLabelStyleDescription showIcon="false" labelExpression="[name + ' [' + multiplicity.toString() + ']'/]" labelColor="//@userColorsPalettes[name='Palette']/@entries[name='ISDLabelAndEdge']"/>
+            <centerLabelStyleDescription showIcon="false" labelExpression="aql:self.name + ' [' + self.multiplicity.toString() + ']'" labelColor="//@userColorsPalettes[name='Palette']/@entries[name='ISDLabelAndEdge']"/>
           </style>
           <conditionnalStyles predicateExpression="feature:isComposite">
             <style strokeColor="//@userColorsPalettes[name='Palette']/@entries[name='ISDLabelAndEdge']" sourceArrow="Diamond">
-              <centerLabelStyleDescription showIcon="false" labelExpression="[name + ' [' + multiplicity.toString() + ']'/]" labelColor="//@userColorsPalettes[name='Palette']/@entries[name='ISDLabelAndEdge']"/>
+              <centerLabelStyleDescription showIcon="false" labelExpression="aql:self.name + ' [' + self.multiplicity.toString() + ']'" labelColor="//@userColorsPalettes[name='Palette']/@entries[name='ISDLabelAndEdge']"/>
             </style>
           </conditionnalStyles>
           <conditionnalStyles predicateExpression="feature:navigable">
             <style strokeColor="//@userColorsPalettes[name='Palette']/@entries[name='ISDLabelAndEdge']">
-              <centerLabelStyleDescription showIcon="false" labelExpression="[name + ' [' + multiplicity.toString() + ']'/]" labelColor="//@userColorsPalettes[name='Palette']/@entries[name='ISDLabelAndEdge']"/>
+              <centerLabelStyleDescription showIcon="false" labelExpression="aql:self.name + ' [' + self.multiplicity.toString() + ']'" labelColor="//@userColorsPalettes[name='Palette']/@entries[name='ISDLabelAndEdge']"/>
             </style>
           </conditionnalStyles>
         </edgeMappings>
-        <edgeMappings name="ED_Inheritance_Type_Type" targetFinderExpression="feature:supertype">
+        <edgeMappings name="ED_Inheritance_Type_Type" deletionDescription="//@ownedViewpoints[name='Entity%20Views']/@ownedRepresentations[name='Entities%20Diagram']/@defaultLayer/@toolSections.5/@ownedTools[name='DEL_ED_Inheritance']" sourceMapping="//@ownedViewpoints[name='Entity%20Views']/@ownedRepresentations[name='Entities%20Diagram']/@defaultLayer/@containerMappings[name='ED_Entity'] //@ownedViewpoints[name='Entity%20Views']/@ownedRepresentations[name='Entities%20Diagram']/@additionalLayers[name='External%20Entities']/@containerMappings[name='ED_ExternalStructuredType_NotReferenced'] //@ownedViewpoints[name='Entity%20Views']/@ownedRepresentations[name='Entities%20Diagram']/@additionalLayers[name='External%20Entities']/@containerMappings[name='ED_ExternalStructuredType_Referenced']" targetMapping="//@ownedViewpoints[name='Entity%20Views']/@ownedRepresentations[name='Entities%20Diagram']/@defaultLayer/@containerMappings[name='ED_Entity'] //@ownedViewpoints[name='Entity%20Views']/@ownedRepresentations[name='Entities%20Diagram']/@additionalLayers[name='External%20Entities']/@containerMappings[name='ED_ExternalStructuredType_NotReferenced'] //@ownedViewpoints[name='Entity%20Views']/@ownedRepresentations[name='Entities%20Diagram']/@additionalLayers[name='External%20Entities']/@containerMappings[name='ED_ExternalStructuredType_Referenced']" targetFinderExpression="feature:supertype" reconnections="//@ownedViewpoints[name='Entity%20Views']/@ownedRepresentations[name='Entities%20Diagram']/@defaultLayer/@toolSections.5/@ownedTools[name='REC_ED_Inheritance_Target'] //@ownedViewpoints[name='Entity%20Views']/@ownedRepresentations[name='Entities%20Diagram']/@defaultLayer/@toolSections.5/@ownedTools[name='REC_ED_Inheritance_Source']">
           <style strokeColor="//@userColorsPalettes[name='Palette']/@entries[name='ISDLabelAndEdge']" targetArrow="InputClosedArrow">
             <centerLabelStyleDescription showIcon="false" labelColor="//@userColorsPalettes[name='Palette']/@entries[name='ISDLabelAndEdge']"/>
           </style>
         </edgeMappings>
-        <edgeMappings name="ED_BidiReference_Type_Type" semanticCandidatesExpression="service:diagram.getOppositeReferences()" semanticElements="[self->asSequence()->including(oppositeOf)/]" targetFinderExpression="feature:referencedType" sourceFinderExpression="feature:containingType" domainClass="environment.Reference" useDomainElement="true">
+        <edgeMappings name="ED_BidiReference_Type_Type" deletionDescription="//@ownedViewpoints[name='Entity%20Views']/@ownedRepresentations[name='Entities%20Diagram']/@defaultLayer/@toolSections.5/@ownedTools[name='DEL_ED_BidiReference']" labelDirectEdit="//@ownedViewpoints[name='Entity%20Views']/@ownedRepresentations[name='Entities%20Diagram']/@defaultLayer/@toolSections.5/@ownedTools[name='EDT_ED_BidiReference']" semanticCandidatesExpression="service:diagram.getOppositeReferences()" semanticElements="aql:self->asSequence()->including(self.oppositeOf)" sourceMapping="//@ownedViewpoints[name='Entity%20Views']/@ownedRepresentations[name='Entities%20Diagram']/@defaultLayer/@containerMappings[name='ED_Entity'] //@ownedViewpoints[name='Entity%20Views']/@ownedRepresentations[name='Entities%20Diagram']/@additionalLayers[name='External%20Entities']/@containerMappings[name='ED_ExternalStructuredType_Referenced'] //@ownedViewpoints[name='Entity%20Views']/@ownedRepresentations[name='Entities%20Diagram']/@additionalLayers[name='External%20Entities']/@containerMappings[name='ED_ExternalStructuredType_NotReferenced']" targetMapping="//@ownedViewpoints[name='Entity%20Views']/@ownedRepresentations[name='Entities%20Diagram']/@defaultLayer/@containerMappings[name='ED_Entity'] //@ownedViewpoints[name='Entity%20Views']/@ownedRepresentations[name='Entities%20Diagram']/@additionalLayers[name='External%20Entities']/@containerMappings[name='ED_ExternalStructuredType_Referenced'] //@ownedViewpoints[name='Entity%20Views']/@ownedRepresentations[name='Entities%20Diagram']/@additionalLayers[name='External%20Entities']/@containerMappings[name='ED_ExternalStructuredType_NotReferenced']" targetFinderExpression="feature:referencedType" sourceFinderExpression="feature:containingType" domainClass="environment.Reference" useDomainElement="true" reconnections="//@ownedViewpoints[name='Entity%20Views']/@ownedRepresentations[name='Entities%20Diagram']/@defaultLayer/@toolSections.5/@ownedTools[name='REC_ED_BidiReference_Target'] //@ownedViewpoints[name='Entity%20Views']/@ownedRepresentations[name='Entities%20Diagram']/@defaultLayer/@toolSections.5/@ownedTools[name='REC_ED_BidiReference_Source']">
           <style strokeColor="//@userColorsPalettes[name='Palette']/@entries[name='ISDLabelAndEdge']" targetArrow="NoDecoration">
-            <beginLabelStyleDescription showIcon="false" labelExpression="[oppositeOf.name + ' [' + oppositeOf.multiplicity.toString() + ']'/]" labelColor="//@userColorsPalettes[name='Palette']/@entries[name='ISDLabelAndEdge']"/>
+            <beginLabelStyleDescription showIcon="false" labelExpression="aql:self.oppositeOf.name + ' [' + self.oppositeOf.multiplicity.toString() + ']'" labelColor="//@userColorsPalettes[name='Palette']/@entries[name='ISDLabelAndEdge']"/>
             <centerLabelStyleDescription showIcon="false" labelColor="//@userColorsPalettes[name='Palette']/@entries[name='ISDLabelAndEdge']"/>
-            <endLabelStyleDescription showIcon="false" labelExpression="[name + ' [' + multiplicity.toString() + ']'/]" labelColor="//@userColorsPalettes[name='Palette']/@entries[name='ISDLabelAndEdge']"/>
+            <endLabelStyleDescription showIcon="false" labelExpression="aql:self.name + ' [' + self.multiplicity.toString() + ']'" labelColor="//@userColorsPalettes[name='Palette']/@entries[name='ISDLabelAndEdge']"/>
           </style>
         </edgeMappings>
-        <containerMappings name="ED_Namespace" semanticCandidatesExpression="feature:ownedNamespaces" domainClass="environment.Namespace">
+        <containerMappings name="ED_Namespace" detailDescriptions="//@ownedViewpoints[name='Entity%20Views']/@ownedRepresentations[name='Entities%20Diagram']/@defaultLayer/@toolSections.0/@ownedTools[name='New%20Class%20Diagram']" deletionDescription="//@ownedViewpoints[name='Entity%20Views']/@ownedRepresentations[name='Entities%20Diagram']/@defaultLayer/@toolSections.5/@ownedTools[name='DEL_Generic']" labelDirectEdit="//@ownedViewpoints[name='Entity%20Views']/@ownedRepresentations[name='Entities%20Diagram']/@defaultLayer/@toolSections.5/@ownedTools[name='EDT_Generic']" semanticCandidatesExpression="feature:ownedNamespaces" doubleClickDescription="//@ownedViewpoints[name='Entity%20Views']/@ownedRepresentations[name='Entities%20Diagram']/@defaultLayer/@toolSections.0/@ownedTools[name='Go%20to%20Class%20Diagram']" domainClass="environment.Namespace">
           <style xsi:type="style:FlatContainerStyleDescription" borderSizeComputationExpression="1" borderColor="//@userColorsPalettes[name='Palette']/@entries[name='Namespace_border']" labelSize="10" labelColor="//@userColorsPalettes[name='Palette']/@entries[name='Namespace_color']" backgroundStyle="GradientTopToBottom" backgroundColor="//@userColorsPalettes[name='Palette']/@entries[name='Namespace_background']" foregroundColor="//@userColorsPalettes[name='Palette']/@entries[name='Namespace_foreground']">
             <labelFormat>bold</labelFormat>
           </style>
         </containerMappings>
-        <containerMappings name="ED_Entity" label="ED_Entity" semanticCandidatesExpression="feature:types" domainClass="entity.Entity" childrenPresentation="List">
-          <subNodeMappings name="ED_Attribute" semanticCandidatesExpression="feature:ownedAttributes" domainClass="environment.Attribute">
+        <containerMappings name="ED_Entity" label="ED_Entity" deletionDescription="//@ownedViewpoints[name='Entity%20Views']/@ownedRepresentations[name='Entities%20Diagram']/@defaultLayer/@toolSections.5/@ownedTools[name='DEL_Generic']" labelDirectEdit="//@ownedViewpoints[name='Entity%20Views']/@ownedRepresentations[name='Entities%20Diagram']/@defaultLayer/@toolSections.5/@ownedTools[name='EDT_Generic']" semanticCandidatesExpression="feature:types" domainClass="entity.Entity" dropDescriptions="//@ownedViewpoints[name='Entity%20Views']/@ownedRepresentations[name='Entities%20Diagram']/@defaultLayer/@toolSections.5/@ownedTools[name='DAD_ED_Attribute']" childrenPresentation="List">
+          <subNodeMappings name="ED_Attribute" labelDirectEdit="//@ownedViewpoints[name='Entity%20Views']/@ownedRepresentations[name='Entities%20Diagram']/@defaultLayer/@toolSections.5/@ownedTools[name='EDT_ED_Attribute']" semanticCandidatesExpression="feature:ownedAttributes" domainClass="environment.Attribute">
             <style xsi:type="style:SquareDescription" labelExpression="service:self.getEnvironmentLabel()" labelColor="//@userColorsPalettes[name='Palette']/@entries[name='StructuredType_color']" labelAlignment="LEFT">
               <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
               <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='gray']"/>
             </style>
           </subNodeMappings>
-          <subNodeMappings name="ED_AssociatedAttribute" semanticCandidatesExpression="service:getAssociatedTypesAttributes()" domainClass="environment.Attribute">
+          <subNodeMappings name="ED_AssociatedAttribute" deletionDescription="//@ownedViewpoints[name='Entity%20Views']/@ownedRepresentations[name='Entities%20Diagram']/@defaultLayer/@toolSections.5/@ownedTools[name='DEL_PreventDeletion']" semanticCandidatesExpression="service:getAssociatedTypesAttributes()" domainClass="environment.Attribute">
             <style xsi:type="style:SquareDescription" labelExpression="service:self.getEnvironmentLabel()" labelColor="//@userColorsPalettes[name='Palette']/@entries[name='StructuredType_color']" labelAlignment="LEFT">
               <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
               <labelFormat>italic</labelFormat>
@@ -164,8 +164,8 @@
             <labelFormat>bold</labelFormat>
           </style>
         </containerMappings>
-        <containerMappings name="ED_Enumeration" semanticCandidatesExpression="feature:types" domainClass="environment.Enumeration" childrenPresentation="List">
-          <subNodeMappings name="ED_Literal" semanticCandidatesExpression="feature:literals" domainClass="environment.Literal">
+        <containerMappings name="ED_Enumeration" deletionDescription="//@ownedViewpoints[name='Entity%20Views']/@ownedRepresentations[name='Entities%20Diagram']/@defaultLayer/@toolSections.5/@ownedTools[name='DEL_Generic']" labelDirectEdit="//@ownedViewpoints[name='Entity%20Views']/@ownedRepresentations[name='Entities%20Diagram']/@defaultLayer/@toolSections.5/@ownedTools[name='EDT_Generic']" semanticCandidatesExpression="feature:types" domainClass="environment.Enumeration" dropDescriptions="//@ownedViewpoints[name='Entity%20Views']/@ownedRepresentations[name='Entities%20Diagram']/@defaultLayer/@toolSections.5/@ownedTools[name='DAD_ED_Literal']" childrenPresentation="List">
+          <subNodeMappings name="ED_Literal" labelDirectEdit="//@ownedViewpoints[name='Entity%20Views']/@ownedRepresentations[name='Entities%20Diagram']/@defaultLayer/@toolSections.5/@ownedTools[name='EDT_Generic']" semanticCandidatesExpression="feature:literals" domainClass="environment.Literal">
             <style xsi:type="style:SquareDescription" labelColor="//@userColorsPalettes[name='Palette']/@entries[name='Enumeration_color']" labelAlignment="LEFT">
               <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
               <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='gray']"/>
@@ -176,34 +176,34 @@
           </style>
         </containerMappings>
         <toolSections name="Namespace" label="Namespace">
-          <ownedTools xsi:type="tool:ContainerCreationDescription" name="Namespace" label="Namespace" forceRefresh="true">
+          <ownedTools xsi:type="tool:ContainerCreationDescription" name="Namespace" label="Namespace" forceRefresh="true" containerMappings="//@ownedViewpoints[name='Entity%20Views']/@ownedRepresentations[name='Entities%20Diagram']/@defaultLayer/@containerMappings[name='ED_Namespace']">
             <variable name="container"/>
             <viewVariable name="containerView"/>
             <initialOperation>
               <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:container">
                 <subModelOperations xsi:type="tool_1:CreateInstance" typeName="environment.Namespace" referenceName="ownedNamespaces">
-                  <subModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="['namespace_' + eContainer().oclAsType(environment::NamespacesContainer).ownedNamespaces->size()/]"/>
+                  <subModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="aql:'namespace_' + self.eContainer(environment::NamespacesContainer).ownedNamespaces->size()"/>
                 </subModelOperations>
               </firstModelOperations>
             </initialOperation>
           </ownedTools>
-          <ownedTools xsi:type="tool:DiagramCreationDescription" name="New Class Diagram" label="New Entities Diagram" forceRefresh="true">
+          <ownedTools xsi:type="tool:DiagramCreationDescription" name="New Class Diagram" label="New Entities Diagram" forceRefresh="true" diagramDescription="//@ownedViewpoints[name='Entity%20Views']/@ownedRepresentations[name='Entities%20Diagram']">
             <initialOperation>
               <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:self"/>
             </initialOperation>
             <containerViewVariable name="containerView"/>
             <representationNameVariable name="diagramName"/>
           </ownedTools>
-          <ownedTools xsi:type="tool:DoubleClickDescription" name="Go to Class Diagram">
+          <ownedTools xsi:type="tool:DoubleClickDescription" name="Go to Class Diagram" mappings="//@ownedViewpoints[name='Entity%20Views']/@ownedRepresentations[name='Entities%20Diagram']/@defaultLayer/@containerMappings[name='ED_Namespace']">
             <element name="element"/>
             <elementView name="elementView"/>
             <initialOperation>
               <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:element">
-                <subModelOperations xsi:type="tool:Navigation" createIfNotExistent="true"/>
+                <subModelOperations xsi:type="tool:Navigation" createIfNotExistent="true" diagramDescription="//@ownedViewpoints[name='Entity%20Views']/@ownedRepresentations[name='Entities%20Diagram']"/>
               </firstModelOperations>
             </initialOperation>
           </ownedTools>
-          <ownedTools xsi:type="tool:ContainerDropDescription" name="ED_Namespace" precondition="[oclIsKindOf(environment::Namespace)/]" forceRefresh="true" dragSource="PROJECT_EXPLORER">
+          <ownedTools xsi:type="tool:ContainerDropDescription" name="ED_Namespace" precondition="aql:self.oclIsKindOf(environment::Namespace)" forceRefresh="true" dragSource="PROJECT_EXPLORER">
             <oldContainer name="oldSemanticContainer"/>
             <newContainer name="newSemanticContainer"/>
             <element name="element"/>
@@ -211,12 +211,12 @@
             <initialOperation>
               <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:element">
                 <subModelOperations xsi:type="tool_1:Switch">
-                  <cases conditionExpression="[newSemanticContainer.ancestors()->includes(element)/]">
+                  <cases conditionExpression="aql:newSemanticContainer.ancestors()->includes(element)">
                     <subModelOperations xsi:type="tool_1:ChangeContext" browseExpression="service:displayWarningDropNamespaceOnChild()"/>
                   </cases>
                   <default>
                     <subModelOperations xsi:type="tool_1:Switch">
-                      <cases conditionExpression="[oclIsKindOf(environment::Namespace)/]">
+                      <cases conditionExpression="aql:self.oclIsKindOf(environment::Namespace)">
                         <subModelOperations xsi:type="tool_1:MoveElement" newContainerExpression="var:newSemanticContainer" featureName="ownedNamespaces"/>
                       </cases>
                       <default>
@@ -230,31 +230,31 @@
           </ownedTools>
         </toolSections>
         <toolSections name="Entity">
-          <ownedTools xsi:type="tool:ContainerCreationDescription" name="Entity" forceRefresh="true">
+          <ownedTools xsi:type="tool:ContainerCreationDescription" name="Entity" forceRefresh="true" containerMappings="//@ownedViewpoints[name='Entity%20Views']/@ownedRepresentations[name='Entities%20Diagram']/@defaultLayer/@containerMappings[name='ED_Entity']">
             <variable name="container"/>
             <viewVariable name="containerView"/>
             <initialOperation>
               <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:container">
                 <subModelOperations xsi:type="tool_1:CreateInstance" typeName="entity.Entity" referenceName="types">
-                  <subModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="['Entity' + eContainer().oclAsType(environment::Namespace).types->size()/]"/>
+                  <subModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="aql:'Entity' + self.eContainer(environment::Namespace).types->size()"/>
                 </subModelOperations>
               </firstModelOperations>
             </initialOperation>
           </ownedTools>
-          <ownedTools xsi:type="tool:ContainerCreationDescription" name="Entity from DTO" forceRefresh="true">
+          <ownedTools xsi:type="tool:ContainerCreationDescription" name="Entity from DTO" forceRefresh="true" containerMappings="//@ownedViewpoints[name='Entity%20Views']/@ownedRepresentations[name='Entities%20Diagram']/@defaultLayer/@containerMappings[name='ED_Entity']">
             <variable name="container"/>
             <viewVariable name="containerView"/>
             <initialOperation>
               <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="service:container.openCreateEntitiesFromDTOsWizard()"/>
             </initialOperation>
           </ownedTools>
-          <ownedTools xsi:type="tool:NodeCreationDescription" name="Attribute" forceRefresh="true">
+          <ownedTools xsi:type="tool:NodeCreationDescription" name="Attribute" forceRefresh="true" nodeMappings="//@ownedViewpoints[name='Entity%20Views']/@ownedRepresentations[name='Entities%20Diagram']/@defaultLayer/@containerMappings[name='ED_Entity']/@subNodeMappings[name='ED_Attribute']">
             <variable name="container"/>
             <viewVariable name="containerView"/>
             <initialOperation>
               <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:container">
                 <subModelOperations xsi:type="tool_1:CreateInstance" typeName="environment.Attribute" referenceName="ownedAttributes">
-                  <subModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="['attribute' + eContainer().oclAsType(environment::StructuredType).ownedAttributes->size()/]"/>
+                  <subModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="aql:'attribute' + self.eContainer(environment::StructuredType).ownedAttributes->size()"/>
                   <subModelOperations xsi:type="tool_1:SetValue" featureName="type" valueExpression="service:getStringPrimitiveType()"/>
                 </subModelOperations>
               </firstModelOperations>
@@ -262,18 +262,18 @@
           </ownedTools>
         </toolSections>
         <toolSections name="Enumeration">
-          <ownedTools xsi:type="tool:ContainerCreationDescription" name="Enumeration" forceRefresh="true">
+          <ownedTools xsi:type="tool:ContainerCreationDescription" name="Enumeration" forceRefresh="true" containerMappings="//@ownedViewpoints[name='Entity%20Views']/@ownedRepresentations[name='Entities%20Diagram']/@defaultLayer/@containerMappings[name='ED_Enumeration']">
             <variable name="container"/>
             <viewVariable name="containerView"/>
             <initialOperation>
               <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:container">
                 <subModelOperations xsi:type="tool_1:CreateInstance" typeName="environment.Enumeration" referenceName="types">
-                  <subModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="['Enum' + eContainer().oclAsType(environment::Namespace).types->size()/]"/>
+                  <subModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="aql:'Enum' + self.eContainer(environment::Namespace).types->size()"/>
                 </subModelOperations>
               </firstModelOperations>
             </initialOperation>
           </ownedTools>
-          <ownedTools xsi:type="tool:NodeCreationDescription" name="Literal" forceRefresh="true">
+          <ownedTools xsi:type="tool:NodeCreationDescription" name="Literal" forceRefresh="true" nodeMappings="//@ownedViewpoints[name='Entity%20Views']/@ownedRepresentations[name='Entities%20Diagram']/@defaultLayer/@containerMappings[name='ED_Enumeration']/@subNodeMappings[name='ED_Literal']">
             <variable name="container"/>
             <viewVariable name="containerView"/>
             <initialOperation>
@@ -286,7 +286,7 @@
           </ownedTools>
         </toolSections>
         <toolSections name="Relation">
-          <ownedTools xsi:type="tool:EdgeCreationDescription" name="Relation" forceRefresh="true">
+          <ownedTools xsi:type="tool:EdgeCreationDescription" name="Relation" forceRefresh="true" edgeMappings="//@ownedViewpoints[name='Entity%20Views']/@ownedRepresentations[name='Entities%20Diagram']/@defaultLayer/@edgeMappings[name='ED_Reference_Type_Type']">
             <sourceVariable name="source"/>
             <targetVariable name="target"/>
             <sourceViewVariable name="sourceView"/>
@@ -295,14 +295,14 @@
               <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:source">
                 <subModelOperations xsi:type="tool_1:CreateInstance" typeName="environment.Reference" referenceName="ownedReferences">
                   <subModelOperations xsi:type="tool_1:SetValue" featureName="referencedType" valueExpression="var:target"/>
-                  <subModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="[target.oclAsType(environment::StructuredType).name.trim() + 's'/]"/>
+                  <subModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="aql:target.oclAsType(environment::StructuredType).name.trim() + 's'"/>
                   <subModelOperations xsi:type="tool_1:SetValue" featureName="multiplicity" valueExpression="ZERO_STAR"/>
                   <subModelOperations xsi:type="tool_1:SetValue" featureName="navigable" valueExpression="true"/>
                 </subModelOperations>
               </firstModelOperations>
             </initialOperation>
           </ownedTools>
-          <ownedTools xsi:type="tool:EdgeCreationDescription" name="Composition" forceRefresh="true" iconPath="/org.obeonetwork.dsl.is.design/description/images/environment/Composition.gif">
+          <ownedTools xsi:type="tool:EdgeCreationDescription" name="Composition" forceRefresh="true" edgeMappings="//@ownedViewpoints[name='Entity%20Views']/@ownedRepresentations[name='Entities%20Diagram']/@defaultLayer/@edgeMappings[name='ED_Reference_Type_Type']" iconPath="/org.obeonetwork.dsl.is.design/description/images/environment/Composition.gif">
             <sourceVariable name="source"/>
             <targetVariable name="target"/>
             <sourceViewVariable name="sourceView"/>
@@ -311,7 +311,7 @@
               <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:source">
                 <subModelOperations xsi:type="tool_1:CreateInstance" typeName="environment.Reference" referenceName="ownedReferences">
                   <subModelOperations xsi:type="tool_1:SetValue" featureName="referencedType" valueExpression="var:target"/>
-                  <subModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="[target.oclAsType(environment::StructuredType).name.trim() + 's'/]"/>
+                  <subModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="aql:target.oclAsType(environment::StructuredType).name.trim() + 's'"/>
                   <subModelOperations xsi:type="tool_1:SetValue" featureName="multiplicity" valueExpression="ZERO_STAR"/>
                   <subModelOperations xsi:type="tool_1:SetValue" featureName="navigable" valueExpression="true"/>
                   <subModelOperations xsi:type="tool_1:SetValue" featureName="isComposite" valueExpression="true"/>
@@ -319,7 +319,7 @@
               </firstModelOperations>
             </initialOperation>
           </ownedTools>
-          <ownedTools xsi:type="tool:EdgeCreationDescription" name="Inheritance" forceRefresh="true" iconPath="/org.obeonetwork.dsl.is.design/description/images/environment/Inheritance.gif">
+          <ownedTools xsi:type="tool:EdgeCreationDescription" name="Inheritance" forceRefresh="true" edgeMappings="//@ownedViewpoints[name='Entity%20Views']/@ownedRepresentations[name='Entities%20Diagram']/@defaultLayer/@edgeMappings[name='ED_Inheritance_Type_Type']" iconPath="/org.obeonetwork.dsl.is.design/description/images/environment/Inheritance.gif">
             <sourceVariable name="source"/>
             <targetVariable name="target"/>
             <sourceViewVariable name="sourceView"/>
@@ -330,7 +330,7 @@
           </ownedTools>
         </toolSections>
         <toolSections name="Bidirectional Relation">
-          <ownedTools xsi:type="tool:EdgeCreationDescription" name="Bidirectional Relation" forceRefresh="true">
+          <ownedTools xsi:type="tool:EdgeCreationDescription" name="Bidirectional Relation" forceRefresh="true" edgeMappings="//@ownedViewpoints[name='Entity%20Views']/@ownedRepresentations[name='Entities%20Diagram']/@defaultLayer/@edgeMappings[name='ED_BidiReference_Type_Type']">
             <sourceVariable name="source"/>
             <targetVariable name="target"/>
             <sourceViewVariable name="sourceView"/>
@@ -340,14 +340,14 @@
                 <subModelOperations xsi:type="tool_1:CreateInstance" typeName="environment.Reference" referenceName="ownedReferences" variableName="firstReference">
                   <subModelOperations xsi:type="tool_1:SetValue" featureName="referencedType" valueExpression="var:target"/>
                   <subModelOperations xsi:type="tool_1:SetValue" featureName="isComposite" valueExpression="false"/>
-                  <subModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="[target.oclAsType(environment::StructuredType).name.trim() + 's'/]"/>
+                  <subModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="aql:target.oclAsType(environment::StructuredType).name.trim() + 's'"/>
                   <subModelOperations xsi:type="tool_1:SetValue" featureName="multiplicity" valueExpression="ZERO_STAR"/>
                   <subModelOperations xsi:type="tool_1:SetValue" featureName="navigable" valueExpression="true"/>
                   <subModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:target">
                     <subModelOperations xsi:type="tool_1:CreateInstance" typeName="environment.Reference" referenceName="ownedReferences" variableName="secondReference">
                       <subModelOperations xsi:type="tool_1:SetValue" featureName="referencedType" valueExpression="var:source"/>
                       <subModelOperations xsi:type="tool_1:SetValue" featureName="isComposite" valueExpression="false"/>
-                      <subModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="[source.oclAsType(environment::StructuredType).name.trim() + 's'/]"/>
+                      <subModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="aql:source.oclAsType(environment::StructuredType).name.trim() + 's'"/>
                       <subModelOperations xsi:type="tool_1:SetValue" featureName="multiplicity" valueExpression="ZERO_STAR"/>
                       <subModelOperations xsi:type="tool_1:SetValue" featureName="navigable" valueExpression="true"/>
                       <subModelOperations xsi:type="tool_1:SetValue" featureName="oppositeOf" valueExpression="var:firstReference"/>
@@ -357,7 +357,7 @@
               </firstModelOperations>
             </initialOperation>
           </ownedTools>
-          <ownedTools xsi:type="tool:EdgeCreationDescription" name="Bidirectional Composition" forceRefresh="true">
+          <ownedTools xsi:type="tool:EdgeCreationDescription" name="Bidirectional Composition" forceRefresh="true" edgeMappings="//@ownedViewpoints[name='Entity%20Views']/@ownedRepresentations[name='Entities%20Diagram']/@defaultLayer/@edgeMappings[name='ED_BidiReference_Type_Type']">
             <sourceVariable name="source"/>
             <targetVariable name="target"/>
             <sourceViewVariable name="sourceView"/>
@@ -367,14 +367,14 @@
                 <subModelOperations xsi:type="tool_1:CreateInstance" typeName="environment.Reference" referenceName="ownedReferences" variableName="firstReference">
                   <subModelOperations xsi:type="tool_1:SetValue" featureName="referencedType" valueExpression="var:target"/>
                   <subModelOperations xsi:type="tool_1:SetValue" featureName="isComposite" valueExpression="true"/>
-                  <subModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="[target.oclAsType(environment::StructuredType).name.trim() + 's'/]"/>
+                  <subModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="aql:target.oclAsType(environment::StructuredType).name.trim() + 's'"/>
                   <subModelOperations xsi:type="tool_1:SetValue" featureName="multiplicity" valueExpression="ZERO_STAR"/>
                   <subModelOperations xsi:type="tool_1:SetValue" featureName="navigable" valueExpression="true"/>
                   <subModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:target">
                     <subModelOperations xsi:type="tool_1:CreateInstance" typeName="environment.Reference" referenceName="ownedReferences" variableName="secondReference">
                       <subModelOperations xsi:type="tool_1:SetValue" featureName="referencedType" valueExpression="var:source"/>
                       <subModelOperations xsi:type="tool_1:SetValue" featureName="isComposite" valueExpression="false"/>
-                      <subModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="[source.oclAsType(environment::StructuredType).name.trim() + 's'/]"/>
+                      <subModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="aql:source.oclAsType(environment::StructuredType).name.trim() + 's'"/>
                       <subModelOperations xsi:type="tool_1:SetValue" featureName="multiplicity" valueExpression="ZERO_STAR"/>
                       <subModelOperations xsi:type="tool_1:SetValue" featureName="navigable" valueExpression="true"/>
                       <subModelOperations xsi:type="tool_1:SetValue" featureName="oppositeOf" valueExpression="var:firstReference"/>
@@ -417,7 +417,7 @@
               <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:self"/>
             </initialOperation>
           </ownedTools>
-          <ownedTools xsi:type="tool:ContainerDropDescription" name="DAD_ED_Entity" precondition="[oclIsKindOf(entity::Entity)/]" forceRefresh="true" dragSource="BOTH">
+          <ownedTools xsi:type="tool:ContainerDropDescription" name="DAD_ED_Entity" precondition="aql:self.oclIsKindOf(entity::Entity)" forceRefresh="true" mappings="//@ownedViewpoints[name='Entity%20Views']/@ownedRepresentations[name='Entities%20Diagram']/@defaultLayer/@containerMappings[name='ED_Entity']" dragSource="BOTH">
             <oldContainer name="oldSemanticContainer"/>
             <newContainer name="newSemanticContainer"/>
             <element name="element"/>
@@ -428,7 +428,7 @@
               </firstModelOperations>
             </initialOperation>
           </ownedTools>
-          <ownedTools xsi:type="tool:ContainerDropDescription" name="DAD_ED_Enumeration" precondition="[oclIsKindOf(environment::Enumeration)/]" forceRefresh="true" dragSource="BOTH">
+          <ownedTools xsi:type="tool:ContainerDropDescription" name="DAD_ED_Enumeration" precondition="aql:self.oclIsKindOf(environment::Enumeration)" forceRefresh="true" mappings="//@ownedViewpoints[name='Entity%20Views']/@ownedRepresentations[name='Entities%20Diagram']/@defaultLayer/@containerMappings[name='ED_Enumeration']" dragSource="BOTH">
             <oldContainer name="oldSemanticContainer"/>
             <newContainer name="newSemanticContainer"/>
             <element name="element"/>
@@ -439,7 +439,7 @@
               </firstModelOperations>
             </initialOperation>
           </ownedTools>
-          <ownedTools xsi:type="tool:ContainerDropDescription" name="DAD_ED_Attribute" precondition="[oclIsKindOf(environment::Attribute)/]" forceRefresh="true" dragSource="BOTH">
+          <ownedTools xsi:type="tool:ContainerDropDescription" name="DAD_ED_Attribute" precondition="aql:self.oclIsKindOf(environment::Attribute)" forceRefresh="true" mappings="//@ownedViewpoints[name='Entity%20Views']/@ownedRepresentations[name='Entities%20Diagram']/@defaultLayer/@containerMappings[name='ED_Entity']/@subNodeMappings[name='ED_Attribute']" dragSource="BOTH">
             <oldContainer name="oldSemanticContainer"/>
             <newContainer name="newSemanticContainer"/>
             <element name="element"/>
@@ -450,7 +450,7 @@
               </firstModelOperations>
             </initialOperation>
           </ownedTools>
-          <ownedTools xsi:type="tool:ContainerDropDescription" name="DAD_ED_Literal" precondition="[oclIsKindOf(environment::Literal)/]" forceRefresh="true" dragSource="BOTH">
+          <ownedTools xsi:type="tool:ContainerDropDescription" name="DAD_ED_Literal" precondition="aql:self.oclIsKindOf(environment::Literal)" forceRefresh="true" mappings="//@ownedViewpoints[name='Entity%20Views']/@ownedRepresentations[name='Entities%20Diagram']/@defaultLayer/@containerMappings[name='ED_Enumeration']/@subNodeMappings[name='ED_Literal']" dragSource="BOTH">
             <oldContainer name="oldSemanticContainer"/>
             <newContainer name="newSemanticContainer"/>
             <element name="element"/>
@@ -481,7 +481,7 @@
           </ownedTools>
           <ownedTools xsi:type="tool:DeleteElementDescription" name="DEL_ED_BidiReference" forceRefresh="true">
             <element name="element">
-              <subVariables xsi:type="tool_1:SelectModelElementVariable" name="selectedElements" candidatesExpression="[self->asSequence()->including(oppositeOf)/]" multiple="true" message="Select references to be deleted"/>
+              <subVariables xsi:type="tool_1:SelectModelElementVariable" name="selectedElements" candidatesExpression="aql:self->asSequence()->including(self.oppositeOf)" multiple="true" message="Select references to be deleted"/>
             </element>
             <elementView name="elementView"/>
             <containerView name="containerView"/>
@@ -572,31 +572,31 @@
         </toolSections>
         <customization>
           <vsmElementCustomizations xsi:type="description:VSMElementCustomization" predicateExpression="feature:isComposite">
-            <featureCustomizations xsi:type="description:EAttributeCustomization" attributeName="sourceArrow" value="Diamond"/>
+            <featureCustomizations xsi:type="description:EAttributeCustomization" appliedOn="//@ownedViewpoints[name='Entity%20Views']/@ownedRepresentations[name='Entities%20Diagram']/@defaultLayer/@edgeMappings[name='ED_BidiReference_Type_Type']/@style" attributeName="sourceArrow" value="Diamond"/>
           </vsmElementCustomizations>
-          <vsmElementCustomizations xsi:type="description:VSMElementCustomization" predicateExpression="[oppositeOf.isComposite/]">
-            <featureCustomizations xsi:type="description:EAttributeCustomization" attributeName="targetArrow" value="Diamond"/>
+          <vsmElementCustomizations xsi:type="description:VSMElementCustomization" predicateExpression="aql:self.oppositeOf.isComposite">
+            <featureCustomizations xsi:type="description:EAttributeCustomization" appliedOn="//@ownedViewpoints[name='Entity%20Views']/@ownedRepresentations[name='Entities%20Diagram']/@defaultLayer/@edgeMappings[name='ED_BidiReference_Type_Type']/@style" attributeName="targetArrow" value="Diamond"/>
           </vsmElementCustomizations>
-          <vsmElementCustomizations xsi:type="description:VSMElementCustomization" predicateExpression="[not isComposite and oppositeOf.navigable/]">
-            <featureCustomizations xsi:type="description:EAttributeCustomization" attributeName="sourceArrow" value="InputArrow"/>
+          <vsmElementCustomizations xsi:type="description:VSMElementCustomization" predicateExpression="aql:not self.isComposite and self.oppositeOf.navigable">
+            <featureCustomizations xsi:type="description:EAttributeCustomization" appliedOn="//@ownedViewpoints[name='Entity%20Views']/@ownedRepresentations[name='Entities%20Diagram']/@defaultLayer/@edgeMappings[name='ED_BidiReference_Type_Type']/@style" attributeName="sourceArrow" value="InputArrow"/>
           </vsmElementCustomizations>
-          <vsmElementCustomizations xsi:type="description:VSMElementCustomization" predicateExpression="[not oppositeOf.isComposite and navigable/]">
-            <featureCustomizations xsi:type="description:EAttributeCustomization" attributeName="targetArrow" value="InputArrow"/>
+          <vsmElementCustomizations xsi:type="description:VSMElementCustomization" predicateExpression="aql:not self.oppositeOf.isComposite and self.navigable">
+            <featureCustomizations xsi:type="description:EAttributeCustomization" appliedOn="//@ownedViewpoints[name='Entity%20Views']/@ownedRepresentations[name='Entities%20Diagram']/@defaultLayer/@edgeMappings[name='ED_BidiReference_Type_Type']/@style" attributeName="targetArrow" value="InputArrow"/>
           </vsmElementCustomizations>
-          <vsmElementCustomizations xsi:type="description:VSMElementCustomization" predicateExpression="[oclAsType(environment::StructuredType).associatedTypes->notEmpty()/]">
-            <featureCustomizations xsi:type="description:EAttributeCustomization" attributeName="labelFormat" value="italic"/>
+          <vsmElementCustomizations xsi:type="description:VSMElementCustomization" predicateExpression="aql:self.oclAsType(environment::StructuredType).associatedTypes->notEmpty()">
+            <featureCustomizations xsi:type="description:EAttributeCustomization" appliedOn="//@ownedViewpoints[name='Entity%20Views']/@ownedRepresentations[name='Entities%20Diagram']/@defaultLayer/@containerMappings[name='ED_Entity']/@style" attributeName="labelFormat" value="italic"/>
           </vsmElementCustomizations>
         </customization>
       </defaultLayer>
       <additionalLayers name="External Entities" activeByDefault="true">
-        <containerMappings name="ED_ExternalStructuredType_Referenced" semanticCandidatesExpression="service:self.getAllReferencedStructuredTypes(diagram)" domainClass="entity.Entity" childrenPresentation="List">
-          <subNodeMappings name="ED_ExternalAttribute" semanticCandidatesExpression="feature:ownedAttributes" domainClass="environment.Attribute">
+        <containerMappings name="ED_ExternalStructuredType_Referenced" detailDescriptions="//@ownedViewpoints[name='Entity%20Views']/@ownedRepresentations[name='Entities%20Diagram']/@additionalLayers[name='External%20Entities']/@toolSections.1/@ownedTools[name='New%20external%20Entities%20diagram']" navigationDescriptions="//@ownedViewpoints[name='Entity%20Views']/@ownedRepresentations[name='Entities%20Diagram']/@additionalLayers[name='External%20Entities']/@toolSections.1/@ownedTools[name='Go%20to%20external%20Entities%20diagram']" deletionDescription="//@ownedViewpoints[name='Entity%20Views']/@ownedRepresentations[name='Entities%20Diagram']/@defaultLayer/@toolSections.5/@ownedTools[name='DEL_PreventDeletion']" semanticCandidatesExpression="service:self.getAllReferencedStructuredTypes(diagram)" doubleClickDescription="//@ownedViewpoints[name='Entity%20Views']/@ownedRepresentations[name='Entities%20Diagram']/@additionalLayers[name='External%20Entities']/@toolSections.1/@ownedTools[name='DBL_Go%20to%20external%20class%20diagram']" domainClass="entity.Entity" childrenPresentation="List">
+          <subNodeMappings name="ED_ExternalAttribute" detailDescriptions="//@ownedViewpoints[name='Entity%20Views']/@ownedRepresentations[name='Entities%20Diagram']/@additionalLayers[name='External%20Entities']/@toolSections.1/@ownedTools[name='New%20external%20Entities%20diagram']" navigationDescriptions="//@ownedViewpoints[name='Entity%20Views']/@ownedRepresentations[name='Entities%20Diagram']/@additionalLayers[name='External%20Entities']/@toolSections.1/@ownedTools[name='Go%20to%20external%20Entities%20diagram']" deletionDescription="//@ownedViewpoints[name='Entity%20Views']/@ownedRepresentations[name='Entities%20Diagram']/@defaultLayer/@toolSections.5/@ownedTools[name='DEL_PreventDeletion']" semanticCandidatesExpression="feature:ownedAttributes" doubleClickDescription="//@ownedViewpoints[name='Entity%20Views']/@ownedRepresentations[name='Entities%20Diagram']/@additionalLayers[name='External%20Entities']/@toolSections.1/@ownedTools[name='DBL_Go%20to%20external%20class%20diagram']" domainClass="environment.Attribute">
             <style xsi:type="style:SquareDescription" labelExpression="service:self.getEnvironmentLabel()" labelColor="//@userColorsPalettes[name='Palette']/@entries[name='ExternalType_color']" labelAlignment="LEFT">
               <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
               <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='gray']"/>
             </style>
           </subNodeMappings>
-          <subNodeMappings name="ED_ExternalAssociatedAttribute" semanticCandidatesExpression="service:getAssociatedTypesAttributes()" domainClass="environment.Attribute">
+          <subNodeMappings name="ED_ExternalAssociatedAttribute" detailDescriptions="//@ownedViewpoints[name='Entity%20Views']/@ownedRepresentations[name='Entities%20Diagram']/@additionalLayers[name='External%20Entities']/@toolSections.1/@ownedTools[name='New%20external%20Entities%20diagram']" navigationDescriptions="//@ownedViewpoints[name='Entity%20Views']/@ownedRepresentations[name='Entities%20Diagram']/@additionalLayers[name='External%20Entities']/@toolSections.1/@ownedTools[name='Go%20to%20external%20Entities%20diagram']" deletionDescription="//@ownedViewpoints[name='Entity%20Views']/@ownedRepresentations[name='Entities%20Diagram']/@defaultLayer/@toolSections.5/@ownedTools[name='DEL_PreventDeletion']" semanticCandidatesExpression="service:getAssociatedTypesAttributes()" doubleClickDescription="//@ownedViewpoints[name='Entity%20Views']/@ownedRepresentations[name='Entities%20Diagram']/@additionalLayers[name='External%20Entities']/@toolSections.1/@ownedTools[name='DBL_Go%20to%20external%20class%20diagram']" domainClass="environment.Attribute">
             <style xsi:type="style:SquareDescription" labelExpression="service:self.getEnvironmentLabel()" labelColor="//@userColorsPalettes[name='Palette']/@entries[name='ExternalType_color']" labelAlignment="LEFT">
               <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
               <labelFormat>italic</labelFormat>
@@ -607,21 +607,21 @@
             <labelFormat>bold</labelFormat>
           </style>
         </containerMappings>
-        <containerMappings name="ED_ExternalStructuredType_NotReferenced" semanticCandidatesExpression="service:self.getAllNotReferencedStructuredTypes(diagram)" createElements="false" domainClass="entity.Entity" childrenPresentation="List">
+        <containerMappings name="ED_ExternalStructuredType_NotReferenced" detailDescriptions="//@ownedViewpoints[name='Entity%20Views']/@ownedRepresentations[name='Entities%20Diagram']/@additionalLayers[name='External%20Entities']/@toolSections.1/@ownedTools[name='New%20external%20Entities%20diagram']" navigationDescriptions="//@ownedViewpoints[name='Entity%20Views']/@ownedRepresentations[name='Entities%20Diagram']/@additionalLayers[name='External%20Entities']/@toolSections.1/@ownedTools[name='Go%20to%20external%20Entities%20diagram']" deletionDescription="//@ownedViewpoints[name='Entity%20Views']/@ownedRepresentations[name='Entities%20Diagram']/@additionalLayers[name='External%20Entities']/@toolSections.1/@ownedTools[name='DEL_ED_ExternalStructuredType_NotReferenced']" semanticCandidatesExpression="service:self.getAllNotReferencedStructuredTypes(diagram)" createElements="false" doubleClickDescription="//@ownedViewpoints[name='Entity%20Views']/@ownedRepresentations[name='Entities%20Diagram']/@additionalLayers[name='External%20Entities']/@toolSections.1/@ownedTools[name='DBL_Go%20to%20external%20class%20diagram']" domainClass="entity.Entity" reusedNodeMappings="//@ownedViewpoints[name='Entity%20Views']/@ownedRepresentations[name='Entities%20Diagram']/@defaultLayer/@containerMappings[name='ED_Entity']/@subNodeMappings[name='ED_Attribute'] //@ownedViewpoints[name='Entity%20Views']/@ownedRepresentations[name='Entities%20Diagram']/@defaultLayer/@containerMappings[name='ED_Entity']/@subNodeMappings[name='ED_AssociatedAttribute']" childrenPresentation="List">
           <style xsi:type="style:FlatContainerStyleDescription" borderSizeComputationExpression="1" labelSize="10" labelExpression="service:getEnvironmentQualifiedName()" labelColor="//@userColorsPalettes[name='Palette']/@entries[name='ExternalType_color']" backgroundColor="//@userColorsPalettes[name='Palette']/@entries[name='ExternalType_background']" foregroundColor="//@userColorsPalettes[name='Palette']/@entries[name='ExternalType_foreground']">
             <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_orange']"/>
             <labelFormat>bold</labelFormat>
           </style>
         </containerMappings>
         <toolSections name="External Entities">
-          <ownedTools xsi:type="tool_1:SelectionWizardDescription" name="External entity" label="External entity" precondition="[oclIsKindOf(environment::Namespace)/]" forceRefresh="true" candidatesExpression="service:self.getAllSelectableExternalStructuredTypesWithAncestorsEntities(diagram)" multiple="true" tree="true" rootExpression="service:self.getAllSelectableExternalStructuredTypesWithAncestorsEntitiesRoots(diagram)" childrenExpression="feature:eContents" message="Select an external entity" iconPath="/org.obeonetwork.dsl.entity.edit/icons/full/obj16/Entity.gif">
+          <ownedTools xsi:type="tool_1:SelectionWizardDescription" name="External entity" label="External entity" precondition="aql:self.oclIsKindOf(environment::Namespace)" forceRefresh="true" candidatesExpression="service:self.getAllSelectableExternalStructuredTypesWithAncestorsEntities(diagram)" multiple="true" tree="true" rootExpression="service:self.getAllSelectableExternalStructuredTypesWithAncestorsEntitiesRoots(diagram)" childrenExpression="feature:eContents" message="Select an external entity" iconPath="/org.obeonetwork.dsl.entity.edit/icons/full/obj16/Entity.gif">
             <element name="element"/>
             <containerView name="containerView"/>
             <container name="container"/>
             <initialOperation>
               <firstModelOperations xsi:type="tool_1:For" expression="var:element" iteratorName="selectedElement">
-                <subModelOperations xsi:type="tool_1:If" conditionExpression="[oclIsKindOf(entity::Entity)/]">
-                  <subModelOperations xsi:type="tool:CreateView" containerViewExpression="var:containerView"/>
+                <subModelOperations xsi:type="tool_1:If" conditionExpression="aql:self.oclIsKindOf(entity::Entity)">
+                  <subModelOperations xsi:type="tool:CreateView" mapping="//@ownedViewpoints[name='Entity%20Views']/@ownedRepresentations[name='Entities%20Diagram']/@additionalLayers[name='External%20Entities']/@containerMappings[name='ED_ExternalStructuredType_NotReferenced']" containerViewExpression="var:containerView"/>
                 </subModelOperations>
               </firstModelOperations>
             </initialOperation>
@@ -638,24 +638,24 @@
               </firstModelOperations>
             </initialOperation>
           </ownedTools>
-          <ownedTools xsi:type="tool:DiagramCreationDescription" name="New external Entities diagram" label="New Entities Diagram" forceRefresh="true" browseExpression="[eContainer(environment::Namespace)/]">
+          <ownedTools xsi:type="tool:DiagramCreationDescription" name="New external Entities diagram" label="New Entities Diagram" forceRefresh="true" browseExpression="aql:self.eContainer(environment::Namespace)" diagramDescription="//@ownedViewpoints[name='Entity%20Views']/@ownedRepresentations[name='Entities%20Diagram']">
             <initialOperation>
               <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:self"/>
             </initialOperation>
             <containerViewVariable name="containerView"/>
             <representationNameVariable name="diagramName"/>
           </ownedTools>
-          <ownedTools xsi:type="tool:DiagramNavigationDescription" name="Go to external Entities diagram" label="New Entities Diagram" forceRefresh="true" browseExpression="[eContainer(environment::Namespace)/]">
+          <ownedTools xsi:type="tool:DiagramNavigationDescription" name="Go to external Entities diagram" label="New Entities Diagram" forceRefresh="true" browseExpression="aql:self.eContainer(environment::Namespace)" diagramDescription="//@ownedViewpoints[name='Entity%20Views']/@ownedRepresentations[name='Entities%20Diagram']">
             <containerViewVariable name="containerView"/>
             <containerVariable name="container"/>
             <representationNameVariable name="diagramName"/>
           </ownedTools>
-          <ownedTools xsi:type="tool:DoubleClickDescription" name="DBL_Go to external class diagram" forceRefresh="true">
+          <ownedTools xsi:type="tool:DoubleClickDescription" name="DBL_Go to external class diagram" forceRefresh="true" mappings="//@ownedViewpoints[name='Entity%20Views']/@ownedRepresentations[name='Entities%20Diagram']/@additionalLayers[name='External%20Entities']/@containerMappings[name='ED_ExternalStructuredType_NotReferenced'] //@ownedViewpoints[name='Entity%20Views']/@ownedRepresentations[name='Entities%20Diagram']/@additionalLayers[name='External%20Entities']/@containerMappings[name='ED_ExternalStructuredType_Referenced'] //@ownedViewpoints[name='Entity%20Views']/@ownedRepresentations[name='Entities%20Diagram']/@additionalLayers[name='External%20Entities']/@containerMappings[name='ED_ExternalStructuredType_Referenced']/@subNodeMappings[name='ED_ExternalAssociatedAttribute'] //@ownedViewpoints[name='Entity%20Views']/@ownedRepresentations[name='Entities%20Diagram']/@additionalLayers[name='External%20Entities']/@containerMappings[name='ED_ExternalStructuredType_Referenced']/@subNodeMappings[name='ED_ExternalAttribute']">
             <element name="element"/>
             <elementView name="elementView"/>
             <initialOperation>
-              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="[element.eContainer(environment::Namespace)/]">
-                <subModelOperations xsi:type="tool:Navigation" createIfNotExistent="true"/>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="aql:element.eContainer(environment::Namespace)">
+                <subModelOperations xsi:type="tool:Navigation" createIfNotExistent="true" diagramDescription="//@ownedViewpoints[name='Entity%20Views']/@ownedRepresentations[name='Entities%20Diagram']"/>
               </firstModelOperations>
             </initialOperation>
           </ownedTools>
@@ -666,7 +666,7 @@
       <metamodel href="http://www.obeonetwork.org/dsl/environment/3.0.0#/"/>
       <metamodel href="http://www.obeonetwork.org/dsl/entity/3.0.0#/"/>
       <ownedLineMappings name="EntityLine" domainClass="entity.Entity" headerLabelExpression="feature:name"/>
-      <ownedColumnMappings name="NB Attributes" headerLabelExpression="NB Attributes" canEdit="false" featureName="ownedAttributes" labelExpression="[ownedAttributes->size()/]"/>
+      <ownedColumnMappings name="NB Attributes" headerLabelExpression="NB Attributes" canEdit="false" featureName="ownedAttributes" labelExpression="aql:self.ownedAttributes->size()"/>
       <ownedColumnMappings name="estimatedVolumetry" headerLabelExpression="Estimated Volumetry" canEdit="true" featureName="estimatedVolumetry" labelExpression="feature:estimatedVolumetry">
         <directEdit>
           <variables name="table" documentation="The current DTable."/>
