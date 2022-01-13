@@ -217,22 +217,22 @@
       </validationSet>
       <defaultLayer name="Default Layer">
         <containerMappings name="Cc_ServiceInterface_CM" labelDirectEdit="//@ownedViewpoints[name='SOA%20Views']/@ownedRepresentations[name='Reused%20Tools']/@defaultLayer/@toolSections.0/@ownedTools[name='Reused%20Name%20Direct%20Edit']" semanticCandidatesExpression="feature:ownedServices" domainClass="soa.Service" dropDescriptions="//@ownedViewpoints[name='SOA%20Views']/@ownedRepresentations[name='Component%20Contract%20Diagram']/@defaultLayer/@toolSections.1/@subSections[name='Usability%20tools']/@ownedTools[name='DAD_Operation']">
-          <subContainerMappings name="Cc_Operation_CM" labelDirectEdit="//@ownedViewpoints[name='SOA%20Views']/@ownedRepresentations[name='Reused%20Tools']/@defaultLayer/@toolSections.0/@ownedTools[name='Reused%20Name%20Direct%20Edit']" semanticCandidatesExpression="self.ownedInterface.ownedOperations" domainClass="soa.Operation" childrenPresentation="List">
+          <subContainerMappings name="Cc_Operation_CM" labelDirectEdit="//@ownedViewpoints[name='SOA%20Views']/@ownedRepresentations[name='Reused%20Tools']/@defaultLayer/@toolSections.0/@ownedTools[name='Reused%20Name%20Direct%20Edit']" semanticCandidatesExpression="aql:self.ownedInterface.ownedOperations" domainClass="soa.Operation" childrenPresentation="List">
             <subNodeMappings name="Cc_In_Param" labelDirectEdit="//@ownedViewpoints[name='SOA%20Views']/@ownedRepresentations[name='Reused%20Tools']/@defaultLayer/@toolSections.0/@ownedTools[name='Reused%20Name%20Direct%20Edit']" semanticCandidatesExpression="feature:input" domainClass="soa.Parameter">
-              <style xsi:type="style:SquareDescription" labelExpression="service:computeSoaLabel()" labelColor="//@userColorsPalettes[name='Palette']/@entries[name='ISDLabelAndEdge']" labelAlignment="LEFT">
+              <style xsi:type="style:SquareDescription" labelExpression="service:getSoaLabel()" labelColor="//@userColorsPalettes[name='Palette']/@entries[name='ISDLabelAndEdge']" labelAlignment="LEFT">
                 <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
                 <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='gray']"/>
               </style>
             </subNodeMappings>
             <subNodeMappings name="Cc_Out_Param" labelDirectEdit="//@ownedViewpoints[name='SOA%20Views']/@ownedRepresentations[name='Reused%20Tools']/@defaultLayer/@toolSections.0/@ownedTools[name='Reused%20Name%20Direct%20Edit']" semanticCandidatesExpression="feature:output" domainClass="soa.Parameter">
-              <style xsi:type="style:SquareDescription" labelExpression="service:computeSoaLabel()" labelColor="//@userColorsPalettes[name='Palette']/@entries[name='ISDLabelAndEdge']" labelAlignment="LEFT">
+              <style xsi:type="style:SquareDescription" labelExpression="service:getSoaLabel()" labelColor="//@userColorsPalettes[name='Palette']/@entries[name='ISDLabelAndEdge']" labelAlignment="LEFT">
                 <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
                 <labelFormat>italic</labelFormat>
                 <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='gray']"/>
               </style>
             </subNodeMappings>
             <subNodeMappings name="Cc_Fault_Param" labelDirectEdit="//@ownedViewpoints[name='SOA%20Views']/@ownedRepresentations[name='Reused%20Tools']/@defaultLayer/@toolSections.0/@ownedTools[name='Reused%20Name%20Direct%20Edit']" semanticCandidatesExpression="feature:fault" domainClass="soa.Parameter">
-              <style xsi:type="style:SquareDescription" labelExpression="service:computeSoaLabel()" labelColor="//@userColorsPalettes[name='Palette']/@entries[name='ISDLabelAndEdge']" labelAlignment="LEFT">
+              <style xsi:type="style:SquareDescription" labelExpression="service:getSoaLabel()" labelColor="//@userColorsPalettes[name='Palette']/@entries[name='ISDLabelAndEdge']" labelAlignment="LEFT">
                 <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
                 <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='gray']"/>
               </style>
@@ -376,6 +376,13 @@
           <decorationDescriptions xsi:type="description_1:MappingBasedDecoration" name="DEC_Operation_is_paged" position="SOUTH_EAST" preconditionExpression="aql:self.paged" imageExpression="/org.obeonetwork.dsl.soa.design/icons/full/obj16/pages.png" mappings="//@ownedViewpoints[name='SOA%20Views']/@ownedRepresentations[name='Component%20Contract%20Diagram']/@defaultLayer/@containerMappings[name='Cc_ServiceInterface_CM']/@subContainerMappings[name='Cc_Operation_CM']"/>
         </decorationDescriptionsSet>
       </defaultLayer>
+      <additionalLayers name="MetaTypes" label="Meta Types">
+        <customization>
+          <vsmElementCustomizations xsi:type="description:VSMElementCustomization">
+            <featureCustomizations xsi:type="description:EAttributeCustomization" appliedOn="//@ownedViewpoints[name='SOA%20Views']/@ownedRepresentations[name='Component%20Contract%20Diagram']/@defaultLayer/@containerMappings[name='Cc_ServiceInterface_CM']/@subContainerMappings[name='Cc_Operation_CM']/@subNodeMappings[name='Cc_Fault_Param']/@style //@ownedViewpoints[name='SOA%20Views']/@ownedRepresentations[name='Component%20Contract%20Diagram']/@defaultLayer/@containerMappings[name='Cc_ServiceInterface_CM']/@subContainerMappings[name='Cc_Operation_CM']/@subNodeMappings[name='Cc_In_Param']/@style //@ownedViewpoints[name='SOA%20Views']/@ownedRepresentations[name='Component%20Contract%20Diagram']/@defaultLayer/@containerMappings[name='Cc_ServiceInterface_CM']/@subContainerMappings[name='Cc_Operation_CM']/@subNodeMappings[name='Cc_Out_Param']/@style" attributeName="labelExpression" value="service:self.getParameterLabelWithMetaType()"/>
+          </vsmElementCustomizations>
+        </customization>
+      </additionalLayers>
     </ownedRepresentations>
     <ownedRepresentations xsi:type="description_1:DiagramDescription" dropDescriptions="//@ownedViewpoints[name='SOA%20Views']/@ownedRepresentations[name='DTO%20Namespaces%20Hierarchy']/@defaultLayer/@toolSections.1/@ownedTools[name='DAD_Namespace']" name="DTO Namespaces Hierarchy" label="DTO Namespaces Hierarchy" titleExpression="DTO Namespaces Hierarchy" domainClass="soa.System">
       <metamodel href="http://www.obeonetwork.org/dsl/environment/3.0.0#/"/>
@@ -1041,7 +1048,7 @@
     <ownedRepresentations xsi:type="description_1:DiagramDescription" name="Reused Tools" domainClass="overview.Root" preconditionExpression="false">
       <defaultLayer name="Default">
         <toolSections name="Usability Tools">
-          <ownedTools xsi:type="tool:DirectEditLabel" documentation="Edit the name feature of the element" name="Reused Name Direct Edit" forceRefresh="true">
+          <ownedTools xsi:type="tool:DirectEditLabel" documentation="Edit the name feature of the element" name="Reused Name Direct Edit" forceRefresh="true" inputLabelExpression="service:getSoaLabel()">
             <mask mask="{0}"/>
             <initialOperation>
               <firstModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="var:arg0"/>

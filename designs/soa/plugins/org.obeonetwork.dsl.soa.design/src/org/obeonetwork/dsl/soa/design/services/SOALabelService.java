@@ -11,6 +11,7 @@
 package org.obeonetwork.dsl.soa.design.services;
 
 import org.obeonetwork.dsl.environment.ObeoDSMObject;
+import org.obeonetwork.dsl.environment.PrimitiveType;
 import org.obeonetwork.dsl.soa.Parameter;
 import org.obeonetwork.dsl.soa.util.SoaSwitch;
 
@@ -21,24 +22,40 @@ public class SOALabelService extends SoaSwitch<String> {
 	 * @param context Object for which we want to compute a label
 	 * @return computed label
 	 */
-	public String computeSoaLabel(ObeoDSMObject context) {
+	public String getSoaLabel(ObeoDSMObject context) {
 		return doSwitch(context);
 	}
 	
 	@Override
 	public String caseParameter(Parameter parameter) {
+		return getParameterLabel(parameter, false);
+	}
+
+	public String getParameterLabelWithMetaType(Parameter parameter) {
+		return getParameterLabel(parameter, true);
+	}
+
+	private String getParameterLabel(Parameter parameter, boolean withMetaType) {
 		// Name
-		StringBuilder label = new StringBuilder(parameter.getName()).append(" : ");
+		StringBuilder label = new StringBuilder(parameter.getName());
+		
+		label.append(" : ");
+		
 		// Type
-		if (parameter.getType() != null) {
+		if(parameter.getType() != null) {
 			label.append(parameter.getType().getName());
 		}
+		
+		// Meta Type
+		if(withMetaType && parameter.getType() != null && !(parameter.getType() instanceof PrimitiveType)) {
+			label.append(" ");
+			label.append(parameter.getType().eClass().getName());
+		}
+		
 		// Multiplicity
-		label.append("[");
-		label.append(parameter.getMultiplicity());
-		label.append("]");
+		label.append("[").append(parameter.getMultiplicity()).append("]");
 		
 		return label.toString();
 	}
-		
+	
 }

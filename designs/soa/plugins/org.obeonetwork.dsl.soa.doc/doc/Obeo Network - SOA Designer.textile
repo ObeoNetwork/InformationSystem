@@ -142,6 +142,16 @@ Les outils fournis par la palette sont :
 | !pics/contract/Palette_CreateOutput.png! | Création d'un paramètre de sortie d'une opération. |
 | !pics/contract/Palette_CreateFault.png! | Création d'un cas d'erreur d'une opération. |
 
+h4. Calques
+
+Les calques sont activables dans la barre d'outils du diagramme par le menu déroulant !pics/etool16/layers_DropDown.png!.
+
+Le _Component Contract Diagram_ fournit le calque _Meta Types_ qui ajoute l'information du méta-type (le type du type) de l'attribut dans le libellé des paramètres (pour les cas autres que les types primitifs).
+Ceci permet de dissiper la confusion qui peut arriver entre un _DTO_ et un _Entity_ portant le même nom.
+Ici, _DTO_ est ajouté dans la constitution du libellé du paramètre "books" :
+
+!pics/contract/ComponentContract_MetaType_Layer.png!
+
 h3. DTO Namespaces Hierarchy (pour l'objet racine _Components_)
 
 Les _DTO_ sont organisés en _Namespaces_ (autrement appelés packages).
