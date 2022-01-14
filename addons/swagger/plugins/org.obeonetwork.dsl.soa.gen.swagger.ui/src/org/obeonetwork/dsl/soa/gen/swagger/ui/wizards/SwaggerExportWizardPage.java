@@ -40,10 +40,10 @@ import org.eclipse.swt.widgets.Text;
 import org.obeonetwork.dsl.soa.gen.swagger.utils.SwaggerExportUtil.MapperType;
 import org.obeonetwork.utils.common.StringUtils;
 
-public class GenerateComponentsSwaggerWizardOptionsPage extends WizardPage {
+@SuppressWarnings("deprecation")
+public class SwaggerExportWizardPage extends WizardPage {
 
-	@SuppressWarnings("unused")
-	private GenerateComponentsSwaggerWizard wizard;
+	private SwaggerExportWizard wizard;
 	
 	private DataBindingContext bindingContext;
 	
@@ -91,10 +91,10 @@ public class GenerateComponentsSwaggerWizardOptionsPage extends WizardPage {
 		
 	}
 	
-	public GenerateComponentsSwaggerWizardOptionsPage(GenerateComponentsSwaggerWizard wizard) {
+	public SwaggerExportWizardPage(SwaggerExportWizard wizard) {
 		super("generateSwaggerWizardOptionsPage"); //$NON-NLS-1$
 		setTitle(wizard.getWindowTitle());
-		setDescription(Messages.GenerateComponentsSwaggerWizardOptionsPage_Description);
+		setDescription(Messages.SwaggerExportWizardPage_Description);
 		this.wizard = wizard;
 		this.model = new GenerateSwaggerWizardParameters();
 	}
@@ -111,17 +111,16 @@ public class GenerateComponentsSwaggerWizardOptionsPage extends WizardPage {
 		
 		Label lblOutputDirPath = new Label(container, SWT.NONE);
 		lblOutputDirPath.setLayoutData(new GridData(SWT.RIGHT, SWT.CENTER, false, false, 1, 1));
-		lblOutputDirPath.setText(Messages.GenerateComponentsSwaggerWizardOptionsPage_Label_Export_directory);
+		lblOutputDirPath.setText(Messages.SwaggerExportWizardPage_Label_export_directory);
 		
 		txtOutputDirPath = new Text(container, SWT.BORDER);
-		txtOutputDirPath.setText(Messages.GenerateComponentsSwaggerWizardOptionsPage_Label_Export_directory);
 		txtOutputDirPath.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, true, false, 1, 1));
 		
 		Button btnSelectOutputDirPath = new Button(container, SWT.NONE);
 		btnSelectOutputDirPath.addSelectionListener(new SelectionAdapter() {
 			@Override
 			public void widgetSelected(SelectionEvent e) {
-				DirectoryDialog dialog = new DirectoryDialog(GenerateComponentsSwaggerWizardOptionsPage.this.getShell(), SWT.OPEN);
+				DirectoryDialog dialog = new DirectoryDialog(SwaggerExportWizardPage.this.getShell(), SWT.OPEN);
 				dialog.setFilterPath(model.getOutputDirPath());
 				String outputDirPath = dialog.open();
 				if(outputDirPath != null) {
@@ -143,7 +142,7 @@ public class GenerateComponentsSwaggerWizardOptionsPage extends WizardPage {
 		};
 		
 		Label lblMapperType = new Label(container, SWT.NONE);
-		lblMapperType.setText(Messages.GenerateComponentsSwaggerWizardOptionsPage_Label_Output_format);
+		lblMapperType.setText(Messages.SwaggerExportWizardPage_Label_Output_format);
 		
 		comboMapperTypeViewer = new ComboViewer(container, SWT.NONE);
 		comboMapperTypeViewer.setContentProvider(ArrayContentProvider.getInstance());
@@ -175,7 +174,7 @@ public class GenerateComponentsSwaggerWizardOptionsPage extends WizardPage {
 		DataBindingContext bindingContext = new DataBindingContext();
 		
 		// outputDirPath
-		IObservableValue observeTextOutputDirPathObserveWidget = WidgetProperties.text(SWT.FocusOut).observe(txtOutputDirPath);
+		IObservableValue observeTextOutputDirPathObserveWidget = WidgetProperties.text(SWT.Modify).observe(txtOutputDirPath);
 		IObservableValue textOutputDirPathPathModelObserveValue = BeanProperties.value("outputDirPath").observe(model); //$NON-NLS-1$
 		bindingContext.bindValue(observeTextOutputDirPathObserveWidget, textOutputDirPathPathModelObserveValue, null, null);
 		

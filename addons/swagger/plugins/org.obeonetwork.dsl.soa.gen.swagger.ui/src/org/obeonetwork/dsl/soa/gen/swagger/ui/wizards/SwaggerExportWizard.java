@@ -24,19 +24,18 @@ import org.eclipse.sirius.business.api.query.EObjectQuery;
 import org.eclipse.sirius.business.api.session.Session;
 import org.obeonetwork.dsl.soa.Component;
 import org.obeonetwork.dsl.soa.gen.swagger.SwaggerExporter;
-import org.obeonetwork.dsl.soa.gen.swagger.ui.handlers.Messages;
 import org.obeonetwork.dsl.soa.gen.swagger.utils.ComponentGenUtil;
 import org.obeonetwork.dsl.soa.gen.swagger.utils.SwaggerExportUtil.MapperType;
 import org.obeonetwork.utils.sirius.session.SessionUtils;
 
-public class GenerateComponentsSwaggerWizard extends Wizard {
+public class SwaggerExportWizard extends Wizard {
 
 	private List<Component> components;
 	private ModelingProject enclosingModelingProject = null;
 	
-	private GenerateComponentsSwaggerWizardOptionsPage generateComponentsSwaggerWizardOptionsPage;
+	private SwaggerExportWizardPage swaggerExportWizardPage;
 
-	public GenerateComponentsSwaggerWizard(List<Component> components) {
+	public SwaggerExportWizard(List<Component> components) {
 		super();
 		this.components = components;
 		
@@ -46,20 +45,20 @@ public class GenerateComponentsSwaggerWizard extends Wizard {
 			enclosingModelingProject = SessionUtils.getModelingProjectFromSession(session);
 		}
 		
-		setWindowTitle(Messages.GenerateComponentsSwaggerWizard_Title);
+		setWindowTitle(Messages.SwaggerExportWizard_Title);
 		
-		generateComponentsSwaggerWizardOptionsPage = new GenerateComponentsSwaggerWizardOptionsPage(this);
+		swaggerExportWizardPage = new SwaggerExportWizardPage(this);
 	}
 
 	@Override
 	public void addPages() {
 		super.addPages();
-		addPage(generateComponentsSwaggerWizardOptionsPage);
+		addPage(swaggerExportWizardPage);
 	}
 
 	@Override
 	public boolean canFinish() {
-		return !components.isEmpty() && generateComponentsSwaggerWizardOptionsPage.isComplete();
+		return !components.isEmpty() && swaggerExportWizardPage.isComplete();
 	}
 
 	public String getDefaultOutputDirPath() {
@@ -77,8 +76,8 @@ public class GenerateComponentsSwaggerWizard extends Wizard {
 	public boolean performFinish() {
 		boolean exitStatus = true;
 		
-		MapperType mapperType = generateComponentsSwaggerWizardOptionsPage.getMapperType();
-		File outputDir = new File(generateComponentsSwaggerWizardOptionsPage.getOutputDirPath());
+		MapperType mapperType = swaggerExportWizardPage.getMapperType();
+		File outputDir = new File(swaggerExportWizardPage.getOutputDirPath());
 		
 		int status = IStatus.OK;
 		StringBuffer message = new StringBuffer();
@@ -91,12 +90,12 @@ public class GenerateComponentsSwaggerWizard extends Wizard {
 			int componentExportStatus = swaggerExporter.exportInDir(outputDir);
 			switch(componentExportStatus) {
 			case IStatus.OK:
-				message.append(String.format(Messages.GenerateComponentsSwaggerWizard_ResultDialog_Success_message, 
+				message.append(String.format(Messages.SwaggerExportWizard_Success_message, 
 						ComponentGenUtil.getName(component), 
 						new File(outputDir, swaggerExporter.getOutputFileName()).getPath()));
 				break;
 			case IStatus.WARNING:
-				message.append(String.format(Messages.GenerateComponentsSwaggerWizard_ResultDialog_Warning_message, 
+				message.append(String.format(Messages.SwaggerExportWizard_Warning_message, 
 						ComponentGenUtil.getName(component), 
 						new File(outputDir, swaggerExporter.getOutputFileName()).getPath()));
 				if(status != IStatus.ERROR) {
@@ -105,7 +104,7 @@ public class GenerateComponentsSwaggerWizard extends Wizard {
 				break;
 			case IStatus.ERROR:
 				status = IStatus.ERROR;
-				message.append(String.format(Messages.GenerateComponentsSwaggerWizard_ResultDialog_Failure_message, 
+				message.append(String.format(Messages.SwaggerExportWizard_Failure_message, 
 						ComponentGenUtil.getName(component), 
 						new File(outputDir, swaggerExporter.getOutputFileName()).getPath()));
 				break;
@@ -120,21 +119,21 @@ public class GenerateComponentsSwaggerWizard extends Wizard {
 		}
 		
 		if(swaggerVersion != null) {
-			message.append(String.format(Messages.GenerateComponentsSwaggerWizard_ResultDialog_Swagger_version, swaggerVersion));
+			message.append(String.format(Messages.SwaggerExportWizard_Version_message, swaggerVersion));
 			message.append("\n"); //$NON-NLS-1$
 		}
 		
 		switch (status) {
 		case IStatus.OK:
-			MessageDialog.openInformation(getShell(), Messages.GenerateComponentsSwaggerWizard_ResultDialog_Title, message.toString());
+			MessageDialog.openInformation(getShell(), Messages.SwaggerExportWizard_Title, message.toString());
 			break;
 		case IStatus.WARNING:
-			message.append(Messages.GenerateComponentsSwaggerWizard_ResultDialog_see_log_message);
-			MessageDialog.openWarning(getShell(), Messages.GenerateComponentsSwaggerWizard_ResultDialog_Title, message.toString());
+			message.append(Messages.SwaggerExportWizard_See_error_log_message);
+			MessageDialog.openWarning(getShell(), Messages.SwaggerExportWizard_Title, message.toString());
 			break;
 		case IStatus.ERROR:
-			message.append(Messages.GenerateComponentsSwaggerWizard_ResultDialog_see_log_message);
-			MessageDialog.openError(getShell(), Messages.GenerateComponentsSwaggerWizard_ResultDialog_Title, message.toString());
+			message.append(Messages.SwaggerExportWizard_See_error_log_message);
+			MessageDialog.openError(getShell(), Messages.SwaggerExportWizard_Title, message.toString());
 			break;
 		}
 		

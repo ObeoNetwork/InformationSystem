@@ -14,11 +14,11 @@
    <extension
          point="org.eclipse.ui.commands">
       <command
-            id="org.obeonetwork.dsl.soa.gen.swagger.ui.command.GenerateSwagger"
+            id="org.obeonetwork.dsl.soa.gen.swagger.ui.command.SwaggerExport"
             name="Generate Swagger...">
       </command>
       <command
-            id="org.obeonetwork.dsl.soa.gen.swagger.ui.command.ImportSwagger"
+            id="org.obeonetwork.dsl.soa.gen.swagger.ui.command.SwaggerImport"
             name="Import Swagger...">
       </command>
    </extension>
@@ -28,7 +28,7 @@
             allPopups="false"
             locationURI="popup:org.obeonetwork.is.designer.menu?after=additions">
          <command
-               commandId="org.obeonetwork.dsl.soa.gen.swagger.ui.command.GenerateSwagger"
+               commandId="org.obeonetwork.dsl.soa.gen.swagger.ui.command.SwaggerExport"
                icon="icons/swagger-logo-16x16.png"
                style="push">
             <visibleWhen
@@ -36,7 +36,7 @@
             </visibleWhen>
          </command>
          <command
-               commandId="org.obeonetwork.dsl.soa.gen.swagger.ui.command.ImportSwagger"
+               commandId="org.obeonetwork.dsl.soa.gen.swagger.ui.command.SwaggerImport"
                icon="icons/swagger-logo-16x16.png"
                style="push">
             <visibleWhen
@@ -48,8 +48,8 @@
    <extension
          point="org.eclipse.ui.handlers">
       <handler
-            class="org.obeonetwork.dsl.soa.gen.swagger.ui.handlers.GenerateSwaggerHandler"
-            commandId="org.obeonetwork.dsl.soa.gen.swagger.ui.command.GenerateSwagger">
+            class="org.obeonetwork.dsl.soa.gen.swagger.ui.handlers.SwaggerExportHandler"
+            commandId="org.obeonetwork.dsl.soa.gen.swagger.ui.command.SwaggerExport">
          <enabledWhen>
             <with
                   variable="selection">
@@ -78,8 +78,8 @@
          </enabledWhen>
       </handler>
       <handler
-            class="org.obeonetwork.dsl.soa.gen.swagger.ui.handlers.ImportSwaggerHandler"
-            commandId="org.obeonetwork.dsl.soa.gen.swagger.ui.command.ImportSwagger">
+            class="org.obeonetwork.dsl.soa.gen.swagger.ui.handlers.SwaggerImportHandler"
+            commandId="org.obeonetwork.dsl.soa.gen.swagger.ui.command.SwaggerImport">
          <enabledWhen>
             <with
                   variable="selection">
