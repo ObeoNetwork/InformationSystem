@@ -123,6 +123,11 @@ public class SwaggerImportWizardPage extends WizardPage {
 			@Override
 			public void propertyChange(PropertyChangeEvent evt) {
 				setPageComplete(isComplete());
+				if(!fileExists()) {
+					setErrorMessage("Selected file does not exist.");
+				} else {
+					setErrorMessage(null);
+				}
 			}
 
 		};
@@ -147,9 +152,13 @@ public class SwaggerImportWizardPage extends WizardPage {
 		return bindingContext;
 	}
 
-	public boolean isComplete() {
+	private boolean fileExists() {
 		File file = new File(model.getSwaggerFilePath());
 		return file.exists() && file.isFile();
+	}
+	
+	public boolean isComplete() {
+		return fileExists();
 	}
 
 	@Override
