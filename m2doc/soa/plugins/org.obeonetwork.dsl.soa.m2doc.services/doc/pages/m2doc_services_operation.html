@@ -145,11 +145,25 @@
       <td colspan="1" rowspan="1">{m:for parameter | operation.output} parameter {m:parameter.name}, {m:endfor}</td>
     </tr>
     <tr>
+      <td colspan="1" rowspan="1"><strong>page</strong></td>
+      <td colspan="1" rowspan="1"><a href="/help/topic/org.obeonetwork.dsl.soa.m2doc.services/doc/pages/m2doc_services_parameter.html">Parameter</a></td>
+      <td colspan="1" rowspan="1">{m:operation.page}</td>
+      <td colspan="1" rowspan="1">Page input parameter that indicates the index of the page requested.</td>
+      <td colspan="1" rowspan="1">{m:operation.page}</td>
+    </tr>
+    <tr>
       <td colspan="1" rowspan="1"><strong>paged</strong></td>
       <td colspan="1" rowspan="1">EBoolean</td>
       <td colspan="1" rowspan="1">{m:operation.paged}</td>
       <td colspan="1" rowspan="1">Tells if this operation is paged.</td>
       <td colspan="1" rowspan="1">{m:operation.paged}</td>
+    </tr>
+    <tr>
+      <td colspan="1" rowspan="1"><strong>paginationExtension</strong></td>
+      <td colspan="1" rowspan="1"><a href="/help/topic/org.obeonetwork.dsl.soa.m2doc.services/doc/pages/m2doc_services_propertiesextension.html">PropertiesExtension</a></td>
+      <td colspan="1" rowspan="1">{m:operation.paginationExtension}</td>
+      <td colspan="1" rowspan="1">Reference towards the property extension that defines the operation's pagination.</td>
+      <td colspan="1" rowspan="1">{m:operation.paginationExtension}</td>
     </tr>
     <tr>
       <td colspan="1" rowspan="1"><strong>public</strong></td>
@@ -159,11 +173,32 @@
       <td colspan="1" rowspan="1">{m:operation.public}</td>
     </tr>
     <tr>
+      <td colspan="1" rowspan="1"><strong>securityApplications</strong></td>
+      <td colspan="1" rowspan="1">List of <a href="/help/topic/org.obeonetwork.dsl.soa.m2doc.services/doc/pages/m2doc_services_securityapplication.html">SecurityApplication</a></td>
+      <td colspan="1" rowspan="1">{m:operation.securityApplications}</td>
+      <td colspan="1" rowspan="1"></td>
+      <td colspan="1" rowspan="1">{m:for securityApplication | operation.securityApplications} securityApplication {m:securityApplication.name}, {m:endfor}</td>
+    </tr>
+    <tr>
       <td colspan="1" rowspan="1"><strong>securitySchemes</strong></td>
       <td colspan="1" rowspan="1">List of <a href="/help/topic/org.obeonetwork.dsl.soa.m2doc.services/doc/pages/m2doc_services_securityscheme.html">SecurityScheme</a></td>
       <td colspan="1" rowspan="1">{m:operation.securitySchemes}</td>
       <td colspan="1" rowspan="1"></td>
       <td colspan="1" rowspan="1">{m:for securityScheme | operation.securitySchemes} securityScheme {m:securityScheme.name}, {m:endfor}</td>
+    </tr>
+    <tr>
+      <td colspan="1" rowspan="1"><strong>servers</strong></td>
+      <td colspan="1" rowspan="1">List of <a href="/help/topic/org.obeonetwork.dsl.soa.m2doc.services/doc/pages/m2doc_services_server.html">Server</a></td>
+      <td colspan="1" rowspan="1">{m:operation.servers}</td>
+      <td colspan="1" rowspan="1">The list of servers.</td>
+      <td colspan="1" rowspan="1">{m:for server | operation.servers} server {m:server.name}, {m:endfor}</td>
+    </tr>
+    <tr>
+      <td colspan="1" rowspan="1"><strong>size</strong></td>
+      <td colspan="1" rowspan="1"><a href="/help/topic/org.obeonetwork.dsl.soa.m2doc.services/doc/pages/m2doc_services_parameter.html">Parameter</a></td>
+      <td colspan="1" rowspan="1">{m:operation.size}</td>
+      <td colspan="1" rowspan="1">Size input parameter that indicates the number of instances to return.</td>
+      <td colspan="1" rowspan="1">{m:operation.size}</td>
     </tr>
     <tr>
       <td colspan="1" rowspan="1"><strong>technicalid</strong></td>
