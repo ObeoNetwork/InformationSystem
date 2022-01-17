@@ -109,6 +109,6 @@ CREATE SEQUENCE [sequence.fullname()/][sequence.genIncrementBy()/][sequence.genM
  CACHE [sequence.cacheSize/]
 [/template]
 
-[template private genSequenceComment(sequence : Sequence) ? (sequence.comments<>null and sequence.comments.size()>0) post(trim())]
+[template private genSequenceComment(sequence : Sequence) ? (sequence.comments<>null and sequence.comments.size()>0 and not sequence.isTargetOracle()) post(trim())]
 COMMENT ON SEQUENCE [sequence.fullname()/] IS '[sequence.comments.replaceAll('\'','\'\'')/]';
 [/template]
