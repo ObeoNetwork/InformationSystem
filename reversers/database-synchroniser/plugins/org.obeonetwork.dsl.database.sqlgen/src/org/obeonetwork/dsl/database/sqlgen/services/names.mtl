@@ -1,4 +1,14 @@
 [comment encoding = UTF-8 /]
+[comment
+ Copyright (c) 2008, 2021 Obeo.
+ All rights reserved. This program and the accompanying materials
+ are made available under the terms of the Eclipse Public License v1.0
+ which accompanies this distribution, and is available at
+ http://www.eclipse.org/legal/epl-v10.html
+
+ Contributors:
+     Obeo - initial API and implementation
+/]
 [module names(
  'http://www.obeonetwork.org/dsl/database/evolution/1.0',
  'http://www.obeonetwork.org/dsl/database/1.0',

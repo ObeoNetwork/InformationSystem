@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project default="main" name="fr.gouv.mindef.safran.cinematic.gen.html">
-    <property name="ECLIPSE_HOME" value="../../../../../../../programs/eclipse/is-designer/ISDesigner-2.2.0/ISDesigner"/>
-    <property name="ECLIPSE_WORKSPACE" value="../../../../../../../programs/eclipse/is-designer/ISDesigner-2.2.0/ISDesigner/workspace_moa"/>
+    <property name="ECLIPSE_HOME" value="../../../../../../../Documents/Obeo/Projets/MinArm/Env/Dev/SafranStudio-2.2.0"/>
+    <property name="ECLIPSE_WORKSPACE" value="../../../../../../../Documents/Obeo/Projets/MinArm/Env/Workspaces/SafranStudio-2.2.0"/>
 
     <!-- The classpath with only the dependencies used by the project -->
     <path id="fr.gouv.mindef.safran.cinematic.gen.html.libraryclasspath">
@@ -18,11 +18,12 @@
         <pathelement location="${ECLIPSE_HOME}/plugins/org.eclipse.equinox.app_1.4.200.v20190516-1504.jar"/>
         <pathelement location="${ECLIPSE_HOME}/plugins/org.eclipse.emf.ecore_2.19.0.v20190822-1451.jar"/>
         <pathelement location="${ECLIPSE_HOME}/plugins/org.eclipse.emf.common_2.16.0.v20190625-1131.jar"/>
-        <pathelement location="${ECLIPSE_HOME}/plugins/org.eclipse.emf.cdo_4.6.100.v20180529-1130.jar"/>
-        <pathelement location="${ECLIPSE_HOME}/plugins/org.eclipse.emf.cdo.common_4.7.0.v20180529-1130.jar"/>
+        <pathelement location="${ECLIPSE_HOME}/plugins/org.eclipse.emf.cdo_4.6.100.v20191029-1530.jar"/>
+        <pathelement location="${ECLIPSE_HOME}/plugins/org.eclipse.emf.cdo.common_4.7.0.v20191029-1530.jar"/>
         <pathelement location="${ECLIPSE_HOME}/plugins/org.eclipse.emf.ecore.change_2.14.0.v20190528-0725.jar"/>
         <pathelement location="${ECLIPSE_HOME}/plugins/org.eclipse.emf.ecore.xmi_2.16.0.v20190528-0725.jar"/>
-        <pathelement location="${ECLIPSE_HOME}/plugins/org.eclipse.net4j.util_3.8.0.v20180530-0909.jar"/>
+        <pathelement location="${ECLIPSE_HOME}/plugins/org.eclipse.net4j.util_3.8.0.v20191029-1530.jar"/>
+        <pathelement location="${ECLIPSE_HOME}/plugins/org.obeonetwork.dsl.environment_2.2.0.202110281333.jar"/>
         <pathelement location="${ECLIPSE_HOME}/plugins/org.eclipse.ocl_3.10.300.v20190603-1146.jar"/>
         <pathelement location="${ECLIPSE_HOME}/plugins/lpg.runtime.java_2.0.17.v201004271640.jar"/>
         <pathelement location="${ECLIPSE_HOME}/plugins/org.eclipse.ocl.common_1.8.300.v20190603-1146.jar"/>
