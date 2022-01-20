@@ -2164,16 +2164,17 @@
           <customExpressions name="hideAddButtonExpression" customExpression="aql:true"/>
           <customOperations name="browseButtonOperation">
             <initialOperation>
-              <firstModelOperations xsi:type="tool_1:ExternalJavaAction" name="soa::SecurityApplication scopes ReferenceEdition" id="org.obeonetwork.dsl.environment.design.actions.PaneBasedReferenceEditionWizard">
+              <firstModelOperations xsi:type="tool_1:ExternalJavaAction" name="soa::SecurityApplication scopes ReferenceEdition" id="org.obeonetwork.dsl.environment.design.actions.ISObjectSelectionWizard">
                 <subModelOperations xsi:type="tool_1:If" conditionExpression="aql:returnCode='OK'">
                   <subModelOperations xsi:type="tool_1:ChangeContext" browseExpression="aql:self.updateScopes(selectedElements)"/>
                 </subModelOperations>
-                <parameters name="windowTitle" value="Security Application Scopes Selection"/>
+                <parameters name="windowTitle" value="Security Schemes Selection"/>
                 <parameters name="message" value="Select the Security Scopes to apply."/>
-                <parameters name="candidates" value="aql:self.securityScheme.flows.scopes"/>
-                <parameters name="referenceName" value="aql:'scopes'"/>
-                <parameters name="choiceOfValuesMessage" value="Available Flows"/>
-                <parameters name="selectedValuesMessage" value="Selected Flows"/>
+                <parameters name="multiple" value="aql:true"/>
+                <parameters name="roots" value="aql:self.securityScheme"/>
+                <parameters name="childrenExpression" value="self.eContents()"/>
+                <parameters name="preSelection" value="aql:self.scopes"/>
+                <parameters name="selectableCondition" value="self.oclIsKindOf(soa::Scope)"/>
               </firstModelOperations>
             </initialOperation>
           </customOperations>
