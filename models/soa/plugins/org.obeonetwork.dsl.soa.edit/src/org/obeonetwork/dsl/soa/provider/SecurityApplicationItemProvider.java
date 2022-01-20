@@ -22,7 +22,7 @@ import org.eclipse.emf.common.util.ResourceLocator;
 
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
-
+import org.eclipse.emf.edit.provider.ViewerNotification;
 import org.obeonetwork.dsl.soa.SecurityApplication;
 import org.obeonetwork.dsl.soa.SoaPackage;
 
@@ -145,7 +145,7 @@ public class SecurityApplicationItemProvider extends IdentifiableItemProvider {
 		SecurityApplication securityApplication = ((SecurityApplication)object);
 		
 		String label = "";
-		if(securityApplication.getSecurityScheme() != null) {
+		if(securityApplication.getSecurityScheme() != null && securityApplication.getSecurityScheme().getName() != null) {
 			label = securityApplication.getSecurityScheme().getName() + " ";
 		}
 		label += "[" + securityApplication.getScopes().stream().map(scope -> scope.getName()).collect(Collectors.joining(", ")) + "]";
@@ -160,11 +160,17 @@ public class SecurityApplicationItemProvider extends IdentifiableItemProvider {
 	 * children and by creating a viewer notification, which it passes to {@link #fireNotifyChanged}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	@Override
 	public void notifyChanged(Notification notification) {
 		updateChildren(notification);
+		
+		switch(notification.getFeatureID(SecurityApplication.class)) {
+		case SoaPackage.SECURITY_APPLICATION__SCOPES:
+			fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
+			break;
+		}
 		super.notifyChanged(notification);
 	}
 
