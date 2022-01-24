@@ -3,6 +3,6 @@ Bundle-ManifestVersion: 2
 Bundle-Name: IS Databinding Documentation
 Bundle-SymbolicName: org.obeonetwork.dsl.environment.binding.design.doc;singleton:=true
 Bundle-Version: 2.2.1.qualifier
-Bundle-RequiredExecutionEnvironment: JavaSE-1.6
+Bundle-RequiredExecutionEnvironment: JavaSE-1.8
 Bundle-ActivationPolicy: lazy
 Bundle-Vendor: Obeo Network

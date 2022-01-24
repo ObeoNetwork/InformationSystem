@@ -6,7 +6,7 @@ Bundle-Version: 2.2.1.qualifier
 Bundle-ClassPath: .
 Bundle-Vendor: Obeo Network
 Bundle-Localization: plugin
-Bundle-RequiredExecutionEnvironment: J2SE-1.5
+Bundle-RequiredExecutionEnvironment: JavaSE-1.8
 Export-Package: org.obeonetwork.dsl.entity,
  org.obeonetwork.dsl.entity.extensionUtilities,
  org.obeonetwork.dsl.entity.extensionUtilities.impl,

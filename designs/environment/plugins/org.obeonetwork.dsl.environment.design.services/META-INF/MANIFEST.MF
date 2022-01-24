@@ -4,7 +4,7 @@ Bundle-Name: Environment Common Services
 Bundle-SymbolicName: org.obeonetwork.dsl.environment.design.services
 Bundle-Version: 2.2.1.qualifier
 Bundle-Vendor: Obeo Network
-Bundle-RequiredExecutionEnvironment: JavaSE-1.6
+Bundle-RequiredExecutionEnvironment: JavaSE-1.8
 Require-Bundle: org.obeonetwork.dsl.environment,
  org.eclipse.jface,
  org.eclipse.sirius,

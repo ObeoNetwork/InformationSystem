@@ -30,7 +30,7 @@ Require-Bundle: org.eclipse.ui,
  org.obeonetwork.utils.sirius
 Import-Package: com.google.common.collect;version="[21.0.0,27.2.0)"
 Bundle-ActivationPolicy: lazy
-Bundle-RequiredExecutionEnvironment: J2SE-1.5
+Bundle-RequiredExecutionEnvironment: JavaSE-1.8
 Bundle-Vendor: Obeo Network
 Export-Package: org.obeonetwork.graal.design.services.actor,org.obeonetwork.graal.design.services.configuration,org.obeonetwork.graal.design.services.group,org.obeonetwork.graal.design.services.task,org.obeonetwork.graal.design.services.usability,org.obeonetwork.graal.design.services.use,org.obeonetwork.graal.design.services.usecase,org.obeonetwork.graal.design.services.util,org.obeonetwork.graal.design.ui.eef
 Bundle-ManifestVersion: 2

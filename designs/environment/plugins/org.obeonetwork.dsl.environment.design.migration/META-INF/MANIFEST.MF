@@ -4,7 +4,7 @@ Bundle-Name: Sirius Migration for Environment Metamodel
 Bundle-SymbolicName: org.obeonetwork.dsl.environment.design.migration;singleton:=true
 Bundle-Version: 2.2.1.qualifier
 Bundle-Vendor: Obeo Network
-Bundle-RequiredExecutionEnvironment: JavaSE-1.6
+Bundle-RequiredExecutionEnvironment: JavaSE-1.8
 Require-Bundle: org.eclipse.sirius,
  org.eclipse.emf.ecore,
  org.eclipse.osgi,

@@ -20,4 +20,4 @@ Require-Bundle: org.eclipse.core.runtime,
  org.obeonetwork.dsl.environment.editor,
  org.eclipse.emf.eef.runtime
 Bundle-ActivationPolicy: lazy
-Bundle-RequiredExecutionEnvironment: J2SE-1.5
+Bundle-RequiredExecutionEnvironment: JavaSE-1.8

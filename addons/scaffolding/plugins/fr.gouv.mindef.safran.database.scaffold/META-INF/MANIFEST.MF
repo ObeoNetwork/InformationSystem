@@ -5,7 +5,7 @@ Bundle-SymbolicName: fr.gouv.mindef.safran.database.scaffold;singleton:=true
 Bundle-Version: 2.2.1.qualifier
 Bundle-ClassPath: .
 Bundle-Vendor: Obeo Network
-Bundle-RequiredExecutionEnvironment: JavaSE-1.6
+Bundle-RequiredExecutionEnvironment: JavaSE-1.8
 Export-Package: fr.gouv.mindef.safran.database.scaffold,
  fr.gouv.mindef.safran.database.scaffold.impl,
  fr.gouv.mindef.safran.database.scaffold.util

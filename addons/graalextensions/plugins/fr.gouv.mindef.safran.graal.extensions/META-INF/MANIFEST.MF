@@ -6,7 +6,7 @@ Bundle-Version: 2.2.1.qualifier
 Bundle-ClassPath: .
 Bundle-Vendor: Obeo Network
 Bundle-Localization: plugin
-Bundle-RequiredExecutionEnvironment: JavaSE-1.6
+Bundle-RequiredExecutionEnvironment: JavaSE-1.8
 Export-Package: fr.gouv.mindef.safran.graalextensions,
  fr.gouv.mindef.safran.graalextensions.impl,
  fr.gouv.mindef.safran.graalextensions.util
