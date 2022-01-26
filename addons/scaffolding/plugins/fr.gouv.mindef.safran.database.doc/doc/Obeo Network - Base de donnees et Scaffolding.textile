@@ -74,8 +74,8 @@ L'édition de Modèle Physique de Données se fait à l'aide du modeleur présen
 Les types de données proposées pour les colonnes des modèles physiques de données dépendent de la librairie utilisées.
 Un type "ENUM" de MariaDB permet donc la définition de littéraux, et un type "VARCHAR" de PostgreSQL propose la définition de la longueur de la variable.
 
-!pics/BDD_Column_Enum.PNG!
-!pics/BDD_Column_Varchar.PNG!
+!pics/BDD_Column_Enum.png!
+!pics/BDD_Column_Varchar.png!
  
 
  
@@ -161,7 +161,7 @@ Il est possible de déployer un changelog liquibase sur une base de données dir
 Les données de connection sont définies par défaut avec le fichier _changelog.properties_, normalement créé par liquibase. 
 Modifier ce fichier permet de remplir définir les url et identifiants de connection, afin de déployer les changements sur une base distante.
 
-!{width:480px}pics/BDD_ApplyChangelog_Connection.PNG!
+!{width:480px}pics/BDD_ApplyChangelog_Connection.png!
 
 h2. Transformations
 
