@@ -21,7 +21,7 @@
     <stringValues id="titleExpression" value="DTO Namespaces Hierarchy"/>
     <stringValues id="domainClass" value="soa.System"/>
     <metamodels>http://www.obeonetwork.org/dsl/environment/3.0.0</metamodels>
-    <metamodels>http://www.obeonetwork.org/dsl/soa/3.0.0</metamodels>
+    <metamodels>http://www.obeonetwork.org/dsl/soa/4.0.0</metamodels>
   </diagrams>
   <diagrams id="ClassDiagram" descriptionId="DTO Diagram">
     <children id="StructuredTypeMapping">
@@ -89,7 +89,7 @@
     <stringValues id="titleExpression" value="aql:self.name + ' - DTO diagram'"/>
     <stringValues id="precondition" value="aql:self.ancestors()->filter(soa::System)->notEmpty()"/>
     <metamodels>http://www.obeonetwork.org/dsl/environment/3.0.0</metamodels>
-    <metamodels>http://www.obeonetwork.org/dsl/soa/3.0.0</metamodels>
+    <metamodels>http://www.obeonetwork.org/dsl/soa/4.0.0</metamodels>
   </diagrams>
   <colors name="Namespace_background" red="255" green="255" blue="255"/>
   <colors name="Namespace_foreground" red="255" green="255" blue="255"/>

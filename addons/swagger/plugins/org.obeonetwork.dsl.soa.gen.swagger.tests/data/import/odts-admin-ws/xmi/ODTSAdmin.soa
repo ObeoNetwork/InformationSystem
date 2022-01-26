@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="ASCII"?>
-<soa:System xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:oenv="http://www.obeonetwork.org/dsl/environment/3.0.0" xmlns:soa="http://www.obeonetwork.org/dsl/soa/3.0.0" xmi:id="_Ws_qkP6gEeuek5eXUmOjkg" technicalid="_Ws_DgP6gEeuek5eXUmOjkg" createdOn="2021-08-16T16:43:44.482+0200" modifiedOn="2021-11-22T10:14:27.629+0100" name="in-memory system">
+<soa:System xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:oenv="http://www.obeonetwork.org/dsl/environment/3.0.0" xmlns:soa="http://www.obeonetwork.org/dsl/soa/4.0.0" xmi:id="_Ws_qkP6gEeuek5eXUmOjkg" technicalid="_Ws_DgP6gEeuek5eXUmOjkg" createdOn="2021-08-16T16:43:44.482+0200" modifiedOn="2021-11-22T10:14:27.629+0100" name="in-memory system">
   <ownedNamespaces xmi:id="_l8ZV0Et0Eey78pGAtcOT1w" technicalid="_l8OWt0t0Eey78pGAtcOT1w" createdOn="2021-11-22T10:14:27.629+0100" modifiedOn="2021-11-22T10:14:27.629+0100" name="Obeo Designer Team Server - Administration Server">
     <types xsi:type="oenv:DTO" xmi:id="_l8ZV0Ut0Eey78pGAtcOT1w" technicalid="_l8OWuEt0Eey78pGAtcOT1w" name="SimpleRepository">
       <ownedAttributes xmi:id="_l8ZV0kt0Eey78pGAtcOT1w" technicalid="_l8OWvUt0Eey78pGAtcOT1w" name="repositorName">

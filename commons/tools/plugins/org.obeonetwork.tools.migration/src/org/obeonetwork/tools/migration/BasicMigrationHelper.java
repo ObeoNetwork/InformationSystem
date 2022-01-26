@@ -34,8 +34,9 @@ abstract public class BasicMigrationHelper implements IMigrationHelper {
 	public static final String ENVIRONMENT_URI_OLD = "http://www.obeonetwork.org/dsl/environment/2.0.0";
 	public static final String ENVIRONMENT_URI_NEW = "http://www.obeonetwork.org/dsl/environment/3.0.0";
 	
-	public static final String SOA_URI_OLD = "http://www.obeonetwork.org/dsl/soa/2.0.0";
-	public static final String SOA_URI_NEW = "http://www.obeonetwork.org/dsl/soa/3.0.0";
+	public static final String SOA_URI_OLD2 = "http://www.obeonetwork.org/dsl/soa/2.0.0";
+	public static final String SOA_URI_OLD3 = "http://www.obeonetwork.org/dsl/soa/3.0.0";
+	public static final String SOA_URI_NEW = "http://www.obeonetwork.org/dsl/soa/4.0.0";
 	
 	public static final String GRAAL_URI_OLD = "http://org.obeonetwork.graal/1.0";
 	public static final String GRAAL_URI_NEW = "http://www.obeonetwork.org/dsl/graal/2.0.0";
@@ -57,7 +58,8 @@ abstract public class BasicMigrationHelper implements IMigrationHelper {
 			oldUriToNewUri = new HashMap<String, String>();
 			oldUriToNewUri.put(ENVIRONMENT_URI_OLD, ENVIRONMENT_URI_NEW);
 			oldUriToNewUri.put(ENTITY_URI_OLD, ENTITY_URI_NEW);
-			oldUriToNewUri.put(SOA_URI_OLD, SOA_URI_NEW);
+			oldUriToNewUri.put(SOA_URI_OLD2, SOA_URI_NEW);
+			oldUriToNewUri.put(SOA_URI_OLD3, SOA_URI_NEW);
 			oldUriToNewUri.put(GRAAL_URI_OLD, GRAAL_URI_NEW);
 		}
 		return oldUriToNewUri;

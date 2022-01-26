@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<soa:System xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:oenv="http://www.obeonetwork.org/dsl/environment/3.0.0" xmlns:soa="http://www.obeonetwork.org/dsl/soa/3.0.0" xmi:id="_h6PKMYjXEeGlA5e_Ze9-Rg" technicalid="_4ZaR8BLIEeesAc7mKQrh4A" createdOn="2020-11-26T19:12:20.726+0100" modifiedOn="2020-12-17T09:44:37.072+0100">
+<soa:System xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:oenv="http://www.obeonetwork.org/dsl/environment/3.0.0" xmlns:soa="http://www.obeonetwork.org/dsl/soa/4.0.0" xmi:id="_h6PKMYjXEeGlA5e_Ze9-Rg" technicalid="_4ZaR8BLIEeesAc7mKQrh4A" createdOn="2020-11-26T19:12:20.726+0100" modifiedOn="2020-12-17T09:44:37.072+0100">
   <ownedNamespaces xmi:id="_JVvEMIjYEeGlA5e_Ze9-Rg" technicalid="_4ZaR8RLIEeesAc7mKQrh4A" createdOn="2020-10-19T16:35:57.456+0200" modifiedOn="2020-11-26T19:49:04.968+0100" name="main">
     <types xsi:type="oenv:DTO" xmi:id="_D4-EEIjZEeGlA5e_Ze9-Rg" technicalid="_4Za5FBLIEeesAc7mKQrh4A" name="ShoppingCart">
       <ownedAttributes xmi:id="_KavH8IjZEeGlA5e_Ze9-Rg" technicalid="_4Za5FRLIEeesAc7mKQrh4A" createdOn="2020-11-26T19:15:16.998+0100" modifiedOn="2020-11-26T19:15:16.998+0100" name="status" multiplicity="1" type="_P99CADATEeujNIyxVl1uPg"/>

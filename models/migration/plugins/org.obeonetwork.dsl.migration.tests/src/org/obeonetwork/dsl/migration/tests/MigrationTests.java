@@ -40,23 +40,6 @@ abstract public class MigrationTests {
 		String sourceModelPath = getFullPathForBeforeModel(folder);
 		String expectedModelPath = getFullPathForExpectedModel(folder);
 		
-		
-		URI sourceModelURI = URI.createPlatformPluginURI(PLUGIN_ID + "/" + sourceModelPath, true);
-		loadResource(sourceModelURI);
-		
-		testMigration(sourceModelPath, expectedModelPath);
-	}
-	
-	// Not sure whether this method is useless
-	protected void testMigrationWithFragments(String folder, String fragmentsNames) {
-		String sourceModelPath = getFullPathForBeforeModel(folder);
-		String expectedModelPath = getFullPathForExpectedModel(folder);
-		
-		
-		URI sourceModelURI = URI.createPlatformPluginURI(PLUGIN_ID + "/" + sourceModelPath, true);
-		loadResource(sourceModelURI);
-		
-		
 		testMigration(sourceModelPath, expectedModelPath);
 	}
 	

@@ -1,6 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<soa:System xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:oenv="http://www.obeonetwork.org/dsl/environment/3.0.0" xmlns:soa="http://www.obeonetwork.org/dsl/soa/3.0.0" xmi:id="_4a9sIGAUEeSMVf3Tzr0_UA" createdOn="2014-10-30T10:12:32.984+0100" modifiedOn="2014-10-30T10:13:28.269+0100" name="Sys1">
-  <ownedNamespaces xmi:id="_BTl5sGAVEeSMVf3Tzr0_UA" createdOn="2014-10-30T10:13:34.929+0100" modifiedOn="2014-10-30T10:13:38.089+0100" name="cat1">
-    <types xsi:type="oenv:DTO" xmi:id="_CHwhkGAVEeSMVf3Tzr0_UA" createdOn="2014-10-30T10:13:38.089+0100" modifiedOn="2014-10-30T10:13:44.761+0100" name="Dto1"/>
+<soa:System xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:oenv="http://www.obeonetwork.org/dsl/environment/3.0.0" xmlns:soa="http://www.obeonetwork.org/dsl/soa/4.0.0" xmi:id="_4a9sIGAUEeSMVf3Tzr0_UA" createdOn="2014-10-30T10:12:32.984+0100" modifiedOn="2014-11-05T16:03:02.212+0100" name="Sys1">
+  <ownedNamespaces xsi:type="soa:System" xmi:id="_1o3wQGT8EeSbGsz5SK_7Fg" createdOn="2014-11-05T16:03:02.212+0100" modifiedOn="2014-11-05T16:03:25.969+0100" name="Sys2">
+    <ownedComponents xmi:id="_3RvLgGT8EeSbGsz5SK_7Fg" createdOn="2014-11-05T16:03:28.949+0100" modifiedOn="2014-11-05T16:03:28.949+0100" name="cpt1">
+      <license xmi:id="_7O1y6H3AEeyajuBCTYNClA" name="Apache 2.0" URL="http://www.apache.org/licenses/LICENSE-2.0.html"/>
+      <information xmi:id="_7O1y6X3AEeyajuBCTYNClA"/>
+      <contact xmi:id="_7O1y6n3AEeyajuBCTYNClA"/>
+    </ownedComponents>
+  </ownedNamespaces>
+  <ownedNamespaces xmi:id="_AqG30GAVEeSMVf3Tzr0_UA" createdOn="2014-10-30T10:13:32.619+0100" modifiedOn="2014-10-30T10:13:32.619+0100">
+    <ownedNamespaces xmi:id="_BTl5sGAVEeSMVf3Tzr0_UA" createdOn="2014-10-30T10:13:34.929+0100" modifiedOn="2014-10-30T10:13:38.089+0100" name="cat1">
+      <types xsi:type="oenv:DTO" xmi:id="_CHwhkGAVEeSMVf3Tzr0_UA" createdOn="2014-10-30T10:13:38.089+0100" modifiedOn="2014-10-30T10:13:44.761+0100" name="Dto1"/>
+    </ownedNamespaces>
   </ownedNamespaces>
 </soa:System>

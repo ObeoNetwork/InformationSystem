@@ -55,7 +55,7 @@ public interface SoaPackage extends EPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	String eNS_URI = "http://www.obeonetwork.org/dsl/soa/3.0.0";
+	String eNS_URI = "http://www.obeonetwork.org/dsl/soa/4.0.0";
 
 	/**
 	 * The package namespace name.

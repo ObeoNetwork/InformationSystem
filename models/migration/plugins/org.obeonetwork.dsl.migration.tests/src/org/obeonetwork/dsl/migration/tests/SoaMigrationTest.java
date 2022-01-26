@@ -24,6 +24,16 @@ public class SoaMigrationTest extends MigrationTests {
 		testMigration("complet");
 	}
 
+	@Test
+	public void testSoaSecurityApplication() {
+		testMigration("securityapplication");
+	}
+
+	@Test
+	public void testSoaSubsystem() {
+		testMigration("subsystem");
+	}
+	
 	@Override
 	protected String getRootFolder() {
 		return "models/soa";

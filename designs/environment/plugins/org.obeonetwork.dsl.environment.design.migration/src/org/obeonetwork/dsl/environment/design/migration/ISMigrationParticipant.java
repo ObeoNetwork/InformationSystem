@@ -136,7 +136,8 @@ public class ISMigrationParticipant extends AbstractMigrationParticipant {
 		ePackagesMapping = new HashMap<String, String>();
 		ePackagesMapping.put(BasicMigrationHelper.ENVIRONMENT_URI_OLD, BasicMigrationHelper.ENVIRONMENT_URI_NEW);
 		ePackagesMapping.put(BasicMigrationHelper.ENTITY_URI_OLD, BasicMigrationHelper.ENTITY_URI_NEW);
-		ePackagesMapping.put(BasicMigrationHelper.SOA_URI_OLD, BasicMigrationHelper.SOA_URI_NEW);
+		ePackagesMapping.put(BasicMigrationHelper.SOA_URI_OLD2, BasicMigrationHelper.SOA_URI_NEW);
+		ePackagesMapping.put(BasicMigrationHelper.SOA_URI_OLD3, BasicMigrationHelper.SOA_URI_NEW);
 		ePackagesMapping.put(BasicMigrationHelper.GRAAL_URI_OLD, BasicMigrationHelper.GRAAL_URI_NEW);
 		
 		eClassesMapping = new HashMap<String, Map<String,EClassLocation>>();

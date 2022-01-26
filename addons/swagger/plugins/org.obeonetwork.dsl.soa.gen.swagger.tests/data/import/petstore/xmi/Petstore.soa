@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="ASCII"?>
-<soa:System xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:oenv="http://www.obeonetwork.org/dsl/environment/3.0.0" xmlns:soa="http://www.obeonetwork.org/dsl/soa/3.0.0" xmi:id="_S-WPwG8IEeykZo0xTv5joQ" technicalid="_S-UakG8IEeykZo0xTv5joQ" createdOn="2022-01-06T16:49:56.537+0100" modifiedOn="2022-01-06T17:01:52.664+0100">
+<soa:System xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:oenv="http://www.obeonetwork.org/dsl/environment/3.0.0" xmlns:soa="http://www.obeonetwork.org/dsl/soa/4.0.0" xmi:id="_S-WPwG8IEeykZo0xTv5joQ" technicalid="_S-UakG8IEeykZo0xTv5joQ" createdOn="2022-01-06T16:49:56.537+0100" modifiedOn="2022-01-06T17:01:52.664+0100">
   <ownedNamespaces xmi:id="_9r1pgG8JEeykZo0xTv5joQ" technicalid="_9rwJ9W8JEeykZo0xTv5joQ" createdOn="2022-01-06T17:01:52.664+0100" modifiedOn="2022-01-06T17:01:52.664+0100" name="Swagger Petstore - OpenAPI 3.0">
     <types xsi:type="oenv:DTO" xmi:id="_9r1pgW8JEeykZo0xTv5joQ" technicalid="_9rwJ9m8JEeykZo0xTv5joQ" name="Order">
       <metadatas xmi:id="_9r1pgm8JEeykZo0xTv5joQ" technicalid="_9rwJ-G8JEeykZo0xTv5joQ">

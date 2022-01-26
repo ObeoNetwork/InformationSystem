@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="ASCII"?>
-<soa:System xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:oenv="http://www.obeonetwork.org/dsl/environment/3.0.0" xmlns:soa="http://www.obeonetwork.org/dsl/soa/3.0.0" xmi:id="_ex0pkGxZEeuYi_YuNNGyqg" technicalid="_exxmQGxZEeuYi_YuNNGyqg" createdOn="2021-02-11T12:08:33.828+0100" modifiedOn="2021-02-11T14:25:33.538+0100" name="ODTSAdmin">
+<soa:System xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:oenv="http://www.obeonetwork.org/dsl/environment/3.0.0" xmlns:soa="http://www.obeonetwork.org/dsl/soa/4.0.0" xmi:id="_ex0pkGxZEeuYi_YuNNGyqg" technicalid="_exxmQGxZEeuYi_YuNNGyqg" createdOn="2021-02-11T12:08:33.828+0100" modifiedOn="2021-02-11T14:25:33.538+0100" name="ODTSAdmin">
   <ownedNamespaces xmi:id="_nnCcIGxsEeuYi_YuNNGyqg" technicalid="_ZP07cWxrEeuYi_YuNNGyqg" createdOn="2021-02-11T14:25:33.538+0100" modifiedOn="2021-02-11T14:25:33.538+0100" name="Obeo Designer Team Server - Administration Server">
     <types xsi:type="oenv:DTO" xmi:id="_nnCcIWxsEeuYi_YuNNGyqg" technicalid="_ZP07cmxrEeuYi_YuNNGyqg" name="SimpleRepository">
       <ownedAttributes xmi:id="_nnCcImxsEeuYi_YuNNGyqg" technicalid="_ZP07d2xrEeuYi_YuNNGyqg" name="repositorName">

@@ -33,7 +33,11 @@ import org.obeonetwork.dsl.environment.EnvironmentPackage;
 import org.obeonetwork.dsl.environment.MultiplicityKind;
 import org.obeonetwork.dsl.environment.Namespace;
 import org.obeonetwork.dsl.environment.Reference;
+import org.obeonetwork.dsl.soa.Operation;
 import org.obeonetwork.dsl.soa.Parameter;
+import org.obeonetwork.dsl.soa.SecurityApplication;
+import org.obeonetwork.dsl.soa.SecurityScheme;
+import org.obeonetwork.dsl.soa.SoaFactory;
 import org.obeonetwork.dsl.soa.SoaPackage;
 import org.obeonetwork.dsl.soa.System;
 import org.obeonetwork.tools.migration.BasicMigrationHelper;
@@ -75,6 +79,7 @@ public class SoaMigrationHelper extends BasicMigrationHelper {
 	
 	@Override
 	public boolean setValue(EObject object, EStructuralFeature feature, Object value, int position, MigrationXMLHelper parentHelper) {
+		// Migration from SOA 2.0.0 Cases
 		if (feature == SoaPackage.Literals.SERVICE__SYNCHRONIZATION) {
 			if ("asynchrone".equals(value)) {
 				parentHelper.originalSetValue(object, feature, "asynchronous", position);
@@ -85,6 +90,15 @@ public class SoaMigrationHelper extends BasicMigrationHelper {
 				return true;
 			}
 		}
+		
+		// Migration from SOA 3.0.0 cases
+		if(feature == SoaPackage.Literals.OPERATION__SECURITY_SCHEMES) {
+			SecurityApplication securityApplication = SoaFactory.eINSTANCE.createSecurityApplication();
+			securityApplication.setSecurityScheme((SecurityScheme) value);
+			((Operation)object).getSecurityApplications().add(securityApplication);
+			return true;
+		}
+		
 		return false;
 	}
 	

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="ASCII"?>
-<soa:System xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:oenv="http://www.obeonetwork.org/dsl/environment/3.0.0" xmlns:soa="http://www.obeonetwork.org/dsl/soa/3.0.0" xmi:id="_K40a8HUaEey4iM969gPg4Q" technicalid="_K4ylwHUaEey4iM969gPg4Q" createdOn="2022-01-14T10:13:00.188+0100" modifiedOn="2022-01-14T15:55:25.289+0100">
+<soa:System xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:oenv="http://www.obeonetwork.org/dsl/environment/3.0.0" xmlns:soa="http://www.obeonetwork.org/dsl/soa/4.0.0" xmi:id="_K40a8HUaEey4iM969gPg4Q" technicalid="_K4ylwHUaEey4iM969gPg4Q" createdOn="2022-01-14T10:13:00.188+0100" modifiedOn="2022-01-14T15:55:25.289+0100">
   <ownedNamespaces xmi:id="_AWJFkHVKEeylg66W9_FPWw" technicalid="_AVNRcHVKEeylg66W9_FPWw" createdOn="2022-01-14T15:55:25.289+0100" modifiedOn="2022-01-14T15:55:25.289+0100" name="TheTVDB API v3">
     <types xsi:type="oenv:DTO" xmi:id="_AWJFkXVKEeylg66W9_FPWw" technicalid="_AVPtsHVKEeylg66W9_FPWw" name="Auth">
       <ownedAttributes xmi:id="_AWJFknVKEeylg66W9_FPWw" technicalid="_AVTYEHVKEeylg66W9_FPWw" name="apikey">

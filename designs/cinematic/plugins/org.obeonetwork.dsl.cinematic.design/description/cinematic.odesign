@@ -1423,7 +1423,7 @@
     <metamodels href="http://www.obeonetwork.org/dsl/cinematic/3.0.0#//flow"/>
     <metamodels href="http://www.obeonetwork.org/dsl/cinematic/3.0.0#//toolkits"/>
     <metamodels href="http://www.obeonetwork.org/dsl/cinematic/3.0.0#//view"/>
-    <metamodels href="http://www.obeonetwork.org/dsl/soa/3.0.0#/"/>
+    <metamodels href="http://www.obeonetwork.org/dsl/soa/4.0.0#/"/>
     <categories name="Default Category">
       <pages name="AbstractPackage Page" labelExpression="aql:self.eClass().name" domainClass="cinematic::AbstractPackage" semanticCandidateExpression="var:self" groups="//@extensions.0/@categories.0/@groups.0"/>
       <pages name="Toolkits Page" labelExpression="Toolkits" domainClass="cinematic::CinematicRoot" semanticCandidateExpression="var:self" groups="//@extensions.0/@categories.0/@groups.1"/>
