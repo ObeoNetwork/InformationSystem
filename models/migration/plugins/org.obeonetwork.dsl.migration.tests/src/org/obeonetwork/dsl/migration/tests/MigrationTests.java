@@ -27,7 +27,7 @@ import org.eclipse.emf.ecore.resource.ResourceSet;
 import org.eclipse.emf.ecore.resource.URIConverter;
 import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl;
 import org.eclipse.emf.ecore.xmi.XMIResource;
-import org.junit.Assert;
+import org.obeonetwork.tools.tests.ObeoDSMTestHelper;
 
 abstract public class MigrationTests {
 	public static final String PLUGIN_ID = "org.obeonetwork.dsl.migration.tests";
@@ -53,7 +53,6 @@ abstract public class MigrationTests {
 		
 	}
 
-
 	protected void testMigration(String sourceModelPath, String expectedModelPath) {
 		URI sourceModelURI = URI.createPlatformPluginURI(PLUGIN_ID + "/" + sourceModelPath, true);
 		
@@ -61,8 +60,6 @@ abstract public class MigrationTests {
 		Resource sourceResource = set.getResource(sourceModelURI, true);
 		
 		Map<Object,Object> options = new HashMap<Object,Object>();
-        //change as needed according to the type of resource
-        //you are using
 		options.put(XMIResource.OPTION_ENCODING, "UTF-8");
  
 		StringWriter sw = new StringWriter();
@@ -77,9 +74,10 @@ abstract public class MigrationTests {
 		String migratedModel = uws.asWriter().toString();
 		String expectedModel = getFileContents(expectedModelPath);
 		
-		Assert.assertEquals("Contents are different",
+		ObeoDSMTestHelper.assertObeoDSMEquals("Contents are different",
 				normalizeString(expectedModel),
 				normalizeString(migratedModel));
+		
 	}
 	
 	protected String normalizeString(String contents) {

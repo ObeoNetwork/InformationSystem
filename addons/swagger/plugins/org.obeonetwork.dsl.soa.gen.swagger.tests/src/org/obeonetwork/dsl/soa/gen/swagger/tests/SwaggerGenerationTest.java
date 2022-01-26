@@ -12,11 +12,11 @@
 package org.obeonetwork.dsl.soa.gen.swagger.tests;
 
 import static org.junit.Assert.assertTrue;
-import static org.obeonetwork.dsl.soa.gen.swagger.tests.TestHelper.assertFolderEquals;
-import static org.obeonetwork.dsl.soa.gen.swagger.tests.TestHelper.createSoaResourceSetFromBundleEntryPath;
-import static org.obeonetwork.dsl.soa.gen.swagger.tests.TestHelper.createTempFolderFromBundleEntryPath;
-import static org.obeonetwork.dsl.soa.gen.swagger.tests.TestHelper.createTemporaryOutputFolder;
-import static org.obeonetwork.dsl.soa.gen.swagger.tests.TestHelper.findFirstComponent;
+import static org.obeonetwork.dsl.soa.gen.swagger.tests.SwaggerTestHelper.assertFolderEquals;
+import static org.obeonetwork.dsl.soa.gen.swagger.tests.SwaggerTestHelper.createSoaResourceSetFromBundleEntryPath;
+import static org.obeonetwork.dsl.soa.gen.swagger.tests.SwaggerTestHelper.createTempFolderFromBundleEntryPath;
+import static org.obeonetwork.dsl.soa.gen.swagger.tests.SwaggerTestHelper.createTemporaryOutputFolder;
+import static org.obeonetwork.dsl.soa.gen.swagger.tests.SwaggerTestHelper.findFirstComponent;
 
 import java.io.File;
 

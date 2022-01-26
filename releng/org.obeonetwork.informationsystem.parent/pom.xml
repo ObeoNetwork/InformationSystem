@@ -138,6 +138,9 @@
 
 		<!-- ********************************************************************************************* 
 			* Tools & Commons ********************************************************************************************* -->
+		<!-- commons/tools/ -->
+		<module>../../commons/tools/plugins/org.obeonetwork.tools.tests</module>
+        
 		<!-- commons/nebula/ -->
 		<module>../../commons/nebula/plugins/org.eclipse.nebula.treemapper</module>
 		<module>../../commons/nebula/features/org.eclipse.nebula.treemapper.feature</module>
