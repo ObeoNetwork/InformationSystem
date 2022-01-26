@@ -1,3 +1,13 @@
+/*******************************************************************************
+ * Copyright (c) 2008, 2021 Obeo.
+ * All rights reserved. This program and the accompanying materials
+ * are made available under the terms of the Eclipse Public License v1.0
+ * which accompanies this distribution, and is available at
+ * http://www.eclipse.org/legal/epl-v10.html
+ *
+ * Contributors:
+ *     Obeo - initial API and implementation
+ *******************************************************************************/
 package org.obeonetwork.tools.tests;
 
 import static java.util.stream.Collectors.toList;
@@ -7,7 +17,6 @@ import static org.obeonetwork.utils.common.StreamUtils.asStream;
 
 import java.io.IOException;
 import java.io.StringWriter;
-import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
@@ -24,77 +33,21 @@ import org.eclipse.emf.ecore.resource.URIConverter;
 import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl;
 import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.emf.ecore.xmi.XMIResource;
-import org.eclipse.emf.ecore.xmi.XMLHelper;
-import org.eclipse.emf.ecore.xmi.impl.XMIResourceImpl;
-import org.eclipse.emf.ecore.xmi.impl.XMLHelperImpl;
-import org.obeonetwork.dsl.environment.EnvironmentPackage;
-import org.obeonetwork.dsl.technicalid.TechnicalIDPackage;
 
 public class ObeoDSMTestHelper {
 
-	private static final List<EStructuralFeature> IGNORED_FEATURES = new ArrayList<>();
-	static {
-		IGNORED_FEATURES.add(TechnicalIDPackage.eINSTANCE.getIdentifiable_Technicalid());
-		IGNORED_FEATURES.add(EnvironmentPackage.eINSTANCE.getObeoDSMObject_CreatedOn());
-		IGNORED_FEATURES.add(EnvironmentPackage.eINSTANCE.getObeoDSMObject_ModifiedOn());
-	}
-	
-	private static class XMIResourceTestImpl extends XMIResourceImpl {
-		
-		@Override
-        protected XMLHelper createXMLHelper() {
-            return new XMLHelperImpl() {
-            	
-                @Override
-                public Object getValue(EObject obj, EStructuralFeature f) {
-                    if(IGNORED_FEATURES.contains(f)) {
-                        return null;
-                    }
-                    
-                    Object value = super.getValue(obj, f);
-                    
-                    return value;
-                }
-                
-                @Override
-                public String getHREF(EObject obj) {
-                	StringBuffer href = new StringBuffer();
-                	
-                	EObject ancestor = obj;
-                	while(ancestor != null) {
-                    	EStructuralFeature nameFeature = ancestor.eClass().getEStructuralFeature("name");
-                    	if(nameFeature != null) {
-                        	href.insert(0, "[" + ancestor.eGet(nameFeature) + "]");
-                    	}
-                    	
-                		if(ancestor.eContainingFeature() != null) {
-                			href.insert(0, ancestor.eContainingFeature().getName());
-                    		href.insert(0, ".");
-                		}
-                		
-                		ancestor = ancestor.eContainer();
-                	}
-                	
-                	return href.toString();
-                }
-                
-            };
-        }
-
-	}
-	
 	public static void assertObeoDSMEquals(String message, EObject expectedEObject, EObject actualEObject) {
 		
 		String actual = null;
 		String expected = null;
         try {
-    		XMIResourceTestImpl actualResource = new XMIResourceTestImpl();
+        	XMIResource actualResource = new ObeoDSMXMIResourceTestImpl();
             actualResource.getContents().add(sortAllELists(EcoreUtil.copy(actualEObject)));
             StringWriter actualWriter = new StringWriter();
             actualResource.save(actualWriter, Collections.emptyMap());
             actual = actualWriter.toString();
             
-    		XMIResourceTestImpl expectedResource = new XMIResourceTestImpl();
+            XMIResource expectedResource = new ObeoDSMXMIResourceTestImpl();
     		expectedResource.getContents().add(sortAllELists(EcoreUtil.copy(expectedEObject)));
             StringWriter expectedWriter = new StringWriter();
 			expectedResource.save(expectedWriter, Collections.emptyMap());
