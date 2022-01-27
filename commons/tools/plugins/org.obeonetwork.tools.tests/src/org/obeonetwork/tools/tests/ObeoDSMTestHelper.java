@@ -36,6 +36,16 @@ import org.eclipse.emf.ecore.xmi.XMIResource;
 
 public class ObeoDSMTestHelper {
 
+	/**
+	 * Asserts the two given {@link EObject} serializations are equal, not taking
+	 * into account the differences in XMI ids, and the values of a few features
+	 * like technicalid, modifiedOn, createdOn as specified in
+	 * {@link ObeoDSMXMIResourceTestImpl}
+	 * 
+	 * @param message
+	 * @param expectedEObject
+	 * @param actualEObject
+	 */
 	public static void assertObeoDSMEquals(String message, EObject expectedEObject, EObject actualEObject) {
 		
 		String actual = null;

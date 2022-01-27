@@ -12,11 +12,11 @@ package org.obeonetwork.dsl.migration.tests;
 
 import org.junit.Test;
 
-public class EnvironmentMigrationTest extends MigrationTests {
+public class EnvironmentMigrationTest extends MigrationTest {
 
 	@Test
 	public void testField2Literal() {
-		testMigration("field2literal");
+		testMigration("field2literal", false);
 	}
 
 	@Override

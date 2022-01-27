@@ -27,20 +27,21 @@ import org.eclipse.emf.ecore.resource.ResourceSet;
 import org.eclipse.emf.ecore.resource.URIConverter;
 import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl;
 import org.eclipse.emf.ecore.xmi.XMIResource;
+import org.junit.Assert;
 import org.obeonetwork.tools.tests.ObeoDSMTestHelper;
 
-abstract public class MigrationTests {
+abstract public class MigrationTest {
 	public static final String PLUGIN_ID = "org.obeonetwork.dsl.migration.tests";
 
 	protected abstract String getRootFolder();
 	
 	protected abstract String getModelFileExtension();
 	
-	protected void testMigration(String folder) {
+	protected void testMigration(String folder, boolean obeoDSMFeaturesIgnore) {
 		String sourceModelPath = getFullPathForBeforeModel(folder);
 		String expectedModelPath = getFullPathForExpectedModel(folder);
 		
-		testMigration(sourceModelPath, expectedModelPath);
+		testMigration(sourceModelPath, expectedModelPath, obeoDSMFeaturesIgnore);
 	}
 	
 	protected ResourceSet loadResource(URI sourceModelURI) {
@@ -53,7 +54,7 @@ abstract public class MigrationTests {
 		
 	}
 
-	protected void testMigration(String sourceModelPath, String expectedModelPath) {
+	protected void testMigration(String sourceModelPath, String expectedModelPath, boolean obeoDSMFeaturesIgnore) {
 		URI sourceModelURI = URI.createPlatformPluginURI(PLUGIN_ID + "/" + sourceModelPath, true);
 		
 		ResourceSet set = new ResourceSetImpl();
@@ -71,12 +72,14 @@ abstract public class MigrationTests {
 			fail("Exception while saving : " + e.getMessage());
 		}
 		
-		String migratedModel = uws.asWriter().toString();
-		String expectedModel = getFileContents(expectedModelPath);
+		String migratedModel = normalizeString(uws.asWriter().toString());
+		String expectedModel = normalizeString(getFileContents(expectedModelPath));
 		
-		ObeoDSMTestHelper.assertObeoDSMEquals("Contents are different",
-				normalizeString(expectedModel),
-				normalizeString(migratedModel));
+		if(obeoDSMFeaturesIgnore) {
+			ObeoDSMTestHelper.assertObeoDSMEquals("Contents are different", expectedModel, migratedModel);
+		} else {
+			Assert.assertEquals("Contents are different", expectedModel, migratedModel);
+		}
 		
 	}
 	

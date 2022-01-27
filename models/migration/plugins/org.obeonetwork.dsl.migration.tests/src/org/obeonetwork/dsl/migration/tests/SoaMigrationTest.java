@@ -12,26 +12,26 @@ package org.obeonetwork.dsl.migration.tests;
 
 import org.junit.Test;
 
-public class SoaMigrationTest extends MigrationTests {
+public class SoaMigrationTest extends MigrationTest {
 	
 	@Test
 	public void testSoaSimple() {
-		testMigration("simple");
+		testMigration("simple", false);
 	}
 	
 	@Test
 	public void testSoaComplet() {
-		testMigration("complet");
+		testMigration("complet", false);
 	}
 
 	@Test
 	public void testSoaSecurityApplication() {
-		testMigration("securityapplication");
+		testMigration("securityapplication", true);
 	}
 
 	@Test
 	public void testSoaSubsystem() {
-		testMigration("subsystem");
+		testMigration("subsystem", true);
 	}
 	
 	@Override

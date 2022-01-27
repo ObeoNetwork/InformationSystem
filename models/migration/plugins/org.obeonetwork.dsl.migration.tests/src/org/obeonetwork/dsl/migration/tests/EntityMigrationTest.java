@@ -13,22 +13,22 @@ package org.obeonetwork.dsl.migration.tests;
 import org.junit.Assert;
 import org.junit.Test;
 
-public class EntityMigrationTest extends MigrationTests {
+public class EntityMigrationTest extends MigrationTest {
 	
 	@Test
 	public void testSimpleEntity() {
-		testMigration("simple");
+		testMigration("simple", false);
 	}
 
 	@Test
 	public void testEntities() {
-		testMigration("entities");
+		testMigration("entities", false);
 	}
 	
 	@Test
 	public void testMigrationNotNeeded() {
 		String folder = "migrationNotNeeded";
-		testMigration(folder);
+		testMigration(folder, false);
 		
 		// The file should not be changed by migration
 		String sourceModelPath = getFullPathForBeforeModel(folder);

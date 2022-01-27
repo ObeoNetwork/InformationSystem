@@ -21,6 +21,16 @@ import org.eclipse.emf.ecore.xmi.impl.XMLHelperImpl;
 import org.obeonetwork.dsl.environment.EnvironmentPackage;
 import org.obeonetwork.dsl.technicalid.TechnicalIDPackage;
 
+/**
+ * A resource for testing purpose. Allows to serialize EObjects in a comparable
+ * form. The XMI ids are replaced with a string representing a containment path,
+ * and the following features are ignored (not serialized) :
+ * <ul>
+ * <li>technicalid::Identifiable.technicalid</li>
+ * <li>environment::ObeoDSMObject.createdOn</li>
+ * <li>environment::ObeoDSMObject.modifiedOn</li>
+ * </ul>
+ */
 public class ObeoDSMXMIResourceTestImpl extends XMIResourceImpl {
 	
 	private static final List<EStructuralFeature> IGNORED_FEATURES = new ArrayList<>();
