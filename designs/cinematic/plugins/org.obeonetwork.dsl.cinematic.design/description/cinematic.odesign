@@ -471,14 +471,14 @@
             </initialOperation>
             <edgeView name="edgeView"/>
           </ownedTools>
-          <ownedTools xsi:type="description_2:TreeCreationDescription" name="CRE_UI_Structure" label="UI Structure" browseExpression="service:getAbstractPackageContainer" treeDescription="//@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='UI%20Structure']">
-            <containerViewVariable/>
-            <representationNameVariable/>
+          <ownedTools xsi:type="description_2:TreeCreationDescription" name="CRE_UI_Structure" label="UI Structure" browseExpression="aql:self.eContainer(cinematic::AbstractPackage)" treeDescription="//@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='UI%20Structure']">
+            <containerViewVariable name="containerView"/>
+            <representationNameVariable name="treeName"/>
           </ownedTools>
-          <ownedTools xsi:type="description_2:TreeNavigationDescription" name="UI Structure" label="UI Structure" browseExpression="service:getAbstractPackageContainer" treeDescription="//@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='UI%20Structure']">
-            <containerViewVariable/>
-            <containerVariable/>
-            <representationNameVariable/>
+          <ownedTools xsi:type="description_2:TreeNavigationDescription" name="UI Structure" label="UI Structure" browseExpression="aql:self.eContainer(cinematic::AbstractPackage)" treeDescription="//@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='UI%20Structure']">
+            <containerViewVariable name="containerView"/>
+            <containerVariable name="container"/>
+            <representationNameVariable name="treeName"/>
           </ownedTools>
           <ownedTools xsi:type="tool:DoubleClickDescription" name="DBL_Nav_To_UI_Structure">
             <element name="element"/>
@@ -600,9 +600,9 @@
               </firstModelOperations>
             </initialOperation>
           </ownedTools>
-          <ownedTools xsi:type="description_2:TreeCreationDescription" name="CRE_UI_Structure" label="UI Structure" browseExpression="service:getAbstractPackageContainer" treeDescription="//@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='UI%20Structure']">
-            <containerViewVariable/>
-            <representationNameVariable/>
+          <ownedTools xsi:type="description_2:TreeCreationDescription" name="CRE_UI_Structure" label="UI Structure" browseExpression="aql:self.eContainer(cinematic::AbstractPackage)" treeDescription="//@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='UI%20Structure']">
+            <containerViewVariable name="containerView"/>
+            <representationNameVariable name="treeName"/>
           </ownedTools>
           <ownedTools xsi:type="tool:DoubleClickDescription" name="DBL_Nav_To_UI_Structure">
             <element name="element"/>
@@ -613,10 +613,10 @@
               </firstModelOperations>
             </initialOperation>
           </ownedTools>
-          <ownedTools xsi:type="description_2:TreeNavigationDescription" name="NAV_UI_Structure" label="UI Structure" browseExpression="service:getAbstractPackageContainer" treeDescription="//@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='UI%20Structure']">
-            <containerViewVariable/>
-            <containerVariable/>
-            <representationNameVariable/>
+          <ownedTools xsi:type="description_2:TreeNavigationDescription" name="NAV_UI_Structure" label="UI Structure" browseExpression="aql:self.eContainer(cinematic::AbstractPackage)" treeDescription="//@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='UI%20Structure']">
+            <containerViewVariable name="containerView"/>
+            <containerVariable name="container"/>
+            <representationNameVariable name="treeName"/>
           </ownedTools>
           <ownedTools xsi:type="tool:DiagramCreationDescription" name="ViewContainer Diagram" diagramDescription="//@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='View%20Container%20Mockup']">
             <initialOperation>
