@@ -728,7 +728,7 @@
           </defaultStyle>
           <directEdit name="EDT_ViewContainer" mapping="//@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='UI%20Structure']/@subItemMappings[name='UIS_Package']">
             <firstModelOperation xsi:type="tool_1:ChangeContext" browseExpression="service:element.editCinematicLabel(arg0)"/>
-            <mask mask="{0}"/>
+            <mask mask="{0} : {1}"/>
             <element name="element"/>
             <root name="root"/>
           </directEdit>
@@ -739,7 +739,7 @@
             </defaultStyle>
             <directEdit name="EDT_ContainedViewContainer" mapping="//@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='UI%20Structure']/@subItemMappings[name='UIS_Package']">
               <firstModelOperation xsi:type="tool_1:ChangeContext" browseExpression="service:element.editCinematicLabel(arg0)"/>
-              <mask mask="{0}"/>
+              <mask mask="{0} : {1}"/>
               <element name="element"/>
               <root name="root"/>
             </directEdit>
@@ -844,7 +844,7 @@
             </defaultStyle>
             <directEdit name="EDT_ViewElement" mapping="//@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='UI%20Structure']/@subItemMappings[name='UIS_Package']">
               <firstModelOperation xsi:type="tool_1:ChangeContext" browseExpression="service:element.editCinematicLabel(arg0)"/>
-              <mask mask="{0}"/>
+              <mask mask="{0} : {1}"/>
               <element name="element"/>
               <root name="root"/>
             </directEdit>
@@ -904,7 +904,7 @@
             </defaultStyle>
             <directEdit name="EDT_ViewContainerReference" mapping="//@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='UI%20Structure']/@subItemMappings[name='UIS_Package']">
               <firstModelOperation xsi:type="tool_1:ChangeContext" browseExpression="service:element.editCinematicLabel(arg0)"/>
-              <mask mask="{0}"/>
+              <mask mask="{0} : {1}"/>
               <element name="element"/>
               <root name="root"/>
             </directEdit>
