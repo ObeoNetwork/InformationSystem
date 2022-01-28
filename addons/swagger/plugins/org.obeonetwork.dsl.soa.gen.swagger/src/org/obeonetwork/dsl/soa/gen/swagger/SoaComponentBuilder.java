@@ -1001,7 +1001,7 @@ public class SoaComponentBuilder {
 	}
 
 	private Schema unwrapArrayOrComposedSchema(Schema schema) {
-		if (schema instanceof ArraySchema) {
+		if (schema instanceof ArraySchema && ((ArraySchema) schema).getItems() != null) {
 			return ((ArraySchema) schema).getItems();
 		} else if (schema instanceof ComposedSchema) {
 			List<Schema> allOf = ((ComposedSchema) schema).getAllOf();
