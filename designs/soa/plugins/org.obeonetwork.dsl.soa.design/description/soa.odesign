@@ -298,14 +298,14 @@
               <viewVariable name="containerView"/>
               <initialOperation>
                 <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:container">
-                  <subModelOperations xsi:type="tool_1:If" conditionExpression="aql:self.oclAsType(soa::Service).ownedInterface.oclIsUndefined()">
+                  <subModelOperations xsi:type="tool_1:If" conditionExpression="aql:self.oclAsType(soa::Service).ownedInterface=null">
                     <subModelOperations xsi:type="tool_1:CreateInstance" typeName="soa.Interface" referenceName="ownedInterface">
                       <subModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="aql:container.oclAsType(soa::Service).name"/>
                     </subModelOperations>
                   </subModelOperations>
                   <subModelOperations xsi:type="tool_1:ChangeContext" browseExpression="feature:ownedInterface">
                     <subModelOperations xsi:type="tool_1:CreateInstance" typeName="soa.Operation" referenceName="ownedOperations">
-                      <subModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="aql:'Operation' + self.eContainer().oclAsType(soa::Interface).ownedOperations->size()"/>
+                      <subModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="aql:'Operation' + self.eContainer(soa::Interface).ownedOperations->size()"/>
                     </subModelOperations>
                   </subModelOperations>
                 </firstModelOperations>
