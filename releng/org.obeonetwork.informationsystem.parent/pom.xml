@@ -11,7 +11,7 @@
 
 	<groupId>org.obeonetwork</groupId>
 	<artifactId>parent</artifactId>
-	<version>2.2.1-SNAPSHOT</version>
+	<version>3.0.0-SNAPSHOT</version>
 	<packaging>pom</packaging>
 
 	<name>Information System Parent</name>
@@ -29,7 +29,7 @@
 		<!-- <acceleo-snapshots-site>https://repo.eclipse.org/content/repositories/acceleo-snapshots</acceleo-snapshots-site> -->
 		<acceleo-releases-site>https://repo.eclipse.org/content/repositories/acceleo-releases</acceleo-releases-site>
 		<svn-site>https://download.eclipse.org/releases/oxygen/</svn-site>
-        <target-artifact-version>2.2.1-SNAPSHOT</target-artifact-version>
+        <target-artifact-version>3.0.0-SNAPSHOT</target-artifact-version>
 	</properties>
 
 	<modules>

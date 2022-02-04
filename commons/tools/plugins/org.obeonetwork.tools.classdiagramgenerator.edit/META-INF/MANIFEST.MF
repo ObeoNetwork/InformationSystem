@@ -2,7 +2,7 @@ Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: Obeo Network - Class Diagram Configuration Edit Support
 Bundle-SymbolicName: org.obeonetwork.tools.classdiagramgenerator.edit;singleton:=true
-Bundle-Version: 2.2.1.qualifier
+Bundle-Version: 3.0.0.qualifier
 Bundle-ClassPath: .
 Bundle-Activator: org.obeonetwork.tools.classdiagramconfiguration.provider.ClassDiagramConfigurationEditPlugin$Implementation
 Bundle-Vendor: Obeo Network

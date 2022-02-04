@@ -2,7 +2,7 @@ Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: Obeo Network Database UI
 Bundle-SymbolicName: fr.gouv.mindef.safran.database.ui; singleton:=true
-Bundle-Version: 2.2.1.qualifier
+Bundle-Version: 3.0.0.qualifier
 Bundle-Activator: fr.gouv.mindef.safran.database.ui.Activator
 Bundle-Vendor: Obeo Network
 Require-Bundle: org.eclipse.ui,

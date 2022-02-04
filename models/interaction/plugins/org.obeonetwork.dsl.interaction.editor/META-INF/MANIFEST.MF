@@ -2,7 +2,7 @@ Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: Interaction Editor
 Bundle-SymbolicName: org.obeonetwork.dsl.interaction.editor;singleton:=true
-Bundle-Version: 2.2.1.qualifier
+Bundle-Version: 3.0.0.qualifier
 Bundle-ClassPath: .
 Bundle-Activator: org.obeonetwork.dsl.interaction.presentation.InteractionEditorPlugin$Implementation
 Bundle-Vendor: Obeo Network

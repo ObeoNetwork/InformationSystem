@@ -13,10 +13,10 @@
 <feature
       id="fr.gouv.mindef.safran.feature.is"
       label="Obeo Network - OD4IS Extensions"
-      version="2.2.1.qualifier"
+      version="3.0.0.qualifier"
       provider-name="%providerName"
       license-feature="org.obeonetwork.is.license"
-      license-feature-version="2.2.1.qualifier">
+      license-feature-version="3.0.0.qualifier">
 
    <description url="https://www.obeo.fr">
       Obeo - Safran - Extension to OD4IS
