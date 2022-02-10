@@ -31,49 +31,9 @@ public class ISMigrationParticipant extends AbstractMigrationParticipant {
 	
 	@Override
 	public Version getMigrationVersion() {
-		return new Version(8,1,1);
+		// Return a high version since we always want this migration participant to be active.
+		return new Version(100,0,0);
 	}
-	
-	
-	
-//	@Override
-//	public EStructuralFeature getAttribute(EClass eClass, String name,
-//			String loadedVersion) {
-//		// TODO Auto-generated method stub
-//		System.out.println("attribute : " + eClass.getName() + "." + name);
-//		return super.getAttribute(eClass, name, loadedVersion);
-//	}
-//
-//
-//
-//	@Override
-//	public EStructuralFeature getLocalElement(EClass eClass, String name,
-//			String loadedVersion) {
-//		// TODO Auto-generated method stub
-//		System.out.println("localelement : " + eClass.getName() + "." + name);
-//		return super.getLocalElement(eClass, name, loadedVersion);
-//	}
-//
-//
-//
-//	@Override
-//	public Object getValue(EObject object, EStructuralFeature feature,
-//			Object value, String loadedVersion) {
-//		// TODO Auto-generated method stub
-//		System.out.println("value : " + feature.getName() + "." + value);
-//		return super.getValue(object, feature, value, loadedVersion);
-//	}
-//
-//
-//
-//	@Override
-//	public Option<String> getNewFragment(String uriFragment) {
-//		// TODO Auto-generated method stub
-//		System.out.println("uriFragment : " + uriFragment);
-//		return super.getNewFragment(uriFragment);
-//	}
-
-
 
 	@Override
 	public EPackage getPackage(String namespace, String loadedVersion) {
@@ -168,5 +128,42 @@ public class ISMigrationParticipant extends AbstractMigrationParticipant {
 		}
 		return eClassesMapping;
 	}
+	
+//	@Override
+//	public EStructuralFeature getAttribute(EClass eClass, String name,
+//			String loadedVersion) {
+//		// TODO Auto-generated method stub
+//		System.out.println("attribute : " + eClass.getName() + "." + name);
+//		return super.getAttribute(eClass, name, loadedVersion);
+//	}
+//
+//
+//
+//	@Override
+//	public EStructuralFeature getLocalElement(EClass eClass, String name,
+//			String loadedVersion) {
+//		// TODO Auto-generated method stub
+//		System.out.println("localelement : " + eClass.getName() + "." + name);
+//		return super.getLocalElement(eClass, name, loadedVersion);
+//	}
+//
+//
+//
+//	@Override
+//	public Object getValue(EObject object, EStructuralFeature feature,
+//			Object value, String loadedVersion) {
+//		// TODO Auto-generated method stub
+//		System.out.println("value : " + feature.getName() + "." + value);
+//		return super.getValue(object, feature, value, loadedVersion);
+//	}
+//
+//
+//
+//	@Override
+//	public Option<String> getNewFragment(String uriFragment) {
+//		// TODO Auto-generated method stub
+//		System.out.println("uriFragment : " + uriFragment);
+//		return super.getNewFragment(uriFragment);
+//	}
 	
 }

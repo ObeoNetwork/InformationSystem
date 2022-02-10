@@ -12,7 +12,9 @@ package org.obeonetwork.tools.migration;
 
 import java.io.InputStream;
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.Map;
+import java.util.Set;
 
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EClassifier;
@@ -43,16 +45,24 @@ abstract public class BasicMigrationHelper implements IMigrationHelper {
 	
 	private static Map<String, String> oldUriToNewUri = null;
 	
-	private boolean migrationNeeded = false;
+	private Set<String> oldNamespaces = new HashSet<>();
 	
+	@Override
 	public boolean isMigrationNeeded() {
-		return migrationNeeded;
+		return !oldNamespaces.isEmpty();
 	}
 
-	public void setMigrationNeeded(boolean migrationNeeded) {
-		this.migrationNeeded = migrationNeeded;
+	@Override
+	public void addOldNamespace(String oldNamespace) {
+		oldNamespaces.add(oldNamespace);
 	}
-
+	
+	@Override
+	public boolean isOldNamespace(String namespace) {
+		return oldNamespaces.contains(namespace);
+	}
+	
+	@Override
 	public Map<String, String> getOldURIToPackageMap() {
 		if (oldUriToNewUri == null) {
 			oldUriToNewUri = new HashMap<String, String>();

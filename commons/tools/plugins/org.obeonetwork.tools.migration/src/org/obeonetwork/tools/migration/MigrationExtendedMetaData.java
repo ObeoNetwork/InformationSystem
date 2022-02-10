@@ -28,7 +28,7 @@ public class MigrationExtendedMetaData extends BasicExtendedMetaData {
 	public EPackage getPackage(String namespace) {
 		String newNamespace = migrationHelper.getCorrespondingNamespace(namespace);
 		if (newNamespace != null) {
-			migrationHelper.setMigrationNeeded(true);
+			migrationHelper.addOldNamespace(namespace);
 			return super.getPackage(newNamespace);
 		}
 		return super.getPackage(namespace);
