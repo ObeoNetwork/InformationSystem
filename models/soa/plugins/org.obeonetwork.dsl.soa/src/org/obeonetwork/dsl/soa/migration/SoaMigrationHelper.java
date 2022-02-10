@@ -48,55 +48,61 @@ public class SoaMigrationHelper extends BasicMigrationHelper {
 	
 	@Override
 	public EClassifier getType(EPackage ePackage, String name) {
-		if ("ServiceDTO".equals(name)) {
-			return EnvironmentPackage.Literals.DTO;
-		}
-		if ("Category".equals(name)) {
-			return EnvironmentPackage.Literals.NAMESPACE;
+		if(isOldNamespace(SOA_URI_OLD2)) {
+			if ("ServiceDTO".equals(name)) {
+				return EnvironmentPackage.Literals.DTO;
+			}
+			if ("Category".equals(name)) {
+				return EnvironmentPackage.Literals.NAMESPACE;
+			}
 		}
 		return null;
 	}
 
 	@Override
 	public EObject createObject(EFactory eFactory, EClassifier type, MigrationXMLHelper parentHelper) {
-		if (type == EnvironmentPackage.Literals.REFERENCE) {
-			// In old Environment metamodel, Reference.navigable was false by default
-			// In new Environment metamodel, Reference.navigable is true by default
-			EObject createdObject = parentHelper.originalCreateObject(eFactory, type);
-			if (createdObject instanceof Reference) {
-				((Reference)createdObject).setNavigable(false);
+		if(isOldNamespace(SOA_URI_OLD2)) {
+			if (type == EnvironmentPackage.Literals.REFERENCE) {
+				// In old Environment metamodel, Reference.navigable was false by default
+				// In new Environment metamodel, Reference.navigable is true by default
+				EObject createdObject = parentHelper.originalCreateObject(eFactory, type);
+				if (createdObject instanceof Reference) {
+					((Reference)createdObject).setNavigable(false);
+				}
+				return createdObject;
 			}
-			return createdObject;
-		}
-		if (type == EnvironmentPackage.Literals.DTO) {
-			return parentHelper.originalCreateObject(EnvironmentFactory.eINSTANCE, type);
-		}
-		if (type == EnvironmentPackage.Literals.DATA_TYPE) {
-			return parentHelper.originalCreateObject(EnvironmentFactory.eINSTANCE, EnvironmentPackage.Literals.PRIMITIVE_TYPE);
+			if (type == EnvironmentPackage.Literals.DTO) {
+				return parentHelper.originalCreateObject(EnvironmentFactory.eINSTANCE, type);
+			}
+			if (type == EnvironmentPackage.Literals.DATA_TYPE) {
+				return parentHelper.originalCreateObject(EnvironmentFactory.eINSTANCE, EnvironmentPackage.Literals.PRIMITIVE_TYPE);
+			}
 		}
 		return null;
 	}
 	
 	@Override
 	public boolean setValue(EObject object, EStructuralFeature feature, Object value, int position, MigrationXMLHelper parentHelper) {
-		// Migration from SOA 2.0.0 Cases
-		if (feature == SoaPackage.Literals.SERVICE__SYNCHRONIZATION) {
-			if ("asynchrone".equals(value)) {
-				parentHelper.originalSetValue(object, feature, "asynchronous", position);
-				return true;
-			}
-			if ("synchone".equals(value)) {
-				parentHelper.originalSetValue(object, feature, "synchronous", position);
-				return true;
+		if(isOldNamespace(SOA_URI_OLD2)) {
+			if (feature == SoaPackage.Literals.SERVICE__SYNCHRONIZATION) {
+				if ("asynchrone".equals(value)) {
+					parentHelper.originalSetValue(object, feature, "asynchronous", position);
+					return true;
+				}
+				if ("synchone".equals(value)) {
+					parentHelper.originalSetValue(object, feature, "synchronous", position);
+					return true;
+				}
 			}
 		}
 		
-		// Migration from SOA 3.0.0 cases
-		if(feature == SoaPackage.Literals.OPERATION__SECURITY_SCHEMES) {
-			SecurityApplication securityApplication = SoaFactory.eINSTANCE.createSecurityApplication();
-			securityApplication.setSecurityScheme((SecurityScheme) value);
-			((Operation)object).getSecurityApplications().add(securityApplication);
-			return true;
+		if(isOldNamespace(SOA_URI_OLD3)) {
+			if(feature == SoaPackage.Literals.OPERATION__SECURITY_SCHEMES) {
+				SecurityApplication securityApplication = SoaFactory.eINSTANCE.createSecurityApplication();
+				securityApplication.setSecurityScheme((SecurityScheme) value);
+				((Operation)object).getSecurityApplications().add(securityApplication);
+				return true;
+			}
 		}
 		
 		return false;
@@ -104,40 +110,42 @@ public class SoaMigrationHelper extends BasicMigrationHelper {
 	
 	@Override
 	public EStructuralFeature findEStructuralFeature(EClass eClass, String name, EStructuralFeature found) {
-		if (eClass == SoaPackage.Literals.SYSTEM) {
-			if ("ownedDtoRegistry".equals(name)) {
-				return EnvironmentPackage.Literals.NAMESPACES_CONTAINER__OWNED_NAMESPACES;
+		if(isOldNamespace(SOA_URI_OLD2)) {
+			if (eClass == SoaPackage.Literals.SYSTEM) {
+				if ("ownedDtoRegistry".equals(name)) {
+					return EnvironmentPackage.Literals.NAMESPACES_CONTAINER__OWNED_NAMESPACES;
+				}
+				if ("ownedNamespaces".equals(name)) {
+					return EnvironmentPackage.Literals.NAMESPACES_CONTAINER__OWNED_NAMESPACES;
+				}
 			}
-			if ("ownedNamespaces".equals(name)) {
-				return EnvironmentPackage.Literals.NAMESPACES_CONTAINER__OWNED_NAMESPACES;
+			if (eClass == EnvironmentPackage.Literals.NAMESPACE) {
+				if ("ownedCategories".equals(name)) {
+					return EnvironmentPackage.Literals.NAMESPACES_CONTAINER__OWNED_NAMESPACES;
+				}
 			}
-		}
-		if (eClass == EnvironmentPackage.Literals.NAMESPACE) {
-			if ("ownedCategories".equals(name)) {
-				return EnvironmentPackage.Literals.NAMESPACES_CONTAINER__OWNED_NAMESPACES;
+			if (eClass == EnvironmentPackage.Literals.ENUMERATION) {
+				if ("fields".equals(name)) {
+					return EnvironmentPackage.Literals.ENUMERATION__LITERALS;
+				}
 			}
-		}
-		if (eClass == EnvironmentPackage.Literals.ENUMERATION) {
-			if ("fields".equals(name)) {
-				return EnvironmentPackage.Literals.ENUMERATION__LITERALS;
+			if (eClass == EnvironmentPackage.Literals.ATTRIBUTE) {
+				if ("type".equals(name)) {
+					return EnvironmentPackage.Literals.ATTRIBUTE__TYPE;
+				}
 			}
-		}
-		if (eClass == EnvironmentPackage.Literals.ATTRIBUTE) {
-			if ("type".equals(name)) {
-				return EnvironmentPackage.Literals.ATTRIBUTE__TYPE;
+			if (eClass == EnvironmentPackage.Literals.REFERENCE) {
+				if ("type".equals(name)) {
+					return EnvironmentPackage.Literals.REFERENCE__REFERENCED_TYPE;
+				}
 			}
-		}
-		if (eClass == EnvironmentPackage.Literals.REFERENCE) {
-			if ("type".equals(name)) {
-				return EnvironmentPackage.Literals.REFERENCE__REFERENCED_TYPE;
-			}
-		}
-		if (eClass == SoaPackage.Literals.PARAMETER) {
-			if ("lower".equals(name)) {
-				return null;
-			}
-			if ("upper".equals(name)) {
-				return null;
+			if (eClass == SoaPackage.Literals.PARAMETER) {
+				if ("lower".equals(name)) {
+					return null;
+				}
+				if ("upper".equals(name)) {
+					return null;
+				}
 			}
 		}
 		
@@ -146,14 +154,15 @@ public class SoaMigrationHelper extends BasicMigrationHelper {
 
 	@Override
 	public void postLoad(XMLResource resource, InputStream inputStream, Map<?, ?> options) {
-		
-		// Remove old DTO Registry level
-		for (EObject rootObject : resource.getContents()) {
-			if (rootObject instanceof System) {
-				System system = (System)rootObject;
-				if (system.getOwnedNamespaces().size() == 1) {
-					Namespace oldDtoRegistry = system.getOwnedNamespaces().get(0);
-					removeDtoRegistry(oldDtoRegistry);
+		if(isOldNamespace(SOA_URI_OLD2)) {
+			// Remove old DTO Registry level
+			for (EObject rootObject : resource.getContents()) {
+				if (rootObject instanceof System) {
+					System system = (System)rootObject;
+					if (system.getOwnedNamespaces().size() == 1) {
+						Namespace oldDtoRegistry = system.getOwnedNamespaces().get(0);
+						removeDtoRegistry(oldDtoRegistry);
+					}
 				}
 			}
 		}
@@ -191,37 +200,39 @@ public class SoaMigrationHelper extends BasicMigrationHelper {
 	
 	@Override
 	public void handleUnknownFeaturesAnyAttribute(EObject owner, FeatureMap featureMap) {
-		if (owner instanceof Parameter) {
-			Parameter parameter = (Parameter)owner;
-			// Convert "lower + upper" to "multiplicity"
-			// Previous default values were lower = 1 and upper = 1
-			Iterator<FeatureMap.Entry> iter = featureMap.iterator();
-			int lower = 1;
-			int upper = 1;
-			while (iter.hasNext()) {
-				final FeatureMap.Entry entry = iter.next();
-				if ("lower".equals(entry.getEStructuralFeature().getName())) {
-					lower = Integer.parseInt((String)entry.getValue());
+		if(isOldNamespace(SOA_URI_OLD2)) {
+			if (owner instanceof Parameter) {
+				Parameter parameter = (Parameter)owner;
+				// Convert "lower + upper" to "multiplicity"
+				// Previous default values were lower = 1 and upper = 1
+				Iterator<FeatureMap.Entry> iter = featureMap.iterator();
+				int lower = 1;
+				int upper = 1;
+				while (iter.hasNext()) {
+					final FeatureMap.Entry entry = iter.next();
+					if ("lower".equals(entry.getEStructuralFeature().getName())) {
+						lower = Integer.parseInt((String)entry.getValue());
+					}
+					if ("upper".equals(entry.getEStructuralFeature().getName())) {
+						upper = Integer.parseInt((String)entry.getValue());
+					}
 				}
-				if ("upper".equals(entry.getEStructuralFeature().getName())) {
-					upper = Integer.parseInt((String)entry.getValue());
-				}
-			}
-			
-			// Convert now
-			if (lower == 0) {
-				// lower == 0
-				if (upper < 0 || upper > 1) {
-					parameter.setMultiplicity(MultiplicityKind.ZERO_STAR_LITERAL);
+				
+				// Convert now
+				if (lower == 0) {
+					// lower == 0
+					if (upper < 0 || upper > 1) {
+						parameter.setMultiplicity(MultiplicityKind.ZERO_STAR_LITERAL);
+					} else {
+						parameter.setMultiplicity(MultiplicityKind.ZERO_ONE_LITERAL);
+					}
 				} else {
-					parameter.setMultiplicity(MultiplicityKind.ZERO_ONE_LITERAL);
-				}
-			} else {
-				// lower == 1
-				if (upper < 0 || upper > 1) {
-					parameter.setMultiplicity(MultiplicityKind.ONE_STAR_LITERAL);
-				} else {
-					parameter.setMultiplicity(MultiplicityKind.ONE_LITERAL);
+					// lower == 1
+					if (upper < 0 || upper > 1) {
+						parameter.setMultiplicity(MultiplicityKind.ONE_STAR_LITERAL);
+					} else {
+						parameter.setMultiplicity(MultiplicityKind.ONE_LITERAL);
+					}
 				}
 			}
 		}
@@ -229,14 +240,17 @@ public class SoaMigrationHelper extends BasicMigrationHelper {
 	
 	@Override
 	public boolean isADeletedFeature(EObject owner, EStructuralFeature eStructuralFeature) {
-		if (owner instanceof Parameter) {
-			if ("lower".equals(eStructuralFeature.getName())) {
-				return true;
-			}
-			if ("upper".equals(eStructuralFeature.getName())) {
-				return true;
+		if(isOldNamespace(SOA_URI_OLD2)) {
+			if (owner instanceof Parameter) {
+				if ("lower".equals(eStructuralFeature.getName())) {
+					return true;
+				}
+				if ("upper".equals(eStructuralFeature.getName())) {
+					return true;
+				}
 			}
 		}
 		return super.isADeletedFeature(owner, eStructuralFeature);
 	}
+
 }

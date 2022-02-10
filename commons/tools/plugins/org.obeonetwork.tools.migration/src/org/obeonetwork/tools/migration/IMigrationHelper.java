@@ -27,7 +27,8 @@ import org.eclipse.emf.ecore.xmi.XMLResource;
 public interface IMigrationHelper {
 	
 	public boolean isMigrationNeeded();
-	public void setMigrationNeeded(boolean needed);
+	public void addOldNamespace(String oldNamespace);
+	public boolean isOldNamespace(String namespace);
 	
 	/* Called from Resource */
 	public ExtendedMetaData getExtendedMetaData();
