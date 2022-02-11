@@ -10,10 +10,12 @@
  *******************************************************************************/
 package org.obeonetwork.dsl.environment.binding.dialect.ui.editor;
 
+import java.text.MessageFormat;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.LinkedHashSet;
 import java.util.List;
+import java.util.Optional;
 
 import org.eclipse.core.resources.IFile;
 import org.eclipse.core.resources.IMarker;
@@ -91,6 +93,7 @@ import org.obeonetwork.dsl.environment.binding.dialect.ui.treemapper.provider.Tr
 import org.obeonetwork.dsl.environment.bindingdialect.DBindingEdge;
 import org.obeonetwork.dsl.environment.bindingdialect.DBindingEditor;
 import org.obeonetwork.dsl.environment.bindingdialect.DBoundElement;
+import org.obeonetwork.dsl.environment.bindingdialect.provider.BindingdialectEditPlugin;
 
 /**
  * @author sthibaudeau
@@ -105,6 +108,7 @@ public class BindingTreeEditor extends EditorPart implements DialectEditor, Sess
 	private Session session;
 	protected ModelAccessor accessor;
 	protected DialectEditorDialogFactory myDialogFactory = new DefaultDialectEditorDialogFactory();
+	private Optional<Boolean> isLastRefreshSuccess = Optional.empty();
 
 	private SashForm sashForm;
 	private BindingTreeMapper treeMapper;
@@ -187,7 +191,7 @@ public class BindingTreeEditor extends EditorPart implements DialectEditor, Sess
 		bottom.setLayout(new GridLayout(1, false));
 
 		Button autoBindBtn = new Button(bottom, SWT.NONE);
-		autoBindBtn.setText("Auto bind !");
+		autoBindBtn.setText(Messages.BindingTreeEditor_Button_Label_AutoBind);
 		autoBindBtn.setLayoutData(new GridData(SWT.CENTER, SWT.CENTER, false, false, 1, 1));
 		autoBindBtn.addMouseListener(new MouseAdapter() {
 			@Override
@@ -263,7 +267,7 @@ public class BindingTreeEditor extends EditorPart implements DialectEditor, Sess
 	}
 
 	private String getPropertyLabel(EObject property) {
-		String label = "";
+		String label = ""; //$NON-NLS-1$
 		if (property instanceof Property) {
 			label = ((Property)property).getName();
 		}
@@ -579,14 +583,24 @@ public class BindingTreeEditor extends EditorPart implements DialectEditor, Sess
 	}
 
 	public void doRefresh() {
-		TreeDataProvider treeDataProvider = new TreeDataProvider(getBindingInfo());
-		DBoundElement left = treeDataProvider.getLeftRoot();
-		DBoundElement right = treeDataProvider.getRightRoot();
-		List<DBindingEdge> edges = treeDataProvider.getEdges();
-		treeMapper.setInput(new TreeRoot(left), new TreeRoot(right), edges);
-		treeMapper.refresh();
-		treeMapper.getLeftTreeViewer().expandToLevel(2);
-		treeMapper.getRightTreeViewer().expandToLevel(2);
+		try {
+			TreeDataProvider treeDataProvider = new TreeDataProvider(getBindingInfo());
+			DBoundElement left = treeDataProvider.getLeftRoot();
+			DBoundElement right = treeDataProvider.getRightRoot();
+			List<DBindingEdge> edges = treeDataProvider.getEdges();
+			treeMapper.setInput(new TreeRoot(left), new TreeRoot(right), edges);
+			treeMapper.refresh();
+			treeMapper.getLeftTreeViewer().expandToLevel(2);
+			treeMapper.getRightTreeViewer().expandToLevel(2);
+			isLastRefreshSuccess = Optional.of(Boolean.TRUE);
+		} catch (Exception e) {
+			BindingdialectEditPlugin.getPlugin().getLog()
+					.log(new Status(IStatus.WARNING, BindingdialectEditPlugin.ID,
+							MessageFormat.format(Messages.BindingTreeEditor_Error_representationRefresh,
+									getRepresentation().getName()),
+							e));
+			isLastRefreshSuccess = Optional.of(Boolean.FALSE);
+		}
 	}
 
 	private void revealBoundElements(List<DBindingEdge> edges) {
@@ -608,11 +622,11 @@ public class BindingTreeEditor extends EditorPart implements DialectEditor, Sess
 	}
 
 	private String getBindingDetailsLabel(DBoundElement first, DBoundElement second) {
-		String label = "Binding details : ";
+		String label = Messages.BindingTreeEditor_Frame_Label_BindingDetails;
 		if (first.getTarget() instanceof Type) {
 			label += ((Type)first.getTarget()).getName();
 		}
-		label += " --> ";
+		label += Messages.BindingTreeEditor_Frame_Label_Separator;
 		if (second.getTarget() instanceof Type) {
 			label += ((Type)second.getTarget()).getName();
 		}
@@ -686,6 +700,11 @@ public class BindingTreeEditor extends EditorPart implements DialectEditor, Sess
 			return true;
 		}		 
 		return false;
+	}
+
+	@Override
+	public Optional<Boolean> isLastRepresentationRefreshSucceeded() {
+		return isLastRefreshSuccess;
 	}
 
 }

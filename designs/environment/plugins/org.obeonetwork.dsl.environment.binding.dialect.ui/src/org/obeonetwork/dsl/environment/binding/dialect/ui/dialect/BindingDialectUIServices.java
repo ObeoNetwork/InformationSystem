@@ -32,7 +32,6 @@ import org.eclipse.jface.viewers.ILabelProvider;
 import org.eclipse.sirius.business.api.dialect.command.RefreshRepresentationsCommand;
 import org.eclipse.sirius.business.api.session.Session;
 import org.eclipse.sirius.ui.business.api.dialect.DialectEditor;
-import org.eclipse.sirius.ui.business.api.dialect.DialectUIManager;
 import org.eclipse.sirius.ui.business.api.dialect.DialectUIServices;
 import org.eclipse.sirius.ui.business.api.dialect.ExportFormat;
 import org.eclipse.sirius.ui.business.api.dialect.ExportResult;
@@ -185,7 +184,6 @@ public class BindingDialectUIServices implements DialectUIServices {
 		if (representation instanceof DBindingEditor) {
 			monitor.beginTask("Opening binding editor", 1);
 			URI uri = EcoreUtil.getURI(representation);
-			final TransactionalEditingDomain domain = session.getTransactionalEditingDomain();
 			final IEditorInput editorInput = new SessionEditorInput(uri, getEditorName(representation), session);
 			RunnableWithResult<IEditorPart> runnable = new RunnableWithResult.Impl<IEditorPart>() {
 				@Override
@@ -204,7 +202,7 @@ public class BindingDialectUIServices implements DialectUIServices {
 				// Activation of the refresh of the DBindingEditor property page
 				if (result instanceof BindingTreeEditor) {
 					// TODO v�rifier s'il faut enlever des choses
-					doRefresh((DBindingEditor) representation, domain);
+					doRefresh((DBindingEditor) representation, session);
 				}
 				return (IEditorPart) result;
 			}
@@ -214,11 +212,12 @@ public class BindingDialectUIServices implements DialectUIServices {
 		return null;
 	}
 
-	private void doRefresh(final DBindingEditor editor, final TransactionalEditingDomain domain) {
-		if (DialectUIManager.INSTANCE.isRefreshActivatedOnRepresentationOpening()) {
+	private void doRefresh(final DBindingEditor editor, final Session session) {
+		if (session.getSiriusPreferences().isRefreshOnRepresentationOpening()) {
 			Runnable runnable = new Runnable() {
 				@Override
 				public void run() {
+					TransactionalEditingDomain domain = session.getTransactionalEditingDomain();
 					domain.getCommandStack()
 							.execute(new RefreshRepresentationsCommand(domain, new NullProgressMonitor(), editor));
 				};

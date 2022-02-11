@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <?pde?>
 <!-- generated with https://github.com/eclipse-cbi/targetplatform-dsl -->
-<target name="IS Designer Update Target Definition" sequenceNumber="1612974324">
+<target name="IS Designer Update Target Definition" sequenceNumber="1643995619">
   <locations>
     <location includeMode="planner" includeAllPlatforms="false" includeSource="true" includeConfigurePhase="false" type="InstallableUnit">
       <unit id="org.eclipse.eef.sdk.feature.feature.group" version="2.1.5.202008270808"/>
@@ -21,13 +21,13 @@
       <unit id="org.eclipse.emf.compare.ide.ui.feature.group" version="0.0.0"/>
       <unit id="org.eclipse.acceleo.query.feature.group" version="0.0.0"/>
       <unit id="org.eclipse.acceleo.feature.group" version="0.0.0"/>
-      <unit id="com.google.guava" version="21.0.0.v20170206-1425"/>
-      <repository location="http://update.obeo.fr/release/designer/11.3/community/11.3.2/repository/"/>
+      <unit id="com.google.guava" version="27.1.0.v20190517-1946"/>
+      <repository location="http://update.obeo.fr/release/designer/11.6/community/latest/repository/"/>
     </location>
     <location includeMode="planner" includeAllPlatforms="false" includeSource="true" includeConfigurePhase="false" type="InstallableUnit">
       <unit id="fr.obeo.dsl.viewpoint.collab.user.feature.group" version="0.0.0"/>
       <unit id="org.eclipse.emf.cdo.sdk.feature.group" version="0.0.0"/>
-      <repository location="http://update.obeo.fr/release/designer/11.3/team/11.3.2/repository/"/>
+      <repository location="http://update.obeo.fr/release/designer/11.6/team/latest/repository/"/>
     </location>
     <location includeMode="planner" includeAllPlatforms="false" includeSource="true" includeConfigurePhase="false" type="InstallableUnit">
       <unit id="org.eclipse.amalgam.explorer.activity.feature.group" version="0.0.0"/>
@@ -44,7 +44,7 @@
     </location>
     <location includeMode="planner" includeAllPlatforms="false" includeSource="true" includeConfigurePhase="false" type="InstallableUnit">
       <unit id="org.eclipse.platform.feature.group" version="0.0.0"/>
-      <repository location="http://download.eclipse.org/releases/2019-06/"/>
+      <repository location="http://download.eclipse.org/releases/2020-06/"/>
     </location>
     <location includeMode="planner" includeAllPlatforms="false" includeSource="true" includeConfigurePhase="false" type="InstallableUnit">
       <unit id="org.eclipse.team.svn.feature.group" version="0.0.0"/>

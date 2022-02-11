@@ -25,6 +25,9 @@ import org.eclipse.emf.ecore.provider.EcoreEditPlugin;
  * @generated
  */
 public final class BindingdialectEditPlugin extends EMFPlugin {
+	
+	public final static String ID = "org.obeonetwork.dsl.environment.binding.dialect.ui";
+	
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
