@@ -1,114 +1,59 @@
 target "IS Designer Target Definition" with source, requirements
 
-location "http://update.obeo.fr/integration/informationsystem/3.0.0/design/repository/" {
-	org.obeonetwork.dsl.feature.entity.feature.group lazy
-	org.obeonetwork.dsl.feature.cinematic.feature.group lazy
-	org.obeonetwork.dsl.feature.soa.feature.group lazy
-	org.obeonetwork.dsl.soa.gen.swagger.feature.feature.group lazy
-	org.obeonetwork.graal.feature.feature.group lazy
-	org.obeonetwork.dsl.feature.requirement.feature.group lazy
-	org.obeonetwork.dsl.feature.is.feature.group lazy
-	org.obeonetwork.is.license.feature.group lazy
-	org.obeonetwork.dsl.feature.overview.feature.group lazy
-	org.obeonetwork.dsl.feature.interaction.feature.group lazy
-	liquibase.feature.feature.group lazy
-	org.obeonetwork.dsl.feature.statemachine.feature.group lazy
-	org.obeonetwork.dsl.database.feature.feature.group lazy
-	org.obeonetwork.dsl.typelibrary.feature.feature.group lazy
-	org.obeonetwork.dsl.database.synchronizer.feature.group lazy
-	org.obeonetwork.dsl.database.reverse.feature.feature.group lazy
-	org.obeonetwork.tools.migration.feature.feature.group lazy
-	org.eclipse.nebula.treemapper.feature.feature.group lazy
-	org.obeonetwork.dsl.cinematic.design.feature.feature.group lazy
-	org.obeonetwork.dsl.database.design.feature.feature.group lazy
-	org.obeonetwork.dsl.entity.design.feature.feature.group lazy
-	org.obeonetwork.dsl.interaction.design.feature.feature.group lazy
-	org.obeonetwork.dsl.statemachine.design.feature.feature.group lazy
-	org.obeonetwork.dsl.environment.design.services.feature.feature.group lazy
-	org.obeonetwork.dsl.feature.is.design.feature.group lazy
-	org.obeonetwork.dsl.requirement.design.feature.feature.group lazy
-	org.obeonetwork.dsl.soa.design.feature.feature.group lazy
-	org.obeonetwork.graal.design.feature.feature.group lazy
-	org.obeonetwork.tools.doc.feature.feature.group lazy
-	org.obeonetwork.tools.linker.feature.feature.group lazy
-	org.obeonetwork.dsl.environment.design.migration.feature.feature.group lazy
-	org.obeonetwork.dsl.environment.binding.design.feature.feature.group lazy
-	org.obeonetwork.dsl.environment.binding.dialect.feature.feature.group lazy
-	org.obeonetwork.dsl.feature.technicalid.feature.group lazy
-	org.obeonetwork.dsl.environment.design.feature.feature.group lazy
-	org.obeonetwork.database.m2doc.feature.feature.group lazy
-	org.obeonetwork.dsl.requirement.m2doc.feature.feature.group lazy
-	org.obeonetwork.dsl.entity.m2doc.feature.feature.group lazy
-	org.obeonetwork.dsl.environment.m2doc.feature.feature.group lazy
-	org.obeonetwork.dsl.soa.m2doc.feature.feature.group lazy
-	org.obeonetwork.dsl.graal.m2doc.feature.feature.group lazy
+location ISD "http://update.obeo.fr/integration/informationsystem/3.0.0/design/repository/" {
+	fr.gouv.mindef.safran.cinematic.gen.html.feature.feature.group lazy
 	fr.gouv.mindef.safran.database.scaffold.feature.feature.group lazy
 	fr.gouv.mindef.safran.database.ui.feature.feature.group lazy
-	fr.gouv.mindef.safran.graal.extensions.feature.feature.group lazy
 	fr.gouv.mindef.safran.feature.is.feature.group lazy
-	fr.gouv.mindef.safran.cinematic.gen.html.feature.feature.group lazy
+	fr.gouv.mindef.safran.graal.extensions.feature.feature.group lazy
 	fr.gouv.mindef.safran.project.lifecycle.feature.feature.group lazy
-	org.obeonetwork.is.samples.feature.feature.group lazy
-	org.obeonetwork.tools.projectlibrary.feature.feature.group lazy
+	liquibase.feature.feature.group lazy
+	org.eclipse.nebula.treemapper.feature.feature.group lazy
 	org.obeonetwork.cinematic.m2doc.feature.feature.group lazy
-	org.obeonetwork.utils.feature.feature.group lazy
-	org.obeonetwork.tools.contextual.explorer.feature.feature.group lazy
+	org.obeonetwork.database.m2doc.feature.feature.group lazy
+	org.obeonetwork.dsl.cinematic.design.feature.feature.group lazy
+	org.obeonetwork.dsl.database.design.feature.feature.group lazy
+	org.obeonetwork.dsl.database.feature.feature.group lazy
+	org.obeonetwork.dsl.database.reverse.feature.feature.group lazy
+	org.obeonetwork.dsl.database.synchronizer.feature.group lazy
+	org.obeonetwork.dsl.entity.design.feature.feature.group lazy
+	org.obeonetwork.dsl.entity.m2doc.feature.feature.group lazy
+	org.obeonetwork.dsl.environment.binding.design.feature.feature.group lazy
+	org.obeonetwork.dsl.environment.binding.dialect.feature.feature.group lazy
+	org.obeonetwork.dsl.environment.design.feature.feature.group lazy
+	org.obeonetwork.dsl.environment.design.migration.feature.feature.group lazy
+	org.obeonetwork.dsl.environment.design.services.feature.feature.group lazy
+	org.obeonetwork.dsl.environment.m2doc.feature.feature.group lazy
+	org.obeonetwork.dsl.feature.cinematic.feature.group lazy
+	org.obeonetwork.dsl.feature.entity.feature.group lazy
 	org.obeonetwork.dsl.feature.environment.feature.group lazy
-	
-}
-
-location "http://download.eclipse.org/modeling/emft/eef/updates/milestones/1.5/S201707060903" {
-	org.eclipse.emf.eef.runtime-feature.feature.group lazy
-	org.eclipse.emf.eef.edt-feature.feature.group lazy
-	org.eclipse.emf.eef.extended-feature.feature.group lazy
-	org.eclipse.emf.eef.codegen.ecore-feature.feature.group lazy
-	org.eclipse.emf.eef.collab.runtime-feature.feature.group lazy
-	org.eclipse.emf.eef.cdo.runtime lazy
-}
-
-location "https://s3-eu-west-1.amazonaws.com/obeo-m2doc-releases/3.0.x/nightly/repository/" {
-//location "https://s3-eu-west-1.amazonaws.com/obeo-m2doc-releases/3.0.0/repository" {
-//location "https://s3-eu-west-1.amazonaws.com/obeo-m2doc-releases/master/nightly/repository" {
-//location "https://s3-eu-west-1.amazonaws.com/obeo-m2doc-releases/2.0.2/repository" {
-	org.apache.poi.feature.feature.group lazy
-	org.obeonetwork.m2doc.feature.feature.group lazy
-	org.obeonetwork.m2doc.sirius.feature.feature.group lazy
-	org.obeonetwork.m2doc.ui.feature.feature.group lazy
-}
-
-location "http://download.eclipse.org/releases/2019-06/" {
-	org.eclipse.equinox.executable.feature.group lazy
-	org.apache.commons.io lazy
-	org.eclipse.emf.cdo.feature.group lazy
-	org.eclipse.emf.cdo.server.feature.group lazy
-	org.eclipse.net4j.feature.group lazy
-	org.eclipse.ecf.core.feature.feature.group lazy
-	org.eclipse.oomph.setup.sdk.feature.group lazy
-	org.eclipse.platform.sdk lazy
-	org.eclipse.core.runtime.feature.feature.group lazy
-	org.eclipse.equinox.p2.discovery.feature.feature.group lazy
-}
-
-// Team SVN is not part of eclipse 2019-06, so we use oxygen to get it
-location "http://download.eclipse.org/releases/oxygen/" {
-	org.eclipse.team.svn.feature.group lazy
-	org.eclipse.team.svn.revision.graph.feature.group lazy
-	org.eclipse.team.svn.m2e.feature.group lazy
-	org.eclipse.team.svn.mylyn.feature.group lazy
-	org.eclipse.team.svn.nl1.feature.group lazy
-}
-
-location "http://community.polarion.com/projects/subversive/download/eclipse/6.0/neon-site/" {
-	org.polarion.eclipse.team.svn.connector.feature.group lazy
-	org.polarion.eclipse.team.svn.connector.svnkit18.feature.group lazy
-}
-
-location "https://download.eclipse.org/tools/orbit/downloads/drops/R20190602212107/repository/" {
-	org.kohsuke.args4j [2.0.21,2.1.0)
-}
-
-location Obeo-Designer-Team "http://update.obeo.fr/release/designer/11.3/team/11.3.2/repository/" {
-	fr.obeo.dsl.viewpoint.collab lazy
+	org.obeonetwork.dsl.feature.interaction.feature.group lazy
+	org.obeonetwork.dsl.feature.is.design.feature.group lazy
+	org.obeonetwork.dsl.feature.is.feature.group lazy
+	org.obeonetwork.dsl.feature.overview.feature.group lazy
+	org.obeonetwork.dsl.feature.requirement.feature.group lazy
+	org.obeonetwork.dsl.feature.soa.feature.group lazy
+	org.obeonetwork.dsl.feature.statemachine.feature.group lazy
+	org.obeonetwork.dsl.feature.technicalid.feature.group lazy
+	org.obeonetwork.dsl.graal.m2doc.feature.feature.group lazy
+	org.obeonetwork.dsl.interaction.design.feature.feature.group lazy
+	org.obeonetwork.dsl.requirement.design.feature.feature.group lazy
+	org.obeonetwork.dsl.requirement.m2doc.feature.feature.group lazy
+	org.obeonetwork.dsl.soa.design.feature.feature.group lazy
+	org.obeonetwork.dsl.soa.gen.swagger.feature.feature.group lazy
+	org.obeonetwork.dsl.soa.m2doc.feature.feature.group lazy
+	org.obeonetwork.dsl.statemachine.design.feature.feature.group lazy
+	org.obeonetwork.dsl.typelibrary.feature.feature.group lazy
+	org.obeonetwork.graal.design.feature.feature.group lazy
+	org.obeonetwork.graal.feature.feature.group lazy
+	org.obeonetwork.is.license.feature.group lazy
+	org.obeonetwork.is.samples.feature.feature.group lazy
+	org.obeonetwork.tools.contextual.explorer.feature.feature.group lazy
+	org.obeonetwork.tools.doc.feature.feature.group lazy
+	org.obeonetwork.tools.linker.feature.feature.group lazy
+	org.obeonetwork.tools.migration.feature.feature.group lazy
+	org.obeonetwork.tools.projectlibrary.feature.feature.group lazy
+	org.obeonetwork.utils.feature.feature.group lazy
 }
 
 location Amalgam "https://download.eclipse.org/modeling/amalgam/updates/stable/1.11.0-S20190729/capella/" {
@@ -117,15 +62,18 @@ location Amalgam "https://download.eclipse.org/modeling/amalgam/updates/stable/1
 	org.eclipse.amalgam.discovery.feature.group lazy
 }
 
-// When EEF 2.1.2 will be in Sirius 6.1.4 or Sirius 6.2.2, retrieve EEF from their.
-location EEF-2.1.3 "http://download.eclipse.org/modeling/emft/eef/updates/releases/2.1/R201909051307" {
-	org.eclipse.eef.sdk.feature.feature.group lazy
-    org.eclipse.eef.sdk.feature.source.feature.group lazy
-    org.eclipse.eef.ext.widgets.reference.feature.feature.group lazy
-    org.eclipse.eef.ext.widgets.reference.feature.source.feature.group lazy
+location M2Doc "https://s3-eu-west-1.amazonaws.com/obeo-m2doc-releases/3.2.1/repository/" {
+	org.apache.poi.feature.feature.group lazy
+	org.obeonetwork.m2doc.feature.feature.group lazy
+	org.obeonetwork.m2doc.sirius.feature.feature.group lazy
+	org.obeonetwork.m2doc.ui.feature.feature.group lazy
 }
 
-location Obeo-Designer-Community "http://update.obeo.fr/release/designer/11.3/community/11.3.2/repository/" {
+location Obeo-Designer-Team "http://update.obeo.fr/release/designer/11.6/team/latest/repository/" {
+	fr.obeo.dsl.viewpoint.collab lazy
+}
+
+location Obeo-Designer-Community "http://update.obeo.fr/release/designer/11.6/community/latest/repository/" {
 	org.apache.log4j lazy
     org.easymock lazy
     org.hamcrest.core lazy
@@ -156,7 +104,7 @@ location Obeo-Designer-Community "http://update.obeo.fr/release/designer/11.3/co
     org.eclipse.jgit.feature.group lazy
     org.eclipse.uml2.sdk.feature.group lazy
     org.eclipse.epp.mpc.feature.group lazy
-    // EMF Compare 3.3
+    // EMF Compare
     org.eclipse.emf.compare.feature.group lazy
     org.eclipse.emf.compare.source.feature.group lazy
     org.eclipse.emf.compare.diagram.sirius.feature.group lazy
@@ -166,12 +114,12 @@ location Obeo-Designer-Community "http://update.obeo.fr/release/designer/11.3/co
     org.eclipse.emf.compare.ide.ui.source.feature.group lazy
 	org.eclipse.emf.compare.rcp lazy
 	org.eclipse.emf.compare.rcp.ui lazy
-    // Ecore Tools 3.3
+    // Ecore Tools
     org.eclipse.emf.ecoretools.sdk.feature.group lazy
 	org.eclipse.acceleo.feature.group lazy
     org.eclipse.acceleo.ide.ui lazy
     org.eclipse.acceleo.source.feature.group lazy
-    org.antlr.runtime [4.3.0,4.4.0)
+    org.antlr.runtime lazy
 	org.eclipse.sirius.doc.feature.feature.group lazy
     org.eclipse.sirius.runtime.acceleo.source.feature.group lazy
     org.eclipse.sirius.runtime.aql.source.feature.group lazy
@@ -194,19 +142,32 @@ location Obeo-Designer-Community "http://update.obeo.fr/release/designer/11.3/co
     org.eclipse.sirius.specifier.properties.feature.feature.group lazy
     org.eclipse.sirius.specifier.properties.feature.source.feature.group lazy
     
-     // Force both version for guava in the product
-	com.google.guava [21.0.0,22.0.0) // Required for acceleo 3.7.8 (to be remove on 3.7.9)
-	com.google.guava [27.1.0,28.0.0) // Normal OD guava range
-    
-//	fr.obeo.dsl.viewpoint.runtime.collab.feature.group lazy
-//	fr.obeo.dsl.viewpoint.runtime.collab.ide.activity.metadata.ui.feature.group lazy
-//	fr.obeo.dsl.viewpoint.runtime.collab.ide.eef.feature.group lazy
-//	fr.obeo.dsl.viewpoint.runtime.collab.ide.mylyn.ui.feature.group lazy
-//	fr.obeo.dsl.viewpoint.runtime.collab.ide.ui.feature.group lazy
-//	fr.obeo.dsl.viewpoint.runtime.cdonative.feature.group lazy
-//	fr.obeo.dsl.viewpoint.runtime.ide.ui.cdonative.feature.group lazy
-//	fr.obeo.dsl.viewpoint.runtime.collab.ide.properties.ui.feature.group lazy
-//	fr.obeo.dsl.viewpoint.collab.doc.feature.feature.group lazy
-//	fr.obeo.dsl.viewpoint.collab.doc.javadoc.feature.feature.group lazy
-//	fr.obeo.oo15oo.oo339oo.feature.group lazy
+    org.eclipse.eef.sdk.feature.feature.group lazy
+    org.eclipse.eef.sdk.feature.source.feature.group lazy
+    org.eclipse.eef.ext.widgets.reference.feature.feature.group lazy
+    org.eclipse.eef.ext.widgets.reference.feature.source.feature.group lazy
+}
+
+location Eclipse "http://download.eclipse.org/releases/2020-06/" {
+	org.eclipse.equinox.executable.feature.group lazy
+	org.apache.commons.io lazy
+	org.eclipse.ecf.core.feature.feature.group lazy
+	org.eclipse.oomph.setup.sdk.feature.group lazy
+	org.eclipse.platform.sdk lazy
+	org.eclipse.core.runtime.feature.feature.group lazy
+	org.eclipse.equinox.p2.discovery.feature.feature.group lazy
+}
+
+// Team SVN has been removed from Eclipse a long time ago. Use oxygen to get it
+location Eclipse-Oxygen "http://download.eclipse.org/releases/oxygen/" {
+	org.eclipse.team.svn.feature.group lazy
+	org.eclipse.team.svn.revision.graph.feature.group lazy
+	org.eclipse.team.svn.m2e.feature.group lazy
+	org.eclipse.team.svn.mylyn.feature.group lazy
+	org.eclipse.team.svn.nl1.feature.group lazy
+}
+
+location "http://community.polarion.com/projects/subversive/download/eclipse/6.0/neon-site/" {
+	org.polarion.eclipse.team.svn.connector.feature.group lazy
+	org.polarion.eclipse.team.svn.connector.svnkit18.feature.group lazy
 }
