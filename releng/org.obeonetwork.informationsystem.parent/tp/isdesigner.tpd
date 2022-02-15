@@ -11,14 +11,14 @@ location "http://update.obeo.fr/release/designer/11.6/community/latest/repositor
 	org.eclipse.sirius.runtime.feature.group lazy
 	org.eclipse.eef.ext.widgets.reference.feature.feature.group lazy
 	org.eclipse.emf.eef.runtime-feature.feature.group lazy // Really?
-    org.eclipse.sirius.tests.support.feature.group lazy
-    org.eclipse.sirius.runtime.ide.ui.acceleo.feature.group lazy
-    org.eclipse.sirius.runtime.ocl.feature.group lazy
-    org.eclipse.sirius.specifier.ide.ui.acceleo.feature.group lazy
-    org.eclipse.emf.compare.ide.ui.feature.group lazy
-    org.eclipse.acceleo.query.feature.group lazy
-    org.eclipse.acceleo.feature.group lazy
-    
+	org.eclipse.sirius.tests.support.feature.group lazy
+	org.eclipse.sirius.runtime.ide.ui.acceleo.feature.group lazy
+	org.eclipse.sirius.runtime.ocl.feature.group lazy
+	org.eclipse.sirius.specifier.ide.ui.acceleo.feature.group lazy
+	org.eclipse.emf.compare.ide.ui.feature.group lazy
+	org.eclipse.acceleo.query.feature.group lazy
+	org.eclipse.acceleo.feature.group lazy
+	
 	com.google.guava [27.1.0,28.0.0)
 }
 
