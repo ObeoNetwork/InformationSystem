@@ -1,6 +1,6 @@
 target "IS Designer Repository Target Definition" with source, requirements
 
-location "http://update.obeo.fr/release/designer/11.6/community/latest/repository/" {
+location Obeo-Designer-Community "http://update.obeo.fr/release/designer/11.6/community/latest/repository/" {
 	org.eclipse.eef.sdk.feature.feature.group
 	org.eclipse.sirius.properties.feature.feature.group lazy
 	org.eclipse.sirius.runtime.ide.eef.feature.group lazy
@@ -23,12 +23,12 @@ location "http://update.obeo.fr/release/designer/11.6/community/latest/repositor
 }
 
 
-location "http://update.obeo.fr/release/designer/11.6/team/latest/repository/" {
+location Obeo-Designer-Team "http://update.obeo.fr/release/designer/11.6/team/latest/repository/" {
 	fr.obeo.dsl.viewpoint.collab.user.feature.group lazy
 	org.eclipse.emf.cdo.sdk.feature.group lazy
 }
 
-location "https://download.eclipse.org/modeling/amalgam/updates/stable/1.11.0-S20190729/capella/" {
+location Amalgam "https://download.eclipse.org/modeling/amalgam/updates/stable/1.11.0-S20190729/capella/" {
 	org.eclipse.amalgam.explorer.activity.feature.group lazy
 	org.eclipse.amalgam.discovery.feature.group lazy
 	org.eclipse.amalgam.explorer.contextual.sirius.feature.group lazy
@@ -36,20 +36,20 @@ location "https://download.eclipse.org/modeling/amalgam/updates/stable/1.11.0-S2
 	org.eclipse.amalgam.explorer.contextual.feature.group lazy
 }
 
-location "https://download.eclipse.org/tools/orbit/downloads/drops/R20190602212107/repository" {
+location Orbit "https://download.eclipse.org/tools/orbit/downloads/drops/R20200529191137/repository/" {
 	org.junit lazy
 	org.slf4j.api lazy
 }
 
-location "http://download.eclipse.org/releases/2020-06/" {
+location Eclipse "http://download.eclipse.org/releases/2020-06/" {
 	org.eclipse.platform.feature.group lazy
 }
 
-location "https://download.eclipse.org/releases/oxygen/" {
+location Oxygen "https://download.eclipse.org/releases/oxygen/" {
 	org.eclipse.team.svn.feature.group lazy
 }
 
-location "https://s3-eu-west-1.amazonaws.com/obeo-m2doc-releases/master/nightly/repository" {
+location M2Doc "https://s3-eu-west-1.amazonaws.com/obeo-m2doc-releases/master/nightly/repository" {
 	org.obeonetwork.m2doc.feature.feature.jar lazy
 	org.apache.poi.feature.feature.group
 	org.obeonetwork.m2doc.cdo.feature.feature.group lazy
