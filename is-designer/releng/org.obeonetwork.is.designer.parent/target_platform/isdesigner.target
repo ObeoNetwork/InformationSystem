@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <?pde?>
 <!-- generated with https://github.com/eclipse-cbi/targetplatform-dsl -->
-<target name="IS Designer Target Definition" sequenceNumber="1644850852">
+<target name="IS Designer Product Target Definition" sequenceNumber="1644918703">
   <locations>
     <location includeMode="planner" includeAllPlatforms="false" includeSource="true" includeConfigurePhase="false" type="InstallableUnit">
       <unit id="fr.gouv.mindef.safran.cinematic.gen.html.feature.feature.group" version="0.0.0"/>

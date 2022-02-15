@@ -1,4 +1,4 @@
-target "IS Designer Update Target Definition" with source, requirements
+target "IS Designer Repository Target Definition" with source, requirements
 
 location "http://update.obeo.fr/release/designer/11.6/community/latest/repository/" {
 	org.eclipse.eef.sdk.feature.feature.group
@@ -19,9 +19,7 @@ location "http://update.obeo.fr/release/designer/11.6/community/latest/repositor
     org.eclipse.acceleo.query.feature.group lazy
     org.eclipse.acceleo.feature.group lazy
     
-    // Force both version for guava in the product
-//	com.google.guava [21.0.0,22.0.0) // Required for acceleo 3.7.8 (to be remove on 3.7.9)
-	com.google.guava [27.1.0,28.0.0) // Normal OD guava range
+	com.google.guava [27.1.0,28.0.0)
 }
 
 

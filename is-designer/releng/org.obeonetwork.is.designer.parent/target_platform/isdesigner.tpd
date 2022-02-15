@@ -1,4 +1,4 @@
-target "IS Designer Target Definition" with source, requirements
+target "IS Designer Product Target Definition" with source, requirements
 
 location ISD "http://update.obeo.fr/integration/informationsystem/3.0.0/design/repository/" {
 	fr.gouv.mindef.safran.cinematic.gen.html.feature.feature.group lazy
