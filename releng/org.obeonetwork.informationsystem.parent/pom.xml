@@ -18,17 +18,6 @@
 
 	<properties>
 		<tycho-version>1.7.0</tycho-version>
-		<platform-version-name>2019-06</platform-version-name>
-		<od-site>http://update.obeo.fr/release/designer/11.3/team/11.3.2/repository/</od-site>
-		<od-site2>http://update.obeo.fr/release/designer/11.3/community/11.3.2/repository/</od-site2>
-		<eef-site>http://download.eclipse.org/modeling/emft/eef/updates/releases/2.1/R201909051307</eef-site>
-		<amalgam-site>https://download.eclipse.org/modeling/amalgam/updates/stable/1.11.0-S20190729/capella/</amalgam-site>
-		<eclipse-site>http://download.eclipse.org/releases/2019-06/</eclipse-site>
-		<orbit-site>https://download.eclipse.org/tools/orbit/downloads/drops/R20190602212107/repository</orbit-site>
-		<m2doc-site>https://s3-eu-west-1.amazonaws.com/obeo-m2doc-releases/master/nightly/repository</m2doc-site>
-		<!-- <acceleo-snapshots-site>https://repo.eclipse.org/content/repositories/acceleo-snapshots</acceleo-snapshots-site> -->
-		<acceleo-releases-site>https://repo.eclipse.org/content/repositories/acceleo-releases</acceleo-releases-site>
-		<svn-site>https://download.eclipse.org/releases/oxygen/</svn-site>
         <target-artifact-version>3.0.0-SNAPSHOT</target-artifact-version>
 	</properties>
 
@@ -550,21 +539,6 @@
 	</build>
 
 	<profiles>
-		<profile>
-			<id>platform-mars</id>
-			<activation>
-				<property>
-					<name>platform-version-name</name>
-					<value>indigo</value>
-				</property>
-			</activation>
-			<properties>
-				<eclipse-site>>http://download.eclipse.org/releases/neon</eclipse-site>
-				<platform-version>[4.4,4.5)</platform-version>
-				<swtbot-site>http://download.eclipse.org/technology/swtbot/indigo/dev-build/update-site</swtbot-site>
-				<!-- Update to this? http://download.eclipse.org/technology/swtbot/releases/latest/ -->
-			</properties>
-		</profile>
 		<profile>
 			<id>checkstyle</id>
 			<activation>
