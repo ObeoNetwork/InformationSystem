@@ -1,0 +1,31 @@
+--- RCPTT testcase ---
+Format-Version: 1.0
+Element-Name: TestingEntitiesDiagramToolsUsabilityReconnect
+Element-Type: testcase
+Element-Version: 3.0
+External-Reference: 
+Id: _lSHRYJL_EeyJAN17nIgneQ
+Runtime-Version: 2.5.1.M3
+Save-Time: 2/21/22, 4:44 PM
+Testcase-Type: ecl
+
+------=_.description-216f885c-d591-38ce-8ea2-e4f8cb4d6ffa
+Content-Type: text/plain
+Entry-Name: .description
+
+- Tool Reconnect Edge REC_ED_Reference_Target
+- Tool Reconnect Edge REC_ED_Reference_Source
+- Tool Reconnect Edge REC_ED_Inheritance_Target
+- Tool Reconnect Edge REC_ED_Inheritance_Source
+- Tool Reconnect Edge REC_ED_BidiReference_Target
+- Tool Reconnect Edge REC_ED_BidiReference_Source
+
+------=_.description-216f885c-d591-38ce-8ea2-e4f8cb4d6ffa--
+------=_.content-0a7243a0-75d3-3d5f-9791-539de0e5b7ac
+Content-Type: text/ecl
+Entry-Name: .content
+
+// TO BE FIXED.
+// Can't record a script reconnecting edges with RCPTT 2.5.1.M3 on ISD 3.0.0 / Eclipse 2020-06
+
+------=_.content-0a7243a0-75d3-3d5f-9791-539de0e5b7ac--

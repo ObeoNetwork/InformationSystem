@@ -25,15 +25,6 @@
 		<module>../../branding/features/org.obeonetwork.is.designer.ui.feature</module>
 		<module>../../branding/plugins/org.obeonetwork.is.designer.branding</module>
 		<module>../../branding/plugins/org.obeonetwork.is.designer.ui</module>
-		<!-- A mettre sur ObeoNetwork -->
-		<!-- <module>../../database/features/fr.gouv.mindef.safran.database.scaffold.feature</module> 
-			<module>../../database/plugins/fr.gouv.mindef.safran.database.scaffold</module> 
-			<module>../../database/plugins/fr.gouv.mindef.safran.database.scaffold.edit</module> 
-			<module>../../database/plugins/fr.gouv.mindef.safran.database.scaffold.editor</module> 
-			<module>../../database/features/fr.gouv.mindef.safran.database.ui.feature</module> 
-			<module>../../database/plugins/fr.gouv.mindef.safran.database</module> <module>../../database/plugins/fr.gouv.mindef.safran.database.doc</module> 
-			<module>../../database/plugins/fr.gouv.mindef.safran.database.ui</module> 
-			<module>../../database/plugins/fr.gouv.mindef.safran.database.tests</module> -->
 		<module>../org.obeonetwork.is.designer.product.feature</module>
 		<module>../org.obeonetwork.is.designer.product</module>
 
