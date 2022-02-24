@@ -1,0 +1,258 @@
+--- RCPTT testcase ---
+Format-Version: 1.0
+Element-Name: CinematicFlowDiagramMappingsTestCase
+Element-Type: testcase
+Element-Version: 3.0
+External-Reference: 
+Id: _B81lwGNcEeSg_dTG4Ei-uQ
+Runtime-Version: 2.5.1.M3
+Save-Time: 2/24/22, 2:29 PM
+Testcase-Type: ecl
+
+------=_.description-216f885c-d591-38ce-8ea2-e4f8cb4d6ffa
+Content-Type: text/plain
+Entry-Name: .description
+
+Testing all Flow Diagram mappings defines in cinematic.odesign/Flow Diagram.
+In Default layer:
+- FLD_InitialState mapping
+- FLD_FinalState mapping
+- FLD_ViewState mapping
+- FLD_ActionState mapping
+- FLD_SubflowState
+- FLD_Transition
+In Flow Events layer:
+- FLD_FlowEvents
+- FLD_FlowEvent
+In View Containers layer
+- FLD_ViewState_To_ViewContainer
+- FLD_ViewContainer
+- FLD_ViewElement and type of ViewElement
+
+
+
+
+
+------=_.description-216f885c-d591-38ce-8ea2-e4f8cb4d6ffa--
+------=_.content-0a7243a0-75d3-3d5f-9791-539de0e5b7ac
+Content-Type: text/ecl
+Entry-Name: .content
+
+// Open "Checkout Flow Diagram"
+with [get-view "Model Explorer" | get-tree] {
+    select "E-BookStore/E-BookStore.cinematic/Cinematic Root E-BookStore/Package Checkout/Flow Checkout/Checkout Flow Diagram" 
+        | double-click
+}
+// Create a FLD_SubflowState
+with [get-editor "Checkout Flow Diagram"] {
+    with [get-palette] {
+        get-palette-entry Transition | mouse-move 50 24 -height 25 -width 125
+        get-palette-entry View | mouse-move 44 17 -height 25 -width 125
+        get-palette-entry Action | mouse-move 52 23 -height 25 -width 125
+        get-palette-entry AsyncEvent | mouse-move 57 21 -height 25 -width 125
+        get-palette-entry "Existing flow" | mouse-move 58 24 -height 25 -width 125
+        with [get-palette-entry States] {
+            mouse-move 70 167 button1 -height 170 -width 125
+            mouse-press 70 167 button1 -height 170 -width 125
+        }
+        with [get-palette-entry "New flow"] {
+            mouse-press 70 24 button1 -height 25 -width 125
+            mouse-release 70 24 button1 "" -height 25 -width 125
+        }
+        with [get-palette-entry "Existing flow"] {
+            mouse-move 73 13 button1 -height 25 -width 125
+            mouse-press 73 13 button1 -height 25 -width 125
+            mouse-release 73 13 button1 "" -height 25 -width 125
+            mouse-move 26 14 -height 25 -width 125
+        }
+    }
+    with [get-diagram -index 1 | get-edit-part -name "Checkout Flow Diagram"] {
+        mouse-move 862 349 button1 -height 854 -width 1303
+        mouse-press 862 349 button1 -height 854 -width 1303
+        mouse-release 862 349 button1 "" -height 854 -width 1303
+    }
+}
+with [get-window "Selection Wizard"] {
+    get-tree | select "Cinematic Root E-BookStore/Flow Main"
+    get-button Finish | click -metaKeys ""
+}
+// Check FLD_InitialState mapping
+with [get-editor "Checkout Flow Diagram" | get-diagram -index 1 | get-edit-part -name "Checkout Flow Diagram"] {
+    mouse-move 51 382 -height 854 -width 1303
+    with [get-edit-part -name "" | get-edit-part -className WorkspaceImageEditPart] {
+        mouse-move 16 8 button1 -height 24 -width 24
+        mouse-press 16 8 button1 -height 24 -width 24
+        mouse-release 16 8 button1 "" -height 24 -width 24
+    }
+}
+with [get-editor "Checkout Flow Diagram" | get-diagram -index 1 | get-edit-part -name "Checkout Flow Diagram" 
+    | get-edit-part -name "" | get-edit-part -className WorkspaceImageEditPart | get-figure -path 0] {
+    get-property "getClassName()" | equals "org.eclipse.sirius.diagram.ui.tools.api.figure.SVGWorkspaceImageFigure" | verify-true
+    get-property "getURI()" | matches ".*/initial_state.svg" | verify-true
+    get-property "getImageAspectRatio()" | equals "1.0" | verify-true
+}
+// Check FLD_FinalState mapping
+with [get-editor "Checkout Flow Diagram" | get-diagram -index 1 | get-edit-part -name "Checkout Flow Diagram"] {
+    mouse-move 879 227 -height 854 -width 1303
+    with [get-edit-part -name "" -index 2 | get-edit-part -className WorkspaceImageEditPart] {
+        mouse-move 12 12 button1 -height 24 -width 24
+        mouse-press 12 12 button1 -height 24 -width 24
+        mouse-release 12 12 button1 "" -height 24 -width 24
+    }
+}
+with [get-editor "Checkout Flow Diagram" | get-diagram -index 1 | get-edit-part -name "Checkout Flow Diagram" 
+    | get-edit-part -name "" -index 2 | get-edit-part -className WorkspaceImageEditPart | get-figure -path 0] {
+    get-property "getClassName()" | equals "org.eclipse.sirius.diagram.ui.tools.api.figure.SVGWorkspaceImageFigure" | verify-true
+    get-property "getURI()" | matches ".*/final_state.svg" | verify-true
+    get-property "getImageAspectRatio()" | equals "1.0" | verify-true
+}
+
+// Check FLD_ViewState mapping
+with [get-editor "Checkout Flow Diagram"] {
+    get-diagram -index 1 | get-edit-part -name "Checkout Flow Diagram" | mouse-move 1328 601 -height 854 -width 1303
+    get-palette | get-palette-entry Decision | mouse-move 41 24 -height 25 -width 125
+    with [get-diagram -index 1 | get-edit-part -name "Checkout Flow Diagram"] {
+        mouse-move 702 296 -height 854 -width 1303
+        with [get-edit-part -name "Payment Page" | get-edit-part -className WorkspaceImageEditPart] {
+            mouse-move 190 96 button1 -height 152 -width 241
+            mouse-press 190 96 button1 -height 152 -width 241
+            mouse-release 190 96 button1 "" -height 152 -width 241
+        }
+    }
+}
+with [get-editor "Checkout Flow Diagram" | get-diagram -index 1 | get-edit-part -name "Checkout Flow Diagram" 
+    | get-edit-part -name "Payment Page" | get-edit-part -className WorkspaceImageEditPart | get-figure -path 0] {
+    get-property "getClassName()" | equals "org.eclipse.sirius.diagram.ui.tools.api.figure.WorkspaceImageFigure" | verify-true
+    get-property "getImageAspectRatio()" | equals "1.5769944341372912" | verify-true
+}
+
+// Check FLD_ActionState mapping
+with [get-editor "Checkout Flow Diagram" | get-diagram -index 1 | get-edit-part -name "Checkout Flow Diagram"] {
+    mouse-move 915 571 -height 854 -width 1303
+    with [get-edit-part -name "Send email" | get-edit-part -className WorkspaceImageEditPart] {
+        mouse-move 41 41 button1 -height 72 -width 72
+        mouse-press 41 41 button1 -height 72 -width 72
+        mouse-release 41 41 button1 "" -height 72 -width 72
+    }
+}
+with [get-editor "Checkout Flow Diagram" | get-diagram -index 1 | get-edit-part -name "Checkout Flow Diagram" 
+    | get-edit-part -name "Send email" | get-edit-part -className WorkspaceImageEditPart | get-figure -path 0] {
+    get-property "getClassName()" | equals "org.eclipse.sirius.diagram.ui.tools.api.figure.SVGWorkspaceImageFigure" | verify-true
+    get-property "getURI()" | matches ".*/action.svg" | verify-true
+    get-property "getImageAspectRatio()" | equals "1.0" | verify-true
+}
+
+// FLD_SubflowState
+with [get-editor "Checkout Flow Diagram" | get-diagram -index 1 | get-edit-part -name "Checkout Flow Diagram"] {
+    mouse-move 930 345 -height 854 -width 1303
+    with [get-edit-part -name Main | get-edit-part -className WorkspaceImageEditPart] {
+        mouse-move 65 44 button1 -height 56 -width 117
+        mouse-press 65 44 button1 -height 56 -width 117
+        mouse-release 65 44 button1 "" -height 56 -width 117
+    }
+}
+with [get-editor "Checkout Flow Diagram" | get-diagram -index 1 | get-edit-part -name "Checkout Flow Diagram" 
+    | get-edit-part -name Main | get-edit-part -className WorkspaceImageEditPart | get-figure -path "0/0"] {
+    get-property "getClassName()" | equals "org.eclipse.sirius.diagram.ui.tools.internal.figure.ViewNodeFigure$1" | verify-true
+    get-property "getText()" | equals Main | verify-true
+}
+
+// FLD_Transition
+with [get-editor "Checkout Flow Diagram" | get-diagram -index 1 | get-edit-part -name "Checkout Flow Diagram"] {
+    mouse-move 281 556 -height 854 -width 1303
+    with [get-edit-part -name "Login Page" | get-target-connection -path 0] {
+        mouse-move 79 199 button1 -height 218 -width 268
+        mouse-press 79 199 button1 -height 218 -width 268
+        mouse-release 81 201 button1 "" -height 221 -width 272
+    }
+}
+with [get-editor "Checkout Flow Diagram" | get-diagram -index 1 | get-edit-part -name "Checkout Flow Diagram" 
+    | get-edit-part -name "Login Page" | get-target-connection -path 0] {
+    get-property "element.ownedStyle.lineStyle" | equals dash | verify-true
+    get-property "element.ownedStyle.sourceArrow" | equals NoDecoration | verify-true
+    get-property "element.ownedStyle.targetArrow" | equals InputArrow | verify-true
+    get-property "element.beginLabel" | equals "[userConnected = false]" | verify-true
+}
+
+// In Flow Events layer
+// FLD_FlowEvents
+with [get-editor "Checkout Flow Diagram"] {
+    with [get-diagram -index 1 | get-edit-part -name "Checkout Flow Diagram"] {
+        with [get-edit-part -name "Flow Events"] {
+            mouse-move 119 18 button1 -height 97 -width 130
+            mouse-press 119 18 button1 -height 97 -width 130
+            mouse-release 119 19 button1 "" -height 97 -width 130
+        }
+        mouse-move 324 105 -height 854 -width 1303
+    }
+}
+get-editor "Checkout Flow Diagram" | get-diagram -index 1 | get-edit-part -name "Checkout Flow Diagram" | get-edit-part 
+    -name "Flow Events" | get-figure -path "0/0" | get-property "getClassName()" 
+    | equals "org.eclipse.sirius.diagram.ui.tools.api.figure.GradientRoundedRectangle" | verify-true
+
+// FLD_FlowEvent
+with [get-editor "Checkout Flow Diagram" | get-diagram -index 1 | get-edit-part -name "Checkout Flow Diagram"] {
+    mouse-move 213 115 -height 854 -width 1303
+    with [get-edit-part -name "Flow Events" | get-edit-part -className DNodeListViewNodeListCompartment2EditPart 
+        | get-edit-part -name "login (1)"] {
+        mouse-move 50 8 button1 -height 16 -width 60
+        mouse-press 50 8 button1 -height 16 -width 60
+        mouse-release 50 8 button1 "" -height 16 -width 60
+    }
+    mouse-move 264 115 -height 854 -width 1303
+}
+get-editor "Checkout Flow Diagram" | get-diagram -index 1 | get-edit-part -name "Checkout Flow Diagram" | get-edit-part 
+    -name "Flow Events" | get-edit-part -className DNodeListViewNodeListCompartment2EditPart | get-edit-part 
+    -name "login (1)" | get-property "element.name" | equals "login (1)" | verify-true
+
+// In View Containers layer
+// FLD_ViewState_To_ViewContainer
+with [get-editor "Checkout Flow Diagram" | get-diagram -index 1] {
+    with [get-edit-part -name "Checkout Flow Diagram"] {
+        mouse-move 579 314 -height 854 -width 1303
+        with [get-edit-part -name PaymentForm | get-target-connection -path 0] {
+            mouse-move 13 22 button1 -height 70 -width 27
+            mouse-press 13 22 button1 -height 70 -width 27
+        }
+    }
+    mouse-release 574 259 button1 "" -height 854 -width 1303
+}
+with [get-editor "Checkout Flow Diagram" | get-diagram -index 1 | get-edit-part -name "Checkout Flow Diagram" 
+    | get-edit-part -name PaymentForm | get-target-connection -path 0] {
+    get-property "element.ownedStyle.lineStyle" | equals dot | verify-true
+    get-property "element.ownedStyle.sourceArrow" | equals NoDecoration | verify-true
+    get-property "element.ownedStyle.targetArrow" | equals NoDecoration | verify-true
+}
+
+// FLD_ViewContainer
+with [get-editor "Checkout Flow Diagram" | get-diagram -index 1 | get-edit-part -name "Checkout Flow Diagram" 
+    | get-edit-part -name PaymentForm] {
+    get-edit-part -className DNodeListViewNodeListCompartment2EditPart | mouse-move 107 1 -height 77 -width 113
+    with [get-edit-part -className DNodeListNameEditPart] {
+        mouse-move 87 5 button1 -height 18 -width 113
+        mouse-press 87 5 button1 -height 18 -width 113
+        mouse-release 87 5 button1 "" -height 18 -width 113
+    }
+}
+with [get-editor "Checkout Flow Diagram" | get-diagram -index 1 | get-edit-part -name "Checkout Flow Diagram" 
+    | get-edit-part -name PaymentForm | get-figure -path "0/0"] {
+    get-property "getClassName()" | equals "org.eclipse.sirius.diagram.ui.tools.api.figure.GradientRoundedRectangle" 
+        | verify-true
+    get-property "getLabelFigure().getText()" | equals PaymentForm | verify-true
+}
+
+// FLD_ViewElement and type of ViewElement
+with [get-editor "Checkout Flow Diagram" | get-diagram -index 1 | get-edit-part -name "Checkout Flow Diagram" 
+    | get-edit-part -name PaymentForm | get-edit-part -className DNodeListViewNodeListCompartment2EditPart] {
+    mouse-move 87 5 -height 77 -width 113
+    with [get-edit-part -name cardNumber] {
+        mouse-move 73 11 button1 -height 15 -width 83
+        mouse-press 73 11 button1 -height 15 -width 83
+        mouse-release 73 11 button1 "" -height 15 -width 83
+    }
+}
+get-editor "Checkout Flow Diagram" | get-diagram -index 1 | get-edit-part -name "Checkout Flow Diagram" | get-edit-part 
+    -name PaymentForm | get-edit-part -className DNodeListViewNodeListCompartment2EditPart | get-edit-part 
+    -name cardNumber | get-property "element.name" | equals cardNumber | verify-true
+    
+------=_.content-0a7243a0-75d3-3d5f-9791-539de0e5b7ac--

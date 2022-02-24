@@ -1,0 +1,64 @@
+--- RCPTT testcase ---
+Format-Version: 1.0
+Element-Name: CinematicUIStructureTreeViewContainerReferenceCreationTools
+Element-Type: testcase
+Element-Version: 3.0
+External-Reference: 
+Id: _CBxJEGNcEeSg_dTG4Ei-uQ
+Runtime-Version: 2.5.1.M3
+Save-Time: 2/24/22, 2:53 PM
+Testcase-Type: ecl
+
+------=_.description-216f885c-d591-38ce-8ea2-e4f8cb4d6ffa
+Content-Type: text/plain
+Entry-Name: .description
+
+Testing Tool creation for UIS_ViewContainerReference defines in cinematic.odesign/UI Structure.
+- Tool CRE_ViewEvent_ViewContainerReference
+- Tool CRE_ViewAction
+- Tool CRE_Duplicate
+------=_.description-216f885c-d591-38ce-8ea2-e4f8cb4d6ffa--
+------=_.content-0a7243a0-75d3-3d5f-9791-539de0e5b7ac
+Content-Type: text/ecl
+Entry-Name: .content
+
+get-view "Model Explorer" | get-tree 
+    | select "E-BookStore/E-BookStore.cinematic/Cinematic Root E-BookStore/E-BookStore UI Structure" | double-click
+with [get-editor "E-BookStore UI Structure" | get-tree] {
+    get-item "E-BookStore/HomePage : Page/ShoppingCart : Panel/CartLines : Table" 
+        | click
+    get-item "E-BookStore/HomePage : Page/ShoppingCart : Panel/CartLines : Table" 
+        | click
+    select "E-BookStore/HomePage : Page/ShoppingCart : Panel/CartLines : Table" 
+    	// Check Tool CRE_ViewEvent_ViewContainerReference
+        | get-menu Event | click
+}
+with [get-window "Selection Wizard"] {
+    get-tree | select "Widget Event Type onFocus"
+    get-button Finish | click
+}
+get-editor "E-BookStore UI Structure" | get-tree 
+    | get-item "E-BookStore/HomePage : Page/ShoppingCart : Panel/CartLines : Table/onFocus : onFocus" 
+    | get-property "getText()" | equals "onFocus : onFocus" | verify-true
+with [get-editor "E-BookStore UI Structure" | get-tree] {
+    get-item "E-BookStore/HomePage : Page/ShoppingCart : Panel/CartLines : Table" 
+        | click
+    select "E-BookStore/HomePage : Page/ShoppingCart : Panel/CartLines : Table" 
+    	// Check Tool CRE_ViewAction
+        | get-menu Action | click
+}
+get-editor "E-BookStore UI Structure" | get-tree 
+    | get-item "E-BookStore/HomePage : Page/ShoppingCart : Panel/CartLines : Table/action1" 
+    | get-property "getText()" | equals action1 | verify-true
+with [get-editor "E-BookStore UI Structure" | get-tree] {
+    get-item "E-BookStore/HomePage : Page/ShoppingCart : Panel/CartLines : Table" 
+        | click
+    select "E-BookStore/HomePage : Page/ShoppingCart : Panel/CartLines : Table"
+    	// Tool CRE_Duplicate
+        | get-menu Duplicate | click
+}
+with [get-editor "E-BookStore UI Structure" | get-tree] {
+    get-item "E-BookStore/HomePage : Page/ShoppingCart : Panel/CartLines copy : Table" 
+        | get-property "getText()" | equals "CartLines copy : Table" | verify-true
+}
+------=_.content-0a7243a0-75d3-3d5f-9791-539de0e5b7ac--

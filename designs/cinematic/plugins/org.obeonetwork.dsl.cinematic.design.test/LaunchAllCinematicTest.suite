@@ -4,25 +4,30 @@ Element-Name: LaunchAllCinematicTest
 Element-Type: testsuite
 Element-Version: 2.0
 Id: _B7808GNcEeSg_dTG4Ei-uQ
-Runtime-Version: 1.5.2.201408180747
-Save-Time: 11/3/14 2:22 PM
+Runtime-Version: 2.5.1.M3
+Save-Time: 2/24/22, 6:10 PM
 
 ------=_testcase-items-62c497da-4241-31f4-811a-6b453a3ecff8
 Content-Type: text/testcase
 Entry-Name: testcase-items
 
-_B81lwGNcEeSg_dTG4Ei-uQ	// kind: 'test' name: 'TestingCinematicFlowDiagramMappings' path: 'TestingCinematicFlowDiagramMappings.test'
-_B9MLEGNcEeSg_dTG4Ei-uQ	// kind: 'test' name: 'TestingCinematicFlowDiagramToolsCreation' path: 'TestingCinematicFlowDiagramToolsCreation.test'
-_B9gUIGNcEeSg_dTG4Ei-uQ	// kind: 'test' name: 'TestingCinematicFlowDiagramToolsUsability' path: 'TestingCinematicFlowDiagramToolsUsability.test'
-_B9z2IGNcEeSg_dTG4Ei-uQ	// kind: 'test' name: 'TestingCinematicPackageDiagramMappings' path: 'TestingCinematicPackageDiagramMappings.test'
-_B-H_MGNcEeSg_dTG4Ei-uQ	// kind: 'test' name: 'TestingCinematicPackageDiagramTools' path: 'TestingCinematicPackageDiagramTools.test'
-_B-a6IGNcEeSg_dTG4Ei-uQ	// kind: 'test' name: 'TestingCinematicTreeUICreationViewAction' path: 'TestingCinematicTreeUICreationViewAction.test'
-_B__AYGNcEeSg_dTG4Ei-uQ	// kind: 'test' name: 'TestingCinematicTreeUIStructureMapping' path: 'TestingCinematicTreeUIStructureMapping.test'
-_CATJcGNcEeSg_dTG4Ei-uQ	// kind: 'test' name: 'TestingCinematicTreeUIStructureToolCreation' path: 'TestingCinematicTreeUIStructureToolCreation.test'
-_CAmrcGNcEeSg_dTG4Ei-uQ	// kind: 'test' name: 'TestingCinematicTreeUIStructureToolCreationContainedViewContainer' path: 'TestingCinematicTreeUIStructureToolCreationContainedViewContainer.test'
-_CBVEMGNcEeSg_dTG4Ei-uQ	// kind: 'test' name: 'TestingCinematicTreeUIStructureToolCreationDataBinding' path: 'TestingCinematicTreeUIStructureToolCreationDataBinding.test'
-_CBxJEGNcEeSg_dTG4Ei-uQ	// kind: 'test' name: 'TestingCinematicTreeUIStructureToolCreationViewContainerRef' path: 'TestingCinematicTreeUIStructureToolCreationViewContainerRef.test'
-_CC7msGNcEeSg_dTG4Ei-uQ	// kind: 'test' name: 'TestingCinematicTreeUIStructureToolCreationViewElement' path: 'TestingCinematicTreeUIStructureToolCreationViewElement.test'
-_CDPvwGNcEeSg_dTG4Ei-uQ	// kind: 'test' name: 'TestingCinematicTreeUIToolCreationViewEvent' path: 'TestingCinematicTreeUIToolCreationViewEvent.test'
+_B9MLEGNcEeSg_dTG4Ei-uQ	// kind: 'test' name: 'CinematicFlowDiagramCreationToolsTestCase' path: 'CinematicFlowDiagramCreationToolsTestCase.test'
+_B81lwGNcEeSg_dTG4Ei-uQ	// kind: 'test' name: 'CinematicFlowDiagramMappingsTestCase' path: 'CinematicFlowDiagramMappingsTestCase.test'
+_B9gUIGNcEeSg_dTG4Ei-uQ	// kind: 'test' name: 'CinematicFlowDiagramUsabilityToolsTestCase' path: 'CinematicFlowDiagramUsabilityToolsTestCase.test'
+_B9z2IGNcEeSg_dTG4Ei-uQ	// kind: 'test' name: 'CinematicPackageDiagramMappingsTestCase' path: 'CinematicPackageDiagramMappingsTestCase.test'
+_B-H_MGNcEeSg_dTG4Ei-uQ	// kind: 'test' name: 'CinematicPackageDiagramToolsTestCase' path: 'CinematicPackageDiagramToolsTestCase.test'
+_CAmrcGNcEeSg_dTG4Ei-uQ	// kind: 'test' name: 'CinematicUIStructureTreeContainedViewContainerCreationToolsTestCase' path: 'CinematicUIStructureTreeContainedViewContainerCreationToolsTestCase.test'
+_CBVEMGNcEeSg_dTG4Ei-uQ	// kind: 'test' name: 'CinematicUIStructureTreeContainedViewContainerEditionToolsTestCase' path: 'CinematicUIStructureTreeContainedViewContainerEditionToolsTestCase.test'
+_B__AYGNcEeSg_dTG4Ei-uQ	// kind: 'test' name: 'CinematicUIStructureTreeMappingsTestCase' path: 'CinematicUIStructureTreeMappingsTestCase.test'
+_CATJcGNcEeSg_dTG4Ei-uQ	// kind: 'test' name: 'CinematicUIStructureTreePackageCreationTools' path: 'CinematicUIStructureTreePackageCreationTools.test'
+_CBxJEGNcEeSg_dTG4Ei-uQ	// kind: 'test' name: 'CinematicUIStructureTreeViewContainerReferenceCreationTools' path: 'CinematicUIStructureTreeViewContainerReferenceCreationTools.test'
+_CC7msGNcEeSg_dTG4Ei-uQ	// kind: 'test' name: 'CinematicUIStructureTreeViewElementCreationTools' path: 'CinematicUIStructureTreeViewElementCreationTools.test'
+_CDPvwGNcEeSg_dTG4Ei-uQ	// kind: 'test' name: 'CinematicUIStructureTreeViewEventCreationTools' path: 'CinematicUIStructureTreeViewEventCreationTools.test'
+_D1KrkJWTEeyWm9az4K7Z1w	// kind: 'test' name: 'CinematicLayoutDiagramViewMappingsTestCase' path: 'CinematicLayoutDiagramViewMappingsTestCase.test'
+_zwkZ0JWCEeyWm9az4K7Z1w	// kind: 'test' name: 'CinematicViewContainerMockupCreationToolsTestCase' path: 'CinematicViewContainerMockupCreationToolsTestCase.test'
+_aeJQIJV-EeyWm9az4K7Z1w	// kind: 'test' name: 'CinematicViewContainerMockupDefaultMappingsTestCase' path: 'CinematicViewContainerMockupDefaultMappingsTestCase.test'
+_M76IQJWAEeyWm9az4K7Z1w	// kind: 'test' name: 'CinematicViewContainerMockupExampleMappingsTestCase' path: 'CinematicViewContainerMockupExampleMappingsTestCase.test'
+_7IQD8JWAEeyWm9az4K7Z1w	// kind: 'test' name: 'CinematicViewContainerMockupTabOrderMappingsTestCase' path: 'CinematicViewContainerMockupTabOrderMappingsTestCase.test'
+__2cCoJWGEeyWm9az4K7Z1w	// kind: 'test' name: 'CinematicViewContainerMockupUsabilityToolsTestCase' path: 'CinematicViewContainerMockupUsabilityToolsTestCase.test'
 
 ------=_testcase-items-62c497da-4241-31f4-811a-6b453a3ecff8--
