@@ -5,7 +5,8 @@ Element-Type: testcase
 Element-Version: 3.0
 External-Reference: 
 Id: _XdtGkDojEeu-6M4tSPO0Uw
-Save-Time: 12/9/20 2:50 PM
+Runtime-Version: 2.5.1.M3
+Save-Time: 3/7/22, 11:43 AM
 Testcase-Type: ecl
 
 ------=_.description-216f885c-d591-38ce-8ea2-e4f8cb4d6ffa
@@ -44,23 +45,18 @@ Steps of the test :
 Content-Type: text/ecl
 Entry-Name: .content
 
-with [get-view "Model Explorer"] {
-    get-tree | select "E-BookStore/representations.aird" | double-click
-    click
-}
-get-editor "E-BookStore" | close
-get-view "Model Explorer" | get-tree | select "E-BookStore" | get-menu -path "New/Other..." | click
+get-view "Model Explorer" | get-tree | select "org.obeonetwork.is.sample.ebookstore" | get-menu -path "New/Other..." | click
 with [get-window New] {
-    get-tree | select "Safr@n/Graal Model"
+    get-tree | select [ concat $folderNameInWizard "/Graal Model" ]
     get-button "Next >" | click
 }
 get-window "New Graal Model" | get-button Finish | click
-get-editor "E-BookStore - Tasks Graph" | get-diagram -index 1 | get-edit-part -name "E-BookStore - Tasks Graph" 
+get-editor "org.obeonetwork.is.sample.ebookstore - Tasks Graph" | get-diagram -index 1 | get-edit-part -name "org.obeonetwork.is.sample.ebookstore - Tasks Graph" 
     | mouse-move 0 250 -height 604 -width 1207
 get-view "Model Explorer" | get-tree 
-    | select "E-BookStore/My.graal/System My/E-BookStore - Domain Classes Namespaces Hierarchy" | double-click
-with [get-editor "E-BookStore - Domain Classes Namespaces Hierarchy"] {
-    get-diagram -index 1 | get-edit-part -name "E-BookStore - Domain Classes Namespaces Hierarchy" | mouse-move 1201 50 
+    | select "org.obeonetwork.is.sample.ebookstore/My.graal/System My/org.obeonetwork.is.sample.ebookstore - Domain Classes Namespaces Hierarchy" | double-click
+with [get-editor "org.obeonetwork.is.sample.ebookstore - Domain Classes Namespaces Hierarchy"] {
+    get-diagram -index 1 | get-edit-part -name "org.obeonetwork.is.sample.ebookstore - Domain Classes Namespaces Hierarchy" | mouse-move 1201 50 
         -height 604 -width 1207
     with [get-palette | get-palette-entry Namespace -index 1] {
         mouse-move 78 21 button1 -height 23 -width 125
@@ -68,12 +64,12 @@ with [get-editor "E-BookStore - Domain Classes Namespaces Hierarchy"] {
         mouse-release 78 21 button1 "" -height 23 -width 125
         mouse-hover 78 21 -height 23 -width 125
     }
-    with [get-diagram -index 1 | get-edit-part -name "E-BookStore - Domain Classes Namespaces Hierarchy"] {
+    with [get-diagram -index 1 | get-edit-part -name "org.obeonetwork.is.sample.ebookstore - Domain Classes Namespaces Hierarchy"] {
         mouse-move 77 86 button1 -height 604 -width 1207
         mouse-press 77 86 button1 -height 604 -width 1207
         mouse-release 77 86 button1 "" -height 604 -width 1207
     }
-    with [get-diagram -index 1 | get-edit-part -name "E-BookStore - Domain Classes Namespaces Hierarchy"] {
+    with [get-diagram -index 1 | get-edit-part -name "org.obeonetwork.is.sample.ebookstore - Domain Classes Namespaces Hierarchy"] {
         mouse-hover 77 86 -height 604 -width 1207
         mouse-move 1202 42 -height 607 -width 1207
     }
@@ -83,21 +79,21 @@ with [get-editor "E-BookStore - Domain Classes Namespaces Hierarchy"] {
         mouse-move 84 3 -height 23 -width 125
         mouse-release 84 3 button1 "" -height 23 -width 125
     }
-    with [get-diagram -index 1 | get-edit-part -name "E-BookStore - Domain Classes Namespaces Hierarchy" 
+    with [get-diagram -index 1 | get-edit-part -name "org.obeonetwork.is.sample.ebookstore - Domain Classes Namespaces Hierarchy" 
         | get-edit-part -name "namespace_1" | get-edit-part 
         -className DNodeContainerViewNodeContainerCompartmentEditPart] {
         mouse-move 56 25 button1 -height 68 -width 148
         mouse-press 56 25 button1 -height 68 -width 148
         mouse-release 56 25 button1 "" -height 68 -width 148
     }
-    with [get-diagram -index 1 | get-edit-part -name "E-BookStore - Domain Classes Namespaces Hierarchy"] {
+    with [get-diagram -index 1 | get-edit-part -name "org.obeonetwork.is.sample.ebookstore - Domain Classes Namespaces Hierarchy"] {
         get-edit-part -name "namespace_1" | get-edit-part -className DNodeContainerViewNodeContainerCompartmentEditPart 
             | get-edit-part -name "namespace_1" | get-edit-part 
             -className DNodeContainerViewNodeContainerCompartment2EditPart | mouse-hover 0 1 -height 68 -width 148
         mouse-move 55 180 -height 607 -width 1207
     }
 }
-get-view "Model Explorer" | get-tree | select "E-BookStore/My.graal/System My/Namespace namespace_1" | get-menu 
+get-view "Model Explorer" | get-tree | select "org.obeonetwork.is.sample.ebookstore/My.graal/System My/Namespace namespace_1" | get-menu 
     -path "New Representation/namespace_1 - Domain Classes diagram" | click
 get-window "New Domain Classes Diagram" | get-button OK | click
 with [get-editor "namespace_1 - Domain Classes diagram"] {
@@ -142,14 +138,14 @@ with [get-editor "namespace_1 - Domain Classes diagram"] {
     }
 }
 get-view "Model Explorer" | get-tree 
-    | select "E-BookStore/My.graal/System My/Namespace namespace_1/Namespace namespace_1" | get-menu 
+    | select "org.obeonetwork.is.sample.ebookstore/My.graal/System My/Namespace namespace_1/Namespace namespace_1" | get-menu 
     -path "New Representation/namespace_1 - Domain Classes diagram" | click
 get-window "New Domain Classes Diagram" | get-button OK | click
 with [get-editor "namespace_1 - Domain Classes diagram" -index 1] {
     get-diagram -index 1 | get-edit-part -name "namespace_1 - Domain Classes diagram" | mouse-move 1203 203 -height 604 
         -width 1207
     with [get-palette] {
-        get-palette-entry Enumeration | mouse-move 17 2 -height 23 -width 125
+        get-palette-entry Enumeration -index 1 | mouse-move 17 2 -height 23 -width 125
         get-palette-entry Attribute | mouse-move 74 0 -height 23 -width 125
         with [get-palette-entry "Domain Class" -index 1] {
             mouse-move 82 18 button1 -height 23 -width 125
@@ -180,7 +176,7 @@ with [get-editor "namespace_1 - Domain Classes diagram" -index 1] {
     }
     with [get-palette] {
         get-palette-entry Attribute | mouse-move 40 21 -height 23 -width 125
-        with [get-palette-entry Enumeration] {
+        with [get-palette-entry Enumeration -index 1] {
             mouse-move 47 21 -height 23 -width 125
             mouse-move 56 11 button1 -height 23 -width 125
             mouse-press 56 11 button1 -height 23 -width 125
@@ -197,7 +193,7 @@ with [get-editor "namespace_1 - Domain Classes diagram" -index 1] {
         mouse-move 1146 177 -height 607 -width 1207
     }
     with [get-palette] {
-        get-palette-entry Enumeration | mouse-move 53 7 -height 23 -width 125
+        get-palette-entry Enumeration -index 1 | mouse-move 53 7 -height 23 -width 125
         with [get-palette-entry Literal] {
             mouse-move 59 3 button1 -height 23 -width 125
             mouse-press 59 3 button1 -height 23 -width 125
@@ -221,8 +217,9 @@ with [get-editor "namespace_1 - Domain Classes diagram" -index 1] {
     }
 }
 get-button "Save All (M1+M2+S)" | click
+get-window "Save" | get-button Yes | click
 get-view "Model Explorer" | get-tree 
-    | select "E-BookStore/E-BookStore.graal/System E-BookStore/Domain Classes Namespaces Hierarchy" | double-click
+    | select "org.obeonetwork.is.sample.ebookstore/E-BookStore.graal/System E-BookStore/Domain Classes Namespaces Hierarchy" | double-click
 with [get-editor "Domain Classes Namespaces Hierarchy"] {
     get-diagram -index 1 | get-edit-part -name "Domain Classes Namespaces Hierarchy" | mouse-move 1205 72 -height 604 
         -width 1207
@@ -240,7 +237,7 @@ with [get-editor "Domain Classes Namespaces Hierarchy"] {
     get-diagram -index 1 | get-edit-part -name "Domain Classes Namespaces Hierarchy" | mouse-move 7 105 -height 607 
         -width 1207
 }
-get-view "Model Explorer" | get-tree | select "E-BookStore/E-BookStore.graal/System E-BookStore/Namespace namespace_1" 
+get-view "Model Explorer" | get-tree | select "org.obeonetwork.is.sample.ebookstore/E-BookStore.graal/System E-BookStore/Namespace namespace_1" 
     | get-menu -path "New Representation/namespace_1 - Domain Classes diagram" | click
 get-window "New Domain Classes Diagram" | get-button OK | click
 with [get-editor "namespace_1 - Domain Classes diagram" -index 2] {
@@ -299,8 +296,7 @@ with [get-editor "namespace_1 - Domain Classes diagram" -index 2] {
     get-diagram -index 1 | get-edit-part -name "namespace_1 - Domain Classes diagram" | mouse-move 1206 304 -height 607 
         -width 1207
     with [get-palette] {
-        get-palette-entry Composition | mouse-move 49 1 -height 23 -width 125
-        with [get-palette-entry Relation] {
+        with [get-palette-entry Relation -index 1] {
             mouse-move 58 9 button1 -height 23 -width 125
             mouse-press 58 9 button1 -height 23 -width 125
             mouse-release 58 9 button1 "" -height 23 -width 125
@@ -342,7 +338,7 @@ with [get-editor "namespace_1 - Domain Classes diagram" -index 2] {
 get-view Properties | get-section Propetries | get-button "Browse your data to edit the current value" | click
 with [get-window Select] {
     get-tree 
-        | select "platform:\\/resource\\/E-BookStore\\/My.graal/System My/Namespace namespace_1/Namespace namespace_1/Domain Class DCB"
+        | select "platform:\\/resource\\/org.obeonetwork.is.sample.ebookstore\\/My.graal/System My/Namespace namespace_1/Namespace namespace_1/Domain Class DCB"
     get-button Finish | click
 }
 with [get-editor "namespace_1 - Domain Classes diagram" -index 2] {
@@ -352,7 +348,6 @@ with [get-editor "namespace_1 - Domain Classes diagram" -index 2] {
         mouse-move 1198 205 -height 607 -width 1207
     }
     with [get-palette] {
-        get-palette-entry Enumeration | mouse-move 46 0 -height 23 -width 125
         with [get-palette-entry Attribute] {
             mouse-move 60 13 button1 -height 23 -width 125
             mouse-press 60 13 button1 -height 23 -width 125
@@ -381,8 +376,9 @@ with [get-editor "namespace_1 - Domain Classes diagram" -index 2 | get-diagram -
     mouse-move 17 233 -height 607 -width 1207
 }
 get-button "Save All (M1+M2+S)" | click
+get-window "Save" | get-button Yes | click
 get-view "Model Explorer" | get-tree 
-    | select "E-BookStore/E-BookStore.graal/System E-BookStore/Domain Classes Namespaces Hierarchy" | double-click
+    | select "org.obeonetwork.is.sample.ebookstore/E-BookStore.graal/System E-BookStore/Domain Classes Namespaces Hierarchy" | double-click
 with [get-editor "Domain Classes Namespaces Hierarchy"] {
     with [get-diagram -index 1 | get-edit-part -name "Domain Classes Namespaces Hierarchy"] {
         mouse-move 138 29 button1 -height 607 -width 1207

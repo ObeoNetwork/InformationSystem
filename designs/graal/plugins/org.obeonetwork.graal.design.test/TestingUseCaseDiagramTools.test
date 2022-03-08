@@ -5,8 +5,8 @@ Element-Type: testcase
 Element-Version: 3.0
 External-Reference: 
 Id: _6QUUEGNdEeSg_dTG4Ei-uQ
-Runtime-Version: 2.2.0.201706152316
-Save-Time: 7/5/18 11:01 AM
+Runtime-Version: 2.5.1.M3
+Save-Time: 3/8/22, 9:59 AM
 Testcase-Type: ecl
 
 ------=_.description-216f885c-d591-38ce-8ea2-e4f8cb4d6ffa
@@ -26,7 +26,7 @@ Content-Type: text/ecl
 Entry-Name: .content
 
 get-view "Model Explorer" | get-tree 
-    | select "E-BookStore/E-BookStore.graal/System E-BookStore/Use Case UC - Search and add\r\n"
+    | select "org.obeonetwork.is.sample.ebookstore/E-BookStore.graal/System E-BookStore/Use Case UC - Search and add\r\n"
     + "books to basket" | get-menu "New Representation/UC - Search and addbooks to basket Use Case Diagram" | click
 get-window "New Use Case Diagram" | get-button OK | click
 with [get-editor "UC - Search and add\r\n"
@@ -477,7 +477,7 @@ with [get-editor "UC - Search and add\r\n"
 get-editor "UC - Search and add\r\n"
     + "books to basket Use Case Diagram" | get-diagram -index 1 | get-edit-part -name "UC - Search and add\r\n"
     + "books to basket Use Case Diagram" | get-edit-part -name "Enter payment\r\n"
-    + "informations" | get-figure "0/0/0/0" | get-property "getText()" | equals "Enter payment\n"
+    + "informations" | get-figure "0/0/0/0" | get-property "getText()" | equals "Enter payment\\13\n"
     + "informations" | verify-true
 with [get-editor "UC - Search and add\r\n"
     + "books to basket Use Case Diagram" | get-diagram -index 1] {
@@ -910,16 +910,16 @@ with [get-editor "UC - Search and add\r\n"
     mouse-move 10 229 -height 520 -width 1135
 }
 with [get-view "Model Explorer" | get-tree] {
-    select "*E-BookStore/E-BookStore.graal/System E-BookStore/Task Proceed to checkout" 
-        | get-item "\\*E-BookStore/E-BookStore.graal/System E-BookStore/Task Proceed to checkout" | drag-start 69 10
-    get-item "\\*E-BookStore/E-BookStore.graal/System E-BookStore/Task Enter payment\r\n"
+    select "org.obeonetwork.is.sample.ebookstore/E-BookStore.graal/System E-BookStore/Task Proceed to checkout" 
+        | get-item "org.obeonetwork.is.sample.ebookstore/E-BookStore.graal/System E-BookStore/Task Proceed to checkout" | drag-start 69 10
+    get-item "org.obeonetwork.is.sample.ebookstore/E-BookStore.graal/System E-BookStore/Task Enter payment\r\n"
         + "informations" | drag-enter 167 1 -detail move
-    get-item "\\*E-BookStore/E-BookStore.graal/System E-BookStore/Task Enter payment\r\n"
+    get-item "org.obeonetwork.is.sample.ebookstore/E-BookStore.graal/System E-BookStore/Task Enter payment\r\n"
         + "informations" | drag-over 210 16
-    get-item "\\*E-BookStore/E-BookStore.graal/System E-BookStore/Task Constitute shopping\r\n"
+    get-item "org.obeonetwork.is.sample.ebookstore/E-BookStore.graal/System E-BookStore/Task Constitute shopping\r\n"
         + "cart" | drag-over 243 16
-    get-item "\\*E-BookStore/E-BookStore.graal/System E-BookStore/Task Search books" | drag-over 272 11
-    get-item "\\*E-BookStore/E-BookStore.graal/System E-BookStore/Task Enter payment\r\n"
+    get-item "org.obeonetwork.is.sample.ebookstore/E-BookStore.graal/System E-BookStore/Task Search books" | drag-over 272 11
+    get-item "org.obeonetwork.is.sample.ebookstore/E-BookStore.graal/System E-BookStore/Task Enter payment\r\n"
         + "informations" | drag-exit
 }
 with [get-editor "UC - Search and add\r\n"
