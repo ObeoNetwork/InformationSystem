@@ -1,0 +1,89 @@
+<!-- Copyright (c) 2008, 2022 Obeo. All rights reserved. This program and 
+	the accompanying materials are made available under the terms of the Eclipse 
+	Public License v1.0 which accompanies this distribution, and is available 
+	at http://www.eclipse.org/legal/epl-v10.html Contributors: Obeo - initial 
+	API and implementation -->
+
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+
+	<groupId>org.obeonetwork</groupId>
+	<artifactId>parent</artifactId>
+	<version>3.0.0-SNAPSHOT</version>
+	<packaging>pom</packaging>
+
+	<name>Information System RCPTT Parent</name>
+
+	<properties>
+		<tycho-version>1.7.0</tycho-version>
+        <target-artifact-version>3.0.0-SNAPSHOT</target-artifact-version>
+        <rcptt-maven-version>2.5.1</rcptt-maven-version>
+	</properties>
+
+	<modules>
+        <module>../../../designs/cinematic/plugins/org.obeonetwork.dsl.cinematic.design.test</module>
+        <module>../../../designs/database/plugins/org.obeonetwork.dsl.database.design.test</module>
+        <module>../../../designs/entity/plugins/org.obeonetwork.dsl.entity.design.test</module>
+        <module>../../../designs/graal/plugins/org.obeonetwork.graal.design.test</module>
+        <module>../../../designs/requirement/plugins/org.obeonetwork.dsl.requirement.design.test</module>
+        <module>../../../designs/soa/plugins/org.obeonetwork.dsl.soa.design.test</module>
+        <module>../../../designs/statemachine/plugins/org.obeonetwork.dsl.statemachine.design.test</module>
+	</modules>
+
+	<pluginRepositories>
+		<pluginRepository>
+			<id>central</id>
+			<name>Central Repository</name>
+			<url>https://repo.maven.apache.org/maven2</url>
+			<layout>default</layout>
+			<snapshots>
+				<enabled>false</enabled>
+			</snapshots>
+			<releases>
+				<updatePolicy>never</updatePolicy>
+			</releases>
+		</pluginRepository>
+        <pluginRepository>
+            <id>rcptt-releases</id>
+            <name>RCPTT Maven repository</name>
+            <url>https://repo.eclipse.org/content/repositories/rcptt-releases/</url>
+        </pluginRepository>
+	</pluginRepositories>
+
+	<dependencies>
+		<dependency>
+			<groupId>org.slf4j</groupId>
+			<artifactId>slf4j-simple</artifactId>
+			<version>1.6.4</version>
+		</dependency>
+	</dependencies>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.eclipse.rcptt</groupId>
+                <artifactId>rcptt-maven-plugin</artifactId>
+                <version>${rcptt-maven-version}</version>
+                <extensions>true</extensions>
+                <configuration>
+                    <runner>
+                        <version>${rcptt-maven-version}</version>
+                    </runner>
+                    <aut>
+                        <!-- Path to AUT is relative to the RCPTT module -->
+                        <explicit>../../../../is-designer/releng/org.obeonetwork.is.designer.rcptt.parent/ISDesigner-UnderTest.zip</explicit>
+                    </aut>
+                    <skipTags>
+                        <skipTag>fail</skipTag>
+                    </skipTags>
+                    <suites>
+                        <suite>LaunchAllGraalTests</suite>
+                    </suites>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+    
+</project>
