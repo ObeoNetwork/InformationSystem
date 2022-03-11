@@ -18,18 +18,18 @@
 
 	<properties>
 		<tycho-version>1.7.0</tycho-version>
-        <target-artifact-version>3.0.0-SNAPSHOT</target-artifact-version>
-        <rcptt-maven-version>2.5.1</rcptt-maven-version>
+		<target-artifact-version>3.0.0-SNAPSHOT</target-artifact-version>
+		<rcptt-maven-version>2.5.1</rcptt-maven-version>
 	</properties>
 
 	<modules>
-        <module>../../../designs/cinematic/plugins/org.obeonetwork.dsl.cinematic.design.test</module>
-        <module>../../../designs/database/plugins/org.obeonetwork.dsl.database.design.test</module>
-        <module>../../../designs/entity/plugins/org.obeonetwork.dsl.entity.design.test</module>
-        <module>../../../designs/graal/plugins/org.obeonetwork.graal.design.test</module>
-        <module>../../../designs/requirement/plugins/org.obeonetwork.dsl.requirement.design.test</module>
-        <module>../../../designs/soa/plugins/org.obeonetwork.dsl.soa.design.test</module>
-        <module>../../../designs/statemachine/plugins/org.obeonetwork.dsl.statemachine.design.test</module>
+		<module>../../../designs/cinematic/plugins/org.obeonetwork.dsl.cinematic.design.test</module>
+		<module>../../../designs/database/plugins/org.obeonetwork.dsl.database.design.test</module>
+		<module>../../../designs/entity/plugins/org.obeonetwork.dsl.entity.design.test</module>
+		<module>../../../designs/graal/plugins/org.obeonetwork.graal.design.test</module>
+		<module>../../../designs/requirement/plugins/org.obeonetwork.dsl.requirement.design.test</module>
+		<module>../../../designs/soa/plugins/org.obeonetwork.dsl.soa.design.test</module>
+		<module>../../../designs/statemachine/plugins/org.obeonetwork.dsl.statemachine.design.test</module>
 	</modules>
 
 	<pluginRepositories>
@@ -45,11 +45,11 @@
 				<updatePolicy>never</updatePolicy>
 			</releases>
 		</pluginRepository>
-        <pluginRepository>
-            <id>rcptt-releases</id>
-            <name>RCPTT Maven repository</name>
-            <url>https://repo.eclipse.org/content/repositories/rcptt-releases/</url>
-        </pluginRepository>
+		<pluginRepository>
+			<id>rcptt-releases</id>
+			<name>RCPTT Maven repository</name>
+			<url>https://repo.eclipse.org/content/repositories/rcptt-releases/</url>
+		</pluginRepository>
 	</pluginRepositories>
 
 	<dependencies>
@@ -60,30 +60,27 @@
 		</dependency>
 	</dependencies>
 
-    <build>
-        <plugins>
-            <plugin>
-                <groupId>org.eclipse.rcptt</groupId>
-                <artifactId>rcptt-maven-plugin</artifactId>
-                <version>${rcptt-maven-version}</version>
-                <extensions>true</extensions>
-                <configuration>
-                    <runner>
-                        <version>${rcptt-maven-version}</version>
-                    </runner>
-                    <aut>
-                        <!-- Path to AUT is relative to the RCPTT module -->
-                        <explicit>../../../../is-designer/releng/org.obeonetwork.is.designer.rcptt.parent/ISDesigner-UnderTest.zip</explicit>
-                    </aut>
-                    <skipTags>
-                        <skipTag>fail</skipTag>
-                    </skipTags>
-                    <suites>
-                        <suite>LaunchAllGraalTests</suite>
-                    </suites>
-                </configuration>
-            </plugin>
-        </plugins>
-    </build>
-    
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.eclipse.rcptt</groupId>
+				<artifactId>rcptt-maven-plugin</artifactId>
+				<version>${rcptt-maven-version}</version>
+				<extensions>true</extensions>
+				<configuration>
+					<runner>
+						<version>${rcptt-maven-version}</version>
+					</runner>
+					<aut>
+						<!-- Path to AUT is relative to the RCPTT module -->
+						<explicit>../../../../is-designer/releng/org.obeonetwork.is.designer.rcptt.parent/ISDesigner-UnderTest.zip</explicit>
+					</aut>
+					<skipTags>
+						<skipTag>fail</skipTag>
+					</skipTags>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
+	
 </project>
