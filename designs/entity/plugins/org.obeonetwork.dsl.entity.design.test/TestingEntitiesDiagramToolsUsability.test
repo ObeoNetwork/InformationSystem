@@ -6,7 +6,7 @@ Element-Version: 3.0
 External-Reference: 
 Id: _GSSi8KKfEeatIdXAOWS3IQ
 Runtime-Version: 2.5.1.M3
-Save-Time: 2/21/22, 2:44 PM
+Save-Time: 3/11/22 5:13 PM
 Testcase-Type: ecl
 
 ------=_.description-216f885c-d591-38ce-8ea2-e4f8cb4d6ffa
@@ -1078,13 +1078,6 @@ get-view "Model Explorer" | get-tree | drag-set-data
 get-editor "namespace_2 - Entities diagram" | get-diagram -index 1 | get-edit-part 
     -name "namespace_2 - Entities diagram" | drop 254 421 -detail copy
 get-view "Model Explorer" | get-tree | drag-end -detail copy
-with [get-editor "namespace_2 - Entities diagram" | get-diagram -index 1 | get-edit-part 
-    -name "namespace_2 - Entities diagram"] {
-    mouse-move 254 421 -height 520 -width 1121
-    get-edit-part -name Enum3 | get-handle ResizeHandle -index 6 | mouse-hover 4 4 -height 7 -width 7
-    mouse-move 183 425 -height 520 -width 1121
-    mouse-move 6 423 -height 520 -width 1121
-}
 with [get-view "Model Explorer" | get-tree] {
     select "E-BookStore/E-BookStore.entity/Entities/Namespace namespace_2/Enumeration Enum3/Literal literal1"
     get-item "E-BookStore/E-BookStore.entity/Entities/Namespace namespace_2/Enumeration Enum3/Literal literal1" | drag-start 21 7
