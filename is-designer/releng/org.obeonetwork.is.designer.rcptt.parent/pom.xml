@@ -74,6 +74,10 @@
 					<aut>
 						<!-- Path to AUT is relative to the RCPTT module -->
 						<explicit>../../../../is-designer/releng/org.obeonetwork.is.designer.rcptt.parent/ISDesigner-UnderTest.zip</explicit>
+						<vmArgs>
+							<vmArg>-Xmx2048m</vmArg>
+							<vmArg>-XX:MaxPermSize=256m</vmArg>
+						</vmArgs>
 					</aut>
 					<skipTags>
 						<skipTag>fail</skipTag>
