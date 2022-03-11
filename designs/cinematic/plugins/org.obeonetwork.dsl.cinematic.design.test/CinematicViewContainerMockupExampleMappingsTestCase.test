@@ -6,7 +6,7 @@ Element-Version: 3.0
 External-Reference: 
 Id: _M76IQJWAEeyWm9az4K7Z1w
 Runtime-Version: 2.5.1.M3
-Save-Time: 2/24/22, 3:48 PM
+Save-Time: 3/11/22 10:55 AM
 Testcase-Type: ecl
 
 ------=_.description-216f885c-d591-38ce-8ea2-e4f8cb4d6ffa
@@ -73,15 +73,6 @@ with [get-editor "HomePage View Container Mockup" | get-diagram -index 1] {
             mouse-move 1111 339 -height 598 -width 1177
             mouse-hover 1111 339 -height 598 -width 1177
         }
-    }
-    get-figure -path "1/9" | mouse-hover 277 25 -height 40 -width 430
-    with [get-edit-part -name "HomePage View Container Mockup"] {
-        mouse-move 1270 270 -height 685 -width 1303
-        mouse-hover 1270 270 -height 685 -width 1303
-        mouse-move 1269 270 -height 685 -width 1303
-        mouse-hover 1269 270 -height 685 -width 1303
-        mouse-move 1267 271 -height 685 -width 1303
-        mouse-hover 1267 271 -height 685 -width 1303
     }
 }
 
