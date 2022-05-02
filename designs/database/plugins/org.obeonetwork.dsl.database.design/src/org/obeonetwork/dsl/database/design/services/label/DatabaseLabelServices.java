@@ -94,7 +94,7 @@ public class DatabaseLabelServices extends DatabaseSwitch<String>{
 	public String getViewElementLabel(ViewElement viewElement){
 		String label = viewElement.getName();
 		if (viewElement.getAlias()!= null && !viewElement.getAlias().isEmpty()){
-			label+= " \u2190 "+viewElement.getAlias();
+			label += " \u2190 " + viewElement.getAlias();
 		}
 		return label;
 	} 

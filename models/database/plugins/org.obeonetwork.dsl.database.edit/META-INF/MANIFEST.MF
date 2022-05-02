@@ -1,12 +1,12 @@
 Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
-Bundle-Name: Database Edit Support
+Bundle-Name: %pluginName
 Bundle-SymbolicName: org.obeonetwork.dsl.database.edit;singleton:=true
 Automatic-Module-Name: org.obeonetwork.dsl.database.edit
 Bundle-Version: 3.0.0.qualifier
 Bundle-ClassPath: .
 Bundle-Activator: org.obeonetwork.dsl.database.provider.DatabaseEditPlugin$Implementation
-Bundle-Vendor: Obeo Network
+Bundle-Vendor: %providerName
 Bundle-Localization: plugin
 Bundle-RequiredExecutionEnvironment: JavaSE-1.8
 Export-Package: org.obeonetwork.dsl.database.provider,

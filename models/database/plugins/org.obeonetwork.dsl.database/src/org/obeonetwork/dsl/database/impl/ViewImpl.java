@@ -20,7 +20,9 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.util.InternalEList;
 import org.obeonetwork.dsl.database.DatabasePackage;
 import org.obeonetwork.dsl.database.View;
+import org.obeonetwork.dsl.database.ViewColumn;
 import org.obeonetwork.dsl.database.ViewElement;
+import org.obeonetwork.dsl.database.ViewTable;
 
 /**
  * <!-- begin-user-doc -->
@@ -98,8 +100,8 @@ public class ViewImpl extends AbstractTableImpl implements View {
 	 * @generated
 	 */
 	@SuppressWarnings("unchecked")
-	public EList<ViewElement> getColumns() {
-		return (EList<ViewElement>)eDynamicGet(DatabasePackage.VIEW__COLUMNS, DatabasePackage.Literals.VIEW__COLUMNS, true, true);
+	public EList<ViewColumn> getColumns() {
+		return (EList<ViewColumn>)eDynamicGet(DatabasePackage.VIEW__COLUMNS, DatabasePackage.Literals.VIEW__COLUMNS, true, true);
 	}
 
 	/**
@@ -108,8 +110,8 @@ public class ViewImpl extends AbstractTableImpl implements View {
 	 * @generated
 	 */
 	@SuppressWarnings("unchecked")
-	public EList<ViewElement> getTables() {
-		return (EList<ViewElement>)eDynamicGet(DatabasePackage.VIEW__TABLES, DatabasePackage.Literals.VIEW__TABLES, true, true);
+	public EList<ViewTable> getTables() {
+		return (EList<ViewTable>)eDynamicGet(DatabasePackage.VIEW__TABLES, DatabasePackage.Literals.VIEW__TABLES, true, true);
 	}
 
 	/**
@@ -160,11 +162,11 @@ public class ViewImpl extends AbstractTableImpl implements View {
 				return;
 			case DatabasePackage.VIEW__COLUMNS:
 				getColumns().clear();
-				getColumns().addAll((Collection<? extends ViewElement>)newValue);
+				getColumns().addAll((Collection<? extends ViewColumn>)newValue);
 				return;
 			case DatabasePackage.VIEW__TABLES:
 				getTables().clear();
-				getTables().addAll((Collection<? extends ViewElement>)newValue);
+				getTables().addAll((Collection<? extends ViewTable>)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);

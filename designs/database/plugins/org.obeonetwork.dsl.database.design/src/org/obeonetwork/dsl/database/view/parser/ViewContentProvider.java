@@ -47,8 +47,7 @@ public class ViewContentProvider {
 				viewContentFinder.parseView(selectStatement);
 
 				for (Table table : viewContentFinder.getTables()){
-					tables.add(
-							table.getName());
+					tables.add(table.getName());
 				}
 				columns= viewContentFinder.getColumns();
 			}

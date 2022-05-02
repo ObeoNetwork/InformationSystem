@@ -70,7 +70,7 @@ public interface View extends AbstractTable {
 
 	/**
 	 * Returns the value of the '<em><b>Columns</b></em>' containment reference list.
-	 * The list contents are of type {@link org.obeonetwork.dsl.database.ViewElement}.
+	 * The list contents are of type {@link org.obeonetwork.dsl.database.ViewColumn}.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Columns</em>' containment reference list isn't clear,
@@ -85,11 +85,11 @@ public interface View extends AbstractTable {
 	 * @model containment="true" transient="true"
 	 * @generated
 	 */
-	EList<ViewElement> getColumns();
+	EList<ViewColumn> getColumns();
 
 	/**
 	 * Returns the value of the '<em><b>Tables</b></em>' containment reference list.
-	 * The list contents are of type {@link org.obeonetwork.dsl.database.ViewElement}.
+	 * The list contents are of type {@link org.obeonetwork.dsl.database.ViewTable}.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Tables</em>' containment reference list isn't clear,
@@ -104,6 +104,6 @@ public interface View extends AbstractTable {
 	 * @model containment="true" transient="true"
 	 * @generated
 	 */
-	EList<ViewElement> getTables();
+	EList<ViewTable> getTables();
 
 } // View

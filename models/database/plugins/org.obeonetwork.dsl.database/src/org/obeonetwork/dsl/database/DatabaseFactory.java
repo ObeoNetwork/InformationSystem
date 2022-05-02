@@ -154,6 +154,24 @@ public interface DatabaseFactory extends EFactory {
 	ViewElement createViewElement();
 
 	/**
+	 * Returns a new object of class '<em>View Column</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>View Column</em>'.
+	 * @generated
+	 */
+	ViewColumn createViewColumn();
+
+	/**
+	 * Returns a new object of class '<em>View Table</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>View Table</em>'.
+	 * @generated
+	 */
+	ViewTable createViewTable();
+
+	/**
 	 * Returns the package supported by this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

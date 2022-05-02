@@ -1494,6 +1494,90 @@ public interface DatabasePackage extends EPackage {
 
 
 	/**
+	 * The meta object id for the '{@link org.obeonetwork.dsl.database.impl.ViewColumnImpl <em>View Column</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.obeonetwork.dsl.database.impl.ViewColumnImpl
+	 * @see org.obeonetwork.dsl.database.impl.DatabasePackageImpl#getViewColumn()
+	 * @generated
+	 */
+	int VIEW_COLUMN = 17;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int VIEW_COLUMN__NAME = VIEW_ELEMENT__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Alias</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int VIEW_COLUMN__ALIAS = VIEW_ELEMENT__ALIAS;
+
+	/**
+	 * The feature id for the '<em><b>From</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int VIEW_COLUMN__FROM = VIEW_ELEMENT_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of structural features of the '<em>View Column</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int VIEW_COLUMN_FEATURE_COUNT = VIEW_ELEMENT_FEATURE_COUNT + 1;
+
+	/**
+	 * The meta object id for the '{@link org.obeonetwork.dsl.database.impl.ViewTableImpl <em>View Table</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.obeonetwork.dsl.database.impl.ViewTableImpl
+	 * @see org.obeonetwork.dsl.database.impl.DatabasePackageImpl#getViewTable()
+	 * @generated
+	 */
+	int VIEW_TABLE = 18;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int VIEW_TABLE__NAME = VIEW_ELEMENT__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Alias</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int VIEW_TABLE__ALIAS = VIEW_ELEMENT__ALIAS;
+
+	/**
+	 * The number of structural features of the '<em>View Table</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int VIEW_TABLE_FEATURE_COUNT = VIEW_ELEMENT_FEATURE_COUNT + 0;
+
+
+	/**
 	 * Returns the meta object for class '{@link org.obeonetwork.dsl.database.NamedElement <em>Named Element</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2302,6 +2386,37 @@ public interface DatabasePackage extends EPackage {
 	EAttribute getViewElement_Alias();
 
 	/**
+	 * Returns the meta object for class '{@link org.obeonetwork.dsl.database.ViewColumn <em>View Column</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>View Column</em>'.
+	 * @see org.obeonetwork.dsl.database.ViewColumn
+	 * @generated
+	 */
+	EClass getViewColumn();
+
+	/**
+	 * Returns the meta object for the reference '{@link org.obeonetwork.dsl.database.ViewColumn#getFrom <em>From</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>From</em>'.
+	 * @see org.obeonetwork.dsl.database.ViewColumn#getFrom()
+	 * @see #getViewColumn()
+	 * @generated
+	 */
+	EReference getViewColumn_From();
+
+	/**
+	 * Returns the meta object for class '{@link org.obeonetwork.dsl.database.ViewTable <em>View Table</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>View Table</em>'.
+	 * @see org.obeonetwork.dsl.database.ViewTable
+	 * @generated
+	 */
+	EClass getViewTable();
+
+	/**
 	 * Returns the factory that creates the instances of the model.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2956,6 +3071,34 @@ public interface DatabasePackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute VIEW_ELEMENT__ALIAS = eINSTANCE.getViewElement_Alias();
+
+		/**
+		 * The meta object literal for the '{@link org.obeonetwork.dsl.database.impl.ViewColumnImpl <em>View Column</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.obeonetwork.dsl.database.impl.ViewColumnImpl
+		 * @see org.obeonetwork.dsl.database.impl.DatabasePackageImpl#getViewColumn()
+		 * @generated
+		 */
+		EClass VIEW_COLUMN = eINSTANCE.getViewColumn();
+
+		/**
+		 * The meta object literal for the '<em><b>From</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference VIEW_COLUMN__FROM = eINSTANCE.getViewColumn_From();
+
+		/**
+		 * The meta object literal for the '{@link org.obeonetwork.dsl.database.impl.ViewTableImpl <em>View Table</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.obeonetwork.dsl.database.impl.ViewTableImpl
+		 * @see org.obeonetwork.dsl.database.impl.DatabasePackageImpl#getViewTable()
+		 * @generated
+		 */
+		EClass VIEW_TABLE = eINSTANCE.getViewTable();
 
 	}
 

@@ -152,6 +152,14 @@ public class DatabaseAdapterFactory extends AdapterFactoryImpl {
 				return createViewElementAdapter();
 			}
 			@Override
+			public Adapter caseViewColumn(ViewColumn object) {
+				return createViewColumnAdapter();
+			}
+			@Override
+			public Adapter caseViewTable(ViewTable object) {
+				return createViewTableAdapter();
+			}
+			@Override
 			public Adapter caseTypesLibraryUser(TypesLibraryUser object) {
 				return createTypesLibraryUserAdapter();
 			}
@@ -410,6 +418,34 @@ public class DatabaseAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createViewElementAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.obeonetwork.dsl.database.ViewColumn <em>View Column</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.obeonetwork.dsl.database.ViewColumn
+	 * @generated
+	 */
+	public Adapter createViewColumnAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.obeonetwork.dsl.database.ViewTable <em>View Table</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.obeonetwork.dsl.database.ViewTable
+	 * @generated
+	 */
+	public Adapter createViewTableAdapter() {
 		return null;
 	}
 

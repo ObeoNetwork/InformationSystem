@@ -233,6 +233,20 @@ public class DatabaseSwitch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
+			case DatabasePackage.VIEW_COLUMN: {
+				ViewColumn viewColumn = (ViewColumn)theEObject;
+				T result = caseViewColumn(viewColumn);
+				if (result == null) result = caseViewElement(viewColumn);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case DatabasePackage.VIEW_TABLE: {
+				ViewTable viewTable = (ViewTable)theEObject;
+				T result = caseViewTable(viewTable);
+				if (result == null) result = caseViewElement(viewTable);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
 			default: return defaultCase(theEObject);
 		}
 	}
@@ -489,6 +503,36 @@ public class DatabaseSwitch<T> {
 	 * @generated
 	 */
 	public T caseViewElement(ViewElement object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>View Column</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>View Column</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseViewColumn(ViewColumn object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>View Table</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>View Table</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseViewTable(ViewTable object) {
 		return null;
 	}
 

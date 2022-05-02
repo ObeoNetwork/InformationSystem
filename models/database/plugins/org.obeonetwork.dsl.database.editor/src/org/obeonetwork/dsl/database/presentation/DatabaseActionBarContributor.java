@@ -178,6 +178,7 @@ public class DatabaseActionBarContributor
 	 */
 	@Override
 	public void contributeToToolBar(IToolBarManager toolBarManager) {
+		super.contributeToToolBar(toolBarManager);
 		toolBarManager.add(new Separator("database-settings"));
 		toolBarManager.add(new Separator("database-additions"));
 	}

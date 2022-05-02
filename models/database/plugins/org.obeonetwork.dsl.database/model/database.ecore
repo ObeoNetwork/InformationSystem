@@ -169,13 +169,13 @@
       </eAnnotations>
     </eStructuralFeatures>
     <eStructuralFeatures xsi:type="ecore:EReference" name="columns" upperBound="-1"
-        eType="#//ViewElement" transient="true" containment="true">
+        eType="#//ViewColumn" transient="true" containment="true">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
         <details key="documentation" value="The list of columns in this view."/>
       </eAnnotations>
     </eStructuralFeatures>
     <eStructuralFeatures xsi:type="ecore:EReference" name="tables" upperBound="-1"
-        eType="#//ViewElement" transient="true" containment="true">
+        eType="#//ViewTable" transient="true" containment="true">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
         <details key="documentation" value="The list of tables in this view."/>
       </eAnnotations>
@@ -370,4 +370,8 @@
       </eAnnotations>
     </eStructuralFeatures>
   </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ViewColumn" eSuperTypes="#//ViewElement">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="from" eType="#//ViewTable"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ViewTable" eSuperTypes="#//ViewElement"/>
 </ecore:EPackage>

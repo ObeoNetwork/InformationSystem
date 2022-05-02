@@ -80,6 +80,10 @@ public class EObjectUtils {
 		return matchingContainer;
 	}
 	
+	public static <T extends EObject> T getContainer(EObject eObject, Class<T> type) {
+		return getContainerOrSelf(eObject.eContainer(), type);
+	}
+	
 	private static EList<?> getMultiFeatureValues(EObject eReferencer, String featureName) {
 		EList<?> values = null;
 		EStructuralFeature feature = eReferencer.eClass().getEStructuralFeature(featureName);

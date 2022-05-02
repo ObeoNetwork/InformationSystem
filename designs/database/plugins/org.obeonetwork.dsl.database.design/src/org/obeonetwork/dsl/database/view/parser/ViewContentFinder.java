@@ -79,7 +79,7 @@ public class ViewContentFinder implements SelectVisitor, FromItemVisitor, Expres
 	// Map of object ColObject with (name, table, alias)
 	private List<ColObject> columns = new ArrayList<ColObject>();
 
-	private String alias="";
+	private String alias = "";
 
 
 	public void parseView(Select select){
@@ -268,9 +268,9 @@ public class ViewContentFinder implements SelectVisitor, FromItemVisitor, Expres
 			if (table.getAlias()!=null && tableColumn.getTable() != null 
 					&& (table.getAlias().equals(tableColumn.getTable().getName()))){
 				alreadyPresentTable = true;
-			}else if (tableColumn.getTable() != null &&table.getName().equals(tableColumn.getTable().getName())) {
+			} else if (tableColumn.getTable() != null && table.getName().equals(tableColumn.getTable().getName())) {
 				alreadyPresentTable = true;
-			}else if (tableColumn.getTable() != null && tableColumn.getTable().getName() == null){
+			} else if (tableColumn.getTable() != null && tableColumn.getTable().getName() == null){
 				alreadyPresentTable = true;
 			}
 		}

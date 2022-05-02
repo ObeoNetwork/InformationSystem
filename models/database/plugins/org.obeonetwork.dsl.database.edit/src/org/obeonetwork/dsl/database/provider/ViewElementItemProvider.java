@@ -17,7 +17,6 @@ import java.util.List;
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.util.ResourceLocator;
-import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
 import org.eclipse.emf.edit.provider.IItemLabelProvider;
@@ -127,16 +126,10 @@ public class ViewElementItemProvider
 	 * This returns ViewElement.gif.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated NOT
+	 * @generated
 	 */
 	@Override
 	public Object getImage(Object object) {
-		EObject element = (EObject)object;
-		if (element.eContainingFeature().equals(DatabasePackage.Literals.VIEW__TABLES)){
-			return overlayImage(object, getResourceLocator().getImage("full/obj16/Table"));
-		}else if (element.eContainingFeature().equals(DatabasePackage.Literals.VIEW__COLUMNS)){
-			return overlayImage(object, getResourceLocator().getImage("full/obj16/Column"));
-		}
 		return overlayImage(object, getResourceLocator().getImage("full/obj16/ViewElement"));
 	}
 
@@ -154,23 +147,14 @@ public class ViewElementItemProvider
 	 * This returns the label text for the adapted class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated NOT
+	 * @generated
 	 */
 	@Override
 	public String getText(Object object) {
-		String type;
-		EObject element = (EObject)object;
-		if (element.eContainingFeature().equals(DatabasePackage.Literals.VIEW__TABLES)){
-			type = "_UI_Table_type";
-		}else if (element.eContainingFeature().equals(DatabasePackage.Literals.VIEW__COLUMNS)){
-			type = "_UI_Column_type";
-		}else{
-			type ="_UI_ViewElement_type";
-		}
 		String label = ((ViewElement)object).getName();
 		return label == null || label.length() == 0 ?
-			getString(type) :
-			getString(type) + " " + label;
+			getString("_UI_ViewElement_type") :
+			getString("_UI_ViewElement_type") + " " + label;
 	}
 	
 

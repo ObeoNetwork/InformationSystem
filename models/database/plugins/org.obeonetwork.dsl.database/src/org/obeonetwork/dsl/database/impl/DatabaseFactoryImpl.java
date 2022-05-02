@@ -86,6 +86,8 @@ public class DatabaseFactoryImpl extends EFactoryImpl implements DatabaseFactory
 			case DatabasePackage.SCHEMA: return (EObject)createSchema();
 			case DatabasePackage.SEQUENCE: return (EObject)createSequence();
 			case DatabasePackage.VIEW_ELEMENT: return (EObject)createViewElement();
+			case DatabasePackage.VIEW_COLUMN: return (EObject)createViewColumn();
+			case DatabasePackage.VIEW_TABLE: return (EObject)createViewTable();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -233,6 +235,26 @@ public class DatabaseFactoryImpl extends EFactoryImpl implements DatabaseFactory
 	public ViewElement createViewElement() {
 		ViewElementImpl viewElement = new ViewElementImpl();
 		return viewElement;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public ViewColumn createViewColumn() {
+		ViewColumnImpl viewColumn = new ViewColumnImpl();
+		return viewColumn;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public ViewTable createViewTable() {
+		ViewTableImpl viewTable = new ViewTableImpl();
+		return viewTable;
 	}
 
 	/**

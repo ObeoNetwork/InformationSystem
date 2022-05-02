@@ -12,26 +12,22 @@ package org.obeonetwork.dsl.database.triggers;
 
 import java.util.Collection;
 import java.util.List;
+import java.util.function.Predicate;
+import java.util.stream.Collectors;
 
-import org.eclipse.emf.transaction.RecordingCommand;
-import org.eclipse.emf.transaction.TransactionalEditingDomain;
 import org.eclipse.emf.common.command.Command;
 import org.eclipse.emf.common.notify.Notification;
+import org.eclipse.emf.transaction.RecordingCommand;
+import org.eclipse.emf.transaction.TransactionalEditingDomain;
 import org.eclipse.sirius.business.api.session.ModelChangeTrigger;
 import org.eclipse.sirius.business.api.session.Session;
 import org.eclipse.sirius.business.api.session.SessionManager;
 import org.eclipse.sirius.ext.base.Option;
 import org.eclipse.sirius.ext.base.Options;
-import org.obeonetwork.dsl.database.DatabaseFactory;
 import org.obeonetwork.dsl.database.DatabasePackage;
 import org.obeonetwork.dsl.database.View;
-import org.obeonetwork.dsl.database.ViewElement;
-import org.obeonetwork.dsl.database.view.parser.ColObject;
-import org.obeonetwork.dsl.database.view.parser.ViewContentProvider;
-
-import com.google.common.base.Predicate;
-import com.google.common.base.Strings;
-import com.google.common.collect.Iterables;
+import org.obeonetwork.dsl.database.design.services.DatabaseServices;
+import org.obeonetwork.utils.common.StringUtils;
 
 /**
  * Trigger to check if a query changed in order to update 
@@ -48,68 +44,38 @@ public class ViewQueryChangeTrigger implements ModelChangeTrigger{
  * 
  */
 
-	private View view;
-	private String query;
-
 	@Override
 	public Option<Command> localChangesAboutToCommit(Collection<Notification> notifications) {
-		Iterable<Notification> querySetNotification = Iterables.filter(notifications, IS_QUERY_SET);
-		
-		for(Notification notification: querySetNotification){
-			view = (View) notification.getNotifier();
-			query = view.getQuery();
+		List<Notification> queryChangeNotifications = notifications.stream().filter(IS_QUERY_CHANGE).collect(Collectors.toList());
+		for(Notification notification: queryChangeNotifications) {
+			final View view = (View) notification.getNotifier();
+			final String query = view.getQuery();
 			final Session session = SessionManager.INSTANCE.getSession(view);
 			final TransactionalEditingDomain domain = session.getTransactionalEditingDomain();
 
-			if (!Strings.isNullOrEmpty(query)){
-				final Command result = new RecordingCommand(domain) {
+			if (!StringUtils.isNullOrWhite(query)) {
+				final Command command = new RecordingCommand(domain) {
 
 					@Override
 					protected void doExecute() {
-						if (view.getColumns()!=null){
-							view.getColumns().clear();
-						}
-						if (view.getTables()!=null){
-							view.getTables().clear();
-						}
-						// Parse new query
-						ViewContentProvider viewContentProvider = new ViewContentProvider();
-						viewContentProvider.parseViewQuery(query);
-						List<ColObject> listOfColumns = viewContentProvider.getColumns();
-
-						if (listOfColumns!=null){
-							for ( ColObject column : listOfColumns){
-								ViewElement elem = DatabaseFactory.eINSTANCE.createViewElement();
-								elem.setName(column.getName());
-								elem.setAlias(column.getAlias());
-								view.getColumns().add(elem);
-							}
-						}
-						List<String> listOfTables = viewContentProvider.getTables();
-						if (listOfTables!=null){
-							for ( String table : listOfTables){
-								ViewElement elem = DatabaseFactory.eINSTANCE.createViewElement();
-								elem.setName(table);
-								view.getTables().add(elem);
-							}
-						}
+						DatabaseServices.updateViewContent(view);
 					}
 				};
-				return Options.newSome(result);
-			}else if (Strings.isNullOrEmpty(query)){
-				final Command result = new RecordingCommand(domain) {
+				return Options.newSome(command);
+			} else {
+				final Command command = new RecordingCommand(domain) {
 
 					@Override
 					protected void doExecute() {
-						if (view.getColumns()!=null){
+						if (view.getColumns() != null){
 							view.getColumns().clear();
 						}
-						if (view.getTables()!=null){
+						if (view.getTables() != null) {
 							view.getTables().clear();
 						}
 					}
 				};
-				return Options.newSome(result);
+				return Options.newSome(command);
 			}
 		}
 		return Options.newNone();
@@ -124,13 +90,13 @@ public class ViewQueryChangeTrigger implements ModelChangeTrigger{
 	/**
 	 * Filter Query modification notifications.
 	 */
-	public static final Predicate<Notification> IS_QUERY_SET = new Predicate<Notification>() {
+	public static final Predicate<Notification> IS_QUERY_CHANGE = new Predicate<Notification>() {
 
 		/**
 		 * {@inheritDoc}
 		 */
 		@Override
-		public boolean apply(Notification input) {
+		public boolean test(Notification input) {
 			if (input.isTouch())
 				return false;
 			if (input.getEventType() == Notification.ADD || input.getEventType() == Notification.ADD_MANY || input.getEventType() == Notification.SET) {

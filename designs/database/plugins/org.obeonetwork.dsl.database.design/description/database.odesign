@@ -66,14 +66,8 @@
           </style>
         </containerMappings>
         <containerMappings name="DB_View" labelDirectEdit="//@ownedViewpoints[name='Database']/@ownedRepresentations[name='Reused%20Description']/@defaultLayer/@toolSections.0/@ownedTools[name='EDT_DatabaseElement']" semanticCandidatesExpression="service:getViews" domainClass="database.View" childrenPresentation="List">
-          <subNodeMappings name="DB_viewColumn" semanticCandidatesExpression="feature:columns" domainClass="database.ViewElement">
-            <style xsi:type="style:SquareDescription" labelExpression="service:getViewElementLabel" labelColor="//@userColorsPalettes[name='DomainColors']/@entries[name='ISDLabelAndEdge']" iconPath="/org.obeonetwork.dsl.database.edit/icons/full/obj16/Column.gif" labelAlignment="LEFT" resizeKind="NSEW">
-              <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
-              <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='gray']"/>
-            </style>
-          </subNodeMappings>
-          <subNodeMappings name="DB_viewTable" semanticCandidatesExpression="feature:tables" domainClass="database.ViewElement">
-            <style xsi:type="style:SquareDescription" labelColor="//@userColorsPalettes[name='DomainColors']/@entries[name='ISDLabelAndEdge']" iconPath="/org.obeonetwork.dsl.database.edit/icons/full/obj16/Table.gif" labelAlignment="LEFT" resizeKind="NSEW">
+          <subNodeMappings name="DB_viewElement" semanticCandidatesExpression="aql:self.getViewElementsOrderedForDatabaseDiagram()" domainClass="database::ViewElement">
+            <style xsi:type="style:SquareDescription" labelExpression="service:getViewElementLabel" labelColor="//@userColorsPalettes[name='DomainColors']/@entries[name='ISDLabelAndEdge']" labelAlignment="LEFT" resizeKind="NSEW">
               <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
               <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='gray']"/>
             </style>
@@ -440,6 +434,11 @@
         </controls>
         <controls xsi:type="properties-ext-widgets-reference:ExtReferenceDescription" name="database::View columns" labelExpression="aql:input.emfEditServices(self).getText(self.eClass().getEStructuralFeature('columns')) + ':'" helpExpression="aql:input.emfEditServices(self).getDescription(self.eClass().getEStructuralFeature('columns'))" isEnabledExpression="aql:false" referenceNameExpression="aql:'columns'"/>
         <controls xsi:type="properties-ext-widgets-reference:ExtReferenceDescription" name="database::View tables" labelExpression="aql:input.emfEditServices(self).getText(self.eClass().getEStructuralFeature('tables')) + ':'" helpExpression="aql:input.emfEditServices(self).getDescription(self.eClass().getEStructuralFeature('tables'))" isEnabledExpression="aql:false" referenceNameExpression="aql:'tables'"/>
+        <validationSet>
+          <semanticValidationRules name="database::View query validation" level="ERROR" message="aql:self.queryValidationMessage()" targetClass="database::View">
+            <audits auditExpression="aql:self.validateQuery()"/>
+          </semanticValidationRules>
+        </validationSet>
       </groups>
       <groups name="Schema Group" labelExpression="Properties" domainClass="database::Schema" semanticCandidateExpression="var:self">
         <controls xsi:type="properties:TextDescription" name="database::Schema name" labelExpression="aql:input.emfEditServices(self).getText(self.eClass().getEStructuralFeature('name')) + ':'" helpExpression="aql:input.emfEditServices(self).getDescription(self.eClass().getEStructuralFeature('name'))" isEnabledExpression="aql:self.eClass().getEStructuralFeature('name').changeable" valueExpression="aql:self.name">

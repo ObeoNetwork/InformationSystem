@@ -33,7 +33,9 @@ import org.obeonetwork.dsl.database.Sequence;
 import org.obeonetwork.dsl.database.Table;
 import org.obeonetwork.dsl.database.TableContainer;
 import org.obeonetwork.dsl.database.View;
+import org.obeonetwork.dsl.database.ViewColumn;
 import org.obeonetwork.dsl.database.ViewElement;
+import org.obeonetwork.dsl.database.ViewTable;
 import org.obeonetwork.dsl.technicalid.TechnicalIDPackage;
 import org.obeonetwork.dsl.typeslibrary.TypesLibraryPackage;
 
@@ -171,6 +173,20 @@ public class DatabasePackageImpl extends EPackageImpl implements DatabasePackage
 	private EClass viewElementEClass = null;
 
 	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass viewColumnEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass viewTableEClass = null;
+
+	/**
 	 * Creates an instance of the model <b>Package</b>, registered with
 	 * {@link org.eclipse.emf.ecore.EPackage.Registry EPackage.Registry} by the package
 	 * package URI value.
@@ -198,7 +214,7 @@ public class DatabasePackageImpl extends EPackageImpl implements DatabasePackage
 
 	/**
 	 * Creates, registers, and initializes the <b>Package</b> for this model, and for any others upon which it depends.
-	 * 
+	 *
 	 * <p>This method is used to initialize {@link DatabasePackage#eINSTANCE} when that field is accessed.
 	 * Clients should not invoke it directly. Instead, they should simply access that field to obtain the package.
 	 * <!-- begin-user-doc -->
@@ -212,7 +228,8 @@ public class DatabasePackageImpl extends EPackageImpl implements DatabasePackage
 		if (isInited) return (DatabasePackage)EPackage.Registry.INSTANCE.getEPackage(DatabasePackage.eNS_URI);
 
 		// Obtain or create and register package
-		DatabasePackageImpl theDatabasePackage = (DatabasePackageImpl)(EPackage.Registry.INSTANCE.get(eNS_URI) instanceof DatabasePackageImpl ? EPackage.Registry.INSTANCE.get(eNS_URI) : new DatabasePackageImpl());
+		Object registeredDatabasePackage = EPackage.Registry.INSTANCE.get(eNS_URI);
+		DatabasePackageImpl theDatabasePackage = registeredDatabasePackage instanceof DatabasePackageImpl ? (DatabasePackageImpl)registeredDatabasePackage : new DatabasePackageImpl();
 
 		isInited = true;
 
@@ -229,7 +246,6 @@ public class DatabasePackageImpl extends EPackageImpl implements DatabasePackage
 		// Mark meta-data to indicate it can't be changed
 		theDatabasePackage.freeze();
 
-  
 		// Update the registry and return the package
 		EPackage.Registry.INSTANCE.put(DatabasePackage.eNS_URI, theDatabasePackage);
 		return theDatabasePackage;
@@ -915,6 +931,33 @@ public class DatabasePackageImpl extends EPackageImpl implements DatabasePackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EClass getViewColumn() {
+		return viewColumnEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getViewColumn_From() {
+		return (EReference)viewColumnEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getViewTable() {
+		return viewTableEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public DatabaseFactory getDatabaseFactory() {
 		return (DatabaseFactory)getEFactoryInstance();
 	}
@@ -1029,6 +1072,11 @@ public class DatabasePackageImpl extends EPackageImpl implements DatabasePackage
 		viewElementEClass = createEClass(VIEW_ELEMENT);
 		createEAttribute(viewElementEClass, VIEW_ELEMENT__NAME);
 		createEAttribute(viewElementEClass, VIEW_ELEMENT__ALIAS);
+
+		viewColumnEClass = createEClass(VIEW_COLUMN);
+		createEReference(viewColumnEClass, VIEW_COLUMN__FROM);
+
+		viewTableEClass = createEClass(VIEW_TABLE);
 	}
 
 	/**
@@ -1078,6 +1126,8 @@ public class DatabasePackageImpl extends EPackageImpl implements DatabasePackage
 		schemaEClass.getESuperTypes().add(this.getTableContainer());
 		sequenceEClass.getESuperTypes().add(this.getNamedElement());
 		tableContainerEClass.getESuperTypes().add(this.getNamedElement());
+		viewColumnEClass.getESuperTypes().add(this.getViewElement());
+		viewTableEClass.getESuperTypes().add(this.getViewElement());
 
 		// Initialize classes and features; add operations and parameters
 		initEClass(namedElementEClass, NamedElement.class, "NamedElement", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -1125,8 +1175,8 @@ public class DatabasePackageImpl extends EPackageImpl implements DatabasePackage
 
 		initEClass(viewEClass, View.class, "View", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getView_Query(), ecorePackage.getEString(), "query", null, 0, 1, View.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getView_Columns(), this.getViewElement(), null, "columns", null, 0, -1, View.class, IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getView_Tables(), this.getViewElement(), null, "tables", null, 0, -1, View.class, IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getView_Columns(), this.getViewColumn(), null, "columns", null, 0, -1, View.class, IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getView_Tables(), this.getViewTable(), null, "tables", null, 0, -1, View.class, IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(tableEClass, Table.class, "Table", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getTable_PrimaryKey(), this.getPrimaryKey(), this.getPrimaryKey_Owner(), "primaryKey", null, 0, 1, Table.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
@@ -1183,6 +1233,11 @@ public class DatabasePackageImpl extends EPackageImpl implements DatabasePackage
 		initEClass(viewElementEClass, ViewElement.class, "ViewElement", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getViewElement_Name(), ecorePackage.getEString(), "name", null, 1, 1, ViewElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getViewElement_Alias(), ecorePackage.getEString(), "alias", null, 0, 1, ViewElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(viewColumnEClass, ViewColumn.class, "ViewColumn", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getViewColumn_From(), this.getViewTable(), null, "from", null, 0, 1, ViewColumn.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(viewTableEClass, ViewTable.class, "ViewTable", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		// Create resource
 		createResource(eNS_URI);
