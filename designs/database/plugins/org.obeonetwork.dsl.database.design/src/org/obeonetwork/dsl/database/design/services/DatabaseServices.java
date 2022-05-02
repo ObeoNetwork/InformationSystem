@@ -27,6 +27,7 @@ import org.eclipse.sirius.diagram.AbstractDNode;
 import org.eclipse.sirius.diagram.DDiagram;
 import org.eclipse.sirius.diagram.DDiagramElement;
 import org.eclipse.sirius.diagram.DSemanticDiagram;
+import org.eclipse.sirius.diagram.ui.tools.api.editor.DDiagramEditor;
 import org.eclipse.sirius.viewpoint.DSemanticDecorator;
 import org.obeonetwork.dsl.database.AbstractTable;
 import org.obeonetwork.dsl.database.Column;
@@ -48,6 +49,8 @@ import org.obeonetwork.dsl.database.view.parser.ViewContentProvider;
 import org.obeonetwork.dsl.technicalid.util.CopierUtils;
 import org.obeonetwork.utils.common.StringUtils;
 import org.obeonetwork.utils.sirius.services.EObjectUtils;
+import org.obeonetwork.utils.sirius.services.EclipseUtils;
+import org.obeonetwork.utils.sirius.services.SiriusUtils;
 
 public class DatabaseServices {
 	
@@ -380,7 +383,21 @@ public class DatabaseServices {
 			}
 		}
 		
+		validateViewQuery(view);
+		
 		return view;
+	}
+	
+	private static void validateViewQuery(View view) {
+		List<DDiagramEditor> openDDiagramEditorsShowingView = EclipseUtils.getOpenDDiagramEditors().stream()
+				.filter(dde -> dde.getRepresentation().getOwnedRepresentationElements()
+						.stream().flatMap(re -> re.getSemanticElements().stream())
+						.anyMatch(e -> e == view))
+				.collect(toList());
+		
+		for(DDiagramEditor dDiagramEditor : openDDiagramEditorsShowingView) {
+			SiriusUtils.validateDDiagramEditor(dDiagramEditor);
+		}
 	}
 	
 	public boolean isMldElement(AbstractTable element) {
@@ -431,7 +448,7 @@ public class DatabaseServices {
 				.findFirst().orElse(null);
 	}
 
-	public boolean validateQuery(View view) {
+	public boolean isQueryValid(View view) {
 		if(view.getColumns().stream().anyMatch(c -> !c.getName().equals("*") && c.getFrom() == null)) {
 			return false;
 		}
@@ -466,6 +483,10 @@ public class DatabaseServices {
 				&& !tablesNotFound.contains(c.getFrom())
 				&& findColumn(c) == null)
 		.forEach(c -> message.append(String.format("Column %s of table %s doesn't exist.\n", c.getName(), c.getFrom().getName())));
+		
+		if(message.length() > 0) {
+			message.deleteCharAt(message.length() - 1);
+		}
 		
 		return message.toString();
 	}
