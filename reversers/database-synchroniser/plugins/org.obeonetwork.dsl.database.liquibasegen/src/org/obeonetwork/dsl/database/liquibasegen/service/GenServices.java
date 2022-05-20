@@ -116,8 +116,12 @@ public class GenServices {
 	public boolean shouldGenerateIndex(IndexChange indexChange) {
 		Index index = indexChange.getIndex();
 		PrimaryKey primKey = index.getOwner().getPrimaryKey();
+		System.out.println("index id: " + index.getID());
+		System.out.println("primk id: " + primKey.getID());
+		
 		return (primKey == null || !Objects.equals(primKey.getID(), index.getID())) //
-				&& (!typeService.isTargetOracle(index) || !databaseService.isIndexOnPKColumns(index));
+				&& !((typeService.isTargetOracle(index) || typeService.isTargetPostgreSQL(index)) 
+						&& databaseService.isIndexOnPKColumns(index));
 	}
 
 	/**
