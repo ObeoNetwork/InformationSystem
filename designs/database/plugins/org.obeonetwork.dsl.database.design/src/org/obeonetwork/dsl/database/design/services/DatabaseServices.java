@@ -352,7 +352,8 @@ public class DatabaseServices {
 		}
 		// Parse new query
 		ViewContentProvider viewContentProvider = new ViewContentProvider();
-		viewContentProvider.parseViewQuery(view.getQuery());
+		String query = Optional.ofNullable(view.getQuery()).orElse("");
+		viewContentProvider.parseViewQuery(query);
 
 		// Update tables
 		List<String> parsedTableNames = viewContentProvider.getTables();
