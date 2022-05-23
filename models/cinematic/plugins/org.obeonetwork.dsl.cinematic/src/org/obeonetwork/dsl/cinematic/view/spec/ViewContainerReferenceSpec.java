@@ -10,6 +10,7 @@
  *******************************************************************************/
 package org.obeonetwork.dsl.cinematic.view.spec;
 
+import org.obeonetwork.dsl.cinematic.toolkits.Widget;
 import org.obeonetwork.dsl.cinematic.view.ViewFactory;
 import org.obeonetwork.dsl.cinematic.view.impl.ViewContainerReferenceImpl;
 
@@ -18,6 +19,11 @@ public class ViewContainerReferenceSpec extends ViewContainerReferenceImpl {
 	public ViewContainerReferenceSpec() {
 		super();
 		setViewStyle(ViewFactory.eINSTANCE.createViewStyle());
+	}
+
+	@Override
+	public Widget getWidget() {
+		return getViewContainer().getWidget();
 	}
 	
 }
