@@ -1,0 +1,98 @@
+<?xml version='1.0' encoding='utf-8' ?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+	</head>
+	<body>
+		<p>
+			<i>Copyright &#169; 2008, 2022 Obeo -  All rights reserved. This program and the accompanying materials are made available under the terms of the Eclipse Public License v1.0</i>
+		</p>
+		<p>
+			<code>Authors</code> Stéphane Thibaudeau
+			<br/>
+			<code>Contact</code> stephane.thibaudeau@obeo.fr
+		</p>
+		<h1 id="ISDBusinessProjectimporter">ISD &#8211; Business Project importer</h1>
+		<h2 id="Principe">Principe</h2>
+		<p>Dans le cadre de IS-Designer, les équipes MOA et MOE travaillent sur des projets différents et des modèles différents.
+			<br/>L'équipe MOE a néanmoins besoin des modèles réalisés par l'équipe MOA pour travailler.
+			<br/>Les cycles de vie des projets MOA et MOE pouvant être décalés, il est intéressant de bénéficier d&#8217;une fonctionnalité permettant d&#8217;importer le contenu d&#8217;un projet MOA dans un projet MOE. Ainsi l'équipe MOE peut travailler sur une version stable des spécifications.
+		</p>
+		<p>La fonctionnalité 
+			<em>Business project import</em> permet justement d&#8217;importer, dans un projet, les modèles réalisés dans un projet MOA. Les modèles qui seront importés sont les modèles de type :
+		</p>
+		<ul>
+			<li>Graal</li>
+			<li>Entity</li>
+			<li>Requirement</li>
+		</ul>
+		<p>Les modèles MOA sont importés au sein d&#8217;un répertoire 
+			<em>analysis</em> créé dans le projet MOE. Les modèles précédemment importés sont écrasés et remplacés par la nouvelle version.
+		</p>
+		<p>L'équipe MOA n&#8217;a pas vocation à modifier les modèles inclus dans le répertoire 
+			<em>analysis</em>. Si des modifications ont été faites elles seront supprimées au prochain import.
+			<br/>Il existe néanmoins une exception à cette règle : les exigences provenant de l'équipe MOA peuvent être rattachées à des éléments modélisés par l'équipe MOE. L'équipe MOE peut donc ajouter des liens de ces exigences vers ses propres modèles, ces liens seront conservés lors de l&#8217;import suivant.
+		</p>
+		<h2 id="Lancementdelimportmtier">Lancement de l&#8217;import métier</h2>
+		<h3 id="Situationdedpart">Situation de départ</h3>
+		<p>Supposons un projet MOA contenant un modèle Graal et un modèle Requirement et un projet MOE vide pour l&#8217;instant?</p>
+		<p>
+			<img style="width:100%" border="0" src="pics/import1.png"/>
+		</p>
+		<h3 id="Lancementdelimport">Lancement de l&#8217;import</h3>
+		<p>L&#8217;import métier se lance au moyen d&#8217;un 
+			<em>Import wizard</em> spécifique accessible par le menu contextuel d&#8217;un projet
+		</p>
+		<p>
+			<img border="0" src="pics/import2.png"/>
+		</p>
+		<p>L&#8217;assistant se nomme 
+			<em>Import business project</em> et est disponible dans la catégorie 
+			<em>IS-Designer</em>
+		</p>
+		<p>
+			<img border="0" src="pics/import3.png"/>
+		</p>
+		<p>L&#8217;assistant permet de choisir le projet MOA (
+			<em>Import project</em>) et le projet MOE (
+			<em>into project</em>) en utilisant les boutons 
+			<em>Choose</em>.
+			<br/>Quand l&#8217;import a été lancé en ayant sélectionné le projet MOE, celui-ci est déjà pré-renseigné dans l&#8217;assistant.
+		</p>
+		<p>
+			<img border="0" src="pics/import4.png"/>
+		</p>
+		<p>
+			<img border="0" src="pics/import5.png"/>
+		</p>
+		<p>Une fois que les deux projets ont été spécifiés, il est possible de lancer l&#8217;import en cliquant sur 
+			<em>Finish</em>. 
+			<br/>Un message d&#8217;avertissement prévient l&#8217;utilisateur que les modèles qu&#8217;il avait précédemment importés vont être complètement remplacés par les nouvelles versions. Il est encore possible d&#8217;annuler l&#8217;import à ce moment.
+		</p>
+		<p>
+			<img border="0" src="pics/import6.png"/>
+		</p>
+		<p>Un message avertit l&#8217;utilisateur que l&#8217;import a été correctement réalisé.</p>
+		<p>
+			<img border="0" src="pics/import7.png"/>
+		</p>
+		<h3 id="Rsultatdelimport">Résultat de l&#8217;import</h3>
+		<p>Les modèles du projet MOA sont importés dans un répertoire 
+			<em>analysis</em> (modèles Graal, Requirement et Entity).
+			<br/>Les diagrammes sont également importés et les points de vue correspondant sont automatiquement activés sur le projet MOE.
+		</p>
+		<p>
+			<img border="0" src="pics/import8.png"/>
+		</p>
+		<h3 id="Importssuivants">Imports suivants</h3>
+		<p>Les imports suivants peuvent être lancés de la même manière.</p>
+		<p>Pour que l&#8217;import s&#8217;exécute, le projet MOE doit être sauvegardé et toutes les représentations (diagrammes, tableaux et arbres) doivent être fermées. Si ce n&#8217;est pas le cas, un message avertit l&#8217;utilisateur que le projet MOE va être sauvegardé et les éditeurs fermés.</p>
+		<p>
+			<img border="0" src="pics/import9.png"/>
+		</p>
+		<p>Les modèles provenant du projet MOA ne doivent pas être modifiés par l'équipe MOE. La seule exception concerne les exigences qu&#8217;il est possible d&#8217;associer à des éléments de l'équipe MOE. Ces liens ajoutés seront conservés au prochain import. Dans le cas où des éléments des modèles MOE référencent des éléments des modèles MOA une boîte de dialogue affiche les références concernées, ces références seront supprimées au moment de l&#8217;import. L&#8217;utilisateur peut encore annuler l&#8217;import à ce moment.</p>
+		<p>
+			<img border="0" src="pics/import10.png"/>
+		</p>
+	</body>
+</html>

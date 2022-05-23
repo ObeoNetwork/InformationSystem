@@ -1,0 +1,93 @@
+<?xml version='1.0' encoding='utf-8' ?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+	</head>
+	<body>
+		<p>
+			<i>Copyright &#169; 2008, 2022 Obeo -  All rights reserved. This program and the accompanying materials are made available under the terms of the Eclipse Public License v1.0</i>
+		</p>
+		<p>
+			<code>Authors</code> Stéphane Thibaudeau
+			<br/>
+			<code>Contact</code> stephane.thibaudeau@obeo.fr
+		</p>
+		<h1 id="ISDDiagrammesdemachinetats">ISD &#8211; Diagrammes de machine à états</h1>
+		<p>Les diagrammes StateMachine permettent de définir des machines à état sur quasiment la totalité des éléments définis dans Information System, à l&#8217;exception notable du métamodèle Database.</p>
+		<p>Les diagrammes de machines à états manipulent des concepts très proches des diagrammes StateMachine définis par UML.</p>
+		<p>
+			<img style="width:100%" border="0" src="pics/statemachine.png"/>
+		</p>
+		<h2 id="Crationdundiagrammedemachinetat">Création d&#8217;un diagramme de machine à état</h2>
+		<p>Pour pouvoir créer un diagramme de machine à état il faut activer le point de vue 
+			<em>State Machine</em> sur le projet via le menu contextuel 
+			<em>Viewpoints Selection</em> sur le projet ou sur le fichier 
+			<em>aird</em>.
+		</p>
+		<p>Une fois le point de vue activé, une entrée 
+			<em>New state machine</em> est ajoutée au menu contextuel des éléments pour lesquels un diagramme de machine à états peut être créé.
+		</p>
+		<p>
+			<img border="0" src="pics/CreationMenu.png"/>
+		</p>
+		<p>Un object 
+			<em>State Machine</em> et un diagramme de machine à états sont alors créés et visibles sous l&#8217;objet sélectionné.
+			<br/>Il est possible de créer autant de diagrammes de machines à états que voulu pour un même objet.
+		</p>
+		<p>
+			<img border="0" src="pics/DiagramInExplorer.png"/>
+		</p>
+		<h2 id="Elmentsaffichsetpalettedoutils">Eléments affichés et palette d&#8217;outils</h2>
+		<p>Les éléments suivants sont affichés sur le diagramme :</p>
+		<ul>
+			<li>
+				<em>Initial State</em> : point de départ de la machine à états.
+			</li>
+			<li>
+				<em>Final State</em> : point final de la machine à états.
+			</li>
+			<li>
+				<em>State</em> : état de la machine.
+			</li>
+			<li>
+				<em>Transition</em> : transition d&#8217;un état à un autre, associée à une condition.
+			</li>
+			<li>
+				<em>Region</em> : regroupements logiques d'états.
+			</li>
+		</ul>
+		<p>Les outils fournis par la palette sont :</p>
+		<table>
+			<tr>
+				<td>
+					<img border="0" src="pics/tools/InitialState.png"/>
+				</td>
+				<td>Création d&#8217;un état initial.</td>
+			</tr>
+			<tr>
+				<td>
+					<img border="0" src="pics/tools/FinalState.png"/>
+				</td>
+				<td>Création d&#8217;un état final.</td>
+			</tr>
+			<tr>
+				<td>
+					<img border="0" src="pics/tools/Transition.png"/>
+				</td>
+				<td>Création d&#8217;une transition entre deux états.</td>
+			</tr>
+			<tr>
+				<td>
+					<img border="0" src="pics/tools/Region.png"/>
+				</td>
+				<td>Création d&#8217;une région.</td>
+			</tr>
+			<tr>
+				<td>
+					<img border="0" src="pics/tools/State.png"/>
+				</td>
+				<td>Création d&#8217;un état.</td>
+			</tr>
+		</table>
+	</body>
+</html>

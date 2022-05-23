@@ -1,0 +1,1106 @@
+<?xml version='1.0' encoding='utf-8' ?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+	</head>
+	<body>
+		<p>
+			<i>Copyright &#169; 2008, 2022 Obeo -  All rights reserved. This program and the accompanying materials are made available under the terms of the Eclipse Public License v1.0</i>
+		</p>
+		<p>
+			<code>Authors</code> Stéphane Thibaudeau, Vincent Richard
+			<br/>
+			<code>Contacts</code> stephane.thibaudeau@obeo.fr, vincent.richard@obeo.fr
+		</p>
+		<h1 id="ISDSOADesigner">ISD &#8211; SOA Designer</h1>
+		<p>
+			<strong>SOA Designer</strong> permet de modéliser des composants métiers, avec leurs services et les structure de données qu&#8217;ils manipulent (Data Transfer Objects).
+		</p>
+		<p>
+			<strong>SOA Designer</strong> apporte le point de vue 
+			<em>SOA Views</em> qui permet de :
+		</p>
+		<ul>
+			<li>Modéliser les composants et les liens entre eux,</li>
+			<li>Modéliser les contrats des composants (interfaces et services),</li>
+			<li>Modéliser les DTOs, leur structure et les relations entre eux,</li>
+			<li>Organiser les DTOs en packages,</li>
+			<li>Modéliser l&#8217;exposition REST des services et gérer le format Open API (Swagger).</li>
+		</ul>
+		<h2 id="CrationdunmodleSoa">Création d&#8217;un modèle Soa</h2>
+		<p>Un assistant permet la création de modèles SOA. Cet assistant est accessible via le menu :</p>
+		<blockquote>
+			<p>
+				<em>File &gt; New &gt; Other ... &gt; SOA Model (Catégorie IS Designer)</em> :
+			</p>
+		</blockquote>
+		<p>
+			<img border="0" src="pics/SOA_ModelCreationWizard_01.png"/>
+		</p>
+		<p>Cet assistant permet de définir </p>
+		<ul>
+			<li>le nom de la ressource (fichier) à créer,</li>
+			<li>le projet ou répertoire de destination pour cette nouvelle ressource :</li>
+		</ul>
+		<p>
+			<img border="0" src="pics/SOA_ModelCreationWizard_02.png"/>
+		</p>
+		<p>Une fois l&#8217;assistant validé, un modèle vide est créé, et les représentations 
+			<em>SOA Diagram</em>, 
+			<em>DTO Namespaces Hierarchy</em> et 
+			<em>DTO Physical Names</em> sont créées.
+			<br/>Les représentations 
+			<em>SOA Diagram</em> et 
+			<em>DTO Namespaces Hierarchy</em> sont ouvertes afin de commencer l'édition :
+		</p>
+		<p>
+			<img style="width:100%" border="0" src="pics/SOA_ModelCreationWizardResult_01.png"/>
+		</p>
+		<p>Lorsqu&#8217;un modèle soa est créé à l&#8217;aide de ce wizard, les points de vues 
+			<em>SOA Views</em>, 
+			<em>SOA (Safr@n Consolidated view)</em> et 
+			<em>Environment View</em> sont activés.
+		</p>
+		<ul>
+			<li>Le point de vue 
+				<em>SOA Views</em> est décrit dans la section suivante,
+			</li>
+			<li>Le point de vue 
+				<em>SOA (Safr@n Consolidated view)</em> est décrit dans la section de documentation 
+				<a href="../../fr.gouv.mindef.safran.is.design.doc/doc/Obeo%20Network%20-%20SOA%20(Safr@n%20consolidated%20view).html">Obeo Network – SOA (Safr@n consolidated view)</a>,
+			</li>
+			<li>Le point de vue 
+				<em>Environment Views</em> fournit les vues de propriétés EEF communes avec d&#8217;autres designers tel que pour le 
+				<em>Namespace</em> par exemple.
+			</li>
+		</ul>
+		<h2 id="PointdevueSOAViews">Point de vue 
+			<em>SOA Views</em>
+		</h2>
+		<p>Le point de vue 
+			<em>SOA Views</em> fourni par SOA Designer est dédié à la modélisation des composants métier. Il permet de visualiser et modifier un modèle SOA au travers de différents types de diagrammes et vues de propriétés.
+		</p>
+		<h3 id="OuverturedunesessionetactivationdupointdevueSOAViews">Ouverture d&#8217;une session et activation du point de vue 
+			<em>SOA Views</em>
+		</h3>
+		<p>L&#8217;ouverture d&#8217;une session de travail sur un modèle SOA se fait par l&#8217;une des manières classiques à un 
+			<em>Modeling Project</em> :
+		</p>
+		<ul>
+			<li>En ouvrant le 
+				<em>Modeling Project</em> contenant le modèle,
+			</li>
+			<li>En double-cliquant sur un fichier 
+				<em>*.aird</em> existant,
+			</li>
+			<li>En faisant un glisser/déposer d&#8217;un fichier 
+				<em>*.soa</em> dans un 
+				<em>Modeling Project</em> sur la vue 
+				<em>Model Explorer</em>,
+			</li>
+			<li>En convertissant un projet contenant le modèle SOA en un 
+				<em>Modeling Project</em>.
+			</li>
+		</ul>
+		<p>L&#8217;ouverture de l&#8217;assistant 
+			<em>Viewpoints Selection</em> permet de vérifier que le point de vue 
+			<em>SOA Views</em> est bien activé.
+			<br/>Cet assistant est accessible dans le menu contextuel du 
+			<em>Modeling Project</em> sous l&#8217;entrée de menu :  
+		</p>
+		<blockquote>
+			<p>
+				<em>Viewpoint Selection</em>
+			</p>
+		</blockquote>
+		<p>
+			<img border="0" src="pics/SOA_ViewpointSelection.png"/>
+		</p>
+		<p>Une fois le point de vue 
+			<em>SOA Views</em> activé il est possible de créer ou visualiser les diagrammes SOA Views.
+		</p>
+		<h3 id="Crationouverturedediagrammes">Création/ouverture de diagrammes</h3>
+		<p>Chaque type de diagramme est rattaché à un concept SOA précis. Par exemple, un 
+			<em>DTO Diagram</em> est rattaché à un 
+			<em>Namespace</em>. 
+		</p>
+		<p>Pour créer un diagramme d&#8217;un certain type, sélectionner l'élément du modèle auquel rattacher le diagramme dans la vue 
+			<em>Model Explorer</em> puis, avec un clic droit, sélectionner le menu :
+		</p>
+		<blockquote>
+			<p>
+				<em>New... &gt; #Nom du diagramme#</em>
+			</p>
+		</blockquote>
+		<p>Renseigner le nom du diagramme et valider.</p>
+		<p>Par exemple sur l'élément racine 
+			<em>Components</em>, deux types de représentation peuvent être créés comme le montre la capture d'écran suivante :
+		</p>
+		<p>
+			<img border="0" src="pics/SOA_Components_NewRepresentation.png"/>
+		</p>
+		<p>Une fois créé, le diagramme apparaît dans l&#8217;arbre de la vue 
+			<em>Model Explorer</em> sous l'élément sur lequel il a été créé, et l'éditeur de diagramme est ouvert prêt à modéliser.
+		</p>
+		<p>Si il est fermé, un diagramme peut être ouvert en double-cliquant sur le noeud correspondant dans la vue 
+			<em>Model Explorer</em>.
+		</p>
+		<p>Attention, bien qu&#8217;ils continuent d&#8217;exister et qu&#8217;ils soient bien sauvegardés, les diagrammes des points de vues non activés sont filtrés de la vue 
+			<em>Model Explorer</em>. Celle-ci ne présente que les diagrammes des points de vue activés sur le 
+			<em>Modeling Project</em>.
+		</p>
+		<h3 id="SOADiagram">SOA Diagram</h3>
+		<p>Le 
+			<em>SOA Diagram</em> offre une vue de haut niveau sur un modèle SOA, il peut être créé sur l&#8217;objet racine 
+			<em>Components</em>.
+			<br/>Il permet de modéliser les composants métiers, les services qu&#8217;ils fournissent, les services qu&#8217;ils requièrent ainsi que des liens entre les composants. Ces liens créés entre services requis et services fournis expriment qu&#8217;un service fourni par un composant réponds à un besoin de service requis par un autre composant.
+		</p>
+		<p>
+			<img style="width:100%" border="0" src="pics/soa/SOA_Diagram.png"/>
+		</p>
+		<h4 id="Elmentsaffichsetpalettedoutils">Eléments affichés et palette d&#8217;outils</h4>
+		<p>Le diagramme permet d&#8217;afficher et manipuler les éléments suivants :</p>
+		<ul>
+			<li>
+				<em>Component</em> : composant métier,
+			</li>
+			<li>
+				<em>Provided Service</em> : service métier fourni par un composant,
+			</li>
+			<li>
+				<em>Required Service</em> : service métier dont un composant a besoin pour fonctionner,
+			</li>
+			<li>Les liens entre services fournis et services requis.</li>
+		</ul>
+		<p>Les outils fournis par la palette sont :</p>
+		<table>
+			<tr>
+				<td>
+					<img border="0" src="pics/soa/Palette_CreateComponent.png"/>
+				</td>
+				<td>Création d&#8217;un composant métier.</td>
+			</tr>
+			<tr>
+				<td>
+					<img border="0" src="pics/soa/Palette_CreateProvided.png"/>
+				</td>
+				<td>Création d&#8217;un service métier fourni par un composant.</td>
+			</tr>
+			<tr>
+				<td>
+					<img border="0" src="pics/soa/Palette_CreateRequired.png"/>
+				</td>
+				<td>Création d&#8217;un service métier requis par un composant.</td>
+			</tr>
+			<tr>
+				<td>
+					<img border="0" src="pics/soa/Palette_CreateWire.png"/>
+				</td>
+				<td>Création d&#8217;un lien depuis un service requis vers un service fourni. Permet d&#8217;indiquer quel composant fournit les services nécessaires au fonctionnement d&#8217;un autre composant.</td>
+			</tr>
+			<tr>
+				<td>
+					<img border="0" src="pics/soa/Palette_CreateExternal.png"/>
+				</td>
+				<td>Ajout d&#8217;un composant externe sur le diagramme. Permet de faire apparaitre un composant défini dans un autre modèle SOA pour créer des relations avec les composants affichés. Cet outil est disponible par l&#8217;activation du calque 
+					<em>External Components</em>
+				</td>
+			</tr>
+		</table>
+		<h4 id="Navigationversdautresdiagrammes">Navigation vers d&#8217;autres diagrammes</h4>
+		<p>Il est possible de naviguer depuis ce diagramme vers un diagramme 
+			<em>Component Contract</em> (décrit ci-après) par l&#8217;une des actions suivantes :
+		</p>
+		<ul>
+			<li>Action 
+				<em>New &gt; Component Contract</em> du menu contextuel sur un Component : crée et ouvre un nouveau diagramme 
+				<em>Component Contract</em>,
+			</li>
+			<li>Action 
+				<em>Open &gt; #Nom d&#8217;un diagramme#</em> du menu contextuel sur un Component : ouvre un diagramme 
+				<em>Component Contract</em> existant,
+			</li>
+			<li>Double-clic sur un 
+				<em>Component</em> : ouvre le premier diagramme 
+				<em>Component Contract</em> trouvé si il existe, propose la création d&#8217;un diagramme 
+				<em>Component Contract</em> sinon.
+			</li>
+		</ul>
+		<h3 id="ComponentContractDiagram">Component Contract Diagram</h3>
+		<p>Le 
+			<em>Component Contract Diagram</em> permet de modéliser le détail d&#8217;un 
+			<em>Component</em>, il peut être créé sur un 
+			<em>Component</em>.
+		</p>
+		<p>Il permet de modéliser :</p>
+		<ul>
+			<li>les services métiers fournis et requis par le composant,</li>
+			<li>les opérations définies par les services,</li>
+			<li>les paramètres d&#8217;entrée, de sortie et d&#8217;erreur des services.</li>
+		</ul>
+		<p>
+			<img style="width:100%" border="0" src="pics/contract/ComponentContract_Diagram.png"/>
+		</p>
+		<h4 id="Elmentsaffichsetpalettedoutils2">Eléments affichés et palette d&#8217;outils</h4>
+		<p>Le diagramme permet d&#8217;afficher et manipuler les éléments suivants :</p>
+		<ul>
+			<li>
+				<em>Provided Service</em> : service métier fourni par le composant,
+			</li>
+			<li>
+				<em>Required Service</em> : service métier dont le composant a besoin pour fonctionner,
+			</li>
+			<li>
+				<em>Operation</em> : opération d&#8217;un service,
+			</li>
+			<li>
+				<em>Input Parameter</em> : paramètre d&#8217;entrée d&#8217;une opération
+			</li>
+			<li>
+				<em>Output Parameter</em> : paramètre de sortie d&#8217;une opération
+			</li>
+			<li>
+				<em>Fault Parameter</em> : cas d&#8217;erreur pour une opération
+			</li>
+		</ul>
+		<p>Les outils fournis par la palette sont :</p>
+		<table>
+			<tr>
+				<td>
+					<img border="0" src="pics/contract/Palette_CreateProvided.png"/>
+				</td>
+				<td>Création d&#8217;un service métier fourni par un composant.</td>
+			</tr>
+			<tr>
+				<td>
+					<img border="0" src="pics/contract/Palette_CreateRequired.png"/>
+				</td>
+				<td>Création d&#8217;un service métier requis par un composant.</td>
+			</tr>
+			<tr>
+				<td>
+					<img border="0" src="pics/contract/Palette_CreateOperation.png"/>
+				</td>
+				<td>Création d&#8217;une opération d&#8217;un service.</td>
+			</tr>
+			<tr>
+				<td>
+					<img border="0" src="pics/contract/Palette_CreateInput.png"/>
+				</td>
+				<td>Création d&#8217;un paramètre d&#8217;entrée d&#8217;une opération.</td>
+			</tr>
+			<tr>
+				<td>
+					<img border="0" src="pics/contract/Palette_CreateOutput.png"/>
+				</td>
+				<td>Création d&#8217;un paramètre de sortie d&#8217;une opération.</td>
+			</tr>
+			<tr>
+				<td>
+					<img border="0" src="pics/contract/Palette_CreateFault.png"/>
+				</td>
+				<td>Création d&#8217;un cas d&#8217;erreur d&#8217;une opération.</td>
+			</tr>
+		</table>
+		<h4 id="Calques">Calques</h4>
+		<p>Les calques sont activables dans la barre d&#8217;outils du diagramme par le menu déroulant 
+			<img border="0" src="pics/etool16/layers_DropDown.png"/>.
+		</p>
+		<p>Le 
+			<em>Component Contract Diagram</em> fournit le calque 
+			<em>Meta Types</em> qui ajoute l&#8217;information du méta-type (le type du type) de l&#8217;attribut dans le libellé des paramètres (pour les cas autres que les types primitifs).
+			<br/>Ceci permet de dissiper la confusion qui peut arriver entre un 
+			<em>DTO</em> et un 
+			<em>Entity</em> portant le même nom.
+			<br/>Ici, 
+			<em>DTO</em> est ajouté dans la constitution du libellé du paramètre &#171;books&#187; :
+		</p>
+		<p>
+			<img border="0" src="pics/contract/ComponentContract_MetaType_Layer.png"/>
+		</p>
+		<h3 id="DTONamespacesHierarchypourlobjetracineComponents">DTO Namespaces Hierarchy (pour l&#8217;objet racine 
+			<em>Components</em>)
+		</h3>
+		<p>Les 
+			<em>DTO</em> sont organisés en 
+			<em>Namespaces</em> (autrement appelés packages).
+		</p>
+		<p>Le diagramme 
+			<em>DTO Namespaces Hierarchy</em> est destiné à gérer l&#8217;ensemble de cette hierarchie de 
+			<em>Namespaces</em> et peut être créé sur l&#8217;objet racine 
+			<em>Components</em>.
+		</p>
+		<p>Il permet de créer, modifier ou supprimer des packages ainsi que d&#8217;accéder facilement (par double clic ou menu contextuel sur les 
+			<em>Namespaces</em>) aux diagrammes de DTOs d&#8217;un package.
+		</p>
+		<p>
+			<img style="width:100%" border="0" src="pics/hierarchy/namespaces_hierarchy.png"/>
+		</p>
+		<h4 id="Elmentsaffichsetpalettedoutils3">Eléments affichés et palette d&#8217;outils</h4>
+		<p>Le diagramme permet d’afficher et manipuler les éléments suivants :</p>
+		<ul>
+			<li>
+				<em>Namespace</em> : chaque 
+				<em>Namespace</em> contenu dans l'élément racine est affiché. Les 
+				<em>Namespaces</em> contenus par d&#8217;autres sont représentés à l&#8217;intérieur de leur 
+				<em>Namespace</em> parent. L&#8217;icône d&#8217;un 
+				<em>Namespace</em> est en noir et blanc si le 
+				<em>Namespace</em> est vide, en couleur sinon.
+			</li>
+			<li>
+				<em>Dépendance</em> : l&#8217;affichage des dépendances peut être activé ou désactivé via le layer 
+				<em>Dependencies</em>. Les dépendances entre 
+				<em>Namespaces</em> sont représentées par des liens pouvant être fléchés à une ou deux extrémités. Les dépendances sont calculées à partir du contenu de chacun des 
+				<em>Namespace</em>. Une dépendance est identifiée entre deux 
+				<em>Namespaces</em> si il existe un lien d&#8217;héritage, une référence ou l&#8217;utilisation d&#8217;une 
+				<em>Enumeration</em> pour typer un attribut entre un 
+				<em>DTO</em> d&#8217;un 
+				<em>Namespace</em> et un autre. Si il est non nul, le nombre de dépendances identifiées est indiqué sur l&#8217;extrémité du lien correspondant, et cette extrémité est décoré d&#8217;une flèche. Les dépendances entre les packages d&#8217;une même lignée de contenance ne sont pas affichées. L&#8217;affichage des dépendances peut être activé ou désactivé via le layer 
+				<em>Dependencies</em>. Les namespaces dits &#171;externes&#187; sont également affichés dans ce layer. Un namespace externe est un namespace contenant une entité externe liée à une entité présente dans un namespace affiché par le diagramme (voir 
+				<em>External DTO</em> dans la section 
+				<em>Diagramme de DTOs</em> ci-après).
+			</li>
+		</ul>
+		<p>
+			<img style="width:100%" border="0" src="pics/hierarchy/namespaces_hierarchy_dependencies.png"/>
+		</p>
+		<p>Les outils fournis par la palette sont :</p>
+		<table>
+			<tr>
+				<td>
+					<img border="0" src="pics/hierarchy/Palette_CreateNamespace.png"/>
+				</td>
+				<td>Création d&#8217;un 
+					<em>Namespace</em>. Un 
+					<em>Namespace</em> peut être créé sur le fond du diagramme ou à l&#8217;intérieur d&#8217;un autre 
+					<em>Namespace</em>.
+				</td>
+			</tr>
+		</table>
+		<h4 id="Navigationversdautresdiagrammes2">Navigation vers d&#8217;autres diagrammes</h4>
+		<p>Il est possible de naviguer depuis ce diagramme vers des diagrammes 
+			<em>DTO Diagram</em> par l&#8217;une des actions suivantes :
+		</p>
+		<ul>
+			<li>Action 
+				<em>New &gt; DTO Diagram</em> du menu contextuel sur un 
+				<em>Namespace</em> : crée et ouvre un nouveau 
+				<em>DTO Diagram</em>,
+			</li>
+			<li>Action 
+				<em>Open &gt; #Nom d’un diagramme#</em> du menu contextuel sur un 
+				<em>Namespace</em> : ouvre un 
+				<em>DTO Diagram</em> existant,
+			</li>
+			<li>Double-clic sur un 
+				<em>Namespace</em> : ouvre le premier 
+				<em>DTO Diagram</em> trouvé si il existe, propose la création d’un 
+				<em>DTO Diagram</em> sinon.
+			</li>
+		</ul>
+		<h3 id="DiagrammedeDTOs">Diagramme de DTOs</h3>
+		<p>Un diagramme de DTOs (
+			<em>DTO Diagram</em>) permet de gérer les 
+			<em>DTOs</em> d&#8217;un 
+			<em>Namespace</em>, il peut être créé sur un 
+			<em>Namespace</em>.
+		</p>
+		<p>
+			<img style="width:100%" border="0" src="pics/dto/DTO_Diagram.png"/>
+		</p>
+		<h4 id="Elmentsaffichsetpalettedoutils4">Eléments affichés et palette d&#8217;outils</h4>
+		<p>Le diagramme permet d’afficher et manipuler les éléments suivants :</p>
+		<ul>
+			<li>
+				<em>DTO</em> : Data Transfer Object, type de donnée destiné à être utilisé par les services, il es représenté par un conteneur rectangulaire.
+			</li>
+			<li>
+				<em>Attribute</em> : attribut d&#8217;un DTO, un attribut porte notamment un type et une multiplicité. Le type qu&#8217;il porte peut être un type primitif ou une enumération (et non pas un autre DTO). Il est représenté comme élément de liste à l&#8217;intérieur de la représentation d&#8217;un 
+				<em>DTO</em>.
+			</li>
+			<li>
+				<em>Relation</em> : relation entre deux DTOs. Permet de structurer le modèle de données représenté par les DTO. Les types de relations supportées sont relation unidirectionelle, bidirectionelle, de composition. Une relation est représentée par un lien pouvant être décoré d&#8217;une flèche ouverte dans le cas d&#8217;une relation directionelle, et d&#8217;un losange dans le cas d&#8217;une relation de composition.
+			</li>
+			<li>
+				<em>Inheritance</em> : relation de spécialisation d&#8217;un DTO par un autre. Une relation de spécialisation est représentée par un lien décoré d&#8217;une flèche fermée pointant vers le DTO spécialisé. Une seule relation de spécialisation peut être définie par DTO.
+			</li>
+			<li>
+				<em>Enumeration</em> : Type de donnée pouvant servir au typage d&#8217;un attribut ou d&#8217;un paramètre de service. Une 
+				<em>Enumeration</em> prends sa valeur dans un ensemble fini de literaux qui lui sont propres. Une 
+				<em>Enumeration</em> est représentée par un conteneur rectangulaire.
+			</li>
+			<li>
+				<em>Literal</em> : 
+				<em>Literal</em> d&#8217;une 
+				<em>Enumeration</em>. Il fait partie de la définition de l'
+				<em>Enumeration</em> et représente l&#8217;une des valeurs que peut prendre l'
+				<em>Enumeration</em>. Un 
+				<em>Literal</em> est représenté comme élément de liste à l&#8217;intérieur de la représentation d&#8217;une 
+				<em>Enumeration</em>.
+			</li>
+			<li>
+				<em>Namespace</em> : 
+				<em>Namespaces</em> contenus directement dans le 
+				<em>Namespace</em> contextuel au 
+				<em>DTO Diagram</em>. 
+			</li>
+		</ul>
+		<p>Les outils fournis par la palette sont :</p>
+		<table>
+			<tr>
+				<td>
+					<img border="0" src="pics/dto/Palette_CreateNamespace.png"/>
+				</td>
+				<td>Création d&#8217;un sous-_Namespace_.</td>
+			</tr>
+			<tr>
+				<td>
+					<img border="0" src="pics/dto/Palette_CreateDTO.png"/>
+				</td>
+				<td>Création d&#8217;un DTO.</td>
+			</tr>
+			<tr>
+				<td>
+					<img border="0" src="pics/dto/Palette_CreateDTOFromEntity.png"/>
+				</td>
+				<td>Création de 
+					<em>DTOs</em> à partir d&#8217;entités (cf. description ci-dessous).
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<img border="0" src="pics/dto/Palette_CreateAttribute.png"/>
+				</td>
+				<td>Création d&#8217;un attribut de DTO.</td>
+			</tr>
+			<tr>
+				<td>
+					<img border="0" src="pics/dto/Palette_CreateEnumeration.png"/>
+				</td>
+				<td>Création d&#8217;une énumération.</td>
+			</tr>
+			<tr>
+				<td>
+					<img border="0" src="pics/dto/Palette_CreateLiteral.png"/>
+				</td>
+				<td>Création d&#8217;une valeur d'énumération.</td>
+			</tr>
+			<tr>
+				<td>
+					<img border="0" src="pics/dto/Palette_CreateRelation.png"/>
+				</td>
+				<td>Création d&#8217;une relation simple.</td>
+			</tr>
+			<tr>
+				<td>
+					<img border="0" src="pics/dto/Palette_CreateComposition.png"/>
+				</td>
+				<td>Création d&#8217;une relation de composition.</td>
+			</tr>
+			<tr>
+				<td>
+					<img border="0" src="pics/dto/Palette_CreateInheritance.png"/>
+				</td>
+				<td>Création d&#8217;un lien d&#8217;héritage.</td>
+			</tr>
+			<tr>
+				<td>
+					<img border="0" src="pics/dto/Palette_CreateBidirectionalRelation.png"/>
+				</td>
+				<td>Création d&#8217;une relation simple bidirectionnelle.</td>
+			</tr>
+			<tr>
+				<td>
+					<img border="0" src="pics/dto/Palette_CreateBidirectionalComposition.png"/>
+				</td>
+				<td>Création d&#8217;une relation de contenance bidirectionnelle.</td>
+			</tr>
+			<tr>
+				<td>
+					<img border="0" src="pics/dto/Palette_CreateExternalDTO.png"/>
+				</td>
+				<td>Ajout d&#8217;un DTO externe au 
+					<em>Namespace</em> courant. Permet de faire figurer sur le 
+					<em>DTO Diagram</em> un DTO défini dans un autre 
+					<em>Namespace</em>, donnant la possibilité de créer des relations inter-_Namsepace_. Cet outil est activable via le calque 
+					<em>External DTOs</em>
+				</td>
+			</tr>
+		</table>
+		<p>L&#8217;outil de création de 
+			<em>DTOs</em> à partir d&#8217;entités permet de créer un modèle de 
+			<em>DTO</em> conformément à tout ou partie d&#8217;un modèle d&#8217;entités (voir 
+			<a href="../../org.obeonetwork.dsl.entity.doc/doc/Obeo%20Network%20-%20Entity%20Designer.html">Obeo Network &#8211; Entity Designer</a> ).
+		</p>
+		<p>Cet outil affiche la boîte de dialogue suivante permettant la sélection des entités et relations à prendre en compte :</p>
+		<p>
+			<img style="width:50%" border="0" src="pics/dto/Palette_CreateExternalDTO_Dialog.png"/>
+		</p>
+		<p>La validation de cette sélection déclenche la création d&#8217;autant de 
+			<em>DTO</em> et de 
+			<em>Relations</em> qui avaient été sélectionnés.
+		</p>
+		<p>En plus des outils définis par la palette, l&#8217;outil de drag and drop permet de déplacer un DTO d&#8217;un namespace à un autre.</p>
+		<p>Le drag and drop depuis le 
+			<em>Model Explorer</em> d&#8217;un 
+			<em>DTO</em> d&#8217;un autre 
+			<em>Namespace</em> que le 
+			<em>Namespace</em> sur lequel est défini le 
+			<em>DTO Diagram</em> a pour effet de déplacer le 
+			<em>DTO</em> depuis son 
+			<em>Namespace</em> d&#8217;origine dans le namespace du diagramme.
+			<br/>Le 
+			<em>DTO</em> ainsi déplacé reste référencé là où il l'était, comme par exemple en type de paramètre d&#8217;une opération SOA ou en référence sur une 
+			<em>Relation</em>. Si le calque 
+			<em>External DTOs</em> est activé, alors les 
+			<em>DTO</em> externes figurent sur le diagramme avec une couleur différente et un label représentant leur nom qualifié :
+		</p>
+		<p>
+			<img style="width:100%" border="0" src="pics/dto/DTO_Diagram_ExternalDTOs.png"/>
+		</p>
+		<h2 id="ExpositiondesservicesetmodlisationdAPIRest">Exposition des services et modélisation d&#8217;API Rest</h2>
+		<p>L&#8217;exposition d&#8217;un composant consiste à publier tout ou partie des services qu&#8217;il fournit de manière à les rendre accessibles à des clients (autres composants ou systèmes, et potentiellement au travers d&#8217;un réseau).</p>
+		<p>L&#8217;ensemble des services exposés d&#8217;un composant constitue son API (Application Programming Interface).</p>
+		<h3 id="exposition_type">Types d&#8217;exposition</h3>
+		<p>Dans 
+			<em>SOA Designer</em>, le type d&#8217;exposition est paramétrable au niveau d&#8217;une 
+			<em>Operation</em>, sur l&#8217;onglet principal de la vue de propriétés :
+		</p>
+		<p>
+			<img border="0" src="pics/exposition/Properties_Operation_Operation_Tab.png"/>
+		</p>
+		<p>La notion de visibilité (
+			<em>Public/Privé</em>) fait référence à la notion du même nom définie par les langages orientés objet et concernant les méthodes de classes. Ainsi, une 
+			<em>Operation</em> publique sera accessible depuis les implémentations des autres 
+			<em>Operations</em> du 
+			<em>Composant</em> ou bien depuis un autre composant destiné à être déployé dans la même application, mais il ne sera pas accessible depuis un autre système.
+		</p>
+		<p>La notion de pagination (
+			<em>Paged</em>) indique lorsque les résultats retournés par l&#8217;opération sont paginés. Lorsque l&#8217;operation est paginée, il est possible d&#8217;indiquer quels paramètres définissent l&#8217;index de la page (
+			<em>Page</em>), et le nombre de résultats par page (
+			<em>Size</em>). 
+		</p>
+		<p>La notion d&#8217;exposition fait référence à la publication par une technologie permettant de la rendre accessible depuis un autre système, et çe typiquement au travers d&#8217;un réseau. C&#8217;est ce qu&#8217;adresse par exemple de manière non exaustive les technologies REST, SOAP ou gRPC. Ainsi, pour être exposée, une opération doit avoir une visibilité 
+			<em>Publique</em>.
+		</p>
+		<p>
+			<em>SOA Designer</em> propose les types d&#8217;exposition suivants :
+		</p>
+		<ul>
+			<li>
+				<em>NONE</em> : Non exposée,
+			</li>
+			<li>
+				<em>REST</em> : Exposée en web service par Representational State Transfer
+			</li>
+			<li>
+				<em>SOAP</em> : Exposée en web service par Simple Object Access Protocol
+			</li>
+		</ul>
+		<p>Le type d&#8217;exposition couvert par 
+			<em>SOA Designer</em> est 
+			<em>REST</em>. Le type d&#8217;exposition 
+			<em>SOAP</em> n&#8217;est disponible dans le studio qu'à titre indicatif, aucun outillage spécifique n&#8217;ayant été développé pour l&#8217;exploiter.
+		</p>
+		<p>L&#8217;icone des 
+			<em>Operations</em> diffère suivant le type d&#8217;exposition :
+		</p>
+		<table>
+			<tr>
+				<td>
+					<img border="0" src="pics/exposition/Icon_Operation.gif"/>
+				</td>
+				<td>Privée</td>
+				<td>(type d&#8217;exposition ignoré)</td>
+			</tr>
+			<tr>
+				<td>
+					<img border="0" src="pics/exposition/Icon_OperationPublic.gif"/>
+				</td>
+				<td>NONE</td>
+				<td>(opération publique non exposée)</td>
+			</tr>
+			<tr>
+				<td>
+					<img border="0" src="pics/exposition/Icon_OperationRest.gif"/>
+				</td>
+				<td>REST</td>
+				<td>(opération publique exposée en REST)</td>
+			</tr>
+			<tr>
+				<td>
+					<img border="0" src="pics/exposition/Icon_OperationSoap.gif"/>
+				</td>
+				<td>SOAP</td>
+				<td>(opération publique exposée en SOAP)</td>
+			</tr>
+		</table>
+		<h3 id="ModlisationdAPIRest">Modélisation d&#8217;API Rest</h3>
+		<p>
+			<em>SOA Designer</em> permet de :
+		</p>
+		<ul>
+			<li>modéliser des 
+				<em>API Rest</em> via un modeleur graphique basé sur Sirius,
+			</li>
+			<li>exporter / importer ces API au format Swagger (conforme à la norme OpenAPI),</li>
+			<li>prévisualiser un export Swagger dans une vue web Swagger-UI.</li>
+		</ul>
+		<h4 id="TerminologieSOAvsterminologieREST">Terminologie 
+			<em>SOA</em> vs terminologie 
+			<em>REST</em>
+		</h4>
+		<p>La terminologie utilisée par 
+			<em>SOA Designer</em> provient du champ lexical de SOA (Service Oriented Architecture), dans lequel le concept de service est défini comme une fonction ou fonctionnalité. Cette définition est suffisament large pour autoriser un raffinement de la notion de 
+			<em>Service</em> en 
+			<em>Operations</em>, tel qu&#8217;il est fait dans 
+			<em>SOA Designer</em>.
+		</p>
+		<p>Or, cette notion d'
+			<em>Operation SOA</em> est celle qui se prête à être en correspondance avec la notion de 
+			<em>Service REST</em>.
+			<br/>Le concept de 
+			<em>Service SOA</em> quand à lui, est mis en correspondance avec le concept de 
+			<em>Tag</em> défini par la norme 
+			<em>OpenAPI</em>.
+			<br/>Enfin, le concept de 
+			<em>Component SOA</em> est mis en correspondance avec le concept d&#8217;API, ce qui est appelé de manière générique Composant d&#8217;Exposition.
+		</p>
+		<p>De manière synthétique, voici les correspondances clé entre les deux terminologies :</p>
+		<table>
+			<tr>
+				<td>
+					<strong>
+						<em>SOA Designer</em>
+					</strong>
+				</td>
+				<td>
+					<strong>
+						<em>OpenAPI</em>
+					</strong>
+				</td>
+			</tr>
+			<tr>
+				<td>Component</td>
+				<td>OpenAPI</td>
+			</tr>
+			<tr>
+				<td>Service</td>
+				<td>Tag</td>
+			</tr>
+			<tr>
+				<td>Operation</td>
+				<td>Service</td>
+			</tr>
+		</table>
+		<p>
+			<strong>La suite de ce document privilègie la terminologie SOA. Les exceptions à cette règle seront clairement explicitées.</strong>
+		</p>
+		<h4 id="ModlisationduneAPIRestOpenAPI">Modélisation d&#8217;une API Rest OpenAPI</h4>
+		<p>Le concept de 
+			<em>SOA Designer</em> correspondant à une API REST OpenAPI est le 
+			<em>Component</em>.
+		</p>
+		<p>Les données d&#8217;exposition sont accessibles via l&#8217;onglet 
+			<em>Exposition</em> de la vue des propriétés :
+		</p>
+		<p>
+			<img border="0" src="pics/exposition/Properties_Component_Exposition_Tab.png"/>
+		</p>
+		<p>Une 
+			<em>URI</em> peut être définie à chaque niveau de profondeur dans le modèle sur les concepts 
+			<em>Component</em>, 
+			<em>Service</em> et 
+			<em>Operation</em> :
+		</p>
+		<p>
+			<img border="0" src="pics/exposition/ModelExplorer_SOA_Hierarchy.png"/>
+		</p>
+		<p>L&#8217;URL d&#8217;une 
+			<em>Operation</em> peut donc être calculée par la concaténation de l&#8217;URL du 
+			<em>Component</em> et de chacune des URI sur les trois niveaux 
+			<em>Component</em>, 
+			<em>Service</em> et 
+			<em>Operation</em>.
+		</p>
+		<p>Des serveurs peuvent être définis au niveau du 
+			<em>Component</em>. Pour chaque serveur, l&#8217;URL correspondante doit être indiquée, et une description peut éventuellement être précisée. 
+		</p>
+		<p>Enfin, des informations générales sur l&#8217;API peuvent être définies dans la vue des propriétés:</p>
+		<p>
+			<img border="0" src="pics/exposition/Properties_Component_UserInfo.PNG"/>
+		</p>
+		<p>Les champs 
+			<em>Terms of Service</em> et 
+			<em>URL</em> attendent une entrée au format URL:
+		</p>
+		<p>Le champs 
+			<em>Email</em> requiert une adresse e-mail valide: lettres, chiffres et/ou charactères spéciaux, suivis d&#8217;un &#8249;@&#8250;, et terminant par un serveur eventuellement séparé avec des points. 
+			<br/>E.g., nom.prenom@intradef.gouv.fr ou contact@obeo.fr
+		</p>
+		<p>Les champs attendant une URL sont eux aussi vérifiés, et attendent une URL valide: commençant par http://, https://, ftp://, ou file://, et suivi de charactères (lettres, chiffres, symboles) terminant par une extension précédée d&#8217;un point &#8249;.&#8250;.</p>
+		<h4 id="ModlisationdunTagOpenAPI">Modélisation d&#8217;un Tag OpenAPI</h4>
+		<p>Le concept en correspondance avec le 
+			<em>Tag OpenAPI</em> est le concept 
+			<em>Service</em>.
+		</p>
+		<p>L&#8217;onglet principal du service permet d&#8217;en définir le nom, l&#8217;onglet 
+			<em>Exposition</em> permet d&#8217;en définir l&#8217;URI. Celle-ci peut rester vide.
+		</p>
+		<p>
+			<img border="0" src="pics/exposition/Properties_Service_Exposition_Tab.png"/>
+		</p>
+		<h4 id="ModlisationdunServiceOpenAPI">Modélisation d&#8217;un Service OpenAPI</h4>
+		<p>Le concept en correspondance avec le 
+			<em>Service OpenAPI</em> est le concept 
+			<em>Operation</em>. Lorsqu&#8217;un type d&#8217;exposition autre que 
+			<em>NONE</em> est sélectionné comme expliqué au paragraphe 
+			<a href="#exposition_type">Types d&#8217;exposition</a> , l&#8217;onglet 
+			<em>Exposition</em> devient visible et accessible :
+		</p>
+		<p>
+			<img border="0" src="pics/exposition/Properties_Operation_Exposition_Tab.png"/>
+		</p>
+		<p>Le verbe correspond au verbe HTTP et peut prendre l&#8217;une des valeurs : 
+			<em>GET</em>, 
+			<em>POST</em>, 
+			<em>PUT</em>, 
+			<em>DELETE</em>, 
+			<em>HEAD</em>, 
+			<em>OPTIONS</em>, 
+			<em>PATCH</em>, 
+			<em>TRACE</em>.
+		</p>
+		<p>Comme au niveau 
+			<em>Component</em>, il est possible de définir l&#8217;URI d&#8217;une 
+			<em>Operation</em> ainsi qu&#8217;une liste de serveurs.
+		</p>
+		<p>Dans le cas où l&#8217;opération définit des paramètres d&#8217;entrée, ceux-ci sont listés dans la section 
+			<em>Input Parameters</em>, qui offre la possibilité de définir le mode de passage et les identifiants REST de chacun d&#8217;eux. Ceci est expliqué plus en détail ci-dessous dans la section 
+			<a href="#input_parameter">Modélisation d&#8217;un paramètre d&#8217;entrée</a> .
+		</p>
+		<h4 id="parameter">Modélisation d&#8217;un paramètre</h4>
+		<p>Le contenu de l&#8217;onglet 
+			<em>Exposition</em> d&#8217;un paramètre n&#8217;est pas le même pour un paramètre d&#8217;entrée, de retour ou d&#8217;erreur.
+		</p>
+		<h5 id="input_parameter">Modélisation d&#8217;un paramètre d&#8217;entrée</h5>
+		<p>L&#8217;identifiant REST est un moyen pour identifier un paramètre autrement que par son nom, et a des particularités liées au mode de passage du paramètre.</p>
+		<p>Pour un mode de passage 
+			<em>BODY</em>, l&#8217;identifiant REST n&#8217;a pas de sens.
+			<br/>Lorsque le mode de passage 
+			<em>BODY</em> est sélectionné dans la liste déroulante, la vue de propriétés affiche à côté de celle-ci une zone de texte non modifiable affichant le texte &#171;body&#187; :
+		</p>
+		<p>
+			<img border="0" src="pics/exposition/Properties_InputParameter_Exposition_Tab_PassingMode_BODY.png"/>
+		</p>
+		<p>Pour un mode de passage 
+			<em>PATH</em>, l&#8217;identifiant REST doit correspondre à l&#8217;un des identifiants définis entre accolades dans l&#8217;URI de l'
+			<em>Operation</em>.
+			<br/>Lorsque le mode de passage 
+			<em>PATH</em> est sélectionné dans la liste déroulante, la vue de propriétés affiche à côté de celle-ci une autre liste déroulante proposant un choix déduit de l&#8217;analyse de l&#8217;URI de l'
+			<em>Operation</em>. Ainsi, si l&#8217;URI est &#171;/{country}/{author}&#187;, la liste déroulante proposera les deux choix &#171;country&#187; et &#171;author&#187; :
+		</p>
+		<p>
+			<img border="0" src="pics/exposition/Properties_InputParameter_Exposition_Tab_PassingMode_PATH.png"/>
+		</p>
+		<p>Suite à une édition de l&#8217;URI d&#8217;une 
+			<em>Operation</em>, il est possible que la valeur de l&#8217;identifiant REST d&#8217;un 
+			<em>Parametre</em> PATH ne soit pas dans l&#8217;URI. Dans ce cas un message d&#8217;erreur est affiché :
+		</p>
+		<p>
+			<img border="0" src="pics/exposition/Properties_InputParameter_Exposition_Tab_PassingMode_PATH_WithError.png"/>
+		</p>
+		<p>Pour un mode de passage 
+			<em>QUERY</em>, 
+			<em>COOKIE</em> ou 
+			<em>HEADER</em>, l&#8217;identifiant REST permet d&#8217;identifier le paramètre soit dans l&#8217;URL d&#8217;appel du service REST, soit dans le cookie, soit dans le header HTTP.
+			<br/>Lorsque l&#8217;un de ces modes de passage est sélectionné dans la liste déroulante, la vue de propriétés affiche à côté de celle-ci une zone de texte libre permettant la saisie de l&#8217;identifiant :
+		</p>
+		<p>
+			<img border="0" src="pics/exposition/Properties_InputParameter_Exposition_Tab_PassingMode_QUERY.png"/>
+		</p>
+		<h5 id="paginated_parameter">Modélisation d&#8217;un paramètre de pagination</h5>
+		<p>Lorsqu&#8217;une opération est définie comme étant paginée, des listes déroulantes apparaissent dans la vue des propriété de l&#8217;opération afin de spécifier les paramètres entrant pouvant être utilisés pour définir l&#8217;index de la page, ainsi que le nombre d'éléments par page.</p>
+		<p>
+			<img border="0" src="pics/exposition/Properties_Operation_Pagination.PNG"/>
+		</p>
+		<p>Dès lors qu&#8217;une opération est paginée, sa représentation dans le diagramme est décorée d&#8217;une icone supplémentaire:</p>
+		<p>
+			<img border="0" src="pics/exposition/Diagram_Operation_Decorated_Pagination.PNG"/>
+		</p>
+		<p>Enfin, dans le cas où l&#8217;operation est paginée, une extension de propriété peut-être définie afin d&#8217;indiquer lors de l&#8217;export OpenAPI si l&#8217;opération est paginée.</p>
+		<p>
+			<img border="0" src="pics/exposition/Properties_Operation_Pagination_Extension.PNG"/>
+		</p>
+		<h5 id="output_fault_parameter">Modélisation d&#8217;un paramètre de retour ou d&#8217;erreur</h5>
+		<p>L&#8217;onglet 
+			<em>Exposition</em> des vues de propriétés pour un paramètre de retour ou d&#8217;erreur présente la même IHM permettant de saisir un code de status et une description :
+		</p>
+		<p>
+			<img border="0" src="pics/exposition/Properties_OutputParameter_Exposition_Tab.png"/>
+		</p>
+		<p>Le bouton à droite de la zone de texte 
+			<em>Status Code</em> ouvre une boîte de dialogue permettant de saisir facilement parmi une liste de valeurs par défaut des couples code / description.
+		</p>
+		<p>Le dialogue propose les codes de succès dans le cas d&#8217;un paramètre de sortie, et des codes d&#8217;erreur dans le cas d&#8217;un paramètre d&#8217;erreur :</p>
+		<p>
+			<img border="0" src="pics/exposition/Dialog_SelectStatus_OutputParameter.png"/> 
+			<img border="0" src="pics/exposition/Dialog_SelectStatus_FaultParameter.png"/>
+		</p>
+		<h4 id="Modlisationdelascurit">Modélisation de la sécurité</h4>
+		<h5 id="Modlisationdesschmasdescurit">Modélisation des schémas de sécurité</h5>
+		<p>Les schemas de sécurité sont définis sur l&#8217;onglet 
+			<em>Security Schemes</em> de la vue de propriétés d&#8217;un 
+			<em>Component</em> :
+		</p>
+		<p>
+			<img border="0" src="pics/exposition/Properties_Component_SecuritySchemes_Tab.png"/>
+		</p>
+		<p>Cette vue permet de créer (
+			<img border="0" src="pics/etool16/add.gif"/>), supprimer (
+			<img border="0" src="pics/etool16/delete.gif"/>) et réordonner (
+			<img border="0" src="pics/etool16/up.gif"/>, 
+			<img border="0" src="pics/etool16/down.gif"/>) les 
+			<em>Security Schemes</em> du 
+			<em>Component</em>.
+		</p>
+		<p>La création d&#8217;un 
+			<em>Security Scheme</em> déclenche l&#8217;affichage d&#8217;une boîte de dialogue permettant de le spécifier.
+			<br/>Les données disponibles dans la boite du dialogue sont adaptées au type de  
+			<em>Security Scheme</em>:
+		</p>
+		<p>- 
+			<strong>Api Key:</strong>
+			<br/>
+			<img border="0" src="pics/securityschemes/Dialog_SecurityScheme_ApiKey.PNG"/>
+			<br/>Un 
+			<em>Security Scheme</em> de type Api key permet la définition d&#8217;une clé, ainsi que la spécification de sa localisation: dans le header, la requête, ou le cookie.
+		</p>
+		<p>- 
+			<strong>HTTP:</strong>
+			<br/>
+			<img border="0" src="pics/securityschemes/Dialog_SecurityScheme_HTTP.PNG"/>
+			<br/>Un 
+			<em>Security Scheme</em> de type HTTP défini un schéma d&#8217;authentification de type Basic, ou Bearer. 
+			<br/>Dans le cas d&#8217;un schéma d&#8217;authentification de type Basic, le server attendra un mot de passe de type username:password, encodé en base-64.
+			<br/>Dans le cas d&#8217;un schéma d&#8217;authentification de type Bearer, le bearer-format définit la manière dont le token est stocké.
+		</p>
+		<p>- 
+			<strong>OAuth2:</strong>
+			<br/>
+			<img border="0" src="pics/securityschemes/Dialog_SecurityScheme_OAuth2.PNG"/>
+		</p>
+		<p>- 
+			<strong>Open ID:</strong>
+			<br/>
+			<img border="0" src="pics/securityschemes/Dialog_SecurityScheme_OpenID.PNG"/>
+		</p>
+		<p>Les 
+			<em>Security Scheme</em> de type OAuth2 et Open ID requièrent la spécification de 
+			<em>Flows</em>, ainsi que leurs 
+			<em>Scopes</em> respectifs:
+			<br/>
+			<img border="0" src="pics/securityschemes/Dialog_Flow.PNG"/>
+		</p>
+		<p>Les 
+			<em>Flows</em> représentent des scénarios que le client effectue afin d&#8217;obtenir l&#8217;accès à un token d&#8217;authentification. 
+			<br/>Chaque flow propose des 
+			<em>Scopes</em>. Ces scopes définissent un droit d&#8217;accès (restreint) a une fonctionnalité prodiguée par le serveur. 
+		</p>
+		<p>L'édition des valeurs saisies est modifiable par la suite en double-cliquant sur un 
+			<em>SecurityScheme</em> dans cette même vue de propriétés, ou bien dans la vue de propriétés d&#8217;un 
+			<em>SecurityScheme</em> lorsque celui-ci est séléctionné dans la vue 
+			<em>Model Explorer</em> :
+		</p>
+		<p>
+			<img border="0" src="pics/exposition/Properties_SecurityScheme.png"/>
+		</p>
+		<p>Lorsqu&#8217;ils existent, les 
+			<em>SecuritySchemes</em> sont présentés dans la vue 
+			<em>Model Explorer</em> au niveau de profondeur suivant celui du 
+			<em>Component</em>.
+		</p>
+		<h5 id="Utilisationdesschmasdescurit">Utilisation des schémas de sécurité</h5>
+		<p>Lorsqu&#8217;il existe au moins une définition de 
+			<em>SecurityScheme</em> dans le 
+			<em>Component</em>, alors une section 
+			<em>Security</em> apparaît dans l&#8217;onglet 
+			<em>Exposition</em> de la vue des propriétés d&#8217;une 
+			<em>Operation</em> :
+		</p>
+		<p>
+			<img border="0" src="pics/exposition/Properties_Operation_Operation_Tab_Security.png"/>
+		</p>
+		<p>Cette vue permet de sélectionner les 
+			<em>SecuritySchemes</em> à appliquer à l'
+			<em>Operation</em> (
+			<img border="0" src="pics/etool16/edit.gif"/>), supprimer une affectation de 
+			<em>Security Scheme</em> à l'
+			<em>Operation</em> (
+			<img border="0" src="pics/etool16/delete.gif"/>) et réordonner (
+			<img border="0" src="pics/etool16/up.gif"/>, 
+			<img border="0" src="pics/etool16/down.gif"/>) les applications de 
+			<em>Security Schemes</em>.
+		</p>
+		<p>La suppression ne supprime pas le 
+			<em>Security Scheme</em> du modèle, mais simplement son affectation à l'
+			<em>Operation</em>.
+		</p>
+		<p>La sélection des 
+			<em>Security Schemes</em> ouvre une boîte de dialogue permettant d&#8217;ajouter, retirer, réordonner les affectations de 
+			<em>Security Schemes</em> à l'
+			<em>Operation</em> :
+		</p>
+		<p>
+			<img border="0" src="pics/exposition/Dialog_SecurityScheme_Selection.png"/>
+		</p>
+		<p>Les 
+			<em>Security Schemes</em> accessibles pour une affectation à une 
+			<em>Operation</em> sont ceux définis au niveau du 
+			<em>Component</em> auquel appartient l'
+			<em>Operation</em>.
+		</p>
+		<p>Quand au moins un 
+			<em>Security Scheme</em> est appliqué à une 
+			<em>Operation</em>, celle-ci est décorée avec l&#8217;icone 
+			<img border="0" src="pics/exposition/Icon_SecurityScheme.gif"/> :
+		</p>
+		<p>
+			<img border="0" src="pics/exposition/Diagram_Operation_Decorated_SecurityScheme.png"/>
+		</p>
+		<h4 id="Modlisationdesextensionsdeproprits">Modélisation des extensions de propriétés</h4>
+		<p>Bien que la spécification OpenAPI tente de tenir compte de la plupart des cas d’utilisation, des données supplémentaires peuvent être ajoutées pour étendre la spécification à certains moments.</p>
+		<p>Les propriétés des extensions sont implémentées sous forme de champs à motifs qui sont toujours préfixés par « x- », par exemple, x-internal-id.</p>
+		<p>Les éléments sur lequels il est possible d&#8217;ajouter des extensions de propriétés disposent d&#8217;un onglet supplémentaire &#171;Properties Extensions&#187; dans la vue Properties.</p>
+		<p>
+			<img border="0" src="pics/propertiesextension/properties_extensions_list.png"/>
+		</p>
+		<p>Cet onglet permet de lister les extensions de propriétés, d' ajouter, de modifier et de supprimer une extension de propriétés.</p>
+		<p>
+			<img border="0" src="pics/propertiesextension/properties_extension_edit.png"/>
+		</p>
+		<p>Ce dialogue est utilisé pour créer ou modifier une extension de propriété :
+			<br/>- le champ de saisie &#171;Key&#187; permet de saisir l&#8217;identifiant de l&#8217;extension de propriété. Le préfixe &#171;x-&#187; peut être omis il est alors automatiquement ajouté.
+			<br/>- le champ de saisie multilignes &#171;Value&#187; permet de renseigner la valeur de l&#8217;extension de propriétés sous forme d&#8217;une chaîne de caractères.
+			<br/>- la liste déroulante &#171;Context&#187; permet de choisir l'élément OpenApi/Swagger sur lequel sera attaché l&#8217;extension de propriétés lors de la génération.
+		</p>
+		<p>Les contextes possibles pour chaque type d'élément SOA sont présentés dans le tableau ci-dessous.</p>
+		<table>
+			<tr>
+				<th>Elément SOA</th>
+				<th>Contextes possibles</th>
+			</tr>
+			<tr>
+				<td>Composant</td>
+				<td>OpenAPI, Server, Paths</td>
+			</tr>
+			<tr>
+				<td>Contact</td>
+				<td>Contact</td>
+			</tr>
+			<tr>
+				<td>Information</td>
+				<td>Info</td>
+			</tr>
+			<tr>
+				<td>Licencee</td>
+				<td>License</td>
+			</tr>
+			<tr>
+				<td>Service</td>
+				<td>Tag</td>
+			</tr>
+			<tr>
+				<td>Type</td>
+				<td>Schema</td>
+			</tr>
+			<tr>
+				<td>Attribut</td>
+				<td>Schema</td>
+			</tr>
+			<tr>
+				<td>Référence</td>
+				<td>Schema</td>
+			</tr>
+			<tr>
+				<td>Opération</td>
+				<td>Operation, PathItem, ApiResponses</td>
+			</tr>
+			<tr>
+				<td>Paramètre</td>
+				<td>Parameter, RequestBody, ApiResponse, Schema</td>
+			</tr>
+			<tr>
+				<td>Type de média</td>
+				<td>MediaType</td>
+			</tr>
+			<tr>
+				<td>Exemple</td>
+				<td>Example</td>
+			</tr>
+		</table>
+		<p>Les extensions de propriétés sont générées lors d&#8217;un export Swagger et insérées dans le modèle lors d&#8217;un import Swagger.</p>
+		<h3 id="ExportImportauformatSwaggerOpenAPI">Export / Import au format Swagger OpenAPI</h3>
+		<h4 id="ExportauformatSwaggerOpenAPI">Export au format Swagger OpenAPI</h4>
+		<p>Une fois que les infomrations requises à la définition d&#8217;une 
+			<em>API Rest</em> sont modélisées, il est possible de générer un fichier de spécification Swagger.
+		</p>
+		<p>Une fonctionnalité de prévisualisation est disponible en menu contextuel du 
+			<em>Component</em> :
+		</p>
+		<p>
+			<img border="0" src="pics/exposition/Menu_SwaggerPreview.png"/>
+		</p>
+		<p>Celle-ci ouvre un navigateur montrant le résultat de l&#8217;export dans Swagger UI, permettant de s&#8217;assurer que la génération produit un résultat satisfaisant :</p>
+		<p>
+			<img style="width:100%" border="0" src="pics/exposition/SwaggerPreview.png"/>
+		</p>
+		<p>La fonctionnalité d&#8217;export permet de produire des fichier Swagger au format 
+			<code>yaml</code> ou 
+			<code>json</code>. Elle est disponible en menu contextuel sur l&#8217;objet racine 
+			<em>Components</em> ou bien sur l&#8217;objet 
+			<em>Component</em>. Dans les deux cas, une boîte de dialogue invite à choisir le dossier de destination :
+		</p>
+		<p>
+			<img border="0" src="pics/exposition/Dialog_SwaggerExport.png"/>
+		</p>
+		<p>Suite à la validation du Dialogue, un fichier est généré par 
+			<em>Component</em>, avec la convention de nommage suivante :
+		</p>
+		<p>
+			<code>&lt;Nom du Component&gt;-&lt;Version du Component&gt;.&lt;yaml|json&gt;</code>
+		</p>
+		<h4 id="ImportdunfichierdespcificationSwagger">Import d&#8217;un fichier de spécification Swagger</h4>
+		<p>La fonctionnalité d&#8217;import Swagger permet d&#8217;importer un fichier de spécifiction Swagger dans 
+			<em>SOA Designer</em> sous forme d&#8217;un 
+			<em>Component</em>. L&#8217;import incrémental n&#8217;est pas supporté. Si un 
+			<em>Component</em> du nom de l&#8217;API existe déjà dans le modèle SOA, alors l&#8217;import échoue avec un message d&#8217;erreur du type &#171;Component with name BookStore already exist.&#187;.
+		</p>
+		<p>La fonctionnalité d&#8217;import Swagger est disponible en menu contextuel sur l&#8217;objet racine 
+			<em>Components</em> :
+		</p>
+		<p>
+			<img border="0" src="pics/exposition/Menu_SwaggerImport.png"/>
+		</p>
+		<p>En cas de succès suite à l&#8217;import, un nouveau 
+			<em>Component</em> est créé, prêt à être utilisé dans un ensemble plus vaste de 
+			<em>Components SOA</em>.
+		</p>
+		<h2 id="Gestiondesexigences">Gestion des exigences</h2>
+		<p>La gestion des exigences pour un modèle SOA utilise le mécanisme transverse de gestion des exigences. Pour plus de détails, voir 
+			<a href="../../org.obeonetwork.dsl.requirement.doc/doc/Obeo%20Network%20-%20Requirements%20tooling.html">Obeo Network &#8211; Requirements Tooling</a> .
+		</p>
+		<h2 id="Gestiondeladocumentationlie">Gestion de la documentation liée</h2>
+		<p>Il est possible d&#8217;attacher de la documentation aux éléments d&#8217;un modèle SOA. Le mécanisme utilisé est le mécanisme transverse de gestion de la documentation : 
+			<a href="../../org.obeonetwork.tools.doc.doc/doc/Obeo%20Network%20-%20Documentation%20Tooling.html">Obeo Network &#8211; Documentation Tooling</a> .
+		</p>
+		<h2 id="Crationdediagrammedinteraction">Création de diagramme d&#8217;interaction</h2>
+		<p>Il est possible de créer des diagrammes d&#8217;interaction pour les éléments d&#8217;un modèle SOA. Voir la documentation 
+			<a href="../../org.obeonetwork.dsl.interaction.doc/doc/Obeo%20Network%20-%20Interaction%20tooling.html">Obeo Network &#8211; Interaction Tooling</a> .
+		</p>
+		<h2 id="Crationdediagrammedemachinestats">Création de diagramme de machines à états</h2>
+		<p>Il est possible de créer des diagrammes de machines à états pour les éléments d&#8217;un modèle SOA. Voir la documentation 
+			<a href="../../org.obeonetwork.dsl.statemachine.doc/doc/Obeo%20Network%20-%20State%20Machine%20tooling.html">Obeo Network &#8211; State Machine Tooling</a> .
+		</p>
+	</body>
+</html>

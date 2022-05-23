@@ -3,8 +3,6 @@ Bundle-ManifestVersion: 2
 Bundle-Name: Obeo Network Database Documentation
 Bundle-SymbolicName: fr.gouv.mindef.safran.database.doc;singleton:=true
 Bundle-Version: 3.0.0.qualifier
-Bundle-Activator: fr.gouv.mindef.safran.database.doc.Activator
 Require-Bundle: org.eclipse.core.runtime
-Bundle-ActivationPolicy: lazy
 Bundle-RequiredExecutionEnvironment: JavaSE-1.8
 Bundle-Vendor: Obeo Network

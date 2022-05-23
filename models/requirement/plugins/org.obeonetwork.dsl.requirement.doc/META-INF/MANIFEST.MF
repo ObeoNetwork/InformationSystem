@@ -3,12 +3,9 @@ Bundle-ManifestVersion: 2
 Bundle-Name: Obeo Network - Requirements Tooling Documentation
 Bundle-SymbolicName: org.obeonetwork.dsl.requirement.doc;singleton:=true
 Bundle-Version: 3.0.0.qualifier
-Bundle-Activator: org.obeonetwork.dsl.requirement.doc.RequirementDocPlugin
 Require-Bundle: org.eclipse.ui,
  org.eclipse.core.runtime,
  org.eclipse.help
-Bundle-ActivationPolicy: lazy
 Bundle-RequiredExecutionEnvironment: JavaSE-1.8
 Bundle-Vendor: Obeo Network
-Export-Package: org.obeonetwork.dsl.requirement.doc
 Automatic-Module-Name: org.obeonetwork.dsl.requirement.doc

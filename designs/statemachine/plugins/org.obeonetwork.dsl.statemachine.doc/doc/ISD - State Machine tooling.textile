@@ -1,0 +1,42 @@
+__Copyright (c) 2008, 2022 Obeo -  All rights reserved. This program and the accompanying materials are made available under the terms of the Eclipse Public License v1.0__
+
+@Authors@ Stéphane Thibaudeau
+@Contact@ stephane.thibaudeau@obeo.fr
+
+h1. ISD - Diagrammes de machine à états
+
+Les diagrammes StateMachine permettent de définir des machines à état sur quasiment la totalité des éléments définis dans Information System, à l'exception notable du métamodèle Database.
+
+Les diagrammes de machines à états manipulent des concepts très proches des diagrammes StateMachine définis par UML.
+
+!{width:100%}pics/statemachine.png!
+
+h2. Création d'un diagramme de machine à état
+ 
+Pour pouvoir créer un diagramme de machine à état il faut activer le point de vue _State Machine_ sur le projet via le menu contextuel _Viewpoints Selection_ sur le projet ou sur le fichier _aird_.
+
+Une fois le point de vue activé, une entrée _New state machine_ est ajoutée au menu contextuel des éléments pour lesquels un diagramme de machine à états peut être créé.
+
+!pics/CreationMenu.png!
+
+Un object _State Machine_ et un diagramme de machine à états sont alors créés et visibles sous l'objet sélectionné.
+Il est possible de créer autant de diagrammes de machines à états que voulu pour un même objet.
+
+!pics/DiagramInExplorer.png!
+
+h2. Eléments affichés et palette d'outils
+
+Les éléments suivants sont affichés sur le diagramme :
+* _Initial State_ : point de départ de la machine à états.
+* _Final State_ : point final de la machine à états.
+* _State_ : état de la machine.
+* _Transition_ : transition d'un état à un autre, associée à une condition.
+* _Region_ : regroupements logiques d'états.
+
+Les outils fournis par la palette sont :
+
+| !pics/tools/InitialState.png! | Création d'un état initial. |
+| !pics/tools/FinalState.png! | Création d'un état final. |
+| !pics/tools/Transition.png! | Création d'une transition entre deux états. |
+| !pics/tools/Region.png! | Création d'une région. |
+| !pics/tools/State.png! | Création d'un état. |

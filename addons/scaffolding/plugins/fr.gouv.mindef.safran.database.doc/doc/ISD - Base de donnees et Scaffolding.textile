@@ -1,0 +1,225 @@
+__Copyright (c) 2008, 2022 Obeo -  All rights reserved. This program and the accompanying materials are made available under the terms of the Eclipse Public License v1.0__
+
+@Authors@ Stéphane Thibaudeau
+@Contact@ stephane.thibaudeau@obeo.fr
+
+h1. ISD - Base de données et Scaffolding
+
+h2. Vue d'ensemble
+
+Le _Scaffolding_ est une technique popularisée par le socle de développement _Ruby on Rails_ qui vise à produire des livrables (code, modèle, documentation) à partir des informations structurelles d'une base de données.
+En l’occurrence, l'outillage de scaffolding IS Designer propose les fonctionnalités suivantes : 
+* un module capable d'extraire les informations structurelles d'une base de données relationnelles existante (MySQL, Oracle, PostgreSQL, SQL Server ou H2) et de produire un modèle EMF conforme au méta-modèle _Database_ hébergé par Obeo Network : https://github.com/ObeoNetwork/InformationSystem,
+* un modeleur de base de données, basé sur Sirius, permettant de réaliser des Modèles Physique et Logique de Données (MPD et MLD),
+* un module de comparaison de modèles _Database_ et un générateur de scripts SQL capable de déduire les instructions SQL de mise à jour de la base de données,
+* un ensemble de transformations permettant d'automatiser la conversion et maintenir la cohérence entre un modèle physique et un modèle logique, ainsi qu'entre un modèle logique et un modèle d'entités. Ces transformations sont bidirectionnelles (du modèle entité jusqu'au modèle physique et vice versa).
+
+h2. Base de données
+
+h3. Rétro-ingénierie
+
+Cet outil permet d'initialiser un MPD à partir d'une base de donnée existante. Un assistant est accessible via le menu _File > Import … > Database > Import Database_. Voici un exemple permettant d'extraire les informations d'un schéma Oracle nommé _RF_ :
+
+!pics/BDD_Retro_01.png!
+
+La zone _Referenced files_ permet de référencer des MPD existants. Ce référencement est nécessaire pour importer un schéma qui comporte des clés étrangères pointant sur des tables appartenant à un autre schéma.
+
+Le résultat obtenu est le suivant :
+
+!pics/BDD_Retro_02.png!
+
+h3. Bases de données supportées
+
+Les types de base de données suivants sont supportés :
+
+|_. Base |_. Version |
+| Oracle |>. 11g |
+| MySQL |>. 5 |
+| MariaDB |>. 10.2 |
+| H2 |>. de 1.3 à 1.4.200 |
+| PostgreSQL |>. de 9.5 à 13 |
+| SQLServer |>. 2008 |
+
+La rétrocompatibilité des drivers permet en théorie d'importer des schema de base de versions antérieures à celles supportées, mais aucune garantie ne peut être donnée en ce sens.
+
+h3. Modélisation
+
+h4. Vue d'ensemble
+
+Pour manipuler graphiquement le contenu d'une ressource _.database_, celle-ci doit se trouver dans un _Modeling Project_ ouvert dans la vue _Model Explorer_ d'Obeo Designer.
+Le point de vue _Database_ doit être activé (via la la boite de dialogue _Viewpoints Selection_ disponible en action du menu contextuel sur le _Modeling project_.
+
+La création d'un diagramme _Database Diagram_ est disponible en menu contextuel sur un élément de type Database :
+
+!{width:395px}pics/BDD_CreateDatabaseRepresentation_01.png!
+
+Une action similaire sur un élément de type Schema est disponible pour créer un _Schema Diagram_.
+
+L'ouverture du diagramme permet de visualiser de manière graphique le contenu du fichier:
+
+!{width:100%}pics/BDD_Modelisation_01.png!
+
+Cet éditeur propose :
+* un environnement de modélisation graphique,
+* une palette d'outils permettant d'ajouter de nouvelles tables, colonnes, index, contraintes, ...
+* un ensemble de filtres pour afficher ou masquer les contraintes, index et tables externes,
+* une vue propriétés dédiée.
+
+h4. Modèle Physique de Données
+
+L'édition de Modèle Physique de Données se fait à l'aide du modeleur présenté ci-dessus. Un MPD est caractérisé par l'utilisation d'une librairie de type spécifique à un moteur de base de données : Oracle, MySQL ou autre. Les librairies utilisées sont consultables par la propriété _Used Libraries_ disponible sur l'élément _Database_  :
+
+!pics/BDD_ModelePhysique_01.png!
+
+Les types de données proposées pour les colonnes des modèles physiques de données dépendent de la librairie utilisées.
+Un type "ENUM" de MariaDB permet donc la définition de littéraux, et un type "VARCHAR" de PostgreSQL propose la définition de la longueur de la variable.
+
+!pics/BDD_Column_Enum.png!
+!pics/BDD_Column_Varchar.png!
+ 
+
+ 
+h4. Modèle Logique de Données
+
+L'édition de Modèle Logique de Données se fait à l'aide du modeleur présenté ci-dessus. Un MLD est caractérisé par l'utilisation d'une librairie de types logiques indépendante de tout moteur de base de données. Les librairies utilisées sont consultables par la propriété _Used Libraries_ disponible sur l'élément _Database_  :
+
+!pics/BDD_ModeleLogique_01.png!
+
+La sélection de cette librairie de types est également proposée dans l'assistant de création de modèle _database_ :
+
+!pics/BDD_ModeleLogique_02.png!
+
+La liste des types contenus dans chacune des librairies est paramétrable.
+
+h3. Comparaison & génération des scripts SQL/Liquibase
+
+h4. Comparaison et fusion
+
+L'outillage de comparaison permet de comparer deux versions de MPD, soit de deux fichiers stockés localement, soit d'une version locale avec une version stockée dans un référentiel de type subversion. L'outillage est basé sur EMF Compare et fournit une extension permettant d'améliorer la pertinence de la comparaison sur ce type particulier de modèle.
+Pour comparer deux versions de MPD, sélectionner les deux fichiers à comparer et utiliser _Compare With > Each Other_ proposé dans le menu contextuel. Lors d'une comparaison de fichiers locaux (par opposition à la comparaison via l'outillage subversion) EMF Compare considère les fichiers dans un ordre alphabétique. Idéalement, le nommage à adpter doit être tel que la version la plus récente du MPD se trouve en première position tel que dans l'exemple ci-dessous : 
+
+!pics/BDD_SQL_01.png!
+
+L'option de menu _Compare with Each Other_ est également disponible dans la vue _History_ :
+
+!pics/BDD_Compare_01.png!
+
+En cas de problème lors de la comparaison d'une base de donnée ayant des liens vers des éléments externes stockés dans des fichiers différents, il est recommandé de lire la documentation sur la résolution de modèle logique utilisée par _EMF Compare_:
+
+* _EMF Compare Documentation/User/User Guide/Features/Logical Model_
+* _EMF Compare Documentation/User/User Guide/Logical Model View_
+* _EMF Compare Documentation/User/User Guide/Customization/Post processors customization/Model resolver_
+
+h4. Génération de scripts SQL
+
+*Génération de scripts de modification*
+
+Un script SQL de modification permet de passer d'une version d'une base de données à une suivante. Pour générer un tel script, la première étape est de comparer les 2 modèles de bases de données en s'assurant que le plus récent soit en première position (cf. paragraphe précédent). 
+
+Une fois la comparaison effectuée, la génération du script SQL est rendue accessible par le bouton _Generate SQL Scripts_ présent dans la barre d'outils. Le script généré permet la mise à jour du schéma correspondant au MPD le plus ancien :
+
+!pics/BDD_GenSQL_01.png!
+
+Si il n'existe pas déjà, un répertoire @sql@ est créé à la racine du projet pour contenir l'ensemble des scripts.
+
+*Génération de scripts de création*
+
+Un script SQL de création permet d'initialiser la structure d'une base de données. La génération d'un tel script est disponible en menu clic droit sur le modèle database, sous l'entrée _IS Designer > Generate SQL Scripts_ :
+
+!{width:495px}pics/BDD_GenSQL_02.png!
+
+h4. Génération de _ChangeLog_ Liquibase
+
+*Génération de _ChangeLog_ de modification*
+
+Un fichier _ChangeLog_ Liquibase permet de passer d'une version d'une base de données à une suivante. Pour générer un tel fichier _ChangeLog_, la première étape est de comparer les 2 modèles de bases de données en s'assurant que le plus récent soit en première position (cf. paragraphe précédent). 
+
+Une fois la comparaison effectuée, la génération du fichier _ChangeLog_ est rendue accessible par le bouton _Generate Liquibase_ présent dans la barre d'outils. Le fichier _ChangeLog_ généré permet la mise à jour du schéma correspondant au MPD le plus ancien :
+
+!{width:100%}pics/BDD_Liquibase_Gen_01.png!
+
+Si il n'existe pas déjà, un répertoire @liquibase@ est créé à la racine du projet pour contenir l'ensemble des scripts. Ce répertoire est structuré de la manière suivante :
+
+* @liquibase/<Type BDD>/<Nom BDD>/<Date>/run.changelog.xml@
+* @liquibase/<Type BDD>/<Nom BDD>/run.changelog.xml@
+* @liquibase/<Type BDD>/<Nom BDD>/liquibase.properties@
+
+Les deux fichiers @run.changelog.xml@ générés sont identiques, l'un est généré sous un répertoire daté permettant de conserver un historique. L'autre permet d'utiliser plus facilement les commandes _Liquibase_ étant donné qu'il est référencé par le fichier @liquibase.properties@.
+
+Contrairement au fichier @run.changelog.xml@, le fichier @liquibase.properties@ n'est pas écrasé à chaque génération, il est initialisé seulement si il n'existe pas.
+
+*Génération de _ChangeLog_ de création*
+
+Un _ChangeLog_ de création permet de générer la structure complète d’une base de données. La génération d’un tel _ChangeLog_ est disponible en menu clic droit sur le modèle database, sous l’entrée _IS Designer > Generate Liquibase Changelog_ :
+
+!{width:480px}pics/BDD_Liquibase_Gen_02.png!
+
+Il est possible de déployer un changelog liquibase sur une base de données directement à partir du changelog.
+
+!{width:480px}pics/BDD_ApplyChangelog.png!
+
+Les données de connection sont définies par défaut avec le fichier _changelog.properties_, normalement créé par liquibase. 
+Modifier ce fichier permet de remplir définir les url et identifiants de connection, afin de déployer les changements sur une base distante.
+
+!{width:480px}pics/BDD_ApplyChangelog_Connection.png!
+
+h2. Transformations
+
+Les transformations suivantes sont proposées afin d'initialiser un modèle à partir d'un autre :
+* transformation d'un MPD en MLD,
+* transformation d'un MLD en modèle d'entités,
+* transformation d'un modèle d'entités en MLD,
+* transformation d'un MLD en MPD.
+
+Le mode opératoire est le même pour chacune des transformations.
+
+h3. Transformation depuis les modèles source et cible
+
+Pour lancer une transformation, le modèle cible doit exister. Par exemple, pour une transformation d'un MPD en MLD, la première étape est la création d'un MLD vide.
+
+La sélection doit porter sur un objet source et un objet cible, en dépliant les modèles dans la vue _Model Explorer_. Si la sélection porte sur les fichiers le traitement ne pourra pas être lancé.
+
+Pour un MPD ou un MLD, les objets source ou cible doivent être des _Data Base_ ou des _Schema_.
+Pour un modèle d'entités,  les objets source ou cible doivent être des _Entities_ ou des _Namespace_.
+
+* Le menu contextuel _Safr@n > Scaffolding_ permet de sélectionner le type de transformation à effectuer. Seules les transformations possibles en fonction des objets sélectionnés sont activées :
+!pics/BDD_Transfo_05.png!!
+* La sélection d'une entré de menu déclenche l'ouverture d'un assistant de sélection des ressources nécessaires à la résolution des dépendances externes. En effet, lors par exemple d'une transformation d'un MLD vers un MPD, il est possible que le MLD contienne des tables référençant des tables d'un autre MLD. Dans ce cs, le MPD externe en question doit être référencé afin que les clés étrangères soient résolues correctement :
+!pics/BDD_Transfo_06.png!
+
+Une fois le traitement exécuté, un message de confirmation s'affiche. Un modèle contenant les informations de scaffolding est créé dans le répertoire @scaffold@. Ce modèle peut être utilisé pour lancer un nouveau traitement de scaffolding sur les mêmes éléments. 
+
+h3. Transformation depuis un modèle de scaffold
+
+La transformation peut être lancée directement depuis un modèle de scaffold par :
+
+* La sélection du modèle dans le _Model Explorer_
+* Le lancement de l'action de menu contextuel _Safr@n > Scaffolding_
+
+Les transformations disponibles dans le menu dépendent des objets source et cible utilisés par le modèle de scaffolding.
+Une entrée de menu permet d'ajouter des ressources pour résoudre les dépendances externes comme lorsque l'assistant est utilisé (cf. paragraphe précédent).
+
+A noter que lorsqu'une transformation est lancée en sélectionnant des objets source et cible pour lesquels un modèle de scaffold existe déjà, il est proposé d'utiliser le modèle existant ou d'en créer un nouveau.  
+
+h3. Paramétrage de la transformation d'un modèle d'entités en MLD
+
+Dans le cas d'une transformation d'un modèle d'entités en MLD, deux colonnes techniques sont créées pour chaque table créée.
+Ces colonnes sont :
+* Une colonne de validité nommée avec le nom du schéma suffixé par @_XTOPSUP@
+* Une colonne de date de mise à jour nommée avec le nom du schéma suffixé par @_XDMAJ@
+
+La génération de ces colonnes peut être désactivée en ajoutant une metadata sur l'entité ou l'un des namespaces parent :
+* @Clé : DISABLE_ADDITIONAL_FIELDS_KEY@
+* @Valeur : true@
+
+Ces deux colonnes ne seront alors pas créées pour l'entité en question, ou pour toutes les entités contenues par le namespace en question. 
+
+h2. Notes
+	
+Les équivalences entre les types logiques et physiques, etc..., ainsi que les règles de nommage sont  paramétrables.
+
+Aussi, dans le cas où une version du modèle cible existe déjà, il est conseillé d'effectuer la transformation vers un nouveau modèle puis d'utiliser l'outillage de comparaison/fusion afin de gérer l’incrémentalité des modifications. Voici un exemple illustrant ce scénario :
+* l'équipe de développement fait évoluer le modèle d'entités et le livre à l'équipe DBA,
+* l'équipe DBA peut ainsi lancer une transformation du modèle d'entités vers un nouveau MLD V2,
+* l'équipe DBA peut ensuite comparer et fusionner le MLD V1 (incluant des modifications ajoutées préalablement par l'équipe DBA) et le MLD V2,
+* l'équipe DBA peut ensuite effectuer une transformation MLD V2 fusionné vers un MPD Oracle par exemple. Elle peut ensuite demander la comparaison et génération du script SQL par rapport à une version plus ancienne du MPD.

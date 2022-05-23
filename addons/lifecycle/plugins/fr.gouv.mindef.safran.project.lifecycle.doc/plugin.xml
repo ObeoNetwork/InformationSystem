@@ -14,7 +14,7 @@
 <plugin>
    <extension point="org.eclipse.help.toc">
       <toc
-            file="doc/Obeo Network - Business Project importer-toc.xml"
+            file="doc/ISD - Business Project importer-toc.xml"
             primary="true">
       </toc>
    </extension>

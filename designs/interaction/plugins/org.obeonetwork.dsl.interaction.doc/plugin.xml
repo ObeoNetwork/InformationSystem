@@ -14,7 +14,7 @@
 <plugin>
    <extension point="org.eclipse.help.toc">
       <toc
-            file="doc/Obeo Network - Interaction tooling-toc.xml"
+            file="doc/ISD - Interaction tooling-toc.xml"
             primary="true">
       </toc>
    </extension>

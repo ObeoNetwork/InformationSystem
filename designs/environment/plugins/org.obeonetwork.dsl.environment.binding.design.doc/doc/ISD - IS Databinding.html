@@ -1,0 +1,159 @@
+<?xml version='1.0' encoding='utf-8' ?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+	</head>
+	<body>
+		<p>
+			<i>Copyright &#169; 2008, 2022 Obeo -  All rights reserved. This program and the accompanying materials are made available under the terms of the Eclipse Public License v1.0</i>
+		</p>
+		<p>
+			<code>Authors</code> Stéphane Thibaudeau
+			<br/>
+			<code>Contact</code> stephane.thibaudeau@obeo.fr
+		</p>
+		<h1 id="ISDOutillagededatabinding">ISD &#8211; Outillage de databinding</h1>
+		<p>L&#8217;outillage de databinding permet de modéliser le databinding entre types structurés (
+			<em>Entity</em>, 
+			<em>DTO</em> ou 
+			<em>Domain class</em>).
+			<br/>L&#8217;objectif classique est de spécifier la façon dont des structures de données vont être transformées pour convertir par exemple une 
+			<em>Entity</em> en 
+			<em>DTO</em>.
+		</p>
+		<h2 id="PointdevueISDatabading">Point de vue IS Databading</h2>
+		<p>L&#8217;outillage de databinding embarque un point vue fournissant :</p>
+		<ul>
+			<li>Un diagramme permettant de créer un databinding entre deux types structurés</li>
+			<li>Un éditeur spécifique permettant de lier les attributs et références des types structurés</li>
+		</ul>
+		<p>Pour activer le point de vue 
+			<em>IS Databinding</em>, sur une session 
+			<em>Viewpoint</em> ouverte, lancer le menu
+		</p>
+		<blockquote>
+			<p>Viewpoint Selection</p>
+		</blockquote>
+		<p>Choisir le point de vue 
+			<em>IS Databinding</em>.
+		</p>
+		<p>
+			<img border="0" src="pics/ISDatabindingViewpointSelection.png"/>
+		</p>
+		<h3 id="Databindingdiagram">Databinding diagram</h3>
+		<p>Le 
+			<em>Databinding Diagram</em> permet de créer un 
+			<em>Binding</em> entre deux types structurés (
+			<em>Entity</em>, 
+			<em>DTO</em> ou 
+			<em>Domain class</em>). Cet objet peut ensuite être édité en détail en lançant l'éditeur spécifique 
+			<em>Binding editor</em> par un double-clic sur l'élément.
+			<br/>Ce diagramme peut être créé sur un package (
+			<em>Namespace</em>).
+		</p>
+		<p>
+			<img border="0" src="pics/diagram/CreateDiagram.png"/>
+		</p>
+		<h4 id="Elmentsaffichsetpalettedoutils">Eléments affichés et palette d&#8217;outils</h4>
+		<p>
+			<img style="width:100%" border="0" src="pics/diagram/BindingDiagram.png"/>
+		</p>
+		<p>Les éléments suivants sont affichés sur le diagramme :</p>
+		<ul>
+			<li>
+				<em>Entity</em> : entité impliquée dans un binding
+			</li>
+			<li>
+				<em>DTO</em> : DTO impliqué dans un binding
+			</li>
+			<li>
+				<em>Domain class</em> : Classe participante impliquée dans un binding
+			</li>
+			<li>
+				<em>Binding</em> : élément portant les informations de databinding entre deux types structurés.
+			</li>
+		</ul>
+		<p>Les outils fournis par la palette sont :</p>
+		<table>
+			<tr>
+				<td>
+					<img border="0" src="pics/diagram/NewBinding.png"/>
+				</td>
+				<td>Création d&#8217;un 
+					<em>Binding</em> entre deux éléments. Un assistant permet de sélectionner un premier type structuré parmi ceux contenus par le package, puis de sélectionner un deuxième type structuré dans toute la session de travail.
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<img border="0" src="pics/diagram/BindExistingElement.png"/>
+				</td>
+				<td>Création d&#8217;un 
+					<em>Binding</em> entre un type structuré déjà affiché sur le diagramme et un deuxième type structuré. Un assistant permet de sélectionner ce deuxième type structuré dans toute la session de travail.
+				</td>
+			</tr>
+		</table>
+		<h4 id="Navigationverslditeurdebinding">Navigation vers l'éditeur de binding</h4>
+		<p>Il est possible de naviguer depuis ce diagramme vers l'éditeur de binding :</p>
+		<ul>
+			<li>Sur un 
+				<em>Binding</em>, un double-clic ou le menu 
+				<em>Open</em> permettent d&#8217;ouvrir un 
+				<em>Binding Editor</em> sur l'élément sélectionné.
+			</li>
+		</ul>
+		<h3 id="Bindingeditor">Binding editor</h3>
+		<p>Le 
+			<em>Binding editor</em> est un éditeur spécifique permettant décrire en détail le databinding entre deux types structurés. Le moyen le plus simple pour l&#8217;ouvrir est de double-cliquer sur le 
+			<em>Binding</em> voulu sur le diagramme décrit au chapitre précédent.
+		</p>
+		<p>
+			<img style="width:100%" border="0" src="pics/editor/BindingEditor.png"/>
+		</p>
+		<h4 id="Structuregnraledelditeur">Structure générale de l'éditeur</h4>
+		<p>L'éditeur est divisé en différentes parties :</p>
+		<ul>
+			<li>Une vue arborescente du premier type structuré à gauche</li>
+			<li>Une vue arborescente du deuxième type structuré à droite</li>
+			<li>Une zone centrale affichant les liens entre types</li>
+			<li>Un bouton 
+				<em>Auto bind !</em>
+			</li>
+			<li>Une zone inférieure permettant d'éditer des expressions pour convertir les valeurs</li>
+		</ul>
+		<h4 id="Vuearborescenteduntypestructur">Vue arborescente d&#8217;un type structuré</h4>
+		<p>
+			<img border="0" src="pics/editor/VueArborescente.png"/>
+		</p>
+		<p>Cette vue présente les attributs et les références du type structuré.
+			<br/>Dans le cas des références, il est possible de déplier la référence pour avoir accès aux attributs et références du type référencé.
+		</p>
+		<p>A partir de cette vue, il est possible de sélectionner un attribut ou une référence et de la faire glisser jusqu'à la vue opposée sur un attribut ou une référence. Un lien est alors créé entre les deux éléments.</p>
+		<p>Lorsqu&#8217;un ou des éléments sont sélectionnés, les liens les concernant sont affichés de façon plus visible sur la zone centrale.</p>
+		<h4 id="Zonecentrale">Zone centrale</h4>
+		<p>
+			<img border="0" src="pics/editor/ZoneCentrale.png"/>
+		</p>
+		<p>La zone centrale permet de visualiser les liens entre éléments.</p>
+		<p>Il est possible de sélectionner un ou plusieurs liens pour les rendre plus visibles. La sélection multiple se fait en maintenant la touche Ctrl enfoncée.
+			<br/>Lorsqu&#8217;un lien est sélectionné, les éléments liés sont mis en surbrillance et le contenu de la zone inférieure est mis à jour.
+		</p>
+		<p>Quand des liens sont sélectionnées, un appui sur la touche Del permet de les supprimer après un message de confirmation.</p>
+		<h4 id="Zoneinfrieure">Zone inférieure</h4>
+		<p>
+			<img style="width:100%" border="0" src="pics/editor/ZoneInferieure.png"/>
+		</p>
+		<p>La zone inférieure affiche des champs de saisie en fonction des liens sélectionnés :</p>
+		<ul>
+			<li>un premier groupe affiche un champ texte pour chaque attribut ou référence concerné dans la vue arborescente de gauche.</li>
+			<li>un deuximèe groupe affiche un champ texte pour chaque attribut ou référence concerné dans la vue arborescente de droite.</li>
+		</ul>
+		<p>Les champs de saisie permettent de saisir des expressions utilisées pour décrire comment les données sont converties. Le texte saisi n&#8217;est pas interprété, c&#8217;est à l&#8217;utilisateur de choisir le pseudo-langage qui lui convient le mieux.</p>
+		<p>La zone inférieure peut être réduite ou agrandie en hauteur en sélectionnant la limite de la zone centrale juste au dessus du bouton 
+			<em>Auto bind !</em>.
+		</p>
+		<h4 id="BoutonAutobind">Bouton Auto bind !</h4>
+		<p>Le bouton 
+			<em>Auto bind !</em> permet de créer automatiquement des liens entre les éléments à gauche et à droite nommés de la même façon.
+		</p>
+	</body>
+</html>

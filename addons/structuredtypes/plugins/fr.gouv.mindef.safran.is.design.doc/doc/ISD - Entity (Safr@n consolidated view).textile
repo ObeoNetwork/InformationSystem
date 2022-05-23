@@ -1,0 +1,38 @@
+__Copyright (c) 2008, 2022 Obeo -  All rights reserved. This program and the accompanying materials are made available under the terms of the Eclipse Public License v1.0__
+
+@Authors@ Stéphane Thibaudeau
+@Contact@ stephane.thibaudeau@obeo.fr
+
+h1. ISD - Entity (Safr@n consolidated view)
+
+Le point de vue _Entity (Safr@n consolidated view)_ fournit une table permettant de faciliter la saisie d'informations sur le stockage physique des entités.
+Les informations sont stockées sous la forme d'annotations.
+
+
+h2. Création d'une table _Entities Physical Names_
+ 
+Pour pouvoir créer une table _Entities Physical Names_ il faut activer le point de vue _Entity (Safr@n consolidated view)_ sur le projet via le menu contextuel _Viewpoints Selection_ sur le projet ou sur le fichier _aird_.
+
+Une fois le point de vue activé, il est possible de créer une nouvelle table sur un objet _Entities_.
+A noter qu'à la première activation du point de vue, une table est créée automatiquement pour chaque objet _Entities_ dans le projet. 
+
+!pics/entities/NewTable.png!
+
+h2. Eléments affichés et outils
+
+!pics/entities/Table.png!
+
+Chaque namespace, entité, attribut et référence est affiché dans la colonne de gauche sous une forme arborescente.
+
+Colonnes suivantes :
+
+* _Name_ : spécifie le nom physique du package, de l'entité, de l'attribut ou de la référence
+* _Size_ : spécifie une contrainte de taille. Utilisée pour un attribut généralement en donnant une valeur numérique.
+* _Check_ : spécifie une contrainte. Texte libre.
+* _Unique_ : spécifie les index d'unicité. 
+** Pour un attribut : Une valeur vide signifie que l'attribut ne fait pas partie d'un index, 'ASC' signifie que l'attribut fait partie d'un index ascendant, 'DESC' signifie que l'attribut fait partie d'un index descendant.
+** Pour une entité : Une valeur non vide doit avoir la syntaxe suivante : <code><nom de colonne1>:<asc ou desc>, <nom de colonne2>:<asc ou desc>, ... | ...</code><br/>où le nom d'une colonne est son nom _physique_ (dans la base de données) ; <code>asc</code> indique que l'index a un ordre ascendant ; <code>desc</code> que l'index a un ordre descendant ; une virgule '<code>,</code>' sépare les colonnes utilisées pour un même index, et un pipe '<code>|</code>' est utilisé pour séparer les différents index à générer.
+* _Default_ : spécifie une valeur par défaut. Texte libre.
+* _Target Schema_: permet de définir le schéma de destination dans le cadre d'une relation NN. Une action en menu contextuel est disponible sur les références. Cette action "Set/swap Target Schema" permet de définir le namespace de la relation comme namespace destination pour la table de jointure. Il est aussi possible d'utiliser le raccourci clavier CTRL+T en selectionnant une référence pour faciliter cette définition. 
+
+La modification des valeur se fait par édition directe des cellules du tableau.

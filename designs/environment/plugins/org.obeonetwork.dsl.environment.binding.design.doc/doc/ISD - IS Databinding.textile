@@ -1,0 +1,109 @@
+__Copyright (c) 2008, 2022 Obeo -  All rights reserved. This program and the accompanying materials are made available under the terms of the Eclipse Public License v1.0__
+
+@Authors@ Stéphane Thibaudeau
+@Contact@ stephane.thibaudeau@obeo.fr
+
+h1. ISD - Outillage de databinding
+
+L'outillage de databinding permet de modéliser le databinding entre types structurés (_Entity_, _DTO_ ou _Domain class_).
+L'objectif classique est de spécifier la façon dont des structures de données vont être transformées pour convertir par exemple une _Entity_ en _DTO_.
+
+h2. Point de vue IS Databading
+
+L'outillage de databinding embarque un point vue fournissant :
+* Un diagramme permettant de créer un databinding entre deux types structurés
+* Un éditeur spécifique permettant de lier les attributs et références des types structurés
+
+Pour activer le point de vue _IS Databinding_, sur une session _Viewpoint_ ouverte, lancer le menu
+
+bq. Viewpoint Selection
+
+Choisir le point de vue _IS Databinding_.
+
+!pics/ISDatabindingViewpointSelection.png!
+
+h3. Databinding diagram
+
+Le _Databinding Diagram_ permet de créer un _Binding_ entre deux types structurés (_Entity_, _DTO_ ou _Domain class_). Cet objet peut ensuite être édité en détail en lançant l'éditeur spécifique _Binding editor_ par un double-clic sur l'élément.
+Ce diagramme peut être créé sur un package (_Namespace_).
+
+!pics/diagram/CreateDiagram.png!
+
+h4. Eléments affichés et palette d'outils
+
+!{width:100%}pics/diagram/BindingDiagram.png!
+
+Les éléments suivants sont affichés sur le diagramme :
+
+* _Entity_ : entité impliquée dans un binding
+* _DTO_ : DTO impliqué dans un binding
+* _Domain class_ : Classe participante impliquée dans un binding
+* _Binding_ : élément portant les informations de databinding entre deux types structurés.
+
+Les outils fournis par la palette sont :
+
+| !pics/diagram/NewBinding.png! | Création d'un _Binding_ entre deux éléments. Un assistant permet de sélectionner un premier type structuré parmi ceux contenus par le package, puis de sélectionner un deuxième type structuré dans toute la session de travail. |
+| !pics/diagram/BindExistingElement.png! | Création d'un _Binding_ entre un type structuré déjà affiché sur le diagramme et un deuxième type structuré. Un assistant permet de sélectionner ce deuxième type structuré dans toute la session de travail. |
+
+h4. Navigation vers l'éditeur de binding
+
+Il est possible de naviguer depuis ce diagramme vers l'éditeur de binding :
+
+* Sur un _Binding_, un double-clic ou le menu _Open_ permettent d'ouvrir un _Binding Editor_ sur l'élément sélectionné.
+
+h3. Binding editor
+
+Le _Binding editor_ est un éditeur spécifique permettant décrire en détail le databinding entre deux types structurés. Le moyen le plus simple pour l'ouvrir est de double-cliquer sur le _Binding_ voulu sur le diagramme décrit au chapitre précédent.
+
+!{width:100%}pics/editor/BindingEditor.png!
+
+h4. Structure générale de l'éditeur
+
+
+L'éditeur est divisé en différentes parties :
+* Une vue arborescente du premier type structuré à gauche
+* Une vue arborescente du deuxième type structuré à droite
+* Une zone centrale affichant les liens entre types
+* Un bouton _Auto bind !_
+* Une zone inférieure permettant d'éditer des expressions pour convertir les valeurs
+
+h4. Vue arborescente d'un type structuré
+
+!pics/editor/VueArborescente.png!
+
+Cette vue présente les attributs et les références du type structuré.
+Dans le cas des références, il est possible de déplier la référence pour avoir accès aux attributs et références du type référencé.
+
+A partir de cette vue, il est possible de sélectionner un attribut ou une référence et de la faire glisser jusqu'à la vue opposée sur un attribut ou une référence. Un lien est alors créé entre les deux éléments.
+
+Lorsqu'un ou des éléments sont sélectionnés, les liens les concernant sont affichés de façon plus visible sur la zone centrale.
+
+h4. Zone centrale
+
+!pics/editor/ZoneCentrale.png!
+
+La zone centrale permet de visualiser les liens entre éléments.
+
+Il est possible de sélectionner un ou plusieurs liens pour les rendre plus visibles. La sélection multiple se fait en maintenant la touche Ctrl enfoncée.
+Lorsqu'un lien est sélectionné, les éléments liés sont mis en surbrillance et le contenu de la zone inférieure est mis à jour.
+
+Quand des liens sont sélectionnées, un appui sur la touche Del permet de les supprimer après un message de confirmation.
+
+h4. Zone inférieure
+
+!{width:100%}pics/editor/ZoneInferieure.png!
+
+La zone inférieure affiche des champs de saisie en fonction des liens sélectionnés :
+* un premier groupe affiche un champ texte pour chaque attribut ou référence concerné dans la vue arborescente de gauche.
+* un deuximèe groupe affiche un champ texte pour chaque attribut ou référence concerné dans la vue arborescente de droite.
+
+Les champs de saisie permettent de saisir des expressions utilisées pour décrire comment les données sont converties. Le texte saisi n'est pas interprété, c'est à l'utilisateur de choisir le pseudo-langage qui lui convient le mieux.
+
+La zone inférieure peut être réduite ou agrandie en hauteur en sélectionnant la limite de la zone centrale juste au dessus du bouton _Auto bind !_.
+
+h4. Bouton Auto bind !
+
+Le bouton _Auto bind !_ permet de créer automatiquement des liens entre les éléments à gauche et à droite nommés de la même façon.
+
+
+ 

@@ -1,0 +1,247 @@
+<?xml version='1.0' encoding='utf-8' ?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+	</head>
+	<body>
+		<p>
+			<i>Copyright &#169; 2008, 2022 Obeo -  All rights reserved. This program and the accompanying materials are made available under the terms of the Eclipse Public License v1.0</i>
+		</p>
+		<p>
+			<code>Authors</code> Goulwen Le Fur
+			<br/>
+			<code>Contact</code> goulwen.lefur@obeo.fr
+		</p>
+		<h1 id="ISDOutillagedegestiondesexigences">ISD &#8211; Outillage de gestion des exigences</h1>
+		<p>L'
+			<strong>outillage de gestion des exigences</strong> du 
+			<strong>Network Obeo</strong> apporte un ensemble d&#8217;outils permettant d&#8217;intégrer la gestion d&#8217;exigences d&#8217;un projet dans le processus de modélisation. Il est composé d&#8217;un éditeur permettant de saisir ses exigences et d&#8217;une vue gérant le lien entre les modèles et les exigences du projet.
+		</p>
+		<h2 id="Crationdunmodledexigences">Création d&#8217;un modèle d&#8217;exigences</h2>
+		<h3 id="Initialisationdunmodledexigences">Initialisation d&#8217;un modèle d&#8217;exigences</h3>
+		<p>Un assistant permet de créer un modèle d&#8217;exigences. Il est accessible via le menu :</p>
+		<blockquote>
+			<p>File &gt; New &gt; Other ... &gt; Requirement Model (Catégorie IS Designer)</p>
+		</blockquote>
+		<p>
+			<img border="0" src="pics/SafranRequirementWizard01.png"/>
+		</p>
+		<p>Cet assistant vous permet de définir le nom du modèle que vous souhaitez créer ainsi que de définir son répertoire destination.</p>
+		<p>
+			<img border="0" src="pics/SafranRequirementWizard02.png"/>
+		</p>
+		<p>Une fois l&#8217;assistant validé, le modèle est créé, la représentation 
+			<em>Requirements table</em> est créée et ouverte afin de commencer l'édition.
+		</p>
+		<p>
+			<img style="width:100%" border="0" src="pics/SafranRequirementModelCreated.png"/>
+		</p>
+		<p>Lorsqu&#8217;un modèle requirement est créé à l&#8217;aide de ce wizard, le point de vue 
+			<em>Requirement</em> est activé. Dans le cas ou un modèle graal existe déjà dans le projet le point de vue 
+			<em>Requirement (Graal Consolidated view)</em> est activé. Le point de vue 
+			<em>Requirement</em> est décrit dans la section 
+			<a href="#requirement_viewpoint">Point de vue Requirement</a>. Le point de vue 
+			<em>Requirement (Graal Consolidated view)</em> est décrit dans la section de documentation 
+			<a href="../../fr.gouv.mindef.safran.is.design.doc/doc/Safr@n%20-%20Graal%20Methodology%20(Safr@n%20consolidated%20view).html">Safr@n &#8211; Graal Methodology (Safr@n consolidated view)</a>.
+		</p>
+		<h3 id="Conceptsdesmodlesdexigences">Concepts des modèles d&#8217;exigences</h3>
+		<p>Trois concepts peuvent être manipulés dans un modèle d&#8217;exigences : le 
+			<em>Repository</em>, les 
+			<em>Categories</em> et les 
+			<em>Requirements</em>. 
+		</p>
+		<p>Le 
+			<em>Repository</em> est l'élément racine du modèle. Il porte un nom, contient les catégories principales et peut référencer un élément de modèles.
+		</p>
+		<p>Une 
+			<em>Category</em> est un conteneur d&#8217;exigences. Elle sert à ordonner les exigences selon différents critères. Un catégorie porte un identifiant et un nom et peut contenir des sous-catégories et des exigences. Elle peut référencer un objet de modèle.
+		</p>
+		<p>Finalement un 
+			<em>Requirement</em> modélise une exigence. Elle est typée selon les critères 
+			<em>Functional</em> ou 
+			<em>Technical</em> et peut porter un sous-type. Une exigence a un identifiant, un nom, un status et une description (
+			<em>Statement</em> ).
+			<br/>Il est possible de définir sa provenance (
+			<em>Rationale</em>), ses critères d&#8217;acceptation (
+			<em>AcceptanceCriteria</em>) et de référencer un objet de modèle.
+			<br/>A noter qu&#8217;un 
+			<em>Requirement</em> a aussi un numéro de version. Ce numéro de version est initialisé à 1 et peut simplement être incrémenté de 1 en 1 en utilisant le bouton &#171;+1&#187; affiché sur la vue 
+			<em>Properties</em> pour l&#8217;exigence.
+		</p>
+		<h2 id="requirement_viewpoint">Point de vue Requirement</h2>
+		<p>L&#8217;outillage de gestion d&#8217;exigences embarque un point vue permettant :</p>
+		<ul>
+			<li>La gestion des exigences (création, modification, suppression)</li>
+			<li>La visualisation des exigences sous forme de matrices de traçabilité.</li>
+		</ul>
+		<p>La création nécessite dans un premier temps l&#8217;activation du point de vue 
+			<em>Requirements</em>. Pour cela, sur une session 
+			<em>Viewpoint</em> ouverte, lancer le menu
+		</p>
+		<blockquote>
+			<p>Viewpoint Selection</p>
+		</blockquote>
+		<p>Choisir le point de vue 
+			<em>Requirement</em>.
+		</p>
+		<p>
+			<img border="0" src="pics/Requirement%20Viewpoint%20Selection.png"/>
+		</p>
+		<h3 id="Requirementstable">Requirements table</h3>
+		<p>Une fois le point de vue activé, il est possible de créer un tableau 
+			<em>Requirements table</em> sur un 
+			<em>Repository</em> d&#8217;exigences ou sur n&#8217;importe quelle 
+			<em>Category</em>. Il est ainsi possible de visualiser plus ou moins d&#8217;exigences selon le contexte choisi.
+		</p>
+		<p>La création de ce tableau se fait via le menu :</p>
+		<blockquote>
+			<p>New &gt; new Requirements Table</p>
+		</blockquote>
+		<p>Ce tableau permet de créer, modifier et supprimer des catégories et des exigences.
+			<br/>Les informations sont affichées en colonnes dont le contenu peut être édité directement.
+			<br/>L&#8217;objet sélectionné peut aussi être modifié via la vue 
+			<em>Properties</em>.
+		</p>
+		<p>
+			<img border="0" src="pics/RequirementsTable.png"/>
+		</p>
+		<p>Le menu contextuel propose les actions suivantes :</p>
+		<ul>
+			<li>
+				<em>Create Category</em> : permet de créer une catégorie dans un repository ou une sous-catégorie en fonction du contexte.
+			</li>
+			<li>
+				<em>Create Requirement</em> : permet de créer une nouvelle exigence dans le contexte sélectionné
+			</li>
+			<li>
+				<em>Copy Category</em> : permet de copier la catégorie sélectionnée et tout son contenu dans un emplacement à choisir
+			</li>
+			<li>
+				<em>Move Category</em> : permet de déplacer une catégorie et tout son contenu dans un emplacement à choisir
+			</li>
+			<li>
+				<em>Copy Requirement</em> : permet de copier une exigence à un emplacement à choisir
+			</li>
+			<li>
+				<em>Move Requirement</em> : permet de déplacer une exigence vers un emplacement à choisir
+			</li>
+			<li>
+				<em>Validate requirements</em> : permet de valider les exigences. En particulier les doublons sur les identifiants sont remontés en erreurs.
+			</li>
+		</ul>
+		<h3 id="RequirementsTraceabilityMatrix">Requirements Traceability Matrix</h3>
+		<p>Le point de vue permet de créer une matrice de traçabilité d&#8217;exigence sur un 
+			<em>Repository</em> d&#8217;exigences. La création de cette matrice se fait via le menu :
+		</p>
+		<blockquote>
+			<p>New &gt; new Requirements Traceability Matrix</p>
+		</blockquote>
+		<p>
+			<img border="0" src="pics/Requirements%20matrix%20creation.png"/> 
+		</p>
+		<p>Une matrice de traçabilité présente les éléments d&#8217;exigences du modèle en ligne et les éléments référencés en colonnes. Une croix est présente si l&#8217;exigence de la ligne référence l&#8217;objet de la colonne.</p>
+		<p>
+			<img border="0" src="pics/Requirement%20Viewpoint.png"/>
+		</p>
+		<p>Il est possible d'éditer les cellules. Si une cellule est vidée, la référence entre l&#8217;exigence et l&#8217;objet est supprimée.</p>
+		<h2 id="ditionvialavueLinkedRequirements">Édition via la vue 
+			<em>Linked Requirements</em>
+		</h2>
+		<p>La vue 
+			<em>Linked Requirements</em> permet de lier les exigences aux éléments des modèles édités dans Obeo Designer. L&#8217;ouverture de la vue se fait via le menu :
+		</p>
+		<blockquote>
+			<p>Window &gt; Show View &gt; Other ... &gt; Linked Requirement (Catégorie Obeo Designer For IS)</p>
+		</blockquote>
+		<p>
+			<img border="0" src="pics/Linked%20Requirements%20View.png"/> 
+		</p>
+		<p>Cette vue est synchronisée avec l'éditeur actif dans Obeo Designer. Quand un élément de modèle est sélectionné, la vue se met à jour et présente tous les exigences qui ont été liées à cet élément.</p>
+		<p>Cette vue porte cinq actions permettant de manipuler rapidement les exigences sans avoir à passer par l'éditeur décrit dans la partie précédente.</p>
+		<p>
+			<img border="0" src="pics/Linked%20Requirements%20View%20-%20Actions.png"/>
+		</p>
+		<h3 id="Crationdexigence">Création d&#8217;exigence</h3>
+		<p>La première action permet de créer et directement lier une nouvelle exigence à la sélection courante.</p>
+		<p>
+			<img border="0" src="pics/Linked%20Requirements%20View%20-%20Create%20Action.png"/>
+		</p>
+		<p>Au lancement de l&#8217;action, un assistant s&#8217;ouvre permettant de créer une nouvelle exigence. Toutes les propriétés de l&#8217;exigence peuvent être renseignée sur la première page. La seconde page permet de choisir la catégorie dans laquelle l&#8217;exigence va être positionnée. Dans le cas où celle-ci n&#8217;existe pas, il est possible d&#8217;utiliser le bouton 
+			<em>New Category...</em>  pour en créer une nouvelle.
+		</p>
+		<p>
+			<img border="0" src="pics/Create%20Requirement%20Wizard%20-%20Page1.png"/> - 
+			<img border="0" src="pics/Create%20Requirement%20Wizard%20-%20Page2.png"/> 
+		</p>
+		<p>Une fois l&#8217;assistant validé, l&#8217;exigence est créée à l&#8217;endroit spécifié et est liée à l&#8217;objet actuellement sélectionnée. La vue 
+			<em>Linked Requirements</em> est mise à jour.
+		</p>
+		<h3 id="ditiondexigence">Édition d&#8217;exigence</h3>
+		<p>La seconde action de la vue permet d'éditer une exigence présente dans la vue.</p>
+		<p>
+			<img border="0" src="pics/Linked%20Requirements%20View%20-%20Edit%20Action.png"/>
+		</p>
+		<p>Elle s&#8217;active en sélectionnant une exigence dans la liste des exigences liées et son lancement ouvre l&#8217;assistant d'édition de façon à pouvoir modifier les propriétés de cet objet.</p>
+		<h3 id="Associationdexigence">Association d&#8217;exigence</h3>
+		<p>La troisième action permet de gérer l&#8217;association entre les éléments de modèle et les exigences.</p>
+		<p>
+			<img border="0" src="pics/Linked%20Requirements%20View%20-%20Link%20Action.png"/>
+		</p>
+		<p>Le lancement de l&#8217;action ouvre une boîte de dialogue pour le choix des exigences à associer à l'élément actuellement sélectionné. </p>
+		<p>
+			<img border="0" src="pics/Link%20Requirements%20Dialog.png"/> 
+		</p>
+		<h3 id="Dissociationdexigence">Dissociation d&#8217;exigence</h3>
+		<p>La quatrième action permet de supprimer l&#8217;association entre une ou plusieurs exigences et l'élément actuellement sélectionné.</p>
+		<p>
+			<img border="0" src="pics/Linked%20Requirements%20View%20-%20Unlink%20Action.png"/> 
+		</p>
+		<p>Cette action s&#8217;active lorsqu&#8217;une ou plusieurs exigences sont sélectionnées parmi les exigences liées de la vue. En la lançant, tous les liens entre ces exigences et l'élément sélectionné.</p>
+		<p>Une boîte de confirmation s&#8217;ouvre au lancement de l&#8217;action de façon à garantir tout erreur de manipulation.</p>
+		<p>
+			<cite>L&#8217;utilisation de cette action ne supprime pas l&#8217;exigence du modèle. Seul le lien entre l&#8217;exigence et l'élément est supprimé, il est tout à fait possible de créer un lien entre l&#8217;exigence et un autre élément</cite> 
+		</p>
+		<h3 id="Exigencesrattachesauxlmentsfils">Exigences rattachées aux éléments fils</h3>
+		<p>La cinquième action permet d&#8217;activer ou désactiver l&#8217;affichage des exigences liées aux éléments fils de l'élément sélectionné.</p>
+		<p>
+			<img border="0" src="pics/Linked%20Requirements%20View%20-%20Show%20children%20requirements.png"/>
+		</p>
+		<p>Avec l&#8217;option désactivée, seules les exigences directement rattachées sont affichées :</p>
+		<p>
+			<img border="0" src="pics/Linked%20Requirements%20View%20-%20No%20children%20requirements.png"/>
+		</p>
+		<p>Quand cette option est activée, les exigences attachées à des éléments fils de l'éléments sélectionné sont affichées en plus de celles rattachées directement à l&#8217;objet sélectionné.</p>
+		<p>Ces exigences sont affichées en gris et en italique pour permettre de les différencier.</p>
+		<p>De plus, en survolant une ligne, une infobulle contenant le nom de l'élément concerné s&#8217;affiche.</p>
+		<p>
+			<img border="0" src="pics/Linked%20Requirements%20View%20-%20With%20children%20requirements.png"/>
+		</p>
+		<h2 id="Visualisationdeslmentsrattachsuneexigence">Visualisation des éléments rattachés à une exigence</h2>
+		<p>Des décorateurs permettent de visualiser rapidement les éléments ayant au moins une exigence rattachée sans avoir à sélectionner l'élément et consulter le contenu de la vue 
+			<em>Linked Requirements</em>.
+		</p>
+		<p>Ces décorateurs sont affichés dans la vue Model Explorer et sur les diagrammes.</p>
+		<p>
+			<img border="0" src="pics/DecoratorsModelExplorer.png"/>
+			<br/>Vue Model Explorer
+		</p>
+		<p>
+			<img border="0" src="pics/DecoratorsDiagram.png"/>
+			<br/>Diagramme
+		</p>
+		<p>Les décorateurs peuvent être de 3 couleurs différentes :</p>
+		<ul>
+			<li>Gris : l'élément n&#8217;a pas d&#8217;exigence rattachée mais au moins un de ses enfants a une exigence rattachée</li>
+			<li>Orange : l'élément a au moins une exigence rattachée ainsi qu&#8217;au moins un de ses enfants</li>
+			<li>Jaune : l'élément a au moins une exigence rattachée mais aucun de ses enfants n&#8217;est dans ce cas.</li>
+		</ul>
+		<p>Les décorateurs peuvent être globalement activés ou désactivés via le menu 
+			<em>Window &gt; Preferences</em> puis dans la rubrique 
+			<em>General &gt; Appearance &gt; Label decorations</em> il faut cocher ou décocher 
+			<em>Object with requirements</em>
+		</p>
+		<p>
+			<img border="0" src="pics/DecoratorsPreferences.png"/>
+		</p>
+	</body>
+</html>
