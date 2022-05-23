@@ -80,6 +80,7 @@ import org.obeonetwork.dsl.database.dbevolution.RenameTableChange;
 import org.obeonetwork.dsl.database.dbevolution.SequenceChange;
 import org.obeonetwork.dsl.database.dbevolution.TableChange;
 import org.obeonetwork.dsl.database.dbevolution.UpdateColumnChange;
+import org.obeonetwork.dsl.database.dbevolution.UpdateColumnCommentChange;
 import org.obeonetwork.dsl.database.dbevolution.UpdateConstraint;
 import org.obeonetwork.dsl.database.dbevolution.UpdateForeignKey;
 import org.obeonetwork.dsl.database.dbevolution.UpdateIndex;
@@ -167,7 +168,7 @@ public class ChangeLogBuilder {
 		timeStamp = changeLogIdPrexix;
 		try {
 			List<DBDiff> diffs = genService.getOrderedChanges(comparisonModel);
-			result.addAll(getChangeSetsForTables(diffs)); // Needs to be before handled before primary keys
+			result.addAll(getChangeSetsForTables(diffs)); // Needs to be handled before primary keys
 			result.addAll(getChangeSetsForPrimaryKeys(diffs));
 			result.addAll(getChangeSetsForConstraints(diffs));
 			result.addAll(getChangeSetsForForeignKeys(diffs));
@@ -226,8 +227,8 @@ public class ChangeLogBuilder {
 	private DropViewChange buildDropViewChange(View view) {
 		TableContainer container = view.getOwner();
 		DropViewChange dChange = new DropViewChange();
-		safeSchemaSetter(container, dChange::setSchemaName);
-		safeTrimSetter(view.getName(), dChange::setViewName);
+		safeSchemaNameConsum(container, dChange::setSchemaName);
+		safeTrimConsum(view.getName(), dChange::setViewName);
 		return dChange;
 	}
 
@@ -245,11 +246,11 @@ public class ChangeLogBuilder {
 
 	private CreateViewChange buildAddViewChange(View view) {
 		CreateViewChange vChange = new CreateViewChange();
-		safeTrimSetter(view.getName(), vChange::setViewName);
-		safeTrimSetter(genService.getViewQuery(view), vChange::setSelectQuery);
-		safeTrimSetter(view.getComments(), vChange::setRemarks);
+		safeTrimConsum(view.getName(), vChange::setViewName);
+		safeTrimConsum(genService.getViewQuery(view), vChange::setSelectQuery);
+		safeTrimConsum(view.getComments(), vChange::setRemarks);
 		vChange.setReplaceIfExists(true);
-		safeSchemaSetter(view.getOwner(), vChange::setSchemaName);
+		safeSchemaNameConsum(view.getOwner(), vChange::setSchemaName);
 		return vChange;
 	}
 
@@ -295,8 +296,8 @@ public class ChangeLogBuilder {
 	private AlterSequenceChange buildAlterSequenceChange(Sequence sequence) {
 		EObject owner = sequence.eContainer();
 		AlterSequenceChange aChange = new AlterSequenceChange();
-		safeSchemaSetter(owner, aChange::setSchemaName);
-		safeTrimSetter(sequence.getName(), aChange::setSequenceName);
+		safeSchemaNameConsum(owner, aChange::setSchemaName);
+		safeTrimConsum(sequence.getName(), aChange::setSequenceName);
 
 		safeBigIntegerSetter(sequence.getIncrement(), aChange::setIncrementBy);
 		safeBigIntegerSetter(sequence.getMinValue(), aChange::setMinValue);
@@ -305,7 +306,7 @@ public class ChangeLogBuilder {
 		// https://support.jira.obeo.fr/browse/SAFRAN-815?focusedCommentId=3540647&page=com.atlassian.jira.plugin.system.issuetabpanels:comment-tabpanel#comment-3540647
 		safeBigIntegerSetter(sequence.getCacheSize(), aChange::setCacheSize);
 		safeBigIntegerSetter(sequence.getCacheSize(), aChange::setCacheSize);
-		safeSchemaSetter(sequence.eContainer(), aChange::setSchemaName);
+		safeSchemaNameConsum(sequence.eContainer(), aChange::setSchemaName);
 		aChange.setCycle(sequence.isCycle());
 		return aChange;
 	}
@@ -326,8 +327,8 @@ public class ChangeLogBuilder {
 		DropSequenceChange dChange = new DropSequenceChange();
 		EObject container = sequence.eContainer();
 
-		safeSchemaSetter(container, dChange::setSchemaName);
-		safeTrimSetter(sequence.getName(), dChange::setSequenceName);
+		safeSchemaNameConsum(container, dChange::setSchemaName);
+		safeTrimConsum(sequence.getName(), dChange::setSequenceName);
 
 		return dChange;
 	}
@@ -346,14 +347,14 @@ public class ChangeLogBuilder {
 
 	private CreateSequenceChange buildAddSequenceChange(Sequence sequence) {
 		CreateSequenceChange sChange = new CreateSequenceChange();
-		safeTrimSetter(sequence.getName(), sChange::setSequenceName);
+		safeTrimConsum(sequence.getName(), sChange::setSequenceName);
 		safeBigIntegerSetter(sequence.getIncrement(), sChange::setIncrementBy);
 		safeBigIntegerSetter(sequence.getMinValue(), sChange::setMinValue);
 		safeBigIntegerSetter(sequence.getMaxValue(), sChange::setMaxValue);
 		safeBigIntegerSetter(sequence.getStart(), sChange::setStartValue);
 		safeBigIntegerSetter(sequence.getCacheSize(), sChange::setCacheSize);
 		safeBigIntegerSetter(sequence.getCacheSize(), sChange::setCacheSize);
-		safeSchemaSetter(sequence.eContainer(), sChange::setSchemaName);
+		safeSchemaNameConsum(sequence.eContainer(), sChange::setSchemaName);
 		sChange.setCycle(sequence.isCycle());
 		return sChange;
 	}
@@ -472,9 +473,9 @@ public class ChangeLogBuilder {
 
 		DropIndexChange dChange = new DropIndexChange();
 
-		safeSchemaSetter(table.getOwner(), dChange::setSchemaName);
-		safeTrimSetter(table.getName(), dChange::setTableName);
-		safeTrimSetter(index.getName(), dChange::setIndexName);
+		safeSchemaNameConsum(table.getOwner(), dChange::setSchemaName);
+		safeTrimConsum(table.getName(), dChange::setTableName);
+		safeTrimConsum(index.getName(), dChange::setIndexName);
 		return Optional.of(dChange);
 	}
 
@@ -491,13 +492,13 @@ public class ChangeLogBuilder {
 	private Optional<CreateIndexChange> buildAddIndexChange(Index index) {
 		CreateIndexChange iChange = new CreateIndexChange();
 		iChange.setUnique(index.isUnique());
-		safeTrimSetter(index.getName(), iChange::setIndexName);
-		safeTrimSetter(index.getOwner().getName(), iChange::setTableName);
+		safeTrimConsum(index.getName(), iChange::setIndexName);
+		safeTrimConsum(index.getOwner().getName(), iChange::setTableName);
 
 		List<AddColumnConfig> columnConfigs = index.getElements().stream()//
 				.filter(c -> c.getColumn() != null && c.getColumn().getName() != null).map(c -> {
 					AddColumnConfig config = new AddColumnConfig();
-					safeTrimSetter(c.getColumn().getName(), config::setName);
+					safeTrimConsum(c.getColumn().getName(), config::setName);
 					config.setDescending(!c.isAsc());
 					return config;
 				}).collect(toList());
@@ -509,7 +510,7 @@ public class ChangeLogBuilder {
 			return Optional.empty();
 		}
 		iChange.setColumns(columnConfigs);
-		safeSchemaSetter(index.getOwner().getOwner(), iChange::setSchemaName);
+		safeSchemaNameConsum(index.getOwner().getOwner(), iChange::setSchemaName);
 		return Optional.of(iChange);
 	}
 
@@ -598,9 +599,9 @@ public class ChangeLogBuilder {
 	private DropPrimaryKeyChange buildDropPrimaryKeyChange(PrimaryKey pk) {
 		Table table = pk.getOwner();
 		DropPrimaryKeyChange dChange = new DropPrimaryKeyChange();
-		safeTrimSetter(pk.getName(), dChange::setConstraintName);
-		safeSchemaSetter(table.getOwner(), dChange::setSchemaName);
-		safeTrimSetter(table.getName(), dChange::setTableName);
+		safeTrimConsum(pk.getName(), dChange::setConstraintName);
+		safeSchemaNameConsum(table.getOwner(), dChange::setSchemaName);
+		safeTrimConsum(table.getName(), dChange::setTableName);
 		return dChange;
 	}
 
@@ -612,7 +613,7 @@ public class ChangeLogBuilder {
 		if (columnsQN.stream().allMatch(c -> updatedColumnConfs.containsKey(c))) {
 			// The primary impact only added columns => Update existing contain
 			columnsQN.forEach(qn -> {
-				safeTrimSetter(primKey.getName(), name -> updatedColumnConfs.get(qn).setPrimaryKeyName(name));
+				safeTrimConsum(primKey.getName(), name -> updatedColumnConfs.get(qn).setPrimaryKeyName(name));
 			});
 			return Optional.empty();
 		} else {
@@ -642,12 +643,12 @@ public class ChangeLogBuilder {
 		AddPrimaryKeyChange aChange = new AddPrimaryKeyChange();
 		Table table = primKey.getOwner();
 		EList<Column> columns2 = primKey.getColumns();
-		safeSchemaSetter(table.getOwner(), aChange::setSchemaName);
-		safeTrimSetter(table.getName(), aChange::setTableName);
+		safeSchemaNameConsum(table.getOwner(), aChange::setSchemaName);
+		safeTrimConsum(table.getName(), aChange::setTableName);
 		String columnNames = columns2.stream().map(c -> c.getName()).filter(n -> n != null).map(n -> n.trim())
 				.collect(joining(","));
 		aChange.setColumnNames(columnNames);
-		safeTrimSetter(primKey.getName(), aChange::setConstraintName);
+		safeTrimConsum(primKey.getName(), aChange::setConstraintName);
 		return aChange;
 	}
 
@@ -702,9 +703,9 @@ public class ChangeLogBuilder {
 			return Optional.empty();
 		} else {
 			DropForeignKeyConstraintChange dChange = new DropForeignKeyConstraintChange();
-			safeSchemaSetter(sourceTable.getOwner(), dChange::setBaseTableSchemaName);
-			safeTrimSetter(sourceTable.getName(), dChange::setBaseTableName);
-			safeTrimSetter(fk.getName(), dChange::setConstraintName);
+			safeSchemaNameConsum(sourceTable.getOwner(), dChange::setBaseTableSchemaName);
+			safeTrimConsum(sourceTable.getName(), dChange::setBaseTableName);
+			safeTrimConsum(fk.getName(), dChange::setConstraintName);
 
 			return Optional.of(dChange);
 		}
@@ -728,10 +729,10 @@ public class ChangeLogBuilder {
 					.orElse(null);
 			if (target != null) {
 				AddForeignKeyConstraintChange changeDescription = new AddForeignKeyConstraintChange();
-				safeTrimSetter(fk.getName(), changeDescription::setConstraintName);
-				safeTrimSetter(sourceTable.getName(), changeDescription::setBaseTableName);
-				safeSchemaSetter(sourceTable.getOwner(), changeDescription::setBaseTableSchemaName);
-				safeTrimSetter(target.getName(), changeDescription::setReferencedTableName);
+				safeTrimConsum(fk.getName(), changeDescription::setConstraintName);
+				safeTrimConsum(sourceTable.getName(), changeDescription::setBaseTableName);
+				safeSchemaNameConsum(sourceTable.getOwner(), changeDescription::setBaseTableSchemaName);
+				safeTrimConsum(target.getName(), changeDescription::setReferencedTableName);
 				changeDescription.setBaseColumnNames(
 						fk.getElements().stream().map(c -> c.getFkColumn().getName()).collect(joining(",")));
 				changeDescription.setReferencedColumnNames(
@@ -745,7 +746,7 @@ public class ChangeLogBuilder {
 							fk.getName())));
 					return Optional.empty();
 				} else if (!referencesTable.isEmpty()) {
-					safeSchemaSetter(referencesTable.get(0).getOwner(),
+					safeSchemaNameConsum(referencesTable.get(0).getOwner(),
 							changeDescription::setReferencedTableSchemaName);
 				}
 
@@ -770,10 +771,10 @@ public class ChangeLogBuilder {
 	}
 
 	private Optional<CreateTableChange> buildCreateTableChange(Table table) {
-		CreateTableChange ctChange = new CreateTableChange();
-		safeTrimSetter(table.getName(), ctChange::setTableName);
-		safeSchemaSetter(table.getOwner(), ctChange::setSchemaName);
-		remarksSetter(table, ctChange::setRemarks);
+		CreateTableChange createTableChange = new CreateTableChange();
+		safeTrimConsum(table.getName(), createTableChange::setTableName);
+		safeSchemaNameConsum(table.getOwner(), createTableChange::setSchemaName);
+		safeDatabaseElementCommentsTrimConsum(table, createTableChange::setRemarks);
 
 		if (table.getColumns().isEmpty()) {
 			statuses.add(
@@ -784,31 +785,31 @@ public class ChangeLogBuilder {
 		for (Column column : table.getColumns()) {
 			ColumnConfig cConfig = new ColumnConfig();
 			fillColumnConfig(table, column, cConfig);
-			ctChange.addColumn(cConfig);
+			createTableChange.addColumn(cConfig);
 		}
-		return Optional.of(ctChange);
+		return Optional.of(createTableChange);
 	}
 
-	private void safeSchemaSetter(EObject candidate, Consumer<String> consumer) {
-		if (candidate instanceof Schema) {
-			String name = ((Schema) candidate).getName();
-			if (name != null) {
-				consumer.accept(name.trim());
+	private void safeSchemaNameConsum(EObject schemaCandidate, Consumer<String> consumer) {
+		if (schemaCandidate instanceof Schema) {
+			String schemaName = ((Schema) schemaCandidate).getName();
+			if (schemaName != null) {
+				consumer.accept(schemaName.trim());
 			}
 		}
 	}
 
-	private void remarksSetter(DatabaseElement dbe, Consumer<String> setter) {
-		safeTrimSetter(dbe.getComments(), setter);
+	private void safeDatabaseElementCommentsTrimConsum(DatabaseElement dbe, Consumer<String> stringConsumer) {
+		safeTrimConsum(dbe.getComments(), stringConsumer);
 	}
 
-	private void safeTrimSetter(String s, Consumer<String> setter) {
-		safeSet(s, String::trim, setter);
+	private void safeTrimConsum(String s, Consumer<String> stringConsumer) {
+		safePreProcessConsum(s, String::trim, stringConsumer);
 	}
 
-	private void safeSet(String s, Function<String, String> preProcess, Consumer<String> setter) {
+	private void safePreProcessConsum(String s, Function<String, String> preProcess, Consumer<String> stringConsumer) {
 		if (s != null) {
-			setter.accept(preProcess.apply(s));
+			stringConsumer.accept(preProcess.apply(s));
 		}
 	}
 
@@ -842,7 +843,7 @@ public class ChangeLogBuilder {
 			cConfig.setAutoIncrement(column.isAutoincrement());
 		}
 
-		remarksSetter(column, cConfig::setRemarks);
+		safeDatabaseElementCommentsTrimConsum(column, cConfig::setRemarks);
 	}
 
 	private void setTypeAndDefaultValue(Table table, Column column, ColumnConfig cConfig, Type type) {
@@ -947,6 +948,9 @@ public class ChangeLogBuilder {
 				} else if (dbDiff instanceof UpdateColumnChange) {
 					UpdateColumnChange updateColumnChange = (UpdateColumnChange) dbDiff;
 					result.addAll(buildUpdateColumnChangeSet(updateColumnChange));
+				} else if (dbDiff instanceof UpdateColumnCommentChange) {
+					UpdateColumnCommentChange updateColumnCommentChange = (UpdateColumnCommentChange) dbDiff;
+					result.addAll(buildUpdateColumnCommentChangeSet(updateColumnCommentChange));
 				}
 			}
 		}
@@ -1054,13 +1058,26 @@ public class ChangeLogBuilder {
 		return result;
 	}
 
+	private List<ChangeSet> buildUpdateColumnCommentChangeSet(UpdateColumnCommentChange updateColumnCommentChange) {
+		
+		List<ChangeSet> result = new ArrayList<ChangeSet>();
+
+		Column column = updateColumnCommentChange.getColumn();
+		
+		// Update comment
+		if (hasAttributeChangeChanged(updateColumnCommentChange, DatabasePackage.eINSTANCE.getDatabaseElement_Comments())) {
+			result.add(buildCommentOnColumn(column));
+		}
+		return result;
+	}
+
 	private ChangeSet buildCommentOnColumn(Column column) {
 		SetColumnRemarksChange sChange = new SetColumnRemarksChange();
 		Table table = column.getOwner();
-		safeSchemaSetter(table.getOwner(), sChange::setSchemaName);
-		safeTrimSetter(table.getName(), sChange::setTableName);
-		safeTrimSetter(column.getName(), sChange::setColumnName);
-		safeTrimSetter(column.getComments(), sChange::setRemarks);
+		safeSchemaNameConsum(table.getOwner(), sChange::setSchemaName);
+		safeTrimConsum(table.getName(), sChange::setTableName);
+		safeTrimConsum(column.getName(), sChange::setColumnName);
+		safeTrimConsum(column.getComments(), sChange::setRemarks);
 
 		ChangeSet changeSet = buildNextChangeSet();
 		changeSet.setComments("Updating comment on " + genService.getFullName(column));
@@ -1077,9 +1094,9 @@ public class ChangeLogBuilder {
 			if (defaultValue != null && !defaultValue.isEmpty()) {
 				Table table = column.getOwner();
 				AddDefaultValueChange aChange = new AddDefaultValueChange();
-				safeSchemaSetter(table.getOwner(), aChange::setSchemaName);
-				safeTrimSetter(table.getName(), aChange::setTableName);
-				safeTrimSetter(column.getName(), aChange::setColumnName);
+				safeSchemaNameConsum(table.getOwner(), aChange::setSchemaName);
+				safeTrimConsum(table.getName(), aChange::setTableName);
+				safeTrimConsum(column.getName(), aChange::setColumnName);
 				// Required for informix DB... might no be necessary but since we have it and
 				// Liquibase does not fail on invalid type on DB that do not requires it.
 				// It generates a SQL query without this information on DB that does not
@@ -1106,9 +1123,9 @@ public class ChangeLogBuilder {
 	private ChangeSet buildAddAutoIncrementConstraint(Column column) {
 		AddAutoIncrementChange aChange = new AddAutoIncrementChange();
 
-		safeTrimSetter(column.getOwner().getName(), aChange::setTableName);
-		safeSchemaSetter(column.getOwner().getOwner(), aChange::setSchemaName);
-		safeTrimSetter(column.getName(), aChange::setColumnName);
+		safeTrimConsum(column.getOwner().getName(), aChange::setTableName);
+		safeSchemaNameConsum(column.getOwner().getOwner(), aChange::setSchemaName);
+		safeTrimConsum(column.getName(), aChange::setColumnName);
 
 		// Required for MariaDB and MySql. See
 		// https://docs.liquibase.com/change-types/community/add-not-null-constraint.html
@@ -1123,9 +1140,9 @@ public class ChangeLogBuilder {
 	private ChangeSet buildSetNotNullConstraint(Column column) {
 		Table table = column.getOwner();
 		AddNotNullConstraintChange aChange = new AddNotNullConstraintChange();
-		safeSchemaSetter(table.getOwner(), aChange::setSchemaName);
-		safeTrimSetter(table.getName(), aChange::setTableName);
-		safeTrimSetter(column.getName(), aChange::setColumnName);
+		safeSchemaNameConsum(table.getOwner(), aChange::setSchemaName);
+		safeTrimConsum(table.getName(), aChange::setTableName);
+		safeTrimConsum(column.getName(), aChange::setColumnName);
 		// Required for MariaDB and MySql. See
 		// https://docs.liquibase.com/change-types/community/add-not-null-constraint.html
 		safeSetColumnType(column, aChange::setColumnDataType);
@@ -1150,9 +1167,9 @@ public class ChangeLogBuilder {
 	private ChangeSet buildDropNotNullConstraint(Column column) {
 		Table table = column.getOwner();
 		DropNotNullConstraintChange dChange = new DropNotNullConstraintChange();
-		safeSchemaSetter(table.getOwner(), dChange::setSchemaName);
-		safeTrimSetter(table.getName(), dChange::setTableName);
-		safeTrimSetter(column.getName(), dChange::setColumnName);
+		safeSchemaNameConsum(table.getOwner(), dChange::setSchemaName);
+		safeTrimConsum(table.getName(), dChange::setTableName);
+		safeTrimConsum(column.getName(), dChange::setColumnName);
 
 		// Required for MariaDB and MySql. See
 		// https://docs.liquibase.com/change-types/community/add-not-null-constraint.html
@@ -1170,9 +1187,9 @@ public class ChangeLogBuilder {
 		if (type instanceof TypeInstance) {
 			ModifyDataTypeChange mChange = new ModifyDataTypeChange();
 
-			safeSchemaSetter(column.getOwner().getOwner(), mChange::setSchemaName);
-			safeTrimSetter(column.getOwner().getName(), mChange::setTableName);
-			safeTrimSetter(column.getName(), mChange::setColumnName);
+			safeSchemaNameConsum(column.getOwner().getOwner(), mChange::setSchemaName);
+			safeTrimConsum(column.getOwner().getName(), mChange::setTableName);
+			safeTrimConsum(column.getName(), mChange::setColumnName);
 			TypeInstance typeInstance = (TypeInstance) type;
 			String stringType = genService.getType(typeInstance);
 			mChange.setNewDataType(stringType);
@@ -1191,10 +1208,10 @@ public class ChangeLogBuilder {
 		liquibase.change.core.RenameColumnChange rChange = new liquibase.change.core.RenameColumnChange();
 		Column column = renameColumnChange.getColumn();
 		Table table = column.getOwner();
-		safeSchemaSetter(table.getOwner(), rChange::setSchemaName);
-		safeTrimSetter(table.getName(), rChange::setTableName);
-		safeTrimSetter(column.getName(), rChange::setOldColumnName);
-		safeTrimSetter(renameColumnChange.getNewColumn().getName(), rChange::setNewColumnName);
+		safeSchemaNameConsum(table.getOwner(), rChange::setSchemaName);
+		safeTrimConsum(table.getName(), rChange::setTableName);
+		safeTrimConsum(column.getName(), rChange::setOldColumnName);
+		safeTrimConsum(renameColumnChange.getNewColumn().getName(), rChange::setNewColumnName);
 
 		// Required for MariaDB and MySql. See
 		// https://docs.liquibase.com/change-types/community/rename-column.html
@@ -1210,9 +1227,9 @@ public class ChangeLogBuilder {
 		DropColumnChange dChange = new DropColumnChange();
 		Column column = removeColumnChange.getColumn();
 		Table table = column.getOwner();
-		safeSchemaSetter(table.getOwner(), dChange::setSchemaName);
-		safeTrimSetter(table.getName(), dChange::setTableName);
-		safeTrimSetter(column.getName(), dChange::setColumnName);
+		safeSchemaNameConsum(table.getOwner(), dChange::setSchemaName);
+		safeTrimConsum(table.getName(), dChange::setTableName);
+		safeTrimConsum(column.getName(), dChange::setColumnName);
 
 		ChangeSet changeSet = buildNextChangeSet();
 		changeSet.addChange(dChange);
@@ -1224,8 +1241,8 @@ public class ChangeLogBuilder {
 		liquibase.change.core.AddColumnChange aChange = new liquibase.change.core.AddColumnChange();
 		Column column = addColumnChange.getColumn();
 		Table table = column.getOwner();
-		safeSchemaSetter(table.getOwner(), aChange::setSchemaName);
-		safeTrimSetter(table.getName(), aChange::setTableName);
+		safeSchemaNameConsum(table.getOwner(), aChange::setSchemaName);
+		safeTrimConsum(table.getName(), aChange::setTableName);
 
 		AddColumnConfig addColumnConfig = new AddColumnConfig();
 		fillColumnConfig(table, column, addColumnConfig);
@@ -1240,9 +1257,9 @@ public class ChangeLogBuilder {
 	private ChangeSet buildUpdateTableCommentChangeSet(UpdateTableCommentChange updateCommentChange) {
 		SetTableRemarksChange srChange = new SetTableRemarksChange();
 		Table table = updateCommentChange.getNewTable();
-		safeSchemaSetter(table.getOwner(), srChange::setSchemaName);
-		safeTrimSetter(table.getName(), srChange::setTableName);
-		safeTrimSetter(table.getComments(), srChange::setRemarks);
+		safeSchemaNameConsum(table.getOwner(), srChange::setSchemaName);
+		safeTrimConsum(table.getName(), srChange::setTableName);
+		safeTrimConsum(table.getComments(), srChange::setRemarks);
 
 		ChangeSet changeSet = buildNextChangeSet();
 		changeSet.addChange(srChange);
@@ -1253,10 +1270,10 @@ public class ChangeLogBuilder {
 	private ChangeSet buildRenameTableChangeSet(RenameTableChange renameTableChange) {
 		liquibase.change.core.RenameTableChange rChange = new liquibase.change.core.RenameTableChange();
 		Table table = renameTableChange.getTable();
-		safeTrimSetter(table.getName(), rChange::setOldTableName);
+		safeTrimConsum(table.getName(), rChange::setOldTableName);
 		Table newTable = renameTableChange.getNewTable();
-		safeTrimSetter(newTable.getName(), rChange::setNewTableName);
-		safeSchemaSetter(table.getOwner(), rChange::setSchemaName);
+		safeTrimConsum(newTable.getName(), rChange::setNewTableName);
+		safeSchemaNameConsum(table.getOwner(), rChange::setSchemaName);
 
 		ChangeSet changeSet = buildNextChangeSet();
 		changeSet.setComments("Rename table '" + table.getName() + "' to '" + newTable.getName() + "'");
@@ -1269,8 +1286,8 @@ public class ChangeLogBuilder {
 		Table table = removeTable.getTable();
 		DropTableChange dChange = new DropTableChange();
 
-		safeSchemaSetter(table.getOwner(), dChange::setSchemaName);
-		safeTrimSetter(table.getName(), dChange::setTableName);
+		safeSchemaNameConsum(table.getOwner(), dChange::setSchemaName);
+		safeTrimConsum(table.getName(), dChange::setTableName);
 		dChange.setCascadeConstraints(true);
 
 		deletedTables.add(genService.getFullName(table));
