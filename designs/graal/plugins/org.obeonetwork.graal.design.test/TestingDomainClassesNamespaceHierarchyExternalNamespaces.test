@@ -6,7 +6,7 @@ Element-Version: 3.0
 External-Reference: 
 Id: _XdtGkDojEeu-6M4tSPO0Uw
 Runtime-Version: 2.5.1.M3
-Save-Time: 3/7/22, 11:43 AM
+Save-Time: 5/23/22 5:21 PM
 Testcase-Type: ecl
 
 ------=_.description-216f885c-d591-38ce-8ea2-e4f8cb4d6ffa
@@ -335,7 +335,7 @@ with [get-editor "namespace_1 - Domain Classes diagram" -index 2] {
         mouse-move 285 596 -height 607 -width 1207
     }
 }
-get-view Properties | get-section Propetries | get-button "Browse your data to edit the current value" | click
+get-view Properties | get-section Properties | get-button "Browse your data to edit the current value" | click
 with [get-window Select] {
     get-tree 
         | select "platform:\\/resource\\/org.obeonetwork.is.sample.ebookstore\\/My.graal/System My/Namespace namespace_1/Namespace namespace_1/Domain Class DCB"
