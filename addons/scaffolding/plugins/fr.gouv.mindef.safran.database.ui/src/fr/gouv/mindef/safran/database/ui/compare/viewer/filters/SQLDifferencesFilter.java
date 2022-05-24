@@ -44,9 +44,7 @@ public class SQLDifferencesFilter extends AbstractDifferenceFilter {
 				}
 				
 				return !(data instanceof DBDiff)
-						&& !(data instanceof Match)
-						||data instanceof Match
-						&& node.getParent() != null;
+						&& !(data instanceof Match);
 			}
 			return false;
 		}
@@ -80,14 +78,7 @@ public class SQLDifferencesFilter extends AbstractDifferenceFilter {
 
 	@Override
 	public boolean isEnabled(IComparisonScope scope, Comparison comparison) {
-		if (scope != null) {
-			for (String nsURI : scope.getNsURIs()) {
-				if (nsURI.matches("http://www.obeonetwork.org/dsl/database/1.0")) { //$NON-NLS-1$
-					return true;
-				}
-			}
-		}
-		return false;
+		return scope != null && scope.getNsURIs().stream().anyMatch("http://www.obeonetwork.org/dsl/database/1.0"::equals);
 	}
 
 }
