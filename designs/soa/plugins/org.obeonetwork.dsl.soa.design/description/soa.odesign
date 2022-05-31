@@ -1114,7 +1114,7 @@
       <pages name="Parameter Page" labelExpression="Parameter" domainClass="soa::Parameter" semanticCandidateExpression="var:self" groups="//@extensions.0/@categories.1/@groups.4"/>
       <pages name="Component Exposition Page" labelExpression="Exposition" domainClass="soa::Component" semanticCandidateExpression="var:self" preconditionExpression="aql:self.isConcernedByExposition()" groups="//@extensions.0/@categories.1/@groups.22 //@extensions.0/@categories.1/@groups.23 //@extensions.0/@categories.1/@groups.24 //@extensions.0/@categories.1/@groups.20 //@extensions.0/@categories.1/@groups.32"/>
       <pages name="Service Exposition Page" labelExpression="Exposition" domainClass="soa::Service" semanticCandidateExpression="var:self" preconditionExpression="aql:self.isConcernedByExposition()" groups="//@extensions.0/@categories.1/@groups.5 //@extensions.0/@categories.1/@groups.10 //@extensions.0/@categories.1/@groups.32"/>
-      <pages name="Operation Exposition Page" labelExpression="Exposition" domainClass="soa::Operation" semanticCandidateExpression="var:self" preconditionExpression="aql:self.isConcernedByExposition()" groups="//@extensions.0/@categories.1/@groups.6 //@extensions.0/@categories.1/@groups.10 //@extensions.0/@categories.1/@groups.11 //@extensions.0/@categories.1/@groups.19 //@extensions.0/@categories.1/@groups.8 //@extensions.0/@categories.1/@groups.32"/>
+      <pages name="Operation Exposition Page" labelExpression="Exposition" domainClass="soa::Operation" semanticCandidateExpression="var:self" preconditionExpression="aql:self.isConcernedByExposition()" groups="//@extensions.0/@categories.1/@groups.6 //@extensions.0/@categories.1/@groups.10 //@extensions.0/@categories.1/@groups.11 //@extensions.0/@categories.1/@groups.8 //@extensions.0/@categories.1/@groups.32"/>
       <pages name="Parameter Exposition Page" labelExpression="Exposition" domainClass="soa::Parameter" semanticCandidateExpression="var:self" preconditionExpression="aql:self.isConcernedByExposition()" groups="//@extensions.0/@categories.1/@groups.9 //@extensions.0/@categories.1/@groups.10 //@extensions.0/@categories.1/@groups.25 //@extensions.0/@categories.1/@groups.32"/>
       <pages name="Security Scheme Page" labelExpression="Security Scheme" domainClass="soa::SecurityScheme" semanticCandidateExpression="var:self" groups="//@extensions.0/@categories.1/@groups.12 //@extensions.0/@categories.1/@groups.13 //@extensions.0/@categories.1/@groups.14 //@extensions.0/@categories.1/@groups.15 //@extensions.0/@categories.1/@groups.16"/>
       <pages name="Component Security Schemes Page" labelExpression="Security Schemes" domainClass="soa::Component" semanticCandidateExpression="var:self" groups="//@extensions.0/@categories.1/@groups.21"/>
@@ -1129,6 +1129,7 @@
       <pages name="Flow Page" labelExpression="Flow" domainClass="soa::Flow" semanticCandidateExpression="var:self" groups="//@extensions.0/@categories.1/@groups.17"/>
       <pages name="Scope page" labelExpression="Scope" domainClass="soa::Scope" semanticCandidateExpression="var:self" groups="//@extensions.0/@categories.1/@groups.18"/>
       <pages name="SecurityApplication Page" labelExpression="Security Application" domainClass="soa::SecurityApplication" semanticCandidateExpression="var:self" groups="//@extensions.0/@categories.1/@groups.34"/>
+      <pages name="Securable Security Page" labelExpression="Security" domainClass="soa::Securable" semanticCandidateExpression="var:self" groups="//@extensions.0/@categories.1/@groups.19"/>
       <groups name="Operation Group" labelExpression="Properties" domainClass="soa::Operation" semanticCandidateExpression="var:self">
         <controls xsi:type="properties:TextDescription" name="soa::Operation name" labelExpression="aql:input.emfEditServices(self).getText(self.eClass().getEStructuralFeature('name')) + ':'" helpExpression="aql:input.emfEditServices(self).getDescription(self.eClass().getEStructuralFeature('name'))" isEnabledExpression="aql:self.eClass().getEStructuralFeature('name').changeable" valueExpression="aql:self.name">
           <initialOperation>
@@ -1689,7 +1690,7 @@
           </initialOperation>
         </controls>
       </groups>
-      <groups name="Operation Security Group" labelExpression="Security" domainClass="soa::Operation" semanticCandidateExpression="var:self" preconditionExpression="aql:self.eContainer(soa::Component).securitySchemes->notEmpty()">
+      <groups name="Securable Security Group" labelExpression="Security" domainClass="soa::Securable" semanticCandidateExpression="var:self">
         <controls xsi:type="properties:CustomDescription" name="org.obeonetwork.is.eef.custom.reference" label="soa::Operation securityApplications" labelExpression="aql:input.emfEditServices(self).getText(self.eClass().getEStructuralFeature('securityApplications')) + ':'" helpExpression="aql:input.emfEditServices(self).getDescription(self.eClass().getEStructuralFeature('securityApplications'))" isEnabledExpression="aql:self.eClass().getEStructuralFeature('securityApplications').changeable">
           <customExpressions name="referenceNameExpression" customExpression="securityApplications"/>
           <customOperations name="addButtonOperation">
@@ -1699,7 +1700,7 @@
                   <subModelOperations xsi:type="tool_1:ChangeContext" browseExpression="aql:self.updateSecurityApplications(selectedElements)"/>
                 </subModelOperations>
                 <parameters name="windowTitle" value="Security Schemes Selection"/>
-                <parameters name="message" value="Select the Security Schemes to apply to this operation."/>
+                <parameters name="message" value="aql:'Select the Security Schemes to apply to this '+self.eClass().name.toLower()+'.'"/>
                 <parameters name="candidates" value="aql:self.eContainer(soa::Component).securitySchemes"/>
                 <parameters name="preSelection" value="aql:self.securityApplications.securityScheme"/>
                 <parameters name="choiceOfValuesMessage" value="Available Security Schemes"/>

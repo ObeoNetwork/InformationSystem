@@ -37,7 +37,7 @@ import org.obeonetwork.dsl.environment.Type;
  * @model
  * @generated
  */
-public interface Service extends ObeoDSMObject {
+public interface Service extends ObeoDSMObject, Securable {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

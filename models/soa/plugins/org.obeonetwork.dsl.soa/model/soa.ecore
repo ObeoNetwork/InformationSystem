@@ -88,7 +88,7 @@
       </eAnnotations>
     </eStructuralFeatures>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Service" eSuperTypes="../../org.obeonetwork.dsl.environment/model/environment.ecore#//ObeoDSMObject">
+  <eClassifiers xsi:type="ecore:EClass" name="Service" eSuperTypes="../../org.obeonetwork.dsl.environment/model/environment.ecore#//ObeoDSMObject #//Securable">
     <eStructuralFeatures xsi:type="ecore:EReference" name="ownedInterface" eType="#//Interface"
         containment="true">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
@@ -173,7 +173,12 @@
     <eLiterals name="synchronous" literal="synchronous"/>
     <eLiterals name="asynchronous" value="1" literal="asynchronous"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Operation" eSuperTypes="../../org.obeonetwork.dsl.environment/model/environment.ecore#//Action">
+  <eClassifiers xsi:type="ecore:EClass" name="Operation" eSuperTypes="../../org.obeonetwork.dsl.environment/model/environment.ecore#//Action #//Securable">
+    <eOperations name="getAllSecurityApplications" upperBound="-1" eType="#//SecurityApplication">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Returns the owned SecurityApplications and the ones inherited from the containing Service."/>
+      </eAnnotations>
+    </eOperations>
     <eStructuralFeatures xsi:type="ecore:EReference" name="input" upperBound="-1"
         eType="#//Parameter" containment="true">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
@@ -245,11 +250,6 @@
         <details key="documentation" value="Reference towards the property extension that defines the operation's pagination."/>
       </eAnnotations>
     </eStructuralFeatures>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="securityApplications" upperBound="-1"
-        eType="#//SecurityApplication" containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="securitySchemes" upperBound="-1"
-        eType="#//SecurityScheme" changeable="false" volatile="true" transient="true"
-        derived="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ImplementationComponent" eSuperTypes="../../org.obeonetwork.dsl.environment/model/environment.ecore#//ObeoDSMObject">
     <eStructuralFeatures xsi:type="ecore:EReference" name="implement" eType="#//Interface">
@@ -556,5 +556,12 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="securityScheme" eType="#//SecurityScheme"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="scopes" upperBound="-1"
         eType="#//Scope"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Securable" abstract="true">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="securityApplications" upperBound="-1"
+        eType="#//SecurityApplication" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="securitySchemes" upperBound="-1"
+        eType="#//SecurityScheme" changeable="false" volatile="true" transient="true"
+        derived="true"/>
   </eClassifiers>
 </ecore:EPackage>

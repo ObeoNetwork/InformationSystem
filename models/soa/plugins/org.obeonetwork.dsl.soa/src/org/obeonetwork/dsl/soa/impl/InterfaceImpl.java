@@ -20,6 +20,8 @@ import org.eclipse.emf.ecore.util.InternalEList;
 import org.obeonetwork.dsl.environment.impl.ObeoDSMObjectImpl;
 import org.obeonetwork.dsl.soa.Interface;
 import org.obeonetwork.dsl.soa.Operation;
+import org.obeonetwork.dsl.soa.Securable;
+import org.obeonetwork.dsl.soa.SecurityApplication;
 import org.obeonetwork.dsl.soa.SoaPackage;
 
 /**

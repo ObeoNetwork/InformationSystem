@@ -63,6 +63,8 @@ public class OperationItemProvider
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
+			addSecurityApplicationsPropertyDescriptor(object);
+			addSecuritySchemesPropertyDescriptor(object);
 			addKindPropertyDescriptor(object);
 			addPublicPropertyDescriptor(object);
 			addURIPropertyDescriptor(object);
@@ -72,10 +74,30 @@ public class OperationItemProvider
 			addSizePropertyDescriptor(object);
 			addPagePropertyDescriptor(object);
 			addPaginationExtensionPropertyDescriptor(object);
-			addSecurityApplicationsPropertyDescriptor(object);
-			addSecuritySchemesPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
+	}
+
+	/**
+	 * This adds a property descriptor for the Security Applications feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addSecurityApplicationsPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_Securable_securityApplications_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Securable_securityApplications_feature", "_UI_Securable_type"),
+				 SoaPackage.Literals.SECURABLE__SECURITY_APPLICATIONS,
+				 true,
+				 false,
+				 false,
+				 null,
+				 null,
+				 null));
 	}
 
 	/**
@@ -277,28 +299,6 @@ public class OperationItemProvider
 	}
 
 	/**
-	 * This adds a property descriptor for the Security Applications feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addSecurityApplicationsPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_Operation_securityApplications_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_Operation_securityApplications_feature", "_UI_Operation_type"),
-				 SoaPackage.Literals.OPERATION__SECURITY_APPLICATIONS,
-				 true,
-				 false,
-				 false,
-				 null,
-				 null,
-				 null));
-	}
-
-	/**
 	 * This adds a property descriptor for the Security Schemes feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -309,12 +309,12 @@ public class OperationItemProvider
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_Operation_securitySchemes_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_Operation_securitySchemes_feature", "_UI_Operation_type"),
-				 SoaPackage.Literals.OPERATION__SECURITY_SCHEMES,
-				 true,
+				 getString("_UI_Securable_securitySchemes_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Securable_securitySchemes_feature", "_UI_Securable_type"),
+				 SoaPackage.Literals.SECURABLE__SECURITY_SCHEMES,
 				 false,
-				 true,
+				 false,
+				 false,
 				 null,
 				 null,
 				 null));
@@ -332,11 +332,11 @@ public class OperationItemProvider
 	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
+			childrenFeatures.add(SoaPackage.Literals.SECURABLE__SECURITY_APPLICATIONS);
 			childrenFeatures.add(SoaPackage.Literals.OPERATION__INPUT);
 			childrenFeatures.add(SoaPackage.Literals.OPERATION__OUTPUT);
 			childrenFeatures.add(SoaPackage.Literals.OPERATION__FAULT);
 			childrenFeatures.add(SoaPackage.Literals.OPERATION__SERVERS);
-			childrenFeatures.add(SoaPackage.Literals.OPERATION__SECURITY_APPLICATIONS);
 		}
 		return childrenFeatures;
 	}
@@ -424,11 +424,11 @@ public class OperationItemProvider
 			case SoaPackage.OPERATION__PAGED:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
+			case SoaPackage.OPERATION__SECURITY_APPLICATIONS:
 			case SoaPackage.OPERATION__INPUT:
 			case SoaPackage.OPERATION__OUTPUT:
 			case SoaPackage.OPERATION__FAULT:
 			case SoaPackage.OPERATION__SERVERS:
-			case SoaPackage.OPERATION__SECURITY_APPLICATIONS:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
 		}
@@ -445,6 +445,11 @@ public class OperationItemProvider
 	@Override
 	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
 		super.collectNewChildDescriptors(newChildDescriptors, object);
+
+		newChildDescriptors.add
+			(createChildParameter
+				(SoaPackage.Literals.SECURABLE__SECURITY_APPLICATIONS,
+				 SoaFactory.eINSTANCE.createSecurityApplication()));
 
 		newChildDescriptors.add
 			(createChildParameter
@@ -465,11 +470,6 @@ public class OperationItemProvider
 			(createChildParameter
 				(SoaPackage.Literals.OPERATION__SERVERS,
 				 SoaFactory.eINSTANCE.createServer()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(SoaPackage.Literals.OPERATION__SECURITY_APPLICATIONS,
-				 SoaFactory.eINSTANCE.createSecurityApplication()));
 	}
 
 	/**

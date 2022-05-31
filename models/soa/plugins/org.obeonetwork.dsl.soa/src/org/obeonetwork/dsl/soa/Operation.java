@@ -35,15 +35,13 @@ import org.obeonetwork.dsl.environment.Action;
  *   <li>{@link org.obeonetwork.dsl.soa.Operation#getSize <em>Size</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.soa.Operation#getPage <em>Page</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.soa.Operation#getPaginationExtension <em>Pagination Extension</em>}</li>
- *   <li>{@link org.obeonetwork.dsl.soa.Operation#getSecurityApplications <em>Security Applications</em>}</li>
- *   <li>{@link org.obeonetwork.dsl.soa.Operation#getSecuritySchemes <em>Security Schemes</em>}</li>
  * </ul>
  *
  * @see org.obeonetwork.dsl.soa.SoaPackage#getOperation()
  * @model
  * @generated
  */
-public interface Operation extends Action {
+public interface Operation extends Action, Securable {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -380,27 +378,14 @@ public interface Operation extends Action {
 	void setPaginationExtension(PropertiesExtension value);
 
 	/**
-	 * Returns the value of the '<em><b>Security Applications</b></em>' containment reference list.
-	 * The list contents are of type {@link org.obeonetwork.dsl.soa.SecurityApplication}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Security Applications</em>' containment reference list.
-	 * @see org.obeonetwork.dsl.soa.SoaPackage#getOperation_SecurityApplications()
-	 * @model containment="true" resolveProxies="true"
+	 * <!-- begin-model-doc -->
+	 * Returns the owned SecurityApplications and the ones inherited from the containing Service.
+	 * <!-- end-model-doc -->
+	 * @model kind="operation"
 	 * @generated
 	 */
-	EList<SecurityApplication> getSecurityApplications();
-
-	/**
-	 * Returns the value of the '<em><b>Security Schemes</b></em>' reference list.
-	 * The list contents are of type {@link org.obeonetwork.dsl.soa.SecurityScheme}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Security Schemes</em>' reference list.
-	 * @see org.obeonetwork.dsl.soa.SoaPackage#getOperation_SecuritySchemes()
-	 * @model transient="true" changeable="false" volatile="true" derived="true"
-	 * @generated
-	 */
-	EList<SecurityScheme> getSecuritySchemes();
+	EList<SecurityApplication> getAllSecurityApplications();
 
 } // Operation

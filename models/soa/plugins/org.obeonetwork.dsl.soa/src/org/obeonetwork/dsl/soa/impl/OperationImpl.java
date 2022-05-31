@@ -23,6 +23,7 @@ import org.obeonetwork.dsl.soa.Operation;
 import org.obeonetwork.dsl.soa.OperationKind;
 import org.obeonetwork.dsl.soa.Parameter;
 import org.obeonetwork.dsl.soa.PropertiesExtension;
+import org.obeonetwork.dsl.soa.Securable;
 import org.obeonetwork.dsl.soa.SecurityApplication;
 import org.obeonetwork.dsl.soa.SecurityScheme;
 import org.obeonetwork.dsl.soa.Server;
@@ -37,6 +38,8 @@ import org.obeonetwork.dsl.soa.Verb;
  * The following features are implemented:
  * </p>
  * <ul>
+ *   <li>{@link org.obeonetwork.dsl.soa.impl.OperationImpl#getSecurityApplications <em>Security Applications</em>}</li>
+ *   <li>{@link org.obeonetwork.dsl.soa.impl.OperationImpl#getSecuritySchemes <em>Security Schemes</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.soa.impl.OperationImpl#getInput <em>Input</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.soa.impl.OperationImpl#getOutput <em>Output</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.soa.impl.OperationImpl#getKind <em>Kind</em>}</li>
@@ -50,8 +53,6 @@ import org.obeonetwork.dsl.soa.Verb;
  *   <li>{@link org.obeonetwork.dsl.soa.impl.OperationImpl#getSize <em>Size</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.soa.impl.OperationImpl#getPage <em>Page</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.soa.impl.OperationImpl#getPaginationExtension <em>Pagination Extension</em>}</li>
- *   <li>{@link org.obeonetwork.dsl.soa.impl.OperationImpl#getSecurityApplications <em>Security Applications</em>}</li>
- *   <li>{@link org.obeonetwork.dsl.soa.impl.OperationImpl#getSecuritySchemes <em>Security Schemes</em>}</li>
  * </ul>
  *
  * @generated
@@ -376,9 +377,20 @@ public class OperationImpl extends ActionImpl implements Operation {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EList<SecurityApplication> getAllSecurityApplications() {
+		// TODO: implement this method
+		// Ensure that you remove @generated or mark it @generated NOT
+		throw new UnsupportedOperationException();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@SuppressWarnings("unchecked")
 	public EList<SecurityApplication> getSecurityApplications() {
-		return (EList<SecurityApplication>)eDynamicGet(SoaPackage.OPERATION__SECURITY_APPLICATIONS, SoaPackage.Literals.OPERATION__SECURITY_APPLICATIONS, true, true);
+		return (EList<SecurityApplication>)eDynamicGet(SoaPackage.OPERATION__SECURITY_APPLICATIONS, SoaPackage.Literals.SECURABLE__SECURITY_APPLICATIONS, true, true);
 	}
 
 	/**
@@ -403,6 +415,8 @@ public class OperationImpl extends ActionImpl implements Operation {
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
+			case SoaPackage.OPERATION__SECURITY_APPLICATIONS:
+				return ((InternalEList<?>)getSecurityApplications()).basicRemove(otherEnd, msgs);
 			case SoaPackage.OPERATION__INPUT:
 				return ((InternalEList<?>)getInput()).basicRemove(otherEnd, msgs);
 			case SoaPackage.OPERATION__OUTPUT:
@@ -411,8 +425,6 @@ public class OperationImpl extends ActionImpl implements Operation {
 				return ((InternalEList<?>)getFault()).basicRemove(otherEnd, msgs);
 			case SoaPackage.OPERATION__SERVERS:
 				return ((InternalEList<?>)getServers()).basicRemove(otherEnd, msgs);
-			case SoaPackage.OPERATION__SECURITY_APPLICATIONS:
-				return ((InternalEList<?>)getSecurityApplications()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -425,6 +437,10 @@ public class OperationImpl extends ActionImpl implements Operation {
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
+			case SoaPackage.OPERATION__SECURITY_APPLICATIONS:
+				return getSecurityApplications();
+			case SoaPackage.OPERATION__SECURITY_SCHEMES:
+				return getSecuritySchemes();
 			case SoaPackage.OPERATION__INPUT:
 				return getInput();
 			case SoaPackage.OPERATION__OUTPUT:
@@ -454,10 +470,6 @@ public class OperationImpl extends ActionImpl implements Operation {
 			case SoaPackage.OPERATION__PAGINATION_EXTENSION:
 				if (resolve) return getPaginationExtension();
 				return basicGetPaginationExtension();
-			case SoaPackage.OPERATION__SECURITY_APPLICATIONS:
-				return getSecurityApplications();
-			case SoaPackage.OPERATION__SECURITY_SCHEMES:
-				return getSecuritySchemes();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -471,6 +483,10 @@ public class OperationImpl extends ActionImpl implements Operation {
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
+			case SoaPackage.OPERATION__SECURITY_APPLICATIONS:
+				getSecurityApplications().clear();
+				getSecurityApplications().addAll((Collection<? extends SecurityApplication>)newValue);
+				return;
 			case SoaPackage.OPERATION__INPUT:
 				getInput().clear();
 				getInput().addAll((Collection<? extends Parameter>)newValue);
@@ -514,10 +530,6 @@ public class OperationImpl extends ActionImpl implements Operation {
 			case SoaPackage.OPERATION__PAGINATION_EXTENSION:
 				setPaginationExtension((PropertiesExtension)newValue);
 				return;
-			case SoaPackage.OPERATION__SECURITY_APPLICATIONS:
-				getSecurityApplications().clear();
-				getSecurityApplications().addAll((Collection<? extends SecurityApplication>)newValue);
-				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -530,6 +542,9 @@ public class OperationImpl extends ActionImpl implements Operation {
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
+			case SoaPackage.OPERATION__SECURITY_APPLICATIONS:
+				getSecurityApplications().clear();
+				return;
 			case SoaPackage.OPERATION__INPUT:
 				getInput().clear();
 				return;
@@ -569,9 +584,6 @@ public class OperationImpl extends ActionImpl implements Operation {
 			case SoaPackage.OPERATION__PAGINATION_EXTENSION:
 				setPaginationExtension((PropertiesExtension)null);
 				return;
-			case SoaPackage.OPERATION__SECURITY_APPLICATIONS:
-				getSecurityApplications().clear();
-				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -584,6 +596,10 @@ public class OperationImpl extends ActionImpl implements Operation {
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
+			case SoaPackage.OPERATION__SECURITY_APPLICATIONS:
+				return !getSecurityApplications().isEmpty();
+			case SoaPackage.OPERATION__SECURITY_SCHEMES:
+				return !getSecuritySchemes().isEmpty();
 			case SoaPackage.OPERATION__INPUT:
 				return !getInput().isEmpty();
 			case SoaPackage.OPERATION__OUTPUT:
@@ -610,12 +626,42 @@ public class OperationImpl extends ActionImpl implements Operation {
 				return basicGetPage() != null;
 			case SoaPackage.OPERATION__PAGINATION_EXTENSION:
 				return basicGetPaginationExtension() != null;
-			case SoaPackage.OPERATION__SECURITY_APPLICATIONS:
-				return !getSecurityApplications().isEmpty();
-			case SoaPackage.OPERATION__SECURITY_SCHEMES:
-				return !getSecuritySchemes().isEmpty();
 		}
 		return super.eIsSet(featureID);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public int eBaseStructuralFeatureID(int derivedFeatureID, Class<?> baseClass) {
+		if (baseClass == Securable.class) {
+			switch (derivedFeatureID) {
+				case SoaPackage.OPERATION__SECURITY_APPLICATIONS: return SoaPackage.SECURABLE__SECURITY_APPLICATIONS;
+				case SoaPackage.OPERATION__SECURITY_SCHEMES: return SoaPackage.SECURABLE__SECURITY_SCHEMES;
+				default: return -1;
+			}
+		}
+		return super.eBaseStructuralFeatureID(derivedFeatureID, baseClass);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public int eDerivedStructuralFeatureID(int baseFeatureID, Class<?> baseClass) {
+		if (baseClass == Securable.class) {
+			switch (baseFeatureID) {
+				case SoaPackage.SECURABLE__SECURITY_APPLICATIONS: return SoaPackage.OPERATION__SECURITY_APPLICATIONS;
+				case SoaPackage.SECURABLE__SECURITY_SCHEMES: return SoaPackage.OPERATION__SECURITY_SCHEMES;
+				default: return -1;
+			}
+		}
+		return super.eDerivedStructuralFeatureID(baseFeatureID, baseClass);
 	}
 
 } //OperationImpl

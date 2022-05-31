@@ -97,7 +97,7 @@ public class SoaMigrationHelper extends BasicMigrationHelper {
 		}
 		
 		if(isOldNamespace(SOA_URI_OLD3)) {
-			if(feature == SoaPackage.Literals.OPERATION__SECURITY_SCHEMES) {
+			if(feature == SoaPackage.Literals.SECURABLE__SECURITY_SCHEMES) {
 				SecurityApplication securityApplication = SoaFactory.eINSTANCE.createSecurityApplication();
 				securityApplication.setSecurityScheme((SecurityScheme) value);
 				((Operation)object).getSecurityApplications().add(securityApplication);

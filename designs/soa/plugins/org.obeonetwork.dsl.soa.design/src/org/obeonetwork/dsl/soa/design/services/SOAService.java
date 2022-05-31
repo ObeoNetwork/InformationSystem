@@ -49,6 +49,7 @@ import org.obeonetwork.dsl.soa.Operation;
 import org.obeonetwork.dsl.soa.Parameter;
 import org.obeonetwork.dsl.soa.PropertiesExtension;
 import org.obeonetwork.dsl.soa.Scope;
+import org.obeonetwork.dsl.soa.Securable;
 import org.obeonetwork.dsl.soa.SecurityApplication;
 import org.obeonetwork.dsl.soa.SecurityScheme;
 import org.obeonetwork.dsl.soa.SecuritySchemeType;
@@ -108,9 +109,9 @@ public class SOAService {
 		return operation;
 	}
 
-	public Operation updateSecurityApplications(Operation operation, List<SecurityScheme> securitySchemes) {
-		List<SecurityApplication> oldSecurityApplications = new ArrayList<>(operation.getSecurityApplications());
-		operation.getSecurityApplications().removeAll(oldSecurityApplications);
+	public Securable updateSecurityApplications(Securable securable, List<SecurityScheme> securitySchemes) {
+		List<SecurityApplication> oldSecurityApplications = new ArrayList<>(securable.getSecurityApplications());
+		securable.getSecurityApplications().removeAll(oldSecurityApplications);
 		
 		for(SecurityScheme securityScheme : securitySchemes) {
 			SecurityApplication securityApplication = oldSecurityApplications.stream().filter(sa -> sa.getSecurityScheme() == securityScheme).findAny().orElse(null);
@@ -119,9 +120,9 @@ public class SOAService {
 				securityApplication.setSecurityScheme(securityScheme);
 				securityApplication.getScopes().addAll(securityScheme.getFlows().stream().flatMap(f -> f.getScopes().stream()).collect(toList()));
 			}
-			operation.getSecurityApplications().add(securityApplication);
+			securable.getSecurityApplications().add(securityApplication);
 		}
-		return operation;
+		return securable;
 	}
 	
 	public SecurityApplication updateScopes(SecurityApplication securityApplication, List<Scope> scopes) {

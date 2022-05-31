@@ -817,7 +817,7 @@ public class SwaggerBuilder {
 		buildParameters(swgOperation, soaOperation);
 		buildApiResponses(swgOperation, soaOperation);
 
-		for (org.obeonetwork.dsl.soa.SecurityApplication soaSecurityApplication : soaOperation.getSecurityApplications()) {
+		for (org.obeonetwork.dsl.soa.SecurityApplication soaSecurityApplication : soaOperation.getAllSecurityApplications()) {
 			org.obeonetwork.dsl.soa.SecurityScheme soaSecurityScheme = soaSecurityApplication.getSecurityScheme();
 			SecurityRequirement swgSecurityRequirement = new SecurityRequirement();
 			swgSecurityRequirement.addList(soaSecurityScheme.getName(), 

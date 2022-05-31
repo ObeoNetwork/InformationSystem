@@ -40,6 +40,7 @@ import org.obeonetwork.dsl.soa.ParameterPassingMode;
 import org.obeonetwork.dsl.soa.ParameterRestData;
 import org.obeonetwork.dsl.soa.PropertiesExtension;
 import org.obeonetwork.dsl.soa.Scope;
+import org.obeonetwork.dsl.soa.Securable;
 import org.obeonetwork.dsl.soa.SecurityApplication;
 import org.obeonetwork.dsl.soa.SecurityScheme;
 import org.obeonetwork.dsl.soa.SecuritySchemeType;
@@ -212,6 +213,13 @@ public class SoaPackageImpl extends EPackageImpl implements SoaPackage {
 	 * @generated
 	 */
 	private EClass securityApplicationEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass securableEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -810,24 +818,6 @@ public class SoaPackageImpl extends EPackageImpl implements SoaPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getOperation_SecurityApplications() {
-		return (EReference)operationEClass.getEStructuralFeatures().get(13);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getOperation_SecuritySchemes() {
-		return (EReference)operationEClass.getEStructuralFeatures().get(14);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EClass getImplementationComponent() {
 		return implementationComponentEClass;
 	}
@@ -1344,6 +1334,33 @@ public class SoaPackageImpl extends EPackageImpl implements SoaPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EClass getSecurable() {
+		return securableEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getSecurable_SecurityApplications() {
+		return (EReference)securableEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getSecurable_SecuritySchemes() {
+		return (EReference)securableEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EEnum getInterfaceKind() {
 		return interfaceKindEEnum;
 	}
@@ -1522,8 +1539,6 @@ public class SoaPackageImpl extends EPackageImpl implements SoaPackage {
 		createEReference(operationEClass, OPERATION__SIZE);
 		createEReference(operationEClass, OPERATION__PAGE);
 		createEReference(operationEClass, OPERATION__PAGINATION_EXTENSION);
-		createEReference(operationEClass, OPERATION__SECURITY_APPLICATIONS);
-		createEReference(operationEClass, OPERATION__SECURITY_SCHEMES);
 
 		implementationComponentEClass = createEClass(IMPLEMENTATION_COMPONENT);
 		createEReference(implementationComponentEClass, IMPLEMENTATION_COMPONENT__IMPLEMENT);
@@ -1597,6 +1612,10 @@ public class SoaPackageImpl extends EPackageImpl implements SoaPackage {
 		createEReference(securityApplicationEClass, SECURITY_APPLICATION__SECURITY_SCHEME);
 		createEReference(securityApplicationEClass, SECURITY_APPLICATION__SCOPES);
 
+		securableEClass = createEClass(SECURABLE);
+		createEReference(securableEClass, SECURABLE__SECURITY_APPLICATIONS);
+		createEReference(securableEClass, SECURABLE__SECURITY_SCHEMES);
+
 		// Create enums
 		interfaceKindEEnum = createEEnum(INTERFACE_KIND);
 		synchronizationKindEEnum = createEEnum(SYNCHRONIZATION_KIND);
@@ -1646,10 +1665,12 @@ public class SoaPackageImpl extends EPackageImpl implements SoaPackage {
 		systemEClass.getESuperTypes().add(theEnvironmentPackage.getNamespace());
 		componentEClass.getESuperTypes().add(theEnvironmentPackage.getObeoDSMObject());
 		serviceEClass.getESuperTypes().add(theEnvironmentPackage.getObeoDSMObject());
+		serviceEClass.getESuperTypes().add(this.getSecurable());
 		wireEClass.getESuperTypes().add(theEnvironmentPackage.getObeoDSMObject());
 		bindingEClass.getESuperTypes().add(theEnvironmentPackage.getObeoDSMObject());
 		interfaceEClass.getESuperTypes().add(theEnvironmentPackage.getObeoDSMObject());
 		operationEClass.getESuperTypes().add(theEnvironmentPackage.getAction());
+		operationEClass.getESuperTypes().add(this.getSecurable());
 		implementationComponentEClass.getESuperTypes().add(theEnvironmentPackage.getObeoDSMObject());
 		parameterEClass.getESuperTypes().add(theEnvironmentPackage.getObeoDSMObject());
 		parameterRestDataEClass.getESuperTypes().add(theTechnicalIDPackage.getIdentifiable());
@@ -1722,8 +1743,8 @@ public class SoaPackageImpl extends EPackageImpl implements SoaPackage {
 		initEReference(getOperation_Size(), this.getParameter(), null, "size", null, 0, 1, Operation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getOperation_Page(), this.getParameter(), null, "page", null, 0, 1, Operation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getOperation_PaginationExtension(), this.getPropertiesExtension(), null, "paginationExtension", null, 0, 1, Operation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getOperation_SecurityApplications(), this.getSecurityApplication(), null, "securityApplications", null, 0, -1, Operation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getOperation_SecuritySchemes(), this.getSecurityScheme(), null, "securitySchemes", null, 0, -1, Operation.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
+
+		addEOperation(operationEClass, this.getSecurityApplication(), "getAllSecurityApplications", 0, -1, IS_UNIQUE, IS_ORDERED);
 
 		initEClass(implementationComponentEClass, ImplementationComponent.class, "ImplementationComponent", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getImplementationComponent_Implement(), this.getInterface(), null, "implement", null, 0, 1, ImplementationComponent.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -1796,6 +1817,10 @@ public class SoaPackageImpl extends EPackageImpl implements SoaPackage {
 		initEClass(securityApplicationEClass, SecurityApplication.class, "SecurityApplication", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getSecurityApplication_SecurityScheme(), this.getSecurityScheme(), null, "securityScheme", null, 0, 1, SecurityApplication.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getSecurityApplication_Scopes(), this.getScope(), null, "scopes", null, 0, -1, SecurityApplication.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(securableEClass, Securable.class, "Securable", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getSecurable_SecurityApplications(), this.getSecurityApplication(), null, "securityApplications", null, 0, -1, Securable.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getSecurable_SecuritySchemes(), this.getSecurityScheme(), null, "securitySchemes", null, 0, -1, Securable.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
 
 		// Initialize enums and add enum literals
 		initEEnum(interfaceKindEEnum, InterfaceKind.class, "InterfaceKind");
@@ -2031,6 +2056,12 @@ public class SoaPackageImpl extends EPackageImpl implements SoaPackage {
 		   source,
 		   new String[] {
 			   "documentation", "The name of the interface."
+		   });
+		addAnnotation
+		  (operationEClass.getEOperations().get(0),
+		   source,
+		   new String[] {
+			   "documentation", "Returns the owned SecurityApplications and the ones inherited from the containing Service."
 		   });
 		addAnnotation
 		  (getOperation_Input(),

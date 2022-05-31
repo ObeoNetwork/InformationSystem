@@ -69,6 +69,8 @@ public class ServiceItemProvider
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
+			addSecurityApplicationsPropertyDescriptor(object);
+			addSecuritySchemesPropertyDescriptor(object);
 			addSynchronizationPropertyDescriptor(object);
 			addKindPropertyDescriptor(object);
 			addReferencedInterfacePropertyDescriptor(object);
@@ -78,6 +80,50 @@ public class ServiceItemProvider
 			addURIPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
+	}
+
+	/**
+	 * This adds a property descriptor for the Security Applications feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addSecurityApplicationsPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_Securable_securityApplications_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Securable_securityApplications_feature", "_UI_Securable_type"),
+				 SoaPackage.Literals.SECURABLE__SECURITY_APPLICATIONS,
+				 true,
+				 false,
+				 false,
+				 null,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Security Schemes feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addSecuritySchemesPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_Securable_securitySchemes_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Securable_securitySchemes_feature", "_UI_Securable_type"),
+				 SoaPackage.Literals.SECURABLE__SECURITY_SCHEMES,
+				 false,
+				 false,
+				 false,
+				 null,
+				 null,
+				 null));
 	}
 
 	/**
@@ -246,6 +292,7 @@ public class ServiceItemProvider
 	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
+			childrenFeatures.add(SoaPackage.Literals.SECURABLE__SECURITY_APPLICATIONS);
 			childrenFeatures.add(SoaPackage.Literals.SERVICE__OWNED_INTERFACE);
 		}
 		return childrenFeatures;
@@ -323,6 +370,7 @@ public class ServiceItemProvider
 			case SoaPackage.SERVICE__URI:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
+			case SoaPackage.SERVICE__SECURITY_APPLICATIONS:
 			case SoaPackage.SERVICE__OWNED_INTERFACE:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
@@ -340,6 +388,11 @@ public class ServiceItemProvider
 	@Override
 	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
 		super.collectNewChildDescriptors(newChildDescriptors, object);
+
+		newChildDescriptors.add
+			(createChildParameter
+				(SoaPackage.Literals.SECURABLE__SECURITY_APPLICATIONS,
+				 SoaFactory.eINSTANCE.createSecurityApplication()));
 
 		newChildDescriptors.add
 			(createChildParameter

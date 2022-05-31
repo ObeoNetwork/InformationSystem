@@ -16,11 +16,15 @@ import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
+import org.eclipse.emf.ecore.util.InternalEList;
 import org.obeonetwork.dsl.environment.Type;
 import org.obeonetwork.dsl.environment.impl.ObeoDSMObjectImpl;
 import org.obeonetwork.dsl.soa.Binding;
 import org.obeonetwork.dsl.soa.Interface;
 import org.obeonetwork.dsl.soa.InterfaceKind;
+import org.obeonetwork.dsl.soa.Securable;
+import org.obeonetwork.dsl.soa.SecurityApplication;
+import org.obeonetwork.dsl.soa.SecurityScheme;
 import org.obeonetwork.dsl.soa.Service;
 import org.obeonetwork.dsl.soa.SoaPackage;
 import org.obeonetwork.dsl.soa.SynchronizationKind;
@@ -34,6 +38,8 @@ import org.obeonetwork.dsl.soa.Verb;
  * The following features are implemented:
  * </p>
  * <ul>
+ *   <li>{@link org.obeonetwork.dsl.soa.impl.ServiceImpl#getSecurityApplications <em>Security Applications</em>}</li>
+ *   <li>{@link org.obeonetwork.dsl.soa.impl.ServiceImpl#getSecuritySchemes <em>Security Schemes</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.soa.impl.ServiceImpl#getOwnedInterface <em>Owned Interface</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.soa.impl.ServiceImpl#getSynchronization <em>Synchronization</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.soa.impl.ServiceImpl#getKind <em>Kind</em>}</li>
@@ -109,6 +115,29 @@ public class ServiceImpl extends ObeoDSMObjectImpl implements Service {
 	@Override
 	protected EClass eStaticClass() {
 		return SoaPackage.Literals.SERVICE;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@SuppressWarnings("unchecked")
+	public EList<SecurityApplication> getSecurityApplications() {
+		return (EList<SecurityApplication>)eDynamicGet(SoaPackage.SERVICE__SECURITY_APPLICATIONS, SoaPackage.Literals.SECURABLE__SECURITY_APPLICATIONS, true, true);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EList<SecurityScheme> getSecuritySchemes() {
+		// TODO: implement this method to return the 'Security Schemes' reference list
+		// Ensure that you remove @generated or mark it @generated NOT
+		// The list is expected to implement org.eclipse.emf.ecore.util.InternalEList and org.eclipse.emf.ecore.EStructuralFeature.Setting
+		// so it's likely that an appropriate subclass of org.eclipse.emf.ecore.util.EcoreEList should be used.
+		throw new UnsupportedOperationException();
 	}
 
 	/**
@@ -292,6 +321,8 @@ public class ServiceImpl extends ObeoDSMObjectImpl implements Service {
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
+			case SoaPackage.SERVICE__SECURITY_APPLICATIONS:
+				return ((InternalEList<?>)getSecurityApplications()).basicRemove(otherEnd, msgs);
 			case SoaPackage.SERVICE__OWNED_INTERFACE:
 				return basicSetOwnedInterface(null, msgs);
 		}
@@ -306,6 +337,10 @@ public class ServiceImpl extends ObeoDSMObjectImpl implements Service {
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
+			case SoaPackage.SERVICE__SECURITY_APPLICATIONS:
+				return getSecurityApplications();
+			case SoaPackage.SERVICE__SECURITY_SCHEMES:
+				return getSecuritySchemes();
 			case SoaPackage.SERVICE__OWNED_INTERFACE:
 				if (resolve) return getOwnedInterface();
 				return basicGetOwnedInterface();
@@ -338,6 +373,10 @@ public class ServiceImpl extends ObeoDSMObjectImpl implements Service {
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
+			case SoaPackage.SERVICE__SECURITY_APPLICATIONS:
+				getSecurityApplications().clear();
+				getSecurityApplications().addAll((Collection<? extends SecurityApplication>)newValue);
+				return;
 			case SoaPackage.SERVICE__OWNED_INTERFACE:
 				setOwnedInterface((Interface)newValue);
 				return;
@@ -375,6 +414,9 @@ public class ServiceImpl extends ObeoDSMObjectImpl implements Service {
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
+			case SoaPackage.SERVICE__SECURITY_APPLICATIONS:
+				getSecurityApplications().clear();
+				return;
 			case SoaPackage.SERVICE__OWNED_INTERFACE:
 				setOwnedInterface((Interface)null);
 				return;
@@ -411,6 +453,10 @@ public class ServiceImpl extends ObeoDSMObjectImpl implements Service {
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
+			case SoaPackage.SERVICE__SECURITY_APPLICATIONS:
+				return !getSecurityApplications().isEmpty();
+			case SoaPackage.SERVICE__SECURITY_SCHEMES:
+				return !getSecuritySchemes().isEmpty();
 			case SoaPackage.SERVICE__OWNED_INTERFACE:
 				return basicGetOwnedInterface() != null;
 			case SoaPackage.SERVICE__SYNCHRONIZATION:
@@ -429,6 +475,40 @@ public class ServiceImpl extends ObeoDSMObjectImpl implements Service {
 				return URI_EDEFAULT == null ? getURI() != null : !URI_EDEFAULT.equals(getURI());
 		}
 		return super.eIsSet(featureID);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public int eBaseStructuralFeatureID(int derivedFeatureID, Class<?> baseClass) {
+		if (baseClass == Securable.class) {
+			switch (derivedFeatureID) {
+				case SoaPackage.SERVICE__SECURITY_APPLICATIONS: return SoaPackage.SECURABLE__SECURITY_APPLICATIONS;
+				case SoaPackage.SERVICE__SECURITY_SCHEMES: return SoaPackage.SECURABLE__SECURITY_SCHEMES;
+				default: return -1;
+			}
+		}
+		return super.eBaseStructuralFeatureID(derivedFeatureID, baseClass);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public int eDerivedStructuralFeatureID(int baseFeatureID, Class<?> baseClass) {
+		if (baseClass == Securable.class) {
+			switch (baseFeatureID) {
+				case SoaPackage.SECURABLE__SECURITY_APPLICATIONS: return SoaPackage.SERVICE__SECURITY_APPLICATIONS;
+				case SoaPackage.SECURABLE__SECURITY_SCHEMES: return SoaPackage.SERVICE__SECURITY_SCHEMES;
+				default: return -1;
+			}
+		}
+		return super.eDerivedStructuralFeatureID(baseFeatureID, baseClass);
 	}
 
 } //ServiceImpl

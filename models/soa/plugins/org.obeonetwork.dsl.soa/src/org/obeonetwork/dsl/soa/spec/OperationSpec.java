@@ -10,11 +10,15 @@
  *******************************************************************************/
 package org.obeonetwork.dsl.soa.spec;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.stream.Collectors;
 
 import org.eclipse.emf.common.util.ECollections;
 import org.eclipse.emf.common.util.EList;
+import org.obeonetwork.dsl.soa.SecurityApplication;
 import org.obeonetwork.dsl.soa.SecurityScheme;
+import org.obeonetwork.dsl.soa.Service;
 import org.obeonetwork.dsl.soa.impl.OperationImpl;
 
 public class OperationSpec extends OperationImpl {
@@ -23,6 +27,17 @@ public class OperationSpec extends OperationImpl {
 	public EList<SecurityScheme> getSecuritySchemes() {
 		
 		return ECollections.unmodifiableEList(getSecurityApplications().stream().map(sa -> sa.getSecurityScheme()).collect(Collectors.toList()));
+	}
+
+	@Override
+	public EList<SecurityApplication> getAllSecurityApplications() {
+		List<SecurityApplication> allSecurityApplications = new ArrayList<>();
+		if(eContainer() != null && eContainer().eContainer() instanceof Service) {
+			allSecurityApplications.addAll(((Service)eContainer().eContainer()).getSecurityApplications());
+		}
+		allSecurityApplications.addAll(getSecurityApplications());
+		
+		return ECollections.unmodifiableEList(allSecurityApplications);
 	}
 
 }

@@ -35,6 +35,7 @@ import org.obeonetwork.dsl.soa.Parameter;
 import org.obeonetwork.dsl.soa.ParameterRestData;
 import org.obeonetwork.dsl.soa.PropertiesExtension;
 import org.obeonetwork.dsl.soa.Scope;
+import org.obeonetwork.dsl.soa.Securable;
 import org.obeonetwork.dsl.soa.SecurityApplication;
 import org.obeonetwork.dsl.soa.SecurityScheme;
 import org.obeonetwork.dsl.soa.Server;
@@ -129,6 +130,7 @@ public class SoaSwitch<T> extends Switch<T> {
 				Service service = (Service)theEObject;
 				T result = caseService(service);
 				if (result == null) result = caseObeoDSMObject(service);
+				if (result == null) result = caseSecurable(service);
 				if (result == null) result = caseIdentifiable(service);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
@@ -161,6 +163,7 @@ public class SoaSwitch<T> extends Switch<T> {
 				Operation operation = (Operation)theEObject;
 				T result = caseOperation(operation);
 				if (result == null) result = caseAction(operation);
+				if (result == null) result = caseSecurable(operation);
 				if (result == null) result = caseObeoDSMObject(operation);
 				if (result == null) result = caseIdentifiable(operation);
 				if (result == null) result = defaultCase(theEObject);
@@ -274,6 +277,12 @@ public class SoaSwitch<T> extends Switch<T> {
 				SecurityApplication securityApplication = (SecurityApplication)theEObject;
 				T result = caseSecurityApplication(securityApplication);
 				if (result == null) result = caseIdentifiable(securityApplication);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case SoaPackage.SECURABLE: {
+				Securable securable = (Securable)theEObject;
+				T result = caseSecurable(securable);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -592,6 +601,21 @@ public class SoaSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseSecurityApplication(SecurityApplication object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Securable</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Securable</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseSecurable(Securable object) {
 		return null;
 	}
 
