@@ -10,9 +10,15 @@
  */
 package org.obeonetwork.tools.projectlibrary.ui.wizard.exp;
 
+import static org.obeonetwork.utils.common.StringUtils.isNullOrWhite;
+
+import java.beans.PropertyChangeEvent;
+import java.beans.PropertyChangeListener;
+import java.io.File;
+
 import org.eclipse.core.databinding.DataBindingContext;
+import org.eclipse.core.databinding.beans.BeanProperties;
 import org.eclipse.core.databinding.beans.PojoObservables;
-import org.eclipse.core.databinding.beans.PojoProperties;
 import org.eclipse.core.databinding.observable.list.IObservableList;
 import org.eclipse.core.databinding.observable.map.IObservableMap;
 import org.eclipse.core.databinding.observable.value.IObservableValue;
@@ -30,25 +36,22 @@ import org.eclipse.swt.layout.GridData;
 import org.eclipse.swt.layout.GridLayout;
 import org.eclipse.swt.widgets.Button;
 import org.eclipse.swt.widgets.Composite;
-import org.eclipse.swt.widgets.FileDialog;
+import org.eclipse.swt.widgets.DirectoryDialog;
 import org.eclipse.swt.widgets.Label;
 import org.eclipse.swt.widgets.List;
 import org.eclipse.swt.widgets.Text;
-import org.obeonetwork.dsl.manifest.util.ManifestUtils;
 
-/**
- * 
- * @author <a href="mailto:stephane.thibaudeau@obeo.fr">Stephane Thibaudeau</a>
- *
- */
 @SuppressWarnings("deprecation")
 public class ExportProjectAsLibraryProjectSelectionPage extends WizardPage {
-	@SuppressWarnings("unused")
-	private DataBindingContext m_bindingContext;
 	
-	private ExportProjectAsLibraryWizard wizard = null;
-	private ListViewer listViewer;
-	private Text txtMarFile;
+	private ExportProjectAsLibraryWizardModel model;
+	
+	private DataBindingContext bindingContext;
+
+	private ListViewer lstModelingProject;
+	private Text txtExportDirectory;
+
+	private PropertyChangeListener exportDirectoryModelListener;
 
 	/**
 	 * Create the wizard.
@@ -57,7 +60,7 @@ public class ExportProjectAsLibraryProjectSelectionPage extends WizardPage {
 		super("ExportProjetAsLibraryProjectSelectionPage");
 		setTitle("Export modeling project as library");
 		setDescription("Select a modeling project");
-		this.wizard = wizard;
+		this.model = wizard.getModel();
 	}
 	
 	/**
@@ -74,51 +77,65 @@ public class ExportProjectAsLibraryProjectSelectionPage extends WizardPage {
 		lblModelingProject.setLayoutData(new GridData(SWT.LEFT, SWT.TOP, false, false, 1, 1));
 		lblModelingProject.setText("Modeling project");
 		
-		listViewer = new ListViewer(container, SWT.BORDER | SWT.V_SCROLL);
-		List list = listViewer.getList();
+		lstModelingProject = new ListViewer(container, SWT.BORDER | SWT.V_SCROLL);
+		List list = lstModelingProject.getList();
 		list.addSelectionListener(new SelectionAdapter() {
 			@Override
 			public void widgetSelected(SelectionEvent e) {
-				setPageComplete(isInfoComplete());
+				setPageComplete(isComplete());
 			}
 		});
 		GridData gd_list = new GridData(SWT.FILL, SWT.FILL, true, false, 2, 1);
 		gd_list.heightHint = 176;
 		list.setLayoutData(gd_list);
 		
-		Label lblExportToFile = new Label(container, SWT.NONE);
-		lblExportToFile.setLayoutData(new GridData(SWT.RIGHT, SWT.CENTER, false, false, 1, 1));
-		lblExportToFile.setText("Export to MAR file");
+		Label lblExportDirectory = new Label(container, SWT.NONE);
+		lblExportDirectory.setLayoutData(new GridData(SWT.RIGHT, SWT.CENTER, false, false, 1, 1));
+		lblExportDirectory.setText("Export directory");
 		
-		txtMarFile = new Text(container, SWT.BORDER);
-		txtMarFile.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, true, false, 1, 1));
+		txtExportDirectory = new Text(container, SWT.BORDER);
+		txtExportDirectory.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, true, false, 1, 1));
+		exportDirectoryModelListener = new PropertyChangeListener() {
+			@Override
+			public void propertyChange(PropertyChangeEvent evt) {
+				setPageComplete(isComplete());
+				setErrorMessage(computeErrorMessage());
+			}
+		};
+		model.addPropertyChangeListener("exportDirectory", exportDirectoryModelListener); //$NON-NLS-1$
 		
 		Button btnBrowse = new Button(container, SWT.NONE);
 		btnBrowse.addSelectionListener(new SelectionAdapter() {
 			@Override
 			public void widgetSelected(SelectionEvent e) {
-				FileDialog dlg = new FileDialog(getShell(), SWT.SAVE);
-				dlg.setFileName(txtMarFile.getText());
-				dlg.setOverwrite(true);
-				dlg.setFilterExtensions(new String[]{"*" + ManifestUtils.MODELING_ARCHIVE_FILE_EXTENSION, "*.*"});
-				dlg.setFilterNames(new String[]{"MAR files (*" + ManifestUtils.MODELING_ARCHIVE_FILE_EXTENSION + ")", "All files (*.*)"});
-				String exportFile = dlg.open();
-				if (exportFile != null) {
-					txtMarFile.setText(exportFile);
-					setPageComplete(isInfoComplete());
+				
+				DirectoryDialog dialog = new DirectoryDialog(getShell(), SWT.OPEN);
+				dialog.setFilterPath(model.getExportDirectory());
+				String exportDirectory = dialog.open();
+				if(exportDirectory != null) {
+					model.setExportDirectory(exportDirectory);
+					setPageComplete(isComplete());
 				}
 			}
 		});
 		btnBrowse.setText("Browse...");
-		m_bindingContext = initDataBindings();
 		
-		setPageComplete(isInfoComplete());
+		bindingContext = initDataBindings();
+		
+		setPageComplete(isComplete());
 	}
 	
-	private boolean isInfoComplete() {
-		ModelingProject modelingProject = wizard.getModel().getSelectedModelingProject();
-		String filePath  = wizard.getModel().getFilePath();
-		return modelingProject != null && filePath != null && !filePath.trim().isEmpty();
+	private boolean isComplete() {
+		return model.getSelectedModelingProject() != null 
+				&& !isNullOrWhite(model.getExportDirectory())
+				&& new File(model.getExportDirectory()).isDirectory();
+	}
+	
+	private String computeErrorMessage() {
+		if(!isNullOrWhite(model.getExportDirectory()) && !new File(model.getExportDirectory()).isDirectory()) {
+			return "Export directory does not exist.";
+		}
+		return null;
 	}
 	
 	@SuppressWarnings({ "rawtypes", "unchecked" })
@@ -127,20 +144,29 @@ public class ExportProjectAsLibraryProjectSelectionPage extends WizardPage {
 		//
 		ObservableListContentProvider listContentProvider = new ObservableListContentProvider();
 		IObservableMap observeMap = PojoObservables.observeMap(listContentProvider.getKnownElements(), ModelingProject.class, "project.name");
-		listViewer.setLabelProvider(new ObservableMapLabelProvider(observeMap));
-		listViewer.setContentProvider(listContentProvider);
+		lstModelingProject.setLabelProvider(new ObservableMapLabelProvider(observeMap));
+		lstModelingProject.setContentProvider(listContentProvider);
 		//
-		IObservableList modelingProjectsWizardgetModelObserveList = PojoProperties.list("modelingProjects").observe(wizard.getModel());
-		listViewer.setInput(modelingProjectsWizardgetModelObserveList);
+		IObservableList modelingProjectsWizardgetModelObserveList = BeanProperties.list("modelingProjects").observe(model);
+		lstModelingProject.setInput(modelingProjectsWizardgetModelObserveList);
 		//
-		IObservableValue observeSingleSelectionListViewer_1 = ViewerProperties.singleSelection().observe(listViewer);
-		IObservableValue selectedModelingProjectWizardgetModelObserveValue = PojoProperties.value("selectedModelingProject").observe(wizard.getModel());
+		IObservableValue observeSingleSelectionListViewer_1 = ViewerProperties.singleSelection().observe(lstModelingProject);
+		IObservableValue selectedModelingProjectWizardgetModelObserveValue = BeanProperties.value("selectedModelingProject").observe(model);
 		bindingContext.bindValue(observeSingleSelectionListViewer_1, selectedModelingProjectWizardgetModelObserveValue, null, null);
 		//
-		IObservableValue observeTextTxtMarFileObserveWidget = WidgetProperties.text(SWT.Modify).observe(txtMarFile);
-		IObservableValue filePathWizardgetModelObserveValue = PojoProperties.value("filePath").observe(wizard.getModel());
-		bindingContext.bindValue(observeTextTxtMarFileObserveWidget, filePathWizardgetModelObserveValue, null, null);
+		IObservableValue observeTextTxtExportDirectoryObserveWidget = WidgetProperties.text(SWT.Modify).observe(txtExportDirectory);
+		IObservableValue exportDirectoryWizardgetModelObserveValue = BeanProperties.value("exportDirectory").observe(model);
+		bindingContext.bindValue(observeTextTxtExportDirectoryObserveWidget, exportDirectoryWizardgetModelObserveValue, null, null);
 		//
 		return bindingContext;
 	}
+	
+	@Override
+	public void dispose() {
+		model.removePropertyChangeListener(exportDirectoryModelListener);
+		bindingContext.dispose();
+		
+		super.dispose();
+	}
+
 }

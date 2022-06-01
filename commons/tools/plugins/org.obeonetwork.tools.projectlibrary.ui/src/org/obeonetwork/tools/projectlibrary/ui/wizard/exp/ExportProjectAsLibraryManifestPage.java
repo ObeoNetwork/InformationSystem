@@ -10,15 +10,22 @@
  */
 package org.obeonetwork.tools.projectlibrary.ui.wizard.exp;
 
+import static org.obeonetwork.utils.common.StringUtils.isNullOrWhite;
+
+import java.beans.PropertyChangeEvent;
+import java.beans.PropertyChangeListener;
+import java.io.File;
+
 import org.eclipse.core.databinding.DataBindingContext;
+import org.eclipse.core.databinding.beans.BeanProperties;
 import org.eclipse.core.databinding.beans.PojoObservables;
-import org.eclipse.core.databinding.beans.PojoProperties;
 import org.eclipse.core.databinding.observable.list.IObservableList;
 import org.eclipse.core.databinding.observable.map.IObservableMap;
 import org.eclipse.core.databinding.observable.value.IObservableValue;
 import org.eclipse.jface.databinding.swt.WidgetProperties;
 import org.eclipse.jface.databinding.viewers.ObservableListContentProvider;
 import org.eclipse.jface.databinding.viewers.ObservableMapLabelProvider;
+import org.eclipse.jface.dialogs.IMessageProvider;
 import org.eclipse.jface.layout.TableColumnLayout;
 import org.eclipse.jface.viewers.ColumnWeightData;
 import org.eclipse.jface.viewers.TableViewer;
@@ -43,22 +50,25 @@ import org.obeonetwork.dsl.manifest.util.ManifestUtils;
 /**
  * Wizard page to set manifest informations
  * 
- * @author <a href="mailto:stephane.thibaudeau@obeo.fr">Stephane Thibaudeau</a>
- *
  */
 @SuppressWarnings("deprecation")
 public class ExportProjectAsLibraryManifestPage extends WizardPage {
-	@SuppressWarnings("unused")
-	private DataBindingContext m_bindingContext;
 	
-	private ExportProjectAsLibraryWizard wizard = null;
+	private ExportProjectAsLibraryWizardModel model;
+	
+	private DataBindingContext bindingContext;
 	
 	private Text txtProjectId;
 	private Text txtVersion;
 	private Table table;
 	private Text txtComment;
+	private Text txtMarFileName;
 	
 	private TableViewer tableViewer;
+	
+	private PropertyChangeListener projectIdModelListener;
+	private PropertyChangeListener versionModelListener;
+	private PropertyChangeListener marFileNameModelListener;
 
 	/**
 	 * Create the wizard.
@@ -67,7 +77,7 @@ public class ExportProjectAsLibraryManifestPage extends WizardPage {
 		super("ExportProjectAsLibraryManifestPage");
 		setTitle("Export modeling project as library");
 		setDescription("Set informations about the manifest");
-		this.wizard = wizard;
+		this.model = wizard.getModel();
 		setPageComplete(false);
 	}
 	/**
@@ -76,7 +86,6 @@ public class ExportProjectAsLibraryManifestPage extends WizardPage {
 	 */
 	public void createControl(Composite parent) {
 		Composite container = new Composite(parent, SWT.NULL);
-
 		setControl(container);
 		container.setLayout(new FillLayout(SWT.HORIZONTAL));
 		
@@ -87,35 +96,46 @@ public class ExportProjectAsLibraryManifestPage extends WizardPage {
 		Composite composite = new Composite(scrolledComposite, SWT.NONE);
 		composite.setLayout(new GridLayout(3, false));
 		
+		// Project ID
 		Label lblProjectId = new Label(composite, SWT.NONE);
 		lblProjectId.setLayoutData(new GridData(SWT.RIGHT, SWT.CENTER, false, false, 1, 1));
 		lblProjectId.setText("Project ID");
 		
 		txtProjectId = new Text(composite, SWT.BORDER);
-		txtProjectId.addModifyListener(new ModifyListener() {
-			public void modifyText(ModifyEvent e) {
-				setPageComplete(isInfoComplete(txtProjectId.getText(), txtVersion.getText()));
-			}
-		});
 		txtProjectId.setLayoutData(new GridData(SWT.FILL, SWT.TOP, true, false, 1, 1));
 		new Label(composite, SWT.NONE);
 		
+		projectIdModelListener = new PropertyChangeListener() {
+			@Override
+			public void propertyChange(PropertyChangeEvent evt) {
+				setPageComplete(isComplete());
+				updateMarFileName();
+			}
+		};
+		model.addPropertyChangeListener("projectId", projectIdModelListener); //$NON-NLS-1$
+		
+		// Version
 		Label lblVersion = new Label(composite, SWT.NONE);
 		lblVersion.setLayoutData(new GridData(SWT.RIGHT, SWT.CENTER, false, false, 1, 1));
 		lblVersion.setText("Version");
 		
 		txtVersion = new Text(composite, SWT.BORDER);
 		txtVersion.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, true, false, 1, 1));
-		txtVersion.addModifyListener(new ModifyListener() {
-			public void modifyText(ModifyEvent e) {
-				setPageComplete(isInfoComplete(txtProjectId.getText(), txtVersion.getText()));
+		
+		versionModelListener = new PropertyChangeListener() {
+			@Override
+			public void propertyChange(PropertyChangeEvent evt) {
+				setPageComplete(isComplete());
+				updateMarFileName();
 			}
-		});
+		};
+		model.addPropertyChangeListener("version", versionModelListener); //$NON-NLS-1$
 		
 		Label lblVersionHelp = new Label(composite, SWT.NONE);
 		lblVersionHelp.setToolTipText("major.minor.patch.qualifier (ex : 1.2.123.alpha)");
 		lblVersionHelp.setImage(ResourceManager.getPluginImage("org.eclipse.ui", "/icons/full/etool16/help_contents.png"));
 		
+		// Previous versions
 		Label lblPreviousversions = new Label(composite, SWT.NONE);
 		lblPreviousversions.setLayoutData(new GridData(SWT.LEFT, SWT.TOP, false, false, 1, 1));
 		lblPreviousversions.setText("PreviousVersions");
@@ -146,6 +166,7 @@ public class ExportProjectAsLibraryManifestPage extends WizardPage {
 		tblclmnComment.setText("Comment");
 		new Label(composite, SWT.NONE);
 		
+		// Comment
 		Label lblComment = new Label(composite, SWT.NONE);
 		lblComment.setLayoutData(new GridData(SWT.RIGHT, SWT.TOP, false, false, 1, 1));
 		lblComment.setText("Comment");
@@ -153,17 +174,71 @@ public class ExportProjectAsLibraryManifestPage extends WizardPage {
 		txtComment = new Text(composite, SWT.BORDER | SWT.MULTI);
 		txtComment.setLayoutData(new GridData(SWT.FILL, SWT.FILL, true, true, 1, 1));
 		new Label(composite, SWT.NONE);
+		
+		// MAR Filename
+		Label lblMarFileName = new Label(composite, SWT.NONE);
+		lblMarFileName.setLayoutData(new GridData(SWT.RIGHT, SWT.CENTER, false, false, 1, 1));
+		lblMarFileName.setText("MAR filename");
+		
+		txtMarFileName = new Text(composite, SWT.BORDER);
+		txtMarFileName.addModifyListener(new ModifyListener() {
+			public void modifyText(ModifyEvent e) {
+				setPageComplete(isComplete());
+			}
+		});
+		txtMarFileName.setLayoutData(new GridData(SWT.FILL, SWT.TOP, true, false, 1, 1));
+		new Label(composite, SWT.NONE);
+		
+		marFileNameModelListener = new PropertyChangeListener() {
+			@Override
+			public void propertyChange(PropertyChangeEvent evt) {
+				setPageComplete(isComplete());
+				setErrorMessage(computeErrorMessage());
+				setMessage(computeWarningMessage(), IMessageProvider.WARNING);
+			}
+		};
+		model.addPropertyChangeListener("marFileName", marFileNameModelListener); //$NON-NLS-1$
+		
 		scrolledComposite.setContent(composite);
 		scrolledComposite.setMinSize(composite.computeSize(SWT.DEFAULT, SWT.DEFAULT));
-		m_bindingContext = initDataBindings();
+		
+		bindingContext = initDataBindings();
+		
+		updateMarFileName();
 	}
 	
-	private boolean isInfoComplete(String projectId, String version) {
-		return projectId != null
-				&& !projectId.trim().isEmpty()
-				&& version != null
-				&& !version.trim().isEmpty()
-				&& ManifestUtils.isVersionFormatValid(version);
+	private void updateMarFileName() {
+		StringBuilder marFileName = new StringBuilder();
+		if(model.getProjectId() != null)
+		marFileName.append(model.getProjectId().trim());
+		if(!isNullOrWhite(model.getVersion())) {
+			marFileName.append("-");
+			marFileName.append(model.getVersion().trim());
+		}
+		marFileName.append(".mar");
+		
+		model.setMarFileName(marFileName.toString());
+	}
+	
+	private boolean isComplete() {
+		return !isNullOrWhite(model.getProjectId())
+				&& !isNullOrWhite(model.getVersion())
+				&& ManifestUtils.isVersionFormatValid(model.getVersion())
+				&& !isNullOrWhite(model.getMarFileName());
+	}
+	
+	private String computeErrorMessage() {
+		if(!isNullOrWhite(model.getMarFileName()) && !model.getMarFileName().endsWith(".mar")) {
+			return "MAR filename must end with '.mar'";
+		}
+		return null;
+	}
+	
+	private String computeWarningMessage() {
+		if(!isNullOrWhite(model.getExportDirectory()) && !isNullOrWhite(model.getMarFileName()) && new File(new File(model.getExportDirectory()), model.getMarFileName()).exists()) {
+			return "MAR file already exists. It will be replaced.";
+		}
+		return null;
 	}
 	
 	@Override
@@ -171,7 +246,7 @@ public class ExportProjectAsLibraryManifestPage extends WizardPage {
 		super.setVisible(visible);
 		if (visible) {
 			// Make sure right informations are displayed
-			String projectId = wizard.getModel().getProjectId();
+			String projectId = model.getProjectId();
 			if (!txtProjectId.getText().equals(projectId)) {
 				if (projectId != null) {
 					txtProjectId.setText(projectId);
@@ -179,7 +254,7 @@ public class ExportProjectAsLibraryManifestPage extends WizardPage {
 					txtProjectId.setText("");					
 				}
 			}
-			String version = wizard.getModel().getVersion();
+			String version = model.getVersion();
 			if (!txtVersion.getText().equals(version)) {
 				if (version != null) {
 					txtVersion.setText(version);
@@ -196,15 +271,15 @@ public class ExportProjectAsLibraryManifestPage extends WizardPage {
 		DataBindingContext bindingContext = new DataBindingContext();
 		//
 		IObservableValue observeTextTxtProjectIdObserveWidget = WidgetProperties.text(SWT.Modify).observe(txtProjectId);
-		IObservableValue projectIdWizardgetModelObserveValue = PojoProperties.value("projectId").observe(wizard.getModel());
+		IObservableValue projectIdWizardgetModelObserveValue = BeanProperties.value("projectId").observe(model);
 		bindingContext.bindValue(observeTextTxtProjectIdObserveWidget, projectIdWizardgetModelObserveValue, null, null);
 		//
 		IObservableValue observeTextTxtVersionObserveWidget = WidgetProperties.text(SWT.Modify).observe(txtVersion);
-		IObservableValue versionWizardgetModelObserveValue = PojoProperties.value("version").observe(wizard.getModel());
+		IObservableValue versionWizardgetModelObserveValue = BeanProperties.value("version").observe(model);
 		bindingContext.bindValue(observeTextTxtVersionObserveWidget, versionWizardgetModelObserveValue, null, null);
 		//
 		IObservableValue observeTextTxtCommentObserveWidget = WidgetProperties.text(SWT.Modify).observe(txtComment);
-		IObservableValue commentWizardgetModelObserveValue = PojoProperties.value("comment").observe(wizard.getModel());
+		IObservableValue commentWizardgetModelObserveValue = BeanProperties.value("comment").observe(model);
 		bindingContext.bindValue(observeTextTxtCommentObserveWidget, commentWizardgetModelObserveValue, null, null);
 		//
 		ObservableListContentProvider listContentProvider = new ObservableListContentProvider();
@@ -212,9 +287,24 @@ public class ExportProjectAsLibraryManifestPage extends WizardPage {
 		tableViewer.setLabelProvider(new ObservableMapLabelProvider(observeMaps));
 		tableViewer.setContentProvider(listContentProvider);
 		//
-		IObservableList previousVersionsWizardgetModelObserveList = PojoProperties.list("previousVersions").observe(wizard.getModel());
+		IObservableList previousVersionsWizardgetModelObserveList = BeanProperties.list("previousVersions").observe(model);
 		tableViewer.setInput(previousVersionsWizardgetModelObserveList);
+		//
+		IObservableValue observeTextTxtMarFileNameObserveWidget = WidgetProperties.text(SWT.Modify).observe(txtMarFileName);
+		IObservableValue marFileNameWizardgetModelObserveValue = BeanProperties.value("marFileName").observe(model);
+		bindingContext.bindValue(observeTextTxtMarFileNameObserveWidget, marFileNameWizardgetModelObserveValue, null, null);
 		//
 		return bindingContext;
 	}
+	
+	@Override
+	public void dispose() {
+		model.removePropertyChangeListener(projectIdModelListener);
+		model.removePropertyChangeListener(versionModelListener);
+		model.removePropertyChangeListener(marFileNameModelListener);
+		bindingContext.dispose();
+		
+		super.dispose();
+	}
+
 }

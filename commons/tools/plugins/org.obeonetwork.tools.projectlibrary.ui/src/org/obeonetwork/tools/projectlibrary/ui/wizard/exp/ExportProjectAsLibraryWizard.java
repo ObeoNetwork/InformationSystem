@@ -92,7 +92,8 @@ public class ExportProjectAsLibraryWizard extends Wizard implements IExportWizar
 		private boolean result;
 
 		public void run(IProgressMonitor monitor) {
-			File targetFile = new File(model.getFilePath());
+			File targetDir = new File(model.getExportDirectory());
+			File targetFile = new File(targetDir, model.getMarFileName());
 			
 			SubMonitor subMonitor = SubMonitor.convert(monitor, "Generating MAR file", 2);
 			
