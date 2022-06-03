@@ -99,14 +99,23 @@ public class DatabaseImportWizard extends Wizard implements IImportWizard {
 			// Convert containing project to modeling project, activate viewpoints and create representations.
 			IProject enclosingProject = generatedFile.getProject();
 	        try {
-				PlatformUI.getWorkbench().getProgressService().run(true, false, new WorkspaceModifyOperation(ResourcesPlugin.getWorkspace().getRoot()) {
+				PlatformUI.getWorkbench().getProgressService().run(false, false, new WorkspaceModifyOperation(ResourcesPlugin.getWorkspace().getRoot()) {
 				    @Override
 				    protected void execute(IProgressMonitor monitor) throws CoreException, InvocationTargetException, InterruptedException {
 						convertToModelingProject(enclosingProject, monitor);
-						
+				    }
+				});
+				PlatformUI.getWorkbench().getProgressService().run(false, false, new WorkspaceModifyOperation(ResourcesPlugin.getWorkspace().getRoot()) {
+				    @Override
+				    protected void execute(IProgressMonitor monitor) throws CoreException, InvocationTargetException, InterruptedException {
 						ModelingProject enclosingModelingProject = ModelingProject.asModelingProject(enclosingProject).get();
 						activateViewpoints(enclosingModelingProject, monitor);
-						
+				    }
+				});
+				PlatformUI.getWorkbench().getProgressService().run(false, false, new WorkspaceModifyOperation(ResourcesPlugin.getWorkspace().getRoot()) {
+				    @Override
+				    protected void execute(IProgressMonitor monitor) throws CoreException, InvocationTargetException, InterruptedException {
+						ModelingProject enclosingModelingProject = ModelingProject.asModelingProject(enclosingProject).get();
 						Session session = enclosingModelingProject.getSession();
 						List<DRepresentation> representations = createRepresentations(session, generatedFile, monitor);
 						
