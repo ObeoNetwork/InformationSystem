@@ -30,7 +30,8 @@ Require-Bundle: org.eclipse.ui,
  com.ibm.icu,
  org.eclipse.sirius.diagram,
  org.obeonetwork.dsl.database,
- org.eclipse.emf.compare
+ org.eclipse.emf.compare,
+ org.obeonetwork.utils.sirius
 Export-Package: org.obeonetwork.dsl.is,
  org.obeonetwork.dsl.is.compare,
  org.obeonetwork.dsl.is.overview,

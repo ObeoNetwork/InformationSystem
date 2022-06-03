@@ -23,9 +23,6 @@ import org.eclipse.core.resources.IProject;
 import org.eclipse.core.resources.IResource;
 import org.eclipse.core.resources.ResourcesPlugin;
 import org.eclipse.core.runtime.IProgressMonitor;
-import org.eclipse.core.runtime.NullProgressMonitor;
-import org.eclipse.core.runtime.OperationCanceledException;
-import org.eclipse.core.runtime.jobs.Job;
 import org.eclipse.emf.cdo.eresource.CDOResource;
 import org.eclipse.emf.cdo.eresource.CDOResourceFolder;
 import org.eclipse.emf.cdo.eresource.CDOResourceNode;
@@ -33,28 +30,22 @@ import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.EClassifier;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.resource.Resource;
-import org.eclipse.emf.transaction.RecordingCommand;
 import org.eclipse.jface.dialogs.MessageDialog;
 import org.eclipse.jface.resource.ImageDescriptor;
 import org.eclipse.jface.viewers.IStructuredSelection;
 import org.eclipse.jface.viewers.TreePath;
 import org.eclipse.jface.viewers.TreeSelection;
 import org.eclipse.jface.wizard.Wizard;
-import org.eclipse.sirius.business.api.componentization.ViewpointRegistry;
-import org.eclipse.sirius.business.api.dialect.DialectManager;
-import org.eclipse.sirius.business.api.dialect.command.CreateRepresentationCommand;
 import org.eclipse.sirius.business.api.modelingproject.ModelingProject;
 import org.eclipse.sirius.business.api.session.Session;
-import org.eclipse.sirius.business.internal.session.danalysis.SaveSessionJob;
 import org.eclipse.sirius.ui.business.api.dialect.DialectUIManager;
-import org.eclipse.sirius.ui.business.api.viewpoint.ViewpointSelectionCallback;
 import org.eclipse.sirius.viewpoint.DRepresentation;
 import org.eclipse.sirius.viewpoint.description.RepresentationDescription;
-import org.eclipse.sirius.viewpoint.description.Viewpoint;
 import org.eclipse.ui.INewWizard;
 import org.eclipse.ui.IWorkbench;
 import org.eclipse.ui.IWorkbenchPart;
 import org.obeonetwork.dsl.is.util.SiriusSessionUtils;
+import org.obeonetwork.utils.sirius.session.SessionUtils;
 
 import fr.obeo.dsl.viewpoint.collab.ui.internal.views.ResourcesFolderItemImpl;
 
@@ -117,22 +108,7 @@ abstract public class AbstractISNewModelWizard extends Wizard implements INewWiz
 		if (session != null) {
 			Collection<URI> viewpointsURIs = getViewpointsURIToBeActivated();
 			for (URI viewpointURI : viewpointsURIs) {
-				activateViewpoint(session, viewpointURI, monitor);
-			}
-		}
-	}
-	
-	private void activateViewpoint(final Session session, URI viewpointURI, IProgressMonitor monitor) {
-		if (session != null) {
-			Viewpoint viewpoint = ViewpointRegistry.getInstance().getViewpoint(viewpointURI);
-			if (viewpoint != null) {
-				session.getTransactionalEditingDomain().getCommandStack().execute(new RecordingCommand(session.getTransactionalEditingDomain()) {
-					@Override
-					protected void doExecute() {
-						final ViewpointSelectionCallback selection = new ViewpointSelectionCallback();
-						selection.selectViewpoint(viewpoint, session, monitor);
-					}
-				});
+				SessionUtils.activateViewpoint(session, viewpointURI, monitor);
 			}
 		}
 	}
@@ -150,22 +126,14 @@ abstract public class AbstractISNewModelWizard extends Wizard implements INewWiz
 				for (EObject object : initialObjects) {
 					Collection<String> descIDs = mapDescIDs.get(object.eClass());
 					for (String descID : descIDs) {
-						// Ensure that there is no save in progress.
-						// Otherwise, when the representation will be added to the resource (createRepresentation-->CreateRepresentationCommand) can be problematic.
-						// Indeed, during the save, at a specific time (ResourceSaveDiagnose.hasDifferentSerialization), the eSetDeliver is disabled. So in this condition, no adapter is added to the added representation.
-						try {
-							Job.getJobManager().join(SaveSessionJob.FAMILY, new NullProgressMonitor());
-						} catch (OperationCanceledException | InterruptedException e) {
-							// Ignore these exceptions. The join is just here to avoid to have a save in progress.
-						}				
-						RepresentationDescription desc = getRepresentationDescription(session, object, descID);
+						RepresentationDescription desc = SessionUtils.getRepresentationDescription(session, object, descID);
 						if (desc != null) {
 							// Get name for the representation
 							String representationName = getRepresentationName(desc, object);
 							// and create representation
-							DRepresentation newRepresentation = createRepresentation(session, desc, representationName, object, monitor);
+							DRepresentation newRepresentation = SessionUtils.createRepresentation(session, desc, representationName, object, monitor);
 							if (newRepresentation != null) {
-								createdRepresentations.add(newRepresentation);								
+								createdRepresentations.add(newRepresentation);
 							}
 						}
 					}
@@ -178,21 +146,6 @@ abstract public class AbstractISNewModelWizard extends Wizard implements INewWiz
 				}				
 			}
 		}
-	}
-	
-	protected RepresentationDescription getRepresentationDescription(final Session session, EObject object, String repDescID) {
-		for (final RepresentationDescription representation : DialectManager.INSTANCE.getAvailableRepresentationDescriptions(session.getSelectedViewpoints(false), object)) {
-			if (repDescID.equals(representation.getName())) {
-				return representation;
-			}
-		}
-		return null;
-	}
-
-	protected DRepresentation createRepresentation(final Session session, RepresentationDescription description, String name, EObject object, IProgressMonitor monitor) {
-		CreateRepresentationCommand cmd = new CreateRepresentationCommand(session, description, object, name, monitor);
-		session.getTransactionalEditingDomain().getCommandStack().execute(cmd);
-		return cmd.getCreatedRepresentation();
 	}
 	
 	protected void openRepresentation(final Session session, DRepresentation representation,  IProgressMonitor monitor) {

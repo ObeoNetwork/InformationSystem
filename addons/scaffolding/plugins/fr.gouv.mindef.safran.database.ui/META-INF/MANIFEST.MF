@@ -39,7 +39,10 @@ Require-Bundle: org.eclipse.ui,
  org.eclipse.team.svn.core,
  org.eclipse.sirius.ext.base,
  fr.obeo.dsl.viewpoint.collab,
- org.obeonetwork.dsl.database.liquibasegen
+ org.obeonetwork.dsl.database.liquibasegen,
+ org.eclipse.sirius.ui,
+ org.obeonetwork.dsl.database.design,
+ org.obeonetwork.utils.sirius
 Bundle-RequiredExecutionEnvironment: JavaSE-1.8
 Bundle-ActivationPolicy: lazy
 Export-Package: fr.gouv.mindef.safran.database.ui,

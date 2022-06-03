@@ -56,6 +56,7 @@ import fr.gouv.mindef.safran.database.ui.dialogs.FileExtensionsViewerFilter;
 import fr.gouv.mindef.safran.database.ui.dialogs.SpecificWorkspaceResourceDialog;
 
 
+@SuppressWarnings("deprecation")
 public class DatabaseImportWizardPage extends WizardPage {
 	
 	private static final String DATABASE_FILE_EXTENSION = "database";
@@ -214,7 +215,7 @@ public class DatabaseImportWizardPage extends WizardPage {
 			public boolean select(Viewer viewer, Object parentElement, Object element) {
 				if (element instanceof IFile) {
 					IResource workspaceResource = (IResource)element;
-					return referencedFiles.contains(workspaceResource) == false
+					return !referencedFiles.contains(workspaceResource)
 						&& DATABASE_FILE_EXTENSION.equals(workspaceResource.getFileExtension());
 				}
 				return true;
@@ -228,7 +229,9 @@ public class DatabaseImportWizardPage extends WizardPage {
 		btnAddReferencedFile.setSize(62, 23);
 		btnAddReferencedFile.addSelectionListener(new SelectionAdapter() {
 			public void widgetSelected(SelectionEvent e) {
-				IFile[] selectedFiles = WorkspaceResourceDialog.openFileSelection(getShell(), "Add referenced file", "Select the referenced files (*." + DATABASE_FILE_EXTENSION + ")", true, null, filters);
+				IFile[] selectedFiles = WorkspaceResourceDialog.openFileSelection(getShell(), 
+						"Add referenced file", "Select the referenced files (*." + DATABASE_FILE_EXTENSION + ")", 
+						true, null, filters);
 				for (IFile selectedFile : selectedFiles) {
 					referencedFiles.add(selectedFile);
 				}
@@ -280,6 +283,7 @@ public class DatabaseImportWizardPage extends WizardPage {
 		listReferencedModelFiles.setInput(referencedFiles);
 	}
 	
+	@SuppressWarnings({ "unchecked", "rawtypes" })
 	private void bindValues() {
 		// The DataBindingContext object will manage the databindings
 		// Lets bind it
@@ -347,8 +351,8 @@ public class DatabaseImportWizardPage extends WizardPage {
 		return status;
 	}
 	
-	public Text getTxtModelFile() {
-		return txtModelFile;
+	public String getModelFilePath() {
+		return txtModelFile.getText();
 	}
 	
 	public Collection<IFile> getReferencedFiles() {
