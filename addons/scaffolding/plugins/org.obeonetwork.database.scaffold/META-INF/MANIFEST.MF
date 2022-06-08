@@ -1,0 +1,18 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Obeo Network Scaffold Model
+Bundle-SymbolicName: org.obeonetwork.database.scaffold;singleton:=true
+Bundle-Version: 3.0.0.qualifier
+Bundle-ClassPath: .
+Bundle-Vendor: Obeo Network
+Bundle-RequiredExecutionEnvironment: JavaSE-1.8
+Export-Package: org.obeonetwork.database.scaffold,
+ org.obeonetwork.database.scaffold.impl,
+ org.obeonetwork.database.scaffold.util
+Require-Bundle: org.eclipse.core.runtime,
+ org.eclipse.emf.ecore;visibility:=reexport,
+ org.eclipse.emf.cdo;visibility:=reexport,
+ org.eclipse.emf.ecore.xmi;visibility:=reexport,
+ org.obeonetwork.dsl.database
+Bundle-ActivationPolicy: lazy
+

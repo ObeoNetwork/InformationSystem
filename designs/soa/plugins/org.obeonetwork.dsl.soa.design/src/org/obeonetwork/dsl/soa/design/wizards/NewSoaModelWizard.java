@@ -65,7 +65,7 @@ public class NewSoaModelWizard extends AbstractISNewModelWizard {
 		return Arrays.asList(
 				URI.createURI("viewpoint:/org.obeonetwork.dsl.environment.properties/Environment Views"),
 				URI.createURI("viewpoint:/org.obeonetwork.dsl.soa.design/SOA Views"),
-				URI.createURI("viewpoint:/fr.gouv.mindef.safran.is.design/SOA (Safr@n consolidated view)")
+				URI.createURI("viewpoint:/org.obeonetwork.is.design/SOA (Safr@n consolidated view)")
 		);
 	}
 	

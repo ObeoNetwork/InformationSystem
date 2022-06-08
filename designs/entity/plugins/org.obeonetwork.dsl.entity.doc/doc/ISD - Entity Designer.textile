@@ -28,7 +28,7 @@ Une fois l'assistant validé, le modèle est créé, la représentation _Entity 
 !pics/SafranEntityModelCreated.png!
 
 Lorsqu'un modèle entity est créé à l'aide de ce wizard, les points de vues _Entity Views_, _Entity (Safr@n Consolidated view)_ et _Environment View_ sont activés.
-Le point de vue _Entity Views_ est décrit dans la section suivante. Le point de vue _Entity (Safr@n Consolidated view)_ est décrit dans la section de documentation "Safr@n - Entity (Safr@n consolidated view)":../../fr.gouv.mindef.safran.is.design.doc/doc/Safr@n%20-%20Entity%20(Safr@n%20consolidated%20view).html. Le point de vue _Environment View_ permet d'activer les vues propriétés EEF.
+Le point de vue _Entity Views_ est décrit dans la section suivante. Le point de vue _Entity (Safr@n Consolidated view)_ est décrit dans la section de documentation "Safr@n - Entity (Safr@n consolidated view)":../../org.obeonetwork.is.design.doc/doc/Safr@n%20-%20Entity%20(Safr@n%20consolidated%20view).html. Le point de vue _Environment View_ permet d'activer les vues propriétés EEF.
 
 h2. Point de vue Entity Views
 

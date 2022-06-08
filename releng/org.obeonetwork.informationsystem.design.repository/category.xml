@@ -143,22 +143,22 @@
    <feature url="features/org.obeonetwork.dsl.soa.m2doc.feature_0.0.0.jar" id="org.obeonetwork.dsl.soa.m2doc.feature" version="0.0.0">
       <category name="org.obeonetwork.informationsystem.m2doc"/>
    </feature>
-   <feature url="features/fr.gouv.mindef.safran.database.scaffold.feature_0.0.0.jar" id="fr.gouv.mindef.safran.database.scaffold.feature" version="0.0.0">
+   <feature url="features/org.obeonetwork.database.scaffold.feature_0.0.0.jar" id="org.obeonetwork.database.scaffold.feature" version="0.0.0">
       <category name="org.obeonetwork.informationsystem.addons"/>
    </feature>
-   <feature url="features/fr.gouv.mindef.safran.database.ui.feature_0.0.0.jar" id="fr.gouv.mindef.safran.database.ui.feature" version="0.0.0">
+   <feature url="features/org.obeonetwork.database.ui.feature_0.0.0.jar" id="org.obeonetwork.database.ui.feature" version="0.0.0">
       <category name="org.obeonetwork.informationsystem.addons"/>
    </feature>
-   <feature url="features/fr.gouv.mindef.safran.project.lifecycle.feature_0.0.0.jar" id="fr.gouv.mindef.safran.project.lifecycle.feature" version="0.0.0">
+   <feature url="features/org.obeonetwork.project.lifecycle.feature_0.0.0.jar" id="org.obeonetwork.project.lifecycle.feature" version="0.0.0">
       <category name="org.obeonetwork.informationsystem.addons"/>
    </feature>
-   <feature url="features/fr.gouv.mindef.safran.cinematic.gen.html.feature_0.0.0.jar" id="fr.gouv.mindef.safran.cinematic.gen.html.feature" version="0.0.0">
+   <feature url="features/org.obeonetwork.cinematic.gen.html.feature_0.0.0.jar" id="org.obeonetwork.cinematic.gen.html.feature" version="0.0.0">
       <category name="org.obeonetwork.informationsystem.addons"/>
    </feature>
-   <feature url="features/fr.gouv.mindef.safran.feature.is_0.0.0.jar" id="fr.gouv.mindef.safran.feature.is" version="0.0.0">
+   <feature url="features/org.obeonetwork.feature.is_0.0.0.jar" id="org.obeonetwork.feature.is" version="0.0.0">
       <category name="org.obeonetwork.informationsystem.addons"/>
    </feature>
-   <feature url="features/fr.gouv.mindef.safran.graal.extensions.feature_0.0.0.jar" id="fr.gouv.mindef.safran.graal.extensions.feature" version="0.0.0">
+   <feature url="features/org.obeonetwork.graal.extensions.feature_0.0.0.jar" id="org.obeonetwork.graal.extensions.feature" version="0.0.0">
       <category name="org.obeonetwork.informationsystem.addons"/>
    </feature>
    <feature url="features/org.obeonetwork.is.samples.feature_0.0.0.jar" id="org.obeonetwork.is.samples.feature" version="0.0.0">

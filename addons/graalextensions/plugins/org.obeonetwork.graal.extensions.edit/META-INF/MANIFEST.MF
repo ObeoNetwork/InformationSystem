@@ -1,0 +1,22 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: IS-Designer Graal Extensions Edit Support
+Bundle-SymbolicName: org.obeonetwork.graal.extensions.edit;singleton:=true
+Bundle-Version: 3.0.0.qualifier
+Bundle-ClassPath: .
+Bundle-Activator: org.obeonetwork.graalextensions.provider.SafrangraalextensionsEditPlugin$Implementation
+Bundle-Vendor: Obeo Network
+Bundle-Localization: plugin
+Bundle-RequiredExecutionEnvironment: JavaSE-1.8
+Export-Package: org.obeonetwork.graalextensions.provider,
+ org.obeonetwork.graalextensions.providers
+Require-Bundle: org.eclipse.core.runtime,
+ org.obeonetwork.graal.extensions;visibility:=reexport,
+ org.eclipse.emf.edit;visibility:=reexport,
+ org.obeonetwork.dsl.environment;visibility:=reexport,
+ org.obeonetwork.dsl.environment.edit;visibility:=reexport,
+ org.eclipse.emf.eef.runtime,
+ org.obeonetwork.graal,
+ org.eclipse.sirius.table,
+ org.obeonetwork.graal.edit
+Bundle-ActivationPolicy: lazy

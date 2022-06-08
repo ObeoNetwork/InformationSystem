@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="ASCII"?>
+<xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:eef-components="http://www.eclipse.org/emf/eef/components/1.0.0" xmlns:eef-mapping-navigation="http://www.eclipse.org/emf/eef/mapping/navigation/1.0.0" xmlns:eef-views="http://www.eclipse.org/emf/eef/views/1.0.0">
+  <eef-components:PropertiesEditionContext xmi:id="_dZ2qcNTiEeGIYfR2OVtfZw" documentation="Edition Context for graalextensions GenPackage">
+    <categories xmi:id="_dZ2qcdTiEeGIYfR2OVtfZw" name="graalextensions">
+      <bindings xsi:type="eef-components:PropertiesEditionComponent" xmi:id="_dZ2qctTiEeGIYfR2OVtfZw" name="version" views="_dZ2qfNTiEeGIYfR2OVtfZw">
+        <properties xsi:type="eef-components:PropertiesEditionElement" xmi:id="_dZ2qc9TiEeGIYfR2OVtfZw" name="version" views="_L0LHMdx3EeGigaleYv5OVQ">
+          <model xsi:type="ecore:EAttribute" href="platform:/plugin/org.obeonetwork.dsl.environment/model/environment.ecore#//ObeoDSMObject/version"/>
+        </properties>
+        <properties xsi:type="eef-components:PropertiesEditionElement" xmi:id="_dZ2qdNTiEeGIYfR2OVtfZw" name="createdOn" views="_dZ2qf9TiEeGIYfR2OVtfZw">
+          <model xsi:type="ecore:EAttribute" href="platform:/plugin/org.obeonetwork.dsl.environment/model/environment.ecore#//ObeoDSMObject/createdOn"/>
+        </properties>
+        <properties xsi:type="eef-components:PropertiesEditionElement" xmi:id="_dZ2qddTiEeGIYfR2OVtfZw" name="modifiedOn" views="_dZ2qgNTiEeGIYfR2OVtfZw">
+          <model xsi:type="ecore:EAttribute" href="platform:/plugin/org.obeonetwork.dsl.environment/model/environment.ecore#//ObeoDSMObject/modifiedOn"/>
+        </properties>
+        <model xsi:type="ecore:EClass" href="platform:/plugin/org.obeonetwork.dsl.environment/model/environment.ecore#//ObeoDSMObject"/>
+      </bindings>
+      <bindings xsi:type="eef-components:PropertiesEditionComponent" xmi:id="_dZ2qdtTiEeGIYfR2OVtfZw" name="risk" views="_dZ2qgdTiEeGIYfR2OVtfZw">
+        <properties xsi:type="eef-components:PropertiesEditionElement" xmi:id="_dZ2qd9TiEeGIYfR2OVtfZw" name="benefits" views="_dZ2qg9TiEeGIYfR2OVtfZw">
+          <model xsi:type="ecore:EAttribute" href="platform:/resource/org.obeonetwork.graal.extensions/model/safran-graal-extensions.ecore#//Risk/benefits"/>
+          <navigation xsi:type="eef-mapping-navigation:ChainedModelNavigation" xmi:id="_QI0SoNu7EeGmbNMW2IfyjQ">
+            <current xsi:type="eef-mapping-navigation:SimpleModelNavigation" xmi:id="_UFEs0Nu7EeGmbNMW2IfyjQ">
+              <feature href="platform:/plugin/org.obeonetwork.dsl.environment/model/environment.ecore#//ObeoDSMObject/metadatas"/>
+            </current>
+            <next xsi:type="eef-mapping-navigation:SimpleModelNavigation" xmi:id="_Vo7FMNu7EeGmbNMW2IfyjQ">
+              <feature href="platform:/plugin/org.obeonetwork.dsl.environment/model/environment.ecore#//MetaDataContainer/metadatas"/>
+              <discriminatorType xsi:type="ecore:EClass" href="platform:/resource/org.obeonetwork.graal.extensions/model/safran-graal-extensions.ecore#//Risk"/>
+            </next>
+          </navigation>
+        </properties>
+        <properties xsi:type="eef-components:PropertiesEditionElement" xmi:id="_dZ2qeNTiEeGIYfR2OVtfZw" name="drawbacks" views="_dZ2qhNTiEeGIYfR2OVtfZw">
+          <model xsi:type="ecore:EAttribute" href="platform:/resource/org.obeonetwork.graal.extensions/model/safran-graal-extensions.ecore#//Risk/drawbacks"/>
+          <navigation xsi:type="eef-mapping-navigation:ChainedModelNavigation" xmi:id="_Zt-2ENu7EeGmbNMW2IfyjQ">
+            <current xsi:type="eef-mapping-navigation:SimpleModelNavigation" xmi:id="_Zt_dINu7EeGmbNMW2IfyjQ">
+              <feature href="platform:/plugin/org.obeonetwork.dsl.environment/model/environment.ecore#//ObeoDSMObject/metadatas"/>
+            </current>
+            <next xsi:type="eef-mapping-navigation:SimpleModelNavigation" xmi:id="_Zt_dIdu7EeGmbNMW2IfyjQ">
+              <feature href="platform:/plugin/org.obeonetwork.dsl.environment/model/environment.ecore#//MetaDataContainer/metadatas"/>
+              <discriminatorType xsi:type="ecore:EClass" href="platform:/resource/org.obeonetwork.graal.extensions/model/safran-graal-extensions.ecore#//Risk"/>
+            </next>
+          </navigation>
+        </properties>
+        <properties xsi:type="eef-components:PropertiesEditionElement" xmi:id="_dZ2qedTiEeGIYfR2OVtfZw" name="risk" views="_dZ2qhdTiEeGIYfR2OVtfZw">
+          <model xsi:type="ecore:EAttribute" href="platform:/resource/org.obeonetwork.graal.extensions/model/safran-graal-extensions.ecore#//Risk/risk"/>
+          <navigation xsi:type="eef-mapping-navigation:ChainedModelNavigation" xmi:id="_Z1X3gNu7EeGmbNMW2IfyjQ">
+            <current xsi:type="eef-mapping-navigation:SimpleModelNavigation" xmi:id="_Z1X3gdu7EeGmbNMW2IfyjQ">
+              <feature href="platform:/plugin/org.obeonetwork.dsl.environment/model/environment.ecore#//ObeoDSMObject/metadatas"/>
+            </current>
+            <next xsi:type="eef-mapping-navigation:SimpleModelNavigation" xmi:id="_Z1X3gtu7EeGmbNMW2IfyjQ">
+              <feature href="platform:/plugin/org.obeonetwork.dsl.environment/model/environment.ecore#//MetaDataContainer/metadatas"/>
+              <discriminatorType xsi:type="ecore:EClass" href="platform:/resource/org.obeonetwork.graal.extensions/model/safran-graal-extensions.ecore#//Risk"/>
+            </next>
+          </navigation>
+        </properties>
+        <model xsi:type="ecore:EClass" href="platform:/plugin/org.obeonetwork.dsl.environment/model/environment.ecore#//ObeoDSMObject"/>
+      </bindings>
+    </categories>
+    <model href="platform:/resource/org.obeonetwork.graal.extensions/model/safran-graal-extensions.genmodel#//graalextensions"/>
+  </eef-components:PropertiesEditionContext>
+  <eef-views:ViewsRepository xmi:id="_dZ2qetTiEeGIYfR2OVtfZw" documentation="Views repository for graalextensions GenPackage" name="graalextensions">
+    <RepositoryKind>SWT</RepositoryKind>
+    <RepositoryKind>Form</RepositoryKind>
+    <categories xmi:id="_dZ2qe9TiEeGIYfR2OVtfZw" name="graalextensions">
+      <views xmi:id="_dZ2qfNTiEeGIYfR2OVtfZw" name="Version">
+        <elements xsi:type="eef-views:Container" xmi:id="_dZ2qfdTiEeGIYfR2OVtfZw" name="properties">
+          <representation href="platform:/plugin/org.eclipse.emf.eef.views/std/SWT.toolkits#//@widgets.4"/>
+          <elements xsi:type="eef-views:CustomElementEditor" xmi:id="_L0LHMdx3EeGigaleYv5OVQ" name="version"/>
+          <elements xsi:type="eef-views:ElementEditor" xmi:id="_dZ2qgNTiEeGIYfR2OVtfZw" name="modifiedOn" readOnly="true">
+            <representation href="platform:/plugin/org.eclipse.emf.eef.views/std/SWT.toolkits#//@widgets.0"/>
+          </elements>
+          <elements xsi:type="eef-views:ElementEditor" xmi:id="_dZ2qf9TiEeGIYfR2OVtfZw" name="createdOn" readOnly="true">
+            <representation href="platform:/plugin/org.eclipse.emf.eef.views/std/SWT.toolkits#//@widgets.0"/>
+          </elements>
+        </elements>
+      </views>
+      <views xmi:id="_dZ2qgdTiEeGIYfR2OVtfZw" name="Risk">
+        <elements xsi:type="eef-views:Container" xmi:id="_dZ2qgtTiEeGIYfR2OVtfZw" name="properties">
+          <representation href="platform:/plugin/org.eclipse.emf.eef.views/std/SWT.toolkits#//@widgets.4"/>
+          <elements xsi:type="eef-views:ElementEditor" xmi:id="_dZ2qg9TiEeGIYfR2OVtfZw" name="benefits">
+            <representation href="platform:/plugin/org.eclipse.emf.eef.views/std/EMFProperties.toolkits#//@widgets.2"/>
+          </elements>
+          <elements xsi:type="eef-views:ElementEditor" xmi:id="_dZ2qhNTiEeGIYfR2OVtfZw" name="drawbacks">
+            <representation href="platform:/plugin/org.eclipse.emf.eef.views/std/EMFProperties.toolkits#//@widgets.2"/>
+          </elements>
+          <elements xsi:type="eef-views:ElementEditor" xmi:id="_dZ2qhdTiEeGIYfR2OVtfZw" name="risk">
+            <representation href="platform:/plugin/org.eclipse.emf.eef.views/std/EMFProperties.toolkits#//@widgets.2"/>
+          </elements>
+        </elements>
+      </views>
+    </categories>
+  </eef-views:ViewsRepository>
+</xmi:XMI>

@@ -138,11 +138,11 @@
          version="0.0.0"/>
 
    <includes
-         id="fr.gouv.mindef.safran.database.scaffold.feature"
+         id="org.obeonetwork.database.scaffold.feature"
          version="0.0.0"/>
 
    <includes
-         id="fr.gouv.mindef.safran.database.ui.feature"
+         id="org.obeonetwork.database.ui.feature"
          version="0.0.0"/>
 
    <includes
@@ -226,19 +226,19 @@
          version="0.0.0"/>
 
    <includes
-         id="fr.gouv.mindef.safran.project.lifecycle.feature"
+         id="org.obeonetwork.project.lifecycle.feature"
          version="0.0.0"/>
 
    <includes
-         id="fr.gouv.mindef.safran.graal.extensions.feature"
+         id="org.obeonetwork.graal.extensions.feature"
          version="0.0.0"/>
 
    <includes
-         id="fr.gouv.mindef.safran.feature.is"
+         id="org.obeonetwork.feature.is"
          version="0.0.0"/>
 
    <includes
-         id="fr.gouv.mindef.safran.cinematic.gen.html.feature"
+         id="org.obeonetwork.cinematic.gen.html.feature"
          version="0.0.0"/>
 
    <includes

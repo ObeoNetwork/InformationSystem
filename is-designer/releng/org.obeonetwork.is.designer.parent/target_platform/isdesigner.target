@@ -4,12 +4,12 @@
 <target name="IS Designer Product Target Definition" sequenceNumber="1644918703">
   <locations>
     <location includeMode="planner" includeAllPlatforms="false" includeSource="true" includeConfigurePhase="false" type="InstallableUnit">
-      <unit id="fr.gouv.mindef.safran.cinematic.gen.html.feature.feature.group" version="0.0.0"/>
-      <unit id="fr.gouv.mindef.safran.database.scaffold.feature.feature.group" version="0.0.0"/>
-      <unit id="fr.gouv.mindef.safran.database.ui.feature.feature.group" version="0.0.0"/>
-      <unit id="fr.gouv.mindef.safran.feature.is.feature.group" version="0.0.0"/>
-      <unit id="fr.gouv.mindef.safran.graal.extensions.feature.feature.group" version="0.0.0"/>
-      <unit id="fr.gouv.mindef.safran.project.lifecycle.feature.feature.group" version="0.0.0"/>
+      <unit id="org.obeonetwork.cinematic.gen.html.feature.feature.group" version="0.0.0"/>
+      <unit id="org.obeonetwork.database.scaffold.feature.feature.group" version="0.0.0"/>
+      <unit id="org.obeonetwork.database.ui.feature.feature.group" version="0.0.0"/>
+      <unit id="org.obeonetwork.feature.is.feature.group" version="0.0.0"/>
+      <unit id="org.obeonetwork.graal.extensions.feature.feature.group" version="0.0.0"/>
+      <unit id="org.obeonetwork.project.lifecycle.feature.feature.group" version="0.0.0"/>
       <unit id="liquibase.feature.feature.group" version="0.0.0"/>
       <unit id="org.eclipse.nebula.treemapper.feature.feature.group" version="0.0.0"/>
       <unit id="org.obeonetwork.cinematic.m2doc.feature.feature.group" version="0.0.0"/>

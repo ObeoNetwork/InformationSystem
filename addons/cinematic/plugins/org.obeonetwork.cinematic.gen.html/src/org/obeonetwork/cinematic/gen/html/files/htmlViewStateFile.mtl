@@ -1,0 +1,338 @@
+[comment encoding = UTF-8 /]
+[comment
+ Copyright (c) 2008, 2022 Obeo.
+ All rights reserved. This program and the accompanying materials
+ are made available under the terms of the Eclipse Public License v1.0
+ which accompanies this distribution, and is available at
+ http://www.eclipse.org/legal/epl-v10.html
+
+ Contributors:
+     Obeo - initial API and implementation
+/]
+[**
+ * The documentation of the module htmlFile.
+ */]
+[module htmlViewStateFile('http://www.obeonetwork.org/dsl/cinematic/3.0.0')]
+
+[import org::obeonetwork::cinematic::gen::html::requests::requests /]
+[import org::obeonetwork::cinematic::gen::html::common::common /]
+[import org::obeonetwork::cinematic::gen::html::services::cinematicServices /]
+
+[**
+ * The documentation of the template genHtmlViewStateFile.
+ * @param aViewState
+ */]
+[template public genHtmlViewStateFile(aViewState : ViewState)]
+[file (aViewState.genFullQualifiedFileName(), false, 'UTF-8')]
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="fr">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>[aViewState.name/]</title>
+<link href="[aViewState.getRootContainerPath()/]bootstrap/css/bootstrap.min.css" rel="stylesheet" >
+<style>
+      body {
+        padding-top: 60px; /* 60px to make the container go all the way to the bottom of the topbar */
+      }
+</style>
+<link href="[aViewState.getRootContainerPath()/]bootstrap/css/bootstrap-responsive.min.css" rel="stylesheet">
+</head>
+<body>
+	
+	<div class="navbar navbar-fixed-top">
+		<div class="navbar-inner">
+			<div class="container">
+				<a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+		        	<span class="icon-bar"></span>
+		            <span class="icon-bar"></span>
+		            <span class="icon-bar"></span>
+		        </a>
+				<a class="brand" href="[aViewState.getRootContainerPath()/]index.html">Index</a>
+				<div class="nav-collapse collapse">
+		            <ul class="nav">
+		              [for (aFlow : Flow | aViewState.eContainer(CinematicRoot).eAllContents(Flow))]
+					  <li class="dropdown">
+				        <a class="dropdown-toggle" data-toggle="dropdown" href="#">[aFlow.name/] <b class="caret"></b></a>
+				        <ul class="dropdown-menu">
+				          [for (aVS : ViewState | aFlow.states->filter(ViewState))]
+							<li><a href="[aViewState.getRootContainerPath()/][aVS.genFullQualifiedFileName()/]">[aVS.name/]</a></li>
+						  [/for]
+				        </ul>
+				      </li>
+					  [/for]
+		            </ul>
+         		 </div>
+			</div>
+		</div>
+	</div>
+
+	<div class="container">
+		[for (aVC : ViewContainer | aViewState.viewContainers)]
+			[for (anAVE : AbstractViewElement | aVC.ownedElements)]
+		<form class="form-horizontal [if (isPanel(anAVE))]well[/if]">
+			[anAVE.genHtmlWidget(aViewState)/]
+		</form>
+			[/for]
+		[/for]		
+	</div>
+
+	<script src="[aViewState.getRootContainerPath()/]bootstrap/js/jquery.js"></script>
+	<script src="[aViewState.getRootContainerPath()/]bootstrap/js/bootstrap.min.js"></script>
+
+</body>
+</html>
+[/file]
+[/template]
+
+[template private genHtmlWidget(anAVE : AbstractViewElement, aViewState : ViewState) post (trim())]
+	[if (isTopLevelViewContainer(anAVE.eContainer(ViewContainer)) and not(isPanel(anAVE)))]
+<div class="control-group">
+[if (not (isButton(anAVE) or isLink(anAVE)))]<label class="control-label" for="[anAVE.name/]">[anAVE.name/]</label>[/if]
+	<div class="controls">
+	[/if]
+	[if (isPage(anAVE))]
+[anAVE.genHtmlPanel(aViewState)/]
+	[elseif (isPanel(anAVE))]
+[anAVE.genHtmlPanel(aViewState)/]
+	[elseif (isTable(anAVE))]
+[anAVE.genHtmlTable(aViewState)/]
+	[elseif (isText(anAVE))]
+[anAVE.genHtmlText()/]
+	[elseif (isTextarea(anAVE))]
+[anAVE.genHtmlTextarea()/]
+	[elseif (isCombo(anAVE))]
+[anAVE.genHtmlCombo()/]
+	[elseif (isLabel(anAVE))]
+[anAVE.genHtmlLabel()/]
+	[elseif (isImage(anAVE))]
+[anAVE.genHtmlImage()/]
+	[elseif (isLink(anAVE))]
+[anAVE.genHtmlLink(aViewState)/]
+	[elseif (isButton(anAVE))]
+[anAVE.genHtmlButton(aViewState)/]
+	[elseif (isPassword(anAVE))]
+[anAVE.genHtmlPassword()/]
+	[elseif (isRadio(anAVE))]
+[anAVE.genHtmlRadio()/]
+	[elseif (isCheckbox(anAVE))]
+[anAVE.genHtmlRadio()/]
+	[else]
+<!-- TODO widget [anAVE.widget.qualifiedName()/] non gere -->
+	[/if]
+[anAVE.genEventsDropdown(aViewState)/]
+	[if (isTopLevelViewContainer(anAVE.eContainer(ViewContainer)) and not(isPanel(anAVE)))]
+	</div>
+</div>
+	[/if]
+[/template]
+
+[template private genEventsDropdown(anAVE : AbstractViewElement, aViewState : ViewState)]
+[if (not anAVE.events->isEmpty())]
+<span class="dropdown">
+  <a class="dropdown-toggle" data-toggle="dropdown" href="#menu[anAVE.getID()/]"><b class="caret"></b></a>
+  <ul class="dropdown-menu">
+    <li><a href="#">Click to simulate an event</a></li>
+    <li class="divider"></li>
+[for (event : ViewEvent | anAVE.events)]
+    <li><a href="[event.genLink(aViewState)/]">[event.name/] ([event.type.name/])</a></li>
+[/for]
+  </ul>
+</span>
+[/if]
+[/template]
+
+[template private genHtmlPanel(anAVE : AbstractViewElement, aViewState : ViewState) post (trim())]
+<fieldset>
+	<legend>[anAVE.name/]</legend>
+[for (anAVE : AbstractViewElement | anAVE.oclAsType(ViewContainer).ownedElements)]
+	<div class="control-group">
+	    [if (not (isButton(anAVE) or isLink(anAVE)))]<label class="control-label" for="[anAVE.name/]">[anAVE.name/]</label>[/if]
+		<div class="controls">
+		[anAVE.genHtmlWidget(aViewState)/]
+		</div>
+	</div>
+[/for]
+</fieldset>
+[/template]
+
+[template private genHtmlTable(anAVE : AbstractViewElement, aViewState : ViewState) post (trim())]
+[if (anAVE.oclIsTypeOf(ViewContainer) and anAVE.oclAsType(ViewContainer).ownedElements->size() > 0)]
+<table border="1" title="[anAVE.name/]" class="table table-striped table-bordered">
+	<thead>
+		[anAVE.genTableHeader()/]
+	</thead>
+	<tbody>
+		[anAVE.genTableRow(aViewState)/]
+		[anAVE.genTableRow(aViewState)/]
+		[anAVE.genTableRow(aViewState)/]
+		[anAVE.genTableRow(aViewState)/]
+		[anAVE.genTableRow(aViewState)/]
+	</tbody>
+</table>
+[else]
+<table border="1" title="[anAVE.name/]" class="table table-striped table-bordered">
+	<thead>
+		<tr>
+			<th>Description</th>
+			<th>Description</th>
+			<th>Description</th>
+			<th>Description</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr>
+			<td>Lorem ipsum</td>
+			<td>Lorem ipsum</td>
+			<td>Lorem ipsum</td>
+			<td>Lorem ipsum</td>
+		</tr>
+		<tr>
+			<td>Lorem ipsum</td>
+			<td>Lorem ipsum</td>
+			<td>Lorem ipsum</td>
+			<td>Lorem ipsum</td>
+		</tr>
+		<tr>
+			<td>Lorem ipsum</td>
+			<td>Lorem ipsum</td>
+			<td>Lorem ipsum</td>
+			<td>Lorem ipsum</td>
+		</tr>
+		<tr>
+			<td>Lorem ipsum</td>
+			<td>Lorem ipsum</td>
+			<td>Lorem ipsum</td>
+			<td>Lorem ipsum</td>
+		</tr>
+	</tbody>
+</table>
+[/if]
+[/template]
+
+[template private genTableHeader(anAVE : AbstractViewElement)]
+<tr>
+[for (anAVE : AbstractViewElement | anAVE.oclAsType(ViewContainer).ownedElements)]
+	<th>[anAVE.name/]</th>
+[/for]
+</tr>
+[/template]
+
+[template private genTableRow(anAVE : AbstractViewElement, aViewState : ViewState)]
+<tr>
+[for (anAVE : AbstractViewElement | anAVE.oclAsType(ViewContainer).ownedElements)]
+	<td>[anAVE.genHtmlWidget(aViewState)/]</td>
+[/for]
+</tr>
+[/template]
+
+[template private genHtmlText(anAVE : AbstractViewElement) post (trim())]
+<input type="text" name="[getLabel(anAVE)/]" class="input-xlarge" id ="[anAVE.name/]"/>
+[/template]
+
+[template public genHtmlTextarea(anAVE : AbstractViewElement) post (trim())]
+<textarea class="input-xlarge" id="[anAVE.name/]" rows="3"></textarea>
+[/template]
+
+[template private genHtmlCombo(anAVE : AbstractViewElement) post (trim())]
+<select name="[getLabel(anAVE)/]">
+  <option>un</option>
+  <option>deux</option>
+  <option>trois</option>
+</select>
+[/template]
+
+[template private genHtmlLabel(anAVE : AbstractViewElement) post (trim())]
+<span class="label">[getLabel(anAVE)/]</span>
+[/template]
+
+[template private genHtmlRadio(anAVE : AbstractViewElement) post (trim())]
+<label class="radio">
+	<input type="radio" name="[anAVE.name/]" id="[anAVE.name/]1" value="option1" checked>
+	[getLabel(anAVE)/]
+</label>
+[/template]
+
+[template private genHtmlCheckbox(anAVE : AbstractViewElement) post (trim())]
+<label class="checkbox">
+	<input type="checkbox" name="[anAVE.name/]" value="option1">
+	[getLabel(anAVE)/]
+</label>
+[/template]
+
+[template private genHtmlImage(anAVE : AbstractViewElement) post (trim())]
+<i class="icon-picture"></i>
+[/template]
+
+[template private genHtmlLink(anAVE : AbstractViewElement, aViewState : ViewState) post (trim())]
+<a href="[anAVE.genLink(aViewState)/]">[getLabel(anAVE)/]</a>
+[/template]
+
+[template private genHtmlPassword(anAVE : AbstractViewElement) post (trim())]
+<input type="password" class="input-large" placeholder="Password" size="100">
+[/template]
+
+[template private genHtmlButton(anAVE : AbstractViewElement, aViewState : ViewState) post (trim())]
+<input type="button" class="btn" value="[getLabel(anAVE)/]" id="[anAVE.name/]" [anAVE.genEvents(aViewState)/]/>
+[/template]
+
+[template private genEvents(anAVE : AbstractViewElement, aViewState : ViewState) post (trim())]
+[anAVE.events->select(not(oclIsUndefined())).genEvent(aViewState)->sep(' ')/]
+[/template]
+
+[template private genEvent(aViewEvent : ViewEvent, aViewState : ViewState) post (trim())]
+[if (not(aViewEvent.type.oclIsUndefined()))]
+	[if (getProperty(aViewEvent.type.qualifiedName()) = 'html.event.onClick')]
+[aViewEvent.genEventOnClick(aViewState)/]
+	[/if]
+[/if]
+[/template]
+
+[template private genEventOnClick(aViewEvent : ViewEvent, aViewState : ViewState) post (trim())]
+onclick="self.location.href='[aViewEvent.genLink(aViewState)/]'"
+[/template]
+
+[template private genLink(anAVE : AbstractViewElement, aViewState : ViewState) post (trim())]
+[anAVE.events->select(not(oclIsUndefined()))->first().genLink(aViewState)/]
+[/template]
+
+[template private genLink(aViewEvent : ViewEvent, aViewState : ViewState) post (trim())]
+[if (aViewEvent.getFlowEvent().oclIsUndefined() or aViewEvent.getFlowEvent().oclIsInvalid())]
+	[let nexts : Set(FlowState) = aViewState.getNextStates(aViewEvent)]
+		[if (nexts->isEmpty())]
+javascript:alert('No transition found on this event.\nPlease check your model.');
+		[elseif (nexts->size() = 1)]
+[aViewState.getRootContainerPath()/][nexts->asOrderedSet()->first().genFullQualifiedFileName()/]
+		[else]
+[aViewState.getRootContainerPath()/][aViewState.genFullQualifiedFileName(aViewEvent)/]
+		[/if]
+	[/let]
+[else]
+[let f : FlowEvent = aViewEvent.getFlowEvent()]
+	[let nexts : Set(FlowState) = aViewState.getNextStates(f)]
+		[if (nexts->isEmpty())]
+javascript:alert('No transition found on this event.\nPlease check your model.');
+		[elseif (nexts->size() = 1)]
+[aViewState.getRootContainerPath()/][nexts->asOrderedSet()->first().genFullQualifiedFileName()/]
+		[else]
+[aViewState.getRootContainerPath()/][aViewState.genFullQualifiedFileName(f)/]
+		[/if]
+	[/let]
+[/let]
+[/if]
+[/template]
+
+[query private getFlowEvent(aViewEvent : ViewEvent) : FlowEvent = 
+let s : Sequence(FlowEvent) = aViewEvent.ancestors(CinematicRoot)->first().eAllContents(FlowEvent)->select(binds->select(v : ViewEvent | v = aViewEvent)->notEmpty())
+in 
+if s->notEmpty()
+then
+	s->first()
+else
+	null
+endif
+ /]
+
+[query private getTransition(aViewEvent : ViewEvent, aEvent : Event, aViewState : ViewState) : Transition = 
+aViewEvent.ancestors(CinematicRoot)->first().eAllContents(Transition)->select(on->select(e : Event | e = aEvent)->notEmpty() and from = aViewState)->first()
+/]
+

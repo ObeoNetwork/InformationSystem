@@ -1,0 +1,84 @@
+[comment encoding = UTF-8 /]
+[comment
+ Copyright (c) 2008, 2022 Obeo.
+ All rights reserved. This program and the accompanying materials
+ are made available under the terms of the Eclipse Public License v1.0
+ which accompanies this distribution, and is available at
+ http://www.eclipse.org/legal/epl-v10.html
+
+ Contributors:
+     Obeo - initial API and implementation
+/]
+[**
+ * The documentation of the module htmlMultipleTransitionsFile.
+ */]
+[module htmlMultipleTransitionsFile('http://www.obeonetwork.org/dsl/cinematic/3.0.0')]
+
+[import org::obeonetwork::cinematic::gen::html::common::common /]
+[import org::obeonetwork::cinematic::gen::html::services::cinematicServices /]
+
+[**
+ * The documentation of the template genHtmlMultipleTransitionsFile.
+ * @param aViewState
+ * @param aEvent
+ */]
+[template public genHtmlMultipleTransitionsFile(aViewState : ViewState, aEvent : Event)]
+[file (aViewState.genFullQualifiedFileName(aEvent), false, 'UTF-8')]
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="fr">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>[aViewState.name/] on [aEvent.name/] event</title>
+<link href="[aViewState.getRootContainerPath(aEvent)/]bootstrap/css/bootstrap.min.css" rel="stylesheet" >
+<style>
+      body {
+        padding-top: 60px; /* 60px to make the container go all the way to the bottom of the topbar */
+      }
+</style>
+<link href="[aViewState.getRootContainerPath(aEvent)/]bootstrap/css/bootstrap-responsive.min.css" rel="stylesheet">
+</head>
+<body>
+	
+	<div class="navbar navbar-fixed-top">
+		<div class="navbar-inner">
+			<div class="container">
+				<a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+		        	<span class="icon-bar"></span>
+		            <span class="icon-bar"></span>
+		            <span class="icon-bar"></span>
+		        </a>
+				<a class="brand" href="[aViewState.getRootContainerPath(aEvent)/]index.html">Index</a>
+				<div class="nav-collapse collapse">
+		            <ul class="nav">
+		              [for (aFlow : Flow | aViewState.eContainer(CinematicRoot).eAllContents(Flow))]
+					  <li class="dropdown">
+				        <a class="dropdown-toggle" data-toggle="dropdown" href="#">[aFlow.name/] <b class="caret"></b></a>
+				        <ul class="dropdown-menu">
+				          [for (aVS : ViewState | aFlow.states->filter(ViewState))]
+							<li><a href="[aViewState.getRootContainerPath(aEvent)/][aVS.genFullQualifiedFileName()/]">[aVS.name/]</a></li>
+						  [/for]
+				        </ul>
+				      </li>
+					  [/for]
+		            </ul>
+         		 </div>
+			</div>
+		</div>
+	</div>
+
+	<div class="container">
+On event [aEvent.name/] of [aViewState.name/], you can navigate to :
+	<ul>
+[for (aFlowState : FlowState | aViewState.getNextStates(aEvent))]
+		<li><a href="[aViewState.getRootContainerPath(aEvent)/][aFlowState.genFullQualifiedFileName()/]">[aFlowState.oclAsType(NamedFlowState).name/]</a></li>
+[/for]
+	</ul>
+	</div>
+	<script src="[aViewState.getRootContainerPath(aEvent)/]bootstrap/js/jquery.js"></script>
+	<script src="[aViewState.getRootContainerPath(aEvent)/]bootstrap/js/bootstrap.min.js"></script>
+</body>
+</html>
+[/file]
+[/template]
+
+

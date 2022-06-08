@@ -1,0 +1,18 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Obeo Network Scaffolding Tests
+Bundle-SymbolicName: org.obeonetwork.database.tests
+Bundle-Version: 3.0.0.qualifier
+Bundle-RequiredExecutionEnvironment: JavaSE-1.8
+Require-Bundle: org.junit,
+ org.eclipse.emf.compare,
+ org.eclipse.emf,
+ org.eclipse.emf.ecore,
+ org.eclipse.emf.ecore.xmi,
+ org.obeonetwork.database,
+ org.eclipse.core.resources,
+ org.obeonetwork.dsl.database,
+ org.obeonetwork.dsl.entity,
+ org.obeonetwork.database.scaffold,
+ org.obeonetwork.dsl.environment.common
+Bundle-Vendor: Obeo Network

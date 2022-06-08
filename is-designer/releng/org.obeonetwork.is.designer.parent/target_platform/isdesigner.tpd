@@ -1,12 +1,12 @@
 target "IS Designer Product Target Definition" with source, requirements
 
 location ISD "http://update.obeo.fr/integration/informationsystem/3.0.0/design/repository/" {
-	fr.gouv.mindef.safran.cinematic.gen.html.feature.feature.group lazy
-	fr.gouv.mindef.safran.database.scaffold.feature.feature.group lazy
-	fr.gouv.mindef.safran.database.ui.feature.feature.group lazy
-	fr.gouv.mindef.safran.feature.is.feature.group lazy
-	fr.gouv.mindef.safran.graal.extensions.feature.feature.group lazy
-	fr.gouv.mindef.safran.project.lifecycle.feature.feature.group lazy
+	org.obeonetwork.cinematic.gen.html.feature.feature.group lazy
+	org.obeonetwork.database.scaffold.feature.feature.group lazy
+	org.obeonetwork.database.ui.feature.feature.group lazy
+	org.obeonetwork.feature.is.feature.group lazy
+	org.obeonetwork.graal.extensions.feature.feature.group lazy
+	org.obeonetwork.project.lifecycle.feature.feature.group lazy
 	liquibase.feature.feature.group lazy
 	org.eclipse.nebula.treemapper.feature.feature.group lazy
 	org.obeonetwork.cinematic.m2doc.feature.feature.group lazy

@@ -21,8 +21,8 @@ import org.obeonetwork.graal.Task;
 import org.obeonetwork.graal.UseCase;
 import org.obeonetwork.graal.UserStory;
 
-import fr.gouv.mindef.safran.graalextensions.GraalExtensionsFactory;
-import fr.gouv.mindef.safran.graalextensions.Risk;
+import org.obeonetwork.graalextensions.GraalExtensionsFactory;
+import org.obeonetwork.graalextensions.Risk;
 
 public class ExtensionsPropertiesServices {
 	

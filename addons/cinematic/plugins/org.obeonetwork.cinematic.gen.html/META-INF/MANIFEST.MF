@@ -1,0 +1,25 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Obeo Network Acceleo Html Module Runtime
+Bundle-SymbolicName: org.obeonetwork.cinematic.gen.html
+Bundle-Version: 3.0.0.qualifier
+Bundle-Activator: org.obeonetwork.cinematic.gen.html.Activator
+Bundle-Vendor: Obeo Network
+Require-Bundle: org.eclipse.core.runtime, 
+ org.obeonetwork.dsl.cinematic, 
+ org.eclipse.emf.ecore,
+ org.eclipse.emf.ecore.xmi,
+ org.eclipse.ocl,
+ org.eclipse.ocl.ecore,
+ org.eclipse.acceleo.common;bundle-version="3.2.1",
+ org.eclipse.acceleo.parser;bundle-version="3.2.1";resolution:=optional,
+ org.eclipse.acceleo.model;bundle-version="3.2.1",
+ org.eclipse.acceleo.profiler;bundle-version="3.2.1",
+ org.eclipse.acceleo.engine;bundle-version="3.2.1"
+Bundle-ActivationPolicy: lazy
+Eclipse-LazyStart: true
+Export-Package: org.obeonetwork.cinematic.gen.html.main,
+ org.obeonetwork.cinematic.gen.html.services
+Bundle-RequiredExecutionEnvironment: JavaSE-1.8
+Import-Package: com.google.common.collect;version="[21.0.0,27.2.0)"
+

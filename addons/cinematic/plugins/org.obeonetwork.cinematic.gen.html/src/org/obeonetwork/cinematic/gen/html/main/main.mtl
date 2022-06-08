@@ -1,0 +1,48 @@
+[comment encoding = UTF-8 /]
+[comment
+ Copyright (c) 2008, 2022 Obeo.
+ All rights reserved. This program and the accompanying materials
+ are made available under the terms of the Eclipse Public License v1.0
+ which accompanies this distribution, and is available at
+ http://www.eclipse.org/legal/epl-v10.html
+
+ Contributors:
+     Obeo - initial API and implementation
+/]
+[module main('http://www.obeonetwork.org/dsl/cinematic/3.0.0')]
+
+[import org::obeonetwork::cinematic::gen::html::files::index /]
+[import org::obeonetwork::cinematic::gen::html::files::htmlViewStateFile /]
+[import org::obeonetwork::cinematic::gen::html::files::htmlActionStateFile /]
+[import org::obeonetwork::cinematic::gen::html::files::htmlMultipleTransitionsFile /]
+[import org::obeonetwork::cinematic::gen::html::requests::requests /]
+
+[template public main(aCinematicRoot : CinematicRoot)]
+[comment @main/]
+	[aCinematicRoot.index()/]
+	[aCinematicRoot.genHtmlFiles()/]
+[/template]
+
+[**
+ * The documentation of the template genHtmlFiles.
+ * @param aCinematicRoot
+ */]
+[template public genHtmlFiles(aCinematicRoot : CinematicRoot)]
+	[for (aViewState : ViewState | aCinematicRoot.eAllContents(ViewState))]
+[aViewState.genHtmlViewStateFile()/]
+		[for (aEvent : FlowEvent | aViewState.eContainer(Flow).events)]
+			[if (aViewState.hasMultipleTransitionsForEvent(aEvent))]
+[aViewState.genHtmlMultipleTransitionsFile(aEvent)/]
+			[/if]
+		[/for]
+		[for (aEvent : ViewEvent | aViewState.eContainer(CinematicRoot).eAllContents(ViewEvent))]
+			[if (aViewState.hasMultipleTransitionsForEvent(aEvent))]
+[aViewState.genHtmlMultipleTransitionsFile(aEvent)/]
+			[/if]
+		[/for]
+	[/for]
+	[for (aActionState : ActionState | aCinematicRoot.eAllContents(ActionState))]
+[aActionState.genHtmlActionStateFile()/]
+	[/for]
+[/template]
+

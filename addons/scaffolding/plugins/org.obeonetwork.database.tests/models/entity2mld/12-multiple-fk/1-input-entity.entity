@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<oent:Root xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:oent="http://www.obeonetwork.org/dsl/entity/2.0.0" xmlns:oenv="http://www.obeonetwork.org/dsl/environment/2.0.0" xmi:id="_LHmrcGb4EeKWfb17ysJwjA" createdOn="2013-01-25T15:04:45.863+0100" modifiedOn="2013-01-25T16:52:38.524+0100">
+  <blocks xmi:id="_PSfXgGb4EeKWfb17ysJwjA" createdOn="2013-01-25T15:05:13.864+0100" modifiedOn="2013-01-25T16:52:38.524+0100" name="essai">
+    <metadatas xmi:id="_GdM0AGcHEeKWfb17ysJwjA">
+      <metadatas xsi:type="oenv:Annotation" xmi:id="_GdM0AWcHEeKWfb17ysJwjA" title="PHYSICAL_NAME" body="ES"/>
+    </metadatas>
+    <entities xmi:id="_SkALkGb4EeKWfb17ysJwjA" createdOn="2013-01-25T15:05:35.817+0100" modifiedOn="2013-01-25T16:51:40.961+0100" name="a">
+      <metadatas xmi:id="_HCvxEGcHEeKWfb17ysJwjA">
+        <metadatas xsi:type="oenv:Annotation" xmi:id="_HCvxEWcHEeKWfb17ysJwjA" title="PHYSICAL_NAME" body="ES_A"/>
+      </metadatas>
+      <ownedReferences xmi:id="_XVVMkGb4EeKWfb17ysJwjA" createdOn="2013-01-25T15:06:07.833+0100" modifiedOn="2013-01-25T15:06:21.474+0100" name="rel1" multiplicity="0..*" type="_SpXzwGb4EeKWfb17ysJwjA"/>
+    </entities>
+    <entities xmi:id="_SpXzwGb4EeKWfb17ysJwjA" createdOn="2013-01-25T15:05:36.380+0100" modifiedOn="2013-01-25T16:51:45.914+0100" name="b">
+      <metadatas xmi:id="_Hx-1oGcHEeKWfb17ysJwjA">
+        <metadatas xsi:type="oenv:Annotation" xmi:id="_Hx-1oWcHEeKWfb17ysJwjA" title="PHYSICAL_NAME" body="ES_B"/>
+      </metadatas>
+    </entities>
+    <entities xmi:id="_biTjUGb4EeKWfb17ysJwjA" createdOn="2013-01-25T15:06:36.037+0100" modifiedOn="2013-01-25T16:51:50.571+0100" name="c">
+      <metadatas xmi:id="_IeZPsGcHEeKWfb17ysJwjA">
+        <metadatas xsi:type="oenv:Annotation" xmi:id="_IeZPsWcHEeKWfb17ysJwjA" title="PHYSICAL_NAME" body="ES_C"/>
+      </metadatas>
+      <ownedReferences xmi:id="_fCRDEGb4EeKWfb17ysJwjA" createdOn="2013-01-25T15:06:59.521+0100" modifiedOn="2013-01-25T15:07:07.865+0100" name="rel2" multiplicity="1..*" type="_b5Z0sGb4EeKWfb17ysJwjA"/>
+    </entities>
+    <entities xmi:id="_b5Z0sGb4EeKWfb17ysJwjA" createdOn="2013-01-25T15:06:38.459+0100" modifiedOn="2013-01-25T16:51:56.446+0100" name="d">
+      <metadatas xmi:id="_JWbD4GcHEeKWfb17ysJwjA">
+        <metadatas xsi:type="oenv:Annotation" xmi:id="_JWbD4WcHEeKWfb17ysJwjA" title="PHYSICAL_NAME" body="ES_D"/>
+      </metadatas>
+    </entities>
+    <entities xmi:id="_hUdIIGb4EeKWfb17ysJwjA" createdOn="2013-01-25T15:07:14.850+0100" modifiedOn="2013-01-25T16:52:01.290+0100" name="e">
+      <metadatas xmi:id="_KEnmoGcHEeKWfb17ysJwjA">
+        <metadatas xsi:type="oenv:Annotation" xmi:id="_KEnmoWcHEeKWfb17ysJwjA" title="PHYSICAL_NAME" body="ES_E"/>
+      </metadatas>
+    </entities>
+    <entities xmi:id="_hZ96QGb4EeKWfb17ysJwjA" createdOn="2013-01-25T15:07:15.428+0100" modifiedOn="2013-01-25T16:52:04.602+0100" name="f">
+      <metadatas xmi:id="_KkNFoGcHEeKWfb17ysJwjA">
+        <metadatas xsi:type="oenv:Annotation" xmi:id="_KkNFoWcHEeKWfb17ysJwjA" title="PHYSICAL_NAME" body="ES_F"/>
+      </metadatas>
+      <ownedReferences xmi:id="_n-CEMGb4EeKWfb17ysJwjA" createdOn="2013-01-25T15:07:59.475+0100" modifiedOn="2013-01-25T15:08:10.366+0100" name="rel3" type="_hUdIIGb4EeKWfb17ysJwjA"/>
+    </entities>
+    <entities xmi:id="_hg96IGb4EeKWfb17ysJwjA" createdOn="2013-01-25T15:07:16.162+0100" modifiedOn="2013-01-25T16:52:10.633+0100" name="g">
+      <metadatas xmi:id="_LduHkGcHEeKWfb17ysJwjA">
+        <metadatas xsi:type="oenv:Annotation" xmi:id="_LduHkWcHEeKWfb17ysJwjA" title="PHYSICAL_NAME" body="ES_G"/>
+      </metadatas>
+    </entities>
+    <entities xmi:id="_hnOTIGb4EeKWfb17ysJwjA" createdOn="2013-01-25T15:07:16.818+0100" modifiedOn="2013-01-25T16:52:15.462+0100" name="h">
+      <metadatas xmi:id="_MLxgYGcHEeKWfb17ysJwjA">
+        <metadatas xsi:type="oenv:Annotation" xmi:id="_MLxgYWcHEeKWfb17ysJwjA" title="PHYSICAL_NAME" body="ES_H"/>
+      </metadatas>
+      <ownedReferences xmi:id="_qSv40Gb4EeKWfb17ysJwjA" createdOn="2013-01-25T15:08:15.069+0100" modifiedOn="2013-01-25T15:08:24.554+0100" name="rel4" multiplicity="1" type="_hg96IGb4EeKWfb17ysJwjA"/>
+    </entities>
+    <entities xmi:id="_54kFMGb6EeKWfb17ysJwjA" createdOn="2013-01-25T15:24:18.691+0100" modifiedOn="2013-01-25T16:52:24.962+0100" name="j">
+      <metadatas xmi:id="_NmX2IGcHEeKWfb17ysJwjA">
+        <metadatas xsi:type="oenv:Annotation" xmi:id="_NmX2IWcHEeKWfb17ysJwjA" title="PHYSICAL_NAME" body="ES_J"/>
+      </metadatas>
+      <ownedReferences xmi:id="_-XtxEGb6EeKWfb17ysJwjA" description="relation n..n" createdOn="2013-01-25T15:24:48.801+0100" modifiedOn="2013-01-25T15:25:52.177+0100" name="rel5" multiplicity="0..*" oppositeOf="_-XtxEWb6EeKWfb17ysJwjA" type="_6cB-oGb6EeKWfb17ysJwjA"/>
+    </entities>
+    <entities xmi:id="_6cB-oGb6EeKWfb17ysJwjA" createdOn="2013-01-25T15:24:22.410+0100" modifiedOn="2013-01-25T16:52:29.352+0100" name="k">
+      <metadatas xmi:id="_OQPSgGcHEeKWfb17ysJwjA">
+        <metadatas xsi:type="oenv:Annotation" xmi:id="_OQPSgWcHEeKWfb17ysJwjA" title="PHYSICAL_NAME" body="ES_K"/>
+      </metadatas>
+      <ownedReferences xmi:id="_-XtxEWb6EeKWfb17ysJwjA" createdOn="2013-01-25T15:24:48.801+0100" modifiedOn="2013-01-25T15:27:10.912+0100" name="rel6" multiplicity="0..*" oppositeOf="_-XtxEGb6EeKWfb17ysJwjA" type="_54kFMGb6EeKWfb17ysJwjA"/>
+    </entities>
+    <entities xmi:id="_JpQE0Gb9EeKWfb17ysJwjA" createdOn="2013-01-25T15:40:23.453+0100" modifiedOn="2013-01-25T16:52:33.509+0100" name="l">
+      <metadatas xmi:id="_O34hUGcHEeKWfb17ysJwjA">
+        <metadatas xsi:type="oenv:Annotation" xmi:id="_O34hUWcHEeKWfb17ysJwjA" title="PHYSICAL_NAME" body="ES_L"/>
+      </metadatas>
+      <ownedReferences xmi:id="_NCOLwWb9EeKWfb17ysJwjA" createdOn="2013-01-25T15:40:46.204+0100" modifiedOn="2013-01-25T15:41:04.391+0100" name="rel7" multiplicity="1..*" oppositeOf="_NCOLwGb9EeKWfb17ysJwjA" type="_JwZ1sGb9EeKWfb17ysJwjA"/>
+    </entities>
+    <entities xmi:id="_JwZ1sGb9EeKWfb17ysJwjA" createdOn="2013-01-25T15:40:24.203+0100" modifiedOn="2013-01-25T16:52:38.524+0100" name="m">
+      <metadatas xmi:id="_PntbwGcHEeKWfb17ysJwjA">
+        <metadatas xsi:type="oenv:Annotation" xmi:id="_PntbwWcHEeKWfb17ysJwjA" title="PHYSICAL_NAME" body="ES_M"/>
+      </metadatas>
+      <ownedReferences xmi:id="_NCOLwGb9EeKWfb17ysJwjA" createdOn="2013-01-25T15:40:46.204+0100" modifiedOn="2013-01-25T15:41:41.486+0100" name="rel8" multiplicity="1..*" oppositeOf="_NCOLwWb9EeKWfb17ysJwjA" type="_JpQE0Gb9EeKWfb17ysJwjA"/>
+    </entities>
+  </blocks>
+</oent:Root>

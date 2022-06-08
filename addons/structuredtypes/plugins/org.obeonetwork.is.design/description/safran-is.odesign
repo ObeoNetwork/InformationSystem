@@ -1,0 +1,304 @@
+<?xml version="1.0" encoding="ASCII"?>
+<description:Group xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:description="http://www.eclipse.org/sirius/description/1.1.0" xmlns:description_1="http://www.eclipse.org/sirius/table/description/1.1.0" xmlns:tool="http://www.eclipse.org/sirius/description/tool/1.1.0" xmlns:validation="http://www.eclipse.org/sirius/description/validation/1.1.0" documentation="Copyright (c) 2008, 2022 Obeo.&#xD;&#xA;All rights reserved. This program and the accompanying materials&#xD;&#xA;are made available under the terms of the Eclipse Public License v1.0&#xD;&#xA;which accompanies this distribution, and is available at&#xD;&#xA;http://www.eclipse.org/legal/epl-v10.html&#xD;&#xA;&#xD;&#xA;Contributors:&#xD;&#xA;   Obeo - initial API and implementation" name="safran-is" version="12.0.0.2017041100">
+  <ownedViewpoints endUserDocumentation="The &lt;b>Entity (Safr@n consolidated view)&lt;/b> viewpoint provides one representation : &#xD;&#xA;&lt;ul>&#xD;&#xA;&lt;li>&lt;b>Entities Physical Names&lt;/b> : a table allowing to view and edit informations related physical storage of entities.&lt;/li>&#xD;&#xA;&lt;/ul>&#xA;" name="Entity (Safr@n consolidated view)" label="Entity (Safr@n consolidated view)" modelFileExtension="entity ois">
+    <validationSet name="validation">
+      <ownedRules xsi:type="validation:ViewValidationRule" name="test" level="ERROR" targets="//@ownedViewpoints[name='Entity%20(Safr@n%20consolidated%20view)']/@ownedRepresentations[name='EV_Entities_PhysicalNames']/@ownedColumnMappings[name='EPN_TargetSchema'] //@ownedViewpoints[name='Entity%20(Safr@n%20consolidated%20view)']/@ownedRepresentations[name='EV_Entities_PhysicalNames']/@ownedLineMappings[name='EPN_Namespace']/@ownedSubLines[name='EPN_SubNamespaces']/@ownedSubLines[name='EPN_Entity']/@ownedSubLines[name='EPN_Reference'] //@ownedViewpoints[name='Entity%20(Safr@n%20consolidated%20view)']/@ownedRepresentations[name='EV_Entities_PhysicalNames']/@ownedLineMappings[name='EPN_Namespace']/@ownedSubLines[name='EPN_SubNamespaces'] //@ownedViewpoints[name='Entity%20(Safr@n%20consolidated%20view)']/@ownedRepresentations[name='EV_Entities_PhysicalNames']/@ownedLineMappings[name='EPN_Namespace'] //@ownedViewpoints[name='Entity%20(Safr@n%20consolidated%20view)']/@ownedRepresentations[name='EV_Entities_PhysicalNames']/@ownedColumnMappings[name='EPN_Check'] //@ownedViewpoints[name='Entity%20(Safr@n%20consolidated%20view)']/@ownedRepresentations[name='EV_Entities_PhysicalNames']/@ownedColumnMappings[name='EPN_Default'] //@ownedViewpoints[name='Entity%20(Safr@n%20consolidated%20view)']/@ownedRepresentations[name='EV_Entities_PhysicalNames']/@ownedColumnMappings[name='EPN_PhysicalName'] //@ownedViewpoints[name='Entity%20(Safr@n%20consolidated%20view)']/@ownedRepresentations[name='EV_Entities_PhysicalNames']/@ownedLineMappings[name='EPN_Namespace']/@ownedSubLines[name='EPN_SubNamespaces']/@ownedSubLines[name='EPN_Entity'] //@ownedViewpoints[name='Entity%20(Safr@n%20consolidated%20view)']/@ownedRepresentations[name='EV_Entities_PhysicalNames']/@ownedLineMappings[name='EPN_Namespace']/@ownedSubLines[name='EPN_SubNamespaces']/@ownedSubLines[name='EPN_Entity']/@ownedSubLines[name='EPN_AssociatedAttribute'] //@ownedViewpoints[name='Entity%20(Safr@n%20consolidated%20view)']/@ownedRepresentations[name='EV_Entities_PhysicalNames']/@ownedLineMappings[name='EPN_Namespace']/@ownedSubLines[name='EPN_SubNamespaces']/@ownedSubLines[name='EPN_Entity']/@ownedSubLines[name='EPN_Attribute'] //@ownedViewpoints[name='Entity%20(Safr@n%20consolidated%20view)']/@ownedRepresentations[name='EV_Entities_PhysicalNames']/@ownedColumnMappings[name='EPN_Size'] //@ownedViewpoints[name='Entity%20(Safr@n%20consolidated%20view)']/@ownedRepresentations[name='EV_Entities_PhysicalNames']/@ownedColumnMappings[name='EPN_Unique']">
+        <audits auditExpression="aql:false"/>
+        <fixes name="test">
+          <initialOperation/>
+        </fixes>
+        <fixes name="test2">
+          <initialOperation/>
+        </fixes>
+      </ownedRules>
+    </validationSet>
+    <ownedRepresentations xsi:type="description_1:EditionTableDescription" name="EV_Entities_PhysicalNames" label="Entities Physical Names" domainClass="entity.Root" initialHeaderColumnWidth="80">
+      <metamodel href="http://www.obeonetwork.org/dsl/environment/3.0.0#/"/>
+      <metamodel href="http://www.obeonetwork.org/dsl/entity/3.0.0#/"/>
+      <ownedLineMappings name="EPN_Namespace" reusedSubLines="//@ownedViewpoints[name='Entity%20(Safr@n%20consolidated%20view)']/@ownedRepresentations[name='EV_Entities_PhysicalNames']/@ownedLineMappings[name='EPN_Namespace']/@ownedSubLines[name='EPN_SubNamespaces']/@ownedSubLines[name='EPN_Entity']" domainClass="environment.Namespace" semanticCandidatesExpression="feature:ownedNamespaces" headerLabelExpression="feature:name">
+        <ownedSubLines name="EPN_SubNamespaces" reusedSubLines="//@ownedViewpoints[name='Entity%20(Safr@n%20consolidated%20view)']/@ownedRepresentations[name='EV_Entities_PhysicalNames']/@ownedLineMappings[name='EPN_Namespace']/@ownedSubLines[name='EPN_SubNamespaces']" reusedInMappings="//@ownedViewpoints[name='Entity%20(Safr@n%20consolidated%20view)']/@ownedRepresentations[name='EV_Entities_PhysicalNames']/@ownedLineMappings[name='EPN_Namespace']/@ownedSubLines[name='EPN_SubNamespaces']" domainClass="environment.Namespace" semanticCandidatesExpression="feature:ownedNamespaces" headerLabelExpression="feature:name">
+          <ownedSubLines name="EPN_Entity" reusedInMappings="//@ownedViewpoints[name='Entity%20(Safr@n%20consolidated%20view)']/@ownedRepresentations[name='EV_Entities_PhysicalNames']/@ownedLineMappings[name='EPN_Namespace']" domainClass="entity.Entity" semanticCandidatesExpression="feature:types" headerLabelExpression="feature:name">
+            <ownedSubLines name="EPN_Attribute" domainClass="environment.Attribute" semanticCandidatesExpression="feature:ownedAttributes" headerLabelExpression="feature:name">
+              <delete name="DEL_PreventDeletion_Attribute" precondition="false">
+                <variables name="element" documentation="The semantic currently edited element."/>
+                <variables name="root" documentation="The semantic root element of the table."/>
+              </delete>
+            </ownedSubLines>
+            <ownedSubLines name="EPN_AssociatedAttribute" domainClass="environment.Attribute" semanticCandidatesExpression="aql:self.associatedTypes.attributes" headerLabelExpression="aql:self.name+ ' (from ' + self.eContainer().eClass().name +')'">
+              <defaultForeground labelSize="8">
+                <labelFormat>italic</labelFormat>
+                <foreGroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              </defaultForeground>
+              <delete name="DEL_PreventDeletion_Attribute" precondition="false">
+                <variables name="element" documentation="The semantic currently edited element."/>
+                <variables name="root" documentation="The semantic root element of the table."/>
+              </delete>
+            </ownedSubLines>
+            <ownedSubLines name="EPN_Reference" domainClass="environment.Reference" semanticCandidatesExpression="feature:references" headerLabelExpression="feature:name">
+              <delete name="DEL_PreventDeletion_Reference" precondition="false">
+                <variables name="element" documentation="The semantic currently edited element."/>
+                <variables name="root" documentation="The semantic root element of the table."/>
+              </delete>
+            </ownedSubLines>
+            <delete name="DEL_PreventDeletion_Entity" precondition="false">
+              <variables name="element" documentation="The semantic currently edited element."/>
+              <variables name="root" documentation="The semantic root element of the table."/>
+            </delete>
+          </ownedSubLines>
+          <delete name="DEL_PreventDeletion_SubNamespace" precondition="false">
+            <variables name="element" documentation="The semantic currently edited element."/>
+            <variables name="root" documentation="The semantic root element of the table."/>
+          </delete>
+        </ownedSubLines>
+        <delete name="DEL_PreventDeletion_Namespace" precondition="false">
+          <variables name="element" documentation="The semantic currently edited element."/>
+          <variables name="root" documentation="The semantic root element of the table."/>
+        </delete>
+      </ownedLineMappings>
+      <ownedColumnMappings name="EPN_PhysicalName" headerLabelExpression="Name" initialWidth="120" canEdit="aql:self.canEditObject('Entity')" featureName="name" labelExpression="service:lineSemantic.getPhysicalName()">
+        <directEdit>
+          <variables name="table" documentation="The current DTable."/>
+          <variables name="line" documentation="The DLine of the current DCell."/>
+          <variables name="element" documentation="The currently edited element."/>
+          <variables name="lineSemantic" documentation="The semantic element corresponding to the line."/>
+          <variables name="root" documentation="The semantic element of the table."/>
+          <firstModelOperation xsi:type="tool:ChangeContext" browseExpression="service:lineSemantic.setPhysicalName(arg0)"/>
+          <mask mask="{0}"/>
+        </directEdit>
+      </ownedColumnMappings>
+      <ownedColumnMappings name="EPN_Size" headerLabelExpression="Size" initialWidth="80" canEdit="aql:self.canEditObject('Entity')" featureName="name" labelExpression="service:lineSemantic.getPhysicalSize()">
+        <directEdit>
+          <variables name="table" documentation="The current DTable."/>
+          <variables name="line" documentation="The DLine of the current DCell."/>
+          <variables name="element" documentation="The currently edited element."/>
+          <variables name="lineSemantic" documentation="The semantic element corresponding to the line."/>
+          <variables name="root" documentation="The semantic element of the table."/>
+          <firstModelOperation xsi:type="tool:ChangeContext" browseExpression="service:lineSemantic.setPhysicalSize(arg0)"/>
+          <mask mask="{0}"/>
+        </directEdit>
+      </ownedColumnMappings>
+      <ownedColumnMappings name="EPN_Check" headerLabelExpression="Check" initialWidth="80" canEdit="aql:self.canEditObject('Entity')" featureName="name" labelExpression="service:lineSemantic.getPhysicalCheck()">
+        <directEdit>
+          <variables name="table" documentation="The current DTable."/>
+          <variables name="line" documentation="The DLine of the current DCell."/>
+          <variables name="element" documentation="The currently edited element."/>
+          <variables name="lineSemantic" documentation="The semantic element corresponding to the line."/>
+          <variables name="root" documentation="The semantic element of the table."/>
+          <firstModelOperation xsi:type="tool:ChangeContext" browseExpression="service:lineSemantic.setPhysicalCheck(arg0)"/>
+          <mask mask="{0}"/>
+        </directEdit>
+      </ownedColumnMappings>
+      <ownedColumnMappings name="EPN_Unique" headerLabelExpression="Unique" initialWidth="80" canEdit="aql:self.canEditObject('Entity')" featureName="name" labelExpression="service:lineSemantic.getPhysicalUnique()">
+        <directEdit>
+          <variables name="table" documentation="The current DTable."/>
+          <variables name="line" documentation="The DLine of the current DCell."/>
+          <variables name="element" documentation="The currently edited element."/>
+          <variables name="lineSemantic" documentation="The semantic element corresponding to the line."/>
+          <variables name="root" documentation="The semantic element of the table."/>
+          <firstModelOperation xsi:type="tool:ChangeContext" browseExpression="service:lineSemantic.setPhysicalUnique(arg0)"/>
+          <mask mask="{0}"/>
+        </directEdit>
+      </ownedColumnMappings>
+      <ownedColumnMappings name="EPN_Default" headerLabelExpression="Default" initialWidth="80" canEdit="aql:self.canEditObject('Entity')" featureName="name" labelExpression="service:lineSemantic.getPhysicalDefault()">
+        <directEdit>
+          <variables name="table" documentation="The current DTable."/>
+          <variables name="line" documentation="The DLine of the current DCell."/>
+          <variables name="element" documentation="The currently edited element."/>
+          <variables name="lineSemantic" documentation="The semantic element corresponding to the line."/>
+          <variables name="root" documentation="The semantic element of the table."/>
+          <firstModelOperation xsi:type="tool:ChangeContext" browseExpression="service:lineSemantic.setPhysicalDefault(arg0)"/>
+          <mask mask="{0}"/>
+        </directEdit>
+      </ownedColumnMappings>
+      <ownedColumnMappings name="EPN_TargetSchema" headerLabelExpression="Target Schema" initialWidth="60" canEdit="aql:self.oclIsKindOf(environment::Reference)" featureName="name" labelExpression="service:lineSemantic.getPhysicalTarget()">
+        <directEdit>
+          <variables name="element" documentation="The semantic currently edited element."/>
+          <variables name="table" documentation="The current DTable."/>
+          <variables name="line" documentation="The DLine of the current DCell."/>
+          <variables name="lineSemantic" documentation="The semantic element corresponding to the line."/>
+          <variables name="root" documentation="The semantic root element of the table."/>
+          <firstModelOperation xsi:type="tool:ChangeContext" browseExpression="service:lineSemantic.setPhysicalTarget(arg0)"/>
+          <mask mask="{0}"/>
+        </directEdit>
+        <backgroundConditionalStyle predicateExpression="aql:not self.isValidPhysicalTarget()">
+          <style>
+            <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_red']"/>
+          </style>
+        </backgroundConditionalStyle>
+      </ownedColumnMappings>
+    </ownedRepresentations>
+    <ownedJavaExtensions qualifiedClassName="org.obeonetwork.is.design.services.AnnotationServices"/>
+  </ownedViewpoints>
+  <ownedViewpoints endUserDocumentation="The &lt;b>Graal Methodology (Safr@n consolidated view)&lt;/b> viewpoint provides one representation : &#xD;&#xA;&lt;ul>&#xD;&#xA;&lt;li>&lt;b>Domain Classes Annotations&lt;/b> : a table allowing to view and edit informations related physical storage of domain classes.&lt;/li>&#xD;&#xA;&lt;/ul>&#xA;" name="Graal Methodology (Safr@n consolidated view)" label="Graal Methodology (Safr@n consolidated view)" modelFileExtension="graal ois">
+    <ownedRepresentations xsi:type="description_1:EditionTableDescription" name="EV_DomainClasses_Annotations" label="Domain Classes Annotations" domainClass="graal.System" initialHeaderColumnWidth="80">
+      <metamodel href="http://www.obeonetwork.org/dsl/environment/3.0.0#/"/>
+      <metamodel href="http://www.obeonetwork.org/dsl/graal/2.0.0#/"/>
+      <ownedLineMappings name="EPN_Namespace" reusedSubLines="//@ownedViewpoints[name='Graal%20Methodology%20(Safr@n%20consolidated%20view)']/@ownedRepresentations[name='EV_DomainClasses_Annotations']/@ownedLineMappings[name='EPN_Namespace']/@ownedSubLines[name='EPN_SubNamespaces']/@ownedSubLines[name='EPN_DomainClass']" domainClass="environment.Namespace" semanticCandidatesExpression="feature:ownedNamespaces" headerLabelExpression="feature:name">
+        <ownedSubLines name="EPN_SubNamespaces" reusedSubLines="//@ownedViewpoints[name='Graal%20Methodology%20(Safr@n%20consolidated%20view)']/@ownedRepresentations[name='EV_DomainClasses_Annotations']/@ownedLineMappings[name='EPN_Namespace']/@ownedSubLines[name='EPN_SubNamespaces']" reusedInMappings="//@ownedViewpoints[name='Graal%20Methodology%20(Safr@n%20consolidated%20view)']/@ownedRepresentations[name='EV_DomainClasses_Annotations']/@ownedLineMappings[name='EPN_Namespace']/@ownedSubLines[name='EPN_SubNamespaces']" domainClass="environment.Namespace" semanticCandidatesExpression="feature:ownedNamespaces" headerLabelExpression="feature:name">
+          <ownedSubLines name="EPN_DomainClass" reusedInMappings="//@ownedViewpoints[name='Graal%20Methodology%20(Safr@n%20consolidated%20view)']/@ownedRepresentations[name='EV_DomainClasses_Annotations']/@ownedLineMappings[name='EPN_Namespace']" domainClass="graal.DomainClass" semanticCandidatesExpression="feature:types" headerLabelExpression="feature:name">
+            <ownedSubLines name="EPN_Attribute" domainClass="environment.Attribute" semanticCandidatesExpression="feature:ownedAttributes" headerLabelExpression="feature:name">
+              <delete name="DEL_PreventDeletion_Attribute" precondition="false">
+                <variables name="element" documentation="The semantic currently edited element."/>
+                <variables name="root" documentation="The semantic root element of the table."/>
+              </delete>
+            </ownedSubLines>
+            <ownedSubLines name="EPN_Reference" domainClass="environment.Reference" semanticCandidatesExpression="feature:references" headerLabelExpression="feature:name">
+              <delete name="DEL_PreventDeletion_Reference" precondition="false">
+                <variables name="element" documentation="The semantic currently edited element."/>
+                <variables name="root" documentation="The semantic root element of the table."/>
+              </delete>
+            </ownedSubLines>
+            <delete name="DEL_PreventDeletion_DomainClass" precondition="false">
+              <variables name="element" documentation="The semantic currently edited element."/>
+              <variables name="root" documentation="The semantic root element of the table."/>
+            </delete>
+          </ownedSubLines>
+          <delete name="DEL_PreventDeletion_SubNamespace" precondition="false">
+            <variables name="element" documentation="The semantic currently edited element."/>
+            <variables name="root" documentation="The semantic root element of the table."/>
+          </delete>
+        </ownedSubLines>
+        <delete name="DEL_PreventDeletion_Namespace" precondition="false">
+          <variables name="element" documentation="The semantic currently edited element."/>
+          <variables name="root" documentation="The semantic root element of the table."/>
+        </delete>
+      </ownedLineMappings>
+      <ownedColumnMappings name="EPN_Size" headerLabelExpression="Size" initialWidth="80" featureName="name" labelExpression="service:lineSemantic.getPhysicalSize()">
+        <directEdit>
+          <variables name="table" documentation="The current DTable."/>
+          <variables name="line" documentation="The DLine of the current DCell."/>
+          <variables name="element" documentation="The currently edited element."/>
+          <variables name="lineSemantic" documentation="The semantic element corresponding to the line."/>
+          <variables name="root" documentation="The semantic element of the table."/>
+          <firstModelOperation xsi:type="tool:ChangeContext" browseExpression="service:lineSemantic.setPhysicalSize(arg0)"/>
+          <mask mask="{0}"/>
+        </directEdit>
+      </ownedColumnMappings>
+      <ownedColumnMappings name="EPN_Check" headerLabelExpression="Check" initialWidth="80" featureName="name" labelExpression="service:lineSemantic.getPhysicalCheck()">
+        <directEdit>
+          <variables name="table" documentation="The current DTable."/>
+          <variables name="line" documentation="The DLine of the current DCell."/>
+          <variables name="element" documentation="The currently edited element."/>
+          <variables name="lineSemantic" documentation="The semantic element corresponding to the line."/>
+          <variables name="root" documentation="The semantic element of the table."/>
+          <firstModelOperation xsi:type="tool:ChangeContext" browseExpression="service:lineSemantic.setPhysicalCheck(arg0)"/>
+          <mask mask="{0}"/>
+        </directEdit>
+      </ownedColumnMappings>
+      <ownedColumnMappings name="EPN_Unique" headerLabelExpression="Unique" initialWidth="80" featureName="name" labelExpression="service:lineSemantic.getPhysicalUnique()">
+        <directEdit>
+          <variables name="table" documentation="The current DTable."/>
+          <variables name="line" documentation="The DLine of the current DCell."/>
+          <variables name="element" documentation="The currently edited element."/>
+          <variables name="lineSemantic" documentation="The semantic element corresponding to the line."/>
+          <variables name="root" documentation="The semantic element of the table."/>
+          <firstModelOperation xsi:type="tool:ChangeContext" browseExpression="service:lineSemantic.setPhysicalUnique(arg0)"/>
+          <mask mask="{0}"/>
+        </directEdit>
+      </ownedColumnMappings>
+      <ownedColumnMappings name="EPN_Default" headerLabelExpression="Default" initialWidth="80" featureName="name" labelExpression="service:lineSemantic.getPhysicalDefault()">
+        <directEdit>
+          <variables name="table" documentation="The current DTable."/>
+          <variables name="line" documentation="The DLine of the current DCell."/>
+          <variables name="element" documentation="The currently edited element."/>
+          <variables name="lineSemantic" documentation="The semantic element corresponding to the line."/>
+          <variables name="root" documentation="The semantic element of the table."/>
+          <firstModelOperation xsi:type="tool:ChangeContext" browseExpression="service:lineSemantic.setPhysicalDefault(arg0)"/>
+          <mask mask="{0}"/>
+        </directEdit>
+      </ownedColumnMappings>
+    </ownedRepresentations>
+    <ownedJavaExtensions qualifiedClassName="org.obeonetwork.is.design.services.AnnotationServices"/>
+  </ownedViewpoints>
+  <ownedViewpoints endUserDocumentation="The &lt;b>SOA (Safr@n consolidated view)&lt;/b> viewpoint provides one representation : &#xD;&#xA;&lt;ul>&#xD;&#xA;&lt;li>&lt;b>DTO Physical Names&lt;/b> : a table allowing to view and edit informations related physical storage of DTOs.&lt;/li>&#xD;&#xA;&lt;/ul>&#xA;" name="SOA (Safr@n consolidated view)" label="SOA (Safr@n consolidated view)" modelFileExtension="soa ois">
+    <ownedRepresentations xsi:type="description_1:EditionTableDescription" name="EV_DTO_PhysicalNames" label="DTO Physical Names" domainClass="soa.System" initialHeaderColumnWidth="80">
+      <metamodel href="http://www.obeonetwork.org/dsl/environment/3.0.0#/"/>
+      <metamodel href="http://www.obeonetwork.org/dsl/soa/4.0.0#/"/>
+      <ownedLineMappings name="DPN_Namespace" reusedSubLines="//@ownedViewpoints[name='SOA%20(Safr@n%20consolidated%20view)']/@ownedRepresentations[name='EV_DTO_PhysicalNames']/@ownedLineMappings[name='DPN_Namespace']/@ownedSubLines[name='DPN_SubNamespaces']/@ownedSubLines[name='DPN_DTO']" domainClass="environment.Namespace" semanticCandidatesExpression="feature:ownedNamespaces" headerLabelExpression="feature:name">
+        <ownedSubLines name="DPN_SubNamespaces" reusedSubLines="//@ownedViewpoints[name='SOA%20(Safr@n%20consolidated%20view)']/@ownedRepresentations[name='EV_DTO_PhysicalNames']/@ownedLineMappings[name='DPN_Namespace']/@ownedSubLines[name='DPN_SubNamespaces']" reusedInMappings="//@ownedViewpoints[name='SOA%20(Safr@n%20consolidated%20view)']/@ownedRepresentations[name='EV_DTO_PhysicalNames']/@ownedLineMappings[name='DPN_Namespace']/@ownedSubLines[name='DPN_SubNamespaces']" domainClass="environment.Namespace" semanticCandidatesExpression="feature:ownedNamespaces" headerLabelExpression="feature:name">
+          <ownedSubLines name="DPN_DTO" reusedInMappings="//@ownedViewpoints[name='SOA%20(Safr@n%20consolidated%20view)']/@ownedRepresentations[name='EV_DTO_PhysicalNames']/@ownedLineMappings[name='DPN_Namespace']" domainClass="environment.DTO" semanticCandidatesExpression="feature:types" headerLabelExpression="feature:name">
+            <ownedSubLines name="DPN_Attribute" domainClass="environment.Attribute" semanticCandidatesExpression="feature:ownedAttributes" headerLabelExpression="feature:name">
+              <delete name="DEL_PreventDeletion_Attribute" precondition="false">
+                <variables name="element" documentation="The semantic currently edited element."/>
+                <variables name="root" documentation="The semantic root element of the table."/>
+              </delete>
+            </ownedSubLines>
+            <ownedSubLines name="DPN_AssociatedAttribute" domainClass="environment.Attribute" semanticCandidatesExpression="aql:self.associatedTypes.attributes" headerLabelExpression="aql:self.name+ ' (from ' + self.eContainer().eClass().name +')'">
+              <defaultForeground labelSize="8">
+                <labelFormat>italic</labelFormat>
+                <foreGroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              </defaultForeground>
+              <delete name="DEL_PreventDeletion_Attribute" precondition="false">
+                <variables name="element" documentation="The semantic currently edited element."/>
+                <variables name="root" documentation="The semantic root element of the table."/>
+              </delete>
+            </ownedSubLines>
+            <ownedSubLines name="DPN_Reference" domainClass="environment.Reference" semanticCandidatesExpression="feature:references" headerLabelExpression="feature:name">
+              <delete name="DEL_PreventDeletion_Reference" precondition="false">
+                <variables name="element" documentation="The semantic currently edited element."/>
+                <variables name="root" documentation="The semantic root element of the table."/>
+              </delete>
+            </ownedSubLines>
+            <delete name="DEL_PreventDeletion_DTO" precondition="false">
+              <variables name="element" documentation="The semantic currently edited element."/>
+              <variables name="root" documentation="The semantic root element of the table."/>
+            </delete>
+          </ownedSubLines>
+          <delete name="DEL_PreventDeletion_SubNamespace" precondition="false">
+            <variables name="element" documentation="The semantic currently edited element."/>
+            <variables name="root" documentation="The semantic root element of the table."/>
+          </delete>
+        </ownedSubLines>
+        <delete name="DEL_PreventDeletion_Namespace" precondition="false">
+          <variables name="element" documentation="The semantic currently edited element."/>
+          <variables name="root" documentation="The semantic root element of the table."/>
+        </delete>
+      </ownedLineMappings>
+      <ownedColumnMappings name="DPN_Size" headerLabelExpression="Size" initialWidth="80" canEdit="aql:self.canEditObject('DTO')" featureName="name" labelExpression="service:lineSemantic.getPhysicalSize()">
+        <directEdit>
+          <variables name="table" documentation="The current DTable."/>
+          <variables name="line" documentation="The DLine of the current DCell."/>
+          <variables name="element" documentation="The currently edited element."/>
+          <variables name="lineSemantic" documentation="The semantic element corresponding to the line."/>
+          <variables name="root" documentation="The semantic element of the table."/>
+          <firstModelOperation xsi:type="tool:ChangeContext" browseExpression="service:lineSemantic.setPhysicalSize(arg0)"/>
+          <mask mask="{0}"/>
+        </directEdit>
+      </ownedColumnMappings>
+      <ownedColumnMappings name="DPN_Check" headerLabelExpression="Check" initialWidth="80" canEdit="aql:self.canEditObject('DTO')" featureName="name" labelExpression="service:lineSemantic.getPhysicalCheck()">
+        <directEdit>
+          <variables name="table" documentation="The current DTable."/>
+          <variables name="line" documentation="The DLine of the current DCell."/>
+          <variables name="element" documentation="The currently edited element."/>
+          <variables name="lineSemantic" documentation="The semantic element corresponding to the line."/>
+          <variables name="root" documentation="The semantic element of the table."/>
+          <firstModelOperation xsi:type="tool:ChangeContext" browseExpression="service:lineSemantic.setPhysicalCheck(arg0)"/>
+          <mask mask="{0}"/>
+        </directEdit>
+      </ownedColumnMappings>
+      <ownedColumnMappings name="DPN_Unique" headerLabelExpression="Unique" initialWidth="80" canEdit="aql:self.canEditObject('DTO')" featureName="name" labelExpression="service:lineSemantic.getPhysicalUnique()">
+        <directEdit>
+          <variables name="table" documentation="The current DTable."/>
+          <variables name="line" documentation="The DLine of the current DCell."/>
+          <variables name="element" documentation="The currently edited element."/>
+          <variables name="lineSemantic" documentation="The semantic element corresponding to the line."/>
+          <variables name="root" documentation="The semantic element of the table."/>
+          <firstModelOperation xsi:type="tool:ChangeContext" browseExpression="service:lineSemantic.setPhysicalUnique(arg0)"/>
+          <mask mask="{0}"/>
+        </directEdit>
+      </ownedColumnMappings>
+      <ownedColumnMappings name="DPN_Default" headerLabelExpression="Default" initialWidth="80" canEdit="aql:self.canEditObject('DTO')" featureName="name" labelExpression="service:lineSemantic.getPhysicalDefault()">
+        <directEdit>
+          <variables name="table" documentation="The current DTable."/>
+          <variables name="line" documentation="The DLine of the current DCell."/>
+          <variables name="element" documentation="The currently edited element."/>
+          <variables name="lineSemantic" documentation="The semantic element corresponding to the line."/>
+          <variables name="root" documentation="The semantic element of the table."/>
+          <firstModelOperation xsi:type="tool:ChangeContext" browseExpression="service:lineSemantic.setPhysicalDefault(arg0)"/>
+          <mask mask="{0}"/>
+        </directEdit>
+      </ownedColumnMappings>
+    </ownedRepresentations>
+    <ownedJavaExtensions qualifiedClassName="org.obeonetwork.is.design.services.AnnotationServices"/>
+  </ownedViewpoints>
+</description:Group>

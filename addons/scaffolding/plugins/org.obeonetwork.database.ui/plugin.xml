@@ -1,0 +1,417 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+
+<!--
+ Copyright (c) 2008, 2022 Obeo.
+ All rights reserved. This program and the accompanying materials
+ are made available under the terms of the Eclipse Public License v1.0
+ which accompanies this distribution, and is available at
+ http://www.eclipse.org/legal/epl-v10.html
+ 
+ Contributors:
+     Obeo - initial API and implementation
+-->
+
+<plugin>
+
+   <extension
+         point="org.eclipse.ui.importWizards">
+      <category
+            name="Database"
+            id="org.obeonetwork.database.ui.category">
+      </category>
+      <wizard
+            name="Import Database"
+            icon="icons/DataBase.gif"
+            category="org.obeonetwork.database.ui.category"
+            class="org.obeonetwork.database.ui.wizards.imports.DatabaseImportWizard"
+            id="org.obeonetwork.database.ui.wizards.DatabaseImportWizard.wizards.DatabaseImportWizard">
+         <description>Import the contents of a database into a database model.</description>
+      </wizard>
+   </extension>
+   <extension
+         point="org.eclipse.ui.menus">
+      <menuContribution
+            allPopups="false"
+            locationURI="popup:org.obeonetwork.is.designer.menu?after=additions">
+         <command
+               commandId="org.obeonetwork.database.ui.command.GenerateSQL"
+               icon="icons/SqlFile.gif"
+               label="Generate SQL Scripts"
+               style="push">
+            <visibleWhen
+                  checkEnabled="false">
+               <with variable="selection">
+				  <iterate ifEmpty="false">
+        <test
+              args="database"
+              forcePluginActivation="true"
+              property="org.obeonetwork.database.ui.propertyTester.testFileExtension"
+              value="true">
+        </test>
+				  </iterate>
+               </with>
+            </visibleWhen>
+         </command>
+         <command
+               commandId="org.obeonetwork.database.ui.command.GenerateLiquibase"
+               icon="icons/LiquibaseGen.png"
+               label="Generate Liquibase changelog"
+               style="push">
+            <visibleWhen
+                  checkEnabled="false">
+               <with
+                     variable="selection">
+                  <iterate
+                        ifEmpty="false">
+                     <test
+                           args="database"
+                           forcePluginActivation="true"
+                           property="org.obeonetwork.database.ui.propertyTester.testFileExtension"
+                           value="true">
+                     </test>
+                  </iterate>
+               </with>
+            </visibleWhen>
+         </command>
+         <menu
+               id="org.obeonetwork.ui.menu.scaffolding"
+               label="Scaffolding">
+            <command
+                  commandId="org.obeonetwork.ui.command.scaffold.entityToMld"
+                  label="Entity to Logical database"
+                  style="push">
+            </command>
+            <command
+                  commandId="org.obeonetwork.ui.command.scaffold.mldToEntity"
+                  label="Logical database to Entity"
+                  style="push">
+            </command>
+            <command
+                  commandId="org.obeonetwork.ui.command.scaffold.mldToMpd"
+                  label="Logical database to Physical database"
+                  style="push">
+            </command>
+            <command
+                  commandId="org.obeonetwork.ui.command.scaffold.mpdToMld"
+                  label="Physical database to Logical database"
+                  style="push">
+            </command>
+            <command
+                  commandId="org.obeonetwork.ui.command.scaffold.addAdditionalObjects"
+                  label="Add additional objects..."
+                  style="push">
+            </command>
+         </menu>
+      </menuContribution>
+   </extension>
+   <extension
+         point="org.eclipse.ui.commands">
+      <command
+            id="org.obeonetwork.ui.command.scaffold.entityToMld"
+            name="Entity to Logical database">
+      </command>
+      <command
+            id="org.obeonetwork.ui.command.scaffold.mldToEntity"
+            name="Logical database to Entity">
+      </command>
+      <command
+            id="org.obeonetwork.ui.command.scaffold.mldToMpd"
+            name="Logical database to Physical database">
+      </command>
+      <command
+            id="org.obeonetwork.ui.command.scaffold.mpdToMld"
+            name="Physical database to Logical database">
+      </command>
+      <command
+            id="org.obeonetwork.database.ui.command.GenerateSQL"
+            name="Generate SQL Scripts">
+      </command>
+      <command
+            id="org.obeonetwork.ui.command.scaffold.addAdditionalObjects"
+            name="Add additional objects">
+      </command>
+      <command
+            id="org.obeonetwork.database.ui.command.GenerateLiquibase"
+            name="Generate Liquibase Changelog">
+      </command>
+   </extension>
+   <extension
+         point="org.eclipse.ui.handlers">
+      <handler
+            class="org.obeonetwork.database.ui.actions.ScaffoldEntityToLogicalDatabaseHandler"
+            commandId="org.obeonetwork.ui.command.scaffold.entityToMld">            
+         <enabledWhen>
+             <with variable="selection">
+                <or>
+                   <and>
+                      <count
+                            value="1">
+                      </count>
+                      <test
+                            args="ENTITY_TO_LOGICAL_DATABASE"
+                            forcePluginActivation="true"
+                            property="org.obeonetwork.database.ui.propertyTester.scaffold.testInputIsScaffoldModel"
+                            value="true">
+                      </test>
+                   </and>
+                   <and>
+                      <count
+                            value="2">
+                      </count>
+                      <test
+                            args="ENTITY_TO_LOGICAL_DATABASE"
+                            forcePluginActivation="true"
+                            property="org.obeonetwork.database.ui.propertyTester.scaffold.testMultipleInputIsValid"
+                            value="true">
+                      </test>
+                   </and></or>
+		    </with>
+         </enabledWhen>
+      </handler>
+      <handler
+            class="org.obeonetwork.database.ui.actions.ScaffoldLogicalDatabaseToEntityHandler"
+            commandId="org.obeonetwork.ui.command.scaffold.mldToEntity">
+         <enabledWhen>
+             <with variable="selection">
+                <or>
+                   <and>
+                      <count
+                            value="1">
+                      </count>
+                      <test
+                            args="LOGICAL_DATABASE_TO_ENTITY"
+                            forcePluginActivation="true"
+                            property="org.obeonetwork.database.ui.propertyTester.scaffold.testInputIsScaffoldModel"
+                            value="true">
+                      </test>
+                   </and>
+                   <and>
+                      <count
+                            value="2">
+                      </count>
+                      <test
+                            args="LOGICAL_DATABASE_TO_ENTITY"
+                            forcePluginActivation="true"
+                            property="org.obeonetwork.database.ui.propertyTester.scaffold.testMultipleInputIsValid"
+                            value="true">
+                      </test>
+                   </and>
+                </or>
+		    </with>
+         </enabledWhen>
+      </handler>
+      <handler
+            class="org.obeonetwork.database.ui.actions.ScaffoldLogicalDatabaseToPhysicalDatabaseHandler"
+            commandId="org.obeonetwork.ui.command.scaffold.mldToMpd">
+         <enabledWhen>
+             <with variable="selection">
+                <or>
+                   <and>
+                      <count
+                            value="1">
+                      </count>
+                      <test
+                            args="LOGICAL_DATABASE_TO_PHYSICAL_DATABASE"
+                            forcePluginActivation="true"
+                            property="org.obeonetwork.database.ui.propertyTester.scaffold.testInputIsScaffoldModel"
+                            value="true">
+                      </test>
+                   </and>
+                   <and>
+                      <count
+                            value="2">
+                      </count>
+                      <test
+                            args="LOGICAL_DATABASE_TO_PHYSICAL_DATABASE"
+                            forcePluginActivation="true"
+                            property="org.obeonetwork.database.ui.propertyTester.scaffold.testMultipleInputIsValid"
+                            value="true">
+                      </test>
+                   </and>
+                </or>
+		    </with>
+         </enabledWhen>
+      </handler>
+      <handler
+            class="org.obeonetwork.database.ui.actions.ScaffoldPhysicalDatabaseToLogicalDatabaseHandler"
+            commandId="org.obeonetwork.ui.command.scaffold.mpdToMld">
+         <enabledWhen>
+             <with variable="selection">
+                <or>
+                   <and>
+                      <count
+                            value="1">
+                      </count>
+                      <test
+                            args="PHYSICAL_DATABASE_TO_LOGICAL_DATABASE"
+                            forcePluginActivation="true"
+                            property="org.obeonetwork.database.ui.propertyTester.scaffold.testInputIsScaffoldModel"
+                            value="true">
+                      </test>
+                   </and>
+                   <and>
+                      <count
+                            value="2">
+                      </count>
+                      <test
+                            args="PHYSICAL_DATABASE_TO_LOGICAL_DATABASE"
+                            forcePluginActivation="true"
+                            property="org.obeonetwork.database.ui.propertyTester.scaffold.testMultipleInputIsValid"
+                            value="true">
+                      </test>
+                   </and>
+                </or>
+		    </with>
+         </enabledWhen>
+      </handler>
+      <handler
+            class="org.obeonetwork.database.ui.actions.GenerateSQLFromDatabaseHandler"
+            commandId="org.obeonetwork.database.ui.command.GenerateSQL">
+         <enabledWhen>
+            <with
+                  variable="selection">
+               <and>
+                  <count
+                        value="1">
+                  </count>
+                  <not>
+                     <test
+                           forcePluginActivation="true"
+                           property="org.obeonetwork.database.ui.propertyTester.testIsLogical">
+                     </test>
+                  </not>
+               </and>
+            </with>
+         </enabledWhen>
+         <!--<enabledWhen>
+            <with
+                  variable="selection">
+               <test
+                     args="PHYSICAL_DATABASE_TO_LOGICAL_DATABASE"
+                     forcePluginActivation="true"
+                     property="org.obeonetwork.database.ui.propertyTester.testScaffoldingInput"
+                     value="true">
+               </test>
+            </with></enabledWhen>-->
+      </handler>
+      <handler
+            class="org.obeonetwork.database.ui.actions.AddAdditionalObjectsHandler"
+            commandId="org.obeonetwork.ui.command.scaffold.addAdditionalObjects">
+         <enabledWhen>
+            <with
+                  variable="selection">
+               <and>
+                  <count
+                        value="1">
+                  </count>
+                  <test
+                        args="ANY"
+                        forcePluginActivation="true"
+                        property="org.obeonetwork.database.ui.propertyTester.scaffold.testInputIsScaffoldModel"
+                        value="true">
+                  </test>
+               </and>
+            </with>
+         </enabledWhen>
+      </handler>
+      <handler
+            class="org.obeonetwork.database.ui.actions.GenerateLiquibaseFromDatabaseHandler"
+            commandId="org.obeonetwork.database.ui.command.GenerateLiquibase">
+         <enabledWhen>
+            <with
+                  variable="selection">
+               <and>
+                  <count
+                        value="1">
+                  </count>
+                  <not>
+                     <test
+                           forcePluginActivation="true"
+                           property="org.obeonetwork.database.ui.propertyTester.testIsLogical">
+                     </test>
+                  </not>
+               </and>
+            </with>
+         </enabledWhen>
+      </handler>
+   </extension>
+   <extension
+         point="org.eclipse.core.expressions.propertyTesters">
+      <propertyTester
+            class="org.obeonetwork.database.ui.actions.testers.TestFileExtension"
+            id="org.obeonetwork.database.ui.propertyTester.testFileExtension"
+            namespace="org.obeonetwork.database.ui.propertyTester"
+            properties="testFileExtension"
+            type="java.lang.Object">
+      </propertyTester>
+      <propertyTester
+            class="org.obeonetwork.database.ui.actions.testers.TestInputIsScaffoldModel"
+            id="org.obeonetwork.database.ui.propertyTester.scaffold.testInputIsScaffoldModel"
+            namespace="org.obeonetwork.database.ui.propertyTester.scaffold"
+            properties="testInputIsScaffoldModel"
+            type="java.lang.Object">
+      </propertyTester>
+      <propertyTester
+            class="org.obeonetwork.database.ui.actions.testers.TestMultipleInputIsValid"
+            id="org.obeonetwork.database.ui.propertyTester.scaffold.testMultipleInputIsValid"
+            namespace="org.obeonetwork.database.ui.propertyTester.scaffold"
+            properties="testMultipleInputIsValid"
+            type="java.lang.Object">
+      </propertyTester>
+      <propertyTester
+            class="org.obeonetwork.database.ui.actions.testers.TestIsLogical"
+            id="org.obeonetwork.database.ui.propertyTester.testIsLogical"
+            namespace="org.obeonetwork.database.ui.propertyTester"
+            properties="testIsLogical"
+            type="java.lang.Object">
+      </propertyTester>
+   </extension>
+   <extension
+         point="org.eclipse.ui.editorActions">
+      <editorContribution
+            id="org.obeonetwork.database.ui.compareEditorContribution"
+            targetID="org.eclipse.compare.CompareEditor">
+         <action
+               class="org.obeonetwork.database.ui.actions.ExportAsSQLScriptsAction"
+               disabledIcon="icons/SqlFileDisabled.gif"
+               icon="icons/SqlFile.gif"
+               id="org.obeonetwork.database.ui.action1"
+               label="Generate SQL Scripts"
+               style="push"
+               toolbarPath="Normal/navigation">
+         </action>
+         <action
+               class="org.obeonetwork.database.ui.actions.ExportAsLiquibaseScriptsAction"
+               disabledIcon="icons/DisabledLiquibaseGen.svg"
+               icon="icons/LiquibaseGen.png"
+               id="org.obeonetwork.database.ui.action2"
+               label="Generate Liquibase"
+               style="push"
+               toolbarPath="Normal/navigation">
+         </action>
+      </editorContribution>
+   </extension>
+   <extension
+         point="org.eclipse.emf.compare.rcp.ui.filters">
+      <filter
+            activeByDefault="true"
+            class="org.obeonetwork.database.ui.compare.viewer.filters.SQLDifferencesFilter"
+            label="Différences SQL">
+      </filter>
+   </extension>
+   <extension
+         point="org.eclipse.emf.compare.rcp.ui.differenceGroupExtender">
+      <differenceGroupExtender
+            class="org.obeonetwork.database.ui.compare.viewer.extenders.DBDiffGroupExtender">
+      </differenceGroupExtender>
+   </extension>
+   <extension
+         point="org.eclipse.emf.compare.rcp.ui.accessorFactory">
+      <factory
+            class="org.obeonetwork.database.ui.compare.viewer.content.DBDiffAccessorFactory"
+            ranking="20">
+      </factory>
+   </extension>
+
+</plugin>

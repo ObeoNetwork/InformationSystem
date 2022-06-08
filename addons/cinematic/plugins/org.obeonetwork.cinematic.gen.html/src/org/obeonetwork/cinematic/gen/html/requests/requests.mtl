@@ -1,0 +1,55 @@
+[comment encoding = UTF-8 /]
+[comment
+ Copyright (c) 2008, 2022 Obeo.
+ All rights reserved. This program and the accompanying materials
+ are made available under the terms of the Eclipse Public License v1.0
+ which accompanies this distribution, and is available at
+ http://www.eclipse.org/legal/epl-v10.html
+
+ Contributors:
+     Obeo - initial API and implementation
+/]
+[**
+ * The documentation of the module requests.
+ */]
+[module requests('http://www.obeonetwork.org/dsl/cinematic/3.0.0')]
+
+[import org::obeonetwork::cinematic::gen::html::services::cinematicServices /]
+
+[**
+ * The documentation of the query isFile.
+ * @param aWidget
+ */]
+[query public isFile(aWidget : Widget) : Boolean = 
+aWidget.qualifiedName() = 'html.file'
+/]
+
+[**
+ * The documentation of the query qualifiedName.
+ * @param aWidget
+ */]
+[query public qualifiedName(aWidget : Widget) : String = aWidget.eContainer(Toolkit).name + '.' + aWidget.name/]
+
+[**
+ * The documentation of the query qualifiedName.
+ * @param aWET
+ */]
+[query public qualifiedName(aWET : WidgetEventType) : String = aWET.eContainer(Toolkit).name + '.' + aWET.name/]
+
+[query public hasMultipleTransitionsForEvent(aViewState : ViewState, aEvent: Event) : Boolean = 
+aViewState.getNextStates(aEvent)->notEmpty() and aViewState.getNextStates(aEvent)->size() > 1 /]
+
+[query public isTopLevelViewContainer(anAVE : AbstractViewElement) : Boolean = not(anAVE.eContainer().oclIsTypeOf(ViewContainer))/]
+[query public isPage(anAVE : AbstractViewElement) : Boolean = getProperty(anAVE.widget.qualifiedName()) = 'html.file' /]
+[query public isPanel(anAVE : AbstractViewElement) : Boolean = getProperty(anAVE.widget.qualifiedName()) = 'html.panel' /]
+[query public isTable(anAVE : AbstractViewElement) : Boolean = getProperty(anAVE.widget.qualifiedName()) = 'html.table' /]
+[query public isText(anAVE : AbstractViewElement) : Boolean = getProperty(anAVE.widget.qualifiedName()) = 'html.text' /]
+[query public isTextarea(anAVE : AbstractViewElement) : Boolean = getProperty(anAVE.widget.qualifiedName()) = 'html.textarea' /]
+[query public isCheckbox(anAVE : AbstractViewElement) : Boolean = getProperty(anAVE.widget.qualifiedName()) = 'html.checkbox' /]
+[query public isRadio(anAVE : AbstractViewElement) : Boolean = getProperty(anAVE.widget.qualifiedName()) = 'html.radio' /]
+[query public isButton(anAVE : AbstractViewElement) : Boolean = getProperty(anAVE.widget.qualifiedName()) = 'html.button' /]
+[query public isPassword(anAVE : AbstractViewElement) : Boolean = getProperty(anAVE.widget.qualifiedName()) = 'html.password' /]
+[query public isImage(anAVE : AbstractViewElement) : Boolean = getProperty(anAVE.widget.qualifiedName()) = 'html.image' /]
+[query public isLink(anAVE : AbstractViewElement) : Boolean = getProperty(anAVE.widget.qualifiedName()) = 'html.link' /]
+[query public isCombo(anAVE : AbstractViewElement) : Boolean = getProperty(anAVE.widget.qualifiedName()) = 'html.combo' /]
+[query public isLabel(anAVE : AbstractViewElement) : Boolean = getProperty(anAVE.widget.qualifiedName()) = 'html.label' /]

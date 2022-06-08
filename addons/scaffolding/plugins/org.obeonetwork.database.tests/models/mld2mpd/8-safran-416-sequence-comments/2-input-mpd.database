@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<database:DataBase xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:database="http://www.obeonetwork.org/dsl/database/1.0" xmlns:typeslibrary="http://www.obeonetwork.org/dsl/typeslibrary/1.0" xmi:id="_RuhiIaGhEea5Ua_pyGRRNA" techID="_RuhiIKGhEea5Ua_pyGRRNA" name="input-mpd">
+  <tables xsi:type="database:Table" xmi:id="_tfXg8aGjEea5Ua_pyGRRNA" techID="_tfXg8KGjEea5Ua_pyGRRNA" name="Table1">
+    <primaryKey xmi:id="_tfXg96GjEea5Ua_pyGRRNA" techID="_tfXg9qGjEea5Ua_pyGRRNA" name="Table1_PK" columns="_tfXg86GjEea5Ua_pyGRRNA"/>
+    <columns xmi:id="_tfXg86GjEea5Ua_pyGRRNA" techID="_tfXg8qGjEea5Ua_pyGRRNA" name="column1" primaryKey="_tfXg96GjEea5Ua_pyGRRNA" sequence="_5VjEwaGjEea5Ua_pyGRRNA">
+      <type xsi:type="typeslibrary:TypeInstance" xmi:id="_5VQw4KGjEea5Ua_pyGRRNA">
+        <nativeType href="pathmap://NativeDBTypes/Oracle-11g#_EwGJQD77EeaWN4f5B3n2lA"/>
+      </type>
+    </columns>
+  </tables>
+  <sequences xmi:id="_5VjEwaGjEea5Ua_pyGRRNA" comments="manually entered comment that should be kept by scaffolding process" techID="_5VjEwKGjEea5Ua_pyGRRNA" name="Table1_SEQ" start="1" increment="1" columns="_tfXg86GjEea5Ua_pyGRRNA"/>
+  <usedLibraries xsi:type="typeslibrary:NativeTypesLibrary" href="pathmap://NativeDBTypes/Oracle-11g#_cUvfIBEnEeGTa_JlZYBw1A"/>
+</database:DataBase>
