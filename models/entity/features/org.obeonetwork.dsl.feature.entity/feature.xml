@@ -12,10 +12,10 @@
 <feature
       id="org.obeonetwork.dsl.feature.entity"
       label="Obeo Network - Entity"
-      version="3.0.0.qualifier"
+      version="3.1.0.qualifier"
       provider-name="%providerName"
       license-feature="org.obeonetwork.is.license"
-      license-feature-version="3.0.0.qualifier">
+      license-feature-version="3.1.0.qualifier">
 
    <description url="https://www.obeo.fr">
       ObeoNetwork - Entity Designer

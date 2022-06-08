@@ -1,6 +1,6 @@
 target "IS Designer Product Target Definition" with source, requirements
 
-location ISD "http://update.obeo.fr/integration/informationsystem/3.0.0/design/repository/" {
+location ISD "http://update.obeo.fr/integration/informationsystem/3.1.0/design/repository/" {
 	org.obeonetwork.cinematic.gen.html.feature.feature.group lazy
 	org.obeonetwork.database.scaffold.feature.feature.group lazy
 	org.obeonetwork.database.ui.feature.feature.group lazy
