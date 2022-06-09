@@ -8,7 +8,7 @@
  * Contributors:
  *     Obeo - initial API and implementation
  *******************************************************************************/
-package org.obeonetwork.utils.sirius;
+package org.obeonetwork.utils.common.ui;
 
 import org.osgi.framework.BundleActivator;
 import org.osgi.framework.BundleContext;

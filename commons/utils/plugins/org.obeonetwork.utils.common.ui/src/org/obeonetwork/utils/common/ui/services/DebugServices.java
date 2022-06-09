@@ -8,7 +8,7 @@
  * Contributors:
  *     Obeo - initial API and implementation
  *******************************************************************************/
-package org.obeonetwork.utils.sirius.services;
+package org.obeonetwork.utils.common.ui.services;
 
 import java.util.Map;
 import java.util.Optional;

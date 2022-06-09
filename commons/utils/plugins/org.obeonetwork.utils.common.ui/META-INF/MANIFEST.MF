@@ -1,0 +1,27 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-SymbolicName: org.obeonetwork.utils.common.ui;singleton:=true
+Bundle-Version: 3.1.0.qualifier
+Bundle-Activator: org.obeonetwork.utils.common.ui.Activator
+Require-Bundle: org.eclipse.sirius.common,
+ org.eclipse.core.expressions,
+ org.eclipse.sirius.diagram.ui,
+ org.eclipse.gmf.runtime.diagram.ui,
+ org.eclipse.net4j.util,
+ org.eclipse.sirius.table,
+ org.eclipse.ui.ide,
+ org.obeonetwork.utils.common,
+ org.eclipse.ui.workbench,
+ org.eclipse.sirius.ext.base,
+ org.eclipse.sirius,
+ org.eclipse.emf.transaction,
+ org.eclipse.core.runtime
+Bundle-RequiredExecutionEnvironment: JavaSE-1.8
+Automatic-Module-Name: org.obeonetwork.utils
+Bundle-ActivationPolicy: lazy
+Bundle-Name: Common Sirius Utils
+Bundle-Vendor: Obeo Network
+Export-Package: org.obeonetwork.utils.common.ui,
+ org.obeonetwork.utils.common.ui.handlers,
+ org.obeonetwork.utils.common.ui.propertyTesters,
+ org.obeonetwork.utils.common.ui.services

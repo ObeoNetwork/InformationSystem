@@ -23,7 +23,7 @@ import org.eclipse.sirius.viewpoint.DAnalysis;
 import org.eclipse.sirius.viewpoint.description.DAnnotationEntry;
 import org.junit.Test;
 import org.obeonetwork.dsl.environment.session.EnvironmentSessionManagerListener;
-import org.obeonetwork.utils.sirius.session.SessionUtils;
+import org.obeonetwork.utils.common.SessionUtils;
 
 public class EnvironmentResourceManagementTest extends SiriusTestCase {
 	

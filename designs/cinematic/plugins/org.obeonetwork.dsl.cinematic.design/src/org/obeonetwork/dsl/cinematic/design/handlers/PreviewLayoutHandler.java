@@ -22,7 +22,7 @@ import org.eclipse.sirius.diagram.business.api.query.DDiagramQuery;
 import org.eclipse.sirius.diagram.ui.edit.api.part.IDDiagramEditPart;
 import org.obeonetwork.dsl.cinematic.design.services.CinematicLayoutServices;
 import org.obeonetwork.dsl.cinematic.view.Layout;
-import org.obeonetwork.utils.common.handlers.EventHelper;
+import org.obeonetwork.utils.common.ui.handlers.EventHelper;
 
 public class PreviewLayoutHandler extends AbstractHandler {
 

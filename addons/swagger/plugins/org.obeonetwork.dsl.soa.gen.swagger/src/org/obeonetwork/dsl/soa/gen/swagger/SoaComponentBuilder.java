@@ -21,9 +21,9 @@ import static org.obeonetwork.dsl.soa.gen.swagger.OpenApiParserHelper.OPEN_API_T
 import static org.obeonetwork.dsl.soa.gen.swagger.OpenApiParserHelper.getPrimitiveTypeName;
 import static org.obeonetwork.dsl.soa.gen.swagger.OpenApiParserHelper.isEnum;
 import static org.obeonetwork.dsl.soa.gen.swagger.OpenApiParserHelper.isObject;
+import static org.obeonetwork.utils.common.EObjectUtils.getAncestors;
 import static org.obeonetwork.utils.common.StringUtils.emptyIfNull;
 import static org.obeonetwork.utils.common.StringUtils.upperFirst;
-import static org.obeonetwork.utils.sirius.services.EObjectUtils.getAncestors;
 
 import java.util.ArrayList;
 import java.util.Arrays;

@@ -21,7 +21,7 @@ import org.eclipse.sirius.diagram.description.style.WorkspaceImageDescription;
 import org.eclipse.sirius.diagram.ui.business.api.image.ImageSelectorService;
 import org.eclipse.sirius.diagram.ui.edit.api.part.IDiagramElementEditPart;
 import org.eclipse.sirius.viewpoint.BasicLabelStyle;
-import org.obeonetwork.utils.common.handlers.EventHelper;
+import org.obeonetwork.utils.common.ui.handlers.EventHelper;
 
 public class RemoveMockupImageHandler  extends AbstractHandler {
 	

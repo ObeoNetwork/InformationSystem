@@ -24,7 +24,7 @@ import org.obeonetwork.dsl.environment.ObeoDSMObject;
 import org.obeonetwork.dsl.soa.Component;
 import org.obeonetwork.dsl.soa.System;
 import org.obeonetwork.dsl.soa.gen.swagger.ui.wizards.SwaggerExportWizard;
-import org.obeonetwork.utils.common.handlers.EventHelper;
+import org.obeonetwork.utils.common.ui.handlers.EventHelper;
 
 public class SwaggerExportHandler extends AbstractHandler implements IHandler {
 

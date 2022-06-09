@@ -44,8 +44,8 @@ import org.obeonetwork.dsl.cinematic.view.Layout;
 import org.obeonetwork.dsl.cinematic.view.LayoutDirection;
 import org.obeonetwork.dsl.cinematic.view.ViewContainer;
 import org.obeonetwork.dsl.cinematic.view.ViewFactory;
+import org.obeonetwork.utils.common.EObjectUtils;
 import org.obeonetwork.utils.common.StreamUtils;
-import org.obeonetwork.utils.sirius.services.EObjectUtils;
 
 @SuppressWarnings("restriction")
 public class CinematicLayoutServices {

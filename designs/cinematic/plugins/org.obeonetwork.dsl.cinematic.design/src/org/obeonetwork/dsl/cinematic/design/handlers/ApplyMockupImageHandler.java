@@ -46,10 +46,10 @@ import org.obeonetwork.dsl.cinematic.design.Activator;
 import org.obeonetwork.dsl.cinematic.design.ICinematicViewpoint;
 import org.obeonetwork.dsl.cinematic.flow.ViewState;
 import org.obeonetwork.dsl.cinematic.view.ViewContainer;
+import org.obeonetwork.utils.common.EObjectUtils;
+import org.obeonetwork.utils.common.SessionUtils;
 import org.obeonetwork.utils.common.StreamUtils;
-import org.obeonetwork.utils.common.handlers.EventHelper;
-import org.obeonetwork.utils.sirius.services.EObjectUtils;
-import org.obeonetwork.utils.sirius.session.SessionUtils;
+import org.obeonetwork.utils.common.ui.handlers.EventHelper;
 
 public class ApplyMockupImageHandler extends AbstractHandler {
 	

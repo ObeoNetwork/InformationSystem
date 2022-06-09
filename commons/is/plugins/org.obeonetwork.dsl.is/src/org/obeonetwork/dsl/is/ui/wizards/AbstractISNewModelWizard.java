@@ -45,7 +45,8 @@ import org.eclipse.ui.INewWizard;
 import org.eclipse.ui.IWorkbench;
 import org.eclipse.ui.IWorkbenchPart;
 import org.obeonetwork.dsl.is.util.SiriusSessionUtils;
-import org.obeonetwork.utils.sirius.session.SessionUtils;
+import org.obeonetwork.utils.common.SessionUtils;
+import org.obeonetwork.utils.common.ui.services.SiriusUIUtils;
 
 import fr.obeo.dsl.viewpoint.collab.ui.internal.views.ResourcesFolderItemImpl;
 
@@ -108,7 +109,7 @@ abstract public class AbstractISNewModelWizard extends Wizard implements INewWiz
 		if (session != null) {
 			Collection<URI> viewpointsURIs = getViewpointsURIToBeActivated();
 			for (URI viewpointURI : viewpointsURIs) {
-				SessionUtils.activateViewpoint(session, viewpointURI, monitor);
+				SiriusUIUtils.activateViewpoint(session, viewpointURI, monitor);
 			}
 		}
 	}
@@ -131,7 +132,7 @@ abstract public class AbstractISNewModelWizard extends Wizard implements INewWiz
 							// Get name for the representation
 							String representationName = getRepresentationName(desc, object);
 							// and create representation
-							DRepresentation newRepresentation = SessionUtils.createRepresentation(session, desc, representationName, object, monitor);
+							DRepresentation newRepresentation = SiriusUIUtils.createRepresentation(session, desc, representationName, object, monitor);
 							if (newRepresentation != null) {
 								createdRepresentations.add(newRepresentation);
 							}

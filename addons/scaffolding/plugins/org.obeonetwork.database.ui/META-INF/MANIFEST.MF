@@ -42,7 +42,7 @@ Require-Bundle: org.eclipse.ui,
  org.obeonetwork.dsl.database.liquibasegen,
  org.eclipse.sirius.ui,
  org.obeonetwork.dsl.database.design,
- org.obeonetwork.utils.sirius
+ org.obeonetwork.utils.common.ui
 Bundle-RequiredExecutionEnvironment: JavaSE-1.8
 Bundle-ActivationPolicy: lazy
 Export-Package: org.obeonetwork.database.ui,

@@ -232,7 +232,7 @@
       </defaultLayer>
     </ownedRepresentations>
     <ownedJavaExtensions qualifiedClassName="org.obeonetwork.dsl.statemachine.design.services.StateMachineServices"/>
-    <ownedJavaExtensions qualifiedClassName="org.obeonetwork.utils.sirius.services.EObjectUtils"/>
+    <ownedJavaExtensions qualifiedClassName="org.obeonetwork.utils.common.EObjectUtils"/>
   </ownedViewpoints>
   <userColorsPalettes>
     <entries xsi:type="description:UserFixedColor" red="0" green="43" blue="60" name="ISDLabelAndEdge"/>

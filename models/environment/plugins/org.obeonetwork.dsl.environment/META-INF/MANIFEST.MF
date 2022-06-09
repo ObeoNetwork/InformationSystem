@@ -21,7 +21,7 @@ Require-Bundle: org.eclipse.core.runtime,
  org.obeonetwork.tools.migration,
  org.eclipse.sirius,
  org.eclipse.sirius.ext.base,
- org.obeonetwork.utils.sirius,
  org.eclipse.emf.common,
- org.eclipse.emf.transaction
+ org.eclipse.emf.transaction,
+ org.obeonetwork.utils.common
 Bundle-ActivationPolicy: lazy

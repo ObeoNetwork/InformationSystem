@@ -8,7 +8,7 @@
  * Contributors:
  *     Obeo - initial API and implementation
  *******************************************************************************/
-package org.obeonetwork.utils.common.handlers;
+package org.obeonetwork.utils.common.ui.handlers;
 
 import java.util.ArrayList;
 import java.util.Iterator;

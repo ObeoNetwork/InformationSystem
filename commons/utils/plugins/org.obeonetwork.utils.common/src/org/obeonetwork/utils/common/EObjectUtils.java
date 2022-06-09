@@ -8,7 +8,7 @@
  * Contributors:
  *     Obeo - initial API and implementation
  *******************************************************************************/
-package org.obeonetwork.utils.sirius.services;
+package org.obeonetwork.utils.common;
 
 import java.util.ArrayList;
 import java.util.Collection;
@@ -112,6 +112,7 @@ public class EObjectUtils {
 		return object;
 	}
 	
+	@SuppressWarnings("unchecked")
 	public static Object replaceValue(EObject eReferencer, Object oldValue, Object newValue, String featureName) {
 		EList<?> values = getMultiFeatureValues(eReferencer, featureName);
 		if (values != null) {

@@ -11,7 +11,7 @@ Require-Bundle: org.obeonetwork.dsl.database,
  org.eclipse.emf.transaction,
  org.eclipse.sirius.ext.base,
  org.eclipse.sirius.diagram,
- org.obeonetwork.utils.sirius,
+ org.obeonetwork.utils.common.ui,
  org.obeonetwork.utils.common,
  org.eclipse.sirius.diagram.ui
 Bundle-ActivationPolicy: lazy

@@ -38,7 +38,7 @@ import org.obeonetwork.dsl.cinematic.flow.SubflowState;
 import org.obeonetwork.dsl.cinematic.flow.Transition;
 import org.obeonetwork.dsl.cinematic.flow.ViewState;
 import org.obeonetwork.dsl.cinematic.view.ViewContainer;
-import org.obeonetwork.utils.sirius.services.EObjectUtils;
+import org.obeonetwork.utils.common.EObjectUtils;
 
 /**
  * Services to use the flows

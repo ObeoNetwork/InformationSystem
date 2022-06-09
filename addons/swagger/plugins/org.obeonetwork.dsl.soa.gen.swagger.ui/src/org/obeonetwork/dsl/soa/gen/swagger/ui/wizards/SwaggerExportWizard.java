@@ -26,7 +26,7 @@ import org.obeonetwork.dsl.soa.Component;
 import org.obeonetwork.dsl.soa.gen.swagger.SwaggerExporter;
 import org.obeonetwork.dsl.soa.gen.swagger.utils.ComponentGenUtil;
 import org.obeonetwork.dsl.soa.gen.swagger.utils.SwaggerExportUtil.MapperType;
-import org.obeonetwork.utils.sirius.session.SessionUtils;
+import org.obeonetwork.utils.common.SessionUtils;
 
 public class SwaggerExportWizard extends Wizard {
 

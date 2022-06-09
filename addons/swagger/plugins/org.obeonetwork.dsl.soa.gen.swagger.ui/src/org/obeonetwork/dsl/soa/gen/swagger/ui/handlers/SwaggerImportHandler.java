@@ -19,7 +19,7 @@ import org.eclipse.swt.widgets.Shell;
 import org.eclipse.ui.handlers.HandlerUtil;
 import org.obeonetwork.dsl.soa.System;
 import org.obeonetwork.dsl.soa.gen.swagger.ui.wizards.SwaggerImportWizard;
-import org.obeonetwork.utils.common.handlers.EventHelper;
+import org.obeonetwork.utils.common.ui.handlers.EventHelper;
 
 public class SwaggerImportHandler extends AbstractHandler implements IHandler {
 	

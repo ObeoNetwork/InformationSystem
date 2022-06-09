@@ -23,9 +23,9 @@ import org.eclipse.sirius.business.api.session.Session;
 import org.obeonetwork.dsl.environment.Environment;
 import org.obeonetwork.dsl.soa.System;
 import org.obeonetwork.dsl.soa.gen.swagger.SwaggerImporter;
-import org.obeonetwork.utils.sirius.services.EObjectUtils;
-import org.obeonetwork.utils.sirius.session.SessionUtils;
-import org.obeonetwork.utils.sirius.transaction.RecordingCommandWithResult;
+import org.obeonetwork.utils.common.EObjectUtils;
+import org.obeonetwork.utils.common.SessionUtils;
+import org.obeonetwork.utils.common.transaction.RecordingCommandWithResult;
 
 public class SwaggerImportWizard extends Wizard {
 	

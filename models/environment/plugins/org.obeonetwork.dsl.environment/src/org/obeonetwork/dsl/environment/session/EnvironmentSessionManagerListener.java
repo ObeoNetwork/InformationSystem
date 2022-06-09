@@ -29,7 +29,7 @@ import org.eclipse.sirius.viewpoint.ViewpointPackage;
 import org.eclipse.sirius.viewpoint.description.DAnnotationEntry;
 import org.eclipse.sirius.viewpoint.description.DescriptionFactory;
 import org.obeonetwork.dsl.environment.util.ProvidedModelsService;
-import org.obeonetwork.utils.sirius.session.SessionUtils;
+import org.obeonetwork.utils.common.SessionUtils;
 
 public class EnvironmentSessionManagerListener extends Stub {
 	

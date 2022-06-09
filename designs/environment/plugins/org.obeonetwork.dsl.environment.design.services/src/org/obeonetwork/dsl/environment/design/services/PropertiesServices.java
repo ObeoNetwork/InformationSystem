@@ -21,7 +21,7 @@ import org.obeonetwork.dsl.environment.MultiplicityKind;
 import org.obeonetwork.dsl.environment.Property;
 import org.obeonetwork.dsl.environment.Reference;
 import org.obeonetwork.dsl.environment.StructuredType;
-import org.obeonetwork.utils.sirius.services.EObjectUtils;
+import org.obeonetwork.utils.common.EObjectUtils;
 
 public class PropertiesServices {
 

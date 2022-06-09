@@ -30,7 +30,7 @@ import org.eclipse.swt.widgets.Shell;
 import org.eclipse.ui.handlers.HandlerUtil;
 import org.obeonetwork.dsl.database.liquibasegen.LiquibaseUpdater;
 import org.obeonetwork.dsl.database.liquibasegen.ui.ConnectionInformationDialog;
-import org.obeonetwork.utils.common.handlers.EventHelper;
+import org.obeonetwork.utils.common.ui.handlers.EventHelper;
 
 import liquibase.exception.LiquibaseException;
 

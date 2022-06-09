@@ -102,7 +102,7 @@
     </ownedRepresentations>
     <ownedRepresentations xsi:type="description_2:DBindingEditorDescription" name="Binding Details" titleExpression="service:computeBindingEditorName()"/>
     <ownedJavaExtensions qualifiedClassName="org.obeonetwork.dsl.environment.binding.design.service.BindingService"/>
-    <ownedJavaExtensions qualifiedClassName="org.obeonetwork.utils.sirius.services.EObjectUtils"/>
+    <ownedJavaExtensions qualifiedClassName="org.obeonetwork.utils.common.EObjectUtils"/>
   </ownedViewpoints>
   <userColorsPalettes name="Palette">
     <entries xsi:type="description:UserFixedColor" red="0" green="43" blue="60" name="ISDLabelAndEdge"/>

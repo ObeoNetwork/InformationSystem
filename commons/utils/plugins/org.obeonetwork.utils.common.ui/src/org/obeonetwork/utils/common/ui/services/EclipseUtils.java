@@ -1,4 +1,4 @@
-package org.obeonetwork.utils.sirius.services;
+package org.obeonetwork.utils.common.ui.services;
 
 import java.util.ArrayList;
 import java.util.List;

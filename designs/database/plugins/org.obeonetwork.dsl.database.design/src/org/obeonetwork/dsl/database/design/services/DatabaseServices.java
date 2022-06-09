@@ -47,10 +47,10 @@ import org.obeonetwork.dsl.database.spec.ViewSpec;
 import org.obeonetwork.dsl.database.view.parser.ColObject;
 import org.obeonetwork.dsl.database.view.parser.ViewContentProvider;
 import org.obeonetwork.dsl.technicalid.util.CopierUtils;
+import org.obeonetwork.utils.common.EObjectUtils;
 import org.obeonetwork.utils.common.StringUtils;
-import org.obeonetwork.utils.sirius.services.EObjectUtils;
-import org.obeonetwork.utils.sirius.services.EclipseUtils;
-import org.obeonetwork.utils.sirius.services.SiriusUtils;
+import org.obeonetwork.utils.common.ui.services.EclipseUtils;
+import org.obeonetwork.utils.common.ui.services.SiriusUIUtils;
 
 public class DatabaseServices {
 	
@@ -397,7 +397,7 @@ public class DatabaseServices {
 				.collect(toList());
 		
 		for(DDiagramEditor dDiagramEditor : openDDiagramEditorsShowingView) {
-			SiriusUtils.validateDDiagramEditor(dDiagramEditor);
+			SiriusUIUtils.validateDDiagramEditor(dDiagramEditor);
 		}
 	}
 	

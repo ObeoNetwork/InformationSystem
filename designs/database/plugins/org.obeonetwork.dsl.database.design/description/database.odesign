@@ -325,8 +325,8 @@
     <ownedJavaExtensions qualifiedClassName="org.obeonetwork.dsl.database.design.services.label.DatabaseLabelServices"/>
     <ownedJavaExtensions qualifiedClassName="org.obeonetwork.dsl.database.design.services.label.DatabaseEditLabelServices"/>
     <ownedJavaExtensions qualifiedClassName="org.obeonetwork.dsl.database.design.services.DatabaseEEFPropertiesServices"/>
-    <ownedJavaExtensions qualifiedClassName="org.obeonetwork.utils.sirius.services.EObjectUtils"/>
-    <ownedJavaExtensions qualifiedClassName="org.obeonetwork.utils.sirius.services.DebugServices"/>
+    <ownedJavaExtensions qualifiedClassName="org.obeonetwork.utils.common.EObjectUtils"/>
+    <ownedJavaExtensions qualifiedClassName="org.obeonetwork.utils.common.ui.services.DebugServices"/>
   </ownedViewpoints>
   <userColorsPalettes name="DomainColors">
     <entries xsi:type="description:UserFixedColor" red="0" green="43" blue="60" name="ISDLabelAndEdge"/>

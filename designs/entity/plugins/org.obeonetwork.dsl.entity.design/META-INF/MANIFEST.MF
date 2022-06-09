@@ -14,7 +14,7 @@ Require-Bundle: org.eclipse.ui,
  org.eclipse.core.resources,
  org.obeonetwork.dsl.is,
  org.eclipse.sirius.diagram,
- org.obeonetwork.utils.sirius
+ org.obeonetwork.utils.common.ui
 Bundle-ActivationPolicy: lazy
 Bundle-RequiredExecutionEnvironment: JavaSE-1.8
 Bundle-Vendor: Obeo Network

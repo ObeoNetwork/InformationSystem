@@ -8,7 +8,7 @@
  * Contributors:
  *     Obeo - initial API and implementation
  *******************************************************************************/
-package org.obeonetwork.utils.sirius.propertyTesters;
+package org.obeonetwork.utils.common.ui.propertyTesters;
 
 import org.eclipse.core.expressions.PropertyTester;
 import org.eclipse.net4j.util.lifecycle.LifecycleException;
@@ -19,7 +19,7 @@ import org.eclipse.sirius.diagram.ui.edit.api.part.IDDiagramEditPart;
 import org.eclipse.sirius.diagram.ui.edit.api.part.IDiagramElementEditPart;
 import org.eclipse.sirius.diagram.ui.edit.api.part.ISiriusEditPart;
 import org.eclipse.sirius.viewpoint.description.Viewpoint;
-import org.obeonetwork.utils.sirius.services.EObjectUtils;
+import org.obeonetwork.utils.common.EObjectUtils;
 
 public class SiriusEditPartPropertyTester extends PropertyTester {
 

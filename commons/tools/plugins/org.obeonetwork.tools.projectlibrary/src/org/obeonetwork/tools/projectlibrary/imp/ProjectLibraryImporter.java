@@ -61,7 +61,7 @@ import org.obeonetwork.tools.projectlibrary.util.ProjectLibraryUtils;
 import org.obeonetwork.tools.projectlibrary.util.RestorableAndNonRestorableReferences;
 import org.obeonetwork.tools.projectlibrary.util.ToBeRestoredReference;
 import org.obeonetwork.tools.projectlibrary.util.ZipUtils;
-import org.obeonetwork.utils.sirius.session.SessionUtils;
+import org.obeonetwork.utils.common.SessionUtils;
 
 /**
  * Import a zipped library into a modeling project 

@@ -65,10 +65,10 @@ import org.obeonetwork.dsl.environment.Annotation;
 import org.obeonetwork.dsl.environment.EnvironmentFactory;
 import org.obeonetwork.dsl.environment.MetaDataContainer;
 import org.obeonetwork.dsl.environment.design.ui.RGBSystemColorUtil;
+import org.obeonetwork.utils.common.EObjectUtils;
 import org.obeonetwork.utils.common.StreamUtils;
 import org.obeonetwork.utils.common.StringUtils;
-import org.obeonetwork.utils.sirius.services.DebugServices;
-import org.obeonetwork.utils.sirius.services.EObjectUtils;
+import org.obeonetwork.utils.common.ui.services.DebugServices;
 
 /**
  * Services to use the widgets

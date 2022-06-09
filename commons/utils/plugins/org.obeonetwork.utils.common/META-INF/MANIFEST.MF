@@ -7,7 +7,11 @@ Automatic-Module-Name: org.obeonetwork.utils.common
 Bundle-RequiredExecutionEnvironment: JavaSE-1.8
 Bundle-Vendor: Obeo Network
 Export-Package: org.obeonetwork.utils.common,
- org.obeonetwork.utils.common.handlers
-Require-Bundle: org.eclipse.core.commands,
- org.eclipse.ui.workbench,
- org.eclipse.jface
+ org.obeonetwork.utils.common.transaction
+Require-Bundle: org.eclipse.emf,
+ org.eclipse.emf.ecore,
+ org.eclipse.sirius,
+ org.eclipse.core.resources,
+ org.eclipse.core.runtime,
+ org.eclipse.sirius.ext.base,
+ org.eclipse.emf.transaction

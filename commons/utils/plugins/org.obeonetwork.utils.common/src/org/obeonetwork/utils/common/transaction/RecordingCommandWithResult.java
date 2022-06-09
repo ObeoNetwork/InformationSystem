@@ -8,7 +8,7 @@
  * Contributors:
  *     Obeo - initial API and implementation
  *******************************************************************************/
-package org.obeonetwork.utils.sirius.transaction;
+package org.obeonetwork.utils.common.transaction;
 
 import java.util.ArrayList;
 import java.util.Collection;

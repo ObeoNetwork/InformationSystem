@@ -51,7 +51,7 @@ import org.obeonetwork.dsl.environment.Reference;
 import org.obeonetwork.dsl.environment.StructuredType;
 import org.obeonetwork.dsl.environment.TypesDefinition;
 import org.obeonetwork.dsl.environment.design.ui.CreateStructuredTypesFromOthersWizard;
-import org.obeonetwork.utils.sirius.services.EObjectUtils;
+import org.obeonetwork.utils.common.EObjectUtils;
 
 public class TypesServices {
 	

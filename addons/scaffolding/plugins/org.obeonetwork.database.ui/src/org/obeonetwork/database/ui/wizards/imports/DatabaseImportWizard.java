@@ -46,7 +46,7 @@ import org.obeonetwork.dsl.database.design.IDatabaseViewpointConstants;
 import org.obeonetwork.dsl.database.reverse.source.DataSource;
 import org.obeonetwork.dsl.database.reverse.source.DataSourceException;
 import org.obeonetwork.dsl.database.reverse.utils.JdbcUtils;
-import org.obeonetwork.utils.sirius.session.SessionUtils;
+import org.obeonetwork.utils.common.ui.services.SiriusUIUtils;
 
 public class DatabaseImportWizard extends Wizard implements IImportWizard {
 	
@@ -149,7 +149,7 @@ public class DatabaseImportWizard extends Wizard implements IImportWizard {
         Session session = enclosingModelingProject.getSession();
 		if (session != null) {
 			for (URI viewpointURI : IDatabaseViewpointConstants.VIEWPOINT_DEPENDENCIES) {
-				SessionUtils.activateViewpoint(session, viewpointURI, monitor);
+				SiriusUIUtils.activateViewpoint(session, viewpointURI, monitor);
 			}
 		}
 	}
@@ -164,12 +164,12 @@ public class DatabaseImportWizard extends Wizard implements IImportWizard {
 				.filter(DataBase.class::isInstance).map(DataBase.class::cast)
 				.collect(toList());
 		for(DataBase database : databases) {
-			representations.add(SessionUtils.createRepresentation(session, database, IDatabaseViewpointConstants.DATABASE_DIAGRAM_ID, monitor));
+			representations.add(SiriusUIUtils.createRepresentation(session, database, IDatabaseViewpointConstants.DATABASE_DIAGRAM_ID, monitor));
 		}
 		
 		List<Schema> schemas = databases.stream().flatMap(db -> db.getSchemas().stream()).collect(toList());
 		for(Schema schema : schemas) {
-			representations.add(SessionUtils.createRepresentation(session, schema, IDatabaseViewpointConstants.SCHEMA_DIAGRAM_ID, monitor));
+			representations.add(SiriusUIUtils.createRepresentation(session, schema, IDatabaseViewpointConstants.SCHEMA_DIAGRAM_ID, monitor));
 		}
 		
 		return representations;

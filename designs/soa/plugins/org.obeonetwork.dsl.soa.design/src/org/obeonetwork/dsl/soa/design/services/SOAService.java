@@ -61,7 +61,7 @@ import org.obeonetwork.dsl.soa.Verb;
 import org.obeonetwork.dsl.soa.Wire;
 import org.obeonetwork.dsl.soa.design.dialogs.NewSecuritySchemeDialog;
 import org.obeonetwork.dsl.soa.services.HttpStatusService;
-import org.obeonetwork.utils.sirius.services.EObjectUtils;
+import org.obeonetwork.utils.common.EObjectUtils;
 
 public class SOAService {
 

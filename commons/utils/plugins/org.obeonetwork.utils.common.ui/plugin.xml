@@ -14,22 +14,22 @@
    <extension
          point="org.eclipse.core.expressions.propertyTesters">
       <propertyTester
-            class="org.obeonetwork.utils.sirius.propertyTesters.SiriusEditPartPropertyTester"
-            id="org.obeonetwork.utils.sirius.propertyTesters.SiriusEditPartPropertyTester"
+            class="org.obeonetwork.utils.common.ui.propertyTesters.SiriusEditPartPropertyTester"
+            id="org.obeonetwork.utils.common.ui.propertyTesters.SiriusEditPartPropertyTester"
             namespace="org.eclipse.sirius.diagram.ui.edit.api.part.ISiriusEditPart"
             properties="diagramName,viewpointId,mappingName"
             type="org.eclipse.sirius.diagram.ui.edit.api.part.ISiriusEditPart">
       </propertyTester>
       <propertyTester
-            class="org.obeonetwork.utils.sirius.propertyTesters.SiriusRepresentationPropertyTester"
-            id="org.obeonetwork.utils.sirius.propertyTesters.SiriusRepresentationPropertyTester"
+            class="org.obeonetwork.utils.common.ui.propertyTesters.SiriusRepresentationPropertyTester"
+            id="org.obeonetwork.utils.common.ui.propertyTesters.SiriusRepresentationPropertyTester"
             namespace="org.eclipse.sirius.viewpoint.dRepresentationElement"
             properties="definitionName"
             type="org.eclipse.sirius.viewpoint.DRepresentationElement">
       </propertyTester>
       <propertyTester
-            class="org.obeonetwork.utils.sirius.propertyTesters.DSemanticDecoratorPropertyTester"
-            id="org.obeonetwork.utils.sirius.propertyTesters.DSemanticDecoratorPropertyTester"
+            class="org.obeonetwork.utils.common.ui.propertyTesters.DSemanticDecoratorPropertyTester"
+            id="org.obeonetwork.utils.common.ui.propertyTesters.DSemanticDecoratorPropertyTester"
             namespace="org.eclipse.sirius.viewpoint.dSemanticDecorator"
             properties="targetType"
             type="org.eclipse.sirius.viewpoint.DSemanticDecorator">
