@@ -48,7 +48,7 @@ public class TransitionEditPartProvider extends AbstractEditPartProvider {
 
 			};
 
-			// When a direct edit is performed on the begin label, we perform this edit policy:
+			// Define the edit policy to use when a direct edit is performed on the begin label
 			dEdgePart.installEditPolicy(org.eclipse.gef.RequestConstants.REQ_DIRECT_EDIT,
 					new TransitionGuardEditLabel());
 
@@ -56,7 +56,7 @@ public class TransitionEditPartProvider extends AbstractEditPartProvider {
 
 		case DEdgeNameEditPart.VISUAL_ID:
 			
-			// We do not want to enable direct edit on the center label (event list) of a Transition.
+			// Disable direct edit on the center label (trigger event) of a Transition
 			DEdgeNameEditPart dEdgeCentralPart = new DEdgeNameEditPart(view) {
 
 				@Override

@@ -32,6 +32,7 @@ import org.eclipse.sirius.diagram.ui.part.SiriusVisualIDRegistry;
 import org.eclipse.sirius.diagram.ui.tools.api.command.GMFCommandWrapper;
 import org.eclipse.sirius.viewpoint.DSemanticDecorator;
 
+@SuppressWarnings("restriction")
 public class EnvironmentEditPartProvider  extends AbstractEditPartProvider {
 	
 	@Override

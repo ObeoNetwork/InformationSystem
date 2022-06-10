@@ -19,6 +19,7 @@ import org.obeonetwork.dsl.cinematic.design.services.label.ViewEditLabelSwitch;
 import org.obeonetwork.dsl.cinematic.design.services.label.ViewLabelSwitch;
 import org.obeonetwork.dsl.cinematic.design.services.label.ViewLongLabelSwitch;
 import org.obeonetwork.dsl.cinematic.flow.Transition;
+import org.obeonetwork.utils.common.StringUtils;
 
 /**
  * This class is used to compute the label of a cinematic element
@@ -70,7 +71,7 @@ public class CinematicLabelServices {
 	public static String getGuardLabel(Transition transition) {
 		StringBuilder builder = new StringBuilder();
 		
-		if (transition.getGuard() != null && transition.getGuard().trim() != "") {
+		if (!StringUtils.isNullOrWhite(transition.getGuard())) {
 			builder.append('[')
 				.append(transition.getGuard().trim())
 				.append(']');
