@@ -1,7 +1,7 @@
 Manifest-Version: 1.0
 Bundle-Name: Database Viewpoint
 Bundle-SymbolicName: org.obeonetwork.dsl.database.design;singleton:=true
-Bundle-Version: 3.1.0.qualifier
+Bundle-Version: 3.2.0.qualifier
 Bundle-Activator: org.obeonetwork.dsl.database.design.Activator
 Require-Bundle: org.obeonetwork.dsl.database,
  org.obeonetwork.dsl.database.edit,
