@@ -1,7 +1,7 @@
 Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-SymbolicName: org.obeonetwork.utils.common.ui;singleton:=true
-Bundle-Version: 3.1.0.qualifier
+Bundle-Version: 3.2.0.qualifier
 Bundle-Activator: org.obeonetwork.utils.common.ui.Activator
 Require-Bundle: org.eclipse.sirius.common,
  org.eclipse.core.expressions,
