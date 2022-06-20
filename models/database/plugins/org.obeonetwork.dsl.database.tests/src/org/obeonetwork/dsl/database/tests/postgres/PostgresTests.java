@@ -77,12 +77,14 @@ public class PostgresTests extends AbstractTests {
 	 */
 	@Parameters( name = "{0}")
 	public static Collection<String> postgreSQLVersions() {
-		return Arrays.asList(	"postgres:9.6-alpine", 
+		return Arrays.asList(	
+								"postgres:9.6-alpine",
 								"postgres:10.16-alpine",
 								"postgres:11.11-alpine",
 								"postgres:12.6-alpine",
 								"postgres:12.7-alpine",
-								"postgres:13.2-alpine"								
+								"postgres:13.2-alpine",
+								"postgres:14.3-alpine"
 							);
 	}
 	
