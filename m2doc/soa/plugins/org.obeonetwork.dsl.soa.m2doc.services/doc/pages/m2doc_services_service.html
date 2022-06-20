@@ -138,6 +138,20 @@
       <td colspan="1" rowspan="1">{m:service.referencedInterface}</td>
     </tr>
     <tr>
+      <td colspan="1" rowspan="1"><strong>securityApplications</strong></td>
+      <td colspan="1" rowspan="1">List of <a href="/help/topic/org.obeonetwork.dsl.soa.m2doc.services/doc/pages/m2doc_services_securityapplication.html">SecurityApplication</a></td>
+      <td colspan="1" rowspan="1">{m:service.securityApplications}</td>
+      <td colspan="1" rowspan="1"></td>
+      <td colspan="1" rowspan="1">{m:for securityApplication | service.securityApplications} securityApplication {m:securityApplication.name}, {m:endfor}</td>
+    </tr>
+    <tr>
+      <td colspan="1" rowspan="1"><strong>securitySchemes</strong></td>
+      <td colspan="1" rowspan="1">List of <a href="/help/topic/org.obeonetwork.dsl.soa.m2doc.services/doc/pages/m2doc_services_securityscheme.html">SecurityScheme</a></td>
+      <td colspan="1" rowspan="1">{m:service.securitySchemes}</td>
+      <td colspan="1" rowspan="1"></td>
+      <td colspan="1" rowspan="1">{m:for securityScheme | service.securitySchemes} securityScheme {m:securityScheme.name}, {m:endfor}</td>
+    </tr>
+    <tr>
       <td colspan="1" rowspan="1"><strong>synchronization</strong></td>
       <td colspan="1" rowspan="1">SynchronizationKind</td>
       <td colspan="1" rowspan="1">{m:service.synchronization}</td>
