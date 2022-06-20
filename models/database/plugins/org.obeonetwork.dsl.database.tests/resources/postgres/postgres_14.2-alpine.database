@@ -1,0 +1,1333 @@
+<?xml version="1.0" encoding="ASCII"?>
+<database:DataBase xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:database="http://www.obeonetwork.org/dsl/database/1.0" xmlns:typeslibrary="http://www.obeonetwork.org/dsl/typeslibrary/1.0" xmi:id="_EUQtMPCqEeyw1YWaPIGkzg" techID="_EObyAPCqEeyw1YWaPIGkzg" name="northwind">
+  <usedLibraries xsi:type="typeslibrary:NativeTypesLibrary" href="pathmap://NativeDBTypes/Postgres-9#_Zj69UBEnEeGTa_JlZYBw1A"/>
+  <schemas xmi:id="_EUQtMfCqEeyw1YWaPIGkzg" techID="_EOcZEPCqEeyw1YWaPIGkzg" name="public">
+    <tables xsi:type="database:Table" xmi:id="_EUQtMvCqEeyw1YWaPIGkzg" techID="_EOs3wPCqEeyw1YWaPIGkzg" name="customers">
+      <primaryKey xmi:id="_EUQtM_CqEeyw1YWaPIGkzg" techID="_EO_LoPCqEeyw1YWaPIGkzg" name="customers_pkey" columns="_EURUTfCqEeyw1YWaPIGkzg"/>
+      <indexes xmi:id="_EUQtNPCqEeyw1YWaPIGkzg" techID="_EPCO8PCqEeyw1YWaPIGkzg" name="customers_pkey" unique="true">
+        <elements xmi:id="_EURUQPCqEeyw1YWaPIGkzg" techID="_EPC2APCqEeyw1YWaPIGkzg" column="_EURUTfCqEeyw1YWaPIGkzg" asc="true"/>
+      </indexes>
+      <indexes xmi:id="_EURUQfCqEeyw1YWaPIGkzg" techID="_EPC2AfCqEeyw1YWaPIGkzg" name="city_customers">
+        <elements xmi:id="_EURUQvCqEeyw1YWaPIGkzg" techID="_EPC2AvCqEeyw1YWaPIGkzg" column="_EURUY_CqEeyw1YWaPIGkzg" asc="true"/>
+      </indexes>
+      <indexes xmi:id="_EURUQ_CqEeyw1YWaPIGkzg" techID="_EPC2A_CqEeyw1YWaPIGkzg" name="company_customers">
+        <elements xmi:id="_EURURPCqEeyw1YWaPIGkzg" techID="_EPC2BPCqEeyw1YWaPIGkzg" column="_EURUT_CqEeyw1YWaPIGkzg" asc="true"/>
+      </indexes>
+      <indexes xmi:id="_EURURfCqEeyw1YWaPIGkzg" techID="_EPC2BfCqEeyw1YWaPIGkzg" name="first_name_customers">
+        <elements xmi:id="_EURURvCqEeyw1YWaPIGkzg" techID="_EPC2BvCqEeyw1YWaPIGkzg" column="_EURUU_CqEeyw1YWaPIGkzg" asc="true"/>
+      </indexes>
+      <indexes xmi:id="_EURUR_CqEeyw1YWaPIGkzg" techID="_EPC2B_CqEeyw1YWaPIGkzg" name="last_name_customers">
+        <elements xmi:id="_EURUSPCqEeyw1YWaPIGkzg" techID="_EPDdEPCqEeyw1YWaPIGkzg" column="_EURUUfCqEeyw1YWaPIGkzg" asc="true"/>
+      </indexes>
+      <indexes xmi:id="_EURUSfCqEeyw1YWaPIGkzg" techID="_EPDdEfCqEeyw1YWaPIGkzg" name="state_province_customers">
+        <elements xmi:id="_EURUSvCqEeyw1YWaPIGkzg" techID="_EPDdEvCqEeyw1YWaPIGkzg" column="_EURUZfCqEeyw1YWaPIGkzg" asc="true"/>
+      </indexes>
+      <indexes xmi:id="_EURUS_CqEeyw1YWaPIGkzg" techID="_EPDdE_CqEeyw1YWaPIGkzg" name="zip_postal_code_customers">
+        <elements xmi:id="_EURUTPCqEeyw1YWaPIGkzg" techID="_EPDdFPCqEeyw1YWaPIGkzg" column="_EURUZ_CqEeyw1YWaPIGkzg" asc="true"/>
+      </indexes>
+      <columns xmi:id="_EURUTfCqEeyw1YWaPIGkzg" techID="_EO0MgPCqEeyw1YWaPIGkzg" name="id" defaultValue="nextval('customers_id_seq'::regclass)" indexElements="_EURUQPCqEeyw1YWaPIGkzg" primaryKey="_EUQtM_CqEeyw1YWaPIGkzg" autoincrement="true">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_EURUTvCqEeyw1YWaPIGkzg" length="10" precision="0">
+          <nativeType href="pathmap://NativeDBTypes/Postgres-9#_Vvu_0GTNEeSmq67_vSAzgg"/>
+        </type>
+      </columns>
+      <columns xmi:id="_EURUT_CqEeyw1YWaPIGkzg" techID="_EO2owPCqEeyw1YWaPIGkzg" name="company" nullable="true" defaultValue="" indexElements="_EURURPCqEeyw1YWaPIGkzg">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_EURUUPCqEeyw1YWaPIGkzg" length="50" precision="0">
+          <nativeType href="pathmap://NativeDBTypes/Postgres-9#_hn9LAGTNEeSmq67_vSAzgg"/>
+        </type>
+      </columns>
+      <columns xmi:id="_EURUUfCqEeyw1YWaPIGkzg" techID="_EO2owfCqEeyw1YWaPIGkzg" name="last_name" nullable="true" defaultValue="" indexElements="_EURUSPCqEeyw1YWaPIGkzg">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_EURUUvCqEeyw1YWaPIGkzg" length="50" precision="0">
+          <nativeType href="pathmap://NativeDBTypes/Postgres-9#_hn9LAGTNEeSmq67_vSAzgg"/>
+        </type>
+      </columns>
+      <columns xmi:id="_EURUU_CqEeyw1YWaPIGkzg" techID="_EO2owvCqEeyw1YWaPIGkzg" name="first_name" nullable="true" defaultValue="" indexElements="_EURURvCqEeyw1YWaPIGkzg">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_EURUVPCqEeyw1YWaPIGkzg" length="50" precision="0">
+          <nativeType href="pathmap://NativeDBTypes/Postgres-9#_hn9LAGTNEeSmq67_vSAzgg"/>
+        </type>
+      </columns>
+      <columns xmi:id="_EURUVfCqEeyw1YWaPIGkzg" techID="_EO2ow_CqEeyw1YWaPIGkzg" name="email_address" nullable="true" defaultValue="">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_EURUVvCqEeyw1YWaPIGkzg" length="50" precision="0">
+          <nativeType href="pathmap://NativeDBTypes/Postgres-9#_hn9LAGTNEeSmq67_vSAzgg"/>
+        </type>
+      </columns>
+      <columns xmi:id="_EURUV_CqEeyw1YWaPIGkzg" techID="_EO3P0PCqEeyw1YWaPIGkzg" name="job_title" nullable="true" defaultValue="">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_EURUWPCqEeyw1YWaPIGkzg" length="50" precision="0">
+          <nativeType href="pathmap://NativeDBTypes/Postgres-9#_hn9LAGTNEeSmq67_vSAzgg"/>
+        </type>
+      </columns>
+      <columns xmi:id="_EURUWfCqEeyw1YWaPIGkzg" techID="_EO3P0fCqEeyw1YWaPIGkzg" name="business_phone" nullable="true" defaultValue="">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_EURUWvCqEeyw1YWaPIGkzg" length="25" precision="0">
+          <nativeType href="pathmap://NativeDBTypes/Postgres-9#_hn9LAGTNEeSmq67_vSAzgg"/>
+        </type>
+      </columns>
+      <columns xmi:id="_EURUW_CqEeyw1YWaPIGkzg" techID="_EO3P0vCqEeyw1YWaPIGkzg" name="home_phone" nullable="true" defaultValue="">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_EURUXPCqEeyw1YWaPIGkzg" length="25" precision="0">
+          <nativeType href="pathmap://NativeDBTypes/Postgres-9#_hn9LAGTNEeSmq67_vSAzgg"/>
+        </type>
+      </columns>
+      <columns xmi:id="_EURUXfCqEeyw1YWaPIGkzg" techID="_EO3P0_CqEeyw1YWaPIGkzg" name="mobile_phone" nullable="true" defaultValue="">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_EURUXvCqEeyw1YWaPIGkzg" length="25" precision="0">
+          <nativeType href="pathmap://NativeDBTypes/Postgres-9#_hn9LAGTNEeSmq67_vSAzgg"/>
+        </type>
+      </columns>
+      <columns xmi:id="_EURUX_CqEeyw1YWaPIGkzg" techID="_EO3P1PCqEeyw1YWaPIGkzg" name="fax_number" nullable="true" defaultValue="">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_EURUYPCqEeyw1YWaPIGkzg" length="25" precision="0">
+          <nativeType href="pathmap://NativeDBTypes/Postgres-9#_hn9LAGTNEeSmq67_vSAzgg"/>
+        </type>
+      </columns>
+      <columns xmi:id="_EURUYfCqEeyw1YWaPIGkzg" techID="_EO3P1fCqEeyw1YWaPIGkzg" name="address" nullable="true" defaultValue="">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_EURUYvCqEeyw1YWaPIGkzg" length="2147483647" precision="0">
+          <nativeType href="pathmap://NativeDBTypes/Postgres-9#_X2UR0GTNEeSmq67_vSAzgg"/>
+        </type>
+      </columns>
+      <columns xmi:id="_EURUY_CqEeyw1YWaPIGkzg" techID="_EO3P1vCqEeyw1YWaPIGkzg" name="city" nullable="true" defaultValue="" indexElements="_EURUQvCqEeyw1YWaPIGkzg">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_EURUZPCqEeyw1YWaPIGkzg" length="50" precision="0">
+          <nativeType href="pathmap://NativeDBTypes/Postgres-9#_hn9LAGTNEeSmq67_vSAzgg"/>
+        </type>
+      </columns>
+      <columns xmi:id="_EURUZfCqEeyw1YWaPIGkzg" techID="_EO3P1_CqEeyw1YWaPIGkzg" name="state_province" nullable="true" defaultValue="" indexElements="_EURUSvCqEeyw1YWaPIGkzg">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_EURUZvCqEeyw1YWaPIGkzg" length="50" precision="0">
+          <nativeType href="pathmap://NativeDBTypes/Postgres-9#_hn9LAGTNEeSmq67_vSAzgg"/>
+        </type>
+      </columns>
+      <columns xmi:id="_EURUZ_CqEeyw1YWaPIGkzg" techID="_EO324PCqEeyw1YWaPIGkzg" name="zip_postal_code" nullable="true" defaultValue="" indexElements="_EURUTPCqEeyw1YWaPIGkzg">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_EURUaPCqEeyw1YWaPIGkzg" length="15" precision="0">
+          <nativeType href="pathmap://NativeDBTypes/Postgres-9#_hn9LAGTNEeSmq67_vSAzgg"/>
+        </type>
+      </columns>
+      <columns xmi:id="_EURUafCqEeyw1YWaPIGkzg" techID="_EO324fCqEeyw1YWaPIGkzg" name="country_region" nullable="true" defaultValue="">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_EURUavCqEeyw1YWaPIGkzg" length="50" precision="0">
+          <nativeType href="pathmap://NativeDBTypes/Postgres-9#_hn9LAGTNEeSmq67_vSAzgg"/>
+        </type>
+      </columns>
+      <columns xmi:id="_EURUa_CqEeyw1YWaPIGkzg" techID="_EO324vCqEeyw1YWaPIGkzg" name="web_page" nullable="true" defaultValue="">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_EURUbPCqEeyw1YWaPIGkzg" length="2147483647" precision="0">
+          <nativeType href="pathmap://NativeDBTypes/Postgres-9#_X2UR0GTNEeSmq67_vSAzgg"/>
+        </type>
+      </columns>
+      <columns xmi:id="_EURUbfCqEeyw1YWaPIGkzg" techID="_EO324_CqEeyw1YWaPIGkzg" name="notes" nullable="true" defaultValue="">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_EURUbvCqEeyw1YWaPIGkzg" length="2147483647" precision="0">
+          <nativeType href="pathmap://NativeDBTypes/Postgres-9#_X2UR0GTNEeSmq67_vSAzgg"/>
+        </type>
+      </columns>
+      <columns xmi:id="_EURUb_CqEeyw1YWaPIGkzg" techID="_EO325PCqEeyw1YWaPIGkzg" name="attachments" nullable="true" defaultValue="">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_EURUcPCqEeyw1YWaPIGkzg" length="2147483647" precision="0">
+          <nativeType href="pathmap://NativeDBTypes/Postgres-9#_3Xq00G5GEeS0qO0NdvQESw"/>
+        </type>
+      </columns>
+    </tables>
+    <tables xsi:type="database:Table" xmi:id="_EURUcfCqEeyw1YWaPIGkzg" techID="_EPDdFfCqEeyw1YWaPIGkzg" name="databasechangelog">
+      <columns xmi:id="_EURUcvCqEeyw1YWaPIGkzg" techID="_EPF5UPCqEeyw1YWaPIGkzg" name="id" defaultValue="">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_EURUc_CqEeyw1YWaPIGkzg" length="255" precision="0">
+          <nativeType href="pathmap://NativeDBTypes/Postgres-9#_hn9LAGTNEeSmq67_vSAzgg"/>
+        </type>
+      </columns>
+      <columns xmi:id="_EURUdPCqEeyw1YWaPIGkzg" techID="_EPGgYPCqEeyw1YWaPIGkzg" name="author" defaultValue="">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_EURUdfCqEeyw1YWaPIGkzg" length="255" precision="0">
+          <nativeType href="pathmap://NativeDBTypes/Postgres-9#_hn9LAGTNEeSmq67_vSAzgg"/>
+        </type>
+      </columns>
+      <columns xmi:id="_EURUdvCqEeyw1YWaPIGkzg" techID="_EPGgYfCqEeyw1YWaPIGkzg" name="filename" defaultValue="">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_EURUd_CqEeyw1YWaPIGkzg" length="255" precision="0">
+          <nativeType href="pathmap://NativeDBTypes/Postgres-9#_hn9LAGTNEeSmq67_vSAzgg"/>
+        </type>
+      </columns>
+      <columns xmi:id="_EURUePCqEeyw1YWaPIGkzg" techID="_EPGgYvCqEeyw1YWaPIGkzg" name="dateexecuted" defaultValue="">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_EURUefCqEeyw1YWaPIGkzg" length="29" precision="6">
+          <nativeType href="pathmap://NativeDBTypes/Postgres-9#_cVwRkGTNEeSmq67_vSAzgg"/>
+        </type>
+      </columns>
+      <columns xmi:id="_EURUevCqEeyw1YWaPIGkzg" techID="_EPGgY_CqEeyw1YWaPIGkzg" name="orderexecuted" defaultValue="">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_EURUe_CqEeyw1YWaPIGkzg" length="10" precision="0">
+          <nativeType href="pathmap://NativeDBTypes/Postgres-9#_ArM2EGTNEeSmq67_vSAzgg"/>
+        </type>
+      </columns>
+      <columns xmi:id="_EURUfPCqEeyw1YWaPIGkzg" techID="_EPGgZPCqEeyw1YWaPIGkzg" name="exectype" defaultValue="">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_EURUffCqEeyw1YWaPIGkzg" length="10" precision="0">
+          <nativeType href="pathmap://NativeDBTypes/Postgres-9#_hn9LAGTNEeSmq67_vSAzgg"/>
+        </type>
+      </columns>
+      <columns xmi:id="_EURUfvCqEeyw1YWaPIGkzg" techID="_EPHHcPCqEeyw1YWaPIGkzg" name="md5sum" nullable="true" defaultValue="">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_EURUf_CqEeyw1YWaPIGkzg" length="35" precision="0">
+          <nativeType href="pathmap://NativeDBTypes/Postgres-9#_hn9LAGTNEeSmq67_vSAzgg"/>
+        </type>
+      </columns>
+      <columns xmi:id="_EURUgPCqEeyw1YWaPIGkzg" techID="_EPHHcfCqEeyw1YWaPIGkzg" name="description" nullable="true" defaultValue="">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_EURUgfCqEeyw1YWaPIGkzg" length="255" precision="0">
+          <nativeType href="pathmap://NativeDBTypes/Postgres-9#_hn9LAGTNEeSmq67_vSAzgg"/>
+        </type>
+      </columns>
+      <columns xmi:id="_EURUgvCqEeyw1YWaPIGkzg" techID="_EPHHcvCqEeyw1YWaPIGkzg" name="comments" nullable="true" defaultValue="">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_EURUg_CqEeyw1YWaPIGkzg" length="255" precision="0">
+          <nativeType href="pathmap://NativeDBTypes/Postgres-9#_hn9LAGTNEeSmq67_vSAzgg"/>
+        </type>
+      </columns>
+      <columns xmi:id="_EURUhPCqEeyw1YWaPIGkzg" techID="_EPHHc_CqEeyw1YWaPIGkzg" name="tag" nullable="true" defaultValue="">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_EURUhfCqEeyw1YWaPIGkzg" length="255" precision="0">
+          <nativeType href="pathmap://NativeDBTypes/Postgres-9#_hn9LAGTNEeSmq67_vSAzgg"/>
+        </type>
+      </columns>
+      <columns xmi:id="_EURUhvCqEeyw1YWaPIGkzg" techID="_EPHHdPCqEeyw1YWaPIGkzg" name="liquibase" nullable="true" defaultValue="">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_EURUh_CqEeyw1YWaPIGkzg" length="20" precision="0">
+          <nativeType href="pathmap://NativeDBTypes/Postgres-9#_hn9LAGTNEeSmq67_vSAzgg"/>
+        </type>
+      </columns>
+      <columns xmi:id="_EURUiPCqEeyw1YWaPIGkzg" techID="_EPHHdfCqEeyw1YWaPIGkzg" name="contexts" nullable="true" defaultValue="">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_EURUifCqEeyw1YWaPIGkzg" length="255" precision="0">
+          <nativeType href="pathmap://NativeDBTypes/Postgres-9#_hn9LAGTNEeSmq67_vSAzgg"/>
+        </type>
+      </columns>
+      <columns xmi:id="_EURUivCqEeyw1YWaPIGkzg" techID="_EPHHdvCqEeyw1YWaPIGkzg" name="labels" nullable="true" defaultValue="">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_EURUi_CqEeyw1YWaPIGkzg" length="255" precision="0">
+          <nativeType href="pathmap://NativeDBTypes/Postgres-9#_hn9LAGTNEeSmq67_vSAzgg"/>
+        </type>
+      </columns>
+      <columns xmi:id="_EURUjPCqEeyw1YWaPIGkzg" techID="_EPHHd_CqEeyw1YWaPIGkzg" name="deployment_id" nullable="true" defaultValue="">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_EURUjfCqEeyw1YWaPIGkzg" length="10" precision="0">
+          <nativeType href="pathmap://NativeDBTypes/Postgres-9#_hn9LAGTNEeSmq67_vSAzgg"/>
+        </type>
+      </columns>
+    </tables>
+    <tables xsi:type="database:Table" xmi:id="_EURUjvCqEeyw1YWaPIGkzg" techID="_EPN1IPCqEeyw1YWaPIGkzg" name="databasechangeloglock">
+      <primaryKey xmi:id="_EURUj_CqEeyw1YWaPIGkzg" techID="_EPUi0PCqEeyw1YWaPIGkzg" name="databasechangeloglock_pkey" columns="_EURUkvCqEeyw1YWaPIGkzg"/>
+      <indexes xmi:id="_EURUkPCqEeyw1YWaPIGkzg" techID="_EPW_EPCqEeyw1YWaPIGkzg" name="databasechangeloglock_pkey" unique="true">
+        <elements xmi:id="_EURUkfCqEeyw1YWaPIGkzg" techID="_EPW_EfCqEeyw1YWaPIGkzg" column="_EURUkvCqEeyw1YWaPIGkzg" asc="true"/>
+      </indexes>
+      <columns xmi:id="_EURUkvCqEeyw1YWaPIGkzg" techID="_EPQRYPCqEeyw1YWaPIGkzg" name="id" defaultValue="" indexElements="_EURUkfCqEeyw1YWaPIGkzg" primaryKey="_EURUj_CqEeyw1YWaPIGkzg">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_EURUk_CqEeyw1YWaPIGkzg" length="10" precision="0">
+          <nativeType href="pathmap://NativeDBTypes/Postgres-9#_ArM2EGTNEeSmq67_vSAzgg"/>
+        </type>
+      </columns>
+      <columns xmi:id="_EURUlPCqEeyw1YWaPIGkzg" techID="_EPQ4cPCqEeyw1YWaPIGkzg" name="locked" defaultValue="">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_EURUlfCqEeyw1YWaPIGkzg" length="1" precision="0">
+          <nativeType href="pathmap://NativeDBTypes/Postgres-9#_iBb3cGTMEeSmq67_vSAzgg"/>
+        </type>
+      </columns>
+      <columns xmi:id="_EURUlvCqEeyw1YWaPIGkzg" techID="_EPQ4cfCqEeyw1YWaPIGkzg" name="lockgranted" nullable="true" defaultValue="">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_EURUl_CqEeyw1YWaPIGkzg" length="29" precision="6">
+          <nativeType href="pathmap://NativeDBTypes/Postgres-9#_cVwRkGTNEeSmq67_vSAzgg"/>
+        </type>
+      </columns>
+      <columns xmi:id="_EURUmPCqEeyw1YWaPIGkzg" techID="_EPQ4cvCqEeyw1YWaPIGkzg" name="lockedby" nullable="true" defaultValue="">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_EURUmfCqEeyw1YWaPIGkzg" length="255" precision="0">
+          <nativeType href="pathmap://NativeDBTypes/Postgres-9#_hn9LAGTNEeSmq67_vSAzgg"/>
+        </type>
+      </columns>
+    </tables>
+    <tables xsi:type="database:Table" xmi:id="_EURUmvCqEeyw1YWaPIGkzg" techID="_EPW_EvCqEeyw1YWaPIGkzg" name="employee_privileges">
+      <primaryKey xmi:id="_EURUm_CqEeyw1YWaPIGkzg" techID="_EPfh8PCqEeyw1YWaPIGkzg" name="employee_privileges_pkey" columns="_EURUp_CqEeyw1YWaPIGkzg _EURUqfCqEeyw1YWaPIGkzg"/>
+      <foreignKeys xmi:id="_EURUnPCqEeyw1YWaPIGkzg" techID="_ESRwMPCqEeyw1YWaPIGkzg" name="fk_employee_privileges_employees1" target="_EURUq_CqEeyw1YWaPIGkzg">
+        <elements xmi:id="_EURUnfCqEeyw1YWaPIGkzg" techID="_ESSXQPCqEeyw1YWaPIGkzg" fkColumn="_EURUp_CqEeyw1YWaPIGkzg" pkColumn="_EURUu_CqEeyw1YWaPIGkzg"/>
+      </foreignKeys>
+      <foreignKeys xmi:id="_EURUnvCqEeyw1YWaPIGkzg" techID="_ESSXQfCqEeyw1YWaPIGkzg" name="fk_employee_privileges_privileges1" target="_EUR76vCqEeyw1YWaPIGkzg">
+        <elements xmi:id="_EURUn_CqEeyw1YWaPIGkzg" techID="_ESSXQvCqEeyw1YWaPIGkzg" fkColumn="_EURUqfCqEeyw1YWaPIGkzg" pkColumn="_EUR77vCqEeyw1YWaPIGkzg"/>
+      </foreignKeys>
+      <indexes xmi:id="_EURUoPCqEeyw1YWaPIGkzg" techID="_EPh-MPCqEeyw1YWaPIGkzg" name="employee_privileges_pkey" unique="true">
+        <elements xmi:id="_EURUofCqEeyw1YWaPIGkzg" techID="_EPh-MfCqEeyw1YWaPIGkzg" column="_EURUp_CqEeyw1YWaPIGkzg" asc="true"/>
+        <elements xmi:id="_EURUovCqEeyw1YWaPIGkzg" techID="_EPh-MvCqEeyw1YWaPIGkzg" column="_EURUqfCqEeyw1YWaPIGkzg" asc="true"/>
+      </indexes>
+      <indexes xmi:id="_EURUo_CqEeyw1YWaPIGkzg" techID="_EPh-M_CqEeyw1YWaPIGkzg" name="employee_id">
+        <elements xmi:id="_EURUpPCqEeyw1YWaPIGkzg" techID="_EPh-NPCqEeyw1YWaPIGkzg" column="_EURUp_CqEeyw1YWaPIGkzg" asc="true"/>
+      </indexes>
+      <indexes xmi:id="_EURUpfCqEeyw1YWaPIGkzg" techID="_EPh-NfCqEeyw1YWaPIGkzg" name="privilege_id">
+        <elements xmi:id="_EURUpvCqEeyw1YWaPIGkzg" techID="_EPh-NvCqEeyw1YWaPIGkzg" column="_EURUqfCqEeyw1YWaPIGkzg" asc="true"/>
+      </indexes>
+      <columns xmi:id="_EURUp_CqEeyw1YWaPIGkzg" techID="_EPaCYPCqEeyw1YWaPIGkzg" name="employee_id" defaultValue="" indexElements="_EURUofCqEeyw1YWaPIGkzg _EURUpPCqEeyw1YWaPIGkzg" primaryKey="_EURUm_CqEeyw1YWaPIGkzg" foreignKeyElements="_EURUnfCqEeyw1YWaPIGkzg">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_EURUqPCqEeyw1YWaPIGkzg" length="10" precision="0">
+          <nativeType href="pathmap://NativeDBTypes/Postgres-9#_ArM2EGTNEeSmq67_vSAzgg"/>
+        </type>
+      </columns>
+      <columns xmi:id="_EURUqfCqEeyw1YWaPIGkzg" techID="_EPapcPCqEeyw1YWaPIGkzg" name="privilege_id" defaultValue="" indexElements="_EURUovCqEeyw1YWaPIGkzg _EURUpvCqEeyw1YWaPIGkzg" primaryKey="_EURUm_CqEeyw1YWaPIGkzg" foreignKeyElements="_EURUn_CqEeyw1YWaPIGkzg">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_EURUqvCqEeyw1YWaPIGkzg" length="10" precision="0">
+          <nativeType href="pathmap://NativeDBTypes/Postgres-9#_ArM2EGTNEeSmq67_vSAzgg"/>
+        </type>
+      </columns>
+    </tables>
+    <tables xsi:type="database:Table" xmi:id="_EURUq_CqEeyw1YWaPIGkzg" techID="_EPh-N_CqEeyw1YWaPIGkzg" name="employees">
+      <primaryKey xmi:id="_EURUrPCqEeyw1YWaPIGkzg" techID="_EPsWQPCqEeyw1YWaPIGkzg" name="employees_pkey" columns="_EURUu_CqEeyw1YWaPIGkzg"/>
+      <indexes xmi:id="_EURUrfCqEeyw1YWaPIGkzg" techID="_EPuygPCqEeyw1YWaPIGkzg" name="employees_pkey" unique="true">
+        <elements xmi:id="_EURUrvCqEeyw1YWaPIGkzg" techID="_EPvZkPCqEeyw1YWaPIGkzg" column="_EURUu_CqEeyw1YWaPIGkzg" asc="true"/>
+      </indexes>
+      <indexes xmi:id="_EURUr_CqEeyw1YWaPIGkzg" techID="_EPvZkfCqEeyw1YWaPIGkzg" name="city_employees">
+        <elements xmi:id="_EURUsPCqEeyw1YWaPIGkzg" techID="_EPvZkvCqEeyw1YWaPIGkzg" column="_EURU0fCqEeyw1YWaPIGkzg" asc="true"/>
+      </indexes>
+      <indexes xmi:id="_EURUsfCqEeyw1YWaPIGkzg" techID="_EPvZk_CqEeyw1YWaPIGkzg" name="company_employees">
+        <elements xmi:id="_EURUsvCqEeyw1YWaPIGkzg" techID="_EPvZlPCqEeyw1YWaPIGkzg" column="_EURUvfCqEeyw1YWaPIGkzg" asc="true"/>
+      </indexes>
+      <indexes xmi:id="_EURUs_CqEeyw1YWaPIGkzg" techID="_EPvZlfCqEeyw1YWaPIGkzg" name="first_name_employees">
+        <elements xmi:id="_EURUtPCqEeyw1YWaPIGkzg" techID="_EPvZlvCqEeyw1YWaPIGkzg" column="_EURUwfCqEeyw1YWaPIGkzg" asc="true"/>
+      </indexes>
+      <indexes xmi:id="_EURUtfCqEeyw1YWaPIGkzg" techID="_EPvZl_CqEeyw1YWaPIGkzg" name="last_name_employees">
+        <elements xmi:id="_EURUtvCqEeyw1YWaPIGkzg" techID="_EPvZmPCqEeyw1YWaPIGkzg" column="_EURUv_CqEeyw1YWaPIGkzg" asc="true"/>
+      </indexes>
+      <indexes xmi:id="_EURUt_CqEeyw1YWaPIGkzg" techID="_EPvZmfCqEeyw1YWaPIGkzg" name="state_province_employees">
+        <elements xmi:id="_EURUuPCqEeyw1YWaPIGkzg" techID="_EPvZmvCqEeyw1YWaPIGkzg" column="_EURU0_CqEeyw1YWaPIGkzg" asc="true"/>
+      </indexes>
+      <indexes xmi:id="_EURUufCqEeyw1YWaPIGkzg" techID="_EPvZm_CqEeyw1YWaPIGkzg" name="zip_postal_code_employees">
+        <elements xmi:id="_EURUuvCqEeyw1YWaPIGkzg" techID="_EPvZnPCqEeyw1YWaPIGkzg" column="_EURU1fCqEeyw1YWaPIGkzg" asc="true"/>
+      </indexes>
+      <columns xmi:id="_EURUu_CqEeyw1YWaPIGkzg" techID="_EPlokPCqEeyw1YWaPIGkzg" name="id" defaultValue="nextval('employees_id_seq'::regclass)" indexElements="_EURUrvCqEeyw1YWaPIGkzg" primaryKey="_EURUrPCqEeyw1YWaPIGkzg" autoincrement="true">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_EURUvPCqEeyw1YWaPIGkzg" length="10" precision="0">
+          <nativeType href="pathmap://NativeDBTypes/Postgres-9#_Vvu_0GTNEeSmq67_vSAzgg"/>
+        </type>
+      </columns>
+      <columns xmi:id="_EURUvfCqEeyw1YWaPIGkzg" techID="_EPlokfCqEeyw1YWaPIGkzg" name="company" nullable="true" defaultValue="" indexElements="_EURUsvCqEeyw1YWaPIGkzg">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_EURUvvCqEeyw1YWaPIGkzg" length="50" precision="0">
+          <nativeType href="pathmap://NativeDBTypes/Postgres-9#_hn9LAGTNEeSmq67_vSAzgg"/>
+        </type>
+      </columns>
+      <columns xmi:id="_EURUv_CqEeyw1YWaPIGkzg" techID="_EPlokvCqEeyw1YWaPIGkzg" name="last_name" nullable="true" defaultValue="" indexElements="_EURUtvCqEeyw1YWaPIGkzg">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_EURUwPCqEeyw1YWaPIGkzg" length="50" precision="0">
+          <nativeType href="pathmap://NativeDBTypes/Postgres-9#_hn9LAGTNEeSmq67_vSAzgg"/>
+        </type>
+      </columns>
+      <columns xmi:id="_EURUwfCqEeyw1YWaPIGkzg" techID="_EPlok_CqEeyw1YWaPIGkzg" name="first_name" nullable="true" defaultValue="" indexElements="_EURUtPCqEeyw1YWaPIGkzg">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_EURUwvCqEeyw1YWaPIGkzg" length="50" precision="0">
+          <nativeType href="pathmap://NativeDBTypes/Postgres-9#_hn9LAGTNEeSmq67_vSAzgg"/>
+        </type>
+      </columns>
+      <columns xmi:id="_EURUw_CqEeyw1YWaPIGkzg" techID="_EPmPoPCqEeyw1YWaPIGkzg" name="email_address" nullable="true" defaultValue="">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_EURUxPCqEeyw1YWaPIGkzg" length="50" precision="0">
+          <nativeType href="pathmap://NativeDBTypes/Postgres-9#_hn9LAGTNEeSmq67_vSAzgg"/>
+        </type>
+      </columns>
+      <columns xmi:id="_EURUxfCqEeyw1YWaPIGkzg" techID="_EPmPofCqEeyw1YWaPIGkzg" name="job_title" nullable="true" defaultValue="">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_EURUxvCqEeyw1YWaPIGkzg" length="50" precision="0">
+          <nativeType href="pathmap://NativeDBTypes/Postgres-9#_hn9LAGTNEeSmq67_vSAzgg"/>
+        </type>
+      </columns>
+      <columns xmi:id="_EURUx_CqEeyw1YWaPIGkzg" techID="_EPmPovCqEeyw1YWaPIGkzg" name="business_phone" nullable="true" defaultValue="">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_EURUyPCqEeyw1YWaPIGkzg" length="25" precision="0">
+          <nativeType href="pathmap://NativeDBTypes/Postgres-9#_hn9LAGTNEeSmq67_vSAzgg"/>
+        </type>
+      </columns>
+      <columns xmi:id="_EURUyfCqEeyw1YWaPIGkzg" techID="_EPmPo_CqEeyw1YWaPIGkzg" name="home_phone" nullable="true" defaultValue="">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_EURUyvCqEeyw1YWaPIGkzg" length="25" precision="0">
+          <nativeType href="pathmap://NativeDBTypes/Postgres-9#_hn9LAGTNEeSmq67_vSAzgg"/>
+        </type>
+      </columns>
+      <columns xmi:id="_EURUy_CqEeyw1YWaPIGkzg" techID="_EPmPpPCqEeyw1YWaPIGkzg" name="mobile_phone" nullable="true" defaultValue="">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_EURUzPCqEeyw1YWaPIGkzg" length="25" precision="0">
+          <nativeType href="pathmap://NativeDBTypes/Postgres-9#_hn9LAGTNEeSmq67_vSAzgg"/>
+        </type>
+      </columns>
+      <columns xmi:id="_EURUzfCqEeyw1YWaPIGkzg" techID="_EPmPpfCqEeyw1YWaPIGkzg" name="fax_number" nullable="true" defaultValue="">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_EURUzvCqEeyw1YWaPIGkzg" length="25" precision="0">
+          <nativeType href="pathmap://NativeDBTypes/Postgres-9#_hn9LAGTNEeSmq67_vSAzgg"/>
+        </type>
+      </columns>
+      <columns xmi:id="_EURUz_CqEeyw1YWaPIGkzg" techID="_EPmPpvCqEeyw1YWaPIGkzg" name="address" nullable="true" defaultValue="">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_EURU0PCqEeyw1YWaPIGkzg" length="2147483647" precision="0">
+          <nativeType href="pathmap://NativeDBTypes/Postgres-9#_X2UR0GTNEeSmq67_vSAzgg"/>
+        </type>
+      </columns>
+      <columns xmi:id="_EURU0fCqEeyw1YWaPIGkzg" techID="_EPmPp_CqEeyw1YWaPIGkzg" name="city" nullable="true" defaultValue="" indexElements="_EURUsPCqEeyw1YWaPIGkzg">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_EURU0vCqEeyw1YWaPIGkzg" length="50" precision="0">
+          <nativeType href="pathmap://NativeDBTypes/Postgres-9#_hn9LAGTNEeSmq67_vSAzgg"/>
+        </type>
+      </columns>
+      <columns xmi:id="_EURU0_CqEeyw1YWaPIGkzg" techID="_EPm2sPCqEeyw1YWaPIGkzg" name="state_province" nullable="true" defaultValue="" indexElements="_EURUuPCqEeyw1YWaPIGkzg">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_EURU1PCqEeyw1YWaPIGkzg" length="50" precision="0">
+          <nativeType href="pathmap://NativeDBTypes/Postgres-9#_hn9LAGTNEeSmq67_vSAzgg"/>
+        </type>
+      </columns>
+      <columns xmi:id="_EURU1fCqEeyw1YWaPIGkzg" techID="_EPm2sfCqEeyw1YWaPIGkzg" name="zip_postal_code" nullable="true" defaultValue="" indexElements="_EURUuvCqEeyw1YWaPIGkzg">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_EURU1vCqEeyw1YWaPIGkzg" length="15" precision="0">
+          <nativeType href="pathmap://NativeDBTypes/Postgres-9#_hn9LAGTNEeSmq67_vSAzgg"/>
+        </type>
+      </columns>
+      <columns xmi:id="_EURU1_CqEeyw1YWaPIGkzg" techID="_EPm2svCqEeyw1YWaPIGkzg" name="country_region" nullable="true" defaultValue="">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_EURU2PCqEeyw1YWaPIGkzg" length="50" precision="0">
+          <nativeType href="pathmap://NativeDBTypes/Postgres-9#_hn9LAGTNEeSmq67_vSAzgg"/>
+        </type>
+      </columns>
+      <columns xmi:id="_EURU2fCqEeyw1YWaPIGkzg" techID="_EPm2s_CqEeyw1YWaPIGkzg" name="web_page" nullable="true" defaultValue="">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_EURU2vCqEeyw1YWaPIGkzg" length="2147483647" precision="0">
+          <nativeType href="pathmap://NativeDBTypes/Postgres-9#_X2UR0GTNEeSmq67_vSAzgg"/>
+        </type>
+      </columns>
+      <columns xmi:id="_EURU2_CqEeyw1YWaPIGkzg" techID="_EPm2tPCqEeyw1YWaPIGkzg" name="notes" nullable="true" defaultValue="">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_EURU3PCqEeyw1YWaPIGkzg" length="2147483647" precision="0">
+          <nativeType href="pathmap://NativeDBTypes/Postgres-9#_X2UR0GTNEeSmq67_vSAzgg"/>
+        </type>
+      </columns>
+      <columns xmi:id="_EURU3fCqEeyw1YWaPIGkzg" techID="_EPm2tfCqEeyw1YWaPIGkzg" name="attachments" nullable="true" defaultValue="">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_EURU3vCqEeyw1YWaPIGkzg" length="2147483647" precision="0">
+          <nativeType href="pathmap://NativeDBTypes/Postgres-9#_3Xq00G5GEeS0qO0NdvQESw"/>
+        </type>
+      </columns>
+    </tables>
+    <tables xsi:type="database:Table" xmi:id="_EURU3_CqEeyw1YWaPIGkzg" techID="_EPvZnfCqEeyw1YWaPIGkzg" name="inventory_transaction_types">
+      <primaryKey xmi:id="_EURU4PCqEeyw1YWaPIGkzg" techID="_EP38cPCqEeyw1YWaPIGkzg" name="inventory_transaction_types_pkey" columns="_EURU4_CqEeyw1YWaPIGkzg"/>
+      <indexes xmi:id="_EURU4fCqEeyw1YWaPIGkzg" techID="_EP6_wPCqEeyw1YWaPIGkzg" name="inventory_transaction_types_pkey" unique="true">
+        <elements xmi:id="_EURU4vCqEeyw1YWaPIGkzg" techID="_EP6_wfCqEeyw1YWaPIGkzg" column="_EURU4_CqEeyw1YWaPIGkzg" asc="true"/>
+      </indexes>
+      <columns xmi:id="_EURU4_CqEeyw1YWaPIGkzg" techID="_EPzD8PCqEeyw1YWaPIGkzg" name="id" defaultValue="" indexElements="_EURU4vCqEeyw1YWaPIGkzg" primaryKey="_EURU4PCqEeyw1YWaPIGkzg">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_EURU5PCqEeyw1YWaPIGkzg" length="5" precision="0">
+          <nativeType href="pathmap://NativeDBTypes/Postgres-9#__VwGEGTMEeSmq67_vSAzgg"/>
+        </type>
+      </columns>
+      <columns xmi:id="_EURU5fCqEeyw1YWaPIGkzg" techID="_EPzD8fCqEeyw1YWaPIGkzg" name="type_name" defaultValue="">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_EURU5vCqEeyw1YWaPIGkzg" length="50" precision="0">
+          <nativeType href="pathmap://NativeDBTypes/Postgres-9#_hn9LAGTNEeSmq67_vSAzgg"/>
+        </type>
+      </columns>
+    </tables>
+    <tables xsi:type="database:Table" xmi:id="_EURU5_CqEeyw1YWaPIGkzg" techID="_EP6_wvCqEeyw1YWaPIGkzg" name="inventory_transactions">
+      <primaryKey xmi:id="_EURU6PCqEeyw1YWaPIGkzg" techID="_EQDioPCqEeyw1YWaPIGkzg" name="inventory_transactions_pkey" columns="_EURU-_CqEeyw1YWaPIGkzg"/>
+      <foreignKeys xmi:id="_EURU6fCqEeyw1YWaPIGkzg" techID="_ESlSMPCqEeyw1YWaPIGkzg" name="fk_inventory_transactions_inventory_transaction_types1" target="_EURU3_CqEeyw1YWaPIGkzg">
+        <elements xmi:id="_EURU6vCqEeyw1YWaPIGkzg" techID="_ESlSMfCqEeyw1YWaPIGkzg" fkColumn="_EURU_fCqEeyw1YWaPIGkzg" pkColumn="_EURU4_CqEeyw1YWaPIGkzg"/>
+      </foreignKeys>
+      <foreignKeys xmi:id="_EURU6_CqEeyw1YWaPIGkzg" techID="_ESlSMvCqEeyw1YWaPIGkzg" name="fk_inventory_transactions_orders1" target="_EUR7mPCqEeyw1YWaPIGkzg">
+        <elements xmi:id="_EURU7PCqEeyw1YWaPIGkzg" techID="_ESlSM_CqEeyw1YWaPIGkzg" fkColumn="_EURVCfCqEeyw1YWaPIGkzg" pkColumn="_EUR7svCqEeyw1YWaPIGkzg"/>
+      </foreignKeys>
+      <foreignKeys xmi:id="_EURU7fCqEeyw1YWaPIGkzg" techID="_ESlSNPCqEeyw1YWaPIGkzg" name="fk_inventory_transactions_products1" target="_EUR78vCqEeyw1YWaPIGkzg">
+        <elements xmi:id="_EURU7vCqEeyw1YWaPIGkzg" techID="_ESlSNfCqEeyw1YWaPIGkzg" fkColumn="_EURVA_CqEeyw1YWaPIGkzg" pkColumn="_EUR7-vCqEeyw1YWaPIGkzg"/>
+      </foreignKeys>
+      <foreignKeys xmi:id="_EURU7_CqEeyw1YWaPIGkzg" techID="_ESlSNvCqEeyw1YWaPIGkzg" name="fk_inventory_transactions_purchase_orders1" target="_EUR8PPCqEeyw1YWaPIGkzg">
+        <elements xmi:id="_EURU8PCqEeyw1YWaPIGkzg" techID="_ESlSN_CqEeyw1YWaPIGkzg" fkColumn="_EURVB_CqEeyw1YWaPIGkzg" pkColumn="_EUR8TPCqEeyw1YWaPIGkzg"/>
+      </foreignKeys>
+      <indexes xmi:id="_EURU8fCqEeyw1YWaPIGkzg" techID="_EQF-4PCqEeyw1YWaPIGkzg" name="inventory_transactions_pkey" unique="true">
+        <elements xmi:id="_EURU8vCqEeyw1YWaPIGkzg" techID="_EQF-4fCqEeyw1YWaPIGkzg" column="_EURU-_CqEeyw1YWaPIGkzg" asc="true"/>
+      </indexes>
+      <indexes xmi:id="_EURU8_CqEeyw1YWaPIGkzg" techID="_EQF-4vCqEeyw1YWaPIGkzg" name="customer_order_id_2">
+        <elements xmi:id="_EURU9PCqEeyw1YWaPIGkzg" techID="_EQF-4_CqEeyw1YWaPIGkzg" column="_EURVCfCqEeyw1YWaPIGkzg" asc="true"/>
+      </indexes>
+      <indexes xmi:id="_EURU9fCqEeyw1YWaPIGkzg" techID="_EQF-5PCqEeyw1YWaPIGkzg" name="product_id_inventory_transactions">
+        <elements xmi:id="_EURU9vCqEeyw1YWaPIGkzg" techID="_EQF-5fCqEeyw1YWaPIGkzg" column="_EURVA_CqEeyw1YWaPIGkzg" asc="true"/>
+      </indexes>
+      <indexes xmi:id="_EURU9_CqEeyw1YWaPIGkzg" techID="_EQF-5vCqEeyw1YWaPIGkzg" name="purchase_order_id_inventory_transactions">
+        <elements xmi:id="_EURU-PCqEeyw1YWaPIGkzg" techID="_EQF-5_CqEeyw1YWaPIGkzg" column="_EURVB_CqEeyw1YWaPIGkzg" asc="true"/>
+      </indexes>
+      <indexes xmi:id="_EURU-fCqEeyw1YWaPIGkzg" techID="_EQF-6PCqEeyw1YWaPIGkzg" name="transaction_type">
+        <elements xmi:id="_EURU-vCqEeyw1YWaPIGkzg" techID="_EQF-6fCqEeyw1YWaPIGkzg" column="_EURU_fCqEeyw1YWaPIGkzg" asc="true"/>
+      </indexes>
+      <columns xmi:id="_EURU-_CqEeyw1YWaPIGkzg" techID="_EP-qIPCqEeyw1YWaPIGkzg" name="id" defaultValue="nextval('inventory_transactions_id_seq'::regclass)" indexElements="_EURU8vCqEeyw1YWaPIGkzg" primaryKey="_EURU6PCqEeyw1YWaPIGkzg" autoincrement="true">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_EURU_PCqEeyw1YWaPIGkzg" length="10" precision="0">
+          <nativeType href="pathmap://NativeDBTypes/Postgres-9#_Vvu_0GTNEeSmq67_vSAzgg"/>
+        </type>
+      </columns>
+      <columns xmi:id="_EURU_fCqEeyw1YWaPIGkzg" techID="_EP-qIfCqEeyw1YWaPIGkzg" name="transaction_type" defaultValue="" indexElements="_EURU-vCqEeyw1YWaPIGkzg" foreignKeyElements="_EURU6vCqEeyw1YWaPIGkzg">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_EURU_vCqEeyw1YWaPIGkzg" length="5" precision="0">
+          <nativeType href="pathmap://NativeDBTypes/Postgres-9#__VwGEGTMEeSmq67_vSAzgg"/>
+        </type>
+      </columns>
+      <columns xmi:id="_EURU__CqEeyw1YWaPIGkzg" techID="_EP-qIvCqEeyw1YWaPIGkzg" name="transaction_created_date" nullable="true" defaultValue="">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_EURVAPCqEeyw1YWaPIGkzg" length="29" precision="6">
+          <nativeType href="pathmap://NativeDBTypes/Postgres-9#_cVwRkGTNEeSmq67_vSAzgg"/>
+        </type>
+      </columns>
+      <columns xmi:id="_EURVAfCqEeyw1YWaPIGkzg" techID="_EP-qI_CqEeyw1YWaPIGkzg" name="transaction_modified_date" nullable="true" defaultValue="">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_EURVAvCqEeyw1YWaPIGkzg" length="29" precision="6">
+          <nativeType href="pathmap://NativeDBTypes/Postgres-9#_cVwRkGTNEeSmq67_vSAzgg"/>
+        </type>
+      </columns>
+      <columns xmi:id="_EURVA_CqEeyw1YWaPIGkzg" techID="_EP_RMPCqEeyw1YWaPIGkzg" name="product_id" defaultValue="" indexElements="_EURU9vCqEeyw1YWaPIGkzg" foreignKeyElements="_EURU7vCqEeyw1YWaPIGkzg">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_EURVBPCqEeyw1YWaPIGkzg" length="10" precision="0">
+          <nativeType href="pathmap://NativeDBTypes/Postgres-9#_ArM2EGTNEeSmq67_vSAzgg"/>
+        </type>
+      </columns>
+      <columns xmi:id="_EURVBfCqEeyw1YWaPIGkzg" techID="_EP_RMfCqEeyw1YWaPIGkzg" name="quantity" defaultValue="">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_EURVBvCqEeyw1YWaPIGkzg" length="10" precision="0">
+          <nativeType href="pathmap://NativeDBTypes/Postgres-9#_ArM2EGTNEeSmq67_vSAzgg"/>
+        </type>
+      </columns>
+      <columns xmi:id="_EURVB_CqEeyw1YWaPIGkzg" techID="_EP_RMvCqEeyw1YWaPIGkzg" name="purchase_order_id" nullable="true" defaultValue="" indexElements="_EURU-PCqEeyw1YWaPIGkzg" foreignKeyElements="_EURU8PCqEeyw1YWaPIGkzg">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_EURVCPCqEeyw1YWaPIGkzg" length="10" precision="0">
+          <nativeType href="pathmap://NativeDBTypes/Postgres-9#_ArM2EGTNEeSmq67_vSAzgg"/>
+        </type>
+      </columns>
+      <columns xmi:id="_EURVCfCqEeyw1YWaPIGkzg" techID="_EP_RM_CqEeyw1YWaPIGkzg" name="customer_order_id" nullable="true" defaultValue="" indexElements="_EURU9PCqEeyw1YWaPIGkzg" foreignKeyElements="_EURU7PCqEeyw1YWaPIGkzg">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_EURVCvCqEeyw1YWaPIGkzg" length="10" precision="0">
+          <nativeType href="pathmap://NativeDBTypes/Postgres-9#_ArM2EGTNEeSmq67_vSAzgg"/>
+        </type>
+      </columns>
+      <columns xmi:id="_EUR7UPCqEeyw1YWaPIGkzg" techID="_EP_RNPCqEeyw1YWaPIGkzg" name="comments" nullable="true" defaultValue="">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_EUR7UfCqEeyw1YWaPIGkzg" length="255" precision="0">
+          <nativeType href="pathmap://NativeDBTypes/Postgres-9#_hn9LAGTNEeSmq67_vSAzgg"/>
+        </type>
+      </columns>
+    </tables>
+    <tables xsi:type="database:Table" xmi:id="_EUR7UvCqEeyw1YWaPIGkzg" techID="_EQF-6vCqEeyw1YWaPIGkzg" name="invoices">
+      <primaryKey xmi:id="_EUR7U_CqEeyw1YWaPIGkzg" techID="_EQMskPCqEeyw1YWaPIGkzg" name="invoices_pkey" columns="_EUR7WvCqEeyw1YWaPIGkzg"/>
+      <foreignKeys xmi:id="_EUR7VPCqEeyw1YWaPIGkzg" techID="_ESvqQPCqEeyw1YWaPIGkzg" name="fk_invoices_orders1" target="_EUR7mPCqEeyw1YWaPIGkzg">
+        <elements xmi:id="_EUR7VfCqEeyw1YWaPIGkzg" techID="_ESvqQfCqEeyw1YWaPIGkzg" fkColumn="_EUR7XPCqEeyw1YWaPIGkzg" pkColumn="_EUR7svCqEeyw1YWaPIGkzg"/>
+      </foreignKeys>
+      <indexes xmi:id="_EUR7VvCqEeyw1YWaPIGkzg" techID="_EQOhwPCqEeyw1YWaPIGkzg" name="invoices_pkey" unique="true">
+        <elements xmi:id="_EUR7V_CqEeyw1YWaPIGkzg" techID="_EQPI0PCqEeyw1YWaPIGkzg" column="_EUR7WvCqEeyw1YWaPIGkzg" asc="true"/>
+      </indexes>
+      <indexes xmi:id="_EUR7WPCqEeyw1YWaPIGkzg" techID="_EQPI0fCqEeyw1YWaPIGkzg" name="fk_invoices_orders1_idx">
+        <elements xmi:id="_EUR7WfCqEeyw1YWaPIGkzg" techID="_EQPI0vCqEeyw1YWaPIGkzg" column="_EUR7XPCqEeyw1YWaPIGkzg" asc="true"/>
+      </indexes>
+      <columns xmi:id="_EUR7WvCqEeyw1YWaPIGkzg" techID="_EQJCMPCqEeyw1YWaPIGkzg" name="id" defaultValue="nextval('invoices_id_seq'::regclass)" indexElements="_EUR7V_CqEeyw1YWaPIGkzg" primaryKey="_EUR7U_CqEeyw1YWaPIGkzg" autoincrement="true">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_EUR7W_CqEeyw1YWaPIGkzg" length="10" precision="0">
+          <nativeType href="pathmap://NativeDBTypes/Postgres-9#_Vvu_0GTNEeSmq67_vSAzgg"/>
+        </type>
+      </columns>
+      <columns xmi:id="_EUR7XPCqEeyw1YWaPIGkzg" techID="_EQJCMfCqEeyw1YWaPIGkzg" name="order_id" nullable="true" defaultValue="" indexElements="_EUR7WfCqEeyw1YWaPIGkzg" foreignKeyElements="_EUR7VfCqEeyw1YWaPIGkzg">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_EUR7XfCqEeyw1YWaPIGkzg" length="10" precision="0">
+          <nativeType href="pathmap://NativeDBTypes/Postgres-9#_ArM2EGTNEeSmq67_vSAzgg"/>
+        </type>
+      </columns>
+      <columns xmi:id="_EUR7XvCqEeyw1YWaPIGkzg" techID="_EQJCMvCqEeyw1YWaPIGkzg" name="invoice_date" nullable="true" defaultValue="">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_EUR7X_CqEeyw1YWaPIGkzg" length="29" precision="6">
+          <nativeType href="pathmap://NativeDBTypes/Postgres-9#_cVwRkGTNEeSmq67_vSAzgg"/>
+        </type>
+      </columns>
+      <columns xmi:id="_EUR7YPCqEeyw1YWaPIGkzg" techID="_EQJCM_CqEeyw1YWaPIGkzg" name="due_date" nullable="true" defaultValue="">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_EUR7YfCqEeyw1YWaPIGkzg" length="29" precision="6">
+          <nativeType href="pathmap://NativeDBTypes/Postgres-9#_cVwRkGTNEeSmq67_vSAzgg"/>
+        </type>
+      </columns>
+      <columns xmi:id="_EUR7YvCqEeyw1YWaPIGkzg" techID="_EQJCNPCqEeyw1YWaPIGkzg" name="tax" nullable="true" defaultValue="0.0000">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_EUR7Y_CqEeyw1YWaPIGkzg" length="19" precision="4">
+          <nativeType href="pathmap://NativeDBTypes/Postgres-9#_LqP9kGTNEeSmq67_vSAzgg"/>
+        </type>
+      </columns>
+      <columns xmi:id="_EUR7ZPCqEeyw1YWaPIGkzg" techID="_EQJCNfCqEeyw1YWaPIGkzg" name="shipping" nullable="true" defaultValue="0.0000">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_EUR7ZfCqEeyw1YWaPIGkzg" length="19" precision="4">
+          <nativeType href="pathmap://NativeDBTypes/Postgres-9#_LqP9kGTNEeSmq67_vSAzgg"/>
+        </type>
+      </columns>
+      <columns xmi:id="_EUR7ZvCqEeyw1YWaPIGkzg" techID="_EQJCNvCqEeyw1YWaPIGkzg" name="amount_due" nullable="true" defaultValue="0.0000">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_EUR7Z_CqEeyw1YWaPIGkzg" length="19" precision="4">
+          <nativeType href="pathmap://NativeDBTypes/Postgres-9#_LqP9kGTNEeSmq67_vSAzgg"/>
+        </type>
+      </columns>
+    </tables>
+    <tables xsi:type="database:Table" xmi:id="_EUR7aPCqEeyw1YWaPIGkzg" techID="_EQPI0_CqEeyw1YWaPIGkzg" name="order_details">
+      <primaryKey xmi:id="_EUR7afCqEeyw1YWaPIGkzg" techID="_EQXrsPCqEeyw1YWaPIGkzg" name="order_details_pkey" columns="_EUR7fPCqEeyw1YWaPIGkzg"/>
+      <foreignKeys xmi:id="_EUR7avCqEeyw1YWaPIGkzg" techID="_ES5bQPCqEeyw1YWaPIGkzg" name="fk_order_details_order_details_status1" target="_EUR7kPCqEeyw1YWaPIGkzg">
+        <elements xmi:id="_EUR7a_CqEeyw1YWaPIGkzg" techID="_ES5bQfCqEeyw1YWaPIGkzg" fkColumn="_EUR7iPCqEeyw1YWaPIGkzg" pkColumn="_EUR7lPCqEeyw1YWaPIGkzg"/>
+      </foreignKeys>
+      <foreignKeys xmi:id="_EUR7bPCqEeyw1YWaPIGkzg" techID="_ES5bQvCqEeyw1YWaPIGkzg" name="fk_order_details_orders1" target="_EUR7mPCqEeyw1YWaPIGkzg">
+        <elements xmi:id="_EUR7bfCqEeyw1YWaPIGkzg" techID="_ES5bQ_CqEeyw1YWaPIGkzg" fkColumn="_EUR7fvCqEeyw1YWaPIGkzg" pkColumn="_EUR7svCqEeyw1YWaPIGkzg"/>
+      </foreignKeys>
+      <foreignKeys xmi:id="_EUR7bvCqEeyw1YWaPIGkzg" techID="_ES6CUPCqEeyw1YWaPIGkzg" name="fk_order_details_products1" target="_EUR78vCqEeyw1YWaPIGkzg">
+        <elements xmi:id="_EUR7b_CqEeyw1YWaPIGkzg" techID="_ES6CUfCqEeyw1YWaPIGkzg" fkColumn="_EUR7gPCqEeyw1YWaPIGkzg" pkColumn="_EUR7-vCqEeyw1YWaPIGkzg"/>
+      </foreignKeys>
+      <indexes xmi:id="_EUR7cPCqEeyw1YWaPIGkzg" techID="_EQaH8PCqEeyw1YWaPIGkzg" name="order_details_pkey" unique="true">
+        <elements xmi:id="_EUR7cfCqEeyw1YWaPIGkzg" techID="_EQaH8fCqEeyw1YWaPIGkzg" column="_EUR7fPCqEeyw1YWaPIGkzg" asc="true"/>
+      </indexes>
+      <indexes xmi:id="_EUR7cvCqEeyw1YWaPIGkzg" techID="_EQaH8vCqEeyw1YWaPIGkzg" name="fk_order_details_order_details_status1_idx">
+        <elements xmi:id="_EUR7c_CqEeyw1YWaPIGkzg" techID="_EQaH8_CqEeyw1YWaPIGkzg" column="_EUR7iPCqEeyw1YWaPIGkzg" asc="true"/>
+      </indexes>
+      <indexes xmi:id="_EUR7dPCqEeyw1YWaPIGkzg" techID="_EQaH9PCqEeyw1YWaPIGkzg" name="fk_order_details_orders1_idx">
+        <elements xmi:id="_EUR7dfCqEeyw1YWaPIGkzg" techID="_EQaH9fCqEeyw1YWaPIGkzg" column="_EUR7fvCqEeyw1YWaPIGkzg" asc="true"/>
+      </indexes>
+      <indexes xmi:id="_EUR7dvCqEeyw1YWaPIGkzg" techID="_EQaH9vCqEeyw1YWaPIGkzg" name="inventory_id">
+        <elements xmi:id="_EUR7d_CqEeyw1YWaPIGkzg" techID="_EQavAPCqEeyw1YWaPIGkzg" column="_EUR7jvCqEeyw1YWaPIGkzg" asc="true"/>
+      </indexes>
+      <indexes xmi:id="_EUR7ePCqEeyw1YWaPIGkzg" techID="_EQavAfCqEeyw1YWaPIGkzg" name="product_id_order_details">
+        <elements xmi:id="_EUR7efCqEeyw1YWaPIGkzg" techID="_EQavAvCqEeyw1YWaPIGkzg" column="_EUR7gPCqEeyw1YWaPIGkzg" asc="true"/>
+      </indexes>
+      <indexes xmi:id="_EUR7evCqEeyw1YWaPIGkzg" techID="_EQavA_CqEeyw1YWaPIGkzg" name="purchase_order_id_order_details">
+        <elements xmi:id="_EUR7e_CqEeyw1YWaPIGkzg" techID="_EQavBPCqEeyw1YWaPIGkzg" column="_EUR7jPCqEeyw1YWaPIGkzg" asc="true"/>
+      </indexes>
+      <columns xmi:id="_EUR7fPCqEeyw1YWaPIGkzg" techID="_EQSMIPCqEeyw1YWaPIGkzg" name="id" defaultValue="nextval('order_details_id_seq'::regclass)" indexElements="_EUR7cfCqEeyw1YWaPIGkzg" primaryKey="_EUR7afCqEeyw1YWaPIGkzg" autoincrement="true">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_EUR7ffCqEeyw1YWaPIGkzg" length="10" precision="0">
+          <nativeType href="pathmap://NativeDBTypes/Postgres-9#_Vvu_0GTNEeSmq67_vSAzgg"/>
+        </type>
+      </columns>
+      <columns xmi:id="_EUR7fvCqEeyw1YWaPIGkzg" techID="_EQSzMPCqEeyw1YWaPIGkzg" name="order_id" defaultValue="" indexElements="_EUR7dfCqEeyw1YWaPIGkzg" foreignKeyElements="_EUR7bfCqEeyw1YWaPIGkzg">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_EUR7f_CqEeyw1YWaPIGkzg" length="10" precision="0">
+          <nativeType href="pathmap://NativeDBTypes/Postgres-9#_ArM2EGTNEeSmq67_vSAzgg"/>
+        </type>
+      </columns>
+      <columns xmi:id="_EUR7gPCqEeyw1YWaPIGkzg" techID="_EQSzMfCqEeyw1YWaPIGkzg" name="product_id" nullable="true" defaultValue="" indexElements="_EUR7efCqEeyw1YWaPIGkzg" foreignKeyElements="_EUR7b_CqEeyw1YWaPIGkzg">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_EUR7gfCqEeyw1YWaPIGkzg" length="10" precision="0">
+          <nativeType href="pathmap://NativeDBTypes/Postgres-9#_ArM2EGTNEeSmq67_vSAzgg"/>
+        </type>
+      </columns>
+      <columns xmi:id="_EUR7gvCqEeyw1YWaPIGkzg" techID="_EQSzMvCqEeyw1YWaPIGkzg" name="quantity" defaultValue="0.0000">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_EUR7g_CqEeyw1YWaPIGkzg" length="18" precision="4">
+          <nativeType href="pathmap://NativeDBTypes/Postgres-9#_LqP9kGTNEeSmq67_vSAzgg"/>
+        </type>
+      </columns>
+      <columns xmi:id="_EUR7hPCqEeyw1YWaPIGkzg" techID="_EQSzM_CqEeyw1YWaPIGkzg" name="unit_price" nullable="true" defaultValue="0.0000">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_EUR7hfCqEeyw1YWaPIGkzg" length="19" precision="4">
+          <nativeType href="pathmap://NativeDBTypes/Postgres-9#_LqP9kGTNEeSmq67_vSAzgg"/>
+        </type>
+      </columns>
+      <columns xmi:id="_EUR7hvCqEeyw1YWaPIGkzg" techID="_EQSzNPCqEeyw1YWaPIGkzg" name="discount" defaultValue="0">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_EUR7h_CqEeyw1YWaPIGkzg" length="17" precision="17">
+          <nativeType href="pathmap://NativeDBTypes/Postgres-9#_8GhJ8GTMEeSmq67_vSAzgg"/>
+        </type>
+      </columns>
+      <columns xmi:id="_EUR7iPCqEeyw1YWaPIGkzg" techID="_EQSzNfCqEeyw1YWaPIGkzg" name="status_id" nullable="true" defaultValue="" indexElements="_EUR7c_CqEeyw1YWaPIGkzg" foreignKeyElements="_EUR7a_CqEeyw1YWaPIGkzg">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_EUR7ifCqEeyw1YWaPIGkzg" length="10" precision="0">
+          <nativeType href="pathmap://NativeDBTypes/Postgres-9#_ArM2EGTNEeSmq67_vSAzgg"/>
+        </type>
+      </columns>
+      <columns xmi:id="_EUR7ivCqEeyw1YWaPIGkzg" techID="_EQSzNvCqEeyw1YWaPIGkzg" name="date_allocated" nullable="true" defaultValue="">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_EUR7i_CqEeyw1YWaPIGkzg" length="29" precision="6">
+          <nativeType href="pathmap://NativeDBTypes/Postgres-9#_cVwRkGTNEeSmq67_vSAzgg"/>
+        </type>
+      </columns>
+      <columns xmi:id="_EUR7jPCqEeyw1YWaPIGkzg" techID="_EQSzN_CqEeyw1YWaPIGkzg" name="purchase_order_id" nullable="true" defaultValue="" indexElements="_EUR7e_CqEeyw1YWaPIGkzg">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_EUR7jfCqEeyw1YWaPIGkzg" length="10" precision="0">
+          <nativeType href="pathmap://NativeDBTypes/Postgres-9#_ArM2EGTNEeSmq67_vSAzgg"/>
+        </type>
+      </columns>
+      <columns xmi:id="_EUR7jvCqEeyw1YWaPIGkzg" techID="_EQSzOPCqEeyw1YWaPIGkzg" name="inventory_id" nullable="true" defaultValue="" indexElements="_EUR7d_CqEeyw1YWaPIGkzg">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_EUR7j_CqEeyw1YWaPIGkzg" length="10" precision="0">
+          <nativeType href="pathmap://NativeDBTypes/Postgres-9#_ArM2EGTNEeSmq67_vSAzgg"/>
+        </type>
+      </columns>
+    </tables>
+    <tables xsi:type="database:Table" xmi:id="_EUR7kPCqEeyw1YWaPIGkzg" techID="_EQavBfCqEeyw1YWaPIGkzg" name="order_details_status">
+      <primaryKey xmi:id="_EUR7kfCqEeyw1YWaPIGkzg" techID="_EQiDwPCqEeyw1YWaPIGkzg" name="order_details_status_pkey" columns="_EUR7lPCqEeyw1YWaPIGkzg"/>
+      <indexes xmi:id="_EUR7kvCqEeyw1YWaPIGkzg" techID="_EQlHEPCqEeyw1YWaPIGkzg" name="order_details_status_pkey" unique="true">
+        <elements xmi:id="_EUR7k_CqEeyw1YWaPIGkzg" techID="_EQlHEfCqEeyw1YWaPIGkzg" column="_EUR7lPCqEeyw1YWaPIGkzg" asc="true"/>
+      </indexes>
+      <columns xmi:id="_EUR7lPCqEeyw1YWaPIGkzg" techID="_EQdyUPCqEeyw1YWaPIGkzg" name="id" defaultValue="" indexElements="_EUR7k_CqEeyw1YWaPIGkzg" primaryKey="_EUR7kfCqEeyw1YWaPIGkzg">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_EUR7lfCqEeyw1YWaPIGkzg" length="10" precision="0">
+          <nativeType href="pathmap://NativeDBTypes/Postgres-9#_ArM2EGTNEeSmq67_vSAzgg"/>
+        </type>
+      </columns>
+      <columns xmi:id="_EUR7lvCqEeyw1YWaPIGkzg" techID="_EQdyUfCqEeyw1YWaPIGkzg" name="status_name" defaultValue="">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_EUR7l_CqEeyw1YWaPIGkzg" length="50" precision="0">
+          <nativeType href="pathmap://NativeDBTypes/Postgres-9#_hn9LAGTNEeSmq67_vSAzgg"/>
+        </type>
+      </columns>
+    </tables>
+    <tables xsi:type="database:Table" xmi:id="_EUR7mPCqEeyw1YWaPIGkzg" techID="_EQlHEvCqEeyw1YWaPIGkzg" name="orders">
+      <primaryKey xmi:id="_EUR7mfCqEeyw1YWaPIGkzg" techID="_EQtC4PCqEeyw1YWaPIGkzg" name="orders_pkey" columns="_EUR7svCqEeyw1YWaPIGkzg"/>
+      <foreignKeys xmi:id="_EUR7mvCqEeyw1YWaPIGkzg" techID="_ETG2oPCqEeyw1YWaPIGkzg" name="fk_orders_customers" target="_EUQtMvCqEeyw1YWaPIGkzg">
+        <elements xmi:id="_EUR7m_CqEeyw1YWaPIGkzg" techID="_ETG2ofCqEeyw1YWaPIGkzg" fkColumn="_EUR7tvCqEeyw1YWaPIGkzg" pkColumn="_EURUTfCqEeyw1YWaPIGkzg"/>
+      </foreignKeys>
+      <foreignKeys xmi:id="_EUR7nPCqEeyw1YWaPIGkzg" techID="_ETG2ovCqEeyw1YWaPIGkzg" name="fk_orders_employees1" target="_EURUq_CqEeyw1YWaPIGkzg">
+        <elements xmi:id="_EUR7nfCqEeyw1YWaPIGkzg" techID="_ETG2o_CqEeyw1YWaPIGkzg" fkColumn="_EUR7tPCqEeyw1YWaPIGkzg" pkColumn="_EURUu_CqEeyw1YWaPIGkzg"/>
+      </foreignKeys>
+      <foreignKeys xmi:id="_EUR7nvCqEeyw1YWaPIGkzg" techID="_ETG2pPCqEeyw1YWaPIGkzg" name="fk_orders_orders_status1" target="_EUR72vCqEeyw1YWaPIGkzg">
+        <elements xmi:id="_EUR7n_CqEeyw1YWaPIGkzg" techID="_ETG2pfCqEeyw1YWaPIGkzg" fkColumn="_EUR72PCqEeyw1YWaPIGkzg" pkColumn="_EUR73vCqEeyw1YWaPIGkzg"/>
+      </foreignKeys>
+      <foreignKeys xmi:id="_EUR7oPCqEeyw1YWaPIGkzg" techID="_ETHdsPCqEeyw1YWaPIGkzg" name="fk_orders_orders_tax_status1" target="_EUR74vCqEeyw1YWaPIGkzg">
+        <elements xmi:id="_EUR7ofCqEeyw1YWaPIGkzg" techID="_ETHdsfCqEeyw1YWaPIGkzg" fkColumn="_EUR71vCqEeyw1YWaPIGkzg" pkColumn="_EUR75vCqEeyw1YWaPIGkzg"/>
+      </foreignKeys>
+      <foreignKeys xmi:id="_EUR7ovCqEeyw1YWaPIGkzg" techID="_ETHdsvCqEeyw1YWaPIGkzg" name="fk_orders_shippers1" target="_EUSiifCqEeyw1YWaPIGkzg">
+        <elements xmi:id="_EUR7o_CqEeyw1YWaPIGkzg" techID="_ETHds_CqEeyw1YWaPIGkzg" fkColumn="_EUR7vPCqEeyw1YWaPIGkzg" pkColumn="_EUSimfCqEeyw1YWaPIGkzg"/>
+      </foreignKeys>
+      <indexes xmi:id="_EUR7pPCqEeyw1YWaPIGkzg" techID="_EQu4EPCqEeyw1YWaPIGkzg" name="orders_pkey" unique="true">
+        <elements xmi:id="_EUR7pfCqEeyw1YWaPIGkzg" techID="_EQvfIPCqEeyw1YWaPIGkzg" column="_EUR7svCqEeyw1YWaPIGkzg" asc="true"/>
+      </indexes>
+      <indexes xmi:id="_EUR7pvCqEeyw1YWaPIGkzg" techID="_EQvfIfCqEeyw1YWaPIGkzg" name="customer_id_2">
+        <elements xmi:id="_EUR7p_CqEeyw1YWaPIGkzg" techID="_EQvfIvCqEeyw1YWaPIGkzg" column="_EUR7tvCqEeyw1YWaPIGkzg" asc="true"/>
+      </indexes>
+      <indexes xmi:id="_EUR7qPCqEeyw1YWaPIGkzg" techID="_EQvfI_CqEeyw1YWaPIGkzg" name="employee_id_2">
+        <elements xmi:id="_EUR7qfCqEeyw1YWaPIGkzg" techID="_EQvfJPCqEeyw1YWaPIGkzg" column="_EUR7tPCqEeyw1YWaPIGkzg" asc="true"/>
+      </indexes>
+      <indexes xmi:id="_EUR7qvCqEeyw1YWaPIGkzg" techID="_EQvfJfCqEeyw1YWaPIGkzg" name="fk_orders_orders_status1">
+        <elements xmi:id="_EUR7q_CqEeyw1YWaPIGkzg" techID="_EQvfJvCqEeyw1YWaPIGkzg" column="_EUR72PCqEeyw1YWaPIGkzg" asc="true"/>
+      </indexes>
+      <indexes xmi:id="_EUR7rPCqEeyw1YWaPIGkzg" techID="_EQvfJ_CqEeyw1YWaPIGkzg" name="ship_zip_postal_code">
+        <elements xmi:id="_EUR7rfCqEeyw1YWaPIGkzg" techID="_EQvfKPCqEeyw1YWaPIGkzg" column="_EUR7xvCqEeyw1YWaPIGkzg" asc="true"/>
+      </indexes>
+      <indexes xmi:id="_EUR7rvCqEeyw1YWaPIGkzg" techID="_EQvfKfCqEeyw1YWaPIGkzg" name="shipper_id">
+        <elements xmi:id="_EUR7r_CqEeyw1YWaPIGkzg" techID="_EQvfKvCqEeyw1YWaPIGkzg" column="_EUR7vPCqEeyw1YWaPIGkzg" asc="true"/>
+      </indexes>
+      <indexes xmi:id="_EUR7sPCqEeyw1YWaPIGkzg" techID="_EQvfK_CqEeyw1YWaPIGkzg" name="tax_status">
+        <elements xmi:id="_EUR7sfCqEeyw1YWaPIGkzg" techID="_EQvfLPCqEeyw1YWaPIGkzg" column="_EUR71vCqEeyw1YWaPIGkzg" asc="true"/>
+      </indexes>
+      <columns xmi:id="_EUR7svCqEeyw1YWaPIGkzg" techID="_EQoxcPCqEeyw1YWaPIGkzg" name="id" defaultValue="nextval('orders_id_seq'::regclass)" indexElements="_EUR7pfCqEeyw1YWaPIGkzg" primaryKey="_EUR7mfCqEeyw1YWaPIGkzg" autoincrement="true">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_EUR7s_CqEeyw1YWaPIGkzg" length="10" precision="0">
+          <nativeType href="pathmap://NativeDBTypes/Postgres-9#_Vvu_0GTNEeSmq67_vSAzgg"/>
+        </type>
+      </columns>
+      <columns xmi:id="_EUR7tPCqEeyw1YWaPIGkzg" techID="_EQoxcfCqEeyw1YWaPIGkzg" name="employee_id" nullable="true" defaultValue="" indexElements="_EUR7qfCqEeyw1YWaPIGkzg" foreignKeyElements="_EUR7nfCqEeyw1YWaPIGkzg">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_EUR7tfCqEeyw1YWaPIGkzg" length="10" precision="0">
+          <nativeType href="pathmap://NativeDBTypes/Postgres-9#_ArM2EGTNEeSmq67_vSAzgg"/>
+        </type>
+      </columns>
+      <columns xmi:id="_EUR7tvCqEeyw1YWaPIGkzg" techID="_EQpYgPCqEeyw1YWaPIGkzg" name="customer_id" nullable="true" defaultValue="" indexElements="_EUR7p_CqEeyw1YWaPIGkzg" foreignKeyElements="_EUR7m_CqEeyw1YWaPIGkzg">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_EUR7t_CqEeyw1YWaPIGkzg" length="10" precision="0">
+          <nativeType href="pathmap://NativeDBTypes/Postgres-9#_ArM2EGTNEeSmq67_vSAzgg"/>
+        </type>
+      </columns>
+      <columns xmi:id="_EUR7uPCqEeyw1YWaPIGkzg" techID="_EQpYgfCqEeyw1YWaPIGkzg" name="order_date" nullable="true" defaultValue="">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_EUR7ufCqEeyw1YWaPIGkzg" length="29" precision="6">
+          <nativeType href="pathmap://NativeDBTypes/Postgres-9#_cVwRkGTNEeSmq67_vSAzgg"/>
+        </type>
+      </columns>
+      <columns xmi:id="_EUR7uvCqEeyw1YWaPIGkzg" techID="_EQpYgvCqEeyw1YWaPIGkzg" name="shipped_date" nullable="true" defaultValue="">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_EUR7u_CqEeyw1YWaPIGkzg" length="29" precision="6">
+          <nativeType href="pathmap://NativeDBTypes/Postgres-9#_cVwRkGTNEeSmq67_vSAzgg"/>
+        </type>
+      </columns>
+      <columns xmi:id="_EUR7vPCqEeyw1YWaPIGkzg" techID="_EQpYg_CqEeyw1YWaPIGkzg" name="shipper_id" nullable="true" defaultValue="" indexElements="_EUR7r_CqEeyw1YWaPIGkzg" foreignKeyElements="_EUR7o_CqEeyw1YWaPIGkzg">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_EUR7vfCqEeyw1YWaPIGkzg" length="10" precision="0">
+          <nativeType href="pathmap://NativeDBTypes/Postgres-9#_ArM2EGTNEeSmq67_vSAzgg"/>
+        </type>
+      </columns>
+      <columns xmi:id="_EUR7vvCqEeyw1YWaPIGkzg" techID="_EQpYhPCqEeyw1YWaPIGkzg" name="ship_name" nullable="true" defaultValue="">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_EUR7v_CqEeyw1YWaPIGkzg" length="50" precision="0">
+          <nativeType href="pathmap://NativeDBTypes/Postgres-9#_hn9LAGTNEeSmq67_vSAzgg"/>
+        </type>
+      </columns>
+      <columns xmi:id="_EUR7wPCqEeyw1YWaPIGkzg" techID="_EQpYhfCqEeyw1YWaPIGkzg" name="ship_address" nullable="true" defaultValue="">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_EUR7wfCqEeyw1YWaPIGkzg" length="2147483647" precision="0">
+          <nativeType href="pathmap://NativeDBTypes/Postgres-9#_X2UR0GTNEeSmq67_vSAzgg"/>
+        </type>
+      </columns>
+      <columns xmi:id="_EUR7wvCqEeyw1YWaPIGkzg" techID="_EQpYhvCqEeyw1YWaPIGkzg" name="ship_city" nullable="true" defaultValue="">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_EUR7w_CqEeyw1YWaPIGkzg" length="50" precision="0">
+          <nativeType href="pathmap://NativeDBTypes/Postgres-9#_hn9LAGTNEeSmq67_vSAzgg"/>
+        </type>
+      </columns>
+      <columns xmi:id="_EUR7xPCqEeyw1YWaPIGkzg" techID="_EQpYh_CqEeyw1YWaPIGkzg" name="ship_state_province" nullable="true" defaultValue="">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_EUR7xfCqEeyw1YWaPIGkzg" length="50" precision="0">
+          <nativeType href="pathmap://NativeDBTypes/Postgres-9#_hn9LAGTNEeSmq67_vSAzgg"/>
+        </type>
+      </columns>
+      <columns xmi:id="_EUR7xvCqEeyw1YWaPIGkzg" techID="_EQpYiPCqEeyw1YWaPIGkzg" name="ship_zip_postal_code" nullable="true" defaultValue="" indexElements="_EUR7rfCqEeyw1YWaPIGkzg">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_EUR7x_CqEeyw1YWaPIGkzg" length="50" precision="0">
+          <nativeType href="pathmap://NativeDBTypes/Postgres-9#_hn9LAGTNEeSmq67_vSAzgg"/>
+        </type>
+      </columns>
+      <columns xmi:id="_EUR7yPCqEeyw1YWaPIGkzg" techID="_EQpYifCqEeyw1YWaPIGkzg" name="ship_country_region" nullable="true" defaultValue="">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_EUR7yfCqEeyw1YWaPIGkzg" length="50" precision="0">
+          <nativeType href="pathmap://NativeDBTypes/Postgres-9#_hn9LAGTNEeSmq67_vSAzgg"/>
+        </type>
+      </columns>
+      <columns xmi:id="_EUR7yvCqEeyw1YWaPIGkzg" techID="_EQpYivCqEeyw1YWaPIGkzg" name="shipping_fee" nullable="true" defaultValue="0.0000">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_EUR7y_CqEeyw1YWaPIGkzg" length="19" precision="4">
+          <nativeType href="pathmap://NativeDBTypes/Postgres-9#_LqP9kGTNEeSmq67_vSAzgg"/>
+        </type>
+      </columns>
+      <columns xmi:id="_EUR7zPCqEeyw1YWaPIGkzg" techID="_EQpYi_CqEeyw1YWaPIGkzg" name="taxes" nullable="true" defaultValue="0.0000">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_EUR7zfCqEeyw1YWaPIGkzg" length="19" precision="4">
+          <nativeType href="pathmap://NativeDBTypes/Postgres-9#_LqP9kGTNEeSmq67_vSAzgg"/>
+        </type>
+      </columns>
+      <columns xmi:id="_EUR7zvCqEeyw1YWaPIGkzg" techID="_EQpYjPCqEeyw1YWaPIGkzg" name="payment_type" nullable="true" defaultValue="">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_EUR7z_CqEeyw1YWaPIGkzg" length="50" precision="0">
+          <nativeType href="pathmap://NativeDBTypes/Postgres-9#_hn9LAGTNEeSmq67_vSAzgg"/>
+        </type>
+      </columns>
+      <columns xmi:id="_EUR70PCqEeyw1YWaPIGkzg" techID="_EQpYjfCqEeyw1YWaPIGkzg" name="paid_date" nullable="true" defaultValue="">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_EUR70fCqEeyw1YWaPIGkzg" length="29" precision="6">
+          <nativeType href="pathmap://NativeDBTypes/Postgres-9#_cVwRkGTNEeSmq67_vSAzgg"/>
+        </type>
+      </columns>
+      <columns xmi:id="_EUR70vCqEeyw1YWaPIGkzg" techID="_EQpYjvCqEeyw1YWaPIGkzg" name="notes" nullable="true" defaultValue="">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_EUR70_CqEeyw1YWaPIGkzg" length="2147483647" precision="0">
+          <nativeType href="pathmap://NativeDBTypes/Postgres-9#_X2UR0GTNEeSmq67_vSAzgg"/>
+        </type>
+      </columns>
+      <columns xmi:id="_EUR71PCqEeyw1YWaPIGkzg" techID="_EQp_kPCqEeyw1YWaPIGkzg" name="tax_rate" nullable="true" defaultValue="0">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_EUR71fCqEeyw1YWaPIGkzg" length="17" precision="17">
+          <nativeType href="pathmap://NativeDBTypes/Postgres-9#_8GhJ8GTMEeSmq67_vSAzgg"/>
+        </type>
+      </columns>
+      <columns xmi:id="_EUR71vCqEeyw1YWaPIGkzg" techID="_EQp_kfCqEeyw1YWaPIGkzg" name="tax_status_id" nullable="true" defaultValue="" indexElements="_EUR7sfCqEeyw1YWaPIGkzg" foreignKeyElements="_EUR7ofCqEeyw1YWaPIGkzg">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_EUR71_CqEeyw1YWaPIGkzg" length="5" precision="0">
+          <nativeType href="pathmap://NativeDBTypes/Postgres-9#__VwGEGTMEeSmq67_vSAzgg"/>
+        </type>
+      </columns>
+      <columns xmi:id="_EUR72PCqEeyw1YWaPIGkzg" techID="_EQp_kvCqEeyw1YWaPIGkzg" name="status_id" nullable="true" defaultValue="0" indexElements="_EUR7q_CqEeyw1YWaPIGkzg" foreignKeyElements="_EUR7n_CqEeyw1YWaPIGkzg">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_EUR72fCqEeyw1YWaPIGkzg" length="5" precision="0">
+          <nativeType href="pathmap://NativeDBTypes/Postgres-9#__VwGEGTMEeSmq67_vSAzgg"/>
+        </type>
+      </columns>
+    </tables>
+    <tables xsi:type="database:Table" xmi:id="_EUR72vCqEeyw1YWaPIGkzg" techID="_EQvfLfCqEeyw1YWaPIGkzg" name="orders_status">
+      <primaryKey xmi:id="_EUR72_CqEeyw1YWaPIGkzg" techID="_EQ0-sPCqEeyw1YWaPIGkzg" name="orders_status_pkey" columns="_EUR73vCqEeyw1YWaPIGkzg"/>
+      <indexes xmi:id="_EUR73PCqEeyw1YWaPIGkzg" techID="_EQ2z4PCqEeyw1YWaPIGkzg" name="orders_status_pkey" unique="true">
+        <elements xmi:id="_EUR73fCqEeyw1YWaPIGkzg" techID="_EQ2z4fCqEeyw1YWaPIGkzg" column="_EUR73vCqEeyw1YWaPIGkzg" asc="true"/>
+      </indexes>
+      <columns xmi:id="_EUR73vCqEeyw1YWaPIGkzg" techID="_EQx7YPCqEeyw1YWaPIGkzg" name="id" defaultValue="" indexElements="_EUR73fCqEeyw1YWaPIGkzg" primaryKey="_EUR72_CqEeyw1YWaPIGkzg">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_EUR73_CqEeyw1YWaPIGkzg" length="5" precision="0">
+          <nativeType href="pathmap://NativeDBTypes/Postgres-9#__VwGEGTMEeSmq67_vSAzgg"/>
+        </type>
+      </columns>
+      <columns xmi:id="_EUR74PCqEeyw1YWaPIGkzg" techID="_EQyicPCqEeyw1YWaPIGkzg" name="status_name" defaultValue="">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_EUR74fCqEeyw1YWaPIGkzg" length="50" precision="0">
+          <nativeType href="pathmap://NativeDBTypes/Postgres-9#_hn9LAGTNEeSmq67_vSAzgg"/>
+        </type>
+      </columns>
+    </tables>
+    <tables xsi:type="database:Table" xmi:id="_EUR74vCqEeyw1YWaPIGkzg" techID="_EQ2z4vCqEeyw1YWaPIGkzg" name="orders_tax_status">
+      <primaryKey xmi:id="_EUR74_CqEeyw1YWaPIGkzg" techID="_EQ7sYPCqEeyw1YWaPIGkzg" name="orders_tax_status_pkey" columns="_EUR75vCqEeyw1YWaPIGkzg"/>
+      <indexes xmi:id="_EUR75PCqEeyw1YWaPIGkzg" techID="_EQ86gPCqEeyw1YWaPIGkzg" name="orders_tax_status_pkey" unique="true">
+        <elements xmi:id="_EUR75fCqEeyw1YWaPIGkzg" techID="_EQ86gfCqEeyw1YWaPIGkzg" column="_EUR75vCqEeyw1YWaPIGkzg" asc="true"/>
+      </indexes>
+      <columns xmi:id="_EUR75vCqEeyw1YWaPIGkzg" techID="_EQ5QIPCqEeyw1YWaPIGkzg" name="id" defaultValue="" indexElements="_EUR75fCqEeyw1YWaPIGkzg" primaryKey="_EUR74_CqEeyw1YWaPIGkzg">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_EUR75_CqEeyw1YWaPIGkzg" length="5" precision="0">
+          <nativeType href="pathmap://NativeDBTypes/Postgres-9#__VwGEGTMEeSmq67_vSAzgg"/>
+        </type>
+      </columns>
+      <columns xmi:id="_EUR76PCqEeyw1YWaPIGkzg" techID="_EQ5QIfCqEeyw1YWaPIGkzg" name="tax_status_name" defaultValue="">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_EUR76fCqEeyw1YWaPIGkzg" length="50" precision="0">
+          <nativeType href="pathmap://NativeDBTypes/Postgres-9#_hn9LAGTNEeSmq67_vSAzgg"/>
+        </type>
+      </columns>
+    </tables>
+    <tables xsi:type="database:Table" xmi:id="_EUR76vCqEeyw1YWaPIGkzg" techID="_EQ86gvCqEeyw1YWaPIGkzg" name="privileges">
+      <primaryKey xmi:id="_EUR76_CqEeyw1YWaPIGkzg" techID="_ERAk4PCqEeyw1YWaPIGkzg" name="privileges_pkey" columns="_EUR77vCqEeyw1YWaPIGkzg"/>
+      <indexes xmi:id="_EUR77PCqEeyw1YWaPIGkzg" techID="_ERBzAPCqEeyw1YWaPIGkzg" name="privileges_pkey" unique="true">
+        <elements xmi:id="_EUR77fCqEeyw1YWaPIGkzg" techID="_ERBzAfCqEeyw1YWaPIGkzg" column="_EUR77vCqEeyw1YWaPIGkzg" asc="true"/>
+      </indexes>
+      <columns xmi:id="_EUR77vCqEeyw1YWaPIGkzg" techID="_EQ-vsPCqEeyw1YWaPIGkzg" name="id" defaultValue="nextval('privileges_id_seq'::regclass)" indexElements="_EUR77fCqEeyw1YWaPIGkzg" primaryKey="_EUR76_CqEeyw1YWaPIGkzg" autoincrement="true">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_EUR77_CqEeyw1YWaPIGkzg" length="10" precision="0">
+          <nativeType href="pathmap://NativeDBTypes/Postgres-9#_Vvu_0GTNEeSmq67_vSAzgg"/>
+        </type>
+      </columns>
+      <columns xmi:id="_EUR78PCqEeyw1YWaPIGkzg" techID="_EQ-vsfCqEeyw1YWaPIGkzg" name="privilege_name" nullable="true" defaultValue="">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_EUR78fCqEeyw1YWaPIGkzg" length="50" precision="0">
+          <nativeType href="pathmap://NativeDBTypes/Postgres-9#_hn9LAGTNEeSmq67_vSAzgg"/>
+        </type>
+      </columns>
+    </tables>
+    <tables xsi:type="database:Table" xmi:id="_EUR78vCqEeyw1YWaPIGkzg" techID="_ERBzAvCqEeyw1YWaPIGkzg" name="products">
+      <primaryKey xmi:id="_EUR78_CqEeyw1YWaPIGkzg" techID="_ERFdYPCqEeyw1YWaPIGkzg" name="products_pkey" columns="_EUR7-vCqEeyw1YWaPIGkzg"/>
+      <indexes xmi:id="_EUR79PCqEeyw1YWaPIGkzg" techID="_ERGrgPCqEeyw1YWaPIGkzg" name="products_pkey" unique="true">
+        <elements xmi:id="_EUR79fCqEeyw1YWaPIGkzg" techID="_ERGrgfCqEeyw1YWaPIGkzg" column="_EUR7-vCqEeyw1YWaPIGkzg" asc="true"/>
+      </indexes>
+      <indexes xmi:id="_EUR79vCqEeyw1YWaPIGkzg" techID="_ERGrgvCqEeyw1YWaPIGkzg" name="product_code">
+        <elements xmi:id="_EUR79_CqEeyw1YWaPIGkzg" techID="_ERGrg_CqEeyw1YWaPIGkzg" column="_EUR7_PCqEeyw1YWaPIGkzg" asc="true"/>
+      </indexes>
+      <columns xmi:id="_EUR7-PCqEeyw1YWaPIGkzg" techID="_ERDoMPCqEeyw1YWaPIGkzg" name="supplier_ids" nullable="true" defaultValue="">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_EUR7-fCqEeyw1YWaPIGkzg" length="2147483647" precision="0">
+          <nativeType href="pathmap://NativeDBTypes/Postgres-9#_X2UR0GTNEeSmq67_vSAzgg"/>
+        </type>
+      </columns>
+      <columns xmi:id="_EUR7-vCqEeyw1YWaPIGkzg" techID="_ERDoMfCqEeyw1YWaPIGkzg" name="id" defaultValue="nextval('products_id_seq'::regclass)" indexElements="_EUR79fCqEeyw1YWaPIGkzg" primaryKey="_EUR78_CqEeyw1YWaPIGkzg" autoincrement="true">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_EUR7-_CqEeyw1YWaPIGkzg" length="10" precision="0">
+          <nativeType href="pathmap://NativeDBTypes/Postgres-9#_Vvu_0GTNEeSmq67_vSAzgg"/>
+        </type>
+      </columns>
+      <columns xmi:id="_EUR7_PCqEeyw1YWaPIGkzg" techID="_ERDoMvCqEeyw1YWaPIGkzg" name="product_code" nullable="true" defaultValue="" indexElements="_EUR79_CqEeyw1YWaPIGkzg">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_EUR7_fCqEeyw1YWaPIGkzg" length="25" precision="0">
+          <nativeType href="pathmap://NativeDBTypes/Postgres-9#_hn9LAGTNEeSmq67_vSAzgg"/>
+        </type>
+      </columns>
+      <columns xmi:id="_EUR7_vCqEeyw1YWaPIGkzg" techID="_ERDoM_CqEeyw1YWaPIGkzg" name="product_name" nullable="true" defaultValue="">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_EUR7__CqEeyw1YWaPIGkzg" length="50" precision="0">
+          <nativeType href="pathmap://NativeDBTypes/Postgres-9#_hn9LAGTNEeSmq67_vSAzgg"/>
+        </type>
+      </columns>
+      <columns xmi:id="_EUR8APCqEeyw1YWaPIGkzg" techID="_ERDoNPCqEeyw1YWaPIGkzg" name="description" nullable="true" defaultValue="">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_EUR8AfCqEeyw1YWaPIGkzg" length="2147483647" precision="0">
+          <nativeType href="pathmap://NativeDBTypes/Postgres-9#_X2UR0GTNEeSmq67_vSAzgg"/>
+        </type>
+      </columns>
+      <columns xmi:id="_EUR8AvCqEeyw1YWaPIGkzg" techID="_ERDoNfCqEeyw1YWaPIGkzg" name="standard_cost" nullable="true" defaultValue="0.0000">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_EUR8A_CqEeyw1YWaPIGkzg" length="19" precision="4">
+          <nativeType href="pathmap://NativeDBTypes/Postgres-9#_LqP9kGTNEeSmq67_vSAzgg"/>
+        </type>
+      </columns>
+      <columns xmi:id="_EUR8BPCqEeyw1YWaPIGkzg" techID="_ERDoNvCqEeyw1YWaPIGkzg" name="list_price" defaultValue="0.0000">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_EUR8BfCqEeyw1YWaPIGkzg" length="19" precision="4">
+          <nativeType href="pathmap://NativeDBTypes/Postgres-9#_LqP9kGTNEeSmq67_vSAzgg"/>
+        </type>
+      </columns>
+      <columns xmi:id="_EUR8BvCqEeyw1YWaPIGkzg" techID="_ERDoN_CqEeyw1YWaPIGkzg" name="reorder_level" nullable="true" defaultValue="">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_EUR8B_CqEeyw1YWaPIGkzg" length="10" precision="0">
+          <nativeType href="pathmap://NativeDBTypes/Postgres-9#_ArM2EGTNEeSmq67_vSAzgg"/>
+        </type>
+      </columns>
+      <columns xmi:id="_EUR8CPCqEeyw1YWaPIGkzg" techID="_ERDoOPCqEeyw1YWaPIGkzg" name="target_level" nullable="true" defaultValue="">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_EUR8CfCqEeyw1YWaPIGkzg" length="10" precision="0">
+          <nativeType href="pathmap://NativeDBTypes/Postgres-9#_ArM2EGTNEeSmq67_vSAzgg"/>
+        </type>
+      </columns>
+      <columns xmi:id="_EUR8CvCqEeyw1YWaPIGkzg" techID="_ERDoOfCqEeyw1YWaPIGkzg" name="quantity_per_unit" nullable="true" defaultValue="">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_EUR8C_CqEeyw1YWaPIGkzg" length="50" precision="0">
+          <nativeType href="pathmap://NativeDBTypes/Postgres-9#_hn9LAGTNEeSmq67_vSAzgg"/>
+        </type>
+      </columns>
+      <columns xmi:id="_EUR8DPCqEeyw1YWaPIGkzg" techID="_ERDoOvCqEeyw1YWaPIGkzg" name="discontinued" defaultValue="false">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_EUR8DfCqEeyw1YWaPIGkzg" length="1" precision="0">
+          <nativeType href="pathmap://NativeDBTypes/Postgres-9#_iBb3cGTMEeSmq67_vSAzgg"/>
+        </type>
+      </columns>
+      <columns xmi:id="_EUR8DvCqEeyw1YWaPIGkzg" techID="_ERDoO_CqEeyw1YWaPIGkzg" name="minimum_reorder_quantity" nullable="true" defaultValue="">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_EUR8D_CqEeyw1YWaPIGkzg" length="10" precision="0">
+          <nativeType href="pathmap://NativeDBTypes/Postgres-9#_ArM2EGTNEeSmq67_vSAzgg"/>
+        </type>
+      </columns>
+      <columns xmi:id="_EUR8EPCqEeyw1YWaPIGkzg" techID="_ERDoPPCqEeyw1YWaPIGkzg" name="category" nullable="true" defaultValue="">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_EUR8EfCqEeyw1YWaPIGkzg" length="50" precision="0">
+          <nativeType href="pathmap://NativeDBTypes/Postgres-9#_hn9LAGTNEeSmq67_vSAzgg"/>
+        </type>
+      </columns>
+      <columns xmi:id="_EUR8EvCqEeyw1YWaPIGkzg" techID="_ERDoPfCqEeyw1YWaPIGkzg" name="attachments" nullable="true" defaultValue="">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_EUR8E_CqEeyw1YWaPIGkzg" length="2147483647" precision="0">
+          <nativeType href="pathmap://NativeDBTypes/Postgres-9#_3Xq00G5GEeS0qO0NdvQESw"/>
+        </type>
+      </columns>
+    </tables>
+    <tables xsi:type="database:Table" xmi:id="_EUR8FPCqEeyw1YWaPIGkzg" techID="_ERGrhPCqEeyw1YWaPIGkzg" name="purchase_order_details">
+      <primaryKey xmi:id="_EUR8FfCqEeyw1YWaPIGkzg" techID="_ERKV4PCqEeyw1YWaPIGkzg" name="purchase_order_details_pkey" columns="_EUR8JPCqEeyw1YWaPIGkzg"/>
+      <foreignKeys xmi:id="_EUR8FvCqEeyw1YWaPIGkzg" techID="_ETn0APCqEeyw1YWaPIGkzg" name="fk_purchase_order_details_inventory_transactions1" target="_EURU5_CqEeyw1YWaPIGkzg">
+        <elements xmi:id="_EUR8F_CqEeyw1YWaPIGkzg" techID="_ETn0AfCqEeyw1YWaPIGkzg" fkColumn="_EUR8MvCqEeyw1YWaPIGkzg" pkColumn="_EURU-_CqEeyw1YWaPIGkzg"/>
+      </foreignKeys>
+      <foreignKeys xmi:id="_EUR8GPCqEeyw1YWaPIGkzg" techID="_ETn0AvCqEeyw1YWaPIGkzg" name="fk_purchase_order_details_products1" target="_EUR78vCqEeyw1YWaPIGkzg">
+        <elements xmi:id="_EUR8GfCqEeyw1YWaPIGkzg" techID="_ETn0A_CqEeyw1YWaPIGkzg" fkColumn="_EUR8KPCqEeyw1YWaPIGkzg" pkColumn="_EUR7-vCqEeyw1YWaPIGkzg"/>
+      </foreignKeys>
+      <foreignKeys xmi:id="_EUR8GvCqEeyw1YWaPIGkzg" techID="_ETn0BPCqEeyw1YWaPIGkzg" name="fk_purchase_order_details_purchase_orders1" target="_EUR8PPCqEeyw1YWaPIGkzg">
+        <elements xmi:id="_EUR8G_CqEeyw1YWaPIGkzg" techID="_ETn0BfCqEeyw1YWaPIGkzg" fkColumn="_EUR8JvCqEeyw1YWaPIGkzg" pkColumn="_EUR8TPCqEeyw1YWaPIGkzg"/>
+      </foreignKeys>
+      <indexes xmi:id="_EUR8HPCqEeyw1YWaPIGkzg" techID="_ERLkAPCqEeyw1YWaPIGkzg" name="purchase_order_details_pkey" unique="true">
+        <elements xmi:id="_EUR8HfCqEeyw1YWaPIGkzg" techID="_ERLkAfCqEeyw1YWaPIGkzg" column="_EUR8JPCqEeyw1YWaPIGkzg" asc="true"/>
+      </indexes>
+      <indexes xmi:id="_EUR8HvCqEeyw1YWaPIGkzg" techID="_ERLkAvCqEeyw1YWaPIGkzg" name="inventory_id_2">
+        <elements xmi:id="_EUR8H_CqEeyw1YWaPIGkzg" techID="_ERLkA_CqEeyw1YWaPIGkzg" column="_EUR8MvCqEeyw1YWaPIGkzg" asc="true"/>
+      </indexes>
+      <indexes xmi:id="_EUR8IPCqEeyw1YWaPIGkzg" techID="_ERLkBPCqEeyw1YWaPIGkzg" name="product_id_purchase_order_details">
+        <elements xmi:id="_EUR8IfCqEeyw1YWaPIGkzg" techID="_ERLkBfCqEeyw1YWaPIGkzg" column="_EUR8KPCqEeyw1YWaPIGkzg" asc="true"/>
+      </indexes>
+      <indexes xmi:id="_EUR8IvCqEeyw1YWaPIGkzg" techID="_ERLkBvCqEeyw1YWaPIGkzg" name="purchase_order_id_purchase_order_details">
+        <elements xmi:id="_EUR8I_CqEeyw1YWaPIGkzg" techID="_ERLkB_CqEeyw1YWaPIGkzg" column="_EUR8JvCqEeyw1YWaPIGkzg" asc="true"/>
+      </indexes>
+      <columns xmi:id="_EUR8JPCqEeyw1YWaPIGkzg" techID="_ERIgsPCqEeyw1YWaPIGkzg" name="id" defaultValue="nextval('purchase_order_details_id_seq'::regclass)" indexElements="_EUR8HfCqEeyw1YWaPIGkzg" primaryKey="_EUR8FfCqEeyw1YWaPIGkzg" autoincrement="true">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_EUR8JfCqEeyw1YWaPIGkzg" length="10" precision="0">
+          <nativeType href="pathmap://NativeDBTypes/Postgres-9#_Vvu_0GTNEeSmq67_vSAzgg"/>
+        </type>
+      </columns>
+      <columns xmi:id="_EUR8JvCqEeyw1YWaPIGkzg" techID="_ERIgsfCqEeyw1YWaPIGkzg" name="purchase_order_id" defaultValue="" indexElements="_EUR8I_CqEeyw1YWaPIGkzg" foreignKeyElements="_EUR8G_CqEeyw1YWaPIGkzg">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_EUR8J_CqEeyw1YWaPIGkzg" length="10" precision="0">
+          <nativeType href="pathmap://NativeDBTypes/Postgres-9#_ArM2EGTNEeSmq67_vSAzgg"/>
+        </type>
+      </columns>
+      <columns xmi:id="_EUR8KPCqEeyw1YWaPIGkzg" techID="_ERIgsvCqEeyw1YWaPIGkzg" name="product_id" nullable="true" defaultValue="" indexElements="_EUR8IfCqEeyw1YWaPIGkzg" foreignKeyElements="_EUR8GfCqEeyw1YWaPIGkzg">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_EUR8KfCqEeyw1YWaPIGkzg" length="10" precision="0">
+          <nativeType href="pathmap://NativeDBTypes/Postgres-9#_ArM2EGTNEeSmq67_vSAzgg"/>
+        </type>
+      </columns>
+      <columns xmi:id="_EUR8KvCqEeyw1YWaPIGkzg" techID="_ERIgs_CqEeyw1YWaPIGkzg" name="quantity" defaultValue="">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_EUR8K_CqEeyw1YWaPIGkzg" length="18" precision="4">
+          <nativeType href="pathmap://NativeDBTypes/Postgres-9#_LqP9kGTNEeSmq67_vSAzgg"/>
+        </type>
+      </columns>
+      <columns xmi:id="_EUR8LPCqEeyw1YWaPIGkzg" techID="_ERIgtPCqEeyw1YWaPIGkzg" name="unit_cost" defaultValue="">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_EUR8LfCqEeyw1YWaPIGkzg" length="19" precision="4">
+          <nativeType href="pathmap://NativeDBTypes/Postgres-9#_LqP9kGTNEeSmq67_vSAzgg"/>
+        </type>
+      </columns>
+      <columns xmi:id="_EUR8LvCqEeyw1YWaPIGkzg" techID="_ERIgtfCqEeyw1YWaPIGkzg" name="date_received" nullable="true" defaultValue="">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_EUR8L_CqEeyw1YWaPIGkzg" length="29" precision="6">
+          <nativeType href="pathmap://NativeDBTypes/Postgres-9#_cVwRkGTNEeSmq67_vSAzgg"/>
+        </type>
+      </columns>
+      <columns xmi:id="_EUR8MPCqEeyw1YWaPIGkzg" techID="_ERIgtvCqEeyw1YWaPIGkzg" name="posted_to_inventory" defaultValue="false">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_EUR8MfCqEeyw1YWaPIGkzg" length="1" precision="0">
+          <nativeType href="pathmap://NativeDBTypes/Postgres-9#_iBb3cGTMEeSmq67_vSAzgg"/>
+        </type>
+      </columns>
+      <columns xmi:id="_EUR8MvCqEeyw1YWaPIGkzg" techID="_ERIgt_CqEeyw1YWaPIGkzg" name="inventory_id" nullable="true" defaultValue="" indexElements="_EUR8H_CqEeyw1YWaPIGkzg" foreignKeyElements="_EUR8F_CqEeyw1YWaPIGkzg">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_EUR8M_CqEeyw1YWaPIGkzg" length="10" precision="0">
+          <nativeType href="pathmap://NativeDBTypes/Postgres-9#_ArM2EGTNEeSmq67_vSAzgg"/>
+        </type>
+      </columns>
+    </tables>
+    <tables xsi:type="database:Table" xmi:id="_EUR8NPCqEeyw1YWaPIGkzg" techID="_ERLkCPCqEeyw1YWaPIGkzg" name="purchase_order_status">
+      <primaryKey xmi:id="_EUR8NfCqEeyw1YWaPIGkzg" techID="_ERPOYPCqEeyw1YWaPIGkzg" name="purchase_order_status_pkey" columns="_EUR8OPCqEeyw1YWaPIGkzg"/>
+      <indexes xmi:id="_EUR8NvCqEeyw1YWaPIGkzg" techID="_ERRDkPCqEeyw1YWaPIGkzg" name="purchase_order_status_pkey" unique="true">
+        <elements xmi:id="_EUR8N_CqEeyw1YWaPIGkzg" techID="_ERRDkfCqEeyw1YWaPIGkzg" column="_EUR8OPCqEeyw1YWaPIGkzg" asc="true"/>
+      </indexes>
+      <columns xmi:id="_EUR8OPCqEeyw1YWaPIGkzg" techID="_ERNZMPCqEeyw1YWaPIGkzg" name="id" defaultValue="" indexElements="_EUR8N_CqEeyw1YWaPIGkzg" primaryKey="_EUR8NfCqEeyw1YWaPIGkzg">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_EUR8OfCqEeyw1YWaPIGkzg" length="10" precision="0">
+          <nativeType href="pathmap://NativeDBTypes/Postgres-9#_ArM2EGTNEeSmq67_vSAzgg"/>
+        </type>
+      </columns>
+      <columns xmi:id="_EUR8OvCqEeyw1YWaPIGkzg" techID="_ERNZMfCqEeyw1YWaPIGkzg" name="status" nullable="true" defaultValue="">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_EUR8O_CqEeyw1YWaPIGkzg" length="50" precision="0">
+          <nativeType href="pathmap://NativeDBTypes/Postgres-9#_hn9LAGTNEeSmq67_vSAzgg"/>
+        </type>
+      </columns>
+    </tables>
+    <tables xsi:type="database:Table" xmi:id="_EUR8PPCqEeyw1YWaPIGkzg" techID="_ERRDkvCqEeyw1YWaPIGkzg" name="purchase_orders">
+      <primaryKey xmi:id="_EUR8PfCqEeyw1YWaPIGkzg" techID="_ERUt8PCqEeyw1YWaPIGkzg" name="purchase_orders_pkey" columns="_EUR8TPCqEeyw1YWaPIGkzg"/>
+      <foreignKeys xmi:id="_EUR8PvCqEeyw1YWaPIGkzg" techID="_ET1PYPCqEeyw1YWaPIGkzg" name="fk_purchase_orders_employees1" target="_EURUq_CqEeyw1YWaPIGkzg">
+        <elements xmi:id="_EUR8P_CqEeyw1YWaPIGkzg" techID="_ET1PYfCqEeyw1YWaPIGkzg" fkColumn="_EUR8UPCqEeyw1YWaPIGkzg" pkColumn="_EURUu_CqEeyw1YWaPIGkzg"/>
+      </foreignKeys>
+      <foreignKeys xmi:id="_EUR8QPCqEeyw1YWaPIGkzg" techID="_ET1PYvCqEeyw1YWaPIGkzg" name="fk_purchase_orders_purchase_order_status1" target="_EUR8NPCqEeyw1YWaPIGkzg">
+        <elements xmi:id="_EUR8QfCqEeyw1YWaPIGkzg" techID="_ET1PY_CqEeyw1YWaPIGkzg" fkColumn="_EUSiZfCqEeyw1YWaPIGkzg" pkColumn="_EUR8OPCqEeyw1YWaPIGkzg"/>
+      </foreignKeys>
+      <foreignKeys xmi:id="_EUR8QvCqEeyw1YWaPIGkzg" techID="_ET1PZPCqEeyw1YWaPIGkzg" name="fk_purchase_orders_suppliers1" target="_EUSixfCqEeyw1YWaPIGkzg">
+        <elements xmi:id="_EUR8Q_CqEeyw1YWaPIGkzg" techID="_ET1PZfCqEeyw1YWaPIGkzg" fkColumn="_EUR8TvCqEeyw1YWaPIGkzg" pkColumn="_EUSi1fCqEeyw1YWaPIGkzg"/>
+      </foreignKeys>
+      <indexes xmi:id="_EUR8RPCqEeyw1YWaPIGkzg" techID="_ERWjIPCqEeyw1YWaPIGkzg" name="purchase_orders_pkey" unique="true">
+        <elements xmi:id="_EUR8RfCqEeyw1YWaPIGkzg" techID="_ERWjIfCqEeyw1YWaPIGkzg" column="_EUR8TPCqEeyw1YWaPIGkzg" asc="true"/>
+      </indexes>
+      <indexes xmi:id="_EUR8RvCqEeyw1YWaPIGkzg" techID="_ERWjIvCqEeyw1YWaPIGkzg" name="created_by">
+        <elements xmi:id="_EUR8R_CqEeyw1YWaPIGkzg" techID="_ERWjI_CqEeyw1YWaPIGkzg" column="_EUR8UPCqEeyw1YWaPIGkzg" asc="true"/>
+      </indexes>
+      <indexes xmi:id="_EUR8SPCqEeyw1YWaPIGkzg" techID="_ERWjJPCqEeyw1YWaPIGkzg" name="status_id">
+        <elements xmi:id="_EUR8SfCqEeyw1YWaPIGkzg" techID="_ERWjJfCqEeyw1YWaPIGkzg" column="_EUSiZfCqEeyw1YWaPIGkzg" asc="true"/>
+      </indexes>
+      <indexes xmi:id="_EUR8SvCqEeyw1YWaPIGkzg" techID="_ERWjJvCqEeyw1YWaPIGkzg" name="supplier_id_2">
+        <elements xmi:id="_EUR8S_CqEeyw1YWaPIGkzg" techID="_ERWjJ_CqEeyw1YWaPIGkzg" column="_EUR8TvCqEeyw1YWaPIGkzg" asc="true"/>
+      </indexes>
+      <columns xmi:id="_EUR8TPCqEeyw1YWaPIGkzg" techID="_ERS4wPCqEeyw1YWaPIGkzg" name="id" defaultValue="nextval('purchase_orders_id_seq'::regclass)" indexElements="_EUR8RfCqEeyw1YWaPIGkzg" primaryKey="_EUR8PfCqEeyw1YWaPIGkzg" autoincrement="true">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_EUR8TfCqEeyw1YWaPIGkzg" length="10" precision="0">
+          <nativeType href="pathmap://NativeDBTypes/Postgres-9#_Vvu_0GTNEeSmq67_vSAzgg"/>
+        </type>
+      </columns>
+      <columns xmi:id="_EUR8TvCqEeyw1YWaPIGkzg" techID="_ERS4wfCqEeyw1YWaPIGkzg" name="supplier_id" nullable="true" defaultValue="" indexElements="_EUR8S_CqEeyw1YWaPIGkzg" foreignKeyElements="_EUR8Q_CqEeyw1YWaPIGkzg">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_EUR8T_CqEeyw1YWaPIGkzg" length="10" precision="0">
+          <nativeType href="pathmap://NativeDBTypes/Postgres-9#_ArM2EGTNEeSmq67_vSAzgg"/>
+        </type>
+      </columns>
+      <columns xmi:id="_EUR8UPCqEeyw1YWaPIGkzg" techID="_ERS4wvCqEeyw1YWaPIGkzg" name="created_by" nullable="true" defaultValue="" indexElements="_EUR8R_CqEeyw1YWaPIGkzg" foreignKeyElements="_EUR8P_CqEeyw1YWaPIGkzg">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_EUSiYPCqEeyw1YWaPIGkzg" length="10" precision="0">
+          <nativeType href="pathmap://NativeDBTypes/Postgres-9#_ArM2EGTNEeSmq67_vSAzgg"/>
+        </type>
+      </columns>
+      <columns xmi:id="_EUSiYfCqEeyw1YWaPIGkzg" techID="_ERS4w_CqEeyw1YWaPIGkzg" name="submitted_date" nullable="true" defaultValue="">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_EUSiYvCqEeyw1YWaPIGkzg" length="29" precision="6">
+          <nativeType href="pathmap://NativeDBTypes/Postgres-9#_cVwRkGTNEeSmq67_vSAzgg"/>
+        </type>
+      </columns>
+      <columns xmi:id="_EUSiY_CqEeyw1YWaPIGkzg" techID="_ERS4xPCqEeyw1YWaPIGkzg" name="creation_date" nullable="true" defaultValue="">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_EUSiZPCqEeyw1YWaPIGkzg" length="29" precision="6">
+          <nativeType href="pathmap://NativeDBTypes/Postgres-9#_cVwRkGTNEeSmq67_vSAzgg"/>
+        </type>
+      </columns>
+      <columns xmi:id="_EUSiZfCqEeyw1YWaPIGkzg" techID="_ERS4xfCqEeyw1YWaPIGkzg" name="status_id" nullable="true" defaultValue="0" indexElements="_EUR8SfCqEeyw1YWaPIGkzg" foreignKeyElements="_EUR8QfCqEeyw1YWaPIGkzg">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_EUSiZvCqEeyw1YWaPIGkzg" length="10" precision="0">
+          <nativeType href="pathmap://NativeDBTypes/Postgres-9#_ArM2EGTNEeSmq67_vSAzgg"/>
+        </type>
+      </columns>
+      <columns xmi:id="_EUSiZ_CqEeyw1YWaPIGkzg" techID="_ERS4xvCqEeyw1YWaPIGkzg" name="expected_date" nullable="true" defaultValue="">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_EUSiaPCqEeyw1YWaPIGkzg" length="29" precision="6">
+          <nativeType href="pathmap://NativeDBTypes/Postgres-9#_cVwRkGTNEeSmq67_vSAzgg"/>
+        </type>
+      </columns>
+      <columns xmi:id="_EUSiafCqEeyw1YWaPIGkzg" techID="_ERS4x_CqEeyw1YWaPIGkzg" name="shipping_fee" defaultValue="0.0000">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_EUSiavCqEeyw1YWaPIGkzg" length="19" precision="4">
+          <nativeType href="pathmap://NativeDBTypes/Postgres-9#_LqP9kGTNEeSmq67_vSAzgg"/>
+        </type>
+      </columns>
+      <columns xmi:id="_EUSia_CqEeyw1YWaPIGkzg" techID="_ERS4yPCqEeyw1YWaPIGkzg" name="taxes" defaultValue="0.0000">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_EUSibPCqEeyw1YWaPIGkzg" length="19" precision="4">
+          <nativeType href="pathmap://NativeDBTypes/Postgres-9#_LqP9kGTNEeSmq67_vSAzgg"/>
+        </type>
+      </columns>
+      <columns xmi:id="_EUSibfCqEeyw1YWaPIGkzg" techID="_ERS4yfCqEeyw1YWaPIGkzg" name="payment_date" nullable="true" defaultValue="">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_EUSibvCqEeyw1YWaPIGkzg" length="29" precision="6">
+          <nativeType href="pathmap://NativeDBTypes/Postgres-9#_cVwRkGTNEeSmq67_vSAzgg"/>
+        </type>
+      </columns>
+      <columns xmi:id="_EUSib_CqEeyw1YWaPIGkzg" techID="_ERS4yvCqEeyw1YWaPIGkzg" name="payment_amount" nullable="true" defaultValue="0.0000">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_EUSicPCqEeyw1YWaPIGkzg" length="19" precision="4">
+          <nativeType href="pathmap://NativeDBTypes/Postgres-9#_LqP9kGTNEeSmq67_vSAzgg"/>
+        </type>
+      </columns>
+      <columns xmi:id="_EUSicfCqEeyw1YWaPIGkzg" techID="_ERS4y_CqEeyw1YWaPIGkzg" name="payment_method" nullable="true" defaultValue="">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_EUSicvCqEeyw1YWaPIGkzg" length="50" precision="0">
+          <nativeType href="pathmap://NativeDBTypes/Postgres-9#_hn9LAGTNEeSmq67_vSAzgg"/>
+        </type>
+      </columns>
+      <columns xmi:id="_EUSic_CqEeyw1YWaPIGkzg" techID="_ERS4zPCqEeyw1YWaPIGkzg" name="notes" nullable="true" defaultValue="">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_EUSidPCqEeyw1YWaPIGkzg" length="2147483647" precision="0">
+          <nativeType href="pathmap://NativeDBTypes/Postgres-9#_X2UR0GTNEeSmq67_vSAzgg"/>
+        </type>
+      </columns>
+      <columns xmi:id="_EUSidfCqEeyw1YWaPIGkzg" techID="_ERS4zfCqEeyw1YWaPIGkzg" name="approved_by" nullable="true" defaultValue="">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_EUSidvCqEeyw1YWaPIGkzg" length="10" precision="0">
+          <nativeType href="pathmap://NativeDBTypes/Postgres-9#_ArM2EGTNEeSmq67_vSAzgg"/>
+        </type>
+      </columns>
+      <columns xmi:id="_EUSid_CqEeyw1YWaPIGkzg" techID="_ERS4zvCqEeyw1YWaPIGkzg" name="approved_date" nullable="true" defaultValue="">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_EUSiePCqEeyw1YWaPIGkzg" length="29" precision="6">
+          <nativeType href="pathmap://NativeDBTypes/Postgres-9#_cVwRkGTNEeSmq67_vSAzgg"/>
+        </type>
+      </columns>
+      <columns xmi:id="_EUSiefCqEeyw1YWaPIGkzg" techID="_ERS4z_CqEeyw1YWaPIGkzg" name="submitted_by" nullable="true" defaultValue="">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_EUSievCqEeyw1YWaPIGkzg" length="10" precision="0">
+          <nativeType href="pathmap://NativeDBTypes/Postgres-9#_ArM2EGTNEeSmq67_vSAzgg"/>
+        </type>
+      </columns>
+    </tables>
+    <tables xsi:type="database:Table" xmi:id="_EUSie_CqEeyw1YWaPIGkzg" techID="_ERWjKPCqEeyw1YWaPIGkzg" name="sales_reports">
+      <primaryKey xmi:id="_EUSifPCqEeyw1YWaPIGkzg" techID="_ERaNgPCqEeyw1YWaPIGkzg" name="sales_reports_pkey" columns="_EUSif_CqEeyw1YWaPIGkzg"/>
+      <indexes xmi:id="_EUSiffCqEeyw1YWaPIGkzg" techID="_ERbboPCqEeyw1YWaPIGkzg" name="sales_reports_pkey" unique="true">
+        <elements xmi:id="_EUSifvCqEeyw1YWaPIGkzg" techID="_ERbbofCqEeyw1YWaPIGkzg" column="_EUSif_CqEeyw1YWaPIGkzg" asc="true"/>
+      </indexes>
+      <columns xmi:id="_EUSif_CqEeyw1YWaPIGkzg" techID="_ERYYUPCqEeyw1YWaPIGkzg" name="group_by" defaultValue="" indexElements="_EUSifvCqEeyw1YWaPIGkzg" primaryKey="_EUSifPCqEeyw1YWaPIGkzg">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_EUSigPCqEeyw1YWaPIGkzg" length="50" precision="0">
+          <nativeType href="pathmap://NativeDBTypes/Postgres-9#_hn9LAGTNEeSmq67_vSAzgg"/>
+        </type>
+      </columns>
+      <columns xmi:id="_EUSigfCqEeyw1YWaPIGkzg" techID="_ERYYUfCqEeyw1YWaPIGkzg" name="display" nullable="true" defaultValue="">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_EUSigvCqEeyw1YWaPIGkzg" length="50" precision="0">
+          <nativeType href="pathmap://NativeDBTypes/Postgres-9#_hn9LAGTNEeSmq67_vSAzgg"/>
+        </type>
+      </columns>
+      <columns xmi:id="_EUSig_CqEeyw1YWaPIGkzg" techID="_ERYYUvCqEeyw1YWaPIGkzg" name="title" nullable="true" defaultValue="">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_EUSihPCqEeyw1YWaPIGkzg" length="50" precision="0">
+          <nativeType href="pathmap://NativeDBTypes/Postgres-9#_hn9LAGTNEeSmq67_vSAzgg"/>
+        </type>
+      </columns>
+      <columns xmi:id="_EUSihfCqEeyw1YWaPIGkzg" techID="_ERYYU_CqEeyw1YWaPIGkzg" name="filter_row_source" nullable="true" defaultValue="">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_EUSihvCqEeyw1YWaPIGkzg" length="2147483647" precision="0">
+          <nativeType href="pathmap://NativeDBTypes/Postgres-9#_X2UR0GTNEeSmq67_vSAzgg"/>
+        </type>
+      </columns>
+      <columns xmi:id="_EUSih_CqEeyw1YWaPIGkzg" techID="_ERYYVPCqEeyw1YWaPIGkzg" name="default" defaultValue="false">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_EUSiiPCqEeyw1YWaPIGkzg" length="1" precision="0">
+          <nativeType href="pathmap://NativeDBTypes/Postgres-9#_iBb3cGTMEeSmq67_vSAzgg"/>
+        </type>
+      </columns>
+    </tables>
+    <tables xsi:type="database:Table" xmi:id="_EUSiifCqEeyw1YWaPIGkzg" techID="_ERbbovCqEeyw1YWaPIGkzg" name="shippers">
+      <primaryKey xmi:id="_EUSiivCqEeyw1YWaPIGkzg" techID="_ERftEPCqEeyw1YWaPIGkzg" name="shippers_pkey" columns="_EUSimfCqEeyw1YWaPIGkzg"/>
+      <indexes xmi:id="_EUSii_CqEeyw1YWaPIGkzg" techID="_ERg7MPCqEeyw1YWaPIGkzg" name="shippers_pkey" unique="true">
+        <elements xmi:id="_EUSijPCqEeyw1YWaPIGkzg" techID="_ERg7MfCqEeyw1YWaPIGkzg" column="_EUSimfCqEeyw1YWaPIGkzg" asc="true"/>
+      </indexes>
+      <indexes xmi:id="_EUSijfCqEeyw1YWaPIGkzg" techID="_ERg7MvCqEeyw1YWaPIGkzg" name="city_shippers">
+        <elements xmi:id="_EUSijvCqEeyw1YWaPIGkzg" techID="_ERg7M_CqEeyw1YWaPIGkzg" column="_EUSir_CqEeyw1YWaPIGkzg" asc="true"/>
+      </indexes>
+      <indexes xmi:id="_EUSij_CqEeyw1YWaPIGkzg" techID="_ERg7NPCqEeyw1YWaPIGkzg" name="company_shippers">
+        <elements xmi:id="_EUSikPCqEeyw1YWaPIGkzg" techID="_ERg7NfCqEeyw1YWaPIGkzg" column="_EUSim_CqEeyw1YWaPIGkzg" asc="true"/>
+      </indexes>
+      <indexes xmi:id="_EUSikfCqEeyw1YWaPIGkzg" techID="_ERg7NvCqEeyw1YWaPIGkzg" name="first_name_shippers">
+        <elements xmi:id="_EUSikvCqEeyw1YWaPIGkzg" techID="_ERg7N_CqEeyw1YWaPIGkzg" column="_EUSin_CqEeyw1YWaPIGkzg" asc="true"/>
+      </indexes>
+      <indexes xmi:id="_EUSik_CqEeyw1YWaPIGkzg" techID="_ERg7OPCqEeyw1YWaPIGkzg" name="last_name_shippers">
+        <elements xmi:id="_EUSilPCqEeyw1YWaPIGkzg" techID="_ERg7OfCqEeyw1YWaPIGkzg" column="_EUSinfCqEeyw1YWaPIGkzg" asc="true"/>
+      </indexes>
+      <indexes xmi:id="_EUSilfCqEeyw1YWaPIGkzg" techID="_ERg7OvCqEeyw1YWaPIGkzg" name="state_province_shippers">
+        <elements xmi:id="_EUSilvCqEeyw1YWaPIGkzg" techID="_ERg7O_CqEeyw1YWaPIGkzg" column="_EUSisfCqEeyw1YWaPIGkzg" asc="true"/>
+      </indexes>
+      <indexes xmi:id="_EUSil_CqEeyw1YWaPIGkzg" techID="_ERg7PPCqEeyw1YWaPIGkzg" name="zip_postal_code_shippers">
+        <elements xmi:id="_EUSimPCqEeyw1YWaPIGkzg" techID="_ERg7PfCqEeyw1YWaPIGkzg" column="_EUSis_CqEeyw1YWaPIGkzg" asc="true"/>
+      </indexes>
+      <columns xmi:id="_EUSimfCqEeyw1YWaPIGkzg" techID="_ERdQ0PCqEeyw1YWaPIGkzg" name="id" defaultValue="nextval('shippers_id_seq'::regclass)" indexElements="_EUSijPCqEeyw1YWaPIGkzg" primaryKey="_EUSiivCqEeyw1YWaPIGkzg" autoincrement="true">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_EUSimvCqEeyw1YWaPIGkzg" length="10" precision="0">
+          <nativeType href="pathmap://NativeDBTypes/Postgres-9#_Vvu_0GTNEeSmq67_vSAzgg"/>
+        </type>
+      </columns>
+      <columns xmi:id="_EUSim_CqEeyw1YWaPIGkzg" techID="_ERdQ0fCqEeyw1YWaPIGkzg" name="company" nullable="true" defaultValue="" indexElements="_EUSikPCqEeyw1YWaPIGkzg">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_EUSinPCqEeyw1YWaPIGkzg" length="50" precision="0">
+          <nativeType href="pathmap://NativeDBTypes/Postgres-9#_hn9LAGTNEeSmq67_vSAzgg"/>
+        </type>
+      </columns>
+      <columns xmi:id="_EUSinfCqEeyw1YWaPIGkzg" techID="_ERdQ0vCqEeyw1YWaPIGkzg" name="last_name" nullable="true" defaultValue="" indexElements="_EUSilPCqEeyw1YWaPIGkzg">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_EUSinvCqEeyw1YWaPIGkzg" length="50" precision="0">
+          <nativeType href="pathmap://NativeDBTypes/Postgres-9#_hn9LAGTNEeSmq67_vSAzgg"/>
+        </type>
+      </columns>
+      <columns xmi:id="_EUSin_CqEeyw1YWaPIGkzg" techID="_ERdQ0_CqEeyw1YWaPIGkzg" name="first_name" nullable="true" defaultValue="" indexElements="_EUSikvCqEeyw1YWaPIGkzg">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_EUSioPCqEeyw1YWaPIGkzg" length="50" precision="0">
+          <nativeType href="pathmap://NativeDBTypes/Postgres-9#_hn9LAGTNEeSmq67_vSAzgg"/>
+        </type>
+      </columns>
+      <columns xmi:id="_EUSiofCqEeyw1YWaPIGkzg" techID="_ERdQ1PCqEeyw1YWaPIGkzg" name="email_address" nullable="true" defaultValue="">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_EUSiovCqEeyw1YWaPIGkzg" length="50" precision="0">
+          <nativeType href="pathmap://NativeDBTypes/Postgres-9#_hn9LAGTNEeSmq67_vSAzgg"/>
+        </type>
+      </columns>
+      <columns xmi:id="_EUSio_CqEeyw1YWaPIGkzg" techID="_ERdQ1fCqEeyw1YWaPIGkzg" name="job_title" nullable="true" defaultValue="">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_EUSipPCqEeyw1YWaPIGkzg" length="50" precision="0">
+          <nativeType href="pathmap://NativeDBTypes/Postgres-9#_hn9LAGTNEeSmq67_vSAzgg"/>
+        </type>
+      </columns>
+      <columns xmi:id="_EUSipfCqEeyw1YWaPIGkzg" techID="_ERdQ1vCqEeyw1YWaPIGkzg" name="business_phone" nullable="true" defaultValue="">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_EUSipvCqEeyw1YWaPIGkzg" length="25" precision="0">
+          <nativeType href="pathmap://NativeDBTypes/Postgres-9#_hn9LAGTNEeSmq67_vSAzgg"/>
+        </type>
+      </columns>
+      <columns xmi:id="_EUSip_CqEeyw1YWaPIGkzg" techID="_ERdQ1_CqEeyw1YWaPIGkzg" name="home_phone" nullable="true" defaultValue="">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_EUSiqPCqEeyw1YWaPIGkzg" length="25" precision="0">
+          <nativeType href="pathmap://NativeDBTypes/Postgres-9#_hn9LAGTNEeSmq67_vSAzgg"/>
+        </type>
+      </columns>
+      <columns xmi:id="_EUSiqfCqEeyw1YWaPIGkzg" techID="_ERdQ2PCqEeyw1YWaPIGkzg" name="mobile_phone" nullable="true" defaultValue="">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_EUSiqvCqEeyw1YWaPIGkzg" length="25" precision="0">
+          <nativeType href="pathmap://NativeDBTypes/Postgres-9#_hn9LAGTNEeSmq67_vSAzgg"/>
+        </type>
+      </columns>
+      <columns xmi:id="_EUSiq_CqEeyw1YWaPIGkzg" techID="_ERdQ2fCqEeyw1YWaPIGkzg" name="fax_number" nullable="true" defaultValue="">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_EUSirPCqEeyw1YWaPIGkzg" length="25" precision="0">
+          <nativeType href="pathmap://NativeDBTypes/Postgres-9#_hn9LAGTNEeSmq67_vSAzgg"/>
+        </type>
+      </columns>
+      <columns xmi:id="_EUSirfCqEeyw1YWaPIGkzg" techID="_ERdQ2vCqEeyw1YWaPIGkzg" name="address" nullable="true" defaultValue="">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_EUSirvCqEeyw1YWaPIGkzg" length="2147483647" precision="0">
+          <nativeType href="pathmap://NativeDBTypes/Postgres-9#_X2UR0GTNEeSmq67_vSAzgg"/>
+        </type>
+      </columns>
+      <columns xmi:id="_EUSir_CqEeyw1YWaPIGkzg" techID="_ERdQ2_CqEeyw1YWaPIGkzg" name="city" nullable="true" defaultValue="" indexElements="_EUSijvCqEeyw1YWaPIGkzg">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_EUSisPCqEeyw1YWaPIGkzg" length="50" precision="0">
+          <nativeType href="pathmap://NativeDBTypes/Postgres-9#_hn9LAGTNEeSmq67_vSAzgg"/>
+        </type>
+      </columns>
+      <columns xmi:id="_EUSisfCqEeyw1YWaPIGkzg" techID="_ERdQ3PCqEeyw1YWaPIGkzg" name="state_province" nullable="true" defaultValue="" indexElements="_EUSilvCqEeyw1YWaPIGkzg">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_EUSisvCqEeyw1YWaPIGkzg" length="50" precision="0">
+          <nativeType href="pathmap://NativeDBTypes/Postgres-9#_hn9LAGTNEeSmq67_vSAzgg"/>
+        </type>
+      </columns>
+      <columns xmi:id="_EUSis_CqEeyw1YWaPIGkzg" techID="_ERdQ3fCqEeyw1YWaPIGkzg" name="zip_postal_code" nullable="true" defaultValue="" indexElements="_EUSimPCqEeyw1YWaPIGkzg">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_EUSitPCqEeyw1YWaPIGkzg" length="15" precision="0">
+          <nativeType href="pathmap://NativeDBTypes/Postgres-9#_hn9LAGTNEeSmq67_vSAzgg"/>
+        </type>
+      </columns>
+      <columns xmi:id="_EUSitfCqEeyw1YWaPIGkzg" techID="_ERdQ3vCqEeyw1YWaPIGkzg" name="country_region" nullable="true" defaultValue="">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_EUSitvCqEeyw1YWaPIGkzg" length="50" precision="0">
+          <nativeType href="pathmap://NativeDBTypes/Postgres-9#_hn9LAGTNEeSmq67_vSAzgg"/>
+        </type>
+      </columns>
+      <columns xmi:id="_EUSit_CqEeyw1YWaPIGkzg" techID="_ERd34PCqEeyw1YWaPIGkzg" name="web_page" nullable="true" defaultValue="">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_EUSiuPCqEeyw1YWaPIGkzg" length="2147483647" precision="0">
+          <nativeType href="pathmap://NativeDBTypes/Postgres-9#_X2UR0GTNEeSmq67_vSAzgg"/>
+        </type>
+      </columns>
+      <columns xmi:id="_EUSiufCqEeyw1YWaPIGkzg" techID="_ERd34fCqEeyw1YWaPIGkzg" name="notes" nullable="true" defaultValue="">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_EUSiuvCqEeyw1YWaPIGkzg" length="2147483647" precision="0">
+          <nativeType href="pathmap://NativeDBTypes/Postgres-9#_X2UR0GTNEeSmq67_vSAzgg"/>
+        </type>
+      </columns>
+      <columns xmi:id="_EUSiu_CqEeyw1YWaPIGkzg" techID="_ERd34vCqEeyw1YWaPIGkzg" name="attachments" nullable="true" defaultValue="">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_EUSivPCqEeyw1YWaPIGkzg" length="2147483647" precision="0">
+          <nativeType href="pathmap://NativeDBTypes/Postgres-9#_3Xq00G5GEeS0qO0NdvQESw"/>
+        </type>
+      </columns>
+    </tables>
+    <tables xsi:type="database:Table" xmi:id="_EUSivfCqEeyw1YWaPIGkzg" techID="_ERg7PvCqEeyw1YWaPIGkzg" name="strings">
+      <primaryKey xmi:id="_EUSivvCqEeyw1YWaPIGkzg" techID="_ERklkPCqEeyw1YWaPIGkzg" name="strings_pkey" columns="_EUSiwfCqEeyw1YWaPIGkzg"/>
+      <indexes xmi:id="_EUSiv_CqEeyw1YWaPIGkzg" techID="_ERlzsPCqEeyw1YWaPIGkzg" name="strings_pkey" unique="true">
+        <elements xmi:id="_EUSiwPCqEeyw1YWaPIGkzg" techID="_ERlzsfCqEeyw1YWaPIGkzg" column="_EUSiwfCqEeyw1YWaPIGkzg" asc="true"/>
+      </indexes>
+      <columns xmi:id="_EUSiwfCqEeyw1YWaPIGkzg" techID="_ERiwYPCqEeyw1YWaPIGkzg" name="string_id" defaultValue="nextval('strings_string_id_seq'::regclass)" indexElements="_EUSiwPCqEeyw1YWaPIGkzg" primaryKey="_EUSivvCqEeyw1YWaPIGkzg" autoincrement="true">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_EUSiwvCqEeyw1YWaPIGkzg" length="10" precision="0">
+          <nativeType href="pathmap://NativeDBTypes/Postgres-9#_Vvu_0GTNEeSmq67_vSAzgg"/>
+        </type>
+      </columns>
+      <columns xmi:id="_EUSiw_CqEeyw1YWaPIGkzg" techID="_ERiwYfCqEeyw1YWaPIGkzg" name="string_data" nullable="true" defaultValue="">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_EUSixPCqEeyw1YWaPIGkzg" length="255" precision="0">
+          <nativeType href="pathmap://NativeDBTypes/Postgres-9#_hn9LAGTNEeSmq67_vSAzgg"/>
+        </type>
+      </columns>
+    </tables>
+    <tables xsi:type="database:Table" xmi:id="_EUSixfCqEeyw1YWaPIGkzg" techID="_ERlzsvCqEeyw1YWaPIGkzg" name="suppliers">
+      <primaryKey xmi:id="_EUSixvCqEeyw1YWaPIGkzg" techID="_ERqFIPCqEeyw1YWaPIGkzg" name="suppliers_pkey" columns="_EUSi1fCqEeyw1YWaPIGkzg"/>
+      <indexes xmi:id="_EUSix_CqEeyw1YWaPIGkzg" techID="_ERr6UPCqEeyw1YWaPIGkzg" name="suppliers_pkey" unique="true">
+        <elements xmi:id="_EUSiyPCqEeyw1YWaPIGkzg" techID="_ERr6UfCqEeyw1YWaPIGkzg" column="_EUSi1fCqEeyw1YWaPIGkzg" asc="true"/>
+      </indexes>
+      <indexes xmi:id="_EUSiyfCqEeyw1YWaPIGkzg" techID="_ERr6UvCqEeyw1YWaPIGkzg" name="city_suppliers">
+        <elements xmi:id="_EUSiyvCqEeyw1YWaPIGkzg" techID="_ERr6U_CqEeyw1YWaPIGkzg" column="_EUSi6_CqEeyw1YWaPIGkzg" asc="true"/>
+      </indexes>
+      <indexes xmi:id="_EUSiy_CqEeyw1YWaPIGkzg" techID="_ERr6VPCqEeyw1YWaPIGkzg" name="company_suppliers">
+        <elements xmi:id="_EUSizPCqEeyw1YWaPIGkzg" techID="_ERr6VfCqEeyw1YWaPIGkzg" column="_EUSi1_CqEeyw1YWaPIGkzg" asc="true"/>
+      </indexes>
+      <indexes xmi:id="_EUSizfCqEeyw1YWaPIGkzg" techID="_ERr6VvCqEeyw1YWaPIGkzg" name="first_name_suppliers">
+        <elements xmi:id="_EUSizvCqEeyw1YWaPIGkzg" techID="_ERr6V_CqEeyw1YWaPIGkzg" column="_EUSi2_CqEeyw1YWaPIGkzg" asc="true"/>
+      </indexes>
+      <indexes xmi:id="_EUSiz_CqEeyw1YWaPIGkzg" techID="_ERr6WPCqEeyw1YWaPIGkzg" name="last_name_suppliers">
+        <elements xmi:id="_EUSi0PCqEeyw1YWaPIGkzg" techID="_ERr6WfCqEeyw1YWaPIGkzg" column="_EUSi2fCqEeyw1YWaPIGkzg" asc="true"/>
+      </indexes>
+      <indexes xmi:id="_EUSi0fCqEeyw1YWaPIGkzg" techID="_ERr6WvCqEeyw1YWaPIGkzg" name="state_province_suppliers">
+        <elements xmi:id="_EUSi0vCqEeyw1YWaPIGkzg" techID="_ERr6W_CqEeyw1YWaPIGkzg" column="_EUSi7fCqEeyw1YWaPIGkzg" asc="true"/>
+      </indexes>
+      <indexes xmi:id="_EUSi0_CqEeyw1YWaPIGkzg" techID="_ERr6XPCqEeyw1YWaPIGkzg" name="zip_postal_code_suppliers">
+        <elements xmi:id="_EUSi1PCqEeyw1YWaPIGkzg" techID="_ERr6XfCqEeyw1YWaPIGkzg" column="_EUSi7_CqEeyw1YWaPIGkzg" asc="true"/>
+      </indexes>
+      <columns xmi:id="_EUSi1fCqEeyw1YWaPIGkzg" techID="_ERno4PCqEeyw1YWaPIGkzg" name="id" defaultValue="nextval('suppliers_id_seq'::regclass)" indexElements="_EUSiyPCqEeyw1YWaPIGkzg" primaryKey="_EUSixvCqEeyw1YWaPIGkzg" autoincrement="true">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_EUSi1vCqEeyw1YWaPIGkzg" length="10" precision="0">
+          <nativeType href="pathmap://NativeDBTypes/Postgres-9#_Vvu_0GTNEeSmq67_vSAzgg"/>
+        </type>
+      </columns>
+      <columns xmi:id="_EUSi1_CqEeyw1YWaPIGkzg" techID="_ERno4fCqEeyw1YWaPIGkzg" name="company" nullable="true" defaultValue="" indexElements="_EUSizPCqEeyw1YWaPIGkzg">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_EUSi2PCqEeyw1YWaPIGkzg" length="50" precision="0">
+          <nativeType href="pathmap://NativeDBTypes/Postgres-9#_hn9LAGTNEeSmq67_vSAzgg"/>
+        </type>
+      </columns>
+      <columns xmi:id="_EUSi2fCqEeyw1YWaPIGkzg" techID="_ERno4vCqEeyw1YWaPIGkzg" name="last_name" nullable="true" defaultValue="" indexElements="_EUSi0PCqEeyw1YWaPIGkzg">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_EUSi2vCqEeyw1YWaPIGkzg" length="50" precision="0">
+          <nativeType href="pathmap://NativeDBTypes/Postgres-9#_hn9LAGTNEeSmq67_vSAzgg"/>
+        </type>
+      </columns>
+      <columns xmi:id="_EUSi2_CqEeyw1YWaPIGkzg" techID="_ERno4_CqEeyw1YWaPIGkzg" name="first_name" nullable="true" defaultValue="" indexElements="_EUSizvCqEeyw1YWaPIGkzg">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_EUSi3PCqEeyw1YWaPIGkzg" length="50" precision="0">
+          <nativeType href="pathmap://NativeDBTypes/Postgres-9#_hn9LAGTNEeSmq67_vSAzgg"/>
+        </type>
+      </columns>
+      <columns xmi:id="_EUSi3fCqEeyw1YWaPIGkzg" techID="_ERno5PCqEeyw1YWaPIGkzg" name="email_address" nullable="true" defaultValue="">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_EUSi3vCqEeyw1YWaPIGkzg" length="50" precision="0">
+          <nativeType href="pathmap://NativeDBTypes/Postgres-9#_hn9LAGTNEeSmq67_vSAzgg"/>
+        </type>
+      </columns>
+      <columns xmi:id="_EUSi3_CqEeyw1YWaPIGkzg" techID="_ERno5fCqEeyw1YWaPIGkzg" name="job_title" nullable="true" defaultValue="">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_EUSi4PCqEeyw1YWaPIGkzg" length="50" precision="0">
+          <nativeType href="pathmap://NativeDBTypes/Postgres-9#_hn9LAGTNEeSmq67_vSAzgg"/>
+        </type>
+      </columns>
+      <columns xmi:id="_EUSi4fCqEeyw1YWaPIGkzg" techID="_ERno5vCqEeyw1YWaPIGkzg" name="business_phone" nullable="true" defaultValue="">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_EUSi4vCqEeyw1YWaPIGkzg" length="25" precision="0">
+          <nativeType href="pathmap://NativeDBTypes/Postgres-9#_hn9LAGTNEeSmq67_vSAzgg"/>
+        </type>
+      </columns>
+      <columns xmi:id="_EUSi4_CqEeyw1YWaPIGkzg" techID="_ERno5_CqEeyw1YWaPIGkzg" name="home_phone" nullable="true" defaultValue="">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_EUSi5PCqEeyw1YWaPIGkzg" length="25" precision="0">
+          <nativeType href="pathmap://NativeDBTypes/Postgres-9#_hn9LAGTNEeSmq67_vSAzgg"/>
+        </type>
+      </columns>
+      <columns xmi:id="_EUSi5fCqEeyw1YWaPIGkzg" techID="_ERno6PCqEeyw1YWaPIGkzg" name="mobile_phone" nullable="true" defaultValue="">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_EUSi5vCqEeyw1YWaPIGkzg" length="25" precision="0">
+          <nativeType href="pathmap://NativeDBTypes/Postgres-9#_hn9LAGTNEeSmq67_vSAzgg"/>
+        </type>
+      </columns>
+      <columns xmi:id="_EUSi5_CqEeyw1YWaPIGkzg" techID="_ERno6fCqEeyw1YWaPIGkzg" name="fax_number" nullable="true" defaultValue="">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_EUSi6PCqEeyw1YWaPIGkzg" length="25" precision="0">
+          <nativeType href="pathmap://NativeDBTypes/Postgres-9#_hn9LAGTNEeSmq67_vSAzgg"/>
+        </type>
+      </columns>
+      <columns xmi:id="_EUSi6fCqEeyw1YWaPIGkzg" techID="_ERno6vCqEeyw1YWaPIGkzg" name="address" nullable="true" defaultValue="">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_EUSi6vCqEeyw1YWaPIGkzg" length="2147483647" precision="0">
+          <nativeType href="pathmap://NativeDBTypes/Postgres-9#_X2UR0GTNEeSmq67_vSAzgg"/>
+        </type>
+      </columns>
+      <columns xmi:id="_EUSi6_CqEeyw1YWaPIGkzg" techID="_ERno6_CqEeyw1YWaPIGkzg" name="city" nullable="true" defaultValue="" indexElements="_EUSiyvCqEeyw1YWaPIGkzg">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_EUSi7PCqEeyw1YWaPIGkzg" length="50" precision="0">
+          <nativeType href="pathmap://NativeDBTypes/Postgres-9#_hn9LAGTNEeSmq67_vSAzgg"/>
+        </type>
+      </columns>
+      <columns xmi:id="_EUSi7fCqEeyw1YWaPIGkzg" techID="_ERno7PCqEeyw1YWaPIGkzg" name="state_province" nullable="true" defaultValue="" indexElements="_EUSi0vCqEeyw1YWaPIGkzg">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_EUSi7vCqEeyw1YWaPIGkzg" length="50" precision="0">
+          <nativeType href="pathmap://NativeDBTypes/Postgres-9#_hn9LAGTNEeSmq67_vSAzgg"/>
+        </type>
+      </columns>
+      <columns xmi:id="_EUSi7_CqEeyw1YWaPIGkzg" techID="_ERno7fCqEeyw1YWaPIGkzg" name="zip_postal_code" nullable="true" defaultValue="" indexElements="_EUSi1PCqEeyw1YWaPIGkzg">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_EUSi8PCqEeyw1YWaPIGkzg" length="15" precision="0">
+          <nativeType href="pathmap://NativeDBTypes/Postgres-9#_hn9LAGTNEeSmq67_vSAzgg"/>
+        </type>
+      </columns>
+      <columns xmi:id="_EUSi8fCqEeyw1YWaPIGkzg" techID="_ERoP8PCqEeyw1YWaPIGkzg" name="country_region" nullable="true" defaultValue="">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_EUSi8vCqEeyw1YWaPIGkzg" length="50" precision="0">
+          <nativeType href="pathmap://NativeDBTypes/Postgres-9#_hn9LAGTNEeSmq67_vSAzgg"/>
+        </type>
+      </columns>
+      <columns xmi:id="_EUSi8_CqEeyw1YWaPIGkzg" techID="_ERoP8fCqEeyw1YWaPIGkzg" name="web_page" nullable="true" defaultValue="">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_EUSi9PCqEeyw1YWaPIGkzg" length="2147483647" precision="0">
+          <nativeType href="pathmap://NativeDBTypes/Postgres-9#_X2UR0GTNEeSmq67_vSAzgg"/>
+        </type>
+      </columns>
+      <columns xmi:id="_EUSi9fCqEeyw1YWaPIGkzg" techID="_ERoP8vCqEeyw1YWaPIGkzg" name="notes" nullable="true" defaultValue="">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_EUSi9vCqEeyw1YWaPIGkzg" length="2147483647" precision="0">
+          <nativeType href="pathmap://NativeDBTypes/Postgres-9#_X2UR0GTNEeSmq67_vSAzgg"/>
+        </type>
+      </columns>
+      <columns xmi:id="_EUSi9_CqEeyw1YWaPIGkzg" techID="_ERoP8_CqEeyw1YWaPIGkzg" name="attachments" nullable="true" defaultValue="">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_EUSi-PCqEeyw1YWaPIGkzg" length="2147483647" precision="0">
+          <nativeType href="pathmap://NativeDBTypes/Postgres-9#_3Xq00G5GEeS0qO0NdvQESw"/>
+        </type>
+      </columns>
+    </tables>
+    <sequences xmi:id="_EUSi-fCqEeyw1YWaPIGkzg" techID="_ERwLwPCqEeyw1YWaPIGkzg" name="customers_id_seq" start="1" increment="1" minValue="1" maxValue="2147483647" cacheSize="1"/>
+    <sequences xmi:id="_EUSi-vCqEeyw1YWaPIGkzg" techID="_ERxZ4PCqEeyw1YWaPIGkzg" name="employees_id_seq" start="1" increment="1" minValue="1" maxValue="2147483647" cacheSize="1"/>
+    <sequences xmi:id="_EUSi-_CqEeyw1YWaPIGkzg" techID="_ERyA8PCqEeyw1YWaPIGkzg" name="inventory_transactions_id_seq" start="1" increment="1" minValue="1" maxValue="2147483647" cacheSize="1"/>
+    <sequences xmi:id="_EUSi_PCqEeyw1YWaPIGkzg" techID="_ERyA8fCqEeyw1YWaPIGkzg" name="invoices_id_seq" start="1" increment="1" minValue="1" maxValue="2147483647" cacheSize="1"/>
+    <sequences xmi:id="_EUSi_fCqEeyw1YWaPIGkzg" techID="_ERyoAPCqEeyw1YWaPIGkzg" name="order_details_id_seq" start="1" increment="1" minValue="1" maxValue="2147483647" cacheSize="1"/>
+    <sequences xmi:id="_EUSi_vCqEeyw1YWaPIGkzg" techID="_ERz2IPCqEeyw1YWaPIGkzg" name="orders_id_seq" start="1" increment="1" minValue="1" maxValue="2147483647" cacheSize="1"/>
+    <sequences xmi:id="_EUSi__CqEeyw1YWaPIGkzg" techID="_ERz2IfCqEeyw1YWaPIGkzg" name="privileges_id_seq" start="1" increment="1" minValue="1" maxValue="2147483647" cacheSize="1"/>
+    <sequences xmi:id="_EUSjAPCqEeyw1YWaPIGkzg" techID="_ER0dMPCqEeyw1YWaPIGkzg" name="products_id_seq" start="1" increment="1" minValue="1" maxValue="2147483647" cacheSize="1"/>
+    <sequences xmi:id="_EUSjAfCqEeyw1YWaPIGkzg" techID="_ER1EQPCqEeyw1YWaPIGkzg" name="purchase_order_details_id_seq" start="1" increment="1" minValue="1" maxValue="2147483647" cacheSize="1"/>
+    <sequences xmi:id="_EUSjAvCqEeyw1YWaPIGkzg" techID="_ER1rUPCqEeyw1YWaPIGkzg" name="purchase_orders_id_seq" start="1" increment="1" minValue="1" maxValue="2147483647" cacheSize="1"/>
+    <sequences xmi:id="_EUSjA_CqEeyw1YWaPIGkzg" techID="_ER1rUfCqEeyw1YWaPIGkzg" name="shippers_id_seq" start="1" increment="1" minValue="1" maxValue="2147483647" cacheSize="1"/>
+    <sequences xmi:id="_EUSjBPCqEeyw1YWaPIGkzg" techID="_ER1rUvCqEeyw1YWaPIGkzg" name="strings_string_id_seq" start="1" increment="1" minValue="1" maxValue="2147483647" cacheSize="1"/>
+    <sequences xmi:id="_EUSjBfCqEeyw1YWaPIGkzg" techID="_ER1rU_CqEeyw1YWaPIGkzg" name="suppliers_id_seq" start="1" increment="1" minValue="1" maxValue="2147483647" cacheSize="1"/>
+  </schemas>
+</database:DataBase>
