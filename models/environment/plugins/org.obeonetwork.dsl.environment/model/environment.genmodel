@@ -13,7 +13,8 @@
   <foreignModel>environment.ecore</foreignModel>
   <modelPluginVariables>CDO=org.eclipse.emf.cdo</modelPluginVariables>
   <genPackages prefix="Environment" basePackage="org.obeonetwork.dsl" resource="XMI"
-      disposableProviderFactory="true" extensibleProviderFactory="true" ecorePackage="environment.ecore#/">
+      disposableProviderFactory="true" generateModelWizard="false" extensibleProviderFactory="true"
+      ecorePackage="environment.ecore#/">
     <genEnums ecoreEnum="environment.ecore#//MultiplicityKind">
       <genEnumLiterals ecoreEnumLiteral="environment.ecore#//MultiplicityKind/ZERO_ONE"/>
       <genEnumLiterals ecoreEnumLiteral="environment.ecore#//MultiplicityKind/ONE"/>

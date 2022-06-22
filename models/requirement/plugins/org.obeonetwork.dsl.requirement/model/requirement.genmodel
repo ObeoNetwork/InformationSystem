@@ -9,7 +9,8 @@
   <foreignModel>requirement.ecore</foreignModel>
   <modelPluginVariables>CDO=org.eclipse.emf.cdo</modelPluginVariables>
   <genPackages prefix="Requirement" basePackage="org.obeonetwork.dsl" resource="XMI"
-      disposableProviderFactory="true" multipleEditorPages="false" ecorePackage="requirement.ecore#/">
+      disposableProviderFactory="true" multipleEditorPages="false" generateModelWizard="false"
+      ecorePackage="requirement.ecore#/">
     <genEnums typeSafeEnumCompatible="false" ecoreEnum="requirement.ecore#//RequirementType">
       <genEnumLiterals ecoreEnumLiteral="requirement.ecore#//RequirementType/functional"/>
       <genEnumLiterals ecoreEnumLiteral="requirement.ecore#//RequirementType/technical"/>

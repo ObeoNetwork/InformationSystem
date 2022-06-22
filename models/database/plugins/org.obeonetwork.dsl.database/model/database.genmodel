@@ -8,7 +8,7 @@
   <foreignModel>database.ecore</foreignModel>
   <modelPluginVariables>CDO=org.eclipse.emf.cdo</modelPluginVariables>
   <genPackages prefix="Database" basePackage="org.obeonetwork.dsl" disposableProviderFactory="true"
-      multipleEditorPages="false" ecorePackage="database.ecore#/">
+      multipleEditorPages="false" generateModelWizard="false" ecorePackage="database.ecore#/">
     <genClasses image="false" ecoreClass="database.ecore#//NamedElement">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute database.ecore#//NamedElement/name"/>
     </genClasses>

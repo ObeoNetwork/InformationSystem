@@ -9,7 +9,7 @@
   <foreignModel>entity.ecore</foreignModel>
   <modelPluginVariables>CDO=org.eclipse.emf.cdo</modelPluginVariables>
   <genPackages prefix="Entity" basePackage="org.obeonetwork.dsl" resource="XMI" disposableProviderFactory="true"
-      childCreationExtenders="true" ecorePackage="entity.ecore#/">
+      generateModelWizard="false" childCreationExtenders="true" ecorePackage="entity.ecore#/">
     <genEnums ecoreEnum="entity.ecore#//InheritanceKind">
       <genEnumLiterals ecoreEnumLiteral="entity.ecore#//InheritanceKind/TABLE_PER_SUBCLASS"/>
       <genEnumLiterals ecoreEnumLiteral="entity.ecore#//InheritanceKind/TABLE_PER_CLASS_HIERARCHY"/>

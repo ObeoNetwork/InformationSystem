@@ -9,7 +9,7 @@
   <foreignModel>graal.ecore</foreignModel>
   <modelPluginVariables>CDO=org.eclipse.emf.cdo</modelPluginVariables>
   <genPackages prefix="Graal" basePackage="org.obeonetwork" resource="XMI" disposableProviderFactory="true"
-      multipleEditorPages="false" ecorePackage="graal.ecore#/">
+      multipleEditorPages="false" generateModelWizard="false" ecorePackage="graal.ecore#/">
     <genEnums typeSafeEnumCompatible="false" ecoreEnum="graal.ecore#//TransitionKind">
       <genEnumLiterals ecoreEnumLiteral="graal.ecore#//TransitionKind/normal"/>
       <genEnumLiterals ecoreEnumLiteral="graal.ecore#//TransitionKind/interrupt"/>

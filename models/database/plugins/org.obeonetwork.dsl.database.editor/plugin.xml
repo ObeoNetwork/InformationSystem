@@ -15,21 +15,6 @@
 <plugin>
 
 
-   <extension point="org.eclipse.ui.newWizards">
-      <!-- @generated database -->
-      <category
-            id="org.eclipse.emf.ecore.Wizard.category.ID"
-            name="%_UI_Wizard_category"/>
-      <wizard
-            id="org.obeonetwork.dsl.database.presentation.DatabaseModelWizardID"
-            name="%_UI_DatabaseModelWizard_label"
-            class="org.obeonetwork.dsl.database.presentation.DatabaseModelWizard"
-            category="org.eclipse.emf.ecore.Wizard.category.ID"
-            icon="icons/full/obj16/DatabaseModelFile.gif">
-         <description>%_UI_DatabaseModelWizard_description</description>
-         <selection class="org.eclipse.core.resources.IResource"/>
-      </wizard>
-   </extension>
 
    <extension point="org.eclipse.ui.editors">
       <editor
