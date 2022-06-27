@@ -374,7 +374,8 @@ public class DatabaseServices {
 				viewColumn.setAlias(parsedColumn.getAlias());
 				if(!StringUtils.isNullOrWhite(parsedColumn.getTable())) {
 					Optional<ViewTable> fromTableOpt = view.getTables().stream()
-							.filter(t -> parsedColumn.getTable().equals(t.getName()))
+							.filter(t -> parsedColumn.getTable().equals(t.getName()) || 
+									parsedColumn.getTable().equals(t.getAlias()))
 							.findFirst();
 					if(fromTableOpt.isPresent()) {
 						viewColumn.setFrom(fromTableOpt.get());
@@ -427,8 +428,8 @@ public class DatabaseServices {
 	}
 	
 	private Table findTable(ViewTable viewTable) {
-		Schema schema = EObjectUtils.getContainer(viewTable, Schema.class);
-		return schema.getTables().stream()
+		TableContainer tableContainer = EObjectUtils.getContainer(viewTable, TableContainer.class);
+		return tableContainer.getTables().stream()
 				.filter(Table.class::isInstance).map(Table.class::cast)
 				.filter(t -> viewTable.getName().equals(t.getName()))
 				.findFirst().orElse(null);
