@@ -244,7 +244,7 @@ COMMENT ON COLUMN [column.owner.oclAsType(Table).fullname()/].[column.name()/] I
 [/template]
 
 [template private autoIncrement(column : Column) ? (column.isTargetH2())]
-[if (column.autoincrement or (column.inPrimaryKey and not column.inForeignKey and column.sequence.oclIsUndefined()))] AUTO_INCREMENT[/if]
+[if (column.autoincrement)] AUTO_INCREMENT[/if]
 [/template]
 
 [template private autoIncrement(column : Column)][/template]
