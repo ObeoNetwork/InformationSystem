@@ -28,4 +28,12 @@
             class="org.obeonetwork.dsl.is.design.ui.selector.UpdateDAnalysisSelectorSessionListener">
       </listener>
    </extension>
+   <extension
+         id="IsdUISessionFactory"
+         point="org.eclipse.sirius.ui.uiSessionFactory">
+      <uiSessionFactory
+            class="org.obeonetwork.dsl.is.design.IsdUISessionFactory"
+            override="fr.obeo.dsl.viewpoint.collab.ui.uiCollaborativeSession">
+      </uiSessionFactory>
+   </extension>
 </plugin>
