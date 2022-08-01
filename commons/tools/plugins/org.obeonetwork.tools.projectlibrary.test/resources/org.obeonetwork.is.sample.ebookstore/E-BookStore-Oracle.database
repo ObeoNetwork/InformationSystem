@@ -1,0 +1,258 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<database:DataBase xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:database="http://www.obeonetwork.org/dsl/database/1.0" xmlns:typeslibrary="http://www.obeonetwork.org/dsl/typeslibrary/1.0" xmi:id="_MX0j8ZEeEeauDets12NBwQ" comments="Some comments about the E-BookStore Oracle Database...&#xD;&#xA;" techID="_MX0j8JEeEeauDets12NBwQ" name="E-BookStore-Oracle">
+  <usedLibraries xsi:type="typeslibrary:NativeTypesLibrary" href="pathmap://NativeDBTypes/Oracle-11g#_cUvfIBEnEeGTa_JlZYBw1A"/>
+  <schemas xmi:id="_PZ84MZEeEeauDets12NBwQ" comments="Some comments about the main schema." techID="_PZ84MJEeEeauDets12NBwQ" name="main">
+    <tables xsi:type="database:Table" xmi:id="_PZ9fQZEeEeauDets12NBwQ" comments="Some comments about the table of authors..." techID="_PZ9fQJEeEeauDets12NBwQ" name="AUTHOR">
+      <primaryKey xmi:id="_PZ-tcpEeEeauDets12NBwQ" comments="Contrainte PK pour la colonne AUTHOR_ID" techID="_PZ-tcZEeEeauDets12NBwQ" name="AUTHOR_PK" columns="_PZ-tYpEeEeauDets12NBwQ"/>
+      <foreignKeys xmi:id="_PaCX0ZEeEeauDets12NBwQ" comments="Contrainte FK avec la table BOOK" techID="_PaCX0JEeEeauDets12NBwQ" name="AUTHOR_FK1_1" target="_PZ_Ud5EeEeauDets12NBwQ">
+        <elements xmi:id="_PaCX05EeEeauDets12NBwQ" techID="_PaCX0pEeEeauDets12NBwQ" fkColumn="_PZ-tZpEeEeauDets12NBwQ" pkColumn="_PZ_UhZEeEeauDets12NBwQ"/>
+      </foreignKeys>
+      <constraints xmi:id="_PZ_UdZEeEeauDets12NBwQ" comments="Liste des valeurs possibles pour main_XTOPSUP" techID="_PZ_UdJEeEeauDets12NBwQ" name="AUTHOR_CK1_1" expression="main_XTOPSUP in ('0','1','3','9')"/>
+      <indexes xmi:id="_PZ_UcZEeEeauDets12NBwQ" comments="Index sur la FK (BOOK_ID) de la table AUTHOR" techID="_PZ_UcJEeEeauDets12NBwQ" name="AUTHOR_FK1_1">
+        <elements xmi:id="_PZ_Uc5EeEeauDets12NBwQ" techID="_PZ_UcpEeEeauDets12NBwQ" column="_PZ-tZpEeEeauDets12NBwQ" asc="true"/>
+      </indexes>
+      <columns xmi:id="_PZ-GUZEeEeauDets12NBwQ" techID="_PZ-GUJEeEeauDets12NBwQ" name="NAME">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_PZ-tYJEeEeauDets12NBwQ" length="19">
+          <nativeType href="pathmap://NativeDBTypes/Oracle-11g#_cUx7bxEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+      <columns xmi:id="_PZ-tYpEeEeauDets12NBwQ" comments="PK de la table AUTHOR" techID="_PZ-tYZEeEeauDets12NBwQ" name="AUTHOR_ID" primaryKey="_PZ-tcpEeEeauDets12NBwQ" sequence="_PaEM8ZEeEeauDets12NBwQ">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_PZ-tZJEeEeauDets12NBwQ">
+          <nativeType href="pathmap://NativeDBTypes/Oracle-11g#_EwGJQD77EeaWN4f5B3n2lA"/>
+        </type>
+      </columns>
+      <columns xmi:id="_PZ-tZpEeEeauDets12NBwQ" techID="_PZ-tZZEeEeauDets12NBwQ" name="BOOK_ID" nullable="true" indexElements="_PZ_Uc5EeEeauDets12NBwQ" foreignKeyElements="_PaCX05EeEeauDets12NBwQ">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_PZ-taJEeEeauDets12NBwQ">
+          <nativeType href="pathmap://NativeDBTypes/Oracle-11g#_EwGJQD77EeaWN4f5B3n2lA"/>
+        </type>
+      </columns>
+      <columns xmi:id="_PZ-tapEeEeauDets12NBwQ" comments="Indicateur pour savoir si l'enregistrement est valide" techID="_PZ-taZEeEeauDets12NBwQ" name="main_XTOPSUP" defaultValue="'0'">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_PZ-tbJEeEeauDets12NBwQ" length="1">
+          <nativeType href="pathmap://NativeDBTypes/Oracle-11g#_cUx7bxEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+      <columns xmi:id="_PZ-tbpEeEeauDets12NBwQ" comments="Date de mise à jour de la ligne" techID="_PZ-tbZEeEeauDets12NBwQ" name="main_XDMAJ">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_PZ-tcJEeEeauDets12NBwQ">
+          <nativeType href="pathmap://NativeDBTypes/Oracle-11g#_cUwGNREnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+    </tables>
+    <tables xsi:type="database:Table" xmi:id="_PZ_Ud5EeEeauDets12NBwQ" comments="Some comments about the table of books..." techID="_PZ_UdpEeEeauDets12NBwQ" name="BOOK">
+      <primaryKey xmi:id="_PZ_7iZEeEeauDets12NBwQ" comments="Contrainte PK pour la colonne BOOK_ID" techID="_PZ_7iJEeEeauDets12NBwQ" name="BOOK_PK" columns="_PZ_UhZEeEeauDets12NBwQ"/>
+      <foreignKeys xmi:id="_PaCX1ZEeEeauDets12NBwQ" comments="Contrainte FK avec la table AUTHOR" techID="_PaCX1JEeEeauDets12NBwQ" name="BOOK_FK1_1" target="_PZ9fQZEeEeauDets12NBwQ">
+        <elements xmi:id="_PaCX15EeEeauDets12NBwQ" techID="_PaCX1pEeEeauDets12NBwQ" fkColumn="_PZ_UiZEeEeauDets12NBwQ" pkColumn="_PZ-tYpEeEeauDets12NBwQ"/>
+      </foreignKeys>
+      <constraints xmi:id="_PZ_7j5EeEeauDets12NBwQ" comments="Liste des valeurs possibles pour main_XTOPSUP" techID="_PZ_7jpEeEeauDets12NBwQ" name="BOOK_CK1_1" expression="main_XTOPSUP in ('0','1','3','9')"/>
+      <indexes xmi:id="_PZ_7i5EeEeauDets12NBwQ" comments="Index sur la FK (AUTHOR_ID) de la table BOOK" techID="_PZ_7ipEeEeauDets12NBwQ" name="BOOK_FK1_1">
+        <elements xmi:id="_PZ_7jZEeEeauDets12NBwQ" techID="_PZ_7jJEeEeauDets12NBwQ" column="_PZ_UiZEeEeauDets12NBwQ" asc="true"/>
+      </indexes>
+      <columns xmi:id="_PZ_UeZEeEeauDets12NBwQ" techID="_PZ_UeJEeEeauDets12NBwQ" name="TITLE">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_PZ_Ue5EeEeauDets12NBwQ" length="19">
+          <nativeType href="pathmap://NativeDBTypes/Oracle-11g#_cUx7bxEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+      <columns xmi:id="_PZ_UfZEeEeauDets12NBwQ" techID="_PZ_UfJEeEeauDets12NBwQ" name="PRICE">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_PZ_Uf5EeEeauDets12NBwQ">
+          <nativeType href="pathmap://NativeDBTypes/Oracle-11g#_EwGJQD77EeaWN4f5B3n2lA"/>
+        </type>
+      </columns>
+      <columns xmi:id="_PZ_UgZEeEeauDets12NBwQ" techID="_PZ_UgJEeEeauDets12NBwQ" name="IMAGE">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_PZ_Ug5EeEeauDets12NBwQ" length="19">
+          <nativeType href="pathmap://NativeDBTypes/Oracle-11g#_cUx7bxEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+      <columns xmi:id="_PZ_UhZEeEeauDets12NBwQ" comments="PK de la table BOOK" techID="_PZ_UhJEeEeauDets12NBwQ" name="BOOK_ID" primaryKey="_PZ_7iZEeEeauDets12NBwQ" sequence="_PaEM85EeEeauDets12NBwQ">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_PZ_Uh5EeEeauDets12NBwQ">
+          <nativeType href="pathmap://NativeDBTypes/Oracle-11g#_EwGJQD77EeaWN4f5B3n2lA"/>
+        </type>
+      </columns>
+      <columns xmi:id="_PZ_UiZEeEeauDets12NBwQ" techID="_PZ_UiJEeEeauDets12NBwQ" name="AUTHOR_ID" nullable="true" indexElements="_PZ_7jZEeEeauDets12NBwQ" foreignKeyElements="_PaCX15EeEeauDets12NBwQ">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_PZ_Ui5EeEeauDets12NBwQ">
+          <nativeType href="pathmap://NativeDBTypes/Oracle-11g#_EwGJQD77EeaWN4f5B3n2lA"/>
+        </type>
+      </columns>
+      <columns xmi:id="_PZ_7gZEeEeauDets12NBwQ" comments="Indicateur pour savoir si l'enregistrement est valide" techID="_PZ_7gJEeEeauDets12NBwQ" name="main_XTOPSUP" defaultValue="'0'">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_PZ_7g5EeEeauDets12NBwQ" length="1">
+          <nativeType href="pathmap://NativeDBTypes/Oracle-11g#_cUx7bxEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+      <columns xmi:id="_PZ_7hZEeEeauDets12NBwQ" comments="Date de mise à jour de la ligne" techID="_PZ_7hJEeEeauDets12NBwQ" name="main_XDMAJ">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_PZ_7h5EeEeauDets12NBwQ">
+          <nativeType href="pathmap://NativeDBTypes/Oracle-11g#_cUwGNREnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+    </tables>
+    <tables xsi:type="database:Table" xmi:id="_PZ_7kZEeEeauDets12NBwQ" comments="Some comments about the table of purchase orders..." techID="_PZ_7kJEeEeauDets12NBwQ" name="PURCHASE_ORDER">
+      <primaryKey xmi:id="_PaAimZEeEeauDets12NBwQ" comments="Contrainte PK pour la colonne PURCHASE_ORDER_ID" techID="_PaAimJEeEeauDets12NBwQ" name="PURCHASE_ORDER_PK" columns="_PZ_7m5EeEeauDets12NBwQ"/>
+      <foreignKeys xmi:id="_PaCX2ZEeEeauDets12NBwQ" comments="Contrainte FK avec la table SHOPPING_CART" techID="_PaCX2JEeEeauDets12NBwQ" name="PURCHASE_ORDER_FK1_1" target="_PaBJtpEeEeauDets12NBwQ">
+        <elements xmi:id="_PaCX25EeEeauDets12NBwQ" techID="_PaCX2pEeEeauDets12NBwQ" fkColumn="_PZ_7n5EeEeauDets12NBwQ" pkColumn="_PaBJvJEeEeauDets12NBwQ"/>
+      </foreignKeys>
+      <foreignKeys xmi:id="_PaCX3ZEeEeauDets12NBwQ" comments="Contrainte FK avec la table USER" techID="_PaCX3JEeEeauDets12NBwQ" name="PURCHASE_ORDER_FK1_2" target="_PaBwxJEeEeauDets12NBwQ">
+        <elements xmi:id="_PaCX35EeEeauDets12NBwQ" techID="_PaCX3pEeEeauDets12NBwQ" fkColumn="_PZ_7o5EeEeauDets12NBwQ" pkColumn="_PaCXwZEeEeauDets12NBwQ"/>
+      </foreignKeys>
+      <constraints xmi:id="_PaAio5EeEeauDets12NBwQ" comments="Liste des valeurs possibles pour main_XTOPSUP" techID="_PaAiopEeEeauDets12NBwQ" name="PURCHASE_ORDER_CK1_1" expression="main_XTOPSUP in ('0','1','3','9')"/>
+      <indexes xmi:id="_PaAim5EeEeauDets12NBwQ" comments="Index sur la FK (SHOPPING_CART_ID) de la table PURCHASE_ORDER" techID="_PaAimpEeEeauDets12NBwQ" name="PURCHASE_ORDER_FK1_1">
+        <elements xmi:id="_PaAinZEeEeauDets12NBwQ" techID="_PaAinJEeEeauDets12NBwQ" column="_PZ_7n5EeEeauDets12NBwQ" asc="true"/>
+      </indexes>
+      <indexes xmi:id="_PaAin5EeEeauDets12NBwQ" comments="Index sur la FK (USER_ID) de la table PURCHASE_ORDER" techID="_PaAinpEeEeauDets12NBwQ" name="PURCHASE_ORDER_FK1_2">
+        <elements xmi:id="_PaAioZEeEeauDets12NBwQ" techID="_PaAioJEeEeauDets12NBwQ" column="_PZ_7o5EeEeauDets12NBwQ" asc="true"/>
+      </indexes>
+      <columns xmi:id="_PZ_7k5EeEeauDets12NBwQ" techID="_PZ_7kpEeEeauDets12NBwQ" name="CARD_NUMBER">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_PZ_7lZEeEeauDets12NBwQ" length="19">
+          <nativeType href="pathmap://NativeDBTypes/Oracle-11g#_cUx7bxEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+      <columns xmi:id="_PZ_7l5EeEeauDets12NBwQ" techID="_PZ_7lpEeEeauDets12NBwQ" name="TOTAL_AMOUNT">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_PZ_7mZEeEeauDets12NBwQ">
+          <nativeType href="pathmap://NativeDBTypes/Oracle-11g#_EwGJQD77EeaWN4f5B3n2lA"/>
+        </type>
+      </columns>
+      <columns xmi:id="_PZ_7m5EeEeauDets12NBwQ" comments="PK de la table PURCHASE_ORDER" techID="_PZ_7mpEeEeauDets12NBwQ" name="PURCHASE_ORDER_ID" primaryKey="_PaAimZEeEeauDets12NBwQ" sequence="_PaEM9ZEeEeauDets12NBwQ">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_PZ_7nZEeEeauDets12NBwQ">
+          <nativeType href="pathmap://NativeDBTypes/Oracle-11g#_EwGJQD77EeaWN4f5B3n2lA"/>
+        </type>
+      </columns>
+      <columns xmi:id="_PZ_7n5EeEeauDets12NBwQ" techID="_PZ_7npEeEeauDets12NBwQ" name="SHOPPING_CART_ID" indexElements="_PaAinZEeEeauDets12NBwQ" foreignKeyElements="_PaCX25EeEeauDets12NBwQ">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_PZ_7oZEeEeauDets12NBwQ">
+          <nativeType href="pathmap://NativeDBTypes/Oracle-11g#_EwGJQD77EeaWN4f5B3n2lA"/>
+        </type>
+      </columns>
+      <columns xmi:id="_PZ_7o5EeEeauDets12NBwQ" techID="_PZ_7opEeEeauDets12NBwQ" name="USER_ID" indexElements="_PaAioZEeEeauDets12NBwQ" foreignKeyElements="_PaCX35EeEeauDets12NBwQ">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_PZ_7pZEeEeauDets12NBwQ">
+          <nativeType href="pathmap://NativeDBTypes/Oracle-11g#_EwGJQD77EeaWN4f5B3n2lA"/>
+        </type>
+      </columns>
+      <columns xmi:id="_PaAikZEeEeauDets12NBwQ" comments="Indicateur pour savoir si l'enregistrement est valide" techID="_PaAikJEeEeauDets12NBwQ" name="main_XTOPSUP" defaultValue="'0'">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_PaAik5EeEeauDets12NBwQ" length="1">
+          <nativeType href="pathmap://NativeDBTypes/Oracle-11g#_cUx7bxEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+      <columns xmi:id="_PaAilZEeEeauDets12NBwQ" comments="Date de mise à jour de la ligne" techID="_PaAilJEeEeauDets12NBwQ" name="main_XDMAJ">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_PaAil5EeEeauDets12NBwQ">
+          <nativeType href="pathmap://NativeDBTypes/Oracle-11g#_cUwGNREnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+    </tables>
+    <tables xsi:type="database:Table" xmi:id="_PaAipZEeEeauDets12NBwQ" comments="Some comments about the table of shopping cart lines..." techID="_PaAipJEeEeauDets12NBwQ" name="SHOPPING_CART_LINE">
+      <primaryKey xmi:id="_PaBJqpEeEeauDets12NBwQ" comments="Contrainte PK pour la colonne SHOOPING_CART_LINE_ID" techID="_PaBJqZEeEeauDets12NBwQ" name="SHOOPING_CART_LINE_PK" columns="_PaAiq5EeEeauDets12NBwQ"/>
+      <foreignKeys xmi:id="_PaCX4ZEeEeauDets12NBwQ" comments="Contrainte FK avec la table BOOK" techID="_PaCX4JEeEeauDets12NBwQ" name="SHOOPING_CART_LINE_FK1_1" target="_PZ_Ud5EeEeauDets12NBwQ">
+        <elements xmi:id="_PaCX45EeEeauDets12NBwQ" techID="_PaCX4pEeEeauDets12NBwQ" fkColumn="_PaAir5EeEeauDets12NBwQ" pkColumn="_PZ_UhZEeEeauDets12NBwQ"/>
+      </foreignKeys>
+      <foreignKeys xmi:id="_PaC-0ZEeEeauDets12NBwQ" comments="Contrainte FK avec la table SHOPPING_CART" techID="_PaC-0JEeEeauDets12NBwQ" name="SHOOPING_CART_LINE_FK1_2" target="_PaBJtpEeEeauDets12NBwQ">
+        <elements xmi:id="_PaC-05EeEeauDets12NBwQ" techID="_PaC-0pEeEeauDets12NBwQ" fkColumn="_PaAis5EeEeauDets12NBwQ" pkColumn="_PaBJvJEeEeauDets12NBwQ"/>
+      </foreignKeys>
+      <constraints xmi:id="_PaBJtJEeEeauDets12NBwQ" comments="Liste des valeurs possibles pour main_XTOPSUP" techID="_PaBJs5EeEeauDets12NBwQ" name="SHOOPING_CART_LINE_CK1_1" expression="main_XTOPSUP in ('0','1','3','9')"/>
+      <indexes xmi:id="_PaBJrJEeEeauDets12NBwQ" comments="Index sur la FK (BOOK_ID) de la table SHOOPING_CART_LINE" techID="_PaBJq5EeEeauDets12NBwQ" name="SHOOPING_CART_LINE_FK1_1">
+        <elements xmi:id="_PaBJrpEeEeauDets12NBwQ" techID="_PaBJrZEeEeauDets12NBwQ" column="_PaAir5EeEeauDets12NBwQ" asc="true"/>
+      </indexes>
+      <indexes xmi:id="_PaBJsJEeEeauDets12NBwQ" comments="Index sur la FK (SHOPPING_CART_ID) de la table SHOOPING_CART_LINE" techID="_PaBJr5EeEeauDets12NBwQ" name="SHOOPING_CART_LINE_FK1_2">
+        <elements xmi:id="_PaBJspEeEeauDets12NBwQ" techID="_PaBJsZEeEeauDets12NBwQ" column="_PaAis5EeEeauDets12NBwQ" asc="true"/>
+      </indexes>
+      <columns xmi:id="_PaAip5EeEeauDets12NBwQ" techID="_PaAippEeEeauDets12NBwQ" name="QUANTITY">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_PaAiqZEeEeauDets12NBwQ">
+          <nativeType href="pathmap://NativeDBTypes/Oracle-11g#_EwGJQD77EeaWN4f5B3n2lA"/>
+        </type>
+      </columns>
+      <columns xmi:id="_PaAiq5EeEeauDets12NBwQ" comments="PK de la table SHOOPING_CART_LINE" techID="_PaAiqpEeEeauDets12NBwQ" name="SHOOPING_CART_LINE_ID" primaryKey="_PaBJqpEeEeauDets12NBwQ" sequence="_PaEM95EeEeauDets12NBwQ">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_PaAirZEeEeauDets12NBwQ">
+          <nativeType href="pathmap://NativeDBTypes/Oracle-11g#_EwGJQD77EeaWN4f5B3n2lA"/>
+        </type>
+      </columns>
+      <columns xmi:id="_PaAir5EeEeauDets12NBwQ" techID="_PaAirpEeEeauDets12NBwQ" name="BOOK_ID" indexElements="_PaBJrpEeEeauDets12NBwQ" foreignKeyElements="_PaCX45EeEeauDets12NBwQ">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_PaAisZEeEeauDets12NBwQ">
+          <nativeType href="pathmap://NativeDBTypes/Oracle-11g#_EwGJQD77EeaWN4f5B3n2lA"/>
+        </type>
+      </columns>
+      <columns xmi:id="_PaAis5EeEeauDets12NBwQ" techID="_PaAispEeEeauDets12NBwQ" name="SHOPPING_CART_ID" nullable="true" indexElements="_PaBJspEeEeauDets12NBwQ" foreignKeyElements="_PaC-05EeEeauDets12NBwQ">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_PaBJoJEeEeauDets12NBwQ">
+          <nativeType href="pathmap://NativeDBTypes/Oracle-11g#_EwGJQD77EeaWN4f5B3n2lA"/>
+        </type>
+      </columns>
+      <columns xmi:id="_PaBJopEeEeauDets12NBwQ" comments="Indicateur pour savoir si l'enregistrement est valide" techID="_PaBJoZEeEeauDets12NBwQ" name="main_XTOPSUP" defaultValue="'0'">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_PaBJpJEeEeauDets12NBwQ" length="1">
+          <nativeType href="pathmap://NativeDBTypes/Oracle-11g#_cUx7bxEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+      <columns xmi:id="_PaBJppEeEeauDets12NBwQ" comments="Date de mise à jour de la ligne" techID="_PaBJpZEeEeauDets12NBwQ" name="main_XDMAJ">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_PaBJqJEeEeauDets12NBwQ">
+          <nativeType href="pathmap://NativeDBTypes/Oracle-11g#_cUwGNREnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+    </tables>
+    <tables xsi:type="database:Table" xmi:id="_PaBJtpEeEeauDets12NBwQ" comments="Some comments about the table of shopping carts..." techID="_PaBJtZEeEeauDets12NBwQ" name="SHOPPING_CART">
+      <primaryKey xmi:id="_PaBwvJEeEeauDets12NBwQ" comments="Contrainte PK pour la colonne SHOPPING_CART_ID" techID="_PaBwu5EeEeauDets12NBwQ" name="SHOPPING_CART_PK" columns="_PaBJvJEeEeauDets12NBwQ"/>
+      <foreignKeys xmi:id="_PaC-1ZEeEeauDets12NBwQ" comments="Contrainte FK avec la table USER" techID="_PaC-1JEeEeauDets12NBwQ" name="SHOPPING_CART_FK1_1" target="_PaBwxJEeEeauDets12NBwQ">
+        <elements xmi:id="_PaC-15EeEeauDets12NBwQ" techID="_PaC-1pEeEeauDets12NBwQ" fkColumn="_PaBwsJEeEeauDets12NBwQ" pkColumn="_PaCXwZEeEeauDets12NBwQ"/>
+      </foreignKeys>
+      <constraints xmi:id="_PaBwwpEeEeauDets12NBwQ" comments="Liste des valeurs possibles pour main_XTOPSUP" techID="_PaBwwZEeEeauDets12NBwQ" name="SHOPPING_CART_CK1_1" expression="main_XTOPSUP in ('0','1','3','9')"/>
+      <indexes xmi:id="_PaBwvpEeEeauDets12NBwQ" comments="Index sur la FK (USER_ID) de la table SHOPPING_CART" techID="_PaBwvZEeEeauDets12NBwQ" name="SHOPPING_CART_FK1_1">
+        <elements xmi:id="_PaBwwJEeEeauDets12NBwQ" techID="_PaBwv5EeEeauDets12NBwQ" column="_PaBwsJEeEeauDets12NBwQ" asc="true"/>
+      </indexes>
+      <columns xmi:id="_PaBJuJEeEeauDets12NBwQ" techID="_PaBJt5EeEeauDets12NBwQ" name="STATUS">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_PaBJupEeEeauDets12NBwQ" length="19">
+          <nativeType href="pathmap://NativeDBTypes/Oracle-11g#_cUx7bxEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+      <columns xmi:id="_PaBJvJEeEeauDets12NBwQ" comments="PK de la table SHOPPING_CART" techID="_PaBJu5EeEeauDets12NBwQ" name="SHOPPING_CART_ID" primaryKey="_PaBwvJEeEeauDets12NBwQ" sequence="_PaEM-ZEeEeauDets12NBwQ">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_PaBJvpEeEeauDets12NBwQ">
+          <nativeType href="pathmap://NativeDBTypes/Oracle-11g#_EwGJQD77EeaWN4f5B3n2lA"/>
+        </type>
+      </columns>
+      <columns xmi:id="_PaBwsJEeEeauDets12NBwQ" techID="_PaBJv5EeEeauDets12NBwQ" name="USER_ID" nullable="true" indexElements="_PaBwwJEeEeauDets12NBwQ" foreignKeyElements="_PaC-15EeEeauDets12NBwQ">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_PaBwspEeEeauDets12NBwQ">
+          <nativeType href="pathmap://NativeDBTypes/Oracle-11g#_EwGJQD77EeaWN4f5B3n2lA"/>
+        </type>
+      </columns>
+      <columns xmi:id="_PaBwtJEeEeauDets12NBwQ" comments="Indicateur pour savoir si l'enregistrement est valide" techID="_PaBws5EeEeauDets12NBwQ" name="main_XTOPSUP" defaultValue="'0'">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_PaBwtpEeEeauDets12NBwQ" length="1">
+          <nativeType href="pathmap://NativeDBTypes/Oracle-11g#_cUx7bxEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+      <columns xmi:id="_PaBwuJEeEeauDets12NBwQ" comments="Date de mise à jour de la ligne" techID="_PaBwt5EeEeauDets12NBwQ" name="main_XDMAJ">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_PaBwupEeEeauDets12NBwQ">
+          <nativeType href="pathmap://NativeDBTypes/Oracle-11g#_cUwGNREnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+    </tables>
+    <tables xsi:type="database:Table" xmi:id="_PaBwxJEeEeauDets12NBwQ" comments="Some comments about the table of users..." techID="_PaBww5EeEeauDets12NBwQ" name="USER">
+      <primaryKey xmi:id="_PaCXzZEeEeauDets12NBwQ" comments="Contrainte PK pour la colonne USER_ID" techID="_PaCXzJEeEeauDets12NBwQ" name="USER_PK" columns="_PaCXwZEeEeauDets12NBwQ"/>
+      <constraints xmi:id="_PaCXz5EeEeauDets12NBwQ" comments="Liste des valeurs possibles pour main_XTOPSUP" techID="_PaCXzpEeEeauDets12NBwQ" name="USER_CK1_1" expression="main_XTOPSUP in ('0','1','3','9')"/>
+      <columns xmi:id="_PaBwxpEeEeauDets12NBwQ" techID="_PaBwxZEeEeauDets12NBwQ" name="NAME">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_PaBwyJEeEeauDets12NBwQ" length="19">
+          <nativeType href="pathmap://NativeDBTypes/Oracle-11g#_cUx7bxEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+      <columns xmi:id="_PaBwypEeEeauDets12NBwQ" techID="_PaBwyZEeEeauDets12NBwQ" name="EMAIL">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_PaBwzJEeEeauDets12NBwQ" length="19">
+          <nativeType href="pathmap://NativeDBTypes/Oracle-11g#_cUx7bxEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+      <columns xmi:id="_PaBwzpEeEeauDets12NBwQ" techID="_PaBwzZEeEeauDets12NBwQ" name="PASSWORD">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_PaBw0JEeEeauDets12NBwQ" length="19">
+          <nativeType href="pathmap://NativeDBTypes/Oracle-11g#_cUx7bxEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+      <columns xmi:id="_PaCXwZEeEeauDets12NBwQ" comments="PK de la table USER" techID="_PaCXwJEeEeauDets12NBwQ" name="USER_ID" primaryKey="_PaCXzZEeEeauDets12NBwQ" sequence="_PaEM-5EeEeauDets12NBwQ">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_PaCXw5EeEeauDets12NBwQ">
+          <nativeType href="pathmap://NativeDBTypes/Oracle-11g#_EwGJQD77EeaWN4f5B3n2lA"/>
+        </type>
+      </columns>
+      <columns xmi:id="_PaCXxZEeEeauDets12NBwQ" comments="Indicateur pour savoir si l'enregistrement est valide" techID="_PaCXxJEeEeauDets12NBwQ" name="main_XTOPSUP" defaultValue="'0'">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_PaCXx5EeEeauDets12NBwQ" length="1">
+          <nativeType href="pathmap://NativeDBTypes/Oracle-11g#_cUx7bxEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+      <columns xmi:id="_PaCXyZEeEeauDets12NBwQ" comments="Date de mise à jour de la ligne" techID="_PaCXyJEeEeauDets12NBwQ" name="main_XDMAJ">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_PaCXy5EeEeauDets12NBwQ">
+          <nativeType href="pathmap://NativeDBTypes/Oracle-11g#_cUwGNREnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+    </tables>
+    <sequences xmi:id="_PaEM8ZEeEeauDets12NBwQ" techID="_PaEM8JEeEeauDets12NBwQ" name="AUTHOR_SEQ" start="1" increment="1" columns="_PZ-tYpEeEeauDets12NBwQ"/>
+    <sequences xmi:id="_PaEM85EeEeauDets12NBwQ" techID="_PaEM8pEeEeauDets12NBwQ" name="BOOK_SEQ" start="1" increment="1" columns="_PZ_UhZEeEeauDets12NBwQ"/>
+    <sequences xmi:id="_PaEM9ZEeEeauDets12NBwQ" techID="_PaEM9JEeEeauDets12NBwQ" name="PURCHASE_ORDER_SEQ" start="1" increment="1" columns="_PZ_7m5EeEeauDets12NBwQ"/>
+    <sequences xmi:id="_PaEM95EeEeauDets12NBwQ" techID="_PaEM9pEeEeauDets12NBwQ" name="SHOOPING_CART_LINE_SEQ" start="1" increment="1" columns="_PaAiq5EeEeauDets12NBwQ"/>
+    <sequences xmi:id="_PaEM-ZEeEeauDets12NBwQ" techID="_PaEM-JEeEeauDets12NBwQ" name="SHOPPING_CART_SEQ" start="1" increment="1" columns="_PaBJvJEeEeauDets12NBwQ"/>
+    <sequences xmi:id="_PaEM-5EeEeauDets12NBwQ" techID="_PaEM-pEeEeauDets12NBwQ" name="USER_SEQ" start="1" increment="1" columns="_PaCXwZEeEeauDets12NBwQ"/>
+  </schemas>
+</database:DataBase>

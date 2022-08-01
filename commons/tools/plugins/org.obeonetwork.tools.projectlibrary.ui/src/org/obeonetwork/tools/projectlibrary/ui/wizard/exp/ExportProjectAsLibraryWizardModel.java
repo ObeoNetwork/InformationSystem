@@ -12,8 +12,11 @@ package org.obeonetwork.tools.projectlibrary.ui.wizard.exp;
 
 import java.beans.PropertyChangeListener;
 import java.beans.PropertyChangeSupport;
+import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Objects;
+import java.util.Set;
 
 import org.eclipse.sirius.business.api.modelingproject.ModelingProject;
 import org.eclipse.sirius.business.api.session.Session;
@@ -29,6 +32,7 @@ public class ExportProjectAsLibraryWizardModel {
 
 	private List<ModelingProject> modelingProjects;
 	private ModelingProject selectedModelingProject;
+	private Set<ModelingProject> referencingModelingProjects;
 	private String projectId;
 	private String version;
 	private List<MManifest> previousVersions;
@@ -128,6 +132,18 @@ public class ExportProjectAsLibraryWizardModel {
 	public void setMarFileName(String marFileName) {
 		if(!Objects.equals(this.marFileName, marFileName)) 
 			propertyChangeSupport.firePropertyChange("marFileName", this.marFileName, this.marFileName = marFileName); //$NON-NLS-1$
+	}
+	
+	public void setReferencingModelingProjects(Set<ModelingProject> referencedModelingProjects) {
+		if(!Objects.equals(this.referencingModelingProjects, referencedModelingProjects)) 
+			propertyChangeSupport.firePropertyChange("referencedModelingProjects", this.referencingModelingProjects, this.referencingModelingProjects = referencedModelingProjects); //$NON-NLS-1$
+	}
+	
+	public Set<ModelingProject> getReferencingModelingProjects() {
+		if(referencingModelingProjects == null) {
+			this.referencingModelingProjects = new HashSet<>();
+		}
+		return referencingModelingProjects;
 	}
 
 }

@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="ASCII"?>
+<xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:interaction="http://www.obeonetwork.org/dsl/interaction/1.0.0" xmlns:oent="http://www.obeonetwork.org/dsl/entity/3.0.0" xmlns:oenv="http://www.obeonetwork.org/dsl/environment/3.0.0" xmlns:statemachine="http://www.obeonetwork.org/dsl/statemachine/1.0.0">
+  <oent:Root xmi:id="_62l-UJEcEeauDets12NBwQ" technicalid="_5CAlMBVIEeetFdz5pzgWAw" createdOn="2016-10-13T10:13:27.605+0200" modifiedOn="2016-10-13T10:13:46.106+0200">
+    <ownedNamespaces xmi:id="_9nCFoJEcEeauDets12NBwQ" technicalid="_5CAlMRVIEeetFdz5pzgWAw" bindingRegistries="_pLEosRWtEemPcZQonXs-Bw" createdOn="2016-10-13T10:13:46.106+0200" modifiedOn="2020-12-17T10:29:21.196+0100" name="main">
+      <types xsi:type="oent:Entity" xmi:id="_Cp_CIJEdEeauDets12NBwQ" technicalid="_5CBMQBVIEeetFdz5pzgWAw" createdOn="2016-10-13T10:14:19.971+0200" modifiedOn="2019-01-29T14:46:45.716+0100" name="Author">
+        <behaviours xsi:type="statemachine:StateMachine" xmi:id="_4CoboCPLEem2jZ0_ML8PBQ" technicalid="_4Cn0kCPLEem2jZ0_ML8PBQ" createdOn="2019-01-29T14:43:36.467+0100" modifiedOn="2019-01-29T14:45:23.654+0100" name="new State machine diagram">
+          <states xsi:type="statemachine:InitialState" xmi:id="_4JR2MSPLEem2jZ0_ML8PBQ" technicalid="_4JR2MCPLEem2jZ0_ML8PBQ" createdOn="2019-01-29T14:44:00.472+0100" modifiedOn="2019-01-29T14:44:00.472+0100" outcomingTransitions="_7uMucSPLEem2jZ0_ML8PBQ"/>
+          <states xsi:type="statemachine:FinalState" xmi:id="_58NMYSPLEem2jZ0_ML8PBQ" technicalid="_58NMYCPLEem2jZ0_ML8PBQ" createdOn="2019-01-29T14:44:04.967+0100" modifiedOn="2019-01-29T14:44:04.967+0100" incomingTransitions="_8ZEQYSPLEem2jZ0_ML8PBQ"/>
+          <states xsi:type="statemachine:State" xmi:id="_6h-L4SPLEem2jZ0_ML8PBQ" technicalid="_6h-L4CPLEem2jZ0_ML8PBQ" createdOn="2019-01-29T14:43:52.479+0100" modifiedOn="2019-01-29T14:44:03.168+0100" incomingTransitions="_7uMucSPLEem2jZ0_ML8PBQ" outcomingTransitions="_8H62ASPLEem2jZ0_ML8PBQ" name="State_1"/>
+          <transitions xmi:id="_7uMucSPLEem2jZ0_ML8PBQ" technicalid="_7uMucCPLEem2jZ0_ML8PBQ" createdOn="2019-01-29T14:44:00.472+0100" modifiedOn="2019-01-29T14:44:00.472+0100" from="_4JR2MSPLEem2jZ0_ML8PBQ" to="_6h-L4SPLEem2jZ0_ML8PBQ"/>
+          <transitions xmi:id="_8H62ASPLEem2jZ0_ML8PBQ" technicalid="_8H62ACPLEem2jZ0_ML8PBQ" createdOn="2019-01-29T14:44:03.168+0100" modifiedOn="2019-01-29T14:44:03.169+0100" from="_6h-L4SPLEem2jZ0_ML8PBQ" to="_7LLg8SPLEem2jZ0_ML8PBQ"/>
+          <transitions xmi:id="_8ZEQYSPLEem2jZ0_ML8PBQ" technicalid="_8ZEQYCPLEem2jZ0_ML8PBQ" createdOn="2019-01-29T14:44:04.966+0100" modifiedOn="2019-01-29T14:44:04.967+0100" from="_7LLg8SPLEem2jZ0_ML8PBQ" to="_58NMYSPLEem2jZ0_ML8PBQ"/>
+          <regions xmi:id="_6R0QASPLEem2jZ0_ML8PBQ" technicalid="_6R0QACPLEem2jZ0_ML8PBQ" createdOn="2019-01-29T14:43:50.808+0100" modifiedOn="2019-01-29T14:43:56.799+0100" name="new Region 1">
+            <states xsi:type="statemachine:State" xmi:id="_7LLg8SPLEem2jZ0_ML8PBQ" technicalid="_7LLg8CPLEem2jZ0_ML8PBQ" createdOn="2019-01-29T14:43:56.799+0100" modifiedOn="2019-01-29T14:44:04.966+0100" incomingTransitions="_8H62ASPLEem2jZ0_ML8PBQ" outcomingTransitions="_8ZEQYSPLEem2jZ0_ML8PBQ" name="State_1"/>
+          </regions>
+        </behaviours>
+        <behaviours xsi:type="interaction:Interaction" xmi:id="_UWGRQCPMEem2jZ0_ML8PBQ" technicalid="_UWFqMCPMEem2jZ0_ML8PBQ" createdOn="2019-01-29T14:46:51.559+0100" modifiedOn="2019-01-29T14:47:32.940+0100" name="new Sequence diagram">
+          <participants xmi:id="_VN0jcSPMEem2jZ0_ML8PBQ" technicalid="_VN0jcCPMEem2jZ0_ML8PBQ" createdOn="2019-01-29T14:46:51.945+0100" modifiedOn="2019-01-29T14:46:51.945+0100" name="newParticipant1"/>
+          <participants xmi:id="_W2kp8SPMEem2jZ0_ML8PBQ" technicalid="_W2kp8CPMEem2jZ0_ML8PBQ" createdOn="2019-01-29T14:47:02.571+0100" modifiedOn="2019-01-29T14:47:02.571+0100" name="newParticipant2"/>
+          <messages xsi:type="interaction:CallMessage" xmi:id="_Y5qjESPMEem2jZ0_ML8PBQ" technicalid="_Y5qjECPMEem2jZ0_ML8PBQ" createdOn="2019-01-29T14:47:16.666+0100" modifiedOn="2019-01-29T14:47:16.715+0100" name="m1" startingEnd="_Y9QpoSPMEem2jZ0_ML8PBQ" finishingEnd="_Y9f6MSPMEem2jZ0_ML8PBQ"/>
+          <executions xmi:id="_XXOf8CPMEem2jZ0_ML8PBQ" technicalid="_XXN44CPMEem2jZ0_ML8PBQ" createdOn="2019-01-29T14:47:06.004+0100" modifiedOn="2019-01-29T14:47:06.217+0100" name="e1" startingEnd="_XXygoSPMEem2jZ0_ML8PBQ" finishingEnd="_XYOlgSPMEem2jZ0_ML8PBQ" owner="_W2kp8SPMEem2jZ0_ML8PBQ"/>
+          <interactionUses xmi:id="_bW3lUSPMEem2jZ0_ML8PBQ" technicalid="_bW3lUCPMEem2jZ0_ML8PBQ" createdOn="2019-01-29T14:47:32.799+0100" modifiedOn="2019-01-29T14:47:32.868+0100" startingEnd="_bXVfYSPMEem2jZ0_ML8PBQ" finishingEnd="_bXi6wSPMEem2jZ0_ML8PBQ" type="ref.1" coveredParticipants="_VN0jcSPMEem2jZ0_ML8PBQ"/>
+          <ends xmi:id="_XXygoSPMEem2jZ0_ML8PBQ" technicalid="_XXygoCPMEem2jZ0_ML8PBQ" createdOn="2019-01-29T14:47:06.026+0100" modifiedOn="2019-01-29T14:47:06.239+0100" name="start_e1" context="_W2kp8SPMEem2jZ0_ML8PBQ" owner="_XXOf8CPMEem2jZ0_ML8PBQ"/>
+          <ends xmi:id="_Y9QpoSPMEem2jZ0_ML8PBQ" technicalid="_Y9QpoCPMEem2jZ0_ML8PBQ" createdOn="2019-01-29T14:47:16.667+0100" modifiedOn="2019-01-29T14:47:16.691+0100" name="send_m1" context="_VN0jcSPMEem2jZ0_ML8PBQ" owner="_Y5qjESPMEem2jZ0_ML8PBQ"/>
+          <ends xmi:id="_Y9f6MSPMEem2jZ0_ML8PBQ" technicalid="_Y9f6MCPMEem2jZ0_ML8PBQ" createdOn="2019-01-29T14:47:16.691+0100" modifiedOn="2019-01-29T14:47:16.715+0100" name="receive_m1" context="_W2kp8SPMEem2jZ0_ML8PBQ" owner="_Y5qjESPMEem2jZ0_ML8PBQ"/>
+          <ends xmi:id="_XYOlgSPMEem2jZ0_ML8PBQ" technicalid="_XYOlgCPMEem2jZ0_ML8PBQ" createdOn="2019-01-29T14:47:06.072+0100" modifiedOn="2019-01-29T14:47:06.261+0100" name="finish_e1" context="_W2kp8SPMEem2jZ0_ML8PBQ" owner="_XXOf8CPMEem2jZ0_ML8PBQ"/>
+          <ends xmi:id="_bXVfYSPMEem2jZ0_ML8PBQ" technicalid="_bXVfYCPMEem2jZ0_ML8PBQ" createdOn="2019-01-29T14:47:32.844+0100" modifiedOn="2019-01-29T14:47:32.844+0100" name="start_invalid" owner="_bW3lUSPMEem2jZ0_ML8PBQ"/>
+          <ends xmi:id="_bXi6wSPMEem2jZ0_ML8PBQ" technicalid="_bXi6wCPMEem2jZ0_ML8PBQ" createdOn="2019-01-29T14:47:32.868+0100" modifiedOn="2019-01-29T14:47:32.868+0100" name="finish_invalid" owner="_bW3lUSPMEem2jZ0_ML8PBQ"/>
+        </behaviours>
+        <ownedAttributes xmi:id="_ZPB8YJEdEeauDets12NBwQ" technicalid="_5CBMQRVIEeetFdz5pzgWAw" createdOn="2016-10-13T10:16:51.494+0200" modifiedOn="2016-10-13T10:16:59.632+0200" name="name" multiplicity="1">
+          <type xsi:type="oenv:PrimitiveType" href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5F-EKwKEd2XLNOhkJIazw"/>
+        </ownedAttributes>
+        <ownedReferences xmi:id="_CqD6oJEdEeauDets12NBwQ" technicalid="_5CBMQxVIEeetFdz5pzgWAw" createdOn="2016-10-13T10:14:19.978+0200" modifiedOn="2016-10-13T10:14:19.978+0200" name="wrote" multiplicity="0..*" referencedType="_CqAQQJEdEeauDets12NBwQ"/>
+      </types>
+      <types xsi:type="oent:Entity" xmi:id="_CqAQQJEdEeauDets12NBwQ" technicalid="_5CBzUBVIEeetFdz5pzgWAw" createdOn="2016-10-13T10:14:19.972+0200" modifiedOn="2020-12-17T10:37:38.008+0100" name="Book">
+        <ownedAttributes xmi:id="_QscQQJEdEeauDets12NBwQ" technicalid="_5CBzURVIEeetFdz5pzgWAw" createdOn="2016-10-13T10:15:54.180+0200" modifiedOn="2016-10-13T10:16:04.484+0200" name="title" multiplicity="1">
+          <type xsi:type="oenv:PrimitiveType" href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5F-EKwKEd2XLNOhkJIazw"/>
+        </ownedAttributes>
+        <ownedAttributes xmi:id="_Q2GikJEdEeauDets12NBwQ" technicalid="_5CBzUxVIEeetFdz5pzgWAw" createdOn="2016-10-13T10:15:55.193+0200" modifiedOn="2016-10-13T10:16:18.126+0200" name="price" multiplicity="1">
+          <type xsi:type="oenv:PrimitiveType" href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5FXAawKEd2XLNOhkJIazw"/>
+        </ownedAttributes>
+        <ownedAttributes xmi:id="_RIAK4JEdEeauDets12NBwQ" technicalid="_5CBzVRVIEeetFdz5pzgWAw" createdOn="2016-10-13T10:15:57.070+0200" modifiedOn="2016-10-13T10:16:31.394+0200" name="image" multiplicity="1">
+          <type xsi:type="oenv:PrimitiveType" href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5F-EKwKEd2XLNOhkJIazw"/>
+        </ownedAttributes>
+        <ownedAttributes xmi:id="_gA5VgEBLEeuJCsQ9JYmMWQ" technicalid="_gA4ucEBLEeuJCsQ9JYmMWQ" createdOn="2020-12-17T10:37:38.008+0100" modifiedOn="2020-12-17T10:37:44.347+0100" name="type">
+          <type xsi:type="oenv:PrimitiveType" href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5F-EKwKEd2XLNOhkJIazw"/>
+        </ownedAttributes>
+        <ownedReferences xmi:id="_CqDTkZEdEeauDets12NBwQ" technicalid="_5CBzVxVIEeetFdz5pzgWAw" createdOn="2016-10-13T10:14:19.977+0200" modifiedOn="2016-10-13T10:14:19.978+0200" name="writtenBy" multiplicity="0..*" referencedType="_Cp_CIJEdEeauDets12NBwQ"/>
+      </types>
+      <types xsi:type="oent:Entity" xmi:id="_CqAQQZEdEeauDets12NBwQ" technicalid="_5CCaYBVIEeetFdz5pzgWAw" createdOn="2016-10-13T10:14:19.972+0200" modifiedOn="2016-10-13T10:19:31.873+0200" name="PurchaseOrder">
+        <ownedAttributes xmi:id="_tPeL4JEdEeauDets12NBwQ" technicalid="_5CCaYRVIEeetFdz5pzgWAw" createdOn="2016-10-13T10:19:05.758+0200" modifiedOn="2016-10-13T10:19:17.537+0200" name="cardNumber" multiplicity="1">
+          <type xsi:type="oenv:PrimitiveType" href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5F-EKwKEd2XLNOhkJIazw"/>
+        </ownedAttributes>
+        <ownedAttributes xmi:id="_tW97AJEdEeauDets12NBwQ" technicalid="_5CCaYxVIEeetFdz5pzgWAw" createdOn="2016-10-13T10:19:06.544+0200" modifiedOn="2016-10-13T10:19:25.561+0200" name="totalAmount" multiplicity="1">
+          <type xsi:type="oenv:PrimitiveType" href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5FXAawKEd2XLNOhkJIazw"/>
+        </ownedAttributes>
+        <ownedReferences xmi:id="_CqCsgZEdEeauDets12NBwQ" technicalid="_5CCaZRVIEeetFdz5pzgWAw" createdOn="2016-10-13T10:14:19.976+0200" modifiedOn="2016-10-13T10:14:19.977+0200" name="shoppingCart" multiplicity="1" referencedType="_CqA3UJEdEeauDets12NBwQ"/>
+        <ownedReferences xmi:id="_CqDTkJEdEeauDets12NBwQ" technicalid="_5CDBcBVIEeetFdz5pzgWAw" createdOn="2016-10-13T10:14:19.977+0200" modifiedOn="2016-10-13T10:14:19.977+0200" name="user" multiplicity="1" referencedType="_CqA3UZEdEeauDets12NBwQ"/>
+      </types>
+      <types xsi:type="oent:Entity" xmi:id="_CqAQQpEdEeauDets12NBwQ" technicalid="_5CDBcRVIEeetFdz5pzgWAw" createdOn="2016-10-13T10:14:19.972+0200" modifiedOn="2016-10-13T10:17:26.848+0200" name="ShoopingCartLine">
+        <ownedAttributes xmi:id="_cOA2AJEdEeauDets12NBwQ" technicalid="_5CDBchVIEeetFdz5pzgWAw" createdOn="2016-10-13T10:17:11.520+0200" modifiedOn="2016-10-13T10:17:20.161+0200" name="quantity" multiplicity="1">
+          <type xsi:type="oenv:PrimitiveType" href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5FXAawKEd2XLNOhkJIazw"/>
+        </ownedAttributes>
+        <ownedReferences xmi:id="_CqBeYJEdEeauDets12NBwQ" technicalid="_5CDBdBVIEeetFdz5pzgWAw" createdOn="2016-10-13T10:14:19.974+0200" modifiedOn="2016-10-13T10:14:19.975+0200" name="book" multiplicity="1" referencedType="_CqAQQJEdEeauDets12NBwQ"/>
+      </types>
+      <types xsi:type="oent:Entity" xmi:id="_CqA3UJEdEeauDets12NBwQ" technicalid="_5CDBdRVIEeetFdz5pzgWAw" createdOn="2016-10-13T10:14:19.973+0200" modifiedOn="2016-10-13T10:17:59.096+0200" name="ShoppingCart">
+        <ownedAttributes xmi:id="_hkNeoJEdEeauDets12NBwQ" technicalid="_5CDogBVIEeetFdz5pzgWAw" createdOn="2016-10-13T10:17:47.402+0200" modifiedOn="2020-12-17T10:30:08.516+0100" name="status" multiplicity="1" type="_V-6vsEBKEeuJCsQ9JYmMWQ"/>
+        <ownedReferences xmi:id="_CqCsgJEdEeauDets12NBwQ" technicalid="_5CDoghVIEeetFdz5pzgWAw" createdOn="2016-10-13T10:14:19.976+0200" modifiedOn="2016-10-13T10:14:19.976+0200" name="lines" multiplicity="0..*" isComposite="true" referencedType="_CqAQQpEdEeauDets12NBwQ"/>
+      </types>
+      <types xsi:type="oent:Entity" xmi:id="_CqA3UZEdEeauDets12NBwQ" technicalid="_5CDogxVIEeetFdz5pzgWAw" createdOn="2016-10-13T10:14:19.973+0200" modifiedOn="2016-10-13T10:19:48.638+0200" name="User">
+        <ownedAttributes xmi:id="_kfCRAJEdEeauDets12NBwQ" technicalid="_5CDohBVIEeetFdz5pzgWAw" createdOn="2016-10-13T10:18:06.992+0200" modifiedOn="2016-10-13T10:18:39.488+0200" name="name" multiplicity="1">
+          <type xsi:type="oenv:PrimitiveType" href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5F-EKwKEd2XLNOhkJIazw"/>
+        </ownedAttributes>
+        <ownedAttributes xmi:id="_kHyOoJEdEeauDets12NBwQ" technicalid="_5CEPkRVIEeetFdz5pzgWAw" createdOn="2016-10-13T10:18:04.554+0200" modifiedOn="2016-10-13T10:18:12.894+0200" name="email" multiplicity="1">
+          <type xsi:type="oenv:PrimitiveType" href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5F-EKwKEd2XLNOhkJIazw"/>
+        </ownedAttributes>
+        <ownedAttributes xmi:id="_kSykwJEdEeauDets12NBwQ" technicalid="_5CEPkxVIEeetFdz5pzgWAw" createdOn="2016-10-13T10:18:05.708+0200" modifiedOn="2016-10-13T10:18:33.120+0200" name="password" multiplicity="1">
+          <type xsi:type="oenv:PrimitiveType" href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5F-EKwKEd2XLNOhkJIazw"/>
+        </ownedAttributes>
+        <ownedReferences xmi:id="_CqCFcJEdEeauDets12NBwQ" technicalid="_5CEPlRVIEeetFdz5pzgWAw" createdOn="2016-10-13T10:14:19.975+0200" modifiedOn="2016-10-13T10:14:19.975+0200" name="carts" multiplicity="0..*" isComposite="true" referencedType="_CqA3UJEdEeauDets12NBwQ"/>
+      </types>
+      <types xsi:type="oenv:Enumeration" xmi:id="_V-6vsEBKEeuJCsQ9JYmMWQ" technicalid="_V-46gEBKEeuJCsQ9JYmMWQ" createdOn="2020-12-17T10:29:21.196+0100" modifiedOn="2020-12-17T10:29:32.069+0100" name="Status">
+        <literals xmi:id="_XNpzsUBKEeuJCsQ9JYmMWQ" technicalid="_XNpzsEBKEeuJCsQ9JYmMWQ" createdOn="2020-12-17T10:29:29.451+0100" modifiedOn="2020-12-17T10:29:36.026+0100" name="pending"/>
+        <literals xmi:id="_XmntUUBKEeuJCsQ9JYmMWQ" technicalid="_XmntUEBKEeuJCsQ9JYmMWQ" createdOn="2020-12-17T10:29:32.069+0100" modifiedOn="2020-12-17T10:29:42.018+0100" name="shipped"/>
+      </types>
+    </ownedNamespaces>
+  </oent:Root>
+  <oenv:BindingRegistry xmi:id="_pLEosRWtEemPcZQonXs-Bw" technicalid="_pLEosBWtEemPcZQonXs-Bw" createdOn="2019-01-11T15:31:54.812+0100" modifiedOn="2019-01-11T15:31:54.812+0100">
+    <bindingInfos xmi:id="_pLFPwRWtEemPcZQonXs-Bw" technicalid="_pLFPwBWtEemPcZQonXs-Bw" createdOn="2019-01-11T15:31:54.812+0100" modifiedOn="2019-01-11T15:33:02.658+0100" left="_Cp_CIJEdEeauDets12NBwQ">
+      <references xmi:id="_zSEt4BWtEemPcZQonXs-Bw" technicalid="_zSEG0BWtEemPcZQonXs-Bw" left="_zSCRoRWtEemPcZQonXs-Bw" right="_zSC4sRWtEemPcZQonXs-Bw"/>
+      <references xmi:id="_zSHKIxWtEemPcZQonXs-Bw" technicalid="_zSHKIhWtEemPcZQonXs-Bw" left="_zSGjERWtEemPcZQonXs-Bw" right="_zSHKIRWtEemPcZQonXs-Bw"/>
+      <right xsi:type="oenv:DTO" href="E-BookStore.soa#_yFpMYIjYEeGlA5e_Ze9-Rg"/>
+      <elements xmi:id="_zSCRoRWtEemPcZQonXs-Bw" technicalid="_zSCRoBWtEemPcZQonXs-Bw" createdOn="2019-01-11T15:33:02.654+0100" modifiedOn="2019-01-11T15:33:02.654+0100" boundElement="_ZPB8YJEdEeauDets12NBwQ" referencedByAsLeft="_zSEt4BWtEemPcZQonXs-Bw" pathReferences="_Cp_CIJEdEeauDets12NBwQ"/>
+      <elements xmi:id="_zSC4sRWtEemPcZQonXs-Bw" technicalid="_zSC4sBWtEemPcZQonXs-Bw" createdOn="2019-01-11T15:33:02.654+0100" modifiedOn="2019-01-11T15:33:02.654+0100" referencedByAsRight="_zSEt4BWtEemPcZQonXs-Bw">
+        <boundElement xsi:type="oenv:Attribute" href="E-BookStore.soa#_zRhJoIjYEeGlA5e_Ze9-Rg"/>
+        <pathReferences xsi:type="oenv:DTO" href="E-BookStore.soa#_yFpMYIjYEeGlA5e_Ze9-Rg"/>
+      </elements>
+      <elements xmi:id="_zSGjERWtEemPcZQonXs-Bw" technicalid="_zSGjEBWtEemPcZQonXs-Bw" createdOn="2019-01-11T15:33:02.658+0100" modifiedOn="2019-01-11T15:33:02.658+0100" boundElement="_CqD6oJEdEeauDets12NBwQ" referencedByAsLeft="_zSHKIxWtEemPcZQonXs-Bw" pathReferences="_Cp_CIJEdEeauDets12NBwQ"/>
+      <elements xmi:id="_zSHKIRWtEemPcZQonXs-Bw" technicalid="_zSHKIBWtEemPcZQonXs-Bw" createdOn="2019-01-11T15:33:02.658+0100" modifiedOn="2019-01-11T15:33:02.658+0100" referencedByAsRight="_zSHKIxWtEemPcZQonXs-Bw">
+        <boundElement xsi:type="oenv:Reference" href="E-BookStore.soa#_5sZiYIjYEeGlA5e_Ze9-Rg"/>
+        <pathReferences xsi:type="oenv:DTO" href="E-BookStore.soa#_yFpMYIjYEeGlA5e_Ze9-Rg"/>
+      </elements>
+    </bindingInfos>
+  </oenv:BindingRegistry>
+</xmi:XMI>
