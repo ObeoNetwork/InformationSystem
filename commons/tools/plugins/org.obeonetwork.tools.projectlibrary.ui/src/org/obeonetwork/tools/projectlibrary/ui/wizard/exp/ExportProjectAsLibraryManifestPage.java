@@ -15,6 +15,9 @@ import static org.obeonetwork.utils.common.StringUtils.isNullOrWhite;
 import java.beans.PropertyChangeEvent;
 import java.beans.PropertyChangeListener;
 import java.io.File;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Set;
 
 import org.eclipse.core.databinding.DataBindingContext;
 import org.eclipse.core.databinding.beans.BeanProperties;
@@ -27,10 +30,14 @@ import org.eclipse.jface.databinding.viewers.ObservableListContentProvider;
 import org.eclipse.jface.databinding.viewers.ObservableMapLabelProvider;
 import org.eclipse.jface.dialogs.IMessageProvider;
 import org.eclipse.jface.layout.TableColumnLayout;
+import org.eclipse.jface.viewers.ArrayContentProvider;
+import org.eclipse.jface.viewers.CheckboxTableViewer;
 import org.eclipse.jface.viewers.ColumnWeightData;
+import org.eclipse.jface.viewers.LabelProvider;
 import org.eclipse.jface.viewers.TableViewer;
 import org.eclipse.jface.viewers.TableViewerColumn;
 import org.eclipse.jface.wizard.WizardPage;
+import org.eclipse.sirius.business.api.modelingproject.ModelingProject;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.custom.ScrolledComposite;
 import org.eclipse.swt.events.ModifyEvent;
@@ -42,6 +49,7 @@ import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Label;
 import org.eclipse.swt.widgets.Table;
 import org.eclipse.swt.widgets.TableColumn;
+import org.eclipse.swt.widgets.TableItem;
 import org.eclipse.swt.widgets.Text;
 import org.eclipse.wb.swt.ResourceManager;
 import org.obeonetwork.dsl.manifest.MManifest;
@@ -63,6 +71,7 @@ public class ExportProjectAsLibraryManifestPage extends WizardPage {
 	private Table table;
 	private Text txtComment;
 	private Text txtMarFileName;
+	private Table updatedProjectsTable;
 	
 	private TableViewer tableViewer;
 	
@@ -199,6 +208,30 @@ public class ExportProjectAsLibraryManifestPage extends WizardPage {
 		};
 		model.addPropertyChangeListener("marFileName", marFileNameModelListener); //$NON-NLS-1$
 		
+		// Update referencing projects
+		Label lblUpdateReferencingProjects = new Label(composite, SWT.NONE);
+		lblUpdateReferencingProjects.setLayoutData(new GridData(SWT.RIGHT, SWT.TOP, false, false, 1, 1));
+		lblUpdateReferencingProjects.setText("Update referencing projects");
+		
+		Composite compositeTbl2 = new Composite(composite, SWT.NONE);
+		compositeTbl2.setLayoutData(new GridData(SWT.FILL, SWT.FILL, true, true, 1, 1));
+		TableColumnLayout table_layout = new TableColumnLayout();
+		compositeTbl2.setLayout(table_layout);
+		
+		CheckboxTableViewer updateTableViewer = CheckboxTableViewer.newCheckList(compositeTbl2, SWT.BORDER | SWT.FULL_SELECTION);
+		this.updatedProjectsTable = updateTableViewer.getTable();
+		updateTableViewer.setContentProvider(ArrayContentProvider.getInstance());
+		updateTableViewer.setInput(model.getReferencingModelingProjects());
+		updateTableViewer.setLabelProvider(new LabelProvider() {
+			@Override
+			public String getText(Object element) {
+				if(element instanceof ModelingProject) {
+					return ((ModelingProject) element).getProject().getName();
+				}
+				return super.getText(element);
+			}
+		});
+		
 		scrolledComposite.setContent(composite);
 		scrolledComposite.setMinSize(composite.computeSize(SWT.DEFAULT, SWT.DEFAULT));
 		
@@ -305,6 +338,17 @@ public class ExportProjectAsLibraryManifestPage extends WizardPage {
 		bindingContext.dispose();
 		
 		super.dispose();
+	}
+	
+	public Set<ModelingProject> getSelectedReferencingProjects() {
+		Set<ModelingProject> result = new HashSet<>();
+		TableItem[] selection = this.updatedProjectsTable.getSelection();
+		for(TableItem item : selection) {
+			if(item.getData() instanceof ModelingProject) {
+				result.add((ModelingProject) item.getData());
+			}
+		}
+		return result;
 	}
 
 }

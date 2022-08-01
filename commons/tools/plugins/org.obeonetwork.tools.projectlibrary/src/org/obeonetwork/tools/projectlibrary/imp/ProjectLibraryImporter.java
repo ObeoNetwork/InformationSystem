@@ -94,6 +94,17 @@ public class ProjectLibraryImporter {
 	 * @param confirmationRunnable
 	 */
 	public void importIntoProject(final ModelingProject targetProject, final File marFile, final IConfirmationRunnable confirmationRunnable, IProgressMonitor monitor) throws LibraryImportException {
+		importIntoProject(targetProject, marFile, confirmationRunnable, monitor, false);
+	}
+	
+	/**
+	 * Import MAR file into modeling project
+	 * @param targetProject
+	 * @param marFile
+	 * @param confirmationRunnable
+	 * @param forceImportManifest Option to set the manifest of the {@link marFile} in the Session of {@link targetProject}.
+	 */
+	public void importIntoProject(final ModelingProject targetProject, final File marFile, final IConfirmationRunnable confirmationRunnable, IProgressMonitor monitor, boolean forceImportManifest) throws LibraryImportException {
 		this.targetProject = targetProject;
 		this.confirmationRunnable = confirmationRunnable;
 		
@@ -139,12 +150,18 @@ public class ProjectLibraryImporter {
 		// Create ImportData used to do the import
 		importData = new ImportData(libraryProjectName, sourceProject, targetProject);
 		importData.setImportHandler(getImportHandler());
+		
+		if(forceImportManifest) {
+			// Save imported manifest into AIRD for future references
+			importedManifestModel.setImportDate(new Date());
+			manifestServices.addImportedManifestToSession(importData.getTargetSession(), importedManifestModel);
+		}
 
 		// Check if references could be restored when we import a project for the second time
 		RestorableAndNonRestorableReferences toBeRestoredReferences = new RestorableAndNonRestorableReferences();
 		MManifest previousVersion = getPreviousImportedVersion(importedManifestModel, importData.getTargetSession());
 		if (previousVersion != null) {
-			Collection<Resource> resourcesToDelete = projectLibraryUtils.getResourcesFromManifest(importData.getTargetProject(), previousVersion);
+			Collection<Resource> resourcesToDelete = projectLibraryUtils.getResourcesFromWsManifest(importData.getTargetProject(), previousVersion);
 			Collection<Setting> externalReferences = projectLibraryUtils.getExternalReferences(importData.getTargetSession(), resourcesToDelete);
 			if (!externalReferences.isEmpty()) {
 				toBeRestoredReferences = projectLibraryUtils.getToBeRestoredReferences(externalReferences, resourcesToDelete, importData.getSourceSession());
@@ -194,8 +211,10 @@ public class ProjectLibraryImporter {
 			subMonitor.newChild(1);
 			
 			// Save imported manifest into AIRD for future references
-			importedManifestModel.setImportDate(new Date());
-			manifestServices.addImportedManifestToSession(importData.getTargetSession(), importedManifestModel);
+			if(!forceImportManifest) {
+				importedManifestModel.setImportDate(new Date());
+				manifestServices.addImportedManifestToSession(importData.getTargetSession(), importedManifestModel);
+			}
 			importData.getTargetSession().save(subMonitor.newChild(1));
 		}
 		

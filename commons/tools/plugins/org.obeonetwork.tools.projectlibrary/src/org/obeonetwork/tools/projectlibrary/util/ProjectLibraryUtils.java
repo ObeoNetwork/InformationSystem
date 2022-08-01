@@ -12,22 +12,35 @@ package org.obeonetwork.tools.projectlibrary.util;
 
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
+import org.eclipse.core.resources.IFile;
+import org.eclipse.core.resources.IProject;
+import org.eclipse.core.resources.IWorkspaceRoot;
+import org.eclipse.core.resources.ResourcesPlugin;
+import org.eclipse.core.runtime.NullProgressMonitor;
+import org.eclipse.core.runtime.Path;
 import org.eclipse.emf.common.util.TreeIterator;
+import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.emf.ecore.EStructuralFeature.Setting;
 import org.eclipse.emf.ecore.resource.Resource;
+import org.eclipse.emf.ecore.resource.ResourceSet;
 import org.eclipse.emf.ecore.util.ECrossReferenceAdapter;
 import org.eclipse.emf.transaction.RecordingCommand;
 import org.eclipse.emf.transaction.TransactionalEditingDomain;
 import org.eclipse.sirius.business.api.modelingproject.ModelingProject;
 import org.eclipse.sirius.business.api.session.Session;
+import org.eclipse.sirius.business.api.session.SessionManager;
+import org.eclipse.sirius.ext.base.Option;
 import org.eclipse.sirius.viewpoint.ViewpointPackage;
 import org.obeonetwork.dsl.manifest.MManifest;
 import org.obeonetwork.tools.projectlibrary.extension.ManifestServices;
 import org.obeonetwork.tools.projectlibrary.extension.point.AbstractImportHandler;
+import org.obeonetwork.tools.projectlibrary.extension.point.DefaultImportHandler;
 import org.obeonetwork.tools.projectlibrary.extension.point.ImportHandlerFactory;
 import org.obeonetwork.tools.projectlibrary.imp.LibraryImportException;
 
@@ -205,6 +218,75 @@ public class ProjectLibraryUtils {
 	public Collection<Resource> getResourcesFromManifest(ModelingProject modelingProject, MManifest projectToRemove) {
 		AbstractImportHandler importHandler = ImportHandlerFactory.getInstance().getImportHandler(modelingProject.getSession());
 		return importHandler.getResourcesForImportedProject(modelingProject, projectToRemove);
+	}
+	
+	/**
+	 * Returns the list of resources corresponding to a previously imported project from the workspace.
+	 * 
+	 * @param session
+	 * @param projectToRemove
+	 * @return
+	 */
+	public Collection<Resource> getResourcesFromWsManifest(ModelingProject modelingProject, MManifest projectToRemove) {
+		DefaultImportHandler importHandler = (DefaultImportHandler) ImportHandlerFactory.getInstance().getImportHandler(modelingProject.getSession());
+		return importHandler.getResourcesForImportedWsProject(modelingProject, projectToRemove);
+	}
+	
+	/**
+	 * Return the list of projects containing a resource which is referenced by {@link modelingProject}.
+	 * 
+	 * @param modelingProject
+	 * @return the list of referenced projects
+	 */
+	public Set<ModelingProject> getReferencingProjects(ModelingProject modelingProject) {
+
+		Set<ModelingProject> result = new HashSet<>();
+		try {
+			IWorkspaceRoot workspaceRoot = ResourcesPlugin.getWorkspace().getRoot();
+			IProject[] projects = workspaceRoot.getProjects();
+			List<IProject> workspaceProjects = List.of(projects);
+
+			for (IProject wsProject : workspaceProjects) {
+				if (wsProject != modelingProject.getProject()) {
+					Option<ModelingProject> optionWsModelingProject = ModelingProject.asModelingProject(wsProject);
+					if (optionWsModelingProject.some()) {
+						ModelingProject wsModelingProject = optionWsModelingProject.get();
+						Session session = wsModelingProject.getSession();
+						if(session == null) {
+							final Option<URI> optionalUri = wsModelingProject.getMainRepresentationsFileURI(new NullProgressMonitor());
+							session = SessionManager.INSTANCE.getSession(optionalUri.get(), new NullProgressMonitor());
+							session.open(new NullProgressMonitor());
+						}
+						ResourceSet resourceSet = session.getTransactionalEditingDomain().getResourceSet();
+						if (resourceSet != null) {
+							for (Resource resource : resourceSet.getResources()) {
+								try {
+									if (resource.getURI().isPlatform()) {
+										String uri = resource.getURI().toPlatformString(true);
+										Path resourcePath = new Path(uri);
+										IFile resourceFile = ResourcesPlugin.getWorkspace().getRoot().getFile(resourcePath);
+										IProject resourceProject = resourceFile.getProject();
+
+										if (resourceProject == modelingProject.getProject()) {
+											result.add(wsModelingProject);
+										}
+									}
+								} catch (Exception e) {
+									e.printStackTrace();
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+		catch (Exception e) {
+			e.printStackTrace();
+		}
+
+		
+
+		return result;
 	}
 	
 }

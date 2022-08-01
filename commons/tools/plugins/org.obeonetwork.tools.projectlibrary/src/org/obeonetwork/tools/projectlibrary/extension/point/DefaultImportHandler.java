@@ -144,6 +144,34 @@ public class DefaultImportHandler extends AbstractImportHandler {
 		return resources;
 	}
 	
+	/**
+	 * Returns the resources in the modeling project corresponding to the imported project.
+	 * The resource is matched with a URI of type 'platform:/resource'.
+	 * 
+	 * @param modelingProject
+	 * @param manifest the manifest of the imported project
+	 * @return
+	 */
+	public Collection<Resource> getResourcesForImportedWsProject(ModelingProject modelingProject, MManifest manifest) {
+		Collection<Resource> resources = new ArrayList<>();
+		
+		Session session = modelingProject.getSession();
+		
+		String matchingURI = "platform:/resource/" + manifest.getProjectId() + "/";
+		
+		// Check resources starting with this URI
+		ResourceSet set = session.getTransactionalEditingDomain().getResourceSet();
+		if (set != null) {
+			for (Resource resource : set.getResources()) {
+				if (resource.getURI() != null && resource.getURI().toString().startsWith(matchingURI)) {
+					resources.add(resource);
+				}
+			}
+		}
+		
+		return resources;
+	}
+	
 	@Override
 	public Resource copyResource(final ImportData importData, final Resource sourceResource) {
 		Collection<EObject> contents = sourceResource.getContents();

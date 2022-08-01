@@ -1,0 +1,313 @@
+<?xml version="1.0" encoding="ASCII"?>
+<xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:cinematic="http://www.obeonetwork.org/dsl/cinematic/3.0.0" xmlns:cinematic-flow="http://www.obeonetwork.org/dsl/cinematic/flow/1.0.0" xmlns:cinematic-view="http://www.obeonetwork.org/dsl/cinematic/view/1.0.0" xmlns:oenv="http://www.obeonetwork.org/dsl/environment/3.0.0">
+  <cinematic:CinematicRoot xmi:id="_N-7IwIjLEeGrHN3Vq969QA" technicalid="_47-1sBVIEeetFdz5pzgWAw" bindingRegistries="_y0quQBWvEemPcZQonXs-Bw" createdOn="2015-07-01T09:56:09.209+0200" modifiedOn="2019-01-11T15:47:18.563+0100" name="E-BookStore">
+    <flows xmi:id="_aIPqAIjWEeGStfxeQK0zeA" technicalid="_48OGQBVIEeetFdz5pzgWAw" createdOn="2021-07-13T15:48:08.759+0200" modifiedOn="2021-11-23T12:10:06.952+0100" name="Main">
+      <states xsi:type="cinematic-flow:InitialState" xmi:id="_lBedYIjWEeGStfxeQK0zeA" technicalid="_48PUYBVIEeetFdz5pzgWAw" name="Initial"/>
+      <states xsi:type="cinematic-flow:ViewState" xmi:id="_xP47AIjWEeGStfxeQK0zeA" technicalid="_48PUYRVIEeetFdz5pzgWAw" name="Display Homepage" viewContainers="_lSJPQIjZEeGlA5e_Ze9-Rg"/>
+      <states xsi:type="cinematic-flow:ActionState" xmi:id="_0UvMEIjWEeGStfxeQK0zeA" technicalid="_48PUYhVIEeetFdz5pzgWAw" name="Load Data">
+        <actions xmi:id="_EZ6f4IjXEeGStfxeQK0zeA" technicalid="_48fzEBVIEeetFdz5pzgWAw" name="getHomepageData"/>
+      </states>
+      <states xsi:type="cinematic-flow:ActionState" xmi:id="_w1YzgIjaEeGlA5e_Ze9-Rg" technicalid="_48fzERVIEeetFdz5pzgWAw" name="Search Books">
+        <actions xmi:id="_KRTJAIjiEeGllIuu_i41WA" technicalid="_48fzEhVIEeetFdz5pzgWAw" createdOn="2021-11-23T11:16:45.868+0100" modifiedOn="2021-11-23T12:12:29.386+0100" name="searchBooks"/>
+      </states>
+      <states xsi:type="cinematic-flow:ActionState" xmi:id="_mPTE8IjiEeGllIuu_i41WA" technicalid="_48fzExVIEeetFdz5pzgWAw" name="Add to cart"/>
+      <states xsi:type="cinematic-flow:ActionState" xmi:id="_yB2tAIjiEeGllIuu_i41WA" technicalid="_48fzFBVIEeetFdz5pzgWAw" name="Remove from cart"/>
+      <states xsi:type="cinematic-flow:ViewState" xmi:id="_FUzkYIjjEeGllIuu_i41WA" technicalid="_48fzFRVIEeetFdz5pzgWAw" name="Create Account Page" viewContainers="_XBIcMIjjEeGllIuu_i41WA"/>
+      <states xsi:type="cinematic-flow:ActionState" xmi:id="_dmSV0IjkEeGOp5IdJE0AIw" technicalid="_48fzFhVIEeetFdz5pzgWAw" name="Create Account"/>
+      <states xsi:type="cinematic-flow:SubflowState" xmi:id="_NsmD0IjlEeGOp5IdJE0AIw" technicalid="_48fzFxVIEeetFdz5pzgWAw" subflow="_yYt1MIjfEeGIXsoZxTXHQA"/>
+      <transitions xmi:id="_7ZirkIjWEeGStfxeQK0zeA" technicalid="_48fzGBVIEeetFdz5pzgWAw" from="_lBedYIjWEeGStfxeQK0zeA" to="_0UvMEIjWEeGStfxeQK0zeA"/>
+      <transitions xmi:id="_76bLEIjWEeGStfxeQK0zeA" technicalid="_48fzGRVIEeetFdz5pzgWAw" from="_0UvMEIjWEeGStfxeQK0zeA" to="_xP47AIjWEeGStfxeQK0zeA"/>
+      <transitions xmi:id="_xuqk4IjaEeGlA5e_Ze9-Rg" technicalid="_48fzGhVIEeetFdz5pzgWAw" from="_xP47AIjWEeGStfxeQK0zeA" to="_w1YzgIjaEeGlA5e_Ze9-Rg" on="_BW2asIjbEeGlA5e_Ze9-Rg"/>
+      <transitions xmi:id="_oCRecIjiEeGllIuu_i41WA" technicalid="_48fzGxVIEeetFdz5pzgWAw" from="_xP47AIjWEeGStfxeQK0zeA" to="_mPTE8IjiEeGllIuu_i41WA" on="_NmXPEIjcEeGD_4FfK_oDsg"/>
+      <transitions xmi:id="_zw4aoIjiEeGllIuu_i41WA" technicalid="_48fzHBVIEeetFdz5pzgWAw" from="_xP47AIjWEeGStfxeQK0zeA" to="_yB2tAIjiEeGllIuu_i41WA" on="_0v3LYIjiEeGllIuu_i41WA"/>
+      <transitions xmi:id="_HX75wIjjEeGllIuu_i41WA" technicalid="_48fzHRVIEeetFdz5pzgWAw" from="_xP47AIjWEeGStfxeQK0zeA" to="_FUzkYIjjEeGllIuu_i41WA" on="_IMGhoIjjEeGllIuu_i41WA"/>
+      <transitions xmi:id="_gdArUIjkEeGOp5IdJE0AIw" technicalid="_48fzHhVIEeetFdz5pzgWAw" from="_FUzkYIjjEeGllIuu_i41WA" to="_xP47AIjWEeGStfxeQK0zeA" on="_RN5c0IjkEeGOp5IdJE0AIw"/>
+      <transitions xmi:id="_jmMp0IjkEeGOp5IdJE0AIw" technicalid="_48fzHxVIEeetFdz5pzgWAw" from="_FUzkYIjjEeGllIuu_i41WA" to="_dmSV0IjkEeGOp5IdJE0AIw" on="_PeD24IjkEeGOp5IdJE0AIw"/>
+      <transitions xmi:id="_pDVA4IjkEeGOp5IdJE0AIw" technicalid="_48fzIBVIEeetFdz5pzgWAw" from="_dmSV0IjkEeGOp5IdJE0AIw" to="_xP47AIjWEeGStfxeQK0zeA"/>
+      <transitions xmi:id="_4c_5kIjkEeGOp5IdJE0AIw" technicalid="_48fzIRVIEeetFdz5pzgWAw" from="_w1YzgIjaEeGlA5e_Ze9-Rg" to="_xP47AIjWEeGStfxeQK0zeA"/>
+      <transitions xmi:id="_42IyUIjkEeGOp5IdJE0AIw" technicalid="_48fzIhVIEeetFdz5pzgWAw" from="_mPTE8IjiEeGllIuu_i41WA" to="_xP47AIjWEeGStfxeQK0zeA"/>
+      <transitions xmi:id="_5HF_cIjkEeGOp5IdJE0AIw" technicalid="_48fzIxVIEeetFdz5pzgWAw" from="_yB2tAIjiEeGllIuu_i41WA" to="_xP47AIjWEeGStfxeQK0zeA"/>
+      <transitions xmi:id="_PJNLwIjlEeGOp5IdJE0AIw" technicalid="_48fzJBVIEeetFdz5pzgWAw" from="_xP47AIjWEeGStfxeQK0zeA" to="_NsmD0IjlEeGOp5IdJE0AIw" on="_QVdjgIjlEeGOp5IdJE0AIw"/>
+      <transitions xmi:id="_cl4zUIjlEeGOp5IdJE0AIw" technicalid="_48fzJRVIEeetFdz5pzgWAw" from="_NsmD0IjlEeGOp5IdJE0AIw" to="_xP47AIjWEeGStfxeQK0zeA"/>
+      <events xmi:id="_BW2asIjbEeGlA5e_Ze9-Rg" technicalid="_48fzJhVIEeetFdz5pzgWAw" name="launchSearch" binds="_5P1QQIjaEeGlA5e_Ze9-Rg"/>
+      <events xmi:id="_NmXPEIjcEeGD_4FfK_oDsg" technicalid="_48gaIBVIEeetFdz5pzgWAw" name="addToCart" binds="_J5U8oIjcEeGD_4FfK_oDsg"/>
+      <events xmi:id="_0v3LYIjiEeGllIuu_i41WA" technicalid="_48gaIRVIEeetFdz5pzgWAw" name="removeFromCart" binds="_QUnLwIjhEeGllIuu_i41WA"/>
+      <events xmi:id="_IMGhoIjjEeGllIuu_i41WA" technicalid="_48gaIhVIEeetFdz5pzgWAw" name="createAccount"/>
+      <events xmi:id="_QVdjgIjlEeGOp5IdJE0AIw" technicalid="_48gaIxVIEeetFdz5pzgWAw" name="checkout" binds="_VTh80IjhEeGllIuu_i41WA"/>
+      <events xmi:id="_9QDscOPgEeuvZ5sdreLKyg" technicalid="_9QCeUOPgEeuvZ5sdreLKyg" createdOn="2021-07-13T15:48:09.558+0200" modifiedOn="2021-07-13T15:48:09.558+0200" name="event6"/>
+    </flows>
+    <viewContainers xmi:id="_lSJPQIjZEeGlA5e_Ze9-Rg" technicalid="_48gaJBVIEeetFdz5pzgWAw" createdOn="2021-05-26T17:25:55.766+0200" modifiedOn="2021-11-23T11:13:14.760+0100" name="HomePage">
+      <widget href="pathmap://cinematic/toolkits/Web#_tGHvxYjeEeGIXsoZxTXHQA"/>
+      <viewStyle xmi:id="_-opjBOMPEeuQk8DSQ2l-0A" technicalid="_-ont8eMPEeuQk8DSQ2l-0A"/>
+      <ownedElements xsi:type="cinematic-view:ViewContainer" xmi:id="_wSq9cIjZEeGlA5e_Ze9-Rg" technicalid="_48jdcBVIEeetFdz5pzgWAw" name="SearchForm">
+        <widget href="pathmap://cinematic/toolkits/Web#_tGHvsIjeEeGIXsoZxTXHQA"/>
+        <viewStyle xmi:id="_-opjBeMPEeuQk8DSQ2l-0A" technicalid="_-ooU4uMPEeuQk8DSQ2l-0A"/>
+        <ownedElements xsi:type="cinematic-view:ViewElement" xmi:id="_EmqbEIjaEeGlA5e_Ze9-Rg" technicalid="_48jdchVIEeetFdz5pzgWAw" createdOn="2021-07-13T14:56:16.961+0200" modifiedOn="2021-07-13T14:56:16.961+0200" name="author" label="" example="Loremi Psum">
+          <widget href="pathmap://cinematic/toolkits/Web#_tGHvoojeEeGIXsoZxTXHQA"/>
+          <viewStyle xmi:id="_-opjBuMPEeuQk8DSQ2l-0A" technicalid="_-ooU5eMPEeuQk8DSQ2l-0A"/>
+        </ownedElements>
+        <ownedElements xsi:type="cinematic-view:ViewElement" xmi:id="_fYqd8IjaEeGlA5e_Ze9-Rg" technicalid="_48jddBVIEeetFdz5pzgWAw" createdOn="2021-07-13T14:56:00.520+0200" modifiedOn="2021-07-13T14:56:00.520+0200" name="type" example="Computer Science">
+          <widget href="pathmap://cinematic/toolkits/Web#_tGHvoojeEeGIXsoZxTXHQA"/>
+          <viewStyle xmi:id="_-opjB-MPEeuQk8DSQ2l-0A" technicalid="_-ooU6OMPEeuQk8DSQ2l-0A"/>
+        </ownedElements>
+        <ownedElements xsi:type="cinematic-view:ViewElement" xmi:id="_mhBAsIjaEeGlA5e_Ze9-Rg" technicalid="_48jddhVIEeetFdz5pzgWAw" createdOn="2021-07-13T14:55:41.418+0200" modifiedOn="2021-07-13T14:55:41.418+0200" name="keywords" example="best">
+          <widget href="pathmap://cinematic/toolkits/Web#_tGHvvYjeEeGIXsoZxTXHQA"/>
+          <viewStyle xmi:id="_-opjCOMPEeuQk8DSQ2l-0A" technicalid="_-ooU6-MPEeuQk8DSQ2l-0A"/>
+        </ownedElements>
+        <ownedElements xsi:type="cinematic-view:ViewElement" xmi:id="_pvknYIjaEeGlA5e_Ze9-Rg" technicalid="_48jdeBVIEeetFdz5pzgWAw" name="search">
+          <widget href="pathmap://cinematic/toolkits/Web#_tGHIkIjeEeGIXsoZxTXHQA"/>
+          <events xmi:id="_5P1QQIjaEeGlA5e_Ze9-Rg" technicalid="_48jdehVIEeetFdz5pzgWAw" name="search.onClick">
+            <type href="pathmap://cinematic/toolkits/Web#_tGHIkYjeEeGIXsoZxTXHQA"/>
+          </events>
+          <viewStyle xmi:id="_-opjCeMPEeuQk8DSQ2l-0A" technicalid="_-ooU7uMPEeuQk8DSQ2l-0A"/>
+        </ownedElements>
+      </ownedElements>
+      <ownedElements xsi:type="cinematic-view:ViewContainer" xmi:id="_Se8ZgIjaEeGlA5e_Ze9-Rg" technicalid="_48qLIBVIEeetFdz5pzgWAw" name="Books">
+        <widget href="pathmap://cinematic/toolkits/Web#_tGHvuojeEeGIXsoZxTXHQA"/>
+        <viewStyle xmi:id="_-opjCuMPEeuQk8DSQ2l-0A" technicalid="_-ooU8-MPEeuQk8DSQ2l-0A"/>
+        <ownedElements xsi:type="cinematic-view:ViewElement" xmi:id="_BiTnUIjcEeGD_4FfK_oDsg" technicalid="_48qLIhVIEeetFdz5pzgWAw" name="bookImage">
+          <widget href="pathmap://cinematic/toolkits/Web#_tGHvpojeEeGIXsoZxTXHQA"/>
+          <viewStyle xmi:id="_-opjC-MPEeuQk8DSQ2l-0A" technicalid="_-ooU9uMPEeuQk8DSQ2l-0A"/>
+        </ownedElements>
+        <ownedElements xsi:type="cinematic-view:ViewElement" xmi:id="_Eu44EIjcEeGD_4FfK_oDsg" technicalid="_48qLJBVIEeetFdz5pzgWAw" createdOn="2021-07-13T14:56:39.701+0200" modifiedOn="2021-07-13T14:56:39.701+0200" name="bookTitle" example="Best book ever">
+          <widget href="pathmap://cinematic/toolkits/Web#_tGHvqYjeEeGIXsoZxTXHQA"/>
+          <viewStyle xmi:id="_-opjDOMPEeuQk8DSQ2l-0A" technicalid="_-ooU-eMPEeuQk8DSQ2l-0A"/>
+        </ownedElements>
+        <ownedElements xsi:type="cinematic-view:ViewElement" xmi:id="_czj8kIjdEeGRPcmmS6YpZw" technicalid="_48qLJhVIEeetFdz5pzgWAw" createdOn="2021-07-13T14:56:46.465+0200" modifiedOn="2021-07-13T14:56:46.465+0200" name="author" example="Loremi Psum">
+          <widget href="pathmap://cinematic/toolkits/Web#_tGHvqYjeEeGIXsoZxTXHQA"/>
+          <viewStyle xmi:id="_-opjDeMPEeuQk8DSQ2l-0A" technicalid="_-ooU_OMPEeuQk8DSQ2l-0A"/>
+        </ownedElements>
+        <ownedElements xsi:type="cinematic-view:ViewElement" xmi:id="_He2eQIjcEeGD_4FfK_oDsg" technicalid="_48qLKBVIEeetFdz5pzgWAw" name="addToCart">
+          <widget href="pathmap://cinematic/toolkits/Web#_tGHvrIjeEeGIXsoZxTXHQA"/>
+          <events xmi:id="_J5U8oIjcEeGD_4FfK_oDsg" technicalid="_48qLKhVIEeetFdz5pzgWAw" name="addToCart.onClick">
+            <type href="pathmap://cinematic/toolkits/Web#_tGHvrYjeEeGIXsoZxTXHQA"/>
+          </events>
+          <viewStyle xmi:id="_-opjDuMPEeuQk8DSQ2l-0A" technicalid="_-ooU_-MPEeuQk8DSQ2l-0A"/>
+        </ownedElements>
+      </ownedElements>
+      <ownedElements xsi:type="cinematic-view:ViewElement" xmi:id="_c6KwUIjcEeGD_4FfK_oDsg" technicalid="_48qLLBVIEeetFdz5pzgWAw" name="createAccount">
+        <widget href="pathmap://cinematic/toolkits/Web#_tGHvrIjeEeGIXsoZxTXHQA"/>
+        <events xmi:id="_fujjgIjcEeGD_4FfK_oDsg" technicalid="_48qLLhVIEeetFdz5pzgWAw" name="createAccount.onClick"/>
+        <viewStyle xmi:id="_-opjD-MPEeuQk8DSQ2l-0A" technicalid="_-ooVBOMPEeuQk8DSQ2l-0A"/>
+      </ownedElements>
+      <ownedElements xsi:type="cinematic-view:ViewContainer" xmi:id="_jir8cIjcEeGD_4FfK_oDsg" technicalid="_48qLLxVIEeetFdz5pzgWAw" createdOn="2021-11-23T11:13:14.730+0100" modifiedOn="2021-11-23T12:10:17.690+0100" name="ShoppingCart">
+        <widget href="pathmap://cinematic/toolkits/Web#_tGHvsIjeEeGIXsoZxTXHQA"/>
+        <viewStyle xmi:id="_-opjEOMPEeuQk8DSQ2l-0A" technicalid="_-ooVCOMPEeuQk8DSQ2l-0A"/>
+        <ownedElements xsi:type="cinematic-view:ViewContainer" xmi:id="__aksgIjgEeGllIuu_i41WA" technicalid="_48qLMRVIEeetFdz5pzgWAw" name="CartLines">
+          <widget href="pathmap://cinematic/toolkits/Web#_tGHvuojeEeGIXsoZxTXHQA"/>
+          <viewStyle xmi:id="_-opjEeMPEeuQk8DSQ2l-0A" technicalid="_-ooVC-MPEeuQk8DSQ2l-0A"/>
+          <ownedElements xsi:type="cinematic-view:ViewElement" xmi:id="_D0ZzgIjhEeGllIuu_i41WA" technicalid="_48qLMxVIEeetFdz5pzgWAw" description="Best book ever" createdOn="2021-07-13T14:55:00.750+0200" modifiedOn="2021-07-13T14:55:00.750+0200" name="title">
+            <widget href="pathmap://cinematic/toolkits/Web#_tGHvqYjeEeGIXsoZxTXHQA"/>
+            <viewStyle xmi:id="_-opjEuMPEeuQk8DSQ2l-0A" technicalid="_-ooVDuMPEeuQk8DSQ2l-0A"/>
+          </ownedElements>
+          <ownedElements xsi:type="cinematic-view:ViewElement" xmi:id="_FtWSIIjhEeGllIuu_i41WA" technicalid="_48qLNRVIEeetFdz5pzgWAw" createdOn="2021-07-13T14:54:43.531+0200" modifiedOn="2021-07-13T14:54:43.531+0200" name="author" example="Loremi Psum">
+            <widget href="pathmap://cinematic/toolkits/Web#_tGHvqYjeEeGIXsoZxTXHQA"/>
+            <viewStyle xmi:id="_-opjE-MPEeuQk8DSQ2l-0A" technicalid="_-ooVEeMPEeuQk8DSQ2l-0A"/>
+          </ownedElements>
+          <ownedElements xsi:type="cinematic-view:ViewElement" xmi:id="_HkGYYIjhEeGllIuu_i41WA" technicalid="_48qLNxVIEeetFdz5pzgWAw" createdOn="2021-07-13T14:51:51.093+0200" modifiedOn="2021-07-13T14:53:10.604+0200" name="price" example="12 &#x20ac;">
+            <widget href="pathmap://cinematic/toolkits/Web#_tGHvqYjeEeGIXsoZxTXHQA"/>
+            <viewStyle xmi:id="_-opjFOMPEeuQk8DSQ2l-0A" technicalid="_-ooVFOMPEeuQk8DSQ2l-0A"/>
+          </ownedElements>
+          <ownedElements xsi:type="cinematic-view:ViewElement" xmi:id="_KO1gUIjhEeGllIuu_i41WA" technicalid="_48qLORVIEeetFdz5pzgWAw" createdOn="2021-07-13T14:52:52.121+0200" modifiedOn="2021-07-13T14:52:52.121+0200" name="quantity" example="1">
+            <widget href="pathmap://cinematic/toolkits/Web#_tGHvvYjeEeGIXsoZxTXHQA"/>
+            <viewStyle xmi:id="_-opjFeMPEeuQk8DSQ2l-0A" technicalid="_-ooVF-MPEeuQk8DSQ2l-0A"/>
+          </ownedElements>
+          <ownedElements xsi:type="cinematic-view:ViewElement" xmi:id="_OdPacIjhEeGllIuu_i41WA" technicalid="_48qLOxVIEeetFdz5pzgWAw" name="removeFromCart">
+            <widget href="pathmap://cinematic/toolkits/Web#_tGHIkIjeEeGIXsoZxTXHQA"/>
+            <events xmi:id="_QUnLwIjhEeGllIuu_i41WA" technicalid="_48qLPRVIEeetFdz5pzgWAw" name="removeFromCart.onClick">
+              <type href="pathmap://cinematic/toolkits/Web#_tGHIkYjeEeGIXsoZxTXHQA"/>
+            </events>
+            <viewStyle xmi:id="_-opjFuMPEeuQk8DSQ2l-0A" technicalid="_-ooVGuMPEeuQk8DSQ2l-0A"/>
+          </ownedElements>
+        </ownedElements>
+        <ownedElements xsi:type="cinematic-view:ViewElement" xmi:id="_THKy8IjhEeGllIuu_i41WA" technicalid="_48qLPxVIEeetFdz5pzgWAw" name="checkout">
+          <widget href="pathmap://cinematic/toolkits/Web#_tGHIkIjeEeGIXsoZxTXHQA"/>
+          <events xmi:id="_VTh80IjhEeGllIuu_i41WA" technicalid="_48qLQRVIEeetFdz5pzgWAw" name="checkout.onClick">
+            <type href="pathmap://cinematic/toolkits/Web#_tGHIkYjeEeGIXsoZxTXHQA"/>
+          </events>
+          <viewStyle xmi:id="_-opjF-MPEeuQk8DSQ2l-0A" technicalid="_-ooVH-MPEeuQk8DSQ2l-0A"/>
+        </ownedElements>
+      </ownedElements>
+      <layout xmi:id="_IHxv4OMQEeuQk8DSQ2l-0A" x="20" y="20" width="967" height="635" viewElement="_lSJPQIjZEeGlA5e_Ze9-Rg">
+        <ownedLayouts xmi:id="_IHxv4eMQEeuQk8DSQ2l-0A" x="772" y="12" width="155" height="35" viewElement="_c6KwUIjcEeGD_4FfK_oDsg"/>
+        <ownedLayouts xmi:id="_-IWQgExFEeygjYyGPnd9aw" x="20" y="60" width="907" height="235" direction="HORIZONTAL">
+          <ownedLayouts xmi:id="_IHxv4-MQEeuQk8DSQ2l-0A" x="20" y="60" width="435" height="235" viewElement="_wSq9cIjZEeGlA5e_Ze9-Rg">
+            <ownedLayouts xmi:id="_IHxv5OMQEeuQk8DSQ2l-0A" x="20" y="14" width="263" height="39" viewElement="_EmqbEIjaEeGlA5e_Ze9-Rg"/>
+            <ownedLayouts xmi:id="_IHxv5eMQEeuQk8DSQ2l-0A" x="20" y="72" width="263" height="39" viewElement="_fYqd8IjaEeGlA5e_Ze9-Rg"/>
+            <ownedLayouts xmi:id="_-IWQgUxFEeygjYyGPnd9aw" x="20" y="128" width="391" height="39" direction="HORIZONTAL">
+              <ownedLayouts xmi:id="_IHxv5-MQEeuQk8DSQ2l-0A" x="20" y="128" width="263" height="39" viewElement="_mhBAsIjaEeGlA5e_Ze9-Rg"/>
+              <ownedLayouts xmi:id="_IHxv6OMQEeuQk8DSQ2l-0A" x="304" y="128" width="107" height="39" viewElement="_pvknYIjaEeGlA5e_Ze9-Rg"/>
+            </ownedLayouts>
+          </ownedLayouts>
+          <ownedLayouts xmi:id="_IHxv6eMQEeuQk8DSQ2l-0A" x="476" y="60" width="451" height="235" direction="HORIZONTAL" viewElement="_Se8ZgIjaEeGlA5e_Ze9-Rg">
+            <ownedLayouts xmi:id="_IHxv6uMQEeuQk8DSQ2l-0A" x="16" y="24" width="179" height="143" viewElement="_BiTnUIjcEeGD_4FfK_oDsg"/>
+            <ownedLayouts xmi:id="_-IWQgkxFEeygjYyGPnd9aw" x="208" y="24" width="203" height="143">
+              <ownedLayouts xmi:id="_IHxv7OMQEeuQk8DSQ2l-0A" x="208" y="24" width="203" height="31" viewElement="_Eu44EIjcEeGD_4FfK_oDsg"/>
+              <ownedLayouts xmi:id="_IHxv7eMQEeuQk8DSQ2l-0A" x="208" y="76" width="203" height="31" viewElement="_czj8kIjdEeGRPcmmS6YpZw"/>
+              <ownedLayouts xmi:id="_IHxv7uMQEeuQk8DSQ2l-0A" x="208" y="136" width="99" height="31" viewElement="_He2eQIjcEeGD_4FfK_oDsg"/>
+            </ownedLayouts>
+          </ownedLayouts>
+        </ownedLayouts>
+        <ownedLayouts xmi:id="_IHxv7-MQEeuQk8DSQ2l-0A" x="20" y="316" width="907" height="249" viewElement="_jir8cIjcEeGD_4FfK_oDsg">
+          <ownedLayouts xmi:id="_-IWQg0xFEeygjYyGPnd9aw" width="879" height="129">
+            <ownedLayouts xmi:id="_-IWQhExFEeygjYyGPnd9aw" width="879" height="129"/>
+          </ownedLayouts>
+          <ownedLayouts xmi:id="_-IWQhUxFEeygjYyGPnd9aw" x="12" y="144" width="765" height="43" direction="HORIZONTAL">
+            <ownedLayouts xmi:id="_IHxv9uMQEeuQk8DSQ2l-0A" x="12" y="144" width="139" height="43" viewElement="_THKy8IjhEeGllIuu_i41WA"/>
+            <ownedLayouts xmi:id="_-IWQhkxFEeygjYyGPnd9aw" x="678" y="144" width="99" height="41"/>
+          </ownedLayouts>
+        </ownedLayouts>
+      </layout>
+    </viewContainers>
+    <viewContainers xmi:id="_XBIcMIjjEeGllIuu_i41WA" technicalid="_48qLRRVIEeetFdz5pzgWAw" createdOn="2021-07-12T14:53:36.282+0200" modifiedOn="2021-09-08T11:18:03.751+0200" name="CreateAccount">
+      <widget href="pathmap://cinematic/toolkits/Web#_tGHvxYjeEeGIXsoZxTXHQA"/>
+      <viewStyle xmi:id="_-opjGOMPEeuQk8DSQ2l-0A" technicalid="_-ooVJOMPEeuQk8DSQ2l-0A"/>
+      <ownedElements xsi:type="cinematic-view:ViewElement" xmi:id="_Af6ckYjkEeGOp5IdJE0AIw" technicalid="_48qLRxVIEeetFdz5pzgWAw" createdOn="2021-07-13T14:26:26.149+0200" modifiedOn="2021-07-13T14:26:26.149+0200" name="email" required="true" example="john@obeo.fr">
+        <widget href="pathmap://cinematic/toolkits/Web#_tGHvvYjeEeGIXsoZxTXHQA"/>
+        <viewStyle xmi:id="_-opjGeMPEeuQk8DSQ2l-0A" technicalid="_-ooVJ-MPEeuQk8DSQ2l-0A"/>
+      </ownedElements>
+      <ownedElements xsi:type="cinematic-view:ViewElement" xmi:id="_FAJGgIjkEeGOp5IdJE0AIw" technicalid="_48qyMBVIEeetFdz5pzgWAw" createdOn="2021-07-13T14:26:33.678+0200" modifiedOn="2021-07-13T14:26:33.678+0200" name="password" required="true" example="secret">
+        <widget href="pathmap://cinematic/toolkits/Web#_tGHvs4jeEeGIXsoZxTXHQA"/>
+        <viewStyle xmi:id="_-opjGuMPEeuQk8DSQ2l-0A" technicalid="_-ooVKuMPEeuQk8DSQ2l-0A"/>
+      </ownedElements>
+      <ownedElements xsi:type="cinematic-view:ViewElement" xmi:id="_HUXL4IjkEeGOp5IdJE0AIw" technicalid="_48qyMhVIEeetFdz5pzgWAw" createdOn="2021-07-13T14:26:11.977+0200" modifiedOn="2021-07-13T14:26:11.977+0200" name="name" label="" required="true" example="John d'Obeo">
+        <widget href="pathmap://cinematic/toolkits/Web#_tGHvvYjeEeGIXsoZxTXHQA"/>
+        <viewStyle xmi:id="_-opjG-MPEeuQk8DSQ2l-0A" technicalid="_-ooVLeMPEeuQk8DSQ2l-0A"/>
+      </ownedElements>
+      <ownedElements xsi:type="cinematic-view:ViewElement" xmi:id="_MCDqEIjkEeGOp5IdJE0AIw" technicalid="_48qyNBVIEeetFdz5pzgWAw" createdOn="2021-07-13T14:26:50.410+0200" modifiedOn="2021-07-13T14:26:54.955+0200" name="validate" example="">
+        <widget href="pathmap://cinematic/toolkits/Web#_tGHIkIjeEeGIXsoZxTXHQA"/>
+        <events xmi:id="_PeD24IjkEeGOp5IdJE0AIw" technicalid="_48qyNhVIEeetFdz5pzgWAw" name="validate.onClick">
+          <type href="pathmap://cinematic/toolkits/Web#_tGHIkYjeEeGIXsoZxTXHQA"/>
+        </events>
+        <viewStyle xmi:id="_-opjHOMPEeuQk8DSQ2l-0A" technicalid="_-ooVMOMPEeuQk8DSQ2l-0A"/>
+      </ownedElements>
+      <ownedElements xsi:type="cinematic-view:ViewElement" xmi:id="_Nuc6cIjkEeGOp5IdJE0AIw" technicalid="_48qyOBVIEeetFdz5pzgWAw" name="cancel">
+        <widget href="pathmap://cinematic/toolkits/Web#_tGHIkIjeEeGIXsoZxTXHQA"/>
+        <events xmi:id="_RN5c0IjkEeGOp5IdJE0AIw" technicalid="_48qyOhVIEeetFdz5pzgWAw" name="cancel.onClick">
+          <type href="pathmap://cinematic/toolkits/Web#_tGHIkYjeEeGIXsoZxTXHQA"/>
+        </events>
+        <viewStyle xmi:id="_-opjHeMPEeuQk8DSQ2l-0A" technicalid="_-ooVNeMPEeuQk8DSQ2l-0A"/>
+      </ownedElements>
+      <layout xmi:id="_LArPoOMQEeuQk8DSQ2l-0A" x="20" y="20" width="451" height="291" viewElement="_XBIcMIjjEeGllIuu_i41WA">
+        <ownedLayouts xmi:id="_LArPoeMQEeuQk8DSQ2l-0A" x="16" y="8" width="331" height="33" viewElement="_HUXL4IjkEeGOp5IdJE0AIw"/>
+        <ownedLayouts xmi:id="_LArPouMQEeuQk8DSQ2l-0A" x="16" y="56" width="331" height="33" viewElement="_Af6ckYjkEeGOp5IdJE0AIw"/>
+        <ownedLayouts xmi:id="_LArPo-MQEeuQk8DSQ2l-0A" x="16" y="100" width="331" height="33" viewElement="_FAJGgIjkEeGOp5IdJE0AIw"/>
+        <ownedLayouts xmi:id="_q5yvcBCFEeyEgqe3DFJNZw" x="172" y="176" width="241" height="41" direction="HORIZONTAL">
+          <ownedLayouts xmi:id="_LArPpeMQEeuQk8DSQ2l-0A" x="172" y="176" width="111" height="41" viewElement="_MCDqEIjkEeGOp5IdJE0AIw"/>
+          <ownedLayouts xmi:id="_LArPpuMQEeuQk8DSQ2l-0A" x="302" y="176" width="111" height="41" viewElement="_Nuc6cIjkEeGOp5IdJE0AIw"/>
+        </ownedLayouts>
+      </layout>
+    </viewContainers>
+    <subPackages xmi:id="_4zM9oIjlEeGOp5IdJE0AIw" technicalid="_48qyPBVIEeetFdz5pzgWAw" name="Checkout">
+      <flows xmi:id="_yYt1MIjfEeGIXsoZxTXHQA" technicalid="_48qyPRVIEeetFdz5pzgWAw" name="Checkout">
+        <states xsi:type="cinematic-flow:InitialState" xmi:id="_15yIMIjfEeGIXsoZxTXHQA" technicalid="_48qyPhVIEeetFdz5pzgWAw" name="Initial"/>
+        <states xsi:type="cinematic-flow:DecisionState" xmi:id="_m9uw4IjlEeGOp5IdJE0AIw" technicalid="_48t1gBVIEeetFdz5pzgWAw" name="Decision"/>
+        <states xsi:type="cinematic-flow:ViewState" xmi:id="_qNvJEIjlEeGOp5IdJE0AIw" technicalid="_48t1gRVIEeetFdz5pzgWAw" name="Login Page" viewContainers="_kKmsgIjmEeGOp5IdJE0AIw"/>
+        <states xsi:type="cinematic-flow:ViewState" xmi:id="_yW_vMIjlEeGOp5IdJE0AIw" technicalid="_48uckBVIEeetFdz5pzgWAw" name="Payment Page" viewContainers="_mcNiwIjmEeGOp5IdJE0AIw"/>
+        <states xsi:type="cinematic-flow:ActionState" xmi:id="_xBuI4IjmEeGOp5IdJE0AIw" technicalid="_48uckRVIEeetFdz5pzgWAw" name="do login"/>
+        <states xsi:type="cinematic-flow:SubflowState" xmi:id="_R5JR4YjnEeGOp5IdJE0AIw" technicalid="_48uckhVIEeetFdz5pzgWAw" subflow="_R5JR4IjnEeGOp5IdJE0AIw"/>
+        <states xsi:type="cinematic-flow:ActionState" xmi:id="_nDWwYIjoEeGJh95Ab8olLw" technicalid="_48uckxVIEeetFdz5pzgWAw" name="Send email"/>
+        <states xsi:type="cinematic-flow:FinalState" xmi:id="_tBnekIjoEeGJh95Ab8olLw" technicalid="_48uclBVIEeetFdz5pzgWAw" name="Final"/>
+        <states xsi:type="cinematic-flow:FinalState" xmi:id="_LKz00IjrEeG7p-MOgK2yMQ" technicalid="_48uclRVIEeetFdz5pzgWAw" name="Final"/>
+        <transitions xmi:id="_oz5BQIjlEeGOp5IdJE0AIw" technicalid="_48uclhVIEeetFdz5pzgWAw" from="_15yIMIjfEeGIXsoZxTXHQA" to="_m9uw4IjlEeGOp5IdJE0AIw"/>
+        <transitions xmi:id="_rui0gIjlEeGOp5IdJE0AIw" technicalid="_48vDoBVIEeetFdz5pzgWAw" guard="userConnected = true" from="_m9uw4IjlEeGOp5IdJE0AIw" to="_yW_vMIjlEeGOp5IdJE0AIw"/>
+        <transitions xmi:id="_qRBRIIjmEeGOp5IdJE0AIw" technicalid="_48vDoRVIEeetFdz5pzgWAw" guard="userConnected = false" from="_m9uw4IjlEeGOp5IdJE0AIw" to="_qNvJEIjlEeGOp5IdJE0AIw"/>
+        <transitions xmi:id="_y5aDQIjmEeGOp5IdJE0AIw" technicalid="_48vDohVIEeetFdz5pzgWAw" from="_xBuI4IjmEeGOp5IdJE0AIw" to="_m9uw4IjlEeGOp5IdJE0AIw"/>
+        <transitions xmi:id="_z9Pe0IjmEeGOp5IdJE0AIw" technicalid="_48vDoxVIEeetFdz5pzgWAw" from="_qNvJEIjlEeGOp5IdJE0AIw" to="_xBuI4IjmEeGOp5IdJE0AIw" on="_6fayYIjmEeGOp5IdJE0AIw"/>
+        <transitions xmi:id="_fWYTEIjnEeGOp5IdJE0AIw" technicalid="_48vDpBVIEeetFdz5pzgWAw" from="_yW_vMIjlEeGOp5IdJE0AIw" to="_R5JR4YjnEeGOp5IdJE0AIw" on="_gE6NAIjnEeGOp5IdJE0AIw"/>
+        <transitions xmi:id="_nq1AEIjoEeGJh95Ab8olLw" technicalid="_48vDpRVIEeetFdz5pzgWAw" from="_qNvJEIjlEeGOp5IdJE0AIw" to="_nDWwYIjoEeGJh95Ab8olLw" on="_h4AF0IjoEeGJh95Ab8olLw"/>
+        <transitions xmi:id="_pMmU0IjoEeGJh95Ab8olLw" technicalid="_48vDphVIEeetFdz5pzgWAw" from="_nDWwYIjoEeGJh95Ab8olLw" to="_qNvJEIjlEeGOp5IdJE0AIw"/>
+        <transitions xmi:id="_uWUAoIjoEeGJh95Ab8olLw" technicalid="_48vDpxVIEeetFdz5pzgWAw" from="_qNvJEIjlEeGOp5IdJE0AIw" to="_tBnekIjoEeGJh95Ab8olLw" on="_SRlKkIjoEeGJh95Ab8olLw"/>
+        <transitions xmi:id="_Lt4ssIjrEeG7p-MOgK2yMQ" technicalid="_48vDqBVIEeetFdz5pzgWAw" from="_yW_vMIjlEeGOp5IdJE0AIw" to="_LKz00IjrEeG7p-MOgK2yMQ" on="_HKrnQIjrEeG7p-MOgK2yMQ"/>
+        <events xmi:id="_6fayYIjmEeGOp5IdJE0AIw" technicalid="_48vDqRVIEeetFdz5pzgWAw" name="login" binds="_QAQoMIjoEeGJh95Ab8olLw"/>
+        <events xmi:id="_gE6NAIjnEeGOp5IdJE0AIw" technicalid="_48vDqhVIEeetFdz5pzgWAw" name="validatePayment" binds="__WaZsIjqEeG7p-MOgK2yMQ"/>
+        <events xmi:id="_h4AF0IjoEeGJh95Ab8olLw" technicalid="_48vDqxVIEeetFdz5pzgWAw" name="forgotPassword" binds="_bLzTkIjoEeGJh95Ab8olLw"/>
+        <events xmi:id="_HKrnQIjrEeG7p-MOgK2yMQ" technicalid="_48vDrBVIEeetFdz5pzgWAw" name="cancelPayment" binds="___ek0IjqEeG7p-MOgK2yMQ"/>
+      </flows>
+      <flows xmi:id="_R5JR4IjnEeGOp5IdJE0AIw" technicalid="_48vDrRVIEeetFdz5pzgWAw" name="Payment on partner site"/>
+      <viewContainers xmi:id="_kKmsgIjmEeGOp5IdJE0AIw" technicalid="_48vDrhVIEeetFdz5pzgWAw" createdOn="2021-07-12T14:54:35.490+0200" modifiedOn="2021-09-08T11:18:16.266+0200" name="Login">
+        <widget href="pathmap://cinematic/toolkits/Web#_tGHvxYjeEeGIXsoZxTXHQA"/>
+        <viewStyle xmi:id="_-opjHuMPEeuQk8DSQ2l-0A" technicalid="_-oo8DeMPEeuQk8DSQ2l-0A"/>
+        <ownedElements xsi:type="cinematic-view:ViewElement" xmi:id="_5_h78IjnEeGrE9Ykd6PeHg" technicalid="_48vDsBVIEeetFdz5pzgWAw" createdOn="2021-07-13T14:59:51.239+0200" modifiedOn="2021-07-13T14:59:51.239+0200" name="email" required="true" example="john@obeo.fr">
+          <widget href="pathmap://cinematic/toolkits/Web#_tGHvvYjeEeGIXsoZxTXHQA"/>
+          <viewStyle xmi:id="_-opjH-MPEeuQk8DSQ2l-0A" technicalid="_-oo8EOMPEeuQk8DSQ2l-0A"/>
+        </ownedElements>
+        <ownedElements xsi:type="cinematic-view:ViewElement" xmi:id="_8MAakIjnEeGrE9Ykd6PeHg" technicalid="_48vDshVIEeetFdz5pzgWAw" createdOn="2021-07-13T15:00:02.588+0200" modifiedOn="2021-07-13T15:00:02.588+0200" name="password" required="true" example="secret">
+          <widget href="pathmap://cinematic/toolkits/Web#_tGHvs4jeEeGIXsoZxTXHQA"/>
+          <viewStyle xmi:id="_-opjIOMPEeuQk8DSQ2l-0A" technicalid="_-oo8E-MPEeuQk8DSQ2l-0A"/>
+        </ownedElements>
+        <ownedElements xsi:type="cinematic-view:ViewElement" xmi:id="_Lwh4YYjoEeGJh95Ab8olLw" technicalid="_48vDtBVIEeetFdz5pzgWAw" name="validate">
+          <widget href="pathmap://cinematic/toolkits/Web#_tGHIkIjeEeGIXsoZxTXHQA"/>
+          <events xmi:id="_QAQoMIjoEeGJh95Ab8olLw" technicalid="_48vDthVIEeetFdz5pzgWAw" name="validate.onClick">
+            <type href="pathmap://cinematic/toolkits/Web#_tGHIkYjeEeGIXsoZxTXHQA"/>
+          </events>
+          <viewStyle xmi:id="_-opjIeMPEeuQk8DSQ2l-0A" technicalid="_-oo8FuMPEeuQk8DSQ2l-0A"/>
+        </ownedElements>
+        <ownedElements xsi:type="cinematic-view:ViewElement" xmi:id="_Oln2MIjoEeGJh95Ab8olLw" technicalid="_48vDuBVIEeetFdz5pzgWAw" name="cancel">
+          <widget href="pathmap://cinematic/toolkits/Web#_tGHIkIjeEeGIXsoZxTXHQA"/>
+          <events xmi:id="_SRlKkIjoEeGJh95Ab8olLw" technicalid="_48vDuhVIEeetFdz5pzgWAw" name="cancel.onClick">
+            <type href="pathmap://cinematic/toolkits/Web#_tGHIkYjeEeGIXsoZxTXHQA"/>
+          </events>
+          <viewStyle xmi:id="_-opjIuMPEeuQk8DSQ2l-0A" technicalid="_-oo8G-MPEeuQk8DSQ2l-0A"/>
+        </ownedElements>
+        <ownedElements xsi:type="cinematic-view:ViewElement" xmi:id="_ZJvVMIjoEeGJh95Ab8olLw" technicalid="_48vDvBVIEeetFdz5pzgWAw" name="forgotPassword">
+          <widget href="pathmap://cinematic/toolkits/Web#_tGHvrIjeEeGIXsoZxTXHQA"/>
+          <events xmi:id="_bLzTkIjoEeGJh95Ab8olLw" technicalid="_48vDvhVIEeetFdz5pzgWAw" name="forgotPassword.onClick">
+            <type href="pathmap://cinematic/toolkits/Web#_tGHvrYjeEeGIXsoZxTXHQA"/>
+          </events>
+          <viewStyle xmi:id="_-opjI-MPEeuQk8DSQ2l-0A" technicalid="_-oo8IOMPEeuQk8DSQ2l-0A"/>
+        </ownedElements>
+        <layout xmi:id="_T1U8IOMQEeuQk8DSQ2l-0A" x="20" y="20" width="435" height="275" viewElement="_kKmsgIjmEeGOp5IdJE0AIw">
+          <ownedLayouts xmi:id="_T1U8IeMQEeuQk8DSQ2l-0A" x="28" y="20" width="295" height="33" viewElement="_5_h78IjnEeGrE9Ykd6PeHg"/>
+          <ownedLayouts xmi:id="_T1U8IuMQEeuQk8DSQ2l-0A" x="28" y="68" width="295" height="33" viewElement="_8MAakIjnEeGrE9Ykd6PeHg"/>
+          <ownedLayouts xmi:id="_T1U8I-MQEeuQk8DSQ2l-0A" x="28" y="116" width="150" height="36" viewElement="_ZJvVMIjoEeGJh95Ab8olLw"/>
+          <ownedLayouts xmi:id="_sxJSoBCFEeyEgqe3DFJNZw" x="160" y="176" width="245" height="41" direction="HORIZONTAL">
+            <ownedLayouts xmi:id="_T1U8JeMQEeuQk8DSQ2l-0A" x="160" y="176" width="111" height="41" viewElement="_Lwh4YYjoEeGJh95Ab8olLw"/>
+            <ownedLayouts xmi:id="_T1U8JuMQEeuQk8DSQ2l-0A" x="294" y="176" width="111" height="41" viewElement="_Oln2MIjoEeGJh95Ab8olLw"/>
+          </ownedLayouts>
+        </layout>
+      </viewContainers>
+      <viewContainers xmi:id="_mcNiwIjmEeGOp5IdJE0AIw" technicalid="_48vDwBVIEeetFdz5pzgWAw" createdOn="2021-07-12T14:55:50.105+0200" modifiedOn="2021-09-08T11:18:28.280+0200" name="PaymentForm">
+        <widget href="pathmap://cinematic/toolkits/Web#_tGHvxYjeEeGIXsoZxTXHQA"/>
+        <viewStyle xmi:id="_-opjJOMPEeuQk8DSQ2l-0A" technicalid="_-oo8JeMPEeuQk8DSQ2l-0A"/>
+        <ownedElements xsi:type="cinematic-view:ViewElement" xmi:id="_CuKDgIjpEeGJh95Ab8olLw" technicalid="_48vDwhVIEeetFdz5pzgWAw" createdOn="2021-07-13T14:58:14.227+0200" modifiedOn="2021-07-13T14:58:14.227+0200" name="cardNumber" required="true" example="1234 5678 1234 5678 1234">
+          <widget href="pathmap://cinematic/toolkits/Web#_tGHvvYjeEeGIXsoZxTXHQA"/>
+          <viewStyle xmi:id="_-opjJeMPEeuQk8DSQ2l-0A" technicalid="_-oo8KOMPEeuQk8DSQ2l-0A"/>
+        </ownedElements>
+        <ownedElements xsi:type="cinematic-view:ViewElement" xmi:id="_gS9vwIjqEeGWea74mgZL3g" technicalid="_48vDxBVIEeetFdz5pzgWAw" createdOn="2021-07-13T14:58:52.868+0200" modifiedOn="2021-07-13T14:58:52.868+0200" name="endDate" required="true" example="12/12/2112">
+          <widget href="pathmap://cinematic/toolkits/Web#_tGHvvYjeEeGIXsoZxTXHQA"/>
+          <viewStyle xmi:id="_-opjJuMPEeuQk8DSQ2l-0A" technicalid="_-oo8K-MPEeuQk8DSQ2l-0A"/>
+        </ownedElements>
+        <ownedElements xsi:type="cinematic-view:ViewElement" xmi:id="_jkCe8IjqEeGWea74mgZL3g" technicalid="_48vDxhVIEeetFdz5pzgWAw" createdOn="2021-07-13T14:59:15.219+0200" modifiedOn="2021-07-13T14:59:15.219+0200" name="validationDate" required="true" example="12/12/2012">
+          <widget href="pathmap://cinematic/toolkits/Web#_tGHvvYjeEeGIXsoZxTXHQA"/>
+          <viewStyle xmi:id="_-opjJ-MPEeuQk8DSQ2l-0A" technicalid="_-oo8LuMPEeuQk8DSQ2l-0A"/>
+        </ownedElements>
+        <ownedElements xsi:type="cinematic-view:ViewElement" xmi:id="_mpXRIIjqEeGWea74mgZL3g" technicalid="_48vDyBVIEeetFdz5pzgWAw" name="validate">
+          <widget href="pathmap://cinematic/toolkits/Web#_tGHIkIjeEeGIXsoZxTXHQA"/>
+          <events xmi:id="__WaZsIjqEeG7p-MOgK2yMQ" technicalid="_48vDyhVIEeetFdz5pzgWAw" name="validate.onClick">
+            <type href="pathmap://cinematic/toolkits/Web#_tGHIkYjeEeGIXsoZxTXHQA"/>
+          </events>
+          <viewStyle xmi:id="_-opjKOMPEeuQk8DSQ2l-0A" technicalid="_-oo8MeMPEeuQk8DSQ2l-0A"/>
+        </ownedElements>
+        <ownedElements xsi:type="cinematic-view:ViewElement" xmi:id="_97xAoYjqEeG7p-MOgK2yMQ" technicalid="_48vDzBVIEeetFdz5pzgWAw" name="cancel">
+          <widget href="pathmap://cinematic/toolkits/Web#_tGHIkIjeEeGIXsoZxTXHQA"/>
+          <events xmi:id="___ek0IjqEeG7p-MOgK2yMQ" technicalid="_48vDzhVIEeetFdz5pzgWAw" name="cancel.onClick">
+            <type href="pathmap://cinematic/toolkits/Web#_tGHIkYjeEeGIXsoZxTXHQA"/>
+          </events>
+          <viewStyle xmi:id="_-opjKeMPEeuQk8DSQ2l-0A" technicalid="_-oo8NuMPEeuQk8DSQ2l-0A"/>
+        </ownedElements>
+        <layout xmi:id="_e86UkOMQEeuQk8DSQ2l-0A" x="20" y="20" width="483" height="299" viewElement="_mcNiwIjmEeGOp5IdJE0AIw">
+          <ownedLayouts xmi:id="_e86UkeMQEeuQk8DSQ2l-0A" x="28" y="28" width="375" height="33" viewElement="_CuKDgIjpEeGJh95Ab8olLw"/>
+          <ownedLayouts xmi:id="_e86UkuMQEeuQk8DSQ2l-0A" x="28" y="76" width="151" height="33" viewElement="_gS9vwIjqEeGWea74mgZL3g"/>
+          <ownedLayouts xmi:id="_e86Uk-MQEeuQk8DSQ2l-0A" x="28" y="124" width="151" height="33" viewElement="_jkCe8IjqEeGWea74mgZL3g"/>
+          <ownedLayouts xmi:id="_ujuDgBCFEeyEgqe3DFJNZw" x="196" y="192" width="241" height="41" direction="HORIZONTAL">
+            <ownedLayouts xmi:id="_e86UleMQEeuQk8DSQ2l-0A" x="196" y="192" width="111" height="41" viewElement="_mpXRIIjqEeGWea74mgZL3g"/>
+            <ownedLayouts xmi:id="_e86UluMQEeuQk8DSQ2l-0A" x="326" y="192" width="111" height="41" viewElement="_97xAoYjqEeG7p-MOgK2yMQ"/>
+          </ownedLayouts>
+        </layout>
+      </viewContainers>
+    </subPackages>
+    <toolkits href="pathmap://cinematic/toolkits/Web#_prv6gIjeEeGIXsoZxTXHQA"/>
+  </cinematic:CinematicRoot>
+  <oenv:BindingRegistry xmi:id="_y0quQBWvEemPcZQonXs-Bw" technicalid="_y0qHMBWvEemPcZQonXs-Bw"/>
+</xmi:XMI>

@@ -20,3 +20,4 @@ Require-Bundle: org.eclipse.ui,
  org.obeonetwork.utils.common
 Bundle-RequiredExecutionEnvironment: JavaSE-1.8
 Bundle-ActivationPolicy: lazy
+Export-Package: org.obeonetwork.tools.projectlibrary.ui.wizard.exp
