@@ -774,7 +774,7 @@
                   <firstModelOperations xsi:type="tool_2:ChangeContext" browseExpression="[element.deleteMessage()/]"/>
                 </initialOperation>
               </ownedTools>
-              <ownedTools xsi:type="tool_2:PasteDescription" name="PST_Message" precondition="aql:copiedElement.oclIsKindOf(interaction::Message)" forceRefresh="true">
+              <ownedTools xsi:type="tool_2:PasteDescription" name="PST_Message" precondition="aql:copiedElement.oclIsKindOf(interaction::Message)">
                 <container name="container"/>
                 <containerView name="containerView"/>
                 <copiedView name="copiedView"/>
