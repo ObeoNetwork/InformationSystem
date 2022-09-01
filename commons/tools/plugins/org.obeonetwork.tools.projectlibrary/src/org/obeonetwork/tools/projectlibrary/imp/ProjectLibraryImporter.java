@@ -161,7 +161,13 @@ public class ProjectLibraryImporter {
 		RestorableAndNonRestorableReferences toBeRestoredReferences = new RestorableAndNonRestorableReferences();
 		MManifest previousVersion = getPreviousImportedVersion(importedManifestModel, importData.getTargetSession());
 		if (previousVersion != null) {
-			Collection<Resource> resourcesToDelete = projectLibraryUtils.getResourcesFromWsManifest(importData.getTargetProject(), previousVersion);
+			Collection<Resource> resourcesToDelete = new ArrayList<>();
+			if(forceImportManifest) {
+				resourcesToDelete = projectLibraryUtils.getResourcesFromWsManifest(importData.getTargetProject(), previousVersion);
+			}
+			else {
+				resourcesToDelete = projectLibraryUtils.getResourcesFromManifest(importData.getTargetProject(), previousVersion);
+			}
 			Collection<Setting> externalReferences = projectLibraryUtils.getExternalReferences(importData.getTargetSession(), resourcesToDelete);
 			if (!externalReferences.isEmpty()) {
 				toBeRestoredReferences = projectLibraryUtils.getToBeRestoredReferences(externalReferences, resourcesToDelete, importData.getSourceSession());
@@ -176,7 +182,7 @@ public class ProjectLibraryImporter {
 			}
 			if (continueImport == true) {
 				// Delete previous version
-				projectLibraryUtils.removeImportedProjectAndResources(importData.getTargetProject(), resourcesToDelete, previousVersion);
+				projectLibraryUtils.removeImportedProjectAndResources(importData.getTargetProject(), resourcesToDelete, previousVersion, !forceImportManifest);
 			}
 		}
 		subMonitor.newChild(1);

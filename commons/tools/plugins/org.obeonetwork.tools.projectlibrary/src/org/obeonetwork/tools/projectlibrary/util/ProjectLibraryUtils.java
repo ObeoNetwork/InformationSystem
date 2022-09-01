@@ -11,6 +11,7 @@
 package org.obeonetwork.tools.projectlibrary.util;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Collection;
 import java.util.HashSet;
 import java.util.List;
@@ -103,12 +104,20 @@ public class ProjectLibraryUtils {
 	 * @param session
 	 * @param resourcesToDelete
 	 * @param projectToRemove
+	 * @param shouldDeleteResource
 	 * @return
 	 */
-	public boolean removeImportedProjectAndResources(ModelingProject project, Collection<Resource> resourcesToDelete, MManifest projectToRemove) throws LibraryImportException {
+	public boolean removeImportedProjectAndResources(ModelingProject project, Collection<Resource> resourcesToDelete, MManifest projectToRemove, boolean shouldDeleteResource) throws LibraryImportException {
 		AbstractImportHandler importHandler = ImportHandlerFactory.getInstance().getImportHandler(project.getSession());
 		
-		boolean removed = importHandler.removeImportedProjectAndResources(project, resourcesToDelete, projectToRemove);
+		boolean removed = false;
+		if(importHandler instanceof DefaultImportHandler) {
+			removed = ((DefaultImportHandler)importHandler).removeImportedProjectAndResources(project, resourcesToDelete, projectToRemove, shouldDeleteResource);
+		}
+		else {
+			removed = importHandler.removeImportedProjectAndResources(project, resourcesToDelete, projectToRemove);
+		}
+		
 		if (removed == true) {
 			// Remove the manifest from the imported manifests
 			new ManifestServices().removeImportedManifestFromSession(project.getSession(), projectToRemove);
@@ -244,7 +253,7 @@ public class ProjectLibraryUtils {
 		try {
 			IWorkspaceRoot workspaceRoot = ResourcesPlugin.getWorkspace().getRoot();
 			IProject[] projects = workspaceRoot.getProjects();
-			List<IProject> workspaceProjects = List.of(projects);
+			List<IProject> workspaceProjects = Arrays.asList(projects);
 
 			for (IProject wsProject : workspaceProjects) {
 				if (wsProject != modelingProject.getProject()) {
@@ -284,7 +293,42 @@ public class ProjectLibraryUtils {
 			e.printStackTrace();
 		}
 
-		
+		return result;
+	}
+	
+	/**
+	 * Return the list of projects referenced by {@link modelingProject}.
+	 * 
+	 * @param modelingProject
+	 * @return the list of referenced projects
+	 */
+	public Set<IProject> getReferencedProjects(ModelingProject modelingProject) {
+		Set<IProject> result = new HashSet<>();
+		try {
+			IWorkspaceRoot workspaceRoot = ResourcesPlugin.getWorkspace().getRoot();
+			IProject[] projects = workspaceRoot.getProjects();
+			List<IProject> workspaceProjects = Arrays.asList(projects);
+
+			Session session = modelingProject.getSession();
+			if(session == null) {
+				final Option<URI> optionalUri = modelingProject.getMainRepresentationsFileURI(new NullProgressMonitor());
+				session = SessionManager.INSTANCE.getSession(optionalUri.get(), new NullProgressMonitor());
+				session.open(new NullProgressMonitor());
+			}
+			
+			for (Resource res : session.getSemanticResources()) {
+				if(res.getURI().isPlatformResource() && !modelingProject.getProject().getName().equals(res.getURI().segment(1))) {
+					for (IProject wsProject : workspaceProjects) {
+						if(wsProject.getName().equals(res.getURI().segment(1))) {
+							result.add(wsProject);
+						}
+					}
+				}
+			}
+		}
+		catch (Exception e) {
+			e.printStackTrace();
+		}
 
 		return result;
 	}

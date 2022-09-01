@@ -1,9 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <soa:System xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:oenv="http://www.obeonetwork.org/dsl/environment/3.0.0" xmlns:soa="http://www.obeonetwork.org/dsl/soa/4.0.0" xmi:id="_h6PKMYjXEeGlA5e_Ze9-Rg" technicalid="_4ZaR8BLIEeesAc7mKQrh4A" createdOn="2020-11-26T19:12:20.726+0100" modifiedOn="2020-12-17T09:44:37.072+0100">
   <ownedNamespaces xmi:id="_JVvEMIjYEeGlA5e_Ze9-Rg" technicalid="_4ZaR8RLIEeesAc7mKQrh4A" createdOn="2020-10-19T16:35:57.456+0200" modifiedOn="2020-11-26T19:49:04.968+0100" name="main">
-    <types xsi:type="oenv:DTO" xmi:id="_D4-EEIjZEeGlA5e_Ze9-Rg" technicalid="_4Za5FBLIEeesAc7mKQrh4A" name="ShoppingCart">
+    <types xsi:type="oenv:DTO" xmi:id="_D4-EEIjZEeGlA5e_Ze9-Rg" technicalid="_4Za5FBLIEeesAc7mKQrh4A" createdOn="2022-08-30T10:17:17.101+0200" modifiedOn="2022-08-30T10:17:17.101+0200" name="ShoppingCart">
       <ownedAttributes xmi:id="_KavH8IjZEeGlA5e_Ze9-Rg" technicalid="_4Za5FRLIEeesAc7mKQrh4A" createdOn="2020-11-26T19:15:16.998+0100" modifiedOn="2020-11-26T19:15:16.998+0100" name="status" multiplicity="1" type="_P99CADATEeujNIyxVl1uPg"/>
       <ownedReferences xmi:id="_IMCe8YjdEeGRPcmmS6YpZw" technicalid="_4Za5FxLIEeesAc7mKQrh4A" name="lines" multiplicity="0..*" isComposite="true" referencedType="_9wRqsIjcEeGD_4FfK_oDsg"/>
+      <ownedReferences xmi:id="_KRkN0Sg8Ee2WeZRyQpgSiQ" technicalid="_KRkN0Cg8Ee2WeZRyQpgSiQ" createdOn="2022-08-30T10:17:17.101+0200" modifiedOn="2022-08-30T10:17:17.103+0200" name="DTO1s" multiplicity="0..*">
+        <referencedType xsi:type="oenv:DTO" href="../ProjectDependency/My.soa#_4VQZQSg7Ee2WeZRyQpgSiQ"/>
+      </ownedReferences>
     </types>
     <types xsi:type="oenv:DTO" xmi:id="_PBIEQIjZEeGlA5e_Ze9-Rg" technicalid="_4Za5GBLIEeesAc7mKQrh4A" name="PurchaseOrder">
       <ownedAttributes xmi:id="_X5cIwIjZEeGlA5e_Ze9-Rg" technicalid="_4Za5GRLIEeesAc7mKQrh4A" name="cardNumber" multiplicity="1">
@@ -59,7 +62,7 @@
       <ownedReferences xmi:id="_5sZiYIjYEeGlA5e_Ze9-Rg" technicalid="_4Za5CxLIEeesAc7mKQrh4A" name="wrote" multiplicity="0..*" referencedType="_OwomoIjYEeGlA5e_Ze9-Rg"/>
     </types>
   </ownedNamespaces>
-  <ownedComponents xmi:id="_jok7UIjXEeGlA5e_Ze9-Rg" technicalid="_4ZbgGRLIEeesAc7mKQrh4A" createdOn="2020-03-30T11:52:37.856+0200" modifiedOn="2020-11-25T18:05:26.558+0100" name="BookStore" URI="/ebookstore" URL="http://cmazone.fr" apiVersion="1.0.1">
+  <ownedComponents xmi:id="_jok7UIjXEeGlA5e_Ze9-Rg" technicalid="_4ZbgGRLIEeesAc7mKQrh4A" createdOn="2020-03-30T11:52:37.856+0200" modifiedOn="2020-11-25T18:05:26.558+0100" name="BookStore" URI="/ebookstore" apiVersion="1.0.1" URL="http://cmazone.fr">
     <ownedServices xmi:id="_9t2bEIjXEeGlA5e_Ze9-Rg" technicalid="_4ZbgGhLIEeesAc7mKQrh4A" createdOn="2020-03-30T11:55:07.996+0200" modifiedOn="2020-03-30T11:55:07.996+0200" name="BookService" URI="/book">
       <ownedInterface xmi:id="_D1a2QIjYEeGlA5e_Ze9-Rg" technicalid="_4ZbgGxLIEeesAc7mKQrh4A" createdOn="2020-04-06T12:11:48.966+0200" modifiedOn="2020-12-17T11:24:04.640+0100" name="BookService">
         <ownedOperations xmi:id="_D1bdUIjYEeGlA5e_Ze9-Rg" technicalid="_4ZbgHBLIEeesAc7mKQrh4A" description="Get the books of interest to be shown on the homepage of the user." createdOn="2020-03-30T11:56:08.489+0200" modifiedOn="2020-12-17T11:31:05.381+0100" name="getHomePageBooks" public="true" URI="/homepage" exposition="REST" paged="true">
@@ -159,5 +162,8 @@
         </ownedOperations>
       </ownedInterface>
     </ownedServices>
+    <license xmi:id="_lD8gqSg7Ee2WeZRyQpgSiQ" technicalid="_lD6rkCg7Ee2WeZRyQpgSiQ" name="Apache 2.0" URL="http://www.apache.org/licenses/LICENSE-2.0.html"/>
+    <information xmi:id="_lD8gqig7Ee2WeZRyQpgSiQ" technicalid="_lD6rjyg7Ee2WeZRyQpgSiQ" apiVersion="1.0.1"/>
+    <contact xmi:id="_lD8gqyg7Ee2WeZRyQpgSiQ" technicalid="_lD6rkSg7Ee2WeZRyQpgSiQ"/>
   </ownedComponents>
 </soa:System>

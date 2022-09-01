@@ -81,29 +81,47 @@ public class ExportProjectTest {
 		// Check libraries/ content
 		IFolder libFolder = referencingModelingProject.getProject().getFolder(new Path("libraries/ProjectDependency-1.0.0/"));
 		IFile stateMachineFile = referencingModelingProject.getProject().getFile(new Path("libraries/ProjectDependency-1.0.0/MyStatemachine.statemachine"));
+		IFile soaFile = referencingModelingProject.getProject().getFile(new Path("libraries/ProjectDependency-1.0.0/My.soa"));
 		IFile airdFile = referencingModelingProject.getProject().getFile(new Path("libraries/ProjectDependency-1.0.0/representations.aird"));
 		assertTrue(libFolder.exists());
 		assertTrue(stateMachineFile.exists());
+		assertTrue(soaFile.exists());
 		assertTrue(airdFile.exists());
 		
 		
-		// Check semantic resource
-		boolean hasSemanticResource = false;
+		// Check semantic resources
+		boolean hasSemanticResourceFsm = false;
+		boolean hasSemanticResourceSoa = false;
 		for(Resource resource : referencingModelingProject.getSession().getSemanticResources()) {
 			if(resource.getURI().toString().equals("platform:/resource/org.obeonetwork.is.sample.ebookstore/libraries/ProjectDependency-1.0.0/MyStatemachine.statemachine")) {
-				hasSemanticResource = true;
+				hasSemanticResourceFsm = true;
+			}
+			else if(resource.getURI().toString().equals("platform:/resource/org.obeonetwork.is.sample.ebookstore/libraries/ProjectDependency-1.0.0/My.soa")) {
+				hasSemanticResourceSoa = true;
 			}
 		}
-		assertTrue(hasSemanticResource);
+		assertTrue(hasSemanticResourceFsm);
+		assertTrue(hasSemanticResourceSoa);
 		
 		
 		// Check cross-references update
 		IFile updatedAirdFile = referencingModelingProject.getProject().getFile(new Path("representations.aird"));
 		InputStream inputStream = updatedAirdFile.getContents();
 		String fileContent = new BufferedReader(new InputStreamReader(inputStream, StandardCharsets.UTF_8)).lines().collect(Collectors.joining("\n"));
-		Pattern pattern = Pattern.compile("libraries/ProjectDependency-1.0.0/MyStatemachine\\.statemachine#");
-		Matcher matcher = pattern.matcher(fileContent);
-		assertEquals(12,matcher.results().count());
+		Pattern patternFsm = Pattern.compile("libraries/ProjectDependency-1.0.0/MyStatemachine\\.statemachine#");
+		Matcher matcherFsm = patternFsm.matcher(fileContent);
+		Pattern patternSoa = Pattern.compile("libraries/ProjectDependency-1.0.0/My\\.soa#");
+		Matcher matcherSoa = patternSoa.matcher(fileContent);
+		int fsmMatches = 0;
+	    while (matcherFsm.find()) {
+	    	fsmMatches++;
+	    }
+	    int soaMatches = 0;
+	    while (matcherSoa.find()) {
+	    	soaMatches++;
+	    }
+		assertEquals(12,fsmMatches);
+		assertEquals(2,soaMatches);
 	}
 
 	private void importJavaProject(String importedProjectPath, String createdProjectPath) throws InvocationTargetException, InterruptedException {

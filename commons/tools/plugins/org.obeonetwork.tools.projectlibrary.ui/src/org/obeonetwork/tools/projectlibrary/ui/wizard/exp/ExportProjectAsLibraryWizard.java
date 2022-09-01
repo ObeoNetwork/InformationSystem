@@ -81,10 +81,6 @@ public class ExportProjectAsLibraryWizard extends Wizard implements IExportWizar
 			Option<ModelingProject> optionModelingProject = ModelingProject.asModelingProject(project);
 			if (optionModelingProject.some()) {
 				this.model.setSelectedModelingProject(optionModelingProject.get());
-				
-				ProjectLibraryUtils util = new ProjectLibraryUtils();
-				Set<ModelingProject> referencingModelingProjects = util.getReferencingProjects(optionModelingProject.get());
-				this.model.setReferencingModelingProjects(referencingModelingProjects);
 			}
 		}
 		

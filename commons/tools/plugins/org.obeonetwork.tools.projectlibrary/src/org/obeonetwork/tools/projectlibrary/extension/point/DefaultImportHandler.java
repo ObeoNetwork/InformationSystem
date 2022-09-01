@@ -56,10 +56,17 @@ public class DefaultImportHandler extends AbstractImportHandler {
 		return Integer.MAX_VALUE;
 	}
 
-	@Override
-	public boolean removeImportedProjectAndResources(ModelingProject project, Collection<Resource> resourcesToDelete, MManifest projectToRemove) {
+	/**
+	 * Removes the specified resources from the project
+	 * @param project
+	 * @param resourcesToDelete
+	 * @param projectToRemove
+	 * @ shouldDeleteResource
+	 * @return True if all resources have been removed
+	 */
+	public boolean removeImportedProjectAndResources(ModelingProject project, Collection<Resource> resourcesToDelete, MManifest projectToRemove, boolean shouldDeleteResource) {
 		// Remove the resources
-		boolean removed = removeResources(project.getSession(), resourcesToDelete);
+		boolean removed = removeResources(project.getSession(), resourcesToDelete, shouldDeleteResource);
 		
 		if (removed == true) { 
 			// Clean empty folders
@@ -76,7 +83,12 @@ public class DefaultImportHandler extends AbstractImportHandler {
 		return removed;
 	}
 	
-	private boolean removeResources(Session session, Collection<Resource> resources) {
+	@Override
+	public boolean removeImportedProjectAndResources(ModelingProject project, Collection<Resource> resourcesToDelete, MManifest projectToRemove) {
+		return removeImportedProjectAndResources(project, resourcesToDelete, projectToRemove, true);
+	}
+	
+	private boolean removeResources(Session session, Collection<Resource> resources, boolean shouldDeleteResource) {
 		Collection<Resource> deletedResource = new ArrayList<>();
 		if (session instanceof DAnalysisSession) {
 			final DAnalysisSession analysisSession = (DAnalysisSession)session;
@@ -84,7 +96,7 @@ public class DefaultImportHandler extends AbstractImportHandler {
 				
 				@Override
 				protected void doExecute() {
-					deletedResource.addAll(removeResourcesFromSession(analysisSession, resources));
+					deletedResource.addAll(removeResourcesFromSession(analysisSession, resources, shouldDeleteResource));
 				}
 			});
 		}
@@ -92,7 +104,7 @@ public class DefaultImportHandler extends AbstractImportHandler {
 		return deletedResource.size() == resources.size();
 	}
 	
-	private Collection<Resource> removeResourcesFromSession(DAnalysisSession analysisSession, Collection<Resource> resources) {
+	private Collection<Resource> removeResourcesFromSession(DAnalysisSession analysisSession, Collection<Resource> resources, boolean shouldDeleteResource) {
 		Collection<Resource> deletedResources = new ArrayList<>();
 		for (Resource resource : resources) {
 			if (analysisSession.getSemanticResources().contains(resource)) {
@@ -102,14 +114,13 @@ public class DefaultImportHandler extends AbstractImportHandler {
 			}
 		}
 		for (Resource resource : resources) {
-			for (EObject rootObject : new ArrayList<>(resource.getContents())) {
-				SiriusUtil.delete(rootObject, analysisSession);
-			}
-			try {
-				resource.delete(null);
-				deletedResources.add(resource);
-			} catch (IOException e) {
-				// Do nothing
+			if (shouldDeleteResource) {
+				try {
+					resource.delete(null);
+					deletedResources.add(resource);
+				} catch (IOException e) {
+					// Do nothing
+				}
 			}
 		}
 		return deletedResources;

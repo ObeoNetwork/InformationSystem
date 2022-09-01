@@ -93,7 +93,7 @@ public class RemoveLibraryHandler extends AbstractHandler {
 					if (confirm == true) {
 						// Remove the resources and the imported manifest
 						try {
-							util.removeImportedProjectAndResources(modelingProject, resourcesToDelete, projectToRemove);
+							util.removeImportedProjectAndResources(modelingProject, resourcesToDelete, projectToRemove, true);
 						} catch (LibraryImportException e) {
 							MessageDialog.openError(shell, "Remove project library", e.getMessage());
 						}
