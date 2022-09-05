@@ -202,7 +202,7 @@ public class OracleTests {
 		systemDataSource.setJdbcUrl(url);
 		systemDataSource.setJdbcUsername(ORACLE_SYSTEM_USER);
 		systemDataSource.setJdbcPassword(ORACLE_SYSTEM_USER_PASSWORD);
-		systemDataSource.setVendor(DatabaseConstants.DB_ORACLE_11G);
+		systemDataSource.setVendor(DatabaseConstants.DB_ORACLE_21C);
 		executeMultipleStatementWithSilentCatches(systemDataSource, ORACLE_CREATE_NORTHWIND_USER_STATEMENT, ORACLE_GRANT_CONNECTION_RIGHT_TO_USER_NORTHWIND);
 		
 		// Creates a datasource with the northwind user for future statement execution
@@ -210,7 +210,7 @@ public class OracleTests {
 		northwindDataSource.setJdbcUrl(url);
 		northwindDataSource.setJdbcUsername(ORACLE_NORTHWIND_USER);
 		northwindDataSource.setJdbcPassword(ORACLE_NORTHWIND_USER_PASSWORD);
-		northwindDataSource.setVendor(DatabaseConstants.DB_ORACLE_11G);
+		northwindDataSource.setVendor(DatabaseConstants.DB_ORACLE_21C);
 	}
 	
 	@AfterClass
@@ -248,7 +248,7 @@ public class OracleTests {
 		dataSource.setJdbcUrl(url);
 		dataSource.setJdbcUsername(ORACLE_NORTHWIND_USER);
 		dataSource.setJdbcPassword(ORACLE_NORTHWIND_USER_PASSWORD);
-		dataSource.setVendor(DatabaseConstants.DB_ORACLE_11G);
+		dataSource.setVendor(DatabaseConstants.DB_ORACLE_21C);
 		
 		DataBase database = DatabaseReverser.reverse(dataSource, new MultiDataBaseQueries(), null);
 		

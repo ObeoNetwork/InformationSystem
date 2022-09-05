@@ -44,7 +44,7 @@ import liquibase.database.Database;
 import liquibase.database.DatabaseFactory;
 import liquibase.exception.DatabaseException;
 import liquibase.exception.LiquibaseException;
-import liquibase.osgi.OSGiResourceAccessor;
+import liquibase.resource.OSGiResourceAccessor;
 import liquibase.resource.FileSystemResourceAccessor;
 
 public final class TestUtils {
