@@ -11,6 +11,7 @@
 package org.obeonetwork.dsl.soa.provider;
 
 
+import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 
@@ -19,11 +20,15 @@ import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.util.ResourceLocator;
 import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
+import org.eclipse.emf.edit.provider.ComposedImage;
+import org.eclipse.emf.edit.provider.IItemLabelProvider;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 import org.obeonetwork.dsl.environment.provider.ActionItemProvider;
+import org.obeonetwork.dsl.soa.Interface;
 import org.obeonetwork.dsl.soa.Operation;
+import org.obeonetwork.dsl.soa.Service;
 import org.obeonetwork.dsl.soa.SoaFactory;
 import org.obeonetwork.dsl.soa.SoaPackage;
 
@@ -377,7 +382,19 @@ public class OperationItemProvider
 				break;
 			}
 		}
-		return overlayImage(object, getResourceLocator().getImage(imagePath));
+		List<Object> images = new ArrayList<Object>();
+		images.add(getResourceLocator().getImage(imagePath));
+		
+		if(operation.eContainer() instanceof Interface && operation.eContainer().eContainer() instanceof Service) {
+			Service containingService = (Service) operation.eContainer().eContainer();
+			if(!containingService.getSecuritySchemes().isEmpty() || !operation.getSecuritySchemes().isEmpty()) {
+				images.add(getResourceLocator().getImage("full/obj16/key"));
+			}
+		}
+		
+		Object composedImage = new ComposedImage(images);
+		return overlayImage(object, composedImage);
+		
 	}
 
 	/**

@@ -430,7 +430,7 @@ Lorsqu'ils existent, les _SecuritySchemes_ sont présentés dans la vue _Model E
 
 h5. Utilisation des schémas de sécurité
 
-Lorsqu'il existe au moins une définition de _SecurityScheme_ dans le _Component_, alors une section _Security_ apparaît dans l'onglet _Exposition_ de la vue des propriétés d'une _Operation_ :
+Lorsqu'il existe au moins une définition de _SecurityScheme_ dans le _Component_, alors une section _Security_ apparaît dans l'onglet _Exposition_ de la vue des propriétés d'une _Operation_ ou d'un _Service_ :
 
 !pics/exposition/Properties_Operation_Operation_Tab_Security.png!
 
@@ -447,6 +447,10 @@ Les _Security Schemes_ accessibles pour une affectation à une _Operation_ sont 
 Quand au moins un _Security Scheme_ est appliqué à une _Operation_, celle-ci est décorée avec l'icone !pics/exposition/Icon_SecurityScheme.gif! :
 
 !pics/exposition/Diagram_Operation_Decorated_SecurityScheme.png!
+
+Quand au moins un Security Scheme est appliqué à une Operation (soit directement, soit indirectement via son Service parent), son icone dans la vue _Model Explorer_ est elle aussi décorée avec l'icone !pics/exposition/Icon_SecurityScheme.gif! :
+
+!pics/exposition/Icon_Operation_Secu.png!
 
 h4. Modélisation des extensions de propriétés
 
