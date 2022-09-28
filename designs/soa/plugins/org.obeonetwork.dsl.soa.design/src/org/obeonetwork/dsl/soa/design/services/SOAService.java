@@ -369,7 +369,7 @@ public class SOAService {
 	public void closeSecuritySchemeDialog(SecurityScheme scheme) {
 		Display display = Display.getCurrent();
 		Shell shell = display.getActiveShell();
-		shell.dispose();
+		shell.close();
 	}
 	
 	public void setSecuritySchemeType(SecurityScheme scheme, SecuritySchemeType type) {
