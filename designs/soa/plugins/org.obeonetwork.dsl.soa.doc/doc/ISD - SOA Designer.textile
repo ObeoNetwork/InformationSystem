@@ -430,7 +430,8 @@ Lorsqu'ils existent, les _SecuritySchemes_ sont présentés dans la vue _Model E
 
 h5. Utilisation des schémas de sécurité
 
-Lorsqu'il existe au moins une définition de _SecurityScheme_ dans le _Component_, alors une section _Security_ apparaît dans l'onglet _Exposition_ de la vue des propriétés d'une _Operation_ ou d'un _Service_ :
+L'utilisation des schémas de sécurité est configurable via l'onglet _Security_ de la vue des propriétés d'une _Operation_  ou d'un _Service_.
+Nous prenons une _Operation_ comme example d'utilisation des schémas de sécurité dans le reste de cette section mais ceux-ci s'utilisent de la même manière sur un _Service_:
 
 !pics/exposition/Properties_Operation_Operation_Tab_Security.png!
 
@@ -441,6 +442,10 @@ La suppression ne supprime pas le _Security Scheme_ du modèle, mais simplement 
 La sélection des _Security Schemes_ ouvre une boîte de dialogue permettant d'ajouter, retirer, réordonner les affectations de _Security Schemes_ à l'_Operation_ :
 
 !pics/exposition/Dialog_SecurityScheme_Selection.png!
+
+Un double-clic sur un _Security Scheme_ de type _OAUTH2_ ou _OPEN_ID_CONNECT_ dans l'onglet _Security_ ouvre une boîte de dialogue permettant de sélectionner les scopes à appliquer :
+
+!pics/exposition/Properties_SecurityScheme_Selection.png!
 
 Les _Security Schemes_ accessibles pour une affectation à une _Operation_ sont ceux définis au niveau du _Component_ auquel appartient l'_Operation_.
 
