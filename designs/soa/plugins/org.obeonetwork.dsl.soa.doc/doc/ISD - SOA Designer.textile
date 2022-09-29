@@ -430,7 +430,7 @@ Lorsqu'ils existent, les _SecuritySchemes_ sont présentés dans la vue _Model E
 
 h5. Utilisation des schémas de sécurité
 
-L'utilisation des schémas de sécurité est configurable via l'onglet _Security_ de la vue des propriétés d'une _Operation_  ou d'un _Service_.
+L'utilisation des schémas de sécurité est configurable via l'onglet _Security_ de la vue des propriétés d'une _Operation_ (quelque soit son mode d'exposition ou sa visibilité) ou d'un _Service_.
 Nous prenons une _Operation_ comme example d'utilisation des schémas de sécurité dans le reste de cette section mais ceux-ci s'utilisent de la même manière sur un _Service_:
 
 !pics/exposition/Properties_Operation_Operation_Tab_Security.png!
