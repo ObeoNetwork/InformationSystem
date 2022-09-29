@@ -371,13 +371,6 @@ public class SOAService {
 		Shell shell = display.getActiveShell();
 		shell.close();
 	}
-	
-	public void setSecuritySchemeType(SecurityScheme scheme, SecuritySchemeType type) {
-		scheme.setType(type);
-		Display display = Display.getCurrent();
-		Shell shell = display.getActiveShell(); 
-		shell.dispose();
-	}
 
 	public String getName(SecuritySchemeType schemeType) {
 		return schemeType.getName();
