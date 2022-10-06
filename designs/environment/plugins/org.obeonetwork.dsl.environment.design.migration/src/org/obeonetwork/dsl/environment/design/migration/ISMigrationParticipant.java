@@ -13,26 +13,37 @@ package org.obeonetwork.dsl.environment.design.migration;
 import java.util.HashMap;
 import java.util.Map;
 
+import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.EClassifier;
+import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
+import org.eclipse.emf.ecore.EStructuralFeature;
+import org.eclipse.emf.ecore.InternalEObject;
+import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.sirius.business.api.migration.AbstractMigrationParticipant;
 import org.obeonetwork.tools.migration.BasicMigrationHelper;
 import org.osgi.framework.Version;
 
 /**
- * Class used by Sirius migration process to convert old EClasses to new ones
+ * Class used by Sirius migration process to convert old EClasses to new ones.
+ * EProxies are also processed by this class to handle the renaming of the 'is.design' project.
  * 
  * @author Stéphane Thibaudeau - Obeo
  */
 public class ISMigrationParticipant extends AbstractMigrationParticipant {
 
+	public static final String OLD_IS_DESIGN_PROJECT_NAME = "fr.gouv.mindef.safran.is.design";
+	public static final String NEW_IS_DESIGN_PROJECT_NAME = "org.obeonetwork.is.design";
+	
 	private static Map<String, Map<String, EClassLocation>> eClassesMapping = null;
 	private static Map<String, String> ePackagesMapping = null;
 	
 	@Override
 	public Version getMigrationVersion() {
-		// Return a high version since we always want this migration participant to be active.
-		return new Version(100,0,0);
+		// /!\ Warning: This version number is serialized on 'save' operation. /!\
+		// This version number have to be increased when ISD metamodel change or when Sirius version change.
+		// Version number format is 100.0.0 + ISD version (ex: 103.1.0 is related to 3.1.0 version)
+		return new Version(103,1,0);
 	}
 
 	@Override
@@ -129,41 +140,27 @@ public class ISMigrationParticipant extends AbstractMigrationParticipant {
 		return eClassesMapping;
 	}
 	
-//	@Override
-//	public EStructuralFeature getAttribute(EClass eClass, String name,
-//			String loadedVersion) {
-//		// TODO Auto-generated method stub
-//		System.out.println("attribute : " + eClass.getName() + "." + name);
-//		return super.getAttribute(eClass, name, loadedVersion);
-//	}
-//
-//
-//
-//	@Override
-//	public EStructuralFeature getLocalElement(EClass eClass, String name,
-//			String loadedVersion) {
-//		// TODO Auto-generated method stub
-//		System.out.println("localelement : " + eClass.getName() + "." + name);
-//		return super.getLocalElement(eClass, name, loadedVersion);
-//	}
-//
-//
-//
-//	@Override
-//	public Object getValue(EObject object, EStructuralFeature feature,
-//			Object value, String loadedVersion) {
-//		// TODO Auto-generated method stub
-//		System.out.println("value : " + feature.getName() + "." + value);
-//		return super.getValue(object, feature, value, loadedVersion);
-//	}
-//
-//
-//
-//	@Override
-//	public Option<String> getNewFragment(String uriFragment) {
-//		// TODO Auto-generated method stub
-//		System.out.println("uriFragment : " + uriFragment);
-//		return super.getNewFragment(uriFragment);
-//	}
-	
+	/**
+	 * For each eProxy pointing to 'fr.gouv.mindef.safran.is.design' plugin (which was renamed), create a new eProxy pointing to 'org.obeonetwork.is.design' plugin.
+	 */
+	@Override
+	public Object getValue(EObject object, EStructuralFeature feature,
+			Object value, String loadedVersion) {
+		
+		if(value instanceof InternalEObject) {
+			InternalEObject eObject = (InternalEObject) value;
+			if(eObject.eIsProxy()) {
+				URI proxyURI = eObject.eProxyURI();
+				if(proxyURI.isPlatformPlugin() && proxyURI.segment(1).equals(OLD_IS_DESIGN_PROJECT_NAME)) {
+					String newUriString = proxyURI.toString().replaceFirst(OLD_IS_DESIGN_PROJECT_NAME, NEW_IS_DESIGN_PROJECT_NAME);
+					URI newUri = URI.createURI(newUriString);
+					InternalEObject newValue = EcoreUtil.copy(eObject);
+					newValue.eSetProxyURI(newUri);
+					return newValue;
+				}
+			}
+		}
+		
+		return super.getValue(object, feature, value, loadedVersion);
+	}
 }
