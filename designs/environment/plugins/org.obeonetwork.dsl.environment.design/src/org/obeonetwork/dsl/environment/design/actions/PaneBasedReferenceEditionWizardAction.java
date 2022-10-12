@@ -73,7 +73,7 @@ public class PaneBasedReferenceEditionWizardAction implements IExternalJavaActio
         
         String message = Optional.ofNullable((String) parameters.get(PARAMETER_MESSAGE)).orElse("");
         
-		List<EObject> allCandidates = null;
+		List<EObject> allCandidates = Collections.emptyList();
 		if(parameters.get(PARAMETER_CANDIDATES) != null) {
 			allCandidates = toEObjectList(parameters.get(PARAMETER_CANDIDATES));
 		}
@@ -160,7 +160,7 @@ public class PaneBasedReferenceEditionWizardAction implements IExternalJavaActio
 	
 	private List<EObject> toEObjectList(Object object) {
 		
-		List<EObject> list = null;
+		List<EObject> list = Collections.emptyList();
 		if(object instanceof List) {
 			list = ((List<?>)object).stream().filter(EObject.class::isInstance).map(EObject.class::cast).collect(toList());
 		} else if(object instanceof EObject) {

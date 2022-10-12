@@ -1701,7 +1701,7 @@
                 </subModelOperations>
                 <parameters name="windowTitle" value="Security Schemes Selection"/>
                 <parameters name="message" value="aql:'Select the Security Schemes to apply to this '+self.eClass().name.toLower()+'.'"/>
-                <parameters name="candidates" value="aql:self.eContainer(soa::Component).securitySchemes"/>
+                <parameters name="candidates" value="aql:self.eContainer(soa::Component).securitySchemes->select(scheme | self.eContainer(soa::Service).securitySchemes->excludes(scheme) )"/>
                 <parameters name="preSelection" value="aql:self.securityApplications.securityScheme"/>
                 <parameters name="choiceOfValuesMessage" value="Available Security Schemes"/>
                 <parameters name="selectedValuesMessage" value="Selected Security Schemes"/>
