@@ -237,15 +237,15 @@
                 <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='gray']"/>
               </style>
             </subNodeMappings>
-            <style xsi:type="style:FlatContainerStyleDescription" borderSizeComputationExpression="1" borderColor="//@userColorsPalettes[name='Palette']/@entries[name='ISDBorder']" labelSize="10" labelColor="//@userColorsPalettes[name='Palette']/@entries[name='ISDLabelAndEdge']" backgroundColor="//@userColorsPalettes[name='Palette']/@entries[name='SoaFillDark']" foregroundColor="//@userColorsPalettes[name='Palette']/@entries[name='SoaFillDark']">
+            <style xsi:type="style:FlatContainerStyleDescription" borderSizeComputationExpression="1" borderColor="//@userColorsPalettes[name='Palette']/@entries[name='ISDBorder']" labelSize="10" labelColor="//@userColorsPalettes[name='Palette']/@entries[name='ISDLabelAndEdge']" iconPath="/org.obeonetwork.dsl.soa.edit/icons/full/obj16/Server.gif" backgroundColor="//@userColorsPalettes[name='Palette']/@entries[name='SoaFillDark']" foregroundColor="//@userColorsPalettes[name='Palette']/@entries[name='SoaFillDark']">
               <labelFormat>bold</labelFormat>
             </style>
           </subContainerMappings>
-          <style xsi:type="style:FlatContainerStyleDescription" borderSizeComputationExpression="1" borderColor="//@userColorsPalettes[name='Palette']/@entries[name='ISDBorder']" labelSize="12" labelColor="//@userColorsPalettes[name='Palette']/@entries[name='ISDLabelAndEdge']" backgroundStyle="GradientTopToBottom" backgroundColor="//@userColorsPalettes[name='Palette']/@entries[name='SoaFillLight']" foregroundColor="//@userColorsPalettes[name='Palette']/@entries[name='SoaFillLight']">
+          <style xsi:type="style:FlatContainerStyleDescription" borderSizeComputationExpression="1" borderColor="//@userColorsPalettes[name='Palette']/@entries[name='ISDBorder']" labelSize="12" labelColor="//@userColorsPalettes[name='Palette']/@entries[name='ISDLabelAndEdge']" iconPath="/org.obeonetwork.dsl.soa.edit/icons/full/obj16/Service.gif" backgroundStyle="GradientTopToBottom" backgroundColor="//@userColorsPalettes[name='Palette']/@entries[name='SoaFillLight']" foregroundColor="//@userColorsPalettes[name='Palette']/@entries[name='SoaFillLight']">
             <labelFormat>bold</labelFormat>
           </style>
           <conditionnalStyles predicateExpression="service:isRequiredService()">
-            <style xsi:type="style:FlatContainerStyleDescription" borderSizeComputationExpression="1" borderColor="//@userColorsPalettes[name='Palette']/@entries[name='ISDBorder']" labelSize="12" labelColor="//@userColorsPalettes[name='Palette']/@entries[name='ISDLabelAndEdge']" backgroundStyle="GradientTopToBottom">
+            <style xsi:type="style:FlatContainerStyleDescription" borderSizeComputationExpression="1" borderColor="//@userColorsPalettes[name='Palette']/@entries[name='ISDBorder']" labelSize="12" labelColor="//@userColorsPalettes[name='Palette']/@entries[name='ISDLabelAndEdge']" iconPath="/org.obeonetwork.dsl.soa.edit/icons/full/obj16/Reference.gif" backgroundStyle="GradientTopToBottom">
               <labelFormat>bold</labelFormat>
               <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
               <foregroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
@@ -374,7 +374,22 @@
         <decorationDescriptionsSet>
           <decorationDescriptions xsi:type="description_1:MappingBasedDecoration" name="DEC_Operation_has_security_requirements" position="NORTH_EAST" preconditionExpression="aql:self.securitySchemes->notEmpty()" imageExpression="/org.obeonetwork.dsl.soa.edit/icons/full/obj16/SecurityScheme.gif" mappings="//@ownedViewpoints[name='SOA%20Views']/@ownedRepresentations[name='Component%20Contract%20Diagram']/@defaultLayer/@containerMappings[name='Cc_ServiceInterface_CM']/@subContainerMappings[name='Cc_Operation_CM']"/>
           <decorationDescriptions xsi:type="description_1:MappingBasedDecoration" name="DEC_Operation_is_paged" position="SOUTH_EAST" preconditionExpression="aql:self.paged" imageExpression="/org.obeonetwork.dsl.soa.design/icons/full/obj16/pages.png" mappings="//@ownedViewpoints[name='SOA%20Views']/@ownedRepresentations[name='Component%20Contract%20Diagram']/@defaultLayer/@containerMappings[name='Cc_ServiceInterface_CM']/@subContainerMappings[name='Cc_Operation_CM']"/>
+          <decorationDescriptions xsi:type="description_1:MappingBasedDecoration" name="DEC_Operation_has_security_requirements_from_service" position="NORTH_EAST" distributionDirection="HORIZONTAL" preconditionExpression="aql:self.eContainer().eContainer().securitySchemes->notEmpty()" imageExpression="/org.obeonetwork.dsl.soa.edit/icons/full/obj16/SecuritySchemeFromService.gif" mappings="//@ownedViewpoints[name='SOA%20Views']/@ownedRepresentations[name='Component%20Contract%20Diagram']/@defaultLayer/@containerMappings[name='Cc_ServiceInterface_CM']/@subContainerMappings[name='Cc_Operation_CM']"/>
         </decorationDescriptionsSet>
+        <customization>
+          <vsmElementCustomizations xsi:type="description:VSMElementCustomization" predicateExpression="aql:not self.public">
+            <featureCustomizations xsi:type="description:EAttributeCustomization" appliedOn="//@ownedViewpoints[name='SOA%20Views']/@ownedRepresentations[name='Component%20Contract%20Diagram']/@defaultLayer/@containerMappings[name='Cc_ServiceInterface_CM']/@subContainerMappings[name='Cc_Operation_CM']/@style" attributeName="iconPath" value="/org.obeonetwork.dsl.soa.edit/icons/full/obj16/Operation.gif"/>
+          </vsmElementCustomizations>
+          <vsmElementCustomizations xsi:type="description:VSMElementCustomization" predicateExpression="aql:self.exposition = soa::ExpositionKind::REST and self.public">
+            <featureCustomizations xsi:type="description:EAttributeCustomization" appliedOn="//@ownedViewpoints[name='SOA%20Views']/@ownedRepresentations[name='Component%20Contract%20Diagram']/@defaultLayer/@containerMappings[name='Cc_ServiceInterface_CM']/@subContainerMappings[name='Cc_Operation_CM']/@style" attributeName="iconPath" value="/org.obeonetwork.dsl.soa.edit/icons/full/obj16/OperationRest.gif"/>
+          </vsmElementCustomizations>
+          <vsmElementCustomizations xsi:type="description:VSMElementCustomization" predicateExpression="aql:self.exposition = soa::ExpositionKind::SOAP and self.public">
+            <featureCustomizations xsi:type="description:EAttributeCustomization" appliedOn="//@ownedViewpoints[name='SOA%20Views']/@ownedRepresentations[name='Component%20Contract%20Diagram']/@defaultLayer/@containerMappings[name='Cc_ServiceInterface_CM']/@subContainerMappings[name='Cc_Operation_CM']/@style" attributeName="iconPath" value="/org.obeonetwork.dsl.soa.edit/icons/full/obj16/OperationSoap.gif"/>
+          </vsmElementCustomizations>
+          <vsmElementCustomizations xsi:type="description:VSMElementCustomization" predicateExpression="aql:self.exposition = soa::ExpositionKind::NONE and self.public">
+            <featureCustomizations xsi:type="description:EAttributeCustomization" appliedOn="//@ownedViewpoints[name='SOA%20Views']/@ownedRepresentations[name='Component%20Contract%20Diagram']/@defaultLayer/@containerMappings[name='Cc_ServiceInterface_CM']/@subContainerMappings[name='Cc_Operation_CM']/@style" attributeName="iconPath" value="/org.obeonetwork.dsl.soa.edit/icons/full/obj16/OperationPublic.gif"/>
+          </vsmElementCustomizations>
+        </customization>
       </defaultLayer>
       <additionalLayers name="MetaTypes" label="Meta Types">
         <customization>

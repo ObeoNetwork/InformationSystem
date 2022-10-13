@@ -11,6 +11,7 @@
 package org.obeonetwork.dsl.soa.provider;
 
 
+import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 
@@ -19,6 +20,7 @@ import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.util.ResourceLocator;
 import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
+import org.eclipse.emf.edit.provider.ComposedImage;
 import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
 import org.eclipse.emf.edit.provider.IItemLabelProvider;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
@@ -28,6 +30,7 @@ import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
 import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 import org.obeonetwork.dsl.environment.provider.ObeoDSMObjectItemProvider;
+import org.obeonetwork.dsl.soa.Interface;
 import org.obeonetwork.dsl.soa.InterfaceKind;
 import org.obeonetwork.dsl.soa.Service;
 import org.obeonetwork.dsl.soa.SoaFactory;
@@ -318,14 +321,23 @@ public class ServiceItemProvider
 	 * @generated NOT
 	 */
 	@Override
-	public Object getImage(Object object) {		
-		if(object instanceof Service){
-			Service service = (Service) object;
-			if( service.getKind()!=null && service.getKind().getValue() == InterfaceKind.REQUIRED ){
-				return overlayImage(object, getResourceLocator().getImage("full/obj16/Reference"));
-			}
+	public Object getImage(Object object) {
+		
+		List<Object> images = new ArrayList<Object>();
+		Service service = (Service) object;
+		if (service.getKind() != null && service.getKind().getValue() == InterfaceKind.REQUIRED) {
+			images.add(getResourceLocator().getImage("full/obj16/Reference"));
+		} else {
+
+			images.add(getResourceLocator().getImage("full/obj16/Service"));
 		}
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/Service"));
+		
+		if(!service.getSecuritySchemes().isEmpty() ) {
+			images.add(getResourceLocator().getImage("full/obj16/key"));
+		}
+
+		Object composedImage = new ComposedImage(images);
+		return overlayImage(object, composedImage);
 	}
 
 	/**
