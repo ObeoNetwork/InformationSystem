@@ -449,11 +449,13 @@ Un double-clic sur un _Security Scheme_ de type _OAUTH2_ ou _OPEN_ID_CONNECT_ da
 
 Les _Security Schemes_ accessibles pour une affectation à une _Operation_ sont ceux définis au niveau du _Component_ auquel appartient l'_Operation_.
 
-Quand au moins un _Security Scheme_ est appliqué à une _Operation_, celle-ci est décorée avec l'icone !pics/exposition/Icon_SecurityScheme.gif! :
+Quand au moins un _Security Scheme_ est appliqué à une _Operation_, celle-ci est décorée avec l'icone !pics/exposition/Icon_SecurityScheme.gif!. :
 
 !pics/exposition/Diagram_Operation_Decorated_SecurityScheme.png!
 
-Quand au moins un Security Scheme est appliqué à une Operation (soit directement, soit indirectement via son Service parent), son icone dans la vue _Model Explorer_ est elle aussi décorée avec l'icone !pics/exposition/Icon_SecurityScheme.gif! :
+Si son _Service_ parent applique un _Security Scheme_, l'_Operation_ est décorée avec l'icone !pics/exposition/Icon_SecuritySchemeFromService.gif!.
+
+Quand au moins un _Security Scheme_ est appliqué à une _Operation_ (soit directement, soit indirectement via son _Service_ parent), son icone dans la vue _Model Explorer_ est elle aussi décorée avec l'icone !pics/exposition/Icon_SecurityScheme.gif! :
 
 !pics/exposition/Icon_Operation_Secu.png!
 
