@@ -15,6 +15,7 @@ import java.util.Optional;
 
 import org.eclipse.emf.common.command.Command;
 import org.eclipse.emf.common.notify.Notification;
+import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.transaction.NotificationFilter;
 import org.eclipse.emf.transaction.RecordingCommand;
 import org.eclipse.emf.transaction.TransactionalEditingDomain;
@@ -44,7 +45,7 @@ public class CreateOrRemoveInputParameterChangeTrigger implements ModelChangeTri
 				if(notification.getNotifier() instanceof Operation && notification.getNewValue() instanceof Parameter) {
 					Parameter inputParameter = (Parameter) notification.getNewValue();
 					if(inputParameter.getRestData() == null) {
-						Optional<Session> sessionOpt = Session.of(inputParameter);
+						Optional<Session> sessionOpt = Session.of((EObject) notification.getNotifier());
 						if (sessionOpt.isPresent()) {
 							Session session = sessionOpt.get();
 							final TransactionalEditingDomain ted = session.getTransactionalEditingDomain();
@@ -64,7 +65,7 @@ public class CreateOrRemoveInputParameterChangeTrigger implements ModelChangeTri
 				if(notification.getNotifier() instanceof Operation && notification.getOldValue() instanceof Parameter) {
 					Parameter parameter = (Parameter) notification.getOldValue();
 					if(parameter.getRestData() != null) {
-						Optional<Session> sessionOpt = Session.of(parameter);
+						Optional<Session> sessionOpt = Session.of((EObject) notification.getNotifier());
 						if (sessionOpt.isPresent()) {
 							Session session = sessionOpt.get();
 							final TransactionalEditingDomain ted = session.getTransactionalEditingDomain();

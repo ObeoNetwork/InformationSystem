@@ -21,6 +21,7 @@ import org.eclipse.sirius.viewpoint.description.Viewpoint;
 import org.eclipse.ui.plugin.AbstractUIPlugin;
 import org.obeonetwork.dsl.soa.design.triggers.CreateOrRemoveInputParameterChangeTrigger;
 import org.obeonetwork.dsl.soa.design.triggers.OperationRestExpositionChangeTrigger;
+import org.obeonetwork.dsl.soa.design.triggers.RemoveSecuritySchemeChangeTrigger;
 import org.osgi.framework.BundleContext;
 
 /**
@@ -58,10 +59,17 @@ public class Activator extends AbstractUIPlugin {
 					@Override
 					public void notifyAddSession(Session newSession) {
 						// Manage the soa::ParameterRestData lifecycle regarding creation and removal of input parameters
-						newSession.getEventBroker().addLocalTrigger(CreateOrRemoveInputParameterChangeTrigger.IS_CREATE_OR_REMOVE_INPUT_PARAMETER, new CreateOrRemoveInputParameterChangeTrigger());
+						newSession.getEventBroker().addLocalTrigger(
+								CreateOrRemoveInputParameterChangeTrigger.IS_CREATE_OR_REMOVE_INPUT_PARAMETER, 
+								new CreateOrRemoveInputParameterChangeTrigger());
 						
 						// Manage the soa::ParameterRestData lifecycle regarding operation exposition change 
-						newSession.getEventBroker().addLocalTrigger(OperationRestExpositionChangeTrigger.IS_OPERATION_REST_EXPOSITION_CHANGE, new OperationRestExpositionChangeTrigger());
+						newSession.getEventBroker().addLocalTrigger(
+								OperationRestExpositionChangeTrigger.IS_OPERATION_REST_EXPOSITION_CHANGE, 
+								new OperationRestExpositionChangeTrigger());
+						
+						// Manage the soa::SecurityApplication lifecycle regarding removal of SecuritySchemes
+						newSession.getTransactionalEditingDomain().addResourceSetListener(new RemoveSecuritySchemeChangeTrigger());
 					}
 				});
 		
