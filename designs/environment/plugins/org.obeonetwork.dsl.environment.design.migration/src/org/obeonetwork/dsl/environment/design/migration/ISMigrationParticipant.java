@@ -10,7 +10,10 @@
  *******************************************************************************/
 package org.obeonetwork.dsl.environment.design.migration;
 
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import org.eclipse.emf.common.util.URI;
@@ -20,7 +23,14 @@ import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.util.EcoreUtil;
+import org.eclipse.emf.ecore.xmi.XMLResource;
+import org.eclipse.sirius.business.api.componentization.ViewpointRegistry;
 import org.eclipse.sirius.business.api.migration.AbstractMigrationParticipant;
+import org.eclipse.sirius.business.api.resource.ResourceDescriptor;
+import org.eclipse.sirius.viewpoint.DAnalysis;
+import org.eclipse.sirius.viewpoint.DView;
+import org.eclipse.sirius.viewpoint.ViewpointFactory;
+import org.eclipse.sirius.viewpoint.description.Viewpoint;
 import org.obeonetwork.tools.migration.BasicMigrationHelper;
 import org.osgi.framework.Version;
 
@@ -29,6 +39,7 @@ import org.osgi.framework.Version;
  * EProxies are also processed by this class to handle the renaming of the 'is.design' project.
  * 
  * @author Stéphane Thibaudeau - Obeo
+ * @author Vincent Richard - Obeo
  */
 public class ISMigrationParticipant extends AbstractMigrationParticipant {
 
@@ -163,4 +174,42 @@ public class ISMigrationParticipant extends AbstractMigrationParticipant {
 		
 		return super.getValue(object, feature, value, loadedVersion);
 	}
+
+	private static List<URI> DEFAULT_VIEWPOINT_URIS = Arrays.asList(URI.createURI("viewpoint:/org.obeonetwork.dsl.environment.properties/Environment Views"));
+	
+	@Override
+	public void postLoad(XMLResource resource, String loadedVersion) {
+		
+		for(EObject root : resource.getContents()) {
+			if(root instanceof DAnalysis) {
+				DAnalysis analysis = (DAnalysis) root;
+				// Ensure the default viewpoints are selected
+				for(URI viewpointURI : DEFAULT_VIEWPOINT_URIS) {
+					Viewpoint viewpoint = ViewpointRegistry.getInstance().getViewpoint(viewpointURI);
+					DView view = analysis.getOwnedViews().stream().filter(v -> v.getViewpoint() == viewpoint).findFirst().orElse(null);
+					if(view == null) {
+						view = ViewpointFactory.eINSTANCE.createDView();
+						view.setViewpoint(viewpoint);
+						analysis.getOwnedViews().add(view);
+					}
+					if(!analysis.getSelectedViews().contains(view)) {
+						analysis.getSelectedViews().add(view);
+					}
+				}
+				
+				// Remove any semantic resource whose URI starts with "http://www.obeonetwork"
+				// These resources are supposed to be the metamodels and shouldn't be part of the references selected semantic resources. 
+				List<ResourceDescriptor> resourceDescriptorsToRemove = new ArrayList<>();
+				for(ResourceDescriptor resourceDescriptor : analysis.getSemanticResources()) {
+					if(resourceDescriptor.getResourceURI().toString().startsWith("http://www.obeonetwork")) {
+						resourceDescriptorsToRemove.add(resourceDescriptor);
+					}
+				}
+				analysis.getSemanticResources().removeAll(resourceDescriptorsToRemove);
+			}
+		}
+		
+		super.postLoad(resource, loadedVersion);
+	}
+	
 }

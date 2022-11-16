@@ -9,5 +9,6 @@ Require-Bundle: org.eclipse.sirius,
  org.eclipse.emf.ecore,
  org.eclipse.osgi,
  org.eclipse.sirius.ext.base,
- org.obeonetwork.tools.migration
+ org.obeonetwork.tools.migration,
+ org.eclipse.core.resources
 Export-Package: org.obeonetwork.dsl.environment.design.migration
