@@ -35,7 +35,6 @@ import org.obeonetwork.dsl.database.DataBase;
 import org.obeonetwork.dsl.database.DatabaseFactory;
 import org.obeonetwork.dsl.database.ForeignKey;
 import org.obeonetwork.dsl.database.ForeignKeyElement;
-import org.obeonetwork.dsl.database.Schema;
 import org.obeonetwork.dsl.database.Sequence;
 import org.obeonetwork.dsl.database.Table;
 import org.obeonetwork.dsl.database.TableContainer;
@@ -436,30 +435,34 @@ public class DatabaseServices {
 	}
 	
 	private Object findColumn(ViewColumn viewColumn) {
-		if(viewColumn.getFrom() == null) {
-			return null;
+		
+		// First collect the view tables to look the column in
+		List<ViewTable> viewTables = new ArrayList<>();
+		
+		if(viewColumn.getFrom() != null) {
+			// The "from" table is specified then we must find the column in it
+			viewTables.add(viewColumn.getFrom());
+		} else {
+			// The "from" table is not specified then we must find the column in one of the ViewTables
+			viewTables.addAll(EObjectUtils.getContainer(viewColumn, View.class).getTables());
 		}
 		
-		Table table = findTable(viewColumn.getFrom());
-		if(table == null) {
-			return null;
-		}
+		// Now that we know the tables where to look the column in, look for it
+		return viewTables.stream()
+		.map(this::findTable)
+		.flatMap(t -> t.getColumns().stream())
+		.filter(c -> viewColumn.getName().equals(c.getName()))
+		.findFirst().orElse(null);
 		
-		return table.getColumns().stream()
-				.filter(c -> viewColumn.getName().equals(c.getName()))
-				.findFirst().orElse(null);
 	}
 
 	public boolean isQueryValid(View view) {
-		if(view.getColumns().stream().anyMatch(c -> !c.getName().equals("*") && c.getFrom() == null)) {
-			return false;
-		}
 		
 		if(view.getTables().stream().anyMatch(t -> findTable(t) == null)) {
 			return false;
 		}
 		
-		if(view.getColumns().stream().anyMatch(c -> !c.getName().equals("*") &&findColumn(c) == null)) {
+		if(view.getColumns().stream().anyMatch(c -> !c.getName().equals("*") && findColumn(c) == null)) {
 			return false;
 		}
 		
@@ -474,17 +477,16 @@ public class DatabaseServices {
 				.collect(toList());
 		tablesNotFound.forEach(t -> message.append(String.format("Table %s doesn't exist.\n", t.getName())));
 		
-		List<ViewColumn> columnsFromNoTable = view.getColumns().stream()
-				.filter(c -> !c.getName().equals("*") && c.getFrom() == null)
-				.collect(toList());
-		columnsFromNoTable.forEach(c -> message.append(String.format("Column %s is from no existing table.\n", c.getName())));
-		
 		view.getColumns().stream()
 		.filter(c -> !c.getName().equals("*") 
-				&& !columnsFromNoTable.contains(c) 
 				&& !tablesNotFound.contains(c.getFrom())
 				&& findColumn(c) == null)
-		.forEach(c -> message.append(String.format("Column %s of table %s doesn't exist.\n", c.getName(), c.getFrom().getName())));
+		.forEach(c -> {
+			if(c.getFrom() != null)
+				message.append(String.format("Column %s of table %s doesn't exist.\n", c.getName(), c.getFrom().getName()));
+			else
+				message.append(String.format("Column %s doesn't exist in the 'from' tables.\n", c.getName()));
+		});
 		
 		if(message.length() > 0) {
 			message.deleteCharAt(message.length() - 1);

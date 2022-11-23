@@ -78,8 +78,6 @@ public class ViewContentFinder implements SelectVisitor, FromItemVisitor, Expres
 	private List<ColObject> visitedColumns = new ArrayList<ColObject>();
 
 	private String lastVisitedAlias = "";
-	private Table lastVisitedFromTable = null;
-
 
 	public void parseView(Select select) {
 		select.getSelectBody().accept(this);
@@ -110,8 +108,6 @@ public class ViewContentFinder implements SelectVisitor, FromItemVisitor, Expres
 			lastVisitedAlias = "";
 			selectItem.accept(this);
 		}
-		
-		lastVisitedFromTable = null;
 	}
 
 	public void visit(Union union) {
@@ -123,7 +119,6 @@ public class ViewContentFinder implements SelectVisitor, FromItemVisitor, Expres
 
 	// FromItemVisitor methods
 	public void visit(Table table) {
-		lastVisitedFromTable = table;
 		visitedTables.add(table);
 	}
 
@@ -279,10 +274,6 @@ public class ViewContentFinder implements SelectVisitor, FromItemVisitor, Expres
 			}
 			if (!alreadyPresentTable) {
 				visitedTables.add(tableColumn.getTable());
-			}
-		} else {
-			if(lastVisitedFromTable != null) {
-				tableName = lastVisitedFromTable.getName();
 			}
 		}
 		
