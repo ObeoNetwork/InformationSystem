@@ -19,6 +19,7 @@ import java.util.Collections;
 import java.util.Comparator;
 import java.util.HashSet;
 import java.util.List;
+import java.util.Objects;
 import java.util.Optional;
 import java.util.Set;
 
@@ -371,6 +372,8 @@ public class DatabaseServices {
 				ViewColumn viewColumn = DatabaseFactory.eINSTANCE.createViewColumn();
 				viewColumn.setName(parsedColumn.getName());
 				viewColumn.setAlias(parsedColumn.getAlias());
+				view.getColumns().add(viewColumn);
+				
 				if(!StringUtils.isNullOrWhite(parsedColumn.getTable())) {
 					Optional<ViewTable> fromTableOpt = view.getTables().stream()
 							.filter(t -> parsedColumn.getTable().equals(t.getName()) || 
@@ -379,14 +382,51 @@ public class DatabaseServices {
 					if(fromTableOpt.isPresent()) {
 						viewColumn.setFrom(fromTableOpt.get());
 					}
+				} else {
+					ViewTable viewTable = computeViewTableFromViewColumn(viewColumn);
+					if(viewTable != null) {
+						viewColumn.setFrom(viewTable);
+					}
 				}
-				view.getColumns().add(viewColumn);
 			}
 		}
 		
 		validateViewQuery(view);
 		
 		return view;
+	}
+	
+	private static ViewTable computeViewTableFromViewColumn(ViewColumn viewColumn) {
+		
+		View view = EObjectUtils.getContainer(viewColumn, View.class);
+		
+		// First collect the view tables to look the column in
+		List<ViewTable> viewTables = new ArrayList<>();
+		
+		if(viewColumn.getFrom() != null) {
+			// The "from" table is specified then we must find the column in it
+			viewTables.add(viewColumn.getFrom());
+		} else {
+			// The "from" table is not specified then we must find the column in one of the ViewTables
+			viewTables.addAll(view.getTables());
+		}
+		
+		// Now that we know the tables where to look the column in, look for it
+		Column column = viewTables.stream()
+		.map(DatabaseServices::findTable)
+		.filter(Objects::nonNull)
+		.flatMap(t -> t.getColumns().stream())
+		.filter(c -> viewColumn.getName().equals(c.getName()))
+		.findFirst().orElse(null);
+		
+		// And finally crawl to the View Table
+		if(column != null) {
+			Table table = column.getOwner();
+			return view.getTables().stream()
+					.filter(vt -> vt.getName().equals(table.getName())).findFirst().orElse(null);
+		}
+		
+		return null;
 	}
 	
 	private static void validateViewQuery(View view) {
@@ -426,7 +466,7 @@ public class DatabaseServices {
 		return viewElements;
 	}
 	
-	private Table findTable(ViewTable viewTable) {
+	private static Table findTable(ViewTable viewTable) {
 		TableContainer tableContainer = EObjectUtils.getContainer(viewTable, TableContainer.class);
 		return tableContainer.getTables().stream()
 				.filter(Table.class::isInstance).map(Table.class::cast)
@@ -434,31 +474,28 @@ public class DatabaseServices {
 				.findFirst().orElse(null);
 	}
 	
-	private Object findColumn(ViewColumn viewColumn) {
-		
-		// First collect the view tables to look the column in
-		List<ViewTable> viewTables = new ArrayList<>();
-		
-		if(viewColumn.getFrom() != null) {
-			// The "from" table is specified then we must find the column in it
-			viewTables.add(viewColumn.getFrom());
-		} else {
-			// The "from" table is not specified then we must find the column in one of the ViewTables
-			viewTables.addAll(EObjectUtils.getContainer(viewColumn, View.class).getTables());
+	private static Column findColumn(ViewColumn viewColumn) {
+		if(viewColumn.getFrom() == null) {
+			return null;
+ 		}
+ 		
+		Table table = findTable(viewColumn.getFrom());
+		if(table == null) {
+			return null;
 		}
-		
-		// Now that we know the tables where to look the column in, look for it
-		return viewTables.stream()
-		.map(this::findTable)
-		.flatMap(t -> t.getColumns().stream())
-		.filter(c -> viewColumn.getName().equals(c.getName()))
-		.findFirst().orElse(null);
-		
+ 		
+		return table.getColumns().stream()
+				.filter(c -> viewColumn.getName().equals(c.getName()))
+				.findFirst().orElse(null);
 	}
 
 	public boolean isQueryValid(View view) {
 		
 		if(view.getTables().stream().anyMatch(t -> findTable(t) == null)) {
+			return false;
+		}
+		
+		if(view.getColumns().stream().anyMatch(c -> !c.getName().equals("*") && c.getFrom() == null)) {
 			return false;
 		}
 		
@@ -476,18 +513,19 @@ public class DatabaseServices {
 				.filter(t -> findTable(t) == null)
 				.collect(toList());
 		tablesNotFound.forEach(t -> message.append(String.format("Table %s doesn't exist.\n", t.getName())));
-		
+
+		List<ViewColumn> columnsFromNoTable = view.getColumns().stream()
+				.filter(c -> !c.getName().equals("*") && c.getFrom() == null)
+				.collect(toList());
+		columnsFromNoTable.forEach(c -> message.append(String.format("Column %s is from no existing table.\n", c.getName())));
+
 		view.getColumns().stream()
-		.filter(c -> !c.getName().equals("*") 
+		.filter(c -> !c.getName().equals("*")
+				&& !columnsFromNoTable.contains(c)
 				&& !tablesNotFound.contains(c.getFrom())
 				&& findColumn(c) == null)
-		.forEach(c -> {
-			if(c.getFrom() != null)
-				message.append(String.format("Column %s of table %s doesn't exist.\n", c.getName(), c.getFrom().getName()));
-			else
-				message.append(String.format("Column %s doesn't exist in the 'from' tables.\n", c.getName()));
-		});
-		
+		.forEach(c -> message.append(String.format("Column %s of table %s doesn't exist.\n", c.getName(), c.getFrom().getName())));
+
 		if(message.length() > 0) {
 			message.deleteCharAt(message.length() - 1);
 		}
