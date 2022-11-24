@@ -10,7 +10,7 @@
 		<p>
 			<code>Authors</code> Stéphane Thibaudeau, Vincent Richard
 			<br/>
-			<code>Contacts</code> stephane.thibaudeau@obeo.fr, vincent.richard@obeo.fr
+			<code>Contacts</code> vincent.richard@obeo.fr
 		</p>
 		<h1 id="ISDSOADesigner">ISD &#8211; SOA Designer</h1>
 		<p>
@@ -865,21 +865,25 @@
 			<em>Component</em>.
 		</p>
 		<p>La création d&#8217;un 
-			<em>Security Scheme</em> déclenche l&#8217;affichage d&#8217;une boîte de dialogue permettant de le spécifier.
-			<br/>Les données disponibles dans la boite du dialogue sont adaptées au type de  
-			<em>Security Scheme</em>:
+			<em>Security Scheme</em> déclenche l&#8217;affichage d&#8217;une boîte de dialogue permettant de spécifier son type, son nom et sa description :
+			<br/>
+			<img border="0" src="pics/securityschemes/Dialog_SecurityScheme_Creation.png"/>
+		</p>
+		<p>Un double clic sur un 
+			<em>Security Scheme</em> déclenche l&#8217;affichge d&#8217;un dialogue d'édition permettant de spécifier les données spécifiques au type de 
+			<em>Security Scheme</em>.
 		</p>
 		<p>- 
 			<strong>Api Key:</strong>
 			<br/>
-			<img border="0" src="pics/securityschemes/Dialog_SecurityScheme_ApiKey.PNG"/>
+			<img border="0" src="pics/securityschemes/Dialog_SecurityScheme_Edition_ApiKey.png"/>
 			<br/>Un 
 			<em>Security Scheme</em> de type Api key permet la définition d&#8217;une clé, ainsi que la spécification de sa localisation: dans le header, la requête, ou le cookie.
 		</p>
 		<p>- 
 			<strong>HTTP:</strong>
 			<br/>
-			<img border="0" src="pics/securityschemes/Dialog_SecurityScheme_HTTP.PNG"/>
+			<img border="0" src="pics/securityschemes/Dialog_SecurityScheme_Edition_HTTP.png"/>
 			<br/>Un 
 			<em>Security Scheme</em> de type HTTP défini un schéma d&#8217;authentification de type Basic, ou Bearer. 
 			<br/>Dans le cas d&#8217;un schéma d&#8217;authentification de type Basic, le server attendra un mot de passe de type username:password, encodé en base-64.
@@ -888,19 +892,19 @@
 		<p>- 
 			<strong>OAuth2:</strong>
 			<br/>
-			<img border="0" src="pics/securityschemes/Dialog_SecurityScheme_OAuth2.PNG"/>
+			<img border="0" src="pics/securityschemes/Dialog_SecurityScheme_Edition_OAuth2.png"/>
 		</p>
 		<p>- 
 			<strong>Open ID:</strong>
 			<br/>
-			<img border="0" src="pics/securityschemes/Dialog_SecurityScheme_OpenID.PNG"/>
+			<img border="0" src="pics/securityschemes/Dialog_SecurityScheme_Edition_OpenID.png"/>
 		</p>
 		<p>Les 
 			<em>Security Scheme</em> de type OAuth2 et Open ID requièrent la spécification de 
 			<em>Flows</em>, ainsi que leurs 
 			<em>Scopes</em> respectifs:
 			<br/>
-			<img border="0" src="pics/securityschemes/Dialog_Flow.PNG"/>
+			<img border="0" src="pics/securityschemes/Dialog_Flow_Edition.png"/>
 		</p>
 		<p>Les 
 			<em>Flows</em> représentent des scénarios que le client effectue afin d&#8217;obtenir l&#8217;accès à un token d&#8217;authentification. 
