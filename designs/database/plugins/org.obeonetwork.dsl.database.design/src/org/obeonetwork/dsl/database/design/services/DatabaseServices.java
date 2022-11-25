@@ -376,8 +376,8 @@ public class DatabaseServices {
 				
 				if(!StringUtils.isNullOrWhite(parsedColumn.getTable())) {
 					Optional<ViewTable> fromTableOpt = view.getTables().stream()
-							.filter(t -> parsedColumn.getTable().equals(t.getName()) || 
-									parsedColumn.getTable().equals(t.getAlias()))
+							.filter(t -> parsedColumn.getTable().equalsIgnoreCase(t.getName()) || 
+									parsedColumn.getTable().equalsIgnoreCase(t.getAlias()))
 							.findFirst();
 					if(fromTableOpt.isPresent()) {
 						viewColumn.setFrom(fromTableOpt.get());
@@ -416,14 +416,14 @@ public class DatabaseServices {
 		.map(DatabaseServices::findTable)
 		.filter(Objects::nonNull)
 		.flatMap(t -> t.getColumns().stream())
-		.filter(c -> viewColumn.getName().equals(c.getName()))
+		.filter(c -> viewColumn.getName().equalsIgnoreCase(c.getName()))
 		.findFirst().orElse(null);
 		
 		// And finally crawl to the View Table
 		if(column != null) {
 			Table table = column.getOwner();
 			return view.getTables().stream()
-					.filter(vt -> vt.getName().equals(table.getName())).findFirst().orElse(null);
+					.filter(vt -> vt.getName().equalsIgnoreCase(table.getName())).findFirst().orElse(null);
 		}
 		
 		return null;
@@ -470,7 +470,7 @@ public class DatabaseServices {
 		TableContainer tableContainer = EObjectUtils.getContainer(viewTable, TableContainer.class);
 		return tableContainer.getTables().stream()
 				.filter(Table.class::isInstance).map(Table.class::cast)
-				.filter(t -> viewTable.getName().equals(t.getName()))
+				.filter(t -> viewTable.getName().equalsIgnoreCase(t.getName()))
 				.findFirst().orElse(null);
 	}
 	
@@ -485,7 +485,7 @@ public class DatabaseServices {
 		}
  		
 		return table.getColumns().stream()
-				.filter(c -> viewColumn.getName().equals(c.getName()))
+				.filter(c -> viewColumn.getName().equalsIgnoreCase(c.getName()))
 				.findFirst().orElse(null);
 	}
 
