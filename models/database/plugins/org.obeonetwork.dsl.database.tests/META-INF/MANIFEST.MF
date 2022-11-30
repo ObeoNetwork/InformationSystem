@@ -2,7 +2,7 @@ Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: Database Model Yesys
 Bundle-SymbolicName: org.obeonetwork.dsl.database.tests
-Bundle-Version: 3.1.0.qualifier
+Bundle-Version: 3.2.0.qualifier
 Bundle-Activator: org.obeonetwork.dsl.database.tests.Activator
 Bundle-Vendor: Obeo Network
 Require-Bundle: org.eclipse.core.runtime,
@@ -12,18 +12,19 @@ Require-Bundle: org.eclipse.core.runtime,
  org.eclipse.core.resources,
  org.slf4j.api;bundle-version="1.7.2",
  org.apache.commons.logging,
+ org.mockito,
+ net.bytebuddy.byte-buddy,
+ net.bytebuddy.byte-buddy-agent,
+ org.objenesis,
  org.obeonetwork.docker.common,
- org.mockito;bundle-version="2.23.0",
- net.bytebuddy.byte-buddy;bundle-version="1.9.0",
- net.bytebuddy.byte-buddy-agent;bundle-version="1.9.0",
- org.objenesis;bundle-version="2.6.0"
+ liquibase,
+ org.obeonetwork.dsl.database.drivers
 Bundle-RequiredExecutionEnvironment: JavaSE-1.8
 Import-Package: com.google.common.collect;version="[27.0.0,28.0.0)",
  com.google.common.io;version="[27.0.0,28.0.0)"
 Automatic-Module-Name: org.obeonetwork.dsl.database.tests
 Bundle-ActivationPolicy: lazy
 Bundle-ClassPath: .,
- libs/liquibase-core-3.6.3.jar,
  libs/snakeyaml-1.18.jar,
  libs/logback-classic-1.2.3.jar,
  libs/logback-core-1.2.3.jar

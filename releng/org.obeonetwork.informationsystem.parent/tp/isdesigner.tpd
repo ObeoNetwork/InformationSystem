@@ -39,6 +39,7 @@ location Amalgam "https://download.eclipse.org/modeling/amalgam/updates/stable/1
 location Orbit "https://download.eclipse.org/tools/orbit/downloads/drops/R20200529191137/repository/" {
 	org.junit lazy
 	org.slf4j.api lazy
+	org.mockito lazy
 }
 
 location Eclipse "http://download.eclipse.org/releases/2020-06/" {

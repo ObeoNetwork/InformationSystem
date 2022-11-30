@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<requirement:Repository xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:requirement="http://www.obeonetwork.org/dsl/requirement/1.0" xmi:id="_UIbdoIjLEeGrHN3Vq969QA" technicalid="_xxSxoBLMEeesAc7mKQrh4A" name="E-BookStore">
+  <mainCategories xmi:id="_VzSesIlUEeGBksR6VpbZgA" technicalid="_xxSxoRLMEeesAc7mKQrh4A" name="Core Requirements" id="core">
+    <requirements xmi:id="_POjmYIlUEeGBksR6VpbZgA" technicalid="_xxSxohLMEeesAc7mKQrh4A" name="Req1-HomePageBeautiful" id="R1" version="2" statement="The homepage shall be beautiful" status="" createdOn="2012-04-18T14:44:28.998+0200" modifiedOn="2021-11-23T11:03:53.629+0100">
+      <referencedObject href="E-BookStore.graal#_O8aYEEjKEeGbkNJePX2AYQ"/>
+    </requirements>
+    <requirements xmi:id="_koA3QIlUEeGBksR6VpbZgA" technicalid="_xxWcABLMEeesAc7mKQrh4A" name="Req2-ManageFavorite" id="R2" statement="The user shall be able to manage his favorites" createdOn="2012-04-18T14:46:50.615+0200" modifiedOn="2021-11-23T11:05:13.591+0100"/>
+    <requirements xmi:id="_DBUn0IrxEeGWvox4N_yxtg" technicalid="_xxWcARLMEeesAc7mKQrh4A" name="Req3-AtLeastOneSearchCriteriaMustBeSpecfied" id="R3" statement="At least one seach criteria must be entered by the user to perform a search" createdOn="2012-04-20T15:59:27.376+0200" modifiedOn="2021-11-23T12:17:48.997+0100">
+      <referencedObject href="E-BookStore.graal#_MsicoEjJEeGbkNJePX2AYQ"/>
+    </requirements>
+  </mainCategories>
+</requirement:Repository>

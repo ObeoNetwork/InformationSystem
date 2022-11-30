@@ -33,6 +33,7 @@ The second page allows to define the following information:
 * *Previous version* A read only table is showing the previous versions that were exported from the same modeling project.
 * *Comment* A description of the library version.
 * *MAR filename* The library filename (ending with the .mar file extension). This value is recomputed when the Project ID or version is changed but can still be overridden if necessary.
+* *Update referencing projects* The modeling projects that have cross-references to the exported project. The selected projects will import the library produced by the current export and the cross-references will be redirected to the library. Details on importing a library are described in the next section.
 
 !pics/exportWizardPage2.png!
 

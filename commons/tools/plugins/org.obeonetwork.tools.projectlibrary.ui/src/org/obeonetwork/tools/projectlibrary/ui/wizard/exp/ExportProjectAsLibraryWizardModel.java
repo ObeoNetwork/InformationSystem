@@ -12,13 +12,24 @@ package org.obeonetwork.tools.projectlibrary.ui.wizard.exp;
 
 import java.beans.PropertyChangeListener;
 import java.beans.PropertyChangeSupport;
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Objects;
+import java.util.Set;
 
+import org.eclipse.core.resources.IProject;
+import org.eclipse.core.runtime.NullProgressMonitor;
+import org.eclipse.emf.common.util.URI;
+import org.eclipse.emf.ecore.EStructuralFeature.Setting;
 import org.eclipse.sirius.business.api.modelingproject.ModelingProject;
 import org.eclipse.sirius.business.api.session.Session;
+import org.eclipse.sirius.business.api.session.SessionManager;
+import org.eclipse.sirius.ext.base.Option;
 import org.obeonetwork.dsl.manifest.MManifest;
 import org.obeonetwork.tools.projectlibrary.extension.ManifestServices;
+import org.obeonetwork.tools.projectlibrary.util.ProjectLibraryUtils;
 
 /**
  * Model class holding contents for "Export modeling project as a library" wizard
@@ -29,12 +40,14 @@ public class ExportProjectAsLibraryWizardModel {
 
 	private List<ModelingProject> modelingProjects;
 	private ModelingProject selectedModelingProject;
+	private Set<ModelingProject> referencingModelingProjects;
 	private String projectId;
 	private String version;
 	private List<MManifest> previousVersions;
 	private String comment;
 	private String exportDirectory;
 	private String marFileName;
+	private boolean isSelectedModelingProjectHasDependencies;
 	
 	private PropertyChangeSupport propertyChangeSupport = new PropertyChangeSupport(this);
 	
@@ -55,12 +68,20 @@ public class ExportProjectAsLibraryWizardModel {
 			propertyChangeSupport.firePropertyChange("selectedModelingProject", this.selectedModelingProject, this.selectedModelingProject = selectedModelingProject); //$NON-NLS-1$
 			// Initialize values for other fields
 			if (selectedModelingProject != null) {
+				ProjectLibraryUtils projectLibraryUtils = new ProjectLibraryUtils();
+				Set<IProject> referencedProjects = projectLibraryUtils.getReferencedProjects(selectedModelingProject);
+				setIsSelectedModelingProjectHasDependencies(!referencedProjects.isEmpty());
+				
+				Set<ModelingProject> referencingModelingProjects = projectLibraryUtils.getReferencingProjects(selectedModelingProject);
+				setReferencingModelingProjects(referencingModelingProjects);
+
 				Session session = selectedModelingProject.getSession();
 				List<MManifest> previousManifests = new ManifestServices().getExportedManifests(session);
 				String projectId = selectedModelingProject.getProject().getName();
 				if (!previousManifests.isEmpty()) {
 					projectId = previousManifests.get(previousManifests.size() - 1).getProjectId();
 				}
+
 				setProjectId(projectId);
 				setPreviousVersions(previousManifests);
 			}
@@ -128,6 +149,26 @@ public class ExportProjectAsLibraryWizardModel {
 	public void setMarFileName(String marFileName) {
 		if(!Objects.equals(this.marFileName, marFileName)) 
 			propertyChangeSupport.firePropertyChange("marFileName", this.marFileName, this.marFileName = marFileName); //$NON-NLS-1$
+	}
+	
+	public void setReferencingModelingProjects(Set<ModelingProject> referencedModelingProjects) {
+		if(!Objects.equals(this.referencingModelingProjects, referencedModelingProjects)) 
+			propertyChangeSupport.firePropertyChange("referencedModelingProjects", this.referencingModelingProjects, this.referencingModelingProjects = referencedModelingProjects); //$NON-NLS-1$
+	}
+	
+	public Set<ModelingProject> getReferencingModelingProjects() {
+		if(referencingModelingProjects == null) {
+			this.referencingModelingProjects = new HashSet<>();
+		}
+		return referencingModelingProjects;
+	}
+	public void setIsSelectedModelingProjectHasDependencies(boolean newValue) {
+		if(this.isSelectedModelingProjectHasDependencies != newValue)
+			propertyChangeSupport.firePropertyChange("isSelectedModelingProjectHasDependencies", this.isSelectedModelingProjectHasDependencies, this.isSelectedModelingProjectHasDependencies = newValue); //$NON-NLS-1$
+	}
+	
+	public boolean getIsSelectedModelingProjectHasDependencies() {
+		return this.isSelectedModelingProjectHasDependencies;
 	}
 
 }

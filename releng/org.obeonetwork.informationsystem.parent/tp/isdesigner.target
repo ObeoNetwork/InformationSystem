@@ -40,6 +40,7 @@
     <location includeMode="planner" includeAllPlatforms="false" includeSource="true" includeConfigurePhase="false" type="InstallableUnit">
       <unit id="org.junit" version="0.0.0"/>
       <unit id="org.slf4j.api" version="0.0.0"/>
+      <unit id="org.mockito" version="0.0.0"/>
       <repository id="Orbit" location="https://download.eclipse.org/tools/orbit/downloads/drops/R20200529191137/repository/"/>
     </location>
     <location includeMode="planner" includeAllPlatforms="false" includeSource="true" includeConfigurePhase="false" type="InstallableUnit">

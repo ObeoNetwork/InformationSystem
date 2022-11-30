@@ -15,22 +15,33 @@ import static org.obeonetwork.utils.common.StringUtils.isNullOrWhite;
 import java.beans.PropertyChangeEvent;
 import java.beans.PropertyChangeListener;
 import java.io.File;
+import java.util.Collection;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Set;
 
 import org.eclipse.core.databinding.DataBindingContext;
 import org.eclipse.core.databinding.beans.BeanProperties;
 import org.eclipse.core.databinding.beans.PojoObservables;
 import org.eclipse.core.databinding.observable.list.IObservableList;
 import org.eclipse.core.databinding.observable.map.IObservableMap;
+import org.eclipse.core.databinding.observable.set.IObservableSet;
 import org.eclipse.core.databinding.observable.value.IObservableValue;
+import org.eclipse.emf.ecore.EStructuralFeature.Setting;
 import org.eclipse.jface.databinding.swt.WidgetProperties;
 import org.eclipse.jface.databinding.viewers.ObservableListContentProvider;
 import org.eclipse.jface.databinding.viewers.ObservableMapLabelProvider;
+import org.eclipse.jface.databinding.viewers.ObservableSetContentProvider;
 import org.eclipse.jface.dialogs.IMessageProvider;
 import org.eclipse.jface.layout.TableColumnLayout;
+import org.eclipse.jface.viewers.ArrayContentProvider;
+import org.eclipse.jface.viewers.CheckboxTableViewer;
 import org.eclipse.jface.viewers.ColumnWeightData;
+import org.eclipse.jface.viewers.LabelProvider;
 import org.eclipse.jface.viewers.TableViewer;
 import org.eclipse.jface.viewers.TableViewerColumn;
 import org.eclipse.jface.wizard.WizardPage;
+import org.eclipse.sirius.business.api.modelingproject.ModelingProject;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.custom.ScrolledComposite;
 import org.eclipse.swt.events.ModifyEvent;
@@ -42,6 +53,7 @@ import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Label;
 import org.eclipse.swt.widgets.Table;
 import org.eclipse.swt.widgets.TableColumn;
+import org.eclipse.swt.widgets.TableItem;
 import org.eclipse.swt.widgets.Text;
 import org.eclipse.wb.swt.ResourceManager;
 import org.obeonetwork.dsl.manifest.MManifest;
@@ -63,8 +75,10 @@ public class ExportProjectAsLibraryManifestPage extends WizardPage {
 	private Table table;
 	private Text txtComment;
 	private Text txtMarFileName;
+	private Table updatedProjectsTable;
 	
 	private TableViewer tableViewer;
+	private CheckboxTableViewer updateTableViewer;
 	
 	private PropertyChangeListener projectIdModelListener;
 	private PropertyChangeListener versionModelListener;
@@ -137,7 +151,7 @@ public class ExportProjectAsLibraryManifestPage extends WizardPage {
 		
 		// Previous versions
 		Label lblPreviousversions = new Label(composite, SWT.NONE);
-		lblPreviousversions.setLayoutData(new GridData(SWT.LEFT, SWT.TOP, false, false, 1, 1));
+		lblPreviousversions.setLayoutData(new GridData(SWT.RIGHT, SWT.TOP, false, false, 1, 1));
 		lblPreviousversions.setText("PreviousVersions");
 		
 		Composite compositeTbl = new Composite(composite, SWT.NONE);
@@ -199,6 +213,19 @@ public class ExportProjectAsLibraryManifestPage extends WizardPage {
 		};
 		model.addPropertyChangeListener("marFileName", marFileNameModelListener); //$NON-NLS-1$
 		
+		// Update referencing projects
+		Label lblUpdateReferencingProjects = new Label(composite, SWT.NONE);
+		lblUpdateReferencingProjects.setLayoutData(new GridData(SWT.RIGHT, SWT.TOP, false, false, 1, 1));
+		lblUpdateReferencingProjects.setText("Update referencing projects");
+		
+		Composite compositeTbl2 = new Composite(composite, SWT.NONE);
+		compositeTbl2.setLayoutData(new GridData(SWT.FILL, SWT.FILL, true, true, 1, 1));
+		TableColumnLayout table_layout = new TableColumnLayout();
+		compositeTbl2.setLayout(table_layout);
+		
+		updateTableViewer = CheckboxTableViewer.newCheckList(compositeTbl2, SWT.BORDER | SWT.FULL_SELECTION);
+		this.updatedProjectsTable = updateTableViewer.getTable();
+		
 		scrolledComposite.setContent(composite);
 		scrolledComposite.setMinSize(composite.computeSize(SWT.DEFAULT, SWT.DEFAULT));
 		
@@ -224,13 +251,19 @@ public class ExportProjectAsLibraryManifestPage extends WizardPage {
 		return !isNullOrWhite(model.getProjectId())
 				&& !isNullOrWhite(model.getVersion())
 				&& ManifestUtils.isVersionFormatValid(model.getVersion())
-				&& !isNullOrWhite(model.getMarFileName());
+				&& !isNullOrWhite(model.getMarFileName())
+				&& !isExportingProjectWithDependencies();
 	}
 	
 	private String computeErrorMessage() {
 		if(!isNullOrWhite(model.getMarFileName()) && !model.getMarFileName().endsWith(".mar")) {
 			return "MAR filename must end with '.mar'";
 		}
+		
+		if(isExportingProjectWithDependencies()) {
+			return "The exported project has dependencies to other projects";
+		}
+		
 		return null;
 	}
 	
@@ -263,6 +296,7 @@ public class ExportProjectAsLibraryManifestPage extends WizardPage {
 				}
 			}
 			tableViewer.refresh();
+			updateTableViewer.refresh();
 		}
 	}
 	
@@ -294,6 +328,20 @@ public class ExportProjectAsLibraryManifestPage extends WizardPage {
 		IObservableValue marFileNameWizardgetModelObserveValue = BeanProperties.value("marFileName").observe(model);
 		bindingContext.bindValue(observeTextTxtMarFileNameObserveWidget, marFileNameWizardgetModelObserveValue, null, null);
 		//
+		ObservableSetContentProvider setContentProvider = new ObservableSetContentProvider();
+		updateTableViewer.setContentProvider(setContentProvider);
+		updateTableViewer.setLabelProvider(new LabelProvider() {
+			@Override
+			public String getText(Object element) {
+				if(element instanceof ModelingProject) {
+					return ((ModelingProject) element).getProject().getName();
+				}
+				return super.getText(element);
+			}
+		});
+		IObservableSet referencingModelingProjectsWizardgetModelObserveSet = BeanProperties.set("referencingModelingProjects").observe(model);
+		updateTableViewer.setInput(referencingModelingProjectsWizardgetModelObserveSet);
+		//
 		return bindingContext;
 	}
 	
@@ -305,6 +353,26 @@ public class ExportProjectAsLibraryManifestPage extends WizardPage {
 		bindingContext.dispose();
 		
 		super.dispose();
+	}
+	
+	public Set<ModelingProject> getSelectedReferencingProjects() {
+		Set<ModelingProject> result = new HashSet<>();
+		TableItem[] selection = this.updatedProjectsTable.getSelection();
+		for(TableItem item : selection) {
+			if(item.getData() instanceof ModelingProject) {
+				result.add((ModelingProject) item.getData());
+			}
+		}
+		return result;
+	}
+	
+	/**
+	 * Return {@code true} if the exported project has dependencies to other projects, {@code false} otherwise.
+	 * 
+	 * @return {@code true} if the exported project has dependencies to other projects, {@code false} otherwise.
+	 */
+	public boolean isExportingProjectWithDependencies() {
+		return model.getIsSelectedModelingProjectHasDependencies();
 	}
 
 }

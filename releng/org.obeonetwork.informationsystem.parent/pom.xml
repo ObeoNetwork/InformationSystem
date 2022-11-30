@@ -11,14 +11,14 @@
 
 	<groupId>org.obeonetwork</groupId>
 	<artifactId>parent</artifactId>
-	<version>3.1.0-SNAPSHOT</version>
+	<version>3.2.0-SNAPSHOT</version>
 	<packaging>pom</packaging>
 
 	<name>Information System Parent</name>
 
 	<properties>
 		<tycho-version>1.7.0</tycho-version>
-        <target-artifact-version>3.1.0-SNAPSHOT</target-artifact-version>
+        <target-artifact-version>3.2.0-SNAPSHOT</target-artifact-version>
 	</properties>
 
 	<modules>
@@ -159,6 +159,7 @@
 		<module>../../commons/tools/plugins/org.obeonetwork.tools.projectlibrary.ui</module>
 		<module>../../commons/tools/plugins/org.obeonetwork.tools.projectlibrary.doc</module>
 		<module>../../commons/tools/features/org.obeonetwork.tools.projectlibrary.feature</module>
+		<module>../../commons/tools/plugins/org.obeonetwork.tools.projectlibrary.test</module>
 
 		<module>../../commons/tools/plugins/org.obeonetwork.tools.contextual.explorer.ui</module>
 		<module>../../commons/tools/plugins/org.obeonetwork.tools.contextual.explorer.ui.tests</module>

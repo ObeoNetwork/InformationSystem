@@ -13,10 +13,10 @@ package org.obeonetwork.dsl.database.design.wizards;
 import static org.obeonetwork.dsl.database.design.IDatabaseViewpointConstants.DATABASE_DIAGRAM_ID;
 import static org.obeonetwork.dsl.database.spec.DatabaseConstants.DB_H2_13;
 import static org.obeonetwork.dsl.database.spec.DatabaseConstants.DB_LOGICAL_TYPES;
-import static org.obeonetwork.dsl.database.spec.DatabaseConstants.DB_MARIADB_102;
-import static org.obeonetwork.dsl.database.spec.DatabaseConstants.DB_MYSQL_5;
-import static org.obeonetwork.dsl.database.spec.DatabaseConstants.DB_ORACLE_11G;
-import static org.obeonetwork.dsl.database.spec.DatabaseConstants.DB_POSTGRES_9;
+import static org.obeonetwork.dsl.database.spec.DatabaseConstants.DB_MARIADB_106;
+import static org.obeonetwork.dsl.database.spec.DatabaseConstants.DB_MYSQL_8;
+import static org.obeonetwork.dsl.database.spec.DatabaseConstants.DB_ORACLE_21C;
+import static org.obeonetwork.dsl.database.spec.DatabaseConstants.DB_POSTGRES_14;
 import static org.obeonetwork.dsl.database.spec.DatabaseConstants.DB_SQLSERVER_2008;
 import static org.obeonetwork.dsl.typeslibrary.util.TypesLibraryUtil.H2_PATHMAP;
 import static org.obeonetwork.dsl.typeslibrary.util.TypesLibraryUtil.LOGICAL_PATHMAP;
@@ -67,19 +67,19 @@ public class NewDatabaseModelWizard extends AbstractISNewModelWizard {
 		
 		Resource typesLibraryResource = null;
 		switch (dbVendor) {
-		case DB_MYSQL_5:
+		case DB_MYSQL_8:
 			typesLibraryResource = resourceSet.getResource(URI.createURI(MYSQL_PATHMAP), true);
 			break;
-		case DB_MARIADB_102: 
+		case DB_MARIADB_106: 
 			typesLibraryResource = resourceSet.getResource(URI.createURI(MARIADB_PATHMAP), true);
 			break;
-		case DB_ORACLE_11G: 
+		case DB_ORACLE_21C: 
 			typesLibraryResource = resourceSet.getResource(URI.createURI(ORACLE_PATHMAP), true);
 			break;
 		case DB_H2_13: 
 			typesLibraryResource = resourceSet.getResource(URI.createURI(H2_PATHMAP), true);
 			break;
-		case DB_POSTGRES_9: 
+		case DB_POSTGRES_14: 
 			typesLibraryResource = resourceSet.getResource(URI.createURI(POSTGRES_PATHMAP), true);
 			break;
 		case DB_SQLSERVER_2008: 

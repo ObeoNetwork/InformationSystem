@@ -2,18 +2,19 @@ Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: Drivers
 Bundle-SymbolicName: org.obeonetwork.dsl.database.drivers
-Bundle-Version: 3.1.0.qualifier
+Bundle-Version: 3.2.0.qualifier
 Automatic-Module-Name: org.obeonetwork.dsl.database.drivers
 Bundle-RequiredExecutionEnvironment: JavaSE-1.8
-Bundle-ClassPath: lib/mariadb-java-client-2.4.0.jar,
- lib/mysql-connector-java-5.1.5-bin.jar,
- lib/ojdbc5.jar,
- lib/sqljdbc4.jar,
- .,
+Bundle-ClassPath: .,
+ lib/mariadb-java-client-3.0.7.jar,
+ lib/mysql-connector-java-8.0.29.jar,
+ lib/ojdbc8.jar,
+ lib/mssql-jdbc-11.2.0.jre8.jar,
  lib/h2-1.4.200.jar,
- lib/postgresql-42.2.23.jar
+ lib/postgresql-42.4.0.jar
 Export-Package: com.microsoft.sqlserver.jdbc,
  com.mysql.jdbc,
+ com.mysql.cj.jdbc,
  oracle.jdbc,
  oracle.jdbc.driver,
  org.h2,
