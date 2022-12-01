@@ -246,7 +246,7 @@
       </defaultLayer>
       <additionalLayers name="Actors" activeByDefault="true">
         <nodeMappings name="TG_Actor" deletionDescription="//@ownedViewpoints[name='Graal%20Methodology']/@ownedRepresentations[name='Tasks%20Graph']/@additionalLayers[name='Actors']/@toolSections.0/@subSections[name='Usability%20tools']/@ownedTools[name='TG_Delete_Actor']" labelDirectEdit="//@ownedViewpoints[name='Graal%20Methodology']/@ownedRepresentations[name='Reused%20Description']/@defaultLayer/@toolSections.0/@ownedTools[name='Generic%20Edit%20Label']" semanticCandidatesExpression="service:getVisibleActors" domainClass="graal.Actor">
-          <style xsi:type="style:WorkspaceImageDescription" labelSize="10" showIcon="false" labelExpression="service:computeGraalLabel" labelColor="//@userColorsPalettes[name='Palette']/@entries[name='ISDLabelAndEdge']" sizeComputationExpression="15" resizeKind="NSEW" arcWidth="1" arcHeight="1" workspacePath="/org.obeonetwork.graal.design/images/Actor.svg">
+          <style xsi:type="style:WorkspaceImageDescription" labelSize="10" showIcon="false" labelExpression="service:computeGraalLabel" labelColor="//@userColorsPalettes[name='Palette']/@entries[name='ISDLabelAndEdge']" sizeComputationExpression="4" resizeKind="NSEW" arcWidth="1" arcHeight="1" workspacePath="/org.obeonetwork.graal.design/images/Actor.svg">
             <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
             <labelFormat>bold</labelFormat>
           </style>
