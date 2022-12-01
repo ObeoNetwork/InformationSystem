@@ -146,6 +146,6 @@ public class CinematicToolkitsServices {
 		int returnCode = dialog.open();
 		
 		if (returnCode != Window.CANCEL)
-			wizard.getSelectedEObjects().stream().filter(Toolkit.class::isInstance).forEach(toolkit -> ((CinematicRoot) cinematicRoot).getToolkits().add((Toolkit) toolkit));		
+			wizard.getSelectedEObjects().stream().filter(Toolkit.class::isInstance).forEach(toolkit -> associateToolkit((CinematicRoot) cinematicRoot,(Toolkit) toolkit));
 	}
 }
