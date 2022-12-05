@@ -28,6 +28,7 @@ import java.util.Optional;
 import java.util.Set;
 import java.util.function.Consumer;
 import java.util.function.Function;
+import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
 import org.eclipse.core.runtime.IStatus;
@@ -741,8 +742,9 @@ public class ChangeLogBuilder {
 				List<Table> referencesTable = fk.getElements().stream().map(c -> c.getPkColumn().getOwner()).distinct()
 						.collect(toList());
 				if (referencesTable.size() > 1) {
+					String tableNames = referencesTable.stream().map(table -> table.getName()).collect(Collectors.joining(",", "[", "]"));
 					statuses.add(createErrorStatus(MessageFormat.format(
-							"Foreign key {0} reference more than external schema. Not handled by this generator.",
+							"Foreign key {0} references more than one external Table "+tableNames+".",
 							fk.getName())));
 					return Optional.empty();
 				} else if (!referencesTable.isEmpty()) {
