@@ -614,7 +614,7 @@
                     <parameters name="predecessor" value="service:computePredecessorForMessage"/>
                   </subModelOperations>
                 </subModelOperations>
-                <subModelOperations xsi:type="tool_2:If" conditionExpression="oclIsKindOf(InteractionUse)/]">
+                <subModelOperations xsi:type="tool_2:If" conditionExpression="[oclIsKindOf(InteractionUse)/]">
                   <subModelOperations xsi:type="tool_2:ExternalJavaAction" name="Move start end" id="org.eclipse.sirius.business.api.action.moveElement">
                     <parameters name="referenceOwner" value="[eContainer(Interaction)/]"/>
                     <parameters name="referenceName" value="ends"/>
