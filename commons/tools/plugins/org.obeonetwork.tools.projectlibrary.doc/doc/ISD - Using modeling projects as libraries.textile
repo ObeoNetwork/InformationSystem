@@ -3,96 +3,96 @@ __Copyright (c) 2008, 2022 Obeo -  All rights reserved. This program and the acc
 @Authors@ Stéphane Thibaudeau
 @Contact@ stephane.thibaudeau@obeo.fr
 
-h1. ISD - Using modeling projects as libraries
+h1. ISD - Utilisation des _modeling projects_ en tant que bibliothèques
 
-Since IS Designer 1.8.
+Depuis IS Designer 1.8.
 
-Allows to export a modeling project as a library file and import it into other modeling projects.
+Permet d'exporter un _modeling project_ en tant que fichier de bibliothèque et de l'importer dans d'autres _modeling projects_.
 
-When a library is exported, the user chooses a version number. This version number is checked when importing the library into another modeling project. References to elements contained in the library are updated automatically.
+Lorsqu'une bibliothèque est exportée, l'utilisateur choisit un numéro de version. Ce numéro de version est vérifié lors de l'importation de la bibliothèque dans un autre _modeling project_. Les références aux éléments contenus dans la bibliothèque sont mises à jour automatiquement.
 
-This is useful to reuse modeling libraries among different projects, keeping track of the versions.
+Ceci est utile pour réutiliser les bibliothèques entre différents projets, en gardant la trace des versions.
 
-The library files have the .mar extension (standing for Modeling ARchive).
+Les fichiers de la bibliothèque portent l'extension .mar (signifiant Modeling ARchive en anglais).
 
-h2. Export a modeling project as a library
+h2. Exporter un _modeling project_ en tant que bibliothèques
 
-To export a modeling project as a library, use the _File > Export..._ menu and choose _Export modeling project as library_ in _IS Designer_ category.
+Pour exporter un _modeling project_ en tant que bibliothèque, utiliser le menu _File > Export..._ et choisir _Export modeling project as library_ dans la catégorie _IS Designer_.
 
 !pics/ExportMenu.png!
 
-The wizard's first page allows to define the following information:
-* *Modeling Project* The project to be exported. Already selected if the user launched the import from a selected project.
-* *Export directory* The destination folder. Can be located inside or outside an Eclipse project. The recommended way is to use an external location.
+La première page de l'assistant permet de définir les informations suivantes :
+* *Modeling Project* Le projet à exporter. Déjà sélectionné si l'utilisateur a lancé l'importation à partir d'un projet sélectionné.
+* *Export directory* Le dossier de destination. Il peut être situé à l'intérieur ou à l'extérieur d'un projet Eclipse. La méthode recommandée est d'utiliser un emplacement externe.
 
 !pics/exportWizardPage1.png!
 
-The second page allows to define the following information:
-* *Project ID* The default value is the name of the exported project. (required)
-* *Version* The version number of the library. Must be in the form M.m.p.qualifier where M, m and p are integers.
-* *Previous version* A read only table is showing the previous versions that were exported from the same modeling project.
-* *Comment* A description of the library version.
-* *MAR filename* The library filename (ending with the .mar file extension). This value is recomputed when the Project ID or version is changed but can still be overridden if necessary.
-* *Update referencing projects* The modeling projects that have cross-references to the exported project. The selected projects will import the library produced by the current export and the cross-references will be redirected to the library. Details on importing a library are described in the next section.
+La deuxième page permet de définir les informations suivantes :
+* *Project ID* La valeur par défaut est le nom du projet exporté. (obligatoire)
+* *Version* Le numéro de version de la bibliothèque. Doit être sous la forme M.m.p.qualifier où M, m et p sont des nombres entiers.
+* *Previous version* Un tableau en lecture seule montrant les versions précédentes qui ont été exportées à partir du même _modeling project_.
+* *Comment* Une description de la version de la bibliothèque.
+* *MAR filename* Le nom de fichier de la bibliothèque (se terminant par l'extension de fichier .mar). Cette valeur est recalculée lorsque l'ID du projet ou la version est modifiée, mais elle peut être remplacée si nécessaire.
+* *Update referencing projects* Les _modeling projects_ qui ont des cross-references vers le projet exporté. Les projets sélectionnés importeront la bibliothèque produite par l'exportation et les cross-references seront redirigées vers la bibliothèque. Les détails sur l'importation d'une bibliothèque sont décrits dans la section suivante.
 
 !pics/exportWizardPage2.png!
 
-When the wizard is completed, a MAR file is generated at the specified location. This file can then be imported into another modeling project.
+Lorsque l'assistant est terminé, un fichier MAR est généré à l'emplacement spécifié. Ce fichier peut ensuite être importé dans un autre _modeling project_.
 
-h2. Import a library into a modeling project
+h2. Importer une bibliothèque dans un _modeling project_
 
-To import a library file into a modeling project, use the _File > Import..._ menu and choose _Import library into modeling project_ in _IS Designer_ category.
+Pour importer un fichier de bibliothèque dans un _modeling project_, utilisez le menu _File > Import..._ et choisissez _Import library into modeling project_ dans la catégorie _IS Designer_.
 
 !pics/importMenu.png!
 
-The wizard allows to define :
-* *Modeling project* The target project. Already selected if the import was launched from a selected project.
-* *Import file* The MAR file to import
+L'assistant permet de définir :
+* *Modeling project* Le projet cible. Déjà sélectionné si l'importation a été lancée à partir d'un projet sélectionné.
+* *Import file* Le fichier MAR à importer
 
 !pics/importWizard.png!
 
-Once the MAR file has been selected, the following information are extracted from the file and displayed:
+Une fois que le fichier MAR a été sélectionné, les informations suivantes sont extraites du fichier et affichées :
 * *Project ID*
 * *Version*
 * *Creation date*
 * *Comment*
-* *Dependencies* The dependencies found in the MAR file.
+* *Dependencies* Les dépendances trouvées dans le fichier MAR.
 
-The dependencies are displayed with a green or red tick indicating if the dependency is valid or not regarding the target project.
-If all dependencies are valid, the user can finish the wizard. The file is then imported into a _libraries_ folder in the target project.
-A folder with the name and ID of the imported project is created. All semantic and graphical data are copied into this folder.
+Les dépendances sont affichées avec une coche verte ou rouge indiquant si la dépendance est valide ou non par rapport au projet cible.
+Si toutes les dépendances sont valides, l'utilisateur peut terminer l'assistant. Le fichier est alors importé dans un dossier _libraries_ du projet cible.
+Un dossier portant le nom et l'ID du projet importé est créé. Toutes les données sémantiques et graphiques sont copiées dans ce dossier.
 
 !pics/importedLibrary.png!
 
-h2. Notes about dependencies
+h2. Notes sur les dépendances
 
-When importing a MAR file the dependencies table shows:
-* the main project that was exported in the MAR file. A check against the version is done if this project had already been imported.
-* the projects that were imported in this main project before the MAR file was created. A check against the version is done in case these projects had been already imported into the target project either directly or by importing another project.
+Lors de l'importation d'un fichier MAR, le tableau des dépendances indique :
+* le projet principal qui a été exporté dans le fichier MAR. Une vérification par rapport à la version est faite si ce projet avait déjà été importé.
+* les projets qui ont été importés dans ce projet principal avant la création du fichier MAR. Une vérification de la version est effectuée si ces projets avaient déjà été importés dans le projet cible, soit directement, soit en important un autre projet.
 
-Here is an illustrative example :
+Voici un exemple illustratif :
 
-h4. Initial <Core project> before export
+h4. Projet initial <Core project> avant l'exportation
 
 !pics/coreProject.png!
 
-h4. Initial target project <Project 1>
+h4. Projet cible initial <Project 1>
 
 !pics/initialProject1.png!
 
-h4. <Project 1> after importing <Core project>
+h4. <Project 1> après l'import de <Core project>
 
 !pics/importedLibrary.png!
 
-A _libraries_ folder has been created and a folder for _Core project_ V1.0.0 has been created too.
+Un dossier _libraries_ a été créé et un dossier pour _Core project_ V1.0.0 a été créé également.
 
-h4. Initial target project <Project 2>
+h4. Projet cible initial <Project 2>
 
 !pics/initialProject2.png!
 
-h4. <Project 2> after importing <Project 1>
+h4. <Project 2> après l'import de <Project 1>
 
 !pics/project2AfterImport.png!
 
-A _libraries_ folder has been created and a folder for _Project 1_ V1.0.0 has been created too.
-Inside the _Project 1-1.0.0_ we can see a _libraries_ folder for the previously imported _Core project_.
+Un dossier _libraries_ a été créé et un dossier pour _Project 1_ V1.0.0 a également été créé.
+A l'intérieur du _Projet 1-1.0.0_ nous pouvons voir un dossier _libraries_ pour le projet _Core project_ précédemment importé.
