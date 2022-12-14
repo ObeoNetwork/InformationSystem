@@ -28,7 +28,7 @@ import org.eclipse.sirius.common.ui.tools.api.selection.EObjectSelectionWizard;
 import org.eclipse.sirius.common.ui.tools.api.selection.WizardDialogClosableByWizard;
 import org.eclipse.sirius.diagram.ui.provider.DiagramUIPlugin;
 import org.eclipse.sirius.tools.api.ui.IExternalJavaAction;
-import org.eclipse.sirius.viewpoint.SiriusPlugin;
+import org.eclipse.sirius.tools.api.SiriusPlugin;
 import org.eclipse.swt.widgets.Shell;
 import org.eclipse.ui.PlatformUI;
 

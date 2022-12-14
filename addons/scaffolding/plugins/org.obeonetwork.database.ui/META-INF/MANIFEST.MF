@@ -43,7 +43,6 @@ Require-Bundle: org.eclipse.ui,
  org.eclipse.sirius.ui,
  org.obeonetwork.dsl.database.design,
  org.obeonetwork.utils.common.ui
-Bundle-RequiredExecutionEnvironment: JavaSE-1.8
 Bundle-ActivationPolicy: lazy
 Export-Package: org.obeonetwork.database.ui,
  org.obeonetwork.database.ui.actions,
@@ -54,4 +53,4 @@ Export-Package: org.obeonetwork.database.ui,
  org.obeonetwork.database.ui.wizards.imports,
  org.obeonetwork.database.ui.wizards.scaffolding
 Import-Package: com.google.common.base,
- com.google.common.collect;version="[21.0.0,27.2.0)"
+ com.google.common.collect

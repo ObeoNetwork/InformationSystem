@@ -14,7 +14,7 @@ import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.transaction.RecordingCommand;
 import org.eclipse.emf.transaction.TransactionalEditingDomain;
 
-import org.eclipse.sirius.viewpoint.SiriusPlugin;
+import org.eclipse.sirius.tools.api.SiriusPlugin;
 import org.eclipse.sirius.ecore.extender.business.api.accessor.ModelAccessor;
 
 public class UpdateMappingExpressionCommand extends RecordingCommand {

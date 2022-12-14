@@ -26,7 +26,7 @@ import org.eclipse.sirius.business.api.dialect.command.CreateRepresentationComma
 import org.eclipse.sirius.business.api.session.Session;
 import org.eclipse.sirius.business.internal.session.danalysis.SaveSessionJob;
 import org.eclipse.sirius.common.tools.api.interpreter.EvaluationException;
-import org.eclipse.sirius.diagram.DiagramPlugin;
+import org.eclipse.sirius.diagram.tools.api.DiagramPlugin;
 import org.eclipse.sirius.diagram.ui.part.ValidateAction;
 import org.eclipse.sirius.diagram.ui.tools.api.editor.DDiagramEditor;
 import org.eclipse.sirius.ui.business.api.viewpoint.ViewpointSelectionCallback;

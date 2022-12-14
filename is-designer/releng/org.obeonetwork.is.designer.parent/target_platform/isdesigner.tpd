@@ -1,6 +1,6 @@
 target "IS Designer Product Target Definition" with source, requirements
 
-location ISD "http://update.obeo.fr/integration/informationsystem/3.2.0/design/repository/" {
+location ISD "http://update.obeo.fr/integration/informationsystem/4.0.0/design/repository/" {
 	org.obeonetwork.cinematic.gen.html.feature.feature.group lazy
 	org.obeonetwork.database.scaffold.feature.feature.group lazy
 	org.obeonetwork.database.ui.feature.feature.group lazy
@@ -69,11 +69,11 @@ location M2Doc "https://s3-eu-west-1.amazonaws.com/obeo-m2doc-releases/3.2.1/rep
 	org.obeonetwork.m2doc.ui.feature.feature.group lazy
 }
 
-location Obeo-Designer-Team "http://update.obeo.fr/release/designer/11.6/team/latest/repository/" {
+location Obeo-Designer-Team "http://update.obeo.fr/release/designer/11.7/team/latest/repository/" {
 	fr.obeo.dsl.viewpoint.collab lazy
 }
 
-location Obeo-Designer-Community "http://update.obeo.fr/release/designer/11.6/community/latest/repository/" {
+location Obeo-Designer-Community "http://update.obeo.fr/release/designer/11.7/community/latest/repository/" {
 	org.apache.log4j lazy
 	org.easymock lazy
 	org.hamcrest.core lazy
@@ -148,7 +148,7 @@ location Obeo-Designer-Community "http://update.obeo.fr/release/designer/11.6/co
 	org.eclipse.eef.ext.widgets.reference.feature.source.feature.group lazy
 }
 
-location Eclipse "http://download.eclipse.org/releases/2020-06/" {
+location Eclipse "http://download.eclipse.org/releases/2021-06/" {
 	org.eclipse.equinox.executable.feature.group lazy
 	org.apache.commons.io lazy
 	org.eclipse.ecf.core.feature.feature.group lazy
@@ -167,7 +167,7 @@ location Eclipse-Oxygen "http://download.eclipse.org/releases/oxygen/" {
 	org.eclipse.team.svn.nl1.feature.group lazy
 }
 
-location "http://community.polarion.com/projects/subversive/download/eclipse/6.0/neon-site/" {
+location "https://community.polarion.com/projects/subversive/download/eclipse/6.0/update-site/" {
 	org.polarion.eclipse.team.svn.connector.feature.group lazy
 	org.polarion.eclipse.team.svn.connector.svnkit18.feature.group lazy
 }

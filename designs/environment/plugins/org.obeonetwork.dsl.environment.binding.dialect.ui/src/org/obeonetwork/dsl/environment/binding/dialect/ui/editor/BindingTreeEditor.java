@@ -49,7 +49,7 @@ import org.eclipse.sirius.ui.business.api.session.IEditingSession;
 import org.eclipse.sirius.ui.business.api.session.SessionEditorInput;
 import org.eclipse.sirius.ui.business.api.session.SessionUIManager;
 import org.eclipse.sirius.viewpoint.DRepresentation;
-import org.eclipse.sirius.viewpoint.SiriusPlugin;
+import org.eclipse.sirius.tools.api.SiriusPlugin;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.custom.SashForm;
 import org.eclipse.swt.custom.ScrolledComposite;

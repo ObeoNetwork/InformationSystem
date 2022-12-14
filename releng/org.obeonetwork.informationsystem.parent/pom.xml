@@ -17,7 +17,7 @@
 	<name>Information System Parent</name>
 
 	<properties>
-		<tycho-version>1.7.0</tycho-version>
+		<tycho-version>2.7.5</tycho-version>
         <target-artifact-version>3.2.0-SNAPSHOT</target-artifact-version>
 	</properties>
 
@@ -403,8 +403,8 @@
 					<version>${tycho-version}</version>
 					<configuration>
 						<encoding>UTF-8</encoding>
-						<source>1.8</source>
-						<target>1.8</target>
+						<source>11</source>
+						<target>11</target>
 					</configuration>
 				</plugin>
 				<plugin>

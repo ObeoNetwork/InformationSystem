@@ -24,8 +24,7 @@ Require-Bundle: org.eclipse.core.runtime,
  org.eclipse.emf.ecore.xmi,
  org.eclipse.emf.compare.rcp,
  org.obeonetwork.dsl.is;resolution:=optional
-Import-Package: com.google.common.base;version="[21.0.0,27.2.0)",
- com.google.common.collect;version="[21.0.0,27.2.0)"
+Import-Package: com.google.common.base,
+ com.google.common.collect
 Bundle-ActivationPolicy: lazy
 Bundle-Activator: org.obeonetwork.dsl.database.compare.Activator
-Bundle-RequiredExecutionEnvironment: JavaSE-1.8

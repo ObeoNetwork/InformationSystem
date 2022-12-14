@@ -18,7 +18,7 @@ import org.eclipse.core.commands.ExecutionException;
 import org.eclipse.sirius.diagram.DDiagramElement;
 import org.eclipse.sirius.diagram.description.NodeMapping;
 import org.eclipse.sirius.diagram.description.style.WorkspaceImageDescription;
-import org.eclipse.sirius.diagram.ui.business.api.image.ImageSelectorService;
+import org.eclipse.sirius.diagram.ui.business.api.image.WorkspaceImageHelper;
 import org.eclipse.sirius.diagram.ui.edit.api.part.IDiagramElementEditPart;
 import org.eclipse.sirius.viewpoint.BasicLabelStyle;
 import org.obeonetwork.utils.common.ui.handlers.EventHelper;
@@ -48,7 +48,7 @@ public class RemoveMockupImageHandler  extends AbstractHandler {
 		};
 		
 		if(!isNullOrWhite(workspacePath)) {
-			ImageSelectorService.INSTANCE.updateStyle((BasicLabelStyle) diagramElement.getStyle(), workspacePath);
+			WorkspaceImageHelper.INSTANCE.updateStyle((BasicLabelStyle) diagramElement.getStyle(), workspacePath);
 		}
 		// TODO Note for future devs. We can't supress the unset image here because we would loose track of the last index.
 		// We probably need a cache of the created filenames, keeping in mind that it should manage multiple Sirius

@@ -37,7 +37,7 @@ import org.eclipse.sirius.common.ui.tools.api.selection.EObjectPaneBasedSelectio
 import org.eclipse.sirius.common.ui.tools.api.selection.page.EObjectPaneBasedSelectionWizardPage;
 import org.eclipse.sirius.diagram.ui.provider.DiagramUIPlugin;
 import org.eclipse.sirius.tools.api.ui.IExternalJavaAction;
-import org.eclipse.sirius.viewpoint.SiriusPlugin;
+import org.eclipse.sirius.tools.api.SiriusPlugin;
 import org.eclipse.swt.events.SelectionAdapter;
 import org.eclipse.swt.events.SelectionEvent;
 import org.eclipse.swt.widgets.Button;

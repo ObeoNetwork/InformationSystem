@@ -1,6 +1,6 @@
 target "IS Designer Repository Target Definition" with source, requirements
 
-location Obeo-Designer-Community "http://update.obeo.fr/release/designer/11.6/community/latest/repository/" {
+location Obeo-Designer-Community "http://update.obeo.fr/release/designer/11.7/community/latest/repository/" {
 	org.eclipse.eef.sdk.feature.feature.group
 	org.eclipse.sirius.properties.feature.feature.group lazy
 	org.eclipse.sirius.runtime.ide.eef.feature.group lazy
@@ -19,11 +19,11 @@ location Obeo-Designer-Community "http://update.obeo.fr/release/designer/11.6/co
 	org.eclipse.acceleo.query.feature.group lazy
 	org.eclipse.acceleo.feature.group lazy
 	
-	com.google.guava [27.1.0,28.0.0)
+	com.google.guava lazy
 }
 
 
-location Obeo-Designer-Team "http://update.obeo.fr/release/designer/11.6/team/latest/repository/" {
+location Obeo-Designer-Team "http://update.obeo.fr/release/designer/11.7/team/latest/repository/" {
 	fr.obeo.dsl.viewpoint.collab.user.feature.group lazy
 	org.eclipse.emf.cdo.sdk.feature.group lazy
 }
@@ -40,9 +40,10 @@ location Orbit "https://download.eclipse.org/tools/orbit/downloads/drops/R202005
 	org.junit lazy
 	org.slf4j.api lazy
 	org.mockito lazy
+	javax.servlet lazy
 }
 
-location Eclipse "http://download.eclipse.org/releases/2020-06/" {
+location Eclipse "http://download.eclipse.org/releases/2021-06/" {
 	org.eclipse.platform.feature.group lazy
 }
 

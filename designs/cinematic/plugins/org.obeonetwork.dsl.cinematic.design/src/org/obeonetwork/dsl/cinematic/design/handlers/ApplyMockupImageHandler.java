@@ -34,7 +34,7 @@ import org.eclipse.sirius.diagram.DDiagram;
 import org.eclipse.sirius.diagram.DDiagramElement;
 import org.eclipse.sirius.diagram.WorkspaceImage;
 import org.eclipse.sirius.diagram.business.api.query.DDiagramQuery;
-import org.eclipse.sirius.diagram.ui.business.api.image.ImageSelectorService;
+import org.eclipse.sirius.diagram.ui.business.api.image.WorkspaceImageHelper;
 import org.eclipse.sirius.diagram.ui.edit.api.part.IDiagramElementEditPart;
 import org.eclipse.sirius.ui.business.api.dialect.DialectUIManager;
 import org.eclipse.sirius.ui.business.api.dialect.ExportFormat;
@@ -149,7 +149,7 @@ public class ApplyMockupImageHandler extends AbstractHandler {
 				.filter(wi -> oldWorkspacePath.equals(wi.getWorkspacePath()))
 				.collect(toList());
 				for(WorkspaceImage workspaceImageStyleToUpdate : workspaceImageStylesToUpdate) {
-					ImageSelectorService.INSTANCE.updateStyle(workspaceImageStyleToUpdate, newWorkspacePath);
+					WorkspaceImageHelper.INSTANCE.updateStyle(workspaceImageStyleToUpdate, newWorkspacePath);
 				}
 			}
 			IFile oldFile = mockupsFolder.getFile(oldWorkspacePath.substring(mockupsFolder.getFullPath().toPortableString().length()));
@@ -159,7 +159,7 @@ public class ApplyMockupImageHandler extends AbstractHandler {
 				// Never mind
 			}
 		} else {
-			ImageSelectorService.INSTANCE.updateStyle(workspaceImageStyle, newWorkspacePath);
+			WorkspaceImageHelper.INSTANCE.updateStyle(workspaceImageStyle, newWorkspacePath);
 		}
 		
 	}
