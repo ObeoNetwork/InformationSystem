@@ -357,10 +357,10 @@ public class ExportProjectAsLibraryManifestPage extends WizardPage {
 	
 	public Set<ModelingProject> getSelectedReferencingProjects() {
 		Set<ModelingProject> result = new HashSet<>();
-		TableItem[] selection = this.updatedProjectsTable.getSelection();
-		for(TableItem item : selection) {
-			if(item.getData() instanceof ModelingProject) {
-				result.add((ModelingProject) item.getData());
+		Object[] selection = this.updateTableViewer.getCheckedElements();
+		for(Object item : selection) {
+			if(item instanceof ModelingProject) {
+				result.add((ModelingProject) item);
 			}
 		}
 		return result;
