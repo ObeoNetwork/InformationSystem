@@ -14,6 +14,7 @@ import java.io.File;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Map.Entry;
+import java.util.concurrent.atomic.AtomicBoolean;
 
 import org.eclipse.core.resources.IProject;
 import org.eclipse.core.runtime.IProgressMonitor;
@@ -122,7 +123,9 @@ public class ImportLibraryIntoProjectWizard extends Wizard implements IImportWiz
 					
 					@Override
 					public boolean askForConfirmation(String message) {
-						return MessageDialog.openConfirm(getShell(), "Import project as library", message);
+						final AtomicBoolean res = new AtomicBoolean(true);
+						Display.getDefault().syncExec(() -> res.set(MessageDialog.openConfirm(getShell(), "Import project as library", message))); 
+						return res.get();
 					}
 				}, subMonitor.newChild(1));
 			} catch (LibraryImportException e) {

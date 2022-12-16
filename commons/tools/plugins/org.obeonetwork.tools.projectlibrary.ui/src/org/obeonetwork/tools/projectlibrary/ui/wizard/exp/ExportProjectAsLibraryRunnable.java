@@ -13,6 +13,7 @@ package org.obeonetwork.tools.projectlibrary.ui.wizard.exp;
 import java.io.File;
 import java.util.HashSet;
 import java.util.Set;
+import java.util.concurrent.atomic.AtomicBoolean;
 
 import org.eclipse.core.resources.IContainer;
 import org.eclipse.core.resources.IFile;
@@ -79,7 +80,9 @@ public class ExportProjectAsLibraryRunnable implements IRunnableWithProgress {
 						
 						@Override
 						public boolean askForConfirmation(String message) {
-							return MessageDialog.openConfirm(shell, "Import project as library", message);
+							final AtomicBoolean res = new AtomicBoolean(true);
+							Display.getDefault().syncExec(() -> res.set(MessageDialog.openConfirm(shell, "Import project as library", message))); 
+							return res.get();
 						}
 					}, subMonitor.newChild(1), true);
 				} catch (LibraryImportException e) {
