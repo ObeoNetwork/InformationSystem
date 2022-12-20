@@ -43,6 +43,7 @@ public abstract class AbstractImportHandler {
 	 * @return
 	 */
 	public boolean doPostImport(ImportData importData) throws LibraryImportException {
+		importData.getSourceSession().removeListener(importData);
 		return true;
 	}
 

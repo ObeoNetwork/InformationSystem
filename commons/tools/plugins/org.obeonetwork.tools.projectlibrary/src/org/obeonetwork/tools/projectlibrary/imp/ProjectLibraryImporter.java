@@ -150,6 +150,7 @@ public class ProjectLibraryImporter {
 		// Create ImportData used to do the import
 		importData = new ImportData(libraryProjectName, sourceProject, targetProject);
 		importData.setImportHandler(getImportHandler());
+		sourceProject.getSession().addListener(importData);
 		
 		if(forceImportManifest) {
 			// Save imported manifest into AIRD for future references

@@ -27,10 +27,11 @@ import org.eclipse.emf.ecore.util.EcoreUtil.Copier;
 import org.eclipse.sirius.business.api.modelingproject.ModelingProject;
 import org.eclipse.sirius.business.api.resource.ResourceDescriptor;
 import org.eclipse.sirius.business.api.session.Session;
+import org.eclipse.sirius.business.api.session.SessionListener;
 import org.eclipse.sirius.viewpoint.ViewpointPackage;
 import org.obeonetwork.tools.projectlibrary.extension.point.AbstractImportHandler;
 
-public class ImportData {
+public class ImportData implements SessionListener {
 	private static final String SIRIUS_ENVIRONMENT_SCHEME = "environment";
 	
 	private String libraryProjectName;
@@ -89,7 +90,7 @@ public class ImportData {
 				&& !resource.getContents().get(0).eClass().isInstance(EcoreFactory.eINSTANCE.getEPackage()) // Not a DSL
 				) {
 				sourceGraphicalResources.add(resource);
-				sourceGraphicalRoots.addAll(resource.getContents());				
+				sourceGraphicalRoots.addAll(resource.getContents());			
 			}
 		}
 	}
@@ -244,6 +245,14 @@ public class ImportData {
 
 	public void setImportHandler(AbstractImportHandler importHandler) {
 		this.importHandler = importHandler;
+	}
+	
+	@Override
+	public void notify(int changeKind) {
+		if( changeKind == REPLACED) {
+			initializeData();
+			initializeCopyElements();
+		}
 	}
 	
 }
