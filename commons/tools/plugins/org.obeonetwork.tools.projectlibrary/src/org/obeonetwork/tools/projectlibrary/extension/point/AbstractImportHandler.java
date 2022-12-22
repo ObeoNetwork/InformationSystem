@@ -12,6 +12,7 @@ package org.obeonetwork.tools.projectlibrary.extension.point;
 
 import java.util.Collection;
 
+import org.eclipse.core.resources.IProject;
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.sirius.business.api.modelingproject.ModelingProject;
@@ -43,7 +44,6 @@ public abstract class AbstractImportHandler {
 	 * @return
 	 */
 	public boolean doPostImport(ImportData importData) throws LibraryImportException {
-		importData.getSourceSession().removeListener(importData);
 		return true;
 	}
 
@@ -83,7 +83,7 @@ public abstract class AbstractImportHandler {
 	 * @param manifest
 	 * @return
 	 */
-	abstract public Collection<Resource> getResourcesForImportedProject(ModelingProject modelingProject, MManifest manifest);
+	abstract public Collection<Resource> getResourcesForImportedProject(IProject modelingProject, MManifest manifest);
 	
 	/**
 	 * Removes the specified resources from the project
@@ -92,5 +92,5 @@ public abstract class AbstractImportHandler {
 	 * @param projectToRemove
 	 * @return True if all resources have been removed
 	 */
-	abstract public boolean removeImportedProjectAndResources(ModelingProject project, Collection<Resource> resourcesToDelete, MManifest projectToRemove) throws LibraryImportException;
+	abstract public boolean removeImportedProjectAndResources(IProject project, Collection<Resource> resourcesToDelete, MManifest projectToRemove) throws LibraryImportException;
 }

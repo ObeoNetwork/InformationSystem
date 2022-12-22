@@ -10,18 +10,28 @@
  *******************************************************************************/
 package org.obeonetwork.utils.common;
 
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Optional;
+
+import org.eclipse.core.resources.IFile;
 import org.eclipse.core.resources.IProject;
+import org.eclipse.core.resources.IResource;
 import org.eclipse.core.resources.ResourcesPlugin;
+import org.eclipse.core.runtime.CoreException;
 import org.eclipse.core.runtime.IPath;
+import org.eclipse.core.runtime.NullProgressMonitor;
 import org.eclipse.core.runtime.Path;
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.sirius.business.api.dialect.DialectManager;
+import org.eclipse.sirius.business.api.helper.SiriusUtil;
 import org.eclipse.sirius.business.api.modelingproject.ModelingProject;
 import org.eclipse.sirius.business.api.query.AirDResouceQuery;
 import org.eclipse.sirius.business.api.query.URIQuery;
 import org.eclipse.sirius.business.api.session.Session;
+import org.eclipse.sirius.business.api.session.SessionManager;
 import org.eclipse.sirius.business.api.session.resource.AirdResource;
 import org.eclipse.sirius.ext.base.Option;
 import org.eclipse.sirius.viewpoint.DAnalysis;
@@ -105,6 +115,35 @@ public class SessionUtils {
 		return DialectManager.INSTANCE.getAvailableRepresentationDescriptions(session.getSelectedViewpoints(false), context).stream()
 				.filter(r -> representationDescriptionId.equals(r.getName()))
 				.findAny().orElse(null);
+	}
+	
+	/**
+	 * Search for the first .aird file in {@link project}.
+	 * 
+	 * @return a Session corresponding to the first found .aird file, or Empty {@link Optional} if none.
+	 */
+	public static Optional<Session> getSession(IProject project) {
+		List<IFile> candidateAirdFiles = new ArrayList<>();
+		try {
+			for(IResource member : project.members()) {
+				if(member instanceof IFile) {
+					IFile file = (IFile) member;
+					if(file.getFileExtension().equals(SiriusUtil.SESSION_RESOURCE_EXTENSION)) {
+						candidateAirdFiles.add(file);
+					}
+				}
+			}
+		} catch (CoreException e) {
+			e.printStackTrace();
+		}
+		
+		if(!candidateAirdFiles.isEmpty()) {
+			IFile iFile = candidateAirdFiles.get(0); //FIXME: do something like ModelingProjectQuery.computeMainRepresentationsFileURI()
+			URI sessionResourceURI = URI.createPlatformResourceURI(iFile.getFullPath().toString(), true);
+			return Optional.ofNullable(SessionManager.INSTANCE.getSession(sessionResourceURI, new NullProgressMonitor()));
+		}
+		
+		return Optional.empty();
 	}
 
 }

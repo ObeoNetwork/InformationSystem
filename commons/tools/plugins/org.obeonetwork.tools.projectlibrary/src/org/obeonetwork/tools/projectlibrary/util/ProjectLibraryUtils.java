@@ -15,6 +15,7 @@ import java.util.Arrays;
 import java.util.Collection;
 import java.util.HashSet;
 import java.util.List;
+import java.util.Optional;
 import java.util.Set;
 
 import org.eclipse.core.resources.IFile;
@@ -44,6 +45,7 @@ import org.obeonetwork.tools.projectlibrary.extension.point.AbstractImportHandle
 import org.obeonetwork.tools.projectlibrary.extension.point.DefaultImportHandler;
 import org.obeonetwork.tools.projectlibrary.extension.point.ImportHandlerFactory;
 import org.obeonetwork.tools.projectlibrary.imp.LibraryImportException;
+import org.obeonetwork.utils.common.SessionUtils;
 
 /**
  * Utilities around Project libraries
@@ -101,26 +103,30 @@ public class ProjectLibraryUtils {
 	
 	/**
 	 * 
-	 * @param session
+	 * @param project
 	 * @param resourcesToDelete
 	 * @param projectToRemove
 	 * @param shouldDeleteResource
 	 * @return
 	 */
-	public boolean removeImportedProjectAndResources(ModelingProject project, Collection<Resource> resourcesToDelete, MManifest projectToRemove, boolean shouldDeleteResource) throws LibraryImportException {
-		AbstractImportHandler importHandler = ImportHandlerFactory.getInstance().getImportHandler(project.getSession());
+	public boolean removeImportedProjectAndResources(IProject project, Collection<Resource> resourcesToDelete, MManifest projectToRemove, boolean shouldDeleteResource) throws LibraryImportException {
+		Optional<Session> session = SessionUtils.getSession(project);
 		
 		boolean removed = false;
-		if(importHandler instanceof DefaultImportHandler) {
-			removed = ((DefaultImportHandler)importHandler).removeImportedProjectAndResources(project, resourcesToDelete, projectToRemove, shouldDeleteResource);
-		}
-		else {
-			removed = importHandler.removeImportedProjectAndResources(project, resourcesToDelete, projectToRemove);
-		}
-		
-		if (removed == true) {
-			// Remove the manifest from the imported manifests
-			new ManifestServices().removeImportedManifestFromSession(project.getSession(), projectToRemove);
+		if(session.isPresent()) {
+			AbstractImportHandler importHandler = ImportHandlerFactory.getInstance().getImportHandler(session.get());
+			
+			if(importHandler instanceof DefaultImportHandler) {
+				removed = ((DefaultImportHandler)importHandler).removeImportedProjectAndResources(project, resourcesToDelete, projectToRemove, shouldDeleteResource);
+			}
+			else {
+				removed = importHandler.removeImportedProjectAndResources(project, resourcesToDelete, projectToRemove);
+			}
+			
+			if (removed == true) {
+				// Remove the manifest from the imported manifests
+				new ManifestServices().removeImportedManifestFromSession(session.get(), projectToRemove);
+			}
 		}
 		
 		return removed;
@@ -220,13 +226,18 @@ public class ProjectLibraryUtils {
 	
 	/**
 	 * Returns the list of resources corresponding to a previously imported project
-	 * @param session
+	 * @param modelingProject
 	 * @param projectToRemove
 	 * @return
 	 */
-	public Collection<Resource> getResourcesFromManifest(ModelingProject modelingProject, MManifest projectToRemove) {
-		AbstractImportHandler importHandler = ImportHandlerFactory.getInstance().getImportHandler(modelingProject.getSession());
-		return importHandler.getResourcesForImportedProject(modelingProject, projectToRemove);
+	public Collection<Resource> getResourcesFromManifest(IProject modelingProject, MManifest projectToRemove) {
+		Optional<Session> session = SessionUtils.getSession(modelingProject);
+		if(session.isPresent()) {
+			AbstractImportHandler importHandler = ImportHandlerFactory.getInstance().getImportHandler(session.get());
+			return importHandler.getResourcesForImportedProject(modelingProject, projectToRemove);
+		}
+		
+		return new ArrayList<>();
 	}
 	
 	/**
@@ -236,9 +247,9 @@ public class ProjectLibraryUtils {
 	 * @param projectToRemove
 	 * @return
 	 */
-	public Collection<Resource> getResourcesFromWsManifest(ModelingProject modelingProject, MManifest projectToRemove) {
-		DefaultImportHandler importHandler = (DefaultImportHandler) ImportHandlerFactory.getInstance().getImportHandler(modelingProject.getSession());
-		return importHandler.getResourcesForImportedWsProject(modelingProject, projectToRemove);
+	public Collection<Resource> getResourcesFromWsManifest(Session session, MManifest projectToRemove) {
+		DefaultImportHandler importHandler = (DefaultImportHandler) ImportHandlerFactory.getInstance().getImportHandler(session);
+		return importHandler.getResourcesForImportedWsProject(session, projectToRemove);
 	}
 	
 	/**

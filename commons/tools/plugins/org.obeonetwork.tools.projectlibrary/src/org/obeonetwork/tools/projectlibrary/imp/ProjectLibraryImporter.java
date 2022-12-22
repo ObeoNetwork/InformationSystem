@@ -40,6 +40,7 @@ import org.eclipse.sirius.business.api.helper.SiriusResourceHelper;
 import org.eclipse.sirius.business.api.modelingproject.ModelingProject;
 import org.eclipse.sirius.business.api.query.ViewpointQuery;
 import org.eclipse.sirius.business.api.session.Session;
+import org.eclipse.sirius.business.api.session.SessionManager;
 import org.eclipse.sirius.business.api.session.SessionStatus;
 import org.eclipse.sirius.business.api.session.ViewpointSelector;
 import org.eclipse.sirius.business.api.session.danalysis.DAnalysisSession;
@@ -108,7 +109,14 @@ public class ProjectLibraryImporter {
 		this.targetProject = targetProject;
 		this.confirmationRunnable = confirmationRunnable;
 		
-		SubMonitor subMonitor = SubMonitor.convert(monitor, 11);
+		SubMonitor subMonitor = SubMonitor.convert(monitor, 14);
+		
+		// Make sure target Session is loaded
+		if(targetProject.getSession() == null) {
+			final Option<URI> optionalUri = targetProject.getMainRepresentationsFileURI(subMonitor.newChild(1));
+			Session session = SessionManager.INSTANCE.getSession(optionalUri.get(), subMonitor.newChild(1));
+			session.open(subMonitor.newChild(1));
+		}
 		
 		Manifest importedManifest = null;
 		try {
@@ -145,12 +153,11 @@ public class ProjectLibraryImporter {
 		}
 		
 		// First, let's create a temporary modeling project
-		ModelingProject sourceProject = createTempModelingProjectFromMAR(marFile, subMonitor.newChild(1));
+		IProject sourceProject = createTempProjectFromMAR(marFile, subMonitor.newChild(1));
 
 		// Create ImportData used to do the import
-		importData = new ImportData(libraryProjectName, sourceProject, targetProject);
+		importData = new ImportData(libraryProjectName, sourceProject, targetProject.getProject());
 		importData.setImportHandler(getImportHandler());
-		sourceProject.getSession().addListener(importData);
 		
 		if(forceImportManifest) {
 			// Save imported manifest into AIRD for future references
@@ -164,7 +171,7 @@ public class ProjectLibraryImporter {
 		if (previousVersion != null) {
 			Collection<Resource> resourcesToDelete = new ArrayList<>();
 			if(forceImportManifest) {
-				resourcesToDelete = projectLibraryUtils.getResourcesFromWsManifest(importData.getTargetProject(), previousVersion);
+				resourcesToDelete = projectLibraryUtils.getResourcesFromWsManifest(importData.getTargetSession(), previousVersion);
 			}
 			else {
 				resourcesToDelete = projectLibraryUtils.getResourcesFromManifest(importData.getTargetProject(), previousVersion);
@@ -227,7 +234,8 @@ public class ProjectLibraryImporter {
 		
 		// Finally, remove temp project
 		try {
-			sourceProject.getProject().delete(true, subMonitor.newChild(1));
+			importData.getSourceSession().close(new NullProgressMonitor());
+			sourceProject.delete(true, subMonitor.newChild(1));
 		} catch (CoreException e) {
 			// Do nothing
 		}
@@ -280,10 +288,6 @@ public class ProjectLibraryImporter {
 				targetGraphicalResources.add(copiedResource);
 			}
 		}
-
-		// Save new resources
-		saveResources(targetSemanticResources);
-		saveResources(targetGraphicalResources);
 		
 		// Add semantic resources to session
 		for (Resource targetResource : targetSemanticResources) {
@@ -296,18 +300,6 @@ public class ProjectLibraryImporter {
 		importData.getTargetSession().save(new NullProgressMonitor());
 	}
 	
-	private void saveResources(Collection<Resource> resources) {
-		for (Resource resource : resources) {
-			try {
-				resource.save(null);
-			} catch (IOException e) {
-				// Do nothing
-			} catch (Exception e2) {
-				// Do nothing
-			}
-		}
-	}
-
 	private void addReferencedAnalysis() {
 		// Get main analysis
 		Session sourceSession = importData.getSourceSession();
@@ -339,9 +331,8 @@ public class ProjectLibraryImporter {
 		
 	}
 	
-	private ModelingProject createTempModelingProjectFromMAR(File marFile, IProgressMonitor monitor) {
+	private IProject createTempProjectFromMAR(File marFile, IProgressMonitor monitor) {
 		SubMonitor subMonitor = SubMonitor.convert(monitor, 1);
-		ModelingProject project = null;
 		
 		final String projectName = getTempProjectName();
 		
@@ -377,9 +368,6 @@ public class ProjectLibraryImporter {
 						// Open project
 						monitor.subTask(Messages.ModelingProjectManagerImpl_openProjectTask);
 						project.getProject().open(subMonitor.newChild(1));
-						
-						// Convert to modeling project
-						ModelingProjectManager.INSTANCE.convertToModelingProject(project, subMonitor.newChild(1));
                     }
                 } catch (IOException e) {
 					// Do nothing
@@ -395,10 +383,7 @@ public class ProjectLibraryImporter {
 		}
 		
         IProject iProject = ResourcesPlugin.getWorkspace().getRoot().getProject(projectName);
-        if (iProject != null) {
-        	project = ModelingProject.asModelingProject(iProject).get();
-        }
-		return project;
+        return iProject;
 	}
 	
 	private void saveAndCloseEditorsOnTargetProject(Session session, IProgressMonitor parentMonitor) throws CoreException {

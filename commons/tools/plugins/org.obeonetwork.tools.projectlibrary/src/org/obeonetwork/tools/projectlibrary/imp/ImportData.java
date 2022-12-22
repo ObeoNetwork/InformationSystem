@@ -16,6 +16,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import org.eclipse.core.resources.IProject;
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EObject;
@@ -24,22 +25,21 @@ import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.resource.ResourceSet;
 import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.emf.ecore.util.EcoreUtil.Copier;
-import org.eclipse.sirius.business.api.modelingproject.ModelingProject;
 import org.eclipse.sirius.business.api.resource.ResourceDescriptor;
 import org.eclipse.sirius.business.api.session.Session;
-import org.eclipse.sirius.business.api.session.SessionListener;
 import org.eclipse.sirius.viewpoint.ViewpointPackage;
 import org.obeonetwork.tools.projectlibrary.extension.point.AbstractImportHandler;
+import org.obeonetwork.utils.common.SessionUtils;
 
-public class ImportData implements SessionListener {
+public class ImportData {
 	private static final String SIRIUS_ENVIRONMENT_SCHEME = "environment";
 	
 	private String libraryProjectName;
 	
 	private AbstractImportHandler importHandler;
 	
-	private ModelingProject sourceProject;
-	private ModelingProject targetProject;
+	private IProject sourceProject;
+	private IProject targetProject;
 	
 	private Session sourceSession;
 	private Session targetSession;
@@ -53,12 +53,12 @@ public class ImportData implements SessionListener {
 	private Map<EObject, EObject> sourceToCopyMap = null;
 	private Map<EObject, EObject> copyToSourceMap = null;
 	
-	public ImportData(String libraryProjectName, ModelingProject sourceProject, ModelingProject targetProject) {
+	public ImportData(String libraryProjectName, IProject sourceProject, IProject targetProject) {
 		this.libraryProjectName = libraryProjectName;
 		this.sourceProject = sourceProject;
-		this.sourceSession = sourceProject.getSession();
 		this.targetProject = targetProject;
-		this.targetSession = targetProject.getSession();
+		this.sourceSession = SessionUtils.getSession(sourceProject).orElseGet(() -> null);
+		this.targetSession = SessionUtils.getSession(targetProject).orElseGet(() -> null);
 		
 		initializeData();
 	}
@@ -219,11 +219,11 @@ public class ImportData implements SessionListener {
 		return sourceToCopyMap.values();
 	}
 	
-	public ModelingProject getSourceProject() {
+	public IProject getSourceProject() {
 		return sourceProject;
 	}
 
-	public ModelingProject getTargetProject() {
+	public IProject getTargetProject() {
 		return targetProject;
 	}
 
@@ -245,14 +245,6 @@ public class ImportData implements SessionListener {
 
 	public void setImportHandler(AbstractImportHandler importHandler) {
 		this.importHandler = importHandler;
-	}
-	
-	@Override
-	public void notify(int changeKind) {
-		if( changeKind == REPLACED) {
-			initializeData();
-			initializeCopyElements();
-		}
 	}
 	
 }

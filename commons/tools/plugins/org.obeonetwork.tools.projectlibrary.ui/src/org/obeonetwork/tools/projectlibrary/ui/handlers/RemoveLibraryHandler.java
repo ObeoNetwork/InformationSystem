@@ -81,7 +81,7 @@ public class RemoveLibraryHandler extends AbstractHandler {
 					MManifest projectToRemove = (MManifest)selectedObject;
 					ProjectLibraryUtils util = new ProjectLibraryUtils();
 					
-					Collection<Resource> resourcesToDelete = util.getResourcesFromManifest(modelingProject, projectToRemove);
+					Collection<Resource> resourcesToDelete = util.getResourcesFromManifest(modelingProject.getProject(), projectToRemove);
 					Collection<Setting> externalRefs = util.getExternalReferences(modelingProject.getSession(), resourcesToDelete);
 					boolean confirm = false;
 					if (!externalRefs.isEmpty()) {
@@ -93,7 +93,7 @@ public class RemoveLibraryHandler extends AbstractHandler {
 					if (confirm == true) {
 						// Remove the resources and the imported manifest
 						try {
-							util.removeImportedProjectAndResources(modelingProject, resourcesToDelete, projectToRemove, true);
+							util.removeImportedProjectAndResources(modelingProject.getProject(), resourcesToDelete, projectToRemove, true);
 						} catch (LibraryImportException e) {
 							MessageDialog.openError(shell, "Remove project library", e.getMessage());
 						}
