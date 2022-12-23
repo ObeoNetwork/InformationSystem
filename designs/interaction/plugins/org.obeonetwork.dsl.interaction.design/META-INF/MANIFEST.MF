@@ -1,7 +1,7 @@
 Manifest-Version: 1.0
 Bundle-Name: Interaction Designer
 Bundle-SymbolicName: org.obeonetwork.dsl.interaction.design;singleton=true
-Bundle-Version: 3.2.0.qualifier
+Bundle-Version: 4.0.0.qualifier
 Bundle-Activator: org.obeonetwork.dsl.interaction.design.Activator
 Require-Bundle: org.eclipse.ui,
  org.eclipse.core.runtime,

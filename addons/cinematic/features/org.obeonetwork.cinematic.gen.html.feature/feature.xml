@@ -13,10 +13,10 @@
 <feature
       id="org.obeonetwork.cinematic.gen.html.feature"
       label="Obeo Network - Cinematic HTML Generator"
-      version="3.2.0.qualifier"
+      version="4.0.0.qualifier"
       provider-name="%providerName"
       license-feature="org.obeonetwork.is.license"
-      license-feature-version="3.2.0.qualifier">
+      license-feature-version="4.0.0.qualifier">
 
    <description url="https://www.obeo.fr">
       Obeo Network Cinematic HTML Generator - Generates a web site from a cinematic model.

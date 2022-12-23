@@ -57,7 +57,7 @@
       <unit id="org.obeonetwork.tools.migration.feature.feature.group" version="0.0.0"/>
       <unit id="org.obeonetwork.tools.projectlibrary.feature.feature.group" version="0.0.0"/>
       <unit id="org.obeonetwork.utils.feature.feature.group" version="0.0.0"/>
-      <repository id="ISD" location="http://update.obeo.fr/integration/informationsystem/3.2.0/design/repository/"/>
+      <repository id="ISD" location="http://update.obeo.fr/integration/informationsystem/4.0.0/design/repository/"/>
     </location>
     <location includeMode="planner" includeAllPlatforms="false" includeSource="true" includeConfigurePhase="false" type="InstallableUnit">
       <unit id="org.eclipse.amalgam.explorer.contextual.sirius.feature.group" version="0.0.0"/>

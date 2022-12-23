@@ -2,7 +2,7 @@ Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: Entity Editor
 Bundle-SymbolicName: org.obeonetwork.dsl.entity.editor;singleton:=true
-Bundle-Version: 3.2.0.qualifier
+Bundle-Version: 4.0.0.qualifier
 Bundle-ClassPath: .
 Bundle-Activator: org.obeonetwork.dsl.entity.presentation.EntityEditorPlugin$Implementation
 Bundle-Vendor: Obeo Network

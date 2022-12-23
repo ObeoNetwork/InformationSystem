@@ -2,7 +2,7 @@ Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: Technical ID Edit Support
 Bundle-SymbolicName: org.obeonetwork.dsl.technicalid.edit;singleton:=true
-Bundle-Version: 3.2.0.qualifier
+Bundle-Version: 4.0.0.qualifier
 Bundle-ClassPath: .
 Bundle-Activator: org.obeonetwork.dsl.technicalid.provider.TechnicalIDEditPlugin$Implementation
 Bundle-Vendor: Obeo Network
