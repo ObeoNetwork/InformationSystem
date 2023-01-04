@@ -33,7 +33,6 @@ import org.eclipse.sirius.ext.base.Option;
 import org.eclipse.swt.widgets.Display;
 import org.eclipse.ui.IImportWizard;
 import org.eclipse.ui.IWorkbench;
-import org.eclipse.ui.PlatformUI;
 import org.obeonetwork.tools.projectlibrary.imp.IConfirmationRunnable;
 import org.obeonetwork.tools.projectlibrary.imp.LibraryImportException;
 import org.obeonetwork.tools.projectlibrary.imp.ProjectLibraryImporter;

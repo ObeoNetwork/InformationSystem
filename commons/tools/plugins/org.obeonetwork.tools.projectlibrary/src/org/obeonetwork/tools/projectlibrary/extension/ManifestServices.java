@@ -23,6 +23,7 @@ import java.util.jar.JarFile;
 import java.util.jar.Manifest;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
+import java.util.stream.Collectors;
 
 import org.eclipse.emf.common.command.Command;
 import org.eclipse.emf.common.util.URI;
@@ -82,7 +83,9 @@ public class ManifestServices {
 				// Do nothing, date format is invalid
 			}			
 		}
-		manifestModel.setComment(manifest.getMainAttributes().getValue(new Attributes.Name(MANIFEST_KEY_EXPORT_COMMENT)));
+		String comment = manifest.getMainAttributes().getValue(new Attributes.Name(MANIFEST_KEY_EXPORT_COMMENT));
+		comment = comment.replaceAll("\\\\r\\\\n", "\n");
+		manifestModel.setComment(comment);
 		try {
 			manifestModel.setVersion(manifest.getMainAttributes().getValue(new Attributes.Name(MANIFEST_KEY_EXPORT_VERSION)));
 		} catch (BadVersionStringException e) {
@@ -118,7 +121,9 @@ public class ManifestServices {
 		manifest.getMainAttributes().put(new Attributes.Name(MANIFEST_KEY_PROJECT_ID), manifestModel.getProjectId());
 		manifest.getMainAttributes().put(new Attributes.Name(MANIFEST_KEY_EXPORT_VERSION), manifestModel.getVersion());
 		manifest.getMainAttributes().put(new Attributes.Name(MANIFEST_KEY_EXPORT_DATE), DATE_FORMAT.format(manifestModel.getExportDate()));
-		manifest.getMainAttributes().put(new Attributes.Name(MANIFEST_KEY_EXPORT_COMMENT), manifestModel.getComment());
+		String comment = manifestModel.getComment();
+		comment = comment.lines().collect(Collectors.joining("\\r\\n"));
+		manifest.getMainAttributes().put(new Attributes.Name(MANIFEST_KEY_EXPORT_COMMENT), comment);
 		
 		String dependencies = "";
 		for (MManifest requiredManifest : manifestModel.getDependencies()) {
