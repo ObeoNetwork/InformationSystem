@@ -15,9 +15,7 @@ import static org.obeonetwork.utils.common.StringUtils.isNullOrWhite;
 import java.beans.PropertyChangeEvent;
 import java.beans.PropertyChangeListener;
 import java.io.File;
-import java.util.Collection;
 import java.util.HashSet;
-import java.util.List;
 import java.util.Set;
 
 import org.eclipse.core.databinding.DataBindingContext;
@@ -27,14 +25,12 @@ import org.eclipse.core.databinding.observable.list.IObservableList;
 import org.eclipse.core.databinding.observable.map.IObservableMap;
 import org.eclipse.core.databinding.observable.set.IObservableSet;
 import org.eclipse.core.databinding.observable.value.IObservableValue;
-import org.eclipse.emf.ecore.EStructuralFeature.Setting;
 import org.eclipse.jface.databinding.swt.WidgetProperties;
 import org.eclipse.jface.databinding.viewers.ObservableListContentProvider;
 import org.eclipse.jface.databinding.viewers.ObservableMapLabelProvider;
 import org.eclipse.jface.databinding.viewers.ObservableSetContentProvider;
 import org.eclipse.jface.dialogs.IMessageProvider;
 import org.eclipse.jface.layout.TableColumnLayout;
-import org.eclipse.jface.viewers.ArrayContentProvider;
 import org.eclipse.jface.viewers.CheckboxTableViewer;
 import org.eclipse.jface.viewers.ColumnWeightData;
 import org.eclipse.jface.viewers.LabelProvider;
@@ -53,7 +49,6 @@ import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Label;
 import org.eclipse.swt.widgets.Table;
 import org.eclipse.swt.widgets.TableColumn;
-import org.eclipse.swt.widgets.TableItem;
 import org.eclipse.swt.widgets.Text;
 import org.eclipse.wb.swt.ResourceManager;
 import org.obeonetwork.dsl.manifest.MManifest;
@@ -155,15 +150,17 @@ public class ExportProjectAsLibraryManifestPage extends WizardPage {
 		lblPreviousversions.setText("PreviousVersions");
 		
 		Composite compositeTbl = new Composite(composite, SWT.NONE);
-		compositeTbl.setLayoutData(new GridData(SWT.FILL, SWT.FILL, true, true, 1, 1));
+		GridData compositeTblGridData = new GridData(SWT.FILL, SWT.FILL, true, true, 1, 1);
+		compositeTbl.setLayoutData(compositeTblGridData);
 		TableColumnLayout tcl_compositeTbl = new TableColumnLayout();
 		compositeTbl.setLayout(tcl_compositeTbl);
 		
-		tableViewer = new TableViewer(compositeTbl, SWT.BORDER | SWT.FULL_SELECTION);
+		tableViewer = new TableViewer(compositeTbl, SWT.BORDER | SWT.FULL_SELECTION | SWT.V_SCROLL);
 		table = tableViewer.getTable();
 		table.setHeaderVisible(true);
 		table.setLinesVisible(true);
-		
+		compositeTblGridData.heightHint = table.getItemHeight() * 6;
+		System.out.println(compositeTblGridData.heightHint);
 		TableViewerColumn tableViewerColumnVersion = new TableViewerColumn(tableViewer, SWT.NONE);
 		TableColumn tblclmnVersion = tableViewerColumnVersion.getColumn();
 		tcl_compositeTbl.setColumnData(tblclmnVersion, new ColumnWeightData(25, ColumnWeightData.MINIMUM_WIDTH, true));
@@ -185,8 +182,10 @@ public class ExportProjectAsLibraryManifestPage extends WizardPage {
 		lblComment.setLayoutData(new GridData(SWT.RIGHT, SWT.TOP, false, false, 1, 1));
 		lblComment.setText("Comment");
 		
-		txtComment = new Text(composite, SWT.BORDER | SWT.MULTI);
-		txtComment.setLayoutData(new GridData(SWT.FILL, SWT.FILL, true, true, 1, 1));
+		txtComment = new Text(composite, SWT.BORDER | SWT.MULTI | SWT.V_SCROLL);
+		GridData txtCommentGridData = new GridData(SWT.FILL, SWT.FILL, true, false, 1, 1);
+		txtCommentGridData.heightHint = 60;
+		txtComment.setLayoutData(txtCommentGridData);
 		new Label(composite, SWT.NONE);
 		
 		// MAR Filename
@@ -219,13 +218,16 @@ public class ExportProjectAsLibraryManifestPage extends WizardPage {
 		lblUpdateReferencingProjects.setText("Update referencing projects");
 		
 		Composite compositeTbl2 = new Composite(composite, SWT.NONE);
-		compositeTbl2.setLayoutData(new GridData(SWT.FILL, SWT.FILL, true, true, 1, 1));
+		GridData compositeTbl2GridData = new GridData(SWT.FILL, SWT.FILL, true, false, 1, 1);
+		compositeTbl2.setLayoutData(compositeTbl2GridData);
 		TableColumnLayout table_layout = new TableColumnLayout();
 		compositeTbl2.setLayout(table_layout);
 		
 		updateTableViewer = CheckboxTableViewer.newCheckList(compositeTbl2, SWT.BORDER | SWT.FULL_SELECTION);
 		this.updatedProjectsTable = updateTableViewer.getTable();
+		compositeTbl2GridData.heightHint = 26 * 4;
 		
+		// 
 		scrolledComposite.setContent(composite);
 		scrolledComposite.setMinSize(composite.computeSize(SWT.DEFAULT, SWT.DEFAULT));
 		
