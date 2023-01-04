@@ -122,7 +122,7 @@ public class ManifestServices {
 		manifest.getMainAttributes().put(new Attributes.Name(MANIFEST_KEY_EXPORT_VERSION), manifestModel.getVersion());
 		manifest.getMainAttributes().put(new Attributes.Name(MANIFEST_KEY_EXPORT_DATE), DATE_FORMAT.format(manifestModel.getExportDate()));
 		String comment = manifestModel.getComment();
-		comment = comment.lines().collect(Collectors.joining("\\r\\n"));
+		comment = comment.replaceAll("\r?\n", "\\\\r\\\\n");
 		manifest.getMainAttributes().put(new Attributes.Name(MANIFEST_KEY_EXPORT_COMMENT), comment);
 		
 		String dependencies = "";
