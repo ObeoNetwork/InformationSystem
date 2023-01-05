@@ -159,7 +159,7 @@ public class ExportProjectAsLibraryManifestPage extends WizardPage {
 		table = tableViewer.getTable();
 		table.setHeaderVisible(true);
 		table.setLinesVisible(true);
-		compositeTblGridData.heightHint = table.getItemHeight() * 6;
+		compositeTblGridData.heightHint = 138;
 		System.out.println(compositeTblGridData.heightHint);
 		TableViewerColumn tableViewerColumnVersion = new TableViewerColumn(tableViewer, SWT.NONE);
 		TableColumn tblclmnVersion = tableViewerColumnVersion.getColumn();
