@@ -23,7 +23,6 @@ import java.util.jar.JarFile;
 import java.util.jar.Manifest;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
-import java.util.stream.Collectors;
 
 import org.eclipse.emf.common.command.Command;
 import org.eclipse.emf.common.util.URI;
@@ -84,6 +83,7 @@ public class ManifestServices {
 			}			
 		}
 		String comment = manifest.getMainAttributes().getValue(new Attributes.Name(MANIFEST_KEY_EXPORT_COMMENT));
+		// Replace escaped new lines by new lines
 		comment = comment.replaceAll("\\\\r\\\\n", "\n");
 		manifestModel.setComment(comment);
 		try {
@@ -122,6 +122,9 @@ public class ManifestServices {
 		manifest.getMainAttributes().put(new Attributes.Name(MANIFEST_KEY_EXPORT_VERSION), manifestModel.getVersion());
 		manifest.getMainAttributes().put(new Attributes.Name(MANIFEST_KEY_EXPORT_DATE), DATE_FORMAT.format(manifestModel.getExportDate()));
 		String comment = manifestModel.getComment();
+		// New lines are not allowed per the Jar Manifest specification
+		// (https://docs.oracle.com/javase/7/docs/technotes/guides/jar/jar.html#Manifest_Specification)
+		// Replace them with the "\\r\\n" string.
 		comment = comment.replaceAll("\r?\n", "\\\\r\\\\n");
 		manifest.getMainAttributes().put(new Attributes.Name(MANIFEST_KEY_EXPORT_COMMENT), comment);
 		
