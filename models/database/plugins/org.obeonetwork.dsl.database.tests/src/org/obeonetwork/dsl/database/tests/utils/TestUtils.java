@@ -28,6 +28,7 @@ import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.resource.ResourceSet;
 import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl;
 import org.eclipse.emf.ecore.util.EcoreUtil.EqualityHelper;
+import org.eclipse.emf.ecore.xmi.XMLResource;
 import org.obeonetwork.dsl.database.DataBase;
 import org.obeonetwork.dsl.database.DatabaseElement;
 import org.obeonetwork.dsl.database.DatabasePackage;
@@ -149,6 +150,7 @@ public final class TestUtils {
 			Map<Object, Object> options = rs.getLoadOptions();
 			options.put(DatabasePackage.eINSTANCE.getNsURI(), DatabasePackage.eINSTANCE);
 			options.put(TypesLibraryPackage.eINSTANCE.getNsURI(), TypesLibraryPackage.eINSTANCE);
+			options.put(XMLResource.OPTION_ENCODING, "UTF-8");
 			
 			resourceDatabase.save(options);
 		} catch (Exception ex) {

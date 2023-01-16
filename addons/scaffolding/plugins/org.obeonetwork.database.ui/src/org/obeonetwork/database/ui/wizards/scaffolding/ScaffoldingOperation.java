@@ -13,6 +13,8 @@ package org.obeonetwork.database.ui.wizards.scaffolding;
 import java.io.IOException;
 import java.lang.reflect.InvocationTargetException;
 import java.util.Collections;
+import java.util.HashMap;
+import java.util.Map;
 
 import org.eclipse.core.resources.IContainer;
 import org.eclipse.core.resources.IFile;
@@ -35,6 +37,7 @@ import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.resource.ResourceSet;
 import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl;
+import org.eclipse.emf.ecore.xmi.XMLResource;
 import org.eclipse.emf.transaction.RecordingCommand;
 import org.eclipse.sirius.business.api.query.AirDResouceQuery;
 import org.eclipse.sirius.business.api.query.URIQuery;
@@ -211,7 +214,9 @@ public class ScaffoldingOperation extends WorkspaceModifyOperation {
 		Resource resource = set.createResource(uri);
 		resource.getContents().add(scaffoldInfo);
 		try {
-			resource.save(Collections.emptyMap());
+			Map<Object, Object> options = new HashMap<Object, Object>();
+			options.put(XMLResource.OPTION_ENCODING, "UTF-8");
+			resource.save(options);
 		} catch (IOException e) {
 			// Do nothing
 		}

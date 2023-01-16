@@ -24,6 +24,7 @@ import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.resource.ResourceSet;
 import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl;
+import org.eclipse.emf.ecore.xmi.XMLResource;
 import org.obeonetwork.dsl.entity.Entity;
 import org.obeonetwork.dsl.environment.PrimitiveType;
 
@@ -97,7 +98,9 @@ public class ModelUtils {
 
 	public static void saveResource(Resource resource) {
 		try {
-			resource.save(Collections.emptyMap());
+			Map<Object, Object> options = new HashMap<Object, Object>();
+			options.put(XMLResource.OPTION_ENCODING, "UTF-8");
+			resource.save(options);
 		} catch (IOException e) {
 			Activator.getDefault().getLog().log(new Status(IStatus.ERROR, Activator.PLUGIN_ID, e.getMessage(), e));
 		}

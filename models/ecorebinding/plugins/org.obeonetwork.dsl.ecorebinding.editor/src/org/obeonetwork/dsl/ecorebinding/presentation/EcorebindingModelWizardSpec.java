@@ -13,6 +13,7 @@ package org.obeonetwork.dsl.ecorebinding.presentation;
 import java.io.IOException;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import org.eclipse.core.resources.IContainer;
 import org.eclipse.core.resources.IFile;
@@ -35,6 +36,7 @@ import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.resource.ResourceSet;
 import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl;
+import org.eclipse.emf.ecore.xmi.XMLResource;
 import org.obeonetwork.dsl.ecorebinding.BClass;
 import org.obeonetwork.dsl.ecorebinding.BDataType;
 import org.obeonetwork.dsl.ecorebinding.BEnum;
@@ -150,7 +152,9 @@ public class EcorebindingModelWizardSpec extends EcorebindingModelWizard {
 		
 		resource.getContents().add(ecoreBindingModel);
 		try {
-			resource.save(new HashMap<String, String>());
+			Map<Object, Object> options = new HashMap<Object, Object>();
+			options.put(XMLResource.OPTION_ENCODING, "UTF-8");
+			resource.save(options);
 		} catch (IOException e) {
 			e.printStackTrace();
 		}

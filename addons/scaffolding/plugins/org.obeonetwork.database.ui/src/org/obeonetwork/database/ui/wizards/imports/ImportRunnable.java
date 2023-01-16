@@ -12,6 +12,8 @@ package org.obeonetwork.database.ui.wizards.imports;
 
 import java.io.IOException;
 import java.lang.reflect.InvocationTargetException;
+import java.util.HashMap;
+import java.util.Map;
 
 import org.eclipse.core.resources.ResourcesPlugin;
 import org.eclipse.core.runtime.CoreException;
@@ -22,6 +24,7 @@ import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.resource.ResourceSet;
 import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl;
+import org.eclipse.emf.ecore.xmi.XMLResource;
 import org.eclipse.ui.actions.WorkspaceModifyOperation;
 import org.obeonetwork.dsl.database.DataBase;
 import org.obeonetwork.dsl.database.reverse.DatabaseReverser;
@@ -93,7 +96,9 @@ public class ImportRunnable extends WorkspaceModifyOperation {
 		Resource resource = set.createResource(URI.createPlatformResourceURI(filename, true));
 		((DatabaseResourceImpl)resource).setEncoding(ResourcesPlugin.getEncoding());
 		resource.getContents().add(database);
-		resource.save(null);
+		Map<Object, Object> options = new HashMap<Object, Object>();
+		options.put(XMLResource.OPTION_ENCODING, "UTF-8");
+		resource.save(options);
 	}
 	
 	public boolean getResult() {

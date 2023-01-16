@@ -234,7 +234,7 @@ public abstract class OverviewModelWizard extends Wizard implements INewWizard {
 							// Save the contents of the resource to the file system.
 							//
 							Map<Object, Object> options = new HashMap<Object, Object>();
-							options.put(XMLResource.OPTION_ENCODING, "UTF-8"/*initialObjectCreationPage.getEncoding()*/);
+							options.put(XMLResource.OPTION_ENCODING, "UTF-8");
 							resource.save(options);
 						}
 						catch (Exception exception) {
