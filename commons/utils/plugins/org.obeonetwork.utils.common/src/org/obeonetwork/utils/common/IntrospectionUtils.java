@@ -33,7 +33,7 @@ public class IntrospectionUtils {
 		return fieldValue;
 	}
 
-	private static Field getField(Class<? extends Object> clazz, String fieldName) {
+	public static Field getField(Class<? extends Object> clazz, String fieldName) {
 		Field field = getDeclaredFieldSafe(clazz,fieldName);
 		while(field == null && clazz != null) {
 			clazz = clazz.getSuperclass();
