@@ -10,7 +10,7 @@ info:
     
     **Disclaimer:** As basic authentication is enabled for the administration server, the _Authorization_ header must be added in all requests with the base64 encoded credentials.
   license:
-    name: Copyright (c) 2008, 2022 Obeo.
+    name: Copyright (c) 2008, 2023 Obeo.
     url: /doc/license.html
   version: 1.0.0
   contact:
