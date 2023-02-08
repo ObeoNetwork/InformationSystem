@@ -62,7 +62,7 @@ location Amalgam "https://download.eclipse.org/modeling/amalgam/updates/stable/1
 	org.eclipse.amalgam.discovery.feature.group lazy
 }
 
-location M2Doc "https://s3-eu-west-1.amazonaws.com/obeo-m2doc-releases/3.2.1/repository/" {
+location M2Doc "https://s3-eu-west-1.amazonaws.com/obeo-m2doc-releases/3.2.2/repository/" {
 	org.apache.poi.feature.feature.group lazy
 	org.obeonetwork.m2doc.feature.feature.group lazy
 	org.obeonetwork.m2doc.sirius.feature.feature.group lazy
@@ -167,7 +167,7 @@ location Eclipse-Oxygen "http://download.eclipse.org/releases/oxygen/" {
 	org.eclipse.team.svn.nl1.feature.group lazy
 }
 
-location "https://community.polarion.com/projects/subversive/download/eclipse/6.0/update-site/" {
+location "http://community.polarion.com/projects/subversive/download/eclipse/6.0/update-site/" {
 	org.polarion.eclipse.team.svn.connector.feature.group lazy
 	org.polarion.eclipse.team.svn.connector.svnkit18.feature.group lazy
 }

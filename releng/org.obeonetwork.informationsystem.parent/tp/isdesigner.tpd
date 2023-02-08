@@ -36,7 +36,7 @@ location Amalgam "https://download.eclipse.org/modeling/amalgam/updates/stable/1
 	org.eclipse.amalgam.explorer.contextual.feature.group lazy
 }
 
-location Orbit "https://download.eclipse.org/tools/orbit/downloads/drops/R20200529191137/repository/" {
+location Orbit "https://download.eclipse.org/tools/orbit/downloads/drops/R20210602031627/repository/" {
 	org.junit lazy
 	org.slf4j.api lazy
 	org.mockito lazy
@@ -51,7 +51,7 @@ location Oxygen "https://download.eclipse.org/releases/oxygen/" {
 	org.eclipse.team.svn.feature.group lazy
 }
 
-location M2Doc "https://s3-eu-west-1.amazonaws.com/obeo-m2doc-releases/master/nightly/repository" {
+location M2Doc "https://s3-eu-west-1.amazonaws.com/obeo-m2doc-releases/3.2.2/repository/" {
 	org.obeonetwork.m2doc.feature.feature.jar lazy
 	org.apache.poi.feature.feature.group
 	org.obeonetwork.m2doc.cdo.feature.feature.group lazy
