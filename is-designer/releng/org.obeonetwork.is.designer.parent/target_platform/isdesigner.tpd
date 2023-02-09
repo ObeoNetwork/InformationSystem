@@ -167,7 +167,7 @@ location Eclipse-Oxygen "http://download.eclipse.org/releases/oxygen/" {
 	org.eclipse.team.svn.nl1.feature.group lazy
 }
 
-location "http://community.polarion.com/projects/subversive/download/eclipse/6.0/update-site/" {
+location "https://community.polarion.com/projects/subversive/download/eclipse/6.0/update-site/" {
 	org.polarion.eclipse.team.svn.connector.feature.group lazy
 	org.polarion.eclipse.team.svn.connector.svnkit18.feature.group lazy
 }

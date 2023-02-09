@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <?pde?>
 <!-- generated with https://github.com/eclipse-cbi/targetplatform-dsl -->
-<target name="IS Designer Product Target Definition" sequenceNumber="1675866796">
+<target name="IS Designer Product Target Definition" sequenceNumber="1675937283">
   <locations>
     <location includeMode="planner" includeAllPlatforms="false" includeSource="true" includeConfigurePhase="false" type="InstallableUnit">
       <unit id="org.obeonetwork.cinematic.gen.html.feature.feature.group" version="0.0.0"/>
@@ -168,7 +168,7 @@
     <location includeMode="planner" includeAllPlatforms="false" includeSource="true" includeConfigurePhase="false" type="InstallableUnit">
       <unit id="org.polarion.eclipse.team.svn.connector.feature.group" version="0.0.0"/>
       <unit id="org.polarion.eclipse.team.svn.connector.svnkit18.feature.group" version="0.0.0"/>
-      <repository location="http://community.polarion.com/projects/subversive/download/eclipse/6.0/update-site/"/>
+      <repository location="https://community.polarion.com/projects/subversive/download/eclipse/6.0/update-site/"/>
     </location>
   </locations>
 </target>
