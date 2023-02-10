@@ -1,25 +1,24 @@
 target "IS Designer Repository Target Definition" with source, requirements
 
 location Obeo-Designer-Community "http://update.obeo.fr/release/designer/11.7/community/latest/repository/" {
-	org.eclipse.eef.sdk.feature.feature.group
-	org.eclipse.sirius.properties.feature.feature.group lazy
-	org.eclipse.sirius.runtime.ide.eef.feature.group lazy
+	com.google.guava lazy
 	fr.obeo.dsl.designer.ce.feature.feature.group lazy
-	org.eclipse.sirius.runtime.ide.ui.feature.group lazy
-	org.eclipse.sirius.specifier.ide.ui.feature.group lazy
+	org.eclipse.acceleo.feature.group lazy
+	org.eclipse.acceleo.query.feature.group lazy
+	org.eclipse.eef.ext.widgets.reference.feature.feature.group lazy
+	org.eclipse.eef.sdk.feature.feature.group
+	org.eclipse.emf.compare.ide.ui.feature.group lazy
+	org.eclipse.emf.eef.runtime-feature.feature.group lazy // Really?
+	org.eclipse.sirius.properties.feature.feature.group lazy
 	org.eclipse.sirius.runtime.acceleo.feature.group lazy
 	org.eclipse.sirius.runtime.feature.group lazy
-	org.eclipse.eef.ext.widgets.reference.feature.feature.group lazy
-	org.eclipse.emf.eef.runtime-feature.feature.group lazy // Really?
-	org.eclipse.sirius.tests.support.feature.group lazy
+	org.eclipse.sirius.runtime.ide.eef.feature.group lazy
 	org.eclipse.sirius.runtime.ide.ui.acceleo.feature.group lazy
+	org.eclipse.sirius.runtime.ide.ui.feature.group lazy
 	org.eclipse.sirius.runtime.ocl.feature.group lazy
 	org.eclipse.sirius.specifier.ide.ui.acceleo.feature.group lazy
-	org.eclipse.emf.compare.ide.ui.feature.group lazy
-	org.eclipse.acceleo.query.feature.group lazy
-	org.eclipse.acceleo.feature.group lazy
-	
-	com.google.guava lazy
+	org.eclipse.sirius.specifier.ide.ui.feature.group lazy
+	org.eclipse.sirius.tests.support.feature.group lazy
 }
 
 
@@ -29,11 +28,11 @@ location Obeo-Designer-Team "http://update.obeo.fr/release/designer/11.7/team/la
 }
 
 location Amalgam "https://download.eclipse.org/modeling/amalgam/updates/stable/1.11.0-S20190729/capella/" {
-	org.eclipse.amalgam.explorer.activity.feature.group lazy
 	org.eclipse.amalgam.discovery.feature.group lazy
-	org.eclipse.amalgam.explorer.contextual.sirius.feature.group lazy
+	org.eclipse.amalgam.explorer.activity.feature.group lazy
 	org.eclipse.amalgam.explorer.contextual.core.feature.group lazy
 	org.eclipse.amalgam.explorer.contextual.feature.group lazy
+	org.eclipse.amalgam.explorer.contextual.sirius.feature.group lazy
 }
 
 location Orbit "https://download.eclipse.org/tools/orbit/downloads/drops/R20210602031627/repository/" {

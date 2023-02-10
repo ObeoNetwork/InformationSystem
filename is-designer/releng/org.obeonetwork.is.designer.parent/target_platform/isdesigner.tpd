@@ -1,16 +1,165 @@
 target "IS Designer Product Target Definition" with source, requirements
 
+location Eclipse "http://download.eclipse.org/releases/2021-06/" {
+	org.eclipse.core.runtime.feature.feature.group lazy
+	org.eclipse.ecf.core.feature.feature.group lazy
+	org.eclipse.equinox.executable.feature.group lazy
+	org.eclipse.equinox.p2.discovery.feature.feature.group lazy
+	org.eclipse.mylyn.commons.feature.group lazy
+	org.eclipse.mylyn.context_feature.feature.group lazy
+	org.eclipse.mylyn.ide_feature.feature.group lazy
+	org.eclipse.mylyn.monitor.feature.group lazy
+	org.eclipse.mylyn.tasks.ide.feature.group lazy
+	org.eclipse.mylyn.team_feature.feature.group lazy
+	org.eclipse.mylyn_feature.feature.group lazy
+	org.eclipse.oomph.setup.sdk.feature.group lazy
+	org.eclipse.platform.sdk lazy
+}
+
+location Obeo-Designer-Community "http://update.obeo.fr/release/designer/11.7/community/latest/repository/" {
+	com.google.guava lazy
+	com.google.inject lazy
+	com.ibm.icu lazy
+	jakarta.servlet-api lazy
+	org.antlr.runtime lazy
+	org.apache.commons.io lazy
+	org.apache.log4j lazy
+	org.apache.xalan lazy
+	org.easymock lazy
+	org.eclipse.acceleo.feature.group lazy
+	org.eclipse.acceleo.ide.ui lazy
+	org.eclipse.acceleo.ide.ui.source lazy
+	org.eclipse.acceleo.query.feature.group lazy
+	org.eclipse.acceleo.source.feature.group lazy
+	org.eclipse.draw2d.sdk.feature.group lazy
+	org.eclipse.eef.ext.widgets.reference.feature.feature.group lazy
+	org.eclipse.eef.ext.widgets.reference.feature.source.feature.group lazy
+	org.eclipse.eef.sdk.feature.feature.group lazy
+	org.eclipse.eef.sdk.feature.source.feature.group lazy
+	org.eclipse.egit.feature.group lazy
+	org.eclipse.emf.common.feature.group lazy
+	org.eclipse.emf.compare.diagram.sirius.feature.group lazy
+	org.eclipse.emf.compare.diagram.sirius.source.feature.group lazy
+	org.eclipse.emf.compare.egit.feature.group lazy
+	org.eclipse.emf.compare.feature.group lazy
+	org.eclipse.emf.compare.ide.ui.source.feature.group lazy
+	org.eclipse.emf.compare.source.feature.group lazy
+	org.eclipse.emf.ecore.feature.group lazy
+	org.eclipse.emf.ecoretools.sdk.feature.group lazy
+	org.eclipse.emf.edit.feature.group lazy
+	org.eclipse.emf.eef.runtime lazy
+	org.eclipse.emf.eef.runtime-feature.feature.group lazy
+	org.eclipse.emf.eef.sdk-feature.feature.group lazy
+	org.eclipse.emf.feature.group lazy
+	org.eclipse.emf.sdk.feature.group lazy
+	org.eclipse.emf.transaction.feature.group lazy
+	org.eclipse.emf.transaction.sdk.feature.group lazy
+	org.eclipse.emf.validation.sdk.feature.group lazy
+	org.eclipse.emf.workspace.feature.group lazy
+	org.eclipse.epp.mpc.feature.group lazy
+	org.eclipse.equinox.http.jetty lazy
+	org.eclipse.equinox.http.registry lazy
+	org.eclipse.equinox.http.servlet lazy
+	org.eclipse.gef.feature.group lazy
+	org.eclipse.gef.sdk.feature.group lazy
+	org.eclipse.gmf.runtime.notation.sdk.feature.group lazy
+	org.eclipse.gmf.runtime.sdk.feature.group lazy
+	org.eclipse.gmf.runtime.thirdparty.feature.group lazy
+	org.eclipse.jdt.source.feature.group lazy
+	org.eclipse.jetty.http lazy
+	org.eclipse.jetty.io lazy
+	org.eclipse.jetty.security lazy
+	org.eclipse.jetty.server lazy
+	org.eclipse.jetty.servlet lazy
+	org.eclipse.jetty.util lazy
+	org.eclipse.jgit.feature.group lazy
+	org.eclipse.ocl.all.feature.group lazy
+	org.eclipse.ocl.core.sdk.feature.group lazy
+	org.eclipse.osgi.services lazy
+	org.eclipse.platform lazy
+	org.eclipse.platform.feature.group lazy
+	org.eclipse.sdk.feature.group lazy
+	org.eclipse.sirius.diagram.elk.feature.feature.group lazy
+	org.eclipse.sirius.diagram.elk.feature.source.feature.group lazy
+	org.eclipse.sirius.diagram.elk.sdk.feature.feature.group lazy
+	org.eclipse.sirius.diagram.elk.sdk.feature.source.feature.group lazy
+	org.eclipse.sirius.doc.feature.feature.group lazy
+	org.eclipse.sirius.interpreter.feature.feature.group lazy
+	org.eclipse.sirius.interpreter.feature.source.feature.group lazy
+	org.eclipse.sirius.model.feature.feature.group lazy
+	org.eclipse.sirius.properties.feature.feature.group lazy
+	org.eclipse.sirius.properties.feature.source.feature.group lazy
+	org.eclipse.sirius.runtime.acceleo.source.feature.group lazy
+	org.eclipse.sirius.runtime.aql.source.feature.group lazy
+	org.eclipse.sirius.runtime.ide.eef.source.feature.group lazy
+	org.eclipse.sirius.runtime.ide.ui.acceleo.source.feature.group lazy
+	org.eclipse.sirius.runtime.ide.ui.source.feature.group lazy
+	org.eclipse.sirius.runtime.ide.xtext.source.feature.group lazy
+	org.eclipse.sirius.runtime.ocl.source.feature.group lazy
+	org.eclipse.sirius.runtime.source.feature.group lazy
+	org.eclipse.sirius.sample.ecore.design.source lazy
+	org.eclipse.sirius.sample.interactions.design.source lazy
+	org.eclipse.sirius.sample.interactions.edit.source lazy
+	org.eclipse.sirius.sample.interactions.editor.source lazy
+	org.eclipse.sirius.sample.interactions.source lazy
+	org.eclipse.sirius.specifier.ide.ui.acceleo.source.feature.group lazy
+	org.eclipse.sirius.specifier.ide.ui.aql.source.feature.group lazy
+	org.eclipse.sirius.specifier.ide.ui.source.feature.group lazy
+	org.eclipse.sirius.specifier.properties.feature.feature.group lazy
+	org.eclipse.sirius.specifier.properties.feature.source.feature.group lazy
+	org.eclipse.sirius.tests.junit.source lazy
+	org.eclipse.sirius.tests.sample.benchmark.source lazy
+	org.eclipse.sirius.tests.sample.component.design.source lazy
+	org.eclipse.sirius.tests.sample.component.source lazy
+	org.eclipse.sirius.tests.sample.docbook.design.source lazy
+	org.eclipse.sirius.tests.sample.docbook.source lazy
+	org.eclipse.sirius.tests.sample.migration.design.source lazy
+	org.eclipse.sirius.tests.sample.migration.source lazy
+	org.eclipse.sirius.tests.sample.scxml.design.source lazy
+	org.eclipse.sirius.tests.sample.scxml.source lazy
+	org.eclipse.sirius.tests.source.feature.group lazy
+	org.eclipse.sirius.tests.support.source.feature.group lazy
+	org.eclipse.sirius.tests.swtbot.source lazy
+	org.eclipse.sirius.tests.tree.source lazy
+	org.eclipse.swt lazy
+	org.eclipse.swtbot.ide.feature.group lazy
+	org.eclipse.uml2.sdk.feature.group lazy
+	org.eclipse.xtext.sdk.feature.group lazy
+	org.hamcrest.core lazy
+	org.hamcrest.library lazy
+	org.junit lazy
+	org.objectweb.asm lazy
+	org.objectweb.asm.tree lazy
+	org.slf4j.api lazy
+	org.eclipse.emf.compare.rcp lazy
+	org.eclipse.emf.compare.rcp.ui lazy
+    org.eclipse.sirius.runtime.acceleo.feature.group lazy
+    org.eclipse.sirius.runtime.aql.feature.group lazy
+    org.eclipse.sirius.runtime.feature.group lazy
+    org.eclipse.sirius.runtime.ide.eef.feature.group lazy
+    org.eclipse.sirius.runtime.ide.ui.acceleo.feature.group lazy
+    org.eclipse.sirius.runtime.ide.ui.feature.group lazy
+    org.eclipse.sirius.runtime.ide.xtext.feature.group lazy
+    org.eclipse.sirius.runtime.ocl.feature.group lazy
+    org.eclipse.sirius.samples.feature.group lazy
+    org.eclipse.sirius.specifier.ide.ui.acceleo.feature.group lazy
+    org.eclipse.sirius.specifier.ide.ui.aql.feature.group lazy
+    org.eclipse.sirius.specifier.ide.ui.feature.group lazy
+    org.eclipse.sirius.tests.support.feature.group lazy
+}
+
+location Obeo-Designer-Team "http://update.obeo.fr/release/designer/11.7/team/latest/repository/" {
+	fr.obeo.dsl.viewpoint.collab lazy
+}
+
 location ISD "http://update.obeo.fr/integration/informationsystem/4.0.0/design/repository/" {
-	org.obeonetwork.cinematic.gen.html.feature.feature.group lazy
-	org.obeonetwork.database.scaffold.feature.feature.group lazy
-	org.obeonetwork.database.ui.feature.feature.group lazy
-	org.obeonetwork.feature.is.feature.group lazy
-	org.obeonetwork.graal.extensions.feature.feature.group lazy
-	org.obeonetwork.project.lifecycle.feature.feature.group lazy
 	liquibase.feature.feature.group lazy
 	org.eclipse.nebula.treemapper.feature.feature.group lazy
+	org.obeonetwork.cinematic.gen.html.feature.feature.group lazy
 	org.obeonetwork.cinematic.m2doc.feature.feature.group lazy
 	org.obeonetwork.database.m2doc.feature.feature.group lazy
+	org.obeonetwork.database.scaffold.feature.feature.group lazy
+	org.obeonetwork.database.ui.feature.feature.group lazy
 	org.obeonetwork.dsl.cinematic.design.feature.feature.group lazy
 	org.obeonetwork.dsl.database.design.feature.feature.group lazy
 	org.obeonetwork.dsl.database.feature.feature.group lazy
@@ -44,22 +193,19 @@ location ISD "http://update.obeo.fr/integration/informationsystem/4.0.0/design/r
 	org.obeonetwork.dsl.soa.m2doc.feature.feature.group lazy
 	org.obeonetwork.dsl.statemachine.design.feature.feature.group lazy
 	org.obeonetwork.dsl.typelibrary.feature.feature.group lazy
+	org.obeonetwork.feature.is.feature.group lazy
 	org.obeonetwork.graal.design.feature.feature.group lazy
+	org.obeonetwork.graal.extensions.feature.feature.group lazy
 	org.obeonetwork.graal.feature.feature.group lazy
 	org.obeonetwork.is.license.feature.group lazy
 	org.obeonetwork.is.samples.feature.feature.group lazy
+	org.obeonetwork.project.lifecycle.feature.feature.group lazy
 	org.obeonetwork.tools.contextual.explorer.feature.feature.group lazy
 	org.obeonetwork.tools.doc.feature.feature.group lazy
 	org.obeonetwork.tools.linker.feature.feature.group lazy
 	org.obeonetwork.tools.migration.feature.feature.group lazy
 	org.obeonetwork.tools.projectlibrary.feature.feature.group lazy
 	org.obeonetwork.utils.feature.feature.group lazy
-}
-
-location Amalgam "https://download.eclipse.org/modeling/amalgam/updates/stable/1.11.0-S20190729/capella/" {
-	org.eclipse.amalgam.explorer.contextual.sirius.feature.group lazy
-	org.eclipse.amalgam.explorer.contextual.core.feature.group lazy
-	org.eclipse.amalgam.discovery.feature.group lazy
 }
 
 location M2Doc "https://s3-eu-west-1.amazonaws.com/obeo-m2doc-releases/3.2.2/repository/" {
@@ -69,93 +215,12 @@ location M2Doc "https://s3-eu-west-1.amazonaws.com/obeo-m2doc-releases/3.2.2/rep
 	org.obeonetwork.m2doc.ui.feature.feature.group lazy
 }
 
-location Obeo-Designer-Team "http://update.obeo.fr/release/designer/11.7/team/latest/repository/" {
-	fr.obeo.dsl.viewpoint.collab lazy
-}
-
-location Obeo-Designer-Community "http://update.obeo.fr/release/designer/11.7/community/latest/repository/" {
-	org.apache.log4j lazy
-	org.easymock lazy
-	org.hamcrest.core lazy
-	org.hamcrest.library lazy
-	org.junit [4.11.0,5.0.0)
-	com.ibm.icu lazy
-	org.eclipse.draw2d.sdk.feature.group lazy
-	org.eclipse.emf.common.feature.group lazy
-	org.eclipse.emf.ecore.feature.group lazy
-	org.eclipse.emf.edit.feature.group lazy
-	org.eclipse.emf.feature.group lazy
-	org.eclipse.emf.sdk.feature.group lazy
-	org.eclipse.emf.transaction.feature.group lazy
-	org.eclipse.emf.transaction.sdk.feature.group lazy
-	org.eclipse.emf.validation.sdk.feature.group lazy
-	org.eclipse.emf.workspace.feature.group lazy
-	org.eclipse.gef.feature.group lazy
-	org.eclipse.gef.sdk.feature.group lazy
-	org.eclipse.gmf.runtime.notation.sdk.feature.group lazy
-	org.eclipse.gmf.runtime.sdk.feature.group lazy
-	org.eclipse.ocl.all.feature.group lazy
-	org.eclipse.ocl.core.sdk.feature.group lazy
-	org.eclipse.platform.feature.group lazy
-	org.eclipse.sdk.feature.group lazy
-	org.eclipse.xtext.sdk.feature.group lazy
-	org.eclipse.jdt.source.feature.group lazy
-	org.eclipse.egit.feature.group lazy
-	org.eclipse.jgit.feature.group lazy
-	org.eclipse.uml2.sdk.feature.group lazy
-	org.eclipse.epp.mpc.feature.group lazy
-	// EMF Compare
-	org.eclipse.emf.compare.feature.group lazy
-	org.eclipse.emf.compare.source.feature.group lazy
-	org.eclipse.emf.compare.diagram.sirius.feature.group lazy
-	org.eclipse.emf.compare.diagram.sirius.source.feature.group lazy
-	org.eclipse.emf.compare.egit.feature.group lazy
-	org.eclipse.emf.compare.ide.ui.feature.group lazy
-	org.eclipse.emf.compare.ide.ui.source.feature.group lazy
-	org.eclipse.emf.compare.rcp lazy
-	org.eclipse.emf.compare.rcp.ui lazy
-	// Ecore Tools
-	org.eclipse.emf.ecoretools.sdk.feature.group lazy
-	org.eclipse.acceleo.feature.group lazy
-	org.eclipse.acceleo.ide.ui lazy
-	org.eclipse.acceleo.source.feature.group lazy
-	org.antlr.runtime lazy
-	org.eclipse.sirius.doc.feature.feature.group lazy
-	org.eclipse.sirius.runtime.acceleo.source.feature.group lazy
-	org.eclipse.sirius.runtime.aql.source.feature.group lazy
-	org.eclipse.sirius.runtime.source.feature.group lazy
-	org.eclipse.sirius.runtime.ide.eef.source.feature.group lazy
-	org.eclipse.sirius.runtime.ide.ui.acceleo.source.feature.group lazy
-	org.eclipse.sirius.runtime.ide.ui.source.feature.group lazy
-	org.eclipse.sirius.runtime.ide.xtext.source.feature.group lazy
-	org.eclipse.sirius.runtime.ocl.source.feature.group lazy
-	org.eclipse.sirius.specifier.ide.ui.acceleo.source.feature.group lazy
-	org.eclipse.sirius.specifier.ide.ui.aql.source.feature.group lazy
-	org.eclipse.sirius.specifier.ide.ui.source.feature.group lazy
-	org.eclipse.sirius.tests.support.source.feature.group lazy
-	org.eclipse.sirius.interpreter.feature.feature.group lazy
-	org.eclipse.sirius.interpreter.feature.source.feature.group lazy
-	
-	org.eclipse.acceleo.query.feature.group lazy
-	org.eclipse.sirius.properties.feature.feature.group lazy
-	org.eclipse.sirius.properties.feature.source.feature.group lazy
-	org.eclipse.sirius.specifier.properties.feature.feature.group lazy
-	org.eclipse.sirius.specifier.properties.feature.source.feature.group lazy
-	
-	org.eclipse.eef.sdk.feature.feature.group lazy
-	org.eclipse.eef.sdk.feature.source.feature.group lazy
-	org.eclipse.eef.ext.widgets.reference.feature.feature.group lazy
-	org.eclipse.eef.ext.widgets.reference.feature.source.feature.group lazy
-}
-
-location Eclipse "http://download.eclipse.org/releases/2021-06/" {
-	org.eclipse.equinox.executable.feature.group lazy
-	org.apache.commons.io lazy
-	org.eclipse.ecf.core.feature.feature.group lazy
-	org.eclipse.oomph.setup.sdk.feature.group lazy
-	org.eclipse.platform.sdk lazy
-	org.eclipse.core.runtime.feature.feature.group lazy
-	org.eclipse.equinox.p2.discovery.feature.feature.group lazy
+location Amalgam "https://download.eclipse.org/modeling/amalgam/updates/stable/1.11.0-S20190729/capella/" {
+	org.eclipse.amalgam.discovery.feature.group lazy
+	org.eclipse.amalgam.explorer.activity.feature.group lazy
+	org.eclipse.amalgam.explorer.contextual.core.feature.group lazy
+	org.eclipse.amalgam.explorer.contextual.feature.group lazy
+	org.eclipse.amalgam.explorer.contextual.sirius.feature.group lazy
 }
 
 // Team SVN has been removed from Eclipse a long time ago. Use oxygen to get it
@@ -167,7 +232,7 @@ location Eclipse-Oxygen "http://download.eclipse.org/releases/oxygen/" {
 	org.eclipse.team.svn.nl1.feature.group lazy
 }
 
-location "https://community.polarion.com/projects/subversive/download/eclipse/6.0/update-site/" {
+location Polarion "https://community.polarion.com/projects/subversive/download/eclipse/6.0/update-site/" {
 	org.polarion.eclipse.team.svn.connector.feature.group lazy
 	org.polarion.eclipse.team.svn.connector.svnkit18.feature.group lazy
 }
