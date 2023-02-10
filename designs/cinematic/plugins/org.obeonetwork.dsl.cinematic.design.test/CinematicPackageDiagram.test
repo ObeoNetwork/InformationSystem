@@ -1,0 +1,379 @@
+--- RCPTT testcase ---
+Format-Version: 1.0
+Contexts: _uQ_HIKkgEe28948-k2BW9w
+Element-Name: CinematicPackageDiagram
+Element-Type: testcase
+Element-Version: 3.0
+External-Reference: 
+Id: _g3ldEKkgEe28948-k2BW9w
+Save-Time: 2/13/23, 10:42 AM
+Testcase-Type: ecl
+
+------=_.content-0a7243a0-75d3-3d5f-9791-539de0e5b7ac
+Content-Type: text/ecl
+Entry-Name: .content
+
+/****************
+ * PACKAGE NODE *
+ ****************/
+
+create-ebook-project
+open-package-diagram
+
+// Select Package tool
+with [get-editor "E-BookStore Package Diagram"] {
+    with [get-palette | get-palette-entry Package] {
+        mouse-move 65 13 button1 -height 25 -width 295
+        mouse-press 65 13 button1 -height 25 -width 295
+        mouse-release 65 13 button1 "" -height 25 -width 295
+    }
+}
+// Create Package node
+with [get-editor "E-BookStore Package Diagram" | get-diagram -index 1 | get-edit-part 
+    -name "E-BookStore Package Diagram"] {
+    mouse-move 1104 295 button1 -height 770 -width 1613
+    mouse-press 1104 295 button1 -height 770 -width 1613
+    mouse-release 1104 295 button1 "" -height 770 -width 1613
+}
+// Check node exists
+with [get-editor "E-BookStore Package Diagram" | get-diagram -index 1 | get-edit-part 
+    -name "E-BookStore Package Diagram" | get-edit-part -name Package2 | get-edit-part 
+    -className DNodeContainerViewNodeContainerCompartmentEditPart | get-figure -path "1/0"] {
+    get-property className | equals "org.eclipse.draw2d.FreeformViewport" | verify-true
+    get-property x | equals 1110 | verify-true
+    get-property y | equals 301 | verify-true
+    get-property width | equals 138 | verify-true
+    get-property height | equals 57 | verify-true
+}
+// Check node mapping
+with [get-editor "E-BookStore Package Diagram" | get-diagram -index 1 | get-edit-part 
+    -name "E-BookStore Package Diagram"] {
+    get-property "children.Node[4].element.name" | equals Package2 | verify-true
+    get-property "children.Node[4].element.diagramElementMapping.name" | equals "PAD_Package" | verify-true
+}
+
+// Test Context Menu : New Package Diagram
+with [get-editor "E-BookStore Package Diagram" | get-diagram -index 1] {
+    get-menu -path "New/Package Diagram" | click 
+}
+get-window "New Package Diagram" | get-button OK | click 
+get-editor "Package2 Package Diagram" | close
+get-window Save | get-button Yes | click 
+
+// Test Context Menu : Open Package Diagram
+with [get-editor "E-BookStore Package Diagram" | get-diagram -index 1] {
+    get-menu -path "Open/Package2 Package Diagram" | click 
+}
+get-editor "Package2 Package Diagram" | close
+
+// Test Context Menu : New UI Structure
+with [get-editor "E-BookStore Package Diagram" | get-diagram -index 1] {
+    get-menu -path "New/UI Structure" | click 
+}
+get-window "New UI Structure" | get-button OK | click 
+get-editor "Package2 UI Structure" | close
+get-window Save | get-button Yes | click 
+
+//FIXME: the menu below is not present -> delete this test or fix the UI ?
+// Check Context Menu : Open UI Structure
+//with [get-editor "E-BookStore Package Diagram" | get-diagram -index 1] {
+//    get-menu -path "Open/Package2 UI Structure" | click 
+//}
+//get-editor "Package2 UI Structure" | close
+
+// Edit label
+with [get-editor "E-BookStore Package Diagram"] {
+    with [get-diagram -index 1 | get-edit-part -name "E-BookStore Package Diagram"] {
+        with [get-edit-part -name Package2] {
+            with [get-edit-part -className DNodeContainerViewNodeContainerCompartmentEditPart] {
+                mouse-move 58 43 button1 -height 68 -width 148
+                mouse-press 58 43 button1 -height 68 -width 148
+                mouse-release 58 43 button1 "" -height 68 -width 148
+            }
+            activate-direct-edit
+            get-edit-part -className DNodeContainerNameEditPart | activate-direct-edit
+        }
+    }
+    with [get-editbox] {
+        set-text Test
+        key-type Enter
+    }
+    with [get-diagram -index 1] {
+        commit-direct-edit
+        key-type Enter
+    }
+}
+
+// Check label
+with [get-editor "E-BookStore Package Diagram" | get-diagram -index 1 | get-edit-part 
+    -name "E-BookStore Package Diagram"] {
+    get-property "children.Node[4].element.name" | equals "Test" | verify-true
+}
+
+// Delete node
+get-eclipse-window | key-type Del
+
+// Check node is deleted
+with [get-editor "E-BookStore Package Diagram" | get-diagram -index 1 | get-edit-part 
+    -name "E-BookStore Package Diagram"] {
+    get-property "children.size" | equals "4" | verify-true
+}
+
+// Save and clean
+get-eclipse-window | key-type "M1+s"
+delete-ebook-project
+
+/***************
+ *  FLOW NODE  *
+ ***************/
+
+create-ebook-project
+open-package-diagram
+
+// Select Package tool
+with [get-editor "E-BookStore Package Diagram"] {
+    with [get-palette | get-palette-entry Flow] {
+        mouse-move 65 13 button1 -height 25 -width 295
+        mouse-press 65 13 button1 -height 25 -width 295
+        mouse-release 65 13 button1 "" -height 25 -width 295
+    }
+}
+// Create Flow node
+with [get-editor "E-BookStore Package Diagram" | get-diagram -index 1 | get-edit-part 
+    -name "E-BookStore Package Diagram"] {
+    mouse-move 1104 295 button1 -height 770 -width 1613
+    mouse-press 1104 295 button1 -height 770 -width 1613
+    mouse-release 1104 295 button1 "" -height 770 -width 1613
+}
+// Check node exists
+with [get-editor "E-BookStore Package Diagram" | get-diagram -index 1 | get-edit-part 
+    -name "E-BookStore Package Diagram" | get-edit-part -name Flow2 | get-edit-part 
+    -className DNodeContainerViewNodeContainerCompartmentEditPart | get-figure -path "1/0"] {
+    get-property className | equals "org.eclipse.draw2d.FreeformViewport" | verify-true
+    get-property x | equals 1110 | verify-true
+    get-property y | equals 301 | verify-true
+    get-property width | equals 138 | verify-true
+    get-property height | equals 57 | verify-true
+}
+// Check node mapping
+with [get-editor "E-BookStore Package Diagram" | get-diagram -index 1 | get-edit-part 
+    -name "E-BookStore Package Diagram"] {
+    get-property "children.Node[4].element.name" | equals Flow2 | verify-true
+    get-property "children.Node[4].element.diagramElementMapping.name" | equals "PAD_Flow" | verify-true
+}
+
+// Test Context Menu : New Flow Diagram
+with [get-editor "E-BookStore Package Diagram" | get-diagram -index 1] {
+    get-menu -path "New/Flow Diagram" | click 
+}
+get-window "New Flow Diagram" | get-button OK | click
+get-editor "Flow2 Flow Diagram" | close
+get-window Save | get-button Yes | click
+
+// Test Context Menu : Open Flow Diagram
+with [get-editor "E-BookStore Package Diagram" | get-diagram -index 1] {
+    get-menu -path "Open/Flow2 Flow Diagram" | click
+}
+get-editor "Flow2 Flow Diagram" | close
+
+// Edit label
+with [get-editor "E-BookStore Package Diagram"] {
+    with [get-diagram -index 1 | get-edit-part -name "E-BookStore Package Diagram"] {
+        with [get-edit-part -name Flow2] {
+            with [get-edit-part -className DNodeContainerViewNodeContainerCompartmentEditPart] {
+                mouse-move 58 43 button1 -height 68 -width 148
+                mouse-press 58 43 button1 -height 68 -width 148
+                mouse-release 58 43 button1 "" -height 68 -width 148
+            }
+            activate-direct-edit
+            get-edit-part -className DNodeContainerNameEditPart | activate-direct-edit
+        }
+    }
+    with [get-editbox] {
+        set-text Test
+        key-type Enter
+    }
+    with [get-diagram -index 1] {
+        commit-direct-edit
+        key-type Enter
+    }
+}
+
+// Check label
+with [get-editor "E-BookStore Package Diagram" | get-diagram -index 1 | get-edit-part 
+    -name "E-BookStore Package Diagram"] {
+    get-property "children.Node[4].element.name" | equals "Test" | verify-true
+}
+
+// Delete node
+get-eclipse-window | key-type Del
+
+// Check node is deleted
+with [get-editor "E-BookStore Package Diagram" | get-diagram -index 1 | get-edit-part 
+    -name "E-BookStore Package Diagram"] {
+    get-property "children.size" | equals "4" | verify-true
+}
+
+// Save and clean
+get-eclipse-window | key-type "M1+s"
+delete-ebook-project
+
+/***********************
+ * VIEW CONTAINER NODE *
+ ***********************/
+
+create-ebook-project
+open-package-diagram
+
+// Select View Container tool
+with [get-editor "E-BookStore Package Diagram"] {
+    with [get-palette | get-palette-entry "View Container"] {
+        mouse-move 65 13 button1 -height 25 -width 295
+        mouse-press 65 13 button1 -height 25 -width 295
+        mouse-release 65 13 button1 "" -height 25 -width 295
+    }
+}
+// Create View Container node
+with [get-editor "E-BookStore Package Diagram" | get-diagram -index 1 | get-edit-part 
+    -name "E-BookStore Package Diagram"] {
+    mouse-move 1104 295 button1 -height 770 -width 1613
+    mouse-press 1104 295 button1 -height 770 -width 1613
+    mouse-release 1104 295 button1 "" -height 770 -width 1613
+}
+
+// Select Widget Page in the wizard
+with [get-window "Selection Wizard"] {
+    get-tree | select "Toolkit Web/Widget Page"
+    get-button Finish | click 
+}
+
+// Check node exists
+with [get-editor "E-BookStore Package Diagram" | get-diagram -index 1 | get-edit-part 
+    -name "E-BookStore Package Diagram" | get-edit-part -name ViewContainer3 | get-edit-part 
+    -className DNodeListNameEditPart] {
+    get-property className | equals "org.eclipse.sirius.diagram.ui.internal.edit.parts.DNodeListNameEditPart" 
+        | verify-true
+    get-property x | equals 1106 | verify-true
+    get-property y | equals 300 | verify-true
+    get-property width | equals 119 | verify-true
+    get-property height | equals 16 | verify-true
+}
+// Check node mapping
+with [get-editor "E-BookStore Package Diagram" | get-diagram -index 1 | get-edit-part 
+    -name "E-BookStore Package Diagram"] {
+    get-property "children.Node[4].element.name" | equals "ViewContainer3" | verify-true
+    get-property "children.Node[4].element.diagramElementMapping.name" | equals "PAD_ViewContainer" | verify-true
+}
+
+// Test Context Menu : New ViewContainer Diagram
+with [get-editor "E-BookStore Package Diagram" | get-diagram -index 1] {
+    get-menu -path "New/ViewContainer Diagram" | click 
+}
+get-window "New View Container Mockup" | get-button OK | click 
+get-editor "ViewContainer3 View Container Mockup" | close
+get-window Save | get-button Yes | click 
+
+// Test Context Menu : Open ViewContainer Diagram
+with [get-editor "E-BookStore Package Diagram" | get-diagram -index 1] {
+    get-menu -path "Open/ViewContainer3 View Container Mockup" | click 
+}
+get-editor "ViewContainer3 View Container Mockup" | close
+
+// Test Context Menu : New UI Structure
+with [get-editor "E-BookStore Package Diagram" | get-diagram -index 1] {
+    get-menu -path "New/UI Structure" | click 
+}
+get-window "New UI Structure" | get-button OK | click 
+get-editor "ViewContainer3 UI Structure" | close
+get-window Save | get-button Yes | click 
+
+// Test Context Menu : Open UI Structure
+with [get-editor "E-BookStore Package Diagram" | get-diagram -index 1] {
+    get-menu -path "Open/UI StructureViewContainer3 UI Structure" | click 
+}
+get-editor "ViewContainer3 UI Structure" | close
+
+// Edit label
+with [get-editor "E-BookStore Package Diagram"] {
+    with [get-diagram -index 1 | get-edit-part -name "E-BookStore Package Diagram"] {
+        with [get-edit-part -name ViewContainer3] {
+            with [get-edit-part -className DNodeListNameEditPart] {
+                mouse-move 58 43 button1 -height 68 -width 148
+                mouse-press 58 43 button1 -height 68 -width 148
+                mouse-release 58 43 button1 "" -height 68 -width 148
+            }
+            activate-direct-edit
+            get-edit-part -className DNodeListNameEditPart | activate-direct-edit
+        }
+    }
+    with [get-editbox] {
+        set-text Test
+        key-type Enter
+    }
+    with [get-diagram -index 1] {
+        commit-direct-edit
+        key-type Enter
+    }
+}
+
+// Check label
+with [get-editor "E-BookStore Package Diagram" | get-diagram -index 1 | get-edit-part 
+    -name "E-BookStore Package Diagram"] {
+    get-property "children.Node[4].element.name" | equals "Test" | verify-true
+}
+
+// Delete node
+get-eclipse-window | key-type Del
+
+// Check node is deleted
+with [get-editor "E-BookStore Package Diagram" | get-diagram -index 1 | get-edit-part 
+    -name "E-BookStore Package Diagram"] {
+    get-property "children.size" | equals "4" | verify-true
+}
+
+// Save and clean
+get-eclipse-window | key-type "M1+s"
+delete-ebook-project
+
+/**********************
+ * DEPENCENCIES LAYER *
+ **********************/
+
+create-ebook-project
+open-package-diagram
+
+// Check edges are visibles
+get-editor "E-BookStore Package Diagram" | get-diagram -index 1 | get-edit-part -name "E-BookStore Package Diagram" 
+    | get-property "edges.size" | equals 6 | verify-true  
+with [get-editor "E-BookStore Package Diagram" | get-diagram -index 1 | get-edit-part 
+    -name "E-BookStore Package Diagram"] {
+    get-property "edges.Edge[0].visible" | equals true | verify-true
+    get-property "edges.Edge[1].visible" | equals true | verify-true
+    get-property "edges.Edge[2].visible" | equals true | verify-true
+    get-property "edges.Edge[3].visible" | equals true | verify-true
+    get-property "edges.Edge[4].visible" | equals true | verify-true
+    get-property "edges.Edge[5].visible" | equals true | verify-true
+}
+
+// Deactivate Dependencies Layer
+get-editor "E-BookStore Package Diagram" | get-button Layers | click -arrow
+get-menu -path Dependencies | click 
+
+// Check edges are not visibles
+with [get-editor "E-BookStore Package Diagram" | get-diagram -index 1 | get-edit-part 
+    -name "E-BookStore Package Diagram"] {
+    get-property "edges.Edge[0].visible" | equals false | verify-true
+    get-property "edges.Edge[1].visible" | equals false | verify-true
+    get-property "edges.Edge[2].visible" | equals false | verify-true
+    get-property "edges.Edge[3].visible" | equals false | verify-true
+    get-property "edges.Edge[4].visible" | equals false | verify-true
+    get-property "edges.Edge[5].visible" | equals false | verify-true
+}
+
+// Save and clean
+get-eclipse-window | key-type "M1+s"
+delete-ebook-project
+
+
+
+------=_.content-0a7243a0-75d3-3d5f-9791-539de0e5b7ac--
