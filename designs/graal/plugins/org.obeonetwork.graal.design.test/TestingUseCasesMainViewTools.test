@@ -5,7 +5,8 @@ Element-Type: testcase
 Element-Version: 3.0
 External-Reference: 
 Id: _6SSqAGNdEeSg_dTG4Ei-uQ
-Save-Time: 6/15/20 3:43 PM
+Runtime-Version: 2.5.1.M3
+Save-Time: 3/8/22, 10:10 AM
 Testcase-Type: ecl
 
 ------=_.description-216f885c-d591-38ce-8ea2-e4f8cb4d6ffa
@@ -25,7 +26,7 @@ Testing all tools defines in graal.odesign/Use Cases Main View
 Content-Type: text/ecl
 Entry-Name: .content
 
-get-view "Model Explorer" | get-tree | select "E-BookStore/E-BookStore.graal/System E-BookStore/Use Cases Main View" 
+get-view "Model Explorer" | get-tree | select "org.obeonetwork.is.sample.ebookstore/E-BookStore.graal/System E-BookStore/Use Cases Main View" 
     | double-click
 with [get-editor "Use Cases Main View"] {
     get-diagram -index 1 | get-edit-part -name "Use Cases Main View" | mouse-move 723 76 -height 313 -width 728
@@ -161,7 +162,7 @@ with [get-editor "Use Cases Main View" | get-diagram -index 1] {
     }
 }
 get-view "Model Explorer" | get-tree 
-    | select "E-BookStore/E-BookStore.graal/System E-BookStore/Use Case UC - Use Case 5"
+    | select "org.obeonetwork.is.sample.ebookstore/E-BookStore.graal/System E-BookStore/Use Case UC - Use Case 5"
 get-editor "Use Cases Main View" | get-diagram -index 1 | get-edit-part -name "Use Cases Main View" | mouse-move 0 243 
     -height 313 -width 728
 with [get-editor "Use Cases Main View" | get-diagram -index 1] {
@@ -179,9 +180,7 @@ with [get-editor "Use Cases Main View" | get-diagram -index 1] {
     get-edit-part -name "Use Cases Main View" | mouse-move 87 97 -height 313 -width 728
 }
 get-view "Model Explorer" | get-tree 
-    | select "E-BookStore/E-BookStore.graal/System E-BookStore/Use Case UC - Use Case 5"
-/**get-view Properties | get-tree | get-item Includes | get-property "getData().getValueAsString()" | equals "" 
-    | verify-true**/
+    | select "org.obeonetwork.is.sample.ebookstore/E-BookStore.graal/System E-BookStore/Use Case UC - Use Case 5"
 with [get-editor "Use Cases Main View" | get-diagram -index 1] {
     with [get-edit-part -name "Use Cases Main View"] {
         mouse-move 562 128 -height 313 -width 728
@@ -196,7 +195,6 @@ with [get-editor "Use Cases Main View" | get-diagram -index 1] {
     get-edit-part -name "Use Cases Main View" | mouse-hover 560 128 -height 313 -width 728
 }
 get-view "Model Explorer" | get-tree 
-    | select "E-BookStore/E-BookStore.graal/System E-BookStore/Use Case UC - Use Case 5"
-/**get-view Properties | get-tree | get-item Extends | get-property "getData().getValueAsString()" | equals "" 
-    | verify-true**/
+    | select "org.obeonetwork.is.sample.ebookstore/E-BookStore.graal/System E-BookStore/Use Case UC - Use Case 5"
+
 ------=_.content-0a7243a0-75d3-3d5f-9791-539de0e5b7ac--

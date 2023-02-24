@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2008, 2021 Obeo.
+ * Copyright (c) 2008, 2023 Obeo.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -16,6 +16,7 @@ import java.net.URLEncoder;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
+import java.util.Optional;
 
 import org.eclipse.core.resources.IFolder;
 import org.eclipse.core.resources.IProject;
@@ -36,6 +37,7 @@ import org.obeonetwork.dsl.manifest.MManifest;
 import org.obeonetwork.tools.projectlibrary.extension.ManifestServices;
 import org.obeonetwork.tools.projectlibrary.imp.ImportData;
 import org.obeonetwork.tools.projectlibrary.imp.ProjectLibraryImporter;
+import org.obeonetwork.utils.common.SessionUtils;
 
 import com.google.common.base.Joiner;
 
@@ -56,27 +58,45 @@ public class DefaultImportHandler extends AbstractImportHandler {
 		return Integer.MAX_VALUE;
 	}
 
-	@Override
-	public boolean removeImportedProjectAndResources(ModelingProject project, Collection<Resource> resourcesToDelete, MManifest projectToRemove) {
+	/**
+	 * Removes the specified resources from the project
+	 * @param project
+	 * @param resourcesToDelete
+	 * @param projectToRemove
+	 * @ shouldDeleteResource
+	 * @return True if all resources have been removed
+	 */
+	public boolean removeImportedProjectAndResources(IProject project, Collection<Resource> resourcesToDelete, MManifest projectToRemove, boolean shouldDeleteResource) {
 		// Remove the resources
-		boolean removed = removeResources(project.getSession(), resourcesToDelete);
+		Optional<Session> session = SessionUtils.getSession(project);
 		
-		if (removed == true) { 
-			// Clean empty folders
-			IFolder librariesFolder = project.getProject().getFolder(ProjectLibraryImporter.IMPORT_FOLDER_NAME);
-			if (librariesFolder != null) {
-				IFolder projectFolder = librariesFolder.getFolder(new ManifestServices().getLibraryProjectName(projectToRemove));
-				try {
-					projectFolder.delete(true, new NullProgressMonitor());
-				} catch (CoreException e) {
-					// Do nothing
+		boolean removed = false;
+		if(session.isPresent()) {
+			removed = removeResources(session.get(), resourcesToDelete, shouldDeleteResource);
+			
+			if (removed == true) { 
+				// Clean empty folders
+				IFolder librariesFolder = project.getFolder(ProjectLibraryImporter.IMPORT_FOLDER_NAME);
+				if (librariesFolder != null) {
+					IFolder projectFolder = librariesFolder.getFolder(new ManifestServices().getLibraryProjectName(projectToRemove));
+					try {
+						projectFolder.delete(true, new NullProgressMonitor());
+					} catch (CoreException e) {
+						// Do nothing
+					}
 				}
 			}
+			
 		}
 		return removed;
 	}
 	
-	private boolean removeResources(Session session, Collection<Resource> resources) {
+	@Override
+	public boolean removeImportedProjectAndResources(IProject project, Collection<Resource> resourcesToDelete, MManifest projectToRemove) {
+		return removeImportedProjectAndResources(project, resourcesToDelete, projectToRemove, true);
+	}
+	
+	private boolean removeResources(Session session, Collection<Resource> resources, boolean shouldDeleteResource) {
 		Collection<Resource> deletedResource = new ArrayList<>();
 		if (session instanceof DAnalysisSession) {
 			final DAnalysisSession analysisSession = (DAnalysisSession)session;
@@ -84,7 +104,7 @@ public class DefaultImportHandler extends AbstractImportHandler {
 				
 				@Override
 				protected void doExecute() {
-					deletedResource.addAll(removeResourcesFromSession(analysisSession, resources));
+					deletedResource.addAll(removeResourcesFromSession(analysisSession, resources, shouldDeleteResource));
 				}
 			});
 		}
@@ -92,7 +112,7 @@ public class DefaultImportHandler extends AbstractImportHandler {
 		return deletedResource.size() == resources.size();
 	}
 	
-	private Collection<Resource> removeResourcesFromSession(DAnalysisSession analysisSession, Collection<Resource> resources) {
+	private Collection<Resource> removeResourcesFromSession(DAnalysisSession analysisSession, Collection<Resource> resources, boolean shouldDeleteResource) {
 		Collection<Resource> deletedResources = new ArrayList<>();
 		for (Resource resource : resources) {
 			if (analysisSession.getSemanticResources().contains(resource)) {
@@ -102,14 +122,13 @@ public class DefaultImportHandler extends AbstractImportHandler {
 			}
 		}
 		for (Resource resource : resources) {
-			for (EObject rootObject : new ArrayList<>(resource.getContents())) {
-				SiriusUtil.delete(rootObject, analysisSession);
-			}
-			try {
-				resource.delete(null);
-				deletedResources.add(resource);
-			} catch (IOException e) {
-				// Do nothing
+			if (shouldDeleteResource) {
+				try {
+					resource.delete(null);
+					deletedResources.add(resource);
+				} catch (IOException e) {
+					// Do nothing
+				}
 			}
 		}
 		return deletedResources;
@@ -117,25 +136,52 @@ public class DefaultImportHandler extends AbstractImportHandler {
 	}
 	
 	@Override
-	public Collection<Resource> getResourcesForImportedProject(ModelingProject modelingProject, MManifest manifest) {
+	public Collection<Resource> getResourcesForImportedProject(IProject project, MManifest manifest) {
 		Collection<Resource> resources = new ArrayList<>();
 		
-		Session session = modelingProject.getSession();
+		Optional<Session> session = SessionUtils.getSession(project);
 		
-		String folderPath = ProjectLibraryImporter.IMPORT_FOLDER_NAME + '/'
-				+ new ManifestServices().getLibraryProjectName(manifest);
+		if(session.isPresent()) {
+			String folderPath = ProjectLibraryImporter.IMPORT_FOLDER_NAME + '/'
+					+ new ManifestServices().getLibraryProjectName(manifest);
+			
+			IFolder folder = project.getFolder(new Path(folderPath));
+			
+			URI folderURI = URI.createPlatformResourceURI(folder.getFullPath().toString(), true);
+			String folderURIAsString = folderURI.toString() + "/";
+			
+			// Check resources starting with this URI
+			ResourceSet set = session.get().getTransactionalEditingDomain().getResourceSet();
+			if (set != null) {
+				for (Resource resource : set.getResources()) {
+					if (resource.getURI() != null && resource.getURI().toString().startsWith(folderURIAsString)) {
+						resources.add(resource);
+					}
+				}
+			}
+		}
 		
-		IProject project = modelingProject.getProject();
-		IFolder folder = project.getFolder(new Path(folderPath));
+		return resources;
+	}
+	
+	/**
+	 * Returns the resources in the modeling project corresponding to the imported project.
+	 * The resource is matched with a URI of type 'platform:/resource'.
+	 * 
+	 * @param modelingProject
+	 * @param manifest the manifest of the imported project
+	 * @return
+	 */
+	public Collection<Resource> getResourcesForImportedWsProject(Session session, MManifest manifest) {
+		Collection<Resource> resources = new ArrayList<>();
 		
-		URI folderURI = URI.createPlatformResourceURI(folder.getFullPath().toString(), true);
-		String folderURIAsString = folderURI.toString() + "/";
+		String matchingURI = "platform:/resource/" + manifest.getProjectId() + "/";
 		
 		// Check resources starting with this URI
 		ResourceSet set = session.getTransactionalEditingDomain().getResourceSet();
 		if (set != null) {
 			for (Resource resource : set.getResources()) {
-				if (resource.getURI() != null && resource.getURI().toString().startsWith(folderURIAsString)) {
+				if (resource.getURI() != null && resource.getURI().toString().startsWith(matchingURI)) {
 					resources.add(resource);
 				}
 			}

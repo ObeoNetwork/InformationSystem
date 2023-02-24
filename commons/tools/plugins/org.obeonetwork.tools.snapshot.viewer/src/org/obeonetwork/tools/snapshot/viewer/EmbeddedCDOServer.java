@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2008, 2021 Obeo.
+ * Copyright (c) 2008, 2023 Obeo.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -52,6 +52,7 @@ import org.eclipse.sirius.business.api.query.FileQuery;
 import org.obeonetwork.tools.snapshot.viewer.extension.IPostImportHandler;
 import org.obeonetwork.tools.snapshot.viewer.extension.PostImportHandlerFactory;
 
+import fr.obeo.dsl.viewpoint.collab.api.AbstractImporterExporter.ImportExportImageMode;
 import fr.obeo.dsl.viewpoint.collab.api.CDOExporter;
 import fr.obeo.dsl.viewpoint.collab.api.CDORepositoryManager;
 import fr.obeo.dsl.viewpoint.collab.api.CDORepositoryManagerRegistry;
@@ -201,7 +202,7 @@ public class EmbeddedCDOServer {
 		CDORepositoryManager repositoryManager = getRepositoryManager();
 			
 		CDOExporter cdoExporter = new CDOExporter();
-		cdoExporter.exportResourcesFromRepository(resourceURIs, repositoryManager, true, true,
+		cdoExporter.exportResourcesFromRepository(resourceURIs, repositoryManager, true, ImportExportImageMode.ALL,
 				remoteToLocalProjectNameMapping, monitor);
 		
 		// Call postImport handlers

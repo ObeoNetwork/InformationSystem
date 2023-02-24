@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<description:Group xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:description="http://www.eclipse.org/sirius/description/1.1.0" xmlns:description_1="http://www.eclipse.org/sirius/diagram/description/1.1.0" xmlns:properties="http://www.eclipse.org/sirius/properties/1.0.0" xmlns:properties-ext-widgets-reference="http://www.eclipse.org/sirius/properties/1.0.0/ext/widgets/reference" xmlns:style="http://www.eclipse.org/sirius/diagram/description/style/1.1.0" xmlns:tool="http://www.eclipse.org/sirius/diagram/description/tool/1.1.0" xmlns:tool_1="http://www.eclipse.org/sirius/description/tool/1.1.0" documentation="Copyright (c) 2008, 2021 Obeo.&#xD;&#xA;All rights reserved. This program and the accompanying materials&#xD;&#xA;are made available under the terms of the Eclipse Public License v1.0&#xD;&#xA;which accompanies this distribution, and is available at&#xD;&#xA;http://www.eclipse.org/legal/epl-v10.html&#xD;&#xA;&#xD;&#xA;Contributors:&#xD;&#xA;   Obeo - initial API and implementation" name="database" version="12.0.0.2017041100">
+<description:Group xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:description="http://www.eclipse.org/sirius/description/1.1.0" xmlns:description_1="http://www.eclipse.org/sirius/diagram/description/1.1.0" xmlns:properties="http://www.eclipse.org/sirius/properties/1.0.0" xmlns:properties-ext-widgets-reference="http://www.eclipse.org/sirius/properties/1.0.0/ext/widgets/reference" xmlns:style="http://www.eclipse.org/sirius/diagram/description/style/1.1.0" xmlns:tool="http://www.eclipse.org/sirius/diagram/description/tool/1.1.0" xmlns:tool_1="http://www.eclipse.org/sirius/description/tool/1.1.0" documentation="Copyright (c) 2008, 2023 Obeo.&#xD;&#xA;All rights reserved. This program and the accompanying materials&#xD;&#xA;are made available under the terms of the Eclipse Public License v1.0&#xD;&#xA;which accompanies this distribution, and is available at&#xD;&#xA;http://www.eclipse.org/legal/epl-v10.html&#xD;&#xA;&#xD;&#xA;Contributors:&#xD;&#xA;   Obeo - initial API and implementation" name="database" version="12.0.0.2017041100">
   <ownedViewpoints endUserDocumentation="The &lt;b>Database&lt;/b> viewpoint provides two representations : &#xD;&#xA;&lt;ul>&#xD;&#xA;&lt;li>&lt;b>Database Diagram&lt;/b> : a diagram allowing to represent and edit a database strucure,&lt;/li>&#xD;&#xA;&lt;li>&lt;b>Schema Diagram&lt;/b> : a diagram allowing to represent and edit a schema strucure.&lt;/li>&#xD;&#xA;&lt;/ul>&#xA;" name="Database" modelFileExtension="database">
+    <validationSet reusedRules="//@extensions.0/@categories.0/@groups.2/@validationSet/@semanticValidationRules[name='database%3A%3AView%20query%20validation']"/>
     <ownedRepresentations xsi:type="description_1:DiagramDescription" name="Reused Description" domainClass="database.DataBase" preconditionExpression="false">
       <defaultLayer name="Default">
         <toolSections name="Reused Tools">
@@ -67,14 +68,8 @@
           </style>
         </containerMappings>
         <containerMappings name="DB_View" labelDirectEdit="//@ownedViewpoints[name='Database']/@ownedRepresentations[name='Reused%20Description']/@defaultLayer/@toolSections.0/@ownedTools[name='EDT_DatabaseElement']" semanticCandidatesExpression="service:getViews" domainClass="database.View" childrenPresentation="List">
-          <subNodeMappings name="DB_viewColumn" semanticCandidatesExpression="feature:columns" domainClass="database.ViewElement">
-            <style xsi:type="style:SquareDescription" labelExpression="service:getViewElementLabel" labelColor="//@userColorsPalettes[name='DomainColors']/@entries[name='ISDLabelAndEdge']" iconPath="/org.obeonetwork.dsl.database.edit/icons/full/obj16/Column.gif" labelAlignment="LEFT" resizeKind="NSEW">
-              <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
-              <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='gray']"/>
-            </style>
-          </subNodeMappings>
-          <subNodeMappings name="DB_viewTable" semanticCandidatesExpression="feature:tables" domainClass="database.ViewElement">
-            <style xsi:type="style:SquareDescription" labelColor="//@userColorsPalettes[name='DomainColors']/@entries[name='ISDLabelAndEdge']" iconPath="/org.obeonetwork.dsl.database.edit/icons/full/obj16/Table.gif" labelAlignment="LEFT" resizeKind="NSEW">
+          <subNodeMappings name="DB_viewElement" semanticCandidatesExpression="aql:self.getViewElementsOrderedForDatabaseDiagram()" domainClass="database::ViewElement">
+            <style xsi:type="style:SquareDescription" labelExpression="service:getViewElementLabel" labelColor="//@userColorsPalettes[name='DomainColors']/@entries[name='ISDLabelAndEdge']" labelAlignment="LEFT" resizeKind="NSEW">
               <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
               <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='gray']"/>
             </style>
@@ -336,8 +331,8 @@
     <ownedJavaExtensions qualifiedClassName="org.obeonetwork.dsl.database.design.services.label.DatabaseLabelServices"/>
     <ownedJavaExtensions qualifiedClassName="org.obeonetwork.dsl.database.design.services.label.DatabaseEditLabelServices"/>
     <ownedJavaExtensions qualifiedClassName="org.obeonetwork.dsl.database.design.services.DatabaseEEFPropertiesServices"/>
-    <ownedJavaExtensions qualifiedClassName="org.obeonetwork.utils.sirius.services.EObjectUtils"/>
-    <ownedJavaExtensions qualifiedClassName="org.obeonetwork.utils.sirius.services.DebugServices"/>
+    <ownedJavaExtensions qualifiedClassName="org.obeonetwork.utils.common.EObjectUtils"/>
+    <ownedJavaExtensions qualifiedClassName="org.obeonetwork.utils.common.ui.services.DebugServices"/>
   </ownedViewpoints>
   <userColorsPalettes name="DomainColors">
     <entries xsi:type="description:UserFixedColor" red="0" green="43" blue="60" name="ISDLabelAndEdge"/>
@@ -447,6 +442,11 @@
         </controls>
         <controls xsi:type="properties-ext-widgets-reference:ExtReferenceDescription" name="database::View columns" labelExpression="aql:input.emfEditServices(self).getText(self.eClass().getEStructuralFeature('columns')) + ':'" helpExpression="aql:input.emfEditServices(self).getDescription(self.eClass().getEStructuralFeature('columns'))" isEnabledExpression="aql:false" referenceNameExpression="aql:'columns'"/>
         <controls xsi:type="properties-ext-widgets-reference:ExtReferenceDescription" name="database::View tables" labelExpression="aql:input.emfEditServices(self).getText(self.eClass().getEStructuralFeature('tables')) + ':'" helpExpression="aql:input.emfEditServices(self).getDescription(self.eClass().getEStructuralFeature('tables'))" isEnabledExpression="aql:false" referenceNameExpression="aql:'tables'"/>
+        <validationSet>
+          <semanticValidationRules name="database::View query validation" level="WARNING" message="aql:self.queryValidationMessage()" targetClass="database::View">
+            <audits auditExpression="aql:self.isQueryValid()"/>
+          </semanticValidationRules>
+        </validationSet>
       </groups>
       <groups name="Schema Group" labelExpression="Properties" domainClass="database::Schema" semanticCandidateExpression="var:self">
         <controls xsi:type="properties:TextDescription" name="database::Schema name" labelExpression="aql:input.emfEditServices(self).getText(self.eClass().getEStructuralFeature('name')) + ':'" helpExpression="aql:input.emfEditServices(self).getDescription(self.eClass().getEStructuralFeature('name'))" isEnabledExpression="aql:self.eClass().getEStructuralFeature('name').changeable" valueExpression="aql:self.name">
@@ -575,11 +575,12 @@
               <subModelOperations xsi:type="tool_1:ChangeContext" browseExpression="feature:type">
                 <subModelOperations xsi:type="tool_1:SetValue" featureName="nativeType" valueExpression="var:newValue"/>
               </subModelOperations>
+              <subModelOperations xsi:type="tool_1:ChangeContext" browseExpression="aql:self.forceRefresh()"/>
             </firstModelOperations>
           </initialOperation>
         </controls>
         <controls xsi:type="properties:ContainerDescription" name="typesLibraries::TypeInstance features container">
-          <controls xsi:type="properties:DynamicMappingForDescription" name="typeslibrary::TypeInstance iterator" iterator="feature" iterableExpression="aql:if self.type.oclIsTypeOf(typeslibrary::TypeInstance) and self.type.nativeType = null then Sequence{} else input.emfEditServices(self.type).getEStructuralFeatures() endif" forceRefresh="true">
+          <controls xsi:type="properties:DynamicMappingForDescription" name="typeslibrary::TypeInstance iterator" iterator="feature" iterableExpression="aql:if self.type.oclIsTypeOf(typeslibrary::TypeInstance) and self.type.nativeType = null then Sequence{} else input.emfEditServices(self.type).getEStructuralFeatures() endif">
             <ifs name="typeslibrary::TypeInstance length Condition" predicateExpression="aql:self.type.typeInstanceLengthFeatureIsVisible(feature)">
               <widget xsi:type="properties:TextDescription" name="typeslibrary::TypeInstance length" labelExpression="aql:input.emfEditServices(self.type).getText(self.type.eClass().getEStructuralFeature('length')) + ':'" helpExpression="aql:input.emfEditServices(self.type).getDescription(self.type.eClass().getEStructuralFeature('length'))" isEnabledExpression="aql:self.type.eClass().getEStructuralFeature('length').changeable" valueExpression="aql:self.type.length">
                 <initialOperation>

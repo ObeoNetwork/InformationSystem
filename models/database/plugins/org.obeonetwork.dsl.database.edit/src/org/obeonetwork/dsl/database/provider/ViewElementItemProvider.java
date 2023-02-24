@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2008, 2021 Obeo.
+ * Copyright (c) 2008, 2023 Obeo.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -17,7 +17,6 @@ import java.util.List;
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.util.ResourceLocator;
-import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
 import org.eclipse.emf.edit.provider.IItemLabelProvider;
@@ -50,7 +49,7 @@ public class ViewElementItemProvider
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public static final String copyright = "Copyright (c) 2008, 2021 Obeo.\r\nAll rights reserved. This program and the accompanying materials\r\nare made available under the terms of the Eclipse Public License v1.0\r\nwhich accompanies this distribution, and is available at\r\nhttp://www.eclipse.org/legal/epl-v10.html\r\n\r\nContributors:\r\n    Obeo - initial API and implementation";
+	public static final String copyright = "Copyright (c) 2008, 2023 Obeo.\r\nAll rights reserved. This program and the accompanying materials\r\nare made available under the terms of the Eclipse Public License v1.0\r\nwhich accompanies this distribution, and is available at\r\nhttp://www.eclipse.org/legal/epl-v10.html\r\n\r\nContributors:\r\n    Obeo - initial API and implementation";
 
 	/**
 	 * This constructs an instance from a factory and a notifier.
@@ -127,16 +126,10 @@ public class ViewElementItemProvider
 	 * This returns ViewElement.gif.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated NOT
+	 * @generated
 	 */
 	@Override
 	public Object getImage(Object object) {
-		EObject element = (EObject)object;
-		if (element.eContainingFeature().equals(DatabasePackage.Literals.VIEW__TABLES)){
-			return overlayImage(object, getResourceLocator().getImage("full/obj16/Table"));
-		}else if (element.eContainingFeature().equals(DatabasePackage.Literals.VIEW__COLUMNS)){
-			return overlayImage(object, getResourceLocator().getImage("full/obj16/Column"));
-		}
 		return overlayImage(object, getResourceLocator().getImage("full/obj16/ViewElement"));
 	}
 
@@ -154,23 +147,14 @@ public class ViewElementItemProvider
 	 * This returns the label text for the adapted class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated NOT
+	 * @generated
 	 */
 	@Override
 	public String getText(Object object) {
-		String type;
-		EObject element = (EObject)object;
-		if (element.eContainingFeature().equals(DatabasePackage.Literals.VIEW__TABLES)){
-			type = "_UI_Table_type";
-		}else if (element.eContainingFeature().equals(DatabasePackage.Literals.VIEW__COLUMNS)){
-			type = "_UI_Column_type";
-		}else{
-			type ="_UI_ViewElement_type";
-		}
 		String label = ((ViewElement)object).getName();
 		return label == null || label.length() == 0 ?
-			getString(type) :
-			getString(type) + " " + label;
+			getString("_UI_ViewElement_type") :
+			getString("_UI_ViewElement_type") + " " + label;
 	}
 	
 

@@ -1,0 +1,648 @@
+--- RCPTT testcase ---
+Format-Version: 1.0
+Element-Name: CinematicFlowDiagramCreationToolsTestCase
+Element-Type: testcase
+Element-Version: 3.0
+External-Reference: 
+Id: _B9MLEGNcEeSg_dTG4Ei-uQ
+Runtime-Version: 2.5.1.M3
+Save-Time: 2/24/22, 2:30 PM
+Testcase-Type: ecl
+
+------=_.description-216f885c-d591-38ce-8ea2-e4f8cb4d6ffa
+Content-Type: text/plain
+Entry-Name: .description
+
+Testing all Flow Diagram creation tools defined in cinematic.odesign/Flow Diagram.
+- Section Ports
+-- Tool CRE_CreateInitialState
+-- Tool CRE_CreateFinalState
+-- Tool CRE_CreateAbortState
+-- Tool CRE_DecisionState
+- Section States
+-- Tool CRE_ViewState
+-- Tool CRE_ActionState
+-- Tool CRE_AsyncEventState
+-- Tool CRE_ExistingFlowSubflowState
+-- Tool CRE_NewFlowSubflowState
+-- Tool CRE_Transition
+- Section Events
+-- Tool CRE_FlowEvent
+- Section View Containers
+-- Tool CRE_ViewState_To_ViewContainer
+-- Tool CRE_ViewState_To_Existing_ViewContainer
+-- Tool CRE_ViewState_To_New_ViewContainer
+
+------=_.description-216f885c-d591-38ce-8ea2-e4f8cb4d6ffa--
+------=_.content-0a7243a0-75d3-3d5f-9791-539de0e5b7ac
+Content-Type: text/ecl
+Entry-Name: .content
+
+get-view "Model Explorer" | get-tree 
+    | select "E-BookStore/E-BookStore.cinematic/Cinematic Root E-BookStore/E-BookStore Package Diagram" | double-click
+with [get-editor "E-BookStore Package Diagram"] {
+    get-diagram -index 1 | get-edit-part -name "E-BookStore Package Diagram" | mouse-move 1315 457 -height 562 
+        -width 1303
+    with [get-palette] {
+        get-palette-entry "View Container" | mouse-move 75 1 -height 43 -width 125
+        with [get-palette-entry Flow] {
+            mouse-move 74 7 button1 -height 25 -width 125
+            mouse-press 74 7 button1 -height 25 -width 125
+            mouse-release 74 7 button1 "" -height 25 -width 125
+        }
+    }
+    with [get-diagram -index 1 | get-edit-part -name "E-BookStore Package Diagram"] {
+        mouse-move 845 296 button1 -height 562 -width 1303
+        mouse-press 845 296 button1 -height 562 -width 1303
+        mouse-release 845 296 button1 "" -height 562 -width 1303
+    }
+    with [get-diagram -index 1 | get-edit-part -name "E-BookStore Package Diagram" | get-edit-part -name Flow2 
+        | get-edit-part -className DNodeContainerViewNodeContainerCompartmentEditPart] {
+        mouse-move 132 55 button1 -height 68 -width 148
+        mouse-press 132 55 button1 -height 68 -width 148
+        mouse-release 132 55 button1 "" -height 68 -width 148
+        mouse-press 132 55 button1 -height 68 -width 148
+        mouse-double-click 132 55 button1 -height 68 -width 148
+    }
+}
+get-window "New Flow2 Flow Diagram" | get-button OK | click -metaKeys ""
+//- Section Ports
+//-- Tool CRE_CreateInitialState
+with [get-editor "Flow2 Flow Diagram"] {
+    get-diagram -index 1 | get-edit-part -name "Flow2 Flow Diagram" | mouse-move 1296 255 -height 570 -width 1307
+    with [get-palette | get-palette-entry Initial] {
+        mouse-move 38 5 button1 -height 25 -width 125
+        mouse-press 38 5 button1 -height 25 -width 125
+        mouse-release 38 5 button1 "" -height 25 -width 125
+    }
+    with [get-diagram -index 1 | get-edit-part -name "Flow2 Flow Diagram"] {
+        mouse-move 65 174 button1 -height 570 -width 1307
+        mouse-press 65 174 button1 -height 570 -width 1307
+        mouse-release 65 174 button1 "" -height 570 -width 1307
+    }
+    get-diagram -index 1 | get-edit-part -name "Flow2 Flow Diagram" | mouse-move 122 2 -height 566 -width 1303
+}
+//-- Tool CRE_CreateFinalState
+with [get-editor "Flow2 Flow Diagram"] {
+    click
+    with [get-palette] {
+        with [get-palette-entry Final] {
+            mouse-move 47 21 -height 25 -width 125
+            mouse-move 50 22 button1 -height 25 -width 125
+            mouse-press 50 22 button1 -height 25 -width 125
+            mouse-release 50 22 button1 "" -height 25 -width 125
+        }
+    }
+    with [get-diagram -index 1 | get-edit-part -name "Flow2 Flow Diagram"] {
+        mouse-move 845 156 button1 -height 566 -width 1303
+        mouse-press 845 156 button1 -height 566 -width 1303
+        mouse-release 845 156 button1 "" -height 566 -width 1303
+    }
+    get-diagram -index 1 | get-edit-part -name "Flow2 Flow Diagram" | mouse-move 554 "-3" -height 566 -width 1303
+}
+//-- Tool CRE_CreateAbortState
+with [get-editor "Flow2 Flow Diagram"] {
+    click
+    get-diagram -index 1 | get-edit-part -name "Flow2 Flow Diagram" | mouse-move 1291 278 -height 566 -width 1303
+    with [get-palette] {
+        with [get-palette-entry Abort] {
+            mouse-move 48 8 button1 -height 25 -width 125
+            mouse-press 48 8 button1 -height 25 -width 125
+            mouse-release 48 8 button1 "" -height 25 -width 125
+        }
+    }
+    with [get-diagram -index 1 | get-edit-part -name "Flow2 Flow Diagram"] {
+        mouse-move 298 484 button1 -height 566 -width 1303
+        mouse-press 298 484 button1 -height 566 -width 1303
+        mouse-release 298 484 button1 "" -height 566 -width 1303
+    }
+    get-diagram -index 1 | get-edit-part -name "Flow2 Flow Diagram" | mouse-move 295 7 -height 566 -width 1303
+}
+//-- Tool CRE_DecisionState
+with [get-editor "Flow2 Flow Diagram"] {
+    click
+    with [get-palette] {
+        with [get-palette-entry Decision] {
+            mouse-move 64 2 button1 -height 25 -width 125
+            mouse-press 64 2 button1 -height 25 -width 125
+            mouse-release 64 2 button1 "" -height 25 -width 125
+        }
+    }
+    with [get-diagram -index 1 | get-edit-part -name "Flow2 Flow Diagram"] {
+        mouse-move 447 334 button1 -height 566 -width 1303
+        mouse-press 447 334 button1 -height 566 -width 1303
+        mouse-release 447 334 button1 "" -height 566 -width 1303
+    }
+    get-diagram -index 1 | get-edit-part -name "Flow2 Flow Diagram" | mouse-move 260 "-18" -height 566 -width 1303
+}
+//- Section States
+//-- Tool CRE_ViewState
+with [get-editor "Flow2 Flow Diagram"] {
+    click
+    get-diagram -index 1 | get-edit-part -name "Flow2 Flow Diagram" | mouse-move 1292 44 -height 566 -width 1303
+    with [get-palette] {
+        get-palette-entry Transition | mouse-move 36 24 -height 25 -width 125
+        with [get-palette-entry View] {
+            mouse-move 58 18 button1 -height 25 -width 125
+            mouse-press 58 18 button1 -height 25 -width 125
+            mouse-release 58 18 button1 "" -height 25 -width 125
+        }
+    }
+    with [get-diagram -index 1 | get-edit-part -name "Flow2 Flow Diagram"] {
+        mouse-move 298 132 button1 -height 566 -width 1303
+        mouse-press 298 132 button1 -height 566 -width 1303
+        mouse-release 298 132 button1 "" -height 566 -width 1303
+        mouse-move 308 156 -height 566 -width 1303
+    }
+}
+with [get-window "View Container selection"] {
+    with [get-tree] {
+        get-item -path Login | check
+        select Login
+    }
+    get-button OK | click -metaKeys ""
+}
+with [get-editor "Flow2 Flow Diagram" | get-diagram -index 1] {
+    with [get-edit-part -name "Flow2 Flow Diagram"] {
+        mouse-move 469 247 button1 -height 566 -width 1303
+        mouse-press 469 247 button1 -height 566 -width 1303
+    }
+    get-figure -path "1/27" | mouse-release 0 30 button1 "" -height 40 -width 280
+    with [get-edit-part -name "Flow2 Flow Diagram"] {
+        mouse-move 453 204 -height 565 -width 1303
+        with [get-edit-part -name Login] {
+            mouse-move 81 16 -height 109 -width 109
+            with [get-edit-part -className DNodeListNameEditPart] {
+                mouse-move 52 7 button1 -height 18 -width 56
+                mouse-press 52 7 button1 -height 18 -width 56
+                mouse-move 52 11 -mask "" -height 18 -width 56
+            }
+        }
+        mouse-drag 387 258 button1 "" -height 566 -width 1303
+        mouse-release 387 258 button1 "" -height 566 -width 1303
+        mouse-move 447 205 -height 566 -width 1303
+        with [get-edit-part -name View1] {
+            mouse-move 144 70 -height 73 -width 150
+            with [get-edit-part -className WorkspaceImageEditPart] {
+                mouse-move 129 43 button1 -height 73 -width 150
+                mouse-press 129 43 button1 -height 73 -width 150
+                mouse-move 128 43 -mask "" -height 73 -width 150
+            }
+        }
+        mouse-drag 422 167 button1 "" -height 566 -width 1303
+        mouse-release 422 167 button1 "" -height 566 -width 1303
+        mouse-move 219 "-1" -height 566 -width 1303
+    }
+}
+//-- Tool CRE_ActionState
+with [get-editor "Flow2 Flow Diagram"] {
+    click
+    get-diagram -index 1 | get-edit-part -name "Flow2 Flow Diagram" | mouse-move 1293 47 -height 566 -width 1303
+    with [get-palette] {
+        get-palette-entry Transition | mouse-move 70 18 -height 25 -width 125
+        get-palette-entry View | mouse-move 117 21 -height 25 -width 125
+        with [get-palette-entry Action] {
+            mouse-move 73 16 button1 -height 25 -width 125
+            mouse-press 73 16 button1 -height 25 -width 125
+            mouse-release 73 16 button1 "" -height 25 -width 125
+        }
+    }
+    with [get-diagram -index 1 | get-edit-part -name "Flow2 Flow Diagram"] {
+        mouse-move 635 125 button1 -height 566 -width 1303
+        mouse-press 635 125 button1 -height 566 -width 1303
+        mouse-release 635 125 button1 "" -height 566 -width 1303
+    }
+    get-diagram -index 1 | get-edit-part -name "Flow2 Flow Diagram" | mouse-move 338 "-1" -height 566 -width 1303
+}
+//-- Tool CRE_AsyncEventState
+with [get-editor "Flow2 Flow Diagram"] {
+    click
+    get-diagram -index 1 | get-edit-part -name "Flow2 Flow Diagram" | mouse-move 1288 259 -height 566 -width 1303
+    with [get-palette] {
+        get-palette-entry Abort | mouse-move 18 1 -height 25 -width 125
+        get-palette-entry Final | mouse-move 15 21 -height 25 -width 125
+        get-palette-entry "New flow" | mouse-move 17 0 -height 25 -width 125
+        get-palette-entry "Existing flow" | mouse-move 27 0 -height 25 -width 125
+        with [get-palette-entry AsyncEvent] {
+            mouse-move 30 17 button1 -height 25 -width 125
+            mouse-press 30 17 button1 -height 25 -width 125
+            mouse-release 30 17 button1 "" -height 25 -width 125
+        }
+    }
+    with [get-diagram -index 1 | get-edit-part -name "Flow2 Flow Diagram"] {
+        mouse-move 635 256 button1 -height 566 -width 1303
+        mouse-press 635 256 button1 -height 566 -width 1303
+        mouse-release 635 256 button1 "" -height 566 -width 1303
+    }
+    get-diagram -index 1 | get-edit-part -name "Flow2 Flow Diagram" | mouse-move 321 "-1" -height 566 -width 1303
+}
+//-- Tool CRE_ExistingFlowSubflowState
+with [get-editor "Flow2 Flow Diagram"] {
+    click
+    get-diagram -index 1 | get-edit-part -name "Flow2 Flow Diagram" | mouse-move 1296 149 -height 566 -width 1303
+    with [get-palette] {
+        with [get-palette-entry AsyncEvent] {
+            mouse-move 18 0 -height 25 -width 125
+            mouse-move 61 24 -height 25 -width 125
+        }
+        with [get-palette-entry "Existing flow"] {
+            mouse-move 61 8 button1 -height 25 -width 125
+            mouse-press 61 8 button1 -height 25 -width 125
+            mouse-release 61 8 button1 "" -height 25 -width 125
+        }
+    }
+    with [get-diagram -index 1 | get-edit-part -name "Flow2 Flow Diagram"] {
+        mouse-move 865 252 button1 -height 566 -width 1303
+        mouse-press 865 252 button1 -height 566 -width 1303
+        mouse-release 865 252 button1 "" -height 566 -width 1303
+    }
+}
+with [get-window "Selection Wizard"] {
+    get-tree | select "Cinematic Root E-BookStore/Flow Main"
+    get-button Finish | click -metaKeys ""
+}
+get-editor "Flow2 Flow Diagram" | get-diagram -index 1 | get-edit-part -name "Flow2 Flow Diagram" | mouse-move 223 1 
+    -height 566 -width 1303
+//-- Tool CRE_NewFlowSubflowState
+with [get-editor "Flow2 Flow Diagram"] {
+    click
+    get-diagram -index 1 | get-edit-part -name "Flow2 Flow Diagram" | mouse-move 1311 17 -height 566 -width 1303
+    with [get-palette] {
+        with [get-palette-entry "New flow"] {
+            mouse-press 53 21 button1 -height 25 -width 125
+            mouse-release 53 21 button1 "" -height 25 -width 125
+            mouse-move 56 12 button1 -height 25 -width 125
+            mouse-press 56 12 button1 -height 25 -width 125
+            mouse-release 56 12 button1 "" -height 25 -width 125
+        }
+    }
+    with [get-diagram -index 1 | get-edit-part -name "Flow2 Flow Diagram"] {
+        mouse-move 721 374 button1 -height 566 -width 1303
+        mouse-press 721 374 button1 -height 566 -width 1303
+        mouse-release 721 374 button1 "" -height 566 -width 1303
+    }
+    get-diagram -index 1 | get-edit-part -name "Flow2 Flow Diagram" | mouse-move 203 "-4" -height 566 -width 1303
+}
+//-- Tool CRE_Transition
+with [get-editor "Flow2 Flow Diagram"] {
+    click
+    with [get-palette] {
+        with [get-palette-entry States] {
+            mouse-move 72 23 button1 -height 170 -width 125
+            mouse-press 72 23 button1 -height 170 -width 125
+            mouse-release 72 23 button1 "" -height 170 -width 125
+        }
+        get-palette-entry Initial | mouse-move 87 21 -height 25 -width 125
+        get-palette-entry Final | mouse-move 82 24 -height 25 -width 125
+        get-palette-entry Abort | mouse-move 82 22 -height 25 -width 125
+        get-palette-entry Decision | mouse-move 82 24 -height 25 -width 125
+        with [get-palette-entry States] {
+            mouse-move 78 19 button1 -height 25 -width 125
+            mouse-press 78 19 button1 -height 25 -width 125
+            mouse-release 78 19 button1 "" -height 25 -width 125
+        }
+        with [get-palette-entry Transition] {
+            mouse-move 79 11 button1 -height 25 -width 125
+            mouse-press 79 11 button1 -height 25 -width 125
+            mouse-release 79 11 button1 "" -height 25 -width 125
+        }
+    }
+    with [get-diagram -index 1 | get-edit-part -name "Flow2 Flow Diagram"] {
+        mouse-move 87 171 -height 566 -width 1303
+        with [get-edit-part -name "" -index 1 | get-edit-part -className WorkspaceImageEditPart] {
+            mouse-move 18 4 button1 CTRL -height 25 -width 25
+            mouse-press 18 4 button1 CTRL -height 25 -width 25
+            mouse-release 18 4 button1 CTRL -height 25 -width 25
+        }
+        mouse-move 288 158 -mask CTRL -height 566 -width 1303
+        with [get-edit-part -name View1 | get-edit-part -className WorkspaceImageEditPart] {
+            mouse-move 43 25 button1 CTRL -height 73 -width 150
+            mouse-press 43 25 button1 CTRL -height 73 -width 150
+        }
+    }
+    with [get-diagram -index 1 | get-edit-part -name "Flow2 Flow Diagram"] {
+        with [get-edit-part -name View1 | get-edit-part -className WorkspaceImageEditPart] {
+            mouse-release 43 25 button1 CTRL -height 73 -width 150
+            mouse-move 109 26 button1 CTRL -height 73 -width 150
+            mouse-press 109 26 button1 CTRL -height 73 -width 150
+            mouse-release 109 26 button1 CTRL -height 73 -width 150
+        }
+        mouse-move 631 147 -mask CTRL -height 566 -width 1303
+        with [get-edit-part -name Action1 | get-edit-part -className WorkspaceImageEditPart] {
+            mouse-move 20 25 button1 CTRL -height 50 -width 50
+            mouse-press 20 25 button1 CTRL -height 50 -width 50
+            mouse-release 20 25 button1 CTRL -height 50 -width 50
+        }
+        mouse-move 687 155 -height 566 -width 1303
+    }
+}
+with [get-window "Event selection"] {
+    with [get-tree] {
+        get-item -path "Login/email/onKeyPressed" | check
+        select "Login/email/onKeyPressed"
+    }
+    get-button OK | click -metaKeys ""
+}
+with [get-editor "Flow2 Flow Diagram"] {
+    with [get-diagram -index 1 | get-edit-part -name "Flow2 Flow Diagram"] {
+        mouse-move 688 148 -height 566 -width 1303
+        with [get-edit-part -name Action1 | get-edit-part -className WorkspaceImageEditPart] {
+            mouse-move 29 20 button1 CTRL -height 50 -width 50
+            mouse-press 29 20 button1 CTRL -height 50 -width 50
+            mouse-release 29 20 button1 CTRL -height 50 -width 50
+        }
+        mouse-move 844 166 -mask CTRL -height 566 -width 1303
+        with [get-edit-part -name "" -index 2 | get-edit-part -className WorkspaceImageEditPart] {
+            mouse-move 12 12 button1 CTRL -height 23 -width 23
+            mouse-press 12 12 button1 CTRL -height 23 -width 23
+        }
+    }
+    with [get-diagram -index 1 | get-edit-part -name "Flow2 Flow Diagram"] {
+        get-edit-part -name "" -index 2 | get-edit-part -className WorkspaceImageEditPart 
+            | mouse-release 12 12 button1 CTRL -height 23 -width 23
+        mouse-move 421 202 -mask CTRL -height 566 -width 1303
+        with [get-edit-part -name View1 | get-edit-part -className WorkspaceImageEditPart] {
+            mouse-move 92 54 button1 CTRL -height 73 -width 150
+            mouse-press 92 54 button1 CTRL -height 73 -width 150
+            mouse-release 92 54 button1 CTRL -height 73 -width 150
+        }
+        mouse-move 486 334 -mask CTRL -height 566 -width 1303
+        with [get-edit-part -name "" -index 4 | get-edit-part -className WorkspaceImageEditPart] {
+            mouse-move 20 27 button1 CTRL -height 44 -width 44
+            mouse-press 20 27 button1 CTRL -height 44 -width 44
+            mouse-release 20 27 button1 CTRL -height 44 -width 44
+        }
+    }
+}
+with [get-window "Event selection"] {
+    with [get-tree] {
+        get-item -path "Login/validate/onClick" | check
+        select "Login/validate/onClick"
+    }
+    get-button OK | click -metaKeys ""
+}
+with [get-editor "Flow2 Flow Diagram"] {
+    with [get-diagram -index 1 | get-edit-part -name "Flow2 Flow Diagram"] {
+        mouse-move 489 371 -mask CTRL -height 566 -width 1303
+        with [get-edit-part -name "" -index 4 | get-edit-part -className WorkspaceImageEditPart] {
+            mouse-move 29 22 button1 CTRL -height 44 -width 44
+            mouse-press 29 22 button1 CTRL -height 44 -width 44
+            mouse-release 29 22 button1 CTRL -height 44 -width 44
+        }
+        mouse-move 731 377 -mask CTRL -height 566 -width 1303
+        with [get-edit-part -name Flow3 | get-edit-part -className WorkspaceImageEditPart] {
+            mouse-move 46 20 button1 CTRL -height 56 -width 117
+            mouse-press 46 20 button1 CTRL -height 56 -width 117
+        }
+    }
+    with [get-diagram -index 1 | get-edit-part -name "Flow2 Flow Diagram"] {
+        with [get-edit-part -name Flow3 | get-edit-part -className WorkspaceImageEditPart] {
+            mouse-release 46 20 button1 CTRL -height 56 -width 117
+            mouse-move 68 28 button1 CTRL -height 56 -width 117
+            mouse-press 68 28 button1 CTRL -height 56 -width 117
+            mouse-release 68 28 button1 CTRL -height 56 -width 117
+        }
+        mouse-move 730 312 -mask CTRL -height 566 -width 1303
+        with [get-edit-part -name AsyncEvent1 | get-edit-part -className WorkspaceImageEditPart] {
+            mouse-move 85 43 button1 CTRL -height 56 -width 117
+            mouse-press 85 43 button1 CTRL -height 56 -width 117
+        }
+    }
+    with [get-diagram -index 1] {
+        with [get-edit-part -name "Flow2 Flow Diagram"] {
+            with [get-edit-part -name AsyncEvent1 | get-edit-part -className WorkspaceImageEditPart] {
+                mouse-release 85 43 button1 CTRL -height 56 -width 117
+                mouse-move 96 27 button1 CTRL -height 56 -width 117
+                mouse-press 96 27 button1 CTRL -height 56 -width 117
+                mouse-release 96 27 button1 CTRL -height 56 -width 117
+            }
+            mouse-move 856 282 -mask CTRL -height 566 -width 1303
+            with [get-edit-part -name Main | get-edit-part -className WorkspaceImageEditPart] {
+                mouse-move 69 19 -mask CTRL -height 56 -width 117
+                mouse-press 69 19 button1 CTRL -height 56 -width 117
+                mouse-press 69 19 button1 CTRL -height 56 -width 117
+            }
+        }
+        mouse-drag 942 280 -mask CTRL -height 566 -width 1303
+    }
+    with [get-diagram -index 1 | get-edit-part -name "Flow2 Flow Diagram"] {
+        with [get-edit-part -name Main] {
+            mouse-drag 69 19 button1 CTRL -height 56 -width 117
+            mouse-release 69 19 button1 CTRL -height 56 -width 117
+            get-edit-part -className WorkspaceImageEditPart | mouse-release 69 19 button1 CTRL -height 56 -width 117
+        }
+        mouse-move 489 368 -mask CTRL -height 566 -width 1303
+        with [get-edit-part -name "" -index 4 | get-edit-part -className WorkspaceImageEditPart] {
+            mouse-move 38 28 button1 CTRL -height 44 -width 44
+            mouse-press 38 28 button1 CTRL -height 44 -width 44
+            mouse-release 38 28 button1 CTRL -height 44 -width 44
+        }
+        mouse-move 313 484 -mask CTRL -height 566 -width 1303
+        with [get-edit-part -name "" -index 3 | get-edit-part -className WorkspaceImageEditPart] {
+            mouse-move 12 12 button1 CTRL -height 23 -width 23
+            mouse-press 12 12 button1 CTRL -height 23 -width 23
+        }
+    }
+    with [get-diagram -index 1] {
+        with [get-edit-part -name "Flow2 Flow Diagram"] {
+            get-edit-part -name "" -index 3 | get-edit-part -className WorkspaceImageEditPart 
+                | mouse-release 12 12 button1 CTRL -height 23 -width 23
+            mouse-move 385 518 button1 -height 566 -width 1303
+            mouse-press 385 518 button1 -height 566 -width 1303
+            mouse-release 385 518 button1 "" -height 566 -width 1303
+        }
+        key-type ESC
+        get-edit-part -name "Flow2 Flow Diagram" | mouse-move 195 "-1" -height 565 -width 1303
+    }
+}
+//- Section Events
+//-- Tool CRE_FlowEvent
+with [get-editor "Flow2 Flow Diagram"] {
+    click
+    get-diagram -index 1 | get-edit-part -name "Flow2 Flow Diagram" | mouse-move 1290 434 -height 565 -width 1303
+    with [get-palette | get-palette-entry "Flow Event"] {
+        mouse-move 83 6 button1 -height 25 -width 125
+        mouse-press 83 6 button1 -height 25 -width 125
+        mouse-release 83 6 button1 "" -height 25 -width 125
+    }
+    with [get-diagram -index 1 | get-edit-part -name "Flow2 Flow Diagram"] {
+        mouse-move 477 303 -height 565 -width 1303
+        with [get-edit-part -name "Flow Events"] {
+            mouse-move 76 27 button1 -height 43 -width 101
+            mouse-press 76 27 button1 -height 43 -width 101
+            mouse-release 76 27 button1 "" -height 43 -width 101
+        }
+    }
+    get-diagram -index 1 | get-edit-part -name "Flow2 Flow Diagram" | mouse-move 1152 551 -height 566 -width 1303
+    with [get-palette] {
+        with [get-palette-entry "View Containers"] {
+            mouse-move 43 19 button1 -height 25 -width 125
+            mouse-press 43 19 button1 -height 25 -width 125
+            mouse-release 43 19 button1 "" -height 25 -width 125
+        }
+    }
+}
+//- Section View Containers
+//-- Tool CRE_ViewState_To_ViewContainer
+with [get-editor "Flow2 Flow Diagram"] {
+    with [get-palette] {
+        get-palette-entry Transition | mouse-move 20 16 -height 25 -width 227
+        get-palette-entry View | mouse-move 11 14 -height 25 -width 227
+    }
+    get-diagram -index 1 | get-edit-part -name "Flow2 Flow Diagram" | mouse-move 1188 353 -height 566 -width 1201
+    with [get-palette] {
+        get-palette-entry "Bind View State and View Container" | mouse-move 36 0 -height 43 -width 227
+        get-palette-entry "New flow" | mouse-move 40 14 -height 25 -width 227
+        get-palette-entry "Existing flow" | mouse-move 43 11 -height 25 -width 227
+        get-palette-entry AsyncEvent | mouse-move 46 16 -height 25 -width 227
+        with [get-palette-entry View] {
+            mouse-move 51 9 button1 -height 25 -width 227
+            mouse-press 51 9 button1 -height 25 -width 227
+            mouse-release 51 9 button1 "" -height 25 -width 227
+        }
+    }
+    with [get-diagram -index 1 | get-edit-part -name "Flow2 Flow Diagram"] {
+        mouse-move 1018 84 button1 -height 566 -width 1201
+        mouse-press 1018 84 button1 -height 566 -width 1201
+        mouse-release 1018 84 button1 "" -height 566 -width 1201
+        mouse-move 243 277 -height 566 -width 1201
+    }
+}
+with [get-window "View Container selection"] {
+    with [get-tree] {
+        select "HomePage/ShoppingCart"
+        get-item -path "HomePage/ShoppingCart" | check
+        select "HomePage/ShoppingCart"
+    }
+    get-button OK | click -metaKeys ""
+}
+with [get-editor "Flow2 Flow Diagram"] {
+    with [get-diagram -index 1] {
+        with [get-edit-part -name "Flow2 Flow Diagram"] {
+            mouse-move 1036 212 button1 -height 566 -width 1201
+            mouse-press 1036 212 button1 -height 566 -width 1201
+        }
+        get-figure -path "1/21" | mouse-release 115 30 button1 "" -height 40 -width 280
+        with [get-edit-part -name "Flow2 Flow Diagram"] {
+            mouse-move 1062 168 -height 565 -width 1201
+            with [get-edit-part -name ShoppingCart] {
+                mouse-move 55 23 -height 64 -width 112
+                with [get-edit-part -className DNodeListNameEditPart] {
+                    mouse-move 54 7 button1 -height 18 -width 108
+                    mouse-press 54 7 button1 -height 18 -width 108
+                    mouse-move 55 11 -mask "" -height 18 -width 108
+                }
+            }
+            mouse-drag 1083 202 button1 "" -height 566 -width 1201
+            mouse-release 1083 202 button1 "" -height 566 -width 1201
+            mouse-move 455 168 -height 566 -width 1201
+            with [get-edit-part -name Login] {
+                mouse-move 84 17 button1 -height 109 -width 109
+                mouse-press 84 17 button1 -height 109 -width 109
+                mouse-move 83 17 -mask "" -height 109 -width 109
+            }
+        }
+        mouse-drag 394 158 -mask "" -height 566 -width 1201
+        with [get-edit-part -name "Flow2 Flow Diagram"] {
+            with [get-edit-part -name Login | get-handle MoveHandle] {
+                mouse-drag 72 108 button1 "" -height 109 -width 109
+                mouse-release 72 108 button1 "" -height 109 -width 109
+            }
+            mouse-move 858 307 -height 566 -width 1201
+            mouse-move 1182 275 -height 566 -width 1201
+        }
+    }
+    with [get-palette] {
+        get-palette-entry Final | mouse-move 24 7 -height 25 -width 227
+        get-palette-entry Initial | mouse-move 29 10 -height 25 -width 227
+        get-palette-entry "New flow" | mouse-move 32 3 -height 25 -width 227
+        get-palette-entry "Existing flow" | mouse-move 32 1 -height 25 -width 227
+        get-palette-entry AsyncEvent | mouse-move 31 3 -height 25 -width 227
+        get-palette-entry Action | mouse-move 30 1 -height 25 -width 227
+        get-palette-entry Final | mouse-move 28 23 -height 25 -width 227
+        get-palette-entry Decision | mouse-move 28 10 -height 25 -width 227
+        get-palette-entry "Flow Event" | mouse-move 28 4 -height 25 -width 227
+        with [get-palette-entry "Bind View State and View Container"] {
+            mouse-move 38 42 -height 43 -width 227
+            mouse-move 52 29 button1 -height 43 -width 227
+            mouse-press 52 29 button1 -height 43 -width 227
+            mouse-release 52 29 button1 "" -height 43 -width 227
+        }
+    }
+    with [get-diagram -index 1 | get-edit-part -name "Flow2 Flow Diagram"] {
+        mouse-move 459 163 -height 566 -width 1201
+        with [get-edit-part -name View1 | get-edit-part -className WorkspaceImageEditPart] {
+            mouse-move 140 36 button1 -height 73 -width 150
+            mouse-press 140 36 button1 -height 73 -width 150
+            mouse-release 140 36 button1 "" -height 73 -width 150
+        }
+        with [get-edit-part -name ShoppingCart | get-edit-part -className DNodeListNameEditPart] {
+            mouse-move 23 13 button1 -height 18 -width 108
+            mouse-press 23 13 button1 -height 18 -width 108
+        }
+    }
+    with [get-diagram -index 1 | get-edit-part -name "Flow2 Flow Diagram"] {
+        get-edit-part -name ShoppingCart | get-edit-part -className DNodeListNameEditPart 
+            | mouse-release 23 13 button1 "" -height 18 -width 108
+        mouse-move 688 "-7" -height 566 -width 1201
+    }
+}
+//-- Tool CRE_ViewState_To_Existing_ViewContainer
+with [get-editor "Flow2 Flow Diagram"] {
+    click
+    get-diagram -index 1 | get-edit-part -name "Flow2 Flow Diagram" | mouse-move 1189 443 -height 566 -width 1201
+    with [get-palette] {
+        get-palette-entry "Bind View State and View Container" | mouse-move 26 41 -height 43 -width 227
+        with [get-palette-entry "Bind existing View Container"] {
+            mouse-move 59 9 button1 -height 25 -width 227
+            mouse-press 59 9 button1 -height 25 -width 227
+            mouse-release 59 9 button1 "" -height 25 -width 227
+        }
+    }
+    with [get-diagram -index 1 | get-edit-part -name "Flow2 Flow Diagram"] {
+        mouse-move 400 242 -height 566 -width 1201
+        mouse-move 374 207 -height 566 -width 1201
+        with [get-edit-part -name View1 | get-edit-part -className WorkspaceImageEditPart] {
+            mouse-move 76 44 button1 -height 73 -width 150
+            mouse-press 76 44 button1 -height 73 -width 150
+            mouse-release 76 44 button1 "" -height 73 -width 150
+        }
+    }
+}
+with [get-window "Selection Wizard"] {
+    get-tree | select "Cinematic Root E-BookStore/View Container CreateAccount : Page"
+    get-button Finish | click -metaKeys ""
+}
+// -- Tool CRE_ViewState_To_New_ViewContainer
+with [get-editor "Flow2 Flow Diagram"] {
+    click
+    get-diagram -index 1 | get-edit-part -name "Flow2 Flow Diagram" | mouse-move 1180 314 -height 566 -width 1201
+    with [get-palette] {
+        get-palette-entry "Flow Event" | mouse-move 10 12 -height 25 -width 227
+        get-palette-entry "Bind View State and View Container" | mouse-move 63 40 -height 43 -width 227
+        get-palette-entry "Bind existing View Container" | mouse-move 81 24 -height 25 -width 227
+        with [get-palette-entry "Bind new View Container"] {
+            mouse-move 91 22 button1 -height 25 -width 227
+            mouse-press 91 22 button1 -height 25 -width 227
+            mouse-release 91 22 button1 "" -height 25 -width 227
+        }
+    }
+    with [get-diagram -index 1 | get-edit-part -name "Flow2 Flow Diagram"] {
+        mouse-move 1006 169 -height 566 -width 1201
+        with [get-edit-part -name View2 | get-edit-part -className WorkspaceImageEditPart] {
+            mouse-move 11 36 button1 -height 73 -width 150
+            mouse-press 11 36 button1 -height 73 -width 150
+            mouse-release 11 36 button1 "" -height 73 -width 150
+        }
+    }
+}
+with [get-window "Selection Wizard"] {
+    get-tree | select "Toolkit Web/Widget Page"
+    get-button Finish | click -metaKeys ""
+}
+// Assert diagram contents
+with [get-editor "Flow2 Flow Diagram" | get-diagram -index 1 | get-edit-part -name "Flow2 Flow Diagram"] {
+    get-property "children.size" | equals 16 | verify-true
+    get-property "edges.size" | equals 13 | verify-true
+}
+------=_.content-0a7243a0-75d3-3d5f-9791-539de0e5b7ac--

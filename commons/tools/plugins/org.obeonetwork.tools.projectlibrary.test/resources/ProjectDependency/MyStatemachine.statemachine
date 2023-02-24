@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="ASCII"?>
+<statemachine:StateMachine xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:statemachine="http://www.obeonetwork.org/dsl/statemachine/1.0.0" xmi:id="_t8wfkQgqEe2B-cJPedskZg" technicalid="_t8wfkAgqEe2B-cJPedskZg" createdOn="2022-07-20T14:52:23.357+0200" modifiedOn="2022-07-20T14:53:31.381+0200" name="DependencyFSM">
+  <states xsi:type="statemachine:InitialState" xmi:id="_zKgW0AgqEe2B-cJPedskZg" technicalid="_zKfvwAgqEe2B-cJPedskZg" createdOn="2022-07-20T14:52:45.894+0200" modifiedOn="2022-07-20T14:52:45.894+0200" outcomingTransitions="_2hb2YAgqEe2B-cJPedskZg"/>
+  <states xsi:type="statemachine:State" xmi:id="_1bZbYAgqEe2B-cJPedskZg" technicalid="_1bY0UAgqEe2B-cJPedskZg" createdOn="2022-07-20T14:52:38.563+0200" modifiedOn="2022-07-20T14:53:06.746+0200" incomingTransitions="_2hb2YAgqEe2B-cJPedskZg" outcomingTransitions="_29_2kQgqEe2B-cJPedskZg" name="Dependency_State_1"/>
+  <states xsi:type="statemachine:FinalState" xmi:id="_1-BnUAgqEe2B-cJPedskZg" technicalid="_1-BAQAgqEe2B-cJPedskZg" createdOn="2022-07-20T14:52:48.890+0200" modifiedOn="2022-07-20T14:52:48.890+0200" incomingTransitions="_29_2kQgqEe2B-cJPedskZg"/>
+  <transitions xmi:id="_2hb2YAgqEe2B-cJPedskZg" technicalid="_2hbPUAgqEe2B-cJPedskZg" createdOn="2022-07-20T14:52:45.894+0200" modifiedOn="2022-07-20T14:52:45.894+0200" from="_zKgW0AgqEe2B-cJPedskZg" to="_1bZbYAgqEe2B-cJPedskZg"/>
+  <transitions xmi:id="_29_2kQgqEe2B-cJPedskZg" technicalid="_29_2kAgqEe2B-cJPedskZg" createdOn="2022-07-20T14:52:48.890+0200" modifiedOn="2022-07-20T14:52:48.890+0200" from="_1bZbYAgqEe2B-cJPedskZg" to="_1-BnUAgqEe2B-cJPedskZg"/>
+</statemachine:StateMachine>

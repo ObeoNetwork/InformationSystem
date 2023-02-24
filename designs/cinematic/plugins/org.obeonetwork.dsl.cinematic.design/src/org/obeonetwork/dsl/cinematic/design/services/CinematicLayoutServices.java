@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2008, 2021 Obeo.
+ * Copyright (c) 2008, 2023 Obeo.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -44,8 +44,8 @@ import org.obeonetwork.dsl.cinematic.view.Layout;
 import org.obeonetwork.dsl.cinematic.view.LayoutDirection;
 import org.obeonetwork.dsl.cinematic.view.ViewContainer;
 import org.obeonetwork.dsl.cinematic.view.ViewFactory;
+import org.obeonetwork.utils.common.EObjectUtils;
 import org.obeonetwork.utils.common.StreamUtils;
-import org.obeonetwork.utils.sirius.services.EObjectUtils;
 
 @SuppressWarnings("restriction")
 public class CinematicLayoutServices {

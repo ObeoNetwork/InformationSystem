@@ -909,7 +909,10 @@
               }
             }
           }
-        }
+        },
+        "security" : [ {
+          "jwtToken" : [ ]
+        } ]
       }
     },
     "/refresh_token" : {

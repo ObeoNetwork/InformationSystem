@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<database:DataBase xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:database="http://www.obeonetwork.org/dsl/database/1.0" xmlns:typeslibrary="http://www.obeonetwork.org/dsl/typeslibrary/1.0" xmi:id="_5bsbgRD6EeOnlKnLOxE0Ww" techID="_zU3hkBGGEeOmiPWXJEa9Nw" name="safran-mld">
+  <usedLibraries xsi:type="typeslibrary:NativeTypesLibrary" href="pathmap://LogicalDBTypes#_WWbGkREnEeGTa_JlZYBw1A"/>
+  <schemas xmi:id="_-1d8nhD6EeOnlKnLOxE0Ww" techID="_zU590RGGEeOmiPWXJEa9Nw" name="TC">
+    <tables xsi:type="database:Table" xmi:id="_-1d8nxD6EeOnlKnLOxE0Ww" techID="_zU590hGGEeOmiPWXJEa9Nw" name="TC_C1D">
+      <columns xmi:id="_-1d8oBD6EeOnlKnLOxE0Ww" comments="PK de la table TC_C1D" techID="_zU590xGGEeOmiPWXJEa9Nw" name="TC_C1D_ID" primaryKey="_-1d8ohD6EeOnlKnLOxE0Ww">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_-1d8oxD6EeOnlKnLOxE0Ww">
+          <nativeType href="pathmap://LogicalDBTypes#_WWeJ4BEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+      <columns xmi:id="_-1kqZRD6EeOnlKnLOxE0Ww" comments="Indicateur pour savoir si l'enregistrement est valide" techID="_zU591BGGEeOmiPWXJEa9Nw" name="TC_XTOPSUP" defaultValue="'0'">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_-1kqZxD6EeOnlKnLOxE0Ww" length="1">
+          <nativeType href="pathmap://LogicalDBTypes#_WWew-BEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+      <columns xmi:id="_-1lRUBD6EeOnlKnLOxE0Ww" comments="Date de mise à jour de la ligne" techID="_zU591RGGEeOmiPWXJEa9Nw" name="TC_XDMAJ">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_-1lRUhD6EeOnlKnLOxE0Ww">
+          <nativeType href="pathmap://LogicalDBTypes#_WWew-xEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+      <primaryKey xmi:id="_-1d8ohD6EeOnlKnLOxE0Ww" comments="Contrainte PK pour la colonne TC_C1D_ID" techID="_zU591hGGEeOmiPWXJEa9Nw" name="TC_C1D_PK" columns="_-1d8oBD6EeOnlKnLOxE0Ww"/>
+      <constraints xmi:id="_-1kqaBD6EeOnlKnLOxE0Ww" comments="Liste des valeurs possibles pour TC_XTOPSUP" techID="_zU591xGGEeOmiPWXJEa9Nw" name="TC_C1D_CK1_1" expression="TC_XTOPSUP in ('0','1','3','9')"/>
+    </tables>
+    <tables xsi:type="database:Table" xmi:id="_-1d8pBD6EeOnlKnLOxE0Ww" techID="_zU592BGGEeOmiPWXJEa9Nw" name="TC_C1A">
+      <columns xmi:id="_-1ejoBD6EeOnlKnLOxE0Ww" comments="PK de la table TC_C1A" techID="_zU592RGGEeOmiPWXJEa9Nw" name="TC_C1A_ID" primaryKey="_-1ejohD6EeOnlKnLOxE0Ww">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_-1ejoxD6EeOnlKnLOxE0Ww">
+          <nativeType href="pathmap://LogicalDBTypes#_WWeJ4BEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+      <columns xmi:id="_-1gY6RD6EeOnlKnLOxE0Ww" techID="_zU592hGGEeOmiPWXJEa9Nw" name="TC_C1D_ID" nullable="true" indexElements="_0WrFoBD-EeOnlKnLOxE0Ww" foreignKeyElements="_-1gY7BD6EeOnlKnLOxE0Ww">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_-1gY6xD6EeOnlKnLOxE0Ww">
+          <nativeType href="pathmap://LogicalDBTypes#_WWeJ4BEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+      <columns xmi:id="_-1lRUxD6EeOnlKnLOxE0Ww" comments="Indicateur pour savoir si l'enregistrement est valide" techID="_zU592xGGEeOmiPWXJEa9Nw" name="TC_XTOPSUP" defaultValue="'0'">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_-1lRVRD6EeOnlKnLOxE0Ww" length="1">
+          <nativeType href="pathmap://LogicalDBTypes#_WWew-BEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+      <columns xmi:id="_-1lRVxD6EeOnlKnLOxE0Ww" comments="Date de mise à jour de la ligne" techID="_zU593BGGEeOmiPWXJEa9Nw" name="TC_XDMAJ">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_-1lRWRD6EeOnlKnLOxE0Ww">
+          <nativeType href="pathmap://LogicalDBTypes#_WWew-xEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+      <primaryKey xmi:id="_-1ejohD6EeOnlKnLOxE0Ww" comments="Contrainte PK pour la colonne TC_C1A_ID" techID="_zU593RGGEeOmiPWXJEa9Nw" name="TC_C1A_PK" columns="_-1ejoBD6EeOnlKnLOxE0Ww"/>
+      <foreignKeys xmi:id="_-1gY6BD6EeOnlKnLOxE0Ww" comments="Contrainte FK avec la table TC_C1D" techID="_zU593hGGEeOmiPWXJEa9Nw" name="TC_C1A_FK1_1" target="_-1d8nxD6EeOnlKnLOxE0Ww">
+        <elements xmi:id="_-1gY7BD6EeOnlKnLOxE0Ww" techID="_zU593xGGEeOmiPWXJEa9Nw" fkColumn="_-1gY6RD6EeOnlKnLOxE0Ww" pkColumn="_-1d8oBD6EeOnlKnLOxE0Ww"/>
+      </foreignKeys>
+      <constraints xmi:id="_-1lRVhD6EeOnlKnLOxE0Ww" comments="Liste des valeurs possibles pour TC_XTOPSUP" techID="_zU594BGGEeOmiPWXJEa9Nw" name="TC_C1A_CK1_1" expression="TC_XTOPSUP in ('0','1','3','9')"/>
+      <indexes xmi:id="_-1iODBD6EeOnlKnLOxE0Ww" comments="Index sur la FK (TC_C1D_ID) de la table TC_C1A" techID="_zU594RGGEeOmiPWXJEa9Nw" name="TC_C1A_FK1_1">
+        <elements xmi:id="_0WrFoBD-EeOnlKnLOxE0Ww" techID="_zU594hGGEeOmiPWXJEa9Nw" column="_-1gY6RD6EeOnlKnLOxE0Ww" asc="true"/>
+      </indexes>
+    </tables>
+  </schemas>
+</database:DataBase>

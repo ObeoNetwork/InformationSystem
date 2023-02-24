@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<database:DataBase xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:database="http://www.obeonetwork.org/dsl/database/1.0" xmlns:typeslibrary="http://www.obeonetwork.org/dsl/typeslibrary/1.0" xmi:id="_ejmcQGF1EeKPQbctQ06sag" name="safran167-mld">
+  <tables xsi:type="database:Table" xmi:id="_gHlXgGF1EeKPQbctQ06sag" comments="Table des séries" name="GS_SERIE">
+    <columns xmi:id="_ixwewGF1EeKPQbctQ06sag" comments="PK de la table GS_SERIE" name="GS_SERIE_ID" indexElements="_lVhcAWF1EeKPQbctQ06sag" primaryKey="_ixwewmF1EeKPQbctQ06sag">
+      <type xsi:type="typeslibrary:TypeInstance" xmi:id="_ixwewWF1EeKPQbctQ06sag">
+        <nativeType href="pathmap://LogicalDBTypes#_WWeJ4BEnEeGTa_JlZYBw1A"/>
+      </type>
+    </columns>
+    <columns xmi:id="_tsyB4GF1EeKPQbctQ06sag" comments="Titre de la série" name="GS_SERIE_TITRE">
+      <type xsi:type="typeslibrary:TypeInstance" xmi:id="_tsyB4WF1EeKPQbctQ06sag" length="50">
+        <nativeType href="pathmap://LogicalDBTypes#_WWew-BEnEeGTa_JlZYBw1A"/>
+      </type>
+    </columns>
+    <primaryKey xmi:id="_ixwewmF1EeKPQbctQ06sag" comments="Contrainte PK pour GS_SERIE_ID" name="GS_SERIE_PK1_1" columns="_ixwewGF1EeKPQbctQ06sag"/>
+    <indexes xmi:id="_lVhcAGF1EeKPQbctQ06sag" comments="Index d'unicité pour GS_SERE_ID" name="GS_SERIE_PK1_1" unique="true">
+      <elements xmi:id="_lVhcAWF1EeKPQbctQ06sag" column="_ixwewGF1EeKPQbctQ06sag" asc="true"/>
+    </indexes>
+  </tables>
+  <usedLibraries xsi:type="typeslibrary:NativeTypesLibrary" href="pathmap://LogicalDBTypes#_WWbGkREnEeGTa_JlZYBw1A"/>
+</database:DataBase>

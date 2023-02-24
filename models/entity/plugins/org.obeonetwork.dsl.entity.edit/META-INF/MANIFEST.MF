@@ -2,7 +2,7 @@ Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: Entity Edit Support
 Bundle-SymbolicName: org.obeonetwork.dsl.entity.edit;singleton:=true
-Bundle-Version: 2.2.0.qualifier
+Bundle-Version: 4.0.0.qualifier
 Bundle-ClassPath: .
 Bundle-Activator: org.obeonetwork.dsl.entity.provider.EntityEditPlugin$Implementation
 Bundle-Vendor: Obeo Network
@@ -18,4 +18,4 @@ Require-Bundle: org.eclipse.core.runtime,
  org.obeonetwork.dsl.entity;visibility:=reexport,
  org.eclipse.emf.eef.runtime
 Bundle-ActivationPolicy: lazy
-Bundle-RequiredExecutionEnvironment: J2SE-1.5
+Bundle-RequiredExecutionEnvironment: JavaSE-1.8

@@ -2,10 +2,10 @@ Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: Obeo Network - Class Diagram Configuration Model
 Bundle-SymbolicName: org.obeonetwork.tools.classdiagramgenerator;singleton:=true
-Bundle-Version: 2.2.0.qualifier
+Bundle-Version: 4.0.0.qualifier
 Bundle-ClassPath: .
 Bundle-Vendor: Obeo Network
-Bundle-RequiredExecutionEnvironment: JavaSE-1.6
+Bundle-RequiredExecutionEnvironment: JavaSE-1.8
 Export-Package: org.obeonetwork.tools.classdiagramconfiguration,
  org.obeonetwork.tools.classdiagramconfiguration.impl,
  org.obeonetwork.tools.classdiagramconfiguration.util

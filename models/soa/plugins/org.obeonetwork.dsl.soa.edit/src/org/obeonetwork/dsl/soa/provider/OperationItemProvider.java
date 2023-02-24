@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2008, 2021 Obeo.
+ * Copyright (c) 2008, 2023 Obeo.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -11,6 +11,7 @@
 package org.obeonetwork.dsl.soa.provider;
 
 
+import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 
@@ -19,11 +20,15 @@ import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.util.ResourceLocator;
 import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
+import org.eclipse.emf.edit.provider.ComposedImage;
+import org.eclipse.emf.edit.provider.IItemLabelProvider;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 import org.obeonetwork.dsl.environment.provider.ActionItemProvider;
+import org.obeonetwork.dsl.soa.Interface;
 import org.obeonetwork.dsl.soa.Operation;
+import org.obeonetwork.dsl.soa.Service;
 import org.obeonetwork.dsl.soa.SoaFactory;
 import org.obeonetwork.dsl.soa.SoaPackage;
 
@@ -40,7 +45,7 @@ public class OperationItemProvider
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public static final String copyright = "Copyright (c) 2008, 2021 Obeo.\nAll rights reserved. This program and the accompanying materials\nare made available under the terms of the Eclipse Public License v1.0\nwhich accompanies this distribution, and is available at\nhttp://www.eclipse.org/legal/epl-v10.html\n\nContributors:\n    Obeo - initial API and implementation";
+	public static final String copyright = "Copyright (c) 2008, 2023 Obeo.\nAll rights reserved. This program and the accompanying materials\nare made available under the terms of the Eclipse Public License v1.0\nwhich accompanies this distribution, and is available at\nhttp://www.eclipse.org/legal/epl-v10.html\n\nContributors:\n    Obeo - initial API and implementation";
 
 	/**
 	 * This constructs an instance from a factory and a notifier.
@@ -63,18 +68,41 @@ public class OperationItemProvider
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
+			addSecurityApplicationsPropertyDescriptor(object);
+			addSecuritySchemesPropertyDescriptor(object);
 			addKindPropertyDescriptor(object);
 			addPublicPropertyDescriptor(object);
 			addURIPropertyDescriptor(object);
 			addVerbPropertyDescriptor(object);
 			addExpositionPropertyDescriptor(object);
 			addPagedPropertyDescriptor(object);
-			addSecuritySchemesPropertyDescriptor(object);
 			addSizePropertyDescriptor(object);
 			addPagePropertyDescriptor(object);
 			addPaginationExtensionPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
+	}
+
+	/**
+	 * This adds a property descriptor for the Security Applications feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addSecurityApplicationsPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_Securable_securityApplications_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Securable_securityApplications_feature", "_UI_Securable_type"),
+				 SoaPackage.Literals.SECURABLE__SECURITY_APPLICATIONS,
+				 true,
+				 false,
+				 false,
+				 null,
+				 null,
+				 null));
 	}
 
 	/**
@@ -210,28 +238,6 @@ public class OperationItemProvider
 	}
 
 	/**
-	 * This adds a property descriptor for the Security Schemes feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addSecuritySchemesPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_Operation_securitySchemes_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_Operation_securitySchemes_feature", "_UI_Operation_type"),
-				 SoaPackage.Literals.OPERATION__SECURITY_SCHEMES,
-				 true,
-				 false,
-				 true,
-				 null,
-				 null,
-				 null));
-	}
-
-	/**
 	 * This adds a property descriptor for the Size feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -298,6 +304,28 @@ public class OperationItemProvider
 	}
 
 	/**
+	 * This adds a property descriptor for the Security Schemes feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addSecuritySchemesPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_Securable_securitySchemes_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Securable_securitySchemes_feature", "_UI_Securable_type"),
+				 SoaPackage.Literals.SECURABLE__SECURITY_SCHEMES,
+				 false,
+				 false,
+				 false,
+				 null,
+				 null,
+				 null));
+	}
+
+	/**
 	 * This specifies how to implement {@link #getChildren} and is used to deduce an appropriate feature for an
 	 * {@link org.eclipse.emf.edit.command.AddCommand}, {@link org.eclipse.emf.edit.command.RemoveCommand} or
 	 * {@link org.eclipse.emf.edit.command.MoveCommand} in {@link #createCommand}.
@@ -309,6 +337,7 @@ public class OperationItemProvider
 	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
+			childrenFeatures.add(SoaPackage.Literals.SECURABLE__SECURITY_APPLICATIONS);
 			childrenFeatures.add(SoaPackage.Literals.OPERATION__INPUT);
 			childrenFeatures.add(SoaPackage.Literals.OPERATION__OUTPUT);
 			childrenFeatures.add(SoaPackage.Literals.OPERATION__FAULT);
@@ -353,7 +382,19 @@ public class OperationItemProvider
 				break;
 			}
 		}
-		return overlayImage(object, getResourceLocator().getImage(imagePath));
+		List<Object> images = new ArrayList<Object>();
+		images.add(getResourceLocator().getImage(imagePath));
+		
+		if(operation.eContainer() instanceof Interface && operation.eContainer().eContainer() instanceof Service) {
+			Service containingService = (Service) operation.eContainer().eContainer();
+			if(!containingService.getSecuritySchemes().isEmpty() || !operation.getSecuritySchemes().isEmpty()) {
+				images.add(getResourceLocator().getImage("full/obj16/key"));
+			}
+		}
+		
+		Object composedImage = new ComposedImage(images);
+		return overlayImage(object, composedImage);
+		
 	}
 
 	/**
@@ -400,6 +441,7 @@ public class OperationItemProvider
 			case SoaPackage.OPERATION__PAGED:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
+			case SoaPackage.OPERATION__SECURITY_APPLICATIONS:
 			case SoaPackage.OPERATION__INPUT:
 			case SoaPackage.OPERATION__OUTPUT:
 			case SoaPackage.OPERATION__FAULT:
@@ -420,6 +462,11 @@ public class OperationItemProvider
 	@Override
 	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
 		super.collectNewChildDescriptors(newChildDescriptors, object);
+
+		newChildDescriptors.add
+			(createChildParameter
+				(SoaPackage.Literals.SECURABLE__SECURITY_APPLICATIONS,
+				 SoaFactory.eINSTANCE.createSecurityApplication()));
 
 		newChildDescriptors.add
 			(createChildParameter

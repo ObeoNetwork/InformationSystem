@@ -2,7 +2,7 @@ Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: IS Model
 Bundle-SymbolicName: org.obeonetwork.dsl.is;singleton:=true
-Bundle-Version: 2.2.0.qualifier
+Bundle-Version: 4.0.0.qualifier
 Bundle-Activator: org.obeonetwork.dsl.is.Activator
 Bundle-Vendor: Obeo Network
 Require-Bundle: org.eclipse.ui,
@@ -30,7 +30,9 @@ Require-Bundle: org.eclipse.ui,
  com.ibm.icu,
  org.eclipse.sirius.diagram,
  org.obeonetwork.dsl.database,
- org.eclipse.emf.compare
+ org.eclipse.emf.compare,
+ org.obeonetwork.utils.common.ui,
+ org.obeonetwork.utils.common
 Export-Package: org.obeonetwork.dsl.is,
  org.obeonetwork.dsl.is.compare,
  org.obeonetwork.dsl.is.overview,

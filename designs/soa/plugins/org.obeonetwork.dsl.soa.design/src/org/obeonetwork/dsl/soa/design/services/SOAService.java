@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2008, 2021 Obeo.
+ * Copyright (c) 2008, 2023 Obeo.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -23,7 +23,7 @@ import java.util.Optional;
 import java.util.Set;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
-import java.util.stream.Collectors;
+import static java.util.stream.Collectors.*;
 
 import org.eclipse.core.runtime.IExtension;
 import org.eclipse.core.runtime.Platform;
@@ -48,6 +48,9 @@ import org.obeonetwork.dsl.soa.MediaType;
 import org.obeonetwork.dsl.soa.Operation;
 import org.obeonetwork.dsl.soa.Parameter;
 import org.obeonetwork.dsl.soa.PropertiesExtension;
+import org.obeonetwork.dsl.soa.Scope;
+import org.obeonetwork.dsl.soa.Securable;
+import org.obeonetwork.dsl.soa.SecurityApplication;
 import org.obeonetwork.dsl.soa.SecurityScheme;
 import org.obeonetwork.dsl.soa.SecuritySchemeType;
 import org.obeonetwork.dsl.soa.Service;
@@ -58,6 +61,7 @@ import org.obeonetwork.dsl.soa.Verb;
 import org.obeonetwork.dsl.soa.Wire;
 import org.obeonetwork.dsl.soa.design.dialogs.NewSecuritySchemeDialog;
 import org.obeonetwork.dsl.soa.services.HttpStatusService;
+import org.obeonetwork.utils.common.EObjectUtils;
 
 public class SOAService {
 
@@ -96,10 +100,38 @@ public class SOAService {
 			operation.setVerb(Verb.GET);
 			// operation.setPaged(true);
 		}
+		
+		if(expositionKind != ExpositionKind.NONE &&
+				EObjectUtils.getContainer(operation, Service.class).getKind() == InterfaceKind.PROVIDED_LITERAL) {
+			operation.setPublic(true);
+		}
 
 		return operation;
 	}
 
+	public Securable updateSecurityApplications(Securable securable, List<SecurityScheme> securitySchemes) {
+		List<SecurityApplication> oldSecurityApplications = new ArrayList<>(securable.getSecurityApplications());
+		securable.getSecurityApplications().removeAll(oldSecurityApplications);
+		
+		for(SecurityScheme securityScheme : securitySchemes) {
+			SecurityApplication securityApplication = oldSecurityApplications.stream().filter(sa -> sa.getSecurityScheme() == securityScheme).findAny().orElse(null);
+			if(securityApplication == null) {
+				securityApplication = SoaFactory.eINSTANCE.createSecurityApplication();
+				securityApplication.setSecurityScheme(securityScheme);
+				securityApplication.getScopes().addAll(securityScheme.getFlows().stream().flatMap(f -> f.getScopes().stream()).collect(toList()));
+			}
+			securable.getSecurityApplications().add(securityApplication);
+		}
+		return securable;
+	}
+	
+	public SecurityApplication updateScopes(SecurityApplication securityApplication, List<Scope> scopes) {
+		List<Scope> oldScopes = new ArrayList<Scope>(securityApplication.getScopes());
+		securityApplication.getScopes().removeAll(oldScopes);
+		securityApplication.getScopes().addAll(scopes);
+		return securityApplication;
+	}
+	
 	public Parameter setStatusCode(Parameter parameter, String statusCode) {
 		if (!Objects.equals(parameter.getStatusCode(), statusCode)) {
 			if (isNullOrWhite(parameter.getStatusMessage()) || parameter.getStatusMessage().trim()
@@ -295,7 +327,7 @@ public class SOAService {
 					.flatMap(Arrays::stream)
 					.map(configurationElement -> configurationElement.getAttribute(COMMON_MEDIA_TYPES_NAME_ATTRIBUTE))
 					.sorted()
-					.collect(Collectors.toList());
+					.collect(toList());
 			
 			if (!commonMediaTypes.contains("")) {
 				commonMediaTypes.add("");
@@ -331,20 +363,13 @@ public class SOAService {
 	public boolean isSecuritySchemeDialog(SecurityScheme scheme) {
 		Display display = Display.getCurrent();
 		Shell shell = display.getActiveShell();
-		return shell.getText().equals("Security scheme edition");
+		return shell != null && shell.getText().equals("Security scheme edition");
 	}
 	
 	public void closeSecuritySchemeDialog(SecurityScheme scheme) {
 		Display display = Display.getCurrent();
 		Shell shell = display.getActiveShell();
-		shell.dispose();
-	}
-	
-	public void setSecuritySchemeType(SecurityScheme scheme, SecuritySchemeType type) {
-		scheme.setType(type);
-		Display display = Display.getCurrent();
-		Shell shell = display.getActiveShell(); 
-		shell.dispose();
+		shell.close();
 	}
 
 	public String getName(SecuritySchemeType schemeType) {

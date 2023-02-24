@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2008, 2021 Obeo.
+ * Copyright (c) 2008, 2023 Obeo.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -140,15 +140,17 @@ public class SwaggerImporter {
 	 * @param api the {@link OpenAPI}
 	 */
 	private void addFlowsToOpenIdConnectSchemes(OpenAPI api) {
-		api.getComponents().getSecuritySchemes().entrySet().stream()
-		.filter(entry -> entry.getValue().getType().equals(SecurityScheme.Type.OPENIDCONNECT))
-		.forEach(entry -> {
-			try {
-				entry.getValue().setFlows(fileQuery.getOAuthFlows(entry.getKey()));
-			} catch (IOException e) {
-				e.printStackTrace();
-			}
-		});
+		if(api.getComponents().getSecuritySchemes() != null) {
+			api.getComponents().getSecuritySchemes().entrySet().stream()
+			.filter(entry -> entry.getValue().getType().equals(SecurityScheme.Type.OPENIDCONNECT))
+			.forEach(entry -> {
+				try {
+					entry.getValue().setFlows(fileQuery.getOAuthFlows(entry.getKey()));
+				} catch (IOException e) {
+					e.printStackTrace();
+				}
+			});
+		}
 	}
 	
 }

@@ -5,7 +5,8 @@ Element-Type: testcase
 Element-Version: 3.0
 External-Reference: 
 Id: _6MdHwGNdEeSg_dTG4Ei-uQ
-Save-Time: 6/18/20 4:20 PM
+Runtime-Version: 2.5.1.M3
+Save-Time: 3/4/22, 6:52 PM
 Testcase-Type: ecl
 
 ------=_.description-216f885c-d591-38ce-8ea2-e4f8cb4d6ffa
@@ -46,12 +47,11 @@ Content-Type: text/ecl
 Entry-Name: .content
 
 get-view "Model Explorer" | get-tree 
-    | select "E-BookStore/E-BookStore.graal/System E-BookStore/Task Buy books/Buy books Actions Plan" | double-click
+    | select "org.obeonetwork.is.sample.ebookstore/E-BookStore.graal/System E-BookStore/Task Buy books/Buy books Actions Plan" | double-click
+// Check Tool Initial Node
 with [get-editor "Buy books Actions Plan"] {
     get-diagram -index 1 | get-edit-part -name "Buy books Actions Plan" | mouse-move 554 85 -height 381 -width 1015
     with [get-palette] {
-        get-palette-entry "Final Node" | mouse-move 42 1 -height 23 -width 125
-        // Check Tool Initial Node
         with [get-palette-entry "Initial Node"] {
             mouse-move 47 10 button1 -height 23 -width 125
             mouse-press 47 10 button1 -height 23 -width 125
@@ -66,25 +66,21 @@ with [get-editor "Buy books Actions Plan"] {
     get-diagram -index 1 | get-edit-part -name "Buy books Actions Plan" | mouse-move 5 62 -height 381 -width 1015
 }
 with [get-editor "Buy books Actions Plan" | get-diagram -index 1 | get-edit-part -name "Buy books Actions Plan" 
-    | get-edit-part -name "" -index 1] {
-    get-property text | equals "" | verify-true
-    get-property className | equals "org.eclipse.sirius.diagram.ui.internal.edit.parts.DNodeEditPart" | verify-true
-    get-property itemAddress | equals "[0, 8]" | verify-true
-    get-property selected | equals true | verify-true
-    get-property x | equals 30 | verify-true
-    get-property y | equals 55 | verify-true
-    get-property width | equals 20 | verify-true
-    get-property height | equals 20 | verify-true
-    get-property childrenCount | equals 1 | verify-true
-    get-property backgroundColor | equals "#FFFFFF" | verify-true
-    get-property foregroundColor | equals "#B0B0B0" | verify-true
+    | get-edit-part -name "" -index 1 | get-edit-part -className WorkspaceImageEditPart] {
+    with [get-figure -path 0] {
+	    get-property "getClassName()" | equals "org.eclipse.sirius.diagram.ui.tools.api.figure.SVGWorkspaceImageFigure" | verify-true
+	    get-property "getURI()" | matches ".*/initial_node.svg" | verify-true
+	    get-property "getImageAspectRatio()" | equals "1.0" | verify-true
+    }
+    with [get-figure -path "0/0"] {
+    	get-property "getText()" | equals "" | verify-true
+    }
 }
+
+// Check Tool Final Node
 with [get-editor "Buy books Actions Plan"] {
     get-diagram -index 1 | get-edit-part -name "Buy books Actions Plan" | mouse-move 460 146 -height 381 -width 1015
     with [get-palette] {
-        get-palette-entry "Appli Event" | mouse-move 122 7 -height 23 -width 125
-        get-palette-entry "Abort Node" | mouse-move 118 3 -height 23 -width 125
-        // Check Tool Final Node
         with [get-palette-entry "Final Node"] {
             mouse-move 83 13 button1 -height 23 -width 125
             mouse-press 83 13 button1 -height 23 -width 125
@@ -102,24 +98,19 @@ with [get-editor "Buy books Actions Plan"] {
     }
 }
 with [get-editor "Buy books Actions Plan" | get-diagram -index 1 | get-edit-part -name "Buy books Actions Plan" 
-    | get-edit-part -name "" -index 2 | get-figure "0/0/0/0"] {
-    get-property text | equals "" | verify-true
-    get-property tooltip | equals "" | verify-true
-    get-property selected | equals false | verify-true
-    get-property x | equals 105 | verify-true
-    get-property y | equals 55 | verify-true
-    get-property width | equals 20 | verify-true
-    get-property height | equals 19 | verify-true
-    get-property childrenCount | equals 0 | verify-true
-    get-property backgroundColor | equals "#FFFFFF" | verify-true
-    get-property foregroundColor | equals "#000000" | verify-true
+    | get-edit-part -name "" -index 2 | get-edit-part -className WorkspaceImageEditPart] {
+    with [get-figure -path 0] {
+	    get-property "getClassName()" | equals "org.eclipse.sirius.diagram.ui.tools.api.figure.SVGWorkspaceImageFigure" | verify-true
+	    get-property "getURI()" | matches ".*/final_node.svg" | verify-true
+	    get-property "getImageAspectRatio()" | equals "1.0" | verify-true
+    }
+    with [get-figure -path "0/0"] {
+    	get-property "getText()" | equals "" | verify-true
+    }
 }
+// Check Tool Abort Node
 with [get-editor "Buy books Actions Plan"] {
     with [get-palette] {
-        get-palette-entry "Zoom In" | mouse-move 18 1 -height 19 -width 19
-        get-palette-entry "Zoom Out" | mouse-move 3 17 -height 19 -width 19
-        get-palette-entry "Final Node" | mouse-move 47 22 -height 23 -width 125
-        // Check Tool Abort Node
         with [get-palette-entry "Abort Node"] {
             mouse-move 48 8 button1 -height 23 -width 125
             mouse-press 48 8 button1 -height 23 -width 125
@@ -132,23 +123,19 @@ with [get-editor "Buy books Actions Plan"] {
         mouse-press 202 59 button1 -height 381 -width 1015
         mouse-release 202 59 button1 524288 -height 381 -width 1015
     }
-    get-diagram -index 1 | get-edit-part -name "Buy books Actions Plan" | get-edit-part -name "" -index 3 
-        | get-handle ResizeHandle -index 6 | mouse-hover 4 4 -height 7 -width 7
 }
 with [get-editor "Buy books Actions Plan" | get-diagram -index 1 | get-edit-part -name "Buy books Actions Plan" 
-    | get-edit-part -name "" -index 3] {
-    get-property text | equals "" | verify-true
-    get-property className | equals "org.eclipse.sirius.diagram.ui.internal.edit.parts.DNodeEditPart" | verify-true
-    get-property itemAddress | equals "[0, 10]" | verify-true
-    get-property selected | equals true | verify-true
-    get-property x | equals 200 | verify-true
-    get-property y | equals 65 | verify-true
-    get-property width | equals 20 | verify-true
-    get-property height | equals 20 | verify-true
-    get-property childrenCount | equals 1 | verify-true
-    get-property backgroundColor | equals "#FFFFFF" | verify-true
-    get-property foregroundColor | equals "#B0B0B0" | verify-true
+    | get-edit-part -name "" -index 3 | get-edit-part -className WorkspaceImageEditPart] {
+    with [get-figure -path 0] {
+	    get-property "getClassName()" | equals "org.eclipse.sirius.diagram.ui.tools.api.figure.SVGWorkspaceImageFigure" | verify-true
+	    get-property "getURI()" | matches ".*/abort_node.svg" | verify-true
+	    get-property "getImageAspectRatio()" | equals "1.0" | verify-true
+    }
+    with [get-figure -path "0/0"] {
+    	get-property "getText()" | equals "" | verify-true
+    }
 }
+// Check Tool AppliEvent
 with [get-editor "Buy books Actions Plan"] {
     get-diagram -index 1 | get-edit-part -name "Buy books Actions Plan" | mouse-move 549 124 -height 381 -width 1015
     // Check Tool AppliEvent
@@ -165,14 +152,20 @@ with [get-editor "Buy books Actions Plan"] {
     get-diagram -index 1 | get-edit-part -name "Buy books Actions Plan" | get-edit-part -name AppliEvent1 
         | get-handle ResizeHandle -index 6 | mouse-hover 4 4 -height 7 -width 7
 }
-get-editor "Buy books Actions Plan" | get-diagram -index 1 | get-edit-part -name "Buy books Actions Plan" 
-    | get-edit-part -name AppliEvent1 | get-figure "0/0/0/0" | get-property "getText()" | equals AppliEvent1 
-    | verify-true
+with [get-editor "Buy books Actions Plan" | get-diagram -index 1 | get-edit-part -name "Buy books Actions Plan" 
+    | get-edit-part -name AppliEvent1 | get-edit-part -className WorkspaceImageEditPart] {
+    with [get-figure -path 0] {
+	    get-property "getClassName()" | equals "org.eclipse.sirius.diagram.ui.tools.api.figure.SVGWorkspaceImageFigure" | verify-true
+	    get-property "getURI()" | matches ".*/shape_graal_green.svg" | verify-true
+    }
+    with [get-figure -path "0/0"] {
+    	get-property "getText()" | equals AppliEvent1 | verify-true
+    }
+}
+// Check Tool AppliAction
 with [get-editor "Buy books Actions Plan"] {
     get-diagram -index 1 | get-edit-part -name "Buy books Actions Plan" | mouse-move 634 178 -height 381 -width 1015
     with [get-palette] {
-        get-palette-entry "User View" | mouse-move 102 0 -height 23 -width 125
-        // Check Tool AppliAction
         with [get-palette-entry "Appli Action"] {
             mouse-move 86 12 button1 -height 23 -width 125
             mouse-press 86 12 button1 -height 23 -width 125
@@ -188,24 +181,20 @@ with [get-editor "Buy books Actions Plan"] {
     get-diagram -index 1 | get-edit-part -name "Buy books Actions Plan" | get-edit-part -name AppliAction2 
         | get-handle ResizeHandle -index 6 | mouse-hover 4 4 -height 7 -width 7
 }
-get-editor "Buy books Actions Plan" | get-diagram -index 1 | get-edit-part -name "Buy books Actions Plan" 
-    | get-edit-part -name AppliAction2 | get-figure "0/0/0/0" | get-property "getText()" | equals AppliAction2 
-    | verify-true
+with [get-editor "Buy books Actions Plan" | get-diagram -index 1 | get-edit-part -name "Buy books Actions Plan" 
+    | get-edit-part -name AppliAction2 | get-edit-part -className WorkspaceImageEditPart] {
+    with [get-figure -path 0] {
+	    get-property "getClassName()" | equals "org.eclipse.sirius.diagram.ui.tools.api.figure.SVGWorkspaceImageFigure" | verify-true
+	    get-property "getURI()" | matches ".*/shape_graal_green.svg" | verify-true
+    }
+    with [get-figure -path "0/0"] {
+    	get-property "getText()" | equals AppliAction2 | verify-true
+    }
+}
+// Check Tool UserView
 with [get-editor "Buy books Actions Plan"] {
     get-diagram -index 1 | get-edit-part -name "Buy books Actions Plan" | mouse-move 446 291 -height 381 -width 1015
     with [get-palette] {
-        get-palette-entry Interrupt | mouse-move 69 0 -height 23 -width 125
-        get-palette-entry Transition | mouse-move 69 4 -height 23 -width 125
-        get-palette-entry Or | mouse-move 69 0 -height 23 -width 125
-        get-palette-entry And | mouse-move 65 6 -height 23 -width 125
-        with [get-palette-entry "Actions dialog"] {
-            mouse-move 61 69 button1 -height 75 -width 125
-            mouse-press 61 69 button1 -height 75 -width 125
-            mouse-release 61 69 button1 524288 -height 75 -width 125
-            mouse-hover 61 69 -height 75 -width 125
-        }
-        get-palette-entry "User Action" | mouse-move 61 1 -height 23 -width 125
-        // Check Tool UserView
         with [get-palette-entry "User View"] {
             mouse-move 61 15 button1 -height 23 -width 125
             mouse-press 61 15 button1 -height 23 -width 125
@@ -213,7 +202,6 @@ with [get-editor "Buy books Actions Plan"] {
         }
     }
     with [get-diagram -index 1 | get-edit-part -name "Buy books Actions Plan"] {
-        mouse-move 340 125 -height 381 -width 1015
         mouse-move 253 123 button1 -height 381 -width 1015
         mouse-press 253 123 button1 -height 381 -width 1015
         mouse-release 253 123 button1 524288 -height 381 -width 1015
@@ -221,24 +209,20 @@ with [get-editor "Buy books Actions Plan"] {
     get-diagram -index 1 | get-edit-part -name "Buy books Actions Plan" | get-edit-part -name UserView2 
         | get-handle ResizeHandle -index 6 | mouse-hover 4 4 -height 7 -width 7
 }
-get-editor "Buy books Actions Plan" | get-diagram -index 1 | get-edit-part -name "Buy books Actions Plan" 
-    | get-edit-part -name UserView2 | get-figure "0/0/0/0" | get-property "getText()" | equals UserView2 | verify-true
+with [get-editor "Buy books Actions Plan" | get-diagram -index 1 | get-edit-part -name "Buy books Actions Plan" 
+    | get-edit-part -name UserView2 | get-edit-part -className WorkspaceImageEditPart] {
+    with [get-figure -path 0] {
+	    get-property "getClassName()" | equals "org.eclipse.sirius.diagram.ui.tools.api.figure.SVGWorkspaceImageFigure" | verify-true
+	    get-property "getURI()" | matches ".*/shape_graal_blue.svg" | verify-true
+    }
+    with [get-figure -path "0/0"] {
+    	get-property "getText()" | equals UserView2 | verify-true
+    }
+}
+// Check Tool UserAction
 with [get-editor "Buy books Actions Plan"] {
     get-diagram -index 1 | get-edit-part -name "Buy books Actions Plan" | mouse-move 541 97 -height 381 -width 1015
     with [get-palette] {
-        with [get-palette-entry "Final Node"] {
-            mouse-move 11 0 -height 23 -width 125
-            mouse-move 51 17 -height 23 -width 125
-        }
-        get-palette-entry "Abort Node" | mouse-move 56 20 -height 23 -width 125
-        get-palette-entry "Appli Action" | mouse-move 66 22 -height 23 -width 125
-        get-palette-entry "User View" | mouse-move 61 22 -height 23 -width 125
-        with [get-palette-entry "Actions dialog"] {
-            mouse-move 60 73 button1 -height 75 -width 125
-            mouse-press 60 73 button1 -height 75 -width 125
-            mouse-release 60 73 button1 524288 -height 75 -width 125
-        }
-        // Check Tool UserAction
         with [get-palette-entry "User Action"] {
             mouse-move 66 10 -height 23 -width 125
             mouse-hover 66 10 -height 23 -width 125
@@ -252,30 +236,26 @@ with [get-editor "Buy books Actions Plan"] {
         mouse-press 510 12 button1 -height 381 -width 1015
         mouse-release 510 12 button1 524288 -height 381 -width 1015
     }
-    with [get-diagram -index 1 | get-edit-part -name "Buy books Actions Plan"] {
-        get-edit-part -name UserAction3 | get-handle ResizeHandle -index 6 | mouse-hover 4 4 -height 7 -width 7
-        mouse-move 494 12 -height 381 -width 1015
+}
+with [get-editor "Buy books Actions Plan" | get-diagram -index 1 | get-edit-part -name "Buy books Actions Plan" 
+    | get-edit-part -name UserAction3 | get-edit-part -className WorkspaceImageEditPart] {
+    with [get-figure -path 0] {
+	    get-property "getClassName()" | equals "org.eclipse.sirius.diagram.ui.tools.api.figure.SVGWorkspaceImageFigure" | verify-true
+	    get-property "getURI()" | matches ".*/shape_graal_blue.svg" | verify-true
+    }
+    with [get-figure -path "0/0"] {
+    	get-property "getText()" | equals UserAction3 | verify-true
     }
 }
-get-editor "Buy books Actions Plan" | get-diagram -index 1 | get-edit-part -name "Buy books Actions Plan" 
-    | get-edit-part -name UserAction3 | get-figure "0/0/0/0" | get-property "getText()" | equals UserAction3 
-    | verify-true
+// Check Tool New Task
 with [get-editor "Buy books Actions Plan"] {
     get-diagram -index 1 | get-edit-part -name "Buy books Actions Plan" | mouse-move 644 160 -height 381 -width 1015
     with [get-palette] {
-        get-palette-entry "User Action" | mouse-move 99 21 -height 23 -width 125
-        with [get-palette-entry "Actions dialog"] {
-            mouse-move 60 72 button1 -height 75 -width 125
-            mouse-press 60 72 button1 -height 75 -width 125
-            mouse-release 60 72 button1 524288 -height 75 -width 125
-        }
-        // Check Tool New Task
         with [get-palette-entry "New Task"] {
             mouse-move 59 14 button1 -height 23 -width 125
             mouse-press 59 14 button1 -height 23 -width 125
             mouse-release 59 14 button1 524288 -height 23 -width 125
         }        
-        get-palette-entry "Existing task" | mouse-move 20 5 -height 23 -width 125
     }
     with [get-diagram -index 1 | get-edit-part -name "Buy books Actions Plan"] {
         mouse-move 303 288 button1 -height 381 -width 1015
@@ -283,20 +263,25 @@ with [get-editor "Buy books Actions Plan"] {
         mouse-release 303 288 button1 524288 -height 381 -width 1015
     }
 }
-get-editor "Buy books Actions Plan" | get-diagram -index 1 | get-edit-part -name "Buy books Actions Plan" 
-    | get-edit-part -name Task10 | get-edit-part -className WorkspaceImageEditPart | get-figure "0/0" 
-    | get-property "getText()" | equals Task10 | verify-true
+with [get-editor "Buy books Actions Plan" | get-diagram -index 1 | get-edit-part -name "Buy books Actions Plan" 
+    | get-edit-part -name Task10 | get-edit-part -className WorkspaceImageEditPart] {
+    with [get-figure -path 0] {
+	    get-property "getClassName()" | equals "org.eclipse.sirius.diagram.ui.tools.api.figure.SVGWorkspaceImageFigure" | verify-true
+	    get-property "getURI()" | matches ".*/shape_graal_base.svg" | verify-true
+    }
+    with [get-figure -path "0/0"] {
+    	get-property "getText()" | equals Task10 | verify-true
+    }
+}
+// Check Tool Existing Task
 with [get-editor "Buy books Actions Plan"] {
     get-diagram -index 1 | get-edit-part -name "Buy books Actions Plan" | get-edit-part -name UserAction3 
         | mouse-move 90 80 -height 73 -width 150
     with [get-palette] {
-        get-palette-entry "User Action" | mouse-move 29 22 -height 23 -width 125
-        get-palette-entry "New Task" | mouse-move 35 18 -height 23 -width 125
         with [get-palette-entry "Actions dialog"] {
             mouse-move 60 71 button1 -height 75 -width 125
             mouse-press 60 71 button1 -height 75 -width 125
         }
-        // Check Tool Existing Task
         with [get-palette-entry "Existing task"] {
             mouse-press 60 21 button1 -height 23 -width 125
             mouse-release 60 21 button1 524288 -height 23 -width 125
@@ -316,10 +301,17 @@ with [get-window "Selection Wizard"] {
     get-tree | select "Task Login"
     get-button Finish | click
 }
-get-editor "Buy books Actions Plan" | get-diagram -index 1 | get-edit-part -name "Buy books Actions Plan" 
-    | mouse-move 120 42 -height 381 -width 1015
-get-editor "Buy books Actions Plan" | get-diagram -index 1 | get-edit-part -name "Buy books Actions Plan" 
-    | get-edit-part -name Login | get-figure "0/0/0/0" | get-property "getText()" | equals Login | verify-true
+with [get-editor "Buy books Actions Plan" | get-diagram -index 1 | get-edit-part -name "Buy books Actions Plan" 
+    | get-edit-part -name Login | get-edit-part -className WorkspaceImageEditPart] {
+    with [get-figure -path 0] {
+	    get-property "getClassName()" | equals "org.eclipse.sirius.diagram.ui.tools.api.figure.SVGWorkspaceImageFigure" | verify-true
+	    get-property "getURI()" | matches ".*/shape_graal_base.svg" | verify-true
+    }
+    with [get-figure -path "0/0"] {
+    	get-property "getText()" | equals Login | verify-true
+    }
+}
+// Check Tool And
 with [get-editor "Buy books Actions Plan"] {
     get-diagram -index 1 | get-edit-part -name "Buy books Actions Plan" | get-edit-part -name checkout 
         | mouse-move 2 19 -height 73 -width 150
@@ -343,13 +335,10 @@ with [get-editor "Buy books Actions Plan"] {
 }
 get-editor "Buy books Actions Plan" | get-diagram -index 1 | get-edit-part -name "Buy books Actions Plan" 
     | get-edit-part -name AND | get-figure "0/0/0/0" | get-property "getText()" | equals AND | verify-true
+// Check Tool Or
 with [get-editor "Buy books Actions Plan"] {
     get-diagram -index 1 | get-edit-part -name "Buy books Actions Plan" | mouse-move 288 300 -height 381 -width 1015
     with [get-palette] {
-        get-palette-entry Interrupt | mouse-move 24 3 -height 23 -width 125
-        get-palette-entry Transition | mouse-move 20 4 -height 23 -width 125
-        get-palette-entry Xor | mouse-move 23 1 -height 23 -width 125
-        // Check Tool Or
         with [get-palette-entry Or] {
             mouse-move 39 11 button1 -height 23 -width 125
             mouse-press 39 11 button1 -height 23 -width 125
@@ -365,17 +354,11 @@ with [get-editor "Buy books Actions Plan"] {
 }
 get-editor "Buy books Actions Plan" | get-diagram -index 1 | get-edit-part -name "Buy books Actions Plan" 
     | get-edit-part -name OR | get-figure "0/0/0/0" | get-property "getText()" | equals OR | verify-true
+// Check Tool Xor
 with [get-editor "Buy books Actions Plan"] {
     get-diagram -index 1 | get-edit-part -name "Buy books Actions Plan" | get-edit-part -name checkout 
         | mouse-move 2 54 -height 73 -width 150
     with [get-palette] {
-        with [get-palette-entry Operators] {
-            mouse-move 67 71 button1 -height 75 -width 125
-            mouse-press 67 71 button1 -height 75 -width 125
-            mouse-release 67 71 button1 524288 -height 75 -width 125
-        }
-        get-palette-entry Loop | mouse-move 63 0 -height 23 -width 125
-        // Check Tool Xor
         with [get-palette-entry Xor] {
             mouse-move 46 13 button1 -height 23 -width 125
             mouse-press 46 13 button1 -height 23 -width 125
@@ -387,23 +370,14 @@ with [get-editor "Buy books Actions Plan"] {
         mouse-press 542 245 button1 -height 381 -width 1015
         mouse-release 542 245 button1 524288 -height 381 -width 1015
     }
-    with [get-diagram -index 1 | get-edit-part -name "Buy books Actions Plan"] {
-        get-edit-part -name XOR | get-handle ResizeHandle -index 6 | mouse-hover 4 4 -height 7 -width 7
-        mouse-move 496 245 -height 381 -width 1015
-    }
 }
 get-editor "Buy books Actions Plan" | get-diagram -index 1 | get-edit-part -name "Buy books Actions Plan" 
     | get-edit-part -name XOR | get-figure "0/0/0/0" | get-property "getText()" | equals XOR | verify-true
+// Check Tool Loop
 with [get-editor "Buy books Actions Plan"] {
     get-diagram -index 1 | get-edit-part -name "Buy books Actions Plan" | get-edit-part -name checkout 
         | mouse-move 3 37 -height 73 -width 150
     with [get-palette] {
-        get-palette-entry Xor | mouse-move 35 22 -height 23 -width 125
-        with [get-palette-entry Operators] {
-            mouse-move 61 71 button1 -height 75 -width 125
-            mouse-press 61 71 button1 -height 75 -width 125
-        }
-        // Check Tool Loop
         with [get-palette-entry Loop] {
             mouse-press 61 21 button1 -height 23 -width 125
             mouse-release 61 21 button1 524288 -height 23 -width 125
@@ -418,20 +392,10 @@ with [get-editor "Buy books Actions Plan"] {
         mouse-press 477 121 button1 -height 381 -width 1015
         mouse-release 477 121 button1 524288 -height 381 -width 1015
     }
-    with [get-diagram -index 1] {
-        with [get-edit-part -name "Buy books Actions Plan"] {
-            mouse-move 458 172 -height 381 -width 1015
-            mouse-hover 458 172 -height 381 -width 1015
-            mouse-move 412 174 -height 381 -width 1015
-        }
-        key-type "" "\\u0000"
-        get-edit-part -name "Buy books Actions Plan" | mouse-hover 412 174 -height 381 -width 1015
-        key-type "" "\\u0000"
-    }
 }
+// Check Tool Transition
 with [get-editor "Buy books Actions Plan"] {
     get-diagram -index 1 | get-edit-part -name "Buy books Actions Plan" | mouse-move 639 276 -height 381 -width 1015
-    // Check Tool Transition
     with [get-palette | get-palette-entry Transition] {
         mouse-move 55 9 button1 -height 23 -width 125
         mouse-press 55 9 button1 -height 23 -width 125
@@ -464,12 +428,12 @@ with [get-editor "Buy books Actions Plan" | get-diagram -index 1 | get-edit-part
     get-property "getSource().getChildren().WorkspaceImageEditPart[0].getFigure().getChildren().WorkspaceImageFigure[0].getChildren().SiriusWrapLabel[0].getText()" 
         | equals Login | verify-true
 }
+// Check Tool Interrupt
 with [get-editor "Buy books Actions Plan"] {
     get-diagram -index 1 | get-edit-part -name "Buy books Actions Plan" | get-edit-part -name "create account" 
         | mouse-move 89 0 -height 73 -width 150
     with [get-palette] {    	
         get-palette-entry Transition | mouse-move 64 22 -height 23 -width 125
-        // Check Tool Interrupt
         with [get-palette-entry Interrupt] {
             mouse-move 57 13 button1 -height 23 -width 125
             mouse-press 57 13 button1 -height 23 -width 125
@@ -484,7 +448,7 @@ with [get-editor "Buy books Actions Plan"] {
             mouse-release 35 45 button1 524288 -height 74 -width 150
             mouse-move "-4" 72 -height 74 -width 150
         }
-        with [get-edit-part -name "Get homepage data"] {
+        with [get-edit-part -name "AppliAction2"] {
             mouse-move 104 18 -height 85 -width 172
             mouse-hover 104 18 -height 85 -width 172
             mouse-move 104 18 button1 -height 85 -width 172
@@ -498,12 +462,13 @@ with [get-editor "Buy books Actions Plan"] {
     }
 }
 with [get-editor "Buy books Actions Plan" | get-diagram -index 1 | get-edit-part -name "Buy books Actions Plan" 
-    | get-edit-part -name "Get homepage data" | get-target-connection 1] {
+    | get-edit-part -name "AppliAction2" | get-target-connection 1] {
     get-property "getTarget().getChildren().WorkspaceImageEditPart[0].getFigure().getChildren().WorkspaceImageFigure[0].getChildren().SiriusWrapLabel[0].getText()" 
-        | equals "Get homepage data" | verify-true
+        | equals "AppliAction2" | verify-true
     get-property "getSource().getChildren().WorkspaceImageEditPart[0].getFigure().getChildren().WorkspaceImageFigure[0].getChildren().SiriusWrapLabel[0].getText()" 
         | equals AppliEvent1 | verify-true
 }
+// Check Tool Abort
 with [get-editor "Buy books Actions Plan"] {
     get-diagram -index 1 | get-edit-part -name "Buy books Actions Plan" | mouse-move 628 283 -height 381 -width 1015
     with [get-palette] {
@@ -511,7 +476,6 @@ with [get-editor "Buy books Actions Plan"] {
             mouse-move 55 70 button1 -height 76 -width 125
             mouse-press 55 70 button1 -height 76 -width 125
         }
-        // Check Tool Abort
         with [get-palette-entry Abort] {
             mouse-press 55 19 button1 -height 23 -width 125
             mouse-release 55 19 button1 524288 -height 23 -width 125
@@ -550,6 +514,7 @@ with [get-editor "Buy books Actions Plan" | get-diagram -index 1 | get-edit-part
     get-property "getSource().getChildren().WorkspaceImageEditPart[0].getFigure().getChildren().WorkspaceImageFigure[0].getChildren().SiriusWrapLabel[0].getText()" 
         | equals UserAction3 | verify-true
 }
+// Check Tool Delete TaskReference
 with [get-editor "Buy books Actions Plan"] {
     with [get-diagram -index 1] {
         with [get-edit-part -name "Buy books Actions Plan"] {
@@ -567,14 +532,13 @@ with [get-editor "Buy books Actions Plan"] {
             mouse-move 485 96 -height 381 -width 1015
             mouse-hover 485 96 -height 381 -width 1015
         }
-        // Check Tool Delete TaskReference
         key-type Del
         key-type "M1+z"
     }
     get-diagram -index 1 | get-edit-part -name "Buy books Actions Plan" | mouse-move 1 92 -height 381 -width 1015
 }
 get-view "Model Explorer" | get-tree 
-    | select "E-BookStore/E-BookStore.graal/System E-BookStore/Task Buy books/User Action UserAction3"
+    | select "org.obeonetwork.is.sample.ebookstore/E-BookStore.graal/System E-BookStore/Task Buy books/User Action UserAction3"
 
 with [get-editor "Buy books Actions Plan" | get-diagram -index 1] {
     with [get-edit-part -name "Buy books Actions Plan"] {
@@ -599,7 +563,7 @@ with [get-editor "Buy books Actions Plan" | get-diagram -index 1] {
     }
 }
 get-view "Model Explorer" | get-tree 
-    | select "E-BookStore/E-BookStore.graal/System E-BookStore/Task Buy books/User Action UserAction3"
+    | select "org.obeonetwork.is.sample.ebookstore/E-BookStore.graal/System E-BookStore/Task Buy books/User Action UserAction3"
 
 with [get-editor "Buy books Actions Plan" | get-diagram -index 1 | get-edit-part -name "Buy books Actions Plan"] {
     mouse-move 181 103 -height 381 -width 1015
@@ -611,7 +575,8 @@ with [get-editor "Buy books Actions Plan" | get-diagram -index 1 | get-edit-part
     mouse-move 4 110 -height 381 -width 1015
 }
 get-view "Model Explorer" | get-tree 
-    | select "E-BookStore/E-BookStore.graal/System E-BookStore/Task Buy books/Task Reference Login"
+    | select "org.obeonetwork.is.sample.ebookstore/E-BookStore.graal/System E-BookStore/Task Buy books/Task Reference Login"
+// Check multiple tools
 with [get-editor "Buy books Actions Plan"] {
     with [get-diagram -index 1] {
         with [get-edit-part -name "Buy books Actions Plan"] {
@@ -809,15 +774,39 @@ with [get-editor "Buy books Actions Plan"] {
                 mouse-release 33 45 button3 2097152 -height 73 -width 150
             }
         }
-        // Check Tool Navigation Actions Plan
-        //get-menu "Open/Actions PlanConstitute shopping cart Actions Plan" | click
     }
 }
-/**with [get-editor "Constitute shopping cart Actions Plan"] {
-    get-palette | get-palette-entry "Appli Event" | mouse-move 10 1 -height 23 -width 125
-    get-diagram -index 1 | get-edit-part -name "Constitute shopping cart Actions Plan" | mouse-move 33 1 -height 309 
-        -width 728
-}**/
+// Check Tool Navigation Actions Plan menu
+with [get-editor "Buy books Actions Plan" | get-diagram -index 1] {
+    with [get-edit-part -name "Buy books Actions Plan"] {
+        mouse-move 701 297 -height 547 -width 1200
+        with [get-edit-part -name "Constitute shopping\r\n"
+            + "cart" | get-edit-part -className WorkspaceImageEditPart] {
+            mouse-move 117 48 button3 -height 70 -width 150
+            mouse-press 117 48 button3 -height 70 -width 150
+        }
+    }
+    get-menu -path "Open/Actions PlanConstitute shoppingcart Actions Plan" | click -metaKeys ""
+}
+get-eclipse-window | key-type "M1+s"
+get-tab-folder -index 2 | get-property activePage | equals "Constitute shopping\r\ncart Actions Plan" | verify-true
+get-editor "Constitute shopping\r\ncart Actions Plan" | close
+// Check Tool Navigation Actions Plan double click
+with [get-editor "Buy books Actions Plan" | get-diagram -index 1 | get-edit-part -name "Buy books Actions Plan"] {
+    mouse-move 697 296 -height 547 -width 1200
+    with [get-edit-part -name "Constitute shopping\r\ncart" | get-edit-part -className WorkspaceImageEditPart] {
+        mouse-move 87 48 button1 -height 70 -width 150
+        mouse-press 87 48 button1 -height 70 -width 150
+        mouse-release 87 48 button1 "" -height 70 -width 150
+        mouse-press 87 48 button1 -height 70 -width 150
+        mouse-double-click 87 48 button1 -height 70 -width 150
+    }
+}
+get-eclipse-window | key-type "M1+s"
+get-tab-folder -index 2 | get-property activePage | equals "Constitute shopping\r\ncart Actions Plan" | verify-true
+get-editor "Constitute shopping\r\ncart Actions Plan" | close
+
+//////////////////
 with [get-editor "Buy books Actions Plan" | get-diagram -index 1] {
     with [get-edit-part -name "Buy books Actions Plan"] {
         mouse-move 563 145 -height 381 -width 1015
@@ -875,9 +864,11 @@ with [get-editor "Buy books Actions Plan" | get-diagram -index 1 | get-edit-part
     mouse-hover 654 398 -height 520 -width 1130
     mouse-move 13 357 -height 520 -width 1130
 }
+
 get-view "Model Explorer" | get-tree 
-    | select "E-BookStore/E-BookStore.graal/System E-BookStore/Task Constitute shopping/Constitute shopping\r\n" +
-    "cart Actions Plan" | key-type Del
+    | select "org.obeonetwork.is.sample.ebookstore/E-BookStore.graal/System E-BookStore/Task Constitute shopping\r\n"
+    + "cart/Constitute shopping\r\n"
+    + "cart Actions Plan" | key-type Del
 get-window "Delete representation" | get-button OK | click
 with [get-editor "Buy books Actions Plan" | get-diagram -index 1] {
     with [get-edit-part -name "Buy books Actions Plan"] {
@@ -929,13 +920,13 @@ with [get-editor "Buy books Actions Plan"] {
 }
 // Check Tool DAD_ExistingTask
 with [get-view "Model Explorer" | get-tree] {
-    select "E-BookStore/E-BookStore.graal/System E-BookStore/Task Search books"
-    get-item "E-BookStore/E-BookStore.graal/System E-BookStore/Task Search books" | drag-start 30 11
-    get-item "E-BookStore/E-BookStore.graal/System E-BookStore/Task Add book to shopping cart" | drag-enter 131 0 
+    select "org.obeonetwork.is.sample.ebookstore/E-BookStore.graal/System E-BookStore/Task Search books"
+    get-item "org.obeonetwork.is.sample.ebookstore/E-BookStore.graal/System E-BookStore/Task Search books" | drag-start 30 11
+    get-item "org.obeonetwork.is.sample.ebookstore/E-BookStore.graal/System E-BookStore/Task Add book to shopping cart" | drag-enter 131 0 
         -detail move
-    get-item "E-BookStore/E-BookStore.graal/System E-BookStore/Task Add book to shopping cart" | drag-over 220 14
-    get-item "E-BookStore/E-BookStore.graal/System E-BookStore/Task Remove book from cart" | drag-over 256 0
-    get-item "E-BookStore/E-BookStore.graal/System E-BookStore/Task Add book to shopping cart" | drag-exit
+    get-item "org.obeonetwork.is.sample.ebookstore/E-BookStore.graal/System E-BookStore/Task Add book to shopping cart" | drag-over 220 14
+    get-item "org.obeonetwork.is.sample.ebookstore/E-BookStore.graal/System E-BookStore/Task Remove book from cart" | drag-over 256 0
+    get-item "org.obeonetwork.is.sample.ebookstore/E-BookStore.graal/System E-BookStore/Task Add book to shopping cart" | drag-exit
 }
 with [get-editor "Buy books Actions Plan" | get-diagram -index 1 | get-edit-part -name "Buy books Actions Plan"] {
     drag-enter 13 310 -detail move
@@ -977,7 +968,7 @@ with [get-editor "Buy books Actions Plan"] {
             | get-edit-part -name Task10 | get-edit-part -className WorkspaceImageEditPart | mouse-hover 114 50 
             -mask ALT -height 73 -width 150
         mouse-move 413 164 -height 520 -width 1130
-        get-edit-part -name "Diplay homepage" | mouse-move 3 15 -height 73 -width 150
+        get-edit-part -name "Display homepage" | mouse-move 3 15 -height 73 -width 150
     }
 }
 get-editor "Buy books Actions Plan" | get-diagram -index 1 | get-edit-part -name "Buy books Actions Plan" 
@@ -1056,4 +1047,7 @@ with [get-editor "Buy books Actions Plan"] {
 get-editor "Buy books Actions Plan" | get-diagram -index 1 | get-edit-part -name "Buy books Actions Plan" 
     | get-property "getChildren().DNodeContainerEditPart[20].getChildren().DNodeContainerViewNodeContainerCompartmentEditPart[1].getChildren().DNodeContainer2EditPart[0].getChildren().DNodeContainerViewNodeContainerCompartment2EditPart[1].getChildren().DNode3EditPart[0].getNodeLabel().getText()" 
     | equals Task10 | verify-true
+
+
+
 ------=_.content-0a7243a0-75d3-3d5f-9791-539de0e5b7ac--

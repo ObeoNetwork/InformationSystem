@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2008, 2021 Obeo.
+ * Copyright (c) 2008, 2023 Obeo.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -9,7 +9,7 @@
  *     Obeo - initial API and implementation
  *******************************************************************************/
 /*******************************************************************************
- * Copyright (c) 2008, 2021 Obeo.
+ * Copyright (c) 2008, 2023 Obeo.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -100,7 +100,9 @@ public class ZipUtils {
 	private static void processFolder(final File folder, final ZipOutputStream zipOutputStream, final int prefixLength, FileFilter filter)	throws IOException {
 		for (final File file : folder.listFiles(filter)) {
 			if (file.isFile()) {
-				final ZipEntry zipEntry = new ZipEntry(file.getPath().substring(prefixLength));
+				String path = file.getPath().substring(prefixLength);
+				path = path.replaceAll("\\\\", "/");
+				final ZipEntry zipEntry = new ZipEntry(path);
 				zipOutputStream.putNextEntry(zipEntry);
 				try (FileInputStream inputStream = new FileInputStream(file)) {
 					copy(inputStream, zipOutputStream);

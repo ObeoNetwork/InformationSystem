@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<description:Group xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:description="http://www.eclipse.org/sirius/description/1.1.0" xmlns:description_1="http://www.eclipse.org/sirius/diagram/description/1.1.0" xmlns:description_2="http://www.eclipse.org/sirius/tree/description/1.0.0" xmlns:properties="http://www.eclipse.org/sirius/properties/1.0.0" xmlns:style="http://www.eclipse.org/sirius/diagram/description/style/1.1.0" xmlns:tool="http://www.eclipse.org/sirius/diagram/description/tool/1.1.0" xmlns:tool_1="http://www.eclipse.org/sirius/description/tool/1.1.0" documentation="Copyright (c) 2008, 2021 Obeo.&#xD;&#xA;All rights reserved. This program and the accompanying materials&#xD;&#xA;are made available under the terms of the Eclipse Public License v1.0&#xD;&#xA;which accompanies this distribution, and is available at&#xD;&#xA;http://www.eclipse.org/legal/epl-v10.html&#xD;&#xA;&#xD;&#xA;Contributors:&#xD;&#xA;   Obeo - initial API and implementation" name="Cinematic" version="12.0.0.2017041100">
+<description:Group xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:description="http://www.eclipse.org/sirius/description/1.1.0" xmlns:description_1="http://www.eclipse.org/sirius/diagram/description/1.1.0" xmlns:description_2="http://www.eclipse.org/sirius/tree/description/1.0.0" xmlns:properties="http://www.eclipse.org/sirius/properties/1.0.0" xmlns:style="http://www.eclipse.org/sirius/diagram/description/style/1.1.0" xmlns:tool="http://www.eclipse.org/sirius/diagram/description/tool/1.1.0" xmlns:tool_1="http://www.eclipse.org/sirius/description/tool/1.1.0" documentation="Copyright (c) 2008, 2023 Obeo.&#xD;&#xA;All rights reserved. This program and the accompanying materials&#xD;&#xA;are made available under the terms of the Eclipse Public License v1.0&#xD;&#xA;which accompanies this distribution, and is available at&#xD;&#xA;http://www.eclipse.org/legal/epl-v10.html&#xD;&#xA;&#xD;&#xA;Contributors:&#xD;&#xA;   Obeo - initial API and implementation" name="Cinematic" version="12.0.0.2017041100">
   <ownedViewpoints endUserDocumentation="The &lt;b>Cinematic Views&lt;/b> viewpoint provides three representations : &#xD;&#xA;&lt;ul>&#xD;&#xA;&lt;li>&lt;b>UI Structure&lt;/b> : a tree allowing to structure the Cinematic model contents,&lt;/li>&#xD;&#xA;&lt;li>&lt;b>Package Diagram&lt;/b> : a diagram allowing to represent and edit a package strucure,&lt;/li>&#xD;&#xA;&lt;li>&lt;b>Flow Diagram&lt;/b> : a flow diagram allowing to represent and edit a flow.&lt;/li>&#xD;&#xA;&lt;/ul>&#xA;" name="Cinematic Views">
     <ownedRepresentations xsi:type="description_1:DiagramDescription" name="Reused Description" domainClass="cinematic.CinematicRoot" preconditionExpression="false">
       <metamodel href="platform:/plugin/org.obeonetwork.dsl.cinematic/model/cinematic.ecore#/"/>
@@ -471,14 +471,14 @@
             </initialOperation>
             <edgeView name="edgeView"/>
           </ownedTools>
-          <ownedTools xsi:type="description_2:TreeCreationDescription" name="CRE_UI_Structure" label="UI Structure" browseExpression="service:getAbstractPackageContainer" treeDescription="//@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='UI%20Structure']">
-            <containerViewVariable/>
-            <representationNameVariable/>
+          <ownedTools xsi:type="description_2:TreeCreationDescription" name="CRE_UI_Structure" label="UI Structure" browseExpression="aql:self.eContainer(cinematic::AbstractPackage)" treeDescription="//@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='UI%20Structure']">
+            <containerViewVariable name="containerView"/>
+            <representationNameVariable name="treeName"/>
           </ownedTools>
-          <ownedTools xsi:type="description_2:TreeNavigationDescription" name="UI Structure" label="UI Structure" browseExpression="service:getAbstractPackageContainer" treeDescription="//@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='UI%20Structure']">
-            <containerViewVariable/>
-            <containerVariable/>
-            <representationNameVariable/>
+          <ownedTools xsi:type="description_2:TreeNavigationDescription" name="UI Structure" label="UI Structure" browseExpression="aql:self.eContainer(cinematic::AbstractPackage)" treeDescription="//@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='UI%20Structure']">
+            <containerViewVariable name="containerView"/>
+            <containerVariable name="container"/>
+            <representationNameVariable name="treeName"/>
           </ownedTools>
           <ownedTools xsi:type="tool:DoubleClickDescription" name="DBL_Nav_To_UI_Structure">
             <element name="element"/>
@@ -600,9 +600,9 @@
               </firstModelOperations>
             </initialOperation>
           </ownedTools>
-          <ownedTools xsi:type="description_2:TreeCreationDescription" name="CRE_UI_Structure" label="UI Structure" browseExpression="service:getAbstractPackageContainer" treeDescription="//@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='UI%20Structure']">
-            <containerViewVariable/>
-            <representationNameVariable/>
+          <ownedTools xsi:type="description_2:TreeCreationDescription" name="CRE_UI_Structure" label="UI Structure" browseExpression="aql:self.eContainer(cinematic::AbstractPackage)" treeDescription="//@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='UI%20Structure']">
+            <containerViewVariable name="containerView"/>
+            <representationNameVariable name="treeName"/>
           </ownedTools>
           <ownedTools xsi:type="tool:DoubleClickDescription" name="DBL_Nav_To_UI_Structure">
             <element name="element"/>
@@ -613,10 +613,10 @@
               </firstModelOperations>
             </initialOperation>
           </ownedTools>
-          <ownedTools xsi:type="description_2:TreeNavigationDescription" name="NAV_UI_Structure" label="UI Structure" browseExpression="service:getAbstractPackageContainer" treeDescription="//@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='UI%20Structure']">
-            <containerViewVariable/>
-            <containerVariable/>
-            <representationNameVariable/>
+          <ownedTools xsi:type="description_2:TreeNavigationDescription" name="NAV_UI_Structure" label="UI Structure" browseExpression="aql:self.eContainer(cinematic::AbstractPackage)" treeDescription="//@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='UI%20Structure']">
+            <containerViewVariable name="containerView"/>
+            <containerVariable name="container"/>
+            <representationNameVariable name="treeName"/>
           </ownedTools>
           <ownedTools xsi:type="tool:DiagramCreationDescription" name="ViewContainer Diagram" diagramDescription="//@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='View%20Container%20Mockup']">
             <initialOperation>
@@ -722,24 +722,24 @@
           </create>
         </subItemMappings>
         <subItemMappings name="UIS_ViewContainer" domainClass="view.ViewContainer" semanticCandidatesExpression="feature:viewContainers">
-          <defaultStyle labelExpression="service:getCinematicLabel">
+          <defaultStyle labelExpression="service:getCinematicLongLabel">
             <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
             <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
           </defaultStyle>
           <directEdit name="EDT_ViewContainer" mapping="//@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='UI%20Structure']/@subItemMappings[name='UIS_Package']">
             <firstModelOperation xsi:type="tool_1:ChangeContext" browseExpression="service:element.editCinematicLabel(arg0)"/>
-            <mask mask="{0}"/>
+            <mask mask="{0} : {1}"/>
             <element name="element"/>
             <root name="root"/>
           </directEdit>
           <subItemMappings name="UIS_ContainedViewContainer" domainClass="view.ViewContainer" semanticCandidatesExpression="feature:viewContainers" reusedTreeItemMappings="//@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='UI%20Structure']/@subItemMappings[name='UIS_Package']/@subItemMappings[name='UIS_ViewContainer']/@subItemMappings[name='UIS_ContainedViewContainer'] //@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='UI%20Structure']/@subItemMappings[name='UIS_Package']/@subItemMappings[name='UIS_ViewContainer']/@subItemMappings[name='UIS_ViewElement'] //@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='UI%20Structure']/@subItemMappings[name='UIS_Package']/@subItemMappings[name='UIS_ViewContainer']/@subItemMappings[name='UIS_ViewContainerReference'] //@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='UI%20Structure']/@subItemMappings[name='UIS_Package']/@subItemMappings[name='UIS_ViewContainer']/@subItemMappings[name='UIS_ViewEvent'] //@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='UI%20Structure']/@subItemMappings[name='UIS_Package']/@subItemMappings[name='UIS_ViewContainer']/@subItemMappings[name='UIS_ViewAction'] //@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='UI%20Structure']/@subItemMappings[name='UIS_Package']/@subItemMappings[name='UIS_ViewContainer']/@subItemMappings[name='UIS_DataBinding']">
-            <defaultStyle labelExpression="service:getCinematicLabel">
+            <defaultStyle labelExpression="service:getCinematicLongLabel">
               <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
               <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
             </defaultStyle>
             <directEdit name="EDT_ContainedViewContainer" mapping="//@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='UI%20Structure']/@subItemMappings[name='UIS_Package']">
               <firstModelOperation xsi:type="tool_1:ChangeContext" browseExpression="service:element.editCinematicLabel(arg0)"/>
-              <mask mask="{0}"/>
+              <mask mask="{0} : {1}"/>
               <element name="element"/>
               <root name="root"/>
             </directEdit>
@@ -838,13 +838,13 @@
             </create>
           </subItemMappings>
           <subItemMappings name="UIS_ViewElement" domainClass="view.ViewElement" semanticCandidatesExpression="feature:viewElements" reusedTreeItemMappings="//@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='UI%20Structure']/@subItemMappings[name='UIS_Package']/@subItemMappings[name='UIS_ViewContainer']/@subItemMappings[name='UIS_ViewEvent'] //@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='UI%20Structure']/@subItemMappings[name='UIS_Package']/@subItemMappings[name='UIS_ViewContainer']/@subItemMappings[name='UIS_ViewAction'] //@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='UI%20Structure']/@subItemMappings[name='UIS_Package']/@subItemMappings[name='UIS_ViewContainer']/@subItemMappings[name='UIS_DataBinding']">
-            <defaultStyle labelExpression="service:getCinematicLabel">
+            <defaultStyle labelExpression="service:getCinematicLongLabel">
               <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
               <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
             </defaultStyle>
             <directEdit name="EDT_ViewElement" mapping="//@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='UI%20Structure']/@subItemMappings[name='UIS_Package']">
               <firstModelOperation xsi:type="tool_1:ChangeContext" browseExpression="service:element.editCinematicLabel(arg0)"/>
-              <mask mask="{0}"/>
+              <mask mask="{0} : {1}"/>
               <element name="element"/>
               <root name="root"/>
             </directEdit>
@@ -898,13 +898,13 @@
             </create>
           </subItemMappings>
           <subItemMappings name="UIS_ViewContainerReference" domainClass="view.ViewContainerReference" semanticCandidatesExpression="feature:viewContainerReferences" reusedTreeItemMappings="//@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='UI%20Structure']/@subItemMappings[name='UIS_Package']/@subItemMappings[name='UIS_ViewContainer']/@subItemMappings[name='UIS_ViewEvent'] //@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='UI%20Structure']/@subItemMappings[name='UIS_Package']/@subItemMappings[name='UIS_ViewContainer']/@subItemMappings[name='UIS_ViewAction']">
-            <defaultStyle labelExpression="service:getCinematicLabel">
+            <defaultStyle labelExpression="service:getCinematicLongLabel">
               <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
               <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
             </defaultStyle>
             <directEdit name="EDT_ViewContainerReference" mapping="//@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='UI%20Structure']/@subItemMappings[name='UIS_Package']">
               <firstModelOperation xsi:type="tool_1:ChangeContext" browseExpression="service:element.editCinematicLabel(arg0)"/>
-              <mask mask="{0}"/>
+              <mask mask="{0} : {1}"/>
               <element name="element"/>
               <root name="root"/>
             </directEdit>
@@ -948,7 +948,7 @@
             </create>
           </subItemMappings>
           <subItemMappings name="UIS_ViewEvent" domainClass="view.ViewEvent" semanticCandidatesExpression="feature:events">
-            <defaultStyle labelExpression="service:getCinematicLabel">
+            <defaultStyle labelExpression="service:getCinematicLongLabel">
               <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
               <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
             </defaultStyle>
@@ -966,7 +966,7 @@
             </create>
           </subItemMappings>
           <subItemMappings name="UIS_ViewAction" domainClass="view.ViewAction" semanticCandidatesExpression="feature:actions">
-            <defaultStyle labelExpression="service:getCinematicLabel">
+            <defaultStyle labelExpression="service:getCinematicLongLabel">
               <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
               <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
             </defaultStyle>
@@ -1175,7 +1175,7 @@
     </ownedRepresentations>
     <ownedRepresentations xsi:type="description_1:DiagramDescription" name="View Container Mockup" titleExpression="aql:self.name+' View Container Mockup'" domainClass="view::ViewContainer" enablePopupBars="true">
       <defaultLayer name="Default">
-        <containerMappings name="VCD_RootViewContainer" semanticCandidatesExpression="aql:self.buildWidgetPalette()" domainClass="view::ViewContainer" dropDescriptions="//@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='View%20Container%20Mockup']/@defaultLayer/@toolSections.3/@ownedTools[name='DND_ViewContainer']">
+        <containerMappings name="VCD_RootViewContainer" navigationDescriptions="//@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='View%20Container%20Mockup']/@defaultLayer/@toolSections.3/@ownedTools[name='VCD_Nav_to_Layout_Diagram']" semanticCandidatesExpression="aql:self.buildWidgetPalette()" doubleClickDescription="//@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='View%20Container%20Mockup']/@defaultLayer/@toolSections.3/@ownedTools[name='VCD_DblClick_Nav_to_Layout_Diagram']" domainClass="view::ViewContainer" dropDescriptions="//@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='View%20Container%20Mockup']/@defaultLayer/@toolSections.3/@ownedTools[name='DND_ViewContainer']">
           <subContainerMappings name="VCD_ViewElement" semanticCandidatesExpression="aql:self.ownedElements" domainClass="view::ViewElement">
             <style xsi:type="style:FlatContainerStyleDescription" arcWidth="20" arcHeight="20" borderSizeComputationExpression="aql:self.getBorderSize()" labelSize="12" showIcon="false" labelExpression="aql:self.getVCDLabel()" labelColor="//@userColorsPalettes[name='CustomColors']/@entries[name='VCD_ViewElement_LabelColor']">
               <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
@@ -1183,7 +1183,7 @@
               <foregroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
             </style>
           </subContainerMappings>
-          <subContainerMappings name="VCD_ViewContainer" detailDescriptions="//@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='View%20Container%20Mockup']/@defaultLayer/@toolSections.3/@ownedTools[name='View%20Container']" semanticCandidatesExpression="aql:self.ownedElements" doubleClickDescription="//@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='View%20Container%20Mockup']/@defaultLayer/@toolSections.3/@ownedTools[name='VCD_Nav_to_ViewContainer_Diagram']" domainClass="view::ViewContainer" dropDescriptions="//@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='View%20Container%20Mockup']/@defaultLayer/@toolSections.3/@ownedTools[name='DND_ViewContainer']" reusedContainerMappings="//@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='View%20Container%20Mockup']/@defaultLayer/@containerMappings[name='VCD_RootViewContainer']/@subContainerMappings[name='VCD_ViewContainer'] //@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='View%20Container%20Mockup']/@defaultLayer/@containerMappings[name='VCD_RootViewContainer']/@subContainerMappings[name='VCD_ViewContainerReference'] //@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='View%20Container%20Mockup']/@defaultLayer/@containerMappings[name='VCD_RootViewContainer']/@subContainerMappings[name='VCD_ViewElement']">
+          <subContainerMappings name="VCD_ViewContainer" navigationDescriptions="//@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='View%20Container%20Mockup']/@defaultLayer/@toolSections.3/@ownedTools[name='VCD_Nav_to_Layout_Diagram']" semanticCandidatesExpression="aql:self.ownedElements" doubleClickDescription="//@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='View%20Container%20Mockup']/@defaultLayer/@toolSections.3/@ownedTools[name='VCD_DblClick_Nav_to_ViewContainer_Diagram']" domainClass="view::ViewContainer" dropDescriptions="//@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='View%20Container%20Mockup']/@defaultLayer/@toolSections.3/@ownedTools[name='DND_ViewContainer']" reusedContainerMappings="//@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='View%20Container%20Mockup']/@defaultLayer/@containerMappings[name='VCD_RootViewContainer']/@subContainerMappings[name='VCD_ViewContainer'] //@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='View%20Container%20Mockup']/@defaultLayer/@containerMappings[name='VCD_RootViewContainer']/@subContainerMappings[name='VCD_ViewContainerReference'] //@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='View%20Container%20Mockup']/@defaultLayer/@containerMappings[name='VCD_RootViewContainer']/@subContainerMappings[name='VCD_ViewElement']">
             <style xsi:type="style:FlatContainerStyleDescription" arcWidth="20" arcHeight="20" borderSizeComputationExpression="aql:self.getBorderSize()" labelSize="12" showIcon="false" labelExpression="aql:self.getVCDLabel()" labelColor="//@userColorsPalettes[name='CustomColors']/@entries[name='VCD_ViewElement_LabelColor']" backgroundStyle="GradientTopToBottom">
               <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
               <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
@@ -1191,7 +1191,7 @@
               <labelBorderStyle href="environment:/viewpoint#//@labelBorderStyles/@labelBorderStyleDescriptions.1"/>
             </style>
           </subContainerMappings>
-          <subContainerMappings name="VCD_ViewContainerReference" semanticCandidatesExpression="aql:self.ownedElements" doubleClickDescription="//@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='View%20Container%20Mockup']/@defaultLayer/@toolSections.3/@ownedTools[name='VCD_Nav_to_Reused_ViewContainer_Diagram']" domainClass="view::ViewContainerReference">
+          <subContainerMappings name="VCD_ViewContainerReference" navigationDescriptions="//@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='View%20Container%20Mockup']/@defaultLayer/@toolSections.3/@ownedTools[name='VCD_Nav_to_Reused_ViewContainer_Diagram']" semanticCandidatesExpression="aql:self.ownedElements" doubleClickDescription="//@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='View%20Container%20Mockup']/@defaultLayer/@toolSections.3/@ownedTools[name='VCD_DblClick_Nav_to_Reused_ViewContainer_Diagram']" domainClass="view::ViewContainerReference">
             <style xsi:type="style:FlatContainerStyleDescription" arcWidth="20" arcHeight="20" borderSizeComputationExpression="1" labelSize="12" showIcon="false" labelExpression="aql:self.getVCDLabel()" backgroundStyle="GradientTopToBottom">
               <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='gray']"/>
               <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='gray']"/>
@@ -1276,21 +1276,28 @@
           </ownedTools>
         </toolSections>
         <toolSections name="Usability">
-          <ownedTools xsi:type="tool:DiagramCreationDescription" name="View Container" diagramDescription="//@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='View%20Container%20Mockup']">
+          <ownedTools xsi:type="tool:ContainerDropDescription" name="DND_ViewContainer" precondition="aql:element.isDropAllowedForCinematicElementOn(newContainer)" mappings="//@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='View%20Container%20Mockup']/@defaultLayer/@containerMappings[name='VCD_RootViewContainer']/@subContainerMappings[name='VCD_ViewContainer'] //@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='View%20Container%20Mockup']/@defaultLayer/@containerMappings[name='VCD_RootViewContainer']/@subContainerMappings[name='VCD_ViewContainerReference'] //@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='View%20Container%20Mockup']/@defaultLayer/@containerMappings[name='VCD_RootViewContainer']/@subContainerMappings[name='VCD_ViewElement']">
+            <oldContainer name="oldSemanticContainer"/>
+            <newContainer name="newSemanticContainer"/>
+            <element name="element"/>
+            <newViewContainer name="newContainerView"/>
             <initialOperation>
-              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:self"/>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="aql:element.dropOnCinematicContainer(newSemanticContainer)"/>
             </initialOperation>
-            <containerViewVariable name="containerView"/>
-            <representationNameVariable name="diagramName"/>
           </ownedTools>
-          <ownedTools xsi:type="tool:DoubleClickDescription" name="VCD_Nav_to_ViewContainer_Diagram" mappings="//@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='View%20Container%20Mockup']/@defaultLayer/@containerMappings[name='VCD_RootViewContainer']/@subContainerMappings[name='VCD_ViewContainer']">
+          <ownedTools xsi:type="tool:DoubleClickDescription" name="VCD_DblClick_Nav_to_ViewContainer_Diagram" mappings="//@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='View%20Container%20Mockup']/@defaultLayer/@containerMappings[name='VCD_RootViewContainer']/@subContainerMappings[name='VCD_ViewContainer']">
             <element name="element"/>
             <elementView name="elementView"/>
             <initialOperation>
               <firstModelOperations xsi:type="tool:Navigation" createIfNotExistent="true" diagramDescription="//@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='View%20Container%20Mockup']"/>
             </initialOperation>
           </ownedTools>
-          <ownedTools xsi:type="tool:DoubleClickDescription" name="VCD_Nav_to_Reused_ViewContainer_Diagram" mappings="//@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='View%20Container%20Mockup']/@defaultLayer/@containerMappings[name='VCD_RootViewContainer']/@subContainerMappings[name='VCD_ViewContainerReference']">
+          <ownedTools xsi:type="tool:DiagramNavigationDescription" name="VCD_Nav_to_Reused_ViewContainer_Diagram" browseExpression="aql:self.viewContainer" navigationNameExpression="aql:diagramName" diagramDescription="//@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='View%20Container%20Mockup']">
+            <containerViewVariable name="containerView"/>
+            <containerVariable name="container"/>
+            <representationNameVariable name="diagramName"/>
+          </ownedTools>
+          <ownedTools xsi:type="tool:DoubleClickDescription" name="VCD_DblClick_Nav_to_Reused_ViewContainer_Diagram" mappings="//@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='View%20Container%20Mockup']/@defaultLayer/@containerMappings[name='VCD_RootViewContainer']/@subContainerMappings[name='VCD_ViewContainerReference']">
             <element name="element"/>
             <elementView name="elementView"/>
             <initialOperation>
@@ -1299,13 +1306,18 @@
               </firstModelOperations>
             </initialOperation>
           </ownedTools>
-          <ownedTools xsi:type="tool:ContainerDropDescription" name="DND_ViewContainer" precondition="aql:element.isDropAllowedForCinematicElementOn(newContainer)" mappings="//@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='View%20Container%20Mockup']/@defaultLayer/@containerMappings[name='VCD_RootViewContainer']/@subContainerMappings[name='VCD_ViewContainer'] //@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='View%20Container%20Mockup']/@defaultLayer/@containerMappings[name='VCD_RootViewContainer']/@subContainerMappings[name='VCD_ViewContainerReference'] //@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='View%20Container%20Mockup']/@defaultLayer/@containerMappings[name='VCD_RootViewContainer']/@subContainerMappings[name='VCD_ViewElement']">
-            <oldContainer name="oldSemanticContainer"/>
-            <newContainer name="newSemanticContainer"/>
+          <ownedTools xsi:type="tool:DiagramNavigationDescription" name="VCD_Nav_to_Layout_Diagram" browseExpression="aql:self.layout" navigationNameExpression="aql:diagramName" diagramDescription="//@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='Layout%20Diagram']">
+            <containerViewVariable name="containerView"/>
+            <containerVariable name="container"/>
+            <representationNameVariable name="diagramName"/>
+          </ownedTools>
+          <ownedTools xsi:type="tool:DoubleClickDescription" name="VCD_DblClick_Nav_to_Layout_Diagram" precondition="aql:self.layout&lt;>null" mappings="//@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='View%20Container%20Mockup']/@defaultLayer/@containerMappings[name='VCD_RootViewContainer']">
             <element name="element"/>
-            <newViewContainer name="newContainerView"/>
+            <elementView name="elementView"/>
             <initialOperation>
-              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="aql:element.dropOnCinematicContainer(newSemanticContainer)"/>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="aql:element.layout">
+                <subModelOperations xsi:type="tool:Navigation" createIfNotExistent="true" diagramDescription="//@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='Layout%20Diagram']"/>
+              </firstModelOperations>
             </initialOperation>
           </ownedTools>
         </toolSections>
@@ -1358,14 +1370,14 @@
       <defaultLayer name="Default">
         <containerMappings name="LAD_Layout" semanticCandidatesExpression="aql:self" domainClass="view::Layout">
           <subContainerMappings name="LAD_ChildLayout" semanticCandidatesExpression="aql:self.ownedLayouts" domainClass="view::Layout" reusedContainerMappings="//@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='Layout%20Diagram']/@defaultLayer/@containerMappings[name='LAD_Layout']/@subContainerMappings[name='LAD_ChildLayout']">
-            <style xsi:type="style:FlatContainerStyleDescription" borderSizeComputationExpression="2" labelSize="12" showIcon="false" labelExpression="service:getAbstractViewElementLabel">
+            <style xsi:type="style:FlatContainerStyleDescription" borderSizeComputationExpression="2" labelSize="12" showIcon="false" labelExpression="service:getCinematicLongLabel()">
               <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='red']"/>
               <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
               <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
               <foregroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
             </style>
           </subContainerMappings>
-          <style xsi:type="style:FlatContainerStyleDescription" borderSizeComputationExpression="2" labelSize="12" showIcon="false" labelExpression="service:getAbstractViewElementLabel">
+          <style xsi:type="style:FlatContainerStyleDescription" borderSizeComputationExpression="2" labelSize="12" showIcon="false" labelExpression="service:getCinematicLongLabel()">
             <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='red']"/>
             <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
             <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
@@ -1411,7 +1423,7 @@
     <metamodels href="http://www.obeonetwork.org/dsl/cinematic/3.0.0#//flow"/>
     <metamodels href="http://www.obeonetwork.org/dsl/cinematic/3.0.0#//toolkits"/>
     <metamodels href="http://www.obeonetwork.org/dsl/cinematic/3.0.0#//view"/>
-    <metamodels href="http://www.obeonetwork.org/dsl/soa/3.0.0#/"/>
+    <metamodels href="http://www.obeonetwork.org/dsl/soa/4.0.0#/"/>
     <categories name="Default Category">
       <pages name="AbstractPackage Page" labelExpression="aql:self.eClass().name" domainClass="cinematic::AbstractPackage" semanticCandidateExpression="var:self" groups="//@extensions.0/@categories.0/@groups.0"/>
       <pages name="Toolkits Page" labelExpression="Toolkits" domainClass="cinematic::CinematicRoot" semanticCandidateExpression="var:self" groups="//@extensions.0/@categories.0/@groups.1"/>

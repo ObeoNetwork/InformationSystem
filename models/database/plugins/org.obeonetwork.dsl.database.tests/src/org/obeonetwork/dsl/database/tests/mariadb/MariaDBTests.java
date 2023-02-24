@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2008, 2021 Obeo.
+ * Copyright (c) 2008, 2023 Obeo.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -126,7 +126,7 @@ public class MariaDBTests extends AbstractTests {
 		dataSource.setJdbcUrl(url);
 		dataSource.setJdbcUsername(MARIADB_USERNAME_DEFAULT);
 		dataSource.setJdbcPassword(MARIADB_PASSWORD_DEFAULT);
-		dataSource.setVendor(DatabaseConstants.DB_MARIADB_102);
+		dataSource.setVendor(DatabaseConstants.DB_MARIADB_106);
 
 		DataBase database = DatabaseReverser.reverse(dataSource, new MultiDataBaseQueries(), null);
 		

@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2008, 2021 Obeo.
+ * Copyright (c) 2008, 2023 Obeo.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -82,7 +82,10 @@ public class ManifestServices {
 				// Do nothing, date format is invalid
 			}			
 		}
-		manifestModel.setComment(manifest.getMainAttributes().getValue(new Attributes.Name(MANIFEST_KEY_EXPORT_COMMENT)));
+		String comment = manifest.getMainAttributes().getValue(new Attributes.Name(MANIFEST_KEY_EXPORT_COMMENT));
+		// Replace escaped new lines by new lines
+		comment = comment.replaceAll("\\\\r\\\\n", "\n");
+		manifestModel.setComment(comment);
 		try {
 			manifestModel.setVersion(manifest.getMainAttributes().getValue(new Attributes.Name(MANIFEST_KEY_EXPORT_VERSION)));
 		} catch (BadVersionStringException e) {
@@ -118,7 +121,12 @@ public class ManifestServices {
 		manifest.getMainAttributes().put(new Attributes.Name(MANIFEST_KEY_PROJECT_ID), manifestModel.getProjectId());
 		manifest.getMainAttributes().put(new Attributes.Name(MANIFEST_KEY_EXPORT_VERSION), manifestModel.getVersion());
 		manifest.getMainAttributes().put(new Attributes.Name(MANIFEST_KEY_EXPORT_DATE), DATE_FORMAT.format(manifestModel.getExportDate()));
-		manifest.getMainAttributes().put(new Attributes.Name(MANIFEST_KEY_EXPORT_COMMENT), manifestModel.getComment());
+		String comment = manifestModel.getComment();
+		// New lines are not allowed per the Jar Manifest specification
+		// (https://docs.oracle.com/javase/7/docs/technotes/guides/jar/jar.html#Manifest_Specification)
+		// Replace them with the "\\r\\n" string.
+		comment = comment.replaceAll("\r?\n", "\\\\r\\\\n");
+		manifest.getMainAttributes().put(new Attributes.Name(MANIFEST_KEY_EXPORT_COMMENT), comment);
 		
 		String dependencies = "";
 		for (MManifest requiredManifest : manifestModel.getDependencies()) {

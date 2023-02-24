@@ -1,7 +1,7 @@
 Manifest-Version: 1.0
 Bundle-Name: Viewpoints
 Bundle-SymbolicName: org.obeonetwork.dsl.is.design;singleton:=true
-Bundle-Version: 2.2.0.qualifier
+Bundle-Version: 4.0.0.qualifier
 Bundle-Activator: org.obeonetwork.dsl.is.design.Activator
 Require-Bundle: org.eclipse.ui,
  org.eclipse.core.runtime,
@@ -25,9 +25,10 @@ Require-Bundle: org.eclipse.ui,
  org.eclipse.sirius.tree,
  org.eclipse.sirius.ui,
  org.eclipse.sirius.ext.emf,
- org.eclipse.sirius.diagram.ui
+ org.eclipse.sirius.diagram.ui,
+ fr.obeo.dsl.viewpoint.collab.ui
 Import-Package: com.google.common.collect;version="[21.0.0,27.2.0)"
 Bundle-ActivationPolicy: lazy
 Bundle-Vendor: Obeo Network
-Bundle-RequiredExecutionEnvironment: J2SE-1.5
+Bundle-RequiredExecutionEnvironment: JavaSE-1.8
 Bundle-ManifestVersion: 2

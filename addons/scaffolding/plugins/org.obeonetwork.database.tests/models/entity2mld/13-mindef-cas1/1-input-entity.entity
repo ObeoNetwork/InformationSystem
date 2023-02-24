@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<oent:Root xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:oent="http://www.obeonetwork.org/dsl/entity/2.0.0" xmlns:oenv="http://www.obeonetwork.org/dsl/environment/2.0.0" xmi:id="_BQkjwO4iEeKrlpc0w3kvVw" createdOn="2013-07-16T16:14:25.532+0200" modifiedOn="2013-09-02T17:43:51.645+0200">
+  <blocks xmi:id="_GCCusO4iEeKrlpc0w3kvVw" createdOn="2013-07-16T16:14:57.563+0200" modifiedOn="2013-09-02T14:28:24.144+0200" name="cas1">
+    <metadatas xmi:id="_i_op8O4jEeKrlpc0w3kvVw">
+      <metadatas xsi:type="oenv:Annotation" xmi:id="_i_op8e4jEeKrlpc0w3kvVw" title="PHYSICAL_NAME" body="TA"/>
+    </metadatas>
+    <entities xmi:id="_J5HG4O4iEeKrlpc0w3kvVw" description="Table TA_A1D" createdOn="2013-07-16T16:15:23.470+0200" modifiedOn="2013-09-02T18:13:33.860+0200" name="A1D">
+      <metadatas xmi:id="_j1R4gO4jEeKrlpc0w3kvVw">
+        <metadatas xsi:type="oenv:Annotation" xmi:id="_j1bCcO4jEeKrlpc0w3kvVw" title="PHYSICAL_NAME" body="TA_A1D"/>
+      </metadatas>
+      <ownedReferences xmi:id="_Uoy8sO4iEeKrlpc0w3kvVw" createdOn="2013-07-16T16:16:35.579+0200" modifiedOn="2013-09-02T14:28:24.144+0200" name="relA1" multiplicity="0..*" type="_OJf-AO4iEeKrlpc0w3kvVw"/>
+    </entities>
+    <entities xmi:id="_OJf-AO4iEeKrlpc0w3kvVw" description="Table TA_A1A" createdOn="2013-07-16T16:15:52.032+0200" modifiedOn="2013-09-02T18:13:35.989+0200" name="A1A">
+      <metadatas xmi:id="_nCA6QO4jEeKrlpc0w3kvVw">
+        <metadatas xsi:type="oenv:Annotation" xmi:id="_nCKrQO4jEeKrlpc0w3kvVw" title="PHYSICAL_NAME" body="TA_A1A"/>
+      </metadatas>
+    </entities>
+    <entities xmi:id="_ZdQKMO4iEeKrlpc0w3kvVw" description="Table TA_A2D" createdOn="2013-07-16T16:17:07.923+0200" modifiedOn="2013-09-02T18:13:38.309+0200" name="A2D">
+      <metadatas xmi:id="_n_aWoO4jEeKrlpc0w3kvVw">
+        <metadatas xsi:type="oenv:Annotation" xmi:id="_n_aWoe4jEeKrlpc0w3kvVw" title="PHYSICAL_NAME" body="TA_A2D"/>
+      </metadatas>
+      <ownedReferences xmi:id="_en6RMO4iEeKrlpc0w3kvVw" createdOn="2013-07-16T16:17:42.595+0200" modifiedOn="2013-09-02T14:22:59.289+0200" name="relA2-1" multiplicity="0..*" oppositeOf="_iWxIkO4iEeKrlpc0w3kvVw" type="_a16mQO4iEeKrlpc0w3kvVw"/>
+    </entities>
+    <entities xmi:id="_a16mQO4iEeKrlpc0w3kvVw" description="Table TA_A2A" createdOn="2013-07-16T16:17:17.220+0200" modifiedOn="2013-09-02T18:13:40.662+0200" name="A2A">
+      <metadatas xmi:id="_o50wcO4jEeKrlpc0w3kvVw">
+        <metadatas xsi:type="oenv:Annotation" xmi:id="_o50wce4jEeKrlpc0w3kvVw" title="PHYSICAL_NAME" body="TA_A2A"/>
+      </metadatas>
+      <ownedReferences xmi:id="_iWxIkO4iEeKrlpc0w3kvVw" createdOn="2013-07-16T16:18:07.641+0200" modifiedOn="2013-09-02T12:57:52.777+0200" name="relA2-2" oppositeOf="_en6RMO4iEeKrlpc0w3kvVw" type="_ZdQKMO4iEeKrlpc0w3kvVw" navigable="false"/>
+    </entities>
+    <entities xmi:id="_n12AYO4iEeKrlpc0w3kvVw" description="Table TA_A3D" createdOn="2013-07-16T16:18:44.454+0200" modifiedOn="2013-09-02T18:13:43.655+0200" name="A3D">
+      <metadatas xmi:id="_p2nv4O4jEeKrlpc0w3kvVw">
+        <metadatas xsi:type="oenv:Annotation" xmi:id="_p2nv4e4jEeKrlpc0w3kvVw" title="PHYSICAL_NAME" body="TA_A3D"/>
+      </metadatas>
+      <ownedReferences xmi:id="_sOSAQO4iEeKrlpc0w3kvVw" createdOn="2013-07-16T16:19:13.860+0200" modifiedOn="2013-09-02T14:23:03.465+0200" name="relA3-1" multiplicity="0..*" oppositeOf="_uiQOAO4iEeKrlpc0w3kvVw" type="_n79PcO4iEeKrlpc0w3kvVw"/>
+    </entities>
+    <entities xmi:id="_n79PcO4iEeKrlpc0w3kvVw" description="Table TA_A3A" createdOn="2013-07-16T16:18:45.095+0200" modifiedOn="2013-09-02T18:13:45.719+0200" name="A3A">
+      <metadatas xmi:id="_q1M4AO4jEeKrlpc0w3kvVw">
+        <metadatas xsi:type="oenv:Annotation" xmi:id="_q1M4Ae4jEeKrlpc0w3kvVw" title="PHYSICAL_NAME" body="TA_A3A"/>
+      </metadatas>
+      <ownedReferences xmi:id="_uiQOAO4iEeKrlpc0w3kvVw" createdOn="2013-07-16T16:19:29.376+0200" modifiedOn="2013-09-02T12:59:55.238+0200" name="relA3-2" multiplicity="1" oppositeOf="_sOSAQO4iEeKrlpc0w3kvVw" type="_n12AYO4iEeKrlpc0w3kvVw" navigable="false"/>
+    </entities>
+  </blocks>
+</oent:Root>

@@ -105,7 +105,10 @@ paths:
           type: string
       responses:
         200:
-          description: "OK\n\nA series record."
+          description: |-
+            OK
+
+            A series record.
           content:
             application/pdf:
               schema:
@@ -119,15 +122,19 @@ paths:
               x-MediaTypeMediaType: MediaType-MediaType
           x-ParameterSurApiResponse: Parameter-ApiResponse
         401:
-          description: "Unauthorized\n\nReturned if your JWT token is missing\
-            \ or expired"
+          description: |-
+            Unauthorized
+
+            Returned if your JWT token is missing or expired
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/NotAuthorized'
         404:
-          description: "Not Found\n\nReturned if the given series ID does not\
-            \ exist"
+          description: |-
+            Not Found
+
+            Returned if the given series ID does not exist
           content:
             application/json:
               schema:
@@ -160,21 +167,28 @@ paths:
           format: int64
       responses:
         200:
-          description: "OK\n\nAn array of actor objects for the given series id."
+          description: |-
+            OK
+
+            An array of actor objects for the given series id.
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/SeriesActors'
         401:
-          description: "Unauthorized\n\nReturned if your JWT token is missing\
-            \ or expired"
+          description: |-
+            Unauthorized
+
+            Returned if your JWT token is missing or expired
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/NotAuthorized'
         404:
-          description: "Not Found\n\nReturned if the given series ID does not\
-            \ exist"
+          description: |-
+            Not Found
+
+            Returned if the given series ID does not exist
           content:
             application/json:
               schema:
@@ -204,22 +218,28 @@ paths:
           type: string
       responses:
         200:
-          description: "OK\n\nAn array of episode objects for the given series\
-            \ id."
+          description: |-
+            OK
+
+            An array of episode objects for the given series id.
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/SeriesEpisodes'
         401:
-          description: "Unauthorized\n\nReturned if your JWT token is missing\
-            \ or expired"
+          description: |-
+            Unauthorized
+
+            Returned if your JWT token is missing or expired
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/NotAuthorized'
         404:
-          description: "Not Found\n\nReturned if the given series ID does not\
-            \ exist"
+          description: |-
+            Not Found
+
+            Returned if the given series ID does not exist
           content:
             application/json:
               schema:
@@ -293,22 +313,28 @@ paths:
           type: string
       responses:
         200:
-          description: "OK\n\nAn array of basic Episode results that matched the\
-            \ query"
+          description: |-
+            OK
+
+            An array of basic Episode results that matched the query
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/SeriesEpisodesQuery'
         401:
-          description: "Unauthorized\n\nReturned if your JWT token is missing\
-            \ or expired"
+          description: |-
+            Unauthorized
+
+            Returned if your JWT token is missing or expired
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/NotAuthorized'
         404:
-          description: "Not Found\n\nReturned if the given series ID does not\
-            \ exist or the query returns no results."
+          description: |-
+            Not Found
+
+            Returned if the given series ID does not exist or the query returns no results.
           content:
             application/json:
               schema:
@@ -332,21 +358,28 @@ paths:
           format: int64
       responses:
         200:
-          description: "OK\n\nAn array of query keys as strings"
+          description: |-
+            OK
+
+            An array of query keys as strings
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/SeriesEpisodesQueryParams'
         401:
-          description: "Unauthorized\n\nReturned if your JWT token is missing\
-            \ or expired"
+          description: |-
+            Unauthorized
+
+            Returned if your JWT token is missing or expired
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/NotAuthorized'
         404:
-          description: "Not Found\n\nReturned if the given series ID does not\
-            \ exist or the query returns no results."
+          description: |-
+            Not Found
+
+            Returned if the given series ID does not exist or the query returns no results.
           content:
             application/json:
               schema:
@@ -372,22 +405,28 @@ paths:
           format: int64
       responses:
         200:
-          description: "OK\n\nA summary of the episodes and seasons avaialable\
-            \ for the given series."
+          description: |-
+            OK
+
+            A summary of the episodes and seasons avaialable for the given series.
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/SeriesEpisodesSummary'
         401:
-          description: "Unauthorized\n\nReturned if your JWT token is missing\
-            \ or expired"
+          description: |-
+            Unauthorized
+
+            Returned if your JWT token is missing or expired
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/NotAuthorized'
         404:
-          description: "Not Found\n\nReturned if the given series ID does not\
-            \ exist"
+          description: |-
+            Not Found
+
+            Returned if the given series ID does not exist
           content:
             application/json:
               schema:
@@ -426,21 +465,28 @@ paths:
           type: string
       responses:
         200:
-          description: "OK\n\nA filtered series record"
+          description: |-
+            OK
+
+            A filtered series record
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/SeriesData'
         401:
-          description: "Unauthorized\n\nReturned if your JWT token is missing\
-            \ or expired"
+          description: |-
+            Unauthorized
+
+            Returned if your JWT token is missing or expired
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/NotAuthorized'
         404:
-          description: "Not Found\n\nReturned if the given series ID does not\
-            \ exist"
+          description: |-
+            Not Found
+
+            Returned if the given series ID does not exist
           content:
             application/json:
               schema:
@@ -472,21 +518,28 @@ paths:
           type: string
       responses:
         200:
-          description: "OK\n\nA list of keys to filter by"
+          description: |-
+            OK
+
+            A list of keys to filter by
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/FilterKeys'
         401:
-          description: "Unauthorized\n\nReturned if your JWT token is missing\
-            \ or expired"
+          description: |-
+            Unauthorized
+
+            Returned if your JWT token is missing or expired
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/NotAuthorized'
         404:
-          description: "Not Found\n\nReturned if the given series ID does not\
-            \ exist"
+          description: |-
+            Not Found
+
+            Returned if the given series ID does not exist
           content:
             application/json:
               schema:
@@ -517,22 +570,28 @@ paths:
           type: string
       responses:
         200:
-          description: "OK\n\nA summary of the image types and counts available\
-            \ for the given series."
+          description: |-
+            OK
+
+            A summary of the image types and counts available for the given series.
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/SeriesImagesCounts'
         401:
-          description: "Unauthorized\n\nReturned if your JWT token is missing\
-            \ or expired"
+          description: |-
+            Unauthorized
+
+            Returned if your JWT token is missing or expired
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/NotAuthorized'
         404:
-          description: "Not Found\n\nReturned if the given series ID does not\
-            \ exist"
+          description: |-
+            Not Found
+
+            Returned if the given series ID does not exist
           content:
             application/json:
               schema:
@@ -583,22 +642,28 @@ paths:
           type: string
       responses:
         200:
-          description: "OK\n\nAn array of basic Episode results that matched the\
-            \ query"
+          description: |-
+            OK
+
+            An array of basic Episode results that matched the query
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/SeriesImageQueryResults'
         401:
-          description: "Unauthorized\n\nReturned if your JWT token is missing\
-            \ or expired"
+          description: |-
+            Unauthorized
+
+            Returned if your JWT token is missing or expired
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/NotAuthorized'
         404:
-          description: "Not Found\n\nReturned if the given series ID does not\
-            \ exist or the query returns no results."
+          description: |-
+            Not Found
+
+            Returned if the given series ID does not exist or the query returns no results.
           content:
             application/json:
               schema:
@@ -631,21 +696,28 @@ paths:
           type: string
       responses:
         200:
-          description: "OK\n\nAn array of query keys as strings"
+          description: |-
+            OK
+
+            An array of query keys as strings
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/SeriesImagesQueryParams'
         401:
-          description: "Unauthorized\n\nReturned if your JWT token is missing\
-            \ or expired"
+          description: |-
+            Unauthorized
+
+            Returned if your JWT token is missing or expired
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/NotAuthorized'
         404:
-          description: "Not Found\n\nReturned if the given series ID does not\
-            \ exist or the query returns no results."
+          description: |-
+            Not Found
+
+            Returned if the given series ID does not exist or the query returns no results.
           content:
             application/json:
               schema:
@@ -685,22 +757,28 @@ paths:
           type: string
       responses:
         200:
-          description: "OK\n\nAn array of Update objects that match the given\
-            \ timeframe."
+          description: |-
+            OK
+
+            An array of Update objects that match the given timeframe.
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/UpdateData'
         401:
-          description: "Unauthorized\n\nReturned if your JWT token is missing\
-            \ or expired"
+          description: |-
+            Unauthorized
+
+            Returned if your JWT token is missing or expired
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/NotAuthorized'
         404:
-          description: "Not Found\n\nReturned if no records exist for the given\
-            \ timespan"
+          description: |-
+            Not Found
+
+            Returned if no records exist for the given timespan
           content:
             application/json:
               schema:
@@ -716,22 +794,28 @@ paths:
       operationId: getParams1
       responses:
         200:
-          description: "OK\n\nAn array of Update objects that match the given\
-            \ timeframe."
+          description: |-
+            OK
+
+            An array of Update objects that match the given timeframe.
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/UpdateDataQueryParams'
         401:
-          description: "Unauthorized\n\nReturned if your JWT token is missing\
-            \ or expired"
+          description: |-
+            Unauthorized
+
+            Returned if your JWT token is missing or expired
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/NotAuthorized'
         404:
-          description: "Not Found\n\nReturned if no records exist for the given\
-            \ timespan"
+          description: |-
+            Not Found
+
+            Returned if no records exist for the given timespan
           content:
             application/json:
               schema:
@@ -754,18 +838,25 @@ paths:
         x-ParameterSurRequestBody: Parameter-RequestBody
       responses:
         200:
-          description: "OK\n\nReturns a JWT token for use with the rest of the\
-            \ API routes"
+          description: |-
+            OK
+
+            Returns a JWT token for use with the rest of the API routes
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/Token'
         401:
-          description: "Unauthorized\n\nInvalid credentials and/or API token"
+          description: |-
+            Unauthorized
+
+            Invalid credentials and/or API token
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/NotAuthorized'
+      security:
+      - jwtToken: []
   testuri/refresh_token:
     get:
       tags:
@@ -776,14 +867,19 @@ paths:
       operationId: getRefresh_token
       responses:
         200:
-          description: "OK\n\nReturns a new token to use in your subsequent requests"
+          description: |-
+            OK
+
+            Returns a new token to use in your subsequent requests
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/Token'
         401:
-          description: "Unauthorized\n\nReturned if your JWT token is missing\
-            \ or expired"
+          description: |-
+            Unauthorized
+
+            Returned if your JWT token is missing or expired
           content:
             application/json:
               schema:
@@ -831,21 +927,28 @@ paths:
           type: string
       responses:
         200:
-          description: "OK\n\nAn array of results that match the provided query."
+          description: |-
+            OK
+
+            An array of results that match the provided query.
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/SeriesSearchResults'
         401:
-          description: "Unauthorized\n\nReturned if your JWT token is missing\
-            \ or expired"
+          description: |-
+            Unauthorized
+
+            Returned if your JWT token is missing or expired
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/NotAuthorized'
         404:
-          description: "Not Found\n\nReturned if no records are found that match\
-            \ your query."
+          description: |-
+            Not Found
+
+            Returned if no records are found that match your query.
           content:
             application/json:
               schema:
@@ -861,14 +964,19 @@ paths:
       operationId: getParams
       responses:
         200:
-          description: "OK\n\nAn array of query keys as strings"
+          description: |-
+            OK
+
+            An array of query keys as strings
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/EpisodeDataQueryParams'
         401:
-          description: "Unauthorized\n\nReturned if your JWT token is missing\
-            \ or expired"
+          description: |-
+            Unauthorized
+
+            Returned if your JWT token is missing or expired
           content:
             application/json:
               schema:
@@ -901,27 +1009,32 @@ paths:
           type: string
       responses:
         200:
-          description: "OK\n\nAn array of query keys as strings"
+          description: |-
+            OK
+
+            An array of query keys as strings
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/EpisodeRecordData'
         401:
-          description: "Unauthorized\n\nReturned if your JWT token is missing\
-            \ or expired"
+          description: |-
+            Unauthorized
+
+            Returned if your JWT token is missing or expired
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/NotAuthorized'
         404:
-          description: "Not Found\n\nReturned if the given episode ID does not\
-            \ exist."
+          description: |-
+            Not Found
+
+            Returned if the given episode ID does not exist.
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/NotFound'
-      security:
-      - jwtToken: []
   testuri/languages:
     get:
       tags:
@@ -931,14 +1044,19 @@ paths:
       operationId: get
       responses:
         200:
-          description: "OK\n\nAn array of language objects."
+          description: |-
+            OK
+
+            An array of language objects.
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/LanguageData'
         401:
-          description: "Unauthorized\n\nReturned if your JWT token is missing\
-            \ or expired"
+          description: |-
+            Unauthorized
+
+            Returned if your JWT token is missing or expired
           content:
             application/json:
               schema:
@@ -960,21 +1078,28 @@ paths:
           type: string
       responses:
         200:
-          description: "OK\n\nAn array of language objects."
+          description: |-
+            OK
+
+            An array of language objects.
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/Language'
         401:
-          description: "Unauthorized\n\nReturned if your JWT token is missing\
-            \ or expired"
+          description: |-
+            Unauthorized
+
+            Returned if your JWT token is missing or expired
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/NotAuthorized'
         404:
-          description: "Not Found\n\nReturned if the given language ID does not\
-            \ exist."
+          description: |-
+            Not Found
+
+            Returned if the given language ID does not exist.
           content:
             application/json:
               schema:
@@ -1006,21 +1131,28 @@ paths:
           type: string
       responses:
         200:
-          description: "OK\n\nA movie record."
+          description: |-
+            OK
+
+            A movie record.
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/Movie'
         401:
-          description: "Unauthorized\n\nReturned if your JWT token is missing\
-            \ or expired"
+          description: |-
+            Unauthorized
+
+            Returned if your JWT token is missing or expired
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/NotAuthorized'
         404:
-          description: "Not Found\n\nReturned if the given series ID does not\
-            \ exist"
+          description: |-
+            Not Found
+
+            Returned if the given series ID does not exist
           content:
             application/json:
               schema:
@@ -1042,26 +1174,37 @@ paths:
           type: string
       responses:
         200:
-          description: "OK\n\nAll movies ids updated since a given date"
+          description: |-
+            OK
+
+            All movies ids updated since a given date
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/UpdatedMovies'
         401:
-          description: "Unauthorized\n\nReturned if your JWT token is missing\
-            \ or expired"
+          description: |-
+            Unauthorized
+
+            Returned if your JWT token is missing or expired
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/NotAuthorized'
         405:
-          description: "Method Not Allowed\n\nMissing query params are given"
+          description: |-
+            Method Not Allowed
+
+            Missing query params are given
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/InvalidQueryParams'
         422:
-          description: "Unprocessable Entity\n\nInvalid query params provided"
+          description: |-
+            Unprocessable Entity
+
+            Invalid query params provided
           content:
             application/json:
               schema:
@@ -1076,21 +1219,28 @@ paths:
       operationId: get3
       responses:
         200:
-          description: "OK\n\nUser information."
+          description: |-
+            OK
+
+            User information.
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/UserData'
         401:
-          description: "Unauthorized\n\nReturned if your JWT token is missing\
-            \ or expired"
+          description: |-
+            Unauthorized
+
+            Returned if your JWT token is missing or expired
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/NotAuthorized'
         404:
-          description: "Not Found\n\nReturned if no information exists for the\
-            \ current user"
+          description: |-
+            Not Found
+
+            Returned if no information exists for the current user
           content:
             application/json:
               schema:
@@ -1106,21 +1256,28 @@ paths:
       operationId: getFavorites
       responses:
         200:
-          description: "OK\n\nUser favorites."
+          description: |-
+            OK
+
+            User favorites.
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/UserFavoritesData'
         401:
-          description: "Unauthorized\n\nReturned if your JWT token is missing\
-            \ or expired"
+          description: |-
+            Unauthorized
+
+            Returned if your JWT token is missing or expired
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/NotAuthorized'
         404:
-          description: "Not Found\n\nReturned if no information exists for the\
-            \ current user"
+          description: |-
+            Not Found
+
+            Returned if no information exists for the current user
           content:
             application/json:
               schema:
@@ -1144,28 +1301,37 @@ paths:
           format: int64
       responses:
         200:
-          description: "OK\n\nList of user favorites."
+          description: |-
+            OK
+
+            List of user favorites.
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/UserFavoritesData'
         401:
-          description: "Unauthorized\n\nReturned if your JWT token is missing\
-            \ or expired"
+          description: |-
+            Unauthorized
+
+            Returned if your JWT token is missing or expired
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/NotAuthorized'
         404:
-          description: "Not Found\n\nReturned if no information exists for the\
-            \ current user"
+          description: |-
+            Not Found
+
+            Returned if no information exists for the current user
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/NotFound'
         409:
-          description: "Conflict\n\nReturned if requested record could not be\
-            \ updated"
+          description: |-
+            Conflict
+
+            Returned if requested record could not be updated
           content:
             application/json:
               schema:
@@ -1188,28 +1354,37 @@ paths:
           format: int64
       responses:
         200:
-          description: "OK\n\nList of user favorites."
+          description: |-
+            OK
+
+            List of user favorites.
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/UserFavoritesData'
         401:
-          description: "Unauthorized\n\nReturned if your JWT token is missing\
-            \ or expired"
+          description: |-
+            Unauthorized
+
+            Returned if your JWT token is missing or expired
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/NotAuthorized'
         404:
-          description: "Not Found\n\nReturned if no information exists for the\
-            \ current user"
+          description: |-
+            Not Found
+
+            Returned if no information exists for the current user
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/NotFound'
         409:
-          description: "Conflict\n\nReturned if requested record could not be\
-            \ deleted"
+          description: |-
+            Conflict
+
+            Returned if requested record could not be deleted
           content:
             application/json:
               schema:
@@ -1224,21 +1399,28 @@ paths:
       operationId: getRatings
       responses:
         200:
-          description: "OK\n\nArray of user ratings."
+          description: |-
+            OK
+
+            Array of user ratings.
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/UserRatingsData'
         401:
-          description: "Unauthorized\n\nReturned if your JWT token is missing\
-            \ or expired"
+          description: |-
+            Unauthorized
+
+            Returned if your JWT token is missing or expired
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/NotAuthorized'
         404:
-          description: "Not Found\n\nReturned if no information exists for the\
-            \ current user"
+          description: |-
+            Not Found
+
+            Returned if no information exists for the current user
           content:
             application/json:
               schema:
@@ -1260,21 +1442,28 @@ paths:
           type: string
       responses:
         200:
-          description: "OK\n\nList of user ratings that match the given query."
+          description: |-
+            OK
+
+            List of user ratings that match the given query.
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/UserRatingsData'
         401:
-          description: "Unauthorized\n\nReturned if your JWT token is missing\
-            \ or expired"
+          description: |-
+            Unauthorized
+
+            Returned if your JWT token is missing or expired
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/NotAuthorized'
         404:
-          description: "Not Found\n\nReturned if no information exists for the\
-            \ current user"
+          description: |-
+            Not Found
+
+            Returned if no information exists for the current user
           content:
             application/json:
               schema:
@@ -1290,21 +1479,28 @@ paths:
       operationId: getRatingsQueryParams
       responses:
         200:
-          description: "OK\n\nParameters to use for querying."
+          description: |-
+            OK
+
+            Parameters to use for querying.
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/UserRatingsQueryParams'
         401:
-          description: "Unauthorized\n\nReturned if your JWT token is missing\
-            \ or expired"
+          description: |-
+            Unauthorized
+
+            Returned if your JWT token is missing or expired
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/NotAuthorized'
         404:
-          description: "Not Found\n\nReturned if no information exists for the\
-            \ current user"
+          description: |-
+            Not Found
+
+            Returned if no information exists for the current user
           content:
             application/json:
               schema:
@@ -1333,21 +1529,28 @@ paths:
           format: int64
       responses:
         200:
-          description: "OK\n\nReturns OK if the delete was successful"
+          description: |-
+            OK
+
+            Returns OK if the delete was successful
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/UserRatingsDataNoLinksEmptyArray'
         401:
-          description: "Unauthorized\n\nReturned if your JWT token is missing\
-            \ or expired"
+          description: |-
+            Unauthorized
+
+            Returned if your JWT token is missing or expired
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/NotAuthorized'
         404:
-          description: "Not Found\n\nReturned if no rating is found that matches\
-            \ your given parameters"
+          description: |-
+            Not Found
+
+            Returned if no rating is found that matches your given parameters
           content:
             application/json:
               schema:
@@ -1383,21 +1586,28 @@ paths:
           format: int64
       responses:
         200:
-          description: "OK\n\nUpdate OK if the update was successful"
+          description: |-
+            OK
+
+            Update OK if the update was successful
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/UserRatingsDataNoLinks'
         401:
-          description: "Unauthorized\n\nReturned if your JWT token is missing\
-            \ or expired"
+          description: |-
+            Unauthorized
+
+            Returned if your JWT token is missing or expired
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/NotAuthorized'
         404:
-          description: "Not Found\n\nReturned if no rating is found that matches\
-            \ your given parameters"
+          description: |-
+            Not Found
+
+            Returned if no rating is found that matches your given parameters
           content:
             application/json:
               schema:

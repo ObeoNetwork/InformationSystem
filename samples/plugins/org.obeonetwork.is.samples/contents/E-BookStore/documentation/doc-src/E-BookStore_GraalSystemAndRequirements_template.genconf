@@ -8,4 +8,6 @@
     <value href="../../E-BookStore.requirement#_UIbdoIjLEeGrHN3Vq969QA"/>
   </definitions>
   <options name="SiriusSession" value="../../representations.aird"/>
+  <options name="UpdateFields" value="false"/>
+  <options name="SiriusForceRefresh" value="true"/>
 </genconf:Generation>

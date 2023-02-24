@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2008, 2021 Obeo.
+ * Copyright (c) 2008, 2023 Obeo.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -12,6 +12,7 @@ package org.obeonetwork.tools.projectlibrary.extension.point;
 
 import java.util.Collection;
 
+import org.eclipse.core.resources.IProject;
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.sirius.business.api.modelingproject.ModelingProject;
@@ -82,7 +83,7 @@ public abstract class AbstractImportHandler {
 	 * @param manifest
 	 * @return
 	 */
-	abstract public Collection<Resource> getResourcesForImportedProject(ModelingProject modelingProject, MManifest manifest);
+	abstract public Collection<Resource> getResourcesForImportedProject(IProject modelingProject, MManifest manifest);
 	
 	/**
 	 * Removes the specified resources from the project
@@ -91,5 +92,5 @@ public abstract class AbstractImportHandler {
 	 * @param projectToRemove
 	 * @return True if all resources have been removed
 	 */
-	abstract public boolean removeImportedProjectAndResources(ModelingProject project, Collection<Resource> resourcesToDelete, MManifest projectToRemove) throws LibraryImportException;
+	abstract public boolean removeImportedProjectAndResources(IProject project, Collection<Resource> resourcesToDelete, MManifest projectToRemove) throws LibraryImportException;
 }

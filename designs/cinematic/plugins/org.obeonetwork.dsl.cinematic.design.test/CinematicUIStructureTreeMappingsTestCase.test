@@ -1,0 +1,65 @@
+--- RCPTT testcase ---
+Format-Version: 1.0
+Element-Name: CinematicUIStructureTreeMappingsTestCase
+Element-Type: testcase
+Element-Version: 3.0
+External-Reference: 
+Id: _B__AYGNcEeSg_dTG4Ei-uQ
+Runtime-Version: 2.5.1.M3
+Save-Time: 2/24/22, 2:34 PM
+Testcase-Type: ecl
+
+------=_.description-216f885c-d591-38ce-8ea2-e4f8cb4d6ffa
+Content-Type: text/plain
+Entry-Name: .description
+
+Testing tree UI Structure mapping defines in cinematic.odesign/UI Structure.
+- UIS_Package
+- UIS_SubPackage
+- UIS_ViewContainer
+- UIS_ContainedViewContainer
+- UIS_ViewElement
+- UIS_ViewContainerReference
+- UIS_ViewEvent
+- UIS_ViewAction
+- UIS_DataBinding
+- UIS_Toolkit
+------=_.description-216f885c-d591-38ce-8ea2-e4f8cb4d6ffa--
+------=_.content-0a7243a0-75d3-3d5f-9791-539de0e5b7ac
+Content-Type: text/ecl
+Entry-Name: .content
+
+get-view "Model Explorer" | get-tree 
+    | select "E-BookStore/E-BookStore.cinematic/Cinematic Root E-BookStore/E-BookStore UI Structure" | double-click
+get-editor "E-BookStore UI Structure" | get-tree | get-item "E-BookStore" | click
+with [get-editor "E-BookStore UI Structure" | get-tree] {
+    get-item "E-BookStore" | get-property "getText()" | equals "E-BookStore" | verify-true
+    // Check UIS_Package
+    get-item "E-BookStore/Checkout" | get-property "getText()" | equals Checkout | verify-true
+    //Check UIS_ViewContainer
+    get-item "E-BookStore/Checkout/Login : Page" | get-property "getText()" | equals "Login : Page" | verify-true
+    // Check UIS_ViewContainer
+    get-item "E-BookStore/HomePage : Page/Books : Table" | get-property "getText()" 
+        | equals "Books : Table" | verify-true
+    // Check UIS_ViewElement
+    get-item "E-BookStore/Checkout/PaymentForm : Page/cardNumber : Text" | get-property "getText()" 
+        | equals "cardNumber : Text" | verify-true
+    get-item "E-BookStore/HomePage : Page/ShoppingCart : Panel" 
+        | get-property "getText()" | equals "ShoppingCart : Panel" | verify-true
+    // Check - UIS_ViewContainerReference
+    get-item "E-BookStore/Checkout/Login : Page/email : Text" | get-property "getText()" 
+        | equals "email : Text" | verify-true
+    // Check UIS_ViewEvent
+     get-item "E-BookStore/Checkout/Login : Page/validate : Button/validate.onClick : onClick" | get-property "getText()" 
+        | equals "validate.onClick : onClick" | verify-true
+    // Check UIS_ViewAction
+    /** get-item "E-BookStore/Checkout/PaymentForm : Page/ViewContainer1 : Table/ViewContainer1 : Panel/action1" 
+        | get-property "getText()" | equals "action1" | verify-true **/
+    // Check UIS_DataBinding
+    /** get-item "E-BookStore/Checkout/PaymentForm : Page/ViewContainer1 : Table/ViewContainer1 : Panel/PurchaseOrder.user (DTO Reference)" 
+        | get-property "getText()" | equals "PurchaseOrder.user (DTO Reference)" | verify-true **/
+    // Check- UIS_Toolkit
+    get-item "E-BookStore/Web" | get-property "getText()" | equals Web | verify-true
+}
+
+------=_.content-0a7243a0-75d3-3d5f-9791-539de0e5b7ac--

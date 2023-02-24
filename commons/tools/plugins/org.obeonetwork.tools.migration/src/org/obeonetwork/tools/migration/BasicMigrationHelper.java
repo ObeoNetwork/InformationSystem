@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2008, 2021 Obeo.
+ * Copyright (c) 2008, 2023 Obeo.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -12,7 +12,9 @@ package org.obeonetwork.tools.migration;
 
 import java.io.InputStream;
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.Map;
+import java.util.Set;
 
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EClassifier;
@@ -34,8 +36,9 @@ abstract public class BasicMigrationHelper implements IMigrationHelper {
 	public static final String ENVIRONMENT_URI_OLD = "http://www.obeonetwork.org/dsl/environment/2.0.0";
 	public static final String ENVIRONMENT_URI_NEW = "http://www.obeonetwork.org/dsl/environment/3.0.0";
 	
-	public static final String SOA_URI_OLD = "http://www.obeonetwork.org/dsl/soa/2.0.0";
-	public static final String SOA_URI_NEW = "http://www.obeonetwork.org/dsl/soa/3.0.0";
+	public static final String SOA_URI_OLD2 = "http://www.obeonetwork.org/dsl/soa/2.0.0";
+	public static final String SOA_URI_OLD3 = "http://www.obeonetwork.org/dsl/soa/3.0.0";
+	public static final String SOA_URI_NEW = "http://www.obeonetwork.org/dsl/soa/4.0.0";
 	
 	public static final String DB_URI_OLD = "http://www.obeonetwork.org/dsl/database/1.0";
 	public static final String DB_URI_NEW = "http://www.obeonetwork.org/dsl/database/2.0";
@@ -45,23 +48,32 @@ abstract public class BasicMigrationHelper implements IMigrationHelper {
 	
 	private static Map<String, String> oldUriToNewUri = null;
 	
-	private boolean migrationNeeded = false;
+	private Set<String> oldNamespaces = new HashSet<>();
 	
+	@Override
 	public boolean isMigrationNeeded() {
-		return migrationNeeded;
+		return !oldNamespaces.isEmpty();
 	}
 
-	public void setMigrationNeeded(boolean migrationNeeded) {
-		this.migrationNeeded = migrationNeeded;
+	@Override
+	public void addOldNamespace(String oldNamespace) {
+		oldNamespaces.add(oldNamespace);
 	}
-
+	
+	@Override
+	public boolean isOldNamespace(String namespace) {
+		return oldNamespaces.contains(namespace);
+	}
+	
+	@Override
 	public Map<String, String> getOldURIToPackageMap() {
 		if (oldUriToNewUri == null) {
 			oldUriToNewUri = new HashMap<String, String>();
 			oldUriToNewUri.put(ENVIRONMENT_URI_OLD, ENVIRONMENT_URI_NEW);
 			oldUriToNewUri.put(ENTITY_URI_OLD, ENTITY_URI_NEW);
-			oldUriToNewUri.put(SOA_URI_OLD, SOA_URI_NEW);
+			oldUriToNewUri.put(SOA_URI_OLD2, SOA_URI_NEW);
 			oldUriToNewUri.put(DB_URI_OLD, DB_URI_NEW);
+			oldUriToNewUri.put(SOA_URI_OLD3, SOA_URI_NEW);
 			oldUriToNewUri.put(GRAAL_URI_OLD, GRAAL_URI_NEW);
 		}
 		return oldUriToNewUri;

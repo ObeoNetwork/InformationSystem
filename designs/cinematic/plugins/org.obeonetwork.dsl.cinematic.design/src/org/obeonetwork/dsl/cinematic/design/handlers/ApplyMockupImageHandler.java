@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2008, 2021 Obeo.
+ * Copyright (c) 2008, 2023 Obeo.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -34,7 +34,7 @@ import org.eclipse.sirius.diagram.DDiagram;
 import org.eclipse.sirius.diagram.DDiagramElement;
 import org.eclipse.sirius.diagram.WorkspaceImage;
 import org.eclipse.sirius.diagram.business.api.query.DDiagramQuery;
-import org.eclipse.sirius.diagram.ui.business.api.image.ImageSelectorService;
+import org.eclipse.sirius.diagram.ui.business.api.image.WorkspaceImageHelper;
 import org.eclipse.sirius.diagram.ui.edit.api.part.IDiagramElementEditPart;
 import org.eclipse.sirius.ui.business.api.dialect.DialectUIManager;
 import org.eclipse.sirius.ui.business.api.dialect.ExportFormat;
@@ -46,10 +46,10 @@ import org.obeonetwork.dsl.cinematic.design.Activator;
 import org.obeonetwork.dsl.cinematic.design.ICinematicViewpoint;
 import org.obeonetwork.dsl.cinematic.flow.ViewState;
 import org.obeonetwork.dsl.cinematic.view.ViewContainer;
+import org.obeonetwork.utils.common.EObjectUtils;
+import org.obeonetwork.utils.common.SessionUtils;
 import org.obeonetwork.utils.common.StreamUtils;
-import org.obeonetwork.utils.common.handlers.EventHelper;
-import org.obeonetwork.utils.sirius.services.EObjectUtils;
-import org.obeonetwork.utils.sirius.session.SessionUtils;
+import org.obeonetwork.utils.common.ui.handlers.EventHelper;
 
 public class ApplyMockupImageHandler extends AbstractHandler {
 	
@@ -149,7 +149,7 @@ public class ApplyMockupImageHandler extends AbstractHandler {
 				.filter(wi -> oldWorkspacePath.equals(wi.getWorkspacePath()))
 				.collect(toList());
 				for(WorkspaceImage workspaceImageStyleToUpdate : workspaceImageStylesToUpdate) {
-					ImageSelectorService.INSTANCE.updateStyle(workspaceImageStyleToUpdate, newWorkspacePath);
+					WorkspaceImageHelper.INSTANCE.updateStyle(workspaceImageStyleToUpdate, newWorkspacePath);
 				}
 			}
 			IFile oldFile = mockupsFolder.getFile(oldWorkspacePath.substring(mockupsFolder.getFullPath().toPortableString().length()));
@@ -159,7 +159,7 @@ public class ApplyMockupImageHandler extends AbstractHandler {
 				// Never mind
 			}
 		} else {
-			ImageSelectorService.INSTANCE.updateStyle(workspaceImageStyle, newWorkspacePath);
+			WorkspaceImageHelper.INSTANCE.updateStyle(workspaceImageStyle, newWorkspacePath);
 		}
 		
 	}

@@ -5,8 +5,8 @@ Element-Type: testcase
 Element-Version: 3.0
 External-Reference: 
 Id: _6S5G8GNdEeSg_dTG4Ei-uQ
-Runtime-Version: 2.2.0.201706152316
-Save-Time: 7/5/18 11:01 AM
+Runtime-Version: 2.5.1.M3
+Save-Time: 3/8/22, 10:10 AM
 Testcase-Type: ecl
 
 ------=_.description-216f885c-d591-38ce-8ea2-e4f8cb4d6ffa
@@ -20,7 +20,7 @@ Testing all tools defines in graal.odesign/User Stories Table
 Content-Type: text/ecl
 Entry-Name: .content
 
-get-view "Model Explorer" | get-tree | select "E-BookStore/E-BookStore.graal/System E-BookStore" 
+get-view "Model Explorer" | get-tree | select "org.obeonetwork.is.sample.ebookstore/E-BookStore.graal/System E-BookStore" 
     | get-menu "New Representation/User Stories Table" | click
 get-window "New User Stories Table" | get-button OK | click
 with [get-editor "User Stories Table" | get-tree] {

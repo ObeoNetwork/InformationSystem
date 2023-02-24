@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<database:DataBase xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:database="http://www.obeonetwork.org/dsl/database/1.0" xmlns:typeslibrary="http://www.obeonetwork.org/dsl/typeslibrary/1.0" xmi:id="_TZoykFwBEeKeAIu6lCXvjg" name="safran104-mdl">
+  <tables xsi:type="database:Table" xmi:id="_WXx-sFwBEeKeAIu6lCXvjg" comments="Table des séries" name="GS_SERIE">
+    <columns xmi:id="_WX7IoFwBEeKeAIu6lCXvjg" comments="Nom de la série" name="GS_SERIE_NOM" indexElements="_WX7Iv1wBEeKeAIu6lCXvjg">
+      <type xsi:type="typeslibrary:TypeInstance" xmi:id="_AmrtEFwFEeKeAIu6lCXvjg" length="50">
+        <nativeType href="pathmap://LogicalDBTypes#_WWew-BEnEeGTa_JlZYBw1A"/>
+      </type>
+    </columns>
+    <columns xmi:id="_WX7Io1wBEeKeAIu6lCXvjg" comments="Année de création de la série" name="GS_SERIE_ANNEE" nullable="true" defaultValue="2012">
+      <type xsi:type="typeslibrary:TypeInstance" xmi:id="_AmrtEVwFEeKeAIu6lCXvjg">
+        <nativeType href="pathmap://LogicalDBTypes#_WWeJ4BEnEeGTa_JlZYBw1A"/>
+      </type>
+    </columns>
+    <columns xmi:id="_WX7IplwBEeKeAIu6lCXvjg" comments="Série en VF" name="GS_SERIE_VF" defaultValue="O">
+      <type xsi:type="typeslibrary:TypeInstance" xmi:id="_AmrtElwFEeKeAIu6lCXvjg" length="1">
+        <nativeType href="pathmap://LogicalDBTypes#_WWew-BEnEeGTa_JlZYBw1A"/>
+      </type>
+    </columns>
+    <columns xmi:id="_WX7IqVwBEeKeAIu6lCXvjg" name="GS_SERIE_ID" indexElements="_WX7IwVwBEeKeAIu6lCXvjg" primaryKey="_WX7Iq1wBEeKeAIu6lCXvjg">
+      <type xsi:type="typeslibrary:TypeInstance" xmi:id="_WX7IrFwBEeKeAIu6lCXvjg">
+        <nativeType href="pathmap://LogicalDBTypes#_WWeJ4BEnEeGTa_JlZYBw1A"/>
+      </type>
+    </columns>
+    <primaryKey xmi:id="_WX7Iq1wBEeKeAIu6lCXvjg" name="GS_SERIE_PK" columns="_WX7IqVwBEeKeAIu6lCXvjg"/>
+    <constraints xmi:id="_WX7IrVwBEeKeAIu6lCXvjg" name="GS_SERIE_CK_1" expression="GS_SERIE_VF in ('O','N')"/>
+    <indexes xmi:id="_WX7IvlwBEeKeAIu6lCXvjg" name="GS_SERIE_UN_1" unique="true">
+      <elements xmi:id="_WX7Iv1wBEeKeAIu6lCXvjg" column="_WX7IoFwBEeKeAIu6lCXvjg" asc="true"/>
+    </indexes>
+    <indexes xmi:id="_WX7IwFwBEeKeAIu6lCXvjg" name="GS_SERIE_UN_2" unique="true">
+      <elements xmi:id="_WX7IwVwBEeKeAIu6lCXvjg" column="_WX7IqVwBEeKeAIu6lCXvjg" asc="true"/>
+    </indexes>
+  </tables>
+  <tables xsi:type="database:Table" xmi:id="_WX7IrlwBEeKeAIu6lCXvjg" comments="Table des saisons" name="GS_SAISON">
+    <columns xmi:id="_WX7Ir1wBEeKeAIu6lCXvjg" comments="Numéro de la saison" name="GS_SAISON_NUM" indexElements="_WX7IxlwBEeKeAIu6lCXvjg">
+      <type xsi:type="typeslibrary:TypeInstance" xmi:id="_AmrtE1wFEeKeAIu6lCXvjg">
+        <nativeType href="pathmap://LogicalDBTypes#_WWeJ4BEnEeGTa_JlZYBw1A"/>
+      </type>
+    </columns>
+    <columns xmi:id="_WX7IslwBEeKeAIu6lCXvjg" comments="Jacquette de la saison" name="GS_SAISON_JACQUETTE" nullable="true" indexElements="_WX7Iw1wBEeKeAIu6lCXvjg">
+      <type xsi:type="typeslibrary:TypeInstance" xmi:id="_AmrtFFwFEeKeAIu6lCXvjg" length="30">
+        <nativeType href="pathmap://LogicalDBTypes#_WWew-BEnEeGTa_JlZYBw1A"/>
+      </type>
+    </columns>
+    <columns xmi:id="_WX7ItVwBEeKeAIu6lCXvjg" name="GS_SAISON_ID" indexElements="_WX7IyFwBEeKeAIu6lCXvjg _WX7IxVwBEeKeAIu6lCXvjg" primaryKey="_WX7It1wBEeKeAIu6lCXvjg">
+      <type xsi:type="typeslibrary:TypeInstance" xmi:id="_WX7IuFwBEeKeAIu6lCXvjg">
+        <nativeType href="pathmap://LogicalDBTypes#_WWeJ4BEnEeGTa_JlZYBw1A"/>
+      </type>
+    </columns>
+    <columns xmi:id="_AmrtFVwFEeKeAIu6lCXvjg" comments="Série de la saison" name="GS_SERIE_ID" foreignKeyElements="_AmrtGFwFEeKeAIu6lCXvjg">
+      <type xsi:type="typeslibrary:TypeInstance" xmi:id="_AmrtF1wFEeKeAIu6lCXvjg">
+        <nativeType href="pathmap://LogicalDBTypes#_WWeJ4BEnEeGTa_JlZYBw1A"/>
+      </type>
+    </columns>
+    <primaryKey xmi:id="_WX7It1wBEeKeAIu6lCXvjg" name="GS_SAISON_PK" columns="_WX7ItVwBEeKeAIu6lCXvjg"/>
+    <foreignKeys xmi:id="_WX7IuVwBEeKeAIu6lCXvjg" comments="Série de la saison" name="GS_SERIE_ID" target="_WXx-sFwBEeKeAIu6lCXvjg">
+      <elements xmi:id="_AmrtGFwFEeKeAIu6lCXvjg" fkColumn="_AmrtFVwFEeKeAIu6lCXvjg" pkColumn="_WX7IqVwBEeKeAIu6lCXvjg"/>
+    </foreignKeys>
+    <indexes xmi:id="_WX7IwlwBEeKeAIu6lCXvjg" name="GS_SAISON_UN_1" unique="true">
+      <elements xmi:id="_WX7Iw1wBEeKeAIu6lCXvjg" column="_WX7IslwBEeKeAIu6lCXvjg" asc="true"/>
+    </indexes>
+    <indexes xmi:id="_WX7IxFwBEeKeAIu6lCXvjg" name="GS_SAISON_UN_2" unique="true">
+      <elements xmi:id="_WX7IxVwBEeKeAIu6lCXvjg" column="_WX7ItVwBEeKeAIu6lCXvjg" asc="true"/>
+      <elements xmi:id="_WX7IxlwBEeKeAIu6lCXvjg" column="_WX7Ir1wBEeKeAIu6lCXvjg" asc="true"/>
+    </indexes>
+    <indexes xmi:id="_WX7Ix1wBEeKeAIu6lCXvjg" name="GS_SAISON_UN_3" unique="true">
+      <elements xmi:id="_WX7IyFwBEeKeAIu6lCXvjg" column="_WX7ItVwBEeKeAIu6lCXvjg" asc="true"/>
+    </indexes>
+  </tables>
+  <usedLibraries xsi:type="typeslibrary:NativeTypesLibrary" href="pathmap://LogicalDBTypes#_WWbGkREnEeGTa_JlZYBw1A"/>
+</database:DataBase>

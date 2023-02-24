@@ -1,0 +1,52 @@
+<?xml version='1.0' encoding='utf-8' ?>
+<toc topic="doc/ISD - SOA Designer.html" label="ISD - SOA Designer">
+	<topic href="doc/ISD - SOA Designer.html" label="ISD - SOA Designer">
+		<topic href="doc/ISD - SOA Designer.html#CrationdunmodleSoa" label="Création d&apos;un modèle Soa"></topic>
+		<topic href="doc/ISD - SOA Designer.html#PointdevueSOAViews" label="Point de vue _SOA Views_">
+			<topic href="doc/ISD - SOA Designer.html#OuverturedunesessionetactivationdupointdevueSOAViews" label="Ouverture d&apos;une session et activation du point de vue _SOA Views_"></topic>
+			<topic href="doc/ISD - SOA Designer.html#Crationouverturedediagrammes" label="Création/ouverture de diagrammes"></topic>
+			<topic href="doc/ISD - SOA Designer.html#SOADiagram" label="SOA Diagram">
+				<topic href="doc/ISD - SOA Designer.html#Elmentsaffichsetpalettedoutils" label="Eléments affichés et palette d&apos;outils"></topic>
+				<topic href="doc/ISD - SOA Designer.html#Navigationversdautresdiagrammes" label="Navigation vers d&apos;autres diagrammes"></topic>
+			</topic>
+			<topic href="doc/ISD - SOA Designer.html#ComponentContractDiagram" label="Component Contract Diagram">
+				<topic href="doc/ISD - SOA Designer.html#Elmentsaffichsetpalettedoutils2" label="Eléments affichés et palette d&apos;outils"></topic>
+				<topic href="doc/ISD - SOA Designer.html#Calques" label="Calques"></topic>
+			</topic>
+			<topic href="doc/ISD - SOA Designer.html#DTONamespacesHierarchypourlobjetracineComponents" label="DTO Namespaces Hierarchy (pour l&apos;objet racine _Components_)">
+				<topic href="doc/ISD - SOA Designer.html#Elmentsaffichsetpalettedoutils3" label="Eléments affichés et palette d&apos;outils"></topic>
+				<topic href="doc/ISD - SOA Designer.html#Navigationversdautresdiagrammes2" label="Navigation vers d&apos;autres diagrammes"></topic>
+			</topic>
+			<topic href="doc/ISD - SOA Designer.html#DiagrammedeDTOs" label="Diagramme de DTOs">
+				<topic href="doc/ISD - SOA Designer.html#Elmentsaffichsetpalettedoutils4" label="Eléments affichés et palette d&apos;outils"></topic>
+			</topic>
+		</topic>
+		<topic href="doc/ISD - SOA Designer.html#ExpositiondesservicesetmodlisationdAPIRest" label="Exposition des services et modélisation d&apos;API Rest">
+			<topic href="doc/ISD - SOA Designer.html#exposition_type" label="Types d&apos;exposition"></topic>
+			<topic href="doc/ISD - SOA Designer.html#ModlisationdAPIRest" label="Modélisation d&apos;API Rest">
+				<topic href="doc/ISD - SOA Designer.html#TerminologieSOAvsterminologieREST" label="Terminologie _SOA_ vs terminologie _REST_"></topic>
+				<topic href="doc/ISD - SOA Designer.html#ModlisationduneAPIRestOpenAPI" label="Modélisation d&apos;une API Rest OpenAPI"></topic>
+				<topic href="doc/ISD - SOA Designer.html#ModlisationdunTagOpenAPI" label="Modélisation d&apos;un Tag OpenAPI"></topic>
+				<topic href="doc/ISD - SOA Designer.html#ModlisationdunServiceOpenAPI" label="Modélisation d&apos;un Service OpenAPI"></topic>
+				<topic href="doc/ISD - SOA Designer.html#parameter" label="Modélisation d&apos;un paramètre">
+					<topic href="doc/ISD - SOA Designer.html#input_parameter" label="Modélisation d&apos;un paramètre d&apos;entrée"></topic>
+					<topic href="doc/ISD - SOA Designer.html#paginated_parameter" label="Modélisation d&apos;un paramètre de pagination"></topic>
+					<topic href="doc/ISD - SOA Designer.html#output_fault_parameter" label="Modélisation d&apos;un paramètre de retour ou d&apos;erreur"></topic>
+				</topic>
+				<topic href="doc/ISD - SOA Designer.html#Modlisationdelascurit" label="Modélisation de la sécurité">
+					<topic href="doc/ISD - SOA Designer.html#Modlisationdesschmasdescurit" label="Modélisation des schémas de sécurité"></topic>
+					<topic href="doc/ISD - SOA Designer.html#Utilisationdesschmasdescurit" label="Utilisation des schémas de sécurité"></topic>
+				</topic>
+				<topic href="doc/ISD - SOA Designer.html#Modlisationdesextensionsdeproprits" label="Modélisation des extensions de propriétés"></topic>
+			</topic>
+			<topic href="doc/ISD - SOA Designer.html#ExportImportauformatSwaggerOpenAPI" label="Export / Import au format Swagger OpenAPI">
+				<topic href="doc/ISD - SOA Designer.html#ExportauformatSwaggerOpenAPI" label="Export au format Swagger OpenAPI"></topic>
+				<topic href="doc/ISD - SOA Designer.html#ImportdunfichierdespcificationSwagger" label="Import d&apos;un fichier de spécification Swagger"></topic>
+			</topic>
+		</topic>
+		<topic href="doc/ISD - SOA Designer.html#Gestiondesexigences" label="Gestion des exigences"></topic>
+		<topic href="doc/ISD - SOA Designer.html#Gestiondeladocumentationlie" label="Gestion de la documentation liée"></topic>
+		<topic href="doc/ISD - SOA Designer.html#Crationdediagrammedinteraction" label="Création de diagramme d&apos;interaction"></topic>
+		<topic href="doc/ISD - SOA Designer.html#Crationdediagrammedemachinestats" label="Création de diagramme de machines à états"></topic>
+	</topic>
+</toc>

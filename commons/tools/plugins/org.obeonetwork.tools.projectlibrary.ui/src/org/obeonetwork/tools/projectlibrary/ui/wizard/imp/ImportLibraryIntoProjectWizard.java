@@ -1,5 +1,5 @@
 /**
- * Copyright (c) 2008, 2021 Obeo.
+ * Copyright (c) 2008, 2023 Obeo.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -14,6 +14,7 @@ import java.io.File;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Map.Entry;
+import java.util.concurrent.atomic.AtomicBoolean;
 
 import org.eclipse.core.resources.IProject;
 import org.eclipse.core.runtime.IProgressMonitor;
@@ -32,7 +33,6 @@ import org.eclipse.sirius.ext.base.Option;
 import org.eclipse.swt.widgets.Display;
 import org.eclipse.ui.IImportWizard;
 import org.eclipse.ui.IWorkbench;
-import org.eclipse.ui.PlatformUI;
 import org.obeonetwork.tools.projectlibrary.imp.IConfirmationRunnable;
 import org.obeonetwork.tools.projectlibrary.imp.LibraryImportException;
 import org.obeonetwork.tools.projectlibrary.imp.ProjectLibraryImporter;
@@ -122,7 +122,9 @@ public class ImportLibraryIntoProjectWizard extends Wizard implements IImportWiz
 					
 					@Override
 					public boolean askForConfirmation(String message) {
-						return MessageDialog.openConfirm(getShell(), "Import project as library", message);
+						final AtomicBoolean res = new AtomicBoolean(true);
+						Display.getDefault().syncExec(() -> res.set(MessageDialog.openConfirm(getShell(), "Import project as library", message))); 
+						return res.get();
 					}
 				}, subMonitor.newChild(1));
 			} catch (LibraryImportException e) {

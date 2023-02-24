@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2008, 2021 Obeo.
+ * Copyright (c) 2008, 2023 Obeo.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -37,7 +37,7 @@ public interface View extends AbstractTable {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	String copyright = "Copyright (c) 2008, 2021 Obeo.\r\nAll rights reserved. This program and the accompanying materials\r\nare made available under the terms of the Eclipse Public License v1.0\r\nwhich accompanies this distribution, and is available at\r\nhttp://www.eclipse.org/legal/epl-v10.html\r\n\r\nContributors:\r\n    Obeo - initial API and implementation";
+	String copyright = "Copyright (c) 2008, 2023 Obeo.\r\nAll rights reserved. This program and the accompanying materials\r\nare made available under the terms of the Eclipse Public License v1.0\r\nwhich accompanies this distribution, and is available at\r\nhttp://www.eclipse.org/legal/epl-v10.html\r\n\r\nContributors:\r\n    Obeo - initial API and implementation";
 
 	/**
 	 * Returns the value of the '<em><b>Query</b></em>' attribute.
@@ -70,7 +70,7 @@ public interface View extends AbstractTable {
 
 	/**
 	 * Returns the value of the '<em><b>Columns</b></em>' containment reference list.
-	 * The list contents are of type {@link org.obeonetwork.dsl.database.ViewElement}.
+	 * The list contents are of type {@link org.obeonetwork.dsl.database.ViewColumn}.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Columns</em>' containment reference list isn't clear,
@@ -85,11 +85,11 @@ public interface View extends AbstractTable {
 	 * @model containment="true" transient="true"
 	 * @generated
 	 */
-	EList<ViewElement> getColumns();
+	EList<ViewColumn> getColumns();
 
 	/**
 	 * Returns the value of the '<em><b>Tables</b></em>' containment reference list.
-	 * The list contents are of type {@link org.obeonetwork.dsl.database.ViewElement}.
+	 * The list contents are of type {@link org.obeonetwork.dsl.database.ViewTable}.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Tables</em>' containment reference list isn't clear,
@@ -104,6 +104,6 @@ public interface View extends AbstractTable {
 	 * @model containment="true" transient="true"
 	 * @generated
 	 */
-	EList<ViewElement> getTables();
+	EList<ViewTable> getTables();
 
 } // View

@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2008, 2021 Obeo.
+ * Copyright (c) 2008, 2023 Obeo.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -36,7 +36,7 @@ public class DatabaseAdapterFactory extends AdapterFactoryImpl {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public static final String copyright = "Copyright (c) 2008, 2021 Obeo.\r\nAll rights reserved. This program and the accompanying materials\r\nare made available under the terms of the Eclipse Public License v1.0\r\nwhich accompanies this distribution, and is available at\r\nhttp://www.eclipse.org/legal/epl-v10.html\r\n\r\nContributors:\r\n    Obeo - initial API and implementation";
+	public static final String copyright = "Copyright (c) 2008, 2023 Obeo.\r\nAll rights reserved. This program and the accompanying materials\r\nare made available under the terms of the Eclipse Public License v1.0\r\nwhich accompanies this distribution, and is available at\r\nhttp://www.eclipse.org/legal/epl-v10.html\r\n\r\nContributors:\r\n    Obeo - initial API and implementation";
 
 	/**
 	 * The cached model package.
@@ -154,8 +154,16 @@ public class DatabaseAdapterFactory extends AdapterFactoryImpl {
 				return createViewElementAdapter();
 			}
 			@Override
+			public Adapter caseViewColumn(ViewColumn object) {
+				return createViewColumnAdapter();
+			}
+			@Override
 			public Adapter caseIdentifiable(Identifiable object) {
 				return createIdentifiableAdapter();
+			}
+			@Override
+			public Adapter caseViewTable(ViewTable object) {
+				return createViewTableAdapter();
 			}
 			@Override
 			public Adapter caseObeoDSMObject(ObeoDSMObject object) {
@@ -422,7 +430,6 @@ public class DatabaseAdapterFactory extends AdapterFactoryImpl {
 	public Adapter createViewElementAdapter() {
 		return null;
 	}
-
 	/**
 	 * Creates a new adapter for an object of class '{@link org.obeonetwork.dsl.technicalid.Identifiable <em>Identifiable</em>}'.
 	 * <!-- begin-user-doc -->
@@ -450,6 +457,35 @@ public class DatabaseAdapterFactory extends AdapterFactoryImpl {
 	public Adapter createObeoDSMObjectAdapter() {
 		return null;
 	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.obeonetwork.dsl.database.ViewColumn <em>View Column</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.obeonetwork.dsl.database.ViewColumn
+	 * @generated
+	 */
+	public Adapter createViewColumnAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.obeonetwork.dsl.database.ViewTable <em>View Table</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.obeonetwork.dsl.database.ViewTable
+	 * @generated
+	 */
+	public Adapter createViewTableAdapter() {
+		return null;
+	}
+
 
 	/**
 	 * Creates a new adapter for an object of class '{@link org.obeonetwork.dsl.typeslibrary.TypesLibraryUser <em>User</em>}'.

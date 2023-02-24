@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2008, 2021 Obeo.
+ * Copyright (c) 2008, 2023 Obeo.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -10,17 +10,13 @@
  *******************************************************************************/
 package org.obeonetwork.dsl.database.design.wizards;
 
-import java.util.Arrays;
-import java.util.Collection;
-import java.util.HashMap;
-import java.util.Map;
-
+import static org.obeonetwork.dsl.database.design.IDatabaseViewpointConstants.DATABASE_DIAGRAM_ID;
 import static org.obeonetwork.dsl.database.spec.DatabaseConstants.DB_H2_13;
 import static org.obeonetwork.dsl.database.spec.DatabaseConstants.DB_LOGICAL_TYPES;
-import static org.obeonetwork.dsl.database.spec.DatabaseConstants.DB_MARIADB_102;
-import static org.obeonetwork.dsl.database.spec.DatabaseConstants.DB_MYSQL_5;
-import static org.obeonetwork.dsl.database.spec.DatabaseConstants.DB_ORACLE_11G;
-import static org.obeonetwork.dsl.database.spec.DatabaseConstants.DB_POSTGRES_9;
+import static org.obeonetwork.dsl.database.spec.DatabaseConstants.DB_MARIADB_106;
+import static org.obeonetwork.dsl.database.spec.DatabaseConstants.DB_MYSQL_8;
+import static org.obeonetwork.dsl.database.spec.DatabaseConstants.DB_ORACLE_21C;
+import static org.obeonetwork.dsl.database.spec.DatabaseConstants.DB_POSTGRES_14;
 import static org.obeonetwork.dsl.database.spec.DatabaseConstants.DB_SQLSERVER_2008;
 import static org.obeonetwork.dsl.typeslibrary.util.TypesLibraryUtil.H2_PATHMAP;
 import static org.obeonetwork.dsl.typeslibrary.util.TypesLibraryUtil.LOGICAL_PATHMAP;
@@ -29,6 +25,11 @@ import static org.obeonetwork.dsl.typeslibrary.util.TypesLibraryUtil.MYSQL_PATHM
 import static org.obeonetwork.dsl.typeslibrary.util.TypesLibraryUtil.ORACLE_PATHMAP;
 import static org.obeonetwork.dsl.typeslibrary.util.TypesLibraryUtil.POSTGRES_PATHMAP;
 import static org.obeonetwork.dsl.typeslibrary.util.TypesLibraryUtil.SQLSERVER_PATHMAP;
+
+import java.util.Arrays;
+import java.util.Collection;
+import java.util.HashMap;
+import java.util.Map;
 
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.EClassifier;
@@ -42,6 +43,7 @@ import org.obeonetwork.dsl.database.DataBase;
 import org.obeonetwork.dsl.database.DatabaseFactory;
 import org.obeonetwork.dsl.database.DatabasePackage;
 import org.obeonetwork.dsl.database.design.Activator;
+import org.obeonetwork.dsl.database.design.IDatabaseViewpointConstants;
 import org.obeonetwork.dsl.is.ui.wizards.AbstractISNewModelWizard;
 import org.obeonetwork.dsl.is.ui.wizards.NewModelCreationPage;
 import org.obeonetwork.dsl.typeslibrary.TypesLibrary;
@@ -50,8 +52,6 @@ public class NewDatabaseModelWizard extends AbstractISNewModelWizard {
 
 	private static final String DATABASE_RESOURCE_FILE_EXTENSION = ".database";
 
-	private static final String DESC_ID_DATABASE_DIAGRAM = "Database Diagram";
-	
 	protected DatabaseModelWizardInitialObjectCreationPage initialDatabaseCreationPage;
 
 	public NewDatabaseModelWizard() {
@@ -67,19 +67,19 @@ public class NewDatabaseModelWizard extends AbstractISNewModelWizard {
 		
 		Resource typesLibraryResource = null;
 		switch (dbVendor) {
-		case DB_MYSQL_5:
+		case DB_MYSQL_8:
 			typesLibraryResource = resourceSet.getResource(URI.createURI(MYSQL_PATHMAP), true);
 			break;
-		case DB_MARIADB_102: 
+		case DB_MARIADB_106: 
 			typesLibraryResource = resourceSet.getResource(URI.createURI(MARIADB_PATHMAP), true);
 			break;
-		case DB_ORACLE_11G: 
+		case DB_ORACLE_21C: 
 			typesLibraryResource = resourceSet.getResource(URI.createURI(ORACLE_PATHMAP), true);
 			break;
 		case DB_H2_13: 
 			typesLibraryResource = resourceSet.getResource(URI.createURI(H2_PATHMAP), true);
 			break;
-		case DB_POSTGRES_9: 
+		case DB_POSTGRES_14: 
 			typesLibraryResource = resourceSet.getResource(URI.createURI(POSTGRES_PATHMAP), true);
 			break;
 		case DB_SQLSERVER_2008: 
@@ -119,15 +119,13 @@ public class NewDatabaseModelWizard extends AbstractISNewModelWizard {
 	
 	@Override
 	protected Collection<URI> getViewpointsURIToBeActivated() {
-		return Arrays.asList(
-				URI.createURI("viewpoint:/org.obeonetwork.dsl.database.design/Database")
-		);
+		return IDatabaseViewpointConstants.VIEWPOINT_DEPENDENCIES;
 	}
 	
 	@Override
 	protected Map<EClassifier, Collection<String>> getRepresentationDescriptionsIDToBeCreated() {
 		Map<EClassifier, Collection<String>> descs = new HashMap<>();
-		descs.put(DatabasePackage.Literals.DATA_BASE, Arrays.asList(DESC_ID_DATABASE_DIAGRAM));
+		descs.put(DatabasePackage.Literals.DATA_BASE, Arrays.asList(DATABASE_DIAGRAM_ID));
 		return descs;
 	}
 	
@@ -135,7 +133,7 @@ public class NewDatabaseModelWizard extends AbstractISNewModelWizard {
 	protected String getRepresentationName(RepresentationDescription representationDescription, EObject object) {
 		if (object instanceof DataBase) {
 			String repDescName = representationDescription.getName();
-			if (DESC_ID_DATABASE_DIAGRAM.equals(repDescName)) {
+			if (DATABASE_DIAGRAM_ID.equals(repDescName)) {
 				return String.format("%1$s - %2$s", this.getProjectName(), "Database");
 			}
 		}
@@ -146,7 +144,7 @@ public class NewDatabaseModelWizard extends AbstractISNewModelWizard {
 	protected boolean shouldOpenRepresentation(DRepresentation representation) {
 		if (representation instanceof DDiagram) {
 			String repDescName = ((DDiagram) representation).getDescription().getName();
-			return DESC_ID_DATABASE_DIAGRAM.equals(repDescName);
+			return DATABASE_DIAGRAM_ID.equals(repDescName);
 		}
 		return false;
 	}

@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2008, 2021 Obeo.
+ * Copyright (c) 2008, 2023 Obeo.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -12,10 +12,10 @@ package org.obeonetwork.dsl.database.design.wizards;
 
 import static org.obeonetwork.dsl.database.spec.DatabaseConstants.DB_H2_13;
 import static org.obeonetwork.dsl.database.spec.DatabaseConstants.DB_LOGICAL_TYPES;
-import static org.obeonetwork.dsl.database.spec.DatabaseConstants.DB_MARIADB_102;
-import static org.obeonetwork.dsl.database.spec.DatabaseConstants.DB_MYSQL_5;
-import static org.obeonetwork.dsl.database.spec.DatabaseConstants.DB_ORACLE_11G;
-import static org.obeonetwork.dsl.database.spec.DatabaseConstants.DB_POSTGRES_9;
+import static org.obeonetwork.dsl.database.spec.DatabaseConstants.DB_MARIADB_106;
+import static org.obeonetwork.dsl.database.spec.DatabaseConstants.DB_MYSQL_8;
+import static org.obeonetwork.dsl.database.spec.DatabaseConstants.DB_ORACLE_21C;
+import static org.obeonetwork.dsl.database.spec.DatabaseConstants.DB_POSTGRES_14;
 import static org.obeonetwork.dsl.database.spec.DatabaseConstants.DB_SQLSERVER_2008;
 import java.util.ArrayList;
 import java.util.Collection;
@@ -215,11 +215,11 @@ public class DatabaseModelWizardInitialObjectCreationPage extends WizardPage {
 		if (dbVendors == null) {
 			dbVendors = new ArrayList<String>();
 			dbVendors.add(DB_LOGICAL_TYPES);
-			dbVendors.add(DB_MYSQL_5);
-			dbVendors.add(DB_MARIADB_102);
-			dbVendors.add(DB_ORACLE_11G);
+			dbVendors.add(DB_MYSQL_8);
+			dbVendors.add(DB_MARIADB_106);
+			dbVendors.add(DB_ORACLE_21C);
 			dbVendors.add(DB_H2_13);
-			dbVendors.add(DB_POSTGRES_9);
+			dbVendors.add(DB_POSTGRES_14);
 			dbVendors.add(DB_SQLSERVER_2008);
 		}
 		return dbVendors;

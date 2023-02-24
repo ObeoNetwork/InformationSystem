@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2008, 2021 Obeo.
+ * Copyright (c) 2008, 2023 Obeo.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -94,7 +94,7 @@ public class DatabaseLabelServices extends DatabaseSwitch<String>{
 	public String getViewElementLabel(ViewElement viewElement){
 		String label = viewElement.getName();
 		if (viewElement.getAlias()!= null && !viewElement.getAlias().isEmpty()){
-			label+= " \u2190 "+viewElement.getAlias();
+			label += " \u2190 " + viewElement.getAlias();
 		}
 		return label;
 	} 

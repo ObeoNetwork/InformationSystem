@@ -1,0 +1,32 @@
+--- RCPTT testcase ---
+Format-Version: 1.0
+Context-Type: org.eclipse.rcptt.ctx.ecl
+Element-Name: Common
+Element-Type: context
+Element-Version: 2.0
+Id: _uQ_HIKkgEe28948-k2BW9w
+Save-Time: 2/10/23, 10:14 AM
+
+------=_.ecl.context-718f04b4-ed39-33e3-af62-0995e4561998
+Content-Type: text/ecl
+Entry-Name: .ecl.context
+
+proc "create-ebook-project" {
+    get-menu -path "File/New/Example..." | click
+	get-window "New Example" | get-button Finish | click
+}
+
+proc "open-package-diagram" {
+	get-view "Model Explorer" | get-tree 
+	    | select "org.obeonetwork.is.sample.ebookstore/E-BookStore.cinematic/Cinematic Root E-BookStore/E-BookStore Package Diagram" 
+	    | double-click
+}
+
+proc "delete-ebook-project" {
+    get-view "Model Explorer" | get-tree | select "org.obeonetwork.is.sample.ebookstore" | key-type Del
+	with [get-window "Delete Resources"] {
+	    get-button "Delete project contents on disk (cannot be undone)" | check
+	    get-button OK | click
+	}
+}
+------=_.ecl.context-718f04b4-ed39-33e3-af62-0995e4561998--

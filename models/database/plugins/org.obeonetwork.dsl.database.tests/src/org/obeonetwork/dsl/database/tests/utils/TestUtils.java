@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2008, 2021 Obeo.
+ * Copyright (c) 2008, 2023 Obeo.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -28,6 +28,7 @@ import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.resource.ResourceSet;
 import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl;
 import org.eclipse.emf.ecore.util.EcoreUtil.EqualityHelper;
+import org.eclipse.emf.ecore.xmi.XMLResource;
 import org.obeonetwork.dsl.database.DataBase;
 import org.obeonetwork.dsl.database.DatabaseElement;
 import org.obeonetwork.dsl.database.DatabasePackage;
@@ -45,7 +46,7 @@ import liquibase.database.Database;
 import liquibase.database.DatabaseFactory;
 import liquibase.exception.DatabaseException;
 import liquibase.exception.LiquibaseException;
-import liquibase.osgi.OSGiResourceAccessor;
+import liquibase.resource.OSGiResourceAccessor;
 import liquibase.resource.FileSystemResourceAccessor;
 
 public final class TestUtils {
@@ -150,6 +151,7 @@ public final class TestUtils {
 			Map<Object, Object> options = rs.getLoadOptions();
 			options.put(DatabasePackage.eINSTANCE.getNsURI(), DatabasePackage.eINSTANCE);
 			options.put(TypesLibraryPackage.eINSTANCE.getNsURI(), TypesLibraryPackage.eINSTANCE);
+			options.put(XMLResource.OPTION_ENCODING, "UTF-8");
 			
 			resourceDatabase.save(options);
 		} catch (Exception ex) {

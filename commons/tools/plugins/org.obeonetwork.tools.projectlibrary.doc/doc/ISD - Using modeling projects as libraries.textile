@@ -1,0 +1,95 @@
+__Copyright (c) 2008, 2023 Obeo -  All rights reserved. This program and the accompanying materials are made available under the terms of the Eclipse Public License v1.0__
+
+h1. ISD - Utilisation des _modeling projects_ en tant que bibliothèques
+
+Depuis IS Designer 1.8.
+
+Permet d'exporter un _modeling project_ en tant que fichier de bibliothèque et de l'importer dans d'autres _modeling projects_.
+
+Lorsqu'une bibliothèque est exportée, l'utilisateur choisit un numéro de version. Ce numéro de version est vérifié lors de l'importation de la bibliothèque dans un autre _modeling project_. Les références aux éléments contenus dans la bibliothèque sont mises à jour automatiquement.
+
+Ceci est utile pour réutiliser les bibliothèques entre différents projets, en gardant la trace des versions.
+
+Les fichiers de la bibliothèque portent l'extension .mar (signifiant Modeling ARchive en anglais).
+
+h2. Exporter un _modeling project_ en tant que bibliothèques
+
+Pour exporter un _modeling project_ en tant que bibliothèque, utiliser le menu _File > Export..._ et choisir _Export modeling project as library_ dans la catégorie _IS Designer_.
+
+!pics/ExportMenu.png!
+
+La première page de l'assistant permet de définir les informations suivantes :
+* *Modeling Project* Le projet à exporter. Déjà sélectionné si l'utilisateur a lancé l'importation à partir d'un projet sélectionné.
+* *Export directory* Le dossier de destination. Il peut être situé à l'intérieur ou à l'extérieur d'un projet Eclipse. La méthode recommandée est d'utiliser un emplacement externe.
+
+!pics/exportWizardPage1.png!
+
+La deuxième page permet de définir les informations suivantes :
+* *Project ID* La valeur par défaut est le nom du projet exporté. (obligatoire)
+* *Version* Le numéro de version de la bibliothèque. Doit être sous la forme M.m.p.qualifier où M, m et p sont des nombres entiers.
+* *Previous version* Un tableau en lecture seule montrant les versions précédentes qui ont été exportées à partir du même _modeling project_.
+* *Comment* Une description de la version de la bibliothèque.
+* *MAR filename* Le nom de fichier de la bibliothèque (se terminant par l'extension de fichier .mar). Cette valeur est recalculée lorsque l'ID du projet ou la version est modifiée, mais elle peut être remplacée si nécessaire.
+* *Update referencing projects* Les _modeling projects_ qui ont des cross-references vers le projet exporté. Les projets sélectionnés importeront la bibliothèque produite par l'exportation et les cross-references seront redirigées vers la bibliothèque. Les détails sur l'importation d'une bibliothèque sont décrits dans la section suivante.
+
+!pics/exportWizardPage2.png!
+
+Lorsque l'assistant est terminé, un fichier MAR est généré à l'emplacement spécifié. Ce fichier peut ensuite être importé dans un autre _modeling project_.
+
+h2. Importer une bibliothèque dans un _modeling project_
+
+Pour importer un fichier de bibliothèque dans un _modeling project_, utilisez le menu _File > Import..._ et choisissez _Import library into modeling project_ dans la catégorie _IS Designer_.
+
+!pics/importMenu.png!
+
+L'assistant permet de définir :
+* *Modeling project* Le projet cible. Déjà sélectionné si l'importation a été lancée à partir d'un projet sélectionné.
+* *Import file* Le fichier MAR à importer
+
+!pics/importWizard.png!
+
+Une fois que le fichier MAR a été sélectionné, les informations suivantes sont extraites du fichier et affichées :
+* *Project ID*
+* *Version*
+* *Creation date*
+* *Comment*
+* *Dependencies* Les dépendances trouvées dans le fichier MAR.
+
+Les dépendances sont affichées avec une coche verte ou rouge indiquant si la dépendance est valide ou non par rapport au projet cible.
+Si toutes les dépendances sont valides, l'utilisateur peut terminer l'assistant. Le fichier est alors importé dans un dossier _libraries_ du projet cible.
+Un dossier portant le nom et l'ID du projet importé est créé. Toutes les données sémantiques et graphiques sont copiées dans ce dossier.
+
+!pics/importedLibrary.png!
+
+h2. Notes sur les dépendances
+
+Lors de l'importation d'un fichier MAR, le tableau des dépendances indique :
+* le projet principal qui a été exporté dans le fichier MAR. Une vérification par rapport à la version est faite si ce projet avait déjà été importé.
+* les projets qui ont été importés dans ce projet principal avant la création du fichier MAR. Une vérification de la version est effectuée si ces projets avaient déjà été importés dans le projet cible, soit directement, soit en important un autre projet.
+
+Voici un exemple illustratif :
+
+h4. Projet initial <Core project> avant l'exportation
+
+!pics/coreProject.png!
+
+h4. Projet cible initial <Project 1>
+
+!pics/initialProject1.png!
+
+h4. <Project 1> après l'import de <Core project>
+
+!pics/importedLibrary.png!
+
+Un dossier _libraries_ a été créé et un dossier pour _Core project_ V1.0.0 a été créé également.
+
+h4. Projet cible initial <Project 2>
+
+!pics/initialProject2.png!
+
+h4. <Project 2> après l'import de <Project 1>
+
+!pics/project2AfterImport.png!
+
+Un dossier _libraries_ a été créé et un dossier pour _Project 1_ V1.0.0 a également été créé.
+A l'intérieur du _Projet 1-1.0.0_ nous pouvons voir un dossier _libraries_ pour le projet _Core project_ précédemment importé.

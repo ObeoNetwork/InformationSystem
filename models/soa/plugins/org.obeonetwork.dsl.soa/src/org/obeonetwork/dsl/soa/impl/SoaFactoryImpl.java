@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2008, 2021 Obeo.
+ * Copyright (c) 2008, 2023 Obeo.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -39,6 +39,7 @@ import org.obeonetwork.dsl.soa.ParameterPassingMode;
 import org.obeonetwork.dsl.soa.ParameterRestData;
 import org.obeonetwork.dsl.soa.PropertiesExtension;
 import org.obeonetwork.dsl.soa.Scope;
+import org.obeonetwork.dsl.soa.SecurityApplication;
 import org.obeonetwork.dsl.soa.SecurityScheme;
 import org.obeonetwork.dsl.soa.SecuritySchemeType;
 import org.obeonetwork.dsl.soa.Server;
@@ -50,6 +51,7 @@ import org.obeonetwork.dsl.soa.Verb;
 import org.obeonetwork.dsl.soa.Wire;
 import org.obeonetwork.dsl.soa.spec.ComponentSpec;
 import org.obeonetwork.dsl.soa.spec.InterfaceSpec;
+import org.obeonetwork.dsl.soa.spec.OperationSpec;
 import org.obeonetwork.dsl.soa.spec.ServiceSpec;
 
 /**
@@ -64,7 +66,7 @@ public class SoaFactoryImpl extends EFactoryImpl implements SoaFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public static final String copyright = "Copyright (c) 2008, 2021 Obeo.\nAll rights reserved. This program and the accompanying materials\nare made available under the terms of the Eclipse Public License v1.0\nwhich accompanies this distribution, and is available at\nhttp://www.eclipse.org/legal/epl-v10.html\n\nContributors:\n    Obeo - initial API and implementation";
+	public static final String copyright = "Copyright (c) 2008, 2023 Obeo.\nAll rights reserved. This program and the accompanying materials\nare made available under the terms of the Eclipse Public License v1.0\nwhich accompanies this distribution, and is available at\nhttp://www.eclipse.org/legal/epl-v10.html\n\nContributors:\n    Obeo - initial API and implementation";
 
 	/**
 	 * Creates the default factory implementation.
@@ -123,6 +125,7 @@ public class SoaFactoryImpl extends EFactoryImpl implements SoaFactory {
 			case SoaPackage.PROPERTIES_EXTENSION: return (EObject)createPropertiesExtension();
 			case SoaPackage.SERVER: return (EObject)createServer();
 			case SoaPackage.SCOPE: return (EObject)createScope();
+			case SoaPackage.SECURITY_APPLICATION: return (EObject)createSecurityApplication();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -261,10 +264,10 @@ public class SoaFactoryImpl extends EFactoryImpl implements SoaFactory {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	public Operation createOperation() {
-		OperationImpl operation = new OperationImpl();
+		OperationImpl operation = new OperationSpec();
 		return operation;
 	}
 
@@ -396,6 +399,16 @@ public class SoaFactoryImpl extends EFactoryImpl implements SoaFactory {
 	public Scope createScope() {
 		ScopeImpl scope = new ScopeImpl();
 		return scope;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public SecurityApplication createSecurityApplication() {
+		SecurityApplicationImpl securityApplication = new SecurityApplicationImpl();
+		return securityApplication;
 	}
 
 	/**

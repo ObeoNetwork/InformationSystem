@@ -5,8 +5,8 @@ Element-Type: testcase
 Element-Version: 3.0
 External-Reference: 
 Id: _AKDugJtOEeaMB4JvYD9iTg
-Runtime-Version: 2.2.0.201706152316
-Save-Time: 7/5/18 10:59 AM
+Runtime-Version: 2.5.1.M3
+Save-Time: 2/25/22, 4:48 PM
 Testcase-Type: ecl
 
 ------=_.description-216f885c-d591-38ce-8ea2-e4f8cb4d6ffa
@@ -22,174 +22,153 @@ Testing all tools defines in soa.odesign/DTO Diagram/Relation
 Content-Type: text/ecl
 Entry-Name: .content
 
-with [get-view "Model Explorer" | get-tree] {
-    select "E-BookStore" | get-menu "Close Project" | click
-    select "E-BookStore" | get-menu "Open Project" | click
-    select "E-BookStore" | get-menu "Viewpoints Selection" | click
-}
-with [get-window "Viewpoints Selection"] {
-    with [get-table] {
-        select "SOA Views"
-        get-item "SOA Views" | check
+get-view "Model Explorer" | get-tree | select "E-BookStore/E-BookStore.soa/Components/DTO Namespaces Hierarchy" 
+    | double-click
+with [get-editor "DTO Namespaces Hierarchy"] {
+    with [get-diagram -index 1 | get-edit-part -name "DTO Namespaces Hierarchy"] {
+        mouse-move 412 253 -height 543 -width 1200
+        mouse-move 1182 54 -height 543 -width 1200
     }
-    get-button OK | click
-}
-get-view "Model Explorer" | get-tree | select "E-BookStore/E-BookStore.soa/Components/Namespace main" 
-    | get-menu "New Representation/main - DTO diagram" | click
-get-window "New DTO Diagram" | get-button OK | click
-with [get-editor "main - DTO diagram"] {
-    with [get-palette] {
-        with [get-palette-entry DTO -index 1] {
-            mouse-move 46 14 button1 CTRL -height 23 -width 125
-            mouse-press 46 14 button1 CTRL -height 23 -width 125
-            mouse-release 46 14 button1 786432 -height 23 -width 125
-            mouse-move 22 18 -mask CTRL -height 23 -width 125
+    with [get-palette | get-palette-entry Namespace -index 1] {
+        mouse-move 55 10 button1 -height 25 -width 228
+        mouse-press 55 10 button1 -height 25 -width 228
+        mouse-release 55 10 button1 "" -height 25 -width 228
+    }
+    with [get-diagram -index 1 | get-edit-part -name "DTO Namespaces Hierarchy" | get-edit-part -name main 
+        | get-edit-part -className DNodeContainerViewNodeContainerCompartmentEditPart] {
+        mouse-move 107 48 button1 -height 68 -width 148
+        mouse-press 107 48 button1 -height 68 -width 148
+        mouse-release 107 48 button1 "" -height 68 -width 148
+    }
+    with [get-diagram -index 1 | get-edit-part -name "DTO Namespaces Hierarchy" | get-edit-part -name main 
+        | get-edit-part -className DNodeContainerViewNodeContainerCompartmentEditPart] {
+        mouse-move 107 53 -height 125 -width 265
+        with [get-edit-part -name "namespace_1" | get-edit-part 
+            -className DNodeContainerViewNodeContainerCompartment2EditPart] {
+            mouse-move 117 44 button1 -height 68 -width 148
+            mouse-press 117 44 button1 -height 68 -width 148
+            mouse-release 117 44 button1 "" -height 68 -width 148
+            mouse-press 117 44 button1 -height 68 -width 148
+            mouse-double-click 117 44 button1 -height 68 -width 148
         }
     }
-    with [get-diagram -index 1 | get-edit-part -name "main - DTO diagram"] {
-        mouse-move 654 145 button1 CTRL -height 669 -width 1130
-        mouse-press 654 145 button1 CTRL -height 669 -width 1130
-        mouse-release 654 145 button1 786432 -height 669 -width 1130
+}
+get-window "New namespace_1 - DTO diagram" | get-button OK | click -metaKeys ""
+with [get-editor "namespace_1 - DTO diagram"] {
+    get-diagram -index 1 | get-edit-part -name "namespace_1 - DTO diagram" | mouse-move 1194 200 -height 543 -width 1200
+    with [get-palette] {
+        get-palette-entry Attribute | mouse-move 30 8 -height 25 -width 228
+        get-palette-entry "DTO from Entity" | mouse-move 65 2 -height 25 -width 228
+        with [get-palette-entry DTO -index 1] {
+            mouse-move 50 17 button1 -height 25 -width 228
+            mouse-press 50 17 button1 -height 25 -width 228
+            mouse-release 50 17 button1 "" -height 25 -width 228
+        }
     }
-    with [get-diagram -index 1 | get-edit-part -name "main - DTO diagram"] {
-        mouse-move 637 348 button1 CTRL -height 669 -width 1130
-        mouse-press 637 348 button1 CTRL -height 669 -width 1130
-        mouse-release 637 348 button1 786432 -height 669 -width 1130
+    with [get-diagram -index 1 | get-edit-part -name "namespace_1 - DTO diagram"] {
+        mouse-move 212 88 button1 CTRL -height 543 -width 1200
+        mouse-press 212 88 button1 CTRL -height 543 -width 1200
+        mouse-release 212 88 button1 CTRL -height 543 -width 1200
     }
-    with [get-diagram -index 1 | get-edit-part -name "main - DTO diagram"] {
-        mouse-move 873 269 button1 CTRL -height 669 -width 1130
-        mouse-press 873 269 button1 CTRL -height 669 -width 1130
-        mouse-release 873 269 button1 786432 -height 669 -width 1130
+    with [get-diagram -index 1 | get-edit-part -name "namespace_1 - DTO diagram"] {
+        mouse-move 437 207 button1 CTRL -height 547 -width 1200
+        mouse-press 437 207 button1 CTRL -height 547 -width 1200
+        mouse-release 437 207 button1 CTRL -height 547 -width 1200
+    }
+    with [get-diagram -index 1 | get-edit-part -name "namespace_1 - DTO diagram"] {
+        mouse-move 200 321 button1 CTRL -height 547 -width 1200
+        mouse-press 200 321 button1 CTRL -height 547 -width 1200
+        mouse-release 200 321 button1 CTRL -height 547 -width 1200
     }
     with [get-diagram -index 1] {
-        get-edit-part -name "main - DTO diagram" | get-edit-part -name DTO9 | get-handle ResizeHandle -index 6 
-            | mouse-hover 1 0 -height 7 -width 7
+        get-edit-part -name "namespace_1 - DTO diagram" | mouse-move 663 348 -height 547 -width 1200
         key-type ESC
-        with [get-edit-part -name "main - DTO diagram"] {
-            mouse-move 786 270 -height 669 -width 1130
-            mouse-hover 786 270 -height 669 -width 1130
+        get-edit-part -name "namespace_1 - DTO diagram" | mouse-move 1187 351 -height 546 -width 1200
+    }
+    with [get-palette] {
+        get-palette-entry Composition | mouse-move 40 0 -height 25 -width 228
+        with [get-palette-entry Relation -index 1] {
+            mouse-move 44 22 button1 -height 25 -width 228
+            mouse-press 44 22 button1 -height 25 -width 228
+            mouse-release 44 22 button1 "" -height 25 -width 228
         }
     }
-    // Check Tool creation Relation
-    with [get-palette | get-palette-entry Relation] {
-        mouse-move 51 8 button1 -height 23 -width 125
-        mouse-press 51 8 button1 -height 23 -width 125
-        mouse-release 51 8 button1 524288 -height 23 -width 125
-    }
-    with [get-diagram -index 1 | get-edit-part -name "main - DTO diagram"] {
-        mouse-move 675 254 -height 520 -width 1047
-        with [get-edit-part -name DTO7] {
-            mouse-move 59 16 -height 42 -width 61
+    with [get-diagram -index 1 | get-edit-part -name "namespace_1 - DTO diagram"] {
+        with [get-edit-part -name DTO3] {
+            mouse-move 56 13 -height 43 -width 58
             with [get-edit-part -className DNodeListNameEditPart] {
-                mouse-move 36 6 button1 -height 17 -width 57
-                mouse-press 36 6 button1 -height 17 -width 57
-                mouse-release 36 6 button1 524288 -height 17 -width 57
+                mouse-move 26 8 button1 -height 18 -width 54
+                mouse-press 26 8 button1 -height 18 -width 54
+                mouse-release 26 8 button1 "" -height 18 -width 54
             }
         }
-        mouse-move 592 239 -height 520 -width 1047
-        with [get-edit-part -name DTO8 | get-edit-part -className DNodeListNameEditPart] {
-            mouse-hover 28 9 -height 17 -width 57
-            mouse-move 28 9 button1 -height 17 -width 57
-            mouse-press 28 9 button1 -height 17 -width 57
+        mouse-move 234 142 -height 546 -width 1200
+        with [get-edit-part -name DTO1] {
+            mouse-move 25 23 button1 -height 43 -width 58
+            mouse-press 25 23 button1 -height 43 -width 58
         }
     }
-    with [get-diagram -index 1 | get-edit-part -name "main - DTO diagram" | get-edit-part -name DTO8 
-        | get-edit-part -className DNodeListNameEditPart] {
-        mouse-release 28 9 button1 524288 -height 17 -width 57
-        mouse-hover 28 9 -height 17 -width 57
+    with [get-diagram -index 1 | get-edit-part -name "namespace_1 - DTO diagram"] {
+        with [get-edit-part -name DTO1] {
+            mouse-release 25 23 button1 "" -height 43 -width 58
+            mouse-move 33 25 -height 43 -width 58
+        }
+        mouse-move 1188 314 -height 547 -width 1200
     }
-}
-with [get-editor "main - DTO diagram" | get-diagram -index 1 | get-edit-part 
-    -name "main - DTO diagram" | get-edit-part -name DTO8 | get-target-connection 0] {
-    get-property "getTarget().getNodeLabel().getText()" | equals DTO8 | verify-true
-    get-property "getSource().getNodeLabel().getText()" | equals DTO7 | verify-true
-    get-property "getChildren().DEdgeNameEditPart[0].getLabelText()" | equals "DTO8s [0..*]" | verify-true
-}
-with [get-editor "main - DTO diagram"] {
-    get-diagram -index 1 | get-edit-part -name "main - DTO diagram" | mouse-move 1046 122 -height 520 
-        -width 1047
-    with [get-diagram -index 1 | get-edit-part -name "main - DTO diagram"] {
-        mouse-move 394 378 button1 -height 520 -width 1047
-        mouse-press 394 378 button1 -height 520 -width 1047
-        mouse-release 394 378 button1 524288 -height 520 -width 1047
-    }   
-    // Check Tool creation Composition
-    with [get-palette] {       
-        with [get-palette-entry Composition] {
-            mouse-move 59 11 button1 -height 23 -width 125
-            mouse-press 59 11 button1 -height 23 -width 125
-            mouse-release 59 11 button1 524288 -height 23 -width 125
+    with [get-palette | get-palette-entry Composition] {
+        mouse-move 20 1 -height 25 -width 228
+        mouse-move 60 14 button1 -height 25 -width 228
+        mouse-press 60 14 button1 -height 25 -width 228
+        mouse-release 59 14 button1 "" -height 25 -width 228
+    }
+    with [get-diagram -index 1 | get-edit-part -name "namespace_1 - DTO diagram"] {
+        with [get-edit-part -name DTO1] {
+            mouse-move 44 23 button1 -height 43 -width 58
+            mouse-press 44 23 button1 -height 43 -width 58
+            mouse-release 44 23 button1 "" -height 43 -width 58
+        }
+        mouse-move 424 208 -height 547 -width 1200
+        with [get-edit-part -name DTO2] {
+            mouse-move 37 24 button1 -height 43 -width 58
+            mouse-press 37 24 button1 -height 43 -width 58
         }
     }
-    with [get-diagram -index 1 | get-edit-part -name "main - DTO diagram"] {
-        mouse-move 335 230 -height 520 -width 1047
-        with [get-edit-part -name DTO7] {
-            with [get-edit-part -className DNodeListNameEditPart] {
-                mouse-move 29 12 button1 -height 17 -width 57
-                mouse-press 29 12 button1 -height 17 -width 57
-                mouse-release 29 12 button1 524288 -height 17 -width 57
-            }
-            mouse-move 37 26 -height 42 -width 61
-        }
-        with [get-edit-part -name DTO9] {
-            mouse-move 15 2 -height 42 -width 61
-            with [get-edit-part -className DNodeListNameEditPart] {
-                mouse-move 22 13 button1 -height 17 -width 57
-                mouse-press 22 13 button1 -height 17 -width 57
-            }
-        }
+    with [get-diagram -index 1 | get-edit-part -name "namespace_1 - DTO diagram"] {
+        get-edit-part -name DTO2 | mouse-release 37 24 button1 "" -height 43 -width 58
+        mouse-move 1236 362 -height 547 -width 1200
     }
-    with [get-diagram -index 1 | get-edit-part -name "main - DTO diagram"] {
-        with [get-edit-part -name DTO9 | get-edit-part -className DNodeListNameEditPart] {
-            mouse-release 22 13 button1 524288 -height 17 -width 57
-            mouse-hover 22 13 -height 17 -width 57
-        }
-        mouse-move 111 240 -height 520 -width 1047
-    }
-}
-with [get-editor "main - DTO diagram" | get-diagram -index 1 | get-edit-part 
-    -name "main - DTO diagram" | get-edit-part -name DTO9 | get-target-connection 0] {
-    get-property "getTarget().getNodeLabel().getText()" | equals DTO9 | verify-true
-    get-property "getSource().getNodeLabel().getText()" | equals DTO7 | verify-true
-    get-property "getChildren().DEdgeNameEditPart[0].getLabelText()" | equals "DTO9s [0..*]" | verify-true
-}
-with [get-editor "main - DTO diagram"] {
-    get-diagram -index 1 | get-edit-part -name "main - DTO diagram" | mouse-move 1040 309 -height 520 
-        -width 1047
-    // Check Tool creation inheritance
     with [get-palette | get-palette-entry Inheritance] {
-        mouse-move 55 11 button1 -height 23 -width 125
-        mouse-press 55 11 button1 -height 23 -width 125
-        mouse-release 55 11 button1 524288 -height 23 -width 125
+        mouse-move 68 14 button1 -height 25 -width 228
+        mouse-press 68 14 button1 -height 25 -width 228
+        mouse-release 68 14 button1 "" -height 25 -width 228
     }
-    with [get-diagram -index 1 | get-edit-part -name "main - DTO diagram"] {
-        mouse-move 440 378 -height 520 -width 1047
-        with [get-edit-part -name DTO9] {
-            mouse-move 38 4 -height 42 -width 61
+    with [get-diagram -index 1 | get-edit-part -name "namespace_1 - DTO diagram"] {
+        mouse-move 434 238 -height 547 -width 1200
+        with [get-edit-part -name DTO2] {
             with [get-edit-part -className DNodeListNameEditPart] {
-                mouse-move 32 12 button1 -height 17 -width 57
-                mouse-press 32 12 button1 -height 17 -width 57
-                mouse-release 32 12 button1 524288 -height 17 -width 57
+                mouse-move 26 15 button1 -height 18 -width 54
+                mouse-press 26 15 button1 -height 18 -width 54
+                mouse-release 23 16 button1 "" -height 18 -width 54
             }
+            mouse-move 18 24 -height 43 -width 58
         }
-        with [get-edit-part -name DTO8] {
-            mouse-move 26 24 -height 42 -width 61
-            mouse-hover 26 24 -height 42 -width 61
-            mouse-move 26 24 button1 -height 42 -width 61
-            mouse-press 26 24 button1 -height 42 -width 61
+        mouse-move 258 331 -height 547 -width 1200
+        with [get-edit-part -name DTO3 | get-edit-part -className DNodeListNameEditPart] {
+            mouse-move 40 7 button1 -height 18 -width 54
+            mouse-press 40 7 button1 -height 18 -width 54
         }
     }
-    with [get-diagram -index 1 | get-edit-part -name "main - DTO diagram"] {
-        with [get-edit-part -name DTO8] {
-            mouse-release 26 24 button1 524288 -height 42 -width 61
-            mouse-hover 26 24 -height 42 -width 61
-        }
-        mouse-move 126 107 -height 520 -width 1047
+    with [get-diagram -index 1 | get-edit-part -name "namespace_1 - DTO diagram"] {
+        get-edit-part -name DTO3 | get-edit-part -className DNodeListNameEditPart | mouse-release 40 7 button1 "" 
+            -height 18 -width 54
+        mouse-move 360 367 button1 -height 547 -width 1200
+        mouse-press 360 367 button1 -height 547 -width 1200
+        mouse-release 360 367 button1 "" -height 547 -width 1200
+        mouse-move 361 366 -height 546 -width 1200
     }
 }
-with [get-editor "main - DTO diagram" | get-diagram -index 1 | get-edit-part 
-    -name "main - DTO diagram" | get-edit-part -name DTO8 | get-target-connection 1] {
-    get-property "getTarget().getNodeLabel().getText()" | equals DTO8 | verify-true
-    get-property "getSource().getNodeLabel().getText()" | equals DTO9 | verify-true
+with [get-editor "namespace_1 - DTO diagram" | get-diagram -index 1 | get-edit-part -name "namespace_1 - DTO diagram"] {
+    get-property "children.size" | equals 3 | verify-true
+    get-property "edges.size" | equals 3 | verify-true
 }
 ------=_.content-0a7243a0-75d3-3d5f-9791-539de0e5b7ac--

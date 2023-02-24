@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2008, 2021 Obeo.
+ * Copyright (c) 2008, 2023 Obeo.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -29,7 +29,9 @@ import org.obeonetwork.dsl.database.Schema;
 import org.obeonetwork.dsl.database.Sequence;
 import org.obeonetwork.dsl.database.Table;
 import org.obeonetwork.dsl.database.View;
+import org.obeonetwork.dsl.database.ViewColumn;
 import org.obeonetwork.dsl.database.ViewElement;
+import org.obeonetwork.dsl.database.ViewTable;
 import org.obeonetwork.dsl.database.spec.ColumnSpec;
 import org.obeonetwork.dsl.database.spec.ViewSpec;
 import org.obeonetwork.dsl.typeslibrary.TypeInstance;
@@ -47,7 +49,7 @@ public class DatabaseFactoryImpl extends EFactoryImpl implements DatabaseFactory
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public static final String copyright = "Copyright (c) 2008, 2021 Obeo.\r\nAll rights reserved. This program and the accompanying materials\r\nare made available under the terms of the Eclipse Public License v1.0\r\nwhich accompanies this distribution, and is available at\r\nhttp://www.eclipse.org/legal/epl-v10.html\r\n\r\nContributors:\r\n    Obeo - initial API and implementation";
+	public static final String copyright = "Copyright (c) 2008, 2023 Obeo.\r\nAll rights reserved. This program and the accompanying materials\r\nare made available under the terms of the Eclipse Public License v1.0\r\nwhich accompanies this distribution, and is available at\r\nhttp://www.eclipse.org/legal/epl-v10.html\r\n\r\nContributors:\r\n    Obeo - initial API and implementation";
 
 	/**
 	 * Creates the default factory implementation.
@@ -99,6 +101,8 @@ public class DatabaseFactoryImpl extends EFactoryImpl implements DatabaseFactory
 			case DatabasePackage.SCHEMA: return (EObject)createSchema();
 			case DatabasePackage.SEQUENCE: return (EObject)createSequence();
 			case DatabasePackage.VIEW_ELEMENT: return (EObject)createViewElement();
+			case DatabasePackage.VIEW_COLUMN: return (EObject)createViewColumn();
+			case DatabasePackage.VIEW_TABLE: return (EObject)createViewTable();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -234,6 +238,26 @@ public class DatabaseFactoryImpl extends EFactoryImpl implements DatabaseFactory
 	public ViewElement createViewElement() {
 		ViewElementImpl viewElement = new ViewElementImpl();
 		return viewElement;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public ViewColumn createViewColumn() {
+		ViewColumnImpl viewColumn = new ViewColumnImpl();
+		return viewColumn;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public ViewTable createViewTable() {
+		ViewTableImpl viewTable = new ViewTableImpl();
+		return viewTable;
 	}
 
 	/**

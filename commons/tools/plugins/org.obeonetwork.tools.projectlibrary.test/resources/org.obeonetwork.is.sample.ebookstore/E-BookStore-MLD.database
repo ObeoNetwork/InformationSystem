@@ -1,0 +1,252 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<database:DataBase xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:database="http://www.obeonetwork.org/dsl/database/1.0" xmlns:typeslibrary="http://www.obeonetwork.org/dsl/typeslibrary/1.0" xmi:id="_7NK10ZEdEeauDets12NBwQ" techID="_7NK10JEdEeauDets12NBwQ" name="E-BookStore-MLD">
+  <usedLibraries xsi:type="typeslibrary:NativeTypesLibrary" href="pathmap://LogicalDBTypes#_WWbGkREnEeGTa_JlZYBw1A"/>
+  <schemas xmi:id="_CqwowZEeEeauDets12NBwQ" techID="_CqwowJEeEeauDets12NBwQ" name="main">
+    <tables xsi:type="database:Table" xmi:id="_CqxP0JEeEeauDets12NBwQ" techID="_CqvaoJEeEeauDets12NBwQ" name="AUTHOR">
+      <primaryKey xmi:id="_Cq2vYZEeEeauDets12NBwQ" comments="Contrainte PK pour la colonne AUTHOR_ID" techID="_Cq2vYJEeEeauDets12NBwQ" name="AUTHOR_PK" columns="_Cq2IUJEeEeauDets12NBwQ"/>
+      <foreignKeys xmi:id="_CrK4c5EeEeauDets12NBwQ" comments="Contrainte FK avec la table BOOK" techID="_CrK4cpEeEeauDets12NBwQ" name="AUTHOR_FK1_1" target="_Cq3WcpEeEeauDets12NBwQ">
+        <elements xmi:id="_CrK4eZEeEeauDets12NBwQ" techID="_CrK4eJEeEeauDets12NBwQ" fkColumn="_CrK4dZEeEeauDets12NBwQ" pkColumn="_Cq-EJpEeEeauDets12NBwQ"/>
+      </foreignKeys>
+      <constraints xmi:id="_CrWeoZEeEeauDets12NBwQ" comments="Liste des valeurs possibles pour main_XTOPSUP" techID="_CrWeoJEeEeauDets12NBwQ" name="AUTHOR_CK1_1" expression="main_XTOPSUP in ('0','1','3','9')"/>
+      <indexes xmi:id="_CrPJ4JEeEeauDets12NBwQ" comments="Index sur la FK (BOOK_ID) de la table AUTHOR" techID="_CrOi0JEeEeauDets12NBwQ" name="AUTHOR_FK1_1">
+        <elements xmi:id="_CrPw8ZEeEeauDets12NBwQ" techID="_CrPw8JEeEeauDets12NBwQ" column="_CrK4dZEeEeauDets12NBwQ" asc="true"/>
+      </indexes>
+      <columns xmi:id="_Cq06MJEeEeauDets12NBwQ" techID="_CqzsEJEeEeauDets12NBwQ" name="NAME">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_Cq1hQJEeEeauDets12NBwQ">
+          <nativeType href="pathmap://LogicalDBTypes#_WWew-BEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+      <columns xmi:id="_Cq2IUJEeEeauDets12NBwQ" comments="PK de la table AUTHOR" techID="_Cq1hQZEeEeauDets12NBwQ" name="AUTHOR_ID" primaryKey="_Cq2vYZEeEeauDets12NBwQ">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_Cq3WcJEeEeauDets12NBwQ">
+          <nativeType href="pathmap://LogicalDBTypes#_WWeJ4BEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+      <columns xmi:id="_CrK4dZEeEeauDets12NBwQ" techID="_CrK4dJEeEeauDets12NBwQ" name="BOOK_ID" nullable="true" indexElements="_CrPw8ZEeEeauDets12NBwQ" foreignKeyElements="_CrK4eZEeEeauDets12NBwQ">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_CrK4d5EeEeauDets12NBwQ">
+          <nativeType href="pathmap://LogicalDBTypes#_WWeJ4BEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+      <columns xmi:id="_CrVQgZEeEeauDets12NBwQ" comments="Indicateur pour savoir si l'enregistrement est valide" techID="_CrVQgJEeEeauDets12NBwQ" name="main_XTOPSUP" defaultValue="'0'">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_CrV3kJEeEeauDets12NBwQ" length="1">
+          <nativeType href="pathmap://LogicalDBTypes#_WWew-BEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+      <columns xmi:id="_CrXFsZEeEeauDets12NBwQ" comments="Date de mise à jour de la ligne" techID="_CrXFsJEeEeauDets12NBwQ" name="main_XDMAJ">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_CrXFs5EeEeauDets12NBwQ">
+          <nativeType href="pathmap://LogicalDBTypes#_WWew-xEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+    </tables>
+    <tables xsi:type="database:Table" xmi:id="_Cq3WcpEeEeauDets12NBwQ" techID="_Cq3WcZEeEeauDets12NBwQ" name="BOOK">
+      <primaryKey xmi:id="_Cq-EKZEeEeauDets12NBwQ" comments="Contrainte PK pour la colonne BOOK_ID" techID="_Cq-EKJEeEeauDets12NBwQ" name="BOOK_PK" columns="_Cq-EJpEeEeauDets12NBwQ"/>
+      <foreignKeys xmi:id="_CrIcMZEeEeauDets12NBwQ" comments="Contrainte FK avec la table AUTHOR" techID="_CrIcMJEeEeauDets12NBwQ" name="BOOK_FK1_1" target="_CqxP0JEeEeauDets12NBwQ">
+        <elements xmi:id="_CrK4cZEeEeauDets12NBwQ" techID="_CrK4cJEeEeauDets12NBwQ" fkColumn="_CrJqUZEeEeauDets12NBwQ" pkColumn="_Cq2IUJEeEeauDets12NBwQ"/>
+      </foreignKeys>
+      <constraints xmi:id="_CrXFuZEeEeauDets12NBwQ" comments="Liste des valeurs possibles pour main_XTOPSUP" techID="_CrXFuJEeEeauDets12NBwQ" name="BOOK_CK1_1" expression="main_XTOPSUP in ('0','1','3','9')"/>
+      <indexes xmi:id="_CrQYAZEeEeauDets12NBwQ" comments="Index sur la FK (AUTHOR_ID) de la table BOOK" techID="_CrQYAJEeEeauDets12NBwQ" name="BOOK_FK1_1">
+        <elements xmi:id="_CrQYA5EeEeauDets12NBwQ" techID="_CrQYApEeEeauDets12NBwQ" column="_CrJqUZEeEeauDets12NBwQ" asc="true"/>
+      </indexes>
+      <columns xmi:id="_Cq3WdJEeEeauDets12NBwQ" techID="_Cq3Wc5EeEeauDets12NBwQ" name="TITLE">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_Cq3WdpEeEeauDets12NBwQ">
+          <nativeType href="pathmap://LogicalDBTypes#_WWew-BEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+      <columns xmi:id="_Cq39gZEeEeauDets12NBwQ" techID="_Cq39gJEeEeauDets12NBwQ" name="PRICE">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_Cq-EIJEeEeauDets12NBwQ">
+          <nativeType href="pathmap://LogicalDBTypes#_WWeJ4BEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+      <columns xmi:id="_Cq-EIpEeEeauDets12NBwQ" techID="_Cq-EIZEeEeauDets12NBwQ" name="IMAGE">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_Cq-EJJEeEeauDets12NBwQ">
+          <nativeType href="pathmap://LogicalDBTypes#_WWew-BEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+      <columns xmi:id="_Cq-EJpEeEeauDets12NBwQ" comments="PK de la table BOOK" techID="_Cq-EJZEeEeauDets12NBwQ" name="BOOK_ID" primaryKey="_Cq-EKZEeEeauDets12NBwQ">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_Cq-EKpEeEeauDets12NBwQ">
+          <nativeType href="pathmap://LogicalDBTypes#_WWeJ4BEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+      <columns xmi:id="_CrJqUZEeEeauDets12NBwQ" techID="_CrJqUJEeEeauDets12NBwQ" name="AUTHOR_ID" nullable="true" indexElements="_CrQYA5EeEeauDets12NBwQ" foreignKeyElements="_CrK4cZEeEeauDets12NBwQ">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_CrJqU5EeEeauDets12NBwQ">
+          <nativeType href="pathmap://LogicalDBTypes#_WWeJ4BEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+      <columns xmi:id="_CrXFtZEeEeauDets12NBwQ" comments="Indicateur pour savoir si l'enregistrement est valide" techID="_CrXFtJEeEeauDets12NBwQ" name="main_XTOPSUP" defaultValue="'0'">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_CrXFt5EeEeauDets12NBwQ" length="1">
+          <nativeType href="pathmap://LogicalDBTypes#_WWew-BEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+      <columns xmi:id="_CrXFu5EeEeauDets12NBwQ" comments="Date de mise à jour de la ligne" techID="_CrXFupEeEeauDets12NBwQ" name="main_XDMAJ">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_CrXFvZEeEeauDets12NBwQ">
+          <nativeType href="pathmap://LogicalDBTypes#_WWew-xEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+    </tables>
+    <tables xsi:type="database:Table" xmi:id="_Cq-ELJEeEeauDets12NBwQ" techID="_Cq-EK5EeEeauDets12NBwQ" name="PURCHASE_ORDER">
+      <primaryKey xmi:id="_Cq-rPJEeEeauDets12NBwQ" comments="Contrainte PK pour la colonne PURCHASE_ORDER_ID" techID="_Cq-rO5EeEeauDets12NBwQ" name="PURCHASE_ORDER_PK" columns="_Cq-rOZEeEeauDets12NBwQ"/>
+      <foreignKeys xmi:id="_CrK4e5EeEeauDets12NBwQ" comments="Contrainte FK avec la table SHOPPING_CART" techID="_CrK4epEeEeauDets12NBwQ" name="PURCHASE_ORDER_FK1_1" target="_Cq_SS5EeEeauDets12NBwQ">
+        <elements xmi:id="_CrLfhZEeEeauDets12NBwQ" techID="_CrLfhJEeEeauDets12NBwQ" fkColumn="_CrLfgZEeEeauDets12NBwQ" pkColumn="_Cq_5UpEeEeauDets12NBwQ"/>
+      </foreignKeys>
+      <foreignKeys xmi:id="_CrLfh5EeEeauDets12NBwQ" comments="Contrainte FK avec la table USER" techID="_CrLfhpEeEeauDets12NBwQ" name="PURCHASE_ORDER_FK1_2" target="_Cq_5WJEeEeauDets12NBwQ">
+        <elements xmi:id="_CrLfjZEeEeauDets12NBwQ" techID="_CrLfjJEeEeauDets12NBwQ" fkColumn="_CrLfiZEeEeauDets12NBwQ" pkColumn="_CrHOF5EeEeauDets12NBwQ"/>
+      </foreignKeys>
+      <constraints xmi:id="_CrXFw5EeEeauDets12NBwQ" comments="Liste des valeurs possibles pour main_XTOPSUP" techID="_CrXFwpEeEeauDets12NBwQ" name="PURCHASE_ORDER_CK1_1" expression="main_XTOPSUP in ('0','1','3','9')"/>
+      <indexes xmi:id="_CrQ_EZEeEeauDets12NBwQ" comments="Index sur la FK (SHOPPING_CART_ID) de la table PURCHASE_ORDER" techID="_CrQ_EJEeEeauDets12NBwQ" name="PURCHASE_ORDER_FK1_1">
+        <elements xmi:id="_CrQ_E5EeEeauDets12NBwQ" techID="_CrQ_EpEeEeauDets12NBwQ" column="_CrLfgZEeEeauDets12NBwQ" asc="true"/>
+      </indexes>
+      <indexes xmi:id="_CrQ_FZEeEeauDets12NBwQ" comments="Index sur la FK (USER_ID) de la table PURCHASE_ORDER" techID="_CrQ_FJEeEeauDets12NBwQ" name="PURCHASE_ORDER_FK1_2">
+        <elements xmi:id="_CrQ_F5EeEeauDets12NBwQ" techID="_CrQ_FpEeEeauDets12NBwQ" column="_CrLfiZEeEeauDets12NBwQ" asc="true"/>
+      </indexes>
+      <columns xmi:id="_Cq-rMZEeEeauDets12NBwQ" techID="_Cq-rMJEeEeauDets12NBwQ" name="CARD_NUMBER">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_Cq-rM5EeEeauDets12NBwQ">
+          <nativeType href="pathmap://LogicalDBTypes#_WWeJ4hEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+      <columns xmi:id="_Cq-rNZEeEeauDets12NBwQ" techID="_Cq-rNJEeEeauDets12NBwQ" name="TOTAL_AMOUNT">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_Cq-rN5EeEeauDets12NBwQ">
+          <nativeType href="pathmap://LogicalDBTypes#_WWeJ4BEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+      <columns xmi:id="_Cq-rOZEeEeauDets12NBwQ" comments="PK de la table PURCHASE_ORDER" techID="_Cq-rOJEeEeauDets12NBwQ" name="PURCHASE_ORDER_ID" primaryKey="_Cq-rPJEeEeauDets12NBwQ">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_Cq-rPZEeEeauDets12NBwQ">
+          <nativeType href="pathmap://LogicalDBTypes#_WWeJ4BEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+      <columns xmi:id="_CrLfgZEeEeauDets12NBwQ" techID="_CrLfgJEeEeauDets12NBwQ" name="SHOPPING_CART_ID" indexElements="_CrQ_E5EeEeauDets12NBwQ" foreignKeyElements="_CrLfhZEeEeauDets12NBwQ">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_CrLfg5EeEeauDets12NBwQ">
+          <nativeType href="pathmap://LogicalDBTypes#_WWeJ4BEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+      <columns xmi:id="_CrLfiZEeEeauDets12NBwQ" techID="_CrLfiJEeEeauDets12NBwQ" name="USER_ID" indexElements="_CrQ_F5EeEeauDets12NBwQ" foreignKeyElements="_CrLfjZEeEeauDets12NBwQ">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_CrLfi5EeEeauDets12NBwQ">
+          <nativeType href="pathmap://LogicalDBTypes#_WWeJ4BEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+      <columns xmi:id="_CrXFv5EeEeauDets12NBwQ" comments="Indicateur pour savoir si l'enregistrement est valide" techID="_CrXFvpEeEeauDets12NBwQ" name="main_XTOPSUP" defaultValue="'0'">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_CrXFwZEeEeauDets12NBwQ" length="1">
+          <nativeType href="pathmap://LogicalDBTypes#_WWew-BEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+      <columns xmi:id="_CrXFxZEeEeauDets12NBwQ" comments="Date de mise à jour de la ligne" techID="_CrXFxJEeEeauDets12NBwQ" name="main_XDMAJ">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_CrXFx5EeEeauDets12NBwQ">
+          <nativeType href="pathmap://LogicalDBTypes#_WWew-xEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+    </tables>
+    <tables xsi:type="database:Table" xmi:id="_Cq-rP5EeEeauDets12NBwQ" techID="_Cq-rPpEeEeauDets12NBwQ" name="SHOOPING_CART_LINE">
+      <primaryKey xmi:id="_Cq_SSJEeEeauDets12NBwQ" comments="Contrainte PK pour la colonne SHOOPING_CART_LINE_ID" techID="_Cq_SR5EeEeauDets12NBwQ" name="SHOOPING_CART_LINE_PK" columns="_Cq_SRZEeEeauDets12NBwQ"/>
+      <foreignKeys xmi:id="_CrLfj5EeEeauDets12NBwQ" comments="Contrainte FK avec la table BOOK" techID="_CrLfjpEeEeauDets12NBwQ" name="SHOOPING_CART_LINE_FK1_1" target="_Cq3WcpEeEeauDets12NBwQ">
+        <elements xmi:id="_CrLflZEeEeauDets12NBwQ" techID="_CrLflJEeEeauDets12NBwQ" fkColumn="_CrLfkZEeEeauDets12NBwQ" pkColumn="_Cq-EJpEeEeauDets12NBwQ"/>
+      </foreignKeys>
+      <foreignKeys xmi:id="_CrLfl5EeEeauDets12NBwQ" comments="Contrainte FK avec la table SHOPPING_CART" techID="_CrLflpEeEeauDets12NBwQ" name="SHOOPING_CART_LINE_FK1_2" target="_Cq_SS5EeEeauDets12NBwQ">
+        <elements xmi:id="_CrMGkpEeEeauDets12NBwQ" techID="_CrMGkZEeEeauDets12NBwQ" fkColumn="_CrLfmZEeEeauDets12NBwQ" pkColumn="_Cq_5UpEeEeauDets12NBwQ"/>
+      </foreignKeys>
+      <constraints xmi:id="_CrXFzZEeEeauDets12NBwQ" comments="Liste des valeurs possibles pour main_XTOPSUP" techID="_CrXFzJEeEeauDets12NBwQ" name="SHOOPING_CART_LINE_CK1_1" expression="main_XTOPSUP in ('0','1','3','9')"/>
+      <indexes xmi:id="_CrS0QZEeEeauDets12NBwQ" comments="Index sur la FK (BOOK_ID) de la table SHOOPING_CART_LINE" techID="_CrS0QJEeEeauDets12NBwQ" name="SHOOPING_CART_LINE_FK1_1">
+        <elements xmi:id="_CrTbUZEeEeauDets12NBwQ" techID="_CrTbUJEeEeauDets12NBwQ" column="_CrLfkZEeEeauDets12NBwQ" asc="true"/>
+      </indexes>
+      <indexes xmi:id="_CrTbU5EeEeauDets12NBwQ" comments="Index sur la FK (SHOPPING_CART_ID) de la table SHOOPING_CART_LINE" techID="_CrTbUpEeEeauDets12NBwQ" name="SHOOPING_CART_LINE_FK1_2">
+        <elements xmi:id="_CrTbVZEeEeauDets12NBwQ" techID="_CrTbVJEeEeauDets12NBwQ" column="_CrLfmZEeEeauDets12NBwQ" asc="true"/>
+      </indexes>
+      <columns xmi:id="_Cq_SQZEeEeauDets12NBwQ" techID="_Cq_SQJEeEeauDets12NBwQ" name="QUANTITY">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_Cq_SQ5EeEeauDets12NBwQ">
+          <nativeType href="pathmap://LogicalDBTypes#_WWeJ4hEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+      <columns xmi:id="_Cq_SRZEeEeauDets12NBwQ" comments="PK de la table SHOOPING_CART_LINE" techID="_Cq_SRJEeEeauDets12NBwQ" name="SHOOPING_CART_LINE_ID" primaryKey="_Cq_SSJEeEeauDets12NBwQ">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_Cq_SSZEeEeauDets12NBwQ">
+          <nativeType href="pathmap://LogicalDBTypes#_WWeJ4BEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+      <columns xmi:id="_CrLfkZEeEeauDets12NBwQ" techID="_CrLfkJEeEeauDets12NBwQ" name="BOOK_ID" indexElements="_CrTbUZEeEeauDets12NBwQ" foreignKeyElements="_CrLflZEeEeauDets12NBwQ">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_CrLfk5EeEeauDets12NBwQ">
+          <nativeType href="pathmap://LogicalDBTypes#_WWeJ4BEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+      <columns xmi:id="_CrLfmZEeEeauDets12NBwQ" techID="_CrLfmJEeEeauDets12NBwQ" name="SHOPPING_CART_ID" nullable="true" indexElements="_CrTbVZEeEeauDets12NBwQ" foreignKeyElements="_CrMGkpEeEeauDets12NBwQ">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_CrMGkJEeEeauDets12NBwQ">
+          <nativeType href="pathmap://LogicalDBTypes#_WWeJ4BEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+      <columns xmi:id="_CrXFyZEeEeauDets12NBwQ" comments="Indicateur pour savoir si l'enregistrement est valide" techID="_CrXFyJEeEeauDets12NBwQ" name="main_XTOPSUP" defaultValue="'0'">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_CrXFy5EeEeauDets12NBwQ" length="1">
+          <nativeType href="pathmap://LogicalDBTypes#_WWew-BEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+      <columns xmi:id="_CrXFz5EeEeauDets12NBwQ" comments="Date de mise à jour de la ligne" techID="_CrXFzpEeEeauDets12NBwQ" name="main_XDMAJ">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_CrXF0ZEeEeauDets12NBwQ">
+          <nativeType href="pathmap://LogicalDBTypes#_WWew-xEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+    </tables>
+    <tables xsi:type="database:Table" xmi:id="_Cq_SS5EeEeauDets12NBwQ" techID="_Cq_SSpEeEeauDets12NBwQ" name="SHOPPING_CART">
+      <primaryKey xmi:id="_Cq_5VZEeEeauDets12NBwQ" comments="Contrainte PK pour la colonne SHOPPING_CART_ID" techID="_Cq_5VJEeEeauDets12NBwQ" name="SHOPPING_CART_PK" columns="_Cq_5UpEeEeauDets12NBwQ"/>
+      <foreignKeys xmi:id="_CrMGlJEeEeauDets12NBwQ" comments="Contrainte FK avec la table USER" techID="_CrMGk5EeEeauDets12NBwQ" name="SHOPPING_CART_FK1_1" target="_Cq_5WJEeEeauDets12NBwQ">
+        <elements xmi:id="_CrMGmpEeEeauDets12NBwQ" techID="_CrMGmZEeEeauDets12NBwQ" fkColumn="_CrMGlpEeEeauDets12NBwQ" pkColumn="_CrHOF5EeEeauDets12NBwQ"/>
+      </foreignKeys>
+      <constraints xmi:id="_CrXswpEeEeauDets12NBwQ" comments="Liste des valeurs possibles pour main_XTOPSUP" techID="_CrXswZEeEeauDets12NBwQ" name="SHOPPING_CART_CK1_1" expression="main_XTOPSUP in ('0','1','3','9')"/>
+      <indexes xmi:id="_CrTbV5EeEeauDets12NBwQ" comments="Index sur la FK (USER_ID) de la table SHOPPING_CART" techID="_CrTbVpEeEeauDets12NBwQ" name="SHOPPING_CART_FK1_1">
+        <elements xmi:id="_CrTbWZEeEeauDets12NBwQ" techID="_CrTbWJEeEeauDets12NBwQ" column="_CrMGlpEeEeauDets12NBwQ" asc="true"/>
+      </indexes>
+      <columns xmi:id="_Cq_STZEeEeauDets12NBwQ" techID="_Cq_STJEeEeauDets12NBwQ" name="STATUS">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_3I00AEBDEeuJCsQ9JYmMWQ">
+          <nativeType href="pathmap://LogicalDBTypes#_WWew-BEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+      <columns xmi:id="_Cq_5UpEeEeauDets12NBwQ" comments="PK de la table SHOPPING_CART" techID="_Cq_5UZEeEeauDets12NBwQ" name="SHOPPING_CART_ID" primaryKey="_Cq_5VZEeEeauDets12NBwQ">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_3I00AUBDEeuJCsQ9JYmMWQ">
+          <nativeType href="pathmap://LogicalDBTypes#_WWeJ4BEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+      <columns xmi:id="_CrMGlpEeEeauDets12NBwQ" techID="_CrMGlZEeEeauDets12NBwQ" name="USER_ID" nullable="true" indexElements="_CrTbWZEeEeauDets12NBwQ" foreignKeyElements="_CrMGmpEeEeauDets12NBwQ">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_CrMGmJEeEeauDets12NBwQ">
+          <nativeType href="pathmap://LogicalDBTypes#_WWeJ4BEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+      <columns xmi:id="_CrXF05EeEeauDets12NBwQ" comments="Indicateur pour savoir si l'enregistrement est valide" techID="_CrXF0pEeEeauDets12NBwQ" name="main_XTOPSUP" defaultValue="'0'">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_CrXswJEeEeauDets12NBwQ" length="1">
+          <nativeType href="pathmap://LogicalDBTypes#_WWew-BEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+      <columns xmi:id="_CrXsxJEeEeauDets12NBwQ" comments="Date de mise à jour de la ligne" techID="_CrXsw5EeEeauDets12NBwQ" name="main_XDMAJ">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_CrXsxpEeEeauDets12NBwQ">
+          <nativeType href="pathmap://LogicalDBTypes#_WWew-xEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+    </tables>
+    <tables xsi:type="database:Table" xmi:id="_Cq_5WJEeEeauDets12NBwQ" techID="_Cq_5V5EeEeauDets12NBwQ" name="USER">
+      <primaryKey xmi:id="_CrHOGpEeEeauDets12NBwQ" comments="Contrainte PK pour la colonne USER_ID" techID="_CrHOGZEeEeauDets12NBwQ" name="USER_PK" columns="_CrHOF5EeEeauDets12NBwQ"/>
+      <constraints xmi:id="_CrXszJEeEeauDets12NBwQ" comments="Liste des valeurs possibles pour main_XTOPSUP" techID="_CrXsy5EeEeauDets12NBwQ" name="USER_CK1_1" expression="main_XTOPSUP in ('0','1','3','9')"/>
+      <columns xmi:id="_Cq_5WpEeEeauDets12NBwQ" techID="_Cq_5WZEeEeauDets12NBwQ" name="NAME">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_Cq_5XJEeEeauDets12NBwQ">
+          <nativeType href="pathmap://LogicalDBTypes#_WWew-BEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+      <columns xmi:id="_CrBugZEeEeauDets12NBwQ" techID="_CrBugJEeEeauDets12NBwQ" name="EMAIL">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_CrHOEZEeEeauDets12NBwQ">
+          <nativeType href="pathmap://LogicalDBTypes#_WWew-BEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+      <columns xmi:id="_CrHOE5EeEeauDets12NBwQ" techID="_CrHOEpEeEeauDets12NBwQ" name="PASSWORD">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_CrHOFZEeEeauDets12NBwQ">
+          <nativeType href="pathmap://LogicalDBTypes#_WWew-BEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+      <columns xmi:id="_CrHOF5EeEeauDets12NBwQ" comments="PK de la table USER" techID="_CrHOFpEeEeauDets12NBwQ" name="USER_ID" primaryKey="_CrHOGpEeEeauDets12NBwQ">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_CrHOG5EeEeauDets12NBwQ">
+          <nativeType href="pathmap://LogicalDBTypes#_WWeJ4BEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+      <columns xmi:id="_CrXsyJEeEeauDets12NBwQ" comments="Indicateur pour savoir si l'enregistrement est valide" techID="_CrXsx5EeEeauDets12NBwQ" name="main_XTOPSUP" defaultValue="'0'">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_CrXsypEeEeauDets12NBwQ" length="1">
+          <nativeType href="pathmap://LogicalDBTypes#_WWew-BEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+      <columns xmi:id="_CrXszpEeEeauDets12NBwQ" comments="Date de mise à jour de la ligne" techID="_CrXszZEeEeauDets12NBwQ" name="main_XDMAJ">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_CrXs0JEeEeauDets12NBwQ">
+          <nativeType href="pathmap://LogicalDBTypes#_WWew-xEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+    </tables>
+  </schemas>
+</database:DataBase>

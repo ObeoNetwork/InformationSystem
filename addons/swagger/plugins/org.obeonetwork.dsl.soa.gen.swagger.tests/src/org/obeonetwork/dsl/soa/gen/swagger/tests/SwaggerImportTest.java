@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2008, 2021 Obeo.
+ * Copyright (c) 2008, 2023 Obeo.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -11,13 +11,13 @@
 package org.obeonetwork.dsl.soa.gen.swagger.tests;
 
 import static org.junit.Assert.assertTrue;
-import static org.obeonetwork.dsl.soa.gen.swagger.tests.TestHelper.assertECoreEquals;
-import static org.obeonetwork.dsl.soa.gen.swagger.tests.TestHelper.createSoaResourceSet;
-import static org.obeonetwork.dsl.soa.gen.swagger.tests.TestHelper.createSoaResourceSetFromBundleEntryPath;
-import static org.obeonetwork.dsl.soa.gen.swagger.tests.TestHelper.createSystem;
-import static org.obeonetwork.dsl.soa.gen.swagger.tests.TestHelper.createTempFolderFromBundleEntryPath;
-import static org.obeonetwork.dsl.soa.gen.swagger.tests.TestHelper.findFirstFile;
-import static org.obeonetwork.dsl.soa.gen.swagger.tests.TestHelper.loadEnvironment;
+import static org.obeonetwork.dsl.soa.gen.swagger.tests.SwaggerTestHelper.createSoaResourceSet;
+import static org.obeonetwork.dsl.soa.gen.swagger.tests.SwaggerTestHelper.createSoaResourceSetFromBundleEntryPath;
+import static org.obeonetwork.dsl.soa.gen.swagger.tests.SwaggerTestHelper.createSystem;
+import static org.obeonetwork.dsl.soa.gen.swagger.tests.SwaggerTestHelper.createTempFolderFromBundleEntryPath;
+import static org.obeonetwork.dsl.soa.gen.swagger.tests.SwaggerTestHelper.findFirstFile;
+import static org.obeonetwork.dsl.soa.gen.swagger.tests.SwaggerTestHelper.loadEnvironment;
+import static org.obeonetwork.tools.tests.ObeoDSMTestHelper.assertObeoDSMEquals;
 
 import java.io.File;
 
@@ -70,8 +70,8 @@ public class SwaggerImportTest {
 		
 		destinationSystem.setName(expectedSystem.getName());
     
-    assertTrue("Swagger import returned with error status code", status != IStatus.ERROR);
-		assertECoreEquals("Imported model is different for file " + inputFile.getAbsolutePath(), expectedSystem, destinationSystem); 
+		assertTrue("Swagger import returned with error status code", status != IStatus.ERROR);
+		assertObeoDSMEquals("Imported model is different for file " + inputFile.getAbsolutePath(), expectedSystem, destinationSystem); 
 	}
 
 	@Test
@@ -94,7 +94,6 @@ public class SwaggerImportTest {
 		testImportFromFile("thetvdb", MapperType.YAML);
 	}
 	
-
 	@Test
 	public void testJsonImportThetvdbExtensions() {
 		testImportFromFile("thetvdb-extensions", MapperType.JSON);

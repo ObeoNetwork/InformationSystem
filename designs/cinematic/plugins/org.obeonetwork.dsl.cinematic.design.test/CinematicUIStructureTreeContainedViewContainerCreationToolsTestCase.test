@@ -1,0 +1,116 @@
+--- RCPTT testcase ---
+Format-Version: 1.0
+Element-Name: CinematicUIStructureTreeContainedViewContainerCreationToolsTestCase
+Element-Type: testcase
+Element-Version: 3.0
+External-Reference: 
+Id: _CAmrcGNcEeSg_dTG4Ei-uQ
+Runtime-Version: 2.5.1.M3
+Save-Time: 2/24/22, 2:39 PM
+Testcase-Type: ecl
+
+------=_.description-216f885c-d591-38ce-8ea2-e4f8cb4d6ffa
+Content-Type: text/plain
+Entry-Name: .description
+
+Testing Tree UI Structure ContainedViewContainer Creation tools defines in cinematic.odesign/UI Structure.
+- Tool UIS_ContainedViewContainer/CRE_ViewContainer
+- Tool UIS_ContainedViewContainer/CRE_ViewElement
+- Tool UIS_ContainedViewContainer/CRE_ViewContainerReference
+- Tool UIS_ContainedViewContainer/CRE_ViewEvent
+- Tool UIS_ContainedViewContainer/CRE_ViewAction
+- Tool UIS_ContainedViewContainer/CRE_DataBinding
+- Tool UIS_ContainedViewContainer/CRE_Duplicate
+
+------=_.description-216f885c-d591-38ce-8ea2-e4f8cb4d6ffa--
+------=_.content-0a7243a0-75d3-3d5f-9791-539de0e5b7ac
+Content-Type: text/ecl
+Entry-Name: .content
+
+get-view "Model Explorer" | get-tree 
+    | select "E-BookStore/E-BookStore.cinematic/Cinematic Root E-BookStore/E-BookStore UI Structure" | double-click
+with [get-editor "E-BookStore UI Structure" | get-tree] {
+    get-item "E-BookStore/HomePage : Page/SearchForm : Panel" | click
+    select "E-BookStore/HomePage : Page/SearchForm : Panel" 
+    	// Check Tool UIS_ContainedViewContainer/CRE_ViewContainer
+        | get-menu "View Container" | click
+}
+with [get-window "Selection Wizard"] {
+    get-tree | select "Toolkit Web/Widget Table"
+    get-button Finish | click
+}
+get-editor "E-BookStore UI Structure" | get-tree 
+    | get-item "E-BookStore/HomePage : Page/SearchForm : Panel/ViewContainer1 : Table" 
+    | get-property "getText()" | equals "ViewContainer1 : Table" | verify-true
+with [get-editor "E-BookStore UI Structure" | get-tree] {
+    get-item "E-BookStore/HomePage : Page/SearchForm : Panel" | click
+    select "E-BookStore/HomePage : Page/SearchForm : Panel" 
+    	// Check Tool UIS_ContainedViewContainer/CRE_ViewElement
+        | get-menu "View Element" | click
+}
+with [get-window "Selection Wizard"] {
+    get-tree | select "Toolkit Web/Widget Password"
+    get-button Finish | click
+}
+get-editor "E-BookStore UI Structure" | get-tree 
+    | get-item "E-BookStore/HomePage : Page/SearchForm : Panel/viewElement5 : Password" 
+    | get-property "getText()" | equals "viewElement5 : Password" | verify-true
+with [get-editor "E-BookStore UI Structure" | get-tree] {
+    get-item "E-BookStore/HomePage : Page/SearchForm : Panel" | click
+    select "E-BookStore/HomePage : Page/SearchForm : Panel" 
+    	// Check Tool UIS_ContainedViewContainer/CRE_ViewContainerReference
+        | get-menu "View Container Reference" | click
+}
+with [get-window "Selection Wizard"] {
+    get-tree | select "Cinematic Root E-BookStore/View Container HomePage : Page/View Container Books : Table"
+    get-button Finish | click
+}
+//get-editor "E-BookStore UI Structure" | get-tree 
+//    | get-item "E-BookStore/HomePage : Page/SearchForm : Panel/books : Books" 
+//    | get-property "getText()" | equals "books : Books" | verify-true
+with [get-editor "E-BookStore UI Structure" | get-tree] {
+    get-item "E-BookStore/HomePage : Page/SearchForm : Panel" | click
+    // Check Tool UIS_ContainedViewContainer/CRE_ViewEvent
+    select "E-BookStore/HomePage : Page/SearchForm : Panel" | get-menu Event 
+        | click
+}
+with [get-window "Selection Wizard"] {
+    get-tree | select "Widget Event Type onFocusLost"
+    get-button Finish | click
+}
+get-editor "E-BookStore UI Structure" | get-tree 
+    | get-item "E-BookStore/HomePage : Page/SearchForm : Panel/onFocusLost : onFocusLost" 
+    | get-property "getText()" | equals "onFocusLost : onFocusLost" | verify-true
+with [get-editor "E-BookStore UI Structure" | get-tree] {
+    get-item "E-BookStore/HomePage : Page/SearchForm : Panel" | click
+    // Tool UIS_ContainedViewContainer/CRE_ViewAction
+    select "E-BookStore/HomePage : Page/SearchForm : Panel" | get-menu Action 
+        | click
+}
+get-editor "E-BookStore UI Structure" | get-tree 
+    | get-item "E-BookStore/HomePage : Page/SearchForm : Panel/action1" 
+    | get-property "getText()" | equals action1 | verify-true
+with [get-editor "E-BookStore UI Structure" | get-tree] {
+    get-item "E-BookStore/HomePage : Page/SearchForm : Panel" | click
+    select "E-BookStore/HomePage : Page/SearchForm : Panel" 
+    	// Tool UIS_ContainedViewContainer/CRE_DataBinding
+        | get-menu "Data Binding" | click
+}
+with [get-window "Selection Wizard"] {
+    get-tree | select "Components/Namespace main/DTO ShoppingCart/Reference lines"
+    get-button Finish | click
+}
+get-editor "E-BookStore UI Structure" | get-tree 
+    | get-item "E-BookStore/HomePage : Page/SearchForm : Panel/ShoppingCart.lines \\(DTO Reference\\)" 
+    | get-property "getText()" | equals "ShoppingCart.lines (DTO Reference)" | verify-true
+with [get-editor "E-BookStore UI Structure" | get-tree] {
+    get-item "E-BookStore/HomePage : Page/SearchForm : Panel" | click
+    // Check Tool UIS_ContainedViewContainer/CRE_Duplicate
+    select "E-BookStore/HomePage : Page/SearchForm : Panel" | get-menu Duplicate 
+        | click
+}
+get-editor "E-BookStore UI Structure" | get-tree 
+    | get-item "E-BookStore/HomePage : Page/SearchForm copy : Panel" 
+    | get-property "getText()" | equals "SearchForm copy : Panel" | verify-true
+
+------=_.content-0a7243a0-75d3-3d5f-9791-539de0e5b7ac--

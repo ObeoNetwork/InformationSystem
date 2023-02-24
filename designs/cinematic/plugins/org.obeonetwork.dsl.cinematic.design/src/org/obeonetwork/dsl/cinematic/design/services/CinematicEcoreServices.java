@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2008, 2021 Obeo.
+ * Copyright (c) 2008, 2023 Obeo.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -19,7 +19,6 @@ import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.sirius.business.api.session.Session;
 import org.eclipse.sirius.business.api.session.SessionManager;
 import org.eclipse.sirius.viewpoint.DSemanticDecorator;
-import org.obeonetwork.dsl.cinematic.AbstractPackage;
 import org.obeonetwork.dsl.cinematic.CinematicRoot;
 import org.obeonetwork.dsl.cinematic.NamedElement;
 import org.obeonetwork.dsl.cinematic.view.ViewEvent;
@@ -68,23 +67,6 @@ public class CinematicEcoreServices {
 		}
 		
 		return clone;
-	}
-	
-	/**
-	 * Return the abstractPackage container.
-	 * @param context the AbstractPackage
-	 * @return the container
-	 */
-	public AbstractPackage getAbstractPackageContainer(AbstractPackage context){
-		EObject container = context.eContainer();
-		AbstractPackage abstractPackageToReturn = null;
-		while (container.eContainer() != null && !(context.eContainer() instanceof AbstractPackage)){
-			container = container.eContainer();
-		}
-		if (container instanceof AbstractPackage){
-			abstractPackageToReturn = (AbstractPackage)container;
-		}
-		return abstractPackageToReturn;
 	}
 	
 	/**

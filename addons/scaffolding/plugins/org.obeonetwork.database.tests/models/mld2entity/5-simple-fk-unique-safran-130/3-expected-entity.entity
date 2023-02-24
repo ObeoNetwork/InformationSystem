@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<oent:Root xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:oent="http://www.obeonetwork.org/dsl/entity/2.0.0" xmlns:oenv="http://www.obeonetwork.org/dsl/environment/2.0.0" xmi:id="_oUCJED7aEeKDHrNCTHVx7A" createdOn="2012-12-05T13:52:30.369+0100" modifiedOn="2013-09-05T17:24:36.013+0200">
+  <blocks xmi:id="_Rb7N0BY_EeOSDrYWINMwpA" createdOn="2013-09-05T17:24:36.013+0200" modifiedOn="2013-09-05T17:24:36.015+0200" name="affaire">
+    <metadatas xmi:id="_Rb7N0RY_EeOSDrYWINMwpA">
+      <metadatas xsi:type="oenv:Annotation" xmi:id="_Rb7N0hY_EeOSDrYWINMwpA" title="PHYSICAL_NAME" body="affaire"/>
+    </metadatas>
+    <entities xmi:id="_Rb7N0xY_EeOSDrYWINMwpA" description="Table des affaires" createdOn="2013-09-05T17:24:36.013+0200" modifiedOn="2013-09-05T17:24:36.016+0200" name="CsAff">
+      <metadatas xmi:id="_Rb7N1BY_EeOSDrYWINMwpA">
+        <metadatas xsi:type="oenv:Annotation" xmi:id="_Rb7N1RY_EeOSDrYWINMwpA" title="PHYSICAL_NAME" body="CS_AFF"/>
+      </metadatas>
+      <ownedAttributes xmi:id="_Rb7N1hY_EeOSDrYWINMwpA" description="Numéro de l'affaire" createdOn="2013-09-05T17:24:36.013+0200" modifiedOn="2013-09-05T17:24:36.015+0200" name="CsAffNum" multiplicity="1">
+        <metadatas xmi:id="_Rb7N1xY_EeOSDrYWINMwpA">
+          <metadatas xsi:type="oenv:Annotation" xmi:id="_Rb7N2BY_EeOSDrYWINMwpA" title="PHYSICAL_NAME" body="CS_AFF_NUM"/>
+          <metadatas xsi:type="oenv:Annotation" xmi:id="_Rb9DBxY_EeOSDrYWINMwpA" title="PHYSICAL_UNIQUE" body="ASC"/>
+        </metadatas>
+        <type href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5FXAawKEd2XLNOhkJIazw"/>
+      </ownedAttributes>
+      <ownedReferences xmi:id="_Rb9DBBY_EeOSDrYWINMwpA" description="Contrainte FK avec la table CS_GPA" createdOn="2013-09-05T17:24:36.016+0200" modifiedOn="2013-09-05T17:24:36.016+0200" name="csAffId" multiplicity="1..*" type="_Rb8b8BY_EeOSDrYWINMwpA">
+        <metadatas xmi:id="_Rb9DBRY_EeOSDrYWINMwpA">
+          <metadatas xsi:type="oenv:Annotation" xmi:id="_Rb9DBhY_EeOSDrYWINMwpA" title="PHYSICAL_NAME" body="CS_AFF_ID"/>
+          <metadatas xsi:type="oenv:Annotation" xmi:id="_Rb9DCBY_EeOSDrYWINMwpA" title="PHYSICAL_UNIQUE" body="ASC"/>
+        </metadatas>
+      </ownedReferences>
+    </entities>
+    <entities xmi:id="_Rb8b8BY_EeOSDrYWINMwpA" description="Table des GPA" createdOn="2013-09-05T17:24:36.015+0200" modifiedOn="2013-09-05T17:24:36.016+0200" name="CsGpa">
+      <metadatas xmi:id="_Rb8b8RY_EeOSDrYWINMwpA">
+        <metadatas xsi:type="oenv:Annotation" xmi:id="_Rb8b8hY_EeOSDrYWINMwpA" title="PHYSICAL_NAME" body="CS_GPA"/>
+      </metadatas>
+      <ownedAttributes xmi:id="_Rb9DABY_EeOSDrYWINMwpA" description="Année de la GPA" createdOn="2013-09-05T17:24:36.016+0200" modifiedOn="2013-09-05T17:24:36.016+0200" name="CsGpaAnnee" multiplicity="1">
+        <metadatas xmi:id="_Rb9DARY_EeOSDrYWINMwpA">
+          <metadatas xsi:type="oenv:Annotation" xmi:id="_Rb9DAhY_EeOSDrYWINMwpA" title="PHYSICAL_NAME" body="CS_GPA_ANNEE"/>
+          <metadatas xsi:type="oenv:Annotation" xmi:id="_Rb9DAxY_EeOSDrYWINMwpA" title="PHYSICAL_SIZE" body="4"/>
+          <metadatas xsi:type="oenv:Annotation" xmi:id="_Rb9DCRY_EeOSDrYWINMwpA" title="PHYSICAL_UNIQUE" body="ASC"/>
+        </metadatas>
+        <type href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5F-EKwKEd2XLNOhkJIazw"/>
+      </ownedAttributes>
+    </entities>
+  </blocks>
+</oent:Root>

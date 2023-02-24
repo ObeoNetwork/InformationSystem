@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<oent:Root xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:oent="http://www.obeonetwork.org/dsl/entity/2.0.0" xmlns:oenv="http://www.obeonetwork.org/dsl/environment/2.0.0" xmi:id="_IJzTEGFREeKPQbctQ06sag" createdOn="2013-01-18T10:26:24.193+0100" modifiedOn="2013-01-18T10:29:55.711+0100">
+  <blocks xmi:id="_K3scsGFREeKPQbctQ06sag" createdOn="2013-01-18T10:26:42.427+0100" modifiedOn="2013-01-18T10:29:55.711+0100" name="serie">
+    <entities xmi:id="_NPsO0GFREeKPQbctQ06sag" description="Table des série" createdOn="2013-01-18T10:26:58.365+0100" modifiedOn="2013-01-18T10:29:19.382+0100" name="serie">
+      <metadatas xmi:id="_g2YhkGFREeKPQbctQ06sag">
+        <metadatas xsi:type="oenv:Annotation" xmi:id="_g2YhkWFREeKPQbctQ06sag" title="PHYSICAL_NAME" body="GS_SERIE"/>
+      </metadatas>
+      <ownedAttributes xmi:id="_SbF8sGFREeKPQbctQ06sag" description="Titre de la série" createdOn="2013-01-18T10:27:33.115+0100" modifiedOn="2013-01-18T10:29:19.382+0100" name="titre" multiplicity="1">
+        <metadatas xmi:id="_iQiLYGFREeKPQbctQ06sag">
+          <metadatas xsi:type="oenv:Annotation" xmi:id="_iQiLYWFREeKPQbctQ06sag" title="PHYSICAL_NAME" body="GS_SERIE_TITRE"/>
+          <metadatas xsi:type="oenv:Annotation" xmi:id="_kiuQcGFREeKPQbctQ06sag" title="PHYSICAL_SIZE" body="50"/>
+          <metadatas xsi:type="oenv:Annotation" xmi:id="_lRW4EGFREeKPQbctQ06sag" title="PHYSICAL_DEFAULT" body=""/>
+        </metadatas>
+        <type href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5F-EKwKEd2XLNOhkJIazw"/>
+      </ownedAttributes>
+    </entities>
+    <entities xmi:id="_NZXvQGFREeKPQbctQ06sag" description="Table des saison" createdOn="2013-01-18T10:26:59.380+0100" modifiedOn="2013-01-18T10:29:55.711+0100" name="saison">
+      <metadatas xmi:id="_i-uuIGFREeKPQbctQ06sag">
+        <metadatas xsi:type="oenv:Annotation" xmi:id="_i-uuIWFREeKPQbctQ06sag" title="PHYSICAL_NAME" body="GS_SAISON"/>
+      </metadatas>
+      <ownedAttributes xmi:id="_S6Fl0GFREeKPQbctQ06sag" description="numéro de la saison" createdOn="2013-01-18T10:27:36.365+0100" modifiedOn="2013-01-18T10:29:55.711+0100" name="numéro" multiplicity="1">
+        <metadatas xmi:id="_jzVa4GFREeKPQbctQ06sag">
+          <metadatas xsi:type="oenv:Annotation" xmi:id="_jzVa4WFREeKPQbctQ06sag" title="PHYSICAL_NAME" body="GS_SAISON_NUM"/>
+        </metadatas>
+        <type href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5FXAawKEd2XLNOhkJIazw"/>
+      </ownedAttributes>
+      <ownedReferences xmi:id="_bewVkGFREeKPQbctQ06sag" description="Série de la saison" createdOn="2013-01-18T10:28:33.897+0100" modifiedOn="2013-01-18T10:29:00.366+0100" name="serie" multiplicity="1" type="_NPsO0GFREeKPQbctQ06sag"/>
+    </entities>
+  </blocks>
+</oent:Root>

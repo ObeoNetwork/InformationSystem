@@ -2,7 +2,7 @@ Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: Environment Model
 Bundle-SymbolicName: org.obeonetwork.dsl.environment;singleton:=true
-Bundle-Version: 2.2.0.qualifier
+Bundle-Version: 4.0.0.qualifier
 Bundle-ClassPath: .
 Bundle-Vendor: Obeo Network
 Bundle-Localization: plugin
@@ -21,7 +21,7 @@ Require-Bundle: org.eclipse.core.runtime,
  org.obeonetwork.tools.migration,
  org.eclipse.sirius,
  org.eclipse.sirius.ext.base,
- org.obeonetwork.utils.sirius,
  org.eclipse.emf.common,
- org.eclipse.emf.transaction
+ org.eclipse.emf.transaction,
+ org.obeonetwork.utils.common
 Bundle-ActivationPolicy: lazy

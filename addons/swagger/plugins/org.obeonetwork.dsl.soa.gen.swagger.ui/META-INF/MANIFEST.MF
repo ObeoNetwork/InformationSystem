@@ -2,7 +2,7 @@ Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: Obeo Network Swagger format support UI
 Bundle-SymbolicName: org.obeonetwork.dsl.soa.gen.swagger.ui;singleton:=true
-Bundle-Version: 2.2.0.qualifier
+Bundle-Version: 4.0.0.qualifier
 Automatic-Module-Name: org.obeonetwork.dsl.soa.gen.swagger.ui
 Bundle-RequiredExecutionEnvironment: JavaSE-1.8
 Bundle-Vendor: Obeo Network
@@ -20,6 +20,5 @@ Require-Bundle: org.eclipse.ui,
  org.eclipse.sirius,
  org.eclipse.emf.transaction,
  org.obeonetwork.utils.common,
- org.obeonetwork.utils.sirius
-Import-Package: org.eclipse.jface.databinding.swt,
- org.obeonetwork.utils.sirius.transaction
+ org.obeonetwork.utils.common.ui
+Import-Package: org.eclipse.jface.databinding.swt

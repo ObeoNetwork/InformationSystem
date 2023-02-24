@@ -2,7 +2,7 @@ Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: M2Doc Requirement Services
 Bundle-SymbolicName: org.obeonetwork.dsl.requirement.m2doc.services;singleton:=true
-Bundle-Version: 2.2.0.qualifier
+Bundle-Version: 4.0.0.qualifier
 Bundle-Activator: org.obeonetwork.requirement.m2doc.services.Activator
 Require-Bundle: org.eclipse.core.runtime,
  org.eclipse.help;bundle-version="3.6.0",
@@ -11,7 +11,7 @@ Require-Bundle: org.eclipse.core.runtime,
  org.eclipse.sirius,
  org.eclipse.acceleo.annotations,
  org.obeonetwork.dsl.entity
-Bundle-RequiredExecutionEnvironment: JavaSE-1.7
+Bundle-RequiredExecutionEnvironment: JavaSE-1.8
 Bundle-ActivationPolicy: lazy
 Import-Package: org.eclipse.emf.ecore,
  org.obeonetwork.dsl.requirement

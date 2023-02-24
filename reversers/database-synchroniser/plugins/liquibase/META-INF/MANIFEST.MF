@@ -2,14 +2,14 @@ Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: Liquibase
 Bundle-SymbolicName: liquibase
-Bundle-Version: 4.4.0.qualifier
+Bundle-Version: 4.14.0.qualifier
 Automatic-Module-Name: liquibase
 Bundle-RequiredExecutionEnvironment: JavaSE-1.8
 Bundle-Vendor: Liquibase
 Require-Bundle: org.eclipse.osgi;bundle-version="3.14.0",
  org.obeonetwork.dsl.database.drivers
 Bundle-ClassPath: jars/jaxb-api-2.3.0.jar,
- jars/liquibase-core-4.4.0.jar,
+ jars/liquibase-core-4.14.0.jar,
  jars/slf4j-api-1.6.4.jar,
  jars/slf4j-simple-1.6.4.jar,
  jars/snakeyaml-1.27.jar

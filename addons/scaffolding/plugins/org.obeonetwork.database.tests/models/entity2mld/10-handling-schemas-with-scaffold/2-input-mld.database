@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<database:DataBase xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:database="http://www.obeonetwork.org/dsl/database/1.0" xmlns:typeslibrary="http://www.obeonetwork.org/dsl/typeslibrary/1.0" xmi:id="_OcEAcWR0EeKXKeCsnPm5eA" techID="_7t3FEJYgEea3rZOTd3d7bg" name="My">
+  <usedLibraries xsi:type="typeslibrary:NativeTypesLibrary" href="pathmap://LogicalDBTypes#_WWbGkREnEeGTa_JlZYBw1A"/>
+  <schemas xmi:id="_dLyHwGR1EeKXKeCsnPm5eA" techID="_7t3FEZYgEea3rZOTd3d7bg" name="GS">
+    <tables xsi:type="database:Table" xmi:id="_dLyHwWR1EeKXKeCsnPm5eA" comments="Table des séries" techID="_7t3FEpYgEea3rZOTd3d7bg" name="GS_SERIE">
+      <primaryKey xmi:id="_dLz882R1EeKXKeCsnPm5eA" comments="Contrainte PK pour la colonne GS_SERIE_ID" techID="_7t4TMZYgEea3rZOTd3d7bg" name="GS_SERIE_PK" columns="_dLz88WR1EeKXKeCsnPm5eA"/>
+      <foreignKeys xmi:id="_dL0kDWR1EeKXKeCsnPm5eA" comments="Genre de la série&#xD;&#xA;" techID="_7t4TMpYgEea3rZOTd3d7bg" name="" target="_dLz8_2R1EeKXKeCsnPm5eA">
+        <elements xmi:id="_dL0kEWR1EeKXKeCsnPm5eA" techID="_7t4TM5YgEea3rZOTd3d7bg" fkColumn="_dL0kDmR1EeKXKeCsnPm5eA" pkColumn="_dL0kAWR1EeKXKeCsnPm5eA"/>
+      </foreignKeys>
+      <foreignKeys xmi:id="_dL0kEmR1EeKXKeCsnPm5eA" comments="Etat de la série" techID="_7t4TNJYgEea3rZOTd3d7bg" name="" target="_dL0kBWR1EeKXKeCsnPm5eA">
+        <elements xmi:id="_dL0kFmR1EeKXKeCsnPm5eA" techID="_7t4TNZYgEea3rZOTd3d7bg" fkColumn="_dL0kE2R1EeKXKeCsnPm5eA" pkColumn="_dL0kCWR1EeKXKeCsnPm5eA"/>
+      </foreignKeys>
+      <constraints xmi:id="_dLz89WR1EeKXKeCsnPm5eA" techID="_7t4TNpYgEea3rZOTd3d7bg" name="GS_SERIE_CK1_1" expression="GS_SERIE_VF in ('O','N')"/>
+      <constraints xmi:id="_dL1yIGR1EeKXKeCsnPm5eA" techID="_7t4TN5YgEea3rZOTd3d7bg" name="GS_SERIE_CK1_2" expression="GS_XTOPSUP in ('0','1','3','9')"/>
+      <indexes xmi:id="_dL1LEmR1EeKXKeCsnPm5eA" comments="Index d'unicité pour GS_SERIE_TITRE" techID="_7t4TOJYgEea3rZOTd3d7bg" name="GS_SERIE_UN1_1" unique="true">
+        <elements xmi:id="_dL1LE2R1EeKXKeCsnPm5eA" techID="_7t4TOZYgEea3rZOTd3d7bg" column="_dLyHwmR1EeKXKeCsnPm5eA" asc="true"/>
+      </indexes>
+      <indexes xmi:id="_dL1LFGR1EeKXKeCsnPm5eA" comments="Index sur la FK (RF_GENRE_ID) de la table GS_SERIE" techID="_7t4TOpYgEea3rZOTd3d7bg" name="GS_SERIE_FK1_2" unique="true">
+        <elements xmi:id="_dL1LFWR1EeKXKeCsnPm5eA" techID="_7t4TO5YgEea3rZOTd3d7bg" column="_dL0kDmR1EeKXKeCsnPm5eA" asc="true"/>
+      </indexes>
+      <indexes xmi:id="_dL1LFmR1EeKXKeCsnPm5eA" comments="Index sur la FK (RF_ETAT_ID) de la table GS_SERIE" techID="_7t4TPJYgEea3rZOTd3d7bg" name="GS_SERIE_FK1_2" unique="true">
+        <elements xmi:id="_dL1LF2R1EeKXKeCsnPm5eA" techID="_7t4TPZYgEea3rZOTd3d7bg" column="_dL0kE2R1EeKXKeCsnPm5eA" asc="true"/>
+      </indexes>
+      <columns xmi:id="_dLyHwmR1EeKXKeCsnPm5eA" comments="Titre de la série" techID="_7t3FE5YgEea3rZOTd3d7bg" name="GS_SERIE_TITRE" indexElements="_dL1LE2R1EeKXKeCsnPm5eA">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_dLzV4GR1EeKXKeCsnPm5eA" length="50">
+          <nativeType href="pathmap://LogicalDBTypes#_WWew-BEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+      <columns xmi:id="_dLzV4WR1EeKXKeCsnPm5eA" comments="Série francaise (O/N)" techID="_7t3sIZYgEea3rZOTd3d7bg" name="GS_SERIE_VF" defaultValue="'O'">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_dLz88GR1EeKXKeCsnPm5eA" length="1">
+          <nativeType href="pathmap://LogicalDBTypes#_WWew-BEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+      <columns xmi:id="_dLz88WR1EeKXKeCsnPm5eA" comments="PK de la table GS_SERIE" techID="_7t3sI5YgEea3rZOTd3d7bg" name="GS_SERIE_ID" primaryKey="_dLz882R1EeKXKeCsnPm5eA">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_dLz89GR1EeKXKeCsnPm5eA">
+          <nativeType href="pathmap://LogicalDBTypes#_WWeJ4BEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+      <columns xmi:id="_dL0kDmR1EeKXKeCsnPm5eA" comments="Genre de la série&#xD;&#xA;" techID="_7t3sJZYgEea3rZOTd3d7bg" name="RF_GENRE_ID" indexElements="_dL1LFWR1EeKXKeCsnPm5eA" foreignKeyElements="_dL0kEWR1EeKXKeCsnPm5eA">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_dL0kEGR1EeKXKeCsnPm5eA">
+          <nativeType href="pathmap://LogicalDBTypes#_WWeJ4BEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+      <columns xmi:id="_dL0kE2R1EeKXKeCsnPm5eA" comments="Etat de la série" techID="_7t3sJ5YgEea3rZOTd3d7bg" name="RF_ETAT_ID" nullable="true" indexElements="_dL1LF2R1EeKXKeCsnPm5eA" foreignKeyElements="_dL0kFmR1EeKXKeCsnPm5eA">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_dL0kFWR1EeKXKeCsnPm5eA">
+          <nativeType href="pathmap://LogicalDBTypes#_WWeJ4BEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+      <columns xmi:id="_dL1LI2R1EeKXKeCsnPm5eA" comments="Indicateur pour savoir si l'enregistrement est valide" techID="_7t3sKZYgEea3rZOTd3d7bg" name="GS_XTOPSUP" defaultValue="'0'">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_dL1LJWR1EeKXKeCsnPm5eA" length="1">
+          <nativeType href="pathmap://LogicalDBTypes#_WWew-BEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+      <columns xmi:id="_dL1yIWR1EeKXKeCsnPm5eA" comments="Date de mise à jour de la ligne" techID="_7t3sK5YgEea3rZOTd3d7bg" name="GS_XDMAJ">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_dL1yI2R1EeKXKeCsnPm5eA">
+          <nativeType href="pathmap://LogicalDBTypes#_WWew-xEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+    </tables>
+    <tables xsi:type="database:Table" xmi:id="_dLz89mR1EeKXKeCsnPm5eA" comments="Table des saison" techID="_7t4TPpYgEea3rZOTd3d7bg" name="GS_SAISON">
+      <primaryKey xmi:id="_dLz8_GR1EeKXKeCsnPm5eA" comments="Contrainte PK pour la colonne GS_SAISON_ID" techID="_7t46SZYgEea3rZOTd3d7bg" name="GS_SAISON_PK" columns="_dLz8-mR1EeKXKeCsnPm5eA"/>
+      <foreignKeys xmi:id="_dL0kF2R1EeKXKeCsnPm5eA" comments="Série d'appartenance" techID="_7t46SpYgEea3rZOTd3d7bg" name="" target="_dLyHwWR1EeKXKeCsnPm5eA">
+        <elements xmi:id="_dL1LEWR1EeKXKeCsnPm5eA" techID="_7t46S5YgEea3rZOTd3d7bg" fkColumn="_dL0kGGR1EeKXKeCsnPm5eA" pkColumn="_dLz88WR1EeKXKeCsnPm5eA"/>
+      </foreignKeys>
+      <constraints xmi:id="_dL1yJ2R1EeKXKeCsnPm5eA" techID="_7t5hUJYgEea3rZOTd3d7bg" name="GS_SAISON_CK1_1" expression="GS_XTOPSUP in ('0','1','3','9')"/>
+      <indexes xmi:id="_dL1LGGR1EeKXKeCsnPm5eA" comments="Index d'unicité pour GS_SERIE_ID, GS_SAISON_NUM" techID="_7t5hUZYgEea3rZOTd3d7bg" name="GS_SAISON_UN2_1" unique="true">
+        <elements xmi:id="_dL1LGWR1EeKXKeCsnPm5eA" techID="_7t5hUpYgEea3rZOTd3d7bg" column="_dL0kGGR1EeKXKeCsnPm5eA" asc="true"/>
+        <elements xmi:id="_dL1LGmR1EeKXKeCsnPm5eA" techID="_7t5hU5YgEea3rZOTd3d7bg" column="_dLz892R1EeKXKeCsnPm5eA" asc="true"/>
+      </indexes>
+      <indexes xmi:id="_dL1LG2R1EeKXKeCsnPm5eA" comments="Index sur la FK (GS_SERIE_ID) de la table GS_SAISON" techID="_7t5hVJYgEea3rZOTd3d7bg" name="GS_SAISON_FK1_1" unique="true">
+        <elements xmi:id="_dL1LHGR1EeKXKeCsnPm5eA" techID="_7t5hVZYgEea3rZOTd3d7bg" column="_dL0kGGR1EeKXKeCsnPm5eA" asc="true"/>
+      </indexes>
+      <columns xmi:id="_dLz892R1EeKXKeCsnPm5eA" comments="Numéro de la saison" techID="_7t4TP5YgEea3rZOTd3d7bg" name="GS_SAISON_NUM" indexElements="_dL1LGmR1EeKXKeCsnPm5eA">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_dLz8-WR1EeKXKeCsnPm5eA">
+          <nativeType href="pathmap://LogicalDBTypes#_WWeJ4BEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+      <columns xmi:id="_dLz8-mR1EeKXKeCsnPm5eA" comments="PK de la table GS_SAISON" techID="_7t46QZYgEea3rZOTd3d7bg" name="GS_SAISON_ID" primaryKey="_dLz8_GR1EeKXKeCsnPm5eA">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_dLz8_WR1EeKXKeCsnPm5eA">
+          <nativeType href="pathmap://LogicalDBTypes#_WWeJ4BEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+      <columns xmi:id="_dL0kGGR1EeKXKeCsnPm5eA" comments="Série d'appartenance" techID="_7t46Q5YgEea3rZOTd3d7bg" name="GS_SERIE_ID" indexElements="_dL1LGWR1EeKXKeCsnPm5eA _dL1LHGR1EeKXKeCsnPm5eA" foreignKeyElements="_dL1LEWR1EeKXKeCsnPm5eA">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_dL1LEGR1EeKXKeCsnPm5eA">
+          <nativeType href="pathmap://LogicalDBTypes#_WWeJ4BEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+      <columns xmi:id="_dL1yJGR1EeKXKeCsnPm5eA" comments="Indicateur pour savoir si l'enregistrement est valide" techID="_7t46RZYgEea3rZOTd3d7bg" name="GS_XTOPSUP" defaultValue="'0'">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_dL1yJmR1EeKXKeCsnPm5eA" length="1">
+          <nativeType href="pathmap://LogicalDBTypes#_WWew-BEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+      <columns xmi:id="_dL1yKGR1EeKXKeCsnPm5eA" comments="Date de mise à jour de la ligne" techID="_7t46R5YgEea3rZOTd3d7bg" name="GS_XDMAJ">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_dL1yKmR1EeKXKeCsnPm5eA">
+          <nativeType href="pathmap://LogicalDBTypes#_WWew-xEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+    </tables>
+  </schemas>
+  <schemas xmi:id="_dLz8_mR1EeKXKeCsnPm5eA" techID="_7t5hVpYgEea3rZOTd3d7bg" name="RF">
+    <tables xsi:type="database:Table" xmi:id="_dLz8_2R1EeKXKeCsnPm5eA" comments="Table des genre de série" techID="_7t5hV5YgEea3rZOTd3d7bg" name="RF_GENRE">
+      <primaryKey xmi:id="_dL0kA2R1EeKXKeCsnPm5eA" comments="Contrainte PK pour la colonne RF_GENRE_ID" techID="_7t6IZJYgEea3rZOTd3d7bg" name="RF_GENRE_PK" columns="_dL0kAWR1EeKXKeCsnPm5eA"/>
+      <constraints xmi:id="_dL1yLmR1EeKXKeCsnPm5eA" techID="_7t6IZZYgEea3rZOTd3d7bg" name="RF_GENRE_CK1_1" expression="RF_XTOPSUP in ('0','1','3','9')"/>
+      <indexes xmi:id="_dL1LHWR1EeKXKeCsnPm5eA" comments="Index d'unicité pour RF_GENRE_LIB" techID="_7t6IZpYgEea3rZOTd3d7bg" name="RF_GENRE_UN1_1" unique="true">
+        <elements xmi:id="_dL1LHmR1EeKXKeCsnPm5eA" techID="_7t6IZ5YgEea3rZOTd3d7bg" column="_dLz9AGR1EeKXKeCsnPm5eA" asc="true"/>
+      </indexes>
+      <indexes xmi:id="_dL1LH2R1EeKXKeCsnPm5eA" comments="Index d'unicité pour RF_GENRE_LIBA" techID="_7t6IaJYgEea3rZOTd3d7bg" name="RF_GENRE_UN1_2" unique="true">
+        <elements xmi:id="_dL1LIGR1EeKXKeCsnPm5eA" techID="_7t6IaZYgEea3rZOTd3d7bg" column="_dLz9A2R1EeKXKeCsnPm5eA" asc="true"/>
+      </indexes>
+      <columns xmi:id="_dLz9AGR1EeKXKeCsnPm5eA" comments="Libellé du genre" techID="_7t5hWJYgEea3rZOTd3d7bg" name="RF_GENRE_LIB" defaultValue="'Aventure'" indexElements="_dL1LHmR1EeKXKeCsnPm5eA">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_dLz9AmR1EeKXKeCsnPm5eA" length="30">
+          <nativeType href="pathmap://LogicalDBTypes#_WWew-BEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+      <columns xmi:id="_dLz9A2R1EeKXKeCsnPm5eA" comments="Libellé court du genre" techID="_7t5hWpYgEea3rZOTd3d7bg" name="RF_GENRE_LIBA" defaultValue="'AV'" indexElements="_dL1LIGR1EeKXKeCsnPm5eA">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_dL0kAGR1EeKXKeCsnPm5eA" length="5">
+          <nativeType href="pathmap://LogicalDBTypes#_WWew-BEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+      <columns xmi:id="_dL0kAWR1EeKXKeCsnPm5eA" comments="PK de la table RF_GENRE" techID="_7t5hXJYgEea3rZOTd3d7bg" name="RF_GENRE_ID" primaryKey="_dL0kA2R1EeKXKeCsnPm5eA">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_dL0kBGR1EeKXKeCsnPm5eA">
+          <nativeType href="pathmap://LogicalDBTypes#_WWeJ4BEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+      <columns xmi:id="_dL1yK2R1EeKXKeCsnPm5eA" comments="Indicateur pour savoir si l'enregistrement est valide" techID="_7t6IYJYgEea3rZOTd3d7bg" name="RF_XTOPSUP" defaultValue="'0'">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_dL1yLWR1EeKXKeCsnPm5eA" length="1">
+          <nativeType href="pathmap://LogicalDBTypes#_WWew-BEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+      <columns xmi:id="_dL1yL2R1EeKXKeCsnPm5eA" comments="Date de mise à jour de la ligne" techID="_7t6IYpYgEea3rZOTd3d7bg" name="RF_XDMAJ">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_dL1yMWR1EeKXKeCsnPm5eA">
+          <nativeType href="pathmap://LogicalDBTypes#_WWew-xEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+    </tables>
+    <tables xsi:type="database:Table" xmi:id="_dL0kBWR1EeKXKeCsnPm5eA" comments="Table des états&#xD;&#xA;" techID="_7t6IapYgEea3rZOTd3d7bg" name="RF_ETAT">
+      <primaryKey xmi:id="_dL0kC2R1EeKXKeCsnPm5eA" comments="Contrainte PK pour la colonne RF_ETAT_ID" techID="_7t6vdZYgEea3rZOTd3d7bg" name="RF_ETAT_PK" columns="_dL0kCWR1EeKXKeCsnPm5eA"/>
+      <constraints xmi:id="_dL1yNWR1EeKXKeCsnPm5eA" techID="_7t6vdpYgEea3rZOTd3d7bg" name="RF_ETAT_CK1_1" expression="RF_XTOPSUP in ('0','1','3','9')"/>
+      <indexes xmi:id="_dL1LIWR1EeKXKeCsnPm5eA" comments="Index d'unicité pour RF_ETAT_LIB" techID="_7t6vd5YgEea3rZOTd3d7bg" name="RF_ETAT_UN1_1" unique="true">
+        <elements xmi:id="_dL1LImR1EeKXKeCsnPm5eA" techID="_7t6veJYgEea3rZOTd3d7bg" column="_dL0kBmR1EeKXKeCsnPm5eA" asc="true"/>
+      </indexes>
+      <columns xmi:id="_dL0kBmR1EeKXKeCsnPm5eA" comments="Libelle de l'état" techID="_7t6Ia5YgEea3rZOTd3d7bg" name="RF_ETAT_LIB" defaultValue="'En Cours'" indexElements="_dL1LImR1EeKXKeCsnPm5eA">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_dL0kCGR1EeKXKeCsnPm5eA" length="30">
+          <nativeType href="pathmap://LogicalDBTypes#_WWew-BEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+      <columns xmi:id="_dL0kCWR1EeKXKeCsnPm5eA" comments="PK de la table RF_ETAT" techID="_7t6IbZYgEea3rZOTd3d7bg" name="RF_ETAT_ID" primaryKey="_dL0kC2R1EeKXKeCsnPm5eA">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_dL0kDGR1EeKXKeCsnPm5eA">
+          <nativeType href="pathmap://LogicalDBTypes#_WWeJ4BEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+      <columns xmi:id="_dL1yMmR1EeKXKeCsnPm5eA" comments="Indicateur pour savoir si l'enregistrement est valide" techID="_7t6vcZYgEea3rZOTd3d7bg" name="RF_XTOPSUP" defaultValue="'0'">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_dL1yNGR1EeKXKeCsnPm5eA" length="1">
+          <nativeType href="pathmap://LogicalDBTypes#_WWew-BEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+      <columns xmi:id="_dL1yNmR1EeKXKeCsnPm5eA" comments="Date de mise à jour de la ligne" techID="_7t6vc5YgEea3rZOTd3d7bg" name="RF_XDMAJ">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_dL1yOGR1EeKXKeCsnPm5eA">
+          <nativeType href="pathmap://LogicalDBTypes#_WWew-xEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+    </tables>
+  </schemas>
+</database:DataBase>

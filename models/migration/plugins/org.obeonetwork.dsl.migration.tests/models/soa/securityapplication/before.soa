@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<soa:System xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:soa="http://www.obeonetwork.org/dsl/soa/3.0.0" xmi:id="_Gug1QHrOEey_1ZYfNAV7uw" technicalid="_GufnIHrOEey_1ZYfNAV7uw" createdOn="2022-01-21T16:23:37.490+0100" modifiedOn="2022-01-21T16:24:03.227+0100">
+  <ownedComponents xmi:id="_Kj8OtHrOEey_1ZYfNAV7uw" technicalid="_Kj8OsHrOEey_1ZYfNAV7uw" createdOn="2022-01-21T16:24:03.541+0100" modifiedOn="2022-01-21T16:24:28.656+0100" name="Component 1">
+    <ownedServices xmi:id="_LPuWoXrOEey_1ZYfNAV7uw" technicalid="_LPuWoHrOEey_1ZYfNAV7uw" createdOn="2022-01-21T16:24:07.819+0100" modifiedOn="2022-01-21T16:24:19.996+0100" name="ProvidedService1">
+      <ownedInterface xmi:id="_ND3NwXrOEey_1ZYfNAV7uw" technicalid="_ND3NwHrOEey_1ZYfNAV7uw" createdOn="2022-01-21T16:24:20.011+0100" modifiedOn="2022-01-21T16:24:20.011+0100" name="ProvidedService1">
+        <ownedOperations xmi:id="_NEAXsXrOEey_1ZYfNAV7uw" technicalid="_NEAXsHrOEey_1ZYfNAV7uw" createdOn="2022-01-21T16:24:20.029+0100" modifiedOn="2022-01-21T16:25:05.061+0100" name="Operation1" exposition="REST" securitySchemes="_OWc3AXrOEey_1ZYfNAV7uw"/>
+      </ownedInterface>
+    </ownedServices>
+    <securitySchemes xmi:id="_OWc3AXrOEey_1ZYfNAV7uw" technicalid="_OWc3AHrOEey_1ZYfNAV7uw" createdOn="2022-01-21T16:24:37.265+0100" modifiedOn="2022-01-21T16:24:43.177+0100" key="ak1" name="ApiKey1" apiKeyLocation="HEADER"/>
+    <license xmi:id="_Kj8OtXrOEey_1ZYfNAV7uw" technicalid="_Kj8OsnrOEey_1ZYfNAV7uw"/>
+    <information xmi:id="_Kj8OtnrOEey_1ZYfNAV7uw" technicalid="_Kj8OsXrOEey_1ZYfNAV7uw"/>
+    <contact xmi:id="_Kj8Ot3rOEey_1ZYfNAV7uw" technicalid="_Kj8Os3rOEey_1ZYfNAV7uw"/>
+  </ownedComponents>
+</soa:System>

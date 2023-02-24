@@ -1,0 +1,368 @@
+--- RCPTT testcase ---
+Format-Version: 1.0
+Element-Name: CinematicViewContainerMockupCreationToolsTestCase
+Element-Type: testcase
+Element-Version: 3.0
+External-Reference: 
+Id: _zwkZ0JWCEeyWm9az4K7Z1w
+Runtime-Version: 2.5.1.M3
+Save-Time: 2/24/22, 4:29 PM
+Testcase-Type: ecl
+
+------=_.description-216f885c-d591-38ce-8ea2-e4f8cb4d6ffa
+Content-Type: text/plain
+Entry-Name: .description
+
+Testing View Container Mockup creation tools defined in cinematic.odesign for the web toolkit.
+- CRE_ViewContainer{{container}}
+- CRE_ViewElement{{widget}}
+- CRE_ViewContainerReference
+
+Open "E-BookStore UI Structure"
+Create a View Container "ViewContainer3 : Page"
+Create "ViewContainer3 View Container Mockup" diagram
+- Containers section
+-- Create a Panel
+-- Create a Table
+-- Create a Page
+- Widgets Section
+-- Create a Button
+-- Create a Checkbox
+-- Create a Combo
+-- Create a Image
+-- Create a Label
+-- Create a Link
+-- Create a Password
+-- Create a Radio
+-- Create a Text
+-- Create a Textarea
+Reuse section
+-- Create a View Container Reference
+
+------=_.description-216f885c-d591-38ce-8ea2-e4f8cb4d6ffa--
+------=_.content-0a7243a0-75d3-3d5f-9791-539de0e5b7ac
+Content-Type: text/ecl
+Entry-Name: .content
+
+get-view "Model Explorer" | get-tree 
+    | select "E-BookStore/E-BookStore.cinematic/Cinematic Root E-BookStore/E-BookStore UI Structure" | double-click
+get-editor "E-BookStore UI Structure" | get-tree | select "E-BookStore" | get-menu -path "View Container" | click 
+    -metaKeys ""
+with [get-window "Selection Wizard"] {
+    get-tree | select "Toolkit Web/Widget Page"
+    get-button Finish | click -metaKeys ""
+}
+get-view "Model Explorer" | get-tree 
+    | select "E-BookStore/E-BookStore.cinematic/Cinematic Root E-BookStore/View Container ViewContainer3 : Page" 
+    | get-menu -path "New Representation/ViewContainer3 View Container Mockup" | click -metaKeys ""
+get-window "New View Container Mockup" | get-button OK | click -metaKeys ""
+with [get-editor "ViewContainer3 View Container Mockup"] {
+    with [get-diagram -index 1 | get-edit-part -name "ViewContainer3 View Container Mockup"] {
+        with [get-edit-part -name ViewContainer3 | get-edit-part 
+            -className DNodeContainerViewNodeContainerCompartmentEditPart] {
+            mouse-move 90 10 button1 -height 33 -width 144
+            mouse-press 90 10 button1 -height 33 -width 144
+            mouse-release 90 14 button1 "" -height 33 -width 144
+        }
+        mouse-move 152 75 -height 689 -width 1307
+        with [get-edit-part -name ViewContainer3 | get-handle ResizeHandle -index 4] {
+            mouse-move 1 1 button1 -height 7 -width 7
+            mouse-press 1 1 button1 -height 7 -width 7
+        }
+        mouse-move 170 80 -mask "" -height 689 -width 1307
+        mouse-drag 1296 672 button1 "" -height 689 -width 1307
+        mouse-release 1296 672 button1 "" -height 689 -width 1307
+        get-edit-part -name ViewContainer3 | get-edit-part 
+            -className DNodeContainerViewNodeContainerCompartmentEditPart | mouse-move 1288 70 -height 636 -width 1292
+    }
+    with [get-palette | get-palette-entry Panel] {
+        mouse-move 34 15 button1 -height 25 -width 125
+        mouse-press 34 15 button1 -height 25 -width 125
+        mouse-release 34 15 button1 "" -height 25 -width 125
+    }
+    with [get-diagram -index 1 | get-edit-part -name "ViewContainer3 View Container Mockup" | get-edit-part 
+        -name ViewContainer3 | get-edit-part -className DNodeContainerViewNodeContainerCompartmentEditPart] {
+        mouse-move 24 11 button1 -height 636 -width 1292
+        mouse-press 24 11 button1 -height 636 -width 1292
+        mouse-release 24 11 button1 "" -height 636 -width 1292
+    }
+    get-diagram -index 1 | get-edit-part -name "ViewContainer3 View Container Mockup" | get-edit-part 
+        -name ViewContainer3 | get-edit-part -className DNodeContainerViewNodeContainerCompartmentEditPart 
+        | mouse-move 1289 103 -height 636 -width 1292
+    with [get-palette] {
+        get-palette-entry Page | mouse-move 10 9 -height 25 -width 125
+        with [get-palette-entry Table] {
+            mouse-move 55 9 button1 -height 25 -width 125
+            mouse-press 55 9 button1 -height 25 -width 125
+            mouse-release 55 9 button1 "" -height 25 -width 125
+        }
+    }
+    with [get-diagram -index 1 | get-edit-part -name "ViewContainer3 View Container Mockup" | get-edit-part 
+        -name ViewContainer3 | get-edit-part -className DNodeContainerViewNodeContainerCompartmentEditPart] {
+        mouse-move 333 17 button1 -height 636 -width 1292
+        mouse-press 333 17 button1 -height 636 -width 1292
+        mouse-release 333 17 button1 "" -height 636 -width 1292
+    }
+    get-diagram -index 1 | get-edit-part -name "ViewContainer3 View Container Mockup" | get-edit-part 
+        -name ViewContainer3 | get-edit-part -className DNodeContainerViewNodeContainerCompartmentEditPart 
+        | mouse-move 1289 85 -height 636 -width 1292
+    with [get-palette] {
+        get-palette-entry Table | mouse-move 55 22 -height 25 -width 125
+        with [get-palette-entry Page] {
+            mouse-move 55 6 button1 -height 25 -width 125
+            mouse-press 55 6 button1 -height 25 -width 125
+            mouse-release 55 6 button1 "" -height 25 -width 125
+        }
+    }
+    with [get-diagram -index 1 | get-edit-part -name "ViewContainer3 View Container Mockup" | get-edit-part 
+        -name ViewContainer3 | get-edit-part -className DNodeContainerViewNodeContainerCompartmentEditPart] {
+        mouse-move 543 13 button1 -height 636 -width 1292
+        mouse-press 543 13 button1 -height 636 -width 1292
+        mouse-release 543 13 button1 "" -height 636 -width 1292
+    }
+    get-diagram -index 1 | get-edit-part -name "ViewContainer3 View Container Mockup" | get-edit-part 
+        -name ViewContainer3 | get-edit-part -className DNodeContainerViewNodeContainerCompartmentEditPart 
+        | mouse-move 1289 126 -height 636 -width 1292
+    with [get-palette | get-palette-entry Button] {
+        mouse-move 103 24 -height 25 -width 125
+        mouse-move 56 7 button1 -height 25 -width 125
+        mouse-press 56 7 button1 -height 25 -width 125
+        mouse-release 56 7 button1 "" -height 25 -width 125
+    }
+    with [get-diagram -index 1 | get-edit-part -name "ViewContainer3 View Container Mockup" | get-edit-part 
+        -name ViewContainer3 | get-edit-part -className DNodeContainerViewNodeContainerCompartmentEditPart] {
+        mouse-move 1071 145 -height 636 -width 1292
+        with [get-edit-part -name viewElement3 | get-edit-part 
+            -className DNodeContainerViewNodeContainerCompartment2EditPart] {
+            mouse-move 20 10 button1 -height 382 -width 437
+            mouse-press 20 10 button1 -height 382 -width 437
+            mouse-release 20 10 button1 "" -height 382 -width 437
+        }
+    }
+    get-diagram -index 1 | get-edit-part -name "ViewContainer3 View Container Mockup" | mouse-move 1396 203 -height 685 
+        -width 1303
+    with [get-palette | get-palette-entry Checkbox] {
+        mouse-move 77 11 button1 -height 25 -width 125
+        mouse-press 77 11 button1 -height 25 -width 125
+        mouse-release 77 11 button1 "" -height 25 -width 125
+    }
+    with [get-diagram -index 1 | get-edit-part -name "ViewContainer3 View Container Mockup" | get-edit-part 
+        -name ViewContainer3 | get-edit-part -className DNodeContainerViewNodeContainerCompartmentEditPart 
+        | get-edit-part -name viewElement3 | get-edit-part 
+        -className DNodeContainerViewNodeContainerCompartment2EditPart] {
+        mouse-move 18 67 button1 -height 382 -width 437
+        mouse-press 18 67 button1 -height 382 -width 437
+        mouse-release 18 67 button1 "" -height 382 -width 437
+    }
+    get-diagram -index 1 | get-edit-part -name "ViewContainer3 View Container Mockup" | mouse-move 1344 205 -height 685 
+        -width 1303
+    with [get-palette] {
+        get-palette-entry Checkbox | mouse-move 48 23 -height 25 -width 125
+        with [get-palette-entry Combo] {
+            mouse-move 47 15 button1 -height 25 -width 125
+            mouse-press 47 15 button1 -height 25 -width 125
+            mouse-release 47 15 button1 "" -height 25 -width 125
+        }
+    }
+    with [get-diagram -index 1 | get-edit-part -name "ViewContainer3 View Container Mockup" | get-edit-part 
+        -name ViewContainer3 | get-edit-part -className DNodeContainerViewNodeContainerCompartmentEditPart 
+        | get-edit-part -name viewElement3 | get-edit-part 
+        -className DNodeContainerViewNodeContainerCompartment2EditPart] {
+        mouse-move 21 121 button1 -height 382 -width 437
+        mouse-press 21 121 button1 -height 382 -width 437
+        mouse-release 21 121 button1 "" -height 382 -width 437
+    }
+    get-diagram -index 1 | get-edit-part -name "ViewContainer3 View Container Mockup" | mouse-move 1326 333 -height 685 
+        -width 1303
+    with [get-palette] {
+        get-palette-entry Password | mouse-move 30 9 -height 25 -width 125
+        get-palette-entry Link | mouse-move 65 0 -height 25 -width 125
+        get-palette-entry Label | mouse-move 61 3 -height 25 -width 125
+        with [get-palette-entry Image] {
+            mouse-move 54 20 button1 -height 25 -width 125
+            mouse-press 54 20 button1 -height 25 -width 125
+            mouse-release 54 20 button1 "" -height 25 -width 125
+        }
+    }
+    with [get-diagram -index 1 | get-edit-part -name "ViewContainer3 View Container Mockup" | get-edit-part 
+        -name ViewContainer3 | get-edit-part -className DNodeContainerViewNodeContainerCompartmentEditPart 
+        | get-edit-part -name viewElement3 | get-edit-part 
+        -className DNodeContainerViewNodeContainerCompartment2EditPart] {
+        mouse-move 25 188 button1 -height 382 -width 437
+        mouse-press 25 188 button1 -height 382 -width 437
+        mouse-release 25 188 button1 "" -height 382 -width 437
+    }
+    get-diagram -index 1 | get-edit-part -name "ViewContainer3 View Container Mockup" | get-edit-part 
+        -name ViewContainer3 | get-edit-part -className DNodeContainerViewNodeContainerCompartmentEditPart 
+        | mouse-move 1286 337 -height 636 -width 1292
+    with [get-palette] {
+        get-palette-entry Radio | mouse-move 11 6 -height 25 -width 125
+        get-palette-entry Password | mouse-move 48 1 -height 25 -width 125
+        get-palette-entry Link | mouse-move 62 3 -height 25 -width 125
+        with [get-palette-entry Label] {
+            mouse-move 57 13 button1 -height 25 -width 125
+            mouse-press 57 13 button1 -height 25 -width 125
+            mouse-release 57 13 button1 "" -height 25 -width 125
+        }
+    }
+    with [get-diagram -index 1 | get-edit-part -name "ViewContainer3 View Container Mockup" | get-edit-part 
+        -name ViewContainer3 | get-edit-part -className DNodeContainerViewNodeContainerCompartmentEditPart 
+        | get-edit-part -name viewElement3 | get-edit-part 
+        -className DNodeContainerViewNodeContainerCompartment2EditPart] {
+        mouse-move 190 107 -height 382 -width 437
+        mouse-move 138 13 button1 -height 382 -width 437
+        mouse-press 138 13 button1 -height 382 -width 437
+        mouse-release 138 13 button1 "" -height 382 -width 437
+    }
+    get-diagram -index 1 | get-edit-part -name "ViewContainer3 View Container Mockup" | get-edit-part 
+        -name ViewContainer3 | get-edit-part -className DNodeContainerViewNodeContainerCompartmentEditPart 
+        | mouse-move 1287 230 -height 636 -width 1292
+    with [get-palette] {
+        get-palette-entry Label | mouse-move 45 24 -height 25 -width 125
+        with [get-palette-entry Link] {
+            mouse-move 47 13 button1 -height 25 -width 125
+            mouse-press 47 13 button1 -height 25 -width 125
+            mouse-release 47 13 button1 "" -height 25 -width 125
+        }
+    }
+    with [get-diagram -index 1 | get-edit-part -name "ViewContainer3 View Container Mockup" | get-edit-part 
+        -name ViewContainer3 | get-edit-part -className DNodeContainerViewNodeContainerCompartmentEditPart 
+        | get-edit-part -name viewElement3 | get-edit-part 
+        -className DNodeContainerViewNodeContainerCompartment2EditPart] {
+        mouse-move 218 69 button1 -height 382 -width 437
+        mouse-press 218 69 button1 -height 382 -width 437
+        mouse-release 218 69 button1 "" -height 382 -width 437
+    }
+    get-diagram -index 1 | get-edit-part -name "ViewContainer3 View Container Mockup" | mouse-move 1320 327 -height 685 
+        -width 1303
+    with [get-palette] {
+        get-palette-entry Radio | mouse-move 66 1 -height 25 -width 125
+        with [get-palette-entry Password] {
+            mouse-move 52 18 button1 -height 25 -width 125
+            mouse-press 52 18 button1 -height 25 -width 125
+            mouse-release 52 18 button1 "" -height 25 -width 125
+        }
+    }
+    with [get-diagram -index 1 | get-edit-part -name "ViewContainer3 View Container Mockup" | get-edit-part 
+        -name ViewContainer3 | get-edit-part -className DNodeContainerViewNodeContainerCompartmentEditPart 
+        | get-edit-part -name viewElement3 | get-edit-part 
+        -className DNodeContainerViewNodeContainerCompartment2EditPart] {
+        mouse-move 223 122 button1 -height 382 -width 437
+        mouse-press 223 122 button1 -height 382 -width 437
+        mouse-release 223 122 button1 "" -height 382 -width 437
+    }
+    get-diagram -index 1 | get-edit-part -name "ViewContainer3 View Container Mockup" | mouse-move 1308 344 -height 685 
+        -width 1303
+    with [get-palette | get-palette-entry Radio] {
+        mouse-move 56 14 button1 -height 25 -width 125
+        mouse-press 56 14 button1 -height 25 -width 125
+        mouse-release 56 14 button1 "" -height 25 -width 125
+        mouse-move 35 1 -height 25 -width 125
+    }
+    with [get-diagram -index 1 | get-edit-part -name "ViewContainer3 View Container Mockup" | get-edit-part 
+        -name ViewContainer3 | get-edit-part -className DNodeContainerViewNodeContainerCompartmentEditPart] {
+        mouse-move 996 260 -height 636 -width 1292
+        with [get-edit-part -name viewElement3 | get-edit-part 
+            -className DNodeContainerViewNodeContainerCompartment2EditPart] {
+            mouse-move 260 189 button1 -height 382 -width 437
+            mouse-press 260 189 button1 -height 382 -width 437
+            mouse-release 260 189 button1 "" -height 382 -width 437
+        }
+    }
+    get-diagram -index 1 | get-edit-part -name "ViewContainer3 View Container Mockup" | get-edit-part 
+        -name ViewContainer3 | get-edit-part -className DNodeContainerViewNodeContainerCompartmentEditPart 
+        | mouse-move 1291 349 -height 636 -width 1292
+    with [get-palette | get-palette-entry Text -index 1] {
+        mouse-move 20 23 -height 25 -width 125
+        mouse-move 55 0 -height 25 -width 125
+        mouse-move 51 14 button1 -height 25 -width 125
+        mouse-press 51 14 button1 -height 25 -width 125
+        mouse-release 51 14 button1 "" -height 25 -width 125
+    }
+    with [get-diagram -index 1 | get-edit-part -name "ViewContainer3 View Container Mockup" | get-edit-part 
+        -name ViewContainer3 | get-edit-part -className DNodeContainerViewNodeContainerCompartmentEditPart 
+        | get-edit-part -name viewElement3 | get-edit-part 
+        -className DNodeContainerViewNodeContainerCompartment2EditPart] {
+        mouse-move 258 245 button1 -height 382 -width 437
+        mouse-press 258 245 button1 -height 382 -width 437
+        mouse-release 258 245 button1 "" -height 382 -width 437
+    }
+    get-diagram -index 1 | get-edit-part -name "ViewContainer3 View Container Mockup" | mouse-move 1351 456 -height 685 
+        -width 1303
+    with [get-palette] {
+        get-palette-entry "View Container Reference" | mouse-move 49 1 -height 61 -width 125
+        with [get-palette-entry Textarea] {
+            mouse-move 57 8 button1 -height 25 -width 125
+            mouse-press 57 8 button1 -height 25 -width 125
+            mouse-release 57 8 button1 "" -height 25 -width 125
+        }
+    }
+    with [get-diagram -index 1 | get-edit-part -name "ViewContainer3 View Container Mockup" | get-edit-part 
+        -name ViewContainer3 | get-edit-part -className DNodeContainerViewNodeContainerCompartmentEditPart 
+        | get-edit-part -name viewElement3 | get-edit-part 
+        -className DNodeContainerViewNodeContainerCompartment2EditPart] {
+        mouse-move 259 301 button1 -height 382 -width 437
+        mouse-press 259 301 button1 -height 382 -width 437
+        mouse-release 259 301 button1 "" -height 382 -width 437
+    }
+    with [get-diagram -index 1 | get-edit-part -name "ViewContainer3 View Container Mockup"] {
+        with [get-edit-part -name ViewContainer3 | get-edit-part 
+            -className DNodeContainerViewNodeContainerCompartmentEditPart] {
+            with [get-edit-part -name viewElement3] {
+                with [get-edit-part -className DNodeContainerViewNodeContainerCompartment2EditPart] {
+                    mouse-move 414 164 -height 382 -width 437
+                    mouse-move 389 110 -height 382 -width 437
+                }
+                mouse-move 369 20 button1 -height 419 -width 443
+                mouse-press 369 20 button1 -height 419 -width 443
+                mouse-release 369 20 button1 "" -height 419 -width 443
+            }
+            mouse-move 987 431 -height 636 -width 1292
+            with [get-edit-part -name viewElement3 | get-handle ResizeHandle -index 4] {
+                mouse-move 3 1 button1 -height 7 -width 7
+                mouse-press 3 1 button1 -height 7 -width 7
+                mouse-move 4 1 -mask "" -height 7 -width 7
+            }
+        }
+        mouse-drag 1052 482 button1 "" -height 685 -width 1303
+        mouse-release 1052 482 button1 "" -height 685 -width 1303
+        get-edit-part -name ViewContainer3 | get-edit-part 
+            -className DNodeContainerViewNodeContainerCompartmentEditPart | mouse-move 1287 523 -height 636 -width 1292
+    }
+    with [get-palette | get-palette-entry "View Container Reference"] {
+        mouse-move 31 22 button1 -height 61 -width 125
+        mouse-press 31 22 button1 -height 61 -width 125
+        mouse-release 31 22 button1 "" -height 61 -width 125
+    }
+    with [get-diagram -index 1 | get-edit-part -name "ViewContainer3 View Container Mockup" | get-edit-part 
+        -name ViewContainer3 | get-edit-part -className DNodeContainerViewNodeContainerCompartmentEditPart] {
+        mouse-move 55 227 button1 -height 636 -width 1292
+        mouse-press 55 227 button1 -height 636 -width 1292
+        mouse-release 55 227 button1 "" -height 636 -width 1292
+    }
+}
+with [get-window "Selection Wizard"] {
+    get-tree | select "Cinematic Root E-BookStore/View Container CreateAccount : Page"
+    get-button Finish | click -metaKeys ""
+}
+with [get-editor "ViewContainer3 View Container Mockup" | get-diagram -index 1 | get-edit-part 
+    -name "ViewContainer3 View Container Mockup"] {
+    with [get-edit-part -name ViewContainer3 | get-edit-part 
+        -className DNodeContainerViewNodeContainerCompartmentEditPart] {
+        mouse-move 1279 613 button1 -height 636 -width 1292
+        mouse-press 1279 613 button1 -height 636 -width 1292
+        mouse-release 1279 613 button1 "" -height 636 -width 1292
+    }
+    mouse-move 1165 709 button1 -height 745 -width 1307
+    mouse-press 1165 709 button1 -height 745 -width 1307
+    mouse-release 1165 709 button1 "" -height 745 -width 1307
+    mouse-move 1166 702 -height 740 -width 1303
+}
+with [get-editor "ViewContainer3 View Container Mockup" | get-diagram -index 1 | get-edit-part 
+    -name "ViewContainer3 View Container Mockup"] {
+    get-property "children.size" | equals 1 | verify-true
+    get-property "children.Node[0].children.Node[1].children.size" | equals 4 | verify-true
+    get-property "children.Node[0].children.Node[1].children.Node[2].children.Node[1].children.size" | equals 10 
+        | verify-true
+}
+------=_.content-0a7243a0-75d3-3d5f-9791-539de0e5b7ac--

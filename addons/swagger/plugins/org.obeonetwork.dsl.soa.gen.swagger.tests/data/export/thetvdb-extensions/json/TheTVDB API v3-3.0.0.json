@@ -946,7 +946,10 @@
               }
             }
           }
-        }
+        },
+        "security" : [ {
+          "jwtToken" : [ ]
+        } ]
       }
     },
     "testuri/refresh_token" : {
@@ -1150,10 +1153,7 @@
               }
             }
           }
-        },
-        "security" : [ {
-          "jwtToken" : [ ]
-        } ]
+        }
       }
     },
     "testuri/languages" : {

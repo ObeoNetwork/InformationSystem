@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2008, 2021 Obeo.
+ * Copyright (c) 2008, 2023 Obeo.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -44,7 +44,7 @@ public class DatabaseItemProviderAdapterFactory extends DatabaseAdapterFactory i
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public static final String copyright = "Copyright (c) 2008, 2021 Obeo.\r\nAll rights reserved. This program and the accompanying materials\r\nare made available under the terms of the Eclipse Public License v1.0\r\nwhich accompanies this distribution, and is available at\r\nhttp://www.eclipse.org/legal/epl-v10.html\r\n\r\nContributors:\r\n    Obeo - initial API and implementation";
+	public static final String copyright = "Copyright (c) 2008, 2023 Obeo.\r\nAll rights reserved. This program and the accompanying materials\r\nare made available under the terms of the Eclipse Public License v1.0\r\nwhich accompanies this distribution, and is available at\r\nhttp://www.eclipse.org/legal/epl-v10.html\r\n\r\nContributors:\r\n    Obeo - initial API and implementation";
 
 	/**
 	 * This keeps track of the root adapter factory that delegates to this adapter factory.
@@ -384,6 +384,52 @@ public class DatabaseItemProviderAdapterFactory extends DatabaseAdapterFactory i
 	}
 
 	/**
+	 * This keeps track of the one adapter used for all {@link org.obeonetwork.dsl.database.ViewColumn} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected ViewColumnItemProvider viewColumnItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link org.obeonetwork.dsl.database.ViewColumn}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createViewColumnAdapter() {
+		if (viewColumnItemProvider == null) {
+			viewColumnItemProvider = new ViewColumnItemProvider(this);
+		}
+
+		return viewColumnItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link org.obeonetwork.dsl.database.ViewTable} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected ViewTableItemProvider viewTableItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link org.obeonetwork.dsl.database.ViewTable}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createViewTableAdapter() {
+		if (viewTableItemProvider == null) {
+			viewTableItemProvider = new ViewTableItemProvider(this);
+		}
+
+		return viewTableItemProvider;
+	}
+
+	/**
 	 * This returns the root adapter factory that contains this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -495,6 +541,8 @@ public class DatabaseItemProviderAdapterFactory extends DatabaseAdapterFactory i
 		if (schemaItemProvider != null) schemaItemProvider.dispose();
 		if (sequenceItemProvider != null) sequenceItemProvider.dispose();
 		if (viewElementItemProvider != null) viewElementItemProvider.dispose();
+		if (viewColumnItemProvider != null) viewColumnItemProvider.dispose();
+		if (viewTableItemProvider != null) viewTableItemProvider.dispose();
 	}
 
 }

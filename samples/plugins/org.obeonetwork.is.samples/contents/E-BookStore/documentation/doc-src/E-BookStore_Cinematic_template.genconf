@@ -5,4 +5,6 @@
   </definitions>
   <definitions xsi:type="genconf:StringDefinition" key="projectName" value="E-BookStore"/>
   <options name="SiriusSession" value="../../representations.aird"/>
+  <options name="UpdateFields" value="false"/>
+  <options name="SiriusForceRefresh" value="true"/>
 </genconf:Generation>

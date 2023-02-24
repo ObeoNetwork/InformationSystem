@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2008, 2021 Obeo.
+ * Copyright (c) 2008, 2023 Obeo.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -21,9 +21,9 @@ import static org.obeonetwork.dsl.soa.gen.swagger.OpenApiParserHelper.OPEN_API_T
 import static org.obeonetwork.dsl.soa.gen.swagger.OpenApiParserHelper.getPrimitiveTypeName;
 import static org.obeonetwork.dsl.soa.gen.swagger.OpenApiParserHelper.isEnum;
 import static org.obeonetwork.dsl.soa.gen.swagger.OpenApiParserHelper.isObject;
+import static org.obeonetwork.utils.common.EObjectUtils.getAncestors;
 import static org.obeonetwork.utils.common.StringUtils.emptyIfNull;
 import static org.obeonetwork.utils.common.StringUtils.upperFirst;
-import static org.obeonetwork.utils.sirius.services.EObjectUtils.getAncestors;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -76,6 +76,7 @@ import org.obeonetwork.dsl.soa.ParameterPassingMode;
 import org.obeonetwork.dsl.soa.ParameterRestData;
 import org.obeonetwork.dsl.soa.PropertiesExtension;
 import org.obeonetwork.dsl.soa.Scope;
+import org.obeonetwork.dsl.soa.SecurityApplication;
 import org.obeonetwork.dsl.soa.SecuritySchemeType;
 import org.obeonetwork.dsl.soa.Service;
 import org.obeonetwork.dsl.soa.SoaFactory;
@@ -290,7 +291,7 @@ public class SoaComponentBuilder {
 			break;
 		case OAUTH2:
 			if (swgSecurityScheme.getFlows() != null) {
-				soaSecurityScheme.getFlows().addAll(toSoa(swgSecurityScheme.getFlows()));
+				soaSecurityScheme.getFlows().addAll(createSoaFlows(swgSecurityScheme.getFlows()));
 			}
 			break;
 		case OPEN_ID_CONNECT:
@@ -299,7 +300,7 @@ public class SoaComponentBuilder {
 			}
 			
 			if (swgSecurityScheme.getFlows() != null) {
-				soaSecurityScheme.getFlows().addAll(toSoa(swgSecurityScheme.getFlows()));
+				soaSecurityScheme.getFlows().addAll(createSoaFlows(swgSecurityScheme.getFlows()));
 			}
 			break;
 		default:
@@ -311,46 +312,46 @@ public class SoaComponentBuilder {
 		return soaSecurityScheme;
 	}
 
-	private Collection<? extends Flow> toSoa(OAuthFlows flows) {
+	private Collection<? extends Flow> createSoaFlows(OAuthFlows flows) {
 		ArrayList<Flow> soaFlows = new ArrayList<>();
 		if (flows.getAuthorizationCode() != null) {
-			Flow flow = toSoa(flows.getAuthorizationCode());
+			Flow flow = createSoaFlow(flows.getAuthorizationCode());
 			flow.setFlowType(FlowType.AUTHORIZATIONCODE);
 			soaFlows.add(flow);
 		}
 		if (flows.getClientCredentials() != null) {
-			Flow flow = toSoa(flows.getClientCredentials());
+			Flow flow = createSoaFlow(flows.getClientCredentials());
 			flow.setFlowType(FlowType.CREDENTIALS);
 			soaFlows.add(flow);
 		}
 		if (flows.getImplicit() != null) {
-			Flow flow = toSoa(flows.getImplicit());
+			Flow flow = createSoaFlow(flows.getImplicit());
 			flow.setFlowType(FlowType.IMPLICIT);
 			soaFlows.add(flow);
 		}
 		if (flows.getPassword() != null) {
-			Flow flow = toSoa(flows.getPassword());
+			Flow flow = createSoaFlow(flows.getPassword());
 			flow.setFlowType(FlowType.PASSWORD);
 			soaFlows.add(flow);
 		}		
 		return soaFlows;
 	}
 	
-	private Flow toSoa(OAuthFlow authFlow) {
-		Flow flow = SoaFactory.eINSTANCE.createFlow();
-		flow.setAuthorizationURL(authFlow.getAuthorizationUrl());
-		flow.setTokenURL(authFlow.getTokenUrl());
-		flow.setRefreshURL(authFlow.getRefreshUrl());
-		if (authFlow.getScopes() != null) {
-			authFlow.getScopes().forEach((name, description) -> {
+	private Flow createSoaFlow(OAuthFlow swgOAuthFlow) {
+		Flow soaFlow = SoaFactory.eINSTANCE.createFlow();
+		soaFlow.setAuthorizationURL(swgOAuthFlow.getAuthorizationUrl());
+		soaFlow.setTokenURL(swgOAuthFlow.getTokenUrl());
+		soaFlow.setRefreshURL(swgOAuthFlow.getRefreshUrl());
+		if (swgOAuthFlow.getScopes() != null) {
+			swgOAuthFlow.getScopes().forEach((name, description) -> {
 				Scope scope = SoaFactory.eINSTANCE.createScope();
 				scope.setName(name);
 				scope.setSummary(description);
-				flow.getScopes().add(scope);
+				soaFlow.getScopes().add(scope);
 			});
 		}
 		
-		return flow;
+		return soaFlow;
 	}
 
 	private SecuritySchemeType toSoa(SecurityScheme.Type swgSecuritySchemeType) {
@@ -807,12 +808,25 @@ public class SoaComponentBuilder {
 			for (SecurityRequirement swgSecurityRequirement : swgOperation.getSecurity()) {
 
 				if (!swgSecurityRequirement.keySet().isEmpty()) {
-					String key = swgSecurityRequirement.keySet().iterator().next();
+					String ssKey = swgSecurityRequirement.keySet().iterator().next();
 
-					soaComponent.getSecuritySchemes()
-							.stream().filter(ss -> key.equals(ss.getKey())).forEach(soaSecurityScheme -> {
-								soaOperation.getSecuritySchemes().add(soaSecurityScheme);
-							});
+					for(org.obeonetwork.dsl.soa.SecurityScheme securityScheme : soaComponent.getSecuritySchemes().stream()
+							.filter(ss -> ssKey.equals(ss.getName())).collect(toList())) {
+						SecurityApplication soaSecurityApplication = SoaFactory.eINSTANCE.createSecurityApplication();
+						soaSecurityApplication.setSecurityScheme(securityScheme);
+						soaOperation.getSecurityApplications().add(soaSecurityApplication);
+						
+						List<String> scopeNames = swgSecurityRequirement.get(ssKey);
+						if(scopeNames != null) {
+							for(String scopeName : scopeNames) {
+								List<Scope> soaScopes = securityScheme.getFlows().stream()
+										.flatMap(f -> f.getScopes().stream())
+										.filter(s -> s.getName().equals(scopeName))
+										.collect(toList());
+								soaSecurityApplication.getScopes().addAll(soaScopes);
+							}
+						}
+					}
 				}
 			}
 		}
@@ -987,7 +1001,7 @@ public class SoaComponentBuilder {
 	}
 
 	private Schema unwrapArrayOrComposedSchema(Schema schema) {
-		if (schema instanceof ArraySchema) {
+		if (schema instanceof ArraySchema && ((ArraySchema) schema).getItems() != null) {
 			return ((ArraySchema) schema).getItems();
 		} else if (schema instanceof ComposedSchema) {
 			List<Schema> allOf = ((ComposedSchema) schema).getAllOf();

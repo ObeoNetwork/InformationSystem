@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2008, 2021 Obeo.
+ * Copyright (c) 2008, 2023 Obeo.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -12,18 +12,28 @@ package org.obeonetwork.dsl.migration.tests;
 
 import org.junit.Test;
 
-public class SoaMigrationTest extends MigrationTests {
+public class SoaMigrationTest extends MigrationTest {
 	
 	@Test
 	public void testSoaSimple() {
-		testMigration("simple");
+		testMigration("simple", false);
 	}
 	
 	@Test
 	public void testSoaComplet() {
-		testMigration("complet");
+		testMigration("complet", false);
 	}
 
+	@Test
+	public void testSoaSecurityApplication() {
+		testMigration("securityapplication", true);
+	}
+
+	@Test
+	public void testSoaSubsystem() {
+		testMigration("subsystem", true);
+	}
+	
 	@Override
 	protected String getRootFolder() {
 		return "models/soa";

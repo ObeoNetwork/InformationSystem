@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<oent:Root xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:oent="http://www.obeonetwork.org/dsl/entity/3.0.0" xmlns:oenv="http://www.obeonetwork.org/dsl/environment/3.0.0" xmi:id="_nF_ggDlnEeKBAr0by_Z50A" technicalid="_upQDwKaREeae1o8seRTvvw" createdOn="2012-11-28T15:26:34.247+0100" modifiedOn="2012-12-03T14:46:26.272+0100">
+  <ownedNamespaces xmi:id="_rWlzADlnEeKBAr0by_Z50A" technicalid="_upQDwaaREeae1o8seRTvvw" description="These comments should be used for the corresponding namespace's description" createdOn="2012-11-28T15:27:02.837+0100" modifiedOn="2016-11-09T16:32:35.846+0100" name="2-input-mld">
+    <types xsi:type="oent:Entity" xmi:id="_6ixr0BY-EeOSDrYWINMwpA" technicalid="_upQDwqaREeae1o8seRTvvw" createdOn="2013-09-05T17:22:02.381+0200" modifiedOn="2013-09-05T17:22:02.381+0200" name="Personne">
+      <metadatas xmi:id="_6ixr0RY-EeOSDrYWINMwpA" technicalid="_upQDw6aREeae1o8seRTvvw">
+        <metadatas xsi:type="oenv:Annotation" xmi:id="_6ixr0hY-EeOSDrYWINMwpA" technicalid="_upQDxKaREeae1o8seRTvvw" title="PHYSICAL_NAME" body="PERSONNE"/>
+      </metadatas>
+    </types>
+    <types xsi:type="oent:Entity" xmi:id="_6ixr0xY-EeOSDrYWINMwpA" technicalid="_upQDxaaREeae1o8seRTvvw" createdOn="2013-09-05T17:22:02.381+0200" modifiedOn="2013-09-05T17:22:02.381+0200" name="Societe">
+      <metadatas xmi:id="_6ixr1BY-EeOSDrYWINMwpA" technicalid="_upQDxqaREeae1o8seRTvvw">
+        <metadatas xsi:type="oenv:Annotation" xmi:id="_6ixr1RY-EeOSDrYWINMwpA" technicalid="_upQDx6aREeae1o8seRTvvw" title="PHYSICAL_NAME" body="SOCIETE"/>
+      </metadatas>
+      <ownedReferences xmi:id="_6ixr1hY-EeOSDrYWINMwpA" technicalid="_upQDyKaREeae1o8seRTvvw" description="Contrainte FK avec la table PERSONNE" createdOn="2013-09-05T17:22:02.381+0200" modifiedOn="2013-09-05T17:22:02.382+0200" name="estEmployeePar" multiplicity="0..*" referencedType="_6ixr0BY-EeOSDrYWINMwpA">
+        <metadatas xmi:id="_6iyS4BY-EeOSDrYWINMwpA" technicalid="_upQDyaaREeae1o8seRTvvw">
+          <metadatas xsi:type="oenv:Annotation" xmi:id="_6iyS4RY-EeOSDrYWINMwpA" technicalid="_upQDyqaREeae1o8seRTvvw" title="PHYSICAL_NAME" body="EST_EMPLOYEE_PAR"/>
+        </metadatas>
+      </ownedReferences>
+    </types>
+  </ownedNamespaces>
+</oent:Root>

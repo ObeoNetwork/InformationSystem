@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2008, 2021 Obeo.
+ * Copyright (c) 2008, 2023 Obeo.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -35,6 +35,8 @@ import org.obeonetwork.dsl.soa.Parameter;
 import org.obeonetwork.dsl.soa.ParameterRestData;
 import org.obeonetwork.dsl.soa.PropertiesExtension;
 import org.obeonetwork.dsl.soa.Scope;
+import org.obeonetwork.dsl.soa.Securable;
+import org.obeonetwork.dsl.soa.SecurityApplication;
 import org.obeonetwork.dsl.soa.SecurityScheme;
 import org.obeonetwork.dsl.soa.Server;
 import org.obeonetwork.dsl.soa.Service;
@@ -61,7 +63,7 @@ public class SoaSwitch<T> extends Switch<T> {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public static final String copyright = "Copyright (c) 2008, 2021 Obeo.\nAll rights reserved. This program and the accompanying materials\nare made available under the terms of the Eclipse Public License v1.0\nwhich accompanies this distribution, and is available at\nhttp://www.eclipse.org/legal/epl-v10.html\n\nContributors:\n    Obeo - initial API and implementation";
+	public static final String copyright = "Copyright (c) 2008, 2023 Obeo.\nAll rights reserved. This program and the accompanying materials\nare made available under the terms of the Eclipse Public License v1.0\nwhich accompanies this distribution, and is available at\nhttp://www.eclipse.org/legal/epl-v10.html\n\nContributors:\n    Obeo - initial API and implementation";
 	/**
 	 * The cached model package
 	 * <!-- begin-user-doc -->
@@ -128,6 +130,7 @@ public class SoaSwitch<T> extends Switch<T> {
 				Service service = (Service)theEObject;
 				T result = caseService(service);
 				if (result == null) result = caseObeoDSMObject(service);
+				if (result == null) result = caseSecurable(service);
 				if (result == null) result = caseIdentifiable(service);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
@@ -160,6 +163,7 @@ public class SoaSwitch<T> extends Switch<T> {
 				Operation operation = (Operation)theEObject;
 				T result = caseOperation(operation);
 				if (result == null) result = caseAction(operation);
+				if (result == null) result = caseSecurable(operation);
 				if (result == null) result = caseObeoDSMObject(operation);
 				if (result == null) result = caseIdentifiable(operation);
 				if (result == null) result = defaultCase(theEObject);
@@ -266,6 +270,19 @@ public class SoaSwitch<T> extends Switch<T> {
 				T result = caseScope(scope);
 				if (result == null) result = caseObeoDSMObject(scope);
 				if (result == null) result = caseIdentifiable(scope);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case SoaPackage.SECURITY_APPLICATION: {
+				SecurityApplication securityApplication = (SecurityApplication)theEObject;
+				T result = caseSecurityApplication(securityApplication);
+				if (result == null) result = caseIdentifiable(securityApplication);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case SoaPackage.SECURABLE: {
+				Securable securable = (Securable)theEObject;
+				T result = caseSecurable(securable);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -569,6 +586,36 @@ public class SoaSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseScope(Scope object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Security Application</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Security Application</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseSecurityApplication(SecurityApplication object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Securable</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Securable</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseSecurable(Securable object) {
 		return null;
 	}
 

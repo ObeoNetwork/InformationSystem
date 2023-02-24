@@ -1,17 +1,3 @@
-DROP TABLE IF EXISTS OrderDetails PURGE;
-DROP TABLE IF EXISTS Orders PURGE;
-DROP TABLE IF EXISTS CustomerCustomerDemo PURGE;
-DROP TABLE IF EXISTS CustomerDemographics PURGE;
-DROP TABLE IF EXISTS EmployeeTerritories PURGE;
-DROP TABLE IF EXISTS Employees PURGE;
-DROP TABLE IF EXISTS Customers PURGE;
-DROP TABLE IF EXISTS Shippers PURGE;
-DROP TABLE IF EXISTS Products PURGE;
-DROP TABLE IF EXISTS Suppliers PURGE;
-DROP TABLE IF EXISTS Categories PURGE;
-DROP TABLE IF EXISTS Territories PURGE;
-DROP TABLE IF EXISTS Region PURGE;
-
 CREATE TABLE Region( 
   RegionID  NUMBER NOT NULL, 
   RegionDescription  CHAR(50) NOT NULL, 
@@ -66,10 +52,10 @@ CREATE TABLE Products(
   ReorderLevel  NUMBER, 
   Discontinued  NUMBER(1) NOT NULL,
 CONSTRAINT PK_Products PRIMARY KEY (ProductID),
-CONSTRAINT CK_Products_UnitPrice   CHECK ((UnitPrice >= 0)),
-CONSTRAINT CK_ReorderLevel   CHECK ((ReorderLevel >= 0)),
-CONSTRAINT CK_UnitsInStock   CHECK ((UnitsInStock >= 0)),
 CONSTRAINT CK_UnitsOnOrder   CHECK ((UnitsOnOrder >= 0)),
+CONSTRAINT CK_UnitsInStock   CHECK ((UnitsInStock >= 0)),
+CONSTRAINT CK_ReorderLevel   CHECK ((ReorderLevel >= 0)),
+CONSTRAINT CK_Products_UnitPrice   CHECK ((UnitPrice >= 0)),
 CONSTRAINT FK_Products_Categories FOREIGN KEY (CategoryID) REFERENCES Categories(CategoryID), 
 CONSTRAINT FK_Products_Suppliers FOREIGN KEY (SupplierID2) REFERENCES Suppliers(SupplierID1)
 ); 
@@ -179,9 +165,9 @@ CREATE TABLE OrderDetails(
   Discount  NUMBER NOT NULL, 
 CONSTRAINT PK_Order_Details 
   PRIMARY KEY (OrderID, ProductID), 
-CONSTRAINT CK_Discount   CHECK ((Discount >= 0 and Discount <= 1)), 
-CONSTRAINT CK_Quantity   CHECK ((Quantity > 0)), 
 CONSTRAINT CK_UnitPrice   CHECK ((UnitPrice >= 0)), 
+CONSTRAINT CK_Quantity   CHECK ((Quantity > 0)), 
+CONSTRAINT CK_Discount   CHECK ((Discount >= 0 and Discount <= 1)), 
 CONSTRAINT FK_OrderDetails_Orders FOREIGN KEY (OrderID) REFERENCES Orders(OrderID), 
 CONSTRAINT FK_OrderDetails_Products FOREIGN KEY (ProductID) REFERENCES Products(ProductID)
 )

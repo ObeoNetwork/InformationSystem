@@ -2,9 +2,7 @@ Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: Cinematic Documentation
 Bundle-SymbolicName: org.obeonetwork.dsl.cinematic.doc;singleton:=true
-Bundle-Version: 2.2.0.qualifier
-Bundle-Activator: org.obeonetwork.dsl.cinematic.doc.Activator
+Bundle-Version: 4.0.0.qualifier
 Require-Bundle: org.eclipse.core.runtime
-Bundle-ActivationPolicy: lazy
-Bundle-RequiredExecutionEnvironment: J2SE-1.5
+Bundle-RequiredExecutionEnvironment: JavaSE-1.8
 Bundle-Vendor: Obeo Network

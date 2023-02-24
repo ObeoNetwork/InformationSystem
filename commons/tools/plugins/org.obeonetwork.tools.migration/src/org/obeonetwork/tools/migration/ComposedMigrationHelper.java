@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2008, 2021 Obeo.
+ * Copyright (c) 2008, 2023 Obeo.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -27,8 +27,6 @@ import org.eclipse.emf.ecore.xmi.XMLResource;
 
 public class ComposedMigrationHelper extends BasicMigrationHelper {
 	
-	private boolean migrationNeeded = false;
-	
 	private Collection<IMigrationHelper> migrationHelpers = new ArrayList<IMigrationHelper>();
 
 	public ComposedMigrationHelper(IMigrationHelper... migrationHelpers) {
@@ -38,25 +36,7 @@ public class ComposedMigrationHelper extends BasicMigrationHelper {
 	
 	@Override
 	public boolean isMigrationNeeded() {
-		if (migrationNeeded == true) {
-			return true;
-		} else {
-			for (IMigrationHelper migrationHelper : migrationHelpers) {
-				boolean needed = migrationHelper.isMigrationNeeded();
-				if (needed == true) {
-					migrationNeeded = true;
-					return true;
-				}
-			}
-		}
-		return false;
-	}
-
-	@Override
-	public void setMigrationNeeded(boolean migrationNeeded) {
-		for (IMigrationHelper migrationHelper : migrationHelpers) {
-			migrationHelper.setMigrationNeeded(migrationNeeded);
-		}
+		return super.isMigrationNeeded() || migrationHelpers.stream().anyMatch(mh -> mh.isMigrationNeeded());
 	}
 
 	@Override

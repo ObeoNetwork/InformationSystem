@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2008, 2021 Obeo.
+ * Copyright (c) 2008, 2023 Obeo.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -13,22 +13,22 @@ package org.obeonetwork.dsl.migration.tests;
 import org.junit.Assert;
 import org.junit.Test;
 
-public class EntityMigrationTest extends MigrationTests {
+public class EntityMigrationTest extends MigrationTest {
 	
 	@Test
 	public void testSimpleEntity() {
-		testMigration("simple");
+		testMigration("simple", false);
 	}
 
 	@Test
 	public void testEntities() {
-		testMigration("entities");
+		testMigration("entities", false);
 	}
 	
 	@Test
 	public void testMigrationNotNeeded() {
 		String folder = "migrationNotNeeded";
-		testMigration(folder);
+		testMigration(folder, false);
 		
 		// The file should not be changed by migration
 		String sourceModelPath = getFullPathForBeforeModel(folder);

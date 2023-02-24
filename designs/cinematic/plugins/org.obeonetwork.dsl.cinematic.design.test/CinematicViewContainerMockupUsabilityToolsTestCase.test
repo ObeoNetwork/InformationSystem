@@ -1,0 +1,167 @@
+--- RCPTT testcase ---
+Format-Version: 1.0
+Element-Name: CinematicViewContainerMockupUsabilityToolsTestCase
+Element-Type: testcase
+Element-Version: 3.0
+External-Reference: 
+Id: __2cCoJWGEeyWm9az4K7Z1w
+Runtime-Version: 2.5.1.M3
+Save-Time: 2/24/22, 5:57 PM
+Testcase-Type: ecl
+
+------=_.description-216f885c-d591-38ce-8ea2-e4f8cb4d6ffa
+Content-Type: text/plain
+Entry-Name: .description
+
+Testing View Container Mockup usability tools defined in cinematic.odesign.
+- DND_ViewContainer
+- VCD_DblClick_Nav_to_ViewContainer_Diagram (Not tested)
+- VCD_Nav_to_Reused_ViewContainer_Diagram
+- VCD_DblClick_Nav_to_Reused_ViewContainer_Diagram
+- VCD_DblClick_Nav_to_Layout_Diagram
+- VCD_Nav_to_Layout_Diagram
+
+------=_.description-216f885c-d591-38ce-8ea2-e4f8cb4d6ffa--
+------=_.content-0a7243a0-75d3-3d5f-9791-539de0e5b7ac
+Content-Type: text/ecl
+Entry-Name: .content
+
+get-view "Model Explorer" | get-tree 
+    | select "E-BookStore/E-BookStore.cinematic/Cinematic Root E-BookStore/View Container CreateAccount : Page/CreateAccount View Container Mockup" 
+    | double-click
+//- VCD_DblClick_Nav_to_ViewContainer_Diagram
+with [get-editor "CreateAccount View Container Mockup"] {
+    get-diagram -index 1 | get-edit-part -name "CreateAccount View Container Mockup" | mouse-move 1187 350 -height 737 
+        -width 1200
+    with [get-palette] {
+         with [get-palette-entry Panel] {
+            mouse-move 17 17 button1 -height 25 -width 228
+            mouse-press 17 17 button1 -height 25 -width 228
+            mouse-release 17 17 button1 "" -height 25 -width 228
+        }
+    }
+    with [get-diagram -index 1 | get-edit-part -name "CreateAccount View Container Mockup"] {
+        mouse-move 471 76 -height 737 -width 1200
+        with [get-edit-part -name CreateAccount | get-edit-part 
+            -className DNodeContainerViewNodeContainerCompartmentEditPart] {
+            mouse-move 365 15 button1 -height 254 -width 445
+            mouse-press 365 15 button1 -height 254 -width 445
+            mouse-release 365 15 button1 "" -height 254 -width 445
+        }
+    }
+    with [get-diagram -index 1 | get-edit-part -name "CreateAccount View Container Mockup" | get-edit-part 
+        -name CreateAccount | get-edit-part -className DNodeContainerViewNodeContainerCompartmentEditPart 
+        | get-edit-part -name viewElement1] {
+        mouse-move 26 21 button1 -height 143 -width 287
+        mouse-press 26 21 button1 -height 143 -width 287
+        mouse-release 26 21 button1 "" -height 143 -width 287
+        mouse-press 26 21 button1 -height 143 -width 287
+        mouse-double-click 26 21 button1 -height 143 -width 287
+    }
+}
+get-window "New viewElement1 View Container Mockup" | get-button OK | click -metaKeys ""
+with [get-editor "viewElement1 View Container Mockup" | get-diagram -index 1 | get-edit-part 
+    -name "viewElement1 View Container Mockup"] {
+    mouse-move 650 456 button1 -height 745 -width 1204
+    mouse-press 650 456 button1 -height 745 -width 1204
+    mouse-release 650 456 button1 "" -height 745 -width 1204
+}
+// Assert current diagram
+get-eclipse-window | key-type "M1+s"
+get-tab-folder -index 2 | get-property activePage | equals "viewElement1 View Container Mockup" | verify-true
+//- VCD_Nav_to_Reused_ViewContainer_Diagram
+
+with [get-editor "viewElement1 View Container Mockup"] {
+    get-diagram -index 1 | get-edit-part -name "viewElement1 View Container Mockup" | mouse-move 1187 406 -height 740 
+        -width 1200
+    with [get-palette | get-palette-entry "View Container Reference"] {
+        mouse-move 44 7 button1 -height 25 -width 228
+        mouse-press 44 7 button1 -height 25 -width 228
+        mouse-release 44 7 button1 "" -height 25 -width 228
+    }
+    with [get-diagram -index 1 | get-edit-part -name "viewElement1 View Container Mockup"] {
+        mouse-move 140 70 -height 740 -width 1200
+        with [get-edit-part -name viewElement1 | get-edit-part 
+            -className DNodeContainerViewNodeContainerCompartmentEditPart] {
+            mouse-move 24 7 button1 -height 33 -width 144
+            mouse-press 24 7 button1 -height 33 -width 144
+            mouse-release 24 7 button1 "" -height 33 -width 144
+        }
+    }
+}
+with [get-window "Selection Wizard"] {
+    get-tree | select "Cinematic Root E-BookStore/View Container HomePage : Page"
+    get-button Finish | click -metaKeys ""
+}
+with [get-editor "viewElement1 View Container Mockup" | get-diagram -index 1] {
+    with [get-edit-part -name "viewElement1 View Container Mockup" | get-edit-part -name viewElement1] {
+        mouse-move 154 115 -height 119 -width 184
+        with [get-edit-part -className DNodeContainerViewNodeContainerCompartmentEditPart | get-edit-part 
+            -name homePage | get-edit-part -className DNodeContainerViewNodeContainerCompartment2EditPart] {
+            mouse-move 124 51 button3 -height 68 -width 148
+            mouse-press 124 51 button3 -height 68 -width 148
+        }
+    }
+    get-menu -path "Open/HomePage View Container Mockup" | click -metaKeys ""
+}
+// Assert current diagram
+get-eclipse-window | key-type "M1+s"
+get-tab-folder -index 2 | get-property activePage | equals "HomePage View Container Mockup" | verify-true
+// - VCD_DblClick_Nav_to_Reused_ViewContainer_Diagram
+get-editor "viewElement1 View Container Mockup" | click
+get-editor "HomePage View Container Mockup" | close
+with [get-editor "viewElement1 View Container Mockup" | get-diagram -index 1 | get-edit-part 
+    -name "viewElement1 View Container Mockup" | get-edit-part -name viewElement1] {
+    mouse-move 180 51 -height 119 -width 184
+    with [get-edit-part -className DNodeContainerViewNodeContainerCompartmentEditPart | get-edit-part -name homePage 
+        | get-edit-part -className DNodeContainerViewNodeContainerCompartment2EditPart] {
+        mouse-move 107 45 button1 -height 68 -width 148
+        mouse-press 107 45 button1 -height 68 -width 148
+        mouse-release 107 45 button1 "" -height 68 -width 148
+        mouse-press 107 45 button1 -height 68 -width 148
+        mouse-double-click 107 45 button1 -height 68 -width 148
+    }
+}
+// Assert current diagram
+get-eclipse-window | key-type "M1+s"
+get-tab-folder -index 2 | get-property activePage | equals "HomePage View Container Mockup" | verify-true
+//- VCD_DblClick_Nav_to_Layout_Diagram
+get-editor "viewElement1 View Container Mockup" | click
+get-editor "HomePage View Container Mockup" | close
+get-editor "CreateAccount View Container Mockup" | click
+get-editor "viewElement1 View Container Mockup" | close
+with [get-editor "CreateAccount View Container Mockup" | get-diagram -index 1 | get-edit-part 
+    -name "CreateAccount View Container Mockup" | get-edit-part -name CreateAccount] {
+    mouse-move 447 116 -height 291 -width 451
+    with [get-edit-part -className DNodeContainerViewNodeContainerCompartmentEditPart] {
+        get-edit-part -name viewElement1 | get-edit-part -className DNodeContainerViewNodeContainerCompartment2EditPart 
+            | mouse-move 266 88 -height 106 -width 281
+        mouse-move 394 197 button1 -height 254 -width 445
+        mouse-press 394 197 button1 -height 254 -width 445
+        mouse-release 394 197 button1 "" -height 254 -width 445
+        mouse-press 394 197 button1 -height 254 -width 445
+        mouse-double-click 394 197 button1 -height 254 -width 445
+    }
+}
+// Assert current diagram
+get-eclipse-window | key-type "M1+s"
+get-tab-folder -index 2 | get-property activePage | equals "CreateAccount Layout Diagram" | verify-true
+//- VCD_Nav_to_Layout_Diagram
+get-editor "CreateAccount View Container Mockup" | click
+get-editor "CreateAccount Layout Diagram" | close
+with [get-editor "CreateAccount View Container Mockup" | get-diagram -index 1] {
+    with [get-edit-part -name "CreateAccount View Container Mockup"] {
+        mouse-move 642 284 -height 741 -width 1363
+        with [get-edit-part -name CreateAccount | get-edit-part 
+            -className DNodeContainerViewNodeContainerCompartmentEditPart] {
+            mouse-move 426 219 button3 -height 254 -width 445
+            mouse-press 426 219 button3 -height 254 -width 445
+        }
+    }
+    get-menu -path "Open/CreateAccount Layout Diagram" | click -metaKeys ""
+}
+// Assert current diagram
+get-eclipse-window | key-type "M1+s"
+get-tab-folder -index 2 | get-property activePage | equals "CreateAccount Layout Diagram" | verify-true
+
+------=_.content-0a7243a0-75d3-3d5f-9791-539de0e5b7ac--

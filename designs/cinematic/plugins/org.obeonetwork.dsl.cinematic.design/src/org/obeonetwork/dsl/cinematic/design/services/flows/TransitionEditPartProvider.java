@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2008, 2021 Obeo.
+ * Copyright (c) 2008, 2023 Obeo.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -48,7 +48,7 @@ public class TransitionEditPartProvider extends AbstractEditPartProvider {
 
 			};
 
-			// When a direct edit is performed on the begin label, we perform this edit policy:
+			// Define the edit policy to use when a direct edit is performed on the begin label
 			dEdgePart.installEditPolicy(org.eclipse.gef.RequestConstants.REQ_DIRECT_EDIT,
 					new TransitionGuardEditLabel());
 
@@ -56,7 +56,7 @@ public class TransitionEditPartProvider extends AbstractEditPartProvider {
 
 		case DEdgeNameEditPart.VISUAL_ID:
 			
-			// We do not want to enable direct edit on the center label (event list) of a Transition.
+			// Disable direct edit on the center label (trigger event) of a Transition
 			DEdgeNameEditPart dEdgeCentralPart = new DEdgeNameEditPart(view) {
 
 				@Override

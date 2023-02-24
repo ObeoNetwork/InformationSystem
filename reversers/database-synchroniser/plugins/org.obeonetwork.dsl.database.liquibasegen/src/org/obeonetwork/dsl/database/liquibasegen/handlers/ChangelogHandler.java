@@ -1,4 +1,16 @@
+/*******************************************************************************
+ * Copyright (c) 2008, 2023 Obeo.
+ * All rights reserved. This program and the accompanying materials
+ * are made available under the terms of the Eclipse Public License v1.0
+ * which accompanies this distribution, and is available at
+ * http://www.eclipse.org/legal/epl-v10.html
+ *
+ * Contributors:
+ *     Obeo - initial API and implementation
+ *******************************************************************************/
 package org.obeonetwork.dsl.database.liquibasegen.handlers;
+
+import static org.obeonetwork.dsl.database.liquibasegen.Activator.getLiquibaseVersion;
 
 import java.io.FileInputStream;
 import java.io.IOException;
@@ -18,10 +30,9 @@ import org.eclipse.swt.widgets.Shell;
 import org.eclipse.ui.handlers.HandlerUtil;
 import org.obeonetwork.dsl.database.liquibasegen.LiquibaseUpdater;
 import org.obeonetwork.dsl.database.liquibasegen.ui.ConnectionInformationDialog;
-import org.obeonetwork.utils.common.handlers.EventHelper;
+import org.obeonetwork.utils.common.ui.handlers.EventHelper;
 
 import liquibase.exception.LiquibaseException;
-
 
 /**
  * Apply a changelog to a database.
@@ -31,7 +42,7 @@ import liquibase.exception.LiquibaseException;
  */
 @SuppressWarnings("restriction")
 public class ChangelogHandler extends AbstractHandler {
-	private final static String LIQUIBASE_PROPERTIES_FILE_NAME = "liquibase.properties";
+	private final static String LIQUIBASE_PROPERTIES_FILE_NAME = "liquibase.properties"; //$NON-NLS-1$
 	
 	private Shell shell;
 	
@@ -51,7 +62,7 @@ public class ChangelogHandler extends AbstractHandler {
 		
 		File liquibasePropertiesFile = getLiquibasePropertiesFile(changelogFile);
 		if(liquibasePropertiesFile == null) {
-			MessageDialog.openError(shell, Messages.ChangelogHandler_Error_dialog_title, Messages.ChangelogHandler_Error_message_properties_file_not_found);
+			MessageDialog.openError(shell, Messages.ChangelogHandler_dialog_title, Messages.ChangelogHandler_Error_message_properties_file_not_found);
 			return null;
 		}
 		
@@ -59,9 +70,12 @@ public class ChangelogHandler extends AbstractHandler {
 			if (openConnectionInformationDialog(liquibasePropertiesFile)) {
 				LiquibaseUpdater liquibaseUpdater = new LiquibaseUpdater(changelogFile);
 				liquibaseUpdater.update(URL, username, password);
+				MessageDialog.openInformation(shell, 
+						Messages.ChangelogHandler_dialog_title, 
+						String.format(Messages.ChangelogHandler_success_message, getLiquibaseVersion()));
 			}
 		} catch (IOException | LiquibaseException e) {
-			MessageDialog.openError(shell, Messages.ChangelogHandler_Error_dialog_title, e.getMessage());
+			MessageDialog.openError(shell, Messages.ChangelogHandler_dialog_title, e.getMessage());
 		}
 		
 		return null;

@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2008, 2021 Obeo.
+ * Copyright (c) 2008, 2023 Obeo.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -23,6 +23,8 @@ import org.obeonetwork.dsl.soa.Operation;
 import org.obeonetwork.dsl.soa.OperationKind;
 import org.obeonetwork.dsl.soa.Parameter;
 import org.obeonetwork.dsl.soa.PropertiesExtension;
+import org.obeonetwork.dsl.soa.Securable;
+import org.obeonetwork.dsl.soa.SecurityApplication;
 import org.obeonetwork.dsl.soa.SecurityScheme;
 import org.obeonetwork.dsl.soa.Server;
 import org.obeonetwork.dsl.soa.SoaPackage;
@@ -36,6 +38,8 @@ import org.obeonetwork.dsl.soa.Verb;
  * The following features are implemented:
  * </p>
  * <ul>
+ *   <li>{@link org.obeonetwork.dsl.soa.impl.OperationImpl#getSecurityApplications <em>Security Applications</em>}</li>
+ *   <li>{@link org.obeonetwork.dsl.soa.impl.OperationImpl#getSecuritySchemes <em>Security Schemes</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.soa.impl.OperationImpl#getInput <em>Input</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.soa.impl.OperationImpl#getOutput <em>Output</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.soa.impl.OperationImpl#getKind <em>Kind</em>}</li>
@@ -45,7 +49,6 @@ import org.obeonetwork.dsl.soa.Verb;
  *   <li>{@link org.obeonetwork.dsl.soa.impl.OperationImpl#getVerb <em>Verb</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.soa.impl.OperationImpl#getExposition <em>Exposition</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.soa.impl.OperationImpl#isPaged <em>Paged</em>}</li>
- *   <li>{@link org.obeonetwork.dsl.soa.impl.OperationImpl#getSecuritySchemes <em>Security Schemes</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.soa.impl.OperationImpl#getServers <em>Servers</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.soa.impl.OperationImpl#getSize <em>Size</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.soa.impl.OperationImpl#getPage <em>Page</em>}</li>
@@ -60,7 +63,7 @@ public class OperationImpl extends ActionImpl implements Operation {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public static final String copyright = "Copyright (c) 2008, 2021 Obeo.\nAll rights reserved. This program and the accompanying materials\nare made available under the terms of the Eclipse Public License v1.0\nwhich accompanies this distribution, and is available at\nhttp://www.eclipse.org/legal/epl-v10.html\n\nContributors:\n    Obeo - initial API and implementation";
+	public static final String copyright = "Copyright (c) 2008, 2023 Obeo.\nAll rights reserved. This program and the accompanying materials\nare made available under the terms of the Eclipse Public License v1.0\nwhich accompanies this distribution, and is available at\nhttp://www.eclipse.org/legal/epl-v10.html\n\nContributors:\n    Obeo - initial API and implementation";
 
 	/**
 	 * The default value of the '{@link #getKind() <em>Kind</em>}' attribute.
@@ -284,16 +287,6 @@ public class OperationImpl extends ActionImpl implements Operation {
 	 * @generated
 	 */
 	@SuppressWarnings("unchecked")
-	public EList<SecurityScheme> getSecuritySchemes() {
-		return (EList<SecurityScheme>)eDynamicGet(SoaPackage.OPERATION__SECURITY_SCHEMES, SoaPackage.Literals.OPERATION__SECURITY_SCHEMES, true, true);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@SuppressWarnings("unchecked")
 	public EList<Server> getServers() {
 		return (EList<Server>)eDynamicGet(SoaPackage.OPERATION__SERVERS, SoaPackage.Literals.OPERATION__SERVERS, true, true);
 	}
@@ -384,9 +377,46 @@ public class OperationImpl extends ActionImpl implements Operation {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EList<SecurityApplication> getAllSecurityApplications() {
+		// TODO: implement this method
+		// Ensure that you remove @generated or mark it @generated NOT
+		throw new UnsupportedOperationException();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@SuppressWarnings("unchecked")
+	public EList<SecurityApplication> getSecurityApplications() {
+		return (EList<SecurityApplication>)eDynamicGet(SoaPackage.OPERATION__SECURITY_APPLICATIONS, SoaPackage.Literals.SECURABLE__SECURITY_APPLICATIONS, true, true);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@SuppressWarnings("unchecked")
+	public EList<SecurityScheme> getSecuritySchemes() {
+		// TODO: implement this method to return the 'Security Schemes' reference list
+		// Ensure that you remove @generated or mark it @generated NOT
+		// The list is expected to implement org.eclipse.emf.ecore.util.InternalEList and org.eclipse.emf.ecore.EStructuralFeature.Setting
+		// so it's likely that an appropriate subclass of org.eclipse.emf.ecore.util.EcoreEList should be used.
+		throw new UnsupportedOperationException();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
+			case SoaPackage.OPERATION__SECURITY_APPLICATIONS:
+				return ((InternalEList<?>)getSecurityApplications()).basicRemove(otherEnd, msgs);
 			case SoaPackage.OPERATION__INPUT:
 				return ((InternalEList<?>)getInput()).basicRemove(otherEnd, msgs);
 			case SoaPackage.OPERATION__OUTPUT:
@@ -407,6 +437,10 @@ public class OperationImpl extends ActionImpl implements Operation {
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
+			case SoaPackage.OPERATION__SECURITY_APPLICATIONS:
+				return getSecurityApplications();
+			case SoaPackage.OPERATION__SECURITY_SCHEMES:
+				return getSecuritySchemes();
 			case SoaPackage.OPERATION__INPUT:
 				return getInput();
 			case SoaPackage.OPERATION__OUTPUT:
@@ -425,8 +459,6 @@ public class OperationImpl extends ActionImpl implements Operation {
 				return getExposition();
 			case SoaPackage.OPERATION__PAGED:
 				return isPaged();
-			case SoaPackage.OPERATION__SECURITY_SCHEMES:
-				return getSecuritySchemes();
 			case SoaPackage.OPERATION__SERVERS:
 				return getServers();
 			case SoaPackage.OPERATION__SIZE:
@@ -451,6 +483,10 @@ public class OperationImpl extends ActionImpl implements Operation {
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
+			case SoaPackage.OPERATION__SECURITY_APPLICATIONS:
+				getSecurityApplications().clear();
+				getSecurityApplications().addAll((Collection<? extends SecurityApplication>)newValue);
+				return;
 			case SoaPackage.OPERATION__INPUT:
 				getInput().clear();
 				getInput().addAll((Collection<? extends Parameter>)newValue);
@@ -481,10 +517,6 @@ public class OperationImpl extends ActionImpl implements Operation {
 			case SoaPackage.OPERATION__PAGED:
 				setPaged((Boolean)newValue);
 				return;
-			case SoaPackage.OPERATION__SECURITY_SCHEMES:
-				getSecuritySchemes().clear();
-				getSecuritySchemes().addAll((Collection<? extends SecurityScheme>)newValue);
-				return;
 			case SoaPackage.OPERATION__SERVERS:
 				getServers().clear();
 				getServers().addAll((Collection<? extends Server>)newValue);
@@ -510,6 +542,9 @@ public class OperationImpl extends ActionImpl implements Operation {
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
+			case SoaPackage.OPERATION__SECURITY_APPLICATIONS:
+				getSecurityApplications().clear();
+				return;
 			case SoaPackage.OPERATION__INPUT:
 				getInput().clear();
 				return;
@@ -537,9 +572,6 @@ public class OperationImpl extends ActionImpl implements Operation {
 			case SoaPackage.OPERATION__PAGED:
 				setPaged(PAGED_EDEFAULT);
 				return;
-			case SoaPackage.OPERATION__SECURITY_SCHEMES:
-				getSecuritySchemes().clear();
-				return;
 			case SoaPackage.OPERATION__SERVERS:
 				getServers().clear();
 				return;
@@ -564,6 +596,10 @@ public class OperationImpl extends ActionImpl implements Operation {
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
+			case SoaPackage.OPERATION__SECURITY_APPLICATIONS:
+				return !getSecurityApplications().isEmpty();
+			case SoaPackage.OPERATION__SECURITY_SCHEMES:
+				return !getSecuritySchemes().isEmpty();
 			case SoaPackage.OPERATION__INPUT:
 				return !getInput().isEmpty();
 			case SoaPackage.OPERATION__OUTPUT:
@@ -582,8 +618,6 @@ public class OperationImpl extends ActionImpl implements Operation {
 				return getExposition() != EXPOSITION_EDEFAULT;
 			case SoaPackage.OPERATION__PAGED:
 				return isPaged() != PAGED_EDEFAULT;
-			case SoaPackage.OPERATION__SECURITY_SCHEMES:
-				return !getSecuritySchemes().isEmpty();
 			case SoaPackage.OPERATION__SERVERS:
 				return !getServers().isEmpty();
 			case SoaPackage.OPERATION__SIZE:
@@ -594,6 +628,40 @@ public class OperationImpl extends ActionImpl implements Operation {
 				return basicGetPaginationExtension() != null;
 		}
 		return super.eIsSet(featureID);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public int eBaseStructuralFeatureID(int derivedFeatureID, Class<?> baseClass) {
+		if (baseClass == Securable.class) {
+			switch (derivedFeatureID) {
+				case SoaPackage.OPERATION__SECURITY_APPLICATIONS: return SoaPackage.SECURABLE__SECURITY_APPLICATIONS;
+				case SoaPackage.OPERATION__SECURITY_SCHEMES: return SoaPackage.SECURABLE__SECURITY_SCHEMES;
+				default: return -1;
+			}
+		}
+		return super.eBaseStructuralFeatureID(derivedFeatureID, baseClass);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public int eDerivedStructuralFeatureID(int baseFeatureID, Class<?> baseClass) {
+		if (baseClass == Securable.class) {
+			switch (baseFeatureID) {
+				case SoaPackage.SECURABLE__SECURITY_APPLICATIONS: return SoaPackage.OPERATION__SECURITY_APPLICATIONS;
+				case SoaPackage.SECURABLE__SECURITY_SCHEMES: return SoaPackage.OPERATION__SECURITY_SCHEMES;
+				default: return -1;
+			}
+		}
+		return super.eDerivedStructuralFeatureID(baseFeatureID, baseClass);
 	}
 
 } //OperationImpl

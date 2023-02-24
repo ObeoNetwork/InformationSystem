@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2008, 2021 Obeo.
+ * Copyright (c) 2008, 2023 Obeo.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -114,6 +114,9 @@ public class LiquibaseGenerator {
 				+ EOL //
 				+ "# Enter the password for your Target database." + EOL //
 				+ "password: " + EOL //
+				+ EOL //
+				+ "# Specify the schema to use for the creation of Liquibase objects" + EOL //
+				+ "#liquibase.liquibaseSchemaName: YOUR_SCHEMA_NAME" + EOL //
 				+ EOL //
 				+ "#Driver name" + EOL //
 				+ "driver: " + genDriver(databaseElement) + EOL //

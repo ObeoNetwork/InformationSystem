@@ -1,4 +1,4 @@
-<!-- Copyright (c) 2008, 2021 Obeo. All rights reserved. This program and 
+<!-- Copyright (c) 2008, 2023 Obeo. All rights reserved. This program and 
 	the accompanying materials are made available under the terms of the Eclipse 
 	Public License v1.0 which accompanies this distribution, and is available 
 	at http://www.eclipse.org/legal/epl-v10.html Contributors: Obeo - initial 
@@ -11,25 +11,14 @@
 
 	<groupId>org.obeonetwork</groupId>
 	<artifactId>parent</artifactId>
-	<version>2.2.0-SNAPSHOT</version>
+	<version>4.0.0-SNAPSHOT</version>
 	<packaging>pom</packaging>
 
 	<name>Information System Parent</name>
 
 	<properties>
-		<tycho-version>1.7.0</tycho-version>
-		<platform-version-name>2019-06</platform-version-name>
-		<od-site>http://update.obeo.fr/release/designer/11.3/team/11.3.2/repository/</od-site>
-		<od-site2>http://update.obeo.fr/release/designer/11.3/community/11.3.2/repository/</od-site2>
-		<eef-site>http://download.eclipse.org/modeling/emft/eef/updates/releases/2.1/R201909051307</eef-site>
-		<amalgam-site>https://download.eclipse.org/modeling/amalgam/updates/stable/1.11.0-S20190729/capella/</amalgam-site>
-		<eclipse-site>http://download.eclipse.org/releases/2019-06/</eclipse-site>
-		<orbit-site>https://download.eclipse.org/tools/orbit/downloads/drops/R20190602212107/repository</orbit-site>
-		<m2doc-site>https://s3-eu-west-1.amazonaws.com/obeo-m2doc-releases/master/nightly/repository</m2doc-site>
-		<!-- <acceleo-snapshots-site>https://repo.eclipse.org/content/repositories/acceleo-snapshots</acceleo-snapshots-site> -->
-		<acceleo-releases-site>https://repo.eclipse.org/content/repositories/acceleo-releases</acceleo-releases-site>
-		<svn-site>https://download.eclipse.org/releases/oxygen/</svn-site>
-        <target-artifact-version>2.2.0-SNAPSHOT</target-artifact-version>
+		<tycho-version>2.7.5</tycho-version>
+        <target-artifact-version>4.0.0-SNAPSHOT</target-artifact-version>
 	</properties>
 
 	<modules>
@@ -138,6 +127,9 @@
 
 		<!-- ********************************************************************************************* 
 			* Tools & Commons ********************************************************************************************* -->
+		<!-- commons/tools/ -->
+		<module>../../commons/tools/plugins/org.obeonetwork.tools.tests</module>
+        
 		<!-- commons/nebula/ -->
 		<module>../../commons/nebula/plugins/org.eclipse.nebula.treemapper</module>
 		<module>../../commons/nebula/features/org.eclipse.nebula.treemapper.feature</module>
@@ -167,6 +159,7 @@
 		<module>../../commons/tools/plugins/org.obeonetwork.tools.projectlibrary.ui</module>
 		<module>../../commons/tools/plugins/org.obeonetwork.tools.projectlibrary.doc</module>
 		<module>../../commons/tools/features/org.obeonetwork.tools.projectlibrary.feature</module>
+		<module>../../commons/tools/plugins/org.obeonetwork.tools.projectlibrary.test</module>
 
 		<module>../../commons/tools/plugins/org.obeonetwork.tools.contextual.explorer.ui</module>
 		<module>../../commons/tools/plugins/org.obeonetwork.tools.contextual.explorer.ui.tests</module>
@@ -174,7 +167,7 @@
 		<module>../../commons/tools/features/org.obeonetwork.tools.contextual.explorer.feature</module>
 
 		<module>../../commons/utils/plugins/org.obeonetwork.utils.common</module>
-		<module>../../commons/utils/plugins/org.obeonetwork.utils.sirius</module>
+		<module>../../commons/utils/plugins/org.obeonetwork.utils.common.ui</module>
 		<module>../../commons/utils/features/org.obeonetwork.utils.feature</module>
 
 		<!-- ********************************************************************************************* 
@@ -310,15 +303,15 @@
 
 		<!-- ********************************************************************************************* 
 			* Scaffolding ********************************************************************************************* -->
-		<module>../../addons/scaffolding/features/fr.gouv.mindef.safran.database.scaffold.feature</module>
-		<module>../../addons/scaffolding/plugins/fr.gouv.mindef.safran.database.scaffold</module>
-		<module>../../addons/scaffolding/plugins/fr.gouv.mindef.safran.database.scaffold.edit</module>
-		<module>../../addons/scaffolding/plugins/fr.gouv.mindef.safran.database.scaffold.editor</module>
-		<module>../../addons/scaffolding/features/fr.gouv.mindef.safran.database.ui.feature</module>
-		<module>../../addons/scaffolding/plugins/fr.gouv.mindef.safran.database</module>
-		<module>../../addons/scaffolding/plugins/fr.gouv.mindef.safran.database.doc</module>
-		<module>../../addons/scaffolding/plugins/fr.gouv.mindef.safran.database.ui</module>
-		<module>../../addons/scaffolding/plugins/fr.gouv.mindef.safran.database.tests</module>
+		<module>../../addons/scaffolding/features/org.obeonetwork.database.scaffold.feature</module>
+		<module>../../addons/scaffolding/plugins/org.obeonetwork.database.scaffold</module>
+		<module>../../addons/scaffolding/plugins/org.obeonetwork.database.scaffold.edit</module>
+		<module>../../addons/scaffolding/plugins/org.obeonetwork.database.scaffold.editor</module>
+		<module>../../addons/scaffolding/features/org.obeonetwork.database.ui.feature</module>
+		<module>../../addons/scaffolding/plugins/org.obeonetwork.database</module>
+		<module>../../addons/scaffolding/plugins/org.obeonetwork.database.doc</module>
+		<module>../../addons/scaffolding/plugins/org.obeonetwork.database.ui</module>
+		<module>../../addons/scaffolding/plugins/org.obeonetwork.database.tests</module>
 
 		<!-- ********************************************************************************************* 
 			* Samples ********************************************************************************************* -->
@@ -331,28 +324,28 @@
 
 		<!-- ********************************************************************************************* 
 			* Lifecycle ********************************************************************************************* -->
-		<module>../../addons/lifecycle/features/fr.gouv.mindef.safran.project.lifecycle.feature</module>
-		<module>../../addons/lifecycle/plugins/fr.gouv.mindef.safran.project.lifecycle</module>
-		<module>../../addons/lifecycle/plugins/fr.gouv.mindef.safran.project.lifecycle.ui</module>
-		<module>../../addons/lifecycle/plugins/fr.gouv.mindef.safran.project.lifecycle.doc</module>
+		<module>../../addons/lifecycle/features/org.obeonetwork.project.lifecycle.feature</module>
+		<module>../../addons/lifecycle/plugins/org.obeonetwork.project.lifecycle</module>
+		<module>../../addons/lifecycle/plugins/org.obeonetwork.project.lifecycle.ui</module>
+		<module>../../addons/lifecycle/plugins/org.obeonetwork.project.lifecycle.doc</module>
 
 		<!-- ********************************************************************************************* 
 			* Cinematic HTML Generator ********************************************************************************************* -->
-		<module>../../addons/cinematic/features/fr.gouv.mindef.safran.cinematic.gen.html.feature</module>
-		<module>../../addons/cinematic/plugins/fr.gouv.mindef.safran.cinematic.gen.html</module>
-		<module>../../addons/cinematic/plugins/fr.gouv.mindef.safran.cinematic.gen.html.ui</module>
+		<module>../../addons/cinematic/features/org.obeonetwork.cinematic.gen.html.feature</module>
+		<module>../../addons/cinematic/plugins/org.obeonetwork.cinematic.gen.html</module>
+		<module>../../addons/cinematic/plugins/org.obeonetwork.cinematic.gen.html.ui</module>
 
 		<!-- ********************************************************************************************* 
 			* Structured types tables ********************************************************************************************* -->
-		<module>../../addons/structuredtypes/features/fr.gouv.mindef.safran.feature.is</module>
-		<module>../../addons/structuredtypes/plugins/fr.gouv.mindef.safran.is.design</module>
-		<module>../../addons/structuredtypes/plugins/fr.gouv.mindef.safran.is.design.doc</module>
+		<module>../../addons/structuredtypes/features/org.obeonetwork.feature.is</module>
+		<module>../../addons/structuredtypes/plugins/org.obeonetwork.is.design</module>
+		<module>../../addons/structuredtypes/plugins/org.obeonetwork.is.design.doc</module>
 
 		<!-- ********************************************************************************************* 
 			* Graal Extensions ********************************************************************************************* -->
-		<module>../../addons/graalextensions/features/fr.gouv.mindef.safran.graal.extensions.feature</module>
-		<module>../../addons/graalextensions/plugins/fr.gouv.mindef.safran.graal.extensions</module>
-		<module>../../addons/graalextensions/plugins/fr.gouv.mindef.safran.graal.extensions.edit</module>
+		<module>../../addons/graalextensions/features/org.obeonetwork.graal.extensions.feature</module>
+		<module>../../addons/graalextensions/plugins/org.obeonetwork.graal.extensions</module>
+		<module>../../addons/graalextensions/plugins/org.obeonetwork.graal.extensions.edit</module>
 
 		<!-- ********************************************************************************************* 
 			* Swagger SOA Extensions ********************************************************************************************* -->
@@ -410,8 +403,8 @@
 					<version>${tycho-version}</version>
 					<configuration>
 						<encoding>UTF-8</encoding>
-						<source>1.8</source>
-						<target>1.8</target>
+						<source>11</source>
+						<target>11</target>
 					</configuration>
 				</plugin>
 				<plugin>
@@ -547,21 +540,6 @@
 	</build>
 
 	<profiles>
-		<profile>
-			<id>platform-mars</id>
-			<activation>
-				<property>
-					<name>platform-version-name</name>
-					<value>indigo</value>
-				</property>
-			</activation>
-			<properties>
-				<eclipse-site>>http://download.eclipse.org/releases/neon</eclipse-site>
-				<platform-version>[4.4,4.5)</platform-version>
-				<swtbot-site>http://download.eclipse.org/technology/swtbot/indigo/dev-build/update-site</swtbot-site>
-				<!-- Update to this? http://download.eclipse.org/technology/swtbot/releases/latest/ -->
-			</properties>
-		</profile>
 		<profile>
 			<id>checkstyle</id>
 			<activation>

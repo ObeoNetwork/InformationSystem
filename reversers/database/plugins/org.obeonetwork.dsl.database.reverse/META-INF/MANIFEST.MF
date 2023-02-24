@@ -2,7 +2,7 @@ Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: Reverse
 Bundle-SymbolicName: org.obeonetwork.dsl.database.reverse
-Bundle-Version: 2.2.0.qualifier
+Bundle-Version: 4.0.0.qualifier
 Require-Bundle: org.eclipse.core.runtime,
  org.obeonetwork.dsl.database.drivers,
  org.obeonetwork.dsl.database
@@ -12,7 +12,7 @@ Export-Package: org.obeonetwork.dsl.database.reverse,
  org.obeonetwork.dsl.database.reverse.factories,
  org.obeonetwork.dsl.database.reverse.source,
  org.obeonetwork.dsl.database.reverse.utils
-Bundle-RequiredExecutionEnvironment: JavaSE-1.6
+Bundle-RequiredExecutionEnvironment: JavaSE-1.8
 Bundle-Vendor: Obeo Network
 Bundle-Activator: org.obeonetwork.dsl.database.reverse.DatabaseReverserPlugin
 Bundle-ActivationPolicy: lazy

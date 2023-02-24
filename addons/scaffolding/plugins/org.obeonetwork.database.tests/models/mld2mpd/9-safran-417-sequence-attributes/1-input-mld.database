@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<database:DataBase xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:database="http://www.obeonetwork.org/dsl/database/1.0" xmlns:typeslibrary="http://www.obeonetwork.org/dsl/typeslibrary/1.0" xmi:id="_PS7CYaGhEea5Ua_pyGRRNA" techID="_PS7CYKGhEea5Ua_pyGRRNA" name="input-mld">
+  <tables xsi:type="database:Table" xmi:id="_yxk24aGiEea5Ua_pyGRRNA" techID="_yxk24KGiEea5Ua_pyGRRNA" name="Table1">
+    <primaryKey xmi:id="_0RNdoaGiEea5Ua_pyGRRNA" techID="_0RNdoKGiEea5Ua_pyGRRNA" name="Table1_PK" columns="_0QivQaGiEea5Ua_pyGRRNA"/>
+    <columns xmi:id="_0QivQaGiEea5Ua_pyGRRNA" techID="_0QivQKGiEea5Ua_pyGRRNA" name="column1" primaryKey="_0RNdoaGiEea5Ua_pyGRRNA">
+      <type xsi:type="typeslibrary:TypeInstance" xmi:id="_0QivQqGiEea5Ua_pyGRRNA">
+        <nativeType href="pathmap://LogicalDBTypes#_WWeJ4BEnEeGTa_JlZYBw1A"/>
+      </type>
+    </columns>
+  </tables>
+  <usedLibraries xsi:type="typeslibrary:NativeTypesLibrary" href="pathmap://LogicalDBTypes#_WWbGkREnEeGTa_JlZYBw1A"/>
+</database:DataBase>

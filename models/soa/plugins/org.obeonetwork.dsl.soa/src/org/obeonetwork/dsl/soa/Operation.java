@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2008, 2021 Obeo.
+ * Copyright (c) 2008, 2023 Obeo.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -31,7 +31,6 @@ import org.obeonetwork.dsl.environment.Action;
  *   <li>{@link org.obeonetwork.dsl.soa.Operation#getVerb <em>Verb</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.soa.Operation#getExposition <em>Exposition</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.soa.Operation#isPaged <em>Paged</em>}</li>
- *   <li>{@link org.obeonetwork.dsl.soa.Operation#getSecuritySchemes <em>Security Schemes</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.soa.Operation#getServers <em>Servers</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.soa.Operation#getSize <em>Size</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.soa.Operation#getPage <em>Page</em>}</li>
@@ -42,13 +41,13 @@ import org.obeonetwork.dsl.environment.Action;
  * @model
  * @generated
  */
-public interface Operation extends Action {
+public interface Operation extends Action, Securable {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	String copyright = "Copyright (c) 2008, 2021 Obeo.\nAll rights reserved. This program and the accompanying materials\nare made available under the terms of the Eclipse Public License v1.0\nwhich accompanies this distribution, and is available at\nhttp://www.eclipse.org/legal/epl-v10.html\n\nContributors:\n    Obeo - initial API and implementation";
+	String copyright = "Copyright (c) 2008, 2023 Obeo.\nAll rights reserved. This program and the accompanying materials\nare made available under the terms of the Eclipse Public License v1.0\nwhich accompanies this distribution, and is available at\nhttp://www.eclipse.org/legal/epl-v10.html\n\nContributors:\n    Obeo - initial API and implementation";
 
 	/**
 	 * Returns the value of the '<em><b>Input</b></em>' containment reference list.
@@ -289,21 +288,6 @@ public interface Operation extends Action {
 	void setPaged(boolean value);
 
 	/**
-	 * Returns the value of the '<em><b>Security Schemes</b></em>' reference list.
-	 * The list contents are of type {@link org.obeonetwork.dsl.soa.SecurityScheme}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * <!-- begin-model-doc -->
-	 * The list of security schemes.
-	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Security Schemes</em>' reference list.
-	 * @see org.obeonetwork.dsl.soa.SoaPackage#getOperation_SecuritySchemes()
-	 * @model
-	 * @generated
-	 */
-	EList<SecurityScheme> getSecuritySchemes();
-
-	/**
 	 * Returns the value of the '<em><b>Servers</b></em>' containment reference list.
 	 * The list contents are of type {@link org.obeonetwork.dsl.soa.Server}.
 	 * <!-- begin-user-doc -->
@@ -392,5 +376,16 @@ public interface Operation extends Action {
 	 * @generated
 	 */
 	void setPaginationExtension(PropertiesExtension value);
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * Returns the owned SecurityApplications and the ones inherited from the containing Service.
+	 * <!-- end-model-doc -->
+	 * @model kind="operation"
+	 * @generated
+	 */
+	EList<SecurityApplication> getAllSecurityApplications();
 
 } // Operation

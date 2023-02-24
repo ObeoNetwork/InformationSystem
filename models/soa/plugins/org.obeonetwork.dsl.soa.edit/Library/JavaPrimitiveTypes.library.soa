@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<soa:Service xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:oenv="http://www.obeonetwork.org/dsl/environment/3.0.0" xmlns:soa="http://www.obeonetwork.org/dsl/soa/3.0.0" xmi:id="_6TTHgEsIEeW58NS0iozxPQ">
+<soa:Service xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:oenv="http://www.obeonetwork.org/dsl/environment/3.0.0" xmlns:soa="http://www.obeonetwork.org/dsl/soa/4.0.0" xmi:id="_6TTHgEsIEeW58NS0iozxPQ">
   <types xsi:type="oenv:PrimitiveType" name="Boolean"/>
   <types xsi:type="oenv:PrimitiveType" name="String"/>
   <types xsi:type="oenv:PrimitiveType" name="Byte"/>

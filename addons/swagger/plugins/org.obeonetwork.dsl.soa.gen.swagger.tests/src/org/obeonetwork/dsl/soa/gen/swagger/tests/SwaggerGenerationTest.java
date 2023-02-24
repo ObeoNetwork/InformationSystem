@@ -1,6 +1,6 @@
 /*******************************************************************************
  **$
- * Copyright (c) 2008, 2021 Obeo.
+ * Copyright (c) 2008, 2023 Obeo.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -12,11 +12,11 @@
 package org.obeonetwork.dsl.soa.gen.swagger.tests;
 
 import static org.junit.Assert.assertTrue;
-import static org.obeonetwork.dsl.soa.gen.swagger.tests.TestHelper.assertFolderEquals;
-import static org.obeonetwork.dsl.soa.gen.swagger.tests.TestHelper.createSoaResourceSetFromBundleEntryPath;
-import static org.obeonetwork.dsl.soa.gen.swagger.tests.TestHelper.createTempFolderFromBundleEntryPath;
-import static org.obeonetwork.dsl.soa.gen.swagger.tests.TestHelper.createTemporaryOutputFolder;
-import static org.obeonetwork.dsl.soa.gen.swagger.tests.TestHelper.findFirstComponent;
+import static org.obeonetwork.dsl.soa.gen.swagger.tests.SwaggerTestHelper.assertFolderEquals;
+import static org.obeonetwork.dsl.soa.gen.swagger.tests.SwaggerTestHelper.createSoaResourceSetFromBundleEntryPath;
+import static org.obeonetwork.dsl.soa.gen.swagger.tests.SwaggerTestHelper.createTempFolderFromBundleEntryPath;
+import static org.obeonetwork.dsl.soa.gen.swagger.tests.SwaggerTestHelper.createTemporaryOutputFolder;
+import static org.obeonetwork.dsl.soa.gen.swagger.tests.SwaggerTestHelper.findFirstComponent;
 
 import java.io.File;
 

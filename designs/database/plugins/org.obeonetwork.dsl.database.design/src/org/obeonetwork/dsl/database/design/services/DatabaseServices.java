@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2008, 2021 Obeo.
+ * Copyright (c) 2008, 2023 Obeo.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -10,6 +10,7 @@
  *******************************************************************************/
 package org.obeonetwork.dsl.database.design.services;
 
+import static java.util.stream.Collectors.toList;
 import static org.obeonetwork.dsl.typeslibrary.util.TypesLibraryUtil.LOGICAL_PATHMAP;
 
 import java.util.ArrayList;
@@ -18,17 +19,17 @@ import java.util.Collections;
 import java.util.Comparator;
 import java.util.HashSet;
 import java.util.List;
+import java.util.Objects;
+import java.util.Optional;
 import java.util.Set;
 
-import org.eclipse.emf.common.util.ECollections;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.sirius.diagram.AbstractDNode;
 import org.eclipse.sirius.diagram.DDiagram;
 import org.eclipse.sirius.diagram.DDiagramElement;
 import org.eclipse.sirius.diagram.DSemanticDiagram;
+import org.eclipse.sirius.diagram.ui.tools.api.editor.DDiagramEditor;
 import org.eclipse.sirius.viewpoint.DSemanticDecorator;
-import org.eclipse.swt.widgets.Shell;
-import org.eclipse.ui.PlatformUI;
 import org.obeonetwork.dsl.database.AbstractTable;
 import org.obeonetwork.dsl.database.Column;
 import org.obeonetwork.dsl.database.DataBase;
@@ -39,15 +40,17 @@ import org.obeonetwork.dsl.database.Sequence;
 import org.obeonetwork.dsl.database.Table;
 import org.obeonetwork.dsl.database.TableContainer;
 import org.obeonetwork.dsl.database.View;
+import org.obeonetwork.dsl.database.ViewColumn;
 import org.obeonetwork.dsl.database.ViewElement;
+import org.obeonetwork.dsl.database.ViewTable;
 import org.obeonetwork.dsl.database.spec.ViewSpec;
 import org.obeonetwork.dsl.database.view.parser.ColObject;
 import org.obeonetwork.dsl.database.view.parser.ViewContentProvider;
 import org.obeonetwork.dsl.technicalid.util.CopierUtils;
-import org.obeonetwork.dsl.typeslibrary.TypeInstance;
-import org.obeonetwork.utils.sirius.services.EObjectUtils;
-
-import com.google.common.base.Strings;
+import org.obeonetwork.utils.common.EObjectUtils;
+import org.obeonetwork.utils.common.StringUtils;
+import org.obeonetwork.utils.common.ui.services.EclipseUtils;
+import org.obeonetwork.utils.common.ui.services.SiriusUIUtils;
 
 public class DatabaseServices {
 	
@@ -331,40 +334,110 @@ public class DatabaseServices {
 		 * The initializing need to be done only one time.
 		 */
 		ViewSpec viewSpec = (ViewSpec) view;
-		if (viewSpec.initialized==false){
-			// Clear view content
-			if (viewSpec.getColumns()!=null){
-				viewSpec.getColumns().clear();
-			}
-			if (viewSpec.getTables()!=null){
-				viewSpec.getTables().clear();
-			}
-			// Parse new query and update view content
-			String query = viewSpec.getQuery();
-			if (!Strings.isNullOrEmpty(query)){		
-				ViewContentProvider viewContentProvider = new ViewContentProvider();
-				viewContentProvider.parseViewQuery(viewSpec.getQuery());
-				List<ColObject> listOfColumns = viewContentProvider.getColumns();
-
-				if (listOfColumns!=null){
-					for ( ColObject column : listOfColumns){
-						ViewElement elem = DatabaseFactory.eINSTANCE.createViewElement();
-						elem.setName(column.getName());
-						elem.setAlias(column.getAlias());
-						viewSpec.getColumns().add(elem);
-					}
-				}
-				List<String> listOfTables = viewContentProvider.getTables();
-				if (listOfTables!=null){
-					for ( String table : listOfTables){
-						ViewElement elem = DatabaseFactory.eINSTANCE.createViewElement();
-						elem.setName(table);
-						viewSpec.getTables().add(elem);
-					}
-				}
-			}
+		if (!viewSpec.initialized) {
+			updateViewContent(view);
+			
 			// The initialization was done update boolean.
-			viewSpec.initialized=true;
+			viewSpec.initialized = true;
+		}
+	}
+	
+	public static View updateViewContent(View view) {
+		// Clear view content
+		if (view.getColumns() != null) {
+			view.getColumns().clear();
+		}
+		if (view.getTables() != null) {
+			view.getTables().clear();
+		}
+		// Parse new query
+		ViewContentProvider viewContentProvider = new ViewContentProvider();
+		String query = Optional.ofNullable(view.getQuery()).orElse("");
+		viewContentProvider.parseViewQuery(query);
+
+		// Update tables
+		List<String> parsedTableNames = viewContentProvider.getTables();
+		if (parsedTableNames != null) {
+			for (String parsedTableName : parsedTableNames) {
+				ViewTable viewTable = DatabaseFactory.eINSTANCE.createViewTable();
+				viewTable.setName(parsedTableName);
+				view.getTables().add(viewTable);
+			}
+		}
+		
+		// Update columns
+		List<ColObject> parsedColumns = viewContentProvider.getColumns();
+		if (parsedColumns != null) {
+			for (ColObject parsedColumn : parsedColumns) {
+				ViewColumn viewColumn = DatabaseFactory.eINSTANCE.createViewColumn();
+				viewColumn.setName(parsedColumn.getName());
+				viewColumn.setAlias(parsedColumn.getAlias());
+				view.getColumns().add(viewColumn);
+				
+				if(!StringUtils.isNullOrWhite(parsedColumn.getTable())) {
+					Optional<ViewTable> fromTableOpt = view.getTables().stream()
+							.filter(t -> parsedColumn.getTable().equalsIgnoreCase(t.getName()) || 
+									parsedColumn.getTable().equalsIgnoreCase(t.getAlias()))
+							.findFirst();
+					if(fromTableOpt.isPresent()) {
+						viewColumn.setFrom(fromTableOpt.get());
+					}
+				} else {
+					ViewTable viewTable = computeViewTableFromViewColumn(viewColumn);
+					if(viewTable != null) {
+						viewColumn.setFrom(viewTable);
+					}
+				}
+			}
+		}
+		
+		validateViewQuery(view);
+		
+		return view;
+	}
+	
+	private static ViewTable computeViewTableFromViewColumn(ViewColumn viewColumn) {
+		
+		View view = EObjectUtils.getContainer(viewColumn, View.class);
+		
+		// First collect the view tables to look the column in
+		List<ViewTable> viewTables = new ArrayList<>();
+		
+		if(viewColumn.getFrom() != null) {
+			// The "from" table is specified then we must find the column in it
+			viewTables.add(viewColumn.getFrom());
+		} else {
+			// The "from" table is not specified then we must find the column in one of the ViewTables
+			viewTables.addAll(view.getTables());
+		}
+		
+		// Now that we know the tables where to look the column in, look for it
+		Column column = viewTables.stream()
+		.map(DatabaseServices::findTable)
+		.filter(Objects::nonNull)
+		.flatMap(t -> t.getColumns().stream())
+		.filter(c -> viewColumn.getName().equalsIgnoreCase(c.getName()))
+		.findFirst().orElse(null);
+		
+		// And finally crawl to the View Table
+		if(column != null) {
+			Table table = column.getOwner();
+			return view.getTables().stream()
+					.filter(vt -> vt.getName().equalsIgnoreCase(table.getName())).findFirst().orElse(null);
+		}
+		
+		return null;
+	}
+	
+	private static void validateViewQuery(View view) {
+		List<DDiagramEditor> openDDiagramEditorsShowingView = EclipseUtils.getOpenDDiagramEditors().stream()
+				.filter(dde -> dde.getRepresentation().getOwnedRepresentationElements()
+						.stream().flatMap(re -> re.getSemanticElements().stream())
+						.anyMatch(e -> e == view))
+				.collect(toList());
+		
+		for(DDiagramEditor dDiagramEditor : openDDiagramEditorsShowingView) {
+			SiriusUIUtils.validateDDiagramEditor(dDiagramEditor);
 		}
 	}
 	
@@ -375,4 +448,89 @@ public class DatabaseServices {
 				.anyMatch(uri -> LOGICAL_PATHMAP.equals(uri.toString()));
 		return isMldElement;
 	}	
+	
+	public List<ViewElement> getViewElementsOrderedForDatabaseDiagram(View view) {
+		List<ViewElement> viewElements = new ArrayList<>();
+		
+		view.getColumns().stream()
+			.filter(c -> c.getFrom() == null)
+			.forEach(c -> viewElements.add(c));
+		
+		for(ViewTable viewTable : view.getTables()) {
+			viewElements.add(viewTable);
+			view.getColumns().stream()
+				.filter(c -> c.getFrom() == viewTable)
+				.forEach(c -> viewElements.add(c));
+		}
+		
+		return viewElements;
+	}
+	
+	private static Table findTable(ViewTable viewTable) {
+		TableContainer tableContainer = EObjectUtils.getContainer(viewTable, TableContainer.class);
+		return tableContainer.getTables().stream()
+				.filter(Table.class::isInstance).map(Table.class::cast)
+				.filter(t -> viewTable.getName().equalsIgnoreCase(t.getName()))
+				.findFirst().orElse(null);
+	}
+	
+	private static Column findColumn(ViewColumn viewColumn) {
+		if(viewColumn.getFrom() == null) {
+			return null;
+ 		}
+ 		
+		Table table = findTable(viewColumn.getFrom());
+		if(table == null) {
+			return null;
+		}
+ 		
+		return table.getColumns().stream()
+				.filter(c -> viewColumn.getName().equalsIgnoreCase(c.getName()))
+				.findFirst().orElse(null);
+	}
+
+	public boolean isQueryValid(View view) {
+		
+		if(view.getTables().stream().anyMatch(t -> findTable(t) == null)) {
+			return false;
+		}
+		
+		if(view.getColumns().stream().anyMatch(c -> !c.getName().equals("*") && c.getFrom() == null)) {
+			return false;
+		}
+		
+		if(view.getColumns().stream().anyMatch(c -> !c.getName().equals("*") && findColumn(c) == null)) {
+			return false;
+		}
+		
+		return true;
+	}
+
+	public String queryValidationMessage(View view) {
+		StringBuilder message = new StringBuilder();
+		
+		List<ViewTable> tablesNotFound = view.getTables().stream()
+				.filter(t -> findTable(t) == null)
+				.collect(toList());
+		tablesNotFound.forEach(t -> message.append(String.format("Table %s doesn't exist.\n", t.getName())));
+
+		List<ViewColumn> columnsFromNoTable = view.getColumns().stream()
+				.filter(c -> !c.getName().equals("*") && c.getFrom() == null)
+				.collect(toList());
+		columnsFromNoTable.forEach(c -> message.append(String.format("Column %s is from no existing table.\n", c.getName())));
+
+		view.getColumns().stream()
+		.filter(c -> !c.getName().equals("*")
+				&& !columnsFromNoTable.contains(c)
+				&& !tablesNotFound.contains(c.getFrom())
+				&& findColumn(c) == null)
+		.forEach(c -> message.append(String.format("Column %s of table %s doesn't exist.\n", c.getName(), c.getFrom().getName())));
+
+		if(message.length() > 0) {
+			message.deleteCharAt(message.length() - 1);
+		}
+		
+		return message.toString();
+	}
+
 }

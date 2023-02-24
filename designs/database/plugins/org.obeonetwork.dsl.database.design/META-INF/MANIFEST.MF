@@ -1,7 +1,7 @@
 Manifest-Version: 1.0
-Bundle-Name: Obeo Designer Viewpoint Project
+Bundle-Name: Database Viewpoint
 Bundle-SymbolicName: org.obeonetwork.dsl.database.design;singleton:=true
-Bundle-Version: 2.2.0.qualifier
+Bundle-Version: 4.0.0.qualifier
 Bundle-Activator: org.obeonetwork.dsl.database.design.Activator
 Require-Bundle: org.obeonetwork.dsl.database,
  org.obeonetwork.dsl.database.edit,
@@ -11,15 +11,21 @@ Require-Bundle: org.obeonetwork.dsl.database,
  org.eclipse.emf.transaction,
  org.eclipse.sirius.ext.base,
  org.eclipse.sirius.diagram,
- org.obeonetwork.utils.sirius
+ org.obeonetwork.utils.common.ui,
+ org.obeonetwork.utils.common,
+ org.eclipse.sirius.diagram.ui,
+ org.eclipse.eef.properties.ui,
+ org.eclipse.eef.common.ui,
+ org.eclipse.eef.ide.ui.properties,
+ org.eclipse.eef.core,
+ org.eclipse.eef
 Bundle-ActivationPolicy: lazy
-Bundle-RequiredExecutionEnvironment: JavaSE-1.6
+Bundle-RequiredExecutionEnvironment: JavaSE-1.8
 Bundle-ManifestVersion: 2
-Export-Package: org.obeonetwork.dsl.database.design.services,
+Export-Package: org.obeonetwork.dsl.database.design,
+ org.obeonetwork.dsl.database.design.services,
  org.obeonetwork.dsl.database.design.services.label
 Bundle-Vendor: Obeo Network
-Import-Package: com.google.common.base;version="[21.0.0,27.2.0)",
- com.google.common.collect;version="[21.0.0,27.2.0)"
 Bundle-ClassPath: lib/jsqlparser.jar,
  .
 Automatic-Module-Name: org.obeonetwork.dsl.database.design

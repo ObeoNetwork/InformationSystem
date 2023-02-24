@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2008, 2021 Obeo.
+ * Copyright (c) 2008, 2023 Obeo.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -11,17 +11,15 @@
 package org.obeonetwork.dsl.cinematic.design.services;
 
 import org.eclipse.emf.ecore.EObject;
-import org.eclipse.gmf.runtime.notation.provider.ViewItemProvider;
 import org.obeonetwork.dsl.cinematic.design.services.label.CinematicEditLabelSwitch;
 import org.obeonetwork.dsl.cinematic.design.services.label.CinematicLabelSwitch;
 import org.obeonetwork.dsl.cinematic.design.services.label.FlowEditLabelSwitch;
 import org.obeonetwork.dsl.cinematic.design.services.label.FlowLabelSwitch;
 import org.obeonetwork.dsl.cinematic.design.services.label.ViewEditLabelSwitch;
 import org.obeonetwork.dsl.cinematic.design.services.label.ViewLabelSwitch;
+import org.obeonetwork.dsl.cinematic.design.services.label.ViewLongLabelSwitch;
 import org.obeonetwork.dsl.cinematic.flow.Transition;
-import org.obeonetwork.dsl.cinematic.view.AbstractViewElement;
-import org.obeonetwork.dsl.cinematic.view.Layout;
-import org.obeonetwork.dsl.cinematic.view.util.ViewAdapterFactory;
+import org.obeonetwork.utils.common.StringUtils;
 
 /**
  * This class is used to compute the label of a cinematic element
@@ -31,24 +29,24 @@ import org.obeonetwork.dsl.cinematic.view.util.ViewAdapterFactory;
  */
 public class CinematicLabelServices {
 	
-	private static CinematicLabelSwitch cinematicSwitch = new CinematicLabelSwitch();
-	private static FlowLabelSwitch flowSwitch = new FlowLabelSwitch();
-	private static ViewLabelSwitch viewSwitch = new ViewLabelSwitch();
+	private static CinematicLabelSwitch cinematicLabelSwitch = new CinematicLabelSwitch();
+	private static FlowLabelSwitch flowLabelSwitch = new FlowLabelSwitch();
+	private static ViewLabelSwitch viewLabelSwitch = new ViewLabelSwitch();
+	
+	private static ViewLongLabelSwitch viewLongLabelSwitch = new ViewLongLabelSwitch();
 	
 	private static CinematicEditLabelSwitch cinematicEditSwitch = new CinematicEditLabelSwitch();
 	private static FlowEditLabelSwitch flowEditSwitch = new FlowEditLabelSwitch();
 	private static ViewEditLabelSwitch viewEditSwitch = new ViewEditLabelSwitch();
 
-	private static ViewItemProvider itemProvider = new ViewItemProvider(new ViewAdapterFactory());
-	
 	public String getCinematicLabel(EObject eObject) {
 		String packagePrefix = eObject.eClass().getEPackage().getNsPrefix();
 		if ("cinematic".equals(packagePrefix)) {
-			return cinematicSwitch.doSwitch(eObject);
+			return cinematicLabelSwitch.doSwitch(eObject);
 		} else if ("cinematic-flow".equals(packagePrefix)) {
-			return flowSwitch.doSwitch(eObject);
+			return flowLabelSwitch.doSwitch(eObject);
 		} else if ("cinematic-view".equals(packagePrefix)) {
-			return viewSwitch.doSwitch(eObject);
+			return viewLabelSwitch.doSwitch(eObject);
 		}
 		return "";
 	}
@@ -73,7 +71,7 @@ public class CinematicLabelServices {
 	public static String getGuardLabel(Transition transition) {
 		StringBuilder builder = new StringBuilder();
 		
-		if (transition.getGuard() != null && transition.getGuard().trim() != "") {
+		if (!StringUtils.isNullOrWhite(transition.getGuard())) {
 			builder.append('[')
 				.append(transition.getGuard().trim())
 				.append(']');
@@ -82,20 +80,16 @@ public class CinematicLabelServices {
 		return builder.toString();
 	}
 	
-	/**
-	 * Builds a label such as: "abstractViewElementName : widgetName". 
-	 * If the layout refers to a abstractViewElement with no widget, it simply returns the abstract view element name.
-	 * @param layout a {@link Layout}
-	 * @return a {@link String} 
-	 * @throws NullPointerException if the {@link Layout} refers to a {@link AbstractViewElement} with a null name. (Not possible in standard scenarios)
-	 */
-	public static String getAbstractViewElementLabel(Layout layout) {
-		if (layout.getViewElement() == null) {
-			return null;
-		} else if (layout.getViewElement().getWidget() != null)
-			return layout.getViewElement().getName()+" : "+layout.getViewElement().getWidget().getName();
-		else 
-			return layout.getViewElement().getName();
+	public String getCinematicLongLabel(EObject eObject) {
+		String packagePrefix = eObject.eClass().getEPackage().getNsPrefix();
+		if ("cinematic".equals(packagePrefix)) {
+			return cinematicLabelSwitch.doSwitch(eObject);
+		} else if ("cinematic-flow".equals(packagePrefix)) {
+			return flowLabelSwitch.doSwitch(eObject);
+		} else if ("cinematic-view".equals(packagePrefix)) {
+			return viewLongLabelSwitch.doSwitch(eObject);
+		}
+		return "";
 	}
 	
 }

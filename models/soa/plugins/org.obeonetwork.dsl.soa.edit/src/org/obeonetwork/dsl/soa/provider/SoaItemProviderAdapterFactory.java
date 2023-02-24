@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2008, 2021 Obeo.
+ * Copyright (c) 2008, 2023 Obeo.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -45,7 +45,7 @@ public class SoaItemProviderAdapterFactory extends SoaAdapterFactory implements 
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public static final String copyright = "Copyright (c) 2008, 2021 Obeo.\nAll rights reserved. This program and the accompanying materials\nare made available under the terms of the Eclipse Public License v1.0\nwhich accompanies this distribution, and is available at\nhttp://www.eclipse.org/legal/epl-v10.html\n\nContributors:\n    Obeo - initial API and implementation";
+	public static final String copyright = "Copyright (c) 2008, 2023 Obeo.\nAll rights reserved. This program and the accompanying materials\nare made available under the terms of the Eclipse Public License v1.0\nwhich accompanies this distribution, and is available at\nhttp://www.eclipse.org/legal/epl-v10.html\n\nContributors:\n    Obeo - initial API and implementation";
 
 	/**
 	 * This keeps track of the root adapter factory that delegates to this adapter factory.
@@ -545,6 +545,29 @@ public class SoaItemProviderAdapterFactory extends SoaAdapterFactory implements 
 	}
 
 	/**
+	 * This keeps track of the one adapter used for all {@link org.obeonetwork.dsl.soa.SecurityApplication} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected SecurityApplicationItemProvider securityApplicationItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link org.obeonetwork.dsl.soa.SecurityApplication}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createSecurityApplicationAdapter() {
+		if (securityApplicationItemProvider == null) {
+			securityApplicationItemProvider = new SecurityApplicationItemProvider(this);
+		}
+
+		return securityApplicationItemProvider;
+	}
+
+	/**
 	 * This returns the root adapter factory that contains this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -663,6 +686,7 @@ public class SoaItemProviderAdapterFactory extends SoaAdapterFactory implements 
 		if (propertiesExtensionItemProvider != null) propertiesExtensionItemProvider.dispose();
 		if (serverItemProvider != null) serverItemProvider.dispose();
 		if (scopeItemProvider != null) scopeItemProvider.dispose();
+		if (securityApplicationItemProvider != null) securityApplicationItemProvider.dispose();
 	}
 
 }

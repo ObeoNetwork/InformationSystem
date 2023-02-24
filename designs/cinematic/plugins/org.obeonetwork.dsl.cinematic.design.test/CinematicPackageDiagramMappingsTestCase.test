@@ -1,0 +1,80 @@
+--- RCPTT testcase ---
+Format-Version: 1.0
+Element-Name: CinematicPackageDiagramMappingsTestCase
+Element-Type: testcase
+Element-Version: 3.0
+External-Reference: 
+Id: _B9z2IGNcEeSg_dTG4Ei-uQ
+Runtime-Version: 2.5.1.M3
+Save-Time: 2/24/22, 2:31 PM
+Testcase-Type: ecl
+
+------=_.description-216f885c-d591-38ce-8ea2-e4f8cb4d6ffa
+Content-Type: text/plain
+Entry-Name: .description
+
+Testing all package Diagram mappings defines in cinematic.odesign/Package Diagram.
+In Default layer:
+- PAD_Package
+- PAD_ViewContainer
+- PAD_Flow
+In Depedencies layer:
+- PAD_Flow_To_ViewContainer
+- PAD_ViewContainer_To_ViewContainer
+- PAD_Flow_To_Subflow
+------=_.description-216f885c-d591-38ce-8ea2-e4f8cb4d6ffa--
+------=_.content-0a7243a0-75d3-3d5f-9791-539de0e5b7ac
+Content-Type: text/ecl
+Entry-Name: .content
+
+get-view "Model Explorer" | get-tree 
+    | select "E-BookStore/representations.aird/Cinematic Views/Package Diagram/E-BookStore Package Diagram" 
+    | double-click
+with [get-editor "E-BookStore Package Diagram" | get-diagram -index 1 | get-edit-part 
+    -name "E-BookStore Package Diagram"] {
+    mouse-move 154 179 -height 456 -width 973
+    mouse-move 66 97 -height 456 -width 973
+}
+// Check PAD_Package
+with [get-editor "E-BookStore Package Diagram" | get-diagram -index 1 | get-edit-part 
+    -name "E-BookStore Package Diagram" | get-edit-part -name Checkout | get-edit-part 
+    -className DNodeContainerViewNodeContainerCompartmentEditPart] {
+    with [get-figure "1/0"] {
+        get-property "getClassName()" | equals "org.eclipse.draw2d.FreeformViewport" | verify-true
+        get-property "isEnabled()" | equals true | verify-true
+        get-property "isVisible()" | equals true | verify-true
+    }
+    // Check PAD_Flow
+    with [get-edit-part -name Checkout | get-edit-part -className DNodeContainerViewNodeContainerCompartment2EditPart] {
+        get-property "getClassName()" 
+            | equals "org.eclipse.sirius.diagram.ui.internal.edit.parts.DNodeContainerViewNodeContainerCompartment2EditPart" 
+            | verify-true
+        get-property "getModel().getElement().getName()" | equals Checkout | verify-true
+    }
+    //Check PAD_ViewContainer
+    with [get-edit-part -name "Login"] {
+        get-property "getClassName()" | equals "org.eclipse.sirius.diagram.ui.internal.edit.parts.DNodeList2EditPart" 
+            | verify-true
+        get-property "getChildren().DNodeListName2EditPart[0].getEditText()" | equals "Login" | verify-true
+        get-property "getChildren().DNodeListViewNodeListCompartmentEditPart[1].getChildren().DNodeListElementEditPart[0].getEditText()" 
+            | equals "email" | verify-true
+    }
+    // Check PAD_Flow_To_Subflow
+    with [get-edit-part -name Checkout | get-target-connection 0] {
+        get-property "getClassName()" | equals "org.eclipse.sirius.diagram.ui.internal.edit.parts.DEdgeEditPart" 
+            | verify-true
+        get-property "getTarget().getChildren().DNodeContainerName2EditPart[0].getEditText()" | equals Checkout 
+            | verify-true
+        get-property "getSource().getChildren().DNodeContainerNameEditPart[0].getEditText()" | equals Main | verify-true
+    }
+    // Check PAD_Flow_To_ViewContainer
+    with [get-edit-part -name "Login"] {
+        with [get-target-connection 0] {
+            get-property "getTarget().getChildren().DNodeListName2EditPart[0].getEditText()" | equals "Login" 
+                | verify-true
+            get-property "getSource().getChildren().DNodeContainerName2EditPart[0].getEditText()" | equals Checkout 
+                | verify-true
+        }
+    }
+}
+------=_.content-0a7243a0-75d3-3d5f-9791-539de0e5b7ac--
