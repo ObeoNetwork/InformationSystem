@@ -11,7 +11,7 @@
 Version  4.0.0
 
 
-Copyright Obeo, Thales, Eclipse contributors and others 2000, 2022.  All rights reserved.
+Copyright Obeo, Thales, Eclipse contributors and others 2000, 2023.  All rights reserved.
 Obeo, Obeo Designer, the Obeo logo, the Obeo Designer logo and splashscreen are trademarks of Obeo S.A.S. The Obeo logo and Obeo Designer logo and splashscreen cannot be altered without Obeo&apos;s permission. Obeo and Obeo Designer logos are provided for use under the Obeo logo and trademark guidelines.
 Eclipse and the Eclipse logo are trademarks of the Eclipse Foundation, Inc., https://www.eclipse.org/. The Eclipse logo cannot be altered without Eclipse&apos;s permission. Eclipse logos are provided for use under the Eclipse logo and trademark guidelines, https://www.eclipse.org/logotm/. Oracle and Java are trademarks or registered trademarks of Oracle and/or its affiliates. Other names may be trademarks of their respective owners.
 
@@ -23,11 +23,13 @@ Visit http://www.obeo.fr
    </configIni>
 
    <launcherArgs>
-      <vmArgs>-Dosgi.requiredJavaVersion=1.8
+      <vmArgs>-Dosgi.requiredJavaVersion=11
 -XX:+UseG1GC
 -XX:+UseStringDeduplication
 -Xms256m
 -Xmx1024m
+-Dosgi.dataAreaRequiresExplicitInit=true
+--add-modules=ALL-SYSTEM
       </vmArgs>
       <vmArgsMac>-XstartOnFirstThread -Dorg.eclipse.swt.internal.carbon.smallFonts
       </vmArgsMac>
@@ -48,8 +50,9 @@ Visit http://www.obeo.fr
       </win>
    </launcher>
 
+
    <vm>
-      <linux include="false">org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.8</linux>
+      <linux include="false">org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-11</linux>
       <macos include="false">org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.8</macos>
       <solaris include="false">org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.8</solaris>
       <windows include="false">org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.8</windows>
@@ -58,7 +61,7 @@ Visit http://www.obeo.fr
    <license>
         <url>http://www.obeodesigner.com/</url>
         <text>
-   Copyright Obeo, Thales, Eclipse contributors and others 2000, 2022.  All rights reserved.
+   Copyright Obeo, Thales, Eclipse contributors and others 2000, 2023.  All rights reserved.
 
 LICENSE TERMS
 
@@ -208,7 +211,7 @@ This Agreement is governed by the laws of the State of New York and the intellec
    </features>
 
    <configurations>
-      <plugin id="org.apache.felix.scr" autoStart="true" startLevel="2"/>	
+      <plugin id="org.apache.felix.scr" autoStart="true" startLevel="2" />
       <plugin id="org.eclipse.core.runtime" autoStart="true" startLevel="4" />
       <plugin id="org.eclipse.equinox.common" autoStart="true" startLevel="2" />
       <plugin id="org.eclipse.equinox.event" autoStart="true" startLevel="2" />
