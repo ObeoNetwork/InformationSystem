@@ -12,7 +12,9 @@ package org.obeonetwork.dsl.soa.design.services;
 
 import org.obeonetwork.dsl.environment.ObeoDSMObject;
 import org.obeonetwork.dsl.environment.PrimitiveType;
+import org.obeonetwork.dsl.soa.Operation;
 import org.obeonetwork.dsl.soa.Parameter;
+import org.obeonetwork.dsl.soa.Service;
 import org.obeonetwork.dsl.soa.util.SoaSwitch;
 
 public class SOALabelService extends SoaSwitch<String> {
@@ -24,6 +26,16 @@ public class SOALabelService extends SoaSwitch<String> {
 	 */
 	public String getSoaLabel(ObeoDSMObject context) {
 		return doSwitch(context);
+	}
+	
+	@Override
+	public String caseService(Service service) {
+		return service.getName();
+	}
+	
+	@Override
+	public String caseOperation(Operation operation) {
+		return operation.getName();
 	}
 	
 	@Override
