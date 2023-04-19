@@ -157,6 +157,7 @@
     </ownedRepresentationExtensions>
     <ownedJavaExtensions qualifiedClassName="org.obeonetwork.dsl.requirement.design.services.RequirementsServices"/>
     <ownedJavaExtensions qualifiedClassName="org.eclipse.sirius.common.tools.api.interpreter.StandardServices"/>
+    <ownedJavaExtensions qualifiedClassName="org.obeonetwork.dsl.environment.design.ui.VersionService"/>
   </ownedViewpoints>
   <userColorsPalettes>
     <entries xsi:type="description:UserFixedColor" red="229" green="241" blue="251" name="light_light_blue"/>
@@ -193,7 +194,7 @@
           <style backgroundColor="//@userColorsPalettes[name=null]/@entries[name='light_light_blue']"/>
           <actions labelExpression="aql:'+1'">
             <initialOperation>
-              <firstModelOperations xsi:type="tool:SetValue" featureName="version" valueExpression="aql:self.version+1"/>
+              <firstModelOperations xsi:type="tool:SetValue" featureName="version" valueExpression="aql:self.incrementVersion()"/>
             </initialOperation>
           </actions>
         </controls>

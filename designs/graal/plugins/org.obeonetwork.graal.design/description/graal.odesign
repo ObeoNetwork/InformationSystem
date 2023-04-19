@@ -1765,6 +1765,7 @@
     <ownedJavaExtensions qualifiedClassName="org.obeonetwork.graal.design.services.usecase.CreateUseCaseAction"/>
     <ownedJavaExtensions qualifiedClassName="org.obeonetwork.graal.design.services.usecase.RemoveFromUseCaseAction"/>
     <ownedJavaExtensions qualifiedClassName="org.obeonetwork.graal.design.services.util.MessageServices"/>
+    <ownedJavaExtensions qualifiedClassName="org.obeonetwork.dsl.environment.design.ui.VersionService"/>
   </ownedViewpoints>
   <userColorsPalettes name="Palette">
     <entries xsi:type="description:UserFixedColor" red="255" green="249" blue="225" name="Namespace_background"/>
@@ -2268,7 +2269,7 @@
           <style backgroundColor="//@userColorsPalettes[name='User%20Color%20Palette']/@entries[name='light_light_blue']"/>
           <actions labelExpression="aql:'+1'">
             <initialOperation>
-              <firstModelOperations xsi:type="tool_1:SetValue" featureName="version" valueExpression="aql:self.version+1"/>
+              <firstModelOperations xsi:type="tool_1:SetValue" featureName="version" valueExpression="aql:self.incrementVersion()"/>
             </initialOperation>
           </actions>
         </controls>

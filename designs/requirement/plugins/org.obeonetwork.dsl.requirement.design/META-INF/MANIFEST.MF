@@ -17,6 +17,7 @@ Require-Bundle: org.eclipse.ui,
  org.eclipse.gmf.runtime.notation,
  org.eclipse.emf.transaction,
  org.obeonetwork.dsl.is,
+ org.obeonetwork.dsl.environment.design.services,
  org.eclipse.sirius.ext.base
 Bundle-ActivationPolicy: lazy
 Bundle-RequiredExecutionEnvironment: JavaSE-1.8
