@@ -2176,9 +2176,7 @@
     </categories>
     <categories name="Default Category">
       <pages name="System Page" labelExpression="System" domainClass="graal::System" semanticCandidateExpression="var:self" groups="//@extensions.0/@categories.2/@groups.0"/>
-      <pages name="DomainClass Page" labelExpression="Domain Class" domainClass="graal::DomainClass" semanticCandidateExpression="var:self">
-        <groups href="platform:/plugin/org.obeonetwork.dsl.environment.properties/description/environment-properties.odesign#//@extensions.0/@categories.0/@groups.0"/>
-      </pages>
+      <pages name="DomainClass Page" labelExpression="Domain Class" domainClass="graal::DomainClass" semanticCandidateExpression="var:self" groups="//@extensions.0/@categories.2/@groups.4"/>
       <pages name="Persistence Page" labelExpression="Persistence" domainClass="graal::DomainClass" semanticCandidateExpression="var:self" groups="//@extensions.0/@categories.2/@groups.1"/>
       <pages name="Risk Page" labelExpression="Risk" domainClass="environment::ObeoDSMObject" semanticCandidateExpression="var:self" preconditionExpression="service:self.handleRiskAndVersionProperties()" groups="//@extensions.0/@categories.2/@groups.2"/>
       <pages name="Version Page" labelExpression="Version" domainClass="environment::ObeoDSMObject" semanticCandidateExpression="var:self" preconditionExpression="service:self.handleRiskAndVersionProperties()" groups="//@extensions.0/@categories.2/@groups.3"/>
@@ -2275,6 +2273,49 @@
         </controls>
         <controls xsi:type="properties:TextDescription" name="environment::ObeoDSMObject modifiedOn" labelExpression="aql:input.emfEditServices(self).getText(self.eClass().getEStructuralFeature('modifiedOn')) + ':'" helpExpression="aql:input.emfEditServices(self).getDescription(self.eClass().getEStructuralFeature('modifiedOn'))" isEnabledExpression="aql:false" valueExpression="aql:self.modifiedOn.formatVersionDateValue()"/>
         <controls xsi:type="properties:TextDescription" name="environment::ObeoDSMObject createdOn" labelExpression="aql:input.emfEditServices(self).getText(self.eClass().getEStructuralFeature('createdOn')) + ':'" helpExpression="aql:input.emfEditServices(self).getDescription(self.eClass().getEStructuralFeature('createdOn'))" isEnabledExpression="aql:false" valueExpression="aql:self.createdOn.formatVersionDateValue()"/>
+      </groups>
+      <groups name="DomainClass Group" labelExpression="Properties" domainClass="environment::StructuredType" semanticCandidateExpression="var:self">
+        <controls xsi:type="properties:TextDescription" name="environment::StructuredType name" labelExpression="aql:input.emfEditServices(self).getText(self.eClass().getEStructuralFeature('name')) + ':'" helpExpression="aql:input.emfEditServices(self).getDescription(self.eClass().getEStructuralFeature('name'))" isEnabledExpression="aql:self.eClass().getEStructuralFeature('name').changeable" valueExpression="aql:self.name">
+          <initialOperation>
+            <firstModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="var:newValue"/>
+          </initialOperation>
+          <conditionalStyles preconditionExpression="aql:self.eClass().getEStructuralFeature('name').lowerBound = 1">
+            <style>
+              <labelFontFormat>bold</labelFontFormat>
+            </style>
+          </conditionalStyles>
+        </controls>
+        <controls xsi:type="properties:CustomDescription" name="org.obeonetwork.is.eef.custom.reference" label="environment::StructuredType supertype" labelExpression="aql:input.emfEditServices(self).getText(self.eClass().getEStructuralFeature('supertype')) + ':'" helpExpression="aql:input.emfEditServices(self).getDescription(self.eClass().getEStructuralFeature('supertype'))" isEnabledExpression="aql:self.eClass().getEStructuralFeature('supertype').changeable">
+          <customExpressions name="referenceNameExpression" customExpression="aql:'supertype'"/>
+        </controls>
+        <controls xsi:type="properties:CustomDescription" name="org.obeonetwork.is.eef.custom.reference" label="environment::StructuredType attributes" labelExpression="aql:'Attributes :'" helpExpression="aql:input.emfEditServices(self).getDescription(self.eClass().getEStructuralFeature('ownedAttributes'))" isEnabledExpression="aql:self.eClass().getEStructuralFeature('ownedAttributes').changeable">
+          <customExpressions name="referenceNameExpression" customExpression="aql:'ownedAttributes'"/>
+          <customExpressions name="enableAddButtonExpression" customExpression="aql:false"/>
+          <customExpressions name="enableBrowseButtonExpression" customExpression="aql:false"/>
+          <customExpressions name="enableRemoveButtonExpression" customExpression="aql:false"/>
+          <customOperations name="onDoubleClickOperation">
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="aql:selection->first()">
+                <subModelOperations xsi:type="properties:DialogModelOperation" titleExpression="Edit attributes Dialog">
+                  <buttons labelExpression="Cancel" closeDialogOnClick="true" rollbackChangesOnClose="true">
+                    <initialOperation/>
+                  </buttons>
+                  <buttons labelExpression="OK" default="true" closeDialogOnClick="true">
+                    <initialOperation/>
+                  </buttons>
+                  <page name="Edit attribute Page">
+                    <extends href="platform:/plugin/org.obeonetwork.dsl.environment.properties/description/environment-properties.odesign#//@extensions.0/@categories.1/@pages.2"/>
+                  </page>
+                </subModelOperations>
+              </firstModelOperations>
+            </initialOperation>
+          </customOperations>
+        </controls>
+        <controls xsi:type="properties:TextAreaDescription" name="environment::StructuredType description" labelExpression="aql:input.emfEditServices(self).getText(self.eClass().getEStructuralFeature('description')) + ':'" helpExpression="aql:input.emfEditServices(self).getDescription(self.eClass().getEStructuralFeature('description'))" isEnabledExpression="aql:self.eClass().getEStructuralFeature('description').changeable" valueExpression="aql:self.description">
+          <initialOperation>
+            <firstModelOperations xsi:type="tool_1:SetValue" featureName="description" valueExpression="var:newValue"/>
+          </initialOperation>
+        </controls>
       </groups>
     </categories>
   </extensions>
