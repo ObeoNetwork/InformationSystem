@@ -14,6 +14,7 @@ location Eclipse "http://download.eclipse.org/releases/2021-06/" {
 	org.eclipse.mylyn_feature.feature.group lazy
 	org.eclipse.oomph.setup.sdk.feature.group lazy
 	org.eclipse.platform.sdk lazy
+	com.sun.xml.bind 2.2.0.v20201118-1845
 }
 
 location Obeo-Designer-Community "http://update.obeo.fr/release/designer/11.7/community/latest/repository/" {
