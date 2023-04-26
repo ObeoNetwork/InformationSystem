@@ -1,0 +1,1277 @@
+--- RCPTT testcase ---
+Format-Version: 1.0
+Contexts: _uQ_HIKkgEe28948-k2BW9w
+Element-Name: CinematicFlowDiagram
+Element-Type: testcase
+Element-Version: 3.0
+External-Reference: 
+Id: _u4-aMON2Ee2XD_O90kr1xw
+Save-Time: 5/2/23, 10:56 AM
+Testcase-Type: ecl
+
+------=_.description-216f885c-d591-38ce-8ea2-e4f8cb4d6ffa
+Content-Type: text/plain
+Entry-Name: .description
+
+Test Flow Diagram.
+------=_.description-216f885c-d591-38ce-8ea2-e4f8cb4d6ffa--
+------=_.content-0a7243a0-75d3-3d5f-9791-539de0e5b7ac
+Content-Type: text/ecl
+Entry-Name: .content
+
+/*******************
+ * TRANSITION EDGE *
+ *******************/
+
+create-ebook-project
+open-flow-diagram
+
+// Select Transition tool
+log -message "[RCPTT] [CFD_A_001] Palette – Creation Transition"
+with [get-editor "Main Flow Diagram" | get-palette | get-palette-entry Transition] {
+    mouse-move 42 16 button1 -height 25 -width 295
+    mouse-press 42 16 button1 -height 25 -width 295
+    mouse-release 42 16 button1 "" -height 25 -width 295
+}
+
+// Create Transition
+with [get-editor "Main Flow Diagram"] {
+    with [get-diagram -index 1 | get-edit-part -name "Main Flow Diagram"] {
+        with [get-edit-part -name "Remove from cart" | get-edit-part -className WorkspaceImageEditPart] {
+            mouse-move 53 43 button1 -height 72 -width 72
+            mouse-press 53 43 button1 -height 72 -width 72
+            mouse-release 53 43 button1 "" -height 72 -width 72
+        }
+        with [get-edit-part -name Checkout | get-edit-part -className WorkspaceImageEditPart] {
+            mouse-move 30 19 button1 -height 59 -width 123
+            mouse-press 30 19 button1 -height 59 -width 123
+            mouse-release 30 19 button1 "" -height 59 -width 123
+        }
+    }
+}
+
+// Check edge exists
+with [get-editor "Main Flow Diagram" | get-diagram -index 1 | get-edit-part -name "Main Flow Diagram" | get-edit-part 
+    -name Checkout | get-target-connection -path 1] {
+    get-property text | equals "" | verify-true
+    get-property className | equals "org.eclipse.sirius.diagram.ui.internal.edit.parts.DEdgeEditPart" | verify-true
+    get-property itemAddress | equals "[-2, 1, 0, 6]" | verify-true
+    get-property selected | equals true | verify-true
+    get-property x | equals 727 | verify-true
+    get-property y | equals 65 | verify-true
+    get-property width | equals 259 | verify-true
+    get-property height | equals 163 | verify-true
+    get-property childrenCount | equals 0 | verify-true
+    get-property backgroundColor | equals "#FFFFFF" | verify-true
+    get-property foregroundColor | equals "#3584E4" | verify-true
+}
+
+// Delete Transition
+log -message "[RCPTT] [CFD_A_039] Suppression Transition"
+get-eclipse-window | key-type Del
+
+// Check edge is deleted
+get-editor "Main Flow Diagram" | get-diagram -index 1 | get-edit-part -name "Main Flow Diagram" 
+    | get-property "edges.size" | equals 16 | verify-true
+    
+// Save and clean
+get-eclipse-window | key-type "M1+s"
+delete-ebook-project
+
+/*************
+ * VIEW NODE *
+ *************/
+
+create-ebook-project
+open-flow-diagram
+
+// Select View tool
+log -message "[RCPTT] [CFD_A_002] Palette – Creation View"
+with [get-editor "Main Flow Diagram" | get-palette | get-palette-entry View] {
+    mouse-move 32 9 button1 -height 25 -width 295
+    mouse-press 32 9 button1 -height 25 -width 295
+    mouse-release 32 9 button1 "" -height 25 -width 295
+}
+
+// Create View
+with [get-editor "Main Flow Diagram" | get-diagram -index 1 | get-edit-part -name "Main Flow Diagram"] {
+    mouse-move 905 83 button1 -height 680 -width 1315
+    mouse-press 905 83 button1 -height 680 -width 1315
+    mouse-release 905 83 button1 "" -height 680 -width 1315
+}
+with [get-window "View Container selection"] {
+    with [get-tree] {
+        get-item -path HomePage | check
+        select HomePage
+    }
+    get-button OK | click -metaKeys ""
+}
+
+// Check node exists
+with [get-editor "Main Flow Diagram" | get-diagram -index 1 | get-edit-part -name "Main Flow Diagram" | get-edit-part 
+    -name View3 | get-edit-part -className WorkspaceImageEditPart | get-figure -path 0] {
+    get-property text | equals "" | verify-true
+    get-property tooltip | equals "" | verify-true
+    get-property className | equals "org.eclipse.sirius.diagram.ui.tools.api.figure.SVGWorkspaceImageFigure" 
+        | verify-true
+    get-property selected | equals false | verify-true
+    get-property x | equals 905 | verify-true
+    get-property y | equals 85 | verify-true
+    get-property width | equals 150 | verify-true
+    get-property height | equals 73 | verify-true
+    get-property childrenCount | equals 0 | verify-true
+    get-property backgroundColor | equals "#FFFFFF" | verify-true
+    get-property foregroundColor | equals "#B0B0B0" | verify-true
+}
+
+// Check node label
+get-editor "Main Flow Diagram" | get-diagram -index 1 | get-edit-part -name "Main Flow Diagram" | get-edit-part 
+    -name View3 | get-edit-part -name View3 | get-property "getEditText()" | equals View3 | verify-true
+
+// Edit label
+log -message "[RCPTT] [CFD_A_019] Edition libélé (F2)"
+with [get-editor "Main Flow Diagram"] {
+    with [get-diagram -index 1] {
+        with [get-edit-part -name "Main Flow Diagram" | get-edit-part -name View3 | get-edit-part 
+            -className WorkspaceImageEditPart] {
+            mouse-move 107 23 button1 -height 73 -width 150
+            mouse-press 107 23 button1 -height 73 -width 150
+            mouse-release 107 23 button1 "" -height 73 -width 150
+        }
+        key-type F2
+        get-edit-part -name "Main Flow Diagram" | get-edit-part -name View3 | get-edit-part -name View3 
+            | activate-direct-edit
+    }
+    with [get-editbox] {
+        set-text TestView3
+        key-type Enter
+    }
+    with [get-diagram -index 1] {
+        commit-direct-edit
+        key-type Enter
+    }
+}
+
+// Check label
+get-editor "Main Flow Diagram" | get-diagram -index 1 | get-edit-part -name "Main Flow Diagram" | get-edit-part 
+    -name TestView3 | get-edit-part -name TestView3 | get-property "getLabelText()" | equals TestView3 | verify-true
+
+// Delete View node
+log -message "[RCPTT] [CFD_A_040] Suppression View"
+get-eclipse-window | key-type Del
+
+// Check node is deleted
+get-editor "Main Flow Diagram" | get-diagram -index 1 | get-edit-part -name "Main Flow Diagram" 
+    | get-property "children.size" | equals 12 | verify-true
+
+// Save and clean
+get-eclipse-window | key-type "M1+s"
+delete-ebook-project
+
+/***************
+ * ACTION NODE *
+ ***************/
+
+create-ebook-project
+open-flow-diagram
+
+// Select Action tool
+log -message "[RCPTT] [CFD_A_003] Palette – Creation Action"
+with [get-editor "Main Flow Diagram" | get-palette | get-palette-entry Action] {
+    mouse-move 50 13 button1 -height 25 -width 295
+    mouse-press 50 13 button1 -height 25 -width 295
+    mouse-release 50 13 button1 "" -height 25 -width 295
+}
+
+// Create Action Node
+with [get-editor "Main Flow Diagram" | get-diagram -index 1 | get-edit-part -name "Main Flow Diagram"] {
+    mouse-move 1121 84 button1 -height 680 -width 1315
+    mouse-press 1121 84 button1 -height 680 -width 1315
+    mouse-release 1121 84 button1 "" -height 680 -width 1315
+}
+
+// Check node exists
+with [get-editor "Main Flow Diagram" | get-diagram -index 1 | get-edit-part -name "Main Flow Diagram" | get-edit-part 
+    -name Action6 | get-edit-part -className WorkspaceImageEditPart | get-figure -path 0] {
+    get-property text | equals "" | verify-true
+    get-property tooltip | equals "" | verify-true
+    get-property className | equals "org.eclipse.sirius.diagram.ui.tools.api.figure.SVGWorkspaceImageFigure" 
+        | verify-true
+    get-property selected | equals false | verify-true
+    get-property x | equals 1119 | verify-true
+    get-property y | equals 85 | verify-true
+    get-property width | equals 50 | verify-true
+    get-property height | equals 50 | verify-true
+    get-property childrenCount | equals 0 | verify-true
+    get-property backgroundColor | equals "#FFFFFF" | verify-true
+    get-property foregroundColor | equals "#B0B0B0" | verify-true
+}
+
+// Check node label
+get-editor "Main Flow Diagram" | get-diagram -index 1 | get-edit-part -name "Main Flow Diagram" | get-edit-part 
+    -name Action6 | get-edit-part -name Action6 | get-property "getEditText()" | equals Action6 | verify-true
+
+// Edit label
+log -message "[RCPTT] [CFD_A_019] Edition libélé (F2)"
+with [get-editor "Main Flow Diagram"] {
+    with [get-diagram -index 1] {
+        with [get-edit-part -name "Main Flow Diagram" | get-edit-part -name Action6] {
+            with [get-edit-part -className WorkspaceImageEditPart] {
+                mouse-move 30 13 button1 -height 50 -width 50
+                mouse-press 30 13 button1 -height 50 -width 50
+                mouse-release 30 13 button1 "" -height 50 -width 50
+            }
+            activate-direct-edit
+        }
+        key-type F2
+        get-edit-part -name "Main Flow Diagram" | get-edit-part -name Action6 | get-edit-part -name Action6 
+            | activate-direct-edit
+    }
+    with [get-editbox] {
+        set-text TestAction6
+        key-type Enter
+    }
+    with [get-diagram -index 1] {
+        commit-direct-edit
+        key-type Enter
+    }
+}
+
+// Check label
+get-editor "Main Flow Diagram" | get-diagram -index 1 | get-edit-part -name "Main Flow Diagram" | get-edit-part 
+    -name TestAction6 | get-edit-part -name TestAction6 | get-property "getLabelText()" | equals TestAction6 
+    | verify-true
+
+// Delete Action node
+log -message "[RCPTT] [CFD_A_041] Suppression Action"
+get-eclipse-window | key-type Del
+
+// Check node is deleted
+get-editor "Main Flow Diagram" | get-diagram -index 1 | get-edit-part -name "Main Flow Diagram" 
+    | get-property "children.size" | equals 12 | verify-true
+
+// Save and clean
+get-eclipse-window | key-type "M1+s"
+delete-ebook-project    
+
+/*******************
+ * ASYNCEVENT NODE *
+ *******************/
+
+create-ebook-project
+open-flow-diagram
+
+// Select AsyncEvent tool
+log -message "[RCPTT] [CFD_A_004] Palette – Creation AsyncEvent"
+with [get-editor "Main Flow Diagram" | get-palette | get-palette-entry AsyncEvent] {
+    mouse-move 65 10 button1 -height 25 -width 295
+    mouse-press 65 10 button1 -height 25 -width 295
+    mouse-release 65 10 button1 "" -height 25 -width 295
+}
+
+// Create AsyncEvent node
+with [get-editor "Main Flow Diagram" | get-diagram -index 1 | get-edit-part -name "Main Flow Diagram"] {
+    mouse-move 1014 105 button1 -height 680 -width 1315
+    mouse-press 1014 105 button1 -height 680 -width 1315
+    mouse-release 1014 105 button1 "" -height 680 -width 1315
+}
+
+// Check node exists
+with [get-editor "Main Flow Diagram" | get-diagram -index 1 | get-edit-part -name "Main Flow Diagram" | get-edit-part 
+    -name AsyncEvent1 | get-edit-part -className WorkspaceImageEditPart | get-figure -path "0/0"] {
+    get-property text | equals "" | verify-true
+    get-property tooltip | equals "" | verify-true
+    get-property className | equals "org.eclipse.sirius.diagram.ui.tools.internal.figure.ViewNodeFigure$1" | verify-true
+    get-property selected | equals false | verify-true
+    get-property x | equals 1015 | verify-true
+    get-property y | equals 105 | verify-true
+    get-property width | equals 117 | verify-true
+    get-property height | equals 56 | verify-true
+    get-property childrenCount | equals 0 | verify-true
+    get-property backgroundColor | equals "#FFFFFF" | verify-true
+    get-property foregroundColor | equals "#002B3C" | verify-true
+    get-property "getText()" | equals AsyncEvent1 | verify-true
+}
+
+// Edit label
+log -message "[RCPTT] [CFD_A_019] Edition libélé (F2)"
+with [get-editor "Main Flow Diagram"] {
+    with [get-diagram -index 1 | get-edit-part -name "Main Flow Diagram" | get-edit-part -name AsyncEvent1] {
+        with [get-edit-part -className WorkspaceImageEditPart] {
+            mouse-move 50 13 button1 -height 56 -width 117
+            mouse-press 50 13 button1 -height 56 -width 117
+            mouse-release 50 13 button1 "" -height 56 -width 117
+        }
+        activate-direct-edit
+    }
+    with [get-editbox] {
+        set-text TestAsyncEvent1
+        key-type Enter
+    }
+    with [get-diagram -index 1] {
+        commit-direct-edit
+        key-type Enter
+    }
+}
+
+// Check label
+get-editor "Main Flow Diagram" | get-diagram -index 1 | get-edit-part -name "Main Flow Diagram" | get-edit-part 
+    -name TestAsyncEvent1 | get-edit-part -className WorkspaceImageEditPart | get-figure -path "0/0" 
+    | get-property "getText()" | equals TestAsyncEvent1 | verify-true
+
+
+// Delete AsyncEvent node
+log -message "[RCPTT] [CFD_A_042] Suppression AsyncEvent"
+get-eclipse-window | key-type Del
+
+// Check node is deleted
+get-editor "Main Flow Diagram" | get-diagram -index 1 | get-edit-part -name "Main Flow Diagram" 
+    | get-property "children.size" | equals 12 | verify-true
+
+// Save and clean
+get-eclipse-window | key-type "M1+s"
+delete-ebook-project   
+
+/*********************
+ * ExistingFlow NODE *
+ *********************/
+
+create-ebook-project
+open-flow-diagram
+
+// Select ExistingFlow tool
+log -message "[RCPTT] [CFD_A_005] Palette – Creation Existing Flow"
+with [get-editor "Main Flow Diagram" | get-palette | get-palette-entry "Existing flow"] {
+    mouse-move 59 14 button1 -height 25 -width 295
+    mouse-press 59 14 button1 -height 25 -width 295
+    mouse-release 59 14 button1 "" -height 25 -width 295
+}
+
+// Create Existing Flow node
+with [get-editor "Main Flow Diagram" | get-diagram -index 1 | get-edit-part -name "Main Flow Diagram"] {
+    mouse-move 928 71 button1 -height 680 -width 1315
+    mouse-press 928 71 button1 -height 680 -width 1315
+    mouse-release 928 71 button1 "" -height 680 -width 1315
+}
+with [get-window "Selection Wizard"] {
+    get-tree | select "Cinematic Root E-BookStore/Flow Main"
+    get-button Finish | click -metaKeys ""
+}
+
+// Check node exits
+with [get-editor "Main Flow Diagram" | get-diagram -index 1 | get-edit-part -name "Main Flow Diagram" | get-edit-part 
+    -name Main | get-edit-part -className WorkspaceImageEditPart | get-figure -path "0/0"] {
+    get-property text | equals "" | verify-true
+    get-property tooltip | equals "" | verify-true
+    get-property className | equals "org.eclipse.sirius.diagram.ui.tools.internal.figure.ViewNodeFigure$1" | verify-true
+    get-property selected | equals false | verify-true
+    get-property x | equals 931 | verify-true
+    get-property y | equals 75 | verify-true
+    get-property width | equals 117 | verify-true
+    get-property height | equals 56 | verify-true
+    get-property childrenCount | equals 0 | verify-true
+    get-property backgroundColor | equals "#FFFFFF" | verify-true
+    get-property foregroundColor | equals "#002B3C" | verify-true
+    get-property "getText()" | equals Main | verify-true
+}
+
+// Delete Existing Flow node
+log -message "[RCPTT] [CFD_A_043] Suppression Existing Flow"
+get-eclipse-window | key-type Del
+
+// Check node is deleted
+get-editor "Main Flow Diagram" | get-diagram -index 1 | get-edit-part -name "Main Flow Diagram" 
+    | get-property "children.size" | equals 12 | verify-true
+
+// Save and clean
+get-eclipse-window | key-type "M1+s"
+delete-ebook-project   
+
+/*****************
+ * NEW FLOW NODE *
+ *****************/
+
+create-ebook-project
+open-flow-diagram
+
+// Select New Flow tool
+log -message "[RCPTT] [CFD_A_006] Palette – Creation New Flow"
+with [get-editor "Main Flow Diagram" | get-palette | get-palette-entry "New flow"] {
+    mouse-move 80 12 button1 -height 25 -width 295
+    mouse-press 80 12 button1 -height 25 -width 295
+    mouse-release 80 12 button1 "" -height 25 -width 295
+}
+
+// Create New Flow node
+with [get-editor "Main Flow Diagram" | get-diagram -index 1 | get-edit-part -name "Main Flow Diagram"] {
+    mouse-move 958 101 button1 -height 680 -width 1315
+    mouse-press 958 101 button1 -height 680 -width 1315
+    mouse-release 958 101 button1 "" -height 680 -width 1315
+}
+
+// Check node exists
+with [get-editor "Main Flow Diagram" | get-diagram -index 1 | get-edit-part -name "Main Flow Diagram" | get-edit-part 
+    -name Flow2 | get-edit-part -className WorkspaceImageEditPart | get-figure -path "0/0"] {
+    get-property text | equals "" | verify-true
+    get-property tooltip | equals "" | verify-true
+    get-property className | equals "org.eclipse.sirius.diagram.ui.tools.internal.figure.ViewNodeFigure$1" | verify-true
+    get-property selected | equals false | verify-true
+    get-property x | equals 960 | verify-true
+    get-property y | equals 100 | verify-true
+    get-property width | equals 117 | verify-true
+    get-property height | equals 56 | verify-true
+    get-property childrenCount | equals 0 | verify-true
+    get-property backgroundColor | equals "#FFFFFF" | verify-true
+    get-property foregroundColor | equals "#002B3C" | verify-true
+    get-property "getText()" | equals Flow2 | verify-true
+}
+
+// Delete New Flow node
+log -message "[RCPTT] [CFD_A_044] Suppression New Flow"
+get-eclipse-window | key-type Del
+
+// Check node is deleted
+get-editor "Main Flow Diagram" | get-diagram -index 1 | get-edit-part -name "Main Flow Diagram" 
+    | get-property "children.size" | equals 12 | verify-true
+
+// Save and clean
+get-eclipse-window | key-type "M1+s"
+delete-ebook-project  
+
+/****************
+ * INITIAL NODE *
+ ****************/
+
+create-ebook-project
+open-flow-diagram
+
+// Select Initial tool
+log -message "[RCPTT] [CFD_A_007] Palette – Creation Initial"
+with [get-editor "Main Flow Diagram" | get-palette | get-palette-entry Initial] {
+    mouse-move 46 20 button1 -height 25 -width 295
+    mouse-press 46 20 button1 -height 25 -width 295
+    mouse-release 46 20 button1 "" -height 25 -width 295
+}
+
+// Create Initial node
+with [get-editor "Main Flow Diagram" | get-diagram -index 1 | get-edit-part -name "Main Flow Diagram"] {
+    mouse-move 959 113 button1 -height 680 -width 1315
+    mouse-press 959 113 button1 -height 680 -width 1315
+    mouse-release 959 113 button1 "" -height 680 -width 1315
+}
+
+// Check node exists
+with [get-editor "Main Flow Diagram" | get-diagram -index 1 | get-edit-part -name "Main Flow Diagram" | get-edit-part 
+    -name "" -index 1 | get-edit-part -className WorkspaceImageEditPart | get-figure -path 0] {
+    get-property text | equals "" | verify-true
+    get-property tooltip | equals "" | verify-true
+    get-property className | equals "org.eclipse.sirius.diagram.ui.tools.api.figure.SVGWorkspaceImageFigure" 
+        | verify-true
+    get-property selected | equals false | verify-true
+    get-property x | equals 960 | verify-true
+    get-property y | equals 110 | verify-true
+    get-property width | equals 25 | verify-true
+    get-property height | equals 25 | verify-true
+    get-property childrenCount | equals 0 | verify-true
+    get-property backgroundColor | equals "#FFFFFF" | verify-true
+    get-property foregroundColor | equals "#B0B0B0" | verify-true
+}
+
+// Delete Initial node
+log -message "[RCPTT] [CFD_A_045] Suppression Initial"
+get-eclipse-window | key-type Del
+
+// Check node is deleted
+get-editor "Main Flow Diagram" | get-diagram -index 1 | get-edit-part -name "Main Flow Diagram" 
+    | get-property "children.size" | equals 12 | verify-true
+
+// Save and clean
+get-eclipse-window | key-type "M1+s"
+delete-ebook-project  
+
+/**************
+ * FINAL NODE *
+ **************/
+
+create-ebook-project
+open-flow-diagram
+
+// Select Final tool
+log -message "[RCPTT] [CFD_A_008] Palette – Creation Final State"
+with [get-editor "Main Flow Diagram" | get-palette | get-palette-entry Final] {
+    mouse-move 64 16 button1 -height 25 -width 295
+    mouse-press 64 16 button1 -height 25 -width 295
+    mouse-release 64 16 button1 "" -height 25 -width 295
+}
+
+// Create Final node
+with [get-editor "Main Flow Diagram" | get-diagram -index 1 | get-edit-part -name "Main Flow Diagram"] {
+    mouse-move 958 92 button1 -height 680 -width 1315
+    mouse-press 958 92 button1 -height 680 -width 1315
+    mouse-release 958 92 button1 "" -height 680 -width 1315
+}
+
+// Check node exists
+with [get-editor "Main Flow Diagram" | get-diagram -index 1 | get-edit-part -name "Main Flow Diagram" | get-edit-part 
+    -name "" -index 1 | get-edit-part -className WorkspaceImageEditPart | get-figure -path 0] {
+    get-property text | equals "" | verify-true
+    get-property tooltip | equals "" | verify-true
+    get-property className | equals "org.eclipse.sirius.diagram.ui.tools.api.figure.SVGWorkspaceImageFigure" 
+        | verify-true
+    get-property selected | equals false | verify-true
+    get-property x | equals 960 | verify-true
+    get-property y | equals 90 | verify-true
+    get-property width | equals 23 | verify-true
+    get-property height | equals 23 | verify-true
+    get-property childrenCount | equals 0 | verify-true
+    get-property backgroundColor | equals "#FFFFFF" | verify-true
+    get-property foregroundColor | equals "#B0B0B0" | verify-true
+}
+
+// Delete Final node
+log -message "[RCPTT] [CFD_A_046] Suppression Final State"
+get-eclipse-window | key-type Del
+
+// Check node is deleted
+get-editor "Main Flow Diagram" | get-diagram -index 1 | get-edit-part -name "Main Flow Diagram" 
+    | get-property "children.size" | equals 12 | verify-true
+
+// Save and clean
+get-eclipse-window | key-type "M1+s"
+delete-ebook-project 
+
+/**************
+ * ABORT NODE *
+ **************/
+
+create-ebook-project
+open-flow-diagram
+
+// Select Abort tool
+log -message "[RCPTT] [CFD_A_009] Palette – Creation Abort"
+with [get-editor "Main Flow Diagram" | get-palette | get-palette-entry Abort] {
+    mouse-move 66 11 button1 -height 25 -width 295
+    mouse-press 66 11 button1 -height 25 -width 295
+    mouse-release 66 11 button1 "" -height 25 -width 295
+}
+
+// Create Abort node
+with [get-editor "Main Flow Diagram" | get-diagram -index 1 | get-edit-part -name "Main Flow Diagram"] {
+    mouse-move 905 107 button1 -height 680 -width 1315
+    mouse-press 905 107 button1 -height 680 -width 1315
+    mouse-release 905 107 button1 "" -height 680 -width 1315
+}
+
+// Check node exists
+with [get-editor "Main Flow Diagram" | get-diagram -index 1 | get-edit-part -name "Main Flow Diagram" | get-edit-part 
+    -name "" -index 1 | get-edit-part -className WorkspaceImageEditPart | get-figure -path 0] {
+    get-property text | equals "" | verify-true
+    get-property tooltip | equals "" | verify-true
+    get-property className | equals "org.eclipse.sirius.diagram.ui.tools.api.figure.SVGWorkspaceImageFigure" 
+        | verify-true
+    get-property selected | equals false | verify-true
+    get-property x | equals 905 | verify-true
+    get-property y | equals 110 | verify-true
+    get-property width | equals 23 | verify-true
+    get-property height | equals 23 | verify-true
+    get-property childrenCount | equals 0 | verify-true
+    get-property backgroundColor | equals "#FFFFFF" | verify-true
+    get-property foregroundColor | equals "#B0B0B0" | verify-true
+}
+
+// Delete Abort node
+log -message "[RCPTT] [CFD_A_047] Suppression Abort"
+get-eclipse-window | key-type Del
+
+// Check node is deleted
+get-editor "Main Flow Diagram" | get-diagram -index 1 | get-edit-part -name "Main Flow Diagram" 
+    | get-property "children.size" | equals 12 | verify-true
+
+// Save and clean
+get-eclipse-window | key-type "M1+s"
+delete-ebook-project 
+
+/*****************
+ * DECISION NODE *
+ *****************/
+
+create-ebook-project
+open-flow-diagram
+
+// Select Decision tool
+log -message "[RCPTT] [CFD_A_010] Palette – Creation Decision"
+with [get-editor "Main Flow Diagram" | get-palette | get-palette-entry Decision] {
+    mouse-move 52 21 button1 -height 25 -width 295
+    mouse-press 52 21 button1 -height 25 -width 295
+    mouse-release 56 21 button1 "" -height 25 -width 295
+}
+
+// Create decision node
+with [get-editor "Main Flow Diagram" | get-diagram -index 1 | get-edit-part -name "Main Flow Diagram"] {
+    mouse-move 932 103 button1 -height 680 -width 1315
+    mouse-press 932 103 button1 -height 680 -width 1315
+    mouse-release 932 103 button1 "" -height 680 -width 1315
+}
+
+// Check node exists
+with [get-editor "Main Flow Diagram" | get-diagram -index 1 | get-edit-part -name "Main Flow Diagram" | get-edit-part 
+    -name "" -index 1 | get-edit-part -className WorkspaceImageEditPart | get-figure -path "0/0"] {
+    get-property text | equals "" | verify-true
+    get-property tooltip | equals "" | verify-true
+    get-property className | equals "org.eclipse.sirius.diagram.ui.tools.internal.figure.ViewNodeFigure$1" | verify-true
+    get-property selected | equals false | verify-true
+    get-property x | equals 931 | verify-true
+    get-property y | equals 100 | verify-true
+    get-property width | equals 44 | verify-true
+    get-property height | equals 44 | verify-true
+    get-property childrenCount | equals 0 | verify-true
+    get-property backgroundColor | equals "#FFFFFF" | verify-true
+    get-property foregroundColor | equals "#002B3C" | verify-true
+}
+
+// Delete decision node
+log -message "[RCPTT] [CFD_A_048] Suppression Decision"
+get-eclipse-window | key-type Del
+
+// Check node is deleted
+get-editor "Main Flow Diagram" | get-diagram -index 1 | get-edit-part -name "Main Flow Diagram" 
+    | get-property "children.size" | equals 12 | verify-true
+
+// Save and clean
+get-eclipse-window | key-type "M1+s"
+delete-ebook-project 
+
+/***************
+ * EVENT LAYER *
+ ***************/
+
+create-ebook-project
+open-flow-diagram
+
+// Activate layer
+log -message "[RCPTT] [CFD_A_015] Activation Calque Events"
+get-editor "Main Flow Diagram" | get-button Layers | click -arrow
+get-menu -path "Flow Events" | click -metaKeys ""
+
+// Check Flow Events node exits
+with [get-editor "Main Flow Diagram" | get-diagram -index 1 | get-edit-part -name "Main Flow Diagram" | get-edit-part 
+    -name "Flow Events"] {
+    with [get-figure -path "0/0"] {
+        get-property text | equals "" | verify-true
+        get-property tooltip | equals "" | verify-true
+        get-property className | equals "org.eclipse.sirius.diagram.ui.tools.api.figure.GradientRoundedRectangle" 
+            | verify-true
+        get-property selected | equals false | verify-true
+        get-property x | equals 20 | verify-true
+        get-property y | equals 39 | verify-true
+        get-property width | equals 136 | verify-true
+        get-property height | equals 125 | verify-true
+        get-property childrenCount | equals 2 | verify-true
+        get-property backgroundColor | equals "#FFFFFF" | verify-true
+        get-property foregroundColor | equals "#888888" | verify-true
+        get-property "getChildren().[0].getText()" | equals "Flow Events" | verify-true
+    }
+    with [get-edit-part -className DNodeListViewNodeListCompartment2EditPart | get-figure -path "1/0/0"] {
+        get-property "getChildren().[0].getText()" | equals "launchSearch (1)" | verify-true
+        get-property "getChildren().[1].getText()" | equals "addToCart (1)" | verify-true
+        get-property "getChildren().[2].getText()" | equals "removeFromCart (1)" | verify-true
+        get-property "getChildren().[3].getText()" | equals "createAccount (0)" | verify-true
+        get-property "getChildren().[4].getText()" | equals "checkout (1)" | verify-true
+        get-property "getChildren().[5].getText()" | equals "event6 (0)" | verify-true
+        get-property "getChildren().size()" | equals 6 | verify-true
+    }
+}
+
+// Check tools
+with [get-editor "Main Flow Diagram" | get-palette | get-palette-entry "Flow Event" | get-figure -path 0] {
+    get-property text | equals "Flow Event" | verify-true
+    get-property "getParent().getChildren().size()" | equals 1 | verify-true
+}
+
+// Select Flow Event tool
+log -message "[RCPTT] [CFD_A_011] Palette – Creation Flow Event"
+with [get-editor "Main Flow Diagram" | get-palette | get-palette-entry "Flow Event"] {
+    mouse-move 40 8 button1 -height 25 -width 295
+    mouse-press 40 8 button1 -height 25 -width 295
+    mouse-release 40 8 button1 "" -height 25 -width 295
+}
+
+// Create Flow Event
+with [get-editor "Main Flow Diagram" | get-diagram -index 1 | get-edit-part -name "Main Flow Diagram" | get-edit-part 
+    -name "Flow Events" | get-edit-part -className DNodeListViewNodeListCompartment2EditPart] {
+    mouse-move 109 88 button1 -height 98 -width 134
+    mouse-press 109 88 button1 -height 98 -width 134
+    mouse-release 109 88 button1 "" -height 98 -width 134
+}
+
+// Check Flow Event exits
+with [get-editor "Main Flow Diagram" | get-diagram -index 1 | get-edit-part -name "Main Flow Diagram" | get-edit-part 
+    -name "Flow Events" | get-edit-part -className DNodeListViewNodeListCompartment2EditPart | get-edit-part 
+    -name "event7 (0)"] {
+    get-property text | equals "" | verify-true
+    get-property className | equals "org.eclipse.sirius.diagram.ui.internal.edit.parts.DNodeListElementEditPart" 
+        | verify-true
+    get-property itemAddress | equals "[0, 9, 1, 6]" | verify-true
+    get-property selected | equals true | verify-true
+    get-property x | equals 25 | verify-true
+    get-property y | equals 163 | verify-true
+    get-property width | equals 67 | verify-true
+    get-property height | equals 16 | verify-true
+    get-property childrenCount | equals 0 | verify-true
+    get-property backgroundColor | equals "#FFFFFF" | verify-true
+    get-property foregroundColor | equals "#002B3C" | verify-true
+    get-property "getLabelText()" | equals "event7 (0)" | verify-true
+}
+
+// Edit Flow Event label
+log -message "[RCPTT] [CFD_A_034] Edition libélé – Flow Event"
+with [get-editor "Main Flow Diagram"] {
+    with [get-diagram -index 1] {
+        with [get-edit-part -name "Main Flow Diagram" | get-edit-part -name "Flow Events" | get-edit-part 
+            -className DNodeListViewNodeListCompartment2EditPart | get-edit-part -name "event7 (0)"] {
+            mouse-move 38 8 button1 -height 16 -width 67
+            mouse-press 38 8 button1 -height 16 -width 67
+            mouse-release 38 8 button1 "" -height 16 -width 67
+        }
+        key-type F2
+        get-edit-part -name "Main Flow Diagram" | get-edit-part -name "Flow Events" | get-edit-part 
+            -className DNodeListViewNodeListCompartment2EditPart | get-edit-part -name "event7 (0)" 
+            | activate-direct-edit
+    }
+    with [get-editbox] {
+        set-text TestEvent
+        key-type Enter
+    }
+    with [get-diagram -index 1] {
+        commit-direct-edit
+        key-type Enter
+    }
+}
+
+//Check label
+get-editor "Main Flow Diagram" | get-diagram -index 1 | get-edit-part -name "Main Flow Diagram" | get-edit-part 
+    -name "Flow Events" | get-edit-part -className DNodeListViewNodeListCompartment2EditPart | get-edit-part 
+    -name "TestEvent (0)" | get-property "getLabelText()" | equals "TestEvent (0)" | verify-true
+
+// Delete Flow Event
+log -message "[RCPTT] [CFD_A_049] Suppression Flow Event"
+get-eclipse-window | key-type Del
+
+// Check Flow Events node
+with [get-editor "Main Flow Diagram" | get-diagram -index 1 | get-edit-part -name "Main Flow Diagram" | get-edit-part 
+    -name "Flow Events"] {
+    with [get-figure -path "0/0"] {
+        get-property text | equals "" | verify-true
+        get-property tooltip | equals "" | verify-true
+        get-property className | equals "org.eclipse.sirius.diagram.ui.tools.api.figure.GradientRoundedRectangle" 
+            | verify-true
+        get-property selected | equals false | verify-true
+        get-property x | equals 20 | verify-true
+        get-property y | equals 39 | verify-true
+        get-property width | equals 136 | verify-true
+        get-property height | equals 125 | verify-true
+        get-property childrenCount | equals 2 | verify-true
+        get-property backgroundColor | equals "#FFFFFF" | verify-true
+        get-property foregroundColor | equals "#888888" | verify-true
+        get-property "getChildren().[0].getText()" | equals "Flow Events" | verify-true
+    }
+    with [get-edit-part -className DNodeListViewNodeListCompartment2EditPart | get-figure -path "1/0/0"] {
+        get-property "getChildren().[0].getText()" | equals "launchSearch (1)" | verify-true
+        get-property "getChildren().[1].getText()" | equals "addToCart (1)" | verify-true
+        get-property "getChildren().[2].getText()" | equals "removeFromCart (1)" | verify-true
+        get-property "getChildren().[3].getText()" | equals "createAccount (0)" | verify-true
+        get-property "getChildren().[4].getText()" | equals "checkout (1)" | verify-true
+        get-property "getChildren().[5].getText()" | equals "event6 (0)" | verify-true
+        get-property "getChildren().size()" | equals 6 | verify-true
+    }
+}
+
+// Try to delete Flow Events node
+log -message "[RCPTT] [CFD_A_033] Suppression – Flow Events"
+with [get-editor "Main Flow Diagram" | get-diagram -index 1] {
+    with [get-edit-part -name "Main Flow Diagram" | get-edit-part -name "Flow Events"] {
+        mouse-move 130 9 button1 -height 127 -width 138
+        mouse-press 130 9 button1 -height 127 -width 138
+        mouse-release 130 9 button1 "" -height 127 -width 138
+    }
+    key-type Del
+}
+
+// Check Flow Events node exits
+with [get-editor "Main Flow Diagram" | get-diagram -index 1 | get-edit-part -name "Main Flow Diagram" | get-edit-part 
+    -name "Flow Events"] {
+    with [get-figure -path "0/0"] {
+        get-property text | equals "" | verify-true
+        get-property tooltip | equals "" | verify-true
+        get-property className | equals "org.eclipse.sirius.diagram.ui.tools.api.figure.GradientRoundedRectangle" 
+            | verify-true
+        get-property selected | equals false | verify-true
+        get-property x | equals 20 | verify-true
+        get-property y | equals 39 | verify-true
+        get-property width | equals 136 | verify-true
+        get-property height | equals 125 | verify-true
+        get-property childrenCount | equals 2 | verify-true
+        get-property backgroundColor | equals "#FFFFFF" | verify-true
+        get-property foregroundColor | equals "#888888" | verify-true
+        get-property "getChildren().[0].getText()" | equals "Flow Events" | verify-true
+    }
+    with [get-edit-part -className DNodeListViewNodeListCompartment2EditPart | get-figure -path "1/0/0"] {
+        get-property "getChildren().[0].getText()" | equals "launchSearch (1)" | verify-true
+        get-property "getChildren().[1].getText()" | equals "addToCart (1)" | verify-true
+        get-property "getChildren().[2].getText()" | equals "removeFromCart (1)" | verify-true
+        get-property "getChildren().[3].getText()" | equals "createAccount (0)" | verify-true
+        get-property "getChildren().[4].getText()" | equals "checkout (1)" | verify-true
+        get-property "getChildren().[5].getText()" | equals "event6 (0)" | verify-true
+        get-property "getChildren().size()" | equals 6 | verify-true
+    }
+}
+
+// Save and clean
+get-eclipse-window | key-type "M1+s"
+delete-ebook-project 
+
+/************************
+ * VIEW CONTAINER LAYER *
+ ************************/
+
+create-ebook-project
+open-flow-diagram
+
+// Activate layer
+log -message "[RCPTT] [CFD_A_016] Activation Calque View Containers"
+get-editor "Main Flow Diagram" | get-button Layers | click -arrow
+get-menu -path "View Containers" | click -metaKeys ""
+
+// Check tools
+with [get-editor "Main Flow Diagram" | get-palette] {
+    get-palette-entry "Bind View State and View Container" | get-figure -path 0 | get-property text 
+        | equals "Bind View State and View Container" | verify-true
+    get-palette-entry "Bind existing View Container" | get-figure -path 0 | get-property text 
+        | equals "Bind existing View Container" | verify-true
+    get-palette-entry "Bind new View Container" | get-figure -path 0 | get-property text 
+        | equals "Bind new View Container" | verify-true
+    get-palette-entry "View Containers" | get-figure -path "1/0/0" | get-property "getChildren().size()" | equals 3 
+        | verify-true
+}
+
+// Select Bind View State and View Container tool
+log -message "[RCPTT] [CFD_A_012] Palette – Creation Bind View State and View Container"
+with [get-editor "Main Flow Diagram" | get-palette | get-palette-entry "Bind View State and View Container"] {
+    mouse-move 105 18 button1 -height 25 -width 295
+    mouse-press 105 18 button1 -height 25 -width 295
+    mouse-release 105 18 button1 "" -height 25 -width 295
+}
+
+// Create edge
+with [get-editor "Main Flow Diagram"] {
+    with [get-diagram -index 1 | get-edit-part -name "Main Flow Diagram"] {
+        with [get-edit-part -name "Display Homepage" | get-edit-part -className WorkspaceImageEditPart] {
+            mouse-move 499 246 button1 -height 344 -width 520
+            mouse-press 499 246 button1 -height 344 -width 520
+            mouse-release 499 246 button1 "" -height 344 -width 520
+        }
+        with [get-edit-part -name CreateAccount | get-edit-part -className DNodeListViewNodeListCompartment2EditPart] {
+            mouse-move 97 31 button1 -height 76 -width 109
+            mouse-press 97 31 button1 -height 76 -width 109
+        }
+    }
+    get-diagram -index 1 | get-edit-part -name "Main Flow Diagram" | get-edit-part -name CreateAccount | get-edit-part 
+        -className DNodeListViewNodeListCompartment2EditPart | mouse-release 97 31 button1 "" -height 76 -width 109
+}
+
+// Check edge exists
+with [get-editor "Main Flow Diagram" | get-diagram -index 1 | get-edit-part -name "Main Flow Diagram" | get-edit-part 
+    -name CreateAccount | get-target-connection -path 1] {
+    get-property text | equals "" | verify-true
+    get-property className | equals "org.eclipse.sirius.diagram.ui.internal.edit.parts.DEdgeEditPart" | verify-true
+    get-property itemAddress | equals "[-2, 6, 0, 1]" | verify-true
+    get-property selected | equals true | verify-true
+    get-property x | equals 780 | verify-true
+    get-property y | equals 445 | verify-true
+    get-property width | equals 202 | verify-true
+    get-property height | equals 151 | verify-true
+    get-property childrenCount | equals 0 | verify-true
+    get-property backgroundColor | equals "#FFFFFF" | verify-true
+    get-property foregroundColor | equals "#3584E4" | verify-true
+}
+get-editor "Main Flow Diagram" | get-diagram -index 1 | get-edit-part -name "Main Flow Diagram" 
+    | get-property "getModel().getEdges().size()" | equals 17 | verify-true
+
+// Delete edge
+log -message "[RCPTT] [CFD_A_022] Suppression – Bind View State and View Container"
+get-eclipse-window | key-type Del
+
+// Check edge still exists
+get-editor "Main Flow Diagram" | get-diagram -index 1 | get-edit-part -name "Main Flow Diagram" 
+    | get-property "getModel().getEdges().size()" | equals 17 | verify-true
+    
+// Select Bind existing View Container tool
+log -message "[RCPTT] [CFD_A_013] Palette – Creation Bind existing View Container"
+with [get-editor "Main Flow Diagram" | get-palette | get-palette-entry "Bind existing View Container"] {
+    mouse-move 72 15 button1 -height 25 -width 295
+    mouse-press 72 15 button1 -height 25 -width 295
+    mouse-release 72 15 button1 "" -height 25 -width 295
+}
+
+// Apply Bind existing View Container
+with [get-editor "Main Flow Diagram" | get-diagram -index 1 | get-edit-part -name "Main Flow Diagram" | get-edit-part 
+    -name "Create Account Page" | get-edit-part -className WorkspaceImageEditPart] {
+    mouse-move 44 94 button1 -height 124 -width 189
+    mouse-press 44 94 button1 -height 124 -width 189
+    mouse-release 44 94 button1 "" -height 124 -width 189
+}
+with [get-window "Selection Wizard"] {
+    get-tree | select "Cinematic Root E-BookStore/View Container HomePage : Page"
+    get-button Finish | click -metaKeys ""
+}
+
+// Check edge exists
+with [get-editor "Main Flow Diagram" | get-diagram -index 1 | get-edit-part -name "Main Flow Diagram" | get-edit-part 
+    -name HomePage | get-target-connection -path 1] {
+    get-property text | equals "" | verify-true
+    get-property className | equals "org.eclipse.sirius.diagram.ui.internal.edit.parts.DEdgeEditPart" | verify-true
+    get-property itemAddress | equals "[-2, 3, 0, 2]" | verify-true
+    get-property selected | equals true | verify-true
+    get-property x | equals 398 | verify-true
+    get-property y | equals 435 | verify-true
+    get-property width | equals 549 | verify-true
+    get-property height | equals 218 | verify-true
+    get-property childrenCount | equals 0 | verify-true
+    get-property backgroundColor | equals "#FFFFFF" | verify-true
+    get-property foregroundColor | equals "#3584E4" | verify-true
+}
+
+// Select Bind new View Container
+log -message "[RCPTT] [CFD_A_014] Palette – Creation Bind new View Container"
+with [get-editor "Main Flow Diagram" | get-palette | get-palette-entry "Bind new View Container"] {
+    mouse-move 132 16 button1 -height 25 -width 295
+    mouse-press 132 16 button1 -height 25 -width 295
+    mouse-release 132 16 button1 "" -height 25 -width 295
+}
+
+// Apply Bind new View Container tool
+with [get-editor "Main Flow Diagram" | get-diagram -index 1 | get-edit-part -name "Main Flow Diagram" | get-edit-part 
+    -name "Create Account Page" | get-edit-part -className WorkspaceImageEditPart] {
+    mouse-move 31 102 button1 -height 124 -width 189
+    mouse-press 31 102 button1 -height 124 -width 189
+    mouse-release 31 102 button1 "" -height 124 -width 189
+}
+with [get-window "Selection Wizard"] {
+    get-tree | select "Toolkit Web/Widget Page"
+    get-button Finish | click -metaKeys ""
+}
+
+// Check node is created
+with [get-editor "Main Flow Diagram" | get-diagram -index 1 | get-edit-part -name "Main Flow Diagram"] {
+    get-property "children.size" | equals 13 | verify-true
+    get-property "edges.size" | equals 19 | verify-true
+    with [get-edit-part -name ViewContainer3 | get-edit-part -className DNodeListNameEditPart] {
+        get-property text | equals "" | verify-true
+        get-property className | equals "org.eclipse.sirius.diagram.ui.internal.edit.parts.DNodeListNameEditPart" 
+            | verify-true
+        get-property itemAddress | equals "[0, 11, 0]" | verify-true
+        get-property selected | equals false | verify-true
+        get-property x | equals 826 | verify-true
+        get-property y | equals 389 | verify-true
+        get-property width | equals 119 | verify-true
+        get-property height | equals 16 | verify-true
+        get-property childrenCount | equals 0 | verify-true
+        get-property backgroundColor | equals "#EEF8FF" | verify-true
+        get-property foregroundColor | equals "#002B3C" | verify-true
+        get-property "getLabelText()" | equals ViewContainer3 | verify-true
+    }
+}
+
+// Edit View Container label
+log -message "[RCPTT] [CFD_A_019] Edition libélé (F2)"
+with [get-editor "Main Flow Diagram"] {
+    with [get-diagram -index 1 | get-edit-part -name "Main Flow Diagram" | get-edit-part -name ViewContainer3] {
+        with [get-edit-part -className DNodeListViewNodeListCompartment2EditPart] {
+            mouse-move 86 4 button1 -height 12 -width 119
+            mouse-press 86 4 button1 -height 12 -width 119
+            mouse-release 86 4 button1 "" -height 12 -width 119
+        }
+        activate-direct-edit
+        get-edit-part -className DNodeListNameEditPart | activate-direct-edit
+    }
+    with [get-editbox] {
+        set-text TestName
+        key-type Enter
+    }
+    with [get-diagram -index 1] {
+        commit-direct-edit
+        key-type Enter
+    }
+}
+
+// Check node label
+get-editor "Main Flow Diagram" | get-diagram -index 1 | get-edit-part -name "Main Flow Diagram" | get-edit-part 
+    -name TestName | get-edit-part -className DNodeListNameEditPart | get-property "getLabelText()" | equals TestName 
+    | verify-true
+
+// Delete created View Container
+log -message "[RCPTT] [CFD_A_051] Suppression Bind new View Container"
+get-eclipse-window | key-type Del
+
+// Check node and edge are deleted
+with [get-editor "Main Flow Diagram" | get-diagram -index 1 | get-edit-part -name "Main Flow Diagram"] {
+    get-property "children.size" | equals 12 | verify-true
+    get-property "edges.size" | equals 18 | verify-true
+}
+
+// Delete existing View Container
+log -message "[RCPTT] [CFD_A_050] Suppression Bind existing View Container"
+with [get-editor "Main Flow Diagram" | get-diagram -index 1] {
+    with [get-edit-part -name "Main Flow Diagram" | get-edit-part -name HomePage] {
+        mouse-move 102 12 button1 -height 93 -width 110
+        mouse-press 102 12 button1 -height 93 -width 110
+        mouse-release 102 12 button1 "" -height 93 -width 110
+    }
+    key-type Del
+}
+
+// Check node and edges are deleted
+with [get-editor "Main Flow Diagram" | get-diagram -index 1 | get-edit-part -name "Main Flow Diagram"] {
+    get-property "children.size" | equals 11 | verify-true
+    get-property "edges.size" | equals 16 | verify-true
+}
+
+// Save and clean
+get-eclipse-window | key-type "M1+s"
+delete-ebook-project 
+
+
+/************************
+ * DOUBLE CLICKS *
+ ************************/
+
+create-ebook-project
+open-flow-diagram
+
+// Double click transition
+log -message "[RCPTT] [CFD_A_017] Double click – Transition"
+with [get-editor "Main Flow Diagram" | get-diagram -index 1 | get-edit-part -name "Main Flow Diagram" | get-edit-part 
+    -name "Display Homepage" | get-target-connection -path 5] {
+    mouse-move 23 79 button1 -height 138 -width 42
+    mouse-press 23 79 button1 -height 138 -width 42
+    mouse-release 24 84 button1 "" -height 142 -width 44
+    mouse-press 24 84 button1 -height 142 -width 44
+    mouse-double-click 24 84 button1 -height 142 -width 44
+    mouse-release 24 84 button1 "" -height 142 -width 44
+}
+
+// Check opened dialog
+with [get-window "Event selection" | get-control Any] {
+    get-property "getParent().getClassName()" | equals "org.eclipse.swt.widgets.Shell" | verify-true
+    get-property "getParent().getText()" | equals "Event selection" | verify-true
+}
+// Close dialog
+get-window "Event selection" | get-button Cancel | click -metaKeys ""
+
+// Double click View State
+log -message "[RCPTT] [CFD_A_018] Double click – View State"
+with [get-editor "Main Flow Diagram" | get-diagram -index 1 | get-edit-part -name "Main Flow Diagram" | get-edit-part 
+    -name "Create Account Page" | get-edit-part -className WorkspaceImageEditPart] {
+    mouse-move 171 33 button1 -height 124 -width 189
+    mouse-press 171 33 button1 -height 124 -width 189
+    mouse-release 171 33 button1 "" -height 124 -width 189
+    mouse-press 171 33 button1 -height 124 -width 189
+    mouse-double-click 171 33 button1 -height 124 -width 189
+    mouse-release 171 33 button1 "" -height 124 -width 189
+}
+
+// Check dialog
+get-window "View Container selection" | get-control Any | get-property "getParent().getText()" 
+    | equals "View Container selection" | verify-true
+
+// Filter elements
+log -message "[RCPTT] [CFD_A_035] View Container Selection – Filtre"
+get-window "View Container selection" | get-editbox | set-text "Log*"
+get-window "View Container selection" | get-editbox | key-type Enter
+// Check Tree item
+with [get-window "View Container selection" | get-tree] {
+    get-item -path Login | get-property "getText()" | equals Login | verify-true
+    get-item -path Login | get-property "getParent().getItems().length" | equals 1 | verify-true
+}
+
+// Clear filter
+log -message "[RCPTT] [CFD_A_036] View Container Selection – Clear"
+get-window "View Container selection" | get-button clear | click -metaKeys ""
+//Check Tree item
+with [get-window "View Container selection" | get-tree] {
+    get-property "getItems().length" | equals 4 | verify-true
+    get-property "getItems().TreeItem[0].getText()" | equals HomePage | verify-true
+    get-property "getItems().TreeItem[1].getText()" | equals CreateAccount | verify-true
+    get-property "getItems().TreeItem[2].getText()" | equals Login | verify-true
+    get-property "getItems().TreeItem[3].getText()" | equals PaymentForm | verify-true
+}
+
+// Click Hide checkbox
+log -message "[RCPTT] [CFD_A_037] View Container Selection – Hide View Containers bound"
+get-window "View Container selection" | get-button "Hide View Containers bound to other View States" | check
+// Check Tree item
+with [get-window "View Container selection" | get-tree] {
+    get-item -path CreateAccount | get-property "getText()" | equals CreateAccount | verify-true
+    get-item -path CreateAccount | get-property "getParent().getItems().length" | equals 1 | verify-true
+}
+
+// Select element
+log -message "[RCPTT] [CFD_A_038] View Container Selection – OK"
+with [get-window "View Container selection"] {
+    get-button "Hide View Containers bound to other View States" | uncheck
+    with [get-tree] {
+        get-item -path Login | check
+        select Login
+    }
+    get-button OK | click -metaKeys ""
+}
+// Check added ViewContainer
+with [get-view Properties | get-section Properties | get-table -index 1] {
+    get-property "getItems().length" | equals 2 | verify-true
+    get-property "getItems().TableItem[0].getText()" | equals "View Container CreateAccount : Page" | verify-true
+    get-property "getItems().TableItem[1].getText()" | equals "View Container Login : Page" | verify-true
+}
+
+// Close dialog
+get-window "View Container selection" | get-button Cancel | click -metaKeys ""
+
+// Double clik Subflow
+log -message "[RCPTT] [CFD_A_028] Double click – Subflow"
+with [get-editor "Main Flow Diagram" | get-diagram -index 1 | get-edit-part -name "Main Flow Diagram" | get-edit-part 
+    -name Checkout | get-edit-part -className WorkspaceImageEditPart] {
+    mouse-move 78 17 button1 -height 59 -width 123
+    mouse-press 78 17 button1 -height 59 -width 123
+    mouse-release 78 17 button1 "" -height 59 -width 123
+    mouse-press 78 17 button1 -height 59 -width 123
+    mouse-double-click 78 17 button1 -height 59 -width 123
+}
+
+// Check opened editor
+get-editor "Checkout Flow Diagram" | get-diagram -index 1 | get-edit-part -name "Checkout Flow Diagram" | get-edit-part 
+    -name "Payment on partner site" | get-edit-part -className WorkspaceImageEditPart | get-property text | equals "" 
+    | verify-true
+get-editor "Checkout Flow Diagram" | close
+get-window Save | get-button Yes | click   
+
+// Un-select node and activate layer
+with [get-editor "Main Flow Diagram" | get-diagram -index 1 | get-edit-part -name "Main Flow Diagram"] {
+    mouse-move 979 148 button1 -height 680 -width 1315
+    mouse-press 979 148 button1 -height 680 -width 1315
+    mouse-release 979 148 button1 "" -height 680 -width 1315
+}
+get-editor "Main Flow Diagram" | get-button Layers | click -arrow
+get-menu -path "View Containers" | click -metaKeys ""
+
+// Context View Container > Open
+log -message "[RCPTT] [CFD_A_031] Menu Contextuel (View Container) – Open"
+with [get-editor "Main Flow Diagram" | get-diagram -index 1] {
+    with [get-edit-part -name "Main Flow Diagram" | get-edit-part -name CreateAccount | get-edit-part 
+        -className DNodeListViewNodeListCompartment2EditPart] {
+        mouse-move 101 19 button3 -height 76 -width 109
+        mouse-press 101 19 button3 -height 76 -width 109
+    }
+    get-menu -path "Open/UI StructureE-BookStore UI Structure" | click -metaKeys ""
+}
+
+// Check opened editor
+get-editor "E-BookStore UI Structure" | get-tree | get-item -path "E-BookStore" | get-property "getText()" 
+    | equals "E-BookStore" | verify-true
+get-editor "E-BookStore UI Structure" | close
+get-window Save | get-button Yes | click
+
+// Double click View Container
+log -message "[RCPTT] [CFD_A_030] Double click – View Container"
+with [get-editor "Main Flow Diagram" | get-diagram -index 1 | get-edit-part -name "Main Flow Diagram" | get-edit-part 
+    -name CreateAccount | get-edit-part -className DNodeListViewNodeListCompartment2EditPart] {
+    mouse-move 100 12 button1 -height 76 -width 109
+    mouse-press 100 12 button1 -height 76 -width 109
+    mouse-release 100 12 button1 "" -height 76 -width 109
+    mouse-press 100 12 button1 -height 76 -width 109
+    mouse-double-click 100 12 button1 -height 76 -width 109
+}
+// Check opened editor
+get-editor "CreateAccount View Container Mockup" | get-diagram -index 1 | get-edit-part 
+    -name "CreateAccount View Container Mockup" | get-edit-part -name CreateAccount | get-edit-part 
+    -className DNodeContainerNameEditPart | get-property "getLabelText()" | equals CreateAccount | verify-true
+get-editor "CreateAccount View Container Mockup" | close
+get-window Save | get-button Yes | click  
+
+// Remove mockup
+log -message "[RCPTT] [CFD_A_025] Menu Contextuel (View State) – IS Designer > Remove Mockup Image"
+with [get-editor "Main Flow Diagram" | get-diagram -index 1] {
+    with [get-edit-part -name "Main Flow Diagram" | get-edit-part -name "Display Homepage" | get-edit-part 
+        -className WorkspaceImageEditPart] {
+        mouse-move 499 26 button3 -height 344 -width 520
+        mouse-press 499 26 button3 -height 344 -width 520
+    }
+    get-menu -path "Safr@n/Remove Mockup Image" | click -metaKeys ""
+}
+// Check node
+with [get-editor "Main Flow Diagram" | get-diagram -index 1 | get-edit-part -name "Main Flow Diagram" | get-edit-part 
+    -name "Display Homepage" | get-edit-part -className WorkspaceImageEditPart | get-figure -path 0] {
+    get-property className | equals "org.eclipse.sirius.diagram.ui.tools.api.figure.SVGWorkspaceImageFigure" 
+        | verify-true
+    get-property "getClassName()" | equals "org.eclipse.sirius.diagram.ui.tools.api.figure.SVGWorkspaceImageFigure" 
+        | verify-true
+    get-property "getURI()" 
+        | equals "file:/home/fcoulon/workspaces/system-designer/.metadata/.plugins/org.eclipse.pde.core/fr.gouv.mindef.safran.branding.product/org.eclipse.osgi/970/0/.cp/icons/viewpoint/state.svg" 
+        | verify-true
+}
+
+// Context Menu Subflow > New
+log -message "[RCPTT] [CFD_A_026] Menu Contextuel (Subflow) – New"
+with [get-editor "Main Flow Diagram" | get-diagram -index 1] {
+    with [get-edit-part -name "Main Flow Diagram" | get-edit-part -name Checkout | get-edit-part 
+        -className WorkspaceImageEditPart] {
+        mouse-move 84 12 button3 -height 59 -width 123
+        mouse-press 84 12 button3 -height 59 -width 123
+    }
+    get-menu -path "New/Flow Diagram" | click -metaKeys ""
+}
+get-window "New Flow Diagram" | get-button OK | click -metaKeys ""
+
+// Check opened editor
+get-editor "Checkout Flow Diagram" | get-diagram -index 1 | get-edit-part -name "Checkout Flow Diagram" | get-edit-part 
+    -name "Payment Page" | get-edit-part -name "Payment Page" | get-property "getLabelText()" | equals "Payment Page" 
+    | verify-true
+get-editor "Checkout Flow Diagram" | close
+get-window Save | get-button Yes | click  
+
+// Context Menu Subflow > Open
+log -message "[RCPTT] [CFD_A_027] Menu Contextuel (Subflow) – Open"
+with [get-editor "Main Flow Diagram" | get-diagram -index 1] {
+    with [get-edit-part -name "Main Flow Diagram" | get-edit-part -name Checkout | get-edit-part 
+        -className WorkspaceImageEditPart] {
+        mouse-move 79 10 button3 -height 59 -width 123
+        mouse-press 79 13 button3 -height 59 -width 123
+    }
+    get-menu -path "Open/Subflow DiagramCheckout Flow Diagram" | click -metaKeys ""
+}
+
+// Check opened editor
+get-editor "Checkout Flow Diagram" | get-diagram -index 1 | get-edit-part -name "Checkout Flow Diagram" | get-edit-part 
+    -name "Payment on partner site" | get-edit-part -className WorkspaceImageEditPart | get-property text | equals "" 
+    | verify-true
+get-editor "Checkout Flow Diagram" | close
+get-window Save | get-button Yes | click
+
+// Context Menu View State > Open
+log -message "[RCPTT] [CFD_A_029] Menu Contextuel (View State) – Open"
+with [get-editor "Main Flow Diagram" | get-diagram -index 1] {
+    with [get-edit-part -name "Main Flow Diagram" | get-edit-part -name "Create Account Page" | get-edit-part 
+        -className WorkspaceImageEditPart] {
+        mouse-move 166 63 button3 -height 124 -width 189
+        mouse-press 166 66 button3 -height 124 -width 189
+    }
+    get-menu -path "Open/Mockup DiagramCreateAccount View Container Mockup" | click -metaKeys ""
+}
+// Check opened editor
+get-editor "CreateAccount View Container Mockup" | get-diagram -index 1 | get-edit-part 
+    -name "CreateAccount View Container Mockup" | get-edit-part -name CreateAccount | get-edit-part 
+    -className DNodeContainerNameEditPart | get-property "getLabelText()" | equals CreateAccount | verify-true
+get-editor "CreateAccount View Container Mockup" | close
+
+// Save and clean
+get-eclipse-window | key-type "M1+s"
+delete-ebook-project 
+------=_.content-0a7243a0-75d3-3d5f-9791-539de0e5b7ac--

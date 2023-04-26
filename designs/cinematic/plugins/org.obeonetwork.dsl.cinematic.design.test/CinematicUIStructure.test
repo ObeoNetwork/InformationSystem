@@ -1,0 +1,526 @@
+--- RCPTT testcase ---
+Format-Version: 1.0
+Contexts: _uQ_HIKkgEe28948-k2BW9w
+Element-Name: CinematicUIStructure
+Element-Type: testcase
+Element-Version: 3.0
+External-Reference: 
+Id: _YOwMQOT7Ee2DZZB9A7cF6Q
+Save-Time: 5/2/23, 10:56 AM
+Testcase-Type: ecl
+
+------=_.description-216f885c-d591-38ce-8ea2-e4f8cb4d6ffa
+Content-Type: text/plain
+Entry-Name: .description
+
+Test UI Structure Editor.
+------=_.description-216f885c-d591-38ce-8ea2-e4f8cb4d6ffa--
+------=_.content-0a7243a0-75d3-3d5f-9791-539de0e5b7ac
+Content-Type: text/ecl
+Entry-Name: .content
+
+/***********
+ * PACKAGE *
+ ***********/
+
+create-ebook-project
+open-ui-structure
+
+// Create Package
+log -message "[RCPTT] [CUS_A_001] Menu Contextuel – Creation Package"
+get-editor "E-BookStore UI Structure" | get-tree | select "E-BookStore" | get-menu -path Package | click -metaKeys ""
+
+// Check new Package exists
+get-editor "E-BookStore UI Structure" | get-tree | get-item -path "E-BookStore/Package2" | get-property "getText()" 
+    | equals Package2 | verify-true
+/*
+// Edit label
+with [get-editor "E-BookStore UI Structure" | get-tree] {
+    select "E-BookStore/Package2" | key-type F2
+    select "E-BookStore/Package2" | activate-cell-edit -type KeyPressed
+    with [get-editbox] {
+        set-text PackageTest
+        key-type Enter
+    }
+    apply-cell-edit -deactivate
+}
+
+// Check label
+get-editor "E-BookStore UI Structure" | get-tree | get-item -path "E-BookStore/PackageTest" | get-property "getText()" 
+    | equals PackageTest | verify-true
+*/
+// Double click label
+log -message "[RCPTT] [CUS_A_024] Double click – Edition label"
+with [get-editor "E-BookStore UI Structure" | get-tree] {
+    select "E-BookStore/Package2" | double-click
+    select "E-BookStore/Package2" | activate-cell-edit -type MouseDoubleClickSelection
+    with [get-editbox] {
+        set-text PackageTest2
+        key-type Enter
+    }
+    apply-cell-edit -deactivate
+}
+
+// Check label
+get-editor "E-BookStore UI Structure" | get-tree | get-item -path "E-BookStore/PackageTest2" | get-property "getText()" 
+    | equals PackageTest2 | verify-true
+    
+// Drag n drop package
+log -message "[RCPTT] [CUS_A_014] Deplacement Element (drag&drop) – Package"
+with [get-editor "E-BookStore UI Structure" | get-tree] {
+    select "E-BookStore" | get-menu -path Package | click -metaKeys ""
+    select "E-BookStore/PackageTest2"
+    get-item -path "E-BookStore/PackageTest2" | drag-start 27 4
+    get-item -path "E-BookStore/PackageTest2" | drag-enter 31 12 -detail move
+    get-item -path "E-BookStore/PackageTest2" | drag-over 32 16 -detail move
+    get-item -path "E-BookStore/Package3" | drag-over 31 7 -detail move
+    get-item -path "E-BookStore/PackageTest2" | drag-exit
+    get-item -path "E-BookStore/Package3" | drag-accept 31 7 -detail move
+    drag-set-data
+    get-item -path "E-BookStore/Package3" | drop 31 7 -detail move
+    drag-end -detail move
+}
+// Check drag n drop
+get-editor "E-BookStore UI Structure" | get-tree | get-item -path "E-BookStore/Package3/PackageTest2" 
+    | get-property "getText()" | equals PackageTest2 | verify-true
+    
+// Delete Package
+log -message "[RCPTT] [CUS_A_006] Menu Contextuel – Suppression Package"
+get-editor "E-BookStore UI Structure" | get-tree | select "E-BookStore/Package3" | key-type Del
+
+// Check deleted Package
+with [get-editor "E-BookStore UI Structure" | get-tree] {
+    get-property "getItems().TreeItem[0].getItems().length" | equals 4 | verify-true
+    get-property "getItems().TreeItem[0].getItems().TreeItem[0].getText()" | equals Checkout | verify-true
+    get-property "getItems().TreeItem[0].getItems().TreeItem[1].getText()" | equals "HomePage : Page" | verify-true
+    get-property "getItems().TreeItem[0].getItems().TreeItem[2].getText()" | equals "CreateAccount : Page" | verify-true
+    get-property "getItems().TreeItem[0].getItems().TreeItem[3].getText()" | equals Web | verify-true
+}
+
+// Save and clean
+get-eclipse-window | key-type "M1+s"
+delete-ebook-project
+
+/******************
+ * VIEW CONTAINER *
+ ******************/
+
+create-ebook-project
+open-ui-structure
+
+// Create ViewContainer
+log -message "[RCPTT] [CUS_A_002] Menu Contextuel – Creation ViewContainer"
+get-editor "E-BookStore UI Structure" | get-tree | select "E-BookStore" | get-menu -path "View Container" | click 
+    -metaKeys ""
+with [get-window "Selection Wizard"] {
+    get-tree | select "Toolkit Web/Widget Page"
+    get-button Finish | click -metaKeys ""
+}
+
+// Check new ViewContainer exists
+get-editor "E-BookStore UI Structure" | get-tree | get-item -path "E-BookStore/ViewContainer3 : Page" 
+    | get-property "getText()" | equals "ViewContainer3 : Page" | verify-true
+    
+// Double click label
+log -message "[RCPTT] [CUS_A_024] Double click – Edition label"
+with [get-editor "E-BookStore UI Structure" | get-tree] {
+    select "E-BookStore/ViewContainer3 : Page" | double-click
+    select "E-BookStore/ViewContainer3 : Page" | activate-cell-edit -type MouseDoubleClickSelection
+    with [get-editbox] {
+        set-text "ViewContainerTest : Page"
+        key-type Enter
+    }
+    apply-cell-edit -deactivate
+}
+
+// Check label
+get-editor "E-BookStore UI Structure" | get-tree | get-item -path "E-BookStore/ViewContainerTest : Page" 
+    | get-property "getText()" | equals "ViewContainerTest : Page" | verify-true
+    
+// Drag n drop ViewContainer
+log -message "[RCPTT] [CUS_A_015] Deplacement Element (drag&drop) – View Container"
+with [get-editor "E-BookStore UI Structure" | get-tree] {
+    get-item -path "E-BookStore/ViewContainerTest : Page" | drag-start 45 10
+    get-item -path "E-BookStore/ViewContainerTest : Page" | drag-enter 53 2 -detail move
+    get-item -path "E-BookStore/CreateAccount : Page" | drag-over 61 5 -detail move
+    get-item -path "E-BookStore/HomePage : Page/createAccount : Link" | drag-over 50 9 -detail move
+    get-item -path "E-BookStore/HomePage : Page/Books : Table/addToCart : Link" | drag-over 48 0 -detail move
+    get-item -path "E-BookStore/HomePage : Page/Books : Table/author : Label" | drag-over 51 10 -detail move
+    get-item -path "E-BookStore/HomePage : Page/Books : Table/bookTitle : Label" | drag-over 56 6 -detail move
+    get-item -path "E-BookStore/HomePage : Page/Books : Table/bookImage : Image" | drag-over 59 17 -detail move
+    drag-over 161 305 -detail move
+    get-item -path "E-BookStore/HomePage : Page/SearchForm : Panel" | drag-over 87 2 -detail move
+    get-item -path "E-BookStore/HomePage : Page" | drag-over 105 14 -detail move
+    get-item -path "E-BookStore/Checkout/PaymentForm : Page/cancel : Button" | drag-over 70 3 -detail move
+    get-item -path "E-BookStore/Checkout/PaymentForm : Page/validate : Button" | drag-over 70 7 -detail move
+    get-item -path "E-BookStore/Checkout/PaymentForm : Page/validationDate : Text" | drag-over 64 0 -detail move
+    get-item -path "E-BookStore/Checkout/PaymentForm : Page/endDate : Text" | drag-over 60 1 -detail move
+    get-item -path "E-BookStore/Checkout/PaymentForm : Page/cardNumber : Text" | drag-over 56 0 -detail move
+    get-item -path "E-BookStore/Checkout/PaymentForm : Page" | drag-over 69 1 -detail move
+    drag-over 137 134 -detail move
+    drag-over 131 115 -detail move
+    drag-over 123 96 -detail move
+    drag-over 115 77 -detail move
+    drag-over 107 58 -detail move
+    drag-over 97 39 -detail move
+    get-item -path "E-BookStore/Checkout" | drag-over 34 6 -detail move
+    get-item -path "E-BookStore/ViewContainerTest : Page" | drag-exit
+    get-item -path "E-BookStore/Checkout" | drag-accept 34 6 -detail move
+    drag-set-data
+    get-item -path "E-BookStore/Checkout" | drop 34 6 -detail move
+    drag-end -detail move
+}
+
+// Check drag n drop
+get-editor "E-BookStore UI Structure" | get-tree | get-item -path "E-BookStore/Checkout/ViewContainerTest : Page" 
+    | get-property "getText()" | equals "ViewContainerTest : Page" | verify-true
+    
+// Delete ViewContainer
+log -message "[RCPTT] [CUS_A_007] Menu Contextuel – Suppresion ViewContainer"
+get-editor "E-BookStore UI Structure" | get-tree | select "E-BookStore/Checkout/ViewContainerTest : Page" | key-type Del
+
+// Check deleted ViewContainer
+with [get-editor "E-BookStore UI Structure" | get-tree] {
+    get-item -path "E-BookStore/Checkout" | get-property "getItems().length" | equals 2 | verify-true
+    get-item -path "E-BookStore/Checkout" | get-property "getItems().TreeItem[0].getText()" | equals "Login : Page" 
+        | verify-true
+    get-item -path "E-BookStore/Checkout" | get-property "getItems().TreeItem[1].getText()" 
+        | equals "PaymentForm : Page" | verify-true
+}
+
+// Save and clean
+get-eclipse-window | key-type "M1+s"
+delete-ebook-project
+
+/****************
+ * VIEW ELEMENT *
+ ****************/
+
+create-ebook-project
+open-ui-structure
+
+// Create ViewElement
+log -message "[RCPTT] [CUS_A_003] Menu Contextuel – Creation ViewElement"
+get-editor "E-BookStore UI Structure" | get-tree | select "E-BookStore/Checkout/Login : Page" | get-menu 
+    -path "View Element" | click -metaKeys ""
+with [get-window "Selection Wizard"] {
+    get-tree | select "Toolkit Web/Widget Button"
+    get-button Finish | click -metaKeys ""
+}
+
+// Check new ViewElement exists
+get-editor "E-BookStore UI Structure" | get-tree | get-item 
+    -path "E-BookStore/Checkout/Login : Page/viewElement6 : Button" | get-property "getText()" 
+    | equals "viewElement6 : Button" | verify-true
+    
+// Double click label
+log -message "[RCPTT] [CUS_A_024] Double click – Edition label"
+with [get-editor "E-BookStore UI Structure" | get-tree] {
+    select "E-BookStore/Checkout/Login : Page/viewElement6 : Button" | double-click
+    select "E-BookStore/Checkout/Login : Page/viewElement6 : Button" | activate-cell-edit 
+        -type MouseDoubleClickSelection
+    with [get-editbox] {
+        set-text "viewElementTest : Button"
+        key-type Enter
+    }
+    apply-cell-edit -deactivate
+}
+
+// Check label
+get-editor "E-BookStore UI Structure" | get-tree | get-item 
+    -path "E-BookStore/Checkout/Login : Page/viewElementTest : Button" | get-property "getText()" 
+    | equals "viewElementTest : Button" | verify-true
+    
+// Drag n drop ViewElement
+log -message "[RCPTT] [CUS_A_016] Deplacement Element (drag&drop) – View Element"
+with [get-editor "E-BookStore UI Structure" | get-tree] {
+    get-item -path "E-BookStore/Checkout/Login : Page/viewElementTest : Button" | drag-start 19 7
+    get-item -path "E-BookStore/Checkout/Login : Page/viewElementTest : Button" | drag-enter 19 15 -detail move
+    drag-over 110 172 -detail move
+    get-item -path "E-BookStore/Checkout/PaymentForm : Page" | drag-over 27 11 -detail move
+    get-item -path "E-BookStore/Checkout/Login : Page/viewElementTest : Button" | drag-exit
+    get-item -path "E-BookStore/Checkout/PaymentForm : Page" | drag-accept 27 11 -detail move
+    drag-set-data
+    get-item -path "E-BookStore/Checkout/PaymentForm : Page" | drop 27 11 -detail move
+    drag-end -detail move
+}
+
+// Check drag n drop
+with [get-editor "E-BookStore UI Structure" | get-tree] {
+    get-item -path "E-BookStore/Checkout/PaymentForm : Page" | get-property "getItems().length" | equals 6 | verify-true
+    get-item -path "E-BookStore/Checkout/PaymentForm : Page" | get-property "getItems().TreeItem[0].getText()" 
+        | equals "cardNumber : Text" | verify-true
+    get-item -path "E-BookStore/Checkout/PaymentForm : Page" | get-property "getItems().TreeItem[1].getText()" 
+        | equals "endDate : Text" | verify-true
+    get-item -path "E-BookStore/Checkout/PaymentForm : Page" | get-property "getItems().TreeItem[2].getText()" 
+        | equals "validationDate : Text" | verify-true
+    get-item -path "E-BookStore/Checkout/PaymentForm : Page" | get-property "getItems().TreeItem[3].getText()" 
+        | equals "validate : Button" | verify-true
+    get-item -path "E-BookStore/Checkout/PaymentForm : Page" | get-property "getItems().TreeItem[4].getText()" 
+        | equals "cancel : Button" | verify-true
+    get-item -path "E-BookStore/Checkout/PaymentForm : Page" | get-property "getItems().TreeItem[5].getText()" 
+        | equals "viewElementTest : Button" | verify-true
+}
+
+// Delete ViewElement
+log -message "[RCPTT] [CUS_A_008] Menu Contextuel – Suppression ViewElement"
+get-editor "E-BookStore UI Structure" | get-tree 
+    | select "E-BookStore/Checkout/PaymentForm : Page/viewElementTest : Button" | key-type Del
+    
+// Check ViewElement is deleted
+with [get-editor "E-BookStore UI Structure" | get-tree] {
+    get-item -path "E-BookStore/Checkout/PaymentForm : Page" | get-property "getItems().length" | equals 5 | verify-true
+    get-item -path "E-BookStore/Checkout/PaymentForm : Page" | get-property "getItems().TreeItem[0].getText()" 
+        | equals "cardNumber : Text" | verify-true
+    get-item -path "E-BookStore/Checkout/PaymentForm : Page" | get-property "getItems().TreeItem[1].getText()" 
+        | equals "endDate : Text" | verify-true
+    get-item -path "E-BookStore/Checkout/PaymentForm : Page" | get-property "getItems().TreeItem[2].getText()" 
+        | equals "validationDate : Text" | verify-true
+    get-item -path "E-BookStore/Checkout/PaymentForm : Page" | get-property "getItems().TreeItem[3].getText()" 
+        | equals "validate : Button" | verify-true
+    get-item -path "E-BookStore/Checkout/PaymentForm : Page" | get-property "getItems().TreeItem[4].getText()" 
+        | equals "cancel : Button" | verify-true
+}
+
+// Save and clean
+get-eclipse-window | key-type "M1+s"
+delete-ebook-project
+
+/*********
+ * EVENT *
+ *********/
+
+create-ebook-project
+open-ui-structure
+ 
+// Create Event
+log -message "[RCPTT] [CUS_A_004] Menu Contextuel – Creation Event"
+get-editor "E-BookStore UI Structure" | get-tree | select "E-BookStore/Checkout/Login : Page/email : Text" | get-menu 
+    -path Event | click -metaKeys ""
+get-window "Selection Wizard" | get-button Finish | click -metaKeys ""
+
+// Check new Event exists
+get-editor "E-BookStore UI Structure" | get-tree | get-item 
+    -path "E-BookStore/Checkout/Login : Page/email : Text/onFocus : onFocus" | get-property "getText()" 
+    | equals "onFocus : onFocus" | verify-true
+    
+// Double click label
+log -message "[RCPTT] [CUS_A_024] Double click – Edition label"
+with [get-editor "E-BookStore UI Structure" | get-tree] {
+    select "E-BookStore/Checkout/Login : Page/email : Text/onFocus : onFocus" | double-click
+    select "E-BookStore/Checkout/Login : Page/email : Text/onFocus : onFocus" | activate-cell-edit 
+        -type MouseDoubleClickSelection
+    with [get-editbox] {
+        set-text "onFocusTest : onFocus"
+        key-type Enter
+    }
+    apply-cell-edit -deactivate
+}
+
+// Check label
+get-editor "E-BookStore UI Structure" | get-tree | get-item 
+    -path "E-BookStore/Checkout/Login : Page/email : Text/onFocusTest : onFocus : onFocus" | get-property "getText()" 
+    | equals "onFocusTest : onFocus : onFocus" | verify-true
+    
+// Drag n drop Event
+log -message "[RCPTT] [CUS_A_017] Deplacement Element (drag&drop) – Event"
+with [get-editor "E-BookStore UI Structure" | get-tree] {
+    get-item -path "E-BookStore/Checkout/Login : Page/email : Text/onFocusTest : onFocus : onFocus" | drag-start 20 6
+    get-item -path "E-BookStore/Checkout/Login : Page/email : Text/onFocusTest : onFocus : onFocus" | drag-enter 17 14 
+        -detail move
+    drag-over 128 96 -detail move
+    get-item -path "E-BookStore/Checkout/Login : Page/password : Password" | drag-over 24 13 -detail move
+    get-item -path "E-BookStore/Checkout/Login : Page/email : Text/onFocusTest : onFocus : onFocus" | drag-exit
+    get-item -path "E-BookStore/Checkout/Login : Page/password : Password" | drag-accept 24 13 -detail move
+    drag-set-data
+    get-item -path "E-BookStore/Checkout/Login : Page/password : Password" | drop 24 13 -detail move
+    drag-end -detail move
+}
+
+// Check drag n drop
+get-editor "E-BookStore UI Structure" | get-tree | get-item 
+    -path "E-BookStore/Checkout/Login : Page/password : Password/onFocusTest : onFocus : onFocus" 
+    | get-property "getText()" | equals "onFocusTest : onFocus : onFocus" | verify-true
+    
+// Delete Event
+log -message "[RCPTT] [CUS_A_009] Menu Contextuel – Suppression Event"
+get-editor "E-BookStore UI Structure" | get-tree 
+    | select "E-BookStore/Checkout/Login : Page/password : Password/onFocusTest : onFocus : onFocus" | key-type Del
+
+// Check Event is deleted
+get-editor "E-BookStore UI Structure" | get-tree | get-item 
+    -path "E-BookStore/Checkout/Login : Page/password : Password" | get-property "getItems().length" | equals 0 
+    | verify-true
+
+// Save and clean
+get-eclipse-window | key-type "M1+s"
+delete-ebook-project
+
+/**********
+ * ACTION *
+ **********/
+ 
+create-ebook-project
+open-ui-structure
+
+// Create Action 
+log -message "[RCPTT] [CUS_A_005] Menu Contextuel – Creation Action"
+get-editor "E-BookStore UI Structure" | get-tree | select "E-BookStore/Checkout/Login : Page/email : Text" | get-menu 
+    -path Action | click -metaKeys ""
+    
+// Check Action exists
+get-editor "E-BookStore UI Structure" | get-tree | get-item 
+    -path "E-BookStore/Checkout/Login : Page/email : Text/action1" | get-property "getText()" | equals action1 
+    | verify-true
+    
+// Double click label
+log -message "[RCPTT] [CUS_A_024] Double click – Edition label"
+with [get-editor "E-BookStore UI Structure" | get-tree] {
+    select "E-BookStore/Checkout/Login : Page/email : Text/action1" | double-click
+    select "E-BookStore/Checkout/Login : Page/email : Text/action1" | activate-cell-edit -type MouseDoubleClickSelection
+    with [get-editbox] {
+        set-text actionTest
+        key-type Enter
+    }
+    apply-cell-edit -deactivate
+}
+
+// Check label
+get-editor "E-BookStore UI Structure" | get-tree | get-item 
+    -path "E-BookStore/Checkout/Login : Page/email : Text/actionTest" | get-property "getText()" | equals actionTest 
+    | verify-true
+    
+// Drag n drop Action
+log -message "[RCPTT] [CUS_A_018] Deplacement Element (drag&drop) – Action"
+with [get-editor "E-BookStore UI Structure" | get-tree] {
+    get-item -path "E-BookStore/Checkout/Login : Page/email : Text/actionTest" | drag-start 13 7
+    get-item -path "E-BookStore/Checkout/Login : Page/email : Text/actionTest" | drag-enter 5 11 -detail move
+    drag-over 110 96 -detail move
+    get-item -path "E-BookStore/Checkout/Login : Page/password : Password" | drag-over 21 7 -detail move
+    get-item -path "E-BookStore/Checkout/Login : Page/email : Text/actionTest" | drag-exit
+    get-item -path "E-BookStore/Checkout/Login : Page/password : Password" | drag-accept 21 7 -detail move
+    drag-set-data
+    get-item -path "E-BookStore/Checkout/Login : Page/password : Password" | drop 21 7 -detail move
+    drag-end -detail move
+}
+
+// Check drag n drop
+get-editor "E-BookStore UI Structure" | get-tree | get-item 
+    -path "E-BookStore/Checkout/Login : Page/password : Password/actionTest" | get-property "getText()" 
+    | equals actionTest | verify-true
+    
+// Delete Action
+log -message "[RCPTT] [CUS_A_010] Menu Contextuel – Suppresion Action"
+get-editor "E-BookStore UI Structure" | get-tree 
+    | select "E-BookStore/Checkout/Login : Page/password : Password/actionTest" | key-type Del
+
+// Check Action is deleted
+get-editor "E-BookStore UI Structure" | get-tree | get-item 
+    -path "E-BookStore/Checkout/Login : Page/password : Password" | get-property "getItems().length" | equals 0 
+    | verify-true
+    
+// Save and clean
+get-eclipse-window | key-type "M1+s"
+delete-ebook-project
+
+/***********************
+ * OTHER CONTEXT MENUS *
+ ***********************/
+ 
+create-ebook-project
+open-ui-structure
+
+// Create ViewContainer Reference
+log -message "[RCPTT] [CUS_A_011] Menu Contextuel – View Container Reference"
+get-editor "E-BookStore UI Structure" | get-tree | select "E-BookStore/Checkout/Login : Page" | get-menu 
+    -path "View Container Reference" | click -metaKeys ""
+with [get-window "Selection Wizard"] {
+    get-tree | select "Cinematic Root E-BookStore/View Container CreateAccount : Page"
+    get-button Finish | click -metaKeys ""
+}
+
+// Check ViewContainer Reference
+get-editor "E-BookStore UI Structure" | get-tree | get-item 
+    -path "E-BookStore/Checkout/Login : Page/createAccount : Page" | get-property "getText()" 
+    | equals "createAccount : Page" | verify-true
+    
+// Create DataBinding
+log -message "[RCPTT] [CUS_A_012] Menu Contextuel – Data Binding"
+get-editor "E-BookStore UI Structure" | get-tree | select "E-BookStore/Checkout/Login : Page/email : Text" | get-menu 
+    -path "Data Binding" | click -metaKeys ""
+with [get-window "Selection Wizard"] {
+    get-tree | select "Entities/Namespace main/Entity Author"
+    get-button Finish | click -metaKeys ""
+}
+
+// Check DataBinding
+get-editor "E-BookStore UI Structure" | get-tree | get-item 
+    -path "E-BookStore/Checkout/Login : Page/email : Text/Author \\(Entity\\)" | get-property "getText()" 
+    | equals "Author (Entity)" | verify-true
+    
+// Create Duplicate
+log -message "[RCPTT] [CUS_A_013] Menu Contextuel – Duplicate"
+get-editor "E-BookStore UI Structure" | get-tree | select "E-BookStore/Checkout" | get-menu -path Duplicate | click 
+    -metaKeys ""
+    
+// Check Duplicate
+get-editor "E-BookStore UI Structure" | get-tree | get-item -path "E-BookStore/Checkout copy" 
+    | get-property "getText()" | equals "Checkout copy" | verify-true
+    
+/*
+// Try to delete root node
+log -message "[RCPTT] [CUS_A_019] Supression Element racine"
+get-editor "E-BookStore UI Structure" | get-tree | select "E-BookStore" | key-type Del
+
+// Check root still exists
+get-editor "E-BookStore UI Structure" | get-tree | get-item -path "E-BookStore" | get-property "getText()" 
+    | equals "E-BookStore" | verify-true
+*/
+
+// Associate ToolKit
+log -message "[RCPTT] [CUS_A_020] Menu Contextuel – Associate ToolKit"
+get-editor "E-BookStore UI Structure" | get-tree | select "E-BookStore" | get-menu -path "Associate toolkit" | click 
+    -metaKeys ""
+with [get-window "Selection Wizard"] {
+    get-tree | select "Toolkit SWT"
+    get-button Finish | click -metaKeys ""
+}
+
+// Check new ToolKit
+get-editor "E-BookStore UI Structure" | get-tree | get-item -path "E-BookStore/SWT" | get-property "getText()" 
+    | equals SWT | verify-true
+    
+// Dissociate ToolKit
+log -message "[RCPTT] [CUS_A_021] Menu Contextuel – Dissociate ToolKit"
+get-editor "E-BookStore UI Structure" | get-tree | select "E-BookStore/SWT" | get-menu -path "Dissociate Toolkit" 
+    | click -metaKeys ""
+    
+// Check ToolKits
+with [get-editor "E-BookStore UI Structure" | get-tree] {
+    get-item -path "E-BookStore" | get-property "getItems().length" | equals 5 | verify-true
+    get-item -path "E-BookStore" | get-property "getItems().TreeItem[0].getText()" | equals Checkout | verify-true
+    get-item -path "E-BookStore" | get-property "getItems().TreeItem[1].getText()" | equals "Checkout copy" 
+        | verify-true
+    get-item -path "E-BookStore" | get-property "getItems().TreeItem[2].getText()" | equals "HomePage : Page" 
+        | verify-true
+    get-item -path "E-BookStore" | get-property "getItems().TreeItem[3].getText()" | equals "CreateAccount : Page" 
+        | verify-true
+    get-item -path "E-BookStore" | get-property "getItems().TreeItem[4].getText()" | equals Web | verify-true
+}
+
+// Context menu > Open
+log -message "[RCPTT] [CUS_A_023] Menu Contextuel – Open"
+get-editor "E-BookStore UI Structure" | get-tree | select "E-BookStore" | get-menu 
+    -path "Open/E-BookStore Package Diagram" | click -metaKeys ""
+
+// Check opened diagram
+get-editor "E-BookStore Package Diagram" | get-diagram -index 1 | get-edit-part -name "E-BookStore Package Diagram" 
+    | get-edit-part -name CreateAccount | get-edit-part -className DNodeListNameEditPart | get-property "getEditText()" 
+    | equals CreateAccount | verify-true
+get-editor "E-BookStore Package Diagram" | close
+get-window Save | get-button Yes | click   
+
+// Save and clean
+get-eclipse-window | key-type "M1+s"
+delete-ebook-project
+------=_.content-0a7243a0-75d3-3d5f-9791-539de0e5b7ac--

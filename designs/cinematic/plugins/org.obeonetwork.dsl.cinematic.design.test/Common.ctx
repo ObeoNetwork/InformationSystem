@@ -22,6 +22,24 @@ proc "open-package-diagram" {
 	    | double-click
 }
 
+proc "open-flow-diagram" {
+	get-view "Model Explorer" | get-tree 
+	    | select "org.obeonetwork.is.sample.ebookstore/E-BookStore.cinematic/Cinematic Root E-BookStore/Flow Main/Main Flow Diagram" 
+	    | double-click
+}
+
+proc "open-ui-structure" {
+	get-view "Model Explorer" | get-tree 
+	    | select "org.obeonetwork.is.sample.ebookstore/E-BookStore.cinematic/Cinematic Root E-BookStore/E-BookStore UI Structure" 
+	    | double-click
+}
+
+proc "open-viewcontainer-mockup" {
+	get-view "Model Explorer" | get-tree 
+	    | select "org.obeonetwork.is.sample.ebookstore/E-BookStore.cinematic/Cinematic Root E-BookStore/View Container HomePage : Page/HomePage View Container Mockup" 
+	    | double-click
+}
+
 proc "delete-ebook-project" {
     get-view "Model Explorer" | get-tree | select "org.obeonetwork.is.sample.ebookstore" | key-type Del
 	with [get-window "Delete Resources"] {

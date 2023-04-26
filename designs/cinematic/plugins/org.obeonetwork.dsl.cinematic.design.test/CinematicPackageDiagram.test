@@ -6,9 +6,15 @@ Element-Type: testcase
 Element-Version: 3.0
 External-Reference: 
 Id: _g3ldEKkgEe28948-k2BW9w
-Save-Time: 2/13/23, 10:42 AM
+Save-Time: 5/2/23, 10:56 AM
 Testcase-Type: ecl
 
+------=_.description-216f885c-d591-38ce-8ea2-e4f8cb4d6ffa
+Content-Type: text/plain
+Entry-Name: .description
+
+Test Package Diagram.
+------=_.description-216f885c-d591-38ce-8ea2-e4f8cb4d6ffa--
 ------=_.content-0a7243a0-75d3-3d5f-9791-539de0e5b7ac
 Content-Type: text/ecl
 Entry-Name: .content
@@ -29,6 +35,7 @@ with [get-editor "E-BookStore Package Diagram"] {
     }
 }
 // Create Package node
+log -message "[RCPTT] [CPD_A_001] Palette – Creation Package"
 with [get-editor "E-BookStore Package Diagram" | get-diagram -index 1 | get-edit-part 
     -name "E-BookStore Package Diagram"] {
     mouse-move 1104 295 button1 -height 770 -width 1613
@@ -53,6 +60,7 @@ with [get-editor "E-BookStore Package Diagram" | get-diagram -index 1 | get-edit
 }
 
 // Test Context Menu : New Package Diagram
+log -message "[RCPTT] [CPD_A_010] Package – Menu contextuel - New > Package"
 with [get-editor "E-BookStore Package Diagram" | get-diagram -index 1] {
     get-menu -path "New/Package Diagram" | click 
 }
@@ -61,12 +69,14 @@ get-editor "Package2 Package Diagram" | close
 get-window Save | get-button Yes | click 
 
 // Test Context Menu : Open Package Diagram
+log -message "[RCPTT] [CPD_A_015] - Package – Menu contextuel – Open > Package"
 with [get-editor "E-BookStore Package Diagram" | get-diagram -index 1] {
     get-menu -path "Open/Package2 Package Diagram" | click 
 }
 get-editor "Package2 Package Diagram" | close
 
 // Test Context Menu : New UI Structure
+log -message "[RCPTT] [CPD_A_011] Package – Menu contextuel - New > UI Structure"
 with [get-editor "E-BookStore Package Diagram" | get-diagram -index 1] {
     get-menu -path "New/UI Structure" | click 
 }
@@ -82,6 +92,7 @@ get-window Save | get-button Yes | click
 //get-editor "Package2 UI Structure" | close
 
 // Edit label
+log -message "[RCPTT] [CPD_A_004] Edition label (F2)"
 with [get-editor "E-BookStore Package Diagram"] {
     with [get-diagram -index 1 | get-edit-part -name "E-BookStore Package Diagram"] {
         with [get-edit-part -name Package2] {
@@ -111,6 +122,7 @@ with [get-editor "E-BookStore Package Diagram" | get-diagram -index 1 | get-edit
 }
 
 // Delete node
+log -message "[RCPTT] [CPD_A_005] Suppresion sous-package"
 get-eclipse-window | key-type Del
 
 // Check node is deleted
@@ -139,6 +151,7 @@ with [get-editor "E-BookStore Package Diagram"] {
     }
 }
 // Create Flow node
+log -message "[RCPTT] [CPD_A_002] Palette – Creation Flow"
 with [get-editor "E-BookStore Package Diagram" | get-diagram -index 1 | get-edit-part 
     -name "E-BookStore Package Diagram"] {
     mouse-move 1104 295 button1 -height 770 -width 1613
@@ -163,6 +176,8 @@ with [get-editor "E-BookStore Package Diagram" | get-diagram -index 1 | get-edit
 }
 
 // Test Context Menu : New Flow Diagram
+// Create Flow node
+log -message "[RCPTT] [CPD_A_012] Flow – Menu contextuel - New > Flow"
 with [get-editor "E-BookStore Package Diagram" | get-diagram -index 1] {
     get-menu -path "New/Flow Diagram" | click 
 }
@@ -171,12 +186,14 @@ get-editor "Flow2 Flow Diagram" | close
 get-window Save | get-button Yes | click
 
 // Test Context Menu : Open Flow Diagram
+log -message "[RCPTT] [CPD_A_017] Flow – Menu contextuel – Open > Flow"
 with [get-editor "E-BookStore Package Diagram" | get-diagram -index 1] {
     get-menu -path "Open/Flow2 Flow Diagram" | click
 }
 get-editor "Flow2 Flow Diagram" | close
 
 // Edit label
+log -message "[RCPTT] [CPD_A_004] Edition label (F2)"
 with [get-editor "E-BookStore Package Diagram"] {
     with [get-diagram -index 1 | get-edit-part -name "E-BookStore Package Diagram"] {
         with [get-edit-part -name Flow2] {
@@ -206,6 +223,7 @@ with [get-editor "E-BookStore Package Diagram" | get-diagram -index 1 | get-edit
 }
 
 // Delete node
+log -message "[RCPTT] [CPD_A_006] Suppresion Flow"
 get-eclipse-window | key-type Del
 
 // Check node is deleted
@@ -234,6 +252,7 @@ with [get-editor "E-BookStore Package Diagram"] {
     }
 }
 // Create View Container node
+log -message "[RCPTT] [CPD_A_003] Palette – Creation View Container"
 with [get-editor "E-BookStore Package Diagram" | get-diagram -index 1 | get-edit-part 
     -name "E-BookStore Package Diagram"] {
     mouse-move 1104 295 button1 -height 770 -width 1613
@@ -266,6 +285,7 @@ with [get-editor "E-BookStore Package Diagram" | get-diagram -index 1 | get-edit
 }
 
 // Test Context Menu : New ViewContainer Diagram
+log -message "[RCPTT] [CPD_A_013] ViewContainer - Menu contextuel - New > View Container"
 with [get-editor "E-BookStore Package Diagram" | get-diagram -index 1] {
     get-menu -path "New/ViewContainer Diagram" | click 
 }
@@ -274,12 +294,14 @@ get-editor "ViewContainer3 View Container Mockup" | close
 get-window Save | get-button Yes | click 
 
 // Test Context Menu : Open ViewContainer Diagram
+log -message "[RCPTT] [CPD_A_018] ViewContainer – Menu contextuel – Open > View Container"
 with [get-editor "E-BookStore Package Diagram" | get-diagram -index 1] {
     get-menu -path "Open/ViewContainer3 View Container Mockup" | click 
 }
 get-editor "ViewContainer3 View Container Mockup" | close
 
 // Test Context Menu : New UI Structure
+log -message "[RCPTT] [CPD_A_014] View Container – Menu contextuel - New > UI Structure"
 with [get-editor "E-BookStore Package Diagram" | get-diagram -index 1] {
     get-menu -path "New/UI Structure" | click 
 }
@@ -288,12 +310,14 @@ get-editor "ViewContainer3 UI Structure" | close
 get-window Save | get-button Yes | click 
 
 // Test Context Menu : Open UI Structure
+log -message "[RCPTT] [CPD_A_019] View Container – Menu contextuel – Open > UI Structure"
 with [get-editor "E-BookStore Package Diagram" | get-diagram -index 1] {
     get-menu -path "Open/UI StructureViewContainer3 UI Structure" | click 
 }
 get-editor "ViewContainer3 UI Structure" | close
 
 // Edit label
+log -message "[RCPTT] [CPD_A_004] Edition label (F2)"
 with [get-editor "E-BookStore Package Diagram"] {
     with [get-diagram -index 1 | get-edit-part -name "E-BookStore Package Diagram"] {
         with [get-edit-part -name ViewContainer3] {
@@ -323,6 +347,7 @@ with [get-editor "E-BookStore Package Diagram" | get-diagram -index 1 | get-edit
 }
 
 // Delete node
+log -message "[RCPTT] [CPD_A_007] Suppression ViewContainer"
 get-eclipse-window | key-type Del
 
 // Check node is deleted
@@ -343,6 +368,7 @@ create-ebook-project
 open-package-diagram
 
 // Check edges are visibles
+log -message "[RCPTT] [CPD_A_008] Activation Calque Dependencies"
 get-editor "E-BookStore Package Diagram" | get-diagram -index 1 | get-edit-part -name "E-BookStore Package Diagram" 
     | get-property "edges.size" | equals 6 | verify-true  
 with [get-editor "E-BookStore Package Diagram" | get-diagram -index 1 | get-edit-part 
@@ -356,6 +382,7 @@ with [get-editor "E-BookStore Package Diagram" | get-diagram -index 1 | get-edit
 }
 
 // Deactivate Dependencies Layer
+log -message "[RCPTT] [CPD_A_009] Désactivation Calque Dependencies"
 get-editor "E-BookStore Package Diagram" | get-button Layers | click -arrow
 get-menu -path Dependencies | click 
 

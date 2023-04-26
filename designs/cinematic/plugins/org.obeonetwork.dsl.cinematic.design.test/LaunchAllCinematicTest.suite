@@ -4,8 +4,7 @@ Element-Name: LaunchAllCinematicTest
 Element-Type: testsuite
 Element-Version: 2.0
 Id: _B7808GNcEeSg_dTG4Ei-uQ
-Runtime-Version: 2.5.1.M3
-Save-Time: 2/24/22, 6:10 PM
+Save-Time: 5/2/23, 10:55 AM
 
 ------=_testcase-items-62c497da-4241-31f4-811a-6b453a3ecff8
 Content-Type: text/testcase
@@ -29,5 +28,10 @@ _aeJQIJV-EeyWm9az4K7Z1w	// kind: 'test' name: 'CinematicViewContainerMockupDefau
 _M76IQJWAEeyWm9az4K7Z1w	// kind: 'test' name: 'CinematicViewContainerMockupExampleMappingsTestCase' path: 'CinematicViewContainerMockupExampleMappingsTestCase.test'
 _7IQD8JWAEeyWm9az4K7Z1w	// kind: 'test' name: 'CinematicViewContainerMockupTabOrderMappingsTestCase' path: 'CinematicViewContainerMockupTabOrderMappingsTestCase.test'
 __2cCoJWGEeyWm9az4K7Z1w	// kind: 'test' name: 'CinematicViewContainerMockupUsabilityToolsTestCase' path: 'CinematicViewContainerMockupUsabilityToolsTestCase.test'
+_g3ldEKkgEe28948-k2BW9w	// kind: 'test' name: 'CinematicPackageDiagram' path: 'CinematicPackageDiagram.test'
+_u4-aMON2Ee2XD_O90kr1xw	// kind: 'test' name: 'CinematicFlowDiagram' path: 'CinematicFlowDiagram.test'
+_ie2hEOUREe2amOJrei4j2g	// kind: 'test' name: 'CinematicViewContainerMockup' path: 'CinematicViewContainerMockup.test'
+_YOwMQOT7Ee2DZZB9A7cF6Q	// kind: 'test' name: 'CinematicUIStructure' path: 'CinematicUIStructure.test'
+_7ois0OXWEe2VZOEKT5xEbA	// kind: 'test' name: 'CinematicLayoutDiagram' path: 'CinematicLayoutDiagram.test'
 
 ------=_testcase-items-62c497da-4241-31f4-811a-6b453a3ecff8--

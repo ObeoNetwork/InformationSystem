@@ -1,0 +1,195 @@
+--- RCPTT testcase ---
+Format-Version: 1.0
+Contexts: _uQ_HIKkgEe28948-k2BW9w
+Element-Name: CinematicLayoutDiagram
+Element-Type: testcase
+Element-Version: 3.0
+External-Reference: 
+Id: _7ois0OXWEe2VZOEKT5xEbA
+Save-Time: 5/2/23, 10:57 AM
+Testcase-Type: ecl
+
+------=_.description-216f885c-d591-38ce-8ea2-e4f8cb4d6ffa
+Content-Type: text/plain
+Entry-Name: .description
+
+Test Layout Diagram.
+------=_.description-216f885c-d591-38ce-8ea2-e4f8cb4d6ffa--
+------=_.content-0a7243a0-75d3-3d5f-9791-539de0e5b7ac
+Content-Type: text/ecl
+Entry-Name: .content
+
+create-ebook-project
+
+// Context menu Preview Layout
+log -message "[RCPTT] [CLD_A_001] Menu Contextuel – IS Designer > Preview Layout"
+get-view "Model Explorer" | get-tree 
+    | select "org.obeonetwork.is.sample.ebookstore/E-BookStore.cinematic/Cinematic Root E-BookStore/View Container HomePage : Page/Layout HomePage \\(20, 20, 967, 635\\)/HomePage Layout Diagram" 
+    | double-click
+with [get-editor "HomePage Layout Diagram" | get-diagram -index 1] {
+    with [get-edit-part -name "HomePage Layout Diagram"] {
+        mouse-move 1036 157 button3 -height 655 -width 1133
+        mouse-press 1036 157 button3 -height 655 -width 1133
+    }
+    get-menu -path "Safr@n/Preview Layout" | click -metaKeys ""
+}
+
+// Check layout
+with [get-editor "HomePage Layout Diagram" | get-diagram -index 1 | get-edit-part -name "HomePage Layout Diagram" 
+    | get-edit-part -name "HomePage : Page" | get-edit-part 
+    -className DNodeContainerViewNodeContainerCompartmentEditPart] {
+    with [get-figure -path "1/0"] {
+        get-property x | equals 26 | verify-true
+        get-property y | equals 27 | verify-true
+        get-property width | equals 953 | verify-true
+        get-property height | equals 620 | verify-true
+    }
+    with [get-edit-part -name "createAccount : Link" | get-edit-part 
+        -className DNodeContainerViewNodeContainerCompartment2EditPart] {
+        get-property x | equals 772 | verify-true
+        get-property y | equals 12 | verify-true
+        get-property width | equals 153 | verify-true
+        get-property height | equals 33 | verify-true
+    }
+    with [get-edit-part -name "" | get-edit-part -className DNodeContainerViewNodeContainerCompartment2EditPart] {
+        get-property x | equals 20 | verify-true
+        get-property y | equals 60 | verify-true
+        get-property width | equals 921 | verify-true
+        get-property height | equals 249 | verify-true
+        with [get-edit-part -name "SearchForm : Panel" | get-edit-part 
+            -className DNodeContainerViewNodeContainerCompartment2EditPart] {
+            get-property x | equals 0 | verify-true
+            get-property y | equals 0 | verify-true
+            get-property width | equals 433 | verify-true
+            get-property height | equals 233 | verify-true
+            with [get-edit-part -name "author : Combo" | get-edit-part 
+                -className DNodeContainerViewNodeContainerCompartment2EditPart] {
+                get-property x | equals 20 | verify-true
+                get-property y | equals 14 | verify-true
+                get-property width | equals 261 | verify-true
+                get-property height | equals 37 | verify-true
+            }
+            with [get-edit-part -name "type : Combo" | get-edit-part 
+                -className DNodeContainerViewNodeContainerCompartment2EditPart] {
+                get-property x | equals 20 | verify-true
+                get-property y | equals 72 | verify-true
+                get-property width | equals 261 | verify-true
+                get-property height | equals 37 | verify-true
+            }
+            with [get-edit-part -name "" | get-edit-part 
+                -className DNodeContainerViewNodeContainerCompartment2EditPart] {
+                get-property x | equals 20 | verify-true
+                get-property y | equals 128 | verify-true
+                get-property width | equals 405 | verify-true
+                get-property height | equals 53 | verify-true
+                with [get-edit-part -name "keywords : Text" | get-edit-part 
+                    -className DNodeContainerViewNodeContainerCompartment2EditPart] {
+                    get-property y | equals 0 | verify-true
+                    get-property width | equals 261 | verify-true
+                    get-property height | equals 37 | verify-true
+                }
+                with [get-edit-part -name "search : Button" | get-edit-part 
+                    -className DNodeContainerViewNodeContainerCompartment2EditPart] {
+                    get-property x | equals 284 | verify-true
+                    get-property y | equals 0 | verify-true
+                    get-property width | equals 105 | verify-true
+                    get-property height | equals 37 | verify-true
+                }
+            }
+        }
+        with [get-figure -path "1/0/0/1/0/1/1/0"] {
+            get-property x | equals 462 | verify-true
+            get-property y | equals 7 | verify-true
+            get-property width | equals 437 | verify-true
+            get-property height | equals 220 | verify-true
+        }
+        with [get-edit-part -name "Books : Table" | get-edit-part 
+            -className DNodeContainerViewNodeContainerCompartment2EditPart] {
+            with [get-edit-part -name "bookImage : Image" | get-edit-part 
+                -className DNodeContainerViewNodeContainerCompartment2EditPart] {
+                get-property x | equals 16 | verify-true
+                get-property y | equals 24 | verify-true
+                get-property width | equals 177 | verify-true
+                get-property height | equals 141 | verify-true
+            }
+            with [get-edit-part -name "" | get-edit-part 
+                -className DNodeContainerViewNodeContainerCompartment2EditPart] {
+                get-property x | equals 208 | verify-true
+                get-property y | equals 24 | verify-true
+                get-property width | equals 217 | verify-true
+                get-property height | equals 157 | verify-true
+                with [get-edit-part -name "bookTitle : Label" | get-edit-part 
+                    -className DNodeContainerViewNodeContainerCompartment2EditPart] {
+                    get-property x | equals 0 | verify-true
+                    get-property y | equals 0 | verify-true
+                    get-property width | equals 201 | verify-true
+                    get-property height | equals 29 | verify-true
+                }
+                with [get-edit-part -name "author : Label" | get-edit-part 
+                    -className DNodeContainerViewNodeContainerCompartment2EditPart] {
+                    get-property x | equals 0 | verify-true
+                    get-property y | equals 52 | verify-true
+                    get-property width | equals 201 | verify-true
+                    get-property height | equals 29 | verify-true
+                }
+                with [get-edit-part -name "addToCart : Link" | get-edit-part 
+                    -className DNodeContainerViewNodeContainerCompartment2EditPart] {
+                    get-property x | equals 0 | verify-true
+                    get-property y | equals 112 | verify-true
+                    get-property width | equals 97 | verify-true
+                    get-property height | equals 29 | verify-true
+                }
+            }
+        }
+    }
+    with [get-edit-part -name "ShoppingCart : Panel" | get-edit-part 
+        -className DNodeContainerViewNodeContainerCompartment2EditPart] {
+        get-property x | equals 20 | verify-true
+        get-property y | equals 316 | verify-true
+        get-property width | equals 909 | verify-true
+        get-property height | equals 247 | verify-true
+        with [get-edit-part -name "" | get-edit-part -className DNodeContainerViewNodeContainerCompartment2EditPart] {
+            get-property x | equals 0 | verify-true
+            get-property y | equals 0 | verify-true
+            get-property width | equals 893 | verify-true
+            get-property height | equals 143 | verify-true
+            with [get-edit-part -name "" | get-edit-part 
+                -className DNodeContainerViewNodeContainerCompartment2EditPart] {
+                get-property x | equals 0 | verify-true
+                get-property y | equals 0 | verify-true
+                get-property width | equals 877 | verify-true
+                get-property height | equals 127 | verify-true
+            }
+        }
+        with [get-edit-part -name "" -index 1 | get-edit-part 
+            -className DNodeContainerViewNodeContainerCompartment2EditPart] {
+            get-property x | equals 12 | verify-true
+            get-property y | equals 144 | verify-true
+            get-property width | equals 779 | verify-true
+            get-property height | equals 57 | verify-true
+        }
+    }
+}
+with [get-editor "HomePage Layout Diagram" | get-diagram -index 1 | get-edit-part -name "HomePage Layout Diagram" 
+    | get-edit-part -name "HomePage : Page" | get-edit-part 
+    -className DNodeContainerViewNodeContainerCompartmentEditPart | get-edit-part -name "ShoppingCart : Panel" 
+    | get-edit-part -className DNodeContainerViewNodeContainerCompartment2EditPart | get-edit-part -name "" -index 1 
+    | get-edit-part -className DNodeContainerViewNodeContainerCompartment2EditPart | get-edit-part 
+    -name "checkout : Button" | get-edit-part -className DNodeContainerViewNodeContainerCompartment2EditPart] {
+    get-property x | equals 0 | verify-true
+    get-property y | equals 0 | verify-true
+    get-property width | equals 137 | verify-true
+    get-property height | equals 41 | verify-true
+}
+with [get-editor "HomePage Layout Diagram" | get-diagram -index 1 | get-edit-part -name "HomePage Layout Diagram" 
+    | get-edit-part -name "HomePage : Page" | get-edit-part 
+    -className DNodeContainerViewNodeContainerCompartmentEditPart | get-edit-part -name "ShoppingCart : Panel" 
+    | get-edit-part -className DNodeContainerViewNodeContainerCompartment2EditPart | get-edit-part -name "" -index 1 
+    | get-edit-part -className DNodeContainerViewNodeContainerCompartment2EditPart | get-edit-part -name "" 
+    | get-edit-part -className DNodeContainerViewNodeContainerCompartment2EditPart] {
+    get-property x | equals 666 | verify-true
+    get-property y | equals 0 | verify-true
+    get-property width | equals 97 | verify-true
+    get-property height | equals 39 | verify-true
+}
+------=_.content-0a7243a0-75d3-3d5f-9791-539de0e5b7ac--

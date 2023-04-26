@@ -1,0 +1,936 @@
+--- RCPTT testcase ---
+Format-Version: 1.0
+Contexts: _uQ_HIKkgEe28948-k2BW9w
+Element-Name: CinematicViewContainerMockup
+Element-Type: testcase
+Element-Version: 3.0
+External-Reference: 
+Id: _ie2hEOUREe2amOJrei4j2g
+Save-Time: 5/2/23, 10:56 AM
+Testcase-Type: ecl
+
+------=_.description-216f885c-d591-38ce-8ea2-e4f8cb4d6ffa
+Content-Type: text/plain
+Entry-Name: .description
+
+Test ViewContainer Mockup Diagram.
+------=_.description-216f885c-d591-38ce-8ea2-e4f8cb4d6ffa--
+------=_.content-0a7243a0-75d3-3d5f-9791-539de0e5b7ac
+Content-Type: text/ecl
+Entry-Name: .content
+
+/*************
+ * WEB TOOLS *
+ *************/
+
+create-ebook-project
+open-viewcontainer-mockup
+
+// Button tool
+log -message "[RCPTT] [CVM_A_001] Palette – Creation Button (Web Toolkits)"
+with [get-editor "HomePage View Container Mockup"] {
+    with [get-palette | get-palette-entry Button] {
+        mouse-move 48 12 button1 -height 25 -width 295
+        mouse-press 48 12 button1 -height 25 -width 295
+        mouse-release 48 12 button1 "" -height 25 -width 295
+    }
+    with [get-diagram -index 1 | get-edit-part -name "HomePage View Container Mockup" | get-edit-part -name HomePage 
+        | get-edit-part -className DNodeContainerViewNodeContainerCompartmentEditPart] {
+        mouse-move 21 17 button1 -height 601 -width 961
+        mouse-press 21 17 button1 -height 601 -width 961
+        mouse-release 21 17 button1 "" -height 601 -width 961
+    }
+}
+
+// Check button
+get-editor "HomePage View Container Mockup" | get-diagram -index 1 | get-edit-part 
+    -name "HomePage View Container Mockup" | get-edit-part -name HomePage | get-edit-part 
+    -className DNodeContainerViewNodeContainerCompartmentEditPart | get-edit-part -name viewElement2 | get-edit-part 
+    -className DNodeContainerViewNodeContainerCompartment2EditPart | get-property "getCompartmentName()" 
+    | equals ViewNodeContainerCompartment | verify-true
+
+// Checkbox tool
+log -message "[RCPTT] [CVM_A_002] Palette – Creation Checkbox (Web Toolkits)"
+with [get-editor "HomePage View Container Mockup"] {
+    with [get-palette | get-palette-entry Checkbox] {
+        mouse-move 58 8 button1 -height 25 -width 295
+        mouse-press 58 8 button1 -height 25 -width 295
+        mouse-release 58 8 button1 "" -height 25 -width 295
+    }
+    with [get-diagram -index 1 | get-edit-part -name "HomePage View Container Mockup" | get-edit-part -name HomePage 
+        | get-edit-part -className DNodeContainerViewNodeContainerCompartmentEditPart] {
+        mouse-move 135 18 button1 -height 601 -width 961
+        mouse-press 135 18 button1 -height 601 -width 961
+        mouse-release 135 0 button1 "" -height 601 -width 961
+    }
+}
+
+// Check Chekbox
+get-editor "HomePage View Container Mockup" | get-diagram -index 1 | get-edit-part 
+    -name "HomePage View Container Mockup" | get-edit-part -name HomePage | get-edit-part 
+    -className DNodeContainerViewNodeContainerCompartmentEditPart | get-edit-part -name viewElement3 | get-edit-part 
+    -className DNodeContainerViewNodeContainerCompartment2EditPart | get-property "getCompartmentName()" 
+    | equals ViewNodeContainerCompartment | verify-true
+
+// Combo tool
+log -message "[RCPTT] [CVM_A_003] Palette – Creation Combo (Web Toolkits)"
+with [get-editor "HomePage View Container Mockup"] {
+    with [get-palette | get-palette-entry Combo] {
+        mouse-move 54 16 button1 -height 25 -width 295
+        mouse-press 54 16 button1 -height 25 -width 295
+        mouse-release 54 16 button1 "" -height 25 -width 295
+    }
+    with [get-diagram -index 1 | get-edit-part -name "HomePage View Container Mockup" | get-edit-part -name HomePage 
+        | get-edit-part -className DNodeContainerViewNodeContainerCompartmentEditPart] {
+        mouse-move 348 22 button1 -height 601 -width 961
+        mouse-press 348 22 button1 -height 601 -width 961
+        mouse-release 348 5 button1 "" -height 601 -width 961
+    }
+}
+
+// Check Combo
+get-editor "HomePage View Container Mockup" | get-diagram -index 1 | get-edit-part 
+    -name "HomePage View Container Mockup" | get-edit-part -name HomePage | get-edit-part 
+    -className DNodeContainerViewNodeContainerCompartmentEditPart | get-edit-part -name viewElement4 | get-edit-part 
+    -className DNodeContainerViewNodeContainerCompartment2EditPart | get-property "getCompartmentName()" 
+    | equals ViewNodeContainerCompartment | verify-true
+
+// Image tool
+log -message "[RCPTT] [CVM_A_004] Palette – Creation Image (Web Toolkits)"
+with [get-editor "HomePage View Container Mockup"] {
+    with [get-palette | get-palette-entry Image] {
+        mouse-move 33 14 button1 -height 25 -width 295
+        mouse-press 33 14 button1 -height 25 -width 295
+        mouse-release 33 14 button1 "" -height 25 -width 295
+    }
+    with [get-diagram -index 1 | get-edit-part -name "HomePage View Container Mockup" | get-edit-part -name HomePage 
+        | get-edit-part -className DNodeContainerViewNodeContainerCompartmentEditPart] {
+        mouse-move 570 22 button1 -height 601 -width 961
+        mouse-press 570 22 button1 -height 601 -width 961
+        mouse-release 570 22 button1 "" -height 601 -width 961
+    }
+}
+
+// Check Image
+get-editor "HomePage View Container Mockup" | get-diagram -index 1 | get-edit-part 
+    -name "HomePage View Container Mockup" | get-edit-part -name HomePage | get-edit-part 
+    -className DNodeContainerViewNodeContainerCompartmentEditPart | get-edit-part -name viewElement5 | get-figure 
+    -path "0/1/1/0" | get-property "getClassName()" | equals "org.eclipse.draw2d.FreeformViewport" | verify-true
+    
+    
+// Label tool
+log -message "[RCPTT] [CVM_A_005] Palette – Creation Label (Web Toolkits)"
+with [get-editor "HomePage View Container Mockup"] {
+    with [get-palette | get-palette-entry Label] {
+        mouse-move 62 18 button1 -height 25 -width 295
+        mouse-press 62 18 button1 -height 25 -width 295
+        mouse-release 62 18 button1 "" -height 25 -width 295
+    }
+    with [get-diagram -index 1 | get-edit-part -name "HomePage View Container Mockup" | get-edit-part -name HomePage 
+        | get-edit-part -className DNodeContainerViewNodeContainerCompartmentEditPart | get-edit-part -name SearchForm 
+        | get-edit-part -className DNodeContainerViewNodeContainerCompartment2EditPart] {
+        mouse-move 37 180 button1 -height 201 -width 429
+        mouse-press 37 180 button1 -height 201 -width 429
+        mouse-release 37 180 button1 "" -height 201 -width 429
+    }
+}
+
+// Check label
+get-editor "HomePage View Container Mockup" | get-diagram -index 1 | get-edit-part 
+    -name "HomePage View Container Mockup" | get-edit-part -name HomePage | get-edit-part 
+    -className DNodeContainerViewNodeContainerCompartmentEditPart | get-edit-part -name SearchForm | get-edit-part 
+    -className DNodeContainerViewNodeContainerCompartment2EditPart | get-edit-part -name viewElement5 | get-edit-part 
+    -className DNodeContainerViewNodeContainerCompartment2EditPart | get-property "getCompartmentName()" 
+    | equals ViewNodeContainerCompartment | verify-true
+    
+// Link tool
+log -message "[RCPTT] [CVM_A_006] Palette – Creation Link (Web Toolkits)"
+with [get-editor "HomePage View Container Mockup"] {
+    with [get-palette | get-palette-entry Link] {
+        mouse-move 39 15 button1 -height 25 -width 295
+        mouse-press 39 15 button1 -height 25 -width 295
+        mouse-release 39 15 button1 "" -height 25 -width 295
+    }
+    with [get-diagram -index 1 | get-edit-part -name "HomePage View Container Mockup" | get-edit-part -name HomePage 
+        | get-edit-part -className DNodeContainerViewNodeContainerCompartmentEditPart | get-edit-part -name SearchForm 
+        | get-edit-part -className DNodeContainerViewNodeContainerCompartment2EditPart] {
+        mouse-move 319 39 button1 -height 201 -width 429
+        mouse-press 319 39 button1 -height 201 -width 429
+        mouse-release 319 39 button1 "" -height 201 -width 429
+    }
+}
+
+// Check Link
+get-editor "HomePage View Container Mockup" | get-diagram -index 1 | get-edit-part 
+    -name "HomePage View Container Mockup" | get-edit-part -name HomePage | get-edit-part 
+    -className DNodeContainerViewNodeContainerCompartmentEditPart | get-edit-part -name SearchForm | get-edit-part 
+    -className DNodeContainerViewNodeContainerCompartment2EditPart | get-edit-part -name viewElement6 | get-edit-part 
+    -className DNodeContainerViewNodeContainerCompartment2EditPart | get-property "getCompartmentName()" 
+    | equals ViewNodeContainerCompartment | verify-true
+    
+// Password tool
+log -message "[RCPTT] [CVM_A_008] Palette – Creation Password (Web Toolkits)"
+with [get-editor "HomePage View Container Mockup"] {
+    with [get-palette | get-palette-entry Password] {
+        mouse-move 68 16 button1 -height 25 -width 295
+        mouse-press 68 16 button1 -height 25 -width 295
+        mouse-release 68 16 button1 "" -height 25 -width 295
+    }
+    with [get-diagram -index 1 | get-edit-part -name "HomePage View Container Mockup" | get-edit-part -name HomePage 
+        | get-edit-part -className DNodeContainerViewNodeContainerCompartmentEditPart | get-edit-part -name Books 
+        | get-edit-part -className DNodeContainerViewNodeContainerCompartment2EditPart] {
+        mouse-move 332 129 button1 -height 201 -width 445
+        mouse-press 332 129 button1 -height 201 -width 445
+        mouse-release 332 129 button1 "" -height 201 -width 445
+    }
+}
+
+// Check Password
+get-editor "HomePage View Container Mockup" | get-diagram -index 1 | get-edit-part 
+    -name "HomePage View Container Mockup" | get-edit-part -name HomePage | get-edit-part 
+    -className DNodeContainerViewNodeContainerCompartmentEditPart | get-edit-part -name Books | get-edit-part 
+    -className DNodeContainerViewNodeContainerCompartment2EditPart | get-edit-part -name viewElement5 | get-edit-part 
+    -className DNodeContainerViewNodeContainerCompartment2EditPart | get-property "getCompartmentName()" 
+    | equals ViewNodeContainerCompartment | verify-true
+    
+// Radio tool
+log -message "[RCPTT] [CVM_A_009] Palette – Creation Radio (Web Toolkits)"
+with [get-editor "HomePage View Container Mockup"] {
+    with [get-palette | get-palette-entry Radio] {
+        mouse-move 38 13 button1 -height 25 -width 295
+        mouse-press 38 13 button1 -height 25 -width 295
+        mouse-release 38 13 button1 "" -height 25 -width 295
+    }
+    with [get-diagram -index 1 | get-edit-part -name "HomePage View Container Mockup" | get-edit-part -name HomePage 
+        | get-edit-part -className DNodeContainerViewNodeContainerCompartmentEditPart | get-edit-part 
+        -name ShoppingCart] {
+        mouse-move 53 9 button1 -height 249 -width 907
+        mouse-press 53 9 button1 -height 249 -width 907
+        mouse-release 53 9 button1 "" -height 249 -width 907
+    }
+}
+
+// Check Radio
+get-editor "HomePage View Container Mockup" | get-diagram -index 1 | get-edit-part 
+    -name "HomePage View Container Mockup" | get-edit-part -name HomePage | get-edit-part 
+    -className DNodeContainerViewNodeContainerCompartmentEditPart | get-edit-part -name ShoppingCart | get-edit-part 
+    -className DNodeContainerViewNodeContainerCompartment2EditPart | get-edit-part -name viewElement2 | get-edit-part 
+    -className DNodeContainerViewNodeContainerCompartment2EditPart | get-property "getCompartmentName()" 
+    | equals ViewNodeContainerCompartment | verify-true
+    
+// Text tool
+log -message "[RCPTT] [CVM_A_011] Palette – Creation Text (Web Toolkits)"
+with [get-editor "HomePage View Container Mockup"] {
+    with [get-palette | get-palette-entry Text -index 1] {
+        mouse-move 44 7 button1 -height 25 -width 295
+        mouse-press 44 7 button1 -height 25 -width 295
+        mouse-release 44 7 button1 "" -height 25 -width 295
+    }
+    with [get-diagram -index 1 | get-edit-part -name "HomePage View Container Mockup" | get-edit-part -name HomePage 
+        | get-edit-part -className DNodeContainerViewNodeContainerCompartmentEditPart | get-edit-part 
+        -name ShoppingCart | get-edit-part -className DNodeContainerViewNodeContainerCompartment2EditPart 
+        | get-edit-part -name CartLines] {
+        mouse-move 284 11 button1 -height 113 -width 867
+        mouse-press 284 11 button1 -height 113 -width 867
+        mouse-release 284 11 button1 "" -height 113 -width 867
+    }
+}
+
+// Check Text
+get-editor "HomePage View Container Mockup" | get-diagram -index 1 | get-edit-part 
+    -name "HomePage View Container Mockup" | get-edit-part -name HomePage | get-edit-part 
+    -className DNodeContainerViewNodeContainerCompartmentEditPart | get-edit-part -name ShoppingCart | get-edit-part 
+    -className DNodeContainerViewNodeContainerCompartment2EditPart | get-edit-part -name CartLines | get-edit-part 
+    -className DNodeContainerViewNodeContainerCompartment2EditPart | get-edit-part -name viewElement6 | get-edit-part 
+    -className DNodeContainerViewNodeContainerCompartment2EditPart | get-property "getCompartmentName()" 
+    | equals ViewNodeContainerCompartment | verify-true
+    
+// Textarea tool
+log -message "[RCPTT] [CVM_A_012] Palette – Creation Textarea (Web Toolkits)"
+with [get-editor "HomePage View Container Mockup"] {
+    with [get-palette | get-palette-entry Textarea] {
+        mouse-move 70 18 button1 -height 25 -width 295
+        mouse-press 70 18 button1 -height 25 -width 295
+        mouse-release 70 18 button1 "" -height 25 -width 295
+    }
+    with [get-diagram -index 1 | get-edit-part -name "HomePage View Container Mockup" | get-edit-part -name HomePage 
+        | get-edit-part -className DNodeContainerViewNodeContainerCompartmentEditPart | get-edit-part 
+        -name ShoppingCart | get-edit-part -className DNodeContainerViewNodeContainerCompartment2EditPart 
+        | get-edit-part -name CartLines | get-edit-part 
+        -className DNodeContainerViewNodeContainerCompartment2EditPart] {
+        mouse-move 676 10 button1 -height 79 -width 861
+        mouse-press 676 10 button1 -height 79 -width 861
+        mouse-release 676 10 button1 "" -height 79 -width 861
+    }
+}
+
+// Check Textarea
+get-editor "HomePage View Container Mockup" | get-diagram -index 1 | get-edit-part 
+    -name "HomePage View Container Mockup" | get-edit-part -name HomePage | get-edit-part 
+    -className DNodeContainerViewNodeContainerCompartmentEditPart | get-edit-part -name ShoppingCart | get-edit-part 
+    -className DNodeContainerViewNodeContainerCompartment2EditPart | get-edit-part -name CartLines | get-edit-part 
+    -className DNodeContainerViewNodeContainerCompartment2EditPart | get-edit-part -name viewElement7 | get-edit-part 
+    -className DNodeContainerViewNodeContainerCompartment2EditPart | get-property "getCompartmentName()" 
+    | equals ViewNodeContainerCompartment | verify-true
+    
+// Panel tool
+log -message "[RCPTT] [CVM_A_007] Palette – Creation Panel (Web Toolkits)"
+with [get-editor "HomePage View Container Mockup"] {
+    with [get-palette | get-palette-entry Panel] {
+        mouse-move 47 15 button1 -height 25 -width 295
+        mouse-press 47 15 button1 -height 25 -width 295
+        mouse-release 47 15 button1 "" -height 25 -width 295
+    }
+    with [get-diagram -index 1 | get-edit-part -name "HomePage View Container Mockup" | get-edit-part -name HomePage 
+        | get-edit-part -className DNodeContainerViewNodeContainerCompartmentEditPart] {
+        mouse-move 945 102 button1 -height 601 -width 961
+        mouse-press 945 102 button1 -height 601 -width 961
+        mouse-release 945 102 button1 "" -height 601 -width 961
+    }
+}
+
+// Check Panel
+get-editor "HomePage View Container Mockup" | get-diagram -index 1 | get-edit-part 
+    -name "HomePage View Container Mockup" | get-edit-part -name HomePage | get-edit-part 
+    -className DNodeContainerViewNodeContainerCompartmentEditPart | get-edit-part -name viewElement4 -index 1 
+    | get-figure -path "0/0/1/1/0" | get-property "getClassName()" | equals "org.eclipse.draw2d.FreeformViewport" 
+    | verify-true
+    
+// Table tool
+log -message "[RCPTT] [CVM_A_010] Palette – Creation Table (Web Toolkits)"
+with [get-editor "HomePage View Container Mockup"] {
+    with [get-palette | get-palette-entry Table] {
+        mouse-move 55 15 button1 -height 25 -width 295
+        mouse-press 55 15 button1 -height 25 -width 295
+        mouse-release 55 15 button1 "" -height 25 -width 295
+    }
+    with [get-diagram -index 1 | get-edit-part -name "HomePage View Container Mockup" | get-edit-part -name HomePage 
+        | get-edit-part -className DNodeContainerViewNodeContainerCompartmentEditPart | get-edit-part -name SearchForm 
+        | get-edit-part -className DNodeContainerViewNodeContainerCompartment2EditPart] {
+        mouse-move 12 35 button1 -height 201 -width 429
+        mouse-press 12 35 button1 -height 201 -width 429
+        mouse-release 12 35 button1 "" -height 201 -width 429
+    }
+}
+
+// Check Table
+get-editor "HomePage View Container Mockup" | get-diagram -index 1 | get-edit-part 
+    -name "HomePage View Container Mockup" | get-edit-part -name HomePage | get-edit-part 
+    -className DNodeContainerViewNodeContainerCompartmentEditPart | get-edit-part -name SearchForm | get-edit-part 
+    -className DNodeContainerViewNodeContainerCompartment2EditPart | get-edit-part -name viewElement1 | get-edit-part 
+    -className DNodeContainerViewNodeContainerCompartment2EditPart | get-property "getCompartmentName()" 
+    | equals ViewNodeContainerCompartment | verify-true
+    
+// Page tool
+log -message "[RCPTT] [CVM_A_013] Palette – Creation Page (Web Toolkits)"
+with [get-editor "HomePage View Container Mockup"] {
+    with [get-palette | get-palette-entry Page] {
+        mouse-move 60 8 button1 -height 25 -width 295
+        mouse-press 60 8 button1 -height 25 -width 295
+        mouse-release 60 8 button1 "" -height 25 -width 295
+    }
+    with [get-diagram -index 1 | get-edit-part -name "HomePage View Container Mockup" | get-edit-part -name HomePage 
+        | get-edit-part -className DNodeContainerViewNodeContainerCompartmentEditPart] {
+        mouse-move 470 89 button1 -height 601 -width 961
+        mouse-press 470 89 button1 -height 601 -width 961
+        mouse-release 470 89 button1 "" -height 601 -width 961
+    }
+}
+
+// Check Page
+get-editor "HomePage View Container Mockup" | get-diagram -index 1 | get-edit-part 
+    -name "HomePage View Container Mockup" | get-edit-part -name HomePage | get-edit-part 
+    -className DNodeContainerViewNodeContainerCompartmentEditPart | get-edit-part -name viewElement5 -index 1 
+    | get-edit-part -className DNodeContainerViewNodeContainerCompartment2EditPart | get-figure -path "1/0" 
+    | get-property "getClassName()" | equals "org.eclipse.draw2d.FreeformViewport" | verify-true
+
+// View Container Reference tool
+log -message "[RCPTT] [CVM_A_027] Palette – Creation View Container Reference"
+with [get-editor "HomePage View Container Mockup"] {
+    with [get-palette | get-palette-entry "View Container Reference"] {
+        mouse-move 67 15 button1 -height 25 -width 295
+        mouse-press 67 15 button1 -height 25 -width 295
+        mouse-release 67 15 button1 "" -height 25 -width 295
+    }
+    with [get-diagram -index 1 | get-edit-part -name "HomePage View Container Mockup" | get-edit-part -name HomePage 
+        | get-edit-part -className DNodeContainerViewNodeContainerCompartmentEditPart | get-edit-part -name SearchForm 
+        | get-edit-part -className DNodeContainerViewNodeContainerCompartment2EditPart] {
+        mouse-move 321 18 button1 -height 201 -width 429
+        mouse-press 321 18 button1 -height 201 -width 429
+        mouse-release 321 18 button1 "" -height 201 -width 429
+    }
+}
+with [get-window "Selection Wizard"] {
+    get-tree | select "Cinematic Root E-BookStore/View Container CreateAccount : Page"
+    get-button Finish | click -metaKeys ""
+}
+// Check Container Reference tool
+get-editor "HomePage View Container Mockup" | get-diagram -index 1 | get-edit-part 
+    -name "HomePage View Container Mockup" | get-edit-part -name HomePage | get-edit-part 
+    -className DNodeContainerViewNodeContainerCompartmentEditPart | get-edit-part -name SearchForm | get-edit-part 
+    -className DNodeContainerViewNodeContainerCompartment2EditPart | get-edit-part -name createAccount | get-edit-part 
+    -className DNodeContainerViewNodeContainerCompartment2EditPart | get-property "getCompartmentName()" 
+    | equals ViewNodeContainerCompartment | verify-true
+    
+// Activate Example layer
+log -message "[RCPTT] [CVM_A_028] Activation Calque Exemple"
+with [get-editor "HomePage View Container Mockup"] {
+    with [get-diagram -index 1 | get-edit-part -name "HomePage View Container Mockup"] {
+        mouse-move 1044 163 button1 -height 655 -width 1133
+        mouse-press 1044 163 button1 -height 655 -width 1133
+        mouse-release 1044 163 button1 "" -height 655 -width 1133
+    }
+    get-button Layers | click -arrow
+}
+get-menu -path Example | click -metaKeys ""
+// Check label changed
+get-editor "HomePage View Container Mockup" | get-diagram -index 1 | get-edit-part 
+    -name "HomePage View Container Mockup" | get-edit-part -name HomePage | get-edit-part 
+    -className DNodeContainerViewNodeContainerCompartmentEditPart | get-edit-part -name ShoppingCart | get-edit-part 
+    -className DNodeContainerViewNodeContainerCompartment2EditPart | get-edit-part -name CartLines | get-edit-part 
+    -className DNodeContainerViewNodeContainerCompartment2EditPart | get-edit-part -name "Loremi Psum" | get-edit-part 
+    -className DNodeContainerViewNodeContainerCompartment2EditPart 
+    | get-property "getParent().getNodeLabel().getText()" | equals "Loremi Psum" | verify-true
+    
+// Activate Tab Order Layer
+log -message "[RCPTT] [CVM_A_029] Activation Calque Tab Order"
+get-editor "HomePage View Container Mockup" | get-button Layers | click -arrow
+get-menu -path "Tab Order" | click -metaKeys ""
+// Check edges added
+get-editor "HomePage View Container Mockup" | get-diagram -index 1 | get-edit-part 
+    -name "HomePage View Container Mockup" | get-edit-part -name HomePage | get-edit-part 
+    -className DNodeContainerViewNodeContainerCompartmentEditPart | get-edit-part -name ShoppingCart | get-edit-part 
+    -className DNodeContainerViewNodeContainerCompartment2EditPart | get-edit-part -name checkout 
+    | get-target-connection -path 0 | get-property "getClassName()" 
+    | equals "org.eclipse.sirius.diagram.ui.internal.edit.parts.DEdgeEditPart" | verify-true
+    
+// Activate View Events layer
+log -message "[RCPTT] [CVM_A_30] Activation Calque View Events"
+with [get-editor "HomePage View Container Mockup"] {
+    with [get-diagram -index 1 | get-edit-part -name "HomePage View Container Mockup"] {
+        mouse-move 1020 156 button1 -height 655 -width 1133
+        mouse-press 1020 156 button1 -height 655 -width 1133
+        mouse-release 1020 156 button1 "" -height 655 -width 1133
+    }
+    get-button Layers | click -arrow
+}
+get-menu -path "View Events" | click -metaKeys ""
+
+// Context menu Open > View  Container Mockup Diagram
+log -message "[RCPTT] [CVM_A_39] Menu contextuel (View Container Reference) – Open > View Container Mockup Diagram"
+with [get-editor "HomePage View Container Mockup" | get-diagram -index 1] {
+    with [get-edit-part -name "HomePage View Container Mockup" | get-edit-part -name HomePage | get-edit-part 
+        -className DNodeContainerViewNodeContainerCompartmentEditPart | get-edit-part -name SearchForm | get-edit-part 
+        -className DNodeContainerViewNodeContainerCompartment2EditPart | get-edit-part -name createAccount 
+        | get-edit-part -className DNodeContainerViewNodeContainerCompartment2EditPart] {
+        mouse-move 40 29 button1 -height 68 -width 148
+        mouse-press 40 29 button1 -height 68 -width 148
+        mouse-release 40 29 button1 "" -height 68 -width 148
+        mouse-press 40 29 button3 -height 68 -width 148
+    }
+    get-menu -path "Open/CreateAccount View Container Mockup" | click -metaKeys ""
+}
+// Check opened editor
+get-editor "CreateAccount View Container Mockup" | get-diagram -index 1 | get-edit-part 
+    -name "CreateAccount View Container Mockup" | get-edit-part -name CreateAccount | get-edit-part 
+    -className DNodeContainerNameEditPart | get-property "getLabelText()" | equals CreateAccount | verify-true
+get-editor "CreateAccount View Container Mockup" | close
+get-window Save | get-button Yes | click       
+
+// Context menu Open > Layout Diagram
+log -message "[RCPTT] [CVM_A_40] Menu contextuel (View Container) – Open > Layout Diagram"
+with [get-editor "HomePage View Container Mockup" | get-diagram -index 1] {
+    with [get-edit-part -name "HomePage View Container Mockup" | get-edit-part -name HomePage] {
+        mouse-move 614 19 button1 -height 635 -width 967
+        mouse-press 614 19 button1 -height 635 -width 967
+        mouse-release 614 19 button1 "" -height 635 -width 967
+        mouse-press 614 19 button3 -height 635 -width 967
+    }
+    get-menu -path "Open/HomePage Layout Diagram" | click -metaKeys ""
+}
+// Check opened editor
+get-editor "HomePage Layout Diagram" | get-diagram -index 1 | get-edit-part -name "HomePage Layout Diagram" 
+    | get-edit-part -name "HomePage : Page" | get-edit-part 
+    -className DNodeContainerViewNodeContainerCompartmentEditPart | get-figure -path "1/0" 
+    | get-property "getClassName()" | equals "org.eclipse.draw2d.FreeformViewport" | verify-true
+get-editor "HomePage Layout Diagram" | close
+get-window Save | get-button Yes | click   
+
+// Double click View Container
+log -message "[RCPTT] [CVM_A_44] Double click – View Container"
+with [get-editor "HomePage View Container Mockup" | get-diagram -index 1 | get-edit-part 
+    -name "HomePage View Container Mockup" | get-edit-part -name HomePage | get-edit-part 
+    -className DNodeContainerViewNodeContainerCompartmentEditPart | get-edit-part -name SearchForm] {
+    mouse-move 280 19 button1 -height 235 -width 435
+    mouse-press 280 19 button1 -height 235 -width 435
+    mouse-release 280 19 button1 "" -height 235 -width 435
+    mouse-press 280 19 button1 -height 235 -width 435
+    mouse-double-click 280 19 button1 -height 235 -width 435
+}
+get-window "New SearchForm View Container Mockup" | get-button OK | click -metaKeys ""
+// Check opened editor
+get-editor "SearchForm View Container Mockup" | get-diagram -index 1 | get-edit-part 
+    -name "SearchForm View Container Mockup" | get-edit-part -name SearchForm | get-edit-part 
+    -className DNodeContainerNameEditPart | get-property "getLabelText()" | equals SearchForm | verify-true
+get-editor "SearchForm View Container Mockup" | close
+get-window Save | get-button Yes | click   
+
+// Double click View Container Reference
+log -message "[RCPTT] [CVM_A_45] Double click – View Container Reference"
+with [get-editor "HomePage View Container Mockup" | get-diagram -index 1 | get-edit-part 
+    -name "HomePage View Container Mockup" | get-edit-part -name HomePage | get-edit-part 
+    -className DNodeContainerViewNodeContainerCompartmentEditPart | get-edit-part -name SearchForm | get-edit-part 
+    -className DNodeContainerViewNodeContainerCompartment2EditPart | get-edit-part -name createAccount | get-edit-part 
+    -className DNodeContainerViewNodeContainerCompartment2EditPart] {
+    mouse-move 83 29 button1 -height 68 -width 148
+    mouse-press 83 29 button1 -height 68 -width 148
+    mouse-release 83 29 button1 "" -height 68 -width 148
+    mouse-press 83 29 button1 -height 68 -width 148
+    mouse-double-click 83 29 button1 -height 68 -width 148
+}
+// Check opened editor
+get-editor "CreateAccount View Container Mockup" | get-diagram -index 1 | get-edit-part 
+    -name "CreateAccount View Container Mockup" | get-edit-part -name CreateAccount | get-edit-part 
+    -className DNodeContainerNameEditPart | get-property "getLabelText()" | equals CreateAccount | verify-true
+get-editor "CreateAccount View Container Mockup" | close
+
+// Double click root ViewContainer
+log -message "[RCPTT] [CVM_A_46] Double click – Root View Container"
+with [get-editor "HomePage View Container Mockup" | get-diagram -index 1 | get-edit-part 
+    -name "HomePage View Container Mockup" | get-edit-part -name HomePage] {
+    mouse-move 528 20 button1 -height 635 -width 967
+    mouse-press 528 20 button1 -height 635 -width 967
+    mouse-release 528 20 button1 "" -height 635 -width 967
+    mouse-press 528 20 button1 -height 635 -width 967
+    mouse-double-click 528 20 button1 -height 635 -width 967
+}
+// Check opened editor
+get-editor "HomePage Layout Diagram" | get-diagram -index 1 | get-edit-part -name "HomePage Layout Diagram" 
+    | get-edit-part -name "HomePage : Page" | get-edit-part 
+    -className DNodeContainerViewNodeContainerCompartmentEditPart | get-figure -path "1/0" 
+    | get-property "getClassName()" | equals "org.eclipse.draw2d.FreeformViewport" | verify-true
+get-editor "HomePage Layout Diagram" | close
+    
+// Save and clean
+get-eclipse-window | key-type "M1+s"
+delete-ebook-project 
+
+
+/*************
+ * SWT TOOLS *
+ *************/
+
+// Create Cinematic Mockup with SWT
+get-menu -path "File/New/Modeling Project" | click -metaKeys ""
+with [get-window "New Modeling Project"] {
+    get-editbox -after [get-label "Project name:"] | set-text Test
+    get-button Finish | click -metaKeys ""
+}
+get-view "Model Explorer" | get-tree | select Test | get-menu -path "New/Other..." | click -metaKeys ""
+with [get-window New] {
+    get-tree | select "Safr@n/Cinematic Model"
+    get-button "Next >" | click -metaKeys ""
+}
+with [get-window "New Cinematic model"] {
+    get-button "Next >" | click -metaKeys ""
+    get-combo -after [get-label "Toolkit:"] | select SWT
+    get-group "Mockup settings" | get-button "Create mockup diagram" | check
+    get-button Finish | click -metaKeys ""
+}
+
+// Panel tool
+log -message "[RCPTT] [CVM_A_020] Palette – Creation Panel (SWT Toolkits)"
+with [get-editor "Test View Container Mockup"] {
+    with [get-palette | get-palette-entry Panel] {
+        mouse-move 56 10 button1 -height 25 -width 295
+        mouse-press 56 10 button1 -height 25 -width 295
+        mouse-release 56 10 button1 "" -height 25 -width 295
+    }
+    with [get-diagram -index 1 | get-edit-part -name "Test View Container Mockup" | get-edit-part -name SWTWindow 
+        | get-edit-part -className DNodeContainerViewNodeContainerCompartmentEditPart] {
+        mouse-move 7 5 button1 -height 36 -width 144
+        mouse-press 7 5 button1 -height 36 -width 144
+        mouse-release 7 5 button1 "" -height 36 -width 144
+    }
+}
+
+// Check Panel
+get-editor "Test View Container Mockup" | get-diagram -index 1 | get-edit-part -name "Test View Container Mockup" 
+    | get-edit-part -name SWTWindow | get-figure -path "0/0" | get-property "getClassName()" 
+    | equals "org.eclipse.sirius.diagram.ui.tools.api.figure.GradientRoundedRectangle" | verify-true
+    
+// Table tool
+log -message "[RCPTT] [CVM_A_023] Palette – Creation Table (SWT Toolkits)"
+with [get-editor "Test View Container Mockup"] {
+    with [get-palette | get-palette-entry Table] {
+        mouse-move 47 9 button1 -height 25 -width 295
+        mouse-press 47 9 button1 -height 25 -width 295
+        mouse-release 47 9 button1 "" -height 25 -width 295
+    }
+    with [get-diagram -index 1 | get-edit-part -name "Test View Container Mockup" | get-edit-part -name SWTWindow] {
+        mouse-move 299 41 button1 -height 187 -width 306
+        mouse-press 299 41 button1 -height 187 -width 306
+        mouse-release 299 41 button1 "" -height 187 -width 306
+    }
+}
+
+// Check Table
+get-editor "Test View Container Mockup" | get-diagram -index 1 | get-edit-part -name "Test View Container Mockup" 
+    | get-edit-part -name SWTWindow | get-edit-part -className DNodeContainerViewNodeContainerCompartmentEditPart 
+    | get-edit-part -name viewElement2 | get-edit-part -className DNodeContainerViewNodeContainerCompartment2EditPart 
+    | get-figure -path "1/0" | get-property "getClassName()" | equals "org.eclipse.draw2d.FreeformViewport" 
+    | verify-true
+    
+// Window tool
+log -message "[RCPTT] [CVM_A_026] Palette – Creation Window (SWT Toolkits)"
+with [get-editor "Test View Container Mockup"] {
+    with [get-palette | get-palette-entry Window] {
+        mouse-move 58 8 button1 -height 25 -width 295
+        mouse-press 58 8 button1 -height 25 -width 295
+        mouse-release 58 8 button1 "" -height 25 -width 295
+    }
+    with [get-diagram -index 1 | get-edit-part -name "Test View Container Mockup" | get-edit-part -name SWTWindow 
+        | get-edit-part -className DNodeContainerViewNodeContainerCompartmentEditPart] {
+        mouse-move 501 208 button1 -height 213 -width 503
+        mouse-press 501 208 button1 -height 213 -width 503
+        mouse-release 501 208 button1 "" -height 213 -width 503
+    }
+}
+
+// Check Window
+get-editor "Test View Container Mockup" | get-diagram -index 1 | get-edit-part -name "Test View Container Mockup" 
+    | get-edit-part -name SWTWindow | get-figure -path "0/0" | get-property "getClassName()" 
+    | equals "org.eclipse.sirius.diagram.ui.tools.api.figure.GradientRoundedRectangle" | verify-true
+    
+// Button tool
+log -message "[RCPTT] [CVM_A_014] Palette – Creation Button (SWT Toolkits)"
+with [get-editor "Test View Container Mockup"] {
+    with [get-palette | get-palette-entry Button] {
+        mouse-move 50 8 button1 -height 25 -width 295
+        mouse-press 50 8 button1 -height 25 -width 295
+        mouse-release 50 8 button1 "" -height 25 -width 295
+    }
+    with [get-diagram -index 1 | get-edit-part -name "Test View Container Mockup" | get-edit-part -name SWTWindow] {
+        mouse-move 507 46 button1 -height 663 -width 957
+        mouse-press 507 46 button1 -height 663 -width 957
+        mouse-release 507 46 button1 "" -height 663 -width 957
+    }
+}
+
+// Check Button
+get-editor "Test View Container Mockup" | get-diagram -index 1 | get-edit-part -name "Test View Container Mockup" 
+    | get-edit-part -name SWTWindow | get-edit-part -className DNodeContainerViewNodeContainerCompartmentEditPart 
+    | get-edit-part -name viewElement1 -index 1 | get-edit-part 
+    -className DNodeContainerViewNodeContainerCompartment2EditPart | get-property "getCompartmentName()" 
+    | equals ViewNodeContainerCompartment | verify-true
+    
+// Checkbox tool
+log -message "[RCPTT] [CVM_A_015] Palette – Creation Checkbox (SWT Toolkits)"
+with [get-editor "Test View Container Mockup"] {
+    with [get-palette | get-palette-entry Checkbox] {
+        mouse-move 49 10 button1 -height 25 -width 295
+        mouse-press 49 10 button1 -height 25 -width 295
+        mouse-release 49 10 button1 "" -height 25 -width 295
+    }
+    with [get-diagram -index 1 | get-edit-part -name "Test View Container Mockup" | get-edit-part -name SWTWindow 
+        | get-edit-part -className DNodeContainerViewNodeContainerCompartmentEditPart] {
+        mouse-move 512 106 button1 -height 629 -width 951
+        mouse-press 512 106 button1 -height 629 -width 951
+        mouse-release 512 106 button1 "" -height 629 -width 951
+    }
+}
+
+// Check Checkbox
+get-editor "Test View Container Mockup" | get-diagram -index 1 | get-edit-part -name "Test View Container Mockup" 
+    | get-edit-part -name SWTWindow | get-edit-part -className DNodeContainerViewNodeContainerCompartmentEditPart 
+    | get-edit-part -name viewElement2 -index 1 | get-edit-part 
+    -className DNodeContainerViewNodeContainerCompartment2EditPart | get-property "getCompartmentName()" 
+    | equals ViewNodeContainerCompartment | verify-true
+    
+// Combo tool
+log -message "[RCPTT] [CVM_A_016] Palette – Creation Combo (SWT Toolkits)"
+with [get-editor "Test View Container Mockup"] {
+    with [get-palette | get-palette-entry Combo] {
+        mouse-move 40 14 button1 -height 25 -width 295
+        mouse-press 40 14 button1 -height 25 -width 295
+        mouse-release 40 14 button1 "" -height 25 -width 295
+    }
+    with [get-diagram -index 1 | get-edit-part -name "Test View Container Mockup" | get-edit-part -name SWTWindow 
+        | get-edit-part -className DNodeContainerViewNodeContainerCompartmentEditPart] {
+        mouse-move 625 22 button1 -height 629 -width 951
+        mouse-press 625 22 button1 -height 629 -width 951
+        mouse-release 625 22 button1 "" -height 629 -width 951
+    }
+}
+
+// Check Combo
+get-editor "Test View Container Mockup" | get-diagram -index 1 | get-edit-part -name "Test View Container Mockup" 
+    | get-edit-part -name SWTWindow | get-edit-part -className DNodeContainerViewNodeContainerCompartmentEditPart 
+    | get-edit-part -name viewElement3 -index 1 | get-edit-part 
+    -className DNodeContainerViewNodeContainerCompartment2EditPart | get-property "getCompartmentName()" 
+    | equals ViewNodeContainerCompartment | verify-true
+    
+// Image tool
+log -message "[RCPTT] [CVM_A_017] Palette – Creation Image (SWT Toolkits)"
+with [get-editor "Test View Container Mockup"] {
+    with [get-palette | get-palette-entry Image] {
+        mouse-move 64 11 button1 -height 25 -width 295
+        mouse-press 64 11 button1 -height 25 -width 295
+        mouse-release 64 11 button1 "" -height 25 -width 295
+    }
+    with [get-diagram -index 1 | get-edit-part -name "Test View Container Mockup" | get-edit-part -name SWTWindow 
+        | get-edit-part -className DNodeContainerViewNodeContainerCompartmentEditPart] {
+        mouse-move 712 74 button1 -height 629 -width 951
+        mouse-press 712 74 button1 -height 629 -width 951
+        mouse-release 712 74 button1 "" -height 629 -width 951
+    }
+}
+
+// Check Image
+get-editor "Test View Container Mockup" | get-diagram -index 1 | get-edit-part -name "Test View Container Mockup" 
+    | get-edit-part -name SWTWindow | get-edit-part -className DNodeContainerViewNodeContainerCompartmentEditPart 
+    | get-edit-part -name viewElement4 | get-figure -path "0/1/1/0" | get-property "getClassName()" 
+    | equals "org.eclipse.draw2d.FreeformViewport" | verify-true
+    
+// Label tool
+log -message "[RCPTT] [CVM_A_018] Palette – Creation Label (SWT Toolkits)"
+with [get-editor "Test View Container Mockup"] {
+    with [get-palette | get-palette-entry Label] {
+        mouse-move 58 11 button1 -height 25 -width 295
+        mouse-press 58 11 button1 -height 25 -width 295
+        mouse-release 58 11 button1 "" -height 25 -width 295
+    }
+    with [get-diagram -index 1 | get-edit-part -name "Test View Container Mockup" | get-edit-part -name SWTWindow 
+        | get-edit-part -className DNodeContainerViewNodeContainerCompartmentEditPart] {
+        mouse-move 24 160 button1 -height 629 -width 951
+        mouse-press 24 160 button1 -height 629 -width 951
+        mouse-release 24 160 button1 "" -height 629 -width 951
+    }
+}
+
+// Check Label
+get-editor "Test View Container Mockup" | get-diagram -index 1 | get-edit-part -name "Test View Container Mockup" 
+    | get-edit-part -name SWTWindow | get-edit-part -className DNodeContainerViewNodeContainerCompartmentEditPart 
+    | get-edit-part -name viewElement5 | get-edit-part -className DNodeContainerViewNodeContainerCompartment2EditPart 
+    | get-property "getCompartmentName()" | equals ViewNodeContainerCompartment | verify-true
+    
+// Link tool
+log -message "[RCPTT] [CVM_A_019] Palette – Creation Link (SWT Toolkits)"
+with [get-editor "Test View Container Mockup"] {
+    with [get-palette | get-palette-entry Link] {
+        mouse-move 50 20 button1 -height 25 -width 295
+        mouse-press 50 20 button1 -height 25 -width 295
+        mouse-release 50 20 button1 "" -height 25 -width 295
+    }
+    with [get-diagram -index 1 | get-edit-part -name "Test View Container Mockup" | get-edit-part -name SWTWindow 
+        | get-edit-part -className DNodeContainerViewNodeContainerCompartmentEditPart] {
+        mouse-move 29 213 button1 -height 629 -width 951
+        mouse-press 29 213 button1 -height 629 -width 951
+        mouse-release 29 213 button1 "" -height 629 -width 951
+    }
+}
+
+// Check Link
+get-editor "Test View Container Mockup" | get-diagram -index 1 | get-edit-part -name "Test View Container Mockup" 
+    | get-edit-part -name SWTWindow | get-edit-part -className DNodeContainerViewNodeContainerCompartmentEditPart 
+    | get-edit-part -name viewElement6 | get-edit-part -className DNodeContainerViewNodeContainerCompartment2EditPart 
+    | get-property "getCompartmentName()" | equals ViewNodeContainerCompartment | verify-true
+    
+// Password tool
+log -message "[RCPTT] [CVM_A_021] Palette – Creation Password (SWT Toolkits)"
+with [get-editor "Test View Container Mockup"] {
+    with [get-palette | get-palette-entry Password] {
+        mouse-move 58 15 button1 -height 25 -width 295
+        mouse-press 58 15 button1 -height 25 -width 295
+        mouse-release 58 15 button1 "" -height 25 -width 295
+    }
+    with [get-diagram -index 1 | get-edit-part -name "Test View Container Mockup" | get-edit-part -name SWTWindow 
+        | get-edit-part -className DNodeContainerViewNodeContainerCompartmentEditPart] {
+        mouse-move 37 268 button1 -height 629 -width 951
+        mouse-press 37 268 button1 -height 629 -width 951
+        mouse-release 37 268 button1 "" -height 629 -width 951
+    }
+}
+
+// Check Password
+get-editor "Test View Container Mockup" | get-diagram -index 1 | get-edit-part -name "Test View Container Mockup" 
+    | get-edit-part -name SWTWindow | get-edit-part -className DNodeContainerViewNodeContainerCompartmentEditPart 
+    | get-edit-part -name viewElement7 | get-edit-part -className DNodeContainerViewNodeContainerCompartment2EditPart 
+    | get-property "getCompartmentName()" | equals ViewNodeContainerCompartment | verify-true
+    
+// Radio tool
+log -message "[RCPTT] [CVM_A_022] Palette – Creation Radio (SWT Toolkits)"
+with [get-editor "Test View Container Mockup"] {
+    with [get-palette | get-palette-entry Radio] {
+        mouse-move 43 15 button1 -height 25 -width 295
+        mouse-press 43 15 button1 -height 25 -width 295
+        mouse-release 43 15 button1 "" -height 25 -width 295
+    }
+    with [get-diagram -index 1 | get-edit-part -name "Test View Container Mockup" | get-edit-part -name SWTWindow 
+        | get-edit-part -className DNodeContainerViewNodeContainerCompartmentEditPart] {
+        mouse-move 35 323 button1 -height 629 -width 951
+        mouse-press 35 323 button1 -height 629 -width 951
+        mouse-release 35 323 button1 "" -height 629 -width 951
+    }
+}
+
+// Check Radio
+get-editor "Test View Container Mockup" | get-diagram -index 1 | get-edit-part -name "Test View Container Mockup" 
+    | get-edit-part -name SWTWindow | get-edit-part -className DNodeContainerViewNodeContainerCompartmentEditPart 
+    | get-edit-part -name viewElement8 | get-edit-part -className DNodeContainerViewNodeContainerCompartment2EditPart 
+    | get-property "getCompartmentName()" | equals ViewNodeContainerCompartment | verify-true
+    
+// Text tool
+log -message "[RCPTT] [CVM_A_024] Palette – Creation Text (SWT Toolkits)"
+with [get-editor "Test View Container Mockup"] {
+    with [get-palette | get-palette-entry Text -index 1] {
+        mouse-move 42 13 button1 -height 25 -width 295
+        mouse-press 42 13 button1 -height 25 -width 295
+        mouse-release 42 13 button1 "" -height 25 -width 295
+    }
+    with [get-diagram -index 1 | get-edit-part -name "Test View Container Mockup" | get-edit-part -name SWTWindow 
+        | get-edit-part -className DNodeContainerViewNodeContainerCompartmentEditPart] {
+        mouse-move 47 389 button1 -height 629 -width 951
+        mouse-press 47 389 button1 -height 629 -width 951
+        mouse-release 47 389 button1 "" -height 629 -width 951
+    }
+}
+
+// Check Text
+get-editor "Test View Container Mockup" | get-diagram -index 1 | get-edit-part -name "Test View Container Mockup" 
+    | get-edit-part -name SWTWindow | get-edit-part -className DNodeContainerViewNodeContainerCompartmentEditPart 
+    | get-edit-part -name viewElement9 | get-edit-part -className DNodeContainerViewNodeContainerCompartment2EditPart 
+    | get-property "getCompartmentName()" | equals ViewNodeContainerCompartment | verify-true
+    
+// Textarea tool
+log -message "[RCPTT] [CVM_A_025] Palette – Creation Textarea (SWT Toolkits)"
+with [get-editor "Test View Container Mockup"] {
+    with [get-palette | get-palette-entry Textarea] {
+        mouse-move 55 17 button1 -height 25 -width 295
+        mouse-press 55 17 button1 -height 25 -width 295
+        mouse-release 55 17 button1 "" -height 25 -width 295
+    }
+    with [get-diagram -index 1 | get-edit-part -name "Test View Container Mockup" | get-edit-part -name SWTWindow 
+        | get-edit-part -className DNodeContainerViewNodeContainerCompartmentEditPart] {
+        mouse-move 59 458 button1 -height 629 -width 951
+        mouse-press 59 458 button1 -height 629 -width 951
+        mouse-release 59 458 button1 "" -height 629 -width 951
+    }
+}
+
+// Check Textarea
+get-editor "Test View Container Mockup" | get-diagram -index 1 | get-edit-part -name "Test View Container Mockup" 
+    | get-edit-part -name SWTWindow | get-edit-part -className DNodeContainerViewNodeContainerCompartmentEditPart 
+    | get-edit-part -name viewElement10 | get-edit-part -className DNodeContainerViewNodeContainerCompartment2EditPart 
+    | get-figure -path "1/0" | get-property "getClassName()" | equals "org.eclipse.draw2d.FreeformViewport" 
+    | verify-true
+    
+// Check ViewElement with a Name    
+log -message "[RCPTT] [CVM_A_032] View Element avec un nom"
+with [get-editor "Test View Container Mockup" | get-diagram -index 1 | get-edit-part -name "Test View Container Mockup" 
+    | get-edit-part -name SWTWindow | get-edit-part -className DNodeContainerViewNodeContainerCompartmentEditPart 
+    | get-edit-part -name viewElement6 | get-edit-part -className DNodeContainerViewNodeContainerCompartment2EditPart] {
+    get-property "getParent().getClassName()" 
+        | equals "org.eclipse.sirius.diagram.ui.internal.edit.parts.DNodeContainer2EditPart" | verify-true
+    get-property "getParent().getContentPane().getLabelFigure().getText()" | equals viewElement6 | verify-true
+}
+
+// Check ViewElement with a Label
+log -message "[RCPTT] [CVM_A_033] View Element avec un label"
+with [get-editor "Test View Container Mockup" | get-diagram -index 1 | get-edit-part -name "Test View Container Mockup" 
+    | get-edit-part -name SWTWindow | get-edit-part -className DNodeContainerViewNodeContainerCompartmentEditPart 
+    | get-edit-part -name viewElement6 | get-edit-part -className DNodeContainerViewNodeContainerCompartment2EditPart] {
+    mouse-move 140 14 button1 -height 39 -width 185
+    mouse-press 140 14 button1 -height 39 -width 185
+    mouse-release 140 14 button1 "" -height 39 -width 185
+}
+with [get-view Properties | get-section Properties | get-editbox -index 3] {
+    set-text-offset 0 0
+    type-text TestName
+    key-type Enter
+}
+with [get-editor "Test View Container Mockup" | get-diagram -index 1 | get-edit-part -name "Test View Container Mockup" 
+    | get-edit-part -name SWTWindow | get-edit-part -className DNodeContainerViewNodeContainerCompartmentEditPart 
+    | get-edit-part -name TestName | get-edit-part -className DNodeContainerViewNodeContainerCompartment2EditPart] {
+    get-property "getParent().getClassName()" 
+        | equals "org.eclipse.sirius.diagram.ui.internal.edit.parts.DNodeContainer2EditPart" | verify-true
+    get-property "getParent().getContentPane().getLabelFigure().getText()" | equals TestName | verify-true
+}
+
+// Check ViewElement without Name and without Label
+log -message "[RCPTT] [CVM_A_034] View Element sans nom ni label"
+with [get-view Properties | get-section Properties] {
+    with [get-editbox -index 3] {
+        set-text-selection -offset 8 -startLine 0 -endLine 0 -endOffset 0
+        key-type Del
+    }
+    with [get-editbox -index 1] {
+        set-text-selection -offset 12 -startLine 0 -endLine 0 -endOffset 0
+        key-type BackSpace
+        key-type Enter
+    }
+}
+with [get-editor "Test View Container Mockup" | get-diagram -index 1 | get-edit-part -name "Test View Container Mockup" 
+    | get-edit-part -name SWTWindow | get-edit-part -className DNodeContainerViewNodeContainerCompartmentEditPart] {
+    mouse-move 298 260 button1 -height 629 -width 951
+    mouse-press 298 260 button1 -height 629 -width 951
+    mouse-release 298 260 button1 "" -height 629 -width 951
+}
+
+get-editor "Test View Container Mockup" | get-diagram -index 1 | get-edit-part -name "Test View Container Mockup" 
+    | get-edit-part -name SWTWindow | get-edit-part -className DNodeContainerViewNodeContainerCompartmentEditPart 
+    | get-edit-part -name "" | get-edit-part -className DNodeContainerViewNodeContainerCompartment2EditPart 
+    | get-property "getParent().getContentPane().getLabelFigure().getText()" | equals "" | verify-true
+   
+// Check ViewContainer with a name
+log -message "[RCPTT] [CVM_A_035] View Container avec un nom"
+get-editor "Test View Container Mockup" | get-diagram -index 1 | get-edit-part -name "Test View Container Mockup" 
+    | get-edit-part -name SWTWindow | get-edit-part -className DNodeContainerViewNodeContainerCompartmentEditPart 
+    | get-edit-part -name viewElement1 | get-edit-part -className DNodeContainerName2EditPart 
+    | get-property "getLabelText()" | equals viewElement1 | verify-true
+    
+// Check ViewContainer with a label
+log -message "[RCPTT] [CVM_A_036] View Container avec un label"
+with [get-editor "Test View Container Mockup" | get-diagram -index 1 | get-edit-part -name "Test View Container Mockup" 
+    | get-edit-part -name SWTWindow | get-edit-part -className DNodeContainerViewNodeContainerCompartmentEditPart 
+    | get-edit-part -name viewElement1 | get-edit-part -className DNodeContainerViewNodeContainerCompartment2EditPart] {
+    mouse-move 177 65 button1 -height 109 -width 281
+    mouse-press 177 65 button1 -height 109 -width 281
+    mouse-release 180 65 button1 "" -height 109 -width 281
+}
+with [get-view Properties | get-section Properties | get-editbox -index 3] {
+    set-text-offset 0 0
+    type-text TestName
+    key-type Enter
+}
+get-editor "Test View Container Mockup" | get-diagram -index 1 | get-edit-part -name "Test View Container Mockup" 
+    | get-edit-part -name SWTWindow | get-edit-part -className DNodeContainerViewNodeContainerCompartmentEditPart 
+    | get-edit-part -name TestName | get-edit-part -className DNodeContainerName2EditPart 
+    | get-property "getLabelText()" | equals TestName | verify-true
+    
+// Check ViewContainer without name and without label
+log -message "[RCPTT] [CVM_A_037] View Container sans nom ni label"
+with [get-view Properties | get-section Properties] {
+    with [get-editbox -index 3] {
+        set-text-selection -offset 0 -startLine 0 -endLine 0 -endOffset 8
+        key-type BackSpace
+    }
+    with [get-editbox -index 1] {
+        set-text-selection -offset 0 -startLine 0 -endLine 0 -endOffset 12
+        key-type BackSpace
+    }
+}
+with [get-editor "Test View Container Mockup" | get-diagram -index 1 | get-edit-part -name "Test View Container Mockup" 
+    | get-edit-part -name SWTWindow | get-edit-part -className DNodeContainerViewNodeContainerCompartmentEditPart] {
+    mouse-move 318 274 button1 -height 629 -width 951
+    mouse-press 318 274 button1 -height 629 -width 951
+    mouse-release 318 274 button1 "" -height 629 -width 951
+}
+get-editor "Test View Container Mockup" | get-diagram -index 1 | get-edit-part -name "Test View Container Mockup" 
+    | get-edit-part -name SWTWindow | get-edit-part -className DNodeContainerViewNodeContainerCompartmentEditPart 
+    | get-edit-part -name "" | get-edit-part -className DNodeContainerName2EditPart 
+    | get-property "getLabelText()" | equals "" | verify-true
+    
+
+
+------=_.content-0a7243a0-75d3-3d5f-9791-539de0e5b7ac--
