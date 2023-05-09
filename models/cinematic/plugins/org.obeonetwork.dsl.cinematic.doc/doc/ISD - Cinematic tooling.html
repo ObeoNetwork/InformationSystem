@@ -17,7 +17,7 @@
 		</p>
 		<ul>
 			<li>Modéliser des vues et des éléments de vues (les composants graphiques d&#8217;une IHM),</li>
-			<li>Modéliser la structure de la disposition graphique sous une structure de type &#171;Grid Layout&#187;,</li>
+			<li>Modéliser la structure de la disposition graphique sous une structure de type &#171; Grid Layout &#187;,</li>
 			<li>Modéliser les états et le flot entre les états de l&#8217;application,</li>
 			<li>Organiser les 
 				<em>Flows</em> et les 
@@ -44,7 +44,7 @@
 		<p>
 			<img border="0" src="pics/Cinematic-ModelCreationWizard-02.jpg"/>
 		</p>
-		<p>La dernière page de l&#8217;assistant permet de définir le toolkit a utiliser, et d&#8217;initialiser le modèle avec un diagramme de Mockup et un diagramme de flow :</p>
+		<p>La dernière page de l&#8217;assistant permet de définir le toolkit à utiliser, et d&#8217;initialiser le modèle avec un diagramme de Mockup et un diagramme de flow :</p>
 		<p>
 			<img border="0" src="pics/Cinematic-ModelCreationWizard-03.jpg"/>
 		</p>
@@ -111,7 +111,7 @@
 				<td>
 					<b>Layout Diagram</b>
 				</td>
-				<td>: diagramme de consultation des composants et composites d&#8217;un layout.</td>
+				<td>: diagramme de consultation des composants et composites d&#8217;un Layout.</td>
 			</tr>
 			<tr>
 				<td>
@@ -151,7 +151,7 @@
 		</p>
 		<ul>
 			<li>son nom,</li>
-			<li>une icone représentant son type,</li>
+			<li>une icône représentant son type,</li>
 			<li>les 
 				<em>View Elements</em> directement contenus ou référencés,
 			</li>
@@ -214,9 +214,9 @@
 		<h3 id="UIStructure">UI Structure</h3>
 		<h4 id="Contenu2">Contenu</h4>
 		<p>La représentation 
-			<em>UI Structure</em> fournit une vue d&#8217;ensemble complète de la structure des écrans de l&#8217;application modélisée, sous forme arborecente.
+			<em>UI Structure</em> fournit une vue d&#8217;ensemble complète de la structure des écrans de l&#8217;application modélisée, sous forme arborescente.
 		</p>
-		<p>Les écrans sont décris en termes de 
+		<p>Les écrans sont décrit en termes de 
 			<em>View Containers</em> pouvant contenir :
 		</p>
 		<ul>
@@ -227,7 +227,8 @@
 				<em>View Elements</em> représentant les instances de widgets
 			</li>
 			<li>des 
-				<em>View Container Referenc_e représentant la réutilisation de _View Container</em>.
+				<em>View Container Reference</em> représentant la réutilisation de 
+				<em>View Container</em>.
 			</li>
 		</ul>
 		<p>Les 
@@ -248,7 +249,7 @@
 				<ul>
 					<li>quand un 
 						<em>View Container</em> est référencé il apparaît également sous l'élément qui le référence. Ex : AdressePanel apparaît sous DetailPersonne. Dans ce cas, une indication permet de voir que le 
-						<em>View Container</em> est simplement référencé et non pas contenu (mention dans le libellé et décorateur d&#8217;icone).
+						<em>View Container</em> est simplement référencé et non pas contenu (mention dans le libellé et décorateur d&#8217;icône).
 					</li>
 				</ul>
 			</li>
@@ -286,7 +287,7 @@
 		<h4 id="Elmentsaffichsetpalettedoutils">Eléments affichés et palette d&#8217;outils</h4>
 		<p>La palette propose un outil de création de 
 			<em>View Element</em> ou 
-			<em>View Container</em> par widget disponible dans le toolkit utilisé. Son contenu dépends donc du toolkit actif sur le modèle Cinematic courant.
+			<em>View Container</em> par widget disponible dans le toolkit utilisé. Son contenu dépend donc du toolkit actif sur le modèle Cinematic courant.
 		</p>
 		<p>Voici les deux palettes dans le contexte des deux 
 			<em>Toolkits</em> fournis avec le studio 
@@ -334,7 +335,7 @@
 		</ul>
 		<p>Le calque 
 			<em>Example</em> modifie le label des 
-			<em>View Elements</em>, permettant de visualiser l’IHM avec des données d’exemple. Le label est alors calculé tel que défini dans le toolkit, par l&#8217;expression AQL &#8249;example&#8250; du widget.
+			<em>View Elements</em>, permettant de visualiser l’IHM avec des données d’exemple. Le label est alors calculé tel que défini dans le toolkit, par l&#8217;expression AQL &#171; example &#187; du widget.
 		</p>
 		<table>
 			<tr>
@@ -356,7 +357,7 @@
 				</td>
 			</tr>
 		</table>
-		<p>Chaque repositionnement ou redimentionnement de 
+		<p>Chaque repositionnement ou redimensionnement de 
 			<em>View Element</em> sur ce diagramme déclenche la mise à jour de la structure de 
 			<em>Layout</em> du 
 			<em>View Container</em> représenté sur le diagramme :
@@ -365,13 +366,13 @@
 			<img border="0" src="pics/MockupDiagram/Layout-ModelStructure.png"/>
 		</p>
 		<p>La structure de 
-			<em>Layout</em> porte les positionnements graphiques des éléments du Mockup, organisés en structure de type &#8249;Grid Layout&#8250;. Un élément de Layout est défini par une position (coordonnées x, y), une taille (largeur, hauteur), une direction (horizontale ou verticale) et une liste de Layout fils.
-			<br/>L&#8217;algorithme de mise à jour de la structure de Layout procède à une analyse de l&#8217;espace en passes successivement verticales et horizontales. Dans l&#8217;exemple ci-dessus, l&#8217;espace est découpé vericalement en quatre compartiments, dont le dernier est découpé horizontalement en deux compartiments lors d&#8217;une deuxième passe.
+			<em>Layout</em> porte les positionnements graphiques des éléments du Mockup, organisés en structure de type &#171; Grid Layout &#187;. Un élément de Layout est défini par une position (coordonnées x, y), une taille (largeur, hauteur), une direction (horizontale ou verticale) et une liste de Layout fils.
+			<br/>L&#8217;algorithme de mise à jour de la structure de Layout procède à une analyse de l&#8217;espace en passes successivement verticales et horizontales. Dans l&#8217;exemple ci-dessus, l&#8217;espace est découpé verticalement en quatre compartiments, dont le dernier est découpé horizontalement en deux compartiments lors d&#8217;une deuxième passe.
 		</p>
 		<p>Le choix de direction est déterminé par la direction dans laquelle l&#8217;espace se découpe le plus, avec en cas d'égalité un choix par défaut en découpage vertical.</p>
 		<p>Un élément de 
 			<em>Layout</em> peut être lié ou non à un 
-			<em>View Element</em> suivant qu’il représente le layout d’un 
+			<em>View Element</em> suivant qu’il représente le Layout d’un 
 			<em>View Element</em> ou bien le Layout d&#8217;un espace structurant (tel que le Layout qui englobe les deux boutons de l&#8217;exemple ci-dessus).
 		</p>
 		<p>Le diagram 
@@ -426,7 +427,7 @@
 			</li>
 			<li>Les transitions du Flow
 				<ul>
-					<li>Si la transition est déclenchée par un(des) événement(s), le label principal de la transition est de la forme 
+					<li>Si la transition est déclenchée par un (des) événement(s), le label principal de la transition est de la forme 
 						<em>
 							<img border="0" src="pics/obj16/ViewEvent.gif"/> evenement1,evenement2
 						</em>.
@@ -441,8 +442,8 @@
 			</li>
 			<li>Un conteneur flottant nommé 
 				<em>FlowEvents</em> présente les FlowEvents génériques du flow de portée globale qui représentent des événement logiques ou métier. Ce conteneur peut être masqué en désactivant le claque 
-				<em>Flow Events</em>. Les évènements de &#171;Flow Events&#187; portent l&#8217;icone 
-				<img border="0" src="pics/obj16/FlowEvent.gif"/> pour les distinguer des événements définis dans le toolkit qui portent l&#8217;icone 
+				<em>Flow Events</em>. Les événements de &#171;Flow Events&#187; portent l&#8217;icône 
+				<img border="0" src="pics/obj16/FlowEvent.gif"/> pour les distinguer des événements définis dans le toolkit qui portent l&#8217;icône 
 				<img border="0" src="pics/obj16/WidgetEventType.gif"/>.
 			</li>
 			<li>Les ViewContainers référencés par les ViewState affichés. Ceux-ci peuvent être masqués par la désactivation du calque 
@@ -611,7 +612,7 @@
 				<td>Double clic sur une 
 					<em>Transition</em>
 				</td>
-				<td>: Ouvre le dialogue de sélection et de création d'évènements déclencheurs</td>
+				<td>: Ouvre le dialogue de sélection et de création d'événements déclencheurs</td>
 			</tr>
 			<tr>
 				<td>Double clic sur un 
@@ -626,7 +627,7 @@
 				<td>: Sur les états, les conditions de garde, les Flow Events et les View Containers</td>
 			</tr>
 			<tr>
-				<td>Reconnection</td>
+				<td>Reconnexion</td>
 				<td>: Des transitions</td>
 			</tr>
 			<tr>
@@ -649,7 +650,7 @@
 			<em>View State</em> à son apparence initiale.
 		</p>
 		<p>
-			<b>Dialogue de selection d'évènements déclencheurs:</b>
+			<b>Dialogue de séléction d'événements déclencheurs:</b>
 			<br/>
 			<img style="width:50%" border="0" src="pics/FlowDiagram/EventSelectionDialog.png"/>
 		</p>
@@ -677,7 +678,7 @@
 		</ul>
 		<p>Lors de leur création, les événements sont nommés avec la concaténation : « &lt;nom du widget&gt; + &#8249;_&#8250; + &lt;type d'événement&gt; ».</p>
 		<p>
-			<b>Dialogue de selection de ViewContainer:</b>
+			<b>Dialogue de séléction de ViewContainer:</b>
 			<br/>
 			<img style="width:50%" border="0" src="pics/FlowDiagram/ViewContainerSelectionDialog.png"/>
 		</p>
@@ -712,7 +713,7 @@
 		<p>Ainsi :</p>
 		<ul>
 			<li>
-				<b>Summary</b> : est exploité en infobulle dans la palette du diagramme Mockup :
+				<b>Summary</b> : est exploité en info bulle dans la palette du diagramme Mockup :
 			</li>
 		</ul>
 		<p>
@@ -730,7 +731,7 @@
 		</p>
 		<ul>
 			<li>
-				<b>Metadata Definitions</b> : Défini une liste de clés et de valeurs par défaut pour des méta-données. Ces données sont exploitées à la création d&#8217;un 
+				<b>Metadata Definitions</b> : Défini une liste de clés et de valeurs par défaut pour des métadonnées. Ces données sont exploitées à la création d&#8217;un 
 				<em>View Element</em> pour initialiser autant de meta-data dans le 
 				<em>ViewElement</em> qu&#8217;il y a de valeurs définies dans l&#8217;attribut metadataDefinitions :
 			</li>
@@ -754,15 +755,15 @@
 		<ul>
 			<li>decorator : Chemin vers l’image svg qui décore le widget (cas de combo box, radio button, etc...)</li>
 			<li>decoratorPosition : position cardinale du décorateur (east pour combo box, west pour radio button, etc...)</li>
-			<li>decoratorVFill : booleen spécifiant si le décorateur doit suivre le redimensionnent vertical (valeur par defaut égale à vrai)</li>
-			<li>decoratorHFill : booleen spécifiant si le décorateur doit suivre le redimensionnent horizontal (valeur par défaut égale à faux)</li>
-			<li>bordered : booleen spécifiant si une bordure est visible (faux pour link ou pour label)</li>
-			<li>roundedCorners : booleen spécifiant si les coins doivent être arrondis (vrai pour button)</li>
+			<li>decoratorVFill : booléen spécifiant si le décorateur doit suivre le redimensionnent vertical (valeur par défaut égale à vrai)</li>
+			<li>decoratorHFill : booléen spécifiant si le décorateur doit suivre le redimensionnent horizontal (valeur par défaut égale à faux)</li>
+			<li>bordered : booléen spécifiant si une bordure est visible (faux pour link ou pour label)</li>
+			<li>roundedCorners : booléen spécifiant si les coins doivent être arrondis (vrai pour button)</li>
 			<li>fontColor : couleur de la police de caractère utilisée pour le label. Les couleurs disponibles sont celles définies par la classe 
 				<code>org.eclipse.swt.SWT</code> par les champs dont le nom commence par « COLOR_ ». Ainsi, une couleur désignée par la chaîne « BLACK » désigne le champ 
 				<code>org.eclipse.swt.SWT.COLOR_BLACK</code>.
 			</li>
-			<li>fontUnderlined : booleen spécifiant si la police de caractère utilisée pour le label est soulignée (vrai pour link)</li>
+			<li>fontUnderlined : booléen spécifiant si la police de caractère utilisée pour le label est soulignée (vrai pour link)</li>
 			<li>labelHAlignment : alignement du texte à gauche, droite, ou centre</li>
 			<li>defaultWidth : largeur par défaut utilisée à la création d’un View Element</li>
 			<li>defaultHeight : hauteur par défaut utilisée à la création d’un View Element</li>

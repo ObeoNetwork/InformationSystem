@@ -6,7 +6,7 @@ h1. ISD - Outillage Cinematic
 
 *Cinematic Designer* apporte le point de vue _Cinematic Views_ qui permet de :
 * Modéliser des vues et des éléments de vues (les composants graphiques d'une IHM),
-* Modéliser la structure de la disposition graphique sous une structure de type "Grid Layout",
+* Modéliser la structure de la disposition graphique sous une structure de type " Grid Layout ",
 * Modéliser les états et le flot entre les états de l'application,
 * Organiser les _Flows_ et les _View Elements_ en packages.
 
@@ -30,7 +30,7 @@ Cet assistant permet de définir le dossier destination du modèle Cinematic :
 
 !pics/Cinematic-ModelCreationWizard-02.jpg!
 
-La dernière page de l'assistant permet de définir le toolkit a utiliser, et d'initialiser le modèle avec un diagramme de Mockup et un diagramme de flow :
+La dernière page de l'assistant permet de définir le toolkit à utiliser, et d'initialiser le modèle avec un diagramme de Mockup et un diagramme de flow :
 
 !pics/Cinematic-ModelCreationWizard-03.jpg!
 
@@ -65,7 +65,7 @@ Le modeleur Cinematic apporte les représentations suivantes :
 | **Package Diagram**        | : diagramme permettant de modéliser les Packages, Flows et ViewContainers. |
 | **UI Structure**           | : représentation aborescente permettant de modélise la description statique de l'IHM (écrans, panels, widgets, ...). |
 | **View Container Mockup**  | : diagramme permettant de modéliser la structure et l'apparence des IHM. |
-| **Layout Diagram**         | : diagramme de consultation des composants et composites d'un layout. |
+| **Layout Diagram**         | : diagramme de consultation des composants et composites d'un Layout. |
 | **Flow Diagram**           | : diagramme permettant de modéliser la dynamique de l'IHM. |
 
 h3. Package Diagram
@@ -84,7 +84,7 @@ Sont affichés sur ce diagramme :
 
 Pour un _ViewContainer_, sont affichés :
 * son nom,
-* une icone représentant son type,
+* une icône représentant son type,
 * les _View Elements_ directement contenus ou référencés,
 * les _View Containers_ directement contenus ou référencés.
 
@@ -111,12 +111,12 @@ h3. UI Structure
 
 h4. Contenu
 
-La représentation _UI Structure_ fournit une vue d'ensemble complète de la structure des écrans de l'application modélisée, sous forme arborecente.
+La représentation _UI Structure_ fournit une vue d'ensemble complète de la structure des écrans de l'application modélisée, sous forme arborescente.
 
-Les écrans sont décris en termes de _View Containers_ pouvant contenir :
+Les écrans sont décrit en termes de _View Containers_ pouvant contenir :
 * d’autres _View Containers_,
 * des _View Elements_ représentant les instances de widgets
-* des _View Container Referenc_e représentant la réutilisation de _View Container_.
+* des _View Container Reference_ représentant la réutilisation de _View Container_.
 
 Les _View Containers_ peuvent être contenus dans des _Package_, permettant une structuration de ces différents éléments.
 
@@ -127,7 +127,7 @@ Cette représentation fournit en outre le moyen d’associer un toolkit au modè
 Les éléments affichés sont :
 * le _Package_ principal et ses sous-packages,
 * les _View Containers_,
-** quand un _View Container_ est référencé il apparaît également sous l'élément qui le référence. Ex : AdressePanel apparaît sous DetailPersonne. Dans ce cas, une indication permet de voir que le _View Container_ est simplement référencé et non pas contenu (mention dans le libellé et décorateur d'icone).
+** quand un _View Container_ est référencé il apparaît également sous l'élément qui le référence. Ex : AdressePanel apparaît sous DetailPersonne. Dans ce cas, une indication permet de voir que le _View Container_ est simplement référencé et non pas contenu (mention dans le libellé et décorateur d'icône).
 * les _View Element_,
 * les _Events_ associés aux _View Containers_ et _View Elements_,
 * les _Actions_ associées aux _View Container_ et _View Elements_.
@@ -149,7 +149,7 @@ Cette représentation vient compléter la représentation _UI Structure_, apport
 
 h4. Eléments affichés et palette d'outils
 
-La palette propose un outil de création de _View Element_ ou _View Container_ par widget disponible dans le toolkit utilisé. Son contenu dépends donc du toolkit actif sur le modèle Cinematic courant.
+La palette propose un outil de création de _View Element_ ou _View Container_ par widget disponible dans le toolkit utilisé. Son contenu dépend donc du toolkit actif sur le modèle Cinematic courant.
 
 Voici les deux palettes dans le contexte des deux _Toolkits_ fournis avec le studio _IS-Designer_ :
 
@@ -166,21 +166,21 @@ Par défaut, le label des éléments présentés sur le View Container Mockup es
 ** Sinon si le nom est défini alors il est utilisé,
 ** Sinon le label du View Container référencé est calculé comme ci-dessus et utilisé.
 
-Le calque _Example_ modifie le label des _View Elements_, permettant de visualiser l’IHM avec des données d’exemple. Le label est alors calculé tel que défini dans le toolkit, par l'expression AQL 'example' du widget.
+Le calque _Example_ modifie le label des _View Elements_, permettant de visualiser l’IHM avec des données d’exemple. Le label est alors calculé tel que défini dans le toolkit, par l'expression AQL " example " du widget.
 
 | **Calque Example désactivé**                 |   | **Calque Example activé** |
 | !pics/MockupDiagram/Mockup-DefaultLayer.png! |   | !pics/MockupDiagram/Mockup-ExampleLayer.png! |
 
-Chaque repositionnement ou redimentionnement de _View Element_ sur ce diagramme déclenche la mise à jour de la structure de _Layout_ du _View Container_ représenté sur le diagramme :
+Chaque repositionnement ou redimensionnement de _View Element_ sur ce diagramme déclenche la mise à jour de la structure de _Layout_ du _View Container_ représenté sur le diagramme :
 
 !pics/MockupDiagram/Layout-ModelStructure.png!
 
-La structure de _Layout_ porte les positionnements graphiques des éléments du Mockup, organisés en structure de type 'Grid Layout'. Un élément de Layout est défini par une position (coordonnées x, y), une taille (largeur, hauteur), une direction (horizontale ou verticale) et une liste de Layout fils.
-L'algorithme de mise à jour de la structure de Layout procède à une analyse de l'espace en passes successivement verticales et horizontales. Dans l'exemple ci-dessus, l'espace est découpé vericalement en quatre compartiments, dont le dernier est découpé horizontalement en deux compartiments lors d'une deuxième passe.
+La structure de _Layout_ porte les positionnements graphiques des éléments du Mockup, organisés en structure de type " Grid Layout ". Un élément de Layout est défini par une position (coordonnées x, y), une taille (largeur, hauteur), une direction (horizontale ou verticale) et une liste de Layout fils.
+L'algorithme de mise à jour de la structure de Layout procède à une analyse de l'espace en passes successivement verticales et horizontales. Dans l'exemple ci-dessus, l'espace est découpé verticalement en quatre compartiments, dont le dernier est découpé horizontalement en deux compartiments lors d'une deuxième passe.
 
 Le choix de direction est déterminé par la direction dans laquelle l'espace se découpe le plus, avec en cas d'égalité un choix par défaut en découpage vertical.
 
-Un élément de _Layout_ peut être lié ou non à un _View Element_ suivant qu’il représente le layout d’un _View Element_ ou bien le Layout d'un espace structurant (tel que le Layout qui englobe les deux boutons de l'exemple ci-dessus).
+Un élément de _Layout_ peut être lié ou non à un _View Element_ suivant qu’il représente le Layout d’un _View Element_ ou bien le Layout d'un espace structurant (tel que le Layout qui englobe les deux boutons de l'exemple ci-dessus).
 
 Le diagram _Layout Diagram_ permet de visualiser cette structure de Layout (décrit dans le chapitre suivant). 
 
@@ -219,10 +219,10 @@ Sont affichés sur ce diagramme :
 * Les états du Flow (InitialState, FinalState, ViewState, ActionState, DecisionState, AsyncEventState, SubflowState).
 ** Les types d'état sont différenciés par l'utilisation d'icônes et de pictogrammes distinctifs.
 * Les transitions du Flow
-** Si la transition est déclenchée par un(des) événement(s), le label principal de la transition est de la forme _!pics/obj16/ViewEvent.gif! evenement1,evenement2_.
+** Si la transition est déclenchée par un (des) événement(s), le label principal de la transition est de la forme _!pics/obj16/ViewEvent.gif! evenement1,evenement2_.
 ** Si une garde est présente elle est affichée en label secondaire sous la forme _[guard]_. 
 ** Si la transition est dirigée vers un _View State_, elle est représentée par une flèche pleine, sinon elle est représentée par une flèche pointillée.
-* Un conteneur flottant nommé _FlowEvents_ présente les FlowEvents génériques du flow de portée globale qui représentent des événement logiques ou métier. Ce conteneur peut être masqué en désactivant le claque _Flow Events_. Les évènements de "Flow Events" portent l'icone !pics/obj16/FlowEvent.gif! pour les distinguer des événements définis dans le toolkit qui portent l'icone !pics/obj16/WidgetEventType.gif!.
+* Un conteneur flottant nommé _FlowEvents_ présente les FlowEvents génériques du flow de portée globale qui représentent des événement logiques ou métier. Ce conteneur peut être masqué en désactivant le claque _Flow Events_. Les événements de "Flow Events" portent l'icône !pics/obj16/FlowEvent.gif! pour les distinguer des événements définis dans le toolkit qui portent l'icône !pics/obj16/WidgetEventType.gif!.
 * Les ViewContainers référencés par les ViewState affichés. Ceux-ci peuvent être masqués par la désactivation du calque _View Containers_.
 ** Les informations affichées pour les _ViewContainer_ sont les mêmes que pour le diagramme de Package décrit plus haut.
 
@@ -251,10 +251,10 @@ Les outils proposés par la palette sont :
 
 Autres outils :
 
-| Double clic sur une _Transition_ | : Ouvre le dialogue de sélection et de création d'évènements déclencheurs |
+| Double clic sur une _Transition_ | : Ouvre le dialogue de sélection et de création d'événements déclencheurs |
 | Double clic sur un _View State_  | : Ouvre le dialogue de sélection de _View Containers_ |
 | Edition directe des libellés     | : Sur les états, les conditions de garde, les Flow Events et les View Containers |
-| Reconnection                     | : Des transitions |
+| Reconnexion                      | : Des transitions |
 | Suppression                      | : Les éléments du diagramme |
 
 Outils de navigation :
@@ -266,7 +266,7 @@ L'apparence d'un ViewState peut prendre celle du diagramme de Mockup du View Con
 !{width:100%}pics/FlowDiagram/FlowDiagram-02.png!
 L'action _Remove Mockup Image_ a pour effet de réinitialiser l'apparence du _View State_ à son apparence initiale.
 
-**Dialogue de selection d'évènements déclencheurs:**
+**Dialogue de séléction d'événements déclencheurs:**
 !{width:50%}pics/FlowDiagram/EventSelectionDialog.png!
 
 Elle présente l’ensemble des types d’événements supportés par les widgets utilisés dans le modèle Cinematic, ainsi que l’ensemble des événements logiques définis dans le Flow.
@@ -289,7 +289,7 @@ A la validation du dialogue,
 
 Lors de leur création, les événements sont nommés avec la concaténation : « <nom du widget> + '_' + <type d'événement> ».
 
-**Dialogue de selection de ViewContainer:**
+**Dialogue de séléction de ViewContainer:**
 !{width:50%}pics/FlowDiagram/ViewContainerSelectionDialog.png!
 
 Elle présente l’ensemble des View Containers du modèle Cinematic présentés sous la forme d’un arbre de contenance.
@@ -325,13 +325,13 @@ Certains attributs du toolkit sont utilisés pour restituer des informations aux
 
 Ainsi :
 
-* **Summary** : est exploité en infobulle dans la palette du diagramme Mockup :
+* **Summary** : est exploité en info bulle dans la palette du diagramme Mockup :
 !pics/Toolkits/Toolkit-Example-Button-Summary.png!
 
 * **Documentation** : Est affiché dans une aide sur les _ViewElements_ et _ViewContainers_ utilisant le Widget :
 !pics/Toolkits/Toolkit-Example-Button-Documentation.png!
 
-* **Metadata Definitions** : Défini une liste de clés et de valeurs par défaut pour des méta-données. Ces données sont exploitées à la création d'un _View Element_ pour initialiser autant de meta-data dans le _ViewElement_ qu'il y a de valeurs définies dans l'attribut metadataDefinitions :
+* **Metadata Definitions** : Défini une liste de clés et de valeurs par défaut pour des métadonnées. Ces données sont exploitées à la création d'un _View Element_ pour initialiser autant de meta-data dans le _ViewElement_ qu'il y a de valeurs définies dans l'attribut metadataDefinitions :
 
 !pics/Toolkits/Toolkit-Example-Button-MetaDatas.png!
 
@@ -343,12 +343,12 @@ Un _Widget_ peut définir un style. Le style porte les attributs suivants :
 
 * decorator : Chemin vers l’image svg qui décore le widget (cas de combo box, radio button, etc...)
 * decoratorPosition : position cardinale du décorateur (east pour combo box, west pour radio button, etc...)
-* decoratorVFill : booleen spécifiant si le décorateur doit suivre le redimensionnent vertical (valeur par defaut égale à vrai)
-* decoratorHFill : booleen spécifiant si le décorateur doit suivre le redimensionnent horizontal (valeur par défaut égale à faux)
-* bordered : booleen spécifiant si une bordure est visible (faux pour link ou pour label)
-* roundedCorners : booleen spécifiant si les coins doivent être arrondis (vrai pour button)
+* decoratorVFill : booléen spécifiant si le décorateur doit suivre le redimensionnent vertical (valeur par défaut égale à vrai)
+* decoratorHFill : booléen spécifiant si le décorateur doit suivre le redimensionnent horizontal (valeur par défaut égale à faux)
+* bordered : booléen spécifiant si une bordure est visible (faux pour link ou pour label)
+* roundedCorners : booléen spécifiant si les coins doivent être arrondis (vrai pour button)
 * fontColor : couleur de la police de caractère utilisée pour le label. Les couleurs disponibles sont celles définies par la classe @org.eclipse.swt.SWT@ par les champs dont le nom commence par « COLOR_ ». Ainsi, une couleur désignée par la chaîne « BLACK » désigne le champ @org.eclipse.swt.SWT.COLOR_BLACK@.
-* fontUnderlined : booleen spécifiant si la police de caractère utilisée pour le label est soulignée (vrai pour link)
+* fontUnderlined : booléen spécifiant si la police de caractère utilisée pour le label est soulignée (vrai pour link)
 * labelHAlignment : alignement du texte à gauche, droite, ou centre
 * defaultWidth : largeur par défaut utilisée à la création d’un View Element
 * defaultHeight : hauteur par défaut utilisée à la création d’un View Element
