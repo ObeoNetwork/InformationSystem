@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <description:Group xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:description="http://www.eclipse.org/sirius/description/1.1.0" xmlns:description_1="http://www.eclipse.org/sirius/diagram/description/1.1.0" xmlns:properties="http://www.eclipse.org/sirius/properties/1.0.0" xmlns:properties-ext-widgets-reference="http://www.eclipse.org/sirius/properties/1.0.0/ext/widgets/reference" xmlns:style="http://www.eclipse.org/sirius/diagram/description/style/1.1.0" xmlns:tool="http://www.eclipse.org/sirius/description/tool/1.1.0" xmlns:tool_1="http://www.eclipse.org/sirius/diagram/description/tool/1.1.0" documentation="Copyright (c) 2008, 2023 Obeo.&#xD;&#xA;All rights reserved. This program and the accompanying materials&#xD;&#xA;are made available under the terms of the Eclipse Public License v1.0&#xD;&#xA;which accompanies this distribution, and is available at&#xD;&#xA;http://www.eclipse.org/legal/epl-v10.html&#xD;&#xA;&#xD;&#xA;Contributors:&#xD;&#xA;   Obeo - initial API and implementation" name="statemachine" version="12.0.0.2017041100">
   <ownedViewpoints endUserDocumentation="The &lt;b>State Machine&lt;/b> viewpoint provides one representation : &#xD;&#xA;&lt;ul>&#xD;&#xA;&lt;li>&lt;b>State Machine Diagram&lt;/b> : a diagram allowing to visualise and edit a State Machine.&lt;/li>&#xD;&#xA;&lt;/ul>&#xA;" name="State Machine">
-    <ownedRepresentations xsi:type="description_1:DiagramDescription" dropDescriptions="//@ownedViewpoints[name='State%20Machine']/@ownedRepresentations[name='State%20Machine%20Diagram']/@defaultLayer/@toolSections.1/@subSections[name='D%26D%20Tools']/@ownedTools[name='D%26D_States']" name="State Machine Diagram" titleExpression="[name + ' State Machine Diagram'/]" domainClass="statemachine.StateMachine" enablePopupBars="true">
+    <ownedRepresentations xsi:type="description_1:DiagramDescription" dropDescriptions="//@ownedViewpoints[name='State%20Machine']/@ownedRepresentations[name='State%20Machine%20Diagram']/@defaultLayer/@toolSections.1/@subSections[name='D%26D%20Tools']/@ownedTools[name='D%26D_States']" name="State Machine Diagram" titleExpression="aql:self.name + ' State Machine Diagram'" domainClass="statemachine.StateMachine" enablePopupBars="true">
       <metamodel href="platform:/plugin/org.obeonetwork.dsl.statemachine/model/statemachine.ecore#/"/>
       <metamodel href="http://www.obeonetwork.org/dsl/environment/3.0.0#/"/>
       <diagramInitialisation>
-        <firstModelOperations xsi:type="tool:If" conditionExpression="[states->filter(statemachine::InitialState)->size() = 0/]">
+        <firstModelOperations xsi:type="tool:If" conditionExpression="aql:self.states->filter(statemachine::InitialState).isEmpty()">
           <subModelOperations xsi:type="tool:CreateInstance" typeName="statemachine.InitialState" referenceName="states"/>
         </firstModelOperations>
       </diagramInitialisation>
@@ -20,7 +20,7 @@
           <style strokeColor="//@userColorsPalettes[name=null]/@entries[name='ISDLabelAndEdge']" sizeComputationExpression="2">
             <centerLabelStyleDescription showIcon="false" labelExpression="['[' + guard + ']'/]" labelColor="//@userColorsPalettes[name=null]/@entries[name='ISDLabelAndEdge']"/>
           </style>
-          <conditionnalStyles predicateExpression="[guard.oclIsUndefined()/]">
+          <conditionnalStyles predicateExpression="aql:self.guard=null">
             <style strokeColor="//@userColorsPalettes[name=null]/@entries[name='ISDLabelAndEdge']" sizeComputationExpression="2">
               <centerLabelStyleDescription showIcon="false" labelColor="//@userColorsPalettes[name=null]/@entries[name='ISDLabelAndEdge']"/>
             </style>
@@ -71,7 +71,7 @@
             <sourceViewVariable name="sourceView"/>
             <targetViewVariable name="targetView"/>
             <initialOperation>
-              <firstModelOperations xsi:type="tool:ChangeContext" browseExpression="[source.oclAsType(statemachine::AbstractState).eContainer(statemachine::StateMachine)/]">
+              <firstModelOperations xsi:type="tool:ChangeContext" browseExpression="aql:source.eContainer(statemachine::StateMachine)">
                 <subModelOperations xsi:type="tool:CreateInstance" typeName="statemachine.Transition" referenceName="transitions">
                   <subModelOperations xsi:type="tool:SetValue" featureName="from" valueExpression="var:source"/>
                   <subModelOperations xsi:type="tool:SetValue" featureName="to" valueExpression="var:target"/>
@@ -84,7 +84,7 @@
             <viewVariable name="containerView"/>
             <initialOperation>
               <firstModelOperations xsi:type="tool:CreateInstance" typeName="statemachine.Region" referenceName="regions">
-                <subModelOperations xsi:type="tool:SetValue" featureName="name" valueExpression="['new Region ' + eContainer(statemachine::StateMachine).regions->size()/]"/>
+                <subModelOperations xsi:type="tool:SetValue" featureName="name" valueExpression="aql:'new Region ' + self.eContainer(statemachine::StateMachine).regions->size()"/>
               </firstModelOperations>
             </initialOperation>
           </ownedTools>
@@ -157,17 +157,17 @@
             </ownedTools>
           </subSections>
           <subSections name="D&amp;D Tools">
-            <ownedTools xsi:type="tool_1:ContainerDropDescription" name="D&amp;D_States" precondition="[oclIsKindOf(statemachine::AbstractState)/]" forceRefresh="true" mappings="//@ownedViewpoints[name='State%20Machine']/@ownedRepresentations[name='State%20Machine%20Diagram']/@defaultLayer/@nodeMappings[name='SM_FinalState'] //@ownedViewpoints[name='State%20Machine']/@ownedRepresentations[name='State%20Machine%20Diagram']/@defaultLayer/@nodeMappings[name='SM_InitialState'] //@ownedViewpoints[name='State%20Machine']/@ownedRepresentations[name='State%20Machine%20Diagram']/@defaultLayer/@containerMappings[name='SM_Region']/@subNodeMappings[name='SM_FinalStateInRegion'] //@ownedViewpoints[name='State%20Machine']/@ownedRepresentations[name='State%20Machine%20Diagram']/@defaultLayer/@containerMappings[name='SM_Region']/@subNodeMappings[name='SM_InitialStateInRegion'] //@ownedViewpoints[name='State%20Machine']/@ownedRepresentations[name='State%20Machine%20Diagram']/@defaultLayer/@containerMappings[name='SM_Region']/@subContainerMappings[name='SM_StateInRegion'] //@ownedViewpoints[name='State%20Machine']/@ownedRepresentations[name='State%20Machine%20Diagram']/@defaultLayer/@containerMappings[name='SM_State']" dragSource="BOTH">
+            <ownedTools xsi:type="tool_1:ContainerDropDescription" name="D&amp;D_States" precondition="aql:self.oclIsKindOf(statemachine::AbstractState)" forceRefresh="true" mappings="//@ownedViewpoints[name='State%20Machine']/@ownedRepresentations[name='State%20Machine%20Diagram']/@defaultLayer/@nodeMappings[name='SM_FinalState'] //@ownedViewpoints[name='State%20Machine']/@ownedRepresentations[name='State%20Machine%20Diagram']/@defaultLayer/@nodeMappings[name='SM_InitialState'] //@ownedViewpoints[name='State%20Machine']/@ownedRepresentations[name='State%20Machine%20Diagram']/@defaultLayer/@containerMappings[name='SM_Region']/@subNodeMappings[name='SM_FinalStateInRegion'] //@ownedViewpoints[name='State%20Machine']/@ownedRepresentations[name='State%20Machine%20Diagram']/@defaultLayer/@containerMappings[name='SM_Region']/@subNodeMappings[name='SM_InitialStateInRegion'] //@ownedViewpoints[name='State%20Machine']/@ownedRepresentations[name='State%20Machine%20Diagram']/@defaultLayer/@containerMappings[name='SM_Region']/@subContainerMappings[name='SM_StateInRegion'] //@ownedViewpoints[name='State%20Machine']/@ownedRepresentations[name='State%20Machine%20Diagram']/@defaultLayer/@containerMappings[name='SM_State']" dragSource="BOTH">
               <oldContainer name="oldSemanticContainer"/>
               <newContainer name="newSemanticContainer"/>
               <element name="element"/>
               <newViewContainer name="newContainerView"/>
               <initialOperation>
                 <firstModelOperations xsi:type="tool:ChangeContext" browseExpression="var:element">
-                  <subModelOperations xsi:type="tool:If" conditionExpression="[newSemanticContainer.oclIsKindOf(statemachine::Region)/]">
+                  <subModelOperations xsi:type="tool:If" conditionExpression="aql:newSemanticContainer.oclIsKindOf(statemachine::Region)">
                     <subModelOperations xsi:type="tool:MoveElement" newContainerExpression="var:newSemanticContainer" featureName="states"/>
                   </subModelOperations>
-                  <subModelOperations xsi:type="tool:If" conditionExpression="[newSemanticContainer.oclIsKindOf(statemachine::StateMachine)/]">
+                  <subModelOperations xsi:type="tool:If" conditionExpression="aql:newSemanticContainer.oclIsKindOf(statemachine::StateMachine)">
                     <subModelOperations xsi:type="tool:MoveElement" newContainerExpression="var:newSemanticContainer" featureName="states"/>
                   </subModelOperations>
                 </firstModelOperations>
