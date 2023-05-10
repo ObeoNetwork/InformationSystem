@@ -48,10 +48,13 @@ import org.eclipse.sirius.business.api.session.Session;
 import org.eclipse.sirius.ext.base.Option;
 import org.eclipse.sirius.ui.tools.internal.views.common.item.ProjectDependenciesItemImpl;
 import org.eclipse.swt.SWT;
+import org.eclipse.swt.custom.StyleRange;
+import org.eclipse.swt.custom.StyledText;
 import org.eclipse.swt.events.ModifyEvent;
 import org.eclipse.swt.events.ModifyListener;
 import org.eclipse.swt.events.SelectionAdapter;
 import org.eclipse.swt.events.SelectionEvent;
+import org.eclipse.swt.graphics.Color;
 import org.eclipse.swt.layout.GridData;
 import org.eclipse.swt.layout.GridLayout;
 import org.eclipse.swt.widgets.Button;
@@ -59,6 +62,7 @@ import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Label;
 import org.eclipse.swt.widgets.Text;
 import org.obeonetwork.dsl.is.util.SiriusSessionUtils;
+import org.obeonetwork.utils.common.ui.services.WizardHelper;
 
 import fr.obeo.dsl.viewpoint.collab.ui.internal.views.ResourcesFolderItemImpl;
 import org.eclipse.swt.layout.RowLayout;
@@ -68,7 +72,7 @@ public class NewModelCreationPage extends WizardPage {
 	private static final Predicate<String> VALID_FILENAME_PATTERN = Pattern.compile("^[^<>:\"/\\\\|?\\*]*$").asPredicate();
 	private static final String RESOURCE_DEFAULT_NAME = "My";
 	private Text textFilter;
-	private Text textFileName;
+	private StyledText textFileName;
 	
 	private IStructuredSelection selection;
 	private ProjectsAndFoldersContentProvider contentProvider = new ProjectsAndFoldersContentProvider();
@@ -142,12 +146,12 @@ public class NewModelCreationPage extends WizardPage {
 		Label lblFileName = new Label(container, SWT.NONE);
 		lblFileName.setText("File name:");
 		
-		textFileName = new Text(container, SWT.BORDER);
+		textFileName = new StyledText(container, SWT.BORDER);
 		textFileName.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, true, false, 1, 1));
 		textFileName.addModifyListener(new ModifyListener() {
-			
 			@Override
 			public void modifyText(ModifyEvent e) {
+				WizardHelper.addExtensionIfMissing(textFileName, NewModelCreationPage.this.fileExtension);
 				data.setTargetResourceName(textFileName.getText());
 				validatePage();
 			}
@@ -178,8 +182,11 @@ public class NewModelCreationPage extends WizardPage {
 	}
 	
 	public void validatePage() {
+		if(data.getTargetContainer() == null || data.getTargetModelingProject() == null || data.getTargetResourceName() == null) {
+			setPageComplete(false);
+		}
 		// Check if a resource of same name at same location does not already exist
-		if (resourceAlreadyExists(data.getTargetContainer(), data.getTargetResourceName())) {
+		else if (resourceAlreadyExists(data.getTargetContainer(), data.getTargetResourceName())) {
 			setErrorMessage("A resource with the same name already exists at this location");
 			setPageComplete(false);
 		} else {
@@ -387,6 +394,16 @@ public class NewModelCreationPage extends WizardPage {
 			resourceName = RESOURCE_DEFAULT_NAME + i + getFileExtension();
 		}
 		textFileName.setText(resourceName);
+		
+		int dotIndex = textFileName.getText().lastIndexOf(".");
+		if(dotIndex != -1) {
+			StyleRange styleRange = new StyleRange();
+			styleRange.start = dotIndex;
+			styleRange.length = textFileName.getText().length() - dotIndex;
+			styleRange.fontStyle = SWT.ITALIC;
+			styleRange.foreground = new Color(125, 125, 125);
+			textFileName.setStyleRange(styleRange);
+		}
 	}
 	
 	private boolean resourceAlreadyExists(Object container, String resourceName) {

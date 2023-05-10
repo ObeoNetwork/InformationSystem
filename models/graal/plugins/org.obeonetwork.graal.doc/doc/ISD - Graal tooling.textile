@@ -17,7 +17,9 @@ bq. File > New > Other ... > Graal Model (Catégorie IS Designer)
 
 !pics/SafranGraalWizard01.png!
 
-Cet assistant vous permet de définir le nom du modèle que vous souhaitez créer ainsi que de définir son répertoire destination.
+Cet assistant permet de définir 
+* le nom du modèle à créer (l'extension du modèle est automatiquement ajoutée à la fin du nom en grisée et en italique s'il n'y a pas d'extension précisée),
+* le projet ou répertoire de destination pour cette nouvelle ressource :
 
 !pics/SafranGraalWizard02.png!
 

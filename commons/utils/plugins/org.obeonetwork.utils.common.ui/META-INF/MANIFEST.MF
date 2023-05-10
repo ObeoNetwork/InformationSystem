@@ -15,7 +15,8 @@ Require-Bundle: org.eclipse.sirius.common,
  org.eclipse.sirius.ext.base,
  org.eclipse.sirius,
  org.eclipse.emf.transaction,
- org.eclipse.core.runtime
+ org.eclipse.core.runtime,
+ org.eclipse.swt
 Bundle-RequiredExecutionEnvironment: JavaSE-1.8
 Automatic-Module-Name: org.obeonetwork.utils
 Bundle-ActivationPolicy: lazy

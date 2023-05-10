@@ -31,7 +31,13 @@
 			<em>RF</em> :
 		</p>
 		<p>
-			<img border="0" src="pics/BDD_Retro_01.png"/>
+			<img border="0" src="pics/BDD_Import_01.png"/>
+		</p>
+		<p>Voici un exemple permettant d&#8217;extraire les informations d&#8217;un schéma Oracle nommé 
+			<em>RF</em> :
+		</p>
+		<p>
+			<img border="0" src="pics/BDD_Import_02.png"/>
 		</p>
 		<p>La zone 
 			<em>Referenced files</em> permet de référencer des MPD existants. Ce référencement est nécessaire pour importer un schéma qui comporte des clés étrangères pointant sur des tables appartenant à un autre schéma.
@@ -80,6 +86,32 @@
 			</tr>
 		</table>
 		<p>La rétrocompatibilité des drivers permet en théorie d&#8217;importer des schéma de base de versions antérieures à celles supportées, mais aucune garantie ne peut être donnée en ce sens.</p>
+		<h3 id="CrationdunmodleDatabase">Création d&#8217;un modèle Database</h3>
+		<p>Un assistant de création de modèles Database est accessible via le menu :</p>
+		<blockquote>
+			<p>File &gt; New &gt; Other ... &gt; Database Model (Catégorie IS Designer)</p>
+		</blockquote>
+		<p>
+			<img border="0" src="pics/BDD-ModelCreationWizard-01.png"/>
+		</p>
+		<p>Cet assistant permet de définir </p>
+		<ul>
+			<li>le nom du modèle à créer (l&#8217;extension du modèle est automatiquement ajoutée à la fin du nom en grisée et en italique s&#8217;il n&#8217;y a pas d&#8217;extension précisée),</li>
+			<li>le projet ou répertoire de destination pour cette nouvelle ressource :</li>
+		</ul>
+		<p>
+			<img border="0" src="pics/BDD-ModelCreationWizard-02.png"/>
+		</p>
+		<p>La dernière page de l&#8217;assistant permet de définir</p>
+		<ul>
+			<li>Model Object : Le type de modèle</li>
+			<li>DB Vendor : Le type de Base de Données</li>
+			<li>XML Encoding : Le format de sérialisation</li>
+		</ul>
+		<p>
+			<img border="0" src="pics/BDD-ModelCreationWizard-03.png"/>
+		</p>
+		<p>Une fois l&#8217;assistant validé, le modèle est créé.</p>
 		<h3 id="Modlisation">Modélisation</h3>
 		<h4 id="Vuedensemble2">Vue d&#8217;ensemble</h4>
 		<p>Pour manipuler graphiquement le contenu d&#8217;une ressource 
@@ -142,6 +174,23 @@
 			<img border="0" src="pics/BDD_ModeleLogique_02.png"/>
 		</p>
 		<p>La liste des types contenus dans chacune des librairies est paramétrable.</p>
+		<h3 id="CrationdunmodleTypeLibrary">Création d&#8217;un modèle TypeLibrary</h3>
+		<p>Un assistant de création de modèles TypeLibrary est accessible via le menu :</p>
+		<blockquote>
+			<p>File &gt; New &gt; Other ... &gt; TypeLibrary Model (Catégorie IS Designer)</p>
+		</blockquote>
+		<p>
+			<img border="0" src="pics/TypeLibrary-ModelCreationWizard-01.png"/>
+		</p>
+		<p>Cet assistant permet de définir </p>
+		<ul>
+			<li>le nom du modèle à créer (l&#8217;extension du modèle est automatiquement ajoutée à la fin du nom en grisée et en italique s&#8217;il n&#8217;y a pas d&#8217;extension précisée),</li>
+			<li>le projet ou répertoire de destination pour cette nouvelle ressource :</li>
+		</ul>
+		<p>
+			<img border="0" src="pics/TypeLibrary-ModelCreationWizard-02.png"/>
+		</p>
+		<p>Une fois l&#8217;assistant validé, le modèle est créé.</p>
 		<h3 id="ComparaisongnrationdesscriptsSQLLiquibase">Comparaison &amp; génération des scripts SQL/Liquibase</h3>
 		<h4 id="Comparaisonetfusion">Comparaison et fusion</h4>
 		<p>L&#8217;outillage de comparaison permet de comparer deux versions de MPD, soit de deux fichiers stockés localement, soit d&#8217;une version locale avec une version stockée dans un référentiel de type subversion. L&#8217;outillage est basé sur EMF Compare et fournit une extension permettant d&#8217;améliorer la pertinence de la comparaison sur ce type particulier de modèle.

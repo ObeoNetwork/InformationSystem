@@ -8,6 +8,22 @@ Les diagrammes d'interaction manipulent des concepts très proches des diagramme
 
 !{width:100%}pics/Diagram.png!
 
+h2. Création d'un modèle d'Interaction
+
+Un assistant de création de modèles d'Interaction est accessible via le menu :
+
+bq. File > New > Other ... > Interaction Model (Catégorie IS Designer)
+
+!pics/Interaction-ModelCreationWizard-01.png!
+
+Cet assistant permet de définir 
+* le nom du modèle à créer (l'extension du modèle est automatiquement ajoutée à la fin du nom en grisée et en italique s'il n'y a pas d'extension précisée),
+* le projet ou répertoire de destination pour cette nouvelle ressource :
+
+!pics/Interaction-ModelCreationWizard-02.png!
+
+Une fois l'assistant validé, le modèle est créé.
+
 h2. Création d'un diagramme d'interaction
  
 Pour pouvoir créer un diagramme d'interaction il faut activer le point de vue _Interaction_ sur le projet via le menu contextuel _Viewpoints Selection_ sur le projet ou sur le fichier _aird_.

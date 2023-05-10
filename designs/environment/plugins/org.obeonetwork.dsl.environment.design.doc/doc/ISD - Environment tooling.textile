@@ -42,3 +42,19 @@ Il est possible que plusieurs messages d'avertissements se succèdent dans le ca
 Remarques :
 - Les changements sont appliqués mais pas sauvegardés
 - Il est possible d'annuler tous les changements opérés à l'aide du raccourci clavier "Ctrl+Z.
+
+h2. Création d'un modèle Environment
+
+Un assistant de création de modèles Environment est accessible via le menu :
+
+bq. File > New > Other ... > Environment Model (Catégorie IS Designer)
+
+!pics/Environment-ModelCreationWizard-01.png!
+
+Cet assistant permet de définir 
+* le nom du modèle à créer (l'extension du modèle est automatiquement ajoutée à la fin du nom en grisée et en italique s'il n'y a pas d'extension précisée),
+* le projet ou répertoire de destination pour cette nouvelle ressource :
+
+!pics/Environment-ModelCreationWizard-02.png!
+
+Une fois l'assistant validé, le modèle est créé.

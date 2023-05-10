@@ -32,7 +32,8 @@ Require-Bundle: org.eclipse.ui,
  org.obeonetwork.dsl.database,
  org.eclipse.emf.compare,
  org.obeonetwork.utils.common.ui,
- org.obeonetwork.utils.common
+ org.obeonetwork.utils.common,
+ org.eclipse.swt
 Export-Package: org.obeonetwork.dsl.is,
  org.obeonetwork.dsl.is.compare,
  org.obeonetwork.dsl.is.overview,

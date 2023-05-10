@@ -8,7 +8,23 @@ Les diagrammes de machines à états manipulent des concepts très proches des d
 
 !{width:100%}pics/statemachine.png!
 
-h2. Création d'un diagramme de machine à état
+h2. Création d'un modèle de machine à états
+
+Un assistant de création de modèles de machine à états est accessible via le menu :
+
+bq. File > New > Other ... > State Machine Model (Catégorie IS Designer)
+
+!pics/StateMachine-ModelCreationWizard-01.png!
+
+Cet assistant permet de définir 
+* le nom du modèle à créer (l'extension du modèle est automatiquement ajoutée à la fin du nom en grisée et en italique s'il n'y a pas d'extension précisée),
+* le projet ou répertoire de destination pour cette nouvelle ressource :
+
+!pics/StateMachine-ModelCreationWizard-02.png!
+
+Une fois l'assistant validé, le modèle est créé.
+
+h2. Création d'un diagramme de machine à états
  
 Pour pouvoir créer un diagramme de machine à état il faut activer le point de vue _State Machine_ sur le projet via le menu contextuel _Viewpoints Selection_ sur le projet ou sur le fichier _aird_.
 

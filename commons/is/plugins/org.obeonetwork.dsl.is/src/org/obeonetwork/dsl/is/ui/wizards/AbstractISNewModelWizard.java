@@ -39,10 +39,13 @@ import org.eclipse.jface.wizard.Wizard;
 import org.eclipse.sirius.business.api.modelingproject.ModelingProject;
 import org.eclipse.sirius.business.api.session.Session;
 import org.eclipse.sirius.ui.business.api.dialect.DialectUIManager;
+import org.eclipse.sirius.ui.tools.api.views.modelexplorerview.IModelExplorerView;
 import org.eclipse.sirius.viewpoint.DRepresentation;
 import org.eclipse.sirius.viewpoint.description.RepresentationDescription;
 import org.eclipse.ui.INewWizard;
+import org.eclipse.ui.IViewPart;
 import org.eclipse.ui.IWorkbench;
+import org.eclipse.ui.IWorkbenchPage;
 import org.eclipse.ui.IWorkbenchPart;
 import org.obeonetwork.dsl.is.util.SiriusSessionUtils;
 import org.obeonetwork.utils.common.SessionUtils;
@@ -203,7 +206,7 @@ abstract public class AbstractISNewModelWizard extends Wizard implements INewWiz
 	}
 	
 	private void setSelectionInActivePart(Resource resource) {
-		IWorkbenchPart activePart = getActivePart();
+		IWorkbenchPart activePart = getModelExplorerPart();
 		if (resource != null && activePart != null) {
 			
 			if (resource instanceof CDOResource) {
@@ -296,12 +299,13 @@ abstract public class AbstractISNewModelWizard extends Wizard implements INewWiz
 		return segments;
 	}
 	
-	private IWorkbenchPart getActivePart() {
-		if (workbench != null
-				&& workbench.getActiveWorkbenchWindow() != null
-				&& workbench.getActiveWorkbenchWindow().getActivePage() != null) {
-			return workbench.getActiveWorkbenchWindow().getActivePage().getActivePart();
+	private IWorkbenchPart getModelExplorerPart() {
+		IWorkbenchPage page = workbench.getActiveWorkbenchWindow().getActivePage();
+		IViewPart modelExplorerView = page.findView(IModelExplorerView.ID);
+		if(modelExplorerView != null) {
+			return modelExplorerView;
 		}
+		
 		return null;
 	}
 

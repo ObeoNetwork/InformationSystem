@@ -26,9 +26,11 @@ bq. Ctrl+N
 
 !pics/Cinematic-ModelCreationWizard-01.jpg!
 
-Cet assistant permet de définir le dossier destination du modèle Cinematic :
+Cet assistant permet de définir 
+* le nom du modèle à créer (l'extension du modèle est automatiquement ajoutée à la fin du nom en grisée et en italique s'il n'y a pas d'extension précisée),
+* le projet ou répertoire de destination pour cette nouvelle ressource :
 
-!pics/Cinematic-ModelCreationWizard-02.jpg!
+!pics/Cinematic-ModelCreationWizard-02.png!
 
 La dernière page de l'assistant permet de définir le toolkit à utiliser, et d'initialiser le modèle avec un diagramme de Mockup et un diagramme de flow :
 
@@ -41,6 +43,22 @@ Une fois l'assistant validé, le modèle est créé, ainsi que les représentati
 Lorsqu'un modèle cinematic est créé à l'aide de ce wizard, les points de vues _Cinematic Views_ et _Environment View_ sont activés.
 
 Le point de vue _Cinematic Views_ permet de visualiser et modifier un modèle cinematic via plusieurs types de diagrammes tel que décrit dans la section suivante. Le point de vue _Environment View_ contient la définition des vues de propriétés avancées (EEF).
+
+h2. Création d'un modèle Toolkits
+
+Un assistant de création de modèles Toolkits est accessible via le menu :
+
+bq. File > New > Other ... > Toolkits Model (Catégorie IS Designer)
+
+!pics/Toolkits/Toolkit-ModelCreationWizard-01.png!
+
+Cet assistant permet de définir 
+* le nom du modèle à créer (l'extension du modèle est automatiquement ajoutée à la fin du nom en grisée et en italique s'il n'y a pas d'extension précisée),
+* le projet ou répertoire de destination pour cette nouvelle ressource :
+
+!pics/Toolkits/Toolkit-ModelCreationWizard-02.png!
+
+Une fois l'assistant validé, le modèle est créé.
 
 h2. Activation du point de vue
 

@@ -29,7 +29,7 @@ La deuxième page permet de définir les informations suivantes :
 * *Version* Le numéro de version de la bibliothèque. Doit être sous la forme M.m.p.qualifier où M, m et p sont des nombres entiers.
 * *Previous version* Un tableau en lecture seule montrant les versions précédentes qui ont été exportées à partir du même _modeling project_.
 * *Comment* Une description de la version de la bibliothèque.
-* *MAR filename* Le nom de fichier de la bibliothèque (se terminant par l'extension de fichier .mar). Cette valeur est recalculée lorsque l'ID du projet ou la version est modifiée, mais elle peut être remplacée si nécessaire.
+* *MAR filename* Le nom de fichier de la bibliothèque (se terminant par l'extension de fichier .mar). Cette valeur est recalculée lorsque l'ID du projet ou la version est modifiée, mais elle peut être remplacée si nécessaire (l'extension .mar est automatiquement ajoutée à la fin du nom en grisée et en italique s'il n'y a pas d'extension précisée).
 * *Update referencing projects* Les _modeling projects_ qui ont des cross-references vers le projet exporté. Les projets sélectionnés importeront la bibliothèque produite par l'exportation et les cross-references seront redirigées vers la bibliothèque. Les détails sur l'importation d'une bibliothèque sont décrits dans la section suivante.
 
 !pics/exportWizardPage2.png!

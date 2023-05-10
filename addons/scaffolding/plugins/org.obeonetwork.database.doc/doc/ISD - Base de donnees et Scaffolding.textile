@@ -17,7 +17,11 @@ h3. Rétro-ingénierie
 
 Cet outil permet d'initialiser un MPD à partir d'une base de données existante. Un assistant est accessible via le menu _File > Import … > Database > Import Database_. Voici un exemple permettant d'extraire les informations d'un schéma Oracle nommé _RF_ :
 
-!pics/BDD_Retro_01.png!
+!pics/BDD_Import_01.png!
+
+Voici un exemple permettant d'extraire les informations d'un schéma Oracle nommé _RF_ :
+
+!pics/BDD_Import_02.png!
 
 La zone _Referenced files_ permet de référencer des MPD existants. Ce référencement est nécessaire pour importer un schéma qui comporte des clés étrangères pointant sur des tables appartenant à un autre schéma.
 
@@ -38,6 +42,29 @@ Les types de bases de données suivants sont supportés :
 | SQLServer | 2008 et 2022 | 8, 11, 17 et 18 |
 
 La rétrocompatibilité des drivers permet en théorie d'importer des schéma de base de versions antérieures à celles supportées, mais aucune garantie ne peut être donnée en ce sens.
+
+h3. Création d'un modèle Database
+
+Un assistant de création de modèles Database est accessible via le menu :
+
+bq. File > New > Other ... > Database Model (Catégorie IS Designer)
+
+!pics/BDD-ModelCreationWizard-01.png!
+
+Cet assistant permet de définir 
+* le nom du modèle à créer (l'extension du modèle est automatiquement ajoutée à la fin du nom en grisée et en italique s'il n'y a pas d'extension précisée),
+* le projet ou répertoire de destination pour cette nouvelle ressource :
+
+!pics/BDD-ModelCreationWizard-02.png!
+
+La dernière page de l'assistant permet de définir
+* Model Object : Le type de modèle
+* DB Vendor : Le type de Base de Données
+* XML Encoding : Le format de sérialisation
+
+!pics/BDD-ModelCreationWizard-03.png!
+
+Une fois l'assistant validé, le modèle est créé.
 
 h3. Modélisation
 
@@ -87,6 +114,22 @@ La sélection de cette librairie de types est également proposée dans l'assist
 !pics/BDD_ModeleLogique_02.png!
 
 La liste des types contenus dans chacune des librairies est paramétrable.
+
+h3. Création d'un modèle TypeLibrary
+
+Un assistant de création de modèles TypeLibrary est accessible via le menu :
+
+bq. File > New > Other ... > TypeLibrary Model (Catégorie IS Designer)
+
+!pics/TypeLibrary-ModelCreationWizard-01.png!
+
+Cet assistant permet de définir 
+* le nom du modèle à créer (l'extension du modèle est automatiquement ajoutée à la fin du nom en grisée et en italique s'il n'y a pas d'extension précisée),
+* le projet ou répertoire de destination pour cette nouvelle ressource :
+
+!pics/TypeLibrary-ModelCreationWizard-02.png!
+
+Une fois l'assistant validé, le modèle est créé.
 
 h3. Comparaison & génération des scripts SQL/Liquibase
 

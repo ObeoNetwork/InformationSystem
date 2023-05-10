@@ -33,6 +33,7 @@ import org.eclipse.jface.viewers.Viewer;
 import org.eclipse.jface.viewers.ViewerFilter;
 import org.eclipse.jface.wizard.WizardPage;
 import org.eclipse.swt.SWT;
+import org.eclipse.swt.custom.StyledText;
 import org.eclipse.swt.events.ModifyEvent;
 import org.eclipse.swt.events.ModifyListener;
 import org.eclipse.swt.events.SelectionAdapter;
@@ -54,6 +55,7 @@ import static org.obeonetwork.dsl.database.spec.DatabaseConstants.DB_POSTGRES_14
 import static org.obeonetwork.dsl.database.spec.DatabaseConstants.DB_SQLSERVER_2008;
 import org.obeonetwork.database.ui.dialogs.FileExtensionsViewerFilter;
 import org.obeonetwork.database.ui.dialogs.SpecificWorkspaceResourceDialog;
+import org.obeonetwork.utils.common.ui.services.WizardHelper;
 
 
 @SuppressWarnings("deprecation")
@@ -76,7 +78,7 @@ public class DatabaseImportWizardPage extends WizardPage {
 	private Text txtUser;
 	private Text txtPassword;
 	private Text txtUrl;
-	private Text txtModelFile;
+	private StyledText txtModelFile;
 	private ListViewer listReferencedModelFiles;
 	
 	public DatabaseImportWizardPage(String pageName, DatabaseInfos databaseInfos) {
@@ -175,10 +177,11 @@ public class DatabaseImportWizardPage extends WizardPage {
 		lblModelFile.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, false, false, 1, 1));
 		lblModelFile.setText("New model file :");
 		
-		txtModelFile = new Text(composite, SWT.BORDER);
+		txtModelFile = new StyledText(composite, SWT.BORDER);
 		txtModelFile.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, true, false, 1, 1));
 		txtModelFile.addModifyListener(new ModifyListener() {
 			public void modifyText(ModifyEvent e) {
+				WizardHelper.addExtensionIfMissing(txtModelFile, "."+DATABASE_FILE_EXTENSION);
 				setPageComplete(checkStatus());
 			}
 		});

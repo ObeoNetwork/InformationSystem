@@ -40,8 +40,11 @@ import org.eclipse.jface.wizard.WizardPage;
 import org.eclipse.sirius.business.api.modelingproject.ModelingProject;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.custom.ScrolledComposite;
+import org.eclipse.swt.custom.StyleRange;
+import org.eclipse.swt.custom.StyledText;
 import org.eclipse.swt.events.ModifyEvent;
 import org.eclipse.swt.events.ModifyListener;
+import org.eclipse.swt.graphics.Color;
 import org.eclipse.swt.layout.FillLayout;
 import org.eclipse.swt.layout.GridData;
 import org.eclipse.swt.layout.GridLayout;
@@ -53,6 +56,7 @@ import org.eclipse.swt.widgets.Text;
 import org.eclipse.wb.swt.ResourceManager;
 import org.obeonetwork.dsl.manifest.MManifest;
 import org.obeonetwork.dsl.manifest.util.ManifestUtils;
+import org.obeonetwork.utils.common.ui.services.WizardHelper;
 
 /**
  * Wizard page to set manifest informations
@@ -69,7 +73,7 @@ public class ExportProjectAsLibraryManifestPage extends WizardPage {
 	private Text txtVersion;
 	private Table table;
 	private Text txtComment;
-	private Text txtMarFileName;
+	private StyledText txtMarFileName;
 	private Table updatedProjectsTable;
 	
 	private TableViewer tableViewer;
@@ -192,9 +196,10 @@ public class ExportProjectAsLibraryManifestPage extends WizardPage {
 		lblMarFileName.setLayoutData(new GridData(SWT.RIGHT, SWT.CENTER, false, false, 1, 1));
 		lblMarFileName.setText("MAR filename");
 		
-		txtMarFileName = new Text(composite, SWT.BORDER);
+		txtMarFileName = new StyledText(composite, SWT.BORDER);
 		txtMarFileName.addModifyListener(new ModifyListener() {
 			public void modifyText(ModifyEvent e) {
+				WizardHelper.addExtensionIfMissing(txtMarFileName, ManifestUtils.MODELING_ARCHIVE_FILE_EXTENSION);
 				setPageComplete(isComplete());
 			}
 		});
