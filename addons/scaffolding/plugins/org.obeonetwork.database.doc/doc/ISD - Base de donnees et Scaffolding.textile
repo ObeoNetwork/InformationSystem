@@ -15,7 +15,7 @@ h2. Base de données
 
 h3. Rétro-ingénierie
 
-Cet outil permet d'initialiser un MPD à partir d'une base de donnée existante. Un assistant est accessible via le menu _File > Import … > Database > Import Database_. Voici un exemple permettant d'extraire les informations d'un schéma Oracle nommé _RF_ :
+Cet outil permet d'initialiser un MPD à partir d'une base de données existante. Un assistant est accessible via le menu _File > Import … > Database > Import Database_. Voici un exemple permettant d'extraire les informations d'un schéma Oracle nommé _RF_ :
 
 !pics/BDD_Retro_01.png!
 
@@ -27,7 +27,7 @@ Le résultat obtenu est le suivant :
 
 h3. Bases de données supportées
 
-Les types de base de données suivants sont supportés :
+Les types de bases de données suivants sont supportés :
 
 |_. Base |_. Version |_. Java |
 | Oracle |11g à 21c | 8 et 11 |
@@ -37,14 +37,14 @@ Les types de base de données suivants sont supportés :
 | PostgreSQL | 9.5 à 14.3 | 8 et plus |
 | SQLServer | 2008 et 2022 | 8, 11, 17 et 18 |
 
-La rétrocompatibilité des drivers permet en théorie d'importer des schema de base de versions antérieures à celles supportées, mais aucune garantie ne peut être donnée en ce sens.
+La rétrocompatibilité des drivers permet en théorie d'importer des schéma de base de versions antérieures à celles supportées, mais aucune garantie ne peut être donnée en ce sens.
 
 h3. Modélisation
 
 h4. Vue d'ensemble
 
 Pour manipuler graphiquement le contenu d'une ressource _.database_, celle-ci doit se trouver dans un _Modeling Project_ ouvert dans la vue _Model Explorer_ d'Obeo Designer.
-Le point de vue _Database_ doit être activé (via la la boite de dialogue _Viewpoints Selection_ disponible en action du menu contextuel sur le _Modeling project_.
+Le point de vue _Database_ doit être activé (via la boite de dialogue _Viewpoints Selection_ disponible en action du menu contextuel sur le _Modeling project_.
 
 La création d'un diagramme _Database Diagram_ est disponible en menu contextuel sur un élément de type Database :
 
@@ -64,11 +64,11 @@ Cet éditeur propose :
 
 h4. Modèle Physique de Données
 
-L'édition de Modèle Physique de Données se fait à l'aide du modeleur présenté ci-dessus. Un MPD est caractérisé par l'utilisation d'une librairie de type spécifique à un moteur de base de données : Oracle, MySQL ou autre. Les librairies utilisées sont consultables par la propriété _Used Libraries_ disponible sur l'élément _Database_  :
+L'édition de Modèle Physique de Données se fait à l'aide du modeleur présenté ci-dessus. Un MPD est caractérisé par l'utilisation d'une librairie de type spécifique à un moteur de base de données : Oracle, MySQL ou autre. Les librairies utilisées sont consultables par la propriété _Used Libraries_ disponible sur l'élément _Database_ :
 
 !pics/BDD_ModelePhysique_01.png!
 
-Les types de données proposées pour les colonnes des modèles physiques de données dépendent de la librairie utilisées.
+Les types de données proposées pour les colonnes des modèles physiques de données dépendent de la librairie utilisée.
 Un type "ENUM" de MariaDB permet donc la définition de littéraux, et un type "VARCHAR" de PostgreSQL propose la définition de la longueur de la variable.
 
 !pics/BDD_Column_Enum.png!
@@ -78,7 +78,7 @@ Un type "ENUM" de MariaDB permet donc la définition de littéraux, et un type "
  
 h4. Modèle Logique de Données
 
-L'édition de Modèle Logique de Données se fait à l'aide du modeleur présenté ci-dessus. Un MLD est caractérisé par l'utilisation d'une librairie de types logiques indépendante de tout moteur de base de données. Les librairies utilisées sont consultables par la propriété _Used Libraries_ disponible sur l'élément _Database_  :
+L'édition de Modèle Logique de Données se fait à l'aide du modeleur présenté ci-dessus. Un MLD est caractérisé par l'utilisation d'une librairie de types logiques indépendante de tout moteur de base de données. Les librairies utilisées sont consultables par la propriété _Used Libraries_ disponible sur l'élément _Database_ :
 
 !pics/BDD_ModeleLogique_01.png!
 
@@ -93,7 +93,7 @@ h3. Comparaison & génération des scripts SQL/Liquibase
 h4. Comparaison et fusion
 
 L'outillage de comparaison permet de comparer deux versions de MPD, soit de deux fichiers stockés localement, soit d'une version locale avec une version stockée dans un référentiel de type subversion. L'outillage est basé sur EMF Compare et fournit une extension permettant d'améliorer la pertinence de la comparaison sur ce type particulier de modèle.
-Pour comparer deux versions de MPD, sélectionner les deux fichiers à comparer et utiliser _Compare With > Each Other_ proposé dans le menu contextuel. Lors d'une comparaison de fichiers locaux (par opposition à la comparaison via l'outillage subversion) EMF Compare considère les fichiers dans un ordre alphabétique. Idéalement, le nommage à adpter doit être tel que la version la plus récente du MPD se trouve en première position tel que dans l'exemple ci-dessous : 
+Pour comparer deux versions de MPD, sélectionner les deux fichiers à comparer et utiliser _Compare With > Each Other_ proposé dans le menu contextuel. Lors d'une comparaison de fichiers locaux (par opposition à la comparaison via l'outillage subversion) EMF Compare considère les fichiers dans un ordre alphabétique. Idéalement, le nommage à adopter doit être tel que la version la plus récente du MPD se trouve en première position tel que dans l'exemple ci-dessous : 
 
 !pics/BDD_SQL_01.png!
 
@@ -101,7 +101,7 @@ L'option de menu _Compare with Each Other_ est également disponible dans la vue
 
 !pics/BDD_Compare_01.png!
 
-En cas de problème lors de la comparaison d'une base de donnée ayant des liens vers des éléments externes stockés dans des fichiers différents, il est recommandé de lire la documentation sur la résolution de modèle logique utilisée par _EMF Compare_:
+En cas de problème lors de la comparaison d'une base de données ayant des liens vers des éléments externes stockés dans des fichiers différents, il est recommandé de lire la documentation sur la résolution de modèle logique utilisée par _EMF Compare_:
 
 * _EMF Compare Documentation/User/User Guide/Features/Logical Model_
 * _EMF Compare Documentation/User/User Guide/Logical Model View_
@@ -181,7 +181,7 @@ Pour un modèle d'entités,  les objets source ou cible doivent être des _Entit
 
 * Le menu contextuel _Safr@n > Scaffolding_ permet de sélectionner le type de transformation à effectuer. Seules les transformations possibles en fonction des objets sélectionnés sont activées :
 !pics/BDD_Transfo_05.png!!
-* La sélection d'une entré de menu déclenche l'ouverture d'un assistant de sélection des ressources nécessaires à la résolution des dépendances externes. En effet, lors par exemple d'une transformation d'un MLD vers un MPD, il est possible que le MLD contienne des tables référençant des tables d'un autre MLD. Dans ce cs, le MPD externe en question doit être référencé afin que les clés étrangères soient résolues correctement :
+* La sélection d'une entré de menu déclenche l'ouverture d'un assistant de sélection des ressources nécessaires à la résolution des dépendances externes. En effet, lors par exemple d'une transformation d'un MLD vers un MPD, il est possible que le MLD contienne des tables référençant des tables d'un autre MLD. Dans ce cas, le MPD externe en question doit être référencé afin que les clés étrangères soient résolues correctement :
 !pics/BDD_Transfo_06.png!
 
 Une fois le traitement exécuté, un message de confirmation s'affiche. Un modèle contenant les informations de scaffolding est créé dans le répertoire @scaffold@. Ce modèle peut être utilisé pour lancer un nouveau traitement de scaffolding sur les mêmes éléments. 

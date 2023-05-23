@@ -26,7 +26,7 @@
 		</ul>
 		<h2 id="Basededonnes">Base de données</h2>
 		<h3 id="Rtroingnierie">Rétro-ingénierie</h3>
-		<p>Cet outil permet d&#8217;initialiser un MPD à partir d&#8217;une base de donnée existante. Un assistant est accessible via le menu 
+		<p>Cet outil permet d&#8217;initialiser un MPD à partir d&#8217;une base de données existante. Un assistant est accessible via le menu 
 			<em>File &gt; Import … &gt; Database &gt; Import Database</em>. Voici un exemple permettant d&#8217;extraire les informations d&#8217;un schéma Oracle nommé 
 			<em>RF</em> :
 		</p>
@@ -41,7 +41,7 @@
 			<img border="0" src="pics/BDD_Retro_02.png"/>
 		</p>
 		<h3 id="Basesdedonnessupportes">Bases de données supportées</h3>
-		<p>Les types de base de données suivants sont supportés :</p>
+		<p>Les types de bases de données suivants sont supportés :</p>
 		<table>
 			<tr>
 				<th>Base</th>
@@ -79,7 +79,7 @@
 				<td>8, 11, 17 et 18</td>
 			</tr>
 		</table>
-		<p>La rétrocompatibilité des drivers permet en théorie d&#8217;importer des schema de base de versions antérieures à celles supportées, mais aucune garantie ne peut être donnée en ce sens.</p>
+		<p>La rétrocompatibilité des drivers permet en théorie d&#8217;importer des schéma de base de versions antérieures à celles supportées, mais aucune garantie ne peut être donnée en ce sens.</p>
 		<h3 id="Modlisation">Modélisation</h3>
 		<h4 id="Vuedensemble2">Vue d&#8217;ensemble</h4>
 		<p>Pour manipuler graphiquement le contenu d&#8217;une ressource 
@@ -87,7 +87,7 @@
 			<em>Modeling Project</em> ouvert dans la vue 
 			<em>Model Explorer</em> d&#8217;Obeo Designer.
 			<br/>Le point de vue 
-			<em>Database</em> doit être activé (via la la boite de dialogue 
+			<em>Database</em> doit être activé (via la boite de dialogue 
 			<em>Viewpoints Selection</em> disponible en action du menu contextuel sur le 
 			<em>Modeling project</em>.
 		</p>
@@ -114,12 +114,12 @@
 		<h4 id="ModlePhysiquedeDonnes">Modèle Physique de Données</h4>
 		<p>L'édition de Modèle Physique de Données se fait à l&#8217;aide du modeleur présenté ci-dessus. Un MPD est caractérisé par l&#8217;utilisation d&#8217;une librairie de type spécifique à un moteur de base de données : Oracle, MySQL ou autre. Les librairies utilisées sont consultables par la propriété 
 			<em>Used Libraries</em> disponible sur l'élément 
-			<em>Database</em>  :
+			<em>Database</em> :
 		</p>
 		<p>
 			<img border="0" src="pics/BDD_ModelePhysique_01.png"/>
 		</p>
-		<p>Les types de données proposées pour les colonnes des modèles physiques de données dépendent de la librairie utilisées.
+		<p>Les types de données proposées pour les colonnes des modèles physiques de données dépendent de la librairie utilisée.
 			<br/>Un type &#171;ENUM&#187; de MariaDB permet donc la définition de littéraux, et un type &#171;VARCHAR&#187; de PostgreSQL propose la définition de la longueur de la variable.
 		</p>
 		<p>
@@ -130,7 +130,7 @@
 		<h4 id="ModleLogiquedeDonnes">Modèle Logique de Données</h4>
 		<p>L'édition de Modèle Logique de Données se fait à l&#8217;aide du modeleur présenté ci-dessus. Un MLD est caractérisé par l&#8217;utilisation d&#8217;une librairie de types logiques indépendante de tout moteur de base de données. Les librairies utilisées sont consultables par la propriété 
 			<em>Used Libraries</em> disponible sur l'élément 
-			<em>Database</em>  :
+			<em>Database</em> :
 		</p>
 		<p>
 			<img border="0" src="pics/BDD_ModeleLogique_01.png"/>
@@ -146,7 +146,7 @@
 		<h4 id="Comparaisonetfusion">Comparaison et fusion</h4>
 		<p>L&#8217;outillage de comparaison permet de comparer deux versions de MPD, soit de deux fichiers stockés localement, soit d&#8217;une version locale avec une version stockée dans un référentiel de type subversion. L&#8217;outillage est basé sur EMF Compare et fournit une extension permettant d&#8217;améliorer la pertinence de la comparaison sur ce type particulier de modèle.
 			<br/>Pour comparer deux versions de MPD, sélectionner les deux fichiers à comparer et utiliser 
-			<em>Compare With &gt; Each Other</em> proposé dans le menu contextuel. Lors d&#8217;une comparaison de fichiers locaux (par opposition à la comparaison via l&#8217;outillage subversion) EMF Compare considère les fichiers dans un ordre alphabétique. Idéalement, le nommage à adpter doit être tel que la version la plus récente du MPD se trouve en première position tel que dans l&#8217;exemple ci-dessous : 
+			<em>Compare With &gt; Each Other</em> proposé dans le menu contextuel. Lors d&#8217;une comparaison de fichiers locaux (par opposition à la comparaison via l&#8217;outillage subversion) EMF Compare considère les fichiers dans un ordre alphabétique. Idéalement, le nommage à adopter doit être tel que la version la plus récente du MPD se trouve en première position tel que dans l&#8217;exemple ci-dessous : 
 		</p>
 		<p>
 			<img border="0" src="pics/BDD_SQL_01.png"/>
@@ -158,7 +158,7 @@
 		<p>
 			<img border="0" src="pics/BDD_Compare_01.png"/>
 		</p>
-		<p>En cas de problème lors de la comparaison d&#8217;une base de donnée ayant des liens vers des éléments externes stockés dans des fichiers différents, il est recommandé de lire la documentation sur la résolution de modèle logique utilisée par 
+		<p>En cas de problème lors de la comparaison d&#8217;une base de données ayant des liens vers des éléments externes stockés dans des fichiers différents, il est recommandé de lire la documentation sur la résolution de modèle logique utilisée par 
 			<em>EMF Compare</em>:
 		</p>
 		<ul>
@@ -292,7 +292,7 @@
 			<img border="0" src="pics/BDD_Transfo_05.png"/>!
 		</p>
 		<ul>
-			<li>La sélection d&#8217;une entré de menu déclenche l&#8217;ouverture d&#8217;un assistant de sélection des ressources nécessaires à la résolution des dépendances externes. En effet, lors par exemple d&#8217;une transformation d&#8217;un MLD vers un MPD, il est possible que le MLD contienne des tables référençant des tables d&#8217;un autre MLD. Dans ce cs, le MPD externe en question doit être référencé afin que les clés étrangères soient résolues correctement :</li>
+			<li>La sélection d&#8217;une entré de menu déclenche l&#8217;ouverture d&#8217;un assistant de sélection des ressources nécessaires à la résolution des dépendances externes. En effet, lors par exemple d&#8217;une transformation d&#8217;un MLD vers un MPD, il est possible que le MLD contienne des tables référençant des tables d&#8217;un autre MLD. Dans ce cas, le MPD externe en question doit être référencé afin que les clés étrangères soient résolues correctement :</li>
 		</ul>
 		<p>
 			<img border="0" src="pics/BDD_Transfo_06.png"/>
