@@ -47,7 +47,7 @@
         <description xmi:type="description_1:DiagramDescription" href="platform:/plugin/org.obeonetwork.dsl.cinematic.design/description/cinematic.odesign#//@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='View%20Container%20Mockup']"/>
         <target xmi:type="cinematic-view:ViewContainer" href="E-BookStore.cinematic#_mcNiwIjmEeGOp5IdJE0AIw"/>
       </ownedRepresentationDescriptors>
-      <ownedRepresentationDescriptors xmi:type="viewpoint:DRepresentationDescriptor" uid="_U9CaoL47EeuEY4x5nvvi9w" name="Checkout Flow Diagram" repPath="#_U8XsQL47EeuEY4x5nvvi9w" changeId="17320874-4a2e-42ad-bb2e-0a758db2d49e">
+      <ownedRepresentationDescriptors xmi:type="viewpoint:DRepresentationDescriptor" uid="_U9CaoL47EeuEY4x5nvvi9w" name="Checkout Flow Diagram" repPath="#_U8XsQL47EeuEY4x5nvvi9w" changeId="c64f39eb-9220-4625-a619-f561e1ee1276">
         <description xmi:type="description_1:DiagramDescription" href="platform:/plugin/org.obeonetwork.dsl.cinematic.design/description/cinematic.odesign#//@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='Flow%20Diagram']"/>
         <target xmi:type="cinematic-flow:Flow" href="E-BookStore.cinematic#_yYt1MIjfEeGIXsoZxTXHQA"/>
       </ownedRepresentationDescriptors>
@@ -11687,7 +11687,7 @@
       <arrangeConstraints>KEEP_LOCATION</arrangeConstraints>
       <arrangeConstraints>KEEP_SIZE</arrangeConstraints>
       <arrangeConstraints>KEEP_RATIO</arrangeConstraints>
-      <ownedStyle xmi:type="diagram:WorkspaceImage" uid="_U9Dowb47EeuEY4x5nvvi9w" labelSize="10" showIcon="false" labelColor="0,43,60" workspacePath="/org.obeonetwork.dsl.cinematic.design/icons/viewpoint/initial_state.png">
+      <ownedStyle xmi:type="diagram:WorkspaceImage" uid="_U9Dowb47EeuEY4x5nvvi9w" labelSize="10" showIcon="false" labelColor="0,43,60" workspacePath="/org.obeonetwork.dsl.cinematic.design/icons/viewpoint/initial_state.svg">
         <labelFormat>bold</labelFormat>
         <description xmi:type="style:WorkspaceImageDescription" href="platform:/plugin/org.obeonetwork.dsl.cinematic.design/description/cinematic.odesign#//@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='Flow%20Diagram']/@defaultLayer/@nodeMappings[name='FLD_InitialState']/@style"/>
       </ownedStyle>
@@ -11699,7 +11699,7 @@
       <arrangeConstraints>KEEP_LOCATION</arrangeConstraints>
       <arrangeConstraints>KEEP_SIZE</arrangeConstraints>
       <arrangeConstraints>KEEP_RATIO</arrangeConstraints>
-      <ownedStyle xmi:type="diagram:WorkspaceImage" uid="_U9E24r47EeuEY4x5nvvi9w" labelSize="10" showIcon="false" labelColor="0,43,60" workspacePath="/org.obeonetwork.dsl.cinematic.design/icons/viewpoint/final_state.png">
+      <ownedStyle xmi:type="diagram:WorkspaceImage" uid="_U9E24r47EeuEY4x5nvvi9w" labelSize="10" showIcon="false" labelColor="0,43,60" workspacePath="/org.obeonetwork.dsl.cinematic.design/icons/viewpoint/final_state.svg">
         <labelFormat>bold</labelFormat>
         <description xmi:type="style:WorkspaceImageDescription" href="platform:/plugin/org.obeonetwork.dsl.cinematic.design/description/cinematic.odesign#//@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='Flow%20Diagram']/@defaultLayer/@nodeMappings[name='FLD_FinalState']/@style"/>
       </ownedStyle>
@@ -11711,7 +11711,7 @@
       <arrangeConstraints>KEEP_LOCATION</arrangeConstraints>
       <arrangeConstraints>KEEP_SIZE</arrangeConstraints>
       <arrangeConstraints>KEEP_RATIO</arrangeConstraints>
-      <ownedStyle xmi:type="diagram:WorkspaceImage" uid="_U9E25b47EeuEY4x5nvvi9w" labelSize="10" showIcon="false" labelColor="0,43,60" workspacePath="/org.obeonetwork.dsl.cinematic.design/icons/viewpoint/final_state.png">
+      <ownedStyle xmi:type="diagram:WorkspaceImage" uid="_U9E25b47EeuEY4x5nvvi9w" labelSize="10" showIcon="false" labelColor="0,43,60" workspacePath="/org.obeonetwork.dsl.cinematic.design/icons/viewpoint/final_state.svg">
         <labelFormat>bold</labelFormat>
         <description xmi:type="style:WorkspaceImageDescription" href="platform:/plugin/org.obeonetwork.dsl.cinematic.design/description/cinematic.odesign#//@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='Flow%20Diagram']/@defaultLayer/@nodeMappings[name='FLD_FinalState']/@style"/>
       </ownedStyle>
@@ -11937,7 +11937,7 @@
     </ownedDiagramElements>
     <ownedDiagramElements xmi:type="diagram:DEdge" uid="_U9MysL47EeuEY4x5nvvi9w" sourceNode="_U9Fd8L47EeuEY4x5nvvi9w" targetNode="_U9JIU747EeuEY4x5nvvi9w">
       <target xmi:type="cinematic-flow:ViewState" href="E-BookStore.cinematic#_qNvJEIjlEeGOp5IdJE0AIw"/>
-      <ownedStyle xmi:type="diagram:EdgeStyle" uid="_U9NZwL47EeuEY4x5nvvi9w" lineStyle="dash" size="0" routingStyle="manhattan" strokeColor="0,43,60">
+      <ownedStyle xmi:type="diagram:EdgeStyle" uid="_U9NZwL47EeuEY4x5nvvi9w" lineStyle="dot" targetArrow="NoDecoration" size="0" routingStyle="manhattan" strokeColor="0,43,60">
         <customFeatures>routingStyle</customFeatures>
         <description xmi:type="style:EdgeStyleDescription" href="platform:/plugin/org.obeonetwork.dsl.cinematic.design/description/cinematic.odesign#//@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='Flow%20Diagram']/@additionalLayers[name='View%20Containers']/@edgeMappings[name='FLD_ViewState_To_ViewContainer']/@style"/>
         <centerLabelStyle xmi:type="diagram:CenterLabelStyle" uid="_U9NZwb47EeuEY4x5nvvi9w" showIcon="false" labelColor="0,43,60"/>
@@ -11946,7 +11946,7 @@
     </ownedDiagramElements>
     <ownedDiagramElements xmi:type="diagram:DEdge" uid="_U9xacL47EeuEY4x5nvvi9w" sourceNode="_U9Fd8747EeuEY4x5nvvi9w" targetNode="_U9JvYL47EeuEY4x5nvvi9w">
       <target xmi:type="cinematic-flow:ViewState" href="E-BookStore.cinematic#_yW_vMIjlEeGOp5IdJE0AIw"/>
-      <ownedStyle xmi:type="diagram:EdgeStyle" uid="_U9xacb47EeuEY4x5nvvi9w" lineStyle="dash" size="0" routingStyle="manhattan" strokeColor="0,43,60">
+      <ownedStyle xmi:type="diagram:EdgeStyle" uid="_U9xacb47EeuEY4x5nvvi9w" lineStyle="dot" targetArrow="NoDecoration" size="0" routingStyle="manhattan" strokeColor="0,43,60">
         <customFeatures>routingStyle</customFeatures>
         <description xmi:type="style:EdgeStyleDescription" href="platform:/plugin/org.obeonetwork.dsl.cinematic.design/description/cinematic.odesign#//@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='Flow%20Diagram']/@additionalLayers[name='View%20Containers']/@edgeMappings[name='FLD_ViewState_To_ViewContainer']/@style"/>
         <centerLabelStyle xmi:type="diagram:CenterLabelStyle" uid="_U9xacr47EeuEY4x5nvvi9w" showIcon="false" labelColor="0,43,60"/>
@@ -11989,22 +11989,22 @@
     <ownedDiagramElements xmi:type="diagram:DEdge" uid="_U91E1r47EeuEY4x5nvvi9w" sourceNode="_U9GFAL47EeuEY4x5nvvi9w" targetNode="_U9GsEr47EeuEY4x5nvvi9w">
       <target xmi:type="cinematic-flow:Transition" href="E-BookStore.cinematic#_y5aDQIjmEeGOp5IdJE0AIw"/>
       <semanticElements xmi:type="cinematic-flow:Transition" href="E-BookStore.cinematic#_y5aDQIjmEeGOp5IdJE0AIw"/>
-      <ownedStyle xmi:type="diagram:EdgeStyle" uid="_U91E1747EeuEY4x5nvvi9w" lineStyle="dash" routingStyle="manhattan" strokeColor="0,43,60">
+      <ownedStyle xmi:type="diagram:EdgeStyle" uid="_hkfLoPo7Ee2H_P_2XWl0dw" lineStyle="dash" routingStyle="manhattan" strokeColor="0,43,60">
         <customFeatures>routingStyle</customFeatures>
-        <description xmi:type="style:EdgeStyleDescription" href="platform:/plugin/org.obeonetwork.dsl.cinematic.design/description/cinematic.odesign#//@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='Flow%20Diagram']/@defaultLayer/@edgeMappings[name='FLD_Transition']/@conditionnalStyles.1/@style"/>
-        <beginLabelStyle xmi:type="diagram:BeginLabelStyle" uid="_U91E2L47EeuEY4x5nvvi9w" showIcon="false" labelColor="0,43,60"/>
-        <centerLabelStyle xmi:type="diagram:CenterLabelStyle" uid="_U91E2b47EeuEY4x5nvvi9w" iconPath="/org.obeonetwork.dsl.cinematic.design/icons/viewpoint/event.gif" labelColor="0,43,60"/>
+        <description xmi:type="style:EdgeStyleDescription" href="platform:/plugin/org.obeonetwork.dsl.cinematic.design/description/cinematic.odesign#//@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='Flow%20Diagram']/@defaultLayer/@edgeMappings[name='FLD_Transition']/@style"/>
+        <beginLabelStyle xmi:type="diagram:BeginLabelStyle" uid="_hkfLofo7Ee2H_P_2XWl0dw" showIcon="false" labelColor="0,43,60"/>
+        <centerLabelStyle xmi:type="diagram:CenterLabelStyle" uid="_hkfLovo7Ee2H_P_2XWl0dw" iconPath="/org.obeonetwork.dsl.cinematic.design/icons/viewpoint/event.gif" labelColor="0,43,60"/>
       </ownedStyle>
       <actualMapping xmi:type="description_1:EdgeMapping" href="platform:/plugin/org.obeonetwork.dsl.cinematic.design/description/cinematic.odesign#//@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='Flow%20Diagram']/@defaultLayer/@edgeMappings[name='FLD_Transition']"/>
     </ownedDiagramElements>
     <ownedDiagramElements xmi:type="diagram:DEdge" uid="_U91r4L47EeuEY4x5nvvi9w" name="login" sourceNode="_U9Fd8L47EeuEY4x5nvvi9w" targetNode="_U9GFAL47EeuEY4x5nvvi9w">
       <target xmi:type="cinematic-flow:Transition" href="E-BookStore.cinematic#_z9Pe0IjmEeGOp5IdJE0AIw"/>
       <semanticElements xmi:type="cinematic-flow:Transition" href="E-BookStore.cinematic#_z9Pe0IjmEeGOp5IdJE0AIw"/>
-      <ownedStyle xmi:type="diagram:EdgeStyle" uid="_U91r4b47EeuEY4x5nvvi9w" lineStyle="dash" routingStyle="manhattan" strokeColor="0,43,60">
+      <ownedStyle xmi:type="diagram:EdgeStyle" uid="_hki2APo7Ee2H_P_2XWl0dw" lineStyle="dash" routingStyle="manhattan" strokeColor="0,43,60">
         <customFeatures>routingStyle</customFeatures>
-        <description xmi:type="style:EdgeStyleDescription" href="platform:/plugin/org.obeonetwork.dsl.cinematic.design/description/cinematic.odesign#//@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='Flow%20Diagram']/@defaultLayer/@edgeMappings[name='FLD_Transition']/@conditionnalStyles.1/@style"/>
-        <beginLabelStyle xmi:type="diagram:BeginLabelStyle" uid="_U91r4r47EeuEY4x5nvvi9w" showIcon="false" labelColor="0,43,60"/>
-        <centerLabelStyle xmi:type="diagram:CenterLabelStyle" uid="_U91r4747EeuEY4x5nvvi9w" iconPath="/org.obeonetwork.dsl.cinematic.design/icons/viewpoint/event.gif" labelColor="0,43,60"/>
+        <description xmi:type="style:EdgeStyleDescription" href="platform:/plugin/org.obeonetwork.dsl.cinematic.design/description/cinematic.odesign#//@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='Flow%20Diagram']/@defaultLayer/@edgeMappings[name='FLD_Transition']/@style"/>
+        <beginLabelStyle xmi:type="diagram:BeginLabelStyle" uid="_hki2Afo7Ee2H_P_2XWl0dw" showIcon="false" labelColor="0,43,60"/>
+        <centerLabelStyle xmi:type="diagram:CenterLabelStyle" uid="_hki2Avo7Ee2H_P_2XWl0dw" iconPath="/org.obeonetwork.dsl.cinematic.design/icons/viewpoint/event.gif" labelColor="0,43,60"/>
       </ownedStyle>
       <actualMapping xmi:type="description_1:EdgeMapping" href="platform:/plugin/org.obeonetwork.dsl.cinematic.design/description/cinematic.odesign#//@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='Flow%20Diagram']/@defaultLayer/@edgeMappings[name='FLD_Transition']"/>
     </ownedDiagramElements>
@@ -12022,22 +12022,22 @@
     <ownedDiagramElements xmi:type="diagram:DEdge" uid="_U92S8L47EeuEY4x5nvvi9w" name="forgotPassword" sourceNode="_U9Fd8L47EeuEY4x5nvvi9w" targetNode="_U9GFA747EeuEY4x5nvvi9w">
       <target xmi:type="cinematic-flow:Transition" href="E-BookStore.cinematic#_nq1AEIjoEeGJh95Ab8olLw"/>
       <semanticElements xmi:type="cinematic-flow:Transition" href="E-BookStore.cinematic#_nq1AEIjoEeGJh95Ab8olLw"/>
-      <ownedStyle xmi:type="diagram:EdgeStyle" uid="_U92S8b47EeuEY4x5nvvi9w" lineStyle="dash" routingStyle="manhattan" strokeColor="0,43,60">
+      <ownedStyle xmi:type="diagram:EdgeStyle" uid="_hkl5UPo7Ee2H_P_2XWl0dw" lineStyle="dash" routingStyle="manhattan" strokeColor="0,43,60">
         <customFeatures>routingStyle</customFeatures>
-        <description xmi:type="style:EdgeStyleDescription" href="platform:/plugin/org.obeonetwork.dsl.cinematic.design/description/cinematic.odesign#//@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='Flow%20Diagram']/@defaultLayer/@edgeMappings[name='FLD_Transition']/@conditionnalStyles.1/@style"/>
-        <beginLabelStyle xmi:type="diagram:BeginLabelStyle" uid="_U92S8r47EeuEY4x5nvvi9w" showIcon="false" labelColor="0,43,60"/>
-        <centerLabelStyle xmi:type="diagram:CenterLabelStyle" uid="_U92S8747EeuEY4x5nvvi9w" iconPath="/org.obeonetwork.dsl.cinematic.design/icons/viewpoint/event.gif" labelColor="0,43,60"/>
+        <description xmi:type="style:EdgeStyleDescription" href="platform:/plugin/org.obeonetwork.dsl.cinematic.design/description/cinematic.odesign#//@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='Flow%20Diagram']/@defaultLayer/@edgeMappings[name='FLD_Transition']/@style"/>
+        <beginLabelStyle xmi:type="diagram:BeginLabelStyle" uid="_hkl5Ufo7Ee2H_P_2XWl0dw" showIcon="false" labelColor="0,43,60"/>
+        <centerLabelStyle xmi:type="diagram:CenterLabelStyle" uid="_hkl5Uvo7Ee2H_P_2XWl0dw" iconPath="/org.obeonetwork.dsl.cinematic.design/icons/viewpoint/event.gif" labelColor="0,43,60"/>
       </ownedStyle>
       <actualMapping xmi:type="description_1:EdgeMapping" href="platform:/plugin/org.obeonetwork.dsl.cinematic.design/description/cinematic.odesign#//@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='Flow%20Diagram']/@defaultLayer/@edgeMappings[name='FLD_Transition']"/>
     </ownedDiagramElements>
     <ownedDiagramElements xmi:type="diagram:DEdge" uid="_U92S9747EeuEY4x5nvvi9w" sourceNode="_U9GFA747EeuEY4x5nvvi9w" targetNode="_U9Fd8L47EeuEY4x5nvvi9w">
       <target xmi:type="cinematic-flow:Transition" href="E-BookStore.cinematic#_pMmU0IjoEeGJh95Ab8olLw"/>
       <semanticElements xmi:type="cinematic-flow:Transition" href="E-BookStore.cinematic#_pMmU0IjoEeGJh95Ab8olLw"/>
-      <ownedStyle xmi:type="diagram:EdgeStyle" uid="_U92S-L47EeuEY4x5nvvi9w" lineStyle="dash" routingStyle="manhattan" strokeColor="0,43,60">
+      <ownedStyle xmi:type="diagram:EdgeStyle" uid="_hkoVkPo7Ee2H_P_2XWl0dw" lineStyle="dash" routingStyle="manhattan" strokeColor="0,43,60">
         <customFeatures>routingStyle</customFeatures>
-        <description xmi:type="style:EdgeStyleDescription" href="platform:/plugin/org.obeonetwork.dsl.cinematic.design/description/cinematic.odesign#//@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='Flow%20Diagram']/@defaultLayer/@edgeMappings[name='FLD_Transition']/@conditionnalStyles.1/@style"/>
-        <beginLabelStyle xmi:type="diagram:BeginLabelStyle" uid="_U92S-b47EeuEY4x5nvvi9w" showIcon="false" labelColor="0,43,60"/>
-        <centerLabelStyle xmi:type="diagram:CenterLabelStyle" uid="_U92S-r47EeuEY4x5nvvi9w" iconPath="/org.obeonetwork.dsl.cinematic.design/icons/viewpoint/event.gif" labelColor="0,43,60"/>
+        <description xmi:type="style:EdgeStyleDescription" href="platform:/plugin/org.obeonetwork.dsl.cinematic.design/description/cinematic.odesign#//@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='Flow%20Diagram']/@defaultLayer/@edgeMappings[name='FLD_Transition']/@style"/>
+        <beginLabelStyle xmi:type="diagram:BeginLabelStyle" uid="_hkoVkfo7Ee2H_P_2XWl0dw" showIcon="false" labelColor="0,43,60"/>
+        <centerLabelStyle xmi:type="diagram:CenterLabelStyle" uid="_hkoVkvo7Ee2H_P_2XWl0dw" iconPath="/org.obeonetwork.dsl.cinematic.design/icons/viewpoint/event.gif" labelColor="0,43,60"/>
       </ownedStyle>
       <actualMapping xmi:type="description_1:EdgeMapping" href="platform:/plugin/org.obeonetwork.dsl.cinematic.design/description/cinematic.odesign#//@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='Flow%20Diagram']/@defaultLayer/@edgeMappings[name='FLD_Transition']"/>
     </ownedDiagramElements>
