@@ -11,6 +11,7 @@
 package org.obeonetwork.dsl.database;
 
 import org.eclipse.emf.cdo.CDOObject;
+import org.obeonetwork.dsl.environment.ObeoDSMObject;
 
 /**
  * <!-- begin-user-doc -->
@@ -28,10 +29,9 @@ import org.eclipse.emf.cdo.CDOObject;
  *
  * @see org.obeonetwork.dsl.database.DatabasePackage#getDatabaseElement()
  * @model abstract="true"
- * @extends CDOObject
  * @generated
  */
-public interface DatabaseElement extends CDOObject {
+public interface DatabaseElement extends ObeoDSMObject {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -52,7 +52,7 @@ public interface DatabaseElement extends CDOObject {
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>ID</em>' attribute.
 	 * @see org.obeonetwork.dsl.database.DatabasePackage#getDatabaseElement_ID()
-	 * @model id="true" transient="true" changeable="false" volatile="true" derived="true"
+	 * @model transient="true" changeable="false" volatile="true" derived="true"
 	 * @generated
 	 */
 	String getID();
@@ -95,12 +95,12 @@ public interface DatabaseElement extends CDOObject {
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * The technical identifier.
+	 * Deprecated. Use ObeoDSMObject::technicalid instead.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Tech ID</em>' attribute.
 	 * @see #setTechID(String)
 	 * @see org.obeonetwork.dsl.database.DatabasePackage#getDatabaseElement_TechID()
-	 * @model
+	 * @model volatile="true" derived="true"
 	 * @generated
 	 */
 	String getTechID();

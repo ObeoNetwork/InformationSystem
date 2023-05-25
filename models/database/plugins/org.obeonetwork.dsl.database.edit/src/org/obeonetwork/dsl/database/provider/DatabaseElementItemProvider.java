@@ -25,17 +25,13 @@ import org.eclipse.emf.edit.command.CopyCommand.Helper;
 import org.eclipse.emf.edit.command.InitializeCopyCommand;
 import org.eclipse.emf.edit.domain.EditingDomain;
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
-import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
-import org.eclipse.emf.edit.provider.IItemLabelProvider;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
-import org.eclipse.emf.edit.provider.IItemPropertySource;
-import org.eclipse.emf.edit.provider.IStructuredItemContentProvider;
-import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
 import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
-import org.eclipse.emf.edit.provider.ItemProviderAdapter;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 import org.obeonetwork.dsl.database.DatabaseElement;
 import org.obeonetwork.dsl.database.DatabasePackage;
+import org.obeonetwork.dsl.environment.provider.ObeoDSMObjectItemProvider;
+import org.obeonetwork.dsl.technicalid.TechnicalIDPackage;
 
 /**
  * This is the item provider adapter for a {@link org.obeonetwork.dsl.database.DatabaseElement} object.
@@ -44,13 +40,7 @@ import org.obeonetwork.dsl.database.DatabasePackage;
  * @generated
  */
 public class DatabaseElementItemProvider
-	extends ItemProviderAdapter
-	implements
-		IEditingDomainItemProvider,
-		IStructuredItemContentProvider,
-		ITreeItemContentProvider,
-		IItemLabelProvider,
-		IItemPropertySource {
+	extends ObeoDSMObjectItemProvider {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -82,7 +72,7 @@ public class DatabaseElementItemProvider
 				Collection<? extends EAttribute> allAttributes = super.getAttributesToCopy();
 				Collection<EAttribute> attributesToCopy = new ArrayList<EAttribute>();
 				for (EAttribute eAttribute : allAttributes) {
-					if (! DatabasePackage.Literals.DATABASE_ELEMENT__TECH_ID.equals(eAttribute)) {
+					if (! DatabasePackage.Literals.DATABASE_ELEMENT__TECH_ID.equals(eAttribute) && ! TechnicalIDPackage.Literals.IDENTIFIABLE__TECHNICALID.equals(eAttribute)) {
 						attributesToCopy.add(eAttribute);
 					}
 				}

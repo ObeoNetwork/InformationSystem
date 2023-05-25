@@ -4,7 +4,7 @@
     modelDirectory="/org.obeonetwork.dsl.database/src" creationIcons="false" modelPluginID="org.obeonetwork.dsl.database"
     modelName="Database" rootExtendsInterface="org.eclipse.emf.cdo.CDOObject" rootExtendsClass="org.eclipse.emf.internal.cdo.CDOObjectImpl"
     importerID="org.eclipse.emf.importer.cdo" featureDelegation="Dynamic" complianceLevel="5.0"
-    suppressGenModelAnnotations="false" runtimeVersion="2.6" usedGenPackages="../../org.obeonetwork.dsl.typeslibrary/model/typeslibrary.genmodel#//typeslibrary ../../org.obeonetwork.dsl.technicalid/model/technicalid.genmodel#//technicalid">
+    suppressGenModelAnnotations="false" runtimeVersion="2.6" usedGenPackages="../../org.obeonetwork.dsl.environment/model/environment.genmodel#//environment ../../org.obeonetwork.dsl.technicalid/model/technicalid.genmodel#//technicalid ../../org.obeonetwork.dsl.typeslibrary/model/typeslibrary.genmodel#//typeslibrary">
   <foreignModel>database.ecore</foreignModel>
   <modelPluginVariables>CDO=org.eclipse.emf.cdo</modelPluginVariables>
   <genPackages prefix="Database" basePackage="org.obeonetwork.dsl" disposableProviderFactory="true"

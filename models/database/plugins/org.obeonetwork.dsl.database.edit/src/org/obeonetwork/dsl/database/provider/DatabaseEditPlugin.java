@@ -12,6 +12,7 @@ package org.obeonetwork.dsl.database.provider;
 
 import org.eclipse.emf.common.EMFPlugin;
 import org.eclipse.emf.common.util.ResourceLocator;
+import org.obeonetwork.dsl.environment.provider.EnvironmentEditPlugin;
 import org.obeonetwork.dsl.technicalid.provider.TechnicalIDEditPlugin;
 import org.obeonetwork.dsl.typeslibrary.provider.TypesLibraryEditPlugin;
 
@@ -54,8 +55,9 @@ public final class DatabaseEditPlugin extends EMFPlugin {
 	public DatabaseEditPlugin() {
 		super
 		  (new ResourceLocator [] {
-		     TypesLibraryEditPlugin.INSTANCE,
+		     EnvironmentEditPlugin.INSTANCE,
 		     TechnicalIDEditPlugin.INSTANCE,
+		     TypesLibraryEditPlugin.INSTANCE,
 		   });
 	}
 

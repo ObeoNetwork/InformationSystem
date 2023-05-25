@@ -13,9 +13,9 @@ package org.obeonetwork.dsl.database.impl;
 
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.impl.BasicEObjectImpl;
-import org.eclipse.emf.internal.cdo.CDOObjectImpl;
 import org.obeonetwork.dsl.database.DatabaseElement;
 import org.obeonetwork.dsl.database.DatabasePackage;
+import org.obeonetwork.dsl.environment.impl.ObeoDSMObjectImpl;
 
 /**
  * <!-- begin-user-doc -->
@@ -32,7 +32,7 @@ import org.obeonetwork.dsl.database.DatabasePackage;
  *
  * @generated
  */
-public abstract class DatabaseElementImpl extends CDOObjectImpl implements DatabaseElement {
+public abstract class DatabaseElementImpl extends ObeoDSMObjectImpl implements DatabaseElement {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -91,16 +91,6 @@ public abstract class DatabaseElementImpl extends CDOObjectImpl implements Datab
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	protected int eStaticFeatureCount() {
-		return 0;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
 	 * @generated NOT
 	 */
 	public String getID() {
@@ -142,19 +132,23 @@ public abstract class DatabaseElementImpl extends CDOObjectImpl implements Datab
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
+	 * @deprecated
 	 */
+	@Deprecated
 	public String getTechID() {
-		return (String)eDynamicGet(DatabasePackage.DATABASE_ELEMENT__TECH_ID, DatabasePackage.Literals.DATABASE_ELEMENT__TECH_ID, true, true);
+		return getTechnicalid();
 	}
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
+	 * @deprecated
 	 */
+	@Deprecated
 	public void setTechID(String newTechID) {
-		eDynamicSet(DatabasePackage.DATABASE_ELEMENT__TECH_ID, DatabasePackage.Literals.DATABASE_ELEMENT__TECH_ID, newTechID);
+		setTechnicalid(newTechID);
 	}
 
 	/**

@@ -16,6 +16,8 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
 
 import org.obeonetwork.dsl.database.*;
+import org.obeonetwork.dsl.environment.ObeoDSMObject;
+import org.obeonetwork.dsl.technicalid.Identifiable;
 import org.obeonetwork.dsl.typeslibrary.TypesLibraryUser;
 
 /**
@@ -103,6 +105,8 @@ public class DatabaseSwitch<T> {
 				NamedElement namedElement = (NamedElement)theEObject;
 				T result = caseNamedElement(namedElement);
 				if (result == null) result = caseDatabaseElement(namedElement);
+				if (result == null) result = caseObeoDSMObject(namedElement);
+				if (result == null) result = caseIdentifiable(namedElement);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -113,6 +117,8 @@ public class DatabaseSwitch<T> {
 				if (result == null) result = caseTypesLibraryUser(dataBase);
 				if (result == null) result = caseNamedElement(dataBase);
 				if (result == null) result = caseDatabaseElement(dataBase);
+				if (result == null) result = caseObeoDSMObject(dataBase);
+				if (result == null) result = caseIdentifiable(dataBase);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -121,6 +127,8 @@ public class DatabaseSwitch<T> {
 				T result = caseAbstractTable(abstractTable);
 				if (result == null) result = caseNamedElement(abstractTable);
 				if (result == null) result = caseDatabaseElement(abstractTable);
+				if (result == null) result = caseObeoDSMObject(abstractTable);
+				if (result == null) result = caseIdentifiable(abstractTable);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -129,6 +137,8 @@ public class DatabaseSwitch<T> {
 				T result = caseColumn(column);
 				if (result == null) result = caseNamedElement(column);
 				if (result == null) result = caseDatabaseElement(column);
+				if (result == null) result = caseObeoDSMObject(column);
+				if (result == null) result = caseIdentifiable(column);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -137,6 +147,8 @@ public class DatabaseSwitch<T> {
 				T result = caseIndex(index);
 				if (result == null) result = caseNamedElement(index);
 				if (result == null) result = caseDatabaseElement(index);
+				if (result == null) result = caseObeoDSMObject(index);
+				if (result == null) result = caseIdentifiable(index);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -146,6 +158,8 @@ public class DatabaseSwitch<T> {
 				if (result == null) result = caseAbstractTable(view);
 				if (result == null) result = caseNamedElement(view);
 				if (result == null) result = caseDatabaseElement(view);
+				if (result == null) result = caseObeoDSMObject(view);
+				if (result == null) result = caseIdentifiable(view);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -155,6 +169,8 @@ public class DatabaseSwitch<T> {
 				if (result == null) result = caseAbstractTable(table);
 				if (result == null) result = caseNamedElement(table);
 				if (result == null) result = caseDatabaseElement(table);
+				if (result == null) result = caseObeoDSMObject(table);
+				if (result == null) result = caseIdentifiable(table);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -163,6 +179,8 @@ public class DatabaseSwitch<T> {
 				T result = casePrimaryKey(primaryKey);
 				if (result == null) result = caseNamedElement(primaryKey);
 				if (result == null) result = caseDatabaseElement(primaryKey);
+				if (result == null) result = caseObeoDSMObject(primaryKey);
+				if (result == null) result = caseIdentifiable(primaryKey);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -171,6 +189,8 @@ public class DatabaseSwitch<T> {
 				T result = caseForeignKey(foreignKey);
 				if (result == null) result = caseNamedElement(foreignKey);
 				if (result == null) result = caseDatabaseElement(foreignKey);
+				if (result == null) result = caseObeoDSMObject(foreignKey);
+				if (result == null) result = caseIdentifiable(foreignKey);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -178,6 +198,8 @@ public class DatabaseSwitch<T> {
 				ForeignKeyElement foreignKeyElement = (ForeignKeyElement)theEObject;
 				T result = caseForeignKeyElement(foreignKeyElement);
 				if (result == null) result = caseDatabaseElement(foreignKeyElement);
+				if (result == null) result = caseObeoDSMObject(foreignKeyElement);
+				if (result == null) result = caseIdentifiable(foreignKeyElement);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -185,6 +207,8 @@ public class DatabaseSwitch<T> {
 				IndexElement indexElement = (IndexElement)theEObject;
 				T result = caseIndexElement(indexElement);
 				if (result == null) result = caseDatabaseElement(indexElement);
+				if (result == null) result = caseObeoDSMObject(indexElement);
+				if (result == null) result = caseIdentifiable(indexElement);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -193,12 +217,16 @@ public class DatabaseSwitch<T> {
 				T result = caseConstraint(constraint);
 				if (result == null) result = caseNamedElement(constraint);
 				if (result == null) result = caseDatabaseElement(constraint);
+				if (result == null) result = caseObeoDSMObject(constraint);
+				if (result == null) result = caseIdentifiable(constraint);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
 			case DatabasePackage.DATABASE_ELEMENT: {
 				DatabaseElement databaseElement = (DatabaseElement)theEObject;
 				T result = caseDatabaseElement(databaseElement);
+				if (result == null) result = caseObeoDSMObject(databaseElement);
+				if (result == null) result = caseIdentifiable(databaseElement);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -208,6 +236,8 @@ public class DatabaseSwitch<T> {
 				if (result == null) result = caseTableContainer(schema);
 				if (result == null) result = caseNamedElement(schema);
 				if (result == null) result = caseDatabaseElement(schema);
+				if (result == null) result = caseObeoDSMObject(schema);
+				if (result == null) result = caseIdentifiable(schema);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -216,6 +246,8 @@ public class DatabaseSwitch<T> {
 				T result = caseSequence(sequence);
 				if (result == null) result = caseNamedElement(sequence);
 				if (result == null) result = caseDatabaseElement(sequence);
+				if (result == null) result = caseObeoDSMObject(sequence);
+				if (result == null) result = caseIdentifiable(sequence);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -224,6 +256,8 @@ public class DatabaseSwitch<T> {
 				T result = caseTableContainer(tableContainer);
 				if (result == null) result = caseNamedElement(tableContainer);
 				if (result == null) result = caseDatabaseElement(tableContainer);
+				if (result == null) result = caseObeoDSMObject(tableContainer);
+				if (result == null) result = caseIdentifiable(tableContainer);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -533,6 +567,36 @@ public class DatabaseSwitch<T> {
 	 * @generated
 	 */
 	public T caseViewTable(ViewTable object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Identifiable</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Identifiable</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseIdentifiable(Identifiable object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Obeo DSM Object</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Obeo DSM Object</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseObeoDSMObject(ObeoDSMObject object) {
 		return null;
 	}
 
