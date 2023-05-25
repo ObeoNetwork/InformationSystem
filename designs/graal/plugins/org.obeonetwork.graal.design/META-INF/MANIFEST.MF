@@ -1,7 +1,7 @@
 Manifest-Version: 1.0
 Bundle-Name: Graal Viewpoint
 Bundle-SymbolicName: org.obeonetwork.graal.design;singleton:=true
-Bundle-Version: 4.0.0.qualifier
+Bundle-Version: 4.1.0.qualifier
 Bundle-Activator: org.obeonetwork.graal.design.Activator
 Require-Bundle: org.eclipse.ui,
  org.eclipse.core.runtime,

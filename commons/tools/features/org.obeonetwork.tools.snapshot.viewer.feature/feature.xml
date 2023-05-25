@@ -12,10 +12,10 @@
 <feature
       id="org.obeonetwork.tools.snapshot.viewer.feature"
       label="Obeo Network - CDO XML snapshot viewer"
-      version="4.0.0.qualifier"
+      version="4.1.0.qualifier"
       provider-name="%providerName"
       license-feature="org.obeonetwork.is.license"
-      license-feature-version="4.0.0.qualifier">
+      license-feature-version="4.1.0.qualifier">
 
    <description url="https://www.obeo.fr">
       CDO XML snapshot viewer

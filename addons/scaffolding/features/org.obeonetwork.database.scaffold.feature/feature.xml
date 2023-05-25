@@ -13,10 +13,10 @@
 <feature
       id="org.obeonetwork.database.scaffold.feature"
       label="Obeo Network - Scaffold Model"
-      version="4.0.0.qualifier"
+      version="4.1.0.qualifier"
       provider-name="%providerName"
       license-feature="org.obeonetwork.is.license"
-      license-feature-version="4.0.0.qualifier">
+      license-feature-version="4.1.0.qualifier">
 
    <description url="https://www.obeo.fr">
       Obeonetwork - Scaffold traceability model
