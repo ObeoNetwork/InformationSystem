@@ -20,8 +20,10 @@ import org.eclipse.sirius.business.api.session.SessionManager;
 import org.eclipse.sirius.business.api.session.SessionManagerListener;
 import org.eclipse.sirius.viewpoint.description.Viewpoint;
 import org.eclipse.ui.plugin.AbstractUIPlugin;
+import org.obeonetwork.dsl.database.DatabasePackage;
 import org.obeonetwork.dsl.database.triggers.DeleteColumnChangeTrigger;
 import org.obeonetwork.dsl.database.triggers.ViewQueryChangeTrigger;
+import org.obeonetwork.dsl.environment.design.services.RepresentationCreationPolicyRegistry;
 import org.osgi.framework.BundleContext;
 
 /**
@@ -63,6 +65,10 @@ public class Activator extends AbstractUIPlugin {
 						
 					}
 				});
+		
+		// Register the policies to disable the creation of Statemachine and Interaction on Database elements
+		RepresentationCreationPolicyRegistry.registerStatemachineCreationPolicy(e -> e.eClass().getEPackage() != DatabasePackage.eINSTANCE);
+		RepresentationCreationPolicyRegistry.registerInteractionCreationPolicy(e -> e.eClass().getEPackage() != DatabasePackage.eINSTANCE);
 	}
 
 	/*

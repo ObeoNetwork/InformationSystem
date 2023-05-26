@@ -18,53 +18,56 @@ import org.eclipse.jface.action.IAction;
 import org.eclipse.jface.action.IContributionItem;
 import org.eclipse.jface.action.MenuManager;
 import org.eclipse.jface.viewers.ISelection;
-import org.eclipse.jface.viewers.IStructuredSelection;
 import org.eclipse.sirius.business.api.session.Session;
 import org.eclipse.sirius.business.api.session.SessionManager;
 import org.eclipse.sirius.ui.tools.internal.views.modelexplorer.extension.IContextMenuActionProvider;
 import org.eclipse.sirius.viewpoint.description.Viewpoint;
 import org.obeonetwork.dsl.environment.ObeoDSMObject;
+import org.obeonetwork.dsl.environment.design.services.RepresentationCreationPolicyRegistry;
 import org.obeonetwork.dsl.interaction.Interaction;
 import org.obeonetwork.dsl.interaction.design.ui.extension.actions.CreateSequenceDiagramAction;
 import org.obeonetwork.dsl.interaction.design.ui.extension.actions.NewSequenceDiagramMenuAction;
+import org.obeonetwork.utils.common.ui.handlers.SelectionHelper;
 
+@SuppressWarnings("restriction")
 public class InteractionAnalysisContextMenuActionProvider implements IContextMenuActionProvider {
 	
 	public Iterable<IAction> getContextMenuActions(ISelection selection) {
 		List<IAction> actions = new ArrayList<IAction>();
 		
-		if (selection instanceof IStructuredSelection) {
-			IStructuredSelection structuredSelection = (IStructuredSelection) selection;
-			if (structuredSelection.size() == 1) {
-				Object selectedObject = structuredSelection.getFirstElement();
-				if ((selectedObject instanceof ObeoDSMObject)
-						&& !(selectedObject instanceof Interaction)) {
-					// Let's check if the "Interaction" viewpoint is selected
-					Session session = SessionManager.INSTANCE.getSession((ObeoDSMObject)selectedObject);
-					if (session != null) {
-						for (Viewpoint viewpoint : session.getSelectedViewpoints(true)) {
-							if (isInteractionViewpoint(viewpoint)) {
-								IAction action = computeAction((ObeoDSMObject)selectedObject);
-								if (action != null) {
-									actions.add(action);
-								}
-								break;
-							}
-						}
-					}
+		ObeoDSMObject selectedObject = SelectionHelper.uwrapSingleSelection(selection, ObeoDSMObject.class);
+		if(!(selectedObject instanceof Interaction)) {
+			Session session = SessionManager.INSTANCE.getSession((ObeoDSMObject)selectedObject);
+			if(isInteractionViewpointSelected(session) && RepresentationCreationPolicyRegistry.isEligibleForInteraction(selectedObject)) {
+				IAction action = computeAction((ObeoDSMObject)selectedObject);
+				if (action != null) {
+					actions.add(action);
 				}
 			}
 		}
+		
 		return actions;
 	}
 	
-	
+	private boolean isInteractionViewpointSelected(Session session) {
+		if (session != null) {
+			return session.getSelectedViewpoints(false).stream().anyMatch(InteractionAnalysisContextMenuActionProvider::isInteractionViewpoint);
+		}
+		
+		return false;
+	}
+
+	public static boolean isInteractionViewpoint(Viewpoint viewpoint) {
+		if (viewpoint == null || viewpoint.eResource() == null || viewpoint.eResource().getURI() == null) {
+			return false;
+		}
+		return "platform:/plugin/org.obeonetwork.dsl.interaction.design/description/interaction.odesign".equals(viewpoint.eResource().getURI().toString())
+				&& "Interaction".equals(viewpoint.getName());
+	}
 	
 	public Iterable<IContributionItem> getContextualMenuContributionItems(ISelection selection) {
 		return Collections.emptyList();
 	}
-
-
 
 	private IAction computeAction(ObeoDSMObject context) {
 		// Try to get the "New ..." menu item provided by Viewpoint
@@ -116,11 +119,4 @@ public class InteractionAnalysisContextMenuActionProvider implements IContextMen
 //		return null;
 	}
 	
-	public static boolean isInteractionViewpoint(Viewpoint viewpoint) {
-		if (viewpoint == null || viewpoint.eResource() == null || viewpoint.eResource().getURI() == null) {
-			return false;
-		}
-		return "platform:/plugin/org.obeonetwork.dsl.interaction.design/description/interaction.odesign".equals(viewpoint.eResource().getURI().toString())
-				&& "Interaction".equals(viewpoint.getName());
-	}
 }

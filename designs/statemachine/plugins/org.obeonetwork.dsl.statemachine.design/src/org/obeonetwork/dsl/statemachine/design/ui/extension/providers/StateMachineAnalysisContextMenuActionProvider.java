@@ -18,48 +18,52 @@ import org.eclipse.jface.action.IAction;
 import org.eclipse.jface.action.IContributionItem;
 import org.eclipse.jface.action.MenuManager;
 import org.eclipse.jface.viewers.ISelection;
-import org.eclipse.jface.viewers.IStructuredSelection;
+import org.eclipse.sirius.business.api.session.Session;
+import org.eclipse.sirius.business.api.session.SessionManager;
+import org.eclipse.sirius.ui.tools.internal.views.modelexplorer.extension.IContextMenuActionProvider;
+import org.eclipse.sirius.viewpoint.description.Viewpoint;
 import org.obeonetwork.dsl.environment.ObeoDSMObject;
+import org.obeonetwork.dsl.environment.design.services.RepresentationCreationPolicyRegistry;
 import org.obeonetwork.dsl.statemachine.StateMachine;
 import org.obeonetwork.dsl.statemachine.design.ui.extension.actions.CreateStateMachineDiagramAction;
 import org.obeonetwork.dsl.statemachine.design.ui.extension.actions.NewStateMachineDiagramMenuAction;
+import org.obeonetwork.utils.common.ui.handlers.SelectionHelper;
 
-import org.eclipse.sirius.business.api.session.Session;
-import org.eclipse.sirius.business.api.session.SessionManager;
-import org.eclipse.sirius.viewpoint.description.Viewpoint;
-import org.eclipse.sirius.ui.tools.internal.views.modelexplorer.extension.IContextMenuActionProvider;
-
+@SuppressWarnings("restriction")
 public class StateMachineAnalysisContextMenuActionProvider implements IContextMenuActionProvider {
 	
 	public Iterable<IAction> getContextMenuActions(ISelection selection) {
 		List<IAction> actions = new ArrayList<IAction>();
 		
-		if (selection instanceof IStructuredSelection) {
-			IStructuredSelection structuredSelection = (IStructuredSelection) selection;
-			if (structuredSelection.size() == 1) {
-				Object selectedObject = structuredSelection.getFirstElement();
-				if ((selectedObject instanceof ObeoDSMObject)
-						&& !(selectedObject instanceof StateMachine)) {
-					// Let's check if the "StateMachine" viewpoint is selected
-					Session session = SessionManager.INSTANCE.getSession((ObeoDSMObject)selectedObject);
-					if (session != null) {
-						for (Viewpoint viewpoint : session.getSelectedViewpoints(false)) {
-							if (isStateMachineViewpoint(viewpoint)) {
-								IAction action = computeAction((ObeoDSMObject)selectedObject);
-								if (action != null) {
-									actions.add(action);
-								}
-								break;
-							}
-						}
-					}
+		ObeoDSMObject selectedObject = SelectionHelper.uwrapSingleSelection(selection, ObeoDSMObject.class);
+		if(!(selectedObject instanceof StateMachine)) {
+			Session session = SessionManager.INSTANCE.getSession((ObeoDSMObject)selectedObject);
+			if(isStatemachineViewpointSelected(session) && RepresentationCreationPolicyRegistry.isEligibleForStatemachine(selectedObject)) {
+				IAction action = computeAction((ObeoDSMObject)selectedObject);
+				if (action != null) {
+					actions.add(action);
 				}
 			}
 		}
+		
 		return actions;
 	}
 	
-	
+	private boolean isStatemachineViewpointSelected(Session session) {
+		if (session != null) {
+			return session.getSelectedViewpoints(false).stream().anyMatch(StateMachineAnalysisContextMenuActionProvider::isStateMachineViewpoint);
+		}
+		
+		return false;
+	}
+
+	public static boolean isStateMachineViewpoint(Viewpoint viewpoint) {
+		if (viewpoint == null || viewpoint.eResource() == null || viewpoint.eResource().getURI() == null) {
+			return false;
+		}
+		return "platform:/plugin/org.obeonetwork.dsl.statemachine.design/description/statemachine.odesign".equals(viewpoint.eResource().getURI().toString())
+				&& "State Machine".equals(viewpoint.getName());
+	}
 	
 	public Iterable<IContributionItem> getContextualMenuContributionItems(ISelection selection) {
 		return Collections.emptyList();
@@ -117,11 +121,4 @@ public class StateMachineAnalysisContextMenuActionProvider implements IContextMe
 //		return null;
 	}
 	
-	public static boolean isStateMachineViewpoint(Viewpoint viewpoint) {
-		if (viewpoint == null || viewpoint.eResource() == null || viewpoint.eResource().getURI() == null) {
-			return false;
-		}
-		return "platform:/plugin/org.obeonetwork.dsl.statemachine.design/description/statemachine.odesign".equals(viewpoint.eResource().getURI().toString())
-				&& "State Machine".equals(viewpoint.getName());
-	}
 }
