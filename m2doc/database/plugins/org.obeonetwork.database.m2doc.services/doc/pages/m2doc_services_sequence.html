@@ -54,6 +54,20 @@
       <td colspan="1" rowspan="1">{m:sequence.ID}</td>
     </tr>
     <tr>
+      <td colspan="1" rowspan="1"><strong>behaviours</strong></td>
+      <td colspan="1" rowspan="1">List of Behaviour</td>
+      <td colspan="1" rowspan="1">{m:sequence.behaviours}</td>
+      <td colspan="1" rowspan="1">The Behaviours owned by this object.</td>
+      <td colspan="1" rowspan="1">{m:for behaviour | sequence.behaviours} behaviour {m:behaviour.name}, {m:endfor}</td>
+    </tr>
+    <tr>
+      <td colspan="1" rowspan="1"><strong>bindingRegistries</strong></td>
+      <td colspan="1" rowspan="1">List of <a href="/help/topic/org.obeonetwork.dsl.environment.m2doc.services/doc/pages/m2doc_services_bindingregistry.html">BindingRegistry</a></td>
+      <td colspan="1" rowspan="1">{m:sequence.bindingRegistries}</td>
+      <td colspan="1" rowspan="1">The binding registries of this object.</td>
+      <td colspan="1" rowspan="1">{m:for bindingRegistry | sequence.bindingRegistries} bindingRegistry {m:bindingRegistry.name}, {m:endfor}</td>
+    </tr>
+    <tr>
       <td colspan="1" rowspan="1"><strong>cacheSize</strong></td>
       <td colspan="1" rowspan="1">EBigInteger</td>
       <td colspan="1" rowspan="1">{m:sequence.cacheSize}</td>
@@ -75,11 +89,25 @@
       <td colspan="1" rowspan="1">{m:sequence.comments}</td>
     </tr>
     <tr>
+      <td colspan="1" rowspan="1"><strong>createdOn</strong></td>
+      <td colspan="1" rowspan="1">EDate</td>
+      <td colspan="1" rowspan="1">{m:sequence.createdOn}</td>
+      <td colspan="1" rowspan="1">The creation date of this object.</td>
+      <td colspan="1" rowspan="1">{m:sequence.createdOn}</td>
+    </tr>
+    <tr>
       <td colspan="1" rowspan="1"><strong>cycle</strong></td>
       <td colspan="1" rowspan="1">EBoolean</td>
       <td colspan="1" rowspan="1">{m:sequence.cycle}</td>
       <td colspan="1" rowspan="1">Tells if the sequence is cyclic.</td>
       <td colspan="1" rowspan="1">{m:sequence.cycle}</td>
+    </tr>
+    <tr>
+      <td colspan="1" rowspan="1"><strong>description</strong></td>
+      <td colspan="1" rowspan="1">EString</td>
+      <td colspan="1" rowspan="1">{m:sequence.description}</td>
+      <td colspan="1" rowspan="1">The description of this object.</td>
+      <td colspan="1" rowspan="1">{m:sequence.description}</td>
     </tr>
     <tr>
       <td colspan="1" rowspan="1"><strong>increment</strong></td>
@@ -89,6 +117,13 @@
       <td colspan="1" rowspan="1">{m:sequence.increment}</td>
     </tr>
     <tr>
+      <td colspan="1" rowspan="1"><strong>keywords</strong></td>
+      <td colspan="1" rowspan="1">List of EString</td>
+      <td colspan="1" rowspan="1">{m:sequence.keywords}</td>
+      <td colspan="1" rowspan="1">The list of keywords applied to this object.</td>
+      <td colspan="1" rowspan="1">{m:for eString | sequence.keywords} eString {m:eString.name}, {m:endfor}</td>
+    </tr>
+    <tr>
       <td colspan="1" rowspan="1"><strong>maxValue</strong></td>
       <td colspan="1" rowspan="1">EBigInteger</td>
       <td colspan="1" rowspan="1">{m:sequence.maxValue}</td>
@@ -96,11 +131,25 @@
       <td colspan="1" rowspan="1">{m:sequence.maxValue}</td>
     </tr>
     <tr>
+      <td colspan="1" rowspan="1"><strong>metadatas</strong></td>
+      <td colspan="1" rowspan="1"><a href="/help/topic/org.obeonetwork.dsl.environment.m2doc.services/doc/pages/m2doc_services_metadatacontainer.html">MetaDataContainer</a></td>
+      <td colspan="1" rowspan="1">{m:sequence.metadatas}</td>
+      <td colspan="1" rowspan="1">The metadatas defined on this object.</td>
+      <td colspan="1" rowspan="1">{m:sequence.metadatas}</td>
+    </tr>
+    <tr>
       <td colspan="1" rowspan="1"><strong>minValue</strong></td>
       <td colspan="1" rowspan="1">EBigInteger</td>
       <td colspan="1" rowspan="1">{m:sequence.minValue}</td>
       <td colspan="1" rowspan="1">The minimum value.</td>
       <td colspan="1" rowspan="1">{m:sequence.minValue}</td>
+    </tr>
+    <tr>
+      <td colspan="1" rowspan="1"><strong>modifiedOn</strong></td>
+      <td colspan="1" rowspan="1">EDate</td>
+      <td colspan="1" rowspan="1">{m:sequence.modifiedOn}</td>
+      <td colspan="1" rowspan="1">The modification date of this obect.</td>
+      <td colspan="1" rowspan="1">{m:sequence.modifiedOn}</td>
     </tr>
     <tr>
       <td colspan="1" rowspan="1"><strong>name</strong></td>
@@ -120,8 +169,22 @@
       <td colspan="1" rowspan="1"><strong>techID</strong></td>
       <td colspan="1" rowspan="1">EString</td>
       <td colspan="1" rowspan="1">{m:sequence.techID}</td>
-      <td colspan="1" rowspan="1">The technical identifier.</td>
+      <td colspan="1" rowspan="1">Deprecated. Use ObeoDSMObject::technicalid instead.</td>
       <td colspan="1" rowspan="1">{m:sequence.techID}</td>
+    </tr>
+    <tr>
+      <td colspan="1" rowspan="1"><strong>technicalid</strong></td>
+      <td colspan="1" rowspan="1">EString</td>
+      <td colspan="1" rowspan="1">{m:sequence.technicalid}</td>
+      <td colspan="1" rowspan="1">Technical identifier of the element.</td>
+      <td colspan="1" rowspan="1">{m:sequence.technicalid}</td>
+    </tr>
+    <tr>
+      <td colspan="1" rowspan="1"><strong>version</strong></td>
+      <td colspan="1" rowspan="1">EInt</td>
+      <td colspan="1" rowspan="1">{m:sequence.version}</td>
+      <td colspan="1" rowspan="1">The version of this object.</td>
+      <td colspan="1" rowspan="1">{m:sequence.version}</td>
     </tr>
     </tbody>
     </table>
@@ -145,6 +208,13 @@
       <td colspan="1" rowspan="1">{m:obj.allRelatedRequirements()}</td>
       <td colspan="1" rowspan="1">Returns a list of all the Requirements related to the target object or one of its sub objects. The result is a list with no duplicates sorted against the requirements ids.</td>
       <td colspan="1" rowspan="1">{m:obj.allRelatedRequirements()->sep(',')} returns: A comma separated list of related requirements.</td>
+    </tr>
+    <tr>
+      <td colspan="1" rowspan="1"><strong>annotation</strong></td>
+      <td colspan="1" rowspan="1">String</td>
+      <td colspan="1" rowspan="1">{m:myObeoDSMObject.annotation(String)}</td>
+      <td colspan="1" rowspan="1">Return first annotation with the specified title.</td>
+      <td colspan="1" rowspan="1">{m:myObeoDSMObject.annotation('some title')} returns: The string of the annotation.</td>
     </tr>
     <tr>
       <td colspan="1" rowspan="1"><strong>checkCycle</strong></td>
@@ -175,6 +245,27 @@
       <td colspan="1" rowspan="1">{m:mySequence.columns()} returns: the list of columns of the sequence and the empty list if the sequence is null.</td>
     </tr>
     <tr>
+      <td colspan="1" rowspan="1"><strong>getAnnotations</strong></td>
+      <td colspan="1" rowspan="1">List of <a href="/help/topic/org.obeonetwork.dsl.environment.m2doc.services/doc/pages/m2doc_services_annotation.html">Annotation</a></td>
+      <td colspan="1" rowspan="1">{m:flowEvent.getAnnotations()}</td>
+      <td colspan="1" rowspan="1">Returns the list of metadata annotations of the target Flow Event.</td>
+      <td colspan="1" rowspan="1">{m:flowEvent.getAnnotations().title->sep(',')} returns: A comma separated list of Flow Event's annotation titles.</td>
+    </tr>
+    <tr>
+      <td colspan="1" rowspan="1"><strong>getAnnotations</strong></td>
+      <td colspan="1" rowspan="1">List of <a href="/help/topic/org.obeonetwork.dsl.environment.m2doc.services/doc/pages/m2doc_services_annotation.html">Annotation</a></td>
+      <td colspan="1" rowspan="1">{m:myObeoDSMObject.getAnnotations()}</td>
+      <td colspan="1" rowspan="1">Returns the list of metadata annotations of the target ObeoDSMObject that are not documentation links.</td>
+      <td colspan="1" rowspan="1">{m:myObeoDSMObject.getAnnotations().getDocumentTitle()->sep(',')} returns: A comma separated list of ObeoDSMObject's annotation titles.</td>
+    </tr>
+    <tr>
+      <td colspan="1" rowspan="1"><strong>getDocumentationLinks</strong></td>
+      <td colspan="1" rowspan="1">List of <a href="/help/topic/org.obeonetwork.dsl.environment.m2doc.services/doc/pages/m2doc_services_annotation.html">Annotation</a></td>
+      <td colspan="1" rowspan="1">{m:myObeoDSMObject.getDocumentationLinks()}</td>
+      <td colspan="1" rowspan="1">Returns the list of metadata annotations of the target ObeoDSMObject that are documentation links.</td>
+      <td colspan="1" rowspan="1">{m:myObeoDSMObject.getDocumentationLinks().title->sep(',')} returns: A comma separated list of ObeoDSMObject's annotation titles.</td>
+    </tr>
+    <tr>
       <td colspan="1" rowspan="1"><strong>getName</strong></td>
       <td colspan="1" rowspan="1">String</td>
       <td colspan="1" rowspan="1">{m:obj.getName()}</td>
@@ -194,6 +285,20 @@
       <td colspan="1" rowspan="1">{m:myEObject.getTypeName()}</td>
       <td colspan="1" rowspan="1">Returns the name of the EClass of the given EObject.</td>
       <td colspan="1" rowspan="1">{m:myEObject.getTypeName()} returns: ObeoDSMObject</td>
+    </tr>
+    <tr>
+      <td colspan="1" rowspan="1"><strong>hasAnnotations</strong></td>
+      <td colspan="1" rowspan="1">boolean</td>
+      <td colspan="1" rowspan="1">{m:myObeoDSMObject.getAnnotations()}</td>
+      <td colspan="1" rowspan="1">Returns true if the given ObeoDSMObject has at least one metadata annotations that is not documentation links, false otherwise.</td>
+      <td colspan="1" rowspan="1">{m:myObeoDSMObject.hasAnnotations()} returns: true or false.</td>
+    </tr>
+    <tr>
+      <td colspan="1" rowspan="1"><strong>hasDocumentationLinks</strong></td>
+      <td colspan="1" rowspan="1">boolean</td>
+      <td colspan="1" rowspan="1">{m:myObeoDSMObject.hasDocumentationLinks()}</td>
+      <td colspan="1" rowspan="1">Returns true if the given ObeoDSMObject has at least one documentation link, false otherwise.</td>
+      <td colspan="1" rowspan="1">{m:myObeoDSMObject.hasDocumentationLinks()} returns: true or false.</td>
     </tr>
     <tr>
       <td colspan="1" rowspan="1"><strong>hasRelatedRequirements</strong></td>
