@@ -93,6 +93,13 @@ public class EEFMultipleReferenceCustomLifecycleManager extends EEFExtMultipleRe
 			gridData.exclude = true; // Exclude the widget from the layout to avoid an empty space 
 			browseButton.setVisible(false);
 		}
+		
+		// Hide the Remove button if necessary
+		if(customDescription.removeButtonIsHidden()) {
+			GridData gridData = (GridData) removeButton.getLayoutData();
+			gridData.exclude = true; // Exclude the widget from the layout to avoid an empty space 
+			removeButton.setVisible(false);
+		}
 	}
 	
 	@Override

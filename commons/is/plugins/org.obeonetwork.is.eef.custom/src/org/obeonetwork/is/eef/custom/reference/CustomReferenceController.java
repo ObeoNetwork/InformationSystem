@@ -49,6 +49,8 @@ public class CustomReferenceController extends EEFExtReferenceController {
 	private static final String ENABLE_BROWSE_BUTTON_EXPRESSION_ID = "enableBrowseButtonExpression";
 
 	private static final String HIDE_BROWSE_BUTTON_EXPRESSION_ID = "hideBrowseButtonExpression";
+	
+	private static final String HIDE_REMOVE_BUTTON_EXPRESSION_ID = "hideRemoveButtonExpression";
 
 	private static final String ENABLE_REMOVE_BUTTON_EXPRESSION_ID = "enableRemoveButtonExpression";
 	
@@ -217,4 +219,18 @@ public class CustomReferenceController extends EEFExtReferenceController {
 		
 		return false;
 	}
+	
+	//removeButtonIsHidden
+	public boolean removeButtonIsHidden() {
+		Optional<String> hideRemoveButtonExpression = this.getCustomExpression(HIDE_REMOVE_BUTTON_EXPRESSION_ID);
+		if(hideRemoveButtonExpression.isPresent()) {
+			Object evaluated = this.newEval().evaluate(hideRemoveButtonExpression.get());
+			if (evaluated instanceof Boolean) {
+				return (Boolean) evaluated;
+			}
+		}
+		
+		return false;
+	}
+	
 }

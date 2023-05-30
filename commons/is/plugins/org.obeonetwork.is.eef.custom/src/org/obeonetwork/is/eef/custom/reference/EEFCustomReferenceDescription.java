@@ -67,6 +67,10 @@ public class EEFCustomReferenceDescription extends EEFExtReferenceDescriptionImp
 	public boolean browseButtonIsHidden() {
 		return this.controller.browseButtonIsHidden();
 	}
+	
+	public boolean removeButtonIsHidden() {
+		return this.controller.removeButtonIsHidden();
+	}
 
 	@Override
 	public String getReferenceOwnerExpression() {

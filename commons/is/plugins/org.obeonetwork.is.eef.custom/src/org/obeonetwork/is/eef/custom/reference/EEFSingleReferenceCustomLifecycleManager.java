@@ -21,6 +21,7 @@ import org.eclipse.jface.window.Window;
 import org.eclipse.jface.wizard.WizardDialog;
 import org.eclipse.sirius.common.interpreter.api.IInterpreter;
 import org.eclipse.sirius.common.interpreter.api.IVariableManager;
+import org.eclipse.swt.layout.GridData;
 import org.eclipse.swt.widgets.Composite;
 
 @SuppressWarnings({ "restriction" })
@@ -80,4 +81,31 @@ public class EEFSingleReferenceCustomLifecycleManager extends EEFExtSingleRefere
 			}
 		}
 	}
+	
+	@Override
+	public void aboutToBeShown() {
+		super.aboutToBeShown();
+		
+		// Hide the Add button if necessary
+		if(customDescription.addButtonIsHidden()) {
+			GridData gridData = (GridData) addButton.getLayoutData();
+			gridData.exclude = true; // Exclude the widget from the layout to avoid an empty space 
+			addButton.setVisible(false);
+		}
+		
+		// Hide the Browse button if necessary
+		if(customDescription.browseButtonIsHidden()) {
+			GridData gridData = (GridData) browseButton.getLayoutData();
+			gridData.exclude = true; // Exclude the widget from the layout to avoid an empty space 
+			browseButton.setVisible(false);
+		}
+		
+		// Hide the Remove button if necessary
+		if(customDescription.removeButtonIsHidden()) {
+			GridData gridData = (GridData) removeButton.getLayoutData();
+			gridData.exclude = true; // Exclude the widget from the layout to avoid an empty space 
+			removeButton.setVisible(false);
+		}
+	}
+	
 }

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<description:Group xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:description="http://www.eclipse.org/sirius/description/1.1.0" xmlns:properties="http://www.eclipse.org/sirius/properties/1.0.0" xmlns:properties-ext-widgets-reference="http://www.eclipse.org/sirius/properties/1.0.0/ext/widgets/reference" xmlns:tool="http://www.eclipse.org/sirius/description/tool/1.1.0" documentation="Copyright (c) 2008, 2023 Obeo.&#xD;&#xA;All rights reserved. This program and the accompanying materials&#xD;&#xA;are made available under the terms of the Eclipse Public License v1.0&#xD;&#xA;which accompanies this distribution, and is available at&#xD;&#xA;http://www.eclipse.org/legal/epl-v10.html&#xD;&#xA;&#xD;&#xA;Contributors:&#xD;&#xA;   Obeo - initial API and implementation" name="environment-properties" version="12.0.0.2017041100">
+<description:Group xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:description="http://www.eclipse.org/sirius/description/1.1.0" xmlns:properties="http://www.eclipse.org/sirius/properties/1.0.0" xmlns:tool="http://www.eclipse.org/sirius/description/tool/1.1.0" documentation="Copyright (c) 2008, 2023 Obeo.&#xD;&#xA;All rights reserved. This program and the accompanying materials&#xD;&#xA;are made available under the terms of the Eclipse Public License v1.0&#xD;&#xA;which accompanies this distribution, and is available at&#xD;&#xA;http://www.eclipse.org/legal/epl-v10.html&#xD;&#xA;&#xD;&#xA;Contributors:&#xD;&#xA;   Obeo - initial API and implementation" name="environment-properties" version="12.0.0.2017041100">
   <ownedViewpoints endUserDocumentation="The &lt;b>Environment Views&lt;/b> viewpoint provides the property views allowing the edition of the environment elements." name="Environment Views">
     <ownedJavaExtensions qualifiedClassName="org.obeonetwork.dsl.environment.properties.internal.services.EnvironmentServices"/>
   </ownedViewpoints>
@@ -67,20 +67,30 @@
       </groups>
     </categories>
     <categories name="Environment">
-      <pages name="Reference Page" labelExpression="Reference" domainClass="environment::Reference" semanticCandidateExpression="var:self" groups="//@extensions.0/@categories.1/@groups.0"/>
-      <pages name="Opposite Page" labelExpression="Opposite" domainClass="environment::Reference" semanticCandidateExpression="aql:self.oppositeOf" preconditionExpression="aql:self.oppositeOf &lt;> null" groups="//@extensions.0/@categories.1/@groups.1"/>
+      <pages name="Unidirectional Reference Page" labelExpression="Reference" domainClass="environment::Reference" semanticCandidateExpression="var:self" preconditionExpression="aql:self.oppositeOf = null" groups="//@extensions.0/@categories.1/@groups.0"/>
+      <pages name="Bidirectional Reference Page" labelExpression="Reference" domainClass="environment::Reference" semanticCandidateExpression="var:self" preconditionExpression="aql:self.oppositeOf &lt;> null" groups="//@extensions.0/@categories.1/@groups.1"/>
       <pages name="Attribute Page" labelExpression="Attribute" domainClass="environment::Attribute" semanticCandidateExpression="var:self" groups="//@extensions.0/@categories.1/@groups.2"/>
       <pages name="Enumeration Page" labelExpression="Enumeration" domainClass="environment::Enumeration" semanticCandidateExpression="var:self" groups="//@extensions.0/@categories.1/@groups.3"/>
       <pages name="Literal Page" labelExpression="Literal" domainClass="environment::Literal" semanticCandidateExpression="var:self" groups="//@extensions.0/@categories.1/@groups.4"/>
       <pages name="Namespace Page" labelExpression="aql:self.eClass().name" domainClass="environment::Namespace" semanticCandidateExpression="var:self" groups="//@extensions.0/@categories.1/@groups.5"/>
       <pages name="Annotation Page" labelExpression="Annotation" domainClass="environment::Annotation" semanticCandidateExpression="var:self" groups="//@extensions.0/@categories.1/@groups.6"/>
-      <groups name="Reference Group" labelExpression="Properties" domainClass="environment::Reference" semanticCandidateExpression="var:self">
+      <groups name="Unidirectional Reference Group" labelExpression="Properties" domainClass="environment::Reference" semanticCandidateExpression="var:self">
+        <controls xsi:type="properties:LabelDescription" name="environment::Reference navigability" labelExpression="Navigability:" valueExpression="Unidirectional">
+          <style>
+            <fontFormat>bold</fontFormat>
+          </style>
+        </controls>
         <controls xsi:type="properties:TextDescription" name="environment::Reference name" labelExpression="aql:input.emfEditServices(self).getText(self.eClass().getEStructuralFeature('name')) + ':'" helpExpression="aql:input.emfEditServices(self).getDescription(self.eClass().getEStructuralFeature('name'))" isEnabledExpression="aql:self.eClass().getEStructuralFeature('name').changeable" valueExpression="aql:self.name">
           <initialOperation>
             <firstModelOperations xsi:type="tool:SetValue" featureName="name" valueExpression="var:newValue"/>
           </initialOperation>
         </controls>
-        <controls xsi:type="properties-ext-widgets-reference:ExtReferenceDescription" name="environment::Reference referencedType" isEnabledExpression="aql:false" referenceNameExpression="aql:'referencedType'"/>
+        <controls xsi:type="properties:CustomDescription" name="org.obeonetwork.is.eef.custom.reference" label="environment::Reference referencedType" labelExpression="aql:'Referenced Type :'" helpExpression="aql:input.emfEditServices(self).getDescription(self.eClass().getEStructuralFeature('referencedType'))" isEnabledExpression="aql:self.eClass().getEStructuralFeature('referencedType').changeable">
+          <customExpressions name="referenceNameExpression" customExpression="aql:'referencedType'"/>
+          <customExpressions name="hideAddButtonExpression" customExpression="aql:true"/>
+          <customExpressions name="hideBrowseButtonExpression" customExpression="aql:true"/>
+          <customExpressions name="hideRemoveButtonExpression" customExpression="aql:true"/>
+        </controls>
         <controls xsi:type="properties:SelectDescription" name="environment::Reference multiplicity" labelExpression="aql:input.emfEditServices(self).getText(self.eClass().getEStructuralFeature('multiplicity')) + ':'" helpExpression="aql:input.emfEditServices(self).getDescription(self.eClass().getEStructuralFeature('multiplicity'))" isEnabledExpression="aql:self.eClass().getEStructuralFeature('multiplicity').changeable" valueExpression="aql:self.eClass().getEStructuralFeature('multiplicity').eType.getEEnumLiteralByLiteral(self.multiplicity.toString())" candidatesExpression="aql:self.eClass().getEStructuralFeature('multiplicity').eType.eLiterals" candidateDisplayExpression="aql:candidate.literal">
           <initialOperation>
             <firstModelOperations xsi:type="tool:SetValue" featureName="multiplicity" valueExpression="aql:newValue.instance"/>
@@ -110,9 +120,6 @@
           <initialOperation>
             <firstModelOperations xsi:type="tool:SetValue" featureName="isIdentifier" valueExpression="var:newValue"/>
           </initialOperation>
-        </controls>
-        <controls xsi:type="properties:CustomDescription" name="org.obeonetwork.is.eef.custom.reference" label="environment::Reference oppositeOf" labelExpression="aql:input.emfEditServices(self).getText(self.eClass().getEStructuralFeature('oppositeOf')) + ':'" helpExpression="aql:input.emfEditServices(self).getDescription(self.eClass().getEStructuralFeature('oppositeOf'))" isEnabledExpression="aql:self.eClass().getEStructuralFeature('oppositeOf').changeable">
-          <customExpressions name="referenceNameExpression" customExpression="aql:'oppositeOf'"/>
         </controls>
         <controls xsi:type="properties:TextAreaDescription" name="environment::Reference description" labelExpression="aql:input.emfEditServices(self).getText(self.eClass().getEStructuralFeature('description')) + ':'" helpExpression="aql:input.emfEditServices(self).getDescription(self.eClass().getEStructuralFeature('description'))" isEnabledExpression="aql:self.eClass().getEStructuralFeature('description').changeable" valueExpression="aql:self.description">
           <initialOperation>
@@ -120,47 +127,128 @@
           </initialOperation>
         </controls>
       </groups>
-      <groups name="Opposite Group" labelExpression="Properties" domainClass="environment::Reference" semanticCandidateExpression="var:self">
-        <controls xsi:type="properties:TextDescription" name="environment::Reference name" labelExpression="aql:input.emfEditServices(self).getText(self.eClass().getEStructuralFeature('name')) + ':'" helpExpression="aql:input.emfEditServices(self).getDescription(self.eClass().getEStructuralFeature('name'))" isEnabledExpression="aql:self.eClass().getEStructuralFeature('name').changeable" valueExpression="aql:self.name">
-          <initialOperation>
-            <firstModelOperations xsi:type="tool:SetValue" featureName="name" valueExpression="var:newValue"/>
-          </initialOperation>
-        </controls>
-        <controls xsi:type="properties-ext-widgets-reference:ExtReferenceDescription" name="environment::Reference referencedType" isEnabledExpression="aql:false" referenceNameExpression="aql:'referencedType'"/>
-        <controls xsi:type="properties:SelectDescription" name="environment::Reference multiplicity" labelExpression="aql:input.emfEditServices(self).getText(self.eClass().getEStructuralFeature('multiplicity')) + ':'" helpExpression="aql:input.emfEditServices(self).getDescription(self.eClass().getEStructuralFeature('multiplicity'))" isEnabledExpression="aql:self.eClass().getEStructuralFeature('multiplicity').changeable" valueExpression="aql:self.eClass().getEStructuralFeature('multiplicity').eType.getEEnumLiteralByLiteral(self.multiplicity.toString())" candidatesExpression="aql:self.eClass().getEStructuralFeature('multiplicity').eType.eLiterals" candidateDisplayExpression="aql:candidate.literal">
-          <initialOperation>
-            <firstModelOperations xsi:type="tool:SetValue" featureName="multiplicity" valueExpression="aql:newValue.instance"/>
-          </initialOperation>
-        </controls>
-        <controls xsi:type="properties:CheckboxDescription" name="environment::Reference isComposite" labelExpression="aql:input.emfEditServices(self).getText(self.eClass().getEStructuralFeature('isComposite'))" helpExpression="aql:input.emfEditServices(self).getDescription(self.eClass().getEStructuralFeature('isComposite'))" isEnabledExpression="aql:self.eClass().getEStructuralFeature('isComposite').changeable" valueExpression="aql:self.isComposite">
-          <initialOperation>
-            <firstModelOperations xsi:type="tool:SetValue" featureName="isComposite" valueExpression="var:newValue"/>
-          </initialOperation>
-          <conditionalStyles preconditionExpression="aql:self.eClass().getEStructuralFeature('isComposite').lowerBound = 1">
-            <style>
-              <labelFontFormat>bold</labelFontFormat>
-            </style>
-          </conditionalStyles>
-        </controls>
-        <controls xsi:type="properties:CheckboxDescription" name="environment::Reference navigable" labelExpression="aql:input.emfEditServices(self).getText(self.eClass().getEStructuralFeature('navigable'))" helpExpression="aql:input.emfEditServices(self).getDescription(self.eClass().getEStructuralFeature('navigable'))" isEnabledExpression="aql:self.eClass().getEStructuralFeature('navigable').changeable" valueExpression="aql:self.navigable">
-          <initialOperation>
-            <firstModelOperations xsi:type="tool:SetValue" featureName="navigable" valueExpression="var:newValue"/>
-          </initialOperation>
-          <conditionalStyles preconditionExpression="aql:self.eClass().getEStructuralFeature('navigable').lowerBound = 1">
-            <style>
-              <labelFontFormat>bold</labelFontFormat>
-            </style>
-          </conditionalStyles>
-        </controls>
-        <controls xsi:type="properties:CheckboxDescription" name="environment::Reference isIdentifier" labelExpression="aql:input.emfEditServices(self).getText(self.eClass().getEStructuralFeature('isIdentifier'))" helpExpression="aql:input.emfEditServices(self).getDescription(self.eClass().getEStructuralFeature('isIdentifier'))" isEnabledExpression="aql:self.eClass().getEStructuralFeature('isIdentifier').changeable" valueExpression="aql:self.isIdentifier">
-          <initialOperation>
-            <firstModelOperations xsi:type="tool:SetValue" featureName="isIdentifier" valueExpression="var:newValue"/>
-          </initialOperation>
-        </controls>
-        <controls xsi:type="properties:TextAreaDescription" name="environment::Reference description" labelExpression="aql:input.emfEditServices(self).getText(self.eClass().getEStructuralFeature('description')) + ':'" helpExpression="aql:input.emfEditServices(self).getDescription(self.eClass().getEStructuralFeature('description'))" isEnabledExpression="aql:self.eClass().getEStructuralFeature('description').changeable" valueExpression="aql:self.description">
-          <initialOperation>
-            <firstModelOperations xsi:type="tool:SetValue" featureName="description" valueExpression="var:newValue"/>
-          </initialOperation>
+      <groups name="Bidirectional Reference Group" labelExpression="Properties" domainClass="environment::Reference" semanticCandidateExpression="var:self">
+        <controls xsi:type="properties:ContainerDescription">
+          <controls xsi:type="properties:ContainerDescription">
+            <controls xsi:type="properties:LabelDescription" name="environment::Reference navigability" labelExpression="Navigability:" valueExpression="Bidirectional">
+              <style>
+                <fontFormat>bold</fontFormat>
+              </style>
+            </controls>
+            <controls xsi:type="properties:TextDescription" name="environment::Reference name" labelExpression="aql:input.emfEditServices(self).getText(self.eClass().getEStructuralFeature('name')) + ':'" helpExpression="aql:input.emfEditServices(self).getDescription(self.eClass().getEStructuralFeature('name'))" isEnabledExpression="aql:self.eClass().getEStructuralFeature('name').changeable" valueExpression="aql:self.name">
+              <initialOperation>
+                <firstModelOperations xsi:type="tool:SetValue" featureName="name" valueExpression="var:newValue"/>
+              </initialOperation>
+            </controls>
+            <controls xsi:type="properties:CustomDescription" name="org.obeonetwork.is.eef.custom.reference" label="environment::Reference referencedType" labelExpression="aql:'Referenced Type:'" helpExpression="aql:input.emfEditServices(self).getDescription(self.eClass().getEStructuralFeature('referencedType'))" isEnabledExpression="aql:self.eClass().getEStructuralFeature('referencedType').changeable">
+              <customExpressions name="referenceNameExpression" customExpression="aql:'referencedType'"/>
+              <customExpressions name="hideAddButtonExpression" customExpression="aql:true"/>
+              <customExpressions name="hideBrowseButtonExpression" customExpression="aql:true"/>
+              <customExpressions name="hideRemoveButtonExpression" customExpression="aql:true"/>
+            </controls>
+            <controls xsi:type="properties:SelectDescription" name="environment::Reference multiplicity" labelExpression="aql:input.emfEditServices(self).getText(self.eClass().getEStructuralFeature('multiplicity')) + ':'" helpExpression="aql:input.emfEditServices(self).getDescription(self.eClass().getEStructuralFeature('multiplicity'))" isEnabledExpression="aql:self.eClass().getEStructuralFeature('multiplicity').changeable" valueExpression="aql:self.eClass().getEStructuralFeature('multiplicity').eType.getEEnumLiteralByLiteral(self.multiplicity.toString())" candidatesExpression="aql:self.eClass().getEStructuralFeature('multiplicity').eType.eLiterals" candidateDisplayExpression="aql:candidate.literal">
+              <initialOperation>
+                <firstModelOperations xsi:type="tool:SetValue" featureName="multiplicity" valueExpression="aql:newValue.instance"/>
+              </initialOperation>
+            </controls>
+            <controls xsi:type="properties:CheckboxDescription" name="environment::Reference isComposite" labelExpression="aql:input.emfEditServices(self).getText(self.eClass().getEStructuralFeature('isComposite'))" helpExpression="aql:input.emfEditServices(self).getDescription(self.eClass().getEStructuralFeature('isComposite'))" isEnabledExpression="aql:self.eClass().getEStructuralFeature('isComposite').changeable" valueExpression="aql:self.isComposite">
+              <initialOperation>
+                <firstModelOperations xsi:type="tool:SetValue" featureName="isComposite" valueExpression="var:newValue"/>
+              </initialOperation>
+              <conditionalStyles preconditionExpression="aql:self.eClass().getEStructuralFeature('isComposite').lowerBound = 1">
+                <style>
+                  <labelFontFormat>bold</labelFontFormat>
+                </style>
+              </conditionalStyles>
+            </controls>
+            <controls xsi:type="properties:CheckboxDescription" name="environment::Reference navigable" labelExpression="aql:input.emfEditServices(self).getText(self.eClass().getEStructuralFeature('navigable'))" helpExpression="aql:input.emfEditServices(self).getDescription(self.eClass().getEStructuralFeature('navigable'))" isEnabledExpression="aql:self.eClass().getEStructuralFeature('navigable').changeable" valueExpression="aql:self.navigable">
+              <initialOperation>
+                <firstModelOperations xsi:type="tool:SetValue" featureName="navigable" valueExpression="var:newValue"/>
+              </initialOperation>
+              <conditionalStyles preconditionExpression="aql:self.eClass().getEStructuralFeature('navigable').lowerBound = 1">
+                <style>
+                  <labelFontFormat>bold</labelFontFormat>
+                </style>
+              </conditionalStyles>
+            </controls>
+            <controls xsi:type="properties:CheckboxDescription" name="environment::Reference isIdentifier" labelExpression="aql:input.emfEditServices(self).getText(self.eClass().getEStructuralFeature('isIdentifier'))" helpExpression="aql:input.emfEditServices(self).getDescription(self.eClass().getEStructuralFeature('isIdentifier'))" isEnabledExpression="aql:self.eClass().getEStructuralFeature('isIdentifier').changeable" valueExpression="aql:self.isIdentifier">
+              <initialOperation>
+                <firstModelOperations xsi:type="tool:SetValue" featureName="isIdentifier" valueExpression="var:newValue"/>
+              </initialOperation>
+            </controls>
+            <controls xsi:type="properties:TextAreaDescription" name="environment::Reference description" labelExpression="aql:input.emfEditServices(self).getText(self.eClass().getEStructuralFeature('description')) + ':'" helpExpression="aql:input.emfEditServices(self).getDescription(self.eClass().getEStructuralFeature('description'))" isEnabledExpression="aql:self.eClass().getEStructuralFeature('description').changeable" valueExpression="aql:self.description">
+              <initialOperation>
+                <firstModelOperations xsi:type="tool:SetValue" featureName="description" valueExpression="var:newValue"/>
+              </initialOperation>
+            </controls>
+          </controls>
+          <controls xsi:type="properties:ContainerDescription">
+            <controls xsi:type="properties:LabelDescription" name="environment::Reference blank" labelExpression="aql:' '" valueExpression="aql:' '">
+              <style>
+                <fontFormat>bold</fontFormat>
+              </style>
+            </controls>
+            <controls xsi:type="properties:TextDescription" name="environment::Reference name" labelExpression="aql:input.emfEditServices(self).getText(self.eClass().getEStructuralFeature('name')) + ':'" helpExpression="aql:input.emfEditServices(self).getDescription(self.eClass().getEStructuralFeature('name'))" isEnabledExpression="aql:self.eClass().getEStructuralFeature('name').changeable" valueExpression="aql:self.oppositeOf.name">
+              <initialOperation>
+                <firstModelOperations xsi:type="tool:ChangeContext" browseExpression="aql:self.oppositeOf">
+                  <subModelOperations xsi:type="tool:SetValue" featureName="name" valueExpression="var:newValue"/>
+                </firstModelOperations>
+              </initialOperation>
+            </controls>
+            <controls xsi:type="properties:CustomDescription" name="org.obeonetwork.is.eef.custom.reference" label="environment::Reference referencedType" labelExpression="aql:'Referenced Type:'" helpExpression="aql:input.emfEditServices(self).getDescription(self.eClass().getEStructuralFeature('referencedType'))" isEnabledExpression="aql:self.eClass().getEStructuralFeature('referencedType').changeable">
+              <customExpressions name="referenceNameExpression" customExpression="aql:'referencedType'"/>
+              <customExpressions name="hideAddButtonExpression" customExpression="aql:true"/>
+              <customExpressions name="hideBrowseButtonExpression" customExpression="aql:true"/>
+              <customExpressions name="hideRemoveButtonExpression" customExpression="aql:true"/>
+              <customExpressions name="referenceOwnerExpression" customExpression="aql:self.oppositeOf"/>
+            </controls>
+            <controls xsi:type="properties:SelectDescription" name="environment::Reference multiplicity" labelExpression="aql:input.emfEditServices(self).getText(self.eClass().getEStructuralFeature('multiplicity')) + ':'" helpExpression="aql:input.emfEditServices(self).getDescription(self.eClass().getEStructuralFeature('multiplicity'))" isEnabledExpression="aql:self.eClass().getEStructuralFeature('multiplicity').changeable" valueExpression="aql:self.eClass().getEStructuralFeature('multiplicity').eType.getEEnumLiteralByLiteral(self.oppositeOf.multiplicity.toString())" candidatesExpression="aql:self.eClass().getEStructuralFeature('multiplicity').eType.eLiterals" candidateDisplayExpression="aql:candidate.literal">
+              <initialOperation>
+                <firstModelOperations xsi:type="tool:ChangeContext" browseExpression="aql:self.oppositeOf">
+                  <subModelOperations xsi:type="tool:SetValue" featureName="multiplicity" valueExpression="aql:newValue.instance"/>
+                </firstModelOperations>
+              </initialOperation>
+            </controls>
+            <controls xsi:type="properties:CheckboxDescription" name="environment::Reference isComposite" labelExpression="aql:input.emfEditServices(self).getText(self.eClass().getEStructuralFeature('isComposite'))" helpExpression="aql:input.emfEditServices(self).getDescription(self.eClass().getEStructuralFeature('isComposite'))" isEnabledExpression="aql:self.eClass().getEStructuralFeature('isComposite').changeable" valueExpression="aql:self.oppositeOf.isComposite">
+              <initialOperation>
+                <firstModelOperations xsi:type="tool:ChangeContext" browseExpression="aql:self.oppositeOf">
+                  <subModelOperations xsi:type="tool:SetValue" featureName="isComposite" valueExpression="var:newValue"/>
+                </firstModelOperations>
+              </initialOperation>
+              <conditionalStyles preconditionExpression="aql:self.eClass().getEStructuralFeature('isComposite').lowerBound = 1">
+                <style>
+                  <labelFontFormat>bold</labelFontFormat>
+                </style>
+              </conditionalStyles>
+            </controls>
+            <controls xsi:type="properties:CheckboxDescription" name="environment::Reference navigable" labelExpression="aql:input.emfEditServices(self).getText(self.eClass().getEStructuralFeature('navigable'))" helpExpression="aql:input.emfEditServices(self).getDescription(self.eClass().getEStructuralFeature('navigable'))" isEnabledExpression="aql:self.eClass().getEStructuralFeature('navigable').changeable" valueExpression="aql:self.oppositeOf.navigable">
+              <initialOperation>
+                <firstModelOperations xsi:type="tool:ChangeContext" browseExpression="aql:self.oppositeOf">
+                  <subModelOperations xsi:type="tool:SetValue" featureName="navigable" valueExpression="var:newValue"/>
+                </firstModelOperations>
+              </initialOperation>
+              <conditionalStyles preconditionExpression="aql:self.eClass().getEStructuralFeature('navigable').lowerBound = 1">
+                <style>
+                  <labelFontFormat>bold</labelFontFormat>
+                </style>
+              </conditionalStyles>
+            </controls>
+            <controls xsi:type="properties:CheckboxDescription" name="environment::Reference isIdentifier" labelExpression="aql:input.emfEditServices(self).getText(self.eClass().getEStructuralFeature('isIdentifier'))" helpExpression="aql:input.emfEditServices(self).getDescription(self.eClass().getEStructuralFeature('isIdentifier'))" isEnabledExpression="aql:self.eClass().getEStructuralFeature('isIdentifier').changeable" valueExpression="aql:self.oppositeOf.isIdentifier">
+              <initialOperation>
+                <firstModelOperations xsi:type="tool:ChangeContext" browseExpression="aql:self.oppositeOf">
+                  <subModelOperations xsi:type="tool:SetValue" featureName="isIdentifier" valueExpression="var:newValue"/>
+                </firstModelOperations>
+              </initialOperation>
+            </controls>
+            <controls xsi:type="properties:TextAreaDescription" name="environment::Reference description" labelExpression="aql:input.emfEditServices(self).getText(self.eClass().getEStructuralFeature('description')) + ':'" helpExpression="aql:input.emfEditServices(self).getDescription(self.eClass().getEStructuralFeature('description'))" isEnabledExpression="aql:self.eClass().getEStructuralFeature('description').changeable" valueExpression="aql:self.oppositeOf.description">
+              <initialOperation>
+                <firstModelOperations xsi:type="tool:ChangeContext" browseExpression="aql:self.oppositeOf">
+                  <subModelOperations xsi:type="tool:SetValue" featureName="description" valueExpression="var:newValue"/>
+                </firstModelOperations>
+              </initialOperation>
+            </controls>
+          </controls>
+          <layout xsi:type="properties:GridLayoutDescription" numberOfColumns="2"/>
         </controls>
       </groups>
       <groups name="Attribute Group" labelExpression="Properties" domainClass="environment::Attribute" semanticCandidateExpression="var:self">
