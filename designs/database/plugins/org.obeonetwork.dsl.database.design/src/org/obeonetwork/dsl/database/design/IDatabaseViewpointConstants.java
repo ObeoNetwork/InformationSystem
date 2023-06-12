@@ -17,10 +17,13 @@ import org.eclipse.emf.common.util.URI;
 
 public interface IDatabaseViewpointConstants {
 	
-	public static URI VIEWPOINT_URI = URI.createURI("viewpoint:/org.obeonetwork.dsl.database.design/Database");
+	public static URI DATABASE_VIEWPOINT_URI = URI.createURI("viewpoint:/org.obeonetwork.dsl.database.design/Database");
+	public static URI ENVIRONMENT_VIEWPOINT_URI = URI.createURI("viewpoint:/org.obeonetwork.dsl.environment.properties/Environment Views");
+	
 	
 	public static Collection<URI> VIEWPOINT_DEPENDENCIES = Arrays.asList(
-			VIEWPOINT_URI
+			DATABASE_VIEWPOINT_URI,
+			ENVIRONMENT_VIEWPOINT_URI
 	);
 
 	public static String DATABASE_DIAGRAM_ID = "Database Diagram";
