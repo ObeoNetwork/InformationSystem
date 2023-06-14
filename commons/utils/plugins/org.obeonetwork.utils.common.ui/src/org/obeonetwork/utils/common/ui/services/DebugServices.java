@@ -19,14 +19,15 @@ import org.eclipse.sirius.business.api.session.Session;
 
 public class DebugServices {
 
-	public EObject trace(EObject receiver) {
-		java.lang.System.out.println("receiver.eClass() = \"" + receiver.eClass().getName() + "\"");
-		java.lang.System.out.println("receiver.toString() = \"" + receiver.toString() + "\"");
-		java.lang.System.out.println("receiver.name = \"" + 
-			Optional.ofNullable(receiver.eClass().getEStructuralFeature("name"))
-			.map(f -> (String)receiver.eGet(f)).orElse(null) + "\"");
+	public EObject trace(EObject self) {
+		java.lang.System.out.println("### AQL Trace ###");
+		java.lang.System.out.println("self.eClass()   = \"" + self.eClass().getName() + "\"");
+		java.lang.System.out.println("self.toString() = \"" + self.toString() + "\"");
+		java.lang.System.out.println("self.name       = \"" + 
+			Optional.ofNullable(self.eClass().getEStructuralFeature("name"))
+			.map(f -> (String)self.eGet(f)).orElse(null) + "\"");
 		
-		return receiver;
+		return self;
 	}
 	
 	public EObject traceVars(EObject o) {
@@ -35,7 +36,7 @@ public class DebugServices {
 		Map<String, ?> vars = session.getInterpreter().getVariables();
 		java.lang.System.out.println(vars.keySet().size() + " variable(s)");
 		for(String var : vars.keySet()) {
-			java.lang.System.out.println(var + " = " + vars.get(var) + " (" + vars.get(var).getClass() + ")");
+			java.lang.System.out.println("- " + var + " = " + vars.get(var) + " (" + vars.get(var).getClass() + ")");
 		}
 		return o;
 	}
