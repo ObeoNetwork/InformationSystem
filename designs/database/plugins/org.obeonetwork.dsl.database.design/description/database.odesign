@@ -320,6 +320,177 @@
         </customization>
       </additionalLayers>
     </ownedRepresentations>
+    <ownedRepresentations xsi:type="description_1:DiagramDescription" dropDescriptions="//@ownedViewpoints[name='Database']/@ownedRepresentations[name='Database%20Partial%20View']/@defaultLayer/@toolSections.0/@ownedTools[name='DPV_DragFromModelExplorer']" name="Database Partial View" titleExpression="aql:self.name +' Partial View'" domainClass="database::DataBase" backgroundColor="//@userColorsPalettes[name='DomainColors']/@entries[name='PartialViewBackground']">
+      <metamodel href="platform:/plugin/org.obeonetwork.dsl.database/model/database.ecore#/"/>
+      <metamodel href="platform:/plugin/org.obeonetwork.dsl.typeslibrary/model/typeslibrary.ecore#/"/>
+      <defaultLayer name="Default">
+        <edgeMappings name="DPV_ForeignKey" deletionDescription="//@ownedViewpoints[name='Database']/@ownedRepresentations[name='Database%20Partial%20View']/@defaultLayer/@toolSections.0/@ownedTools[name='DPV_DeleteFromDiagram']" labelDirectEdit="//@ownedViewpoints[name='Database']/@ownedRepresentations[name='Reused%20Description']/@defaultLayer/@toolSections.0/@ownedTools[name='EDT_DatabaseElement']" semanticCandidatesExpression="service:getForeignKeys(diagram)" semanticElements="var:self" sourceMapping="//@ownedViewpoints[name='Database']/@ownedRepresentations[name='Database%20Partial%20View']/@defaultLayer/@containerMappings[name='DPV_Table'] //@ownedViewpoints[name='Database']/@ownedRepresentations[name='Database%20Partial%20View']/@defaultLayer/@containerMappings[name='DPV_Referenced_External_Table']" targetMapping="//@ownedViewpoints[name='Database']/@ownedRepresentations[name='Database%20Partial%20View']/@defaultLayer/@containerMappings[name='DPV_Table'] //@ownedViewpoints[name='Database']/@ownedRepresentations[name='Database%20Partial%20View']/@defaultLayer/@containerMappings[name='DPV_Referenced_External_Table']" targetFinderExpression="[getTargetTable()/]" sourceFinderExpression="[getSourceTable()/]" domainClass="database::ForeignKey" useDomainElement="true">
+          <style strokeColor="//@userColorsPalettes[name='DomainColors']/@entries[name='ISDLabelAndEdge']">
+            <centerLabelStyleDescription showIcon="false" labelExpression="feature:name" labelColor="//@userColorsPalettes[name='DomainColors']/@entries[name='ISDLabelAndEdge']"/>
+          </style>
+        </edgeMappings>
+        <containerMappings name="DPV_Table" deletionDescription="//@ownedViewpoints[name='Database']/@ownedRepresentations[name='Database%20Partial%20View']/@defaultLayer/@toolSections.0/@ownedTools[name='DPV_DeleteFromDiagram']" labelDirectEdit="//@ownedViewpoints[name='Database']/@ownedRepresentations[name='Reused%20Description']/@defaultLayer/@toolSections.0/@ownedTools[name='EDT_DatabaseElement']" semanticCandidatesExpression="feature:tables" createElements="false" domainClass="database::Table" reusedNodeMappings="//@ownedViewpoints[name='Database']/@ownedRepresentations[name='Database%20Diagram']/@defaultLayer/@containerMappings[name='DB_Table']/@subNodeMappings[name='DB_Column'] //@ownedViewpoints[name='Database']/@ownedRepresentations[name='Database%20Diagram']/@defaultLayer/@containerMappings[name='DB_Table']/@subNodeMappings[name='DB_PrimaryKey']" childrenPresentation="List">
+          <style xsi:type="style:FlatContainerStyleDescription" arcWidth="1" arcHeight="1" borderSizeComputationExpression="1" borderColor="//@userColorsPalettes[name='DomainColors']/@entries[name='ISDBorder']" labelSize="10" labelColor="//@userColorsPalettes[name='DomainColors']/@entries[name='ISDLabelAndEdge']" backgroundColor="//@userColorsPalettes[name='DomainColors']/@entries[name='DatabaseFillDark']" foregroundColor="//@userColorsPalettes[name='DomainColors']/@entries[name='DatabaseFillDark']">
+            <labelFormat>bold</labelFormat>
+          </style>
+        </containerMappings>
+        <containerMappings name="DPV_View" deletionDescription="//@ownedViewpoints[name='Database']/@ownedRepresentations[name='Database%20Partial%20View']/@defaultLayer/@toolSections.0/@ownedTools[name='DPV_DeleteFromDiagram']" labelDirectEdit="//@ownedViewpoints[name='Database']/@ownedRepresentations[name='Reused%20Description']/@defaultLayer/@toolSections.0/@ownedTools[name='EDT_DatabaseElement']" semanticCandidatesExpression="service:getViews" createElements="false" domainClass="database::View" reusedNodeMappings="//@ownedViewpoints[name='Database']/@ownedRepresentations[name='Database%20Diagram']/@defaultLayer/@containerMappings[name='DB_View']/@subNodeMappings[name='DB_viewElement']" childrenPresentation="List">
+          <style xsi:type="style:FlatContainerStyleDescription" arcWidth="30" arcHeight="30" borderSizeComputationExpression="1" borderColor="//@userColorsPalettes[name='DomainColors']/@entries[name='ISDBorder']" labelSize="10" showIcon="false" labelColor="//@userColorsPalettes[name='DomainColors']/@entries[name='ISDLabelAndEdge']" tooltipExpression="feature:query" roundedCorner="true" backgroundColor="//@userColorsPalettes[name='DomainColors']/@entries[name='DatabaseFillDark']" foregroundColor="//@userColorsPalettes[name='DomainColors']/@entries[name='DatabaseFillDark']">
+            <labelFormat>bold</labelFormat>
+          </style>
+        </containerMappings>
+        <containerMappings name="DPV_Sequence" deletionDescription="//@ownedViewpoints[name='Database']/@ownedRepresentations[name='Database%20Partial%20View']/@defaultLayer/@toolSections.0/@ownedTools[name='DPV_DeleteFromDiagram']" semanticCandidatesExpression="service:tableContainerWithSequences()" domainClass="database::TableContainer" reusedNodeMappings="//@ownedViewpoints[name='Database']/@ownedRepresentations[name='Database%20Diagram']/@defaultLayer/@containerMappings[name='DB_Sequence']/@subNodeMappings[name='DB_SequenceNode']" childrenPresentation="List">
+          <style xsi:type="style:FlatContainerStyleDescription" arcWidth="5" arcHeight="5" borderSizeComputationExpression="1" borderColor="//@userColorsPalettes[name='DomainColors']/@entries[name='ISDBorder']" borderLineStyle="dash" labelSize="10" labelExpression="Sequences" labelColor="//@userColorsPalettes[name='DomainColors']/@entries[name='ISDLabelAndEdge']" iconPath="/org.obeonetwork.dsl.database.edit/icons/full/obj16/Sequence.gif" roundedCorner="true">
+            <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
+            <foregroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
+          </style>
+        </containerMappings>
+        <containerMappings name="DPV_Schema" deletionDescription="//@ownedViewpoints[name='Database']/@ownedRepresentations[name='Database%20Partial%20View']/@defaultLayer/@toolSections.0/@ownedTools[name='DPV_DeleteFromDiagram']" labelDirectEdit="//@ownedViewpoints[name='Database']/@ownedRepresentations[name='Reused%20Description']/@defaultLayer/@toolSections.0/@ownedTools[name='EDT_DatabaseElement']" semanticCandidatesExpression="feature:schemas" createElements="false" semanticElements="var:self" domainClass="database::Schema">
+          <style xsi:type="style:FlatContainerStyleDescription" arcWidth="1" arcHeight="1" borderSizeComputationExpression="1" borderColor="//@userColorsPalettes[name='DomainColors']/@entries[name='ISDBorder']" labelColor="//@userColorsPalettes[name='DomainColors']/@entries[name='ISDLabelAndEdge']">
+            <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
+            <foregroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
+          </style>
+        </containerMappings>
+        <containerMappings name="DPV_Referenced_External_Table" deletionDescription="//@ownedViewpoints[name='Database']/@ownedRepresentations[name='Database%20Partial%20View']/@defaultLayer/@toolSections.0/@ownedTools[name='DPV_DeleteFromDiagram']" semanticCandidatesExpression="service:allReferencedExternalTables" createElements="false" semanticElements="var:self" domainClass="database::Table" childrenPresentation="List">
+          <style xsi:type="style:FlatContainerStyleDescription" arcWidth="1" arcHeight="1" borderSizeComputationExpression="1" borderColor="//@userColorsPalettes[name='DomainColors']/@entries[name='ISDBorder']" labelSize="10" labelExpression="[ancestors()->filter(database::TableContainer)->reverse().name->sep('::') + '::'+name/]" labelColor="//@userColorsPalettes[name='DomainColors']/@entries[name='ISDLabelAndEdge']" backgroundColor="//@userColorsPalettes[name='DomainColors']/@entries[name='DatabaseFillLight']" foregroundColor="//@userColorsPalettes[name='DomainColors']/@entries[name='DatabaseFillLight']">
+            <labelFormat>bold</labelFormat>
+          </style>
+        </containerMappings>
+        <toolSections name="Usability">
+          <ownedTools xsi:type="tool:DeleteElementDescription" name="DPV_DeleteFromDiagram">
+            <element name="element"/>
+            <elementView name="elementView"/>
+            <containerView name="containerView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:elementView">
+                <subModelOperations xsi:type="tool_1:DeleteView"/>
+              </firstModelOperations>
+            </initialOperation>
+          </ownedTools>
+          <ownedTools xsi:type="tool:ContainerDropDescription" name="DPV_DragFromModelExplorer" mappings="//@ownedViewpoints[name='Database']/@ownedRepresentations[name='Database%20Partial%20View']/@defaultLayer/@edgeMappings[name='DPV_ForeignKey'] //@ownedViewpoints[name='Database']/@ownedRepresentations[name='Database%20Partial%20View']/@defaultLayer/@containerMappings[name='DPV_Referenced_External_Table'] //@ownedViewpoints[name='Database']/@ownedRepresentations[name='Database%20Partial%20View']/@defaultLayer/@containerMappings[name='DPV_Schema'] //@ownedViewpoints[name='Database']/@ownedRepresentations[name='Database%20Partial%20View']/@defaultLayer/@containerMappings[name='DPV_Sequence'] //@ownedViewpoints[name='Database']/@ownedRepresentations[name='Database%20Partial%20View']/@defaultLayer/@containerMappings[name='DPV_Table'] //@ownedViewpoints[name='Database']/@ownedRepresentations[name='Database%20Partial%20View']/@defaultLayer/@containerMappings[name='DPV_View'] //@ownedViewpoints[name='Database']/@ownedRepresentations[name='Database%20Partial%20View']/@additionalLayers[name='Index']/@containerMappings[name='DPV_TableWithIndex']" dragSource="PROJECT_EXPLORER">
+            <oldContainer name="oldSemanticContainer"/>
+            <newContainer name="newSemanticContainer"/>
+            <element name="element"/>
+            <newViewContainer name="newContainerView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:element">
+                <subModelOperations xsi:type="tool_1:If" conditionExpression="aql:self.oclIsKindOf(database::ForeignKey)">
+                  <subModelOperations xsi:type="tool_1:ChangeContext" browseExpression="aql:self.owner">
+                    <subModelOperations xsi:type="tool:CreateView" mapping="//@ownedViewpoints[name='Database']/@ownedRepresentations[name='Database%20Partial%20View']/@defaultLayer/@containerMappings[name='DPV_Table']" containerViewExpression="var:newContainerView" variableName="newSourceTableView"/>
+                  </subModelOperations>
+                  <subModelOperations xsi:type="tool_1:ChangeContext" browseExpression="aql:self.target">
+                    <subModelOperations xsi:type="tool:CreateView" mapping="//@ownedViewpoints[name='Database']/@ownedRepresentations[name='Database%20Partial%20View']/@defaultLayer/@containerMappings[name='DPV_Table']" containerViewExpression="var:newContainerView" variableName="newTargetTableView"/>
+                  </subModelOperations>
+                </subModelOperations>
+                <subModelOperations xsi:type="tool_1:If" conditionExpression="aql:self.oclIsKindOf(database::Table) and newContainerView.target = self.eContainer()">
+                  <subModelOperations xsi:type="tool:CreateView" mapping="//@ownedViewpoints[name='Database']/@ownedRepresentations[name='Database%20Partial%20View']/@defaultLayer/@containerMappings[name='DPV_Table']" containerViewExpression="var:newContainerView" variableName="newTableView"/>
+                </subModelOperations>
+                <subModelOperations xsi:type="tool_1:If" conditionExpression="aql:self.oclIsKindOf(database::View)">
+                  <subModelOperations xsi:type="tool:CreateView" mapping="//@ownedViewpoints[name='Database']/@ownedRepresentations[name='Database%20Partial%20View']/@defaultLayer/@containerMappings[name='DPV_View']" containerViewExpression="var:newContainerView" variableName="newViewView"/>
+                </subModelOperations>
+                <subModelOperations xsi:type="tool_1:If" conditionExpression="aql:self.oclIsKindOf(database::Schema)">
+                  <subModelOperations xsi:type="tool:CreateView" mapping="//@ownedViewpoints[name='Database']/@ownedRepresentations[name='Database%20Partial%20View']/@defaultLayer/@containerMappings[name='DPV_Schema']" containerViewExpression="var:newContainerView" variableName="newSchemaView"/>
+                </subModelOperations>
+                <subModelOperations xsi:type="tool_1:If" conditionExpression="aql:self.oclIsKindOf(database::Table) and newContainerView.target &lt;> self.eContainer()">
+                  <subModelOperations xsi:type="tool:CreateView" mapping="//@ownedViewpoints[name='Database']/@ownedRepresentations[name='Database%20Partial%20View']/@defaultLayer/@containerMappings[name='DPV_Referenced_External_Table']" containerViewExpression="var:newContainerView" variableName="newReferencedExternalTableView"/>
+                </subModelOperations>
+              </firstModelOperations>
+            </initialOperation>
+          </ownedTools>
+          <ownedTools xsi:type="tool_1:OperationAction" name="DPV_AddReferencedTables" label="Add referenced tables" precondition="aql:self.oclIsKindOf(database::Table)" icon="/org.obeonetwork.dsl.database.design/icons/full/tool16/AddReferencedTables.png">
+            <view name="views"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:For" expression="aql:self.foreignKeys.getTargetTable()->asSet()" iteratorName="table">
+                <subModelOperations xsi:type="tool_1:If" conditionExpression="aql:diagram.target = table.eContainer()">
+                  <subModelOperations xsi:type="tool:CreateView" mapping="//@ownedViewpoints[name='Database']/@ownedRepresentations[name='Database%20Partial%20View']/@defaultLayer/@containerMappings[name='DPV_Table']" containerViewExpression="var:diagram" variableName="newTableView"/>
+                </subModelOperations>
+                <subModelOperations xsi:type="tool_1:If" conditionExpression="aql:diagram.target &lt;> table.eContainer()">
+                  <subModelOperations xsi:type="tool:CreateView" mapping="//@ownedViewpoints[name='Database']/@ownedRepresentations[name='Database%20Partial%20View']/@defaultLayer/@containerMappings[name='DPV_Referenced_External_Table']" containerViewExpression="var:diagram" variableName="newReferencedExternalTableView"/>
+                </subModelOperations>
+              </firstModelOperations>
+            </initialOperation>
+          </ownedTools>
+          <ownedTools xsi:type="tool_1:OperationAction" name="DPV_AddReferencingTables" label="Add referencing tables" precondition="aql:self.oclIsKindOf(database::Table)" icon="/org.obeonetwork.dsl.database.design/icons/full/tool16/AddReferencingTables.png">
+            <view name="views"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:For" expression="aql:self.eInverse('target')->filter(database::ForeignKey).owner" iteratorName="table">
+                <subModelOperations xsi:type="tool_1:If" conditionExpression="aql:diagram.target = table.eContainer()">
+                  <subModelOperations xsi:type="tool:CreateView" mapping="//@ownedViewpoints[name='Database']/@ownedRepresentations[name='Database%20Partial%20View']/@defaultLayer/@containerMappings[name='DPV_Table']" containerViewExpression="var:diagram" variableName="newTableView"/>
+                </subModelOperations>
+                <subModelOperations xsi:type="tool_1:If" conditionExpression="aql:diagram.target &lt;> table.eContainer()">
+                  <subModelOperations xsi:type="tool:CreateView" mapping="//@ownedViewpoints[name='Database']/@ownedRepresentations[name='Database%20Partial%20View']/@defaultLayer/@containerMappings[name='DPV_Referenced_External_Table']" containerViewExpression="var:diagram" variableName="newReferencedExternalTableView"/>
+                </subModelOperations>
+              </firstModelOperations>
+            </initialOperation>
+          </ownedTools>
+        </toolSections>
+        <decorationDescriptionsSet>
+          <decorationDescriptions xsi:type="description_1:MappingBasedDecoration" name="DEC_Table_HasConstraints" position="NORTH_EAST" preconditionExpression="[constraints->size() > 0/]" imageExpression="/org.obeonetwork.dsl.database.design/icons/decorator/Constraint.gif" mappings="//@ownedViewpoints[name='Database']/@ownedRepresentations[name='Database%20Partial%20View']/@defaultLayer/@containerMappings[name='DPV_Table'] //@ownedViewpoints[name='Database']/@ownedRepresentations[name='Database%20Partial%20View']/@defaultLayer/@containerMappings[name='DPV_Referenced_External_Table'] //@ownedViewpoints[name='Database']/@ownedRepresentations[name='Database%20Partial%20View']/@additionalLayers[name='Index']/@containerMappings[name='DPV_TableWithIndex']"/>
+        </decorationDescriptionsSet>
+        <customization>
+          <vsmElementCustomizations xsi:type="description:VSMElementCustomizationReuse" reuse="//@ownedViewpoints[name='Database']/@ownedRepresentations[name='Reused%20Description']/@defaultLayer/@customization/@vsmElementCustomizations.0/@featureCustomizations.0" appliedOn="//@ownedViewpoints[name='Database']/@ownedRepresentations[name='Database%20Diagram']/@defaultLayer/@containerMappings[name='DB_Table']/@subNodeMappings[name='DB_Column']/@style //@ownedViewpoints[name='Database']/@ownedRepresentations[name='Database%20Diagram']/@additionalLayers[name='External%20Tables']/@containerMappings[name='DB_Non_Referenced_External_Table']/@subNodeMappings[name='DB_Ext_Column']/@style //@ownedViewpoints[name='Database']/@ownedRepresentations[name='Database%20Diagram']/@additionalLayers[name='Index']/@containerMappings[name='DB_TableWithIndex']/@subNodeMappings[name='DB_Column']/@style"/>
+          <vsmElementCustomizations xsi:type="description:VSMElementCustomizationReuse" reuse="//@ownedViewpoints[name='Database']/@ownedRepresentations[name='Database%20Diagram']/@defaultLayer/@customization/@vsmElementCustomizations.1/@featureCustomizations.1 //@ownedViewpoints[name='Database']/@ownedRepresentations[name='Database%20Diagram']/@defaultLayer/@customization/@vsmElementCustomizations.1/@featureCustomizations.0" appliedOn="//@ownedViewpoints[name='Database']/@ownedRepresentations[name='Database%20Partial%20View']/@defaultLayer/@containerMappings[name='DPV_Table']/@style //@ownedViewpoints[name='Database']/@ownedRepresentations[name='Database%20Partial%20View']/@defaultLayer/@containerMappings[name='DPV_View']/@style"/>
+          <vsmElementCustomizations xsi:type="description:VSMElementCustomizationReuse" reuse="//@ownedViewpoints[name='Database']/@ownedRepresentations[name='Database%20Diagram']/@additionalLayers[name='External%20Tables']/@customization/@vsmElementCustomizations.1/@featureCustomizations.1 //@ownedViewpoints[name='Database']/@ownedRepresentations[name='Database%20Diagram']/@additionalLayers[name='External%20Tables']/@customization/@vsmElementCustomizations.1/@featureCustomizations.0" appliedOn="//@ownedViewpoints[name='Database']/@ownedRepresentations[name='Database%20Partial%20View']/@defaultLayer/@containerMappings[name='DPV_Referenced_External_Table']/@style"/>
+        </customization>
+      </defaultLayer>
+      <additionalLayers name="Index" activeByDefault="true">
+        <containerMappings xsi:type="description_1:ContainerMappingImport" name="DPV_TableWithIndex" deletionDescription="//@ownedViewpoints[name='Database']/@ownedRepresentations[name='Database%20Partial%20View']/@defaultLayer/@toolSections.0/@ownedTools[name='DPV_DeleteFromDiagram']" semanticCandidatesExpression="feature:tables" reusedNodeMappings="//@ownedViewpoints[name='Database']/@ownedRepresentations[name='Database%20Diagram']/@additionalLayers[name='Index']/@containerMappings[name='DB_TableWithIndex']/@subNodeMappings[name='DB_Column'] //@ownedViewpoints[name='Database']/@ownedRepresentations[name='Database%20Diagram']/@additionalLayers[name='Index']/@containerMappings[name='DB_TableWithIndex']/@subNodeMappings[name='DB_Index'] //@ownedViewpoints[name='Database']/@ownedRepresentations[name='Database%20Diagram']/@additionalLayers[name='Index']/@containerMappings[name='DB_TableWithIndex']/@subNodeMappings[name='DB_PrimaryKey']" childrenPresentation="List" importedMapping="//@ownedViewpoints[name='Database']/@ownedRepresentations[name='Database%20Partial%20View']/@defaultLayer/@containerMappings[name='DPV_Table']"/>
+        <customization>
+          <vsmElementCustomizations xsi:type="description:VSMElementCustomizationReuse" reuse="//@ownedViewpoints[name='Database']/@ownedRepresentations[name='Reused%20Description']/@defaultLayer/@customization/@vsmElementCustomizations.0/@featureCustomizations.0" appliedOn="//@ownedViewpoints[name='Database']/@ownedRepresentations[name='Database%20Diagram']/@additionalLayers[name='Index']/@containerMappings[name='DB_TableWithIndex']/@subNodeMappings[name='DB_Column']/@style"/>
+        </customization>
+      </additionalLayers>
+    </ownedRepresentations>
+    <ownedRepresentations xsi:type="description_1:DiagramDescription" dropDescriptions="//@ownedViewpoints[name='Database']/@ownedRepresentations[name='Schema%20Partial%20View']/@defaultLayer/@toolSections.0/@ownedTools[name='DPV_DragFromModelExplorer']" name="Schema Partial View" titleExpression="aql:self.name +' Partial View'" domainClass="database::Schema" backgroundColor="//@userColorsPalettes[name='DomainColors']/@entries[name='PartialViewBackground']">
+      <metamodel href="platform:/plugin/org.obeonetwork.dsl.database/model/database.ecore#/"/>
+      <metamodel href="platform:/plugin/org.obeonetwork.dsl.typeslibrary/model/typeslibrary.ecore#/"/>
+      <defaultLayer name="Default" reusedMappings="//@ownedViewpoints[name='Database']/@ownedRepresentations[name='Database%20Partial%20View']/@defaultLayer/@containerMappings[name='DPV_Table'] //@ownedViewpoints[name='Database']/@ownedRepresentations[name='Database%20Partial%20View']/@defaultLayer/@edgeMappings[name='DPV_ForeignKey'] //@ownedViewpoints[name='Database']/@ownedRepresentations[name='Database%20Partial%20View']/@defaultLayer/@containerMappings[name='DPV_View'] //@ownedViewpoints[name='Database']/@ownedRepresentations[name='Database%20Partial%20View']/@defaultLayer/@containerMappings[name='DPV_Sequence'] //@ownedViewpoints[name='Database']/@ownedRepresentations[name='Database%20Partial%20View']/@defaultLayer/@containerMappings[name='DPV_Referenced_External_Table'] //@ownedViewpoints[name='Database']/@ownedRepresentations[name='Database%20Partial%20View']/@additionalLayers[name='Index']/@containerMappings[name='DPV_TableWithIndex']">
+        <toolSections name="Usability" reusedTools="//@ownedViewpoints[name='Database']/@ownedRepresentations[name='Database%20Partial%20View']/@defaultLayer/@toolSections.0/@ownedTools[name='DPV_DeleteFromDiagram'] //@ownedViewpoints[name='Database']/@ownedRepresentations[name='Database%20Partial%20View']/@defaultLayer/@toolSections.0/@ownedTools[name='DPV_AddReferencedTables'] //@ownedViewpoints[name='Database']/@ownedRepresentations[name='Database%20Partial%20View']/@defaultLayer/@toolSections.0/@ownedTools[name='DPV_AddReferencingTables']">
+          <ownedTools xsi:type="tool:ContainerDropDescription" name="DPV_DragFromModelExplorer" mappings="//@ownedViewpoints[name='Database']/@ownedRepresentations[name='Database%20Partial%20View']/@defaultLayer/@edgeMappings[name='DPV_ForeignKey'] //@ownedViewpoints[name='Database']/@ownedRepresentations[name='Database%20Partial%20View']/@defaultLayer/@containerMappings[name='DPV_Referenced_External_Table'] //@ownedViewpoints[name='Database']/@ownedRepresentations[name='Database%20Partial%20View']/@defaultLayer/@containerMappings[name='DPV_Schema'] //@ownedViewpoints[name='Database']/@ownedRepresentations[name='Database%20Partial%20View']/@defaultLayer/@containerMappings[name='DPV_Sequence'] //@ownedViewpoints[name='Database']/@ownedRepresentations[name='Database%20Partial%20View']/@defaultLayer/@containerMappings[name='DPV_Table'] //@ownedViewpoints[name='Database']/@ownedRepresentations[name='Database%20Partial%20View']/@defaultLayer/@containerMappings[name='DPV_View'] //@ownedViewpoints[name='Database']/@ownedRepresentations[name='Database%20Partial%20View']/@additionalLayers[name='Index']/@containerMappings[name='DPV_TableWithIndex']" dragSource="PROJECT_EXPLORER">
+            <oldContainer name="oldSemanticContainer"/>
+            <newContainer name="newSemanticContainer"/>
+            <element name="element"/>
+            <newViewContainer name="newContainerView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:element">
+                <subModelOperations xsi:type="tool_1:If" conditionExpression="aql:self.oclIsKindOf(database::ForeignKey)">
+                  <subModelOperations xsi:type="tool_1:ChangeContext" browseExpression="aql:self.owner">
+                    <subModelOperations xsi:type="tool:CreateView" mapping="//@ownedViewpoints[name='Database']/@ownedRepresentations[name='Database%20Partial%20View']/@defaultLayer/@containerMappings[name='DPV_Table']" containerViewExpression="var:newContainerView" variableName="newSourceTableView"/>
+                  </subModelOperations>
+                  <subModelOperations xsi:type="tool_1:ChangeContext" browseExpression="aql:self.target">
+                    <subModelOperations xsi:type="tool:CreateView" mapping="//@ownedViewpoints[name='Database']/@ownedRepresentations[name='Database%20Partial%20View']/@defaultLayer/@containerMappings[name='DPV_Table']" containerViewExpression="var:newContainerView" variableName="newTargetTableView"/>
+                  </subModelOperations>
+                </subModelOperations>
+                <subModelOperations xsi:type="tool_1:If" conditionExpression="aql:self.oclIsKindOf(database::Table) and newContainerView.target = self.eContainer()">
+                  <subModelOperations xsi:type="tool:CreateView" mapping="//@ownedViewpoints[name='Database']/@ownedRepresentations[name='Database%20Partial%20View']/@defaultLayer/@containerMappings[name='DPV_Table']" containerViewExpression="var:newContainerView" variableName="newTableView"/>
+                </subModelOperations>
+                <subModelOperations xsi:type="tool_1:If" conditionExpression="aql:self.oclIsKindOf(database::View)">
+                  <subModelOperations xsi:type="tool:CreateView" mapping="//@ownedViewpoints[name='Database']/@ownedRepresentations[name='Database%20Partial%20View']/@defaultLayer/@containerMappings[name='DPV_View']" containerViewExpression="var:newContainerView" variableName="newViewView"/>
+                </subModelOperations>
+                <subModelOperations xsi:type="tool_1:If" conditionExpression="aql:self.oclIsKindOf(database::Schema)">
+                  <subModelOperations xsi:type="tool:CreateView" mapping="//@ownedViewpoints[name='Database']/@ownedRepresentations[name='Database%20Partial%20View']/@defaultLayer/@containerMappings[name='DPV_Schema']" containerViewExpression="var:newContainerView" variableName="newSchemaView"/>
+                </subModelOperations>
+                <subModelOperations xsi:type="tool_1:If" conditionExpression="aql:self.oclIsKindOf(database::Table) and newContainerView.target &lt;> self.eContainer()">
+                  <subModelOperations xsi:type="tool:CreateView" mapping="//@ownedViewpoints[name='Database']/@ownedRepresentations[name='Database%20Partial%20View']/@defaultLayer/@containerMappings[name='DPV_Referenced_External_Table']" containerViewExpression="var:newContainerView" variableName="newReferencedExternalTableView"/>
+                </subModelOperations>
+              </firstModelOperations>
+            </initialOperation>
+          </ownedTools>
+        </toolSections>
+        <decorationDescriptionsSet>
+          <decorationDescriptions xsi:type="description_1:MappingBasedDecoration" name="DEC_Table_HasConstraints" position="NORTH_EAST" preconditionExpression="aql:self.constraints->notEmpty()" imageExpression="/org.obeonetwork.dsl.database.design/icons/decorator/Constraint.gif" mappings="//@ownedViewpoints[name='Database']/@ownedRepresentations[name='Database%20Partial%20View']/@defaultLayer/@containerMappings[name='DPV_Table'] //@ownedViewpoints[name='Database']/@ownedRepresentations[name='Database%20Partial%20View']/@defaultLayer/@containerMappings[name='DPV_Referenced_External_Table'] //@ownedViewpoints[name='Database']/@ownedRepresentations[name='Database%20Partial%20View']/@additionalLayers[name='Index']/@containerMappings[name='DPV_TableWithIndex']"/>
+        </decorationDescriptionsSet>
+        <customization>
+          <vsmElementCustomizations xsi:type="description:VSMElementCustomizationReuse" reuse="//@ownedViewpoints[name='Database']/@ownedRepresentations[name='Reused%20Description']/@defaultLayer/@customization/@vsmElementCustomizations.0/@featureCustomizations.0" appliedOn="//@ownedViewpoints[name='Database']/@ownedRepresentations[name='Database%20Diagram']/@defaultLayer/@containerMappings[name='DB_Table']/@subNodeMappings[name='DB_Column']/@style //@ownedViewpoints[name='Database']/@ownedRepresentations[name='Database%20Diagram']/@additionalLayers[name='External%20Tables']/@containerMappings[name='DB_Non_Referenced_External_Table']/@subNodeMappings[name='DB_Ext_Column']/@style //@ownedViewpoints[name='Database']/@ownedRepresentations[name='Database%20Diagram']/@additionalLayers[name='Index']/@containerMappings[name='DB_TableWithIndex']/@subNodeMappings[name='DB_Column']/@style"/>
+          <vsmElementCustomizations xsi:type="description:VSMElementCustomizationReuse" reuse="//@ownedViewpoints[name='Database']/@ownedRepresentations[name='Database%20Diagram']/@defaultLayer/@customization/@vsmElementCustomizations.1/@featureCustomizations.1 //@ownedViewpoints[name='Database']/@ownedRepresentations[name='Database%20Diagram']/@defaultLayer/@customization/@vsmElementCustomizations.1/@featureCustomizations.0" appliedOn="//@ownedViewpoints[name='Database']/@ownedRepresentations[name='Database%20Partial%20View']/@defaultLayer/@containerMappings[name='DPV_Table']/@style //@ownedViewpoints[name='Database']/@ownedRepresentations[name='Database%20Partial%20View']/@defaultLayer/@containerMappings[name='DPV_View']/@style"/>
+          <vsmElementCustomizations xsi:type="description:VSMElementCustomizationReuse" reuse="//@ownedViewpoints[name='Database']/@ownedRepresentations[name='Database%20Diagram']/@additionalLayers[name='External%20Tables']/@customization/@vsmElementCustomizations.1/@featureCustomizations.1 //@ownedViewpoints[name='Database']/@ownedRepresentations[name='Database%20Diagram']/@additionalLayers[name='External%20Tables']/@customization/@vsmElementCustomizations.1/@featureCustomizations.0" appliedOn="//@ownedViewpoints[name='Database']/@ownedRepresentations[name='Database%20Partial%20View']/@defaultLayer/@containerMappings[name='DPV_Referenced_External_Table']/@style"/>
+        </customization>
+      </defaultLayer>
+      <additionalLayers name="Index" reusedMappings="//@ownedViewpoints[name='Database']/@ownedRepresentations[name='Database%20Partial%20View']/@additionalLayers[name='Index']/@containerMappings[name='DPV_TableWithIndex']" activeByDefault="true">
+        <customization>
+          <vsmElementCustomizations xsi:type="description:VSMElementCustomizationReuse" reuse="//@ownedViewpoints[name='Database']/@ownedRepresentations[name='Reused%20Description']/@defaultLayer/@customization/@vsmElementCustomizations.0/@featureCustomizations.0" appliedOn="//@ownedViewpoints[name='Database']/@ownedRepresentations[name='Database%20Diagram']/@additionalLayers[name='Index']/@containerMappings[name='DB_TableWithIndex']/@subNodeMappings[name='DB_Column']/@style"/>
+        </customization>
+      </additionalLayers>
+    </ownedRepresentations>
     <ownedJavaExtensions qualifiedClassName="org.obeonetwork.dsl.database.design.services.EcoreServices"/>
     <ownedJavaExtensions qualifiedClassName="org.obeonetwork.dsl.database.design.services.DatabaseServices"/>
     <ownedJavaExtensions qualifiedClassName="org.obeonetwork.dsl.database.design.services.label.DatabaseLabelServices"/>
@@ -333,6 +504,7 @@
     <entries xsi:type="description:UserFixedColor" red="136" green="136" blue="136" name="ISDBorder"/>
     <entries xsi:type="description:UserFixedColor" red="242" green="255" blue="233" name="DatabaseFillLight"/>
     <entries xsi:type="description:UserFixedColor" red="220" green="255" blue="197" name="DatabaseFillDark"/>
+    <entries xsi:type="description:UserFixedColor" red="246" green="245" blue="244" name="PartialViewBackground"/>
   </userColorsPalettes>
   <extensions xsi:type="properties:ViewExtensionDescription" name="Properties">
     <metamodels href="http://www.obeonetwork.org/dsl/database/1.0#/"/>
