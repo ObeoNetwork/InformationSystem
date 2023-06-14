@@ -23,6 +23,9 @@
                class="org.obeonetwork.database.m2doc.services.DataBaseServices">
          </service>
          <service
+               class="org.obeonetwork.database.m2doc.services.SchemaServices">
+         </service>
+         <service
                class="org.obeonetwork.database.m2doc.services.ForeignKeyElementServices">
          </service>
          <service
@@ -51,6 +54,9 @@
          </service>
          <service
                class="org.obeonetwork.database.m2doc.services.DataBaseServices">
+         </service>
+         <service
+               class="org.obeonetwork.database.m2doc.services.SchemaServices">
          </service>
          <service
                class="org.obeonetwork.database.m2doc.services.ForeignKeyElementServices">

@@ -28,5 +28,7 @@ public interface IDatabaseViewpointConstants {
 
 	public static String DATABASE_DIAGRAM_ID = "Database Diagram";
 	public static String SCHEMA_DIAGRAM_ID = "Schema Diagram";
+	public static String DATABASE_PARTIAL_VIEW_DIAGRAM_ID = "Database Partial View";
+	public static String SCHEMA_PARTIAL_VIEW_DIAGRAM_ID = "Schema Partial View";
 	
 }
