@@ -182,6 +182,48 @@
       <td colspan="1" rowspan="1">{m:myObeoDSMObject.annotation('some title')} returns: The string of the annotation.</td>
     </tr>
     <tr>
+      <td colspan="1" rowspan="1"><strong>asSchemaImage</strong></td>
+      <td colspan="1" rowspan="1">List of org.obeonetwork.m2doc.element.MImage</td>
+      <td colspan="1" rowspan="1">{m:schema.asSchemaImage(width, height)}</td>
+      <td colspan="1" rowspan="1">Returns a collection of images representing the target Schema Schema Diagrams scaled to the given width and heigth.</td>
+      <td colspan="1" rowspan="1">{m:schema.asSchemaImage(400, 300)} returns: A sequence of images.</td>
+    </tr>
+    <tr>
+      <td colspan="1" rowspan="1"><strong>asSchemaImage</strong></td>
+      <td colspan="1" rowspan="1">List of org.obeonetwork.m2doc.element.MImage</td>
+      <td colspan="1" rowspan="1">{m:schema.asSchemaImage(width)}</td>
+      <td colspan="1" rowspan="1">Returns a collection of images representing the target Schema Schema Diagrams scaled to the given width keeping the initial image ratio.</td>
+      <td colspan="1" rowspan="1">{m:schema.asSchemaImage(400)} returns: A sequence of images.</td>
+    </tr>
+    <tr>
+      <td colspan="1" rowspan="1"><strong>asSchemaImage</strong></td>
+      <td colspan="1" rowspan="1">List of org.obeonetwork.m2doc.element.MImage</td>
+      <td colspan="1" rowspan="1">{m:schema.asSchemaImage()}</td>
+      <td colspan="1" rowspan="1">Returns a collection of images representing the target Schema Schema Diagrams.</td>
+      <td colspan="1" rowspan="1">{m:schema.asSchemaImage()} returns: A sequence of images.</td>
+    </tr>
+    <tr>
+      <td colspan="1" rowspan="1"><strong>asSchemaPartialViewImage</strong></td>
+      <td colspan="1" rowspan="1">List of org.obeonetwork.m2doc.element.MImage</td>
+      <td colspan="1" rowspan="1">{m:schema.asSchemaPartialViewImage()}</td>
+      <td colspan="1" rowspan="1">Returns a collection of images representing the target Schema Schema Partial View Diagrams.</td>
+      <td colspan="1" rowspan="1">{m:schema.asSchemaPartialViewImage()} returns: A sequence of images.</td>
+    </tr>
+    <tr>
+      <td colspan="1" rowspan="1"><strong>asSchemaPartialViewImage</strong></td>
+      <td colspan="1" rowspan="1">List of org.obeonetwork.m2doc.element.MImage</td>
+      <td colspan="1" rowspan="1">{m:schema.asSchemaPartialViewImage(width)}</td>
+      <td colspan="1" rowspan="1">Returns a collection of images representing the target Schema Schema Partial View Diagrams scaled to the given width keeping the initial image ratio.</td>
+      <td colspan="1" rowspan="1">{m:schema.asSchemaPartialViewImage(400)} returns: A sequence of images.</td>
+    </tr>
+    <tr>
+      <td colspan="1" rowspan="1"><strong>asSchemaPartialViewImage</strong></td>
+      <td colspan="1" rowspan="1">List of org.obeonetwork.m2doc.element.MImage</td>
+      <td colspan="1" rowspan="1">{m:schema.asSchemaPartialViewImage(width, height)}</td>
+      <td colspan="1" rowspan="1">Returns a collection of images representing the target Schema Schema Partial View Diagrams scaled to the given width and heigth.</td>
+      <td colspan="1" rowspan="1">{m:schema.asSchemaPartialViewImage(400, 300)} returns: A sequence of images.</td>
+    </tr>
+    <tr>
       <td colspan="1" rowspan="1"><strong>cinematicIcon</strong></td>
       <td colspan="1" rowspan="1">org.obeonetwork.m2doc.element.MImage</td>
       <td colspan="1" rowspan="1">{m:obj.cinematicIcon()}</td>
