@@ -504,7 +504,7 @@
     <entries xsi:type="description:UserFixedColor" red="136" green="136" blue="136" name="ISDBorder"/>
     <entries xsi:type="description:UserFixedColor" red="242" green="255" blue="233" name="DatabaseFillLight"/>
     <entries xsi:type="description:UserFixedColor" red="220" green="255" blue="197" name="DatabaseFillDark"/>
-    <entries xsi:type="description:UserFixedColor" red="251" green="242" blue="236" name="PartialViewBackground"/>
+    <entries xsi:type="description:UserFixedColor" red="255" green="239" blue="219" name="PartialViewBackground"/>
   </userColorsPalettes>
   <extensions xsi:type="properties:ViewExtensionDescription" name="Properties">
     <metamodels href="http://www.obeonetwork.org/dsl/database/1.0#/"/>
