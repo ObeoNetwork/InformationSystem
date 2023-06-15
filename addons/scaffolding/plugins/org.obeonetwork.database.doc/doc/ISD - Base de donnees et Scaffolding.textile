@@ -70,7 +70,7 @@ h3. Modélisation
 
 h4. Vue d'ensemble
 
-Pour manipuler graphiquement le contenu d'une ressource _.database_, celle-ci doit se trouver dans un _Modeling Project_ ouvert dans la vue _Model Explorer_ d'Obeo Designer.
+Pour manipuler graphiquement le contenu d'une ressource _.database_, celle-ci doit se trouver dans un _Modeling Project_ ouvert dans la vue _Model Explorer_ d'IS Designer.
 Le point de vue _Database_ doit être activé (via la boite de dialogue _Viewpoints Selection_ disponible en action du menu contextuel sur le _Modeling project_.
 
 La création d'un diagramme _Database Diagram_ est disponible en menu contextuel sur un élément de type Database :
@@ -79,7 +79,7 @@ La création d'un diagramme _Database Diagram_ est disponible en menu contextuel
 
 Une action similaire sur un élément de type Schema est disponible pour créer un _Schema Diagram_.
 
-L'ouverture du diagramme permet de visualiser de manière graphique le contenu du fichier:
+L'ouverture du diagramme permet de visualiser de manière graphique le contenu du fichier :
 
 !{width:100%}pics/BDD_Modelisation_01.png!
 
@@ -88,6 +88,21 @@ Cet éditeur propose :
 * une palette d'outils permettant d'ajouter de nouvelles tables, colonnes, index, contraintes, ...
 * un ensemble de filtres pour afficher ou masquer les contraintes, index et tables externes,
 * une vue propriétés dédiée.
+
+Cet éditeur est "synchronisé" : il présente une vue complète du schéma ou de la base de données sur lequel il est créé. Si une table est créée par un moyen extérieur au diagramme dans le schéma ou la base de données sur lequel a été créé le diagramme, celle-ci sera automatiquement représentée sur le diagramme.
+
+La représentation _Partial View_ est dédiée à visualiser un sous ensemble d'un schéma ou d'une base de données.
+Cette vue est "non synchronisée" : elle est vide lorsqu'elle est créée, et elle est peuplée manuellement par drag and drop depuis la vue Model Explorer, ou bien par l'une des deux actions de menu contextuel disponibles sur les tables : **Add referenced tables** et **Add referencing tables**.
+La couleur de fond de la vue permet de la distinguer de la vue synchronisée _Database Diagram_ :
+
+!{width:80%}pics/BDD_PartialView_01.png!
+
+Cette vue étant dédiée à la visualisation, la palette ne présente aucun outil.
+Les éléments qu'elle présente sont soumis aux mêmes règles que pour _Database Diagram_ : une table d'un autre schéma ne peut pas figurer sur le diagramme à moins qu'elle soit en lien via les _Foreign Keys_ de manière directe ou indirecte avec les tables du schéma courant.
+
+La mise en forme d'un diagramme _Database Diagram_ peut être reproduite sur une _Partial View_ en utilisant les actions suivantes :
+* Dans le menu contextuel sur le fond du _Database Diagram_, séléctionner _Edit > Copy format_.
+* Dans le menu contextuel sur le fond de la _Partial View_, séléctionner _Edit > Paste layout_.
 
 h4. Modèle Physique de Données
 

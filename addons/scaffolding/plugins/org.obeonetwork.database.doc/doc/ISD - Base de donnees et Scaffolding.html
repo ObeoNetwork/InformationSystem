@@ -117,7 +117,7 @@
 		<p>Pour manipuler graphiquement le contenu d&#8217;une ressource 
 			<em>.database</em>, celle-ci doit se trouver dans un 
 			<em>Modeling Project</em> ouvert dans la vue 
-			<em>Model Explorer</em> d&#8217;Obeo Designer.
+			<em>Model Explorer</em> d&#8217;IS Designer.
 			<br/>Le point de vue 
 			<em>Database</em> doit être activé (via la boite de dialogue 
 			<em>Viewpoints Selection</em> disponible en action du menu contextuel sur le 
@@ -132,7 +132,7 @@
 		<p>Une action similaire sur un élément de type Schema est disponible pour créer un 
 			<em>Schema Diagram</em>.
 		</p>
-		<p>L&#8217;ouverture du diagramme permet de visualiser de manière graphique le contenu du fichier:</p>
+		<p>L&#8217;ouverture du diagramme permet de visualiser de manière graphique le contenu du fichier :</p>
 		<p>
 			<img style="width:100%" border="0" src="pics/BDD_Modelisation_01.png"/>
 		</p>
@@ -142,6 +142,37 @@
 			<li>une palette d&#8217;outils permettant d&#8217;ajouter de nouvelles tables, colonnes, index, contraintes, ...</li>
 			<li>un ensemble de filtres pour afficher ou masquer les contraintes, index et tables externes,</li>
 			<li>une vue propriétés dédiée.</li>
+		</ul>
+		<p>Cet éditeur est &#171;synchronisé&#187; : il présente une vue complète du schéma ou de la base de données sur lequel il est créé. Si une table est créée par un moyen extérieur au diagramme dans le schéma ou la base de données sur lequel a été créé le diagramme, celle-ci sera automatiquement représentée sur le diagramme.</p>
+		<p>La représentation 
+			<em>Partial View</em> est dédiée à visualiser un sous ensemble d&#8217;un schéma ou d&#8217;une base de données.
+			<br/>Cette vue est &#171;non synchronisée&#187; : elle est vide lorsqu&#8217;elle est créée, et elle est peuplée manuellement par drag and drop depuis la vue Model Explorer, ou bien par l&#8217;une des deux actions de menu contextuel disponibles sur les tables : 
+			<b>Add referenced tables</b> et 
+			<b>Add referencing tables</b>.
+			<br/>La couleur de fond de la vue permet de la distinguer de la vue synchronisée 
+			<em>Database Diagram</em> :
+		</p>
+		<p>
+			<img style="width:80%" border="0" src="pics/BDD_PartialView_01.png"/>
+		</p>
+		<p>Cette vue étant dédiée à la visualisation, la palette ne présente aucun outil.
+			<br/>Les éléments qu&#8217;elle présente sont soumis aux mêmes règles que pour 
+			<em>Database Diagram</em> : une table d&#8217;un autre schéma ne peut pas figurer sur le diagramme à moins qu&#8217;elle soit en lien via les 
+			<em>Foreign Keys</em> de manière directe ou indirecte avec les tables du schéma courant.
+		</p>
+		<p>La mise en forme d&#8217;un diagramme 
+			<em>Database Diagram</em> peut être reproduite sur une 
+			<em>Partial View</em> en utilisant les actions suivantes :
+		</p>
+		<ul>
+			<li>Dans le menu contextuel sur le fond du 
+				<em>Database Diagram</em>, séléctionner 
+				<em>Edit &gt; Copy format</em>.
+			</li>
+			<li>Dans le menu contextuel sur le fond de la 
+				<em>Partial View</em>, séléctionner 
+				<em>Edit &gt; Paste layout</em>.
+			</li>
 		</ul>
 		<h4 id="ModlePhysiquedeDonnes">Modèle Physique de Données</h4>
 		<p>L'édition de Modèle Physique de Données se fait à l&#8217;aide du modeleur présenté ci-dessus. Un MPD est caractérisé par l&#8217;utilisation d&#8217;une librairie de type spécifique à un moteur de base de données : Oracle, MySQL ou autre. Les librairies utilisées sont consultables par la propriété 
