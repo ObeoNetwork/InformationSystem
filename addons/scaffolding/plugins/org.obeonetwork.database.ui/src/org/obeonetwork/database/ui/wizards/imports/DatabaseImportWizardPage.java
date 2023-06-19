@@ -20,8 +20,10 @@ import org.eclipse.core.databinding.beans.BeanProperties;
 import org.eclipse.core.databinding.beans.BeansObservables;
 import org.eclipse.core.databinding.observable.value.IObservableValue;
 import org.eclipse.core.resources.IFile;
+import org.eclipse.core.resources.IProject;
 import org.eclipse.core.resources.IResource;
 import org.eclipse.core.resources.ResourcesPlugin;
+import org.eclipse.core.runtime.IPath;
 import org.eclipse.core.runtime.Path;
 import org.eclipse.emf.common.ui.dialogs.WorkspaceResourceDialog;
 import org.eclipse.jface.databinding.swt.WidgetProperties;
@@ -80,6 +82,7 @@ public class DatabaseImportWizardPage extends WizardPage {
 	private Text txtUrl;
 	private StyledText txtModelFile;
 	private ListViewer listReferencedModelFiles;
+	private IProject selectedProject;
 	
 	public DatabaseImportWizardPage(String pageName, DatabaseInfos databaseInfos) {
 		super(pageName);
@@ -87,6 +90,11 @@ public class DatabaseImportWizardPage extends WizardPage {
 		setDescription("Import the contents of a database into a database model"); //NON-NLS-1
 		
 		this.databaseInfos = databaseInfos;
+	}
+	
+	public DatabaseImportWizardPage(String pageName, DatabaseInfos databaseInfos, IProject selectedProject) {
+		this(pageName, databaseInfos);
+		this.selectedProject = selectedProject;
 	}
 
 	/* (non-Javadoc)
@@ -192,17 +200,42 @@ public class DatabaseImportWizardPage extends WizardPage {
 		btnBrowseFile.addSelectionListener(new SelectionAdapter() {
 			@Override
 			public void widgetSelected(SelectionEvent e) {
+				
+				IPath suggestedPath = getSuggestedPath(txtModelFile.getText(), selectedProject);
+				
 				Collection<ViewerFilter> filters = new ArrayList<ViewerFilter>();
 				filters.add(new FileExtensionsViewerFilter(new String[]{DATABASE_FILE_EXTENSION}));
 				IResource selectedResource = SpecificWorkspaceResourceDialog.openFileSelection(getShell(),
 																					"Output model",
 																					"Specify the file to create",
-																					new Path(txtModelFile.getText()),
+																					suggestedPath,
 																					filters,
 																					null);
 				if (selectedResource != null) {
 					txtModelFile.setText(selectedResource.getFullPath().toString());
 				}
+			}
+
+			/**
+			 * Compute suggested Path from given model name and given selected project.
+			 * 
+			 * @return suggested Path
+			 */
+			private IPath getSuggestedPath(String txtModelFile, IProject selectedProject) {
+				IPath suggestedPath = new Path(txtModelFile);
+				if(suggestedPath.isEmpty()) {
+					if(selectedProject != null) {
+						suggestedPath = new Path(selectedProject.getFullPath().toString());
+					}
+				}
+				else if(suggestedPath.segmentCount() == 1) {
+					if(selectedProject != null) {
+						IPath oldSuggestedPath = suggestedPath;
+						suggestedPath = new Path(selectedProject.getFullPath().toString());
+						suggestedPath = suggestedPath.append(oldSuggestedPath);
+					}
+				}
+				return suggestedPath;
 			}
 		});
 		btnBrowseFile.setText("Browse...");

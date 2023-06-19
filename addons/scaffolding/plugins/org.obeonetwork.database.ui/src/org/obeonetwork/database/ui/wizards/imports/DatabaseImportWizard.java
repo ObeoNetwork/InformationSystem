@@ -47,6 +47,7 @@ import org.obeonetwork.dsl.database.reverse.source.DataSource;
 import org.obeonetwork.dsl.database.reverse.source.DataSourceException;
 import org.obeonetwork.dsl.database.reverse.utils.JdbcUtils;
 import org.obeonetwork.utils.common.ui.services.SiriusUIUtils;
+import org.eclipse.jdt.core. IJavaProject;
 
 public class DatabaseImportWizard extends Wizard implements IImportWizard {
 	
@@ -183,7 +184,18 @@ public class DatabaseImportWizard extends Wizard implements IImportWizard {
 		setNeedsProgressMonitor(true);
 		databaseInfos = new DatabaseInfos();
 		databaseInfos.computeUrl();
-		mainPage = new DatabaseImportWizardPage("Database configuration", databaseInfos); //NON-NLS-1
+		
+		Object selectedObject = selection.getFirstElement();
+		IProject selectedProject = null;
+		if(selectedObject instanceof  IJavaProject) {
+			 IJavaProject jProject = (IJavaProject) selectedObject;
+			 selectedProject = jProject.getProject();
+		}
+		if(selectedObject instanceof IProject) {
+			selectedProject = (IProject) selectedObject;
+		}
+		
+		mainPage = new DatabaseImportWizardPage("Database configuration", databaseInfos, selectedProject); //NON-NLS-1
 	}
 	
 	/* (non-Javadoc)
