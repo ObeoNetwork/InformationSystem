@@ -152,6 +152,7 @@ public class NewModelCreationPage extends WizardPage {
 			@Override
 			public void modifyText(ModifyEvent e) {
 				WizardHelper.addExtensionIfMissing(textFileName, NewModelCreationPage.this.fileExtension);
+				WizardHelper.setEmptyIfExtension(textFileName, NewModelCreationPage.this.fileExtension);
 				data.setTargetResourceName(textFileName.getText());
 				validatePage();
 			}

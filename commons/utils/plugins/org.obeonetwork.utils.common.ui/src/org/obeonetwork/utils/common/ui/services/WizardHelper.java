@@ -51,5 +51,27 @@ public class WizardHelper {
 		}
 		
 	}
+	
+	/**
+	 * Set {@link inputField} as an empty String if it contains only the given {@link fileExtension}.
+	 * 
+	 * If {@link fileExtension} or {@link inputField} is null, does nothing.
+	 * 
+	 * @param inputField the modified field
+	 * @param fileExtension the added default extension
+	 */
+	public static void setEmptyIfExtension(StyledText inputField, String fileExtension) {
+		if(inputField == null || fileExtension == null) {
+			return;
+		}
+		
+		if(!fileExtension.startsWith(".")) {
+			fileExtension = "." + fileExtension;
+		}
+		
+		if(inputField.getText().equals(fileExtension)) {
+			inputField.setText("");
+		}
+	}
 
 }
