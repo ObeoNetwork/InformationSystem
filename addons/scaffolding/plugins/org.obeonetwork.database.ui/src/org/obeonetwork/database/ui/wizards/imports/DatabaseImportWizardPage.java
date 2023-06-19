@@ -182,6 +182,7 @@ public class DatabaseImportWizardPage extends WizardPage {
 		txtModelFile.addModifyListener(new ModifyListener() {
 			public void modifyText(ModifyEvent e) {
 				WizardHelper.addExtensionIfMissing(txtModelFile, "."+DATABASE_FILE_EXTENSION);
+				WizardHelper.setEmptyIfExtension(txtModelFile, "."+DATABASE_FILE_EXTENSION);
 				setPageComplete(checkStatus());
 			}
 		});
@@ -198,7 +199,7 @@ public class DatabaseImportWizardPage extends WizardPage {
 																					"Specify the file to create",
 																					new Path(txtModelFile.getText()),
 																					filters,
-																					DATABASE_FILE_EXTENSION);
+																					null);
 				if (selectedResource != null) {
 					txtModelFile.setText(selectedResource.getFullPath().toString());
 				}
@@ -335,14 +336,20 @@ public class DatabaseImportWizardPage extends WizardPage {
 				// File extensions must be correct
 			if (modelFilename.endsWith("." + DATABASE_FILE_EXTENSION)) {
 				// The file should not already exist
-				final IFile generatedFile = ResourcesPlugin.getWorkspace().getRoot().getFile(new Path(modelFilename));
-				if (generatedFile.exists()){
-					errorMsg = "The file should not already exist";
-				} else {
-					status = true;
+				try {
+					final IFile generatedFile = ResourcesPlugin.getWorkspace().getRoot().getFile(new Path(modelFilename));
+					if (generatedFile.exists()){
+						errorMsg = "The file should not already exist";
+					} else {
+						status = true;
+					}
 				}
-			} else {
-				errorMsg = "The model file must end with \"." + DATABASE_FILE_EXTENSION + "\" extension";
+				catch(IllegalArgumentException e) {
+					String getFileErrorMessage = e.getMessage();
+					if(getFileErrorMessage.startsWith("Path must include project and resource name:") ) {
+						errorMsg =  getFileErrorMessage;
+					}
+				}
 			}
 		} else {
 			errorMsg = "The model file (." + DATABASE_FILE_EXTENSION + ") is required";
