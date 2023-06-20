@@ -10,6 +10,8 @@
  *******************************************************************************/
 package org.obeonetwork.utils.common;
 
+import static java.util.stream.Collectors.toList;
+
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Collections;
@@ -148,5 +150,20 @@ public class EObjectUtils {
 		
 		return packageName;
 	}
+	
+	public static List<EObject> toEObjectList(Object object) {
+		
+		List<EObject> list;
+		if(object instanceof List) {
+			list = ((List<?>)object).stream().filter(EObject.class::isInstance).map(EObject.class::cast).collect(toList());
+		} else if(object instanceof EObject) {
+			list = Collections.singletonList((EObject)object);
+		} else {
+			list = Collections.emptyList();
+		}
+		
+		return list;
+	}
+	
 }
  

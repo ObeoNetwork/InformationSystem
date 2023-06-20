@@ -11,9 +11,11 @@
 package org.obeonetwork.dsl.environment.design.wizards;
 
 import java.util.ArrayList;
+import java.util.Collection;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
-import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.edit.ui.provider.AdapterFactoryLabelProvider;
 import org.eclipse.jface.resource.ImageDescriptor;
@@ -37,6 +39,7 @@ import org.eclipse.sirius.common.ui.tools.api.selection.page.AbstractSelectionWi
 import org.eclipse.sirius.common.ui.tools.api.util.SWTUtil;
 import org.eclipse.sirius.common.ui.tools.api.view.common.item.CommonItem;
 import org.eclipse.sirius.common.ui.tools.api.view.common.item.ItemDecorator;
+import org.eclipse.sirius.diagram.ui.provider.DiagramUIPlugin;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.events.ModifyEvent;
 import org.eclipse.swt.events.ModifyListener;
@@ -47,17 +50,20 @@ import org.eclipse.swt.layout.GridLayout;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Text;
 import org.eclipse.swt.widgets.TreeItem;
+import org.obeonetwork.utils.common.ui.handlers.SelectionHelper;
 
 public class ISObjectSelectionWizardPage extends AbstractSelectionWizardPage {
 
     private Composite pageComposite;
 
-    private TreeItemWrapper treeRoot;
+    private LazyEObjectTreeItemWrapper treeRoot;
 
     private final AdapterFactoryLabelProvider myAdapterFactoryLabelProvider;
 
-    private final List<EObject> selectedEObjects = new ArrayList<EObject>();
+    private Set<EObject> selectedEObjects = new HashSet<EObject>();
 
+    private Set<EObject> ungrayedEObjects = new HashSet<>();
+    
     private boolean many = false;
     
     private List<EObject> preSelection;
@@ -70,15 +76,14 @@ public class ISObjectSelectionWizardPage extends AbstractSelectionWizardPage {
     		String pageName, 
     		String title, 
     		ImageDescriptor imageTitle, 
-    		TreeItemWrapper treeRoot, 
+    		LazyEObjectTreeItemWrapper treeRoot, 
     		boolean many,
-    		List<EObject> preSelection,
-    		AdapterFactory factory) {
+    		List<EObject> preSelection) {
         super(pageName, title, imageTitle);
-        this.myAdapterFactoryLabelProvider = new AdapterFactoryLabelProvider(factory);
         this.treeRoot = treeRoot;
-        this.preSelection = preSelection;
         this.many = many;
+        this.preSelection = preSelection;
+        this.myAdapterFactoryLabelProvider = new AdapterFactoryLabelProvider(DiagramUIPlugin.getPlugin().getItemProvidersAdapterFactory());
     }
 
     @Override
@@ -114,7 +119,7 @@ public class ISObjectSelectionWizardPage extends AbstractSelectionWizardPage {
 
     private void collectPreSelectedTreeItems(TreeItem[] items, List<TreeItem> preSelectedItems) {
 		for(int i = 0; i < items.length; i++) {
-			if(preSelection.contains(((TreeItemWrapper)items[i].getData()).getWrappedObject()) && ! preSelectedItems.contains(items[i])) {
+			if(preSelection.contains(((LazyEObjectTreeItemWrapper)items[i].getData()).getWrappedEObject()) && ! preSelectedItems.contains(items[i])) {
 				preSelectedItems.add(items[i]);
 			}
 			collectPreSelectedTreeItems(items[i].getItems(), preSelectedItems);
@@ -269,7 +274,7 @@ public class ISObjectSelectionWizardPage extends AbstractSelectionWizardPage {
      */
     public EObject getSelectedEObject() {
         if (selectedEObjects.size() > 0) {
-            return this.selectedEObjects.get(0);
+            return this.selectedEObjects.iterator().next();
         }
         return null;
     }
@@ -279,8 +284,8 @@ public class ISObjectSelectionWizardPage extends AbstractSelectionWizardPage {
      * 
      * @return the list of selected instances.
      */
-    public List<EObject> getSelectedEObjects() {
-        return this.selectedEObjects;
+    public Collection<EObject> getSelectedEObjects() {
+        return selectedEObjects;
 
     }
 
@@ -310,10 +315,9 @@ public class ISObjectSelectionWizardPage extends AbstractSelectionWizardPage {
                 return;
             }
             
-            final IStructuredSelection selection = (IStructuredSelection) event.getSelection();
-            if (selection.size() > 0) {
-            	TreeItemWrapper selectedTreeItemWrapper = (TreeItemWrapper) selection.toList().iterator().next();
-            	EObject selectedElement = (EObject) selectedTreeItemWrapper.getWrappedObject();
+        	LazyEObjectTreeItemWrapper selectedTreeItemWrapper = SelectionHelper.uwrapSingleSelection(event.getSelection(), LazyEObjectTreeItemWrapper.class);
+        	if(selectedTreeItemWrapper != null) {
+            	EObject selectedElement = (EObject) selectedTreeItemWrapper.getWrappedEObject();
             	if(selectedEObjects.contains(selectedElement) || !selectedTreeItemWrapper.isSelectable()) {
             		selectedEObjects.clear();
             		treeViewer.getTree().deselectAll();
@@ -321,8 +325,7 @@ public class ISObjectSelectionWizardPage extends AbstractSelectionWizardPage {
             		selectedEObjects.clear();
             		selectedEObjects.add(selectedElement);
             	}
-                return;
-            }
+        	}
         }
     }
 
@@ -331,8 +334,8 @@ public class ISObjectSelectionWizardPage extends AbstractSelectionWizardPage {
         @Override
         public Image getImage(final Object element) {
             Image result = null;
-            if (element instanceof TreeItemWrapper) {
-                result = myAdapterFactoryLabelProvider.getImage(((TreeItemWrapper) element).getWrappedObject());
+            if (element instanceof LazyEObjectTreeItemWrapper) {
+                result = myAdapterFactoryLabelProvider.getImage(((LazyEObjectTreeItemWrapper) element).getWrappedEObject());
             } else if (element instanceof ItemDecorator) {
                 result = ((ItemDecorator) element).getImage();
             } else {
@@ -344,8 +347,8 @@ public class ISObjectSelectionWizardPage extends AbstractSelectionWizardPage {
         @Override
         public String getText(final Object element) {
             String result = null;
-            if (element instanceof TreeItemWrapper) {
-                result = myAdapterFactoryLabelProvider.getText(((TreeItemWrapper) element).getWrappedObject());
+            if (element instanceof LazyEObjectTreeItemWrapper) {
+                result = myAdapterFactoryLabelProvider.getText(((LazyEObjectTreeItemWrapper) element).getWrappedEObject());
             } else if (element instanceof ItemDecorator) {
                 result = ((ItemDecorator) element).getText();
             } else {
@@ -359,18 +362,18 @@ public class ISObjectSelectionWizardPage extends AbstractSelectionWizardPage {
     private class ISTreeItemWrapperContentProvider extends ArrayContentProvider implements ITreeContentProvider {
 
         public Object getParent(final Object element) {
-            return ((TreeItemWrapper) element).getParent();
+            return ((LazyEObjectTreeItemWrapper) element).getParent();
         }
 
         public Object[] getChildren(final Object parentElement) {
-            if (parentElement instanceof TreeItemWrapper) {
-                return ((TreeItemWrapper) parentElement).getChildren().toArray();
+            if (parentElement instanceof LazyEObjectTreeItemWrapper) {
+                return ((LazyEObjectTreeItemWrapper) parentElement).getChildren().toArray();
             }
             return EMPTY_ARRAY;
         }
 
         public boolean hasChildren(final Object element) {
-            return ((TreeItemWrapper) element).getChildren().size() > 0;
+            return ((LazyEObjectTreeItemWrapper) element).getChildren().size() > 0;
         }
 
         @Override
@@ -380,8 +383,8 @@ public class ISObjectSelectionWizardPage extends AbstractSelectionWizardPage {
 
         @Override
         public Object[] getElements(final Object inputElement) {
-            if (inputElement instanceof TreeItemWrapper) {
-                return ((TreeItemWrapper) inputElement).getChildren().toArray();
+            if (inputElement instanceof LazyEObjectTreeItemWrapper) {
+                return ((LazyEObjectTreeItemWrapper) inputElement).getChildren().toArray();
             }
             return super.getElements(inputElement);
         }
@@ -416,16 +419,16 @@ public class ISObjectSelectionWizardPage extends AbstractSelectionWizardPage {
             boolean selected = false;
             Object element2 = null;
 
-            if (element instanceof TreeItemWrapper) {
+            if (element instanceof LazyEObjectTreeItemWrapper) {
 
                 /* select parent if child should be selected */
-                for (final TreeItemWrapper childItem : ((TreeItemWrapper) element).getChildren()) {
+                for (final LazyEObjectTreeItemWrapper childItem : ((LazyEObjectTreeItemWrapper) element).getChildren()) {
                     if (select(viewer, element, childItem)) {
                         return true;
                     }
                 }
 
-                element2 = ((TreeItemWrapper) element).getWrappedObject();
+                element2 = ((LazyEObjectTreeItemWrapper) element).getWrappedEObject();
 
             } else {
                 element2 = element;
@@ -485,36 +488,66 @@ public class ISObjectSelectionWizardPage extends AbstractSelectionWizardPage {
         }
     }
     
+    public Collection<EObject> getPartiallySelectedEObjects() {
+    	Set<EObject> partiallySelectedEObjects = new HashSet<>();
+    	collectPartiallySelectedEObjects(partiallySelectedEObjects, treeRoot);
+        return partiallySelectedEObjects;
+
+    }
+    
+	private void collectPartiallySelectedEObjects(Set<EObject> partiallySelectedEObjects, LazyEObjectTreeItemWrapper treeItemWrapper) {
+		if(treeItemWrapper.getWrappedEObject() != null && isPartiallySelected(treeItemWrapper)) {
+			partiallySelectedEObjects.add(treeItemWrapper.getWrappedEObject());
+		}
+		for(LazyEObjectTreeItemWrapper childTreeItemWrapper : treeItemWrapper.getChildren()) {
+			collectPartiallySelectedEObjects(partiallySelectedEObjects, childTreeItemWrapper);
+		}
+	}
+
+	private boolean isPartiallySelected(LazyEObjectTreeItemWrapper treeItemWrapper) {
+		return !ungrayedEObjects.contains(treeItemWrapper.getWrappedEObject()) &&
+				(treeItemWrapper.getAllSelectableWrappedEObjects().stream().anyMatch(o -> selectedEObjects.contains(o)) &&
+						(!treeItemWrapper.isSelectable() || treeItemWrapper.getAllSelectableWrappedEObjects().stream().anyMatch(o -> !selectedEObjects.contains(o))));
+	}
+	
     private class ISObjectSelectionCheckStateListener implements ICheckStateListener {
 
 		@Override
 		public void checkStateChanged(CheckStateChangedEvent event) {
-			TreeItemWrapper treeItemWrapper = (TreeItemWrapper) event.getElement();
-			if(event.getChecked()) {
-				selectedEObjects.addAll(treeItemWrapper.getAllSelectableWrappedEObjects());
-			} else {
+			LazyEObjectTreeItemWrapper treeItemWrapper = (LazyEObjectTreeItemWrapper) event.getElement();
+			EObject eObject = treeItemWrapper.getWrappedEObject();
+			
+			if(selectedEObjects.contains(eObject)) { // Element was selected
 				selectedEObjects.removeAll(treeItemWrapper.getAllSelectableWrappedEObjects());
+			} else if(isPartiallySelected(treeItemWrapper)) { // Element was grayed
+				ungrayedEObjects.add(eObject);
+			} else { // Element was unselected
+				selectedEObjects.addAll(treeItemWrapper.getAllSelectableWrappedEObjects());
+				ungrayedEObjects.removeAll(treeItemWrapper.getAllWrappedEObjects());
+				ungrayedEObjects.removeAll(treeItemWrapper.getAncestorsWrappedEObjects());
 			}
 			
 			treeViewer.refresh();
 		}
-    	
+
     }
     
     private class ISObjectSelectionCheckStateProvider implements ICheckStateProvider {
 
 		@Override
 		public boolean isChecked(Object element) {
-			TreeItemWrapper treeItemWrapper = (TreeItemWrapper) element;
-			return treeItemWrapper.getAllSelectableWrappedEObjects().stream()
-					.anyMatch(o -> selectedEObjects.contains(o));
+			LazyEObjectTreeItemWrapper treeItemWrapper = (LazyEObjectTreeItemWrapper) element;
+			return !ungrayedEObjects.contains(treeItemWrapper.getWrappedEObject()) && 
+					treeItemWrapper.getAllSelectableWrappedEObjects().stream().anyMatch(o -> selectedEObjects.contains(o));
 		}
 
 		@Override
 		public boolean isGrayed(Object element) {
-			TreeItemWrapper treeItemWrapper = (TreeItemWrapper) element;
-			return !treeItemWrapper.isSelectable();
+			LazyEObjectTreeItemWrapper treeItemWrapper = (LazyEObjectTreeItemWrapper) element;
+			return !treeItemWrapper.isSelectable() || 
+					treeItemWrapper.getAllSelectableWrappedEObjects().stream().anyMatch(o -> !selectedEObjects.contains(o));
 		}
     	
     }
+    
 }

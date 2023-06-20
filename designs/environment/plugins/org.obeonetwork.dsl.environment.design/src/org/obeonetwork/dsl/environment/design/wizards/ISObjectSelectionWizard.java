@@ -10,10 +10,9 @@
  *******************************************************************************/
 package org.obeonetwork.dsl.environment.design.wizards;
 
-import java.util.Collection;
+import java.util.ArrayList;
 import java.util.List;
 
-import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.jface.resource.ImageDescriptor;
 import org.eclipse.jface.wizard.Wizard;
@@ -34,12 +33,11 @@ public class ISObjectSelectionWizard extends Wizard {
     		String windowTitle, 
     		String wizardPageTitle, 
     		ImageDescriptor wizardPageTitleImage,
-    		TreeItemWrapper treeRoot,
+    		LazyEObjectTreeItemWrapper treeRoot,
     		boolean many,
-    		List<EObject> preSelection, 
-    		AdapterFactory factory) {
+    		List<EObject> preSelection) {
         setWindowTitle(windowTitle);
-        page = new ISObjectSelectionWizardPage(ISOBJECT_SELECTION_WIZARD_PAGE_NAME, wizardPageTitle, wizardPageTitleImage, treeRoot, many, preSelection, factory);
+        page = new ISObjectSelectionWizardPage(ISOBJECT_SELECTION_WIZARD_PAGE_NAME, wizardPageTitle, wizardPageTitleImage, treeRoot, many, preSelection);
         addPage(page);
     }
 
@@ -68,8 +66,13 @@ public class ISObjectSelectionWizard extends Wizard {
         return page.getSelectedEObject();
     }
 
-    public Collection<EObject> getSelectedEObjects() {
-        return page.getSelectedEObjects();
+    public List<EObject> getSelectedEObjects() {
+    	// Sirius needs a List and not any kind of Collection (for instance it doesn't accept a Set).
+        return new ArrayList<EObject>(page.getSelectedEObjects());
+    }
+    
+    public List<EObject> getPartiallySelectedEObjects() {
+        return new ArrayList<EObject>(page.getPartiallySelectedEObjects());
     }
     
 }

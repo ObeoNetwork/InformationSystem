@@ -10,10 +10,9 @@
  *******************************************************************************/
 package org.obeonetwork.dsl.environment.design.actions;
 
-import static java.util.stream.Collectors.toList;
+import static org.obeonetwork.utils.common.EObjectUtils.toEObjectList;
 
 import java.util.Collection;
-import java.util.Collections;
 import java.util.List;
 import java.util.Map;
 import java.util.Optional;
@@ -21,16 +20,15 @@ import java.util.Optional;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.jface.resource.ImageDescriptor;
 import org.eclipse.jface.window.Window;
-import org.eclipse.sirius.common.tools.api.interpreter.EvaluationException;
 import org.eclipse.sirius.common.tools.api.interpreter.IInterpreter;
 import org.eclipse.sirius.common.ui.tools.api.selection.WizardDialogClosableByWizard;
 import org.eclipse.sirius.diagram.ui.provider.DiagramUIPlugin;
-import org.eclipse.sirius.tools.api.ui.IExternalJavaAction;
 import org.eclipse.sirius.tools.api.SiriusPlugin;
+import org.eclipse.sirius.tools.api.ui.IExternalJavaAction;
 import org.eclipse.swt.widgets.Shell;
 import org.eclipse.ui.PlatformUI;
 import org.obeonetwork.dsl.environment.design.wizards.ISObjectSelectionWizard;
-import org.obeonetwork.dsl.environment.design.wizards.TreeItemWrapper;
+import org.obeonetwork.dsl.environment.design.wizards.LazyEObjectTreeItemWrapper;
 
 public class ISObjectSelectionWizardAction implements IExternalJavaAction {
 
@@ -78,33 +76,18 @@ public class ISObjectSelectionWizardAction implements IExternalJavaAction {
         	selectableCondition = "aql:" + parameters.get(PARAMETER_SELECTABLE_CONDITION);
         }
         
-        TreeItemWrapper input = new TreeItemWrapper(null, null);
+        LazyEObjectTreeItemWrapper input = new LazyEObjectTreeItemWrapper(interpreter, childrenExpression, selectableCondition);
         for(EObject root : roots) {
-            TreeItemWrapper treeRoot = new TreeItemWrapper(root, input);
-            if(selectableCondition != null) {
-                try {
-                	treeRoot.setSelectable(interpreter.evaluateBoolean(root, selectableCondition));
-    			} catch (EvaluationException e) {
-    				e.printStackTrace();
-    				// Bad luck
-    			}
-            }
+        	new LazyEObjectTreeItemWrapper(input, root);
         }
         
-        if(childrenExpression != null) {
-            for(TreeItemWrapper rootItem : input.getChildren()) {
-            	computeInputChildren(rootItem, childrenExpression, selectableCondition, interpreter);
-            }
-        }
-        	
         final ISObjectSelectionWizard wizard = new ISObjectSelectionWizard(
         		windowTitle, 
         		message, 
         		image, 
         		input,
         		multiple,
-        		preSelection,
-        		DiagramUIPlugin.getPlugin().getItemProvidersAdapterFactory());
+        		preSelection);
         
         Shell shell = PlatformUI.getWorkbench().getActiveWorkbenchWindow().getShell();
         final WizardDialogClosableByWizard dlg = new WizardDialogClosableByWizard(shell, wizard);
@@ -118,58 +101,17 @@ public class ISObjectSelectionWizardAction implements IExternalJavaAction {
         } else {
     		interpreter.setVariable(OUTPUT_RETURN_CODE, "CANCEL");
         }
+        
+        interpreter.unSetVariable(PARAMETER_WINDOW_TITLE);
+        interpreter.unSetVariable(PARAMETER_ICON_PATH);
+        interpreter.unSetVariable(PARAMETER_MESSAGE);
+        interpreter.unSetVariable(PARAMETER_MULTIPLE);
+        interpreter.unSetVariable(PARAMETER_ROOTS);
+        interpreter.unSetVariable(PARAMETER_CHILDREN_EXPRESSION);
+        interpreter.unSetVariable(PARAMETER_PRE_SELECTION);
+        interpreter.unSetVariable(PARAMETER_SELECTABLE_CONDITION);
 	}
 	
-	private void computeInputChildren(TreeItemWrapper treeItem, String childrenExpression, String selectableCondition, IInterpreter interpreter) {
-		
-		EObject wrappedEObject = null;
-		if(treeItem.getWrappedObject() instanceof EObject) {
-			wrappedEObject = (EObject) treeItem.getWrappedObject();
-		}
-		
-		if(wrappedEObject != null) {
-			List<EObject> children = null;
-			try {
-				children = toEObjectList(interpreter.evaluate(wrappedEObject, childrenExpression));
-			} catch (EvaluationException e) {
-				e.printStackTrace();
-				// Bad luck
-			}
-			if(children != null) {
-				for(EObject child : children) {
-					if(!treeItem.knownAsAncestor(child)) {
-			            TreeItemWrapper childItem = new TreeItemWrapper(child, treeItem);
-			            if(selectableCondition != null) {
-				            try {
-				            	childItem.setSelectable(interpreter.evaluateBoolean(child, selectableCondition));
-							} catch (EvaluationException e) {
-								e.printStackTrace();
-								// Bad luck
-							}
-			            }
-
-			            computeInputChildren(childItem, childrenExpression, selectableCondition, interpreter);
-					}
-				}
-			}
-		}
-		
-	}
-
-	private List<EObject> toEObjectList(Object object) {
-		
-		List<EObject> list = null;
-		if(object instanceof List) {
-			list = ((List<?>)object).stream().filter(EObject.class::isInstance).map(EObject.class::cast).collect(toList());
-		} else if(object instanceof EObject) {
-			list = Collections.singletonList((EObject)object);
-		} else {
-			list = Collections.emptyList();
-		}
-		
-		return list;
-	}
-
 	@Override
 	public boolean canExecute(Collection<? extends EObject> selections) {
 		return true;
