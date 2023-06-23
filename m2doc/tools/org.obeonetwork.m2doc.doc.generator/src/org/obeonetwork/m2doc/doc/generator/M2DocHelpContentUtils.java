@@ -1,9 +1,9 @@
 /*******************************************************************************
  * Copyright (c) 2008, 2023 Obeo.
  * All rights reserved. This program and the accompanying materials
- * are made available under the terms of the Eclipse Public License v1.0
+ * are made available under the terms of the Eclipse Public License v2.0
  * which accompanies this distribution, and is available at
- * http://www.eclipse.org/legal/epl-v10.html
+ * https://www.eclipse.org/legal/epl-2.0/
  * 
  * Contributors:
  *     Obeo - initial API and implementation
@@ -75,9 +75,9 @@ public final class M2DocHelpContentUtils {
 		buffer.append("/********************************************************************************").append(LS);
 		buffer.append("** Copyright (c) 2008, 2023 Obeo.").append(LS);
 		buffer.append("** All rights reserved. This program and the accompanying materials").append(LS);
-		buffer.append("** are made available under the terms of the Eclipse Public License v1.0").append(LS);
+		buffer.append("** are made available under the terms of the Eclipse Public License v2.0").append(LS);
 		buffer.append("** which accompanies this distribution, and is available at").append(LS);
-		buffer.append("** http://www.eclipse.org/legal/epl-v10.html").append(LS);
+		buffer.append("** https://www.eclipse.org/legal/epl-2.0/").append(LS);
 		buffer.append("**").append(LS);
 		buffer.append("** Contributors:").append(LS);
 		buffer.append("**    Obeo - initial API and implementation").append(LS);
