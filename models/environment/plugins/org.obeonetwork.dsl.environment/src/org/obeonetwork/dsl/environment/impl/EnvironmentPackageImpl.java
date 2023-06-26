@@ -42,6 +42,7 @@ import org.obeonetwork.dsl.environment.Namespace;
 import org.obeonetwork.dsl.environment.NamespacesContainer;
 import org.obeonetwork.dsl.environment.ObeoDSMObject;
 import org.obeonetwork.dsl.environment.PrimitiveType;
+import org.obeonetwork.dsl.environment.PrimitiveTypeKind;
 import org.obeonetwork.dsl.environment.Priority;
 import org.obeonetwork.dsl.environment.PriorityDefinition;
 import org.obeonetwork.dsl.environment.Property;
@@ -280,6 +281,13 @@ public class EnvironmentPackageImpl extends EPackageImpl implements EnvironmentP
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	private EEnum primitiveTypeKindEEnum = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	private EEnum multiplicityKindEEnum = null;
 
 	/**
@@ -310,7 +318,7 @@ public class EnvironmentPackageImpl extends EPackageImpl implements EnvironmentP
 
 	/**
 	 * Creates, registers, and initializes the <b>Package</b> for this model, and for any others upon which it depends.
-	 * 
+	 *
 	 * <p>This method is used to initialize {@link EnvironmentPackage#eINSTANCE} when that field is accessed.
 	 * Clients should not invoke it directly. Instead, they should simply access that field to obtain the package.
 	 * <!-- begin-user-doc -->
@@ -325,9 +333,10 @@ public class EnvironmentPackageImpl extends EPackageImpl implements EnvironmentP
 			return (EnvironmentPackage) EPackage.Registry.INSTANCE.getEPackage(EnvironmentPackage.eNS_URI);
 
 		// Obtain or create and register package
-		EnvironmentPackageImpl theEnvironmentPackage = (EnvironmentPackageImpl) (EPackage.Registry.INSTANCE
-				.get(eNS_URI) instanceof EnvironmentPackageImpl ? EPackage.Registry.INSTANCE.get(eNS_URI)
-						: new EnvironmentPackageImpl());
+		Object registeredEnvironmentPackage = EPackage.Registry.INSTANCE.get(eNS_URI);
+		EnvironmentPackageImpl theEnvironmentPackage = registeredEnvironmentPackage instanceof EnvironmentPackageImpl
+				? (EnvironmentPackageImpl) registeredEnvironmentPackage
+				: new EnvironmentPackageImpl();
 
 		isInited = true;
 
@@ -436,6 +445,15 @@ public class EnvironmentPackageImpl extends EPackageImpl implements EnvironmentP
 	 */
 	public EClass getPrimitiveType() {
 		return primitiveTypeEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getPrimitiveType_Kind() {
+		return (EAttribute) primitiveTypeEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -1190,6 +1208,15 @@ public class EnvironmentPackageImpl extends EPackageImpl implements EnvironmentP
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EEnum getPrimitiveTypeKind() {
+		return primitiveTypeKindEEnum;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EEnum getMultiplicityKind() {
 		return multiplicityKindEEnum;
 	}
@@ -1235,6 +1262,7 @@ public class EnvironmentPackageImpl extends EPackageImpl implements EnvironmentP
 		createEReference(typeEClass, TYPE__TYPE_DEFINITION);
 
 		primitiveTypeEClass = createEClass(PRIMITIVE_TYPE);
+		createEAttribute(primitiveTypeEClass, PRIMITIVE_TYPE__KIND);
 
 		enumerationEClass = createEClass(ENUMERATION);
 		createEReference(enumerationEClass, ENUMERATION__LITERALS);
@@ -1347,6 +1375,7 @@ public class EnvironmentPackageImpl extends EPackageImpl implements EnvironmentP
 		createEReference(namespacesContainerEClass, NAMESPACES_CONTAINER__OWNED_NAMESPACES);
 
 		// Create enums
+		primitiveTypeKindEEnum = createEEnum(PRIMITIVE_TYPE_KIND);
 		multiplicityKindEEnum = createEEnum(MULTIPLICITY_KIND);
 	}
 
@@ -1445,6 +1474,8 @@ public class EnvironmentPackageImpl extends EPackageImpl implements EnvironmentP
 
 		initEClass(primitiveTypeEClass, PrimitiveType.class, "PrimitiveType", !IS_ABSTRACT, !IS_INTERFACE,
 				IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getPrimitiveType_Kind(), this.getPrimitiveTypeKind(), "kind", null, 1, 1, PrimitiveType.class,
+				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(enumerationEClass, Enumeration.class, "Enumeration", !IS_ABSTRACT, !IS_INTERFACE,
 				IS_GENERATED_INSTANCE_CLASS);
@@ -1703,6 +1734,11 @@ public class EnvironmentPackageImpl extends EPackageImpl implements EnvironmentP
 				IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		// Initialize enums and add enum literals
+		initEEnum(primitiveTypeKindEEnum, PrimitiveTypeKind.class, "PrimitiveTypeKind");
+		addEEnumLiteral(primitiveTypeKindEEnum, PrimitiveTypeKind.OTHER);
+		addEEnumLiteral(primitiveTypeKindEEnum, PrimitiveTypeKind.NUMBER);
+		addEEnumLiteral(primitiveTypeKindEEnum, PrimitiveTypeKind.TEXT);
+
 		initEEnum(multiplicityKindEEnum, MultiplicityKind.class, "MultiplicityKind");
 		addEEnumLiteral(multiplicityKindEEnum, MultiplicityKind.ZERO_ONE_LITERAL);
 		addEEnumLiteral(multiplicityKindEEnum, MultiplicityKind.ONE_LITERAL);

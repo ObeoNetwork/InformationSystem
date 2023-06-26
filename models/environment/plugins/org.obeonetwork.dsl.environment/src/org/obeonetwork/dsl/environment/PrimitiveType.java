@@ -15,6 +15,12 @@ package org.obeonetwork.dsl.environment;
  * A representation of the model object '<em><b>Primitive Type</b></em>'.
  * <!-- end-user-doc -->
  *
+ * <p>
+ * The following features are supported:
+ * </p>
+ * <ul>
+ *   <li>{@link org.obeonetwork.dsl.environment.PrimitiveType#getKind <em>Kind</em>}</li>
+ * </ul>
  *
  * @see org.obeonetwork.dsl.environment.EnvironmentPackage#getPrimitiveType()
  * @model
@@ -28,4 +34,29 @@ public interface PrimitiveType extends DataType {
 	 * @generated
 	 */
 	String copyright = "Copyright (c) 2008, 2023 Obeo.\nAll rights reserved. This program and the accompanying materials\nare made available under the terms of the Eclipse Public License v2.0\nwhich accompanies this distribution, and is available at\nhttps://www.eclipse.org/legal/epl-2.0/\n\nContributors:\n    Obeo - initial API and implementation";
+
+	/**
+	 * Returns the value of the '<em><b>Kind</b></em>' attribute.
+	 * The literals are from the enumeration {@link org.obeonetwork.dsl.environment.PrimitiveTypeKind}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Kind</em>' attribute.
+	 * @see org.obeonetwork.dsl.environment.PrimitiveTypeKind
+	 * @see #setKind(PrimitiveTypeKind)
+	 * @see org.obeonetwork.dsl.environment.EnvironmentPackage#getPrimitiveType_Kind()
+	 * @model required="true"
+	 * @generated
+	 */
+	PrimitiveTypeKind getKind();
+
+	/**
+	 * Sets the value of the '{@link org.obeonetwork.dsl.environment.PrimitiveType#getKind <em>Kind</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Kind</em>' attribute.
+	 * @see org.obeonetwork.dsl.environment.PrimitiveTypeKind
+	 * @see #getKind()
+	 * @generated
+	 */
+	void setKind(PrimitiveTypeKind value);
 } // PrimitiveType

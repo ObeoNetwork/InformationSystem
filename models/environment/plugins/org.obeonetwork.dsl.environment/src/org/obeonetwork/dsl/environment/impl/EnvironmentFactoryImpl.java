@@ -143,6 +143,8 @@ public class EnvironmentFactoryImpl extends EFactoryImpl implements EnvironmentF
 	@Override
 	public Object createFromString(EDataType eDataType, String initialValue) {
 		switch (eDataType.getClassifierID()) {
+		case EnvironmentPackage.PRIMITIVE_TYPE_KIND:
+			return createPrimitiveTypeKindFromString(eDataType, initialValue);
 		case EnvironmentPackage.MULTIPLICITY_KIND:
 			return createMultiplicityKindFromString(eDataType, initialValue);
 		default:
@@ -158,6 +160,8 @@ public class EnvironmentFactoryImpl extends EFactoryImpl implements EnvironmentF
 	@Override
 	public String convertToString(EDataType eDataType, Object instanceValue) {
 		switch (eDataType.getClassifierID()) {
+		case EnvironmentPackage.PRIMITIVE_TYPE_KIND:
+			return convertPrimitiveTypeKindToString(eDataType, instanceValue);
 		case EnvironmentPackage.MULTIPLICITY_KIND:
 			return convertMultiplicityKindToString(eDataType, instanceValue);
 		default:
@@ -353,6 +357,28 @@ public class EnvironmentFactoryImpl extends EFactoryImpl implements EnvironmentF
 	public BindingRegistry createBindingRegistry() {
 		BindingRegistryImpl bindingRegistry = new BindingRegistryImpl();
 		return bindingRegistry;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public PrimitiveTypeKind createPrimitiveTypeKindFromString(EDataType eDataType, String initialValue) {
+		PrimitiveTypeKind result = PrimitiveTypeKind.get(initialValue);
+		if (result == null)
+			throw new IllegalArgumentException(
+					"The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
+		return result;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String convertPrimitiveTypeKindToString(EDataType eDataType, Object instanceValue) {
+		return instanceValue == null ? null : instanceValue.toString();
 	}
 
 	/**

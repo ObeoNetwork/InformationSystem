@@ -672,13 +672,22 @@ public interface EnvironmentPackage extends EPackage {
 	int PRIMITIVE_TYPE__TYPE_DEFINITION = DATA_TYPE__TYPE_DEFINITION;
 
 	/**
+	 * The feature id for the '<em><b>Kind</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PRIMITIVE_TYPE__KIND = DATA_TYPE_FEATURE_COUNT + 0;
+
+	/**
 	 * The number of structural features of the '<em>Primitive Type</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int PRIMITIVE_TYPE_FEATURE_COUNT = DATA_TYPE_FEATURE_COUNT + 0;
+	int PRIMITIVE_TYPE_FEATURE_COUNT = DATA_TYPE_FEATURE_COUNT + 1;
 
 	/**
 	 * The meta object id for the '{@link org.obeonetwork.dsl.environment.impl.EnumerationImpl <em>Enumeration</em>}' class.
@@ -3442,6 +3451,16 @@ public interface EnvironmentPackage extends EPackage {
 	int NAMESPACES_CONTAINER_FEATURE_COUNT = TechnicalIDPackage.IDENTIFIABLE_FEATURE_COUNT + 1;
 
 	/**
+	 * The meta object id for the '{@link org.obeonetwork.dsl.environment.PrimitiveTypeKind <em>Primitive Type Kind</em>}' enum.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.obeonetwork.dsl.environment.PrimitiveTypeKind
+	 * @see org.obeonetwork.dsl.environment.impl.EnvironmentPackageImpl#getPrimitiveTypeKind()
+	 * @generated
+	 */
+	int PRIMITIVE_TYPE_KIND = 30;
+
+	/**
 	 * The meta object id for the '{@link org.obeonetwork.dsl.environment.MultiplicityKind <em>Multiplicity Kind</em>}' enum.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -3449,7 +3468,7 @@ public interface EnvironmentPackage extends EPackage {
 	 * @see org.obeonetwork.dsl.environment.impl.EnvironmentPackageImpl#getMultiplicityKind()
 	 * @generated
 	 */
-	int MULTIPLICITY_KIND = 30;
+	int MULTIPLICITY_KIND = 31;
 
 	/**
 	 * Returns the meta object for class '{@link org.obeonetwork.dsl.environment.Environment <em>Environment</em>}'.
@@ -3557,6 +3576,17 @@ public interface EnvironmentPackage extends EPackage {
 	 * @generated
 	 */
 	EClass getPrimitiveType();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.obeonetwork.dsl.environment.PrimitiveType#getKind <em>Kind</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Kind</em>'.
+	 * @see org.obeonetwork.dsl.environment.PrimitiveType#getKind()
+	 * @see #getPrimitiveType()
+	 * @generated
+	 */
+	EAttribute getPrimitiveType_Kind();
 
 	/**
 	 * Returns the meta object for class '{@link org.obeonetwork.dsl.environment.Enumeration <em>Enumeration</em>}'.
@@ -4445,6 +4475,16 @@ public interface EnvironmentPackage extends EPackage {
 	EReference getNamespacesContainer_OwnedNamespaces();
 
 	/**
+	 * Returns the meta object for enum '{@link org.obeonetwork.dsl.environment.PrimitiveTypeKind <em>Primitive Type Kind</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for enum '<em>Primitive Type Kind</em>'.
+	 * @see org.obeonetwork.dsl.environment.PrimitiveTypeKind
+	 * @generated
+	 */
+	EEnum getPrimitiveTypeKind();
+
+	/**
 	 * Returns the meta object for enum '{@link org.obeonetwork.dsl.environment.MultiplicityKind <em>Multiplicity Kind</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -4561,6 +4601,14 @@ public interface EnvironmentPackage extends EPackage {
 		 * @generated
 		 */
 		EClass PRIMITIVE_TYPE = eINSTANCE.getPrimitiveType();
+
+		/**
+		 * The meta object literal for the '<em><b>Kind</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute PRIMITIVE_TYPE__KIND = eINSTANCE.getPrimitiveType_Kind();
 
 		/**
 		 * The meta object literal for the '{@link org.obeonetwork.dsl.environment.impl.EnumerationImpl <em>Enumeration</em>}' class.
@@ -5279,6 +5327,16 @@ public interface EnvironmentPackage extends EPackage {
 		 * @generated
 		 */
 		EReference NAMESPACES_CONTAINER__OWNED_NAMESPACES = eINSTANCE.getNamespacesContainer_OwnedNamespaces();
+
+		/**
+		 * The meta object literal for the '{@link org.obeonetwork.dsl.environment.PrimitiveTypeKind <em>Primitive Type Kind</em>}' enum.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.obeonetwork.dsl.environment.PrimitiveTypeKind
+		 * @see org.obeonetwork.dsl.environment.impl.EnvironmentPackageImpl#getPrimitiveTypeKind()
+		 * @generated
+		 */
+		EEnum PRIMITIVE_TYPE_KIND = eINSTANCE.getPrimitiveTypeKind();
 
 		/**
 		 * The meta object literal for the '{@link org.obeonetwork.dsl.environment.MultiplicityKind <em>Multiplicity Kind</em>}' enum.
