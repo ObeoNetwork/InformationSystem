@@ -62,6 +62,7 @@ public enum MultiplicityKind implements Enumerator {
 	 * @ordered
 	 */
 	ONE_STAR_LITERAL(3, "ONE_STAR", "1..*");
+
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
