@@ -12,6 +12,7 @@ package org.obeonetwork.dsl.environment.design.actions;
 
 import static org.obeonetwork.utils.common.EObjectUtils.toEObjectList;
 
+import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 import java.util.Map;
@@ -21,14 +22,11 @@ import org.eclipse.emf.ecore.EObject;
 import org.eclipse.jface.resource.ImageDescriptor;
 import org.eclipse.jface.window.Window;
 import org.eclipse.sirius.common.tools.api.interpreter.IInterpreter;
-import org.eclipse.sirius.common.ui.tools.api.selection.WizardDialogClosableByWizard;
 import org.eclipse.sirius.diagram.ui.provider.DiagramUIPlugin;
 import org.eclipse.sirius.tools.api.SiriusPlugin;
 import org.eclipse.sirius.tools.api.ui.IExternalJavaAction;
-import org.eclipse.swt.widgets.Shell;
-import org.eclipse.ui.PlatformUI;
 import org.obeonetwork.dsl.environment.design.wizards.ISObjectSelectionWizard;
-import org.obeonetwork.dsl.environment.design.wizards.LazyEObjectTreeItemWrapper;
+import org.obeonetwork.dsl.environment.design.wizards.EObjectTreeItemWrapper;
 
 public class ISObjectSelectionWizardAction implements IExternalJavaAction {
 
@@ -69,16 +67,14 @@ public class ISObjectSelectionWizardAction implements IExternalJavaAction {
         	childrenExpression = "aql:" + parameters.get(PARAMETER_CHILDREN_EXPRESSION);
         }
         
-        List<EObject> preSelection = toEObjectList(parameters.get(PARAMETER_PRE_SELECTION));
-        
         String selectableCondition = null;
         if(parameters.get(PARAMETER_SELECTABLE_CONDITION) instanceof String) {
         	selectableCondition = "aql:" + parameters.get(PARAMETER_SELECTABLE_CONDITION);
         }
         
-        LazyEObjectTreeItemWrapper input = new LazyEObjectTreeItemWrapper(interpreter, childrenExpression, selectableCondition);
+        EObjectTreeItemWrapper input = new EObjectTreeItemWrapper(interpreter, childrenExpression, selectableCondition);
         for(EObject root : roots) {
-        	new LazyEObjectTreeItemWrapper(input, root);
+        	new EObjectTreeItemWrapper(input, root);
         }
         
         final ISObjectSelectionWizard wizard = new ISObjectSelectionWizard(
@@ -86,18 +82,15 @@ public class ISObjectSelectionWizardAction implements IExternalJavaAction {
         		message, 
         		image, 
         		input,
-        		multiple,
-        		preSelection);
+        		multiple);
         
-        Shell shell = PlatformUI.getWorkbench().getActiveWorkbenchWindow().getShell();
-        final WizardDialogClosableByWizard dlg = new WizardDialogClosableByWizard(shell, wizard);
-        dlg.setMinimumPageSize(200, 360);
-        wizard.setDialog(dlg);
+        List<EObject> preSelection = toEObjectList(parameters.get(PARAMETER_PRE_SELECTION));
+        wizard.setPreSelectedEObjects(preSelection);
         
-        final int result = dlg.open();
+        final int result = wizard.open();
         if (result == Window.OK) {
     		interpreter.setVariable(OUTPUT_RETURN_CODE, "OK");
-    		interpreter.setVariable(OUTPUT_SELECTED_ELEMENTS, wizard.getSelectedEObjects());
+    		interpreter.setVariable(OUTPUT_SELECTED_ELEMENTS, new ArrayList<>(wizard.getSelectedEObjects())); // Sirius don't like Sets
         } else {
     		interpreter.setVariable(OUTPUT_RETURN_CODE, "CANCEL");
         }

@@ -11,8 +11,8 @@
 package org.obeonetwork.dsl.environment.design.wizards;
 
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.HashSet;
-import java.util.LinkedList;
 import java.util.List;
 import java.util.Objects;
 import java.util.Set;
@@ -20,12 +20,12 @@ import java.util.Set;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.sirius.common.tools.api.interpreter.EvaluationException;
 import org.eclipse.sirius.common.tools.api.interpreter.IInterpreter;
-import org.obeonetwork.utils.common.EObjectUtils;
+import org.obeonetwork.utils.common.SiriusInterpreterUtils;
 
-public class LazyEObjectTreeItemWrapper {
+public class EObjectTreeItemWrapper {
 
 	// Structural data
-    private LazyEObjectTreeItemWrapper parent;
+    private EObjectTreeItemWrapper parent;
     private EObject wrappedEObject = null;
 
     // Behavior functional data
@@ -34,7 +34,7 @@ public class LazyEObjectTreeItemWrapper {
 	private String selectableCondition;
 
 	// Cached data
-    private List<LazyEObjectTreeItemWrapper> children = null;
+    private List<EObjectTreeItemWrapper> children = null;
 	private Boolean selectable = null;
 	
     /**
@@ -44,7 +44,7 @@ public class LazyEObjectTreeItemWrapper {
      * @param childrenExpression
      * @param selectableCondition
      */
-    public LazyEObjectTreeItemWrapper(final IInterpreter interpreter, final String childrenExpression, final String selectableCondition) {
+    public EObjectTreeItemWrapper(final IInterpreter interpreter, final String childrenExpression, final String selectableCondition) {
     	this.interpreter = interpreter;
     	this.childrenExpression = childrenExpression;
     	this.selectableCondition = selectableCondition;
@@ -57,7 +57,7 @@ public class LazyEObjectTreeItemWrapper {
      * @param parent
      * @param wrappedEObject
      */
-    public LazyEObjectTreeItemWrapper(final LazyEObjectTreeItemWrapper parent, final EObject wrappedEObject) {
+    public EObjectTreeItemWrapper(final EObjectTreeItemWrapper parent, final EObject wrappedEObject) {
         this.parent = parent;
         this.wrappedEObject = wrappedEObject;
         if(parent != null) {
@@ -68,38 +68,30 @@ public class LazyEObjectTreeItemWrapper {
         }
     }
 
-    private void addChild(LazyEObjectTreeItemWrapper lazyEObjectTreeItemWrapper) {
-    	children.add(lazyEObjectTreeItemWrapper);
+    private void addChild(EObjectTreeItemWrapper treeItemWrapper) {
+    	children.add(treeItemWrapper);
 	}
 
 	public EObject getWrappedEObject() {
         return wrappedEObject;
     }
 
-    public List<LazyEObjectTreeItemWrapper> getChildren() {
+    public List<EObjectTreeItemWrapper> getChildren() {
     	if(children == null) {
     		children = new ArrayList<>();
     		if(childrenExpression != null) {
-    			List<EObject> childrenEObjects = null;
-    			try {
-    				childrenEObjects = EObjectUtils.toEObjectList(interpreter.evaluate(wrappedEObject, childrenExpression));
-    			} catch (EvaluationException e) {
-    				e.printStackTrace();
-    				// Bad luck
-    			}
-    			if(childrenEObjects != null) {
-    				for(EObject childEObject : childrenEObjects) {
-    					if(!knownAsAncestor(childEObject)) {
-    						new LazyEObjectTreeItemWrapper(this, childEObject);
-    					}
-    				}
-    			}
+    			List<EObject> childEObjects = SiriusInterpreterUtils.evaluateToEObjectList(interpreter, wrappedEObject, childrenExpression);
+				for(EObject childEObject : childEObjects) {
+					if(!knownAsAncestor(childEObject)) {
+						new EObjectTreeItemWrapper(this, childEObject);
+					}
+				}
     		}
     	}
         return children;
     }
 
-    public LazyEObjectTreeItemWrapper getParent() {
+    public EObjectTreeItemWrapper getParent() {
         return parent;
     }
 
@@ -108,7 +100,7 @@ public class LazyEObjectTreeItemWrapper {
      * 
      * @param obj Object to be tested
      * 
-     * @return true if this or one of the parent {@link LazyEObjectTreeItemWrapper} already wraps the given object.
+     * @return true if this or one of the parent {@link EObjectTreeItemWrapper} already wraps the given object.
      */
     private boolean knownAsAncestor(final EObject eObject) {
     	return Objects.equals(wrappedEObject, eObject) || (parent != null && parent.knownAsAncestor(eObject));
@@ -129,34 +121,34 @@ public class LazyEObjectTreeItemWrapper {
 		return selectable;
 	}
 
-	public Set<EObject> getAllSelectableWrappedEObjects() {
-		Set<EObject> allSelectableWrappedEObjects = new HashSet<EObject>();
+	public Set<EObjectTreeItemWrapper> getAllSelectableTreeItemWrappers() {
+		Set<EObjectTreeItemWrapper> allSelectableTreeItemWrappers = new HashSet<>();
 		if(isSelectable()) {
-			allSelectableWrappedEObjects.add(getWrappedEObject());
+			allSelectableTreeItemWrappers.add(this);
 		}
-		for(LazyEObjectTreeItemWrapper childItemWrapper : getChildren()) {
-			allSelectableWrappedEObjects.addAll(childItemWrapper.getAllSelectableWrappedEObjects());
+		for(EObjectTreeItemWrapper childItemWrapper : getChildren()) {
+			allSelectableTreeItemWrappers.addAll(childItemWrapper.getAllSelectableTreeItemWrappers());
 		}
-		return allSelectableWrappedEObjects;
+		return allSelectableTreeItemWrappers;
 	}
 
-	public Set<EObject> getAllWrappedEObjects() {
-		Set<EObject> allWrappedEObjects = new HashSet<EObject>();
-		allWrappedEObjects.add(getWrappedEObject());
-		for(LazyEObjectTreeItemWrapper childItemWrapper : getChildren()) {
-			allWrappedEObjects.addAll(childItemWrapper.getAllWrappedEObjects());
+	public Collection<EObjectTreeItemWrapper> getAllTreeItemWrappers() {
+		List<EObjectTreeItemWrapper> allTreeItemWrappers = new ArrayList<>();
+		allTreeItemWrappers.add(this);
+		for(EObjectTreeItemWrapper childItemWrapper : getChildren()) {
+			allTreeItemWrappers.addAll(childItemWrapper.getAllTreeItemWrappers());
 		}
-		return allWrappedEObjects;
+		return allTreeItemWrappers;
 	}
 
-	public List<EObject> getAncestorsWrappedEObjects() {
-		List<EObject> ancestorsWrappedEObjects = new LinkedList<>();
-		LazyEObjectTreeItemWrapper treeItemWrapper = this.parent;
+	public Collection<EObjectTreeItemWrapper> getAncestors() {
+		List<EObjectTreeItemWrapper> ancestors = new ArrayList<>();
+		EObjectTreeItemWrapper treeItemWrapper = this.parent;
 		while(treeItemWrapper != null) {
-			ancestorsWrappedEObjects.add(0, treeItemWrapper.getWrappedEObject());
+			ancestors.add(treeItemWrapper);
 			treeItemWrapper = treeItemWrapper.parent;
 		}
-		return ancestorsWrappedEObjects;
+		return ancestors;
 	}
 	
 }

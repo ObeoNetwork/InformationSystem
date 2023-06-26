@@ -399,6 +399,18 @@
         </customization>
       </additionalLayers>
     </ownedRepresentations>
+    <ownedRepresentations xsi:type="description_1:DiagramDescription" name="Reused Tools" domainClass="overview.Root" preconditionExpression="false">
+      <defaultLayer name="Default">
+        <toolSections name="Usability Tools">
+          <ownedTools xsi:type="tool:DirectEditLabel" documentation="Edit the name feature of the element" name="Reused Name Direct Edit" forceRefresh="true" inputLabelExpression="service:getSoaLabel()">
+            <mask mask="{0}"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="var:arg0"/>
+            </initialOperation>
+          </ownedTools>
+        </toolSections>
+      </defaultLayer>
+    </ownedRepresentations>
     <ownedRepresentations xsi:type="description_1:DiagramDescription" dropDescriptions="//@ownedViewpoints[name='SOA%20Views']/@ownedRepresentations[name='DTO%20Namespaces%20Hierarchy']/@defaultLayer/@toolSections.1/@ownedTools[name='DAD_Namespace']" name="DTO Namespaces Hierarchy" label="DTO Namespaces Hierarchy" titleExpression="DTO Namespaces Hierarchy" domainClass="soa.System">
       <metamodel href="http://www.obeonetwork.org/dsl/environment/3.0.0#/"/>
       <metamodel href="http://www.eclipse.org/sirius/diagram/1.1.0#/"/>
@@ -624,6 +636,13 @@
                   </default>
                 </subModelOperations>
               </firstModelOperations>
+            </initialOperation>
+          </ownedTools>
+          <ownedTools xsi:type="tool:ContainerCreationDescription" name="NamespaceFromOther" label="Namespace from Entity Namespace" forceRefresh="true" containerMappings="//@ownedViewpoints[name='SOA%20Views']/@ownedRepresentations[name='DTO%20Diagram']/@defaultLayer/@containerMappings[name='ED_Namespace']">
+            <variable name="container"/>
+            <viewVariable name="containerView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="service:container.openCreateDTONamespacesFromEntityNamespacesWizard()"/>
             </initialOperation>
           </ownedTools>
         </toolSections>
@@ -1059,18 +1078,6 @@
           </ownedTools>
         </toolSections>
       </additionalLayers>
-    </ownedRepresentations>
-    <ownedRepresentations xsi:type="description_1:DiagramDescription" name="Reused Tools" domainClass="overview.Root" preconditionExpression="false">
-      <defaultLayer name="Default">
-        <toolSections name="Usability Tools">
-          <ownedTools xsi:type="tool:DirectEditLabel" documentation="Edit the name feature of the element" name="Reused Name Direct Edit" forceRefresh="true" inputLabelExpression="service:getSoaLabel()">
-            <mask mask="{0}"/>
-            <initialOperation>
-              <firstModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="var:arg0"/>
-            </initialOperation>
-          </ownedTools>
-        </toolSections>
-      </defaultLayer>
     </ownedRepresentations>
     <ownedJavaExtensions qualifiedClassName="org.obeonetwork.dsl.environment.design.services.DeleteServices"/>
     <ownedJavaExtensions qualifiedClassName="org.obeonetwork.dsl.environment.design.services.DesignServices"/>

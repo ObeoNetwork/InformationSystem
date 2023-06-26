@@ -46,9 +46,15 @@
     </children>
     <children id="section">
       <children id="namespace">
+        <children id="fromOther">
+          <stringValues id="label" value="Namespace from Entity Namespace"/>
+          <stringValues id="creationTreatment" value="service:container.openCreateDTONamespacesFromEntityNamespacesWizard()"/>
+        </children>
+        <children id="creation">
+          <stringValues id="label" value="Namespace"/>
+          <stringValues id="containmentFeature" value="ownedNamespaces"/>
+        </children>
         <stringValues id="label" value="Namespace"/>
-        <stringValues id="creation.label" value="Namespace"/>
-        <stringValues id="creation.containmentFeature" value="ownedNamespaces"/>
       </children>
       <children id="structuredType">
         <children id="creation">
