@@ -77,7 +77,9 @@ public class ISObjectSelectionWizardPage extends AbstractSelectionWizardPage {
 	private ISObjectSelectionFilter viewerFilter;
 
 	private boolean expanded = true;
-
+	
+	private Integer levelToExpand = null;
+	
 	private ISelectionInductor selectionInductor = null;
 
 	private IPageCompleteTester pageCompleteTester = null;
@@ -97,6 +99,11 @@ public class ISObjectSelectionWizardPage extends AbstractSelectionWizardPage {
 	public void setExpandedByDefault(boolean expanded) {
 		this.expanded  = expanded;
 	}
+	
+	public void setLevelToExpand(int levelToExpand) {
+		setExpandedByDefault(false);
+		this.levelToExpand = levelToExpand;
+	}
     
     @Override
     public void createControl(final Composite parent) {
@@ -115,6 +122,8 @@ public class ISObjectSelectionWizardPage extends AbstractSelectionWizardPage {
 
         if(expanded) {
             treeViewer.expandAll();
+        } else if(levelToExpand != null) {
+            treeViewer.expandToLevel(levelToExpand);
         }
         
         initRootPrefix();

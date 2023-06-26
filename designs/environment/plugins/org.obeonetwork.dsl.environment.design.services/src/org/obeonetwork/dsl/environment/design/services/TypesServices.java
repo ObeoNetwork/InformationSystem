@@ -480,7 +480,7 @@ public class TypesServices {
         		input,
         		true);
 		
-        wizard.setExpandedByDefault(false);
+        wizard.setLevelToExpand(3);
         
         // When a reference is selected, select the referenced type
         EObjectSelectionInductor eObjectSelectionInductor = new EObjectSelectionInductor(input) {

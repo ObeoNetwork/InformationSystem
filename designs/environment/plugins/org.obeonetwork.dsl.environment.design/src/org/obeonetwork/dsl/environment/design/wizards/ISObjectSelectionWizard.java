@@ -51,6 +51,10 @@ public class ISObjectSelectionWizard extends Wizard {
     	page.setExpandedByDefault(expanded);
     }
 
+	public void setLevelToExpand(int levelToExpand) {
+		page.setLevelToExpand(levelToExpand);
+	}
+	
 	public void setSelectionInductor(ISelectionInductor selectionInductor) {
 		page.setSelectionInductor(selectionInductor);
 	}
