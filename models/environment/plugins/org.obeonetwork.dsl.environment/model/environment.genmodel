@@ -15,6 +15,11 @@
   <genPackages prefix="Environment" basePackage="org.obeonetwork.dsl" resource="XMI"
       disposableProviderFactory="true" generateModelWizard="false" extensibleProviderFactory="true"
       ecorePackage="environment.ecore#/">
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="environment.ecore#//PrimitiveTypeKind">
+      <genEnumLiterals ecoreEnumLiteral="environment.ecore#//PrimitiveTypeKind/OTHER"/>
+      <genEnumLiterals ecoreEnumLiteral="environment.ecore#//PrimitiveTypeKind/NUMBER"/>
+      <genEnumLiterals ecoreEnumLiteral="environment.ecore#//PrimitiveTypeKind/TEXT"/>
+    </genEnums>
     <genEnums ecoreEnum="environment.ecore#//MultiplicityKind">
       <genEnumLiterals ecoreEnumLiteral="environment.ecore#//MultiplicityKind/ZERO_ONE"/>
       <genEnumLiterals ecoreEnumLiteral="environment.ecore#//MultiplicityKind/ONE"/>
@@ -32,7 +37,9 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute environment.ecore#//Type/name"/>
       <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference environment.ecore#//Type/typeDefinition"/>
     </genClasses>
-    <genClasses ecoreClass="environment.ecore#//PrimitiveType"/>
+    <genClasses ecoreClass="environment.ecore#//PrimitiveType">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute environment.ecore#//PrimitiveType/kind"/>
+    </genClasses>
     <genClasses ecoreClass="environment.ecore#//Enumeration">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference environment.ecore#//Enumeration/literals"/>
     </genClasses>
