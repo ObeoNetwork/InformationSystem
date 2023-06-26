@@ -46,7 +46,14 @@
       </eAnnotations>
     </eStructuralFeatures>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="PrimitiveType" eSuperTypes="#//DataType"/>
+  <eClassifiers xsi:type="ecore:EClass" name="PrimitiveType" eSuperTypes="#//DataType">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="kind" lowerBound="1" eType="#//PrimitiveTypeKind"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="PrimitiveTypeKind">
+    <eLiterals name="OTHER" literal="other"/>
+    <eLiterals name="NUMBER" value="1" literal="number"/>
+    <eLiterals name="TEXT" value="2" literal="text"/>
+  </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Enumeration" eSuperTypes="#//DataType">
     <eStructuralFeatures xsi:type="ecore:EReference" name="literals" lowerBound="1"
         upperBound="-1" eType="#//Literal" containment="true">
