@@ -11,11 +11,11 @@
     <types xsi:type="oenv:PrimitiveType" xmi:id="_SKJz0PsREeWC2u5kehASiQ" technicalid="_qCKjBDwHEeiOd8zmfAzmGQ" createdOn="2016-04-05T11:32:15.630+0200" modifiedOn="2016-04-05T11:32:18.956+0200" name="Binary"/>
     <types xsi:type="oenv:PrimitiveType" xmi:id="_s5FXAqwKEd2XLNOhkJIazw" technicalid="_qCKjBTwHEeiOd8zmfAzmGQ" name="Boolean"/>
     <types xsi:type="oenv:PrimitiveType" xmi:id="_s5F-E6wKEd2XLNOhkJIazw" technicalid="_qCKjBjwHEeiOd8zmfAzmGQ" name="Date"/>
-    <types xsi:type="oenv:PrimitiveType" xmi:id="_s5F-EawKEd2XLNOhkJIazw" technicalid="_qCKjBzwHEeiOd8zmfAzmGQ" name="Double"/>
-    <types xsi:type="oenv:PrimitiveType" xmi:id="_s5GlIKwKEd2XLNOhkJIazw" technicalid="_qCKjCDwHEeiOd8zmfAzmGQ" name="Float"/>
-    <types xsi:type="oenv:PrimitiveType" xmi:id="_s5FXAawKEd2XLNOhkJIazw" technicalid="_qCKjCTwHEeiOd8zmfAzmGQ" name="Integer"/>
-    <types xsi:type="oenv:PrimitiveType" xmi:id="_9dnH8bGqEd2SRpTkL4GntA" technicalid="_qCKjCjwHEeiOd8zmfAzmGQ" name="Long"/>
-    <types xsi:type="oenv:PrimitiveType" xmi:id="_s5F-EKwKEd2XLNOhkJIazw" technicalid="_qCKjCzwHEeiOd8zmfAzmGQ" name="String"/>
+    <types xsi:type="oenv:PrimitiveType" xmi:id="_s5F-EawKEd2XLNOhkJIazw" technicalid="_qCKjBzwHEeiOd8zmfAzmGQ" createdOn="2023-06-26T15:07:07.195+0200" modifiedOn="2023-06-26T15:07:21.802+0200" name="Double" kind="number"/>
+    <types xsi:type="oenv:PrimitiveType" xmi:id="_s5GlIKwKEd2XLNOhkJIazw" technicalid="_qCKjCDwHEeiOd8zmfAzmGQ" createdOn="2023-06-26T15:07:11.943+0200" modifiedOn="2023-06-26T15:07:19.460+0200" name="Float" kind="number"/>
+    <types xsi:type="oenv:PrimitiveType" xmi:id="_s5FXAawKEd2XLNOhkJIazw" technicalid="_qCKjCTwHEeiOd8zmfAzmGQ" createdOn="2023-06-26T15:07:14.635+0200" modifiedOn="2023-06-26T15:07:17.010+0200" name="Integer" kind="number"/>
+    <types xsi:type="oenv:PrimitiveType" xmi:id="_9dnH8bGqEd2SRpTkL4GntA" technicalid="_qCKjCjwHEeiOd8zmfAzmGQ" createdOn="2023-06-26T15:07:24.182+0200" modifiedOn="2023-06-26T15:07:24.182+0200" name="Long" kind="number"/>
+    <types xsi:type="oenv:PrimitiveType" xmi:id="_s5F-EKwKEd2XLNOhkJIazw" technicalid="_qCKjCzwHEeiOd8zmfAzmGQ" createdOn="2023-06-26T15:07:26.406+0200" modifiedOn="2023-06-26T15:07:26.406+0200" name="String" kind="text"/>
     <types xsi:type="oenv:PrimitiveType" xmi:id="_rWTrcTwHEeiOd8zmfAzmGQ" technicalid="_rGWj4DwHEeiOd8zmfAzmGQ" name="Time"/>
     <types xsi:type="oenv:PrimitiveType" xmi:id="_rGXK8DwHEeiOd8zmfAzmGQ" technicalid="_q9qh8DwHEeiOd8zmfAzmGQ" name="Timestamp"/>
   </typesDefinition>
