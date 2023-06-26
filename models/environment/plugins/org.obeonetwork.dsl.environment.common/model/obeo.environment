@@ -7,15 +7,15 @@
     <priorities xmi:id="_s5HMMawKEd2XLNOhkJIazw" technicalid="_qCKjATwHEeiOd8zmfAzmGQ" name="Low"/>
     <priorities xmi:id="_s5HMMqwKEd2XLNOhkJIazw" technicalid="_qCKjAjwHEeiOd8zmfAzmGQ" name="Lowest"/>
   </priorityDefinitions>
-  <typesDefinition xmi:id="_s5FXAKwKEd2XLNOhkJIazw" technicalid="_qCKjAzwHEeiOd8zmfAzmGQ" createdOn="2015-05-21T16:33:04.543+0200" modifiedOn="2018-04-09T17:08:33.999+0200">
-    <types xsi:type="oenv:PrimitiveType" xmi:id="_SKJz0PsREeWC2u5kehASiQ" technicalid="_qCKjBDwHEeiOd8zmfAzmGQ" createdOn="2016-04-05T11:32:15.630+0200" modifiedOn="2016-04-05T11:32:18.956+0200" name="Binary"/>
+  <typesDefinition xmi:id="_s5FXAKwKEd2XLNOhkJIazw" technicalid="_qCKjAzwHEeiOd8zmfAzmGQ">
+    <types xsi:type="oenv:PrimitiveType" xmi:id="_SKJz0PsREeWC2u5kehASiQ" technicalid="_qCKjBDwHEeiOd8zmfAzmGQ" name="Binary"/>
     <types xsi:type="oenv:PrimitiveType" xmi:id="_s5FXAqwKEd2XLNOhkJIazw" technicalid="_qCKjBTwHEeiOd8zmfAzmGQ" name="Boolean"/>
     <types xsi:type="oenv:PrimitiveType" xmi:id="_s5F-E6wKEd2XLNOhkJIazw" technicalid="_qCKjBjwHEeiOd8zmfAzmGQ" name="Date"/>
-    <types xsi:type="oenv:PrimitiveType" xmi:id="_s5F-EawKEd2XLNOhkJIazw" technicalid="_qCKjBzwHEeiOd8zmfAzmGQ" name="Double"/>
-    <types xsi:type="oenv:PrimitiveType" xmi:id="_s5GlIKwKEd2XLNOhkJIazw" technicalid="_qCKjCDwHEeiOd8zmfAzmGQ" name="Float"/>
-    <types xsi:type="oenv:PrimitiveType" xmi:id="_s5FXAawKEd2XLNOhkJIazw" technicalid="_qCKjCTwHEeiOd8zmfAzmGQ" name="Integer"/>
-    <types xsi:type="oenv:PrimitiveType" xmi:id="_9dnH8bGqEd2SRpTkL4GntA" technicalid="_qCKjCjwHEeiOd8zmfAzmGQ" name="Long"/>
-    <types xsi:type="oenv:PrimitiveType" xmi:id="_s5F-EKwKEd2XLNOhkJIazw" technicalid="_qCKjCzwHEeiOd8zmfAzmGQ" name="String"/>
+    <types xsi:type="oenv:PrimitiveType" xmi:id="_s5F-EawKEd2XLNOhkJIazw" technicalid="_qCKjBzwHEeiOd8zmfAzmGQ" name="Double" kind="number"/>
+    <types xsi:type="oenv:PrimitiveType" xmi:id="_s5GlIKwKEd2XLNOhkJIazw" technicalid="_qCKjCDwHEeiOd8zmfAzmGQ" name="Float" kind="number"/>
+    <types xsi:type="oenv:PrimitiveType" xmi:id="_s5FXAawKEd2XLNOhkJIazw" technicalid="_qCKjCTwHEeiOd8zmfAzmGQ" name="Integer" kind="number"/>
+    <types xsi:type="oenv:PrimitiveType" xmi:id="_9dnH8bGqEd2SRpTkL4GntA" technicalid="_qCKjCjwHEeiOd8zmfAzmGQ" name="Long" kind="number"/>
+    <types xsi:type="oenv:PrimitiveType" xmi:id="_s5F-EKwKEd2XLNOhkJIazw" technicalid="_qCKjCzwHEeiOd8zmfAzmGQ" name="String" kind="text"/>
     <types xsi:type="oenv:PrimitiveType" xmi:id="_rWTrcTwHEeiOd8zmfAzmGQ" technicalid="_rGWj4DwHEeiOd8zmfAzmGQ" name="Time"/>
     <types xsi:type="oenv:PrimitiveType" xmi:id="_rGXK8DwHEeiOd8zmfAzmGQ" technicalid="_q9qh8DwHEeiOd8zmfAzmGQ" name="Timestamp"/>
   </typesDefinition>
