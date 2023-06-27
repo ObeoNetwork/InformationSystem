@@ -107,6 +107,9 @@
     <genClasses ecoreClass="environment.ecore#//Attribute">
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference environment.ecore#//Attribute/type"/>
       <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference environment.ecore#//Attribute/containingType"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute environment.ecore#//Attribute/minimum"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute environment.ecore#//Attribute/maximum"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute environment.ecore#//Attribute/pattern"/>
     </genClasses>
     <genClasses ecoreClass="environment.ecore#//Reference">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute environment.ecore#//Reference/isComposite"/>
