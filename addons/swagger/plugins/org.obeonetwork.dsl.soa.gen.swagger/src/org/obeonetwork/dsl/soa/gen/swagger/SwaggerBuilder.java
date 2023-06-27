@@ -67,6 +67,7 @@ import org.obeonetwork.dsl.soa.ParameterPassingMode;
 import org.obeonetwork.dsl.soa.Scope;
 import org.obeonetwork.dsl.soa.SecuritySchemeType;
 import org.obeonetwork.dsl.soa.Service;
+import org.obeonetwork.dsl.soa.SoaPackage;
 import org.obeonetwork.dsl.soa.gen.swagger.utils.ComponentGenUtil;
 import org.obeonetwork.dsl.soa.gen.swagger.utils.ExampleGenUtil;
 import org.obeonetwork.dsl.soa.gen.swagger.utils.OperationGenUtil;
@@ -990,7 +991,30 @@ public class SwaggerBuilder {
 		}
 
 		addPropertiesExtensionsFromSoaToSwg(soaParameter, schema);
+
+		// Value Constraints
+		addValueConstraintsFromSoaToSwg(soaParameter, schema);
+
 		return schema;
+	}
+
+	private void addValueConstraintsFromSoaToSwg(final org.obeonetwork.dsl.soa.Parameter parameter,
+			final Schema<Object> schema) {
+		Objects.requireNonNull(parameter);
+		Objects.requireNonNull(schema);
+
+		if (parameter.eIsSet(SoaPackage.Literals.PARAMETER__MINIMUM)) {
+			final String minimum = parameter.getMinimum();
+			schema.setMinimum(new BigDecimal(minimum));
+		}
+		if (parameter.eIsSet(SoaPackage.Literals.PARAMETER__MAXIMUM)) {
+			final String maximum = parameter.getMaximum();
+			schema.setMaximum(new BigDecimal(maximum));
+		}
+		if (parameter.eIsSet(SoaPackage.Literals.PARAMETER__PATTERN)) {
+			final String pattern = parameter.getPattern();
+			schema.setPattern(pattern);
+		}
 	}
 
 	private Schema<Object> createArraySchema(Schema<Object> schema, org.obeonetwork.dsl.soa.Parameter soaParameter) {

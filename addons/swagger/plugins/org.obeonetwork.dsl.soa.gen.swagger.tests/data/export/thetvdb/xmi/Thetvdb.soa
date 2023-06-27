@@ -887,11 +887,11 @@
           <securityApplications xmi:id="_o_iJcW7QEeykZo0xTv5joQ" technicalid="_o_iJcG7QEeykZo0xTv5joQ" securityScheme="_msJQPmxuEeuYi_YuNNGyqg"/>
         </ownedOperations>
         <ownedOperations xmi:id="_msJPq2xuEeuYi_YuNNGyqg" technicalid="_msHaMWxuEeuYi_YuNNGyqg" description="Returns the allowed query keys for the `/series/{id}/images/query` route. Contains a parameter record for each unique `keyType`, listing values that will return results." createdOn="2022-01-06T10:11:37.609+0100" modifiedOn="2022-01-06T10:11:37.609+0100" name="getImagesQueryParamsFromId" public="true" URI="/{id}/images/query/params" exposition="REST">
-          <input xmi:id="_msJPrGxuEeuYi_YuNNGyqg" technicalid="_msHaMmxuEeuYi_YuNNGyqg" description="ID of the series" name="id">
+          <input xmi:id="_msJPrGxuEeuYi_YuNNGyqg" technicalid="_msHaMmxuEeuYi_YuNNGyqg" description="ID of the series" name="id" minimum="0" maximum="10000">
             <type xsi:type="oenv:PrimitiveType" href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_9dnH8bGqEd2SRpTkL4GntA"/>
             <restData xmi:id="_msJPrWxuEeuYi_YuNNGyqg" technicalid="_msHaM2xuEeuYi_YuNNGyqg" passingMode="PATH" restId="id"/>
           </input>
-          <input xmi:id="_msJPrmxuEeuYi_YuNNGyqg" technicalid="_msHaNGxuEeuYi_YuNNGyqg" description="Records are returned with the some fields in the desired language, if it exists. If there is no translation for the given language, then the record is still returned but with empty values for the translated fields." name="Accept-Language" multiplicity="0..1">
+          <input xmi:id="_msJPrmxuEeuYi_YuNNGyqg" technicalid="_msHaNGxuEeuYi_YuNNGyqg" minimum="0" maximum="100" pattern="/^[a-zA-Z]+$/" description="Records are returned with the some fields in the desired language, if it exists. If there is no translation for the given language, then the record is still returned but with empty values for the translated fields." name="Accept-Language" multiplicity="0..1">
             <type xsi:type="oenv:PrimitiveType" href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5F-EKwKEd2XLNOhkJIazw"/>
             <restData xmi:id="_msJPr2xuEeuYi_YuNNGyqg" technicalid="_msHaNWxuEeuYi_YuNNGyqg" passingMode="HEADER" restId="Accept-Language"/>
           </input>
