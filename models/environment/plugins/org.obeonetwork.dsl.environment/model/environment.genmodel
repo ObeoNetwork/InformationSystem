@@ -159,5 +159,10 @@
     <genClasses image="false" ecoreClass="environment.ecore#//NamespacesContainer">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference environment.ecore#//NamespacesContainer/ownedNamespaces"/>
     </genClasses>
+    <genClasses image="false" ecoreClass="environment.ecore#//ConstrainableElement">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute environment.ecore#//ConstrainableElement/maximum"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute environment.ecore#//ConstrainableElement/minimum"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute environment.ecore#//ConstrainableElement/pattern"/>
+    </genClasses>
   </genPackages>
 </genmodel:GenModel>
