@@ -95,6 +95,7 @@ public class ContactImpl extends ObeoDSMObjectImpl implements Contact {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public String getName() {
 		return (String)eDynamicGet(SoaPackage.CONTACT__NAME, SoaPackage.Literals.CONTACT__NAME, true, true);
 	}
@@ -104,6 +105,7 @@ public class ContactImpl extends ObeoDSMObjectImpl implements Contact {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setName(String newName) {
 		eDynamicSet(SoaPackage.CONTACT__NAME, SoaPackage.Literals.CONTACT__NAME, newName);
 	}
@@ -113,6 +115,7 @@ public class ContactImpl extends ObeoDSMObjectImpl implements Contact {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public String getURL() {
 		return (String)eDynamicGet(SoaPackage.CONTACT__URL, SoaPackage.Literals.CONTACT__URL, true, true);
 	}
@@ -122,6 +125,7 @@ public class ContactImpl extends ObeoDSMObjectImpl implements Contact {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setURL(String newURL) {
 		eDynamicSet(SoaPackage.CONTACT__URL, SoaPackage.Literals.CONTACT__URL, newURL);
 	}
@@ -131,6 +135,7 @@ public class ContactImpl extends ObeoDSMObjectImpl implements Contact {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public String getEmail() {
 		return (String)eDynamicGet(SoaPackage.CONTACT__EMAIL, SoaPackage.Literals.CONTACT__EMAIL, true, true);
 	}
@@ -140,6 +145,7 @@ public class ContactImpl extends ObeoDSMObjectImpl implements Contact {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setEmail(String newEmail) {
 		eDynamicSet(SoaPackage.CONTACT__EMAIL, SoaPackage.Literals.CONTACT__EMAIL, newEmail);
 	}

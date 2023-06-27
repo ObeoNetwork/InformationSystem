@@ -71,6 +71,7 @@ public class BindingImpl extends ObeoDSMObjectImpl implements Binding {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public BindingKind getTechnology() {
 		return (BindingKind)eDynamicGet(SoaPackage.BINDING__TECHNOLOGY, SoaPackage.Literals.BINDING__TECHNOLOGY, true, true);
 	}
@@ -80,6 +81,7 @@ public class BindingImpl extends ObeoDSMObjectImpl implements Binding {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setTechnology(BindingKind newTechnology) {
 		eDynamicSet(SoaPackage.BINDING__TECHNOLOGY, SoaPackage.Literals.BINDING__TECHNOLOGY, newTechnology);
 	}

@@ -368,6 +368,7 @@ public class SoaPackageImpl extends EPackageImpl implements SoaPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getSystem() {
 		return systemEClass;
 	}
@@ -377,6 +378,7 @@ public class SoaPackageImpl extends EPackageImpl implements SoaPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EReference getSystem_OwnedComponents() {
 		return (EReference)systemEClass.getEStructuralFeatures().get(0);
 	}
@@ -386,6 +388,7 @@ public class SoaPackageImpl extends EPackageImpl implements SoaPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EReference getSystem_OwnedWires() {
 		return (EReference)systemEClass.getEStructuralFeatures().get(1);
 	}
@@ -395,6 +398,7 @@ public class SoaPackageImpl extends EPackageImpl implements SoaPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getComponent() {
 		return componentEClass;
 	}
@@ -404,6 +408,7 @@ public class SoaPackageImpl extends EPackageImpl implements SoaPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EReference getComponent_OwnedServices() {
 		return (EReference)componentEClass.getEStructuralFeatures().get(0);
 	}
@@ -413,6 +418,7 @@ public class SoaPackageImpl extends EPackageImpl implements SoaPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EReference getComponent_RequiredServices() {
 		return (EReference)componentEClass.getEStructuralFeatures().get(1);
 	}
@@ -422,6 +428,7 @@ public class SoaPackageImpl extends EPackageImpl implements SoaPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EReference getComponent_ProvidedServices() {
 		return (EReference)componentEClass.getEStructuralFeatures().get(2);
 	}
@@ -431,6 +438,7 @@ public class SoaPackageImpl extends EPackageImpl implements SoaPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EReference getComponent_Implementations() {
 		return (EReference)componentEClass.getEStructuralFeatures().get(3);
 	}
@@ -440,6 +448,7 @@ public class SoaPackageImpl extends EPackageImpl implements SoaPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getComponent_Name() {
 		return (EAttribute)componentEClass.getEStructuralFeatures().get(4);
 	}
@@ -449,6 +458,7 @@ public class SoaPackageImpl extends EPackageImpl implements SoaPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EReference getComponent_OwnedBinding() {
 		return (EReference)componentEClass.getEStructuralFeatures().get(5);
 	}
@@ -458,6 +468,7 @@ public class SoaPackageImpl extends EPackageImpl implements SoaPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EReference getComponent_Block() {
 		return (EReference)componentEClass.getEStructuralFeatures().get(6);
 	}
@@ -467,6 +478,7 @@ public class SoaPackageImpl extends EPackageImpl implements SoaPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getComponent_URI() {
 		return (EAttribute)componentEClass.getEStructuralFeatures().get(7);
 	}
@@ -476,6 +488,7 @@ public class SoaPackageImpl extends EPackageImpl implements SoaPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getComponent_ApiVersion() {
 		return (EAttribute)componentEClass.getEStructuralFeatures().get(8);
 	}
@@ -485,6 +498,7 @@ public class SoaPackageImpl extends EPackageImpl implements SoaPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getComponent_Deprecated() {
 		return (EAttribute)componentEClass.getEStructuralFeatures().get(9);
 	}
@@ -494,6 +508,7 @@ public class SoaPackageImpl extends EPackageImpl implements SoaPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EReference getComponent_SecuritySchemes() {
 		return (EReference)componentEClass.getEStructuralFeatures().get(10);
 	}
@@ -503,6 +518,7 @@ public class SoaPackageImpl extends EPackageImpl implements SoaPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EReference getComponent_License() {
 		return (EReference)componentEClass.getEStructuralFeatures().get(11);
 	}
@@ -512,6 +528,7 @@ public class SoaPackageImpl extends EPackageImpl implements SoaPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EReference getComponent_Information() {
 		return (EReference)componentEClass.getEStructuralFeatures().get(12);
 	}
@@ -521,6 +538,7 @@ public class SoaPackageImpl extends EPackageImpl implements SoaPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EReference getComponent_Contact() {
 		return (EReference)componentEClass.getEStructuralFeatures().get(13);
 	}
@@ -530,6 +548,7 @@ public class SoaPackageImpl extends EPackageImpl implements SoaPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EReference getComponent_Servers() {
 		return (EReference)componentEClass.getEStructuralFeatures().get(14);
 	}
@@ -539,6 +558,7 @@ public class SoaPackageImpl extends EPackageImpl implements SoaPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getService() {
 		return serviceEClass;
 	}
@@ -548,6 +568,7 @@ public class SoaPackageImpl extends EPackageImpl implements SoaPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EReference getService_OwnedInterface() {
 		return (EReference)serviceEClass.getEStructuralFeatures().get(0);
 	}
@@ -557,6 +578,7 @@ public class SoaPackageImpl extends EPackageImpl implements SoaPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getService_Synchronization() {
 		return (EAttribute)serviceEClass.getEStructuralFeatures().get(1);
 	}
@@ -566,6 +588,7 @@ public class SoaPackageImpl extends EPackageImpl implements SoaPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getService_Kind() {
 		return (EAttribute)serviceEClass.getEStructuralFeatures().get(2);
 	}
@@ -575,6 +598,7 @@ public class SoaPackageImpl extends EPackageImpl implements SoaPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EReference getService_ReferencedInterface() {
 		return (EReference)serviceEClass.getEStructuralFeatures().get(3);
 	}
@@ -584,6 +608,7 @@ public class SoaPackageImpl extends EPackageImpl implements SoaPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EReference getService_Bindings() {
 		return (EReference)serviceEClass.getEStructuralFeatures().get(4);
 	}
@@ -593,6 +618,7 @@ public class SoaPackageImpl extends EPackageImpl implements SoaPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getService_Name() {
 		return (EAttribute)serviceEClass.getEStructuralFeatures().get(5);
 	}
@@ -602,6 +628,7 @@ public class SoaPackageImpl extends EPackageImpl implements SoaPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EReference getService_UsedTypes() {
 		return (EReference)serviceEClass.getEStructuralFeatures().get(6);
 	}
@@ -611,6 +638,7 @@ public class SoaPackageImpl extends EPackageImpl implements SoaPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getService_URI() {
 		return (EAttribute)serviceEClass.getEStructuralFeatures().get(7);
 	}
@@ -620,6 +648,7 @@ public class SoaPackageImpl extends EPackageImpl implements SoaPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getWire() {
 		return wireEClass;
 	}
@@ -629,6 +658,7 @@ public class SoaPackageImpl extends EPackageImpl implements SoaPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EReference getWire_Source() {
 		return (EReference)wireEClass.getEStructuralFeatures().get(0);
 	}
@@ -638,6 +668,7 @@ public class SoaPackageImpl extends EPackageImpl implements SoaPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EReference getWire_Dest() {
 		return (EReference)wireEClass.getEStructuralFeatures().get(1);
 	}
@@ -647,6 +678,7 @@ public class SoaPackageImpl extends EPackageImpl implements SoaPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getBinding() {
 		return bindingEClass;
 	}
@@ -656,6 +688,7 @@ public class SoaPackageImpl extends EPackageImpl implements SoaPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getBinding_Technology() {
 		return (EAttribute)bindingEClass.getEStructuralFeatures().get(0);
 	}
@@ -665,6 +698,7 @@ public class SoaPackageImpl extends EPackageImpl implements SoaPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getInterface() {
 		return interfaceEClass;
 	}
@@ -674,6 +708,7 @@ public class SoaPackageImpl extends EPackageImpl implements SoaPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EReference getInterface_OwnedOperations() {
 		return (EReference)interfaceEClass.getEStructuralFeatures().get(0);
 	}
@@ -683,6 +718,7 @@ public class SoaPackageImpl extends EPackageImpl implements SoaPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getInterface_Name() {
 		return (EAttribute)interfaceEClass.getEStructuralFeatures().get(1);
 	}
@@ -692,6 +728,7 @@ public class SoaPackageImpl extends EPackageImpl implements SoaPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getOperation() {
 		return operationEClass;
 	}
@@ -701,6 +738,7 @@ public class SoaPackageImpl extends EPackageImpl implements SoaPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EReference getOperation_Input() {
 		return (EReference)operationEClass.getEStructuralFeatures().get(0);
 	}
@@ -710,6 +748,7 @@ public class SoaPackageImpl extends EPackageImpl implements SoaPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EReference getOperation_Output() {
 		return (EReference)operationEClass.getEStructuralFeatures().get(1);
 	}
@@ -719,6 +758,7 @@ public class SoaPackageImpl extends EPackageImpl implements SoaPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getOperation_Kind() {
 		return (EAttribute)operationEClass.getEStructuralFeatures().get(2);
 	}
@@ -728,6 +768,7 @@ public class SoaPackageImpl extends EPackageImpl implements SoaPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getOperation_Public() {
 		return (EAttribute)operationEClass.getEStructuralFeatures().get(3);
 	}
@@ -737,6 +778,7 @@ public class SoaPackageImpl extends EPackageImpl implements SoaPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EReference getOperation_Fault() {
 		return (EReference)operationEClass.getEStructuralFeatures().get(4);
 	}
@@ -746,6 +788,7 @@ public class SoaPackageImpl extends EPackageImpl implements SoaPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getOperation_URI() {
 		return (EAttribute)operationEClass.getEStructuralFeatures().get(5);
 	}
@@ -755,6 +798,7 @@ public class SoaPackageImpl extends EPackageImpl implements SoaPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getOperation_Verb() {
 		return (EAttribute)operationEClass.getEStructuralFeatures().get(6);
 	}
@@ -764,6 +808,7 @@ public class SoaPackageImpl extends EPackageImpl implements SoaPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getOperation_Exposition() {
 		return (EAttribute)operationEClass.getEStructuralFeatures().get(7);
 	}
@@ -773,6 +818,7 @@ public class SoaPackageImpl extends EPackageImpl implements SoaPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getOperation_Paged() {
 		return (EAttribute)operationEClass.getEStructuralFeatures().get(8);
 	}
@@ -782,6 +828,7 @@ public class SoaPackageImpl extends EPackageImpl implements SoaPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EReference getOperation_Servers() {
 		return (EReference)operationEClass.getEStructuralFeatures().get(9);
 	}
@@ -791,6 +838,7 @@ public class SoaPackageImpl extends EPackageImpl implements SoaPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EReference getOperation_Size() {
 		return (EReference)operationEClass.getEStructuralFeatures().get(10);
 	}
@@ -800,6 +848,7 @@ public class SoaPackageImpl extends EPackageImpl implements SoaPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EReference getOperation_Page() {
 		return (EReference)operationEClass.getEStructuralFeatures().get(11);
 	}
@@ -809,6 +858,7 @@ public class SoaPackageImpl extends EPackageImpl implements SoaPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EReference getOperation_PaginationExtension() {
 		return (EReference)operationEClass.getEStructuralFeatures().get(12);
 	}
@@ -818,6 +868,7 @@ public class SoaPackageImpl extends EPackageImpl implements SoaPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getImplementationComponent() {
 		return implementationComponentEClass;
 	}
@@ -827,6 +878,7 @@ public class SoaPackageImpl extends EPackageImpl implements SoaPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EReference getImplementationComponent_Implement() {
 		return (EReference)implementationComponentEClass.getEStructuralFeatures().get(0);
 	}
@@ -836,6 +888,7 @@ public class SoaPackageImpl extends EPackageImpl implements SoaPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EReference getImplementationComponent_Entities() {
 		return (EReference)implementationComponentEClass.getEStructuralFeatures().get(1);
 	}
@@ -845,6 +898,7 @@ public class SoaPackageImpl extends EPackageImpl implements SoaPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getParameter() {
 		return parameterEClass;
 	}
@@ -854,6 +908,7 @@ public class SoaPackageImpl extends EPackageImpl implements SoaPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EReference getParameter_Type() {
 		return (EReference)parameterEClass.getEStructuralFeatures().get(0);
 	}
@@ -863,6 +918,7 @@ public class SoaPackageImpl extends EPackageImpl implements SoaPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EReference getParameter_MediaType() {
 		return (EReference)parameterEClass.getEStructuralFeatures().get(1);
 	}
@@ -872,6 +928,7 @@ public class SoaPackageImpl extends EPackageImpl implements SoaPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getParameter_Name() {
 		return (EAttribute)parameterEClass.getEStructuralFeatures().get(2);
 	}
@@ -881,6 +938,7 @@ public class SoaPackageImpl extends EPackageImpl implements SoaPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getParameter_Multiplicity() {
 		return (EAttribute)parameterEClass.getEStructuralFeatures().get(3);
 	}
@@ -890,6 +948,7 @@ public class SoaPackageImpl extends EPackageImpl implements SoaPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getParameter_IsUnique() {
 		return (EAttribute)parameterEClass.getEStructuralFeatures().get(4);
 	}
@@ -899,6 +958,7 @@ public class SoaPackageImpl extends EPackageImpl implements SoaPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getParameter_IsOrdered() {
 		return (EAttribute)parameterEClass.getEStructuralFeatures().get(5);
 	}
@@ -908,6 +968,7 @@ public class SoaPackageImpl extends EPackageImpl implements SoaPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getParameter_StatusCode() {
 		return (EAttribute)parameterEClass.getEStructuralFeatures().get(6);
 	}
@@ -917,6 +978,7 @@ public class SoaPackageImpl extends EPackageImpl implements SoaPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getParameter_StatusMessage() {
 		return (EAttribute)parameterEClass.getEStructuralFeatures().get(7);
 	}
@@ -926,6 +988,7 @@ public class SoaPackageImpl extends EPackageImpl implements SoaPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EReference getParameter_RestData() {
 		return (EReference)parameterEClass.getEStructuralFeatures().get(8);
 	}
@@ -935,6 +998,7 @@ public class SoaPackageImpl extends EPackageImpl implements SoaPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getParameterRestData() {
 		return parameterRestDataEClass;
 	}
@@ -944,6 +1008,7 @@ public class SoaPackageImpl extends EPackageImpl implements SoaPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getParameterRestData_PassingMode() {
 		return (EAttribute)parameterRestDataEClass.getEStructuralFeatures().get(0);
 	}
@@ -953,6 +1018,7 @@ public class SoaPackageImpl extends EPackageImpl implements SoaPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getParameterRestData_RestId() {
 		return (EAttribute)parameterRestDataEClass.getEStructuralFeatures().get(1);
 	}
@@ -962,6 +1028,7 @@ public class SoaPackageImpl extends EPackageImpl implements SoaPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getSecurityScheme() {
 		return securitySchemeEClass;
 	}
@@ -971,6 +1038,7 @@ public class SoaPackageImpl extends EPackageImpl implements SoaPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getSecurityScheme_Key() {
 		return (EAttribute)securitySchemeEClass.getEStructuralFeatures().get(0);
 	}
@@ -980,6 +1048,7 @@ public class SoaPackageImpl extends EPackageImpl implements SoaPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getSecurityScheme_Type() {
 		return (EAttribute)securitySchemeEClass.getEStructuralFeatures().get(1);
 	}
@@ -989,6 +1058,7 @@ public class SoaPackageImpl extends EPackageImpl implements SoaPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getSecurityScheme_Name() {
 		return (EAttribute)securitySchemeEClass.getEStructuralFeatures().get(2);
 	}
@@ -998,6 +1068,7 @@ public class SoaPackageImpl extends EPackageImpl implements SoaPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getSecurityScheme_ApiKeyLocation() {
 		return (EAttribute)securitySchemeEClass.getEStructuralFeatures().get(3);
 	}
@@ -1007,6 +1078,7 @@ public class SoaPackageImpl extends EPackageImpl implements SoaPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getSecurityScheme_ConnectURL() {
 		return (EAttribute)securitySchemeEClass.getEStructuralFeatures().get(4);
 	}
@@ -1016,6 +1088,7 @@ public class SoaPackageImpl extends EPackageImpl implements SoaPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EReference getSecurityScheme_Flows() {
 		return (EReference)securitySchemeEClass.getEStructuralFeatures().get(5);
 	}
@@ -1025,6 +1098,7 @@ public class SoaPackageImpl extends EPackageImpl implements SoaPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getSecurityScheme_HttpScheme() {
 		return (EAttribute)securitySchemeEClass.getEStructuralFeatures().get(6);
 	}
@@ -1034,6 +1108,7 @@ public class SoaPackageImpl extends EPackageImpl implements SoaPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getSecurityScheme_Format() {
 		return (EAttribute)securitySchemeEClass.getEStructuralFeatures().get(7);
 	}
@@ -1043,6 +1118,7 @@ public class SoaPackageImpl extends EPackageImpl implements SoaPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getFlow() {
 		return flowEClass;
 	}
@@ -1052,6 +1128,7 @@ public class SoaPackageImpl extends EPackageImpl implements SoaPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getFlow_FlowType() {
 		return (EAttribute)flowEClass.getEStructuralFeatures().get(0);
 	}
@@ -1061,6 +1138,7 @@ public class SoaPackageImpl extends EPackageImpl implements SoaPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getFlow_AuthorizationURL() {
 		return (EAttribute)flowEClass.getEStructuralFeatures().get(1);
 	}
@@ -1070,6 +1148,7 @@ public class SoaPackageImpl extends EPackageImpl implements SoaPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getFlow_TokenURL() {
 		return (EAttribute)flowEClass.getEStructuralFeatures().get(2);
 	}
@@ -1079,6 +1158,7 @@ public class SoaPackageImpl extends EPackageImpl implements SoaPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getFlow_RefreshURL() {
 		return (EAttribute)flowEClass.getEStructuralFeatures().get(3);
 	}
@@ -1088,6 +1168,7 @@ public class SoaPackageImpl extends EPackageImpl implements SoaPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EReference getFlow_Scopes() {
 		return (EReference)flowEClass.getEStructuralFeatures().get(4);
 	}
@@ -1097,6 +1178,7 @@ public class SoaPackageImpl extends EPackageImpl implements SoaPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getInformation() {
 		return informationEClass;
 	}
@@ -1106,6 +1188,7 @@ public class SoaPackageImpl extends EPackageImpl implements SoaPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getInformation_ApiVersion() {
 		return (EAttribute)informationEClass.getEStructuralFeatures().get(0);
 	}
@@ -1115,6 +1198,7 @@ public class SoaPackageImpl extends EPackageImpl implements SoaPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getInformation_TermsOfService() {
 		return (EAttribute)informationEClass.getEStructuralFeatures().get(1);
 	}
@@ -1124,6 +1208,7 @@ public class SoaPackageImpl extends EPackageImpl implements SoaPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getContact() {
 		return contactEClass;
 	}
@@ -1133,6 +1218,7 @@ public class SoaPackageImpl extends EPackageImpl implements SoaPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getContact_Name() {
 		return (EAttribute)contactEClass.getEStructuralFeatures().get(0);
 	}
@@ -1142,6 +1228,7 @@ public class SoaPackageImpl extends EPackageImpl implements SoaPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getContact_URL() {
 		return (EAttribute)contactEClass.getEStructuralFeatures().get(1);
 	}
@@ -1151,6 +1238,7 @@ public class SoaPackageImpl extends EPackageImpl implements SoaPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getContact_Email() {
 		return (EAttribute)contactEClass.getEStructuralFeatures().get(2);
 	}
@@ -1160,6 +1248,7 @@ public class SoaPackageImpl extends EPackageImpl implements SoaPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getLicense() {
 		return licenseEClass;
 	}
@@ -1169,6 +1258,7 @@ public class SoaPackageImpl extends EPackageImpl implements SoaPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getLicense_Name() {
 		return (EAttribute)licenseEClass.getEStructuralFeatures().get(0);
 	}
@@ -1178,6 +1268,7 @@ public class SoaPackageImpl extends EPackageImpl implements SoaPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getLicense_URL() {
 		return (EAttribute)licenseEClass.getEStructuralFeatures().get(1);
 	}
@@ -1187,6 +1278,7 @@ public class SoaPackageImpl extends EPackageImpl implements SoaPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getMediaType() {
 		return mediaTypeEClass;
 	}
@@ -1196,6 +1288,7 @@ public class SoaPackageImpl extends EPackageImpl implements SoaPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getMediaType_Identifier() {
 		return (EAttribute)mediaTypeEClass.getEStructuralFeatures().get(0);
 	}
@@ -1205,6 +1298,7 @@ public class SoaPackageImpl extends EPackageImpl implements SoaPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EReference getMediaType_Examples() {
 		return (EReference)mediaTypeEClass.getEStructuralFeatures().get(1);
 	}
@@ -1214,6 +1308,7 @@ public class SoaPackageImpl extends EPackageImpl implements SoaPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getExample() {
 		return exampleEClass;
 	}
@@ -1223,6 +1318,7 @@ public class SoaPackageImpl extends EPackageImpl implements SoaPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getExample_Summary() {
 		return (EAttribute)exampleEClass.getEStructuralFeatures().get(0);
 	}
@@ -1232,6 +1328,7 @@ public class SoaPackageImpl extends EPackageImpl implements SoaPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getExample_Value() {
 		return (EAttribute)exampleEClass.getEStructuralFeatures().get(1);
 	}
@@ -1241,6 +1338,7 @@ public class SoaPackageImpl extends EPackageImpl implements SoaPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getExample_Name() {
 		return (EAttribute)exampleEClass.getEStructuralFeatures().get(2);
 	}
@@ -1253,6 +1351,7 @@ public class SoaPackageImpl extends EPackageImpl implements SoaPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getPropertiesExtension_Context() {
 		return (EAttribute)propertiesExtensionEClass.getEStructuralFeatures().get(0);
 	}
@@ -1262,6 +1361,7 @@ public class SoaPackageImpl extends EPackageImpl implements SoaPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getServer() {
 		return serverEClass;
 	}
@@ -1271,6 +1371,7 @@ public class SoaPackageImpl extends EPackageImpl implements SoaPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getServer_URL() {
 		return (EAttribute)serverEClass.getEStructuralFeatures().get(0);
 	}
@@ -1280,6 +1381,7 @@ public class SoaPackageImpl extends EPackageImpl implements SoaPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getScope() {
 		return scopeEClass;
 	}
@@ -1289,6 +1391,7 @@ public class SoaPackageImpl extends EPackageImpl implements SoaPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getScope_Name() {
 		return (EAttribute)scopeEClass.getEStructuralFeatures().get(0);
 	}
@@ -1298,6 +1401,7 @@ public class SoaPackageImpl extends EPackageImpl implements SoaPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getScope_Summary() {
 		return (EAttribute)scopeEClass.getEStructuralFeatures().get(1);
 	}
@@ -1307,6 +1411,7 @@ public class SoaPackageImpl extends EPackageImpl implements SoaPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getSecurityApplication() {
 		return securityApplicationEClass;
 	}
@@ -1316,6 +1421,7 @@ public class SoaPackageImpl extends EPackageImpl implements SoaPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EReference getSecurityApplication_SecurityScheme() {
 		return (EReference)securityApplicationEClass.getEStructuralFeatures().get(0);
 	}
@@ -1325,6 +1431,7 @@ public class SoaPackageImpl extends EPackageImpl implements SoaPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EReference getSecurityApplication_Scopes() {
 		return (EReference)securityApplicationEClass.getEStructuralFeatures().get(1);
 	}
@@ -1334,6 +1441,7 @@ public class SoaPackageImpl extends EPackageImpl implements SoaPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getSecurable() {
 		return securableEClass;
 	}
@@ -1343,6 +1451,7 @@ public class SoaPackageImpl extends EPackageImpl implements SoaPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EReference getSecurable_SecurityApplications() {
 		return (EReference)securableEClass.getEStructuralFeatures().get(0);
 	}
@@ -1352,6 +1461,7 @@ public class SoaPackageImpl extends EPackageImpl implements SoaPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EReference getSecurable_SecuritySchemes() {
 		return (EReference)securableEClass.getEStructuralFeatures().get(1);
 	}
@@ -1361,6 +1471,7 @@ public class SoaPackageImpl extends EPackageImpl implements SoaPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EEnum getInterfaceKind() {
 		return interfaceKindEEnum;
 	}
@@ -1370,6 +1481,7 @@ public class SoaPackageImpl extends EPackageImpl implements SoaPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EEnum getSynchronizationKind() {
 		return synchronizationKindEEnum;
 	}
@@ -1379,6 +1491,7 @@ public class SoaPackageImpl extends EPackageImpl implements SoaPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EEnum getBindingKind() {
 		return bindingKindEEnum;
 	}
@@ -1388,6 +1501,7 @@ public class SoaPackageImpl extends EPackageImpl implements SoaPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EEnum getOperationKind() {
 		return operationKindEEnum;
 	}
@@ -1397,6 +1511,7 @@ public class SoaPackageImpl extends EPackageImpl implements SoaPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EEnum getVerb() {
 		return verbEEnum;
 	}
@@ -1406,6 +1521,7 @@ public class SoaPackageImpl extends EPackageImpl implements SoaPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EEnum getParameterPassingMode() {
 		return parameterPassingModeEEnum;
 	}
@@ -1415,6 +1531,7 @@ public class SoaPackageImpl extends EPackageImpl implements SoaPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EEnum getExpositionKind() {
 		return expositionKindEEnum;
 	}
@@ -1424,6 +1541,7 @@ public class SoaPackageImpl extends EPackageImpl implements SoaPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EEnum getSecuritySchemeType() {
 		return securitySchemeTypeEEnum;
 	}
@@ -1433,6 +1551,7 @@ public class SoaPackageImpl extends EPackageImpl implements SoaPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EEnum getApiKeyLocation() {
 		return apiKeyLocationEEnum;
 	}
@@ -1442,6 +1561,7 @@ public class SoaPackageImpl extends EPackageImpl implements SoaPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EEnum getHttpScheme() {
 		return httpSchemeEEnum;
 	}
@@ -1451,6 +1571,7 @@ public class SoaPackageImpl extends EPackageImpl implements SoaPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EEnum getFlowType() {
 		return flowTypeEEnum;
 	}
@@ -1460,6 +1581,7 @@ public class SoaPackageImpl extends EPackageImpl implements SoaPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public SoaFactory getSoaFactory() {
 		return (SoaFactory)getEFactoryInstance();
 	}

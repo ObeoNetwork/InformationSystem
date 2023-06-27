@@ -83,6 +83,7 @@ public class ScopeImpl extends ObeoDSMObjectImpl implements Scope {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public String getName() {
 		return (String)eDynamicGet(SoaPackage.SCOPE__NAME, SoaPackage.Literals.SCOPE__NAME, true, true);
 	}
@@ -92,6 +93,7 @@ public class ScopeImpl extends ObeoDSMObjectImpl implements Scope {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setName(String newName) {
 		eDynamicSet(SoaPackage.SCOPE__NAME, SoaPackage.Literals.SCOPE__NAME, newName);
 	}
@@ -101,6 +103,7 @@ public class ScopeImpl extends ObeoDSMObjectImpl implements Scope {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public String getSummary() {
 		return (String)eDynamicGet(SoaPackage.SCOPE__SUMMARY, SoaPackage.Literals.SCOPE__SUMMARY, true, true);
 	}
@@ -110,6 +113,7 @@ public class ScopeImpl extends ObeoDSMObjectImpl implements Scope {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setSummary(String newSummary) {
 		eDynamicSet(SoaPackage.SCOPE__SUMMARY, SoaPackage.Literals.SCOPE__SUMMARY, newSummary);
 	}

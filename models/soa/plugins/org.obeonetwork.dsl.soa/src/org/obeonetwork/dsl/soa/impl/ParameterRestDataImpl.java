@@ -85,6 +85,7 @@ public class ParameterRestDataImpl extends IdentifiableImpl implements Parameter
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public ParameterPassingMode getPassingMode() {
 		return (ParameterPassingMode)eDynamicGet(SoaPackage.PARAMETER_REST_DATA__PASSING_MODE, SoaPackage.Literals.PARAMETER_REST_DATA__PASSING_MODE, true, true);
 	}
@@ -94,6 +95,7 @@ public class ParameterRestDataImpl extends IdentifiableImpl implements Parameter
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setPassingMode(ParameterPassingMode newPassingMode) {
 		eDynamicSet(SoaPackage.PARAMETER_REST_DATA__PASSING_MODE, SoaPackage.Literals.PARAMETER_REST_DATA__PASSING_MODE, newPassingMode);
 	}
@@ -103,6 +105,7 @@ public class ParameterRestDataImpl extends IdentifiableImpl implements Parameter
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public String getRestId() {
 		return (String)eDynamicGet(SoaPackage.PARAMETER_REST_DATA__REST_ID, SoaPackage.Literals.PARAMETER_REST_DATA__REST_ID, true, true);
 	}
@@ -112,6 +115,7 @@ public class ParameterRestDataImpl extends IdentifiableImpl implements Parameter
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setRestId(String newRestId) {
 		eDynamicSet(SoaPackage.PARAMETER_REST_DATA__REST_ID, SoaPackage.Literals.PARAMETER_REST_DATA__REST_ID, newRestId);
 	}

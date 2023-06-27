@@ -94,6 +94,7 @@ public class ExampleImpl extends ObeoDSMObjectImpl implements Example {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public String getSummary() {
 		return (String)eDynamicGet(SoaPackage.EXAMPLE__SUMMARY, SoaPackage.Literals.EXAMPLE__SUMMARY, true, true);
 	}
@@ -103,6 +104,7 @@ public class ExampleImpl extends ObeoDSMObjectImpl implements Example {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setSummary(String newSummary) {
 		eDynamicSet(SoaPackage.EXAMPLE__SUMMARY, SoaPackage.Literals.EXAMPLE__SUMMARY, newSummary);
 	}
@@ -112,6 +114,7 @@ public class ExampleImpl extends ObeoDSMObjectImpl implements Example {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public String getValue() {
 		return (String)eDynamicGet(SoaPackage.EXAMPLE__VALUE, SoaPackage.Literals.EXAMPLE__VALUE, true, true);
 	}
@@ -121,6 +124,7 @@ public class ExampleImpl extends ObeoDSMObjectImpl implements Example {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setValue(String newValue) {
 		eDynamicSet(SoaPackage.EXAMPLE__VALUE, SoaPackage.Literals.EXAMPLE__VALUE, newValue);
 	}
@@ -130,6 +134,7 @@ public class ExampleImpl extends ObeoDSMObjectImpl implements Example {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public String getName() {
 		return (String)eDynamicGet(SoaPackage.EXAMPLE__NAME, SoaPackage.Literals.EXAMPLE__NAME, true, true);
 	}
@@ -139,6 +144,7 @@ public class ExampleImpl extends ObeoDSMObjectImpl implements Example {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setName(String newName) {
 		eDynamicSet(SoaPackage.EXAMPLE__NAME, SoaPackage.Literals.EXAMPLE__NAME, newName);
 	}

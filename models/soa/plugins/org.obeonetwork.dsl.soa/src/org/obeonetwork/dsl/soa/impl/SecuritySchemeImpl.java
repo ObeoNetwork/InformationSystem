@@ -149,6 +149,7 @@ public class SecuritySchemeImpl extends ObeoDSMObjectImpl implements SecuritySch
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public String getKey() {
 		return (String)eDynamicGet(SoaPackage.SECURITY_SCHEME__KEY, SoaPackage.Literals.SECURITY_SCHEME__KEY, true, true);
 	}
@@ -158,6 +159,7 @@ public class SecuritySchemeImpl extends ObeoDSMObjectImpl implements SecuritySch
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setKey(String newKey) {
 		eDynamicSet(SoaPackage.SECURITY_SCHEME__KEY, SoaPackage.Literals.SECURITY_SCHEME__KEY, newKey);
 	}
@@ -167,6 +169,7 @@ public class SecuritySchemeImpl extends ObeoDSMObjectImpl implements SecuritySch
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public SecuritySchemeType getType() {
 		return (SecuritySchemeType)eDynamicGet(SoaPackage.SECURITY_SCHEME__TYPE, SoaPackage.Literals.SECURITY_SCHEME__TYPE, true, true);
 	}
@@ -176,6 +179,7 @@ public class SecuritySchemeImpl extends ObeoDSMObjectImpl implements SecuritySch
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setType(SecuritySchemeType newType) {
 		eDynamicSet(SoaPackage.SECURITY_SCHEME__TYPE, SoaPackage.Literals.SECURITY_SCHEME__TYPE, newType);
 	}
@@ -185,6 +189,7 @@ public class SecuritySchemeImpl extends ObeoDSMObjectImpl implements SecuritySch
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public String getName() {
 		return (String)eDynamicGet(SoaPackage.SECURITY_SCHEME__NAME, SoaPackage.Literals.SECURITY_SCHEME__NAME, true, true);
 	}
@@ -194,6 +199,7 @@ public class SecuritySchemeImpl extends ObeoDSMObjectImpl implements SecuritySch
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setName(String newName) {
 		eDynamicSet(SoaPackage.SECURITY_SCHEME__NAME, SoaPackage.Literals.SECURITY_SCHEME__NAME, newName);
 	}
@@ -203,6 +209,7 @@ public class SecuritySchemeImpl extends ObeoDSMObjectImpl implements SecuritySch
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public ApiKeyLocation getApiKeyLocation() {
 		return (ApiKeyLocation)eDynamicGet(SoaPackage.SECURITY_SCHEME__API_KEY_LOCATION, SoaPackage.Literals.SECURITY_SCHEME__API_KEY_LOCATION, true, true);
 	}
@@ -212,6 +219,7 @@ public class SecuritySchemeImpl extends ObeoDSMObjectImpl implements SecuritySch
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setApiKeyLocation(ApiKeyLocation newApiKeyLocation) {
 		eDynamicSet(SoaPackage.SECURITY_SCHEME__API_KEY_LOCATION, SoaPackage.Literals.SECURITY_SCHEME__API_KEY_LOCATION, newApiKeyLocation);
 	}
@@ -221,6 +229,7 @@ public class SecuritySchemeImpl extends ObeoDSMObjectImpl implements SecuritySch
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public String getConnectURL() {
 		return (String)eDynamicGet(SoaPackage.SECURITY_SCHEME__CONNECT_URL, SoaPackage.Literals.SECURITY_SCHEME__CONNECT_URL, true, true);
 	}
@@ -230,6 +239,7 @@ public class SecuritySchemeImpl extends ObeoDSMObjectImpl implements SecuritySch
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setConnectURL(String newConnectURL) {
 		eDynamicSet(SoaPackage.SECURITY_SCHEME__CONNECT_URL, SoaPackage.Literals.SECURITY_SCHEME__CONNECT_URL, newConnectURL);
 	}
@@ -240,6 +250,7 @@ public class SecuritySchemeImpl extends ObeoDSMObjectImpl implements SecuritySch
 	 * @generated
 	 */
 	@SuppressWarnings("unchecked")
+	@Override
 	public EList<Flow> getFlows() {
 		return (EList<Flow>)eDynamicGet(SoaPackage.SECURITY_SCHEME__FLOWS, SoaPackage.Literals.SECURITY_SCHEME__FLOWS, true, true);
 	}
@@ -249,6 +260,7 @@ public class SecuritySchemeImpl extends ObeoDSMObjectImpl implements SecuritySch
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public HttpScheme getHttpScheme() {
 		return (HttpScheme)eDynamicGet(SoaPackage.SECURITY_SCHEME__HTTP_SCHEME, SoaPackage.Literals.SECURITY_SCHEME__HTTP_SCHEME, true, true);
 	}
@@ -258,6 +270,7 @@ public class SecuritySchemeImpl extends ObeoDSMObjectImpl implements SecuritySch
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setHttpScheme(HttpScheme newHttpScheme) {
 		eDynamicSet(SoaPackage.SECURITY_SCHEME__HTTP_SCHEME, SoaPackage.Literals.SECURITY_SCHEME__HTTP_SCHEME, newHttpScheme);
 	}
@@ -267,6 +280,7 @@ public class SecuritySchemeImpl extends ObeoDSMObjectImpl implements SecuritySch
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public String getFormat() {
 		return (String)eDynamicGet(SoaPackage.SECURITY_SCHEME__FORMAT, SoaPackage.Literals.SECURITY_SCHEME__FORMAT, true, true);
 	}
@@ -276,6 +290,7 @@ public class SecuritySchemeImpl extends ObeoDSMObjectImpl implements SecuritySch
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setFormat(String newFormat) {
 		eDynamicSet(SoaPackage.SECURITY_SCHEME__FORMAT, SoaPackage.Literals.SECURITY_SCHEME__FORMAT, newFormat);
 	}

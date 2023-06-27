@@ -132,6 +132,7 @@ public class ComponentImpl extends ObeoDSMObjectImpl implements Component {
 	 * @generated
 	 */
 	@SuppressWarnings("unchecked")
+	@Override
 	public EList<Service> getOwnedServices() {
 		return (EList<Service>)eDynamicGet(SoaPackage.COMPONENT__OWNED_SERVICES, SoaPackage.Literals.COMPONENT__OWNED_SERVICES, true, true);
 	}
@@ -172,6 +173,7 @@ public class ComponentImpl extends ObeoDSMObjectImpl implements Component {
 	 * @generated
 	 */
 	@SuppressWarnings("unchecked")
+	@Override
 	public EList<ImplementationComponent> getImplementations() {
 		return (EList<ImplementationComponent>)eDynamicGet(SoaPackage.COMPONENT__IMPLEMENTATIONS, SoaPackage.Literals.COMPONENT__IMPLEMENTATIONS, true, true);
 	}
@@ -181,6 +183,7 @@ public class ComponentImpl extends ObeoDSMObjectImpl implements Component {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public String getName() {
 		return (String)eDynamicGet(SoaPackage.COMPONENT__NAME, SoaPackage.Literals.COMPONENT__NAME, true, true);
 	}
@@ -190,6 +193,7 @@ public class ComponentImpl extends ObeoDSMObjectImpl implements Component {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setName(String newName) {
 		eDynamicSet(SoaPackage.COMPONENT__NAME, SoaPackage.Literals.COMPONENT__NAME, newName);
 	}
@@ -200,6 +204,7 @@ public class ComponentImpl extends ObeoDSMObjectImpl implements Component {
 	 * @generated
 	 */
 	@SuppressWarnings("unchecked")
+	@Override
 	public EList<Binding> getOwnedBinding() {
 		return (EList<Binding>)eDynamicGet(SoaPackage.COMPONENT__OWNED_BINDING, SoaPackage.Literals.COMPONENT__OWNED_BINDING, true, true);
 	}
@@ -210,6 +215,7 @@ public class ComponentImpl extends ObeoDSMObjectImpl implements Component {
 	 * @generated
 	 */
 	@SuppressWarnings("unchecked")
+	@Override
 	public EList<TypesDefinition> getBlock() {
 		return (EList<TypesDefinition>)eDynamicGet(SoaPackage.COMPONENT__BLOCK, SoaPackage.Literals.COMPONENT__BLOCK, true, true);
 	}
@@ -219,6 +225,7 @@ public class ComponentImpl extends ObeoDSMObjectImpl implements Component {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public String getURI() {
 		return (String)eDynamicGet(SoaPackage.COMPONENT__URI, SoaPackage.Literals.COMPONENT__URI, true, true);
 	}
@@ -228,6 +235,7 @@ public class ComponentImpl extends ObeoDSMObjectImpl implements Component {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setURI(String newURI) {
 		eDynamicSet(SoaPackage.COMPONENT__URI, SoaPackage.Literals.COMPONENT__URI, newURI);
 	}
@@ -237,6 +245,7 @@ public class ComponentImpl extends ObeoDSMObjectImpl implements Component {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public String getApiVersion() {
 		return getInformation().getApiVersion();
 	}
@@ -246,6 +255,7 @@ public class ComponentImpl extends ObeoDSMObjectImpl implements Component {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setApiVersion(String newApiVersion) {
 		// TODO: implement this method to set the 'Api Version' attribute
 		// Ensure that you remove @generated or mark it @generated NOT
@@ -257,6 +267,7 @@ public class ComponentImpl extends ObeoDSMObjectImpl implements Component {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public boolean isDeprecated() {
 		return (Boolean)eDynamicGet(SoaPackage.COMPONENT__DEPRECATED, SoaPackage.Literals.COMPONENT__DEPRECATED, true, true);
 	}
@@ -266,6 +277,7 @@ public class ComponentImpl extends ObeoDSMObjectImpl implements Component {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setDeprecated(boolean newDeprecated) {
 		eDynamicSet(SoaPackage.COMPONENT__DEPRECATED, SoaPackage.Literals.COMPONENT__DEPRECATED, newDeprecated);
 	}
@@ -276,6 +288,7 @@ public class ComponentImpl extends ObeoDSMObjectImpl implements Component {
 	 * @generated
 	 */
 	@SuppressWarnings("unchecked")
+	@Override
 	public EList<SecurityScheme> getSecuritySchemes() {
 		return (EList<SecurityScheme>)eDynamicGet(SoaPackage.COMPONENT__SECURITY_SCHEMES, SoaPackage.Literals.COMPONENT__SECURITY_SCHEMES, true, true);
 	}
@@ -285,6 +298,7 @@ public class ComponentImpl extends ObeoDSMObjectImpl implements Component {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public License getLicense() {
 		return (License)eDynamicGet(SoaPackage.COMPONENT__LICENSE, SoaPackage.Literals.COMPONENT__LICENSE, true, true);
 	}
@@ -313,6 +327,7 @@ public class ComponentImpl extends ObeoDSMObjectImpl implements Component {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setLicense(License newLicense) {
 		eDynamicSet(SoaPackage.COMPONENT__LICENSE, SoaPackage.Literals.COMPONENT__LICENSE, newLicense);
 	}
@@ -322,6 +337,7 @@ public class ComponentImpl extends ObeoDSMObjectImpl implements Component {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public Information getInformation() {
 		return (Information)eDynamicGet(SoaPackage.COMPONENT__INFORMATION, SoaPackage.Literals.COMPONENT__INFORMATION, true, true);
 	}
@@ -350,6 +366,7 @@ public class ComponentImpl extends ObeoDSMObjectImpl implements Component {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setInformation(Information newInformation) {
 		eDynamicSet(SoaPackage.COMPONENT__INFORMATION, SoaPackage.Literals.COMPONENT__INFORMATION, newInformation);
 	}
@@ -359,6 +376,7 @@ public class ComponentImpl extends ObeoDSMObjectImpl implements Component {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public Contact getContact() {
 		return (Contact)eDynamicGet(SoaPackage.COMPONENT__CONTACT, SoaPackage.Literals.COMPONENT__CONTACT, true, true);
 	}
@@ -387,6 +405,7 @@ public class ComponentImpl extends ObeoDSMObjectImpl implements Component {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setContact(Contact newContact) {
 		eDynamicSet(SoaPackage.COMPONENT__CONTACT, SoaPackage.Literals.COMPONENT__CONTACT, newContact);
 	}
@@ -397,6 +416,7 @@ public class ComponentImpl extends ObeoDSMObjectImpl implements Component {
 	 * @generated
 	 */
 	@SuppressWarnings("unchecked")
+	@Override
 	public EList<Server> getServers() {
 		return (EList<Server>)eDynamicGet(SoaPackage.COMPONENT__SERVERS, SoaPackage.Literals.COMPONENT__SERVERS, true, true);
 	}

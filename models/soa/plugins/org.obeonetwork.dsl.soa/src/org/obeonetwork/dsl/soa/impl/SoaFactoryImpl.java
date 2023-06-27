@@ -206,6 +206,7 @@ public class SoaFactoryImpl extends EFactoryImpl implements SoaFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public org.obeonetwork.dsl.soa.System createSystem() {
 		SystemImpl system = new SystemImpl();
 		return system;
@@ -236,6 +237,7 @@ public class SoaFactoryImpl extends EFactoryImpl implements SoaFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public Wire createWire() {
 		WireImpl wire = new WireImpl();
 		return wire;
@@ -246,6 +248,7 @@ public class SoaFactoryImpl extends EFactoryImpl implements SoaFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public Binding createBinding() {
 		BindingImpl binding = new BindingImpl();
 		return binding;
@@ -276,6 +279,7 @@ public class SoaFactoryImpl extends EFactoryImpl implements SoaFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public ImplementationComponent createImplementationComponent() {
 		ImplementationComponentImpl implementationComponent = new ImplementationComponentImpl();
 		return implementationComponent;
@@ -286,6 +290,7 @@ public class SoaFactoryImpl extends EFactoryImpl implements SoaFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public Parameter createParameter() {
 		ParameterImpl parameter = new ParameterImpl();
 		return parameter;
@@ -296,6 +301,7 @@ public class SoaFactoryImpl extends EFactoryImpl implements SoaFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public ParameterRestData createParameterRestData() {
 		ParameterRestDataImpl parameterRestData = new ParameterRestDataImpl();
 		return parameterRestData;
@@ -306,6 +312,7 @@ public class SoaFactoryImpl extends EFactoryImpl implements SoaFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public SecurityScheme createSecurityScheme() {
 		SecuritySchemeImpl securityScheme = new SecuritySchemeImpl();
 		return securityScheme;
@@ -316,6 +323,7 @@ public class SoaFactoryImpl extends EFactoryImpl implements SoaFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public Flow createFlow() {
 		FlowImpl flow = new FlowImpl();
 		return flow;
@@ -326,6 +334,7 @@ public class SoaFactoryImpl extends EFactoryImpl implements SoaFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public Information createInformation() {
 		InformationImpl information = new InformationImpl();
 		return information;
@@ -336,6 +345,7 @@ public class SoaFactoryImpl extends EFactoryImpl implements SoaFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public Contact createContact() {
 		ContactImpl contact = new ContactImpl();
 		return contact;
@@ -346,6 +356,7 @@ public class SoaFactoryImpl extends EFactoryImpl implements SoaFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public License createLicense() {
 		LicenseImpl license = new LicenseImpl();
 		return license;
@@ -356,6 +367,7 @@ public class SoaFactoryImpl extends EFactoryImpl implements SoaFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public MediaType createMediaType() {
 		MediaTypeImpl mediaType = new MediaTypeImpl();
 		return mediaType;
@@ -366,6 +378,7 @@ public class SoaFactoryImpl extends EFactoryImpl implements SoaFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public Example createExample() {
 		ExampleImpl example = new ExampleImpl();
 		return example;
@@ -376,6 +389,7 @@ public class SoaFactoryImpl extends EFactoryImpl implements SoaFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public PropertiesExtension createPropertiesExtension() {
 		PropertiesExtensionImpl propertiesExtension = new PropertiesExtensionImpl();
 		return propertiesExtension;
@@ -386,6 +400,7 @@ public class SoaFactoryImpl extends EFactoryImpl implements SoaFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public Server createServer() {
 		ServerImpl server = new ServerImpl();
 		return server;
@@ -396,6 +411,7 @@ public class SoaFactoryImpl extends EFactoryImpl implements SoaFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public Scope createScope() {
 		ScopeImpl scope = new ScopeImpl();
 		return scope;
@@ -406,6 +422,7 @@ public class SoaFactoryImpl extends EFactoryImpl implements SoaFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public SecurityApplication createSecurityApplication() {
 		SecurityApplicationImpl securityApplication = new SecurityApplicationImpl();
 		return securityApplication;
@@ -638,6 +655,7 @@ public class SoaFactoryImpl extends EFactoryImpl implements SoaFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public SoaPackage getSoaPackage() {
 		return (SoaPackage)getEPackage();
 	}

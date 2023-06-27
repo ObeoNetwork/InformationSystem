@@ -81,6 +81,7 @@ public class InterfaceImpl extends ObeoDSMObjectImpl implements Interface {
 	 * @generated
 	 */
 	@SuppressWarnings("unchecked")
+	@Override
 	public EList<Operation> getOwnedOperations() {
 		return (EList<Operation>)eDynamicGet(SoaPackage.INTERFACE__OWNED_OPERATIONS, SoaPackage.Literals.INTERFACE__OWNED_OPERATIONS, true, true);
 	}
@@ -90,6 +91,7 @@ public class InterfaceImpl extends ObeoDSMObjectImpl implements Interface {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public String getName() {
 		return (String)eDynamicGet(SoaPackage.INTERFACE__NAME, SoaPackage.Literals.INTERFACE__NAME, true, true);
 	}
@@ -99,6 +101,7 @@ public class InterfaceImpl extends ObeoDSMObjectImpl implements Interface {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setName(String newName) {
 		eDynamicSet(SoaPackage.INTERFACE__NAME, SoaPackage.Literals.INTERFACE__NAME, newName);
 	}

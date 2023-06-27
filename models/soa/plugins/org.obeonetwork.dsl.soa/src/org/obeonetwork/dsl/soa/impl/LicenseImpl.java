@@ -84,6 +84,7 @@ public class LicenseImpl extends ObeoDSMObjectImpl implements License {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public String getName() {
 		return (String)eDynamicGet(SoaPackage.LICENSE__NAME, SoaPackage.Literals.LICENSE__NAME, true, true);
 	}
@@ -93,6 +94,7 @@ public class LicenseImpl extends ObeoDSMObjectImpl implements License {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setName(String newName) {
 		eDynamicSet(SoaPackage.LICENSE__NAME, SoaPackage.Literals.LICENSE__NAME, newName);
 	}
@@ -102,6 +104,7 @@ public class LicenseImpl extends ObeoDSMObjectImpl implements License {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public String getURL() {
 		return (String)eDynamicGet(SoaPackage.LICENSE__URL, SoaPackage.Literals.LICENSE__URL, true, true);
 	}
@@ -111,6 +114,7 @@ public class LicenseImpl extends ObeoDSMObjectImpl implements License {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setURL(String newURL) {
 		eDynamicSet(SoaPackage.LICENSE__URL, SoaPackage.Literals.LICENSE__URL, newURL);
 	}
