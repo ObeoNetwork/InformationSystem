@@ -33,6 +33,7 @@ import static org.obeonetwork.utils.common.StringUtils.EMPTY_STRING;
 import static org.obeonetwork.utils.common.StringUtils.emptyIfNull;
 import static org.obeonetwork.utils.common.StringUtils.isNullOrWhite;
 
+import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Comparator;
@@ -50,7 +51,9 @@ import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.obeonetwork.dsl.entity.EntityPackage;
 import org.obeonetwork.dsl.environment.Attribute;
+import org.obeonetwork.dsl.environment.ConstrainableElement;
 import org.obeonetwork.dsl.environment.Enumeration;
+import org.obeonetwork.dsl.environment.EnvironmentPackage;
 import org.obeonetwork.dsl.environment.Property;
 import org.obeonetwork.dsl.environment.Reference;
 import org.obeonetwork.dsl.environment.StructuredType;
@@ -210,7 +213,7 @@ public class SwaggerBuilder {
 
 	private SecurityScheme createSecurityScheme(org.obeonetwork.dsl.soa.SecurityScheme soaSecurityScheme) {
 		SecurityScheme securityScheme = new SecurityScheme();
-				
+
 		if (soaSecurityScheme.getDescription() != null) {
 			securityScheme.setDescription(soaSecurityScheme.getDescription());
 		}
@@ -221,7 +224,7 @@ public class SwaggerBuilder {
 		switch (type) {
 		case APIKEY:
 			SecurityScheme.In in = toSwg(soaSecurityScheme.getApiKeyLocation());
-			securityScheme.setIn(in);		
+			securityScheme.setIn(in);
 			securityScheme.setName(soaSecurityScheme.getKey());
 			break;
 		case HTTP:
@@ -246,7 +249,7 @@ public class SwaggerBuilder {
 	private OAuthFlows createOAuthFlows(Collection<Flow> soaFlows) {
 		OAuthFlows authFlows = new OAuthFlows();
 
-		for(Flow soaFlow : soaFlows) {
+		for (Flow soaFlow : soaFlows) {
 			OAuthFlow authFlow = createOAuthFlow(soaFlow);
 			switch (soaFlow.getFlowType()) {
 			case AUTHORIZATIONCODE:
@@ -264,7 +267,7 @@ public class SwaggerBuilder {
 			}
 			soaFlow.getScopes();
 		}
-		
+
 		return authFlows;
 	}
 
@@ -273,13 +276,13 @@ public class SwaggerBuilder {
 		authFlow.setAuthorizationUrl(flow.getAuthorizationURL());
 		authFlow.setRefreshUrl(flow.getRefreshURL());
 		authFlow.setTokenUrl(flow.getTokenURL());
-		
+
 		Scopes scopes = new Scopes();
-		 
+
 		flow.getScopes().forEach(scope -> {
 			scopes.addString(scope.getName(), scope.getSummary());
 		});
-		
+
 		authFlow.setScopes(scopes);
 		return authFlow;
 	}
@@ -370,62 +373,64 @@ public class SwaggerBuilder {
 	 * 
 	 * @return a new {@link License}
 	 */
-    private License createLicense() {
-    	License license = new License();
-    	
-    	if (soaComponent.getLicense() != null) {
-    		org.obeonetwork.dsl.soa.License soaLicense = soaComponent.getLicense();
-    		
-    		license.setName(emptyIfNull(soaLicense.getName()));
-    		license.setUrl(emptyIfNull(soaLicense.getURL()));
-    		
-        	addPropertiesExtensionsFromSoaToSwg(soaComponent.getLicense(), license);
-    	}
-    	
-        return license;
+	private License createLicense() {
+		License license = new License();
+
+		if (soaComponent.getLicense() != null) {
+			org.obeonetwork.dsl.soa.License soaLicense = soaComponent.getLicense();
+
+			license.setName(emptyIfNull(soaLicense.getName()));
+			license.setUrl(emptyIfNull(soaLicense.getURL()));
+
+			addPropertiesExtensionsFromSoaToSwg(soaComponent.getLicense(), license);
+		}
+
+		return license;
 	}
-    
-    /**
-     * Creates a new {@link Contact} that matches the {@link org.obeonetwork.dsl.soa.Contact} of Soa {@link Information}.
-     * @return a new {@link Contact}
-     */
-    private Contact createContact() {
-    	Contact contact = new Contact();
-    	if (soaComponent.getContact() != null) {
-    		org.obeonetwork.dsl.soa.Contact soaContact = soaComponent.getContact();
-    		
-    		if (soaContact.getEmail() != null)
-    			contact.setEmail(soaContact.getEmail());
-    		
-    		if (soaContact.getName() != null)
-    			contact.setName(soaContact.getName());
-    		
-    		if (soaContact.getURL() != null) 
-    			contact.setUrl(soaContact.getURL());
-    		
-    		addPropertiesExtensionsFromSoaToSwg(soaComponent.getContact(), contact);
-    	}
-    	
-    	return contact;
-    }
-    
-    private List<Server> createServers() {
-    	if(falseForFutureEvolution()) {
-        	// Handle multiple servers
-    	}
-    	
-    	List<Server> servers = new ArrayList<>();
-    	soaComponent.getServers().stream().forEach(soaServer -> {
-    		Server server = new Server();
-        	server.setUrl(soaServer.getURL().trim());
-        	server.setDescription(soaServer.getDescription());
-        	
-        	servers.add(server);
-        	
-        	addPropertiesExtensionsFromSoaToSwg(soaServer, server);
-    	});
-    	
-    	return servers;
+
+	/**
+	 * Creates a new {@link Contact} that matches the
+	 * {@link org.obeonetwork.dsl.soa.Contact} of Soa {@link Information}.
+	 * 
+	 * @return a new {@link Contact}
+	 */
+	private Contact createContact() {
+		Contact contact = new Contact();
+		if (soaComponent.getContact() != null) {
+			org.obeonetwork.dsl.soa.Contact soaContact = soaComponent.getContact();
+
+			if (soaContact.getEmail() != null)
+				contact.setEmail(soaContact.getEmail());
+
+			if (soaContact.getName() != null)
+				contact.setName(soaContact.getName());
+
+			if (soaContact.getURL() != null)
+				contact.setUrl(soaContact.getURL());
+
+			addPropertiesExtensionsFromSoaToSwg(soaComponent.getContact(), contact);
+		}
+
+		return contact;
+	}
+
+	private List<Server> createServers() {
+		if (falseForFutureEvolution()) {
+			// Handle multiple servers
+		}
+
+		List<Server> servers = new ArrayList<>();
+		soaComponent.getServers().stream().forEach(soaServer -> {
+			Server server = new Server();
+			server.setUrl(soaServer.getURL().trim());
+			server.setDescription(soaServer.getDescription());
+
+			servers.add(server);
+
+			addPropertiesExtensionsFromSoaToSwg(soaServer, server);
+		});
+
+		return servers;
 	}
 
 	//// Schemas ////
@@ -610,34 +615,34 @@ public class SwaggerBuilder {
 	}
 
 	private Schema<Object> createSoaStructuredTypeSchema(StructuredType soaStructuredType) {
-		Schema<Object> schema = createSchema(OPEN_API_TYPE_OBJECT, null);	
+		Schema<Object> schema = createSchema(OPEN_API_TYPE_OBJECT, null);
 
 		if (soaStructuredType.getDescription() != null) {
 			schema.setDescription(soaStructuredType.getDescription());
 		}
-		
+
 		for (Attribute attribute : soaStructuredType.getOwnedAttributes()) {
 			buildProperty(schema, attribute);
 		}
 
-		for (Reference reference: soaStructuredType.getOwnedReferences()) {
+		for (Reference reference : soaStructuredType.getOwnedReferences()) {
 			buildProperty(schema, reference);
 		}
 
 		if (soaStructuredType.getSupertype() != null) {
 			schema = createComposedSchema(schema, soaStructuredType.getSupertype());
-		} 
-		
+		}
+
 		for (Attribute attribute : TypesServices.getAssociatedTypesAttributes(soaStructuredType)) {
 			buildProperty(schema, attribute);
 		}
-		
+
 		return schema;
 	}
-	
+
 	private Schema<Object> createComposedSchema(Schema<Object> schema, StructuredType superType) {
 		ComposedSchema composedSchema = null;
-		
+
 		if (schema instanceof ComposedSchema) {
 			composedSchema = (ComposedSchema) schema;
 		} else {
@@ -676,7 +681,30 @@ public class SwaggerBuilder {
 		}
 		addPropertiesExtensionsFromSoaToSwg(soaProperty, schema);
 
+		if (soaProperty instanceof ConstrainableElement) {
+			// Value Constraints
+			addValueConstraintsFromSoaToSwg((ConstrainableElement) soaProperty, schema);
+		}
+
 		return schema;
+	}
+
+	private static void addValueConstraintsFromSoaToSwg(final ConstrainableElement constrainableElement, final Schema<Object> schema) {
+		Objects.requireNonNull(constrainableElement);
+		Objects.requireNonNull(schema);
+
+		if (constrainableElement.eIsSet(EnvironmentPackage.Literals.CONSTRAINABLE_ELEMENT__MINIMUM)) {
+			final String minimum = constrainableElement.getMinimum();
+			schema.setMinimum(new BigDecimal(minimum));
+		}
+		if (constrainableElement.eIsSet(EnvironmentPackage.Literals.CONSTRAINABLE_ELEMENT__MAXIMUM)) {
+			final String maximum = constrainableElement.getMaximum();
+			schema.setMaximum(new BigDecimal(maximum));
+		}
+		if (constrainableElement.eIsSet(EnvironmentPackage.Literals.CONSTRAINABLE_ELEMENT__PATTERN)) {
+			final String pattern = constrainableElement.getPattern();
+			schema.setPattern(pattern);
+		}
 	}
 
 	private boolean shouldCreateAllOfSchema(Schema<Object> schema, Property soaProperty) {
@@ -765,7 +793,7 @@ public class SwaggerBuilder {
 		default:
 			break;
 		}
-		
+
 		// Add servers
 		soaOperation.getServers().stream().forEach(soaServer -> {
 			Server server = new Server();
@@ -801,14 +829,14 @@ public class SwaggerBuilder {
 	private Operation createOperation(org.obeonetwork.dsl.soa.Operation soaOperation) {
 		Operation swgOperation = new Operation();
 		swgOperation.operationId(soaOperation.getName());
-		
+
 		swgOperation.addTagsItem(OperationGenUtil.getService(soaOperation).getName());
 //		swgOperation.summary(soaOperation.getDescription());
 		if (soaOperation.getDescription() != null) {
 			swgOperation.description(soaOperation.getDescription());
 		}
 //		swgOperation.deprecated(soaOperation.isDeprecated());
-				
+
 		if (soaOperation.isPaged() && getPagedOutputParameters(soaOperation).isEmpty()) {
 			logWarning(
 					String.format("Paged operation %s defines no paginable output parameter.", soaOperation.getName()));
@@ -817,14 +845,15 @@ public class SwaggerBuilder {
 		buildParameters(swgOperation, soaOperation);
 		buildApiResponses(swgOperation, soaOperation);
 
-		for (org.obeonetwork.dsl.soa.SecurityApplication soaSecurityApplication : soaOperation.getAllSecurityApplications()) {
+		for (org.obeonetwork.dsl.soa.SecurityApplication soaSecurityApplication : soaOperation
+				.getAllSecurityApplications()) {
 			org.obeonetwork.dsl.soa.SecurityScheme soaSecurityScheme = soaSecurityApplication.getSecurityScheme();
 			SecurityRequirement swgSecurityRequirement = new SecurityRequirement();
-			swgSecurityRequirement.addList(soaSecurityScheme.getName(), 
+			swgSecurityRequirement.addList(soaSecurityScheme.getName(),
 					soaSecurityApplication.getScopes().stream().map(Scope::getName).collect(toList()));
 			swgOperation.addSecurityItem(swgSecurityRequirement);
 		}
-		
+
 		addPropertiesExtensionsFromSoaToSwg(soaOperation, swgOperation);
 
 		return swgOperation;
@@ -864,7 +893,7 @@ public class SwaggerBuilder {
 		ApiResponse apiResponse = new ApiResponse();
 		apiResponse.setDescription(getDescription(soaOutputParameter));
 		org.obeonetwork.dsl.soa.Operation soaOperation = ParameterGenUtil.getOperation(soaOutputParameter);
-		
+
 		if (soaOperation.isPaged() && getPagedOutputParameters(soaOperation).contains(soaOutputParameter)) {
 			apiResponse.addHeaderObject(X_TOTAL_ELEMENT,
 					createResponseHeader(OPEN_API_TYPE_INTEGER, OPEN_API_FORMAT_INT64));
@@ -911,7 +940,7 @@ public class SwaggerBuilder {
 			description.append(soaParameter.getStatusMessage());
 		}
 		if (!isNullOrWhite(soaParameter.getDescription())) {
-			if(description.length() > 0) {
+			if (description.length() > 0) {
 				description.append(System.lineSeparator());
 				description.append(System.lineSeparator());
 			}

@@ -25,7 +25,7 @@ public class OpenApiParserHelper {
 	public static final String OPEN_API_TYPE_NUMBER = "number";
 	public static final String OPEN_API_TYPE_INTEGER = "integer";
 	public static final String OPEN_API_TYPE_BOOLEAN = "boolean";
-    
+	
 	public static final String OPEN_API_FORMAT_BINARY = "binary";
 	public static final String OPEN_API_FORMAT_DATE = "date";
 	public static final String OPEN_API_FORMAT_DOUBLE = "double";
