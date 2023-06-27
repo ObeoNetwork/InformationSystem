@@ -69,7 +69,7 @@
     <categories name="Environment">
       <pages name="Unidirectional Reference Page" labelExpression="Reference" domainClass="environment::Reference" semanticCandidateExpression="var:self" preconditionExpression="aql:self.oppositeOf = null" groups="//@extensions.0/@categories.1/@groups.0"/>
       <pages name="Bidirectional Reference Page" labelExpression="Reference" domainClass="environment::Reference" semanticCandidateExpression="var:self" preconditionExpression="aql:self.oppositeOf &lt;> null" groups="//@extensions.0/@categories.1/@groups.1"/>
-      <pages name="Attribute Page" labelExpression="Attribute" domainClass="environment::Attribute" semanticCandidateExpression="var:self" groups="//@extensions.0/@categories.1/@groups.2"/>
+      <pages name="Attribute Page" labelExpression="Attribute" domainClass="environment::Attribute" semanticCandidateExpression="var:self" groups="//@extensions.0/@categories.1/@groups.2 //@extensions.0/@categories.1/@groups.7"/>
       <pages name="Enumeration Page" labelExpression="Enumeration" domainClass="environment::Enumeration" semanticCandidateExpression="var:self" groups="//@extensions.0/@categories.1/@groups.3"/>
       <pages name="Literal Page" labelExpression="Literal" domainClass="environment::Literal" semanticCandidateExpression="var:self" groups="//@extensions.0/@categories.1/@groups.4"/>
       <pages name="Namespace Page" labelExpression="aql:self.eClass().name" domainClass="environment::Namespace" semanticCandidateExpression="var:self" groups="//@extensions.0/@categories.1/@groups.5"/>
@@ -381,6 +381,27 @@
           <initialOperation>
             <firstModelOperations xsi:type="tool:SetValue" featureName="body" valueExpression="var:newValue"/>
           </initialOperation>
+        </controls>
+      </groups>
+      <groups name="Attribute Value Constraints Group" labelExpression="Constraints" domainClass="environment::Attribute" semanticCandidateExpression="var:self" preconditionExpression="aql:if(self.type.oclIsKindOf(environment::PrimitiveType)) then let kind = self.type.oclAsType(environment::PrimitiveType).kind in (kind = environment::PrimitiveTypeKind::NUMBER or kind = environment::PrimitiveTypeKind::TEXT) else false endif">
+        <controls xsi:type="properties:TextDescription" name="environment::Attribute minimum" labelExpression="aql:let label = if(self.type.kind = environment::PrimitiveTypeKind::NUMBER) then 'Minimum Value' else if(self.type.kind = environment::PrimitiveTypeKind::TEXT) then 'Minimum Length' else input.emfEditServices(self).getText(self.eClass().getEStructuralFeature('minimum')) endif endif in label + ':'" helpExpression="aql:if(self.type.kind = environment::PrimitiveTypeKind::NUMBER) then 'The minimum value for this number-typed attribute.\n\nExpected: a String literal corresponding to the type of this attribute.' else if(self.type.kind = environment::PrimitiveTypeKind::TEXT) then 'The minimum length of this text-typed attribute.\n\nExpected: a String literal corresponding to a positive integer.' else input.emfEditServices(self).getDescription(self.eClass().getEStructuralFeature('minimum')) endif endif" isEnabledExpression="aql:self.eClass().getEStructuralFeature('minimum').changeable" valueExpression="aql:self.minimum">
+          <initialOperation>
+            <firstModelOperations xsi:type="tool:SetValue" featureName="minimum" valueExpression="var:newValue"/>
+          </initialOperation>
+        </controls>
+        <controls xsi:type="properties:TextDescription" name="environment::Attribute maximum" labelExpression="aql:let label = if(self.type.kind = environment::PrimitiveTypeKind::NUMBER) then 'Maximum Value' else if(self.type.kind = environment::PrimitiveTypeKind::TEXT) then 'Maximum Length' else input.emfEditServices(self).getText(self.eClass().getEStructuralFeature('maximum')) endif endif in label + ':'" helpExpression="aql:if(self.type.kind = environment::PrimitiveTypeKind::NUMBER) then 'The maximum value of this number-typed attribute.\n\nExpected: a String literal corresponding to the type of this attribute.' else if(self.type.kind = environment::PrimitiveTypeKind::TEXT) then 'The maximum length of this text-typed attribute.\n\nExpected: a String literal corresponding to a positive integer.' else input.emfEditServices(self).getDescription(self.eClass().getEStructuralFeature('maximum')) endif endif" isEnabledExpression="aql:self.eClass().getEStructuralFeature('maximum').changeable" valueExpression="aql:self.maximum">
+          <initialOperation>
+            <firstModelOperations xsi:type="tool:SetValue" featureName="maximum" valueExpression="var:newValue"/>
+          </initialOperation>
+        </controls>
+        <controls xsi:type="properties:DynamicMappingForDescription" name="Attribute Value Constraints Group Dummy Iterator" iterator="iterator" iterableExpression="aql:Sequence{1}" forceRefresh="true">
+          <ifs name="Attribute Value Constraints Group Conditional" predicateExpression="aql: self.type.kind = environment::PrimitiveTypeKind::TEXT">
+            <widget xsi:type="properties:TextDescription" name="environment::Attribute pattern" labelExpression="aql:let label = if(self.type.kind = environment::PrimitiveTypeKind::TEXT) then 'Pattern' else input.emfEditServices(self).getText(self.eClass().getEStructuralFeature('pattern')) endif in label + ':'" helpExpression="aql:if(self.type.kind = environment::PrimitiveTypeKind::TEXT) then 'The Regular Expression to which the value of this text-typed attribute must conform.\n\nExpected: a String literal corresponding to a JavaScript regular expression (see ECMA 262).' else 'Pattern is only available for text-typed attributes.' endif" isEnabledExpression="aql:self.eClass().getEStructuralFeature('pattern').changeable and self.type.kind = environment::PrimitiveTypeKind::TEXT" valueExpression="aql:self.pattern">
+              <initialOperation>
+                <firstModelOperations xsi:type="tool:SetValue" featureName="pattern" valueExpression="var:newValue"/>
+              </initialOperation>
+            </widget>
+          </ifs>
         </controls>
       </groups>
     </categories>
