@@ -84,6 +84,7 @@ public class InformationImpl extends ObeoDSMObjectImpl implements Information {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public String getApiVersion() {
 		return (String)eDynamicGet(SoaPackage.INFORMATION__API_VERSION, SoaPackage.Literals.INFORMATION__API_VERSION, true, true);
 	}
@@ -93,6 +94,7 @@ public class InformationImpl extends ObeoDSMObjectImpl implements Information {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setApiVersion(String newApiVersion) {
 		eDynamicSet(SoaPackage.INFORMATION__API_VERSION, SoaPackage.Literals.INFORMATION__API_VERSION, newApiVersion);
 	}
@@ -102,6 +104,7 @@ public class InformationImpl extends ObeoDSMObjectImpl implements Information {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public String getTermsOfService() {
 		return (String)eDynamicGet(SoaPackage.INFORMATION__TERMS_OF_SERVICE, SoaPackage.Literals.INFORMATION__TERMS_OF_SERVICE, true, true);
 	}
@@ -111,6 +114,7 @@ public class InformationImpl extends ObeoDSMObjectImpl implements Information {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setTermsOfService(String newTermsOfService) {
 		eDynamicSet(SoaPackage.INFORMATION__TERMS_OF_SERVICE, SoaPackage.Literals.INFORMATION__TERMS_OF_SERVICE, newTermsOfService);
 	}

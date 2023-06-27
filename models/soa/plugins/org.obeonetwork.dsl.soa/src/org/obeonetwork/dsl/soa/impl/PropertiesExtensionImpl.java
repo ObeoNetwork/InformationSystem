@@ -72,6 +72,7 @@ public class PropertiesExtensionImpl extends AnnotationImpl implements Propertie
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public String getContext() {
 		return (String)eDynamicGet(SoaPackage.PROPERTIES_EXTENSION__CONTEXT, SoaPackage.Literals.PROPERTIES_EXTENSION__CONTEXT, true, true);
 	}
@@ -81,6 +82,7 @@ public class PropertiesExtensionImpl extends AnnotationImpl implements Propertie
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setContext(String newContext) {
 		eDynamicSet(SoaPackage.PROPERTIES_EXTENSION__CONTEXT, SoaPackage.Literals.PROPERTIES_EXTENSION__CONTEXT, newContext);
 	}

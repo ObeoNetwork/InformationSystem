@@ -149,6 +149,7 @@ public class OperationImpl extends ActionImpl implements Operation {
 	 * @generated
 	 */
 	@SuppressWarnings("unchecked")
+	@Override
 	public EList<Parameter> getInput() {
 		return (EList<Parameter>)eDynamicGet(SoaPackage.OPERATION__INPUT, SoaPackage.Literals.OPERATION__INPUT, true, true);
 	}
@@ -159,6 +160,7 @@ public class OperationImpl extends ActionImpl implements Operation {
 	 * @generated
 	 */
 	@SuppressWarnings("unchecked")
+	@Override
 	public EList<Parameter> getOutput() {
 		return (EList<Parameter>)eDynamicGet(SoaPackage.OPERATION__OUTPUT, SoaPackage.Literals.OPERATION__OUTPUT, true, true);
 	}
@@ -168,6 +170,7 @@ public class OperationImpl extends ActionImpl implements Operation {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public OperationKind getKind() {
 		return (OperationKind)eDynamicGet(SoaPackage.OPERATION__KIND, SoaPackage.Literals.OPERATION__KIND, true, true);
 	}
@@ -177,6 +180,7 @@ public class OperationImpl extends ActionImpl implements Operation {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setKind(OperationKind newKind) {
 		eDynamicSet(SoaPackage.OPERATION__KIND, SoaPackage.Literals.OPERATION__KIND, newKind);
 	}
@@ -186,6 +190,7 @@ public class OperationImpl extends ActionImpl implements Operation {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public boolean isPublic() {
 		return (Boolean)eDynamicGet(SoaPackage.OPERATION__PUBLIC, SoaPackage.Literals.OPERATION__PUBLIC, true, true);
 	}
@@ -195,6 +200,7 @@ public class OperationImpl extends ActionImpl implements Operation {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setPublic(boolean newPublic) {
 		eDynamicSet(SoaPackage.OPERATION__PUBLIC, SoaPackage.Literals.OPERATION__PUBLIC, newPublic);
 	}
@@ -205,6 +211,7 @@ public class OperationImpl extends ActionImpl implements Operation {
 	 * @generated
 	 */
 	@SuppressWarnings("unchecked")
+	@Override
 	public EList<Parameter> getFault() {
 		return (EList<Parameter>)eDynamicGet(SoaPackage.OPERATION__FAULT, SoaPackage.Literals.OPERATION__FAULT, true, true);
 	}
@@ -214,6 +221,7 @@ public class OperationImpl extends ActionImpl implements Operation {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public String getURI() {
 		return (String)eDynamicGet(SoaPackage.OPERATION__URI, SoaPackage.Literals.OPERATION__URI, true, true);
 	}
@@ -223,6 +231,7 @@ public class OperationImpl extends ActionImpl implements Operation {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setURI(String newURI) {
 		eDynamicSet(SoaPackage.OPERATION__URI, SoaPackage.Literals.OPERATION__URI, newURI);
 	}
@@ -232,6 +241,7 @@ public class OperationImpl extends ActionImpl implements Operation {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public Verb getVerb() {
 		return (Verb)eDynamicGet(SoaPackage.OPERATION__VERB, SoaPackage.Literals.OPERATION__VERB, true, true);
 	}
@@ -241,6 +251,7 @@ public class OperationImpl extends ActionImpl implements Operation {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setVerb(Verb newVerb) {
 		eDynamicSet(SoaPackage.OPERATION__VERB, SoaPackage.Literals.OPERATION__VERB, newVerb);
 	}
@@ -250,6 +261,7 @@ public class OperationImpl extends ActionImpl implements Operation {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public ExpositionKind getExposition() {
 		return (ExpositionKind)eDynamicGet(SoaPackage.OPERATION__EXPOSITION, SoaPackage.Literals.OPERATION__EXPOSITION, true, true);
 	}
@@ -259,6 +271,7 @@ public class OperationImpl extends ActionImpl implements Operation {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setExposition(ExpositionKind newExposition) {
 		eDynamicSet(SoaPackage.OPERATION__EXPOSITION, SoaPackage.Literals.OPERATION__EXPOSITION, newExposition);
 	}
@@ -268,6 +281,7 @@ public class OperationImpl extends ActionImpl implements Operation {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public boolean isPaged() {
 		return (Boolean)eDynamicGet(SoaPackage.OPERATION__PAGED, SoaPackage.Literals.OPERATION__PAGED, true, true);
 	}
@@ -277,6 +291,7 @@ public class OperationImpl extends ActionImpl implements Operation {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setPaged(boolean newPaged) {
 		eDynamicSet(SoaPackage.OPERATION__PAGED, SoaPackage.Literals.OPERATION__PAGED, newPaged);
 	}
@@ -287,6 +302,7 @@ public class OperationImpl extends ActionImpl implements Operation {
 	 * @generated
 	 */
 	@SuppressWarnings("unchecked")
+	@Override
 	public EList<Server> getServers() {
 		return (EList<Server>)eDynamicGet(SoaPackage.OPERATION__SERVERS, SoaPackage.Literals.OPERATION__SERVERS, true, true);
 	}
@@ -296,6 +312,7 @@ public class OperationImpl extends ActionImpl implements Operation {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public Parameter getSize() {
 		return (Parameter)eDynamicGet(SoaPackage.OPERATION__SIZE, SoaPackage.Literals.OPERATION__SIZE, true, true);
 	}
@@ -314,6 +331,7 @@ public class OperationImpl extends ActionImpl implements Operation {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setSize(Parameter newSize) {
 		eDynamicSet(SoaPackage.OPERATION__SIZE, SoaPackage.Literals.OPERATION__SIZE, newSize);
 	}
@@ -323,6 +341,7 @@ public class OperationImpl extends ActionImpl implements Operation {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public Parameter getPage() {
 		return (Parameter)eDynamicGet(SoaPackage.OPERATION__PAGE, SoaPackage.Literals.OPERATION__PAGE, true, true);
 	}
@@ -341,6 +360,7 @@ public class OperationImpl extends ActionImpl implements Operation {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setPage(Parameter newPage) {
 		eDynamicSet(SoaPackage.OPERATION__PAGE, SoaPackage.Literals.OPERATION__PAGE, newPage);
 	}
@@ -350,6 +370,7 @@ public class OperationImpl extends ActionImpl implements Operation {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public PropertiesExtension getPaginationExtension() {
 		return (PropertiesExtension)eDynamicGet(SoaPackage.OPERATION__PAGINATION_EXTENSION, SoaPackage.Literals.OPERATION__PAGINATION_EXTENSION, true, true);
 	}
@@ -368,6 +389,7 @@ public class OperationImpl extends ActionImpl implements Operation {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setPaginationExtension(PropertiesExtension newPaginationExtension) {
 		eDynamicSet(SoaPackage.OPERATION__PAGINATION_EXTENSION, SoaPackage.Literals.OPERATION__PAGINATION_EXTENSION, newPaginationExtension);
 	}
@@ -377,6 +399,7 @@ public class OperationImpl extends ActionImpl implements Operation {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EList<SecurityApplication> getAllSecurityApplications() {
 		// TODO: implement this method
 		// Ensure that you remove @generated or mark it @generated NOT
@@ -389,6 +412,7 @@ public class OperationImpl extends ActionImpl implements Operation {
 	 * @generated
 	 */
 	@SuppressWarnings("unchecked")
+	@Override
 	public EList<SecurityApplication> getSecurityApplications() {
 		return (EList<SecurityApplication>)eDynamicGet(SoaPackage.OPERATION__SECURITY_APPLICATIONS, SoaPackage.Literals.SECURABLE__SECURITY_APPLICATIONS, true, true);
 	}
@@ -398,6 +422,7 @@ public class OperationImpl extends ActionImpl implements Operation {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	@SuppressWarnings("unchecked")
 	public EList<SecurityScheme> getSecuritySchemes() {
 		// TODO: implement this method to return the 'Security Schemes' reference list

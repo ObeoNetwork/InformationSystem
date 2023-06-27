@@ -69,6 +69,7 @@ public class SystemImpl extends NamespaceImpl implements org.obeonetwork.dsl.soa
 	 * @generated
 	 */
 	@SuppressWarnings("unchecked")
+	@Override
 	public EList<Component> getOwnedComponents() {
 		return (EList<Component>)eDynamicGet(SoaPackage.SYSTEM__OWNED_COMPONENTS, SoaPackage.Literals.SYSTEM__OWNED_COMPONENTS, true, true);
 	}
@@ -79,6 +80,7 @@ public class SystemImpl extends NamespaceImpl implements org.obeonetwork.dsl.soa
 	 * @generated
 	 */
 	@SuppressWarnings("unchecked")
+	@Override
 	public EList<Wire> getOwnedWires() {
 		return (EList<Wire>)eDynamicGet(SoaPackage.SYSTEM__OWNED_WIRES, SoaPackage.Literals.SYSTEM__OWNED_WIRES, true, true);
 	}

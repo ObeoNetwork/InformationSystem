@@ -63,6 +63,7 @@ public class ImplementationComponentImpl extends ObeoDSMObjectImpl implements Im
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public Interface getImplement() {
 		return (Interface)eDynamicGet(SoaPackage.IMPLEMENTATION_COMPONENT__IMPLEMENT, SoaPackage.Literals.IMPLEMENTATION_COMPONENT__IMPLEMENT, true, true);
 	}
@@ -81,6 +82,7 @@ public class ImplementationComponentImpl extends ObeoDSMObjectImpl implements Im
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setImplement(Interface newImplement) {
 		eDynamicSet(SoaPackage.IMPLEMENTATION_COMPONENT__IMPLEMENT, SoaPackage.Literals.IMPLEMENTATION_COMPONENT__IMPLEMENT, newImplement);
 	}
@@ -90,6 +92,7 @@ public class ImplementationComponentImpl extends ObeoDSMObjectImpl implements Im
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public TypesDefinition getEntities() {
 		return (TypesDefinition)eDynamicGet(SoaPackage.IMPLEMENTATION_COMPONENT__ENTITIES, SoaPackage.Literals.IMPLEMENTATION_COMPONENT__ENTITIES, true, true);
 	}
@@ -108,6 +111,7 @@ public class ImplementationComponentImpl extends ObeoDSMObjectImpl implements Im
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setEntities(TypesDefinition newEntities) {
 		eDynamicSet(SoaPackage.IMPLEMENTATION_COMPONENT__ENTITIES, SoaPackage.Literals.IMPLEMENTATION_COMPONENT__ENTITIES, newEntities);
 	}
