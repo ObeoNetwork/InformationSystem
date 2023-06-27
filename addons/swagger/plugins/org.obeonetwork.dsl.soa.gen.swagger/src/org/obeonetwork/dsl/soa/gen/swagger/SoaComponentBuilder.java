@@ -25,6 +25,7 @@ import static org.obeonetwork.utils.common.EObjectUtils.getAncestors;
 import static org.obeonetwork.utils.common.StringUtils.emptyIfNull;
 import static org.obeonetwork.utils.common.StringUtils.upperFirst;
 
+import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collection;
@@ -993,6 +994,20 @@ public class SoaComponentBuilder {
 		if (schema != null) {
 			Type soaParameterType = getOrCreateSoaParameterType(soaOperation, schema, soaParameter);
 			soaParameter.setType(soaParameterType);
+			
+			// Value Constraints
+			final BigDecimal minimum = schema.getMinimum();
+			final BigDecimal maximum = schema.getMaximum();
+			final String pattern = schema.getPattern();
+			if (minimum != null) {
+				soaParameter.setMinimum(minimum.toString());
+			}
+			if (maximum != null) {
+				soaParameter.setMaximum(maximum.toString());
+			}
+			if (pattern != null) {
+				soaParameter.setPattern(pattern);
+			}
 		}
 
 		extractPropertiesExtensions(swgParameter, soaParameter);
@@ -1699,6 +1714,20 @@ public class SoaComponentBuilder {
 		type.getOwnedAttributes().add(attribute);
 		DataType primitiveType = getPrimitiveType(propertySchema);
 		attribute.setType(primitiveType);
+		
+		// Value Constraints
+		final BigDecimal minimum = propertySchema.getMinimum();
+		final BigDecimal maximum = propertySchema.getMaximum();
+		final String pattern = propertySchema.getPattern();
+		if (minimum != null) {
+			attribute.setMinimum(minimum.toString());
+		}
+		if (maximum != null) {
+			attribute.setMaximum(maximum.toString());
+		}
+		if (pattern != null) {
+			attribute.setPattern(pattern);
+		}
 
 		return attribute;
 	}
