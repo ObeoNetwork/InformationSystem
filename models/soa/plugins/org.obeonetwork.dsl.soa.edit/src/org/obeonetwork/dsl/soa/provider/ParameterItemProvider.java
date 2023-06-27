@@ -77,6 +77,9 @@ public class ParameterItemProvider
 			addIsOrderedPropertyDescriptor(object);
 			addStatusCodePropertyDescriptor(object);
 			addStatusMessagePropertyDescriptor(object);
+			addMinimumPropertyDescriptor(object);
+			addMaximumPropertyDescriptor(object);
+			addPatternPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -236,6 +239,72 @@ public class ParameterItemProvider
 	}
 
 	/**
+	 * This adds a property descriptor for the Minimum feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addMinimumPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_Parameter_minimum_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Parameter_minimum_feature", "_UI_Parameter_type"),
+				 SoaPackage.Literals.PARAMETER__MINIMUM,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Maximum feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addMaximumPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_Parameter_maximum_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Parameter_maximum_feature", "_UI_Parameter_type"),
+				 SoaPackage.Literals.PARAMETER__MAXIMUM,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Pattern feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addPatternPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_Parameter_pattern_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Parameter_pattern_feature", "_UI_Parameter_type"),
+				 SoaPackage.Literals.PARAMETER__PATTERN,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
 	 * This specifies how to implement {@link #getChildren} and is used to deduce an appropriate feature for an
 	 * {@link org.eclipse.emf.edit.command.AddCommand}, {@link org.eclipse.emf.edit.command.RemoveCommand} or
 	 * {@link org.eclipse.emf.edit.command.MoveCommand} in {@link #createCommand}.
@@ -334,6 +403,9 @@ public class ParameterItemProvider
 			case SoaPackage.PARAMETER__IS_ORDERED:
 			case SoaPackage.PARAMETER__STATUS_CODE:
 			case SoaPackage.PARAMETER__STATUS_MESSAGE:
+			case SoaPackage.PARAMETER__MINIMUM:
+			case SoaPackage.PARAMETER__MAXIMUM:
+			case SoaPackage.PARAMETER__PATTERN:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 			case SoaPackage.PARAMETER__MEDIA_TYPE:
