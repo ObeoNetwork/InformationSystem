@@ -716,6 +716,8 @@
           "description" : "ID of the series",
           "required" : true,
           "schema" : {
+            "maximum" : 10000,
+            "minimum" : 0,
             "type" : "integer",
             "format" : "int64"
           }
@@ -725,6 +727,9 @@
           "description" : "Records are returned with the some fields in the desired language, if it exists. If there is no translation for the given language, then the record is still returned but with empty values for the translated fields.",
           "required" : false,
           "schema" : {
+            "maximum" : 100,
+            "minimum" : 0,
+            "pattern" : "/^[a-zA-Z]+$/",
             "type" : "string"
           }
         } ],

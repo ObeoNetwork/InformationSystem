@@ -68,6 +68,7 @@ import org.obeonetwork.dsl.soa.ParameterPassingMode;
 import org.obeonetwork.dsl.soa.Scope;
 import org.obeonetwork.dsl.soa.SecuritySchemeType;
 import org.obeonetwork.dsl.soa.Service;
+import org.obeonetwork.dsl.soa.SoaPackage;
 import org.obeonetwork.dsl.soa.gen.swagger.utils.ComponentGenUtil;
 import org.obeonetwork.dsl.soa.gen.swagger.utils.ExampleGenUtil;
 import org.obeonetwork.dsl.soa.gen.swagger.utils.OperationGenUtil;
@@ -991,6 +992,10 @@ public class SwaggerBuilder {
 		}
 
 		addPropertiesExtensionsFromSoaToSwg(soaParameter, schema);
+
+		// Value Constraints
+		addValueConstraintsFromSoaToSwg(soaParameter, schema);
+
 		return schema;
 	}
 
