@@ -2670,13 +2670,40 @@ public interface EnvironmentPackage extends EPackage {
 	int ATTRIBUTE__CONTAINING_TYPE = PROPERTY_FEATURE_COUNT + 1;
 
 	/**
+	 * The feature id for the '<em><b>Minimum</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ATTRIBUTE__MINIMUM = PROPERTY_FEATURE_COUNT + 2;
+
+	/**
+	 * The feature id for the '<em><b>Maximum</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ATTRIBUTE__MAXIMUM = PROPERTY_FEATURE_COUNT + 3;
+
+	/**
+	 * The feature id for the '<em><b>Pattern</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ATTRIBUTE__PATTERN = PROPERTY_FEATURE_COUNT + 4;
+
+	/**
 	 * The number of structural features of the '<em>Attribute</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ATTRIBUTE_FEATURE_COUNT = PROPERTY_FEATURE_COUNT + 2;
+	int ATTRIBUTE_FEATURE_COUNT = PROPERTY_FEATURE_COUNT + 5;
 
 	/**
 	 * The meta object id for the '{@link org.obeonetwork.dsl.environment.impl.ReferenceImpl <em>Reference</em>}' class.
@@ -4121,6 +4148,39 @@ public interface EnvironmentPackage extends EPackage {
 	EReference getAttribute_ContainingType();
 
 	/**
+	 * Returns the meta object for the attribute '{@link org.obeonetwork.dsl.environment.Attribute#getMinimum <em>Minimum</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Minimum</em>'.
+	 * @see org.obeonetwork.dsl.environment.Attribute#getMinimum()
+	 * @see #getAttribute()
+	 * @generated
+	 */
+	EAttribute getAttribute_Minimum();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.obeonetwork.dsl.environment.Attribute#getMaximum <em>Maximum</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Maximum</em>'.
+	 * @see org.obeonetwork.dsl.environment.Attribute#getMaximum()
+	 * @see #getAttribute()
+	 * @generated
+	 */
+	EAttribute getAttribute_Maximum();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.obeonetwork.dsl.environment.Attribute#getPattern <em>Pattern</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Pattern</em>'.
+	 * @see org.obeonetwork.dsl.environment.Attribute#getPattern()
+	 * @see #getAttribute()
+	 * @generated
+	 */
+	EAttribute getAttribute_Pattern();
+
+	/**
 	 * Returns the meta object for class '{@link org.obeonetwork.dsl.environment.Reference <em>Reference</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -5045,6 +5105,30 @@ public interface EnvironmentPackage extends EPackage {
 		 * @generated
 		 */
 		EReference ATTRIBUTE__CONTAINING_TYPE = eINSTANCE.getAttribute_ContainingType();
+
+		/**
+		 * The meta object literal for the '<em><b>Minimum</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute ATTRIBUTE__MINIMUM = eINSTANCE.getAttribute_Minimum();
+
+		/**
+		 * The meta object literal for the '<em><b>Maximum</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute ATTRIBUTE__MAXIMUM = eINSTANCE.getAttribute_Maximum();
+
+		/**
+		 * The meta object literal for the '<em><b>Pattern</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute ATTRIBUTE__PATTERN = eINSTANCE.getAttribute_Pattern();
 
 		/**
 		 * The meta object literal for the '{@link org.obeonetwork.dsl.environment.impl.ReferenceImpl <em>Reference</em>}' class.

@@ -28,6 +28,9 @@ import org.obeonetwork.dsl.environment.StructuredType;
  * <ul>
  *   <li>{@link org.obeonetwork.dsl.environment.impl.AttributeImpl#getType <em>Type</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.environment.impl.AttributeImpl#getContainingType <em>Containing Type</em>}</li>
+ *   <li>{@link org.obeonetwork.dsl.environment.impl.AttributeImpl#getMinimum <em>Minimum</em>}</li>
+ *   <li>{@link org.obeonetwork.dsl.environment.impl.AttributeImpl#getMaximum <em>Maximum</em>}</li>
+ *   <li>{@link org.obeonetwork.dsl.environment.impl.AttributeImpl#getPattern <em>Pattern</em>}</li>
  * </ul>
  *
  * @generated
@@ -39,6 +42,34 @@ public class AttributeImpl extends PropertyImpl implements Attribute {
 	 * @generated
 	 */
 	public static final String copyright = "Copyright (c) 2008, 2023 Obeo.\nAll rights reserved. This program and the accompanying materials\nare made available under the terms of the Eclipse Public License v2.0\nwhich accompanies this distribution, and is available at\nhttps://www.eclipse.org/legal/epl-2.0/\n\nContributors:\n    Obeo - initial API and implementation";
+
+	/**
+	 * The default value of the '{@link #getMinimum() <em>Minimum</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getMinimum()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String MINIMUM_EDEFAULT = null;
+	/**
+	 * The default value of the '{@link #getMaximum() <em>Maximum</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getMaximum()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String MAXIMUM_EDEFAULT = null;
+	/**
+	 * The default value of the '{@link #getPattern() <em>Pattern</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getPattern()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String PATTERN_EDEFAULT = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -134,6 +165,63 @@ public class AttributeImpl extends PropertyImpl implements Attribute {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public String getMinimum() {
+		return (String) eDynamicGet(EnvironmentPackage.ATTRIBUTE__MINIMUM,
+				EnvironmentPackage.Literals.ATTRIBUTE__MINIMUM, true, true);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setMinimum(String newMinimum) {
+		eDynamicSet(EnvironmentPackage.ATTRIBUTE__MINIMUM, EnvironmentPackage.Literals.ATTRIBUTE__MINIMUM, newMinimum);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String getMaximum() {
+		return (String) eDynamicGet(EnvironmentPackage.ATTRIBUTE__MAXIMUM,
+				EnvironmentPackage.Literals.ATTRIBUTE__MAXIMUM, true, true);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setMaximum(String newMaximum) {
+		eDynamicSet(EnvironmentPackage.ATTRIBUTE__MAXIMUM, EnvironmentPackage.Literals.ATTRIBUTE__MAXIMUM, newMaximum);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String getPattern() {
+		return (String) eDynamicGet(EnvironmentPackage.ATTRIBUTE__PATTERN,
+				EnvironmentPackage.Literals.ATTRIBUTE__PATTERN, true, true);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setPattern(String newPattern) {
+		eDynamicSet(EnvironmentPackage.ATTRIBUTE__PATTERN, EnvironmentPackage.Literals.ATTRIBUTE__PATTERN, newPattern);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
@@ -190,6 +278,12 @@ public class AttributeImpl extends PropertyImpl implements Attribute {
 			if (resolve)
 				return getContainingType();
 			return basicGetContainingType();
+		case EnvironmentPackage.ATTRIBUTE__MINIMUM:
+			return getMinimum();
+		case EnvironmentPackage.ATTRIBUTE__MAXIMUM:
+			return getMaximum();
+		case EnvironmentPackage.ATTRIBUTE__PATTERN:
+			return getPattern();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -207,6 +301,15 @@ public class AttributeImpl extends PropertyImpl implements Attribute {
 			return;
 		case EnvironmentPackage.ATTRIBUTE__CONTAINING_TYPE:
 			setContainingType((StructuredType) newValue);
+			return;
+		case EnvironmentPackage.ATTRIBUTE__MINIMUM:
+			setMinimum((String) newValue);
+			return;
+		case EnvironmentPackage.ATTRIBUTE__MAXIMUM:
+			setMaximum((String) newValue);
+			return;
+		case EnvironmentPackage.ATTRIBUTE__PATTERN:
+			setPattern((String) newValue);
 			return;
 		}
 		super.eSet(featureID, newValue);
@@ -226,6 +329,15 @@ public class AttributeImpl extends PropertyImpl implements Attribute {
 		case EnvironmentPackage.ATTRIBUTE__CONTAINING_TYPE:
 			setContainingType((StructuredType) null);
 			return;
+		case EnvironmentPackage.ATTRIBUTE__MINIMUM:
+			setMinimum(MINIMUM_EDEFAULT);
+			return;
+		case EnvironmentPackage.ATTRIBUTE__MAXIMUM:
+			setMaximum(MAXIMUM_EDEFAULT);
+			return;
+		case EnvironmentPackage.ATTRIBUTE__PATTERN:
+			setPattern(PATTERN_EDEFAULT);
+			return;
 		}
 		super.eUnset(featureID);
 	}
@@ -242,6 +354,12 @@ public class AttributeImpl extends PropertyImpl implements Attribute {
 			return basicGetType() != null;
 		case EnvironmentPackage.ATTRIBUTE__CONTAINING_TYPE:
 			return basicGetContainingType() != null;
+		case EnvironmentPackage.ATTRIBUTE__MINIMUM:
+			return MINIMUM_EDEFAULT == null ? getMinimum() != null : !MINIMUM_EDEFAULT.equals(getMinimum());
+		case EnvironmentPackage.ATTRIBUTE__MAXIMUM:
+			return MAXIMUM_EDEFAULT == null ? getMaximum() != null : !MAXIMUM_EDEFAULT.equals(getMaximum());
+		case EnvironmentPackage.ATTRIBUTE__PATTERN:
+			return PATTERN_EDEFAULT == null ? getPattern() != null : !PATTERN_EDEFAULT.equals(getPattern());
 		}
 		return super.eIsSet(featureID);
 	}
