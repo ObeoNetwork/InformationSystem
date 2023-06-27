@@ -184,16 +184,16 @@
       </ownedAttributes>
     </types>
     <types xsi:type="oenv:DTO" xmi:id="_AWJF03VKEeylg66W9_FPWw" technicalid="_AVQUyHVKEeylg66W9_FPWw" name="Language">
-      <ownedAttributes xmi:id="_AWJF1HVKEeylg66W9_FPWw" technicalid="_AVXpinVKEeylg66W9_FPWw" name="name">
+      <ownedAttributes xmi:id="_AWJF1HVKEeylg66W9_FPWw" technicalid="_AVXpinVKEeylg66W9_FPWw" name="name" minimum="0">
         <type xsi:type="oenv:PrimitiveType" href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5F-EKwKEd2XLNOhkJIazw"/>
       </ownedAttributes>
-      <ownedAttributes xmi:id="_AWJF1XVKEeylg66W9_FPWw" technicalid="_AVXpi3VKEeylg66W9_FPWw" name="englishName">
+      <ownedAttributes xmi:id="_AWJF1XVKEeylg66W9_FPWw" technicalid="_AVXpi3VKEeylg66W9_FPWw" name="englishName" minimum="0">
         <type xsi:type="oenv:PrimitiveType" href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5F-EKwKEd2XLNOhkJIazw"/>
       </ownedAttributes>
-      <ownedAttributes xmi:id="_AWJF1nVKEeylg66W9_FPWw" technicalid="_AVXpjHVKEeylg66W9_FPWw" name="id">
+      <ownedAttributes xmi:id="_AWJF1nVKEeylg66W9_FPWw" technicalid="_AVXpjHVKEeylg66W9_FPWw" name="id" minimum="3" maximum="100">
         <type xsi:type="oenv:PrimitiveType" href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_9dnH8bGqEd2SRpTkL4GntA"/>
       </ownedAttributes>
-      <ownedAttributes xmi:id="_AWJF13VKEeylg66W9_FPWw" technicalid="_AVXpjXVKEeylg66W9_FPWw" name="abbreviation">
+      <ownedAttributes xmi:id="_AWJF13VKEeylg66W9_FPWw" technicalid="_AVXpjXVKEeylg66W9_FPWw" name="abbreviation" pattern="/^[a-zA-Z]+$/">
         <type xsi:type="oenv:PrimitiveType" href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5F-EKwKEd2XLNOhkJIazw"/>
       </ownedAttributes>
     </types>
@@ -955,11 +955,11 @@
           <securityApplications xmi:id="_AWENp3VKEeylg66W9_FPWw" technicalid="_AV-tgXVKEeylg66W9_FPWw" securityScheme="_AWE03XVKEeylg66W9_FPWw"/>
         </ownedOperations>
         <ownedOperations xmi:id="_AWENqHVKEeylg66W9_FPWw" technicalid="_AV-tgnVKEeylg66W9_FPWw" description="Returns the allowed query keys for the `/series/{id}/images/query` route. Contains a parameter record for each unique `keyType`, listing values that will return results." name="getImagesQueryParamsFromId" public="true" URI="/{id}/images/query/params" exposition="REST">
-          <input xmi:id="_AWENqXVKEeylg66W9_FPWw" technicalid="_AV-tg3VKEeylg66W9_FPWw" description="ID of the series" name="id">
+          <input xmi:id="_AWENqXVKEeylg66W9_FPWw" technicalid="_AV-tg3VKEeylg66W9_FPWw" description="ID of the series" name="id" minimum="0" maximum="10000">
             <type xsi:type="oenv:PrimitiveType" href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_9dnH8bGqEd2SRpTkL4GntA"/>
             <restData xmi:id="_AWENqnVKEeylg66W9_FPWw" technicalid="_AV-thHVKEeylg66W9_FPWw" passingMode="PATH" restId="id"/>
           </input>
-          <input xmi:id="_AWENq3VKEeylg66W9_FPWw" technicalid="_AV-thXVKEeylg66W9_FPWw" description="Records are returned with the some fields in the desired language, if it exists. If there is no translation for the given language, then the record is still returned but with empty values for the translated fields." name="Accept-Language" multiplicity="0..1">
+          <input xmi:id="_AWENq3VKEeylg66W9_FPWw" technicalid="_AV-thXVKEeylg66W9_FPWw"  minimum="0" maximum="100" pattern="/^[a-zA-Z]+$/" description="Records are returned with the some fields in the desired language, if it exists. If there is no translation for the given language, then the record is still returned but with empty values for the translated fields." name="Accept-Language" multiplicity="0..1">
             <type xsi:type="oenv:PrimitiveType" href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5F-EKwKEd2XLNOhkJIazw"/>
             <restData xmi:id="_AWENrHVKEeylg66W9_FPWw" technicalid="_AV-thnVKEeylg66W9_FPWw" passingMode="HEADER" restId="Accept-Language"/>
           </input>
