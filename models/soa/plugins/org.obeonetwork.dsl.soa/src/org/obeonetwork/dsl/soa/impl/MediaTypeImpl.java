@@ -83,6 +83,7 @@ public class MediaTypeImpl extends ObeoDSMObjectImpl implements MediaType {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public String getIdentifier() {
 		return (String)eDynamicGet(SoaPackage.MEDIA_TYPE__IDENTIFIER, SoaPackage.Literals.MEDIA_TYPE__IDENTIFIER, true, true);
 	}
@@ -92,6 +93,7 @@ public class MediaTypeImpl extends ObeoDSMObjectImpl implements MediaType {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setIdentifier(String newIdentifier) {
 		eDynamicSet(SoaPackage.MEDIA_TYPE__IDENTIFIER, SoaPackage.Literals.MEDIA_TYPE__IDENTIFIER, newIdentifier);
 	}
@@ -102,6 +104,7 @@ public class MediaTypeImpl extends ObeoDSMObjectImpl implements MediaType {
 	 * @generated
 	 */
 	@SuppressWarnings("unchecked")
+	@Override
 	public EList<Example> getExamples() {
 		return (EList<Example>)eDynamicGet(SoaPackage.MEDIA_TYPE__EXAMPLES, SoaPackage.Literals.MEDIA_TYPE__EXAMPLES, true, true);
 	}

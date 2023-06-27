@@ -136,6 +136,7 @@ public class ParameterImpl extends ObeoDSMObjectImpl implements Parameter {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public Type getType() {
 		return (Type)eDynamicGet(SoaPackage.PARAMETER__TYPE, SoaPackage.Literals.PARAMETER__TYPE, true, true);
 	}
@@ -154,6 +155,7 @@ public class ParameterImpl extends ObeoDSMObjectImpl implements Parameter {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setType(Type newType) {
 		eDynamicSet(SoaPackage.PARAMETER__TYPE, SoaPackage.Literals.PARAMETER__TYPE, newType);
 	}
@@ -164,6 +166,7 @@ public class ParameterImpl extends ObeoDSMObjectImpl implements Parameter {
 	 * @generated
 	 */
 	@SuppressWarnings("unchecked")
+	@Override
 	public EList<MediaType> getMediaType() {
 		return (EList<MediaType>)eDynamicGet(SoaPackage.PARAMETER__MEDIA_TYPE, SoaPackage.Literals.PARAMETER__MEDIA_TYPE, true, true);
 	}
@@ -173,6 +176,7 @@ public class ParameterImpl extends ObeoDSMObjectImpl implements Parameter {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public String getName() {
 		return (String)eDynamicGet(SoaPackage.PARAMETER__NAME, SoaPackage.Literals.PARAMETER__NAME, true, true);
 	}
@@ -182,6 +186,7 @@ public class ParameterImpl extends ObeoDSMObjectImpl implements Parameter {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setName(String newName) {
 		eDynamicSet(SoaPackage.PARAMETER__NAME, SoaPackage.Literals.PARAMETER__NAME, newName);
 	}
@@ -191,6 +196,7 @@ public class ParameterImpl extends ObeoDSMObjectImpl implements Parameter {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public MultiplicityKind getMultiplicity() {
 		return (MultiplicityKind)eDynamicGet(SoaPackage.PARAMETER__MULTIPLICITY, SoaPackage.Literals.PARAMETER__MULTIPLICITY, true, true);
 	}
@@ -200,6 +206,7 @@ public class ParameterImpl extends ObeoDSMObjectImpl implements Parameter {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setMultiplicity(MultiplicityKind newMultiplicity) {
 		eDynamicSet(SoaPackage.PARAMETER__MULTIPLICITY, SoaPackage.Literals.PARAMETER__MULTIPLICITY, newMultiplicity);
 	}
@@ -209,6 +216,7 @@ public class ParameterImpl extends ObeoDSMObjectImpl implements Parameter {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public boolean isIsUnique() {
 		return (Boolean)eDynamicGet(SoaPackage.PARAMETER__IS_UNIQUE, SoaPackage.Literals.PARAMETER__IS_UNIQUE, true, true);
 	}
@@ -218,6 +226,7 @@ public class ParameterImpl extends ObeoDSMObjectImpl implements Parameter {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setIsUnique(boolean newIsUnique) {
 		eDynamicSet(SoaPackage.PARAMETER__IS_UNIQUE, SoaPackage.Literals.PARAMETER__IS_UNIQUE, newIsUnique);
 	}
@@ -227,6 +236,7 @@ public class ParameterImpl extends ObeoDSMObjectImpl implements Parameter {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public boolean isIsOrdered() {
 		return (Boolean)eDynamicGet(SoaPackage.PARAMETER__IS_ORDERED, SoaPackage.Literals.PARAMETER__IS_ORDERED, true, true);
 	}
@@ -236,6 +246,7 @@ public class ParameterImpl extends ObeoDSMObjectImpl implements Parameter {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setIsOrdered(boolean newIsOrdered) {
 		eDynamicSet(SoaPackage.PARAMETER__IS_ORDERED, SoaPackage.Literals.PARAMETER__IS_ORDERED, newIsOrdered);
 	}
@@ -245,6 +256,7 @@ public class ParameterImpl extends ObeoDSMObjectImpl implements Parameter {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public String getStatusCode() {
 		return (String)eDynamicGet(SoaPackage.PARAMETER__STATUS_CODE, SoaPackage.Literals.PARAMETER__STATUS_CODE, true, true);
 	}
@@ -254,6 +266,7 @@ public class ParameterImpl extends ObeoDSMObjectImpl implements Parameter {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setStatusCode(String newStatusCode) {
 		eDynamicSet(SoaPackage.PARAMETER__STATUS_CODE, SoaPackage.Literals.PARAMETER__STATUS_CODE, newStatusCode);
 	}
@@ -263,6 +276,7 @@ public class ParameterImpl extends ObeoDSMObjectImpl implements Parameter {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public String getStatusMessage() {
 		return (String)eDynamicGet(SoaPackage.PARAMETER__STATUS_MESSAGE, SoaPackage.Literals.PARAMETER__STATUS_MESSAGE, true, true);
 	}
@@ -272,6 +286,7 @@ public class ParameterImpl extends ObeoDSMObjectImpl implements Parameter {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setStatusMessage(String newStatusMessage) {
 		eDynamicSet(SoaPackage.PARAMETER__STATUS_MESSAGE, SoaPackage.Literals.PARAMETER__STATUS_MESSAGE, newStatusMessage);
 	}
@@ -281,6 +296,7 @@ public class ParameterImpl extends ObeoDSMObjectImpl implements Parameter {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public ParameterRestData getRestData() {
 		return (ParameterRestData)eDynamicGet(SoaPackage.PARAMETER__REST_DATA, SoaPackage.Literals.PARAMETER__REST_DATA, true, true);
 	}
@@ -309,6 +325,7 @@ public class ParameterImpl extends ObeoDSMObjectImpl implements Parameter {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setRestData(ParameterRestData newRestData) {
 		eDynamicSet(SoaPackage.PARAMETER__REST_DATA, SoaPackage.Literals.PARAMETER__REST_DATA, newRestData);
 	}

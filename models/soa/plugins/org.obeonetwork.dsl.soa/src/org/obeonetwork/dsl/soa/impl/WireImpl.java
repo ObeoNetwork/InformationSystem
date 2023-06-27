@@ -62,6 +62,7 @@ public class WireImpl extends ObeoDSMObjectImpl implements Wire {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public Service getSource() {
 		return (Service)eDynamicGet(SoaPackage.WIRE__SOURCE, SoaPackage.Literals.WIRE__SOURCE, true, true);
 	}
@@ -80,6 +81,7 @@ public class WireImpl extends ObeoDSMObjectImpl implements Wire {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setSource(Service newSource) {
 		eDynamicSet(SoaPackage.WIRE__SOURCE, SoaPackage.Literals.WIRE__SOURCE, newSource);
 	}
@@ -89,6 +91,7 @@ public class WireImpl extends ObeoDSMObjectImpl implements Wire {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public Service getDest() {
 		return (Service)eDynamicGet(SoaPackage.WIRE__DEST, SoaPackage.Literals.WIRE__DEST, true, true);
 	}
@@ -107,6 +110,7 @@ public class WireImpl extends ObeoDSMObjectImpl implements Wire {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setDest(Service newDest) {
 		eDynamicSet(SoaPackage.WIRE__DEST, SoaPackage.Literals.WIRE__DEST, newDest);
 	}

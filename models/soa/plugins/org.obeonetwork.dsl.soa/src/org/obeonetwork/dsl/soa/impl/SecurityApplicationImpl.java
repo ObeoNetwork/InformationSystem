@@ -69,6 +69,7 @@ public class SecurityApplicationImpl extends IdentifiableImpl implements Securit
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public SecurityScheme getSecurityScheme() {
 		return (SecurityScheme)eDynamicGet(SoaPackage.SECURITY_APPLICATION__SECURITY_SCHEME, SoaPackage.Literals.SECURITY_APPLICATION__SECURITY_SCHEME, true, true);
 	}
@@ -87,6 +88,7 @@ public class SecurityApplicationImpl extends IdentifiableImpl implements Securit
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setSecurityScheme(SecurityScheme newSecurityScheme) {
 		eDynamicSet(SoaPackage.SECURITY_APPLICATION__SECURITY_SCHEME, SoaPackage.Literals.SECURITY_APPLICATION__SECURITY_SCHEME, newSecurityScheme);
 	}
@@ -97,6 +99,7 @@ public class SecurityApplicationImpl extends IdentifiableImpl implements Securit
 	 * @generated
 	 */
 	@SuppressWarnings("unchecked")
+	@Override
 	public EList<Scope> getScopes() {
 		return (EList<Scope>)eDynamicGet(SoaPackage.SECURITY_APPLICATION__SCOPES, SoaPackage.Literals.SECURITY_APPLICATION__SCOPES, true, true);
 	}

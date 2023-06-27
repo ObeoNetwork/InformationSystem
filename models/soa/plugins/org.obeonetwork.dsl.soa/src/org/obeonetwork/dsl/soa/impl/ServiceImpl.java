@@ -123,6 +123,7 @@ public class ServiceImpl extends ObeoDSMObjectImpl implements Service {
 	 * @generated
 	 */
 	@SuppressWarnings("unchecked")
+	@Override
 	public EList<SecurityApplication> getSecurityApplications() {
 		return (EList<SecurityApplication>)eDynamicGet(SoaPackage.SERVICE__SECURITY_APPLICATIONS, SoaPackage.Literals.SECURABLE__SECURITY_APPLICATIONS, true, true);
 	}
@@ -132,6 +133,7 @@ public class ServiceImpl extends ObeoDSMObjectImpl implements Service {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EList<SecurityScheme> getSecuritySchemes() {
 		// TODO: implement this method to return the 'Security Schemes' reference list
 		// Ensure that you remove @generated or mark it @generated NOT
@@ -145,6 +147,7 @@ public class ServiceImpl extends ObeoDSMObjectImpl implements Service {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public Interface getOwnedInterface() {
 		return (Interface)eDynamicGet(SoaPackage.SERVICE__OWNED_INTERFACE, SoaPackage.Literals.SERVICE__OWNED_INTERFACE, true, true);
 	}
@@ -173,6 +176,7 @@ public class ServiceImpl extends ObeoDSMObjectImpl implements Service {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setOwnedInterface(Interface newOwnedInterface) {
 		eDynamicSet(SoaPackage.SERVICE__OWNED_INTERFACE, SoaPackage.Literals.SERVICE__OWNED_INTERFACE, newOwnedInterface);
 	}
@@ -182,6 +186,7 @@ public class ServiceImpl extends ObeoDSMObjectImpl implements Service {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public SynchronizationKind getSynchronization() {
 		return (SynchronizationKind)eDynamicGet(SoaPackage.SERVICE__SYNCHRONIZATION, SoaPackage.Literals.SERVICE__SYNCHRONIZATION, true, true);
 	}
@@ -191,6 +196,7 @@ public class ServiceImpl extends ObeoDSMObjectImpl implements Service {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setSynchronization(SynchronizationKind newSynchronization) {
 		eDynamicSet(SoaPackage.SERVICE__SYNCHRONIZATION, SoaPackage.Literals.SERVICE__SYNCHRONIZATION, newSynchronization);
 	}
@@ -200,6 +206,7 @@ public class ServiceImpl extends ObeoDSMObjectImpl implements Service {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public InterfaceKind getKind() {
 		return (InterfaceKind)eDynamicGet(SoaPackage.SERVICE__KIND, SoaPackage.Literals.SERVICE__KIND, true, true);
 	}
@@ -209,6 +216,7 @@ public class ServiceImpl extends ObeoDSMObjectImpl implements Service {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setKind(InterfaceKind newKind) {
 		eDynamicSet(SoaPackage.SERVICE__KIND, SoaPackage.Literals.SERVICE__KIND, newKind);
 	}
@@ -218,6 +226,7 @@ public class ServiceImpl extends ObeoDSMObjectImpl implements Service {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public Interface getReferencedInterface() {
 		return (Interface)eDynamicGet(SoaPackage.SERVICE__REFERENCED_INTERFACE, SoaPackage.Literals.SERVICE__REFERENCED_INTERFACE, true, true);
 	}
@@ -236,6 +245,7 @@ public class ServiceImpl extends ObeoDSMObjectImpl implements Service {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setReferencedInterface(Interface newReferencedInterface) {
 		eDynamicSet(SoaPackage.SERVICE__REFERENCED_INTERFACE, SoaPackage.Literals.SERVICE__REFERENCED_INTERFACE, newReferencedInterface);
 	}
@@ -245,6 +255,7 @@ public class ServiceImpl extends ObeoDSMObjectImpl implements Service {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public Binding getBindings() {
 		return (Binding)eDynamicGet(SoaPackage.SERVICE__BINDINGS, SoaPackage.Literals.SERVICE__BINDINGS, true, true);
 	}
@@ -263,6 +274,7 @@ public class ServiceImpl extends ObeoDSMObjectImpl implements Service {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setBindings(Binding newBindings) {
 		eDynamicSet(SoaPackage.SERVICE__BINDINGS, SoaPackage.Literals.SERVICE__BINDINGS, newBindings);
 	}
@@ -272,6 +284,7 @@ public class ServiceImpl extends ObeoDSMObjectImpl implements Service {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public String getName() {
 		return (String)eDynamicGet(SoaPackage.SERVICE__NAME, SoaPackage.Literals.SERVICE__NAME, true, true);
 	}
@@ -281,6 +294,7 @@ public class ServiceImpl extends ObeoDSMObjectImpl implements Service {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setName(String newName) {
 		eDynamicSet(SoaPackage.SERVICE__NAME, SoaPackage.Literals.SERVICE__NAME, newName);
 	}
@@ -291,6 +305,7 @@ public class ServiceImpl extends ObeoDSMObjectImpl implements Service {
 	 * @generated
 	 */
 	@SuppressWarnings("unchecked")
+	@Override
 	public EList<Type> getUsedTypes() {
 		return (EList<Type>)eDynamicGet(SoaPackage.SERVICE__USED_TYPES, SoaPackage.Literals.SERVICE__USED_TYPES, true, true);
 	}
@@ -300,6 +315,7 @@ public class ServiceImpl extends ObeoDSMObjectImpl implements Service {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public String getURI() {
 		return (String)eDynamicGet(SoaPackage.SERVICE__URI, SoaPackage.Literals.SERVICE__URI, true, true);
 	}
@@ -309,6 +325,7 @@ public class ServiceImpl extends ObeoDSMObjectImpl implements Service {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setURI(String newURI) {
 		eDynamicSet(SoaPackage.SERVICE__URI, SoaPackage.Literals.SERVICE__URI, newURI);
 	}

@@ -117,6 +117,7 @@ public class FlowImpl extends ObeoDSMObjectImpl implements Flow {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public FlowType getFlowType() {
 		return (FlowType)eDynamicGet(SoaPackage.FLOW__FLOW_TYPE, SoaPackage.Literals.FLOW__FLOW_TYPE, true, true);
 	}
@@ -126,6 +127,7 @@ public class FlowImpl extends ObeoDSMObjectImpl implements Flow {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setFlowType(FlowType newFlowType) {
 		eDynamicSet(SoaPackage.FLOW__FLOW_TYPE, SoaPackage.Literals.FLOW__FLOW_TYPE, newFlowType);
 	}
@@ -135,6 +137,7 @@ public class FlowImpl extends ObeoDSMObjectImpl implements Flow {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public String getAuthorizationURL() {
 		return (String)eDynamicGet(SoaPackage.FLOW__AUTHORIZATION_URL, SoaPackage.Literals.FLOW__AUTHORIZATION_URL, true, true);
 	}
@@ -144,6 +147,7 @@ public class FlowImpl extends ObeoDSMObjectImpl implements Flow {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setAuthorizationURL(String newAuthorizationURL) {
 		eDynamicSet(SoaPackage.FLOW__AUTHORIZATION_URL, SoaPackage.Literals.FLOW__AUTHORIZATION_URL, newAuthorizationURL);
 	}
@@ -153,6 +157,7 @@ public class FlowImpl extends ObeoDSMObjectImpl implements Flow {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public String getTokenURL() {
 		return (String)eDynamicGet(SoaPackage.FLOW__TOKEN_URL, SoaPackage.Literals.FLOW__TOKEN_URL, true, true);
 	}
@@ -162,6 +167,7 @@ public class FlowImpl extends ObeoDSMObjectImpl implements Flow {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setTokenURL(String newTokenURL) {
 		eDynamicSet(SoaPackage.FLOW__TOKEN_URL, SoaPackage.Literals.FLOW__TOKEN_URL, newTokenURL);
 	}
@@ -171,6 +177,7 @@ public class FlowImpl extends ObeoDSMObjectImpl implements Flow {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public String getRefreshURL() {
 		return (String)eDynamicGet(SoaPackage.FLOW__REFRESH_URL, SoaPackage.Literals.FLOW__REFRESH_URL, true, true);
 	}
@@ -180,6 +187,7 @@ public class FlowImpl extends ObeoDSMObjectImpl implements Flow {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setRefreshURL(String newRefreshURL) {
 		eDynamicSet(SoaPackage.FLOW__REFRESH_URL, SoaPackage.Literals.FLOW__REFRESH_URL, newRefreshURL);
 	}
@@ -190,6 +198,7 @@ public class FlowImpl extends ObeoDSMObjectImpl implements Flow {
 	 * @generated
 	 */
 	@SuppressWarnings("unchecked")
+	@Override
 	public EList<Scope> getScopes() {
 		return (EList<Scope>)eDynamicGet(SoaPackage.FLOW__SCOPES, SoaPackage.Literals.FLOW__SCOPES, true, true);
 	}

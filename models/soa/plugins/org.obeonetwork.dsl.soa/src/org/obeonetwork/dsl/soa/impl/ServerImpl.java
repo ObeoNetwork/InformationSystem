@@ -72,6 +72,7 @@ public class ServerImpl extends ObeoDSMObjectImpl implements Server {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public String getURL() {
 		return (String)eDynamicGet(SoaPackage.SERVER__URL, SoaPackage.Literals.SERVER__URL, true, true);
 	}
@@ -81,6 +82,7 @@ public class ServerImpl extends ObeoDSMObjectImpl implements Server {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setURL(String newURL) {
 		eDynamicSet(SoaPackage.SERVER__URL, SoaPackage.Literals.SERVER__URL, newURL);
 	}

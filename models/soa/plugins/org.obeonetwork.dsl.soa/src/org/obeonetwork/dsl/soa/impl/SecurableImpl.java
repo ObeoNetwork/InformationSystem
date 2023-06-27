@@ -86,6 +86,7 @@ public abstract class SecurableImpl extends CDOObjectImpl implements Securable {
 	 * @generated
 	 */
 	@SuppressWarnings("unchecked")
+	@Override
 	public EList<SecurityApplication> getSecurityApplications() {
 		return (EList<SecurityApplication>)eDynamicGet(SoaPackage.SECURABLE__SECURITY_APPLICATIONS, SoaPackage.Literals.SECURABLE__SECURITY_APPLICATIONS, true, true);
 	}
@@ -95,6 +96,7 @@ public abstract class SecurableImpl extends CDOObjectImpl implements Securable {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	@SuppressWarnings("unchecked")
 	public EList<SecurityScheme> getSecuritySchemes() {
 		// TODO: implement this method to return the 'Security Schemes' reference list
