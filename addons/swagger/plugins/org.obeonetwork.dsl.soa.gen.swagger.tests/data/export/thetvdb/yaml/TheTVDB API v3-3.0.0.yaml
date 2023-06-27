@@ -1729,13 +1729,18 @@ components:
       type: object
       properties:
         name:
+          minimum: 0
           type: string
         englishName:
+          minimum: 0
           type: string
         id:
+          maximum: 100
+          minimum: 3
           type: integer
           format: int64
         abbreviation:
+          pattern: /^[a-zA-Z]+$/
           type: string
     LanguageData:
       type: object

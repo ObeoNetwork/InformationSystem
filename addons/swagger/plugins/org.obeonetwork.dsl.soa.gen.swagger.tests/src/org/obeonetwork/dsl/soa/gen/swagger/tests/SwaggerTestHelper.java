@@ -237,6 +237,7 @@ public class SwaggerTestHelper {
 				actualJsonContents = objectMapper.writerWithDefaultPrettyPrinter().writeValueAsString(actualJsonTree);
 			} catch (IOException e) {
 				// Fail case
+				e.printStackTrace();
 			}
 			
 			if(expectedJsonContents == null || actualJsonContents == null) {
