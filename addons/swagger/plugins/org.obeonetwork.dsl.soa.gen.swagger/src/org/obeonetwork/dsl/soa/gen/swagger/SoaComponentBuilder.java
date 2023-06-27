@@ -25,6 +25,7 @@ import static org.obeonetwork.utils.common.EObjectUtils.getAncestors;
 import static org.obeonetwork.utils.common.StringUtils.emptyIfNull;
 import static org.obeonetwork.utils.common.StringUtils.upperFirst;
 
+import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collection;
@@ -47,6 +48,7 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EStructuralFeature;
 import org.obeonetwork.dsl.environment.Attribute;
+import org.obeonetwork.dsl.environment.ConstrainableElement;
 import org.obeonetwork.dsl.environment.DTO;
 import org.obeonetwork.dsl.environment.DataType;
 import org.obeonetwork.dsl.environment.Enumeration;
@@ -993,6 +995,7 @@ public class SoaComponentBuilder {
 		if (schema != null) {
 			Type soaParameterType = getOrCreateSoaParameterType(soaOperation, schema, soaParameter);
 			soaParameter.setType(soaParameterType);
+			setValueConstraints(soaParameter, schema);
 		}
 
 		extractPropertiesExtensions(swgParameter, soaParameter);
@@ -1039,6 +1042,7 @@ public class SoaComponentBuilder {
 				Schema unwrappedSchema = unwrapArrayOrComposedSchema(schema);
 				Type soaParameterType = getOrCreateSoaParameterType(soaOperation, unwrappedSchema, soaParameter);
 				soaParameter.setType(soaParameterType);
+				setValueConstraints(soaParameter, schema);
 			}
 
 			contents.forEach(entry -> {
@@ -1145,6 +1149,7 @@ public class SoaComponentBuilder {
 
 				Type soaParameterType = getOrCreateSoaParameterType(soaOperation, unwrappedSchema, soaParameter);
 				soaParameter.setType(soaParameterType);
+				setValueConstraints(soaParameter, schema);
 			}
 
 			contents.forEach(entry -> {
@@ -1699,6 +1704,8 @@ public class SoaComponentBuilder {
 		type.getOwnedAttributes().add(attribute);
 		DataType primitiveType = getPrimitiveType(propertySchema);
 		attribute.setType(primitiveType);
+		
+		setValueConstraints(attribute, propertySchema);
 
 		return attribute;
 	}
@@ -1823,5 +1830,31 @@ public class SoaComponentBuilder {
 
 	private void extractPropertiesExtensions(Object swaggerElement, ObeoDSMObject soaElement) {
 		PropertiesExtensionsHelper.addPropertiesExtensionsFromSwgToSoa(swaggerElement, soaElement);
+	}
+	
+	/**
+	 * Sets the constraints of the {@link ConstrainableElement} being created, if
+	 * there are any on the given {@link Schema}.
+	 * 
+	 * @param constrainableElement the (non-{@code null})
+	 *                             {@link ConstrainableElement} being created.
+	 * @param schema               the (non-{@code null}) {@link Schema}.
+	 */
+	private static void setValueConstraints(final ConstrainableElement constrainableElement, final Schema schema) {
+		Objects.requireNonNull(constrainableElement);
+		Objects.requireNonNull(schema);
+
+		final BigDecimal minimum = schema.getMinimum();
+		final BigDecimal maximum = schema.getMaximum();
+		final String pattern = schema.getPattern();
+		if (minimum != null) {
+			constrainableElement.setMinimum(minimum.toString());
+		}
+		if (maximum != null) {
+			constrainableElement.setMaximum(maximum.toString());
+		}
+		if (pattern != null) {
+			constrainableElement.setPattern(pattern);
+		}
 	}
 }
