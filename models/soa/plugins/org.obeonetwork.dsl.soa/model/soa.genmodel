@@ -145,6 +145,9 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute soa.ecore#//Parameter/statusCode"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute soa.ecore#//Parameter/statusMessage"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference soa.ecore#//Parameter/restData"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute soa.ecore#//Parameter/minimum"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute soa.ecore#//Parameter/maximum"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute soa.ecore#//Parameter/pattern"/>
     </genClasses>
     <genClasses ecoreClass="soa.ecore#//ParameterRestData" labelFeature="#//soa/ParameterRestData/restId">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute soa.ecore#//ParameterRestData/passingMode"/>
