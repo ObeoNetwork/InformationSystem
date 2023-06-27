@@ -42,6 +42,9 @@ import org.obeonetwork.dsl.soa.SoaPackage;
  *   <li>{@link org.obeonetwork.dsl.soa.impl.ParameterImpl#getStatusCode <em>Status Code</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.soa.impl.ParameterImpl#getStatusMessage <em>Status Message</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.soa.impl.ParameterImpl#getRestData <em>Rest Data</em>}</li>
+ *   <li>{@link org.obeonetwork.dsl.soa.impl.ParameterImpl#getMinimum <em>Minimum</em>}</li>
+ *   <li>{@link org.obeonetwork.dsl.soa.impl.ParameterImpl#getMaximum <em>Maximum</em>}</li>
+ *   <li>{@link org.obeonetwork.dsl.soa.impl.ParameterImpl#getPattern <em>Pattern</em>}</li>
  * </ul>
  *
  * @generated
@@ -111,6 +114,36 @@ public class ParameterImpl extends ObeoDSMObjectImpl implements Parameter {
 	 * @ordered
 	 */
 	protected static final String STATUS_MESSAGE_EDEFAULT = null;
+
+	/**
+	 * The default value of the '{@link #getMinimum() <em>Minimum</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getMinimum()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String MINIMUM_EDEFAULT = null;
+
+	/**
+	 * The default value of the '{@link #getMaximum() <em>Maximum</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getMaximum()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String MAXIMUM_EDEFAULT = null;
+
+	/**
+	 * The default value of the '{@link #getPattern() <em>Pattern</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getPattern()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String PATTERN_EDEFAULT = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -336,6 +369,66 @@ public class ParameterImpl extends ObeoDSMObjectImpl implements Parameter {
 	 * @generated
 	 */
 	@Override
+	public String getMinimum() {
+		return (String)eDynamicGet(SoaPackage.PARAMETER__MINIMUM, SoaPackage.Literals.PARAMETER__MINIMUM, true, true);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void setMinimum(String newMinimum) {
+		eDynamicSet(SoaPackage.PARAMETER__MINIMUM, SoaPackage.Literals.PARAMETER__MINIMUM, newMinimum);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public String getMaximum() {
+		return (String)eDynamicGet(SoaPackage.PARAMETER__MAXIMUM, SoaPackage.Literals.PARAMETER__MAXIMUM, true, true);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void setMaximum(String newMaximum) {
+		eDynamicSet(SoaPackage.PARAMETER__MAXIMUM, SoaPackage.Literals.PARAMETER__MAXIMUM, newMaximum);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public String getPattern() {
+		return (String)eDynamicGet(SoaPackage.PARAMETER__PATTERN, SoaPackage.Literals.PARAMETER__PATTERN, true, true);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void setPattern(String newPattern) {
+		eDynamicSet(SoaPackage.PARAMETER__PATTERN, SoaPackage.Literals.PARAMETER__PATTERN, newPattern);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
 			case SoaPackage.PARAMETER__MEDIA_TYPE:
@@ -374,6 +467,12 @@ public class ParameterImpl extends ObeoDSMObjectImpl implements Parameter {
 			case SoaPackage.PARAMETER__REST_DATA:
 				if (resolve) return getRestData();
 				return basicGetRestData();
+			case SoaPackage.PARAMETER__MINIMUM:
+				return getMinimum();
+			case SoaPackage.PARAMETER__MAXIMUM:
+				return getMaximum();
+			case SoaPackage.PARAMETER__PATTERN:
+				return getPattern();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -415,6 +514,15 @@ public class ParameterImpl extends ObeoDSMObjectImpl implements Parameter {
 			case SoaPackage.PARAMETER__REST_DATA:
 				setRestData((ParameterRestData)newValue);
 				return;
+			case SoaPackage.PARAMETER__MINIMUM:
+				setMinimum((String)newValue);
+				return;
+			case SoaPackage.PARAMETER__MAXIMUM:
+				setMaximum((String)newValue);
+				return;
+			case SoaPackage.PARAMETER__PATTERN:
+				setPattern((String)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -454,6 +562,15 @@ public class ParameterImpl extends ObeoDSMObjectImpl implements Parameter {
 			case SoaPackage.PARAMETER__REST_DATA:
 				setRestData((ParameterRestData)null);
 				return;
+			case SoaPackage.PARAMETER__MINIMUM:
+				setMinimum(MINIMUM_EDEFAULT);
+				return;
+			case SoaPackage.PARAMETER__MAXIMUM:
+				setMaximum(MAXIMUM_EDEFAULT);
+				return;
+			case SoaPackage.PARAMETER__PATTERN:
+				setPattern(PATTERN_EDEFAULT);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -484,6 +601,12 @@ public class ParameterImpl extends ObeoDSMObjectImpl implements Parameter {
 				return STATUS_MESSAGE_EDEFAULT == null ? getStatusMessage() != null : !STATUS_MESSAGE_EDEFAULT.equals(getStatusMessage());
 			case SoaPackage.PARAMETER__REST_DATA:
 				return basicGetRestData() != null;
+			case SoaPackage.PARAMETER__MINIMUM:
+				return MINIMUM_EDEFAULT == null ? getMinimum() != null : !MINIMUM_EDEFAULT.equals(getMinimum());
+			case SoaPackage.PARAMETER__MAXIMUM:
+				return MAXIMUM_EDEFAULT == null ? getMaximum() != null : !MAXIMUM_EDEFAULT.equals(getMaximum());
+			case SoaPackage.PARAMETER__PATTERN:
+				return PATTERN_EDEFAULT == null ? getPattern() != null : !PATTERN_EDEFAULT.equals(getPattern());
 		}
 		return super.eIsSet(featureID);
 	}

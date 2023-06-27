@@ -999,6 +999,36 @@ public class SoaPackageImpl extends EPackageImpl implements SoaPackage {
 	 * @generated
 	 */
 	@Override
+	public EAttribute getParameter_Minimum() {
+		return (EAttribute)parameterEClass.getEStructuralFeatures().get(9);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getParameter_Maximum() {
+		return (EAttribute)parameterEClass.getEStructuralFeatures().get(10);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getParameter_Pattern() {
+		return (EAttribute)parameterEClass.getEStructuralFeatures().get(11);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public EClass getParameterRestData() {
 		return parameterRestDataEClass;
 	}
@@ -1676,6 +1706,9 @@ public class SoaPackageImpl extends EPackageImpl implements SoaPackage {
 		createEAttribute(parameterEClass, PARAMETER__STATUS_CODE);
 		createEAttribute(parameterEClass, PARAMETER__STATUS_MESSAGE);
 		createEReference(parameterEClass, PARAMETER__REST_DATA);
+		createEAttribute(parameterEClass, PARAMETER__MINIMUM);
+		createEAttribute(parameterEClass, PARAMETER__MAXIMUM);
+		createEAttribute(parameterEClass, PARAMETER__PATTERN);
 
 		parameterRestDataEClass = createEClass(PARAMETER_REST_DATA);
 		createEAttribute(parameterRestDataEClass, PARAMETER_REST_DATA__PASSING_MODE);
@@ -1882,6 +1915,9 @@ public class SoaPackageImpl extends EPackageImpl implements SoaPackage {
 		initEAttribute(getParameter_StatusCode(), ecorePackage.getEString(), "statusCode", null, 0, 1, Parameter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getParameter_StatusMessage(), ecorePackage.getEString(), "statusMessage", null, 0, 1, Parameter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getParameter_RestData(), this.getParameterRestData(), null, "restData", null, 0, 1, Parameter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getParameter_Minimum(), ecorePackage.getEString(), "minimum", null, 0, 1, Parameter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getParameter_Maximum(), ecorePackage.getEString(), "maximum", null, 0, 1, Parameter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getParameter_Pattern(), ecorePackage.getEString(), "pattern", null, 0, 1, Parameter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(parameterRestDataEClass, ParameterRestData.class, "ParameterRestData", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getParameterRestData_PassingMode(), this.getParameterPassingMode(), "passingMode", null, 0, 1, ParameterRestData.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

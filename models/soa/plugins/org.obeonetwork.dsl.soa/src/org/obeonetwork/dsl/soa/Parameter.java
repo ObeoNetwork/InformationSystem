@@ -33,6 +33,9 @@ import org.obeonetwork.dsl.environment.Type;
  *   <li>{@link org.obeonetwork.dsl.soa.Parameter#getStatusCode <em>Status Code</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.soa.Parameter#getStatusMessage <em>Status Message</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.soa.Parameter#getRestData <em>Rest Data</em>}</li>
+ *   <li>{@link org.obeonetwork.dsl.soa.Parameter#getMinimum <em>Minimum</em>}</li>
+ *   <li>{@link org.obeonetwork.dsl.soa.Parameter#getMaximum <em>Maximum</em>}</li>
+ *   <li>{@link org.obeonetwork.dsl.soa.Parameter#getPattern <em>Pattern</em>}</li>
  * </ul>
  *
  * @see org.obeonetwork.dsl.soa.SoaPackage#getParameter()
@@ -292,5 +295,71 @@ public interface Parameter extends ObeoDSMObject {
 	 * @generated
 	 */
 	void setRestData(ParameterRestData value);
+
+	/**
+	 * Returns the value of the '<em><b>Minimum</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Minimum</em>' attribute.
+	 * @see #setMinimum(String)
+	 * @see org.obeonetwork.dsl.soa.SoaPackage#getParameter_Minimum()
+	 * @model
+	 * @generated
+	 */
+	String getMinimum();
+
+	/**
+	 * Sets the value of the '{@link org.obeonetwork.dsl.soa.Parameter#getMinimum <em>Minimum</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Minimum</em>' attribute.
+	 * @see #getMinimum()
+	 * @generated
+	 */
+	void setMinimum(String value);
+
+	/**
+	 * Returns the value of the '<em><b>Maximum</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Maximum</em>' attribute.
+	 * @see #setMaximum(String)
+	 * @see org.obeonetwork.dsl.soa.SoaPackage#getParameter_Maximum()
+	 * @model
+	 * @generated
+	 */
+	String getMaximum();
+
+	/**
+	 * Sets the value of the '{@link org.obeonetwork.dsl.soa.Parameter#getMaximum <em>Maximum</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Maximum</em>' attribute.
+	 * @see #getMaximum()
+	 * @generated
+	 */
+	void setMaximum(String value);
+
+	/**
+	 * Returns the value of the '<em><b>Pattern</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Pattern</em>' attribute.
+	 * @see #setPattern(String)
+	 * @see org.obeonetwork.dsl.soa.SoaPackage#getParameter_Pattern()
+	 * @model
+	 * @generated
+	 */
+	String getPattern();
+
+	/**
+	 * Sets the value of the '{@link org.obeonetwork.dsl.soa.Parameter#getPattern <em>Pattern</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Pattern</em>' attribute.
+	 * @see #getPattern()
+	 * @generated
+	 */
+	void setPattern(String value);
 
 } // Parameter
