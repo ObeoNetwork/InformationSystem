@@ -184,16 +184,16 @@
       </ownedAttributes>
     </types>
     <types xsi:type="oenv:DTO" xmi:id="_msJ2k2xuEeuYi_YuNNGyqg" technicalid="_msAsbWxuEeuYi_YuNNGyqg" name="Language">
-      <ownedAttributes xmi:id="_msJ2lGxuEeuYi_YuNNGyqg" technicalid="_msB6r2xuEeuYi_YuNNGyqg" name="name">
+      <ownedAttributes xmi:id="_msJ2lGxuEeuYi_YuNNGyqg" technicalid="_msB6r2xuEeuYi_YuNNGyqg" name="name" minimum="0">
         <type xsi:type="oenv:PrimitiveType" href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5F-EKwKEd2XLNOhkJIazw"/>
       </ownedAttributes>
-      <ownedAttributes xmi:id="_msJ2lWxuEeuYi_YuNNGyqg" technicalid="_msB6sGxuEeuYi_YuNNGyqg" name="englishName">
+      <ownedAttributes xmi:id="_msJ2lWxuEeuYi_YuNNGyqg" technicalid="_msB6sGxuEeuYi_YuNNGyqg" name="englishName" minimum="0">
         <type xsi:type="oenv:PrimitiveType" href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5F-EKwKEd2XLNOhkJIazw"/>
       </ownedAttributes>
-      <ownedAttributes xmi:id="_msJ2lmxuEeuYi_YuNNGyqg" technicalid="_msB6sWxuEeuYi_YuNNGyqg" name="id">
+      <ownedAttributes xmi:id="_msJ2lmxuEeuYi_YuNNGyqg" technicalid="_msB6sWxuEeuYi_YuNNGyqg" name="id" minimum="3" maximum="100">
         <type xsi:type="oenv:PrimitiveType" href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_9dnH8bGqEd2SRpTkL4GntA"/>
       </ownedAttributes>
-      <ownedAttributes xmi:id="_msJ2l2xuEeuYi_YuNNGyqg" technicalid="_msB6smxuEeuYi_YuNNGyqg" name="abbreviation">
+      <ownedAttributes xmi:id="_msJ2l2xuEeuYi_YuNNGyqg" technicalid="_msB6smxuEeuYi_YuNNGyqg" name="abbreviation" pattern="/^[a-zA-Z]+$/">
         <type xsi:type="oenv:PrimitiveType" href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5F-EKwKEd2XLNOhkJIazw"/>
       </ownedAttributes>
     </types>
