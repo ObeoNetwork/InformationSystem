@@ -21,6 +21,7 @@ import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
+import org.eclipse.emf.edit.provider.ViewerNotification;
 import org.obeonetwork.dsl.environment.Attribute;
 import org.obeonetwork.dsl.environment.Enumeration;
 import org.obeonetwork.dsl.environment.EnvironmentPackage;
@@ -63,6 +64,9 @@ public class AttributeItemProvider extends PropertyItemProvider {
 			super.getPropertyDescriptors(object);
 
 			addTypePropertyDescriptor(object);
+			addMinimumPropertyDescriptor(object);
+			addMaximumPropertyDescriptor(object);
+			addPatternPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -112,6 +116,54 @@ public class AttributeItemProvider extends PropertyItemProvider {
 						return result.stream().distinct().collect(Collectors.toList());
 					};
 				});
+	}
+
+	/**
+	 * This adds a property descriptor for the Minimum feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addMinimumPropertyDescriptor(Object object) {
+		itemPropertyDescriptors
+				.add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
+						getResourceLocator(), getString("_UI_Attribute_minimum_feature"),
+						getString("_UI_PropertyDescriptor_description", "_UI_Attribute_minimum_feature",
+								"_UI_Attribute_type"),
+						EnvironmentPackage.Literals.ATTRIBUTE__MINIMUM, true, false, false,
+						ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Maximum feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addMaximumPropertyDescriptor(Object object) {
+		itemPropertyDescriptors
+				.add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
+						getResourceLocator(), getString("_UI_Attribute_maximum_feature"),
+						getString("_UI_PropertyDescriptor_description", "_UI_Attribute_maximum_feature",
+								"_UI_Attribute_type"),
+						EnvironmentPackage.Literals.ATTRIBUTE__MAXIMUM, true, false, false,
+						ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Pattern feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addPatternPropertyDescriptor(Object object) {
+		itemPropertyDescriptors
+				.add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
+						getResourceLocator(), getString("_UI_Attribute_pattern_feature"),
+						getString("_UI_PropertyDescriptor_description", "_UI_Attribute_pattern_feature",
+								"_UI_Attribute_type"),
+						EnvironmentPackage.Literals.ATTRIBUTE__PATTERN, true, false, false,
+						ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
 	}
 
 	private NamespacesContainer getRootNamespacesContainer(Enumeration enumeration) {
@@ -194,6 +246,14 @@ public class AttributeItemProvider extends PropertyItemProvider {
 	@Override
 	public void notifyChanged(Notification notification) {
 		updateChildren(notification);
+
+		switch (notification.getFeatureID(Attribute.class)) {
+		case EnvironmentPackage.ATTRIBUTE__MINIMUM:
+		case EnvironmentPackage.ATTRIBUTE__MAXIMUM:
+		case EnvironmentPackage.ATTRIBUTE__PATTERN:
+			fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
+			return;
+		}
 		super.notifyChanged(notification);
 	}
 
