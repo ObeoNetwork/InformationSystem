@@ -250,6 +250,23 @@ Le _DTO_ ainsi déplacé reste référencé là où il l'était, comme par exemp
 
 !{width:100%}pics/dto/DTO_Diagram_ExternalDTOs.png!
 
+h4(#value_constraints). Contraintes sur les valeurs des attributs d'une entité
+
+Les attributs d'un DTO sont pourvus de champs _minimum_, _maximum_ et/ou _pattern_.
+La nature de ces champs dépend de la nature du type du paramètre d'entrée : texte (essentiellement _String_) ou valeur numérique (_Long_, _Float_, etc.).
+
+Pour un paramètre dont le type est de nature texte :
+* _minimum_ : longueur minimale du texte
+* _maximum_ : longueur maximale du texte
+* _pattern_ : expression régulière (format ECMA 262) à laquelle le texte doit se conformer
+
+Pour un paramètre dont le type est de nature valeur numérique :
+* _minimum_ : valeur minimale requise
+* _maximum_ : valeur maximale autorisée
+* _pattern_ : non-applicable
+
+Ces champs sont utilisés lors de la génération d'une spécification OpenAPI.
+
 h2. Exposition des services et modélisation d'API Rest
 
 L'exposition d'un composant consiste à publier tout ou partie des services qu'il fournit de manière à les rendre accessibles à des clients (autres composants ou systèmes, et potentiellement au travers d'un réseau).
@@ -378,6 +395,23 @@ Pour un mode de passage _QUERY_, _COOKIE_ ou _HEADER_, l'identifiant REST permet
 Lorsque l'un de ces modes de passage est sélectionné dans la liste déroulante, la vue de propriétés affiche à côté de celle-ci une zone de texte libre permettant la saisie de l'identifiant :
 
 !pics/exposition/Properties_InputParameter_Exposition_Tab_PassingMode_QUERY.png!
+
+h6(#value_constraints). Contraintes sur les valeurs
+
+OpenAPI permet de plus de spécifier des contraintes sur les valeurs autorisées pour un paramètre d'entrée (ou plus généralement pour toute donnée typée).
+Ces contraintes sont représentées dans _SOA Designer_ via les champs _minimum_, _maximum_ et/ou _pattern_.
+L'interprétation de ces champs dépend de la nature du type du paramètre d'entrée : texte (essentiellement _String_) ou valeur numérique (_Long_, _Float_, etc.).
+
+Pour un paramètre dont le type est de nature texte :
+* _minimum_ : longueur minimale du texte
+* _maximum_ : longueur maximale du texte
+* _pattern_ : expression régulière (format ECMA 262) à laquelle le texte doit se conformer
+
+Pour un paramètre dont le type est de nature valeur numérique :
+* _minimum_ : valeur minimale requise
+* _maximum_ : valeur maximale autorisée
+* _pattern_ : non-applicable
+
 
 h5(#paginated_parameter). Modélisation d'un paramètre de pagination
 
@@ -520,7 +554,7 @@ h3. Export / Import au format Swagger OpenAPI
 
 h4. Export au format Swagger OpenAPI
 
-Une fois que les infomrations requises à la définition d'une _API Rest_ sont modélisées, il est possible de générer un fichier de spécification Swagger.
+Une fois que les informations requises à la définition d'une _API Rest_ sont modélisées, il est possible de générer un fichier de spécification Swagger.
 
 Une fonctionnalité de prévisualisation est disponible en menu contextuel du _Component_ :
 

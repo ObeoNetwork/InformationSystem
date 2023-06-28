@@ -156,6 +156,23 @@ Les éléments pris en compte pour la duplication sont ceux dont :
 
 !pics/entities/Dlg%20entity%20namespace%20from%20dto.png!
 
+h4(#value_constraints). Contraintes sur les valeurs des attributs d'une entité
+
+Les attributs d'une entité sont pourvus de champs _minimum_, _maximum_ et/ou _pattern_.
+La nature de ces champs dépend de la nature du type du paramètre d'entrée : texte (essentiellement _String_) ou valeur numérique (_Long_, _Float_, etc.).
+
+Pour un paramètre dont le type est de nature texte :
+* _minimum_ : longueur minimale du texte
+* _maximum_ : longueur maximale du texte
+* _pattern_ : expression régulière (format ECMA 262) à laquelle le texte doit se conformer
+
+Pour un paramètre dont le type est de nature valeur numérique :
+* _minimum_ : valeur minimale requise
+* _maximum_ : valeur maximale autorisée
+* _pattern_ : non-applicable
+
+Ces champs sont utilisés lors de la génération d'une spécification OpenAPI.
+
 h3. Table des entités
 
 La table des entités (_Entity table_) peut être créée sur l'objet racine _Entities_.

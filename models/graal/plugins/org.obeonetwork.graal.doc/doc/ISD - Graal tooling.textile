@@ -331,6 +331,23 @@ Les outils fournis par la palette sont :
 | !pics/diagrams/domainclasses/Create%20bidi%20composition.png! | Création d'une relation de contenance bidirectionnelle. |
 | !pics/diagrams/domainclasses/Create%20external.png! | Ajout d'une classe participante externe. Cet outil permet de faire apparaitre une classe participante définie dans un autre package pour créer des relations avec les classes du package courant. Cet outil est activable via le calque _External Domain Classes_ |
 
+h4(#value_constraints). Contraintes sur les valeurs des attributs d'une entité
+
+Les attributs d'une classe sont pourvus de champs _minimum_, _maximum_ et/ou _pattern_.
+La nature de ces champs dépend de la nature du type du paramètre d'entrée : texte (essentiellement _String_) ou valeur numérique (_Long_, _Float_, etc.).
+
+Pour un paramètre dont le type est de nature texte :
+* _minimum_ : longueur minimale du texte
+* _maximum_ : longueur maximale du texte
+* _pattern_ : expression régulière (format ECMA 262) à laquelle le texte doit se conformer
+
+Pour un paramètre dont le type est de nature valeur numérique :
+* _minimum_ : valeur minimale requise
+* _maximum_ : valeur maximale autorisée
+* _pattern_ : non-applicable
+
+Ces champs sont utilisés lors de la génération d'une spécification OpenAPI.
+
 
 h3. Gestion des User Stories
 
