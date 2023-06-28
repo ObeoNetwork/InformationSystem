@@ -29,7 +29,9 @@
 				<topic href="doc/ISD - SOA Designer.html#ModlisationdunTagOpenAPI" label="Modélisation d&apos;un Tag OpenAPI"></topic>
 				<topic href="doc/ISD - SOA Designer.html#ModlisationdunServiceOpenAPI" label="Modélisation d&apos;un Service OpenAPI"></topic>
 				<topic href="doc/ISD - SOA Designer.html#parameter" label="Modélisation d&apos;un paramètre">
-					<topic href="doc/ISD - SOA Designer.html#input_parameter" label="Modélisation d&apos;un paramètre d&apos;entrée"></topic>
+					<topic href="doc/ISD - SOA Designer.html#input_parameter" label="Modélisation d&apos;un paramètre d&apos;entrée">
+						<topic href="doc/ISD - SOA Designer.html#value_constraints" label="Contraintes sur les valeurs"></topic>
+					</topic>
 					<topic href="doc/ISD - SOA Designer.html#paginated_parameter" label="Modélisation d&apos;un paramètre de pagination"></topic>
 					<topic href="doc/ISD - SOA Designer.html#output_fault_parameter" label="Modélisation d&apos;un paramètre de retour ou d&apos;erreur"></topic>
 				</topic>

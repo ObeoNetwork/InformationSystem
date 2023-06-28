@@ -814,6 +814,42 @@
 		<p>
 			<img border="0" src="pics/exposition/Properties_InputParameter_Exposition_Tab_PassingMode_QUERY.png"/>
 		</p>
+		<h6 id="value_constraints">Contraintes sur les valeurs</h6>
+		<p>OpenAPI permet de plus de spécifier des contraintes sur les valeurs autorisées pour un paramètre d&#8217;entrée (ou plus généralement pour toute donnée typée).
+			<br/>Ces contraintes sont représentées dans 
+			<em>SOA Designer</em> via les champs 
+			<em>minimum</em>, 
+			<em>maximum</em> et/ou 
+			<em>pattern</em>.
+			<br/>L&#8217;interprétation de ces champs dépend de la nature du type du paramètre d&#8217;entrée : texte (essentiellement 
+			<em>String</em>) ou valeur numérique (
+			<em>Long</em>, 
+			<em>Float</em>, etc.).
+		</p>
+		<p>Pour un paramètre dont le type est de nature texte :</p>
+		<ul>
+			<li>
+				<em>minimum</em> : longueur minimale du texte
+			</li>
+			<li>
+				<em>maximum</em> : longueur maximale du texte
+			</li>
+			<li>
+				<em>pattern</em> : expression régulière (format ECMA 262) à laquelle le texte doit se conformer
+			</li>
+		</ul>
+		<p>Pour un paramètre dont le type est de nature valeur numérique :</p>
+		<ul>
+			<li>
+				<em>minimum</em> : valeur minimale requise
+			</li>
+			<li>
+				<em>maximum</em> : valeur maximale autorisée
+			</li>
+			<li>
+				<em>pattern</em> : non-applicable
+			</li>
+		</ul>
 		<h5 id="paginated_parameter">Modélisation d&#8217;un paramètre de pagination</h5>
 		<p>Lorsqu&#8217;une opération est définie comme étant paginée, des listes déroulantes apparaissent dans la vue des propriété de l&#8217;opération afin de spécifier les paramètres entrant pouvant être utilisés pour définir l&#8217;index de la page, ainsi que le nombre d'éléments par page.</p>
 		<p>
@@ -1067,7 +1103,7 @@
 		<p>Les extensions de propriétés sont générées lors d&#8217;un export Swagger et insérées dans le modèle lors d&#8217;un import Swagger.</p>
 		<h3 id="ExportImportauformatSwaggerOpenAPI">Export / Import au format Swagger OpenAPI</h3>
 		<h4 id="ExportauformatSwaggerOpenAPI">Export au format Swagger OpenAPI</h4>
-		<p>Une fois que les infomrations requises à la définition d&#8217;une 
+		<p>Une fois que les informations requises à la définition d&#8217;une 
 			<em>API Rest</em> sont modélisées, il est possible de générer un fichier de spécification Swagger.
 		</p>
 		<p>Une fonctionnalité de prévisualisation est disponible en menu contextuel du 

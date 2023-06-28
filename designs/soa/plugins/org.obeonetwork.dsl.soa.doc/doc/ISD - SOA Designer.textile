@@ -357,6 +357,23 @@ Lorsque l'un de ces modes de passage est sélectionné dans la liste déroulante
 
 !pics/exposition/Properties_InputParameter_Exposition_Tab_PassingMode_QUERY.png!
 
+h6(#value_constraints). Contraintes sur les valeurs
+
+OpenAPI permet de plus de spécifier des contraintes sur les valeurs autorisées pour un paramètre d'entrée (ou plus généralement pour toute donnée typée).
+Ces contraintes sont représentées dans _SOA Designer_ via les champs _minimum_, _maximum_ et/ou _pattern_.
+L'interprétation de ces champs dépend de la nature du type du paramètre d'entrée : texte (essentiellement _String_) ou valeur numérique (_Long_, _Float_, etc.).
+
+Pour un paramètre dont le type est de nature texte :
+* _minimum_ : longueur minimale du texte
+* _maximum_ : longueur maximale du texte
+* _pattern_ : expression régulière (format ECMA 262) à laquelle le texte doit se conformer
+
+Pour un paramètre dont le type est de nature valeur numérique :
+* _minimum_ : valeur minimale requise
+* _maximum_ : valeur maximale autorisée
+* _pattern_ : non-applicable
+
+
 h5(#paginated_parameter). Modélisation d'un paramètre de pagination
 
 Lorsqu'une opération est définie comme étant paginée, des listes déroulantes apparaissent dans la vue des propriété de l'opération afin de spécifier les paramètres entrant pouvant être utilisés pour définir l'index de la page, ainsi que le nombre d'éléments par page.
@@ -498,7 +515,7 @@ h3. Export / Import au format Swagger OpenAPI
 
 h4. Export au format Swagger OpenAPI
 
-Une fois que les infomrations requises à la définition d'une _API Rest_ sont modélisées, il est possible de générer un fichier de spécification Swagger.
+Une fois que les informations requises à la définition d'une _API Rest_ sont modélisées, il est possible de générer un fichier de spécification Swagger.
 
 Une fonctionnalité de prévisualisation est disponible en menu contextuel du _Component_ :
 
