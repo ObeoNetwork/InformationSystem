@@ -811,6 +811,41 @@
 				</td>
 			</tr>
 		</table>
+		<h4 id="value_constraints">Contraintes sur les valeurs des attributs d&#8217;une entité</h4>
+		<p>Les attributs d&#8217;une classe sont pourvus de champs 
+			<em>minimum</em>, 
+			<em>maximum</em> et/ou 
+			<em>pattern</em>.
+			<br/>La nature de ces champs dépend de la nature du type du paramètre d&#8217;entrée : texte (essentiellement 
+			<em>String</em>) ou valeur numérique (
+			<em>Long</em>, 
+			<em>Float</em>, etc.).
+		</p>
+		<p>Pour un paramètre dont le type est de nature texte :</p>
+		<ul>
+			<li>
+				<em>minimum</em> : longueur minimale du texte
+			</li>
+			<li>
+				<em>maximum</em> : longueur maximale du texte
+			</li>
+			<li>
+				<em>pattern</em> : expression régulière (format ECMA 262) à laquelle le texte doit se conformer
+			</li>
+		</ul>
+		<p>Pour un paramètre dont le type est de nature valeur numérique :</p>
+		<ul>
+			<li>
+				<em>minimum</em> : valeur minimale requise
+			</li>
+			<li>
+				<em>maximum</em> : valeur maximale autorisée
+			</li>
+			<li>
+				<em>pattern</em> : non-applicable
+			</li>
+		</ul>
+		<p>Ces champs sont utilisés lors de la génération d&#8217;une spécification OpenAPI.</p>
 		<h3 id="GestiondesUserStories">Gestion des User Stories</h3>
 		<p>Graal permet de modéliser des 
 			<em>User Stories</em>. Une user story permet de décrire un enchaînement de tâches et un parcours dans un plan d&#8217;actions.

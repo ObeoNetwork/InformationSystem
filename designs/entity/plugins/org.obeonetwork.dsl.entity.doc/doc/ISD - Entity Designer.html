@@ -291,6 +291,41 @@
 		<p>
 			<img border="0" src="pics/entities/Dlg%20entity%20namespace%20from%20dto.png"/>
 		</p>
+		<h4 id="value_constraints">Contraintes sur les valeurs des attributs d&#8217;une entité</h4>
+		<p>Les attributs d&#8217;une entité sont pourvus de champs 
+			<em>minimum</em>, 
+			<em>maximum</em> et/ou 
+			<em>pattern</em>.
+			<br/>La nature de ces champs dépend de la nature du type du paramètre d&#8217;entrée : texte (essentiellement 
+			<em>String</em>) ou valeur numérique (
+			<em>Long</em>, 
+			<em>Float</em>, etc.).
+		</p>
+		<p>Pour un paramètre dont le type est de nature texte :</p>
+		<ul>
+			<li>
+				<em>minimum</em> : longueur minimale du texte
+			</li>
+			<li>
+				<em>maximum</em> : longueur maximale du texte
+			</li>
+			<li>
+				<em>pattern</em> : expression régulière (format ECMA 262) à laquelle le texte doit se conformer
+			</li>
+		</ul>
+		<p>Pour un paramètre dont le type est de nature valeur numérique :</p>
+		<ul>
+			<li>
+				<em>minimum</em> : valeur minimale requise
+			</li>
+			<li>
+				<em>maximum</em> : valeur maximale autorisée
+			</li>
+			<li>
+				<em>pattern</em> : non-applicable
+			</li>
+		</ul>
+		<p>Ces champs sont utilisés lors de la génération d&#8217;une spécification OpenAPI.</p>
 		<h3 id="Tabledesentits">Table des entités</h3>
 		<p>La table des entités (
 			<em>Entity table</em>) peut être créée sur l&#8217;objet racine 
