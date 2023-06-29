@@ -62,8 +62,8 @@ public class ISObjectSelectionWizard extends Wizard {
 		page.setTreeSelectMode(treeSelectMode);
 	}
 	
-	public void setICheckBoxFilter(ICheckBoxFilter checkBoxFilter) {
-		page.setICheckBoxFilter(checkBoxFilter);
+	public void setCheckBoxFilter(ICheckBoxFilter checkBoxFilter) {
+		page.setCheckBoxFilter(checkBoxFilter);
 	}
 	
 	public void setSelectionInductor(ISelectionInductor selectionInductor) {

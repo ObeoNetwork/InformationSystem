@@ -141,7 +141,10 @@ public class EObjectTreeItemWrapper {
 		return allTreeItemWrappers;
 	}
 
-	public Collection<EObjectTreeItemWrapper> getAncestors() {
+	/**
+	 * @return A list of ancestors in ascending order, going from the parent of the given object to the root.
+	 */
+	public List<EObjectTreeItemWrapper> getAncestors() {
 		List<EObjectTreeItemWrapper> ancestors = new ArrayList<>();
 		EObjectTreeItemWrapper treeItemWrapper = this.parent;
 		while(treeItemWrapper != null) {

@@ -23,30 +23,36 @@ import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EStructuralFeature.Setting;
 import org.eclipse.emf.ecore.util.ECrossReferenceAdapter;
+import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.emf.ecore.util.EcoreUtil.CrossReferencer;
 import org.eclipse.jface.window.Window;
 import org.eclipse.sirius.business.api.query.EObjectQuery;
 import org.eclipse.sirius.business.api.session.Session;
 import org.eclipse.sirius.common.tools.api.interpreter.IInterpreter;
 import org.eclipse.sirius.tools.api.SiriusPlugin;
-import org.eclipse.swt.widgets.Shell;
-import org.eclipse.ui.PlatformUI;
 import org.obeonetwork.dsl.cinematic.AbstractPackage;
 import org.obeonetwork.dsl.cinematic.CinematicRoot;
-import org.obeonetwork.dsl.cinematic.design.dialogs.event.FlowstateEventSelectionDialog;
+import org.obeonetwork.dsl.cinematic.Event;
+import org.obeonetwork.dsl.cinematic.Package;
 import org.obeonetwork.dsl.cinematic.design.services.flows.FlowsUtil;
+import org.obeonetwork.dsl.cinematic.design.services.view.ViewUtil;
 import org.obeonetwork.dsl.cinematic.flow.Flow;
+import org.obeonetwork.dsl.cinematic.flow.FlowEvent;
 import org.obeonetwork.dsl.cinematic.flow.FlowPackage;
 import org.obeonetwork.dsl.cinematic.flow.FlowState;
 import org.obeonetwork.dsl.cinematic.flow.InitialState;
 import org.obeonetwork.dsl.cinematic.flow.SubflowState;
 import org.obeonetwork.dsl.cinematic.flow.Transition;
 import org.obeonetwork.dsl.cinematic.flow.ViewState;
+import org.obeonetwork.dsl.cinematic.toolkits.WidgetEventType;
 import org.obeonetwork.dsl.cinematic.view.ViewContainer;
-import org.obeonetwork.dsl.environment.design.wizards.EObjectCheckBoxFilter;
+import org.obeonetwork.dsl.cinematic.view.ViewEvent;
 import org.obeonetwork.dsl.environment.design.wizards.EObjectTreeItemWrapper;
 import org.obeonetwork.dsl.environment.design.wizards.ISObjectSelectionWizard;
 import org.obeonetwork.dsl.environment.design.wizards.ISObjectSelectionWizardPage;
+import org.obeonetwork.dsl.environment.design.wizards.TreeItemWrapperCheckBoxFilter;
+import org.obeonetwork.utils.common.EObjectUtils;
+
 /**
  * Services to use the flows
  * 
@@ -110,6 +116,121 @@ public class CinematicFlowServices {
 		return viewContainersAncestors;
 	}
 	
+	public List<EObject> getEventSelectionDialogChildren(EObject parent) {
+		List<EObject> children = new ArrayList<>();
+		
+		if(parent instanceof Flow) {
+			Flow flow = (Flow) parent;
+			children.addAll(flow.getEvents());
+		} else if(parent instanceof Package) {
+			Package aPackage = (Package) parent;
+			children.addAll(aPackage.getSubPackages());
+			children.addAll(aPackage.getViewContainers());
+		} else if(parent instanceof ViewContainer) {
+			ViewContainer viewContainer = (ViewContainer) parent;
+			children.addAll(viewContainer.getWidget().getPossibleEvents());
+			children.addAll(viewContainer.getViewContainers());
+		}
+		
+		return children;
+	}
+	
+	public void openEventSelectionDialog(Transition transition) {
+		IInterpreter interpreter = SiriusPlugin.getDefault().getInterpreterRegistry().getInterpreter(transition);
+		
+		String windowTitle = "Event selection";
+		String message = "Select the events triggering this transition.";
+		
+		CinematicRoot cinematicRoot = FlowsUtil.getCinematicRoot(transition);
+		List<EObject> roots = new ArrayList<>();
+		roots.add(EObjectUtils.getContainer(transition, Flow.class));
+		roots.addAll(cinematicRoot.getViewContainers());
+		roots.addAll(cinematicRoot.getSubPackages());
+		
+		String childrenExpression = "aql:self.getEventSelectionDialogChildren()";
+		String selectableCondition = "aql:self.oclIsKindOf(flow::FlowEvent) or self.oclIsKindOf(toolkits::WidgetEventType)";
+		
+		EObjectTreeItemWrapper treeRoot = new EObjectTreeItemWrapper(interpreter, childrenExpression, selectableCondition);
+		for(EObject root : roots) {
+			new EObjectTreeItemWrapper(treeRoot, root);
+		}
+		
+        final ISObjectSelectionWizard wizard = new ISObjectSelectionWizard(
+        		windowTitle, 
+        		message, 
+        		null, 
+        		treeRoot,
+        		true);
+		
+        wizard.setLevelToExpand(2);
+        
+        List<EObjectTreeItemWrapper> preSelectedTreeItemWrappers = 
+        		treeRoot.getAllSelectableTreeItemWrappers().stream()
+        		.filter(tiw -> transition.getOn().stream().anyMatch(event -> treeItemWrapperMatchesEvent(tiw, event)))
+        		.collect(toList());
+                
+		wizard.setPreSelectedTreeItemWrappers(preSelectedTreeItemWrappers);
+        
+		EList<ViewContainer> contextualViewContainers = ((ViewState) transition.getFrom()).getViewContainers();
+        wizard.setCheckBoxFilter(new TreeItemWrapperCheckBoxFilter("Hide non contextual View Containers", true) {
+			@Override
+			public boolean filter(EObjectTreeItemWrapper treeItemWrapper) {
+				List<EObjectTreeItemWrapper> ancestors = treeItemWrapper.getAncestors();
+				return !(ancestors.get(ancestors.size() - 2).getWrappedEObject() instanceof Flow) &&
+						!ancestors.stream()
+						.map(tiw -> tiw.getWrappedEObject())
+						.filter(ViewContainer.class::isInstance).map(ViewContainer.class::cast)
+						.anyMatch(vc -> contextualViewContainers.contains(vc));
+			}
+		});
+        
+        if(wizard.open() == Window.OK) {
+        	Collection<EObjectTreeItemWrapper> selectedTreeItemWrappers = wizard.getSelectedTreeItemWrappers();
+        	
+        	List<Event> removedEvents = transition.getOn().stream()
+        			.filter(event -> selectedTreeItemWrappers.stream().noneMatch(tiw -> treeItemWrapperMatchesEvent(tiw, event)))
+        			.collect(toList());
+        	
+        	List<EObjectTreeItemWrapper> addedEvents = selectedTreeItemWrappers.stream()
+        			.filter(tiw -> transition.getOn().stream().noneMatch(event -> treeItemWrapperMatchesEvent(tiw, event)))
+        			.collect(toList());
+        	
+        	// Get or create a View Event for each added event
+        	addedEvents.forEach(addedEvent -> {
+        		if(addedEvent.getWrappedEObject() instanceof FlowEvent) {
+        			transition.getOn().add((FlowEvent) addedEvent.getWrappedEObject());
+        		} else if(addedEvent.getWrappedEObject() instanceof WidgetEventType) {
+            		transition.getOn().add(ViewUtil.getOrCreateViewEvent(
+                			(ViewContainer)addedEvent.getParent().getWrappedEObject(), 
+                			(WidgetEventType)addedEvent.getWrappedEObject()));
+        		}
+        	});
+        	
+        	// Remove the unselected events
+        	transition.getOn().removeAll(removedEvents);
+        	
+        	// Delete the unselected ViewEvents not referenced by any other transition
+        	removedEvents.stream()
+        	.filter(ViewEvent.class::isInstance).map(ViewEvent.class::cast)
+        	.filter(viewEvent -> new EObjectQuery(viewEvent).getInverseReferences(FlowPackage.eINSTANCE.getTransition_On()).isEmpty())
+        	.forEach(viewEvent -> EcoreUtil.remove(viewEvent));
+        }
+        
+	}
+	
+	private boolean treeItemWrapperMatchesEvent(EObjectTreeItemWrapper treeItemWrapper, Event event) {
+		boolean match = false;
+		
+		if(event instanceof FlowEvent) {
+			match = treeItemWrapper.getWrappedEObject() == event;
+		} else if(event instanceof ViewEvent) {
+			match = treeItemWrapper.getWrappedEObject() == ((ViewEvent)event).getType() &&
+					treeItemWrapper.getParent().getWrappedEObject() == event.eContainer();
+		}
+		
+		return match;
+	}
+	
 	public void openViewContainerSelectionDialog(ViewState viewState) {
 		IInterpreter interpreter = SiriusPlugin.getDefault().getInterpreterRegistry().getInterpreter(viewState);
 		
@@ -124,17 +245,16 @@ public class CinematicFlowServices {
 		String childrenExpression = "aql:self.viewContainers + if self.oclIsKindOf(cinematic::Package) then self.subPackages else Sequence{} endif";
 		String selectableCondition = "aql:self.oclIsKindOf(view::ViewContainer)";
 		
-		EObjectTreeItemWrapper input = new EObjectTreeItemWrapper(interpreter, childrenExpression, selectableCondition);
-		
+		EObjectTreeItemWrapper treeRoot = new EObjectTreeItemWrapper(interpreter, childrenExpression, selectableCondition);
 		for(EObject root : roots) {
-			new EObjectTreeItemWrapper(input, root);
+			new EObjectTreeItemWrapper(treeRoot, root);
 		}
 		
         final ISObjectSelectionWizard wizard = new ISObjectSelectionWizard(
         		windowTitle, 
         		message, 
         		null, 
-        		input,
+        		treeRoot,
         		true);
 		
         wizard.setLevelToExpand(3);
@@ -153,11 +273,10 @@ public class CinematicFlowServices {
         		.flatMap(vs -> vs.getViewContainers().stream())
         		.collect(toSet());
         		
-        wizard.setICheckBoxFilter(new EObjectCheckBoxFilter("Hide View Containers bound to other View States", true) {
-			
+        wizard.setCheckBoxFilter(new TreeItemWrapperCheckBoxFilter("Hide View Containers bound to other View States", true) {
 			@Override
-			public boolean filterEObject(EObject eObject) {
-				return alreadyBoundViewContainers.contains(eObject);
+			public boolean filter(EObjectTreeItemWrapper treeItemWrapper) {
+				return alreadyBoundViewContainers.contains(treeItemWrapper.getWrappedEObject());
 			}
 		});
         
@@ -176,13 +295,6 @@ public class CinematicFlowServices {
 		aPackage.getSubPackages().stream().forEach(sp -> collectAllPackages(allPackages, sp));
 	}
 
-	public void openEventSelectionDialog(Transition transition) {
-		Shell shell = PlatformUI.getWorkbench().getActiveWorkbenchWindow().getShell();
-		
-		FlowstateEventSelectionDialog dialog = new FlowstateEventSelectionDialog(shell, transition);
-		dialog.open();
-	}
-	
 	public static boolean isSubViewContainer(ViewContainer container) {
 		return container.eContainer() instanceof ViewContainer;
 	}

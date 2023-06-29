@@ -126,7 +126,7 @@ public class ISObjectSelectionWizardPage extends AbstractSelectionWizardPage {
 		this.treeSelectMode  = treeSelectMode;
 	}
 	
-	public void setICheckBoxFilter(ICheckBoxFilter checkBoxFilter) {
+	public void setCheckBoxFilter(ICheckBoxFilter checkBoxFilter) {
 		this.checkBoxFilter  = checkBoxFilter;
 	}
 	
@@ -154,9 +154,11 @@ public class ISObjectSelectionWizardPage extends AbstractSelectionWizardPage {
         
         viewerFilter.setTreeViewer(treeViewer);
         
-        expandTreeViewer();
+        // We need to expand all the tree to be able to find the preselected TreeItems
+        // any other idea is welcomed
+        treeViewer.expandAll();
         
-//        initRootPrefix();
+//        initRootPrefix(); 
         
         if(!preSelectedTreeItemWrappers.isEmpty()) {
         	ArrayList<TreeItem> preSelectedTreeItems = new ArrayList<>();
@@ -167,6 +169,10 @@ public class ISObjectSelectionWizardPage extends AbstractSelectionWizardPage {
         			.map(EObjectTreeItemWrapper.class::cast)
         			.collect(toList()));
         }
+        
+        // Expand the tree according to the 'expanded' and 'levelToExpand' values
+        treeViewer.collapseAll();
+        expandTreeViewer();
         
         treeViewer.refresh();
         
@@ -300,6 +306,9 @@ public class ISObjectSelectionWizardPage extends AbstractSelectionWizardPage {
 //    /**
 //     * Compute a common prefix for all items.
 //     */
+// FIXME Doesn't work with the checkbox filter. The appropriate behavior would probably be
+//       to reinitialize the root prefix when the filter checkbox is unselected but it doesn't
+//       work as expected. No time to dig further into that right now. Topic stays open.
 //    private void initRootPrefix() {
 //        String prefix = null;
 //        boolean again = true;

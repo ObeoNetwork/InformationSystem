@@ -11,7 +11,6 @@
 package org.obeonetwork.dsl.cinematic.design.services.view;
 
 import java.util.ArrayList;
-import java.util.Collection;
 import java.util.List;
 import java.util.Optional;
 
@@ -19,33 +18,10 @@ import org.obeonetwork.dsl.cinematic.toolkits.WidgetEventType;
 import org.obeonetwork.dsl.cinematic.view.AbstractViewElement;
 import org.obeonetwork.dsl.cinematic.view.ViewContainer;
 import org.obeonetwork.dsl.cinematic.view.ViewContainerReference;
-import org.obeonetwork.dsl.cinematic.view.ViewElement;
 import org.obeonetwork.dsl.cinematic.view.ViewEvent;
 import org.obeonetwork.dsl.cinematic.view.ViewFactory;
 
 public class ViewUtil {
-	public static Collection<AbstractViewElement> getAssociatedAbstractViewElements(ViewContainer container) {
-		Collection<AbstractViewElement> elements = new ArrayList<AbstractViewElement>();
-
-		// Add children
-		for (AbstractViewElement child : container.getOwnedElements()) {
-			if (child instanceof ViewElement) {
-				elements.add(child);
-			} else if (child instanceof ViewContainer) {
-				elements.add(child);
-				elements.addAll(getAssociatedAbstractViewElements((ViewContainer) child));
-			} else if (child instanceof ViewContainerReference) {
-				ViewContainerReference vcr = (ViewContainerReference) child;
-				if (vcr.getViewContainer() != null) {
-					ViewContainer refContainer = vcr.getViewContainer();
-					elements.add(refContainer);
-					elements.addAll(getAssociatedAbstractViewElements(refContainer));
-				}
-			}
-		}
-
-		return elements;
-	}
 
 	/**
 	 * Return list of viewContainer present in its ownedElements.
