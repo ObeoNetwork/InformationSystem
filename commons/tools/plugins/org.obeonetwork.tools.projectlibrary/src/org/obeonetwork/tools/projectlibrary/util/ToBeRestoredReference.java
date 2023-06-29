@@ -15,22 +15,24 @@ import org.eclipse.emf.ecore.EStructuralFeature;
 
 /**
  * Represents a reference to be restored
+ * 
  * @author <a href="mailto:stephane.thibaudeau@obeo.fr">Stephane Thibaudeau</a>
  *
  */
 public class ToBeRestoredReference {
 
 	private EObject sourceObject;
-	
+
 	private EStructuralFeature referencingFeature;
-	
+
 	private String targetKey;
-	
+
 	private Integer position;
-	
+
 	private boolean canBeRestored = false;
-	
-	public ToBeRestoredReference(EObject sourceObject, EStructuralFeature referencingFeature, String targetKey, Integer position, boolean canBeRestored) {
+
+	public ToBeRestoredReference(EObject sourceObject, EStructuralFeature referencingFeature, String targetKey,
+			Integer position, boolean canBeRestored) {
 		super();
 		this.sourceObject = sourceObject;
 		this.referencingFeature = referencingFeature;

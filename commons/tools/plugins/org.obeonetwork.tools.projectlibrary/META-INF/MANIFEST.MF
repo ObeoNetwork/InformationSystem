@@ -18,7 +18,8 @@ Require-Bundle: org.eclipse.ui,
  org.eclipse.ui.ide,
  org.eclipse.sirius.ecore.extender,
  org.eclipse.sirius.common,
- org.obeonetwork.utils.common
+ org.obeonetwork.utils.common,
+ org.obeonetwork.dsl.environment
 Eclipse-LazyStart: true
 Bundle-RequiredExecutionEnvironment: JavaSE-1.8
 Bundle-ActivationPolicy: lazy
