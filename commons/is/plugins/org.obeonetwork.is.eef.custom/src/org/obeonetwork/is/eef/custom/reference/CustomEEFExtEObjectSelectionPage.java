@@ -48,8 +48,8 @@ import org.eclipse.ui.dialogs.PatternFilter;
 @SuppressWarnings("restriction")
 public class CustomEEFExtEObjectSelectionPage extends WizardPage {
 
-	private static final String INVALID_SELECTION_IN_TREEVIEWER_ERROR_MESSAGE = "La sélection doit être du type attendu.";
-	private static final String NO_SELECTION_IN_TREEVIEWER_ERROR_MESSAGE = "Nécessite une valeur.";
+	private static final String INVALID_SELECTION_IN_TREEVIEWER_ERROR_MESSAGE = "Selection must be a %s.";
+	private static final String NO_SELECTION_IN_TREEVIEWER_ERROR_MESSAGE = "No value selected.";
 
 	private final class TreeViewerPatternFilter extends PatternFilter {
 		private boolean isLeaf(Object element){
@@ -193,7 +193,7 @@ public class CustomEEFExtEObjectSelectionPage extends WizardPage {
 	private void determinePageCompletion() {
 		this.setMessage(null);
 		boolean isPageComplete = this.isCompleteViewer(true, this.eReferenceTreeViewer, NO_SELECTION_IN_TREEVIEWER_ERROR_MESSAGE, (viewer) -> this.getEObject(viewer) != null);
-		isPageComplete = this.isCompleteViewer(isPageComplete, this.eReferenceTreeViewer, INVALID_SELECTION_IN_TREEVIEWER_ERROR_MESSAGE, (viewer) -> this.eReference.getEType().isInstance(this.getEObject(viewer)));
+		isPageComplete = this.isCompleteViewer(isPageComplete, this.eReferenceTreeViewer, String.format(INVALID_SELECTION_IN_TREEVIEWER_ERROR_MESSAGE, this.eReference.getEType().getName()), (viewer) -> this.eReference.getEType().isInstance(this.getEObject(viewer)));
 		this.setPageComplete(isPageComplete);
 	}
 
