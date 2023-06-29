@@ -18,6 +18,9 @@ import org.eclipse.jface.wizard.Wizard;
 import org.eclipse.sirius.common.ui.tools.api.selection.WizardDialogClosableByWizard;
 import org.eclipse.swt.widgets.Shell;
 import org.eclipse.ui.PlatformUI;
+import org.obeonetwork.dsl.environment.design.wizards.ISObjectSelectionWizardPage.ICheckBoxFilter;
+import org.obeonetwork.dsl.environment.design.wizards.ISObjectSelectionWizardPage.IPageCompleteTester;
+import org.obeonetwork.dsl.environment.design.wizards.ISObjectSelectionWizardPage.ISelectionInductor;
 
 public class ISObjectSelectionWizard extends Wizard {
 
@@ -53,6 +56,14 @@ public class ISObjectSelectionWizard extends Wizard {
 
 	public void setLevelToExpand(int levelToExpand) {
 		page.setLevelToExpand(levelToExpand);
+	}
+	
+	public void setTreeSelectMode(int treeSelectMode) {
+		page.setTreeSelectMode(treeSelectMode);
+	}
+	
+	public void setICheckBoxFilter(ICheckBoxFilter checkBoxFilter) {
+		page.setICheckBoxFilter(checkBoxFilter);
 	}
 	
 	public void setSelectionInductor(ISelectionInductor selectionInductor) {

@@ -58,11 +58,12 @@ import org.obeonetwork.dsl.environment.Reference;
 import org.obeonetwork.dsl.environment.StructuredType;
 import org.obeonetwork.dsl.environment.TypesDefinition;
 import org.obeonetwork.dsl.environment.design.ui.CreateStructuredTypesFromOthersWizard;
-import org.obeonetwork.dsl.environment.design.wizards.ISObjectSelectionWizard;
 import org.obeonetwork.dsl.environment.design.wizards.EObjectSelectionInductor;
 import org.obeonetwork.dsl.environment.design.wizards.EObjectTreeItemWrapper;
-import org.obeonetwork.dsl.environment.design.wizards.IPageCompleteTester;
+import org.obeonetwork.dsl.environment.design.wizards.ISObjectSelectionWizard;
+import org.obeonetwork.dsl.environment.design.wizards.ISObjectSelectionWizardPage.IPageCompleteTester;
 import org.obeonetwork.utils.common.EObjectUtils;
+
 public class TypesServices {
 	
 	private static final String ENTITY = "Entity";

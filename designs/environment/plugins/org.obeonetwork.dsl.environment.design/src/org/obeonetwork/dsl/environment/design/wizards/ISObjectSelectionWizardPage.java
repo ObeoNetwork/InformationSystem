@@ -41,17 +41,20 @@ import org.eclipse.jface.viewers.ViewerFilter;
 import org.eclipse.sirius.common.tools.api.util.StringMatcher;
 import org.eclipse.sirius.common.ui.tools.api.selection.page.AbstractSelectionWizardPage;
 import org.eclipse.sirius.common.ui.tools.api.util.SWTUtil;
-import org.eclipse.sirius.common.ui.tools.api.view.common.item.CommonItem;
 import org.eclipse.sirius.common.ui.tools.api.view.common.item.ItemDecorator;
 import org.eclipse.sirius.diagram.ui.provider.DiagramUIPlugin;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.events.ModifyEvent;
 import org.eclipse.swt.events.ModifyListener;
 import org.eclipse.swt.events.MouseListener;
+import org.eclipse.swt.events.SelectionAdapter;
+import org.eclipse.swt.events.SelectionEvent;
 import org.eclipse.swt.graphics.Image;
 import org.eclipse.swt.layout.GridData;
 import org.eclipse.swt.layout.GridLayout;
+import org.eclipse.swt.widgets.Button;
 import org.eclipse.swt.widgets.Composite;
+import org.eclipse.swt.widgets.Control;
 import org.eclipse.swt.widgets.Text;
 import org.eclipse.swt.widgets.TreeItem;
 import org.obeonetwork.utils.common.ui.handlers.SelectionHelper;
@@ -83,6 +86,13 @@ public class ISObjectSelectionWizardPage extends AbstractSelectionWizardPage {
 	private ISelectionInductor selectionInductor = null;
 
 	private IPageCompleteTester pageCompleteTester = null;
+	
+	public static final int HIERARCHIC = 0;
+	public static final int PICK_ANY = 1;
+	private int treeSelectMode = HIERARCHIC;
+
+	private ICheckBoxFilter checkBoxFilter = null;
+	
 
     public ISObjectSelectionWizardPage(
     		String pageName, 
@@ -105,6 +115,21 @@ public class ISObjectSelectionWizardPage extends AbstractSelectionWizardPage {
 		this.levelToExpand = levelToExpand;
 	}
     
+	/**
+	 * Set the behavior of the selection in the tree.
+	 * Valid values are HIERARCHIC and PICK_ANY.
+	 * Default value is HIERARCHIC.
+	 * 
+	 * @param treeSelectMode
+	 */
+	public void setTreeSelectMode(int treeSelectMode) {
+		this.treeSelectMode  = treeSelectMode;
+	}
+	
+	public void setICheckBoxFilter(ICheckBoxFilter checkBoxFilter) {
+		this.checkBoxFilter  = checkBoxFilter;
+	}
+	
     @Override
     public void createControl(final Composite parent) {
         initializeDialogUnits(parent);
@@ -113,20 +138,25 @@ public class ISObjectSelectionWizardPage extends AbstractSelectionWizardPage {
         pageComposite.setLayout(new GridLayout());
         pageComposite.setLayoutData(new GridData(SWT.FILL, SWT.FILL, false, false));
 
+        if(checkBoxFilter != null) {
+        	createFilterCheckBox(pageComposite);
+        }
+        
         createSelectionGroup(pageComposite);
         
         treeViewer = createTreeViewer(pageComposite);
-        treeViewer.setInput(this.treeRoot);
 
-        viewerFilter.setTreeViewer(treeViewer);
-
-        if(expanded) {
-            treeViewer.expandAll();
-        } else if(levelToExpand != null) {
-            treeViewer.expandToLevel(levelToExpand);
+        if(checkBoxFilter != null) {
+    		viewerFilter.setFilterActive(checkBoxFilter.getDefaultCheckValue());
         }
+
+        treeViewer.setInput(this.treeRoot);
         
-        initRootPrefix();
+        viewerFilter.setTreeViewer(treeViewer);
+        
+        expandTreeViewer();
+        
+//        initRootPrefix();
         
         if(!preSelectedTreeItemWrappers.isEmpty()) {
         	ArrayList<TreeItem> preSelectedTreeItems = new ArrayList<>();
@@ -147,7 +177,36 @@ public class ISObjectSelectionWizardPage extends AbstractSelectionWizardPage {
         setControl(pageComposite);
     }
 
-    private void collectPreSelectedTreeItems(List<TreeItem> preSelectedItems, TreeItem[] items) {
+	private void expandTreeViewer() {
+		if(expanded) {
+            treeViewer.expandAll();
+        } else if(levelToExpand != null) {
+            treeViewer.expandToLevel(levelToExpand);
+        }
+	}
+
+    private Control createFilterCheckBox(Composite parent) {
+		Button checkButton = new Button(parent, SWT.CHECK);
+
+		checkButton.setText(checkBoxFilter.getLabel());
+		
+		checkButton.setSelection(checkBoxFilter.getDefaultCheckValue());
+
+		checkButton.addSelectionListener(new SelectionAdapter() {
+
+			@Override
+			public void widgetSelected(SelectionEvent e) {
+				viewerFilter.setFilterActive(checkButton.getSelection());
+				expandTreeViewer();
+				treeViewer.refresh();
+			}
+			
+		});		
+		
+		return checkButton;
+	}
+
+	private void collectPreSelectedTreeItems(List<TreeItem> preSelectedItems, TreeItem[] items) {
 		for(int i = 0; i < items.length; i++) {
 			if(preSelectedTreeItemWrappers.contains((EObjectTreeItemWrapper)items[i].getData()) && ! preSelectedItems.contains(items[i])) {
 				preSelectedItems.add(items[i]);
@@ -238,82 +297,82 @@ public class ISObjectSelectionWizardPage extends AbstractSelectionWizardPage {
         return viewer;
     }
 
-    /**
-     * Compute a common prefix for all items.
-     */
-    private void initRootPrefix() {
-        String prefix = null;
-        boolean again = true;
-
-        final int count = this.treeViewer.getTree().getItemCount();
-
-        for (int i = 0; i < count && again; i++) {
-            final TreeItem treeItem = this.treeViewer.getTree().getItem(i);
-            prefix = computeCommonPrefix(prefix, treeItem);
-            if (prefix == null) {
-                again = false;
-            } else {
-                prefix = computeChildrenPrefix(prefix, treeItem);
-                if (prefix == null) {
-                    again = false;
-                }
-            }
-
-        }
-        if (prefix != null) {
-            this.elementsToSelectText.setText(prefix);
-            this.elementsToSelectText.setSelection(prefix.length());
-        }
-    }
-
-    private String computeChildrenPrefix(final String oldPrefix, final TreeItem parent) {
-        String prefix = oldPrefix;
-        boolean again = true;
-
-        final int count = parent.getItemCount();
-
-        for (int i = 0; i < count && again; i++) {
-            final TreeItem treeItem = parent.getItem(i);
-            prefix = computeCommonPrefix(prefix, treeItem);
-            if (prefix == null) {
-                again = false;
-            } else {
-                prefix = computeChildrenPrefix(prefix, treeItem);
-                if (prefix == null) {
-                    again = false;
-                }
-            }
-        }
-        return prefix;
-    }
-
-    private String computeCommonPrefix(final String oldPrefix, final TreeItem treeItem) {
-        String prefix = oldPrefix;
-        if (prefix == null) {
-            // the prefix is equal to the first item (default)
-            prefix = treeItem.getText();
-        } else {
-            if (!treeItem.getText().startsWith(prefix)) {
-                // we must find a new prefix.
-                int searchIndex = Math.min(prefix.length() - 1, treeItem.getText().length());
-                String newPrefix = null;
-                while (searchIndex > 0 && newPrefix == null) {
-                    if (treeItem.getText().startsWith(prefix.substring(0, searchIndex))) {
-                        newPrefix = prefix.substring(0, searchIndex);
-                    } else {
-                        searchIndex--;
-                    }
-                }
-                if (newPrefix != null) {
-                    prefix = newPrefix;
-                } else {
-                    // no common prefix found.
-                    prefix = null;
-                }
-            }
-        }
-        return prefix;
-    }
+//    /**
+//     * Compute a common prefix for all items.
+//     */
+//    private void initRootPrefix() {
+//        String prefix = null;
+//        boolean again = true;
+//
+//        final int count = this.treeViewer.getTree().getItemCount();
+//
+//        for (int i = 0; i < count && again; i++) {
+//            final TreeItem treeItem = this.treeViewer.getTree().getItem(i);
+//            prefix = computeCommonPrefix(prefix, treeItem);
+//            if (prefix == null) {
+//                again = false;
+//            } else {
+//                prefix = computeChildrenPrefix(prefix, treeItem);
+//                if (prefix == null) {
+//                    again = false;
+//                }
+//            }
+//
+//        }
+//        if (prefix != null) {
+//            this.elementsToSelectText.setText(prefix);
+//            this.elementsToSelectText.setSelection(prefix.length());
+//        }
+//    }
+//
+//    private String computeChildrenPrefix(final String oldPrefix, final TreeItem parent) {
+//        String prefix = oldPrefix;
+//        boolean again = true;
+//
+//        final int count = parent.getItemCount();
+//
+//        for (int i = 0; i < count && again; i++) {
+//            final TreeItem treeItem = parent.getItem(i);
+//            prefix = computeCommonPrefix(prefix, treeItem);
+//            if (prefix == null) {
+//                again = false;
+//            } else {
+//                prefix = computeChildrenPrefix(prefix, treeItem);
+//                if (prefix == null) {
+//                    again = false;
+//                }
+//            }
+//        }
+//        return prefix;
+//    }
+//
+//    private String computeCommonPrefix(final String oldPrefix, final TreeItem treeItem) {
+//        String prefix = oldPrefix;
+//        if (prefix == null) {
+//            // the prefix is equal to the first item (default)
+//            prefix = treeItem.getText();
+//        } else {
+//            if (!treeItem.getText().startsWith(prefix)) {
+//                // we must find a new prefix.
+//                int searchIndex = Math.min(prefix.length() - 1, treeItem.getText().length());
+//                String newPrefix = null;
+//                while (searchIndex > 0 && newPrefix == null) {
+//                    if (treeItem.getText().startsWith(prefix.substring(0, searchIndex))) {
+//                        newPrefix = prefix.substring(0, searchIndex);
+//                    } else {
+//                        searchIndex--;
+//                    }
+//                }
+//                if (newPrefix != null) {
+//                    prefix = newPrefix;
+//                } else {
+//                    // no common prefix found.
+//                    prefix = null;
+//                }
+//            }
+//        }
+//        return prefix;
+//    }
 
     public EObjectTreeItemWrapper getSelectedTreeItemWrapper() {
         return selectedTreeItemWrapers.stream().findFirst().orElse(null);
@@ -469,6 +528,8 @@ public class ISObjectSelectionWizardPage extends AbstractSelectionWizardPage {
         private String regExp;
 
         private TreeViewer treeViewer;
+        
+        private boolean filterActive = false;
 
         /**
          * Set a prefix to the filter.
@@ -483,40 +544,47 @@ public class ISObjectSelectionWizardPage extends AbstractSelectionWizardPage {
             }
         }
 
-        @Override
+        public void setFilterActive(boolean filterActive) {
+        	this.filterActive = filterActive;
+            if (treeViewer != null) {
+                treeViewer.refresh();
+            }
+		}
+
+		@Override
         public boolean select(final Viewer viewer, final Object parentElement, final Object element) {
 
-            boolean selected = false;
-            Object element2 = null;
+            boolean selected = true;
+            EObject eObject = null;
 
             if (element instanceof EObjectTreeItemWrapper) {
+            	
+            	EObjectTreeItemWrapper treeItemWrapper = (EObjectTreeItemWrapper) element;
+            	
+                // Select parent if child should be selected
+            	if(treeItemWrapper.getChildren().stream()
+            			.anyMatch(child -> select(viewer, element, child))) {
+            		return true;
+            	}
 
-                /* select parent if child should be selected */
-                for (final EObjectTreeItemWrapper childItem : ((EObjectTreeItemWrapper) element).getChildren()) {
-                    if (select(viewer, element, childItem)) {
-                        return true;
+            	if(!treeItemWrapper.isSelectable()) {
+            		return false;
+            	}
+            	
+                eObject = ((EObjectTreeItemWrapper) element).getWrappedEObject();
+
+                if(checkBoxFilter != null && filterActive) {
+                	selected = !checkBoxFilter.filter(treeItemWrapper);
+                }
+
+                if (selected && regExp != null && !regExp.isEmpty() && treeViewer != null) {
+                    String text = ((ILabelProvider) treeViewer.getLabelProvider()).getText(eObject);
+                    if (text != null) {
+                        selected = getStringMatcher().match(text);
                     }
                 }
-
-                element2 = ((EObjectTreeItemWrapper) element).getWrappedEObject();
-
-            } else {
-                element2 = element;
             }
-
-            if (element2 instanceof EObject || element2 instanceof CommonItem) {
-                if (regExp == null || regExp.length() == 0) {
-                    selected = true;
-                }
-
-                if (treeViewer != null) {
-                    final String text = ((ILabelProvider) treeViewer.getLabelProvider()).getText(element2);
-                    if (!selected && text != null && getStringMatcher().match(text)) {
-                        selected = true;
-                    }
-                }
-            }
-
+            
             return selected;
         }
 
@@ -532,16 +600,16 @@ public class ISObjectSelectionWizardPage extends AbstractSelectionWizardPage {
         private StringMatcher getStringMatcher() {
             String computedRegExp = regExp;
             if (regExp == null) {
-                computedRegExp = ""; //$NON-NLS-1$
+                computedRegExp = "";
             }
             // If the regular expression ends with a space, we have to use the exact
             // value of the given expreg
-            if (computedRegExp.endsWith(" ")) { //$NON-NLS-1$
+            if (computedRegExp.endsWith(" ")) {
                 computedRegExp = computedRegExp.substring(0, computedRegExp.lastIndexOf(' '));
             }
             // At the end we add a star to make 'XYZ' recognized by the 'X'
             // expreg (as in quick outline for example)
-            computedRegExp = computedRegExp + "*"; //$NON-NLS-1$
+            computedRegExp = computedRegExp + "*";
 
             return new StringMatcher(computedRegExp, true, false);
         }
@@ -559,9 +627,15 @@ public class ISObjectSelectionWizardPage extends AbstractSelectionWizardPage {
     }
     
 	private boolean isPartiallySelected(EObjectTreeItemWrapper treeItemWrapper) {
-		return !ungrayedTreeItemWrapers.contains(treeItemWrapper) &&
-				(treeItemWrapper.getAllSelectableTreeItemWrappers().stream().anyMatch(tiw -> selectedTreeItemWrapers.contains(tiw)) &&
-						(!treeItemWrapper.isSelectable() || treeItemWrapper.getAllSelectableTreeItemWrappers().stream().anyMatch(tiw -> !selectedTreeItemWrapers.contains(tiw))));
+		switch(treeSelectMode) {
+		case HIERARCHIC:
+			return !ungrayedTreeItemWrapers.contains(treeItemWrapper) &&
+					(treeItemWrapper.getAllSelectableTreeItemWrappers().stream().anyMatch(tiw -> selectedTreeItemWrapers.contains(tiw)) &&
+							(!treeItemWrapper.isSelectable() || treeItemWrapper.getAllSelectableTreeItemWrappers().stream().anyMatch(tiw -> !selectedTreeItemWrapers.contains(tiw))));
+		case PICK_ANY:
+			return treeItemWrapper.getAllSelectableTreeItemWrappers().stream().anyMatch(tiw -> selectedTreeItemWrapers.contains(tiw));
+		}
+		return false;
 	}
 	
     private class ISObjectSelectionCheckStateListener implements ICheckStateListener {
@@ -573,7 +647,7 @@ public class ISObjectSelectionWizardPage extends AbstractSelectionWizardPage {
 			if(selectedTreeItemWrapers.contains(treeItemWrapper)) { // Element was selected
 				deselectTreeItemWrapper(treeItemWrapper);
 			} else if(isPartiallySelected(treeItemWrapper)) { // Element was grayed
-				ungrayedTreeItemWrapers.add(treeItemWrapper);
+				ungrayTreeItemWrapper(treeItemWrapper);
 			} else { // Element was unselected
 				selectTreeItemWrapper(treeItemWrapper);
 				if(selectionInductor != null) {
@@ -589,23 +663,52 @@ public class ISObjectSelectionWizardPage extends AbstractSelectionWizardPage {
 		}
 
 		private void deselectTreeItemWrapper(EObjectTreeItemWrapper treeItemWrapper) {
-			selectedTreeItemWrapers.removeAll(treeItemWrapper.getAllSelectableTreeItemWrappers());
-			treeItemWrapper.getAncestors().forEach(p -> {
-				if(p.getChildren().stream().anyMatch(c -> !selectedTreeItemWrapers.contains(c))) {
-					ungrayedTreeItemWrapers.remove(p);
+			switch(treeSelectMode) {
+			case HIERARCHIC:
+				selectedTreeItemWrapers.removeAll(treeItemWrapper.getAllSelectableTreeItemWrappers());
+				treeItemWrapper.getAncestors().forEach(p -> {
+					if(p.getChildren().stream().anyMatch(c -> !selectedTreeItemWrapers.contains(c))) {
+						ungrayedTreeItemWrapers.remove(p);
+					}
+				});
+				break;
+			case PICK_ANY:
+				selectedTreeItemWrapers.remove(treeItemWrapper);
+				break;
+			}
+		}
+
+		private void ungrayTreeItemWrapper(EObjectTreeItemWrapper treeItemWrapper) {
+			switch(treeSelectMode) {
+			case HIERARCHIC:
+				ungrayedTreeItemWrapers.add(treeItemWrapper);
+				break;
+			case PICK_ANY:
+				if(treeItemWrapper.isSelectable()) {
+					selectedTreeItemWrapers.add(treeItemWrapper);
 				}
-			});
+				break;
+			}
 		}
 
 		private void selectTreeItemWrapper(EObjectTreeItemWrapper treeItemWrapper) {
-			selectedTreeItemWrapers.addAll(treeItemWrapper.getAllSelectableTreeItemWrappers());
-			ungrayedTreeItemWrapers.removeAll(treeItemWrapper.getAllTreeItemWrappers());
-			treeItemWrapper.getAncestors().forEach(p -> {
-				if(selectedTreeItemWrapers.containsAll(p.getChildren())) {
-					selectedTreeItemWrapers.add(p);
-					ungrayedTreeItemWrapers.remove(p);
+			switch(treeSelectMode) {
+			case HIERARCHIC:
+				selectedTreeItemWrapers.addAll(treeItemWrapper.getAllSelectableTreeItemWrappers());
+				ungrayedTreeItemWrapers.removeAll(treeItemWrapper.getAllTreeItemWrappers());
+				treeItemWrapper.getAncestors().forEach(p -> {
+					if(selectedTreeItemWrapers.containsAll(p.getChildren()) && p.isSelectable()) {
+						selectedTreeItemWrapers.add(p);
+						ungrayedTreeItemWrapers.remove(p);
+					}
+				});
+				break;
+			case PICK_ANY:
+				if(treeItemWrapper.isSelectable()) {
+					selectedTreeItemWrapers.add(treeItemWrapper);
 				}
-			});
+				break;
+			}
 		}
 
     }
@@ -622,8 +725,14 @@ public class ISObjectSelectionWizardPage extends AbstractSelectionWizardPage {
 		@Override
 		public boolean isGrayed(Object element) {
 			EObjectTreeItemWrapper treeItemWrapper = (EObjectTreeItemWrapper) element;
-			return !treeItemWrapper.isSelectable() || 
-					treeItemWrapper.getAllSelectableTreeItemWrappers().stream().anyMatch(tiw -> !selectedTreeItemWrapers.contains(tiw));
+			switch(treeSelectMode) {
+			case HIERARCHIC:
+				return !treeItemWrapper.isSelectable() || 
+						treeItemWrapper.getAllSelectableTreeItemWrappers().stream().anyMatch(tiw -> !selectedTreeItemWrapers.contains(tiw));
+			case PICK_ANY:
+				return !selectedTreeItemWrapers.contains(treeItemWrapper);
+			}
+			return false;
 		}
     	
     }
@@ -636,4 +745,38 @@ public class ISObjectSelectionWizardPage extends AbstractSelectionWizardPage {
 		this.pageCompleteTester  = pageCompleteTester;
 	}
 
+	public interface IPageCompleteTester {
+		
+		public boolean isPageComplete(Collection<EObjectTreeItemWrapper> selectedTreeItemWrapers, Collection<EObjectTreeItemWrapper> partiallySelectedTreeItemWrapers);
+
+	}
+	
+	/**
+	 * Implement this interface to specify a cascaded selection behavior for {@link ISObjectSelectionWizard}
+	 */
+	public interface ISelectionInductor {
+
+		/**
+		 * @param selected
+		 * 
+		 * @return The objects to select when the given object is selected.
+		 */
+		public List<EObjectTreeItemWrapper> select(EObjectTreeItemWrapper selected);
+		
+	}
+	
+	public interface ICheckBoxFilter {
+		
+		public String getLabel();
+		
+		public boolean getDefaultCheckValue();
+		
+		/**
+		 * @param element
+		 * @return true if the element is filtered (i.e. hidden) when this filter is activated
+		 */
+		public boolean filter(EObjectTreeItemWrapper element);
+		
+	}
+	
 }

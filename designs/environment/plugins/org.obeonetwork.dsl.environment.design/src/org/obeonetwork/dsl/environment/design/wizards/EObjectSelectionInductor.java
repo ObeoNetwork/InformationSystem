@@ -17,7 +17,7 @@ import java.util.Map;
 
 import org.eclipse.emf.ecore.EObject;
 
-public abstract class EObjectSelectionInductor implements ISelectionInductor {
+public abstract class EObjectSelectionInductor implements ISObjectSelectionWizardPage.ISelectionInductor {
 
 	private Map<EObject, List<EObjectTreeItemWrapper>> treeItemWrapersMap = new HashMap<>();
 	

@@ -10,26 +10,31 @@
  *******************************************************************************/
 package org.obeonetwork.dsl.cinematic.design.services;
 
+import static java.util.stream.Collectors.toList;
+import static java.util.stream.Collectors.toSet;
+
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.HashSet;
 import java.util.List;
-import java.util.stream.Collectors;
+import java.util.Set;
 
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EStructuralFeature.Setting;
 import org.eclipse.emf.ecore.util.ECrossReferenceAdapter;
 import org.eclipse.emf.ecore.util.EcoreUtil.CrossReferencer;
-import org.eclipse.emf.ecore.util.EcoreUtil.ExternalCrossReferencer;
+import org.eclipse.jface.window.Window;
 import org.eclipse.sirius.business.api.query.EObjectQuery;
 import org.eclipse.sirius.business.api.session.Session;
+import org.eclipse.sirius.common.tools.api.interpreter.IInterpreter;
+import org.eclipse.sirius.tools.api.SiriusPlugin;
 import org.eclipse.swt.widgets.Shell;
 import org.eclipse.ui.PlatformUI;
-import org.obeonetwork.dsl.cinematic.CinematicPackage;
+import org.obeonetwork.dsl.cinematic.AbstractPackage;
+import org.obeonetwork.dsl.cinematic.CinematicRoot;
 import org.obeonetwork.dsl.cinematic.design.dialogs.event.FlowstateEventSelectionDialog;
-import org.obeonetwork.dsl.cinematic.design.dialogs.viewcontainer.ViewContainerSelectionDialog;
-import org.obeonetwork.dsl.cinematic.flow.ActionState;
+import org.obeonetwork.dsl.cinematic.design.services.flows.FlowsUtil;
 import org.obeonetwork.dsl.cinematic.flow.Flow;
 import org.obeonetwork.dsl.cinematic.flow.FlowPackage;
 import org.obeonetwork.dsl.cinematic.flow.FlowState;
@@ -38,12 +43,12 @@ import org.obeonetwork.dsl.cinematic.flow.SubflowState;
 import org.obeonetwork.dsl.cinematic.flow.Transition;
 import org.obeonetwork.dsl.cinematic.flow.ViewState;
 import org.obeonetwork.dsl.cinematic.view.ViewContainer;
-import org.obeonetwork.utils.common.EObjectUtils;
-
+import org.obeonetwork.dsl.environment.design.wizards.EObjectCheckBoxFilter;
+import org.obeonetwork.dsl.environment.design.wizards.EObjectTreeItemWrapper;
+import org.obeonetwork.dsl.environment.design.wizards.ISObjectSelectionWizard;
+import org.obeonetwork.dsl.environment.design.wizards.ISObjectSelectionWizardPage;
 /**
  * Services to use the flows
- * 
- * @author jdupont
  * 
  */
 public class CinematicFlowServices {
@@ -105,18 +110,72 @@ public class CinematicFlowServices {
 		return viewContainersAncestors;
 	}
 	
-	/**
-	 * Checks if the given {@link ViewContainer} is contained in a {@link ViewContainer}
-	 * @param container a {@link ViewContainer}
-	 * @return <code>true</code> if contained in a {@link ViewContainer}
-	 */
 	public void openViewContainerSelectionDialog(ViewState viewState) {
-		Shell shell = PlatformUI.getWorkbench().getActiveWorkbenchWindow().getShell();
+		IInterpreter interpreter = SiriusPlugin.getDefault().getInterpreterRegistry().getInterpreter(viewState);
 		
-		ViewContainerSelectionDialog dialog = new ViewContainerSelectionDialog(shell, viewState);
-		dialog.open();
+		String windowTitle = "View Container selection";
+		String message = String.format("Select the containers to be assigned to the '%s' View State.", viewState.getName());
+		
+		CinematicRoot cinematicRoot = FlowsUtil.getCinematicRoot(viewState);
+		List<EObject> roots = new ArrayList<>();
+		roots.addAll(cinematicRoot.getViewContainers());
+		roots.addAll(cinematicRoot.getSubPackages());
+		
+		String childrenExpression = "aql:self.viewContainers + if self.oclIsKindOf(cinematic::Package) then self.subPackages else Sequence{} endif";
+		String selectableCondition = "aql:self.oclIsKindOf(view::ViewContainer)";
+		
+		EObjectTreeItemWrapper input = new EObjectTreeItemWrapper(interpreter, childrenExpression, selectableCondition);
+		
+		for(EObject root : roots) {
+			new EObjectTreeItemWrapper(input, root);
+		}
+		
+        final ISObjectSelectionWizard wizard = new ISObjectSelectionWizard(
+        		windowTitle, 
+        		message, 
+        		null, 
+        		input,
+        		true);
+		
+        wizard.setLevelToExpand(3);
+        
+        wizard.setPreSelectedEObjects(viewState.getViewContainers().stream().collect(toList()));
+        
+        wizard.setTreeSelectMode(ISObjectSelectionWizardPage.PICK_ANY);
+        
+        List<AbstractPackage> allPackages = new ArrayList<>();
+        collectAllPackages(allPackages, cinematicRoot);
+        Set<ViewContainer> alreadyBoundViewContainers = allPackages.stream()
+        		.flatMap(p -> p.getFlows().stream())
+        		.flatMap(f -> f.getStates().stream())
+        		.filter(ViewState.class::isInstance).map(ViewState.class::cast)
+        		.filter(vs -> vs != viewState)
+        		.flatMap(vs -> vs.getViewContainers().stream())
+        		.collect(toSet());
+        		
+        wizard.setICheckBoxFilter(new EObjectCheckBoxFilter("Hide View Containers bound to other View States", true) {
+			
+			@Override
+			public boolean filterEObject(EObject eObject) {
+				return alreadyBoundViewContainers.contains(eObject);
+			}
+		});
+        
+        if(wizard.open() == Window.OK) {
+        	List<ViewContainer> selectedViewContainers = wizard.getSelectedEObjects().stream().map(ViewContainer.class::cast).collect(toList());
+        	List<ViewContainer> removed = viewState.getViewContainers().stream().filter(vc -> !selectedViewContainers.contains(vc)).collect(toList());
+        	List<ViewContainer> added = selectedViewContainers.stream().filter(vc -> !viewState.getViewContainers().contains(vc)).collect(toList());
+        	viewState.getViewContainers().removeAll(removed);
+        	viewState.getViewContainers().addAll(added);
+        }
+
 	}
 	
+	private void collectAllPackages(List<AbstractPackage> allPackages, AbstractPackage aPackage) {
+		allPackages.add(aPackage);
+		aPackage.getSubPackages().stream().forEach(sp -> collectAllPackages(allPackages, sp));
+	}
+
 	public void openEventSelectionDialog(Transition transition) {
 		Shell shell = PlatformUI.getWorkbench().getActiveWorkbenchWindow().getShell();
 		
