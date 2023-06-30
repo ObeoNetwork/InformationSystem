@@ -200,7 +200,8 @@ Le diagramme permet d’afficher et manipuler les éléments suivants :
 
 Les outils fournis par la palette sont :
 
-| !pics/dto/Palette_CreateNamespace.png! | Création d'un sous-_Namespace_. |
+| !pics/dto/Palette_CreateNamespace.png! | Création d'un sous _Namespace_. |
+| !pics/dto/Palette_CreateNamespaceFromEntityNamespace.png! | Création d'un _Namespace_ à partir d'un _Namespace_ entités. |
 | !pics/dto/Palette_CreateDTO.png! | Création d'un DTO. |
 | !pics/dto/Palette_CreateDTOFromEntity.png! | Création de _DTOs_ à partir d'entités (cf. description ci-dessous). |
 | !pics/dto/Palette_CreateAttribute.png! | Création d'un attribut de DTO. |
@@ -213,13 +214,34 @@ Les outils fournis par la palette sont :
 | !pics/dto/Palette_CreateBidirectionalComposition.png! | Création d'une relation de contenance bidirectionnelle. |
 | !pics/dto/Palette_CreateExternalDTO.png! | Ajout d'un DTO externe au _Namespace_ courant. Permet de faire figurer sur le _DTO Diagram_ un DTO défini dans un autre _Namespace_, donnant la possibilité de créer des relations inter-_Namsepace_. Cet outil est activable via le calque _External DTOs_ |
 
-L'outil de création de _DTOs_ à partir d'entités permet de créer un modèle de _DTO_ conformément à tout ou partie d'un modèle d'entités (voir "Obeo Network - Entity Designer":../../org.obeonetwork.dsl.entity.doc/doc/Obeo%20Network%20-%20Entity%20Designer.html ).
+L'outil de création de DTOs à partir d'entités permet de reproduire un modèle de DTO à partir d'un modèle d'entités. Une boîte de dialogue permet de choisir les entités et les relations à prendre en compte. Les entités choisies peuvent être de différents packages mais la structure de ces packages n'est pas reproduite. Les DTO créés sont tous dans le package courant du diagramme.
+Des DTOs et des relations sont créées pour chaque entité et chaque référence sélectionnés. Les attributs ne sont pas dupliqués, il sont partagés avec les entités grâce à la référence Associated Types accessible dans la vue des propriétés du DTO. La modélisation des entités est décrite dans la documentation de "ISD - Entity Designer":../../org.obeonetwork.dsl.entity.doc/doc/ISD%20-%20Entity%20Designer.html .
 
-Cet outil affiche la boîte de dialogue suivante permettant la sélection des entités et relations à prendre en compte :
+!pics/dto/Palette_CreateExternalDTO_Dialog.png!
 
-!{width:50%}pics/dto/Palette_CreateExternalDTO_Dialog.png!
+L'outil de création de package à partir d'un package d'entités permet de reproduire un modèle de DTO à partir d'un modèle d'entités en reproduisant la structure des packages. L'outil présente la hiérarchie des packages d'entités accessibles depuis le diagramme courant.
 
-La validation de cette sélection déclenche la création d'autant de _DTO_ et de _Relations_ qui avaient été sélectionnés.
+La sélection d'un élément dans l'arbre entraîne la sélection de ses sous éléments, permettant de procéder à une sélection par soustraction plutôt que par addition.
+La désélection d'un élément dont tous les sous éléments sont sélectionnés entraîne la désélection de toute la hiérarchie. De manière synthétique :
+* Un clic sur un élément décoché coche l'élément et tous ses sous éléments.
+* Un clic sur un élément coché décoche l'élément et tous ses sous éléments.
+* Un clic sur un élément partiellement coché décoche l'élément et ne change pas l'état des sous éléments.
+
+Un élément est marqué partiellement sélectionné si certains de ses sous éléments sont sélectionnés mais pas tous.
+Lorsque tous les sous éléments d'un élément sont sélectionnés, celui-ci devient sélectionné.
+Les éléments marqués comme partiellement sélectionnés sont pris en compte par le traitement de duplication.
+
+La sélection d'une relation induit la sélection de l'entité ciblée par celle-ci. Il est possible de désélectionner cette entité, mais toute relation dont les deux types source et cible ne sont pas sélectionnés ne sera pas dupliquée.
+
+Le bouton finish est activé si au moins un package est sélectionné ou partiellement sélectionné.
+
+Le traitement crée les packages de plus haut niveau sélectionnés dans le package du diagramme courant.
+
+Les éléments pris en compte pour la duplication sont ceux dont :
+* la case à cocher est cochée ou partiellement cochée,
+* la lignée des parents est complètement sélectionnée jusqu'au package de plus haut niveau sélectionné.
+
+!pics/dto/Palette_CreateNamespaceFromEntityNamespace_Dialog.png!
 
 En plus des outils définis par la palette, l'outil de drag and drop permet de déplacer un DTO d'un namespace à un autre.
 

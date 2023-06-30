@@ -187,6 +187,12 @@
 			</tr>
 			<tr>
 				<td>
+					<img border="0" src="pics/entities/Create%20namespace%20from%20DTO.png"/>
+				</td>
+				<td>Création d&#8217;un package à partir d&#8217;un package de DTO.</td>
+			</tr>
+			<tr>
+				<td>
 					<img border="0" src="pics/entities/Create%20entity.png"/>
 				</td>
 				<td>Création d&#8217;une entité.</td>
@@ -254,11 +260,36 @@
 				</td>
 			</tr>
 		</table>
-		<p>L&#8217;outil de création d&#8217;entités à partir de DTOs permet de sélectionner des DTOs (cf. documentation sur 
-			<strong>SOA Designer</strong>) et des références entre ces DTOs. Des entités et des relations sont créées pour chaque DTO et chaque référence sélectionné.
+		<p>L&#8217;outil de création d&#8217;entités à partir de DTOs permet de reproduire un modèle d&#8217;entités à partir d&#8217;un modèle de DTO. Une boîte de dialogue permet de choisir les DTO et les relations à prendre en compte. Les DTO choisis peuvent être de différents packages mais la structure de ces packages n&#8217;est pas reproduite. Les entités créées sont toutes dans le package courant du diagramme.
+			<br/>Des entités et des relations sont créées pour chaque DTO et chaque référence sélectionnés. Les attributs ne sont pas dupliqués, il sont partagés avec les DTOs grâce à la référence Associated Types accessible dans la vue des propriétés de l&#8217;entité. La modélisation des DTOs est décrite dans la documentation de 
+			<a href="../../org.obeonetwork.dsl.soa.doc/doc/ISD%20-%20SOA%20Designer.html">ISD &#8211; SOA Designer</a> .
 		</p>
 		<p>
 			<img border="0" src="pics/entities/Dlg%20entity%20from%20dto.png"/>
+		</p>
+		<p>L&#8217;outil de création de package à partir d&#8217;un package de DTO permet de reproduire un modèle d&#8217;entités à partir d&#8217;un modèle de DTO en reproduisant la structure des packages. L&#8217;outil présente la hiérarchie des packages de DTO accessibles depuis le diagramme courant.</p>
+		<p>La sélection d&#8217;un élément dans l&#8217;arbre entraîne la sélection de ses sous éléments, permettant de procéder à une sélection par soustraction plutôt que par addition.
+			<br/>La désélection d&#8217;un élément dont tous les sous éléments sont sélectionnés entraîne la désélection de toute la hiérarchie. De manière synthétique :
+		</p>
+		<ul>
+			<li>Un clic sur un élément décoché coche l'élément et tous ses sous éléments.</li>
+			<li>Un clic sur un élément coché décoche l'élément et tous ses sous éléments.</li>
+			<li>Un clic sur un élément partiellement coché décoche l'élément et ne change pas l'état des sous éléments.</li>
+		</ul>
+		<p>Un élément est marqué partiellement sélectionné si certains de ses sous éléments sont sélectionnés mais pas tous.
+			<br/>Lorsque tous les sous éléments d&#8217;un élément sont sélectionnés, celui-ci devient sélectionné.
+			<br/>Les éléments marqués comme partiellement sélectionnés sont pris en compte par le traitement de duplication.
+		</p>
+		<p>La sélection d&#8217;une relation induit la sélection du DTO ciblé par celle-ci. Il est possible de désélectionner ce DTO, mais toute relation dont les deux types source et cible ne sont pas sélectionnés ne sera pas dupliquée.</p>
+		<p>Le bouton finish est activé si au moins un package est sélectionné ou partiellement sélectionné.</p>
+		<p>Le traitement crée les packages de plus haut niveau sélectionnés dans le package du diagramme courant.</p>
+		<p>Les éléments pris en compte pour la duplication sont ceux dont :</p>
+		<ul>
+			<li>la case à cocher est cochée ou partiellement cochée,</li>
+			<li>la lignée des parents est complètement sélectionnée jusqu&#8217;au package de plus haut niveau sélectionné.</li>
+		</ul>
+		<p>
+			<img border="0" src="pics/entities/Dlg%20entity%20namespace%20from%20dto.png"/>
 		</p>
 		<h3 id="Tabledesentits">Table des entités</h3>
 		<p>La table des entités (

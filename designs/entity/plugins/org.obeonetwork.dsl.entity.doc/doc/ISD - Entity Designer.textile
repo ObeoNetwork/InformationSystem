@@ -114,6 +114,7 @@ Les éléments suivants sont affichés sur le diagramme :
 Les outils fournis par la palette sont :
 
 | !pics/entities/Create%20namespace.png! | Création d'un sous-package. |
+| !pics/entities/Create%20namespace%20from%20DTO.png! | Création d'un package à partir d'un package de DTO. |
 | !pics/entities/Create%20entity.png! | Création d'une entité. |
 | !pics/entities/Create%20entity%20from%20dto.png! | Création d'entités à partir de DTO. |
 | !pics/entities/Create%20attribute.png! | Création d'un attribut d'entité. |
@@ -126,9 +127,34 @@ Les outils fournis par la palette sont :
 | !pics/entities/Create%20bidi%20composition.png! | Création d'une relation de contenance bidirectionnelle. |
 | !pics/entities/Create%20external.png! | Ajout d'une entité externe. Cet outil permet de faire apparaitre une entité définie dans un autre package pour créer des relations avec les entités du package courant. Cet outil est activable via le calque _External Entities_ |
 
-L'outil de création d'entités à partir de DTOs permet de sélectionner des DTOs (cf. documentation sur *SOA Designer*) et des références entre ces DTOs. Des entités et des relations sont créées pour chaque DTO et chaque référence sélectionné.
+L'outil de création d'entités à partir de DTOs permet de reproduire un modèle d'entités à partir d'un modèle de DTO. Une boîte de dialogue permet de choisir les DTO et les relations à prendre en compte. Les DTO choisis peuvent être de différents packages mais la structure de ces packages n'est pas reproduite. Les entités créées sont toutes dans le package courant du diagramme.
+Des entités et des relations sont créées pour chaque DTO et chaque référence sélectionnés. Les attributs ne sont pas dupliqués, il sont partagés avec les DTOs grâce à la référence Associated Types accessible dans la vue des propriétés de l'entité. La modélisation des DTOs est décrite dans la documentation de "ISD - SOA Designer":../../org.obeonetwork.dsl.soa.doc/doc/ISD%20-%20SOA%20Designer.html .
 
 !pics/entities/Dlg%20entity%20from%20dto.png!
+
+L'outil de création de package à partir d'un package de DTO permet de reproduire un modèle d'entités à partir d'un modèle de DTO en reproduisant la structure des packages. L'outil présente la hiérarchie des packages de DTO accessibles depuis le diagramme courant.
+
+La sélection d'un élément dans l'arbre entraîne la sélection de ses sous éléments, permettant de procéder à une sélection par soustraction plutôt que par addition.
+La désélection d'un élément dont tous les sous éléments sont sélectionnés entraîne la désélection de toute la hiérarchie. De manière synthétique :
+* Un clic sur un élément décoché coche l'élément et tous ses sous éléments.
+* Un clic sur un élément coché décoche l'élément et tous ses sous éléments.
+* Un clic sur un élément partiellement coché décoche l'élément et ne change pas l'état des sous éléments.
+
+Un élément est marqué partiellement sélectionné si certains de ses sous éléments sont sélectionnés mais pas tous.
+Lorsque tous les sous éléments d'un élément sont sélectionnés, celui-ci devient sélectionné.
+Les éléments marqués comme partiellement sélectionnés sont pris en compte par le traitement de duplication.
+
+La sélection d'une relation induit la sélection du DTO ciblé par celle-ci. Il est possible de désélectionner ce DTO, mais toute relation dont les deux types source et cible ne sont pas sélectionnés ne sera pas dupliquée.
+
+Le bouton finish est activé si au moins un package est sélectionné ou partiellement sélectionné.
+
+Le traitement crée les packages de plus haut niveau sélectionnés dans le package du diagramme courant.
+
+Les éléments pris en compte pour la duplication sont ceux dont :
+* la case à cocher est cochée ou partiellement cochée,
+* la lignée des parents est complètement sélectionnée jusqu'au package de plus haut niveau sélectionné.
+
+!pics/entities/Dlg%20entity%20namespace%20from%20dto.png!
 
 h3. Table des entités
 
