@@ -675,11 +675,11 @@
 			<br/>
 			<img style="width:50%" border="0" src="pics/FlowDiagram/EventSelectionDialog.png"/>
 		</p>
-		<p>Elle présente l’ensemble des types d’événements supportés par les widgets utilisés dans le modèle Cinematic, ainsi que l’ensemble des événements logiques définis dans le Flow.
-			<br/>Note : L’existence ou non d’un événement en correspondance d’un type d’événement n’est pas pris en considération.
+		<p>Ce dialogue permet de séléctionner des types d'événements. Il présente l’ensemble des types d’événements supportés par les widgets utilisés dans le modèle Cinematic, ainsi que l’ensemble des événements logiques définis dans le Flow.
 			<br/>Les événements des widgets sont classés sous la hiérarchie des View Elements, les événements logiques sont regroupés sous un nœud virtuel « Flow events ».
 		</p>
-		<p>La zone de filtre textuel permet de réduire le contenu de l’arbre de manière à n’afficher que les éléments dont le label se conforme au filtre. L’affichage d’un élément dont le label se conforme au filtre entraîne cependant l’affichage des éléments parents jusqu’à la racine de l’arbre ainsi que tous ses éléments fils. Le bouton « Clear » à droite de la zone de filtre permet d’effacer le filtre. Le métacaractère ‘*’ est supporté pour correspondre à une chaîne de caractères quelconque.</p>
+		<p>Les événements déclencheurs de la transition sont cochés.</p>
+		<p>La zone de filtre textuel permet de réduire le contenu de l’arbre de manière à n’afficher que les éléments dont le label se conforme au filtre. L’affichage d’un élément dont le label se conforme au filtre entraîne cependant l’affichage des éléments parents jusqu’à la racine de l’arbre ainsi que tous ses éléments fils. Le métacaractère ‘*’ est supporté pour correspondre à une chaîne de caractères quelconque et &#8249;?&#8250; pour correspondre à un caractère quelconque.</p>
 		<p>La case à cocher « Hide non contextual View Containers » permet de cacher les View Containers qui ne sont pas liés au View State source de la transition. A l’affichage du dialogue elle est cochée si au moins un View Container est lié au View State source.</p>
 		<p>L’arbre de sélection d’événement permet une sélection multiple. Le dialogue peut donc être validé avec une sélection vide, simple ou multiple.</p>
 		<p>A la validation du dialogue,</p>
@@ -687,28 +687,27 @@
 			<li>Pour chaque événement de la transition dont le type est non présent dans la sélection :
 				<ul>
 					<li>L’événement est retiré de la liste des événements déclencheurs de la transition.</li>
+					<li>Si un événement de vue n&#8217;est pas utilisé par d&#8217;autres transitions il est supprimé.</li>
 				</ul>
 			</li>
 			<li>Pour chaque type d’événement sélectionné :
 				<ul>
-					<li>Si l’événement correspondant au type d’événement n’existe pas dans le View Element, il est créé.</li>
+					<li>Si l’événement de vue correspondant au type d’événement n’existe pas dans le View Element, il est créé (avec un nom conforme au format &lt;nom du widget&gt;_&lt;type d'événement&gt;).</li>
 					<li>L’événement correspondant au type d’événement est ajouté à la liste des événements déclencheurs de la transition.</li>
 					<li>Si le View State source n’est pas lié au View Container du type d’événement sélectionné, ce lien est créé.</li>
 				</ul>
 			</li>
 		</ul>
-		<p>Lors de leur création, les événements sont nommés avec la concaténation : « &lt;nom du widget&gt; + &#8249;_&#8250; + &lt;type d'événement&gt; ».</p>
 		<p>
 			<b>Dialogue de séléction de ViewContainer:</b>
 			<br/>
 			<img style="width:50%" border="0" src="pics/FlowDiagram/ViewContainerSelectionDialog.png"/>
 		</p>
-		<p>Elle présente l’ensemble des View Containers du modèle Cinematic présentés sous la forme d’un arbre de contenance.</p>
+		<p>Ce dialogue permet de séléctionner des View Containers. Il présente l’ensemble des View Containers du modèle Cinematic présentés sous leur hierarchie de contenance.</p>
 		<p>Les View Containers associés au View State concerné sont cochés.</p>
-		<p>La zone de filtre textuel permet de réduire le contenu de l’arbre de manière à n’afficher que les éléments dont le label se conforme au filtre. L’affichage d’un élément dont le label se conforme au filtre entraîne cependant l’affichage des éléments parents jusqu’à la racine de l’arbre ainsi que tous ses éléments fils. Le bouton « Clear » à droite de la zone de filtre permet d’effacer le filtre. Le métacaractère ‘*’ est supporté pour correspondre à une chaîne de caractères quelconque.</p>
-		<p>La case à cocher « Hide View Containers bound to other View States » permet de cacher les View Containers déjà liés à des View States. Elle est cochée à l’affichage du dialogue. Des containers déjà associés peuvent être affichés malgré le filtre de manière à afficher des containers fils qui eux ne sont pas
-			<br/>encore associés.
-		</p>
+		<p>La zone de filtre textuel permet de réduire le contenu de l’arbre de manière à n’afficher que les éléments dont le label se conforme au filtre. L’affichage d’un élément dont le label se conforme au filtre entraîne cependant l’affichage des éléments parents jusqu’à la racine de l’arbre ainsi que tous ses éléments fils. Le métacaractère ‘*’ est supporté pour correspondre à une chaîne de caractères quelconque et &#8249;?&#8250; pour correspondre à un caractère quelconque.</p>
+		<p>La case à cocher « Hide View Containers bound to other View States » permet de cacher les View Containers déjà liés à des View States. Elle est cochée à l’affichage du dialogue. Des containers déjà associés peuvent cependant être affichés malgré le filtre.</p>
+		<p>L'état partiellement coché d&#8217;une case indique que des sous éléments sont séléctionnés. Les éléments partiellement cochés ne font pas partie de la séléction prise en compte à la validation du dialogue.</p>
 		<p>A la validation du dialogue, la liste des éléments associés au View State est mise à jour avec la sélection faite par l’utilisateur.</p>
 		<h3 id="Crationdetoolkits">Création de toolkits</h3>
 		<p>Un des objectifs du méta-modèle Cinematic est de permettre de créer facilement de nouveaux toolkits.</p>

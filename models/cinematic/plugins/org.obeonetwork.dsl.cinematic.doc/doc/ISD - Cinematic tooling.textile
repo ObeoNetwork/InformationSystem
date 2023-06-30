@@ -287,11 +287,12 @@ L'action _Remove Mockup Image_ a pour effet de réinitialiser l'apparence du _Vi
 **Dialogue de séléction d'événements déclencheurs:**
 !{width:50%}pics/FlowDiagram/EventSelectionDialog.png!
 
-Elle présente l’ensemble des types d’événements supportés par les widgets utilisés dans le modèle Cinematic, ainsi que l’ensemble des événements logiques définis dans le Flow.
-Note : L’existence ou non d’un événement en correspondance d’un type d’événement n’est pas pris en considération.
+Ce dialogue permet de séléctionner des types d'événements. Il présente l’ensemble des types d’événements supportés par les widgets utilisés dans le modèle Cinematic, ainsi que l’ensemble des événements logiques définis dans le Flow.
 Les événements des widgets sont classés sous la hiérarchie des View Elements, les événements logiques sont regroupés sous un nœud virtuel « Flow events ».
 
-La zone de filtre textuel permet de réduire le contenu de l’arbre de manière à n’afficher que les éléments dont le label se conforme au filtre. L’affichage d’un élément dont le label se conforme au filtre entraîne cependant l’affichage des éléments parents jusqu’à la racine de l’arbre ainsi que tous ses éléments fils. Le bouton « Clear » à droite de la zone de filtre permet d’effacer le filtre. Le métacaractère ‘*’ est supporté pour correspondre à une chaîne de caractères quelconque.
+Les événements déclencheurs de la transition sont cochés.
+
+La zone de filtre textuel permet de réduire le contenu de l’arbre de manière à n’afficher que les éléments dont le label se conforme au filtre. L’affichage d’un élément dont le label se conforme au filtre entraîne cependant l’affichage des éléments parents jusqu’à la racine de l’arbre ainsi que tous ses éléments fils. Le métacaractère ‘*’ est supporté pour correspondre à une chaîne de caractères quelconque et '?' pour correspondre à un caractère quelconque.
 
 La case à cocher « Hide non contextual View Containers » permet de cacher les View Containers qui ne sont pas liés au View State source de la transition. A l’affichage du dialogue elle est cochée si au moins un View Container est lié au View State source.
 
@@ -300,24 +301,24 @@ L’arbre de sélection d’événement permet une sélection multiple. Le dialo
 A la validation du dialogue,
 * Pour chaque événement de la transition dont le type est non présent dans la sélection :
 ** L’événement est retiré de la liste des événements déclencheurs de la transition.
+** Si un événement de vue n'est pas utilisé par d'autres transitions il est supprimé.
 * Pour chaque type d’événement sélectionné :
-** Si l’événement correspondant au type d’événement n’existe pas dans le View Element, il est créé.
+** Si l’événement de vue correspondant au type d’événement n’existe pas dans le View Element, il est créé (avec un nom conforme au format <nom du widget>_<type d'événement>).
 ** L’événement correspondant au type d’événement est ajouté à la liste des événements déclencheurs de la transition.
 ** Si le View State source n’est pas lié au View Container du type d’événement sélectionné, ce lien est créé.
-
-Lors de leur création, les événements sont nommés avec la concaténation : « <nom du widget> + '_' + <type d'événement> ».
 
 **Dialogue de séléction de ViewContainer:**
 !{width:50%}pics/FlowDiagram/ViewContainerSelectionDialog.png!
 
-Elle présente l’ensemble des View Containers du modèle Cinematic présentés sous la forme d’un arbre de contenance.
+Ce dialogue permet de séléctionner des View Containers. Il présente l’ensemble des View Containers du modèle Cinematic présentés sous leur hierarchie de contenance.
 
 Les View Containers associés au View State concerné sont cochés.
 
-La zone de filtre textuel permet de réduire le contenu de l’arbre de manière à n’afficher que les éléments dont le label se conforme au filtre. L’affichage d’un élément dont le label se conforme au filtre entraîne cependant l’affichage des éléments parents jusqu’à la racine de l’arbre ainsi que tous ses éléments fils. Le bouton « Clear » à droite de la zone de filtre permet d’effacer le filtre. Le métacaractère ‘*’ est supporté pour correspondre à une chaîne de caractères quelconque.
+La zone de filtre textuel permet de réduire le contenu de l’arbre de manière à n’afficher que les éléments dont le label se conforme au filtre. L’affichage d’un élément dont le label se conforme au filtre entraîne cependant l’affichage des éléments parents jusqu’à la racine de l’arbre ainsi que tous ses éléments fils. Le métacaractère ‘*’ est supporté pour correspondre à une chaîne de caractères quelconque et '?' pour correspondre à un caractère quelconque.
 
-La case à cocher « Hide View Containers bound to other View States » permet de cacher les View Containers déjà liés à des View States. Elle est cochée à l’affichage du dialogue. Des containers déjà associés peuvent être affichés malgré le filtre de manière à afficher des containers fils qui eux ne sont pas
-encore associés.
+La case à cocher « Hide View Containers bound to other View States » permet de cacher les View Containers déjà liés à des View States. Elle est cochée à l’affichage du dialogue. Des containers déjà associés peuvent cependant être affichés malgré le filtre.
+
+L'état partiellement coché d'une case indique que des sous éléments sont séléctionnés. Les éléments partiellement cochés ne font pas partie de la séléction prise en compte à la validation du dialogue.
 
 A la validation du dialogue, la liste des éléments associés au View State est mise à jour avec la sélection faite par l’utilisateur.
 
