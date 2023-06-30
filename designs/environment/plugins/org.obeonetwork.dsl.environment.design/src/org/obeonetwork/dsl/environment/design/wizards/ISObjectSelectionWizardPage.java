@@ -146,10 +146,6 @@ public class ISObjectSelectionWizardPage extends AbstractSelectionWizardPage {
         
         treeViewer = createTreeViewer(pageComposite);
 
-        if(checkBoxFilter != null) {
-    		viewerFilter.setFilterActive(checkBoxFilter.getDefaultCheckValue());
-        }
-
         treeViewer.setInput(this.treeRoot);
         
         viewerFilter.setTreeViewer(treeViewer);
@@ -170,6 +166,10 @@ public class ISObjectSelectionWizardPage extends AbstractSelectionWizardPage {
         			.collect(toList()));
         }
         
+        if(checkBoxFilter != null) {
+    		viewerFilter.setFilterActive(checkBoxFilter.getDefaultCheckValue());
+        }
+
         // Expand the tree according to the 'expanded' and 'levelToExpand' values
         treeViewer.collapseAll();
         expandTreeViewer();
@@ -570,6 +570,10 @@ public class ISObjectSelectionWizardPage extends AbstractSelectionWizardPage {
             	
             	EObjectTreeItemWrapper treeItemWrapper = (EObjectTreeItemWrapper) element;
             	
+            	if(selectedTreeItemWrapers.contains(treeItemWrapper)) {
+            		return true;
+            	}
+            	
                 // Select parent if child should be selected
             	if(treeItemWrapper.getChildren().stream()
             			.anyMatch(child -> select(viewer, element, child))) {
@@ -653,10 +657,10 @@ public class ISObjectSelectionWizardPage extends AbstractSelectionWizardPage {
 		public void checkStateChanged(CheckStateChangedEvent event) {
 			EObjectTreeItemWrapper treeItemWrapper = (EObjectTreeItemWrapper) event.getElement();
 			
-			if(selectedTreeItemWrapers.contains(treeItemWrapper)) { // Element was selected
-				deselectTreeItemWrapper(treeItemWrapper);
-			} else if(isPartiallySelected(treeItemWrapper)) { // Element was grayed
+			if(isPartiallySelected(treeItemWrapper)) { // Element was grayed
 				ungrayTreeItemWrapper(treeItemWrapper);
+			} else if(selectedTreeItemWrapers.contains(treeItemWrapper)) { // Element was selected
+				deselectTreeItemWrapper(treeItemWrapper);
 			} else { // Element was unselected
 				selectTreeItemWrapper(treeItemWrapper);
 				if(selectionInductor != null) {
@@ -674,7 +678,10 @@ public class ISObjectSelectionWizardPage extends AbstractSelectionWizardPage {
 		private void deselectTreeItemWrapper(EObjectTreeItemWrapper treeItemWrapper) {
 			switch(treeSelectMode) {
 			case HIERARCHIC:
-				selectedTreeItemWrapers.removeAll(treeItemWrapper.getAllSelectableTreeItemWrappers());
+				selectedTreeItemWrapers.remove(treeItemWrapper);
+				if(selectedTreeItemWrapers.containsAll(treeItemWrapper.getChildren())) {
+					selectedTreeItemWrapers.removeAll(treeItemWrapper.getAllSelectableTreeItemWrappers());
+				}
 				treeItemWrapper.getAncestors().forEach(p -> {
 					if(p.getChildren().stream().anyMatch(c -> !selectedTreeItemWrapers.contains(c))) {
 						ungrayedTreeItemWrapers.remove(p);
@@ -691,6 +698,7 @@ public class ISObjectSelectionWizardPage extends AbstractSelectionWizardPage {
 			switch(treeSelectMode) {
 			case HIERARCHIC:
 				ungrayedTreeItemWrapers.add(treeItemWrapper);
+				selectedTreeItemWrapers.remove(treeItemWrapper);
 				break;
 			case PICK_ANY:
 				if(treeItemWrapper.isSelectable()) {

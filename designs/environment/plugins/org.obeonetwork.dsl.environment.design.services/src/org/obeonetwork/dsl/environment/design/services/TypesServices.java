@@ -110,7 +110,7 @@ public class TypesServices {
 		}
 		
 		// Ensure the opposite references are duplicated
-		Set<Reference> referencesWithOpposite = new HashSet<>();
+		Set<Reference> referencesWithOpposite = new HashSet<>(references);
 		for(Reference reference : references) {
 			if(reference.getOppositeOf() != null) {
 				referencesWithOpposite.add(reference.getOppositeOf());

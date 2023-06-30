@@ -172,7 +172,7 @@ public class CinematicFlowServices {
 		wizard.setPreSelectedTreeItemWrappers(preSelectedTreeItemWrappers);
         
 		EList<ViewContainer> contextualViewContainers = ((ViewState) transition.getFrom()).getViewContainers();
-        wizard.setCheckBoxFilter(new TreeItemWrapperCheckBoxFilter("Hide non contextual View Containers", true) {
+        wizard.setCheckBoxFilter(new TreeItemWrapperCheckBoxFilter("Hide non contextual View Containers", !contextualViewContainers.isEmpty()) {
 			@Override
 			public boolean filter(EObjectTreeItemWrapper treeItemWrapper) {
 				List<EObjectTreeItemWrapper> ancestors = treeItemWrapper.getAncestors();
