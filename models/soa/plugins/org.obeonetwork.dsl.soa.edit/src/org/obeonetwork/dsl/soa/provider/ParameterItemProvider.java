@@ -28,6 +28,7 @@ import org.eclipse.emf.edit.provider.IStructuredItemContentProvider;
 import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
 import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ViewerNotification;
+import org.obeonetwork.dsl.environment.EnvironmentPackage;
 import org.obeonetwork.dsl.environment.provider.ObeoDSMObjectItemProvider;
 import org.obeonetwork.dsl.soa.Operation;
 import org.obeonetwork.dsl.soa.Parameter;
@@ -70,6 +71,9 @@ public class ParameterItemProvider
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
+			addMaximumPropertyDescriptor(object);
+			addMinimumPropertyDescriptor(object);
+			addPatternPropertyDescriptor(object);
 			addTypePropertyDescriptor(object);
 			addNamePropertyDescriptor(object);
 			addMultiplicityPropertyDescriptor(object);
@@ -79,6 +83,72 @@ public class ParameterItemProvider
 			addStatusMessagePropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
+	}
+
+	/**
+	 * This adds a property descriptor for the Maximum feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addMaximumPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_ConstrainableElement_maximum_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_ConstrainableElement_maximum_feature", "_UI_ConstrainableElement_type"),
+				 EnvironmentPackage.Literals.CONSTRAINABLE_ELEMENT__MAXIMUM,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Minimum feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addMinimumPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_ConstrainableElement_minimum_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_ConstrainableElement_minimum_feature", "_UI_ConstrainableElement_type"),
+				 EnvironmentPackage.Literals.CONSTRAINABLE_ELEMENT__MINIMUM,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Pattern feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addPatternPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_ConstrainableElement_pattern_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_ConstrainableElement_pattern_feature", "_UI_ConstrainableElement_type"),
+				 EnvironmentPackage.Literals.CONSTRAINABLE_ELEMENT__PATTERN,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
 	}
 
 	/**
@@ -328,6 +398,9 @@ public class ParameterItemProvider
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(Parameter.class)) {
+			case SoaPackage.PARAMETER__MAXIMUM:
+			case SoaPackage.PARAMETER__MINIMUM:
+			case SoaPackage.PARAMETER__PATTERN:
 			case SoaPackage.PARAMETER__NAME:
 			case SoaPackage.PARAMETER__MULTIPLICITY:
 			case SoaPackage.PARAMETER__IS_UNIQUE:
