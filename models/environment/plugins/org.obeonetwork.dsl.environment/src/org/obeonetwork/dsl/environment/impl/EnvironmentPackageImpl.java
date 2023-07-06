@@ -26,6 +26,7 @@ import org.obeonetwork.dsl.environment.BindingInfo;
 import org.obeonetwork.dsl.environment.BindingReference;
 import org.obeonetwork.dsl.environment.BindingRegistry;
 import org.obeonetwork.dsl.environment.BoundableElement;
+import org.obeonetwork.dsl.environment.ConstrainableElement;
 import org.obeonetwork.dsl.environment.DataType;
 import org.obeonetwork.dsl.environment.Enumeration;
 import org.obeonetwork.dsl.environment.Environment;
@@ -275,6 +276,13 @@ public class EnvironmentPackageImpl extends EPackageImpl implements EnvironmentP
 	 * @generated
 	 */
 	private EClass namespacesContainerEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass constrainableElementEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -1208,6 +1216,42 @@ public class EnvironmentPackageImpl extends EPackageImpl implements EnvironmentP
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EClass getConstrainableElement() {
+		return constrainableElementEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getConstrainableElement_Maximum() {
+		return (EAttribute) constrainableElementEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getConstrainableElement_Minimum() {
+		return (EAttribute) constrainableElementEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getConstrainableElement_Pattern() {
+		return (EAttribute) constrainableElementEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EEnum getPrimitiveTypeKind() {
 		return primitiveTypeKindEEnum;
 	}
@@ -1374,6 +1418,11 @@ public class EnvironmentPackageImpl extends EPackageImpl implements EnvironmentP
 		namespacesContainerEClass = createEClass(NAMESPACES_CONTAINER);
 		createEReference(namespacesContainerEClass, NAMESPACES_CONTAINER__OWNED_NAMESPACES);
 
+		constrainableElementEClass = createEClass(CONSTRAINABLE_ELEMENT);
+		createEAttribute(constrainableElementEClass, CONSTRAINABLE_ELEMENT__MAXIMUM);
+		createEAttribute(constrainableElementEClass, CONSTRAINABLE_ELEMENT__MINIMUM);
+		createEAttribute(constrainableElementEClass, CONSTRAINABLE_ELEMENT__PATTERN);
+
 		// Create enums
 		primitiveTypeKindEEnum = createEEnum(PRIMITIVE_TYPE_KIND);
 		multiplicityKindEEnum = createEEnum(MULTIPLICITY_KIND);
@@ -1436,6 +1485,7 @@ public class EnvironmentPackageImpl extends EPackageImpl implements EnvironmentP
 		namespaceEClass.getESuperTypes().add(this.getTypesDefinition());
 		namespaceEClass.getESuperTypes().add(this.getNamespacesContainer());
 		attributeEClass.getESuperTypes().add(this.getProperty());
+		attributeEClass.getESuperTypes().add(this.getConstrainableElement());
 		referenceEClass.getESuperTypes().add(this.getProperty());
 		propertyEClass.getESuperTypes().add(this.getObeoDSMObject());
 		propertyEClass.getESuperTypes().add(this.getBoundableElement());
@@ -1732,6 +1782,18 @@ public class EnvironmentPackageImpl extends EPackageImpl implements EnvironmentP
 		initEReference(getNamespacesContainer_OwnedNamespaces(), this.getNamespace(), this.getNamespace_Owner(),
 				"ownedNamespaces", null, 0, -1, NamespacesContainer.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE,
 				IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(constrainableElementEClass, ConstrainableElement.class, "ConstrainableElement", IS_ABSTRACT,
+				!IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getConstrainableElement_Maximum(), ecorePackage.getEString(), "maximum", null, 0, 1,
+				ConstrainableElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID,
+				IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getConstrainableElement_Minimum(), ecorePackage.getEString(), "minimum", null, 0, 1,
+				ConstrainableElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID,
+				IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getConstrainableElement_Pattern(), ecorePackage.getEString(), "pattern", null, 0, 1,
+				ConstrainableElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID,
+				IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		// Initialize enums and add enum literals
 		initEEnum(primitiveTypeKindEEnum, PrimitiveTypeKind.class, "PrimitiveTypeKind");
