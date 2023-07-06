@@ -260,6 +260,11 @@ public class EnvironmentAdapterFactory extends AdapterFactoryImpl {
 		}
 
 		@Override
+		public Adapter caseConstrainableElement(ConstrainableElement object) {
+			return createConstrainableElementAdapter();
+		}
+
+		@Override
 		public Adapter caseIdentifiable(Identifiable object) {
 			return createIdentifiableAdapter();
 		}
@@ -700,6 +705,20 @@ public class EnvironmentAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createNamespacesContainerAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.obeonetwork.dsl.environment.ConstrainableElement <em>Constrainable Element</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.obeonetwork.dsl.environment.ConstrainableElement
+	 * @generated
+	 */
+	public Adapter createConstrainableElementAdapter() {
 		return null;
 	}
 

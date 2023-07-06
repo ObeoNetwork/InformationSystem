@@ -360,6 +360,8 @@ public class EnvironmentSwitch<T> extends Switch<T> {
 			if (result == null)
 				result = caseProperty(attribute);
 			if (result == null)
+				result = caseConstrainableElement(attribute);
+			if (result == null)
 				result = caseObeoDSMObject(attribute);
 			if (result == null)
 				result = caseBoundableElement(attribute);
@@ -470,6 +472,13 @@ public class EnvironmentSwitch<T> extends Switch<T> {
 			T result = caseNamespacesContainer(namespacesContainer);
 			if (result == null)
 				result = caseIdentifiable(namespacesContainer);
+			if (result == null)
+				result = defaultCase(theEObject);
+			return result;
+		}
+		case EnvironmentPackage.CONSTRAINABLE_ELEMENT: {
+			ConstrainableElement constrainableElement = (ConstrainableElement) theEObject;
+			T result = caseConstrainableElement(constrainableElement);
 			if (result == null)
 				result = defaultCase(theEObject);
 			return result;
@@ -926,6 +935,21 @@ public class EnvironmentSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseNamespacesContainer(NamespacesContainer object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Constrainable Element</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Constrainable Element</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseConstrainableElement(ConstrainableElement object) {
 		return null;
 	}
 

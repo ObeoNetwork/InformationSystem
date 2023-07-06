@@ -27,7 +27,7 @@ package org.obeonetwork.dsl.environment;
  * @model
  * @generated
  */
-public interface Attribute extends Property {
+public interface Attribute extends Property, ConstrainableElement {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

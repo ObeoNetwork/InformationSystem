@@ -2652,13 +2652,40 @@ public interface EnvironmentPackage extends EPackage {
 	int ATTRIBUTE__IS_IDENTIFIER = PROPERTY__IS_IDENTIFIER;
 
 	/**
+	 * The feature id for the '<em><b>Maximum</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ATTRIBUTE__MAXIMUM = PROPERTY_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Minimum</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ATTRIBUTE__MINIMUM = PROPERTY_FEATURE_COUNT + 1;
+
+	/**
+	 * The feature id for the '<em><b>Pattern</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ATTRIBUTE__PATTERN = PROPERTY_FEATURE_COUNT + 2;
+
+	/**
 	 * The feature id for the '<em><b>Type</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ATTRIBUTE__TYPE = PROPERTY_FEATURE_COUNT + 0;
+	int ATTRIBUTE__TYPE = PROPERTY_FEATURE_COUNT + 3;
 
 	/**
 	 * The feature id for the '<em><b>Containing Type</b></em>' container reference.
@@ -2667,7 +2694,7 @@ public interface EnvironmentPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ATTRIBUTE__CONTAINING_TYPE = PROPERTY_FEATURE_COUNT + 1;
+	int ATTRIBUTE__CONTAINING_TYPE = PROPERTY_FEATURE_COUNT + 4;
 
 	/**
 	 * The number of structural features of the '<em>Attribute</em>' class.
@@ -2676,7 +2703,7 @@ public interface EnvironmentPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ATTRIBUTE_FEATURE_COUNT = PROPERTY_FEATURE_COUNT + 2;
+	int ATTRIBUTE_FEATURE_COUNT = PROPERTY_FEATURE_COUNT + 5;
 
 	/**
 	 * The meta object id for the '{@link org.obeonetwork.dsl.environment.impl.ReferenceImpl <em>Reference</em>}' class.
@@ -3451,6 +3478,52 @@ public interface EnvironmentPackage extends EPackage {
 	int NAMESPACES_CONTAINER_FEATURE_COUNT = TechnicalIDPackage.IDENTIFIABLE_FEATURE_COUNT + 1;
 
 	/**
+	 * The meta object id for the '{@link org.obeonetwork.dsl.environment.impl.ConstrainableElementImpl <em>Constrainable Element</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.obeonetwork.dsl.environment.impl.ConstrainableElementImpl
+	 * @see org.obeonetwork.dsl.environment.impl.EnvironmentPackageImpl#getConstrainableElement()
+	 * @generated
+	 */
+	int CONSTRAINABLE_ELEMENT = 30;
+
+	/**
+	 * The feature id for the '<em><b>Maximum</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONSTRAINABLE_ELEMENT__MAXIMUM = 0;
+
+	/**
+	 * The feature id for the '<em><b>Minimum</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONSTRAINABLE_ELEMENT__MINIMUM = 1;
+
+	/**
+	 * The feature id for the '<em><b>Pattern</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONSTRAINABLE_ELEMENT__PATTERN = 2;
+
+	/**
+	 * The number of structural features of the '<em>Constrainable Element</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONSTRAINABLE_ELEMENT_FEATURE_COUNT = 3;
+
+	/**
 	 * The meta object id for the '{@link org.obeonetwork.dsl.environment.PrimitiveTypeKind <em>Primitive Type Kind</em>}' enum.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -3458,7 +3531,7 @@ public interface EnvironmentPackage extends EPackage {
 	 * @see org.obeonetwork.dsl.environment.impl.EnvironmentPackageImpl#getPrimitiveTypeKind()
 	 * @generated
 	 */
-	int PRIMITIVE_TYPE_KIND = 30;
+	int PRIMITIVE_TYPE_KIND = 31;
 
 	/**
 	 * The meta object id for the '{@link org.obeonetwork.dsl.environment.MultiplicityKind <em>Multiplicity Kind</em>}' enum.
@@ -3468,7 +3541,7 @@ public interface EnvironmentPackage extends EPackage {
 	 * @see org.obeonetwork.dsl.environment.impl.EnvironmentPackageImpl#getMultiplicityKind()
 	 * @generated
 	 */
-	int MULTIPLICITY_KIND = 31;
+	int MULTIPLICITY_KIND = 32;
 
 	/**
 	 * Returns the meta object for class '{@link org.obeonetwork.dsl.environment.Environment <em>Environment</em>}'.
@@ -4475,6 +4548,49 @@ public interface EnvironmentPackage extends EPackage {
 	EReference getNamespacesContainer_OwnedNamespaces();
 
 	/**
+	 * Returns the meta object for class '{@link org.obeonetwork.dsl.environment.ConstrainableElement <em>Constrainable Element</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Constrainable Element</em>'.
+	 * @see org.obeonetwork.dsl.environment.ConstrainableElement
+	 * @generated
+	 */
+	EClass getConstrainableElement();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.obeonetwork.dsl.environment.ConstrainableElement#getMaximum <em>Maximum</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Maximum</em>'.
+	 * @see org.obeonetwork.dsl.environment.ConstrainableElement#getMaximum()
+	 * @see #getConstrainableElement()
+	 * @generated
+	 */
+	EAttribute getConstrainableElement_Maximum();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.obeonetwork.dsl.environment.ConstrainableElement#getMinimum <em>Minimum</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Minimum</em>'.
+	 * @see org.obeonetwork.dsl.environment.ConstrainableElement#getMinimum()
+	 * @see #getConstrainableElement()
+	 * @generated
+	 */
+	EAttribute getConstrainableElement_Minimum();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.obeonetwork.dsl.environment.ConstrainableElement#getPattern <em>Pattern</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Pattern</em>'.
+	 * @see org.obeonetwork.dsl.environment.ConstrainableElement#getPattern()
+	 * @see #getConstrainableElement()
+	 * @generated
+	 */
+	EAttribute getConstrainableElement_Pattern();
+
+	/**
 	 * Returns the meta object for enum '{@link org.obeonetwork.dsl.environment.PrimitiveTypeKind <em>Primitive Type Kind</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -5327,6 +5443,40 @@ public interface EnvironmentPackage extends EPackage {
 		 * @generated
 		 */
 		EReference NAMESPACES_CONTAINER__OWNED_NAMESPACES = eINSTANCE.getNamespacesContainer_OwnedNamespaces();
+
+		/**
+		 * The meta object literal for the '{@link org.obeonetwork.dsl.environment.impl.ConstrainableElementImpl <em>Constrainable Element</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.obeonetwork.dsl.environment.impl.ConstrainableElementImpl
+		 * @see org.obeonetwork.dsl.environment.impl.EnvironmentPackageImpl#getConstrainableElement()
+		 * @generated
+		 */
+		EClass CONSTRAINABLE_ELEMENT = eINSTANCE.getConstrainableElement();
+
+		/**
+		 * The meta object literal for the '<em><b>Maximum</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute CONSTRAINABLE_ELEMENT__MAXIMUM = eINSTANCE.getConstrainableElement_Maximum();
+
+		/**
+		 * The meta object literal for the '<em><b>Minimum</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute CONSTRAINABLE_ELEMENT__MINIMUM = eINSTANCE.getConstrainableElement_Minimum();
+
+		/**
+		 * The meta object literal for the '<em><b>Pattern</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute CONSTRAINABLE_ELEMENT__PATTERN = eINSTANCE.getConstrainableElement_Pattern();
 
 		/**
 		 * The meta object literal for the '{@link org.obeonetwork.dsl.environment.PrimitiveTypeKind <em>Primitive Type Kind</em>}' enum.
