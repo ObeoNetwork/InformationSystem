@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <?pde?>
 <!-- generated with https://github.com/eclipse-cbi/targetplatform-dsl -->
-<target name="IS Designer Repository Target Definition" sequenceNumber="1676049653">
+<target name="IS Designer Repository Target Definition" sequenceNumber="1688477576">
   <locations>
     <location includeMode="planner" includeAllPlatforms="false" includeSource="true" includeConfigurePhase="false" type="InstallableUnit">
       <unit id="com.google.guava" version="0.0.0"/>
@@ -23,6 +23,21 @@
       <unit id="org.eclipse.sirius.specifier.ide.ui.feature.group" version="0.0.0"/>
       <unit id="org.eclipse.sirius.tests.support.feature.group" version="0.0.0"/>
       <repository id="Obeo-Designer-Community" location="http://update.obeo.fr/release/designer/11.7/community/latest/repository/"/>
+    </location>
+    <location includeMode="planner" includeAllPlatforms="false" includeSource="true" includeConfigurePhase="false" type="InstallableUnit">
+      <unit id="org.eclipse.mylyn_feature.feature.group" version="0.0.0"/>
+      <unit id="org.eclipse.mylyn.bugzilla_feature.feature.group" version="0.0.0"/>
+      <unit id="org.eclipse.mylyn.commons.feature.group" version="0.0.0"/>
+      <unit id="org.eclipse.mylyn.commons.identity.feature.group" version="0.0.0"/>
+      <unit id="org.eclipse.mylyn.commons.notifications.feature.group" version="0.0.0"/>
+      <unit id="org.eclipse.mylyn.commons.repositories.feature.group" version="0.0.0"/>
+      <unit id="org.eclipse.mylyn.context_feature.feature.group" version="0.0.0"/>
+      <unit id="org.eclipse.mylyn.discovery.feature.group" version="0.0.0"/>
+      <unit id="org.eclipse.mylyn.ide_feature.feature.group" version="0.0.0"/>
+      <unit id="org.eclipse.mylyn.monitor.feature.group" version="0.0.0"/>
+      <unit id="org.eclipse.mylyn.tasks.ide.feature.group" version="0.0.0"/>
+      <unit id="org.eclipse.mylyn.team_feature.feature.group" version="0.0.0"/>
+      <repository id="Eclipse_Simrel-2023-06_Mylyn-3.26" location="http://download.eclipse.org/releases/2023-06/"/>
     </location>
     <location includeMode="planner" includeAllPlatforms="false" includeSource="true" includeConfigurePhase="false" type="InstallableUnit">
       <unit id="fr.obeo.dsl.viewpoint.collab.user.feature.group" version="0.0.0"/>

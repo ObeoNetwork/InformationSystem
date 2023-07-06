@@ -5,16 +5,23 @@ location Eclipse "http://download.eclipse.org/releases/2021-06/" {
 	org.eclipse.ecf.core.feature.feature.group lazy
 	org.eclipse.equinox.executable.feature.group lazy
 	org.eclipse.equinox.p2.discovery.feature.feature.group lazy
+	org.eclipse.platform.sdk lazy
+	com.sun.xml.bind lazy
+}
+
+location Eclipse_Simrel-2023-06_Mylyn-3.26 "http://download.eclipse.org/releases/2023-06/" {
+	org.eclipse.mylyn_feature.feature.group lazy
+	org.eclipse.mylyn.bugzilla_feature.feature.group lazy
 	org.eclipse.mylyn.commons.feature.group lazy
+	org.eclipse.mylyn.commons.identity.feature.group lazy
+	org.eclipse.mylyn.commons.notifications.feature.group lazy
+	org.eclipse.mylyn.commons.repositories.feature.group lazy
 	org.eclipse.mylyn.context_feature.feature.group lazy
+	org.eclipse.mylyn.discovery.feature.group lazy
 	org.eclipse.mylyn.ide_feature.feature.group lazy
 	org.eclipse.mylyn.monitor.feature.group lazy
 	org.eclipse.mylyn.tasks.ide.feature.group lazy
 	org.eclipse.mylyn.team_feature.feature.group lazy
-	org.eclipse.mylyn_feature.feature.group lazy
-	org.eclipse.oomph.setup.sdk.feature.group lazy
-	org.eclipse.platform.sdk lazy
-	com.sun.xml.bind 2.2.0.v20201118-1845
 }
 
 location Obeo-Designer-Community "http://update.obeo.fr/release/designer/11.7/community/latest/repository/" {
