@@ -1795,6 +1795,7 @@ public class SoaPackageImpl extends EPackageImpl implements SoaPackage {
 		operationEClass.getESuperTypes().add(this.getSecurable());
 		implementationComponentEClass.getESuperTypes().add(theEnvironmentPackage.getObeoDSMObject());
 		parameterEClass.getESuperTypes().add(theEnvironmentPackage.getObeoDSMObject());
+		parameterEClass.getESuperTypes().add(theEnvironmentPackage.getConstrainableElement());
 		parameterRestDataEClass.getESuperTypes().add(theTechnicalIDPackage.getIdentifiable());
 		securitySchemeEClass.getESuperTypes().add(theEnvironmentPackage.getObeoDSMObject());
 		flowEClass.getESuperTypes().add(theEnvironmentPackage.getObeoDSMObject());

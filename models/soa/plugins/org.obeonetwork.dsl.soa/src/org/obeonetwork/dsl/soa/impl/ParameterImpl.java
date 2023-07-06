@@ -16,6 +16,8 @@ import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.util.InternalEList;
+import org.obeonetwork.dsl.environment.ConstrainableElement;
+import org.obeonetwork.dsl.environment.EnvironmentPackage;
 import org.obeonetwork.dsl.environment.MultiplicityKind;
 import org.obeonetwork.dsl.environment.Type;
 import org.obeonetwork.dsl.environment.impl.ObeoDSMObjectImpl;
@@ -33,6 +35,9 @@ import org.obeonetwork.dsl.soa.SoaPackage;
  * The following features are implemented:
  * </p>
  * <ul>
+ *   <li>{@link org.obeonetwork.dsl.soa.impl.ParameterImpl#getMaximum <em>Maximum</em>}</li>
+ *   <li>{@link org.obeonetwork.dsl.soa.impl.ParameterImpl#getMinimum <em>Minimum</em>}</li>
+ *   <li>{@link org.obeonetwork.dsl.soa.impl.ParameterImpl#getPattern <em>Pattern</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.soa.impl.ParameterImpl#getType <em>Type</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.soa.impl.ParameterImpl#getMediaType <em>Media Type</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.soa.impl.ParameterImpl#getName <em>Name</em>}</li>
@@ -53,6 +58,36 @@ public class ParameterImpl extends ObeoDSMObjectImpl implements Parameter {
 	 * @generated
 	 */
 	public static final String copyright = "Copyright (c) 2008, 2023 Obeo.\nAll rights reserved. This program and the accompanying materials\nare made available under the terms of the Eclipse Public License v2.0\nwhich accompanies this distribution, and is available at\nhttps://www.eclipse.org/legal/epl-2.0/\n\nContributors:\n    Obeo - initial API and implementation";
+
+	/**
+	 * The default value of the '{@link #getMaximum() <em>Maximum</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getMaximum()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String MAXIMUM_EDEFAULT = null;
+
+	/**
+	 * The default value of the '{@link #getMinimum() <em>Minimum</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getMinimum()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String MINIMUM_EDEFAULT = null;
+
+	/**
+	 * The default value of the '{@link #getPattern() <em>Pattern</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getPattern()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String PATTERN_EDEFAULT = null;
 
 	/**
 	 * The default value of the '{@link #getName() <em>Name</em>}' attribute.
@@ -129,6 +164,66 @@ public class ParameterImpl extends ObeoDSMObjectImpl implements Parameter {
 	@Override
 	protected EClass eStaticClass() {
 		return SoaPackage.Literals.PARAMETER;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public String getMaximum() {
+		return (String)eDynamicGet(SoaPackage.PARAMETER__MAXIMUM, EnvironmentPackage.Literals.CONSTRAINABLE_ELEMENT__MAXIMUM, true, true);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void setMaximum(String newMaximum) {
+		eDynamicSet(SoaPackage.PARAMETER__MAXIMUM, EnvironmentPackage.Literals.CONSTRAINABLE_ELEMENT__MAXIMUM, newMaximum);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public String getMinimum() {
+		return (String)eDynamicGet(SoaPackage.PARAMETER__MINIMUM, EnvironmentPackage.Literals.CONSTRAINABLE_ELEMENT__MINIMUM, true, true);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void setMinimum(String newMinimum) {
+		eDynamicSet(SoaPackage.PARAMETER__MINIMUM, EnvironmentPackage.Literals.CONSTRAINABLE_ELEMENT__MINIMUM, newMinimum);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public String getPattern() {
+		return (String)eDynamicGet(SoaPackage.PARAMETER__PATTERN, EnvironmentPackage.Literals.CONSTRAINABLE_ELEMENT__PATTERN, true, true);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void setPattern(String newPattern) {
+		eDynamicSet(SoaPackage.PARAMETER__PATTERN, EnvironmentPackage.Literals.CONSTRAINABLE_ELEMENT__PATTERN, newPattern);
 	}
 
 	/**
@@ -354,6 +449,12 @@ public class ParameterImpl extends ObeoDSMObjectImpl implements Parameter {
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
+			case SoaPackage.PARAMETER__MAXIMUM:
+				return getMaximum();
+			case SoaPackage.PARAMETER__MINIMUM:
+				return getMinimum();
+			case SoaPackage.PARAMETER__PATTERN:
+				return getPattern();
 			case SoaPackage.PARAMETER__TYPE:
 				if (resolve) return getType();
 				return basicGetType();
@@ -387,6 +488,15 @@ public class ParameterImpl extends ObeoDSMObjectImpl implements Parameter {
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
+			case SoaPackage.PARAMETER__MAXIMUM:
+				setMaximum((String)newValue);
+				return;
+			case SoaPackage.PARAMETER__MINIMUM:
+				setMinimum((String)newValue);
+				return;
+			case SoaPackage.PARAMETER__PATTERN:
+				setPattern((String)newValue);
+				return;
 			case SoaPackage.PARAMETER__TYPE:
 				setType((Type)newValue);
 				return;
@@ -427,6 +537,15 @@ public class ParameterImpl extends ObeoDSMObjectImpl implements Parameter {
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
+			case SoaPackage.PARAMETER__MAXIMUM:
+				setMaximum(MAXIMUM_EDEFAULT);
+				return;
+			case SoaPackage.PARAMETER__MINIMUM:
+				setMinimum(MINIMUM_EDEFAULT);
+				return;
+			case SoaPackage.PARAMETER__PATTERN:
+				setPattern(PATTERN_EDEFAULT);
+				return;
 			case SoaPackage.PARAMETER__TYPE:
 				setType((Type)null);
 				return;
@@ -466,6 +585,12 @@ public class ParameterImpl extends ObeoDSMObjectImpl implements Parameter {
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
+			case SoaPackage.PARAMETER__MAXIMUM:
+				return MAXIMUM_EDEFAULT == null ? getMaximum() != null : !MAXIMUM_EDEFAULT.equals(getMaximum());
+			case SoaPackage.PARAMETER__MINIMUM:
+				return MINIMUM_EDEFAULT == null ? getMinimum() != null : !MINIMUM_EDEFAULT.equals(getMinimum());
+			case SoaPackage.PARAMETER__PATTERN:
+				return PATTERN_EDEFAULT == null ? getPattern() != null : !PATTERN_EDEFAULT.equals(getPattern());
 			case SoaPackage.PARAMETER__TYPE:
 				return basicGetType() != null;
 			case SoaPackage.PARAMETER__MEDIA_TYPE:
@@ -486,6 +611,42 @@ public class ParameterImpl extends ObeoDSMObjectImpl implements Parameter {
 				return basicGetRestData() != null;
 		}
 		return super.eIsSet(featureID);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public int eBaseStructuralFeatureID(int derivedFeatureID, Class<?> baseClass) {
+		if (baseClass == ConstrainableElement.class) {
+			switch (derivedFeatureID) {
+				case SoaPackage.PARAMETER__MAXIMUM: return EnvironmentPackage.CONSTRAINABLE_ELEMENT__MAXIMUM;
+				case SoaPackage.PARAMETER__MINIMUM: return EnvironmentPackage.CONSTRAINABLE_ELEMENT__MINIMUM;
+				case SoaPackage.PARAMETER__PATTERN: return EnvironmentPackage.CONSTRAINABLE_ELEMENT__PATTERN;
+				default: return -1;
+			}
+		}
+		return super.eBaseStructuralFeatureID(derivedFeatureID, baseClass);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public int eDerivedStructuralFeatureID(int baseFeatureID, Class<?> baseClass) {
+		if (baseClass == ConstrainableElement.class) {
+			switch (baseFeatureID) {
+				case EnvironmentPackage.CONSTRAINABLE_ELEMENT__MAXIMUM: return SoaPackage.PARAMETER__MAXIMUM;
+				case EnvironmentPackage.CONSTRAINABLE_ELEMENT__MINIMUM: return SoaPackage.PARAMETER__MINIMUM;
+				case EnvironmentPackage.CONSTRAINABLE_ELEMENT__PATTERN: return SoaPackage.PARAMETER__PATTERN;
+				default: return -1;
+			}
+		}
+		return super.eDerivedStructuralFeatureID(baseFeatureID, baseClass);
 	}
 
 } //ParameterImpl
