@@ -85,14 +85,18 @@
               </initialOperation>
               <predecessor name="predecessor"/>
             </tools>
-            <tools xsi:type="tool_1:InstanceRoleCreationTool" name="CRE_TypedParticipant" label="Typed Participant" nodeMappings="//@ownedViewpoints[name='Interaction']/@ownedRepresentations[name='Sequence%20Diagram']/@defaultLayer/@nodeMappings[name='SD_Participant']">
+            <tools xsi:type="tool_1:InstanceRoleCreationTool" documentation="Creates a new Participant and prompts for its type through a modal dialog." name="CRE_TypedParticipant" label="Typed Participant" nodeMappings="//@ownedViewpoints[name='Interaction']/@ownedRepresentations[name='Sequence%20Diagram']/@defaultLayer/@nodeMappings[name='SD_Participant']">
               <variable name="variable"/>
               <viewVariable name="viewVariable"/>
               <initialOperation>
                 <firstModelOperations xsi:type="tool_2:ChangeContext" browseExpression="var:container">
                   <subModelOperations xsi:type="tool_2:CreateInstance" typeName="interaction.Participant" referenceName="participants">
                     <subModelOperations xsi:type="tool_2:SetValue" featureName="name" valueExpression="aql:'newParticipant'+self.eContainer(interaction::Interaction).participants->size()"/>
-                    <subModelOperations xsi:type="tool_2:SetValue" featureName="type" valueExpression="var:participantType"/>
+                    <subModelOperations xsi:type="tool_2:Let" variableName="participantType" valueExpression="aql:self.promptUserToSelectParticipantType()">
+                      <subModelOperations xsi:type="tool_2:If" conditionExpression="aql: participantType &lt;> null">
+                        <subModelOperations xsi:type="tool_2:SetValue" featureName="type" valueExpression="var:participantType"/>
+                      </subModelOperations>
+                    </subModelOperations>
                   </subModelOperations>
                   <subModelOperations xsi:type="tool_2:ExternalJavaAction" name="Move participant" icon="" id="org.eclipse.sirius.business.api.action.moveElement">
                     <parameters name="referenceOwner" value="var:self"/>
