@@ -5,7 +5,6 @@ Bundle-Version: 4.1.0.qualifier
 Bundle-Activator: org.obeonetwork.dsl.interaction.design.Activator
 Require-Bundle: org.eclipse.ui,
  org.eclipse.core.runtime,
- org.obeonetwork.dsl.interaction,
  org.eclipse.core.resources,
  org.eclipse.emf.transaction,
  org.eclipse.core.expressions,
@@ -19,9 +18,13 @@ Require-Bundle: org.eclipse.ui,
  org.eclipse.sirius.ecore.extender;bundle-version="2.0.0",
  org.eclipse.sirius.ext.emf;bundle-version="2.0.0",
  org.eclipse.sirius.ui;bundle-version="2.0.0",
+ org.eclipse.eef.core;bundle-version="2.1.6",
+ org.eclipse.eef.ide.ui.ext.widgets.reference;bundle-version="2.1.6",
+ org.obeonetwork.dsl.environment.design.services,
+ org.obeonetwork.dsl.interaction,
  org.obeonetwork.dsl.is,
- org.obeonetwork.utils.common.ui,
- org.obeonetwork.dsl.environment.design.services
+ org.obeonetwork.is.eef.custom,
+ org.obeonetwork.utils.common.ui
 Bundle-ActivationPolicy: lazy
 Bundle-RequiredExecutionEnvironment: JavaSE-1.8
 Bundle-Vendor: Obeo Network

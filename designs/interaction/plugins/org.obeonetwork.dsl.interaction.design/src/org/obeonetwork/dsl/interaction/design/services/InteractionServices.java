@@ -20,17 +20,26 @@ import java.util.HashSet;
 import java.util.Iterator;
 import java.util.LinkedHashSet;
 import java.util.List;
+import java.util.Objects;
 import java.util.Set;
 import java.util.Stack;
 
 import org.eclipse.core.runtime.IStatus;
 import org.eclipse.core.runtime.Status;
+import org.eclipse.eef.core.api.EditingContextAdapter;
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.edit.provider.ComposedAdapterFactory;
 import org.eclipse.jface.dialogs.Dialog;
+import org.eclipse.jface.window.Window;
+import org.eclipse.jface.wizard.WizardDialog;
+import org.eclipse.sirius.business.api.session.Session;
+import org.eclipse.sirius.business.api.session.SessionManager;
+import org.eclipse.sirius.ecore.extender.business.api.permission.IPermissionAuthority;
+import org.eclipse.sirius.ecore.extender.business.api.permission.LockStatus;
+import org.eclipse.sirius.ecore.extender.business.api.permission.PermissionAuthorityRegistry;
 import org.eclipse.swt.widgets.Shell;
 import org.eclipse.ui.PlatformUI;
 import org.eclipse.ui.dialogs.ElementTreeSelectionDialog;
@@ -42,6 +51,7 @@ import org.obeonetwork.dsl.interaction.End;
 import org.obeonetwork.dsl.interaction.Execution;
 import org.obeonetwork.dsl.interaction.Interaction;
 import org.obeonetwork.dsl.interaction.InteractionFragment;
+import org.obeonetwork.dsl.interaction.InteractionPackage;
 import org.obeonetwork.dsl.interaction.InteractionUse;
 import org.obeonetwork.dsl.interaction.Message;
 import org.obeonetwork.dsl.interaction.Operand;
@@ -50,12 +60,7 @@ import org.obeonetwork.dsl.interaction.StateInvariant;
 import org.obeonetwork.dsl.interaction.design.Activator;
 import org.obeonetwork.dsl.interaction.design.ui.extension.providers.InteractionParentSelectionContentProvider;
 import org.obeonetwork.dsl.interaction.design.ui.extension.providers.InteractionParentSelectionLabelProvider;
-
-import org.eclipse.sirius.business.api.session.Session;
-import org.eclipse.sirius.business.api.session.SessionManager;
-import org.eclipse.sirius.ecore.extender.business.api.permission.IPermissionAuthority;
-import org.eclipse.sirius.ecore.extender.business.api.permission.LockStatus;
-import org.eclipse.sirius.ecore.extender.business.api.permission.PermissionAuthorityRegistry;
+import org.obeonetwork.is.eef.custom.reference.CustomEEFExtEObjectSelectionWizard;
 
 /**
  * Java services for the sample 'Interaction' sequence diagrams.
@@ -685,5 +690,31 @@ public class InteractionServices {
     		return null;
     	}
     }
+    
+	/**
+	 * Prompts the user, through a wizard modal dialog, to select an
+	 * {@link ObeoDSMObject} with the intention that it will be
+	 * {@link Participant#setType(ObeoDSMObject) set as the type of} the given
+	 * {@link Participant}.
+	 * 
+	 * @param participant the (non-{@code null}) {@link Participant} for which we
+	 *                    want to select an {@link ObeoDSMObject}.
+	 * @return the (non-{@code null}) {@link ObeoDSMObject} selected by the user
+	 *         through the UI if the dialog was closed with the 'OK' button.
+	 *         {@code null} if the dialog was closed with the 'Cancel' button.
+	 */
+	public static ObeoDSMObject promptUserToSelectParticipantType(final Participant participant) {
+		Objects.requireNonNull(participant);
+
+		final Shell shell = PlatformUI.getWorkbench().getActiveWorkbenchWindow().getShell();
+		final CustomEEFExtEObjectSelectionWizard wizard = new CustomEEFExtEObjectSelectionWizard(participant,
+				InteractionPackage.Literals.PARTICIPANT__TYPE, (EditingContextAdapter) null);
+		final WizardDialog wizardDialog = new WizardDialog(shell, wizard);
+		if (Window.OK == wizardDialog.open()) {
+			return (ObeoDSMObject) wizard.getResult().get(0);
+		} else {
+			return null;
+		}
+	}
        
 }
