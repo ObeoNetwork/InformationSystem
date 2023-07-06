@@ -11,6 +11,7 @@
 package org.obeonetwork.dsl.soa;
 
 import org.eclipse.emf.common.util.EList;
+import org.obeonetwork.dsl.environment.ConstrainableElement;
 import org.obeonetwork.dsl.environment.MultiplicityKind;
 import org.obeonetwork.dsl.environment.ObeoDSMObject;
 import org.obeonetwork.dsl.environment.Type;
@@ -39,7 +40,7 @@ import org.obeonetwork.dsl.environment.Type;
  * @model
  * @generated
  */
-public interface Parameter extends ObeoDSMObject {
+public interface Parameter extends ObeoDSMObject, ConstrainableElement {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

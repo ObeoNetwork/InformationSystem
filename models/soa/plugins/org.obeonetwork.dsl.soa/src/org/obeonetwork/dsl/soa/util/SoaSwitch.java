@@ -15,6 +15,7 @@ import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.util.Switch;
 import org.obeonetwork.dsl.environment.Action;
 import org.obeonetwork.dsl.environment.Annotation;
+import org.obeonetwork.dsl.environment.ConstrainableElement;
 import org.obeonetwork.dsl.environment.MetaData;
 import org.obeonetwork.dsl.environment.Namespace;
 import org.obeonetwork.dsl.environment.NamespacesContainer;
@@ -181,6 +182,7 @@ public class SoaSwitch<T> extends Switch<T> {
 				Parameter parameter = (Parameter)theEObject;
 				T result = caseParameter(parameter);
 				if (result == null) result = caseObeoDSMObject(parameter);
+				if (result == null) result = caseConstrainableElement(parameter);
 				if (result == null) result = caseIdentifiable(parameter);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
@@ -661,6 +663,21 @@ public class SoaSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseAction(Action object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Constrainable Element</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Constrainable Element</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseConstrainableElement(ConstrainableElement object) {
 		return null;
 	}
 

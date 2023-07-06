@@ -1451,13 +1451,40 @@ public interface SoaPackage extends EPackage {
 	int PARAMETER__MODIFIED_ON = EnvironmentPackage.OBEO_DSM_OBJECT__MODIFIED_ON;
 
 	/**
+	 * The feature id for the '<em><b>Maximum</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PARAMETER__MAXIMUM = EnvironmentPackage.OBEO_DSM_OBJECT_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Minimum</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PARAMETER__MINIMUM = EnvironmentPackage.OBEO_DSM_OBJECT_FEATURE_COUNT + 1;
+
+	/**
+	 * The feature id for the '<em><b>Pattern</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PARAMETER__PATTERN = EnvironmentPackage.OBEO_DSM_OBJECT_FEATURE_COUNT + 2;
+
+	/**
 	 * The feature id for the '<em><b>Type</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int PARAMETER__TYPE = EnvironmentPackage.OBEO_DSM_OBJECT_FEATURE_COUNT + 0;
+	int PARAMETER__TYPE = EnvironmentPackage.OBEO_DSM_OBJECT_FEATURE_COUNT + 3;
 
 	/**
 	 * The feature id for the '<em><b>Media Type</b></em>' containment reference list.
@@ -1466,7 +1493,7 @@ public interface SoaPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PARAMETER__MEDIA_TYPE = EnvironmentPackage.OBEO_DSM_OBJECT_FEATURE_COUNT + 1;
+	int PARAMETER__MEDIA_TYPE = EnvironmentPackage.OBEO_DSM_OBJECT_FEATURE_COUNT + 4;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -1475,7 +1502,7 @@ public interface SoaPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PARAMETER__NAME = EnvironmentPackage.OBEO_DSM_OBJECT_FEATURE_COUNT + 2;
+	int PARAMETER__NAME = EnvironmentPackage.OBEO_DSM_OBJECT_FEATURE_COUNT + 5;
 
 	/**
 	 * The feature id for the '<em><b>Multiplicity</b></em>' attribute.
@@ -1484,7 +1511,7 @@ public interface SoaPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PARAMETER__MULTIPLICITY = EnvironmentPackage.OBEO_DSM_OBJECT_FEATURE_COUNT + 3;
+	int PARAMETER__MULTIPLICITY = EnvironmentPackage.OBEO_DSM_OBJECT_FEATURE_COUNT + 6;
 
 	/**
 	 * The feature id for the '<em><b>Is Unique</b></em>' attribute.
@@ -1493,7 +1520,7 @@ public interface SoaPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PARAMETER__IS_UNIQUE = EnvironmentPackage.OBEO_DSM_OBJECT_FEATURE_COUNT + 4;
+	int PARAMETER__IS_UNIQUE = EnvironmentPackage.OBEO_DSM_OBJECT_FEATURE_COUNT + 7;
 
 	/**
 	 * The feature id for the '<em><b>Is Ordered</b></em>' attribute.
@@ -1502,7 +1529,7 @@ public interface SoaPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PARAMETER__IS_ORDERED = EnvironmentPackage.OBEO_DSM_OBJECT_FEATURE_COUNT + 5;
+	int PARAMETER__IS_ORDERED = EnvironmentPackage.OBEO_DSM_OBJECT_FEATURE_COUNT + 8;
 
 	/**
 	 * The feature id for the '<em><b>Status Code</b></em>' attribute.
@@ -1511,7 +1538,7 @@ public interface SoaPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PARAMETER__STATUS_CODE = EnvironmentPackage.OBEO_DSM_OBJECT_FEATURE_COUNT + 6;
+	int PARAMETER__STATUS_CODE = EnvironmentPackage.OBEO_DSM_OBJECT_FEATURE_COUNT + 9;
 
 	/**
 	 * The feature id for the '<em><b>Status Message</b></em>' attribute.
@@ -1520,7 +1547,7 @@ public interface SoaPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PARAMETER__STATUS_MESSAGE = EnvironmentPackage.OBEO_DSM_OBJECT_FEATURE_COUNT + 7;
+	int PARAMETER__STATUS_MESSAGE = EnvironmentPackage.OBEO_DSM_OBJECT_FEATURE_COUNT + 10;
 
 	/**
 	 * The feature id for the '<em><b>Rest Data</b></em>' containment reference.
@@ -1529,7 +1556,7 @@ public interface SoaPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PARAMETER__REST_DATA = EnvironmentPackage.OBEO_DSM_OBJECT_FEATURE_COUNT + 8;
+	int PARAMETER__REST_DATA = EnvironmentPackage.OBEO_DSM_OBJECT_FEATURE_COUNT + 11;
 
 	/**
 	 * The number of structural features of the '<em>Parameter</em>' class.
@@ -1538,7 +1565,7 @@ public interface SoaPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PARAMETER_FEATURE_COUNT = EnvironmentPackage.OBEO_DSM_OBJECT_FEATURE_COUNT + 9;
+	int PARAMETER_FEATURE_COUNT = EnvironmentPackage.OBEO_DSM_OBJECT_FEATURE_COUNT + 12;
 
 	/**
 	 * The meta object id for the '{@link org.obeonetwork.dsl.soa.impl.ParameterRestDataImpl <em>Parameter Rest Data</em>}' class.
