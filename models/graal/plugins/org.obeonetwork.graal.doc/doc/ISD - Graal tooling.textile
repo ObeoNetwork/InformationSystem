@@ -333,21 +333,20 @@ Les outils fournis par la palette sont :
 
 h4(#value_constraints). Contraintes sur les valeurs des attributs d'une entité
 
-Les attributs d'une classe sont pourvus de champs _minimum_, _maximum_ et/ou _pattern_.
-La nature de ces champs dépend de la nature du type du paramètre d'entrée : texte (essentiellement _String_) ou valeur numérique (_Long_, _Float_, etc.).
+Les attributs de _DomainClass_ sont pourvus de champs _minimum_, _maximum_ et optionellement _pattern_.
+La nature de ces champs dépend de la nature du type, qui peut être *textuel* (essentiellement _String_), *numérique* (_Integer_, _Long_, _Float_, etc.) ou *autre* (_Boolean_, _Binary_, etc.).
 
-Pour un paramètre dont le type est de nature texte :
+Pour un type de nature *textuel* :
 * _minimum_ : longueur minimale du texte
 * _maximum_ : longueur maximale du texte
 * _pattern_ : expression régulière (format ECMA 262) à laquelle le texte doit se conformer
 
-Pour un paramètre dont le type est de nature valeur numérique :
+Pour un type de nature *numérique* :
 * _minimum_ : valeur minimale requise
 * _maximum_ : valeur maximale autorisée
 * _pattern_ : non-applicable
 
-Ces champs sont utilisés lors de la génération d'une spécification OpenAPI.
-
+Pour un type de nature *autre* ces champs sont non-applicables.
 
 h3. Gestion des User Stories
 

@@ -292,16 +292,24 @@
 			<img border="0" src="pics/entities/Dlg%20entity%20namespace%20from%20dto.png"/>
 		</p>
 		<h4 id="value_constraints">Contraintes sur les valeurs des attributs d&#8217;une entité</h4>
-		<p>Les attributs d&#8217;une entité sont pourvus de champs 
+		<p>Les attributs d&#8217;entité sont pourvus de champs 
 			<em>minimum</em>, 
-			<em>maximum</em> et/ou 
+			<em>maximum</em> et optionellement 
 			<em>pattern</em>.
-			<br/>La nature de ces champs dépend de la nature du type du paramètre d&#8217;entrée : texte (essentiellement 
-			<em>String</em>) ou valeur numérique (
+			<br/>La nature de ces champs dépend de la nature du type, qui peut être 
+			<strong>textuel</strong> (essentiellement 
+			<em>String</em>), 
+			<strong>numérique</strong> (
+			<em>Integer</em>, 
 			<em>Long</em>, 
-			<em>Float</em>, etc.).
+			<em>Float</em>, etc.) ou 
+			<strong>autre</strong> (
+			<em>Boolean</em>, 
+			<em>Binary</em>, etc.).
 		</p>
-		<p>Pour un paramètre dont le type est de nature texte :</p>
+		<p>Pour un type de nature 
+			<strong>textuel</strong> :
+		</p>
 		<ul>
 			<li>
 				<em>minimum</em> : longueur minimale du texte
@@ -313,7 +321,9 @@
 				<em>pattern</em> : expression régulière (format ECMA 262) à laquelle le texte doit se conformer
 			</li>
 		</ul>
-		<p>Pour un paramètre dont le type est de nature valeur numérique :</p>
+		<p>Pour un type de nature 
+			<strong>numérique</strong> :
+		</p>
 		<ul>
 			<li>
 				<em>minimum</em> : valeur minimale requise
@@ -325,7 +335,10 @@
 				<em>pattern</em> : non-applicable
 			</li>
 		</ul>
-		<p>Ces champs sont utilisés lors de la génération d&#8217;une spécification OpenAPI.</p>
+		<p>Pour un type de nature 
+			<strong>autre</strong> ces champs sont non-applicables.
+		</p>
+		<p>Ces champs sont exploités par la génération et l&#8217;import OpenAPI (Swagger).</p>
 		<h3 id="Tabledesentits">Table des entités</h3>
 		<p>La table des entités (
 			<em>Entity table</em>) peut être créée sur l&#8217;objet racine 
