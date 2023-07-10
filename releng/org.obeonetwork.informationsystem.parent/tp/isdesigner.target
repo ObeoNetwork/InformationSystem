@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <?pde?>
 <!-- generated with https://github.com/eclipse-cbi/targetplatform-dsl -->
-<target name="IS Designer Repository Target Definition" sequenceNumber="1688477576">
+<target name="IS Designer Repository Target Definition" sequenceNumber="1688999934">
   <locations>
     <location includeMode="planner" includeAllPlatforms="false" includeSource="true" includeConfigurePhase="false" type="InstallableUnit">
       <unit id="com.google.guava" version="0.0.0"/>
@@ -37,7 +37,7 @@
       <unit id="org.eclipse.mylyn.monitor.feature.group" version="0.0.0"/>
       <unit id="org.eclipse.mylyn.tasks.ide.feature.group" version="0.0.0"/>
       <unit id="org.eclipse.mylyn.team_feature.feature.group" version="0.0.0"/>
-      <repository id="Eclipse_Simrel-2023-06_Mylyn-3.26" location="http://download.eclipse.org/releases/2023-06/"/>
+      <repository id="Eclipse_Mylyn-3.26.1" location="https://download.eclipse.org/mylyn/updates/release/3.26.1/"/>
     </location>
     <location includeMode="planner" includeAllPlatforms="false" includeSource="true" includeConfigurePhase="false" type="InstallableUnit">
       <unit id="fr.obeo.dsl.viewpoint.collab.user.feature.group" version="0.0.0"/>

@@ -21,7 +21,7 @@ location Obeo-Designer-Community "http://update.obeo.fr/release/designer/11.7/co
 	org.eclipse.sirius.tests.support.feature.group lazy
 }
 
-location Eclipse_Simrel-2023-06_Mylyn-3.26 "http://download.eclipse.org/releases/2023-06/" {
+location Eclipse_Mylyn-3.26.1 "https://download.eclipse.org/mylyn/updates/release/3.26.1/" {
 	org.eclipse.mylyn_feature.feature.group lazy
 	org.eclipse.mylyn.bugzilla_feature.feature.group lazy
 	org.eclipse.mylyn.commons.feature.group lazy
