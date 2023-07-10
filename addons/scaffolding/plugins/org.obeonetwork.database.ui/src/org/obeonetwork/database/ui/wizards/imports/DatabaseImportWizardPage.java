@@ -185,7 +185,7 @@ public class DatabaseImportWizardPage extends WizardPage {
 		lblModelFile.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, false, false, 1, 1));
 		lblModelFile.setText("New model file :");
 		
-		txtModelFile = new StyledText(composite, SWT.BORDER);
+		txtModelFile = new StyledText(composite, SWT.BORDER | SWT.SINGLE);
 		txtModelFile.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, true, false, 1, 1));
 		txtModelFile.addModifyListener(new ModifyListener() {
 			public void modifyText(ModifyEvent e) {

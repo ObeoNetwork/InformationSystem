@@ -146,7 +146,7 @@ public class NewModelCreationPage extends WizardPage {
 		Label lblFileName = new Label(container, SWT.NONE);
 		lblFileName.setText("File name:");
 		
-		textFileName = new StyledText(container, SWT.BORDER);
+		textFileName = new StyledText(container, SWT.BORDER | SWT.SINGLE);
 		textFileName.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, true, false, 1, 1));
 		textFileName.addModifyListener(new ModifyListener() {
 			@Override

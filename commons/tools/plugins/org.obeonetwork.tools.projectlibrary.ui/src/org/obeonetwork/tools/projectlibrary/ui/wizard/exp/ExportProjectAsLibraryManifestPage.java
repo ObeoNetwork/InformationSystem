@@ -40,11 +40,9 @@ import org.eclipse.jface.wizard.WizardPage;
 import org.eclipse.sirius.business.api.modelingproject.ModelingProject;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.custom.ScrolledComposite;
-import org.eclipse.swt.custom.StyleRange;
 import org.eclipse.swt.custom.StyledText;
 import org.eclipse.swt.events.ModifyEvent;
 import org.eclipse.swt.events.ModifyListener;
-import org.eclipse.swt.graphics.Color;
 import org.eclipse.swt.layout.FillLayout;
 import org.eclipse.swt.layout.GridData;
 import org.eclipse.swt.layout.GridLayout;
@@ -196,7 +194,7 @@ public class ExportProjectAsLibraryManifestPage extends WizardPage {
 		lblMarFileName.setLayoutData(new GridData(SWT.RIGHT, SWT.CENTER, false, false, 1, 1));
 		lblMarFileName.setText("MAR filename");
 		
-		txtMarFileName = new StyledText(composite, SWT.BORDER);
+		txtMarFileName = new StyledText(composite, SWT.BORDER | SWT.SINGLE);
 		txtMarFileName.addModifyListener(new ModifyListener() {
 			public void modifyText(ModifyEvent e) {
 				WizardHelper.addExtensionIfMissing(txtMarFileName, ManifestUtils.MODELING_ARCHIVE_FILE_EXTENSION);
