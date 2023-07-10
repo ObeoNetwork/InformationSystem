@@ -1,5 +1,7 @@
 target "IS Designer Product Target Definition" with source, requirements
 
+environment JavaSE-11
+
 location Eclipse "http://download.eclipse.org/releases/2021-06/" {
 	org.eclipse.core.runtime.feature.feature.group lazy
 	org.eclipse.ecf.core.feature.feature.group lazy
@@ -9,7 +11,7 @@ location Eclipse "http://download.eclipse.org/releases/2021-06/" {
 	com.sun.xml.bind lazy
 }
 
-location Eclipse_Simrel-2023-06_Mylyn-3.26 "http://download.eclipse.org/releases/2023-06/" {
+location Eclipse_Mylyn-3.26.1 "https://download.eclipse.org/mylyn/updates/release/3.26.1/" {
 	org.eclipse.mylyn_feature.feature.group lazy
 	org.eclipse.mylyn.bugzilla_feature.feature.group lazy
 	org.eclipse.mylyn.commons.feature.group lazy
@@ -141,19 +143,19 @@ location Obeo-Designer-Community "http://update.obeo.fr/release/designer/11.7/co
 	org.slf4j.api lazy
 	org.eclipse.emf.compare.rcp lazy
 	org.eclipse.emf.compare.rcp.ui lazy
-    org.eclipse.sirius.runtime.acceleo.feature.group lazy
-    org.eclipse.sirius.runtime.aql.feature.group lazy
-    org.eclipse.sirius.runtime.feature.group lazy
-    org.eclipse.sirius.runtime.ide.eef.feature.group lazy
-    org.eclipse.sirius.runtime.ide.ui.acceleo.feature.group lazy
-    org.eclipse.sirius.runtime.ide.ui.feature.group lazy
-    org.eclipse.sirius.runtime.ide.xtext.feature.group lazy
-    org.eclipse.sirius.runtime.ocl.feature.group lazy
-    org.eclipse.sirius.samples.feature.group lazy
-    org.eclipse.sirius.specifier.ide.ui.acceleo.feature.group lazy
-    org.eclipse.sirius.specifier.ide.ui.aql.feature.group lazy
-    org.eclipse.sirius.specifier.ide.ui.feature.group lazy
-    org.eclipse.sirius.tests.support.feature.group lazy
+	org.eclipse.sirius.runtime.acceleo.feature.group lazy
+	org.eclipse.sirius.runtime.aql.feature.group lazy
+	org.eclipse.sirius.runtime.feature.group lazy
+	org.eclipse.sirius.runtime.ide.eef.feature.group lazy
+	org.eclipse.sirius.runtime.ide.ui.acceleo.feature.group lazy
+	org.eclipse.sirius.runtime.ide.ui.feature.group lazy
+	org.eclipse.sirius.runtime.ide.xtext.feature.group lazy
+	org.eclipse.sirius.runtime.ocl.feature.group lazy
+	org.eclipse.sirius.samples.feature.group lazy
+	org.eclipse.sirius.specifier.ide.ui.acceleo.feature.group lazy
+	org.eclipse.sirius.specifier.ide.ui.aql.feature.group lazy
+	org.eclipse.sirius.specifier.ide.ui.feature.group lazy
+	org.eclipse.sirius.tests.support.feature.group lazy
 }
 
 location Obeo-Designer-Team "http://update.obeo.fr/release/designer/11.7/team/latest/repository/" {
