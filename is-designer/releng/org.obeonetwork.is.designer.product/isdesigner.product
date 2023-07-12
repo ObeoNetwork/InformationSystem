@@ -142,6 +142,7 @@ This Agreement is governed by the laws of the State of New York and the intellec
    </plugins>
 
    <features>
+      <feature id="fr.obeo.dsl.designer.gen.html.feature"/>
       <feature id="org.obeonetwork.is.designer.product.feature" installMode="root"/>
       <feature id="org.eclipse.draw2d.sdk"/>
       <feature id="org.eclipse.egit"/>

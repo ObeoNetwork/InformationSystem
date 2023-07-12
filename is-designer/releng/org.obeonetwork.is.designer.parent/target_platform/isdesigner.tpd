@@ -156,6 +156,8 @@ location Obeo-Designer-Community "http://update.obeo.fr/release/designer/11.7/co
 	org.eclipse.sirius.specifier.ide.ui.aql.feature.group lazy
 	org.eclipse.sirius.specifier.ide.ui.feature.group lazy
 	org.eclipse.sirius.tests.support.feature.group lazy
+	
+	fr.obeo.dsl.designer.gen.html.feature.feature.group lazy
 }
 
 location Obeo-Designer-Team "http://update.obeo.fr/release/designer/11.7/team/latest/repository/" {
