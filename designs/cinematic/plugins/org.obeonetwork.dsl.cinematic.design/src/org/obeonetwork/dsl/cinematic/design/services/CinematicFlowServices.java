@@ -49,9 +49,10 @@ import org.obeonetwork.dsl.cinematic.view.ViewContainer;
 import org.obeonetwork.dsl.cinematic.view.ViewEvent;
 import org.obeonetwork.dsl.environment.design.wizards.EObjectTreeItemWrapper;
 import org.obeonetwork.dsl.environment.design.wizards.ISObjectSelectionWizard;
-import org.obeonetwork.dsl.environment.design.wizards.ISObjectSelectionWizardPage;
+import org.obeonetwork.dsl.environment.design.wizards.ISObjectSelectionWizardPage.SelectMode;
 import org.obeonetwork.dsl.environment.design.wizards.TreeItemWrapperCheckBoxFilter;
 import org.obeonetwork.utils.common.EObjectUtils;
+import org.obeonetwork.utils.common.StreamUtils;
 
 /**
  * Services to use the flows
@@ -261,11 +262,10 @@ public class CinematicFlowServices {
         
         wizard.setPreSelectedEObjects(viewState.getViewContainers().stream().collect(toList()));
         
-        wizard.setTreeSelectMode(ISObjectSelectionWizardPage.PICK_ANY);
+        wizard.setTreeSelectMode(SelectMode.PICK_ANY);
         
-        List<AbstractPackage> allPackages = new ArrayList<>();
-        collectAllPackages(allPackages, cinematicRoot);
-        Set<ViewContainer> alreadyBoundViewContainers = allPackages.stream()
+        Set<ViewContainer> alreadyBoundViewContainers = 
+        		StreamUtils.closure((AbstractPackage)cinematicRoot, p -> p.getSubPackages().stream().map(AbstractPackage.class::cast))
         		.flatMap(p -> p.getFlows().stream())
         		.flatMap(f -> f.getStates().stream())
         		.filter(ViewState.class::isInstance).map(ViewState.class::cast)
@@ -290,11 +290,6 @@ public class CinematicFlowServices {
 
 	}
 	
-	private void collectAllPackages(List<AbstractPackage> allPackages, AbstractPackage aPackage) {
-		allPackages.add(aPackage);
-		aPackage.getSubPackages().stream().forEach(sp -> collectAllPackages(allPackages, sp));
-	}
-
 	public static boolean isSubViewContainer(ViewContainer container) {
 		return container.eContainer() instanceof ViewContainer;
 	}

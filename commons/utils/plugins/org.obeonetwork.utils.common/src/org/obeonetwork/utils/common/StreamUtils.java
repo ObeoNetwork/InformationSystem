@@ -10,7 +10,10 @@
  *******************************************************************************/
 package org.obeonetwork.utils.common;
 
+import java.util.ArrayList;
 import java.util.Iterator;
+import java.util.List;
+import java.util.function.Function;
 import java.util.stream.Stream;
 import java.util.stream.StreamSupport;
 
@@ -24,5 +27,17 @@ public class StreamUtils {
         Iterable<T> iterable = () -> sourceIterator;
         return StreamSupport.stream(iterable.spliterator(), parallel);
     }
+    
+    public static <T> Stream<T> closure(T element, Function<? super T, Stream<T>> lambda) {
+    	List<T> elements = new ArrayList<>();
+    	collect(elements, element, lambda);
+    	
+    	return elements.stream();
+    }
+
+	private static <T> void collect(List<T> elements, T element, Function<? super T, Stream<T>> lambda) {
+		elements.add(element);
+		lambda.apply(element).forEach(child -> collect(elements, (T) child, lambda));
+	}
     
 }

@@ -87,9 +87,10 @@ public class ISObjectSelectionWizardPage extends AbstractSelectionWizardPage {
 
 	private IPageCompleteTester pageCompleteTester = null;
 	
-	public static final int HIERARCHIC = 0;
-	public static final int PICK_ANY = 1;
-	private int treeSelectMode = HIERARCHIC;
+	public enum SelectMode {
+		HIERARCHIC, PICK_ANY
+	}
+	private SelectMode treeSelectMode = SelectMode.HIERARCHIC;
 
 	private ICheckBoxFilter checkBoxFilter = null;
 	
@@ -122,7 +123,7 @@ public class ISObjectSelectionWizardPage extends AbstractSelectionWizardPage {
 	 * 
 	 * @param treeSelectMode
 	 */
-	public void setTreeSelectMode(int treeSelectMode) {
+	public void setTreeSelectMode(SelectMode treeSelectMode) {
 		this.treeSelectMode  = treeSelectMode;
 	}
 	

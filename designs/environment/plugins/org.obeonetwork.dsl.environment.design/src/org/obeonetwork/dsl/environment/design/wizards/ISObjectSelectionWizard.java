@@ -21,6 +21,7 @@ import org.eclipse.ui.PlatformUI;
 import org.obeonetwork.dsl.environment.design.wizards.ISObjectSelectionWizardPage.ICheckBoxFilter;
 import org.obeonetwork.dsl.environment.design.wizards.ISObjectSelectionWizardPage.IPageCompleteTester;
 import org.obeonetwork.dsl.environment.design.wizards.ISObjectSelectionWizardPage.ISelectionInductor;
+import org.obeonetwork.dsl.environment.design.wizards.ISObjectSelectionWizardPage.SelectMode;
 
 public class ISObjectSelectionWizard extends Wizard {
 
@@ -58,7 +59,7 @@ public class ISObjectSelectionWizard extends Wizard {
 		page.setLevelToExpand(levelToExpand);
 	}
 	
-	public void setTreeSelectMode(int treeSelectMode) {
+	public void setTreeSelectMode(SelectMode treeSelectMode) {
 		page.setTreeSelectMode(treeSelectMode);
 	}
 	
