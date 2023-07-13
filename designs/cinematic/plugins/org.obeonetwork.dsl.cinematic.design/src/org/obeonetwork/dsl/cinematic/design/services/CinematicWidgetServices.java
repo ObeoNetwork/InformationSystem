@@ -414,6 +414,7 @@ public class CinematicWidgetServices extends DebugServices {
 		Style style = viewElement.getWidget().getStyle();
 		String path = getWidgetDecoratorPath(viewElement, cardinalPosition);
 		if(style != null && path != null) {
+			Session session = new EObjectQuery(viewElement).getSession();
 			
 			Bounds bounds = (Bounds) SiriusGMFHelper.getGmfNode(diagramElement).getLayoutConstraint();
 //			ContainerStyle containerStyle = (ContainerStyle) diagramElement.getStyle();
@@ -426,17 +427,17 @@ public class CinematicWidgetServices extends DebugServices {
 			if(style.isDecoratorHFill() && style.isDecoratorVFill()) {
 				width = bounds.getWidth() - borderThickness;
 				height = bounds.getHeight() - borderThickness;
-				image  = SVGImageFigure.flyWeightImage(path, width, height);
+				image  = SVGImageFigure.flyWeightImage(session, path, width, height);
 			} else {
-				image  = SVGImageFigure.flyWeightImage(path);
+				image  = SVGImageFigure.flyWeightImage(session, path);
 				if(style.isDecoratorHFill()) {
 					width = bounds.getWidth() - borderThickness;
 					height = (image.getBounds().height * width) / image.getBounds().width;
-					image  = SVGImageFigure.flyWeightImage(path, width, height);
+					image  = SVGImageFigure.flyWeightImage(session, path, width, height);
 				} else if(style.isDecoratorVFill()) {
 					height = bounds.getHeight() - borderThickness;
 					width = (image.getBounds().width * height) / image.getBounds().height;
-					image  = SVGImageFigure.flyWeightImage(path, width, height);
+					image  = SVGImageFigure.flyWeightImage(session, path, width, height);
 				}
 			}
 		}

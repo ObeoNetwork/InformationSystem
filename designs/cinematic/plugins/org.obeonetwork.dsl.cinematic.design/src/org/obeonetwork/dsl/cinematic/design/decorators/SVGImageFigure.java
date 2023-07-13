@@ -17,6 +17,8 @@ import java.util.Map;
 import org.eclipse.core.resources.ResourcesPlugin;
 import org.eclipse.core.runtime.Path;
 import org.eclipse.draw2d.geometry.PrecisionRectangle;
+import org.eclipse.sirius.business.api.session.Session;
+import org.eclipse.sirius.business.api.session.SessionListener;
 import org.eclipse.sirius.common.tools.api.resource.FileProvider;
 import org.eclipse.sirius.diagram.ui.tools.api.figure.SVGFigure;
 import org.eclipse.sirius.diagram.ui.tools.api.figure.SVGWorkspaceImageFigure;
@@ -57,11 +59,24 @@ public class SVGImageFigure extends SVGWorkspaceImageFigure {
 		return false;
 	}
 
-	private static final Map<String, Image> IMAGE_CACHE = new HashMap<>();
+	private static final Map<Session, Map<String, Image>> IMAGE_CACHE_PER_SESSION = new HashMap<>();
 
-	public static Image flyWeightImage(String path, int width, int height) {
+    public static Image flyWeightImage(Session session, String path) {
+    	Map<String, Image> imageCache = getImageCache(session);
+    	Image image = imageCache.get(path);
+    	if(image == null) {
+    		image = flyWeightImage(path);
+    		imageCache.put(path, image);
+    	}
+    	return image;
+    }
+	
+	public static Image flyWeightImage(Session session, String path, int width, int height) {
+		
+		Map<String, Image> imageCache = getImageCache(session);
+		
 		String imageKey = computeKey(path, width, height);
-		Image image = IMAGE_CACHE.get(imageKey);
+		Image image = imageCache.get(imageKey);
 		
 		if(image == null) {
 			SVGImageFigure fig = new SVGImageFigure();
@@ -69,10 +84,30 @@ public class SVGImageFigure extends SVGWorkspaceImageFigure {
 			fig.setSize(width, height);
 			fig.contentChanged();
 			image = fig.getImage(new PrecisionRectangle(0, 0, width, height), null);
-			IMAGE_CACHE.put(imageKey, image);
+			imageCache.put(imageKey, image);
 		}
 		
 		return image;
+	}
+
+	private static Map<String, Image> getImageCache(Session session) {
+		Map<String, Image> imageCache = IMAGE_CACHE_PER_SESSION.get(session);
+		
+		if(imageCache == null) {
+			imageCache = new HashMap<>();
+			IMAGE_CACHE_PER_SESSION.put(session, imageCache);
+			
+			session.addListener(new SessionListener() {
+				@Override
+				public void notify(int changeKind) {
+					if(changeKind == SessionListener.CLOSED) {
+						IMAGE_CACHE_PER_SESSION.get(session).values().forEach(image -> image.dispose());
+						IMAGE_CACHE_PER_SESSION.remove(session);
+					}
+				}
+			});
+		}
+		return imageCache;
 	}
 
 	private static String computeKey(String path, int width, int height) {
