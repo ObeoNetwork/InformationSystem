@@ -38,6 +38,7 @@ import org.eclipse.sirius.diagram.ui.business.api.image.WorkspaceImageHelper;
 import org.eclipse.sirius.diagram.ui.edit.api.part.IDiagramElementEditPart;
 import org.eclipse.sirius.ui.business.api.dialect.DialectUIManager;
 import org.eclipse.sirius.ui.business.api.dialect.ExportFormat;
+import org.eclipse.sirius.ui.business.api.dialect.ExportFormat.ScalingPolicy;
 import org.eclipse.sirius.ui.tools.api.actions.export.SizeTooLargeException;
 import org.eclipse.sirius.viewpoint.DRepresentation;
 import org.eclipse.sirius.viewpoint.DRepresentationDescriptor;
@@ -55,8 +56,6 @@ public class ApplyMockupImageHandler extends AbstractHandler {
 	
 	private final static String MOCKUPS_FOLDER_NAME = "mockups";
 
-    private static final ExportFormat FORMAT = new ExportFormat(ExportFormat.ExportDocumentFormat.NONE, ImageFileFormat.JPG);
-    
 	@Override
 	public Object execute(ExecutionEvent event) throws ExecutionException {
 
@@ -120,10 +119,17 @@ public class ApplyMockupImageHandler extends AbstractHandler {
 		String fileName = baseFileName + "-" + suffix + ".jpg";
 		IFile imageFile = mockupsFolder.getFile(fileName);
 		
+	    ExportFormat exportFormat = new ExportFormat(ExportFormat.ExportDocumentFormat.NONE, ImageFileFormat.JPG);
+	    exportFormat = new ExportFormat(
+	    		ExportFormat.ExportDocumentFormat.NONE,
+	    		ImageFileFormat.JPG,
+	    		ScalingPolicy.NO_SCALING,
+	    		0);
+	    
 		try {
 	        DialectUIManager.INSTANCE.export(mockupDiagram, session, 
 	        		imageFile.getLocation(),
-	                FORMAT, new NullProgressMonitor());
+	        		exportFormat, new NullProgressMonitor());
 		} catch (SizeTooLargeException e) {
 			Activator.getDefault().getLog().log(new Status(IStatus.ERROR, Activator.PLUGIN_ID, 
 					"Diagram is too large to be exported as image", e));
