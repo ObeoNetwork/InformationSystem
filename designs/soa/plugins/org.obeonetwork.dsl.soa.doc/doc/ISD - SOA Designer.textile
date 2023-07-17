@@ -157,7 +157,7 @@ Le diagramme _DTO Namespaces Hierarchy_ est destiné à gérer l'ensemble de cet
 
 Il permet de créer, modifier ou supprimer des packages ainsi que d'accéder facilement (par double clic ou menu contextuel sur les _Namespaces_) aux diagrammes de DTOs d'un package.
 
-!{width:100%}pics/hierarchy/namespaces_hierarchy.png!
+!{width:70%}pics/hierarchy/namespaces_hierarchy.png!
 
 h4. Eléments affichés et palette d'outils
 
@@ -171,6 +171,7 @@ Le diagramme permet d’afficher et manipuler les éléments suivants :
 Les outils fournis par la palette sont :
 
 | !pics/hierarchy/Palette_CreateNamespace.png! | Création d'un _Namespace_. Un _Namespace_ peut être créé sur le fond du diagramme ou à l'intérieur d'un autre _Namespace_. |
+| !pics/hierarchy/Palette_CreateNamespaceFromOther.png! | Création d'un _Namespace_ par duplication d'un _Namespace_ d'Entité. Voir le diagramme "Diagramme de DTOs" ci-dessous. |
 
 h4. Navigation vers d'autres diagrammes
 
