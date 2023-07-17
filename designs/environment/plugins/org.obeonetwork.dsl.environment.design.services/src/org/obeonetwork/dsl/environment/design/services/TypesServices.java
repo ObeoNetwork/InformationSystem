@@ -442,12 +442,12 @@ public class TypesServices {
 		}
 	}
 	
-	public Collection<Namespace> openCreateEntityNamespacesFromDTONamespacesWizard(Namespace contextNamespace) {
-		return openCreateNamespacesFromOthersWizard(contextNamespace, ENTITY, DTO);
+	public Collection<Namespace> openCreateEntityNamespacesFromDTONamespacesWizard(NamespacesContainer contextNamespaceContainer) {
+		return openCreateNamespacesFromOthersWizard(contextNamespaceContainer, ENTITY, DTO);
 	}
 	
-	public Collection<Namespace> openCreateDTONamespacesFromEntityNamespacesWizard(Namespace contextNamespace) {
-		return openCreateNamespacesFromOthersWizard(contextNamespace, DTO, ENTITY);
+	public Collection<Namespace> openCreateDTONamespacesFromEntityNamespacesWizard(NamespacesContainer contextNamespaceContainer) {
+		return openCreateNamespacesFromOthersWizard(contextNamespaceContainer, DTO, ENTITY);
 	}
 	
 	private Collection<Namespace> openCreateNamespacesFromOthersWizard(NamespacesContainer contextNamespaceContainer, String targetTypeName, String sourceTypeName) {

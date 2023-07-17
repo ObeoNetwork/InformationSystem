@@ -22,6 +22,13 @@
               </firstModelOperations>
             </initialOperation>
           </ownedTools>
+          <ownedTools xsi:type="tool:ContainerCreationDescription" name="NamespaceFromOther" label="{ClassDiagram.section.namespace.fromOther.label}" forceRefresh="true" containerMappings="//@ownedViewpoints[name='StructuredTypesDiagramTemplate']/@ownedRepresentations[name='{Hierarchy.id}']/@defaultLayer/@containerMappings[name='ND_Namespace']">
+            <variable name="container"/>
+            <viewVariable name="containerView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="{ClassDiagram.section.namespace.fromOther.creationTreatment}"/>
+            </initialOperation>
+          </ownedTools>
         </toolSections>
         <toolSections name="Usability Tools">
           <ownedTools xsi:type="tool:DirectEditLabel" documentation="Edit the name feature of the element" name="Namespace Name Direct Edit" forceRefresh="true">

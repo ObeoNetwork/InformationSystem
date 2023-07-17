@@ -41,6 +41,13 @@
               </firstModelOperations>
             </initialOperation>
           </ownedTools>
+          <ownedTools xsi:type="tool_1:ContainerCreationDescription" name="NamespaceFromOther" label="Namespace from DTO Namespace" forceRefresh="true" containerMappings="//@ownedViewpoints[name='Entity%20Views']/@ownedRepresentations[name='Entities%20Namespaces%20Hierarchy']/@defaultLayer/@containerMappings[name='ND_Namespace']">
+            <variable name="container"/>
+            <viewVariable name="containerView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool:ChangeContext" browseExpression="service:container.openCreateEntityNamespacesFromDTONamespacesWizard()"/>
+            </initialOperation>
+          </ownedTools>
         </toolSections>
         <toolSections name="Usability Tools">
           <ownedTools xsi:type="tool_1:DirectEditLabel" documentation="Edit the name feature of the element" name="Namespace Name Direct Edit" forceRefresh="true">
