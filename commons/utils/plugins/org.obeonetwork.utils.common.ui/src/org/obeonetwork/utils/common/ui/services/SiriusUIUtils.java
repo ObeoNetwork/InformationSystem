@@ -11,11 +11,18 @@
 package org.obeonetwork.utils.common.ui.services;
 
 import java.lang.reflect.InvocationTargetException;
+import java.util.HashMap;
+import java.util.Optional;
 
 import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.core.runtime.NullProgressMonitor;
 import org.eclipse.core.runtime.OperationCanceledException;
 import org.eclipse.core.runtime.jobs.Job;
+import org.eclipse.eef.core.api.EEFPage;
+import org.eclipse.eef.ide.ui.properties.api.EEFTabDescriptor;
+import org.eclipse.eef.properties.ui.api.EEFTabContents;
+import org.eclipse.eef.properties.ui.api.EEFTabbedPropertySheetPage;
+import org.eclipse.eef.properties.ui.api.IEEFTabDescriptor;
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.transaction.RecordingCommand;
@@ -33,7 +40,12 @@ import org.eclipse.sirius.ui.business.api.viewpoint.ViewpointSelectionCallback;
 import org.eclipse.sirius.viewpoint.DRepresentation;
 import org.eclipse.sirius.viewpoint.description.RepresentationDescription;
 import org.eclipse.sirius.viewpoint.description.Viewpoint;
+import org.eclipse.ui.IWorkbenchPage;
+import org.eclipse.ui.IWorkbenchPart;
+import org.eclipse.ui.PlatformUI;
 import org.eclipse.ui.actions.WorkspaceModifyDelegatingOperation;
+import org.eclipse.ui.views.properties.PropertySheet;
+import org.obeonetwork.utils.common.IntrospectionUtils;
 import org.obeonetwork.utils.common.SessionUtils;
 import org.obeonetwork.utils.common.StringUtils;
 
@@ -108,6 +120,44 @@ public class SiriusUIUtils {
 		}
 		
 		return createRepresentation(session, representationDescription, title, context, monitor);
+	}
+	
+	/**
+	 * Force a refresh of the Properties view if the page with the given name is active. Do nothing otherwise.
+	 * 
+	 * @param self an EObject
+	 * @param pageName the name of the page to refresh
+	 * @return self
+	 */
+	public EObject refreshPropertiesView(EObject self, String pageName) {
+		
+		IWorkbenchPage page = PlatformUI.getWorkbench().getActiveWorkbenchWindow().getActivePage();
+		IWorkbenchPart part = page.getActivePart();
+		
+		if(part instanceof PropertySheet) {
+			PropertySheet sheet = (PropertySheet) part;
+			if(sheet.getCurrentPage() instanceof EEFTabbedPropertySheetPage) {
+				String eefTabDescriptorPrefix = String.format("%s Page%s", pageName, pageName);
+				EEFTabbedPropertySheetPage currentPage = (EEFTabbedPropertySheetPage) sheet.getCurrentPage();
+				// Warning: we use reflection here because we are limited by the EEF API.
+				@SuppressWarnings("unchecked")
+				HashMap<IEEFTabDescriptor, EEFTabContents> descriptorToTab = IntrospectionUtils.getFieldValue(currentPage, "descriptorToTab", HashMap.class);
+	            Optional<EEFTabDescriptor> tabDescriptor = descriptorToTab.keySet().stream()
+	            		.filter(tab -> tab.getId().startsWith(eefTabDescriptorPrefix))
+	            		.filter(EEFTabDescriptor.class::isInstance)
+	            		.map(tab -> (EEFTabDescriptor) tab)
+	            		.findFirst();
+	            if(tabDescriptor.isPresent()) {
+					// Warning: we use reflection here because we are limited by the EEF API.
+	            	EEFPage eefPage = IntrospectionUtils.getFieldValue(tabDescriptor.get(), "eefPage", EEFPage.class);
+	            	// Change the page identifier to fool EEF and trigger the tab recreation.
+	            	// See {@link EEFTabbedPropertySheetPage.updateTabs(List<IEEFTabDescriptor> descriptors)}
+	            	eefPage.getDescription().setIdentifier(eefPage.getDescription().getIdentifier()+System.currentTimeMillis());
+	            }
+			}
+		}
+		
+		return self;
 	}
 	
 }

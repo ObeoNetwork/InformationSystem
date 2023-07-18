@@ -13,12 +13,7 @@ Require-Bundle: org.obeonetwork.dsl.database,
  org.eclipse.sirius.diagram,
  org.obeonetwork.utils.common.ui,
  org.obeonetwork.utils.common,
- org.eclipse.sirius.diagram.ui,
- org.eclipse.eef.properties.ui,
- org.eclipse.eef.common.ui,
- org.eclipse.eef.ide.ui.properties,
- org.eclipse.eef.core,
- org.eclipse.eef
+ org.eclipse.sirius.diagram.ui
 Bundle-ActivationPolicy: lazy
 Bundle-RequiredExecutionEnvironment: JavaSE-1.8
 Bundle-ManifestVersion: 2

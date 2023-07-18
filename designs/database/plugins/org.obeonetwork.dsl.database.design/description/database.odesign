@@ -539,6 +539,7 @@
     <ownedJavaExtensions qualifiedClassName="org.obeonetwork.dsl.database.design.services.DatabaseEEFPropertiesServices"/>
     <ownedJavaExtensions qualifiedClassName="org.obeonetwork.utils.common.EObjectUtils"/>
     <ownedJavaExtensions qualifiedClassName="org.obeonetwork.utils.common.ui.services.DebugServices"/>
+    <ownedJavaExtensions qualifiedClassName="org.obeonetwork.utils.common.ui.services.SiriusUIUtils"/>
   </ownedViewpoints>
   <userColorsPalettes name="DomainColors">
     <entries xsi:type="description:UserFixedColor" red="0" green="43" blue="60" name="ISDLabelAndEdge"/>
@@ -781,7 +782,7 @@
               <subModelOperations xsi:type="tool_1:ChangeContext" browseExpression="feature:type">
                 <subModelOperations xsi:type="tool_1:SetValue" featureName="nativeType" valueExpression="var:newValue"/>
               </subModelOperations>
-              <subModelOperations xsi:type="tool_1:ChangeContext" browseExpression="aql:self.forceRefresh()"/>
+              <subModelOperations xsi:type="tool_1:ChangeContext" browseExpression="aql:self.refreshPropertiesView('Column')"/>
             </firstModelOperations>
           </initialOperation>
         </controls>
