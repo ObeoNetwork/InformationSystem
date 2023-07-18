@@ -68,7 +68,6 @@ import org.obeonetwork.dsl.environment.design.ui.RGBSystemColorUtil;
 import org.obeonetwork.utils.common.EObjectUtils;
 import org.obeonetwork.utils.common.StreamUtils;
 import org.obeonetwork.utils.common.StringUtils;
-import org.obeonetwork.utils.common.ui.services.DebugServices;
 
 /**
  * Services to use the widgets
@@ -77,7 +76,7 @@ import org.obeonetwork.utils.common.ui.services.DebugServices;
  * 
  */
 @SuppressWarnings("restriction")
-public class CinematicWidgetServices extends DebugServices {
+public class CinematicWidgetServices {
 
 	private static final String CREATE_VIEW_CONTAINER_TITLE = "Create View container";
 	private static final String DEFAULT_COLOR = "DEFAULT";

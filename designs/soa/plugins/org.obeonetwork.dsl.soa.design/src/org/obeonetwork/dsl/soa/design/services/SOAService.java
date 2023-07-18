@@ -10,6 +10,7 @@
  *******************************************************************************/
 package org.obeonetwork.dsl.soa.design.services;
 
+import static java.util.stream.Collectors.toList;
 import static org.obeonetwork.utils.common.StringUtils.isNullOrWhite;
 
 import java.util.ArrayList;
@@ -17,13 +18,10 @@ import java.util.Arrays;
 import java.util.Collection;
 import java.util.HashSet;
 import java.util.List;
-import java.util.Map;
 import java.util.Objects;
-import java.util.Optional;
 import java.util.Set;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
-import static java.util.stream.Collectors.*;
 
 import org.eclipse.core.runtime.IExtension;
 import org.eclipse.core.runtime.Platform;
@@ -31,8 +29,6 @@ import org.eclipse.emf.ecore.EObject;
 import org.eclipse.jface.dialogs.Dialog;
 import org.eclipse.jface.viewers.ArrayContentProvider;
 import org.eclipse.jface.viewers.LabelProvider;
-import org.eclipse.sirius.business.api.query.EObjectQuery;
-import org.eclipse.sirius.business.api.session.Session;
 import org.eclipse.sirius.diagram.DNodeContainer;
 import org.eclipse.sirius.diagram.DSemanticDiagram;
 import org.eclipse.swt.widgets.Display;
@@ -70,27 +66,6 @@ public class SOAService {
 	private static final String COMMON_MEDIA_TYPES_NAME_ATTRIBUTE = "name";
 	private static Collection<String> commonMediaTypes;
 	private static final Pattern PATH_PARAM_PATTERN = Pattern.compile("\\{[^\\{\\}]*\\}");
-
-	public EObject trace(EObject receiver) {
-		java.lang.System.out.println("receiver.eClass() = \"" + receiver.eClass().getName() + "\"");
-		java.lang.System.out.println("receiver.toString() = \"" + receiver.toString() + "\"");
-		java.lang.System.out
-				.println("receiver.name = \"" + Optional.ofNullable(receiver.eClass().getEStructuralFeature("name"))
-						.map(f -> (String) receiver.eGet(f)).orElse(null) + "\"");
-
-		return receiver;
-	}
-
-	public EObject traceVars(EObject o) {
-		trace(o);
-		Session session = new EObjectQuery(o).getSession();
-		Map<String, ?> vars = session.getInterpreter().getVariables();
-		java.lang.System.out.println(vars.keySet().size() + " variable(s)");
-		for (String var : vars.keySet()) {
-			java.lang.System.out.println(var + " = " + vars.get(var));
-		}
-		return o;
-	}
 
 	public Operation setExpositionKind(Operation operation, ExpositionKind expositionKind) {
 
