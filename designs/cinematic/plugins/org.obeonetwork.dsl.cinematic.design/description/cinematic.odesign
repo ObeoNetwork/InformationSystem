@@ -24,7 +24,7 @@
         </ownedTools>
       </toolSection>
     </ownedRepresentations>
-    <ownedRepresentations xsi:type="description_1:DiagramDescription" name="Flow Diagram" titleExpression="[name + ' Flow Diagram'/]" domainClass="flow.Flow" enablePopupBars="true">
+    <ownedRepresentations xsi:type="description_1:DiagramDescription" name="Flow Diagram" titleExpression="[name + ' Flow Diagram'/]" domainClass="flow.Flow" enablePopupBars="true" backgroundColor="//@userColorsPalettes[name='DomainColors']/@entries[name='UnsynchronizableDiagramBackground']">
       <metamodel href="platform:/plugin/org.obeonetwork.dsl.cinematic/model/cinematic.ecore#//flow"/>
       <metamodel href="platform:/plugin/org.obeonetwork.dsl.cinematic/model/cinematic.ecore#/"/>
       <metamodel href="platform:/plugin/org.obeonetwork.dsl.cinematic/model/cinematic.ecore#//view"/>
@@ -106,6 +106,7 @@
         </edgeMappings>
         <toolSections name="States">
           <ownedTools xsi:type="tool:EdgeCreationDescription" name="CRE_Transition" label="Transition" edgeMappings="//@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='Flow%20Diagram']/@defaultLayer/@edgeMappings[name='FLD_Transition']">
+            <filters precondition="aql:not self.synchronized"/>
             <sourceVariable name="source"/>
             <targetVariable name="target"/>
             <sourceViewVariable name="sourceView"/>
@@ -123,6 +124,7 @@
             </initialOperation>
           </ownedTools>
           <ownedTools xsi:type="tool:NodeCreationDescription" name="CRE_ViewState" label="View" nodeMappings="//@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='Flow%20Diagram']/@defaultLayer/@nodeMappings[name='FLD_ViewState']">
+            <filters precondition="aql:not self.synchronized"/>
             <variable name="container"/>
             <viewVariable name="containerView"/>
             <initialOperation>
@@ -136,6 +138,7 @@
             </initialOperation>
           </ownedTools>
           <ownedTools xsi:type="tool:NodeCreationDescription" name="CRE_ActionState" label="Action" nodeMappings="//@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='Flow%20Diagram']/@defaultLayer/@nodeMappings[name='FLD_ActionState']">
+            <filters precondition="aql:not self.synchronized"/>
             <variable name="container"/>
             <viewVariable name="containerView"/>
             <initialOperation>
@@ -147,6 +150,7 @@
             </initialOperation>
           </ownedTools>
           <ownedTools xsi:type="tool:NodeCreationDescription" name="CRE_AsyncEventState" label="AsyncEvent" nodeMappings="//@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='Flow%20Diagram']/@defaultLayer/@nodeMappings[name='FLD_AsyncEventState']">
+            <filters precondition="aql:not self.synchronized"/>
             <variable name="container"/>
             <viewVariable name="containerView"/>
             <initialOperation>
@@ -158,6 +162,7 @@
             </initialOperation>
           </ownedTools>
           <ownedTools xsi:type="tool:NodeCreationDescription" name="CRE_ExistingFlowSubflowState" label="Existing flow" nodeMappings="//@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='Flow%20Diagram']/@defaultLayer/@nodeMappings[name='FLD_SubflowState']">
+            <filters precondition="aql:not self.synchronized"/>
             <variable name="container">
               <subVariables xsi:type="tool_1:AcceleoVariable" name="allFlows" computationExpression="[container.getAllRootsForCinematic().eAllContents(cinematic::flow::Flow)/]"/>
               <subVariables xsi:type="tool_1:AcceleoVariable" name="allCandidates" computationExpression="aql:allFlows + allFlows.eContainer()->filter(cinematic::AbstractPackage)"/>
@@ -175,6 +180,7 @@
             </initialOperation>
           </ownedTools>
           <ownedTools xsi:type="tool:NodeCreationDescription" name="CRE_NewFlowSubflowState" label="New flow" nodeMappings="//@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='Flow%20Diagram']/@defaultLayer/@nodeMappings[name='FLD_SubflowState']">
+            <filters precondition="aql:not self.synchronized"/>
             <variable name="container"/>
             <viewVariable name="containerView"/>
             <initialOperation>
@@ -193,6 +199,7 @@
         </toolSections>
         <toolSections name="Ports">
           <ownedTools xsi:type="tool:NodeCreationDescription" name="CRE_CreateInitialState" label="Initial" nodeMappings="//@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='Flow%20Diagram']/@defaultLayer/@nodeMappings[name='FLD_InitialState']">
+            <filters precondition="aql:not self.synchronized"/>
             <variable name="container"/>
             <viewVariable name="containerView"/>
             <initialOperation>
@@ -204,6 +211,7 @@
             </initialOperation>
           </ownedTools>
           <ownedTools xsi:type="tool:NodeCreationDescription" name="CRE_CreateFinalState" label="Final" nodeMappings="//@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='Flow%20Diagram']/@defaultLayer/@nodeMappings[name='FLD_FinalState']">
+            <filters precondition="aql:not self.synchronized"/>
             <variable name="container"/>
             <viewVariable name="containerView"/>
             <initialOperation>
@@ -215,6 +223,7 @@
             </initialOperation>
           </ownedTools>
           <ownedTools xsi:type="tool:NodeCreationDescription" name="CRE_CreateAbortState" label="Abort" nodeMappings="//@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='Flow%20Diagram']/@defaultLayer/@nodeMappings[name='FLD_AbortState']">
+            <filters precondition="aql:not self.synchronized"/>
             <variable name="container"/>
             <viewVariable name="containerView"/>
             <initialOperation>
@@ -226,6 +235,7 @@
             </initialOperation>
           </ownedTools>
           <ownedTools xsi:type="tool:NodeCreationDescription" name="CRE_DecisionState" label="Decision" nodeMappings="//@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='Flow%20Diagram']/@defaultLayer/@nodeMappings[name='FLD_DecisionState']">
+            <filters precondition="aql:not self.synchronized"/>
             <variable name="container"/>
             <viewVariable name="containerView"/>
             <initialOperation>
@@ -328,6 +338,7 @@
         </containerMappings>
         <toolSections name="Events">
           <ownedTools xsi:type="tool:NodeCreationDescription" name="CRE_FlowEvent" label="Flow Event" nodeMappings="//@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='Flow%20Diagram']/@additionalLayers[name='Flow%20Events']/@containerMappings[name='FLD_FlowEvents']/@subNodeMappings[name='FLD_FlowEvent']">
+            <filters precondition="aql:not self.synchronized"/>
             <variable name="container"/>
             <viewVariable name="containerView"/>
             <initialOperation>
@@ -387,6 +398,7 @@
         </containerMappings>
         <toolSections name="View Containers">
           <ownedTools xsi:type="tool:EdgeCreationDescription" name="CRE_ViewState_To_ViewContainer" label="Bind View State and View Container" precondition="[preSource.oclAsType(cinematic::flow::ViewState).viewContainers->includes(preTarget) = false/]" edgeMappings="//@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='Flow%20Diagram']/@additionalLayers[name='View%20Containers']/@edgeMappings[name='FLD_ViewState_To_ViewContainer']" iconPath="/org.obeonetwork.dsl.cinematic.design/icons/viewpoint/ViewStateToViewContainer.gif">
+            <filters precondition="aql:not self.synchronized"/>
             <sourceVariable name="source"/>
             <targetVariable name="target"/>
             <sourceViewVariable name="sourceView"/>
@@ -398,6 +410,7 @@
             </initialOperation>
           </ownedTools>
           <ownedTools xsi:type="tool:NodeCreationDescription" name="CRE_ViewState_To_Existing_ViewContainer" label="Bind existing View Container" forceRefresh="true" nodeMappings="//@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='Flow%20Diagram']/@defaultLayer/@nodeMappings[name='FLD_ViewState']/@borderedNodeMappings[name='FLD_FakeNodeForViewContainerBinding']">
+            <filters precondition="aql:not self.synchronized"/>
             <variable name="container">
               <subVariables xsi:type="tool_1:AcceleoVariable" name="allContainers" computationExpression="[container.getAllRootsForCinematic()->collect(eAllContents(cinematic::view::ViewContainer))/]"/>
               <subVariables xsi:type="tool_1:AcceleoVariable" name="allCandidates" computationExpression="service:getViewContainersPossible(allContainers)"/>
@@ -415,6 +428,7 @@
             </initialOperation>
           </ownedTools>
           <ownedTools xsi:type="tool:NodeCreationDescription" name="CRE_ViewState_To_New_ViewContainer" label="Bind new View Container" forceRefresh="true" nodeMappings="//@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='Flow%20Diagram']/@defaultLayer/@nodeMappings[name='FLD_ViewState']/@borderedNodeMappings[name='FLD_FakeNodeForViewContainerBinding']">
+            <filters precondition="aql:not self.synchronized"/>
             <variable name="container">
               <subVariables xsi:type="tool_1:AcceleoVariable" name="viewContainerTypes" computationExpression="service:getWidgetsHavePropertyIsContainer"/>
               <subVariables xsi:type="tool_1:SelectModelElementVariable" name="selectedType" candidatesExpression="service:getToolkitsFromWidget(viewContainerTypes)" tree="true" rootExpression="[viewContainerTypes.eContainer(cinematic::toolkits::Toolkit)->asOrderedSet()->asSequence()/]" childrenExpression="feature:widgets" message="Select the type of the new view container"/>
@@ -1408,6 +1422,8 @@
     <ownedJavaExtensions qualifiedClassName="org.eclipse.sirius.common.tools.api.interpreter.StandardServices"/>
     <ownedJavaExtensions qualifiedClassName="org.obeonetwork.dsl.cinematic.design.services.CinematicLayoutServices"/>
     <ownedJavaExtensions qualifiedClassName="org.obeonetwork.dsl.cinematic.design.services.CinematicVCDLabelServices"/>
+    <ownedJavaExtensions qualifiedClassName="org.obeonetwork.utils.common.ui.services.DebugServices"/>
+    <ownedJavaExtensions qualifiedClassName="org.obeonetwork.dsl.environment.design.services.DesignServices"/>
   </ownedViewpoints>
   <userColorsPalettes name="CustomColors">
     <entries xsi:type="description:ComputedColor" name="VCD_ViewElement_LabelColor" red="aql:self.getLabelColorRed()" green="aql:self.getLabelColorGreen()" blue="aql:self.getLabelColorBlue()"/>
@@ -1417,6 +1433,7 @@
     <entries xsi:type="description:UserFixedColor" red="136" green="136" blue="136" name="ISDBorder"/>
     <entries xsi:type="description:UserFixedColor" red="255" green="255" blue="255" name="CinematicFillLight"/>
     <entries xsi:type="description:UserFixedColor" red="238" green="248" blue="255" name="CinematicFillDark"/>
+    <entries xsi:type="description:ComputedColor" name="UnsynchronizableDiagramBackground" red="aql:diagram.getUnsynchronizableDiagramBackgroundRed()" green="aql:diagram.getUnsynchronizableDiagramBackgroundGreen()" blue="aql:diagram.getUnsynchronizableDiagramBackgroundBlue()"/>
   </userColorsPalettes>
   <extensions xsi:type="properties:ViewExtensionDescription" name="Properties">
     <metamodels href="http://www.obeonetwork.org/dsl/cinematic/3.0.0#/"/>

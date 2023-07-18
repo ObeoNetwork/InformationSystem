@@ -23,6 +23,7 @@ import org.eclipse.sirius.diagram.DEdge;
 import org.eclipse.sirius.diagram.DSemanticDiagram;
 import org.eclipse.sirius.diagram.EdgeTarget;
 import org.eclipse.sirius.viewpoint.DSemanticDecorator;
+import org.eclipse.sirius.viewpoint.RGBValues;
 import org.obeonetwork.dsl.environment.Attribute;
 import org.obeonetwork.dsl.environment.DataType;
 import org.obeonetwork.dsl.environment.Enumeration;
@@ -37,6 +38,20 @@ import com.google.common.collect.Sets;
 
 public class DesignServices {
 
+	private static final RGBValues UNSYNCHRONIZED_DIAGRAM_BACKGROUND = RGBValues.create(255, 239, 219);
+	
+	public static int getUnsynchronizableDiagramBackgroundRed(DSemanticDiagram diagram) {
+		return (diagram.isSynchronized())? 255 : UNSYNCHRONIZED_DIAGRAM_BACKGROUND.getRed();
+	}
+	
+	public static int getUnsynchronizableDiagramBackgroundGreen(DSemanticDiagram diagram) {
+		return (diagram.isSynchronized())? 255 : UNSYNCHRONIZED_DIAGRAM_BACKGROUND.getGreen();
+	}
+	
+	public static int getUnsynchronizableDiagramBackgroundBlue(DSemanticDiagram diagram) {
+		return (diagram.isSynchronized())? 255 : UNSYNCHRONIZED_DIAGRAM_BACKGROUND.getBlue();
+	}
+	
 	/**
 	 * Returns all structured types displayed on a diagram
 	 * @param diagram
