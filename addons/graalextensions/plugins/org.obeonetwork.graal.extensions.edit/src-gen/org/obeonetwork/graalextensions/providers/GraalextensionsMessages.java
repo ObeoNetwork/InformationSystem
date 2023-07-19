@@ -13,7 +13,7 @@ package org.obeonetwork.graalextensions.providers;
 import org.eclipse.osgi.util.NLS;
 
 /**
- * @author Obeo.fr
+ * @author Obeo
  * 
  */
 public class GraalextensionsMessages extends NLS {

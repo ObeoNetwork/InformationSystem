@@ -49,7 +49,7 @@ import org.obeonetwork.dsl.environment.properties.internal.TableReferenceContent
 /**
  * The lifecycle manager of the table widget.
  * 
- * @author gcoutable
+ * @author Obeo
  */
 public class TableLifecycleManager extends AbstractEEFWidgetLifecycleManager {
 

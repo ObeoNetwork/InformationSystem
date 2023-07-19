@@ -36,7 +36,7 @@ import org.obeonetwork.dsl.environment.components.MetadataCptPropertiesEditionCo
 import org.obeonetwork.dsl.environment.edit.specific.policies.CustomPropertiesEditingProvider;
 
 /**
- * @author <a href="mailto:jerome.benois@obeo.fr>Jérôme Benois</a>
+ * @author Obeo
  * 
  */
 public class EntityPropertiesEditionProvider extends CustomPropertiesEditingProvider {

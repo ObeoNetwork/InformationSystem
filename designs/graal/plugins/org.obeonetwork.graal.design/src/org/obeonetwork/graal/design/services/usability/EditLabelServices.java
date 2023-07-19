@@ -18,7 +18,7 @@ import org.obeonetwork.graal.util.GraalSwitch;
 
 /**
  * Utilities services to edit labels of Graal elements
- * @author Stephane Thibaudeau <stephane.thibaudeau@obeo.fr>
+ * @author Obeo
  *
  */
 public class EditLabelServices extends GraalSwitch<ObeoDSMObject> {

@@ -11,7 +11,7 @@
 package org.obeonetwork.dsl.entity.parts;
 
 /**
- * @author <a href="mailto:jerome.benois@obeo.fr>Jérôme Benois</a>
+ * @author Obeo
  * 
  */
 public class EntityViewsRepository {

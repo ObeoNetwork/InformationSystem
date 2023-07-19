@@ -35,7 +35,7 @@ import org.obeonetwork.dsl.soa.components.WirePropertiesEditionComponent;
 import org.obeonetwork.dsl.soa.components.WireWirePropertiesEditionComponent;
 
 /**
- * @author <a href="mailto:jerome.benois@obeo.fr>Jerome Benois</a>
+ * @author Obeo
  * 
  */
 public class WirePropertiesEditionProvider extends CustomPropertiesEditingProvider {

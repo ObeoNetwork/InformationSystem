@@ -33,7 +33,7 @@ import org.obeonetwork.dsl.entity.parts.impl.PersistencePropertiesEditionPartImp
 import org.obeonetwork.dsl.entity.parts.impl.RootPropertiesEditionPartImpl;
 
 /**
- * @author <a href="mailto:jerome.benois@obeo.fr>Jérôme Benois</a>
+ * @author Obeo
  * 
  */
 public class EntityPropertiesEditionPartProvider implements IPropertiesEditionPartProvider {

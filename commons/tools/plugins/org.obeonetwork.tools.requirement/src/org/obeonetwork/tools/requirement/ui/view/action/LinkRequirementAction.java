@@ -22,7 +22,7 @@ import org.obeonetwork.tools.requirement.RequirementLinkerPlugin;
 import org.obeonetwork.tools.requirement.ui.dialog.LinkRequirementsDialog;
 
 /**
- * @author <a href="goulwen.lefur@obeo.fr">Goulwen Le Fur</a>
+ * @author Obeo
  *
  */
 public class LinkRequirementAction extends EObjectLinksViewAction {

@@ -38,7 +38,7 @@ import org.obeonetwork.tools.doc.core.DocumentationLink;
 
 
 /**
- * @author <a href="goulwen.lefur@obeo.fr">Goulwen Le Fur</a>
+ * @author Obeo
  *
  */
 public class DocumentationLinkUIService implements DocumentationLinkCommandFactory {
@@ -70,7 +70,7 @@ public class DocumentationLinkUIService implements DocumentationLinkCommandFacto
 
 	/**
 	 * Basic implementation for opening 
-	 * @author <a href="goulwen.lefur@obeo.fr">Goulwen Le Fur</a>
+	 * @author Obeo
 	 */
 	private class OpenWorkspaceEntry extends AbstractHandler {
 
@@ -111,7 +111,7 @@ public class DocumentationLinkUIService implements DocumentationLinkCommandFacto
 
 	/**
 	 * Basic implementation for opening 
-	 * @author <a href="goulwen.lefur@obeo.fr">Goulwen Le Fur</a>
+	 * @author Obeo
 	 */
 	private class OpenWebEntry extends AbstractHandler {
 

@@ -17,7 +17,7 @@ import org.obeonetwork.graal.GraalPackage;
 
 /**
  * Filter class used to display Version and Risk properties view only for Graal's use cases, tasks and user stories
- * @author sthibaudeau
+ * @author Obeo
  *
  */
 public class GraalExtensionsFilter implements IFilter {

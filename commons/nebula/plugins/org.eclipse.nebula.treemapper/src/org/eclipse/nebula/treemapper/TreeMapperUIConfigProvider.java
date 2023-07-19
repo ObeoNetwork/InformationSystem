@@ -13,7 +13,7 @@ package org.eclipse.nebula.treemapper;
 import org.eclipse.swt.graphics.Color;
 
 /**
- * @author Mickael Istria (PetalsLink)
+ * @author Obeo
  * @serial 0.1.0
  */
 public final class TreeMapperUIConfigProvider {

@@ -24,7 +24,7 @@ import org.obeonetwork.dsl.typeslibrary.TypesLibraryPackage;
 
 /**
  * Custom class to bypass EEF limitations
- * @author Stephane Thibaudeau <stephane.thibaudeau@obeo.fr>
+ * @author Obeo
  *
  */
 public class CustomColumnPropertiesEditionComponent extends ColumnPropertiesEditionComponent {

@@ -24,7 +24,7 @@ import org.obeonetwork.dsl.environment.bindingdialect.DBindingEdge;
 import org.obeonetwork.dsl.environment.bindingdialect.DBoundElement;
 
 /**
- * @author sthibaudeau
+ * @author Obeo
  *
  */
 public class BindingTreeSemanticSupport implements ISemanticTreeMapperSupport<DBindingEdge, DBoundElement, DBoundElement>{

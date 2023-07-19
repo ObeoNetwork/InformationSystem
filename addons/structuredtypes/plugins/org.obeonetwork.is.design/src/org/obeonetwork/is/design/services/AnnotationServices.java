@@ -23,7 +23,7 @@ import org.obeonetwork.utils.common.StringUtils;
 
 /**
  * Utilities services concerning Annotations
- * @author Stephane Thibaudeau <a href="mailto:stephane.thibaudeau@obeo.fr">stephane.thibaudeau@obeo.fr</a>
+ * @author Obeo
  *
  */
 public class AnnotationServices {

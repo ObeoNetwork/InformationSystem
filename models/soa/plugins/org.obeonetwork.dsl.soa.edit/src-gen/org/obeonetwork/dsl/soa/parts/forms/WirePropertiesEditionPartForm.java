@@ -49,7 +49,7 @@ import org.obeonetwork.dsl.soa.providers.SoaMessages;
 // End of user code
 
 /**
- * @author <a href="mailto:jerome.benois@obeo.fr>Jerome Benois</a>
+ * @author Obeo
  * 
  */
 public class WirePropertiesEditionPartForm extends SectionPropertiesEditingPart implements IFormPropertiesEditionPart, WirePropertiesEditionPart {

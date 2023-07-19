@@ -20,7 +20,7 @@ import org.obeonetwork.graal.util.GraalSwitch;
 
 /**
  * Utilities services to compute labels for Graal elements
- * @author Stephane Thibaudeau <stephane.thibaudeau@obeo.fr>
+ * @author Obeo
  *
  */
 public class DisplayLabelServices extends GraalSwitch<String>{

@@ -38,8 +38,7 @@ import org.osgi.framework.Version;
  * Class used by Sirius migration process to convert old EClasses to new ones.
  * EProxies are also processed by this class to handle the renaming of the 'is.design' project.
  * 
- * @author Stéphane Thibaudeau - Obeo
- * @author Vincent Richard - Obeo
+ * @author Obeo
  */
 public class ISMigrationParticipant extends AbstractMigrationParticipant {
 

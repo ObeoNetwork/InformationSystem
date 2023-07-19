@@ -19,7 +19,7 @@ import org.obeonetwork.tools.doc.core.impl.DocumentationLinkHelper;
 import org.obeonetwork.tools.linker.command.RemoveLinkCommand;
 
 /**
- * @author <a href="goulwen.lefur@obeo.fr">Goulwen Le Fur</a>
+ * @author Obeo
  *
  */
 public class RemoveDocumentationLinkCommand extends RemoveLinkCommand {

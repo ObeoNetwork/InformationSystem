@@ -25,7 +25,7 @@ import org.eclipse.emf.eef.runtime.api.parts.IPropertiesEditionPart;
 import org.eclipse.emf.eef.runtime.api.providers.IPropertiesEditionPartProvider;
 
 /**
- * @author Obeo.fr
+ * @author Obeo
  * 
  */
 public class GraalextensionsPropertiesEditionPartProvider implements IPropertiesEditionPartProvider {

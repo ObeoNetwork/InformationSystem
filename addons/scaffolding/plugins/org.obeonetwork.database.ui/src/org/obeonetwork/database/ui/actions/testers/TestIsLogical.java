@@ -23,8 +23,7 @@ import org.obeonetwork.database.ui.util.ScaffoldingUtils;
 
 /**
  * 
- * @author Florent Latombe
- *         <a href= "mailto:florent.latombe@obeo.fr">florent.latombe@obeo.fr</a>
+ * @author Obeo
  *
  */
 public class TestIsLogical extends AbstractScaffoldingPropertyTester {

@@ -23,7 +23,7 @@ import org.obeonetwork.dsl.requirement.Requirement;
 import org.obeonetwork.dsl.requirement.RequirementFactory;
 
 /**
- * @author <a href="goulwen.lefur@obeo.fr">Goulwen Le Fur</a>
+ * @author Obeo
  *
  */
 public class RequirementCreationPropertiesEditingContext extends DomainPropertiesEditionContext {

@@ -26,8 +26,7 @@ import org.obeonetwork.dsl.database.compare.tests.utils.EMFCompareUtils;
 /**
  * The test suite for the comparison of two {@link DataBase} models.
  * 
- * @author Florent Latombe
- *         <a href= "mailto:florent.latombe@obeo.fr">florent.latombe@obeo.fr</a>
+ * @author Obeo
  *
  */
 @RunWith(Suite.class)

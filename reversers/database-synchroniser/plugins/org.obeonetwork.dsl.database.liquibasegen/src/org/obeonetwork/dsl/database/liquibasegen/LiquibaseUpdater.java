@@ -22,8 +22,7 @@ import liquibase.resource.ResourceAccessor;
 /**
  * Updates the database with the changes specified in a changelog {@link File} 
  * 
- * @author <a href="mailto:thibault.beziers-la-fosse@obeo.fr">Thibault Béziers
- *         la Fosse</a>
+ * @author Obeo
  */
 @SuppressWarnings("restriction")
 public class LiquibaseUpdater {

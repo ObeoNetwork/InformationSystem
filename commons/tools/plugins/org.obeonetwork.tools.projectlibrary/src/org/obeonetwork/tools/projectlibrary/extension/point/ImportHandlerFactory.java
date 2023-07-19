@@ -26,7 +26,7 @@ import org.obeonetwork.tools.projectlibrary.Activator;
 
 /**
  * Instantiate the right resource copier
- * @author Stéphane Thibaudeau
+ * @author Obeo
  *
  */
 public class ImportHandlerFactory {

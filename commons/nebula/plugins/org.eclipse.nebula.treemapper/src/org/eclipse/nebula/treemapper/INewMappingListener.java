@@ -16,7 +16,7 @@ package org.eclipse.nebula.treemapper;
  * list of mapping specified to {@link TreeMapper#setInput(Object, Object, java.util.List)}
  * is not intended to be used as a reference to the concrete list of mappings. 
  * 
- * @author Mickael Istria (PetalsLink)
+ * @author Obeo
  * @since 0.1.0
  * 
  * @param <M> the datatype of the mappings object 

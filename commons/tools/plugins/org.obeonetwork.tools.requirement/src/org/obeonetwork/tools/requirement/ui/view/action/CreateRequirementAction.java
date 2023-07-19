@@ -27,7 +27,7 @@ import org.obeonetwork.tools.requirement.wizard.operation.RequirementCreationOpe
 import org.obeonetwork.tools.requirement.wizard.util.RequirementCreationPropertiesEditingContext;
 
 /**
- * @author <a href="goulwen.lefur@obeo.fr">Goulwen Le Fur</a>
+ * @author Obeo
  *
  */
 public class CreateRequirementAction extends EObjectLinksViewAction {

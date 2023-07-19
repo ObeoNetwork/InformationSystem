@@ -38,7 +38,7 @@ import com.google.common.collect.Sets;
 /**
  * Wizard allowing one to import a CDO XML file into workspace
  * 
- * @author <a href="mailto:stephane.thibaudeau@obeo.fr">Stephane Thibaudeau</a>
+ * @author Obeo
  *
  */
 public class ImportModelFromXmlWizard extends Wizard implements IImportWizard {

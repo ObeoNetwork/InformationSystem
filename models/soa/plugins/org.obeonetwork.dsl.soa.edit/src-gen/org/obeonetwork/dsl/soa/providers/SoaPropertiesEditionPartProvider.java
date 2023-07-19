@@ -37,7 +37,7 @@ import org.obeonetwork.dsl.soa.parts.impl.SystemPropertiesEditionPartImpl;
 import org.obeonetwork.dsl.soa.parts.impl.WirePropertiesEditionPartImpl;
 
 /**
- * @author <a href="mailto:jerome.benois@obeo.fr>Jerome Benois</a>
+ * @author Obeo
  * 
  */
 public class SoaPropertiesEditionPartProvider implements IPropertiesEditionPartProvider {

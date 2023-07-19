@@ -65,7 +65,7 @@ import org.obeonetwork.is.eef.custom.reference.CustomEEFExtEObjectSelectionWizar
 /**
  * Java services for the sample 'Interaction' sequence diagrams.
  * 
- * @author sthibaudeau
+ * @author Obeo
  */
 public class InteractionServices {
 	
@@ -204,7 +204,7 @@ public class InteractionServices {
      * Helper class to keep track of who "contains" who depending on the
      * interleaving of the start/finish ends.
      * 
-     * @author pcdavid
+     * @author Obeo
      * @see InteractionServices#computeContainmentStructure(Participant)
      */
     private static final class EventContext {

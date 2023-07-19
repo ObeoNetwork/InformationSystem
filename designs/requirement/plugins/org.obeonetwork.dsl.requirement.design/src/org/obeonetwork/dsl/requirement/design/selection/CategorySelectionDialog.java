@@ -22,7 +22,7 @@ import org.obeonetwork.dsl.requirement.design.provider.RequirementLabelProvider;
 /**
  * Dialog used to select a category within the whole Sirius session
  * Categories can be hidden.
- * @author sthibaudeau
+ * @author Obeo
  *
  */
 public class CategorySelectionDialog extends ElementTreeSelectionDialog {

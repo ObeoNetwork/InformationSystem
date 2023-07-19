@@ -30,8 +30,7 @@ import org.obeonetwork.dsl.database.compare.tests.transformation.DatabaseTransfo
  * evolution</li>
  * </ul>
  * 
- * @author Florent Latombe
- *         <a href= "mailto:florent.latombe@obeo.fr">florent.latombe@obeo.fr</a>
+ * @author Obeo
  *
  */
 public class AllDatabaseCompareTests {

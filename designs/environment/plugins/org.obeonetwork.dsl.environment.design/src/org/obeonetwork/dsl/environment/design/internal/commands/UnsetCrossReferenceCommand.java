@@ -30,7 +30,7 @@ import org.eclipse.emf.edit.domain.EditingDomain;
  * being removed from a project. This will use the {@link SetCommand} to unset
  * uses of semantic resources.
  * 
- * @author gcoutable
+ * @author Obeo
  */
 public class UnsetCrossReferenceCommand extends AbstractOverrideableCommand {
 

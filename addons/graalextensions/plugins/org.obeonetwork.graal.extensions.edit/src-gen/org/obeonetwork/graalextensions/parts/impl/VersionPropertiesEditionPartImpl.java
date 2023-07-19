@@ -41,7 +41,7 @@ import org.obeonetwork.graalextensions.providers.GraalextensionsMessages;
 // End of user code
 
 /**
- * @author Obeo.fr
+ * @author Obeo
  * 
  */
 public class VersionPropertiesEditionPartImpl extends CompositePropertiesEditionPart implements ISWTPropertiesEditionPart, VersionPropertiesEditionPart {

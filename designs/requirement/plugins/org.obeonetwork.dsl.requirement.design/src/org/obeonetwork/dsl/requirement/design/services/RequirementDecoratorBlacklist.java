@@ -23,7 +23,7 @@ import org.eclipse.sirius.viewpoint.DSemanticDecorator;
 
 /**
  * 
- * @author <a href="thibault.beziers-la-fosse@obeo.fr">Thibault Béziers la Fosse</a>
+ * @author Obeo
  *
  */
 public class RequirementDecoratorBlacklist {

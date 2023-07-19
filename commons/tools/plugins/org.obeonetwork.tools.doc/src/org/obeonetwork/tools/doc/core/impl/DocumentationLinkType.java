@@ -27,7 +27,7 @@ import org.obeonetwork.tools.linker.EObjectLink;
 import org.obeonetwork.tools.linker.LinkType;
 
 /**
- * @author <a href="goulwen.lefur@obeo.fr">Goulwen Le Fur</a>
+ * @author Obeo
  *
  */
 public class DocumentationLinkType implements LinkType {

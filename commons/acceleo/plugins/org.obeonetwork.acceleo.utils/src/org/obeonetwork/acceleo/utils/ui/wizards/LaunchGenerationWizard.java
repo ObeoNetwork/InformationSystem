@@ -35,7 +35,7 @@ import org.eclipse.ui.model.WorkbenchLabelProvider;
 import org.obeonetwork.acceleo.utils.properties.util.AcceleoGenerationPropertiesHelper;
 
 /**
- * @author <a href="mailto:goulwen.lefur@obeo.fr">Goulwen Le Fur</a>
+ * @author Obeo
  *
  */
 public class LaunchGenerationWizard extends Wizard {

@@ -14,7 +14,7 @@ package org.obeonetwork.dsl.cinematic.design;
  * 
  * Constants from the Cinematic Viewpoint to be used in Java.
  * 
- * @author vrichard
+ * @author Obeo
  *
  */
 public interface ICinematicViewpoint {

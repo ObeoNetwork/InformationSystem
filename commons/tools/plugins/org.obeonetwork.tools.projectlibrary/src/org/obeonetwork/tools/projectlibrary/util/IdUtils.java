@@ -28,7 +28,7 @@ import org.eclipse.sirius.business.api.session.Session;
 
 /**
  * Utilities objects and their identifiers
- * @author <a href="mailto:stephane.thibaudeau@obeo.fr">Stephane Thibaudeau</a>
+ * @author Obeo
  *
  */
 public class IdUtils {

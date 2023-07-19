@@ -19,7 +19,7 @@ import org.eclipse.emf.eef.runtime.providers.PropertiesEditingProvider;
 /**
  * Specific Adapter Factory for eef properties views for environment.
  * 
- * @author ymortier
+ * @author Obeo
  */
 public class EnvironmentEEFAdapterFactorySpec extends EnvironmentEEFAdapterFactory {
 

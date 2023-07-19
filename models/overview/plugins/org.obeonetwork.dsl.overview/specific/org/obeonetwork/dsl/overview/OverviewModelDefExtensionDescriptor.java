@@ -18,7 +18,7 @@ import org.eclipse.core.runtime.IConfigurationElement;
 /**
  * A factory proxy for creating a OverviewModelDef.
  * 
- * @author <a href="mailto:jerome@benois.fr">Jerome Benois</a>
+ * @author Obeo
  */
 public class OverviewModelDefExtensionDescriptor {
 	

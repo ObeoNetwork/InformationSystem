@@ -65,7 +65,7 @@ import org.eclipse.swt.widgets.TreeItem;
  * It relies on a {@link ISemanticTreeMapperSupport} to create your business mapping objects,
  * and to resolve the bounds of a mapping object to object that are provided in the trees.
  * 
- * @author Mickael Istria (PetalsLink)
+ * @author Obeo
  * @since 0.1.0
  * @noextend This class is not intended to be subclassed by clients.
  *

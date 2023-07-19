@@ -18,7 +18,7 @@ import org.obeonetwork.dsl.environment.Reference;
 /**
  * {@link PropertyTester} for asserting that a {@link Reference} is bidirectionnal with two multiplicities.
  * 
- * @author Thibault Béziers la Fosse <a href="mailto:thibault.beziers-la-fosse@obeo.fr">thibault.beziers-la-fosse@obeo.fr</a>
+ * @author Obeo
  *
  */
 public class ReferencePropertyTester extends PropertyTester {

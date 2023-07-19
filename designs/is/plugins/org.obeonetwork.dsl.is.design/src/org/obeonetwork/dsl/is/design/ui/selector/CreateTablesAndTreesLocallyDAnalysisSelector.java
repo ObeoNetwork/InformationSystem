@@ -28,8 +28,7 @@ import org.eclipse.sirius.tree.DTree;
  * only on remote DAnalysis expect for {@link DTable} and {@link DTree}, which will be created
  * locally .
  * 
- * @author <a href="mailto:alex.lagarde@obeo.fr">Alex Lagarde</a>
- * @author <a href="mailto:stephane.thibaudeau@obeo.fr">Stephane Thibaudeau</a>
+ * @author Obeo
  */
 public class CreateTablesAndTreesLocallyDAnalysisSelector implements DAnalysisSelector {
 

@@ -17,7 +17,7 @@ import org.obeonetwork.dsl.requirement.Requirement;
 /**
  * Comparator used to compare Requirement based on their labels.
  * A requirement's label is the concatenation of its id and name.
- * @author sthibaudeau
+ * @author Obeo
  *
  */
 public class RequirementComparator implements Comparator<Requirement> {

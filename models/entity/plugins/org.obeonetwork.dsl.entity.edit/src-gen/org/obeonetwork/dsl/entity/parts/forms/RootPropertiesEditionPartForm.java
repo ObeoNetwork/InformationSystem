@@ -44,7 +44,7 @@ import org.obeonetwork.dsl.entity.providers.EntityMessages;
 // End of user code
 
 /**
- * @author <a href="mailto:jerome.benois@obeo.fr>Jérôme Benois</a>
+ * @author Obeo
  * 
  */
 public class RootPropertiesEditionPartForm extends SectionPropertiesEditingPart implements IFormPropertiesEditionPart, RootPropertiesEditionPart {

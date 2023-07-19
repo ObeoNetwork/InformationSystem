@@ -21,7 +21,7 @@ import org.eclipse.swt.SWT;
 import org.eclipse.swt.graphics.Color;
 
 /**
- * @author Mickael Istria (PetalsLink)
+ * @author Obeo
  */
 public class LinkFigure {
 	

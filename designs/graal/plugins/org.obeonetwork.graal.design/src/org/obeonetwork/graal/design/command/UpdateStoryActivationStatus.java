@@ -18,7 +18,7 @@ import org.obeonetwork.graal.design.services.configuration.UIConfigurationServic
 import org.eclipse.sirius.viewpoint.DAnalysis;
 
 /**
- * @author <a href="goulwen.lefur@obeo.fr">Goulwen Le Fur</a>
+ * @author Obeo
  *
  */
 public class UpdateStoryActivationStatus extends AbstractCommand {

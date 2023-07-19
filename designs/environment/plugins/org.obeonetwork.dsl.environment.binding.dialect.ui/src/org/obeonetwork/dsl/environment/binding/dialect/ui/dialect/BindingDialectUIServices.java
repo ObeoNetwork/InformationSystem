@@ -58,7 +58,7 @@ import org.obeonetwork.dsl.environment.bindingdialect.description.provider.Descr
 import org.obeonetwork.dsl.environment.bindingdialect.provider.BindingdialectItemProviderAdapterFactory;
 
 /**
- * @author sthibaudeau
+ * @author Obeo
  *
  */
 public class BindingDialectUIServices implements DialectUIServices {

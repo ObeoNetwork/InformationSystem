@@ -17,7 +17,7 @@ import org.obeonetwork.dsl.requirement.Category;
 /**
  * Comparator used to compare Categories based on their labels.
  * A category's label is the concatenation of its id and name.
- * @author sthibaudeau
+ * @author Obeo
  *
  */
 public class CategoryComparator implements Comparator<Category> {

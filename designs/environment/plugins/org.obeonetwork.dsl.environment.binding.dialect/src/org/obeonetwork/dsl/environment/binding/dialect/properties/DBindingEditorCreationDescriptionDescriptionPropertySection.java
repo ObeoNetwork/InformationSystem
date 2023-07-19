@@ -26,7 +26,7 @@ import org.eclipse.sirius.editor.editorPlugin.SiriusEditor;
 import org.eclipse.sirius.editor.properties.sections.common.AbstractComboPropertySection;
 
 /**
- * @author sthibaudeau
+ * @author Obeo
  *
  */
 public class DBindingEditorCreationDescriptionDescriptionPropertySection extends AbstractComboPropertySection {

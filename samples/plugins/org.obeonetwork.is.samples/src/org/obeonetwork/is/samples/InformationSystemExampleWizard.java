@@ -16,8 +16,7 @@ import org.eclipse.emf.common.ui.wizard.ExampleInstallerWizard;
 /**
  * Wizard used to import the example projects.
  * 
- * @author Florent Latombe
- *         <a href= "mailto:florent.latombe@obeo.fr">florent.latombe@obeo.fr</a>
+ * @author Obeo
  *
  */
 public class InformationSystemExampleWizard extends ExampleInstallerWizard {

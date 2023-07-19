@@ -23,7 +23,7 @@ import org.obeonetwork.dsl.database.View;
 /**
  * AQL services for M2Doc on table containers.
  * 
- * @author Romain Guider
+ * @author Obeo
  */
 public class TableContainerServices {
 

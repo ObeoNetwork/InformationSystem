@@ -26,7 +26,7 @@ import org.obeonetwork.tools.projectlibrary.util.ProjectLibraryUtils;
 
 /**
  * Model class holding contents for "Export modeling project as a library" wizard
- * @author <a href="mailto:stephane.thibaudeau@obeo.fr">Stephane Thibaudeau</a>
+ * @author Obeo
  *
  */
 public class ExportProjectAsLibraryWizardModel {

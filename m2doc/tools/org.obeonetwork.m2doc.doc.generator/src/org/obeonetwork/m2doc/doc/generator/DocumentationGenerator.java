@@ -59,7 +59,7 @@ import org.obeonetwork.m2doc.doc.generator.reflection.ReflectionHelper;
 /**
  * Utility class used to generate the M2Doc documentation.
  * 
- * @author <a href="mailto:vincent.richard@obeo.fr">Vincent Richard</a>
+ * @author Obeo
  */
 public class DocumentationGenerator {
 	

@@ -17,7 +17,7 @@ import org.obeonetwork.dsl.database.IndexElement;
 /**
  * AQL IndexElement services for M2Doc.
  * 
- * @author Romain Guider
+ * @author Obeo
  */
 public class IndexElementServices {
 

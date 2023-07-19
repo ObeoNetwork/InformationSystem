@@ -15,7 +15,7 @@ import org.eclipse.sirius.ui.business.api.dialect.DialectUIServices;
 
 /**
  * Extension to provide Binding dialect UI
- * @author Stephane Thibaudeau <stephane.thibaudeau@obeo.fr>
+ * @author Obeo
  *
  */
 public class BindingDialectUI implements DialectUI{

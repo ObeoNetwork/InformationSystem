@@ -19,7 +19,7 @@ import org.eclipse.emf.eef.runtime.providers.PropertiesEditingProvider;
 import org.obeonetwork.graalextensions.util.GraalExtensionsAdapterFactory;
 
 /**
- * @author Obeo.fr
+ * @author Obeo
  * 
  */
 public class GraalextensionsEEFAdapterFactory extends GraalExtensionsAdapterFactory {

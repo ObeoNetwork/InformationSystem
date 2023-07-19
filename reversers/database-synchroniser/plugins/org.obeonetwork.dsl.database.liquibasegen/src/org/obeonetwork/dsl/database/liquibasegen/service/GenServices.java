@@ -39,7 +39,7 @@ import org.obeonetwork.dsl.typeslibrary.TypeInstance;
  * when slipping the Liquibase generation in another plugin
  * </p>
  * 
- * @author adaussy
+ * @author Obeo
  *
  */
 public class GenServices {

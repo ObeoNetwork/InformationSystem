@@ -18,8 +18,7 @@ import org.obeonetwork.dsl.soa.design.dialogs.NewSecuritySchemeDialog;
 
 /**
  * {@link SelectionAdapter} for changing the {@link SecuritySchemeType} of a {@link SecuritySchemeType}
- * @author <a href="mailto:thibault.beziers-la-fosse@obeo.fr">Thibault Béziers
- *         la Fosse</a>
+ * @author Obeo
  */
 public class SecuritySchemeTypeAdapter extends SelectionAdapter {
 

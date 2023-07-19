@@ -63,7 +63,7 @@ import fr.obeo.dsl.viewpoint.collab.model.cdoconfig.ConnectionType;
  * Embedded CDO server used to load a XML file (exported from CDO).
  * The server uses a memory store to store data
  * 
- * @author <a href="mailto:stephane.thibaudeau@obeo.fr">Stephane Thibaudeau</a>
+ * @author Obeo
  *
  */
 public class EmbeddedCDOServer {

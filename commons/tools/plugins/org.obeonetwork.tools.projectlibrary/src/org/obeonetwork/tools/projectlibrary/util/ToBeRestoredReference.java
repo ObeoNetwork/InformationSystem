@@ -16,7 +16,7 @@ import org.eclipse.emf.ecore.EStructuralFeature;
 /**
  * Represents a reference to be restored
  * 
- * @author <a href="mailto:stephane.thibaudeau@obeo.fr">Stephane Thibaudeau</a>
+ * @author Obeo
  *
  */
 public class ToBeRestoredReference {

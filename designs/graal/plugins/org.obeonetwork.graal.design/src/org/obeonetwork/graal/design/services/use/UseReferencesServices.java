@@ -22,7 +22,7 @@ import org.obeonetwork.graal.TasksGroup;
 /**
  * Services to retrieve elements used to draw "Use" relationships
  * between tasks, tasksgroups and systems
- * @author sthibaudeau
+ * @author Obeo
  *
  */
 public class UseReferencesServices {

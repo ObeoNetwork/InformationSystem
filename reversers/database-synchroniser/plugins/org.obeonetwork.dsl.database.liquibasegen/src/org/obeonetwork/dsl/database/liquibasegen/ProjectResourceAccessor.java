@@ -21,7 +21,7 @@ import liquibase.resource.FileSystemResourceAccessor;
 
 /**
  * {@link FileSystemResourceAccessor} based on an Eclipse {@link IProject}.
- * @author <a href="mailto:thibault.beziers-la-fosse@obeo.fr">Thibault Béziers la Fosse</a>
+ * @author Obeo
  */
 public class ProjectResourceAccessor extends FileSystemResourceAccessor {
 	

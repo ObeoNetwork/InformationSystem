@@ -22,7 +22,7 @@ import org.eclipse.sirius.diagram.AbstractDNode;
 
 /**
  * Class used to remove a task or a group from a Use case
- * @author Stephane Thibaudeau <stephane.thibaudeau@obeo.fr>
+ * @author Obeo
  *
  */
 public class RemoveFromUseCaseAction {

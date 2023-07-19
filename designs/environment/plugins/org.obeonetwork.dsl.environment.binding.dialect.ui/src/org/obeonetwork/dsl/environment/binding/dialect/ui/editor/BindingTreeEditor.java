@@ -96,7 +96,7 @@ import org.obeonetwork.dsl.environment.bindingdialect.DBoundElement;
 import org.obeonetwork.dsl.environment.bindingdialect.provider.BindingdialectEditPlugin;
 
 /**
- * @author sthibaudeau
+ * @author Obeo
  *
  */
 public class BindingTreeEditor extends EditorPart implements DialectEditor, SessionListener, IPageListener {

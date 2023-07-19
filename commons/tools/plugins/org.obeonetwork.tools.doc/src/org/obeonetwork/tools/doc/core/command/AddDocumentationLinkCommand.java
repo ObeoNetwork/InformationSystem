@@ -20,7 +20,7 @@ import org.obeonetwork.tools.doc.core.impl.DocumentationLinkType;
 import org.obeonetwork.tools.linker.command.AddLinkCommand;
 
 /**
- * @author <a href="goulwen.lefur@obeo.fr">Goulwen Le Fur</a>
+ * @author Obeo
  *
  */
 public class AddDocumentationLinkCommand extends AddLinkCommand {

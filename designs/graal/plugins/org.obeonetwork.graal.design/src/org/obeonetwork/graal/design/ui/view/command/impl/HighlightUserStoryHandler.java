@@ -29,7 +29,7 @@ import org.obeonetwork.graal.design.ui.view.UserStoriesView;
 import org.obeonetwork.graal.design.ui.view.command.HighlightUserStoryCommand;
 
 /**
- * @author <a href="goulwen.lefur@obeo.fr">Goulwen Le Fur</a>
+ * @author Obeo
  * 
  */
 public class HighlightUserStoryHandler extends AbstractHandler implements IElementUpdater, HighlightUserStoryCommand {

@@ -17,7 +17,7 @@ import org.obeonetwork.dsl.manifest.BadVersionStringException;
 
 /**
  * Utilities around manifests
- * @author <a href="mailto:stephane.thibaudeau@obeo.fr">Stephane Thibaudeau</a>
+ * @author Obeo
  *
  */
 public class ManifestUtils {

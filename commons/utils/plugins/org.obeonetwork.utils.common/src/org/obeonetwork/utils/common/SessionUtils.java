@@ -39,7 +39,7 @@ import org.eclipse.sirius.viewpoint.description.RepresentationDescription;
 
 /**
  * Utilities around Sirius session
- * @author <a href="mailto:stephane.thibaudeau@obeo.fr">Stephane Thibaudeau</a>
+ * @author Obeo
  *
  */
 public class SessionUtils {

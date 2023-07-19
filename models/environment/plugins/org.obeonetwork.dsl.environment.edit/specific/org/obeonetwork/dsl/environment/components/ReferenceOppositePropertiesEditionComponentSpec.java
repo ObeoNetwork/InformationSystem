@@ -27,7 +27,7 @@ import org.obeonetwork.dsl.environment.parts.OppositePropertiesEditionPart;
 /**
  * Specific component for opposite and referencedType.
  * 
- * @author ymortier
+ * @author Obeo
  */
 public class ReferenceOppositePropertiesEditionComponentSpec extends ReferenceOppositePropertiesEditionComponent {
 

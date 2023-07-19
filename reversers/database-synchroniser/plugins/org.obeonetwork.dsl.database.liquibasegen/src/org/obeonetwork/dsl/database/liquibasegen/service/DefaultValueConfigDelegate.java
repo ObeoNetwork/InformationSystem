@@ -17,7 +17,7 @@ import liquibase.change.core.AddDefaultValueChange;
  * Class that wrap either a {@link AddDefaultValueChange} or a
  * {@link ColumnConfig} to offer of common API to set default values
  * 
- * @author adaussy
+ * @author Obeo
  *
  */
 public class DefaultValueConfigDelegate {

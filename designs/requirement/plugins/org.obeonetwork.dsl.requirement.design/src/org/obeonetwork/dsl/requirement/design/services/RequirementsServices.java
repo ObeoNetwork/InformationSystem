@@ -46,7 +46,7 @@ import org.obeonetwork.dsl.requirement.design.selection.CategorySelectionDialog;
 import org.obeonetwork.tools.requirement.ui.decorators.ObjectWithRequirement;
 
 /**
- * @author sthibaudeau
+ * @author Obeo
  *
  */
 public class RequirementsServices {

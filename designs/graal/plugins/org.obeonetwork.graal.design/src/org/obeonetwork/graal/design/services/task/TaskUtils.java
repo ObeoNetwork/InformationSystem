@@ -48,7 +48,7 @@ import org.eclipse.sirius.ecore.extender.business.api.accessor.ModelAccessor;
 /**
  * Utilities services concerning Tasks and TasksGroups
  * 
- * @author Stephane Thibaudeau <stephane.thibaudeau@obeo.fr>
+ * @author Obeo
  * 
  */
 public class TaskUtils {

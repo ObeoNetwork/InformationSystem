@@ -29,7 +29,7 @@ import org.obeonetwork.requirement.m2doc.services.RequirementServices;
 /**
  * Test of the requirement reverse service.
  * 
- * @author Romain Guider
+ * @author Obeo
  *
  */
 public class RequiremelntServicesTest {

@@ -30,7 +30,7 @@ import org.obeonetwork.tools.requirement.core.RequirementLink;
 import org.obeonetwork.tools.requirement.wizard.operation.RequirementEditingOperation;
 
 /**
- * @author <a href="goulwen.lefur@obeo.fr">Goulwen Le Fur</a>
+ * @author Obeo
  *
  */
 public class EditRequirementAction extends EObjectLinksViewAction {

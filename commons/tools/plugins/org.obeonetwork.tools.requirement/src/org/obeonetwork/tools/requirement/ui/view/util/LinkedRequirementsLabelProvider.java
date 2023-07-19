@@ -19,7 +19,7 @@ import org.obeonetwork.tools.linker.ui.view.util.EObjectLinkLabelProvider;
 import org.obeonetwork.tools.requirement.core.RequirementLink;
 
 /**
- * @author <a href="goulwen.lefur@obeo.fr">Goulwen Le Fur</a>
+ * @author Obeo
  * 
  */
 public class LinkedRequirementsLabelProvider extends EObjectLinkLabelProvider {

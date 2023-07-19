@@ -22,7 +22,7 @@ import org.obeonetwork.dsl.environment.bindingdialect.DBoundElement;
 import org.obeonetwork.dsl.environment.bindingdialect.provider.BindingdialectItemProviderAdapterFactory;
 
 /**
- * @author sthibaudeau
+ * @author Obeo
  *
  */
 public class DBoundElementLabelProvider implements ILabelProvider {

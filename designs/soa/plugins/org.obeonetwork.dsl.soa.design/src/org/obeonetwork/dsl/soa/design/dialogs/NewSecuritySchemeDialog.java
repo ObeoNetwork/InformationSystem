@@ -47,8 +47,7 @@ import org.obeonetwork.dsl.soa.design.adapters.SecuritySchemeTypeAdapter;
  * A current workaround has been implemented, disposing and re-opening the sirius Dialog. 
  * This {@link NewSecuritySchemeDialog} class is kept in case the user do not want to rely on the workaround. 
  * 
- * @author <a href="mailto:thibault.beziers-la-fosse@obeo.fr">Thibault Béziers
- *         la Fosse</a>
+ * @author Obeo
  */
 public class NewSecuritySchemeDialog extends Dialog {
 	private boolean isEdit = false;

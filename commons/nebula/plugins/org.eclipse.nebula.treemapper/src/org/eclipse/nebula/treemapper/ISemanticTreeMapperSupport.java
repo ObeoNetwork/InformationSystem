@@ -23,7 +23,7 @@ import org.eclipse.jface.viewers.TreeViewer;
  * to generate the business object that represents the mapping when user creates a new
  * one in the {@link TreeMapper} widget
  * 
- * @author Mickael Istria (PetalsLink) - Initial API and implementation
+ * @author Obeo
  * @since 0.1.0
  *
  * @param <M> The type of the mapping object

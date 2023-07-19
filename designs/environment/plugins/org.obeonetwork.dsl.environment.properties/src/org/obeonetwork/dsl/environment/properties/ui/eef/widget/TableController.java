@@ -37,7 +37,7 @@ import org.eclipse.sirius.common.interpreter.api.IVariableManager;
 /**
  * The controller of the table widget.
  * 
- * @author gcoutable
+ * @author Obeo
  */
 public class TableController extends AbstractEEFCustomWidgetController implements IEEFOnClickController {
 	

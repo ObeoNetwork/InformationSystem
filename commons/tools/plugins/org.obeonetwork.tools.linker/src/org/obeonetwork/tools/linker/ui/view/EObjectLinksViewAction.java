@@ -20,7 +20,7 @@ import org.eclipse.jface.action.Action;
 import org.obeonetwork.tools.linker.EObjectLink;
 
 /**
- * @author <a href="goulwen.lefur@obeo.fr">Goulwen Le Fur</a>
+ * @author Obeo
  *
  */
 public abstract class EObjectLinksViewAction extends Action implements EObjectLinksView.ViewListener {

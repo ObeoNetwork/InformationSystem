@@ -40,7 +40,7 @@ import org.obeonetwork.m2doc.doc.generator.reflection.OEcoreUtil;
 /**
  * Utility class used to compute the html of the documentation.
  * 
- * @author <a href="mailto:vincent.richard@obeo.fr">Vincent Richard</a>
+ * @author Obeo
  */
 // CHECKSTYLE:OFF
 public final class M2DocHelpContentUtils {

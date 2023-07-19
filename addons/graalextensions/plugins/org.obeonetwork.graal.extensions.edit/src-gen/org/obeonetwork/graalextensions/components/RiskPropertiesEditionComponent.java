@@ -44,7 +44,7 @@ import org.obeonetwork.graalextensions.parts.RiskPropertiesEditionPart;
 // End of user code
 
 /**
- * @author Obeo.fr
+ * @author Obeo
  * 
  */
 public class RiskPropertiesEditionComponent extends SinglePartPropertiesEditingComponent {

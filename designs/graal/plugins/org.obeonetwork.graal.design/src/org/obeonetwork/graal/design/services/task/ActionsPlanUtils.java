@@ -27,7 +27,7 @@ import org.obeonetwork.graal.UserStory;
 
 /**
  * Utilities services concerning activity nodes and transitions
- * @author Stephane Thibaudeau <stephane.thibaudeau@obeo.fr>
+ * @author Obeo
  *
  */
 public class ActionsPlanUtils {

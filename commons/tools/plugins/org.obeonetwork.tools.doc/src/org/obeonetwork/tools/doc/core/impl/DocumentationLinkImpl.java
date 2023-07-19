@@ -26,7 +26,7 @@ import org.obeonetwork.dsl.environment.ObeoDSMObject;
 import org.obeonetwork.tools.doc.core.DocumentationLink;
 
 /**
- * @author <a href="goulwen.lefur@obeo.fr">Goulwen Le Fur</a>
+ * @author Obeo
  *
  */
 public class DocumentationLinkImpl implements DocumentationLink {

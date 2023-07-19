@@ -26,7 +26,7 @@ import org.obeonetwork.dsl.soa.System;
 /**
  * AQL Services for SOA's concepts.
  *
- * @author <a href="mailto:yvan.lussaud@obeo.fr">Yvan Lussaud</a>
+ * @author Obeo
  *
  */
 public class SOAServices {

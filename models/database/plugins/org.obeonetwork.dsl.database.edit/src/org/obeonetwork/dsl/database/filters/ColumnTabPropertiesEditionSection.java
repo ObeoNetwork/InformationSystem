@@ -17,7 +17,7 @@ import org.obeonetwork.dsl.database.Column;
 
 /**
  * Class used to filter properties view
- * @author Stephane Thibaudeau <stephane.thibaudeau@obeo.fr>
+ * @author Obeo
  */
 public class ColumnTabPropertiesEditionSection implements IFilter {
 

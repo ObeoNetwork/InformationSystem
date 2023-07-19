@@ -21,7 +21,7 @@ import org.obeonetwork.dsl.database.Sequence;
 /**
  * AQL Services on Sequence for M2Doc.
  * 
- * @author Romain Guider
+ * @author Obeo
  */
 public class SequenceServices {
 

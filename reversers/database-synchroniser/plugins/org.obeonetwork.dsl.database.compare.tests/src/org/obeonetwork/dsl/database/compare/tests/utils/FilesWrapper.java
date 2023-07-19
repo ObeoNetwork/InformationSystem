@@ -24,8 +24,7 @@ import org.obeonetwork.dsl.database.compare.tests.DatabaseCompareAbstractTestSui
  * {@code toString()} so that the JUnit test runner has meaningful labels for
  * tests.
  *
- * @author Florent Latombe<a href=
- *         "mailto:florent.latombe@obeo.fr">florent.latombe@obeo.fr</a>
+ * @author Obeo
  *
  */
 public class FilesWrapper {

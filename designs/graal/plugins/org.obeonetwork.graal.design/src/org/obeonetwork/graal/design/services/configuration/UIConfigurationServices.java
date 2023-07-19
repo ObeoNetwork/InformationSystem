@@ -32,7 +32,7 @@ import org.eclipse.sirius.business.api.session.SessionManager;
 /**
  * Services to handle user preferences about Graal UI 
  * 
- * @author <a href="mailto:stephane.thibaudeau@obeo.fr">Stephane Thibaudeau</a>
+ * @author Obeo
  */
 public class UIConfigurationServices {
 

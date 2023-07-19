@@ -23,7 +23,7 @@ import org.obeonetwork.tools.linker.LinkType;
 import org.obeonetwork.tools.requirement.core.util.RequirementService;
 
 /**
- * @author <a href="goulwen.lefur@obeo.fr">Goulwen Le Fur</a>
+ * @author Obeo
  *
  */
 public class RequirementLinkType implements LinkType {

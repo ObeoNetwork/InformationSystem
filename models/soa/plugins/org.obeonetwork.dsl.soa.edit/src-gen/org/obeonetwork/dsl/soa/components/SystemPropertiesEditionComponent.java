@@ -27,7 +27,7 @@ import org.obeonetwork.dsl.soa.parts.SystemPropertiesEditionPart;
 // End of user code
 
 /**
- * @author <a href="mailto:jerome.benois@obeo.fr>Jerome Benois</a>
+ * @author Obeo
  * 
  */
 public class SystemPropertiesEditionComponent extends ComposedPropertiesEditionComponent {

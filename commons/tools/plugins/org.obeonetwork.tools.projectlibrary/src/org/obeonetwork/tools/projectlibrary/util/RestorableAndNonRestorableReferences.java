@@ -16,7 +16,7 @@ import java.util.Collection;
 /**
  * Represents a list of references which can be restored and a list of references
  * which can not be restored
- * @author <a href="mailto:stephane.thibaudeau@obeo.fr">Stephane Thibaudeau</a>
+ * @author Obeo
  *
  */
 public class RestorableAndNonRestorableReferences {

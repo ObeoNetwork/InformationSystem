@@ -39,7 +39,7 @@ import org.obeonetwork.m2doc.sirius.services.M2DocSiriusServices;
 /**
  * AQL Services for M2Doc.
  * 
- * @author Romain Guider
+ * @author Obeo
  */
 public class DataBaseServices {
 
@@ -328,7 +328,7 @@ public class DataBaseServices {
     /**
      * Switch class used to collect the tables of a data base.
      * 
-     * @author Romain Guider
+     * @author Obeo
      */
     private static class TableCollector extends DatabaseSwitch<String> {
         /**
@@ -373,7 +373,7 @@ public class DataBaseServices {
     /**
      * Switch class used to collect the tables of a data base.
      * 
-     * @author Romain Guider
+     * @author Obeo
      */
     private static class ViewCollector extends DatabaseSwitch<String> {
         /**

@@ -22,7 +22,7 @@ import org.eclipse.emf.common.util.BasicMonitor;
 import org.eclipse.emf.common.util.URI;
 
 /**
- * @author <a href="mailto:goulwen.lefur@obeo.fr">Goulwen Le Fur</a>
+ * @author Obeo
  *
  */
 public abstract class NetworkGenerationLauncher extends AbstractGenerationLauncher {

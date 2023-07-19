@@ -22,7 +22,7 @@ import org.obeonetwork.dsl.cinematic.flow.Transition;
 
 /**
  * Direct edit policy for the guard label on transitions.
- * @author <a href="mailto:thibault.beziers-la-fosse@obeo.fr">Thibault Béziers la Fosse</a> 
+ * @author Obeo
  *
  */
 public class TransitionGuardEditLabel extends LabelDirectEditPolicy {

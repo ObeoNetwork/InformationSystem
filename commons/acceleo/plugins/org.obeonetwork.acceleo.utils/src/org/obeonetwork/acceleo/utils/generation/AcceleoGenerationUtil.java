@@ -28,7 +28,7 @@ import org.osgi.framework.Bundle;
 /**
  * Utility methods for the generation.
  * 
- * @author sbegaudeau
+ * @author Obeo
  */
 public class AcceleoGenerationUtil {
 	

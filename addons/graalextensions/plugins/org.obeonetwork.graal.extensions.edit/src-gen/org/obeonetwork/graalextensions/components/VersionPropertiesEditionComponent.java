@@ -39,7 +39,7 @@ import org.obeonetwork.graalextensions.parts.VersionPropertiesEditionPart;
 // End of user code
 
 /**
- * @author Obeo.fr
+ * @author Obeo
  * 
  */
 public class VersionPropertiesEditionComponent extends SinglePartPropertiesEditingComponent {

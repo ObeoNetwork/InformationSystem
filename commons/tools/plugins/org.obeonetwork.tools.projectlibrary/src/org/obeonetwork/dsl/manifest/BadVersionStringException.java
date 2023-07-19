@@ -14,7 +14,7 @@ package org.obeonetwork.dsl.manifest;
  * Exception when a string does not conform to version format
  * which should be major.minor.patch.qualifier
  * where major, minor and patch are integers
- * @author <a href="mailto:stephane.thibaudeau@obeo.fr">Stephane Thibaudeau</a>
+ * @author Obeo
  *
  */
 public class BadVersionStringException extends Exception {

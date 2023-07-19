@@ -15,7 +15,7 @@ import org.eclipse.sirius.business.api.featureextensions.FeatureExtensionService
 
 /**
  * Graal feature extension used to store UI preferences in the aird resource
- * @author <a href="mailto:stephane.thibaudeau@obeo.fr">Stephane Thibaudeau</a>
+ * @author Obeo
  *
  */
 public class GraalFeatureExtension implements FeatureExtension {

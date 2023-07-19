@@ -32,7 +32,7 @@ import org.obeonetwork.utils.common.StringUtils;
 /**
  * Trigger to check if a query changed in order to update 
  * tables and columns references.
- * @author fbats
+ * @author Obeo
  *
  */
 public class ViewQueryChangeTrigger implements ModelChangeTrigger{

@@ -24,7 +24,7 @@ import org.obeonetwork.utils.common.StringUtils;
 /**
  * This class is used to compute the label of a cinematic element
  * It dispatches the process to the right switch
- * @author sthibaudeau
+ * @author Obeo
  *
  */
 public class CinematicLabelServices {

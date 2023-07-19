@@ -46,7 +46,7 @@ import org.obeonetwork.graal.design.services.configuration.UIConfigurationServic
 /**
  * User story decorators' superclass
  * 
- * @author <a href="mailto:stephane.thibaudeau@obeo.fr">Stephane Thibaudeau</a>
+ * @author Obeo
  */
 public abstract class AbstractUserStoryDecorator extends AbstractDecorator {
 	private GraalObject graalObject = null;

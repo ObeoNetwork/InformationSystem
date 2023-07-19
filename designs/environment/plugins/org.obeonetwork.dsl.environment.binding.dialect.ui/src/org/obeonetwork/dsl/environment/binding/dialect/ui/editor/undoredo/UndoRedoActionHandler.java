@@ -23,7 +23,7 @@ import org.obeonetwork.dsl.environment.binding.dialect.ui.editor.BindingTreeEdit
  * Action Handler used to provide appropriate undo and redo Action Handlers for
  * a given Editor Site.
  * 
- * @author <a href="mailto:alex.lagarde@obeo.fr">Alex Lagarde</a>
+ * @author Obeo
  */
 public class UndoRedoActionHandler extends Action {
 

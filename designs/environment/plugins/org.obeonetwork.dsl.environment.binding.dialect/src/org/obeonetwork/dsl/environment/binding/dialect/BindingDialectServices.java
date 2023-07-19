@@ -33,7 +33,7 @@ import org.obeonetwork.dsl.environment.bindingdialect.description.DBindingEditor
 /**
  * Class to provide Binding dialect services
  *
- * @author Stephane Thibaudeau <stephane.thibaudeau@obeo.fr>
+ * @author Obeo
  *
  */
 public class BindingDialectServices extends AbstractRepresentationDialectServices {

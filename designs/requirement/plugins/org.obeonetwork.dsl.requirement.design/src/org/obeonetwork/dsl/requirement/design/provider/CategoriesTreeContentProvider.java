@@ -27,7 +27,7 @@ import org.obeonetwork.dsl.requirement.design.comparators.CategoryComparator;
 /**
  * Content provider to get all categories in a Sirius session.
  * Some categories can be hidden
- * @author sthibaudeau
+ * @author Obeo
  *
  */
 public class CategoriesTreeContentProvider implements ITreeContentProvider{

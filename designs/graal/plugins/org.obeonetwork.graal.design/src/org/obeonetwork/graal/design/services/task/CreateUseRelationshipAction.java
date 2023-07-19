@@ -25,7 +25,7 @@ import org.obeonetwork.graal.design.ui.dialog.CreateUseRelationshipDialog;
  * - a Task and a TasksGroup
  * - a TasksGroup and a Task
  * - a TasksGroup and a TasksGroup
- * @author Stephane Thibaudeau <stephane.thibaudeau@obeo.fr>
+ * @author Obeo
  *
  */
 public class CreateUseRelationshipAction {

@@ -42,7 +42,7 @@ import org.obeonetwork.tools.projectlibrary.ui.wizard.WizardUtils;
 /**
  * Wizard used to import a project library into a modeling project
  * 
- * @author <a href="mailto:stephane.thibaudeau@obeo.fr">Stephane Thibaudeau</a>
+ * @author Obeo
  *
  */
 public class ImportLibraryIntoProjectWizard extends Wizard implements IImportWizard {

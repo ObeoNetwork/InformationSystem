@@ -17,7 +17,7 @@ import org.obeonetwork.dsl.environment.bindingdialect.description.DescriptionPac
 import org.eclipse.sirius.editor.properties.filters.common.ViewpointPropertyFilter;
 
 /**
- * @author sthibaudeau
+ * @author Obeo
  *
  */
 public class DBindingEditorCreationDescriptionDescriptionFilter extends ViewpointPropertyFilter {

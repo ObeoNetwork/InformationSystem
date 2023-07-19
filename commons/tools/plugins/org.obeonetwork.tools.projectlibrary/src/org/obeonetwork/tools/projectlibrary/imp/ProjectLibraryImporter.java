@@ -67,7 +67,7 @@ import org.obeonetwork.utils.common.SessionUtils;
 /**
  * Import a zipped library into a modeling project 
  * 
- * @author <a href="mailto:stephane.thibaudeau@obeo.fr">Stephane Thibaudeau</a>
+ * @author Obeo
  *
  */
 public class ProjectLibraryImporter {

@@ -41,7 +41,7 @@ import org.obeonetwork.graal.util.GraalAdapterFactory;
 
 /**
  * Dialog allowing the user to select the tasks concerned by the creatio of an "use" relationship
- * @author Stephane Thibaudeau <stephane.thibaudeau@obeo.fr>
+ * @author Obeo
  *
  */
 public class CreateUseRelationshipDialog extends Dialog {

@@ -26,7 +26,7 @@ import org.obeonetwork.graal.System;
 import org.obeonetwork.graal.UserStory;
 
 /**
- * @author <a href="goulwen.lefur@obeo.fr">Goulwen Le Fur</a>
+ * @author Obeo
  *
  */
 public class UserStoriesContentProvider implements ITreeContentProvider {

@@ -19,7 +19,7 @@ import org.obeonetwork.graal.UseCase;
 /**
  * Utilities services concerning Requirements
  * 
- * @author jdupont
+ * @author Obeo
  * 
  */
 public class RequirementsUtils {

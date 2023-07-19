@@ -37,7 +37,7 @@ import org.obeonetwork.dsl.environment.EnvironmentPackage;
 // End of user code
 
 /**
- * @author <a href="mailto:jerome.benois@obeo.fr>Jérôme Benois</a>
+ * @author Obeo
  * 
  */
 public class RootRootPropertiesEditionComponent extends SinglePartPropertiesEditingComponent {

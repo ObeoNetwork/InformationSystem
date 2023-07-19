@@ -15,7 +15,7 @@ import org.eclipse.sirius.business.api.dialect.DialectServices;
 
 /**
  * Extension to provide Binding dialect
- * @author Stephane Thibaudeau <stephane.thibaudeau@obeo.fr>
+ * @author Obeo
  *
  */
 public class BindingDialect implements Dialect {

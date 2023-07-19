@@ -28,7 +28,7 @@ import org.obeonetwork.dsl.requirement.providers.RequirementMessages;
 
 /**
  * Customizes the requirement wizard
- * @author sthibaudeau
+ * @author Obeo
  *
  */
 public class CustomRequirementPropertiesEditionPartImpl extends

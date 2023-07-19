@@ -24,7 +24,7 @@ import org.eclipse.sirius.diagram.DDiagramElement;
 
 /**
  * Class used to ungroup a group i.e. extract all the tasks in a group and remove the group
- * @author Stephane Thibaudeau <stephane.thibaudeau@obeo.fr>
+ * @author Obeo
  *
  */
 public class UngroupAction {

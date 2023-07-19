@@ -21,7 +21,7 @@ import org.eclipse.emf.ecore.util.EcoreUtil.UsageCrossReferencer;
 
 /**
  * UsageCrossReferencer used create derived cross referencers
- * @author sthibaudeau
+ * @author Obeo
  *
  */
 public abstract class GraalUsageCrossReferencer {

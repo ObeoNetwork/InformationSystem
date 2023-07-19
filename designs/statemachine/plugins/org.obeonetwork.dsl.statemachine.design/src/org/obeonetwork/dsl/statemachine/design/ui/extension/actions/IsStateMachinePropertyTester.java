@@ -15,7 +15,7 @@ import org.obeonetwork.dsl.statemachine.StateMachine;
 
 /**
  * Property tester used to display delete statemachine command on StateMachine instances only
- * @author Stephane Thibaudeau <stephane.thibaudeau@obeo.fr>
+ * @author Obeo
  *
  */
 public class IsStateMachinePropertyTester extends PropertyTester {

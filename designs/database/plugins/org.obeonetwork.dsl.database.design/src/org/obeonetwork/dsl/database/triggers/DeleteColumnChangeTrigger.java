@@ -29,7 +29,7 @@ import org.obeonetwork.dsl.database.IndexElement;
 
 /**
  * Trigger to synchronize index when a column is deleted 
- * @author Stephane Thibaudeau
+ * @author Obeo
  *
  */
 public class DeleteColumnChangeTrigger implements ModelChangeTrigger{

@@ -11,7 +11,7 @@
 package org.eclipse.nebula.treemapper;
 
 /**
- * @author sthibaudeau
+ * @author Obeo
  *
  */
 public interface IDeletedMappingListener<M> {

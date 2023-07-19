@@ -48,7 +48,7 @@ import org.obeonetwork.tools.projectlibrary.util.ProjectLibraryUtils;
 /**
  * Test to check that the export of a project 'as libraries' is updating referencing project.
  * 
- * @author fcoulon
+ * @author Obeo
  *
  */
 public class ExportProjectTest {

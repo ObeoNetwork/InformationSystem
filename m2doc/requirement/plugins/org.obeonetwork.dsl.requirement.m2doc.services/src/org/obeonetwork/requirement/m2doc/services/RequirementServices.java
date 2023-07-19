@@ -36,7 +36,7 @@ import org.obeonetwork.dsl.requirement.RequirementPackage;
 /**
  * AQL Services for Requirement's concepts.
  * 
- * @author Romain Guider
+ * @author Obeo
  *
  */
 public class RequirementServices {

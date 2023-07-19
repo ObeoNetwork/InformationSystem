@@ -31,7 +31,7 @@ import org.obeonetwork.dsl.environment.StructuredType;
 
 /**
  * This class is used to handle binding informations 
- * @author sthibaudeau
+ * @author Obeo
  *
  */
 public class CinematicBindingServices {

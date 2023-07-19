@@ -20,7 +20,7 @@ import org.eclipse.swt.graphics.Image;
 /**
  * The label provider for column.
  * 
- * @author gcoutable
+ * @author Obeo
  */
 public class TableColumnsLabelProvider extends CellLabelProvider implements ILabelProvider {
 	

@@ -28,7 +28,7 @@ import org.eclipse.sirius.diagram.AbstractDNode;
 
 /**
  * Class used to create a new Use case from selected asks or tasksGroups
- * @author Stephane Thibaudeau <stephane.thibaudeau@obeo.fr>
+ * @author Obeo
  *
  */
 public class CreateUseCaseAction {

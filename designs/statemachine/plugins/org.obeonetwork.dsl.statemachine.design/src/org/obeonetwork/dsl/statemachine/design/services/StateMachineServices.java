@@ -42,7 +42,7 @@ import org.eclipse.sirius.ecore.extender.business.api.permission.PermissionAutho
 /**
  * Java services for the Statemachine diagram.
  * 
- * @author sthibaudeau
+ * @author Obeo
  */
 public class StateMachineServices {
 

@@ -44,7 +44,7 @@ import liquibase.exception.LiquibaseException;
  * Finally the method annotated with {@link After} stops and remove the H2 Docker container.
  * Note that these tests have been developed on a Windows-based computer, and unexpected behaviors could happen on other operating systems.
  * 
- * @author <a href="mailto:thibault.beziers-la-fosse@obeo.fr">Thibault Béziers la Fosse</a>
+ * @author Obeo
  *
  */
 @RunWith(Parameterized.class)

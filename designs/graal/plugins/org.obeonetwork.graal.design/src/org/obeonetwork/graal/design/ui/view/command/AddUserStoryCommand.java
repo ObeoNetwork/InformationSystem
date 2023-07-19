@@ -14,7 +14,7 @@
 package org.obeonetwork.graal.design.ui.view.command;
 
 /**
- * @author <a href="goulwen.lefur@obeo.fr">Goulwen Le Fur</a>
+ * @author Obeo
  *
  */
 public interface AddUserStoryCommand {

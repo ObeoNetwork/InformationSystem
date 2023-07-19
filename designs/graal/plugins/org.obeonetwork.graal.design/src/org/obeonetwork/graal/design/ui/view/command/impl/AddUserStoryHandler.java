@@ -33,7 +33,7 @@ import org.obeonetwork.graal.design.ui.view.UserStoriesView;
 import org.obeonetwork.graal.design.ui.view.command.AddUserStoryCommand;
 
 /**
- * @author <a href="goulwen.lefur@obeo.fr">Goulwen Le Fur</a>
+ * @author Obeo
  *
  */
 public class AddUserStoryHandler extends AbstractHandler implements AddUserStoryCommand {

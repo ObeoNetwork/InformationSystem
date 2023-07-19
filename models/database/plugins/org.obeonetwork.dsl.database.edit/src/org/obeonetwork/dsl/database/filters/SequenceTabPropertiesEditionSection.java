@@ -18,7 +18,7 @@ import org.obeonetwork.dsl.database.Sequence;
 
 /**
  * Class used to filter properties view
- * @author Stephane Thibaudeau <stephane.thibaudeau@obeo.fr>
+ * @author Obeo
  */
 public class SequenceTabPropertiesEditionSection implements IFilter {
 	

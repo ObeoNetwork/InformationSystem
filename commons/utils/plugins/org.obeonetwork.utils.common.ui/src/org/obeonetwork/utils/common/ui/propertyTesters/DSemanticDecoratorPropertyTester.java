@@ -17,7 +17,7 @@ import org.eclipse.sirius.viewpoint.DSemanticDecorator;
 /**
  * {@link PropertyTester} for asserting that a {@link DSemanticDecorator} selected refers to a specific {@link EObject} type.
  * 
- * @author Thibault Béziers la Fosse <a href="mailto:thibault.beziers-la-fosse@obeo.fr">thibault.beziers-la-fosse@obeo.fr</a>
+ * @author Obeo
  *
  */
 public class DSemanticDecoratorPropertyTester extends PropertyTester {

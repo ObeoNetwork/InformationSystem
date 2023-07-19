@@ -21,7 +21,7 @@ import org.obeonetwork.graal.UserStory;
 
 /**
  * Decorator for edges to display User Story information
- * @author <a href="mailto:stephane.thibaudeau@obeo.fr">Stephane Thibaudeau</a>
+ * @author Obeo
  *
  */
 public class UserStoryEdgeDecorator extends AbstractUserStoryDecorator {
@@ -63,7 +63,7 @@ public class UserStoryEdgeDecorator extends AbstractUserStoryDecorator {
 	
 	/**
 	 * Locator used to refresh the edge when needed
-	 * @author <a href="mailto:stephane.thibaudeau@obeo.fr">Stephane Thibaudeau</a>
+	 * @author Obeo
 	 *
 	 */
 	private class UserStoryEdgeLocator implements Locator {

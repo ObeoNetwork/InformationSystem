@@ -18,7 +18,7 @@ import org.obeonetwork.graal.TasksContainer;
 /**
  * Content provider for tree viewers
  * Display TasksGroup and Task instances as a tree 
- * @author Stephane Thibaudeau <stephane.thibaudeau@obeo.fr>
+ * @author Obeo
  *
  */
 public class TasksContentProvider implements ITreeContentProvider {

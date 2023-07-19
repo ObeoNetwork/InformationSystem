@@ -33,7 +33,7 @@ import com.google.common.collect.Lists;
 
 /**
  * Utilities services concerning Actors
- * @author Stephane Thibaudeau <stephane.thibaudeau@obeo.fr>
+ * @author Obeo
  *
  */
 public class ActorUtils {

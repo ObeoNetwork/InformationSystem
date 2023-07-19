@@ -34,7 +34,7 @@ import org.eclipse.sirius.ext.draw2d.figure.FigureUtilities;
 /**
  * Decorator for nodes to display User Story information
  * 
- * @author <a href="mailto:stephane.thibaudeau@obeo.fr">Stephane Thibaudeau</a>
+ * @author Obeo
  */
 public class UserStoryNodeDecorator extends AbstractUserStoryDecorator {
 	private static final int MARGIN = 5;
@@ -61,7 +61,7 @@ public class UserStoryNodeDecorator extends AbstractUserStoryDecorator {
 
 	/**
 	 * Decoration on node and container
-	 * @author <a href="mailto:stephane.thibaudeau@obeo.fr">Stephane Thibaudeau</a>
+	 * @author Obeo
 	 *
 	 */
 	private class UserStoryNodeFigure extends Figure {
@@ -136,7 +136,7 @@ public class UserStoryNodeDecorator extends AbstractUserStoryDecorator {
 	
 	/**
 	 * Locator used to set the Figure at the right location and size
-	 * @author <a href="mailto:stephane.thibaudeau@obeo.fr">Stephane Thibaudeau</a>
+	 * @author Obeo
 	 *
 	 */
 	private final class UserStoryNodeLocator implements Locator {

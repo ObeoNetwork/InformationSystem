@@ -16,8 +16,7 @@ import org.junit.runners.Parameterized.Parameters;
 
 /**
  * 
- * @author <a href="mailto:thibault.beziers-la-fosse@obeo.fr">Thibault Béziers
- *         la Fosse</a> 
+ * @author Obeo
  */
 @RunWith(Parameterized.class)
 public class H2LiquibaseUpdateTest extends AbstractLiquibaseUpdateTest {	

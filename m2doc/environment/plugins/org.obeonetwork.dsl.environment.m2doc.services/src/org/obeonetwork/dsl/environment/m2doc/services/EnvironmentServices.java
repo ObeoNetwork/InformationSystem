@@ -34,7 +34,7 @@ import org.obeonetwork.dsl.environment.Type;
 /**
  * AQL Services for Entity's concepts.
  *
- * @author <a href="mailto:yvan.lussaud@obeo.fr">Yvan Lussaud</a>
+ * @author Obeo
  *
  */
 public class EnvironmentServices {

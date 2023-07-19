@@ -55,7 +55,7 @@ import org.obeonetwork.utils.common.SessionUtils;
 /**
  * Utilities around Project libraries
  * 
- * @author <a href="mailto:stephane.thibaudeau@obeo.fr">Stephane Thibaudeau</a>
+ * @author Obeo
  *
  */
 public class ProjectLibraryUtils {

@@ -18,7 +18,7 @@ import org.obeonetwork.dsl.database.ForeignKeyElement;
 /**
  * M2Doc services for the ForeignKeyElements
  * 
- * @author Romain Guider
+ * @author Obeo
  */
 public class ForeignKeyElementServices {
 

@@ -47,7 +47,7 @@ import org.obeonetwork.dsl.manifest.util.ManifestUtils;
 /**
  * Services to deal with modeling projects manifests 
  * 
- * @author <a href="mailto:stephane.thibaudeau@obeo.fr">Stephane Thibaudeau</a>
+ * @author Obeo
  */
 public class ManifestServices {
 	

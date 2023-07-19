@@ -17,7 +17,7 @@ import org.obeonetwork.dsl.database.Constraint;
 
 /**
  * Class used to filter properties view
- * @author Stephane Thibaudeau <stephane.thibaudeau@obeo.fr>
+ * @author Obeo
  */
 public class ConstraintTabPropertiesEditionSection implements IFilter {
 

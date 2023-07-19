@@ -24,7 +24,7 @@ import org.eclipse.sirius.diagram.ui.edit.api.part.IDiagramElementEditPart;
 /**
  * Graphical decorators provider to display User story information
  * 
- * @author <a href="mailto:stephane.thibaudeau@obeo.fr">Stephane Thibaudeau</a>
+ * @author Obeo
  *
  */
 public class UserStoryDecoratorProvider extends AbstractProvider implements IDecoratorProvider {

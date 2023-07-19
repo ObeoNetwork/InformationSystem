@@ -33,7 +33,7 @@ import org.obeonetwork.graal.System;
 /**
  * Tests on DomainClassServices
  * 
- * @author Stephane Thibaudeau
+ * @author Obeo
  *
  */
 public class DomainClassServicesTest extends AbstractTest {

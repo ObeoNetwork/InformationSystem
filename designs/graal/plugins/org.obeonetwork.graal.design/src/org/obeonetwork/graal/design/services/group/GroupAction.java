@@ -29,7 +29,7 @@ import org.eclipse.sirius.diagram.AbstractDNode;
 
 /**
  * Class used to group tasks into a new group
- * @author Stephane Thibaudeau <stephane.thibaudeau@obeo.fr>
+ * @author Obeo
  *
  */
 public class GroupAction {

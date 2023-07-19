@@ -21,7 +21,7 @@ import org.eclipse.emf.eef.runtime.ui.widgets.settings.EEFEditorSettings;
 /**
  * Special EEFEditorSettings that delegates all calls to another EEFEditorSettings
  * This class is intended to be subclassed  
- * @author Stephane Thibaudeau <stephane.thibaudeau@obeo.fr>
+ * @author Obeo
  */
 public class DelegatedEEFEditorSettings implements EEFEditorSettings {
 

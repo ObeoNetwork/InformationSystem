@@ -33,7 +33,7 @@ import org.obeonetwork.is.propertyTesters.ReferencePropertyTester;
 /**
  * Handler for setting the TargetSchema of References based on the namespace it is contained in.
  * 
- * @author Thibault Béziers la Fosse <a href="mailto:thibault.beziers-la-fosse@obeo.fr">thibault.beziers-la-fosse@obeo.fr</a>
+ * @author Obeo
  */
 public class SetTargetSchemaHandler extends AbstractHandler {
 

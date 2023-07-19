@@ -19,7 +19,7 @@ import org.obeonetwork.dsl.database.providers.DatabaseMessages;
 
 /**
  * Custom PartForm to bypass EEF Bug #404780
- * @author Stephane Thibaudeau <stephane.thibaudeau@obeo.fr>
+ * @author Obeo
  */
 public class CustomPrimaryKeyPropertiesEditionPartImpl extends
 		PrimaryKeyPropertiesEditionPartImpl {

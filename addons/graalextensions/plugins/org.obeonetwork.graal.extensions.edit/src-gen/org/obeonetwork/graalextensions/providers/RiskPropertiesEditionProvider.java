@@ -32,7 +32,7 @@ import org.obeonetwork.dsl.environment.EnvironmentPackage;
 import org.obeonetwork.dsl.environment.ObeoDSMObject;
 
 /**
- * @author Obeo.fr
+ * @author Obeo
  * 
  */
 public class RiskPropertiesEditionProvider extends PropertiesEditingProviderImpl {

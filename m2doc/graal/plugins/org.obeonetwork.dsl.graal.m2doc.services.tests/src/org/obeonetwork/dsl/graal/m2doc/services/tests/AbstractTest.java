@@ -33,7 +33,7 @@ import org.obeonetwork.graal.util.GraalResourceFactoryImpl;
 /**
  * Abstract class providing test utilities
  * 
- * @author Stephane Thibaudeau
+ * @author Obeo
  *
  */
 abstract public class AbstractTest {

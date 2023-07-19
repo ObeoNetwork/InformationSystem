@@ -17,7 +17,7 @@ import org.obeonetwork.dsl.requirement.parts.impl.CustomRequirementPropertiesEdi
 
 /**
  * Specialize the EditionPartProvider to provide our custom class to edit Requirement in a wizard
- * @author sthibaudeau
+ * @author Obeo
  *
  */
 public class CustomRequirementPropertiesEditionPartProvider extends RequirementPropertiesEditionPartProvider {

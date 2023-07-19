@@ -35,7 +35,7 @@ import org.obeonetwork.tools.linker.ui.view.EObjectLinksView;
 import org.obeonetwork.tools.linker.ui.view.util.EObjectLinkContentProvider;
 
 /**
- * @author <a href="goulwen.lefur@obeo.fr">Goulwen Le Fur</a>
+ * @author Obeo
  *
  */
 public class RelatedDocView extends EObjectLinksView {

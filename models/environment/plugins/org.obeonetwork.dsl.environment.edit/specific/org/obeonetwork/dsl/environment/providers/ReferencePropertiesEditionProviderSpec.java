@@ -22,7 +22,7 @@ import org.obeonetwork.dsl.environment.components.ReferenceOppositePropertiesEdi
 /**
  * Specific provider for reference.
  * 
- * @author ymortier
+ * @author Obeo
  */
 public class ReferencePropertiesEditionProviderSpec extends ReferencePropertiesEditionProvider {
 

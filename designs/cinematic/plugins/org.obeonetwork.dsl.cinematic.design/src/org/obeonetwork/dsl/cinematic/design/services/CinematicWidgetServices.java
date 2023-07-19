@@ -72,7 +72,7 @@ import org.obeonetwork.utils.common.StringUtils;
 /**
  * Services to use the widgets
  * 
- * @author jdupont, vrichard
+ * @author Obeo
  * 
  */
 @SuppressWarnings("restriction")

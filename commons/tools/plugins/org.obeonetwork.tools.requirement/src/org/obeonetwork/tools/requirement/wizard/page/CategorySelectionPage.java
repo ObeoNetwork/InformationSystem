@@ -43,7 +43,7 @@ import org.obeonetwork.tools.requirement.wizard.util.RequirementsRepositoriesCon
 import org.eclipse.sirius.ui.tools.api.views.ViewHelper;
 
 /**
- * @author <a href="goulwen.lefur@obeo.fr">Goulwen Le Fur</a>
+ * @author Obeo
  *
  */
 public class CategorySelectionPage extends WizardPage {

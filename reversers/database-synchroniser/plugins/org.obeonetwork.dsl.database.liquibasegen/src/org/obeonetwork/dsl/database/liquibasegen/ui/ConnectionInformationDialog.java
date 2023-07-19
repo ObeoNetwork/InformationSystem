@@ -27,8 +27,7 @@ import org.eclipse.swt.widgets.Text;
 /**
  * Creates a dialog for defining the identifiers of the database.
  * 
- * @author <a href="mailto:thibault.beziers-la-fosse@obeo.fr">Thibault Béziers
- *         la Fosse</a> 
+ * @author Obeo
  *         
  */
 public class ConnectionInformationDialog extends Dialog {

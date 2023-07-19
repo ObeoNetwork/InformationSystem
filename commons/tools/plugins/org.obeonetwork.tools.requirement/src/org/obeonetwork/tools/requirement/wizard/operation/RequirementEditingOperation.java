@@ -29,7 +29,7 @@ import org.obeonetwork.dsl.requirement.Requirement;
 import org.obeonetwork.tools.requirement.wizard.RequirementEditingWizard;
 
 /**
- * @author <a href="goulwen.lefur@obeo.fr">Goulwen Le Fur</a>
+ * @author Obeo
  *
  */
 public class RequirementEditingOperation extends WizardEditingOperation {

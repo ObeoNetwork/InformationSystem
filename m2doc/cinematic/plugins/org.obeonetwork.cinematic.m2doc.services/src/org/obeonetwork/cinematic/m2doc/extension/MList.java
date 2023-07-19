@@ -16,7 +16,7 @@ import java.util.Iterator;
 import org.obeonetwork.m2doc.element.MElement;
 
 /**
- * @author vrichard
+ * @author Obeo
  */
 public interface MList extends MElement {
 

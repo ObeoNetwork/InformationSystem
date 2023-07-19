@@ -48,7 +48,7 @@ import org.obeonetwork.tools.linker.ui.view.util.EObjectLinkContentProvider;
 import org.obeonetwork.tools.linker.ui.view.util.ViewpointSelectionListener;
 
 /**
- * @author <a href="goulwen.lefur@obeo.fr">Goulwen Le Fur</a>
+ * @author Obeo
  *
  */
 public class EObjectLinksView extends ViewPart {
@@ -302,7 +302,7 @@ public class EObjectLinksView extends ViewPart {
 
 	
 	/**
-	 * @author <a href="goulwen.lefur@obeo.fr">Goulwen Le Fur</a>
+	 * @author Obeo
 	 *
 	 */
 	public interface ViewListener {

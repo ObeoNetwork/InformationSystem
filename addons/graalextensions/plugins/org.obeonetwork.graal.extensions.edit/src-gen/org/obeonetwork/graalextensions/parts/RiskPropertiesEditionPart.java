@@ -17,7 +17,7 @@ import org.eclipse.emf.common.util.Enumerator;
 // End of user code
 
 /**
- * @author Obeo.fr
+ * @author Obeo
  * 
  */
 public interface RiskPropertiesEditionPart {

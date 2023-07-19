@@ -30,7 +30,7 @@ import org.obeonetwork.tools.requirement.RequirementLinkerPlugin;
 import org.obeonetwork.tools.requirement.core.RequirementLink;
 
 /**
- * @author <a href="goulwen.lefur@obeo.fr">Goulwen Le Fur</a>
+ * @author Obeo
  *
  */
 public class UnlinkRequirementAction extends EObjectLinksViewAction {

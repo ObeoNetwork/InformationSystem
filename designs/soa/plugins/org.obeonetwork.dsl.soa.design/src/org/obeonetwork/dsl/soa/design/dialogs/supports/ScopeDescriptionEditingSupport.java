@@ -15,8 +15,7 @@ import org.obeonetwork.dsl.soa.Scope;
 
 /**
  * {@link ScopeDescriptionEditingSupport} specialization for editing the description of {@link Scope}s
- * 	@author <a href="mailto:thibault.beziers-la-fosse@obeo.fr">Thibault Béziers
- *  	la Fosse</a> 	 
+ * @author Obeo
  */
 public class ScopeDescriptionEditingSupport extends AbstractScopeEditingSupport {
 	

@@ -27,7 +27,7 @@ import org.obeonetwork.dsl.cinematic.flow.Transition;
 /**
  * Extension for the Eclipse extension point: org.eclipse.gmf.runtime.diagram.ui.editpartProviders
  * Specifies {@link DirectEditPolicy} for {@link Transition} labels.
- * @author <a href="mailto:thibault.beziers-la-fosse@obeo.fr">Thibault Béziers la Fosse</a> 
+ * @author Obeo
  *
  */
 @SuppressWarnings("restriction")

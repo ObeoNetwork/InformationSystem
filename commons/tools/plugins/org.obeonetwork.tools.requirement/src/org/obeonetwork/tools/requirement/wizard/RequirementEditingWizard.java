@@ -22,7 +22,7 @@ import org.obeonetwork.dsl.requirement.Category;
 import org.obeonetwork.tools.requirement.wizard.page.CategorySelectionPage;
 
 /**
- * @author <a href="goulwen.lefur@obeo.fr">Goulwen Le Fur</a>
+ * @author Obeo
  *
  */
 public class RequirementEditingWizard extends PropertiesEditionWizard {

@@ -28,7 +28,7 @@ import org.eclipse.swt.widgets.Display;
 import org.obeonetwork.tools.linker.EObjectLink;
 
 /**
- * @author <a href="goulwen.lefur@obeo.fr">Goulwen Le Fur</a>
+ * @author Obeo
  *
  */
 public abstract class EObjectLinkLabelProvider extends StyledCellLabelProvider implements ITableLabelProvider {

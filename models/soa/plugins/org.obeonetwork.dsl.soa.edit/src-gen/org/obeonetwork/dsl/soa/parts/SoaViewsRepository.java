@@ -11,7 +11,7 @@
 package org.obeonetwork.dsl.soa.parts;
 
 /**
- * @author <a href="mailto:jerome.benois@obeo.fr>Jerome Benois</a>
+ * @author Obeo
  * 
  */
 public class SoaViewsRepository {

@@ -33,7 +33,7 @@ import org.obeonetwork.dsl.cinematic.flow.Transition;
 import org.obeonetwork.dsl.cinematic.flow.ViewState;
 
 /**
- * @author arichard
+ * @author Obeo
  * 
  */
 public class CinematicServices {

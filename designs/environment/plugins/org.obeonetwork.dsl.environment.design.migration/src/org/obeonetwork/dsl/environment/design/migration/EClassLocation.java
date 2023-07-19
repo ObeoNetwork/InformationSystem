@@ -17,7 +17,7 @@ package org.obeonetwork.dsl.environment.design.migration;
  * This class is used by the automatic migration process
  * to bind the old EClass to the new one 
  * 
- * @author Stéphane Thibaudeau - Obeo
+ * @author Obeo
  */
 public class EClassLocation {
 

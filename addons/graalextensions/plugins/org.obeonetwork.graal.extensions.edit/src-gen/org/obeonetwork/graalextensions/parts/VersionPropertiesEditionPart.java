@@ -17,7 +17,7 @@ package org.obeonetwork.graalextensions.parts;
 // End of user code
 
 /**
- * @author Obeo.fr
+ * @author Obeo
  * 
  */
 public interface VersionPropertiesEditionPart {

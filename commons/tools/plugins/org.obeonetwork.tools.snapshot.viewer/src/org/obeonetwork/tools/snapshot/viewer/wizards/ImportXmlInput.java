@@ -15,7 +15,7 @@ import org.eclipse.emf.common.util.URI;
 /**
  * Class used to store wizard page data
  * 
- * @author <a href="mailto:stephane.thibaudeau@obeo.fr">Stephane Thibaudeau</a>
+ * @author Obeo
  *
  */
 public class ImportXmlInput {

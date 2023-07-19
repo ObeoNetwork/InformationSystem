@@ -45,7 +45,7 @@ import org.obeonetwork.dsl.environment.Type;
 // End of user code
 
 /**
- * @author <a href="mailto:jerome.benois@obeo.fr>Jérôme Benois</a>
+ * @author Obeo
  * 
  */
 public class ExternalCriterionExternalCriterionPropertiesEditionComponent extends SinglePartPropertiesEditingComponent {

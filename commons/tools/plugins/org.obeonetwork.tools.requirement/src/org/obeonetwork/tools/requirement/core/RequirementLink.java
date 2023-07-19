@@ -17,7 +17,7 @@ import org.obeonetwork.dsl.requirement.Requirement;
 import org.obeonetwork.tools.linker.EObjectLink;
 
 /**
- * @author <a href="goulwen.lefur@obeo.fr">Goulwen Le Fur</a>
+ * @author Obeo
  *
  */
 public interface RequirementLink extends EObjectLink {

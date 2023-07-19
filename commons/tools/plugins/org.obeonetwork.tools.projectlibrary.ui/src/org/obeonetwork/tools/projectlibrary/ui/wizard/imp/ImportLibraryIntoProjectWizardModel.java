@@ -19,7 +19,7 @@ import org.obeonetwork.dsl.manifest.MManifest;
 /**
  * Model class used to handle data for import library into modeling project wizard
  * 
- * @author <a href="mailto:stephane.thibaudeau@obeo.fr">Stephane Thibaudeau</a>
+ * @author Obeo
  *
  */
 public class ImportLibraryIntoProjectWizardModel {

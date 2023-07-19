@@ -21,7 +21,7 @@ import org.obeonetwork.dsl.typeslibrary.UserDefinedTypeRef;
 /**
  * Column's AQL services for M2Doc.
  * 
- * @author Romain Guider
+ * @author Obeo
  */
 public class ColumnServices {
 

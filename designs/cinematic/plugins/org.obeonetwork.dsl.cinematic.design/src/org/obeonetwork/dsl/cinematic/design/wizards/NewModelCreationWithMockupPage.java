@@ -47,8 +47,7 @@ import org.osgi.framework.Bundle;
  * Defines the main {@link ViewContainer} of a Cinematic model, creates and
  * opens its representations.
  * 
- * @author <a href="mailto:thibault.beziers-la-fosse@obeo.fr">Thibault Béziers
- *         la Fosse</a>
+ * @author Obeo
  */
 public class NewModelCreationWithMockupPage extends WizardPage {
 	private Toolkit toolkit;

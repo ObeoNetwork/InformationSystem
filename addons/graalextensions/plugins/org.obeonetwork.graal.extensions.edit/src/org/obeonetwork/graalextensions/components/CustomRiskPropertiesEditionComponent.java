@@ -47,7 +47,7 @@ import org.obeonetwork.graalextensions.parts.RiskPropertiesEditionPart;
 
 
 /**
- * @author Obeo.fr
+ * @author Obeo
  * 
  */
 public class CustomRiskPropertiesEditionComponent extends SinglePartPropertiesEditingComponent {

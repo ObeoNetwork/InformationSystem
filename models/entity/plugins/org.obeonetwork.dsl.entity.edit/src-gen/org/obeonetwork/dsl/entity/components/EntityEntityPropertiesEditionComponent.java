@@ -46,7 +46,7 @@ import org.obeonetwork.dsl.environment.StructuredType;
 // End of user code
 
 /**
- * @author <a href="mailto:jerome.benois@obeo.fr>Jérôme Benois</a>
+ * @author Obeo
  * 
  */
 public class EntityEntityPropertiesEditionComponent extends SinglePartPropertiesEditingComponent {

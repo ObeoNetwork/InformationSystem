@@ -21,7 +21,7 @@ import org.eclipse.sirius.ext.base.Option;
 
 /**
  * Utility class used by wizards
- * @author <a href="mailto:stephane.thibaudeau@obeo.fr">Stephane Thibaudeau</a>
+ * @author Obeo
  *
  */
 public class WizardUtils {

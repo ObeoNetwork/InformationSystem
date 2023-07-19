@@ -39,8 +39,7 @@ import liquibase.resource.ClassLoaderResourceAccessor;
 
 /**
  * Abstract test class for {@link Parameterized} tests
- * @author <a href="mailto:thibault.beziers-la-fosse@obeo.fr">Thibault Béziers
- *         la Fosse</a> 
+ * @author Obeo
  *         
  */
 public abstract class AbstractLiquibaseUpdateTest {

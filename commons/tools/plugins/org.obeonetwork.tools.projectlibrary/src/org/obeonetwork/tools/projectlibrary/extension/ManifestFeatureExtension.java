@@ -15,7 +15,7 @@ import org.eclipse.sirius.business.api.featureextensions.FeatureExtensionService
 
 /**
  * Feature extension used to store manifest information in the aird resource
- * @author <a href="mailto:stephane.thibaudeau@obeo.fr">Stephane Thibaudeau</a>
+ * @author Obeo
  *
  */
 public class ManifestFeatureExtension implements FeatureExtension {

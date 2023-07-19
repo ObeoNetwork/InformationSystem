@@ -17,7 +17,7 @@ import org.eclipse.emf.common.command.AbstractCommand;
 import org.obeonetwork.tools.doc.core.DocumentationLink;
 
 /**
- * @author <a href="goulwen.lefur@obeo.fr">Goulwen Le Fur</a>
+ * @author Obeo
  *
  */
 public class EditDocumentationLinkCommand extends AbstractCommand {

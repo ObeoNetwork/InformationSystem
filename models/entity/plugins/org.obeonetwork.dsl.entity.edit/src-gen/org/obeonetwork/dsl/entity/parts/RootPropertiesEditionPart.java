@@ -17,7 +17,7 @@ package org.obeonetwork.dsl.entity.parts;
 // End of user code
 
 /**
- * @author <a href="mailto:jerome.benois@obeo.fr>Jérôme Benois</a>
+ * @author Obeo
  * 
  */
 public interface RootPropertiesEditionPart {

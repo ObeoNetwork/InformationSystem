@@ -29,8 +29,7 @@ import org.obeonetwork.dsl.requirement.Requirement;
  * rest of the tree accordingly, e.g. if a {@link Category} is checked then all
  * its contents are checked.
  * 
- * @author Florent Latombe
- *         <a href= "mailto:florent.latombe@obeo.fr">florent.latombe@obeo.fr</a>
+ * @author Obeo
  *
  */
 public class LinkRequirementsCheckStateListener implements ICheckStateListener {

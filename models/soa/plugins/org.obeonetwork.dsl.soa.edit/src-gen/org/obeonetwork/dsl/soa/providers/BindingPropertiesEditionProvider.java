@@ -35,7 +35,7 @@ import org.obeonetwork.dsl.soa.components.BindingBindingPropertiesEditionCompone
 import org.obeonetwork.dsl.soa.components.BindingPropertiesEditionComponent;
 
 /**
- * @author <a href="mailto:jerome.benois@obeo.fr>Jerome Benois</a>
+ * @author Obeo
  * 
  */
 public class BindingPropertiesEditionProvider extends CustomPropertiesEditingProvider {

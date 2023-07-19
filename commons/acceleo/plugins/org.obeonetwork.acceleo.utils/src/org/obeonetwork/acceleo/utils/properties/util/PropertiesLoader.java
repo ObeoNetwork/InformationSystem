@@ -21,7 +21,7 @@ import java.util.Properties;
 import org.osgi.framework.Bundle;
 
 /**
- * @author @author <a href="mailto:goulwen.lefur@obeo.fr">Goulwen Le Fur</a>
+ * @author Obeo
  *
  */
 public abstract class PropertiesLoader {

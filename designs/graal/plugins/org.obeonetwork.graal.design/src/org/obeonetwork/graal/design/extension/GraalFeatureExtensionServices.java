@@ -19,7 +19,7 @@ import org.eclipse.sirius.viewpoint.description.FeatureExtensionDescription;
 
 /**
  * Feature extension services used to set the EClass to be saved within the aird resource
- * @author <a href="mailto:stephane.thibaudeau@obeo.fr">Stephane Thibaudeau</a>
+ * @author Obeo
  *
  */
 public class GraalFeatureExtensionServices extends AbstractFeatureExtensionServices {

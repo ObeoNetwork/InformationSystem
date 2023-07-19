@@ -25,7 +25,7 @@ import org.obeonetwork.tools.linker.ui.view.EObjectLinksView;
 import org.obeonetwork.tools.linker.ui.view.EObjectLinksViewAction;
 
 /**
- * @author <a href="goulwen.lefur@obeo.fr">Goulwen Le Fur</a>
+ * @author Obeo
  *
  */
 public class AddDocumentationLink extends EObjectLinksViewAction {

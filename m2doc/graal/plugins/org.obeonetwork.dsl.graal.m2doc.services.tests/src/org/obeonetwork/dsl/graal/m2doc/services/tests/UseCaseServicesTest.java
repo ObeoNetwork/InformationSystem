@@ -26,7 +26,7 @@ import org.obeonetwork.graal.UseCase;
 /**
  * Tests on UseCaseServices
  * 
- * @author Stephane Thibaudeau
+ * @author Obeo
  *
  */
 public class UseCaseServicesTest extends AbstractTest {

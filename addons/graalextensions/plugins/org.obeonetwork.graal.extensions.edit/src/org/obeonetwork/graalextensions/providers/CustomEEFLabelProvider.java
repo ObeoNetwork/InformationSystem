@@ -19,7 +19,7 @@ import org.eclipse.swt.graphics.Image;
 
 /**
  * Custom class used to provide the right label and image when plugging EEF properties views on a Viewpoint table
- * @author sthibaudeau
+ * @author Obeo
  *
  */
 public class CustomEEFLabelProvider extends EEFLabelProvider {

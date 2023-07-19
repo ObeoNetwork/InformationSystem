@@ -48,7 +48,7 @@ import org.obeonetwork.dsl.entity.parts.PersistencePropertiesEditionPart;
 // End of user code
 
 /**
- * @author <a href="mailto:jerome.benois@obeo.fr>Jérôme Benois</a>
+ * @author Obeo
  * 
  */
 public class EntityPersistencePropertiesEditionComponent extends SinglePartPropertiesEditingComponent {

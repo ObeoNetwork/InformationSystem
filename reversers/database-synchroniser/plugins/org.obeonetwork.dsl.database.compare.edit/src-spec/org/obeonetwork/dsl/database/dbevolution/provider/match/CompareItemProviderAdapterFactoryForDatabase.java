@@ -23,7 +23,7 @@ import org.obeonetwork.dsl.database.dbevolution.util.DbevolutionSwitch;
  * This is the factory that is used to provide the interfaces needed to support DB evolution compare merge viewer,
  * on matches.
  * 
- * @author <a href="mailto:cedric.notot@obeo.fr">Cedric Notot</a>
+ * @author Obeo
  */
 public class CompareItemProviderAdapterFactoryForDatabase extends CompareItemProviderAdapterFactorySpec {
 

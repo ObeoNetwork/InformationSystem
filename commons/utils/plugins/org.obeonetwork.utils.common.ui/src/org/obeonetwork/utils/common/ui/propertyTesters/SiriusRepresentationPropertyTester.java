@@ -20,7 +20,7 @@ import org.eclipse.sirius.viewpoint.description.RepresentationDescription;
 /**
  * {@link PropertyTester} for asserting that a {@link DRepresentation} is defined in a specific {@link RepresentationDescription}.
  * 
- * @author Thibault Béziers la Fosse <a href="mailto:thibault.beziers-la-fosse@obeo.fr">thibault.beziers-la-fosse@obeo.fr</a>
+ * @author Obeo
  *
  */
 public class SiriusRepresentationPropertyTester extends PropertyTester {

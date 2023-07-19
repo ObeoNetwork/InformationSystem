@@ -11,7 +11,7 @@
 package org.obeonetwork.graalextensions.parts;
 
 /**
- * @author Obeo.fr
+ * @author Obeo
  * 
  */
 public class GraalextensionsViewsRepository {

@@ -16,7 +16,7 @@ import org.eclipse.swt.widgets.Display;
 
 /**
  * Class used to display messages to the user
- * @author Stephane Thibaudeau <stephane.thibaudeau@obeo.fr>
+ * @author Obeo
  *
  */
 public class MessageServices {

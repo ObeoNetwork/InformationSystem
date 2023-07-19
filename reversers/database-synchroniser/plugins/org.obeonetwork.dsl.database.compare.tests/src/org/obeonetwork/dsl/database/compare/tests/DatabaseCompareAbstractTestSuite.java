@@ -39,8 +39,7 @@ import org.obeonetwork.dsl.database.util.DatabaseResourceFactoryImpl;
  * models, transformation of the comparison result, and generation of the
  * corresponding SQL scripts.
  * 
- * @author Florent Latombe
- *         <a href= "mailto:florent.latombe@obeo.fr">florent.latombe@obeo.fr</a>
+ * @author Obeo
  *
  */
 public abstract class DatabaseCompareAbstractTestSuite {
@@ -176,8 +175,7 @@ public abstract class DatabaseCompareAbstractTestSuite {
 	 * The test files we may retrieve are either the input files of the test
 	 * suite, or its expected output(s).
 	 * 
-	 * @author Florent Latombe <a href=
-	 *         "mailto:florent.latombe@obeo.fr">florent.latombe@obeo.fr</a>
+	 * @author Obeo
 	 *
 	 */
 	public enum TestFilesNature {

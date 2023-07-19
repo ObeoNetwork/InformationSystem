@@ -44,7 +44,7 @@ import org.obeonetwork.tools.doc.DocBridgeUI;
 import org.obeonetwork.tools.doc.core.DocumentationLink;
 
 /**
- * @author <a href="goulwen.lefur@obeo.fr">Goulwen Le Fur</a>
+ * @author Obeo
  *
  */
 public class DocumentationLinkDialog extends Dialog {

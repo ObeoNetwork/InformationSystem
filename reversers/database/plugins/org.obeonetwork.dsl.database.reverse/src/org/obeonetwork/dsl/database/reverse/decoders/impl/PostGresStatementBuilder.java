@@ -23,7 +23,7 @@ import org.osgi.framework.Version;
  * 
  * Builds SQL queries for Postgres according to the server's version.
  * 
- * @author <a href="mailto:thibault.beziers-la-fosse@obeo.fr">Thibault Béziers la Fosse</a>
+ * @author Obeo
  */
 public class PostGresStatementBuilder {
 	

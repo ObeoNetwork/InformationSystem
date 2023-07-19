@@ -67,7 +67,7 @@ import org.obeonetwork.database.ui.Activator;
 
 /**
  * Operation which creates or updates a scaffold model and then launches the transformation
- * @author sthibaudeau
+ * @author Obeo
  *
  */
 public class ScaffoldingOperation extends WorkspaceModifyOperation {

@@ -27,7 +27,7 @@ import org.obeonetwork.dsl.environment.parts.EnvironmentViewsRepository;
 // End of user code
 
 /**
- * @author <a href="mailto:jerome.benois@obeo.fr>Jérôme Benois</a>
+ * @author Obeo
  * 
  */
 public class ExternalCriterionPropertiesEditionComponent extends ComposedPropertiesEditionComponent {

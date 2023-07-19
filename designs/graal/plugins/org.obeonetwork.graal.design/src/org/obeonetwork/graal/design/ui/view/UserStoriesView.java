@@ -51,7 +51,7 @@ import org.obeonetwork.graal.design.ui.view.util.UserStoryLabelProvider;
 import org.obeonetwork.graal.design.ui.view.util.ViewpointMultiSelectionListener;
 
 /**
- * @author <a href="goulwen.lefur@obeo.fr">Goulwen Le Fur</a>
+ * @author Obeo
  *
  */
 public class UserStoriesView extends ViewPart {

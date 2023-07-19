@@ -17,7 +17,7 @@ import org.obeonetwork.graal.design.ui.view.UserStoriesView;
 
 
 /**
- * @author <a href="goulwen.lefur@obeo.fr">Goulwen Le Fur</a>
+ * @author Obeo
  *
  */
 public class HighlightUserStoryTester extends AbstractUserStoryTester {

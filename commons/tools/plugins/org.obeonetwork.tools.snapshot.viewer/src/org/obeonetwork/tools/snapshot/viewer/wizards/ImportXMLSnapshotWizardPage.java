@@ -58,7 +58,7 @@ import org.obeonetwork.tools.snapshot.viewer.EmbeddedCDOServer;
  * - select one of the remote projects
  * - define a name for the local projet to be imported
  * 
- * @author <a href="mailto:stephane.thibaudeau@obeo.fr">Stephane Thibaudeau</a>
+ * @author Obeo
  *
  */
 public class ImportXMLSnapshotWizardPage extends WizardPage {

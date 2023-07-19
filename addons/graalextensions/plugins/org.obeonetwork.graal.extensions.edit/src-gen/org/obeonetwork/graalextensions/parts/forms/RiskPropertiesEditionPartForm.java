@@ -46,7 +46,7 @@ import org.obeonetwork.graalextensions.providers.GraalextensionsMessages;
 // End of user code
 
 /**
- * @author Obeo.fr
+ * @author Obeo
  * 
  */
 public class RiskPropertiesEditionPartForm extends SectionPropertiesEditingPart implements IFormPropertiesEditionPart, RiskPropertiesEditionPart {

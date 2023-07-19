@@ -17,7 +17,7 @@ import java.util.Iterator;
 import org.obeonetwork.m2doc.element.MElement;
 
 /**
- * @author vrichard
+ * @author Obeo
  */
 public class MListImpl extends ArrayList<MElement> implements MList {
 

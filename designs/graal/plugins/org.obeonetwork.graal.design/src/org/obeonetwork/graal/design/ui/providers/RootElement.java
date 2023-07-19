@@ -12,7 +12,7 @@ package org.obeonetwork.graal.design.ui.providers;
 
 /**
  * Class used as root element in the tree viewers to avoid recursion bug on tree viewers
- * @author Stephane Thibaudeau <stephane.thibaudeau@obeo.fr>
+ * @author Obeo
  *
  */
 public class RootElement {

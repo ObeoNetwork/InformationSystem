@@ -30,7 +30,7 @@ import org.eclipse.swt.widgets.Text;
 import org.obeonetwork.graal.UserStory;
 
 /**
- * @author <a href="goulwen.lefur@obeo.fr">Goulwen Le Fur</a>
+ * @author Obeo
  *
  */
 public class UserStoryDialog extends Dialog {

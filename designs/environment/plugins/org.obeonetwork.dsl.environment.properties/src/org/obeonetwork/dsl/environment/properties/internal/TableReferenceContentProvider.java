@@ -21,7 +21,7 @@ import org.obeonetwork.dsl.environment.properties.ui.eef.widget.TableController;
 /**
  * The content provider for the table of the table widget.
  * 
- * @author gcoutable
+ * @author Obeo
  */
 public class TableReferenceContentProvider implements IStructuredContentProvider {
 

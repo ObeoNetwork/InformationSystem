@@ -28,7 +28,7 @@ import org.obeonetwork.graal.design.ui.view.UserStoriesView;
 import org.obeonetwork.graal.design.ui.view.command.DeleteUserStoriesCommand;
 
 /**
- * @author <a href="goulwen.lefur@obeo.fr">Goulwen Le Fur</a>
+ * @author Obeo
  *
  */
 public class DeleteUserStoriesHandler extends AbstractHandler implements DeleteUserStoriesCommand {

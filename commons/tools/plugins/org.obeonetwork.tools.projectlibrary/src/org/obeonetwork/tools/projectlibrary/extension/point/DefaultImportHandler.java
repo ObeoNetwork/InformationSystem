@@ -43,7 +43,7 @@ import com.google.common.base.Joiner;
 
 /**
  * Copies an imported resource into a local modeling project
- * @author Stéphane Thibaudeau
+ * @author Obeo
  *
  */
 public class DefaultImportHandler extends AbstractImportHandler {

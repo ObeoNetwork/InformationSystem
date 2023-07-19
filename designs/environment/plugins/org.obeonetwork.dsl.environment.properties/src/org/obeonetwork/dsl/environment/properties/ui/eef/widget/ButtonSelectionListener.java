@@ -17,7 +17,7 @@ import org.eclipse.swt.events.SelectionListener;
 /**
  * Utility class used to encapsulate the selection listener.
  * 
- * @author sbegaudeau
+ * @author Obeo
  */
 public class ButtonSelectionListener implements SelectionListener {
 

@@ -22,7 +22,7 @@ import org.obeonetwork.tools.projectlibrary.ui.wizard.WizardUtils;
 /**
  * Wizard allowing one to export a modeling project as a library
  * 
- * @author <a href="mailto:stephane.thibaudeau@obeo.fr">Stephane Thibaudeau</a>
+ * @author Obeo
  *
  */
 public class ExportProjectAsLibraryWizard extends Wizard implements IExportWizard {

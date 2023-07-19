@@ -26,7 +26,7 @@ import org.obeonetwork.dsl.environment.properties.providers.IMetaDataHelpProvide
 /**
  * Services for environment models
  * 
- * @author <a href="mailto:thibault.beziers-la-fosse@obeo.fr">Thibault Béziers la Fosse</a>
+ * @author Obeo
  */
 public class EnvironmentServices {
 	

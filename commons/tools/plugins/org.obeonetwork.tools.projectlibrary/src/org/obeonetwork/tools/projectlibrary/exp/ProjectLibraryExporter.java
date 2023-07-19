@@ -32,7 +32,7 @@ import org.obeonetwork.tools.projectlibrary.util.ZipUtils;
 /**
  * Export a modeling project as a zipped library with manifest 
  * 
- * @author <a href="mailto:stephane.thibaudeau@obeo.fr">Stephane Thibaudeau</a>
+ * @author Obeo
  *
  */
 public class ProjectLibraryExporter {

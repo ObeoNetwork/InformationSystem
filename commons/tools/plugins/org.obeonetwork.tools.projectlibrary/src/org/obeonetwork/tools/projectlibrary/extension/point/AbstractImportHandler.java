@@ -23,7 +23,7 @@ import org.obeonetwork.tools.projectlibrary.imp.LibraryImportException;
 
 /**
  * Interface used to define specific code to copy resources when importing a project library
- * @author S. Thibaudeau
+ * @author Obeo
  *
  */
 public abstract class AbstractImportHandler {

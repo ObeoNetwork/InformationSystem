@@ -15,7 +15,7 @@ import org.obeonetwork.dsl.interaction.Interaction;
 
 /**
  * Property tester used to display delete interaction command on Interaction instances only
- * @author Stephane Thibaudeau <stephane.thibaudeau@obeo.fr>
+ * @author Obeo
  *
  */
 public class IsInteractionPropertyTester extends PropertyTester {

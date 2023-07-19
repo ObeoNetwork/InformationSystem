@@ -22,8 +22,7 @@ import org.eclipse.sirius.business.api.session.danalysis.DAnalysisSessionService
  * A {@link SessionListener} used to change the DAnalysisSelector of any opened
  * Session.
  * 
- * @author <a href="mailto:alex.lagarde@obeo.fr">Alex Lagarde</a>
- * @author <a href="mailto:stephane.thibaudeau@obeo.fr">Stephane Thibaudeau</a>
+ * @author Obeo
  * 
  */
 public class UpdateDAnalysisSelectorSessionListener extends SessionManagerListener.Stub {
