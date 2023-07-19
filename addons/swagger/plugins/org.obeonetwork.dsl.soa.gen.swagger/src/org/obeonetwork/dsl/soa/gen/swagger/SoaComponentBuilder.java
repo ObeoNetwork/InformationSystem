@@ -18,6 +18,7 @@ import static org.obeonetwork.dsl.soa.gen.swagger.OpenApiParserHelper.OPEN_API_T
 import static org.obeonetwork.dsl.soa.gen.swagger.OpenApiParserHelper.OPEN_API_TYPE_INTEGER;
 import static org.obeonetwork.dsl.soa.gen.swagger.OpenApiParserHelper.OPEN_API_TYPE_NUMBER;
 import static org.obeonetwork.dsl.soa.gen.swagger.OpenApiParserHelper.OPEN_API_TYPE_STRING;
+import static org.obeonetwork.dsl.soa.gen.swagger.OpenApiParserHelper.SOA_PRIMITIVE_TYPE_NAME_STRING;
 import static org.obeonetwork.dsl.soa.gen.swagger.OpenApiParserHelper.getPrimitiveTypeName;
 import static org.obeonetwork.dsl.soa.gen.swagger.OpenApiParserHelper.isEnum;
 import static org.obeonetwork.dsl.soa.gen.swagger.OpenApiParserHelper.isObject;
@@ -121,7 +122,9 @@ public class SoaComponentBuilder {
 	private static final String DEFAULT_FOR_UNNAMED = "unnamed";
 	private static final String BODY_PARAMETER_NAME = "body";
 	private static final String DEFAULT_SERVICE_NAME = "Default";
-	private static final String TOO_WILD_TO_BE_NAMED_DTO = "Data";
+	private static final int NAME_INLINE_TYPE_BY_PROPERTY_NAMES_LIMIT = 4;
+	private static final String TOO_WILDLY_USED_TO_BE_NAMED_BY_PROPERTY_NAMES_INLINE_TYPE_NAME = "InlineType";
+	private static final String NAME_INDEX_SEPARATOR = "_";
 	private static final String QUALIFIED_PATH_SEPARATOR = "/";	
 	private static final Set<String> PAGINATION_SIZE_PARAMETER_NAMES = new HashSet<>(Arrays.asList("size", "taille"));
 	private static final Set<String> PAGINATION_PAGE_PARAMETER_NAMES = new HashSet<>(Arrays.asList("page"));
@@ -446,9 +449,13 @@ public class SoaComponentBuilder {
 				Property usingProperty = usingProperties.get(0);
 				StructuredType usingType = (StructuredType) usingProperty.eContainer();
 				inlineTypeName = usingType.getName() + upperFirst(usingProperty.getName());
-			} else {
-				inlineTypeName = usingProperties.stream().map(p -> upperFirst(p.getName())).collect(toSet()).stream()
+			} else if(usingProperties.size() <= NAME_INLINE_TYPE_BY_PROPERTY_NAMES_LIMIT) {
+				inlineTypeName = usingProperties.stream()
+						.map(p -> upperFirst(p.getName()))
+						.distinct().sorted()
 						.collect(joining());
+			} else {
+				inlineTypeName = TOO_WILDLY_USED_TO_BE_NAMED_BY_PROPERTY_NAMES_INLINE_TYPE_NAME + usingProperties.size();
 			}
 
 			inlineTypeName = toUniqueName(commonTypesContainer, inlineTypeName);
@@ -534,11 +541,13 @@ public class SoaComponentBuilder {
 			} else {
 				Set<String> distinctUsingPropertyNames = usingProperties.stream().map(p -> upperFirst(p.getName()))
 						.collect(toSet());
-				if (distinctUsingPropertyNames.size() > 3) {
-					inlineTypeName = TOO_WILD_TO_BE_NAMED_DTO;
+				if (distinctUsingPropertyNames.size() <= NAME_INLINE_TYPE_BY_PROPERTY_NAMES_LIMIT) {
+					inlineTypeName = usingProperties.stream()
+							.map(p -> upperFirst(p.getName()))
+							.distinct().sorted()
+							.collect(joining());
 				} else {
-					inlineTypeName = usingProperties.stream().map(p -> upperFirst(p.getName())).collect(toSet())
-							.stream().collect(joining());
+					inlineTypeName = TOO_WILDLY_USED_TO_BE_NAMED_BY_PROPERTY_NAMES_INLINE_TYPE_NAME + distinctUsingPropertyNames.size();
 				}
 			}
 
@@ -549,24 +558,18 @@ public class SoaComponentBuilder {
 		}
 	}
 
-	private static final String NAME_INDEX_SEPARATOR = "_";
-
 	private String toUniqueName(TypesDefinition typesContainer, String inlineTypeName) {
-		String uniqueName = inlineTypeName;
-		List<String> usedNames = typesContainer.getTypes().stream().map(t -> t.getName()).collect(toList());
-		while (usedNames.contains(uniqueName)) {
-			if (uniqueName.matches(".*" + NAME_INDEX_SEPARATOR + "([0-9]+)")) {
-				int index = Integer.valueOf(uniqueName
-						.substring(uniqueName.lastIndexOf(NAME_INDEX_SEPARATOR) + NAME_INDEX_SEPARATOR.length()));
-				index++;
-				uniqueName = uniqueName.substring(0, uniqueName.lastIndexOf(NAME_INDEX_SEPARATOR))
-						+ NAME_INDEX_SEPARATOR + index;
-			} else {
-				uniqueName = uniqueName + NAME_INDEX_SEPARATOR + "1";
-			}
+		Set<String> usedNames = typesContainer.getTypes().stream().map(t -> t.getName()).collect(toSet());
+		
+		if(!usedNames.contains(inlineTypeName)) {
+			return inlineTypeName;
 		}
-
-		return uniqueName;
+		
+		int suffix = 1;
+		while(usedNames.contains(inlineTypeName + NAME_INDEX_SEPARATOR + suffix)) {
+			suffix++;
+		}
+		return inlineTypeName + NAME_INDEX_SEPARATOR + suffix;
 	}
 
 	private List<Type> getUnprocessedSchemaInlineTypes() {
@@ -1004,7 +1007,7 @@ public class SoaComponentBuilder {
 	}
 
 	private Schema unwrapArrayOrComposedSchema(Schema schema) {
-		if (schema instanceof ArraySchema && ((ArraySchema) schema).getItems() != null) {
+		if (schema instanceof ArraySchema) {
 			return ((ArraySchema) schema).getItems();
 		} else if (schema instanceof ComposedSchema) {
 			List<Schema> allOf = ((ComposedSchema) schema).getAllOf();
@@ -1569,12 +1572,14 @@ public class SoaComponentBuilder {
 		}
 	}
 
-	private Property createSoaProperty(StructuredType type, Schema enclosingSchema, String propertyKey,
-			Schema propertySchema) {
+	private Property createSoaProperty(StructuredType type, Schema enclosingSchema, String propertyKey, Schema propertySchema) {
 		Property soaProperty = null;
 
 		Schema unwrappedSchema = unwrapArrayOrComposedSchema(propertySchema);
-		if (isPrimitiveType(unwrappedSchema)) {
+		if (unwrappedSchema == null) {
+			soaProperty = createStringAttribute(type);
+			logWarning(String.format("Untyped property (%s). Use String as the default type.", propertyKey));
+		} else if (isPrimitiveType(unwrappedSchema)) {
 			soaProperty = createPrimitiveTypeAttribute(type, unwrappedSchema);
 		} else if (unwrappedSchema.get$ref() != null) {
 			soaProperty = createReferencedTypeProperty(type, unwrappedSchema);
@@ -1699,6 +1704,14 @@ public class SoaComponentBuilder {
 		return soaEnumeration;
 	}
 
+	private Attribute createStringAttribute(StructuredType type) {
+		Attribute attribute = EnvironmentFactory.eINSTANCE.createAttribute();
+		type.getOwnedAttributes().add(attribute);
+		attribute.setType(getPrimitiveTypeFromName(SOA_PRIMITIVE_TYPE_NAME_STRING));
+		
+		return attribute;
+	}
+	
 	private Attribute createPrimitiveTypeAttribute(StructuredType type, Schema propertySchema) {
 		Attribute attribute = EnvironmentFactory.eINSTANCE.createAttribute();
 		type.getOwnedAttributes().add(attribute);
@@ -1717,13 +1730,20 @@ public class SoaComponentBuilder {
 		
 		String primitiveTypeName = getPrimitiveTypeName(schema);
 		if (primitiveTypeName != null) {
-			return environment.getTypesDefinition().getTypes().stream().filter(t -> t instanceof DataType)
-					.map(t -> (DataType) t).filter(t -> primitiveTypeName.equals(t.getName())).findFirst().orElse(null);
+			return getPrimitiveTypeFromName(primitiveTypeName);
 		} else {
 			logWarning(String.format("Primitive type mapping not found for schema type \"%s\" and format \"%s\".",
 					schema.getType(), schema.getFormat()));
 		}
 		return null;
+	}
+
+	private DataType getPrimitiveTypeFromName(String primitiveTypeName) {
+		return environment.getTypesDefinition().getTypes().stream()
+				.filter(DataType.class::isInstance)
+				.map(DataType.class::cast)
+				.filter(t -> primitiveTypeName.equals(t.getName()))
+				.findFirst().orElse(null);
 	}
 
 	private MultiplicityKind computeMultiplicity(boolean required, Schema schema) {
