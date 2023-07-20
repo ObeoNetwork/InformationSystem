@@ -33,6 +33,7 @@ import org.obeonetwork.dsl.database.ViewColumn;
 import org.obeonetwork.dsl.database.ViewElement;
 import org.obeonetwork.dsl.database.ViewTable;
 import org.obeonetwork.dsl.database.spec.ColumnSpec;
+import org.obeonetwork.dsl.database.spec.ViewSpec;
 import org.obeonetwork.dsl.typeslibrary.TypeInstance;
 import org.obeonetwork.dsl.typeslibrary.TypesLibraryFactory;
 
@@ -142,10 +143,10 @@ public class DatabaseFactoryImpl extends EFactoryImpl implements DatabaseFactory
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	public View createView() {
-		ViewImpl view = new ViewImpl();
+		ViewImpl view = new ViewSpec();
 		return view;
 	}
 
