@@ -70,7 +70,7 @@
     <categories name="Environment">
       <pages name="Unidirectional Reference Page" labelExpression="Reference" domainClass="environment::Reference" semanticCandidateExpression="var:self" preconditionExpression="aql:self.oppositeOf = null" groups="//@extensions.0/@categories.1/@groups.0"/>
       <pages name="Bidirectional Reference Page" labelExpression="Reference" domainClass="environment::Reference" semanticCandidateExpression="var:self" preconditionExpression="aql:self.oppositeOf &lt;> null" groups="//@extensions.0/@categories.1/@groups.1"/>
-      <pages name="Attribute Page" labelExpression="Attribute" domainClass="environment::Attribute" semanticCandidateExpression="var:self" groups="//@extensions.0/@categories.1/@groups.2 //@extensions.0/@categories.1/@groups.7"/>
+      <pages name="Attribute Page" labelExpression="Attribute" domainClass="environment::Attribute" semanticCandidateExpression="var:self" preconditionExpression="aql:false" groups="//@extensions.0/@categories.1/@groups.2 //@extensions.0/@categories.1/@groups.7"/>
       <pages name="Enumeration Page" labelExpression="Enumeration" domainClass="environment::Enumeration" semanticCandidateExpression="var:self" groups="//@extensions.0/@categories.1/@groups.3"/>
       <pages name="Literal Page" labelExpression="Literal" domainClass="environment::Literal" semanticCandidateExpression="var:self" groups="//@extensions.0/@categories.1/@groups.4"/>
       <pages name="Namespace Page" labelExpression="aql:self.eClass().name" domainClass="environment::Namespace" semanticCandidateExpression="var:self" groups="//@extensions.0/@categories.1/@groups.5"/>
