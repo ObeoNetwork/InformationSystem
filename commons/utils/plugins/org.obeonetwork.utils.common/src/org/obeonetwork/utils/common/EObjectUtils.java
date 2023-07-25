@@ -169,5 +169,14 @@ public class EObjectUtils {
 		return list;
 	}
 	
+	public static String getName(EObject eObject) {
+		String name = null;
+		EStructuralFeature nameFeature = eObject.eClass().getEStructuralFeature("name");
+		if(nameFeature != null) {
+			name = eObject.eGet(nameFeature).toString();
+		}
+		return name;
+	}
+	
 }
  

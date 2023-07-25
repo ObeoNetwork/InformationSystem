@@ -15,11 +15,12 @@ import org.eclipse.sirius.diagram.tools.api.DiagramPlugin;
 import org.eclipse.sirius.diagram.tools.internal.preferences.SiriusDiagramInternalPreferencesKeys;
 import org.eclipse.sirius.viewpoint.description.RepresentationDescription;
 import org.obeonetwork.dsl.environment.design.Activator;
+import org.obeonetwork.utils.common.StringUtils;
 import org.obeonetwork.utils.common.ui.services.SiriusUIUtils;
 
 @SuppressWarnings("restriction")
 public class PartialViewCreationAction extends Action {
-
+	
 	private EObject context;
 	private RepresentationDescription representationDescription;
 
@@ -35,20 +36,24 @@ public class PartialViewCreationAction extends Action {
 
 	private String computePartialViewName(EObject context, RepresentationDescription representationDescription) {
 		
-		String name = "";
-		
-		Session session = SessionManager.INSTANCE.getSession(context);
-		IInterpreter interpreter = session.getInterpreter();
-		try {
-			String titleExpression = representationDescription.getTitleExpression();
-			
-			interpreter.evaluateString(context, titleExpression);
-			
-			name = titleExpression;
-		} catch (EvaluationException e) {
-			e.printStackTrace();
+		String name = null;
+		if(StringUtils.isNullOrWhite(representationDescription.getTitleExpression())) {
+			name = "new " + representationDescription.getName();
+		} else {
+			Session session = SessionManager.INSTANCE.getSession(context);
+			IInterpreter interpreter = session.getInterpreter();
+			try {
+				name = interpreter.evaluateString(context, representationDescription.getTitleExpression());
+			} catch (EvaluationException e) {
+				e.printStackTrace();
+				name = "Evaluation error";
+			}
 		}
-		
+
+		int index = name.toLowerCase().lastIndexOf("diagram");
+		if(index != -1) {
+			name = name.substring(0, index) + "Partial View" + name.substring(index + 7);
+		}
 		
 		return name;
 	}
