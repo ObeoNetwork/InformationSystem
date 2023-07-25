@@ -92,15 +92,6 @@
            </visibleWhen>
         </command>
      </menuContribution>
-     <menuContribution
-           allPopups="false"
-           locationURI="popup:menu.viewpoint.new.representation?after=additions">
-        <command
-              commandId="org.obeonetwork.dsl.cinematic.design.command.CreateUnsynchronizedFlowDiagram"
-              label="Flow Partial View"
-              style="push">
-        </command>
-     </menuContribution>
   </extension>
   <extension
         point="org.eclipse.ui.commands">
@@ -123,10 +114,6 @@
      <command
            id="org.obeonetwork.dsl.cinematic.design.command.RemoveMockupImage"
            name="Remove Mockup Image">
-     </command>
-     <command
-           id="org.obeonetwork.dsl.cinematic.design.command.CreateUnsynchronizedFlowDiagram"
-           name="New Unsynchronized Flow Diagram">
      </command>
   </extension>
   <extension
@@ -258,10 +245,6 @@
               </iterate>
            </with>
         </enabledWhen>
-     </handler>
-     <handler
-           class="org.obeonetwork.dsl.cinematic.design.handlers.CreateUnsynchronizedFlowDiagramHandler"
-           commandId="org.obeonetwork.dsl.cinematic.design.command.CreateUnsynchronizedFlowDiagram">
      </handler>
   </extension>
   <extension

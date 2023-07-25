@@ -52,6 +52,11 @@
            </visibleWhen>
         </command>
      </menuContribution>
+     <menuContribution
+           allPopups="false"
+           class="org.obeonetwork.dsl.environment.design.ui.menu.PartialViewMenuFactory"
+           locationURI="popup:menu.viewpoint.new.representation?after=additions">
+     </menuContribution>
   </extension>
   <extension
         point="org.eclipse.core.expressions.propertyTesters">
