@@ -732,7 +732,7 @@
       <pages name="Entity Page" labelExpression="Entity" domainClass="entity::Entity" semanticCandidateExpression="var:self">
         <groups href="platform:/plugin/org.obeonetwork.dsl.environment.properties/description/environment-properties.odesign#//@extensions.0/@categories.0/@groups.0"/>
       </pages>
-      <pages name="Entity Attribute Page" documentation="The only purpose of this page extension is to ensure the Attribute tab is at the first position." preconditionExpression="aql:self.eContainer().oclIsKindOf(entity::Entity)">
+      <pages name="Entity Attribute Page" documentation="The only purpose of this page extension is to ensure the Attribute tab is at the first position." labelExpression="Attribute" preconditionExpression="aql:self.eContainer().oclIsKindOf(entity::Entity)">
         <extends href="platform:/plugin/org.obeonetwork.dsl.environment.properties/description/environment-properties.odesign#//@extensions.0/@categories.1/@pages.2"/>
       </pages>
       <pages name="Persistence Page" labelExpression="Persistence" domainClass="entity::Entity" semanticCandidateExpression="var:self" groups="//@extensions.0/@categories.0/@groups.0"/>

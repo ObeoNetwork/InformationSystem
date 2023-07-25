@@ -1135,7 +1135,7 @@
       <pages name="DTO Page" labelExpression="DTO" domainClass="environment::DTO" semanticCandidateExpression="var:self">
         <groups href="platform:/plugin/org.obeonetwork.dsl.environment.properties/description/environment-properties.odesign#//@extensions.0/@categories.0/@groups.0"/>
       </pages>
-      <pages name="SOA Attribute Page" documentation="The only purpose of this page extension is to ensure the Attribute tab is at the first position." preconditionExpression="aql:self.eContainer().oclIsKindOf(environment::DTO)">
+      <pages name="SOA Attribute Page" documentation="The only purpose of this page extension is to ensure the Attribute tab is at the first position." labelExpression="Attribute" preconditionExpression="aql:self.eContainer().oclIsKindOf(environment::DTO)">
         <extends href="platform:/plugin/org.obeonetwork.dsl.environment.properties/description/environment-properties.odesign#//@extensions.0/@categories.1/@pages.2"/>
       </pages>
       <pages name="Operation Page" labelExpression="Operation" domainClass="soa::Operation" semanticCandidateExpression="var:self" groups="//@extensions.0/@categories.1/@groups.0 //@extensions.0/@categories.1/@groups.7"/>
