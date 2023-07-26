@@ -234,41 +234,44 @@ public class ProjectLibraryUtils {
 			Collection<Resource> deletedResources, Session newSession) {
 		IdUtils idUtils = new IdUtils(newSession);
 
-		RestorableAndNonRestorableReferences result = new RestorableAndNonRestorableReferences();
+		RestorableAndNonRestorableReferences toBeRestoredReferences = new RestorableAndNonRestorableReferences();
 
 		for (Setting setting : externalReferences) {
 			// Each setting can reference objects to restore but also objects that will
 			// still be here
 			// we check the containing resource to be sure
 			Object referencedObjects = setting.get(false);
-			ToBeRestoredReference restorableReference = null;
 			if (referencedObjects instanceof List) {
 				for (Object referencedObject : (List<?>) referencedObjects) {
 					if (referencedObject instanceof EObject) {
-						restorableReference = getRestorableReference(setting, (EObject) referencedObject,
-								deletedResources, idUtils);
+						ToBeRestoredReference restorableReference = 
+								getRestorableReference(setting, (EObject) referencedObject, deletedResources, idUtils);
+						if (restorableReference != null) {
+							toBeRestoredReferences.addReference(restorableReference);
+						}
 					}
 				}
 			} else if (referencedObjects instanceof EObject) {
-				restorableReference = getRestorableReference(setting, (EObject) referencedObjects, deletedResources,
-						idUtils);
-			}
-			if (restorableReference != null) {
-				result.addReference(restorableReference);
+				ToBeRestoredReference restorableReference = 
+						getRestorableReference(setting, (EObject) referencedObjects, deletedResources, idUtils);
+				if (restorableReference != null) {
+					toBeRestoredReferences.addReference(restorableReference);
+				}
 			}
 		}
 
-		return result;
+		return toBeRestoredReferences;
 	}
 
 	private ToBeRestoredReference getRestorableReference(Setting setting, EObject referencedEObject,
 			Collection<Resource> deletedResources, IdUtils idUtils) {
 
+		ToBeRestoredReference toBeRestoredReference = null;
 		if (deletedResources.contains(referencedEObject.eResource())) {
 			EStructuralFeature feature = setting.getEStructuralFeature();
 			String key = idUtils.getKey(referencedEObject);
 			Integer position = null;
-			// if feature is multivalued we have to keep the position
+			// If the feature is multivalued, keep the position of the element in the values list
 			if (feature.isMany()) {
 				Object value = setting.getEObject().eGet(feature);
 				if (value instanceof List) {
@@ -276,24 +279,32 @@ public class ProjectLibraryUtils {
 				}
 			}
 
-			// The referenced object will be removed
-			// lets see if we can restore it
-			if (idUtils.getCorrespondingObject(referencedEObject) != null) {
-				if (feature == EnvironmentPackage.Literals.REFERENCE__REFERENCED_TYPE) {
-					final Reference oppositeReference = ((Reference) setting.getEObject()).getOppositeOf();
+			// Manage the references regarding replaced objects, and keep track of the ones regarding removed objects.
+			if (feature == EnvironmentPackage.Literals.REFERENCE__REFERENCED_TYPE) {
+				// In the case of a reference referencing a Structured Type in a replaced resource
+				// we need to keep in cache the opposite reference (if there is one) to restore it
+				// at the end of the import.
+				if (idUtils.getCorrespondingObject(referencedEObject) != null) {
+					Reference oppositeReference = ((Reference) setting.getEObject()).getOppositeOf();
 					if (oppositeReference != null && deletedResources.contains(oppositeReference.eResource())) {
-						return new EReferenceReferenceReferencedTypeToRestoreWithOpposite(setting.getEObject(), feature,
-								key, position, true, oppositeReference);
+						toBeRestoredReference = new EReferenceReferenceReferencedTypeToRestoreWithOpposite(
+								setting.getEObject(), feature, key, position, true, oppositeReference);
+					} else {
+						toBeRestoredReference = new ToBeRestoredReference(setting.getEObject(), feature, key, position, true);
 					}
-				} else {
-					return new ToBeRestoredReference(setting.getEObject(), feature, key, position, true);
 				}
+			} else if (feature == EnvironmentPackage.Literals.REFERENCE__OPPOSITE_OF) {
+				// This feature is entirely managed by the if case above.
+				toBeRestoredReference = null;
 			} else {
-				// non restorable reference
-				return new ToBeRestoredReference(setting.getEObject(), feature, key, position, false);
+				// Any other reference is kept in cache either to warn the user if it can't be managed or to restore it
+				// at the end of the import.
+				boolean canBeRestored = idUtils.getCorrespondingObject(referencedEObject) != null;
+				toBeRestoredReference = new ToBeRestoredReference(setting.getEObject(), feature, key, position, canBeRestored);
 			}
+			
 		}
-		return null;
+		return toBeRestoredReference;
 	}
 
 	/**
