@@ -3,6 +3,7 @@
   <ownedViewpoints endUserDocumentation="The &lt;b>Environment Views&lt;/b> viewpoint provides the property views allowing the edition of the environment elements." name="Environment Views">
     <ownedJavaExtensions qualifiedClassName="org.obeonetwork.dsl.environment.properties.internal.services.EnvironmentServices"/>
     <ownedJavaExtensions qualifiedClassName="org.obeonetwork.utils.common.ui.services.SiriusUIUtils"/>
+    <ownedJavaExtensions qualifiedClassName="org.obeonetwork.utils.common.ui.services.DebugServices"/>
   </ownedViewpoints>
   <extensions xsi:type="properties:ViewExtensionDescription" name="Properties">
     <metamodels href="http://www.obeonetwork.org/dsl/environment/3.0.0#/"/>
@@ -21,22 +22,39 @@
         <controls xsi:type="properties:CustomDescription" name="org.obeonetwork.is.eef.custom.reference" label="environment::StructuredType supertype" labelExpression="aql:input.emfEditServices(self).getText(self.eClass().getEStructuralFeature('supertype')) + ':'" helpExpression="aql:input.emfEditServices(self).getDescription(self.eClass().getEStructuralFeature('supertype'))" isEnabledExpression="aql:self.eClass().getEStructuralFeature('supertype').changeable">
           <customExpressions name="referenceNameExpression" customExpression="aql:'supertype'"/>
         </controls>
-        <controls xsi:type="properties:CustomDescription" name="org.obeonetwork.is.eef.custom.reference" label="environment::StructuredType attributes" labelExpression="aql:'Attributes :'" helpExpression="aql:input.emfEditServices(self).getDescription(self.eClass().getEStructuralFeature('ownedAttributes'))" isEnabledExpression="aql:self.eClass().getEStructuralFeature('ownedAttributes').changeable">
+        <controls xsi:type="properties:CustomDescription" name="org.obeonetwork.is.eef.custom.reference" label="environment::StructuredType attributes" labelExpression="aql:'Attributes :'" helpExpression="aql:input.emfEditServices(self).getDescription(self.eClass().getEStructuralFeature('ownedAttributes'))">
           <customExpressions name="referenceNameExpression" customExpression="aql:'ownedAttributes'"/>
-          <customExpressions name="enableAddButtonExpression" customExpression="aql:false"/>
+          <customExpressions name="enableAddButtonExpression" customExpression="aql:true"/>
           <customExpressions name="enableBrowseButtonExpression" customExpression="aql:false"/>
-          <customExpressions name="enableRemoveButtonExpression" customExpression="aql:false"/>
+          <customExpressions name="enableRemoveButtonExpression" customExpression="aql:true"/>
           <customOperations name="onDoubleClickOperation">
             <initialOperation>
               <firstModelOperations xsi:type="tool:ChangeContext" browseExpression="aql:selection->first()">
-                <subModelOperations xsi:type="properties:DialogModelOperation" titleExpression="Edit attributes Dialog">
+                <subModelOperations xsi:type="properties:DialogModelOperation" titleExpression="Edit Attribute">
                   <buttons labelExpression="Cancel" closeDialogOnClick="true" rollbackChangesOnClose="true">
                     <initialOperation/>
                   </buttons>
                   <buttons labelExpression="OK" default="true" closeDialogOnClick="true">
                     <initialOperation/>
                   </buttons>
-                  <page name="Edit attribute Page" extends="//@extensions.0/@categories.1/@pages.2"/>
+                  <page name="Edit Attribute Page" preconditionExpression="aql:true" extends="//@extensions.0/@categories.1/@pages.2"/>
+                </subModelOperations>
+              </firstModelOperations>
+            </initialOperation>
+          </customOperations>
+          <customOperations name="addButtonOperation">
+            <initialOperation>
+              <firstModelOperations xsi:type="tool:CreateInstance" typeName="environment::Attribute" referenceName="ownedAttributes">
+                <subModelOperations xsi:type="tool:SetValue" featureName="name" valueExpression="aql:'attribute' + self.eContainer(environment::StructuredType).ownedAttributes->size()"/>
+                <subModelOperations xsi:type="tool:SetValue" featureName="type" valueExpression="service:getStringPrimitiveType()"/>
+                <subModelOperations xsi:type="properties:DialogModelOperation" titleExpression="Create Attribute">
+                  <buttons labelExpression="Cancel" closeDialogOnClick="true" rollbackChangesOnClose="true">
+                    <initialOperation/>
+                  </buttons>
+                  <buttons labelExpression="OK" default="true" closeDialogOnClick="true">
+                    <initialOperation/>
+                  </buttons>
+                  <page name="Create Attribute Page" preconditionExpression="aql:true" extends="//@extensions.0/@categories.1/@pages.2"/>
                 </subModelOperations>
               </firstModelOperations>
             </initialOperation>
