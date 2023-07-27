@@ -1,5 +1,7 @@
 package org.obeonetwork.dsl.environment.design.ui.menu;
 
+import java.lang.reflect.InvocationTargetException;
+
 import org.eclipse.core.runtime.NullProgressMonitor;
 import org.eclipse.core.runtime.Platform;
 import org.eclipse.core.runtime.preferences.IEclipsePreferences;
@@ -13,7 +15,9 @@ import org.eclipse.sirius.common.tools.api.interpreter.IInterpreter;
 import org.eclipse.sirius.diagram.DDiagram;
 import org.eclipse.sirius.diagram.tools.api.DiagramPlugin;
 import org.eclipse.sirius.diagram.tools.internal.preferences.SiriusDiagramInternalPreferencesKeys;
+import org.eclipse.sirius.ui.business.api.dialect.DialectUIManager;
 import org.eclipse.sirius.viewpoint.description.RepresentationDescription;
+import org.eclipse.ui.PlatformUI;
 import org.obeonetwork.dsl.environment.design.Activator;
 import org.obeonetwork.utils.common.StringUtils;
 import org.obeonetwork.utils.common.ui.services.SiriusUIUtils;
@@ -53,6 +57,8 @@ public class PartialViewCreationAction extends Action {
 		int index = name.toLowerCase().lastIndexOf("diagram");
 		if(index != -1) {
 			name = name.substring(0, index) + "Partial View" + name.substring(index + 7);
+		} else {
+			name = name + " Partial View";
 		}
 		
 		return name;
@@ -60,15 +66,30 @@ public class PartialViewCreationAction extends Action {
 
 	@Override
 	public void run() {
-		this.getText();
+		
+		// Save the current state of the "Synchronize diagram on creation" preference
 		boolean syncOnCreation = Platform.getPreferencesService().getBoolean(DiagramPlugin.ID, SiriusDiagramInternalPreferencesKeys.PREF_SYNCHRONIZE_DIAGRAM_ON_CREATION.name(), false, null);
+		
+		// Set the "Synchronize diagram on creation" preference to false
 		final IEclipsePreferences diagramCorePreferences = InstanceScope.INSTANCE.getNode(DiagramPlugin.ID);
 		diagramCorePreferences.putBoolean(SiriusDiagramInternalPreferencesKeys.PREF_SYNCHRONIZE_DIAGRAM_ON_CREATION.name(), false);
 
 		Session session = SessionManager.INSTANCE.getSession(context);
 		
-		DDiagram diagram = (DDiagram) SiriusUIUtils.createRepresentation(session, context, representationDescription.getName(), new NullProgressMonitor());
+		DDiagram diagram = (DDiagram) SiriusUIUtils.createRepresentation(session, representationDescription, getText(), context, new NullProgressMonitor());
 		
+		try {
+			PlatformUI.getWorkbench().getActiveWorkbenchWindow().run(false, false, motitor -> 
+			DialectUIManager.INSTANCE.openEditor(session, diagram, new NullProgressMonitor()));
+		} catch (InvocationTargetException e) {
+			e.printStackTrace();
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		}
+		
+		DialectUIManager.INSTANCE.openEditor(session, diagram, new NullProgressMonitor());
+		
+		// Restore the "Synchronize diagram on creation" preference
 		diagramCorePreferences.putBoolean(SiriusDiagramInternalPreferencesKeys.PREF_SYNCHRONIZE_DIAGRAM_ON_CREATION.name(), syncOnCreation);
 
 	}
