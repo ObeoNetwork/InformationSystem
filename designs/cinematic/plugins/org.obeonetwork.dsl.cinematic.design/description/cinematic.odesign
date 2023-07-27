@@ -24,7 +24,7 @@
         </ownedTools>
       </toolSection>
     </ownedRepresentations>
-    <ownedRepresentations xsi:type="description_1:DiagramDescription" name="Flow Diagram" titleExpression="[name + ' Flow Diagram'/]" domainClass="flow.Flow" enablePopupBars="true" backgroundColor="//@userColorsPalettes[name='DomainColors']/@entries[name='UnsynchronizableDiagramBackground']">
+    <ownedRepresentations xsi:type="description_1:DiagramDescription" name="Flow Diagram" titleExpression="[name + ' Flow Diagram'/]" domainClass="flow.Flow" enablePopupBars="true">
       <metamodel href="platform:/plugin/org.obeonetwork.dsl.cinematic/model/cinematic.ecore#//flow"/>
       <metamodel href="platform:/plugin/org.obeonetwork.dsl.cinematic/model/cinematic.ecore#/"/>
       <metamodel href="platform:/plugin/org.obeonetwork.dsl.cinematic/model/cinematic.ecore#//view"/>
@@ -1419,7 +1419,6 @@
     <entries xsi:type="description:UserFixedColor" red="136" green="136" blue="136" name="ISDBorder"/>
     <entries xsi:type="description:UserFixedColor" red="255" green="255" blue="255" name="CinematicFillLight"/>
     <entries xsi:type="description:UserFixedColor" red="238" green="248" blue="255" name="CinematicFillDark"/>
-    <entries xsi:type="description:ComputedColor" name="UnsynchronizableDiagramBackground" red="aql:diagram.getUnsynchronizableDiagramBackgroundRed()" green="aql:diagram.getUnsynchronizableDiagramBackgroundGreen()" blue="aql:diagram.getUnsynchronizableDiagramBackgroundBlue()"/>
   </userColorsPalettes>
   <extensions xsi:type="properties:ViewExtensionDescription" name="Properties">
     <metamodels href="http://www.obeonetwork.org/dsl/cinematic/3.0.0#/"/>

@@ -31,7 +31,6 @@ import org.eclipse.sirius.diagram.ui.internal.edit.parts.DEdgeBeginNameEditPart;
 import org.eclipse.sirius.diagram.ui.internal.edit.parts.DEdgeEndNameEditPart;
 import org.eclipse.sirius.diagram.ui.part.SiriusVisualIDRegistry;
 import org.eclipse.sirius.diagram.ui.tools.api.command.GMFCommandWrapper;
-import org.eclipse.sirius.ext.base.Option;
 import org.eclipse.sirius.tools.api.interpreter.InterpreterUtil;
 import org.eclipse.sirius.viewpoint.DSemanticDecorator;
 import org.obeonetwork.dsl.environment.MultiplicityKind;
@@ -77,9 +76,23 @@ public class EnvironmentEditPartProvider  extends AbstractEditPartProvider {
 			            DSemanticDiagram dSemanticDiagram = (DSemanticDiagram) this.resolveDDiagram().get();
 			            
 			            final IInterpreter interpreter = InterpreterUtil.getInterpreter(dSemanticDiagram);
+			            
+			            // Save the diagram variable initial value to restore it after configuring
+			            // the diagram background to avoid any side effect.
+			            Object diagramVariableInitialValue = interpreter.getVariable("diagram");
+			            
 			            interpreter.setVariable("diagram", dSemanticDiagram);
+			            
+			            super.configureBackground(fig);
+			            
+			            if(diagramVariableInitialValue != null) {
+			            	interpreter.setVariable("diagram", diagramVariableInitialValue);
+			            } else {
+				            interpreter.unSetVariable("diagram");
+			            }
+			        } else {
+						super.configureBackground(fig);
 			        }
-					super.configureBackground(fig);
 				}
 				
 			};

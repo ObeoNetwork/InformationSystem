@@ -76,6 +76,7 @@ public class PartialViewCreationAction extends Action {
 
 		Session session = SessionManager.INSTANCE.getSession(context);
 		
+		// TODO Pop a diagram to edit the proposed name
 		DDiagram diagram = (DDiagram) SiriusUIUtils.createRepresentation(session, representationDescription, getText(), context, new NullProgressMonitor());
 		
 		try {

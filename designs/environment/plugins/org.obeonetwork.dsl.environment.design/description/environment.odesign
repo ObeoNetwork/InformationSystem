@@ -71,4 +71,7 @@
     </ownedRepresentations>
     <ownedJavaExtensions qualifiedClassName="org.eclipse.sirius.common.tools.api.interpreter.StandardServices"/>
   </ownedViewpoints>
+  <userColorsPalettes name="Palette">
+    <entries xsi:type="description:ComputedColor" name="UnsynchronizableDiagramBackground" red="aql:diagram.getUnsynchronizableDiagramBackgroundRed()" green="aql:diagram.getUnsynchronizableDiagramBackgroundGreen()" blue="aql:diagram.getUnsynchronizableDiagramBackgroundBlue()"/>
+  </userColorsPalettes>
 </description:Group>
